@@ -91,6 +91,12 @@ it has its artifact.
 8. **The builds shared with the ROCKNIX developers** beside the PRs, each
    saying what it was built from and what it was tested on.
 
+`rc-preflight` also checks that the proxy's recorded schema-review pin matches
+its recipe (#414). Run `tools/rc-preflight --only proxy-schema` after a proxy
+refresh for the same offline check. Update that note only after reading the
+new schema; the full scripts suite's current-Storage proof remains required.
+A scoped check never reports that the tree may be cut as an RC.
+
 ## Why the order is the order
 
 On 2026-09-25 the twenty-second cut was built, proven, staged and recorded as

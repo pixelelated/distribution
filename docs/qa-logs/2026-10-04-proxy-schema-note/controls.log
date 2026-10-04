@@ -1,0 +1,16 @@
+PASS matching review rc=0
+PASS stale review rc=1
+PASS missing review rc=1
+PASS short review rc=1
+PASS duplicate review rc=1
+PASS missing boundary rc=1
+PASS claim only below header rc=1
+PASS missing recipe pin rc=1
+PASS short recipe pin rc=1
+PASS duplicate recipe pin rc=1
+PASS conflicting assignment rc=1
+PASS missing script file rc=2
+PASS missing recipe file rc=2
+PASS full dispatcher matching rc=0
+PASS full dispatcher stale rc=1
+15 PASS / 0 FAIL

@@ -1,0 +1,26 @@
+{
+  "source_archives": [
+    {
+      "pin": "5866cd9ba784c13771a99c52dd6b6f2acc546842",
+      "archive_sha256": "1bc5a88f379c958e958348efd1e5de3edeb8682fe42432b6415f4f29cabc218e",
+      "storage.py": "15e17157e1134296a6904340cedb301702f25b988748ec69a8d051746f77a19a",
+      "cache_keys.py": "19c79b3ca76ba5de4ff274842470773154873f13da513518d2e49a1bdf9fd2e1"
+    },
+    {
+      "pin": "ec60fdd0f6522790d9d1d4d20add397bbc4da945",
+      "archive_sha256": "393ffcec34b223fa4315622db7e68a8778a87e1dff2d3aaf289df857fcb7ff2f",
+      "storage.py": "15e17157e1134296a6904340cedb301702f25b988748ec69a8d051746f77a19a",
+      "cache_keys.py": "19c79b3ca76ba5de4ff274842470773154873f13da513518d2e49a1bdf9fd2e1"
+    }
+  ],
+  "ctl_old_sha256": "aaa6b6a4a09497b7bbc67fb86b6580d220214595778bc0186511189044256d18",
+  "ctl_new_sha256": "7f5705ba73718fc2ae37b7ee3f459a9d5e27f7fadb363ff0e596156880473587",
+  "noncomment_script_lines_identical": true,
+  "original_qa_log": "/workspace/tmp/pixelelated-m7-qa-01/artifacts/rocknix-images/qa-b137d8c373-webdav-a-20261004-0654/scripts.log",
+  "original_qa_log_sha256": "802533b8ba3a0342068678733ce248f94293e1a8b92c2aedcadc99aa62368d7e",
+  "pass_lines": 1688,
+  "fail_lines": [
+    "    FAIL  #308 F-RA-07/28: the header names '5866cd9ba784c13771a99c52dd6b6f2acc546842', package.mk pins ec60fdd0f6522790d9d1d4d20add397bbc4da945"
+  ],
+  "actual_current_storage_assertion": "PASS  #308 claude F-RA-07: pending, pending-ids, account and summary read a store the pinned client's Storage wrote (1 / 4242 1789400000 / score=1234 softcore=56 / exit 0), the token never printed"
+}
