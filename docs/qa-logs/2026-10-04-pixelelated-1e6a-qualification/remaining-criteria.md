@@ -1,4 +1,4 @@
-# Remaining criterion mapping — replacement05, 2026-10-04 21:13 UTC
+# Remaining criterion mapping — replacement05, 2026-10-04 21:40 UTC
 
 Refs #383, #409. Can this be done on the VM? Yes: isolated owned guests and
 local QA providers. This map keeps a broad suite pass from silently closing a
@@ -8,9 +8,9 @@ prior-image results remain historical.
 | Issue | Required current-candidate evidence / remaining scope |
 | --- | --- |
 | #416 | sweep-03 classifies all brand contexts, with zero unexplained hits; ui-04 still owes actual Tools frames. |
-| #417 | installed /usr XML parse and bytes pass; runtime-05 will check the actual upgraded /storage consumer. |
-| #419, #384 | source/input custody and defaults pass; proxy-04 still owes installed current-pin predecessor database/subset preservation. |
-| #392 | guest-05 T19 will verify installed direct/automatic backup and restore refusal with unchanged cloud/local bytes. Do not close from host controls alone. |
+| #417 | installed /usr XML parse and bytes pass; runtime-05 now passes exact bytes and XML parsing of the actual upgraded /storage consumer. |
+| #419, #384 | source/input custody/defaults and proxy-04 installed current-pin preservation20/20 pass; actual35719/allrc0 and cleanup verified. Ready for scoped closure; live ordinary awards remain separate. |
+| #392 | guest-05 T19 passes12 installed direct/automatic backup and restore refusal checks, with no local-path transfers or cloud/pointer changes. Terminal actual59664/allrc0 and cleanup verified; ready for evidence-backed closure. |
 | #391 | A separate predecessor-01 owner is prepared after ui-04. Current guest T23 tests current-protocol interruption; pair migration does not create an interrupted RC2 writer. Neither substitutes for the issue's inherited no-record partial state. |
 | #366 | source rejection controls and default WebDAV roundtrip pass; optins-04 still owes S3 roundtrip with the shipped folder/bucket prefix. |
 | #352 | guest-05 D has passed chooser/discovery checks and inspected 640x480 frames. Full closure also requires its scan/filter guards and site-documentation criterion; current site publication remains separately blocked. |

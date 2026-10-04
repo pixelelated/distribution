@@ -1,0 +1,42 @@
+/workspace/tmp/pixelelated-m7-proxy-04/guest-proof.py: OK
+/workspace/tmp/pixelelated-m7-proxy-04/host-proof.py: OK
+/workspace/tmp/pixelelated-m7-proxy-04/outer.sh: OK
+/workspace/tmp/pixelelated-m7-proxy-04/run.sh: OK
+/workspace/tmp/pixelelated-m7-proxy-04/stop-guest.py: OK
+/workspace/tmp/pixelelated-m7-proxy-04/verify-inputs.py: OK
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/a179bd73a732f49c4219177c89a860d561dad4d16a3467aae2cbafc15152b3ea
+Image resized.
+No errors were found on the image.
+31689/262144 = 12.09% allocated, 0.00% fragmented, 0.00% compressed clusters
+Image end offset: 2077425664
+[W][21:35:47.288236] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][21:35:47.288266] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+ready after ~23s
+PASS exact pixelelated replacement05 BUILD_ID
+PASS actual packaged modules, no source override
+PASS packaged detector recognizes pixelelated
+PASS canonical account path is discovered without override
+PASS reopen 1 retains all predecessor cache rows
+PASS reopen 1 retains all predecessor pending rows
+PASS reopen 1 retains base/subset award mapping
+PASS reopen 1 retains synthetic cached sign-in
+PASS reopen 2 retains all predecessor cache rows
+PASS reopen 2 retains all predecessor pending rows
+PASS reopen 2 retains base/subset award mapping
+PASS reopen 2 retains synthetic cached sign-in
+PASS legacy unsharded image path remains readable
+PASS packaged resolver reads canonical synthetic account automatically
+PASS real packaged service serves inherited game cache
+PASS real service serves inherited base and subset sets
+PASS queued award remains visible in game 100
+PASS queued award remains visible in game 200
+PASS real service serves original legacy image bytes
+PASS offline service retains both queued awards without flushing
+PASS owned packaged service stops cleanly
+PASS packaged account discovery, predecessor cache/sign-in/queue reopen and offline HTTP service
+
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/a179bd73a732f49c4219177c89a860d561dad4d16a3467aae2cbafc15152b3ea
+PASS frozen source inputs, ES pin and candidate input custody
+PASS pixelelated replacement01 packaged proxy runtime proof
+PASS owned guest stopped 3655111

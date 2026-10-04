@@ -17,6 +17,9 @@ in `2026-10-04-pixelelated-replacement-05/`. No product input changed during QA.
 | sweep-03 | 97815, exit 0 | Complete content classification and localisation checks pass, including 10 scanner controls and consumed pugixml 1.16 theme parsing. |
 | settings-05 | 48514, exit 0 | Actual installed ES race: 20 checks. Installed writers: 29 mode/refusal checks. Exact restoration and backing-disk rehash pass. Finished 20:33:53 UTC. |
 | link-05 | 32413, exit 0 | Seven WebDAV and seven S3 interruption/retry cases pass (494s/460s). Cleanup, candidate/source custody and actual owned process/container exits pass. Finished 20:51:28 UTC. |
+| guest-05 | 59664, exit 0 | All19 independently reset cases,249 checks/0failures.87 walk frames/1467 total captures;15 selected frames inspected and retained. Exact custody and owned exits pass. Terminal watcher21:33:30UTC. |
+| runtime-05 | 70320, exit 0 | Actual RC2 archive recovery14, timing4, installed identity/Tools consumer13 assertions pass. Five measured transfers per layout, medians266/237ms (29ms difference, limit30ms); every transfer hash matches, no source override. Actual exits/backing rehash pass. |
+| proxy-04 | 35719, exit 0 |20 installed-module checks preserve predecessor database/cache/sign-in/images and queued base/subset awards, including the real offline HTTP service. Source/bundle custody and actual exits pass. Terminal21:36:18UTC. |
 
 Each completion JSON reconciles command/inner/outer/wrapper results and records
 actual host process exit. A terminal status file's last `alive=yes` observation
@@ -34,8 +37,8 @@ credential value was printed.
 
 French reconciliation retains 794 current translations, 57 retired IDs,
 2 removed IDs and 95 XML entries, with zero active orphans. Installed Tools
-XML parses and matches corrected source. Its actual upgraded `/storage`
-consumer and displayed rows remain assigned to runtime-05/ui-04.
+XML parses and matches corrected source. Its actual upgraded `/storage` consumer also passes bytes and strict XML
+parsing in runtime-05. Displayed Tools rows remain assigned to ui-04.
 
 The settings proof pauses the actual installed ES after recovery releases its
 lock, lets actual `set_setting`/`chksysconfig` publish newer live and recovery
@@ -47,8 +50,19 @@ actual RC2 backing disk remains unchanged. Prior failed probes and the old
 02163 permission failure remain recorded in `2026-10-04-settings-race-and-modes/`.
 
 Raw logs and frame hashes are indexed in `qa-artifacts.json`. The default
-one-sample timing report retains its unresolved stamp caption; the later
-isolated timing gate remains required. Remaining cloud, proxy, memory,
-bilingual UI/boot and ordinary achievement evidence, followed by the approved
+one-sample timing report retains its unresolved stamp caption; runtime-05 supplies the separate
+isolated timing gate recorded above. Remaining upgraded-runtime, proxy, S3/pair, memory,
+bilingual UI/boot, inherited RC2-script recovery and ordinary achievement evidence, followed by the approved
 primary + Fable 5.1 review, still gate the RC call. No Daybreak coverage is
 claimed. No personal-cloud or physical-device action was taken.
+
+Proxy preservation is synthetic predecessor data on packaged Python3.14 with
+no source override, external networking removed and upstream loopback port9.
+It verifies queued base100/subset200 state without attempting a live award or
+flush. The original terminal echo still says replacement01; exact BUILD_ID,
+source/bundle verification and artifact provenance identify replacement05.
+The executed harness and its original output remain unchanged. The new pin's
+270 Linux/native files are byte-identical to the refreshed tested source;
+upstream preservation fix remains present and duplicate017 retired. See the
+current-pin receipts under ../2026-10-04-proxy-aec99c/ and source preservation
+under ../2026-10-03-proxy-refresh/.

@@ -1,0 +1,53 @@
+21:05:46 === cloud-epic on guest d, BUILD_ID="1e6a156b5477650e298b6a4dfff996673bf33fb1"
+232
+21:05:46 == setup: the QA remote on the guest (the host backend's conf), then the QA cloud holds the fork's earlier layout with files in every folder of ours; the guest points at it
+remote: qa-cloud:
+21:05:48   cloud: ROCKNIX/Backups/2026_09_29-090000-Retroid-Pocket-Nova-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Backups/2026_09_30-120000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Content/BIOS/disksys.rom ROCKNIX/Content/ROMs/nes/Probe.nes ROCKNIX/Saves-replaced/nes/Probe.srm.1 ROCKNIX/Saves/nes/Probe.srm 
+21:05:48   guest conf: SAVES_REMOTE="/ROCKNIX/Saves" SETTINGS_REMOTE="/ROCKNIX/Backups" CONTENT_REMOTE="/ROCKNIX/Content" LAYOUT_KEEP="" 
+label=GENERIC-X64
+21:06:15   picks reset: content=0 saves=1
+21:06:36 == I: the boot step on a device still on /ROCKNIX with saves there: after the startup card, CHECKING YOUR CLOUD, then MOVE; NOT NOW asks again next boot; after MOVE nothing
+21:06:36   cloud: ROCKNIX/Saves/nes/Boot.srm _pixelelated_hold/Backups/2026_09_29-090000-Retroid-Pocket-Nova-ROCKNIX_SETTINGS.tar.gz _pixelelated_hold/Backups/2026_09_30-120000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz _pixelelated_hold/Content/BIOS/disksys.rom _pixelelated_hold/Content/ROMs/nes/Probe.nes _pixelelated_hold/Saves-replaced/nes/Probe.srm.1 _pixelelated_hold/Saves/nes/Probe.srm 
+21:06:36   guest conf: SAVES_REMOTE="/ROCKNIX/Saves" SETTINGS_REMOTE="/ROCKNIX/Backups" CONTENT_REMOTE="/ROCKNIX/Content" LAYOUT_KEEP="" 
+needs-step rc=0
+21:07:12   reboot_guest: /isIdle yes after 1s
+settle: still after 1.9s
+21:08:01   I-boot1: 122 frames under /workspace/tmp/pixelelated-m7-guest-05/artifacts/cloud-epic/I/frames/I-boot1
+2026-10-04 17:06:57	[1530]	INFO	cloud folder step: checking the folder (boot)
+2026-10-04 17:06:58	[1530]	INFO	cloud folder: /ROCKNIX holds saves and /pixelelated does not exist; offering the move
+21:08:01 PASS I: the step came up at boot
+21:08:01 PASS I: and asked the move for /ROCKNIX
+captured /workspace/tmp/pixelelated-m7-guest-05/artifacts/cloud-epic/I/frames/01-I-move-question.png
+changed after 0.1s (`key z`, line 2)
+settle: still after 1.3s
+captured /workspace/tmp/pixelelated-m7-guest-05/artifacts/cloud-epic/I/frames/02-I-after-not-now.png
+dismiss-dialogs: 1 press(es) moved the screen, back on the carousel
+21:08:09 PASS walk epic-I1.steps
+21:08:09 PASS I: NOT NOW left the conf on /ROCKNIX
+21:08:45   reboot_guest: /isIdle yes after 1s
+settle: still after 1.9s
+21:09:34   I-boot2: 122 frames under /workspace/tmp/pixelelated-m7-guest-05/artifacts/cloud-epic/I/frames/I-boot2
+21:09:34 PASS I: the next boot asked again
+captured /workspace/tmp/pixelelated-m7-guest-05/artifacts/cloud-epic/I/frames/01-I-move-question-again.png
+changed after 0.0s (`key x`, line 2)
+captured /workspace/tmp/pixelelated-m7-guest-05/artifacts/cloud-epic/I/frames/02-I-move-running.png
+settle: still after 3.4s
+captured /workspace/tmp/pixelelated-m7-guest-05/artifacts/cloud-epic/I/frames/03-I-move-done.png
+changed after 0.1s (`key x`, line 8)
+settle: still after 1.3s
+captured /workspace/tmp/pixelelated-m7-guest-05/artifacts/cloud-epic/I/frames/04-I-after-move.png
+dismiss-dialogs: 1 press(es) moved the screen, back on the carousel
+21:09:49 PASS walk epic-I2.steps
+21:09:49   cloud after the move: _pixelelated_hold/Backups/2026_09_29-090000-Retroid-Pocket-Nova-ROCKNIX_SETTINGS.tar.gz _pixelelated_hold/Backups/2026_09_30-120000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz _pixelelated_hold/Content/BIOS/disksys.rom _pixelelated_hold/Content/ROMs/nes/Probe.nes _pixelelated_hold/Saves-replaced/nes/Probe.srm.1 _pixelelated_hold/Saves/nes/Probe.srm pixelelated/.layout pixelelated/Saves/nes/Boot.srm 
+21:09:49 PASS I: MOVE at boot moved the saves to /pixelelated and left nothing under /ROCKNIX
+21:09:49 PASS I: the conf points at /pixelelated/Saves
+21:09:49 PASS I: and the step's own check after the move reads it settled
+21:10:25   reboot_guest: /isIdle yes after 1s
+settle: still after 1.9s
+21:11:14   I-boot3: 122 frames under /workspace/tmp/pixelelated-m7-guest-05/artifacts/cloud-epic/I/frames/I-boot3
+21:11:14 PASS I: the boot after the move raises nothing (--needs-step 1)
+captured /workspace/tmp/pixelelated-m7-guest-05/artifacts/cloud-epic/I/frames/01-I-boot3-quiet.png
+dismiss-dialogs: 1 press(es) moved the screen, back on the carousel
+21:11:19 PASS walk epic-I3.steps
+21:11:19   frames: 7 under /workspace/tmp/pixelelated-m7-guest-05/artifacts/cloud-epic/I/frames (numbered walk captures); boot and continuous captures are in their named subdirectories
+21:11:19 done: 11 PASS, 0 FAIL

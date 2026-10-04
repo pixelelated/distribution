@@ -1,0 +1,534 @@
+/workspace/tmp/pixelelated-m7-guest-05/outer.sh: OK
+/workspace/tmp/pixelelated-m7-guest-05/run.sh: OK
+/workspace/tmp/pixelelated-m7-guest-05/seed.py: OK
+/workspace/tmp/pixelelated-m7-guest-05/stop-guest.py: OK
+/workspace/tmp/pixelelated-m7-guest-05/verify-inputs.py: OK
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/a179bd73a732f49c4219177c89a860d561dad4d16a3467aae2cbafc15152b3ea
+Preparing independent 16GiB guest d from the verified pixelelated image
+Image resized.
+No errors were found on the image.
+31689/262144 = 12.09% allocated, 0.00% fragmented, 0.00% compressed clusters
+Image end offset: 2077425664
+[W][20:52:18.071699] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][20:52:18.071732] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+ready after ~17s
+PASS guest d exact BUILD_ID and OS_NAME 1e6a156b5477650e298b6a4dfff996673bf33fb1 pixelelated
+PASS QA ROM bytes /storage/roms/gb/Ninoid.gb a40191c169c68e6607ace072da96aab957f306f55ded59ce1f287c1f5273387b
+PASS QA ROM bytes /storage/roms/gbc/Tobu Tobu Girl Deluxe.gb 0a0e8018dbbc8d7f8cd99f05e7cdc7b4cc9e358ecfe9377ebfb2291a84c6e310
+PASS QA ROM bytes /storage/roms/nes/Bobl.nes 025ec44d0d84ac469b442ee56c3d69e035e9a38430ae849172fe3a1e569d0dea
+PASS guest d seeded and idle
+up: webdav serving /workspace/tmp/pixelelated-m7-guest-05/cloud/data at http://127.0.0.1:9040 (guest: http://10.0.2.2:9040)
+20:52:45 === cloud-epic on guest d, BUILD_ID="1e6a156b5477650e298b6a4dfff996673bf33fb1"
+232
+20:52:45 == setup: the QA remote on the guest (the host backend's conf), then the QA cloud holds the fork's earlier layout with files in every folder of ours; the guest points at it
+remote: qa-cloud:
+20:52:47   cloud: ROCKNIX/Backups/2026_09_29-090000-Retroid-Pocket-Nova-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Backups/2026_09_30-120000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Content/BIOS/disksys.rom ROCKNIX/Content/ROMs/nes/Probe.nes ROCKNIX/Saves-replaced/nes/Probe.srm.1 ROCKNIX/Saves/nes/Probe.srm 
+20:52:47   guest conf: SAVES_REMOTE="/ROCKNIX/Saves" SETTINGS_REMOTE="/ROCKNIX/Backups" CONTENT_REMOTE="/ROCKNIX/Content" LAYOUT_KEEP="" 
+label=GENERIC-X64
+20:53:15   picks reset: content=0 saves=1
+20:53:35 == H: a fresh device (on the current default) whose cloud holds its saves only under /ROCKNIX: the scan joins that folder and the move dialog names it (D-CLOUD-169)
+20:53:35   guest conf: SAVES_REMOTE="/pixelelated/Saves" SETTINGS_REMOTE="/pixelelated/Backups" CONTENT_REMOTE="/pixelelated/Content" LAYOUT_KEEP="" 
+20:54:03 PASS walk epic-H.steps
+20:54:03   guest conf after the scan: SAVES_REMOTE="/ROCKNIX/Saves" SETTINGS_REMOTE="/ROCKNIX/Backups" CONTENT_REMOTE="/ROCKNIX/Content" 
+20:54:04 PASS H: the scan joined the folder the saves are in
+20:54:04 PASS H: nothing was made at /pixelelated beside them
+2026-10-04T16:53:58-04:00 GENERIC-X64-474c cloud_migrate_layout[4593]: joined the fleet at /ROCKNIX/Saves: no saves in /pixelelated/Saves
+2026-10-04T16:53:58-04:00 GENERIC-X64-474c cloud_scan[4594]: scan: joined the fleet's earlier folder
+20:54:04 PASS H: the journal names the join
+20:54:16 PASS walk epic-H2.steps
+20:54:16   guest conf after NOT NOW: SAVES_REMOTE="/ROCKNIX/Saves" SETTINGS_REMOTE="/ROCKNIX/Backups" CONTENT_REMOTE="/ROCKNIX/Content" 
+20:54:16   frames: 5 under /workspace/tmp/pixelelated-m7-guest-05/artifacts/cloud-epic/H/frames (numbered walk captures); boot and continuous captures are in their named subdirectories
+20:54:16 done: 5 PASS, 0 FAIL
+20:54:16 === cloud-epic on guest d, BUILD_ID="1e6a156b5477650e298b6a4dfff996673bf33fb1"
+232
+20:54:17 == setup: the QA remote on the guest (the host backend's conf), then the QA cloud holds the fork's earlier layout with files in every folder of ours; the guest points at it
+remote: qa-cloud:
+20:54:18   cloud: ROCKNIX/Backups/2026_09_29-090000-Retroid-Pocket-Nova-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Backups/2026_09_30-120000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Content/BIOS/disksys.rom ROCKNIX/Content/ROMs/nes/Probe.nes ROCKNIX/Saves-replaced/nes/Probe.srm.1 ROCKNIX/Saves/nes/Probe.srm 
+20:54:19   guest conf: SAVES_REMOTE="/ROCKNIX/Saves" SETTINGS_REMOTE="/ROCKNIX/Backups" CONTENT_REMOTE="/ROCKNIX/Content" LAYOUT_KEEP="" 
+label=GENERIC-X64
+20:54:46   picks reset: content=0 saves=1
+20:55:06 == A: RESTORE FROM THE CLOUD opens on the scan page; an earlier /ROCKNIX with saves gets the move dialog; MOVE runs the move page
+20:55:35 PASS walk epic-A.steps
+20:55:58 PASS walk epic-A2.steps
+20:55:58   cloud after the move: pixelelated/.layout pixelelated/Backups/2026_09_29-090000-Retroid-Pocket-Nova-ROCKNIX_SETTINGS.tar.gz pixelelated/Backups/2026_09_30-120000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz pixelelated/Content/BIOS/disksys.rom pixelelated/Content/ROMs/nes/Probe.nes pixelelated/Saves-replaced/nes/Probe.srm.1 pixelelated/Saves/nes/Probe.srm 
+20:55:58   marker: layout=2
+20:55:58   guest conf: SAVES_REMOTE="/pixelelated/Saves" SETTINGS_REMOTE="/pixelelated/Backups" CONTENT_REMOTE="/pixelelated/Content" LAYOUT_KEEP="" 
+20:55:58 PASS A: the four folders of ours are under /pixelelated after MOVE (saves, settings backup, content, the set-aside)
+20:55:58 PASS A: nothing of ours remains under /ROCKNIX
+20:55:58 PASS A: the layout marker is written
+20:55:58 PASS A: the guest now points at /pixelelated/Saves
+2026-10-04T16:55:31-04:00 GENERIC-X64-474c cloud_scan[9545]: scan: done (2 archives, superseded-with-files, content ok)
+2026-10-04T16:55:37-04:00 GENERIC-X64-474c cloud_migrate_layout[9904]: migration step=1 from=1 to=2 stage=begin
+2026-10-04T16:55:38-04:00 GENERIC-X64-474c cloud_migrate_layout[10057]: migration step=1 from=1 to=2 stage=backups
+2026-10-04T16:55:38-04:00 GENERIC-X64-474c cloud_migrate_layout[10147]: migration step=1 from=1 to=2 stage=saves
+2026-10-04T16:55:39-04:00 GENERIC-X64-474c cloud_migrate_layout[10239]: migration step=1 from=1 to=2 stage=discarded
+2026-10-04T16:55:39-04:00 GENERIC-X64-474c cloud_migrate_layout[10369]: migration step=1 from=1 to=2 stage=content
+2026-10-04T16:55:40-04:00 GENERIC-X64-474c cloud_migrate_layout[10428]: migration step=1 from=1 to=2 stage=complete
+2026-10-04T16:55:46-04:00 GENERIC-X64-474c cloud_scan[11791]: scan: done (2 archives, current, content ok)
+20:55:58   frames: 8 under /workspace/tmp/pixelelated-m7-guest-05/artifacts/cloud-epic/A/frames (numbered walk captures); boot and continuous captures are in their named subdirectories
+20:55:58 done: 6 PASS, 0 FAIL
+20:55:58 === cloud-epic on guest d, BUILD_ID="1e6a156b5477650e298b6a4dfff996673bf33fb1"
+232
+20:55:59 == setup: the QA remote on the guest (the host backend's conf), then the QA cloud holds the fork's earlier layout with files in every folder of ours; the guest points at it
+remote: qa-cloud:
+20:56:01   cloud: ROCKNIX/Backups/2026_09_29-090000-Retroid-Pocket-Nova-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Backups/2026_09_30-120000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Content/BIOS/disksys.rom ROCKNIX/Content/ROMs/nes/Probe.nes ROCKNIX/Saves-replaced/nes/Probe.srm.1 ROCKNIX/Saves/nes/Probe.srm 
+20:56:01   guest conf: SAVES_REMOTE="/ROCKNIX/Saves" SETTINGS_REMOTE="/ROCKNIX/Backups" CONTENT_REMOTE="/ROCKNIX/Content" LAYOUT_KEEP="" 
+label=GENERIC-X64
+20:56:28   picks reset: content=0 saves=1
+20:56:48 == C: the SETTINGS row by device label: offered with the device and date after the move (above); dimmed with only a foreign archive
+20:57:15 PASS walk epic-C.steps
+20:57:16 PASS C: foreign-only scan disables settings with a completed scan
+20:57:25 PASS walk epic-C2.steps
+20:57:25   frames: 4 under /workspace/tmp/pixelelated-m7-guest-05/artifacts/cloud-epic/C/frames (numbered walk captures); boot and continuous captures are in their named subdirectories
+20:57:25 done: 3 PASS, 0 FAIL
+20:57:25 === cloud-epic on guest d, BUILD_ID="1e6a156b5477650e298b6a4dfff996673bf33fb1"
+232
+20:57:26 == setup: the QA remote on the guest (the host backend's conf), then the QA cloud holds the fork's earlier layout with files in every folder of ours; the guest points at it
+remote: qa-cloud:
+20:57:27   cloud: ROCKNIX/Backups/2026_09_29-090000-Retroid-Pocket-Nova-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Backups/2026_09_30-120000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Content/BIOS/disksys.rom ROCKNIX/Content/ROMs/nes/Probe.nes ROCKNIX/Saves-replaced/nes/Probe.srm.1 ROCKNIX/Saves/nes/Probe.srm 
+20:57:28   guest conf: SAVES_REMOTE="/ROCKNIX/Saves" SETTINGS_REMOTE="/ROCKNIX/Backups" CONTENT_REMOTE="/ROCKNIX/Content" LAYOUT_KEEP="" 
+label=GENERIC-X64
+20:57:55   picks reset: content=0 saves=1
+20:58:15 == D: the content folder: nothing of ours at the configured root and nothing found -> the question and the chooser; found elsewhere -> used, then the content scan
+20:58:43   picks reset: content=0 saves=1
+20:59:09 PASS walk epic-D.steps
+20:59:37 PASS walk epic-D2.steps
+20:59:37   guest conf: SAVES_REMOTE="/pixelelated/Saves" SETTINGS_REMOTE="/pixelelated/Backups" CONTENT_REMOTE="/Elsewhere" LAYOUT_KEEP="" 
+21:00:05   picks reset: content=0 saves=1
+21:00:32 PASS walk epic-D3.steps
+21:00:58 PASS walk epic-D4.steps
+CONTENT_REMOTE="/pixelelated/Content"
+21:00:58 PASS D: the content root found under the cloud root was used without a question
+21:00:58   frames: 15 under /workspace/tmp/pixelelated-m7-guest-05/artifacts/cloud-epic/D/frames (numbered walk captures); boot and continuous captures are in their named subdirectories
+21:00:58 done: 5 PASS, 0 FAIL
+21:00:58 === cloud-epic on guest d, BUILD_ID="1e6a156b5477650e298b6a4dfff996673bf33fb1"
+232
+21:00:59 == setup: the QA remote on the guest (the host backend's conf), then the QA cloud holds the fork's earlier layout with files in every folder of ours; the guest points at it
+remote: qa-cloud:
+21:01:00   cloud: ROCKNIX/Backups/2026_09_29-090000-Retroid-Pocket-Nova-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Backups/2026_09_30-120000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Content/BIOS/disksys.rom ROCKNIX/Content/ROMs/nes/Probe.nes ROCKNIX/Saves-replaced/nes/Probe.srm.1 ROCKNIX/Saves/nes/Probe.srm 
+21:01:01   guest conf: SAVES_REMOTE="/ROCKNIX/Saves" SETTINGS_REMOTE="/ROCKNIX/Backups" CONTENT_REMOTE="/ROCKNIX/Content" LAYOUT_KEEP="" 
+label=GENERIC-X64
+21:01:28   picks reset: content=0 saves=1
+21:01:48 == B0: a carried /GAMES that holds saves and no current folder -> the move dialog names /GAMES; NOT NOW
+21:01:49   guest conf: SAVES_REMOTE="/GAMES" SETTINGS_REMOTE="/GAMES/backup" CONTENT_REMOTE="" LAYOUT_KEEP="" 
+21:02:16 PASS walk epic-B0.steps
+21:02:28 PASS walk epic-B0b.steps
+21:02:28 PASS B0: NOT NOW on the /GAMES move left the conf on /GAMES
+21:02:28 == B: a carried /GAMES and no current folder -> the offer to create; CREATE IT re-points and seeds
+21:02:28   guest conf: SAVES_REMOTE="/GAMES" SETTINGS_REMOTE="/GAMES/backup" CONTENT_REMOTE="" LAYOUT_KEEP="" 
+21:02:55 PASS walk epic-B.steps
+21:03:17 PASS walk epic-B2.steps
+21:03:17   cloud after CREATE IT: BIOS/README.txt ROMs/README.txt _pixelelated_hold/Backups/2026_09_29-090000-Retroid-Pocket-Nova-ROCKNIX_SETTINGS.tar.gz _pixelelated_hold/Backups/2026_09_30-120000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz _pixelelated_hold/Content/BIOS/disksys.rom _pixelelated_hold/Content/ROMs/nes/Probe.nes _pixelelated_hold/Saves-replaced/nes/Probe.srm.1 _pixelelated_hold/Saves/nes/Probe.srm pixelelated/.layout pixelelated/Backups/README.txt pixelelated/Saves/README.txt 
+21:03:17 PASS B: CREATE IT makes saves/backups and preserves the explicit cloud content root
+21:03:17 PASS B: the carried /GAMES setting is re-pointed at the current layout
+21:03:17   frames: 12 under /workspace/tmp/pixelelated-m7-guest-05/artifacts/cloud-epic/B/frames (numbered walk captures); boot and continuous captures are in their named subdirectories
+21:03:17 done: 7 PASS, 0 FAIL
+21:03:17 === cloud-epic on guest d, BUILD_ID="1e6a156b5477650e298b6a4dfff996673bf33fb1"
+232
+21:03:17 == setup: the QA remote on the guest (the host backend's conf), then the QA cloud holds the fork's earlier layout with files in every folder of ours; the guest points at it
+remote: qa-cloud:
+21:03:19   cloud: ROCKNIX/Backups/2026_09_29-090000-Retroid-Pocket-Nova-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Backups/2026_09_30-120000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Content/BIOS/disksys.rom ROCKNIX/Content/ROMs/nes/Probe.nes ROCKNIX/Saves-replaced/nes/Probe.srm.1 ROCKNIX/Saves/nes/Probe.srm 
+21:03:19   guest conf: SAVES_REMOTE="/ROCKNIX/Saves" SETTINGS_REMOTE="/ROCKNIX/Backups" CONTENT_REMOTE="/ROCKNIX/Content" LAYOUT_KEEP="" 
+label=GENERIC-X64
+21:03:47   picks reset: content=0 saves=1
+21:04:07 == E: the startup sync with no saves folder in the cloud: the card says SKIPPED with the row to set it up; then the cloud folder step offers CREATE IT (D-CLOUD-170)
+21:04:07   guest conf: SAVES_REMOTE="/GAMES" SETTINGS_REMOTE="/GAMES/backup" CONTENT_REMOTE="" LAYOUT_KEEP="" 
+startup=1
+21:05:37   E-boot: 129 frames under /workspace/tmp/pixelelated-m7-guest-05/artifacts/cloud-epic/E/frames/E-boot
+1791147865 78 no-folder
+21:05:37 PASS E: the startup stamp carries the third sentinel (78 no-folder)
+2026-10-04 17:04:32	[1545]	INFO	cloud folder step: checking the folder (boot)
+2026-10-04 17:04:32	[1545]	INFO	cloud folder: no /pixelelated in the cloud (state superseded-empty); offering to create it
+21:05:37 PASS E: the step came up at boot once the card was done
+21:05:38 PASS E: and offered CREATE IT for the carried /GAMES with nothing anywhere
+21:05:45 PASS walk epic-E2.steps
+21:05:45 PASS E: NOT NOW re-pointed nothing: the stock-shaped conf still names /GAMES
+21:05:45 PASS E: and the boot's startup sync made no /GAMES in the cloud (D-CLOUD-172)
+21:05:46   guest conf: SAVES_REMOTE="/pixelelated/Saves" SETTINGS_REMOTE="/pixelelated/Backups" CONTENT_REMOTE="/pixelelated/Content" LAYOUT_KEEP="" 
+21:05:46   frames: 2 under /workspace/tmp/pixelelated-m7-guest-05/artifacts/cloud-epic/E/frames (numbered walk captures); boot and continuous captures are in their named subdirectories
+21:05:46 done: 6 PASS, 0 FAIL
+21:05:46 === cloud-epic on guest d, BUILD_ID="1e6a156b5477650e298b6a4dfff996673bf33fb1"
+232
+21:05:46 == setup: the QA remote on the guest (the host backend's conf), then the QA cloud holds the fork's earlier layout with files in every folder of ours; the guest points at it
+remote: qa-cloud:
+21:05:48   cloud: ROCKNIX/Backups/2026_09_29-090000-Retroid-Pocket-Nova-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Backups/2026_09_30-120000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Content/BIOS/disksys.rom ROCKNIX/Content/ROMs/nes/Probe.nes ROCKNIX/Saves-replaced/nes/Probe.srm.1 ROCKNIX/Saves/nes/Probe.srm 
+21:05:48   guest conf: SAVES_REMOTE="/ROCKNIX/Saves" SETTINGS_REMOTE="/ROCKNIX/Backups" CONTENT_REMOTE="/ROCKNIX/Content" LAYOUT_KEEP="" 
+label=GENERIC-X64
+21:06:15   picks reset: content=0 saves=1
+21:06:36 == I: the boot step on a device still on /ROCKNIX with saves there: after the startup card, CHECKING YOUR CLOUD, then MOVE; NOT NOW asks again next boot; after MOVE nothing
+21:06:36   cloud: ROCKNIX/Saves/nes/Boot.srm _pixelelated_hold/Backups/2026_09_29-090000-Retroid-Pocket-Nova-ROCKNIX_SETTINGS.tar.gz _pixelelated_hold/Backups/2026_09_30-120000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz _pixelelated_hold/Content/BIOS/disksys.rom _pixelelated_hold/Content/ROMs/nes/Probe.nes _pixelelated_hold/Saves-replaced/nes/Probe.srm.1 _pixelelated_hold/Saves/nes/Probe.srm 
+21:06:36   guest conf: SAVES_REMOTE="/ROCKNIX/Saves" SETTINGS_REMOTE="/ROCKNIX/Backups" CONTENT_REMOTE="/ROCKNIX/Content" LAYOUT_KEEP="" 
+needs-step rc=0
+21:08:01   I-boot1: 122 frames under /workspace/tmp/pixelelated-m7-guest-05/artifacts/cloud-epic/I/frames/I-boot1
+2026-10-04 17:06:57	[1530]	INFO	cloud folder step: checking the folder (boot)
+2026-10-04 17:06:58	[1530]	INFO	cloud folder: /ROCKNIX holds saves and /pixelelated does not exist; offering the move
+21:08:01 PASS I: the step came up at boot
+21:08:01 PASS I: and asked the move for /ROCKNIX
+21:08:09 PASS walk epic-I1.steps
+21:08:09 PASS I: NOT NOW left the conf on /ROCKNIX
+21:09:34   I-boot2: 122 frames under /workspace/tmp/pixelelated-m7-guest-05/artifacts/cloud-epic/I/frames/I-boot2
+21:09:34 PASS I: the next boot asked again
+21:09:49 PASS walk epic-I2.steps
+21:09:49   cloud after the move: _pixelelated_hold/Backups/2026_09_29-090000-Retroid-Pocket-Nova-ROCKNIX_SETTINGS.tar.gz _pixelelated_hold/Backups/2026_09_30-120000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz _pixelelated_hold/Content/BIOS/disksys.rom _pixelelated_hold/Content/ROMs/nes/Probe.nes _pixelelated_hold/Saves-replaced/nes/Probe.srm.1 _pixelelated_hold/Saves/nes/Probe.srm pixelelated/.layout pixelelated/Saves/nes/Boot.srm 
+21:09:49 PASS I: MOVE at boot moved the saves to /pixelelated and left nothing under /ROCKNIX
+21:09:49 PASS I: the conf points at /pixelelated/Saves
+21:09:49 PASS I: and the step's own check after the move reads it settled
+21:11:14   I-boot3: 122 frames under /workspace/tmp/pixelelated-m7-guest-05/artifacts/cloud-epic/I/frames/I-boot3
+21:11:14 PASS I: the boot after the move raises nothing (--needs-step 1)
+21:11:19 PASS walk epic-I3.steps
+21:11:19   frames: 7 under /workspace/tmp/pixelelated-m7-guest-05/artifacts/cloud-epic/I/frames (numbered walk captures); boot and continuous captures are in their named subdirectories
+21:11:19 done: 11 PASS, 0 FAIL
+21:11:19 === cloud-epic on guest d, BUILD_ID="1e6a156b5477650e298b6a4dfff996673bf33fb1"
+232
+21:11:19 == setup: the QA remote on the guest (the host backend's conf), then the QA cloud holds the fork's earlier layout with files in every folder of ours; the guest points at it
+remote: qa-cloud:
+21:11:21   cloud: ROCKNIX/Backups/2026_09_29-090000-Retroid-Pocket-Nova-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Backups/2026_09_30-120000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Content/BIOS/disksys.rom ROCKNIX/Content/ROMs/nes/Probe.nes ROCKNIX/Saves-replaced/nes/Probe.srm.1 ROCKNIX/Saves/nes/Probe.srm 
+21:11:21   guest conf: SAVES_REMOTE="/ROCKNIX/Saves" SETTINGS_REMOTE="/ROCKNIX/Backups" CONTENT_REMOTE="/ROCKNIX/Content" LAYOUT_KEEP="" 
+label=GENERIC-X64
+21:11:49   picks reset: content=0 saves=1
+21:12:09 == J: the boot step offline (the guest's link cut on the monitor): FINISH CLOUD SETUP / YOU'RE NOT ONLINE ... with CONNECT TO WI-FI and NOT NOW
+21:12:09   guest conf: SAVES_REMOTE="/ROCKNIX/Saves" SETTINGS_REMOTE="/ROCKNIX/Backups" CONTENT_REMOTE="/ROCKNIX/Content" LAYOUT_KEEP="" 
+21:12:09   link off at 21:12:09
+21:14:04 PASS walk epic-J1.steps
+21:14:10   link on; ssh back after 1 tries
+2026-10-04 17:12:29	[1467]	INFO	cloud folder step: a folder to settle and no network; asking to connect
+2026-10-04 17:14:03	[1467]	INFO	cloud folder step: NOT NOW; asked again at the next boot
+21:14:10 PASS J: offline, the step asked to connect
+21:14:10 PASS J: and NOT NOW put it off to the next boot
+21:14:15 PASS walk epic-J2.steps
+21:14:15   guest conf: SAVES_REMOTE="/pixelelated/Saves" SETTINGS_REMOTE="/pixelelated/Backups" CONTENT_REMOTE="/pixelelated/Content" LAYOUT_KEEP="" 
+21:14:15   frames: 2 under /workspace/tmp/pixelelated-m7-guest-05/artifacts/cloud-epic/J/frames (numbered walk captures); boot and continuous captures are in their named subdirectories
+21:14:15 done: 4 PASS, 0 FAIL
+21:14:15 === cloud-epic on guest d, BUILD_ID="1e6a156b5477650e298b6a4dfff996673bf33fb1"
+232
+21:14:15 == setup: the QA remote on the guest (the host backend's conf), then the QA cloud holds the fork's earlier layout with files in every folder of ours; the guest points at it
+remote: qa-cloud:
+21:14:17   cloud: ROCKNIX/Backups/2026_09_29-090000-Retroid-Pocket-Nova-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Backups/2026_09_30-120000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Content/BIOS/disksys.rom ROCKNIX/Content/ROMs/nes/Probe.nes ROCKNIX/Saves-replaced/nes/Probe.srm.1 ROCKNIX/Saves/nes/Probe.srm 
+21:14:17   guest conf: SAVES_REMOTE="/ROCKNIX/Saves" SETTINGS_REMOTE="/ROCKNIX/Backups" CONTENT_REMOTE="/ROCKNIX/Content" LAYOUT_KEEP="" 
+label=GENERIC-X64
+21:14:45   picks reset: content=0 saves=1
+21:15:05 == K: a settings restore's marker and an earlier folder at the same boot (the marker written here, a named stand-in): FINISH RESTORE PROCESS first; LATER brings neither; FINISH brings the step
+21:15:05   guest conf: SAVES_REMOTE="/ROCKNIX/Saves" SETTINGS_REMOTE="/ROCKNIX/Backups" CONTENT_REMOTE="/ROCKNIX/Content" LAYOUT_KEEP="" 
+-rw-r--r--    1 root     root             2 Oct  4 17:15 /storage/.config/.restore-finish-pending
+21:16:30   K-boot1: 122 frames under /workspace/tmp/pixelelated-m7-guest-05/artifacts/cloud-epic/K/frames/K-boot1
+21:16:58 PASS walk epic-K1.steps
+21:16:58 PASS K: with the restore page up and then LATER, the step did not come at this boot
+21:16:58 PASS K: LATER kept the restore's marker
+21:18:23   K-boot2: 122 frames under /workspace/tmp/pixelelated-m7-guest-05/artifacts/cloud-epic/K/frames/K-boot2
+21:18:37 PASS walk epic-K2.steps
+2026-10-04 17:18:29	[1443]	INFO	restore relink: complete, clearing marker
+2026-10-04 17:18:33	[1443]	INFO	cloud folder step: checking the folder (boot)
+21:18:37 PASS K: FINISH brought the step
+21:18:37 PASS K: and FINISH consumed the restore's marker
+21:18:45 PASS walk epic-K3.steps
+21:18:45   guest conf: SAVES_REMOTE="/pixelelated/Saves" SETTINGS_REMOTE="/pixelelated/Backups" CONTENT_REMOTE="/pixelelated/Content" LAYOUT_KEEP="" 
+21:18:45   frames: 7 under /workspace/tmp/pixelelated-m7-guest-05/artifacts/cloud-epic/K/frames (numbered walk captures); boot and continuous captures are in their named subdirectories
+21:18:45 done: 7 PASS, 0 FAIL
+21:18:45 === cloud-epic on guest d, BUILD_ID="1e6a156b5477650e298b6a4dfff996673bf33fb1"
+232
+21:18:45 == setup: the QA remote on the guest (the host backend's conf), then the QA cloud holds the fork's earlier layout with files in every folder of ours; the guest points at it
+remote: qa-cloud:
+21:18:47   cloud: ROCKNIX/Backups/2026_09_29-090000-Retroid-Pocket-Nova-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Backups/2026_09_30-120000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Content/BIOS/disksys.rom ROCKNIX/Content/ROMs/nes/Probe.nes ROCKNIX/Saves-replaced/nes/Probe.srm.1 ROCKNIX/Saves/nes/Probe.srm 
+21:18:47   guest conf: SAVES_REMOTE="/ROCKNIX/Saves" SETTINGS_REMOTE="/ROCKNIX/Backups" CONTENT_REMOTE="/ROCKNIX/Content" LAYOUT_KEEP="" 
+label=GENERIC-X64
+21:19:15   picks reset: content=0 saves=1
+21:19:35 == L: the end of cloud setup (the repair route: USE A COMPUTER INSTEAD, REPAIR A CONNECTION, the three steps, CONTINUE): the step asks MOVE before CLOUD SETUP COMPLETE
+21:19:35   guest conf: SAVES_REMOTE="/pixelelated/Saves" SETTINGS_REMOTE="/pixelelated/Backups" CONTENT_REMOTE="/pixelelated/Content" LAYOUT_KEEP="" 
+21:20:22   an SSH session held open for the walk (pid 3577694): CONNECTED
+21:21:35 PASS walk epic-L.steps
+21:21:35   L-setup: 148 frames under /workspace/tmp/pixelelated-m7-guest-05/artifacts/cloud-epic/L/frames/L-setup (the step's scan page between step 3 and the question)
+2026-10-04 17:21:00	[1443]	INFO	cloud_setup wizard: entry, remotes=1
+2026-10-04 17:21:07	[1443]	INFO	cloud_setup wizard: step 1 ssh setup, password=*** sshd=active
+2026-10-04 17:21:14	[1443]	INFO	cloud_setup wizard: step 2 connect, override=1
+2026-10-04 17:21:22	[1443]	INFO	cloud_setup wizard: --connected=1
+2026-10-04 17:21:22	[1443]	INFO	cloud_setup wizard: step 3 configure, mode=2 remote=qa-cloud: auth_port=free
+2026-10-04 17:21:31	[2732]	INFO	cloud_setup wizard: --check rc=0 remote=qa-cloud:
+2026-10-04 17:21:31	[1443]	INFO	cloud folder step: checking the folder (end of cloud setup)
+2026-10-04 17:21:31	[1443]	INFO	cloud folder: /ROCKNIX holds saves and /pixelelated does not exist; offering the move
+21:21:36 PASS L: the step ran at the end of cloud setup
+21:21:36 PASS L: and asked the move for the earlier folder holding the saves
+21:21:36 PASS L: the step's scan joined the folder the saves are in
+21:21:43 PASS walk epic-L2.steps
+21:21:43 PASS L: NOT NOW went on to the seeding and CLOUD SETUP COMPLETE
+21:21:55 PASS walk epic-L3.steps
+21:21:55   guest conf: SAVES_REMOTE="/pixelelated/Saves" SETTINGS_REMOTE="/pixelelated/Backups" CONTENT_REMOTE="/pixelelated/Content" LAYOUT_KEEP="" 
+21:21:55   frames: 16 under /workspace/tmp/pixelelated-m7-guest-05/artifacts/cloud-epic/L/frames (numbered walk captures); boot and continuous captures are in their named subdirectories
+21:21:55 done: 7 PASS, 0 FAIL
+21:21:55 === cloud-epic on guest d, BUILD_ID="1e6a156b5477650e298b6a4dfff996673bf33fb1"
+232
+21:21:55 == setup: the QA remote on the guest (the host backend's conf), then the QA cloud holds the fork's earlier layout with files in every folder of ours; the guest points at it
+remote: qa-cloud:
+21:21:57   cloud: ROCKNIX/Backups/2026_09_29-090000-Retroid-Pocket-Nova-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Backups/2026_09_30-120000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Content/BIOS/disksys.rom ROCKNIX/Content/ROMs/nes/Probe.nes ROCKNIX/Saves-replaced/nes/Probe.srm.1 ROCKNIX/Saves/nes/Probe.srm 
+21:21:57   guest conf: SAVES_REMOTE="/ROCKNIX/Saves" SETTINGS_REMOTE="/ROCKNIX/Backups" CONTENT_REMOTE="/ROCKNIX/Content" LAYOUT_KEEP="" 
+label=GENERIC-X64
+21:22:25   picks reset: content=0 saves=1
+21:22:45 == F: a scan the cloud refuses (the dead port): COULDN'T FINISH with TRY AGAIN beside CLOSE
+21:23:12 PASS walk epic-F.steps
+21:23:12 PASS F: failed opening scan leaves no success stamp
+21:23:24 PASS walk epic-F2.steps
+21:23:24   frames: 5 under /workspace/tmp/pixelelated-m7-guest-05/artifacts/cloud-epic/F/frames (numbered walk captures); boot and continuous captures are in their named subdirectories
+21:23:24 done: 3 PASS, 0 FAIL
+21:23:24 === cloud-epic on guest d, BUILD_ID="1e6a156b5477650e298b6a4dfff996673bf33fb1"
+232
+21:23:24 == setup: the QA remote on the guest (the host backend's conf), then the QA cloud holds the fork's earlier layout with files in every folder of ours; the guest points at it
+remote: qa-cloud:
+21:23:26   cloud: ROCKNIX/Backups/2026_09_29-090000-Retroid-Pocket-Nova-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Backups/2026_09_30-120000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Content/BIOS/disksys.rom ROCKNIX/Content/ROMs/nes/Probe.nes ROCKNIX/Saves-replaced/nes/Probe.srm.1 ROCKNIX/Saves/nes/Probe.srm 
+21:23:26   guest conf: SAVES_REMOTE="/ROCKNIX/Saves" SETTINGS_REMOTE="/ROCKNIX/Backups" CONTENT_REMOTE="/ROCKNIX/Content" LAYOUT_KEEP="" 
+label=GENERIC-X64
+21:23:54   picks reset: content=0 saves=1
+21:24:14 == G: BACK UP TO THE CLOUD opens on the scan page too, then its options
+21:24:40 PASS walk epic-G.steps
+21:24:40 PASS G: backup page completed its opening scan on the current folder
+21:24:50 PASS walk epic-G2.steps
+21:24:50   frames: 4 under /workspace/tmp/pixelelated-m7-guest-05/artifacts/cloud-epic/G/frames (numbered walk captures); boot and continuous captures are in their named subdirectories
+21:24:50 done: 3 PASS, 0 FAIL
+21:24:50 === cloud-epic on guest d, BUILD_ID="1e6a156b5477650e298b6a4dfff996673bf33fb1"
+232
+21:24:50 == setup: the QA remote on the guest (the host backend's conf), then the QA cloud holds the fork's earlier layout with files in every folder of ours; the guest points at it
+remote: qa-cloud:
+21:24:52   cloud: ROCKNIX/Backups/2026_09_29-090000-Retroid-Pocket-Nova-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Backups/2026_09_30-120000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Content/BIOS/disksys.rom ROCKNIX/Content/ROMs/nes/Probe.nes ROCKNIX/Saves-replaced/nes/Probe.srm.1 ROCKNIX/Saves/nes/Probe.srm 
+21:24:52   guest conf: SAVES_REMOTE="/ROCKNIX/Saves" SETTINGS_REMOTE="/ROCKNIX/Backups" CONTENT_REMOTE="/ROCKNIX/Content" LAYOUT_KEEP="" 
+label=GENERIC-X64
+21:25:20   picks reset: content=0 saves=1
+21:27:01   T08-boot: 115 frames under /workspace/tmp/pixelelated-m7-guest-05/artifacts/cloud-epic/T08/frames/T08-boot
+21:27:01 PASS T08: boot scan points at /ROCKNIX/Saves
+21:27:01 PASS T08: startup did not recreate an absent old parent
+21:27:01 PASS T08: the setup step offers recovery after startup
+21:27:01 done: 3 PASS, 0 FAIL
+21:27:02 === cloud-epic on guest d, BUILD_ID="1e6a156b5477650e298b6a4dfff996673bf33fb1"
+232
+21:27:02 == setup: the QA remote on the guest (the host backend's conf), then the QA cloud holds the fork's earlier layout with files in every folder of ours; the guest points at it
+remote: qa-cloud:
+21:27:04   cloud: ROCKNIX/Backups/2026_09_29-090000-Retroid-Pocket-Nova-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Backups/2026_09_30-120000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Content/BIOS/disksys.rom ROCKNIX/Content/ROMs/nes/Probe.nes ROCKNIX/Saves-replaced/nes/Probe.srm.1 ROCKNIX/Saves/nes/Probe.srm 
+21:27:04   guest conf: SAVES_REMOTE="/ROCKNIX/Saves" SETTINGS_REMOTE="/ROCKNIX/Backups" CONTENT_REMOTE="/ROCKNIX/Content" LAYOUT_KEEP="" 
+label=GENERIC-X64
+21:27:31   picks reset: content=0 saves=1
+21:29:13   T11-boot: 115 frames under /workspace/tmp/pixelelated-m7-guest-05/artifacts/cloud-epic/T11/frames/T11-boot
+21:29:13 PASS T11: boot scan points at /ROCKNIX/Saves
+21:29:13 PASS T11: startup did not populate the empty old root before joining
+21:29:13 PASS T11: earlier save bytes preserved
+21:29:13 done: 3 PASS, 0 FAIL
+21:29:13 === cloud-epic on guest d, BUILD_ID="1e6a156b5477650e298b6a4dfff996673bf33fb1"
+232
+21:29:14 == setup: the QA remote on the guest (the host backend's conf), then the QA cloud holds the fork's earlier layout with files in every folder of ours; the guest points at it
+remote: qa-cloud:
+21:29:15   cloud: ROCKNIX/Backups/2026_09_29-090000-Retroid-Pocket-Nova-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Backups/2026_09_30-120000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Content/BIOS/disksys.rom ROCKNIX/Content/ROMs/nes/Probe.nes ROCKNIX/Saves-replaced/nes/Probe.srm.1 ROCKNIX/Saves/nes/Probe.srm 
+21:29:15   guest conf: SAVES_REMOTE="/ROCKNIX/Saves" SETTINGS_REMOTE="/ROCKNIX/Backups" CONTENT_REMOTE="/ROCKNIX/Content" LAYOUT_KEEP="" 
+label=GENERIC-X64
+21:29:43   picks reset: content=0 saves=1
+21:31:25   T12-boot: 115 frames under /workspace/tmp/pixelelated-m7-guest-05/artifacts/cloud-epic/T12/frames/T12-boot
+21:31:25 PASS T12: boot scan points at /pixelelated/Saves
+21:31:25 PASS T12: fleet save bytes preserved
+21:31:25 PASS T12: startup did not recreate the abandoned old root
+21:31:25 done: 3 PASS, 0 FAIL
+21:31:25 === cloud-epic on guest d, BUILD_ID="1e6a156b5477650e298b6a4dfff996673bf33fb1"
+232
+21:31:25 == setup: the QA remote on the guest (the host backend's conf), then the QA cloud holds the fork's earlier layout with files in every folder of ours; the guest points at it
+remote: qa-cloud:
+21:31:27   cloud: ROCKNIX/Backups/2026_09_29-090000-Retroid-Pocket-Nova-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Backups/2026_09_30-120000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Content/BIOS/disksys.rom ROCKNIX/Content/ROMs/nes/Probe.nes ROCKNIX/Saves-replaced/nes/Probe.srm.1 ROCKNIX/Saves/nes/Probe.srm 
+21:31:27   guest conf: SAVES_REMOTE="/ROCKNIX/Saves" SETTINGS_REMOTE="/ROCKNIX/Backups" CONTENT_REMOTE="/ROCKNIX/Content" LAYOUT_KEEP="" 
+label=GENERIC-X64
+21:31:30 PASS T17 failed settlement is returned
+21:31:30 PASS T17 fault reached settlement provider probe
+21:31:30 PASS T17 no seeding or pointer writes on failure
+21:31:32 PASS T17 later setup can recover
+21:31:32 PASS T17 existing payloads survive recovery
+21:31:32 done: 5 PASS, 0 FAIL
+21:31:32 === cloud-epic on guest d, BUILD_ID="1e6a156b5477650e298b6a4dfff996673bf33fb1"
+232
+21:31:32 == setup: the QA remote on the guest (the host backend's conf), then the QA cloud holds the fork's earlier layout with files in every folder of ours; the guest points at it
+remote: qa-cloud:
+21:31:34   cloud: ROCKNIX/Backups/2026_09_29-090000-Retroid-Pocket-Nova-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Backups/2026_09_30-120000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Content/BIOS/disksys.rom ROCKNIX/Content/ROMs/nes/Probe.nes ROCKNIX/Saves-replaced/nes/Probe.srm.1 ROCKNIX/Saves/nes/Probe.srm 
+21:31:34   guest conf: SAVES_REMOTE="/ROCKNIX/Saves" SETTINGS_REMOTE="/ROCKNIX/Backups" CONTENT_REMOTE="/ROCKNIX/Content" LAYOUT_KEEP="" 
+label=GENERIC-X64
+21:31:37 PASS T19-cloud_backup-direct refuses with setup outcome
+21:31:37 PASS T19-cloud_backup-direct does not treat a local path as cloud storage
+21:31:38 PASS T19-cloud_backup-direct changes no cloud bytes/pointers
+21:31:38 PASS T19-cloud_backup-automatic refuses with setup outcome
+21:31:38 PASS T19-cloud_backup-automatic does not treat a local path as cloud storage
+21:31:38 PASS T19-cloud_backup-automatic changes no cloud bytes/pointers
+21:31:38 PASS T19-cloud_restore-direct refuses with setup outcome
+21:31:38 PASS T19-cloud_restore-direct does not treat a local path as cloud storage
+21:31:39 PASS T19-cloud_restore-direct changes no cloud bytes/pointers
+21:31:39 PASS T19-cloud_restore-automatic refuses with setup outcome
+21:31:39 PASS T19-cloud_restore-automatic does not treat a local path as cloud storage
+21:31:39 PASS T19-cloud_restore-automatic changes no cloud bytes/pointers
+21:31:39 done: 12 PASS, 0 FAIL
+21:31:39 === cloud-epic on guest d, BUILD_ID="1e6a156b5477650e298b6a4dfff996673bf33fb1"
+232
+21:31:39 == setup: the QA remote on the guest (the host backend's conf), then the QA cloud holds the fork's earlier layout with files in every folder of ours; the guest points at it
+remote: qa-cloud:
+21:31:41   cloud: ROCKNIX/Backups/2026_09_29-090000-Retroid-Pocket-Nova-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Backups/2026_09_30-120000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Content/BIOS/disksys.rom ROCKNIX/Content/ROMs/nes/Probe.nes ROCKNIX/Saves-replaced/nes/Probe.srm.1 ROCKNIX/Saves/nes/Probe.srm 
+21:31:41   guest conf: SAVES_REMOTE="/ROCKNIX/Saves" SETTINGS_REMOTE="/ROCKNIX/Backups" CONTENT_REMOTE="/ROCKNIX/Content" LAYOUT_KEEP="" 
+label=GENERIC-X64
+21:31:45 PASS T23-copy-Backups returns failure
+21:31:45 PASS T23-copy-Backups reaches injected provider operation
+21:31:45 PASS T23-copy-Backups has no completion marker
+21:31:45 PASS T23-copy-Backups preserves every payload
+21:31:46 PASS T23-copy-Backups offered for retry by boot and scan
+21:31:49 PASS T23-copy-Backups retry completes
+21:31:49 PASS T23-copy-Backups retry retains current bytes without old duplicates
+21:31:49 PASS T23-copy-Backups publishes exact marker
+21:31:49 PASS T23-copy-Backups clears completed local record
+21:31:49 PASS T23-copy-Backups repeat succeeds
+21:31:49 PASS T23-copy-Backups repeat changes no bytes/pointers
+21:31:50 PASS T23-copy-Backups clean follower configuration follows
+21:31:50 PASS T23-copy-Backups follower points at current saves
+21:31:50 PASS T23-copy-Backups follower changes no cloud bytes
+21:31:53 PASS T23-copy-Saves returns failure
+21:31:53 PASS T23-copy-Saves reaches injected provider operation
+21:31:53 PASS T23-copy-Saves has no completion marker
+21:31:53 PASS T23-copy-Saves preserves every payload
+21:31:54 PASS T23-copy-Saves offered for retry by boot and scan
+21:31:56 PASS T23-copy-Saves retry completes
+21:31:56 PASS T23-copy-Saves retry retains current bytes without old duplicates
+21:31:56 PASS T23-copy-Saves publishes exact marker
+21:31:56 PASS T23-copy-Saves clears completed local record
+21:31:57 PASS T23-copy-Saves repeat succeeds
+21:31:57 PASS T23-copy-Saves repeat changes no bytes/pointers
+21:31:57 PASS T23-copy-Saves clean follower configuration follows
+21:31:57 PASS T23-copy-Saves follower points at current saves
+21:31:57 PASS T23-copy-Saves follower changes no cloud bytes
+21:32:01 PASS T23-copy-Saves-replaced returns failure
+21:32:01 PASS T23-copy-Saves-replaced reaches injected provider operation
+21:32:01 PASS T23-copy-Saves-replaced has no completion marker
+21:32:01 PASS T23-copy-Saves-replaced preserves every payload
+21:32:02 PASS T23-copy-Saves-replaced offered for retry by boot and scan
+21:32:04 PASS T23-copy-Saves-replaced retry completes
+21:32:04 PASS T23-copy-Saves-replaced retry retains current bytes without old duplicates
+21:32:04 PASS T23-copy-Saves-replaced publishes exact marker
+21:32:04 PASS T23-copy-Saves-replaced clears completed local record
+21:32:04 PASS T23-copy-Saves-replaced repeat succeeds
+21:32:04 PASS T23-copy-Saves-replaced repeat changes no bytes/pointers
+21:32:05 PASS T23-copy-Saves-replaced clean follower configuration follows
+21:32:05 PASS T23-copy-Saves-replaced follower points at current saves
+21:32:05 PASS T23-copy-Saves-replaced follower changes no cloud bytes
+21:32:09 PASS T23-copy-Content returns failure
+21:32:09 PASS T23-copy-Content reaches injected provider operation
+21:32:09 PASS T23-copy-Content has no completion marker
+21:32:09 PASS T23-copy-Content preserves every payload
+21:32:10 PASS T23-copy-Content offered for retry by boot and scan
+21:32:11 PASS T23-copy-Content retry completes
+21:32:11 PASS T23-copy-Content retry retains current bytes without old duplicates
+21:32:11 PASS T23-copy-Content publishes exact marker
+21:32:11 PASS T23-copy-Content clears completed local record
+21:32:12 PASS T23-copy-Content repeat succeeds
+21:32:12 PASS T23-copy-Content repeat changes no bytes/pointers
+21:32:12 PASS T23-copy-Content clean follower configuration follows
+21:32:12 PASS T23-copy-Content follower points at current saves
+21:32:12 PASS T23-copy-Content follower changes no cloud bytes
+21:32:15 PASS T23-delete-Backups returns failure
+21:32:16 PASS T23-delete-Backups reaches injected provider operation
+21:32:16 PASS T23-delete-Backups has no completion marker
+21:32:16 PASS T23-delete-Backups preserves every payload
+21:32:16 PASS T23-delete-Backups offered for retry by boot and scan
+21:32:19 PASS T23-delete-Backups retry completes
+21:32:19 PASS T23-delete-Backups retry retains current bytes without old duplicates
+21:32:19 PASS T23-delete-Backups publishes exact marker
+21:32:19 PASS T23-delete-Backups clears completed local record
+21:32:20 PASS T23-delete-Backups repeat succeeds
+21:32:20 PASS T23-delete-Backups repeat changes no bytes/pointers
+21:32:20 PASS T23-delete-Backups clean follower configuration follows
+21:32:20 PASS T23-delete-Backups follower points at current saves
+21:32:20 PASS T23-delete-Backups follower changes no cloud bytes
+21:32:24 PASS T23-delete-Saves returns failure
+21:32:24 PASS T23-delete-Saves reaches injected provider operation
+21:32:24 PASS T23-delete-Saves has no completion marker
+21:32:24 PASS T23-delete-Saves preserves every payload
+21:32:24 PASS T23-delete-Saves offered for retry by boot and scan
+21:32:27 PASS T23-delete-Saves retry completes
+21:32:27 PASS T23-delete-Saves retry retains current bytes without old duplicates
+21:32:27 PASS T23-delete-Saves publishes exact marker
+21:32:27 PASS T23-delete-Saves clears completed local record
+21:32:27 PASS T23-delete-Saves repeat succeeds
+21:32:28 PASS T23-delete-Saves repeat changes no bytes/pointers
+21:32:28 PASS T23-delete-Saves clean follower configuration follows
+21:32:28 PASS T23-delete-Saves follower points at current saves
+21:32:28 PASS T23-delete-Saves follower changes no cloud bytes
+21:32:32 PASS T23-delete-Saves-replaced returns failure
+21:32:32 PASS T23-delete-Saves-replaced reaches injected provider operation
+21:32:32 PASS T23-delete-Saves-replaced has no completion marker
+21:32:32 PASS T23-delete-Saves-replaced preserves every payload
+21:32:33 PASS T23-delete-Saves-replaced offered for retry by boot and scan
+21:32:35 PASS T23-delete-Saves-replaced retry completes
+21:32:35 PASS T23-delete-Saves-replaced retry retains current bytes without old duplicates
+21:32:35 PASS T23-delete-Saves-replaced publishes exact marker
+21:32:35 PASS T23-delete-Saves-replaced clears completed local record
+21:32:35 PASS T23-delete-Saves-replaced repeat succeeds
+21:32:35 PASS T23-delete-Saves-replaced repeat changes no bytes/pointers
+21:32:36 PASS T23-delete-Saves-replaced clean follower configuration follows
+21:32:36 PASS T23-delete-Saves-replaced follower points at current saves
+21:32:36 PASS T23-delete-Saves-replaced follower changes no cloud bytes
+21:32:40 PASS T23-delete-Content returns failure
+21:32:40 PASS T23-delete-Content reaches injected provider operation
+21:32:40 PASS T23-delete-Content has no completion marker
+21:32:40 PASS T23-delete-Content preserves every payload
+21:32:41 PASS T23-delete-Content offered for retry by boot and scan
+21:32:42 PASS T23-delete-Content retry completes
+21:32:43 PASS T23-delete-Content retry retains current bytes without old duplicates
+21:32:43 PASS T23-delete-Content publishes exact marker
+21:32:43 PASS T23-delete-Content clears completed local record
+21:32:43 PASS T23-delete-Content repeat succeeds
+21:32:43 PASS T23-delete-Content repeat changes no bytes/pointers
+21:32:44 PASS T23-delete-Content clean follower configuration follows
+21:32:44 PASS T23-delete-Content follower points at current saves
+21:32:44 PASS T23-delete-Content follower changes no cloud bytes
+21:32:48 PASS T23-rcat-marker returns failure
+21:32:48 PASS T23-rcat-marker reaches injected provider operation
+21:32:48 PASS T23-rcat-marker has no completion marker
+21:32:48 PASS T23-rcat-marker preserves every payload
+21:32:49 PASS T23-rcat-marker offered for retry by boot and scan
+21:32:50 PASS T23-rcat-marker retry completes
+21:32:50 PASS T23-rcat-marker retry retains current bytes without old duplicates
+21:32:50 PASS T23-rcat-marker publishes exact marker
+21:32:50 PASS T23-rcat-marker clears completed local record
+21:32:51 PASS T23-rcat-marker repeat succeeds
+21:32:51 PASS T23-rcat-marker repeat changes no bytes/pointers
+21:32:51 PASS T23-rcat-marker clean follower configuration follows
+21:32:51 PASS T23-rcat-marker follower points at current saves
+21:32:51 PASS T23-rcat-marker follower changes no cloud bytes
+21:32:51 done: 126 PASS, 0 FAIL
+21:32:51 === cloud-epic on guest d, BUILD_ID="1e6a156b5477650e298b6a4dfff996673bf33fb1"
+232
+21:32:52 == setup: the QA remote on the guest (the host backend's conf), then the QA cloud holds the fork's earlier layout with files in every folder of ours; the guest points at it
+remote: qa-cloud:
+21:32:53   cloud: ROCKNIX/Backups/2026_09_29-090000-Retroid-Pocket-Nova-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Backups/2026_09_30-120000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Content/BIOS/disksys.rom ROCKNIX/Content/ROMs/nes/Probe.nes ROCKNIX/Saves-replaced/nes/Probe.srm.1 ROCKNIX/Saves/nes/Probe.srm 
+21:32:54   guest conf: SAVES_REMOTE="/ROCKNIX/Saves" SETTINGS_REMOTE="/ROCKNIX/Backups" CONTENT_REMOTE="/ROCKNIX/Content" LAYOUT_KEEP="" 
+label=GENERIC-X64
+21:32:56 PASS T26-malformed-apply refuses unsupported layout
+21:32:57 PASS T26-malformed-apply changes no bytes/pointers
+21:32:59 PASS T26-malformed-follow refuses unsupported layout
+21:32:59 PASS T26-malformed-follow changes no bytes/pointers
+21:33:01 PASS T26-malformed-settle refuses unsupported layout
+21:33:01 PASS T26-malformed-settle changes no bytes/pointers
+21:33:03 PASS T26-malformed-seed refuses unsupported layout
+21:33:03 PASS T26-malformed-seed changes no bytes/pointers
+21:33:05 PASS T26-malformed-scan refuses unsupported layout
+21:33:05 PASS T26-malformed-scan changes no bytes/pointers
+21:33:07 PASS T26-future-apply refuses unsupported layout
+21:33:07 PASS T26-future-apply changes no bytes/pointers
+21:33:09 PASS T26-future-follow refuses unsupported layout
+21:33:09 PASS T26-future-follow changes no bytes/pointers
+21:33:11 PASS T26-future-settle refuses unsupported layout
+21:33:12 PASS T26-future-settle changes no bytes/pointers
+21:33:14 PASS T26-future-seed refuses unsupported layout
+21:33:14 PASS T26-future-seed changes no bytes/pointers
+21:33:16 PASS T26-future-scan refuses unsupported layout
+21:33:16 PASS T26-future-scan changes no bytes/pointers
+21:33:18 PASS T26-trailing-apply refuses unsupported layout
+21:33:18 PASS T26-trailing-apply changes no bytes/pointers
+21:33:20 PASS T26-trailing-follow refuses unsupported layout
+21:33:20 PASS T26-trailing-follow changes no bytes/pointers
+21:33:22 PASS T26-trailing-settle refuses unsupported layout
+21:33:22 PASS T26-trailing-settle changes no bytes/pointers
+21:33:25 PASS T26-trailing-seed refuses unsupported layout
+21:33:25 PASS T26-trailing-seed changes no bytes/pointers
+21:33:27 PASS T26-trailing-scan refuses unsupported layout
+21:33:27 PASS T26-trailing-scan changes no bytes/pointers
+21:33:27 done: 30 PASS, 0 FAIL
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/a179bd73a732f49c4219177c89a860d561dad4d16a3467aae2cbafc15152b3ea
+PASS frozen source inputs, ES pin and candidate input custody
+PASS all 19 independently reset pixelelated cloud-epic guest cases
+PASS owned guest stopped 3438056
+down

@@ -1,0 +1,15 @@
+21:24:50 === cloud-epic on guest d, BUILD_ID="1e6a156b5477650e298b6a4dfff996673bf33fb1"
+232
+21:24:50 == setup: the QA remote on the guest (the host backend's conf), then the QA cloud holds the fork's earlier layout with files in every folder of ours; the guest points at it
+remote: qa-cloud:
+21:24:52   cloud: ROCKNIX/Backups/2026_09_29-090000-Retroid-Pocket-Nova-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Backups/2026_09_30-120000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Content/BIOS/disksys.rom ROCKNIX/Content/ROMs/nes/Probe.nes ROCKNIX/Saves-replaced/nes/Probe.srm.1 ROCKNIX/Saves/nes/Probe.srm 
+21:24:52   guest conf: SAVES_REMOTE="/ROCKNIX/Saves" SETTINGS_REMOTE="/ROCKNIX/Backups" CONTENT_REMOTE="/ROCKNIX/Content" LAYOUT_KEEP="" 
+label=GENERIC-X64
+21:25:20   picks reset: content=0 saves=1
+21:26:17   reboot_guest: /isIdle yes after 1s
+settle: still after 1.9s
+21:27:01   T08-boot: 115 frames under /workspace/tmp/pixelelated-m7-guest-05/artifacts/cloud-epic/T08/frames/T08-boot
+21:27:01 PASS T08: boot scan points at /ROCKNIX/Saves
+21:27:01 PASS T08: startup did not recreate an absent old parent
+21:27:01 PASS T08: the setup step offers recovery after startup
+21:27:01 done: 3 PASS, 0 FAIL
