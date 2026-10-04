@@ -1,0 +1,20 @@
+/workspace/tmp/pixelelated-m7-qa-06/check-payload.py: OK
+/workspace/tmp/pixelelated-m7-qa-06/identity-frames.py: OK
+/workspace/tmp/pixelelated-m7-qa-06/identity.steps: OK
+/workspace/tmp/pixelelated-m7-qa-06/outer.sh: OK
+/workspace/tmp/pixelelated-m7-qa-06/qualify.sh: OK
+/workspace/tmp/pixelelated-m7-qa-06/verify-inputs.py: OK
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/d4007387afd5ac42104a53a3073b93fdadd33c51179bf9f3142101609f821ec9
+up: a (pid 4158505, ssh :10022, serial /tmp/rocknix-qemu-serial.sock, mac 52:54:00:52:4E:58)
+up: b (pid 4158531, ssh :10023, serial /tmp/rocknix-qemu-serial-b.sock, mac 52:54:00:52:4E:59)
+ready: a on 57cbc9b981 over ssh :10022 (answered after 0s)
+ready: b on 57cbc9b981 over ssh :10023 (answered after 0s)
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-qa-06/check-payload.py", line 43, in <module>
+    assert mode == wanted_mode, (remote, mode)
+           ^^^^^^^^^^^^^^^^^^^
+AssertionError: ('/etc/profile.d/999-export', '755')
+down: a (pid 4158505)
+down: b (pid 4158531)
+down
