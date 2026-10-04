@@ -8,41 +8,33 @@ is unchanged. The required adoption flow is **ROCKNIX → pixelelated**;
 there are no fielded /Rasteratops systems requiring an additional gate.
 
 The [M7 milestone body](https://github.com/pixelelated/distribution/milestone/7)
-is the binding running order. **Corrected replacement1600d78fe5 built at
-16:35 UTC on October4, with642/642 tasks and all result codes0.** Frozen input,
-exact assembled proxy/identity/licence checks and immutable bundle custody
-pass. Bundle b37f01b7e4e5a06f983dd420b4af10c0c2155564fb9071051c0772ceb0e04c3b
-contains the new image and tar. Source pins are unchanged; product delta is
-#414's two proxy comment lines. Cache copy was fully compared and independent.
+is the binding running order. **Corrected02163b440b built642/642 at
+18:14:16UTC October4, all result channels0 including actual tool82396.**
+Exact assembled Tools XML/text, proxy, identity/licence payloads and immutable
+custody pass. Bundle8e9eb161b8b4ab84b6339ff58d478acf00322f3c8fa70d5c2c4575849c6a149f
+contains image277813572471… and updateff4805f2b86b…. Source manifest3dc860
+binds the three #416/#417 files and proxy ea9aba (#419). The new upstream
+commit changes only Android;270 patched Linux/native files remain identical.
 
-**Verdict: all 15 defaults and the actual RC2 upgrade pass on1600; both installed
-payload readbacks and final custody checks pass. New branding/XML findings
-require a corrected image.**
-qa-02 started16:38:03, runner787868/watcher787869, shared5s nested-log monitor.
-The broader staging/source sweep found #416 stale Tools/status/help text and
-#417 malformed Tools XML. Source corrections and old-fail/new-pass controls
-pass outside the frozen tree. Exact raw-image/update SYSTEM extraction and full classification are complete:
-zero unclassified branding/credential-pattern hits, exactly seven known stale
-text contexts;794 exact current French translations and57 properly retired IDs.
-The583-component build-source map is retained; P5 licence/source publication
-remains separate. Next is one corrected freeze and build. The old-logo guest
-frame control still belongs to fresh-image qualification. Existing unstarted later-stage owners must be rebound to that new
-artifact before qualification. P4 follows complete P3 evidence. #410's corrected
-helper is installed and closed after actual host guard/recycle/no-op proof.
-No device-ready or RC claim.
+**Verdict: fresh VM qualification is running; no RC or device-ready claim.**
+qa-04 started18:20:12, runner1675695/watcher1675696, actual tool25176,
+shared5s nested-log monitor plus connected supervision. Defaults then actual
+ROCKNIX RC2 upgrade/exact payloads precede link, guest, runtime, proxy,
+S3/pair, memory and bilingual UI checks. Exact image extraction and full
+brand/credential/localisation sweeps repeat on these bytes. Guest boot capture
+and old-logo controls are prepared; host controls alone are not guest proof.
 
-The original b137 image's qualification remains failed13PASS/2FAIL. #415's
-bounded visual expectations are corrected and closed; #414 is now closed from
-qa-02's passing scripts-suite evidence. Preserve original source, image and failed report;
-its upgrade never ran. See docs/qa-logs/2026-10-04-pixelelated-replacement-01/
-and docs/qa-logs/2026-10-04-host-swap-rollout/ for current evidence.
+Current source inventory verifies568 consumed roots/547 cache inputs with
+zero errors;583-component map/525 installation stamps retained. P5 source/
+licence publication remains separate. P4 follows the remaining P3 criteria;
+then the first H700 DDR4/RG35XX SP build. #410 helper is installed and closed.
+Evidence: docs/qa-logs/2026-10-04-pixelelated-replacement-03/ and canonical
+checkpoint. Frozen trees and original failures are preserved.
 
-Replacement02 frozen61b64817bf remains successful historical RASTERATOPS
-engineering evidence: all15 default suites, actual RC2 upgrade and scoped
-installed proxy/cloud/archive/timing/identity checks passed. Preserve those
-receipts and artifacts; do not transfer their verdict to renamed bytes.
-Remaining source/licence/brand/secret/localisation and ordinary RA fixture
-criteria still apply, as do P4 and the separately gated P5 staging work.
+Historical1600 passed all15defaults/actualRC2/exact payload/custody; its sweep
+correctly rejected7 stale text contexts. Originalb137 remains failed13/2.
+#414/#415/#418 are already closed. Do not transfer these earlier results to
+new bytes. #416/#417/#419 remain open for corrected image proof.
 
 The older sections below retain the October2–3 investigations and source
 receipts, including names and pins valid at that time.
