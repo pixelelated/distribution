@@ -10,6 +10,7 @@
 #   tools/rc-preflight --es <checkout>       # the EmulationStation checkout
 #   tools/rc-preflight --no-fetch            # the remotes as last fetched (said so)
 #   tools/rc-preflight --allow-unchecked device-facts
+#   tools/rc-preflight --only proxy-schema   # quick, offline pin-note check
 #
 # One verdict per item, printed and then summed:
 #
@@ -73,6 +74,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ACCEPT = os.environ.get("RC_ACCEPT") or os.path.join(ROOT, "docs", "releases", "rc-accept.txt")
 REGISTER = os.path.join(ROOT, "docs", "decision-register.md")
 ES_PKG = "projects/ROCKNIX/packages/ui/emulationstation/package.mk"
+PROXY_PKG = "projects/ROCKNIX/packages/network/raofflineproxy"
 STATES = ("CURRENT", "PINNED", "BEHIND", "INHERITED", "LOCAL", "UNKNOWN")
 
 
@@ -125,6 +127,35 @@ class Report:
     def add(self, verdict, item, text):
         self.rows.append((verdict, item, text))
         print("%-9s %-24s %s" % (verdict, item, text), flush=True)
+
+
+def check_proxy_schema(r, tree):
+    """Catch a stale review note before building; this is not a schema test.
+
+    The full scripts suite still reads a database written by current Storage.
+    A pin refresh requires reading that schema, not automatically stamping a
+    new hash into the comment (#414, F-RA-07/28).
+    """
+    package = os.path.join(tree, PROXY_PKG)
+    try:
+        with open(os.path.join(package, "package.mk"), encoding="utf-8") as f:
+            recipe = f.read()
+        with open(os.path.join(package, "sources", "raofflineproxy-ctl"), encoding="utf-8") as f:
+            script = f.read()
+    except (OSError, UnicodeError) as exc:
+        r.add("CANNOT", "proxy schema note", "cannot read selected tree: %s" % type(exc).__name__)
+        return
+    pins = re.findall(r'^PKG_VERSION="([0-9a-f]{40})"\s*$', recipe, re.M)
+    assignments = re.findall(r'^PKG_VERSION=', recipe, re.M)
+    header, boundary, _ = script.partition("\n. /etc/profile\n")
+    notes = re.findall(r'^# package\.mk pins \(([0-9a-f]{40}), storage\.py$', header, re.M)
+    claims = re.findall(r'^# package\.mk pins', header, re.M)
+    if len(pins) != 1 or len(assignments) != 1 or not boundary or len(notes) != 1 or len(claims) != 1:
+        r.add("FAIL", "proxy schema note", "missing, malformed or ambiguous package pin/schema note")
+    elif notes[0] != pins[0]:
+        r.add("FAIL", "proxy schema note", "review note %s differs from package pin %s" % (notes[0], pins[0]))
+    else:
+        r.add("PASS", "proxy schema note", "review note matches %s; runtime schema proof remains separate" % pins[0])
 
 
 def check_packages(r, tree, acc):
@@ -308,6 +339,7 @@ def main():
     ap.add_argument("--es", default=os.path.expanduser("~/Development/emulationstation-next"))
     ap.add_argument("--no-fetch", action="store_true")
     ap.add_argument("--allow-unchecked", action="append", default=[], choices=["device-facts"])
+    ap.add_argument("--only", choices=["proxy-schema"], help="run only the named offline check; not an RC verdict")
     a = ap.parse_args()
     tree = os.path.abspath(a.tree)
     fetch = not a.no_fetch
@@ -315,9 +347,13 @@ def main():
     branch = run(["git", "-C", tree, "branch", "--show-current"])[1].strip() or "(detached)"
     print("rc-preflight: %s at %s (%s)" % (tree, head, branch), flush=True)
 
+    r = Report()
+    check_proxy_schema(r, tree)
+    if a.only:
+        # Deliberately no MAY BE CUT verdict for a scoped source check.
+        return 2 if any(row[0] == "CANNOT" for row in r.rows) else int(any(row[0] == "FAIL" for row in r.rows))
     ids = decided_ids()
     acc, bad = acceptances(ids)
-    r = Report()
     for b in bad:
         r.add("NOTE", "rc-accept.txt", b)
 
