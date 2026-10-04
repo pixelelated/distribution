@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Updated 2026-10-04T22:12:37.749966+00:00. Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261004T221237Z.md`.
+> Updated 2026-10-04T22:04:04.135551+00:00. Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261004T220404Z.md`.
 
 ## Start here
 
@@ -28,7 +28,7 @@ files,live regression and7 unstarted owners. Its stale readiness paragraph
 and precise harness-manifest wording findings are corrected.
 A helper installation is COMPLETE; do not ask to reinstall it.
 
-## Current: #424 identity blocker found; finish frozen05 matrix before replacement build
+## Current: replacement05 memory qualification passes; bilingual UI/boot running
 
 Frozen tree `/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement05`,
 branch `build/m7-pixelelated-replacement05`, commit
@@ -55,29 +55,6 @@ A local wrapper misparsed the store's prefixed success line after successful
 storage (actual88647=1). Original script/failure retained, independent verify
 and path readback succeeded before QA. Never relabel that wrapper0 or rebuild
 an already good image because of its post-store parser failure.
-
-## Current blocker #424 — actual ES child lacks OS_NAME
-
-ui-05 actual main-menu frame says ROCKNIX0.0.1, while information page and
-/etc/os-release correctly say pixelelated. Read-only actual/proc/PID/environ
-shows no OS_NAME. ApiSystem::getApplicationName reads env and falls back to
-ROCKNIX. Therefore updates screen also shows legacy automatic/update rows,
-and the walk's manual-update capture is NO UPDATE AVAILABLE. This candidate
-is NOT RC-ready even if the capture harness finishes0.
-
-Source boundary: profile.d/001-functions sources /etc/os-release, but
-hardware/quirks/profile.d/999-export exports OS_VERSION/OS_BUILD, not OS_NAME.
-Feature source correction adds OS_NAME to that existing list. Strengthened
-rasteratops-identity-check executes actual export profile in a clean shell
-then starts a child; oldprofile1failure, corrected0 with other contracts green.
-Installed-negative fields/command/profile hash, original file, frames and
-source receipts: docs/qa-logs/2026-10-04-es-identity-export/.
-No in-flight/frozen source or guest file was altered. Source fix is not yet
-an installed-image proof; #424 remains open. Finish current UI plus prepared
-predecessor/subset owners to catch any other issue before one replacement
-build. Then use latest explicitly integrated source for a new freeze/cache,
-with process OS_NAME and actual main-menu/manual-update frames required on
-clean and retained-storage guests. Ordinary RA fixture and P4 stay required.
 
 ## Completed qualification on this exact image
 
@@ -167,10 +144,9 @@ selected measurements/stamps/results and terminal receipts in memory-04/.
 ## Failed ui-04 and ACTIVE fresh ui-05 (actual9732)
 
 ui-04 actual26853/allrc1: docs RA walk's eleven-up main-menu wrap landed on
-the wrong screen. The initial missing-Wi-Fi hypothesis is disproved by the
-fresh actual menu frame, which includes NETWORK SETTINGS. Exact old wrap
-cause is unproved; do not repeat it as fact. The failure frame is
-Bobl's single-game list, not an RA screen. Source and archaeology retained; #422 filed before correction. Actual21:59:53 proves
+BACK because GENERIC_X64 lacks the optional Wi-Fi row. The failure frame is
+Bobl's single-game list, not an RA screen. Source conditional GuiMenu.cpp and
+archaeology retained; #422 filed before correction. Actual21:59:53 proves
 runner3769786/watcher3769787/command3769816/guest3770626 exited. Backend scan
 at21:59:36 was already empty after cleanup (file's first-panel name is not
 an observation of a live process). Preserve executed harness/results.
@@ -180,7 +156,7 @@ turn failed UI owner into a pass. All receipts retained in ui-04/.
 
 Fresh ui-05 /workspace/tmp/pixelelated-m7-ui-05 started22:02:52UTC,
 actual9732, run .build-runs/20261004T220252Z-587506e3 under frozen05;
-runner3796202/watcher3796203/command3796232, firstguest3797055, ownedbackend3796699 (actual22:06 host observation).
+runner3796202/watcher3796203/command3796232, firstguest3797055.
 Same5s recursive monitoring/5min stall signal, independent16GiB guest.
 New m7-cloud-sync and m7-retro-achievements walks declare Kodi/RA disabled,
 start from first GAME SETTINGS row and capture menu/entry frames. No optional
@@ -188,8 +164,7 @@ Wi-Fi row count. Explicit kodi.enabled=0 added to the new seed only. Existing
 frozen inputs and executed ui-04 are unchanged. Eleven-member ui05 seal.
 Actual boot captures precede serial wait at640/1280, then both languages,
 Tools and identity/manual-update. Poll9732, inspect actual frames, reconcile
-allrc/cleanup before predecessor-01. Both640 language captures completed,25English/15French frames.1280 is running.
-Main-menu/manual-update semantics fail #424 despite captures; no UI pass claimed.
+allrc/cleanup before predecessor-01. No full UI pass claimed.
 Predecessor-01 is still UNSTARTED; its prerequisite now names ui-05. Previous
 run.sh/manifest are retained in preparation-revision-2 and revised seal copied
 into repository evidence. Never change a started owner. Subset-01 still
@@ -338,9 +313,9 @@ Workingfeature /workspace/repos/rocknix.worktrees/conflict-resolution;
 primary /workspace/repos/rocknix staysnext. Integrateonlyfull explicithashes
 bycherry-pick;neverwholehistoricalfeaturemergeordestination-relativeHEAD.
 Normalpush git@github-blitterbot:pixelelated/distribution.git;verifyrefs.
-Latest published featureddaffddd736ce1bc9a58838dce23b9d51f4ceae0 →
-next109f9b25e566ade3644bad4f3cdecaf5aa7a3c79, actual65573=0 normal
-pushes/ref readbacks. Pending #424 export correction/proof follows.
+Latest published feature1e65d7a354fd6b8946dbc546988c561f0ee19668 →
+nextb9dba4f27b85d0f2bb3d3425cc1d09c53b11ba66, actual38316=0 normal
+pushes/ref readbacks. Pending QA guard/memory/new subset preparation follow.
 Never re-cherry-pick already integrated85e733e503 or1e65d7a354.
 Published evidence: feature74d1497e3af319263f82166415b726172eef079b →
 next2c2ece74fd72944f839bd1f615c4baec2521c8d4, normal pushes/remote readbacks

@@ -153,3 +153,5 @@ issue is needed; `issue: none` is the state that expires.
 - 2026-10-04 19:22 UTC — The installed race preserved newer settings bytes but caught0600→0644 in the shell writers. BusyBox cp also reapplied source mode over a prepared recovery temporary. Guard: shared private staging, byte streaming before rename,29 old/new applet controls and renewed image proof. Issue: #421.
 
 - 2026-10-04 22:04 UTC — UI docs walk counted the conditional Wi-Fi menu row on a VM without it; first RA walk exited to the game list. Preserve failed owner and bind candidate walks to explicit first-row fixture; issue: #422.
+
+- 2026-10-04 22:12 UTC — Correct os-release bytes did not prove the ES process inherited OS_NAME; actual menu/update frames exposed the missing export. Source child-process regression now fails before/passes after; replacement-image consumer proof required. issue: #424. Earlier #422 missing-Wi-Fi hypothesis is disproved by the actual menu frame.

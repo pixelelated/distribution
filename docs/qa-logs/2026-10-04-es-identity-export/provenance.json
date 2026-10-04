@@ -1,0 +1,11 @@
+{
+  "observed_utc": "2026-10-04T22:10:22.975091+00:00",
+  "candidate": "1e6a156b5477650e298b6a4dfff996673bf33fb1",
+  "guest_owner": "ui-05",
+  "read_only_command": "printf \"FILE\\n\"; sed -n \"/^OS_NAME=/p\" /etc/os-release; printf \"PROCESS\\n\"; p=$(pidof emulationstation); printf \"PID=%s\\n\" \"$p\"; tr \"\\000\" \"\\n\" < /proc/$p/environ | sed -n \"/^OS_NAME=/p\"; printf \"EXPORT\\n\"; sha256sum /etc/profile.d/999-export; printf \"UNIT\\n\"; systemctl show essway -p ExecStart -p EnvironmentFiles",
+  "actual_command_rc": 0,
+  "installed_export_sha256": "6fbbd88655775bd959f215560b2fb83aded7d48e753f282005d124e92e82c1d4",
+  "fixed_export_sha256": "3708af2b1786d8899854cf28fbb182ca634363cbb5d70c9e047ea5c4f9794541",
+  "source_before_rc": 1,
+  "source_after_rc": 0
+}

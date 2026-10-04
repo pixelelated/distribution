@@ -5,8 +5,7 @@
 ### If you add a variable that should persist across processes,
 ### remember to export it here.
 
-export  OS_NAME \
-	OS_VERSION \
+export  OS_VERSION \
 	OS_BUILD \
 	SLOW_CORES \
 	FAST_CORES \
