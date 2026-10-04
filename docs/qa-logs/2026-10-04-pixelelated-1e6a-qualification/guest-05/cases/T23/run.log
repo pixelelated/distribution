@@ -1,0 +1,134 @@
+21:31:39 === cloud-epic on guest d, BUILD_ID="1e6a156b5477650e298b6a4dfff996673bf33fb1"
+232
+21:31:39 == setup: the QA remote on the guest (the host backend's conf), then the QA cloud holds the fork's earlier layout with files in every folder of ours; the guest points at it
+remote: qa-cloud:
+21:31:41   cloud: ROCKNIX/Backups/2026_09_29-090000-Retroid-Pocket-Nova-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Backups/2026_09_30-120000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Content/BIOS/disksys.rom ROCKNIX/Content/ROMs/nes/Probe.nes ROCKNIX/Saves-replaced/nes/Probe.srm.1 ROCKNIX/Saves/nes/Probe.srm 
+21:31:41   guest conf: SAVES_REMOTE="/ROCKNIX/Saves" SETTINGS_REMOTE="/ROCKNIX/Backups" CONTENT_REMOTE="/ROCKNIX/Content" LAYOUT_KEEP="" 
+label=GENERIC-X64
+21:31:45 PASS T23-copy-Backups returns failure
+21:31:45 PASS T23-copy-Backups reaches injected provider operation
+21:31:45 PASS T23-copy-Backups has no completion marker
+21:31:45 PASS T23-copy-Backups preserves every payload
+21:31:46 PASS T23-copy-Backups offered for retry by boot and scan
+21:31:49 PASS T23-copy-Backups retry completes
+21:31:49 PASS T23-copy-Backups retry retains current bytes without old duplicates
+21:31:49 PASS T23-copy-Backups publishes exact marker
+21:31:49 PASS T23-copy-Backups clears completed local record
+21:31:49 PASS T23-copy-Backups repeat succeeds
+21:31:49 PASS T23-copy-Backups repeat changes no bytes/pointers
+21:31:50 PASS T23-copy-Backups clean follower configuration follows
+21:31:50 PASS T23-copy-Backups follower points at current saves
+21:31:50 PASS T23-copy-Backups follower changes no cloud bytes
+21:31:53 PASS T23-copy-Saves returns failure
+21:31:53 PASS T23-copy-Saves reaches injected provider operation
+21:31:53 PASS T23-copy-Saves has no completion marker
+21:31:53 PASS T23-copy-Saves preserves every payload
+21:31:54 PASS T23-copy-Saves offered for retry by boot and scan
+21:31:56 PASS T23-copy-Saves retry completes
+21:31:56 PASS T23-copy-Saves retry retains current bytes without old duplicates
+21:31:56 PASS T23-copy-Saves publishes exact marker
+21:31:56 PASS T23-copy-Saves clears completed local record
+21:31:57 PASS T23-copy-Saves repeat succeeds
+21:31:57 PASS T23-copy-Saves repeat changes no bytes/pointers
+21:31:57 PASS T23-copy-Saves clean follower configuration follows
+21:31:57 PASS T23-copy-Saves follower points at current saves
+21:31:57 PASS T23-copy-Saves follower changes no cloud bytes
+21:32:01 PASS T23-copy-Saves-replaced returns failure
+21:32:01 PASS T23-copy-Saves-replaced reaches injected provider operation
+21:32:01 PASS T23-copy-Saves-replaced has no completion marker
+21:32:01 PASS T23-copy-Saves-replaced preserves every payload
+21:32:02 PASS T23-copy-Saves-replaced offered for retry by boot and scan
+21:32:04 PASS T23-copy-Saves-replaced retry completes
+21:32:04 PASS T23-copy-Saves-replaced retry retains current bytes without old duplicates
+21:32:04 PASS T23-copy-Saves-replaced publishes exact marker
+21:32:04 PASS T23-copy-Saves-replaced clears completed local record
+21:32:04 PASS T23-copy-Saves-replaced repeat succeeds
+21:32:04 PASS T23-copy-Saves-replaced repeat changes no bytes/pointers
+21:32:05 PASS T23-copy-Saves-replaced clean follower configuration follows
+21:32:05 PASS T23-copy-Saves-replaced follower points at current saves
+21:32:05 PASS T23-copy-Saves-replaced follower changes no cloud bytes
+21:32:09 PASS T23-copy-Content returns failure
+21:32:09 PASS T23-copy-Content reaches injected provider operation
+21:32:09 PASS T23-copy-Content has no completion marker
+21:32:09 PASS T23-copy-Content preserves every payload
+21:32:10 PASS T23-copy-Content offered for retry by boot and scan
+21:32:11 PASS T23-copy-Content retry completes
+21:32:11 PASS T23-copy-Content retry retains current bytes without old duplicates
+21:32:11 PASS T23-copy-Content publishes exact marker
+21:32:11 PASS T23-copy-Content clears completed local record
+21:32:12 PASS T23-copy-Content repeat succeeds
+21:32:12 PASS T23-copy-Content repeat changes no bytes/pointers
+21:32:12 PASS T23-copy-Content clean follower configuration follows
+21:32:12 PASS T23-copy-Content follower points at current saves
+21:32:12 PASS T23-copy-Content follower changes no cloud bytes
+21:32:15 PASS T23-delete-Backups returns failure
+21:32:16 PASS T23-delete-Backups reaches injected provider operation
+21:32:16 PASS T23-delete-Backups has no completion marker
+21:32:16 PASS T23-delete-Backups preserves every payload
+21:32:16 PASS T23-delete-Backups offered for retry by boot and scan
+21:32:19 PASS T23-delete-Backups retry completes
+21:32:19 PASS T23-delete-Backups retry retains current bytes without old duplicates
+21:32:19 PASS T23-delete-Backups publishes exact marker
+21:32:19 PASS T23-delete-Backups clears completed local record
+21:32:20 PASS T23-delete-Backups repeat succeeds
+21:32:20 PASS T23-delete-Backups repeat changes no bytes/pointers
+21:32:20 PASS T23-delete-Backups clean follower configuration follows
+21:32:20 PASS T23-delete-Backups follower points at current saves
+21:32:20 PASS T23-delete-Backups follower changes no cloud bytes
+21:32:24 PASS T23-delete-Saves returns failure
+21:32:24 PASS T23-delete-Saves reaches injected provider operation
+21:32:24 PASS T23-delete-Saves has no completion marker
+21:32:24 PASS T23-delete-Saves preserves every payload
+21:32:24 PASS T23-delete-Saves offered for retry by boot and scan
+21:32:27 PASS T23-delete-Saves retry completes
+21:32:27 PASS T23-delete-Saves retry retains current bytes without old duplicates
+21:32:27 PASS T23-delete-Saves publishes exact marker
+21:32:27 PASS T23-delete-Saves clears completed local record
+21:32:27 PASS T23-delete-Saves repeat succeeds
+21:32:28 PASS T23-delete-Saves repeat changes no bytes/pointers
+21:32:28 PASS T23-delete-Saves clean follower configuration follows
+21:32:28 PASS T23-delete-Saves follower points at current saves
+21:32:28 PASS T23-delete-Saves follower changes no cloud bytes
+21:32:32 PASS T23-delete-Saves-replaced returns failure
+21:32:32 PASS T23-delete-Saves-replaced reaches injected provider operation
+21:32:32 PASS T23-delete-Saves-replaced has no completion marker
+21:32:32 PASS T23-delete-Saves-replaced preserves every payload
+21:32:33 PASS T23-delete-Saves-replaced offered for retry by boot and scan
+21:32:35 PASS T23-delete-Saves-replaced retry completes
+21:32:35 PASS T23-delete-Saves-replaced retry retains current bytes without old duplicates
+21:32:35 PASS T23-delete-Saves-replaced publishes exact marker
+21:32:35 PASS T23-delete-Saves-replaced clears completed local record
+21:32:35 PASS T23-delete-Saves-replaced repeat succeeds
+21:32:35 PASS T23-delete-Saves-replaced repeat changes no bytes/pointers
+21:32:36 PASS T23-delete-Saves-replaced clean follower configuration follows
+21:32:36 PASS T23-delete-Saves-replaced follower points at current saves
+21:32:36 PASS T23-delete-Saves-replaced follower changes no cloud bytes
+21:32:40 PASS T23-delete-Content returns failure
+21:32:40 PASS T23-delete-Content reaches injected provider operation
+21:32:40 PASS T23-delete-Content has no completion marker
+21:32:40 PASS T23-delete-Content preserves every payload
+21:32:41 PASS T23-delete-Content offered for retry by boot and scan
+21:32:42 PASS T23-delete-Content retry completes
+21:32:43 PASS T23-delete-Content retry retains current bytes without old duplicates
+21:32:43 PASS T23-delete-Content publishes exact marker
+21:32:43 PASS T23-delete-Content clears completed local record
+21:32:43 PASS T23-delete-Content repeat succeeds
+21:32:43 PASS T23-delete-Content repeat changes no bytes/pointers
+21:32:44 PASS T23-delete-Content clean follower configuration follows
+21:32:44 PASS T23-delete-Content follower points at current saves
+21:32:44 PASS T23-delete-Content follower changes no cloud bytes
+21:32:48 PASS T23-rcat-marker returns failure
+21:32:48 PASS T23-rcat-marker reaches injected provider operation
+21:32:48 PASS T23-rcat-marker has no completion marker
+21:32:48 PASS T23-rcat-marker preserves every payload
+21:32:49 PASS T23-rcat-marker offered for retry by boot and scan
+21:32:50 PASS T23-rcat-marker retry completes
+21:32:50 PASS T23-rcat-marker retry retains current bytes without old duplicates
+21:32:50 PASS T23-rcat-marker publishes exact marker
+21:32:50 PASS T23-rcat-marker clears completed local record
+21:32:51 PASS T23-rcat-marker repeat succeeds
+21:32:51 PASS T23-rcat-marker repeat changes no bytes/pointers
+21:32:51 PASS T23-rcat-marker clean follower configuration follows
+21:32:51 PASS T23-rcat-marker follower points at current saves
+21:32:51 PASS T23-rcat-marker follower changes no cloud bytes
+21:32:51 done: 126 PASS, 0 FAIL

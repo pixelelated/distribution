@@ -1,0 +1,69 @@
+21:00:58 === cloud-epic on guest d, BUILD_ID="1e6a156b5477650e298b6a4dfff996673bf33fb1"
+232
+21:00:59 == setup: the QA remote on the guest (the host backend's conf), then the QA cloud holds the fork's earlier layout with files in every folder of ours; the guest points at it
+remote: qa-cloud:
+21:01:00   cloud: ROCKNIX/Backups/2026_09_29-090000-Retroid-Pocket-Nova-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Backups/2026_09_30-120000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Content/BIOS/disksys.rom ROCKNIX/Content/ROMs/nes/Probe.nes ROCKNIX/Saves-replaced/nes/Probe.srm.1 ROCKNIX/Saves/nes/Probe.srm 
+21:01:01   guest conf: SAVES_REMOTE="/ROCKNIX/Saves" SETTINGS_REMOTE="/ROCKNIX/Backups" CONTENT_REMOTE="/ROCKNIX/Content" LAYOUT_KEEP="" 
+label=GENERIC-X64
+21:01:28   picks reset: content=0 saves=1
+21:01:48 == B0: a carried /GAMES that holds saves and no current folder -> the move dialog names /GAMES; NOT NOW
+21:01:49   guest conf: SAVES_REMOTE="/GAMES" SETTINGS_REMOTE="/GAMES/backup" CONTENT_REMOTE="" LAYOUT_KEEP="" 
+dismiss-dialogs: 1 press(es) moved the screen, back on the carousel
+changed after 0.1s (`key ret`, line 3)
+settle: still after 1.7s
+changed after 0.1s (`key x`, line 6)
+settle: still after 1.3s
+changed after 0.1s (`key up`, line 9)
+changed after 0.1s (`key up`, line 11)
+changed after 0.1s (`key up`, line 13)
+settle: still after 1.3s
+changed after 0.1s (`key x`, line 16)
+settle: still after 1.3s
+captured /workspace/tmp/pixelelated-m7-guest-05/artifacts/cloud-epic/B/frames/01-B0-hub.png
+changed after 0.1s (`key down`, line 20)
+changed after 0.1s (`key x`, line 22)
+captured /workspace/tmp/pixelelated-m7-guest-05/artifacts/cloud-epic/B/frames/02-B0-scan-0.png
+captured /workspace/tmp/pixelelated-m7-guest-05/artifacts/cloud-epic/B/frames/03-B0-scan-1.png
+settle: still after 3.4s
+captured /workspace/tmp/pixelelated-m7-guest-05/artifacts/cloud-epic/B/frames/04-B0-after-scan.png
+21:02:16 PASS walk epic-B0.steps
+captured /workspace/tmp/pixelelated-m7-guest-05/artifacts/cloud-epic/B/frames/01-B0-move-question.png
+changed after 0.0s (`key z`, line 2)
+settle: still after 1.3s
+dismiss-dialogs: 5 press(es) moved the screen, back on the carousel
+21:02:28 PASS walk epic-B0b.steps
+21:02:28 PASS B0: NOT NOW on the /GAMES move left the conf on /GAMES
+21:02:28 == B: a carried /GAMES and no current folder -> the offer to create; CREATE IT re-points and seeds
+21:02:28   guest conf: SAVES_REMOTE="/GAMES" SETTINGS_REMOTE="/GAMES/backup" CONTENT_REMOTE="" LAYOUT_KEEP="" 
+dismiss-dialogs: 1 press(es) moved the screen, back on the carousel
+changed after 0.1s (`key ret`, line 3)
+settle: still after 1.7s
+changed after 0.0s (`key x`, line 6)
+settle: still after 1.3s
+changed after 0.1s (`key up`, line 9)
+changed after 0.1s (`key up`, line 11)
+changed after 0.0s (`key up`, line 13)
+settle: still after 1.3s
+changed after 0.0s (`key x`, line 16)
+settle: still after 1.3s
+captured /workspace/tmp/pixelelated-m7-guest-05/artifacts/cloud-epic/B/frames/01-B-hub.png
+changed after 0.0s (`key down`, line 20)
+changed after 0.0s (`key x`, line 22)
+captured /workspace/tmp/pixelelated-m7-guest-05/artifacts/cloud-epic/B/frames/02-B-scan-0.png
+captured /workspace/tmp/pixelelated-m7-guest-05/artifacts/cloud-epic/B/frames/03-B-scan-1.png
+settle: still after 3.4s
+captured /workspace/tmp/pixelelated-m7-guest-05/artifacts/cloud-epic/B/frames/04-B-after-scan.png
+21:02:55 PASS walk epic-B.steps
+changed after 0.1s (`key x`, line 1)
+captured /workspace/tmp/pixelelated-m7-guest-05/artifacts/cloud-epic/B/frames/01-B-create-running.png
+settle: still after 5.9s
+captured /workspace/tmp/pixelelated-m7-guest-05/artifacts/cloud-epic/B/frames/02-B-rescan.png
+settle: still after 3.4s
+captured /workspace/tmp/pixelelated-m7-guest-05/artifacts/cloud-epic/B/frames/03-B-options-after-create.png
+dismiss-dialogs: 5 press(es) moved the screen, back on the carousel
+21:03:17 PASS walk epic-B2.steps
+21:03:17   cloud after CREATE IT: BIOS/README.txt ROMs/README.txt _pixelelated_hold/Backups/2026_09_29-090000-Retroid-Pocket-Nova-ROCKNIX_SETTINGS.tar.gz _pixelelated_hold/Backups/2026_09_30-120000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz _pixelelated_hold/Content/BIOS/disksys.rom _pixelelated_hold/Content/ROMs/nes/Probe.nes _pixelelated_hold/Saves-replaced/nes/Probe.srm.1 _pixelelated_hold/Saves/nes/Probe.srm pixelelated/.layout pixelelated/Backups/README.txt pixelelated/Saves/README.txt 
+21:03:17 PASS B: CREATE IT makes saves/backups and preserves the explicit cloud content root
+21:03:17 PASS B: the carried /GAMES setting is re-pointed at the current layout
+21:03:17   frames: 12 under /workspace/tmp/pixelelated-m7-guest-05/artifacts/cloud-epic/B/frames (numbered walk captures); boot and continuous captures are in their named subdirectories
+21:03:17 done: 7 PASS, 0 FAIL
