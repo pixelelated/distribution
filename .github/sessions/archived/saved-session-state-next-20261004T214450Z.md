@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Updated 2026-10-04T21:44:50.093084+00:00. Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261004T214450Z.md`.
+> Updated 2026-10-04T21:40:50.349050+00:00. Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261004T214050Z.md`.
 
 ## Start here
 
@@ -28,7 +28,7 @@ files,live regression and7 unstarted owners. Its stale readiness paragraph
 and precise harness-manifest wording findings are corrected.
 A helper installation is COMPLETE; do not ask to reinstall it.
 
-## Current: replacement05 passes cloud, upgraded-runtime, proxy and mixed-pair checks; memory running
+## Current: replacement05 passes cloud-state, upgraded-runtime and proxy checks; mixed pair running
 
 Frozen tree `/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement05`,
 branch `build/m7-pixelelated-replacement05`, commit
@@ -118,38 +118,22 @@ Original wrapper echo says replacement01; preserve it and identify05 from
 exact BUILD_ID/provenance/custody, not that stale diagnostic. Receipts for
 all three are in docs/qa-logs/2026-10-04-pixelelated-1e6a-qualification/.
 
-Optins-04 terminal21:42:00, actual83669/allrc0: S3 roundtrip PASS110s and
-mixed actual RC2/fresh pair42PASS/0FAIL. Old guest69e6039f8f upgrades to1e6a;
-configured root preserved, shared cloud moves/follows, saves roundtrip byte
-for byte, provider errors do not advance pointers. Cases5m/5n retain their
-explicit staged missed-step/old-writer inputs, not an old-OS write for5n.
-Pair raw report path uses bundle suffix c15152b3ea, not BUILD_ID:
-/workspace/artifacts/rocknix-images/qa-c15152b3ea-pair-migration-from-69e6039f8f-20261004-2139.
-Actual21:42:47 confirms runner3660474/watcher3660475/command3660504,
-S3guests3661628/3661654 and pair3675182/3675221 absent; owned rclone backend
-and MinIO container absent. Full receipts retained in qualification/optins-04.
+## ACTIVE: actual tool83669 — optins-04 mixed RC2/fresh pair; no restart
 
-## ACTIVE: actual tool86046 — memory-04; no restart
+Owner /workspace/tmp/pixelelated-m7-optins-04, started21:36:53UTC.
+Frozen05 run .build-runs/20261004T213653Z-87005a04;
+runner3660474/watcher3660475, shared5s recursive monitoring/5min stall signal.
+S3 roundtrip PASS110s at21:39; S3 guests3661628/3661654 stopped and MinIO
+down. Mixed pair started21:39:24. Actual21:39:39 sees owned QEMU3675182/a
+and3675221/b under owner/pair; MinIO absent. The WebDAV backend is started
+by the pair tool after both guests are ready. Retain its actual PID too.
+Read detailed artifacts/rocknix-images/ reports and pair-console.log.
 
-Owner /workspace/tmp/pixelelated-m7-memory-04, started21:42:50UTC.
-Frozen05 run .build-runs/20261004T214250Z-eff5137e;
-runner3693678/watcher3693679. Shared5s recursive monitoring/5min stall signal.
-Fresh16GiB640x480 guest3694455 is on the exact candidate; ROM hashes/idle UI
-pass. First virgl10 run is in progress with5warmups. Next software10, then
-software50 with actual completed exit-sync stamps, then30s HTTPS sign-in load.
-Unchanged growth limits: VmSize<1024KiB and RSS<2048KiB after warmup.
-Exit-helper status1 is retained and expected when killall also names absent
-processes; observed RetroArch exit, stable ES PID and idle return are the
-assertions (tools/es-launch-memory). Do not mistake that helper status for
-this owner's final result. Read artifacts/*/cycles.csv, result.json and build.log.
-
-Poll actual exec86046. At termination reconcile actual result with inner.rc,
+Poll actual exec83669. At termination reconcile actual result with inner.rc,
 outer.rc,tool-wrapper.rc and run/build.rc, then prove actual runner/watcher,
-all owned QEMU/backend exits. GuestPID changes between renderers: collect the
-later actual PIDs too. /tmp/pixelelated-finish-owner.py records terminal state
-only after the actual tool returns. Next ui-04, then predecessor-01; neither
-has started. No concurrent VM owners or changes to live inputs. Connected
-supervision stays necessary (#395 destination pending).
+all owned QEMU/backend exits. /tmp/pixelelated-finish-owner.py records this
+only after the actual tool returns. No VM owners run concurrently; never edit
+live inputs. Connected supervision remains necessary (#395 destination pending).
 Fresh-context proof21:26 verified all12bundle members,6547product/198QA hashes,
 180links,146QAartifacts,11existing harnesses plus7new predecessor members and
 actual ownership/tracker. Retained resume-proof-matrix.md; no unsafe gap.
@@ -169,9 +153,11 @@ opusfile,rclone,retropie-shaders,slang-shaders,tailscale,wildmidi,zerotier-one.
 
 ## Next in binding M7 order
 
-1. Finish/supervise memory-04; preserve and diagnose any failure before a fresh
+1. Finish/supervise optins-04; preserve and diagnose any failure before a fresh
    owner. Do not rerun an executed owner or edit an in-flight source/harness.
 2. Remaining prepared UNSTARTED owners, all under /workspace/tmp/pixelelated-m7-:
+   memory-04:virgl10/software10/software50+sync,5warmups,unchanged growth
+   limits (VmSize<1024KiB/RSS<2048KiB),30s HTTPS sign-in load;
    ui-04:EN/FR640x480/1280x960 cloud/RA/identity/manual-update captures,
    English640 Tools rows,actualboot scanout at both panels.
    THEN new predecessor-01: five exact RC2-script-created inherited states
@@ -199,7 +185,7 @@ opusfile,rclone,retropie-shaders,slang-shaders,tailscale,wildmidi,zerotier-one.
    updated guest-05 at20:55; actual32776 updated current matrix/order at21:20.
    After evidence publication, close only complete #392/#417/#419/#384 with
    scoped code-trace/Already written comments and readback. #416 still needs
-   Tools UI rows. Update M7/delivery to active memory; remaining-criteria.md
+   Tools UI rows. Update M7/delivery to the active pair; remaining-criteria.md
    maps each issue. Do not count provider flush as part of offline preservation.
 6. Ordinary RA fixture still awaits owner input below. Then approved P4
    primary+Fable5.1/xhigh via verified Facilitator/OpenRouter. Read code-auditor
