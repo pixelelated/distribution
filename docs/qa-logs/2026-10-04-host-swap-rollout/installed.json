@@ -1,0 +1,18 @@
+{
+  "observed_at": "2026-10-04T16:21:33Z",
+  "helper": {
+    "path": "/usr/local/sbin/pixelelated-reclaim-swap",
+    "uid": 0,
+    "gid": 0,
+    "mode": "0o755"
+  },
+  "policy": {
+    "path": "/etc/sudoers.d/zz-pixelelated-reclaim-swap",
+    "uid": 0,
+    "gid": 0,
+    "mode": "0o440"
+  },
+  "old_policy_absent": true,
+  "helper_sha256": "acfb7936c7271cd642a628a66b9a50d2b70c765eac9dd43bca60a67a7fec0547",
+  "policy_sha256_verified_by_owner_installer": "583685083f8cbeed1fab20d5ae4442c5cc164f4bbcd75d4632ee6550377f98e9"
+}
