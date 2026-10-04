@@ -1,0 +1,233 @@
+/workspace/tmp/pixelelated-m7-memory-04/outer.sh: OK
+/workspace/tmp/pixelelated-m7-memory-04/run.sh: OK
+/workspace/tmp/pixelelated-m7-memory-04/seed.py: OK
+/workspace/tmp/pixelelated-m7-memory-04/stop-guest.py: OK
+/workspace/tmp/pixelelated-m7-memory-04/verify-inputs.py: OK
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/a179bd73a732f49c4219177c89a860d561dad4d16a3467aae2cbafc15152b3ea
+Preparing independent 16GiB candidate guest d
+Image resized.
+No errors were found on the image.
+31689/262144 = 12.09% allocated, 0.00% fragmented, 0.00% compressed clusters
+Image end offset: 2077425664
+[W][21:42:58.805696] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][21:42:58.805729] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+ready after ~23s
+PASS guest d exact BUILD_ID 1e6a156b5477650e298b6a4dfff996673bf33fb1
+PASS QA ROM bytes /storage/roms/gb/Ninoid.gb a40191c169c68e6607ace072da96aab957f306f55ded59ce1f287c1f5273387b
+PASS QA ROM bytes /storage/roms/gbc/Tobu Tobu Girl Deluxe.gb 0a0e8018dbbc8d7f8cd99f05e7cdc7b4cc9e358ecfe9377ebfb2291a84c6e310
+PASS QA ROM bytes /storage/roms/nes/Bobl.nes 025ec44d0d84ac469b442ee56c3d69e035e9a38430ae849172fe3a1e569d0dea
+PASS guest d seeded and idle
+0,2110,1791150206,1560228,154916,13
+exit-helper return=1
+1,2110,1791150213,1559500,144300,13
+exit-helper return=1
+2,2110,1791150221,1559500,144160,13
+exit-helper return=1
+3,2110,1791150229,1559500,144500,13
+exit-helper return=1
+4,2110,1791150236,1559500,144740,13
+exit-helper return=1
+5,2110,1791150244,1559500,144812,13
+exit-helper return=1
+6,2110,1791150251,1559500,144784,13
+exit-helper return=1
+7,2110,1791150259,1559500,144960,13
+exit-helper return=1
+8,2110,1791150266,1559500,144916,13
+exit-helper return=1
+9,2110,1791150274,1559500,145120,13
+exit-helper return=1
+10,2110,1791150282,1559500,144984,13
+exit-helper return=1
+11,2110,1791150289,1559500,145140,13
+exit-helper return=1
+12,2110,1791150297,1559500,145072,13
+exit-helper return=1
+13,2110,1791150304,1559500,144980,13
+exit-helper return=1
+14,2110,1791150312,1559500,145260,13
+exit-helper return=1
+15,2110,1791150320,1559500,145420,13
+{"pid": 2110, "cycles": 10, "warmup": 5, "vmsize_growth_kib": 0, "rss_growth_kib": 608, "passed": true}
+PASS owned guest stopped 3694455
+[W][21:45:20.283306] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][21:45:20.283339] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+ready after ~19s
+PASS guest d exact BUILD_ID 1e6a156b5477650e298b6a4dfff996673bf33fb1
+PASS QA ROM bytes /storage/roms/gb/Ninoid.gb a40191c169c68e6607ace072da96aab957f306f55ded59ce1f287c1f5273387b
+PASS QA ROM bytes /storage/roms/gbc/Tobu Tobu Girl Deluxe.gb 0a0e8018dbbc8d7f8cd99f05e7cdc7b4cc9e358ecfe9377ebfb2291a84c6e310
+PASS QA ROM bytes /storage/roms/nes/Bobl.nes 025ec44d0d84ac469b442ee56c3d69e035e9a38430ae849172fe3a1e569d0dea
+PASS guest d seeded and idle
+0,1985,1791150343,2199472,200840,21
+exit-helper return=1
+1,1985,1791150350,2196492,172556,21
+exit-helper return=1
+2,1985,1791150358,2196288,173144,21
+exit-helper return=1
+3,1985,1791150365,2196288,173236,21
+exit-helper return=1
+4,1985,1791150373,2196288,172052,21
+exit-helper return=1
+5,1985,1791150381,2196288,172044,21
+exit-helper return=1
+6,1985,1791150388,2196288,172272,21
+exit-helper return=1
+7,1985,1791150396,2196288,172112,21
+exit-helper return=1
+8,1985,1791150404,2196288,171668,21
+exit-helper return=1
+9,1985,1791150412,2196288,172204,21
+exit-helper return=1
+10,1985,1791150419,2196288,172116,21
+exit-helper return=1
+11,1985,1791150427,2196288,172684,21
+exit-helper return=1
+12,1985,1791150434,2196288,172352,21
+exit-helper return=1
+13,1985,1791150442,2196288,172080,21
+exit-helper return=1
+14,1985,1791150449,2196288,172260,21
+exit-helper return=1
+15,1985,1791150457,2196288,172324,21
+{"pid": 1985, "cycles": 10, "warmup": 5, "vmsize_growth_kib": 0, "rss_growth_kib": 280, "passed": true}
+up: webdav serving /workspace/tmp/pixelelated-m7-memory-04/cloud/data at http://127.0.0.1:9040 (guest: http://10.0.2.2:9040)
+OK /pixelelated/Saves
+OK /pixelelated/Backups
+OK /pixelelated/Content/ROMs
+OK /pixelelated/Content/BIOS
+0,17365,1791150462,2198136,198296,21
+exit-helper return=1
+1,17365,1791150471,2203588,172500,21
+exit-helper return=1
+2,17365,1791150480,2203588,171000,21
+exit-helper return=1
+3,17365,1791150489,2203588,171008,21
+exit-helper return=1
+4,17365,1791150498,2203588,170880,21
+exit-helper return=1
+5,17365,1791150507,2203588,171060,21
+exit-helper return=1
+6,17365,1791150516,2203588,171016,21
+exit-helper return=1
+7,17365,1791150525,2203588,170780,21
+exit-helper return=1
+8,17365,1791150534,2203588,171784,21
+exit-helper return=1
+9,17365,1791150543,2203588,171924,21
+exit-helper return=1
+10,17365,1791150552,2203588,171744,21
+exit-helper return=1
+11,17365,1791150561,2203588,171420,21
+exit-helper return=1
+12,17365,1791150570,2203588,171772,21
+exit-helper return=1
+13,17365,1791150579,2203588,171740,21
+exit-helper return=1
+14,17365,1791150587,2203588,171680,21
+exit-helper return=1
+15,17365,1791150596,2203588,171628,21
+exit-helper return=1
+16,17365,1791150605,2203588,171712,21
+exit-helper return=1
+17,17365,1791150614,2203588,171552,21
+exit-helper return=1
+18,17365,1791150623,2203588,171800,21
+exit-helper return=1
+19,17365,1791150632,2203588,171916,21
+exit-helper return=1
+20,17365,1791150641,2203588,172024,21
+exit-helper return=1
+21,17365,1791150650,2203588,171940,21
+exit-helper return=1
+22,17365,1791150659,2203588,171796,21
+exit-helper return=1
+23,17365,1791150668,2203588,172172,21
+exit-helper return=1
+24,17365,1791150677,2203588,172016,21
+exit-helper return=1
+25,17365,1791150686,2203588,172232,21
+exit-helper return=1
+26,17365,1791150695,2203588,171940,21
+exit-helper return=1
+27,17365,1791150704,2203588,171744,21
+exit-helper return=1
+28,17365,1791150713,2203588,171936,21
+exit-helper return=1
+29,17365,1791150722,2203588,171860,21
+exit-helper return=1
+30,17365,1791150731,2203588,171852,21
+exit-helper return=1
+31,17365,1791150740,2203588,171920,21
+exit-helper return=1
+32,17365,1791150749,2203588,172092,21
+exit-helper return=1
+33,17365,1791150758,2203588,172208,21
+exit-helper return=1
+34,17365,1791150767,2203588,172296,21
+exit-helper return=1
+35,17365,1791150776,2203588,171932,21
+exit-helper return=1
+36,17365,1791150785,2203588,171872,21
+exit-helper return=1
+37,17365,1791150794,2203588,171984,21
+exit-helper return=1
+38,17365,1791150803,2203588,172044,21
+exit-helper return=1
+39,17365,1791150812,2203588,171796,21
+exit-helper return=1
+40,17365,1791150821,2203588,172084,21
+exit-helper return=1
+41,17365,1791150830,2203588,171788,21
+exit-helper return=1
+42,17365,1791150839,2203588,171928,21
+exit-helper return=1
+43,17365,1791150848,2203588,171852,21
+exit-helper return=1
+44,17365,1791150857,2203588,171872,21
+exit-helper return=1
+45,17365,1791150866,2203588,171848,21
+exit-helper return=1
+46,17365,1791150875,2203588,172008,21
+exit-helper return=1
+47,17365,1791150884,2203588,171980,21
+exit-helper return=1
+48,17365,1791150893,2203588,172168,21
+exit-helper return=1
+49,17365,1791150902,2203588,171768,21
+exit-helper return=1
+50,17365,1791150911,2203588,172132,21
+exit-helper return=1
+51,17365,1791150920,2203588,171948,21
+exit-helper return=1
+52,17365,1791150929,2203588,171976,21
+exit-helper return=1
+53,17365,1791150938,2203588,171768,21
+exit-helper return=1
+54,17365,1791150947,2203588,171996,21
+exit-helper return=1
+55,17365,1791150956,2203588,171680,21
+{"pid": 17365, "cycles": 50, "warmup": 5, "vmsize_growth_kib": 0, "rss_growth_kib": 620, "passed": true}
+{
+ "loaded": true,
+ "port": "10026",
+ "guest": "BUILD_ID=\"1e6a156b5477650e298b6a4dfff996673bf33fb1\" /usr/lib/libwebkit2gtk-4.1.so.0",
+ "url": "https://example.org/",
+ "seconds": 30,
+ "wayland": "wayland-1",
+ "peak_hwm_kb": {
+  "cloud-signin-wi": 128512,
+  "WebKitWebProces": 106636,
+  "WebKitNetworkPr": 55228
+ },
+ "peak_total_rss_kb": 290356,
+ "free_mb_before": "7017",
+ "free_mb_after": "7005",
+ "page": "https://example.org/MESA-EGL: warning: egl: failed to create dri2 screen\n** Message: 17:55:57.200: load finished, asking the page for a field to focus",
+ "pass": true
+}
+PASS owned guest stopped 3705688
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/a179bd73a732f49c4219177c89a860d561dad4d16a3467aae2cbafc15152b3ea
+PASS frozen source inputs, ES pin and candidate input custody
+PASS installed launch memory and sign-in page load
+down

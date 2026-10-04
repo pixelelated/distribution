@@ -1,0 +1,79 @@
+/workspace/tmp/pixelelated-m7-ui-04/capture-boot.py: OK
+/workspace/tmp/pixelelated-m7-ui-04/identity.steps: OK
+/workspace/tmp/pixelelated-m7-ui-04/outer.sh: OK
+/workspace/tmp/pixelelated-m7-ui-04/run.sh: OK
+/workspace/tmp/pixelelated-m7-ui-04/seed.py: OK
+/workspace/tmp/pixelelated-m7-ui-04/stop-guest.py: OK
+/workspace/tmp/pixelelated-m7-ui-04/tools-frames.py: OK
+/workspace/tmp/pixelelated-m7-ui-04/ui.py: OK
+/workspace/tmp/pixelelated-m7-ui-04/verify-inputs.py: OK
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/a179bd73a732f49c4219177c89a860d561dad4d16a3467aae2cbafc15152b3ea
+Preparing independent 16GiB candidate guest d
+Image resized.
+No errors were found on the image.
+31689/262144 = 12.09% allocated, 0.00% fragmented, 0.00% compressed clusters
+Image end offset: 2077425664
+up: webdav serving /workspace/tmp/pixelelated-m7-ui-04/cloud/data at http://127.0.0.1:9040 (guest: http://10.0.2.2:9040)
+[W][21:57:12.715631] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][21:57:12.715662] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+CAPTURED guest boot frames 10
+CAPTURED guest boot frames 20
+CAPTURED guest boot frames 30
+CAPTURED guest boot frames 40
+CAPTURED guest boot frames 50
+CAPTURED guest boot frames 60
+CAPTURED guest boot frames 70
+CAPTURED guest boot frames 80
+CAPTURED guest boot frames 90
+CAPTURED guest boot frames 100
+CAPTURED guest boot frames 110
+CAPTURED guest boot frames 120
+CAPTURED guest boot frames 130
+CAPTURED guest boot frames 140
+CAPTURED guest boot frames 150
+CAPTURED guest boot frames 160
+CAPTURED guest boot frames 170
+CAPTURED guest boot frames 180
+CAPTURED guest boot frames 190
+CAPTURED guest boot frames 200
+CAPTURED guest boot frames 210
+CAPTURED guest boot frames 220
+PASS boot frame capture only; branding classification remains required 222
+ready after ~0s
+PASS guest d exact BUILD_ID 1e6a156b5477650e298b6a4dfff996673bf33fb1
+PASS QA ROM bytes /storage/roms/gb/Ninoid.gb a40191c169c68e6607ace072da96aab957f306f55ded59ce1f287c1f5273387b
+PASS QA ROM bytes /storage/roms/gbc/Tobu Tobu Girl Deluxe.gb 0a0e8018dbbc8d7f8cd99f05e7cdc7b4cc9e358ecfe9377ebfb2291a84c6e310
+PASS QA ROM bytes /storage/roms/nes/Bobl.nes 025ec44d0d84ac469b442ee56c3d69e035e9a38430ae849172fe3a1e569d0dea
+PASS guest d seeded and idle
+2 press(es) moved the screen, back on the carousel
+START en_US 640x480 retro-achievements
+wait-for-change: `key down` (line 45) was eaten after 30.3s; re-sending (1)
+WALK FAILED: wait-for-change (line 46): the screen did not change within 30s of `key down` on line 45, even after 1 re-send(s). The press was eaten, so every step after this one would run against the wrong screen. The frame is the last one in /workspace/tmp/pixelelated-m7-ui-04/artifacts/en_US-640x480/retro-achievements.
+changed after 0.1s (`key ret`, line 16)
+settle: still after 1.3s
+changed after 0.0s (`key up`, line 19)
+changed after 0.1s (`key up`, line 21)
+changed after 0.0s (`key up`, line 23)
+changed after 0.0s (`key up`, line 25)
+changed after 0.0s (`key up`, line 27)
+changed after 0.1s (`key up`, line 29)
+changed after 0.1s (`key up`, line 31)
+changed after 0.1s (`key up`, line 33)
+changed after 0.1s (`key up`, line 35)
+changed after 0.1s (`key up`, line 37)
+changed after 0.1s (`key up`, line 39)
+settle: still after 1.3s
+changed after 0.1s (`key x`, line 42)
+settle: still after 1.3s
+captured /workspace/tmp/pixelelated-m7-ui-04/artifacts/en_US-640x480/retro-achievements/01-stuck-after-down.png
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-ui-04/ui.py", line 20, in <module>
+    subprocess.run(v+['run',str(owner/'identity.steps') if walk=='identity' else 'tools/vm-walks/docs/'+walk+'.steps','--outdir',str(out/walk)],check=True)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['./tools/vm-visual-qa', '--monitor', '/tmp/rocknix-qemu-monitor-d.sock', 'run', 'tools/vm-walks/docs/retro-achievements.steps', '--outdir', '/workspace/tmp/pixelelated-m7-ui-04/artifacts/en_US-640x480/retro-achievements']' returned non-zero exit status 3.
+PASS owned guest stopped 3770626
+down

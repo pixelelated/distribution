@@ -21,6 +21,7 @@ in `2026-10-04-pixelelated-replacement-05/`. No product input changed during QA.
 | runtime-05 | 70320, exit 0 | Actual RC2 archive recovery14, timing4, installed identity/Tools consumer13 assertions pass. Five measured transfers per layout, medians266/237ms (29ms difference, limit30ms); every transfer hash matches, no source override. Actual exits/backing rehash pass. |
 | proxy-04 | 35719, exit 0 |20 installed-module checks preserve predecessor database/cache/sign-in/images and queued base/subset awards, including the real offline HTTP service. Source/bundle custody and actual exits pass. Terminal21:36:18UTC. |
 | optins-04 |83669, exit0| S3 roundtrip PASS110s; actual RC2/fresh pair42PASS/0FAIL with upgrade, shared data move/follow, byte-exact save exchange and provider refusal. All result channels/custody/owned exits pass. |
+| memory-04 |86046, exit0| Virgl10/software10/software50 with exit-sync pass unchanged limits: VmSize growth0KiB, RSS growth608/280/620KiB.30s HTTPS sign-in load passes; actual cleanup/custody verified. |
 
 Each completion JSON reconciles command/inner/outer/wrapper results and records
 actual host process exit. A terminal status file's last `alive=yes` observation
@@ -52,8 +53,7 @@ actual RC2 backing disk remains unchanged. Prior failed probes and the old
 
 Raw logs and frame hashes are indexed in `qa-artifacts.json`. The default
 one-sample timing report retains its unresolved stamp caption; runtime-05 supplies the separate
-isolated timing gate recorded above. Remaining upgraded-runtime, proxy, S3/pair, memory,
-bilingual UI/boot, inherited RC2-script recovery and ordinary achievement evidence, followed by the approved
+isolated timing gate recorded above. Remaining bilingual UI/boot, inherited RC2-script recovery, synthetic subset flush and ordinary achievement evidence, followed by the approved
 primary + Fable 5.1 review, still gate the RC call. No Daybreak coverage is
 claimed. No personal-cloud or physical-device action was taken.
 

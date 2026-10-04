@@ -12,7 +12,7 @@ export CLOUD_QA_PORT=9040 CLOUD_QA_NAME=pixelelated-m7-predecessor-01
 export ROCKNIX_ARTIFACTS="$TASK_OWNER/artifacts"
 test ! -e "$TASK_OWNER/qa.start"
 test "$(cat /workspace/tmp/pixelelated-m7-qa-05/outer.rc)" = 0
-test "$(cat /workspace/tmp/pixelelated-m7-ui-04/outer.rc)" = 0
+test "$(cat /workspace/tmp/pixelelated-m7-ui-05/outer.rc)" = 0
 sha256sum -c "$TASK_OWNER/harness.sha256"
 python3 "$TASK_OWNER/verify-inputs.py" "$TASK_BUNDLE"
 python3 - <<'CHECK'

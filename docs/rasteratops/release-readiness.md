@@ -35,9 +35,13 @@ contact. All result channels/custody/backing/owned exits verify. Receipts:
 `docs/qa-logs/2026-10-04-pixelelated-1e6a-qualification/`.
 
 Optins-04 actual83669/allrc0 passes S3 roundtrip110s and mixed actualRC2/fresh
-migration42checks/0failures. Actual cleanup/custody verifies. Memory-04 started
-21:42:50, actual86046, runner3693678/watcher3693679. Shared5s recursive
-monitoring and connected supervision continue; ui-04/predecessor-01 unstarted.
+migration42checks/0failures. Memory-04 actual86046/allrc0 passes virgl10,
+software10 and software50+exit-sync: VmSize growth0KiB; RSS608/280/620KiB.
+HTTPS load passes30s. Actual cleanup/custody verifies. UI-04 failed a conditional-menu navigation count (#422), retained actual26853/allrc1.
+Fresh UI-05 actual9732 started22:02:52, runner3796202/watcher3796203;
+new first-row fixture avoids the optional Wi-Fi count. Actual old-run640 boot
+frame matches approved wordmark100%; complete UI/1280 proof remains. Shared5s recursive monitoring
+and connected supervision continue; predecessor-01/subset-01 unstarted.
 Disconnected delivery remains unconfigured (#395).
 
 Immutable bundlea179bd73… verifies imagea16f9532… and updatef0e2752d…;
@@ -53,11 +57,13 @@ Original failed runs and their cleanup/backing proofs remain retained.
 A local post-store wrapper parser failure is also retained separately; the
 already stored immutable bundle was independently verified before QA.
 
-Current order: finish memory, bilingual UI/actualboot,
-#391 installed recovery of RC2-script-created partial states, and ordinary RA
+Current order: finish bilingual UI/actualboot,
+#391 installed recovery of RC2-script-created partial states, #384 installed
+synthetic subset flush, and ordinary RA
 proof → approved P4 primary+Fable5.1/xhigh review → first H700 DDR4/RG35XX SP
 build. Daybreak is unavailable and no coverage is claimed. Ordinary RA fixture,
 public-site delivery, publication and physical actions retain named gates.
+#392/#417/#419 are closed with published exact-candidate receipts.
 #410 helper is installed and closed; it successfully reclaimed8GiBswap before
 this build. No reinstall is needed. #414/#415/#418 are already closed.
 

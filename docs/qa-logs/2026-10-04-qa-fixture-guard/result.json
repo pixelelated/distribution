@@ -1,0 +1,29 @@
+{
+  "current_pass": true,
+  "old_source_rejected": true,
+  "old_source_commit": "b2378d9c33196f24066f1bcd233e14fa88211001",
+  "old_backend_sha256": "90f5df2d9267d1e601433ec45c0fe29edca2df16b0ab63994d094934162f3368",
+  "guard_sha256": "c53df68f90bc1264a2673ad38fb2c369746c5fdeb4022367651d4a4c3f50a0a9",
+  "backends": [
+    {
+      "backend": "webdav",
+      "saves_remote": "/pixelelated/Saves"
+    },
+    {
+      "backend": "s3",
+      "saves_remote": "/rocknix-qa/pixelelated/Saves"
+    },
+    {
+      "backend": "sftp",
+      "saves_remote": "/home/max/.cache/rocknix-cloud-qa/sftp/data/pixelelated/Saves"
+    },
+    {
+      "backend": "smb",
+      "saves_remote": "/qashare/pixelelated/Saves"
+    },
+    {
+      "backend": "ftp",
+      "saves_remote": "/pixelelated/Saves"
+    }
+  ]
+}
