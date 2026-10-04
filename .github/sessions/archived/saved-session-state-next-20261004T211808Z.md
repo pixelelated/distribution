@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Updated 2026-10-04T21:18:08.492206+00:00. Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261004T211808Z.md`.
+> Updated 2026-10-04T20:53:49.756210+00:00. Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261004T205349Z.md`.
 
 ## Start here
 
@@ -95,14 +95,9 @@ Owner /workspace/tmp/pixelelated-m7-guest-05, started20:52:09UTC.
 Frozen05 run .build-runs/20261004T205209Z-e86a3498;
 runner3437306/watcher3437307. Shared interval5/stall5min,recursive activity
 owner/artifacts. Fresh16GiB 640x480 guest d booted; exact BUILD_ID/OS_NAME,
-three QA ROM hashes and idle UI pass. At 21:17 eight of 19 independent
-cases H/A/C/D/B/E/I/J have passed; K checks restore-finish precedence.
-Eleven actual 640x480 frames from those completed cases were inspected;
-full matrix result remains pending. Follow build.log plus
-owner/artifacts/cloud-epic/. QEMU3438056/backend3440062 are owned and must
-exit before the next owner. Fresh-context guest resume proof20:59 passed
-source/harness/146retained QA hashes and live ownership; report retained in
-qualification/resume-proof-guest.md.
+three QA ROM hashes and idle UI pass. At20:52:47 the19 independently reset
+cloud cases have seeded the earlier ROCKNIX layout. Follow build.log plus
+owner/artifacts/cloud-epic/; real test results remain pending.
 
 Poll actual exec59664. At termination reconcile actual tool result with
 owner/inner.rc,outer.rc,tool-wrapper.rc and run/build.rc, then prove actual
@@ -139,14 +134,6 @@ opusfile,rclone,retropie-shaders,slang-shaders,tailscale,wildmidi,zerotier-one.
    limits (VmSize<1024KiB/RSS<2048KiB),30s HTTPS sign-in load;
    ui-04:EN/FR640x480/1280x960 cloud/RA/identity/manual-update captures,
    English640 Tools rows,actualboot scanout at both panels.
-   THEN new predecessor-01: five exact RC2-script-created inherited states
-   on an actual-upgrade candidate COW, recovered by unchanged installed
-   migration (#391). Includes failed marker publication/retry/no-change
-   repeat and payload/pointer hashes. Prepared, UNSTARTED, prerequisite ui-04;
-   same watch-build invocation with BUNDLE. Seven-member manifest and source
-   retained in qualification/predecessor-01/. Original draft label correction
-   retained in preparation-revision-1; no executed owner was changed.
-   This is historical script on candidate runtime, not the old OS for each fault.
 3. Each owner's run.sh/outer.sh guards dependencies and validates manifest.
    owner05/qa-owners.json records preparation harness digests; its prepared_only
    labels are historical. Actual start/result files establish current state.
@@ -160,9 +147,8 @@ opusfile,rclone,retropie-shaders,slang-shaders,tailscale,wildmidi,zerotier-one.
    receipts and explicit closure comments; actual2420/readback0. Reconcile only complete
    #416/#417/#419,#352/#353/#366/#384/#391/#392 and remaining327docs.
    M7/#383/#409/#344/#419 updated/read back20:40, actual21072=0. They
-   recorded completed gates and then-active link-05. Actual38199/readback0
-   updated current guest-05 at20:55. Update live order for predecessor-01
-   after this checkpoint publication; remaining-criteria.md maps each issue.
+   recorded completed gates and then-active link-05; update/read back guest-05
+   current state after this checkpoint publication.
 6. Ordinary RA fixture still awaits owner input below. Then approved P4
    primary+Fable5.1/xhigh via verified Facilitator/OpenRouter. Read code-auditor
    skill/routing then; initial#375/#382 review done, don't restart. Resolve/

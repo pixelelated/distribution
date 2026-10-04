@@ -1,0 +1,21 @@
+{
+  "prepared_utc": "2026-10-04T21:12:34.909745+00:00",
+  "owner": "/workspace/tmp/pixelelated-m7-predecessor-01",
+  "state": "prepared_unstarted",
+  "order": "After ui-04 completes successfully; never concurrent with a VM owner",
+  "candidate": "1e6a156b5477650e298b6a4dfff996673bf33fb1",
+  "bundle": "a179bd73a732f49c4219177c89a860d561dad4d16a3467aae2cbafc15152b3ea",
+  "predecessor_ref": "69e6039f8fdbf971d3e6b694537f250036fdcd98",
+  "predecessor_script_sha256": "76f003f52d98056bda9685d44cb224d4c4034089e6ce70509ffaa294da275f27",
+  "files": {
+    "archive-proof.py": "8d615e8c950b04a2f8c24da2d545d86f4832893f0f5a202f378fbd13a41a8cc0",
+    "outer.sh": "a8fba4064ebbfc2819771e99b29ac75b4f056a3cea0d4f7aea82d416c29ecb35",
+    "predecessor-proof.py": "342bbd82e9b53d73398b974ed7a50fbc62465d44f1c688e04c84feb09785a8e1",
+    "rc2-cloud-migrate-layout": "76f003f52d98056bda9685d44cb224d4c4034089e6ce70509ffaa294da275f27",
+    "run.sh": "57eb8dae810c3e80124e511ff3145881dd9aa1cefb30d19bd4fc6600f6858daa",
+    "stop-guest.py": "d98cc767621031a3512f4444bb8986856f6069590418cbdacf89ae0df33dd5e6",
+    "verify-inputs.py": "180ef9f8954a28485c7fdbfe3b293e597c8601bb3dfa0bd23eb93f908522c58e"
+  },
+  "harness_manifest_sha256": "bec30052c8ea4bc9908f678ff9684062ab9fb614b12353bde3db4ec815d5cc74",
+  "scope": "Historical script runs from test-only path on actual-upgraded candidate COW; current installed migration is unchanged. Not old OS execution per fault."
+}
