@@ -1,0 +1,49 @@
+/workspace/tmp/pixelelated-m7-settings-02/expected.json: OK
+/workspace/tmp/pixelelated-m7-settings-02/guest-proof.py: OK
+/workspace/tmp/pixelelated-m7-settings-02/host-proof.py: OK
+/workspace/tmp/pixelelated-m7-settings-02/outer.sh: OK
+/workspace/tmp/pixelelated-m7-settings-02/pause-unlock.c: OK
+/workspace/tmp/pixelelated-m7-settings-02/pause-unlock.so: OK
+/workspace/tmp/pixelelated-m7-settings-02/run.sh: OK
+/workspace/tmp/pixelelated-m7-settings-02/stop-guest.py: OK
+/workspace/tmp/pixelelated-m7-settings-02/verify-inputs.py: OK
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/8e9eb161b8b4ab84b6339ff58d478acf00322f3c8fa70d5c2c4575849c6a149f
+Formatting '/workspace/tmp/pixelelated-m7-settings-02/upgraded-overlay.qcow2', fmt=qcow2 cluster_size=65536 extended_l2=off compression_type=zlib size=17179869184 backing_file=/workspace/tmp/pixelelated-m7-qa-04/pair/vm-a.qcow2 backing_fmt=qcow2 lazy_refcounts=off refcount_bits=16
+[W][19:04:43.872893] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][19:04:43.872925] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+ready after ~14s
+PASS candidate BUILD_ID
+PASS installed bytes /usr/bin/emulationstation
+PASS installed bytes /etc/profile.d/001-functions
+PASS installed bytes /usr/bin/chksysconfig
+PASS owned new drop-in
+PASS no settings writer lock
+PASS whole starting recovery record
+PASS owned settings restored exactly
+PASS unchanged installed bytes /usr/bin/emulationstation
+PASS unchanged installed bytes /etc/profile.d/001-functions
+PASS unchanged installed bytes /usr/bin/chksysconfig
+
+{
+  "processes": [
+    {
+      "pid": 1857,
+      "comm": "start_es.sh",
+      "exe": "/usr/bin/bash",
+      "probe_env": true,
+      "preload_env": true,
+      "probe_mapped": true
+    }
+  ],
+  "service": "MainPID=1857\nExecMainCode=0\nExecMainStatus=0\nActiveState=active\nSubState=running\n",
+  "loader_errors": []
+}
+
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-settings-02/host-proof.py", line 23, in <module>
+    assert result.returncode==0, 'guest proof failed; original guest.log retained'
+           ^^^^^^^^^^^^^^^^^^^^
+AssertionError: guest proof failed; original guest.log retained
+PASS owned guest stopped 2193772
+/workspace/tmp/pixelelated-m7-qa-04/pair/vm-a.qcow2: OK

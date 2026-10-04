@@ -2,46 +2,67 @@
   "qa-04": {
     "owner": "/workspace/tmp/pixelelated-m7-qa-04",
     "harness_sha256": "d674839db7d7f177b385fedd04b1c2042d7c33e80bfea395dace26cb554a80b5",
-    "started": true
+    "started": true,
+    "outer_rc": 0
   },
   "link-04": {
     "owner": "/workspace/tmp/pixelelated-m7-link-04",
     "harness_sha256": "a1b9a659f93c387a2387218cbcdae1e36086083cdb5940c469fb15fdd45b3044",
-    "started": false
+    "started": false,
+    "state": "unstarted02163 template; rebind to new candidate after421"
   },
   "guest-04": {
     "owner": "/workspace/tmp/pixelelated-m7-guest-04",
     "harness_sha256": "118dc7ece0c527729491ef59512b55aa27ed97daa18c01b77c4fd06f1fa52c6f",
-    "started": false
+    "started": false,
+    "state": "unstarted02163 template; rebind to new candidate after421"
   },
   "runtime-04": {
     "owner": "/workspace/tmp/pixelelated-m7-runtime-04",
-    "harness_sha256": "d4d71a7b6b5e73ab5d94d7af6fcfdd2186bd8e6df1feb433a0cbfedc8f0766c5",
-    "started": false
+    "harness_sha256": "bfc51641b01d7de769b7ece534e2828db16ef0fea8e100ff17f3e50c670ea71b",
+    "started": false,
+    "state": "unstarted02163 template; rebind to new candidate after421"
   },
   "proxy-03": {
     "owner": "/workspace/tmp/pixelelated-m7-proxy-03",
     "harness_sha256": "7dc710d0162ce0eb2aa034d84181c81c9f11b50b67ec745cb729b151a49364b6",
-    "started": false
+    "started": false,
+    "state": "unstarted02163 template; rebind to new candidate after421"
   },
   "optins-03": {
     "owner": "/workspace/tmp/pixelelated-m7-optins-03",
     "harness_sha256": "76dfe2192fd6926d7f46b04fceec5b051f5fe4d6919f81c97f3094c239f9880b",
-    "started": false
+    "started": false,
+    "state": "unstarted02163 template; rebind to new candidate after421"
   },
   "memory-03": {
     "owner": "/workspace/tmp/pixelelated-m7-memory-03",
     "harness_sha256": "32f320c9b52e9dcf8543ddd1373230d5ed0837f459227fcf2707384f35f410e8",
-    "started": false
+    "started": false,
+    "state": "unstarted02163 template; rebind to new candidate after421"
   },
   "ui-03": {
     "owner": "/workspace/tmp/pixelelated-m7-ui-03",
-    "harness_sha256": "2fadd6620cf588aea60c1d00e756cdf1aad9091ec3c1001056927dbf1d08a08c",
-    "started": false
+    "harness_sha256": "5cf71af314b69e38c924d3508390d28efae176d62139a77261ee70d91c500674",
+    "started": false,
+    "state": "unstarted02163 template; rebind to new candidate after421"
   },
   "image-05": {
     "owner": "/workspace/tmp/pixelelated-m7-image-05",
     "harness_sha256": "a2de4077c685849fc2efd2be39ee26b7a53a86673f2ba11af0ddadcceefb38d8",
-    "started": false
+    "started": true,
+    "outer_rc": 0
+  },
+  "settings-01": {
+    "owner": "/workspace/tmp/pixelelated-m7-settings-01",
+    "harness_sha256": "e0c9092c43437573cac975e8a3286b1799c5da8326007e97dcba588854150dc7",
+    "started": true,
+    "outer_rc": 1
+  },
+  "sweep-02": {
+    "owner": "/workspace/tmp/pixelelated-m7-sweep-02",
+    "harness_sha256": "9ca9af7e6799631db968a7d031d349a62892a81944df619c823016b998862e8a",
+    "started": true,
+    "outer_rc": 0
   }
 }
