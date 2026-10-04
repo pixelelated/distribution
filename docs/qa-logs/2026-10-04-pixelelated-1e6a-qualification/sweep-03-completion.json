@@ -1,0 +1,31 @@
+{
+  "observed_utc": "2026-10-04T20:33:14.691874+00:00",
+  "actual_tool_session": 97815,
+  "actual_tool_rc": 0,
+  "result_channels": {
+    "/workspace/tmp/pixelelated-m7-sweep-03/inner.rc": 0,
+    "/workspace/tmp/pixelelated-m7-sweep-03/outer.rc": 0,
+    "/workspace/tmp/pixelelated-m7-sweep-03/tool-wrapper.rc": 0,
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261004T203233Z-899a2b95/build.rc": 0
+  },
+  "owned_processes": [
+    {
+      "source": "/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261004T203233Z-899a2b95/build.pid",
+      "pid": 3332915,
+      "state": "absent"
+    },
+    {
+      "source": "/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261004T203233Z-899a2b95/watcher.pid",
+      "pid": 3332916,
+      "state": "absent"
+    },
+    {
+      "source": "/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261004T203233Z-899a2b95/command.pid",
+      "pid": 3332945,
+      "state": "absent"
+    }
+  ],
+  "qemu_absent": true,
+  "run": "/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261004T203233Z-899a2b95",
+  "build_log_sha256": "fc70f45055b728c8726b12e9dbe92d1a55511a44b33f973c89500a7e225fe55e"
+}

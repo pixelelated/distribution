@@ -14,11 +14,19 @@ and all build result channels0; runner/watcher/container exited. It includes
 #421 private settings permissions and the explicit BusyBox runtime dependency,
 plus latest checked proxy aec99c with identical270 Linux/native source files.
 
-**Verdict: fresh VM qualification is running; no RC or device-ready claim.**
-qa-05 started19:55:12, actual43844, runner2849479/watcher2849481. Default
-suites and actual retained ROCKNIX RC2 upgrade precede exact installed settings
-race/mode proof and remaining P3. The shared5s nested-log watcher and connected
-supervision are active; disconnected alert delivery is not configured (#395).
+**Verdict: default/actual-RC2, content and installed settings gates PASS;
+remaining P3 qualification is running. No RC or device-ready claim.** qa-05
+completed20:30:56UTC, actual43844/allrc0. All15 defaults,16 walks/78frames,
+comparison and exact clean/upgraded payloads pass. image-06 actual37162 and
+sweep-03 actual97815 pass;8589 branding contexts/0unclassified,10 controls,
+localisation0orphans and installed Tools XML valid. settings-05 actual48514
+passes20 installed ES race checks plus29 mode/refusal checks, exact restoration
+and unchanged backing disk. All completed owners' processes exited.
+
+link-05 started20:34:15, actual32413, runner3340748/watcher3340749; WebDAV
+then S3 interruption/retry cases are current. Shared5s recursive-log monitoring
+and connected supervision remain active; disconnected delivery is unconfigured
+(#395). New receipts: `docs/qa-logs/2026-10-04-pixelelated-1e6a-qualification/`.
 
 Immutable bundlea179bd73… verifies imagea16f9532… and updatef0e2752d…;
 input manifestb252b926… binds6547 product files/180symlinks and198 QA tools.
@@ -33,8 +41,7 @@ Original failed runs and their cleanup/backing proofs remain retained.
 A local post-store wrapper parser failure is also retained separately; the
 already stored immutable bundle was independently verified before QA.
 
-Current order: qa-05 defaults/actualRC2 → image-06/sweep-03/settings-05 →
-link/guest/runtime/proxy/S3-pair/memory/bilingual UI/actualboot and ordinary RA
+Current order: link/guest/runtime/proxy/S3-pair/memory/bilingual UI/actualboot and ordinary RA
 proof → approved P4 primary+Fable5.1/xhigh review → first H700 DDR4/RG35XX SP
 build. Daybreak is unavailable and no coverage is claimed. Ordinary RA fixture,
 public-site delivery, publication and physical actions retain named gates.
