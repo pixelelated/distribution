@@ -33,7 +33,8 @@ retain their named gates. No goal tool was created.
 Owner manually recycled swap; passing preflight at04:15:20UTC observed37961MB
 available RAM and8002MB swap free. Runner1801222/watcher1801223,
 `.build-runs/20261004T041520Z-ef28d7ab` under frozen m7-pixelelated.
-At05:28:25UTC:532/642, fresh heartbeat/detailed log. Swap refilled within five minutes,
+At06:10:22UTC:633/642 completed package workers, fresh heartbeat/detailed log.
+Joblog contains onlyDONE/noFAIL; WebKit6348/8578. Swap refilled within five minutes,
 but available RAM remains roughly32–44GiB with no sustained PSI pressure.
 Do not recycle swap or edit the frozen build tools while work is active.
 #409's source transition is implemented and checked. The main M7 engineering
@@ -141,6 +142,15 @@ already lowercase; public metadata did not retain an old project name.
    processes; sandbox ps cannot see the host process namespace. Container
    beef680ec2ab is recorded in consumed-container.json. Preparation receipts
    remain in2026-10-04-pixelelated-build-preparation; they predate launch.
+   At06:00 the frozen watcher displayed a flushed Ninja130/130 as overall
+   progress. #412 corrects future build routing to structured pkgbuilder
+   DONE/FAIL lines; the active watcher is unchanged. Until it exits, read
+   the frozen build root's .threads/progress and joblog for actual package
+   completion/failure counts; generic progress from aggregate log is ambiguous.
+   Focused controls13/0, same suite on old tools7/6, lifecycle32/0, current
+   routing35/0. #413 fixes the routing fixture's stale container namespace in
+   a current copy. Source/receipts:2026-10-04-watch-progress. The one-shot
+   live-replay.status's synthetic rc0 is not this active build's outcome.
 3. Store and verify the new artifact with `tools/rasteratops-candidate-store`
    (put/verify; it does not freeze inputs). Run clean/default/required opt-ins,
    actual ROCKNIX RC2 upgrade, migration/provider/pair/archive, visual EN/FR,

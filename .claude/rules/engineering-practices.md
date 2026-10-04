@@ -245,6 +245,14 @@ to `tools/watch-job` (D-WORKFLOW-141, #393). The main log advances when a
 package completes, while a long compilation writes only its package log.
 The status keeps overall progress separate from the freshest package's
 progress, names the observed file, and ignores non-log heartbeat files.
+Build monitoring uses `watch-job --build-progress` (selected by `watch-build`
+outside QA mode): only structured pkgbuilder DONE/FAIL lines count as overall
+progress. A package's Ninja counters can also appear in the aggregate log;
+their shape alone does not identify the overall total (#412).
+Current progress/routing controls are `test-progress.py` and
+`test-watch-build.py` under `docs/qa-logs/2026-10-04-watch-progress/`.
+The latter resolves the image from the current Makefile; the historical
+routing fixture retains the old namespace and its old evidence (#413).
 Use only that job's log directory; another job's writes cannot prove this
 one is moving. `stalled` means no watched log writes, a **suspected** stall;
 a quiet linker can still be busy. Inspect its process before acting.
