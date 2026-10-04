@@ -1,0 +1,6 @@
+PASS original-claims-fail expected rc 1
+PASS corrected-claims-pass expected rc 0
+PASS missing-claims-fail expected rc 1
+PASS undersized-claims-fail expected rc 1
+PASS outside-text-fails expected rc 1
+PASS baseline and original78 frames remain byte-identical
