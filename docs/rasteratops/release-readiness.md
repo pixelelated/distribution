@@ -14,8 +14,11 @@ and all build result channels0; runner/watcher/container exited. It includes
 #421 private settings permissions and the explicit BusyBox runtime dependency,
 plus latest checked proxy aec99c with identical270 Linux/native source files.
 
-**Verdict: default/actual-RC2, content and installed settings gates PASS;
-remaining P3 qualification is running. No RC or device-ready claim.** qa-05
+**Verdict: #424 blocks this image. Actual ES has no OS_NAME environment
+value, so the menu says ROCKNIX and selects the wrong update screen. Source
+export correction passes its failing-before/passing-after child-process guard;
+a replacement image and clean/upgraded process/frame proof are required.
+Finish the frozen matrix before rebuilding. No RC or device-ready claim.** qa-05
 completed20:30:56UTC, actual43844/allrc0. All15 defaults,16 walks/78frames,
 comparison and exact clean/upgraded payloads pass. image-06 actual37162 and
 sweep-03 actual97815 pass;8589 branding contexts/0unclassified,10 controls,
@@ -37,9 +40,10 @@ contact. All result channels/custody/backing/owned exits verify. Receipts:
 Optins-04 actual83669/allrc0 passes S3 roundtrip110s and mixed actualRC2/fresh
 migration42checks/0failures. Memory-04 actual86046/allrc0 passes virgl10,
 software10 and software50+exit-sync: VmSize growth0KiB; RSS608/280/620KiB.
-HTTPS load passes30s. Actual cleanup/custody verifies. UI-04 failed a conditional-menu navigation count (#422), retained actual26853/allrc1.
+HTTPS load passes30s. Actual cleanup/custody verifies. UI-04 failed a counted-menu navigation walk (#422), retained actual26853/allrc1.
 Fresh UI-05 actual9732 started22:02:52, runner3796202/watcher3796203;
-new first-row fixture avoids the optional Wi-Fi count. Actual old-run640 boot
+new first-row fixture avoids the full wrap. The missing-Wi-Fi hypothesis
+was disproved by the actual frame; exact old failure cause is unproved. Actual old-run640 boot
 frame matches approved wordmark100%; complete UI/1280 proof remains. Shared5s recursive monitoring
 and connected supervision continue; predecessor-01/subset-01 unstarted.
 Disconnected delivery remains unconfigured (#395).

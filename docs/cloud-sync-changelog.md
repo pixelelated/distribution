@@ -14,6 +14,14 @@ RGB555 treatment. Source renderer and SVG-reader checks pass; new-image
 frames and ROCKNIX upgrade qualification remain required.
 
 
+## Forward the OS name to the interface (2026-10-04)
+
+Source correction #424 adds OS_NAME to the existing process export list.
+The old profile fails the child-process identity guard; the corrected profile
+passes. Replacement-image verification is still required. Current1e6a frames
+show the remaining failure: main-menu ROCKNIX fallback and legacy update rows,
+despite correct pixelelated os-release metadata. This is not an RC-ready claim.
+
 ## Keep private settings private (2026-10-04)
 
 Source regression passes; corrected-image verification remains pending.

@@ -113,6 +113,21 @@ except (OSError, ET.ParseError):
 api = read(es / "es-app/src/ApiSystem.cpp")
 menu = read(es / "es-app/src/guis/GuiMenu.cpp")
 check('GetEnv("OS_NAME")' in api, "ES reads the displayed OS identity")
+# #424: a shell variable in os-release is not an inherited process value.
+# Exercise the real export boundary with a clean environment and a child shell.
+export_profile = root / "projects/ROCKNIX/packages/hardware/quirks/profile.d/999-export"
+try:
+    child = subprocess.run(
+        ["/bin/bash", "-c",
+         'OS_NAME=pixelelated; OS_VERSION=0.0.1; OS_BUILD=community; '
+         ". \"$1\"; exec /bin/sh -c 'printf \"%s\\n\" \"${OS_NAME-unset}\" \"${OS_VERSION-unset}\" \"${OS_BUILD-unset}\"'",
+         "identity-export", str(export_profile)],
+        env={"PATH": "/usr/bin:/bin"}, capture_output=True, text=True, timeout=5)
+    check(child.returncode == 0 and not child.stderr
+          and child.stdout.splitlines() == ["pixelelated", "0.0.1", "community"],
+          "OS identity reaches a child through the installed export profile")
+except (OSError, subprocess.TimeoutExpired):
+    check(False, "OS identity export boundary ran")
 check('if (getApplicationName() == "pixelelated")\n        return false;' in api,
       "ES refuses inherited automatic/forced update queries")
 check('_("MANUAL UPDATES")' in menu and '_("ENABLE pixelelated SCREENSHOT")' in menu,

@@ -1,0 +1,9 @@
+FILE
+OS_NAME="pixelelated"
+PROCESS
+PID=2470
+EXPORT
+6fbbd88655775bd959f215560b2fb83aded7d48e753f282005d124e92e82c1d4  /etc/profile.d/999-export
+UNIT
+ExecStart={ path=/usr/bin/start_es.sh ; argv[]=/usr/bin/start_es.sh ; ignore_errors=no ; start_time=[Sun 2026-10-04 18:10:02 EDT] ; stop_time=[n/a] ; pid=2375 ; code=(null) ; status=0/0 }
+EnvironmentFiles=/etc/profile (ignore_errors=no)
