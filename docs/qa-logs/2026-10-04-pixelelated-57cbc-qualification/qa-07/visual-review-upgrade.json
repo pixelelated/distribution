@@ -1,0 +1,36 @@
+{
+  "observed_utc": "2026-10-04T23:31:56.346224+00:00",
+  "build_id": "57cbc9b981205328444d41f6c4237dc9f5736d7f",
+  "phase": "actual RC2-upgraded storage",
+  "frames": [
+    {
+      "path": "artifacts/identity-upgrade/01-main-menu-identity.png",
+      "sha256": "e5c14b6f90c5176155d98cd3de6dfae82c87e72c43322ae7223592fad7329ef7"
+    },
+    {
+      "path": "artifacts/identity-upgrade/02-system-settings.png",
+      "sha256": "0fe38974b49ec5471f54b5c3a9e208fa39149122f7952710f00911b91c89048f"
+    },
+    {
+      "path": "artifacts/identity-upgrade/03-information.png",
+      "sha256": "f61ca4121ab5fee4abd32a72a204d0bb67bf5fdcf2ced740da422b9d2a165f8e"
+    },
+    {
+      "path": "artifacts/identity-upgrade/04-updates.png",
+      "sha256": "dd8208b8180b5252862ea5c3528fd80cfab2ae2936c389ea4c073109f1024f00"
+    },
+    {
+      "path": "artifacts/identity-upgrade/05-manual-update-message.png",
+      "sha256": "f224f82b46f26f12d53a9599deab2768503698755d5049021de698741f57465e"
+    }
+  ],
+  "resolution": "1280x800",
+  "verdict": "PASS",
+  "observations": [
+    "Main menu reads pixelelated 0.0.1 (community).",
+    "Information names pixelelated and the exact frozen replacement06 build.",
+    "Updates offers MANUAL UPDATES; obsolete automatic update controls are absent.",
+    "Manual instructions show github.com/pixelelated/distribution/releases and fit the visible dialog."
+  ],
+  "scope": "All five upgraded identity frames inspected. Initial-clean review retained separately; bilingual handheld-size proof is ui06."
+}

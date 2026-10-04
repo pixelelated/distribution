@@ -1,0 +1,74 @@
+/workspace/tmp/pixelelated-m7-settings-06/expected.json: OK
+/workspace/tmp/pixelelated-m7-settings-06/guest-proof.py: OK
+/workspace/tmp/pixelelated-m7-settings-06/host-proof.py: OK
+/workspace/tmp/pixelelated-m7-settings-06/outer.sh: OK
+/workspace/tmp/pixelelated-m7-settings-06/pause-unlock.c: OK
+/workspace/tmp/pixelelated-m7-settings-06/pause-unlock.so: OK
+/workspace/tmp/pixelelated-m7-settings-06/run.sh: OK
+/workspace/tmp/pixelelated-m7-settings-06/settings-modes-test: OK
+/workspace/tmp/pixelelated-m7-settings-06/stop-guest.py: OK
+/workspace/tmp/pixelelated-m7-settings-06/verify-inputs.py: OK
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/d4007387afd5ac42104a53a3073b93fdadd33c51179bf9f3142101609f821ec9
+Formatting '/workspace/tmp/pixelelated-m7-settings-06/upgraded-overlay.qcow2', fmt=qcow2 cluster_size=65536 extended_l2=off compression_type=zlib size=17179869184 backing_file=/workspace/tmp/pixelelated-m7-qa-07/pair/vm-a.qcow2 backing_fmt=qcow2 lazy_refcounts=off refcount_bits=16
+[W][23:33:04.638895] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][23:33:04.638926] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+ready after ~18s
+PASS candidate BUILD_ID
+PASS installed bytes /usr/bin/emulationstation
+PASS installed bytes /etc/profile.d/001-functions
+PASS installed bytes /usr/bin/chksysconfig
+PASS owned new drop-in
+PASS no settings writer lock
+PASS whole starting recovery record
+PASS damage is a strict cut prefix, not a different hand edit
+PASS pause 1 is the installed ES
+PASS ES recovered damaged live file before script
+PASS ES released shared settings lock
+PASS actual shell writers published newer live and record
+PASS pause 2 is the installed ES
+PASS same ES resumed record publication
+PASS newer live and last-good bytes survive stale ES snapshot
+PASS live and record remain private
+PASS owned settings restored exactly
+PASS unchanged installed bytes /usr/bin/emulationstation
+PASS unchanged installed bytes /etc/profile.d/001-functions
+PASS unchanged installed bytes /usr/bin/chksysconfig
+
+PASS real installed ES settings-race checks: 20
+PASS set_setting-private_live
+PASS set_setting-private_record
+PASS set_setting-wide_temp
+PASS set_setting-restricted_group
+PASS set_settings-private_live
+PASS set_settings-private_record
+PASS set_settings-wide_temp
+PASS set_settings-restricted_group
+PASS del_setting-private_live
+PASS del_setting-private_record
+PASS del_setting-wide_temp
+PASS del_setting-restricted_group
+PASS sort_settings-private_live
+PASS sort_settings-private_record
+PASS sort_settings-wide_temp
+PASS sort_settings-restricted_group
+PASS backup-private_live
+PASS backup-private_record
+PASS backup-wide_temp
+PASS backup-restricted_group
+PASS restore-private_live
+PASS restore-private_record
+PASS restore-wide_temp
+PASS restore-restricted_group
+PASS refuse-symlink
+PASS refuse-chmod
+PASS refuse-stat
+PASS refuse-producer
+PASS refuse-rename
+
+PASS 29 installed settings mode/refusal checks
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/d4007387afd5ac42104a53a3073b93fdadd33c51179bf9f3142101609f821ec9
+PASS frozen source inputs, ES pin and candidate input custody
+PASS installed settings recovery race on actual RC2-upgraded guest
+PASS owned guest stopped 477941
+/workspace/tmp/pixelelated-m7-qa-07/pair/vm-a.qcow2: OK
