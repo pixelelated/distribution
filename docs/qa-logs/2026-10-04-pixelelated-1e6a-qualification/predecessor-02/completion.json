@@ -1,0 +1,36 @@
+{
+  "observed_utc": "2026-10-04T22:20:51.386409+00:00",
+  "actual_tool_session": 70676,
+  "actual_tool_rc": 0,
+  "result_channels": {
+    "/workspace/tmp/pixelelated-m7-predecessor-02/inner.rc": 0,
+    "/workspace/tmp/pixelelated-m7-predecessor-02/outer.rc": 0,
+    "/workspace/tmp/pixelelated-m7-predecessor-02/tool-wrapper.rc": 0,
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement05/.build-runs/20261004T221909Z-0de8ee45/build.rc": 0
+  },
+  "owned_processes": [
+    {
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement05/.build-runs/20261004T221909Z-0de8ee45/build.pid",
+      "pid": 3880982,
+      "state": "absent"
+    },
+    {
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement05/.build-runs/20261004T221909Z-0de8ee45/watcher.pid",
+      "pid": 3880983,
+      "state": "absent"
+    },
+    {
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement05/.build-runs/20261004T221909Z-0de8ee45/command.pid",
+      "pid": 3881012,
+      "state": "absent"
+    },
+    {
+      "source": "previous actual host observation",
+      "pid": 3881424,
+      "state": "absent"
+    }
+  ],
+  "qemu_absent": true,
+  "run": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement05/.build-runs/20261004T221909Z-0de8ee45",
+  "build_log_sha256": "8cfd57341d24978bf5385902498ae1a055d3e239beca39eab4bfddfe16f80bc6"
+}

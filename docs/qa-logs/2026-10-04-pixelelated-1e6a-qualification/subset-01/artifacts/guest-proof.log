@@ -1,0 +1,37 @@
+PASS actual packaged modules, no source override
+PASS packaged detector recognizes pixelelated
+PASS canonical account path is discovered without override
+PASS reopen 1 retains all predecessor cache rows
+PASS reopen 1 retains all predecessor pending rows
+PASS reopen 1 retains base/subset award mapping
+PASS reopen 1 retains synthetic cached sign-in
+PASS reopen 2 retains all predecessor cache rows
+PASS reopen 2 retains all predecessor pending rows
+PASS reopen 2 retains base/subset award mapping
+PASS reopen 2 retains synthetic cached sign-in
+PASS legacy unsharded image path remains readable
+PASS packaged resolver reads canonical synthetic account automatically
+PASS real packaged service serves inherited game cache
+PASS real service serves inherited base and subset sets
+PASS queued award remains visible in game 100
+PASS queued award remains visible in game 200
+PASS real service serves original legacy image bytes
+PASS offline service retains both queued awards without flushing
+PASS owned packaged service stops cleanly
+PASS packaged account discovery, predecessor cache/sign-in/queue reopen and offline HTTP service
+PASS flush uses installed module without source replacement
+POST failed status=503 reason=Service Unavailable url=http://127.0.0.1:46855/dorequest.php?r=awardachievement&a=2&u=QA&h=0
+Flush network error: achievementId=2 retryCount=1 lastError=HTTP 503
+PASS base accepted and temporarily refused subset stays pending, not stale
+PASS subset failure retains queued row with retry count
+PASS actual HTTP patch refresh includes the subset own game200
+PASS provider accepted only base before retry
+PASS installed retry flushes subset without stale deletion
+PASS provider receives both awards without resending successful base
+PASS subset has exactly refused and successful HTTP attempts
+PASS processed queue clears only after every award accepted
+PASS subset unlock cache records actual accepted subset result
+PASS completed retry writes actual one-award flush stamp
+PASS empty repeat makes no provider request
+PASS loopback provider stopped
+PASS installed subset refresh, temporary refusal, retention and HTTP retry

@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Updated 2026-10-04T22:12:37.749966+00:00. Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261004T221237Z.md`.
+> Updated 2026-10-04T22:31:57.056676+00:00. Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261004T223157Z.md`.
 
 ## Start here
 
@@ -28,7 +28,7 @@ files,live regression and7 unstarted owners. Its stale readiness paragraph
 and precise harness-manifest wording findings are corrected.
 A helper installation is COMPLETE; do not ask to reinstall it.
 
-## Current: #424 identity blocker found; finish frozen05 matrix before replacement build
+## Current: frozen05 matrix finished; prepare replacement06 for #424 and #426
 
 Frozen tree `/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement05`,
 branch `build/m7-pixelelated-replacement05`, commit
@@ -73,9 +73,8 @@ then starts a child; oldprofile1failure, corrected0 with other contracts green.
 Installed-negative fields/command/profile hash, original file, frames and
 source receipts: docs/qa-logs/2026-10-04-es-identity-export/.
 No in-flight/frozen source or guest file was altered. Source fix is not yet
-an installed-image proof; #424 remains open. Finish current UI plus prepared
-predecessor/subset owners to catch any other issue before one replacement
-build. Then use latest explicitly integrated source for a new freeze/cache,
+an installed-image proof; #424 remains open. UI/predecessor/subset are now complete. Use latest explicitly integrated
+source for a new replacement06 freeze and independent copy of05 cache,
 with process OS_NAME and actual main-menu/manual-update frames required on
 clean and retained-storage guests. Ordinary RA fixture and P4 stay required.
 
@@ -164,53 +163,60 @@ virglguest3694455/softwareguest3705688/backend3716021 all absent.
 Candidate/source reverify passes. Full raw190MiB artifact hashes retained;
 selected measurements/stamps/results and terminal receipts in memory-04/.
 
-## Failed ui-04 and ACTIVE fresh ui-05 (actual9732)
+## Completed final frozen05 owners
 
-ui-04 actual26853/allrc1: docs RA walk's eleven-up main-menu wrap landed on
-the wrong screen. The initial missing-Wi-Fi hypothesis is disproved by the
-fresh actual menu frame, which includes NETWORK SETTINGS. Exact old wrap
-cause is unproved; do not repeat it as fact. The failure frame is
-Bobl's single-game list, not an RA screen. Source and archaeology retained; #422 filed before correction. Actual21:59:53 proves
-runner3769786/watcher3769787/command3769816/guest3770626 exited. Backend scan
-at21:59:36 was already empty after cleanup (file's first-panel name is not
-an observation of a live process). Preserve executed harness/results.
-Its actual640 boot frame019 independently passes fixed99.5% matcher at100%;
-old-logo/blank/wrong-resolution controls reject. Partial boot proof does not
-turn failed UI owner into a pass. All receipts retained in ui-04/.
+ui04 failed actual26853/allrc1 and remains preserved. Counted navigation
+landed on Bobl's single-game list. The initial missing-Wi-Fi hypothesis is
+DISPROVED; actual ui05 includes NETWORK SETTINGS. Exact wrap cause unproved.
+#422's fresh first-row, Kodi/RA-disabled fixture ui05 completed actual9732/
+allrc0 with70 captures across EN/FR640/1280. Actual22:15:32 runner3796202,
+watcher3796203/command3796232,guests3797055/3832339/backend3796699 absent.
+Twenty selected640 frames were inspected, not all70. Semantic identity/update
+FAIL424 remains despite capture success. Tools labels are present; marquee
+frames do not prove full descriptive-text visibility.
+Actual ui05 boot matches approved Tiny5 Duo LCD Ocean at99.586585%640 and
+100%1280 against fixed99.5% threshold; old-logo/blank/wrong-size reject.
+ui04's earlier640 partial frame was100%, not ui05's best640 score.
+All70UI frames, selected boot matches/control reports, visual-review.json
+and terminal receipts retained under qualification/ui-05/.
 
-Fresh ui-05 /workspace/tmp/pixelelated-m7-ui-05 started22:02:52UTC,
-actual9732, run .build-runs/20261004T220252Z-587506e3 under frozen05;
-runner3796202/watcher3796203/command3796232, firstguest3797055, ownedbackend3796699 (actual22:06 host observation).
-Same5s recursive monitoring/5min stall signal, independent16GiB guest.
-New m7-cloud-sync and m7-retro-achievements walks declare Kodi/RA disabled,
-start from first GAME SETTINGS row and capture menu/entry frames. No optional
-Wi-Fi row count. Explicit kodi.enabled=0 added to the new seed only. Existing
-frozen inputs and executed ui-04 are unchanged. Eleven-member ui05 seal.
-Actual boot captures precede serial wait at640/1280, then both languages,
-Tools and identity/manual-update. Poll9732, inspect actual frames, reconcile
-allrc/cleanup before predecessor-01. Both640 language captures completed,25English/15French frames.1280 is running.
-Main-menu/manual-update semantics fail #424 despite captures; no UI pass claimed.
-Predecessor-01 is still UNSTARTED; its prerequisite now names ui-05. Previous
-run.sh/manifest are retained in preparation-revision-2 and revised seal copied
-into repository evidence. Never change a started owner. Subset-01 still
-requires predecessor-01 and is unstarted.
+predecessor01 launch first rejected missing activity directory (actual rc2,
+no owner execution), then actual first execution87271/allrc1 encountered a
+silent-command parser fixture bug after four cases passed. Silent output
+M7_COMMAND_RC=0 lacked the parser's required preceding newline. No product
+migration defect established. All failures retained. #425 filed before fix.
+Fresh predecessor02 completed actual70676/allrc0,65 assertions across all
+five inherited states. Exact RC2 script69e6039f creates backups/saves/content
+interruptions, completed layout and content plus current marker-publication
+refusal/retry. Old script SHA76f003f52d98056bda9685d44cb224d4c4034089e6ce70509ffaa294da275f27.
+Runs historical script on candidate runtime over actualRC2-upgraded COW,
+not oldOS for each fault. All payloads/pointers/marker/recovery records and
+no-change repeats pass. Four parser controls include old-fails/new-passes.
+Actual22:20:51 runner3880982/watcher3880983/command3881012/guest3881424 absent;
+backing/source/bundle hashes verify. See qualification/predecessor-02/.
 
-After ui-05 and predecessor-01, new separately sealed subset-01 is prepared,
-UNSTARTED: /workspace/tmp/pixelelated-m7-subset-01. Its prerequisite is
-predecessor-01 success. Six-member harness is retained in qualification/subset-01.
-Reuses predecessor synthetic queue and installed modules, removes default route,
-loopback-only HTTP provider returns separate base100/subset200 patches,
-refuses subset once then accepts retry. Assert actual game IDs, pending
-retention, no duplicate base upload, accepted subset cache/stamp and clean
-repeat. No external provider/account. Existing proxy-04 proves offline
-preservation; #384's older comment additionally requires installed flush.
-Do not close384 from the offline proof alone. Plan comment5984798487 records
-this before preparation; no VM assertion has run yet.
+subset01 completed actual3696/allrc0,33 installed-module assertions. Original
+20 offline-preservation checks plus13 loopback HTTP flush/retry checks:
+base accepted, subset503 remains pending, retry accepts subset, no duplicate
+base upload, exact gameIDs/cache/stamp, empty repeat avoids network.
+External route removed; synthetic QA only, no live ordinary award claim.
+Actual22:22:33 runner3889456/watcher3889457/command3889486/guest3890213 absent.
+Source/bundle/backing custody verifies. See qualification/subset-01/.
+No build or VM job is currently running. All completed/failing owner scripts
+and frozen05 source stay immutable; do not rerun an executed owner.
 
-Fresh-context proof21:26 verified all12bundle members,6547product/198QA hashes,
-180links,146QAartifacts,11existing harnesses plus7predecessor members and
-actual ownership/tracker. Retained resume-proof-matrix.md. The new subset
-owner and newest checkpoint require the next fresh-context handoff proof.
+## #426 current proxy refresh before replacement06 freeze
+
+Live pre-freeze freshness found aec99c two commits behind865e218660e9914e3ba0b4326b5d430af995c843.
+Archive SHA97e9f4207852aefaff46a37a9f7256f77e79a638eb3b5fa4cb75ea06d174880e.
+Seventeen changed files:15Android plus two unshipped Onion/Allium builders;
+reviewed early-failure checks for absent Python/pygame. All105 consumed
+Python/native files and268 Linux/native/test files excluding those builders
+are identical raw/patched. Fifteen patches apply fuzz0; schema and coupled
+submodule pins unchanged. Do not claim all270 Linux files unchanged.
+Source lint/schema pass; prior199+8 tests trace to identical bytes. Installed
+new-image proxy regression remains mandatory. Source receipts:
+docs/qa-logs/2026-10-04-proxy-865e21/. #419 remains closed in its originalscope.
 
 ## Completed source inventory for this candidate
 
@@ -227,53 +233,41 @@ opusfile,rclone,retropie-shaders,slang-shaders,tailscale,wildmidi,zerotier-one.
 
 ## Next in binding M7 order
 
-1. Finish/supervise ui-05; preserve and diagnose any failure before a fresh
-   owner. Do not rerun an executed owner or edit an in-flight source/harness.
-2. Remaining prepared UNSTARTED owners, all under /workspace/tmp/pixelelated-m7-:
-   After active ui-05, predecessor-01: five exact RC2-script-created inherited states
-   on an actual-upgrade candidate COW, recovered by unchanged installed
-   migration (#391). Includes failed marker publication/retry/no-change
-   repeat and payload/pointer hashes. Prepared, UNSTARTED, prerequisite ui-04;
-   then subset-01 as described above. Same watch-build invocation with BUNDLE. Seven-member predecessor manifest and source
-   retained in qualification/predecessor-01/. Original draft label correction
-   retained in preparation-revision-1; no executed owner was changed.
-   This is historical script on candidate runtime, not the old OS for each fault.
-3. Each owner's run.sh/outer.sh guards dependencies and validates manifest.
-   owner05/qa-owners.json records preparation harness digests; its prepared_only
-   labels are historical. Actual start/result files establish current state.
-   All64 text bindings were checked before launch. Do not alter sealed harnesses.
-4. Run boot matcher `docs/qa-logs/2026-10-04-pixelelated-guest-brand/match-splash.py`
-   against actual ui-05 boot frames and approved ocean/{640,1280}-0.png.
-   Fixed99.5% pixel agreement, positive/oldROCKNIXlogo/blank/wrongsize controls.
-   Host controls are not guest proof; do not tune threshold to hide missing
-   frames. Visually review actual bilingual/Tools/identity frames.
-5. #320/#420/#421 are CLOSED completed with all criteria ticked, published
-   receipts and explicit closure comments; actual2420/readback0. Reconcile only complete
-   #416/#417/#419,#352/#353/#366/#384/#391/#392 and remaining327docs.
-   M7/#383/#409/#344/#419 updated/read back20:40, actual21072=0. They
-   recorded completed gates and then-active link-05. Actual38199/readback0
-   updated guest-05 at20:55; actual32776 updated current matrix/order at21:20.
-   #392/#417/#419 CLOSED completed with published exact-candidate evidence,
-   all criteria ticked, code-trace/Already written comments and readback
-   actual50856=0. #384 stays open for installed synthetic flush above. #416 still needs
-   Tools UI rows. M7/delivery updated/read back21:51 actual11886=0; remaining-criteria.md
-   maps each issue. Do not count provider flush as part of offline preservation.
-   #366 source guard lacked its explicit all-backend query loop; feature-only
-   QA correction now queries all5 without starting services. Current extracted
-   guard passes and actual run101 backend source is rejected; receipts in
-   docs/qa-logs/2026-10-04-qa-fixture-guard/. Frozen198QA bytes unchanged.
-   Check the first post-fix image roundtrip receipt before closing366.
-6. Ordinary RA fixture still awaits owner input below. Then approved P4
-   primary+Fable5.1/xhigh via verified Facilitator/OpenRouter. Read code-auditor
-   skill/routing then; initial#375/#382 review done, don't restart. Resolve/
-   requalify changes, then first H700 DDR4/RG35XX SP build from qualified
-   inputs. P5 source/licence/release/docs and physical-action gates remain.
+1. Commit/publish new receipts and #426 source; run freshness against that
+   explicit commit, integrate by full hash onto clean next, normal push and
+   remote readback. Preserve independent #423 world/art/hiring setup log.
+2. Freeze next explicitly into new build/m7-pixelelated-replacement06 tree
+   and /workspace/tmp/pixelelated-m7-replacement-06 owner. Not yet created.
+   Regenerate product/tool/link manifests, retain pinned container/host24/4.
+   Three product differences from05: quirks/profile.d/999-export and proxy
+   package.mk/raofflineproxy-ctl schema comment. Independently rsync-aH05
+   build cache, compare checksums and separate inodes. Do not alter05.
+3. Build under shared watch-build, clean quirks/proxy and image stamp. Verify
+   exact assembled export profile and OS_NAME in a child plus existing
+   payload guards. Only launch after cache actual completion/allrc/cleanup.
+   Helpers /tmp/pixelelated-freeze04.py and owner04/copy-cache.sh are
+   examples to adapt into NEW scripts, never rerun old owners.
+4. Store/verify immutable image/tar; create new sealed QA owners. Requalify
+   defaults/actualRC2upgrade/payloads/content scan and installed regressions,
+   including actual clean AND upgraded ES process OS_NAME and main-menu/
+   manual-update frames. Image05 passes do not prove the new candidate.
+5. Reconcile only proved #384/#391/#425/#422/#366/#416 criteria with published
+   exact receipts and closure comments. #424/#426 new-image criteria remain.
+   Completed earlier #320/#392/#417/#419/#420/#421 stay closed.
+6. Ordinary RA fixture below still awaits owner input. Then approved P4
+   primary+Fable5.1/xhigh via verified Facilitator/OpenRouter; read skill/routing.
+   Initial#375/#382 review done, do not restart. Resolve/requalify, then first
+   H700 DDR4/RG35XX SP build. P5 source/licences/docs/publication and named
+   physical-action gates remain. No RC/device-ready claim.
 
-For each next owner, launch from frozen05 through
-`tools/watch-build --interval 5 --stall-min 5 --recursive-activity --activity-dir OWNER/artifacts -- OWNER/outer.sh BUNDLE`,
-write owner/tool-wrapper.rc from the returned status and retain actual tool
-result. sweep-03 does not take BUNDLE and runs from feature (frozen tree/root
-is bound inside its script). Never run two fixed-port VM owners together.
+For each new owner ensure activity directory exists, launch shared watcher
+with5s recursive activity and5min stall warning, retain actual tool terminal
+status plus inner/outer/wrapper/build rc and real host process cleanup.
+No two fixed-port VM owners run together. Host view requires escalation.
+/tmp/pixelelated-finish-owner.py records completion ONLY after actual tool exits.
+Fresh-context resume proof21:26 predates these changes; renew through the
+session-stash skill after publication/live milestone update. Its explicit
+requirement authorizes the fresh-context proof agent, not ordinary delegation.
 
 ## #421/#420 source and failed-image evidence
 
@@ -338,9 +332,9 @@ Workingfeature /workspace/repos/rocknix.worktrees/conflict-resolution;
 primary /workspace/repos/rocknix staysnext. Integrateonlyfull explicithashes
 bycherry-pick;neverwholehistoricalfeaturemergeordestination-relativeHEAD.
 Normalpush git@github-blitterbot:pixelelated/distribution.git;verifyrefs.
-Latest published featureddaffddd736ce1bc9a58838dce23b9d51f4ceae0 →
-next109f9b25e566ade3644bad4f3cdecaf5aa7a3c79, actual65573=0 normal
-pushes/ref readbacks. Pending #424 export correction/proof follows.
+Published #424 source feature5924ad247267e7a1ce0d626af22e28064b65bce7 →
+next7d647135373a5106569475e22b118adc7ae8d148, actual35665=0 normal
+pushes/ref readbacks. New #426 source and final05 receipts are being committed.
 Never re-cherry-pick already integrated85e733e503 or1e65d7a354.
 Published evidence: feature74d1497e3af319263f82166415b726172eef079b →
 next2c2ece74fd72944f839bd1f615c4baec2521c8d4, normal pushes/remote readbacks
