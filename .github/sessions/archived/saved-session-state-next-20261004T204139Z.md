@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Updated 2026-10-04T20:41:39.763715+00:00. Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261004T204139Z.md`.
+> Updated 2026-10-04T20:37:06.371530+00:00. Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261004T203706Z.md`.
 
 ## Start here
 
@@ -135,11 +135,11 @@ opusfile,rclone,retropie-shaders,slang-shaders,tailscale,wildmidi,zerotier-one.
    Fixed99.5% pixel agreement, positive/oldROCKNIXlogo/blank/wrongsize controls.
    Host controls are not guest proof; do not tune threshold to hide missing
    frames. Visually review actual bilingual/Tools/identity frames.
-5. #320/#420/#421 are CLOSED completed with all criteria ticked, published
-   receipts and explicit closure comments; actual2420/readback0. Reconcile only complete
+5. #320/#420/#421 now have their complete installed proof; reconcile and close
+   them after publishing the retained evidence. Then reconcile only complete
    #416/#417/#419,#352/#353/#366/#384/#391/#392 and remaining327docs.
-   M7/#383/#409/#344/#419 updated/read back20:40, actual21072=0. They
-   reflect completed gates and active link-05; read current logs for progress.
+   M7 and delivery status must reflect the completed gates and active link-05;
+   use live readback, not the historical19:57 state in the archive.
 6. Ordinary RA fixture still awaits owner input below. Then approved P4
    primary+Fable5.1/xhigh via verified Facilitator/OpenRouter. Read code-auditor
    skill/routing then; initial#375/#382 review done, don't restart. Resolve/
@@ -215,11 +215,7 @@ Workingfeature /workspace/repos/rocknix.worktrees/conflict-resolution;
 primary /workspace/repos/rocknix staysnext. Integrateonlyfull explicithashes
 bycherry-pick;neverwholehistoricalfeaturemergeordestination-relativeHEAD.
 Normalpush git@github-blitterbot:pixelelated/distribution.git;verifyrefs.
-Published evidence: feature74d1497e3af319263f82166415b726172eef079b →
-next2c2ece74fd72944f839bd1f615c4baec2521c8d4, normal pushes/remote readbacks
-PASS, actual98936=0. Frozen05 remains1e6a. Docs may advance; inspect current
-HEAD/status before integrating. New menu-map prose fixes two stale references;
-52-screen map check passes. P4 audit cadence remains due and unwaived.
+Docs/evidencecommitmayadvance;inspectcurrentHEAD/statusbeforeintegrating.
 ES /home/max/Development/emulationstation-next.worktrees/qa-integration,
 test/qa-integration,c75aa3fac967ba532fd9ba1c21fa10ca024e8bc1,cleanpublished.
 Splash /tmp/rasteratops-rc-delivery-20261002/splash,master,
