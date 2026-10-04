@@ -1,0 +1,20 @@
+[
+  {
+    "case": "original-XML",
+    "returncode": 1,
+    "expected_returncode": 1,
+    "expected_diagnostic_observed": true
+  },
+  {
+    "case": "old-player-text",
+    "returncode": 1,
+    "expected_returncode": 1,
+    "expected_diagnostic_observed": true
+  },
+  {
+    "case": "corrected",
+    "returncode": 0,
+    "expected_returncode": 0,
+    "expected_diagnostic_observed": true
+  }
+]

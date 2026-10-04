@@ -3,7 +3,7 @@
     <game>
         <path>./commander.sh</path>
         <name>File Manager</name>
-        <desc>Enables you to browse the ROCKNIX filesystem and manage files directly on your device. You can also use this tool to copy files from external drives to your ROCKNIX filesystem.</desc>
+        <desc>Browse files on your device and copy files to or from external drives.</desc>
         <developer>Tardigrade and ROCKNIX</developer>
         <publisher>ROCKNIX</publisher>
         <rating>5.0</rating>
@@ -39,7 +39,7 @@
     <game>
         <path>./Install ROCKNIX.sh</path>
         <name>Install pixelelated</name>
-        <desc>Use this utility to install ROCKNIX to the local storage on your device. Note: This process will wipe the drive that you choose to install ROCKNIX on.</desc>
+        <desc>Install pixelelated to your device's local storage. This erases all data on the drive you select.</desc>
         <developer>ROCKNIX</developer>
         <publisher>ROCKNIX</publisher>
         <rating>5.0</rating>
@@ -51,7 +51,7 @@
     <game>
         <path>./Start PortMaster.sh</path>
         <name>PortMaster</name>
-        <desc>PortMaster is a simple tool that allows you to download various game ports that are available for ROCKNIX and other ARM based devices. You can find details at portmaster.games</desc>
+        <desc>Download game ports for pixelelated and other supported devices. Learn more at portmaster.games.</desc>
         <developer>Portmaster</developer>
         <publisher>Portmaster</publisher>
         <rating>5.0</rating>
@@ -63,7 +63,7 @@
     <game>
         <path>./cloud_backup.sh</path>
         <name>RCLONE Backup</name>
-        <desc>Backup your saves to a cloud drive using RCLONE. Please make sure you have followed the steps at rocknix.org to set up RCLONE first.</desc>
+        <desc>Back up saves to your cloud storage. Set up your cloud account in Game Settings &gt; Cloud Settings first.</desc>
         <developer>ROCKNIX</developer>
         <publisher>ROCKNIX</publisher>
         <rating>5.0</rating>
@@ -75,7 +75,7 @@
     <game>
         <path>./cloud_restore.sh</path>
         <name>RCLONE Restore</name>
-        <desc>Restores your saves from a cloud drive using RCLONE. Please make sure you have followed the steps at rocknix.org to set up RCLONE first.</desc>
+        <desc>Restore saves from your cloud storage. Set up your cloud account in Game Settings &gt; Cloud Settings first.</desc>
         <developer>ROCKNIX</developer>
         <publisher>ROCKNIX</publisher>
         <rating>5.0</rating>
@@ -389,7 +389,7 @@ it's recommended to have a mouse and keyboard to modify settings.</desc>
     <game>
         <path>./Start touchHLE.sh</path>
         <name>Start touchHLE</name>
-        <desc>Opens the touchHLE GUI (iOS) to enable global configuration changes to be made directly to the emulator. It's recommended to have a mouse and keyboard available to modify settings. A free and open-source application that emulates iOS games compatible with iOS 2 & 3, enabling people to play their iOS games on Windows, macOS, and Linux systems.</desc>
+        <desc>Opens the touchHLE GUI (iOS) to enable global configuration changes to be made directly to the emulator. It's recommended to have a mouse and keyboard available to modify settings. A free and open-source application that emulates iOS games compatible with iOS 2 &amp; 3, enabling people to play their iOS games on Windows, macOS, and Linux systems.</desc>
         <developer>ROCKNIX</developer>
         <publisher>ROCKNIX</publisher>
         <rating>5.0</rating>

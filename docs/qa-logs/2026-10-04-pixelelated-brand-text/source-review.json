@@ -1,0 +1,40 @@
+{
+  "source_only": true,
+  "base_commit": "53d907dc5fb1260b032407c8bfa4e157d94288f3",
+  "predecessor_XML_error": "not well-formed (invalid token): line 392, column 277",
+  "entity_fix_preserves_visible_text": true,
+  "changed_descriptions": [
+    {
+      "path": "./commander.sh",
+      "before": "Enables you to browse the ROCKNIX filesystem and manage files directly on your device. You can also use this tool to copy files from external drives to your ROCKNIX filesystem.",
+      "after": "Browse files on your device and copy files to or from external drives."
+    },
+    {
+      "path": "./Install ROCKNIX.sh",
+      "before": "Use this utility to install ROCKNIX to the local storage on your device. Note: This process will wipe the drive that you choose to install ROCKNIX on.",
+      "after": "Install pixelelated to your device's local storage. This erases all data on the drive you select."
+    },
+    {
+      "path": "./Start PortMaster.sh",
+      "before": "PortMaster is a simple tool that allows you to download various game ports that are available for ROCKNIX and other ARM based devices. You can find details at portmaster.games",
+      "after": "Download game ports for pixelelated and other supported devices. Learn more at portmaster.games."
+    },
+    {
+      "path": "./cloud_backup.sh",
+      "before": "Backup your saves to a cloud drive using RCLONE. Please make sure you have followed the steps at rocknix.org to set up RCLONE first.",
+      "after": "Back up saves to your cloud storage. Set up your cloud account in Game Settings > Cloud Settings first."
+    },
+    {
+      "path": "./cloud_restore.sh",
+      "before": "Restores your saves from a cloud drive using RCLONE. Please make sure you have followed the steps at rocknix.org to set up RCLONE first.",
+      "after": "Restore saves from your cloud storage. Set up your cloud account in Game Settings > Cloud Settings first."
+    }
+  ],
+  "retained_other_XML_fields": true,
+  "shell_syntax": "PASS",
+  "source_hashes": {
+    "projects/ROCKNIX/packages/misc/modules/sources/gamelist.xml": "9818d50b1a2a02758375644fd2caa0f3d6a4a0e1584dfb6c25ddbbfad6e2dcc0",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_setup": "26243a8965d9bb1b1a81eb1dc0e90e894a1cb3783b601c6785e712c6c636dc7a",
+    "projects/ROCKNIX/packages/rocknix/sources/scripts/rocknix-memory-manager": "352d25900ee7b280f1c826f44ae2878a1ad090410f9115685cf9a0948ceba262"
+  }
+}

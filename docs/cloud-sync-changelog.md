@@ -7,10 +7,22 @@ setups use `/pixelelated`; the existing folder-move workflow targets that
 folder and preserves saves, backups, content and retry/recovery behavior.
 ROCKNIX `/GAMES` and `/ROCKNIX` layouts remain supported migration sources;
 custom folder choices remain intact. No fielded `/Rasteratops` systems exist.
-Source checks pass; the new candidate image is not yet built. Its shared
+Engineering images now build; VM qualification and the complete release
+sweeps remain in progress. The shared
 boot/interface/theme wordmark now uses Tiny5 Duo LCD with the Ocean Bands
 RGB555 treatment. Source renderer and SVG-reader checks pass; new-image
 frames and ROCKNIX upgrade qualification remain required.
+
+
+## Tools descriptions and status identity (2026-10-04)
+
+Source correction; replacement-image verification remains pending.
+
+- **Tools descriptions use pixelelated or neutral wording.** Cloud backup
+  and restore help points to `Game Settings > Cloud Settings` (#416,
+  D-WORKFLOW-144). Paths and attribution retain their existing values.
+- **The memory-status heading and cloud bucket example use pixelelated.**
+  This changes text only (#416, D-WORKFLOW-144).
 
 
 Draft for the eventual upstream PR body, the rocknix.org documentation pass,

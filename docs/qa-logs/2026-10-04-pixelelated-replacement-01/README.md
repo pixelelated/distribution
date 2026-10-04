@@ -39,8 +39,9 @@ exact assembled proxy bytes, BUILD_ID/branch and licence payload. outer.sh
 records its result inside the watched boundary; the outer tool result remains
 an independent observation.
 
-Fresh QA owners qa/link/guest/runtime-02 are hash-bound and unstarted. They
-use this new tree/manifest, preserve the old failed owners, and retain their
+Fresh QA owners qa/link/guest/runtime-02 are hash-bound. QA-02 started at
+16:38 UTC; link, guest and runtime remain unstarted behind their success
+gates. They use this new tree/manifest, preserve the old failed owners, and retain their
 preceding-success guards. QA adds an installed proxy-script byte/mode check
 on clean and actual RC2-upgraded guests. The required sequence remains
 15defaults and actualRC2 → WebDAV/S3 link matrices →19 independent guest
@@ -57,3 +58,30 @@ the repository cwd and could not find the basename, then was corrected).
 Immutable bundle b37f01b7e4e5a06f983dd420b4af10c0c2155564fb9071051c0772ceb0e04c3b
 contains the full input manifest, images and build receipts; custody verifies.
 See candidate-summary.json for exact hashes/sizes. This is not an RC claim.
+
+## Packaged proxy proof prepared — #384/#361
+
+The new proxy-01 owner is hash-bound to replacement1600d78fe5 and bundle
+b37f01b7e4e5, and requires runtime-02 success before it starts. Its retained
+20 installed-module/service assertions use the predecessor-written synthetic
+SQLite fixture a796c1e6ce63. They check cached sign-in, legacy image bytes,
+base/subset ID mapping and retained offline awards. No default route, no real
+account and no provider contact. This does not replace the separate ordinary
+live award test. Syntax and checksum preparation checks pass; execution is
+still pending. Source copies are in proxy-stage/.
+
+## Qualification findings and revised route — #416/#417
+
+The first thirteen defaults, including scripts, round-trip, exit and timing,
+pass on1600; visual walks are still in progress. A separate preliminary
+staging/source scan found stale player text (#416) and invalid Tools XML
+(#417). Their source corrections are outside the frozen tree and require a
+new image. The broad scan is not yet a completed artifact classification.
+
+Finish qa-02, then run image-02 extraction/equality and finish the broader
+checks before freezing one corrected rebuild. Existing link/guest/runtime-02
+and proxy/optins/memory/ui-01 owners are unstarted preparation templates bound
+to1600. Rebind fresh owners to the corrected artifact before executing that
+sequence. image-stage/ retains the current unstarted extraction source.
+The attempted concurrent image-01 launch was refused before its script ran;
+its tool rc2 and message are retained under image-concurrency-refusal/.

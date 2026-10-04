@@ -143,3 +143,7 @@ issue is needed; `issue: none` is the state that expires.
 - 2026-10-04 07:28 UTC -- The rename left three expected-change rectangles describing /Rasteratops/Saves; lowercase /pixelelated/Saves changed pixels left of their old bounds. Original frame-diff correctly failed. Guard: inspected actual baseline/current pairs, bounded claims and missing/undersized/outside-text failing controls; issue: #415.
 
 - 2026-10-04 16:29 UTC -- Cache-copy reads filled swap soon after a successful guarded recycle; repeat correctly refused the active watcher. Wait for copy/checksum completion, then reclaim immediately before build. rsync progress2 emitted per-file output; retain this run unchanged and use bounded progress for future copy harnesses. Guard: explicit idle reclaim and actual process I/O checks during quiet verification; issues: #383/#410.
+
+- 2026-10-04 17:12 UTC — A parallel read-only artifact extraction was refused by watch-build because the active QA run owns that worktree; no inner job started. Retain the rc2 receipt and run analysis sequentially after QA. The shared worktree lock did its job. issue: #383.
+
+- 2026-10-04 17:22 UTC — The prepared image-analysis launcher omitted ES_SRC and failed its input guard before extraction. Fresh owner supplies the pin and verifies inputs from the actual frozen cwd before launch; preserve original failure and wrong-cwd refusal. issue: #418.

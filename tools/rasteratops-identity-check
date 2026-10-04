@@ -12,6 +12,7 @@ import re
 import subprocess
 import sys
 import tempfile
+import xml.etree.ElementTree as ET
 
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument("--tree", type=Path, default=Path(__file__).resolve().parent.parent)
@@ -96,6 +97,18 @@ with tempfile.TemporaryDirectory(prefix="rasteratops-identity-") as work:
             check(False, "entry point failed or timed out: " + script)
 timer = root / "projects/ROCKNIX/packages/rocknix/system.d/rocknix-report-stats.timer"
 check(timer.is_symlink() and os.readlink(timer) == "/dev/null", "statistics timer masked")
+
+# Tools descriptions are player text; paths and attribution are retained
+# compatibility/credit fields. Check the consumer fields, not a blanket grep.
+try:
+    tools = ET.parse(root / "projects/ROCKNIX/packages/misc/modules/sources/gamelist.xml")
+    check(True, "Tools metadata is well-formed XML")
+    stale = [game.findtext("path", "") for game in tools.getroot()
+             if any(re.search(r"rocknix|rasteratops", game.findtext(field, ""), re.I)
+                    for field in ("name", "desc"))]
+    check(not stale, "Tools names and descriptions use the current identity")
+except (OSError, ET.ParseError):
+    check(False, "Tools metadata is well-formed XML")
 
 api = read(es / "es-app/src/ApiSystem.cpp")
 menu = read(es / "es-app/src/guis/GuiMenu.cpp")

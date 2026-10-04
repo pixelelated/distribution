@@ -5,7 +5,7 @@ saves, save states, and screenshots; `Backups` holds settings backups;
 `Content` holds ROMs, BIOS files, and other game content you choose to back up.
 
 An upgrade from ROCKNIX preserves your configured folders. In **GAME SETTINGS
-→ MANAGE CLOUD STORAGE**, the folder workflow can move the earlier `/GAMES`
+→ CLOUD SETTINGS → MANAGE CLOUD STORAGE**, the folder workflow can move the earlier `/GAMES`
 or `/ROCKNIX` layout into `/pixelelated`. It copies and checks each tier
 before removing the old copy, and an interrupted move can be retried. You
 can keep your current folder. A custom content folder remains your choice.
