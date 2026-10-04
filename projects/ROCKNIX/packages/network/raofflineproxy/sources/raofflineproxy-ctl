@@ -239,8 +239,8 @@
 #
 # The store this reads -- read-only, through the service's own sqlite3
 # module, never written here -- is the client's schema at the commit
-# package.mk pins (ec60fdd0f6522790d9d1d4d20add397bbc4da945, storage.py
-# _initialize_sqlite, read 2026-10-04 for #414). These consumed columns and
+# package.mk pins (ea9aba6c2b8b2f27e254d696ac8738c9e5c8793e, storage.py
+# _initialize_sqlite, byte-identical review 2026-10-04 for #419). These consumed columns and
 # cache-key spellings remain compatible; the refreshed client adds queue
 # state independently. The suite reads a store the current client wrote,
 # and the integration fixture reopens the predecessor's store with current

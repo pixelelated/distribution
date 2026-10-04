@@ -1,0 +1,99 @@
+old 001-dorequest-4xx-passthrough.patch
+patching file linux/raofflineproxy/proxy_service.py
+
+old 002-no-synthetic-casual-only-achievement.patch
+patching file linux/raofflineproxy/rom_cache.py
+
+old 003-flush-stamp.patch
+patching file linux/raofflineproxy/flusher.py
+
+old 004-no-cap-on-cached-games.patch
+patching file linux/raofflineproxy/rom_browser.py
+
+old 005-keep-the-refresh-thread-alive.patch
+patching file linux/raofflineproxy/proxy_service.py
+
+old 007-cached-sign-in-of-the-configured-account.patch
+patching file linux/raofflineproxy/auth.py
+
+old 008-log-upload-opt-in.patch
+patching file linux/raofflineproxy/config.py
+patching file linux/raofflineproxy/proxy_service.py
+
+old 009-unique-image-temp-names.patch
+patching file linux/raofflineproxy/image_cache.py
+
+old 010-store-only-header.patch
+patching file linux/raofflineproxy/proxy_service.py
+
+old 011-offline-login-header.patch
+patching file linux/raofflineproxy/proxy_service.py
+
+old 012-offline-image-miss.patch
+patching file linux/raofflineproxy/proxy_service.py
+
+old 013-validate-a-cached-image-before-publishing-it.patch
+patching file linux/raofflineproxy/image_cache.py
+patching file linux/tests/test_linux_image_cache_shutdown.py
+
+old 015-bounded-name-lookup.patch
+patching file linux/raofflineproxy/network.py
+patching file linux/raofflineproxy/proxy_service.py
+patching file linux/tests/test_linux_network.py
+
+old 016-say-what-became-of-a-download.patch
+patching file linux/raofflineproxy/image_cache.py
+
+old 018-rasteratops-platform-identity.patch
+patching file linux/raofflineproxy/config.py
+patching file linux/tests/test_linux_rocknix.py
+
+new 001-dorequest-4xx-passthrough.patch
+patching file linux/raofflineproxy/proxy_service.py
+
+new 002-no-synthetic-casual-only-achievement.patch
+patching file linux/raofflineproxy/rom_cache.py
+
+new 003-flush-stamp.patch
+patching file linux/raofflineproxy/flusher.py
+
+new 004-no-cap-on-cached-games.patch
+patching file linux/raofflineproxy/rom_browser.py
+
+new 005-keep-the-refresh-thread-alive.patch
+patching file linux/raofflineproxy/proxy_service.py
+
+new 007-cached-sign-in-of-the-configured-account.patch
+patching file linux/raofflineproxy/auth.py
+
+new 008-log-upload-opt-in.patch
+patching file linux/raofflineproxy/config.py
+patching file linux/raofflineproxy/proxy_service.py
+
+new 009-unique-image-temp-names.patch
+patching file linux/raofflineproxy/image_cache.py
+
+new 010-store-only-header.patch
+patching file linux/raofflineproxy/proxy_service.py
+
+new 011-offline-login-header.patch
+patching file linux/raofflineproxy/proxy_service.py
+
+new 012-offline-image-miss.patch
+patching file linux/raofflineproxy/proxy_service.py
+
+new 013-validate-a-cached-image-before-publishing-it.patch
+patching file linux/raofflineproxy/image_cache.py
+patching file linux/tests/test_linux_image_cache_shutdown.py
+
+new 015-bounded-name-lookup.patch
+patching file linux/raofflineproxy/network.py
+patching file linux/raofflineproxy/proxy_service.py
+patching file linux/tests/test_linux_network.py
+
+new 016-say-what-became-of-a-download.patch
+patching file linux/raofflineproxy/image_cache.py
+
+new 018-rasteratops-platform-identity.patch
+patching file linux/raofflineproxy/config.py
+patching file linux/tests/test_linux_rocknix.py
