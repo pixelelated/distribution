@@ -17,14 +17,19 @@ product files,180links and200QA files. Previous05cache was independently
 copied and checksum/inode verified2525217files before use. Guarded preflight
 reclaimed swap; no helper reinstall is needed.
 
-**Verdict: initial clean identity passes; full qualification is running.**
-qa07 actual44253 started22:53:18 under shared5s recursive monitoring and
-connected supervision. Actual ES process has OS_NAME=pixelelated. Exact
-installed profile0755, scripts, policy and wordmark bytes/modes pass. Five
-1280x800 frames were inspected: main menu and Information show pixelelated
-0.0.1, Updates shows MANUAL UPDATES, and its readable instructions name the
-pixelelated release URL. All15default suites and actualRC2-upgraded process/
-frame checks remain in progress. No RC or device-ready claim.
+**Verdict: default/upgrade/content/settings qualification passes; provider matrix active.**
+qa07 actual44253/allrc0 completed23:31UTC: all15defaults,16walks/78frames,
+baseline21claimed/0unclaimed/0missing, actualRC2 preservation and exact clean/
+upgraded bytes/modes. Actual ES process identity and five1280x800frames in
+each phase confirm pixelelated0.0.1 and correct manual-update instructions.
+All owned processes exited, independently observed23:31:18.
+Image07 actual86758=0 proves flash/updateSYSTEM SHAacc5ebc280fb… equal.
+Sweep04 actual4437=0:8589reviewedbrandcontexts,0FIX/UNKNOWN,70reviewedpublic
+credential-patternmatches,0unclassified,10controls,95XMLentries/0orphans.
+Settings06 actual60081=0:20realESrace/29installedmode checks on actual-upgrade
+COW, original settings/product/backing preserved, actualcleanup23:33:43.
+Link06 tool26472 started23:33:56 with shared5s recursive watcher and connected
+supervision; seven WebDAV then seven S3 fault/recovery cases. No RC/device claim.
 
 qa06's original30948/allrc1 is preserved: a newly added harness expected0644
 for the export profile, but Git/package/guest correctlyuse0755 (#428). Fresh
@@ -40,7 +45,7 @@ recoveredrclone archive verified. Fourteen licence-metadata gaps remain P5.
 Build/source receipts: `docs/qa-logs/2026-10-04-pixelelated-replacement-06/`.
 Runtime/failure receipts: `docs/qa-logs/2026-10-04-pixelelated-57cbc-qualification/`.
 
-Next: finishqa07 → image07 equality → sweep04 → settings06 → link06 → guest06
+Next: finishlink06 → guest06
 → runtime06 → proxy05 → optins05 → memory05 → ui06 → predecessor03 → subset02.
 Each new owner binds the exact current candidate. Then reconcile remaining
 criteria, ordinary RA proof, approved P4 primary+Fable5.1/xhigh review and first
