@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Updated 2026-10-04T20:53:49.756210+00:00. Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261004T205349Z.md`.
+> Updated 2026-10-04T20:41:39.763715+00:00. Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261004T204139Z.md`.
 
 ## Start here
 
@@ -28,7 +28,7 @@ files,live regression and7 unstarted owners. Its stale readiness paragraph
 and precise harness-manifest wording findings are corrected.
 A helper installation is COMPLETE; do not ask to reinstall it.
 
-## Current: replacement05 passes defaults, actual RC2, content, settings and both link matrices; guest-05 running
+## Current: replacement05 passes defaults, actual RC2, content and settings; link-05 running
 
 Frozen tree `/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement05`,
 branch `build/m7-pixelelated-replacement05`, commit
@@ -81,31 +81,22 @@ Settings/product restoration and backing rehash PASS; runner3336342,
 watcher3336343,owned guest3336778 exited. Retain the previous02163 failures.
 Evidence: docs/qa-logs/2026-10-04-pixelelated-1e6a-qualification/.
 
-link-05 completed20:51:28UTC, actual32413/all result channels0. Seven
-WebDAV cases PASS494s; seven S3 cases PASS460s. Before/after candidate/source
-custody passes. Actual20:52 host observation proves runner3340748,
-watcher3340749,command3340778,S3 QEMU3393715/3393743,throttle3392687 and
-MinIO3392596 exited; docker confirms rocknix-cloud-qa absent. Receipts are
-in the qualification directory's link-05/. Fresh-context resume proof20:46
-verified source/harness/result hashes and live ownership; report beside them.
+## ACTIVE: actual tool32413 — supervise link-05; no restart
 
-## ACTIVE: actual tool59664 — supervise guest-05; no restart
+Owner /workspace/tmp/pixelelated-m7-link-05, started20:34:15UTC.
+Frozen05 run .build-runs/20261004T203415Z-09dc0e7d;
+runner3340748/watcher3340749. Shared interval5/stall5min,recursive activity
+owner/artifacts. At20:35 the first WebDAV case has actually cut eth0; log shows
+no address/default route. Seven WebDAV then seven S3 interruption/retry cases,
+200kB/s. Read nested link.log and report.md; absence of top-level output alone
+is not a stall. Never run another fixed-port VM owner concurrently.
 
-Owner /workspace/tmp/pixelelated-m7-guest-05, started20:52:09UTC.
-Frozen05 run .build-runs/20261004T205209Z-e86a3498;
-runner3437306/watcher3437307. Shared interval5/stall5min,recursive activity
-owner/artifacts. Fresh16GiB 640x480 guest d booted; exact BUILD_ID/OS_NAME,
-three QA ROM hashes and idle UI pass. At20:52:47 the19 independently reset
-cloud cases have seeded the earlier ROCKNIX layout. Follow build.log plus
-owner/artifacts/cloud-epic/; real test results remain pending.
-
-Poll actual exec59664. At termination reconcile actual tool result with
+Poll actual exec32413. At termination reconcile actual tool result with
 owner/inner.rc,outer.rc,tool-wrapper.rc and run/build.rc, then prove actual
 owned runner/watcher/QEMU/backend exits. /tmp/pixelelated-finish-owner.py can
 retain that observation after the actual tool returns; do not predeclare it.
 Real host PID/network observations require escalated view. No disconnected
 notification destination exists (#395); connected supervision stays active.
-Never run another fixed-port VM owner concurrently or edit live inputs.
 
 ## Completed source inventory for this candidate
 
@@ -122,9 +113,10 @@ opusfile,rclone,retropie-shaders,slang-shaders,tailscale,wildmidi,zerotier-one.
 
 ## Next in binding M7 order
 
-1. Finish/supervise guest-05; preserve and diagnose any failure before a fresh
+1. Finish/supervise link-05; preserve and diagnose any failure before a fresh
    owner. Do not rerun an executed owner or edit an in-flight source/harness.
 2. Remaining prepared UNSTARTED owners, all under /workspace/tmp/pixelelated-m7-:
+   guest-05:19 independently reset640x480 cloud cases;
    runtime-05:actual-upgrade COW,14 archive/5-sample30ms timing/13 identity
    assertions (actual /storage Tools consumer bytes+XML included);
    proxy-04:installed Python3.14,20 synthetic predecessorSQLite/cache/queued
@@ -147,8 +139,7 @@ opusfile,rclone,retropie-shaders,slang-shaders,tailscale,wildmidi,zerotier-one.
    receipts and explicit closure comments; actual2420/readback0. Reconcile only complete
    #416/#417/#419,#352/#353/#366/#384/#391/#392 and remaining327docs.
    M7/#383/#409/#344/#419 updated/read back20:40, actual21072=0. They
-   recorded completed gates and then-active link-05; update/read back guest-05
-   current state after this checkpoint publication.
+   reflect completed gates and active link-05; read current logs for progress.
 6. Ordinary RA fixture still awaits owner input below. Then approved P4
    primary+Fable5.1/xhigh via verified Facilitator/OpenRouter. Read code-auditor
    skill/routing then; initial#375/#382 review done, don't restart. Resolve/

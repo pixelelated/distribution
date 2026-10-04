@@ -16,6 +16,7 @@ in `2026-10-04-pixelelated-replacement-05/`. No product input changed during QA.
 | image-06 | 37162, exit 0 | Raw-image and update SYSTEM are byte-identical; extracted without executing image binaries. |
 | sweep-03 | 97815, exit 0 | Complete content classification and localisation checks pass, including 10 scanner controls and consumed pugixml 1.16 theme parsing. |
 | settings-05 | 48514, exit 0 | Actual installed ES race: 20 checks. Installed writers: 29 mode/refusal checks. Exact restoration and backing-disk rehash pass. Finished 20:33:53 UTC. |
+| link-05 | 32413, exit 0 | Seven WebDAV and seven S3 interruption/retry cases pass (494s/460s). Cleanup, candidate/source custody and actual owned process/container exits pass. Finished 20:51:28 UTC. |
 
 Each completion JSON reconciles command/inner/outer/wrapper results and records
 actual host process exit. A terminal status file's last `alive=yes` observation
