@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Updated 2026-10-04T19:44:12.002682+00:00. Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261004T194412Z.md`.
+> Updated 2026-10-04T19:35:34.900733+00:00. Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261004T193534Z.md`.
 
 ## Start here
 
@@ -28,79 +28,7 @@ files,live regression and7 unstarted owners. Its stale readiness paragraph
 and precise harness-manifest wording findings are corrected.
 A helper installation is COMPLETE; do not ask to reinstall it.
 
-## Pre-assembly dependency follow-up — #421
-
-Final package review found newly used BusyBox stat absent from the owning
-rocknix recipe's explicit dependencies. Add busybox (and retained fork credit)
-before assembly; package lint passes and tested function bytes are unchanged.
-The following04 cache copy is still active and must finish unchanged. New
-replacement05 will freeze the dependency commit. After actual copy/watcher
-exit and checksum/inode success, relocate only that independently verified,
-never-built cache from04 to05, retaining04 source/manifest/copy receipts.
-Rebind fresh UNSTARTED QA owners to05 before execution. No image exists for
-04 and no assembly may run its old launcher after relocation.
-
-## Current: replacement04 cache verification running — actual tool95466
-
-Source correction #421 passed1719 assertions/zero failures/skips, committed
-featurec70cab223bb4b5905975c30b9e5703c348c865ee and explicitly integrated as
-nextff249d21722fe3f12146f6c1997d1bf516a78a5c. Both normal pushes/readbacks
-pass; actual43848=0. Primary remains clean next. The latest proxy input is
-now aec99c, byte-identical Linux/native, as detailed below.
-
-NEW frozen tree /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement04,
-branch build/m7-pixelelated-replacement04 at fullff249d2172 above.
-Owner /workspace/tmp/pixelelated-m7-replacement-04, inputs SHA256
-23c59a1a6b6f2b34f06a42a8046e31f2d8f0aea44067f637d83e86cdc897359a;
-6547 product files/180 symlinks and198 additional QA tool hashes.
-Do not advance/edit this source. Four product paths differ from02163:
-profile001-functions, chksysconfig, proxy recipe and proxy schema-note comment.
-
-Independent rsync cache copy started19:38:09UTC, run in the NEW tree:
-.build-runs/20261004T193809Z-899750f3, runner2657942/watcher2657943,
-actual exec95466. Owner/copy.run points to its full run path. Copy of
-104,071,324,948 bytes completed19:42; checksum comparison is currently quiet
-but actual rsync PIDs2675197/2675201 advance read I/O. Shared5s monitor,
-stall5min, isolated copy-artifacts activity directory; session checks real
-I/O during quiet checksum work. Distinct-inode walk follows comparison.
-Do not edit copy-cache.sh/progress.py/copy-outer.sh while it runs. Preserve
-old02163/cache/image. No new candidate or running QEMU exists yet.
-
-Prepared build.sh/outer.sh clean onlyrocknix/raofflineproxy/image stamp after
-copy verification, use the same canonical container path and pinned digest,
-and assert assembled settings/source identity/XML/licence/proxy bytes.
-No automatic launch after copy. Read actual95466 exit and copy.rc,
-copy.outer.rc,copy.tool-wrapper.rc,copy run/build.rc; cache-ready.rc/json
-must agree before build. Check real host idle state/preflight (guarded
-swap reclaim only if needed). Then launch from the frozen04 tree:
-`tools/watch-build --interval 5 --stall-min 5 -- OWNER/outer.sh`, recording
-actual tool result plus owner/tool-wrapper.rc. Preserve actual consumed
-Docker mounts/digest/nonroot/working directory during execution. Full
-canonical mount path remains /workspace/repos/rocknix.worktrees/m7-pixelelated.
-After assembly retain new immutable bundle and its checksum/everyrc.
-
-Fresh UNSTARTED owners have been created under /workspace/tmp/pixelelated-m7-:
-qa-05 → image-06 → sweep-03/settings-05 → link-05 → guest-05 → runtime-05 →
-proxy-04 → optins-04 → memory-04 → ui-04. owner04/qa-owners.json holds their
-harness.sha256 file digests. Product/tools pins now bindff249d/manifest23c59a.
-Never run their old02163 counterparts as proof of this candidate. qa-05
-checks profile/chksysconfig exact bytes on clean and actual-RC2-upgraded
-guests. settings-05 uses the actualnewqa-05 upgraded disk as COW backing,
-real ES recovery interleaving and29 installed settings-mode/refusal checks.
-The test interposer remains the same byte-verified compiled instrumentation.
-The original bootstrap preparation hit a copied read-only file mode before
-any run; preparation was completed only while every owner was unstarted.
-
-A fresh inventory-03 must bind this build after assembly. inventory-02 below
-is retained02163/ea9aba evidence only. See source-inventory.py under
-2026-10-03-m7-qa-01 and component-map.py under2026-10-04-pixelelated-artifact-sweep;
-reverify retainedrcloneZIP against the new consumed binary. No new inventory
-owner has yet been created. M7/#383/#409/#344/#419/#421 current openings and
-source criterion checkboxes were updated/read back19:41, actual60577=0.
-Next is assembly+fresh qualification, then remaining P3/P4/H700 as below.
-
-## Retained02163 qualification and failures — not current product bytes
-
+## Current: #421 source regression passed; integrate and build replacement04
 
 Frozen tree /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement03,
 branch build/m7-pixelelated-replacement03,
@@ -149,8 +77,9 @@ Complete log/hashes/terminal receipt under
 `docs/qa-logs/2026-10-04-settings-race-and-modes/source-01/`.
 
 This runs the full last-good-scripts-test with candidate BusyBox from the
-02163 extraction. The product correction is integrated and frozen in replacement04 above;
-these source receipts remain scoped to the sealed four files, not an image.
+02163 extraction. The product correction is ready for explicit-commit
+integration and replacement04 freeze. Inspect current HEAD/status to tell
+whether that integration has finished; no corrected image exists yet.
 - projects/ROCKNIX/packages/rocknix/profile.d/001-functions
 - projects/ROCKNIX/packages/rocknix/sources/scripts/chksysconfig
 - tools/last-good-scripts-test
@@ -178,14 +107,23 @@ backing rehash all pass. Never relabel this failed run0.
 Test-only C interposer uses pinned candidate compiler; unchanged installed
 ES/script hashes are checked. Sources under docs/qa-frames/2026-10-04-settings-race/.
 
-## Detailed P3/P4 follow-through (start with the current owner above)
+## Next, in binding M7 order
 
-1. Supervise actual95466 cache checksum/inode verification, then launch the
-   prepared replacement04 build only after successful terminal receipts.
-2. Retain actual consumed inputs/container, terminal outcomes and immutable
-   candidate; run a new source/component inventory for these bytes.
-3. Launch fresh qa-05 defaults/actualRC2, image-06/sweep-03/settings-05 with
-   the new bundle; all exact payload and settings-mode proof must pass.
+1. Source-01 has completed successfully; do not rerun its used owner.
+2. Commit/integrate #421 product/tool/rule changes and latest #419 package
+   input with evidence/worklog, explicit-full-hash cherry-pick onto next,
+   normal fork push/readback. Do not merge the historical feature wholesale.
+   Check fresh upstream package inputs and freeze a new build/* worktree.
+   Preserve02163 source/build/candidate. Prepare an independently copied
+   checksum/inode-verified cache, pinned-container canonical-path mapping,
+   idle guarded swap reclaim immediately before build if needed. Clean
+   changed rocknix package/image stamps, assemble with watch-build, retain
+   every actual/inner/outer/wrapper result and new immutable candidate.
+   Old replacement03 build.sh/run owners are used; do not relaunch them.
+3. Rebind fresh default/actual-RC2/image/sweep/settings owners to the NEW
+   commit/manifest/bundle. Rerun new-image qualification; prior02163 scoped
+   passes do not qualify future bytes. Then remaining owners below. The
+   helper fix changes installed scripts; old hash assertions must renew.
 4. Prepared02163 templates under /workspace/tmp/pixelelated-m7- remain
    UNSTARTED and MUST NOT be used as new-image proof without a fresh owner:
    link-04:7 WebDAV+7 S3 link cases;
@@ -219,7 +157,7 @@ connected supervision at most60s apart. #395 has no disconnected destination.
 The old archive contains the complete canonical mount/build command details.
 Real host PIDs/Docker/VM network require escalated view, not sandbox absence.
 
-## Completed source corrections and retained02163 source inventory
+## Completed source corrections and current source inventory
 
 #416 removes seven stale player contexts in Tools metadata, the cloud_setup
 example and the memory-manager heading. #417 escapes the raw ampersand in
@@ -239,7 +177,7 @@ The recipe/schema-comment refresh is part of this integration before freeze.
 Other checked inputs remain current. No need to chase later upstream changes
 inside a frozen QA run; retain the verified input boundary.
 
-Retained02163 inventory: /workspace/tmp/pixelelated-m7-inventory-02.
+Current inventory: /workspace/tmp/pixelelated-m7-inventory-02.
 568 roots, 547 cache inputs, 17 local/generated, 3 shared sources, one recovered
 rclone archive, zero errors. Feature run20261004T182145Z-8fbbbc8c, actual
 tool79898=0. Component map: 583 entries and 525 image installation stamps.

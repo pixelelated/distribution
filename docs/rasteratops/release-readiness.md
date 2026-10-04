@@ -33,7 +33,8 @@ on old source and pass all29 on corrected source. Full scripts regression passed
 19:33:58UTC, actual tool47616 and all result channels0; jobs exited.
 No later02163 opt-in owner has started.
 
-Current order: integrate/freeze/build a fresh
+Source is integrated as nextff249d2172 and replacement04 is frozen; its
+independent cache verification is running (actual95466). Current order: build a fresh
 candidate → repeat defaults/actual RC2/payload/scans/settings proof → remaining
 link, guest, runtime, proxy, S3/pair, memory and bilingual UI/boot checks → P4's
 approved primary+Fable5.1/xhigh review → first H700 DDR4/RG35XX SP build.
@@ -41,8 +42,9 @@ Daybreak is unavailable and no coverage from it is claimed. The ordinary RA
 fixture and public-site delivery remain external inputs recorded in the
 canonical checkpoint. No disconnected alert destination is configured (#395).
 
-Current source inventory verifies568 consumed roots/547 cache inputs with
-zero errors;583-component map/525 installation stamps retained. P5 source/
+Retained02163 source inventory verifies568 consumed roots/547 cache inputs with
+zero errors;583-component map/525 installation stamps retained. Replacement04
+must produce its own inventory after assembly. P5 source/
 licence publication remains separate. #410 helper is installed and closed.
 Frozen trees, generated emulator documentation and original failures are
 preserved. #416/#417 exact source/image XML and wording proof is now retained;
