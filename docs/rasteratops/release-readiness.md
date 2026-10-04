@@ -46,7 +46,8 @@ Original failed runs and their cleanup/backing proofs remain retained.
 A local post-store wrapper parser failure is also retained separately; the
 already stored immutable bundle was independently verified before QA.
 
-Current order: guest/runtime/proxy/S3-pair/memory/bilingual UI/actualboot and ordinary RA
+Current order: guest/runtime/proxy/S3-pair/memory/bilingual UI/actualboot,
+#391 installed recovery of RC2-script-created partial states, and ordinary RA
 proof → approved P4 primary+Fable5.1/xhigh review → first H700 DDR4/RG35XX SP
 build. Daybreak is unavailable and no coverage is claimed. Ordinary RA fixture,
 public-site delivery, publication and physical actions retain named gates.
