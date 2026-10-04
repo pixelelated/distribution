@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Updated 2026-10-04T18:38:43.336610+00:00. Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261004T183843Z.md`.
+> Updated 2026-10-04T18:30:16.591772+00:00. Previous full checkpoint: `.github/sessions/archived/saved-session-state-next-20261004T183016Z.md`.
 
 ## Start here
 
@@ -20,9 +20,7 @@ The archive above preserves all earlier failed/successful artifact history.
 
 User authorizes ordinary fixes/tests/isolated VMs, explicit-commit integration
 onto next and normal fork pushes. Physical-device actions, personal-cloud
-mutations and publication retain their named gates. No goal tool created. Fresh-context resume proof at18:37 passed source,
-bundle, live process and next-action checks; its shorthand/historical-label
-findings are corrected. Retained in replacement03/resume-proof.md.
+mutations and publication retain their named gates. No goal tool created.
 A helper installation is COMPLETE; do not ask to reinstall it.
 
 ## Current: corrected image built; fresh default/actual RC2 QA RUNNING
@@ -57,8 +55,7 @@ source inputs/harnesses/current inventory and raw build log hash/local path.
 Started18:20:12UTC, runner1675695/watcher1675696, actual tool25176.
 Read build.status/build.rc and owner inner.rc/outer.rc/tool-wrapper.rc;
 actual exec session25176 must be polled for its actual result while available.
-The last observed completed phase is time-to-play (13 default suites pass);
-visual walks continue. Both guests booted02163. No final
+The last observed phase is scripts suite; both guests booted02163. No final
 result exists at this checkpoint. Never relaunch a used owner.
 
 Shared watch-build uses interval5/stall5min and recursive activity-dir
@@ -81,9 +78,6 @@ The actual upgraded disk will remain owner/pair/vm-a.qcow2 for runtime COW.
 2. image-05 can run after qa-04, serially in the frozen tree. Explicit ES_SRC
    is wired (fix418). Extract raw image and update; compare SYSTEM hashes;
    rerun full brand/credential/localisation sweeps on the extracted bytes.
-   Prepared owner /workspace/tmp/pixelelated-m7-sweep-02 requires image-05
-   success; execute its outer.sh under the feature tree watcher. Ten
-   reproducible rejection controls pass; full corrected-image scan is pending.
    Use docs/qa-logs/2026-10-04-pixelelated-artifact-sweep/*.py and allowlist.json.
    Scanner prints counts/hashes only. Do not print credential matches.
 3. Fresh success-gated owners all under /workspace/tmp/pixelelated-m7-:
@@ -100,7 +94,7 @@ The actual upgraded disk will remain owner/pair/vm-a.qcow2 for runtime COW.
    tree. Do not change any running shell or use pkill by pattern.
 4. ui-03 now captures boot scanout for40s before serial wait at each size.
    Prior harness is retained; current harness SHA256
-   2fadd6620cf588aea60c1d00e756cdf1aad9091ec3c1001056927dbf1d08a08c.
+   a5029fa90011cb972089bdbb06d400596fd169ee2d667a595dc5e35824d0779b.
    qa-owners-current.json in replacement03 receipt supersedes original owner
    qa-owners.json's preparation-time status/hash. Source/harness copy retained.
    Run docs/qa-logs/2026-10-04-pixelelated-guest-brand/match-splash.py with each
@@ -120,12 +114,10 @@ The actual upgraded disk will remain owner/pair/vm-a.qcow2 for runtime COW.
    H700 DDR4/RG35XX SP build after P3/P4. No handheld action/publication yet.
    The x64 image cannot be flashed to H700.
 
-Run each prepared owner through the frozen tree, retaining actual results:
-
-```bash
-tools/watch-build --interval 5 --stall-min 5 \
-  --activity-dir OWNER/artifacts --recursive-activity -- OWNER/outer.sh BUNDLE
-```
+Run each prepared owner through frozen tree tools/watch-build --interval5
+--stall-min5 --activity-dir OWNER/artifacts --recursive-activity --
+OWNER/outer.sh BUNDLE, retaining actual wrapper/tool result. Use the real
+separate arguments shown by prior shell commands (interval 5, etc.).
 
 ## Completed source corrections and current source inventory
 
