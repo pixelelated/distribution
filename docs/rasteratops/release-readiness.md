@@ -8,24 +8,25 @@ is unchanged. The required adoption flow is **ROCKNIX → pixelelated**;
 there are no fielded /Rasteratops systems requiring an additional gate.
 
 The [M7 milestone body](https://github.com/pixelelated/distribution/milestone/7)
-is the binding running order. **The new pixelelated cold build completed
-642/642 tasks at06:46:59UTC on October4; bundle22533e35b95a is retained and
-verified. First-stage VM QA finished07:27:52UTC with13 of15 suites passing.
-#414 corrects a stale proxy schema-review comment and adds an early guard;
-source fix next1f5b800391 is pushed, replacement image still owed. #415
-corrects three expected lowercase-folder text claims after inspecting actual
-frames: the same78frames now compare cleanly with the unchanged baseline.
-#415 is closed after publication in next c027c24e2a; #414 remains open for
-replacement-image proof.**
-See `docs/pixelelated/rename-plan.md` and the October4 qualification receipts.
+is the binding running order. **Corrected replacement1600d78fe5 built at
+16:35 UTC on October4, with642/642 tasks and all result codes0.** Frozen input,
+exact assembled proxy/identity/licence checks and immutable bundle custody
+pass. Bundle b37f01b7e4e5a06f983dd420b4af10c0c2155564fb9071051c0772ceb0e04c3b
+contains the new image and tar. Source pins are unchanged; product delta is
+#414's two proxy comment lines. Cache copy was fully compared and independent.
 
-**Verdict: engineering image exists, but qualification failed; no RC claim.**
-No VM/build job remains. Read-only host preflight fails with0MB swap free;
-#410's corrected installer still needs local administrator authentication.
-After effective-grant/guard verification and safe preflight, rebuild corrected
-bytes and restart qualification with new run owners. The original failed
-run's RC2 upgrade and later stages did not execute. Preserve its frozen tree,
-input manifests, original result and image; do not bypass success guards.
+**Verdict: replacement engineering image built; fresh qualification running.**
+qa-02 started16:38:03, runner787868/watcher787869, shared5s nested-log monitor.
+Both guests boot1600d78fe5. Defaults and actual ROCKNIX RC2 upgrade/payload
+checks precede link/guest/runtime-02 and the remaining P3/P4 gates. #410's
+corrected helper is installed and closed after actual host guard/recycle/no-op
+proof. Safe preflight passed. No device-ready or RC claim.
+
+The original b137 image's qualification remains failed13PASS/2FAIL. #415's
+bounded visual expectations are corrected and closed; #414 stays open until
+new scripts-suite evidence. Preserve original source, image and failed report;
+its upgrade never ran. See docs/qa-logs/2026-10-04-pixelelated-replacement-01/
+and docs/qa-logs/2026-10-04-host-swap-rollout/ for current evidence.
 
 Replacement02 frozen61b64817bf remains successful historical RASTERATOPS
 engineering evidence: all15 default suites, actual RC2 upgrade and scoped
