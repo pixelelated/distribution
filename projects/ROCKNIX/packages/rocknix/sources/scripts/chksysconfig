@@ -66,7 +66,8 @@ valid() {
 # the same directory, then rename over the target.
 put() {
   local src="$1" dst="$2"
-  if cp "${src}" "${dst}.tmp" && mv -f "${dst}.tmp" "${dst}"; then
+  if prepare_settings_temp "${dst}.tmp" "${src}" "${dst}" \
+     && cat "${src}" > "${dst}.tmp" && mv -f "${dst}.tmp" "${dst}"; then
     return 0
   fi
   rm -f "${dst}.tmp"

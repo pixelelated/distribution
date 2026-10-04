@@ -1,8 +1,13 @@
 # Current RAOfflineProxy integration for0.0.1
 
 M7.P2, #361/#384, D-WORKFLOW-138. Selected main:
-`ea9aba6c2b8b2f27e254d696ac8738c9e5c8793e` (verified2026-10-04, #419).
-Archive SHA256: `9931790bb3f5d93f0d14afb7347af58badd0560413f85486d534071fefda2d62`.
+`aec99ce05bc0b9761366543fe9f08ea34cd8bd7a` (verified2026-10-04, #419).
+Archive SHA256: `c729d421f3d607521b8aec07e068c6c2d01025f17c4ddaf78fad94a28cf9c78e`.
+The19:23 upstream commit changes five Android files and one documentation
+file. All270 raw and patched Linux/native files remain identical to ea9aba;
+15 patches apply with zero fuzz. Comparison receipt: `docs/qa-logs/2026-10-04-proxy-aec99c/`.
+
+Previous ea9aba history follows.
 This commit arrived during corrected-build preparation and changes11 Android
 files only. All270 patched Linux/native files and both submodule pins are
 byte-identical to ec60; all15 patches apply with zero fuzz. The new pin is
