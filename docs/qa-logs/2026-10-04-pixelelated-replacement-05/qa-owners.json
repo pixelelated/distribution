@@ -1,0 +1,144 @@
+[
+  {
+    "owner": "/workspace/tmp/pixelelated-m7-qa-05",
+    "prepared_only": true,
+    "harness_manifest_sha256": "cf4880ceed9458a98a8b2cfa32c3ff31aaa63d57a1db7e4745bf9c2d41ceeadd",
+    "files": [
+      "check-payload.py",
+      "outer.sh",
+      "qualify.sh",
+      "verify-inputs.py"
+    ]
+  },
+  {
+    "owner": "/workspace/tmp/pixelelated-m7-image-06",
+    "prepared_only": true,
+    "harness_manifest_sha256": "e28dfc4823d5e1f94a2c24e1557e0d1fe42d133fd9ace6705f682530f6a65109",
+    "files": [
+      "extract.py",
+      "outer.sh",
+      "run.sh",
+      "verify-inputs.py"
+    ]
+  },
+  {
+    "owner": "/workspace/tmp/pixelelated-m7-sweep-03",
+    "prepared_only": true,
+    "harness_manifest_sha256": "fed0d4b059fe523e35e7021467e978d7b6e1be4cacf0469daa1e22d542fd4f56",
+    "files": [
+      "allowlist.json",
+      "check-controls.py",
+      "outer.sh",
+      "parse-theme.cpp",
+      "reconcile-locales.py",
+      "run.sh",
+      "scan-artifact.py",
+      "secret-patterns"
+    ]
+  },
+  {
+    "owner": "/workspace/tmp/pixelelated-m7-settings-05",
+    "prepared_only": true,
+    "harness_manifest_sha256": "3727f168c8bf56b2120cdd50b9e1b073e8bcdfc234363d4e18f416787c150f6b",
+    "files": [
+      "expected.json",
+      "guest-proof.py",
+      "host-proof.py",
+      "outer.sh",
+      "pause-unlock.c",
+      "pause-unlock.so",
+      "run.sh",
+      "stop-guest.py",
+      "verify-inputs.py",
+      "settings-modes-test"
+    ]
+  },
+  {
+    "owner": "/workspace/tmp/pixelelated-m7-link-05",
+    "prepared_only": true,
+    "harness_manifest_sha256": "9649407d7d3c7f20260ca92a21c537b6d54f831a5af913c25a52b21511c71776",
+    "files": [
+      "outer.sh",
+      "run.sh",
+      "verify-inputs.py"
+    ]
+  },
+  {
+    "owner": "/workspace/tmp/pixelelated-m7-guest-05",
+    "prepared_only": true,
+    "harness_manifest_sha256": "853cd6671808174439157d10d3d6a37a062004270c21e46e1ba867e58526e711",
+    "files": [
+      "outer.sh",
+      "run.sh",
+      "seed.py",
+      "stop-guest.py",
+      "verify-inputs.py"
+    ]
+  },
+  {
+    "owner": "/workspace/tmp/pixelelated-m7-runtime-05",
+    "prepared_only": true,
+    "harness_manifest_sha256": "245f4bdca66cbd508c17abec472a9236dd3f1ef1ba4be102c69174fd9df95e31",
+    "files": [
+      "archive-proof.py",
+      "identity-proof.py",
+      "outer.sh",
+      "run.sh",
+      "stop-guest.py",
+      "timing-proof.py",
+      "verify-inputs.py"
+    ]
+  },
+  {
+    "owner": "/workspace/tmp/pixelelated-m7-proxy-04",
+    "prepared_only": true,
+    "harness_manifest_sha256": "2665a018430c67d4f353ccc0fb3c75b5eb3ac1a5c9a74a5cb4b98f01957a18e3",
+    "files": [
+      "guest-proof.py",
+      "host-proof.py",
+      "outer.sh",
+      "run.sh",
+      "stop-guest.py",
+      "verify-inputs.py"
+    ]
+  },
+  {
+    "owner": "/workspace/tmp/pixelelated-m7-optins-04",
+    "prepared_only": true,
+    "harness_manifest_sha256": "c2e6cecce52294a09b18a96a42a8bb3656ede734da2acec4c5c23584b51bc8c1",
+    "files": [
+      "outer.sh",
+      "run.sh",
+      "stop-guest.py",
+      "verify-inputs.py"
+    ]
+  },
+  {
+    "owner": "/workspace/tmp/pixelelated-m7-memory-04",
+    "prepared_only": true,
+    "harness_manifest_sha256": "035f8e7c4e3d649a58cc5e2ac5dff512c6eb51e126afa591795b52bb266092be",
+    "files": [
+      "outer.sh",
+      "run.sh",
+      "seed.py",
+      "stop-guest.py",
+      "verify-inputs.py"
+    ]
+  },
+  {
+    "owner": "/workspace/tmp/pixelelated-m7-ui-04",
+    "prepared_only": true,
+    "harness_manifest_sha256": "135eba8a3c701c57914e3caf150bdff4618b102eab91c2cfbf559f99c25383e0",
+    "files": [
+      "capture-boot.py",
+      "identity.steps",
+      "outer.sh",
+      "run.sh",
+      "seed.py",
+      "stop-guest.py",
+      "tools-frames.py",
+      "ui.py",
+      "verify-inputs.py"
+    ]
+  }
+]

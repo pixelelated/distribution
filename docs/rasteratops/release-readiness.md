@@ -8,52 +8,38 @@ is unchanged. The required adoption flow is **ROCKNIX → pixelelated**;
 there are no fielded /Rasteratops systems requiring an additional gate.
 
 The [M7 milestone body](https://github.com/pixelelated/distribution/milestone/7)
-is the binding running order. **Corrected02163b440b built642/642 at
-18:14:16UTC October4, all result channels0 including actual tool82396.**
-Exact assembled Tools XML/text, proxy, identity/licence payloads and immutable
-custody pass. Bundle8e9eb161b8b4ab84b6339ff58d478acf00322f3c8fa70d5c2c4575849c6a149f
-contains image277813572471… and updateff4805f2b86b…. Source manifest3dc860
-binds the three #416/#417 files and proxy ea9aba (#419). The new upstream
-commit changes only Android;270 patched Linux/native files remain identical.
+is the binding running order. **Replacement05 built642/642 at19:53:36UTC
+October4**, frozen1e6a156b5477650e298b6a4dfff996673bf33fb1. Actual62521
+and all build result channels0; runner/watcher/container exited. It includes
+#421 private settings permissions and the explicit BusyBox runtime dependency,
+plus latest checked proxy aec99c with identical270 Linux/native source files.
 
-**Verdict: #421's settings-permission source correction passes; rebuilt-image verification remains pending;
-no RC or device-ready claim.** The02163 image completed all15 default suites,
-actual retained ROCKNIX RC2 upgrade, exact clean/upgraded payload checks and
-source/candidate custody. Actual tool25176 and every result channel returned0;
-all owned guests and watchers exited. Image/update SYSTEM equality and full
-brand/credential/localisation scans also passed (actual95242/4776=0).
-Receipts: `docs/qa-logs/2026-10-04-pixelelated-02163-qualification/`.
+**Verdict: fresh VM qualification is running; no RC or device-ready claim.**
+qa-05 started19:55:12, actual43844, runner2849479/watcher2849481. Default
+suites and actual retained ROCKNIX RC2 upgrade precede exact installed settings
+race/mode proof and remaining P3. The shared5s nested-log watcher and connected
+supervision are active; disconnected alert delivery is not configured (#395).
 
-The additional installed settings-race proof then exposed #421: shell writers
-widened private0600 settings to0644. #320's newer-byte preservation assertion
-passed, but the combined run remains failed because its privacy check failed.
-The corrected source preserves the intersection of input permissions and the
-caller umask before writing a temporary. Focused controls reproduce22 failures
-on old source and pass all29 on corrected source. Full scripts regression passed1,719 assertions with zero failures/skips at
-19:33:58UTC, actual tool47616 and all result channels0; jobs exited.
-No later02163 opt-in owner has started.
+Immutable bundlea179bd73… verifies imagea16f9532… and updatef0e2752d…;
+input manifestb252b926… binds6547 product files/180symlinks and198 QA tools.
+Fresh inventory-03 passes568 roots/547 cache inputs/0errors,583 components/
+525 installation stamps. Fourteen licence-metadata gaps remain explicit P5
+work. Receipts: `docs/qa-logs/2026-10-04-pixelelated-replacement-05/`.
 
-Source is integrated as nextff249d2172 and replacement04 is frozen; its
-independent cache verification is running (actual95466). Current order: build a fresh
-candidate → repeat defaults/actual RC2/payload/scans/settings proof → remaining
-link, guest, runtime, proxy, S3/pair, memory and bilingual UI/boot checks → P4's
-approved primary+Fable5.1/xhigh review → first H700 DDR4/RG35XX SP build.
-Daybreak is unavailable and no coverage from it is claimed. The ordinary RA
-fixture and public-site delivery remain external inputs recorded in the
-canonical checkpoint. No disconnected alert destination is configured (#395).
+#421 full source regression1719PASS/0FAIL/no skips and29 focused controls pass;
+old source fails22/29. The old02163 image had passed defaults/RC2/content scans,
+but its later settings race found600→644 widening by the shell writers.
+Original failed runs and their cleanup/backing proofs remain retained.
+A local post-store wrapper parser failure is also retained separately; the
+already stored immutable bundle was independently verified before QA.
 
-Retained02163 source inventory verifies568 consumed roots/547 cache inputs with
-zero errors;583-component map/525 installation stamps retained. Replacement04
-must produce its own inventory after assembly. P5 source/
-licence publication remains separate. #410 helper is installed and closed.
-Frozen trees, generated emulator documentation and original failures are
-preserved. #416/#417 exact source/image XML and wording proof is now retained;
-#419's source/packaged pin passes, while installed proxy preservation still
-awaits execution. Reconcile each issue against its own full criteria.
-
-Historical1600 passed all15defaults/actualRC2/exact payload/custody; its sweep
-correctly rejected7 stale text contexts. Originalb137 remains failed13/2.
-#414/#415/#418 are already closed. Do not transfer earlier results to new bytes.
+Current order: qa-05 defaults/actualRC2 → image-06/sweep-03/settings-05 →
+link/guest/runtime/proxy/S3-pair/memory/bilingual UI/actualboot and ordinary RA
+proof → approved P4 primary+Fable5.1/xhigh review → first H700 DDR4/RG35XX SP
+build. Daybreak is unavailable and no coverage is claimed. Ordinary RA fixture,
+public-site delivery, publication and physical actions retain named gates.
+#410 helper is installed and closed; it successfully reclaimed8GiBswap before
+this build. No reinstall is needed. #414/#415/#418 are already closed.
 
 The older sections below retain the October2–3 investigations and source
 receipts, including names and pins valid at that time.
