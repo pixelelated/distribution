@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Updated 2026-10-04T23:04:05.106274+00:00. Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261004T230405Z.md`.
+> Updated 2026-10-04T22:56:03.762725+00:00. Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261004T225603Z.md`.
 
 ## Start here
 
@@ -131,7 +131,7 @@ storage (actual88647=1). Original script/failure retained, independent verify
 and path readback succeeded before QA. Never relabel that wrapper0 or rebuild
 an already good image because of its post-store parser failure.
 
-## Historical frozen05 blocker #424 — ES child lacked OS_NAME
+## Current blocker #424 — actual ES child lacks OS_NAME
 
 ui-05 actual main-menu frame says ROCKNIX0.0.1, while information page and
 /etc/os-release correctly say pixelelated. Read-only actual/proc/PID/environ
@@ -147,13 +147,12 @@ rasteratops-identity-check executes actual export profile in a clean shell
 then starts a child; oldprofile1failure, corrected0 with other contracts green.
 Installed-negative fields/command/profile hash, original file, frames and
 source receipts: docs/qa-logs/2026-10-04-es-identity-export/.
-No in-flight/frozen05 source or guest file was altered. Replacement06 is now
-built and its initial clean process/payload and reviewed menu/manual-update
-frames PASS as above. #424 remains open for upgraded/current-candidate
-qualification. Historical UI/predecessor/subset on05 completed. Ordinary RA
-fixture and P4 stay required.
+No in-flight/frozen source or guest file was altered. Source fix is not yet
+an installed-image proof; #424 remains open. UI/predecessor/subset on05 completed. Replacement06 is built as above,
+with process OS_NAME and actual main-menu/manual-update frames required on
+clean and retained-storage guests. Ordinary RA fixture and P4 stay required.
 
-## Completed qualification on historical frozen05
+## Completed qualification on this exact image
 
 qa-05 finished20:30:56UTC: all15 default suites,16 visual walks/78 frames,
 baseline comparison, actual retained ROCKNIX RC2 upgrade and exact clean/
@@ -339,19 +338,13 @@ opusfile,rclone,retropie-shaders,slang-shaders,tailscale,wildmidi,zerotier-one.
    H700 DDR4/RG35XX SP build. P5 source/licences/docs/publication and named
    physical-action gates remain. No RC/device-ready claim.
 
-Latest published build/QA receipts featureab29bef8ed3d4790970db31a3b11b83e361a8502 →
-next6437ea29380441a390e286c8159beaee04747360, actual88061=0 normalpush/readback.
-M7/#383/#409/#344 and428 partial criteria updated/read back22:58 actual26602=0;
-424 clean evidence comment added. Earlier checkpoint81041 also pushed normally.
+Latest checkpoint publication feature989e62e47c995f4755ab5dc087afdc312604b0d1 →
+next47180671a6b2b0477231771ce0846e36502c7bbe, actual81041=0 normalpush/readback.
 Previous93992=1: next push guard required issuecitation; added body only to
 UNPUSHED next commit, normalretry. Earlierprecommit rejected fullmanifest path
 strings as credential-shaped; original sealed manifest remains local, public
 record carries its digest/counts, no guard bypass. Frozen06 stays57cbc.
-Fresh-context proof23:01 independently rehashed all14bundle files,6547product/
-200QA/180links,host options,build+qa07six-member seals,12unstartedowner seals,
-actual liveQAownership and retained predecessor exits. Five initial frames
-independently inspected. Its historical/current wording findings are fixed
-here; report in06/resume-proof-qa07.md. Currentqa07 still has no terminalresult.
+Current checkpoint/build/failure receipts will be published next.
 
 ## #421/#420 source and failed-image evidence
 
