@@ -1,8 +1,14 @@
 # Current RAOfflineProxy integration for0.0.1
 
 M7.P2, #361/#384, D-WORKFLOW-138. Selected main:
-`ec60fdd0f6522790d9d1d4d20add397bbc4da945` (verified2026-10-04).
-Archive SHA256: `393ffcec34b223fa4315622db7e68a8778a87e1dff2d3aaf289df857fcb7ff2f`.
+`ea9aba6c2b8b2f27e254d696ac8738c9e5c8793e` (verified2026-10-04, #419).
+Archive SHA256: `9931790bb3f5d93f0d14afb7347af58badd0560413f85486d534071fefda2d62`.
+This commit arrived during corrected-build preparation and changes11 Android
+files only. All270 patched Linux/native files and both submodule pins are
+byte-identical to ec60; all15 patches apply with zero fuzz. The new pin is
+included before assembly, without changing Linux behavior. Evidence:
+`docs/qa-logs/2026-10-04-proxy-ea9aba/`.
+The preceding ec60 refresh remains historical evidence:
 The four commits after5866cd9 change only the packaged service version string
 (alpha2); remaining changes are Android/docs/bundle versions. All15 current
 fork patches still apply with zero fuzz;199 upstream and8 fork tests pass.

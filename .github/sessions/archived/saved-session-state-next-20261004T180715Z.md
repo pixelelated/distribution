@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Updated 2026-10-04T18:07:15Z. Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261004T180715Z.md`.
+> Updated 2026-10-04T17:49:39Z. Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261004T174939Z.md`.
 
 ## Start here
 
@@ -24,47 +24,11 @@ Ordinary fixes/tests/VMs, exact-commit integration onto next and normal fork
 pushes remain authorized. Publication, personal-cloud mutation and physical
 device actions retain named gates. No goal tool was created. No job remains running; completed receipts and unfinished source/artifact work are below. Do not relaunch a used run owner.
 
-## Current work: new upstream proxy pin, then corrected freeze/build
+## Current work: freeze and build corrected source, then fresh qualification
 
-No build or VM is running. The live freshness check found upstream proxy
-advanced to ea9aba6c2b8b2f27e254d696ac8738c9e5c8793e during preparation.
-#419 owns the refresh, now source-tested:11 Android-only files differ; all270
-patched Linux/native files and both native submodule pins are identical to
-ec60. All15 patches apply fuzz0;199 upstream/8 fork tests pass. Initial
-import-path failure retained. Fresh run20261004T180538Z-85aeb1a0/tool68167=0;
-package/schema guard and live freshness pass. Source is being committed;
-inspect HEAD before integration. New archive hash:
-9931790bb3f5d93f0d14afb7347af58badd0560413f85486d534071fefda2d62.
-Evidence docs/qa-logs/2026-10-04-proxy-ea9aba/; source under
-/tmp/pixelelated-proxy-ea9aba/{old,new}-patched.
-
-Frozen but NEVER BUILT: /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement02,
-build/m7-pixelelated-replacement02,98d0bc464e40850298bb1d8c9d3054b6ac995307.
-Owner /workspace/tmp/pixelelated-m7-replacement-02; input manifest
-51bb4c186031852ae26f047b18a464d9c137c8faec2895f907fc3edab1e99c1c.
-Copy run20261004T175256Z-e0723e41 finished18:03:18; actualtool27389,copy/outer/
-watcher0. All104GB compare equal to1600;2,525,215 regular files have different
-inodes. This independent, never-built cache is reusable by relocation to a
-new frozen tree after confirming every copy process exited. Preserve98d0's
-source/input/copy receipts and both previous built trees. Never run its
-build.sh now: it still names the superseded proxy pin. No build.start exists.
-
-Prepared but UNSTARTED owners bound to98d0 (not a future pin): qa-03,link-03,
-guest-03,runtime-03,proxy-02,optins-02,memory-02,ui-02,image-04 under
-/workspace/tmp/pixelelated-m7-*. The first incomplete preparation hit inherited
-read-only file modes; it was corrected before execution. All nine final
-harness sets parse and have no1600 input/head bindings. Keep as templates;
-bind fresh owner names/manifests to the new freeze before running. Preparation
-script /tmp/pixelelated-prepare-corrected-owners.py. Default/RC2 payload checks
-now include all three416/417 files. Image04 is based on the successful image03
-launcher with explicit ES_SRC. Old-logo guest frame control still needs wiring.
-
-Next: commit/integrate/push419 → freeze new replacement03 → relocate verified
-unbuilt cache while retaining canonical container path → clean modules,
-rclone,rocknix,raofflineproxy and image stamp → monitored assembly/custody →
-new owners/default/actualRC2 then remainingP3/P4. All source changes versus1600
-are the original three player/XML files plus proxy recipe/schema annotation.
-No product feature or data migration was added by the Android-only refresh.
+No build, VM or artifact-analysis job is running. Actual host readbacks
+confirmed the completed runners/watchers/guests exited. #410 remains fully
+completed; do not ask for another helper installation.
 
 Frozen replacement1600d78fe50488537ca5568d2671fe84236da6d4 built642/642 and
 now passes all15 default suites,1689 script assertions,16 walks/78 walk frames

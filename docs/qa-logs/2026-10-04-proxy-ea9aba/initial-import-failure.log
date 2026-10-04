@@ -1,0 +1,143 @@
+EEEEEEE..EEEEEEE...
+======================================================================
+ERROR: test_linux_award_parity (unittest.loader._FailedTest.test_linux_award_parity)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_linux_award_parity
+Traceback (most recent call last):
+  File "/usr/lib/python3.14/unittest/loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+  File "/tmp/pixelelated-proxy-ea9aba/new-patched/linux/tests/test_linux_award_parity.py", line 8, in <module>
+    from linux.raofflineproxy import config
+ModuleNotFoundError: No module named 'linux'
+
+
+======================================================================
+ERROR: test_linux_caching_queue (unittest.loader._FailedTest.test_linux_caching_queue)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_linux_caching_queue
+Traceback (most recent call last):
+  File "/usr/lib/python3.14/unittest/loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+  File "/tmp/pixelelated-proxy-ea9aba/new-patched/linux/tests/test_linux_caching_queue.py", line 12, in <module>
+    from linux.raofflineproxy import (
+    ...<10 lines>...
+    )
+ModuleNotFoundError: No module named 'linux'
+
+
+======================================================================
+ERROR: test_linux_usage_stats (unittest.loader._FailedTest.test_linux_usage_stats)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_linux_usage_stats
+Traceback (most recent call last):
+  File "/usr/lib/python3.14/unittest/loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+  File "/tmp/pixelelated-proxy-ea9aba/new-patched/linux/tests/test_linux_usage_stats.py", line 10, in <module>
+    from linux.raofflineproxy import main, usage_report, usage_stats
+ModuleNotFoundError: No module named 'linux'
+
+
+======================================================================
+ERROR: test_a_connection_the_server_closed_is_replaced (test_linux_image_cache_shutdown.ImageConnectionReuseTests.test_a_connection_the_server_closed_is_replaced)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/pixelelated-proxy-ea9aba/new-patched/linux/tests/test_linux_image_cache_shutdown.py", line 53, in setUp
+    from linux.raofflineproxy import image_cache
+ModuleNotFoundError: No module named 'linux'
+
+======================================================================
+ERROR: test_anything_but_200_goes_through_urllib (test_linux_image_cache_shutdown.ImageConnectionReuseTests.test_anything_but_200_goes_through_urllib)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/pixelelated-proxy-ea9aba/new-patched/linux/tests/test_linux_image_cache_shutdown.py", line 53, in setUp
+    from linux.raofflineproxy import image_cache
+ModuleNotFoundError: No module named 'linux'
+
+======================================================================
+ERROR: test_images_share_one_connection_per_thread (test_linux_image_cache_shutdown.ImageConnectionReuseTests.test_images_share_one_connection_per_thread)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/pixelelated-proxy-ea9aba/new-patched/linux/tests/test_linux_image_cache_shutdown.py", line 53, in setUp
+    from linux.raofflineproxy import image_cache
+ModuleNotFoundError: No module named 'linux'
+
+======================================================================
+ERROR: test_batch_downloads_run_at_normal_priority_and_lazy_ones_at_the_lowest (test_linux_image_cache_shutdown.ImageDownloadPriorityTests.test_batch_downloads_run_at_normal_priority_and_lazy_ones_at_the_lowest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/pixelelated-proxy-ea9aba/new-patched/linux/tests/test_linux_image_cache_shutdown.py", line 137, in test_batch_downloads_run_at_normal_priority_and_lazy_ones_at_the_lowest
+    from linux.raofflineproxy import image_cache
+ModuleNotFoundError: No module named 'linux'
+
+======================================================================
+ERROR: test_a_download_lands_in_its_shard_folder (test_linux_image_cache_shutdown.ShardedStaticImagesTests.test_a_download_lands_in_its_shard_folder)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/pixelelated-proxy-ea9aba/new-patched/linux/tests/test_linux_image_cache_shutdown.py", line 153, in setUp
+    from linux.raofflineproxy import image_cache
+ModuleNotFoundError: No module named 'linux'
+
+======================================================================
+ERROR: test_a_missing_image_is_not_found (test_linux_image_cache_shutdown.ShardedStaticImagesTests.test_a_missing_image_is_not_found)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/pixelelated-proxy-ea9aba/new-patched/linux/tests/test_linux_image_cache_shutdown.py", line 153, in setUp
+    from linux.raofflineproxy import image_cache
+ModuleNotFoundError: No module named 'linux'
+
+======================================================================
+ERROR: test_badges_spread_over_many_folders (test_linux_image_cache_shutdown.ShardedStaticImagesTests.test_badges_spread_over_many_folders)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/pixelelated-proxy-ea9aba/new-patched/linux/tests/test_linux_image_cache_shutdown.py", line 153, in setUp
+    from linux.raofflineproxy import image_cache
+ModuleNotFoundError: No module named 'linux'
+
+======================================================================
+ERROR: test_images_cached_before_sharding_are_still_found_and_not_downloaded_again (test_linux_image_cache_shutdown.ShardedStaticImagesTests.test_images_cached_before_sharding_are_still_found_and_not_downloaded_again)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/pixelelated-proxy-ea9aba/new-patched/linux/tests/test_linux_image_cache_shutdown.py", line 153, in setUp
+    from linux.raofflineproxy import image_cache
+ModuleNotFoundError: No module named 'linux'
+
+======================================================================
+ERROR: test_linux_network (unittest.loader._FailedTest.test_linux_network)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_linux_network
+Traceback (most recent call last):
+  File "/usr/lib/python3.14/unittest/loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+  File "/tmp/pixelelated-proxy-ea9aba/new-patched/linux/tests/test_linux_network.py", line 8, in <module>
+    from linux.raofflineproxy import config
+ModuleNotFoundError: No module named 'linux'
+
+
+======================================================================
+ERROR: test_linux_refresh_scope (unittest.loader._FailedTest.test_linux_refresh_scope)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_linux_refresh_scope
+Traceback (most recent call last):
+  File "/usr/lib/python3.14/unittest/loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+  File "/tmp/pixelelated-proxy-ea9aba/new-patched/linux/tests/test_linux_refresh_scope.py", line 9, in <module>
+    from linux.raofflineproxy import cache_keys, last_played, menu_sdl, proxy_service, rom_browser, storage
+ModuleNotFoundError: No module named 'linux'
+
+
+======================================================================
+ERROR: test_linux_rocknix (unittest.loader._FailedTest.test_linux_rocknix)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_linux_rocknix
+Traceback (most recent call last):
+  File "/usr/lib/python3.14/unittest/loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+  File "/tmp/pixelelated-proxy-ea9aba/new-patched/linux/tests/test_linux_rocknix.py", line 7, in <module>
+    from linux.raofflineproxy import config, platform, update
+ModuleNotFoundError: No module named 'linux'
+
+
+----------------------------------------------------------------------
+Ran 19 tests in 2.141s
+
+FAILED (errors=14)
