@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Updated 2026-10-04T20:37:06.371530+00:00. Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261004T203706Z.md`.
+> Updated 2026-10-04T20:00:18.488724+00:00. Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261004T200018Z.md`.
 
 ## Start here
 
@@ -28,7 +28,7 @@ files,live regression and7 unstarted owners. Its stale readiness paragraph
 and precise harness-manifest wording findings are corrected.
 A helper installation is COMPLETE; do not ask to reinstall it.
 
-## Current: replacement05 passes defaults, actual RC2, content and settings; link-05 running
+## Current: replacement05 built; fresh VM qualification qa-05 running
 
 Frozen tree `/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement05`,
 branch `build/m7-pixelelated-replacement05`, commit
@@ -56,47 +56,35 @@ storage (actual88647=1). Original script/failure retained, independent verify
 and path readback succeeded before QA. Never relabel that wrapper0 or rebuild
 an already good image because of its post-store parser failure.
 
-## Completed qualification on this exact image
+## ACTIVE: actual tool43844 — supervise qa-05; no restart
 
-qa-05 finished20:30:56UTC: all15 default suites,16 visual walks/78 frames,
-baseline comparison, actual retained ROCKNIX RC2 upgrade and exact clean/
-upgraded payload checks PASS. Actual43844 and all result channels0. Real host
-readback20:31:29 confirms runner2849479/watcher2849481/command2849510,
-backend2849541 and every QEMU exited. Source/candidate hashes reverified.
-Raw upgrade logs: /workspace/artifacts/rocknix-images/
-qa-1e6a156b54-upgrade-from-69e6039f8f-20261004-2028.
+Owner `/workspace/tmp/pixelelated-m7-qa-05`; start19:55:12UTC.
+Run in frozen05 `.build-runs/20261004T195512Z-22f94bc0`;
+runner2849479/watcher2849481. Shared interval5/stall5min, recursive activity
+owner/artifacts. Actual default report/log directory:
+`owner/artifacts/rocknix-images/qa-1e6a156b54-webdav-a-20261004-1955/`.
+At19:58 scripts suite is progressing with no observed failures; read latest
+report/logs and actual result files rather than treating this as completion.
+Default15 suites then actual retained ROCKNIX RC2 upgrade and exact clean/
+upgraded payload checks run in this owner. Profile/chksysconfig bytes/modes
+are now explicit payload assertions. The earlier1719 source assertions are not an
+image pass. Do not edit any running tool/source/harness or start another VM
+owner on fixed ports while this run is active.
 
-image-06 actual37162=0: raw-image/update SYSTEM are identical, SHA256
-14f75c8ef576b19f0d79c8ddd2a1a93b24055f4fd38a52e1643dcf4bad7d2b24.
-sweep-03 actual97815=0:57292 regular entries/1345 symlinks,8589 reviewed
-brand contexts/0FIX/UNKNOWN,70 reviewed public credential-pattern matches/
-0unclassified,10 scanner controls;794 current/57 retired/2 removed translations,
-95 XML entries/0active orphans. Exact installed Tools XML parses. Its actual
-upgraded /storage consumer and UI rows remain runtime-05/ui-04 work.
-
-settings-05 actual48514=0 finished20:33:53:20 real installed ES race checks
-and29 installed mode/refusal checks PASS. Same ES resumes after actual shell
-writers publish newer bytes, preserves both files and their0600 modes.
-Settings/product restoration and backing rehash PASS; runner3336342,
-watcher3336343,owned guest3336778 exited. Retain the previous02163 failures.
-Evidence: docs/qa-logs/2026-10-04-pixelelated-1e6a-qualification/.
-
-## ACTIVE: actual tool32413 — supervise link-05; no restart
-
-Owner /workspace/tmp/pixelelated-m7-link-05, started20:34:15UTC.
-Frozen05 run .build-runs/20261004T203415Z-09dc0e7d;
-runner3340748/watcher3340749. Shared interval5/stall5min,recursive activity
-owner/artifacts. At20:35 the first WebDAV case has actually cut eth0; log shows
-no address/default route. Seven WebDAV then seven S3 interruption/retry cases,
-200kB/s. Read nested link.log and report.md; absence of top-level output alone
-is not a stall. Never run another fixed-port VM owner concurrently.
-
-Poll actual exec32413. At termination reconcile actual tool result with
-owner/inner.rc,outer.rc,tool-wrapper.rc and run/build.rc, then prove actual
-owned runner/watcher/QEMU/backend exits. /tmp/pixelelated-finish-owner.py can
-retain that observation after the actual tool returns; do not predeclare it.
-Real host PID/network observations require escalated view. No disconnected
-notification destination exists (#395); connected supervision stays active.
+Immediate checks:
+```
+TASK_OWNER=/workspace/tmp/pixelelated-m7-qa-05
+TASK_RUN=$(cat "$TASK_OWNER/run.path")
+cat "$TASK_RUN/build.status"
+tail -n 25 "$TASK_OWNER/artifacts/rocknix-images/qa-1e6a156b54-webdav-a-20261004-1955/scripts.log"
+```
+Poll actual exec43844. At termination reconcile actual tool result with
+owner/inner.rc,outer.rc,tool-wrapper.rc and run/build.rc; verify actual owned
+runner/watcher/QEMU/backend exit before calling complete. Terminal status
+retains the last alive observation, so it is not proof a process still lives.
+Actual host PID/Docker/network observations need escalated view; the sandbox
+may hide processes. Connected supervision remains at most60s apart; #395 has
+no off-session notification destination. Do not claim disconnected alerts.
 
 ## Completed source inventory for this candidate
 
@@ -113,9 +101,15 @@ opusfile,rclone,retropie-shaders,slang-shaders,tailscale,wildmidi,zerotier-one.
 
 ## Next in binding M7 order
 
-1. Finish/supervise link-05; preserve and diagnose any failure before a fresh
-   owner. Do not rerun an executed owner or edit an in-flight source/harness.
-2. Remaining prepared UNSTARTED owners, all under /workspace/tmp/pixelelated-m7-:
+1. Finish/supervise qa-05. Preserve any failure and diagnose it before another
+   run; never rerun a used owner or edit an in-flight shell. No RC claim.
+2. On success, image-06 extracts this exact image/update SYSTEM and proves
+   equality. sweep-03 then performs full brand/credential/localisation checks;
+   settings-05 uses a disposable COW over qa-05's actual RC2-upgraded disk.
+   It proves installed ES recovery interleaving plus29 installed settings
+   mode/refusal cases, exact product bytes, restoration and backing custody.
+3. Remaining prepared UNSTARTED owners, all under /workspace/tmp/pixelelated-m7-:
+   link-05:7 WebDAV+7 S3 link-loss cases,200kB/s;
    guest-05:19 independently reset640x480 cloud cases;
    runtime-05:actual-upgrade COW,14 archive/5-sample30ms timing/13 identity
    assertions (actual /storage Tools consumer bytes+XML included);
@@ -126,20 +120,18 @@ opusfile,rclone,retropie-shaders,slang-shaders,tailscale,wildmidi,zerotier-one.
    limits (VmSize<1024KiB/RSS<2048KiB),30s HTTPS sign-in load;
    ui-04:EN/FR640x480/1280x960 cloud/RA/identity/manual-update captures,
    English640 Tools rows,actualboot scanout at both panels.
-3. Each owner's run.sh/outer.sh guards dependencies and validates manifest.
-   owner05/qa-owners.json records preparation harness digests; its prepared_only
-   labels are historical. Actual start/result files establish current state.
-   All64 text bindings were checked before launch. Do not alter sealed harnesses.
+   Each owner's run.sh/outer.sh guards dependencies and validates manifest.
+   owner05/qa-owners.json records current harness.sha256 file digests. All64
+   text bindings checked for stale03/04/source hashes before launch; branch
+   assertion corrected before execution. Prior preparation manifests retained.
 4. Run boot matcher `docs/qa-logs/2026-10-04-pixelelated-guest-brand/match-splash.py`
    against actual ui-04 boot frames and approved ocean/{640,1280}-0.png.
    Fixed99.5% pixel agreement, positive/oldROCKNIXlogo/blank/wrongsize controls.
    Host controls are not guest proof; do not tune threshold to hide missing
    frames. Visually review actual bilingual/Tools/identity frames.
-5. #320/#420/#421 now have their complete installed proof; reconcile and close
-   them after publishing the retained evidence. Then reconcile only complete
+5. Reconcile/close only evidence-backed complete criteria: #320/#420/#421,
    #416/#417/#419,#352/#353/#366/#384/#391/#392 and remaining327docs.
-   M7 and delivery status must reflect the completed gates and active link-05;
-   use live readback, not the historical19:57 state in the archive.
+   Live M7/#383/#409/#344/#419/#421 were updated/read back19:57,actual9380=0.
 6. Ordinary RA fixture still awaits owner input below. Then approved P4
    primary+Fable5.1/xhigh via verified Facilitator/OpenRouter. Read code-auditor
    skill/routing then; initial#375/#382 review done, don't restart. Resolve/
@@ -169,7 +161,7 @@ Read-only inspect-01 returned0 but is not race proof. Correct strict-prefix
 settings-04 reaches both real ES unlock pauses, proves newer script bytes
 survive, but fails0600 assertion because old writers widen600→644 (#421).
 All failures retain exact settings restoration/product hashes/backing rehash.
-No failure is rewritten0. New settings-05 now passes the combined proof above.
+No failure is rewritten0. New settings-05 must pass combined proof.
 The test-only pause-unlock interposer, source and compiler/hash provenance
 are retained; immutable ES8cfb6ff7… is unchanged, scripts now bindnewhashes.
 

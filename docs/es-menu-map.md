@@ -67,7 +67,7 @@ to decide where something belongs.
 | **SOUND** | VOLUME · MUSIC · SOUNDS |
 | **NETWORK** | INFORMATION · SETTINGS · NETWORK SERVICES · SYNCTHING SERVICES · VPN SERVICES · FINISH RESTORE PROCESS (only after a restore) — *no cloud group; D-UI-015/017* |
 | **SCRAPER** | tabbed: SCRAPE · OPTIONS · ACCOUNTS |
-| **UPDATES & DOWNLOADS** | DOWNLOADS · SOFTWARE UPDATES (`MANUAL UPDATES` on Rasteratops0.0.1; opens the release-page instructions, with no automatic-update, force or branch controls) |
+| **UPDATES & DOWNLOADS** | DOWNLOADS · SOFTWARE UPDATES (`MANUAL UPDATES` on pixelelated 0.0.1; opens the release-page instructions, with no automatic-update, force or branch controls) |
 | **SYSTEM SETTINGS** | SYSTEM · HARDWARE · DEVICE · STORAGE · PERFORMANCE · TWEAKS · SUSPEND · LED HARDWARE · ADVANCED |
 
 Two placement rules the existing tree already follows:
@@ -161,7 +161,7 @@ flowchart TD
     LIST -->|S3| SUB[compatible service] --> FORM
     FORM -->|OAuth providers| OAUTH[sign in on device / with phone]
     CSS --> FIN[FINISH RESTORE PROCESS<br/><i>only after a settings restore</i>]
-    CSS --> TIDY[TIDY UP YOUR CLOUD FOLDERS<br/><i>only when the check plans a move; its line names the tiers and /Rasteratops</i>]
+    CSS --> TIDY[TIDY UP YOUR CLOUD FOLDERS<br/><i>only when the check plans a move; its line names the tiers and /pixelelated</i>]
 
     CONN --> WHICH{{WHICH CONNECTION?<br/><i>openCloudSetup, the wizard's first step</i>}}
     WHICH --> PWPAGE[SSH PASSWORD<br/><i>cloudSetupOpenPasswordPage; device access for the setup route</i>]

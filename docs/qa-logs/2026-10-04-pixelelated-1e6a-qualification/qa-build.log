@@ -1,0 +1,147 @@
+/workspace/tmp/pixelelated-m7-qa-05/check-payload.py: OK
+/workspace/tmp/pixelelated-m7-qa-05/outer.sh: OK
+/workspace/tmp/pixelelated-m7-qa-05/qualify.sh: OK
+/workspace/tmp/pixelelated-m7-qa-05/verify-inputs.py: OK
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/a179bd73a732f49c4219177c89a860d561dad4d16a3467aae2cbafc15152b3ea
+ready: a on 1e6a156b54 over ssh :10022 (answered after 6s)
+ready: b on 1e6a156b54 over ssh :10023 (answered after 0s)
+scripts: PASS in 777s
+lifetime: PASS in 1s
+wrapper: PASS in 0s
+vocabulary: PASS in 0s
+french: PASS in 1s
+quoting: PASS in 0s
+menumap: PASS in 0s
+register: PASS in 2s
+pair-identity: PASS in 0s
+fresh: PASS in 1s
+round-trip: PASS in 84s
+exit: PASS in 28s
+vm-qa: seeded the QA remote qa-cloud: (the guest had none)
+time-to-play: PASS in 70s
+walks: seeded the content fixture (cloud seed-content, device ROMs) -- the guest had no ROMs
+walks: seeded the manager fixture (nes with a turn recorded, gb as is, fbn from the core table; mtimes 2026-09-01 12:00)
+walks: PASS in 1008s
+frame-diff: PASS in 0s
+
+# vm-qa on 1e6a156b54
+
+started 2026-10-04 19:55 UTC, guest a at :10022, cloud webdav (port 9010, hash=none modtime=no commit=partial bucket=no), image /workspace/artifacts/pixelelated-candidates/sha256/a179bd73a732f49c4219177c89a860d561dad4d16a3467aae2cbafc15152b3ea/pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz, display: GL through virgl on /dev/dri/renderD128
+
+| suite | result | time | log |
+| --- | --- | --- | --- |
+| scripts | PASS | 777s | `scripts.log` |
+| lifetime | PASS | 1s | `lifetime.log` |
+| wrapper | PASS | 0s | `wrapper.log` |
+| vocabulary | PASS | 0s | `vocabulary.log` |
+| french | PASS | 1s | `french.log` |
+| quoting | PASS | 0s | `quoting.log` |
+| menumap | PASS | 0s | `menumap.log` |
+| register | PASS | 2s | `register.log` |
+| pair-identity | PASS | 0s | `pair-identity.log` |
+| fresh | PASS | 1s | `fresh.log` |
+| round-trip | PASS | 84s | `round-trip.log` |
+| exit | PASS | 28s | `exit.log` |
+| time-to-play | PASS | 70s | `time-to-play.log` |
+| walks | PASS | 1008s | `walks.log` |
+| frame-diff | PASS | 0s | `frame-diff.log` |
+
+**PASSED** -- every suite that ran passed.
+
+finished 2026-10-04 20:28 UTC
+
+## time to play -- 1e6a156b54 on webdav
+
+2026-10-04 20:11 UTC, guest at :10022, cloud `webdav`, payload `full`, 1 repeat(s).
+
+Host state: **vm-qa on serval, guest a**. SSH round trip 5 ms (the launch POST goes over it); one screendump 61 ms, which is the resolution of every frame-derived number below.
+
+Seconds, as median / mean / max.
+
+### UI to game, at rest
+
+| from the press to | median / mean / max | n |
+| --- | --- | --- |
+| the screen leaving the carousel | 0.01 / 0.01 / 0.01 | 1 |
+| the handover (a black screen) | 0.01 / 0.01 / 0.01 | 1 |
+| RetroArch existing | 0.50 / 0.50 / 0.50 | 1 |
+| **the game's first frame** | **0.66 / 0.66 / 0.66** | 1 |
+| RetroArch drawing (200 CPU ticks, or 30 four seconds on) | 4.53 / 4.53 / 4.53 | 1 |
+
+### The exit sync, on its own
+
+| from execute_kill to | median / mean / max | n |
+| --- | --- | --- |
+| the emulator gone | 0.16 / 0.16 / 0.16 | 1 |
+| **the last-sync-exit stamp** | **1.46 / 1.46 / 1.46** | 1 |
+| the card gone from the screen | 3.51 / 3.51 / 3.51 | 1 |
+
+Outcomes: completed x1. Payload seeded 616 KiB (RetroArch rewrites the auto-state on exit, so what moves is a little less; the log's rclone line has the bytes).
+
+### Game to game, with the exit sync in flight
+
+| from execute_kill to | median / mean / max | n |
+| --- | --- | --- |
+| the emulator gone | 0.16 / 0.16 / 0.16 | 1 |
+| the relaunch sent | 0.17 / 0.17 / 0.17 | 1 |
+| the question answered (STOP IT AND PLAY, D-CLOUD-130) | 1.38 / 1.38 / 1.38 | 1 |
+| **the next game's first frame** | **1.02 / 1.02 / 1.02** | 1 |
+| the exit sync's stamp | - | 1 |
+
+What the launch did to the sync, from the stamp's token: `?` x1.
+
+
+renderer: virgl (Mesa Intel(R) Graphics (ARL)). -- the guest's Mesa, from the launch log; display: GL through virgl on /dev/dri/renderD128
+
+report: /workspace/tmp/pixelelated-m7-qa-05/artifacts/rocknix-images/qa-1e6a156b54-webdav-a-20261004-1955/report.md
+PASS clean exact identity, installed scripts, policy and Ocean SVG bytes/modes
+=== 20:28:53 backend: running: webdav /workspace/tmp/pixelelated-m7-qa-05/cloud/data port 9010 (30 files)
+=== 20:28:53 pair up from ROCKNIX-GENERIC_X64.x86_64-20260929.img.gz
+old build id: 69e6039f8fdbf971d3e6b694537f250036fdcd98
+PASS old build id read
+=== 20:29:29 seed state on guest a
+PASS four seeded files exist
+PASS set_setting is a function on the guest
+PASS setting reads back before the update
+=== 20:29:30 link the local WebDAV backend
+PASS backend gave an rclone.conf
+PASS guest sees one remote
+PASS saves remote set before the update
+PASS rclone (previous) lists the remote
+=== 20:29:31 a settings backup
+=== 20:29:31 seed what the retired GENERIC_X64 quirks left in /storage (#307 PL-019)
+PASS retired quirk files seeded before the update
+=== 20:29:32 seed a RetroArch cfg an owner changed, on a vulkan-era cfg (#307 PL-034, #308 claude F-VM-11)
+PASS RetroArch cfg seeded before the update
+=== 20:29:32 stage pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.tar and reboot guest a
+=== 20:30:34 guest a back after 3 polls
+PASS new build id is 1e6a156b54
+PASS saves and save states byte-identical
+PASS marker file kept
+PASS setting kept
+PASS rclone remote kept
+PASS rclone (new) lists the remote
+PASS saves remote kept
+PASS cloud conf gained the new defaults, kept the old values
+PASS backup archive kept
+PASS update queue empty
+PASS autostart finished before the take-back is read (rocknix-autostart.service active in the new boot)
+PASS retired quirk files taken back after the update (#307 PL-019)
+PASS and the owner's file beside them kept
+PASS RetroArch fullscreen size set by hand kept, driver moved to gl (#307 PL-034, #308 claude F-VM-11)
+PASS release check #226: one libcairo.so.2.* (pango's fetched cairo is gone)
+PASS release check #226: libcairo.so.2 is a link to that one file (#226 box 1; the seat's G-10 under #258)
+rclone after: rclone v1.75.1
+=== 20:30:36 pair down
+=== 20:30:36 RESULT PASS
+/workspace/artifacts/rocknix-images/qa-1e6a156b54-upgrade-from-69e6039f8f-20261004-2028
+[W][20:30:36.694422] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][20:30:36.694457] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+ready after ~13s
+PASS upgrade exact identity, installed scripts, policy and Ocean SVG bytes/modes
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/a179bd73a732f49c4219177c89a860d561dad4d16a3467aae2cbafc15152b3ea
+PASS frozen source inputs, ES pin and candidate input custody
+PASS pixelelated defaults, actual ROCKNIX RC2 upgrade and exact payload readback
+down: a (pid 3324583)
+down

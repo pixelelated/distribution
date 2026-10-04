@@ -1,0 +1,24 @@
+/workspace/tmp/pixelelated-m7-image-06/extract.py: OK
+/workspace/tmp/pixelelated-m7-image-06/outer.sh: OK
+/workspace/tmp/pixelelated-m7-image-06/run.sh: OK
+/workspace/tmp/pixelelated-m7-image-06/verify-inputs.py: OK
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/a179bd73a732f49c4219177c89a860d561dad4d16a3467aae2cbafc15152b3ea
+START raw image decompression
+PASS raw GPT system partition starts at sector8192
+PASS raw image SYSTEM equals update tar SYSTEM 14f75c8ef576b19f0d79c8ddd2a1a93b24055f4fd38a52e1643dcf4bad7d2b24
+Parallel unsquashfs: Using 2 processors
+58637 inodes (61589 blocks) to write
+
+
+created 57034 files
+created 2662 directories
+created 1345 symlinks
+created 0 devices
+created 0 fifos
+created 0 sockets
+created 258 hardlinks
+PASS immutable candidate filesystem extracted without executing it
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/a179bd73a732f49c4219177c89a860d561dad4d16a3467aae2cbafc15152b3ea
+PASS frozen source inputs, ES pin and candidate input custody
+PASS extracted exact image payload; content sweeps remain separate
