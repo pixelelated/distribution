@@ -1,0 +1,46 @@
+{
+  "passed": 10,
+  "failed": 0,
+  "results": [
+    {
+      "case": "clean input passes",
+      "pass": true
+    },
+    {
+      "case": "unclassified old product text fails",
+      "pass": true
+    },
+    {
+      "case": "reviewed exact context passes",
+      "pass": true
+    },
+    {
+      "case": "changed text is not covered by prior approval",
+      "pass": true
+    },
+    {
+      "case": "known unresolved defect still fails",
+      "pass": true
+    },
+    {
+      "case": "credential injection fails",
+      "pass": true
+    },
+    {
+      "case": "exact reviewed public-pattern file passes",
+      "pass": true
+    },
+    {
+      "case": "changed public-pattern file fails",
+      "pass": true
+    },
+    {
+      "case": "absolute guest link is recorded, never followed",
+      "pass": true
+    },
+    {
+      "case": "unreadable input refuses a verdict",
+      "pass": true
+    }
+  ]
+}
