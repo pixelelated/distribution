@@ -8,84 +8,74 @@ is unchanged. The required adoption flow is **ROCKNIX → pixelelated**;
 there are no fielded /Rasteratops systems requiring an additional gate.
 
 The [M7 milestone body](https://github.com/pixelelated/distribution/milestone/7)
-is the binding running order. **Replacement05 built642/642 at19:53:36UTC
-October4**, frozen1e6a156b5477650e298b6a4dfff996673bf33fb1. Actual62521
-and all build result channels0; runner/watcher/container exited. It includes
-#421 private settings permissions and the explicit BusyBox runtime dependency,
-plus latest checked proxy aec99c with identical270 Linux/native source files.
+is the binding running order. **Current engineering image: replacement06**,
+frozen57cbc9b981205328444d41f6c4237dc9f5736d7f, built642/642 at22:49:13UTC
+October4. Actual28970/allrc0 and actual runner/watcher/container cleanup pass.
+The immutable bundled4007387… holds image1e16122c… and update1786a568…;
+store/independent verification actual98974=0. Full inputs82764873… bind6547
+product files,180links and200QA files. Previous05cache was independently
+copied and checksum/inode verified2525217files before use. Guarded preflight
+reclaimed swap; no helper reinstall is needed.
 
-**Verdict: #424 blocks this image. Actual ES has no OS_NAME environment
-value, so the menu says ROCKNIX and selects the wrong update screen. Source
-export correction passes its failing-before/passing-after child-process guard;
-a replacement image and clean/upgraded process/frame proof are required.
-Frozen05 matrix is complete; replacement06 built; qa07 qualification is active. No RC or device-ready claim.** qa-05
-completed20:30:56UTC, actual43844/allrc0. All15 defaults,16 walks/78frames,
-comparison and exact clean/upgraded payloads pass. image-06 actual37162 and
-sweep-03 actual97815 pass;8589 branding contexts/0unclassified,10 controls,
-localisation0orphans and installed Tools XML valid. settings-05 actual48514
-passes20 installed ES race checks plus29 mode/refusal checks, exact restoration
-and unchanged backing disk. All completed owners' processes exited.
+**Verdict: initial clean identity passes; full qualification is running.**
+qa07 actual44253 started22:53:18 under shared5s recursive monitoring and
+connected supervision. Actual ES process has OS_NAME=pixelelated. Exact
+installed profile0755, scripts, policy and wordmark bytes/modes pass. Five
+1280x800 frames were inspected: main menu and Information show pixelelated
+0.0.1, Updates shows MANUAL UPDATES, and its readable instructions name the
+pixelelated release URL. All15default suites and actualRC2-upgraded process/
+frame checks remain in progress. No RC or device-ready claim.
 
-link-05 completed20:51:28, actual32413/allrc0: seven WebDAV cases494s and
-seven S3 cases460s PASS. Source/candidate custody, cleanup and actual
-runner/watcher/guest/throttle/MinIO container exits pass.
+qa06's original30948/allrc1 is preserved: a newly added harness expected0644
+for the export profile, but Git/package/guest correctlyuse0755 (#428). Fresh
+qa07 fixes only the expectation; mode controls reject644/777/600. Prior seals
+are retained for the six unstarted dependents rebound toqa07. No new rebuild.
 
-guest-05 completed19 independent cases/249checks/0failures, actual59664/allrc0.
-Runtime-05 actual70320 passes14 archive/4 timing/13 identity-Tools checks;
-medians266/237ms differ29ms within unchanged30ms. Proxy-04 actual35719
-passes20 installed predecessor-state preservation checks, without live provider
-contact. All result channels/custody/backing/owned exits verify. Receipts:
-`docs/qa-logs/2026-10-04-pixelelated-1e6a-qualification/`.
+Current proxy865e21 source review:105consumed Python/native files and268
+Linux/native/test files excluding two unshipped bundle builders matchaec99c;
+15zero-fuzz patches, schema/coupled pins/freshness pass (#426). New installed
+proxy proof remains required. Inventory04 actual53198/allrc0 proves568roots,
+547cache inputs,583components/525stamps and0errors, with currentproxy and
+recoveredrclone archive verified. Fourteen licence-metadata gaps remain P5.
+Build/source receipts: `docs/qa-logs/2026-10-04-pixelelated-replacement-06/`.
+Runtime/failure receipts: `docs/qa-logs/2026-10-04-pixelelated-57cbc-qualification/`.
 
-Optins-04 actual83669/allrc0 passes S3 roundtrip110s and mixed actualRC2/fresh
-migration42checks/0failures. Memory-04 actual86046/allrc0 passes virgl10,
-software10 and software50+exit-sync: VmSize growth0KiB; RSS608/280/620KiB.
-HTTPS load passes30s. Actual cleanup/custody verifies. UI-04 failed a counted-menu navigation walk (#422), retained actual26853/allrc1.
-UI-05 actual9732/allrc0 captured70frames;20 selected640 inspected. The actual
-identity/manual-update semantics fail424 despite capture success. Boot matcher
-64099.586585%/1280100%, fixed99.5% threshold, rejection controls pass.
-Predecessor02 actual70676/allrc0 passes65 assertions across five exactRC2-script
-states on candidate runtime over actual upgrade COW. Subset01 actual3696/allrc0
-passes33 installed assertions including HTTP refusal/retry/no duplicate base.
-No live ordinary RA claim. Original failed owner records remain preserved.
+Next: finishqa07 → image07 equality → sweep04 → settings06 → link06 → guest06
+→ runtime06 → proxy05 → optins05 → memory05 → ui06 → predecessor03 → subset02.
+Each new owner binds the exact current candidate. Then reconcile remaining
+criteria, ordinary RA proof, approved P4 primary+Fable5.1/xhigh review and first
+H700 DDR4/RG35XX SP build. Daybreak is not required or claimed. Ordinary RA
+fixture, public-site delivery, disconnected alert destination, publication and
+physical actions retain their named gates.
 
-Replacement06 freezes57cbc9b981205328444d41f6c4237dc9f5736d7f, manifest82764873…,
-6547product/180links/200QA files. Independent05-cache copy actual22326 completed with checksums and2525217
-separateinodes. Build28970/allrc0 completed22:49:13; verifiedbundled4007387.
-Image1e16122c…/tar1786a568… storedactual98974=0. qa06 failed only a wrong
-0644 export-profile expectation (Git/package0755); original retained428.
-Fresh qa07 actual44253 is active under shared5s recursive monitoring, with
-clean/upgraded actual ES environment and identity frames added before acceptance. Three product files change: OS_NAME export and
-proxy pin/schema comment. Current865e21 source review:105consumed files/268
-Linux/native/test files excluding two unshipped bundle builders byte-identical;
-15 zero-fuzz patches, schema/coupledpins/freshness pass. New image proofs owed.
-Disconnected delivery remains unconfigured (#395).
+## Historical frozen05 qualification — superseded by replacement06
 
-Immutable bundlea179bd73… verifies imagea16f9532… and updatef0e2752d…;
-input manifestb252b926… binds6547 product files/180symlinks and198 QA tools.
-Fresh inventory-03 passes568 roots/547 cache inputs/0errors,583 components/
-525 installation stamps. Fourteen licence-metadata gaps remain explicit P5
-work. Receipts: `docs/qa-logs/2026-10-04-pixelelated-replacement-05/`.
+Frozen1e6a/bundlea179bd73 built successfully and passed15defaults,actualRC2
+upgrade,16walks/78frames, image equality/content classification, installed
+settings race20/modes29, WebDAV7/S3seven interrupted cases,19cloud-state cases/
+249checks, archive14/timing4/Tools-consumer13, proxyoffline20, S3roundtrip110s/
+mixedpair42, memoryvirgl10/software10/software50+exit-sync and30sHTTPS load.
+VmSizegrowth0KiB/RSS608,280,620KiB. Final predecessor02 passed65 checks and
+subset01 passed33 including syntheticHTTP refusal/retry/no duplicate base.
 
-#421 full source regression1719PASS/0FAIL/no skips and29 focused controls pass;
-old source fails22/29. The old02163 image had passed defaults/RC2/content scans,
-but its later settings race found600→644 widening by the shell writers.
-Original failed runs and their cleanup/backing proofs remain retained.
-A local post-store wrapper parser failure is also retained separately; the
-already stored immutable bundle was independently verified before QA.
+ui05 capture success produced70frames,20selected640 reviewed, with boot
+match64099.586585%/1280100% against99.5% threshold and rejecting controls.
+Actual ES lackedOS_NAME, so menu/update semantics failed424. That blocks05
+regardless of its other passes. Corrected06 clean runtime proof above does
+not retroactively change05. Oldui04 count-wrap/missing-Wi-Fi hypothesis and
+predecessor01 parser failures remain recorded with later corrections.
 
-Current order: activeqa07 clean and
-actualRC2-upgraded qualification, including ES process OS_NAME/menu/manual
-updates and refreshed proxy preservation/subset HTTP → ordinary RA proof →
-approved P4 primary+Fable5.1/xhigh review → first H700 DDR4/RG35XX SP build.
-Daybreak is unavailable and no coverage is claimed. Ordinary RA fixture,
-public-site delivery, publication and physical actions retain named gates.
-#392/#417/#419 are closed with published exact-candidate receipts.
-#410 helper is installed and closed; it successfully reclaimed8GiBswap before
-this build. No reinstall is needed. #414/#415/#418 are already closed.
+Historical inventory03 binds05 only. Receipts in
+`docs/qa-logs/2026-10-04-pixelelated-1e6a-qualification/` and
+`docs/qa-logs/2026-10-04-pixelelated-replacement-05/`. The earlier02163 image
+exposed600→644 shell-writer widening421 after passing defaults; corrected
+source1719checks and installed05 mode/race proofs close that defect.
+#320/#384/#391/#392/#366/#417/#419/#420/#421/#425 are closed with their own
+proved scopes; #422/#424/#426/#428 retain current-image criteria. #427 was a
+disproved fallback-glob hypothesis, closednotplanned with no source change.
 
-The older sections below retain the October2–3 investigations and source
-receipts, including names and pins valid at that time.
+The sections below retain the October2–3 review baseline and historical pins.
+The final phase overview applies with the current candidate/order above.
 
 ## Historical execution update — 2026-10-03
 
@@ -290,8 +280,9 @@ five-seat council is required to resolve these first-release defects.
    changed-package checks and relevant host suites; #310/#327/#332 software
    evidence and #371/#367 host gates. Diagnostic VM images here are
    engineering builds, not RCs.
-3. **M7.P3 — Freeze and cold build:** record distro/ES/splash commits, container
-   digest, source inventory and concurrency; build under RASTERATOPS. Store
+3. **M7.P3 — Freeze and build:** record distro/ES/splash commits, container
+   digest, source inventory and concurrency; build pixelelated from a fresh root
+   or an independently checksum/inode-verified cache. Store
    actual artifacts with manifest/digests, verify before/after QA. Never
    rename a warm root or select a newest-date glob.
 4. **M7.P3 — Qualify that image:** clean install, RC2 upgrade, 15 default vm-qa
