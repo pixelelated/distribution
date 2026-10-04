@@ -34,10 +34,11 @@ passes20 installed predecessor-state preservation checks, without live provider
 contact. All result channels/custody/backing/owned exits verify. Receipts:
 `docs/qa-logs/2026-10-04-pixelelated-1e6a-qualification/`.
 
-Optins-04 started21:36:53, actual83669, runner3660474/watcher3660475.
-S3 roundtrip PASS110s; mixed actual RC2/fresh migration now runs. Shared5s
-recursive-log monitoring and connected supervision remain active; disconnected
-delivery is unconfigured (#395). Memory/UI/predecessor owners remain unstarted.
+Optins-04 actual83669/allrc0 passes S3 roundtrip110s and mixed actualRC2/fresh
+migration42checks/0failures. Actual cleanup/custody verifies. Memory-04 started
+21:42:50, actual86046, runner3693678/watcher3693679. Shared5s recursive
+monitoring and connected supervision continue; ui-04/predecessor-01 unstarted.
+Disconnected delivery remains unconfigured (#395).
 
 Immutable bundlea179bd73… verifies imagea16f9532… and updatef0e2752d…;
 input manifestb252b926… binds6547 product files/180symlinks and198 QA tools.
@@ -52,7 +53,7 @@ Original failed runs and their cleanup/backing proofs remain retained.
 A local post-store wrapper parser failure is also retained separately; the
 already stored immutable bundle was independently verified before QA.
 
-Current order: finish mixed-pair migration, memory/bilingual UI/actualboot,
+Current order: finish memory, bilingual UI/actualboot,
 #391 installed recovery of RC2-script-created partial states, and ordinary RA
 proof → approved P4 primary+Fable5.1/xhigh review → first H700 DDR4/RG35XX SP
 build. Daybreak is unavailable and no coverage is claimed. Ordinary RA fixture,

@@ -1,0 +1,20 @@
+{
+  "observed_utc": "2026-10-04T21:39:39.225541+00:00",
+  "processes": [
+    {
+      "pid": 3675182,
+      "kind": "owned QEMU",
+      "disks": [
+        "if=none,id=rocknix,format=qcow2,file=/workspace/tmp/pixelelated-m7-optins-04/pair/vm-a.qcow2"
+      ]
+    },
+    {
+      "pid": 3675221,
+      "kind": "owned QEMU",
+      "disks": [
+        "if=none,id=rocknix,format=qcow2,file=/workspace/tmp/pixelelated-m7-optins-04/pair/vm-b.qcow2"
+      ]
+    }
+  ],
+  "stage": "Mixed-pair startup after S3 completed and its VMs/backend stopped. File was collected at the stage transition."
+}
