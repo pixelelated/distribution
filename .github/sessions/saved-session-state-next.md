@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Updated 2026-10-04T16:42:16Z. Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261004T164216Z.md`.
+> Updated 2026-10-04T17:22:39Z. Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261004T172239Z.md`.
 
 ## Start here
 
@@ -22,48 +22,71 @@ all earlier source/build provenance. Historical paths stay intact.
 
 Ordinary fixes/tests/VMs, exact-commit integration onto next and normal fork
 pushes remain authorized. Publication, personal-cloud mutation and physical
-device actions retain named gates. No goal tool was created. Replacement qa-02 is running; its exact owner and watcher are below. Do not relaunch an old used run owner.
+device actions retain named gates. No goal tool was created. No job remains running; completed receipts and unfinished source/artifact work are below. Do not relaunch a used run owner.
 
-## Current work: replacement VM qualification is running
+## Current work: finish artifact classification, then rebuild corrected source
 
-The owner installed the corrected host helper successfully and asked to
-continue toward device builds, resolving prerequisites. #410 is now closed:
-actual root metadata and helper digest, effective narrow sudo grant, busy
-refusal, argument/unrelated-command denial, two idle kernel recycles and
-healthy no-op all pass. No more owner bootstrap is needed.
+No build, VM or artifact-analysis job is running. Actual host readbacks
+confirmed the completed runners/watchers/guests exited. #410 remains fully
+completed; do not ask for another helper installation.
 
-Replacement **1600d78fe50488537ca5568d2671fe84236da6d4** assembled successfully
-16:33–16:35 UTC. All 642 package tasks; command/inner/outer/watcher/tool rc0.
-Frozen input checks and exact assembled proxy/identity/licence payload pass.
-This is an engineering image; **no RC/device-ready claim**.
+Frozen replacement1600d78fe50488537ca5568d2671fe84236da6d4 built642/642 and
+now passes all15 default suites,1689 script assertions,16 walks/78 walk frames
+plus16 timing frames, actual ROCKNIX RC2 upgrade, exact clean/upgraded payload
+readbacks and before/after source/candidate custody. qa-02 run
+20261004T163803Z-9d08eda8 finished17:13:52 UTC, every result0 including actual
+tool45175. Its real RC2-upgraded disk remains under its owner/pair/vm-a.qcow2.
+Receipt: docs/qa-logs/2026-10-04-pixelelated-replacement-qualification/.
 
-Current QA owner `/workspace/tmp/pixelelated-m7-qa-02`.
-Tree `/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement01`, branch
-`build/m7-pixelelated-replacement01`, frozen at the full commit above.
-Run `.build-runs/20261004T163803Z-9d08eda8` under that tree.
-Started 16:38:03 UTC. Runner **787868**, watcher **787869**, tool session
-**45175**. Poll the actual status, nested logs and tool result at most 60s
-apart; announce failure, completion or suspected inactivity immediately.
-Do not edit an executing script or advance the frozen tree.
+The broader source/staging review found #416: five Tools descriptions still
+used old project text/links, the memory status heading said Rasteratops and
+the bucket example used rocknix. #417 is inherited invalid XML: raw ampersand
+in touchHLE description. Both are fixed locally in the feature tree; these
+changes are not in frozen1600. Names/paths/attribution remain compatible. The
+identity tool now checks Tools XML and player fields. Old malformed XML and
+old text fail; corrected source/XML/shell/vocabulary pass. Evidence:
+docs/qa-logs/2026-10-04-pixelelated-brand-text/. Source/evidence commit status
+may have advanced; inspect git HEAD/status, then integrate explicit hashes.
 
-```bash
-cat /workspace/tmp/pixelelated-m7-qa-02/run.path
-cat /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement01/.build-runs/20261004T163803Z-9d08eda8/build.status
-tail -30 /workspace/tmp/pixelelated-m7-qa-02/console.log
-```
+image-01's attempted parallel analysis was refused by the worktree lock(rc2).
+image-02 then failed before extraction on missing ES_SRC(rc1, #418). Fresh
+image-03 explicitly supplies it; actual-environment preflight passes. Its
+run20261004T171722Z-0c6a3fd1 finished17:17:32, all results0 including tool44613.
+Image and update SYSTEM match SHA256
+8f034d028da6c1afb404670e2aac27348aa785f23a21372022b048ff41fac841.
+Evidence: docs/qa-logs/2026-10-04-pixelelated-image-analysis/.
 
-Shared watch-build/watch-job checks every 5s, suspects inactivity at 5min,
-and observes nested qa-02/artifacts logs. `outer.sh` records the wrapper result
-inside the watched boundary; `inner.rc`, `outer.rc`, `tool-wrapper.rc`, run
-`build.rc` and tool session result remain distinct. No off-session notifier is
-configured (#395); do not end with an unattended job while promising alerts.
+Actual extracted root: /workspace/tmp/pixelelated-m7-image-03/root (6.5GB).
+No image binary was executed. One extracted mode000 file usr/cache/shadow
+was made0400 only in this owned analysis copy so scans cannot silently skip
+it; original mode is retained in extraction-read-permissions.json. Never
+print its contents. All1038 brand-bearing files match original staging bytes
+exactly; brand-files.json retains every file hash. Classification is unfinished.
 
-This stage runs all 15 defaults, clean installed payload readback, actual
-ROCKNIX RC2 upgrade, then upgraded payload readback. The retained predecessor:
-/workspace/artifacts/rocknix-images/x64-all-20260929-69e6039f8f/ROCKNIX-GENERIC_X64.x86_64-20260929.img.gz.
-Keep -from-ROCKNIX on the tar; its old init checks that name. New payload
-checks include exact raofflineproxy-ctl bytes/mode on both guests. No new suite
-result is asserted by this launch checkpoint. Do not reuse a started owner.
+Discovery material, preliminary and outside Git:
+- /tmp/pixelelated-staging-brand-paths.json (1038paths) and
+  /tmp/pixelelated-staging-brand-discovery.json. Initial row counts were
+  7716 build/toolchain contexts,398 attribution,482unclassified.
+- /tmp/pixelelated-brand-unclassified.json is a filtered316-row review aid,
+  excluding localization/ES/systemd contexts; not the full hit list.
+- /tmp/pixelelated-brand-discovery.py records the preliminary scanner, not a
+  qualified universal classifier. Inspect each remaining consumer, then bind
+  the complete allowlist/classification to NAMING.md v2 and the artifact.
+- /tmp/pixelelated-staging-secret-paths.txt and
+  /tmp/pixelelated-staging-secret-discovery.json hold20 broad-pattern file
+  matches, with offsets/types/hash only (no matching values printed). They
+  are mostly public identifier substrings, SSH security-key algorithm names,
+  an AWS example, and PEM parser/self-test constants. Do not call this a zero
+  secret sweep until every actual candidate match is classified and controls
+  work. /tmp/pixelelated-secret-discovery.py is the preliminary script.
+
+Inspected consumer facts: Tools install-rocknix.svg renders a neutral drive
+and Install to Internal (PNG/source retained), not an old logo. Locale hits
+refer to the retained ROCKNIX partition or historical comments. ES standalone
+ROCKNIX is legacy identity fallback/compatibility, ROCKNIX-Emulationstation is
+the scraper client identity, /rocknix is the input-config path consumer. Proxy
+module names/detectors/update platform remain compatibility identifiers. These
+facts guide classification; they do not waive unknown hits.
 
 ## Replacement artifact, source and cache custody
 
@@ -114,37 +137,42 @@ Current evidence/checkpoint commits may be newer; read HEAD.
 
 ## Next work in M7 order
 
-1. Supervise qa-02 to its actual result. On failure, preserve the original
-   report, trace/file the defect, fix and renew appropriate evidence. No gate
-   bypass. On success retain exact clean/upgraded bytes and actual RC2 disk,
-   rehash source/candidate and close #414 from its replacement script proof.
-2. New prepared, hash-bound, **unstarted** owners:
-   /workspace/tmp/pixelelated-m7-link-02,
-   /workspace/tmp/pixelelated-m7-guest-02,
-   /workspace/tmp/pixelelated-m7-runtime-02.
-   Source copies live under the replacement evidence directory. In that order:
-   WebDAV/S3 seven-cell link matrices; 19 independently reset640x480 cloud
-   guest cases; COW on qa-02's **actual RC2-upgraded** disk for inherited
-   archive, five-sample alternating timing with unchanged30ms bound, installed
-   identity/update/stats/licence checks. All require prior outer.rc=0.
-   Each has outer.sh taking the immutable bundle as its sole argument; use
-   watch-build --interval5 --stall-min5 --activity-dir OWNER/artifacts
-   --recursive-activity, preserve actual tool result separately.
-3. Remaining P3 pair/localisation640/1280 EN/FR, launch/memory, installed proxy
-   preservation and live award, brand/secret/source/licence/readiness/public-docs
-   criteria. #320/#327/#352/#353/#366/#384/#391/#392 remain actual release
-   bug gates, plus #414 until qualified. Close only from each acceptance proof.
-   The old installed proxy fixture is docs/qa-logs/2026-10-03-proxy-runtime/
-   attempt-04:20 actual packaged-module assertions with predecessor DB
-   /tmp/m7-proxy-predecessor (SHA a796c1e6ce6373a6620dfa983e16de3012b6d8feb83f9a2c178f437d8c0adca5),
-   no provider contact. It still needs a new bound owner/pin/identity and run.
-4. P4 primary + Fable5.1/xhigh through verified Facilitator/OpenRouter fixes
-   review, including rename. #375/#382 initial audit/dispositions are complete;
-   do not restart. Helper audit411 is separate. Resolve findings, requalify
-   changed product bytes, then make the RC call.
-5. P5 source/release/adoption/recovery/public docs and H700 DDR4/RG35XX SP
-   artifact after P3/P4. GENERIC_X64 cannot be flashed to that handheld.
-   No physical action, personal-cloud write or publication is authorized.
+1. Publish source corrections and retained completed QA/extraction receipts,
+   update/read back M7 and issues. Close414 from its actual replacement scripts
+   proof; close418 from the corrected extraction proof. Keep416/417 open for
+   new-image verification. Current live M7/383/409/344 already record these
+   findings and the revised order; refresh with completed results.
+2. Finish actual artifact brand/secret/localisation and source/licence/readiness
+   mapping before a corrected freeze. Resolve all discovered product misses
+   together; no brand-wide PASS from targeted checks. Preserve every failure.
+3. Freeze a new replacement tree/input manifest from published corrected next,
+   preserving1600 and b137. Reuse verified cache through independent files and
+   the canonical container path, as documented below. Build through shared
+   watcher, retain actual tool/outer results and immutable custody.
+4. Bind fresh owners to the new artifact. Existing hash-bound UNSTARTED owners
+   are preparation templates bound to1600, not qualification of future bytes:
+   /workspace/tmp/pixelelated-m7-link-02, -guest-02, -runtime-02,
+   /workspace/tmp/pixelelated-m7-proxy-01, -optins-01, -memory-01, -ui-01.
+   Source copies are under replacement-01/{link,guest,runtime,proxy,optins,
+   memory,ui}-stage. Defaults/actual RC2 first; then seven-cell WebDAV/S3 link
+   matrices;19 independent cloud cases; COW on actual upgraded disk for
+   archive/timing/identity;20 packaged-proxy preservation assertions;S3 roundtrip
+   and mixed RC2/fresh pair;virgl10/software10/software50+sync and sign-in
+   load;EN/FR640x480/1280x960 frames and visual review. Respect prior-success
+   guards, owned cleanup and unchanged memory/timing limits. No live RA
+   account is used by the synthetic proxy preservation fixture.
+5. Remaining ordinary RA award fixture, full sweeps and bug criteria; then
+   approved P4 primary + Fable5.1/xhigh via verified Facilitator/OpenRouter.
+   Initial #375/#382 audit/dispositions are complete; helper411 is separate.
+   Resolve findings and requalify changed bytes before RC designation.
+6. P5 source/release/adoption/recovery/public docs and first H700 DDR4/RG35XX SP
+   build after P3/P4. No physical action, personal-cloud write or publication
+   authorized by this continuation. GENERIC_X64 cannot be flashed to it.
+
+All long jobs use tools/watch-build --interval 5 --stall-min 5 with nested
+activity and connected supervision at most60s apart. The shared recorder
+refuses two owners in one tree. No disconnected destination is configured
+(#395); do not leave a job unattended while promising future alerts.
 
 ## Host helper: completed, explicit idle use only
 

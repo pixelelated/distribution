@@ -1,0 +1,11 @@
+watch-build: recording in /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement01/.build-runs/20261004T171457Z-533b1a15
+/workspace/tmp/pixelelated-m7-image-02/extract.py: OK
+/workspace/tmp/pixelelated-m7-image-02/outer.sh: OK
+/workspace/tmp/pixelelated-m7-image-02/run.sh: OK
+/workspace/tmp/pixelelated-m7-image-02/verify-inputs.py: OK
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-image-02/verify-inputs.py", line 18, in <module>
+    es = os.environ['ES_SRC']
+         ~~~~~~~~~~^^^^^^^^^^
+  File "<frozen os>", line 709, in __getitem__
+KeyError: 'ES_SRC'

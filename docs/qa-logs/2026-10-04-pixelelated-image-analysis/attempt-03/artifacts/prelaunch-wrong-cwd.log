@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-image-03/verify-inputs.py", line 13, in <module>
+    assert subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip() == inputs['distribution_commit']
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

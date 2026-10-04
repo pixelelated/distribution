@@ -15,12 +15,18 @@ pass. Bundle b37f01b7e4e5a06f983dd420b4af10c0c2155564fb9071051c0772ceb0e04c3b
 contains the new image and tar. Source pins are unchanged; product delta is
 #414's two proxy comment lines. Cache copy was fully compared and independent.
 
-**Verdict: replacement engineering image built; fresh qualification running.**
+**Verdict: all 15 defaults and the actual RC2 upgrade pass on1600; both installed
+payload readbacks and final custody checks pass. New branding/XML findings
+require a corrected image.**
 qa-02 started16:38:03, runner787868/watcher787869, shared5s nested-log monitor.
-Both guests boot1600d78fe5. Defaults and actual ROCKNIX RC2 upgrade/payload
-checks precede link/guest/runtime-02 and the remaining P3/P4 gates. #410's
-corrected helper is installed and closed after actual host guard/recycle/no-op
-proof. Safe preflight passed. No device-ready or RC claim.
+The broader staging/source sweep found #416 stale Tools/status/help text and
+#417 malformed Tools XML. Source corrections and old-fail/new-pass controls
+pass outside the frozen tree. Exact raw-image/update SYSTEM extraction now passes. Finish the broad
+brand/secret/localisation classification before one corrected freeze
+and build. Existing unstarted later-stage owners must be rebound to that new
+artifact before qualification. P4 follows complete P3 evidence. #410's corrected
+helper is installed and closed after actual host guard/recycle/no-op proof.
+No device-ready or RC claim.
 
 The original b137 image's qualification remains failed13PASS/2FAIL. #415's
 bounded visual expectations are corrected and closed; #414 stays open until
