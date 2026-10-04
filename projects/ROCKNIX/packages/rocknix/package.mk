@@ -1,5 +1,6 @@
 # SPDX-License-Identifier: GPL-2.0
 # Copyright (C) 2023 JELOS (https://github.com/JustEnoughLinuxOS)
+# Copyright (C) 2026-present ROCKNIX (https://github.com/ROCKNIX)
 
 PKG_NAME="rocknix"
 PKG_VERSION=""
@@ -10,7 +11,8 @@ PKG_URL=""
 # at build time when upstream dropped the package (a3d0ad0430) -- the image
 # simply shipped without it and "backuptool backup" could not run. Declaring
 # it here turns an invisible runtime dependency into one the build enforces.
-PKG_DEPENDS_TARGET="toolchain autostart zip"
+# The private-settings writer uses BusyBox stat/chmod before publication (#421).
+PKG_DEPENDS_TARGET="toolchain autostart zip busybox"
 PKG_LONGDESC="ROCKNIX Meta Package"
 PKG_TOOLCHAIN="make"
 
