@@ -15,9 +15,9 @@ for i in range(90):
 else:raise RuntimeError('UI did not become idle')
 v=['./tools/vm-visual-qa','--monitor','/tmp/rocknix-qemu-monitor-d.sock']
 subprocess.run(v+['dismiss'],check=True)
-for walk in ['retro-achievements','cloud-sync']:
+for walk in ['retro-achievements','cloud-sync','identity']:
  print('START',a.language,a.resolution,walk,flush=True)
- subprocess.run(v+['run','tools/vm-walks/docs/'+walk+'.steps','--outdir',str(out/walk)],check=True)
+ subprocess.run(v+['run',str(owner/'identity.steps') if walk=='identity' else 'tools/vm-walks/docs/'+walk+'.steps','--outdir',str(out/walk)],check=True)
  print('CAPTURED',a.language,a.resolution,walk,flush=True)
 import struct
 frames=list(out.rglob('*.png'));w,h=map(int,a.resolution.split('x'))
