@@ -1,0 +1,45 @@
+{
+  "reference": "docs/qa-logs/2026-10-04-pixelelated-ocean/1280-0.png",
+  "reference_sha256": "8cbf92050ddb4d717d091f4d6c373993c565632a7fcc71e5d6b859aea83557e3",
+  "old_logo_sha256": "d69fb396fd89977b885f11351e387363d798a160ffde517259b363f8a0406716",
+  "threshold": 0.995,
+  "rectangle_half_open": [
+    182,
+    422,
+    1098,
+    538
+  ],
+  "scored_pixels": 106256,
+  "frames": [
+    {
+      "file": "reference.png",
+      "sha256": "8cbf92050ddb4d717d091f4d6c373993c565632a7fcc71e5d6b859aea83557e3",
+      "elapsed_seconds": 0,
+      "agreement": 1.0
+    }
+  ],
+  "best": {
+    "file": "reference.png",
+    "sha256": "8cbf92050ddb4d717d091f4d6c373993c565632a7fcc71e5d6b859aea83557e3",
+    "elapsed_seconds": 0,
+    "agreement": 1.0
+  },
+  "controls": [
+    {
+      "name": "old-logo",
+      "agreement": 0.44501016413190786,
+      "rejected": true
+    },
+    {
+      "name": "blank",
+      "agreement": 0.7035461526878483,
+      "rejected": true
+    },
+    {
+      "name": "wrong-resolution",
+      "agreement": 0.0,
+      "rejected": true
+    }
+  ],
+  "pass": true
+}
