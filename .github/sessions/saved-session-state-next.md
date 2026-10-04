@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Saved 2026-10-04T05:02:04.970139+00:00. Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261004T050204Z.md`.
+> Updated 2026-10-04T06:58:00Z. Previous archived checkpoint: `.github/sessions/archived/saved-session-state-next-20261004T050204Z.md`.
 
 ## Start here
 
@@ -29,17 +29,28 @@ retain their named gates. No goal tool was created.
 
 ## Current result
 
-**The first cold pixelelated build is RUNNING; no new image or RC claim yet.**
-Owner manually recycled swap; passing preflight at04:15:20UTC observed37961MB
-available RAM and8002MB swap free. Runner1801222/watcher1801223,
-`.build-runs/20261004T041520Z-ef28d7ab` under frozen m7-pixelelated.
-At06:10:22UTC:633/642 completed package workers, fresh heartbeat/detailed log.
-Joblog contains onlyDONE/noFAIL; WebKit6348/8578. Swap refilled within five minutes,
-but available RAM remains roughly32–44GiB with no sustained PSI pressure.
-Do not recycle swap or edit the frozen build tools while work is active.
-#409's source transition is implemented and checked. The main M7 engineering
-artifact remains historical RASTERATOPS replacement02; never rename its
-files or apply its PASS verdict to new bytes.
+**Cold pixelelated build COMPLETE; first-stage VM qualification RUNNING. No RC claim.**
+Build04:15:20→06:46:59UTC,642/642 workers,0 failed jobs; command/inner/watcher0.
+Frozen inputs and assembled identity/licences pass. Build runner1801222,
+watcher1801223 and containerbeef680ec2ab are verified gone. Tool session95675
+returned143 with no outer.rc despite those results; cause remains unproved.
+Preserve outer-session.json/#395, never rewrite it as0.
+New immutable bundle `/workspace/artifacts/pixelelated-candidates/sha256/22533e35b95a122ebd0d7dc2b60f6e816982594af62454f5209a04be8da3512d`.
+Image SHA1f35f28272e6171b30640c910eb6c9fd04cb9ec0ae9cd1cf5f8212eb16e6b623;
+tar SHA5f94ebf45123b6654ab544aa0771e1c4c8314c53aed245f30d22572dbf4ebedc.
+Both emitted checksums and candidate custody pass. Source inventory568 roots,
+547 cache inputs,17 local/generated,3 shared,1 exact recovered rclone input,
+0 errors; publication source/licence work remains separate. Receipts:
+`docs/qa-logs/2026-10-04-pixelelated-cold-01/`.
+
+QA started06:54:19UTC, owner `/workspace/tmp/pixelelated-m7-qa-01`, session4686.
+Run `.build-runs/20261004T065419Z-2eb808cf` under frozen m7-pixelelated;
+runner2152966/watcher2152982,5s/5min recursive owned artifacts. Both guests
+bootedb137 and answered SSH. At06:58 scripts suite active with fresh PASS lines.
+Read owner outer.log/inner.rc/outer.rc and run build.status/rc, poll<=60s and
+announce terminal/stall events immediately. No off-session delivery configured.
+Do not recycle swap or edit executing scripts while VMs are active.
+Preserve historical replacement02 and never transfer its PASS verdict to new bytes.
 
 Source receipts: `docs/qa-logs/2026-10-04-pixelelated-source/`:
 - Full existing shell harness: **1,373 PASS +316 focused PASS,0FAIL**, rc0.
@@ -89,7 +100,7 @@ The316/0 result is not a claim of support for unshipped Rasteratops state.
   `docs/qa-logs/2026-10-04-pixelelated-ocean/inputs.json`. The editable clip master
   has a different canvas; flattened runtime pieces match its pixels exactly.
 - Container: `ghcr.io/pixelelated/build@sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39`.
-  Actual running container beef680ec2ab uses this digest, uid1000:1000 and
+  Consumed build container beef680ec2ab used this digest, uid1000:1000 and
   the reviewed source-cache/main.git mounts. Receipt: owner consumed-container.json.
 - Existing build tree `/workspace/repos/rocknix.worktrees/m7-generic-x64`,
   `build/m7-generic-x64`, **frozen61b64817bf8ab48237e51abb395484e36cbf924b**.
@@ -104,7 +115,7 @@ already lowercase; public metadata did not retain an old project name.
 
 ## Next work, in milestone order
 
-1. **M7.P3 #409: source/input freeze complete; cold build RUNNING.**
+1. **M7.P3 #409: source/input freeze and cold build complete; VM QA running.**
    The owner supplied a six-treatment RGB555 wordmark system after the first
    monochrome source transition. Saved specification and generator are under
    `docs/pixelelated/art/wordmark-system.md` and `source/generate.py`. D-WORKFLOW-146.
@@ -123,7 +134,8 @@ already lowercase; public metadata did not retain an old project name.
    at04:15:20UTC. Frozen `/workspace/repos/rocknix.worktrees/m7-pixelelated`,
    `build/m7-pixelelated`, b137d8c37323abbf07788af8bf8dbd495a31e9c9.
    Do not advance it for docs/helper. The new cold
-   `build.pixelelated-GENERIC_X64.x86_64` root exists and is active.
+   `build.pixelelated-GENERIC_X64.x86_64` root is built. Preserve generated
+   documentation/PER_DEVICE_DOCUMENTATION/GENERIC_X64/SUPPORTED_EMULATORS_AND_CORES.md.
    No warm root was copied; replacement02 remains untouched.
 2. Frozen inputs and launcher are ready in
    `/workspace/tmp/pixelelated-m7-cold-01/`: `inputs.json`, `inputs.sha256`,
@@ -134,32 +146,34 @@ already lowercase; public metadata did not retain an old project name.
    Source cache `/workspace/cache/rocknix-sources`, main.git mount
    `/workspace/repos/rocknix/.git`, global24/WebKit4. Already launched with
    `tools/watch-build --docker --interval 5 --stall-min 5 -- /workspace/tmp/pixelelated-m7-cold-01/build.sh`.
-   **Do not launch a second build.** Session95675 owns the outer shell.
+   **Do not launch a second build.** Session95675 has ended with143; own results0.
    Owner `run.path` points at
    `/workspace/repos/rocknix.worktrees/m7-pixelelated/.build-runs/20261004T041520Z-ef28d7ab`.
-   Read build.status/log/rc and owner outer.log/outer.rc/inner.rc; poll<=60s,
-   announce terminal/stall events. Runner1801222/watcher1801223 are real host
-   processes; sandbox ps cannot see the host process namespace. Container
-   beef680ec2ab is recorded in consumed-container.json. Preparation receipts
+   Terminal build.status/log/rc and owner outer.log/inner.rc/outer-session.json
+   retain completion; outer.rc is absent. Actual host runner/watcher/container
+   are gone. Containerbeef680ec2ab is recorded in consumed-container.json. Preparation receipts
    remain in2026-10-04-pixelelated-build-preparation; they predate launch.
    At06:00 the frozen watcher displayed a flushed Ninja130/130 as overall
    progress. #412 corrects future build routing to structured pkgbuilder
-   DONE/FAIL lines; the active watcher is unchanged. Until it exits, read
-   the frozen build root's .threads/progress and joblog for actual package
-   completion/failure counts; generic progress from aggregate log is ambiguous.
+   DONE/FAIL lines; the frozen watcher stayed unchanged through completion.
+   .threads/progress and joblog established642/642 with0 failed workers;
+   generic aggregate-log counters were not trusted as overall progress.
    Focused controls13/0, same suite on old tools7/6, lifecycle32/0, current
    routing35/0. #413 fixes the routing fixture's stale container namespace in
    a current copy. Source/receipts:2026-10-04-watch-progress. The one-shot
-   live-replay.status's synthetic rc0 is not this active build's outcome.
-3. Store and verify the new artifact with `tools/rasteratops-candidate-store`
-   (put/verify; it does not freeze inputs). Run clean/default/required opt-ins,
+   live-replay.status's synthetic rc0 was not the build's outcome. #412/#413
+   closed with required code traces and readback; feature1766d6deef→nextde4cf0e34a
+   pushed normally, exact remote refs verified.
+3. New artifact is stored and verified (bundle/hash above). Run clean/default/required opt-ins,
    actual ROCKNIX RC2 upgrade, migration/provider/pair/archive, visual EN/FR,
    time-to-play/memory and installed identity/licence/source checks on new bytes.
-   Prepared first-stage QA owner `/workspace/tmp/pixelelated-m7-qa-01` holds
+   RUNNING first-stage QA owner `/workspace/tmp/pixelelated-m7-qa-01` holds
    `qualify.sh`, `verify-inputs.py`, `check-payload.py`, `harness.sha256` and
-   an empty `artifacts/`. Syntax checks only; never executed against a guest.
-   After candidate-store put/verify, run from the frozen tree:
-   `tools/watch-build --interval 5 --stall-min 5 --activity-dir /workspace/tmp/pixelelated-m7-qa-01/artifacts --recursive-activity -- /workspace/tmp/pixelelated-m7-qa-01/qualify.sh <verified-bundle>`.
+   active `artifacts/`. Already launched from frozen tree through watch-build,
+   interval5/stall5/recursive activity, using mode0500 outer.sh bound to the
+   verified bundle. That wrapper writes outer.rc inside the watched command
+   boundary; this is distinct from eventual tool-session exit. Do not launch
+   again. Source/initial receipts:2026-10-04-pixelelated-qualification.
    This runs15 defaults, actual RC2 upgrade, clean/upgrade installed identity,
    policy/scripts/Ocean bytes. It does not replace required later targeted
    qualification. Capture outerrc and supervise as above.
@@ -198,8 +212,8 @@ already lowercase; public metadata did not retain an old project name.
    H700 DDR4/RG35XX SP image follow qualification and existing action gates.
    GENERIC_X64 is not a handheld image. No release publication is authorized.
 
-Live M7/#409/#383 were updated/read back at04:20UTC with the running build,
-actual watcher/container and next VM qualification. Earlier #361/#386 source
+Live M7/#409/#383 were updated/read back at06:56UTC with completed build,
+new bundle, source inventory, active QA and unchanged P3→P4→P5 order. Earlier #361/#386 source
 readbacks remain in the preparation receipts.
 Current M7 title is **M7: pixelelated 0.0.1**. Body owns order; M7.Pn is stable,
 not inferred from issue numbers. Open current titles/criteria were reconciled;
@@ -336,9 +350,8 @@ use privileged Docker or broaden sudo. Reads/commands inspecting real host
 UIDs/processes/sudo require escalated tool execution; sandbox shows root as
 nobody and sets no-new-privileges. Read latest user messages for completion.
 
-The active cold build remains runner1801222/watcher1801223 under run
-20261004T041520Z-ef28d7ab. At05:12UTC525/642, all five active jobs have fresh individual logs:
-LLVM3265/4525, RenderDoc210/345, MAME, ScummVM and kernel. Available RAM
-about37GiB and PSI negligible. Main build.log may be quiet while
-heavy packages compile; watch detailed activity and actual pressure. Remain
-actively supervising and report completion/stalls. No off-session notifier.
+The cold build completed and those processes exited; see current result above.
+Current active job is QA runner2152966/watcher2152982 under run
+20261004T065419Z-2eb808cf, session4686. Keep supervising nested artifacts and
+report terminal/stall events immediately. No off-session notifier. #410's
+corrected bootstrap remains pending; never reset swap while these VMs run.

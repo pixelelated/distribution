@@ -1,0 +1,13 @@
+state:       running
+written:     2026-10-04 06:57:40 UTC   <- if this is stale, investigate the watcher
+watcher_pid: 2152982
+job_pid:     2152966  alive=yes
+started:     2026-10-04 06:54:19 UTC
+progress:    none matched
+log:         /workspace/repos/rocknix.worktrees/m7-pixelelated/.build-runs/20261004T065419Z-2eb808cf/build.log  (last written 162s ago)
+activity:    /workspace/tmp/pixelelated-m7-qa-01/artifacts/rocknix-images/qa-b137d8c373-webdav-a-20261004-0654/scripts.log  (last written 0s ago)
+activity_dir: /workspace/tmp/pixelelated-m7-qa-01/artifacts
+activity_progress: 
+tail:
+      PASS  PL-055: a listing cut by the deadline (124): TOOK_TOO_LONG, index-pending kept
+      PASS  PL-055: the next link event inside the half hour after a failed attempt waits (no probe, no listing), the marker still t
