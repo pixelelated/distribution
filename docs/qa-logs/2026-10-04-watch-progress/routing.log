@@ -1,0 +1,27 @@
+PASS: shared runner observes nested QA logs and retains terminal result
+PASS: automatic direct entry: build_distro
+PASS: arguments and environment preserved: build_distro
+PASS: private run and logs: build_distro
+PASS: automatic direct entry: image
+PASS: arguments and environment preserved: image
+PASS: private run and logs: image
+PASS: automatic direct entry: build
+PASS: arguments and environment preserved: build
+PASS: private run and logs: build
+PASS: automatic direct entry: build_compat
+PASS: arguments and environment preserved: build_compat
+PASS: private run and logs: build_compat
+PASS: automatic direct entry: install
+PASS: arguments and environment preserved: install
+PASS: private run and logs: install
+PASS: native make route: GENERIC_X64
+PASS: native make route: image
+PASS: native make route: package
+PASS: routing regression check fails when an entrypoint loses its hook
+Traceback (most recent call last):
+  File "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-03-watch-job/test-watch-build.py", line 150, in <module>
+    check(result.returncode == 0 and finished(d, 0), 'Docker host runner and inner scripts share one run')
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-03-watch-job/test-watch-build.py", line 24, in check
+    raise AssertionError(label)
+AssertionError: Docker host runner and inner scripts share one run

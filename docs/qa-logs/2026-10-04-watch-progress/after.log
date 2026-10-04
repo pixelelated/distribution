@@ -1,0 +1,14 @@
+PASS mixed: real command/result preserved
+PASS mixed: progress = [603/642]
+PASS package-only: real command/result preserved
+PASS package-only: progress = none matched
+PASS failed: real command/result preserved
+PASS failed: progress = [604/642]
+PASS generic-qa: real command/result preserved
+PASS generic-qa: progress = [130/130]
+PASS embedded-lookalike: real command/result preserved
+PASS embedded-lookalike: progress = [603/642]
+PASS detached watcher preserves build-progress mode
+PASS custom generic progress remains usable
+PASS structured overall and generic package counters remain separate
+13 PASS; 0 FAIL

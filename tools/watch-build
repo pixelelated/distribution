@@ -98,7 +98,7 @@ def main():
     activity_root = root if args.docker else Path(environment.get('BUILD_DIR', str(root)))
     log = (run / 'build.log').open('wb', buffering=0)
     errors = (run / 'watcher.err').open('wb', buffering=0)
-    activity_args = ['--activity-root', str(activity_root)]
+    activity_args = ['--activity-root', str(activity_root), '--build-progress']
     if args.activity_dir is not None:
         activity_args = ['--activity-dir', str(args.activity_dir.resolve())]
         if args.recursive_activity:
