@@ -1,357 +1,248 @@
 # Saved Session State
 
-> Updated 2026-10-04T06:58:00Z. Previous archived checkpoint: `.github/sessions/archived/saved-session-state-next-20261004T050204Z.md`.
+> Updated 2026-10-04T07:39:20Z. Previous complete checkpoint: `.github/sessions/archived/saved-session-state-next-20261004T073920Z.md`.
 
 ## Start here
 
 **pixelelated** is an immutable handheld Linux distribution/build system,
-forked from ROCKNIX. The next0.0.1 RC uses the name **always lowercase** and
-Tiny5 Duo LCD for its wordmark alone. Rasteratops is the lead character and
-the owner's GitHub handle; the org is `pixelelated`; `blitterbot` and its
-email/credentials are unchanged. D-WORKFLOW-144/145, D-CLOUD-174, #409.
-The proposed personal handle8bitkid was superseded, not adopted.
+forked from ROCKNIX. The next0.0.1 RC is always lowercase and uses Tiny5 Duo
+LCD alone, with the Ocean Bands wordmark. Rasteratops is the lead character
+and owner's GitHub handle; org pixelelated; developer bot blitterbot unchanged.
+The proposed8bitkid handle was superseded. D-WORKFLOW-144/145/146, #409.
+Only **ROCKNIX → pixelelated** adoption is required; the owner confirms no
+fielded /Rasteratops systems. New cloud defaults use /pixelelated. Preserve
+configured ROCKNIX/custom folders and existing verified move/keep choices.
 
-Read AGENTS.md/every-session rules from next, compare your worktree's rules,
-then this checkpoint, live M7 milestone/#409/#383,
-`docs/pixelelated/rename-plan.md`, `docs/rasteratops/release-readiness.md`
-and today's work log. Older paths/archives are historical and remain intact.
+Read AGENTS.md and the every-session rules from next; compare this worktree
+with next before trusting its rules. Then read the live M7 milestone/#383/
+#409/#410/#414/#415, docs/pixelelated/rename-plan.md, release-readiness.md
+under docs/rasteratops, today's work log and the qualification receipts below.
+The archived checkpoint above has the full earlier chronology, all prepared
+stage paths and exact source/build provenance. Historical paths stay intact.
 
-The owner confirmed **no systems use /Rasteratops**. The required adoption
-flow is **ROCKNIX → pixelelated**. New cloud setups and the existing move
-workflow target `/pixelelated`. Existing folders may be renamed/moved through
-that verified workflow; retain custom/keep choices and stored ROCKNIX
-interfaces. Do not invent a fielded-Rasteratops upgrade gate.
+Ordinary fixes/tests/VMs, exact-commit integration onto next and normal fork
+pushes remain authorized. Publication, personal-cloud mutation and physical
+device actions retain named gates. No goal tool was created. No build or QA
+job is running at this checkpoint. Do not relaunch an old used run owner.
 
-Ordinary fixes/tests/VMs, exact commit integration onto next and normal fork
-pushes remain authorized. The requested ES/splash source pushes below are
-complete. Physical-device actions, personal-cloud actions and publication
-retain their named gates. No goal tool was created.
+## Current result and immediate blocker
 
-## Current result
+**Cold build complete; first default QA run failed. No RC/device-ready claim.**
+At07:27:52UTC all15 defaults finished:13PASS, scripts and frame-diff FAIL.
+Scripts:1,688PASS/1FAIL/0SKIP, the stale proxy schema-review note (#414).
+The current-Storage SQL-reader assertion passed; old/current upstream storage.py
+and cache_keys.py are byte-identical. The two-line comment correction and
+an early preflight guard are pushed: featuredfe2abc1515abf05dbdebb9439fc921fb5a9eb48
+→ next1f5b8003916310e4179f7ee0f06722e566980d9b. Fifteen controls PASS;
+removing mismatch rejection yields13PASS/2FAIL. No runtime line changes.
+#414 remains open for a replacement image and renewed script-suite evidence.
 
-**Cold pixelelated build COMPLETE; first-stage VM qualification RUNNING. No RC claim.**
-Build04:15:20→06:46:59UTC,642/642 workers,0 failed jobs; command/inner/watcher0.
-Frozen inputs and assembled identity/licences pass. Build runner1801222,
-watcher1801223 and containerbeef680ec2ab are verified gone. Tool session95675
-returned143 with no outer.rc despite those results; cause remains unproved.
-Preserve outer-session.json/#395, never rewrite it as0.
-New immutable bundle `/workspace/artifacts/pixelelated-candidates/sha256/22533e35b95a122ebd0d7dc2b60f6e816982594af62454f5209a04be8da3512d`.
-Image SHA1f35f28272e6171b30640c910eb6c9fd04cb9ec0ae9cd1cf5f8212eb16e6b623;
-tar SHA5f94ebf45123b6654ab544aa0771e1c4c8314c53aed245f30d22572dbf4ebedc.
-Both emitted checksums and candidate custody pass. Source inventory568 roots,
-547 cache inputs,17 local/generated,3 shared,1 exact recovered rclone input,
-0 errors; publication source/licence work remains separate. Receipts:
-`docs/qa-logs/2026-10-04-pixelelated-cold-01/`.
+Visuals:16 walks/78frames complete. Three old claims missed the approved
+/pixelelated/Saves text. #415 inspected and retained all actual baseline/
+current pairs; only those three text rectangles change to183,226–416,268.
+Recomparison of the same78frames PASSES21 changed regions/0unclaimed/0missing.
+Old/missing/undersized claims and a change outside the text all FAIL. The
+accepted d72084ccad baseline, masks and original frames remain unchanged.
+This separate recheck never rewrites the original failed report or its rc.
 
-QA started06:54:19UTC, owner `/workspace/tmp/pixelelated-m7-qa-01`, session4686.
-Run `.build-runs/20261004T065419Z-2eb808cf` under frozen m7-pixelelated;
-runner2152966/watcher2152982,5s/5min recursive owned artifacts. Both guests
-bootedb137 and answered SSH. At06:58 scripts suite active with fresh PASS lines.
-Read owner outer.log/inner.rc/outer.rc and run build.status/rc, poll<=60s and
-announce terminal/stall events immediately. No off-session delivery configured.
-Do not recycle swap or edit executing scripts while VMs are active.
-Preserve historical replacement02 and never transfer its PASS verdict to new bytes.
+Command, inner, outer and tool-session4686 all returned1. The shared watcher
+retained finished/rc1; the active session announced completion. At07:28 actual
+host readback found runner2152966/watcher2152982 gone, no QEMU, and owned guest
+pidfiles absent. Backend cleanup reported down. No off-session notifier exists.
+The actual RC2 upgrade and clean/upgraded payload readbacks DID NOT RUN after
+the failed defaults gate. Prepared link/guest/runtime stages remain unstarted.
+Never bypass their prior-success checks or relabel this run as passing.
 
-Source receipts: `docs/qa-logs/2026-10-04-pixelelated-source/`:
-- Full existing shell harness: **1,373 PASS +316 focused PASS,0FAIL**, rc0.
-  `/tmp/pixelelated-source-qa-final/last-good.{log,rc,status,pid}`; runner796734,
-  watcher796756, terminal02:17:32UTC. Active-session completion reported.
-- Separate focused matrix316/0; constructed-failure control exits1.
-- Identity source guard0fail; retained ROCKNIX storage/adoption contracts,
-  current URLs, inert updater/statistics and exact ES/theme wordmark checks.
-- Proxy16 platform/account tests; exact upstream archive and zero-fuzz patches.
-- Changed ES C++ syntax PASS; vocabulary/package/rules/register/pin checks PASS.
-- Splash builds; actual renderer previews640x480/all rotations and1280x960
-  pass. Preview PNGs are not guest frames. Theme patches apply to the exact
-  cached upstream archive with zero fuzz; LCD output regenerates identically.
+Post-failure frozen source/ES/input and immutable candidate rehashes PASS.
+Read-only host preflight at07:35 fails:45,549MB available RAM but0MB free of
+8,191MB swap. No QA guest remains. **Corrected helper bootstrap #410 is still
+pending**, so the next build cannot pass its safe host preflight. No assistant
+swap reset has run. Resolve the narrow sudo installation below, verify guards,
+then reclaim while idle and prepare the corrected image/qualification owners.
 
-First broad QA was stopped by its exact owned process group before correcting
-old /Rasteratops fixture literals; initial log/cancellation retained. First
-focused result317/5 exercised unshipped run101→/Rasteratops state. Six run101
-cases retired; its re-interruption case now uses actual RC2 under the owner's
-scope correction. New-layout shelf/tier/marker/boundary controls remain.
-The316/0 result is not a claim of support for unshipped Rasteratops state.
+## Actual artifact and retained qualification
 
-## Trees, source pins and integration
+Frozen worktree `/workspace/repos/rocknix.worktrees/m7-pixelelated`, branch
+`build/m7-pixelelated`, **b137d8c37323abbf07788af8bf8dbd495a31e9c9**.
+Do not advance this historical failed candidate's source for docs/helper fixes.
+Only dirty tracked file is generated
+`documentation/PER_DEVICE_DOCUMENTATION/GENERIC_X64/SUPPORTED_EMULATORS_AND_CORES.md`;
+preserve it. Its104GB cold build root remains intact.
 
-- Feature: `/workspace/repos/rocknix.worktrees/conflict-resolution`,
-  `feature/conflict-resolution`. Rename plan commit092e4ae1c5 precedes the
-  implementation/checkpoint batch8d26722b91. Both were integrated and pushed.
-  Later wordmark-system/docs commits follow; read git HEAD for the current hash.
-- Primary: `/workspace/repos/rocknix`, `next`. Completed integration mappings:
-  feature092e4ae1c5 → next61f3c27146; feature8d26722b91 → nexta9af618398.
-  Later mappings: feature8e990419075b51b648e074fefb0b8e5daf2f1d9f →
-  nextbd3fcfa2281ebaf158f1b98790b12ee4455014b1;
-  featurec12c0e1b3075d5a92785e108a7ecc1643d46942c →
-  nextb137d8c37323abbf07788af8bf8dbd495a31e9c9.
-  All four batches were pushed normally and remote hashes verified.
-  Do not reapply those commits. Integrate later exact #409 commits by cherry-pick;
-  never merge this feature branch wholesale (unrelated historical archives).
-  Normal pushes use `git@github-blitterbot:pixelelated/distribution.git`.
-- ES: `/home/max/Development/emulationstation-next.worktrees/qa-integration`,
-  `test/qa-integration`, **c75aa3fac967ba532fd9ba1c21fa10ca024e8bc1** published
-  under pixelelated/emulationstation and pinned. Clean after push.
-- Splash: `/tmp/rasteratops-rc-delivery-20261002/splash`, master,
-  **8c71126ceef702528c87a4c49625e64988609f26** published under pixelelated/splash.
-  Archive SHA6a24b287920ad553cbe1e2ecf66fac7a4fb2e3756ba1b98473ca201f3abebcba.
-- Font: unmodified Tiny5 Duo LCD2.007 at
-  Gissio/font_Tiny5@f740beb653d6839fac1f8c794668ffcf22037342. OTF, SHA, OFL,
-  fonttools4.66.1 generator and source README retained in splash. Current runtime SVG copies match; SHA is retained in
-  `docs/qa-logs/2026-10-04-pixelelated-ocean/inputs.json`. The editable clip master
-  has a different canvas; flattened runtime pieces match its pixels exactly.
-- Container: `ghcr.io/pixelelated/build@sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39`.
-  Consumed build container beef680ec2ab used this digest, uid1000:1000 and
-  the reviewed source-cache/main.git mounts. Receipt: owner consumed-container.json.
-- Existing build tree `/workspace/repos/rocknix.worktrees/m7-generic-x64`,
-  `build/m7-generic-x64`, **frozen61b64817bf8ab48237e51abb395484e36cbf924b**.
-  DO NOT advance it. Preserve generated tracked
-  `documentation/PER_DEVICE_DOCUMENTATION/GENERIC_X64/SUPPORTED_EMULATORS_AND_CORES.md`.
+Cold owner `/workspace/tmp/pixelelated-m7-cold-01`,04:15:20→06:46:59UTC,
+642/642 workers, zero failed jobs; command/inner/watcher0. Build/container
+processes exited. Original outer tool session95675 returned143 with no
+outer.rc despite those independently verified outcomes: cause unproved,
+retained in outer-session.json/#395, never rewrite it as0. The later QA run's
+matching1 statuses do not prove this older anomaly fixed.
 
-GitHub readback: org pixelelated owns distribution/emulationstation/splash;
-owner rasteratops ID335803305; blitterbot ID335883270 unchanged.
-`maxengel` ID810989 still exists independently. Do not rewrite its old personal
-forks to rasteratops: `rasteratops/rocknix.org` returned404. Org display name is
-already lowercase; public metadata did not retain an old project name.
+New immutable bundle:
+`/workspace/artifacts/pixelelated-candidates/sha256/22533e35b95a122ebd0d7dc2b60f6e816982594af62454f5209a04be8da3512d`.
+- Image pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz,
+  SHA1f35f28272e6171b30640c910eb6c9fd04cb9ec0ae9cd1cf5f8212eb16e6b623,
+  2,073,133,918bytes.
+- Update tar with the same stem,
+  SHA5f94ebf45123b6654ab544aa0771e1c4c8314c53aed245f30d22572dbf4ebedc,
+  2,073,989,120bytes.
+- Inputs.json under cold owner, SHA
+  c83828fa6013666811b044fb0842b3f493a6237366206a26bea3c645d041ca79;
+  6,547 regular source files/180symlinks/1,608recipes. Do not change it.
 
-## Next work, in milestone order
+Qualification owner `/workspace/tmp/pixelelated-m7-qa-01`;
+run `.build-runs/20261004T065419Z-2eb808cf` under the frozen tree.
+Report/artifacts:
+`/workspace/tmp/pixelelated-m7-qa-01/artifacts/rocknix-images/qa-b137d8c373-webdav-a-20261004-0654/`.
+Original report.md, scripts.log, walks/, frame-diff.md retained. Two stopped
+clean-install disks remain under owner/pair; **neither is RC2-upgraded**.
 
-1. **M7.P3 #409: source/input freeze and cold build complete; VM QA running.**
-   The owner supplied a six-treatment RGB555 wordmark system after the first
-   monochrome source transition. Saved specification and generator are under
-   `docs/pixelelated/art/wordmark-system.md` and `source/generate.py`. D-WORKFLOW-146.
-   Eight outlined variants, live-text master, CSS,24 PNG exports and background/
-   small-size/static screen proofs are complete. Exact font/geometry/color/alpha
-   checks pass; `proofs/artifact-checks.json` records their scope. At24/32px LCD
-   cell gaps suffer; prefer64px or larger. No font binary is in the art folder.
-   **Ocean is now integrated** into splash/ES/theme at the pins above. Native
-   framebuffer proofs pass allrotations and1280; the640 frame equals the canonical
-   composition pixel-for-pixel. ES NanoSVG parses258 pieces/five colors. Theme
-   patches, exact archive, identity guard and package checks pass. Receipts:
-   `docs/qa-logs/2026-10-04-pixelelated-ocean/`.
-   Animation has no specified sequence; do not invent a required animation gate.
-   Final source integration and the separate freeze are complete.
-   The owner manually recycled swap; preflight passed and build launched
-   at04:15:20UTC. Frozen `/workspace/repos/rocknix.worktrees/m7-pixelelated`,
-   `build/m7-pixelelated`, b137d8c37323abbf07788af8bf8dbd495a31e9c9.
-   Do not advance it for docs/helper. The new cold
-   `build.pixelelated-GENERIC_X64.x86_64` root is built. Preserve generated
-   documentation/PER_DEVICE_DOCUMENTATION/GENERIC_X64/SUPPORTED_EMULATORS_AND_CORES.md.
-   No warm root was copied; replacement02 remains untouched.
-2. Frozen inputs and launcher are ready in
-   `/workspace/tmp/pixelelated-m7-cold-01/`: `inputs.json`, `inputs.sha256`,
-   `container.txt`, and mode0500 `build.sh`. Manifest SHA256
-   c83828fa6013666811b044fb0842b3f493a6237366206a26bea3c645d041ca79;
-   launcher SHA256b1ded574b9fc0ae5b01190a32e671b40ac2d6206c2865378349a0664219b4016.
-   Reverified6,547 regular input files/180 symlinks,1,608 recipes.
-   Source cache `/workspace/cache/rocknix-sources`, main.git mount
-   `/workspace/repos/rocknix/.git`, global24/WebKit4. Already launched with
-   `tools/watch-build --docker --interval 5 --stall-min 5 -- /workspace/tmp/pixelelated-m7-cold-01/build.sh`.
-   **Do not launch a second build.** Session95675 has ended with143; own results0.
-   Owner `run.path` points at
-   `/workspace/repos/rocknix.worktrees/m7-pixelelated/.build-runs/20261004T041520Z-ef28d7ab`.
-   Terminal build.status/log/rc and owner outer.log/inner.rc/outer-session.json
-   retain completion; outer.rc is absent. Actual host runner/watcher/container
-   are gone. Containerbeef680ec2ab is recorded in consumed-container.json. Preparation receipts
-   remain in2026-10-04-pixelelated-build-preparation; they predate launch.
-   At06:00 the frozen watcher displayed a flushed Ninja130/130 as overall
-   progress. #412 corrects future build routing to structured pkgbuilder
-   DONE/FAIL lines; the frozen watcher stayed unchanged through completion.
-   .threads/progress and joblog established642/642 with0 failed workers;
-   generic aggregate-log counters were not trusted as overall progress.
-   Focused controls13/0, same suite on old tools7/6, lifecycle32/0, current
-   routing35/0. #413 fixes the routing fixture's stale container namespace in
-   a current copy. Source/receipts:2026-10-04-watch-progress. The one-shot
-   live-replay.status's synthetic rc0 was not the build's outcome. #412/#413
-   closed with required code traces and readback; feature1766d6deef→nextde4cf0e34a
-   pushed normally, exact remote refs verified.
-3. New artifact is stored and verified (bundle/hash above). Run clean/default/required opt-ins,
-   actual ROCKNIX RC2 upgrade, migration/provider/pair/archive, visual EN/FR,
-   time-to-play/memory and installed identity/licence/source checks on new bytes.
-   RUNNING first-stage QA owner `/workspace/tmp/pixelelated-m7-qa-01` holds
-   `qualify.sh`, `verify-inputs.py`, `check-payload.py`, `harness.sha256` and
-   active `artifacts/`. Already launched from frozen tree through watch-build,
-   interval5/stall5/recursive activity, using mode0500 outer.sh bound to the
-   verified bundle. That wrapper writes outer.rc inside the watched command
-   boundary; this is distinct from eventual tool-session exit. Do not launch
-   again. Source/initial receipts:2026-10-04-pixelelated-qualification.
-   This runs15 defaults, actual RC2 upgrade, clean/upgrade installed identity,
-   policy/scripts/Ocean bytes. It does not replace required later targeted
-   qualification. Capture outerrc and supervise as above.
-   Keep `-from-ROCKNIX` on the adoption tar; RC2 init greps its filename.
-   Retained helper names/watcher env vars are internal interfaces, not branding.
-   Second stage is prepared (never executed):
-   `/workspace/tmp/pixelelated-m7-link-01/run.sh <verified-bundle>`.
-   Requires first-stage outer.rc0, exact source/harness/candidate hashes and
-   no existing QEMU. Runs both WebDAV/S3 link-loss matrices, separate owned
-   pairs/backends; cleanup/results retained. Launch through5s/5min watch-build
-   with --activity-dir owner/artifacts --recursive-activity, capture outerrc.
-   Source copies/README:2026-10-04-pixelelated-build-preparation/link-stage.
-   Third stage is prepared (never executed):
-   `/workspace/tmp/pixelelated-m7-guest-01/run.sh <verified-bundle>`.
-   Requires both prior outer results0 and custody checks, then creates a new
-   16GiB/640x480 guest d for the promoted19 independent cloud-epic cases.
-   Synthetic WebDAV9040; installed build/name/ROM checks; owned PID-handle
-   cleanup. Watch5s/5min with recursive owner/artifacts and capture outerrc.
-   Source copies/README:2026-10-04-pixelelated-build-preparation/guest-stage.
-   Fourth stage is prepared (never executed):
-   `/workspace/tmp/pixelelated-m7-runtime-01/run.sh <verified-bundle>`.
-   Requires prior first/guest results0, custody/no-other-QEMU checks; creates
-   a COW overlay on the actual first-stage RC2-upgraded disk and verifies its
-   backing hash before/after. Rebound inherited archive, five alternating
-   timing samples/layout (unchanged30ms bound), installed identity/update/
-   reporting/licence checks. Hash-bound adjacent shared helper, no historical
-   owner-script dependency. Same5s/5min recursive artifact watch and outerrc.
-   Source copies/README:2026-10-04-pixelelated-build-preparation/runtime-stage.
-4. Complete remaining P3 brand/secret/localisation/source/licence/readiness
-   mapping, public-docs criteria and the live ordinary RA fixture below.
-5. Approved P4 primary+Fable5.1/xhigh fixes review via verified Facilitator,
-   including this rename. #375/#382 are completed initial audit/dispositions;
-   do not restart them. Resolve findings and renew affected image evidence.
-   #409's source/build scope precedes P4, not closure of the entire issue.
-6. P5 source bundle/release tooling/adoption/recovery/public docs and first
-   H700 DDR4/RG35XX SP image follow qualification and existing action gates.
-   GENERIC_X64 is not a handheld image. No release publication is authorized.
+Repository receipts:
+- docs/qa-logs/2026-10-04-pixelelated-cold-01/: completed build/custody.
+- docs/qa-logs/2026-10-04-pixelelated-qualification/: original failed report,
+  terminal records, completion.json, post-failure hashes and host preflight.
+- docs/qa-logs/2026-10-04-proxy-schema-note/: #414 source/15 controls/negative.
+- docs/qa-logs/2026-10-04-pixelelated-folder-claims/: #415 actual frame pairs,
+  corrected comparison, four failing controls, unchanged-frame hashes.
+  check-claims.py uses /tmp/pixelelated-fontenv/bin/python (Pillow12.3.0).
+- docs/vm-qa-log.md: actual cycle, timing0.59s launch/1.31s exit-sync/1.01s
+  next-first-frame; the default bounded cell uses one sample per case.
 
-Live M7/#409/#383 were updated/read back at06:56UTC with completed build,
-new bundle, source inventory, active QA and unchanged P3→P4→P5 order. Earlier #361/#386 source
-readbacks remain in the preparation receipts.
-Current M7 title is **M7: pixelelated 0.0.1**. Body owns order; M7.Pn is stable,
-not inferred from issue numbers. Open current titles/criteria were reconciled;
-closed titles and historical receipts were not rewritten. The rename plan and
-prepared player guide are under `docs/pixelelated/`. Proxy upstream draft under
-`docs/upstream/raofflineproxy/rasteratops-identity/` matches the new patch,
-remains unsubmitted. Proxy parent pin nowec60fdd0f6522790d9d1d4d20add397bbc4da945: the final
-preflight found four upstream commits; packaged service changes only its
-version string toalpha2. All15 patches apply,199 upstream and8 fork tests
-pass; coupled submodules unchanged. Evidence:2026-10-04-proxy-preflight.
-D-WORKFLOW-147 records SPIR-V parent coupling. Complete freshness exits0.
-The full initial RC preflight failed eight still-open bugs (#320/#327/#352/
-#353/#366/#384/#391/#392) plus missing explicit code trace on closed#371.
-#371 now has the missing trace/evidence comment. The final frozen-tree
-RC diagnostic in2026-10-04-pixelelated-build-preparation exits1 only on
-those eight open bugs: packages and23 already-written code traces pass;
-ancestry uses last-fetched refs explicitly (--no-fetch). P4 audit remains
-due. Other criteria must be reconciled against actual proof/new image,
-never waived to turn the gate green.
+Source inventory:568 roots,547 verified cache inputs,17local/generated,
+3shared,1 exact recovered rclone archive/binary match,0errors.
+Immutable inventory under /workspace/artifacts/pixelelated-build-inputs/
+m7-cold-01-consumed/0d5570db7b689e96fb5e3d33293a5275e92d6df244acbcb8a1db1929bc3f491b/.
+Full publication corresponding-source/licence work remains separate.
 
-## Preserved historical qualification and remaining inputs
+## Repositories and pins
 
-Replacement02 bundle:
-`/workspace/artifacts/rasteratops-candidates/sha256/87b8c01d65dc22b4f29049bd0d69307a59c14c16f5223534e95058b2234ca5cd/`
-Image SHA f1af353331dfb1da9911b34db6b19d124feed28f59c669f3c046704acde93f47;
-tar SHA cda2524063cd75b3445cfccf7e9fe6b923ae7e9a952e8855f9271a1d2c84f30b.
-Its input manifest remains `/workspace/tmp/rasteratops-m7-replacement-02/inputs.json`.
-All15 default suites/actual RC2 upgrade and targeted installed proxy/cloud/
-archive/timing/identity checks passed on those exact bytes. Evidence under
-`docs/qa-logs/2026-10-03-m7-replacement02-qualification/` and
-`2026-10-03-m7-final-runtime/`; earlier failures and guest COW chains are in
-this checkpoint's archive. Closed #380/#407/#408/#364/#376/#377/#379/#381/#357
-retain their artifact-scoped verdicts. Do not reopen merely for the rename.
+- Feature `/workspace/repos/rocknix.worktrees/conflict-resolution`,
+  feature/conflict-resolution. Primary `/workspace/repos/rocknix`, next.
+  Read git HEAD for the latest #415/checkpoint commit. Integrate only full
+  explicit commit hashes via cherry-pick; never merge this historical feature
+  branch wholesale or use destination-relative HEAD. Pushes use
+  git@github-blitterbot:pixelelated/distribution.git; verify both remote refs.
+- ES `/home/max/Development/emulationstation-next.worktrees/qa-integration`,
+  test/qa-integration, clean **c75aa3fac967ba532fd9ba1c21fa10ca024e8bc1**, published.
+- Splash `/tmp/rasteratops-rc-delivery-20261002/splash`, master,
+  **8c71126ceef702528c87a4c49625e64988609f26**, published.
+- Proxy **ec60fdd0f6522790d9d1d4d20add397bbc4da945**,15zero-fuzz patches;
+  199upstream+8fork source controls; parent-coupled native pins unchanged.
+- Font unmodified Tiny5 Duo LCD2.007 at
+  Gissio/font_Tiny5@f740beb653d6839fac1f8c794668ffcf22037342. OFL/hash in
+  splash, wordmark sources/proofs under docs/pixelelated/art/. Ocean actual
+  renderer/ES/theme source proofs pass; no animation gate was invented.
+- Container ghcr.io/pixelelated/build@sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39;
+  actual cold containerbeef680ec2ab used it, uid1000:1000; now gone.
+  Shared cache /workspace/cache/rocknix-sources; main.git mount mandatory.
+  Global24/WebKit4; host options hash in inputs.json.
+- Historical replacement02 `/workspace/repos/rocknix.worktrees/m7-generic-x64`,
+  build/m7-generic-x64, **61b64817bf8ab48237e51abb395484e36cbf924b**. Never advance.
+  Bundle /workspace/artifacts/rasteratops-candidates/sha256/87b8c01d65dc22b4f29049bd0d69307a59c14c16f5223534e95058b2234ca5cd/.
+  Its successful15defaults/RC2/targeted checks belong to those old bytes.
 
-- Ordinary Tobu100359 is already earned on the dedicated QA account. Earlier
-  owner-reset/alternate QA-account question remains pending. Do not reset an
-  account, use hardcore as a substitute, or expose credentials.
-- Public-site screenshot4f6df54 is local in `/home/max/Development/rocknix.org`,
-  docs/cloud-saves-native-wizard. Blitterbot push to maxengel/rocknix.org was403;
-  no alternate credentials/remote were used. New project guide is prepared,
-  not deployed. Site hosting is separate from this source rename.
-- #395 disconnected notification destination is still unanswered. The shared
-  watcher records activity/results; active-session checks<=60s deliver notices.
-  No external/off-session notification is armed. Future long runs need tested
-  named delivery,5s checks/5min suspected inactivity, exact owned PIDs and
-  immutable scripts. Never end with an unattended job while promising alerts.
-- Ceremony gate passes, with existing overdue-audit warning (37 closures/two
-  days). It permits normal pushes but keeps CI red until the required audit.
+## Next work in the milestone's order
 
-## Fresh-context proof and corrections
+1. Finish #410 corrected host installation/effective narrow grant, then safe
+   idle preflight/reclaim. No second approval for routine source work is needed;
+   interactive administrator authentication is the missing capability.
+2. Build corrected source including #414. Preserve frozenb137 and both older
+   bundles; record a new source freeze/manifest/owner and artifact hashes.
+   No replacement freeze, build or copied warm root has been made yet.
+   Run tools/rc-preflight --only proxy-schema on the selected tree first.
+   Full RC preflight still has the eight prior open bugs plus414; no waiver.
+3. Rebind the prepared qualification harness to the new frozen tree/bundle
+   and **new unused owners**. First15defaults + actual ROCKNIX RC2 upgrade +
+   exact clean/upgraded payload readbacks. Keep -from-ROCKNIX on the tar:
+   predecessor init greps its filename. Predecessor is
+   /workspace/artifacts/rocknix-images/x64-all-20260929-69e6039f8f/ROCKNIX-GENERIC_X64.x86_64-20260929.img.gz.
+4. Prepared unstarted stages under /workspace/tmp/pixelelated-m7-{link,guest,runtime}-01/
+   and source copies in docs/qa-logs/2026-10-04-pixelelated-build-preparation/:
+   both WebDAV/S3 seven-cell link matrices;19 independently reset640x480 cloud
+   guest cases; COW over the **actual RC2-upgraded** disk for inherited archive,
+   alternating timing with unchanged30ms bound, installed identity/policies/
+   licences. They still refer to failed qa-01/oldb137; adapt and hash new
+   copies, never replace original evidence or bypass preceding-success guards.
+5. Remaining P3 pair/localisation640/1280 EN/FR, launch/memory, proxy award,
+   brand/secret/source/licence/readiness/public-docs criteria. Known release
+   bug gates:320settings-recovery,327wrapped offline-achievements text/site
+   frame,352content-root/chooser,353folder/move/pair/FR,366S3/current fixture,
+   384subset award preservation,391inherited partial migration,392no-remote
+   unchanged-state refusal; plus414's replacement artifact. Close from actual
+   criteria/evidence, never transfer historical passes or waive for an RC.
+6. P4 primary+Fable5.1/xhigh through verified Facilitator/OpenRouter fixes
+   review, including rename. #375/#382 initial audit/dispositions are complete;
+   do not restart them. Helper audit411 is separate and does not satisfy P4.
+   Resolve findings and renew affected artifact proof before the RC call.
+7. P5 source/release/adoption/recovery/public docs and first H700 DDR4/RG35XX
+   SP image after P3/P4. GENERIC_X64 cannot be flashed to that handheld.
+   No release publication, personal-cloud write or device action authorized.
 
-The earlier context-free resume agent verified source/pins, actual regression counts and
-rc0, absent job PIDs, frozen replacement02 and live M7 order. It did not rehash
-the4GB image payloads. Its final SSH remote-ref read was sandbox-blocked, so
-remote publication relies on the earlier successful push/readback receipts.
-Corrected its three findings: readiness no longer asks to finish completed
-rename checks, #409 no longer assumes personal-fork transfers, and this
-checkpoint records the completed feature→next mappings. Wordmark integration
-and the incremental upstream refresh are now complete before the new build.
-A real host/container watcher probe completed at03:04:34UTC, runner1480688/
-watcher1480689, rc0, and the active session reported it. Both have exited.
-The planned cold build uses a fresh run-owned5s/5min monitor; remain actively
-supervising at<=60s and announce terminal events immediately. Off-session
-delivery remains unavailable.
+Every long job uses run-owned shared watch-build/watch-job:5s checks,
+5min suspected inactivity, nested artifact activity for QA. Capture inner,
+outer and tool result separately. Check at most60s apart during a connected
+session and announce terminal/stall events first. No disconnected notifier
+is configured (#395); never end with an unattended job while promising alerts.
+#412/#413 build-progress/routing corrections are pushed,13+32+35 controls;
+only structured pkgbuilder DONE/FAIL counters are overall build progress.
 
-Fresh-context frozen-input/prepared-launcher proof PASSES, approximately03:39UTC:
-all6,547 files/180 links, host options, manifest and launch/harness hashes match;
-no job or cold root exists; source pins, preserved old build and tracker agree.
-Receipt:2026-10-04-pixelelated-build-preparation/handoff-proof.md. Agent could
-not access Docker socket/live M7; retained container proof and root's connected
-milestone GET cover those limited observations. Full source checks do not
-claim installed behavior. At that earlier proof, preflight failed with1MB
-swap free; the owner subsequently reset it and the04:15 build launched.
-Preparation was published normally and remote-ref verified:
-feature4d6890395ce09c56ca9c352d99d4f44d3b70ab2f →
-next1ae3190d0cab648bac232a160b49810d1b6b2f8e. Frozen build remainsb137.
+## Host helper #410: corrected bootstrap still required
 
-## Host helper #410 — first install exposed ordering; corrected bootstrap pending
+The owner's latest message is the successful **first** installer8c448 output.
+Actual host readback verifies root-owned0755 helper and old0440 policy, but
+zz-fleet-hardening's later rule overrides the narrow grant. The exact sudo-n
+command still required authentication before entering the helper. No swap
+operation occurred. Successful syntax/hash checks or sudo-l are insufficient.
 
-Owner: "I'll do it manually now, and then let's create the guarded host helper."
-Manual reset completed before the current build; never repeat it during work.
-Implementation feature8c448fcb3520f8b2702b2f873c082679756a67f7 integrated onto
-nextf8a320c8f6. This does not change frozenb137. Earlier running-checkpoint
-feature50cbeff730→nextdb3f5563c5 was pushed and remote-ref verified.
+Corrected source652ec25fed→next6e4ab570ed is published. Same helper bytes and
+sole action; policy moves to /etc/sudoers.d/zz-pixelelated-reclaim-swap after
+fleet policy. Installer refuses later active rules, retires only the unchanged
+old entry, full visudo checks and three-file rollback.37fixturesPASS; matching
+negative37cases fail2. New policy remains absent at07:28; no owner reply to
+05:09 corrected-bootstrap request. Do not repeat obsolete8c448 installer.
 
-Tools: host-maintenance/{reclaim-swap,install,test-swap-reclaim,README.md};
-explicit build-preflight --reclaim-swap. Default is read-only. Root helper:
-fixed /swap.img, isolated Python, root0755 /run lock directory,16GiB reserve
-plus used swap, repeated busy/memory checks, exact commands, restoration and
-verified readback. Serval active priority -1 is observed; other negative
-priorities refuse rather than claiming portable defaults. Exact-action sudo
-policy (sudo-rs lacks digest matchers), no general grant. Installer validates
-the direct include and full policy; rollback attempts both files independently.
-35 tests PASS; same35-test RAM-guard-removed control fails2. Before-fix
-regressions and host/Python probes are retained. The initial installation and
-the remaining effective-permission correction are detailed below.
+Reviewed, hash-verified, read-only bundle:
+/workspace/tmp/pixelelated-host-helper-652ec25fed
+Owner command in their terminal (interactive sudo unavailable to this agent):
 
-Independent Issue audit completed through Facilitator/OpenRouter,
-Anthropic Fable5.1/xhigh,580.7s, successful model/effort/digest verification.
-`docs/audits/2026_10_04-issue-410-guarded-swap/`, audit tracker411:
-five confirmed improvements all resolved; High proposed priority blocker
-refuted by actual host -1; timeout hypothesis unconfirmed. This is not P4.
-Original packet/response immutable, final-source-hashes.json binds corrected
-implementation. Artifact lint including411's five checked items passes.
-Parent410 stays open for host rollout, with first two fixture criteria checked.
+```bash
+cd /workspace/tmp/pixelelated-host-helper-652ec25fed
+sha256sum -c SHA256SUMS && sudo /usr/bin/python3 -I ./install
+```
 
-The owner installed bundle8c448 successfully around05:05UTC. Root helper
-and policy bytes/modes matched, but the real sudo -n invocation still needed
-a password. Actual sudo listing shows zz-fleet-hardening's later broad
-password-required rule after ours. Exact-command sudo -l returned0 despite
-that, so listing alone is not effective-grant proof. No swap command ran.
-
-Corrected source feature652ec25fed→next6e4ab570ed is pushed/remote-ref
-verified. It places the identical rule
-at /etc/sudoers.d/zz-pixelelated-reclaim-swap. Checks final include/no later
-active files; only unchanged old entry is retired with three-file rollback.
-37 tests PASS and matching37-test negative control fails2. Helper bytes and
-granted action are unchanged; fleet policy is not modified. Source/evidence
-are retained in audit410's post-audit installation addendum, under parent410.
-Completed five-finding source audit411 remains closed, not an installation PASS.
-
-Use corrected read-only bundle `/workspace/tmp/pixelelated-host-helper-652ec25fed`:
-install, reclaim-swap, README, sudoers.preview, SHA256SUMS. Helper hash
+It installs only; no swap reset. Helper SHA
 acfb7936c7271cd642a628a66b9a50d2b70c765eac9dd43bca60a67a7fec0547;
-installer0bf0af109455cb0e8cbd038abead79bb355948459aca56d4453c46fa8fd07278.
-Corrected owner command (async request sent05:09UTC, response pending):
-`cd /workspace/tmp/pixelelated-host-helper-652ec25fed && sha256sum -c SHA256SUMS && sudo /usr/bin/python3 -I ./install`.
-Do not ask the owner to rerun the obsolete8c448 installer. This needs local
-interactive sudo authentication and performs no swap reset. After bootstrap,
-verify root bytes/modes, old entry absent, effective narrow grant and actual
-busy refusal. Extra args/unrelated command must still require authentication.
-Actual idle recycle/timing waits until builds/VMs end; never bypass guards,
-use privileged Docker or broaden sudo. Reads/commands inspecting real host
-UIDs/processes/sudo require escalated tool execution; sandbox shows root as
-nobody and sets no-new-privileges. Read latest user messages for completion.
+installer0bf0af109455cb0e8cbd038abead79bb355948459aca56d4453c46fa8fd07278;
+policy583685083f8cbeed1fab20d5ae4442c5cc164f4bbcd75d4632ee6550377f98e9.
 
-The cold build completed and those processes exited; see current result above.
-Current active job is QA runner2152966/watcher2152982 under run
-20261004T065419Z-2eb808cf, session4686. Keep supervising nested artifacts and
-report terminal/stall events immediately. No off-session notifier. #410's
-corrected bootstrap remains pending; never reset swap while these VMs run.
+After installation verify actual root0:0/modes/hash, old policy absent, exact
+noninteractive action reaches helper guards; extra args/unrelated commands
+still require authentication. Use an owned benign watched job for the busy
+refusal if no real build/VM is active, then wait for it to exit before idle
+`tools/build-preflight --reclaim-swap`. Keep pre/post /proc/swaps and timing.
+Never use Docker-root, broaden sudo or bypass the busy/memory guards.
+
+Fixed target /swap.img, sole active swap,16GiB reserve plus used swap, default
+fstab and observed priority-1, repeated host/busy/file checks, exclusive lock,
+fixed absolute commands and restoration/readback. Default preflight read-only;
+reclaim cannot combine with --stop-vms. SIGKILL/power loss cannot run cleanup.
+Actual host PID/ownership/sudo observations need escalated execution; sandbox
+hides processes, shows root as nobody and sets no-new-privileges.
+
+Independent Issue audit411 is closed: Fable5.1/xhigh via Facilitator,
+580.7s verified; five confirmed findings resolved. Evidence under
+ docs/audits/2026_10_04-issue-410-guarded-swap/; post-install ordering fix is
+an explicitly separate addendum. D-INFRA-015/futro retained. Real rollout/
+recycle remains410's open scope, not a completed root-operation claim.
+
+## Other external inputs and preservation
+
+Ordinary Tobu100359 is already earned on the dedicated QA account. Owner
+reset/alternate-account question remains pending; do not reset an account or
+use hardcore as a substitute. Public-site frame commit4f6df54 remains local
+in /home/max/Development/rocknix.org, docs/cloud-saves-native-wizard;
+blitterbot push to maxengel/rocknix.org was403, rasteratops/rocknix.org404.
+No alternate credentials/fork assumed. New player guide prepared, not deployed.
+
+#395 disconnected notification destination remains unanswered. Actual QA
+failure delivery worked in the active session; no off-session claim follows.
+Ceremony push gate passes; overdue P4 audit warning remains (dozens of
+closures), not waived. Prior closed artifact-scoped issues remain closed.

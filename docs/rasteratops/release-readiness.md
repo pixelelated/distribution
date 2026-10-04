@@ -8,15 +8,23 @@ is unchanged. The required adoption flow is **ROCKNIX → pixelelated**;
 there are no fielded /Rasteratops systems requiring an additional gate.
 
 The [M7 milestone body](https://github.com/pixelelated/distribution/milestone/7)
-is the binding running order. **The rename source checks are complete.
-Ocean Bands runtime integration and the final proxy refresh are complete.
-Current inputs are frozen atb137d8c373 in build/m7-pixelelated. The owner
-reclaimed swap and the cold build launched at04:15:20UTC under the shared
-watcher (runner1801222/watcher1801223). Once the artifact is verified and
-stored, qualify clean install plus ROCKNIX upgrade, followed by remaining
-P3 release checks and the approved P4 fixes audit.** See `docs/pixelelated/rename-plan.md` for the classified inventory.
+is the binding running order. **The new pixelelated cold build completed
+642/642 tasks at06:46:59UTC on October4; bundle22533e35b95a is retained and
+verified. First-stage VM QA finished07:27:52UTC with13 of15 suites passing.
+#414 corrects a stale proxy schema-review comment and adds an early guard;
+source fix next1f5b800391 is pushed, replacement image still owed. #415
+corrects three expected lowercase-folder text claims after inspecting actual
+frames: the same78frames now compare cleanly with the unchanged baseline.**
+See `docs/pixelelated/rename-plan.md` and the October4 qualification receipts.
 
-**Verdict: no pixelelated candidate image exists yet, so no RC claim.**
+**Verdict: engineering image exists, but qualification failed; no RC claim.**
+No VM/build job remains. Read-only host preflight fails with0MB swap free;
+#410's corrected installer still needs local administrator authentication.
+After effective-grant/guard verification and safe preflight, rebuild corrected
+bytes and restart qualification with new run owners. The original failed
+run's RC2 upgrade and later stages did not execute. Preserve its frozen tree,
+input manifests, original result and image; do not bypass success guards.
+
 Replacement02 frozen61b64817bf remains successful historical RASTERATOPS
 engineering evidence: all15 default suites, actual RC2 upgrade and scoped
 installed proxy/cloud/archive/timing/identity checks passed. Preserve those
