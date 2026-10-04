@@ -1,0 +1,25 @@
+{
+  "observed_at": "2026-10-04T16:16:29Z",
+  "job_pid": 574582,
+  "watch_pid": 574583,
+  "checks": [
+    {
+      "name": "busy",
+      "rc": 1,
+      "seconds": 0.043,
+      "output": "REFUSED: active build, compiler, watcher or VM: PID 574583\n"
+    },
+    {
+      "name": "extra-argument",
+      "rc": 1,
+      "seconds": 0.003,
+      "output": "sudo: interactive authentication is required\n"
+    },
+    {
+      "name": "unrelated",
+      "rc": 1,
+      "seconds": 0.003,
+      "output": "sudo: interactive authentication is required\n"
+    }
+  ]
+}
