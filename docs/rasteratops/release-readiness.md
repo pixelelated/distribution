@@ -16,25 +16,42 @@ contains image277813572471… and updateff4805f2b86b…. Source manifest3dc860
 binds the three #416/#417 files and proxy ea9aba (#419). The new upstream
 commit changes only Android;270 patched Linux/native files remain identical.
 
-**Verdict: fresh VM qualification is running; no RC or device-ready claim.**
-qa-04 started18:20:12, runner1675695/watcher1675696, actual tool25176,
-shared5s nested-log monitor plus connected supervision. Defaults then actual
-ROCKNIX RC2 upgrade/exact payloads precede link, guest, runtime, proxy,
-S3/pair, memory and bilingual UI checks. Exact image extraction and full
-brand/credential/localisation sweeps repeat on these bytes. Guest boot capture
-and old-logo controls are prepared; host controls alone are not guest proof.
+**Verdict: #421's settings-permission source correction passes; rebuilt-image verification remains pending;
+no RC or device-ready claim.** The02163 image completed all15 default suites,
+actual retained ROCKNIX RC2 upgrade, exact clean/upgraded payload checks and
+source/candidate custody. Actual tool25176 and every result channel returned0;
+all owned guests and watchers exited. Image/update SYSTEM equality and full
+brand/credential/localisation scans also passed (actual95242/4776=0).
+Receipts: `docs/qa-logs/2026-10-04-pixelelated-02163-qualification/`.
+
+The additional installed settings-race proof then exposed #421: shell writers
+widened private0600 settings to0644. #320's newer-byte preservation assertion
+passed, but the combined run remains failed because its privacy check failed.
+The corrected source preserves the intersection of input permissions and the
+caller umask before writing a temporary. Focused controls reproduce22 failures
+on old source and pass all29 on corrected source. Full scripts regression passed1,719 assertions with zero failures/skips at
+19:33:58UTC, actual tool47616 and all result channels0; jobs exited.
+No later02163 opt-in owner has started.
+
+Current order: integrate/freeze/build a fresh
+candidate → repeat defaults/actual RC2/payload/scans/settings proof → remaining
+link, guest, runtime, proxy, S3/pair, memory and bilingual UI/boot checks → P4's
+approved primary+Fable5.1/xhigh review → first H700 DDR4/RG35XX SP build.
+Daybreak is unavailable and no coverage from it is claimed. The ordinary RA
+fixture and public-site delivery remain external inputs recorded in the
+canonical checkpoint. No disconnected alert destination is configured (#395).
 
 Current source inventory verifies568 consumed roots/547 cache inputs with
 zero errors;583-component map/525 installation stamps retained. P5 source/
-licence publication remains separate. P4 follows the remaining P3 criteria;
-then the first H700 DDR4/RG35XX SP build. #410 helper is installed and closed.
-Evidence: docs/qa-logs/2026-10-04-pixelelated-replacement-03/ and canonical
-checkpoint. Frozen trees and original failures are preserved.
+licence publication remains separate. #410 helper is installed and closed.
+Frozen trees, generated emulator documentation and original failures are
+preserved. #416/#417 exact source/image XML and wording proof is now retained;
+#419's source/packaged pin passes, while installed proxy preservation still
+awaits execution. Reconcile each issue against its own full criteria.
 
 Historical1600 passed all15defaults/actualRC2/exact payload/custody; its sweep
 correctly rejected7 stale text contexts. Originalb137 remains failed13/2.
-#414/#415/#418 are already closed. Do not transfer these earlier results to
-new bytes. #416/#417/#419 remain open for corrected image proof.
+#414/#415/#418 are already closed. Do not transfer earlier results to new bytes.
 
 The older sections below retain the October2–3 investigations and source
 receipts, including names and pins valid at that time.

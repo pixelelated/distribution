@@ -28,8 +28,10 @@ corrected backup/restore copies bytes into the prepared file with cat before
 rename. No published file is widened; staged symlinks, failed chmod/stat,
 failed producers and failed renames cannot report success.
 
-Full source regression is still running in settings-source-01. Source-state
-hashes identify this prepared correction; it is not yet image qualification.
+Full source regression completed19:33:58UTC in settings-source-01:1,719 PASS
+lines,zero FAIL,terminal PASSED with no skips. Actual tool47616 and all four
+result channels0; runner/watcher exited. All four sealed source hashes match.
+Hook controls also pass. These source receipts are not image qualification.
 The current product/tree/checkpoint must be read before using these receipts.
 All old failures are retained. The future rebuilt candidate must rerun the
 installed race and default/actual-upgrade qualification before any RC claim.

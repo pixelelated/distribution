@@ -1161,3 +1161,19 @@ So:
   and the backdrop and the systems page differing because the manager
   fixture adds systems. Anything a walked screen shows is either fixed by
   the suite or masked; nothing is inherited from what ran before.
+
+## Private settings modes (#421)
+
+`tools/settings-modes-test` runs the actual profile/chksysconfig functions on
+scratch paths with a copy of the candidate BusyBox. It checks all four shell
+settings writers, backup and restore, private live/record modes, old temporary
+files, and refused staging. `last-good-scripts-test` invokes it by default.
+Supply `--profile`, `--chksysconfig`, `--busybox`, and `--output` for a scoped
+old/new source control. Source checks do not replace installed VM proof.
+
+A recovery-race fixture must satisfy `chooseConfig`'s actual recovery
+predicate. An incomplete non-prefix edit is deliberately kept as the live
+file; a torn copy is a strict prefix of its complete, no-older record. Assert
+that precondition and prove recovery occurred before claiming an interleaving
+(#420). Linux truncates `/proc/PID/comm` to15 bytes; identify the running ES by
+`/proc/PID/exe` when checking injected test instrumentation.

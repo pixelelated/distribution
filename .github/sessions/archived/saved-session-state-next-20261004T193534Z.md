@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Updated 2026-10-04T19:35:34.900733+00:00. Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261004T193534Z.md`.
+> Updated 2026-10-04T19:25:39.922741+00:00. Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261004T192539Z.md`.
 
 ## Start here
 
@@ -22,13 +22,10 @@ User authorizes ordinary fixes/tests/isolated VMs, explicit-commit integration
 onto next and normal fork pushes. Physical-device actions, personal-cloud
 mutations and publication retain their named gates. No goal tool created. Fresh-context resume proof at18:37 passed source,
 bundle, live process and next-action checks; its shorthand/historical-label
-findings are corrected. Retained in replacement03/resume-proof.md. Fresh-context settings_permissions
-resume proof at19:29 also verified all6547 sources/180 symlinks,11 bundle
-files,live regression and7 unstarted owners. Its stale readiness paragraph
-and precise harness-manifest wording findings are corrected.
+findings are corrected. Retained in replacement03/resume-proof.md.
 A helper installation is COMPLETE; do not ask to reinstall it.
 
-## Current: #421 source regression passed; integrate and build replacement04
+## Current: #421 permission fix under full source regression;02163 is not RC-ready
 
 Frozen tree /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement03,
 branch build/m7-pixelelated-replacement03,
@@ -66,24 +63,23 @@ All completed run outcomes were announced. No Daybreak coverage is claimed:
 the owner directed continuation without unavailable Daybreak elements; local
 artifact checks and the approved Fable5.1 P4 route remain applicable.
 
-## Completed #421 source run — actual tool47616=0
+## Active #421 source run — supervise actual tool47616
 
 Owner /workspace/tmp/pixelelated-m7-settings-source-01; feature tree run
-.build-runs/20261004T192103Z-20d52a35. Started19:21:03, completed19:33:58UTC.
-1,719 PASS lines,zero FAIL,terminal PASSED without skips. Actual47616 and
-inner/outer/wrapper/build channels0;19:34:22 host receipt verifies runner
-2264973/watcher2264974 exited, no QEMU. Four sealed source hashes unchanged.
-Complete log/hashes/terminal receipt under
-`docs/qa-logs/2026-10-04-settings-race-and-modes/source-01/`.
+.build-runs/20261004T192103Z-20d52a35. Started19:21:03UTC,
+runner2264973/watcher2264974, actual exec47616. Shared interval5/stall5min,
+recursive activity owner/artifacts; scripts.log contains actual progress.
+At19:23:54:653 PASS assertions,0FAIL, still running. Read actual current
+state/results; do not restart a used owner. No QEMU is needed by this run.
 
 This runs the full last-good-scripts-test with candidate BusyBox from the
-02163 extraction. The product correction is ready for explicit-commit
-integration and replacement04 freeze. Inspect current HEAD/status to tell
-whether that integration has finished; no corrected image exists yet.
+02163 extraction. sources.sha256 seals four working-tree files; no edit to
+those until it exits. The product correction is currently UNCOMMITTED in
+feature/conflict-resolution; next still carries pre-correction product bytes.
 - projects/ROCKNIX/packages/rocknix/profile.d/001-functions
 - projects/ROCKNIX/packages/rocknix/sources/scripts/chksysconfig
 - tools/last-good-scripts-test
-- tools/settings-modes-test (new; fork-only indices registered)
+- tools/settings-modes-test (new, fork-only indices also modified)
 
 #320's guest race uncovered #421: existing0600 settings become0644 through
 shell temporary/rename writers. Prepared prepare_settings_temp intersects
@@ -109,10 +105,12 @@ ES/script hashes are checked. Sources under docs/qa-frames/2026-10-04-settings-r
 
 ## Next, in binding M7 order
 
-1. Source-01 has completed successfully; do not rerun its used owner.
-2. Commit/integrate #421 product/tool/rule changes and latest #419 package
-   input with evidence/worklog, explicit-full-hash cherry-pick onto next,
-   normal fork push/readback. Do not merge the historical feature wholesale.
+1. Finish/supervise source-01. Read actual47616 result plus inner/outer/wrapper
+   and run build.rc; retain full original log. Fix any real regression in a
+   fresh owner after termination; never edit in-flight shell/source.
+2. When source regression passes, commit #421 product/tool/rule changes with
+   evidence/worklog, explicit-full-hash cherry-pick onto next, normal fork
+   push/readback. Do not merge the historical feature branch wholesale.
    Check fresh upstream package inputs and freeze a new build/* worktree.
    Preserve02163 source/build/candidate. Prepare an independently copied
    checksum/inode-verified cache, pinned-container canonical-path mapping,
@@ -129,13 +127,13 @@ ES/script hashes are checked. Sources under docs/qa-frames/2026-10-04-settings-r
    link-04:7 WebDAV+7 S3 link cases;
    guest-04:19 independently reset640x480 cloud cases;
    runtime-04:COW actual upgraded disk,archive14/timing5/identity13 (includes
-   actual /storage Tools consumer bytes and XML); current harness.sha256 file SHA256
+   actual /storage Tools consumer bytes and XML); current harness SHA256
    bfc51641b01d7de769b7ece534e2828db16ef0fea8e100ff17f3e50c670ea71b;
    proxy-03:installed Python3.14 synthetic SQLite/base/subset preservation20;
    optins-03:S3 roundtrip then mixed actualRC2/fresh pair migration;
    memory-03:virgl10/software10/software50+sync,5warmups,unchanged limits;
    ui-03:EN/FR640x480/1280x960 cloud/RA/identity/manual-update frames and
-   English640 Tools rows; harness.sha256 file SHA256 5cf71af314b69e38c924d3508390d28efae176d62139a77261ee70d91c500674.
+   English640 Tools rows; harness5cf71af314b69e38c924d3508390d28efae176d62139a77261ee70d91c500674.
    Existing owners' scripts bind02163/manifest3dc860 and old success guards.
 5. UI captures40s boot scanout before serial wait at both sizes. Run
    docs/qa-logs/2026-10-04-pixelelated-guest-brand/match-splash.py on actual
@@ -152,7 +150,8 @@ ES/script hashes are checked. Sources under docs/qa-frames/2026-10-04-settings-r
    changed bytes. P5 source/licence/release/docs then first H700 DDR4/RG35XX SP
    build from qualified inputs. No physical device action/publication yet.
 
-Long jobs use `tools/watch-build --interval 5 --stall-min 5 --recursive-activity --activity-dir OWNER/artifacts -- OWNER/outer.sh`, plus
+Long jobs use `tools/watch-build --interval 5 --stall-min 5
+--recursive-activity --activity-dir OWNER/artifacts -- OWNER/outer.sh`, plus
 connected supervision at most60s apart. #395 has no disconnected destination.
 The old archive contains the complete canonical mount/build command details.
 Real host PIDs/Docker/VM network require escalated view, not sandbox absence.
@@ -168,14 +167,7 @@ archive9931790bb3f5d93f0d14afb7347af58badd0560413f85486d534071fefda2d62.
 Only 11 Android files differ; all 270 patched Linux/native files are identical
 to ec60. Fifteen patches apply with zero fuzz; 199 upstream and 8 fork tests
 pass. The first import-path failure is retained. Published source:
-feature2cd6ced185 → next02163. Their02163 source/image evidence is retained; reconcile complete issue criteria.
-Pre-freeze19:33 freshness found aec99ce05bc0b9761366543fe9f08ea34cd8bd7a
-(19:23:17 upstream). Six Android/docs files differ,270 raw/patched Linux/native
-files identical to ea9aba,15 zero-fuzz patches. New archive SHA256
-c729d421f3d607521b8aec07e068c6c2d01025f17c4ddaf78fad94a28cf9c78e.
-The recipe/schema-comment refresh is part of this integration before freeze.
-Other checked inputs remain current. No need to chase later upstream changes
-inside a frozen QA run; retain the verified input boundary.
+feature2cd6ced185 → next02163. The issues remain open for image proof.
 
 Current inventory: /workspace/tmp/pixelelated-m7-inventory-02.
 568 roots, 547 cache inputs, 17 local/generated, 3 shared sources, one recovered
@@ -223,9 +215,7 @@ Cold642 success has an unproved outer143 discrepancy; qa-01 failed13PASS/2FAIL
 and did not upgrade. Preserve that report. The older61b tree m7-generic-x64
 and bundle87b8c01d... under /workspace/artifacts/rasteratops-candidates/ are
 historical only. The archive above has full hashes. Preserve the generated
-emulator documentation changes in older roots and replacement03:
-`documentation/PER_DEVICE_DOCUMENTATION/GENERIC_X64/SUPPORTED_EMULATORS_AND_CORES.md`
-is generated and outside the frozen source manifest; do not clean it.
+emulator documentation changes in older roots.
 
 ## Integration and fixed inputs
 

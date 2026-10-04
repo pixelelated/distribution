@@ -14,9 +14,19 @@ RGB555 treatment. Source renderer and SVG-reader checks pass; new-image
 frames and ROCKNIX upgrade qualification remain required.
 
 
+## Keep private settings private (2026-10-04)
+
+Source regression passes; corrected-image verification remains pending.
+
+- **Saving, deleting, sorting, backing up or restoring settings preserves
+  private file permissions.** The writers retain permissions no broader than
+  either existing settings copy and the caller's mask (#421). They do not
+  reset settings contents or infer permissions already lost from both copies.
+
 ## Tools descriptions and status identity (2026-10-04)
 
-Source correction; replacement-image verification remains pending.
+Exact source and02163 image payload checks passed; the later #421 build
+will repeat those checks.
 
 - **Tools descriptions use pixelelated or neutral wording.** Cloud backup
   and restore help points to `Game Settings > Cloud Settings` (#416,

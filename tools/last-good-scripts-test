@@ -383,7 +383,7 @@ if [ -n "${BB_SRC}" ]; then
 fi
 mkdir -p "${TMP}/bbin"
 if [ -n "${BB}" ]; then
-    for a in sed mv cp tr head wc cut awk; do printf '#!/bin/sh\n[ -x %s ] && exec %s %s "$@"\nexec %s %s "$@"\n' "${BB}" "${BB}" "${a}" "${BB_HOST}" "${a}" > "${TMP}/bbin/${a}"; chmod +x "${TMP}/bbin/${a}"; done
+    for a in sed mv cp tr head wc cut awk stat chmod cat; do printf '#!/bin/sh\n[ -x %s ] && exec %s %s "$@"\nexec %s %s "$@"\n' "${BB}" "${BB}" "${a}" "${BB_HOST}" "${a}" > "${TMP}/bbin/${a}"; chmod +x "${TMP}/bbin/${a}"; done
 fi
 
 echo "last-good-scripts-test: $([ "${OLD}" -eq 1 ] && echo "scripts at ${BASE_REF} (expect FAILs)" || echo "scripts in ${ROOT}")"
@@ -397,6 +397,7 @@ echo d > "${A}/def/retroarch/retroarch.cfg"; echo d > "${A}/def/retroarch/retroa
 echo user > "${A}/cfg/retroarch/retroarch.cfg"; echo user > "${A}/cfg/retroarch/retroarch-core-options.cfg"
 {
     # Every function the file defines, whatever it calls them.
+    sed -n '/^function prepare_settings_temp() {/,/^}/p' "${FN}"
     awk '/^[a-z_]+\(\) *\{/{p=1} p{print} p&&/^\}/{p=0}' "${CHK}"
     cat <<EOS
 logger() { echo "logger \$*" >&2; }
@@ -570,7 +571,7 @@ bt restore --then-cloud; rcg=${RC}
 echo "  c. set_setting is one rename; sort_settings refuses an empty result"
 C="${TMP}/c"; mkdir -p "${C}"
 {
-    sed -n '/^function wait_lock_say() {/,/^}/p; /^function wait_lock() {/,/^}/p; /^function settings_base() {/,/^}/p; /^function write_setting_line() {/,/^}/p; /^function del_setting() {/,/^}/p; /^function sort_settings() {/,/^}/p; /^function set_setting() {/,/^}/p; /^function clean_hostname() {/,/^}/p' "${FN}"
+    sed -n '/^function wait_lock_say() {/,/^}/p; /^function wait_lock() {/,/^}/p; /^function settings_base() {/,/^}/p; /^function prepare_settings_temp() {/,/^}/p; /^function write_setting_line() {/,/^}/p; /^function del_setting() {/,/^}/p; /^function sort_settings() {/,/^}/p; /^function set_setting() {/,/^}/p; /^function clean_hostname() {/,/^}/p' "${FN}"
     printf 'J_CONF=%q; J_CONF_LOCK=%q\nlogger() { :; }\n' "${C}/system.cfg" "${C}/lock"
 } > "${C}/f.sh"
 printf 'system.hostname=X\nz.key=old\na=1\n' > "${C}/system.cfg"
@@ -1499,7 +1500,7 @@ if [ "${OLD}" -eq 1 ] && ! git -C "${ROOT}" cat-file -e "${BASE_REF}:${CTL_REL}"
 else
 src_of "${CTL_REL}" "${P}/repo/raofflineproxy-ctl"
 {
-    sed -n '/^function get_setting() {/,/^}/p; /^function wait_lock_say() {/,/^}/p; /^function wait_lock() {/,/^}/p; /^function settings_base() {/,/^}/p; /^function write_setting_line() {/,/^}/p; /^function del_setting() {/,/^}/p; /^function set_setting() {/,/^}/p' "${FN}"
+    sed -n '/^function get_setting() {/,/^}/p; /^function wait_lock_say() {/,/^}/p; /^function wait_lock() {/,/^}/p; /^function settings_base() {/,/^}/p; /^function prepare_settings_temp() {/,/^}/p; /^function write_setting_line() {/,/^}/p; /^function del_setting() {/,/^}/p; /^function set_setting() {/,/^}/p' "${FN}"
 } > "${P}/repo/fns.sh"
 PBB=(); PPATH="/shim:/usr/bin:/bin"
 if [ -n "${BB}" ]; then PBB=(--ro-bind "${TMP}/bbin" /bbin --ro-bind "${BB_HOST}" "${BB}"); PPATH="/shim:/bbin:/usr/bin:/bin"; fi
@@ -2012,7 +2013,7 @@ CLIENT="${T}/patched/linux"
 PYTHONPATH="${T}/patched:${CLIENT}" python3 -m unittest discover -s "${CLIENT}/tests" -p test_linux_award_parity.py > "${T}/award-parity.log" 2>&1
 check $? "the pinned proxy's award-parity suite, including subset game ids" "award-parity suite: $(tail -8 "${T}/award-parity.log" | tr '\n' '|')"
 {
-    sed -n '/^function get_setting() {/,/^}/p; /^function wait_lock_say() {/,/^}/p; /^function wait_lock() {/,/^}/p; /^function settings_base() {/,/^}/p; /^function write_setting_line() {/,/^}/p; /^function del_setting() {/,/^}/p; /^function set_setting() {/,/^}/p' "${FN}"
+    sed -n '/^function get_setting() {/,/^}/p; /^function wait_lock_say() {/,/^}/p; /^function wait_lock() {/,/^}/p; /^function settings_base() {/,/^}/p; /^function prepare_settings_temp() {/,/^}/p; /^function write_setting_line() {/,/^}/p; /^function del_setting() {/,/^}/p; /^function set_setting() {/,/^}/p' "${FN}"
 } > "${T}/repo/fns.sh"
 TBB=(); TPATH="/shim:/usr/bin:/bin"
 if [ -n "${BB}" ]; then
@@ -7748,7 +7749,8 @@ rm -f "${P7}/shim/tar"
 # with a copy, and with none (every member was new).
 P7C="${P7}/chk"; rm -rf "${P7C}"; mkdir -p "${P7C}/cfg/system/configs" "${P7C}/root/storage/.config/test" "${P7C}/snapsrc/storage/.config/test"
 src_of "${CHK_REL}" "${P7C}/chksysconfig"
-{ awk '/^[a-z_]+\(\) *\{/{p=1} p{print} p&&/^\}/{p=0}' "${P7C}/chksysconfig"
+{ sed -n '/^function prepare_settings_temp() {/,/^}/p' "${FN}"
+  awk '/^[a-z_]+\(\) *\{/{p=1} p{print} p&&/^\}/{p=0}' "${P7C}/chksysconfig"
   printf 'logger() { echo "logger $*" >&2; }\nCONFIG_ROOT=%q; DEFAULT_ROOT=%q\nCFG_PATH="${CONFIG_ROOT}/system/configs"; CFG="${CFG_PATH}/system.cfg"; BACKUP="${CFG}.backup"\n' "${P7C}/cfg" "${P7C}/def"
 } > "${P7C}/fns.sh"
 printf 'system.hostname=X\n' > "${P7C}/cfg/system/configs/system.cfg"; cp "${P7C}/cfg/system/configs/system.cfg" "${P7C}/cfg/system/configs/system.cfg.backup"
@@ -8316,7 +8318,7 @@ p7w connect
 # paths, the image's busybox applets first on PATH.
 P7="${P7:-${TMP}/p7}"; P7F="${P7}/fn"; mkdir -p "${P7F}/cfg"
 {
-    sed -n '/^function wait_lock_say() {/,/^}/p; /^function wait_lock() {/,/^}/p; /^function settings_base() {/,/^}/p; /^function write_setting_line() {/,/^}/p; /^function del_setting() {/,/^}/p; /^function sort_settings() {/,/^}/p; /^function set_setting() {/,/^}/p; /^function clean_hostname() {/,/^}/p' "${FN}"
+    sed -n '/^function wait_lock_say() {/,/^}/p; /^function wait_lock() {/,/^}/p; /^function settings_base() {/,/^}/p; /^function prepare_settings_temp() {/,/^}/p; /^function write_setting_line() {/,/^}/p; /^function del_setting() {/,/^}/p; /^function sort_settings() {/,/^}/p; /^function set_setting() {/,/^}/p; /^function clean_hostname() {/,/^}/p' "${FN}"
     printf 'J_CONF=%q; J_CONF_LOCK=%q\nlogger() { echo "logger $*" >&2; }\n' "${P7F}/cfg/system.cfg" "${P7F}/lock"
 } > "${P7F}/f.sh"
 sed -n '/^function redact_credentials() {/,/^}/p' "${FN}" > "${P7F}/redact.sh"
@@ -8408,7 +8410,8 @@ fi
 # chksysconfig's functions, lifted as a lifts them.
 P7K="${P7M}/chk"; mkdir -p "${P7K}/cfg/system/configs" "${P7K}/def/system/configs"
 src_of "${CHK_REL}" "${P7K}/chksysconfig"
-{ awk '/^[a-z_]+\(\) *\{/{p=1} p{print} p&&/^\}/{p=0}' "${P7K}/chksysconfig"
+{ sed -n '/^function prepare_settings_temp() {/,/^}/p' "${FN}"
+  awk '/^[a-z_]+\(\) *\{/{p=1} p{print} p&&/^\}/{p=0}' "${P7K}/chksysconfig"
   printf 'logger() { echo "logger $*" >&2; }\nCONFIG_ROOT=%q; DEFAULT_ROOT=%q\nCFG_PATH="${CONFIG_ROOT}/system/configs"; CFG="${CFG_PATH}/system.cfg"; BACKUP="${CFG}.backup"\nrsync() { :; }\n' "${P7K}/cfg" "${P7K}/def"
 } > "${P7K}/fns.sh"
 printf 'system.hostname=DEFAULT\n' > "${P7K}/def/system/configs/system.cfg"
@@ -13678,6 +13681,12 @@ for content_script in cloud_content_backup cloud_content_restore; do
     [ "${RC}" -eq 0 ] && [ "${DT}" -ge 9 ] && [ "$(awk '{print $2}' "${cg_stamp}" 2>/dev/null)" = 0 ]
     check $? "${content_script} keeps a progressing transfer alive beyond the window" "${content_script}: progressing run rc ${RC}, ${DT}s; $(sa_tail "${CG}")"
 done
+
+# #421: exercise actual writer functions with the same candidate applets.
+echo "  ag. settings writers retain private file permissions"
+"${ROOT}/tools/settings-modes-test" --profile "${FN}" --chksysconfig "${CHK}" \
+  --busybox "${BB_HOST}" --output "${TMP}/settings-modes.json"
+check $? "#421: private modes and refused publications" "#421: settings mode regression (details above)"
 
 if [ "${FAIL}" -eq 0 ] && [ "${SKIPPED}" -eq 0 ]; then echo "PASSED"; exit 0
 elif [ "${FAIL}" -eq 0 ]; then echo "PASSED, ${SKIPPED} SKIPPED -- a check that did not run has not passed"; exit 3
