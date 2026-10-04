@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Updated 2026-10-04T07:50:15Z. Previous complete checkpoint: `.github/sessions/archived/saved-session-state-next-20261004T075015Z.md`.
+> Updated 2026-10-04T07:39:20Z. Previous complete checkpoint: `.github/sessions/archived/saved-session-state-next-20261004T073920Z.md`.
 
 ## Start here
 
@@ -44,10 +44,6 @@ Recomparison of the same78frames PASSES21 changed regions/0unclaimed/0missing.
 Old/missing/undersized claims and a change outside the text all FAIL. The
 accepted d72084ccad baseline, masks and original frames remain unchanged.
 This separate recheck never rewrites the original failed report or its rc.
-#415 is closed completed after delivery in feature
-ac1414fc0371f40cc1dcf67586b9a9fca02382bf →
-next c027c24e2aae87000577f3ae5ab05e454208490c. Both remote refs were verified;
-M7/#383/#409 record its closure and the rebuild dependency. #414 stays open.
 
 Command, inner, outer and tool-session4686 all returned1. The shared watcher
 retained finished/rc1; the active session announced completion. At07:28 actual
@@ -120,9 +116,7 @@ Full publication corresponding-source/licence work remains separate.
 
 - Feature `/workspace/repos/rocknix.worktrees/conflict-resolution`,
   feature/conflict-resolution. Primary `/workspace/repos/rocknix`, next.
-  Read git HEAD for the latest handoff receipt commit. The #415 delivery
-  is ac1414fc0371f40cc1dcf67586b9a9fca02382bf →
-  next c027c24e2aae87000577f3ae5ab05e454208490c. Integrate only full
+  Read git HEAD for the latest #415/checkpoint commit. Integrate only full
   explicit commit hashes via cherry-pick; never merge this historical feature
   branch wholesale or use destination-relative HEAD. Pushes use
   git@github-blitterbot:pixelelated/distribution.git; verify both remote refs.
@@ -202,7 +196,7 @@ Corrected source652ec25fed→next6e4ab570ed is published. Same helper bytes and
 sole action; policy moves to /etc/sudoers.d/zz-pixelelated-reclaim-swap after
 fleet policy. Installer refuses later active rules, retires only the unchanged
 old entry, full visudo checks and three-file rollback.37fixturesPASS; matching
-negative37cases fail2. New policy remains absent on the 07:46 host recheck; no owner reply to
+negative37cases fail2. New policy remains absent at07:28; no owner reply to
 05:09 corrected-bootstrap request. Do not repeat obsolete8c448 installer.
 
 Reviewed, hash-verified, read-only bundle:
@@ -252,13 +246,3 @@ No alternate credentials/fork assumed. New player guide prepared, not deployed.
 failure delivery worked in the active session; no off-session claim follows.
 Ceremony push gate passes; overdue P4 audit warning remains (dozens of
 closures), not waived. Prior closed artifact-scoped issues remain closed.
-
-## Handoff proof and delivery
-
-Fresh-context agent /root/pixelelated_failed_qa_resume recovered the correct
-M7.P3 state and next steps. It checked actual failed result files, all 15
-suite-log hashes, original report equality, unstarted later owners and the
-corrected installer checksums. Two stale active-status lines in #410/#414
-were corrected and read back at 07:51 UTC; the milestone P3 table was also
-corrected. See docs/qa-logs/2026-10-04-pixelelated-qualification/handoff-proof.md
-for scope and verification limits. No new build, QA or swap operation ran.

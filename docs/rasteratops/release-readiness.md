@@ -14,7 +14,9 @@ verified. First-stage VM QA finished07:27:52UTC with13 of15 suites passing.
 #414 corrects a stale proxy schema-review comment and adds an early guard;
 source fix next1f5b800391 is pushed, replacement image still owed. #415
 corrects three expected lowercase-folder text claims after inspecting actual
-frames: the same78frames now compare cleanly with the unchanged baseline.**
+frames: the same78frames now compare cleanly with the unchanged baseline.
+#415 is closed after publication in next c027c24e2a; #414 remains open for
+replacement-image proof.**
 See `docs/pixelelated/rename-plan.md` and the October4 qualification receipts.
 
 **Verdict: engineering image exists, but qualification failed; no RC claim.**
@@ -35,7 +37,7 @@ criteria still apply, as do P4 and the separately gated P5 staging work.
 The older sections below retain the October2–3 investigations and source
 receipts, including names and pins valid at that time.
 
-## Current execution update — 2026-10-03
+## Historical execution update — 2026-10-03
 
 P1 source coverage is complete:208 actor/state assignments, inherited-state
 recovery and missing-remote controls,1,367 host+322 focused checks PASS.
