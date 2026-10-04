@@ -18,7 +18,7 @@ plus latest checked proxy aec99c with identical270 Linux/native source files.
 value, so the menu says ROCKNIX and selects the wrong update screen. Source
 export correction passes its failing-before/passing-after child-process guard;
 a replacement image and clean/upgraded process/frame proof are required.
-Frozen05 matrix is complete; replacement06 cache copy is active. No RC or device-ready claim.** qa-05
+Frozen05 matrix is complete; replacement06 built; qa07 qualification is active. No RC or device-ready claim.** qa-05
 completed20:30:56UTC, actual43844/allrc0. All15 defaults,16 walks/78frames,
 comparison and exact clean/upgraded payloads pass. image-06 actual37162 and
 sweep-03 actual97815 pass;8589 branding contexts/0unclassified,10 controls,
@@ -50,8 +50,12 @@ passes33 installed assertions including HTTP refusal/retry/no duplicate base.
 No live ordinary RA claim. Original failed owner records remain preserved.
 
 Replacement06 freezes57cbc9b981205328444d41f6c4237dc9f5736d7f, manifest82764873…,
-6547product/180links/200QA files. Independent05-cache copy actual22326 is active,
-shared5s recursive monitoring. Three product files change: OS_NAME export and
+6547product/180links/200QA files. Independent05-cache copy actual22326 completed with checksums and2525217
+separateinodes. Build28970/allrc0 completed22:49:13; verifiedbundled4007387.
+Image1e16122c…/tar1786a568… storedactual98974=0. qa06 failed only a wrong
+0644 export-profile expectation (Git/package0755); original retained428.
+Fresh qa07 actual44253 is active under shared5s recursive monitoring, with
+clean/upgraded actual ES environment and identity frames added before acceptance. Three product files change: OS_NAME export and
 proxy pin/schema comment. Current865e21 source review:105consumed files/268
 Linux/native/test files excluding two unshipped bundle builders byte-identical;
 15 zero-fuzz patches, schema/coupledpins/freshness pass. New image proofs owed.
@@ -70,7 +74,7 @@ Original failed runs and their cleanup/backing proofs remain retained.
 A local post-store wrapper parser failure is also retained separately; the
 already stored immutable bundle was independently verified before QA.
 
-Current order: finish independent06cache → corrected build/store → clean and
+Current order: activeqa07 clean and
 actualRC2-upgraded qualification, including ES process OS_NAME/menu/manual
 updates and refreshed proxy preservation/subset HTTP → ordinary RA proof →
 approved P4 primary+Fable5.1/xhigh review → first H700 DDR4/RG35XX SP build.

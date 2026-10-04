@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Updated 2026-10-04T22:56:03.762725+00:00. Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261004T225603Z.md`.
+> Updated 2026-10-04T22:38:33.024850+00:00. Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261004T223833Z.md`.
 
 ## Start here
 
@@ -28,80 +28,28 @@ files,live regression and7 unstarted owners. Its stale readiness paragraph
 and precise harness-manifest wording findings are corrected.
 A helper installation is COMPLETE; do not ask to reinstall it.
 
-## Current: replacement06 built/stored; fresh qa07 ACTIVE
+## Current: replacement06 independent cache copy ACTIVE
 
-Frozen tree /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement06,
+New source tree /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement06,
 build/m7-pixelelated-replacement06, commit57cbc9b981205328444d41f6c4237dc9f5736d7f.
 Owner /workspace/tmp/pixelelated-m7-replacement-06; inputs SHA256
 827648731afe3f2a92bac8f68efe25c1f15754ae061ea24e0e4dc42b9dc4d677.
-6547 product files/180 symlinks/200 QA files. Three product changes from05:
-OS_NAME export and proxy865e21 pin/schema comment. Full freshness passes.
-Canonical container/host24/4 unchanged. Never edit this frozen source.
+6547 product files/180 symlinks/200 QA files. Exactly three product changes
+from05: export OS_NAME and proxy package/schema comment. Current proxy865e21;
+live full freshness passes. Canonical container/host24/4 unchanged.
 
-Independent05-cache copy actual22326/allrc0 completed;104071329991 bytes,
-zero checksum differences and2525217 independent regular-file inodes.
-Actual22:46:31 runner3964532/watcher3964533/command3964562 absent.
-Guarded helper/preflight actual71249=0:8191MiBswapfree,36483MiBRAMavailable.
-Build started22:47:19, finished22:49:13UTC642/642; actual28970/allrc0.
-Actual22:49:46 runner4026629/watcher4026630/command4026659 absent, owned
-container9ac2fb2981c4 absent. Nonroot1000:1000,pinned image/canonical mounts
-captured while running. Exact assembled export/childOS_NAME,XML/text/proxy/
-licences pass. Store/independentverify actual98974=0, no parser failure.
-
-Immutable bundle:
-/workspace/artifacts/pixelelated-candidates/sha256/d4007387afd5ac42104a53a3073b93fdadd33c51179bf9f3142101609f821ec9
-Image pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz:
-SHA1e16122cc48ed7552f42598c2c251930a4b5ad451c1040c345aecda35dae130e,
-2073134283bytes. Same-stem.tar:
-1786a568db2320a1482ff58165c20280d1d2bfa11e197abb4f3eee5847dbbe28,
-2073989120bytes. Build/source/copy/store evidence in
- docs/qa-logs/2026-10-04-pixelelated-replacement-06/.
-
-## Failed qa06 fixture, completed inventory04, ACTIVE qa07
-
-qa06 actual30948/allrc1 failed its NEW profile-mode assertion: expected0644,
-actual0755. Git records100755 and package/assembled/guest bytes/mode agree.
-This is harness error #428, not a product defect; no rebuild. Actual22:51:44
-runner4157356/watcher4157357/command4157386/guests4158505/4158531 absent.
-The failed executed harness/results remain unchanged.
-
-Fresh qa07 /workspace/tmp/pixelelated-m7-qa-07 started22:53:18UTC,
-actual44253, run20261004T225318Z-44d66947 under frozen06.
-Actual22:53:47 runner4171877/watcher4171879/command4171908 and
-freshguests4172679/4172705 alive. Shared5s recursive watcher/5min stall
-signal plus connected supervision. Harness SHAaeb2a7cd90274ba08039f2ec1e72537d17da2b1f03c508c5a7714bd73ebff07a.
-Correct mode0755; controls extract old/new expectations against Git contract,
-accept0755/reject0644,0777,0600. It boots pair, verifies exact clean payloads
-and actual ES process OS_NAME, captures identity/update screens, then runs
-all15 default suites with --skip-up on that same pair, actualRC2 upgrade,
-upgraded payload/process and identity frames. Capture0 is not semanticapproval.
-Initial clean payload/process proof now PASS; all five1280x800 identity
-frames inspected: main menu/information pixelelated0.0.1, correct MANUAL
-UPDATES and readable pixelelatedrelease instructions. Retained in qa07 evidence.
-Upgraded proof and full defaults still pending. Poll44253; do not edit/restart it.
-
-All14 new owners were sealed by /tmp/pixelelated-prepare-06-owners.py.
-After qa06 failure, six UNSTARTED run.sh dependencies were rebound toqa07;
-prior files/seals retained in each preparation-revision-1. Current bindings
-are owner06/qa-owners-revision-2.json; original qa-owners.json is historical
-preparation, not live status. Never rerun either preparation script.
-
-Inventory04 actual53198/allrc0:568roots/547cache/0errors,583components/
-525stamps; exact currentproxy archive and recoveredrcloneZIP verify. Same14
-licence metadata gaps remain P5, not publicationcomplete. Actual22:51:44
-runner4159289/watcher4159290/command4159319 absent. First launch from frozen
-worktree was refused rc2 because qa06 owned its watcher; owner had not started.
-Retained launch01, then unchanged inventory owner ran from feature, binding
-completed06 source explicitly. Receipts in57cbc-qualification/inventory-04/.
-Only one monitored owner per worktree; no simultaneous fixed-port VM owners.
-
-Fresh-context resume proof22:44 verified6547products/200QA/180links/sixbuild
-harnessmembers/container/options, active advancing copy I/O and live tracker.
-Its three stale wording findings are corrected here. Report in06/resume-proof.md.
-It predates completed build/currentQA; next handoff must reflect that difference.
-#427 hypothesis was DISPROVED: vm-qa's glob is fallback only; shipped suite.txt
-explicitly selects16 compositions and neither m7walk. Closed not planned,
-actual25121/readback0; no source change or replacement freeze was needed.
+Copy started22:34:59, actual tool22326, run20261004T223459Z-742bf42f.
+Actual22:36:30 runner3964532/watcher3964533/command3964562 alive.
+Independent rsync-aH from completed05, then checksum equality and separate
+inode verification. Shared5s recursive watcher/5min stall warning, connected
+supervision; no disconnected alert configured. Quiet checksum work may warn;
+read actual child I/O before declaring stall. Never edit running scripts.
+Poll22326, reconcile copy.rc/copy.outer.rc/copy.tool-wrapper.rc/cache-ready.rc
+and run/build.rc, verify actual processes exit, then preflight/build.
+Product build has NOT started. Build.sh cleans quirks/proxy/image stamp and
+checks exact assembled999-export plus child identity, prior XML/text/licences.
+Frozen05 below is historical and remains blocked by424; its passes do not
+qualify06. New06 receipts: docs/qa-logs/2026-10-04-pixelelated-replacement-06/.
 
 ## Historical frozen05 identity and completed matrix
 
@@ -148,7 +96,8 @@ then starts a child; oldprofile1failure, corrected0 with other contracts green.
 Installed-negative fields/command/profile hash, original file, frames and
 source receipts: docs/qa-logs/2026-10-04-es-identity-export/.
 No in-flight/frozen source or guest file was altered. Source fix is not yet
-an installed-image proof; #424 remains open. UI/predecessor/subset on05 completed. Replacement06 is built as above,
+an installed-image proof; #424 remains open. UI/predecessor/subset are now complete. Use latest explicitly integrated
+source for a new replacement06 freeze and independent copy of05 cache,
 with process OS_NAME and actual main-menu/manual-update frames required on
 clean and retained-storage guests. Ordinary RA fixture and P4 stay required.
 
@@ -168,7 +117,8 @@ sweep-03 actual97815=0:57292 regular entries/1345 symlinks,8589 reviewed
 brand contexts/0FIX/UNKNOWN,70 reviewed public credential-pattern matches/
 0unclassified,10 scanner controls;794 current/57 retired/2 removed translations,
 95 XML entries/0active orphans. Exact installed Tools XML parses. Its actual
-upgraded /storage consumer now passes in runtime-05 below; ui05 captured Tools rows; identity/manual-update semantics remain blocked424.
+upgraded /storage consumer now passes in runtime-05 below; UI rows remain
+ui-04 work.
 
 settings-05 actual48514=0 finished20:33:53:20 real installed ES race checks
 and29 installed mode/refusal checks PASS. Same ES resumes after actual shell
@@ -275,7 +225,7 @@ base upload, exact gameIDs/cache/stamp, empty repeat avoids network.
 External route removed; synthetic QA only, no live ordinary award claim.
 Actual22:22:33 runner3889456/watcher3889457/command3889486/guest3890213 absent.
 Source/bundle/backing custody verifies. See qualification/subset-01/.
-Current qa07 VM job is active above; these old owners are finished. All completed/failing owner scripts
+No VM job is currently running; replacement06 cache copy is active above. All completed/failing owner scripts
 and frozen05 source stay immutable; do not rerun an executed owner.
 
 ## #426 current proxy refresh before replacement06 freeze
@@ -291,7 +241,7 @@ Source lint/schema pass; prior199+8 tests trace to identical bytes. Installed
 new-image proxy regression remains mandatory. Source receipts:
 docs/qa-logs/2026-10-04-proxy-865e21/. #419 remains closed in its originalscope.
 
-## Historical frozen05 source inventory
+## Completed source inventory for this candidate
 
 inventory-03 completed19:55:42, actual72332 and all channels0, runner/watcher
 exited. `/workspace/tmp/pixelelated-m7-inventory-03/artifacts/` contains
@@ -306,45 +256,39 @@ opusfile,rclone,retropie-shaders,slang-shaders,tailscale,wildmidi,zerotier-one.
 
 ## Next in binding M7 order
 
-1. Supervise active qa07/tool44253. Review its early clean identity frames,
-   then all15suite outcomes, actualRC2upgrade and upgraded process/frame proof.
-   Reconcile actual tool and inner/outer/wrapper/build rc plus host cleanup.
-2. Prepared UNSTARTED owners in execution order under /workspace/tmp/pixelelated-m7-:
-   image-07 → sweep-04 → settings-06 → link-06 → guest-06 → runtime-06 →
-   proxy-05 → optins-05 → memory-05 → ui-06 → predecessor-03 → subset-02.
-   All bind frozen57cbc/manifest82764873 and bundle custody; qa-dependent
-   source/backing references now nameqa07. Check each run.sh prerequisite.
-   image07 must prove raw/update SYSTEM equality. sweep04 uses extractedimage07
-   and takes NO bundle arg; it runs from feature. Other owners run from frozen06
-   and receive BUNDLE. Start only after preceding actual terminal/cleanup.
-3. For each owner use tools/watch-build --interval 5 --stall-min 5
-   --recursive-activity --activity-dir OWNER/artifacts -- OWNER/outer.sh BUNDLE,
-   write OWNER/tool-wrapper.rc and retain actual tool result. No rerun of an
-   executed owner. No two fixed-port VM jobs together. Actual host view requires
-   escalation; sandbox hides PIDs. /tmp/pixelelated-finish-owner.py is used only
-   AFTER actual tool exits. Fresh per-owner receipts, no transfer of oldimagePASS.
-4. ui06 boot matcher must use actual640/1280 captures, fixed99.5% threshold,
-   approved ocean proofs and old-logo/blank/wrong-size rejection controls.
-   Review actual intended pages; process OS_NAME is required on clean AND
-   actualupgraded guest. #424/#426/#428 stay open for those new-image criteria.
-5. #384/#391/#425/#366 CLOSED completed with exact published receipts,
-   code-traces/Already written comments/live readbacks actual15451/68014=0.
-   #422 firsttwo/dependency criteria ticked, intended manual-update page blocked424.
-   Reconcile only proved #422/#416/#352/#353/#327 items. Earlier completed
-   #320/#392/#417/#419/#420/#421 remain closed. #427 closed notplanned as disproved.
+1. Supervise actual cache-copy tool22326 as above. Do not restart it during
+   its quiet checksum phase. All result channels and host process exit must
+   verify before using cache-ready. New owner/source manifests are immutable.
+2. Run guarded build-preflight while idle; installed helper needs no reinstall.
+   Build from frozen06 through tools/watch-build --interval5 --stall-min5
+   --recursive-activity --activity-dir OWNER -- OWNER/outer.sh, record actual
+   tool result and owner/tool-wrapper.rc. Use real separated CLI arguments.
+3. Product build cleans quirks/proxy and image stamp, then exact assembled
+   export/child OS_NAME/XML/licences guards. Reconcile inner/outer/wrapper/
+   build rc and actual runner/watcher/container exits before storing artifact.
+4. Store/verify immutable image/tar; create new sealed QA owners. Requalify
+   defaults/actualRC2upgrade/payloads/content scan and installed regressions,
+   including actual clean AND upgraded ES process OS_NAME and main-menu/
+   manual-update frames. Image05 passes do not prove the new candidate.
+#384/#391/#425 CLOSED completed with published receipts, code traces,
+   Already written notes and live readback actual15451=0. #422 intended manual-update frame still fails424.
+5. Reconcile only proved #422/#366/#416 criteria with published
+   exact receipts and closure comments. #424/#426 new-image criteria remain.
+   Completed earlier #320/#392/#417/#419/#420/#421 stay closed.
 6. Ordinary RA fixture below still awaits owner input. Then approved P4
    primary+Fable5.1/xhigh via verified Facilitator/OpenRouter; read skill/routing.
    Initial#375/#382 review done, do not restart. Resolve/requalify, then first
    H700 DDR4/RG35XX SP build. P5 source/licences/docs/publication and named
    physical-action gates remain. No RC/device-ready claim.
 
-Latest checkpoint publication feature989e62e47c995f4755ab5dc087afdc312604b0d1 →
-next47180671a6b2b0477231771ce0846e36502c7bbe, actual81041=0 normalpush/readback.
-Previous93992=1: next push guard required issuecitation; added body only to
-UNPUSHED next commit, normalretry. Earlierprecommit rejected fullmanifest path
-strings as credential-shaped; original sealed manifest remains local, public
-record carries its digest/counts, no guard bypass. Frozen06 stays57cbc.
-Current checkpoint/build/failure receipts will be published next.
+For each new owner ensure activity directory exists, launch shared watcher
+with5s recursive activity and5min stall warning, retain actual tool terminal
+status plus inner/outer/wrapper/build rc and real host process cleanup.
+No two fixed-port VM owners run together. Host view requires escalation.
+/tmp/pixelelated-finish-owner.py records completion ONLY after actual tool exits.
+Fresh-context resume proof21:26 predates these changes; renew through the
+session-stash skill after publication/live milestone update. Its explicit
+requirement authorizes the fresh-context proof agent, not ordinary delegation.
 
 ## #421/#420 source and failed-image evidence
 
