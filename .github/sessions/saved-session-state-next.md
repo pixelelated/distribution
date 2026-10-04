@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Updated 2026-10-04T21:44:50.093084+00:00. Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261004T214450Z.md`.
+> Updated 2026-10-04T22:04:04.135551+00:00. Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261004T220404Z.md`.
 
 ## Start here
 
@@ -28,7 +28,7 @@ files,live regression and7 unstarted owners. Its stale readiness paragraph
 and precise harness-manifest wording findings are corrected.
 A helper installation is COMPLETE; do not ask to reinstall it.
 
-## Current: replacement05 passes cloud, upgraded-runtime, proxy and mixed-pair checks; memory running
+## Current: replacement05 memory qualification passes; bilingual UI/boot running
 
 Frozen tree `/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement05`,
 branch `build/m7-pixelelated-replacement05`, commit
@@ -129,30 +129,63 @@ Actual21:42:47 confirms runner3660474/watcher3660475/command3660504,
 S3guests3661628/3661654 and pair3675182/3675221 absent; owned rclone backend
 and MinIO container absent. Full receipts retained in qualification/optins-04.
 
-## ACTIVE: actual tool86046 — memory-04; no restart
+## Newly completed memory qualification
 
-Owner /workspace/tmp/pixelelated-m7-memory-04, started21:42:50UTC.
-Frozen05 run .build-runs/20261004T214250Z-eff5137e;
-runner3693678/watcher3693679. Shared5s recursive monitoring/5min stall signal.
-Fresh16GiB640x480 guest3694455 is on the exact candidate; ROM hashes/idle UI
-pass. First virgl10 run is in progress with5warmups. Next software10, then
-software50 with actual completed exit-sync stamps, then30s HTTPS sign-in load.
-Unchanged growth limits: VmSize<1024KiB and RSS<2048KiB after warmup.
-Exit-helper status1 is retained and expected when killall also names absent
-processes; observed RetroArch exit, stable ES PID and idle return are the
-assertions (tools/es-launch-memory). Do not mistake that helper status for
-this owner's final result. Read artifacts/*/cycles.csv, result.json and build.log.
+Memory-04 actual86046/all result channels0. Virgl10/software10/software50
+with55 actual exit-sync stamps pass unchanged limits after5warmups:
+VmSize growth0KiB for all, RSS growth608/280/620KiB. HTTPS sign-in page
+loads in the30s test; peak total RSS290356KiB. Original intermediate
+exit-helper1 and EGL diagnostic are retained, not relabelled owner failures.
+Actual21:56:49 verifies runner3693678/watcher3693679/command3693708,
+virglguest3694455/softwareguest3705688/backend3716021 all absent.
+Candidate/source reverify passes. Full raw190MiB artifact hashes retained;
+selected measurements/stamps/results and terminal receipts in memory-04/.
 
-Poll actual exec86046. At termination reconcile actual result with inner.rc,
-outer.rc,tool-wrapper.rc and run/build.rc, then prove actual runner/watcher,
-all owned QEMU/backend exits. GuestPID changes between renderers: collect the
-later actual PIDs too. /tmp/pixelelated-finish-owner.py records terminal state
-only after the actual tool returns. Next ui-04, then predecessor-01; neither
-has started. No concurrent VM owners or changes to live inputs. Connected
-supervision stays necessary (#395 destination pending).
+## Failed ui-04 and ACTIVE fresh ui-05 (actual9732)
+
+ui-04 actual26853/allrc1: docs RA walk's eleven-up main-menu wrap landed on
+BACK because GENERIC_X64 lacks the optional Wi-Fi row. The failure frame is
+Bobl's single-game list, not an RA screen. Source conditional GuiMenu.cpp and
+archaeology retained; #422 filed before correction. Actual21:59:53 proves
+runner3769786/watcher3769787/command3769816/guest3770626 exited. Backend scan
+at21:59:36 was already empty after cleanup (file's first-panel name is not
+an observation of a live process). Preserve executed harness/results.
+Its actual640 boot frame019 independently passes fixed99.5% matcher at100%;
+old-logo/blank/wrong-resolution controls reject. Partial boot proof does not
+turn failed UI owner into a pass. All receipts retained in ui-04/.
+
+Fresh ui-05 /workspace/tmp/pixelelated-m7-ui-05 started22:02:52UTC,
+actual9732, run .build-runs/20261004T220252Z-587506e3 under frozen05;
+runner3796202/watcher3796203/command3796232, firstguest3797055.
+Same5s recursive monitoring/5min stall signal, independent16GiB guest.
+New m7-cloud-sync and m7-retro-achievements walks declare Kodi/RA disabled,
+start from first GAME SETTINGS row and capture menu/entry frames. No optional
+Wi-Fi row count. Explicit kodi.enabled=0 added to the new seed only. Existing
+frozen inputs and executed ui-04 are unchanged. Eleven-member ui05 seal.
+Actual boot captures precede serial wait at640/1280, then both languages,
+Tools and identity/manual-update. Poll9732, inspect actual frames, reconcile
+allrc/cleanup before predecessor-01. No full UI pass claimed.
+Predecessor-01 is still UNSTARTED; its prerequisite now names ui-05. Previous
+run.sh/manifest are retained in preparation-revision-2 and revised seal copied
+into repository evidence. Never change a started owner. Subset-01 still
+requires predecessor-01 and is unstarted.
+
+After ui-05 and predecessor-01, new separately sealed subset-01 is prepared,
+UNSTARTED: /workspace/tmp/pixelelated-m7-subset-01. Its prerequisite is
+predecessor-01 success. Six-member harness is retained in qualification/subset-01.
+Reuses predecessor synthetic queue and installed modules, removes default route,
+loopback-only HTTP provider returns separate base100/subset200 patches,
+refuses subset once then accepts retry. Assert actual game IDs, pending
+retention, no duplicate base upload, accepted subset cache/stamp and clean
+repeat. No external provider/account. Existing proxy-04 proves offline
+preservation; #384's older comment additionally requires installed flush.
+Do not close384 from the offline proof alone. Plan comment5984798487 records
+this before preparation; no VM assertion has run yet.
+
 Fresh-context proof21:26 verified all12bundle members,6547product/198QA hashes,
-180links,146QAartifacts,11existing harnesses plus7new predecessor members and
-actual ownership/tracker. Retained resume-proof-matrix.md; no unsafe gap.
+180links,146QAartifacts,11existing harnesses plus7predecessor members and
+actual ownership/tracker. Retained resume-proof-matrix.md. The new subset
+owner and newest checkpoint require the next fresh-context handoff proof.
 
 ## Completed source inventory for this candidate
 
@@ -169,16 +202,14 @@ opusfile,rclone,retropie-shaders,slang-shaders,tailscale,wildmidi,zerotier-one.
 
 ## Next in binding M7 order
 
-1. Finish/supervise memory-04; preserve and diagnose any failure before a fresh
+1. Finish/supervise ui-05; preserve and diagnose any failure before a fresh
    owner. Do not rerun an executed owner or edit an in-flight source/harness.
 2. Remaining prepared UNSTARTED owners, all under /workspace/tmp/pixelelated-m7-:
-   ui-04:EN/FR640x480/1280x960 cloud/RA/identity/manual-update captures,
-   English640 Tools rows,actualboot scanout at both panels.
-   THEN new predecessor-01: five exact RC2-script-created inherited states
+   After active ui-05, predecessor-01: five exact RC2-script-created inherited states
    on an actual-upgrade candidate COW, recovered by unchanged installed
    migration (#391). Includes failed marker publication/retry/no-change
    repeat and payload/pointer hashes. Prepared, UNSTARTED, prerequisite ui-04;
-   same watch-build invocation with BUNDLE. Seven-member manifest and source
+   then subset-01 as described above. Same watch-build invocation with BUNDLE. Seven-member predecessor manifest and source
    retained in qualification/predecessor-01/. Original draft label correction
    retained in preparation-revision-1; no executed owner was changed.
    This is historical script on candidate runtime, not the old OS for each fault.
@@ -187,7 +218,7 @@ opusfile,rclone,retropie-shaders,slang-shaders,tailscale,wildmidi,zerotier-one.
    labels are historical. Actual start/result files establish current state.
    All64 text bindings were checked before launch. Do not alter sealed harnesses.
 4. Run boot matcher `docs/qa-logs/2026-10-04-pixelelated-guest-brand/match-splash.py`
-   against actual ui-04 boot frames and approved ocean/{640,1280}-0.png.
+   against actual ui-05 boot frames and approved ocean/{640,1280}-0.png.
    Fixed99.5% pixel agreement, positive/oldROCKNIXlogo/blank/wrongsize controls.
    Host controls are not guest proof; do not tune threshold to hide missing
    frames. Visually review actual bilingual/Tools/identity frames.
@@ -197,10 +228,16 @@ opusfile,rclone,retropie-shaders,slang-shaders,tailscale,wildmidi,zerotier-one.
    M7/#383/#409/#344/#419 updated/read back20:40, actual21072=0. They
    recorded completed gates and then-active link-05. Actual38199/readback0
    updated guest-05 at20:55; actual32776 updated current matrix/order at21:20.
-   After evidence publication, close only complete #392/#417/#419/#384 with
-   scoped code-trace/Already written comments and readback. #416 still needs
-   Tools UI rows. Update M7/delivery to active memory; remaining-criteria.md
+   #392/#417/#419 CLOSED completed with published exact-candidate evidence,
+   all criteria ticked, code-trace/Already written comments and readback
+   actual50856=0. #384 stays open for installed synthetic flush above. #416 still needs
+   Tools UI rows. M7/delivery updated/read back21:51 actual11886=0; remaining-criteria.md
    maps each issue. Do not count provider flush as part of offline preservation.
+   #366 source guard lacked its explicit all-backend query loop; feature-only
+   QA correction now queries all5 without starting services. Current extracted
+   guard passes and actual run101 backend source is rejected; receipts in
+   docs/qa-logs/2026-10-04-qa-fixture-guard/. Frozen198QA bytes unchanged.
+   Check the first post-fix image roundtrip receipt before closing366.
 6. Ordinary RA fixture still awaits owner input below. Then approved P4
    primary+Fable5.1/xhigh via verified Facilitator/OpenRouter. Read code-auditor
    skill/routing then; initial#375/#382 review done, don't restart. Resolve/
@@ -276,6 +313,10 @@ Workingfeature /workspace/repos/rocknix.worktrees/conflict-resolution;
 primary /workspace/repos/rocknix staysnext. Integrateonlyfull explicithashes
 bycherry-pick;neverwholehistoricalfeaturemergeordestination-relativeHEAD.
 Normalpush git@github-blitterbot:pixelelated/distribution.git;verifyrefs.
+Latest published feature1e65d7a354fd6b8946dbc546988c561f0ee19668 →
+nextb9dba4f27b85d0f2bb3d3425cc1d09c53b11ba66, actual38316=0 normal
+pushes/ref readbacks. Pending QA guard/memory/new subset preparation follow.
+Never re-cherry-pick already integrated85e733e503 or1e65d7a354.
 Published evidence: feature74d1497e3af319263f82166415b726172eef079b →
 next2c2ece74fd72944f839bd1f615c4baec2521c8d4, normal pushes/remote readbacks
 PASS, actual98936=0. Frozen05 remains1e6a. Docs may advance; inspect current

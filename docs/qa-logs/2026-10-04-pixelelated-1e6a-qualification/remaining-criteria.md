@@ -9,10 +9,10 @@ prior-image results remain historical.
 | --- | --- |
 | #416 | sweep-03 classifies all brand contexts, with zero unexplained hits; ui-04 still owes actual Tools frames. |
 | #417 | installed /usr XML parse and bytes pass; runtime-05 now passes exact bytes and XML parsing of the actual upgraded /storage consumer. |
-| #419, #384 | source/input custody/defaults and proxy-04 installed current-pin preservation20/20 pass; actual35719/allrc0 and cleanup verified. Ready for scoped closure; live ordinary awards remain separate. |
-| #392 | guest-05 T19 passes12 installed direct/automatic backup and restore refusal checks, with no local-path transfers or cloud/pointer changes. Terminal actual59664/allrc0 and cleanup verified; ready for evidence-backed closure. |
+| #419, #384 | source/input custody/defaults and proxy-04 installed current-pin preservation20/20 pass; actual35719/allrc0 and cleanup verified. #419 is closed; #384 remains open for the additional installed synthetic subset flush named in its earlier code-trace comment. New subset-01 is prepared after predecessor-01; live ordinary awards remain separate. |
+| #392 | guest-05 T19 passes12 installed direct/automatic backup and restore refusal checks, with no local-path transfers or cloud/pointer changes. Terminal actual59664/allrc0 and cleanup verified; closed completed with published evidence/readback. |
 | #391 | A separate predecessor-01 owner is prepared after ui-04. Current guest T23 tests current-protocol interruption; pair migration does not create an interrupted RC2 writer. Neither substitutes for the issue's inherited no-record partial state. |
-| #366 | source rejection controls and default WebDAV roundtrip pass; optins-04 now passes the S3 roundtrip with the shipped folder/bucket prefix. Reconcile the retained source controls before closure. |
+| #366 | source rejection controls and default WebDAV roundtrip pass; optins-04 now passes the S3 roundtrip with the shipped folder/bucket prefix. The missing explicit all-backend host loop is added in feature QA; current pass/actual old-backend rejection retained. Reconcile first post-fix image evidence before closure. |
 | #352 | guest-05 D has passed chooser/discovery checks and inspected 640x480 frames. Full closure also requires its scan/filter guards and site-documentation criterion; current site publication remains separately blocked. |
 | #353 | guest-05 supplies independent boot/setup/move/keep cases; optins-04 supplies mixed RC2/fresh migration; ui-04 supplies bilingual/panel evidence. Established decisions settle naming/text, without another approval request. |
 
