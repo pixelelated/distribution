@@ -21,16 +21,19 @@ require a corrected image.**
 qa-02 started16:38:03, runner787868/watcher787869, shared5s nested-log monitor.
 The broader staging/source sweep found #416 stale Tools/status/help text and
 #417 malformed Tools XML. Source corrections and old-fail/new-pass controls
-pass outside the frozen tree. Exact raw-image/update SYSTEM extraction now passes. Finish the broad
-brand/secret/localisation classification before one corrected freeze
-and build. Existing unstarted later-stage owners must be rebound to that new
+pass outside the frozen tree. Exact raw-image/update SYSTEM extraction and full classification are complete:
+zero unclassified branding/credential-pattern hits, exactly seven known stale
+text contexts;794 exact current French translations and57 properly retired IDs.
+The583-component build-source map is retained; P5 licence/source publication
+remains separate. Next is one corrected freeze and build. The old-logo guest
+frame control still belongs to fresh-image qualification. Existing unstarted later-stage owners must be rebound to that new
 artifact before qualification. P4 follows complete P3 evidence. #410's corrected
 helper is installed and closed after actual host guard/recycle/no-op proof.
 No device-ready or RC claim.
 
 The original b137 image's qualification remains failed13PASS/2FAIL. #415's
-bounded visual expectations are corrected and closed; #414 stays open until
-new scripts-suite evidence. Preserve original source, image and failed report;
+bounded visual expectations are corrected and closed; #414 is now closed from
+qa-02's passing scripts-suite evidence. Preserve original source, image and failed report;
 its upgrade never ran. See docs/qa-logs/2026-10-04-pixelelated-replacement-01/
 and docs/qa-logs/2026-10-04-host-swap-rollout/ for current evidence.
 

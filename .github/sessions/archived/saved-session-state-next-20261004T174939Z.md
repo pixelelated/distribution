@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Updated 2026-10-04T17:49:39Z. Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261004T174939Z.md`.
+> Updated 2026-10-04T17:22:39Z. Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261004T172239Z.md`.
 
 ## Start here
 
@@ -24,7 +24,7 @@ Ordinary fixes/tests/VMs, exact-commit integration onto next and normal fork
 pushes remain authorized. Publication, personal-cloud mutation and physical
 device actions retain named gates. No goal tool was created. No job remains running; completed receipts and unfinished source/artifact work are below. Do not relaunch a used run owner.
 
-## Current work: freeze and build corrected source, then fresh qualification
+## Current work: finish artifact classification, then rebuild corrected source
 
 No build, VM or artifact-analysis job is running. Actual host readbacks
 confirmed the completed runners/watchers/guests exited. #410 remains fully
@@ -41,8 +41,8 @@ Receipt: docs/qa-logs/2026-10-04-pixelelated-replacement-qualification/.
 The broader source/staging review found #416: five Tools descriptions still
 used old project text/links, the memory status heading said Rasteratops and
 the bucket example used rocknix. #417 is inherited invalid XML: raw ampersand
-in touchHLE description. Both fixes are published as featurec9706c6c70adfe1d4d2906211be6b2ecb1a3703b /
-next13ae3507694ede8a52a6f8a3a3cf094f4fca2c3d; they are not in frozen1600. Names/paths/attribution remain compatible. The
+in touchHLE description. Both are fixed locally in the feature tree; these
+changes are not in frozen1600. Names/paths/attribution remain compatible. The
 identity tool now checks Tools XML and player fields. Old malformed XML and
 old text fail; corrected source/XML/shell/vocabulary pass. Evidence:
 docs/qa-logs/2026-10-04-pixelelated-brand-text/. Source/evidence commit status
@@ -61,34 +61,32 @@ No image binary was executed. One extracted mode000 file usr/cache/shadow
 was made0400 only in this owned analysis copy so scans cannot silently skip
 it; original mode is retained in extraction-read-permissions.json. Never
 print its contents. All1038 brand-bearing files match original staging bytes
-exactly; brand-files.json retains every file hash. Classification is complete for text and credential patterns; see the new receipt below. Guest old-logo frame control remains required.
+exactly; brand-files.json retains every file hash. Classification is unfinished.
 
-Completed artifact sweep: docs/qa-logs/2026-10-04-pixelelated-artifact-sweep/.
-Run20261004T173614Z-a04db623 completed17:36:24; inner/outer/tool78773 all1,
-correctly rejecting the seven known416 old-image contexts. Read57,292 regular
-file entries/6.8GB and1,345 symlinks;8,589 KEEP contexts,7 FIX,0 UNKNOWN.
-Seventy broad credential matches in20 files are exact-byte reviewed public
-constants/self-test keys/identifiers;0 unexplained matches. All18 complete
-private-key blocks match consumed upstream crypto self-test C literals.
-Ten controls prove unknown/injected/changed/unreadable inputs fail. Never
-print matching values. scan-artifact.py + allowlist.json rerun on each image.
+Discovery material, preliminary and outside Git:
+- /tmp/pixelelated-staging-brand-paths.json (1038paths) and
+  /tmp/pixelelated-staging-brand-discovery.json. Initial row counts were
+  7716 build/toolchain contexts,398 attribution,482unclassified.
+- /tmp/pixelelated-brand-unclassified.json is a filtered316-row review aid,
+  excluding localization/ES/systemd contexts; not the full hit list.
+- /tmp/pixelelated-brand-discovery.py records the preliminary scanner, not a
+  qualified universal classifier. Inspect each remaining consumer, then bind
+  the complete allowlist/classification to NAMING.md v2 and the artifact.
+- /tmp/pixelelated-staging-secret-paths.txt and
+  /tmp/pixelelated-staging-secret-discovery.json hold20 broad-pattern file
+  matches, with offsets/types/hash only (no matching values printed). They
+  are mostly public identifier substrings, SSH security-key algorithm names,
+  an AWS example, and PEM parser/self-test constants. Do not call this a zero
+  secret sweep until every actual candidate match is classified and controls
+  work. /tmp/pixelelated-secret-discovery.py is the preliminary script.
 
-localisation.json reconciles851 changed French entries:794 exact installed
-translations,57 build-retired IDs absent from MO; two removed IDs have no
-consumer. Ninety-five XML entries have consumers/dispositions. Theme literal
-&& uses the actual pugixml dialect; parse-theme.cpp reads it and serializes
-only an analysis copy. No extra product correction was required. Installed
-Tools XML/text still await416/417's corrected bytes.
-
-components.json maps583 components/568 consumed roots/525 install stamps.
-Fourteen empty/missing recipe licence fields stay explicit P5 corresponding-
-source/licence review work; the publication bundle is not complete. Source
-cache/local/shared/reconstructed provenance is mapped, not waived.
-
-Fresh resume agent pixelelated_artifact_review_resume confirmed all prior
-jobs exited and fresh later owners unstarted. Its two stale continuation
-findings are corrected. #414 and#418 are already closed in GitHub; do not
-repeat closure. #416/#417 remain open for new-image proof. No job is running.
+Inspected consumer facts: Tools install-rocknix.svg renders a neutral drive
+and Install to Internal (PNG/source retained), not an old logo. Locale hits
+refer to the retained ROCKNIX partition or historical comments. ES standalone
+ROCKNIX is legacy identity fallback/compatibility, ROCKNIX-Emulationstation is
+the scraper client identity, /rocknix is the input-config path consumer. Proxy
+module names/detectors/update platform remain compatibility identifiers. These
+facts guide classification; they do not waive unknown hits.
 
 ## Replacement artifact, source and cache custody
 
@@ -139,13 +137,14 @@ Current evidence/checkpoint commits may be newer; read HEAD.
 
 ## Next work in M7 order
 
-1. Commit/integrate/push the completed artifact classification and updated
-   checkpoint; source416/417 was already published. Update/read back M7 and
-   issues with the corrected-build next action. Check HEAD before integrating.
-2. The full text/credential/localisation discovery is complete with known
-   image corrections explicitly retained. The old-logo template negative
-   control/actual guest frame remains a fresh-image QA criterion. Source and
-   licence publication work stays separately mapped to P5; no publication claim.
+1. Publish source corrections and retained completed QA/extraction receipts,
+   update/read back M7 and issues. Close414 from its actual replacement scripts
+   proof; close418 from the corrected extraction proof. Keep416/417 open for
+   new-image verification. Current live M7/383/409/344 already record these
+   findings and the revised order; refresh with completed results.
+2. Finish actual artifact brand/secret/localisation and source/licence/readiness
+   mapping before a corrected freeze. Resolve all discovered product misses
+   together; no brand-wide PASS from targeted checks. Preserve every failure.
 3. Freeze a new replacement tree/input manifest from published corrected next,
    preserving1600 and b137. Reuse verified cache through independent files and
    the canonical container path, as documented below. Build through shared
@@ -230,7 +229,7 @@ Shared cache /workspace/cache/rocknix-sources; main.git mount mandatory.
 
 The ordinary Tobu100359 award is already earned on the dedicated QA account.
 An async question this turn asks owner to reset that game's QA progress or
-provide another QA account through ~/.ROCKNIX/qa-accounts (mode0600). No reply yet; never print its values.
+provide another QA account through the local secret file. No reply yet.
 No account reset performed; no hardcore substitute and no vacuous award PASS.
 
 Public-site frame4f6df54 remains local in /home/max/Development/rocknix.org,

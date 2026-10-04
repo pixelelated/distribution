@@ -16,5 +16,6 @@ actual screenshots outside Git; summary.json counts actual files and walks.
 This is scoped passing engineering evidence, not an RC call: #416 stale
 player text and #417 malformed Tools XML were found by the separate broader
 staging/source review. Their corrected bytes require a new frozen build.
-Finish image-02 artifact analysis before that rebuild; unstarted later owners
+image-03 completed extraction after image-02 failed before extraction. Finish
+classification of image-03's extracted root before that rebuild; unstarted later owners
 must be rebound to the corrected artifact. No physical device action.

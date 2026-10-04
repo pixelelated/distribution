@@ -25,6 +25,13 @@ The full baseline classification is `docs/rasteratops/p0-sweep-hits.txt`.
 A remaining ROCKNIX identifier is assessed by its consumer using the rules
 above; a blanket string replacement is not an identity migration.
 
+The first pixelelated artifact classification is retained under
+`docs/qa-logs/2026-10-04-pixelelated-artifact-sweep/`. Its allowlist binds each
+reviewed context to a path and hash; seven known stale player-text contexts
+remain FIX until #416's corrected image removes them. Use `scan-artifact.py`
+there for each new extracted SYSTEM. New or changed contexts require review.
+This text sweep does not replace the guest old-logo frame control.
+
 `tools/rasteratops-identity-check --es <pinned checkout>` verifies the source
 contracts, including inert updater/statistics commands in a network-isolated
 filesystem. A template-only negative control is retained under
