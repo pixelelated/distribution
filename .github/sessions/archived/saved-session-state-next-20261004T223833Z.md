@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Updated 2026-10-04T22:38:33.024850+00:00. Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261004T223833Z.md`.
+> Updated 2026-10-04T22:31:57.056676+00:00. Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261004T223157Z.md`.
 
 ## Start here
 
@@ -28,30 +28,7 @@ files,live regression and7 unstarted owners. Its stale readiness paragraph
 and precise harness-manifest wording findings are corrected.
 A helper installation is COMPLETE; do not ask to reinstall it.
 
-## Current: replacement06 independent cache copy ACTIVE
-
-New source tree /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement06,
-build/m7-pixelelated-replacement06, commit57cbc9b981205328444d41f6c4237dc9f5736d7f.
-Owner /workspace/tmp/pixelelated-m7-replacement-06; inputs SHA256
-827648731afe3f2a92bac8f68efe25c1f15754ae061ea24e0e4dc42b9dc4d677.
-6547 product files/180 symlinks/200 QA files. Exactly three product changes
-from05: export OS_NAME and proxy package/schema comment. Current proxy865e21;
-live full freshness passes. Canonical container/host24/4 unchanged.
-
-Copy started22:34:59, actual tool22326, run20261004T223459Z-742bf42f.
-Actual22:36:30 runner3964532/watcher3964533/command3964562 alive.
-Independent rsync-aH from completed05, then checksum equality and separate
-inode verification. Shared5s recursive watcher/5min stall warning, connected
-supervision; no disconnected alert configured. Quiet checksum work may warn;
-read actual child I/O before declaring stall. Never edit running scripts.
-Poll22326, reconcile copy.rc/copy.outer.rc/copy.tool-wrapper.rc/cache-ready.rc
-and run/build.rc, verify actual processes exit, then preflight/build.
-Product build has NOT started. Build.sh cleans quirks/proxy/image stamp and
-checks exact assembled999-export plus child identity, prior XML/text/licences.
-Frozen05 below is historical and remains blocked by424; its passes do not
-qualify06. New06 receipts: docs/qa-logs/2026-10-04-pixelelated-replacement-06/.
-
-## Historical frozen05 identity and completed matrix
+## Current: frozen05 matrix finished; prepare replacement06 for #424 and #426
 
 Frozen tree `/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement05`,
 branch `build/m7-pixelelated-replacement05`, commit
@@ -225,7 +202,7 @@ base upload, exact gameIDs/cache/stamp, empty repeat avoids network.
 External route removed; synthetic QA only, no live ordinary award claim.
 Actual22:22:33 runner3889456/watcher3889457/command3889486/guest3890213 absent.
 Source/bundle/backing custody verifies. See qualification/subset-01/.
-No VM job is currently running; replacement06 cache copy is active above. All completed/failing owner scripts
+No build or VM job is currently running. All completed/failing owner scripts
 and frozen05 source stay immutable; do not rerun an executed owner.
 
 ## #426 current proxy refresh before replacement06 freeze
@@ -256,23 +233,25 @@ opusfile,rclone,retropie-shaders,slang-shaders,tailscale,wildmidi,zerotier-one.
 
 ## Next in binding M7 order
 
-1. Supervise actual cache-copy tool22326 as above. Do not restart it during
-   its quiet checksum phase. All result channels and host process exit must
-   verify before using cache-ready. New owner/source manifests are immutable.
-2. Run guarded build-preflight while idle; installed helper needs no reinstall.
-   Build from frozen06 through tools/watch-build --interval5 --stall-min5
-   --recursive-activity --activity-dir OWNER -- OWNER/outer.sh, record actual
-   tool result and owner/tool-wrapper.rc. Use real separated CLI arguments.
-3. Product build cleans quirks/proxy and image stamp, then exact assembled
-   export/child OS_NAME/XML/licences guards. Reconcile inner/outer/wrapper/
-   build rc and actual runner/watcher/container exits before storing artifact.
+1. Commit/publish new receipts and #426 source; run freshness against that
+   explicit commit, integrate by full hash onto clean next, normal push and
+   remote readback. Preserve independent #423 world/art/hiring setup log.
+2. Freeze next explicitly into new build/m7-pixelelated-replacement06 tree
+   and /workspace/tmp/pixelelated-m7-replacement-06 owner. Not yet created.
+   Regenerate product/tool/link manifests, retain pinned container/host24/4.
+   Three product differences from05: quirks/profile.d/999-export and proxy
+   package.mk/raofflineproxy-ctl schema comment. Independently rsync-aH05
+   build cache, compare checksums and separate inodes. Do not alter05.
+3. Build under shared watch-build, clean quirks/proxy and image stamp. Verify
+   exact assembled export profile and OS_NAME in a child plus existing
+   payload guards. Only launch after cache actual completion/allrc/cleanup.
+   Helpers /tmp/pixelelated-freeze04.py and owner04/copy-cache.sh are
+   examples to adapt into NEW scripts, never rerun old owners.
 4. Store/verify immutable image/tar; create new sealed QA owners. Requalify
    defaults/actualRC2upgrade/payloads/content scan and installed regressions,
    including actual clean AND upgraded ES process OS_NAME and main-menu/
    manual-update frames. Image05 passes do not prove the new candidate.
-#384/#391/#425 CLOSED completed with published receipts, code traces,
-   Already written notes and live readback actual15451=0. #422 intended manual-update frame still fails424.
-5. Reconcile only proved #422/#366/#416 criteria with published
+5. Reconcile only proved #384/#391/#425/#422/#366/#416 criteria with published
    exact receipts and closure comments. #424/#426 new-image criteria remain.
    Completed earlier #320/#392/#417/#419/#420/#421 stay closed.
 6. Ordinary RA fixture below still awaits owner input. Then approved P4
@@ -355,11 +334,7 @@ bycherry-pick;neverwholehistoricalfeaturemergeordestination-relativeHEAD.
 Normalpush git@github-blitterbot:pixelelated/distribution.git;verifyrefs.
 Published #424 source feature5924ad247267e7a1ce0d626af22e28064b65bce7 →
 next7d647135373a5106569475e22b118adc7ae8d148, actual35665=0 normal
-pushes/ref readbacks. New #426 source/final05 receipts published featureedd6d0cc8a69e74887f17397498ec9c0879770ed →
-next57cbc9b981205328444d41f6c4237dc9f5736d7f, actual14384=0. First
-integration actual96452=1 stopped on INDEX conflict; regenerated from preserved
-worklog, no product conflict. Independent423 entry retained exactly once.
-M7/#383/#409/#344 updated/read back22:35 actual30446=0 to active06copy.
+pushes/ref readbacks. New #426 source and final05 receipts are being committed.
 Never re-cherry-pick already integrated85e733e503 or1e65d7a354.
 Published evidence: feature74d1497e3af319263f82166415b726172eef079b →
 next2c2ece74fd72944f839bd1f615c4baec2521c8d4, normal pushes/remote readbacks

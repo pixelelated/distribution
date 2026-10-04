@@ -18,7 +18,7 @@ plus latest checked proxy aec99c with identical270 Linux/native source files.
 value, so the menu says ROCKNIX and selects the wrong update screen. Source
 export correction passes its failing-before/passing-after child-process guard;
 a replacement image and clean/upgraded process/frame proof are required.
-Finish the frozen matrix before rebuilding. No RC or device-ready claim.** qa-05
+Frozen05 matrix is complete; replacement06 cache copy is active. No RC or device-ready claim.** qa-05
 completed20:30:56UTC, actual43844/allrc0. All15 defaults,16 walks/78frames,
 comparison and exact clean/upgraded payloads pass. image-06 actual37162 and
 sweep-03 actual97815 pass;8589 branding contexts/0unclassified,10 controls,
@@ -41,11 +41,20 @@ Optins-04 actual83669/allrc0 passes S3 roundtrip110s and mixed actualRC2/fresh
 migration42checks/0failures. Memory-04 actual86046/allrc0 passes virgl10,
 software10 and software50+exit-sync: VmSize growth0KiB; RSS608/280/620KiB.
 HTTPS load passes30s. Actual cleanup/custody verifies. UI-04 failed a counted-menu navigation walk (#422), retained actual26853/allrc1.
-Fresh UI-05 actual9732 started22:02:52, runner3796202/watcher3796203;
-new first-row fixture avoids the full wrap. The missing-Wi-Fi hypothesis
-was disproved by the actual frame; exact old failure cause is unproved. Actual old-run640 boot
-frame matches approved wordmark100%; complete UI/1280 proof remains. Shared5s recursive monitoring
-and connected supervision continue; predecessor-01/subset-01 unstarted.
+UI-05 actual9732/allrc0 captured70frames;20 selected640 inspected. The actual
+identity/manual-update semantics fail424 despite capture success. Boot matcher
+64099.586585%/1280100%, fixed99.5% threshold, rejection controls pass.
+Predecessor02 actual70676/allrc0 passes65 assertions across five exactRC2-script
+states on candidate runtime over actual upgrade COW. Subset01 actual3696/allrc0
+passes33 installed assertions including HTTP refusal/retry/no duplicate base.
+No live ordinary RA claim. Original failed owner records remain preserved.
+
+Replacement06 freezes57cbc9b981205328444d41f6c4237dc9f5736d7f, manifest82764873…,
+6547product/180links/200QA files. Independent05-cache copy actual22326 is active,
+shared5s recursive monitoring. Three product files change: OS_NAME export and
+proxy pin/schema comment. Current865e21 source review:105consumed files/268
+Linux/native/test files excluding two unshipped bundle builders byte-identical;
+15 zero-fuzz patches, schema/coupledpins/freshness pass. New image proofs owed.
 Disconnected delivery remains unconfigured (#395).
 
 Immutable bundlea179bd73… verifies imagea16f9532… and updatef0e2752d…;
@@ -61,11 +70,11 @@ Original failed runs and their cleanup/backing proofs remain retained.
 A local post-store wrapper parser failure is also retained separately; the
 already stored immutable bundle was independently verified before QA.
 
-Current order: finish bilingual UI/actualboot,
-#391 installed recovery of RC2-script-created partial states, #384 installed
-synthetic subset flush, and ordinary RA
-proof → approved P4 primary+Fable5.1/xhigh review → first H700 DDR4/RG35XX SP
-build. Daybreak is unavailable and no coverage is claimed. Ordinary RA fixture,
+Current order: finish independent06cache → corrected build/store → clean and
+actualRC2-upgraded qualification, including ES process OS_NAME/menu/manual
+updates and refreshed proxy preservation/subset HTTP → ordinary RA proof →
+approved P4 primary+Fable5.1/xhigh review → first H700 DDR4/RG35XX SP build.
+Daybreak is unavailable and no coverage is claimed. Ordinary RA fixture,
 public-site delivery, publication and physical actions retain named gates.
 #392/#417/#419 are closed with published exact-candidate receipts.
 #410 helper is installed and closed; it successfully reclaimed8GiBswap before
