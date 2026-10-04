@@ -1,0 +1,547 @@
+{
+  "url": "https://api.github.com/repos/misantronic/RAOfflineProxy/compare/aec99ce05bc0b9761366543fe9f08ea34cd8bd7a...865e218660",
+  "html_url": "https://github.com/misantronic/RAOfflineProxy/compare/aec99ce05bc0b9761366543fe9f08ea34cd8bd7a...865e218660",
+  "permalink_url": "https://github.com/misantronic/RAOfflineProxy/compare/misantronic:aec99ce...misantronic:865e218",
+  "diff_url": "https://github.com/misantronic/RAOfflineProxy/compare/aec99ce05bc0b9761366543fe9f08ea34cd8bd7a...865e218660.diff",
+  "patch_url": "https://github.com/misantronic/RAOfflineProxy/compare/aec99ce05bc0b9761366543fe9f08ea34cd8bd7a...865e218660.patch",
+  "base_commit": {
+    "sha": "aec99ce05bc0b9761366543fe9f08ea34cd8bd7a",
+    "node_id": "C_kwDORacyE9oAKGFlYzk5Y2UwNWJjMGI5NzYxMzY2NTQzZmU5ZjA4ZWEzNGNkOGJkN2E",
+    "commit": {
+      "author": {
+        "name": "David Schkalee",
+        "email": "david.skx@posteo.de",
+        "date": "2026-10-04T19:23:17Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-10-04T19:23:17Z"
+      },
+      "message": "Android: Ask for RetroAchievements login when no credentials can be imported (#204)\n\n* Ask for RetroAchievements login when no credentials can be imported\n\n* Prompt for login on rejected token, missing login at launch, and gate proxy resume on credentials",
+      "tree": {
+        "sha": "42380c87cdaa2921e0a1bb82b11b114ea4c88272",
+        "url": "https://api.github.com/repos/misantronic/RAOfflineProxy/git/trees/42380c87cdaa2921e0a1bb82b11b114ea4c88272"
+      },
+      "url": "https://api.github.com/repos/misantronic/RAOfflineProxy/git/commits/aec99ce05bc0b9761366543fe9f08ea34cd8bd7a",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqwqemCRC1aQ7uu5UhlAAAGBsQAI5XRzHnrD+DaT6EEc3idmSk\nCB80g+Fq0hhE0CwWuG98VdxAljZ1fdBw5SQdARQTVhIOtudbgH34cB7de8BFJe1o\nhmD3FF+j1rgNdU4uaM+tXoDrejUGIEueemxX/n71qLwXzl5H6VnWA+EiN6VdOVvR\ns8LQrsCjshp+sjWKgCUloSvAhJHiUJel18bpFQQ5u+cUhCLVfny+3FXFc/WCdtxs\nOi23xkVnO2+QAeyCrkxdFD5+MfRdRdwubuNh7EeZ2Js6bUjb3D1DaBPtp1UJ4wpI\ng/2gq8i1n0k8NCbuHoyJ8HuJe4hcxpQiREsXdH2ivjmuKdkKN284gIV2Qj06RtYw\n40OXqQ2u6nkmdloS+8p13FrSIMmWeoIbKIgG8GPp+dUwCx1oxStK63gjvOu5XHK/\nHvfE9rxYlLG89b0aLVFcoZX3n0iwQQx+81agk6ELeVxoELh1dqknHWOXdB7NbURp\nWbNmzfrnNL2vY/g5DPxDMioWYRSvmwKG/3glLs88U9j2xkgGLYj3lsXZzrSXAPU8\nGvlBIJLca78tGRhLDrXBFV0F3gDSpZMvUaOvWfeDccSOGFH5QnpFZbi6WYGW/sP7\nctA8Ostx3d5SMiyv98+UEyK7Gqn2wRiLF9MzFSrncIAEQ6Fg6ITUC2l/7SvAt3he\nxlaBKOwCMeCtiYtzQdtj\n=V+7Y\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 42380c87cdaa2921e0a1bb82b11b114ea4c88272\nparent ea9aba6c2b8b2f27e254d696ac8738c9e5c8793e\nauthor David Schkalee <david.skx@posteo.de> 1791141797 +0200\ncommitter GitHub <noreply@github.com> 1791141797 +0200\n\nAndroid: Ask for RetroAchievements login when no credentials can be imported (#204)\n\n* Ask for RetroAchievements login when no credentials can be imported\n\n* Prompt for login on rejected token, missing login at launch, and gate proxy resume on credentials",
+        "verified_at": "2026-10-04T19:23:18Z"
+      }
+    },
+    "url": "https://api.github.com/repos/misantronic/RAOfflineProxy/commits/aec99ce05bc0b9761366543fe9f08ea34cd8bd7a",
+    "html_url": "https://github.com/misantronic/RAOfflineProxy/commit/aec99ce05bc0b9761366543fe9f08ea34cd8bd7a",
+    "comments_url": "https://api.github.com/repos/misantronic/RAOfflineProxy/commits/aec99ce05bc0b9761366543fe9f08ea34cd8bd7a/comments",
+    "author": {
+      "login": "misantronic",
+      "id": 6033531,
+      "node_id": "MDQ6VXNlcjYwMzM1MzE=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/6033531?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/misantronic",
+      "html_url": "https://github.com/misantronic",
+      "followers_url": "https://api.github.com/users/misantronic/followers",
+      "following_url": "https://api.github.com/users/misantronic/following{/other_user}",
+      "gists_url": "https://api.github.com/users/misantronic/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/misantronic/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/misantronic/subscriptions",
+      "organizations_url": "https://api.github.com/users/misantronic/orgs",
+      "repos_url": "https://api.github.com/users/misantronic/repos",
+      "events_url": "https://api.github.com/users/misantronic/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/misantronic/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "ea9aba6c2b8b2f27e254d696ac8738c9e5c8793e",
+        "url": "https://api.github.com/repos/misantronic/RAOfflineProxy/commits/ea9aba6c2b8b2f27e254d696ac8738c9e5c8793e",
+        "html_url": "https://github.com/misantronic/RAOfflineProxy/commit/ea9aba6c2b8b2f27e254d696ac8738c9e5c8793e"
+      }
+    ]
+  },
+  "merge_base_commit": {
+    "sha": "aec99ce05bc0b9761366543fe9f08ea34cd8bd7a",
+    "node_id": "C_kwDORacyE9oAKGFlYzk5Y2UwNWJjMGI5NzYxMzY2NTQzZmU5ZjA4ZWEzNGNkOGJkN2E",
+    "commit": {
+      "author": {
+        "name": "David Schkalee",
+        "email": "david.skx@posteo.de",
+        "date": "2026-10-04T19:23:17Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-10-04T19:23:17Z"
+      },
+      "message": "Android: Ask for RetroAchievements login when no credentials can be imported (#204)\n\n* Ask for RetroAchievements login when no credentials can be imported\n\n* Prompt for login on rejected token, missing login at launch, and gate proxy resume on credentials",
+      "tree": {
+        "sha": "42380c87cdaa2921e0a1bb82b11b114ea4c88272",
+        "url": "https://api.github.com/repos/misantronic/RAOfflineProxy/git/trees/42380c87cdaa2921e0a1bb82b11b114ea4c88272"
+      },
+      "url": "https://api.github.com/repos/misantronic/RAOfflineProxy/git/commits/aec99ce05bc0b9761366543fe9f08ea34cd8bd7a",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqwqemCRC1aQ7uu5UhlAAAGBsQAI5XRzHnrD+DaT6EEc3idmSk\nCB80g+Fq0hhE0CwWuG98VdxAljZ1fdBw5SQdARQTVhIOtudbgH34cB7de8BFJe1o\nhmD3FF+j1rgNdU4uaM+tXoDrejUGIEueemxX/n71qLwXzl5H6VnWA+EiN6VdOVvR\ns8LQrsCjshp+sjWKgCUloSvAhJHiUJel18bpFQQ5u+cUhCLVfny+3FXFc/WCdtxs\nOi23xkVnO2+QAeyCrkxdFD5+MfRdRdwubuNh7EeZ2Js6bUjb3D1DaBPtp1UJ4wpI\ng/2gq8i1n0k8NCbuHoyJ8HuJe4hcxpQiREsXdH2ivjmuKdkKN284gIV2Qj06RtYw\n40OXqQ2u6nkmdloS+8p13FrSIMmWeoIbKIgG8GPp+dUwCx1oxStK63gjvOu5XHK/\nHvfE9rxYlLG89b0aLVFcoZX3n0iwQQx+81agk6ELeVxoELh1dqknHWOXdB7NbURp\nWbNmzfrnNL2vY/g5DPxDMioWYRSvmwKG/3glLs88U9j2xkgGLYj3lsXZzrSXAPU8\nGvlBIJLca78tGRhLDrXBFV0F3gDSpZMvUaOvWfeDccSOGFH5QnpFZbi6WYGW/sP7\nctA8Ostx3d5SMiyv98+UEyK7Gqn2wRiLF9MzFSrncIAEQ6Fg6ITUC2l/7SvAt3he\nxlaBKOwCMeCtiYtzQdtj\n=V+7Y\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 42380c87cdaa2921e0a1bb82b11b114ea4c88272\nparent ea9aba6c2b8b2f27e254d696ac8738c9e5c8793e\nauthor David Schkalee <david.skx@posteo.de> 1791141797 +0200\ncommitter GitHub <noreply@github.com> 1791141797 +0200\n\nAndroid: Ask for RetroAchievements login when no credentials can be imported (#204)\n\n* Ask for RetroAchievements login when no credentials can be imported\n\n* Prompt for login on rejected token, missing login at launch, and gate proxy resume on credentials",
+        "verified_at": "2026-10-04T19:23:18Z"
+      }
+    },
+    "url": "https://api.github.com/repos/misantronic/RAOfflineProxy/commits/aec99ce05bc0b9761366543fe9f08ea34cd8bd7a",
+    "html_url": "https://github.com/misantronic/RAOfflineProxy/commit/aec99ce05bc0b9761366543fe9f08ea34cd8bd7a",
+    "comments_url": "https://api.github.com/repos/misantronic/RAOfflineProxy/commits/aec99ce05bc0b9761366543fe9f08ea34cd8bd7a/comments",
+    "author": {
+      "login": "misantronic",
+      "id": 6033531,
+      "node_id": "MDQ6VXNlcjYwMzM1MzE=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/6033531?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/misantronic",
+      "html_url": "https://github.com/misantronic",
+      "followers_url": "https://api.github.com/users/misantronic/followers",
+      "following_url": "https://api.github.com/users/misantronic/following{/other_user}",
+      "gists_url": "https://api.github.com/users/misantronic/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/misantronic/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/misantronic/subscriptions",
+      "organizations_url": "https://api.github.com/users/misantronic/orgs",
+      "repos_url": "https://api.github.com/users/misantronic/repos",
+      "events_url": "https://api.github.com/users/misantronic/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/misantronic/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "ea9aba6c2b8b2f27e254d696ac8738c9e5c8793e",
+        "url": "https://api.github.com/repos/misantronic/RAOfflineProxy/commits/ea9aba6c2b8b2f27e254d696ac8738c9e5c8793e",
+        "html_url": "https://github.com/misantronic/RAOfflineProxy/commit/ea9aba6c2b8b2f27e254d696ac8738c9e5c8793e"
+      }
+    ]
+  },
+  "status": "ahead",
+  "ahead_by": 2,
+  "behind_by": 0,
+  "total_commits": 2,
+  "commits": [
+    {
+      "sha": "50ce0d8353a27d222a85d5391a051c4af70f1990",
+      "node_id": "C_kwDORacyE9oAKDUwY2UwZDgzNTNhMjdkMjIyYTg1ZDUzOTFhMDUxYzRhZjcwZjE5OTA",
+      "commit": {
+        "author": {
+          "name": "misantronic",
+          "email": "david.skx@posteo.de",
+          "date": "2026-10-04T19:15:40Z"
+        },
+        "committer": {
+          "name": "David Schkalee",
+          "email": "david.skx@posteo.de",
+          "date": "2026-10-04T19:48:47Z"
+        },
+        "message": "Fix out-of-memory crash with thousands of cached games",
+        "tree": {
+          "sha": "01a064394d6e8a2c39a372e4a2941b24156f5290",
+          "url": "https://api.github.com/repos/misantronic/RAOfflineProxy/git/trees/01a064394d6e8a2c39a372e4a2941b24156f5290"
+        },
+        "url": "https://api.github.com/repos/misantronic/RAOfflineProxy/git/commits/50ce0d8353a27d222a85d5391a051c4af70f1990",
+        "comment_count": 0,
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null,
+          "verified_at": null
+        }
+      },
+      "url": "https://api.github.com/repos/misantronic/RAOfflineProxy/commits/50ce0d8353a27d222a85d5391a051c4af70f1990",
+      "html_url": "https://github.com/misantronic/RAOfflineProxy/commit/50ce0d8353a27d222a85d5391a051c4af70f1990",
+      "comments_url": "https://api.github.com/repos/misantronic/RAOfflineProxy/commits/50ce0d8353a27d222a85d5391a051c4af70f1990/comments",
+      "author": {
+        "login": "misantronic",
+        "id": 6033531,
+        "node_id": "MDQ6VXNlcjYwMzM1MzE=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/6033531?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/misantronic",
+        "html_url": "https://github.com/misantronic",
+        "followers_url": "https://api.github.com/users/misantronic/followers",
+        "following_url": "https://api.github.com/users/misantronic/following{/other_user}",
+        "gists_url": "https://api.github.com/users/misantronic/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/misantronic/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/misantronic/subscriptions",
+        "organizations_url": "https://api.github.com/users/misantronic/orgs",
+        "repos_url": "https://api.github.com/users/misantronic/repos",
+        "events_url": "https://api.github.com/users/misantronic/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/misantronic/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "misantronic",
+        "id": 6033531,
+        "node_id": "MDQ6VXNlcjYwMzM1MzE=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/6033531?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/misantronic",
+        "html_url": "https://github.com/misantronic",
+        "followers_url": "https://api.github.com/users/misantronic/followers",
+        "following_url": "https://api.github.com/users/misantronic/following{/other_user}",
+        "gists_url": "https://api.github.com/users/misantronic/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/misantronic/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/misantronic/subscriptions",
+        "organizations_url": "https://api.github.com/users/misantronic/orgs",
+        "repos_url": "https://api.github.com/users/misantronic/repos",
+        "events_url": "https://api.github.com/users/misantronic/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/misantronic/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "aec99ce05bc0b9761366543fe9f08ea34cd8bd7a",
+          "url": "https://api.github.com/repos/misantronic/RAOfflineProxy/commits/aec99ce05bc0b9761366543fe9f08ea34cd8bd7a",
+          "html_url": "https://github.com/misantronic/RAOfflineProxy/commit/aec99ce05bc0b9761366543fe9f08ea34cd8bd7a"
+        }
+      ]
+    },
+    {
+      "sha": "865e218660e9914e3ba0b4326b5d430af995c843",
+      "node_id": "C_kwDORacyE9oAKDg2NWUyMTg2NjBlOTkxNGUzYmEwYjQzMjZiNWQ0MzBhZjk5NWM4NDM",
+      "commit": {
+        "author": {
+          "name": "misantronic",
+          "email": "david.skx@posteo.de",
+          "date": "2026-10-04T21:25:44Z"
+        },
+        "committer": {
+          "name": "David Schkalee",
+          "email": "david.skx@posteo.de",
+          "date": "2026-10-04T21:55:30Z"
+        },
+        "message": "Fail Onion and Allium bundle builds when the Python runtime or pygame is missing",
+        "tree": {
+          "sha": "34b8f1c1b6eaa558522aeddb326120b6475c28ba",
+          "url": "https://api.github.com/repos/misantronic/RAOfflineProxy/git/trees/34b8f1c1b6eaa558522aeddb326120b6475c28ba"
+        },
+        "url": "https://api.github.com/repos/misantronic/RAOfflineProxy/git/commits/865e218660e9914e3ba0b4326b5d430af995c843",
+        "comment_count": 0,
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null,
+          "verified_at": null
+        }
+      },
+      "url": "https://api.github.com/repos/misantronic/RAOfflineProxy/commits/865e218660e9914e3ba0b4326b5d430af995c843",
+      "html_url": "https://github.com/misantronic/RAOfflineProxy/commit/865e218660e9914e3ba0b4326b5d430af995c843",
+      "comments_url": "https://api.github.com/repos/misantronic/RAOfflineProxy/commits/865e218660e9914e3ba0b4326b5d430af995c843/comments",
+      "author": {
+        "login": "misantronic",
+        "id": 6033531,
+        "node_id": "MDQ6VXNlcjYwMzM1MzE=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/6033531?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/misantronic",
+        "html_url": "https://github.com/misantronic",
+        "followers_url": "https://api.github.com/users/misantronic/followers",
+        "following_url": "https://api.github.com/users/misantronic/following{/other_user}",
+        "gists_url": "https://api.github.com/users/misantronic/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/misantronic/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/misantronic/subscriptions",
+        "organizations_url": "https://api.github.com/users/misantronic/orgs",
+        "repos_url": "https://api.github.com/users/misantronic/repos",
+        "events_url": "https://api.github.com/users/misantronic/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/misantronic/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "misantronic",
+        "id": 6033531,
+        "node_id": "MDQ6VXNlcjYwMzM1MzE=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/6033531?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/misantronic",
+        "html_url": "https://github.com/misantronic",
+        "followers_url": "https://api.github.com/users/misantronic/followers",
+        "following_url": "https://api.github.com/users/misantronic/following{/other_user}",
+        "gists_url": "https://api.github.com/users/misantronic/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/misantronic/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/misantronic/subscriptions",
+        "organizations_url": "https://api.github.com/users/misantronic/orgs",
+        "repos_url": "https://api.github.com/users/misantronic/repos",
+        "events_url": "https://api.github.com/users/misantronic/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/misantronic/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "50ce0d8353a27d222a85d5391a051c4af70f1990",
+          "url": "https://api.github.com/repos/misantronic/RAOfflineProxy/commits/50ce0d8353a27d222a85d5391a051c4af70f1990",
+          "html_url": "https://github.com/misantronic/RAOfflineProxy/commit/50ce0d8353a27d222a85d5391a051c4af70f1990"
+        }
+      ]
+    }
+  ],
+  "files": [
+    {
+      "sha": "ae72c3dbe5fb993203f828dfcc490ac493d0b46f",
+      "filename": "app/src/main/java/com/raofflineproxy/RAOfflineProxyApplication.kt",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 0,
+      "changes": 2,
+      "blob_url": "https://github.com/misantronic/RAOfflineProxy/blob/865e218660e9914e3ba0b4326b5d430af995c843/app%2Fsrc%2Fmain%2Fjava%2Fcom%2Fraofflineproxy%2FRAOfflineProxyApplication.kt",
+      "raw_url": "https://github.com/misantronic/RAOfflineProxy/raw/865e218660e9914e3ba0b4326b5d430af995c843/app%2Fsrc%2Fmain%2Fjava%2Fcom%2Fraofflineproxy%2FRAOfflineProxyApplication.kt",
+      "contents_url": "https://api.github.com/repos/misantronic/RAOfflineProxy/contents/app%2Fsrc%2Fmain%2Fjava%2Fcom%2Fraofflineproxy%2FRAOfflineProxyApplication.kt?ref=865e218660e9914e3ba0b4326b5d430af995c843",
+      "patch": "@@ -1,6 +1,7 @@\n package com.raofflineproxy\n \n import android.app.Application\n+import com.raofflineproxy.diagnostics.CrashReport\n import com.raofflineproxy.service.observeProxyStatusChanges\n import com.raofflineproxy.usage.UsageStats\n import kotlinx.coroutines.CoroutineScope\n@@ -12,6 +13,7 @@ class RAOfflineProxyApplication : Application() {\n \n     override fun onCreate() {\n         super.onCreate()\n+        CrashReport.install(this)\n         UsageStats.attach(this)\n         observeProxyStatusChanges(this, appScope)\n     }"
+    },
+    {
+      "sha": "cb38db18314d29a39d6a5b6db191a3dabed350a9",
+      "filename": "app/src/main/java/com/raofflineproxy/data/CacheDao.kt",
+      "status": "modified",
+      "additions": 12,
+      "deletions": 3,
+      "changes": 15,
+      "blob_url": "https://github.com/misantronic/RAOfflineProxy/blob/865e218660e9914e3ba0b4326b5d430af995c843/app%2Fsrc%2Fmain%2Fjava%2Fcom%2Fraofflineproxy%2Fdata%2FCacheDao.kt",
+      "raw_url": "https://github.com/misantronic/RAOfflineProxy/raw/865e218660e9914e3ba0b4326b5d430af995c843/app%2Fsrc%2Fmain%2Fjava%2Fcom%2Fraofflineproxy%2Fdata%2FCacheDao.kt",
+      "contents_url": "https://api.github.com/repos/misantronic/RAOfflineProxy/contents/app%2Fsrc%2Fmain%2Fjava%2Fcom%2Fraofflineproxy%2Fdata%2FCacheDao.kt?ref=865e218660e9914e3ba0b4326b5d430af995c843",
+      "patch": "@@ -74,8 +74,8 @@ interface CacheDao {\n     @Query(\"SELECT id, cacheKey, sourceRomPath, cachedAt, firstCachedAt FROM api_cache WHERE cacheKey LIKE :prefix || '%'\")\n     suspend fun getAllSummariesByPrefix(prefix: String): List<CacheEntrySummary>\n \n-    suspend fun getAllByPrefix(prefix: String): List<CacheEntry> =\n-        getAllSummariesByPrefix(prefix).mapNotNull { entry -> entry.withResponseBody(this) }\n+    @Query(\"SELECT cacheKey FROM api_cache WHERE cacheKey LIKE :prefix || '%'\")\n+    suspend fun getKeysByPrefix(prefix: String): List<String>\n \n     @Query(\"DELETE FROM api_cache WHERE cacheKey LIKE :prefix || '%'\")\n     suspend fun deleteByKeyPrefix(prefix: String)\n@@ -98,9 +98,18 @@ interface CacheDao {\n     suspend fun updateCacheKey(oldKey: String, newKey: String)\n }\n \n+// Bodies of a whole prefix never sit in memory together: thousands of cached games would exceed\n+// the app's heap, so each entry is loaded only while [action] runs.\n+internal suspend inline fun CacheDao.forEachEntryByPrefix(prefix: String, action: (CacheEntry) -> Unit) {\n+    for (summary in getAllSummariesByPrefix(prefix)) {\n+        summary.withResponseBody(this)?.let { entry -> action(entry) }\n+    }\n+}\n+\n private const val RESPONSE_BODY_CHUNK_SIZE = 32_768\n \n-private suspend fun CacheEntrySummary.withResponseBody(cacheDao: CacheDao): CacheEntry? {\n+@PublishedApi\n+internal suspend fun CacheEntrySummary.withResponseBody(cacheDao: CacheDao): CacheEntry? {\n     val responseBody = buildString {\n         var sqliteOffset = 1\n         while (true) {"
+    },
+    {
+      "sha": "c008f75491ba4c81ca5f9a62b861ac39886ece1b",
+      "filename": "app/src/main/java/com/raofflineproxy/data/CachedGame.kt",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "blob_url": "https://github.com/misantronic/RAOfflineProxy/blob/865e218660e9914e3ba0b4326b5d430af995c843/app%2Fsrc%2Fmain%2Fjava%2Fcom%2Fraofflineproxy%2Fdata%2FCachedGame.kt",
+      "raw_url": "https://github.com/misantronic/RAOfflineProxy/raw/865e218660e9914e3ba0b4326b5d430af995c843/app%2Fsrc%2Fmain%2Fjava%2Fcom%2Fraofflineproxy%2Fdata%2FCachedGame.kt",
+      "contents_url": "https://api.github.com/repos/misantronic/RAOfflineProxy/contents/app%2Fsrc%2Fmain%2Fjava%2Fcom%2Fraofflineproxy%2Fdata%2FCachedGame.kt?ref=865e218660e9914e3ba0b4326b5d430af995c843",
+      "patch": "@@ -18,7 +18,7 @@ data class CachedGame(\n     val cachedAt: Long,\n     val imageIconUrl: String?,\n     val unlockedCount: Int = 0,\n+    val unlockedListedCount: Int = 0,\n     val pendingAwardCount: Int = 0,\n-    val totalAchievements: Int = 0,\n-    val achievements: List<CachedAchievement> = emptyList()\n+    val totalAchievements: Int = 0\n )"
+    },
+    {
+      "sha": "b3006929ebad142f96ca1758cd7679a03a086f5b",
+      "filename": "app/src/main/java/com/raofflineproxy/diagnostics/CrashReport.kt",
+      "status": "added",
+      "additions": 79,
+      "deletions": 0,
+      "changes": 79,
+      "blob_url": "https://github.com/misantronic/RAOfflineProxy/blob/865e218660e9914e3ba0b4326b5d430af995c843/app%2Fsrc%2Fmain%2Fjava%2Fcom%2Fraofflineproxy%2Fdiagnostics%2FCrashReport.kt",
+      "raw_url": "https://github.com/misantronic/RAOfflineProxy/raw/865e218660e9914e3ba0b4326b5d430af995c843/app%2Fsrc%2Fmain%2Fjava%2Fcom%2Fraofflineproxy%2Fdiagnostics%2FCrashReport.kt",
+      "contents_url": "https://api.github.com/repos/misantronic/RAOfflineProxy/contents/app%2Fsrc%2Fmain%2Fjava%2Fcom%2Fraofflineproxy%2Fdiagnostics%2FCrashReport.kt?ref=865e218660e9914e3ba0b4326b5d430af995c843",
+      "patch": "@@ -0,0 +1,79 @@\n+package com.raofflineproxy.diagnostics\n+\n+import android.app.ActivityManager\n+import android.app.ApplicationExitInfo\n+import android.content.Context\n+import android.os.Build\n+import java.io.File\n+import java.text.SimpleDateFormat\n+import java.util.Date\n+import java.util.Locale\n+\n+private const val LAST_CRASH_FILE = \"last-crash.txt\"\n+private const val MAX_STACK_LINES = 80\n+private const val MAX_EXIT_REASONS = 5\n+\n+// The log upload only sees the current process's logcat, so a crash that killed the previous\n+// process would otherwise leave no trace in a support log.\n+object CrashReport {\n+\n+    fun install(context: Context) {\n+        val file = File(context.filesDir, LAST_CRASH_FILE)\n+        val previous = Thread.getDefaultUncaughtExceptionHandler()\n+        Thread.setDefaultUncaughtExceptionHandler { thread, error ->\n+            runCatching { file.writeText(describeCrash(thread.name, error, System.currentTimeMillis())) }\n+            previous?.uncaughtException(thread, error)\n+        }\n+    }\n+\n+    fun describe(context: Context): String = buildString {\n+        appendLine(\"== Previous app exits\")\n+        appendLine(previousExits(context))\n+        appendLine(\"== Last crash\")\n+        appendLine(\n+            runCatching { File(context.filesDir, LAST_CRASH_FILE).readText() }\n+                .getOrNull()\n+                ?.let(LogExporter::redactText)\n+                ?: \"none recorded\"\n+        )\n+    }\n+\n+    internal fun describeCrash(threadName: String, error: Throwable, at: Long): String = buildString {\n+        appendLine(\"${formatTime(at)} thread=$threadName\")\n+        error.stackTraceToString().lineSequence().take(MAX_STACK_LINES).forEach(::appendLine)\n+    }\n+\n+    private fun previousExits(context: Context): String {\n+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) return \"unavailable before Android 11\"\n+        val activityManager = context.getSystemService(ActivityManager::class.java) ?: return \"unavailable\"\n+        val exits = runCatching {\n+            activityManager.getHistoricalProcessExitReasons(context.packageName, 0, MAX_EXIT_REASONS)\n+        }.getOrDefault(emptyList())\n+        if (exits.isEmpty()) return \"none recorded\"\n+        return exits.joinToString(\"\\n\") { exit ->\n+            \"${formatTime(exit.timestamp)} ${exitReasonName(exit.reason)} \" +\n+                \"importance=${exit.importance} pss=${exit.pss / 1024}MB rss=${exit.rss / 1024}MB \" +\n+                (exit.description ?: \"\")\n+        }\n+    }\n+\n+    private fun exitReasonName(reason: Int): String = when (reason) {\n+        ApplicationExitInfo.REASON_CRASH -> \"crash\"\n+        ApplicationExitInfo.REASON_CRASH_NATIVE -> \"native-crash\"\n+        ApplicationExitInfo.REASON_ANR -> \"anr\"\n+        ApplicationExitInfo.REASON_LOW_MEMORY -> \"low-memory\"\n+        ApplicationExitInfo.REASON_EXCESSIVE_RESOURCE_USAGE -> \"excessive-resource-usage\"\n+        ApplicationExitInfo.REASON_SIGNALED -> \"signaled\"\n+        ApplicationExitInfo.REASON_EXIT_SELF -> \"exit-self\"\n+        ApplicationExitInfo.REASON_USER_REQUESTED -> \"user-requested\"\n+        ApplicationExitInfo.REASON_USER_STOPPED -> \"user-stopped\"\n+        ApplicationExitInfo.REASON_PERMISSION_CHANGE -> \"permission-change\"\n+        ApplicationExitInfo.REASON_DEPENDENCY_DIED -> \"dependency-died\"\n+        ApplicationExitInfo.REASON_INITIALIZATION_FAILURE -> \"initialization-failure\"\n+        ApplicationExitInfo.REASON_OTHER -> \"other\"\n+        else -> \"unknown($reason)\"\n+    }\n+\n+    private fun formatTime(millis: Long): String =\n+        SimpleDateFormat(\"MM-dd HH:mm:ss\", Locale.US).format(Date(millis))\n+}"
+    },
+    {
+      "sha": "5945bb8e5b8eb3f4a7b8b7f9f5b88d29311e179c",
+      "filename": "app/src/main/java/com/raofflineproxy/diagnostics/LogExporter.kt",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 0,
+      "changes": 3,
+      "blob_url": "https://github.com/misantronic/RAOfflineProxy/blob/865e218660e9914e3ba0b4326b5d430af995c843/app%2Fsrc%2Fmain%2Fjava%2Fcom%2Fraofflineproxy%2Fdiagnostics%2FLogExporter.kt",
+      "raw_url": "https://github.com/misantronic/RAOfflineProxy/raw/865e218660e9914e3ba0b4326b5d430af995c843/app%2Fsrc%2Fmain%2Fjava%2Fcom%2Fraofflineproxy%2Fdiagnostics%2FLogExporter.kt",
+      "contents_url": "https://api.github.com/repos/misantronic/RAOfflineProxy/contents/app%2Fsrc%2Fmain%2Fjava%2Fcom%2Fraofflineproxy%2Fdiagnostics%2FLogExporter.kt?ref=865e218660e9914e3ba0b4326b5d430af995c843",
+      "patch": "@@ -47,6 +47,9 @@ object LogExporter {\n         return \"$dateTime $trimmedTag:$message\"\n     }\n \n+    fun redactText(text: String): String =\n+        text.lineSequence().joinToString(\"\\n\") { line -> redactLine(line) }\n+\n     private fun redactLine(line: String): String {\n         val withoutUrlSecrets = redactFormBody(redactTokens(line))\n         return JSON_SECRET_FIELD_REGEX.replace(withoutUrlSecrets) { \"${it.groupValues[1]}<redacted>${it.groupValues[2]}\" }"
+    },
+    {
+      "sha": "5da6bd169c0b1edd08f8845a4d949ea91209e505",
+      "filename": "app/src/main/java/com/raofflineproxy/diagnostics/LogUploader.kt",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "blob_url": "https://github.com/misantronic/RAOfflineProxy/blob/865e218660e9914e3ba0b4326b5d430af995c843/app%2Fsrc%2Fmain%2Fjava%2Fcom%2Fraofflineproxy%2Fdiagnostics%2FLogUploader.kt",
+      "raw_url": "https://github.com/misantronic/RAOfflineProxy/raw/865e218660e9914e3ba0b4326b5d430af995c843/app%2Fsrc%2Fmain%2Fjava%2Fcom%2Fraofflineproxy%2Fdiagnostics%2FLogUploader.kt",
+      "contents_url": "https://api.github.com/repos/misantronic/RAOfflineProxy/contents/app%2Fsrc%2Fmain%2Fjava%2Fcom%2Fraofflineproxy%2Fdiagnostics%2FLogUploader.kt?ref=865e218660e9914e3ba0b4326b5d430af995c843",
+      "patch": "@@ -19,7 +19,7 @@ private const val TAG = \"RAProxy/LogUploader\"\n object LogUploader {\n \n     fun uploadLogs(context: Context): Result<String> = runCatching {\n-        val zipBytes = zipLogs(LogExporter.captureRecentLogs())\n+        val zipBytes = zipLogs(CrashReport.describe(context) + \"\\n\" + LogExporter.captureRecentLogs())\n \n         val requestUploadResponse = sharedHttpClient.newCall(\n             Request.Builder()"
+    },
+    {
+      "sha": "a25d9fdedfa807a6ea7217d53c982714ce9abe09",
+      "filename": "app/src/main/java/com/raofflineproxy/proxy/AwardFlusher.kt",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 4,
+      "changes": 7,
+      "blob_url": "https://github.com/misantronic/RAOfflineProxy/blob/865e218660e9914e3ba0b4326b5d430af995c843/app%2Fsrc%2Fmain%2Fjava%2Fcom%2Fraofflineproxy%2Fproxy%2FAwardFlusher.kt",
+      "raw_url": "https://github.com/misantronic/RAOfflineProxy/raw/865e218660e9914e3ba0b4326b5d430af995c843/app%2Fsrc%2Fmain%2Fjava%2Fcom%2Fraofflineproxy%2Fproxy%2FAwardFlusher.kt",
+      "contents_url": "https://api.github.com/repos/misantronic/RAOfflineProxy/contents/app%2Fsrc%2Fmain%2Fjava%2Fcom%2Fraofflineproxy%2Fproxy%2FAwardFlusher.kt?ref=865e218660e9914e3ba0b4326b5d430af995c843",
+      "patch": "@@ -10,7 +10,6 @@ import com.raofflineproxy.RequestFailureNotifier\n import com.raofflineproxy.data.AppDatabase\n import com.raofflineproxy.usage.RaRequestSource\n import com.raofflineproxy.usage.executeCounted\n-import com.raofflineproxy.data.CacheKeys\n import com.raofflineproxy.data.PendingAward\n import com.raofflineproxy.data.PENDING_AWARD_STATUS_DELETED\n import com.raofflineproxy.data.PENDING_AWARD_STATUS_FLUSHED\n@@ -257,9 +256,9 @@ class AwardFlusher(\n     private suspend fun resolvePendingAwardGameTargets(\n         awards: List<PendingAward>\n     ): PendingAwardGameTargets {\n-        val achievementGameIds = buildAchievementGameIds(\n-            db.cacheDao().getAllByPrefix(CacheKeys.PREFIX_PATCH),\n-            db.cacheDao().getAllByPrefix(CacheKeys.PREFIX_ACHIEVEMENTSETS),\n+        val achievementGameIds = findAchievementGameIds(\n+            db,\n+            awards.mapTo(HashSet()) { award -> award.achievementId }\n         )\n         if (achievementGameIds.isEmpty()) {\n             return PendingAwardGameTargets(emptyMap(), emptyList())"
+    },
+    {
+      "sha": "1a3295180be04eeea173bbbf64e89cdb500c6b94",
+      "filename": "app/src/main/java/com/raofflineproxy/proxy/ImageCache.kt",
+      "status": "modified",
+      "additions": 0,
+      "deletions": 6,
+      "changes": 6,
+      "blob_url": "https://github.com/misantronic/RAOfflineProxy/blob/865e218660e9914e3ba0b4326b5d430af995c843/app%2Fsrc%2Fmain%2Fjava%2Fcom%2Fraofflineproxy%2Fproxy%2FImageCache.kt",
+      "raw_url": "https://github.com/misantronic/RAOfflineProxy/raw/865e218660e9914e3ba0b4326b5d430af995c843/app%2Fsrc%2Fmain%2Fjava%2Fcom%2Fraofflineproxy%2Fproxy%2FImageCache.kt",
+      "contents_url": "https://api.github.com/repos/misantronic/RAOfflineProxy/contents/app%2Fsrc%2Fmain%2Fjava%2Fcom%2Fraofflineproxy%2Fproxy%2FImageCache.kt?ref=865e218660e9914e3ba0b4326b5d430af995c843",
+      "patch": "@@ -116,12 +116,6 @@ private fun writeAtomically(target: File, write: (File) -> Unit) {\n     }\n }\n \n-fun cachedBadgeFileNames(context: Context): Set<String> =\n-    File(staticDir(context), \"Badge\")\n-        .listFiles()\n-        ?.mapNotNullTo(mutableSetOf()) { file -> file.name.takeIf { file.isFile && file.length() > 0L } }\n-        .orEmpty()\n-\n fun cachedBadgePath(context: Context, badgeName: String): String =\n     File(staticDir(context), \"Badge/$badgeName.png\").absolutePath\n "
+    },
+    {
+      "sha": "5bc432c4d42f8bd06064a243b2e1daf00eb73fcf",
+      "filename": "app/src/main/java/com/raofflineproxy/proxy/ProxyServer.kt",
+      "status": "modified",
+      "additions": 56,
+      "deletions": 34,
+      "changes": 90,
+      "blob_url": "https://github.com/misantronic/RAOfflineProxy/blob/865e218660e9914e3ba0b4326b5d430af995c843/app%2Fsrc%2Fmain%2Fjava%2Fcom%2Fraofflineproxy%2Fproxy%2FProxyServer.kt",
+      "raw_url": "https://github.com/misantronic/RAOfflineProxy/raw/865e218660e9914e3ba0b4326b5d430af995c843/app%2Fsrc%2Fmain%2Fjava%2Fcom%2Fraofflineproxy%2Fproxy%2FProxyServer.kt",
+      "contents_url": "https://api.github.com/repos/misantronic/RAOfflineProxy/contents/app%2Fsrc%2Fmain%2Fjava%2Fcom%2Fraofflineproxy%2Fproxy%2FProxyServer.kt?ref=865e218660e9914e3ba0b4326b5d430af995c843",
+      "patch": "@@ -18,6 +18,7 @@ import com.raofflineproxy.usage.RaRequestSource\n import com.raofflineproxy.usage.executeCounted\n import com.raofflineproxy.data.CacheEntry\n import com.raofflineproxy.data.CacheKeys\n+import com.raofflineproxy.data.forEachEntryByPrefix\n import com.raofflineproxy.data.PendingAward\n import kotlinx.coroutines.CoroutineScope\n import kotlinx.coroutines.Dispatchers\n@@ -695,10 +696,7 @@ class ProxyServer(\n         }\n \n         Log.i(TAG, \"Resolving achievementId=$achievementId against every cached game\")\n-        return buildAchievementGameIds(\n-            db.cacheDao().getAllByPrefix(CacheKeys.PREFIX_PATCH),\n-            db.cacheDao().getAllByPrefix(CacheKeys.PREFIX_ACHIEVEMENTSETS),\n-        )[achievementId]\n+        return findAchievementGameIds(db, setOf(achievementId))[achievementId]\n     }\n \n     private suspend fun isAchievementAlreadyUnlocked(achievementId: Int, user: String?): Boolean {\n@@ -996,7 +994,7 @@ internal suspend fun resolveAwardSnapshot(\n     context: android.content.Context,\n     achievementId: Int\n ): AwardSnapshot? {\n-    for (entry in db.cacheDao().getAllByPrefix(CacheKeys.PREFIX_PATCH)) {\n+    db.cacheDao().forEachEntryByPrefix(CacheKeys.PREFIX_PATCH) { entry ->\n         runCatching {\n             val gameId = CacheKeys.parseGameIdFromPatchKey(entry.cacheKey)\n             val patchData = JSONObject(entry.responseBody).getJSONObject(\"PatchData\")\n@@ -1292,39 +1290,63 @@ internal fun buildAchievementGameIds(\n     patchEntries: List<CacheEntry>,\n     achievementsetsEntries: List<CacheEntry> = emptyList(),\n ): Map<Int, Int> = buildMap {\n-    patchEntries.forEach { entry ->\n-        val gameId = CacheKeys.parseGameIdFromPatchKey(entry.cacheKey) ?: return@forEach\n-        val patchData = runCatching {\n-            JSONObject(entry.responseBody).getJSONObject(\"PatchData\")\n-        }.getOrNull() ?: return@forEach\n-        val achievements = patchData.optJSONArray(\"Achievements\") ?: return@forEach\n-        for (index in 0 until achievements.length()) {\n-            val achievement = achievements.optJSONObject(index) ?: continue\n-            val achievementId = achievement.optInt(\"ID\")\n-            if (achievementId > 0) putIfAbsent(achievementId, gameId)\n+    patchEntries.forEach { entry -> putPatchAchievementGameIds(entry, this) }\n+    achievementsetsEntries.forEach { entry -> putAchievementSetsGameIds(entry, this) }\n+}\n+\n+/** Same result as [buildAchievementGameIds] over the whole cache, restricted to\n+ *  [achievementIds], but loads one cached game at a time and stops once all are found. */\n+internal suspend fun findAchievementGameIds(db: AppDatabase, achievementIds: Set<Int>): Map<Int, Int> {\n+    val found = HashMap<Int, Int>()\n+    if (achievementIds.isEmpty()) return found\n+    val sources = listOf(\n+        CacheKeys.PREFIX_PATCH to ::putPatchAchievementGameIds,\n+        CacheKeys.PREFIX_ACHIEVEMENTSETS to ::putAchievementSetsGameIds,\n+    )\n+    for ((prefix, collect) in sources) {\n+        db.cacheDao().forEachEntryByPrefix(prefix) { entry ->\n+            val entryGameIds = HashMap<Int, Int>()\n+            collect(entry, entryGameIds)\n+            achievementIds.forEach { id -> entryGameIds[id]?.let { gameId -> found.putIfAbsent(id, gameId) } }\n+            if (found.size == achievementIds.size) return found\n         }\n     }\n-    achievementsetsEntries.forEach { entry ->\n-        val payload = runCatching { JSONObject(entry.responseBody) }.getOrNull() ?: return@forEach\n-        val topLevelGameId = payload.optInt(\"GameId\").takeIf { it > 0 } ?: return@forEach\n-        val sets = payload.optJSONArray(\"Sets\")\n-        if (sets != null) {\n-            for (i in 0 until sets.length()) {\n-                val set = sets.optJSONObject(i) ?: continue\n-                val setGameId = set.optInt(\"GameId\").takeIf { it > 0 } ?: topLevelGameId\n-                val achievements = set.optJSONArray(\"Achievements\") ?: continue\n-                for (j in 0 until achievements.length()) {\n-                    val achievementId = achievements.optJSONObject(j)?.optInt(\"ID\") ?: continue\n-                    if (achievementId > 0) putIfAbsent(achievementId, setGameId)\n-                }\n-            }\n-        } else {\n-            val achievements = payload.optJSONArray(\"Achievements\") ?: return@forEach\n-            for (i in 0 until achievements.length()) {\n-                val achievementId = achievements.optJSONObject(i)?.optInt(\"ID\") ?: continue\n-                if (achievementId > 0) putIfAbsent(achievementId, topLevelGameId)\n+    return found\n+}\n+\n+private fun putPatchAchievementGameIds(entry: CacheEntry, into: MutableMap<Int, Int>) {\n+    val gameId = CacheKeys.parseGameIdFromPatchKey(entry.cacheKey) ?: return\n+    val patchData = runCatching {\n+        JSONObject(entry.responseBody).getJSONObject(\"PatchData\")\n+    }.getOrNull() ?: return\n+    val achievements = patchData.optJSONArray(\"Achievements\") ?: return\n+    for (index in 0 until achievements.length()) {\n+        val achievement = achievements.optJSONObject(index) ?: continue\n+        val achievementId = achievement.optInt(\"ID\")\n+        if (achievementId > 0) into.putIfAbsent(achievementId, gameId)\n+    }\n+}\n+\n+private fun putAchievementSetsGameIds(entry: CacheEntry, into: MutableMap<Int, Int>) {\n+    val payload = runCatching { JSONObject(entry.responseBody) }.getOrNull() ?: return\n+    val topLevelGameId = payload.optInt(\"GameId\").takeIf { it > 0 } ?: return\n+    val sets = payload.optJSONArray(\"Sets\")\n+    if (sets != null) {\n+        for (i in 0 until sets.length()) {\n+            val set = sets.optJSONObject(i) ?: continue\n+            val setGameId = set.optInt(\"GameId\").takeIf { it > 0 } ?: topLevelGameId\n+            val achievements = set.optJSONArray(\"Achievements\") ?: continue\n+            for (j in 0 until achievements.length()) {\n+                val achievementId = achievements.optJSONObject(j)?.optInt(\"ID\") ?: continue\n+                if (achievementId > 0) into.putIfAbsent(achievementId, setGameId)\n             }\n         }\n+    } else {\n+        val achievements = payload.optJSONArray(\"Achievements\") ?: return\n+        for (i in 0 until achievements.length()) {\n+            val achievementId = achievements.optJSONObject(i)?.optInt(\"ID\") ?: continue\n+            if (achievementId > 0) into.putIfAbsent(achievementId, topLevelGameId)\n+        }\n     }\n }\n "
+    },
+    {
+      "sha": "2170d26361bcb1423864290050be5ebb728f8c59",
+      "filename": "app/src/main/java/com/raofflineproxy/proxy/RomScanner.kt",
+      "status": "modified",
+      "additions": 41,
+      "deletions": 21,
+      "changes": 62,
+      "blob_url": "https://github.com/misantronic/RAOfflineProxy/blob/865e218660e9914e3ba0b4326b5d430af995c843/app%2Fsrc%2Fmain%2Fjava%2Fcom%2Fraofflineproxy%2Fproxy%2FRomScanner.kt",
+      "raw_url": "https://github.com/misantronic/RAOfflineProxy/raw/865e218660e9914e3ba0b4326b5d430af995c843/app%2Fsrc%2Fmain%2Fjava%2Fcom%2Fraofflineproxy%2Fproxy%2FRomScanner.kt",
+      "contents_url": "https://api.github.com/repos/misantronic/RAOfflineProxy/contents/app%2Fsrc%2Fmain%2Fjava%2Fcom%2Fraofflineproxy%2Fproxy%2FRomScanner.kt?ref=865e218660e9914e3ba0b4326b5d430af995c843",
+      "patch": "@@ -18,6 +18,7 @@ import com.raofflineproxy.throttleRetroAchievementsApiRequest\n import com.raofflineproxy.data.AppDatabase\n import com.raofflineproxy.data.CacheEntry\n import com.raofflineproxy.data.CacheKeys\n+import com.raofflineproxy.data.forEachEntryByPrefix\n import com.raofflineproxy.data.PENDING_AWARD_STATUS_PENDING\n import com.raofflineproxy.data.PendingAward\n import com.raofflineproxy.proxyUserAgent\n@@ -85,8 +86,8 @@ internal data class QueueDrainResult(\n }\n \n internal suspend fun loadCachedRomPaths(db: AppDatabase): MutableSet<String> =\n-    db.cacheDao().getAllByPrefix(CacheKeys.PREFIX_PATCH)\n-        .mapNotNull { entry -> entry.sourceRomPath?.normalizeCachedRomPath() }\n+    db.cacheDao().getAllSummariesByPrefix(CacheKeys.PREFIX_PATCH)\n+        .mapNotNull { summary -> summary.sourceRomPath?.normalizeCachedRomPath() }\n         .toMutableSet()\n \n data class LoginCredentials(val user: String, val token: String)\n@@ -266,32 +267,51 @@ suspend fun refreshGamePatch(\n     return normalizedBody\n }\n \n-internal suspend fun loadCachedGameRefreshTargets(db: AppDatabase): List<CachedGameRefreshTarget> {\n-    val patchEntries = db.cacheDao().getAllByPrefix(CacheKeys.PREFIX_PATCH)\n-    val achievementSetEntries = db.cacheDao().getAllByPrefix(CacheKeys.PREFIX_ACHIEVEMENTSETS)\n-    val achievementSetsByGameAndUser = buildMap<Pair<Int, String>, String> {\n-        achievementSetEntries.forEach { entry ->\n-            val user = CacheKeys.parseUserFromAchievementSetsKey(entry.cacheKey) ?: return@forEach\n-            val hash = CacheKeys.parseAchievementSetsHash(entry.cacheKey) ?: return@forEach\n-            val gameId = achievementSetsGameId(entry) ?: return@forEach\n-            putIfAbsent(gameId to user, hash)\n-        }\n+internal suspend fun loadCachedGameRefreshTargets(\n+    db: AppDatabase,\n+    gameIds: Set<Int>\n+): List<CachedGameRefreshTarget> {\n+    val patches = db.cacheDao().getAllSummariesByPrefix(CacheKeys.PREFIX_PATCH).mapNotNull { summary ->\n+        val gameId = CacheKeys.parseGameIdFromPatchKey(summary.cacheKey)?.takeIf { it in gameIds }\n+            ?: return@mapNotNull null\n+        val user = CacheKeys.parseUserFromPatchKey(summary.cacheKey) ?: return@mapNotNull null\n+        Triple(gameId, user, summary.sourceRomPath)\n     }\n+    val achievementSetsByGameAndUser = loadAchievementSetsHashes(\n+        db,\n+        patches.mapTo(HashSet()) { (gameId, user) -> gameId to user }\n+    )\n \n-    return patchEntries.mapNotNull { entry ->\n-        val gameId = CacheKeys.parseGameIdFromPatchKey(entry.cacheKey) ?: return@mapNotNull null\n-        val user = CacheKeys.parseUserFromPatchKey(entry.cacheKey) ?: return@mapNotNull null\n+    return patches.map { (gameId, user, sourceRomPath) ->\n         val endpointHash = achievementSetsByGameAndUser[gameId to user]\n         CachedGameRefreshTarget(\n             gameId = gameId,\n             user = user,\n-            sourceRomPath = entry.sourceRomPath,\n+            sourceRomPath = sourceRomPath,\n             endpoint = if (endpointHash != null) RefreshEndpoint.AchievementSets else RefreshEndpoint.Patch,\n             romHash = endpointHash\n         )\n     }\n }\n \n+private suspend fun loadAchievementSetsHashes(\n+    db: AppDatabase,\n+    wanted: Set<Pair<Int, String>>\n+): Map<Pair<Int, String>, String> {\n+    val found = HashMap<Pair<Int, String>, String>()\n+    if (wanted.isEmpty()) return found\n+    val wantedUsers = wanted.mapTo(HashSet()) { (_, user) -> user }\n+    db.cacheDao().forEachEntryByPrefix(CacheKeys.PREFIX_ACHIEVEMENTSETS) { entry ->\n+        val user = CacheKeys.parseUserFromAchievementSetsKey(entry.cacheKey)?.takeIf { it in wantedUsers }\n+            ?: return@forEachEntryByPrefix\n+        val hash = CacheKeys.parseAchievementSetsHash(entry.cacheKey) ?: return@forEachEntryByPrefix\n+        val key = (achievementSetsGameId(entry) ?: return@forEachEntryByPrefix) to user\n+        if (key in wanted) found.putIfAbsent(key, hash)\n+        if (found.size == wanted.size) return found\n+    }\n+    return found\n+}\n+\n private fun achievementSetsGameId(entry: CacheEntry): Int? {\n     val user = CacheKeys.parseUserFromAchievementSetsKey(entry.cacheKey) ?: return null\n     val hash = CacheKeys.parseAchievementSetsHash(entry.cacheKey) ?: return null\n@@ -310,9 +330,9 @@ internal suspend fun deleteCachedGamesData(db: AppDatabase, gameIds: Set<String>\n         dao.deleteByKeyPrefix(CacheKeys.startSessionPrefix(gameId))\n         gameId.toIntOrNull()?.let { dao.deleteByKey(CacheKeys.lastPlayed(it)) }\n     }\n-    dao.getAllByPrefix(CacheKeys.PREFIX_ACHIEVEMENTSETS)\n-        .filter { entry -> achievementSetsGameId(entry)?.toString() in gameIds }\n-        .forEach { entry -> dao.deleteByKey(entry.cacheKey) }\n+    dao.forEachEntryByPrefix(CacheKeys.PREFIX_ACHIEVEMENTSETS) { entry ->\n+        if (achievementSetsGameId(entry)?.toString() in gameIds) dao.deleteByKey(entry.cacheKey)\n+    }\n }\n \n internal suspend fun refreshCachedGameOfflineBundle(\n@@ -678,8 +698,8 @@ private suspend fun recordFailedAttempt(db: AppDatabase, rom: QueuedRom) {\n }\n \n internal suspend fun loadCachedGameIds(db: AppDatabase): MutableSet<String> =\n-    db.cacheDao().getAllByPrefix(CacheKeys.PREFIX_PATCH)\n-        .mapNotNull { entry -> CacheKeys.parseGameIdStringFromPatchKey(entry.cacheKey) }\n+    db.cacheDao().getKeysByPrefix(CacheKeys.PREFIX_PATCH)\n+        .mapNotNull { key -> CacheKeys.parseGameIdStringFromPatchKey(key) }\n         .toMutableSet()\n \n internal fun String.normalizeCachedRomPath(): String ="
+    },
+    {
+      "sha": "6d182313bd6f9485d4588a3489f834c7cba24ff8",
+      "filename": "app/src/main/java/com/raofflineproxy/service/ProxyService.kt",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "blob_url": "https://github.com/misantronic/RAOfflineProxy/blob/865e218660e9914e3ba0b4326b5d430af995c843/app%2Fsrc%2Fmain%2Fjava%2Fcom%2Fraofflineproxy%2Fservice%2FProxyService.kt",
+      "raw_url": "https://github.com/misantronic/RAOfflineProxy/raw/865e218660e9914e3ba0b4326b5d430af995c843/app%2Fsrc%2Fmain%2Fjava%2Fcom%2Fraofflineproxy%2Fservice%2FProxyService.kt",
+      "contents_url": "https://api.github.com/repos/misantronic/RAOfflineProxy/contents/app%2Fsrc%2Fmain%2Fjava%2Fcom%2Fraofflineproxy%2Fservice%2FProxyService.kt?ref=865e218660e9914e3ba0b4326b5d430af995c843",
+      "patch": "@@ -361,13 +361,13 @@ class ProxyService : Service() {\n                 continue\n             }\n             val userAgent = loadUserAgent(db)\n-            val refreshTargets = loadCachedGameRefreshTargets(db)\n             val playedSince = System.currentTimeMillis() - REFRESH_PLAYED_WINDOW_MS\n             val recentlyPlayed = loadRecentlyPlayedGameIds(db, playedSince)\n-            val dueTargets = refreshTargets.filter { target -> target.gameId in recentlyPlayed }\n+            val dueTargets = loadCachedGameRefreshTargets(db, recentlyPlayed)\n+            val cachedGameCount = db.cacheDao().countByPrefix(CacheKeys.PREFIX_PATCH)\n             Log.i(\n                 TAG,\n-                \"Periodic refresh: ${dueTargets.size} of ${refreshTargets.size} cached game(s) \" +\n+                \"Periodic refresh: ${dueTargets.size} of $cachedGameCount cached game(s) \" +\n                     \"played in the last $REFRESH_PLAYED_WINDOW_DAYS day(s)\"\n             )\n             RateLimitBackoff.background {"
+    },
+    {
+      "sha": "c87390f34de9359a96fada282adaba63d3671d93",
+      "filename": "app/src/main/java/com/raofflineproxy/ui/CachedGamesAdapter.kt",
+      "status": "modified",
+      "additions": 35,
+      "deletions": 9,
+      "changes": 44,
+      "blob_url": "https://github.com/misantronic/RAOfflineProxy/blob/865e218660e9914e3ba0b4326b5d430af995c843/app%2Fsrc%2Fmain%2Fjava%2Fcom%2Fraofflineproxy%2Fui%2FCachedGamesAdapter.kt",
+      "raw_url": "https://github.com/misantronic/RAOfflineProxy/raw/865e218660e9914e3ba0b4326b5d430af995c843/app%2Fsrc%2Fmain%2Fjava%2Fcom%2Fraofflineproxy%2Fui%2FCachedGamesAdapter.kt",
+      "contents_url": "https://api.github.com/repos/misantronic/RAOfflineProxy/contents/app%2Fsrc%2Fmain%2Fjava%2Fcom%2Fraofflineproxy%2Fui%2FCachedGamesAdapter.kt?ref=865e218660e9914e3ba0b4326b5d430af995c843",
+      "patch": "@@ -38,11 +38,16 @@ sealed interface CachedGameListItem {\n class CachedGamesAdapter(\n     private val onHeaderClick: (consoleId: Int) -> Unit,\n     private val onDelete: (CachedGame) -> Unit,\n-    private val onDeleteConsole: (CachedGameListItem.ConsoleHeader) -> Unit\n+    private val onDeleteConsole: (CachedGameListItem.ConsoleHeader) -> Unit,\n+    private val loadAchievements: (CachedGame, (List<CachedAchievement>) -> Unit) -> Unit\n ) : ListAdapter<CachedGameListItem, RecyclerView.ViewHolder>(DIFF) {\n \n     private val dateFormat = SimpleDateFormat(\"MMM d, HH:mm\", Locale.getDefault())\n     private val expandedGameIds = mutableSetOf<String>()\n+    private val loadedAchievements = mutableMapOf<String, LoadedAchievements>()\n+    private val loadingGameIds = mutableSetOf<String>()\n+\n+    private class LoadedAchievements(val game: CachedGame, val achievements: List<CachedAchievement>)\n \n     var showLocked: Boolean = false\n         @SuppressLint(\"NotifyDataSetChanged\")\n@@ -61,8 +66,24 @@ class CachedGamesAdapter(\n         notifyDataSetChanged()\n     }\n \n-    private fun visibleAchievements(game: CachedGame): List<CachedAchievement> =\n-        if (showLocked) game.achievements else game.achievements.filter { it.unlocked }\n+    private fun hasVisibleAchievements(game: CachedGame): Boolean =\n+        if (showLocked) game.totalAchievements > 0 else game.unlockedListedCount > 0\n+\n+    private fun visibleAchievements(achievements: List<CachedAchievement>): List<CachedAchievement> =\n+        if (showLocked) achievements else achievements.filter { it.unlocked }\n+\n+    private fun loadedAchievementsFor(game: CachedGame): List<CachedAchievement>? =\n+        loadedAchievements[game.gameId]?.takeIf { it.game == game }?.achievements\n+\n+    private fun requestAchievements(game: CachedGame) {\n+        if (!loadingGameIds.add(game.gameId)) return\n+        loadAchievements(game) { achievements ->\n+            loadingGameIds.remove(game.gameId)\n+            loadedAchievements[game.gameId] = LoadedAchievements(game, achievements)\n+            val position = currentList.indexOfFirst { it is CachedGameListItem.GameItem && it.game.gameId == game.gameId }\n+            if (position >= 0) notifyItemChanged(position)\n+        }\n+    }\n \n     inner class HeaderViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {\n         private val tvConsoleName: TextView = itemView.findViewById(R.id.tv_console_name)\n@@ -91,30 +112,34 @@ class CachedGamesAdapter(\n             bindExpandedState(game, expanded)\n \n             binding.layoutGameRow.setOnClickListener {\n-                if (visibleAchievements(game).isEmpty()) return@setOnClickListener\n+                if (!hasVisibleAchievements(game)) return@setOnClickListener\n                 toggleExpanded(game.gameId)\n             }\n             binding.ivExpand.setOnClickListener {\n-                if (visibleAchievements(game).isEmpty()) return@setOnClickListener\n+                if (!hasVisibleAchievements(game)) return@setOnClickListener\n                 toggleExpanded(game.gameId)\n             }\n         }\n \n         private fun bindExpandedState(game: CachedGame, expanded: Boolean) {\n-            val achievements = visibleAchievements(game)\n-            val hasAchievements = achievements.isNotEmpty()\n+            val hasAchievements = hasVisibleAchievements(game)\n             binding.ivExpand.visibility = if (hasAchievements) View.VISIBLE else View.INVISIBLE\n             binding.ivExpand.rotation = if (expanded) 180f else 0f\n             binding.layoutGameRow.contentDescription = binding.root.context.getString(\n                 if (expanded) R.string.cached_game_collapse else R.string.cached_game_expand\n             )\n \n             binding.layoutUnlockedAchievements.removeAllViews()\n-            binding.layoutUnlockedAchievements.visibility = if (expanded && hasAchievements) View.VISIBLE else View.GONE\n+            val loaded = if (expanded && hasAchievements) loadedAchievementsFor(game) else null\n+            binding.layoutUnlockedAchievements.visibility = if (loaded != null) View.VISIBLE else View.GONE\n             if (!expanded || !hasAchievements) return\n+            if (loaded == null) {\n+                requestAchievements(game)\n+                return\n+            }\n \n             val inflater = LayoutInflater.from(binding.root.context)\n-            achievements.forEach { achievement ->\n+            visibleAchievements(loaded).forEach { achievement ->\n                 binding.layoutUnlockedAchievements.addView(\n                     inflateAchievement(inflater, binding.layoutUnlockedAchievements, achievement)\n                 )\n@@ -146,6 +171,7 @@ class CachedGamesAdapter(\n         private fun toggleExpanded(gameId: String) {\n             if (!expandedGameIds.add(gameId)) {\n                 expandedGameIds.remove(gameId)\n+                loadedAchievements.remove(gameId)\n             }\n             notifyItemChanged(bindingAdapterPosition)\n         }"
+    },
+    {
+      "sha": "24b5d1ac74a6b4f41787b5ee8c71385ca7959d6d",
+      "filename": "app/src/main/java/com/raofflineproxy/ui/CachedGamesFragment.kt",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 0,
+      "changes": 5,
+      "blob_url": "https://github.com/misantronic/RAOfflineProxy/blob/865e218660e9914e3ba0b4326b5d430af995c843/app%2Fsrc%2Fmain%2Fjava%2Fcom%2Fraofflineproxy%2Fui%2FCachedGamesFragment.kt",
+      "raw_url": "https://github.com/misantronic/RAOfflineProxy/raw/865e218660e9914e3ba0b4326b5d430af995c843/app%2Fsrc%2Fmain%2Fjava%2Fcom%2Fraofflineproxy%2Fui%2FCachedGamesFragment.kt",
+      "contents_url": "https://api.github.com/repos/misantronic/RAOfflineProxy/contents/app%2Fsrc%2Fmain%2Fjava%2Fcom%2Fraofflineproxy%2Fui%2FCachedGamesFragment.kt?ref=865e218660e9914e3ba0b4326b5d430af995c843",
+      "patch": "@@ -109,6 +109,11 @@ class CachedGamesFragment : Fragment() {\n                     .create()\n                     .also { it.setCanceledOnTouchOutside(false) }\n                     .show()\n+            },\n+            loadAchievements = { game, onLoaded ->\n+                viewLifecycleOwner.lifecycleScope.launch {\n+                    onLoaded(viewModel.cachedGameAchievements(game))\n+                }\n             }\n         )\n         gamesAdapter = adapter"
+    },
+    {
+      "sha": "f9090ebbb921811d7026182f1eb4dc2eb40a998d",
+      "filename": "app/src/main/java/com/raofflineproxy/ui/MainViewModel.kt",
+      "status": "modified",
+      "additions": 100,
+      "deletions": 53,
+      "changes": 153,
+      "blob_url": "https://github.com/misantronic/RAOfflineProxy/blob/865e218660e9914e3ba0b4326b5d430af995c843/app%2Fsrc%2Fmain%2Fjava%2Fcom%2Fraofflineproxy%2Fui%2FMainViewModel.kt",
+      "raw_url": "https://github.com/misantronic/RAOfflineProxy/raw/865e218660e9914e3ba0b4326b5d430af995c843/app%2Fsrc%2Fmain%2Fjava%2Fcom%2Fraofflineproxy%2Fui%2FMainViewModel.kt",
+      "contents_url": "https://api.github.com/repos/misantronic/RAOfflineProxy/contents/app%2Fsrc%2Fmain%2Fjava%2Fcom%2Fraofflineproxy%2Fui%2FMainViewModel.kt?ref=865e218660e9914e3ba0b4326b5d430af995c843",
+      "patch": "@@ -31,6 +31,7 @@ import com.raofflineproxy.data.AppDatabase\n import com.raofflineproxy.data.CacheEntry\n import com.raofflineproxy.data.CacheEntrySummary\n import com.raofflineproxy.data.CacheKeys\n+import com.raofflineproxy.data.forEachEntryByPrefix\n import com.raofflineproxy.data.CachedGame\n import com.raofflineproxy.data.PendingAward\n import com.raofflineproxy.data.PendingAwardUi\n@@ -56,7 +57,6 @@ import com.raofflineproxy.proxy.PasswordCredentials\n import com.raofflineproxy.proxy.patchImagePath\n import com.raofflineproxy.proxy.patchImageUrl\n import com.raofflineproxy.proxy.resolveCachedStaticAsset\n-import com.raofflineproxy.proxy.cachedBadgeFileNames\n import com.raofflineproxy.proxy.cachedBadgePath\n import com.raofflineproxy.proxy.cacheLoginCredentialsResponse\n import com.raofflineproxy.proxy.clearAllCachedImages\n@@ -105,6 +105,7 @@ import kotlinx.coroutines.flow.asStateFlow\n import kotlinx.coroutines.launch\n import kotlinx.coroutines.withContext\n import java.util.concurrent.ConcurrentHashMap\n+import java.io.File\n import org.json.JSONArray\n import org.json.JSONObject\n import kotlin.time.Duration.Companion.milliseconds\n@@ -215,6 +216,7 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {\n     private val pendingDeletedGameIds: MutableSet<String> = ConcurrentHashMap.newKeySet()\n     private val patchCache = mutableMapOf<Long, ParsedPatch>()\n     private val unlockCache = mutableMapOf<Long, CachedUnlocks>()\n+    private val awardAchievementCache = mutableMapOf<Int, CachedAwardAchievement>()\n     private val connectivityManager =\n         app.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager\n     private var pendingProxyStart = false\n@@ -350,9 +352,11 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {\n                     .map { it.isNotEmpty() }\n                     .distinctUntilChanged()\n             ) { awards, historyAwards, patchSummaries, unlockSummaries, hasLoginCredentials ->\n-                val badgeNames = cachedBadgeFileNames(application)\n-                val patches = loadPatchViews(patchSummaries, badgeNames)\n-                val achievementIndex = buildAchievementIndex(patches)\n+                val patches = loadPatchViews(patchSummaries)\n+                val achievementIndex = buildAchievementIndex(\n+                    patches,\n+                    (awards + historyAwards).mapNotNullTo(HashSet()) { parsePendingAwardAchievementId(it) }\n+                )\n                 val resolvedAwards = awards.map { resolvePendingAward(it, achievementIndex) }\n                 val resolvedHistoryAwards = historyAwards.map { resolvePendingAward(it, achievementIndex) }\n                 val pendingAwardsByGameId = buildPendingAwardsByGameId(achievementIndex, awards)\n@@ -1899,8 +1903,12 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {\n         val points: Int,\n         val badgeName: String?,\n         val core: Boolean\n-    )\n+    ) {\n+        val listed: Boolean get() = id > 0 && id != WARNING_ACHIEVEMENT_ID && core\n+    }\n \n+    // Only what a list row needs. Keeping every achievement's texts for thousands of cached games\n+    // exceeds the app's heap, so achievement details are parsed when a game is expanded.\n     private class ParsedPatch(\n         val cacheKey: String,\n         val cachedAt: Long,\n@@ -1910,38 +1918,40 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {\n         val consoleId: Int,\n         val imagePath: String?,\n         val imageUrl: String?,\n-        val achievements: List<ParsedAchievement>\n+        val achievementIds: IntArray,\n+        val listedAchievementIds: IntArray\n     )\n \n     private class CachedUnlocks(val cachedAt: Long, val ids: Set<Int>)\n \n+    private class CachedAwardAchievement(val summaryId: Long, val cachedAt: Long, val achievement: ParsedAchievement)\n+\n     private inner class PatchView(\n         val summary: CacheEntrySummary,\n-        val parsed: ParsedPatch,\n-        private val badgeNames: Set<String>\n+        val parsed: ParsedPatch\n     ) {\n         val gameId: String get() = parsed.gameId\n         val user: String get() = parsed.user\n-        val achievements: List<ParsedAchievement> get() = parsed.achievements\n \n         val imageIconUrl: String? by lazy {\n             parsed.gameId.toIntOrNull()?.let { resolveCachedGameIconPath(application, it) }\n                 ?: parsed.imagePath?.let { resolveCachedStaticAsset(application, it)?.absolutePath }\n                 ?: parsed.imageUrl\n         }\n-\n-        fun badgeUrl(achievement: ParsedAchievement): String? = achievement.badgeName?.let { name ->\n-            if (\"$name.png\" in badgeNames) cachedBadgePath(application, name)\n-            else \"https://i.retroachievements.org/Badge/$name.png\"\n-        }\n     }\n \n     private class AchievementRef(val patch: PatchView, val achievement: ParsedAchievement)\n \n+    private fun badgeUrl(achievement: ParsedAchievement): String? = achievement.badgeName?.let { name ->\n+        val cachedPath = cachedBadgePath(application, name)\n+        if (File(cachedPath).length() > 0L) cachedPath else \"https://i.retroachievements.org/Badge/$name.png\"\n+    }\n+\n     private fun parsePatch(summary: CacheEntrySummary, body: String): ParsedPatch? {\n         val parts = summary.cacheKey.split(\":\")\n         if (parts.size < 3) return null\n         val patchData = runCatching { JSONObject(body).getJSONObject(\"PatchData\") }.getOrNull()\n+        val achievements = parseAchievements(patchData?.optJSONArray(\"Achievements\"))\n         return ParsedPatch(\n             cacheKey = summary.cacheKey,\n             cachedAt = summary.cachedAt,\n@@ -1951,7 +1961,8 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {\n             consoleId = patchData?.optInt(\"ConsoleID\", 0) ?: 0,\n             imagePath = patchData?.let(::patchImagePath),\n             imageUrl = patchData?.let(::patchImageUrl),\n-            achievements = parseAchievements(patchData?.optJSONArray(\"Achievements\"))\n+            achievementIds = achievements.map { it.id }.toIntArray(),\n+            listedAchievementIds = achievements.filter { it.listed }.map { it.id }.toIntArray()\n         )\n     }\n \n@@ -1976,10 +1987,13 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {\n         }\n     }\n \n-    private suspend fun loadPatchViews(\n-        summaries: List<CacheEntrySummary>,\n-        badgeNames: Set<String>\n-    ): List<PatchView> {\n+    private suspend fun loadAchievements(summary: CacheEntrySummary): List<ParsedAchievement>? {\n+        val body = db.cacheDao().bodyForSummary(summary) ?: return null\n+        val patchData = runCatching { JSONObject(body).getJSONObject(\"PatchData\") }.getOrNull() ?: return null\n+        return parseAchievements(patchData.optJSONArray(\"Achievements\"))\n+    }\n+\n+    private suspend fun loadPatchViews(summaries: List<CacheEntrySummary>): List<PatchView> {\n         val views = ArrayList<PatchView>(summaries.size)\n         for (summary in summaries) {\n             val parsed = patchCache[summary.id]\n@@ -1988,32 +2002,60 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {\n                     ?.let { body -> parsePatch(summary, body) }\n                     ?.also { patchCache[summary.id] = it }\n                 ?: continue\n-            views += PatchView(summary, parsed, badgeNames)\n+            views += PatchView(summary, parsed)\n         }\n         patchCache.keys.retainAll(summaries.mapTo(HashSet()) { it.id })\n         return views\n     }\n \n-    private fun buildAchievementIndex(patches: List<PatchView>): Map<Int, AchievementRef> = buildMap {\n-        patches.forEach { patch ->\n-            patch.achievements.forEach { achievement ->\n-                putIfAbsent(achievement.id, AchievementRef(patch, achievement))\n+    private suspend fun buildAchievementIndex(\n+        patches: List<PatchView>,\n+        achievementIds: Set<Int>\n+    ): Map<Int, AchievementRef> {\n+        awardAchievementCache.keys.retainAll(achievementIds)\n+        if (achievementIds.isEmpty()) return emptyMap()\n+        val index = HashMap<Int, AchievementRef>()\n+        for (patch in patches) {\n+            val wanted = patch.parsed.achievementIds.filter { it in achievementIds && it !in index }\n+            if (wanted.isEmpty()) continue\n+            val missing = wanted.filter { id ->\n+                val cached = awardAchievementCache[id]\n+                    ?.takeIf { it.summaryId == patch.summary.id && it.cachedAt == patch.summary.cachedAt }\n+                    ?: return@filter true\n+                index[id] = AchievementRef(patch, cached.achievement)\n+                false\n+            }\n+            if (missing.isNotEmpty()) {\n+                loadAchievements(patch.summary).orEmpty()\n+                    .filter { it.id in missing }\n+                    .forEach { achievement ->\n+                        awardAchievementCache[achievement.id] =\n+                            CachedAwardAchievement(patch.summary.id, patch.summary.cachedAt, achievement)\n+                        index.putIfAbsent(achievement.id, AchievementRef(patch, achievement))\n+                    }\n             }\n+            if (index.size == achievementIds.size) break\n         }\n+        return index\n     }\n \n     private suspend fun unlockedIdsFor(summary: CacheEntrySummary?): Set<Int> {\n         if (summary == null) return emptySet()\n         unlockCache[summary.id]?.let { if (it.cachedAt == summary.cachedAt) return it.ids }\n+        val ids = loadUnlockedIds(summary)\n+        unlockCache[summary.id] = CachedUnlocks(summary.cachedAt, ids)\n+        return ids\n+    }\n+\n+    private suspend fun loadUnlockedIds(summary: CacheEntrySummary?): Set<Int> {\n+        if (summary == null) return emptySet()\n         val body = db.cacheDao().bodyForSummary(summary) ?: return emptySet()\n-        val ids = runCatching {\n+        return runCatching {\n             val unlocks = JSONObject(body).optJSONArray(\"UserUnlocks\") ?: return@runCatching emptySet()\n             buildSet(unlocks.length()) {\n                 for (i in 0 until unlocks.length()) add(unlocks.optInt(i))\n             }\n         }.getOrDefault(emptySet())\n-        unlockCache[summary.id] = CachedUnlocks(summary.cachedAt, ids)\n-        return ids\n     }\n \n     private suspend fun buildCachedGame(\n@@ -2022,7 +2064,6 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {\n         pendingAwardCount: Int\n     ): CachedGame {\n         val unlocked = unlockedIdsFor(unlockSummary)\n-        val coreAchievements = patch.achievements.filter { it.id > 0 && it.id != WARNING_ACHIEVEMENT_ID && it.core }\n         return CachedGame(\n             gameId = patch.gameId,\n             title = patch.parsed.title,\n@@ -2032,23 +2073,31 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {\n             cachedAt = patch.summary.cachedAt,\n             imageIconUrl = patch.imageIconUrl,\n             unlockedCount = unlocked.size,\n+            unlockedListedCount = patch.parsed.listedAchievementIds.count { it in unlocked },\n             pendingAwardCount = pendingAwardCount,\n-            totalAchievements = coreAchievements.size,\n-            achievements = coreAchievements\n-                .map { achievement ->\n-                    CachedAchievement(\n-                        id = achievement.id,\n-                        title = achievement.title ?: str(R.string.achievement_fallback, achievement.id),\n-                        description = achievement.description,\n-                        points = achievement.points,\n-                        badgeUrl = patch.badgeUrl(achievement),\n-                        unlocked = unlocked.contains(achievement.id)\n-                    )\n-                }\n-                .sortedByDescending { it.unlocked }\n+            totalAchievements = patch.parsed.listedAchievementIds.size\n         )\n     }\n \n+    suspend fun cachedGameAchievements(game: CachedGame): List<CachedAchievement> = withContext(Dispatchers.IO) {\n+        val summary = db.cacheDao().getSummary(CacheKeys.patchPrefix(game.gameId) + game.user)\n+            ?: return@withContext emptyList()\n+        val unlocked = loadUnlockedIds(db.cacheDao().getSummary(CacheKeys.unlocks(game.gameId, game.user)))\n+        loadAchievements(summary).orEmpty()\n+            .filter { it.listed }\n+            .map { achievement ->\n+                CachedAchievement(\n+                    id = achievement.id,\n+                    title = achievement.title ?: str(R.string.achievement_fallback, achievement.id),\n+                    description = achievement.description,\n+                    points = achievement.points,\n+                    badgeUrl = badgeUrl(achievement),\n+                    unlocked = achievement.id in unlocked\n+                )\n+            }\n+            .sortedByDescending { it.unlocked }\n+    }\n+\n     private fun resolvePendingAward(\n         award: PendingAward,\n         achievementIndex: Map<Int, AchievementRef>\n@@ -2070,7 +2119,7 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {\n             gameIconUrl = ref.patch.imageIconUrl\n             achievementTitle = ref.achievement.title ?: achievementTitle\n             points = ref.achievement.points\n-            badgeUrl = ref.patch.badgeUrl(ref.achievement)\n+            badgeUrl = badgeUrl(ref.achievement)\n         } else {\n             gameTitle = award.snapshotGameTitle ?: gameTitle\n             achievementTitle = award.snapshotAchievementTitle ?: achievementTitle\n@@ -2502,13 +2551,12 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {\n         }\n     }\n \n-    private suspend fun compactCachedShadowPatches() {\n-        val patchEntries = runCatching { db.cacheDao().getAllByPrefix(CacheKeys.PREFIX_PATCH) }.getOrDefault(emptyList())\n-        patchEntries.forEach { entry ->\n+    private suspend fun compactCachedShadowPatches() = runCatching {\n+        db.cacheDao().forEachEntryByPrefix(CacheKeys.PREFIX_PATCH) { entry ->\n             val normalized = runCatching {\n                 normalizeCachedResponse(\"patch\", \"\", \"\", entry.responseBody)\n-            }.getOrNull() ?: return@forEach\n-            if (normalized == entry.responseBody) return@forEach\n+            }.getOrNull() ?: return@forEachEntryByPrefix\n+            if (normalized == entry.responseBody) return@forEachEntryByPrefix\n             db.cacheDao().upsert(\n                 entry.copy(\n                     responseBody = normalized,\n@@ -2518,14 +2566,13 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {\n         }\n     }\n \n-    private suspend fun compactCachedRawAchievementSets() {\n-        val rawEntries = runCatching { db.cacheDao().getAllByPrefix(CacheKeys.PREFIX_ACHIEVEMENTSETS) }.getOrDefault(emptyList())\n-        rawEntries.forEach { entry ->\n-            if (!shouldCompactAchievementSets(\"achievementsets\", entry.responseBody)) return@forEach\n+    private suspend fun compactCachedRawAchievementSets() = runCatching {\n+        db.cacheDao().forEachEntryByPrefix(CacheKeys.PREFIX_ACHIEVEMENTSETS) { entry ->\n+            if (!shouldCompactAchievementSets(\"achievementsets\", entry.responseBody)) return@forEachEntryByPrefix\n             val compacted = runCatching {\n                 compactCachedRawResponse(\"achievementsets\", entry.responseBody)\n-            }.getOrNull() ?: return@forEach\n-            if (compacted == entry.responseBody) return@forEach\n+            }.getOrNull() ?: return@forEachEntryByPrefix\n+            if (compacted == entry.responseBody) return@forEachEntryByPrefix\n             db.cacheDao().upsert(\n                 entry.copy(\n                     responseBody = compacted,"
+    },
+    {
+      "sha": "05a43962e7a45858a7c37b2a1aaab8a92f55cb95",
+      "filename": "app/src/test/java/com/raofflineproxy/diagnostics/CrashReportTest.kt",
+      "status": "added",
+      "additions": 26,
+      "deletions": 0,
+      "changes": 26,
+      "blob_url": "https://github.com/misantronic/RAOfflineProxy/blob/865e218660e9914e3ba0b4326b5d430af995c843/app%2Fsrc%2Ftest%2Fjava%2Fcom%2Fraofflineproxy%2Fdiagnostics%2FCrashReportTest.kt",
+      "raw_url": "https://github.com/misantronic/RAOfflineProxy/raw/865e218660e9914e3ba0b4326b5d430af995c843/app%2Fsrc%2Ftest%2Fjava%2Fcom%2Fraofflineproxy%2Fdiagnostics%2FCrashReportTest.kt",
+      "contents_url": "https://api.github.com/repos/misantronic/RAOfflineProxy/contents/app%2Fsrc%2Ftest%2Fjava%2Fcom%2Fraofflineproxy%2Fdiagnostics%2FCrashReportTest.kt?ref=865e218660e9914e3ba0b4326b5d430af995c843",
+      "patch": "@@ -0,0 +1,26 @@\n+package com.raofflineproxy.diagnostics\n+\n+import org.junit.Assert.assertTrue\n+import org.junit.Test\n+\n+class CrashReportTest {\n+\n+    @Test\n+    fun describeCrash_namesThreadAndException() {\n+        val text = CrashReport.describeCrash(\"main\", OutOfMemoryError(\"Failed to allocate\"), 0L)\n+\n+        assertTrue(text.lines().first().endsWith(\"thread=main\"))\n+        assertTrue(text.contains(\"java.lang.OutOfMemoryError: Failed to allocate\"))\n+    }\n+\n+    @Test\n+    fun describeCrash_capsStackTraceLength() {\n+        val error = RuntimeException(\"deep\").apply {\n+            stackTrace = Array(500) { StackTraceElement(\"Cls\", \"method$it\", \"File.kt\", it) }\n+        }\n+\n+        val text = CrashReport.describeCrash(\"worker\", error, 0L)\n+\n+        assertTrue(text.lines().size <= 82)\n+    }\n+}"
+    },
+    {
+      "sha": "982c0b2f063847b1dfd2e978f8829d37e668cb92",
+      "filename": "linux/allium/build_bundle.sh",
+      "status": "modified",
+      "additions": 18,
+      "deletions": 18,
+      "changes": 36,
+      "blob_url": "https://github.com/misantronic/RAOfflineProxy/blob/865e218660e9914e3ba0b4326b5d430af995c843/linux%2Fallium%2Fbuild_bundle.sh",
+      "raw_url": "https://github.com/misantronic/RAOfflineProxy/raw/865e218660e9914e3ba0b4326b5d430af995c843/linux%2Fallium%2Fbuild_bundle.sh",
+      "contents_url": "https://api.github.com/repos/misantronic/RAOfflineProxy/contents/linux%2Fallium%2Fbuild_bundle.sh?ref=865e218660e9914e3ba0b4326b5d430af995c843",
+      "patch": "@@ -20,6 +20,15 @@ VENDOR_DIR=\"${ONION_DIR}/vendor\"\n APP_VERSION=\"${RAOFFLINEPROXY_APP_VERSION:-2.0.0-alpha2}\"\n ZIP_NAME=\"RAOfflineProxy-Allium-v${APP_VERSION}.zip\"\n \n+if [ ! -f \"${RUNTIME_ARCHIVE_PATH}\" ]; then\n+  echo \"Missing runtime at ${RUNTIME_ARCHIVE_PATH}, run ./linux/onion/fetch_runtime.sh first\" >&2\n+  exit 1\n+fi\n+if [ ! -d \"${VENDOR_DIR}/pygame\" ] || [ ! -d \"${VENDOR_DIR}/pygame.libs\" ]; then\n+  echo \"Missing pygame vendor libs at ${VENDOR_DIR}, run ./linux/onion/fetch_vendor.sh first\" >&2\n+  exit 1\n+fi\n+\n TARGET=\"arm-linux-gnueabihf.2.17\" OUT_DIR=\"${SCRIPT_DIR}/native\" \\\n   \"${LINUX_DIR}/build_rchash.sh\"\n \n@@ -40,25 +49,16 @@ cp \"${LINUX_DIR}/requirements.txt\" \"${APP_DIR}/app/requirements.txt\"\n \"${LINUX_DIR}/resize_icon.sh\" \"${LINUX_DIR}/../docs/public/logo.png\" \"${APP_DIR}/icon.png\" 74\n mkdir -p \"${APP_DIR}/data\"\n \n-if [ -f \"${RUNTIME_ARCHIVE_PATH}\" ]; then\n-  rm -rf \"${APP_DIR}/runtime\"\n-  mkdir -p \"${APP_DIR}/runtime\"\n-  tar -xzf \"${RUNTIME_ARCHIVE_PATH}\" -C \"${APP_DIR}/runtime\" --strip-components 1\n-  python3 \"${ONION_DIR}/flatten_symlinks.py\" \"${APP_DIR}/runtime\"\n-else\n-  echo \"No cached runtime at ${RUNTIME_ARCHIVE_PATH} \u2014 run ./linux/onion/fetch_runtime.sh first\"\n-fi\n+rm -rf \"${APP_DIR}/runtime\"\n+mkdir -p \"${APP_DIR}/runtime\"\n+tar -xzf \"${RUNTIME_ARCHIVE_PATH}\" -C \"${APP_DIR}/runtime\" --strip-components 1\n+python3 \"${ONION_DIR}/flatten_symlinks.py\" \"${APP_DIR}/runtime\"\n \n-if [ -d \"${VENDOR_DIR}/pygame\" ] && [ -d \"${VENDOR_DIR}/pygame.libs\" ]; then\n-  SITE_PACKAGES=\"${APP_DIR}/runtime/lib/python3.9/site-packages\"\n-  mkdir -p \"${SITE_PACKAGES}\"\n-  rm -rf \"${SITE_PACKAGES}/pygame\"\n-  cp -R \"${VENDOR_DIR}/pygame\" \"${SITE_PACKAGES}/pygame\"\n-  cp \"${VENDOR_DIR}\"/pygame.libs/* \"${LIB_DIR}/\"\n-  echo \"Included pygame + SDL2 vendor libs from ${VENDOR_DIR}\"\n-else\n-  echo \"No vendor directory found at ${VENDOR_DIR} \u2014 run ./linux/onion/fetch_vendor.sh first (menu-sdl will be unavailable)\"\n-fi\n+SITE_PACKAGES=\"${APP_DIR}/runtime/lib/python3.9/site-packages\"\n+mkdir -p \"${SITE_PACKAGES}\"\n+rm -rf \"${SITE_PACKAGES}/pygame\"\n+cp -R \"${VENDOR_DIR}/pygame\" \"${SITE_PACKAGES}/pygame\"\n+cp \"${VENDOR_DIR}\"/pygame.libs/* \"${LIB_DIR}/\"\n \n find \"${APP_DIR}\" -name \"__pycache__\" -type d -prune -exec rm -rf {} +\n find \"${APP_DIR}\" -name \"*.pyc\" -delete"
+    },
+    {
+      "sha": "c884bb12adf1f229eb55ca276b798017e0c6b45d",
+      "filename": "linux/onion/build_bundle.sh",
+      "status": "modified",
+      "additions": 18,
+      "deletions": 21,
+      "changes": 39,
+      "blob_url": "https://github.com/misantronic/RAOfflineProxy/blob/865e218660e9914e3ba0b4326b5d430af995c843/linux%2Fonion%2Fbuild_bundle.sh",
+      "raw_url": "https://github.com/misantronic/RAOfflineProxy/raw/865e218660e9914e3ba0b4326b5d430af995c843/linux%2Fonion%2Fbuild_bundle.sh",
+      "contents_url": "https://api.github.com/repos/misantronic/RAOfflineProxy/contents/linux%2Fonion%2Fbuild_bundle.sh?ref=865e218660e9914e3ba0b4326b5d430af995c843",
+      "patch": "@@ -13,6 +13,15 @@ RUNTIME_ARCHIVE_PATH=\"${RUNTIME_CACHE_DIR}/${RUNTIME_ARCHIVE_NAME}\"\n VENDOR_DIR=\"${SCRIPT_DIR}/vendor\"\n ZIP_NAME=\"RAOfflineProxy-Onion-v2.0.0-alpha2.zip\"\n \n+if [ ! -f \"${RUNTIME_ARCHIVE_PATH}\" ]; then\n+  echo \"Missing runtime at ${RUNTIME_ARCHIVE_PATH}, run ./linux/onion/fetch_runtime.sh first\" >&2\n+  exit 1\n+fi\n+if [ ! -d \"${VENDOR_DIR}/pygame\" ] || [ ! -d \"${VENDOR_DIR}/pygame.libs\" ]; then\n+  echo \"Missing pygame vendor libs at ${VENDOR_DIR}, run ./linux/onion/fetch_vendor.sh first\" >&2\n+  exit 1\n+fi\n+\n TARGET=\"arm-linux-gnueabihf.2.17\" OUT_DIR=\"${SCRIPT_DIR}/native\" \\\n   \"${LINUX_DIR}/build_rchash.sh\"\n \n@@ -33,23 +42,16 @@ cp \"${LINUX_DIR}/requirements.txt\" \"${APP_DIR}/app/requirements.txt\"\n \"${LINUX_DIR}/resize_icon.sh\" \"${LINUX_DIR}/../docs/public/logo.png\" \"${APP_DIR}/icon.png\" 74\n mkdir -p \"${APP_DIR}/data\"\n \n-if [ -f \"${RUNTIME_ARCHIVE_PATH}\" ]; then\n-  rm -rf \"${APP_DIR}/runtime\"\n-  mkdir -p \"${APP_DIR}/runtime\"\n-  tar -xzf \"${RUNTIME_ARCHIVE_PATH}\" -C \"${APP_DIR}/runtime\" --strip-components 1\n-  python3 \"${SCRIPT_DIR}/flatten_symlinks.py\" \"${APP_DIR}/runtime\"\n-fi\n+rm -rf \"${APP_DIR}/runtime\"\n+mkdir -p \"${APP_DIR}/runtime\"\n+tar -xzf \"${RUNTIME_ARCHIVE_PATH}\" -C \"${APP_DIR}/runtime\" --strip-components 1\n+python3 \"${SCRIPT_DIR}/flatten_symlinks.py\" \"${APP_DIR}/runtime\"\n \n-if [ -d \"${VENDOR_DIR}/pygame\" ] && [ -d \"${VENDOR_DIR}/pygame.libs\" ]; then\n-  SITE_PACKAGES=\"${APP_DIR}/runtime/lib/python3.9/site-packages\"\n-  mkdir -p \"${SITE_PACKAGES}\"\n-  rm -rf \"${SITE_PACKAGES}/pygame\"\n-  cp -R \"${VENDOR_DIR}/pygame\" \"${SITE_PACKAGES}/pygame\"\n-  cp \"${VENDOR_DIR}\"/pygame.libs/* \"${LIB_DIR}/\"\n-  echo \"Included pygame + SDL2 vendor libs from ${VENDOR_DIR}\"\n-else\n-  echo \"No vendor directory found at ${VENDOR_DIR} \u2014 run ./linux/onion/fetch_vendor.sh first (menu-sdl will be unavailable)\"\n-fi\n+SITE_PACKAGES=\"${APP_DIR}/runtime/lib/python3.9/site-packages\"\n+mkdir -p \"${SITE_PACKAGES}\"\n+rm -rf \"${SITE_PACKAGES}/pygame\"\n+cp -R \"${VENDOR_DIR}/pygame\" \"${SITE_PACKAGES}/pygame\"\n+cp \"${VENDOR_DIR}\"/pygame.libs/* \"${LIB_DIR}/\"\n \n find \"${APP_DIR}\" -name \"__pycache__\" -type d -prune -exec rm -rf {} +\n find \"${APP_DIR}\" -name \"*.pyc\" -delete\n@@ -81,8 +83,3 @@ PY\n \n echo \"Created ${BUILD_DIR}\"\n echo \"Created ${DIST_DIR}/${ZIP_NAME}\"\n-if [ -f \"${RUNTIME_ARCHIVE_PATH}\" ]; then\n-  echo \"Included runtime from ${RUNTIME_ARCHIVE_PATH}\"\n-else\n-  echo \"No cached runtime found at ${RUNTIME_ARCHIVE_PATH}\"\n-fi"
+    }
+  ]
+}

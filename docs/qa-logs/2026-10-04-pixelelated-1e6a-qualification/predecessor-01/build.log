@@ -1,0 +1,81 @@
+/workspace/tmp/pixelelated-m7-predecessor-01/archive-proof.py: OK
+/workspace/tmp/pixelelated-m7-predecessor-01/outer.sh: OK
+/workspace/tmp/pixelelated-m7-predecessor-01/predecessor-proof.py: OK
+/workspace/tmp/pixelelated-m7-predecessor-01/rc2-cloud-migrate-layout: OK
+/workspace/tmp/pixelelated-m7-predecessor-01/run.sh: OK
+/workspace/tmp/pixelelated-m7-predecessor-01/stop-guest.py: OK
+/workspace/tmp/pixelelated-m7-predecessor-01/verify-inputs.py: OK
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/a179bd73a732f49c4219177c89a860d561dad4d16a3467aae2cbafc15152b3ea
+Formatting '/workspace/tmp/pixelelated-m7-predecessor-01/upgraded-overlay.qcow2', fmt=qcow2 cluster_size=65536 extended_l2=off compression_type=zlib size=17179869184 backing_file=/workspace/tmp/pixelelated-m7-qa-05/pair/vm-a.qcow2 backing_fmt=qcow2 lazy_refcounts=off refcount_bits=16
+up: webdav serving /workspace/tmp/pixelelated-m7-predecessor-01/cloud/data at http://127.0.0.1:9040 (guest: http://10.0.2.2:9040)
+[W][22:16:25.599599] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][22:16:25.599631] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+ready after ~18s
+PASS exact upgraded candidate BUILD_ID
+PASS installed migration equals frozen source
+PASS exact RC2 migration script transferred without substitutions
+PASS real profile selects provider-operation shim
+PASS RC2-backups predecessor returns actual operation failure
+PASS RC2-backups fault is reached
+PASS RC2-backups predecessor has no new-format recovery record
+PASS RC2-backups every inherited payload survives
+PASS RC2-backups installed candidate recovery succeeds
+PASS RC2-backups all candidate payload bytes match
+PASS RC2-backups no owned payload remains under earlier folders
+PASS RC2-backups exact completion marker published
+PASS RC2-backups every pointer follows recovered bytes
+PASS RC2-backups completed local record cleared
+PASS RC2-backups repeated migration preserves exact cloud bytes and pointers
+PASS RC2-saves predecessor returns actual operation failure
+PASS RC2-saves fault is reached
+PASS RC2-saves predecessor has no new-format recovery record
+PASS RC2-saves every inherited payload survives
+PASS RC2-saves installed candidate recovery succeeds
+PASS RC2-saves all candidate payload bytes match
+PASS RC2-saves no owned payload remains under earlier folders
+PASS RC2-saves exact completion marker published
+PASS RC2-saves every pointer follows recovered bytes
+PASS RC2-saves completed local record cleared
+PASS RC2-saves repeated migration preserves exact cloud bytes and pointers
+PASS RC2-content predecessor returns actual operation failure
+PASS RC2-content fault is reached
+PASS RC2-content predecessor has no new-format recovery record
+PASS RC2-content actual predecessor writes the reported split pointers
+PASS RC2-content every inherited payload survives
+PASS RC2-content installed candidate recovery succeeds
+PASS RC2-content all candidate payload bytes match
+PASS RC2-content no owned payload remains under earlier folders
+PASS RC2-content exact completion marker published
+PASS RC2-content every pointer follows recovered bytes
+PASS RC2-content completed local record cleared
+PASS RC2-content repeated migration preserves exact cloud bytes and pointers
+PASS RC2-complete predecessor completes old layout
+PASS RC2-complete predecessor has no new-format recovery record
+PASS RC2-complete every inherited payload survives
+PASS RC2-complete installed candidate recovery succeeds
+PASS RC2-complete all candidate payload bytes match
+PASS RC2-complete no owned payload remains under earlier folders
+PASS RC2-complete exact completion marker published
+PASS RC2-complete every pointer follows recovered bytes
+PASS RC2-complete completed local record cleared
+PASS RC2-complete repeated migration preserves exact cloud bytes and pointers
+PASS RC2-content-reinterrupted predecessor returns actual operation failure
+PASS RC2-content-reinterrupted fault is reached
+PASS RC2-content-reinterrupted predecessor has no new-format recovery record
+PASS RC2-content-reinterrupted actual predecessor writes the reported split pointers
+PASS RC2-content-reinterrupted every inherited payload survives
+PASS RC2-content-reinterrupted installed recovery reaches and returns marker failure
+PASS RC2-content-reinterrupted failed publication retains retry record without completion marker
+PASS installed candidate migration remains unchanged
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-predecessor-01/predecessor-proof.py", line 72, in <module>
+    check(execute('/usr/bin/cloud_migrate_layout --needs-step',tag+'-needs-step')==0,tag+' boot offers retry')
+          ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tmp/pixelelated-m7-predecessor-01/predecessor-proof.py", line 37, in execute
+    match=re.search(r'\nM7_COMMAND_RC=(\d+)\s*$',text);assert match,text
+                                                              ^^^^^
+AssertionError: M7_COMMAND_RC=0
+PASS owned guest stopped 3869253
+down
+/workspace/tmp/pixelelated-m7-qa-05/pair/vm-a.qcow2: OK

@@ -7,7 +7,7 @@ cd "$TASK_TREE"
 export ES_SRC=/home/max/Development/emulationstation-next.worktrees/qa-integration
 export VM_PAIR_DIR="$TASK_OWNER/pair"
 test ! -e "$TASK_OWNER/qa.start"
-test "$(cat /workspace/tmp/pixelelated-m7-predecessor-01/outer.rc)" = 0
+test "$(cat /workspace/tmp/pixelelated-m7-predecessor-02/outer.rc)" = 0
 sha256sum -c "$TASK_OWNER/harness.sha256"
 python3 "$TASK_OWNER/verify-inputs.py" "$TASK_BUNDLE"
 python3 - <<'CHECK'

@@ -1,0 +1,58 @@
+[
+  {
+    "source": "before",
+    "case": "silent",
+    "value": null,
+    "expected": 0,
+    "passes": false
+  },
+  {
+    "source": "before",
+    "case": "noisy",
+    "value": 0,
+    "expected": 0,
+    "passes": true
+  },
+  {
+    "source": "before",
+    "case": "nonzero",
+    "value": null,
+    "expected": 5,
+    "passes": false
+  },
+  {
+    "source": "before",
+    "case": "missing",
+    "value": null,
+    "expected": null,
+    "passes": true
+  },
+  {
+    "source": "after",
+    "case": "silent",
+    "value": 0,
+    "expected": 0,
+    "passes": true
+  },
+  {
+    "source": "after",
+    "case": "noisy",
+    "value": 0,
+    "expected": 0,
+    "passes": true
+  },
+  {
+    "source": "after",
+    "case": "nonzero",
+    "value": 5,
+    "expected": 5,
+    "passes": true
+  },
+  {
+    "source": "after",
+    "case": "missing",
+    "value": null,
+    "expected": null,
+    "passes": true
+  }
+]

@@ -1,0 +1,34 @@
+{
+  "inspected_frames": [
+    "en_US-640x480/retro-achievements/01-main-menu-entry.png",
+    "en_US-640x480/retro-achievements/04-offline-achievements.png",
+    "fr_FR-640x480/retro-achievements/04-offline-achievements.png",
+    "fr_FR-640x480/cloud-sync/04-cloud-hub.png",
+    "fr_FR-640x480/cloud-sync/05-back-up-to-the-cloud.png",
+    "fr_FR-640x480/cloud-sync/06-connect-or-repair-cloud-storage.png",
+    "en_US-640x480/identity/02-system-settings.png",
+    "en_US-640x480/identity/03-information.png",
+    "en_US-640x480/identity/04-updates.png",
+    "en_US-640x480/identity/05-manual-update-message.png",
+    "en_US-640x480/tools/tools-row-00.png",
+    "en_US-640x480/tools/tools-row-01.png",
+    "en_US-640x480/tools/tools-row-02.png",
+    "en_US-640x480/tools/tools-row-03.png",
+    "en_US-640x480/tools/tools-row-04.png",
+    "en_US-640x480/tools/tools-row-05.png",
+    "en_US-640x480/tools/tools-row-06.png",
+    "en_US-640x480/tools/tools-row-07.png",
+    "en_US-640x480/tools/tools-row-08.png",
+    "en_US-640x480/tools/tools-row-09.png"
+  ],
+  "count": 20,
+  "scope": "Selected actual640 frames only; not a claim of all70 inspected. Both boot crops have independent fixed-threshold matching.",
+  "findings": [
+    "#424: main menu falls back to ROCKNIX and wrong legacy update branch; semantic identity FAIL.",
+    "Information page correctly reads pixelelated from file.",
+    "EN/FR offline explanation has two separated mixed-case paragraphs within panel.",
+    "FR cloud hub/backup/provider screens captured; long lists scroll.",
+    "Ten Tools selections inspected; renamed Install pixelelated and PortMaster text visible. Several description/label frames are mid-marquee, not full-text visibility proof.",
+    "#422 initial missing-Wi-Fi hypothesis disproved: actual main-menu frame includes NETWORK SETTINGS."
+  ]
+}

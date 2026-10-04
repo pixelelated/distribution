@@ -1,0 +1,262 @@
+[
+  {
+    "assertion": "exact upgraded candidate BUILD_ID",
+    "passed": true
+  },
+  {
+    "assertion": "installed migration equals frozen source",
+    "passed": true
+  },
+  {
+    "assertion": "exact RC2 migration script transferred without substitutions",
+    "passed": true
+  },
+  {
+    "assertion": "real profile selects provider-operation shim",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-backups predecessor returns actual operation failure",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-backups fault is reached",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-backups predecessor has no new-format recovery record",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-backups every inherited payload survives",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-backups installed candidate recovery succeeds",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-backups all candidate payload bytes match",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-backups no owned payload remains under earlier folders",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-backups exact completion marker published",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-backups every pointer follows recovered bytes",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-backups completed local record cleared",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-backups repeated migration preserves exact cloud bytes and pointers",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-saves predecessor returns actual operation failure",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-saves fault is reached",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-saves predecessor has no new-format recovery record",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-saves every inherited payload survives",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-saves installed candidate recovery succeeds",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-saves all candidate payload bytes match",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-saves no owned payload remains under earlier folders",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-saves exact completion marker published",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-saves every pointer follows recovered bytes",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-saves completed local record cleared",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-saves repeated migration preserves exact cloud bytes and pointers",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-content predecessor returns actual operation failure",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-content fault is reached",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-content predecessor has no new-format recovery record",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-content actual predecessor writes the reported split pointers",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-content every inherited payload survives",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-content installed candidate recovery succeeds",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-content all candidate payload bytes match",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-content no owned payload remains under earlier folders",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-content exact completion marker published",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-content every pointer follows recovered bytes",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-content completed local record cleared",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-content repeated migration preserves exact cloud bytes and pointers",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-complete predecessor completes old layout",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-complete predecessor has no new-format recovery record",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-complete every inherited payload survives",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-complete installed candidate recovery succeeds",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-complete all candidate payload bytes match",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-complete no owned payload remains under earlier folders",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-complete exact completion marker published",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-complete every pointer follows recovered bytes",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-complete completed local record cleared",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-complete repeated migration preserves exact cloud bytes and pointers",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-content-reinterrupted predecessor returns actual operation failure",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-content-reinterrupted fault is reached",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-content-reinterrupted predecessor has no new-format recovery record",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-content-reinterrupted actual predecessor writes the reported split pointers",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-content-reinterrupted every inherited payload survives",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-content-reinterrupted installed recovery reaches and returns marker failure",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-content-reinterrupted failed publication retains retry record without completion marker",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-content-reinterrupted boot offers retry",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-content-reinterrupted transfer scan offers retry",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-content-reinterrupted installed candidate recovery succeeds",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-content-reinterrupted all candidate payload bytes match",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-content-reinterrupted no owned payload remains under earlier folders",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-content-reinterrupted exact completion marker published",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-content-reinterrupted every pointer follows recovered bytes",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-content-reinterrupted completed local record cleared",
+    "passed": true
+  },
+  {
+    "assertion": "RC2-content-reinterrupted repeated migration preserves exact cloud bytes and pointers",
+    "passed": true
+  },
+  {
+    "assertion": "installed candidate migration remains unchanged",
+    "passed": true
+  }
+]

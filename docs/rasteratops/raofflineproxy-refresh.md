@@ -1,11 +1,20 @@
 # Current RAOfflineProxy integration for0.0.1
 
 M7.P2, #361/#384, D-WORKFLOW-138. Selected main:
-`aec99ce05bc0b9761366543fe9f08ea34cd8bd7a` (verified2026-10-04, #419).
-Archive SHA256: `c729d421f3d607521b8aec07e068c6c2d01025f17c4ddaf78fad94a28cf9c78e`.
-The19:23 upstream commit changes five Android files and one documentation
-file. All270 raw and patched Linux/native files remain identical to ea9aba;
-15 patches apply with zero fuzz. Comparison receipt: `docs/qa-logs/2026-10-04-proxy-aec99c/`.
+`865e218660e9914e3ba0b4326b5d430af995c843` (verified2026-10-04, #426).
+Archive SHA256: `97e9f4207852aefaff46a37a9f7256f77e79a638eb3b5fa4cb75ea06d174880e`.
+Compared with aec99c,15 Android files and two unshipped Onion/Allium bundle
+scripts change. The bundle scripts now refuse missing Python/pygame inputs;
+this recipe builds its own native library and installs only the Python module,
+not those bundles. All105 consumed Python/native files, and all268 Linux/native/
+test files excluding those two bundle scripts, are byte-identical before and
+after15 zero-fuzz patches. Coupled submodule pins remain unchanged. Receipts:
+`docs/qa-logs/2026-10-04-proxy-865e21/`. New-image proof is still required.
+
+Previous aec99c history: five Android files and one documentation file changed,
+all270 Linux/native files matched ea9aba;15 zero-fuzz patches. Its completed
+1e6a installed preservation and subset HTTP proof remain scoped to that image.
+Receipt: `docs/qa-logs/2026-10-04-proxy-aec99c/`.
 
 Previous ea9aba history follows.
 This commit arrived during corrected-build preparation and changes11 Android

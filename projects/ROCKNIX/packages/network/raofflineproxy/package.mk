@@ -12,9 +12,10 @@ PKG_NAME="raofflineproxy"
 # raofflineproxy-refresh.md for dispositions and exact host/VM boundaries.
 # Patch018 recognizes pixelelated without moving ROCKNIX account/cache paths (#408).
 # Coupled rcheevos/libchdr pins remain those in this parent (D-RA-029/037).
-# aec99c changes Android/docs only; Linux/native bytes match ea9aba (#419).
-PKG_VERSION="aec99ce05bc0b9761366543fe9f08ea34cd8bd7a"
-PKG_SHA256="c729d421f3d607521b8aec07e068c6c2d01025f17c4ddaf78fad94a28cf9c78e"
+# 865e21 changes Android and unshipped bundle scripts; consumed Python/native
+# bytes match aec99c and coupled library pins remain unchanged (#426).
+PKG_VERSION="865e218660e9914e3ba0b4326b5d430af995c843"
+PKG_SHA256="97e9f4207852aefaff46a37a9f7256f77e79a638eb3b5fa4cb75ea06d174880e"
 # GPLv3 text with no "or any later version" grant in the sources.
 PKG_LICENSE="GPL-3.0-only"
 PKG_SITE="https://github.com/misantronic/RAOfflineProxy"

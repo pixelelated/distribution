@@ -1,0 +1,8 @@
+{
+  "observed_utc": "2026-10-04T22:16:19.202426+00:00",
+  "actual_command_rc": 2,
+  "reason": "watch-build rejected absent activity directory before owner execution",
+  "qa_start_absent": true,
+  "run_path_absent": true,
+  "resolution": "create empty owner artifacts directory before launch; original rejection retained"
+}
