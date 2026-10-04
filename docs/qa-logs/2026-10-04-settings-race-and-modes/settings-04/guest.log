@@ -1,0 +1,30 @@
+PASS candidate BUILD_ID
+PASS installed bytes /usr/bin/emulationstation
+PASS installed bytes /etc/profile.d/001-functions
+PASS installed bytes /usr/bin/chksysconfig
+PASS owned new drop-in
+PASS no settings writer lock
+PASS whole starting recovery record
+PASS damage is a strict cut prefix, not a different hand edit
+PASS pause 1 is the installed ES
+PASS ES recovered damaged live file before script
+PASS ES released shared settings lock
+PASS actual shell writers published newer live and record
+PASS pause 2 is the installed ES
+PASS same ES resumed record publication
+PASS newer live and last-good bytes survive stale ES snapshot
+FAIL live and record remain private
+PASS owned settings restored exactly
+PASS unchanged installed bytes /usr/bin/emulationstation
+PASS unchanged installed bytes /etc/profile.d/001-functions
+PASS unchanged installed bytes /usr/bin/chksysconfig
+Traceback (most recent call last):
+  File "/tmp/pixelelated-settings-race/guest-proof.py", line 109, in <module>
+    main()
+    ~~~~^^
+  File "/tmp/pixelelated-settings-race/guest-proof.py", line 92, in main
+    check('live and record remain private', config.stat().st_mode & 0o777 == 0o600 and backup.stat().st_mode & 0o777 == 0o600)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/pixelelated-settings-race/guest-proof.py", line 18, in check
+    raise RuntimeError(name)
+RuntimeError: live and record remain private

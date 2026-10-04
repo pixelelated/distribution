@@ -1,0 +1,58 @@
+{
+  "pass": false,
+  "checks": [
+    {
+      "name": "candidate BUILD_ID",
+      "pass": true
+    },
+    {
+      "name": "installed bytes /usr/bin/emulationstation",
+      "pass": true,
+      "sha256": "8cfb6ff75fd3624945676f51210bbded0ec9354acd7b665450e2d1a2af8f947f"
+    },
+    {
+      "name": "installed bytes /etc/profile.d/001-functions",
+      "pass": true,
+      "sha256": "56eb8d2df1ba52bf61fa3e5a67fecf8b84775616b8812d3dc203b04b7bc8266b"
+    },
+    {
+      "name": "installed bytes /usr/bin/chksysconfig",
+      "pass": true,
+      "sha256": "c08c5351c5616acf44ba90144561530b8356f0a0dcfa7e6ab910cfc4ec4f76c6"
+    },
+    {
+      "name": "owned new drop-in",
+      "pass": true
+    },
+    {
+      "name": "no settings writer lock",
+      "pass": true
+    },
+    {
+      "name": "whole starting recovery record",
+      "pass": true
+    },
+    {
+      "name": "owned settings restored exactly",
+      "pass": true
+    },
+    {
+      "name": "unchanged installed bytes /usr/bin/emulationstation",
+      "pass": true
+    },
+    {
+      "name": "unchanged installed bytes /etc/profile.d/001-functions",
+      "pass": true
+    },
+    {
+      "name": "unchanged installed bytes /usr/bin/chksysconfig",
+      "pass": true
+    },
+    {
+      "name": "exception",
+      "pass": false,
+      "type": "RuntimeError",
+      "message": "ES pause 1 did not arrive; diagnostics retained"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+/workspace/tmp/pixelelated-m7-settings-03/expected.json: OK
+/workspace/tmp/pixelelated-m7-settings-03/guest-proof.py: OK
+/workspace/tmp/pixelelated-m7-settings-03/host-proof.py: OK
+/workspace/tmp/pixelelated-m7-settings-03/outer.sh: OK
+/workspace/tmp/pixelelated-m7-settings-03/pause-unlock.c: OK
+/workspace/tmp/pixelelated-m7-settings-03/pause-unlock.so: OK
+/workspace/tmp/pixelelated-m7-settings-03/run.sh: OK
+/workspace/tmp/pixelelated-m7-settings-03/stop-guest.py: OK
+/workspace/tmp/pixelelated-m7-settings-03/verify-inputs.py: OK
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/8e9eb161b8b4ab84b6339ff58d478acf00322f3c8fa70d5c2c4575849c6a149f
+Formatting '/workspace/tmp/pixelelated-m7-settings-03/upgraded-overlay.qcow2', fmt=qcow2 cluster_size=65536 extended_l2=off compression_type=zlib size=17179869184 backing_file=/workspace/tmp/pixelelated-m7-qa-04/pair/vm-a.qcow2 backing_fmt=qcow2 lazy_refcounts=off refcount_bits=16
+[W][19:07:17.326103] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][19:07:17.326136] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+ready after ~20s
+PASS candidate BUILD_ID
+PASS installed bytes /usr/bin/emulationstation
+PASS installed bytes /etc/profile.d/001-functions
+PASS installed bytes /usr/bin/chksysconfig
+PASS owned new drop-in
+PASS no settings writer lock
+PASS whole starting recovery record
+PASS owned settings restored exactly
+PASS unchanged installed bytes /usr/bin/emulationstation
+PASS unchanged installed bytes /etc/profile.d/001-functions
+PASS unchanged installed bytes /usr/bin/chksysconfig
+
+{
+  "processes": [
+    {
+      "pid": 1874,
+      "comm": "start_es.sh",
+      "exe": "/usr/bin/bash",
+      "probe_env": true,
+      "preload_env": true,
+      "probe_mapped": true
+    },
+    {
+      "pid": 1970,
+      "comm": "emulationstatio",
+      "exe": "/usr/bin/emulationstation",
+      "probe_env": true,
+      "preload_env": true,
+      "probe_mapped": true
+    }
+  ],
+  "service": "MainPID=1874\nExecMainCode=0\nExecMainStatus=0\nActiveState=active\nSubState=running\n",
+  "probe_trace": "loaded pid=1874 rc=0 exe=/usr/bin/bash\nloaded pid=1875 rc=0 exe=/usr/bin/busybox\nloaded pid=1876 rc=0 exe=/usr/bin/strings\nloaded pid=1877 rc=0 exe=/usr/bin/strings\nloaded pid=1880 rc=0 exe=/usr/bin/busybox\nloaded pid=1881 rc=0 exe=/usr/bin/busybox\nloaded pid=1883 rc=0 exe=/usr/bin/busybox\nloaded pid=1884 rc=0 exe=/usr/bin/busybox\nloaded pid=1885 rc=0 exe=/usr/bin/busybox\nloaded pid=1886 rc=0 exe=/usr/bin/systemctl\nloaded pid=1897 rc=0 exe=/usr/bin/busybox\nloaded pid=1898 rc=0 exe=/usr/bin/busybox\nloaded pid=1899 rc=0 exe=/usr/bin/busybox\nloaded pid=1901 rc=0 exe=/usr/bin/busybox\nloaded pid=1902 rc=0 exe=/usr/bin/grep\nloaded pid=1903 rc=0 exe=/usr/bin/busybox\nloaded pid=1904 rc=0 exe=/usr/bin/systemctl\nloaded pid=1905 rc=0 exe=/usr/bin/systemctl\nloaded pid=1906 rc=0 exe=/usr/bin/systemctl\nloaded pid=1907 rc=0 exe=/usr/bin/systemctl\nloaded pid=1908 rc=0 exe=/usr/bin/systemctl\nloaded pid=1909 rc=0 exe=/usr/bin/systemctl\nloaded pid=1910 rc=0 exe=/usr/bin/systemctl\nloaded pid=1911 rc=0 exe=/usr/bin/systemctl\nloaded pid=1912 rc=0 exe=/usr/bin/systemctl\nloaded pid=1913 rc=0 exe=/usr/bin/systemctl\nloaded pid=1914 rc=0 exe=/usr/bin/systemctl\nloaded pid=1915 rc=0 exe=/usr/bin/systemctl\nloaded pid=1916 rc=0 exe=/usr/bin/systemctl\nloaded pid=1917 rc=0 exe=/usr/bin/systemctl\nloaded pid=1918 rc=0 exe=/usr/bin/systemctl\nloaded pid=1919 rc=0 exe=/usr/bin/systemctl\nloaded pid=1920 rc=0 exe=/usr/bin/systemctl\nloaded pid=1921 rc=0 exe=/usr/bin/systemctl\nloaded pid=1922 rc=0 exe=/usr/bin/systemctl\nloaded pid=1923 rc=0 exe=/usr/bin/systemctl\nloaded pid=1924 rc=0 exe=/usr/bin/systemctl\nloaded pid=1925 rc=0 exe=/usr/bin/systemctl\nloaded pid=1926 rc=0 exe=/usr/bin/systemctl\nloaded pid=1927 rc=0 exe=/usr/bin/systemctl\nloaded pid=1928 rc=0 exe=/usr/bin/systemctl\nloaded pid=1929 rc=0 exe=/usr/bin/systemctl\nloaded pid=1930 rc=0 exe=/usr/bin/systemctl\nloaded pid=1931 rc=0 exe=/usr/bin/systemctl\nloaded pid=1932 rc=0 exe=/usr/bin/systemctl\nloaded pid=1933 rc=0 exe=/usr/bin/systemctl\nloaded pid=1934 rc=0 exe=/usr/bin/systemctl\nloaded pid=1935 rc=0 exe=/usr/bin/systemctl\nloaded pid=1936 rc=0 exe=/usr/bin/systemctl\nloaded pid=1937 rc=0 exe=/usr/bin/systemctl\nloaded pid=1938 rc=0 exe=/usr/bin/systemctl\nloaded pid=1939 rc=0 exe=/usr/bin/systemctl\nloaded pid=1940 rc=0 exe=/usr/bin/systemctl\nloaded pid=1941 rc=0 exe=/usr/bin/systemctl\nloaded pid=1942 rc=0 exe=/usr/bin/systemctl\nloaded pid=1943 rc=0 exe=/usr/bin/systemctl\nloaded pid=1944 rc=0 exe=/usr/bin/systemctl\nloaded pid=1945 rc=0 exe=/usr/bin/systemctl\nloaded pid=1946 rc=0 exe=/usr/bin/systemctl\nloaded pid=1947 rc=0 exe=/usr/bin/systemctl\nloaded pid=1948 rc=0 exe=/usr/bin/systemctl\nloaded pid=1949 rc=0 exe=/usr/bin/systemctl\nloaded pid=1950 rc=0 exe=/usr/bin/systemctl\nloaded pid=1951 rc=0 exe=/usr/bin/systemctl\nloaded pid=1952 rc=0 exe=/usr/bin/systemctl\nloaded pid=1953 rc=0 exe=/usr/bin/systemctl\nloaded pid=1954 rc=0 exe=/usr/bin/systemctl\nloaded pid=1955 rc=0 exe=/usr/bin/systemctl\nloaded pid=1956 rc=0 exe=/usr/bin/systemctl\nloaded pid=1957 rc=0 exe=/usr/bin/systemctl\nloaded pid=1958 rc=0 exe=/usr/bin/systemctl\nloaded pid=1959 rc=0 exe=/usr/bin/systemctl\nloaded pid=1960 rc=0 exe=/usr/bin/systemctl\nloaded pid=1961 rc=0 exe=/usr/bin/systemctl\nloaded pid=1962 rc=0 exe=/usr/bin/systemctl\nloaded pid=1963 rc=0 exe=/usr/bin/systemctl\nloaded pid=1964 rc=0 exe=/usr/bin/systemctl\nloaded pid=1965 rc=0 exe=/usr/bin/systemctl\nloaded pid=1966 rc=0 exe=/usr/bin/systemctl\nloaded pid=1967 rc=0 exe=/usr/bin/systemctl\nloaded pid=1968 rc=0 exe=/usr/bin/systemctl\nloaded pid=1969 rc=0 exe=/usr/bin/busybox\nloaded pid=1970 rc=0 exe=/usr/bin/emulationstation\nloaded pid=1994 rc=0 exe=/usr/bin/bash\nloaded pid=1994 rc=0 exe=/usr/bin/bash\nloaded pid=1995 rc=0 exe=/usr/bin/strings\nloaded pid=1996 rc=0 exe=/usr/bin/strings\nloaded pid=1999 rc=0 exe=/usr/bin/busybox\nloaded pid=2000 rc=0 exe=/usr/bin/busybox\nloaded pid=2001 rc=0 exe=/usr/bin/busybox\nloaded pid=2002 rc=0 exe=/usr/bin/busybox\nloaded pid=2004 rc=0 exe=/usr/bin/bash\nloaded pid=2004 rc=0 exe=/usr/bin/timeout\nloaded pid=2007 rc=0 exe=/usr/bin/bash\nloaded pid=2008 rc=0 exe=/usr/bin/strings\nloaded pid=2010 rc=0 exe=/usr/bin/strings\nloaded pid=2013 rc=0 exe=/usr/bin/busybox\nloaded pid=2014 rc=0 exe=/usr/bin/busybox\nloaded pid=2016 rc=0 exe=/usr/bin/busybox\nloaded pid=2018 rc=0 exe=/usr/bin/busybox\n",
+  "loader_errors": []
+}
+
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-settings-03/host-proof.py", line 23, in <module>
+    assert result.returncode==0, 'guest proof failed; original guest.log retained'
+           ^^^^^^^^^^^^^^^^^^^^
+AssertionError: guest proof failed; original guest.log retained
+PASS owned guest stopped 2204378
+/workspace/tmp/pixelelated-m7-qa-04/pair/vm-a.qcow2: OK

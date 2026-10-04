@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Updated 2026-10-04T19:25:39.922741+00:00. Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261004T192539Z.md`.
+> Updated 2026-10-04T18:38:43.336610+00:00. Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261004T183843Z.md`.
 
 ## Start here
 
@@ -25,136 +25,107 @@ bundle, live process and next-action checks; its shorthand/historical-label
 findings are corrected. Retained in replacement03/resume-proof.md.
 A helper installation is COMPLETE; do not ask to reinstall it.
 
-## Current: #421 permission fix under full source regression;02163 is not RC-ready
+## Current: corrected image built; fresh default/actual RC2 QA RUNNING
 
 Frozen tree /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement03,
 branch build/m7-pixelelated-replacement03,
-02163b440bfb055531f50f30184327336a67f886. Never advance/edit its source.
+**02163b440bfb055531f50f30184327336a67f886**. Never advance/edit its source.
 Owner /workspace/tmp/pixelelated-m7-replacement-03. Input manifest SHA256
-3dc8603278d1cfec59acf97514985d22b7d0cdf126ce1887783a007388b35260.
+**3dc8603278d1cfec59acf97514985d22b7d0cdf126ce1887783a007388b35260**.
 6547 regular input files,180 symlinks,1608 recipes; verify-source.py binds them.
-Build completed18:14:16UTC642/642; actual tool82396 and all channels0.
 
-Immutable bundle:
+Build20261004T181220Z-42a9c172 completed18:14:16UTC,642/642. All result
+channels0 including actual tool82396. Former runner1525452/watcher1525453
+absent on actual host. Container419efeddc45e matched pinned digest, nonroot
+uid1000:1000 and only replacement03 mounted at canonical container path
+/workspace/repos/rocknix.worktrees/m7-pixelelated. Source/assembled XML/text,
+proxy,identity/licence checks pass. Completion announced in session.
+
+New immutable bundle:
 /workspace/artifacts/pixelelated-candidates/sha256/8e9eb161b8b4ab84b6339ff58d478acf00322f3c8fa70d5c2c4575849c6a149f
 Image pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz:
 2778135724712ce688f4391ccc970b18210665a64f118b7d25a93787e234f982,
 2073133862 bytes. Tar of same stem:
 ff4805f2b86bc942d8f416f8a7aa7738b5232294ecf5e8c2755e54edc0d19aff,
 2073989120 bytes. Both emitted hashes and bundle custody verify.
+completion.json, bundle.path, container-actual.json and run.path are in owner.
+Repository receipt docs/qa-logs/2026-10-04-pixelelated-replacement-03/ includes
+source inputs/harnesses/current inventory and raw build log hash/local path.
 
-Completed on these exact bytes:
-- qa-04 all15 defaults PASS, actual retained ROCKNIX RC2 upgrade PASS, exact
-  clean/upgraded payloads and source/candidate custody PASS. Actual tool25176
-  and all result channels0;18:59:08 host readback no runner/watcher/QEMU.
-  Run20261004T182012Z-00d8530c, owner /workspace/tmp/pixelelated-m7-qa-04.
-  Actual upgraded disk remains owner/pair/vm-a.qcow2 for read-only backing.
-- image-05 actual95242=0: raw image/update SYSTEM identical at SHA256
-  31157d156e8d10fcaf3d336aad633606cfdf1524a12c4b0cd094842348f5354e;
-  extracted root /workspace/tmp/pixelelated-m7-image-05/root.
-- sweep-02 actual4776=0:57292 regular entries,1345 symlinks;8589 reviewed
-  branding contexts,zero FIX/UNKNOWN;70 broad credential matches are exact
-  reviewed public constants,zero unclassified. Ten scanner controls pass.
-  Localisation794 current/57 retired/2 removed,95 XML entries,zero orphans;
-  installed Tools XML valid and matches source. Actual pugixml1.16 parser.
-  Owned extracted shadow000→0400 only; immutable image unchanged.
-Receipts: docs/qa-logs/2026-10-04-pixelelated-02163-qualification/.
-All completed run outcomes were announced. No Daybreak coverage is claimed:
-the owner directed continuation without unavailable Daybreak elements; local
-artifact checks and the approved Fable5.1 P4 route remain applicable.
+**Active owner /workspace/tmp/pixelelated-m7-qa-04**. Run in frozen tree:
+.build-runs/20261004T182012Z-00d8530c.
+Started18:20:12UTC, runner1675695/watcher1675696, actual tool25176.
+Read build.status/build.rc and owner inner.rc/outer.rc/tool-wrapper.rc;
+actual exec session25176 must be polled for its actual result while available.
+The last observed completed phase is time-to-play (13 default suites pass);
+visual walks continue. Both guests booted02163. No final
+result exists at this checkpoint. Never relaunch a used owner.
 
-## Active #421 source run — supervise actual tool47616
+Shared watch-build uses interval5/stall5min and recursive activity-dir
+/workspace/tmp/pixelelated-m7-qa-04/artifacts. Connected session checks at most
+60s apart and announces events/completion. #395 has no disconnected delivery
+destination: files alone do not notify off-session. Real host PIDs/Docker/VM
+network require escalated view; sandbox process absence is not proof.
 
-Owner /workspace/tmp/pixelelated-m7-settings-source-01; feature tree run
-.build-runs/20261004T192103Z-20d52a35. Started19:21:03UTC,
-runner2264973/watcher2264974, actual exec47616. Shared interval5/stall5min,
-recursive activity owner/artifacts; scripts.log contains actual progress.
-At19:23:54:653 PASS assertions,0FAIL, still running. Read actual current
-state/results; do not restart a used owner. No QEMU is needed by this run.
-
-This runs the full last-good-scripts-test with candidate BusyBox from the
-02163 extraction. sources.sha256 seals four working-tree files; no edit to
-those until it exits. The product correction is currently UNCOMMITTED in
-feature/conflict-resolution; next still carries pre-correction product bytes.
-- projects/ROCKNIX/packages/rocknix/profile.d/001-functions
-- projects/ROCKNIX/packages/rocknix/sources/scripts/chksysconfig
-- tools/last-good-scripts-test
-- tools/settings-modes-test (new, fork-only indices also modified)
-
-#320's guest race uncovered #421: existing0600 settings become0644 through
-shell temporary/rename writers. Prepared prepare_settings_temp intersects
-input modes and caller umask before content is written. All four writers and
-chksysconfig backup/restore use it; sort failure returns nonzero. BusyBox cp
-reapplies source mode, so recovery streams with cat into prepared temporary.
-Focused29 controls on actual functions/candidate applets:old22FAIL,new29PASS.
-Receipts docs/qa-logs/2026-10-04-settings-race-and-modes/ include source hashes.
-No corrected image exists yet. No later02163 owner has started.
-
-#420 fixture history, preserved under /workspace/tmp/pixelelated-m7-settings-:
-01/02/03 actual40520/21885/50319=1:non-prefix partial edit intentionally does
-not trigger chooseConfig recovery.03 confirms probe loaded in real ES.
-Linux comm truncates to15 bytes; use /proc/PID/exe for identity.
-inspect-01 actual27968=0 only reads filtered retained startup logs, not a race.
-04 actual60956=1:strict cut prefix reaches both installed ES unlock pauses;
-ES recovers exact old bytes, actual set_setting/chksysconfig writes newer
-live+record, same ES preserves both newer bytes. The extra0600 check fails,
-exposing #421. Original restoration, immutable hashes, guest cleanup and
-backing rehash all pass. Never relabel this failed run0.
-Test-only C interposer uses pinned candidate compiler; unchanged installed
-ES/script hashes are checked. Sources under docs/qa-frames/2026-10-04-settings-race/.
+qa-04 runs15 defaults then exact clean payload readback, actual retained
+ROCKNIX RC2 image upgrade to02163 and exact upgraded payload readback, then
+candidate/source custody. Predecessor:
+/workspace/artifacts/rocknix-images/x64-all-20260929-69e6039f8f/ROCKNIX-GENERIC_X64.x86_64-20260929.img.gz.
+The actual upgraded disk will remain owner/pair/vm-a.qcow2 for runtime COW.
 
 ## Next, in binding M7 order
 
-1. Finish/supervise source-01. Read actual47616 result plus inner/outer/wrapper
-   and run build.rc; retain full original log. Fix any real regression in a
-   fresh owner after termination; never edit in-flight shell/source.
-2. When source regression passes, commit #421 product/tool/rule changes with
-   evidence/worklog, explicit-full-hash cherry-pick onto next, normal fork
-   push/readback. Do not merge the historical feature branch wholesale.
-   Check fresh upstream package inputs and freeze a new build/* worktree.
-   Preserve02163 source/build/candidate. Prepare an independently copied
-   checksum/inode-verified cache, pinned-container canonical-path mapping,
-   idle guarded swap reclaim immediately before build if needed. Clean
-   changed rocknix package/image stamps, assemble with watch-build, retain
-   every actual/inner/outer/wrapper result and new immutable candidate.
-   Old replacement03 build.sh/run owners are used; do not relaunch them.
-3. Rebind fresh default/actual-RC2/image/sweep/settings owners to the NEW
-   commit/manifest/bundle. Rerun new-image qualification; prior02163 scoped
-   passes do not qualify future bytes. Then remaining owners below. The
-   helper fix changes installed scripts; old hash assertions must renew.
-4. Prepared02163 templates under /workspace/tmp/pixelelated-m7- remain
-   UNSTARTED and MUST NOT be used as new-image proof without a fresh owner:
+1. Finish/supervise qa-04 and retain original actual result/terminal receipts.
+   On failure file/resolve the actual issue; never overwrite/relabel a run.
+   On success retain report/logs/frames and confirm all owned guests stop.
+2. image-05 can run after qa-04, serially in the frozen tree. Explicit ES_SRC
+   is wired (fix418). Extract raw image and update; compare SYSTEM hashes;
+   rerun full brand/credential/localisation sweeps on the extracted bytes.
+   Prepared owner /workspace/tmp/pixelelated-m7-sweep-02 requires image-05
+   success; execute its outer.sh under the feature tree watcher. Ten
+   reproducible rejection controls pass; full corrected-image scan is pending.
+   Use docs/qa-logs/2026-10-04-pixelelated-artifact-sweep/*.py and allowlist.json.
+   Scanner prints counts/hashes only. Do not print credential matches.
+3. Fresh success-gated owners all under /workspace/tmp/pixelelated-m7-:
    link-04:7 WebDAV+7 S3 link cases;
    guest-04:19 independently reset640x480 cloud cases;
-   runtime-04:COW actual upgraded disk,archive14/timing5/identity13 (includes
-   actual /storage Tools consumer bytes and XML); current harness SHA256
-   bfc51641b01d7de769b7ece534e2828db16ef0fea8e100ff17f3e50c670ea71b;
-   proxy-03:installed Python3.14 synthetic SQLite/base/subset preservation20;
+   runtime-04:COW over actualqa-04RC2 disk, archive14/timing5 samples/identity11;
+   proxy-03:installed Python3.14 synthetic inherited SQLite preservation20;
    optins-03:S3 roundtrip then mixed actualRC2/fresh pair migration;
    memory-03:virgl10/software10/software50+sync,5warmups,unchanged limits;
-   ui-03:EN/FR640x480/1280x960 cloud/RA/identity/manual-update frames and
-   English640 Tools rows; harness5cf71af314b69e38c924d3508390d28efae176d62139a77261ee70d91c500674.
-   Existing owners' scripts bind02163/manifest3dc860 and old success guards.
-5. UI captures40s boot scanout before serial wait at both sizes. Run
-   docs/qa-logs/2026-10-04-pixelelated-guest-brand/match-splash.py on actual
-   boot frames against approved ocean/{640,1280}-0.png and old ROCKNIX logo.
-   Fixed99.5% crop agreement, positive/old-logo/blank/wrong-size controls.
-   Host controls are not guest proof. Review actual bilingual/Tools frames.
-6. Reconcile/close each criterion only from its own evidence (#320/#420/#421,
-   #416/#417/#419,#352/#353/#366/#384/#391/#392 and remaining327 docs).
-   Live M7 and #383/#409/#344 openings were updated/read back19:22 to make
-   #421 correction/rebuild the current priority. No RC claim.
-7. Ordinary RA fixture still needs the unanswered owner input below; then
-   approved P4 primary+Fable5.1/xhigh via verified Facilitator/OpenRouter.
-   Initial #375/#382 review is done; do not restart. Resolve/requalify any
-   changed bytes. P5 source/licence/release/docs then first H700 DDR4/RG35XX SP
-   build from qualified inputs. No physical device action/publication yet.
+   ui-03:EN/FR640x480/1280x960 cloud/RA frames, then visual review.
+   All later owners UNSTARTED now. Scripts bind02163/manifest3dc860 and require
+   prior outer.rc0. No live RA account is used by synthetic proxy fixture.
+   image-05 is independent afterdefaults but cannot overlap a watcher in same
+   tree. Do not change any running shell or use pkill by pattern.
+4. ui-03 now captures boot scanout for40s before serial wait at each size.
+   Prior harness is retained; current harness SHA256
+   2fadd6620cf588aea60c1d00e756cdf1aad9091ec3c1001056927dbf1d08a08c.
+   qa-owners-current.json in replacement03 receipt supersedes original owner
+   qa-owners.json's preparation-time status/hash. Source/harness copy retained.
+   Run docs/qa-logs/2026-10-04-pixelelated-guest-brand/match-splash.py with each
+   actual boot-$res directory, approved ocean/{640,1280}-0.png reference,
+   distributions/ROCKNIX/logos/rocknix-logo.png and separate output. Fixed99.5%
+   crop agreement; host positive/old-logo/blank/wrong-size controls pass.
+   They are NOT guest proof yet. Review actual boot and bilingual frames.
+5. Close software criteria only from new image evidence (#416/#417/#419,
+   #320/#352/#353/#366/#384/#391/#392 and remaining327 docs). Reconcile each
+   criterion/Already written trace. Live criteria snapshot in
+   /tmp/pixelelated-m7-open-criteria. Don't transfer predecessor passes.
+6. Remaining ordinary RA award fixture needs owner's unanswered account
+   action below. Then approved P4 primary + Fable5.1/xhigh via verified
+   Facilitator/OpenRouter, including rename. Initial #375/#382 audit is done;
+   don't restart it. Resolve audit findings and requalify affected bytes.
+7. P5 corresponding-source/licence/release/adoption/recovery/docs, then first
+   H700 DDR4/RG35XX SP build after P3/P4. No handheld action/publication yet.
+   The x64 image cannot be flashed to H700.
 
-Long jobs use `tools/watch-build --interval 5 --stall-min 5
---recursive-activity --activity-dir OWNER/artifacts -- OWNER/outer.sh`, plus
-connected supervision at most60s apart. #395 has no disconnected destination.
-The old archive contains the complete canonical mount/build command details.
-Real host PIDs/Docker/VM network require escalated view, not sandbox absence.
+Run each prepared owner through the frozen tree, retaining actual results:
+
+```bash
+tools/watch-build --interval 5 --stall-min 5 \
+  --activity-dir OWNER/artifacts --recursive-activity -- OWNER/outer.sh BUNDLE
+```
 
 ## Completed source corrections and current source inventory
 

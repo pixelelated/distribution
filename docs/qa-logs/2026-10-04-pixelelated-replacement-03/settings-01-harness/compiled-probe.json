@@ -1,0 +1,16 @@
+{
+  "path": "/workspace/tmp/pixelelated-m7-settings-01/pause-unlock.so",
+  "sha256": "c61a59e1fd6c21fd84a3b10bb2803300b4619f69153867762705228d2788c810",
+  "compiler": "candidate x86_64-rocknix-linux-gnu-gcc",
+  "container": "ghcr.io/pixelelated/build@sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39",
+  "flags": [
+    "-shared",
+    "-fPIC",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-ldl"
+  ],
+  "compiled_rc": 0
+}

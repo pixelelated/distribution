@@ -25,3 +25,7 @@ for name in ['LICENSE.md','TRADEMARK.md']:
  local=Path('/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement03')/name
  check(sha('/usr/share/licenses/pixelelated/'+name)==hashlib.sha256(local.read_bytes()).hexdigest(),'installed '+name+' matches approved terms')
 print('PASS installed OS identity, retired reporting/update entry points and policy bytes',flush=True)
+
+metadata=Path('/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement03/projects/ROCKNIX/packages/misc/modules/sources/gamelist.xml')
+check(sha('/storage/.config/modules/gamelist.xml')==hashlib.sha256(metadata.read_bytes()).hexdigest(),'actual upgraded Tools metadata consumer has corrected bytes')
+check(guest("python3 -c \"import xml.etree.ElementTree as E; E.parse('/storage/.config/modules/gamelist.xml'); print('valid')\"")=='valid','actual upgraded Tools metadata parses as XML')

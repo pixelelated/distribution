@@ -1,0 +1,20 @@
+PASS candidate BUILD_ID
+PASS installed bytes /usr/bin/emulationstation
+PASS installed bytes /etc/profile.d/001-functions
+PASS installed bytes /usr/bin/chksysconfig
+PASS owned new drop-in
+PASS no settings writer lock
+PASS whole starting recovery record
+PASS owned settings restored exactly
+PASS unchanged installed bytes /usr/bin/emulationstation
+PASS unchanged installed bytes /etc/profile.d/001-functions
+PASS unchanged installed bytes /usr/bin/chksysconfig
+Traceback (most recent call last):
+  File "/tmp/pixelelated-settings-race/guest-proof.py", line 104, in <module>
+    main()
+    ~~~~^^
+  File "/tmp/pixelelated-settings-race/guest-proof.py", line 74, in main
+    pid1 = wait_marker(1)
+  File "/tmp/pixelelated-settings-race/guest-proof.py", line 50, in wait_marker
+    raise RuntimeError(f'ES pause {step} did not arrive; diagnostics retained')
+RuntimeError: ES pause 1 did not arrive; diagnostics retained

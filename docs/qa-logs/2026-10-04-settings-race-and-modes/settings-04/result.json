@@ -1,0 +1,101 @@
+{
+  "pass": false,
+  "checks": [
+    {
+      "name": "candidate BUILD_ID",
+      "pass": true
+    },
+    {
+      "name": "installed bytes /usr/bin/emulationstation",
+      "pass": true,
+      "sha256": "8cfb6ff75fd3624945676f51210bbded0ec9354acd7b665450e2d1a2af8f947f"
+    },
+    {
+      "name": "installed bytes /etc/profile.d/001-functions",
+      "pass": true,
+      "sha256": "56eb8d2df1ba52bf61fa3e5a67fecf8b84775616b8812d3dc203b04b7bc8266b"
+    },
+    {
+      "name": "installed bytes /usr/bin/chksysconfig",
+      "pass": true,
+      "sha256": "c08c5351c5616acf44ba90144561530b8356f0a0dcfa7e6ab910cfc4ec4f76c6"
+    },
+    {
+      "name": "owned new drop-in",
+      "pass": true
+    },
+    {
+      "name": "no settings writer lock",
+      "pass": true
+    },
+    {
+      "name": "whole starting recovery record",
+      "pass": true
+    },
+    {
+      "name": "damage is a strict cut prefix, not a different hand edit",
+      "pass": true
+    },
+    {
+      "name": "pause 1 is the installed ES",
+      "pass": true,
+      "pid": 1954
+    },
+    {
+      "name": "ES recovered damaged live file before script",
+      "pass": true,
+      "damaged_sha256": "76b81a650511c6b89e667026a138290644fa932ebd724765d948798634aa4da0",
+      "recovered_sha256": "26a429df25878270c7ceffdce5254bf40ac3f47f97fbd1e9f8a1bf2d17dc8dac"
+    },
+    {
+      "name": "ES released shared settings lock",
+      "pass": true
+    },
+    {
+      "name": "actual shell writers published newer live and record",
+      "pass": true,
+      "newer_sha256": "a94d9eb7f796fc0c3db1748f8501f740595f77a47c1aeddd2f546ac483dc2c66"
+    },
+    {
+      "name": "pause 2 is the installed ES",
+      "pass": true,
+      "pid": 1954
+    },
+    {
+      "name": "same ES resumed record publication",
+      "pass": true
+    },
+    {
+      "name": "newer live and last-good bytes survive stale ES snapshot",
+      "pass": true,
+      "live_sha256": "a94d9eb7f796fc0c3db1748f8501f740595f77a47c1aeddd2f546ac483dc2c66",
+      "record_sha256": "a94d9eb7f796fc0c3db1748f8501f740595f77a47c1aeddd2f546ac483dc2c66"
+    },
+    {
+      "name": "live and record remain private",
+      "pass": false
+    },
+    {
+      "name": "owned settings restored exactly",
+      "pass": true
+    },
+    {
+      "name": "unchanged installed bytes /usr/bin/emulationstation",
+      "pass": true
+    },
+    {
+      "name": "unchanged installed bytes /etc/profile.d/001-functions",
+      "pass": true
+    },
+    {
+      "name": "unchanged installed bytes /usr/bin/chksysconfig",
+      "pass": true
+    },
+    {
+      "name": "exception",
+      "pass": false,
+      "type": "RuntimeError",
+      "message": "live and record remain private"
+    }
+  ]
+}

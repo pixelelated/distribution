@@ -19,6 +19,8 @@ for walk in ['retro-achievements','cloud-sync','identity']:
  print('START',a.language,a.resolution,walk,flush=True)
  subprocess.run(v+['run',str(owner/'identity.steps') if walk=='identity' else 'tools/vm-walks/docs/'+walk+'.steps','--outdir',str(out/walk)],check=True)
  print('CAPTURED',a.language,a.resolution,walk,flush=True)
+if a.language=='en_US' and a.resolution=='640x480':
+ subprocess.run(['python3',str(owner/'tools-frames.py'),'--owner',str(owner),'--output',str(out/'tools')],check=True)
 import struct
 frames=list(out.rglob('*.png'));w,h=map(int,a.resolution.split('x'))
 assert frames and all(f.read_bytes()[:8]==b'\x89PNG\r\n\x1a\n' and struct.unpack('>II',f.read_bytes()[16:24])==(w,h) for f in frames)
