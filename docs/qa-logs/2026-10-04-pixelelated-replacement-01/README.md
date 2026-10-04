@@ -1,7 +1,7 @@
 # Corrected pixelelated replacement preparation — #383/#409/#414
 
 Prepared October4 after actual #410 host rollout. This is engineering build
-preparation, not an image or qualification result.
+preparation and completed assembly; VM qualification remains separate.
 
 New build/m7-pixelelated-replacement01 is frozen at published next1600d78fe5.
 The6547-file/180-symlink manifest361e0da0f17c is immutable under
@@ -46,3 +46,14 @@ on clean and actual RC2-upgraded guests. The required sequence remains
 15defaults and actualRC2 → WebDAV/S3 link matrices →19 independent guest
 cases → actual-upgraded archive/timing/identity → remaining P3/P4. No physical
 device, personal-cloud or release publication action is implied.
+
+## Build completion — 16:35 UTC
+
+All642 package tasks completed; command, inner, outer, watcher, wrapper and
+actual tool session87085 returned0. Runner/watcher exited. Frozen input,
+assembled proxy-script bytes and identity/licence checks passed. Both emitted
+checksums verify when checked from target/ (the first host invocation used
+the repository cwd and could not find the basename, then was corrected).
+Immutable bundle b37f01b7e4e5a06f983dd420b4af10c0c2155564fb9071051c0772ceb0e04c3b
+contains the full input manifest, images and build receipts; custody verifies.
+See candidate-summary.json for exact hashes/sizes. This is not an RC claim.
