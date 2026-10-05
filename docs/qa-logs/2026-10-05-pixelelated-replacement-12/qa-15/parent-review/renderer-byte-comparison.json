@@ -1,0 +1,84 @@
+{
+  "observed_utc": "2026-10-05T23:14:11.735231+00:00",
+  "old_root": "/workspace/tmp/pixelelated-m7-image-12/root",
+  "new_root": "/workspace/tmp/pixelelated-m7-image-13/root",
+  "scope": "Byte comparison of explicitly named installed renderer/browser payloads; no runtime test and no whole-image equivalence claim",
+  "files": [
+    {
+      "path": "usr/bin/cog",
+      "compared": false,
+      "reason": "missing or symbolic path; no inferred equality"
+    },
+    {
+      "path": "usr/bin/emulationstation",
+      "compared": true,
+      "old_sha256": "31e1a0cf5efe9ffee5769715bc54b5125ccd21bb927b20a3eab2e650a06591b3",
+      "new_sha256": "31e1a0cf5efe9ffee5769715bc54b5125ccd21bb927b20a3eab2e650a06591b3",
+      "equal": true
+    },
+    {
+      "path": "usr/bin/sway",
+      "compared": true,
+      "old_sha256": "ecfb7604765cb6faf014ebb1d43a4a695d17efbea76ab17e1aee9f5a610b9d5d",
+      "new_sha256": "ecfb7604765cb6faf014ebb1d43a4a695d17efbea76ab17e1aee9f5a610b9d5d",
+      "equal": true
+    },
+    {
+      "path": "usr/lib/libsoup-3.0.so.0.8.0",
+      "compared": true,
+      "old_sha256": "59302779e53eb3fe93d194fbafeae81c0c6b9cdffd8b13fac71b4bfd76e1457b",
+      "new_sha256": "59302779e53eb3fe93d194fbafeae81c0c6b9cdffd8b13fac71b4bfd76e1457b",
+      "equal": true
+    },
+    {
+      "path": "usr/lib/libwlroots-0.19.so",
+      "compared": true,
+      "old_sha256": "a0fbf9fc0d38226dd0d21cf87f719f019149839efdb2cc8764cb0974b6e5996d",
+      "new_sha256": "a0fbf9fc0d38226dd0d21cf87f719f019149839efdb2cc8764cb0974b6e5996d",
+      "equal": true
+    },
+    {
+      "path": "usr/lib/sway/sway-generic-x64",
+      "compared": true,
+      "old_sha256": "15b13fa9aa177641948c26b64a6dff1fba4110d7b8d93d4bb339ba0e24c7f93b",
+      "new_sha256": "15b13fa9aa177641948c26b64a6dff1fba4110d7b8d93d4bb339ba0e24c7f93b",
+      "equal": true
+    },
+    {
+      "path": "usr/lib/systemd/system/sway.service.d/10-generic-x64-renderer.conf",
+      "compared": true,
+      "old_sha256": "ca1e6aaf6066e104693f7521b7fa5a59ff22d4610cee6c5b2c093a05b0d312a2",
+      "new_sha256": "ca1e6aaf6066e104693f7521b7fa5a59ff22d4610cee6c5b2c093a05b0d312a2",
+      "equal": true
+    },
+    {
+      "path": "usr/bin/cloud-signin-window",
+      "compared": true,
+      "old_sha256": "fc9a3473490f52e8da76d473a2265e56d1dd362977351b4b732ed2bcd1419990",
+      "new_sha256": "fc9a3473490f52e8da76d473a2265e56d1dd362977351b4b732ed2bcd1419990",
+      "equal": true
+    },
+    {
+      "path": "usr/lib/libwebkit2gtk-4.1.so.0.24.4",
+      "compared": true,
+      "old_sha256": "0cfdf22d3c488505b64aaeb8cdebac0a4de148adf247d8699629c5df7726f7df",
+      "new_sha256": "0cfdf22d3c488505b64aaeb8cdebac0a4de148adf247d8699629c5df7726f7df",
+      "equal": true
+    },
+    {
+      "path": "usr/lib/libjavascriptcoregtk-4.1.so.0.11.8",
+      "compared": true,
+      "old_sha256": "0ceb418e113e61ed1967bac05cdf41c37dfd75c11bd723472b53e029516638a9",
+      "new_sha256": "0ceb418e113e61ed1967bac05cdf41c37dfd75c11bd723472b53e029516638a9",
+      "equal": true
+    },
+    {
+      "path": "usr/lib/webkit2gtk-4.1/injected-bundle/libwebkit2gtkinjectedbundle.so",
+      "compared": true,
+      "old_sha256": "c3490d61f21698439aaeb15bc9b8cc98cec8595bab32fc284377368fb885b78b",
+      "new_sha256": "c3490d61f21698439aaeb15bc9b8cc98cec8595bab32fc284377368fb885b78b",
+      "equal": true
+    }
+  ],
+  "supplemented_utc": "2026-10-05T23:14:29.491358+00:00"
+}

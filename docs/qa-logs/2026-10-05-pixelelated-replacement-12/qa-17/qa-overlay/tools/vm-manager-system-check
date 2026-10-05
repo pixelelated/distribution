@@ -1,0 +1,19 @@
+#!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-2.0-or-later
+# Copyright (C) 2026-present pixelelated (https://github.com/pixelelated)
+"""Refuse a manager walk whose requested system is absent or not selected."""
+import json
+import sys
+
+try:
+    expected, selected = sys.argv[1:]
+    systems = json.load(sys.stdin)
+    matches = [s for s in systems if s.get('name') == expected]
+    assert len(matches) == 1, 'requested system is missing or duplicated'
+    assert matches[0].get('visible') == 'true', 'requested system is not visible'
+    assert matches[0].get('visibleGames', 0) > 0, 'requested system has no visible games'
+    assert selected == expected, 'actual selected system is %r, expected %r' % (selected, expected)
+except (ValueError, AssertionError, TypeError) as error:
+    print('FAIL manager system: ' + str(error), file=sys.stderr)
+    sys.exit(1)
+print('PASS actual selected manager system ' + expected)

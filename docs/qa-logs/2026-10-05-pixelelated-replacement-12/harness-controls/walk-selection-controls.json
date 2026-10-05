@@ -1,0 +1,17 @@
+[
+  {
+    "case": "default-pre",
+    "rc": 2,
+    "stderr": "vm-qa: unknown walk default-pre\n"
+  },
+  {
+    "case": "not-a-walk",
+    "rc": 2,
+    "stderr": "vm-qa: unknown walk not-a-walk\n"
+  },
+  {
+    "case": "../manager-gb",
+    "rc": 2,
+    "stderr": "vm-qa: unknown walk ../manager-gb\n"
+  }
+]

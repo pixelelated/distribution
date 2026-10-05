@@ -1,0 +1,57 @@
+{
+  "observed_utc": "2026-10-05T22:53:57.696233+00:00",
+  "scope": "Direct inspection of all five initial-clean identity frames",
+  "frames": [
+    {
+      "path": "/workspace/tmp/pixelelated-m7-qa-15/artifacts/identity-initial-clean/01-main-menu-identity.png",
+      "sha256": "bff83c452b88198fb1e2499960c0554444026a13332248eade5d4916d9c907e5",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "reviewed": true
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-qa-15/artifacts/identity-initial-clean/02-system-settings.png",
+      "sha256": "14d891e6b3114615ed63c8cea1ae6cd67f3497726ed93698536d31c39b68e6d0",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "reviewed": true
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-qa-15/artifacts/identity-initial-clean/03-information.png",
+      "sha256": "dcd33aed87b3c656c86422e9b177d00f175c4f99309f9080fa613ce9ca1c77ec",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "reviewed": true
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-qa-15/artifacts/identity-initial-clean/04-updates.png",
+      "sha256": "ed350c9e27711d3e6ea86f05c09fc36611bce57a6cee7e8dddc0d985307f2de0",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "reviewed": true
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-qa-15/artifacts/identity-initial-clean/05-manual-update-message.png",
+      "sha256": "0c42ef484979e5d8d7878eeccd1e746a4c28ef09c661c6e5e131cf9c5b8f0e6e",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "reviewed": true
+    }
+  ],
+  "findings": [
+    "Lowercase pixelelated 0.0.1 community identity visible in main menu and information",
+    "Build ID 55d8ee8 and replacement12 branch visible",
+    "Manual update entry and complete pixelelated/distribution/releases instructions readable without clipping"
+  ],
+  "limitations": "Initial clean guest only; upgraded frames and full visual-walk baseline comparison are pending"
+}

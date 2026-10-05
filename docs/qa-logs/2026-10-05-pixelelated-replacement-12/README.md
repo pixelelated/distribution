@@ -33,18 +33,27 @@ all four channels zero and actual cleanup at 22:47:21. It maps 583 components,
 new proxy archive and recovered rclone source/binary identity pass. Fourteen
 recipe-licence gaps remain; this is not a complete publication source bundle.
 
-QA15 started at 22:47:25 under the standard watcher. Default suites and the
-actual September29 ROCKNIX RC2 upgrade are still running. Proxy12 and subset09
-remain unstarted. `preparation-native-chd/` preserves the later sealed proxy
-harness, which adds installed native-format tests and four legacy CHD v1/v2
-cases with metadata bounds, signed integer edges and payload reads. Its host
-fixture control passed; no installed result is claimed yet. The original
-preparation remains under `preparation/`.
+QA15 reported all15defaults and26actualRC2 upgrade assertions passing, then
+failed the immediate guest restart (allfour1): old vm-pair returned before
+QEMU released VNC. Direct review also found inherited wrong-system GB coverage.
+QA16 exposed QEMU's self-removal of its pidfile; it remains failed/allfour1.
+QA17's fresh, independent upgraded-disk copy completes the scoped follow-up:
+upgraded virgl/Pixman payload and10identity frames; four walks/19frames with
+actual manager selection; reviewed comparison14claimed/0unclaimed/0missing.
+Allfour0 at23:40:31, actual cleanup23:40:46. Original disks, failures and the
+first comparison's two findings remain retained. No baseline or masks moved.
 
-Remaining order: complete QA15 → installed proxy12 → subset09 → ordinary RA
-and authenticated Dropbox QA-account proofs → approved independent P4 audit
-→ H700 DDR4/RG35XX SP arm, then aarch64 → named physical/P5 gates.
-Account inputs remain unanswered. Source09/10 evidence retains its own scope.
+Proxy13 passes22installed preservation assertions,18native tests/no skips and
+four legacyCHD cases. Subset10 passes35HTTP refusal/reconnect/idempotence
+assertions. Allfour results and actual cleanup pass for both. Evidence is in
+qa-15,qa-16,qa-17,proxy-13,subset-10 and harness-controls. Product source and
+immutable image remain unchanged; fixes are host QA tools (#454,#455).
+
+No job remains active. Next: ordinary RA and authenticated Dropbox QA-account
+proofs (inputs unanswered), remaining P3 acceptance/upstream mapping, approved
+P4 primary+Fable5.1/xhigh via verified Facilitator, then H700 DDR4/RG35XXSP arm
+and aarch64, followed by named physical/P5 gates. No RC/device-ready claim.
+The old proxy12/subset09 owners remain unstarted preparation history.
 
 The full inputs.json remains sealed at the owner and in the immutable bundle.
 The normal credential hook rejects two historical patch filenames in that

@@ -82,17 +82,21 @@ This is source integration; candidate build and VM qualification remain required
 |015|Rebased: bounded DNS and reuse of the lookup answer, preserving upstream request accounting.|
 |016|Rebased: downloaded/cached, absent404/410 and transient outcomes remain visible to the image helper.|
 |017|Retired: upstream subset-aware `_iter_achievementsets_achievements`/`build_achievement_game_ids` and award-parity tests already preserve each set's game ID.|
+|018|Retained for the renamed project: recognize complete `OS_NAME="pixelelated"` records while preserving ROCKNIX account paths and configured overrides; focused platform-discovery tests travel with the patch.|
 
-Fourteen refresh patches apply without fuzz and reproduce the reviewed
-integration tree. Parent gitlinks retain rcheevos1433173 and libchdr8e7b8bd;
-full pins are retained in the evidence directory and existing coupled recipes.
+Fifteen patches, including the renamed platform-discovery follow-up, apply
+without fuzz to selected parent3036478. Its coupled pins are
+rcheevos1433173220a7eaede6a9ed7a18e94117be1821e0 and
+libchdr607694ca0812edfc9cc2030c64634fc2393668de. Exact archives, patch
+application and815 native-enabled Linux tests are retained in the current
+evidence linked above. The older libchdr8e7b8bd belongs to earlier refreshes.
 The whole upstream download/queue model remains available. The deliberate OS
 helper explicitly opts out of its game-count window and checks `queued`; a
 queued game produces FAIL/pending behavior, never OK/offline-ready. Indexed
 work uses background request throttling and persists server pauses so restart
 cannot defeat them. Image lookup retains older unsharded paths.
 
-## Evidence and remaining gates
+## Initial refresh evidence — 2026-10-03
 
 `docs/qa-logs/2026-10-03-proxy-refresh/` records the initial125-game failure:
 125 reported cached,100 actually cached. Five of eight strengthened integration
@@ -102,8 +106,8 @@ defaults, persisted pause,429 and reopen of an actual predecessor-written
 SQLite store with login/cache/base/subset award rows and legacy image paths.
 The reconstructed mapping remains base100/subset200 after two reopens.
 
-180 upstream queue, award, consent, image, network and refresh tests pass on
-current patched source. The first sandboxed attempt lacked socket/DNS access;
+On that initial refresh,180 upstream queue, award, consent, image, network
+and refresh tests passed on its selected patched source. The first sandboxed attempt lacked socket/DNS access;
 the host run passed. The broad fork harness now passes1,367 checks plus322 focused cloud cases
 with0 FAIL/0 SKIP against this exact archive/series. Its initial four failures
 were a stale schema annotation and old unsharded-path fixtures; after updating
@@ -118,7 +122,7 @@ General fixes remain owned by #168; upstream acceptance does not gate the
 locally qualified candidate.
 
 
-## Branded runtime discovery follow-up — #408
+## Historical branded runtime discovery follow-up — #408
 
 Replacement134e89 exposed upstream's exact OS_NAME=ROCKNIX detector missing
 Rasteratops, so automatic account discovery could not find system.cfg. Patch018
@@ -127,3 +131,13 @@ overrides and all queue behavior. Seven isolated controls,36 upstream platform/
 config/auth tests and eight fork integration tests pass. The prepared upstream
 patch includes focused tests. A rebuilt image must qualify this correction;
 the original packaged failure remains in2026-10-03-proxy-identity.
+
+The current patch018 uses lowercase pixelelated, superseding the historical
+Rasteratops identity above. Its focused upstream draft is retained at
+`docs/upstream/raofflineproxy/pixelelated-identity/`. Together with the concurrent
+image-publication draft, it remains prepared, not submitted; #168 tracks outward
+contributions and the remaining generally useful fixes. Replacement12 has now
+built with parent3036478; its default/upgrade and scoped QA continuation, installed native/proxy
+and HTTP reconnection proofs are retained under the replacement12 evidence.
+Ordinary account-backed achievement earning remains pending. No old source-only result is relabeled as this
+candidate's installed result.

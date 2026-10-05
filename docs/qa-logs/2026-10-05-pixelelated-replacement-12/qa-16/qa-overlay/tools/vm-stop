@@ -1,0 +1,73 @@
+#!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-2.0-or-later
+# Copyright (C) 2026-present pixelelated (https://github.com/pixelelated)
+"""Stop the exact owned QEMU, awaiting exit before its ports may be reused."""
+import argparse
+import os
+from pathlib import Path
+import select
+import signal
+import sys
+
+
+def stop(pidfile, disk, timeout):
+    try:
+        recorded = pidfile.read_text()
+    except FileNotFoundError:
+        return
+    pid = int(recorded.strip())
+    if pid <= 1:
+        raise ValueError('invalid guest PID')
+    proc = Path('/proc') / str(pid)
+    handle = None
+    try:
+        args = (proc / 'cmdline').read_bytes().split(b'\0')
+        stat = (proc / 'stat').read_text()
+        start = stat[stat.rfind(')') + 2:].split()[19]
+        if args and args[0]:
+            if not Path(os.fsdecode(args[0])).name.startswith('qemu-system-'):
+                raise ValueError('PID is not QEMU; refusing to signal it')
+            drive = os.fsencode('if=none,id=rocknix,format=qcow2,file=' + str(disk))
+            if not any(args[i] == b'-drive' and args[i + 1] == drive
+                       for i in range(len(args) - 1)):
+                raise ValueError('QEMU does not own the expected disk; refusing to signal it')
+            handle = os.pidfd_open(pid)
+            current = (proc / 'stat').read_text()
+            if (current[current.rfind(')') + 2:].split()[19] != start or
+                    (proc / 'cmdline').read_bytes().split(b'\0') != args):
+                raise ValueError('process identity changed; refusing to signal it')
+            signal.pidfd_send_signal(handle, signal.SIGTERM)
+            poller = select.poll()
+            poller.register(handle, select.POLLIN)
+            if not poller.poll(round(timeout * 1000)):
+                raise TimeoutError('owned QEMU has not exited; retaining pidfile')
+        # Empty cmdline is an exited zombie: its ports are already released.
+    except (FileNotFoundError, ProcessLookupError):
+        pass
+    finally:
+        if handle is not None:
+            os.close(handle)
+    if pidfile.read_text() != recorded:
+        raise ValueError('pidfile changed; retaining it')
+    pidfile.unlink()
+    print('down: owned QEMU exited (pid %d)' % pid)
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--timeout', type=float, default=20)
+    parser.add_argument('pidfile', type=Path)
+    parser.add_argument('disk', type=Path)
+    args = parser.parse_args()
+    if not 0 < args.timeout <= 60:
+        parser.error('timeout must be greater than zero and at most 60 seconds')
+    try:
+        stop(args.pidfile, args.disk, args.timeout)
+    except (OSError, ValueError, TimeoutError) as error:
+        print('vm-stop: ' + str(error), file=sys.stderr)
+        return 1
+    return 0
+
+
+if __name__ == '__main__':
+    sys.exit(main())

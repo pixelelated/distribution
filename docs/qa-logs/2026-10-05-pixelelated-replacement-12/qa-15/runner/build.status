@@ -1,0 +1,13 @@
+state:       finished
+written:     2026-10-05 23:24:04 UTC   <- terminal result; heartbeat stops here
+watcher_pid: 405155
+job_pid:     405154  alive=yes
+started:     2026-10-05 22:47:25 UTC
+progress:    none matched
+log:         /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement12/.build-runs/20261005T224725Z-fc6fcd8a/build.log  (last written 5s ago)
+activity:    /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement12/.build-runs/20261005T224725Z-fc6fcd8a/build.log  (last written 5s ago)
+activity_dir: /workspace/tmp/pixelelated-m7-qa-15/artifacts
+outcome:     rc=1
+tail:
+  qemu-system-x86_64: -vnc 127.0.0.1:9: Failed to find an available port: Address already in use
+  down

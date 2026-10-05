@@ -12,6 +12,9 @@ paths:
   - "tools/pixelelated-vm-cloud-boundaries"
   - "tools/vm-serial"
   - "tools/vm-pair"
+  - "tools/vm-stop"
+  - "tools/vm-stop-test"
+  - "tools/vm-manager-system-check"
   - "tools/vm-visual-qa"
   - "tools/vm-walks/**"
   - "tools/cloud-test-backend"
@@ -195,6 +198,15 @@ day with `pkill -f 'sleep 30'`).
 because the same command text held the literal in an `rm` three lines down,
 and `bash -c` carries the whole script in its argv. The pidfile exists so
 that this never has to be a pattern.
+
+**A stop waits for exit before the next start (#454).** TERM is a request,
+not evidence that QEMU has released its disk or VNC port. `vm-pair` uses
+`tools/vm-stop`: verify the exact owned disk, hold a pidfd, signal that
+process, await exit boundedly, then remove the pidfile. A wrong owner or
+timeout fails and keeps the pidfile. `tools/vm-stop-test` covers delayed
+exit/port reuse, wrong-process/disk refusal and timeout. A scoped continuation
+may use an independent, compared copy of an actual upgraded disk; retain the
+failed predecessor's result and original disk rather than relabel its run.
 
 **Socket paths under 107 bytes.** A session scratch directory is longer than
 that, and a longer path fails to bind with an error that names nothing. The
@@ -1203,6 +1215,14 @@ So:
   rebooted carousel with `StartupSystem`, with essway stopped first because
   EmulationStation writes its settings back at exit; `default-pre` clears
   the key before every walk.
+- Recheck manager ROM fixtures immediately before each manager walk (#455).
+  The earlier match-to-cloud scenario deliberately removes the Game Boy ROMs;
+  a surviving FBNeo thumbnail does not prove that Game Boy still exists.
+  Require the loaded system list and ES's actual `system-selected` event to
+  agree with the requested system before framing it. An old baseline can
+  preserve an inherited wrong-system screenshot. `vm-qa --only walks --walk
+  NAME` selects a scoped replay; repeat `--walk` to include its destructive
+  predecessor. Keep that scope explicit in the report.
 - **The walks decide the state they frame.** `default-pre` also turns both
   sync switches off and removes the last-run stamps, because a full run
   reaches the walks after the exit suite has left the game-exit sync on
