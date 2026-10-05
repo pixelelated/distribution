@@ -202,3 +202,5 @@ QA08 reached correct initial identity/Information but generic dismiss/reopen/cou
 - 2026-10-05 09:32 UTC -- Supplemental wizard fault controls passed before debug reboot, but the injector/trigger lived in volatile /tmp and were absent when the wizard ran. Original cloud-ui07 retains four failures; fresh sealed owner arms and verifies the real fault after reboot before input. Guard: post-reboot executable/failure/fired controls; issue: #446.
 
 - 2026-10-05 09:48 UTC -- Sign-in command assertions passed but the first302 frame mixed the new page with incomplete repaint blocks. Browser load-finished is not compositor readiness. Preserve command0/visual rejection; fresh capture requires bounded stable-screen state with an actual zero-exit unsettled negative control. Guard: stable_panel.py and actual frame review; issue: #447.
+
+- 2026-10-05 17:08 UTC — render07 completed17:04:04 but the first actual host observation was17:08:12; durable result capture survived, active60second supervision did not. Record the actual gap and require a configured tested delivery destination before claiming off-session alerts; issue: #395.

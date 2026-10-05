@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Saved 2026-10-05T16:54:49.242954+00:00. Previous checkpoint archived at `.github/sessions/archived/saved-session-state-next-20261005T165449Z.md`.
+> Saved 2026-10-05T17:21:30.901110+00:00. Previous checkpoint archived at `.github/sessions/archived/saved-session-state-next-20261005T172130Z.md`.
 > Branch feature/conflict-resolution; primary /workspace/repos/rocknix stays next.
 
 ## Start here
@@ -76,7 +76,15 @@ Boot04/tool90675/all four rc0 passes four clean/upgraded boots at 640x480 and 12
 
 **Actual1GiB resource checks accepted:** baseline signin-1g12 and public-provider signin-provider1g04 both complete with four matching rc0 channels. Actual QEMU allocation1024MiB and guest firmware1048576KiB are verified; Linux usable810368/810372KiB is recorded separately. Both30-second workloads load, remain responsive and have no kernel OOM. Peaks: example.org264076KiB, public Dropbox387668KiB. Actual640x480 frames reviewed. Baseline cleanup95f1c2 at16:44:23; provider cleanupa04e75 at16:51:54 proves all owner/guest processes absent and no QEMU. Provider durable result16:46:03; build-log SHA58d5bd3ff31cb3a29c05fc37f3ed44b558e9338efd961ac8a61ddc20b784b678. Original signin-1g11 rejected an invented usable-RAM floor before workload; preserve its all1 failure. Fresh controls reject actual8GiB, mismatched firmware and zero/excess usable RAM. No numerical RSS ceiling is invented; different workloads/allocations are not equal-memory comparisons.
 
-**Current priority:** reconcile/publish these retained proofs and their issue criteria, then resolve #447's software display discrepancy and the remaining ordinary RetroAchievements/authenticated Dropbox criteria. No build, test, guest or watcher is active at the latest host observation16:51:54. All completed owners are immutable; earlier prepared sign-in/resource owners are superseded and must not be launched.
+**Published evidence:** feature `1f43880a1139f13fbf503e4990e29522b911ded0` integrated with cherry-pick -x as next `9af943c7ce7966d66bc3a85222013fb2dab16b86`; both remote heads verified16:58:51. #446 closed completed with all four criteria mapped/read back (e522bf). #351 phone-spacing criterion is ticked from actual390px/12px margin measurements; authenticated trust stays open. #362's resource proof and #356/#365's supplemental UI gap are updated; broader criteria still need exact artifact reconciliation. Fresh-context handoff proof independently verified6547product/200QA/180symlinks/14bundle files,682public artifacts and all75 recorded PIDs absent at16:57:26. Its missing-publisher and stale447 closure instructions were corrected and reverified before completion.
+
+**Legacy DRM diagnosis completed:** render-diagnostic07 durable17:04:04/all four rc0, actual037abe cleanup17:08:40. Actual software QEMU, llvmpipe and consumed WLR_DRM_NO_ATOMIC=1/legacy backend are recorded. Nine actual0/5/15second comparison frames reviewed: HMP/VNC still old at0/5, correct15; native correct throughout. This rejects legacy DRM as a remedy. The runtime-only override/debug wrapper exists only on this disposable guest; no product change or qualification claim. Retained122artifact hashes/118public files. Source/bundle reverified. Do not adopt this override as a fix.
+
+**Historical comparison complete:** the maintainer requested isolation against pre-pixelelated builds. Source comparison proves12 actual graphics/browser/VM/capture git objects unchanged between old61b648 and currentcf511ce. Old bundle87b8c01d/imagef1af3533 is verified. Fresh old-image software08 reproduces the same host-old/partial0/5→correct15 sequence while native stays correct; accelerated09 has all nine frames exactly correct. All18new comparison frames directly reviewed; actual accelerated QEMU argv old/current is identical except owner path. Software08 durable17:17:13/all0, actual2f5df8 cleanup17:17:37; accelerated09 durable17:18:48/all0, actualf4b65f cleanup17:19:03. Frozen source and both bundles unchanged. This rules out pixelelated changes as necessary to reproduce on today's host; it does not establish historical-host or physical-device behavior. Exact component cause remains open. Read historical-render-comparison/README.md before proposing another fix.
+
+**Current priority:** #447 is a software virtual-display investigation, reproduced on both sides of the rename. Do not spend another cut assuming a branding regression. Use the matched comparison and retained Sway debug evidence to isolate the host/compositor/virtio path; unchanged source alone is not proof of identical binaries. Reconcile #362/#356/#365's broader criteria against existing artifacts. Ordinary RetroAchievements/authenticatedDropbox inputs remain pending; then P4 and H700. No job, guest or watcher is active at actual17:19:03; executed owners are immutable.
+
+**Monitoring limit:** diagnostic07's durable watcher recorded17:04:04 completion; the first actual host check was17:08:12. This does not meet the intended active60second observation bound. #395 retains the unconfigured disconnected destination and this actual gap. Do not present the recorder as proactive off-session delivery or say this run met active supervision.
 
 **Remaining order:** remaining P3 software/account proofs → P4 primary OpenAI + Fable5.1/xhigh through the verified Facilitator → H700 DDR4/RG35XX SP arm, then aarch64 → separately authorized device actions/publication. Ordinary Tobu100359 is already earned; the earlier request for a reset or alternate dedicated QA account is unanswered. Authenticated Dropbox trust needs dedicated QA access; public pages/done-file stand-ins cannot replace it. Public-docs access,14P5 licence metadata gaps and #395 disconnected notification destination remain recorded. P4 has not started; no RC/device-ready claim. Can this be done on the VM? **Yes**, including all remaining software/account proofs.
 
@@ -86,59 +94,62 @@ Scoped #422/#431/#426 are now CLOSED completed: actual000718=0 readback verifies
 
 ## Immediate commands and custody
 
-No active job at16:51:54UTC. All current tests have durable terminal receipts,
-four matching result channels, direct frame review and actual host cleanup.
-The latest provider1g04 submission8797cf is distinct from its job0; completion
-receipta04e75 confirms actual process absence. Every retention helper already
-ran; do not replay exclusive completion/review/retention writes.
+No active job at17:19:03UTC. Latest historical diagnostic09 has durable terminal0
+and four matching channels; actualf4b65f verifies owner/guest absence/noQEMU.
+All completion/review/retention helpers already ran. Never replay them.
 
-Accepted owners: cloud-ui08 (32assertions/nine reviewed frames), signin-ui11
-(27checks/six reviewed frames), signin-1g12 (example.org), and
-signin-provider1g04 (public Dropbox). All live under
-/workspace/tmp/pixelelated-m7-NAME and are retained under
-docs/qa-logs/2026-10-05-pixelelated-replacement-09/NAME/.
-The13 resource artifact hashes/ten public files for each1GiB owner include
-actual graphics/firmware allocation, resource, frame and cleanup evidence.
-Original cloud-ui07, signin08/09/10, render03/04 and signin-1g11 failures or
-visual rejections remain separately retained. Render01/02/05/06 are diagnostics,
-not substitutes for full sign-in qualification. No frozen product change.
+Published cloud08/signin11/1g12/provider1g04 evidence is next9af943c7 (feature1f43880a).
+Publisher /tmp/pixelelated-publish09-signin-complete.py ALREADY RAN successfully;
+receipt /tmp/pixelelated-replacement09-signin-complete-published.json verifies
+both remote heads. #446 closed completed;447 stays open under its explicit
+software-display criterion. Source/candidate are unchanged.
+
+This final handoff/diagnostic07 publication uses a separate publisher:
+/tmp/pixelelated-publish09-render07.py and receipt
+/tmp/pixelelated-replacement09-render07-published.json. Check actual git heads
+and that receipt before continuing; do not rerun a completed publisher.
 
 Next actions:
-1. Finish the current evidence publication on feature/conflict-resolution,
-   exact cherry-pick -x onto primarynext and normal pushes. Fresh publisher:
-   /tmp/pixelelated-publish09-signin-complete.py; receipt:
-   /tmp/pixelelated-replacement09-signin-complete-published.json. Inspect actual
-   git heads/receipt before doing anything; never replay an already-run commit.
-   Required rules/register/index/ceremony checks and normal hooks stay enabled.
-2. Reconcile #446's four artifact criteria and close after publication. #351
-   phone-spacing criterion is now proved; its authenticated trust criterion
-   remains open. Update #362's resource evidence without silently closing its
-   cold-build/freshness criterion. #356/#365 supplemental UI evidence is complete;
-   reconcile remaining broader criteria against their exact existing artifacts.
-3. #447 remains open for reproducible software-host stale/partial scanout.
-   Read render-diagnostic05/06 side-by-side: native correct, software host slow,
-   canonical virgl correct without resize/input. Persistent VNC is insufficient.
-   File/record any new test plan on447 before a fresh sealed owner; do not patch
-   product HTML on a capture-path hypothesis. No current owner may be edited.
-4. OrdinaryRA/authenticatedDropbox need previously requested dedicated account
-   inputs. Do not reset an account or substitute hardcore/public-page success.
-   Only then P4, then H700 builds/device gates. Initial375/382 audits are done.
+1. Read historical-render-comparison/README.md and diagnostics05/06/07/08/09.
+   Both pre-pixelelated and current images reproduce software-host lag; both
+   accelerated controls agree exactly. The rename is not necessary to trigger
+   it on the current host. Investigate447 using this matched comparison.
+   Software HMP/VNC stale, native correct; canonical virgl correct. Persistent
+   viewer and legacy DRM controls did not remove it. Actual07 Sway debug log
+   proves llvmpipe/legacy mode; installed wlroots0.19.3 and Linux7.1.2 sources
+   are under frozen build.pixelelated-GENERIC_X64.x86_64/build/. Inspect buffer
+   damage/upload behavior and actual renderer selection before proposing any
+   product change. Fresh sealed experiments only, issue VM-first plan before
+   launch; no forced resize as qualification. Full proof is required after fix.
+2. Reconcile broader356/365/362 criteria against existing host/guest/cold-build
+   receipts. SupplementalUI32assertions/nineframes and sign-in27checks/sixframes,
+   actual1GiB simple/provider loads are accepted; authenticated trust is not.
+3. Ordinary Tobu100359 is already earned. Use the previously requested owner
+   reset or alternate dedicated QA account; do not reset it yourself/substitute
+   hardcore mode. AuthenticatedDropbox needs dedicated QA access (earlier
+   question unanswered). Then P4 primary OpenAI plus verified Fable5.1/xhigh;
+   initial375/382 audits already done. H700 arm/aarch64 and device gates follow.
 
-Future jobs use tools/watch-build-submit and standard watcher, with active
-supervision within60seconds; the recorder alone cannot notify after model
-capacity/disconnection. #395 has no destination. Actual host /proc needs an
-escalated read because sandbox PIDs are hidden. Fixed-port VM jobs serialize.
-No swap while VM work runs. No credential values/private disks enter Git.
+Latest historical owners08/09 are COMPLETE,18comparison frames reviewed;
+119/287hashes retained, actual2f5df8/f4b65f cleanup. No relaunch. Earlier
+legacy diagnostic owner /workspace/tmp/pixelelated-m7-signin-render-diagnostic-07,
+run20261005T170243Z-d9bb7f0f, submission55c3e6 distinct from job0. It is only a
+failed-remedy experiment, not candidate qualification. Its temporary compositor
+override is not in source/image. All9comparisonframes reviewed;122hashes/118files
+retained under docs/qa-logs/2026-10-05-pixelelated-replacement-09/.
+Original failed/visually rejected owners remain unchanged. No job is queued.
+
+Future jobs require tools/watch-build-submit plus standard watcher and active
+supervision within60seconds. Diagnostic07 had an actual supervision gap; its
+completion was recorded17:04 but first host check17:08. #395 still has no
+notification destination. Actual host /proc requires escalated read; sandbox
+PIDs are hidden. Fixed-port jobs serialize; no swap during VM work. No private
+keys/disks/full source manifest in Git. Completed retentions already ran.
 
 Frozen source /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09, branch build/m7-pixelelated-replacement09, is immutable. Build owner /workspace/tmp/pixelelated-m7-replacement-09. Sourcecf511ce79b83cba7fea8b14cfa3d04fb13e4b4fb; ESf6f0c134212bc696f2f6a747c8d390a588f2f0ce. Input manifest817fd9ff49b1ecf6bcc859cfa38985a65fbcfe5514c33a0a5c9dd60af6cc6c6e:6547product/180symlinks/200QA. Verifier requires ES_SRC=/home/max/Development/emulationstation-next.worktrees/qa-integration and frozen cwd. Full inputs.json stays outside Git; inputs-reference.json only in repository.
 
 Bundle /workspace/artifacts/pixelelated-candidates/sha256/79d560046ee52e28b72f16588168dd7c8fb2637c1cc585713216a8ec828e9d81;14boundmembers. Image pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz SHAb9be57ee7b83d8c6b3be48e2aa29e2c033d7bb5779f3d036fdc251b0c13d5686; tarSHA6072dbc593290a6f05c6c68595fc4ca4d6f434cd465966154355dc19b39c111f. Raw/updateSYSTEM both4c7c1fcce5f9e0032d1d57f9099d32fb8de7322f77b1018ae95f3cb12210634e. Extractedroot /workspace/tmp/pixelelated-m7-image-11/root. InstalledES31e1a0cf5efe9ffee5769715bc54b5125ccd21bb927b20a3eab2e650a06591b3. Actual RC2-upgraded backing /workspace/tmp/pixelelated-m7-qa-13/pair/vm-a.qcow2 remains unchanged.
 
-
-Previous published evidence is featuredf13f273a0745628780ef1abfaae8f8f22c55f0b →
-next908bc62f94d059864a0c466eedb31ac2955fa4ec, verified09:25:37. This checkpoint
-and new cloud/sign-in/resource evidence are the current publication batch;
-use git log and the receipt above for the actual integration/push result.
 
 ## Completed replacement08 and source integration (historical snapshot)
 

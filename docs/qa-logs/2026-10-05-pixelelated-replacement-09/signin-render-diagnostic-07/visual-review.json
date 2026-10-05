@@ -1,0 +1,64 @@
+{
+  "reviewed_utc": "2026-10-05T17:09:32.104296+00:00",
+  "diagnostic_complete": true,
+  "candidate_qualification": false,
+  "legacy_mode_resolves_discrepancy": false,
+  "frames": [
+    {
+      "file": "/workspace/tmp/pixelelated-m7-signin-render-diagnostic-07/artifacts/signin/render-00-qemu.png",
+      "sha256": "81db1962e3e9a8de951eb915e52870ff271b759058d53af0cc8dc51d1cbf64fe",
+      "matches_expected_rgb": false,
+      "observation": "Old local QA redirect form remains visible"
+    },
+    {
+      "file": "/workspace/tmp/pixelelated-m7-signin-render-diagnostic-07/artifacts/signin/render-00-vnc.png",
+      "sha256": "81db1962e3e9a8de951eb915e52870ff271b759058d53af0cc8dc51d1cbf64fe",
+      "matches_expected_rgb": false,
+      "observation": "Old local QA redirect form remains visible"
+    },
+    {
+      "file": "/workspace/tmp/pixelelated-m7-signin-render-diagnostic-07/artifacts/signin/render-00-grim.png",
+      "sha256": "6afa36c72fca1186732068eafe13319984a9b9182b4b2e66ca12a9d4ab961f3f",
+      "matches_expected_rgb": true,
+      "observation": "Connected/Finishing correct"
+    },
+    {
+      "file": "/workspace/tmp/pixelelated-m7-signin-render-diagnostic-07/artifacts/signin/render-05-qemu.png",
+      "sha256": "07f75453be7087e41df6065d7819ff3cfaf8d01e3ad5341d075d3f6019f97563",
+      "matches_expected_rgb": false,
+      "observation": "Old local QA redirect form remains visible"
+    },
+    {
+      "file": "/workspace/tmp/pixelelated-m7-signin-render-diagnostic-07/artifacts/signin/render-05-vnc.png",
+      "sha256": "07f75453be7087e41df6065d7819ff3cfaf8d01e3ad5341d075d3f6019f97563",
+      "matches_expected_rgb": false,
+      "observation": "Old local QA redirect form remains visible"
+    },
+    {
+      "file": "/workspace/tmp/pixelelated-m7-signin-render-diagnostic-07/artifacts/signin/render-05-grim.png",
+      "sha256": "6afa36c72fca1186732068eafe13319984a9b9182b4b2e66ca12a9d4ab961f3f",
+      "matches_expected_rgb": true,
+      "observation": "Connected/Finishing correct"
+    },
+    {
+      "file": "/workspace/tmp/pixelelated-m7-signin-render-diagnostic-07/artifacts/signin/render-15-qemu.png",
+      "sha256": "68a39b5225e347322b2c7ec1b56a4fa1ce3a9dd1e39504c17dbf044c71eaff50",
+      "matches_expected_rgb": true,
+      "observation": "Connected/Finishing correct"
+    },
+    {
+      "file": "/workspace/tmp/pixelelated-m7-signin-render-diagnostic-07/artifacts/signin/render-15-vnc.png",
+      "sha256": "68a39b5225e347322b2c7ec1b56a4fa1ce3a9dd1e39504c17dbf044c71eaff50",
+      "matches_expected_rgb": true,
+      "observation": "Connected/Finishing correct"
+    },
+    {
+      "file": "/workspace/tmp/pixelelated-m7-signin-render-diagnostic-07/artifacts/signin/render-15-grim.png",
+      "sha256": "6afa36c72fca1186732068eafe13319984a9b9182b4b2e66ca12a9d4ab961f3f",
+      "matches_expected_rgb": true,
+      "observation": "Connected/Finishing correct"
+    }
+  ],
+  "conclusion": "Actual legacy DRM selection and llvmpipe verified; same software-host lag persists at0/5seconds, correct15seconds, native correct throughout. Do not ship this override as a fix.",
+  "supervision": "Durable watcher completed17:04:04; first actual host check17:08:12. Active <=60second supervision was not established."
+}

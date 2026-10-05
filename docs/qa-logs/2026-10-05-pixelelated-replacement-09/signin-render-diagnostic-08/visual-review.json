@@ -1,0 +1,64 @@
+{
+  "reviewed_utc": "2026-10-05T17:18:45.969988+00:00",
+  "diagnostic_complete": true,
+  "candidate_qualification": false,
+  "baseline": "pre-pixelelated61b64817bf/bundle87b8c01d",
+  "renderer": "software",
+  "frames": [
+    {
+      "file": "/workspace/tmp/pixelelated-m7-signin-render-diagnostic-08/artifacts/signin/render-00-qemu.png",
+      "sha256": "a33e1cb0e79794fb2da71cb4851d714d0dbd59e856468ef29d58d250c1d929a1",
+      "matches_expected_rgb": false,
+      "observation": "Old/partial local QA redirect form remains visible"
+    },
+    {
+      "file": "/workspace/tmp/pixelelated-m7-signin-render-diagnostic-08/artifacts/signin/render-00-vnc.png",
+      "sha256": "a33e1cb0e79794fb2da71cb4851d714d0dbd59e856468ef29d58d250c1d929a1",
+      "matches_expected_rgb": false,
+      "observation": "Old/partial local QA redirect form remains visible"
+    },
+    {
+      "file": "/workspace/tmp/pixelelated-m7-signin-render-diagnostic-08/artifacts/signin/render-00-grim.png",
+      "sha256": "6afa36c72fca1186732068eafe13319984a9b9182b4b2e66ca12a9d4ab961f3f",
+      "matches_expected_rgb": true,
+      "observation": "Connected/Finishing correct"
+    },
+    {
+      "file": "/workspace/tmp/pixelelated-m7-signin-render-diagnostic-08/artifacts/signin/render-05-qemu.png",
+      "sha256": "566e4f0ea11d79f4822e12ea5e50d334bd8057f50b908d21b4bb2a47dea6392e",
+      "matches_expected_rgb": false,
+      "observation": "Old/partial local QA redirect form remains visible"
+    },
+    {
+      "file": "/workspace/tmp/pixelelated-m7-signin-render-diagnostic-08/artifacts/signin/render-05-vnc.png",
+      "sha256": "566e4f0ea11d79f4822e12ea5e50d334bd8057f50b908d21b4bb2a47dea6392e",
+      "matches_expected_rgb": false,
+      "observation": "Old/partial local QA redirect form remains visible"
+    },
+    {
+      "file": "/workspace/tmp/pixelelated-m7-signin-render-diagnostic-08/artifacts/signin/render-05-grim.png",
+      "sha256": "6afa36c72fca1186732068eafe13319984a9b9182b4b2e66ca12a9d4ab961f3f",
+      "matches_expected_rgb": true,
+      "observation": "Connected/Finishing correct"
+    },
+    {
+      "file": "/workspace/tmp/pixelelated-m7-signin-render-diagnostic-08/artifacts/signin/render-15-qemu.png",
+      "sha256": "68a39b5225e347322b2c7ec1b56a4fa1ce3a9dd1e39504c17dbf044c71eaff50",
+      "matches_expected_rgb": true,
+      "observation": "Connected/Finishing correct"
+    },
+    {
+      "file": "/workspace/tmp/pixelelated-m7-signin-render-diagnostic-08/artifacts/signin/render-15-vnc.png",
+      "sha256": "68a39b5225e347322b2c7ec1b56a4fa1ce3a9dd1e39504c17dbf044c71eaff50",
+      "matches_expected_rgb": true,
+      "observation": "Connected/Finishing correct"
+    },
+    {
+      "file": "/workspace/tmp/pixelelated-m7-signin-render-diagnostic-08/artifacts/signin/render-15-grim.png",
+      "sha256": "6afa36c72fca1186732068eafe13319984a9b9182b4b2e66ca12a9d4ab961f3f",
+      "matches_expected_rgb": true,
+      "observation": "Connected/Finishing correct"
+    }
+  ],
+  "conclusion": "The earlier image reproduces stale/partial host display at0/5seconds while native is correct. Host becomes correct15seconds. Pixelelated changes are not required to reproduce on the current host. This does not establish behavior on the historical host or physical device."
+}

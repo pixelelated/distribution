@@ -1,0 +1,64 @@
+{
+  "reviewed_utc": "2026-10-05T17:19:44.521258+00:00",
+  "diagnostic_complete": true,
+  "candidate_qualification": false,
+  "baseline": "pre-pixelelated61b64817bf/bundle87b8c01d",
+  "renderer": "actual canonical virgl/egl-headless",
+  "frames": [
+    {
+      "file": "/workspace/tmp/pixelelated-m7-signin-render-diagnostic-09/artifacts/signin/render-00-qemu.png",
+      "sha256": "68a39b5225e347322b2c7ec1b56a4fa1ce3a9dd1e39504c17dbf044c71eaff50",
+      "matches_expected_rgb": true,
+      "observation": "Correct Connected/Finishing page; decoded RGB equals reviewed reference"
+    },
+    {
+      "file": "/workspace/tmp/pixelelated-m7-signin-render-diagnostic-09/artifacts/signin/render-00-vnc.png",
+      "sha256": "68a39b5225e347322b2c7ec1b56a4fa1ce3a9dd1e39504c17dbf044c71eaff50",
+      "matches_expected_rgb": true,
+      "observation": "Correct Connected/Finishing page; decoded RGB equals reviewed reference"
+    },
+    {
+      "file": "/workspace/tmp/pixelelated-m7-signin-render-diagnostic-09/artifacts/signin/render-00-grim.png",
+      "sha256": "6afa36c72fca1186732068eafe13319984a9b9182b4b2e66ca12a9d4ab961f3f",
+      "matches_expected_rgb": true,
+      "observation": "Correct Connected/Finishing page; decoded RGB equals reviewed reference"
+    },
+    {
+      "file": "/workspace/tmp/pixelelated-m7-signin-render-diagnostic-09/artifacts/signin/render-05-qemu.png",
+      "sha256": "68a39b5225e347322b2c7ec1b56a4fa1ce3a9dd1e39504c17dbf044c71eaff50",
+      "matches_expected_rgb": true,
+      "observation": "Correct Connected/Finishing page; decoded RGB equals reviewed reference"
+    },
+    {
+      "file": "/workspace/tmp/pixelelated-m7-signin-render-diagnostic-09/artifacts/signin/render-05-vnc.png",
+      "sha256": "68a39b5225e347322b2c7ec1b56a4fa1ce3a9dd1e39504c17dbf044c71eaff50",
+      "matches_expected_rgb": true,
+      "observation": "Correct Connected/Finishing page; decoded RGB equals reviewed reference"
+    },
+    {
+      "file": "/workspace/tmp/pixelelated-m7-signin-render-diagnostic-09/artifacts/signin/render-05-grim.png",
+      "sha256": "6afa36c72fca1186732068eafe13319984a9b9182b4b2e66ca12a9d4ab961f3f",
+      "matches_expected_rgb": true,
+      "observation": "Correct Connected/Finishing page; decoded RGB equals reviewed reference"
+    },
+    {
+      "file": "/workspace/tmp/pixelelated-m7-signin-render-diagnostic-09/artifacts/signin/render-15-qemu.png",
+      "sha256": "68a39b5225e347322b2c7ec1b56a4fa1ce3a9dd1e39504c17dbf044c71eaff50",
+      "matches_expected_rgb": true,
+      "observation": "Correct Connected/Finishing page; decoded RGB equals reviewed reference"
+    },
+    {
+      "file": "/workspace/tmp/pixelelated-m7-signin-render-diagnostic-09/artifacts/signin/render-15-vnc.png",
+      "sha256": "68a39b5225e347322b2c7ec1b56a4fa1ce3a9dd1e39504c17dbf044c71eaff50",
+      "matches_expected_rgb": true,
+      "observation": "Correct Connected/Finishing page; decoded RGB equals reviewed reference"
+    },
+    {
+      "file": "/workspace/tmp/pixelelated-m7-signin-render-diagnostic-09/artifacts/signin/render-15-grim.png",
+      "sha256": "6afa36c72fca1186732068eafe13319984a9b9182b4b2e66ca12a9d4ab961f3f",
+      "matches_expected_rgb": true,
+      "observation": "Correct Connected/Finishing page; decoded RGB equals reviewed reference"
+    }
+  ],
+  "conclusion": "All nine earlier-image accelerated frames match. Combined with08 and current05/06, the outcome tracks the virtual graphics mode on both images, not the renamed image alone. No claim about historical host configuration or physical-device behavior."
+}
