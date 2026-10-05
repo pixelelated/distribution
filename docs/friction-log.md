@@ -185,3 +185,8 @@ QA08 reached correct initial identity/Information but generic dismiss/reopen/cou
 
 - 2026-10-05 06:06 UTC — External checksum observer wrote JSON while watch-job intentionally scans *.log; genuine reads did not refresh the watched signal. Guard: positive same-process byte deltas alone append checksum-progress.log, with six actualwatcher controls and original receipts retained. Issue #437.
 - 2026-10-05 06:06 UTC — Parallel inventory launched from the active QA worktree and was refused before start. Guard: fresh inventory08 explicitly requires the separate coordination cwd; same frozen input paths, no lock bypass. Actual24423/allrc0 and independent cleanup verified. Issue #438.
+
+- 2026-10-05 06:34 UTC — First changed transfer frame was PREPARING, beyond the existing first-item claim. Original78-frame failure retained; exact new claim and four negative controls preserve strict comparison. Historical t02 timing description corrected. Issue #439.
+- 2026-10-05 06:34 UTC — New continuation omitted activity directory creation before watch-build validation. Refused2 before jobstart; freshQA13 creates/checks it before standard launch, originalQA12 preserved. Issue #440.
+
+- 2026-10-05 06:42 UTC — Rebinding sealed0400owner failed beforewrite, but the following toolcall still launched the olddependency and correctly failed beforeguestboot. Guard: preserve alloldowners, create fresh consistent successors, verify preparation result separately before launch. #441.

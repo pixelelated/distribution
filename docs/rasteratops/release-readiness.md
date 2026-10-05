@@ -7,27 +7,21 @@ Duo LCD wordmark (D-WORKFLOW-144/145); the cloud default is `/pixelelated`
 is unchanged. The required adoption flow is **ROCKNIX → pixelelated**;
 there are no fielded /Rasteratops systems requiring an additional gate.
 
-The [M7 milestone body](https://github.com/pixelelated/distribution/milestone/7)
-is the binding running order. **Replacement09 built; QA11 qualification active.**
-Sourcecf511ce79b / ESf6f0 / input817fd9ff… built642 tasks (actual12792/allrc0).
-Actual owner/container cleanup verified. Store30378=0 binds14files in immutable
-bundle79d56004…; imageb9be57ee… and update6072dbc5…. Only the authorized unused
-proxy identity/patch filename changed from08; no package pin changed.
+Status updated 2026-10-05T06:47:40.836058+00:00.
 
-QA11/tool64718 is running full defaults and actualRC2upgrade. Initial clean
-payload, installed proxy identity/account fixtures and Back/Back process
-continuity pass; allfive identity/updateframes reviewed. Inventory08/tool24423
-passes583components/568roots/525stamps/0errors; actual embeddedinit/kernel
-provenance matches08. Fourteen P5 licence-metadata gaps remain. Original refused
-inventory07 and corrected coordination guard are retained under #438. #437's
-measured copy progress adapter passes six actualwatcher controls; original
-copy warning and I/O remain. No frozen/executed owner was changed.
+## Current gate — replacement09 boot qualification passed
 
-Evidence: `docs/qa-logs/2026-10-05-pixelelated-replacement-09/`.
-Next: finish QA11 → boot03 clean/upgraded640/1280 → remaining exact-image
-qualification → ordinaryRA and P4 primary+Fable5.1/xhigh → H700 arm/aarch64.
-#433/#436 are closed from08 installed repairproof; passes stayartifact-scoped.
-#409/#426 and wider readiness criteria remain open. No RC/device-ready claim.
+M7.P3 is current. The frozen candidate is source `cf511ce79b83cba7fea8b14cfa3d04fb13e4b4fb`, input manifest `817fd9ff49b1ecf6bcc859cfa38985a65fbcfe5514c33a0a5c9dd60af6cc6c6e`, immutable bundle `79d560046ee52e28b72f16588168dd7c8fb2637c1cc585713216a8ec828e9d81`. Build and inventory pass; 14 licence metadata gaps remain for P5.
+
+Default-suite evidence is explicitly composite. QA11/tool64718 returned1 after fourteen passing suites and 16 walks/78 frames: one first-sample PREPARING region was unclaimed. Its original failure is preserved. #439 adds one measured claim; the same frames pass 20 claimed/0 unexpected/0 missing differences. Removed/narrow-claim, unrelated-screen and missing-frame controls reject. QA13/tool42880/all four rc0 verifies all 143 original artifact hashes, repeats the corrected comparison and passes all 26 actual ROCKNIX RC2 upgrade checks. The upgraded ES process survives Back/Back; all five identity frames were reviewed.
+
+Boot04/tool90675/all four rc0 passes four clean/upgraded boots at 640x480 and 1280x960. All four matches are 1.0 at the unchanged .995 threshold; all 12 negative controls reject. Actual frames reviewed. Host verification at06:46:39 found all owner and four guest processes absent. QA13's actual upgraded disk was used. Original QA12 launch refusal and boot03 dependency failure remain intact; 16 fresh successors with 139 sealed source members passed preparation and separate readback before launch (#440, #441).
+
+**Current action:** image11/tool1600/all four rc0 completed; raw-image and update-tar SYSTEM payloads match SHA256 `4c7c1fcce5f9e0032d1d57f9099d32fb8de7322f77b1018ae95f3cb12210634e`. Actual06:48:09 process cleanup passed. Sweep08/tool43694 is running the content checks under the standard 5-second watcher with a 5-minute inactivity warning. Settings10 follows. The image remains an engineering candidate; the RC/device-ready gates have not passed.
+
+**Remaining order:** sweep08 → settings10 → link10 → guest10 → runtime11 → proxy09 → optins09 → memory09 → UI11 → predecessor07 → subset06 → cloud-ui05 → signin-ui05 → signin-1g05 → ordinary RetroAchievements proof → P4 primary OpenAI plus Fable5.1/xhigh through the verified Facilitator → H700 DDR4/RG35XX SP arm, then aarch64. Predecessor07 requires the completed boot04 proof and an actual UI11 visual review. External inputs and P5 publication gates remain recorded. Can this be done on the VM? **Yes.**
+
+#433/#436 stay closed from their artifact-scoped replacement08 repair proofs. #437/#438 are closed with published evidence. Publish the scoped #439/#440/#441 repairs and close them from their own acceptance evidence; their closure does not qualify the whole candidate.
 
 ## Historical replacement06 qualification
 

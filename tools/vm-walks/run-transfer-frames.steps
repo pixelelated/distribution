@@ -5,8 +5,10 @@
 #
 # This is the one file where `wait N` is still right, and it is not a guess
 # about timing: the fixed waits here are a SAMPLER. The point is a frame at
-# a known offset from the start of the transfer -- t+2 s, t+5 s, t+8 s --
-# so the phases can be read off in order. A settle would wait for the page
+# regular offsets from the first observed transfer frame, so the phases can
+# be read off in order. The historical t02 name is that first changed frame,
+# not an assertion that two seconds elapsed (#439). Later waits are relative
+# to it. A settle would wait for the page
 # to stop moving, which is precisely what this file exists not to do. The
 # presses before the transfer starts still use the frame steps, because
 # those are waits for a screen and not samples of one.
