@@ -6,6 +6,17 @@ The table preserves the audited baseline. Implemented changes and their receipts
 are recorded below; guest qualification is a separate result.
 D-CLOUD-170 through D-CLOUD-172 remain in force (D-WORKFLOW-134).
 
+## Image qualification receipt — 2026-10-05
+
+The [P3 reconciliation](../qa-logs/2026-10-05-p3-reconciliation/README.md)
+maps replacement09's249 guest assertions, actual RC2 recovery and writer-shaped
+archives, plus replacement10's36 focused paired migration/independent-choice
+cases to #356/#365. The historical table below retains its run101 names and
+source line references; the current default is `/pixelelated`. Host actor
+coverage and image proof remain separately labeled. All originally missing
+focused dimensions now have installed-script byte/pointer evidence; runtime
+UI and predecessor behavior have their own linked receipts.
+
 ## State dimensions
 
 `C` is the configured saves folder. `N` is `/Rasteratops/Saves`. `E` is either

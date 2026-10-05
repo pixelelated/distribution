@@ -1,0 +1,88 @@
+/workspace/tmp/pixelelated-m7-cloud-boundaries-01/proof.py: OK
+/workspace/tmp/pixelelated-m7-cloud-boundaries-01/verify-inputs.py: OK
+/workspace/tmp/pixelelated-m7-cloud-boundaries-01/run.sh: OK
+/workspace/tmp/pixelelated-m7-cloud-boundaries-01/outer.sh: OK
+/workspace/tmp/pixelelated-m7-cloud-boundaries-01/provenance.json: OK
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/1c69bcf5ab6ebdc3e893a6a989545ac7a23359f0e07baef4e9c2beaca94c52b4
+up: a (pid 27816, ssh :10022, serial /tmp/rocknix-qemu-serial.sock, mac 52:54:00:52:4E:58)
+up: b (pid 27838, ssh :10023, serial /tmp/rocknix-qemu-serial-b.sock, mac 52:54:00:52:4E:59)
+ready: a on d6e8390c93 over ssh :10022 (answered after 1s)
+ready: b on d6e8390c93 over ssh :10023 (answered after 0s)
+up: webdav serving /workspace/tmp/pixelelated-m7-cloud-boundaries-01/proof/cloud/data at http://127.0.0.1:9040 (guest: http://10.0.2.2:9040)
+START layout1-to2
+PASS layout1-to2
+START pair-copy-Backups
+PASS pair-copy-Backups
+START pair-copy-Saves
+PASS pair-copy-Saves
+START pair-copy-Saves-replaced
+PASS pair-copy-Saves-replaced
+START pair-copy-Content
+PASS pair-copy-Content
+START pair-delete-Backups
+PASS pair-delete-Backups
+START pair-delete-Saves
+PASS pair-delete-Saves
+START pair-delete-Saves-replaced
+PASS pair-delete-Saves-replaced
+START pair-delete-Content
+PASS pair-delete-Content
+START pair-rcat-marker
+PASS pair-rcat-marker
+START T20-follow-ROCKNIX-False
+PASS T20-follow-ROCKNIX-False
+START T20-follow-GAMES-False
+PASS T20-follow-GAMES-False
+START T20-follow-ROCKNIX-True
+PASS T20-follow-ROCKNIX-True
+START T20-settle-ROCKNIX-False
+PASS T20-settle-ROCKNIX-False
+START T20-settle-GAMES-False
+PASS T20-settle-GAMES-False
+START T20-settle-ROCKNIX-True
+PASS T20-settle-ROCKNIX-True
+START T21-join-missing
+PASS T21-join-missing
+START T21-join-root
+PASS T21-join-root
+START T21-join-derived
+PASS T21-join-derived
+START T21-join-custom
+PASS T21-join-custom
+START T21-follow-missing
+PASS T21-follow-missing
+START T21-follow-root
+PASS T21-follow-root
+START T21-follow-derived
+PASS T21-follow-derived
+START T21-follow-custom
+PASS T21-follow-custom
+START T21-settle-missing
+PASS T21-settle-missing
+START T21-settle-root
+PASS T21-settle-root
+START T21-settle-derived
+PASS T21-settle-derived
+START T21-settle-custom
+PASS T21-settle-custom
+START T21-apply-missing
+PASS T21-apply-missing
+START T21-apply-root
+PASS T21-apply-root
+START T21-apply-derived
+PASS T21-apply-derived
+START T21-apply-custom
+PASS T21-apply-custom
+START T22-_GAMES
+PASS T22-_GAMES
+START T22-_ROCKNIX_Saves
+PASS T22-_ROCKNIX_Saves
+START T23-content-collision
+PASS T23-content-collision
+START T25-restricted-parent
+PASS T25-restricted-parent
+down
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/1c69bcf5ab6ebdc3e893a6a989545ac7a23359f0e07baef4e9c2beaca94c52b4
+PASS focused installed cloud boundary proof; no UI-frame claim

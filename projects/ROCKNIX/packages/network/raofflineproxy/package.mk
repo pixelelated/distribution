@@ -12,10 +12,11 @@ PKG_NAME="raofflineproxy"
 # raofflineproxy-refresh.md for dispositions and exact host/VM boundaries.
 # Patch018 recognizes pixelelated without moving ROCKNIX account/cache paths (#408).
 # Coupled rcheevos/libchdr pins remain those in this parent (D-RA-029/037).
-# 7252fc adds streaming cache reads and an additive game metadata index.
-# Native library pins are unchanged; OS consumers follow the new API (#426).
-PKG_VERSION="7252fc781392d45b22f50d1a92f9febc4d1fa172"
-PKG_SHA256="c5c85da105782828c738539db048e62677c9da11d215c0dcc5dae8c3f79c5680"
+# 3036478 retains7252fc's Linux Python bytes and advances coupled libchdr
+# to607694c (ANSI C compatibility).815 Linux and both predecessor suites
+# pass with the rebuilt native library (#361/#451); image proof is separate.
+PKG_VERSION="3036478f2b2d22db451396a48f44feee94e8462f"
+PKG_SHA256="8db22d572e963193031bb9e27bcbbe5d7767ab7a24e7b23b0efaedfda2f75e2e"
 # GPLv3 text with no "or any later version" grant in the sources.
 PKG_LICENSE="GPL-3.0-only"
 PKG_SITE="https://github.com/misantronic/RAOfflineProxy"

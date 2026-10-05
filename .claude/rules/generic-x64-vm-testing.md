@@ -9,6 +9,7 @@ paths:
   # above, so a session editing the runner, a walk or the QA endpoint had the
   # rule out of context (#147, 2026-09-12).
   - "tools/vm-qa"
+  - "tools/pixelelated-vm-cloud-boundaries"
   - "tools/vm-serial"
   - "tools/vm-pair"
   - "tools/vm-visual-qa"

@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "<string>", line 12, in <module>
+    (root/'before.json').write_text(json.dumps({'cache':store.get_all_cache_by_prefix(''),'awards':store.get_pending_awards()},sort_keys=True))
+                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Storage' object has no attribute 'get_all_cache_by_prefix'. Did you mean: 'get_cache_by_prefix'?

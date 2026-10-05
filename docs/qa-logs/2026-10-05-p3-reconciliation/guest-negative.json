@@ -1,0 +1,12 @@
+{
+  "command": [
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/tools/rasteratops-vm-cloud-epic",
+    "--output",
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-05-p3-reconciliation/guest-negative",
+    "--inject-failure"
+  ],
+  "returncode": 1,
+  "tool_sha256": "677fb0ce0686931d9f4e54a181d6c374731d6436bc2e66c2c27accceeafa7033",
+  "expected_failure": true,
+  "scope": "Host construction of the actual assertion/exit path; no VM behavior claimed."
+}

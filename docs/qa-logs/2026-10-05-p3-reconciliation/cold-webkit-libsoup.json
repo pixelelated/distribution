@@ -1,0 +1,74 @@
+{
+  "verified_utc": "2026-10-05T21:53:45.635126+00:00",
+  "cold_source": "b137d8c37323abbf07788af8bf8dbd495a31e9c9",
+  "candidate_source": "d6e8390c93bed87efe2dcc23cd402a271cacd1c7",
+  "cold_log": "/workspace/artifacts/pixelelated-candidates/sha256/22533e35b95a122ebd0d7dc2b60f6e816982594af62454f5209a04be8da3512d/build.log",
+  "cold_log_sha256": "f700c52516cc30b5201764a66d6af772fb50f91f43f26d0b64be38e1a8e5698a",
+  "consumed_inventory": "/workspace/artifacts/pixelelated-build-inputs/m7-cold-01-consumed/0d5570db7b689e96fb5e3d33293a5275e92d6df244acbcb8a1db1929bc3f491b/source-inventory-qualified.json",
+  "consumed_inventory_sha256": "0d5570db7b689e96fb5e3d33293a5275e92d6df244acbcb8a1db1929bc3f491b",
+  "consumed_packages": [
+    {
+      "build_stamps": {
+        "build_target": "06c08687a302c9f3d34772f5ba9968dd421c3a1b34259ab4067522fa468da9fe"
+      },
+      "cache": [
+        {
+          "bytes": 1609676,
+          "checksum_stamp_matches": true,
+          "name": "libsoup-3.8.0.tar.xz",
+          "sha256": "bbf08fa3e03a88c31a3d27a0d87cb422e9490f2d08e149211103df6d638a2238"
+        }
+      ],
+      "package": "libsoup",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "6da72b93f40213c675e7ed20f361221697d2039e4f9ce7420adec65fab1f84bc",
+      "unpacked": "libsoup-3.8.0"
+    },
+    {
+      "build_stamps": {
+        "build_target": "b8f9777e9cfb5e7610530ed8a5321def26c0381471b97b0b743577f8b9894b86"
+      },
+      "cache": [
+        {
+          "bytes": 49729412,
+          "checksum_stamp_matches": true,
+          "name": "webkitgtk-2.54.1.tar.xz",
+          "sha256": "ea0bbb02dbdbc596874a4e7ad35b66645b3e0a232bd0e4081de5ed92eb0a397d"
+        }
+      ],
+      "package": "webkitgtk",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "78c776121327e6a05ade6a26bf56ada7303ee12b947cf7885acf7e6aab1d5673",
+      "unpacked": "webkitgtk-2.54.1"
+    }
+  ],
+  "unchanged_recipes": [
+    {
+      "path": "packages/web/libsoup/package.mk",
+      "cold_and_replacement10_sha256": "78140625196fadd7acd9710fb56190be2355b353a2060367baa6d80fb8addb1e"
+    },
+    {
+      "path": "packages/web/webkitgtk/package.mk",
+      "cold_and_replacement10_sha256": "2de4b96cb16e942ce7699b5529b9949c2c52cf5a8c6661cbaee55f226b94bd4e"
+    }
+  ],
+  "cold_log_lines": [
+    {
+      "line": 310232,
+      "text": "BUILD      libsoup (target)"
+    },
+    {
+      "line": 310242,
+      "text": "Project version: 3.8.0"
+    },
+    {
+      "line": 1179166,
+      "text": "BUILD      webkitgtk (target)"
+    },
+    {
+      "line": 1179405,
+      "text": "-- Found Soup3: /workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/libsoup-3.0.so (found suitable version \"3.8.0\", minimum required is \"3.0.0\")"
+    }
+  ],
+  "scope": "Cold compilation and selected sources proved. Latest full freshness is separately rc1 due to newer proxy; not a passing full gate."
+}

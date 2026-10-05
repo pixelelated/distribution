@@ -3,10 +3,10 @@
 
 PKG_NAME="raofflineproxy-libchdr"
 # The commit RAOfflineProxy pins as its third_party/libchdr submodule at the
-# proxy's own pinned commit5866cd9ba784c13771a99c52dd6b6f2acc546842,
-# verified 2026-10-03 from its third_party gitlinks (#361). The submodule
-# commit is unchanged from248ce5a; full pins are retained in
-# docs/qa-logs/2026-10-03-proxy-refresh/coupled-pins.tsv.
+# proxy's own pinned commit3036478f2b2d22db451396a48f44feee94e8462f,
+# verified 2026-10-05 from its third_party gitlinks (#361). This advances
+# 8e7b8bd through the parent's ANSI C compatibility update. Full pins and
+# native regression receipts are retained in the proxy3036478 QA record.
 # The proxy's tarball carries the submodule as an
 # empty directory; these sources (libchdr and the miniz, lzma and zstd
 # decoders it vendors under deps/) are compiled by raofflineproxy's recipe
@@ -14,8 +14,8 @@ PKG_NAME="raofflineproxy-libchdr"
 # hashes it (fork #179). Source only: nothing here is built or installed on
 # its own.
 # freshness: pinned -- follows the third_party/libchdr submodule commit RAOfflineProxy names (fork #179)
-PKG_VERSION="8e7b8bd32bc676b7e5c6b42fe7d2daca986c4a0d"
-PKG_SHA256="04d6c61946c95addb78f4554740283b93249b81d8437e3d8a58ca1899c824dcc"
+PKG_VERSION="607694ca0812edfc9cc2030c64634fc2393668de"
+PKG_SHA256="02e772a74c4e5ec110bb646e729e1910268d2dae2c76df2a1b35525cc3826a9c"
 PKG_LICENSE="BSD-3-Clause"
 PKG_SITE="https://github.com/rtissera/libchdr"
 PKG_URL="${PKG_SITE}/archive/${PKG_VERSION}.tar.gz"

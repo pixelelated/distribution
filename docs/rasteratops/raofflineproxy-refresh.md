@@ -1,5 +1,23 @@
 # Current RAOfflineProxy integration for0.0.1
 
+M7.P3, #361/#451, D-WORKFLOW-138. Selected main:
+`3036478f2b2d22db451396a48f44feee94e8462f` (reviewed2026-10-05).
+Archive SHA256: `8db22d572e963193031bb9e27bcbbe5d7767ab7a24e7b23b0efaedfda2f75e2e`.
+
+The Linux Python source/test tree is identical to the actual replacement10
+consumed7252fc tree (113files); all15 patches apply without fuzz. This parent
+advances coupled libchdr to607694ca0812edfc9cc2030c64634fc2393668de for ANSI C
+compatibility. rcheevos is unchanged. The rebuilt native library passes815
+Linux tests without skips;11 fork integration checks pass with each actual7252fc
+and historical865e21 predecessor. The fixed predecessor fixture retains both
+APIs and its original failed run (#451). Both recipes pass pkgcheck.
+
+Evidence: [proxy3036478](../qa-logs/2026-10-05-proxy-3036478/README.md).
+Fresh-image installed qualification remains required. Ordinary new-award and
+P4 gates remain separate. No telemetry or Linux UI behavior was changed.
+
+## Previous7252fc source qualification
+
 M7.P3, #361/#384/#426, D-WORKFLOW-138. Selected main:
 `7252fc781392d45b22f50d1a92f9febc4d1fa172` (reviewed2026-10-05).
 Archive SHA256: `c5c85da105782828c738539db048e62677c9da11d215c0dcc5dae8c3f79c5680`.
