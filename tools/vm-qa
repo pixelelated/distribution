@@ -15,6 +15,7 @@
 #   ./tools/vm-qa --skip-up --only round-trip --backend sftp # the round trip against another cloud (#133)
 #   ./tools/vm-qa --skip-up --only ra-offline --guest d      # the offline-achievements scenario on the 640x480 guest (#166)
 #   ./tools/vm-qa --list                                     # the suite names --only takes, one per line
+#   ./tools/vm-qa --skip-up --only walks --walk manager-gb   # repeat --walk for a scoped follow-up
 #
 # What runs, in order, each with its own log and a PASS/FAIL line:
 #
@@ -53,7 +54,7 @@
 # handheld: the guests are tools/vm-pair's, on this host (fork #120, box 1).
 set -u
 ROOT=$(cd "$(dirname "$0")/.." && pwd)
-IMAGE=""; SKIP_UP=0; LINK=0; RA_OFFLINE=0; GUEST=a
+IMAGE=""; SKIP_UP=0; LINK=0; RA_OFFLINE=0; GUEST=a; WALKS=""
 # The default run is every suite in SUITES except the two that are opt-in
 # (link needs a second backend, ra-offline spends a QA achievement). It used
 # to be a second, hand-typed list here -- and menumap, added to SUITES on
@@ -71,6 +72,7 @@ while [ $# -gt 0 ]; do
   case "$1" in
     --skip-up) SKIP_UP=1; shift ;;
     --only) ONLY=$2; shift 2 ;;
+    --walk) WALKS="${WALKS:+$WALKS,}${2:?walk name required}"; shift 2 ;;
     --guest) GUEST=$2; shift 2 ;;
     --backend) BACKEND=$2; shift 2 ;;
     --link) LINK=1; shift ;;
@@ -80,6 +82,13 @@ while [ $# -gt 0 ]; do
     *) IMAGE=$1; shift ;;
   esac
 done
+if [ -n "$WALKS" ]; then
+  case ",$ONLY," in *,walks,*) ;; *) echo 'vm-qa: --walk requires the walks suite' >&2; exit 2 ;; esac
+  for selected_walk in ${WALKS//,/ }; do
+    [[ "$selected_walk" =~ ^[a-z0-9-]+$ && "$selected_walk" != default-pre ]] && grep -qE "^$selected_walk[[:space:]]*=" "$ROOT/tools/vm-walks/suite.txt" \
+      || { echo "vm-qa: unknown walk $selected_walk" >&2; exit 2; }
+  done
+fi
 [ "$SKIP_UP" = 1 ] || [ -n "$IMAGE" ] || { echo "vm-qa: an image, or --skip-up" >&2; exit 2; }
 # Which of tools/vm-pair's guests the suites drive. Guest a is the default
 # and the only one `up` is written around; --guest b exists because two
@@ -355,7 +364,9 @@ case ",$ONLY," in *,ra-offline,*) run_suite ra-offline "$OUT/ra-offline.log" "$R
 # right aspect, a green mark on the edge that is the game's top), and fixed
 # mtimes, so the tile dates read the same on every run and the frames compare.
 ensure_manager_fixture() {
-  SSH 'test -f /storage/roms/savestates/fbn/mspacman.state.auto.png' 2>/dev/null && return 0
+  # match-dialog deliberately deletes the device-only GB ROMs. A surviving
+  # FBNeo thumbnail says nothing about the later Game Boy fixture (#455).
+  SSH 'test -f /storage/roms/savestates/fbn/mspacman.state.auto.png && test -f /storage/roms/nes/Bobl.nes && test -f /storage/roms/gb/Ninoid.gb && test -f /storage/roms/fbneo/mspacman.zip' 2>/dev/null && return 0
   local F="$ROOT/tools/vm-walks/fixtures" put
   put() { scp -q -i "$KEY" -P "$PORT" -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=ERROR "$1" "root@127.0.0.1:$2"; }
   SSH 'mkdir -p /storage/roms/nes /storage/roms/gb /storage/roms/fbneo /storage/roms/savestates/nes /storage/roms/savestates/gb /storage/roms/savestates/fbn /storage/roms/screenshots; for f in nes/Bobl.nes gb/Ninoid.gb fbneo/mspacman.zip; do head -c 4096 /dev/urandom > /storage/roms/$f; done; for s in nes/Bobl gb/Ninoid fbn/mspacman; do head -c 4096 /dev/urandom > /storage/roms/savestates/$s.state.auto; done; printf "turns=1\nfrom=checked-launch\n" > /storage/roms/savestates/nes/Bobl.rotation' 2>/dev/null
@@ -427,11 +438,29 @@ case ",$ONLY," in *,walks,*)
       # `| <shell>` runs after it, so a walk can override what it set.
       if [ "$name" = "default-pre" ]; then defpre=$legs; continue; fi
       [ -n "$name" ] || continue
+      if [ -n "$WALKS" ]; then
+        case ",$WALKS," in *,"$name",*) ;; *) continue ;; esac
+      fi
       mkdir -p "$OUT/walks"
       [ -n "$defpre" ] && SSH "$defpre" >/dev/null 2>&1
       [ -n "$pre" ] && SSH "$pre" >/dev/null 2>&1
+      case "$name" in manager-*)
+        ensure_manager_fixture || { echo "walk $name: fixture failed"; rc=1; continue; }
+        SSH 'mkdir -p /storage/.config/emulationstation/scripts/system-selected; rm -f /storage/.cache/vm-qa-selected-system' || { rc=1; continue; }
+        scp -q -i "$KEY" -P "$PORT" $SSHO "$ROOT/tools/vm-walks/fixtures/system-selected.sh" "root@127.0.0.1:/storage/.config/emulationstation/scripts/system-selected/99-vm-qa.sh" || { rc=1; continue; }
+        SSH 'chmod 700 /storage/.config/emulationstation/scripts/system-selected/99-vm-qa.sh' || { rc=1; continue; }
+        ;; esac
       SSH 'systemctl reboot' 2>/dev/null; sleep 6
       for i in $(seq 1 45); do SSH 'pgrep -x emulationstation >/dev/null' 2>/dev/null && break; sleep 3; done; sleep 10
+      case "$name" in manager-*)
+        SSH 'curl -fsS -m 10 http://127.0.0.1:1234/systems' > "$OUT/walks/$name-systems.json"
+        selected_system=$(SSH 'cat /storage/.cache/vm-qa-selected-system' 2>/dev/null)
+        printf '%s\n' "$selected_system" > "$OUT/walks/$name-selected.txt"
+        SSH 'rm -f /storage/.config/emulationstation/scripts/system-selected/99-vm-qa.sh'
+        "$ROOT/tools/vm-manager-system-check" "${name#manager-}" "$selected_system" < "$OUT/walks/$name-systems.json" \
+          > "$OUT/walks/$name-system-check.log" 2>&1 \
+          || { echo "walk $name: requested system was not selected (see $name-system-check.log)"; rc=1; continue; }
+        ;; esac
       # wake, then dismiss-dialogs: the first key after a boot is eaten by the
       # screensaver, and a boot-time dialog (the journey prompt, the
       # RetroAchievements offer, FINISH RESTORE SETUP) has to go before any

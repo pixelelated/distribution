@@ -1,0 +1,31 @@
+{
+  "utc": "2026-10-05T23:25:10.698040+00:00",
+  "owner": "/workspace/tmp/pixelelated-m7-qa-15",
+  "run": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement12/.build-runs/20261005T224725Z-fc6fcd8a",
+  "result_channels": {
+    "inner.rc": 1,
+    "outer.rc": 1,
+    "tool-wrapper.rc": 1,
+    "build.rc": 1
+  },
+  "absent_pids": [
+    405153,
+    405154,
+    405155,
+    405184,
+    406301,
+    406327,
+    891940,
+    891966
+  ],
+  "job_rc": 1,
+  "durable_runner_rc": 1,
+  "qemu_absent": true,
+  "build_log_sha256": "13d6f5fa45e221bd5a728832f29fe9daf991143590132131b60bdec0f153f63c",
+  "launcher_result": {
+    "utc": "2026-10-05T23:24:04.398064+00:00",
+    "pid": 405153,
+    "runner_returncode": 1,
+    "submission_is_not_completion": true
+  }
+}

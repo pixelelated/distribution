@@ -1,0 +1,24 @@
+test_neogeo_set_hashes_by_filename (installed_native_test.ArcadeZipTests.test_neogeo_set_hashes_by_filename) ... ok
+test_single_file_archive_of_unenumerated_system_uses_content (installed_native_test.ArcadeZipTests.test_single_file_archive_of_unenumerated_system_uses_content) ... ok
+test_zipped_mega_drive_and_master_system_hash_by_content (installed_native_test.ArcadeZipTests.test_zipped_mega_drive_and_master_system_hash_by_content) ... ok
+test_zipped_single_console_rom_hashes_by_content (installed_native_test.ArcadeZipTests.test_zipped_single_console_rom_hashes_by_content) ... ok
+test_candidates_are_ordered_and_deduped (installed_native_test.CartridgeHashingTests.test_candidates_are_ordered_and_deduped) ... ok
+test_game_boy_hashes_whole_file (installed_native_test.CartridgeHashingTests.test_game_boy_hashes_whole_file) ... ok
+test_nes_hash_skips_16_byte_header (installed_native_test.CartridgeHashingTests.test_nes_hash_skips_16_byte_header) ... ok
+test_snes_hash_skips_512_byte_copier_header (installed_native_test.CartridgeHashingTests.test_snes_hash_skips_512_byte_copier_header) ... ok
+test_unknown_extension_falls_back_to_whole_file_md5 (installed_native_test.CartridgeHashingTests.test_unknown_extension_falls_back_to_whole_file_md5) ... ok
+test_includes_bare_sonames_for_ld_library_path (installed_native_test.LibraryDiscoveryTests.test_includes_bare_sonames_for_ld_library_path) ... ok
+test_searches_bundle_lib_two_levels_up (installed_native_test.LibraryDiscoveryTests.test_searches_bundle_lib_two_levels_up) ... ok
+test_arcade_set_hashes_by_filename (installed_native_test.SevenZipTests.test_arcade_set_hashes_by_filename) ... ok
+test_list_entries_reads_names (installed_native_test.SevenZipTests.test_list_entries_reads_names) ... ok
+test_multiple_console_roms_are_rejected (installed_native_test.SevenZipTests.test_multiple_console_roms_are_rejected) ... ok
+test_single_console_rom_hashes_by_content (installed_native_test.SevenZipTests.test_single_console_rom_hashes_by_content) ... ok
+test_single_file_of_unenumerated_system_uses_content (installed_native_test.SevenZipTests.test_single_file_of_unenumerated_system_uses_content) ... ok
+test_unreadable_archive_yields_no_entries (installed_native_test.SevenZipTests.test_unreadable_archive_yields_no_entries) ... ok
+test_includes_common_formats (installed_native_test.SupportedExtensionsTests.test_includes_common_formats) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.006s
+
+OK
+PASS installed target native hashing format tests without skips

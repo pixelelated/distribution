@@ -1,0 +1,13 @@
+state:       finished
+written:     2026-10-05 23:32:38 UTC   <- terminal result; heartbeat stops here
+watcher_pid: 931348
+job_pid:     931347  alive=yes
+started:     2026-10-05 23:31:12 UTC
+progress:    none matched
+log:         /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement12/.build-runs/20261005T233112Z-b1718c14/build.log  (last written 5s ago)
+activity:    /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement12/.build-runs/20261005T233112Z-b1718c14/build.log  (last written 5s ago)
+activity_dir: /workspace/tmp/pixelelated-m7-qa-16/artifacts
+outcome:     rc=1
+tail:
+  vm-stop: [Errno 2] No such file or directory: '/tmp/rocknix-qemu.pid'
+  down

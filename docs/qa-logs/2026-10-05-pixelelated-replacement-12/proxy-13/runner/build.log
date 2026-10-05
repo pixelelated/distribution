@@ -1,0 +1,82 @@
+/workspace/tmp/pixelelated-m7-proxy-13/guest-proof.py: OK
+/workspace/tmp/pixelelated-m7-proxy-13/host-proof.py: OK
+/workspace/tmp/pixelelated-m7-proxy-13/legacy-chd.py: OK
+/workspace/tmp/pixelelated-m7-proxy-13/native-fixtures/bundle.7z: OK
+/workspace/tmp/pixelelated-m7-proxy-13/native-fixtures/mslug.7z: OK
+/workspace/tmp/pixelelated-m7-proxy-13/native-fixtures/mystery.7z: OK
+/workspace/tmp/pixelelated-m7-proxy-13/native-fixtures/pokemon.7z: OK
+/workspace/tmp/pixelelated-m7-proxy-13/native-runner.py: OK
+/workspace/tmp/pixelelated-m7-proxy-13/native-test.py: OK
+/workspace/tmp/pixelelated-m7-proxy-13/outer.sh: OK
+/workspace/tmp/pixelelated-m7-proxy-13/prepare-dirs.py: OK
+/workspace/tmp/pixelelated-m7-proxy-13/provenance.json: OK
+/workspace/tmp/pixelelated-m7-proxy-13/required-directories.json: OK
+/workspace/tmp/pixelelated-m7-proxy-13/run.sh: OK
+/workspace/tmp/pixelelated-m7-proxy-13/stop-guest.py: OK
+/workspace/tmp/pixelelated-m7-proxy-13/verify-chain.py: OK
+/workspace/tmp/pixelelated-m7-proxy-13/verify-inputs.py: OK
+PASS explicit QA15 partial success plus QA17 completed continuation chain
+PASS owned private pair/artifacts directories ready
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/1b3c2c04de5ec6947cfb678279bcc9721167f8409ee825f8d72489838f1c2382
+Image resized.
+No errors were found on the image.
+31695/262144 = 12.09% allocated, 0.00% fragmented, 0.00% compressed clusters
+Image end offset: 2077818880
+[W][23:41:34.596179] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][23:41:34.596210] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+ready after ~30s
+PASS exact pixelelated replacement12 BUILD_ID
+test_neogeo_set_hashes_by_filename (installed_native_test.ArcadeZipTests.test_neogeo_set_hashes_by_filename) ... ok
+test_single_file_archive_of_unenumerated_system_uses_content (installed_native_test.ArcadeZipTests.test_single_file_archive_of_unenumerated_system_uses_content) ... ok
+test_zipped_mega_drive_and_master_system_hash_by_content (installed_native_test.ArcadeZipTests.test_zipped_mega_drive_and_master_system_hash_by_content) ... ok
+test_zipped_single_console_rom_hashes_by_content (installed_native_test.ArcadeZipTests.test_zipped_single_console_rom_hashes_by_content) ... ok
+test_candidates_are_ordered_and_deduped (installed_native_test.CartridgeHashingTests.test_candidates_are_ordered_and_deduped) ... ok
+test_game_boy_hashes_whole_file (installed_native_test.CartridgeHashingTests.test_game_boy_hashes_whole_file) ... ok
+test_nes_hash_skips_16_byte_header (installed_native_test.CartridgeHashingTests.test_nes_hash_skips_16_byte_header) ... ok
+test_snes_hash_skips_512_byte_copier_header (installed_native_test.CartridgeHashingTests.test_snes_hash_skips_512_byte_copier_header) ... ok
+test_unknown_extension_falls_back_to_whole_file_md5 (installed_native_test.CartridgeHashingTests.test_unknown_extension_falls_back_to_whole_file_md5) ... ok
+test_includes_bare_sonames_for_ld_library_path (installed_native_test.LibraryDiscoveryTests.test_includes_bare_sonames_for_ld_library_path) ... ok
+test_searches_bundle_lib_two_levels_up (installed_native_test.LibraryDiscoveryTests.test_searches_bundle_lib_two_levels_up) ... ok
+test_arcade_set_hashes_by_filename (installed_native_test.SevenZipTests.test_arcade_set_hashes_by_filename) ... ok
+test_list_entries_reads_names (installed_native_test.SevenZipTests.test_list_entries_reads_names) ... ok
+test_multiple_console_roms_are_rejected (installed_native_test.SevenZipTests.test_multiple_console_roms_are_rejected) ... ok
+test_single_console_rom_hashes_by_content (installed_native_test.SevenZipTests.test_single_console_rom_hashes_by_content) ... ok
+test_single_file_of_unenumerated_system_uses_content (installed_native_test.SevenZipTests.test_single_file_of_unenumerated_system_uses_content) ... ok
+test_unreadable_archive_yields_no_entries (installed_native_test.SevenZipTests.test_unreadable_archive_yields_no_entries) ... ok
+test_includes_common_formats (installed_native_test.SupportedExtensionsTests.test_includes_common_formats) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.006s
+
+OK
+PASS installed target native hashing format tests without skips
+
+PASS actual packaged modules, no source override
+PASS packaged detector recognizes pixelelated
+PASS canonical account path is discovered without override
+PASS reopen 1 retains all predecessor cache rows
+PASS reopen 1 retains all predecessor pending rows
+PASS reopen 1 retains base/subset award mapping
+PASS reopen 1 retains synthetic cached sign-in
+PASS reopen 1 backfills inherited game metadata
+PASS reopen 2 retains all predecessor cache rows
+PASS reopen 2 retains all predecessor pending rows
+PASS reopen 2 retains base/subset award mapping
+PASS reopen 2 retains synthetic cached sign-in
+PASS reopen 2 backfills inherited game metadata
+PASS legacy unsharded image path remains readable
+PASS packaged resolver reads canonical synthetic account automatically
+PASS real packaged service serves inherited game cache
+PASS real service serves inherited base and subset sets
+PASS queued award remains visible in game 100
+PASS queued award remains visible in game 200
+PASS real service serves original legacy image bytes
+PASS offline service retains both queued awards without flushing
+PASS owned packaged service stops cleanly
+PASS packaged account discovery, predecessor cache/sign-in/queue reopen and offline HTTP service
+
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/1b3c2c04de5ec6947cfb678279bcc9721167f8409ee825f8d72489838f1c2382
+PASS frozen source inputs, ES pin and candidate input custody
+PASS pixelelated frozen55d8ee8f75 packaged proxy runtime proof
+PASS owned guest stopped 977362

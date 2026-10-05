@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Saved 2026-10-05T23:02:54.965945+00:00. Prior checkpoint: `.github/sessions/archived/saved-session-state-next-20261005T225818Z.md`.
+> Saved 2026-10-05T23:45:14.412187+00:00. Prior checkpoint: `.github/sessions/archived/saved-session-state-next-20261005T234514Z.md`.
 > Feature `feature/conflict-resolution`; primary `/workspace/repos/rocknix` stays `next`.
 
 ## Start here
@@ -25,51 +25,54 @@ Use standard watch-build-submit/watch-build/watch-job,5second heartbeat,
 5minute suspected inactivity; actively poll and report in connected session.
 Do not edit running tools, replay executed owners, or pkill argv patterns.
 
-## Current focus — replacement12 built; full VM qualification running
+## Current focus — scoped software qualification complete; account inputs pending
 
-Original request is "let's proceed": finish M7.P3, the approved independent P4
-review, then H700 arm/aarch64 and named physical/P5 gates. Latest steering asks
-why the 4 TB drive has only246GB free. Read-only inventory is complete (#453);
-539.33GiB of superseded trees are proposed for custody review, NOT deletion.
-The original build task continues. No cleanup, filesystem reserve change,
-personal-cloud operation or device action has been authorized by that question.
+Original request is "let's proceed": finish M7.P3, approved P4, then H700.
+Latest steering asked why a4TBdrive had246GBavailable. Inventory#453closed:
+retainedbuilds explain it. Latest23:43:15available195.09GiB after more QA
+allocations;539GiBgross old trees are only a custody-review proposal. No
+deletion or reserve change is authorized by the question or was performed.
 
-Published checkpoint-only heads before this update: feature29ae6227397100e3504b75acf2b0d7e36b4f017a
-and nexte574726a240bc514507197d88ba304e2d989e566 (remote verified22:53:40).
-Product source is still frozen55d8ee8f75965a560f75d187e34c9beaa93133f1.
-#356/#365/#451/#362/#452 are CLOSED with explicit criterion maps. Their source
-and successful evidence are published; original failures remain retained.
+Product remains frozen55d8ee8f75965a560f75d187e34c9beaa93133f1, bundle1b3c2c04de.
+No build, VM, watcher or local backend remains running. Actual final cleanup
+23:43:58. Do not replay completed owners. Raw receipts are under
+`docs/qa-logs/2026-10-05-pixelelated-replacement-12/`.
 
-## Active job — QA15 only
+QA15:15reported default PASS suites and26actualRC2 upgrade assertions, then
+failed VNC5909bind on immediate restart. Allfour1, cleanup23:25:10. Its
+manager-gb frames actually show FBNeo (also true inQA14/oldbaseline): earlier
+match-dialog removesGBROMs and oldfixturecheckedonlyanFBNeothumbnail.
+QA16: first shutdown fix waited for QEMU but failed because QEMU removed its
+own pidfile; allfour1, cleanup23:33:11+guest supplement. Preserve failures.
+QA17: corrected sharedvm-stop waits using pidfd and exactdiskownership, with
+7hostcontrols. Newmanagerguard checks loaded systems and actualESselection,
+5hostcontrols. Independent qemu-img-compared copy of15's actual upgraded disk
+passes upgradedvirgl/Pixman payload and10reviewedidentity frames, then4walks/
+19frames (match-dialog,NES,GB,FBNeo). Allfour0 at23:40:31; actualcleanup23:40:46.
+Original15disk hashunchanged. Firstscopedcomparison2unclaimedcarouselneighbor
+regions retained; reviewed#455claims accountforrestoredGBpanel. Secondcompare
+14claimed/0unclaimed/0missing; originalbaselineandmasksunchanged. No full
+default-suite rerun is implied. QA-only overlaysealedseparately; frozen source
+andimageunchanged. OriginalQA15timingsmokehasnoactive-syncstamp—retainlimit.
 
-Owner `/workspace/tmp/pixelelated-m7-qa-15`; source tree
-`/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement12`.
-Started22:47:25UTC2026-10-05, run `.build-runs/20261005T224725Z-fc6fcd8a`.
-Launcher405153. At22:48:20 actual host proof observed guests406301/406327,
-owned by QA15; append further observations with the helper below.
-At23:02:19 the standard watcher reports running. Ten default suites have
-passed (scripts780s, lifetime,wrapper,vocabulary,french,quoting,menumap,register,
-pair-identity,fresh); round-trip is active. No terminal owner result exists yet. Do not launch another VM owner or edit these
-running scripts. Default QA takes tens of minutes; watch actual artifacts.
+Proxy13:22installedpreservationassertions,18nativeformat tests/no skips,
+4legacyCHDv1/v2cases plusmalformedheaderrefusal. Loadedinstalledlibrary SHA
+6c484a2947a5f2a7c187e60dd93de73593d5fa98d57309bfb4b5f07bf390220d. End23:42:16/
+allfour0; cleanup23:42:40. Subset10:35installedHTTPrefusal/reconnect/idempotence
+assertions; end23:43:39/allfour0, cleanup23:43:58. No realprovidercontact.
+Both explicitly verify15partial+17completedchain; oldproxy12/subset09remain
+unstartedpreparation. Rootowners/workspace/tmp/pixelelated-m7-{qa-15,qa-16,
+qa-17,proxy-13,subset-10}; originaldisks/failedlogsretained.
 
-Poll:
-`python3 /tmp/pixelelated-status.py /workspace/tmp/pixelelated-m7-qa-15 run.path`
-Actual host ownership (escalated host /proc):
-`python3 /tmp/pixelelated-observe-qa-processes.py /workspace/tmp/pixelelated-m7-qa-15`
-
-This owner runs all15 default suites,16 visual walks, actual September29
-ROCKNIX RC2 upgrade and clean/upgraded installed identity and process checks.
-It verifies virgl and automatic software/Pixman selection; source/bundle bytes
-before and after. Each guest disk is16GiB+. It cleans its own guests/backend.
-Finish only from all four zero channels plus actual process/backend cleanup;
-review the counts and actual frames, not only the summary. The ordinary RA
-account and authenticated Dropbox trust proof are separate, unanswered gates.
-
-After terminal, the existing helper records four channels, actual owner/guest
-absence and no QEMU:
-`python3 /tmp/pixelelated-complete-durable.py /workspace/tmp/pixelelated-m7-qa-15 0`
-It writes completion.json exclusively. Never replay on an existing receipt.
-Inspect backend/child processes additionally; helper scope is explicit.
+Next unblocked work is P3criterion/evidence reconciliation including#361/#168.
+Before account-dependent tests: obtain dedicatedRA Tobu100359reset/alternate
+QAaccountstatus and dedicatedDropboxcredentialfilepath. Pendingasyncquestion
+hasNOanswer; neverprintsecrets,spendalreadyearnedaward,usehardcoreinstead or
+equatepubliclogin/syntheticfinishingwithauthenticatedtrust. Once those gates
+pass: approvedP4primary+Fable5.1/xhigh verifiedFacilitator/OpenRouter; then
+H700DDR4/RG35XXSParmFIRST,aarch64SECOND; namedphysical/P5gates. NoDaybreak.
+NoRCdesignation. #454/#455sourcefix/closureproofs are in this update; verify
+their live states and milestone current order before assuming publication.
 
 ## Completed replacement12 build and image/source verification
 
@@ -121,29 +124,6 @@ in a separate directory. Full inputs.json stays in owner+bundle because the
 normal credential hook rejects two historical patch filenames in the mapping;
 Git retains its digest/counts. No hook bypass. Build and image/source success
 are not an RC or a completed VM qualification.
-
-## Next after QA15 — sealed and UNSTARTED
-
-1. `/workspace/tmp/pixelelated-m7-proxy-12`: installed cache/sign-in/queued
-   base/subset preservation/service assertions plus upstream native-format
-   tests against installed modules and actual /proc/self/maps library.
-   Requires QA15 outer0, no product overrides, at least18native tests/no skips,
-   installed library SHA equal assembled payload. Later addition: four CHD
-   v1/v2 cases with signed integer edges, exact metadata/NUL, bounded buffer
-   canaries, missing metadata refusal, actual hunk payload and bad-header
-   rejection. Host fixture control passed; installed result not yet claimed.
-   Current harness seal634431a12aed168b15cd48a4978cba3c610bd75ca29880ba9ec6ba5d7c8dab90.
-2. `/workspace/tmp/pixelelated-m7-subset-09`:35 actual packaged HTTP subset
-   flush/reconnect/idempotence checks; requires proxy12 outer0.
-
-Launch each from frozen12 with:
-`tools/watch-build-submit --owner OWNER -- --interval 5 --stall-min 5 --activity-dir OWNER/artifacts --recursive-activity -- OWNER/outer.sh BUNDLE`
-Use literal owner/bundle values above. Verify its harness before starting.
-Only one guest owner at a time. Old receipts remain their own runs.
-Then ordinary RA and authenticatedDropbox QA-account gates → approved P4
-primary+Fable5.1/xhigh through the verified Facilitator/OpenRouter → H700 DDR4/
-RG35XXSP arm, then aarch64 → named physical/P5 gates. No Daybreak dependency.
-P4 has NOT started. Do not silently bypass unanswered QA-account prerequisites.
 
 ## Disk question — measured, no deletion
 
@@ -203,14 +183,9 @@ the sealed product/QA inputs; the source hashes remain verified. Preserve it
 and its retained diff under `generated-documentation/`; do not restore or
 merge the build worktree during QA. This is not a clean-worktree claim.
 
-Fresh-context resume proof passed through22:57:18; exact report and parent
-follow-up retained in replacement12/resume-reader-proof.json. #361 freshness
-checkbox now checked from actual frozen03 receipt and completed bundle; issue
-still open. #453 is CLOSED for inventory/proposal, not cleanup. Five proposed
-old candidate bundles fully reverified, with source mappings/raw output in
-build-storage/custody-leads; source/debug/backing checks still required before
-any removal approval. Initial-clean five1280x800identity frames directly
-reviewed; receipt/tmp/pixelelated-qa15-initial-frames-review.json awaits full
-owner retention. No upgraded/runtime completion claim. Do not use the canonical
-status helper for a strictly zero-write observer: it appends the shared
-/tmp/pixelelated-active-polls.jsonl log; direct build.status/log reads are pure.
+Prior fresh-context proof was bounded at22:57:18 and is retained; a new
+fresh-context reader must verify this completed qualification handoff after
+publication. Frozen12 generated emulator documentation still differs exactly
+as recorded, outside sealed inputs; do not restore it or claim a clean tree.
+#453closed means inventory/proposal only. Five oldbundlesverify, but unique
+source/debug/backingchecks andnamedapprovalstillprecedeanydeletion.

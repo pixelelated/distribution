@@ -1,0 +1,97 @@
+PASS frozen source inputs, ES pin and candidate input custody
+Images are identical.
+PASS independent byte-equivalent copy of actual QA15 upgraded disk
+[W][23:33:52.665006] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][23:33:52.665038] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+ready after ~19s
+PASS upgrade exact identity, installed scripts, policy and Ocean SVG bytes/modes
+PASS upgrade installed proxy identities and account discovery
+PASS installed selector/unit and actual virgl compositor: upgrade-virgl
+1 press(es) moved the screen, back on the carousel
+changed after 0.1s (`key ret`, line 2)
+settle: still after 1.4s
+captured /workspace/tmp/pixelelated-m7-qa-17/artifacts/identity-upgrade/01-main-menu-identity.png
+changed after 0.1s (`key up`, line 6)
+changed after 0.1s (`key up`, line 8)
+changed after 0.1s (`key up`, line 10)
+changed after 0.1s (`key x`, line 12)
+settle: still after 1.4s
+captured /workspace/tmp/pixelelated-m7-qa-17/artifacts/identity-upgrade/02-system-settings.png
+changed after 0.1s (`key x`, line 16)
+settle: still after 1.3s
+captured /workspace/tmp/pixelelated-m7-qa-17/artifacts/identity-upgrade/03-information.png
+changed after 0.1s (`key z`, line 22)
+changed after 0.1s (`key z`, line 24)
+changed after 0.1s (`key up`, line 26)
+changed after 0.1s (`key x`, line 28)
+settle: still after 1.3s
+captured /workspace/tmp/pixelelated-m7-qa-17/artifacts/identity-upgrade/04-updates.png
+changed after 0.1s (`key up`, line 33)
+changed after 0.1s (`key up`, line 35)
+changed after 0.1s (`key x`, line 37)
+settle: still after 1.3s
+captured /workspace/tmp/pixelelated-m7-qa-17/artifacts/identity-upgrade/05-manual-update-message.png
+dismiss-dialogs: 4 press(es) moved the screen, back on the carousel
+CAPTURED upgrade actual identity/manual-update frames; semantic review required
+down: owned QEMU exited (pid 943380)
+[W][23:34:55.993889] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][23:34:55.993922] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+ready after ~18s
+PASS upgrade-software exact identity, installed scripts, policy and Ocean SVG bytes/modes
+PASS upgrade-software installed proxy identities and account discovery
+PASS installed selector/unit and actual software compositor: upgrade-software
+1 press(es) moved the screen, back on the carousel
+changed after 0.2s (`key ret`, line 2)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-qa-17/artifacts/identity-upgrade-software/01-main-menu-identity.png
+changed after 0.2s (`key up`, line 6)
+changed after 0.2s (`key up`, line 8)
+changed after 0.2s (`key up`, line 10)
+changed after 0.2s (`key x`, line 12)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-qa-17/artifacts/identity-upgrade-software/02-system-settings.png
+changed after 0.2s (`key x`, line 16)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-qa-17/artifacts/identity-upgrade-software/03-information.png
+changed after 0.2s (`key z`, line 22)
+changed after 0.2s (`key z`, line 24)
+changed after 0.2s (`key up`, line 26)
+changed after 0.2s (`key x`, line 28)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-qa-17/artifacts/identity-upgrade-software/04-updates.png
+changed after 0.2s (`key up`, line 33)
+changed after 0.2s (`key up`, line 35)
+changed after 0.2s (`key x`, line 37)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-qa-17/artifacts/identity-upgrade-software/05-manual-update-message.png
+dismiss-dialogs: 4 press(es) moved the screen, back on the carousel
+CAPTURED upgrade-software actual identity/manual-update frames; semantic review required
+down: owned QEMU exited (pid 948139)
+[W][23:36:14.728553] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][23:36:14.728585] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+ready after ~18s
+walks: seeded the content fixture (cloud seed-content, device ROMs) -- the guest had no ROMs
+walks: seeded the manager fixture (nes with a turn recorded, gb as is, fbn from the core table; mtimes 2026-09-01 12:00)
+walks: PASS in 223s
+
+# vm-qa on 55d8ee8f75
+
+started 2026-10-05 23:36 UTC, guest a at :10022, cloud webdav (port 9010, hash=none modtime=no commit=partial bucket=no), image (already up), display: GL through virgl on /dev/dri/renderD128
+
+| suite | result | time | log |
+| --- | --- | --- | --- |
+| walks | PASS | 223s | `walks.log` |
+
+**PASSED** -- every suite that ran passed.
+
+finished 2026-10-05 23:40 UTC
+
+renderer: (no RetroArch launch log on the guest) -- the guest's Mesa, from the launch log; display: GL through virgl on /dev/dri/renderD128
+
+report: /workspace/tmp/pixelelated-m7-qa-17/artifacts/rocknix-images/qa-55d8ee8f75-webdav-a-20261005-2336/report.md
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/1b3c2c04de5ec6947cfb678279bcc9721167f8409ee825f8d72489838f1c2382
+PASS frozen source inputs, ES pin and candidate input custody
+PASS original QA15 upgraded disk unchanged
+PASS scoped QA15 continuation: actual upgraded virgl/software readback and manager fixture recovery
+down: owned QEMU exited (pid 954078)
+down

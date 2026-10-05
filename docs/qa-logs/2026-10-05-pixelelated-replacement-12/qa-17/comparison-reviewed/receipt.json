@@ -1,0 +1,119 @@
+{
+  "utc": "2026-10-05T23:41:21.550952+00:00",
+  "rc": 0,
+  "command": [
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/tools/frame-diff",
+    "compare",
+    "/tmp/pixelelated-qa17-comparison02/baseline",
+    "/workspace/tmp/pixelelated-m7-qa-17/artifacts/rocknix-images/qa-55d8ee8f75-webdav-a-20261005-2336/walks",
+    "--masks",
+    "/tmp/pixelelated-qa17-comparison02/masks.txt",
+    "--claims",
+    "/tmp/pixelelated-qa17-comparison02/claims.txt",
+    "--report",
+    "/tmp/pixelelated-qa17-comparison02/comparison.md"
+  ],
+  "baseline_copies": [
+    {
+      "original": "/workspace/artifacts/rocknix-images/walk-baseline/BASELINE.txt",
+      "view": "/tmp/pixelelated-qa17-comparison02/baseline/BASELINE.txt",
+      "sha256": "2ab6469389fba0f2a3c89b5a7807cb08fb593c505113fed0a40718aca0e33417"
+    },
+    {
+      "original": "/workspace/artifacts/rocknix-images/walk-baseline/manager-fbn/01-0-carousel.png",
+      "view": "/tmp/pixelelated-qa17-comparison02/baseline/manager-fbn/01-0-carousel.png",
+      "sha256": "6efc5708fa27bfaaca5886cf37e84b5dd6a1cddf16da595bee59398f8c228b36"
+    },
+    {
+      "original": "/workspace/artifacts/rocknix-images/walk-baseline/manager-fbn/02-1-list.png",
+      "view": "/tmp/pixelelated-qa17-comparison02/baseline/manager-fbn/02-1-list.png",
+      "sha256": "c5a747f3929a8efc429dfadf5fde69f0ac24e6fe65132e3e02dbcc00e58e2b9e"
+    },
+    {
+      "original": "/workspace/artifacts/rocknix-images/walk-baseline/manager-fbn/03-2-game-options.png",
+      "view": "/tmp/pixelelated-qa17-comparison02/baseline/manager-fbn/03-2-game-options.png",
+      "sha256": "065adad508130ba973d8a649950a1b09f2bea4d4daef85b069d0585c80519e39"
+    },
+    {
+      "original": "/workspace/artifacts/rocknix-images/walk-baseline/manager-fbn/04-3-manager.png",
+      "view": "/tmp/pixelelated-qa17-comparison02/baseline/manager-fbn/04-3-manager.png",
+      "sha256": "adc5cd84d8df072ec060ae6259420cc153d49c746c5712b7db4cc2400233a531"
+    },
+    {
+      "original": "/workspace/artifacts/rocknix-images/walk-baseline/manager-fbn/05-4-manager-next-tile.png",
+      "view": "/tmp/pixelelated-qa17-comparison02/baseline/manager-fbn/05-4-manager-next-tile.png",
+      "sha256": "71a28a3b47fe6fd2eda09eeb0080d28226d250989eca7137f4b47af02cafb6b4"
+    },
+    {
+      "original": "/workspace/artifacts/rocknix-images/walk-baseline/manager-gb/01-0-carousel.png",
+      "view": "/tmp/pixelelated-qa17-comparison02/baseline/manager-gb/01-0-carousel.png",
+      "sha256": "1be7326e4d32bcfa186e425a0ef3f319d103a4c8e1530969dae8bcda23d4c590"
+    },
+    {
+      "original": "/workspace/artifacts/rocknix-images/walk-baseline/manager-gb/02-1-list.png",
+      "view": "/tmp/pixelelated-qa17-comparison02/baseline/manager-gb/02-1-list.png",
+      "sha256": "12956a23ea265415644fd73251b8e7626f75d1952098fb5bdcab712f00b8e8ed"
+    },
+    {
+      "original": "/workspace/artifacts/rocknix-images/walk-baseline/manager-gb/03-2-game-options.png",
+      "view": "/tmp/pixelelated-qa17-comparison02/baseline/manager-gb/03-2-game-options.png",
+      "sha256": "065adad508130ba973d8a649950a1b09f2bea4d4daef85b069d0585c80519e39"
+    },
+    {
+      "original": "/workspace/artifacts/rocknix-images/walk-baseline/manager-gb/04-3-manager.png",
+      "view": "/tmp/pixelelated-qa17-comparison02/baseline/manager-gb/04-3-manager.png",
+      "sha256": "7a5cbc68822f5a9368deae76f0aa5bb9597689babf073a3fc4fa880d75d71cd8"
+    },
+    {
+      "original": "/workspace/artifacts/rocknix-images/walk-baseline/manager-gb/05-4-manager-next-tile.png",
+      "view": "/tmp/pixelelated-qa17-comparison02/baseline/manager-gb/05-4-manager-next-tile.png",
+      "sha256": "59153432d721af6c18bbf37b6e18d408dc7421a987459cf4e1449bc245b5dc13"
+    },
+    {
+      "original": "/workspace/artifacts/rocknix-images/walk-baseline/manager-nes/01-0-carousel.png",
+      "view": "/tmp/pixelelated-qa17-comparison02/baseline/manager-nes/01-0-carousel.png",
+      "sha256": "226d5b013389951a852960f3d11eb99d6a8af4f706d3ddaa93985aabf63291fa"
+    },
+    {
+      "original": "/workspace/artifacts/rocknix-images/walk-baseline/manager-nes/02-1-list.png",
+      "view": "/tmp/pixelelated-qa17-comparison02/baseline/manager-nes/02-1-list.png",
+      "sha256": "07417fbcf7c5cf646aa8d4e3211d728b5c7e0eba38cdf5274dbb3f5caca04aeb"
+    },
+    {
+      "original": "/workspace/artifacts/rocknix-images/walk-baseline/manager-nes/03-2-game-options.png",
+      "view": "/tmp/pixelelated-qa17-comparison02/baseline/manager-nes/03-2-game-options.png",
+      "sha256": "92e4273afe24b875ec9d2491887dee2ba7c99f0bfaec57ebbf8f51d5f4178a24"
+    },
+    {
+      "original": "/workspace/artifacts/rocknix-images/walk-baseline/manager-nes/04-3-manager.png",
+      "view": "/tmp/pixelelated-qa17-comparison02/baseline/manager-nes/04-3-manager.png",
+      "sha256": "dbf7f50df6b61f3e2fac1f19f0a4a830cda2ae6f50d416c855669aca1f8e4285"
+    },
+    {
+      "original": "/workspace/artifacts/rocknix-images/walk-baseline/manager-nes/05-4-manager-next-tile.png",
+      "view": "/tmp/pixelelated-qa17-comparison02/baseline/manager-nes/05-4-manager-next-tile.png",
+      "sha256": "529c9c3bd87e0883c22f0297983b4104736c86c9315fed74b26a16f7de465782"
+    },
+    {
+      "original": "/workspace/artifacts/rocknix-images/walk-baseline/match-dialog/01-cloud-hub.png",
+      "view": "/tmp/pixelelated-qa17-comparison02/baseline/match-dialog/01-cloud-hub.png",
+      "sha256": "d760b6ac872ce4037fcb075a29a4ed38faa50e9412b00827b7ecb52e6728dc2f"
+    },
+    {
+      "original": "/workspace/artifacts/rocknix-images/walk-baseline/match-dialog/02-cloud-hub-match-row.png",
+      "view": "/tmp/pixelelated-qa17-comparison02/baseline/match-dialog/02-cloud-hub-match-row.png",
+      "sha256": "edce09b3f1161dfb3f0da70eabc6d0455332bd8c0266607e99e6f8d90d686523"
+    },
+    {
+      "original": "/workspace/artifacts/rocknix-images/walk-baseline/match-dialog/03-match-confirm.png",
+      "view": "/tmp/pixelelated-qa17-comparison02/baseline/match-dialog/03-match-confirm.png",
+      "sha256": "d236577c3a228d7ad8063919140d5bb059b79d36afe15c7824d979a8ee73c50d"
+    },
+    {
+      "original": "/workspace/artifacts/rocknix-images/walk-baseline/match-dialog/04-match-done.png",
+      "view": "/tmp/pixelelated-qa17-comparison02/baseline/match-dialog/04-match-done.png",
+      "sha256": "9aa9247d0e6181fd4fee37ea4d7836fe79ec10eec4083e41b7fd62cc831e101c"
+    }
+  ],
+  "scope": "Four-scenario view of the unchanged accepted baseline; not a new baseline and not a full default-suite rerun"
+}

@@ -1,0 +1,7 @@
+PASS delayed-exit waits for exit and immediate port reuse
+PASS self-removed-pidfile waits for exit and immediate port reuse
+PASS timeout refuses completion and retains live process/pidfile
+PASS wrong-disk refuses completion and retains live process/pidfile
+PASS wrong-process refuses completion and retains live process/pidfile
+PASS exited PID and missing pidfile are idempotent
+PASS 7 vm-stop controls

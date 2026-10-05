@@ -1,0 +1,14 @@
+{
+  "observed_utc": "2026-10-05T23:06:23.327088+00:00",
+  "log": "/workspace/tmp/pixelelated-m7-qa-15/artifacts/rocknix-images/qa-55d8ee8f75-webdav-a-20261005-2248/time-to-play.log",
+  "sha256": "58011b8854a70f5f71450eacb8fd3d1a0a2590de53cc4872d3070ff4e57fcb76",
+  "scope": "single-sample default timing smoke",
+  "ui_first_frame_seconds": 0.64,
+  "exit_stamp_seconds": 1.45,
+  "next_frame_seconds": 1.02,
+  "sample_count_each": 1,
+  "screendump_resolution_ms": 89,
+  "exit_outcome": "completed",
+  "game_to_game_sync_outcome": "unknown; no new stamp",
+  "limitation": "The relaunch sample has no exit-sync stamp and its next-frame timestamp precedes the reported question-answer timestamp. It does not establish active-sync interruption behavior or a latency distribution. Preserve this limitation; do not upgrade the default suite PASS into that claim."
+}

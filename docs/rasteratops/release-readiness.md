@@ -1,24 +1,32 @@
 # pixelelated 0.0.1 release readiness
 
-## Current work — replacement12 built; VM qualification running
+## Current work — candidate software proofs retained; QA-account inputs needed
 
-Replacement12 from `55d8ee8f75965a560f75d187e34c9beaa93133f1` built successfully
-at22:45:46UTC2026-10-05. All642tasks, four result channels, assembled payload,
-actual process/container cleanup and immutable artifact verification pass.
-Image13 proves flash/update SYSTEM equality; inventory09 maps actual consumed
-sources and retains14P5licence gaps. [Exact receipts](../qa-logs/2026-10-05-pixelelated-replacement-12/README.md).
+Replacement12 remains frozen at55d8ee8f75965a560f75d187e34c9beaa93133f1.
+Build642/642, image SYSTEM equality and consumed-source inventory pass.
+QA15 reported15default PASS results and26actualRC2 upgrade checks before a
+VM shutdown/restart race failed its aggregate run. QA16's initial helper
+correction failure is also retained. QA17 completes upgraded virgl/Pixman
+readback and correct manager-system coverage on an independent disk copy:
+allfour0,19walk frames and10directlyreviewed identity frames. Reviewed
+comparison has14expected regions,0unclaimed and0missing; initial comparison
+findings remain recorded. #454/#455 contain the QA-only fixes and criteria.
 
-QA15 started22:47:25: all default VM suites and actual ROCKNIX RC2 upgrade.
-No completed runtime qualification is claimed. Next: installed proxy/native-
-format/legacy-CHD tests, HTTP subset reconnection, ordinary RA and authenticated
-Dropbox QA-account proofs, approved P4, H700 arm/aarch64 and named P5 gates.
-#356/#365/#451/#362/#452 have closed criterion maps. Account inputs are pending.
+Proxy13 passes22preservation assertions,18native tests/no skips and4legacyCHD
+cases. Subset10 passes35installed HTTP retry/idempotence assertions. Actual
+owner/guest/backend cleanup is verified; no long job remains running.
+[Exact evidence and limitations](../qa-logs/2026-10-05-pixelelated-replacement-12/README.md).
 
-[Host storage inventory](../qa-logs/2026-10-05-build-storage/README.md) answers
-#453: retained worktrees1776GiB, artifacts917GiB, QA temporary data497GiB and
-source cache63GiB. Five superseded trees total539GiB gross for custody review
-before named removal approval. No deletion was performed; current inputs and
-upgrade evidence are excluded. No RC/device-ready claim.
+Next: ordinary RetroAchievements and authenticated Dropbox QA-account proofs,
+remaining P3 acceptance/upstream mapping, approved independent P4 review,
+H700 arm then aarch64 and named physical/P5 gates. Account inputs remain
+unanswered;14P5licence gaps and public-doc access remain separate. No RC claim.
+
+[Storage inventory](../qa-logs/2026-10-05-build-storage/README.md): worktrees
+1776GiB, artifacts917GiB, temporaryQA497GiB and sources63GiB at scan time.
+After additional QA disks, available space195.09GiB at23:43:15. Five old trees
+total539GiBgross pending custody/dependency review and named removal approval.
+No deletion or filesystem-reserve change was made.
 
 ## Completed installed GENERIC_X64 Pixman fallback (#447)
 

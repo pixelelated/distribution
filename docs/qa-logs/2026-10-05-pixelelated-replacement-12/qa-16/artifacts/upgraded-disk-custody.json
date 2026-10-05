@@ -1,0 +1,45 @@
+{
+  "utc": "2026-10-05T23:31:28.033696+00:00",
+  "original": "/workspace/tmp/pixelelated-m7-qa-15/pair/vm-a.qcow2",
+  "original_sha256": "3c2d5dc126971f05e13b3a952d2ecb8e0bf6f352cda3d32b924b40e12cd149ca",
+  "copy": "/workspace/tmp/pixelelated-m7-qa-16/pair/vm-a.qcow2",
+  "copy_initial_sha256": "ea7bc76ff31db38a8e4a9047da8fce6f69bffdee07e1a34f50aaa32ad3948ce0",
+  "guest_bytes_equal": true,
+  "independent_inode": true,
+  "info": {
+    "children": [
+      {
+        "name": "file",
+        "info": {
+          "children": [],
+          "virtual-size": 8471248896,
+          "filename": "/workspace/tmp/pixelelated-m7-qa-16/pair/vm-a.qcow2",
+          "format": "file",
+          "actual-size": 8471191552,
+          "format-specific": {
+            "type": "file",
+            "data": {}
+          },
+          "dirty-flag": false
+        }
+      }
+    ],
+    "virtual-size": 17179869184,
+    "filename": "/workspace/tmp/pixelelated-m7-qa-16/pair/vm-a.qcow2",
+    "cluster-size": 65536,
+    "format": "qcow2",
+    "actual-size": 8471191552,
+    "format-specific": {
+      "type": "qcow2",
+      "data": {
+        "compat": "1.1",
+        "compression-type": "zlib",
+        "lazy-refcounts": false,
+        "refcount-bits": 16,
+        "corrupt": false,
+        "extended-l2": false
+      }
+    },
+    "dirty-flag": false
+  }
+}

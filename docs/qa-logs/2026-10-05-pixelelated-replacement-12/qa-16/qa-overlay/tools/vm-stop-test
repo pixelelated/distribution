@@ -1,0 +1,64 @@
+#!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-2.0-or-later
+# Copyright (C) 2026-present pixelelated (https://github.com/pixelelated)
+"""Delayed exit, timeout and wrong-owner controls for vm-stop (#454)."""
+from pathlib import Path
+import subprocess
+import socket
+import sys
+import tempfile
+import time
+
+tool = Path(__file__).resolve().with_name('vm-stop')
+fixture = '''import signal,socket,sys,time
+s=socket.socket();s.bind(('127.0.0.1',0));s.listen()
+def quit(signum,frame):
+ time.sleep(0.2);sys.exit(0)
+signal.signal(signal.SIGTERM, signal.SIG_IGN if sys.argv[-1]=='ignore' else quit)
+print(s.getsockname()[1],flush=True)
+while True: time.sleep(1)
+'''
+passed = 0
+with tempfile.TemporaryDirectory() as temp:
+    root = Path(temp)
+    disk = root/'owned.qcow2'
+    pidfile = root/'guest.pid'
+    for case in ['delayed-exit','timeout','wrong-disk','wrong-process']:
+        argv0 = 'python-fixture' if case == 'wrong-process' else 'qemu-system-fixture'
+        child = subprocess.Popen([argv0,'-c',fixture,'-drive',
+            'if=none,id=rocknix,format=qcow2,file='+str(disk),
+            'ignore' if case == 'timeout' else 'delay'], executable=sys.executable,
+            stdout=subprocess.PIPE, text=True)
+        try:
+            port = int(child.stdout.readline())
+            pidfile.write_text(str(child.pid)+'\n')
+            start = time.monotonic()
+            result = subprocess.run([str(tool),'--timeout','0.05' if case == 'timeout' else '2',
+                str(pidfile),str(root/'other.qcow2' if case == 'wrong-disk' else disk)],
+                capture_output=True,text=True,timeout=4)
+            if case == 'delayed-exit':
+                assert result.returncode == 0 and time.monotonic()-start >= 0.19, result
+                assert child.wait(timeout=1) == 0 and not pidfile.exists()
+                with socket.socket() as listener:
+                    listener.bind(('127.0.0.1',port))
+                print('PASS delayed TERM waits for exit and immediate port reuse')
+            else:
+                assert result.returncode == 1 and child.poll() is None and pidfile.exists(), result
+                assert {'timeout':'retaining pidfile','wrong-disk':'expected disk',
+                        'wrong-process':'not QEMU'}[case] in result.stderr,result.stderr
+                print('PASS '+case+' refuses completion and retains live process/pidfile')
+            passed += 1
+        finally:
+            if child.poll() is None:
+                child.kill()
+            child.wait(timeout=2)
+            child.stdout.close()
+            pidfile.unlink(missing_ok=True)
+    # A dead owned PID and a missing pidfile are idempotent shutdowns.
+    pidfile.write_text(str(child.pid)+'\n')
+    assert subprocess.run([str(tool),str(pidfile),str(disk)],capture_output=True).returncode == 0
+    assert not pidfile.exists()
+    assert subprocess.run([str(tool),str(pidfile),str(disk)],capture_output=True).returncode == 0
+    passed += 2
+    print('PASS exited PID and missing pidfile are idempotent')
+print('PASS %d vm-stop controls' % passed)

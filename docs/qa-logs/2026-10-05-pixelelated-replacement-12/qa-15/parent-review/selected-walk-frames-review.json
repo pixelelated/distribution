@@ -1,0 +1,113 @@
+{
+  "observed_utc": "2026-10-05T23:10:26.470347+00:00",
+  "scope": "Direct inspection of eleven selected walk frames; manager-gb coverage discrepancy found",
+  "frames": [
+    {
+      "path": "/workspace/tmp/pixelelated-m7-qa-15/artifacts/rocknix-images/qa-55d8ee8f75-webdav-a-20261005-2248/walks/to-manage-cloud-storage/01-cloud-hub.png",
+      "sha256": "f4d6c4a46fa7b74f9c9ac0daf489feda405be58c831e253cade5074dd16c0307",
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-qa-15/artifacts/rocknix-images/qa-55d8ee8f75-webdav-a-20261005-2248/walks/back-up-page/02-back-up-page.png",
+      "sha256": "56533060df1d0cb5e480b22a53e9bdd669a197e3e25ca6bde207c510f1e33334",
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-qa-15/artifacts/rocknix-images/qa-55d8ee8f75-webdav-a-20261005-2248/walks/restore-page/02-restore-page.png",
+      "sha256": "6236de27f338bbc5866a909bcf120afc1c9296449083085aacbb95fb256d8bfe",
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-qa-15/artifacts/rocknix-images/qa-55d8ee8f75-webdav-a-20261005-2248/walks/match-dialog/03-match-confirm.png",
+      "sha256": "cd55f786ca35a8df5c5bc13dff7b3b21cd13464630ba48a78c2e106aca967aea",
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-qa-15/artifacts/rocknix-images/qa-55d8ee8f75-webdav-a-20261005-2248/walks/match-dialog/04-match-done.png",
+      "sha256": "56b6e82c532956f15f81b9f5342ed890f4509ee83af3c02bb800292f2c12450c",
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-qa-15/artifacts/rocknix-images/qa-55d8ee8f75-webdav-a-20261005-2248/walks/to-change-cloud-folder/03-folder-editor.png",
+      "sha256": "d89f52f9a813801d858d8429d984dad7e3b13f1b84771fc0c388b98e7de760eb",
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-qa-15/artifacts/rocknix-images/qa-55d8ee8f75-webdav-a-20261005-2248/walks/run-transfer-frames/07-t02.png",
+      "sha256": "12cc77f515218b4cad12157d4dd62208f3be9bf49a766f205b2464518e82e127",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "observation": "Preparing backup, elapsed 0:00",
+      "viewed_utc_approximate": "2026-10-05T23:17:30Z"
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-qa-15/artifacts/rocknix-images/qa-55d8ee8f75-webdav-a-20261005-2248/walks/run-transfer-frames/22-t60.png",
+      "sha256": "b619c0244f15a7539c32fbafe73af52dc0290e33e513e29e7e3a68fc345a96a1",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "observation": "Completed, 24 files and 640 KB backed up, elapsed 0:04",
+      "viewed_utc_approximate": "2026-10-05T23:17:30Z"
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-qa-15/artifacts/rocknix-images/qa-55d8ee8f75-webdav-a-20261005-2248/walks/manager-nes/04-3-manager.png",
+      "sha256": "ae9be9f3ef749a9f0383b91a85985274f500f49a4b9c19e3b2f6797ccb4a8d6e",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "observation": "NES/Bobl shown",
+      "viewed_utc_approximate": "2026-10-05T23:24:10Z"
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-qa-15/artifacts/rocknix-images/qa-55d8ee8f75-webdav-a-20261005-2248/walks/manager-gb/04-3-manager.png",
+      "sha256": "2c4ff6b91aed6a0e8030258659800b687e551766e6360603d890b2f4e5d91d05",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "observation": "Final Burn Neo/Ms. Pac-Man shown; manager-gb does not prove Game Boy coverage",
+      "viewed_utc_approximate": "2026-10-05T23:24:10Z"
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-qa-15/artifacts/rocknix-images/qa-55d8ee8f75-webdav-a-20261005-2248/walks/manager-fbn/04-3-manager.png",
+      "sha256": "fd569baf2c5c8a80ead89c97b77bf351603e81ca746908114d4ff84a7b6790c6",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "observation": "Final Burn Neo/Ms. Pac-Man shown; manager-gb does not prove Game Boy coverage",
+      "viewed_utc_approximate": "2026-10-05T23:24:10Z"
+    }
+  ],
+  "findings": [
+    "Cloud hub and four transfer categories readable",
+    "Restore settings correctly unavailable with no settings backup in fixture",
+    "Match confirmation and result disclose local removal and keep save-related data separate",
+    "Folder editor shows lowercase /pixelelated/Saves",
+    "manager-gb actual frame shows Final Burn Neo, as did retained QA14; investigate fixture before claiming Game Boy coverage"
+  ],
+  "baseline_comparison": "Automated comparison PASS with 20 claimed regions, 0 unclaimed, 0 missing; this does not detect the inherited wrong-system scenario",
+  "appended_utc": "2026-10-05T23:20:56.603779+00:00"
+}

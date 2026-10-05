@@ -162,6 +162,8 @@ both lists and to this table, or it is invisible.**
 | `qa-accounts` | carry QA credentials into a guest without printing them | `generic-x64-vm-testing.md` |
 | `vm-pair`, `vm-serial`, `vm-visual-qa`, `vm-walks/` | bring guests up, drive them, capture frames, walk the interface | `generic-x64-vm-testing.md` |
 | `vm-qa` | every automated check against one image, one report | `generic-x64-vm-testing.md` |
+| `vm-stop`, `vm-stop-test` | stop only the owned QEMU and await exit; exercise delayed exit, timeout and refusal controls | `generic-x64-vm-testing.md` |
+| `vm-manager-system-check` | refuse manager walkthroughs on an absent or wrongly selected system | `generic-x64-vm-testing.md` |
 | `cloud-round-trip`, `cloud-test-backend`, `cloud-census`, `cloud-capture-stamp-test` | the cloud-sync suites and their backends | `rclone-cloud-sync.md` |
 | `settings-modes-test` | do shell settings and recovery writers preserve private modes and refuse failed staging with the image applets (#421) | `generic-x64-vm-testing.md` |
 | `emulator-exit-test`, `wait-lock-test`, `last-good-scripts-test` | the exit hotkey, the lock's patience, the scripts under busybox | `generic-x64-vm-testing.md` |
