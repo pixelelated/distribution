@@ -81,3 +81,28 @@ emulator documentation dirty. Full source hashing was not repeated in this
 followup. The stale UI06-active and older-publication checkpoint sentences
 were flagged for correction; UI07 subsequently launched under primary
 supervision and is not a completion claimed by this review.
+
+## Terminal handoff proof — 02:03 UTC
+
+The read-only reviewer found no blocking contradiction in the updated
+checkpoint. UI07 raw/retained tool90920 and all four result channels were0;
+independent host observation02:00:22 found all six recorded PIDs absent and
+no QEMU. It verified495 artifact hashes,79 retained copies, all42 selected
+frame copies and3209 trace hashes. This verifies custody; it did not repeat
+the primary's visual review. It did not rehash the full source or run an audit.
+
+The separate boot criterion remains failed:640 agreement96.10208817%,
+924 reported differences across rows212–239;1280 agreement99.60472820%
+passes. Reference/best-frame hashes match and all negative controls reject.
+Cause remains unproved. #433 is current; predecessor03 is unstarted behind
+its original UI06 gate. #432 remains an unimplemented backlog preference.
+
+Verified UI07 completion SHA256
+515a247bbf5254929df06bdb0eb813717e479ba8848306c093140e905a1c543c;
+artifacts manifestdb162f84871b25e599f69eb54c8fb3cbb25c96e0da3d491859a54022df889255;
+failed matcher8a5405af450bc160d412d701e3ed822c3a3fc099d91caaa5ca07c6613b3d6964.
+Checkpoint reviewed SHA256
+0ad17a6e4d9f3b28b3da56d6af13f0c9146f6d34990ac959e0846a85ab1c7914.
+The one tracker wording finding was #433's stale “retention in progress”;
+the retained files are complete and its publication note will name the
+actual normal-push commits after remote readback.
