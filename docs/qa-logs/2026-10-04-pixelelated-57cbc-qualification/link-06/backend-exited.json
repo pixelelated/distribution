@@ -1,0 +1,8 @@
+{
+  "observed_utc": "2026-10-04T23:59:58.445978+00:00",
+  "container": "a47e62ea1d20",
+  "absent": true,
+  "verification": "successful docker ps -a --no-trunc lists no matching container ID",
+  "webdav_pidfile_absent": true,
+  "prior_observation": "docker inspect exited1 with error: no such object; recording wrapper initially expected capitalized No and returned1. Successful QA results and completion.json are unchanged."
+}

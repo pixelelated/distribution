@@ -17,7 +17,7 @@ product files,180links and200QA files. Previous05cache was independently
 copied and checksum/inode verified2525217files before use. Guarded preflight
 reclaimed swap; no helper reinstall is needed.
 
-**Verdict: default/upgrade/content/settings qualification passes; provider matrix active.**
+**Verdict: default/upgrade/content/settings/provider qualification passes; cloud cases active.**
 qa07 actual44253/allrc0 completed23:31UTC: all15defaults,16walks/78frames,
 baseline21claimed/0unclaimed/0missing, actualRC2 preservation and exact clean/
 upgraded bytes/modes. Actual ES process identity and five1280x800frames in
@@ -28,8 +28,11 @@ Sweep04 actual4437=0:8589reviewedbrandcontexts,0FIX/UNKNOWN,70reviewedpublic
 credential-patternmatches,0unclassified,10controls,95XMLentries/0orphans.
 Settings06 actual60081=0:20realESrace/29installedmode checks on actual-upgrade
 COW, original settings/product/backing preserved, actualcleanup23:33:43.
-Link06 tool26472 started23:33:56 with shared5s recursive watcher and connected
-supervision; seven WebDAV then seven S3 fault/recovery cases. No RC/device claim.
+Link06 actual26472/allrc0 completed23:50:48UTC October4: seven WebDAV
+cases PASS477s and seven S3 cases PASS459s; actual process/backend cleanup
+verified23:59:43–58. Guest06 actual67203 started00:00:08UTC October5, with
+shared5s recursive watcher and connected supervision over19 independent cloud
+cases. No RC/device claim.
 
 qa06's original30948/allrc1 is preserved: a newly added harness expected0644
 for the export profile, but Git/package/guest correctlyuse0755 (#428). Fresh
@@ -45,7 +48,7 @@ recoveredrclone archive verified. Fourteen licence-metadata gaps remain P5.
 Build/source receipts: `docs/qa-logs/2026-10-04-pixelelated-replacement-06/`.
 Runtime/failure receipts: `docs/qa-logs/2026-10-04-pixelelated-57cbc-qualification/`.
 
-Next: finishlink06 → guest06
+Next: finishguest06
 → runtime06 → proxy05 → optins05 → memory05 → ui06 → predecessor03 → subset02.
 Each new owner binds the exact current candidate. Then reconcile remaining
 criteria, ordinary RA proof, approved P4 primary+Fable5.1/xhigh review and first
@@ -76,7 +79,8 @@ Historical inventory03 binds05 only. Receipts in
 exposed600→644 shell-writer widening421 after passing defaults; corrected
 source1719checks and installed05 mode/race proofs close that defect.
 #320/#384/#391/#392/#366/#417/#419/#420/#421/#425 are closed with their own
-proved scopes; #422/#424/#426/#428 retain current-image criteria. #427 was a
+proved scopes. #424/#428 are now also closed from published replacement06
+proof. #422/#426 retain bilingual UI and installed proxy criteria. #427 was a
 disproved fallback-glob hypothesis, closednotplanned with no source change.
 
 The sections below retain the October2–3 review baseline and historical pins.

@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Updated 2026-10-05T00:01:00.123734+00:00. Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261005T000100Z.md`.
+> Updated 2026-10-04T23:36:06.590032+00:00. Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261004T233606Z.md`.
 
 ## Start here
 
@@ -28,7 +28,7 @@ files,live regression and7 unstarted owners. Its stale readiness paragraph
 and precise harness-manifest wording findings are corrected.
 A helper installation is COMPLETE; do not ask to reinstall it.
 
-## Current: replacement06 defaults/upgrade/content/settings/providers PASS; guest06 ACTIVE
+## Current: replacement06 default/upgrade/content/settings PASS; link06 ACTIVE
 
 Frozen tree /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement06,
 build/m7-pixelelated-replacement06, commit57cbc9b981205328444d41f6c4237dc9f5736d7f.
@@ -51,7 +51,7 @@ licences pass. Store/independentverify actual98974=0, no parser failure.
 Immutable bundle:
 /workspace/artifacts/pixelelated-candidates/sha256/d4007387afd5ac42104a53a3073b93fdadd33c51179bf9f3142101609f821ec9
 Image pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz:
-SHA256 1e16122cc48ed7552f42598c2c251930a4b5ad451c1040c345aecda35dae130e,
+SHA1e16122cc48ed7552f42598c2c251930a4b5ad451c1040c345aecda35dae130e,
 2073134283bytes. Same-stem.tar:
 1786a568db2320a1482ff58165c20280d1d2bfa11e197abb4f3eee5847dbbe28,
 2073989120bytes. Build/source/copy/store evidence in
@@ -91,53 +91,31 @@ product and backing hashes verify. Actual23:33:43 runner477529/watcher477530/
 command477559/guest477941 absent. No guest/product instrumentation remains.
 Evidence: docs/qa-logs/2026-10-04-pixelelated-57cbc-qualification/.
 
-## Completed link06 and ACTIVE guest06
+## ACTIVE link06 — current exact-candidate interrupted-provider matrix
 
-link06 actual26472/allrc0 completed2026-10-04 23:50:48UTC. WebDAV seven
-interruption/recovery cases PASS477s; S3 seven PASS459s. Source/bundle hashes
-reverify. Actual2026-10-04 23:59:43 runner481672/watcher481673/command481702,
-guests482514/482540/533124/533150 and throttle532235 absent. Successful
-dockerps readback23:59:58 confirms MinIOa47e62ea1d20 absent; WebDAVpidfile
-absent. Initial cleanup recorder's case-sensitive Docker error comparison
-returned1 despite 'no such object'; retained in backend-exited.json, not
-rewritten as a QA failure. Actual26472 and completion.json remain0.
-Receipts: docs/qa-logs/2026-10-04-pixelelated-57cbc-qualification/link-06/.
+Owner /workspace/tmp/pixelelated-m7-link-06, actual tool26472, started23:33:56.
+Run frozen06/.build-runs/20261004T233356Z-3303eded. Actual23:34:19
+runner481672/watcher481673/command481702 and freshguests482514/482540 alive.
+Shared5s recursive watcher/5min stall detection plus connected supervision.
+Runs seven WebDAV cases then seven S3 cases; do not edit/restart this owner.
+Poll26472; inspect both reports and actual tool/inner/outer/wrapper/build
+results, then verify actual process/backend cleanup before guest06.
 
-The preceding checkpoint commit was blocked BEFORE execution when automatic
-approval review hit its usage limit (not an unsafe-action determination).
-After the owner's "Please proceed", ordinary escalation worked again.
-No approval bypass or alternate execution path was used. The existing link06
-run completed normally; its terminal result was read on resumption.
-
-Current owner /workspace/tmp/pixelelated-m7-guest-06, actual tool67203,
-started2026-10-05 00:00:08UTC. Run frozen06/.build-runs/20261005T000008Z-8c7327fd.
-Actual00:00:31 runner610223/watcher610224/command610253 and guest611028 alive.
-Shared5s recursive watcher/5min stall detection and connected supervision.
-Runs19 independent reset cloud cases; artifacts/cloud-epic/<case>/logs/run.log
-and frames. Do not edit or restart this owner. Poll67203 and verify all actual
-result channels and host/backend cleanup before runtime06. Keep K's explicit
-restore-marker stand-in and T23's current-protocol faults distinguished from
-the later inherited-state proof. Select frames honestly; do not claim every
-capture was visually reviewed.
-
-Remaining sealed UNSTARTED owners: runtime06 → proxy05 → optins05 → memory05
-→ ui06 → predecessor03 → subset02. All under /workspace/tmp/pixelelated-m7-;
-run from frozen06 with immutable BUNDLE. Never rerun executed owners or
-preparation scripts. qa-owners-revision-2.json is preparation history, not
-live results. Fresh-context proof23:44:33 independently verified all source,
-14bundlemembers,14harnessseals,156rawartifacts/152retainedcopies,10identity
-frames, completed-owner exits and then-liveS3ownership. Its wording findings
-are corrected; addendum23:46:24 finds no contradiction in the correctedscope.
-Report: docs/qa-logs/2026-10-04-pixelelated-replacement-06/resume-proof-link06.md.
+Remaining sealed UNSTARTED owners: guest06 → runtime06 → proxy05 → optins05
+→ memory05 → ui06 → predecessor03 → subset02. All under /workspace/tmp/
+pixelelated-m7-; run from frozen06 with immutable BUNDLE. Each run.sh enforces
+its prerequisites. Inputs/source/harness seals must remain unchanged.
+Never rerun executed preparations or owners. The original qa-owners.json is
+a historical preparation snapshot; qa-owners-revision-2.json records the
+qa07 dependency correction, not a live result ledger.
 
 ## Retained qa06 failure and current inventory
 
 qa06 actual30948/allrc1 expected0644, while Git/package/guest correctly0755.
 Original harness/failure/cleanup remain immutable. Freshqa07 mode controls
 accept0755 and reject644/777/600; current complete default/upgrade results
-satisfy #428's last runtime criterion. #424 also has actual clean and
-upgraded consumer/frame proof. Both issues CLOSED completed with code traces,
-Already written notes and published receipts, actual70226/readback0 at23:39.
+now supply #428's last runtime criterion. #424 also has actual clean and
+upgraded consumer/frame proof; reconcile/publish before issue closure.
 Six UNSTARTED dependencies were rebound before execution, oldseals retained.
 
 Inventory04 actual53198/allrc0:568roots/547cache/0errors,583components/
@@ -195,9 +173,8 @@ Installed-negative fields/command/profile hash, original file, frames and
 source receipts: docs/qa-logs/2026-10-04-es-identity-export/.
 No in-flight/frozen05 source or guest file was altered. Replacement06 is now
 built and its initial clean process/payload and reviewed menu/manual-update
-frames PASS on clean AND upgraded boots as above. #424 is CLOSED completed
-from replacement06 proof; frozen05 remains historically failed. Historical
-UI/predecessor/subset on05 completed. Ordinary RA
+frames PASS as above. #424 remains open for upgraded/current-candidate
+qualification. Historical UI/predecessor/subset on05 completed. Ordinary RA
 fixture and P4 stay required.
 
 ## Completed qualification on historical frozen05
@@ -233,7 +210,7 @@ MinIO3392596 exited; docker confirms rocknix-cloud-qa absent. Receipts are
 in the qualification directory's link-05/. Fresh-context resume proof20:46
 verified source/harness/result hashes and live ownership; report beside them.
 
-## Historical frozen05 exact-candidate qualification
+## Newly completed exact-candidate qualification
 
 Guest-05 terminal21:33:30UTC, actual59664/all result channels0: all19
 independent cases,249checks/0failures,87walk frames and1467total captures.
@@ -272,7 +249,7 @@ Actual21:42:47 confirms runner3660474/watcher3660475/command3660504,
 S3guests3661628/3661654 and pair3675182/3675221 absent; owned rclone backend
 and MinIO container absent. Full receipts retained in qualification/optins-04.
 
-## Historical frozen05 memory qualification
+## Newly completed memory qualification
 
 Memory-04 actual86046/all result channels0. Virgl10/software10/software50
 with55 actual exit-sync stamps pass unchanged limits after5warmups:
@@ -323,7 +300,7 @@ base upload, exact gameIDs/cache/stamp, empty repeat avoids network.
 External route removed; synthetic QA only, no live ordinary award claim.
 Actual22:22:33 runner3889456/watcher3889457/command3889486/guest3890213 absent.
 Source/bundle/backing custody verifies. See qualification/subset-01/.
-Current guest06 VM job is active above; these old owners are finished. All completed/failing owner scripts
+Current link06 VM job is active above; these old owners are finished. All completed/failing owner scripts
 and frozen05 source stay immutable; do not rerun an executed owner.
 
 ## #426 current proxy refresh before replacement06 freeze
@@ -354,29 +331,28 @@ opusfile,rclone,retropie-shaders,slang-shaders,tailscale,wildmidi,zerotier-one.
 
 ## Next in binding M7 order
 
-1. Supervise active guest06/tool67203. Read all19 case results and selected
-   frames, reconcile all result channels and actual host/backend cleanup.
-2. Run remaining sealed owners in order: runtime06 → proxy05 →
+1. Supervise active link06/tool26472. Read both seven-case provider reports,
+   reconcile all result channels and actual host/backend cleanup.
+2. Run remaining sealed owners in order: guest06 → runtime06 → proxy05 →
    optins05 → memory05 → ui06 → predecessor03 → subset02. All bind frozen57cbc,
    manifest82764873 and bundled4007387. Defaults/actualupgrade/imageequality/
-   content/settings/providers are complete above; do not rerun them.
+   content/settings are complete above; do not rerun them.
 3. Launch from frozen06 using tools/watch-build --interval 5 --stall-min 5
    --recursive-activity --activity-dir OWNER/artifacts -- OWNER/outer.sh BUNDLE.
    Write OWNER/tool-wrapper.rc and retain actual tool result. One fixed-port
    VM owner at a time. /tmp/pixelelated-finish-owner.py runs only AFTER the
    actual tool exits, in escalated host view (sandbox hides real processes).
    /tmp/pixelelated-retain-06-simple.py retains completed simple-owner receipts
-   from the feature cwd. It has already run for qa07/image07/sweep04/settings06/link06;
+   from the feature cwd. It has already run for qa07/image07/sweep04/settings06;
    never rerun those retention invocations. Guest/memory/UI need tailored
    frame selection rather than copying every capture into Git.
 4. ui06 boot matcher uses actual640/1280 captures, unchanged99.5% threshold,
    approved Ocean proofs and old-logo/blank/wrong-size rejection controls.
-   Review intended EN/FR pages. #424/#428 are CLOSED completed with clean/upgraded evidence;
+   Review intended EN/FR pages. #424/#428 now have clean/upgraded evidence;
    #426 still needs exact new proxy/subset runtime proof.
 5. #384/#391/#425/#366 CLOSED completed with exact published receipts,
    code-traces/Already written comments/live readbacks actual15451/68014=0.
-   #422 firsttwo/dependency criteria ticked; final EN/FR panel proof awaitsui06.
-   Its former identity blocker424 is fixed and closed from qa07 proof.
+   #422 firsttwo/dependency criteria ticked, intended manual-update page blocked424.
    Reconcile only proved #422/#416/#352/#353/#327 items. Earlier completed
    #320/#392/#417/#419/#420/#421 remain closed. #427 closed notplanned as disproved.
 6. Ordinary RA fixture below still awaits owner input. Then approved P4
@@ -385,13 +361,10 @@ opusfile,rclone,retropie-shaders,slang-shaders,tailscale,wildmidi,zerotier-one.
    H700 DDR4/RG35XX SP build. P5 source/licences/docs/publication and named
    physical-action gates remain. No RC/device-ready claim.
 
-Latest completed-evidence/checkpoint publication: featuref7ae4bc0ca5edc86a2cca19f19738086f86a1c65 →
-nextf8e7717ee7f6c8440db3a72c1a34394851df11be, actual14327=0 normalpush/readback.
-M7/#383/#409/#344 updated/read back23:39 actual70226=0, prioritylink06 then
-remaining orderedowners/P4/H700. #424/#428 closedcompleted by same actual
-operation with completecriteria/code-traces/Alreadywritten notes. Actual98506=0
-labels older19:01 issue sections explicitlyhistorical; their original results
-are retained. P4 auditcadence remains due/unwaived despite normalpushsuccess.
+Last published checkpoint before these new receipts: featureb8ee955ae29b8c2ae104b475cd7a706ca54f322e →
+next9c5226eb82ffa93facfb7717b37ae05790357678, actual28759=0 normalpush/readback.
+M7/#383/#409/#344 and428 partial criteria updated/read back22:58 actual26602=0;
+424 clean evidence comment added. Earlier checkpoint81041 also pushed normally.
 Previous93992=1: next push guard required issuecitation; added body only to
 UNPUSHED next commit, normalretry. Earlierprecommit rejected fullmanifest path
 strings as credential-shaped; original sealed manifest remains local, public
