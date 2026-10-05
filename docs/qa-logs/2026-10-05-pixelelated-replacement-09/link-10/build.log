@@ -1,0 +1,59 @@
+/workspace/tmp/pixelelated-m7-link-10/outer.sh: OK
+/workspace/tmp/pixelelated-m7-link-10/provenance.json: OK
+/workspace/tmp/pixelelated-m7-link-10/run.sh: OK
+/workspace/tmp/pixelelated-m7-link-10/successor-provenance.json: OK
+/workspace/tmp/pixelelated-m7-link-10/verify-inputs.py: OK
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/79d560046ee52e28b72f16588168dd7c8fb2637c1cc585713216a8ec828e9d81
+START pixelelated webdav link-loss matrix
+ready: a on cf511ce79b over ssh :10022 (answered after 0s)
+ready: b on cf511ce79b over ssh :10023 (answered after 0s)
+link: PASS in 494s
+
+# vm-qa on cf511ce79b
+
+started 2026-10-05 06:56 UTC, guest a at :10022, cloud webdav (port 9010, hash=none modtime=no commit=partial bucket=no), image /workspace/artifacts/pixelelated-candidates/sha256/79d560046ee52e28b72f16588168dd7c8fb2637c1cc585713216a8ec828e9d81/pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz, display: GL through virgl on /dev/dri/renderD128
+
+| suite | result | time | log |
+| --- | --- | --- | --- |
+| link | PASS | 494s | `link.log` |
+
+**PASSED** -- every suite that ran passed.
+
+finished 2026-10-05 07:04 UTC
+
+renderer: (no RetroArch launch log on the guest) -- the guest's Mesa, from the launch log; display: GL through virgl on /dev/dri/renderD128
+
+report: /workspace/tmp/pixelelated-m7-link-10/artifacts/rocknix-images/qa-cf511ce79b-webdav-a-20261005-0656/report.md
+down: a (pid 3999993)
+down: b (pid 4000019)
+down
+PASS pixelelated webdav link-loss matrix
+START pixelelated s3 link-loss matrix
+ready: a on cf511ce79b over ssh :10022 (answered after 0s)
+ready: b on cf511ce79b over ssh :10023 (answered after 0s)
+link: PASS in 460s
+
+# vm-qa on cf511ce79b
+
+started 2026-10-05 07:05 UTC, guest a at :10022, cloud s3 (port 9012, hash=md5 modtime=yes commit=atomic bucket=yes), image /workspace/artifacts/pixelelated-candidates/sha256/79d560046ee52e28b72f16588168dd7c8fb2637c1cc585713216a8ec828e9d81/pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz, display: GL through virgl on /dev/dri/renderD128
+
+| suite | result | time | log |
+| --- | --- | --- | --- |
+| link | PASS | 460s | `link.log` |
+
+**PASSED** -- every suite that ran passed.
+
+finished 2026-10-05 07:13 UTC
+
+renderer: (no RetroArch launch log on the guest) -- the guest's Mesa, from the launch log; display: GL through virgl on /dev/dri/renderD128
+
+report: /workspace/tmp/pixelelated-m7-link-10/artifacts/rocknix-images/qa-cf511ce79b-s3-a-20261005-0705/report.md
+down: a (pid 4045893)
+down: b (pid 4045920)
+down
+PASS pixelelated s3 link-loss matrix
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/79d560046ee52e28b72f16588168dd7c8fb2637c1cc585713216a8ec828e9d81
+PASS frozen source inputs, ES pin and candidate input custody
+PASS pixelelated WebDAV/S3 link-loss matrices
+down

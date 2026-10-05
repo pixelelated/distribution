@@ -1,0 +1,21 @@
+{
+  "utc": "2026-10-05T06:58:32.644478+00:00",
+  "processes": [
+    {
+      "pid": 3999993,
+      "start_ticks": "27505047",
+      "owned_disks": [
+        "if=pflash,unit=1,format=raw,file=/workspace/tmp/pixelelated-m7-link-10/webdav/pair/vm-a.ovmf-vars.fd",
+        "if=none,id=rocknix,format=qcow2,file=/workspace/tmp/pixelelated-m7-link-10/webdav/pair/vm-a.qcow2"
+      ]
+    },
+    {
+      "pid": 4000019,
+      "start_ticks": "27505059",
+      "owned_disks": [
+        "if=pflash,unit=1,format=raw,file=/workspace/tmp/pixelelated-m7-link-10/webdav/pair/vm-b.ovmf-vars.fd",
+        "if=none,id=rocknix,format=qcow2,file=/workspace/tmp/pixelelated-m7-link-10/webdav/pair/vm-b.qcow2"
+      ]
+    }
+  ]
+}

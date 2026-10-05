@@ -1,6 +1,6 @@
 # M7.P3 replacement09 build and qualification (#409, #383)
 
-Status updated 2026-10-05T06:56:29.170887+00:00.
+Status updated 2026-10-05T07:14:45.911585+00:00.
 
 ## Current gate — replacement09 boot qualification passed
 
@@ -14,11 +14,13 @@ Boot04/tool90675/all four rc0 passes four clean/upgraded boots at 640x480 and 12
 
 **Settings qualification:** original settings10/tool97000 rejected an inherited stale expected ES hash before race mutation (#443). Fresh settings11/tool91974 derives expected hashes from the verified candidate and records observed values. All20 installed recovery-race and29 permission/refusal checks pass; settings and installed files are restored/unchanged. Original upgraded backing hash is unchanged. Actual06:55:44 all owner and guest processes absent.
 
-**Current action:** link10/tool56478 is running the isolated WebDAV and S3 link-loss matrices. The standard watcher checks every5seconds and warns after5minutes without log progress. This remains an engineering candidate; RC/device-ready gates have not passed.
+**Link-loss qualification:** link10/tool56478/all four rc0 passes all14 WebDAV/S3 interruption cases:151 PASS lines, zero failures/skips. Receiving files remain whole, markers stay correct, and plain retries complete after reconnecting. Actual07:13:44 all owner/four guest processes absent; frozen source and bundle reverified.
 
-**Remaining order:** link10 → guest10 → runtime11 → proxy09 → optins09 → memory09 → UI11 → predecessor07 → subset06 → cloud-ui05 → signin-ui05 → signin-1g05 → ordinary RetroAchievements proof → P4 primary OpenAI plus Fable5.1/xhigh through the verified Facilitator → H700 DDR4/RG35XX SP arm, then aarch64. Predecessor07 requires the completed boot04 proof and an actual UI11 visual review. External inputs and P5 publication gates remain recorded. Can this be done on the VM? **Yes.**
+**Current action:** guest10/tool59031 runs19 independently reset cloud regression cases on a fresh isolated VM. The standard watcher checks every5seconds and warns after5minutes without log progress. This remains an engineering candidate; RC/device-ready gates have not passed.
 
-#433/#436 remain closed from their artifact-scoped replacement08 repair proofs. #437/#438 and #439/#440/#441 are closed with published scoped evidence; actual52959=0 verifies the latter three bodies/states. Prior evidence publication38382=0 put featurecb078ec6 on next3ac3c33d, with both remote hashes verified. #442/#443 evidence is ready for publication and scoped closure. These closures do not qualify the whole candidate.
+**Remaining order:** guest10 → runtime11 → proxy09 → optins09 → memory09 → UI11 → predecessor07 → subset06 → cloud-ui05 → signin-ui05 → signin-1g05 → ordinary RetroAchievements proof → P4 primary OpenAI plus Fable5.1/xhigh through the verified Facilitator → H700 DDR4/RG35XX SP arm, then aarch64. Predecessor07 requires the completed boot04 proof and an actual UI11 visual review. External inputs and P5 publication gates remain recorded. Can this be done on the VM? **Yes.**
+
+#433/#436 remain closed from their artifact-scoped replacement08 repair proofs. #437/#438 and #439/#440/#441 are closed with published scoped evidence; actual52959=0 verifies the latter three bodies/states. Content/settings publication49305=0 put featureb7f9cac3 on nexte1f2baaf, with both remote hashes verified. #442/#443 are closed completed; actual19135=0 verifies their acceptance bodies and states. These closures do not qualify the whole candidate.
 
 ## Preparation snapshot (historical)
 
