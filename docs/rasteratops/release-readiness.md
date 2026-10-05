@@ -1,27 +1,24 @@
 # pixelelated 0.0.1 release readiness
 
-## Current work — corrected proxy build and installed qualification
+## Current work — replacement12 built; VM qualification running
 
-#356/#365 are closed from the [P3 acceptance map and 36 focused installed
-cloud cases](../qa-logs/2026-10-05-p3-reconciliation/README.md). #451 is closed
-from [815 native-enabled Linux checks and 11 integration checks against each
-predecessor](../qa-logs/2026-10-05-proxy-3036478/README.md).
+Replacement12 from `55d8ee8f75965a560f75d187e34c9beaa93133f1` built successfully
+at22:45:46UTC2026-10-05. All642tasks, four result channels, assembled payload,
+actual process/container cleanup and immutable artifact verification pass.
+Image13 proves flash/update SYSTEM equality; inventory09 maps actual consumed
+sources and retains14P5licence gaps. [Exact receipts](../qa-logs/2026-10-05-pixelelated-replacement-12/README.md).
 
-The existing pre-build guard caught a stale schema-review comment before
-compilation. #452 corrects that comment after schema/direct-query review;
-the original frozen11 failure remains intact. Corrected replacement12 is
-frozen at55d8ee8f75965a560f75d187e34c9beaa93133f1, manifest
-bfdcf9b2655157b7e4d3a59f1c6fa803f68989b2cfb8b460eb0f2a666ee98192.
-Full freshness on that exact tree passed at22:26:40 UTC. The independent cache
-copy is still completing verification; a guarded adoption of its unbuilt root
-precedes compilation. [Preparation receipts](../qa-logs/2026-10-05-pixelelated-replacement-12/README.md)
-are not image qualification.
+QA15 started22:47:25: all default VM suites and actual ROCKNIX RC2 upgrade.
+No completed runtime qualification is claimed. Next: installed proxy/native-
+format/legacy-CHD tests, HTTP subset reconnection, ordinary RA and authenticated
+Dropbox QA-account proofs, approved P4, H700 arm/aarch64 and named P5 gates.
+#356/#365/#451/#362/#452 have closed criterion maps. Account inputs are pending.
 
-Next: complete cache custody, build and retain the artifact, then default VM
-QA, actual RC2 upgrade and affected installed native/proxy preservation and
-HTTP reconnect checks. Ordinary RA and authenticated Dropbox QA-account
-proofs follow, then P4, H700 arm/aarch64 and named physical/P5 gates. No RC or
-device-ready claim. Account status and credential-file location are unanswered.
+[Host storage inventory](../qa-logs/2026-10-05-build-storage/README.md) answers
+#453: retained worktrees1776GiB, artifacts917GiB, QA temporary data497GiB and
+source cache63GiB. Five superseded trees total539GiB gross for custody review
+before named removal approval. No deletion was performed; current inputs and
+upgrade evidence are excluded. No RC/device-ready claim.
 
 ## Completed installed GENERIC_X64 Pixman fallback (#447)
 

@@ -1,0 +1,79 @@
+{
+  "observed_utc": "2026-10-05T22:33:47.242029+00:00",
+  "durable_runner_rc": 0,
+  "result_channels": {
+    "/workspace/tmp/pixelelated-m7-replacement-11/copy.rc": 0,
+    "/workspace/tmp/pixelelated-m7-replacement-11/copy.outer.rc": 0,
+    "/workspace/tmp/pixelelated-m7-replacement-11/cache-copy/tool-wrapper.rc": 0,
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement11/.build-runs/20261005T222055Z-77bab55a/build.rc": 0,
+    "/workspace/tmp/pixelelated-m7-replacement-11/cache-ready.rc": 0
+  },
+  "owned_processes": [
+    {
+      "pid": 147524,
+      "state": "absent"
+    },
+    {
+      "pid": 147525,
+      "state": "absent"
+    },
+    {
+      "pid": 147526,
+      "state": "absent"
+    },
+    {
+      "pid": 147555,
+      "state": "absent"
+    },
+    {
+      "pid": 147556,
+      "state": "absent"
+    },
+    {
+      "pid": 174991,
+      "state": "absent"
+    },
+    {
+      "pid": 174992,
+      "state": "absent"
+    },
+    {
+      "pid": 174993,
+      "state": "absent"
+    },
+    {
+      "pid": 183735,
+      "state": "absent"
+    },
+    {
+      "pid": 187655,
+      "state": "absent"
+    },
+    {
+      "pid": 192648,
+      "state": "absent"
+    },
+    {
+      "pid": 201472,
+      "state": "absent"
+    },
+    {
+      "pid": 210539,
+      "state": "absent"
+    }
+  ],
+  "run": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement11/.build-runs/20261005T222055Z-77bab55a",
+  "launcher_result": {
+    "utc": "2026-10-05T22:33:24.124189+00:00",
+    "pid": 147524,
+    "runner_returncode": 0,
+    "submission_is_not_completion": true
+  },
+  "log_sha256": "f9f1c924f478ea8bcfe7d0a134eb54c5864150b52cf45d1f1bb97923a9d5beba",
+  "cache_ready": {
+    "checksum_equal": true,
+    "independent_regular_files": 2526406,
+    "old": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement10/build.pixelelated-GENERIC_X64.x86_64",
+    "new": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement11/build.pixelelated-GENERIC_X64.x86_64"
+  }
+}

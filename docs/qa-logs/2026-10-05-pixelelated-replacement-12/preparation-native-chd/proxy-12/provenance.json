@@ -1,0 +1,22 @@
+{
+  "utc": "2026-10-05T22:27:53.408986+00:00",
+  "source_owner": "/workspace/tmp/pixelelated-m7-proxy-11",
+  "source_seal_sha256": "9466d479e2f942d92a00637ca6c55f23cbefe1c5ba35be981d30d69d56a112d0",
+  "source_commit": "55d8ee8f75965a560f75d187e34c9beaa93133f1",
+  "manifest_sha256": "bfdcf9b2655157b7e4d3a59f1c6fa803f68989b2cfb8b460eb0f2a666ee98192",
+  "issues": [
+    361,
+    362,
+    383,
+    452
+  ],
+  "state": "UNSTARTED",
+  "scope": "Fresh corrected candidate execution; no old runtime results transferred. Existing assertions retained; only owner/source identities and sequential prerequisite changed.",
+  "native_addition": {
+    "utc": "2026-10-05T22:28:56.680374+00:00",
+    "upstream_test_sha256": "500373b9d8c2f5ca68b3396d68db9a0154e1b7a1ad2218b95b4c4bf42250392c",
+    "only_test_adaptation": "import packaged raofflineproxy instead of linux.raofflineproxy; fixture location remains local test path",
+    "scope": "Actual installed library and Python modules; no native skip allowed; installed SHA must match assembled candidate payload",
+    "legacy_chd": "Four synthetic v1/v2 files exercise actual changed metadata formatter, signed integer boundary, bounded short output with untouched canary, absent-index refusal and exact hunk read; malformed header rejects. Host fixture preflight passes; installed target execution pending."
+  }
+}

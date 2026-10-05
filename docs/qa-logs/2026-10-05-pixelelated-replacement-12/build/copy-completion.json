@@ -1,0 +1,89 @@
+{
+  "observed_utc": "2026-10-05T22:43:22.149091+00:00",
+  "durable_runner_rc": 0,
+  "result_channels": {
+    "/workspace/tmp/pixelelated-m7-replacement-12/copy.rc": 0,
+    "/workspace/tmp/pixelelated-m7-replacement-12/copy.outer.rc": 0,
+    "/workspace/tmp/pixelelated-m7-replacement-12/cache-copy/tool-wrapper.rc": 0,
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement12/.build-runs/20261005T223409Z-f8014ecf/build.rc": 0,
+    "/workspace/tmp/pixelelated-m7-replacement-12/cache-ready.rc": 0
+  },
+  "owned_processes": [
+    {
+      "pid": 228655,
+      "state": "absent"
+    },
+    {
+      "pid": 228656,
+      "state": "absent"
+    },
+    {
+      "pid": 228657,
+      "state": "absent"
+    },
+    {
+      "pid": 228686,
+      "state": "absent"
+    },
+    {
+      "pid": 228687,
+      "state": "absent"
+    },
+    {
+      "pid": 229041,
+      "state": "absent"
+    },
+    {
+      "pid": 229042,
+      "state": "absent"
+    },
+    {
+      "pid": 229043,
+      "state": "absent"
+    },
+    {
+      "pid": 231477,
+      "state": "absent"
+    },
+    {
+      "pid": 236689,
+      "state": "absent"
+    },
+    {
+      "pid": 248065,
+      "state": "absent"
+    },
+    {
+      "pid": 252721,
+      "state": "absent"
+    },
+    {
+      "pid": 256268,
+      "state": "absent"
+    }
+  ],
+  "run": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement12/.build-runs/20261005T223409Z-f8014ecf",
+  "launcher_result": {
+    "utc": "2026-10-05T22:41:41.213594+00:00",
+    "pid": 228655,
+    "runner_returncode": 0,
+    "submission_is_not_completion": true
+  },
+  "log_sha256": "773e653c92019c608948bf2d0e585c6cbe4da585c48640c60dce30ccbf18e7ac",
+  "cache_ready": {
+    "utc": "2026-10-05T22:34:13.108308+00:00",
+    "old": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement10/build.pixelelated-GENERIC_X64.x86_64",
+    "new": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement12/build.pixelelated-GENERIC_X64.x86_64",
+    "staging": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement11/build.pixelelated-GENERIC_X64.x86_64",
+    "staging_unbuilt": true,
+    "rename_preserved_directory_inode": {
+      "device": 66304,
+      "inode": 23126818
+    },
+    "independent_regular_files": 2526406,
+    "original_copy_receipt_sha256": "bb8653d4c63238a030f9a3a978020b57a9b4575e2f6fea54284ee46d118a9a04",
+    "unchanged_tracked_file_timestamps_preserved": 23651,
+    "checksum_equal": true,
+    "verified_utc": "2026-10-05T22:41:38.431868+00:00"
+  }
+}
