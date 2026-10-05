@@ -1,0 +1,21 @@
+07:36:13 === cloud-epic on guest d, BUILD_ID="cf511ce79b83cba7fea8b14cfa3d04fb13e4b4fb"
+232
+07:36:14 == setup: the QA remote on the guest (the host backend's conf), then the QA cloud holds the fork's earlier layout with files in every folder of ours; the guest points at it
+remote: qa-cloud:
+07:36:16   cloud: ROCKNIX/Backups/2026_09_29-090000-Retroid-Pocket-Nova-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Backups/2026_09_30-120000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Content/BIOS/disksys.rom ROCKNIX/Content/ROMs/nes/Probe.nes ROCKNIX/Saves-replaced/nes/Probe.srm.1 ROCKNIX/Saves/nes/Probe.srm 
+07:36:16   guest conf: SAVES_REMOTE="/ROCKNIX/Saves" SETTINGS_REMOTE="/ROCKNIX/Backups" CONTENT_REMOTE="/ROCKNIX/Content" LAYOUT_KEEP="" 
+label=GENERIC-X64
+07:36:43   picks reset: content=0 saves=1
+07:37:04 == K: a settings restore's marker and an earlier folder at the same boot (the marker written here, a named stand-in): FINISH RESTORE PROCESS first; LATER brings neither; FINISH brings the step
+07:37:04   guest conf: SAVES_REMOTE="/ROCKNIX/Saves" SETTINGS_REMOTE="/ROCKNIX/Backups" CONTENT_REMOTE="/ROCKNIX/Content" LAYOUT_KEEP="" 
+-rw-r--r--    1 root     root             2 Oct  5 03:37 /storage/.config/.restore-finish-pending
+07:37:40   reboot_guest: /isIdle yes after 1s
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-guest-10/artifacts/cloud-epic/K/frames/01-K-restore-page.png
+changed after 0.0s (`key up`, line 2)
+settle: still after 1.3s
+captured /workspace/tmp/pixelelated-m7-guest-10/artifacts/cloud-epic/K/frames/02-K-later-focused.png
+changed after 0.1s (`key x`, line 6)
+settle: still after 1.3s
+settle: still after 1.3s
+captured /workspace/tmp/pixelelated-m7-guest-10/artifacts/cloud-epic/K/frames/03-K-after-later.png

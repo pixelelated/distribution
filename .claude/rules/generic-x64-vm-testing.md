@@ -764,6 +764,10 @@ the shell: `map` shows only `BLK0`/`BLK1`, **no `FS0:`**; firmware prints
 
 **Supervise long QA runs as well as builds (#395, D-WORKFLOW-143).** Use the
 shared `tools/watch-build` runner around the frozen checkout's test command.
+For long agent-owned runs, submit that runner through
+`tools/watch-build-submit --owner <fresh-owner> --` (D-WORKFLOW-148). A
+successful submission is only a launch receipt; check the eventual runner,
+command and watcher results and all owned guest processes before acceptance.
 Give each run a fresh `ROCKNIX_ARTIFACTS` directory and pass that same root as
 `--activity-dir DIR --recursive-activity`; suite logs below its generated
 report directory are the activity signal when the summary is quiet. Set
