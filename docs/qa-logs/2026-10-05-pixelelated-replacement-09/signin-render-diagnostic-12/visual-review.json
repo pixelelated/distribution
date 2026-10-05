@@ -1,0 +1,44 @@
+{
+  "reviewed_utc": "2026-10-05T18:28:18.705489+00:00",
+  "diagnostic_complete": true,
+  "candidate_qualification": false,
+  "observations": "Original RC2 page: native correct0/5/15; HMP/VNC prior form0, correct5/15; nine actual frames directly viewed. Offsets after initial capture sequence, not navigation latency. No input/resize.",
+  "frames": [
+    {
+      "name": "render-00-grim.png",
+      "sha256": "c3822de0d67cc96215a90e682c15f26bbb2b93d0719ee4076a94d71450a6ec2a"
+    },
+    {
+      "name": "render-00-qemu.png",
+      "sha256": "be4de073b416e327dd905c1090fa1224e647d1ff420a5f68691f65704e058c40"
+    },
+    {
+      "name": "render-00-vnc.png",
+      "sha256": "be4de073b416e327dd905c1090fa1224e647d1ff420a5f68691f65704e058c40"
+    },
+    {
+      "name": "render-05-grim.png",
+      "sha256": "c3822de0d67cc96215a90e682c15f26bbb2b93d0719ee4076a94d71450a6ec2a"
+    },
+    {
+      "name": "render-05-qemu.png",
+      "sha256": "0f28ed99712bc8b237a7959c794dc5a755d3dd628d4e175183fd62c9e5f16da5"
+    },
+    {
+      "name": "render-05-vnc.png",
+      "sha256": "0f28ed99712bc8b237a7959c794dc5a755d3dd628d4e175183fd62c9e5f16da5"
+    },
+    {
+      "name": "render-15-grim.png",
+      "sha256": "c3822de0d67cc96215a90e682c15f26bbb2b93d0719ee4076a94d71450a6ec2a"
+    },
+    {
+      "name": "render-15-qemu.png",
+      "sha256": "0f28ed99712bc8b237a7959c794dc5a755d3dd628d4e175183fd62c9e5f16da5"
+    },
+    {
+      "name": "render-15-vnc.png",
+      "sha256": "0f28ed99712bc8b237a7959c794dc5a755d3dd628d4e175183fd62c9e5f16da5"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "reviewed_utc": "2026-10-05T18:40:40.564356+00:00",
+  "passed": false,
+  "visual_surfaces_correct": true,
+  "job_failed": true,
+  "reason": "All six actual intended frames viewed; original job remains rc1 on persistent observer TimeoutError. No qualification transfer.",
+  "frames": [
+    {
+      "name": "01-local-redirect.png",
+      "sha256": "cec567d20eda071aabc3eaa667d11df0f449c766becae9ce6f2792801cc94f49"
+    },
+    {
+      "name": "02-finishing-marker-stand-in.png",
+      "sha256": "68a39b5225e347322b2c7ec1b56a4fa1ce3a9dd1e39504c17dbf044c71eaff50"
+    },
+    {
+      "name": "03-public-dropbox-login.png",
+      "sha256": "e1bf807c32fdafa4a55fb0c7053704ee8ca48f479d3a539d972582af2c2f4560"
+    },
+    {
+      "name": "04-phone-checking.png",
+      "sha256": "910c847e497120d068f86e6042999e6eaa7c5f957b0c89855ff459c28f3cf6c1"
+    },
+    {
+      "name": "05-phone-connected.png",
+      "sha256": "ec309e31b63d64a8921861f8405d0fdf8a3360af7343be988cc829a6558dab42"
+    },
+    {
+      "name": "06-actual-oauth-provider.png",
+      "sha256": "167289d20256a5eb23402ad8c444ccbf84f8306a0a23676f4944f75e82f10fff"
+    }
+  ]
+}

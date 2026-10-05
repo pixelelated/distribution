@@ -1,0 +1,62 @@
+{
+  "scope": "new RC2/Pixman evidence only",
+  "rules": true,
+  "publisher": true,
+  "checks": {
+    "utc": "2026-10-05T18:46:09.691213+00:00",
+    "rules_check": {
+      "chunk": "59e6b0",
+      "rc": 0,
+      "rules": 30
+    },
+    "register_check": {
+      "chunk": "38f1b2",
+      "rc": 0,
+      "ids": 594
+    },
+    "work_log_index": {
+      "chunk": "3a8b6e",
+      "rc": 0
+    },
+    "artifact_verification": {
+      "chunk": "6a7d3a",
+      "owners": 7,
+      "retained_public_hashes": 698
+    },
+    "authored_diff_check": {
+      "chunk": "4908a2",
+      "rc": 0
+    },
+    "protocol_controls": {
+      "chunk": "5c01ac",
+      "rc": 0,
+      "cases": 9
+    },
+    "ceremony_network_result": {
+      "chunk": "5e2464",
+      "rc": 0,
+      "warning": "audit overdue:47 closures since2026-10-04; P4 not waived"
+    }
+  },
+  "tracker": {
+    "utc": "2026-10-05T18:45:25.453763+00:00",
+    "readbacks": {
+      "issues/447": {
+        "matched": true,
+        "bytes": 20055
+      },
+      "milestones/7": {
+        "matched": true,
+        "bytes": 46621
+      },
+      "448": {
+        "body_matched": true,
+        "state": "open_pending_publication"
+      },
+      "449": {
+        "body_matched": true,
+        "state": "open_pending_publication"
+      }
+    }
+  }
+}

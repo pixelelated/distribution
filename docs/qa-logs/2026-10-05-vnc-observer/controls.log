@@ -1,0 +1,10 @@
+PASS complete-frame then idle then clean stop complete_frames=1
+PASS fragmented headers/pixels and distinct rectangles complete_frames=1
+PASS initial frame never arrives complete_frames=0
+PASS truncated frame header complete_frames=0
+PASS truncated pixel payload complete_frames=0
+PASS overlapping area cannot masquerade as full coverage complete_frames=0
+PASS out-of-panel rectangle complete_frames=0
+PASS unsupported encoding complete_frames=0
+PASS EOF after a complete frame complete_frames=1
+PASS all nine persistent-observer protocol controls

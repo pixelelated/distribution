@@ -1,0 +1,70 @@
+{
+  "observed_utc": "2026-10-05T18:35:37.502584+00:00",
+  "checks": [
+    "installed chassis is handset",
+    "installed usr/bin/cloud-signin-window matches exact image payload",
+    "installed usr/bin/cloud_oauth matches exact image payload",
+    "persistent read-only VNC viewer obtained initial frame",
+    "installed window follows real HTTP302",
+    "installed window sends Mobile Safari UA",
+    "actual navigator.userAgent echoes Mobile Safari/605.1.15",
+    "01-local-redirect rendered surface is stable",
+    "01-local-redirect is panel-sized",
+    "finishing predicate rejects actual prior local page",
+    "actual done marker reached the running installed window",
+    "installed page record changed to the exact Connected/Finishing document",
+    "02-finishing-marker-stand-in rendered surface is stable",
+    "02-finishing-marker-stand-in is panel-sized",
+    "actual finishing capture matches reviewed native reference exactly",
+    "pixel guard rejects actual old local form",
+    "03-public-dropbox-login rendered surface is stable",
+    "03-public-dropbox-login is panel-sized",
+    "actual phone page Checking at 390 CSS pixels",
+    "04-phone-checking captures actual 390px frame",
+    "Connected came from actual installed OAuth probe",
+    "05-phone-connected captures actual 390px frame",
+    "Checking\u2026 has .75rem vertical margins",
+    "Connected. has .75rem vertical margins",
+    "06-actual-oauth-provider rendered surface is stable",
+    "06-actual-oauth-provider is panel-sized",
+    "actual OAuth provider window finished loading"
+  ],
+  "frames": [
+    {
+      "file": "01-local-redirect.png",
+      "sha256": "cec567d20eda071aabc3eaa667d11df0f449c766becae9ce6f2792801cc94f49",
+      "visual_review": "pending"
+    },
+    {
+      "file": "02-finishing-marker-stand-in.png",
+      "sha256": "68a39b5225e347322b2c7ec1b56a4fa1ce3a9dd1e39504c17dbf044c71eaff50",
+      "visual_review": "pending"
+    },
+    {
+      "file": "03-public-dropbox-login.png",
+      "sha256": "e1bf807c32fdafa4a55fb0c7053704ee8ca48f479d3a539d972582af2c2f4560",
+      "visual_review": "pending"
+    },
+    {
+      "file": "04-phone-checking.png",
+      "sha256": "910c847e497120d068f86e6042999e6eaa7c5f957b0c89855ff459c28f3cf6c1",
+      "visual_review": "pending"
+    },
+    {
+      "file": "05-phone-connected.png",
+      "sha256": "ec309e31b63d64a8921861f8405d0fdf8a3360af7343be988cc829a6558dab42",
+      "visual_review": "pending"
+    },
+    {
+      "file": "06-actual-oauth-provider.png",
+      "sha256": "167289d20256a5eb23402ad8c444ccbf84f8306a0a23676f4944f75e82f10fff",
+      "visual_review": "pending"
+    }
+  ],
+  "limitations": [
+    "Visual review pending.",
+    "Finishing uses explicit done-file stand-in, not authenticated sign-in.",
+    "No authenticated Dropbox trust-page claim.",
+    "Memory is measured without a numerical ceiling assertion."
+  ]
+}

@@ -1,0 +1,17 @@
+[
+  {
+    "pid": 2279,
+    "argv": [
+      "/usr/bin/sway",
+      "-d"
+    ],
+    "graphics_env": {
+      "WLR_NO_HARDWARE_CURSORS": "1",
+      "WLR_LIBINPUT_NO_DEVICES": "1",
+      "WLR_DRM_DEVICES": "/dev/dri/card0",
+      "WLR_RENDERER": "gles2",
+      "WLR_BACKENDS": "drm,libinput",
+      "WLR_CON": "Virtual-1"
+    }
+  }
+]

@@ -1,0 +1,19 @@
+[    0.064991] signal: max sigframe size: 1360
+[    0.183324] ACPI: bus type drm_connector registered
+[    0.183328] [drm] radeon kernel modesetting enabled.
+[    0.183365] amdgpu: Virtual CRAT table created for CPU
+[    0.183370] amdgpu: Topology: Add CPU node
+[    0.183475] [drm] pci: virtio-gpu-pci detected at 0000:00:02.0
+[    0.183581] [drm] features: -virgl +edid -resource_blob -host_visible
+[    0.183582] [drm] features: -context_init
+[    0.183940] [drm] number of scanouts: 1
+[    0.183943] [drm] number of cap sets: 0
+[    0.184101] [drm] Initialized virtio_gpu 0.1.0 for 0000:00:02.0 on minor 0
+[    0.197768] Console: switching to colour frame buffer device 80x30
+[    0.224754] virtio-pci 0000:00:02.0: [drm] fb0: virtio_gpudrmfb frame buffer device
+[    0.233572] virtio_blk virtio0: 4/0/0 default/read/poll queues
+[    0.234316] virtio_blk virtio0: [vda] 33554432 512-byte logical blocks (17.2 GB/16.0 GiB)
+[    1.312037] systemd[1]: systemd 255.8 running in system mode (-PAM -AUDIT -SELINUX -APPARMOR -IMA -SMACK -SECCOMP +GCRYPT -GNUTLS +OPENSSL -ACL +BLKID -CURL -ELFUTILS -FIDO2 +IDN2 -IDN -IPTC +KMOD -LIBCRYPTSETUP -LIBFDISK +PCRE2 -PWQUALITY -P11KIT -QRENCODE -TPM2 -BZIP2 -LZ4 -XZ -ZLIB +ZSTD -BPF_FRAMEWORK -XKBCOMMON +UTMP +SYSVINIT default-hierarchy=hybrid)
+[    1.405050] systemd[1]: Starting modprobe@drm.service...
+[    1.414851] systemd[1]: modprobe@drm.service: Deactivated successfully.
+[    1.414892] systemd[1]: Finished modprobe@drm.service.

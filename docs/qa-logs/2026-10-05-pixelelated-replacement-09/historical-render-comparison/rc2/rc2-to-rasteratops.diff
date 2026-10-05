@@ -1,0 +1,252 @@
+diff --git a/packages/linux/package.mk b/packages/linux/package.mk
+index 7f022fbc75..9177177894 100644
+--- a/packages/linux/package.mk
++++ b/packages/linux/package.mk
+@@ -128,8 +128,8 @@ pre_make_target() {
+   # set initramfs source
+   ${PKG_BUILD}/scripts/config --set-str CONFIG_INITRAMFS_SOURCE "$(kernel_initramfs_confs) ${BUILD}/initramfs"
+ 
+-  # set default hostname based on ${DISTRONAME}
+-  ${PKG_BUILD}/scripts/config --set-str CONFIG_DEFAULT_HOSTNAME "${DISTRONAME}"
++  # Keep the RC2 network identity across the display rename (D-WORKFLOW-123).
++  ${PKG_BUILD}/scripts/config --set-str CONFIG_DEFAULT_HOSTNAME "ROCKNIX"
+ 
+   # disable swap support if not enabled
+   if [ ! "${SWAP_SUPPORT}" = yes ]; then
+diff --git a/packages/web/libsoup/package.mk b/packages/web/libsoup/package.mk
+index c9fb88c920..3ac0f4593d 100644
+--- a/packages/web/libsoup/package.mk
++++ b/packages/web/libsoup/package.mk
+@@ -2,8 +2,8 @@
+ # Copyright (C) 2026-present ROCKNIX (https://github.com/ROCKNIX)
+ 
+ PKG_NAME="libsoup"
+-PKG_VERSION="3.6.6"
+-PKG_SHA256="51ed0ae06f9d5a40f401ff459e2e5f652f9a510b7730e1359ee66d14d4872740"
++PKG_VERSION="3.8.0"
++PKG_SHA256="bbf08fa3e03a88c31a3d27a0d87cb422e9490f2d08e149211103df6d638a2238"
+ PKG_LICENSE="LGPL-2.1-or-later"
+ PKG_SITE="https://libsoup.gnome.org/"
+ PKG_URL="https://download.gnome.org/sources/${PKG_NAME}/${PKG_VERSION:0:3}/${PKG_NAME}-${PKG_VERSION}.tar.xz"
+@@ -13,6 +13,8 @@ PKG_LONGDESC="HTTP client/server library for GNOME; WebKit's network backend."
+ pre_configure_target() {
+   # No introspection, docs or tests in an image build; brotli, ntlm and
+   # sysprof are all optional and unused by the WebKit network process.
++  # Keep 3.8's new optional zstd decoder explicit, independent of which
++  # other packages happen to have populated the shared sysroot (#362).
+   PKG_MESON_OPTS_TARGET="-Dintrospection=disabled \
+                          -Dvapi=disabled \
+                          -Ddocs=disabled \
+@@ -20,6 +22,7 @@ pre_configure_target() {
+                          -Dsysprof=disabled \
+                          -Dntlm=disabled \
+                          -Dbrotli=disabled \
++                         -Dzstd=disabled \
+                          -Dgssapi=disabled \
+                          -Dtls_check=false"
+ }
+diff --git a/packages/web/webkitgtk/package.mk b/packages/web/webkitgtk/package.mk
+index d2d51100cf..eb94b26e14 100644
+--- a/packages/web/webkitgtk/package.mk
++++ b/packages/web/webkitgtk/package.mk
+@@ -2,8 +2,8 @@
+ # Copyright (C) 2026-present ROCKNIX (https://github.com/ROCKNIX)
+ 
+ PKG_NAME="webkitgtk"
+-PKG_VERSION="2.54.0"
+-PKG_SHA256="846fd19ccedbae1dbfe904f26dbf2d68a800a33a50caf2ad5222c8dcb3f25682"
++PKG_VERSION="2.54.1"
++PKG_SHA256="ea0bbb02dbdbc596874a4e7ad35b66645b3e0a232bd0e4081de5ed92eb0a397d"
+ PKG_LICENSE="LGPL-2.1-or-later AND BSD-2-Clause"
+ PKG_SITE="https://webkitgtk.org/"
+ PKG_URL="https://webkitgtk.org/releases/${PKG_NAME}-${PKG_VERSION}.tar.xz"
+diff --git a/projects/ROCKNIX/filesystem/etc/machine-info b/projects/ROCKNIX/filesystem/etc/machine-info
+new file mode 100644
+index 0000000000..2cc7d07b49
+--- /dev/null
++++ b/projects/ROCKNIX/filesystem/etc/machine-info
+@@ -0,0 +1,9 @@
++# Every image of this project runs on a handheld, and this says so to the
++# programs that ask: WebKitGTK reads CHASSIS= here (then DMI, never the device
++# tree) to decide whether it is a mobile browser, and on a desktop chassis it
++# sends a desktop user agent, so a cloud provider's sign-in pages arrive in
++# their desktop layout -- a tiny icon and small targets on a 5" panel (fork
++# #351, D-NET-016). hostnamed reads the same line, which matches what the
++# device tree already says on the boards that carry chassis-type = "handset".
++# The QA guest gets it too, so its frames are the handheld's.
++CHASSIS=handset
+diff --git a/projects/ROCKNIX/packages/graphics/mesa/patches/001-rtasm-release-executable-heap-on-unload.patch b/projects/ROCKNIX/packages/graphics/mesa/patches/001-rtasm-release-executable-heap-on-unload.patch
+new file mode 100644
+index 0000000000..51176f6c4f
+--- /dev/null
++++ b/projects/ROCKNIX/packages/graphics/mesa/patches/001-rtasm-release-executable-heap-on-unload.patch
+@@ -0,0 +1,69 @@
++Subject: [PATCH] rtasm: release the executable heap when the driver unloads
++
++The POSIX executable allocator retains a 10 MiB mmap after its suballocations
++are freed. When an application closes and reloads the DRI driver (for example,
++EmulationStation around each game), the static pointers are lost and a new
++heap is mapped each time. Register cleanup with atexit, as other Mesa global
++resources do; on our glibc target it also runs when the owning DSO unloads.
++
++Publish the heap only after both allocations succeed, and unwind allocation
++or callback-registration failure so a later call can retry. The arena stays
++shared and locked during normal operation; no per-shader mmap is introduced.
++
++Downstream: rasteratops/distribution#310. Mesa 26.2.2; current upstream still
++has the same unpaired mmap. See docs/qa-logs/2026-10-03-launch-memory/.
++
++--- a/src/gallium/auxiliary/rtasm/rtasm_execmem.c
+++++ b/src/gallium/auxiliary/rtasm/rtasm_execmem.c
++@@ -67,18 +67,44 @@
++ static unsigned char *exec_mem = NULL;
++ 
++ 
+++static void
+++destroy_heap(void)
+++{
+++   u_mmDestroy(exec_heap);
+++   exec_heap = NULL;
+++   munmap(exec_mem, EXEC_HEAP_SIZE);
+++   exec_mem = NULL;
+++}
+++
+++
++ static int
++ init_heap(void)
++ {
++-   if (!exec_heap)
++-      exec_heap = u_mmInit( 0, EXEC_HEAP_SIZE );
+++   if (exec_heap)
+++      return 1;
++ 
++-   if (!exec_mem)
++-      exec_mem = (unsigned char *) mmap(NULL, EXEC_HEAP_SIZE,
++-         PROT_EXEC | PROT_READ | PROT_WRITE,
++-         MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
+++   exec_mem = (unsigned char *) mmap(NULL, EXEC_HEAP_SIZE,
+++      PROT_EXEC | PROT_READ | PROT_WRITE,
+++      MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
+++   if (exec_mem == MAP_FAILED)
+++      return 0;
++ 
++-   return (exec_mem != MAP_FAILED);
+++   exec_heap = u_mmInit(0, EXEC_HEAP_SIZE);
+++   if (!exec_heap) {
+++      munmap(exec_mem, EXEC_HEAP_SIZE);
+++      exec_mem = NULL;
+++      return 0;
+++   }
+++
+++   /* The DRI driver can be unloaded before the process exits. Return the
+++    * executable arena as well as its bookkeeping when that happens.
+++    */
+++   if (atexit(destroy_heap) != 0) {
+++      destroy_heap();
+++      return 0;
+++   }
+++
+++   return 1;
++ }
++ 
++ 
+diff --git a/projects/ROCKNIX/packages/graphics/mesa/patches/002-virgl-release-empty-screen-cache.patch b/projects/ROCKNIX/packages/graphics/mesa/patches/002-virgl-release-empty-screen-cache.patch
+new file mode 100644
+index 0000000000..9c729f3824
+--- /dev/null
++++ b/projects/ROCKNIX/packages/graphics/mesa/patches/002-virgl-release-empty-screen-cache.patch
+@@ -0,0 +1,46 @@
++Subject: [PATCH] virgl: release an empty screen cache after probe or teardown
++
++The process-global fd table survives a failed virgl probe and the last screen
++release. If the driver is unloaded, its pointer is lost. A software-rendered
++application that repeatedly reloads Mesa then leaks the empty table each time.
++Destroy an empty table under the existing screen mutex, on both paths. Live
++screen entries and their sharing/refcounts are unchanged.
++
++Downstream: rasteratops/distribution#310. LeakSanitizer names 592 bytes per
++failed software-profile probe at virgl_drm_screen_create in Mesa 26.2.2.
++
++--- a/src/gallium/winsys/virgl/drm/virgl_drm_winsys.c
+++++ b/src/gallium/winsys/virgl/drm/virgl_drm_winsys.c
++@@ -1305,6 +1305,16 @@
++ static struct hash_table *fd_tab = NULL;
++ static simple_mtx_t virgl_screen_mutex = SIMPLE_MTX_INITIALIZER;
++ 
+++/* Called with virgl_screen_mutex held. No screen owns an empty cache. */
+++static void
+++virgl_drm_release_empty_screen_cache(void)
+++{
+++   if (fd_tab && fd_tab->entries == 0) {
+++      _mesa_hash_table_destroy(fd_tab, NULL);
+++      fd_tab = NULL;
+++   }
+++}
+++
++ static void
++ virgl_drm_screen_destroy(struct pipe_screen *pscreen)
++ {
++@@ -1317,6 +1327,7 @@
++    if (destroy) {
++       fd = virgl_drm_winsys(screen->vws)->fd;
++       _mesa_hash_table_remove_key(fd_tab, intptr_to_pointer(fd));
+++      virgl_drm_release_empty_screen_cache();
++    }
++    simple_mtx_unlock(&virgl_screen_mutex);
++ 
++@@ -1405,6 +1416,7 @@
++    }
++ 
++ unlock:
+++   virgl_drm_release_empty_screen_cache();
++    simple_mtx_unlock(&virgl_screen_mutex);
++    return pscreen;
++ }
+diff --git a/projects/ROCKNIX/packages/linux/package.mk b/projects/ROCKNIX/packages/linux/package.mk
+index cbe7df55fe..36d6cde809 100644
+--- a/projects/ROCKNIX/packages/linux/package.mk
++++ b/projects/ROCKNIX/packages/linux/package.mk
+@@ -156,8 +156,8 @@ pre_make_target() {
+   # set initramfs source
+   ${PKG_BUILD}/scripts/config --set-str CONFIG_INITRAMFS_SOURCE "$(kernel_initramfs_confs) ${BUILD}/initramfs"
+ 
+-  # set default hostname based on ${DISTRONAME}
+-  ${PKG_BUILD}/scripts/config --set-str CONFIG_DEFAULT_HOSTNAME "${DISTRONAME}"
++  # Keep the RC2 network identity across the display rename (D-WORKFLOW-123).
++  ${PKG_BUILD}/scripts/config --set-str CONFIG_DEFAULT_HOSTNAME "ROCKNIX"
+ 
+   # disable swap support if not enabled
+   if [ ! "${SWAP_SUPPORT}" = yes ]; then
+diff --git a/projects/ROCKNIX/packages/network/cloud-signin-window/sources/cloud-signin-window.c b/projects/ROCKNIX/packages/network/cloud-signin-window/sources/cloud-signin-window.c
+index 19bc6dd794..8ebe90cf62 100644
+--- a/projects/ROCKNIX/packages/network/cloud-signin-window/sources/cloud-signin-window.c
++++ b/projects/ROCKNIX/packages/network/cloud-signin-window/sources/cloud-signin-window.c
+@@ -419,12 +419,24 @@ static void on_probe(GObject *source, GAsyncResult *result, gpointer data)
+  * Rebuilding takes a few seconds -- it reloads every resource it had
+  * released -- and closing first left the player looking at a black screen
+  * immediately after a sign-in that had just succeeded, which reads as a
+- * crash rather than as progress. */
++ * crash rather than as progress.
++ *
++ * In the phone page's own style (cloud_oauth's STYLE: the dark card, the
++ * heading, the note), reading as a success and saying what happens next
++ * (fork #351 section 4; the approved words, D-CLOUD-164 string 13). It was
++ * one unstyled line, which the maintainer read as "a 404 page or something
++ * incredibly basic" (2026-09-30). A data: URL, so # is %23 and the page
++ * needs no file the window would have to find. */
+ static const char *FINISHING_PAGE =
+     "data:text/html,<meta name=viewport content='width=device-width'>"
+-    "<body style='margin:0;height:100vh;display:flex;align-items:center;"
+-    "justify-content:center;background:%2314171c;color:%23e8ecf2;"
+-    "font:20px system-ui,sans-serif'>Finishing up&hellip;</body>";
++    "<style>body{font:16px/1.5 system-ui,sans-serif;margin:0;padding:20px;"
++    "background:%23111;color:%23eee;min-height:100vh;box-sizing:border-box;"
++    "display:flex;align-items:center;justify-content:center}"
++    ".card{max-width:34rem;text-align:center}"
++    "h1{font-size:1.6rem;margin:0 0 .5rem;color:%232d7}"
++    ".note{color:%23aaa;font-size:1rem}</style>"
++    "<body><div class=card><h1>Connected</h1>"
++    "<p class=note>Finishing up on your handheld&hellip;</p></div></body>";
+ 
+ static gboolean probe_tick(gpointer data)
+ {

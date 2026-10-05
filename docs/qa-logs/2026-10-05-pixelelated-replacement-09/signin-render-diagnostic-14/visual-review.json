@@ -1,0 +1,53 @@
+{
+  "reviewed_utc": "2026-10-05T18:32:18.363760+00:00",
+  "diagnostic_complete": true,
+  "candidate_qualification": false,
+  "observations": "All nine directly reviewed Pixman native/HMP/VNC frames correct and exactly equal to the already-reviewed unchanged canonical reference; selected Pixman/software GPU proven. No input/resize. Full sign-in and permanent implementation still required.",
+  "frames": [
+    {
+      "name": "render-00-grim.png",
+      "sha256": "6afa36c72fca1186732068eafe13319984a9b9182b4b2e66ca12a9d4ab961f3f",
+      "decoded_rgb_equal": true
+    },
+    {
+      "name": "render-00-qemu.png",
+      "sha256": "68a39b5225e347322b2c7ec1b56a4fa1ce3a9dd1e39504c17dbf044c71eaff50",
+      "decoded_rgb_equal": true
+    },
+    {
+      "name": "render-00-vnc.png",
+      "sha256": "68a39b5225e347322b2c7ec1b56a4fa1ce3a9dd1e39504c17dbf044c71eaff50",
+      "decoded_rgb_equal": true
+    },
+    {
+      "name": "render-05-grim.png",
+      "sha256": "6afa36c72fca1186732068eafe13319984a9b9182b4b2e66ca12a9d4ab961f3f",
+      "decoded_rgb_equal": true
+    },
+    {
+      "name": "render-05-qemu.png",
+      "sha256": "68a39b5225e347322b2c7ec1b56a4fa1ce3a9dd1e39504c17dbf044c71eaff50",
+      "decoded_rgb_equal": true
+    },
+    {
+      "name": "render-05-vnc.png",
+      "sha256": "68a39b5225e347322b2c7ec1b56a4fa1ce3a9dd1e39504c17dbf044c71eaff50",
+      "decoded_rgb_equal": true
+    },
+    {
+      "name": "render-15-grim.png",
+      "sha256": "6afa36c72fca1186732068eafe13319984a9b9182b4b2e66ca12a9d4ab961f3f",
+      "decoded_rgb_equal": true
+    },
+    {
+      "name": "render-15-qemu.png",
+      "sha256": "68a39b5225e347322b2c7ec1b56a4fa1ce3a9dd1e39504c17dbf044c71eaff50",
+      "decoded_rgb_equal": true
+    },
+    {
+      "name": "render-15-vnc.png",
+      "sha256": "68a39b5225e347322b2c7ec1b56a4fa1ce3a9dd1e39504c17dbf044c71eaff50",
+      "decoded_rgb_equal": true
+    }
+  ]
+}

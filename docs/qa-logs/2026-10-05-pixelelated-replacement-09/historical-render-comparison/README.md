@@ -32,8 +32,10 @@ changes are not declared identical.
 
 The older ROCKNIX RC2→61b648 source difference is the earlier #351 finishing-page
 styling change, retained in `prior-rc2-signin.diff`. That change predates the
-pixelelated rename. RC2 itself has not run this matched comparison; do not infer
-its display result from source alone.
+pixelelated rename. The actual RC2 image has now run the matched comparison: software host
+frames are stale initially while native is correct; all accelerated frames
+agree. Its original September29 suite report records accelerated virgl and
+no browser finishing-transition comparison. See [RC2 evidence](rc2/README.md).
 
 `graphics-argv-comparison.json` compares actual QEMU arguments for old/current
 accelerated guests. They are exactly equal after replacing only the owner
