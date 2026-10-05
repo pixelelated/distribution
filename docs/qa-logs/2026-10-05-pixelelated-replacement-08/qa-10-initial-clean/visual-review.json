@@ -1,0 +1,21 @@
+{
+  "observed_utc": "2026-10-05T04:47:56.011408+00:00",
+  "phase": "initial-clean",
+  "passed": true,
+  "review_method": "direct inspection of all five actual PNG frames",
+  "assertions": [
+    "Main Menu footer pixelelated 0.0.1 (community)",
+    "System Settings and Information are reached",
+    "Information shows pixelelated and build 72121fd on replacement08",
+    "Back/Back preserves ES PID1636/start_ticks556",
+    "Updates & Downloads and correct pixelelated manual-update URL are reached"
+  ],
+  "frames": {
+    "03-information.png": "e717946f7265664213656d1ca003a5a0e5ec6419e849a979b4debc0e781c508d",
+    "05-manual-update-message.png": "e1bcfe5a66b58b2764c061f039729a84ccf48ada8883ecfe95b5acf68c04ba1c",
+    "02-system-settings.png": "3d38d67f2fdf5ba301d6033662dec458884dd54ab4a87bea428353c178dec5cb",
+    "01-main-menu-identity.png": "b3fc068423b0abf69467447f915495d0a128ac5d4852fabd7f0cedc83e6d4764",
+    "04-updates.png": "c35988cd42c88b64a43cc84186892f4808baa1f02e601c16be6c370a7024b53f"
+  },
+  "scope": "Initial clean identity only; full defaults and actual RC2 upgrade still running."
+}

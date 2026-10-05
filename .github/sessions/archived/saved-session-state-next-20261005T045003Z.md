@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Saved 2026-10-05T04:50:03.912542+00:00. Previous checkpoint archived at `.github/sessions/archived/saved-session-state-next-20261005T045003Z.md`.
+> Saved 2026-10-05T04:37:35.471161+00:00. Previous checkpoint archived at `.github/sessions/archived/saved-session-state-next-20261005T043735Z.md`.
 > Branch feature/conflict-resolution; primary /workspace/repos/rocknix stays next.
 
 ## Start here
@@ -30,107 +30,88 @@ and precise harness-manifest wording findings are corrected.
 A helper installation is COMPLETE; do not ask to reinstall it.
 
 
-## Current focus: replacement08 built; QA10 ACTIVE
+## Current focus: replacement08 image BUILD is ACTIVE
 
-Frozen tree /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement08,
-branch build/m7-pixelelated-replacement08, source72121fd03a558725328ea58c092faf1b3324317f.
-ESf6f0c134212bc696f2f6a747c8d390a588f2f0ce; input7578b0d91f2f043b492d998c2f8bd4a73467a1524ae692366469153e2eb5c17b.
-6547product/180links/200QA. Only ES packagepin plus QA callback check differ
-from07. Source published67494=0; preparation docs89221=0 at next1103173b88.
-Do not repeat either integration. Frozen source stays72121 despite later docs.
+Publication complete: feature4502f091c23cb743bb561850747875dd85a416d6 →
+next72121fd03a558725328ea58c092faf1b3324317f, actual67494=0; normal hooks and
+both remote hashes read back04:21:32. /tmp/pixelelated-replacement08-published.json.
+ESf6f0c134212bc696f2f6a747c8d390a588f2f0ce also published/read back. Do not repeat
+these integrations. The existing P4 cadence warning is not waived.
 
-Build49805/allfourrc0 completed04:39:21:642packages,353EScompile steps,
-assembled initramfs/export/XML/proxy/identity/licence checks and source custody.
-Actual04:40:04 runner2481198/watcher2481199/command2481230 absent. Observed
-container73d31218278e99366d8188e3490c58e803754144758659703ea4a3d2e1da76ee
-matched pinned image,1000:1000 and canonical mounts; independently exited.
-Owner /workspace/tmp/pixelelated-m7-replacement-08; completion.json,
-container-actual.json/container-exited.json, accepted-build.json and bundle.path.
-Build run .build-runs/20261005T043624Z-f574d343. Store/independentverify68326=0:
+Freeze36519=0; tree /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement08,
+branch build/m7-pixelelated-replacement08, owner /workspace/tmp/pixelelated-m7-replacement-08.
+Source72121fd03a, input7578b0d91f2f043b492d998c2f8bd4a73467a1524ae692366469153e2eb5c17b;
+6547product/180links/200QA. Only ES packagepin and tools/vm-qa change vs07.
+ES global GPU save guard returns when no selection exists; no saved preference
+write/apply, unchanged supported selection behavior. Six source controls pass;
+oldempty fails1 with observed exception, syntax66802=0, combined default
+lifetime/ASan+GPU controls0. No installed-fix claim. #436 remains open.
 
-/workspace/artifacts/pixelelated-candidates/sha256/84a794165a6e421cd1aa1dd6d37b97b257c700738c0a53edd282475ecd4780e9
+LIVE BUILD actual49805, started04:36:24. Owner /workspace/tmp/pixelelated-m7-replacement-08;
+run frozen08/.build-runs/20261005T043624Z-f574d343. Standard watch-build --docker
+from actual frozen cwd,5s/5min. Actual04:36:54 runner2481198/watcher2481199/
+command2481230 live;637/642, ES/detail logs progressing. Observed container
+73d31218278e99366d8188e3490c58e803754144758659703ea4a3d2e1da76ee consumes
+pinned988c image, user1000:1000, canonical mounts and makeGENERIC_X64. Receipt
+owner/container-actual.json. Do not start another build or edit running scripts.
 
-14boundfiles. pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz
-SHA7a60c191755cc6203eca4624700249538ecc24182087f8aa20a8ea8afeae59ad;
-same-stem.tar SHAd196d9c2cff496ab8d8a53ac7536e60428b5f18c431090ff44de0f5074864d9b.
-FullbuildlogSHAe9fd837fee5b110603a9133413840604f1624f4ffe94a883f5088ff19118c3b7
-in bundle; repo keeps exact tail/hash and completion receipts.
+Copy55433/allfourrc0 completed:104117247205bytes, zero checksum differences,
+2525725 independent file inodes. Actual04:35:29 all copy owner processes absent;
+copy-completion.json retained. Quiet checksum workers' reads advanced, and only
+measured byte-counter increases updated watcher activity. Guarded preflight24955=0
+reclaimed swap,8191MiB free /35458MiB available RAM, READY. Existing helper used;
+no reinstall or further reclaim while build active. Owner/prelaunch-host.txt.
 
-Independent copy55433/allrc0:104117247205bytes, checksum equality and2525725
-independent file inodes. Actual04:35:29 copy PIDs absent. Preflight24955=0,
-guarded helper restored8191MiB swap free while idle; no reinstall/reclaim now.
-Checksum workers' real I/O advances were retained, not fabricated heartbeats.
+18 NEW sealed/unstarted QA owners are listed in owner/qa-owners.json and retained
+under docs/qa-logs/2026-10-05-pixelelated-replacement-08/prepared-owners/.
+QA10 preserves Back/Back Settings save, adds ES PID/start-tick continuity and
+failure journal. UI09 adds same guard to its EN/FR640/1280 walks. Controls accept
+old PID identity and reject actual missing/restarted diagnostic03 identities.
+First mock control mistakenly supplied a newline instead of zero stdout; its
+parser failure is recorded, corrected controls pass. All18source seals/new
+bindings verified, no guest started. Neither controls nor preparation qualify08.
 
-LIVE QA10 actual98190, started04:40:44. Owner /workspace/tmp/pixelelated-m7-qa-10;
-run frozen08/.build-runs/20261005T044044Z-a0738f4a, console.log in owner.
-Actualhost runner2622668/watch2622693/command2622761, guests2624879/2624905.
-Standard5s/5min recursive watcher reads owner/artifacts; its build.status is
-fresh and detailed scripts.log advances even when console is quiet. Initial
-clean payload/identity already PASS. Back/Back save keeps ES1636/start_ticks556;
-sanitized journal retained. Five actual frames directly reviewed: correct
-pixelelated0.0.1/build and manual-update URL. Full15defaults/actualRC2upgrade
-remain ACTIVE, not accepted. No #436 closure until upgraded proof.
-
-Inventory06 actual20676/allfourrc0 completed; actual04:43 owner PIDs2622418/
-2622419/2622448 absent.583components/568roots/525stamps/0source errors;
-14known P5licence metadata gaps. Count difference from07 is only initramfs
-metapackage stamp: exact packaged KERNEL8dfcd6bb…/assembledinit44838adb…/
-Linuxbuildstamp/recipe match07. Linux embeds initramfs during pre_make_target;
-cachedkernel omits this image-install stamp. Supplemental provenance retained
-for P5 source bundle. Inventory is not complete publication/legal acceptance.
-
-Current local evidence/readiness/worklog under
-docs/qa-logs/2026-10-05-pixelelated-replacement-08/ includes completed-build,
-inventory-06 and qa-10-initial-clean. Live M7 and #436 updated/read back04:48:44;
-first two source criteria ticked, installed upgrade/qualification still open.
-Readback /tmp/pixelelated-m7-update08-readback.json and436 equivalent.
-No new product edits, no RC/device-ready claim. Existing P4 cadence unwaived.
+Fresh-context resume proof verified07 all6547/200/180 inputs, all15bundlefiles,
+33absent PIDs, scoped new fix and prepared freeze08. Its stale sibling/two old
+owner references were corrected before publication. Report in
+replacement07/resume-proof-gpu436.md. #435 closed with published successful
+guarded build68993/allrc0, actual cleanup and preserved failed7435/rc2.
 
 ## Immediate commands and dependencies
 
-1. Poll ACTUAL98190 and inspect owner/console.log plus recursive artifacts.
-   The standard watcher status is build.status, NOT status.json. On actual
-   return, verify owned guest PIDs through host /proc. Then host-escalated:
-   python3 /tmp/pixelelated-finish-owner.py /workspace/tmp/pixelelated-m7-qa-10 98190 ACTUAL_RC [observed_guest_PIDs]
-   records inner/outer/wrapper/watcher and absence. The runner may replace
-   guests during RC2 upgrade; record new PIDs too. Never infer toolrc from stamp.
-2. Review all actual upgrade identity frames and lifecycle receipt. Retain
-   full default report/logs and exact RC2 rehearsal output/cleanup. QA10's
-   pair/vm-a.qcow2 becomes the actual upgraded disk only after this succeeds.
-3. Launch /workspace/tmp/pixelelated-m7-boot-qualification-02/outer.sh BUNDLE
-   through frozen08/tools/watch-build from frozen08 cwd, --interval 5 --stall-min 5
-   --recursive-activity --activity-dir OWNER/artifacts. Redirect console.log;
-   capture actual wrapper result into tool-wrapper.rc. Source seals before
-   first launch. Four predeclared clean/actualupgrade640/1280 observations;
-   cleanquiet/upgradenoquiet test actual retainedbootconfig. Unchanged.995 gate
-   and oldlogo/blank/wrongsize rejects; inspect actual best frames. No retry
-   until diagnosis if failed. Boot02 requires QA10 actual completion0.
-4. Remaining serial order (all /workspace/tmp/pixelelated-m7-): image09 →
-   sweep06 → settings08 → link08 → guest08 → runtime09 → proxy07 → optins07 →
-   memory07 → UI09 → predecessor05 → subset04 → cloud-ui03 → signin-ui03 →
-   signin-1g03. These15owners and boot02 remain sealed/unstarted. Inventory06
-   is DONE; do not rerun. Prepared sources/provenance are retained under
-   replacement08/prepared-owners/; list in buildowner/qa-owners.json.
-   Predecessor05 requires boot02/artifacts/qualification.json passed AND
-   UI09/visual-review.json passed created only after actual frame review.
-   UI09 lifecycle guard surrounds EN/FR640/1280, after language restart.
-5. OrdinaryRA fixture → approved P4 primary+Fable5.1/xhigh via verified
-   Facilitator → H700 DDR4/RG35XXSP arm thenaarch64. #409 remains open through
-   P4. Pending external inputs below do not prevent independent VM work.
-6. Publish current docs/evidence by exact featurecommit/cherry-pick -x onto
-   next with normal hooks and remote readback. Never merge oldfeature history.
+1. Poll ACTUAL49805 (image build), not completed copy55433. Never edit frozen
+   source or running owner. On actual completion, host-escalated
+   python3 /tmp/pixelelated-finish-owner.py /workspace/tmp/pixelelated-m7-replacement-08 SESSION ACTUAL_RC
+   reconciles actual/inner/outer/wrapper/watcher and absent owner processes.
+2. Independently verify observed container73d31218278e… exited and write
+   owner/container-exited.json with id/exited/inspect_rc/observed_utc. Build's
+   assembled source/payload checks are part of its result. Preserve failures.
+3. Copy and guarded preflight already completed; do not repeat them without
+   cause. /tmp/pixelelated-finish-copy08.py ALREADY RAN; build.sh is IN FLIGHT.
+4. Prepared /tmp/pixelelated-store08.py has NOT RUN: after successful build and
+   container exit, stores/verifies exact image/tar with manifest and completion
+   receipts. It writes bundle.path/accepted-build.json. No08artifact is accepted yet.
+5. QA10 first: /workspace/tmp/pixelelated-m7-qa-10/outer.sh BUNDLE via watch-build
+   --interval5 --stall-min5 --recursive-activity --activity-dir OWNER/artifacts,
+   always frozen08 cwd; record actual wrapper rc and completion. Review actual
+   clean/upgraded frames and lifecycle receipts, all15defaults/actualRC2upgrade.
+   Then boot-qualification02 requires that actual success/upgraded disk; four
+   first-clean/actualupgrade640/1280 observations, unchanged.995/rejection checks.
+6. Remaining order (all /workspace/tmp/pixelelated-m7-): image09 → sweep06 →
+   settings08 → link08 → guest08 → runtime09 → proxy07 → optins07 → memory07 →
+   UI09 → predecessor05 → subset04 → cloud-ui03 → signin-ui03 → signin-1g03.
+   Inventory06 may run from feature once build succeeds. Predecessor05 gates
+   accepted boot02 AND UI09/visual-review.json passed, created only after actual
+   frame review. Serialize fixed-port VM jobs. Original07 prepared owners are
+   historical and MUST NOT run against08 or changed ES sibling.
+7. Ordinary RA fixture → approved P4 primary+Fable5.1/xhigh via Facilitator →
+   H700 DDR4/RG35XXSP arm thenaarch64. #409 remains open throughP4. No RC call.
 
-Already executed, DO NOT RERUN: /tmp/pixelelated-freeze08.py,
-pixelelated-prepare08-owners.py, pixelelated-retain08-preparation.py,
-pixelelated-finish-copy08.py, pixelelated-store08.py, pixelelated-retain08-build.py.
-No executed shell/owner/frozen product edits. Keep preparation and launch
-separate or fail-closed; earlier preparation fallthrough failures are retained.
-Source callback controls6PASS and oldempty1, syntax66802=0; combined lifetime
-ASan+GPU controls0. Fresh-context proof earlier verified07 source/bundle and
-newfix/freeze; see replacement07/resume-proof-gpu436.md. The current QA10 resume
-proof passed04:55:07: all source/bundle/seals, actual custody and live tracker
-verified; count/flag/historical directions corrected. See replacement08/
-resume-proof-qa10.md. All previous image passes remain historical.
+Already executed: /tmp/pixelelated-freeze08.py, /tmp/pixelelated-prepare08-owners.py,
+/tmp/pixelelated-retain08-preparation.py. Do not rerun them. New preparation and
+dependent launch must be separate calls or fail-closed; do not fall through an
+unsuccessful preparatory command. Freeze/build sources retained in replacement08/.
+Preparation checkpoint published actual89221=0: feature4cd723be348f79e89ad4b1f1a5a0d5a35aca0272 → next1103173b88c8d03e8ead85cc5c1cdf81efac1672. Source freeze stays72121. Current local docs update the active build; product bytes already published. Integrate further docs by exact commit/cherry-pick, never whole branch.
 
 ## Historical replacement07 build and crash diagnosis
 
@@ -151,8 +132,8 @@ also independently exited. Store/independent verify17028=0;15bound files.
 Independent cache copy74291/allrc0 checksum-equal2525219distinct files.
 Initial parent build7435/allrc2 remains failed; incorrect owner-cwd watcher
 launch refused image compilation after two cleans. Parent outer.rc MUST remain2.
-Corrected child has pre-mutation cwd guard, wrong2/correct0. #435 was subsequently
-closed from published receipts/checkpoint. Inventory05/tool30750/allrc0:584components,
+Corrected child has pre-mutation cwd guard, wrong2/correct0. #435 closure needs
+published receipts/checkpoint. Inventory05/tool30750/allrc0:584components,
 568roots/526stamps,0sourceerrors,14known P5licence metadata gaps unchanged.
 
 QA08/tool38098/allrc1 and QA09/tool26670/allrc1 failed in the INITIAL identity
@@ -245,8 +226,8 @@ with the prepared1GiB proof still unexecuted. Link06 prior proof retained.
 ## Historical frozen06 proof preparation — reference only, do not execute
 
 The #356/#365 criteria exceed script T17/T26 coverage. The prepared frozen06
-`/workspace/tmp/pixelelated-m7-cloud-ui-01` is reference-only. Its replacement08
-successor cloud-ui-03 is already prepared; run it after subset-04, not this owner.
+`/workspace/tmp/pixelelated-m7-cloud-ui-01` is reference-only. Create a NEW
+replacement08-bound owner after the new subset proof; do not run the old owner.
 Eight sealed inputs, bash/Python parsing passed; NEVER EXECUTED. run.sh gates
 on subset02 success. It reuses the proven case-L navigation and isolated
 layout-only fault to drive wizard failure → completion → next-boot recovery;
@@ -260,7 +241,7 @@ killed/waited; eight inputs resealed, old seal retained as
 harness-before-ssh-cleanup.sha256. No executed source changed.
 
 The old #351/#362 /workspace/tmp/pixelelated-m7-signin-ui-01 is UNSTARTED
-and reference-only; its replacement08 successor signin-ui-03 is already prepared. Read
+and reference-only; create a NEW replacement08-bound owner. Read
 `docs/qa-logs/2026-10-04-pixelelated-57cbc-qualification/signin-ui-proof-plan.md`:
 public HTTPS login, installed Mobile UA/HTTP redirect echo, binary's finishing
 page as a named done-file stand-in, actual phone Checking/Connected390px

@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "observations": [
+    {
+      "replacement": "07",
+      "kernel_sha256": "8dfcd6bb7d4dcdbdb128c8a15c901185e6213245c128652bb76b2591a5807cd3",
+      "assembled_init_sha256": "44838adbec3d83ff689858f8ca2fb193680b6a3d00157186c677596e8a2cedcc",
+      "initramfs_recipe_sha256": "ffa34c9ccd3d90f3eeb4c4f2739472f3d5a76db74d2e47b075610a1ea8e84821",
+      "initramfs_install_target_present": true,
+      "linux_build_stamp_sha256": "80bca748e90e1412311360dd9fce9c1fe534befcb580d5dc9c74d31e13bf602a"
+    },
+    {
+      "replacement": "08",
+      "kernel_sha256": "8dfcd6bb7d4dcdbdb128c8a15c901185e6213245c128652bb76b2591a5807cd3",
+      "assembled_init_sha256": "44838adbec3d83ff689858f8ca2fb193680b6a3d00157186c677596e8a2cedcc",
+      "initramfs_recipe_sha256": "ffa34c9ccd3d90f3eeb4c4f2739472f3d5a76db74d2e47b075610a1ea8e84821",
+      "initramfs_install_target_present": false,
+      "linux_build_stamp_sha256": "80bca748e90e1412311360dd9fce9c1fe534befcb580d5dc9c74d31e13bf602a"
+    }
+  ],
+  "interpretation": "Warm Linux target reuses the exact prior kernel and assembled init; the initramfs metapackage is embedded into Linux pre_make_target, not a missing shipped payload. Retain its matching recipe in the P5 source bundle. Component-map counts only unpacked roots and this image installation stamps, not every embedded recipe."
+}

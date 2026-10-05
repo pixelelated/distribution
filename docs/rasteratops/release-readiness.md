@@ -8,22 +8,26 @@ is unchanged. The required adoption flow is **ROCKNIX → pixelelated**;
 there are no fielded /Rasteratops systems requiring an additional gate.
 
 The [M7 milestone body](https://github.com/pixelelated/distribution/milestone/7)
-is the binding running order. **Replacement07 built; not qualified.** Source
-a2586374b7 / immutable bundle95dbc93b… completed all642 packages and exact
-payload checks (actual68993=0; store17028=0). Inventory05 has0source errors,
-14previous P5licence metadata gaps. QA08/09 stopped before defaults/upgrade.
-Lifecycle diagnostic03 proves an ES abort/status134 on returning from System
-Settings when no GPU governor is available (#436). Menu re-navigation cannot
-waive this defect. Original failures and sanitized lifecycle/frames are retained
-in `docs/qa-logs/2026-10-05-pixelelated-replacement-07/`.
+is the binding running order. **Replacement08 built; qualification in progress.**
+Source72121fd03a / ESf6f0c1342 / immutable bundle84a79416… completed all642
+package tasks and exact payload checks (actual49805=0; store68326=0).
+Actual runner/watcher/container cleanup is verified. Image SHA7a60c191… and
+update d196d9c2… are bound to input7578b0d9…; no mutable target selection.
 
-ES f6f0c1342 has a scoped no-selection guard: preserves saved preferences and
-supported-device apply behavior. Six old/new callback controls and pinned
-syntax pass; the old empty-list control fails. Default VM QA now runs this
-regression. Source repair is not installed proof: publish/freeze replacement08,
-build, prove clean/RC2-upgraded System Settings process continuity, then boot
-and full candidate matrix. #433/#426 still require new installed proof. P4
-primary+Fable5.1/xhigh precedes H700 arm/aarch64; no RC/device-ready call.
+QA10/tool98190 now runs full defaults and actual RC2 upgrade. The initial clean
+identity walk retains Back/Back and passes actual ES process continuity;
+all five captured identity/update frames were directly reviewed. #436 stays
+open until upgraded installed behavior and relevant qualification pass.
+Inventory06/tool20676 passes0 source errors. Fourteen known P5 licence metadata
+gaps remain.583 mapped components/525 install stamps differ from07 only by the
+initramfs metapackage stamp: packaged kernel, assembled init and recipe match
+exactly; supplemental provenance covers the cached embedded component.
+
+Evidence: `docs/qa-logs/2026-10-05-pixelelated-replacement-08/`.
+Original07 crash/status134 and failed QA08/09 remain retained separately.
+After QA10, boot02 verifies clean/upgraded640/1280 under the unchanged matcher,
+then the full candidate matrix. #433/#426 still require new installed proof.
+P4 primary+Fable5.1/xhigh precedes H700 arm/aarch64; no RC/device-ready call.
 
 ## Historical replacement06 qualification
 
