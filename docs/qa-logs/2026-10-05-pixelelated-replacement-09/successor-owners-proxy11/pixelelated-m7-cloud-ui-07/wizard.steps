@@ -1,0 +1,91 @@
+wake
+dismiss-dialogs
+key ret
+wait-for-change
+settle
+key x
+wait-for-change
+settle
+key up
+wait-for-change
+key up
+wait-for-change
+key up
+wait-for-change
+settle
+key x
+wait-for-change
+settle
+shot UI17-hub
+key down
+wait-for-change
+key down
+wait-for-change
+key down
+wait-for-change
+key down
+wait-for-change
+key down
+wait-for-change
+key down
+wait-for-change
+key down
+wait-for-change
+key down
+wait-for-change
+settle
+shot UI17-connect-row
+key x
+wait-for-change
+settle
+shot UI17-provider-list
+key up
+wait-for-change
+key up
+wait-for-change
+settle
+shot UI17-use-computer-row
+key x
+wait-for-change
+settle
+shot UI17-setup-page
+key up
+wait-for-change
+key up
+wait-for-change
+settle
+shot UI17-repair-row
+key x
+wait-for-change
+settle
+shot UI17-step1
+key up
+wait-for-change
+key right
+wait-for-change
+settle
+shot UI17-step1-continue
+key x
+wait-for-change 30
+settle 60 3
+shot UI17-after-step1
+key up
+wait-for-change
+key right
+wait-for-change
+settle
+shot UI17-step2-continue
+key x
+wait-for-change 30
+settle 60 3
+shot UI17-after-step2
+key up
+wait-for-change
+key right
+wait-for-change
+settle
+shot UI17-step3-continue
+key x
+wait-for-change 30
+settle 60 3
+shot UI17-after-step3

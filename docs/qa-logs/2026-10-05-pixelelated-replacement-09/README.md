@@ -1,8 +1,8 @@
 # M7.P3 replacement09 build and qualification (#409, #383)
 
-Status updated 2026-10-05T08:28:33.044281+00:00.
+Status updated 2026-10-05T08:52:37.673701+00:00.
 
-## Current gate — replacement09 cloud qualification passed
+## Current gate — replacement09 provider qualification passed
 
 M7.P3 is current. The frozen candidate is source `cf511ce79b83cba7fea8b14cfa3d04fb13e4b4fb`, input manifest `817fd9ff49b1ecf6bcc859cfa38985a65fbcfe5514c33a0a5c9dd60af6cc6c6e`, immutable bundle `79d560046ee52e28b72f16588168dd7c8fb2637c1cc585713216a8ec828e9d81`. Build and inventory pass; 14 licence metadata gaps remain for P5.
 
@@ -20,14 +20,20 @@ Boot04/tool90675/all four rc0 passes four clean/upgraded boots at 640x480 and 12
 
 **Cloud qualification passed:** fresh guest11 completed all19 cases/249 assertions/zero failures. Durable result08:25:35 and all four actual channels are0; submission497141=0 remains explicitly separate. Actual host verification eee27c=0 at08:26:26 found owner/guest processes absent and no QEMU. Source/bundle reverified;32 selected actual frames reviewed across all15 UI cases. Four protocol cases verify bytes/pointers/markers directly. All1708artifact hashes and140selected public files retained.
 
-**Current priority:** runtime12 next: actual inherited archive recovery, isolated timing and installed identity on a COW of QA13's real upgraded disk. Check its submission/result files before launching or polling; the durable launcher refuses duplicate owner use. No RC/device-ready claim. #444 full-run evidence is ready for publication and scoped closure. Disconnected alert delivery remains #395.
+**Runtime qualification passed:** runtime12 durable result08:32:24/allfourrc0 passes14 actual inherited-archive,4 timing and13 installed-identity checks. Alternating five-sample medians269/245ms give24ms absolute difference against the unchanged30ms threshold; no migration journal activity. Actual08:33:00 owner/guest absent, backing/source/bundle unchanged.
 
-**Remaining order:** runtime12 → proxy10 → optins10 → memory10 → UI12 → predecessor08 → subset07 → cloud-ui06 → signin-ui06 → signin-1g06 → ordinary RetroAchievements proof → P4 primary OpenAI plus Fable5.1/xhigh through the verified Facilitator → H700 DDR4/RG35XX SP arm, then aarch64. Predecessor08 requires the completed boot04 proof and an actual UI12 visual review. External inputs and P5 publication gates remain recorded. Can this be done on the VM? **Yes.**
+**Proxy qualification passed:** proxy11 durable result08:41:18/allfourrc0 passes all22 unchanged installed assertions: canonical synthetic account discovery, predecessor cache/sign-in/queue reopen, base/subset mapping, original images and offline service behavior. Actual08:41:44 all owner/guest processes absent, no QEMU; source/bundle reverified. This is synthetic preservation proof, not a newly earned ordinary RA award. Original proxy10 missing-directory failure remains preserved. #445's nine fresh owners/96members and private-directory controls were independently verified and M7 read back before launch.
+
+**Provider qualification passed:** optins11 durable result08:47:52/allfourrc0 passes S3 round-trip in120seconds and all42 mixed RC2/fresh migration assertions. Actualc3d137=0 at08:50:30 proves owner processes absent and no QEMU. Source/bundle reverified. Four public artifacts retained; all earlier failures remain preserved.
+
+**Current priority:** memory11 ACTIVE, submissione0396b. Actual08:51:28 launcher339332/runner339333/watcher339341/command339374 and guest340093 live. Watched run20261005T085108Z-8f418a35. The standard watcher records5second heartbeats and5minute inactivity warnings; active supervision reads within60seconds. Remaining memory/rendering/sync/sign-in checks are not yet accepted. No RC/device-ready claim; disconnected alerts remain #395.
+
+**Remaining order:** memory11 → UI13 → predecessor09 → subset08 → cloud-ui07 → signin-ui07 → signin-1g07 → ordinary RetroAchievements proof → P4 primary OpenAI plus Fable5.1/xhigh through the verified Facilitator → H700 DDR4/RG35XX SP arm, then aarch64. Predecessor09 requires the completed boot04 proof and an actual UI13 visual review. External inputs and P5 publication gates remain recorded. Can this be done on the VM? **Yes.**
 
 #433/#436 remain closed from their artifact-scoped replacement08 repair proofs. #437/#438 and #439/#440/#441 are closed with published scoped evidence; actual52959=0 verifies the latter three bodies/states. Content/settings publication49305=0 put featureb7f9cac3 on nexte1f2baaf, with both remote hashes verified. #442/#443 are closed completed; actual19135=0 verifies their acceptance bodies and states. These closures do not qualify the whole candidate.
 
 
-Latest normal publication64386=0: featurebb25cb5882b0fcdd7593cc758fa7a66b5a319fc2 → next9f499134a331dbede361f29550653b8c7988cdbd, both remote hashes verified. This published #444 launcher controls, original interruption, successor seals and fresh-context proof. Completed guest11 evidence follows that publication.
+Latest normal publication96533=0: feature764390421f7f4de04a48a7c9fa1fafd31b0ccacf → next566a3b1320206ed33c4e1688244b7d44fadfb7a0, remote hashes verified. #444 is closed completed/readback26795=0 from the published full cloud proof. Current runtime and #445 evidence follow that publication.
 
 ## Preparation snapshot (historical)
 
