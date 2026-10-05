@@ -1,0 +1,36 @@
+{
+  "observed_utc": "2026-10-05T03:11:24.926640+00:00",
+  "actual_session_id": 5816,
+  "actual_rc": 0,
+  "recorded_results": {
+    "inner.rc": "0",
+    "tool-wrapper.rc": "0",
+    "build.rc": "0"
+  },
+  "inputs_verified": 27,
+  "processes": [
+    {
+      "pid": 1430289,
+      "role": "build.pid",
+      "state": "S",
+      "state_at_completion": "absent"
+    },
+    {
+      "pid": 1430291,
+      "role": "watcher.pid",
+      "state": "S",
+      "state_at_completion": "absent"
+    },
+    {
+      "pid": 1430320,
+      "role": "command.pid",
+      "state": "S",
+      "state_at_completion": "absent"
+    }
+  ],
+  "logs": {
+    "patched.log": "ac054111cabfc177b9f9edbf2153c0bafb1ed3792468753ac09d18603d2b25c9",
+    "integration.log": "a8410acc210496d61c9fe5ab5cdec0f7896bac862b797f7b2781f4c752f8cbea",
+    "scripts.log": "c90d64515fdda3f17a4096eb8657a664a3b43e078715ea909b80ad45c61bbb82"
+  }
+}

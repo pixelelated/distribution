@@ -1,0 +1,30 @@
+.............................login2 request failed: offline
+..............................Flush auth error: achievementId=22 lastError=Token rejected by server (HTTP 401)
+..Flush aborted: no RetroAchievements credentials
+..........Flush marked token invalid: user=testuser reason=HTTP Error 401: Unauthorized
+.Flush could not refresh patch data: patch request failed: boom
+.........................................................................................................................................................................................................................................................................................................................................../usr/lib/python3.14/tempfile.py:484: ResourceWarning: Implicitly cleaning up <HTTPError 429: 'Too Many Requests'>
+  _warnings.warn(self.warn_message, ResourceWarning)
+..../usr/lib/python3.14/tempfile.py:484: ResourceWarning: Implicitly cleaning up <HTTPError 403: 'Forbidden'>
+  _warnings.warn(self.warn_message, ResourceWarning)
+...................................................................................................................................................................s..............s..............................sssssssss..ssssss.....................................................................................F............................/usr/lib/python3.14/tempfile.py:484: ResourceWarning: Implicitly cleaning up <HTTPError 404: 'Not Found'>
+  _warnings.warn(self.warn_message, ResourceWarning)
+.........................../usr/lib/python3.14/argparse.py:2246: ResourceWarning: unclosed database in <test_linux_storage_sqlite_import.JsonStoreImportTests.test_a_failed_import_keeps_the_json_file.<locals>.FailingConnection object at 0x13952df0>
+  for action, arg_count in zip(positionals, arg_counts):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+........................................
+======================================================================
+FAIL: test_marks_reported_on_success (test_linux_storage_corruption_retry.RetryStorageCorruptionReportTests.test_marks_reported_on_success)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/pixelelated-proxy-7252fc/patched-v3/linux/tests/test_linux_storage_corruption_retry.py", line 38, in test_marks_reported_on_success
+    mark_reported.assert_called_once_with("abc123")
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/usr/lib/python3.14/unittest/mock.py", line 997, in assert_called_once_with
+    raise AssertionError(msg)
+AssertionError: Expected 'mark_reported' to be called once. Called 0 times.
+
+----------------------------------------------------------------------
+Ran 814 tests in 12.864s
+
+FAILED (failures=1, skipped=17)

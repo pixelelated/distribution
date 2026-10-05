@@ -66,7 +66,7 @@ class WholeLibrary(QueueTestCase):
 
     def assert_ready(self, output, count=125):
         self.assertEqual(count,sum(line.startswith('OK ') for line in output.splitlines()))
-        self.assertEqual(count,len(self.store.get_all_cache_by_prefix(cache_keys.PREFIX_PATCH)))
+        self.assertEqual(count,len(self.store.cache_keys_by_prefix(cache_keys.PREFIX_PATCH)))
         self.assertEqual(0,cache_queue.count(self.store))
         for i in range(1,count+1):
             entry=self.store.get_cache(cache_keys.patch(i,CREDENTIALS['user']))
@@ -86,7 +86,7 @@ class WholeLibrary(QueueTestCase):
         first=self.prepare('H')
         self.assertIn('FAIL 61/125',first)
         self.assertEqual(124,len(self.cached))
-        before={r['cacheKey']:r['responseBody'] for r in self.store.get_all_cache_by_prefix(cache_keys.PREFIX_PATCH)}
+        before={r['cacheKey']:r['responseBody'] for r in self.store.iter_cache_by_prefix(cache_keys.PREFIX_PATCH)}
         self.fail_cache_for.clear()
         self.assert_ready(self.prepare('H'))
         self.assertEqual(125,len(self.cached),'completed games were needlessly fetched again')
@@ -153,20 +153,70 @@ legacy=root/'static/Badge/old.png';legacy.parent.mkdir(parents=True);legacy.writ
             for _ in range(2):
                 store=storage.Storage(database_path=root/'store.sqlite3')
                 try:
-                    self.assertEqual(before['cache'],store.get_all_cache_by_prefix(''))
+                    self.assertEqual(sorted(before['cache'],key=lambda r:r['cacheKey']),
+                                     sorted(store.iter_cache_by_prefix(''),key=lambda r:r['cacheKey']))
                     self.assertEqual(before['awards'],store.get_pending_awards())
-                    self.assertEqual({1:100,2:200},rom_cache.build_achievement_game_ids(
-                        store.get_all_cache_by_prefix(cache_keys.PREFIX_PATCH),
-                        store.get_all_cache_by_prefix(cache_keys.PREFIX_ACHIEVEMENTSETS)))
+                    self.assertEqual({1:100,2:200},rom_cache.find_achievement_game_ids(store,{1,2}))
                     self.assertEqual({'user':'QA','token':'<synthetic>'},store.load_login_credentials())
+                    meta=store.cached_game_meta(100)
+                    self.assertEqual({'patch:100:qa','achievementsets:abc:qa'},
+                                     {row['cacheKey'] for row in meta})
                 finally: store.close()
             with mock.patch.object(image_cache,'STATIC_DIR',root/'static'):
                 self.assertEqual(b'previous cached image',image_cache.resolve_cached_static_asset('/Badge/old.png').read_bytes())
 
 
+class OSConsumers(unittest.TestCase):
+    def setUp(self):
+        self.directory=tempfile.TemporaryDirectory(prefix='proxy-consumers-')
+        self.store=storage.Storage(database_path=Path(self.directory.name)/'store.sqlite3')
+
+    def tearDown(self):
+        self.store.close()
+        self.directory.cleanup()
+
+    def helper(self,name):
+        path=ROOT/'projects/ROCKNIX/packages/network/raofflineproxy/sources'/name
+        loader=importlib.machinery.SourceFileLoader(name.replace('-','_'),str(path))
+        spec=importlib.util.spec_from_loader(loader.name,loader)
+        module=importlib.util.module_from_spec(spec)
+        loader.exec_module(module)
+        return module
+
+    def test_refresh_scope_and_session_removal_do_not_load_cache_bodies(self):
+        refresh=self.helper('raofflineproxy-refresh')
+        for game in (42,421):
+            self.store.upsert_cache(cache_keys.patch(game,'qa'),'{"PatchData":{}}')
+            self.store.upsert_cache(cache_keys.start_session(game,'qa'),'{"Success":true}')
+        with mock.patch.object(self.store,'iter_cache_by_prefix',side_effect=AssertionError('loaded bodies')):
+            keys=refresh.cached_games(self.store)
+            self.assertEqual([42,421],refresh.game_ids(keys))
+            self.assertEqual([42],refresh.proxy_service.due_refresh_game_ids(keys,{42,99}))
+            self.assertEqual(1,refresh.drop_startsession(self.store,42))
+            self.assertIsNotNone(self.store.get_cache(cache_keys.start_session(421,'qa')))
+
+    def test_refresh_age_uses_newest_summary(self):
+        refresh=self.helper('raofflineproxy-refresh')
+        self.store.upsert_cache(cache_keys.patch(42,'older'),'{"PatchData":{}}',cached_at=1_700_000_000_000)
+        self.store.upsert_cache(cache_keys.patch(42,'newer'),'{"PatchData":{}}',cached_at=1_700_000_099_000)
+        with mock.patch.object(refresh.time,'time',return_value=1_700_000_100), \
+                mock.patch.object(self.store,'iter_cache_by_prefix',side_effect=AssertionError('loaded bodies')):
+            self.assertIn('patch=1s',refresh.row_ages(self.store,42))
+
+    def test_image_repair_reads_streamed_bodies(self):
+        images=self.helper('raofflineproxy-cache-images')
+        self.store.upsert_cache(cache_keys.patch(42,'qa'),json.dumps({'PatchData':{'ImageIcon':'/Images/42.png'}}))
+        self.store.upsert_cache(cache_keys.achievementsets('hash','qa'),json.dumps({'GameId':42,'Achievements':[{'BadgeName':'/Badge/42.png'}]}))
+        self.assertEqual({'/Images/42.png','/Badge/42.png'},images.all_paths(self.store))
+        with mock.patch.object(images.image_cache,'resolve_cached_static_asset',return_value=None):
+            paths,total,rows=images.missing_paths(self.store)
+        self.assertEqual(['/Badge/42.png','/Images/42.png'],paths)
+        self.assertEqual((2,2),(total,rows))
+
+
 if __name__=='__main__':
     try:
-        suite=unittest.TestSuite(unittest.defaultTestLoader.loadTestsFromTestCase(c) for c in (WholeLibrary,Upgrade))
+        suite=unittest.TestSuite(unittest.defaultTestLoader.loadTestsFromTestCase(c) for c in (WholeLibrary,Upgrade,OSConsumers))
         result=unittest.TextTestRunner(verbosity=2).run(suite)
         sys.exit(0 if result.wasSuccessful() else 1)
     finally: config.cleanup()

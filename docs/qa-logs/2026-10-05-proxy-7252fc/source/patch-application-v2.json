@@ -1,0 +1,27 @@
+[
+  {
+    "patch": "001-dorequest-4xx-passthrough.patch",
+    "rc": 0,
+    "output": "patching file linux/raofflineproxy/proxy_service.py\nHunk #2 succeeded at 541 (offset -2 lines).\n"
+  },
+  {
+    "patch": "002-no-synthetic-casual-only-achievement.patch",
+    "rc": 0,
+    "output": "patching file linux/raofflineproxy/rom_cache.py\nHunk #1 succeeded at 40 (offset 3 lines).\nHunk #2 succeeded at 62 (offset 3 lines).\n"
+  },
+  {
+    "patch": "003-flush-stamp.patch",
+    "rc": 0,
+    "output": "patching file linux/raofflineproxy/flusher.py\n"
+  },
+  {
+    "patch": "004-no-cap-on-cached-games.patch",
+    "rc": 0,
+    "output": "patching file linux/raofflineproxy/rom_browser.py\nHunk #1 succeeded at 494 (offset -19 lines).\nHunk #2 succeeded at 534 (offset -19 lines).\nHunk #3 succeeded at 660 (offset -14 lines).\nHunk #4 succeeded at 684 (offset -14 lines).\nHunk #5 succeeded at 697 (offset -14 lines).\nHunk #6 succeeded at 764 (offset -14 lines).\n"
+  },
+  {
+    "patch": "005-keep-the-refresh-thread-alive.patch",
+    "rc": 1,
+    "output": "patching file linux/raofflineproxy/proxy_service.py\nHunk #1 FAILED at 46.\nHunk #3 FAILED at 1069.\nHunk #4 succeeded at 1098 (offset -16 lines).\nHunk #5 succeeded at 1120 (offset -16 lines).\n2 out of 5 hunks FAILED -- saving rejects to file linux/raofflineproxy/proxy_service.py.rej\n"
+  }
+]

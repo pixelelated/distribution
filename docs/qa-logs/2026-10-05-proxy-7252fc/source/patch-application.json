@@ -1,0 +1,17 @@
+[
+  {
+    "patch": "001-dorequest-4xx-passthrough.patch",
+    "rc": 0,
+    "output": "patching file linux/raofflineproxy/proxy_service.py\nHunk #2 succeeded at 541 (offset -2 lines).\n"
+  },
+  {
+    "patch": "002-no-synthetic-casual-only-achievement.patch",
+    "rc": 0,
+    "output": "patching file linux/raofflineproxy/rom_cache.py\nHunk #1 succeeded at 40 (offset 3 lines).\nHunk #2 succeeded at 62 (offset 3 lines).\n"
+  },
+  {
+    "patch": "003-flush-stamp.patch",
+    "rc": 1,
+    "output": "patching file linux/raofflineproxy/flusher.py\nHunk #1 FAILED at 2.\n1 out of 4 hunks FAILED -- saving rejects to file linux/raofflineproxy/flusher.py.rej\n"
+  }
+]

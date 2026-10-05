@@ -33,7 +33,7 @@ index 2cb8b9d..d777bec 100644
  import time
  from dataclasses import dataclass
  
- from . import cache_keys, usage_stats
+ from . import usage_stats
  from .auth import resolve_credentials
  from .award_signing import public_key_base64, sign_award, verify_award
 -from .config import FALLBACK_USER_AGENT, MAX_PROXY_PORT, upstream_host

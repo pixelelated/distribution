@@ -1,0 +1,77 @@
+[
+  {
+    "patch": "001-dorequest-4xx-passthrough.patch",
+    "rc": 0,
+    "output": "patching file linux/raofflineproxy/proxy_service.py\nHunk #2 succeeded at 541 (offset -2 lines).\n"
+  },
+  {
+    "patch": "002-no-synthetic-casual-only-achievement.patch",
+    "rc": 0,
+    "output": "patching file linux/raofflineproxy/rom_cache.py\nHunk #1 succeeded at 40 (offset 3 lines).\nHunk #2 succeeded at 62 (offset 3 lines).\n"
+  },
+  {
+    "patch": "003-flush-stamp.patch",
+    "rc": 0,
+    "output": "patching file linux/raofflineproxy/flusher.py\n"
+  },
+  {
+    "patch": "004-no-cap-on-cached-games.patch",
+    "rc": 0,
+    "output": "patching file linux/raofflineproxy/rom_browser.py\nHunk #1 succeeded at 494 (offset -19 lines).\nHunk #2 succeeded at 534 (offset -19 lines).\nHunk #3 succeeded at 660 (offset -14 lines).\nHunk #4 succeeded at 684 (offset -14 lines).\nHunk #5 succeeded at 697 (offset -14 lines).\nHunk #6 succeeded at 764 (offset -14 lines).\n"
+  },
+  {
+    "patch": "005-keep-the-refresh-thread-alive.patch",
+    "rc": 0,
+    "output": "patching file linux/raofflineproxy/proxy_service.py\n"
+  },
+  {
+    "patch": "007-cached-sign-in-of-the-configured-account.patch",
+    "rc": 0,
+    "output": "patching file linux/raofflineproxy/auth.py\n"
+  },
+  {
+    "patch": "008-log-upload-opt-in.patch",
+    "rc": 0,
+    "output": "patching file linux/raofflineproxy/config.py\npatching file linux/raofflineproxy/proxy_service.py\nHunk #2 succeeded at 1250 (offset -22 lines).\nHunk #3 succeeded at 1258 (offset -22 lines).\nHunk #4 succeeded at 1303 (offset -22 lines).\npatching file linux/tests/test_linux_storage_corruption_retry.py\n"
+  },
+  {
+    "patch": "009-unique-image-temp-names.patch",
+    "rc": 0,
+    "output": "patching file linux/raofflineproxy/image_cache.py\n"
+  },
+  {
+    "patch": "010-store-only-header.patch",
+    "rc": 0,
+    "output": "patching file linux/raofflineproxy/proxy_service.py\n"
+  },
+  {
+    "patch": "011-offline-login-header.patch",
+    "rc": 0,
+    "output": "patching file linux/raofflineproxy/proxy_service.py\n"
+  },
+  {
+    "patch": "012-offline-image-miss.patch",
+    "rc": 0,
+    "output": "patching file linux/raofflineproxy/proxy_service.py\n"
+  },
+  {
+    "patch": "013-validate-a-cached-image-before-publishing-it.patch",
+    "rc": 0,
+    "output": "patching file linux/raofflineproxy/image_cache.py\npatching file linux/tests/test_linux_image_cache_shutdown.py\n"
+  },
+  {
+    "patch": "015-bounded-name-lookup.patch",
+    "rc": 0,
+    "output": "patching file linux/raofflineproxy/network.py\npatching file linux/raofflineproxy/proxy_service.py\nHunk #3 succeeded at 844 (offset -7 lines).\npatching file linux/tests/test_linux_network.py\n"
+  },
+  {
+    "patch": "016-say-what-became-of-a-download.patch",
+    "rc": 0,
+    "output": "patching file linux/raofflineproxy/image_cache.py\n"
+  },
+  {
+    "patch": "018-rasteratops-platform-identity.patch",
+    "rc": 0,
+    "output": "patching file linux/raofflineproxy/config.py\npatching file linux/tests/test_linux_rocknix.py\n"
+  }
+]

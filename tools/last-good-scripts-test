@@ -2522,8 +2522,7 @@ H = 3600 * 1000; now = int(time.time() * 1000)
 # fork's own bound (oldest first, 50 a pass) retired with it (D-RA-029).
 try:
     due = proxy_service.due_refresh_game_ids
-    rows = [{"cacheKey": "patch:1:qa", "cachedAt": now}, {"cacheKey": "patch:2:qa", "cachedAt": now - 900 * H},
-            {"cacheKey": "patch:3:qa", "cachedAt": now}]
+    rows = ["patch:1:qa", "patch:2:qa", "patch:3:qa"]
     got = due(rows, {2, 9})
     verdict(got == [2], "PL-01 refresh: due = the cached games played recently (2); cached games nobody played (1, 3) and a played game with no cached set (9) are not", f"got {got}")
     st = Storage(cfg / "p01.sqlite3")
@@ -2591,7 +2590,7 @@ st.upsert_cache(cache_keys.login("qa"), '{"Success":true,"User":"QA","Token":"t"
 st.upsert_cache(cache_keys.USER_AGENT, "RetroArch/1.22", cached_at=old)
 st.upsert_cache(cache_keys.last_played(2), str(old), cached_at=old)
 st.evict_cache_older_than(before)
-keys = {e["cacheKey"] for p in ("patch:", "unlocks:", "achievementsets:", "gameid:", "login2::", "ua::", "lastplayed:") for e in st.get_all_cache_by_prefix(p)}
+keys = {key for p in ("patch:", "unlocks:", "achievementsets:", "gameid:", "login2::", "ua::", "lastplayed:") for key in st.cache_keys_by_prefix(p)}
 g1 = {cache_keys.patch(1, "qa"), cache_keys.unlocks(1, "qa"), cache_keys.achievementsets("aaaa", "qa"), cache_keys.game_id("aaaa")}
 g2 = {cache_keys.patch(2, "qa"), cache_keys.achievementsets("bbbb", "qa"), cache_keys.game_id("bbbb")}
 verdict(g1 <= keys, "PL-02 eviction: a game with a fresh patch row keeps its 61-day-old achievementsets, gameid and unlocks rows", f"missing {sorted(g1 - keys)}")

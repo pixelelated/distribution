@@ -165,3 +165,5 @@ issue is needed; `issue: none` is the state that expires.
 - 2026-10-05 01:58 UTC -- UI07 captured all menus with runner0 but its640 boot crop missed924 colored pixels and failed the independent99.5% matcher -- guard: actual framebuffer comparison separate from capture result; preserve failures and diagnose before advancing -- issue: #433
 
 - 2026-10-05 02:29 UTC -- Boot diagnostic changed GRUB while the VM consumed Syslinux, so the intended quiet observation was invalid and the cmdline assertion stopped it. Guard: explicit active-loader and consumed-command-line assertions in new sealed diagnostic02; preserve diagnostic01 failure. Issue: #434.
+
+- 2026-10-05 02:58 UTC -- Proxy7252fc removed the bulk cache API still used by OS helpers; initial integration failed4 cases. Guard: new real-helper streaming/summary tests, old-store metadata/preservation checks and full scripts suite. Upstream automatic-report fixtures also needed the existing consent contract; preserve failed attempts and parse every patched Python file before execution. Issue: #426.

@@ -1,0 +1,11 @@
+test_automatic_upload_requires_explicit_true (linux.tests.test_linux_storage_corruption_retry.RetryStorageCorruptionReportTests.test_automatic_upload_requires_explicit_true) ... ok
+test_leaves_unreported_on_failure_for_next_retry (linux.tests.test_linux_storage_corruption_retry.RetryStorageCorruptionReportTests.test_leaves_unreported_on_failure_for_next_retry) ... Storage corruption report retry failed: offline
+ok
+test_marks_reported_on_success (linux.tests.test_linux_storage_corruption_retry.RetryStorageCorruptionReportTests.test_marks_reported_on_success) ... ok
+test_noop_when_already_reported (linux.tests.test_linux_storage_corruption_retry.RetryStorageCorruptionReportTests.test_noop_when_already_reported) ... ok
+test_noop_when_no_incident (linux.tests.test_linux_storage_corruption_retry.RetryStorageCorruptionReportTests.test_noop_when_no_incident) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.002s
+
+OK
