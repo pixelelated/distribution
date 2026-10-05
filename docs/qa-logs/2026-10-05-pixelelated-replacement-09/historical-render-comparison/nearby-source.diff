@@ -1,0 +1,122 @@
+diff --git a/projects/ROCKNIX/devices/GENERIC_X64/options b/projects/ROCKNIX/devices/GENERIC_X64/options
+index 5f94718161..9038263b95 100644
+--- a/projects/ROCKNIX/devices/GENERIC_X64/options
++++ b/projects/ROCKNIX/devices/GENERIC_X64/options
+@@ -71,8 +71,9 @@
+     SYSTEM_SIZE="4096"
+     SYSTEM_PART_START="8192"
+ 
+-  # Extra command line for x86_64
+-    EXTRA_CMDLINE="console=ttyS0,115200 console=tty0"
++  # Keep kernel console redraws from erasing the framebuffer splash (#433).
++  # Serial QA access stays enabled; remove quiet and add debugging for verbosity.
++    EXTRA_CMDLINE="quiet console=ttyS0,115200 console=tty0"
+ 
+   # Disable joypad driver for x86_64
+     ROCKNIX_JOYPAD="no"
+diff --git a/projects/ROCKNIX/packages/hardware/quirks/profile.d/999-export b/projects/ROCKNIX/packages/hardware/quirks/profile.d/999-export
+index dc44ba28bb..8514a6f5df 100755
+--- a/projects/ROCKNIX/packages/hardware/quirks/profile.d/999-export
++++ b/projects/ROCKNIX/packages/hardware/quirks/profile.d/999-export
+@@ -5,7 +5,8 @@
+ ### If you add a variable that should persist across processes,
+ ### remember to export it here.
+ 
+-export  OS_VERSION \
++export  OS_NAME \
++	OS_VERSION \
+ 	OS_BUILD \
+ 	SLOW_CORES \
+ 	FAST_CORES \
+diff --git a/projects/ROCKNIX/packages/rocknix/profile.d/001-functions b/projects/ROCKNIX/packages/rocknix/profile.d/001-functions
+index 71d57c2088..0ec8ef874d 100644
+--- a/projects/ROCKNIX/packages/rocknix/profile.d/001-functions
++++ b/projects/ROCKNIX/packages/rocknix/profile.d/001-functions
+@@ -382,6 +382,28 @@ function settings_base() {
+   return 0
+ }
+ 
++function prepare_settings_temp() {
++  # The rename must not widen a private live file or recovery record (#421).
++  # Set the temporary's mode while it is empty, including an old temporary
++  # left by an interrupted writer. Callers hold the settings lock where used.
++  local tmp="${1}" source bits mode=0777 found=0
++  shift
++  [ ! -L "${tmp}" ] && { [ ! -e "${tmp}" ] || [ -f "${tmp}" ]; } || return 1
++  for source in "$@"; do
++    [ "${source}" != "${tmp}" ] || return 1
++    [ -e "${source}" ] || continue
++    bits=$(stat -L -c %a "${source}") || return 1
++    [[ "${bits}" =~ ^[0-7]{1,4}$ ]] || return 1
++    mode=$((mode & 8#${bits}))
++    found=1
++  done
++  [ "${found}" = 1 ] || mode=0600
++  # Never relax the caller's umask either.
++  bits=$(umask); [[ "${bits}" =~ ^[0-7]{1,4}$ ]] || return 1
++  printf -v bits '%o' "$((mode & ~8#${bits} & 0777))"
++  ( umask 077; : > "${tmp}" ) && chmod "${bits}" "${tmp}"
++}
++
+ # One key, one write, one rename, under a lock the caller holds: awk prints
+ # every line but the key's, then the key's new line, into a temporary
+ # beside the file, and the temporary is renamed over it -- so the file goes
+@@ -405,7 +427,8 @@ function settings_base() {
+ #
+ # It writes onto settings_base's lines, not the file's bytes: see there.
+ function write_setting_line() {
+-  if ( set -o pipefail
++  if prepare_settings_temp "${J_CONF}.tmp" "${J_CONF}" "${J_CONF}.backup" \
++     && ( set -o pipefail
+        settings_base | K="${1}" V="${2}" awk 'BEGIN { k = ENVIRON["K"]; v = ENVIRON["V"] }
+                                               index($0, k "=") != 1 { print }
+                                               END { print k "=" v }' ) > "${J_CONF}.tmp" 2>/dev/null \
+@@ -439,7 +462,8 @@ function del_setting() {
+       # itself is not loosened.
+       write_setting_line "${1}" "" || rc=1
+     else
+-      if ( set -o pipefail; settings_base | K="${1}" awk 'index($0, ENVIRON["K"] "=") != 1' ) > "${J_CONF}.tmp" 2>/dev/null \
++      if prepare_settings_temp "${J_CONF}.tmp" "${J_CONF}" "${J_CONF}.backup" \
++         && ( set -o pipefail; settings_base | K="${1}" awk 'index($0, ENVIRON["K"] "=") != 1' ) > "${J_CONF}.tmp" 2>/dev/null \
+          && mv -f "${J_CONF}.tmp" "${J_CONF}"
+       then
+         :
+@@ -454,6 +478,7 @@ function del_setting() {
+ }
+ 
+ function sort_settings() {
++  local rc=0
+   wait_lock || return 1
+   # The sorted copy replaces the live file only when it is plainly a config:
+   # non-empty and still carrying the hostname line every image writes. An
+@@ -466,15 +491,18 @@ function sort_settings() {
+   # gpt G3-D-04): a producer that fails after the hostname line left a
+   # nonempty, plausible, truncated copy that the test below would install.
+   # pipefail in a subshell, as the neighbouring writers have it.
+-  if ( set -o pipefail; settings_base | grep '^[a-z0-9]' | sort >"${J_CONF}.tmp" ) \
++  if prepare_settings_temp "${J_CONF}.tmp" "${J_CONF}" "${J_CONF}.backup" \
++     && ( set -o pipefail; settings_base | grep '^[a-z0-9]' | sort >"${J_CONF}.tmp" ) \
+      && [ -s "${J_CONF}.tmp" ] && grep -q '^system\.hostname=' "${J_CONF}.tmp"
+   then
+-    mv -f "${J_CONF}.tmp" "${J_CONF}"
++    mv -f "${J_CONF}.tmp" "${J_CONF}" || rc=1
+   else
+     rm -f "${J_CONF}.tmp"
+     logger -t sort_settings "left system.cfg alone: the sorted copy was empty or had no hostname line" 2>/dev/null
++    rc=1
+   fi
+   rm -f "${J_CONF_LOCK}"
++  return ${rc}
+ }
+ 
+ function set_kill() {
+@@ -567,7 +595,8 @@ function set_settings() {
+     cp -f /usr/config/system/configs/system.cfg /storage/.config/system/configs/system.cfg
+   fi
+   wait_lock || return 1
+-  if ( set -o pipefail
++  if prepare_settings_temp "${J_CONF}.tmp" "${J_CONF}" "${J_CONF}.backup" \
++     && ( set -o pipefail
+        settings_base | env "${pairs[@]}" SN="${n}" awk 'BEGIN { n = ENVIRON["SN"]; for (j = 1; j <= n; j++) { k[j] = ENVIRON["SK" j]; v[j] = ENVIRON["SV" j]; d[j] = ENVIRON["SD" j] } }
+                                                      { for (j = 1; j <= n; j++) if (index($0, k[j] "=") == 1) next; print }
+                                                      END { for (j = 1; j <= n; j++) if (d[j] != 1) print k[j] "=" v[j] }' ) > "${J_CONF}.tmp" 2>/dev/null \
