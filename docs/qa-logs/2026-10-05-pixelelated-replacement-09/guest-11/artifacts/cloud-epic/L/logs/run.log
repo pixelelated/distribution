@@ -1,0 +1,98 @@
+08:10:49 === cloud-epic on guest d, BUILD_ID="cf511ce79b83cba7fea8b14cfa3d04fb13e4b4fb"
+232
+08:10:49 == setup: the QA remote on the guest (the host backend's conf), then the QA cloud holds the fork's earlier layout with files in every folder of ours; the guest points at it
+remote: qa-cloud:
+08:10:51   cloud: ROCKNIX/Backups/2026_09_29-090000-Retroid-Pocket-Nova-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Backups/2026_09_30-120000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Content/BIOS/disksys.rom ROCKNIX/Content/ROMs/nes/Probe.nes ROCKNIX/Saves-replaced/nes/Probe.srm.1 ROCKNIX/Saves/nes/Probe.srm 
+08:10:51   guest conf: SAVES_REMOTE="/ROCKNIX/Saves" SETTINGS_REMOTE="/ROCKNIX/Backups" CONTENT_REMOTE="/ROCKNIX/Content" LAYOUT_KEEP="" 
+label=GENERIC-X64
+08:11:18   picks reset: content=0 saves=1
+08:11:39 == L: the end of cloud setup (the repair route: USE A COMPUTER INSTEAD, REPAIR A CONNECTION, the three steps, CONTINUE): the step asks MOVE before CLOUD SETUP COMPLETE
+08:11:39   guest conf: SAVES_REMOTE="/pixelelated/Saves" SETTINGS_REMOTE="/pixelelated/Backups" CONTENT_REMOTE="/pixelelated/Content" LAYOUT_KEEP="" 
+08:12:15   reboot_guest: /isIdle yes after 1s
+settle: still after 1.9s
+08:12:25   an SSH session held open for the walk (pid 162543): CONNECTED
+dismiss-dialogs: 1 press(es) moved the screen, back on the carousel
+changed after 0.1s (`key ret`, line 3)
+settle: still after 1.7s
+changed after 0.1s (`key x`, line 6)
+settle: still after 1.3s
+changed after 0.1s (`key up`, line 9)
+changed after 0.1s (`key up`, line 11)
+changed after 0.1s (`key up`, line 13)
+settle: still after 1.3s
+changed after 0.1s (`key x`, line 16)
+settle: still after 1.3s
+captured /workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/L/frames/01-L-hub.png
+changed after 0.1s (`key down`, line 20)
+changed after 0.1s (`key down`, line 22)
+changed after 0.1s (`key down`, line 24)
+changed after 0.1s (`key down`, line 26)
+changed after 0.1s (`key down`, line 28)
+changed after 0.1s (`key down`, line 30)
+changed after 0.1s (`key down`, line 32)
+changed after 0.1s (`key down`, line 34)
+settle: still after 1.3s
+captured /workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/L/frames/02-L-connect-row.png
+changed after 0.0s (`key x`, line 38)
+settle: still after 1.3s
+captured /workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/L/frames/03-L-provider-list.png
+changed after 0.1s (`key up`, line 42)
+changed after 0.1s (`key up`, line 44)
+settle: still after 1.3s
+captured /workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/L/frames/04-L-use-computer-row.png
+changed after 0.1s (`key x`, line 48)
+settle: still after 1.3s
+captured /workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/L/frames/05-L-setup-page.png
+changed after 0.1s (`key up`, line 52)
+changed after 0.1s (`key up`, line 54)
+settle: still after 1.3s
+captured /workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/L/frames/06-L-repair-row.png
+changed after 0.1s (`key x`, line 58)
+settle: still after 1.3s
+captured /workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/L/frames/07-L-step1.png
+changed after 0.0s (`key up`, line 62)
+changed after 0.1s (`key right`, line 64)
+settle: still after 1.3s
+captured /workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/L/frames/08-L-step1-continue.png
+changed after 0.1s (`key x`, line 68)
+settle: still after 3.4s
+captured /workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/L/frames/09-L-after-step1.png
+changed after 0.0s (`key up`, line 72)
+changed after 0.1s (`key right`, line 74)
+settle: still after 1.3s
+captured /workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/L/frames/10-L-step2-continue.png
+changed after 0.1s (`key x`, line 78)
+settle: still after 3.4s
+captured /workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/L/frames/11-L-after-step2.png
+changed after 0.0s (`key up`, line 82)
+changed after 0.1s (`key right`, line 84)
+settle: still after 1.3s
+captured /workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/L/frames/12-L-step3-continue.png
+changed after 0.0s (`key x`, line 88)
+settle: still after 4.3s
+captured /workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/L/frames/13-L-after-step3.png
+08:13:39 PASS walk epic-L.steps
+08:13:39   L-setup: 148 frames under /workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/L/frames/L-setup (the step's scan page between step 3 and the question)
+2026-10-05 04:13:04	[1446]	INFO	cloud_setup wizard: entry, remotes=1
+2026-10-05 04:13:10	[1446]	INFO	cloud_setup wizard: step 1 ssh setup, password=*** sshd=active
+2026-10-05 04:13:17	[1446]	INFO	cloud_setup wizard: step 2 connect, override=1
+2026-10-05 04:13:25	[1446]	INFO	cloud_setup wizard: --connected=1
+2026-10-05 04:13:25	[1446]	INFO	cloud_setup wizard: step 3 configure, mode=2 remote=qa-cloud: auth_port=free
+2026-10-05 04:13:34	[2728]	INFO	cloud_setup wizard: --check rc=0 remote=qa-cloud:
+2026-10-05 04:13:34	[1446]	INFO	cloud folder step: checking the folder (end of cloud setup)
+2026-10-05 04:13:35	[1446]	INFO	cloud folder: /ROCKNIX holds saves and /pixelelated does not exist; offering the move
+08:13:39 PASS L: the step ran at the end of cloud setup
+08:13:39 PASS L: and asked the move for the earlier folder holding the saves
+08:13:39 PASS L: the step's scan joined the folder the saves are in
+captured /workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/L/frames/01-L-move-question.png
+changed after 0.1s (`key z`, line 2)
+settle: still after 4.7s
+captured /workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/L/frames/02-L-after-not-now.png
+08:13:46 PASS walk epic-L2.steps
+08:13:47 PASS L: NOT NOW went on to the seeding and CLOUD SETUP COMPLETE
+captured /workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/L/frames/01-L-setup-complete.png
+dismiss-dialogs: 6 press(es) moved the screen, back on the carousel
+08:13:58 PASS walk epic-L3.steps
+08:13:58   guest conf: SAVES_REMOTE="/pixelelated/Saves" SETTINGS_REMOTE="/pixelelated/Backups" CONTENT_REMOTE="/pixelelated/Content" LAYOUT_KEEP="" 
+08:13:58   frames: 16 under /workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/L/frames (numbered walk captures); boot and continuous captures are in their named subdirectories
+08:13:58 done: 7 PASS, 0 FAIL

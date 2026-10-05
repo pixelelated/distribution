@@ -1,0 +1,49 @@
+08:06:19 === cloud-epic on guest d, BUILD_ID="cf511ce79b83cba7fea8b14cfa3d04fb13e4b4fb"
+232
+08:06:19 == setup: the QA remote on the guest (the host backend's conf), then the QA cloud holds the fork's earlier layout with files in every folder of ours; the guest points at it
+remote: qa-cloud:
+08:06:21   cloud: ROCKNIX/Backups/2026_09_29-090000-Retroid-Pocket-Nova-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Backups/2026_09_30-120000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Content/BIOS/disksys.rom ROCKNIX/Content/ROMs/nes/Probe.nes ROCKNIX/Saves-replaced/nes/Probe.srm.1 ROCKNIX/Saves/nes/Probe.srm 
+08:06:21   guest conf: SAVES_REMOTE="/ROCKNIX/Saves" SETTINGS_REMOTE="/ROCKNIX/Backups" CONTENT_REMOTE="/ROCKNIX/Content" LAYOUT_KEEP="" 
+label=GENERIC-X64
+08:06:48   picks reset: content=0 saves=1
+08:07:09 == K: a settings restore's marker and an earlier folder at the same boot (the marker written here, a named stand-in): FINISH RESTORE PROCESS first; LATER brings neither; FINISH brings the step
+08:07:09   guest conf: SAVES_REMOTE="/ROCKNIX/Saves" SETTINGS_REMOTE="/ROCKNIX/Backups" CONTENT_REMOTE="/ROCKNIX/Content" LAYOUT_KEEP="" 
+-rw-r--r--    1 root     root             2 Oct  5 04:07 /storage/.config/.restore-finish-pending
+08:07:45   reboot_guest: /isIdle yes after 1s
+settle: still after 1.9s
+08:08:34   K-boot1: 122 frames under /workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/K/frames/K-boot1
+captured /workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/K/frames/01-K-restore-page.png
+changed after 0.1s (`key up`, line 2)
+settle: still after 1.3s
+captured /workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/K/frames/02-K-later-focused.png
+changed after 0.1s (`key x`, line 6)
+settle: still after 1.3s
+settle: still after 1.3s
+captured /workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/K/frames/03-K-after-later.png
+08:09:02 PASS walk epic-K1.steps
+08:09:02 PASS K: with the restore page up and then LATER, the step did not come at this boot
+08:09:02 PASS K: LATER kept the restore's marker
+08:09:38   reboot_guest: /isIdle yes after 1s
+settle: still after 1.9s
+08:10:27   K-boot2: 122 frames under /workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/K/frames/K-boot2
+captured /workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/K/frames/01-K-restore-page-again.png
+changed after 0.1s (`key up`, line 2)
+changed after 0.0s (`key right`, line 4)
+settle: still after 1.3s
+captured /workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/K/frames/02-K-finish-focused.png
+changed after 0.1s (`key x`, line 8)
+settle: still after 7.2s
+captured /workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/K/frames/03-K-after-finish.png
+08:10:40 PASS walk epic-K2.steps
+2026-10-05 04:10:33	[1447]	INFO	restore relink: complete, clearing marker
+2026-10-05 04:10:36	[1447]	INFO	cloud folder step: checking the folder (boot)
+08:10:41 PASS K: FINISH brought the step
+08:10:41 PASS K: and FINISH consumed the restore's marker
+captured /workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/K/frames/01-K-step-question.png
+changed after 0.1s (`key z`, line 2)
+settle: still after 1.3s
+dismiss-dialogs: 1 press(es) moved the screen, back on the carousel
+08:10:48 PASS walk epic-K3.steps
+08:10:49   guest conf: SAVES_REMOTE="/pixelelated/Saves" SETTINGS_REMOTE="/pixelelated/Backups" CONTENT_REMOTE="/pixelelated/Content" LAYOUT_KEEP="" 
+08:10:49   frames: 7 under /workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/K/frames (numbered walk captures); boot and continuous captures are in their named subdirectories
+08:10:49 done: 7 PASS, 0 FAIL

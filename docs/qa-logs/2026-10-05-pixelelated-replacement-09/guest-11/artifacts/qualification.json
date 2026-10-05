@@ -1,0 +1,148 @@
+{
+  "utc": "2026-10-05T08:26:55.544297+00:00",
+  "passed": true,
+  "cases": {
+    "H": {
+      "pass": 5,
+      "fail": 0,
+      "log_sha256": "9956881bacced413f04f9f4d100ca5159dcd2e7bd0c9c770fa973838ddb7cec3"
+    },
+    "A": {
+      "pass": 6,
+      "fail": 0,
+      "log_sha256": "ad587a1f19b4c4e3fb254af77fa110aca6026e17a082c10c5a28aedc17496fa1"
+    },
+    "C": {
+      "pass": 3,
+      "fail": 0,
+      "log_sha256": "5423149fdd42466932fabf89fa6ec4559068c1dbd07ce294549639037dec2a19"
+    },
+    "D": {
+      "pass": 5,
+      "fail": 0,
+      "log_sha256": "d1e1b76357526f81c565b0c8fbe087ee591e84b4a59c4dc56cb2e21e68c0fffb"
+    },
+    "B": {
+      "pass": 7,
+      "fail": 0,
+      "log_sha256": "a6e725ec20df47536bff8dacfaece7b7649d8cfb0c57b9bd335cefe1c7d725b4"
+    },
+    "E": {
+      "pass": 6,
+      "fail": 0,
+      "log_sha256": "48fe7ae587805f92f75e5514c219e64edb6e620bbf6768a62b1c60c85563ab7d"
+    },
+    "I": {
+      "pass": 11,
+      "fail": 0,
+      "log_sha256": "eceb9bcda8ee208b42d31291791f0ea2d9cf00d3fe848fb640d83e14a66c0c8e"
+    },
+    "J": {
+      "pass": 4,
+      "fail": 0,
+      "log_sha256": "78b974bae50d612ac20750af7f76e356f9424a7c3187ddb786523d8cff3440cf"
+    },
+    "K": {
+      "pass": 7,
+      "fail": 0,
+      "log_sha256": "f38c2b7b6b23e7f471badc494747af2a265f4db6a5408957002c2bfe9afbd885"
+    },
+    "L": {
+      "pass": 7,
+      "fail": 0,
+      "log_sha256": "6ba21bc04e648098d80c64823152ac1f7082844b3d72159ea2036e7b87206bb1"
+    },
+    "F": {
+      "pass": 3,
+      "fail": 0,
+      "log_sha256": "29a31f458cc14bfe3e7339df9783e8e380e32e3614077717c8fb504fa1866345"
+    },
+    "G": {
+      "pass": 3,
+      "fail": 0,
+      "log_sha256": "0cfc02939fd2d3c402252aa091a803dd898dba8ea0caa09f9b8279020321e0c7"
+    },
+    "T08": {
+      "pass": 3,
+      "fail": 0,
+      "log_sha256": "4c8a5ad21ce886cff8ce792183160d11480e32f66df84a2d4d839b8475193b42"
+    },
+    "T11": {
+      "pass": 3,
+      "fail": 0,
+      "log_sha256": "fe1182cb11727c046b329c73742a225602ccf3ccf19a9cb6a45cf9ca0e779641"
+    },
+    "T12": {
+      "pass": 3,
+      "fail": 0,
+      "log_sha256": "68f03511a2cc4acbc168e50dc7532b4c90e44f469a1815f50970bbaebdf9339f"
+    },
+    "T17": {
+      "pass": 5,
+      "fail": 0,
+      "log_sha256": "f7af54e949349018a97e7a2d926825049f65c14a856ea52a5042d62b00830a19"
+    },
+    "T19": {
+      "pass": 12,
+      "fail": 0,
+      "log_sha256": "6e2d07b336bfaecf185936d879ca5937cb36cc3e86ca40bbdbcd7da0ccf3d618"
+    },
+    "T23": {
+      "pass": 126,
+      "fail": 0,
+      "log_sha256": "676ebfd59688ee10a99351e3693448ffeb325e65301e0a7114f5d10781befac7"
+    },
+    "T26": {
+      "pass": 30,
+      "fail": 0,
+      "log_sha256": "8277ad62b1a0db2de9c2a4bcb0bd54c25c2df76fb5833473a2c73cf278662c8a"
+    }
+  },
+  "total_pass": 249,
+  "total_fail": 0,
+  "selected_frames_reviewed": 32,
+  "completion": {
+    "observed_utc": "2026-10-05T08:26:26.884633+00:00",
+    "submission_tool_chunk": "497141",
+    "submission_rc": 0,
+    "job_rc": 0,
+    "job_result_source": "/workspace/tmp/pixelelated-m7-guest-11/launcher-result.json",
+    "result_channels": {
+      "/workspace/tmp/pixelelated-m7-guest-11/inner.rc": 0,
+      "/workspace/tmp/pixelelated-m7-guest-11/outer.rc": 0,
+      "/workspace/tmp/pixelelated-m7-guest-11/tool-wrapper.rc": 0,
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/.build-runs/20261005T074403Z-d4dcde5e/build.rc": 0
+    },
+    "owned_processes": [
+      {
+        "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/.build-runs/20261005T074403Z-d4dcde5e/build.pid",
+        "pid": 27508,
+        "state": "absent"
+      },
+      {
+        "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/.build-runs/20261005T074403Z-d4dcde5e/watcher.pid",
+        "pid": 27512,
+        "state": "absent"
+      },
+      {
+        "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/.build-runs/20261005T074403Z-d4dcde5e/command.pid",
+        "pid": 27541,
+        "state": "absent"
+      },
+      {
+        "source": "/workspace/tmp/pixelelated-m7-guest-11/guest.pid",
+        "pid": 28263,
+        "state": "absent"
+      }
+    ],
+    "qemu_absent": true,
+    "run": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/.build-runs/20261005T074403Z-d4dcde5e",
+    "build_log_sha256": "d5a9f02eae19604fd05fde9a695ef64b3e1a6dc419bc780e588c229883c689d5"
+  },
+  "protocol_cases_have_no_ui_frames": [
+    "T17",
+    "T19",
+    "T23",
+    "T26"
+  ]
+}

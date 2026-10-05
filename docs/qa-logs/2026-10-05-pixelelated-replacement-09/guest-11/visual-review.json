@@ -1,0 +1,223 @@
+{
+  "scope": "Selected actual original cloud-epic frames directly inspected; no assertion that every continuous capture was inspected",
+  "cases": {
+    "H": {
+      "utc": "2026-10-05T07:49:11.330542+00:00",
+      "observation": "Move offer names existing /ROCKNIX and target /pixelelated with MOVE/KEEP/NOT NOW; declining opens restore choices with saves selected and matching settings archive.",
+      "selected_frames": [
+        {
+          "path": "/workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/H/frames/04-H-after-scan.png",
+          "sha256": "eb5dc4a44b65a702306e5b51003e85567a9ac1a4a836585504875243f4ce45b6"
+        },
+        {
+          "path": "/workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/H/frames/01-H-after-not-now.png",
+          "sha256": "e29a2f16add748a139eda6fd78d899518df8907a6e06250145c88fb8e5fb4dd7"
+        }
+      ]
+    },
+    "A": {
+      "utc": "2026-10-05T07:49:11.348582+00:00",
+      "observation": "Completed move shows six files/17KB and target /pixelelated; rescan exposes correct restore categories/settings archive.",
+      "selected_frames": [
+        {
+          "path": "/workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/A/frames/02-A-move-done.png",
+          "sha256": "88940609188de828fba92fe634b4e56d5fef3d340ab7a2797fd16a1f2b102042"
+        },
+        {
+          "path": "/workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/A/frames/04-A-options-after-move.png",
+          "sha256": "e29a2f16add748a139eda6fd78d899518df8907a6e06250145c88fb8e5fb4dd7"
+        }
+      ]
+    },
+    "C": {
+      "utc": "2026-10-05T07:50:03.337679+00:00",
+      "observation": "Settings row is visibly dimmed and says NO SETTINGS BACKUP FROM THIS DEVICE YET when only a foreign archive is available; other restore categories remain present.",
+      "selected_frames": [
+        {
+          "path": "/workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/C/frames/04-C-after-scan.png",
+          "sha256": "b0b3f604689a42e22b50a3b488e57f80b3ce8f79bcab6f845bce08c8445b7895"
+        }
+      ]
+    },
+    "D": {
+      "utc": "2026-10-05T07:53:43.388901+00:00",
+      "observation": "Missing content prompts with the exact /pixelelated/Content path and explicit folder choice; chooser lists cloud roots; after existing content is found the NES content selection page appears with saves preserved.",
+      "selected_frames": [
+        {
+          "path": "/workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/D/frames/03-D-question.png",
+          "sha256": "4d21a4339781d0840ce255a983164c0ff00bc9b896538d6042647af398b34c6c"
+        },
+        {
+          "path": "/workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/D/frames/04-D-chooser.png",
+          "sha256": "8b132d2623f72bd9921a1a1f6afebf8bebf6e7c1b2ae6a4656eb205d8b1f470b"
+        },
+        {
+          "path": "/workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/D/frames/03-D-systems.png",
+          "sha256": "d338bb63252b6ff16d51345aea6b25c7633d99e7cbc30942929716a99c10835f"
+        }
+      ]
+    },
+    "B": {
+      "utc": "2026-10-05T07:56:24.222777+00:00",
+      "observation": "Existing /GAMES move prompt offers MOVE/KEEP/NOT NOW. Empty layout offers CREATE IT/CHOOSE A FOLDER/NOT NOW. After creation restore choices appear with saves selected and no device settings archive claimed.",
+      "selected_frames": [
+        {
+          "path": "/workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/B/frames/01-B0-move-question.png",
+          "sha256": "0a8c12a3b4d81f345d35889ccb69b0804a6cec27e7597a63d2f6a3f44cfadd07"
+        },
+        {
+          "path": "/workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/B/frames/04-B-after-scan.png",
+          "sha256": "c1ec840fdab862bee5403821901762dc8bf7d5701252de2f82ba7fcedb5e160f"
+        },
+        {
+          "path": "/workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/B/frames/03-B-options-after-create.png",
+          "sha256": "b0b3f604689a42e22b50a3b488e57f80b3ce8f79bcab6f845bce08c8445b7895"
+        }
+      ]
+    },
+    "E": {
+      "utc": "2026-10-05T07:58:30.013965+00:00",
+      "observation": "Actual startup frames show checking the connection, then SKIPPED because the cloud folder is not set up with GAME SETTINGS > MANAGE CLOUD STORAGE guidance. Explicit creation offer appears; NOT NOW returns to carousel. Six assertions verify no folder or configuration mutation on decline.",
+      "selected_frames": [
+        {
+          "path": "/workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/E/frames/01-E-step-offer.png",
+          "sha256": "f75c2582513b24d2178765257e65ec66995655c5047858a14862d4d6d2f917a7"
+        },
+        {
+          "path": "/workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/E/frames/02-E-after-not-now.png",
+          "sha256": "6a0c18e3043d2b62d3018254477d0bbdf26706036535893b977197d382bfa66b"
+        },
+        {
+          "path": "/workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/E/frames/E-boot/E-boot-0025.png",
+          "sha256": "bf10c8a65890983d0f4f1ede03fa293c051f73e78734e08d8d98ece03d847d58"
+        },
+        {
+          "path": "/workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/E/frames/E-boot/E-boot-0030.png",
+          "sha256": "4654fd7574cbd12c5a004ec2295615eb08949cb6c43a2990fc7d4fd4292b08c1"
+        }
+      ]
+    },
+    "I": {
+      "utc": "2026-10-05T08:03:38.503762+00:00",
+      "observation": "Second boot repeats the deferred move offer. Completed move shows one file/4KB and /pixelelated. Third boot shows normal carousel without the move prompt; eleven assertions independently verify the configuration and moved data.",
+      "selected_frames": [
+        {
+          "path": "/workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/I/frames/01-I-move-question-again.png",
+          "sha256": "359969a7e59135d77f90e338abe913666cb6507ac2c93e2585e9e8f6f7289661"
+        },
+        {
+          "path": "/workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/I/frames/03-I-move-done.png",
+          "sha256": "a6ad0853eb118101c5e7eeab7177f97e3818cc5819bf9eaa47694c0a2d722882"
+        },
+        {
+          "path": "/workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/I/frames/01-I-boot3-quiet.png",
+          "sha256": "9b5728c426f88363445f5a818fa2897e1f42542361590a0e23c08659c23ce902"
+        }
+      ]
+    },
+    "J": {
+      "utc": "2026-10-05T08:06:33.131653+00:00",
+      "observation": "Offline startup offers CONNECT TO WI-FI and NOT NOW; choosing NOT NOW returns to the carousel. Four assertions verify the offline prompt and deferred setup after reconnecting.",
+      "selected_frames": [
+        {
+          "path": "/workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/J/frames/01-J-offline.png",
+          "sha256": "536c5798cd2ec5e8498e2e23b122f4a5d11e0893022f45f125c6d76e8dbddf12"
+        },
+        {
+          "path": "/workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/J/frames/02-J-after-not-now.png",
+          "sha256": "ccbb6efdf267b594f9c180db49fe464e6c39e8cc2aa8e1fb6dadc7170ab3c922"
+        }
+      ]
+    },
+    "K": {
+      "utc": "2026-10-05T08:11:30.806300+00:00",
+      "observation": "With a deliberately seeded pending-restore marker, the restore page precedes cloud setup. LATER returns to carousel; after FINISH the move prompt appears. Seven assertions verify marker preservation/consumption and ordering across two boots.",
+      "selected_frames": [
+        {
+          "path": "/workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/K/frames/01-K-restore-page.png",
+          "sha256": "f09555320bb385416cb1b18555ad518b305a5857af182b2751cdc6a65f10ee5f"
+        },
+        {
+          "path": "/workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/K/frames/02-K-later-focused.png",
+          "sha256": "6c9dc3a5905e6799430dd7d8e72b2dce244b8a1aeb314abe7733619b3eea1d95"
+        },
+        {
+          "path": "/workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/K/frames/03-K-after-later.png",
+          "sha256": "e78e09d12c7b1bc64ccdac63eaf423cea851c7615dccdec1de911d3b0aa7bcf3"
+        },
+        {
+          "path": "/workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/K/frames/03-K-after-finish.png",
+          "sha256": "bfb8155c4e94c2379af9ad19dd65de22377963d1d62e25bdad1ec6a624717b1f"
+        }
+      ]
+    },
+    "L": {
+      "utc": "2026-10-05T08:14:37.531535+00:00",
+      "observation": "Repair row is reachable; the migration question appears over step3 before completion. After NOT NOW, CLOUD SETUP COMPLETE lists the preserved /ROCKNIX saves/backups/content paths and matching configured root.",
+      "selected_frames": [
+        {
+          "path": "/workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/L/frames/06-L-repair-row.png",
+          "sha256": "907c0cce5199657fb3e397dbea3bc97f39f4083e27bd20469e8a362e16338690"
+        },
+        {
+          "path": "/workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/L/frames/01-L-move-question.png",
+          "sha256": "0cb3c43849d1a6e019796ef0b53c29a4cc41794d017c1ddd5075a5ba3221a498"
+        },
+        {
+          "path": "/workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/L/frames/01-L-setup-complete.png",
+          "sha256": "cb71bfd5fcc60b3e6010ef1263bfbfadddc22a04f81b7f6a1bc06b1259654d12"
+        }
+      ]
+    },
+    "F": {
+      "utc": "2026-10-05T08:15:47.745451+00:00",
+      "observation": "Refused cloud scan shows COULDN'T FINISH, states the cloud stopped answering and nothing changed, and exposes CLOSE and TRY AGAIN in the controller help bar.",
+      "selected_frames": [
+        {
+          "path": "/workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/F/frames/01-F-outcome.png",
+          "sha256": "dff44d9c4549af85c25b411f4796187ea3757272e6af4efdfa3aa664c90d643b"
+        }
+      ]
+    },
+    "G": {
+      "utc": "2026-10-05T08:18:16.254203+00:00",
+      "observation": "Completed opening scan reaches BACK UP TO THE CLOUD with saves selected and distinct ROMs/BIOS, game content and settings choices; BACK and BACK UP actions are visible.",
+      "selected_frames": [
+        {
+          "path": "/workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/G/frames/04-G-after-scan.png",
+          "sha256": "43e4e4ad93d204dbb15470e65c75397fbb16205f470340624acaba5b547cb7f4"
+        }
+      ]
+    },
+    "T08": {
+      "utc": "2026-10-05T08:19:18.664880+00:00",
+      "observation": "Final boot capture offers explicit creation of /pixelelated. Three assertions verify startup leaves an absent old parent absent and presents setup recovery.",
+      "selected_frames": [
+        {
+          "path": "/workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/T08/frames/T08-boot/T08-boot-0113.png",
+          "sha256": "34d90bb96645396359260d36bfebeb6ab084275b2e1cbfc7113d131d2a8a82d5"
+        }
+      ]
+    },
+    "T11": {
+      "utc": "2026-10-05T08:21:54.611219+00:00",
+      "observation": "Final boot frame offers moving the found /ROCKNIX folder, rather than creating a competing layout. Three assertions verify the selected saves path, no writes to empty /GAMES, and unchanged earlier save bytes.",
+      "selected_frames": [
+        {
+          "path": "/workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/T11/frames/T11-boot/T11-boot-0113.png",
+          "sha256": "e089194743fcfc15eae79dfa8c151e9a5261aca3163edfefc6c7ea284ed5b413"
+        }
+      ]
+    },
+    "T12": {
+      "utc": "2026-10-05T08:24:43.291856+00:00",
+      "observation": "Final boot reaches the normal carousel without migration/setup prompts. Three assertions verify joining /pixelelated/Saves, preserving fleet save bytes and not recreating the abandoned /ROCKNIX root.",
+      "selected_frames": [
+        {
+          "path": "/workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/T12/frames/T12-boot/T12-boot-0113.png",
+          "sha256": "4f0aa1ad66d4011bd34044355409bcb0a287ec614c0d0c08a8c38dd4bd1d3984"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,31 @@
+07:55:19 === cloud-epic on guest d, BUILD_ID="cf511ce79b83cba7fea8b14cfa3d04fb13e4b4fb"
+232
+07:55:19 == setup: the QA remote on the guest (the host backend's conf), then the QA cloud holds the fork's earlier layout with files in every folder of ours; the guest points at it
+remote: qa-cloud:
+07:55:21   cloud: ROCKNIX/Backups/2026_09_29-090000-Retroid-Pocket-Nova-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Backups/2026_09_30-120000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Content/BIOS/disksys.rom ROCKNIX/Content/ROMs/nes/Probe.nes ROCKNIX/Saves-replaced/nes/Probe.srm.1 ROCKNIX/Saves/nes/Probe.srm 
+07:55:21   guest conf: SAVES_REMOTE="/ROCKNIX/Saves" SETTINGS_REMOTE="/ROCKNIX/Backups" CONTENT_REMOTE="/ROCKNIX/Content" LAYOUT_KEEP="" 
+label=GENERIC-X64
+07:55:48   picks reset: content=0 saves=1
+07:56:09 == E: the startup sync with no saves folder in the cloud: the card says SKIPPED with the row to set it up; then the cloud folder step offers CREATE IT (D-CLOUD-170)
+07:56:09   guest conf: SAVES_REMOTE="/GAMES" SETTINGS_REMOTE="/GAMES/backup" CONTENT_REMOTE="" LAYOUT_KEEP="" 
+startup=1
+07:56:45   reboot_guest: /isIdle yes after 1s
+settle: still after 1.9s
+07:57:39   E-boot: 129 frames under /workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/E/frames/E-boot
+1791186987 78 no-folder
+07:57:39 PASS E: the startup stamp carries the third sentinel (78 no-folder)
+2026-10-05 03:56:34	[1538]	INFO	cloud folder step: checking the folder (boot)
+2026-10-05 03:56:34	[1538]	INFO	cloud folder: no /pixelelated in the cloud (state superseded-empty); offering to create it
+07:57:39 PASS E: the step came up at boot once the card was done
+07:57:39 PASS E: and offered CREATE IT for the carried /GAMES with nothing anywhere
+captured /workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/E/frames/01-E-step-offer.png
+changed after 0.1s (`key z`, line 2)
+settle: still after 2.2s
+captured /workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/E/frames/02-E-after-not-now.png
+dismiss-dialogs: 1 press(es) moved the screen, back on the carousel
+07:57:48 PASS walk epic-E2.steps
+07:57:48 PASS E: NOT NOW re-pointed nothing: the stock-shaped conf still names /GAMES
+07:57:48 PASS E: and the boot's startup sync made no /GAMES in the cloud (D-CLOUD-172)
+07:57:48   guest conf: SAVES_REMOTE="/pixelelated/Saves" SETTINGS_REMOTE="/pixelelated/Backups" CONTENT_REMOTE="/pixelelated/Content" LAYOUT_KEEP="" 
+07:57:48   frames: 2 under /workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/E/frames (numbered walk captures); boot and continuous captures are in their named subdirectories
+07:57:48 done: 6 PASS, 0 FAIL
