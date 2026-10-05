@@ -8,8 +8,8 @@ is unchanged. The required adoption flow is **ROCKNIX → pixelelated**;
 there are no fielded /Rasteratops systems requiring an additional gate.
 
 The [M7 milestone body](https://github.com/pixelelated/distribution/milestone/7)
-is the binding running order. **Replacement08 built; qualification in progress.**
-Source72121fd03a / ESf6f0c1342 / immutable bundle84a79416… completed all642
+is the binding running order. **Replacement09 frozen; cache preparation in progress.**
+The preceding build08, source72121fd03a / ESf6f0c1342 / immutable bundle84a79416…, completed all642
 package tasks and exact payload checks (actual49805=0; store68326=0).
 Actual runner/watcher/container cleanup is verified. Image SHA7a60c191… and
 update d196d9c2… are bound to input7578b0d9…; no mutable target selection.
@@ -25,12 +25,15 @@ provenance covers the cached embedded initramfs despite its omitted installstamp
 
 Evidence: `docs/qa-logs/2026-10-05-pixelelated-replacement-08/`.
 Original07 crashes and earlier failed boot observations remain retained.
-The authorized side-conversation proxy identity cleanup removes an unshipped
-OS alias and requires replacement09 before the remaining longqualification.
-No functionality changes for ROCKNIX or pixelelated;16hosttests/directidentity
-controls pass. The15 remaining08owners stayunstarted. Next: integrate/freeze09,
-independentcache/build, renew exactcandidate defaults/upgrade/boot/fullmatrix,
-then ordinaryRA and P4 primary+Fable5.1/xhigh before H700 arm/aarch64.
+The authorized proxy identity cleanup is published (52870=0) and frozen as
+replacement09, source cf511ce79b83cba7fea8b14cfa3d04fb13e4b4fb, input817fd9ff….
+Same proxy/ES/splash pins; only an unshipped OS alias is removed. Independent
+cache copy91647 is active under watcher3183094. All18 new owners are prepared
+and unstarted, including installed proxy identity/account-discovery checks.
+#436/#433 are closed from published08 evidence. No09 image exists yet.
+Next: complete copy/checksums/inodes, guarded idle preflight, proxy/image build,
+immutable bundle and renewed full qualification, then ordinaryRA and the
+approved P4 primary+Fable5.1/xhigh before H700 arm/aarch64.
 No RC/device-ready call. #409/#426 remainopen for their broader criteria.
 
 ## Historical replacement06 qualification

@@ -1,0 +1,25 @@
+{
+  "utc": "2026-10-05T05:34:26.180258+00:00",
+  "actual_tool": 91647,
+  "run": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/.build-runs/20261005T053303Z-aecc0df2",
+  "processes": [
+    {
+      "file": "build.pid",
+      "pid": 3183093,
+      "state": "S",
+      "cmdline": "python3 tools/watch-build --interval 5 --stall-min 5 --recursive-activity --activity-dir /workspace/tmp/pixelelated-m7-replacement-09/copy-artifacts -- /workspace/tmp/pixelelated-m7-replacement-09/copy-outer.sh "
+    },
+    {
+      "file": "watcher.pid",
+      "pid": 3183094,
+      "state": "S",
+      "cmdline": "/bin/bash /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/.build-runs/20261005T053303Z-aecc0df2/watch-job --log /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/.build-runs/20261005T053303Z-aecc0df2/build.log --rc /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/.build-runs/20261005T053303Z-aecc0df2/build.rc --status /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/.build-runs/20261005T053303Z-aecc0df2/build.status --pid 3183093 --activity-dir /workspace/tmp/pixelelated-m7-replacement-09/copy-artifacts --recursive-activity --stall-min 5 --interval 5 "
+    },
+    {
+      "file": "command.pid",
+      "pid": 3183123,
+      "state": "S",
+      "cmdline": "/bin/bash /workspace/tmp/pixelelated-m7-replacement-09/copy-outer.sh "
+    }
+  ]
+}

@@ -180,3 +180,5 @@ QA08 reached correct initial identity/Information but generic dismiss/reopen/cou
 - 2026-10-05 04:13 UTC — Diagnostic01 preparation failed syntax, but a compound shell launch continued and returned125 before any guest. Fresh diagnostic02/03 use separate validated preparation and launch; original failure retained. Issue #422.
 
 - 2026-10-05 05:24 UTC — QA evidence retention stopped safely on an unexpected state-after dump beside the upgrade logs. Retain only explicitly allowed public files and hash the excluded dump; no config contents copied. Guard: allowlisted retention and manifest. Issue #383.
+
+- 2026-10-05 05:38 UTC — Full source manifest hit the credential-shaped-line guard on existing kernel filenames. Keep its exact original in immutable artifact custody and retain a digest reference in Git; no guard exemption. Issue #383.
