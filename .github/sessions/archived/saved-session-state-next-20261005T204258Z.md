@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Saved 2026-10-05T20:42:58.466307+00:00. Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261005T204258Z.md`.
+> Saved 2026-10-05T20:35:44.595964+00:00. Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261005T203544Z.md`.
 > Branch feature/conflict-resolution; primary /workspace/repos/rocknix stays next.
 
 ## Start here
@@ -118,44 +118,32 @@ HTTP302/mobileUA/phone390margins/public-provider assertions retained. Finishing
 marker is an explicit stand-in, not authenticated success/trust. Each owner has
 43artifact hashes/37public files plus source and actual cleanup/review receipts.
 
-Memory12 COMPLETE: durable20:40:45/allfour0. Actuald528be cleanup20:41:05
-verifies all6owner/guest PIDs absent/noQEMU; actual52dd28 cleanup20:41:08 verifies
-backend3796226 absent. Original10virgl/10software/50software+sync measuredcycles
-(after5warmups each) pass unchanged1024KiBVmSize/2048KiBRSS limits. Growth:
-0/224, -448/684, 0/444KiB. All55sync stamps distinct/completed. Both profiles
-pass exit/time-to-play. Firstframe0.570/0.636s, exitstamp1.324/1.673s,
-nextgame1.012/1.011s. Fast g2g stamps are absent; no active-sync claim.
-Ten actual timing frames reviewed; aspect-correct533x480viewport fills panel
-height640x480.30second example.org load passes, peak290096KiB on8GiB.
-Retained546artifact hashes/163publicfiles plus source/actualcleanup/review,
-including original cycleCSV and allsync stamps. No changes to limits/fixtures.
-
-ACTIVE UI14, submittedba9ee7 at20:41:16; owner
-/workspace/tmp/pixelelated-m7-ui-14; launcher3867627; actuale08a62 guest3868434;
-backend3868404 observedbf3338. Both are recorded for eventual actualcleanup.
-Run /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement10/.build-runs/20261005T204116Z-fbc89769.
-70English/French menu/Tools frames at640x480/1280x960 and12ESlifetimechecks;
-automatic installed Pixman proof at each size. No runtime override. Boot05
-remains the separate exact boot/splash acceptance; UI bootcapture is not a new
-matcher acceptance. Current640English walks started; no UI acceptance yet.
+ACTIVE memory12, submitted0ccb58 at20:23:14; qa.start 2026-10-05T20:23:15Z;
+owner /workspace/tmp/pixelelated-m7-memory-12; launcher3773740. Initial virgl
+guest3774189 stopped; actual92c5bb at20:28:17 records active software guest3804672.
+Backend3796226 recorded cf9766 at20:29:04 in actual-backend-observations.jsonl;
+verify its absence after terminal cleanup as well as owner/guest processes.
+Run /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement10/.build-runs/20261005T202314Z-0be6ba04.
+Original10virgl/10software/50software+sync measured cycles after5warmups;
+unchanged1024KiBVmSize/2048KiBRSSgrowth limits. Added installed renderer proof
+and original exit/time-to-play suites on bothprofiles. Both10cycle profiles and both exit/time-to-play suites pass. Software-sync50
+is active; latest20:35:20 raw cycle23 includes5warmups. No full memory12 acceptance yet.
+Host20:21 read-only memory observation: swap0used/8GiBfree; no busy reclaim.
 
 ## Next Steps — execute in order
 
-1. Observe active UI14 with /tmp/pixelelated-status.py OWNER. Do not replay.
+1. Observe active memory12 with /tmp/pixelelated-status.py OWNER. Do not replay.
    Record each actual guest PID with /tmp/pixelelated-observe-qa-processes.py
-   (escalated host/proc), including the second1280guest after restart. On terminal,
-   /tmp/pixelelated-complete-durable.py OWNER 0 checks every result and actual
-   owner/guest absence/noQEMU; run /tmp/pixelelated-complete-backend.py OWNER
-   to verify observed backend absence. These create exclusive receipts; never
-   rerun after success. Directly review all70actual UI frames and12lifetime
-   records before acceptance/retention. Prepared ui.py records dimensions only.
-2. Remaining SEALED/UNSTARTED: signin-1g13 → signin-provider1g05, both
-   /workspace/tmp/pixelelated-m7-. Launch with
+   (escalated host/proc). On terminal, /tmp/pixelelated-complete-durable.py OWNER 0
+   checks every result, observed owner/guest absence and noQEMU. Review actual
+   timing/emulator frames and memory artifacts before acceptance/retention.
+2. Remaining SEALED/UNSTARTED: ui14 → signin-1g13 → signin-provider1g05.
+   All /workspace/tmp/pixelelated-m7-. Launch with
    /tmp/pixelelated-launch-fallback.py OWNER from frozen10. Do not rerun any
-   preparation/completed owner. Both1GiBworkloads prove actual1024MiBallocation,
-   firmware/usablememory,30secondload/responsiveness/noOOM. Baselineexample.org
-   and publicDropbox are not authenticatedtrust. Directly review their actual
-   loaded-640x480.png and resource-budget.json before completing/retaining.
+   preparation or completed owner. UI14:70English/French640/1280 softwareframes,
+   12lifetimechecks; directframe review required. Both1GiBworkloads prove actual
+   1024MiBallocation/firmware/usablememory,30secondload/responsiveness/noOOM.
+   Baselineexample.org and publicDropbox are not authenticatedtrust.
    Semanticdependency requires already-passed signin14 completion+visualreview.
 3. /tmp/pixelelated-retain-10.py SHORT_OWNER 0 fromfeaturetree after completion
    and visualreview retains sealed sources/hashes/logs. Original failures stay
@@ -179,7 +167,7 @@ matcher acceptance. Current640English walks started; no UI acceptance yet.
  preserving09 history. No product/audit claim from this read-only handoff proof.
 - Committed read-only helper: docs/qa-logs/2026-10-05-generic-x64-pixman/verify-installed-renderer.py;
   read-only installed bytes/unit/realGPU/process proof copied into153sealed members.
-- M7 body and #447 read back20:41: allthree sign-in profiles and memory12 pass, UI14 active; #450 closed.
+- M7 body and #447 read back20:23: allthree sign-in profiles pass, memory12 active; #450 closed.
 - Current source publisher /tmp/pixelelated-publish-pixman-source.py ALREADY RAN;
   receipt /tmp/pixelelated-pixman-source-published.json. Never replay it.
 - Prior bundle79d560... imageb9be57ee... sourcecf511ce... is immutable baseline,
@@ -201,7 +189,7 @@ completion. #395 destination still missing, so no disconnected alert claim.
 
 Boot05/signin14/15/16 and the prior checkpoint are published as
 next8aefd9c751da96c34e38a64d329bbcbe095e000c / featureb54270e0cc98bd5b6910214592d27c8cf82db04f,
-remote-verified20:25:07. Handoff corrections subsequently published as next3752364f1da128b6de8adf96856379cc155b56af / feature038b197a1d1bf99802bd4127a8b72a7a7eca7b48 at20:37:03. This checkpoint and memory evidence accompany their own normal
+remote-verified20:25:07. This checkpoint correction accompanies its own normal
 evidence commit; verify actual HEAD/remotes rather than assuming it is unpushed.
 Frozen10 remains d6e8390c. Priorpublisher scripts already ran; never replay them.
 

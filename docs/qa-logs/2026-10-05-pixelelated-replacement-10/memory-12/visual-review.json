@@ -1,0 +1,146 @@
+{
+  "utc": "2026-10-05T20:41:12.296148+00:00",
+  "passed": true,
+  "method": "Recomputed growth from original cycle CSVs and checked every distinct completed exit-sync stamp; direct view_image of ten timing frames.",
+  "memory": {
+    "virgl-10": {
+      "pid": 2137,
+      "cycles": 10,
+      "warmup": 5,
+      "vmsize_growth_kib": 0,
+      "rss_growth_kib": 224,
+      "passed": true
+    },
+    "software-10": {
+      "pid": 2010,
+      "cycles": 10,
+      "warmup": 5,
+      "vmsize_growth_kib": -448,
+      "rss_growth_kib": 684,
+      "passed": true
+    },
+    "software-sync-50": {
+      "pid": 7226,
+      "cycles": 50,
+      "warmup": 5,
+      "vmsize_growth_kib": 0,
+      "rss_growth_kib": 444,
+      "passed": true
+    }
+  },
+  "exit_sync_stamps": 55,
+  "measured_cycles": 70,
+  "warmup_cycles": 15,
+  "frames": [
+    {
+      "path": "/workspace/tmp/pixelelated-m7-memory-12/artifacts/rocknix-images/qa-d6e8390c93-webdav-d-20261005-2025/time-to-play/frames/r1-launch-02-first-game-frame.png",
+      "sha256": "21f28405bcdf2bdb1a426c393648d5266708a40519c2f8af5a87f2b89676bd1b",
+      "observation": "Directly viewed: emulator startup/auto-state transition or returned ES carousel, as named. Early transition samples are not settled widget-layout proof.",
+      "passed": true
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-memory-12/artifacts/rocknix-images/qa-d6e8390c93-webdav-d-20261005-2025/time-to-play/frames/g1-exit-002.png",
+      "sha256": "9f68d8f76fbb71a3b84bdb06e653413eef8c502a0aaf5045926242774f459805",
+      "observation": "Directly viewed: emulator startup/auto-state transition or returned ES carousel, as named. Early transition samples are not settled widget-layout proof.",
+      "passed": true
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-memory-12/artifacts/rocknix-images/qa-d6e8390c93-webdav-d-20261005-2025/time-to-play/frames/g1-exit-game2.png",
+      "sha256": "9f68d8f76fbb71a3b84bdb06e653413eef8c502a0aaf5045926242774f459805",
+      "observation": "Directly viewed: emulator startup/auto-state transition or returned ES carousel, as named. Early transition samples are not settled widget-layout proof.",
+      "passed": true
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-memory-12/artifacts/rocknix-images/qa-d6e8390c93-webdav-d-20261005-2025/time-to-play/frames/r1-exit-007.png",
+      "sha256": "c322146172b3f1eaf022622b930951328cf15a5a2fa52edc75bdf7fdad63df1e",
+      "observation": "Directly viewed: emulator startup/auto-state transition or returned ES carousel, as named. Early transition samples are not settled widget-layout proof.",
+      "passed": true
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-memory-12/artifacts/rocknix-images/qa-d6e8390c93-webdav-d-20261005-2025/time-to-play/frames/r1-exit-000.png",
+      "sha256": "21f28405bcdf2bdb1a426c393648d5266708a40519c2f8af5a87f2b89676bd1b",
+      "observation": "Directly viewed: emulator startup/auto-state transition or returned ES carousel, as named. Early transition samples are not settled widget-layout proof.",
+      "passed": true
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-memory-12/artifacts/rocknix-images/qa-d6e8390c93-webdav-d-20261005-2029/time-to-play/frames/r1-launch-02-first-game-frame.png",
+      "sha256": "8c73fa622bb949472d1f7b780918c3756a5320d82b1d63ae022848fca6949d18",
+      "observation": "Directly viewed: emulator startup/auto-state transition or returned ES carousel, as named. Early transition samples are not settled widget-layout proof.",
+      "passed": true
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-memory-12/artifacts/rocknix-images/qa-d6e8390c93-webdav-d-20261005-2029/time-to-play/frames/g1-exit-002.png",
+      "sha256": "41309ef676748451b369f65cc0139865219dd1ee0763ce7540f233b3c1220b8f",
+      "observation": "Directly viewed: emulator startup/auto-state transition or returned ES carousel, as named. Early transition samples are not settled widget-layout proof.",
+      "passed": true
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-memory-12/artifacts/rocknix-images/qa-d6e8390c93-webdav-d-20261005-2029/time-to-play/frames/g1-exit-game2.png",
+      "sha256": "41309ef676748451b369f65cc0139865219dd1ee0763ce7540f233b3c1220b8f",
+      "observation": "Directly viewed: emulator startup/auto-state transition or returned ES carousel, as named. Early transition samples are not settled widget-layout proof.",
+      "passed": true
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-memory-12/artifacts/rocknix-images/qa-d6e8390c93-webdav-d-20261005-2029/time-to-play/frames/r1-exit-007.png",
+      "sha256": "f5ae3662488d8c4ea39bdd66f143c73b5e62d551daccf6c9b86558f8392f37ad",
+      "observation": "Directly viewed: emulator startup/auto-state transition or returned ES carousel, as named. Early transition samples are not settled widget-layout proof.",
+      "passed": true
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-memory-12/artifacts/rocknix-images/qa-d6e8390c93-webdav-d-20261005-2029/time-to-play/frames/r1-exit-000.png",
+      "sha256": "21f28405bcdf2bdb1a426c393648d5266708a40519c2f8af5a87f2b89676bd1b",
+      "observation": "Directly viewed: emulator startup/auto-state transition or returned ES carousel, as named. Early transition samples are not settled widget-layout proof.",
+      "passed": true
+    }
+  ],
+  "timing": [
+    {
+      "path": "/workspace/tmp/pixelelated-m7-memory-12/artifacts/rocknix-images/qa-d6e8390c93-webdav-d-20261005-2025/time-to-play/time-to-play.json",
+      "launch_s": 0.57,
+      "exit_sync_s": 1.324,
+      "g2g_s": 1.012,
+      "g2g_stamp": {
+        "raw": ""
+      },
+      "surface": {
+        "surface": "533x480",
+        "source": "RetroArch's GPU screenshot",
+        "panel": "640x480",
+        "scaled": false,
+        "evidence": [
+          "164:[INFO] [Content] Loading content file: \"/storage/roms/gb/TTProbe.gb\".",
+          "240:[INFO] [GL] Detecting screen resolution: 640x480.",
+          "245:[INFO] [GL] Using resolution 240x256.",
+          "16:26:52"
+        ]
+      }
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-memory-12/artifacts/rocknix-images/qa-d6e8390c93-webdav-d-20261005-2029/time-to-play/time-to-play.json",
+      "launch_s": 0.636,
+      "exit_sync_s": 1.673,
+      "g2g_s": 1.011,
+      "g2g_stamp": {
+        "raw": ""
+      },
+      "surface": {
+        "surface": "533x480",
+        "source": "RetroArch's GPU screenshot",
+        "panel": "640x480",
+        "scaled": false,
+        "evidence": [
+          "164:[INFO] [Content] Loading content file: \"/storage/roms/gb/TTProbe.gb\".",
+          "246:[INFO] [GL] Detecting screen resolution: 640x480.",
+          "251:[INFO] [GL] Using resolution 640x480.",
+          "16:30:59"
+        ]
+      }
+    }
+  ],
+  "limitations": [
+    "One timing repeat per profile is a smoke sample, not a performance distribution.",
+    "Both fast g2g samples lack a new sync stamp and do not prove launch during active sync.",
+    "First-frame pictures show emulator startup/auto-state transitions; not a settled widget-layout assessment.",
+    "533x480 GPU viewport fills640x480panel height with aspect sidebars, per existing surface check."
+  ]
+}
