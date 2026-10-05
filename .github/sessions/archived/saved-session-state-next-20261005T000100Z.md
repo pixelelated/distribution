@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Updated 2026-10-05T00:01:00.123734+00:00. Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261005T000100Z.md`.
+> Updated 2026-10-04T23:44:58.759361+00:00. Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261004T234458Z.md`.
 
 ## Start here
 
@@ -28,7 +28,7 @@ files,live regression and7 unstarted owners. Its stale readiness paragraph
 and precise harness-manifest wording findings are corrected.
 A helper installation is COMPLETE; do not ask to reinstall it.
 
-## Current: replacement06 defaults/upgrade/content/settings/providers PASS; guest06 ACTIVE
+## Current: replacement06 default/upgrade/content/settings PASS; link06 ACTIVE
 
 Frozen tree /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement06,
 build/m7-pixelelated-replacement06, commit57cbc9b981205328444d41f6c4237dc9f5736d7f.
@@ -91,44 +91,23 @@ product and backing hashes verify. Actual23:33:43 runner477529/watcher477530/
 command477559/guest477941 absent. No guest/product instrumentation remains.
 Evidence: docs/qa-logs/2026-10-04-pixelelated-57cbc-qualification/.
 
-## Completed link06 and ACTIVE guest06
+## ACTIVE link06 — current exact-candidate interrupted-provider matrix
 
-link06 actual26472/allrc0 completed2026-10-04 23:50:48UTC. WebDAV seven
-interruption/recovery cases PASS477s; S3 seven PASS459s. Source/bundle hashes
-reverify. Actual2026-10-04 23:59:43 runner481672/watcher481673/command481702,
-guests482514/482540/533124/533150 and throttle532235 absent. Successful
-dockerps readback23:59:58 confirms MinIOa47e62ea1d20 absent; WebDAVpidfile
-absent. Initial cleanup recorder's case-sensitive Docker error comparison
-returned1 despite 'no such object'; retained in backend-exited.json, not
-rewritten as a QA failure. Actual26472 and completion.json remain0.
-Receipts: docs/qa-logs/2026-10-04-pixelelated-57cbc-qualification/link-06/.
+Owner /workspace/tmp/pixelelated-m7-link-06, actual tool26472, started23:33:56.
+Run frozen06/.build-runs/20261004T233356Z-3303eded. Actual23:34:19
+runner481672/watcher481673/command481702 and freshguests482514/482540 alive.
+Shared5s recursive watcher/5min stall detection plus connected supervision.
+Runs seven WebDAV cases then seven S3 cases; do not edit/restart this owner.
+Poll26472; inspect both reports and actual tool/inner/outer/wrapper/build
+results, then verify actual process/backend cleanup before guest06.
 
-The preceding checkpoint commit was blocked BEFORE execution when automatic
-approval review hit its usage limit (not an unsafe-action determination).
-After the owner's "Please proceed", ordinary escalation worked again.
-No approval bypass or alternate execution path was used. The existing link06
-run completed normally; its terminal result was read on resumption.
-
-Current owner /workspace/tmp/pixelelated-m7-guest-06, actual tool67203,
-started2026-10-05 00:00:08UTC. Run frozen06/.build-runs/20261005T000008Z-8c7327fd.
-Actual00:00:31 runner610223/watcher610224/command610253 and guest611028 alive.
-Shared5s recursive watcher/5min stall detection and connected supervision.
-Runs19 independent reset cloud cases; artifacts/cloud-epic/<case>/logs/run.log
-and frames. Do not edit or restart this owner. Poll67203 and verify all actual
-result channels and host/backend cleanup before runtime06. Keep K's explicit
-restore-marker stand-in and T23's current-protocol faults distinguished from
-the later inherited-state proof. Select frames honestly; do not claim every
-capture was visually reviewed.
-
-Remaining sealed UNSTARTED owners: runtime06 → proxy05 → optins05 → memory05
-→ ui06 → predecessor03 → subset02. All under /workspace/tmp/pixelelated-m7-;
-run from frozen06 with immutable BUNDLE. Never rerun executed owners or
-preparation scripts. qa-owners-revision-2.json is preparation history, not
-live results. Fresh-context proof23:44:33 independently verified all source,
-14bundlemembers,14harnessseals,156rawartifacts/152retainedcopies,10identity
-frames, completed-owner exits and then-liveS3ownership. Its wording findings
-are corrected; addendum23:46:24 finds no contradiction in the correctedscope.
-Report: docs/qa-logs/2026-10-04-pixelelated-replacement-06/resume-proof-link06.md.
+Remaining sealed UNSTARTED owners: guest06 → runtime06 → proxy05 → optins05
+→ memory05 → ui06 → predecessor03 → subset02. All under /workspace/tmp/
+pixelelated-m7-; run from frozen06 with immutable BUNDLE. Each run.sh enforces
+its prerequisites. Inputs/source/harness seals must remain unchanged.
+Never rerun executed preparations or owners. The original qa-owners.json is
+a historical preparation snapshot; qa-owners-revision-2.json records the
+qa07 dependency correction, not a live result ledger.
 
 ## Retained qa06 failure and current inventory
 
@@ -323,7 +302,7 @@ base upload, exact gameIDs/cache/stamp, empty repeat avoids network.
 External route removed; synthetic QA only, no live ordinary award claim.
 Actual22:22:33 runner3889456/watcher3889457/command3889486/guest3890213 absent.
 Source/bundle/backing custody verifies. See qualification/subset-01/.
-Current guest06 VM job is active above; these old owners are finished. All completed/failing owner scripts
+Current link06 VM job is active above; these old owners are finished. All completed/failing owner scripts
 and frozen05 source stay immutable; do not rerun an executed owner.
 
 ## #426 current proxy refresh before replacement06 freeze
@@ -354,19 +333,19 @@ opusfile,rclone,retropie-shaders,slang-shaders,tailscale,wildmidi,zerotier-one.
 
 ## Next in binding M7 order
 
-1. Supervise active guest06/tool67203. Read all19 case results and selected
-   frames, reconcile all result channels and actual host/backend cleanup.
-2. Run remaining sealed owners in order: runtime06 → proxy05 →
+1. Supervise active link06/tool26472. Read both seven-case provider reports,
+   reconcile all result channels and actual host/backend cleanup.
+2. Run remaining sealed owners in order: guest06 → runtime06 → proxy05 →
    optins05 → memory05 → ui06 → predecessor03 → subset02. All bind frozen57cbc,
    manifest82764873 and bundled4007387. Defaults/actualupgrade/imageequality/
-   content/settings/providers are complete above; do not rerun them.
+   content/settings are complete above; do not rerun them.
 3. Launch from frozen06 using tools/watch-build --interval 5 --stall-min 5
    --recursive-activity --activity-dir OWNER/artifacts -- OWNER/outer.sh BUNDLE.
    Write OWNER/tool-wrapper.rc and retain actual tool result. One fixed-port
    VM owner at a time. /tmp/pixelelated-finish-owner.py runs only AFTER the
    actual tool exits, in escalated host view (sandbox hides real processes).
    /tmp/pixelelated-retain-06-simple.py retains completed simple-owner receipts
-   from the feature cwd. It has already run for qa07/image07/sweep04/settings06/link06;
+   from the feature cwd. It has already run for qa07/image07/sweep04/settings06;
    never rerun those retention invocations. Guest/memory/UI need tailored
    frame selection rather than copying every capture into Git.
 4. ui06 boot matcher uses actual640/1280 captures, unchanged99.5% threshold,
