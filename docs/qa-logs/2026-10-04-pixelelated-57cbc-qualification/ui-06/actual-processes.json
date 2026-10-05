@@ -1,0 +1,33 @@
+{
+  "observed_utc": "2026-10-05T01:28:06.911662+00:00",
+  "actual_tool": 35647,
+  "processes": [
+    {
+      "source": "build.pid",
+      "pid": 1034459,
+      "alive": true
+    },
+    {
+      "source": "watcher.pid",
+      "pid": 1034460,
+      "alive": true
+    },
+    {
+      "source": "command.pid",
+      "pid": 1034489,
+      "alive": true
+    },
+    {
+      "source": "/workspace/tmp/pixelelated-m7-ui-06/guest.pid",
+      "pid": 1035240,
+      "alive": true,
+      "owner_verified": true
+    },
+    {
+      "source": "/workspace/tmp/pixelelated-m7-ui-06/cloud/webdav.pid",
+      "pid": 1034886,
+      "alive": true,
+      "owner_verified": true
+    }
+  ]
+}

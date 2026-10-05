@@ -55,3 +55,29 @@ later owners were unstarted. Frozen HEAD and manifest digest remained exact;
 the reviewer did not repeat full hashing in this followup. Its stale proxy
 sentences were corrected; #362's undefined bound remains explicitly open.
 Subsequent optins completion and memory launch are primary observations.
+
+## Correction/readback proof — 01:37:06 UTC
+
+The same fresh-context reviewer independently verified optins05/memory05
+retained receipts against raw logs and all four result channels0. Recomputed
+memory CSV growth was VmSize0/0/0KiB and RSS-72/492/472KiB;55 unique stamps
+all contained `0 completed`. Sign-in memory was291120KiB for the scoped
+30-second loaded-page observation. Summary SHA256
+2fcc01531d31ac5ad01849df85ae8896a14d936378e1f2439653a1b6111985df;
+completion48c801b59e3e1f81660532bfbfe3063805446b8d94fd3069673b05e28432c3ad.
+
+UI06 had no terminal success. At01:35:21 its runner/watcher had exited while
+outer/backend/guest teardown was still live. At01:37:06 all six observed PIDs
+were absent. Actual tool143 differs from inner/outer1 and missing wrapper/
+build exit files; raw receipt SHA256
+a889bcdb221975894623c1f3a4a02ec8ea0f0b41af27300cc781a977c459628e.
+The independent proof does not identify the signal sender.
+
+Live remotes confirmed483ce62c→cdb1b307 and #429/#430/#363 closed. #362's
+wording was reconciled against D-WORKFLOW-048 but the prepared1GiB proof
+remained unexecuted; refined signin-ui seven-input and signin-1g eight-input
+seals matched. Frozen HEAD remained unchanged with only expected generated
+emulator documentation dirty. Full source hashing was not repeated in this
+followup. The stale UI06-active and older-publication checkpoint sentences
+were flagged for correction; UI07 subsequently launched under primary
+supervision and is not a completion claimed by this review.

@@ -160,3 +160,6 @@ issue is needed; `issue: none` is the state that expires.
 - 2026-10-05 00:48 UTC — Firefox silently widened requested390px phone viewport to500px. Probe verified actual390px iframe; proof now asserts measured viewport and element screenshot dimensions. Guard: runtime width/PNG assertions; issue: #351.
 
 - 2026-10-05 00:55 UTC — A fixed1.15s host delay did not ensure a same-size guest save was newer than WebDAV upload time when guest clock lagged; diagnostic byte assertion failed. Fresh fixture verifies the actual timestamp boundary and retains live failure facts before teardown. Guard: timestamp predicate and negative controls; issue: #430.
+
+- 2026-10-05 01:58 UTC -- UI06 runner disappeared with143 while inner/outer wrote1 and build.rc was missing; the watcher recorded DIED but no signal sender was captured -- guard: retained original discrepancy and validated signal-only trace on a fresh owner -- issue: #431
+- 2026-10-05 01:58 UTC -- UI07 captured all menus with runner0 but its640 boot crop missed924 colored pixels and failed the independent99.5% matcher -- guard: actual framebuffer comparison separate from capture result; preserve failures and diagnose before advancing -- issue: #433

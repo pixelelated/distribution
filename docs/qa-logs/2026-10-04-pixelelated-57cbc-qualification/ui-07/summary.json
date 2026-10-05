@@ -1,0 +1,70 @@
+{
+  "observed_utc": "2026-10-05T01:56:45.237233+00:00",
+  "actual_tool": 90920,
+  "actual_tool_rc": 0,
+  "all_result_channels": 0,
+  "runner_result": "complete; no repeat termination",
+  "qualification_result": "blocked by failed640 boot match; #433",
+  "walk_frames": 70,
+  "reviewed_walk_frames": 42,
+  "boot_frames": 416,
+  "matches": {
+    "640": {
+      "pass": false,
+      "threshold": 0.995,
+      "best": {
+        "file": "122.png",
+        "elapsed_seconds": 21.96,
+        "sha256": "4a67a5af39290d2d9c4d08efb6a010eb694ddd040af2760992552be9cfef1195",
+        "agreement": 0.9610208816705337
+      },
+      "controls": [
+        {
+          "name": "old-logo",
+          "agreement": 0.44079308162834846,
+          "rejected": true
+        },
+        {
+          "name": "blank",
+          "agreement": 0.689938831470154,
+          "rejected": true
+        },
+        {
+          "name": "wrong-resolution",
+          "agreement": 0.0,
+          "rejected": true
+        }
+      ]
+    },
+    "1280": {
+      "pass": true,
+      "threshold": 0.995,
+      "best": {
+        "file": "034.png",
+        "elapsed_seconds": 6.808,
+        "sha256": "0828ffe85f74aac341ad6ba4d6cef472258c8d0c2a1b6c1ed23f0b1f7165fcbe",
+        "agreement": 0.9960472820358379
+      },
+      "controls": [
+        {
+          "name": "old-logo",
+          "agreement": 0.44501016413190786,
+          "rejected": true
+        },
+        {
+          "name": "blank",
+          "agreement": 0.7035461526878483,
+          "rejected": true
+        },
+        {
+          "name": "wrong-resolution",
+          "agreement": 0.0,
+          "rejected": true
+        }
+      ]
+    }
+  },
+  "source_and_bundle": "end-of-run verification passes in build.log",
+  "cleanup": "completion.json; all observed PIDs absent; no QEMU",
+  "trace_files": 3209
+}

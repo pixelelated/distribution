@@ -1,0 +1,52 @@
+# #422: candidate fixture has global.retroachievements=0 and kodi.enabled=0.
+# GAME SETTINGS is first regardless of the optional Wi-Fi row. Capture the
+# entry before continuing; use only with this explicitly seeded fixture.
+key ret
+wait-for-change 30 1
+settle
+shot main-menu-entry
+key x
+wait-for-change 30 1
+settle
+shot game-settings-entry
+key up
+wait-for-change 30 1
+key up
+wait-for-change 30 1
+key up
+wait-for-change 30 1
+settle
+shot game-settings-cloud-rows
+key x
+wait-for-change 30 1
+settle
+shot cloud-hub
+key x
+wait-for-change 30 1
+settle
+shot back-up-to-the-cloud
+key z
+wait-for-change 30 1
+settle
+key down
+wait-for-change 30 1
+key down
+wait-for-change 30 1
+key down
+wait-for-change 30 1
+key down
+wait-for-change 30 1
+key down
+wait-for-change 30 1
+key down
+wait-for-change 30 1
+key down
+wait-for-change 30 1
+key down
+wait-for-change 30 1
+settle
+key x
+wait-for-change 30 1
+settle
+shot connect-or-repair-cloud-storage
+dismiss-dialogs

@@ -1,0 +1,35 @@
+{
+  "observed_utc": "2026-10-05T01:35:33.009669+00:00",
+  "actual_tool": 35647,
+  "actual_tool_rc": 143,
+  "files": {
+    "/workspace/tmp/pixelelated-m7-ui-06/inner.rc": "1\n",
+    "/workspace/tmp/pixelelated-m7-ui-06/outer.rc": "1\n",
+    "/workspace/tmp/pixelelated-m7-ui-06/tool-wrapper.rc": null,
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement06/.build-runs/20261005T012741Z-2e1af5ff/build.rc": null,
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement06/.build-runs/20261005T012741Z-2e1af5ff/build.status": "state:       died\nwritten:     2026-10-05 01:35:08 UTC   <- terminal result; heartbeat stops here\nwatcher_pid: 1034460\njob_pid:     1034459  alive=no\nstarted:     2026-10-05 01:27:41 UTC\nprogress:    none matched\nlog:         /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement06/.build-runs/20261005T012741Z-2e1af5ff/build.log  (last written 11s ago)\nactivity:    /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement06/.build-runs/20261005T012741Z-2e1af5ff/build.log  (last written 11s ago)\nactivity_dir: /workspace/tmp/pixelelated-m7-ui-06/artifacts\noutcome:     NO EXIT CODE WRITTEN -- job absent, exited or PID reused\ntail:\n  1 press(es) moved the screen, back on the carousel\n  START en_US 1280x960 retro-achievements\n",
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement06/.build-runs/20261005T012741Z-2e1af5ff/watcher.err": ""
+  },
+  "processes": [
+    {
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement06/.build-runs/20261005T012741Z-2e1af5ff/build.pid",
+      "pid": 1034459,
+      "exists": false
+    },
+    {
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement06/.build-runs/20261005T012741Z-2e1af5ff/watcher.pid",
+      "pid": 1034460,
+      "exists": false
+    },
+    {
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement06/.build-runs/20261005T012741Z-2e1af5ff/command.pid",
+      "pid": 1034489,
+      "exists": false
+    },
+    {
+      "source": "/workspace/tmp/pixelelated-m7-ui-06/guest.pid",
+      "pid": 1062959,
+      "exists": false
+    }
+  ]
+}
