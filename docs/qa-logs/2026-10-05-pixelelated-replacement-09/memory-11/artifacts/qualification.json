@@ -1,0 +1,35 @@
+{
+  "utc": "2026-10-05T09:05:33.492397+00:00",
+  "passed": true,
+  "launch_results": {
+    "virgl-10": {
+      "pid": 2135,
+      "cycles": 10,
+      "warmup": 5,
+      "vmsize_growth_kib": 0,
+      "rss_growth_kib": -208,
+      "passed": true
+    },
+    "software-10": {
+      "pid": 1991,
+      "cycles": 10,
+      "warmup": 5,
+      "vmsize_growth_kib": 0,
+      "rss_growth_kib": 788,
+      "passed": true
+    },
+    "software-sync-50": {
+      "pid": 17359,
+      "cycles": 50,
+      "warmup": 5,
+      "vmsize_growth_kib": 0,
+      "rss_growth_kib": 624,
+      "passed": true
+    }
+  },
+  "unique_completed_sync_stamps": 55,
+  "signin_loaded": true,
+  "signin_peak_total_rss_kib": 291924,
+  "signin_url": "https://example.org/",
+  "scope": "page load, not authenticated provider trust page"
+}

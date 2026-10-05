@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Saved 2026-10-05T09:07:31.077678+00:00. Previous checkpoint archived at `.github/sessions/archived/saved-session-state-next-20261005T090731Z.md`.
+> Saved 2026-10-05T08:52:37.673701+00:00. Previous checkpoint archived at `.github/sessions/archived/saved-session-state-next-20261005T085237Z.md`.
 > Branch feature/conflict-resolution; primary /workspace/repos/rocknix stays next.
 
 ## Start here
@@ -30,7 +30,7 @@ and precise harness-manifest wording findings are corrected.
 A helper installation is COMPLETE; do not ask to reinstall it.
 
 
-## Current focus — replacement09 memory qualification passed
+## Current focus — replacement09 provider qualification passed
 
 M7.P3 is current. The frozen candidate is source `cf511ce79b83cba7fea8b14cfa3d04fb13e4b4fb`, input manifest `817fd9ff49b1ecf6bcc859cfa38985a65fbcfe5514c33a0a5c9dd60af6cc6c6e`, immutable bundle `79d560046ee52e28b72f16588168dd7c8fb2637c1cc585713216a8ec828e9d81`. Build and inventory pass; 14 licence metadata gaps remain for P5.
 
@@ -54,16 +54,15 @@ Boot04/tool90675/all four rc0 passes four clean/upgraded boots at 640x480 and 12
 
 **Provider qualification passed:** optins11 durable result08:47:52/allfourrc0 passes S3 round-trip in120seconds and all42 mixed RC2/fresh migration assertions. Actualc3d137=0 at08:50:30 proves owner processes absent and no QEMU. Source/bundle reverified. Four public artifacts retained; all earlier failures remain preserved.
 
-**Memory qualification passed:** memory11 durable09:04:57/allfourrc0 passes10virgl,10software and50software-with-sync measured launches after five warm-ups each. Virtual growth0KiB in all three; resident growth-208/788/624KiB, below unchanged1024/2048KiB limits. All55 sync stamps are distinct successful completions. Thirty-second sign-in page load passes with peak291924KiB; this is example.org, not provider authentication. Actualafe676=0 at09:05:33 proves all owner/guest processes absent/no QEMU; source/bundle reverified.440artifact hashes retained with raw cycle tables and stamps.
+**Current priority:** memory11 ACTIVE, submissione0396b. Actual08:51:28 launcher339332/runner339333/watcher339341/command339374 and guest340093 live. Watched run20261005T085108Z-8f418a35. The standard watcher records5second heartbeats and5minute inactivity warnings; active supervision reads within60seconds. Remaining memory/rendering/sync/sign-in checks are not yet accepted. No RC/device-ready claim; disconnected alerts remain #395.
 
-**Current priority:** UI13 ACTIVE, submissionff7a02. Actual09:06:33 launcher413999/runner414000/watcher414005/command414039 and640panel guest414781 live. Watched run20261005T090612Z-35985aae. Standard watcher5second heartbeats/5minute inactivity; active supervision within60seconds. English/French640x480/1280x960 menu captures require direct visual review and ES lifetime proof before predecessor09. No RC/device-ready claim; disconnected alerts remain #395.
-
-**Remaining order:** UI13 → predecessor09 → subset08 → cloud-ui07 → signin-ui07 → signin-1g07 → ordinary RetroAchievements proof → P4 primary OpenAI plus Fable5.1/xhigh through the verified Facilitator → H700 DDR4/RG35XX SP arm, then aarch64. Predecessor09 requires the completed boot04 proof and an actual UI13 visual review. External inputs and P5 publication gates remain recorded. Can this be done on the VM? **Yes.**
+**Remaining order:** memory11 → UI13 → predecessor09 → subset08 → cloud-ui07 → signin-ui07 → signin-1g07 → ordinary RetroAchievements proof → P4 primary OpenAI plus Fable5.1/xhigh through the verified Facilitator → H700 DDR4/RG35XX SP arm, then aarch64. Predecessor09 requires the completed boot04 proof and an actual UI13 visual review. External inputs and P5 publication gates remain recorded. Can this be done on the VM? **Yes.**
 
 #433/#436 remain closed from their artifact-scoped replacement08 repair proofs. #437/#438 and #439/#440/#441 are closed with published scoped evidence; actual52959=0 verifies the latter three bodies/states. Content/settings publication49305=0 put featureb7f9cac3 on nexte1f2baaf, with both remote hashes verified. #442/#443 are closed completed; actual19135=0 verifies their acceptance bodies and states. These closures do not qualify the whole candidate.
 
 
-Latest normal publicationa981e3=0: featurefbc4cf75946d8d119a4066527ba51557edba90cf → next49012c27027593204c7db30d0e8bfffd8ad1c1ea, both remote hashes verified. #444 and #445 are closed completed; #445 closure/readback414e77=0 verifies allfour criteria from published evidence. Memory11 is now complete; UI13 is active.
+Latest normal publication96533=0: feature764390421f7f4de04a48a7c9fa1fafd31b0ccacf → next566a3b1320206ed33c4e1688244b7d44fadfb7a0, remote hashes verified. #444 is closed completed/readback26795=0 from the published full cloud proof. Current runtime and #445 evidence follow that publication.
+
 ## Immediate commands and custody
 
 Guest11 is COMPLETE and retained. All19cases/249assertions/0failures;
@@ -95,28 +94,12 @@ resume-proof-optins11.md verified all source/bundle/owner hashes and actual
 mixed guest311770/314457 identities before completion. No qualification claim
 is attributed to that handoff proof. Command shorthand is corrected below.
 
-Memory11 COMPLETE: submissione0396b distinct from durable09:04:57/allfourrc0.
-All10virgl/10software/50sync-enabled measured cycles pass with five warm-ups.
-Virtual growth0 in all; resident-208/788/624KiB.55 unique successful sync stamps.
-Thirty-second example.org sign-in load passes, peak291924KiB. Actualafe676=0
-at09:05:33 owner/guest processes absent and no QEMU.440hashes/67public files
-retained, including three raw cycle tables and55stamps. This is not provider
-trust-page authentication. All installed and frozen source bytes reverify.
-
-UI13 ACTIVE: /workspace/tmp/pixelelated-m7-ui-13, submissionff7a02.
-Watched run20261005T090612Z-35985aae. Actual09:06:33 launcher413999,
-runner414000/watcher414005/command414039 and initial640guest414781 live.
+Memory11 ACTIVE: /workspace/tmp/pixelelated-m7-memory-11, submissione0396b.
+Watched run20261005T085108Z-8f418a35. Actual08:51:28 launcher339332,
+runner339333/watcher339341/command339374 and initial guest340093 live.
 Poll console.log and launcher-result.json; read run.path, then poll build.status
-inside the directory it names. Capture later1280guest identity. Review actual
-EN/FR640x480/1280x960 frames and all12 ES lifecycle records. In-progress actual
-frame ledger: /tmp/pixelelated-ui13-reviewed.json; append using
-/tmp/pixelelated-record-ui13.py only after viewing returned original images.
-Only after direct
-review write owner/visual-review.json with passed:true and hashed frame ledger.
-Boot04 already supplies exact clean/upgraded boot matcher/control proof; do not
-claim a capture-only UI completion as semantic acceptance. Then verify actual
-cleanup and retain evidence. Predecessor09 requires both actualUI13review and
-boot04passed. No swap operation during VM work.
+inside the directory it names. Capture subsequent software-rendering guest PID.
+All guests must be gone before UI13 begins. No swap operation during VM work.
 Fresh9owner/96member directory chain: /tmp/pixelelated-proxy11-chain.json and
 successor-owners-proxy11/. Preparation234a03=0/readback8eb312=0 and M7 readback
 1634=0 preceded proxy11 launch. All source assertions remain unchanged.
@@ -146,9 +129,9 @@ Fresh resume proof resume-proof-boot04.md records independent custody checks and
 timing changes; all reported stale snapshots are reconciled in this batch.
 
 Remaining owners, prefix /workspace/tmp/pixelelated-m7-:
-ui-13(active) → predecessor-09 → subset-08 →
+memory-11(active) → ui-13 → predecessor-09 → subset-08 →
 cloud-ui-07 → signin-ui-07 → signin-1g-07.
-All after UI13 are UNSTARTED; inspect actual launch files before acting.
+All after memory11 are UNSTARTED; inspect actual launch files before acting.
 Earlier proxy10 failed; its other8dependents remain sealed/unstarted. Do not
 execute the superseded chain. Predecessor09 requires completed boot04 and
 actual UI13 visual-review.json PASS, written only after inspecting frames.
@@ -171,14 +154,13 @@ rehearsal.log/rc/journal-err-after.txt public; state-after.txt HASHONLY.
 Do not copy private keys, saved configs or VM disks into Git. Full frozen input
 manifest stays outside Git; inputs-reference.json records its digest.
 
-Last published featurefbc4cf75946d8d119a4066527ba51557edba90cf → next49012c27027593204c7db30d0e8bfffd8ad1c1ea,
-actuala981e3=0, both remote hashes verified. #445 closed/readback414e77=0.
-Pending publication: memory11 evidence and this UI13 handoff. M7 duplicated old
-priority sentence is corrected and #426's stale gate refreshed; readbacke1a17b=0
-in /tmp/pixelelated-09-memory11-correction-tracking. Tracking script now matches
-only the complete M7.P3 priority line, not the earlier bold label. Continue
-explicit-commit/cherry-pick-x and normal fork pushes. Previous optins11 fresh
-resume proof remains scoped to its earlier snapshot; later events are separate.
+Last published feature764390421f7f4de04a48a7c9fa1fafd31b0ccacf → next566a3b1320206ed33c4e1688244b7d44fadfb7a0,
+actual96533=0, both remote hashes verified. #444 closed completed/readback26795=0.
+Pending publication: runtime12/proxy11 pass, original proxy10 failure, fresh #445
+directory controls/successors, provider pass and active memory11 handoff. #445 scoped
+closure follows normal publication; allfourcriteria are proved. Use explicit commit/
+cherry-pick-x and normal fork pushes. Fresh-context resume-proof-guest11.md
+verified its earlier07:49:52 snapshot; later results are separately observed.
 
 P4 NOT STARTED: primary OpenAI + Fable5.1/xhigh verified Facilitator, blind then
 refutation; no Daybreak or same-provider substitute. Complete remaining matrix
