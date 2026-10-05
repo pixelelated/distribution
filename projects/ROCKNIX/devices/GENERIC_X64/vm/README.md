@@ -50,6 +50,19 @@ The initramfs applies this default on upgraded GENERIC_X64 guests whose existing
 boot configuration lacks `quiet`. For verbose boot diagnosis, remove `quiet` and
 add `debugging` to the active boot entry (Syslinux on BIOS, GRUB on UEFI).
 
+On a virtio GPU without negotiated virgl support (`--gl none`), the
+GENERIC_X64 Sway service selects Pixman for composition. This avoids stale
+host-visible frames observed with GLES2/llvmpipe. Applications retain their
+own graphics drivers; accelerated virgl guests retain wlroots' normal
+renderer selection. The choice is recomputed at startup without changing
+saved settings. Explicit `WLR_RENDERER` or `WLR_RENDER_DRM_DEVICE` overrides,
+unidentified devices and multiple-card selections are left alone.
+
+The selector checks the chosen card's `virtio_gpu` driver and negotiated
+feature bit 0, not the presence of a render node: the kernel exposes render
+nodes in both modes. A journal entry tagged `Sway` records when Pixman is
+selected. This service override exists only in the GENERIC_X64 filesystem.
+
 Generate the UTM bundle (a qcow2 that needs another file -- a backing image,
 an external data file -- is refused: the bundle carries the one file; flatten
 it with `qemu-img convert -O qcow2` first):

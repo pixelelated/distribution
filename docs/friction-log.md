@@ -208,3 +208,5 @@ QA08 reached correct initial identity/Information but generic dismiss/reopen/cou
 - 2026-10-05 18:24 UTC — Historical RC2 diagnostic inherited the newer CHASSIS=handset predicate and failed before opening its browser. Fresh owners derive metadata presence/hash from the exact old SYSTEM and retain the original desktop UA/page; current mobile criteria stay intact. Guard: baseline-specific metadata and exact URI predicates with wrong-presence/hash controls. Issue #448.
 
 - 2026-10-05 18:36 UTC — Full Pixman sign-in reached27 checks/six frames but the persistent observer ended in TimeoutError. Its read phase was not recorded. New helper distinguishes bounded initial/partial reads from idle between complete messages and checks unique coverage; nine real loopback controls pass. Preserve originalrc1 and330 received frames. Issue #449.
+
+- 2026-10-05 19:02 UTC — Pixman selector preflight exposed two real assumptions: DRM points to the virtio transport parent, and the image loader expects /usr/lib in an isolated fixture. Preserve selector01/02 failures; kernel-source tracing and actual image-BusyBox controls guard the corrected path. issue: #447, #450.

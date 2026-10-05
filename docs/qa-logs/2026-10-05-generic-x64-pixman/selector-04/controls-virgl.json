@@ -1,0 +1,119 @@
+{
+  "mode": "virgl",
+  "actual_features": "11001000000000000000000000001100100000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "actual_transport": "/sys/devices/pci0000:00/0000:00:02.0",
+  "actual_virtio": "/sys/devices/pci0000:00/0000:00:02.0/virtio1",
+  "checks": [
+    {
+      "name": "actual virgl negotiated GPU",
+      "renderer": "unset",
+      "returncode": 0
+    },
+    {
+      "name": "synthetic software",
+      "renderer": "pixman",
+      "returncode": 0
+    },
+    {
+      "name": "ambiguous transport children",
+      "renderer": "unset",
+      "returncode": 0
+    },
+    {
+      "name": "synthetic virgl",
+      "renderer": "unset",
+      "returncode": 0
+    },
+    {
+      "name": "non-virtio card",
+      "renderer": "unset",
+      "returncode": 0
+    },
+    {
+      "name": "missing driver",
+      "renderer": "unset",
+      "returncode": 0
+    },
+    {
+      "name": "absent features",
+      "renderer": "unset",
+      "returncode": 0
+    },
+    {
+      "name": "empty features",
+      "renderer": "unset",
+      "returncode": 0
+    },
+    {
+      "name": "short features",
+      "renderer": "unset",
+      "returncode": 0
+    },
+    {
+      "name": "nonbinary features",
+      "renderer": "unset",
+      "returncode": 0
+    },
+    {
+      "name": "embedded newline features",
+      "renderer": "unset",
+      "returncode": 0
+    },
+    {
+      "name": "extended software bitstring",
+      "renderer": "pixman",
+      "returncode": 0
+    },
+    {
+      "name": "explicit gles2",
+      "renderer": "gles2",
+      "returncode": 0
+    },
+    {
+      "name": "explicit pixman",
+      "renderer": "pixman",
+      "returncode": 0
+    },
+    {
+      "name": "explicit vulkan",
+      "renderer": "vulkan",
+      "returncode": 0
+    },
+    {
+      "name": "explicit render device",
+      "renderer": "unset",
+      "returncode": 0
+    },
+    {
+      "name": "multiple cards",
+      "renderer": "unset",
+      "returncode": 0
+    },
+    {
+      "name": "unknown path",
+      "renderer": "unset",
+      "returncode": 0
+    },
+    {
+      "name": "empty selection",
+      "renderer": "unset",
+      "returncode": 0
+    },
+    {
+      "name": "nonnumeric card",
+      "renderer": "unset",
+      "returncode": 0
+    },
+    {
+      "name": "missing card",
+      "renderer": "unset",
+      "returncode": 0
+    },
+    {
+      "name": "multidigit card",
+      "renderer": "pixman",
+      "returncode": 0
+    }
+  ],
+  "scope": "selection only; compositor exec recorder"
+}
