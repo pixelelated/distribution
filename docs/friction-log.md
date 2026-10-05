@@ -167,3 +167,14 @@ issue is needed; `issue: none` is the state that expires.
 - 2026-10-05 02:29 UTC -- Boot diagnostic changed GRUB while the VM consumed Syslinux, so the intended quiet observation was invalid and the cmdline assertion stopped it. Guard: explicit active-loader and consumed-command-line assertions in new sealed diagnostic02; preserve diagnostic01 failure. Issue: #434.
 
 - 2026-10-05 02:58 UTC -- Proxy7252fc removed the bulk cache API still used by OS helpers; initial integration failed4 cases. Guard: new real-helper streaming/summary tests, old-store metadata/preservation checks and full scripts suite. Upstream automatic-report fixtures also needed the existing consent contract; preserve failed attempts and parse every patched Python file before execution. Issue: #426.
+
+## 2026-10-05 03:38 UTC — wrong watcher launch directory (#435)
+
+The agent combined a relative seal check with build launch from the owner directory. Two package cleans succeeded, then inherited watcher lookup correctly refused image compilation from the different frozen worktree. Actual7435/allrc2 retained; actual processes/containers absent. Fresh attempt02 asserts the exact worktree cwd before mutation (wrong cwd rejects2, correct0), uses the same isolated cache/frozen source and standard watcher. New build actual68993 is in progress; no failure relabelled.
+
+## 2026-10-05 03:49 UTC — identity walk lost its menu position (#422)
+
+QA08 reached correct initial identity/Information but generic dismiss/reopen/counting landed on Favorites instead of Updates; next key wait failed, actual38098/allrc1. Retained actual frames and cleanup, without calling it a product regression. Fresh QA09 uses two explicit Back transitions from the known nested page then one Up from System Settings to Updates. Only unstarted dependent fixtures were rebound; product unchanged. Intended frames must be inspected before acceptance.
+
+- 2026-10-05 04:13 UTC — QA08/09 were initially classified as menu-position failures without checking ES lifecycle. Diagnostic03 proves an abort/status134 on an empty GPU governor selection, followed by supervisor restart. Existing engineering rule already required process checks before re-driving; the repair adds a real old/new callback control to default VM QA and the next identity walk must assert process continuity. Issue #436; navigation history #422 preserved.
+- 2026-10-05 04:13 UTC — Diagnostic01 preparation failed syntax, but a compound shell launch continued and returned125 before any guest. Fresh diagnostic02/03 use separate validated preparation and launch; original failure retained. Issue #422.

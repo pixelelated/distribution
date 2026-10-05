@@ -19,7 +19,7 @@
 # What runs, in order, each with its own log and a PASS/FAIL line:
 #
 #   scripts     tools/last-good-scripts-test  -- the scripts under busybox shims, on the host
-#   lifetime    ES tests/cloud-oauth-lifetime.py -- the wizard's page lifetimes under ASan, on the host (ES_SRC)
+#   lifetime    ES page lifetimes and GPU save callback safety, on the host (ES_SRC)
 #   wrapper     tools/retroarch-wrapper-test -- RetroArch's threaded video wrapper runs a posted command exactly once
 #               (#211, #225; patch 0015), against the source in the build root, on the host
 #   vocabulary  tools/vocabulary-check       -- back up / backup as verb / noun, ES strings and script lines, on the host
@@ -159,7 +159,9 @@ lifetime_suite() {
     echo "no EmulationStation checkout at $es (set ES_SRC); the lifetime check did not run"; return 1
   fi
   echo "GuiMenu.cpp from $es at $(git -C "$es" rev-parse --short HEAD 2>/dev/null || echo '?')"
-  python3 "$es/tests/cloud-oauth-lifetime.py"
+  python3 "$es/tests/cloud-oauth-lifetime.py" || return
+  # Closing System Settings must also survive absent hardware options (#436).
+  python3 "$es/tests/gpu-governor-save.py"
 }
 case ",$ONLY," in *,lifetime,*)   run_suite lifetime   "$OUT/lifetime.log"   lifetime_suite ;; esac
 # The player-facing words held to their rules (es-player-text.md, player-language.md):

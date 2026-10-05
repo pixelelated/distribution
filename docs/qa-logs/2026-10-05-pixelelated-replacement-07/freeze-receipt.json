@@ -1,0 +1,19 @@
+{
+  "manifest_sha256": "dcc242bbb3039559515b20ca395135af809fdb099d31b3710cf907c97c4d4e84",
+  "source_files": 6547,
+  "source_symlinks": 180,
+  "qa_source_files": 200,
+  "changed_inputs": [
+    "projects/ROCKNIX/devices/GENERIC_X64/options",
+    "projects/ROCKNIX/devices/GENERIC_X64/vm/README.md",
+    "projects/ROCKNIX/packages/network/raofflineproxy/package.mk",
+    "projects/ROCKNIX/packages/network/raofflineproxy/patches/003-flush-stamp.patch",
+    "projects/ROCKNIX/packages/network/raofflineproxy/patches/005-keep-the-refresh-thread-alive.patch",
+    "projects/ROCKNIX/packages/network/raofflineproxy/patches/008-log-upload-opt-in.patch",
+    "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-cache-images",
+    "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl",
+    "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-refresh",
+    "projects/ROCKNIX/packages/sysutils/busybox/scripts/init"
+  ],
+  "commit": "a2586374b7b565965fe0c644656e22ff3c0ec317"
+}

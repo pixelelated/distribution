@@ -1,0 +1,31 @@
+{
+  "observed_utc": "2026-10-05T03:43:49.875411+00:00",
+  "actual_tool_session": 30750,
+  "actual_tool_rc": 0,
+  "result_channels": {
+    "/workspace/tmp/pixelelated-m7-inventory-05/inner.rc": 0,
+    "/workspace/tmp/pixelelated-m7-inventory-05/outer.rc": 0,
+    "/workspace/tmp/pixelelated-m7-inventory-05/tool-wrapper.rc": 0,
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261005T034244Z-ce07a403/build.rc": 0
+  },
+  "owned_processes": [
+    {
+      "pid": 2219475,
+      "role": "build.pid",
+      "state": "absent"
+    },
+    {
+      "pid": 2219476,
+      "role": "watcher.pid",
+      "state": "absent"
+    },
+    {
+      "pid": 2219506,
+      "role": "command.pid",
+      "state": "absent"
+    }
+  ],
+  "scope": "source inventory only; independently owned QA08 VMs remain active",
+  "run": "/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261005T034244Z-ce07a403",
+  "build_log_sha256": "e22522aa45f528bfe841991d7ad4d7714c88da9577087cea897a946d858b6849"
+}

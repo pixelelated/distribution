@@ -1,0 +1,88 @@
+{
+  "prepared_utc": "2026-10-05T03:47:14.775445+00:00",
+  "issue": 422,
+  "failed_owner": "/workspace/tmp/pixelelated-m7-qa-08",
+  "new_owner": "/workspace/tmp/pixelelated-m7-qa-09",
+  "change": "explicit known Back/Back/up transition instead of generic dismiss/reopen/wrap inside identity walk",
+  "harness_sha256": "c96ff4f4e6066df34f02513ed97617f56f3be2c040d385d86d7d4fd3c567ae87",
+  "rebound_unstarted_only": [
+    {
+      "owner": "/workspace/tmp/pixelelated-m7-boot-qualification-01",
+      "changed": [
+        "qualify-boot.py"
+      ],
+      "harness_sha256": "f4f322251e91645b6ba5a39158f763dd400408b79102f06a02d98f9c2136a14b"
+    },
+    {
+      "owner": "/workspace/tmp/pixelelated-m7-image-08",
+      "changed": [
+        "run.sh"
+      ],
+      "harness_sha256": "e72cc91e724f173bb3de6ed4193f06f7e8729493649c365badfc9b8b7983eab1"
+    },
+    {
+      "owner": "/workspace/tmp/pixelelated-m7-settings-07",
+      "changed": [
+        "run.sh"
+      ],
+      "harness_sha256": "926f670934c4c213065067cab6aaf7d67656a3bbc718a792ddc849be2b9cdaa1"
+    },
+    {
+      "owner": "/workspace/tmp/pixelelated-m7-link-07",
+      "changed": [
+        "run.sh"
+      ],
+      "harness_sha256": "7a7218826052cada3366e2ac924a6d9ca1ef4aced9473a53066f4eff3710e8e1"
+    },
+    {
+      "owner": "/workspace/tmp/pixelelated-m7-guest-07",
+      "changed": [
+        "run.sh"
+      ],
+      "harness_sha256": "3527376c0000cd42e326a08a6032e625c4719976990812463f9aea9fc18ba553"
+    },
+    {
+      "owner": "/workspace/tmp/pixelelated-m7-runtime-08",
+      "changed": [
+        "run.sh"
+      ],
+      "harness_sha256": "9b3fe3db13ecbbe78cdf04f8c534c4d60bff999bcf30aeda85bfed8675464460"
+    },
+    {
+      "owner": "/workspace/tmp/pixelelated-m7-ui-08",
+      "changed": [
+        "identity.steps"
+      ],
+      "harness_sha256": "fdfad8db1c7e6c634a6aca33cc316826d8b64c790d1d64a97c6b1bd2d2c562c2"
+    },
+    {
+      "owner": "/workspace/tmp/pixelelated-m7-predecessor-04",
+      "changed": [
+        "run.sh"
+      ],
+      "harness_sha256": "96a43f5eccaedde2b1922ecb0d1a3892123410da9bc9e1bf4652cbaccad5c5c7"
+    },
+    {
+      "owner": "/workspace/tmp/pixelelated-m7-cloud-ui-02",
+      "changed": [
+        "run.sh"
+      ],
+      "harness_sha256": "95063b058d843b1cc8d59399bc39672f8bda629122047746b8437500548e443f"
+    },
+    {
+      "owner": "/workspace/tmp/pixelelated-m7-signin-ui-02",
+      "changed": [
+        "run.sh"
+      ],
+      "harness_sha256": "aa8eab5205c15cc89a616202f69cd894eb51230cd6fc034e78eeb390199d79c0"
+    },
+    {
+      "owner": "/workspace/tmp/pixelelated-m7-signin-1g-02",
+      "changed": [
+        "run.sh"
+      ],
+      "harness_sha256": "cb1f85629aa356005041d77f04534dead3602526b8a69ece13491c6d756c4e51"
+    }
+  ],
+  "product_change": false
+}

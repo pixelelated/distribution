@@ -1,0 +1,33 @@
+{
+  "observed_utc": "2026-10-05T03:35:43.764934+00:00",
+  "actual_tool_session": 7435,
+  "actual_tool_rc": 2,
+  "result_channels": {
+    "inner.rc": 2,
+    "outer.rc": 2,
+    "tool-wrapper.rc": 2,
+    "build.rc": 2
+  },
+  "owned_processes": [
+    {
+      "role": "build.pid",
+      "pid": 1923471,
+      "state": "absent"
+    },
+    {
+      "role": "watcher.pid",
+      "pid": 1923472,
+      "state": "absent"
+    },
+    {
+      "role": "command.pid",
+      "pid": 1923500,
+      "state": "absent"
+    }
+  ],
+  "owned_containers_absent": true,
+  "run": "/workspace/tmp/pixelelated-m7-replacement-07/.build-runs/20261005T033353Z-7c19f9d9",
+  "scope": "package cleans completed; image launch refused missing inherited watcher under worktree; no image compilation",
+  "build_log_sha256": "94edad600d86588e95147b2f425d39142208aae2f61c64e1c0e38ad528c66b10",
+  "recorded_run_path_is_wrong": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement07/.build-runs/20261005T033353Z-7c19f9d9"
+}

@@ -1,0 +1,43 @@
+/workspace/tmp/pixelelated-m7-identity-diagnostic-03/back-one.steps: OK
+/workspace/tmp/pixelelated-m7-identity-diagnostic-03/back-two.steps: OK
+/workspace/tmp/pixelelated-m7-identity-diagnostic-03/delayed.steps: OK
+/workspace/tmp/pixelelated-m7-identity-diagnostic-03/diagnostic.py: OK
+/workspace/tmp/pixelelated-m7-identity-diagnostic-03/information.steps: OK
+/workspace/tmp/pixelelated-m7-identity-diagnostic-03/outer.sh: OK
+/workspace/tmp/pixelelated-m7-identity-diagnostic-03/reopen.steps: OK
+/workspace/tmp/pixelelated-m7-identity-diagnostic-03/run.sh: OK
+/workspace/tmp/pixelelated-m7-identity-diagnostic-03/stop-guest.py: OK
+/workspace/tmp/pixelelated-m7-identity-diagnostic-03/verify-inputs.py: OK
+PASS frozen source inputs, ES pin and candidate input custody
+Formatting '/workspace/tmp/pixelelated-m7-identity-diagnostic-03/back-lifecycle.qcow2', fmt=qcow2 cluster_size=65536 extended_l2=off compression_type=zlib size=17179869184 backing_file=/workspace/tmp/pixelelated-m7-qa-09/pair/vm-a.qcow2 backing_fmt=qcow2 lazy_refcounts=off refcount_bits=16
+[W][04:05:46.485765] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][04:05:46.485796] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+ready after ~18s
+1 press(es) moved the screen, back on the carousel
+changed after 0.1s (`key ret`, line 2)
+settle: still after 1.8s
+captured /workspace/tmp/pixelelated-m7-identity-diagnostic-03/artifacts/information/01-main-menu-identity.png
+changed after 0.1s (`key up`, line 6)
+changed after 0.1s (`key up`, line 8)
+changed after 0.1s (`key up`, line 10)
+changed after 0.1s (`key x`, line 12)
+settle: still after 1.3s
+captured /workspace/tmp/pixelelated-m7-identity-diagnostic-03/artifacts/information/02-system-settings.png
+changed after 0.1s (`key x`, line 16)
+settle: still after 1.3s
+captured /workspace/tmp/pixelelated-m7-identity-diagnostic-03/artifacts/information/03-information.png
+changed after 0.1s (`key z`, line 1)
+settle: still after 1.4s
+captured /workspace/tmp/pixelelated-m7-identity-diagnostic-03/artifacts/back-one/01-after-back-one.png
+changed after 0.1s (`key z`, line 1)
+settle: still after 1.3s
+captured /workspace/tmp/pixelelated-m7-identity-diagnostic-03/artifacts/back-two/01-after-back-two.png
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-identity-diagnostic-03/artifacts/delayed/01-delayed.png
+changed after 0.1s (`key ret`, line 1)
+settle: still after 1.4s
+captured /workspace/tmp/pixelelated-m7-identity-diagnostic-03/artifacts/reopen/01-reopened.png
+PASS owned guest stopped 2324581
+COMPLETE bounded menu captures; semantic review still required
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/95dbc93b666f886c35af16a5b67e81dd77fad7f667e2307efb061cabf1ffc188
