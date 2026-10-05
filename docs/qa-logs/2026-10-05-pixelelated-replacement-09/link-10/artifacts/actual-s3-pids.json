@@ -1,0 +1,22 @@
+{
+  "utc": "2026-10-05T07:05:37.412384+00:00",
+  "prior_webdav_guests_absent": true,
+  "processes": [
+    {
+      "pid": 4045893,
+      "start_ticks": "27558841",
+      "owned_disks": [
+        "if=pflash,unit=1,format=raw,file=/workspace/tmp/pixelelated-m7-link-10/s3/pair/vm-a.ovmf-vars.fd",
+        "if=none,id=rocknix,format=qcow2,file=/workspace/tmp/pixelelated-m7-link-10/s3/pair/vm-a.qcow2"
+      ]
+    },
+    {
+      "pid": 4045920,
+      "start_ticks": "27558854",
+      "owned_disks": [
+        "if=pflash,unit=1,format=raw,file=/workspace/tmp/pixelelated-m7-link-10/s3/pair/vm-b.ovmf-vars.fd",
+        "if=none,id=rocknix,format=qcow2,file=/workspace/tmp/pixelelated-m7-link-10/s3/pair/vm-b.qcow2"
+      ]
+    }
+  ]
+}
