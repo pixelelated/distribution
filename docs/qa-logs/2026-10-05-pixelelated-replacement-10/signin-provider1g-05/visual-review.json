@@ -1,0 +1,32 @@
+{
+  "utc": "2026-10-05T21:00:07.475263+00:00",
+  "passed": true,
+  "method": "Direct view_image of actual loaded frame; checked resource-budget.json and terminal/cleanup agreement.",
+  "frames": [
+    {
+      "path": "/workspace/tmp/pixelelated-m7-signin-provider1g-05/artifacts/loaded-640x480.png",
+      "sha256": "b8783c3e253f3092247173e3150b8349f390a1c9226c5b31c2d2f59737462b18",
+      "observation": "Directly viewed the actual640x480 public Dropbox login page: correct logo/header and login title, with the automatically opened on-screen keyboard and controller guidance rendered coherently; no stale fragments. This frame does not prove authenticated trust.",
+      "passed": true
+    }
+  ],
+  "budget": {
+    "observed_utc": "2026-10-05T20:59:30.564744+00:00",
+    "guest_memtotal_kib": 810372,
+    "configured_memory_mib": 1024,
+    "actual_measurement_rc": 0,
+    "loaded_frame_captured": true,
+    "oom_lines": [],
+    "payload_sha256": "fc9a3473490f52e8da76d473a2265e56d1dd362977351b4b732ed2bcd1419990",
+    "numerical_rss_ceiling_enforced": false,
+    "url": "https://www.dropbox.com/login",
+    "loaded": true,
+    "measurement_pass": true,
+    "peak_total_rss_kib": 395676
+  },
+  "limitations": [
+    "30-second public page workload; not authenticated provider trust.",
+    "Baseline and provider pages are different workloads; RSS values are not a like-for-like growth comparison.",
+    "No arbitrary numerical RSS ceiling was added."
+  ]
+}

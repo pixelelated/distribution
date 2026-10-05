@@ -1,0 +1,50 @@
+PASS actual full sign-in semantic qualification prerequisite
+/workspace/tmp/pixelelated-m7-signin-provider1g-05/canonical-lowmem-provenance.json: OK
+/workspace/tmp/pixelelated-m7-signin-provider1g-05/guest-memory.py: OK
+/workspace/tmp/pixelelated-m7-signin-provider1g-05/measure-1g.py: OK
+/workspace/tmp/pixelelated-m7-signin-provider1g-05/memory_capacity.py: OK
+/workspace/tmp/pixelelated-m7-signin-provider1g-05/outer.sh: OK
+/workspace/tmp/pixelelated-m7-signin-provider1g-05/physical-memory-provenance.json: OK
+/workspace/tmp/pixelelated-m7-signin-provider1g-05/prepare-dirs.py: OK
+/workspace/tmp/pixelelated-m7-signin-provider1g-05/provenance-replacement10.json: OK
+/workspace/tmp/pixelelated-m7-signin-provider1g-05/provenance.json: OK
+/workspace/tmp/pixelelated-m7-signin-provider1g-05/qemu-1g.py: OK
+/workspace/tmp/pixelelated-m7-signin-provider1g-05/reboot-fault-provenance.json: OK
+/workspace/tmp/pixelelated-m7-signin-provider1g-05/render-provenance.json: OK
+/workspace/tmp/pixelelated-m7-signin-provider1g-05/required-directories.json: OK
+/workspace/tmp/pixelelated-m7-signin-provider1g-05/run.sh: OK
+/workspace/tmp/pixelelated-m7-signin-provider1g-05/seed.py: OK
+/workspace/tmp/pixelelated-m7-signin-provider1g-05/semantic-dependency.py: OK
+/workspace/tmp/pixelelated-m7-signin-provider1g-05/stable_panel.py: OK
+/workspace/tmp/pixelelated-m7-signin-provider1g-05/stop-guest.py: OK
+/workspace/tmp/pixelelated-m7-signin-provider1g-05/successor-provenance.json: OK
+/workspace/tmp/pixelelated-m7-signin-provider1g-05/transition-provenance.json: OK
+/workspace/tmp/pixelelated-m7-signin-provider1g-05/verify-gl.py: OK
+/workspace/tmp/pixelelated-m7-signin-provider1g-05/verify-inputs.py: OK
+/workspace/tmp/pixelelated-m7-signin-provider1g-05/verify-renderer.py: OK
+PASS owned private pair/artifacts directories ready
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/1c69bcf5ab6ebdc3e893a6a989545ac7a23359f0e07baef4e9c2beaca94c52b4
+Preparing independent 16GiB guest d from the verified pixelelated image
+Image resized.
+No errors were found on the image.
+31695/262144 = 12.09% allocated, 0.00% fragmented, 0.00% compressed clusters
+Image end offset: 2077818880
+[W][20:58:13.473497] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][20:58:13.473530] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+PASS actual guest uses software virtio GPU renderer
+ready after ~31s
+PASS guest d exact BUILD_ID and OS_NAME d6e8390c93bed87efe2dcc23cd402a271cacd1c7 pixelelated
+PASS QA ROM bytes /storage/roms/gb/Ninoid.gb a40191c169c68e6607ace072da96aab957f306f55ded59ce1f287c1f5273387b
+PASS QA ROM bytes /storage/roms/gbc/Tobu Tobu Girl Deluxe.gb 0a0e8018dbbc8d7f8cd99f05e7cdc7b4cc9e358ecfe9377ebfb2291a84c6e310
+PASS QA ROM bytes /storage/roms/nes/Bobl.nes 025ec44d0d84ac469b442ee56c3d69e035e9a38430ae849172fe3a1e569d0dea
+PASS guest d seeded and idle
+PASS installed selector/unit and actual software compositor: budget-1g
+PASS actual QEMU1024MiB and guest firmware1GiB; Linux usable 810372KiB recorded separately
+captured /workspace/tmp/pixelelated-m7-signin-provider1g-05/artifacts/loaded-640x480.png
+{"observed_utc": "2026-10-05T20:59:30.564744+00:00", "guest_memtotal_kib": 810372, "configured_memory_mib": 1024, "actual_measurement_rc": 0, "loaded_frame_captured": true, "oom_lines": [], "payload_sha256": "fc9a3473490f52e8da76d473a2265e56d1dd362977351b4b732ed2bcd1419990", "numerical_rss_ceiling_enforced": false, "url": "https://www.dropbox.com/login", "loaded": true, "measurement_pass": true, "peak_total_rss_kib": 395676}
+PASS loaded within the1GiB guest budget without kernel OOM; peak recorded, no numerical RSS ceiling invented
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/1c69bcf5ab6ebdc3e893a6a989545ac7a23359f0e07baef4e9c2beaca94c52b4
+PASS frozen source inputs, ES pin and candidate input custody
+PASS 1GiB sign-in page-load budget; RSS measurements and actual frame remain scoped
+PASS owned guest stopped 3945877

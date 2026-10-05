@@ -36,9 +36,18 @@ are retained under replacement10. Authenticated trust remains separate.
 
 Memory12 passes original10/10/50measured launches, all55sync stamps and both-
 profile exit/time-to-play. Growth0/224,-448/684,0/444KiB stays below unchanged
-1024/2048KiB limits. Actual owner/guest/backend cleanup verified. UI14 now runs
-bilingual software menus/lifecycles, then both1GiBworkloads. #447 stays open until affected
-qualification completes. Earlier replacement09 evidence remains historical.
+1024/2048KiB limits. Actual owner/guest/backend cleanup verified. UI14 passes
+all 70 directly reviewed English/French frames at 640x480/1280x960 and all
+12 ES process-lifetime checks. Both actual 1 GiB software/Pixman workloads
+load and remain responsive for 30 seconds without OOM: baseline peak
+271416 KiB, public Dropbox peak 395676 KiB. Their actual loaded frames were
+reviewed, all result channels are zero, and all owner/guest processes exited.
+
+All planned affected qualification for #447 is complete. Exact receipts,
+frames, sources and limitations are retained in
+`docs/qa-logs/2026-10-05-pixelelated-replacement-10/README.md`.
+Next: reconcile remaining P3 criteria and QA-account proofs before P4.
+Earlier replacement09 evidence remains historical.
 P4 and H700 follow remaining P3 acceptance; no RC/device-ready claim.
 
 ## Historical diagnosis — ROCKNIX RC2 replay and working Pixman experiment
