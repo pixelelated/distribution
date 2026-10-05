@@ -1,0 +1,35 @@
+/workspace/tmp/pixelelated-m7-timing-inspect-01/inspect.py: OK
+/workspace/tmp/pixelelated-m7-timing-inspect-01/outer.sh: OK
+/workspace/tmp/pixelelated-m7-timing-inspect-01/run.sh: OK
+/workspace/tmp/pixelelated-m7-timing-inspect-01/stop-guest.py: OK
+/workspace/tmp/pixelelated-m7-timing-inspect-01/verify-inputs.py: OK
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/d4007387afd5ac42104a53a3073b93fdadd33c51179bf9f3142101609f821ec9
+Formatting '/workspace/tmp/pixelelated-m7-timing-inspect-01/upgraded-overlay.qcow2', fmt=qcow2 cluster_size=65536 extended_l2=off compression_type=zlib size=17179869184 backing_file=/workspace/tmp/pixelelated-m7-timing-diagnostic-01/upgraded-overlay.qcow2 backing_fmt=qcow2 lazy_refcounts=off refcount_bits=16
+up: webdav serving /workspace/tmp/pixelelated-m7-timing-inspect-01/cloud/data at http://127.0.0.1:9040 (guest: http://10.0.2.2:9040)
+[W][00:51:35.132655] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][00:51:35.132687] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+ready after ~19s
+{
+  "observed_utc": "2026-10-05T00:51:55.163535+00:00",
+  "guest": {
+    "mtime_ns": 1791161339175275042,
+    "size": 2000,
+    "sha256": "c8629db9c6696f977ee3fa7c00155a4a024f51be7958a2fa5c2b2b3ba89f5d4e",
+    "current_epoch": 1791161514.4606588,
+    "last_backup": "1791161339 0\n",
+    "persistent_log_dirs": []
+  },
+  "remote": {
+    "mtime_ns": 1791161340310552204,
+    "size": 2000,
+    "sha256": "c8629db9c6696f977ee3fa7c00155a4a024f51be7958a2fa5c2b2b3ba89f5d4e"
+  },
+  "guest_minus_remote_mtime_ms": -1135.277162
+}
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/d4007387afd5ac42104a53a3073b93fdadd33c51179bf9f3142101609f821ec9
+PASS frozen source inputs, ES pin and candidate input custody
+COMPLETE failed-state inspection only
+PASS owned guest stopped 851873
+down
+/workspace/tmp/pixelelated-m7-timing-diagnostic-01/upgraded-overlay.qcow2: OK

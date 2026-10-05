@@ -1,0 +1,13 @@
+00:39:27 === cloud-epic on guest d, BUILD_ID="57cbc9b981205328444d41f6c4237dc9f5736d7f"
+232
+00:39:27 == setup: the QA remote on the guest (the host backend's conf), then the QA cloud holds the fork's earlier layout with files in every folder of ours; the guest points at it
+remote: qa-cloud:
+00:39:29   cloud: ROCKNIX/Backups/2026_09_29-090000-Retroid-Pocket-Nova-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Backups/2026_09_30-120000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Content/BIOS/disksys.rom ROCKNIX/Content/ROMs/nes/Probe.nes ROCKNIX/Saves-replaced/nes/Probe.srm.1 ROCKNIX/Saves/nes/Probe.srm 
+00:39:29   guest conf: SAVES_REMOTE="/ROCKNIX/Saves" SETTINGS_REMOTE="/ROCKNIX/Backups" CONTENT_REMOTE="/ROCKNIX/Content" LAYOUT_KEEP="" 
+label=GENERIC-X64
+00:39:32 PASS T17 failed settlement is returned
+00:39:32 PASS T17 fault reached settlement provider probe
+00:39:32 PASS T17 no seeding or pointer writes on failure
+00:39:34 PASS T17 later setup can recover
+00:39:34 PASS T17 existing payloads survive recovery
+00:39:34 done: 5 PASS, 0 FAIL

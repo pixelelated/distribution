@@ -1,0 +1,362 @@
+{
+  "legacy": {
+    "raw_bytes": 84584,
+    "parsed_rows": 990,
+    "steps": [
+      {
+        "function": "superseded_saves_setting",
+        "line": 827,
+        "next_trace_delta_ms": 0.384,
+        "operation": "local"
+      },
+      {
+        "function": "superseded_saves_setting",
+        "line": 828,
+        "next_trace_delta_ms": 0.426,
+        "operation": "readlink"
+      },
+      {
+        "function": "superseded_saves_setting",
+        "line": 828,
+        "next_trace_delta_ms": 0.408,
+        "operation": "dirname"
+      },
+      {
+        "function": "superseded_saves_setting",
+        "line": 828,
+        "next_trace_delta_ms": 0.02,
+        "operation": "tool=/usr/bin/cloud_migrate_layout"
+      },
+      {
+        "function": "superseded_saves_setting",
+        "line": 829,
+        "next_trace_delta_ms": 0.008,
+        "operation": "'['"
+      },
+      {
+        "function": "superseded_saves_setting",
+        "line": 830,
+        "next_trace_delta_ms": 0.117,
+        "operation": "'['"
+      },
+      {
+        "function": "superseded_saves_setting",
+        "line": 831,
+        "next_trace_delta_ms": 0.008,
+        "operation": "IFS="
+      },
+      {
+        "function": "superseded_saves_setting",
+        "line": 831,
+        "next_trace_delta_ms": 0.055,
+        "operation": "read"
+      },
+      {
+        "function": "superseded_saves_setting",
+        "line": 826,
+        "next_trace_delta_ms": 5.74,
+        "operation": "/usr/bin/cloud_migrate_layout"
+      },
+      {
+        "function": "superseded_saves_setting",
+        "line": 832,
+        "next_trace_delta_ms": 0.027,
+        "operation": "'['"
+      },
+      {
+        "function": "superseded_saves_setting",
+        "line": 832,
+        "next_trace_delta_ms": 0.023,
+        "operation": "'['"
+      },
+      {
+        "function": "superseded_saves_setting",
+        "line": 831,
+        "next_trace_delta_ms": 0.003,
+        "operation": "IFS="
+      },
+      {
+        "function": "superseded_saves_setting",
+        "line": 831,
+        "next_trace_delta_ms": 0.01,
+        "operation": "read"
+      },
+      {
+        "function": "superseded_saves_setting",
+        "line": 832,
+        "next_trace_delta_ms": 0.005,
+        "operation": "'['"
+      },
+      {
+        "function": "superseded_saves_setting",
+        "line": 832,
+        "next_trace_delta_ms": 0.003,
+        "operation": "'['"
+      },
+      {
+        "function": "superseded_saves_setting",
+        "line": 832,
+        "next_trace_delta_ms": 0.017,
+        "operation": "return"
+      },
+      {
+        "function": "bucket_dir_listed",
+        "line": 811,
+        "next_trace_delta_ms": 0.008,
+        "operation": "local"
+      },
+      {
+        "function": "bucket_dir_listed",
+        "line": 812,
+        "next_trace_delta_ms": 0.003,
+        "operation": "name=Saves"
+      },
+      {
+        "function": "bucket_dir_listed",
+        "line": 813,
+        "next_trace_delta_ms": 0.004,
+        "operation": "'['"
+      },
+      {
+        "function": "bucket_dir_listed",
+        "line": 814,
+        "next_trace_delta_ms": 0.226,
+        "operation": "parent=/ROCKNIX"
+      },
+      {
+        "function": "bucket_dir_listed",
+        "line": 818,
+        "next_trace_delta_ms": 178.315,
+        "operation": "rclone"
+      },
+      {
+        "function": "bucket_dir_listed",
+        "line": 818,
+        "next_trace_delta_ms": 0.023,
+        "operation": "listing=$'Backups/\\nSaves/'"
+      },
+      {
+        "function": "bucket_dir_listed",
+        "line": 818,
+        "next_trace_delta_ms": 0.01,
+        "operation": "BUCKET_READ_RC=0"
+      },
+      {
+        "function": "bucket_dir_listed",
+        "line": 819,
+        "next_trace_delta_ms": 0.126,
+        "operation": "'['"
+      },
+      {
+        "function": "bucket_dir_listed",
+        "line": 820,
+        "next_trace_delta_ms": 0.066,
+        "operation": "printf"
+      },
+      {
+        "function": "bucket_dir_listed",
+        "line": 820,
+        "next_trace_delta_ms": 0.398,
+        "operation": "grep"
+      },
+      {
+        "function": "logged_moved",
+        "line": 349,
+        "next_trace_delta_ms": 0.332,
+        "operation": "local"
+      },
+      {
+        "function": "logged_moved",
+        "line": 354,
+        "next_trace_delta_ms": 0.205,
+        "operation": "grep"
+      },
+      {
+        "function": "logged_moved",
+        "line": 351,
+        "next_trace_delta_ms": 0.685,
+        "operation": "stat"
+      },
+      {
+        "function": "logged_moved",
+        "line": 351,
+        "next_trace_delta_ms": 0.034,
+        "operation": "now=4213"
+      },
+      {
+        "function": "logged_moved",
+        "line": 351,
+        "next_trace_delta_ms": 0.021,
+        "operation": "'['"
+      },
+      {
+        "function": "logged_moved",
+        "line": 353,
+        "next_trace_delta_ms": 0.004,
+        "operation": "'['"
+      },
+      {
+        "function": "logged_moved",
+        "line": 353,
+        "next_trace_delta_ms": 0.705,
+        "operation": "cat"
+      }
+    ]
+  },
+  "current": {
+    "raw_bytes": 84920,
+    "parsed_rows": 988,
+    "steps": [
+      {
+        "function": "superseded_saves_setting",
+        "line": 827,
+        "next_trace_delta_ms": 0.395,
+        "operation": "local"
+      },
+      {
+        "function": "superseded_saves_setting",
+        "line": 828,
+        "next_trace_delta_ms": 0.456,
+        "operation": "readlink"
+      },
+      {
+        "function": "superseded_saves_setting",
+        "line": 828,
+        "next_trace_delta_ms": 0.393,
+        "operation": "dirname"
+      },
+      {
+        "function": "superseded_saves_setting",
+        "line": 828,
+        "next_trace_delta_ms": 0.019,
+        "operation": "tool=/usr/bin/cloud_migrate_layout"
+      },
+      {
+        "function": "superseded_saves_setting",
+        "line": 829,
+        "next_trace_delta_ms": 0.009,
+        "operation": "'['"
+      },
+      {
+        "function": "superseded_saves_setting",
+        "line": 830,
+        "next_trace_delta_ms": 0.117,
+        "operation": "'['"
+      },
+      {
+        "function": "superseded_saves_setting",
+        "line": 831,
+        "next_trace_delta_ms": 0.014,
+        "operation": "IFS="
+      },
+      {
+        "function": "superseded_saves_setting",
+        "line": 831,
+        "next_trace_delta_ms": 0.037,
+        "operation": "read"
+      },
+      {
+        "function": "superseded_saves_setting",
+        "line": 826,
+        "next_trace_delta_ms": 7.37,
+        "operation": "/usr/bin/cloud_migrate_layout"
+      },
+      {
+        "function": "superseded_saves_setting",
+        "line": 832,
+        "next_trace_delta_ms": 0.027,
+        "operation": "'['"
+      },
+      {
+        "function": "superseded_saves_setting",
+        "line": 832,
+        "next_trace_delta_ms": 0.023,
+        "operation": "'['"
+      },
+      {
+        "function": "superseded_saves_setting",
+        "line": 831,
+        "next_trace_delta_ms": 0.003,
+        "operation": "IFS="
+      },
+      {
+        "function": "superseded_saves_setting",
+        "line": 831,
+        "next_trace_delta_ms": 0.01,
+        "operation": "read"
+      },
+      {
+        "function": "superseded_saves_setting",
+        "line": 832,
+        "next_trace_delta_ms": 0.005,
+        "operation": "'['"
+      },
+      {
+        "function": "superseded_saves_setting",
+        "line": 832,
+        "next_trace_delta_ms": 0.004,
+        "operation": "'['"
+      },
+      {
+        "function": "superseded_saves_setting",
+        "line": 831,
+        "next_trace_delta_ms": 0.002,
+        "operation": "IFS="
+      },
+      {
+        "function": "superseded_saves_setting",
+        "line": 831,
+        "next_trace_delta_ms": 0.008,
+        "operation": "read"
+      },
+      {
+        "function": "superseded_saves_setting",
+        "line": 834,
+        "next_trace_delta_ms": 0.015,
+        "operation": "return"
+      },
+      {
+        "function": "logged_moved",
+        "line": 349,
+        "next_trace_delta_ms": 0.272,
+        "operation": "local"
+      },
+      {
+        "function": "logged_moved",
+        "line": 354,
+        "next_trace_delta_ms": 0.224,
+        "operation": "grep"
+      },
+      {
+        "function": "logged_moved",
+        "line": 351,
+        "next_trace_delta_ms": 0.618,
+        "operation": "stat"
+      },
+      {
+        "function": "logged_moved",
+        "line": 351,
+        "next_trace_delta_ms": 0.039,
+        "operation": "now=11584"
+      },
+      {
+        "function": "logged_moved",
+        "line": 351,
+        "next_trace_delta_ms": 0.019,
+        "operation": "'['"
+      },
+      {
+        "function": "logged_moved",
+        "line": 353,
+        "next_trace_delta_ms": 0.004,
+        "operation": "'['"
+      },
+      {
+        "function": "logged_moved",
+        "line": 353,
+        "next_trace_delta_ms": 0.646,
+        "operation": "cat"
+      }
+    ]
+  }
+}

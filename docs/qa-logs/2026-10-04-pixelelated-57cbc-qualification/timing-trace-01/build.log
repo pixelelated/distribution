@@ -1,0 +1,26 @@
+/workspace/tmp/pixelelated-m7-timing-trace-01/archive-proof.py: OK
+/workspace/tmp/pixelelated-m7-timing-trace-01/diagnostic.py: OK
+/workspace/tmp/pixelelated-m7-timing-trace-01/outer.sh: OK
+/workspace/tmp/pixelelated-m7-timing-trace-01/provenance.json: OK
+/workspace/tmp/pixelelated-m7-timing-trace-01/run.sh: OK
+/workspace/tmp/pixelelated-m7-timing-trace-01/stop-guest.py: OK
+/workspace/tmp/pixelelated-m7-timing-trace-01/verify-inputs.py: OK
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/d4007387afd5ac42104a53a3073b93fdadd33c51179bf9f3142101609f821ec9
+Formatting '/workspace/tmp/pixelelated-m7-timing-trace-01/upgraded-overlay.qcow2', fmt=qcow2 cluster_size=65536 extended_l2=off compression_type=zlib size=17179869184 backing_file=/workspace/tmp/pixelelated-m7-qa-07/pair/vm-a.qcow2 backing_fmt=qcow2 lazy_refcounts=off refcount_bits=16
+up: webdav serving /workspace/tmp/pixelelated-m7-timing-trace-01/cloud/data at http://127.0.0.1:9040 (guest: http://10.0.2.2:9040)
+[W][00:59:10.671370] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][00:59:10.671400] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+ready after ~18s
+PASS exact pixelelated BUILD_ID
+PASS unchanged installed script before diagnostic
+PASS bash trace parsed for legacy
+PASS bash trace parsed for current
+PASS unchanged installed script after diagnostic
+COMPLETE tracing only; no instrumented acceptance samples
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/d4007387afd5ac42104a53a3073b93fdadd33c51179bf9f3142101609f821ec9
+PASS frozen source inputs, ES pin and candidate input custody
+COMPLETE diagnostic collection only; no runtime qualification claim
+PASS owned guest stopped 887325
+down
+/workspace/tmp/pixelelated-m7-qa-07/pair/vm-a.qcow2: OK

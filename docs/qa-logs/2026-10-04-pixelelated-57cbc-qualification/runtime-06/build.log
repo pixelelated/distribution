@@ -1,0 +1,55 @@
+/workspace/tmp/pixelelated-m7-runtime-06/archive-proof.py: OK
+/workspace/tmp/pixelelated-m7-runtime-06/identity-proof.py: OK
+/workspace/tmp/pixelelated-m7-runtime-06/outer.sh: OK
+/workspace/tmp/pixelelated-m7-runtime-06/run.sh: OK
+/workspace/tmp/pixelelated-m7-runtime-06/stop-guest.py: OK
+/workspace/tmp/pixelelated-m7-runtime-06/timing-proof.py: OK
+/workspace/tmp/pixelelated-m7-runtime-06/verify-inputs.py: OK
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/d4007387afd5ac42104a53a3073b93fdadd33c51179bf9f3142101609f821ec9
+Formatting '/workspace/tmp/pixelelated-m7-runtime-06/upgraded-overlay.qcow2', fmt=qcow2 cluster_size=65536 extended_l2=off compression_type=zlib size=17179869184 backing_file=/workspace/tmp/pixelelated-m7-qa-07/pair/vm-a.qcow2 backing_fmt=qcow2 lazy_refcounts=off refcount_bits=16
+up: webdav serving /workspace/tmp/pixelelated-m7-runtime-06/cloud/data at http://127.0.0.1:9040 (guest: http://10.0.2.2:9040)
+[W][00:42:19.672010] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][00:42:19.672043] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+ready after ~14s
+PASS exact pixelelated BUILD_ID
+PASS actual RC2 settings archive survived update
+PASS local recovery restores actual RC2 archive setting
+PASS local recovery retains inherited archive bytes
+PASS safe actual device id/label read
+PASS scan selects uploaded inherited RC2 archive
+PASS cloud recovery restores actual RC2 archive setting
+PASS cloud restore returns inherited archive byte-identically
+PASS production writer retains compatible ROCKNIX suffix
+PASS scan selects actual per-device writer archive
+PASS writer, scan and local archive bytes agree
+PASS production cloud/local restore recovers sentinel writer-proof
+PASS transfer journal names the exact selected archive copied by production restore
+PASS production recovery restored exact writer sentinel hash
+PASS installed writer/reader/local recovery bytes and transfer journal
+PASS exact pixelelated BUILD_ID
+PASS installed cloud_backup matches frozen reviewed source without override
+SAMPLE {"layout": "legacy", "measured": false, "milliseconds": 394, "rc": 0, "sentinel_sha256": "e36b728e01883ff14419e4dcef5ad7653088a3566a901a76e0bc8de46d9cee2c", "cloud_bytes_match": true}
+SAMPLE {"layout": "current", "measured": false, "milliseconds": 194, "rc": 0, "sentinel_sha256": "df4d162be411fe06d38d108303a6091650f7bdd85d96c497fcc42da270b9540f", "cloud_bytes_match": true}
+SAMPLE {"layout": "legacy", "measured": true, "milliseconds": 313, "rc": 0, "sentinel_sha256": "a940434262fa90dec160e8a4c1a4a33eec8330b03d4c1bc474ba4e14a2c920fc", "cloud_bytes_match": true}
+SAMPLE {"layout": "current", "measured": true, "milliseconds": 286, "rc": 0, "sentinel_sha256": "0b85a63e47182efb0f7569aeb4785f54467f7da4ec628c00a608ccf5d3af1b25", "cloud_bytes_match": true}
+SAMPLE {"layout": "current", "measured": true, "milliseconds": 250, "rc": 0, "sentinel_sha256": "dd8b0e1abbb1bea8654c61ebc8bf0c49b6135100112f09391ecf3a57cb11ccac", "cloud_bytes_match": true}
+SAMPLE {"layout": "legacy", "measured": true, "milliseconds": 282, "rc": 0, "sentinel_sha256": "197bcf735e6adf79478edbf3172c2e8eee70f35500ea4260bd9818dfa5dea1ea", "cloud_bytes_match": true}
+SAMPLE {"layout": "legacy", "measured": true, "milliseconds": 276, "rc": 0, "sentinel_sha256": "2f05879bd12293365c51239d212cedaf73a3b07cdedfc4e74240d43625ca8579", "cloud_bytes_match": true}
+SAMPLE {"layout": "current", "measured": true, "milliseconds": 253, "rc": 0, "sentinel_sha256": "bd097a7fb3dcd834e820b56881cf6dbbb217c3d2227be7e7272dd509ecdcd5be", "cloud_bytes_match": true}
+SAMPLE {"layout": "current", "measured": true, "milliseconds": 249, "rc": 0, "sentinel_sha256": "a11c978f4f9b8c51fdf97a7813c6b920eb37f984740e077984a626db17f7ce77", "cloud_bytes_match": true}
+SAMPLE {"layout": "legacy", "measured": true, "milliseconds": 286, "rc": 0, "sentinel_sha256": "d6f019bc7f80a8ddaedccf380fa191b91d355eff776f47335fed41ea932200bf", "cloud_bytes_match": true}
+SAMPLE {"layout": "legacy", "measured": true, "milliseconds": 288, "rc": 0, "sentinel_sha256": "7f8640eb48bc7e2c23c4a6162d9db710e91f86c57f4aae394a25cd1bea74e1a6", "cloud_bytes_match": true}
+SAMPLE {"layout": "current", "measured": true, "milliseconds": 242, "rc": 0, "sentinel_sha256": "c83b6d10c2065c7e4ffd11a9645399b3c44a09d98b325a7c1af337549d87d7d5", "cloud_bytes_match": true}
+RESULT {"medians_ms": {"legacy": 286, "current": 250}, "absolute_delta_ms": 36, "limit_ms": 30, "migration_journal_delta": 0, "source_sha256": "12a231698b70a8b83eb9d1fd1bc593f4507313030635a6750392f5fd19130a03"}
+PASS no migration preparation during measured syncs
+FAIL installed legacy/current five-sample median difference within unchanged30ms limit
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-runtime-06/timing-proof.py", line 49, in <module>
+    check(delta<=30,'installed legacy/current five-sample median difference within unchanged30ms limit')
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<retained QA helpers>", line 22, in check
+AssertionError: installed legacy/current five-sample median difference within unchanged30ms limit
+PASS owned guest stopped 812791
+down
+/workspace/tmp/pixelelated-m7-qa-07/pair/vm-a.qcow2: OK

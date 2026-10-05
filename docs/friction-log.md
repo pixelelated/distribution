@@ -155,3 +155,8 @@ issue is needed; `issue: none` is the state that expires.
 - 2026-10-04 22:04 UTC — UI docs walk counted the conditional Wi-Fi menu row on a VM without it; first RA walk exited to the game list. Preserve failed owner and bind candidate walks to explicit first-row fixture; issue: #422.
 
 - 2026-10-04 22:12 UTC — Correct os-release bytes did not prove the ES process inherited OS_NAME; actual menu/update frames exposed the missing export. Source child-process regression now fails before/passes after; replacement-image consumer proof required. issue: #424. Earlier #422 missing-Wi-Fi hypothesis is disproved by the actual menu frame.
+
+- 2026-10-05 00:48 UTC — Current candidate timing failed36ms against30ms after earlier artifact passed29ms; preserve the failed owner, measure three predeclared batches and isolate the guard's operation cost before any repeat or fix. Guard: exact artifact gate and retained attempts; issue: #429.
+- 2026-10-05 00:48 UTC — Firefox silently widened requested390px phone viewport to500px. Probe verified actual390px iframe; proof now asserts measured viewport and element screenshot dimensions. Guard: runtime width/PNG assertions; issue: #351.
+
+- 2026-10-05 00:55 UTC — A fixed1.15s host delay did not ensure a same-size guest save was newer than WebDAV upload time when guest clock lagged; diagnostic byte assertion failed. Fresh fixture verifies the actual timestamp boundary and retains live failure facts before teardown. Guard: timestamp predicate and negative controls; issue: #430.
