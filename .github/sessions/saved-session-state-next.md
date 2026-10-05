@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Updated 2026-10-05T00:01:00.123734+00:00. Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261005T000100Z.md`.
+> Updated 2026-10-05T01:14:32.549640+00:00. Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261005T011432Z.md`.
 
 ## Start here
 
@@ -28,7 +28,7 @@ files,live regression and7 unstarted owners. Its stale readiness paragraph
 and precise harness-manifest wording findings are corrected.
 A helper installation is COMPLETE; do not ask to reinstall it.
 
-## Current: replacement06 defaults/upgrade/content/settings/providers PASS; guest06 ACTIVE
+## Current: replacement06 cloud/runtime/proxy/optins PASS; memory05 ACTIVE
 
 Frozen tree /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement06,
 build/m7-pixelelated-replacement06, commit57cbc9b981205328444d41f6c4237dc9f5736d7f.
@@ -91,7 +91,7 @@ product and backing hashes verify. Actual23:33:43 runner477529/watcher477530/
 command477559/guest477941 absent. No guest/product instrumentation remains.
 Evidence: docs/qa-logs/2026-10-04-pixelelated-57cbc-qualification/.
 
-## Completed link06 and ACTIVE guest06
+## Completed link06/guest06 and resolved runtime timing qualification #429
 
 link06 actual26472/allrc0 completed2026-10-04 23:50:48UTC. WebDAV seven
 interruption/recovery cases PASS477s; S3 seven PASS459s. Source/bundle hashes
@@ -109,26 +109,137 @@ After the owner's "Please proceed", ordinary escalation worked again.
 No approval bypass or alternate execution path was used. The existing link06
 run completed normally; its terminal result was read on resumption.
 
-Current owner /workspace/tmp/pixelelated-m7-guest-06, actual tool67203,
-started2026-10-05 00:00:08UTC. Run frozen06/.build-runs/20261005T000008Z-8c7327fd.
-Actual00:00:31 runner610223/watcher610224/command610253 and guest611028 alive.
-Shared5s recursive watcher/5min stall detection and connected supervision.
-Runs19 independent reset cloud cases; artifacts/cloud-epic/<case>/logs/run.log
-and frames. Do not edit or restart this owner. Poll67203 and verify all actual
-result channels and host/backend cleanup before runtime06. Keep K's explicit
-restore-marker stand-in and T23's current-protocol faults distinguished from
-the later inherited-state proof. Select frames honestly; do not claim every
-capture was visually reviewed.
+guest06 actual67203/allrc0 finished00:41:30UTC cases, final source/bundle
+verification and cleanup passed. 19 independently reset cases/249PASS/0FAIL;
+87walkframes/1467totalframes hashed,33 selected640x480frames inspected.
+Actual00:41:59 runner610223/watcher610224/command610253/guest611028/WebDAV
+613050/heldSSH742141 absent. completion.json and backend-exited.json retained.
+Guest retention helper ALREADY RAN. Evidence: current qualification/guest-06/.
+K is an explicit restore-marker stand-in; T23 current-protocol failure cases
+remain distinct from inherited RC2-script state proof.
 
-Remaining sealed UNSTARTED owners: runtime06 → proxy05 → optins05 → memory05
-→ ui06 → predecessor03 → subset02. All under /workspace/tmp/pixelelated-m7-;
-run from frozen06 with immutable BUNDLE. Never rerun executed owners or
-preparation scripts. qa-owners-revision-2.json is preparation history, not
-live results. Fresh-context proof23:44:33 independently verified all source,
-14bundlemembers,14harnessseals,156rawartifacts/152retainedcopies,10identity
-frames, completed-owner exits and then-liveS3ownership. Its wording findings
-are corrected; addendum23:46:24 finds no contradiction in the correctedscope.
-Report: docs/qa-logs/2026-10-04-pixelelated-replacement-06/resume-proof-link06.md.
+runtime06 actual38117/allrc1 failed timing after14 archive checks passed.
+Five alternating samples/layout: legacy313/282/276/286/288ms; current286/250/
+253/249/242ms. Medians286/250,36ms difference exceeds unchanged30ms. Every
+transfer hash matches, no migration-journal activity, installed source exact.
+Identity proof NOT REACHED. Backing hash/cleanup pass, actual00:43:50 runner
+812356/watcher812357/command812387/guest812791/WebDAV812763 absent.
+Evidence retained current qualification/runtime-06/ via the one-shot failure
+retainer /tmp/pixelelated-retain-runtime06-failure.py (ALREADY RAN). Preserve
+all original failure bytes; it is not a passed runtime owner.
+
+New issue #429 owns timing diagnosis; #430 owns the diagnostic clock fixture.
+Idle guarded build-preflight reclaim actual41496=0 restored8191MiB free swap,
+36565MiB RAM available. diagnostic01 actual36748/allrc1 then failed a changed-
+byte assertion before its first batch completed. The second consecutive
+current sample returned0/152ms but did not transfer its changed2000byte save.
+Live hash4ff90268… differs from prior/remote c8629db9…. All originals retained;
+actual00:50:16 runner839134/watch839135/command839164/guest839556 absent.
+No timing acceptance from this diagnostic. Private last-outcome in tmpfs was
+lost on teardown; new helper retains sanitized failure evidence before exit.
+
+Read-only failed-disk COW inspection01 actual13481/allrc0 observed previous
+persisted guest save mtime1135ms behind host remote upload, and guest clock
+about703ms behind host readback. The last dirty write was not persisted by
+abrupt guest stop: readback has prior c8629db9… hash, explicitly not the live
+failing4ff90268… bytes. This does not prove a lost cloud save. Actual00:52:26
+runner851781/watch851782/command851811/guest851873 absent; original failed
+backing hash remains unchanged. Retained timing-diagnostic-01 and timing-
+inspect-01 directories in current qualification; their retention already ran.
+
+diagnostic02 actual43491/allrc1 completed all three predeclared batches:
+legacy/current medians276/253,275/246,278/252ms;23/29/26ms differences, all
+36 transfers byte-exact and timestamp-safe, journaldelta0. Standalone parent
+listing median24ms. Then optional trace parser failed; realrc1 retained.
+Actual00:57:40 runner868188/watch868189/command868218/guest868594/WebDAV
+868567 absent. Trace-only owner01 actual96170/allrc0 fixes collection:
+root Bash ignores environmentPS4; set inside shell gives990/988 rows.
+Product unchanged, backing/cleanup verified01:00:06, guest887325 absent.
+Instrumented trace durations are not acceptance. Both retentions already ran.
+
+Fresh runtime07 actual29491/allrc0 PASSES14 archive,4 timing and13 identity/
+Tools-consumer assertions. Five alternating samples/layout give272/244ms,
+28ms within unchanged30ms; all12 changed saves byte-identical and timestamp
+boundaries valid, no migration preparation. Source/bundle/backing reverify.
+Actual01:02:20 runner892481/watch892482/command892511/guest892922/backend
+absent. runtime07 receipts retained; retainer already ran. Originalruntime06
+36ms failure stays real, no particular host cause conclusively established.
+No product change. #429/#430 ready for scoped closure after publication;
+`timing-diagnosis.md` maps all original failures, fixture repair and results.
+
+Only UNSTARTED proxy05 dependency was rebound to runtime07. Prior launcher
+and seal retained; readonly mode restored after authorized pre-execution edit.
+Its stale finalecho replacement01 label corrected to actualfrozen57cbc.
+proxy05 actual57392/allrc0 PASSES20 installed-module/preservation/service
+checks. Synthetic cached sign-in, base/subset maps, queue and legacy images
+survive reopen and actual packaged offline HTTP service. No live RA award
+claim. Source/bundle reverify; actual01:05:09 runner906098/watch906099/
+command906128/guest906917 absent. Retention already ran.
+
+optins05 actual62343/allrc0 finished01:10:45UTC: S3 round-trip PASS108s,
+actual RC2/fresh pixelelated pair migration42PASS/0FAIL. Source/bundle pass.
+Actual01:12:58 runner914305/watcher914306/command914335/observedguests915438/
+915465 absent, no QEMU remains; owned MinIO and backend absent. Receipts and
+backend-exited.json retained under qualification/optins-05; retainer ran.
+
+CURRENT /workspace/tmp/pixelelated-m7-memory-05, actual34776, started01:13:19,
+run frozen06/.build-runs/20261005T011319Z-4ebed6fc. Virgl10/software10 then
+software50+exit syncs, followed by example.org sign-in memory measurement.
+Actual01:13:42 runner952705/watch952706/command952735/guest953481 alive;
+guest owner path verified. Same five-second recursive watcher/connected
+supervision. Poll34776; preserve terminal result and verify actual cleanup.
+
+Remaining sealed UNSTARTED owners: ui06 → predecessor03 → subset02 →
+cloud-ui-01 → signin-ui-01, all/workspace/tmp/pixelelated-m7-.
+Their normal success chain now leads from accepted runtime07 through proxy05.
+No executed owner or frozen product was edited. Never rerun prep scripts.
+
+Fresh-context handoff proof00:32 independently verified source/bundle/seals,
+completed-owner exits and then-live guest06 ownership; retained under
+replacement06/resume-proof-guest06.md. Its only clarification is #362's
+unspecified memory-bound wording, still open. Link06 prior proof retained.
+
+## Newly identified remaining acceptance proof (not new product defects)
+
+Live #356/#365 criteria exceed script T17/T26 coverage. After subset02, run
+fresh `/workspace/tmp/pixelelated-m7-cloud-ui-01` from frozen06 via watch-build.
+Eight sealed inputs, bash/Python parsing passed; NEVER EXECUTED. run.sh gates
+on subset02 success. It reuses the proven case-L navigation and isolated
+layout-only fault to drive wizard failure → completion → next-boot recovery;
+then actual malformed/future-marker UI refusals with unchanged byte/pointer
+assertions. Review its actual frames, not only exit status. Plan and provenance:
+`docs/qa-logs/2026-10-04-pixelelated-57cbc-qualification/cloud-ui-proof-plan.md`
+and owner/provenance.json. Original source and all executed owners unchanged.
+Prepared helper `/tmp/pixelelated-prepare-cloud-ui-01.py` ALREADY RAN; do not rerun.
+Before first execution, SSHPID cleanup was hardened to clear the variable once
+killed/waited; eight inputs resealed, old seal retained as
+harness-before-ssh-cleanup.sha256. No executed source changed.
+
+Then run #351/#362 /workspace/tmp/pixelelated-m7-signin-ui-01 (UNSTARTED). Read
+`docs/qa-logs/2026-10-04-pixelelated-57cbc-qualification/signin-ui-proof-plan.md`:
+public HTTPS login, installed Mobile UA/HTTP redirect echo, binary's finishing
+page as a named done-file stand-in, actual phone Checking/Connected390px
+frames and computed .75rem margins. Existing memory05 only measures an
+example.org load; signin-memory has no numerical ceiling assertion, so do
+not claim an enforced bound. Older scripts are reference only (broad pkill,
+source overrides), not safe new runners. Actual16216=0 found geckodriver0.37.1
+and Firefox157.0. Actual45540/61056 host probes0 show Firefox outer width
+floors at500px; an unchanged390px iframe has actual innerWidth390. Prepared
+proof uses element screenshots, asserts dimensions and computes actual state
+margins. Seven inputs sealed/parsing passes. Preparation helper
+/tmp/pixelelated-prepare-signin-ui-01.py ALREADY RAN. No browser packages
+installed. Authenticated Dropbox trust
+page needs dedicated QA access; new async question pending, no reply.
+Ordinary RA fixture async question also remains unanswered.
+
+Live M7 and #356/#365 updated/read back00:20 actualcommand0;
+#351/#362/M7 updated/read back00:28 actualcommand0. Recorded under
+/tmp/pixelelated-cloud-ui-tracking/readback.json and
+/tmp/pixelelated-signin-ui-tracking/readback.json. M7 now orders the two
+focused proof steps after subset02, before ordinaryRA/P4/H700. The normal
+published source/checkpoint stillfeature6a0127eb → nextc6cf90f7; these new
+plans/checkpoint/worklog currently uncommitted. Live org listing found no
+existing docs repository; public-site403/404 is not solved by org rename.
 
 ## Retained qa06 failure and current inventory
 
@@ -323,7 +434,7 @@ base upload, exact gameIDs/cache/stamp, empty repeat avoids network.
 External route removed; synthetic QA only, no live ordinary award claim.
 Actual22:22:33 runner3889456/watcher3889457/command3889486/guest3890213 absent.
 Source/bundle/backing custody verifies. See qualification/subset-01/.
-Current guest06 VM job is active above; these old owners are finished. All completed/failing owner scripts
+The #429 diagnostic/inspection sequence is current above; these old owners are finished. All completed/failing owner scripts
 and frozen05 source stay immutable; do not rerun an executed owner.
 
 ## #426 current proxy refresh before replacement06 freeze
@@ -354,39 +465,45 @@ opusfile,rclone,retropie-shaders,slang-shaders,tailscale,wildmidi,zerotier-one.
 
 ## Next in binding M7 order
 
-1. Supervise active guest06/tool67203. Read all19 case results and selected
-   frames, reconcile all result channels and actual host/backend cleanup.
-2. Run remaining sealed owners in order: runtime06 → proxy05 →
-   optins05 → memory05 → ui06 → predecessor03 → subset02. All bind frozen57cbc,
-   manifest82764873 and bundled4007387. Defaults/actualupgrade/imageequality/
-   content/settings/providers are complete above; do not rerun them.
+1. Supervise active memory05/tool34776. Reconcile real
+   terminal result, every channel and actual process/container/backend cleanup.
+2. Then ui06 → predecessor03 → subset02 → cloud-ui-01 → signin-ui-01.
+   All bind frozen57cbc, manifest82764873 and bundled4007387. Earlier defaults,
+   actualupgrade/imageequality/content/settings/providers/cloud/runtime/proxy/optins
+   proof is complete above; do not rerun completed owners.
 3. Launch from frozen06 using tools/watch-build --interval 5 --stall-min 5
    --recursive-activity --activity-dir OWNER/artifacts -- OWNER/outer.sh BUNDLE.
    Write OWNER/tool-wrapper.rc and retain actual tool result. One fixed-port
    VM owner at a time. /tmp/pixelelated-finish-owner.py runs only AFTER the
    actual tool exits, in escalated host view (sandbox hides real processes).
    /tmp/pixelelated-retain-06-simple.py retains completed simple-owner receipts
-   from the feature cwd. It has already run for qa07/image07/sweep04/settings06/link06;
+   from the feature cwd. It has already run for qa07/image07/sweep04/settings06/link06/proxy05/optins05;
    never rerun those retention invocations. Guest/memory/UI need tailored
    frame selection rather than copying every capture into Git.
 4. ui06 boot matcher uses actual640/1280 captures, unchanged99.5% threshold,
    approved Ocean proofs and old-logo/blank/wrong-size rejection controls.
    Review intended EN/FR pages. #424/#428 are CLOSED completed with clean/upgraded evidence;
-   #426 still needs exact new proxy/subset runtime proof.
+   #426 proxy05 preservation20 is complete; subset02 HTTP retry remains.
 5. #384/#391/#425/#366 CLOSED completed with exact published receipts,
    code-traces/Already written comments/live readbacks actual15451/68014=0.
    #422 firsttwo/dependency criteria ticked; final EN/FR panel proof awaitsui06.
    Its former identity blocker424 is fixed and closed from qa07 proof.
    Reconcile only proved #422/#416/#352/#353/#327 items. Earlier completed
    #320/#392/#417/#419/#420/#421 remain closed. #427 closed notplanned as disproved.
-6. Ordinary RA fixture below still awaits owner input. Then approved P4
+6. Run cloud-ui-01 and prepared signin-ui-01 after the corrected matrix.
+   Ordinary RA fixture below still awaits owner input. Then approved P4
    primary+Fable5.1/xhigh via verified Facilitator/OpenRouter; read skill/routing.
    Initial#375/#382 review done, do not restart. Resolve/requalify, then first
    H700 DDR4/RG35XX SP build. P5 source/licences/docs/publication and named
    physical-action gates remain. No RC/device-ready claim.
 
-Latest completed-evidence/checkpoint publication: featuref7ae4bc0ca5edc86a2cca19f19738086f86a1c65 →
-nextf8e7717ee7f6c8440db3a72c1a34394851df11be, actual14327=0 normalpush/readback.
+Latest completed-evidence/checkpoint publication: feature6a0127ebc6eeada804a757989b6af34032e55aa0 →
+nextc6cf90f7c5be3eff8f0dad42a98240e5b084c80e, actual54348=0 normalpush/readback.
+New guest/runtime/proxy/optins/diagnostic receipts, proof plans and checkpoint are
+uncommitted at this update. #429/#430 closures require publication/readback.
+M7 current priority updated/read back01:07:52 to activeoptins05 after
+acceptedruntime07/proxy05; /tmp/pixelelated-optins05-tracking/readback.json.
+Earlier00:47 #429 diagnosis snapshot retained separately; dated history below.
 M7/#383/#409/#344 updated/read back23:39 actual70226=0, prioritylink06 then
 remaining orderedowners/P4/H700. #424/#428 closedcompleted by same actual
 operation with completecriteria/code-traces/Alreadywritten notes. Actual98506=0

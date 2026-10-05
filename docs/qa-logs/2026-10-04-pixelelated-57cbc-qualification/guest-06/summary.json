@@ -1,0 +1,167 @@
+{
+  "observed_utc": "2026-10-05T00:42:08.718427+00:00",
+  "build_id": "57cbc9b981205328444d41f6c4237dc9f5736d7f",
+  "actual_tool": 67203,
+  "actual_tool_rc": 0,
+  "cases": [
+    {
+      "case": "H",
+      "finished_utc_time": "00:02:15",
+      "pass": 5,
+      "fail": 0,
+      "walk_frames": 5,
+      "all_frames": 5
+    },
+    {
+      "case": "A",
+      "finished_utc_time": "00:03:57",
+      "pass": 6,
+      "fail": 0,
+      "walk_frames": 8,
+      "all_frames": 8
+    },
+    {
+      "case": "C",
+      "finished_utc_time": "00:05:24",
+      "pass": 3,
+      "fail": 0,
+      "walk_frames": 4,
+      "all_frames": 4
+    },
+    {
+      "case": "D",
+      "finished_utc_time": "00:08:58",
+      "pass": 5,
+      "fail": 0,
+      "walk_frames": 15,
+      "all_frames": 15
+    },
+    {
+      "case": "B",
+      "finished_utc_time": "00:11:18",
+      "pass": 7,
+      "fail": 0,
+      "walk_frames": 12,
+      "all_frames": 12
+    },
+    {
+      "case": "E",
+      "finished_utc_time": "00:13:46",
+      "pass": 6,
+      "fail": 0,
+      "walk_frames": 2,
+      "all_frames": 130
+    },
+    {
+      "case": "I",
+      "finished_utc_time": "00:19:20",
+      "pass": 11,
+      "fail": 0,
+      "walk_frames": 7,
+      "all_frames": 370
+    },
+    {
+      "case": "J",
+      "finished_utc_time": "00:22:16",
+      "pass": 4,
+      "fail": 0,
+      "walk_frames": 2,
+      "all_frames": 160
+    },
+    {
+      "case": "K",
+      "finished_utc_time": "00:26:46",
+      "pass": 7,
+      "fail": 0,
+      "walk_frames": 7,
+      "all_frames": 249
+    },
+    {
+      "case": "L",
+      "finished_utc_time": "00:29:56",
+      "pass": 7,
+      "fail": 0,
+      "walk_frames": 16,
+      "all_frames": 163
+    },
+    {
+      "case": "F",
+      "finished_utc_time": "00:31:26",
+      "pass": 3,
+      "fail": 0,
+      "walk_frames": 5,
+      "all_frames": 5
+    },
+    {
+      "case": "G",
+      "finished_utc_time": "00:32:51",
+      "pass": 3,
+      "fail": 0,
+      "walk_frames": 4,
+      "all_frames": 4
+    },
+    {
+      "case": "T08",
+      "finished_utc_time": "00:35:03",
+      "pass": 3,
+      "fail": 0,
+      "walk_frames": 0,
+      "all_frames": 114
+    },
+    {
+      "case": "T11",
+      "finished_utc_time": "00:37:15",
+      "pass": 3,
+      "fail": 0,
+      "walk_frames": 0,
+      "all_frames": 114
+    },
+    {
+      "case": "T12",
+      "finished_utc_time": "00:39:27",
+      "pass": 3,
+      "fail": 0,
+      "walk_frames": 0,
+      "all_frames": 114
+    },
+    {
+      "case": "T17",
+      "finished_utc_time": "00:39:34",
+      "pass": 5,
+      "fail": 0,
+      "walk_frames": 0,
+      "all_frames": 0
+    },
+    {
+      "case": "T19",
+      "finished_utc_time": "00:39:41",
+      "pass": 12,
+      "fail": 0,
+      "walk_frames": 0,
+      "all_frames": 0
+    },
+    {
+      "case": "T23",
+      "finished_utc_time": "00:40:54",
+      "pass": 126,
+      "fail": 0,
+      "walk_frames": 0,
+      "all_frames": 0
+    },
+    {
+      "case": "T26",
+      "finished_utc_time": "00:41:30",
+      "pass": 30,
+      "fail": 0,
+      "walk_frames": 0,
+      "all_frames": 0
+    }
+  ],
+  "total_cases": 19,
+  "total_pass": 249,
+  "total_fail": 0,
+  "all_frames": 1467,
+  "walk_frames": 87,
+  "reviewed_frames": 33,
+  "scope": "Each case reset independently. K uses an explicit restore-marker stand-in. T23 faults current protocol; inherited RC2-script states are the separate predecessor03 proof."
+}

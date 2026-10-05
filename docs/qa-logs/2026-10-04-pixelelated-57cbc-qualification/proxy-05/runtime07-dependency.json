@@ -1,0 +1,15 @@
+{
+  "observed_utc": "2026-10-05T01:02:55.028390+00:00",
+  "issues": [
+    429,
+    430,
+    383
+  ],
+  "old_gate": "runtime06 rc0",
+  "new_gate": "runtime07 rc0",
+  "accepted_actual_tool": 29491,
+  "accepted_rc": 0,
+  "source_change": false,
+  "reason": "Fresh clock-verified runtime07 completed archives/timing/identity. Only unstarted dependent gate rebound; old seal/launcher retained. Initial attempt was refused by owner file mode before mutation.",
+  "additional_pre_execution_label_correction": "Final echo names actual frozen57cbc instead of stale replacement01"
+}

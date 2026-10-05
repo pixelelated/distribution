@@ -1,6 +1,6 @@
 # pixelelated 0.0.1 release readiness
 
-Current update: 2026-10-04, #409. Delivery #383; release contract #344;
+Current update: 2026-10-05, #409. Delivery #383; release contract #344;
 cloud epic #354. The next RC uses lowercase **pixelelated** and the Tiny5
 Duo LCD wordmark (D-WORKFLOW-144/145); the cloud default is `/pixelelated`
 (D-CLOUD-174). Version remains 0.0.1. Rasteratops is a character; Blitterbot
@@ -17,7 +17,7 @@ product files,180links and200QA files. Previous05cache was independently
 copied and checksum/inode verified2525217files before use. Guarded preflight
 reclaimed swap; no helper reinstall is needed.
 
-**Verdict: default/upgrade/content/settings/provider qualification passes; cloud cases active.**
+**Verdict: cloud, runtime, proxy and mixed-installation checks pass; memory05 active.**
 qa07 actual44253/allrc0 completed23:31UTC: all15defaults,16walks/78frames,
 baseline21claimed/0unclaimed/0missing, actualRC2 preservation and exact clean/
 upgraded bytes/modes. Actual ES process identity and five1280x800frames in
@@ -30,9 +30,18 @@ Settings06 actual60081=0:20realESrace/29installedmode checks on actual-upgrade
 COW, original settings/product/backing preserved, actualcleanup23:33:43.
 Link06 actual26472/allrc0 completed23:50:48UTC October4: seven WebDAV
 cases PASS477s and seven S3 cases PASS459s; actual process/backend cleanup
-verified23:59:43–58. Guest06 actual67203 started00:00:08UTC October5, with
-shared5s recursive watcher and connected supervision over19 independent cloud
-cases. No RC/device claim.
+verified23:59:43–58. Guest06 actual67203/allrc0 completed19 cases/249PASS/0FAIL;
+33 selected frames inspected, all1467frames hashed; actual cleanup00:41:59.
+Originalruntime06 actual38117/allrc1 failed36ms timing and remains retained.
+#430 fixture repair verifies actual guest/host timestamp boundaries; all three
+predeclared diagnostic batches23/29/26ms pass with real transferred bytes.
+Optional trace parser failure and corrected trace-only run are retained.
+Fresh runtime07 actual29491/allrc0 passes archives14/timing4/identity13 with
+272/244ms medians,28ms against unchanged30ms. All source/backing/cleanup pass.
+No product bytes changed; no single cause claimed for original36ms result.
+Proxy05 actual57392/allrc0 passes20 installed cache/sign-in/queue/offline HTTP
+preservation checks. It uses synthetic QA data, not a real new RA award.
+Actual01:05:09 all owner processes absent. No RC/device claim.
 
 qa06's original30948/allrc1 is preserved: a newly added harness expected0644
 for the export profile, but Git/package/guest correctlyuse0755 (#428). Fresh
@@ -41,17 +50,25 @@ are retained for the six unstarted dependents rebound toqa07. No new rebuild.
 
 Current proxy865e21 source review:105consumed Python/native files and268
 Linux/native/test files excluding two unshipped bundle builders matchaec99c;
-15zero-fuzz patches, schema/coupled pins/freshness pass (#426). New installed
-proxy proof remains required. Inventory04 actual53198/allrc0 proves568roots,
+15zero-fuzz patches, schema/coupled pins/freshness pass (#426). Installedproxy05 now passes20 preservation checks; subset02 HTTP retry
+proof still remains. Inventory04 actual53198/allrc0 proves568roots,
 547cache inputs,583components/525stamps and0errors, with currentproxy and
 recoveredrclone archive verified. Fourteen licence-metadata gaps remain P5.
 Build/source receipts: `docs/qa-logs/2026-10-04-pixelelated-replacement-06/`.
 Runtime/failure receipts: `docs/qa-logs/2026-10-04-pixelelated-57cbc-qualification/`.
 
-Next: finishguest06
-→ runtime06 → proxy05 → optins05 → memory05 → ui06 → predecessor03 → subset02.
-Each new owner binds the exact current candidate. Then reconcile remaining
-criteria, ordinary RA proof, approved P4 primary+Fable5.1/xhigh review and first
+Optins05 actual62343/allrc0 passes S3 round-trip108s and mixed RC2/fresh
+pair42 checks; source/bundle and actual01:12:58 cleanup verified. Current
+memory05 actual34776 started01:13:19. Then ui06 → predecessor03 → subset02.
+#429/#430 scoped closure awaits receipt publication/readback. Only unstarted
+proxy05 was rebound to runtime07; prior seal/launcher retained.
+Follow with the prepared
+cloud-ui-01 proof for #365 wizard failure/recovery and #356 unsupported-marker
+frames; then prepared signin-ui-01 for #351/#362 sign-in/window/phone proof. The
+memory owner measures example.org loading and has no numerical memory ceiling
+assertion; it does not prove provider login or redirect behavior. Authenticated
+Dropbox trust-page QA access is pending. Both proof plans are in the current
+qualification directory. Then reconcile remaining criteria, ordinary RA proof, approved P4 primary+Fable5.1/xhigh review and first
 H700 DDR4/RG35XX SP build. Daybreak is not required or claimed. Ordinary RA
 fixture, public-site delivery, disconnected alert destination, publication and
 physical actions retain their named gates.
