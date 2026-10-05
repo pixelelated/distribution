@@ -1,0 +1,31 @@
+{
+  "utc": "2026-10-05T20:12:47.287578+00:00",
+  "owner": "/workspace/tmp/pixelelated-m7-boot-qualification-05",
+  "run": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement10/.build-runs/20261005T200812Z-9cc9a8fc",
+  "result_channels": {
+    "inner.rc": 0,
+    "outer.rc": 0,
+    "tool-wrapper.rc": 0,
+    "build.rc": 0
+  },
+  "absent_pids": [
+    3702400,
+    3702401,
+    3702402,
+    3702431,
+    3703153,
+    3707527,
+    3714267,
+    3721072
+  ],
+  "job_rc": 0,
+  "durable_runner_rc": 0,
+  "qemu_absent": true,
+  "build_log_sha256": "d8d33ff1d36ff93ee324a506fba076c29df339d4db085d481d02bdfb26c93964",
+  "launcher_result": {
+    "utc": "2026-10-05T20:12:13.584022+00:00",
+    "pid": 3702400,
+    "runner_returncode": 0,
+    "submission_is_not_completion": true
+  }
+}

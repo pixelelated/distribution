@@ -1,0 +1,101 @@
+{
+  "utc": "2026-10-05T20:20:33.260957+00:00",
+  "passed": true,
+  "method": "Direct view_image inspection of all six semantic and all nine render comparison frames",
+  "frames": [
+    {
+      "path": "/workspace/tmp/pixelelated-m7-signin-ui-15/artifacts/signin/01-local-redirect.png",
+      "sha256": "cec567d20eda071aabc3eaa667d11df0f449c766becae9ce6f2792801cc94f49",
+      "observation": "Complete QA redirect form with label/input; no stale loading fragments.",
+      "passed": true
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-signin-ui-15/artifacts/signin/02-finishing-marker-stand-in.png",
+      "sha256": "68a39b5225e347322b2c7ec1b56a4fa1ce3a9dd1e39504c17dbf044c71eaff50",
+      "observation": "Complete Connected / Finishing up on your handheld message, unchanged reviewed layout.",
+      "passed": true
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-signin-ui-15/artifacts/signin/03-public-dropbox-login.png",
+      "sha256": "e1bf807c32fdafa4a55fb0c7053704ee8ca48f479d3a539d972582af2c2f4560",
+      "observation": "Public Dropbox login rendered; not authenticated trust proof.",
+      "passed": true
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-signin-ui-15/artifacts/signin/04-phone-checking.png",
+      "sha256": "910c847e497120d068f86e6042999e6eaa7c5f957b0c89855ff459c28f3cf6c1",
+      "observation": "Actual390px phone Checking state is readable with intact layout.",
+      "passed": true
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-signin-ui-15/artifacts/signin/05-phone-connected.png",
+      "sha256": "ec309e31b63d64a8921861f8405d0fdf8a3360af7343be988cc829a6558dab42",
+      "observation": "Actual390px phone Connected state is readable with intact layout.",
+      "passed": true
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-signin-ui-15/artifacts/signin/06-actual-oauth-provider.png",
+      "sha256": "167289d20256a5eb23402ad8c444ccbf84f8306a0a23676f4944f75e82f10fff",
+      "observation": "Actual installed OAuth provider window displays provider page; no authentication claim.",
+      "passed": true
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-signin-ui-15/artifacts/signin/render-00-grim.png",
+      "sha256": "6afa36c72fca1186732068eafe13319984a9b9182b4b2e66ca12a9d4ab961f3f",
+      "observation": "Complete unchanged Connected / Finishing message, no old form or partial repaint.",
+      "passed": true
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-signin-ui-15/artifacts/signin/render-00-qemu.png",
+      "sha256": "68a39b5225e347322b2c7ec1b56a4fa1ce3a9dd1e39504c17dbf044c71eaff50",
+      "observation": "Complete unchanged Connected / Finishing message, no old form or partial repaint.",
+      "passed": true
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-signin-ui-15/artifacts/signin/render-00-vnc.png",
+      "sha256": "68a39b5225e347322b2c7ec1b56a4fa1ce3a9dd1e39504c17dbf044c71eaff50",
+      "observation": "Complete unchanged Connected / Finishing message, no old form or partial repaint.",
+      "passed": true
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-signin-ui-15/artifacts/signin/render-05-grim.png",
+      "sha256": "6afa36c72fca1186732068eafe13319984a9b9182b4b2e66ca12a9d4ab961f3f",
+      "observation": "Complete unchanged Connected / Finishing message, no old form or partial repaint.",
+      "passed": true
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-signin-ui-15/artifacts/signin/render-05-qemu.png",
+      "sha256": "68a39b5225e347322b2c7ec1b56a4fa1ce3a9dd1e39504c17dbf044c71eaff50",
+      "observation": "Complete unchanged Connected / Finishing message, no old form or partial repaint.",
+      "passed": true
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-signin-ui-15/artifacts/signin/render-05-vnc.png",
+      "sha256": "68a39b5225e347322b2c7ec1b56a4fa1ce3a9dd1e39504c17dbf044c71eaff50",
+      "observation": "Complete unchanged Connected / Finishing message, no old form or partial repaint.",
+      "passed": true
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-signin-ui-15/artifacts/signin/render-15-grim.png",
+      "sha256": "6afa36c72fca1186732068eafe13319984a9b9182b4b2e66ca12a9d4ab961f3f",
+      "observation": "Complete unchanged Connected / Finishing message, no old form or partial repaint.",
+      "passed": true
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-signin-ui-15/artifacts/signin/render-15-qemu.png",
+      "sha256": "68a39b5225e347322b2c7ec1b56a4fa1ce3a9dd1e39504c17dbf044c71eaff50",
+      "observation": "Complete unchanged Connected / Finishing message, no old form or partial repaint.",
+      "passed": true
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-signin-ui-15/artifacts/signin/render-15-vnc.png",
+      "sha256": "68a39b5225e347322b2c7ec1b56a4fa1ce3a9dd1e39504c17dbf044c71eaff50",
+      "observation": "Complete unchanged Connected / Finishing message, no old form or partial repaint.",
+      "passed": true
+    }
+  ],
+  "limitations": [
+    "Finishing marker is an explicit synthetic stand-in, not authenticated success.",
+    "Public provider and phone connection do not prove authenticated Dropbox trust."
+  ]
+}
