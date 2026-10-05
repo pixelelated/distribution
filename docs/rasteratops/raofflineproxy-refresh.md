@@ -13,8 +13,13 @@ and historical865e21 predecessor. The fixed predecessor fixture retains both
 APIs and its original failed run (#451). Both recipes pass pkgcheck.
 
 Evidence: [proxy3036478](../qa-logs/2026-10-05-proxy-3036478/README.md).
-Fresh-image installed qualification remains required. Ordinary new-award and
-P4 gates remain separate. No telemetry or Linux UI behavior was changed.
+Replacement12's affected installed preservation, native-format and HTTP checks
+are complete:22 preservation assertions,18 native-format tests, four legacy
+CHD cases and35 HTTP refusal/reconnection/idempotence assertions pass.
+Receipts: [proxy13](../qa-logs/2026-10-05-pixelelated-replacement-12/proxy-13/README.md)
+and [subset10](../qa-logs/2026-10-05-pixelelated-replacement-12/subset-10/README.md).
+Ordinary account-backed new-award and P4 gates remain pending. No telemetry
+or Linux UI behavior was changed by this source refresh.
 
 ## Previous7252fc source qualification
 

@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Saved 2026-10-05T23:56:18.971365+00:00. Prior checkpoint: `.github/sessions/archived/saved-session-state-next-20261005T235618Z.md`.
+> Saved 2026-10-05T23:45:14.412187+00:00. Prior checkpoint: `.github/sessions/archived/saved-session-state-next-20261005T234514Z.md`.
 > Feature `feature/conflict-resolution`; primary `/workspace/repos/rocknix` stays `next`.
 
 ## Start here
@@ -71,16 +71,8 @@ hasNOanswer; neverprintsecrets,spendalreadyearnedaward,usehardcoreinstead or
 equatepubliclogin/syntheticfinishingwithauthenticatedtrust. Once those gates
 pass: approvedP4primary+Fable5.1/xhigh verifiedFacilitator/OpenRouter; then
 H700DDR4/RG35XXSParmFIRST,aarch64SECOND; namedphysical/P5gates. NoDaybreak.
-NoRCdesignation. #454/#455 are closed with criteria verified in published
-next d97f64ddfd172041ef65911b1747fdae5065bf33 (feature254a74601a). Live M7,
-#361 and #383 were updated/read back exactly at23:55:46 to put unblocked
-P3 mapping first and account proofs after their inputs; both precede P4.
-Historical tracker headings now say Historical. No criterion was waived.
-`docs/qa-logs/2026-10-05-pixelelated-replacement-12/p3-criteria.md` maps the
-current proof and gaps. The compound preservation/telemetry criterion remains
-open: installed preservation plus host consent tests do not establish an
-installed telemetry-capture run. #168 still needs complete older-audit/source
-mapping and per-contribution dispositions; neither draft has been submitted.
+NoRCdesignation. #454/#455sourcefix/closureproofs are in this update; verify
+their live states and milestone current order before assuming publication.
 
 ## Completed replacement12 build and image/source verification
 
@@ -191,16 +183,9 @@ the sealed product/QA inputs; the source hashes remain verified. Preserve it
 and its retained diff under `generated-documentation/`; do not restore or
 merge the build worktree during QA. This is not a clean-worktree claim.
 
-Prior fresh-context proof at22:57:18 remains retained. New no-context reader
-/root/m7_completed12_resume_proof verified completed qualification against
-published next d97f64ddfd at23:49–23:51:6549product/202QA/180symlinks exact,
-18bundle members and518retained files hash-equal, originalQA15upgraded disk
-unchanged,44recorded PIDs absent and no matchingQEMU/watcher/backend. All
-failed/scoped-success distinctions and live tracker states agree. Available
-space195.04GiB at23:49:49, reserve186.32GiB. Its clarity retest passes after
-README/readiness explicitly put unblocked mapping first; proxy-refresh wording
-was narrowed to affected installed preservation/native/HTTP checks. The proof
-is retained in completed-resume-reader-proof.json. This is not a P4 audit. Frozen12 generated emulator documentation still differs exactly
+Prior fresh-context proof was bounded at22:57:18 and is retained; a new
+fresh-context reader must verify this completed qualification handoff after
+publication. Frozen12 generated emulator documentation still differs exactly
 as recorded, outside sealed inputs; do not restore it or claim a clean tree.
 #453closed means inventory/proposal only. Five oldbundlesverify, but unique
 source/debug/backingchecks andnamedapprovalstillprecedeanydeletion.

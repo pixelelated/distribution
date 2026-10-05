@@ -49,9 +49,11 @@ assertions. Allfour results and actual cleanup pass for both. Evidence is in
 qa-15,qa-16,qa-17,proxy-13,subset-10 and harness-controls. Product source and
 immutable image remain unchanged; fixes are host QA tools (#454,#455).
 
-No job remains active. Next: ordinary RA and authenticated Dropbox QA-account
-proofs (inputs unanswered), remaining P3 acceptance/upstream mapping, approved
-P4 primary+Fable5.1/xhigh via verified Facilitator, then H700 DDR4/RG35XXSP arm
+No job remains active. The next unblocked task is the remaining P3
+acceptance/upstream mapping; [criterion reconciliation](p3-criteria.md)
+separates completed evidence from open items. Ordinary RA and authenticated
+Dropbox QA-account proofs await inputs. Both precede approved P4
+primary+Fable5.1/xhigh via verified Facilitator, then H700 DDR4/RG35XXSP arm
 and aarch64, followed by named physical/P5 gates. No RC/device-ready claim.
 The old proxy12/subset09 owners remain unstarted preparation history.
 

@@ -17,10 +17,12 @@ cases. Subset10 passes35installed HTTP retry/idempotence assertions. Actual
 owner/guest/backend cleanup is verified; no long job remains running.
 [Exact evidence and limitations](../qa-logs/2026-10-05-pixelelated-replacement-12/README.md).
 
-Next: ordinary RetroAchievements and authenticated Dropbox QA-account proofs,
-remaining P3 acceptance/upstream mapping, approved independent P4 review,
-H700 arm then aarch64 and named physical/P5 gates. Account inputs remain
-unanswered;14P5licence gaps and public-doc access remain separate. No RC claim.
+Next unblocked: remaining P3 acceptance/upstream mapping; the
+[criterion reconciliation](../qa-logs/2026-10-05-pixelelated-replacement-12/p3-criteria.md)
+names the evidence and gaps. Ordinary RetroAchievements and authenticated
+Dropbox QA-account proofs await inputs. Both precede approved independent
+P4 review, H700 arm then aarch64 and named physical/P5 gates. Fourteen P5
+licence gaps and public-doc access remain separate. No RC claim.
 
 [Storage inventory](../qa-logs/2026-10-05-build-storage/README.md): worktrees
 1776GiB, artifacts917GiB, temporaryQA497GiB and sources63GiB at scan time.
