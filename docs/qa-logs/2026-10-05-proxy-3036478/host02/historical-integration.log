@@ -1,0 +1,16 @@
+test_failure_and_retry_preserve_completed_games (__main__.WholeLibrary.test_failure_and_retry_preserve_completed_games) ... ok
+test_indexed_125_games_are_cached_without_rom_lookup (__main__.WholeLibrary.test_indexed_125_games_are_cached_without_rom_lookup) ... ok
+test_indexed_429_stops_requests_and_survives_restart (__main__.WholeLibrary.test_indexed_429_stops_requests_and_survives_restart) ... ok
+test_persisted_pause_never_reports_queued_games_ready (__main__.WholeLibrary.test_persisted_pause_never_reports_queued_games_ready) ... ok
+test_unindexed_125_games_are_cached_not_just_queued (__main__.WholeLibrary.test_unindexed_125_games_are_cached_not_just_queued) ... ok
+test_unindexed_429_stops_requests_and_survives_restart (__main__.WholeLibrary.test_unindexed_429_stops_requests_and_survives_restart) ... ok
+test_upstream_default_still_queues_at_100 (__main__.WholeLibrary.test_upstream_default_still_queues_at_100) ... ok
+test_actual_predecessor_store_and_image_paths_survive_reopen (__main__.Upgrade.test_actual_predecessor_store_and_image_paths_survive_reopen) ... ok
+test_image_repair_reads_streamed_bodies (__main__.OSConsumers.test_image_repair_reads_streamed_bodies) ... ok
+test_refresh_age_uses_newest_summary (__main__.OSConsumers.test_refresh_age_uses_newest_summary) ... ok
+test_refresh_scope_and_session_removal_do_not_load_cache_bodies (__main__.OSConsumers.test_refresh_scope_and_session_removal_do_not_load_cache_bodies) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.144s
+
+OK

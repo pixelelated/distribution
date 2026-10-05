@@ -1,6 +1,27 @@
 # pixelelated 0.0.1 release readiness
 
-## Current work — installed GENERIC_X64 Pixman fallback (#447)
+## Current work — remaining source and account gates
+
+The [P3 acceptance reconciliation](../qa-logs/2026-10-05-p3-reconciliation/README.md)
+verified the original WebKitGTK2.54.1/libsoup3.8.0 cold build and closed the
+identified cloud proof gaps with36 new installed-image cases on replacement10.
+Actual separate guests now follow allnine recovered migration faults; literal
+layout1, independent settings/content, configured-first roots, foreign content
+and denied parent enumeration are covered. Allfour result channels0 and actual
+owner/guest/backend cleanup are retained. #356/#365 closure maps are ready for
+publication; original09 evidence keeps its own scope.
+
+The full freshness check found a new upstream proxy delta. The selected
+3036478 parent and607694c libchdr now pass source/native qualification,815
+Linux tests and11 integration tests against each of two predecessors. #451
+repairs the fixture's obsolete predecessor API; originalrc1 remains preserved.
+Next: publish the scoped evidence, freeze/build a fresh candidate, renew the
+affected installed proxy/native and standard image gates, and obtain the full
+frozen freshness pass. Then ordinary RA and authenticated Dropbox QA-account
+proofs, P4, H700 arm/aarch64 and named physical/P5 gates. No RC/device-ready
+claim. Account status/credential-file location remain unanswered.
+
+## Completed installed GENERIC_X64 Pixman fallback (#447)
 
 The permanent selector is published as next `d6e8390c93bed87efe2dcc23cd402a271cacd1c7`
 (feature `2feafc12d2fea9ada9730156cb9340b01a3a4e26`). It affects only GENERIC_X64:

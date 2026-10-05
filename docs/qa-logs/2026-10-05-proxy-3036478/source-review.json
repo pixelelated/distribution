@@ -1,0 +1,12 @@
+{
+  "parent": "3036478f2b2d22db451396a48f44feee94e8462f",
+  "libchdr": "607694ca0812edfc9cc2030c64634fc2393668de",
+  "unchanged_linux_python_files": 113,
+  "patches_fuzz_zero": 15,
+  "metadata_buffer_bytes": 256,
+  "format": "CYLS:%d,HEADS:%d,SECS:%d,BPS:%d",
+  "maximum_signed_32bit_int_field_chars": 11,
+  "literal_chars": 23,
+  "maximum_total_bytes_with_nul": 68,
+  "source_scope": "ANSI C declaration ordering and snprintf to sprintf for four bounded int fields. No input string interpolated; format constant. Host tests use the rebuilt coupled library, not the previous image library. Installed-image proof remains owed."
+}
