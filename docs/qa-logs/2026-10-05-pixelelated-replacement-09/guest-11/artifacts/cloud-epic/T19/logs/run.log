@@ -1,0 +1,20 @@
+08:23:34 === cloud-epic on guest d, BUILD_ID="cf511ce79b83cba7fea8b14cfa3d04fb13e4b4fb"
+232
+08:23:35 == setup: the QA remote on the guest (the host backend's conf), then the QA cloud holds the fork's earlier layout with files in every folder of ours; the guest points at it
+remote: qa-cloud:
+08:23:36   cloud: ROCKNIX/Backups/2026_09_29-090000-Retroid-Pocket-Nova-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Backups/2026_09_30-120000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Content/BIOS/disksys.rom ROCKNIX/Content/ROMs/nes/Probe.nes ROCKNIX/Saves-replaced/nes/Probe.srm.1 ROCKNIX/Saves/nes/Probe.srm 
+08:23:37   guest conf: SAVES_REMOTE="/ROCKNIX/Saves" SETTINGS_REMOTE="/ROCKNIX/Backups" CONTENT_REMOTE="/ROCKNIX/Content" LAYOUT_KEEP="" 
+label=GENERIC-X64
+08:23:40 PASS T19-cloud_backup-direct refuses with setup outcome
+08:23:40 PASS T19-cloud_backup-direct does not treat a local path as cloud storage
+08:23:40 PASS T19-cloud_backup-direct changes no cloud bytes/pointers
+08:23:40 PASS T19-cloud_backup-automatic refuses with setup outcome
+08:23:40 PASS T19-cloud_backup-automatic does not treat a local path as cloud storage
+08:23:40 PASS T19-cloud_backup-automatic changes no cloud bytes/pointers
+08:23:41 PASS T19-cloud_restore-direct refuses with setup outcome
+08:23:41 PASS T19-cloud_restore-direct does not treat a local path as cloud storage
+08:23:41 PASS T19-cloud_restore-direct changes no cloud bytes/pointers
+08:23:41 PASS T19-cloud_restore-automatic refuses with setup outcome
+08:23:41 PASS T19-cloud_restore-automatic does not treat a local path as cloud storage
+08:23:41 PASS T19-cloud_restore-automatic changes no cloud bytes/pointers
+08:23:41 done: 12 PASS, 0 FAIL

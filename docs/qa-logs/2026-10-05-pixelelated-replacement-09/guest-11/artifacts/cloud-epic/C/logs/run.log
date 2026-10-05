@@ -1,0 +1,33 @@
+07:47:59 === cloud-epic on guest d, BUILD_ID="cf511ce79b83cba7fea8b14cfa3d04fb13e4b4fb"
+232
+07:48:00 == setup: the QA remote on the guest (the host backend's conf), then the QA cloud holds the fork's earlier layout with files in every folder of ours; the guest points at it
+remote: qa-cloud:
+07:48:01   cloud: ROCKNIX/Backups/2026_09_29-090000-Retroid-Pocket-Nova-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Backups/2026_09_30-120000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Content/BIOS/disksys.rom ROCKNIX/Content/ROMs/nes/Probe.nes ROCKNIX/Saves-replaced/nes/Probe.srm.1 ROCKNIX/Saves/nes/Probe.srm 
+07:48:02   guest conf: SAVES_REMOTE="/ROCKNIX/Saves" SETTINGS_REMOTE="/ROCKNIX/Backups" CONTENT_REMOTE="/ROCKNIX/Content" LAYOUT_KEEP="" 
+label=GENERIC-X64
+07:48:29   picks reset: content=0 saves=1
+07:48:49 == C: the SETTINGS row by device label: offered with the device and date after the move (above); dimmed with only a foreign archive
+dismiss-dialogs: 1 press(es) moved the screen, back on the carousel
+changed after 0.1s (`key ret`, line 3)
+settle: still after 1.7s
+changed after 0.1s (`key x`, line 6)
+settle: still after 1.3s
+changed after 0.1s (`key up`, line 9)
+changed after 0.1s (`key up`, line 11)
+changed after 0.1s (`key up`, line 13)
+settle: still after 1.3s
+changed after 0.1s (`key x`, line 16)
+settle: still after 1.3s
+captured /workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/C/frames/01-C-hub.png
+changed after 0.0s (`key down`, line 20)
+changed after 0.1s (`key x`, line 22)
+captured /workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/C/frames/02-C-scan-0.png
+captured /workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/C/frames/03-C-scan-1.png
+settle: still after 3.4s
+captured /workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/C/frames/04-C-after-scan.png
+07:49:16 PASS walk epic-C.steps
+07:49:16 PASS C: foreign-only scan disables settings with a completed scan
+dismiss-dialogs: 5 press(es) moved the screen, back on the carousel
+07:49:26 PASS walk epic-C2.steps
+07:49:26   frames: 4 under /workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/C/frames (numbered walk captures); boot and continuous captures are in their named subdirectories
+07:49:26 done: 3 PASS, 0 FAIL

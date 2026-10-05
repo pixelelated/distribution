@@ -7,9 +7,9 @@ Duo LCD wordmark (D-WORKFLOW-144/145); the cloud default is `/pixelelated`
 is unchanged. The required adoption flow is **ROCKNIX → pixelelated**;
 there are no fielded /Rasteratops systems requiring an additional gate.
 
-Status updated 2026-10-05T07:47:41.212845+00:00.
+Status updated 2026-10-05T08:28:33.044281+00:00.
 
-## Current gate — replacement09 cloud qualification resumed
+## Current gate — replacement09 cloud qualification passed
 
 M7.P3 is current. The frozen candidate is source `cf511ce79b83cba7fea8b14cfa3d04fb13e4b4fb`, input manifest `817fd9ff49b1ecf6bcc859cfa38985a65fbcfe5514c33a0a5c9dd60af6cc6c6e`, immutable bundle `79d560046ee52e28b72f16588168dd7c8fb2637c1cc585713216a8ec828e9d81`. Build and inventory pass; 14 licence metadata gaps remain for P5.
 
@@ -25,14 +25,16 @@ Boot04/tool90675/all four rc0 passes four clean/upgraded boots at 640x480 and 12
 
 **Cloud qualification interrupted:** guest10/tool59031 returned143; its watcher recorded runner death07:37:31. Eight cases/47 assertions passed, K was incomplete, ten cases had not started. Original missing outer/wrapper/build result files remain missing. Actual07:42:37 all seven observed owner/guest/backend PIDs absent. No product failure or signal sender is inferred. #444 preserves the original and requires a fresh complete run.
 
-**Current action:** fresh guest11 runs all19 unchanged cloud cases on the same exact image. Durable submission497141=0 means submitted only; launcher27507, runner27508, watcher27512 and command27541 were verified live07:44:19. The standard watcher checks every5seconds with a5minute inactivity warning; this session checks within60seconds. Completion requires launcher-result, all four actual result channels, frame review and host cleanup. Submission controls pass success/nonzero/duplicate refusal/loss of submitting process group. Disconnected alerts remain #395. This remains an engineering candidate.
+**Cloud qualification passed:** fresh guest11 completed all19 cases/249 assertions/zero failures. Durable result08:25:35 and all four actual channels are0; submission497141=0 remains explicitly separate. Actual host verification eee27c=0 at08:26:26 found owner/guest processes absent and no QEMU. Source/bundle reverified;32 selected actual frames reviewed across all15 UI cases. Four protocol cases verify bytes/pointers/markers directly. All1708artifact hashes and140selected public files retained.
 
-**Remaining order:** guest11 → runtime12 → proxy10 → optins10 → memory10 → UI12 → predecessor08 → subset07 → cloud-ui06 → signin-ui06 → signin-1g06 → ordinary RetroAchievements proof → P4 primary OpenAI plus Fable5.1/xhigh through the verified Facilitator → H700 DDR4/RG35XX SP arm, then aarch64. Predecessor08 requires the completed boot04 proof and an actual UI12 visual review. External inputs and P5 publication gates remain recorded. Can this be done on the VM? **Yes.**
+**Current priority:** runtime12 next: actual inherited archive recovery, isolated timing and installed identity on a COW of QA13's real upgraded disk. Check its submission/result files before launching or polling; the durable launcher refuses duplicate owner use. No RC/device-ready claim. #444 full-run evidence is ready for publication and scoped closure. Disconnected alert delivery remains #395.
+
+**Remaining order:** runtime12 → proxy10 → optins10 → memory10 → UI12 → predecessor08 → subset07 → cloud-ui06 → signin-ui06 → signin-1g06 → ordinary RetroAchievements proof → P4 primary OpenAI plus Fable5.1/xhigh through the verified Facilitator → H700 DDR4/RG35XX SP arm, then aarch64. Predecessor08 requires the completed boot04 proof and an actual UI12 visual review. External inputs and P5 publication gates remain recorded. Can this be done on the VM? **Yes.**
 
 #433/#436 remain closed from their artifact-scoped replacement08 repair proofs. #437/#438 and #439/#440/#441 are closed with published scoped evidence; actual52959=0 verifies the latter three bodies/states. Content/settings publication49305=0 put featureb7f9cac3 on nexte1f2baaf, with both remote hashes verified. #442/#443 are closed completed; actual19135=0 verifies their acceptance bodies and states. These closures do not qualify the whole candidate.
 
 
-Latest normal publication52508=0: feature7a865e8599d59804aea313086f96a14eb87b5fa6 → nextcd5f292fef7611831cce006cb49c20309b7c6a1c, both remote hashes verified. Current #444 work follows that publication.
+Latest normal publication64386=0: featurebb25cb5882b0fcdd7593cc758fa7a66b5a319fc2 → next9f499134a331dbede361f29550653b8c7988cdbd, both remote hashes verified. This published #444 launcher controls, original interruption, successor seals and fresh-context proof. Completed guest11 evidence follows that publication.
 
 ## Historical replacement06 qualification
 

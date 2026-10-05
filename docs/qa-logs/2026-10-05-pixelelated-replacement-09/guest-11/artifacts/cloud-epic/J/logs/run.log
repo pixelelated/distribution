@@ -1,0 +1,26 @@
+08:03:23 === cloud-epic on guest d, BUILD_ID="cf511ce79b83cba7fea8b14cfa3d04fb13e4b4fb"
+232
+08:03:23 == setup: the QA remote on the guest (the host backend's conf), then the QA cloud holds the fork's earlier layout with files in every folder of ours; the guest points at it
+remote: qa-cloud:
+08:03:25   cloud: ROCKNIX/Backups/2026_09_29-090000-Retroid-Pocket-Nova-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Backups/2026_09_30-120000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Content/BIOS/disksys.rom ROCKNIX/Content/ROMs/nes/Probe.nes ROCKNIX/Saves-replaced/nes/Probe.srm.1 ROCKNIX/Saves/nes/Probe.srm 
+08:03:25   guest conf: SAVES_REMOTE="/ROCKNIX/Saves" SETTINGS_REMOTE="/ROCKNIX/Backups" CONTENT_REMOTE="/ROCKNIX/Content" LAYOUT_KEEP="" 
+label=GENERIC-X64
+08:03:52   picks reset: content=0 saves=1
+08:04:13 == J: the boot step offline (the guest's link cut on the monitor): FINISH CLOUD SETUP / YOU'RE NOT ONLINE ... with CONNECT TO WI-FI and NOT NOW
+08:04:13   guest conf: SAVES_REMOTE="/ROCKNIX/Saves" SETTINGS_REMOTE="/ROCKNIX/Backups" CONTENT_REMOTE="/ROCKNIX/Content" LAYOUT_KEEP="" 
+08:04:13   link off at 08:04:13
+captured /workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/J/frames/01-J-offline.png
+changed after 0.1s (`key z`, line 2)
+settle: still after 1.3s
+captured /workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/J/frames/02-J-after-not-now.png
+08:06:07 PASS walk epic-J1.steps
+08:06:13   link on; ssh back after 1 tries
+2026-10-05 04:04:33	[1465]	INFO	cloud folder step: a folder to settle and no network; asking to connect
+2026-10-05 04:06:06	[1465]	INFO	cloud folder step: NOT NOW; asked again at the next boot
+08:06:13 PASS J: offline, the step asked to connect
+08:06:13 PASS J: and NOT NOW put it off to the next boot
+dismiss-dialogs: 1 press(es) moved the screen, back on the carousel
+08:06:18 PASS walk epic-J2.steps
+08:06:19   guest conf: SAVES_REMOTE="/pixelelated/Saves" SETTINGS_REMOTE="/pixelelated/Backups" CONTENT_REMOTE="/pixelelated/Content" LAYOUT_KEEP="" 
+08:06:19   frames: 2 under /workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/J/frames (numbered walk captures); boot and continuous captures are in their named subdirectories
+08:06:19 done: 4 PASS, 0 FAIL

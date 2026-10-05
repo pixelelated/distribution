@@ -1,0 +1,32 @@
+08:15:27 === cloud-epic on guest d, BUILD_ID="cf511ce79b83cba7fea8b14cfa3d04fb13e4b4fb"
+232
+08:15:27 == setup: the QA remote on the guest (the host backend's conf), then the QA cloud holds the fork's earlier layout with files in every folder of ours; the guest points at it
+remote: qa-cloud:
+08:15:29   cloud: ROCKNIX/Backups/2026_09_29-090000-Retroid-Pocket-Nova-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Backups/2026_09_30-120000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Content/BIOS/disksys.rom ROCKNIX/Content/ROMs/nes/Probe.nes ROCKNIX/Saves-replaced/nes/Probe.srm.1 ROCKNIX/Saves/nes/Probe.srm 
+08:15:29   guest conf: SAVES_REMOTE="/ROCKNIX/Saves" SETTINGS_REMOTE="/ROCKNIX/Backups" CONTENT_REMOTE="/ROCKNIX/Content" LAYOUT_KEEP="" 
+label=GENERIC-X64
+08:15:57   picks reset: content=0 saves=1
+08:16:17 == G: BACK UP TO THE CLOUD opens on the scan page too, then its options
+dismiss-dialogs: 1 press(es) moved the screen, back on the carousel
+changed after 0.0s (`key ret`, line 3)
+settle: still after 1.7s
+changed after 0.1s (`key x`, line 6)
+settle: still after 1.3s
+changed after 0.1s (`key up`, line 9)
+changed after 0.1s (`key up`, line 11)
+changed after 0.1s (`key up`, line 13)
+settle: still after 1.3s
+changed after 0.0s (`key x`, line 16)
+settle: still after 1.3s
+captured /workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/G/frames/01-G-hub.png
+changed after 0.1s (`key x`, line 20)
+captured /workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/G/frames/02-G-scan-0.png
+captured /workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/G/frames/03-G-scan-1.png
+settle: still after 3.4s
+captured /workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/G/frames/04-G-after-scan.png
+08:16:42 PASS walk epic-G.steps
+08:16:42 PASS G: backup page completed its opening scan on the current folder
+dismiss-dialogs: 5 press(es) moved the screen, back on the carousel
+08:16:52 PASS walk epic-G2.steps
+08:16:52   frames: 4 under /workspace/tmp/pixelelated-m7-guest-11/artifacts/cloud-epic/G/frames (numbered walk captures); boot and continuous captures are in their named subdirectories
+08:16:52 done: 3 PASS, 0 FAIL
