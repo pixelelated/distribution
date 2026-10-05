@@ -1,6 +1,31 @@
 # pixelelated 0.0.1 release readiness
 
-## Latest result — ROCKNIX RC2 replay and working Pixman experiment
+## Current work — installed GENERIC_X64 Pixman fallback (#447)
+
+The permanent selector is published as next `d6e8390c93bed87efe2dcc23cd402a271cacd1c7`
+(feature `2feafc12d2fea9ada9730156cb9340b01a3a4e26`). It affects only GENERIC_X64:
+no negotiated virgl selects Pixman, while accelerated guests, explicit renderer
+choices and unknown configurations retain their existing path. Both actual GPU
+profiles pass 22 selector controls each. These 44 checks prove selection, not
+installed-image qualification. #450's fixture repairs are closed with original
+failures retained.
+
+Replacement10 is frozen at that commit; manifest
+`0b24bfcd0d7dad134872b88ed6a2955ddaf9cdf9d55f8a25c17fa5e2de36ad51`.
+At 19:19 UTC the independent cache copy is undergoing checksum comparison;
+actual rsync I/O confirms progress despite its quiet log and watcher inactivity
+warning. The build has not started. The canonical checkpoint names the active
+owner, process receipts and exact next commands.
+
+After cache verification: build/store/verify SYSTEM, then prepared QA14,
+clean software sign-in14, actual RC2-upgraded sign-in15, accelerated sign-in16,
+memory12 with both-profile emulator exit/time-to-play, bilingual software UI14,
+and both 1 GiB workloads. All eight owners are sealed and unstarted. Earlier
+replacement09 passes remain historical evidence; affected graphics acceptance
+must come from the new installed image. #447 stays open until that proof.
+P4 and H700 follow remaining P3 acceptance; no RC/device-ready claim.
+
+## Historical diagnosis — ROCKNIX RC2 replay and working Pixman experiment
 
 The maintainer asked why the last ROCKNIX build had not exposed this fault.
 The actual September29 RC2 image69e6039f8f (SHAe2b662ba) reproduces host-stale
@@ -35,7 +60,7 @@ recorded. Nine actual loopback controls pass; full13 keeps every original
 assertion/reference and changes only the tested observer. No result transfer
 from failed12. Both scoped fixes have retained source/result/cleanup evidence.
 
-**Immediate next action:** #447 remains OPEN. Turn the validated Pixman
+**Historical next action (now implemented; qualification pending above):** #447 remained OPEN. Turn the validated Pixman
 workaround into a narrow, explicit GENERIC_X64 software fallback; preserve
 accelerated guests and handheld renderers. Prove clean/upgrade selection,
 ES/emulator behavior, visual correctness and performance. A product change
@@ -44,7 +69,7 @@ Do not globally override Sway, adopt legacy DRM, relax screenshot criteria,
 or claim current --gl none is fixed without the runtime configuration.
 Then reconcile remaining #362/#356/#365 criteria/account inputs, P4 approved
 primary+Fable5.1/xhigh Facilitator review, H700 arm then aarch64 and named
-physical/P5 gates. No build, guest, runner or watcher remains active.
+physical/P5 gates. At that historical checkpoint no job remained active.
 
 
 Current update: 2026-10-05, #409. Delivery #383; release contract #344;
