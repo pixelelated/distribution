@@ -1,0 +1,52 @@
+{
+  "timing": [
+    {
+      "path": "/workspace/tmp/pixelelated-m7-memory-12/artifacts/rocknix-images/qa-d6e8390c93-webdav-d-20261005-2025/time-to-play/time-to-play.json",
+      "launch_s": 0.57,
+      "exit_sync_s": 1.324,
+      "g2g_s": 1.012,
+      "g2g_stamp": {
+        "raw": ""
+      },
+      "surface": {
+        "surface": "533x480",
+        "source": "RetroArch's GPU screenshot",
+        "panel": "640x480",
+        "scaled": false,
+        "evidence": [
+          "164:[INFO] [Content] Loading content file: \"/storage/roms/gb/TTProbe.gb\".",
+          "240:[INFO] [GL] Detecting screen resolution: 640x480.",
+          "245:[INFO] [GL] Using resolution 240x256.",
+          "16:26:52"
+        ]
+      }
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-memory-12/artifacts/rocknix-images/qa-d6e8390c93-webdav-d-20261005-2029/time-to-play/time-to-play.json",
+      "launch_s": 0.636,
+      "exit_sync_s": 1.673,
+      "g2g_s": 1.011,
+      "g2g_stamp": {
+        "raw": ""
+      },
+      "surface": {
+        "surface": "533x480",
+        "source": "RetroArch's GPU screenshot",
+        "panel": "640x480",
+        "scaled": false,
+        "evidence": [
+          "164:[INFO] [Content] Loading content file: \"/storage/roms/gb/TTProbe.gb\".",
+          "246:[INFO] [GL] Detecting screen resolution: 640x480.",
+          "251:[INFO] [GL] Using resolution 640x480.",
+          "16:30:59"
+        ]
+      }
+    }
+  ],
+  "limitations": [
+    "One timing repeat per profile is a smoke sample, not a performance distribution.",
+    "Both fast g2g samples lack a new sync stamp and do not prove launch during active sync.",
+    "First-frame pictures show emulator startup/auto-state transitions; not a settled widget-layout assessment.",
+    "533x480 GPU viewport fills640x480panel height with aspect sidebars, per existing surface check."
+  ]
+}

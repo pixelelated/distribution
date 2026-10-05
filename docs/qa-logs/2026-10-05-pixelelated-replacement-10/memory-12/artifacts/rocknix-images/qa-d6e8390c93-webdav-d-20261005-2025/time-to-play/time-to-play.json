@@ -1,0 +1,384 @@
+{
+ "build": "d6e8390c93",
+ "backend": "webdav",
+ "port": "10026",
+ "repeat": 1,
+ "payload": "full",
+ "host_state": "vm-qa on serval, guest d",
+ "started": "2026-10-05 20:26 UTC",
+ "rom": "/storage/roms/gb/TTProbe.gb",
+ "rom_seeded": true,
+ "interface_rebooted": true,
+ "settings_before": {
+  "gameexit": "0",
+  "startup": "0"
+ },
+ "cells": {
+  "launch": [
+   {
+    "tag": "r1-launch",
+    "http": "200",
+    "t_left_carousel": 0.014,
+    "t_screen_blank": 0.014,
+    "t_retroarch_seen": 0.465,
+    "t_first_game_frame": 0.57,
+    "frames": [
+     [
+      0.014,
+      0.60107,
+      0.60107
+     ],
+     [
+      0.096,
+      0.60107,
+      0.0
+     ],
+     [
+      0.151,
+      0.60107,
+      0.0
+     ],
+     [
+      0.21,
+      0.60107,
+      0.0
+     ],
+     [
+      0.27,
+      0.60107,
+      0.0
+     ],
+     [
+      0.334,
+      0.60107,
+      0.0
+     ],
+     [
+      0.391,
+      0.60107,
+      0.0
+     ],
+     [
+      0.45,
+      0.60107,
+      0.0
+     ],
+     [
+      0.511,
+      0.60107,
+      0.0
+     ],
+     [
+      0.57,
+      0.928706,
+      0.832799
+     ]
+    ],
+    "png": [
+     "r1-launch-01-left-carousel.png",
+     "r1-launch-02-first-game-frame.png"
+    ],
+    "t_ticks200": 4.479,
+    "payload_kib": "616"
+   }
+  ],
+  "exit": [
+   {
+    "tag": "r1-exit",
+    "stamp_before": "",
+    "relaunch": false,
+    "stamp_after": "1791232021 0 completed",
+    "t_emulator_gone": 0.153,
+    "t_sync_stamp": 1.324,
+    "t_card_gone": null,
+    "t_relaunch_sent": null,
+    "t_question_answered": null,
+    "t_retroarch2_seen": null,
+    "t_second_game_frame": null,
+    "frames": [
+     [
+      0.012,
+      0.928706,
+      1.0
+     ],
+     [
+      0.512,
+      0.168867,
+      0.932367
+     ],
+     [
+      1.012,
+      0.169919,
+      0.169917
+     ],
+     [
+      1.512,
+      0.169908,
+      0.012321
+     ],
+     [
+      2.012,
+      0.169908,
+      0.0
+     ],
+     [
+      2.512,
+      0.169908,
+      0.0
+     ],
+     [
+      3.012,
+      0.019515,
+      0.181535
+     ],
+     [
+      3.513,
+      0.000423,
+      0.019091
+     ],
+     [
+      4.013,
+      0.000423,
+      0.0
+     ],
+     [
+      4.513,
+      0.000423,
+      0.0
+     ],
+     [
+      5.013,
+      0.000423,
+      0.0
+     ],
+     [
+      5.513,
+      0.000423,
+      0.0
+     ],
+     [
+      6.013,
+      0.000423,
+      0.0
+     ],
+     [
+      6.513,
+      0.000423,
+      0.0
+     ],
+     [
+      7.014,
+      0.000423,
+      0.0
+     ],
+     [
+      7.514,
+      0.000423,
+      0.0
+     ],
+     [
+      8.014,
+      0.000423,
+      0.0
+     ],
+     [
+      8.514,
+      0.000423,
+      0.0
+     ],
+     [
+      9.014,
+      0.000423,
+      0.0
+     ],
+     [
+      9.514,
+      0.000423,
+      0.0
+     ],
+     [
+      10.015,
+      0.000423,
+      0.0
+     ],
+     [
+      10.515,
+      0.000423,
+      0.0
+     ],
+     [
+      11.015,
+      0.000423,
+      0.0
+     ],
+     [
+      11.515,
+      0.000423,
+      0.0
+     ],
+     [
+      12.015,
+      0.000423,
+      0.0
+     ],
+     [
+      12.515,
+      0.000423,
+      0.0
+     ],
+     [
+      13.015,
+      0.000423,
+      0.0
+     ],
+     [
+      13.515,
+      0.000423,
+      0.0
+     ],
+     [
+      14.015,
+      0.000423,
+      0.0
+     ],
+     [
+      14.515,
+      0.000423,
+      0.0
+     ],
+     [
+      15.015,
+      0.000423,
+      0.0
+     ],
+     [
+      15.516,
+      0.000423,
+      0.0
+     ],
+     [
+      16.016,
+      0.000423,
+      0.0
+     ],
+     [
+      16.516,
+      0.000423,
+      0.0
+     ]
+    ],
+    "png": [
+     "r1-exit-000.png",
+     "r1-exit-001.png",
+     "r1-exit-002.png",
+     "r1-exit-003.png",
+     "r1-exit-004.png",
+     "r1-exit-005.png",
+     "r1-exit-006.png",
+     "r1-exit-007.png",
+     "r1-exit-008.png",
+     "r1-exit-009.png",
+     "r1-exit-010.png",
+     "r1-exit-011.png",
+     "r1-exit-012.png",
+     "r1-exit-013.png",
+     "r1-exit-014.png",
+     "r1-exit-015.png",
+     "r1-exit-016.png",
+     "r1-exit-017.png",
+     "r1-exit-018.png",
+     "r1-exit-019.png",
+     "r1-exit-020.png",
+     "r1-exit-021.png",
+     "r1-exit-022.png",
+     "r1-exit-023.png",
+     "r1-exit-024.png",
+     "r1-exit-025.png",
+     "r1-exit-026.png",
+     "r1-exit-027.png",
+     "r1-exit-028.png",
+     "r1-exit-029.png",
+     "r1-exit-030.png",
+     "r1-exit-031.png",
+     "r1-exit-032.png",
+     "r1-exit-033.png"
+    ],
+    "stamp": {
+     "raw": "1791232021 0 completed",
+     "epoch": "1791232021",
+     "rc": "0",
+     "token": "completed",
+     "why": ""
+    },
+    "epoch0": "1791232020",
+    "t_sync_stamp_clock": 1,
+    "payload_kib": "616",
+    "log": "2026/10/05 16:27:01 INFO  : savestates/nes/Probe.state1: Copied (new)\n2026/10/05 16:27:01 INFO  : savestates/nes/Probe.state2.png: Copied (new)\n2026/10/05 16:27:01 INFO  : savestates/nes/Probe.state2: Copied (new)\n2026/10/05 16:27:01 INFO  : savestates/gb/ExitProbe.state.auto.png: Copied (new)\n2026/10/05 16:27:01 INFO  : savestates/gb/ExitProbe.state.auto: Copied (new)\n2026/10/05 16:27:01 INFO  : savestates/gb/Ninoid.state.auto.png: Copied (new)\n2026/10/05 16:27:01 INFO  : savestates/gb/Ninoid.state.auto: Copied (new)\n2026/10/05 16:27:01 INFO  : savestates/gb/TTProbe.state.auto.png: Copied (new)\n2026/10/05 16:27:01 INFO  : savestates/gb/TTProbe.state.auto: Copied (new)\n2026/10/05 16:27:01 INFO  : \nTransferred:   \t  646.188 KiB / 646.188 KiB, 100%, 0 B/s, ETA -\nChecks:                 0 / 0, -, Listed 144\nTransferred:           14 / 14, 100%\nElapsed time:         0.4s\n\n[2026-10-05 16:27:01] [INFO] [cloud_backup] Backing up your saves: completed.\n[2026-10-05 16:27:01] [INFO] [cloud_backup] Skipped settings this time - saves only.\n[2026-10-05 16:27:01] [INFO] [cloud_backup] ====================================\n[2026-10-05 16:27:01] [INFO] [cloud_backup] BACKUP SUMMARY:\n[2026-10-05 16:27:01] [INFO] [cloud_backup] Game saves: COMPLETED\n[2026-10-05 16:27:01] [INFO] [cloud_backup] Settings backup: SKIPPED - SAVES ONLY\n[2026-10-05 16:27:01] [INFO] [cloud_backup] Completed.\n[2026-10-05 16:27:01] [INFO] [cloud_backup] Log file: /var/log/cloud_sync.log\n[2026-10-05 16:27:01] [INFO] [cloud_backup] ====================================\n[2026-10-05 16:27:01] [INFO] [cloud_backup] Script completed in 1 seconds with exit code 0"
+   }
+  ],
+  "g2g": [
+   {
+    "tag": "g1-exit",
+    "stamp_before": "1791232021 0 completed",
+    "relaunch": true,
+    "http2": "200",
+    "t_emulator_gone": 0.155,
+    "t_sync_stamp": null,
+    "t_card_gone": null,
+    "t_relaunch_sent": 0.161,
+    "t_question_answered": 1.33,
+    "t_retroarch2_seen": 0.828,
+    "t_second_game_frame": 1.012,
+    "frames": [
+     [
+      0.012,
+      0.928706,
+      1.0
+     ],
+     [
+      0.512,
+      0.601036,
+      0.832799
+     ],
+     [
+      1.012,
+      0.933377,
+      0.837486
+     ]
+    ],
+    "png": [
+     "g1-exit-000.png",
+     "g1-exit-001.png",
+     "g1-exit-002.png",
+     "g1-exit-game2.png"
+    ],
+    "stamp": {
+     "raw": ""
+    },
+    "epoch0": "1791232050",
+    "t_sync_stamp_clock": null,
+    "payload_kib": "616",
+    "log": "2026/10/05 16:27:01 INFO  : savestates/nes/Probe.state2.png: Copied (new)\n2026/10/05 16:27:01 INFO  : savestates/nes/Probe.state2: Copied (new)\n2026/10/05 16:27:01 INFO  : savestates/gb/ExitProbe.state.auto.png: Copied (new)\n2026/10/05 16:27:01 INFO  : savestates/gb/ExitProbe.state.auto: Copied (new)\n2026/10/05 16:27:01 INFO  : savestates/gb/Ninoid.state.auto.png: Copied (new)\n2026/10/05 16:27:01 INFO  : savestates/gb/Ninoid.state.auto: Copied (new)\n2026/10/05 16:27:01 INFO  : savestates/gb/TTProbe.state.auto.png: Copied (new)\n2026/10/05 16:27:01 INFO  : savestates/gb/TTProbe.state.auto: Copied (new)\n2026/10/05 16:27:01 INFO  : \nTransferred:   \t  646.188 KiB / 646.188 KiB, 100%, 0 B/s, ETA -\nChecks:                 0 / 0, -, Listed 144\nTransferred:           14 / 14, 100%\nElapsed time:         0.4s\n\n[2026-10-05 16:27:01] [INFO] [cloud_backup] Backing up your saves: completed.\n[2026-10-05 16:27:01] [INFO] [cloud_backup] Skipped settings this time - saves only.\n[2026-10-05 16:27:01] [INFO] [cloud_backup] ====================================\n[2026-10-05 16:27:01] [INFO] [cloud_backup] BACKUP SUMMARY:\n[2026-10-05 16:27:01] [INFO] [cloud_backup] Game saves: COMPLETED\n[2026-10-05 16:27:01] [INFO] [cloud_backup] Settings backup: SKIPPED - SAVES ONLY\n[2026-10-05 16:27:01] [INFO] [cloud_backup] Completed.\n[2026-10-05 16:27:01] [INFO] [cloud_backup] Log file: /var/log/cloud_sync.log\n[2026-10-05 16:27:01] [INFO] [cloud_backup] ====================================\n[2026-10-05 16:27:01] [INFO] [cloud_backup] Script completed in 1 seconds with exit code 0\n[2026-10-05 16:27:30] [INFO] [cloud_capture] recorded 1 new, 0 moved, 0 metadata, 0 retired for gb:TTProbe (core gambatte, build d9d6cd06382d1ced30de34d56d3609452323dab1, exit 0, 130 ms)"
+   }
+  ]
+ },
+ "ssh_rtt_median_s": 0.0049,
+ "frame_poll_median_s": 0.0599,
+ "remotes": "SAVES_REMOTE=\"/pixelelated/Saves\"\nSETTINGS_REMOTE=\"/pixelelated/Backups\"\nCONTENT_REMOTE=\"/pixelelated/Content\"",
+ "remote_reachable": "yes",
+ "surface": {
+  "surface": "533x480",
+  "source": "RetroArch's GPU screenshot",
+  "panel": "640x480",
+  "scaled": false,
+  "evidence": [
+   "164:[INFO] [Content] Loading content file: \"/storage/roms/gb/TTProbe.gb\".",
+   "240:[INFO] [GL] Detecting screen resolution: 640x480.",
+   "245:[INFO] [GL] Using resolution 240x256.",
+   "16:26:52"
+  ]
+ },
+ "finished": "2026-10-05 20:27 UTC",
+ "headline_missing": [],
+ "over_budget": []
+}

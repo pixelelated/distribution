@@ -34,8 +34,10 @@ Allnine finishing comparisons per profile match unchanged pixels without
 runtime overrides or forced repaint. Actual terminal and cleanup receipts
 are retained under replacement10. Authenticated trust remains separate.
 
-Memory12 now runs original10/10/50launches plus both-profile exit/time-to-play.
-Then bilingualsoftwareUI14 and both1GiBworkloads. #447 stays open until affected
+Memory12 passes original10/10/50measured launches, all55sync stamps and both-
+profile exit/time-to-play. Growth0/224,-448/684,0/444KiB stays below unchanged
+1024/2048KiB limits. Actual owner/guest/backend cleanup verified. UI14 now runs
+bilingual software menus/lifecycles, then both1GiBworkloads. #447 stays open until affected
 qualification completes. Earlier replacement09 evidence remains historical.
 P4 and H700 follow remaining P3 acceptance; no RC/device-ready claim.
 
