@@ -1,0 +1,35 @@
+[
+  {
+    "case": "same-process",
+    "expected_acceptance": true,
+    "actual_acceptance": true,
+    "result": {
+      "passed": true,
+      "same_pid_and_start_ticks": true,
+      "journal_rc": 0,
+      "walk_exception": null
+    }
+  },
+  {
+    "case": "actual-crash-empty",
+    "expected_acceptance": false,
+    "actual_acceptance": false,
+    "result": {
+      "passed": false,
+      "same_pid_and_start_ticks": false,
+      "journal_rc": 0,
+      "walk_exception": null
+    }
+  },
+  {
+    "case": "actual-restart",
+    "expected_acceptance": false,
+    "actual_acceptance": false,
+    "result": {
+      "passed": false,
+      "same_pid_and_start_ticks": false,
+      "journal_rc": 0,
+      "walk_exception": null
+    }
+  }
+]

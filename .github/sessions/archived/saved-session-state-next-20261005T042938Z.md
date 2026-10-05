@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Saved 2026-10-05T04:29:38.559422+00:00. Previous checkpoint archived at `.github/sessions/archived/saved-session-state-next-20261005T042938Z.md`.
+> Saved 2026-10-05T04:14:58.664819+00:00. Previous checkpoint archived at `.github/sessions/archived/saved-session-state-next-20261005T041458Z.md`.
 > Branch feature/conflict-resolution; primary /workspace/repos/rocknix stays next.
 
 ## Start here
@@ -30,91 +30,9 @@ and precise harness-manifest wording findings are corrected.
 A helper installation is COMPLETE; do not ask to reinstall it.
 
 
-## Current focus: replacement08 independent cache copy is ACTIVE
+## Current focus: repair confirmed System Settings crash, then replacement08
 
-Publication complete: feature4502f091c23cb743bb561850747875dd85a416d6 →
-next72121fd03a558725328ea58c092faf1b3324317f, actual67494=0; normal hooks and
-both remote hashes read back04:21:32. /tmp/pixelelated-replacement08-published.json.
-ESf6f0c134212bc696f2f6a747c8d390a588f2f0ce also published/read back. Do not repeat
-these integrations. The existing P4 cadence warning is not waived.
-
-Freeze36519=0; tree /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement08,
-branch build/m7-pixelelated-replacement08, owner /workspace/tmp/pixelelated-m7-replacement-08.
-Source72121fd03a, input7578b0d91f2f043b492d998c2f8bd4a73467a1524ae692366469153e2eb5c17b;
-6547product/180links/200QA. Only ES packagepin and tools/vm-qa change vs07.
-ES global GPU save guard returns when no selection exists; no saved preference
-write/apply, unchanged supported selection behavior. Six source controls pass;
-oldempty fails1 with observed exception, syntax66802=0, combined default
-lifetime/ASan+GPU controls0. No installed-fix claim. #436 remains open.
-
-LIVE copy actual55433, started04:22:29. Standard watcher from actual frozen08
-cwd,5s/5min, recursive copy-artifacts; run .build-runs/20261005T042229Z-894c0b1b.
-Actual04:24:58 runner2413938/watcher2413940/command2413969 live.104117247205bytes
-transferred by04:27; checksum comparison now running, then independent inode
-check. Quiet checksum log is not proof of a stall: inspect actual rsync worker
-I/O reads if needed. No compiler/container or QA guest is running yet.
-All build/QA input owners are immutable once executed; do not edit frozen source.
-
-18 NEW sealed/unstarted QA owners are listed in owner/qa-owners.json and retained
-under docs/qa-logs/2026-10-05-pixelelated-replacement-08/prepared-owners/.
-QA10 preserves Back/Back Settings save, adds ES PID/start-tick continuity and
-failure journal. UI09 adds same guard to its EN/FR640/1280 walks. Controls accept
-old PID identity and reject actual missing/restarted diagnostic03 identities.
-First mock control mistakenly supplied a newline instead of zero stdout; its
-parser failure is recorded, corrected controls pass. All18source seals/new
-bindings verified, no guest started. Neither controls nor preparation qualify08.
-
-Fresh-context resume proof verified07 all6547/200/180 inputs, all15bundlefiles,
-33absent PIDs, scoped new fix and prepared freeze08. Its stale sibling/two old
-owner references were corrected before publication. Report in
-replacement07/resume-proof-gpu436.md. #435 closed with published successful
-guarded build68993/allrc0, actual cleanup and preserved failed7435/rc2.
-
-## Immediate commands and dependencies
-
-1. Poll ACTUAL55433. After actual return, host-escalated
-   python3 /tmp/pixelelated-finish-copy08.py ACTUAL_RC records four channels and
-   absent owner PIDs from copy.run. It requires cache equality on0. Never infer
-   tool success from inner stamp. This recorder is PREPARED/NOT RUN.
-2. Once copy succeeds and host is idle: tools/build-preflight --reclaim-swap
-   from frozen08, retain owner/prelaunch-host.txt; then build.sh's own preflight
-   is read-only. Installed helper is ready; no reinstall. Revalidate owner seal.
-3. Launch from frozen08 cwd, not owner:
-   tools/watch-build --docker --interval 5 --stall-min 5 -- OWNER/outer.sh
-   Capture actual result in OWNER/tool-wrapper.rc, supervise live container and
-   record pinned image/nonroot1000:1000/canonical mounts in container-actual.json.
-   On completion /tmp/pixelelated-finish-owner.py OWNER SESSION ACTUAL_RC;
-   separately verify observed container exited, write container-exited.json.
-   build.sh has pre-mutation cwd guard; cleans only ES and image stamp.
-4. Prepared /tmp/pixelelated-store08.py has NOT RUN: after successful build and
-   container exit, stores/verifies exact image/tar with manifest and completion
-   receipts. It writes bundle.path/accepted-build.json. No08artifact exists yet.
-5. QA10 first: /workspace/tmp/pixelelated-m7-qa-10/outer.sh BUNDLE via watch-build
-   --interval5 --stall-min5 --recursive-activity --activity-dir OWNER/artifacts,
-   always frozen08 cwd; record actual wrapper rc and completion. Review actual
-   clean/upgraded frames and lifecycle receipts, all15defaults/actualRC2upgrade.
-   Then boot-qualification02 requires that actual success/upgraded disk; four
-   first-clean/actualupgrade640/1280 observations, unchanged.995/rejection checks.
-6. Remaining order (all /workspace/tmp/pixelelated-m7-): image09 → sweep06 →
-   settings08 → link08 → guest08 → runtime09 → proxy07 → optins07 → memory07 →
-   UI09 → predecessor05 → subset04 → cloud-ui03 → signin-ui03 → signin-1g03.
-   Inventory06 may run from feature once build succeeds. Predecessor05 gates
-   accepted boot02 AND UI09/visual-review.json passed, created only after actual
-   frame review. Serialize fixed-port VM jobs. Original07 prepared owners are
-   historical and MUST NOT run against08 or changed ES sibling.
-7. Ordinary RA fixture → approved P4 primary+Fable5.1/xhigh via Facilitator →
-   H700 DDR4/RG35XXSP arm thenaarch64. #409 remains open throughP4. No RC call.
-
-Already executed: /tmp/pixelelated-freeze08.py, /tmp/pixelelated-prepare08-owners.py,
-/tmp/pixelelated-retain08-preparation.py. Do not rerun them. New preparation and
-dependent launch must be separate calls or fail-closed; do not fall through an
-unsuccessful preparatory command. Freeze/build sources retained in replacement08/.
-Current local docs add08preparation/checkpoint/worklog; product bytes already
-published. Integrate further docs by exact commit/cherry-pick, never whole branch.
-
-## Historical replacement07 build and crash diagnosis
-
-At diagnostic03 completion no build, watcher or QA VM was running. Replacement07 BUILT but is NOT qualified.
+No build, watcher or QA VM is running. Replacement07 BUILT but is NOT qualified.
 Source a2586374b7b565965fe0c644656e22ff3c0ec317 / ES c75aa3fac967ba532fd9ba1c21fa10ca024e8bc1.
 Frozen tree /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement07,
 branch build/m7-pixelelated-replacement07; owner /workspace/tmp/pixelelated-m7-replacement-07.
@@ -154,6 +72,55 @@ unchanged. Diagnostic success is not candidate acceptance.
 Owners /workspace/tmp/pixelelated-m7-identity-diagnostic-01/02/03.
 Retained build/inventory/failures/diagnostics in
 docs/qa-logs/2026-10-05-pixelelated-replacement-07/; all retainers ALREADY RAN.
+
+## #436 repair and publication state
+
+Source cause: global GPU governor save calls getSelected even when runtime
+enumeration returns no entries; OptionList selects.at(0) throws. CPU has a
+fallback; per-game GPU changed() already returns false for no selection.
+Fix only global callback with hasSelection return; no preference write or
+unsupported apply when absent, same supported behavior/rows/labels.
+ES feature worktree /tmp/pixelelated-es-gpu-governor,
+feature/m7-gpu-governor-capability, commitf6f0c134212bc696f2f6a747c8d390a588f2f0ce.
+Integrated by fast-forward into test/qa-integration and normal push/tool39201=0;
+remote full hash read back. ES canonical sibling path now has this NEW commit.
+Old frozen07 owners expecting c75 must NOT be rerun with that changed sibling.
+Six actual callback/selection-method controls pass, oldc75 controlfails1 with
+the observed empty-vector exception. Pinned container syntax/tool66802=0.
+Actual combined default lifetime function runs ASan page tests then GPU tests0.
+Controls retained in replacement07/gpu-governor-controls.
+
+Feature distribution HEAD before pending commit70e76d17f61a7a85d2da893d0abf1db12fefc67e;
+primary nexta2586374b7b565965fe0c644656e22ff3c0ec317. Both published earlier.
+LOCAL dirty: ES pinf6f0, tools/vm-qa default lifetime regression, completed07
+evidence, work/friction/readiness/checkpoint. No frozen product edited.
+Next: normal gates → exact feature commit → cherry-pick -x fullcommit onto
+clean next → normal pushes/readback. No whole historical feature merge.
+
+## Next execution in order
+
+1. Publish this source/evidence/checkpoint after fresh-context resume proof.
+2. Prepared /tmp/pixelelated-freeze08.py is NOT EXECUTED; review/run only after
+   actual publication receipt /tmp/pixelelated-replacement08-published.json
+   has the full next hash. It creates NEW replacement08 from published next. Change versus
+   a258 product is only ES packagepin; QA change tools/vm-qa. Inherit proxy7252fc,
+   splash8c71126/font2.007, container988c0b…, host24/4. Copy independent07cache
+   with checksums/inode proof, then guarded idle preflight, rebuild ES/image.
+   /tmp/pixelelated-freeze07.py and all07 preparers already ran: reference only.
+   New preparation must assert watcher cwd before mutations (#435) and separate
+   validated preparation from launch. Do not modify frozen07 or executed owners.
+3. New QA10 from QA09 must bind new manifest/commit/ES. KEEP actual Back/Back
+   save transition, add frontend PID/start-time continuity plus journal capture
+   even on failure; no close-all bypass. Clean and actual RC2 upgrade checks.
+4. Four clean/actual-upgraded boot checks640/1280 with unchanged.995 matcher and
+   negative controls (#433), including retained RC2 boot config withoutquiet.
+   All07 remaining prepared owners are now HISTORICAL/UNSTARTED: create new
+  08-bound owners, not passes or runtime overrides. Current07 dependency is
+   failedQA09. Ordered scopes: image → sweep → settings → link → guest → runtime
+   → proxy → optins → memory → UI → predecessor → subset → cloudUI → signinUI
+   → signin1GiB. Predecessor needs accepted boot + semantic UI review receipt.
+5. Ordinary RA fixture → P4 primary+Fable5.1/xhigh through approved Facilitator
+   → H700 DDR4/RG35XXSP arm thenaarch64. #409 remains open throughP4. No RC call.
 
 ## Inherited source repairs that replacement08 must retain
 
