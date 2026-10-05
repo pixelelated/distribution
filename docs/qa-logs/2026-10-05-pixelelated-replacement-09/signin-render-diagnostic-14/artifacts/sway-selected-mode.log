@@ -1,0 +1,152 @@
+00:00:00.000 [INFO] [sway/main.c:321] Sway version 1.11
+00:00:00.000 [INFO] [sway/main.c:322] wlroots version 0.19.3
+00:00:00.002 [INFO] [sway/main.c:78] Linux GENERIC-X64-474c 7.1.2 #1 SMP PREEMPT Mon Oct  5 03:38:50 UTC 2026 x86_64 GNU/Linux
+00:00:00.002 [INFO] [sway/main.c:94] Contents of /etc/os-release:
+00:00:00.002 [INFO] [sway/main.c:78] OS_NAME="pixelelated"
+00:00:00.002 [INFO] [sway/main.c:78] OS_VERSION="0.0.1"
+00:00:00.002 [INFO] [sway/main.c:78] OS_BUILD="community"
+00:00:00.002 [INFO] [sway/main.c:78] GIT_ORGANIZATION="pixelelated"
+00:00:00.002 [INFO] [sway/main.c:78] GIT_REPO="distribution"
+00:00:00.002 [INFO] [sway/main.c:78] HOME_URL="https://pixelelated.com"
+00:00:00.002 [INFO] [sway/main.c:78] BUILD_ID="cf511ce79b83cba7fea8b14cfa3d04fb13e4b4fb"
+00:00:00.002 [INFO] [sway/main.c:78] BUILD_BRANCH="build/m7-pixelelated-replacement09"
+00:00:00.002 [INFO] [sway/main.c:78] BUILD_DATE="Mon Oct  5 05:47:47 UTC 2026"
+00:00:00.002 [INFO] [sway/main.c:78] HW_DEVICE="GENERIC_X64"
+00:00:00.002 [INFO] [sway/main.c:78] HW_ARCH="x86_64"
+00:00:00.002 [INFO] [sway/main.c:78] HW_CPU="Generic x86_64"
+00:00:00.002 [INFO] [sway/main.c:78] DISTRO_DEVICE="GENERIC_X64"
+00:00:00.002 [INFO] [sway/main.c:78] BUILDER_NAME="pixelelated-build"
+00:00:00.002 [INFO] [sway/main.c:78] BUILDER_VERSION="sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39"
+00:00:00.002 [INFO] [sway/main.c:66] LD_LIBRARY_PATH=
+00:00:00.002 [INFO] [sway/main.c:66] LD_PRELOAD=
+00:00:00.002 [INFO] [sway/main.c:66] PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin
+00:00:00.002 [INFO] [sway/main.c:66] SWAYSOCK=
+00:00:00.002 [INFO] [sway/main.c:351] Starting sway version 1.11
+00:00:00.002 [DEBUG] [sway/server.c:236] Initializing Wayland server
+00:00:00.002 [INFO] [wlr] [backend/backend.c:342] Loading user-specified backends due to WLR_BACKENDS: drm,libinput
+00:00:00.002 [INFO] [wlr] [libseat] [libseat/libseat.c:73] Seat opened with backend 'seatd'
+00:00:00.002 [INFO] [wlr] [libseat] [libseat/backend/seatd.c:212] Enabling seat
+00:00:00.002 [INFO] [wlr] [backend/session/session.c:117] Successfully loaded libseat session
+00:00:00.002 [INFO] [wlr] [backend/session/session.c:480] Opening fixed list of KMS devices from WLR_DRM_DEVICES: /dev/dri/card0
+00:00:00.003 [INFO] [wlr] [backend/backend.c:248] Found 1 GPUs
+00:00:00.003 [INFO] [wlr] [backend/drm/backend.c:225] Initializing DRM backend for /dev/dri/card0 (virtio_gpu)
+00:00:00.003 [DEBUG] [wlr] [backend/drm/drm.c:110] Using atomic DRM interface
+00:00:00.003 [INFO] [wlr] [backend/drm/drm.c:115] DRM_CLIENT_CAP_CURSOR_PLANE_HOTSPOT supported
+00:00:00.003 [DEBUG] [wlr] [backend/drm/drm.c:131] ADDFB2 modifiers unsupported
+00:00:00.003 [INFO] [wlr] [backend/drm/drm.c:310] Found 1 DRM CRTCs
+00:00:00.003 [INFO] [wlr] [backend/drm/drm.c:268] Found 2 DRM planes
+00:00:00.003 [INFO] [wlr] [util/env.c:25] Loading WLR_RENDERER option: pixman
+00:00:00.003 [INFO] [wlr] [render/pixman/renderer.c:328] Creating pixman renderer
+00:00:00.003 [DEBUG] [wlr] [render/allocator/allocator.c:142] Trying to create drm dumb allocator
+00:00:00.003 [DEBUG] [wlr] [render/allocator/drm_dumb.c:230] Created DRM dumb allocator
+00:00:00.003 [DEBUG] [wlr] [types/wlr_drm_lease_v1.c:599] Creating wlr_drm_lease_device_v1 for /dev/dri/card0
+00:00:00.003 [INFO] [wlr] [backend/headless/backend.c:60] Creating headless backend
+00:00:00.003 [INFO] [wlr] [util/env.c:9] Loading WLR_NO_HARDWARE_CURSORS option: 1
+00:00:00.003 [DEBUG] [wlr] [types/output/output.c:366] WLR_NO_HARDWARE_CURSORS set, forcing software cursors
+00:00:00.004 [INFO] [sway/config.c:422] Loading config from /storage/.config/sway/config
+00:00:00.004 [DEBUG] [sway/config.c:781] Read line 1: seat * hide_cursor 1000
+00:00:00.004 [INFO] [sway/commands.c:381] Config command: seat * hide_cursor 1000
+00:00:00.004 [INFO] [sway/commands.c:404] After replacement: seat * hide_cursor 1000
+00:00:00.004 [DEBUG] [sway/commands.c:436] Subcommand: hide_cursor 1000
+00:00:00.004 [DEBUG] [sway/config/seat.c:78] Adding seat * config
+00:00:00.004 [DEBUG] [sway/config/seat.c:82] Config stored for seat *
+00:00:00.004 [DEBUG] [sway/config.c:781] Read line 2: default_border none
+00:00:00.004 [INFO] [sway/commands.c:381] Config command: default_border none
+00:00:00.004 [INFO] [sway/commands.c:404] After replacement: default_border none
+00:00:00.004 [DEBUG] [sway/config.c:781] Read line 3: exec_always mako
+00:00:00.004 [INFO] [sway/commands.c:381] Config command: exec_always mako
+00:00:00.004 [INFO] [sway/commands.c:404] After replacement: exec_always mako
+00:00:00.004 [DEBUG] [sway/config.c:825] Deferring command `exec_always mako'
+00:00:00.004 [DEBUG] [sway/config.c:781] Read line 4: output Virtual-1 transform 0
+00:00:00.004 [INFO] [sway/commands.c:381] Config command: output Virtual-1 transform 0
+00:00:00.004 [INFO] [sway/commands.c:404] After replacement: output Virtual-1 transform 0
+00:00:00.004 [DEBUG] [sway/commands.c:436] Subcommand: transform 0
+00:00:00.004 [DEBUG] [sway/config/output.c:272] Config stored for output Virtual-1 (enabled: -1) (-1x-1@-1.000000Hz position 2147483647,2147483647 scale -1.000000 subpixel unknown transform 0) (bg (null) (null)) (power -1) (max render time: -1) (allow tearing: -1)
+00:00:00.004 [DEBUG] [sway/config.c:781] Read line 5: output Virtual-1 bg #000000 solid_color
+00:00:00.004 [INFO] [sway/commands.c:381] Config command: output Virtual-1 bg #000000 solid_color
+00:00:00.004 [INFO] [sway/commands.c:404] After replacement: output Virtual-1 bg #000000 solid_color
+00:00:00.004 [DEBUG] [sway/commands.c:436] Subcommand: bg #000000 solid_color
+00:00:00.004 [DEBUG] [sway/config/output.c:272] Config stored for output Virtual-1 (enabled: -1) (-1x-1@-1.000000Hz position 2147483647,2147483647 scale -1.000000 subpixel unknown transform -1) (bg #000000 solid_color) (power -1) (max render time: -1) (allow tearing: -1)
+00:00:00.004 [DEBUG] [sway/config.c:781] Read line 6: output Virtual-1 allow_tearing yes
+00:00:00.004 [INFO] [sway/commands.c:381] Config command: output Virtual-1 allow_tearing yes
+00:00:00.004 [INFO] [sway/commands.c:404] After replacement: output Virtual-1 allow_tearing yes
+00:00:00.004 [DEBUG] [sway/commands.c:436] Subcommand: allow_tearing yes
+00:00:00.004 [DEBUG] [sway/config/output.c:272] Config stored for output Virtual-1 (enabled: -1) (-1x-1@-1.000000Hz position 2147483647,2147483647 scale -1.000000 subpixel unknown transform -1) (bg (null) (null)) (power -1) (max render time: -1) (allow tearing: 1)
+00:00:00.004 [DEBUG] [sway/config.c:781] Read line 7: output Virtual-1 max_render_time off
+00:00:00.004 [INFO] [sway/commands.c:381] Config command: output Virtual-1 max_render_time off
+00:00:00.004 [INFO] [sway/commands.c:404] After replacement: output Virtual-1 max_render_time off
+00:00:00.004 [DEBUG] [sway/commands.c:436] Subcommand: max_render_time off
+00:00:00.004 [DEBUG] [sway/config/output.c:272] Config stored for output Virtual-1 (enabled: -1) (-1x-1@-1.000000Hz position 2147483647,2147483647 scale -1.000000 subpixel unknown transform -1) (bg (null) (null)) (power -1) (max render time: 0) (allow tearing: -1)
+00:00:00.004 [DEBUG] [sway/config.c:781] Read line 8: workspace 1 output DP-1 Virtual-1
+00:00:00.004 [INFO] [sway/commands.c:381] Config command: workspace 1 output DP-1 Virtual-1
+00:00:00.004 [INFO] [sway/commands.c:404] After replacement: workspace 1 output DP-1 Virtual-1
+00:00:00.004 [DEBUG] [sway/config.c:781] Read line 9: for_window [app_id="emulationstation"] move output DP-1
+00:00:00.004 [INFO] [sway/commands.c:381] Config command: for_window [app_id="emulationstation"] move output DP-1
+00:00:00.004 [INFO] [sway/commands.c:404] After replacement: for_window [app_id="emulationstation"] move output DP-1
+00:00:00.004 [DEBUG] [sway/criteria.c:809] Found pair: app_id=emulationstation
+00:00:00.004 [DEBUG] [sway/commands/for_window.c:34] for_window: '[app_id="emulationstation"]' -> 'move output DP-1' added
+00:00:00.008 [DEBUG] [sway/input/input-manager.c:190] no fallback seat config - creating default
+00:00:00.008 [DEBUG] [sway/config/seat.c:65] Adding non-wildcard seat config
+00:00:00.008 [DEBUG] [sway/config/seat.c:68] Merging on top of seat * config
+00:00:00.008 [DEBUG] [sway/config/seat.c:82] Config stored for seat seat0
+00:00:00.008 [DEBUG] [sway/input/input-manager.c:637] applying seat config for seat seat0
+00:00:00.008 [DEBUG] [sway/input/input-manager.c:637] applying seat config for seat *
+00:00:00.008 [DEBUG] [sway/input/input-manager.c:637] applying seat config for seat seat0
+00:00:00.008 [DEBUG] [sway/config/output.c:1150] spawn_swaybg cmd[0] = swaybg
+00:00:00.008 [DEBUG] [sway/config/output.c:1150] spawn_swaybg cmd[1] = -o
+00:00:00.008 [DEBUG] [sway/config/output.c:1150] spawn_swaybg cmd[2] = Virtual-1
+00:00:00.008 [DEBUG] [sway/config/output.c:1150] spawn_swaybg cmd[3] = -c
+00:00:00.008 [DEBUG] [sway/config/output.c:1150] spawn_swaybg cmd[4] = #000000
+00:00:00.008 [DEBUG] [sway/server.c:511] Initializing Xwayland (lazy=1)
+00:00:00.008 [INFO] [sway/server.c:538] Starting backend on wayland display 'wayland-1'
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1741] Scanning DRM connectors on /dev/dri/card0
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1796] Found connector 'Virtual-1'
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1821] 'Virtual-1' connected
+00:00:00.008 [DEBUG] [wlr] [backend/drm/drm.c:1596] Current CRTC: 39
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1610] Detected modes:
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1634]   640x480 @ 74.998 Hz (preferred)
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1634]   5120x2160 @ 50.000 Hz 
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1634]   4096x2160 @ 50.000 Hz 
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1634]   3840x2160 @ 60.000 Hz 
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1634]   3840x2160 @ 59.940 Hz 
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1634]   3840x2160 @ 50.000 Hz 
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1634]   1920x1440 @ 60.000 Hz 
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1634]   2560x1080 @ 50.000 Hz 
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1634]   1856x1392 @ 59.995 Hz 
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1634]   1792x1344 @ 60.000 Hz 
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1634]   2048x1152 @ 60.000 Hz 
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1634]   1920x1200 @ 59.885 Hz 
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1634]   1920x1080 @ 60.000 Hz 
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1634]   1920x1080 @ 50.000 Hz 
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1634]   1600x1200 @ 60.000 Hz 
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1634]   1680x1050 @ 59.954 Hz 
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1634]   1400x1050 @ 59.978 Hz 
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1634]   1280x1024 @ 60.020 Hz 
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1634]   1440x900 @ 59.887 Hz 
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1634]   1280x960 @ 60.000 Hz 
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1634]   1360x768 @ 60.015 Hz 
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1634]   1280x768 @ 59.870 Hz 
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1634]   1024x768 @ 60.004 Hz 
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1634]   800x600 @ 60.317 Hz 
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1634]   640x480 @ 60.000 Hz 
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1634]   640x480 @ 59.940 Hz 
+00:00:00.008 [INFO] [wlr] [util/env.c:9] Loading WLR_NO_HARDWARE_CURSORS option: 1
+00:00:00.008 [DEBUG] [wlr] [types/output/output.c:366] WLR_NO_HARDWARE_CURSORS set, forcing software cursors
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1671] Physical size: 160x120
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1855] connector Virtual-1: Requesting modeset
+00:00:00.008 [DEBUG] [sway/desktop/output.c:534] New output 0x30d2130: Virtual-1 (non-desktop: 0)
+00:00:00.008 [DEBUG] [wlr] [backend/libinput/backend.c:88] Starting libinput backend
+00:00:00.069 [DEBUG] [wlr] [backend/libinput/events.c:69] Adding QEMU QEMU USB Keyboard [1575:1]
+00:00:00.069 [DEBUG] [sway/input/input-manager.c:240] adding device: '1575:1:QEMU_QEMU_USB_Keyboard'
+00:00:00.069 [DEBUG] [sway/input/seat.c:945] adding device 1575:1:QEMU_QEMU_USB_Keyboard to seat seat0
+00:00:00.072 [DEBUG] [sway/input/keyboard.c:947] Created keyboard group 0x314c910
+00:00:00.072 [DEBUG] [sway/input/keyboard.c:970] Adding keyboard 1575:1:QEMU_QEMU_USB_Keyboard to group 0x314c910
+00:00:00.072 [DEBUG] [wlr] [backend/libinput/events.c:69] Adding QEMU QEMU USB Tablet [1575:1]
+00:00:00.072 [DEBUG] [sway/input/input-manager.c:240] adding device: '1575:1:QEMU_QEMU_USB_Tablet'
+00:00:00.072 [DEBUG] [sway/input/seat.c:945] adding device 1575:1:QEMU_QEMU_USB_Tablet to seat seat0
+00:00:00.072 [DEBUG] [wlr] [xcursor/wlr_xcursor.c:224] Loaded cursor theme 'default' at size 24 (26 available cursors)
+00:00:00.072 [DEBUG] [sway/input/seat.c:694] Applying input mapping to 1575:1:QEMU_QEMU_USB_Tablet
+00:00:00.072 [DEBUG] [wlr] [backend/libinput/events.c:69] Adding Power Button [0:1]
+00:00:00.072 [DEBUG] [sway/input/input-manager.c:240] adding device: '0:1:Power_Button'
+00:00:00.072 [DEBUG] [sway/input/seat.c:945] adding device 0:1:Power_Button to seat seat0
+00:00:00.074 [DEBUG] [sway/input/keyboard.c:922] Adding keyboard 0:1:Power_Button to group 0x314c910

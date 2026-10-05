@@ -1,0 +1,25 @@
+ROCKNIX GENERIC_X64 -- RC2: RC1's tree plus the evening's five fixes, the x64 twin of the three device images cut from the same
+               head (#325 the MAIN MENU wrap, #327 the offline page's paragraphs, #329 a scan with no game completes and the sign-in
+               before the offer, #330 the phone keyboard page's script alive again and the page sized to a phone, #331 the sign-in
+               window's pad on a hidden node). EmulationStation c0cb9925e, raofflineproxy-ctl e78aa8e9fc, cloud_oauth 6b75ce38f9.
+BUILD_ID       69e6039f8f (build/generic-x64, fast-forwarded to next while nothing built there; step 0 passed by tools/rc-preflight
+               --allow-unchecked device-facts on that tree)
+Built          2026-09-29 22:12:29-22:14:29 UTC, chain 95, warm root (build-x64-run94), first of the four.
+Replaces       x64-all-20260929-b38d6fdadc as the x64 twin of the candidate's tree; 8dd6765af0 stays RC1's.
+Delta          next b38d6fdadc..69e6039f8f: cloud_oauth (6b75ce38f9), the script harness, the records and docs; against RC1's
+               8dd6765af0 also the interface pin (f1ae6bc25 -> c0cb9925e), raofflineproxy-ctl, gamescope's and mangohud's pinned
+               subprojects.
+Proof          vm-qa run 73 (fifteen suites, 22:14-22:43 UTC, beside three device builds): thirteen PASS; scripts FAIL on thirteen
+               checks of the page tests, which were the harness's own stub (a fetch answered without ok; fixed in 094c226f18) and
+               PASS in run 75 (433 s, 22:50-22:58 UTC); frame-diff FAIL on three unclaimed boxes of run-transfer-frames/08-t05,
+               the transfer page still running at five seconds under the build load, rerun as run 74 on the quiet box (walks and
+               frame-diff; its verdict is appended below). The upgrade rehearsal from RC1's x64 image (8dd6765af0) PASS, 22:43-22:45
+               UTC (release checks #226 included). The image's cloud_oauth is the committed script byte for byte; the phone page's
+               reproduction and fix (docs/qa-frames/2026-09-29/330) ran on b38d6fdadc with the same script.
+Preflight      tools/rc-preflight: packages current or accepted (D-WORKFLOW-077), base level with upstream/next and rocknix/master,
+               every bug traced or accepted (D-QA-055, D-UI-119, D-UI-121), checkboxes agent-verifiable, catalog current, device
+               facts read by hand.
+Device         The x64 image runs on no device; its three twins are staged on the Retroid Pocket Nova (22:27 UTC), the RG35XX SP
+               (22:39) and the RG SP (22:48), each on the maintainer's yes for the copy and the reboot, each back on 69e6039f8f.
+Files          ROCKNIX-GENERIC_X64.x86_64-20260929.img.gz, ROCKNIX-GENERIC_X64.x86_64-20260929.tar, SHA256SUMS.
+Run 74        walks and frame-diff again on the quiet box, 22:48-23:05 UTC: both PASS; the three boxes of run 73 were the build load.

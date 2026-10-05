@@ -1,0 +1,117 @@
+00:00:00.000 [INFO] [sway/main.c:321] Sway version 1.11
+00:00:00.000 [INFO] [sway/main.c:322] wlroots version 0.19.3
+00:00:00.001 [INFO] [sway/main.c:78] Linux GENERIC-X64-474c 7.1.2 #1 SMP PREEMPT Mon Oct  5 03:38:50 UTC 2026 x86_64 GNU/Linux
+00:00:00.001 [INFO] [sway/main.c:94] Contents of /etc/os-release:
+00:00:00.001 [INFO] [sway/main.c:78] OS_NAME="pixelelated"
+00:00:00.001 [INFO] [sway/main.c:78] OS_VERSION="0.0.1"
+00:00:00.001 [INFO] [sway/main.c:78] OS_BUILD="community"
+00:00:00.001 [INFO] [sway/main.c:78] GIT_ORGANIZATION="pixelelated"
+00:00:00.001 [INFO] [sway/main.c:78] GIT_REPO="distribution"
+00:00:00.001 [INFO] [sway/main.c:78] HOME_URL="https://pixelelated.com"
+00:00:00.001 [INFO] [sway/main.c:78] BUILD_ID="cf511ce79b83cba7fea8b14cfa3d04fb13e4b4fb"
+00:00:00.001 [INFO] [sway/main.c:78] BUILD_BRANCH="build/m7-pixelelated-replacement09"
+00:00:00.001 [INFO] [sway/main.c:78] BUILD_DATE="Mon Oct  5 05:47:47 UTC 2026"
+00:00:00.001 [INFO] [sway/main.c:78] HW_DEVICE="GENERIC_X64"
+00:00:00.001 [INFO] [sway/main.c:78] HW_ARCH="x86_64"
+00:00:00.001 [INFO] [sway/main.c:78] HW_CPU="Generic x86_64"
+00:00:00.001 [INFO] [sway/main.c:78] DISTRO_DEVICE="GENERIC_X64"
+00:00:00.001 [INFO] [sway/main.c:78] BUILDER_NAME="pixelelated-build"
+00:00:00.001 [INFO] [sway/main.c:78] BUILDER_VERSION="sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39"
+00:00:00.001 [INFO] [sway/main.c:66] LD_LIBRARY_PATH=
+00:00:00.001 [INFO] [sway/main.c:66] LD_PRELOAD=
+00:00:00.001 [INFO] [sway/main.c:66] PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin
+00:00:00.001 [INFO] [sway/main.c:66] SWAYSOCK=
+00:00:00.001 [INFO] [sway/main.c:351] Starting sway version 1.11
+00:00:00.001 [INFO] [wlr] [backend/backend.c:342] Loading user-specified backends due to WLR_BACKENDS: drm,libinput
+00:00:00.001 [INFO] [wlr] [libseat] [libseat/libseat.c:73] Seat opened with backend 'seatd'
+00:00:00.001 [INFO] [wlr] [libseat] [libseat/backend/seatd.c:212] Enabling seat
+00:00:00.001 [INFO] [wlr] [backend/session/session.c:117] Successfully loaded libseat session
+00:00:00.001 [INFO] [wlr] [backend/session/session.c:480] Opening fixed list of KMS devices from WLR_DRM_DEVICES: /dev/dri/card0
+00:00:00.001 [INFO] [wlr] [backend/backend.c:248] Found 1 GPUs
+00:00:00.001 [INFO] [wlr] [backend/drm/backend.c:225] Initializing DRM backend for /dev/dri/card0 (virtio_gpu)
+00:00:00.001 [INFO] [wlr] [backend/drm/drm.c:115] DRM_CLIENT_CAP_CURSOR_PLANE_HOTSPOT supported
+00:00:00.001 [INFO] [wlr] [backend/drm/drm.c:310] Found 1 DRM CRTCs
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:268] Found 2 DRM planes
+00:00:00.138 [INFO] [wlr] [render/egl.c:205] Supported EGL client extensions: EGL_EXT_device_base EGL_EXT_device_enumeration EGL_EXT_device_query EGL_EXT_platform_base EGL_KHR_client_get_all_proc_addresses EGL_EXT_client_extensions EGL_KHR_debug EGL_EXT_platform_device EGL_EXT_explicit_device EGL_EXT_platform_wayland EGL_KHR_platform_wayland EGL_EXT_platform_x11 EGL_KHR_platform_x11 EGL_EXT_platform_xcb EGL_MESA_platform_gbm EGL_KHR_platform_gbm EGL_MESA_platform_surfaceless
+MESA-EGL: warning: egl: failed to create dri2 screen
+00:00:00.144 [ERROR] [wlr] [EGL] command: eglInitialize, error: EGL_NOT_INITIALIZED (0x3001), message: "DRI2: failed to create screen"
+MESA-EGL: warning: egl: failed to create dri2 screen
+00:00:00.144 [ERROR] [wlr] [EGL] command: eglInitialize, error: EGL_NOT_INITIALIZED (0x3001), message: "DRI2: failed to create screen"
+MESA-EGL: warning: NEEDS EXTENSION: falling back to kms_swrast
+00:00:00.145 [ERROR] [wlr] [EGL] command: eglQueryDeviceStringEXT, error: EGL_BAD_DEVICE_EXT (0x322b), message: "eglQueryDeviceStringEXT"
+00:00:00.145 [ERROR] [wlr] [EGL] command: eglQueryDeviceStringEXT, error: EGL_BAD_DEVICE_EXT (0x322b), message: "eglQueryDeviceStringEXT"
+00:00:00.145 [INFO] [wlr] [render/egl.c:369] Using EGL 1.5
+00:00:00.145 [INFO] [wlr] [render/egl.c:370] Supported EGL display extensions: EGL_ANDROID_blob_cache EGL_EXT_config_select_group EGL_EXT_create_context_robustness EGL_EXT_image_dma_buf_import EGL_EXT_image_dma_buf_import_modifiers EGL_EXT_query_reset_notification_strategy EGL_EXT_surface_compression EGL_KHR_cl_event2 EGL_KHR_config_attribs EGL_KHR_context_flush_control EGL_KHR_create_context EGL_KHR_create_context_no_error EGL_KHR_fence_sync EGL_KHR_get_all_proc_addresses EGL_KHR_gl_colorspace EGL_KHR_gl_renderbuffer_image EGL_KHR_gl_texture_2D_image EGL_KHR_gl_texture_3D_image EGL_KHR_gl_texture_cubemap_image EGL_KHR_image_base EGL_KHR_no_config_context EGL_KHR_reusable_sync EGL_KHR_surfaceless_context EGL_EXT_pixel_format_float EGL_KHR_wait_sync EGL_MESA_configless_context EGL_MESA_gl_interop EGL_MESA_image_dma_buf_export EGL_MESA_query_driver EGL_MESA_x11_native_visual_id 
+00:00:00.145 [INFO] [wlr] [render/egl.c:372] Supported EGL device extensions: EGL_EXT_device_drm EGL_EXT_device_drm_render_node EGL_EXT_device_query_name EGL_EXT_device_persistent_id
+00:00:00.145 [INFO] [wlr] [render/egl.c:374] EGL vendor: Mesa Project
+00:00:00.207 [INFO] [wlr] [render/gles2/renderer.c:538] Creating GLES2 renderer
+00:00:00.207 [INFO] [wlr] [render/gles2/renderer.c:539] Using OpenGL ES 3.2 Mesa 26.2.2
+00:00:00.207 [INFO] [wlr] [render/gles2/renderer.c:540] GL vendor: Mesa
+00:00:00.207 [INFO] [wlr] [render/gles2/renderer.c:541] GL renderer: llvmpipe (LLVM 22.1.8, 256 bits)
+00:00:00.207 [INFO] [wlr] [render/gles2/renderer.c:542] Supported GLES2 extensions: GL_EXT_blend_minmax GL_EXT_multi_draw_arrays GL_EXT_texture_filter_anisotropic GL_EXT_texture_compression_s3tc GL_EXT_texture_compression_dxt1 GL_EXT_texture_compression_rgtc GL_EXT_texture_format_BGRA8888 GL_OES_compressed_ETC1_RGB8_texture GL_OES_depth24 GL_OES_element_index_uint GL_OES_fbo_render_mipmap GL_OES_mapbuffer GL_OES_rgb8_rgba8 GL_OES_standard_derivatives GL_OES_stencil8 GL_OES_texture_3D GL_OES_texture_float GL_OES_texture_float_linear GL_OES_texture_half_float GL_OES_texture_half_float_linear GL_OES_texture_npot GL_OES_vertex_half_float GL_EXT_draw_instanced GL_EXT_texture_sRGB_decode GL_OES_EGL_image GL_OES_depth_texture GL_OES_packed_depth_stencil GL_EXT_texture_type_2_10_10_10_REV GL_NV_conditional_render GL_OES_get_program_binary GL_APPLE_texture_max_level GL_EXT_discard_framebuffer GL_EXT_read_format_bgra GL_EXT_texture_storage GL_NV_pack_subimage GL_NV_texture_barrier GL_EXT_frag_depth GL_NV_fbo_color_attachments GL_OES_EGL_image_external GL_OES_EGL_sync GL_OES_vertex_array_object GL_OES_viewport_array GL_ANGLE_pack_reverse_row_order GL_ANGLE_texture_compression_dxt3 GL_ANGLE_texture_compression_dxt5 GL_EXT_occlusion_query_boolean GL_EXT_robustness GL_EXT_sRGB GL_EXT_texture_rg GL_EXT_unpack_subimage GL_NV_draw_buffers GL_NV_read_buffer GL_NV_read_depth GL_NV_read_depth_stencil GL_NV_read_stencil GL_APPLE_sync GL_EXT_draw_buffers GL_EXT_instanced_arrays GL_EXT_map_buffer_range GL_EXT_shadow_samplers GL_KHR_debug GL_KHR_robustness GL_KHR_texture_compression_astc_ldr GL_NV_generate_mipmap_sRGB GL_NV_pixel_buffer_object GL_OES_depth_texture_cube_map GL_OES_required_internalformat GL_OES_surfaceless_context GL_EXT_color_buffer_float GL_EXT_debug_label GL_EXT_sRGB_write_control GL_EXT_separate_shader_objects GL_EXT_shader_framebuffer_fetch GL_EXT_shader_group_vote GL_EXT_shader_implicit_conversions GL_EXT_shader_integer_mix GL_EXT_tessellation_point_size GL_EXT_tessellation_shader GL_ANDROID_extension_pack_es31a GL_ARM_shader_framebuffer_fetch_depth_stencil GL_EXT_base_instance GL_EXT_compressed_ETC1_RGB8_sub_texture GL_EXT_copy_image GL_EXT_draw_buffers_indexed GL_EXT_draw_elements_base_vertex GL_EXT_gpu_shader5 GL_EXT_multi_draw_indirect GL_EXT_polygon_offset_clamp GL_EXT_primitive_bounding_box GL_EXT_render_snorm GL_EXT_shader_io_blocks GL_EXT_texture_border_clamp GL_EXT_texture_buffer GL_EXT_texture_cube_map_array GL_EXT_texture_norm16 GL_EXT_texture_view GL_KHR_blend_equation_advanced GL_KHR_blend_equation_advanced_coherent GL_KHR_context_flush_control GL_KHR_robust_buffer_access_behavior GL_NV_image_formats GL_NV_shader_noperspective_interpolation GL_OES_copy_image GL_OES_draw_buffers_indexed GL_OES_draw_elements_base_vertex GL_OES_gpu_shader5 GL_OES_primitive_bounding_box GL_OES_sample_shading GL_OES_sample_variables GL_OES_shader_io_blocks GL_OES_shader_multisample_interpolation GL_OES_tessellation_point_size GL_OES_tessellation_shader GL_OES_texture_border_clamp GL_OES_texture_buffer GL_OES_texture_cube_map_array GL_OES_texture_stencil8 GL_OES_texture_storage_multisample_2d_array GL_OES_texture_view GL_EXT_blend_func_extended GL_EXT_buffer_storage GL_EXT_float_blend GL_EXT_geometry_point_size GL_EXT_geometry_shader GL_EXT_texture_filter_minmax GL_EXT_texture_sRGB_R8 GL_EXT_texture_sRGB_RG8 GL_KHR_no_error GL_KHR_texture_compression_astc_sliced_3d GL_NV_sample_locations GL_OES_EGL_image_external_essl3 GL_OES_geometry_point_size GL_OES_geometry_shader GL_OES_shader_image_atomic GL_EXT_clear_texture GL_EXT_clip_cull_distance GL_EXT_conservative_depth GL_EXT_disjoint_timer_query GL_EXT_texture_compression_s3tc_srgb GL_MESA_shader_integer_functions GL_EXT_clip_control GL_EXT_color_buffer_half_float GL_EXT_memory_object GL_EXT_memory_object_fd GL_EXT_texture_compression_bptc GL_EXT_texture_mirror_clamp_to_edge GL_KHR_parallel_shader_compile GL_NV_alpha_to_coverage_dither_control GL_EXT_EGL_image_storage GL_EXT_shader_framebuffer_fetch_non_coherent GL_EXT_texture_shadow_lod GL_MESA_framebuffer_flip_y GL_OVR_multiview GL_OVR_multiview2 GL_EXT_depth_clamp GL_EXT_texture_query_lod GL_MESA_sampler_objects GL_EXT_EGL_image_storage_compression GL_EXT_texture_storage_compression GL_MESA_bgra GL_EXT_mesh_shader GL_EXT_shader_clock 
+00:00:00.237 [INFO] [wlr] [backend/headless/backend.c:60] Creating headless backend
+00:00:00.237 [INFO] [wlr] [util/env.c:9] Loading WLR_NO_HARDWARE_CURSORS option: 1
+00:00:00.251 [INFO] [sway/config.c:422] Loading config from /storage/.config/sway/config
+00:00:00.251 [INFO] [sway/commands.c:381] Config command: seat * hide_cursor 1000
+00:00:00.251 [INFO] [sway/commands.c:404] After replacement: seat * hide_cursor 1000
+00:00:00.251 [INFO] [sway/commands.c:381] Config command: default_border none
+00:00:00.251 [INFO] [sway/commands.c:404] After replacement: default_border none
+00:00:00.251 [INFO] [sway/commands.c:381] Config command: exec_always mako
+00:00:00.251 [INFO] [sway/commands.c:404] After replacement: exec_always mako
+00:00:00.251 [INFO] [sway/commands.c:381] Config command: output Virtual-1 transform 0
+00:00:00.251 [INFO] [sway/commands.c:404] After replacement: output Virtual-1 transform 0
+00:00:00.251 [INFO] [sway/commands.c:381] Config command: output Virtual-1 bg #000000 solid_color
+00:00:00.251 [INFO] [sway/commands.c:404] After replacement: output Virtual-1 bg #000000 solid_color
+00:00:00.251 [INFO] [sway/commands.c:381] Config command: output Virtual-1 allow_tearing yes
+00:00:00.251 [INFO] [sway/commands.c:404] After replacement: output Virtual-1 allow_tearing yes
+00:00:00.251 [INFO] [sway/commands.c:381] Config command: output Virtual-1 max_render_time off
+00:00:00.251 [INFO] [sway/commands.c:404] After replacement: output Virtual-1 max_render_time off
+00:00:00.251 [INFO] [sway/commands.c:381] Config command: workspace 1 output DP-1 Virtual-1
+00:00:00.251 [INFO] [sway/commands.c:404] After replacement: workspace 1 output DP-1 Virtual-1
+00:00:00.251 [INFO] [sway/commands.c:381] Config command: for_window [app_id="emulationstation"] move output DP-1
+00:00:00.251 [INFO] [sway/commands.c:404] After replacement: for_window [app_id="emulationstation"] move output DP-1
+00:00:00.309 [INFO] [sway/server.c:538] Starting backend on wayland display 'wayland-1'
+00:00:00.309 [INFO] [wlr] [backend/drm/drm.c:1741] Scanning DRM connectors on /dev/dri/card0
+00:00:00.309 [INFO] [wlr] [backend/drm/drm.c:1796] Found connector 'Virtual-1'
+00:00:00.309 [INFO] [wlr] [backend/drm/drm.c:1821] 'Virtual-1' connected
+00:00:00.309 [INFO] [wlr] [backend/drm/drm.c:1610] Detected modes:
+00:00:00.309 [INFO] [wlr] [backend/drm/drm.c:1634]   640x480 @ 74.998 Hz (preferred)
+00:00:00.309 [INFO] [wlr] [backend/drm/drm.c:1634]   5120x2160 @ 50.000 Hz 
+00:00:00.309 [INFO] [wlr] [backend/drm/drm.c:1634]   4096x2160 @ 50.000 Hz 
+00:00:00.309 [INFO] [wlr] [backend/drm/drm.c:1634]   3840x2160 @ 60.000 Hz 
+00:00:00.309 [INFO] [wlr] [backend/drm/drm.c:1634]   3840x2160 @ 59.940 Hz 
+00:00:00.309 [INFO] [wlr] [backend/drm/drm.c:1634]   3840x2160 @ 50.000 Hz 
+00:00:00.309 [INFO] [wlr] [backend/drm/drm.c:1634]   1920x1440 @ 60.000 Hz 
+00:00:00.309 [INFO] [wlr] [backend/drm/drm.c:1634]   2560x1080 @ 50.000 Hz 
+00:00:00.309 [INFO] [wlr] [backend/drm/drm.c:1634]   1856x1392 @ 59.995 Hz 
+00:00:00.309 [INFO] [wlr] [backend/drm/drm.c:1634]   1792x1344 @ 60.000 Hz 
+00:00:00.309 [INFO] [wlr] [backend/drm/drm.c:1634]   2048x1152 @ 60.000 Hz 
+00:00:00.309 [INFO] [wlr] [backend/drm/drm.c:1634]   1920x1200 @ 59.885 Hz 
+00:00:00.309 [INFO] [wlr] [backend/drm/drm.c:1634]   1920x1080 @ 60.000 Hz 
+00:00:00.309 [INFO] [wlr] [backend/drm/drm.c:1634]   1920x1080 @ 50.000 Hz 
+00:00:00.309 [INFO] [wlr] [backend/drm/drm.c:1634]   1600x1200 @ 60.000 Hz 
+00:00:00.309 [INFO] [wlr] [backend/drm/drm.c:1634]   1680x1050 @ 59.954 Hz 
+00:00:00.309 [INFO] [wlr] [backend/drm/drm.c:1634]   1400x1050 @ 59.978 Hz 
+00:00:00.309 [INFO] [wlr] [backend/drm/drm.c:1634]   1280x1024 @ 60.020 Hz 
+00:00:00.309 [INFO] [wlr] [backend/drm/drm.c:1634]   1440x900 @ 59.887 Hz 
+00:00:00.309 [INFO] [wlr] [backend/drm/drm.c:1634]   1280x960 @ 60.000 Hz 
+00:00:00.309 [INFO] [wlr] [backend/drm/drm.c:1634]   1360x768 @ 60.015 Hz 
+00:00:00.309 [INFO] [wlr] [backend/drm/drm.c:1634]   1280x768 @ 59.870 Hz 
+00:00:00.309 [INFO] [wlr] [backend/drm/drm.c:1634]   1024x768 @ 60.004 Hz 
+00:00:00.309 [INFO] [wlr] [backend/drm/drm.c:1634]   800x600 @ 60.317 Hz 
+00:00:00.309 [INFO] [wlr] [backend/drm/drm.c:1634]   640x480 @ 60.000 Hz 
+00:00:00.309 [INFO] [wlr] [backend/drm/drm.c:1634]   640x480 @ 59.940 Hz 
+00:00:00.309 [INFO] [wlr] [util/env.c:9] Loading WLR_NO_HARDWARE_CURSORS option: 1
+00:00:00.309 [INFO] [wlr] [backend/drm/drm.c:1671] Physical size: 160x120
+00:00:00.309 [INFO] [wlr] [backend/drm/drm.c:1855] connector Virtual-1: Requesting modeset
+00:00:00.382 [INFO] [wlr] [util/env.c:9] Loading WLR_LIBINPUT_NO_DEVICES option: 1
+00:00:00.382 [INFO] [wlr] [backend/headless/backend.c:17] Starting headless backend
+00:00:00.408 [INFO] [sway/commands.c:261] Handling command 'exec_always mako'
+00:00:00.408 [INFO] [sway/server.c:550] Running compositor on wayland display 'wayland-1'
+2026-10-05 14:32:14 - [main.c:282] Found config Virtual-1 for output Virtual-1 (Red Hat, Inc. QEMU Monitor)
+00:00:00.445 [INFO] [sway/input/text_input.c:252] Enabling text input when input method is gone
+00:00:00.521 [INFO] [sway/commands.c:261] Handling command 'move output DP-1'
+00:00:00.521 [ERROR] [sway/tree/view.c:524] for_window '[app_id="emulationstation"]' failed: Can't find output with name/direction 'DP-1'
+00:00:12.229 [INFO] [sway/input/text_input.c:252] Enabling text input when input method is gone
+00:00:12.292 [INFO] [sway/commands.c:261] Handling command 'move output DP-1'
+00:00:12.292 [ERROR] [sway/tree/view.c:524] for_window '[app_id="emulationstation"]' failed: Can't find output with name/direction 'DP-1'

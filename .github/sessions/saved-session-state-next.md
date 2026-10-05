@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Saved 2026-10-05T17:21:30.901110+00:00. Previous checkpoint archived at `.github/sessions/archived/saved-session-state-next-20261005T172130Z.md`.
+> Saved 2026-10-05T18:43:40.227885+00:00. Previous checkpoint archived at `.github/sessions/archived/saved-session-state-next-20261005T184340Z.md`.
 > Branch feature/conflict-resolution; primary /workspace/repos/rocknix stays next.
 
 ## Start here
@@ -30,7 +30,53 @@ and precise harness-manifest wording findings are corrected.
 A helper installation is COMPLETE; do not ask to reinstall it.
 
 
-## Current gate — remaining P3 proofs after sign-in qualification
+## Latest result — ROCKNIX RC2 replay and working Pixman experiment
+
+The maintainer asked why the last ROCKNIX build had not exposed this fault.
+The actual September29 RC2 image69e6039f8f (SHAe2b662ba) reproduces host-stale
+software frames on today's host; native is correct. Its accelerated control
+has all nine frames exactly equal. Original September29 reports explicitly
+record virgl/renderD128; the sixteen recorded walks do not test browser
+finishing native-versus-host. Thus renderer and coverage explain a concrete
+historical blind spot; the exact September29 software-host behavior is unknown.
+Source changes and new branding are not necessary to reproduce it.
+
+Current-candidate Pixman diagnostic14 gives nine correct host/native frames;
+matched GLES2/llvmpipe diagnostic15 reproduces stale/partial host frames with
+the same restart/debug setup and identical actual QEMU arguments. Pixman uses
+DRM dumb buffers; GLES2 uses GBM. Both use atomic DRM. Exact faulty component
+is not established. All36 RC2/Pixman/GLES comparison frames were directly read.
+See historical-render-comparison/rc2/README.md and pixman.md in the replacement09
+QA directory. All original failures remain immutable.
+
+Full software/Pixman signin-ui13 PASSES: durable18:41:40/all four rc0,27checks,
+six intended frames directly reviewed, unchanged exact finishing reference,
+original HTTP/navigator Mobile UA and actual390px phone margins. Observer
+stops cleanly after354frames; public-provider peak696352KiB on8GiB. Actual
+bc4afc cleanup18:42:00 confirms owner/guest absence and noQEMU. This is a
+runtime-only configuration proof, not a permanent fix or RC-wide pass.
+
+#448 fixes the historical test metadata assumption: failed diagnostic10
+required newer handset metadata; fresh12/13 derive exact RC2 SYSTEM absence,
+desktop UA and original finishing URI. Prepared11 is superseded/unstarted.
+#449 fixes persistent observer boundaries/unique coverage: fullsignin12
+reached27checks but failed on TimeoutError; its failing read phase was not
+recorded. Nine actual loopback controls pass; full13 keeps every original
+assertion/reference and changes only the tested observer. No result transfer
+from failed12. Both scoped fixes have retained source/result/cleanup evidence.
+
+**Immediate next action:** #447 remains OPEN. Turn the validated Pixman
+workaround into a narrow, explicit GENERIC_X64 software fallback; preserve
+accelerated guests and handheld renderers. Prove clean/upgrade selection,
+ES/emulator behavior, visual correctness and performance. A product change
+requires a fresh candidate freeze/build and affected qualification before P4.
+Do not globally override Sway, adopt legacy DRM, relax screenshot criteria,
+or claim current --gl none is fixed without the runtime configuration.
+Then reconcile remaining #362/#356/#365 criteria/account inputs, P4 approved
+primary+Fable5.1/xhigh Facilitator review, H700 arm then aarch64 and named
+physical/P5 gates. No build, guest, runner or watcher remains active.
+
+## Evidence ledger — earlier replacement09 qualification
 
 M7.P3 is current. The frozen candidate is source `cf511ce79b83cba7fea8b14cfa3d04fb13e4b4fb`, input manifest `817fd9ff49b1ecf6bcc859cfa38985a65fbcfe5514c33a0a5c9dd60af6cc6c6e`, immutable bundle `79d560046ee52e28b72f16588168dd7c8fb2637c1cc585713216a8ec828e9d81`. Build and inventory pass; 14 licence metadata gaps remain for P5.
 
@@ -82,7 +128,7 @@ Boot04/tool90675/all four rc0 passes four clean/upgraded boots at 640x480 and 12
 
 **Historical comparison complete:** the maintainer requested isolation against pre-pixelelated builds. Source comparison proves12 actual graphics/browser/VM/capture git objects unchanged between old61b648 and currentcf511ce. Old bundle87b8c01d/imagef1af3533 is verified. Fresh old-image software08 reproduces the same host-old/partial0/5→correct15 sequence while native stays correct; accelerated09 has all nine frames exactly correct. All18new comparison frames directly reviewed; actual accelerated QEMU argv old/current is identical except owner path. Software08 durable17:17:13/all0, actual2f5df8 cleanup17:17:37; accelerated09 durable17:18:48/all0, actualf4b65f cleanup17:19:03. Frozen source and both bundles unchanged. This rules out pixelelated changes as necessary to reproduce on today's host; it does not establish historical-host or physical-device behavior. Exact component cause remains open. Read historical-render-comparison/README.md before proposing another fix.
 
-**Current priority:** #447 is a software virtual-display investigation, reproduced on both sides of the rename. Do not spend another cut assuming a branding regression. Use the matched comparison and retained Sway debug evidence to isolate the host/compositor/virtio path; unchanged source alone is not proof of identical binaries. Reconcile #362/#356/#365's broader criteria against existing artifacts. Ordinary RetroAchievements/authenticatedDropbox inputs remain pending; then P4 and H700. No job, guest or watcher is active at actual17:19:03; executed owners are immutable.
+**Current priority:** the latest-result section above supersedes this historical investigation state. #447 now has a successful Pixman sign-in experiment, pending permanent VM fallback and broader regression proof.
 
 **Monitoring limit:** diagnostic07's durable watcher recorded17:04:04 completion; the first actual host check was17:08:12. This does not meet the intended active60second observation bound. #395 retains the unconfigured disconnected destination and this actual gap. Do not present the recorder as proactive off-session delivery or say this run met active supervision.
 
@@ -94,57 +140,29 @@ Scoped #422/#431/#426 are now CLOSED completed: actual000718=0 readback verifies
 
 ## Immediate commands and custody
 
-No active job at17:19:03UTC. Latest historical diagnostic09 has durable terminal0
-and four matching channels; actualf4b65f verifies owner/guest absence/noQEMU.
-All completion/review/retention helpers already ran. Never replay them.
+No active job at actual18:42:00UTC. All owners through fullsignin13 are
+completed and immutable; do not rerun them. Successful latest owner:
+/workspace/tmp/pixelelated-m7-signin-ui-13; completion.json and visual-review.json
+are retained in docs/qa-logs/2026-10-05-pixelelated-replacement-09/signin-ui-13/.
+Failedsignin12 and historicaldiagnostic10 remain failed; unstarteddiagnostic11
+is superseded. New protocol helper/controls:
+docs/qa-logs/2026-10-05-vnc-observer/. Canonical product inputs unchanged.
 
-Published cloud08/signin11/1g12/provider1g04 evidence is next9af943c7 (feature1f43880a).
-Publisher /tmp/pixelelated-publish09-signin-complete.py ALREADY RAN successfully;
-receipt /tmp/pixelelated-replacement09-signin-complete-published.json verifies
-both remote heads. #446 closed completed;447 stays open under its explicit
-software-display criterion. Source/candidate are unchanged.
+Previous publication: feature17edaf87326067f5d05a8b4f3999455885e47787,
+next25589dcf8a9caa20e13607b4df31d7ab8565fc22. This turn's publisher is
+/tmp/pixelelated-publish09-rc2-pixman.py; check its actual receipt
+/tmp/pixelelated-replacement09-rc2-pixman-published.json and git heads before
+continuing. A completed publisher must never be replayed.
+Latest retainer /tmp/pixelelated-retain-submitted-09-v17.py ALREADY RAN for
+all new owners; artifacts.json is exclusive. No token/account state in Git.
 
-This final handoff/diagnostic07 publication uses a separate publisher:
-/tmp/pixelelated-publish09-render07.py and receipt
-/tmp/pixelelated-replacement09-render07-published.json. Check actual git heads
-and that receipt before continuing; do not rerun a completed publisher.
-
-Next actions:
-1. Read historical-render-comparison/README.md and diagnostics05/06/07/08/09.
-   Both pre-pixelelated and current images reproduce software-host lag; both
-   accelerated controls agree exactly. The rename is not necessary to trigger
-   it on the current host. Investigate447 using this matched comparison.
-   Software HMP/VNC stale, native correct; canonical virgl correct. Persistent
-   viewer and legacy DRM controls did not remove it. Actual07 Sway debug log
-   proves llvmpipe/legacy mode; installed wlroots0.19.3 and Linux7.1.2 sources
-   are under frozen build.pixelelated-GENERIC_X64.x86_64/build/. Inspect buffer
-   damage/upload behavior and actual renderer selection before proposing any
-   product change. Fresh sealed experiments only, issue VM-first plan before
-   launch; no forced resize as qualification. Full proof is required after fix.
-2. Reconcile broader356/365/362 criteria against existing host/guest/cold-build
-   receipts. SupplementalUI32assertions/nineframes and sign-in27checks/sixframes,
-   actual1GiB simple/provider loads are accepted; authenticated trust is not.
-3. Ordinary Tobu100359 is already earned. Use the previously requested owner
-   reset or alternate dedicated QA account; do not reset it yourself/substitute
-   hardcore mode. AuthenticatedDropbox needs dedicated QA access (earlier
-   question unanswered). Then P4 primary OpenAI plus verified Fable5.1/xhigh;
-   initial375/382 audits already done. H700 arm/aarch64 and device gates follow.
-
-Latest historical owners08/09 are COMPLETE,18comparison frames reviewed;
-119/287hashes retained, actual2f5df8/f4b65f cleanup. No relaunch. Earlier
-legacy diagnostic owner /workspace/tmp/pixelelated-m7-signin-render-diagnostic-07,
-run20261005T170243Z-d9bb7f0f, submission55c3e6 distinct from job0. It is only a
-failed-remedy experiment, not candidate qualification. Its temporary compositor
-override is not in source/image. All9comparisonframes reviewed;122hashes/118files
-retained under docs/qa-logs/2026-10-05-pixelelated-replacement-09/.
-Original failed/visually rejected owners remain unchanged. No job is queued.
-
-Future jobs require tools/watch-build-submit plus standard watcher and active
-supervision within60seconds. Diagnostic07 had an actual supervision gap; its
-completion was recorded17:04 but first host check17:08. #395 still has no
-notification destination. Actual host /proc requires escalated read; sandbox
-PIDs are hidden. Fixed-port jobs serialize; no swap during VM work. No private
-keys/disks/full source manifest in Git. Completed retentions already ran.
+Can this be done on the VM? Yes. Before the next proof record its exact
+selection/regression plan on447 and M7, prepare fresh sealed owners, check
+actual host no-QEMU, use watch-build-submit and active observation. Host /proc
+requires escalation. #395 disconnected notification destination still missing.
+This turn's longest measured GLES2 status-check gap was60.8seconds, slightly
+above the60second target; terminal result was observed14.6seconds after it
+was recorded. Do not claim perfect interval compliance or off-session alerts.
 
 Frozen source /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09, branch build/m7-pixelelated-replacement09, is immutable. Build owner /workspace/tmp/pixelelated-m7-replacement-09. Sourcecf511ce79b83cba7fea8b14cfa3d04fb13e4b4fb; ESf6f0c134212bc696f2f6a747c8d390a588f2f0ce. Input manifest817fd9ff49b1ecf6bcc859cfa38985a65fbcfe5514c33a0a5c9dd60af6cc6c6e:6547product/180symlinks/200QA. Verifier requires ES_SRC=/home/max/Development/emulationstation-next.worktrees/qa-integration and frozen cwd. Full inputs.json stays outside Git; inputs-reference.json only in repository.
 

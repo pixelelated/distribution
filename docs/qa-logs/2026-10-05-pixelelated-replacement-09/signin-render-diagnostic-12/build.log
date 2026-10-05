@@ -1,0 +1,81 @@
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-12/baseline-payload.py: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-12/diagnostic-provenance.json: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-12/metadata-provenance.json: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-12/outer.sh: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-12/persistent-diagnostic-provenance.json: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-12/persistent_viewer.py: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-12/prepare-dirs.py: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-12/provenance.json: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-12/rc2-comparison.json: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-12/reboot-fault-provenance.json: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-12/render-provenance.json: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-12/request-diagnostic-provenance.json: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-12/required-directories.json: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-12/run.sh: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-12/seed.py: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-12/signin-proof.py: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-12/stable_panel.py: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-12/stdlib-viewer-provenance.json: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-12/stop-guest.py: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-12/successor-provenance.json: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-12/transition-provenance.json: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-12/verify-current-inputs.py: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-12/verify-gl.py: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-12/verify-inputs.py: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-12/vnc-diagnostic-provenance.json: OK
+PASS owned private pair/artifacts directories ready
+PASS frozen source inputs, ES pin and candidate input custody
+PASS exact ROCKNIX RC2 image/update/record hashes and unchanged current frozen inputs
+PASS frozen source inputs, ES pin and candidate input custody
+PASS exact ROCKNIX RC2 image/update/record hashes and unchanged current frozen inputs
+PASS baseline hashes derived from verified earlier SYSTEM before guest startup
+Preparing independent 16GiB guest d from the verified ROCKNIX RC2 image
+Image resized.
+No errors were found on the image.
+31680/262144 = 12.08% allocated, 0.00% fragmented, 0.00% compressed clusters
+Image end offset: 2076835840
+[W][18:26:28.624054] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][18:26:28.624088] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+PASS actual guest uses software virtio GPU renderer
+ready after ~23s
+PASS guest d exact BUILD_ID and OS_NAME 69e6039f8fdbf971d3e6b694537f250036fdcd98 ROCKNIX
+PASS QA ROM bytes /storage/roms/gb/Ninoid.gb a40191c169c68e6607ace072da96aab957f306f55ded59ce1f287c1f5273387b
+PASS QA ROM bytes /storage/roms/gbc/Tobu Tobu Girl Deluxe.gb 0a0e8018dbbc8d7f8cd99f05e7cdc7b4cc9e358ecfe9377ebfb2291a84c6e310
+PASS QA ROM bytes /storage/roms/nes/Bobl.nes 025ec44d0d84ac469b442ee56c3d69e035e9a38430ae849172fe3a1e569d0dea
+PASS guest d seeded and idle
+PASS installed machine-info presence/hash matches verified ROCKNIX RC2 SYSTEM
+PASS installed usr/bin/cloud-signin-window matches exact image payload
+PASS installed usr/bin/cloud_oauth matches exact image payload
+PASS persistent read-only VNC viewer obtained initial frame
+PASS installed window follows real HTTP302
+PASS original RC2 window sends desktop Safari UA
+PASS original RC2 navigator.userAgent echoes desktop Safari
+PASS 01-local-redirect rendered surface is stable
+captured /workspace/tmp/pixelelated-m7-signin-render-diagnostic-12/artifacts/signin/01-local-redirect.png
+PASS 01-local-redirect is panel-sized
+PASS finishing predicate rejects actual prior local page
+PASS actual done marker reached the running installed window
+PASS installed page record changed to the exact original ROCKNIX RC2 finishing document
+PASS 02-finishing-marker-stand-in rendered surface is stable
+captured /workspace/tmp/pixelelated-m7-signin-render-diagnostic-12/artifacts/signin/02-finishing-marker-stand-in.png
+PASS 02-finishing-marker-stand-in is panel-sized
+PASS finishing document remains current at offset0
+captured /workspace/tmp/pixelelated-m7-signin-render-diagnostic-12/artifacts/signin/render-00-qemu.png
+PASS render-00 VNC capture is panel-sized
+PASS render-00 native compositor capture is panel-sized
+PASS finishing document remains current at offset5
+captured /workspace/tmp/pixelelated-m7-signin-render-diagnostic-12/artifacts/signin/render-05-qemu.png
+PASS render-05 VNC capture is panel-sized
+PASS render-05 native compositor capture is panel-sized
+PASS finishing document remains current at offset15
+captured /workspace/tmp/pixelelated-m7-signin-render-diagnostic-12/artifacts/signin/render-15-qemu.png
+PASS render-15 VNC capture is panel-sized
+PASS render-15 native compositor capture is panel-sized
+PASS persistent viewer stayed connected without errors or input
+PASS bounded compositor/capture diagnostic collected; semantic interpretation required
+PASS frozen source inputs, ES pin and candidate input custody
+PASS exact ROCKNIX RC2 image/update/record hashes and unchanged current frozen inputs
+PASS frozen source inputs, ES pin and candidate input custody
+PASS exact ROCKNIX RC2 image/update/record hashes and unchanged current frozen inputs
+PASS bounded render diagnostic; no sign-in qualification claim
+PASS owned guest stopped 2781029

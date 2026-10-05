@@ -1,0 +1,44 @@
+{
+  "reviewed_utc": "2026-10-05T18:34:32.500598+00:00",
+  "diagnostic_complete": true,
+  "candidate_qualification": false,
+  "observations": "All nine frames directly viewed. Same restart/debug setup as14 with explicit GLES2/llvmpipe/GBM: host old/torn at0, old/partial at5, correct15. Native correct throughout. Both use atomic DRM. Pixman14 uses DRM dumb allocator. Renderer/allocation/presentation route isolated; exact faulty component not established.",
+  "frames": [
+    {
+      "name": "render-00-grim.png",
+      "sha256": "6afa36c72fca1186732068eafe13319984a9b9182b4b2e66ca12a9d4ab961f3f"
+    },
+    {
+      "name": "render-00-qemu.png",
+      "sha256": "f376c7b161d081a6039057d74fe431169bdaf501f560bc2f0f7a4eb88952498d"
+    },
+    {
+      "name": "render-00-vnc.png",
+      "sha256": "f376c7b161d081a6039057d74fe431169bdaf501f560bc2f0f7a4eb88952498d"
+    },
+    {
+      "name": "render-05-grim.png",
+      "sha256": "6afa36c72fca1186732068eafe13319984a9b9182b4b2e66ca12a9d4ab961f3f"
+    },
+    {
+      "name": "render-05-qemu.png",
+      "sha256": "be4de073b416e327dd905c1090fa1224e647d1ff420a5f68691f65704e058c40"
+    },
+    {
+      "name": "render-05-vnc.png",
+      "sha256": "be4de073b416e327dd905c1090fa1224e647d1ff420a5f68691f65704e058c40"
+    },
+    {
+      "name": "render-15-grim.png",
+      "sha256": "6afa36c72fca1186732068eafe13319984a9b9182b4b2e66ca12a9d4ab961f3f"
+    },
+    {
+      "name": "render-15-qemu.png",
+      "sha256": "68a39b5225e347322b2c7ec1b56a4fa1ce3a9dd1e39504c17dbf044c71eaff50"
+    },
+    {
+      "name": "render-15-vnc.png",
+      "sha256": "68a39b5225e347322b2c7ec1b56a4fa1ce3a9dd1e39504c17dbf044c71eaff50"
+    }
+  ]
+}

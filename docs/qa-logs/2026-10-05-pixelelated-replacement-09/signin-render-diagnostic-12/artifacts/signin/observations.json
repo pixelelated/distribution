@@ -1,0 +1,47 @@
+{
+  "observed_utc": "2026-10-05T18:27:24.010340+00:00",
+  "checks": [
+    "installed machine-info presence/hash matches verified ROCKNIX RC2 SYSTEM",
+    "installed usr/bin/cloud-signin-window matches exact image payload",
+    "installed usr/bin/cloud_oauth matches exact image payload",
+    "persistent read-only VNC viewer obtained initial frame",
+    "installed window follows real HTTP302",
+    "original RC2 window sends desktop Safari UA",
+    "original RC2 navigator.userAgent echoes desktop Safari",
+    "01-local-redirect rendered surface is stable",
+    "01-local-redirect is panel-sized",
+    "finishing predicate rejects actual prior local page",
+    "actual done marker reached the running installed window",
+    "installed page record changed to the exact original ROCKNIX RC2 finishing document",
+    "02-finishing-marker-stand-in rendered surface is stable",
+    "02-finishing-marker-stand-in is panel-sized",
+    "finishing document remains current at offset0",
+    "render-00 VNC capture is panel-sized",
+    "render-00 native compositor capture is panel-sized",
+    "finishing document remains current at offset5",
+    "render-05 VNC capture is panel-sized",
+    "render-05 native compositor capture is panel-sized",
+    "finishing document remains current at offset15",
+    "render-15 VNC capture is panel-sized",
+    "render-15 native compositor capture is panel-sized",
+    "persistent viewer stayed connected without errors or input"
+  ],
+  "frames": [
+    {
+      "file": "01-local-redirect.png",
+      "sha256": "cec567d20eda071aabc3eaa667d11df0f449c766becae9ce6f2792801cc94f49",
+      "visual_review": "pending"
+    },
+    {
+      "file": "02-finishing-marker-stand-in.png",
+      "sha256": "be4de073b416e327dd905c1090fa1224e647d1ff420a5f68691f65704e058c40",
+      "visual_review": "pending"
+    }
+  ],
+  "limitations": [
+    "Visual review pending.",
+    "Finishing uses explicit done-file stand-in, not authenticated sign-in.",
+    "No authenticated Dropbox trust-page claim.",
+    "Memory is measured without a numerical ceiling assertion."
+  ]
+}

@@ -204,3 +204,7 @@ QA08 reached correct initial identity/Information but generic dismiss/reopen/cou
 - 2026-10-05 09:48 UTC -- Sign-in command assertions passed but the first302 frame mixed the new page with incomplete repaint blocks. Browser load-finished is not compositor readiness. Preserve command0/visual rejection; fresh capture requires bounded stable-screen state with an actual zero-exit unsettled negative control. Guard: stable_panel.py and actual frame review; issue: #447.
 
 - 2026-10-05 17:08 UTC — render07 completed17:04:04 but the first actual host observation was17:08:12; durable result capture survived, active60second supervision did not. Record the actual gap and require a configured tested delivery destination before claiming off-session alerts; issue: #395.
+
+- 2026-10-05 18:24 UTC — Historical RC2 diagnostic inherited the newer CHASSIS=handset predicate and failed before opening its browser. Fresh owners derive metadata presence/hash from the exact old SYSTEM and retain the original desktop UA/page; current mobile criteria stay intact. Guard: baseline-specific metadata and exact URI predicates with wrong-presence/hash controls. Issue #448.
+
+- 2026-10-05 18:36 UTC — Full Pixman sign-in reached27 checks/six frames but the persistent observer ended in TimeoutError. Its read phase was not recorded. New helper distinguishes bounded initial/partial reads from idle between complete messages and checks unique coverage; nine real loopback controls pass. Preserve originalrc1 and330 received frames. Issue #449.

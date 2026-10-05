@@ -1,0 +1,20 @@
+{
+  "observed_utc": "2026-10-05T18:23:58.170878+00:00",
+  "checks": [
+    "failure-panel rendered surface is stable",
+    "failure-panel is panel-sized"
+  ],
+  "frames": [
+    {
+      "file": "failure-panel.png",
+      "sha256": "45692f38f7f1b739f091b67c55f659407eb63d1daf89ec7c129d8d20b643e261",
+      "visual_review": "pending"
+    }
+  ],
+  "limitations": [
+    "Visual review pending.",
+    "Finishing uses explicit done-file stand-in, not authenticated sign-in.",
+    "No authenticated Dropbox trust-page claim.",
+    "Memory is measured without a numerical ceiling assertion."
+  ]
+}

@@ -1,0 +1,61 @@
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-10/baseline-payload.py: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-10/diagnostic-provenance.json: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-10/outer.sh: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-10/persistent-diagnostic-provenance.json: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-10/persistent_viewer.py: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-10/prepare-dirs.py: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-10/provenance.json: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-10/rc2-comparison.json: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-10/reboot-fault-provenance.json: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-10/render-provenance.json: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-10/request-diagnostic-provenance.json: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-10/required-directories.json: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-10/run.sh: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-10/seed.py: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-10/signin-proof.py: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-10/stable_panel.py: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-10/stdlib-viewer-provenance.json: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-10/stop-guest.py: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-10/successor-provenance.json: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-10/transition-provenance.json: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-10/verify-current-inputs.py: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-10/verify-gl.py: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-10/verify-inputs.py: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-10/vnc-diagnostic-provenance.json: OK
+PASS owned private pair/artifacts directories ready
+PASS frozen source inputs, ES pin and candidate input custody
+PASS exact ROCKNIX RC2 image/update/record hashes and unchanged current frozen inputs
+PASS frozen source inputs, ES pin and candidate input custody
+PASS exact ROCKNIX RC2 image/update/record hashes and unchanged current frozen inputs
+PASS baseline hashes derived from verified earlier SYSTEM before guest startup
+Preparing independent 16GiB guest d from the verified ROCKNIX RC2 image
+Image resized.
+No errors were found on the image.
+31680/262144 = 12.08% allocated, 0.00% fragmented, 0.00% compressed clusters
+Image end offset: 2076835840
+[W][18:23:26.785748] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][18:23:26.785780] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+PASS actual guest uses software virtio GPU renderer
+ready after ~24s
+PASS guest d exact BUILD_ID and OS_NAME 69e6039f8fdbf971d3e6b694537f250036fdcd98 ROCKNIX
+PASS QA ROM bytes /storage/roms/gb/Ninoid.gb a40191c169c68e6607ace072da96aab957f306f55ded59ce1f287c1f5273387b
+PASS QA ROM bytes /storage/roms/gbc/Tobu Tobu Girl Deluxe.gb 0a0e8018dbbc8d7f8cd99f05e7cdc7b4cc9e358ecfe9377ebfb2291a84c6e310
+PASS QA ROM bytes /storage/roms/nes/Bobl.nes 025ec44d0d84ac469b442ee56c3d69e035e9a38430ae849172fe3a1e569d0dea
+PASS guest d seeded and idle
+PASS failure-panel rendered surface is stable
+captured /workspace/tmp/pixelelated-m7-signin-render-diagnostic-10/artifacts/signin/failure-panel.png
+PASS failure-panel is panel-sized
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-signin-render-diagnostic-10/signin-proof.py", line 198, in <module>
+    check(guest('grep -qx CHASSIS=handset /etc/machine-info && echo yes').strip() == b'yes', 'installed chassis is handset')
+          ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tmp/pixelelated-m7-signin-render-diagnostic-10/signin-proof.py", line 29, in guest
+    return subprocess.run(ssh + [command], check=True, capture_output=True,
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                          timeout=kw.pop('timeout', 40), **kw).stdout
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['ssh', '-i', '/workspace/tmp/pixelelated-m7-signin-render-diagnostic-10/pair/qa-key', '-p', '10026', '-o', 'BatchMode=yes', '-o', 'ConnectTimeout=8', '-o', 'StrictHostKeyChecking=no', '-o', 'UserKnownHostsFile=/dev/null', '-o', 'LogLevel=ERROR', 'root@127.0.0.1', 'grep -qx CHASSIS=handset /etc/machine-info && echo yes']' returned non-zero exit status 2.
+PASS owned guest stopped 2767236

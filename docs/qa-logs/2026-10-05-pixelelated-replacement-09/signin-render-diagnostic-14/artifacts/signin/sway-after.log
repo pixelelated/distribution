@@ -1,0 +1,519 @@
+00:00:00.000 [INFO] [sway/main.c:321] Sway version 1.11
+00:00:00.000 [INFO] [sway/main.c:322] wlroots version 0.19.3
+00:00:00.002 [INFO] [sway/main.c:78] Linux GENERIC-X64-474c 7.1.2 #1 SMP PREEMPT Mon Oct  5 03:38:50 UTC 2026 x86_64 GNU/Linux
+00:00:00.002 [INFO] [sway/main.c:94] Contents of /etc/os-release:
+00:00:00.002 [INFO] [sway/main.c:78] OS_NAME="pixelelated"
+00:00:00.002 [INFO] [sway/main.c:78] OS_VERSION="0.0.1"
+00:00:00.002 [INFO] [sway/main.c:78] OS_BUILD="community"
+00:00:00.002 [INFO] [sway/main.c:78] GIT_ORGANIZATION="pixelelated"
+00:00:00.002 [INFO] [sway/main.c:78] GIT_REPO="distribution"
+00:00:00.002 [INFO] [sway/main.c:78] HOME_URL="https://pixelelated.com"
+00:00:00.002 [INFO] [sway/main.c:78] BUILD_ID="cf511ce79b83cba7fea8b14cfa3d04fb13e4b4fb"
+00:00:00.002 [INFO] [sway/main.c:78] BUILD_BRANCH="build/m7-pixelelated-replacement09"
+00:00:00.002 [INFO] [sway/main.c:78] BUILD_DATE="Mon Oct  5 05:47:47 UTC 2026"
+00:00:00.002 [INFO] [sway/main.c:78] HW_DEVICE="GENERIC_X64"
+00:00:00.002 [INFO] [sway/main.c:78] HW_ARCH="x86_64"
+00:00:00.002 [INFO] [sway/main.c:78] HW_CPU="Generic x86_64"
+00:00:00.002 [INFO] [sway/main.c:78] DISTRO_DEVICE="GENERIC_X64"
+00:00:00.002 [INFO] [sway/main.c:78] BUILDER_NAME="pixelelated-build"
+00:00:00.002 [INFO] [sway/main.c:78] BUILDER_VERSION="sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39"
+00:00:00.002 [INFO] [sway/main.c:66] LD_LIBRARY_PATH=
+00:00:00.002 [INFO] [sway/main.c:66] LD_PRELOAD=
+00:00:00.002 [INFO] [sway/main.c:66] PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin
+00:00:00.002 [INFO] [sway/main.c:66] SWAYSOCK=
+00:00:00.002 [INFO] [sway/main.c:351] Starting sway version 1.11
+00:00:00.002 [DEBUG] [sway/server.c:236] Initializing Wayland server
+00:00:00.002 [INFO] [wlr] [backend/backend.c:342] Loading user-specified backends due to WLR_BACKENDS: drm,libinput
+00:00:00.002 [INFO] [wlr] [libseat] [libseat/libseat.c:73] Seat opened with backend 'seatd'
+00:00:00.002 [INFO] [wlr] [libseat] [libseat/backend/seatd.c:212] Enabling seat
+00:00:00.002 [INFO] [wlr] [backend/session/session.c:117] Successfully loaded libseat session
+00:00:00.002 [INFO] [wlr] [backend/session/session.c:480] Opening fixed list of KMS devices from WLR_DRM_DEVICES: /dev/dri/card0
+00:00:00.003 [INFO] [wlr] [backend/backend.c:248] Found 1 GPUs
+00:00:00.003 [INFO] [wlr] [backend/drm/backend.c:225] Initializing DRM backend for /dev/dri/card0 (virtio_gpu)
+00:00:00.003 [DEBUG] [wlr] [backend/drm/drm.c:110] Using atomic DRM interface
+00:00:00.003 [INFO] [wlr] [backend/drm/drm.c:115] DRM_CLIENT_CAP_CURSOR_PLANE_HOTSPOT supported
+00:00:00.003 [DEBUG] [wlr] [backend/drm/drm.c:131] ADDFB2 modifiers unsupported
+00:00:00.003 [INFO] [wlr] [backend/drm/drm.c:310] Found 1 DRM CRTCs
+00:00:00.003 [INFO] [wlr] [backend/drm/drm.c:268] Found 2 DRM planes
+00:00:00.003 [INFO] [wlr] [util/env.c:25] Loading WLR_RENDERER option: pixman
+00:00:00.003 [INFO] [wlr] [render/pixman/renderer.c:328] Creating pixman renderer
+00:00:00.003 [DEBUG] [wlr] [render/allocator/allocator.c:142] Trying to create drm dumb allocator
+00:00:00.003 [DEBUG] [wlr] [render/allocator/drm_dumb.c:230] Created DRM dumb allocator
+00:00:00.003 [DEBUG] [wlr] [types/wlr_drm_lease_v1.c:599] Creating wlr_drm_lease_device_v1 for /dev/dri/card0
+00:00:00.003 [INFO] [wlr] [backend/headless/backend.c:60] Creating headless backend
+00:00:00.003 [INFO] [wlr] [util/env.c:9] Loading WLR_NO_HARDWARE_CURSORS option: 1
+00:00:00.003 [DEBUG] [wlr] [types/output/output.c:366] WLR_NO_HARDWARE_CURSORS set, forcing software cursors
+00:00:00.004 [INFO] [sway/config.c:422] Loading config from /storage/.config/sway/config
+00:00:00.004 [DEBUG] [sway/config.c:781] Read line 1: seat * hide_cursor 1000
+00:00:00.004 [INFO] [sway/commands.c:381] Config command: seat * hide_cursor 1000
+00:00:00.004 [INFO] [sway/commands.c:404] After replacement: seat * hide_cursor 1000
+00:00:00.004 [DEBUG] [sway/commands.c:436] Subcommand: hide_cursor 1000
+00:00:00.004 [DEBUG] [sway/config/seat.c:78] Adding seat * config
+00:00:00.004 [DEBUG] [sway/config/seat.c:82] Config stored for seat *
+00:00:00.004 [DEBUG] [sway/config.c:781] Read line 2: default_border none
+00:00:00.004 [INFO] [sway/commands.c:381] Config command: default_border none
+00:00:00.004 [INFO] [sway/commands.c:404] After replacement: default_border none
+00:00:00.004 [DEBUG] [sway/config.c:781] Read line 3: exec_always mako
+00:00:00.004 [INFO] [sway/commands.c:381] Config command: exec_always mako
+00:00:00.004 [INFO] [sway/commands.c:404] After replacement: exec_always mako
+00:00:00.004 [DEBUG] [sway/config.c:825] Deferring command `exec_always mako'
+00:00:00.004 [DEBUG] [sway/config.c:781] Read line 4: output Virtual-1 transform 0
+00:00:00.004 [INFO] [sway/commands.c:381] Config command: output Virtual-1 transform 0
+00:00:00.004 [INFO] [sway/commands.c:404] After replacement: output Virtual-1 transform 0
+00:00:00.004 [DEBUG] [sway/commands.c:436] Subcommand: transform 0
+00:00:00.004 [DEBUG] [sway/config/output.c:272] Config stored for output Virtual-1 (enabled: -1) (-1x-1@-1.000000Hz position 2147483647,2147483647 scale -1.000000 subpixel unknown transform 0) (bg (null) (null)) (power -1) (max render time: -1) (allow tearing: -1)
+00:00:00.004 [DEBUG] [sway/config.c:781] Read line 5: output Virtual-1 bg #000000 solid_color
+00:00:00.004 [INFO] [sway/commands.c:381] Config command: output Virtual-1 bg #000000 solid_color
+00:00:00.004 [INFO] [sway/commands.c:404] After replacement: output Virtual-1 bg #000000 solid_color
+00:00:00.004 [DEBUG] [sway/commands.c:436] Subcommand: bg #000000 solid_color
+00:00:00.004 [DEBUG] [sway/config/output.c:272] Config stored for output Virtual-1 (enabled: -1) (-1x-1@-1.000000Hz position 2147483647,2147483647 scale -1.000000 subpixel unknown transform -1) (bg #000000 solid_color) (power -1) (max render time: -1) (allow tearing: -1)
+00:00:00.004 [DEBUG] [sway/config.c:781] Read line 6: output Virtual-1 allow_tearing yes
+00:00:00.004 [INFO] [sway/commands.c:381] Config command: output Virtual-1 allow_tearing yes
+00:00:00.004 [INFO] [sway/commands.c:404] After replacement: output Virtual-1 allow_tearing yes
+00:00:00.004 [DEBUG] [sway/commands.c:436] Subcommand: allow_tearing yes
+00:00:00.004 [DEBUG] [sway/config/output.c:272] Config stored for output Virtual-1 (enabled: -1) (-1x-1@-1.000000Hz position 2147483647,2147483647 scale -1.000000 subpixel unknown transform -1) (bg (null) (null)) (power -1) (max render time: -1) (allow tearing: 1)
+00:00:00.004 [DEBUG] [sway/config.c:781] Read line 7: output Virtual-1 max_render_time off
+00:00:00.004 [INFO] [sway/commands.c:381] Config command: output Virtual-1 max_render_time off
+00:00:00.004 [INFO] [sway/commands.c:404] After replacement: output Virtual-1 max_render_time off
+00:00:00.004 [DEBUG] [sway/commands.c:436] Subcommand: max_render_time off
+00:00:00.004 [DEBUG] [sway/config/output.c:272] Config stored for output Virtual-1 (enabled: -1) (-1x-1@-1.000000Hz position 2147483647,2147483647 scale -1.000000 subpixel unknown transform -1) (bg (null) (null)) (power -1) (max render time: 0) (allow tearing: -1)
+00:00:00.004 [DEBUG] [sway/config.c:781] Read line 8: workspace 1 output DP-1 Virtual-1
+00:00:00.004 [INFO] [sway/commands.c:381] Config command: workspace 1 output DP-1 Virtual-1
+00:00:00.004 [INFO] [sway/commands.c:404] After replacement: workspace 1 output DP-1 Virtual-1
+00:00:00.004 [DEBUG] [sway/config.c:781] Read line 9: for_window [app_id="emulationstation"] move output DP-1
+00:00:00.004 [INFO] [sway/commands.c:381] Config command: for_window [app_id="emulationstation"] move output DP-1
+00:00:00.004 [INFO] [sway/commands.c:404] After replacement: for_window [app_id="emulationstation"] move output DP-1
+00:00:00.004 [DEBUG] [sway/criteria.c:809] Found pair: app_id=emulationstation
+00:00:00.004 [DEBUG] [sway/commands/for_window.c:34] for_window: '[app_id="emulationstation"]' -> 'move output DP-1' added
+00:00:00.008 [DEBUG] [sway/input/input-manager.c:190] no fallback seat config - creating default
+00:00:00.008 [DEBUG] [sway/config/seat.c:65] Adding non-wildcard seat config
+00:00:00.008 [DEBUG] [sway/config/seat.c:68] Merging on top of seat * config
+00:00:00.008 [DEBUG] [sway/config/seat.c:82] Config stored for seat seat0
+00:00:00.008 [DEBUG] [sway/input/input-manager.c:637] applying seat config for seat seat0
+00:00:00.008 [DEBUG] [sway/input/input-manager.c:637] applying seat config for seat *
+00:00:00.008 [DEBUG] [sway/input/input-manager.c:637] applying seat config for seat seat0
+00:00:00.008 [DEBUG] [sway/config/output.c:1150] spawn_swaybg cmd[0] = swaybg
+00:00:00.008 [DEBUG] [sway/config/output.c:1150] spawn_swaybg cmd[1] = -o
+00:00:00.008 [DEBUG] [sway/config/output.c:1150] spawn_swaybg cmd[2] = Virtual-1
+00:00:00.008 [DEBUG] [sway/config/output.c:1150] spawn_swaybg cmd[3] = -c
+00:00:00.008 [DEBUG] [sway/config/output.c:1150] spawn_swaybg cmd[4] = #000000
+00:00:00.008 [DEBUG] [sway/server.c:511] Initializing Xwayland (lazy=1)
+00:00:00.008 [INFO] [sway/server.c:538] Starting backend on wayland display 'wayland-1'
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1741] Scanning DRM connectors on /dev/dri/card0
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1796] Found connector 'Virtual-1'
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1821] 'Virtual-1' connected
+00:00:00.008 [DEBUG] [wlr] [backend/drm/drm.c:1596] Current CRTC: 39
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1610] Detected modes:
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1634]   640x480 @ 74.998 Hz (preferred)
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1634]   5120x2160 @ 50.000 Hz 
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1634]   4096x2160 @ 50.000 Hz 
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1634]   3840x2160 @ 60.000 Hz 
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1634]   3840x2160 @ 59.940 Hz 
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1634]   3840x2160 @ 50.000 Hz 
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1634]   1920x1440 @ 60.000 Hz 
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1634]   2560x1080 @ 50.000 Hz 
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1634]   1856x1392 @ 59.995 Hz 
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1634]   1792x1344 @ 60.000 Hz 
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1634]   2048x1152 @ 60.000 Hz 
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1634]   1920x1200 @ 59.885 Hz 
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1634]   1920x1080 @ 60.000 Hz 
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1634]   1920x1080 @ 50.000 Hz 
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1634]   1600x1200 @ 60.000 Hz 
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1634]   1680x1050 @ 59.954 Hz 
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1634]   1400x1050 @ 59.978 Hz 
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1634]   1280x1024 @ 60.020 Hz 
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1634]   1440x900 @ 59.887 Hz 
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1634]   1280x960 @ 60.000 Hz 
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1634]   1360x768 @ 60.015 Hz 
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1634]   1280x768 @ 59.870 Hz 
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1634]   1024x768 @ 60.004 Hz 
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1634]   800x600 @ 60.317 Hz 
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1634]   640x480 @ 60.000 Hz 
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1634]   640x480 @ 59.940 Hz 
+00:00:00.008 [INFO] [wlr] [util/env.c:9] Loading WLR_NO_HARDWARE_CURSORS option: 1
+00:00:00.008 [DEBUG] [wlr] [types/output/output.c:366] WLR_NO_HARDWARE_CURSORS set, forcing software cursors
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1671] Physical size: 160x120
+00:00:00.008 [INFO] [wlr] [backend/drm/drm.c:1855] connector Virtual-1: Requesting modeset
+00:00:00.008 [DEBUG] [sway/desktop/output.c:534] New output 0x30d2130: Virtual-1 (non-desktop: 0)
+00:00:00.008 [DEBUG] [wlr] [backend/libinput/backend.c:88] Starting libinput backend
+00:00:00.069 [DEBUG] [wlr] [backend/libinput/events.c:69] Adding QEMU QEMU USB Keyboard [1575:1]
+00:00:00.069 [DEBUG] [sway/input/input-manager.c:240] adding device: '1575:1:QEMU_QEMU_USB_Keyboard'
+00:00:00.069 [DEBUG] [sway/input/seat.c:945] adding device 1575:1:QEMU_QEMU_USB_Keyboard to seat seat0
+00:00:00.072 [DEBUG] [sway/input/keyboard.c:947] Created keyboard group 0x314c910
+00:00:00.072 [DEBUG] [sway/input/keyboard.c:970] Adding keyboard 1575:1:QEMU_QEMU_USB_Keyboard to group 0x314c910
+00:00:00.072 [DEBUG] [wlr] [backend/libinput/events.c:69] Adding QEMU QEMU USB Tablet [1575:1]
+00:00:00.072 [DEBUG] [sway/input/input-manager.c:240] adding device: '1575:1:QEMU_QEMU_USB_Tablet'
+00:00:00.072 [DEBUG] [sway/input/seat.c:945] adding device 1575:1:QEMU_QEMU_USB_Tablet to seat seat0
+00:00:00.072 [DEBUG] [wlr] [xcursor/wlr_xcursor.c:224] Loaded cursor theme 'default' at size 24 (26 available cursors)
+00:00:00.072 [DEBUG] [sway/input/seat.c:694] Applying input mapping to 1575:1:QEMU_QEMU_USB_Tablet
+00:00:00.072 [DEBUG] [wlr] [backend/libinput/events.c:69] Adding Power Button [0:1]
+00:00:00.072 [DEBUG] [sway/input/input-manager.c:240] adding device: '0:1:Power_Button'
+00:00:00.072 [DEBUG] [sway/input/seat.c:945] adding device 0:1:Power_Button to seat seat0
+00:00:00.074 [DEBUG] [sway/input/keyboard.c:922] Adding keyboard 0:1:Power_Button to group 0x314c910
+00:00:00.074 [DEBUG] [wlr] [backend/libinput/events.c:69] Adding AT Translated Set 2 keyboard [1:1]
+00:00:00.074 [DEBUG] [sway/input/input-manager.c:240] adding device: '1:1:AT_Translated_Set_2_keyboard'
+00:00:00.074 [DEBUG] [sway/input/seat.c:945] adding device 1:1:AT_Translated_Set_2_keyboard to seat seat0
+00:00:00.076 [DEBUG] [sway/input/keyboard.c:922] Adding keyboard 1:1:AT_Translated_Set_2_keyboard to group 0x314c910
+00:00:00.076 [DEBUG] [wlr] [backend/libinput/events.c:69] Adding ImExPS/2 Generic Explorer Mouse [2:6]
+00:00:00.076 [DEBUG] [sway/input/input-manager.c:240] adding device: '2:6:ImExPS/2_Generic_Explorer_Mouse'
+00:00:00.076 [DEBUG] [sway/input/seat.c:945] adding device 2:6:ImExPS/2_Generic_Explorer_Mouse to seat seat0
+00:00:00.076 [DEBUG] [sway/input/seat.c:694] Applying input mapping to 2:6:ImExPS/2_Generic_Explorer_Mouse
+00:00:00.076 [INFO] [wlr] [util/env.c:9] Loading WLR_LIBINPUT_NO_DEVICES option: 1
+00:00:00.076 [DEBUG] [wlr] [backend/libinput/backend.c:125] libinput successfully initialized
+00:00:00.076 [INFO] [wlr] [backend/headless/backend.c:17] Starting headless backend
+00:00:00.076 [DEBUG] [sway/config/output.c:880] Committing 1 outputs
+00:00:00.076 [DEBUG] [sway/config/output.c:643] Output state for Virtual-1
+00:00:00.076 [DEBUG] [sway/config/output.c:645]     enabled:       yes
+00:00:00.076 [DEBUG] [sway/config/output.c:649]     render_format: XR24
+00:00:00.076 [DEBUG] [sway/config/output.c:657]     mode:          640x480@74998mHz (preferred)
+00:00:00.076 [DEBUG] [sway/config/output.c:667]     scale:         1.000000
+00:00:00.076 [DEBUG] [sway/config/output.c:670]     subpixel:      unknown
+00:00:00.076 [DEBUG] [wlr] [types/wlr_output_swapchain_manager.c:160] Preparing test commit for 1 outputs with explicit modifiers
+00:00:00.076 [DEBUG] [wlr] [render/swapchain.c:101] Allocating new swapchain buffer
+00:00:00.077 [DEBUG] [wlr] [render/allocator/drm_dumb.c:105] Allocated 640x480 DRM dumb buffer
+00:00:00.077 [DEBUG] [wlr] [types/wlr_output_swapchain_manager.c:181] Test commit for 1 outputs succeeded
+00:00:00.077 [DEBUG] [wlr] [render/pixman/renderer.c:186] Created pixman buffer 640x480
+00:00:00.090 [DEBUG] [sway/config/output.c:940] Commit of 1 outputs succeeded
+00:00:00.090 [DEBUG] [sway/config/output.c:946] Finalizing config for Virtual-1
+00:00:00.090 [DEBUG] [wlr] [xcursor/wlr_xcursor.c:224] Loaded cursor theme 'default' at size 24 (26 available cursors)
+00:00:00.090 [DEBUG] [wlr] [types/output/cursor.c:424] Falling back to software cursor on output 'Virtual-1'
+00:00:00.090 [DEBUG] [sway/tree/workspace.c:294] Workspace: Generating new workspace name for output Virtual-1
+00:00:00.090 [DEBUG] [sway/tree/output.c:163] Creating default workspace 1
+00:00:00.090 [DEBUG] [sway/tree/workspace.c:65] Adding workspace 1 for output Virtual-1
+00:00:00.090 [DEBUG] [sway/desktop/layer_shell.c:96] Usable area changed, rearranging output
+00:00:00.090 [DEBUG] [sway/tree/arrange.c:274] Usable area for ws: 640x480@0,0
+00:00:00.090 [DEBUG] [sway/tree/arrange.c:308] Arranging workspace '1' at 0.000000, 0.000000
+00:00:00.090 [DEBUG] [sway/tree/arrange.c:274] Usable area for ws: 640x480@0,0
+00:00:00.090 [DEBUG] [sway/tree/arrange.c:308] Arranging workspace '1' at 0.000000, 0.000000
+00:00:00.090 [DEBUG] [sway/desktop/transaction.c:821] Transaction 0x3170a90 committing with 2 instructions
+00:00:00.090 [DEBUG] [sway/desktop/transaction.c:717] Applying transaction 0x3170a90
+00:00:00.090 [DEBUG] [sway/input/seat.c:694] Applying input mapping to 2:6:ImExPS/2_Generic_Explorer_Mouse
+00:00:00.090 [DEBUG] [sway/input/seat.c:694] Applying input mapping to 1575:1:QEMU_QEMU_USB_Tablet
+00:00:00.090 [DEBUG] [sway/config.c:630] Running deferred commands
+00:00:00.090 [INFO] [sway/commands.c:261] Handling command 'exec_always mako'
+00:00:00.090 [DEBUG] [sway/commands/exec_always.c:47] Executing mako
+00:00:00.090 [DEBUG] [sway/commands/exec_always.c:73] Child process created with pid 2286
+00:00:00.090 [DEBUG] [sway/commands/exec_always.c:75] Recording workspace for process 2286
+00:00:00.090 [INFO] [sway/server.c:550] Running compositor on wayland display 'wayland-1'
+00:00:00.090 [DEBUG] [wlr] [render/swapchain.c:101] Allocating new swapchain buffer
+00:00:00.091 [DEBUG] [wlr] [render/allocator/drm_dumb.c:105] Allocated 640x480 DRM dumb buffer
+00:00:00.091 [DEBUG] [wlr] [render/pixman/renderer.c:186] Created pixman buffer 640x480
+2026-10-05 14:30:05 - [main.c:282] Found config Virtual-1 for output Virtual-1 (Red Hat, Inc. QEMU Monitor)
+00:00:00.091 [DEBUG] [wlr] [types/wlr_compositor.c:786] New wlr_surface 0x3225a30 (res 0x31c8970)
+00:00:00.091 [DEBUG] [wlr] [types/wlr_layer_shell_v1.c:502] new layer_surface 0x31b32e0 (res 0x31c8810)
+00:00:00.091 [DEBUG] [sway/desktop/layer_shell.c:412] new layer surface: namespace wallpaper layer 0 anchor 0 size 0x0 margin 0,0,0,0,
+00:00:00.648 [DEBUG] [sway/input/cursor.c:1412] denying request to set cursor from unfocused client
+00:00:00.655 [DEBUG] [wlr] [types/wlr_text_input_v3.c:190] Text input commit received without focus
+00:00:00.655 [INFO] [sway/input/text_input.c:252] Enabling text input when input method is gone
+00:00:00.655 [DEBUG] [sway/input/cursor.c:888] denying request to set cursor from unfocused client
+00:00:00.659 [DEBUG] [wlr] [types/wlr_compositor.c:786] New wlr_surface 0x3245760 (res 0x31c0ad0)
+00:00:00.659 [DEBUG] [sway/desktop/idle_inhibit_v1.c:30] New sway idle inhibitor
+00:00:00.659 [DEBUG] [sway/tree/view.c:1025] Surface of unknown type (role (null)): 0x3245760
+00:00:00.659 [DEBUG] [wlr] [types/xdg_shell/wlr_xdg_surface.c:441] new xdg_surface 0x30b8ce0 (res 0x31cdc20)
+00:00:00.659 [DEBUG] [sway/desktop/xdg_shell.c:543] New xdg_shell toplevel title='(null)' app_id='(null)'
+00:00:00.659 [DEBUG] [wlr] [types/wlr_xdg_decoration_v1.c:220] new xdg_toplevel_decoration 0x3246030 (res 0x31cf720)
+00:00:00.713 [DEBUG] [sway/desktop/launcher.c:85] Looking up workspace for pid 2402
+00:00:00.714 [DEBUG] [sway/tree/arrange.c:274] Usable area for ws: 640x480@0,0
+00:00:00.714 [DEBUG] [sway/tree/arrange.c:308] Arranging workspace '1' at 0.000000, 0.000000
+00:00:00.714 [DEBUG] [sway/tree/view.c:512] Checking criteria [app_id="emulationstation"]
+00:00:00.714 [DEBUG] [sway/tree/view.c:517] for_window '[app_id="emulationstation"]' matches view 0x3245b30, cmd: 'move output DP-1'
+00:00:00.714 [INFO] [sway/commands.c:261] Handling command 'move output DP-1'
+00:00:00.714 [ERROR] [sway/tree/view.c:524] for_window '[app_id="emulationstation"]' failed: Can't find output with name/direction 'DP-1'
+00:00:00.714 [DEBUG] [sway/desktop/transaction.c:821] Transaction 0x318b670 committing with 3 instructions
+00:00:00.807 [DEBUG] [wlr] [types/wlr_text_input_v3.c:190] Text input commit received without focus
+00:00:00.807 [DEBUG] [sway/input/text_input.c:290] Disabling text input, but no longer focused
+00:00:00.859 [DEBUG] [sway/desktop/transaction.c:907] Transaction 0x318b670 is ready
+00:00:00.859 [DEBUG] [sway/desktop/transaction.c:717] Applying transaction 0x318b670
+00:00:00.859 [DEBUG] [wlr] [types/output/output.c:981] Direct scan-out disabled by software cursor
+00:00:00.862 [DEBUG] [wlr] [types/output/cursor.c:424] Falling back to software cursor on output 'Virtual-1'
+00:00:00.862 [DEBUG] [wlr] [types/output/cursor.c:424] Falling back to software cursor on output 'Virtual-1'
+00:00:00.863 [DEBUG] [wlr] [types/output/output.c:981] Direct scan-out disabled by software cursor
+00:00:00.876 [DEBUG] [wlr] [types/output/output.c:981] Direct scan-out disabled by software cursor
+00:00:00.890 [DEBUG] [wlr] [types/output/output.c:981] Direct scan-out disabled by software cursor
+00:00:00.903 [DEBUG] [wlr] [types/output/output.c:981] Direct scan-out disabled by software cursor
+00:00:00.917 [DEBUG] [wlr] [types/output/output.c:981] Direct scan-out disabled by software cursor
+00:00:00.930 [DEBUG] [wlr] [types/output/output.c:981] Direct scan-out disabled by software cursor
+00:00:00.943 [DEBUG] [wlr] [types/output/output.c:981] Direct scan-out disabled by software cursor
+00:00:00.956 [DEBUG] [wlr] [types/output/output.c:981] Direct scan-out disabled by software cursor
+00:00:00.970 [DEBUG] [wlr] [types/output/output.c:981] Direct scan-out disabled by software cursor
+00:00:00.983 [DEBUG] [wlr] [types/output/output.c:981] Direct scan-out disabled by software cursor
+00:00:00.997 [DEBUG] [wlr] [types/output/output.c:981] Direct scan-out disabled by software cursor
+00:00:01.010 [DEBUG] [wlr] [types/output/output.c:981] Direct scan-out disabled by software cursor
+00:00:01.023 [DEBUG] [wlr] [types/output/output.c:981] Direct scan-out disabled by software cursor
+00:00:01.036 [DEBUG] [wlr] [types/output/output.c:981] Direct scan-out disabled by software cursor
+00:00:01.050 [DEBUG] [wlr] [types/output/output.c:981] Direct scan-out disabled by software cursor
+00:00:01.063 [DEBUG] [wlr] [types/output/output.c:981] Direct scan-out disabled by software cursor
+00:00:01.076 [DEBUG] [wlr] [types/output/output.c:981] Direct scan-out disabled by software cursor
+00:00:01.076 [DEBUG] [wlr] [types/output/cursor.c:424] Falling back to software cursor on output 'Virtual-1'
+00:00:01.079 [DEBUG] [sway/input/cursor.c:1412] denying request to set cursor from unfocused client
+00:00:01.090 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.090 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.103 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.103 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.116 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.116 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.130 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.130 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.143 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.143 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.157 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.157 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.170 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.170 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.183 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.183 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.197 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.197 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.210 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.210 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.223 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.223 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.236 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.236 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.250 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.250 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.263 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.263 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.276 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.276 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.290 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.290 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.303 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.303 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.316 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.316 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.330 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.330 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.343 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.343 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.357 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.357 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.370 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.370 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.383 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.383 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.396 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.396 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.410 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.410 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.423 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.423 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.436 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.436 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.450 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.450 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.463 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.463 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.476 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.476 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.490 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.490 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.503 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.503 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.516 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.516 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.530 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.530 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.543 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.543 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.556 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.556 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.570 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.570 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.583 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.583 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.596 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.596 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.610 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.610 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.623 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.623 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.636 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.636 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.649 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.650 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.663 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.663 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.676 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.676 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.690 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.690 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.703 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.703 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.716 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.716 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.730 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.730 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.743 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.743 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.756 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.756 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.770 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.770 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.783 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.783 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.796 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.796 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.809 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.810 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.823 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.823 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.836 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.836 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.850 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.850 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.863 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.863 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.876 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.876 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.889 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.889 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.903 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.903 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.916 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.916 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.929 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.930 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.943 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.943 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.956 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.956 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.970 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.970 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.983 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.983 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:01.996 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:01.996 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:02.010 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:02.010 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:02.023 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:02.023 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:02.036 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:02.036 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:02.049 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:02.049 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:02.063 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:02.063 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:02.076 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:02.076 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:02.089 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:02.089 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:02.103 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:02.103 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:02.116 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:02.116 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:02.117 [DEBUG] [wlr] [types/wlr_compositor.c:786] New wlr_surface 0x324b7b0 (res 0x3211d40)
+00:00:02.117 [DEBUG] [wlr] [types/wlr_compositor.c:786] New wlr_surface 0x324bb80 (res 0x32122e0)
+00:00:02.129 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:02.129 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:02.143 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:02.143 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:02.156 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:02.156 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:02.169 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:02.169 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:02.183 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:02.183 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:02.196 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:02.196 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:02.210 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:02.210 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:02.223 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:02.223 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:02.236 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:02.236 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:02.250 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:02.250 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:02.263 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:02.263 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:02.276 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:02.276 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:02.289 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:02.289 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:02.303 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:02.303 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:02.307 [DEBUG] [wlr] [types/wlr_compositor.c:786] New wlr_surface 0x324c160 (res 0x32129a0)
+00:00:02.316 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:02.316 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:02.330 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:02.330 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:02.343 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:02.343 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:02.347 [DEBUG] [wlr] [types/wlr_compositor.c:786] New wlr_surface 0x324c160 (res 0x32129a0)
+00:00:02.347 [DEBUG] [wlr] [types/xdg_shell/wlr_xdg_surface.c:441] new xdg_surface 0x324c530 (res 0x32100a0)
+00:00:02.347 [DEBUG] [sway/desktop/xdg_shell.c:543] New xdg_shell toplevel title='(null)' app_id='(null)'
+00:00:02.347 [DEBUG] [wlr] [types/wlr_server_decoration.c:108] new server_decoration 0x3121530 (res 0x321d740)
+00:00:02.347 [DEBUG] [wlr] [types/wlr_xdg_activation_v1.c:113] Rejecting token commit request: serial 0 was never given to client
+00:00:02.348 [DEBUG] [wlr] [types/wlr_xdg_activation_v1.c:308] Rejecting activate request: unknown token
+00:00:02.349 [DEBUG] [sway/desktop/launcher.c:85] Looking up workspace for pid 2468
+00:00:02.349 [DEBUG] [sway/tree/arrange.c:274] Usable area for ws: 640x480@0,0
+00:00:02.349 [DEBUG] [sway/tree/arrange.c:308] Arranging workspace '1' at 0.000000, 0.000000
+00:00:02.349 [DEBUG] [sway/desktop/transaction.c:821] Transaction 0x321b020 committing with 4 instructions
+00:00:02.351 [DEBUG] [sway/desktop/transaction.c:907] Transaction 0x321b020 is ready
+00:00:02.351 [DEBUG] [sway/desktop/transaction.c:717] Applying transaction 0x321b020
+00:00:02.356 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:02.356 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:02.410 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:02.410 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:02.457 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:02.457 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:02.468 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:02.468 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:03.065 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:03.065 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:03.679 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:03.679 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:04.294 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:04.294 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:04.906 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:04.906 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:05.518 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:05.518 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:05.870 [DEBUG] [sway/input/cursor.c:888] denying request to set cursor from unfocused client
+00:00:06.133 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:06.133 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:06.745 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:06.745 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:07.358 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:07.358 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:07.958 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:07.958 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:07.970 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:07.970 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:07.983 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:07.983 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:14.845 [DEBUG] [wlr] [types/output/render.c:142] Disabling direct scan-out on output 'Virtual-1' (locks: 1)
+00:00:14.845 [DEBUG] [wlr] [types/output/output.c:972] Direct scan-out disabled by lock
+00:00:14.846 [DEBUG] [wlr] [types/output/render.c:142] Enabling direct scan-out on output 'Virtual-1' (locks: 0)
+00:00:19.842 [DEBUG] [wlr] [types/output/render.c:142] Disabling direct scan-out on output 'Virtual-1' (locks: 1)
+00:00:19.842 [DEBUG] [wlr] [types/output/output.c:972] Direct scan-out disabled by lock
+00:00:19.843 [DEBUG] [wlr] [types/output/render.c:142] Enabling direct scan-out on output 'Virtual-1' (locks: 0)
+00:00:29.836 [DEBUG] [wlr] [types/output/render.c:142] Disabling direct scan-out on output 'Virtual-1' (locks: 1)
+00:00:29.836 [DEBUG] [wlr] [types/output/output.c:972] Direct scan-out disabled by lock
+00:00:29.837 [DEBUG] [wlr] [types/output/render.c:142] Enabling direct scan-out on output 'Virtual-1' (locks: 0)
+00:00:30.031 [DEBUG] [sway/tree/arrange.c:274] Usable area for ws: 640x480@0,0
+00:00:30.031 [DEBUG] [sway/tree/arrange.c:308] Arranging workspace '1' at 0.000000, 0.000000
+00:00:30.031 [DEBUG] [sway/tree/arrange.c:76] Arranging 0x7ffe68003070 horizontally
+00:00:30.031 [DEBUG] [sway/desktop/transaction.c:821] Transaction 0x321fd80 committing with 4 instructions
+00:00:30.031 [DEBUG] [sway/desktop/transaction.c:717] Applying transaction 0x321fd80
+00:00:30.032 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:30.032 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:30.037 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:30.037 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:30.050 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:30.050 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:30.063 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:30.063 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:30.076 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:30.076 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:30.090 [DEBUG] [wlr] [types/wlr_xdg_activation_v1.c:48] Activation token '5beaa61c34fec149a36a678c208e2a39' has expired
+00:00:30.090 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:30.090 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:30.103 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:30.103 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:30.116 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:30.116 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:30.130 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:30.130 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out
+00:00:30.143 [DEBUG] [wlr] [backend/drm/fb.c:147] Failed to get DMA-BUF from buffer
+00:00:30.143 [DEBUG] [wlr] [backend/drm/drm.c:769] connector Virtual-1: Failed to import buffer for scan-out

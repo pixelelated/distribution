@@ -807,6 +807,12 @@ explicitly. Save diagnostic requests before assertions so failed checks retain
 the input that failed. Import new helper dependencies in the runner's actual
 Python environment before launching a VM; syntax parsing alone is insufficient.
 
+Historical-image comparisons derive metadata and page expectations from that
+image, including expected absence. RC2 predates `CHASSIS=handset` and the
+Connected card (#448); adding those to its guest would change the baseline.
+Keep current-candidate requirements intact and record each deliberate
+baseline-specific assertion separately from the common rendering procedure.
+
 For a memory-budget guest, distinguish allocated RAM from Linux `MemTotal`
 (#362). Verify the actual QEMU allocation and guest firmware capacity, and
 record usable RAM and the kernel reservation log separately. A guessed lower

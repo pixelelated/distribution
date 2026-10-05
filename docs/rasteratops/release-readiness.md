@@ -1,5 +1,52 @@
 # pixelelated 0.0.1 release readiness
 
+## Latest result — ROCKNIX RC2 replay and working Pixman experiment
+
+The maintainer asked why the last ROCKNIX build had not exposed this fault.
+The actual September29 RC2 image69e6039f8f (SHAe2b662ba) reproduces host-stale
+software frames on today's host; native is correct. Its accelerated control
+has all nine frames exactly equal. Original September29 reports explicitly
+record virgl/renderD128; the sixteen recorded walks do not test browser
+finishing native-versus-host. Thus renderer and coverage explain a concrete
+historical blind spot; the exact September29 software-host behavior is unknown.
+Source changes and new branding are not necessary to reproduce it.
+
+Current-candidate Pixman diagnostic14 gives nine correct host/native frames;
+matched GLES2/llvmpipe diagnostic15 reproduces stale/partial host frames with
+the same restart/debug setup and identical actual QEMU arguments. Pixman uses
+DRM dumb buffers; GLES2 uses GBM. Both use atomic DRM. Exact faulty component
+is not established. All36 RC2/Pixman/GLES comparison frames were directly read.
+See historical-render-comparison/rc2/README.md and pixman.md in the replacement09
+QA directory. All original failures remain immutable.
+
+Full software/Pixman signin-ui13 PASSES: durable18:41:40/all four rc0,27checks,
+six intended frames directly reviewed, unchanged exact finishing reference,
+original HTTP/navigator Mobile UA and actual390px phone margins. Observer
+stops cleanly after354frames; public-provider peak696352KiB on8GiB. Actual
+bc4afc cleanup18:42:00 confirms owner/guest absence and noQEMU. This is a
+runtime-only configuration proof, not a permanent fix or RC-wide pass.
+
+#448 fixes the historical test metadata assumption: failed diagnostic10
+required newer handset metadata; fresh12/13 derive exact RC2 SYSTEM absence,
+desktop UA and original finishing URI. Prepared11 is superseded/unstarted.
+#449 fixes persistent observer boundaries/unique coverage: fullsignin12
+reached27checks but failed on TimeoutError; its failing read phase was not
+recorded. Nine actual loopback controls pass; full13 keeps every original
+assertion/reference and changes only the tested observer. No result transfer
+from failed12. Both scoped fixes have retained source/result/cleanup evidence.
+
+**Immediate next action:** #447 remains OPEN. Turn the validated Pixman
+workaround into a narrow, explicit GENERIC_X64 software fallback; preserve
+accelerated guests and handheld renderers. Prove clean/upgrade selection,
+ES/emulator behavior, visual correctness and performance. A product change
+requires a fresh candidate freeze/build and affected qualification before P4.
+Do not globally override Sway, adopt legacy DRM, relax screenshot criteria,
+or claim current --gl none is fixed without the runtime configuration.
+Then reconcile remaining #362/#356/#365 criteria/account inputs, P4 approved
+primary+Fable5.1/xhigh Facilitator review, H700 arm then aarch64 and named
+physical/P5 gates. No build, guest, runner or watcher remains active.
+
+
 Current update: 2026-10-05, #409. Delivery #383; release contract #344;
 cloud epic #354. The next RC uses lowercase **pixelelated** and the Tiny5
 Duo LCD wordmark (D-WORKFLOW-144/145); the cloud default is `/pixelelated`
@@ -61,7 +108,7 @@ Boot04/tool90675/all four rc0 passes four clean/upgraded boots at 640x480 and 12
 
 **Historical comparison complete:** the maintainer requested isolation against pre-pixelelated builds. Source comparison proves12 actual graphics/browser/VM/capture git objects unchanged between old61b648 and currentcf511ce. Old bundle87b8c01d/imagef1af3533 is verified. Fresh old-image software08 reproduces the same host-old/partial0/5→correct15 sequence while native stays correct; accelerated09 has all nine frames exactly correct. All18new comparison frames directly reviewed; actual accelerated QEMU argv old/current is identical except owner path. Software08 durable17:17:13/all0, actual2f5df8 cleanup17:17:37; accelerated09 durable17:18:48/all0, actualf4b65f cleanup17:19:03. Frozen source and both bundles unchanged. This rules out pixelelated changes as necessary to reproduce on today's host; it does not establish historical-host or physical-device behavior. Exact component cause remains open. Read historical-render-comparison/README.md before proposing another fix.
 
-**Current priority:** #447 is a software virtual-display investigation, reproduced on both sides of the rename. Do not spend another cut assuming a branding regression. Use the matched comparison and retained Sway debug evidence to isolate the host/compositor/virtio path; unchanged source alone is not proof of identical binaries. Reconcile #362/#356/#365's broader criteria against existing artifacts. Ordinary RetroAchievements/authenticatedDropbox inputs remain pending; then P4 and H700. No job, guest or watcher is active at actual17:19:03; executed owners are immutable.
+**Earlier investigation priority:** superseded by the latest-result section above; permanent software fallback and broader regression proof remain under447.
 
 **Monitoring limit:** diagnostic07's durable watcher recorded17:04:04 completion; the first actual host check was17:08:12. This does not meet the intended active60second observation bound. #395 retains the unconfigured disconnected destination and this actual gap. Do not present the recorder as proactive off-session delivery or say this run met active supervision.
 
