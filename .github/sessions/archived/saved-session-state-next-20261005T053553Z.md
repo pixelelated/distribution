@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Saved 2026-10-05T05:35:53.035029+00:00. Previous checkpoint archived at `.github/sessions/archived/saved-session-state-next-20261005T053553Z.md`.
+> Saved 2026-10-05T05:28:07.453138+00:00. Previous checkpoint archived at `.github/sessions/archived/saved-session-state-next-20261005T052807Z.md`.
 > Branch feature/conflict-resolution; primary /workspace/repos/rocknix stays next.
 
 ## Start here
@@ -30,95 +30,7 @@ and precise harness-manifest wording findings are corrected.
 A helper installation is COMPLETE; do not ask to reinstall it.
 
 
-## Current focus: replacement09 frozen; independent cache copy ACTIVE
-
-The only product change from replacement08 is removing the never-shipped
-Rasteratops OS alias from proxy recognition, plus renaming patch018. ROCKNIX
-and pixelelated keep the shared account-settings layout. Same proxy7252fc,
-ESf6f0 and splash8c71126 pins. The maintainer authorized this in the side
-conversation; evidence is docs/qa-logs/2026-10-05-proxy-identity-cleanup/.
-
-Source/evidence publication52870=0: feature d9fe4722b18119b2eb97290e2a583d5967d2a1ac
-→ next cf511ce79b83cba7fea8b14cfa3d04fb13e4b4fb, both remote hashes verified.
-Freeze90645=0: /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09,
-branch build/m7-pixelelated-replacement09, source cf511ce79b83cba7fea8b14cfa3d04fb13e4b4fb.
-Owner /workspace/tmp/pixelelated-m7-replacement-09. Input manifest
-817fd9ff49b1ecf6bcc859cfa38985a65fbcfe5514c33a0a5c9dd60af6cc6c6e;
-6547 product files,180 symlinks,200 unchanged QA tools. Original input manifest stays in the owner (digest reference in Git);
-freeze/build/copy scripts and18 prepared QA owners retained in
-`docs/qa-logs/2026-10-05-pixelelated-replacement-09/`. Never edit frozen inputs.
-
-**Actual copy tool91647 is running.** Run frozen09/.build-runs/20261005T053303Z-aecc0df2;
-owner/copy-console.log and copy-artifacts are watched recursively at5s, warning
-at5min inactivity. Actual05:34:26 runner3183093/watcher3183094/command3183123 live;
-copy progressed past40GB by05:35. The rsync percentage is a growing file-list
-percentage, not a reliable total estimate. Final checksum/inode checks pending.
-Source is completed frozen08, never modified; destination files are independent.
-No VM or image build is active. No image09 bundle exists yet.
-
-QA11 additionally checks the installed proxy against temporary supported and
-unsupported OS fixtures and account-settings discovery; actual pixelelated is
-checked first. Syntax and embedded newline characters pass; all18 owners are
-sealed and UNSTARTED. Existing Back/Back lifecycle and splash assertions kept.
-
-#436 and #433 are CLOSED completed from exact installed08 evidence. Their
-publication/closure receipts are /tmp/pixelelated-08-repairs-closed/; do not
-reopen them merely because09 must repeat qualification. All08 and olderpasses
-remain scoped to their original artifacts. The15 remaining08 owners stay
-unstarted. M7/#383/#409/#344/#422/#431 bodies now record the order change;
-update the current gate with frozen09/live copy, then read back after writes.
-
-## Immediate commands and dependencies
-
-1. Poll actualtool91647; inspect owner/copy-console.log and actual watcher
-   build.status. On return record the ACTUAL tool result, four channels
-   (copy.rc,copy.outer.rc,copy.wrapper.rc,run/build.rc) and host PID absence.
-   Check cache-ready.json, empty cache-compare.txt and distinct-inode count.
-   Do not use /tmp/pixelelated-finish-copy08.py: it hardcodes the oldowner/tool.
-   The prepared /tmp/pixelelated-finish-copy09.py ACTUAL_RC is the09 recorder. During a quiet checksum interval inspect real
-   worker I/O, not a fabricated heartbeat. Never edit the executed copy script.
-2. After successful copy and actual owner cleanup, run the guarded idle host
-   preflight (helper already installed): tools/build-preflight --reclaim-swap.
-   No reclaim during active copy/build/VM work. Retain host-preflight/prelaunch
-   observations. Build from frozen09cwd with:
-   tools/watch-build --interval 5 --stall-min 5 --recursive-activity --activity-dir /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/build.pixelelated-GENERIC_X64.x86_64 -- /workspace/tmp/pixelelated-m7-replacement-09/outer.sh
-   Redirect owner/console.log and record actual result in tool-wrapper.rc.
-   build.sh verifies the watcher cwd BEFORE cleaning proxy/image (#435), source
-   custody and assembled config hash. Capture actual pinned Docker ID/mounts,
-   nonroot1000:1000 and final exit. Verify assembled payload/source afterbuild.
-3. Record actual build completion/owner cleanup, then adapt a NEW store09 helper
-   from /tmp/pixelelated-store08.py; it binds14files including image/update/logs.
-   Never rerun old helpers. Independently verify new immutable bundle; no mutable
-   target substitution. Keep failed attempts/receipts if any step fails.
-4. New serial QA order, all /workspace/tmp/pixelelated-m7-:
-   qa-11 → boot-qualification-03 → image-10 → sweep-07 → settings-09 → link-09 →
-   guest-09 → runtime-10 → proxy-08 → optins-08 → memory-08 → ui-10 →
-   predecessor-06 → subset-05 → cloud-ui-04 → signin-ui-04 → signin-1g-04.
-   inventory-07 may run read-only alongsideQA. Eighteen sealed sources listed
-   in buildowner/qa-owners.json. Launch their outer.sh BUNDLE via frozen09's
-   tools/watch-build --interval 5 --stall-min 5 --recursive-activity --activity-dir OWNER/artifacts.
-   Stay in frozen09cwd. Capture wrapperrc/actualtoolID. Fixed VM ports serialize.
-   After actualreturn: /tmp/pixelelated-finish-owner.py OWNER TOOL_ID ACTUAL_RC
-   OBSERVED_GUEST_PIDS verifies four channels and actualprocess absence. Observe
-   new guest PIDs when QA11 replaces the pair for actualRC2upgrade.
-5. Review actual frames, not just runnerstatus. Boot03 requires QA11 completion;
-   predecessor06 requires boot03/artifacts/qualification.json passed AND
-   ui10/visual-review.json passed, written ONLY after inspecting actual frames.
-   UI10 checks lifecycle after deliberate language restart. Streamingproxy
-   preservation22 and subset35 assertions stay unchanged. Originalfixture
-   /tmp/m7-proxy-predecessor SHAa796c1e6ce6373a6620dfa983e16de3012b6d8feb83f9a2c178f437d8c0adca5.
-6. Reconcile remaining criteria/ordinaryRA → approvedP4 primary+Fable5.1/xhigh via
-   verifiedFacilitator → H700 DDR4/RG35XXSP arm thenaarch64. #409 staysopen throughP4.
-   External inputs below do not block independent VMwork. No RC/device-ready claim.
-7. Exact commit/cherry-pick -x/normalpush/readback for docs/checkpoints; frozen
-   source stayscf511 despite later documentation commits. Never wholefeaturemerge.
-
-Already executed, DO NOT RERUN: /tmp/pixelelated-publish09-source.py,
-pixelelated-freeze09.py, pixelelated-prepare09-owners.py,
-pixelelated-retain09-preparation.py and all08 helpers. Canonical stash uses
-session-stash; archive before overwrite and fresh-context proof beforehandoff.
-
-## Completed replacement08 and source integration (historical snapshot)
+## Current focus: replacement08 scoped fixes PASS; integrate identity cleanup
 
 No VM/build/watcher is running. QA10 actual98190/allfourrc0 and boot02 actual86957/
 allfourrc0 have both completed with actual host cleanup. Frozen08 remains at
@@ -163,6 +75,48 @@ These changes are OUTSIDE frozen08. Finish scoped08 records/close repairedissues
 then integrate/freeze replacement09 before remaining longtests. The15 other08
 owners stay sealed/unstarted; do not execute them as finalcandidate qualification.
 This order change avoids qualifying an image that lacks the intended source.
+
+## Immediate commands and dependencies
+
+1. Publish current exact source/evidence commit through normalhooks tofeature,
+   cherry-pick -x ontoprimarynext, push and verifybothremoteheads. Do notmerge
+   historicalfeaturehistory. Record /tmp/pixelelated-replacement09-source-published.json
+   with feature/next fullhashes. Current sourcechanges are reviewed patch018rename/
+   singlealiasremoval, matching upstreamdraft and renameplan. Include currentworklog/
+   evidence/checkpoint; preserve unrelated work. #436/#433 close onlyafterpublished
+   evidence and liveM7/#409/#422/#431 reconciliation. BroaderP3/P4 remainpending.
+2. Prepared but UNEXECUTED: python3 /tmp/pixelelated-freeze09.py (host escalation).
+   It requires the publication receipt, completed08build/boot, cleanprimarynext;
+   creates build/m7-pixelelated-replacement09 and /workspace/tmp/pixelelated-m7-replacement-09.
+   Asserts only patch018 rename+singlealiasremoval; ES/splash/QAtools stayidentical.
+   Newowner scripts rebuild proxy/image and verify exactpatchedconfig; olderowners
+   and frozeninputs remainintact. Retain prepared sources beforeexecution.
+3. Prepare18 new independent source-bound09 QAowners from08 seals. Planned:
+   qa11 → boot03 → image10 → sweep07 → settings09 → link09 → guest09 → runtime10 →
+   proxy08 → optins08 → memory08 → UI10 → predecessor06 → subset05 → cloud-ui04 →
+   signin-ui04 → signin-1g04; inventory07 may runread-only alongsideQA. Include
+   installedproxyidentity assertions on clean/post-default/actualupgraded guests.
+   Do not reuse18 existing08 owners or claim theirpasses for09.
+4. Newcopy under tools/watch-build --interval 5 --stall-min 5 --recursive-activity
+   --activity-dir OWNER/copy-artifacts -- OWNER/copy-outer.sh, from frozen09cwd.
+   Actualtoolreturn/allrc0/checksums/distinctinodes/hostcleanup precede idle guarded
+   swap preflight and proxy/image build. Keep rawlogs and actualtool IDs.
+   Buildwatch likewisefromfrozencwd, notownercwd (#435); canonicalcontainermounts.
+5. Verifybuiltpayload/containerexit/storeimmutablebundle thenserialQA orderabove.
+   Usestandard5s/5min recursivewatcher and actualtool supervision; afterreturn
+   /tmp/pixelelated-finish-owner.py OWNER TOOL_ID ACTUAL_RC OBSERVED_GUEST_PIDS.
+   Never infer actualtoolrc fromstamp. Pollactualtool and detailedlogs; build.status,
+   notstatus.json. VMsreplaceguests duringupgrade, so retain allobservedPIDs.
+6. OrdinaryRA → approvedP4 primary+Fable5.1/xhigh viaverifiedFacilitator → H700
+   DDR4/RG35XXSP arm thenaarch64. Externalinputsbelow don'tblock independentVMwork.
+   #409 staysopen throughP4. NoRC/device-ready/publicationclaim.
+
+Alreadyexecuted DO NOT RERUN: allfreeze08/prep08/store08/publicationhelpers;
+retainers08-build,08-completed qa10,qa10-extra andboot02. Originalretention
+stopped safely onunallowlisted state-after.txt; correctedretainer hashesonlythat
+file. Allpreparedsealedowners andfrozenproduct remainunchanged. Current docs
+lastpublishedbeforethesechanges: feature304301ccf2 → next4709f2b062 (78104=0).
+Fresh-context QA10 proof04:55 is retained, but its liveQA status ishistorical.
 
 ## Historical replacement07 build and crash diagnosis
 
