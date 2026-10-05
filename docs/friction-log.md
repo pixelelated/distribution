@@ -212,3 +212,5 @@ QA08 reached correct initial identity/Information but generic dismiss/reopen/cou
 - 2026-10-05 19:02 UTC — Pixman selector preflight exposed two real assumptions: DRM points to the virtio transport parent, and the image loader expects /usr/lib in an isolated fixture. Preserve selector01/02 failures; kernel-source tracing and actual image-BusyBox controls guard the corrected path. issue: #447, #450.
 
 - 2026-10-05 22:08 UTC — Latest proxy qualification compiled the new native library and passed815 Linux tests, but the fork upgrade fixture still read the retired list API from the actual7252fc predecessor. Original host01 remainsrc1; exact diagnostic confirms AttributeError. Fixture now selects the predecessor's actual streaming/list API and exposes subprocess stderr; fresh controls must cover both7252fc and865e21. Issue #451.
+
+- 2026-10-05 22:22 UTC — Proxy recipe refresh left the reviewed schema-pin comment stale. Existing pre-build guard returned1 before compilation; unchanged schema and all direct reads reviewed, comment corrected under #452. Move the same offline guard ahead of the next freeze; retain frozen11 and its unconsumed cache receipts.
