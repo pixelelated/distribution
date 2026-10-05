@@ -1,0 +1,44 @@
+#!/usr/bin/env python3
+"""#421: real shell writer functions, scratch paths, candidate busybox applets."""
+import argparse, hashlib, json, os, re, shutil, subprocess, tempfile
+from pathlib import Path
+p=argparse.ArgumentParser();p.add_argument('--profile',type=Path,required=True);p.add_argument('--chksysconfig',type=Path,required=True);p.add_argument('--busybox',type=Path,required=True);p.add_argument('--output',type=Path,required=True);a=p.parse_args()
+fn=a.profile.read_text();ck=a.chksysconfig.read_text();rows=[]
+with tempfile.TemporaryDirectory(prefix='pixelelated-settings-modes-') as tmp:
+ root=Path(tmp);bb=root/'busybox';shutil.copy2(a.busybox,bb);bin=root/'bin';bin.mkdir()
+ for applet in ['stat','chmod','cp','mv','awk','sed','head','tail','wc','tr','cut']:
+  f=bin/applet;f.write_text('#!/bin/sh\nexec '+str(bb)+' '+applet+' "$@"\n');f.chmod(0o755)
+ functions='\n'.join(re.findall(r'^function \w+\(\) \{.*?^\}',fn,re.M|re.S))
+ functions+='\n'+'\n'.join(re.findall(r'^\w+\(\) \{.*?^\}',ck,re.M|re.S))
+ for operation in ['set_setting','set_settings','del_setting','sort_settings','backup','restore']:
+  for scenario in ['private_live','private_record','wide_temp','restricted_group']:
+   case=root/(operation+'-'+scenario);configroot=case/'config';cfgdir=configroot/'system/configs';cfgdir.mkdir(parents=True)
+   live=cfgdir/'system.cfg';record=Path(str(live)+'.backup')
+   original=b'system.hostname=qa\nqa.setting=older\nqa.keep=kept\n';oldrecord=b'system.hostname=qa\nqa.setting=record\nqa.keep=kept\n'
+   live.write_bytes(original);record.write_bytes(oldrecord)
+   live.chmod(0o644 if scenario=='private_record' else 0o660 if scenario=='restricted_group' else 0o600)
+   record.chmod(0o644 if scenario=='private_live' else 0o640 if scenario=='restricted_group' else 0o600)
+   expectedmode=0o640 if scenario=='restricted_group' else 0o600
+   if scenario=='wide_temp':
+    for f in [Path(str(live)+'.tmp'),Path(str(record)+'.tmp')]:f.write_bytes(b'stale\n');f.chmod(0o666)
+   commands={'set_setting':'set_setting qa.setting newer','set_settings':'set_settings qa.setting newer qa.other second','del_setting':'del_setting qa.setting','sort_settings':'sort_settings','backup':'backup','restore':'restore'}
+   setup=functions.replace('/storage/.config',str(configroot))+f'\nJ_CONF="{live}"; J_CONF_LOCK="{case}/lock"; CFG="{live}"; BACKUP="{record}"; logger() {{ :; }}\numask 022\n'
+   result=subprocess.run(['bash','-c',setup+commands[operation]],capture_output=True,text=True,timeout=15,env={**os.environ,'PATH':str(bin)+':/usr/bin:/bin'})
+   target=record if operation=='backup' else live
+   expected=oldrecord if operation=='restore' else original if operation=='backup' else b''.join(sorted(original.splitlines(keepends=True))) if operation=='sort_settings' else original.replace(b'qa.setting=older\n',b'')+(b'qa.setting=newer\n'+(b'qa.other=second\n' if operation=='set_settings' else b'') if operation!='del_setting' else b'')
+   okay=result.returncode==0 and target.read_bytes()==expected and target.stat().st_mode&0o777==expectedmode
+   rows.append({'case':case.name,'pass':okay,'rc':result.returncode,'expected_mode':oct(expectedmode),'actual_mode':oct(target.stat().st_mode&0o777),'bytes_match':target.read_bytes()==expected})
+   print(('PASS ' if okay else 'FAIL ')+case.name,flush=True)
+ # Every refused staging action leaves the published file and other file intact.
+ for fault in ['symlink','chmod','stat','producer','rename']:
+  case=root/('refuse-'+fault);configroot=case/'config';cfgdir=configroot/'system/configs';cfgdir.mkdir(parents=True)
+  live=cfgdir/'system.cfg';live.write_bytes(b'system.hostname=qa\nqa.setting=older\n');live.chmod(0o600);original=live.read_bytes();victim=case/'other';victim.write_bytes(b'unchanged\n')
+  if fault=='symlink':Path(str(live)+'.tmp').symlink_to(victim)
+  injected={'symlink':'','chmod':'chmod() { return 1; }','stat':'stat() { return 1; }','producer':'settings_base() { printf "system.hostname=qa\\n"; return 1; }','rename':'mv() { return 1; }'}[fault]
+  setup=functions.replace('/storage/.config',str(configroot))+f'\nJ_CONF="{live}"; J_CONF_LOCK="{case}/lock"; logger() {{ :; }}\numask 022\n'+injected+'\n'
+  command='sort_settings' if fault=='rename' else 'set_setting qa.setting newer'
+  result=subprocess.run(['bash','-c',setup+command],capture_output=True,text=True,timeout=15,env={**os.environ,'PATH':str(bin)+':/usr/bin:/bin'})
+  okay=result.returncode!=0 and not live.is_symlink() and live.read_bytes()==original and live.stat().st_mode&0o777==0o600 and victim.read_bytes()==b'unchanged\n'
+  rows.append({'case':'refuse-'+fault,'pass':okay,'rc':result.returncode});print(('PASS ' if okay else 'FAIL ')+'refuse-'+fault,flush=True)
+report={'pass':all(x['pass'] for x in rows),'checks':rows,'profile_sha256':hashlib.sha256(a.profile.read_bytes()).hexdigest(),'chksysconfig_sha256':hashlib.sha256(a.chksysconfig.read_bytes()).hexdigest(),'busybox_sha256':hashlib.sha256(a.busybox.read_bytes()).hexdigest()}
+a.output.parent.mkdir(parents=True,exist_ok=True);a.output.write_text(json.dumps(report,indent=2)+'\n');raise SystemExit(0 if report['pass'] else 1)
