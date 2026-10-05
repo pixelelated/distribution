@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Saved 2026-10-05T20:35:44.595964+00:00. Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261005T203544Z.md`.
+> Saved 2026-10-05T20:24:20.103397+00:00. Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261005T202420Z.md`.
 > Branch feature/conflict-resolution; primary /workspace/repos/rocknix stays next.
 
 ## Start here
@@ -119,15 +119,11 @@ marker is an explicit stand-in, not authenticated success/trust. Each owner has
 43artifact hashes/37public files plus source and actual cleanup/review receipts.
 
 ACTIVE memory12, submitted0ccb58 at20:23:14; qa.start 2026-10-05T20:23:15Z;
-owner /workspace/tmp/pixelelated-m7-memory-12; launcher3773740. Initial virgl
-guest3774189 stopped; actual92c5bb at20:28:17 records active software guest3804672.
-Backend3796226 recorded cf9766 at20:29:04 in actual-backend-observations.jsonl;
-verify its absence after terminal cleanup as well as owner/guest processes.
+owner /workspace/tmp/pixelelated-m7-memory-12; launcher3773740; actual6a9da3 guest3774189.
 Run /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement10/.build-runs/20261005T202314Z-0be6ba04.
 Original10virgl/10software/50software+sync measured cycles after5warmups;
 unchanged1024KiBVmSize/2048KiBRSSgrowth limits. Added installed renderer proof
-and original exit/time-to-play suites on bothprofiles. Both10cycle profiles and both exit/time-to-play suites pass. Software-sync50
-is active; latest20:35:20 raw cycle23 includes5warmups. No full memory12 acceptance yet.
+and original exit/time-to-play suites on bothprofiles. No acceptance yet.
 Host20:21 read-only memory observation: swap0used/8GiBfree; no busy reclaim.
 
 ## Next Steps — execute in order
@@ -159,12 +155,6 @@ Host20:21 read-only memory observation: swap0used/8GiBfree; no busy reclaim.
 
 ## Key Files and Context
 
-- Fresh-context m7_fallback_qualification_resume_proof independently verified all
- 6549product/201QA/180symlinks,14bundle members including full image/tar,
- 1100local artifact hashes/324public copies,41completed PIDs absent,75remaining
- harness members and actualactive memory12. Corrected M7 orderedtable/readiness
- oldCurrent labels; updated/readback383/409/344/351/362 current10 heads while
- preserving09 history. No product/audit claim from this read-only handoff proof.
 - Committed read-only helper: docs/qa-logs/2026-10-05-generic-x64-pixman/verify-installed-renderer.py;
   read-only installed bytes/unit/realGPU/process proof copied into153sealed members.
 - M7 body and #447 read back20:23: allthree sign-in profiles pass, memory12 active; #450 closed.
@@ -187,11 +177,10 @@ stop named owned PIDs only, never broad pkill. tools/watch-build records five-
 second heartbeat and five-minute inactivity; connected agent supervises actual
 completion. #395 destination still missing, so no disconnected alert claim.
 
-Boot05/signin14/15/16 and the prior checkpoint are published as
-next8aefd9c751da96c34e38a64d329bbcbe095e000c / featureb54270e0cc98bd5b6910214592d27c8cf82db04f,
-remote-verified20:25:07. This checkpoint correction accompanies its own normal
-evidence commit; verify actual HEAD/remotes rather than assuming it is unpushed.
-Frozen10 remains d6e8390c. Priorpublisher scripts already ran; never replay them.
+Primary nexta76111439e158e8555ad99d30cc983e346322242, feature1694c0af686d3fc5c478c621e781d5af33d2375c
+are the published QA14 evidence. This checkpoint, boot05/signin14/15/16 receipts,
+readiness/worklog/VMledger await the next normal evidence publication. Frozen10
+remains d6e8390c. Priorpublisher scripts already ran; never replay them.
 
 P4 has NOT STARTED. #375/#382 initial reviews complete; don't restart them.
 Read full code-auditor skill/routing then use approved primary + Fable5.1/xhigh

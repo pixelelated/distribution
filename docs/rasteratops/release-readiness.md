@@ -93,11 +93,11 @@ Duo LCD wordmark (D-WORKFLOW-144/145); the cloud default is `/pixelelated`
 is unchanged. The required adoption flow is **ROCKNIX → pixelelated**;
 there are no fielded /Rasteratops systems requiring an additional gate.
 
-Status updated 2026-10-05T17:21:30.901110+00:00.
+Replacement09 historical record updated 2026-10-05T17:21:30.901110+00:00.
 
-## Current gate — remaining P3 proofs after sign-in qualification
+## Historical replacement09 qualification — superseded by replacement10
 
-M7.P3 is current. The frozen candidate is source `cf511ce79b83cba7fea8b14cfa3d04fb13e4b4fb`, input manifest `817fd9ff49b1ecf6bcc859cfa38985a65fbcfe5514c33a0a5c9dd60af6cc6c6e`, immutable bundle `79d560046ee52e28b72f16588168dd7c8fb2637c1cc585713216a8ec828e9d81`. Build and inventory pass; 14 licence metadata gaps remain for P5.
+At this historical checkpoint M7.P3 was current. The candidate was source `cf511ce79b83cba7fea8b14cfa3d04fb13e4b4fb`, input manifest `817fd9ff49b1ecf6bcc859cfa38985a65fbcfe5514c33a0a5c9dd60af6cc6c6e`, immutable bundle `79d560046ee52e28b72f16588168dd7c8fb2637c1cc585713216a8ec828e9d81`. Build and inventory pass; 14 licence metadata gaps remain for P5.
 
 Default-suite evidence is explicitly composite. QA11/tool64718 returned1 after fourteen passing suites and 16 walks/78 frames: one first-sample PREPARING region was unclaimed. Its original failure is preserved. #439 adds one measured claim; the same frames pass 20 claimed/0 unexpected/0 missing differences. Removed/narrow-claim, unrelated-screen and missing-frame controls reject. QA13/tool42880/all four rc0 verifies all 143 original artifact hashes, repeats the corrected comparison and passes all 26 actual ROCKNIX RC2 upgrade checks. The upgraded ES process survives Back/Back; all five identity frames were reviewed.
 
@@ -328,7 +328,7 @@ All24 EN/FR640/1280 frames visually reviewed. #397/#401/#406 closed from their
 published proof. Public-site screenshot4f6df54 remains local because GitHub
 refused Blitterbot403; #327 remains open for delivery.
 
-**Current replacement02 (61b64817bf):** build completed642tasks23:16:46UTC,
+**Replacement02 at that checkpoint (61b64817bf):** build completed642tasks23:16:46UTC,
 immutable bundle87b8c01d65dc22b4f29049bd0d69307a59c14c16f5223534e95058b2234ca5cd.
 Includes directory-probe timing #364, root wording #407 and canonical proxy
 account discovery #408. Full source regression1373+322PASS. Installed proxy
