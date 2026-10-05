@@ -1,3 +1,4 @@
 # Session pointer
 
-Resume from [the canonical next checkpoint](saved-session-state-next.md).
+Read [the canonical checkpoint](saved-session-state-next.md) on `next`.
+This feature branch uses the same current handoff.

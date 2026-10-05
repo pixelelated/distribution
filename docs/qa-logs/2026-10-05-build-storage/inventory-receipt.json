@@ -1,0 +1,37 @@
+{
+  "recorded_utc": "2026-10-05T22:49:37.005660+00:00",
+  "main_scan_started_utc": "2026-10-05T22:39:09Z",
+  "main_scan_observed_complete_utc": "2026-10-05T22:48:03Z",
+  "main_scan_exit_code": 0,
+  "method": "du -x -B1 --max-depth=1, allocated blocks; live filesystem, non-atomic scan",
+  "permission_errors": [],
+  "reclaim_candidates": [
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement03",
+      "allocated_bytes": 115743256576,
+      "status": "proposal only; custody and dependency review required before approval"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement05",
+      "allocated_bytes": 115747307520,
+      "status": "proposal only; custody and dependency review required before approval"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement06",
+      "allocated_bytes": 115769135104,
+      "status": "proposal only; custody and dependency review required before approval"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement07",
+      "allocated_bytes": 115840999424,
+      "status": "proposal only; custody and dependency review required before approval"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement08",
+      "allocated_bytes": 116002959360,
+      "status": "proposal only; custody and dependency review required before approval"
+    }
+  ],
+  "gross_candidate_bytes": 579103657984,
+  "deleted_bytes": 0
+}
