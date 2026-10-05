@@ -1,0 +1,17 @@
+/workspace/tmp/pixelelated-m7-sweep-08/allowlist.json: OK
+/workspace/tmp/pixelelated-m7-sweep-08/check-controls.py: OK
+/workspace/tmp/pixelelated-m7-sweep-08/outer.sh: OK
+/workspace/tmp/pixelelated-m7-sweep-08/parse-theme.cpp: OK
+/workspace/tmp/pixelelated-m7-sweep-08/provenance.json: OK
+/workspace/tmp/pixelelated-m7-sweep-08/reconcile-locales.py: OK
+/workspace/tmp/pixelelated-m7-sweep-08/run.sh: OK
+/workspace/tmp/pixelelated-m7-sweep-08/scan-artifact.py: OK
+/workspace/tmp/pixelelated-m7-sweep-08/secret-patterns: OK
+/workspace/tmp/pixelelated-m7-sweep-08/successor-provenance.json: OK
+PASS 10 artifact sweep controls; no matching value printed
+Progress: read 10000 regular files
+Progress: read 20000 regular files
+Progress: read 30000 regular files
+Progress: read 40000 regular files
+Progress: read 50000 regular files
+{"counts": {"brand_FIX": 0, "brand_KEEP": 8583, "brand_UNKNOWN": 20, "brand_contexts": 8603, "brand_occurrences": 9631, "bytes_read": 6806467973, "credential_pattern_files": 20, "credential_pattern_matches": 70, "legacy_file_paths": 40, "legacy_symlink_paths": 23, "regular_files": 57293, "reviewed_public_pattern_matches": 70, "symlinks": 1345, "unclassified_credential_pattern_matches": 0}, "pass": false}

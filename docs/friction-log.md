@@ -190,3 +190,7 @@ QA08 reached correct initial identity/Information but generic dismiss/reopen/cou
 - 2026-10-05 06:34 UTC — New continuation omitted activity directory creation before watch-build validation. Refused2 before jobstart; freshQA13 creates/checks it before standard launch, originalQA12 preserved. Issue #440.
 
 - 2026-10-05 06:42 UTC — Rebinding sealed0400owner failed beforewrite, but the following toolcall still launched the olddependency and correctly failed beforeguestboot. Guard: preserve alloldowners, create fresh consistent successors, verify preparation result separately before launch. #441.
+
+- 2026-10-05 06:52 UTC — Exact-image sweep encountered changed compiled-context hashes. Preserve the original failure, inspect each context against consumed source/NAMING.md, and add only exact path/hash classifications in a fresh sealed owner with removal/alteration/path negative controls. #442.
+
+- 2026-10-05 06:55 UTC — Settings owner inherited an old ES hash despite updated source/build identity. The identity guard stopped before mutation. Fresh owner derives expected hashes from verified immutable image extraction and reports actual plus expected; original failure retained. #443.

@@ -1,0 +1,12 @@
+PASS candidate BUILD_ID
+FAIL installed bytes /usr/bin/emulationstation
+Traceback (most recent call last):
+  File "/tmp/pixelelated-settings-race/guest-proof.py", line 109, in <module>
+    main()
+    ~~~~^^
+  File "/tmp/pixelelated-settings-race/guest-proof.py", line 57, in main
+    check('installed bytes ' + path, sha(Path(path).read_bytes()) == digest, sha256=digest)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/pixelelated-settings-race/guest-proof.py", line 18, in check
+    raise RuntimeError(name)
+RuntimeError: installed bytes /usr/bin/emulationstation

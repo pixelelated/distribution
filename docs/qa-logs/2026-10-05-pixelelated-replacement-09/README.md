@@ -1,6 +1,6 @@
 # M7.P3 replacement09 build and qualification (#409, #383)
 
-Status updated 2026-10-05T06:47:40.836058+00:00.
+Status updated 2026-10-05T06:56:29.170887+00:00.
 
 ## Current gate — replacement09 boot qualification passed
 
@@ -10,11 +10,15 @@ Default-suite evidence is explicitly composite. QA11/tool64718 returned1 after f
 
 Boot04/tool90675/all four rc0 passes four clean/upgraded boots at 640x480 and 1280x960. All four matches are 1.0 at the unchanged .995 threshold; all 12 negative controls reject. Actual frames reviewed. Host verification at06:46:39 found all owner and four guest processes absent. QA13's actual upgraded disk was used. Original QA12 launch refusal and boot03 dependency failure remain intact; 16 fresh successors with 139 sealed source members passed preparation and separate readback before launch (#440, #441).
 
-**Current action:** image11/tool1600/all four rc0 completed; raw-image and update-tar SYSTEM payloads match SHA256 `4c7c1fcce5f9e0032d1d57f9099d32fb8de7322f77b1018ae95f3cb12210634e`. Actual06:48:09 process cleanup passed. Sweep08/tool43694 is running the content checks under the standard 5-second watcher with a 5-minute inactivity warning. Settings10 follows. The image remains an engineering candidate; the RC/device-ready gates have not passed.
+**Content qualification:** image11/tool1600 confirms identical raw-image/update SYSTEM bytes. Sweep08/tool43694 remains failed on20 previously unclassified contexts. #442 reviews15 compiler paths and5 proxy compatibility identifiers against actual bytes and consumed source. Fresh sweep09/tool81204/all four rc0 passes all20 exact contexts/60 rejecting boundary controls and ten scanner controls. Full scan57293files has zero unknown/FIX contexts and zero unclassified credentials. All851 catalogue/95 XML entries reconcile; installed theme and Tools XML pass. Actual06:52:23 sweep processes absent.
 
-**Remaining order:** sweep08 → settings10 → link10 → guest10 → runtime11 → proxy09 → optins09 → memory09 → UI11 → predecessor07 → subset06 → cloud-ui05 → signin-ui05 → signin-1g05 → ordinary RetroAchievements proof → P4 primary OpenAI plus Fable5.1/xhigh through the verified Facilitator → H700 DDR4/RG35XX SP arm, then aarch64. Predecessor07 requires the completed boot04 proof and an actual UI11 visual review. External inputs and P5 publication gates remain recorded. Can this be done on the VM? **Yes.**
+**Settings qualification:** original settings10/tool97000 rejected an inherited stale expected ES hash before race mutation (#443). Fresh settings11/tool91974 derives expected hashes from the verified candidate and records observed values. All20 installed recovery-race and29 permission/refusal checks pass; settings and installed files are restored/unchanged. Original upgraded backing hash is unchanged. Actual06:55:44 all owner and guest processes absent.
 
-#433/#436 stay closed from their artifact-scoped replacement08 repair proofs. #437/#438 are closed with published evidence. Publish the scoped #439/#440/#441 repairs and close them from their own acceptance evidence; their closure does not qualify the whole candidate.
+**Current action:** link10/tool56478 is running the isolated WebDAV and S3 link-loss matrices. The standard watcher checks every5seconds and warns after5minutes without log progress. This remains an engineering candidate; RC/device-ready gates have not passed.
+
+**Remaining order:** link10 → guest10 → runtime11 → proxy09 → optins09 → memory09 → UI11 → predecessor07 → subset06 → cloud-ui05 → signin-ui05 → signin-1g05 → ordinary RetroAchievements proof → P4 primary OpenAI plus Fable5.1/xhigh through the verified Facilitator → H700 DDR4/RG35XX SP arm, then aarch64. Predecessor07 requires the completed boot04 proof and an actual UI11 visual review. External inputs and P5 publication gates remain recorded. Can this be done on the VM? **Yes.**
+
+#433/#436 remain closed from their artifact-scoped replacement08 repair proofs. #437/#438 and #439/#440/#441 are closed with published scoped evidence; actual52959=0 verifies the latter three bodies/states. Prior evidence publication38382=0 put featurecb078ec6 on next3ac3c33d, with both remote hashes verified. #442/#443 evidence is ready for publication and scoped closure. These closures do not qualify the whole candidate.
 
 ## Preparation snapshot (historical)
 

@@ -1,0 +1,225 @@
+{
+  "pass": true,
+  "checks": [
+    {
+      "case": "set_setting-private_live",
+      "pass": true,
+      "rc": 0,
+      "expected_mode": "0o600",
+      "actual_mode": "0o600",
+      "bytes_match": true
+    },
+    {
+      "case": "set_setting-private_record",
+      "pass": true,
+      "rc": 0,
+      "expected_mode": "0o600",
+      "actual_mode": "0o600",
+      "bytes_match": true
+    },
+    {
+      "case": "set_setting-wide_temp",
+      "pass": true,
+      "rc": 0,
+      "expected_mode": "0o600",
+      "actual_mode": "0o600",
+      "bytes_match": true
+    },
+    {
+      "case": "set_setting-restricted_group",
+      "pass": true,
+      "rc": 0,
+      "expected_mode": "0o640",
+      "actual_mode": "0o640",
+      "bytes_match": true
+    },
+    {
+      "case": "set_settings-private_live",
+      "pass": true,
+      "rc": 0,
+      "expected_mode": "0o600",
+      "actual_mode": "0o600",
+      "bytes_match": true
+    },
+    {
+      "case": "set_settings-private_record",
+      "pass": true,
+      "rc": 0,
+      "expected_mode": "0o600",
+      "actual_mode": "0o600",
+      "bytes_match": true
+    },
+    {
+      "case": "set_settings-wide_temp",
+      "pass": true,
+      "rc": 0,
+      "expected_mode": "0o600",
+      "actual_mode": "0o600",
+      "bytes_match": true
+    },
+    {
+      "case": "set_settings-restricted_group",
+      "pass": true,
+      "rc": 0,
+      "expected_mode": "0o640",
+      "actual_mode": "0o640",
+      "bytes_match": true
+    },
+    {
+      "case": "del_setting-private_live",
+      "pass": true,
+      "rc": 0,
+      "expected_mode": "0o600",
+      "actual_mode": "0o600",
+      "bytes_match": true
+    },
+    {
+      "case": "del_setting-private_record",
+      "pass": true,
+      "rc": 0,
+      "expected_mode": "0o600",
+      "actual_mode": "0o600",
+      "bytes_match": true
+    },
+    {
+      "case": "del_setting-wide_temp",
+      "pass": true,
+      "rc": 0,
+      "expected_mode": "0o600",
+      "actual_mode": "0o600",
+      "bytes_match": true
+    },
+    {
+      "case": "del_setting-restricted_group",
+      "pass": true,
+      "rc": 0,
+      "expected_mode": "0o640",
+      "actual_mode": "0o640",
+      "bytes_match": true
+    },
+    {
+      "case": "sort_settings-private_live",
+      "pass": true,
+      "rc": 0,
+      "expected_mode": "0o600",
+      "actual_mode": "0o600",
+      "bytes_match": true
+    },
+    {
+      "case": "sort_settings-private_record",
+      "pass": true,
+      "rc": 0,
+      "expected_mode": "0o600",
+      "actual_mode": "0o600",
+      "bytes_match": true
+    },
+    {
+      "case": "sort_settings-wide_temp",
+      "pass": true,
+      "rc": 0,
+      "expected_mode": "0o600",
+      "actual_mode": "0o600",
+      "bytes_match": true
+    },
+    {
+      "case": "sort_settings-restricted_group",
+      "pass": true,
+      "rc": 0,
+      "expected_mode": "0o640",
+      "actual_mode": "0o640",
+      "bytes_match": true
+    },
+    {
+      "case": "backup-private_live",
+      "pass": true,
+      "rc": 0,
+      "expected_mode": "0o600",
+      "actual_mode": "0o600",
+      "bytes_match": true
+    },
+    {
+      "case": "backup-private_record",
+      "pass": true,
+      "rc": 0,
+      "expected_mode": "0o600",
+      "actual_mode": "0o600",
+      "bytes_match": true
+    },
+    {
+      "case": "backup-wide_temp",
+      "pass": true,
+      "rc": 0,
+      "expected_mode": "0o600",
+      "actual_mode": "0o600",
+      "bytes_match": true
+    },
+    {
+      "case": "backup-restricted_group",
+      "pass": true,
+      "rc": 0,
+      "expected_mode": "0o640",
+      "actual_mode": "0o640",
+      "bytes_match": true
+    },
+    {
+      "case": "restore-private_live",
+      "pass": true,
+      "rc": 0,
+      "expected_mode": "0o600",
+      "actual_mode": "0o600",
+      "bytes_match": true
+    },
+    {
+      "case": "restore-private_record",
+      "pass": true,
+      "rc": 0,
+      "expected_mode": "0o600",
+      "actual_mode": "0o600",
+      "bytes_match": true
+    },
+    {
+      "case": "restore-wide_temp",
+      "pass": true,
+      "rc": 0,
+      "expected_mode": "0o600",
+      "actual_mode": "0o600",
+      "bytes_match": true
+    },
+    {
+      "case": "restore-restricted_group",
+      "pass": true,
+      "rc": 0,
+      "expected_mode": "0o640",
+      "actual_mode": "0o640",
+      "bytes_match": true
+    },
+    {
+      "case": "refuse-symlink",
+      "pass": true,
+      "rc": 1
+    },
+    {
+      "case": "refuse-chmod",
+      "pass": true,
+      "rc": 1
+    },
+    {
+      "case": "refuse-stat",
+      "pass": true,
+      "rc": 1
+    },
+    {
+      "case": "refuse-producer",
+      "pass": true,
+      "rc": 1
+    },
+    {
+      "case": "refuse-rename",
+      "pass": true,
+      "rc": 1
+    }
+  ],
+  "profile_sha256": "2a67891c9a3090ddae78d4b729ce7b8f5c41d853e0975b4ce0203df7789e4ab5",
+  "chksysconfig_sha256": "e18d619783d9bbcdd23f1f8aaf2da0786ec162195cc35e1dc3a3ffc4afa04c8e",
+  "busybox_sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346"
+}
