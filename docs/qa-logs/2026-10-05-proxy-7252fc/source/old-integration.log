@@ -1,0 +1,55 @@
+test_failure_and_retry_preserve_completed_games (__main__.WholeLibrary.test_failure_and_retry_preserve_completed_games) ... ERROR
+test_indexed_125_games_are_cached_without_rom_lookup (__main__.WholeLibrary.test_indexed_125_games_are_cached_without_rom_lookup) ... ERROR
+test_indexed_429_stops_requests_and_survives_restart (__main__.WholeLibrary.test_indexed_429_stops_requests_and_survives_restart) ... ok
+test_persisted_pause_never_reports_queued_games_ready (__main__.WholeLibrary.test_persisted_pause_never_reports_queued_games_ready) ... ok
+test_unindexed_125_games_are_cached_not_just_queued (__main__.WholeLibrary.test_unindexed_125_games_are_cached_not_just_queued) ... ERROR
+test_unindexed_429_stops_requests_and_survives_restart (__main__.WholeLibrary.test_unindexed_429_stops_requests_and_survives_restart) ... ok
+test_upstream_default_still_queues_at_100 (__main__.WholeLibrary.test_upstream_default_still_queues_at_100) ... ok
+test_actual_predecessor_store_and_image_paths_survive_reopen (__main__.Upgrade.test_actual_predecessor_store_and_image_paths_survive_reopen) ... ERROR
+
+======================================================================
+ERROR: test_failure_and_retry_preserve_completed_games (__main__.WholeLibrary.test_failure_and_retry_preserve_completed_games)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/repos/rocknix.worktrees/conflict-resolution/tools/raofflineproxy-integration-test", line 89, in test_failure_and_retry_preserve_completed_games
+    before={r['cacheKey']:r['responseBody'] for r in self.store.get_all_cache_by_prefix(cache_keys.PREFIX_PATCH)}
+                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Storage' object has no attribute 'get_all_cache_by_prefix'. Did you mean: 'get_cache_by_prefix'?
+
+======================================================================
+ERROR: test_indexed_125_games_are_cached_without_rom_lookup (__main__.WholeLibrary.test_indexed_125_games_are_cached_without_rom_lookup)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/repos/rocknix.worktrees/conflict-resolution/tools/raofflineproxy-integration-test", line 81, in test_indexed_125_games_are_cached_without_rom_lookup
+    self.assert_ready(self.prepare('I'))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/workspace/repos/rocknix.worktrees/conflict-resolution/tools/raofflineproxy-integration-test", line 69, in assert_ready
+    self.assertEqual(count,len(self.store.get_all_cache_by_prefix(cache_keys.PREFIX_PATCH)))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Storage' object has no attribute 'get_all_cache_by_prefix'. Did you mean: 'get_cache_by_prefix'?
+
+======================================================================
+ERROR: test_unindexed_125_games_are_cached_not_just_queued (__main__.WholeLibrary.test_unindexed_125_games_are_cached_not_just_queued)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/repos/rocknix.worktrees/conflict-resolution/tools/raofflineproxy-integration-test", line 78, in test_unindexed_125_games_are_cached_not_just_queued
+    self.assert_ready(self.prepare('H'))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/workspace/repos/rocknix.worktrees/conflict-resolution/tools/raofflineproxy-integration-test", line 69, in assert_ready
+    self.assertEqual(count,len(self.store.get_all_cache_by_prefix(cache_keys.PREFIX_PATCH)))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Storage' object has no attribute 'get_all_cache_by_prefix'. Did you mean: 'get_cache_by_prefix'?
+
+======================================================================
+ERROR: test_actual_predecessor_store_and_image_paths_survive_reopen (__main__.Upgrade.test_actual_predecessor_store_and_image_paths_survive_reopen)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/repos/rocknix.worktrees/conflict-resolution/tools/raofflineproxy-integration-test", line 156, in test_actual_predecessor_store_and_image_paths_survive_reopen
+    self.assertEqual(before['cache'],store.get_all_cache_by_prefix(''))
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Storage' object has no attribute 'get_all_cache_by_prefix'. Did you mean: 'get_cache_by_prefix'?
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.135s
+
+FAILED (errors=4)

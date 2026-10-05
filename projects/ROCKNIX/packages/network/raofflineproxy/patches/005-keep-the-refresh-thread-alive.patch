@@ -23,18 +23,17 @@ upstream as-is (ROCKNIX D-RA-016: whatever the fork changes in the proxy
 goes back).
 
 diff --git a/linux/raofflineproxy/proxy_service.py b/linux/raofflineproxy/proxy_service.py
-index cf8fab2..a0199ad 100644
 --- a/linux/raofflineproxy/proxy_service.py
 +++ b/linux/raofflineproxy/proxy_service.py
-@@ -46,6 +46,7 @@ from .network import (
+@@ -46,6 +46,7 @@
      response_content_type,
  )
  from .rom_cache import (
 +    CacheGameAuthError,
-     build_achievement_game_ids,
      build_unlocks_array,
      cache_session,
-@@ -81,6 +82,7 @@ FAKE_OFFLINE_SUCCESS_ACTIONS = {"ping", "postactivity"}
+     cache_unlocks,
+@@ -81,6 +82,7 @@
  REFRESH_PLAYED_WINDOW_DAYS = 7
  ONLINE_REFRESH_IDLE_DELAY_SECONDS = 5 * 60
  REFRESH_PLAYED_WINDOW_MS = REFRESH_PLAYED_WINDOW_DAYS * 24 * 60 * 60 * 1000
@@ -42,16 +41,11 @@ index cf8fab2..a0199ad 100644
  CACHE_QUEUE_POLL_SECONDS = 60
  ALWAYS_TRY_UPSTREAM_ACTIONS = {"login", "login2"}
  # A 4xx RetroAchievements sends for a dorequest.php call it understood but
-@@ -1068,39 +1070,55 @@ class PeriodicRefresh(threading.Thread):
+@@ -1054,37 +1056,47 @@
          self.stop_event.set()
  
      def run(self) -> None:
-+        # A pass that fails -- a request that raised, the store unreadable
-+        # for a moment -- costs that pass and nothing more: the thread lives
-+        # for the service's lifetime, and with it the eviction it carries.
-+        # Without this it dies on the first exception, silently, with
-+        # Restart=on-failure none the wiser, and the service runs on with no
-+        # refresh and no eviction until its next start.
++        # A failed pass must not silently end the service's refresh thread.
          while not self.stop_event.wait(self.interval_seconds):
 -            if not self.server.is_online():
 -                continue
@@ -68,17 +62,15 @@ index cf8fab2..a0199ad 100644
 -                continue
 -            if not self.wait_until_idle():
 -                continue
--            patch_entries = self.server.storage.get_all_cache_by_prefix(
--                cache_keys.PREFIX_PATCH
--            )
+-            patch_keys = self.server.storage.cache_keys_by_prefix(cache_keys.PREFIX_PATCH)
 -            recently_played = load_recently_played_game_ids(
 -                self.server.storage, current_millis() - REFRESH_PLAYED_WINDOW_MS
 -            )
--            due_game_ids = due_refresh_game_ids(patch_entries, recently_played)
+-            due_game_ids = due_refresh_game_ids(patch_keys, recently_played)
 -            LOGGER.info(
 -                "Periodic refresh: %d of %d cached game(s) played in the last %d day(s)",
 -                len(due_game_ids),
--                len(patch_entries),
+-                len(patch_keys),
 -                REFRESH_PLAYED_WINDOW_DAYS,
 -            )
 -            with rate_limit.background():
@@ -92,7 +84,6 @@ index cf8fab2..a0199ad 100644
 +                    "Periodic refresh pass failed; the next runs in %ss",
 +                    self.interval_seconds,
 +                )
-+
 +
 +    def run_pass(self) -> None:
 +        if not self.server.is_online():
@@ -110,17 +101,15 @@ index cf8fab2..a0199ad 100644
 +            return
 +        if not self.wait_until_idle():
 +            return
-+        patch_entries = self.server.storage.get_all_cache_by_prefix(
-+            cache_keys.PREFIX_PATCH
-+        )
++        patch_keys = self.server.storage.cache_keys_by_prefix(cache_keys.PREFIX_PATCH)
 +        recently_played = load_recently_played_game_ids(
 +            self.server.storage, current_millis() - REFRESH_PLAYED_WINDOW_MS
 +        )
-+        due_game_ids = due_refresh_game_ids(patch_entries, recently_played)
++        due_game_ids = due_refresh_game_ids(patch_keys, recently_played)
 +        LOGGER.info(
 +            "Periodic refresh: %d of %d cached game(s) played in the last %d day(s)",
 +            len(due_game_ids),
-+            len(patch_entries),
++            len(patch_keys),
 +            REFRESH_PLAYED_WINDOW_DAYS,
 +        )
 +        with rate_limit.background():
@@ -130,7 +119,7 @@ index cf8fab2..a0199ad 100644
  
      def wait_until_idle(self) -> bool:
          idle_delay = self.server.activity.idle_delay_seconds()
-@@ -1113,6 +1131,7 @@ class PeriodicRefresh(threading.Thread):
+@@ -1097,6 +1109,7 @@
  
      def refresh_games(self, game_ids: list[int], credentials: dict, user_agent: str) -> int:
          refreshed = 0
@@ -138,7 +127,7 @@ index cf8fab2..a0199ad 100644
          for game_id in game_ids:
              if self.server.activity.idle_delay_seconds() > 0:
                  LOGGER.info("Periodic refresh paused; proxy became active")
-@@ -1134,9 +1153,24 @@ class PeriodicRefresh(threading.Thread):
+@@ -1118,9 +1131,24 @@
                      self.server.storage,
                  )
                  cache_session(game_id, credentials, self.server.storage)

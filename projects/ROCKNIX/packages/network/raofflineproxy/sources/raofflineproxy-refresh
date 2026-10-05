@@ -51,23 +51,14 @@ def note(text: str) -> None:
     print(text, flush=True)
 
 
-def cached_games(storage: Storage) -> list[dict]:
-    """Every patch row, as due_refresh_game_ids wants them."""
-    rows = []
-    for row in storage.get_all_cache_by_prefix(cache_keys.PREFIX_PATCH):
-        if row.get("responseBody"):
-            rows.append(row)
-    return rows
+def cached_games(storage: Storage) -> list[str]:
+    """Patch keys only, matching upstream's refresh scope without loading bodies."""
+    return storage.cache_keys_by_prefix(cache_keys.PREFIX_PATCH)
 
 
-def game_ids(rows: list[dict]) -> list[int]:
-    ids = []
-    for row in rows:
-        key = str(row.get("cacheKey") or "")
-        parts = key.split(":")
-        if len(parts) > 1 and parts[1].isdigit():
-            ids.append(int(parts[1]))
-    return ids
+def game_ids(keys: list[str]) -> list[int]:
+    return sorted({gid for key in keys
+                   if (gid := cache_keys.parse_game_id_from_patch_key(key)) is not None})
 
 
 def drop_startsession(storage: Storage, game_id: int) -> int:
@@ -81,8 +72,7 @@ def drop_startsession(storage: Storage, game_id: int) -> int:
     removed = 0
     prefix = f"{cache_keys.PREFIX_STARTSESSION}{game_id}:"
     try:
-        for row in storage.get_all_cache_by_prefix(cache_keys.PREFIX_STARTSESSION):
-            key = str(row.get("cacheKey") or "")
+        for key in storage.cache_keys_by_prefix(prefix):
             if key.startswith(prefix):
                 storage.delete_cache(key)
                 removed += 1
@@ -101,7 +91,7 @@ def row_ages(storage: Storage, game_id: int) -> str:
     for prefix in (cache_keys.PREFIX_PATCH,
                    cache_keys.PREFIX_UNLOCKS, cache_keys.PREFIX_STARTSESSION):
         try:
-            rows = [r for r in storage.get_all_cache_by_prefix(prefix)
+            rows = [r for r in storage.cache_summaries_by_prefix(prefix)
                     if f":{game_id}:" in f":{str(r.get('cacheKey') or '')}:"
                     or str(r.get("cacheKey") or "").startswith(f"{prefix}{game_id}:")]
         except Exception:
@@ -110,7 +100,7 @@ def row_ages(storage: Storage, game_id: int) -> str:
             ages.append(f"{prefix.rstrip(':')}=none")
             continue
         try:
-            stamp = int(rows[0].get("cachedAt") or 0)
+            stamp = max(int(row.get("cachedAt") or 0) for row in rows)
             stamp = stamp // 1000 if stamp > 1e11 else stamp
             ages.append(f"{prefix.rstrip(':')}={max(0, now_ms // 1000 - stamp)}s")
         except Exception:

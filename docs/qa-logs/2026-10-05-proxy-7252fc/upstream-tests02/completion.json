@@ -1,0 +1,27 @@
+{
+  "observed_utc": "2026-10-05T02:52:45.066384+00:00",
+  "actual_tool": 60125,
+  "actual_rc": 1,
+  "channels": {
+    "inner.rc": 1,
+    "tool-wrapper.rc": 1,
+    "build.rc": 1
+  },
+  "processes": [
+    {
+      "pid": 1405558,
+      "state": "absent",
+      "role": "build.pid"
+    },
+    {
+      "pid": 1405560,
+      "state": "absent",
+      "role": "watcher.pid"
+    },
+    {
+      "pid": 1405589,
+      "state": "absent",
+      "role": "command.pid"
+    }
+  ]
+}

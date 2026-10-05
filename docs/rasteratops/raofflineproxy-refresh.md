@@ -1,15 +1,29 @@
 # Current RAOfflineProxy integration for0.0.1
 
-M7.P2, #361/#384, D-WORKFLOW-138. Selected main:
-`865e218660e9914e3ba0b4326b5d430af995c843` (verified2026-10-04, #426).
-Archive SHA256: `97e9f4207852aefaff46a37a9f7256f77e79a638eb3b5fa4cb75ea06d174880e`.
-Compared with aec99c,15 Android files and two unshipped Onion/Allium bundle
-scripts change. The bundle scripts now refuse missing Python/pygame inputs;
-this recipe builds its own native library and installs only the Python module,
-not those bundles. All105 consumed Python/native files, and all268 Linux/native/
-test files excluding those two bundle scripts, are byte-identical before and
-after15 zero-fuzz patches. Coupled submodule pins remain unchanged. Receipts:
-`docs/qa-logs/2026-10-04-proxy-865e21/`. New-image proof is still required.
+M7.P3, #361/#384/#426, D-WORKFLOW-138. Selected main:
+`7252fc781392d45b22f50d1a92f9febc4d1fa172` (reviewed2026-10-05).
+Archive SHA256: `c5c85da105782828c738539db048e62677c9da11d215c0dcc5dae8c3f79c5680`.
+
+This update changes Linux runtime behavior: streaming response-body reads,
+key/summary queries, an additive cached_game_meta table with delete/rename
+triggers and one-time metadata backfill, and pending-award lookup limited to
+needed achievement IDs. Existing cache and pending-award columns remain intact.
+The fork's ctl listing, image repair and refresh helpers use those APIs;
+whole-library preparation, pauses and base/subset award ownership remain required.
+
+All15 patches apply with zero fuzz.003's import context and005's refresh wrapper
+are rebased onto upstream's key-only lookup.008 adapts upstream's report tests
+to the existing explicit-consent policy and tests non-consent values; production
+consent behavior is unchanged. Both coupled native-library pins remain unchanged.
+815 patched upstream tests, including native hashing, and11 downstream
+integration tests pass. The full host script suite passes with no FAIL/SKIP
+lines; actual5816 and all three recorded results are0. Source seals and actual
+process exits verify. Receipts: `docs/qa-logs/2026-10-05-proxy-7252fc/`. Installed
+replacement-image and ordinary new-award evidence remain outstanding.
+
+Previous865e21 evidence is historical: its105 consumed Python/native files and
+268 Linux/native/test files excluding two bundle scripts matched aec99c;
+`docs/qa-logs/2026-10-04-proxy-865e21/`. That equivalence does not apply to7252fc.
 
 Previous aec99c history: five Android files and one documentation file changed,
 all270 Linux/native files matched ea9aba;15 zero-fuzz patches. Its completed

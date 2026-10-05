@@ -239,10 +239,10 @@
 #
 # The store this reads -- read-only, through the service's own sqlite3
 # module, never written here -- is the client's schema at the commit
-# package.mk pins (865e218660e9914e3ba0b4326b5d430af995c843, storage.py
-# _initialize_sqlite, byte-identical review 2026-10-04 for #426). These consumed columns and
-# cache-key spellings remain compatible; the refreshed client adds queue
-# state independently. The suite reads a store the current client wrote,
+# package.mk pins (7252fc781392d45b22f50d1a92f9febc4d1fa172, storage.py
+# _initialize_sqlite, reviewed 2026-10-05 for #426). Consumed columns and
+# cache-key spellings remain compatible. The additive cached_game_meta table
+# and delete/rename triggers index existing rows without changing award data. The suite reads a store the current client wrote,
 # and the integration fixture reopens the predecessor's store with current
 # Storage twice, preserving cache/login/base/subset award bytes: pending_awards(id,
 # achievementId, queryString, requestBody, queuedAt, status) for pending,
@@ -1478,7 +1478,7 @@ def whole_games():
         rows = db.execute("SELECT cacheKey, substr(responseBody, 1, 512) FROM api_cache WHERE cacheKey LIKE ? OR cacheKey LIKE ?", ("unlocks:%", "achievementsets:%")).fetchall()
     except Exception:
         db = None
-        rows = [(e.get("cacheKey") or "", e.get("responseBody") or "") for prefix in (cache_keys.PREFIX_UNLOCKS, cache_keys.PREFIX_ACHIEVEMENTSETS) for e in storage.get_all_cache_by_prefix(prefix)]
+        rows = ((e.get("cacheKey") or "", e.get("responseBody") or "") for prefix in (cache_keys.PREFIX_UNLOCKS, cache_keys.PREFIX_ACHIEVEMENTSETS) for e in storage.iter_cache_by_prefix(prefix))
     for key, head in rows:
         parts = str(key).split(":")
         if parts[0] == "unlocks":
@@ -1504,7 +1504,7 @@ def whole_games():
 whole = whole_games()
 cached_paths = {
     normalize_cached_rom_path(entry["sourceRomPath"])
-    for entry in storage.get_all_cache_by_prefix(cache_keys.PREFIX_PATCH)
+    for entry in storage.cache_summaries_by_prefix(cache_keys.PREFIX_PATCH)
     if isinstance(entry.get("sourceRomPath"), str) and entry["sourceRomPath"].strip()
     and entry["cacheKey"].endswith(":" + user)
     and cache_keys.parse_game_id_from_patch_key(entry["cacheKey"]) in whole

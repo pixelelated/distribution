@@ -246,7 +246,7 @@ def all_paths(storage: Storage) -> set[str]:
     """Every image path the cached rows refer to, whether its file is there."""
     seen: set[str] = set()
     for prefix in ROW_PREFIXES:
-        for row in storage.get_all_cache_by_prefix(prefix):
+        for row in storage.iter_cache_by_prefix(prefix):
             body = row.get("responseBody")
             if body:
                 seen |= image_paths(body)
@@ -258,7 +258,7 @@ def missing_paths(storage: Storage) -> tuple[list[str], int, int]:
     seen: set[str] = set()
     rows = 0
     for prefix in ROW_PREFIXES:
-        for row in storage.get_all_cache_by_prefix(prefix):
+        for row in storage.iter_cache_by_prefix(prefix):
             body = row.get("responseBody")
             if not body:
                 continue

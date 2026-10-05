@@ -81,3 +81,64 @@ index a0199ad..9c0908d 100644
          connectivity_monitor.start()
          periodic_refresh.start()
          cache_queue_worker.start()
+
+diff --git a/linux/tests/test_linux_storage_corruption_retry.py b/linux/tests/test_linux_storage_corruption_retry.py
+--- a/linux/tests/test_linux_storage_corruption_retry.py
++++ b/linux/tests/test_linux_storage_corruption_retry.py
+@@ -5,12 +5,28 @@
+ 
+ 
+ class RetryStorageCorruptionReportTests(unittest.TestCase):
++    def test_automatic_upload_requires_explicit_true(self) -> None:
++        incident = {"reported": False, "upload_id": None}
++        for config in ({}, {"upload_logs": None}, {"upload_logs": False},
++                       {"upload_logs": 0}, {"upload_logs": 1},
++                       {"upload_logs": "false"}, {"upload_logs": "true"},
++                       {"upload_logs": "yes"}, None):
++            with (
++                self.subTest(config=config),
++                mock.patch.object(proxy_service.storage_corruption, "load_incident", return_value=incident),
++                mock.patch.object(proxy_service.log_uploader, "report_storage_corruption") as report,
++                mock.patch.object(proxy_service.storage_corruption, "mark_reported") as mark,
++            ):
++                proxy_service.retry_storage_corruption_report(config)
++                report.assert_not_called()
++                mark.assert_not_called()
++
+     def test_noop_when_no_incident(self) -> None:
+         with (
+             mock.patch.object(proxy_service.storage_corruption, "load_incident", return_value=None),
+             mock.patch.object(proxy_service.log_uploader, "report_storage_corruption") as report,
+         ):
+-            proxy_service.retry_storage_corruption_report()
++            proxy_service.retry_storage_corruption_report({"upload_logs": True})
+ 
+         report.assert_not_called()
+ 
+@@ -20,7 +36,7 @@
+             mock.patch.object(proxy_service.storage_corruption, "load_incident", return_value=incident),
+             mock.patch.object(proxy_service.log_uploader, "report_storage_corruption") as report,
+         ):
+-            proxy_service.retry_storage_corruption_report()
++            proxy_service.retry_storage_corruption_report({"upload_logs": True})
+ 
+         report.assert_not_called()
+ 
+@@ -33,7 +49,7 @@
+             ),
+             mock.patch.object(proxy_service.storage_corruption, "mark_reported") as mark_reported,
+         ):
+-            proxy_service.retry_storage_corruption_report()
++            proxy_service.retry_storage_corruption_report({"upload_logs": True})
+ 
+         mark_reported.assert_called_once_with("abc123")
+ 
+@@ -48,7 +64,7 @@
+             ),
+             mock.patch.object(proxy_service.storage_corruption, "mark_reported") as mark_reported,
+         ):
+-            proxy_service.retry_storage_corruption_report()
++            proxy_service.retry_storage_corruption_report({"upload_logs": True})
+ 
+         mark_reported.assert_not_called()
+ 
