@@ -12,15 +12,16 @@ failures retained.
 
 Replacement10 is frozen at that commit; manifest
 `0b24bfcd0d7dad134872b88ed6a2955ddaf9cdf9d55f8a25c17fa5e2de36ad51`.
-At 19:19 UTC the independent cache copy is undergoing checksum comparison;
-actual rsync I/O confirms progress despite its quiet log and watcher inactivity
-warning. The build has not started. The canonical checkpoint names the active
-owner, process receipts and exact next commands.
+Build02 completed19:26:30 with all four result channels0; actual047d1c at
+19:26:43 proves four owner processes absent and the observed container removed.
+The installed selector/drop-in match frozen bytes. Cache checks passed2526399
+independent files. First build attempt remains failed on swap preflight before
+compilation; the installed guarded helper reclaimed swap before fresh build02.
 
-After cache verification: build/store/verify SYSTEM, then prepared QA14,
-clean software sign-in14, actual RC2-upgraded sign-in15, accelerated sign-in16,
-memory12 with both-profile emulator exit/time-to-play, bilingual software UI14,
-and both 1 GiB workloads. All eight owners are sealed and unstarted. Earlier
+Next: immutable bundle and SYSTEM equality, then prepared QA14, clean software
+sign-in14, actual RC2-upgraded sign-in15, accelerated sign-in16, memory12 with
+both-profile emulator exit/time-to-play, bilingual software UI14, and both1GiB
+workloads. No VM acceptance on this image yet. Earlier
 replacement09 passes remain historical evidence; affected graphics acceptance
 must come from the new installed image. #447 stays open until that proof.
 P4 and H700 follow remaining P3 acceptance; no RC/device-ready claim.
