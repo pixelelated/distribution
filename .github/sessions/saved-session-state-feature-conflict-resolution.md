@@ -1,3 +1,3 @@
-# Session checkpoint
+# Session pointer
 
-Read `.github/sessions/saved-session-state-next.md` for the canonical checkpoint.
+Resume from [the canonical next checkpoint](saved-session-state-next.md).

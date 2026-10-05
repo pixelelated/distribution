@@ -1,25 +1,27 @@
 # pixelelated 0.0.1 release readiness
 
-## Current work — remaining source and account gates
+## Current work — corrected proxy build and installed qualification
 
-The [P3 acceptance reconciliation](../qa-logs/2026-10-05-p3-reconciliation/README.md)
-verified the original WebKitGTK2.54.1/libsoup3.8.0 cold build and closed the
-identified cloud proof gaps with36 new installed-image cases on replacement10.
-Actual separate guests now follow allnine recovered migration faults; literal
-layout1, independent settings/content, configured-first roots, foreign content
-and denied parent enumeration are covered. Allfour result channels0 and actual
-owner/guest/backend cleanup are retained. #356/#365 closure maps are ready for
-publication; original09 evidence keeps its own scope.
+#356/#365 are closed from the [P3 acceptance map and 36 focused installed
+cloud cases](../qa-logs/2026-10-05-p3-reconciliation/README.md). #451 is closed
+from [815 native-enabled Linux checks and 11 integration checks against each
+predecessor](../qa-logs/2026-10-05-proxy-3036478/README.md).
 
-The full freshness check found a new upstream proxy delta. The selected
-3036478 parent and607694c libchdr now pass source/native qualification,815
-Linux tests and11 integration tests against each of two predecessors. #451
-repairs the fixture's obsolete predecessor API; originalrc1 remains preserved.
-Next: publish the scoped evidence, freeze/build a fresh candidate, renew the
-affected installed proxy/native and standard image gates, and obtain the full
-frozen freshness pass. Then ordinary RA and authenticated Dropbox QA-account
-proofs, P4, H700 arm/aarch64 and named physical/P5 gates. No RC/device-ready
-claim. Account status/credential-file location remain unanswered.
+The existing pre-build guard caught a stale schema-review comment before
+compilation. #452 corrects that comment after schema/direct-query review;
+the original frozen11 failure remains intact. Corrected replacement12 is
+frozen at55d8ee8f75965a560f75d187e34c9beaa93133f1, manifest
+bfdcf9b2655157b7e4d3a59f1c6fa803f68989b2cfb8b460eb0f2a666ee98192.
+Full freshness on that exact tree passed at22:26:40 UTC. The independent cache
+copy is still completing verification; a guarded adoption of its unbuilt root
+precedes compilation. [Preparation receipts](../qa-logs/2026-10-05-pixelelated-replacement-12/README.md)
+are not image qualification.
+
+Next: complete cache custody, build and retain the artifact, then default VM
+QA, actual RC2 upgrade and affected installed native/proxy preservation and
+HTTP reconnect checks. Ordinary RA and authenticated Dropbox QA-account
+proofs follow, then P4, H700 arm/aarch64 and named physical/P5 gates. No RC or
+device-ready claim. Account status and credential-file location are unanswered.
 
 ## Completed installed GENERIC_X64 Pixman fallback (#447)
 
