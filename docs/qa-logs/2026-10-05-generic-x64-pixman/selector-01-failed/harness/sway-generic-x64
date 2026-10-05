@@ -1,0 +1,38 @@
+#!/bin/sh
+# SPDX-License-Identifier: GPL-2.0-or-later
+# Copyright (C) 2026 ROCKNIX (https://github.com/ROCKNIX)
+
+# Non-virgl virtio scanout can keep stale host frames with GLES2/llvmpipe.
+# Use Pixman only on that device, not on accelerated or unidentified GPUs.
+# This wrapper is installed only on GENERIC_X64 and makes no storage changes.
+if [ -z "${WLR_RENDERER:-}" ] && [ -z "${WLR_RENDER_DRM_DEVICE:-}" ]; then
+  case "${WLR_DRM_DEVICES:-}" in
+    /dev/dri/card*)
+      card_number=${WLR_DRM_DEVICES#/dev/dri/card}
+      case "$card_number" in
+        ''|*[!0-9]*) ;; # Unknown paths or multiple GPUs: retain wlroots selection.
+        *)
+          gpu=/sys/class/drm/card${card_number}/device
+          driver=$(readlink "$gpu/driver")
+          if [ "${driver##*/}" = virtio_gpu ]; then
+            # Linux virtio sysfs lists negotiated bits lowest-first;
+            # VIRTIO_GPU_F_VIRGL is bit 0. A render node alone is not proof
+            # of virgl: virtio_gpu advertises DRIVER_RENDER in both modes.
+            features=$(cat "$gpu/features" 2>/dev/null)
+            case "$features" in
+              ''|*[!01]*) ;;
+              0*)
+                if [ "${#features}" -ge 64 ]; then
+                  export WLR_RENDERER=pixman
+                  logger -t Sway 'GENERIC_X64: Pixman for virtio GPU without virgl'
+                fi
+                ;;
+            esac
+          fi
+          ;;
+      esac
+      ;;
+  esac
+fi
+
+exec /usr/bin/sway.sh "$@"
