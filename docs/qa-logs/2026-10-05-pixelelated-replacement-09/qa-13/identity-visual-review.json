@@ -1,0 +1,40 @@
+{
+  "utc": "2026-10-05T06:42:41.940175+00:00",
+  "method": "Direct inspection of all five original actual upgraded PNGs in this session",
+  "passed": true,
+  "observations": [
+    "Lowercase pixelelated0.0.1 community footer",
+    "System Settings and Information reached",
+    "Information: cf511ce build/m7-pixelelated-replacement09, Linux7.1.2",
+    "Updates are manual",
+    "Manual update URL github.com/pixelelated/distribution/releases"
+  ],
+  "frames": [
+    {
+      "path": "/workspace/tmp/pixelelated-m7-qa-13/artifacts/identity-upgrade/01-main-menu-identity.png",
+      "sha256": "f601a79b4620962a9128a469f00f1180f59fbdccd2912bf8fb4c3439351100ee"
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-qa-13/artifacts/identity-upgrade/02-system-settings.png",
+      "sha256": "2727c6c8971ebb310e3b047c187f15aca8b1971aebd0befd2be750ebb893d153"
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-qa-13/artifacts/identity-upgrade/03-information.png",
+      "sha256": "05f5731180e62f6e6742d77ed9936ba3d0d23c9a223aad462d77f1240829cad6"
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-qa-13/artifacts/identity-upgrade/04-updates.png",
+      "sha256": "fba678aad3866a2ea3f3b30bde4773c42d9aa3bf0aac477be39a4f675227d431"
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-qa-13/artifacts/identity-upgrade/05-manual-update-message.png",
+      "sha256": "44e8412823101ab5101815007af3ba996d847df3da4ad53961ae93e28f11076b"
+    }
+  ],
+  "lifecycle": {
+    "passed": true,
+    "same_pid_and_start_ticks": true,
+    "journal_rc": 0,
+    "walk_exception": null
+  }
+}

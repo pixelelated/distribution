@@ -1,0 +1,18 @@
+/workspace/tmp/pixelelated-m7-boot-qualification-03/capture-boot.py: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-03/match-splash.py: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-03/old-logo.png: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-03/outer.sh: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-03/provenance.json: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-03/qualify-boot.py: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-03/reference-1280.png: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-03/reference-640.png: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-03/run.sh: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-03/stop-guest.py: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-03/verify-inputs.py: OK
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/79d560046ee52e28b72f16588168dd7c8fb2637c1cc585713216a8ec828e9d81
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-boot-qualification-03/qualify-boot.py", line 5, in <module>
+    assert (qa/'outer.rc').read_text().strip()=='0'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

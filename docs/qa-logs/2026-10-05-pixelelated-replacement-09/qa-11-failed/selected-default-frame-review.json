@@ -1,0 +1,72 @@
+{
+  "reviewed_utc": "2026-10-05T06:13:31.127389+00:00",
+  "frames": [
+    {
+      "path": "/workspace/tmp/pixelelated-m7-qa-11/artifacts/rocknix-images/qa-cf511ce79b-webdav-a-20261005-0552/time-to-play/frames/g1-launch-02-first-game-frame.png",
+      "sha256": "c0dfa133c601a1f57a9828cc89957ca10c594ad87cdd8fc239deca1ee706cb25"
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-qa-11/artifacts/rocknix-images/qa-cf511ce79b-webdav-a-20261005-0552/time-to-play/frames/g1-exit-game2.png",
+      "sha256": "9f31ce510b942a3677368978dd4ee96c49a1e935b0f1d4814d349be86fb99cd2"
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-qa-11/artifacts/rocknix-images/qa-cf511ce79b-webdav-a-20261005-0552/time-to-play/frames/r1-launch-02-first-game-frame.png",
+      "sha256": "f4cc7aa753984b3f6df09f2282dbfb3757876777dfde08fca8ed0da13c279e73"
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-qa-11/artifacts/rocknix-images/qa-cf511ce79b-webdav-a-20261005-0552/walks/back-up-page/01-cloud-hub.png",
+      "sha256": "14f0ea2c6a12d7f8e54e6fc12cbec71d29d944504178a071b5bc899aa18cf999"
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-qa-11/artifacts/rocknix-images/qa-cf511ce79b-webdav-a-20261005-0552/walks/back-up-page/02-back-up-page.png",
+      "sha256": "d1f2779ebaefcf2c223d568abffaeadfec34447a582cd5fbb646e570f593f221"
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-qa-11/artifacts/rocknix-images/qa-cf511ce79b-webdav-a-20261005-0552/walks/restore-page/02-restore-page.png",
+      "sha256": "16918610951093b7ca637ef0219fc78bdfb92092e6680c0f12a6601a9593ad35"
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-qa-11/artifacts/rocknix-images/qa-cf511ce79b-webdav-a-20261005-0552/walks/match-dialog/03-match-confirm.png",
+      "sha256": "2c805c0a8c8435e2f8474ad78d6caf614dea7c6a91ae509f823a627af4186506"
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-qa-11/artifacts/rocknix-images/qa-cf511ce79b-webdav-a-20261005-0552/walks/match-dialog/04-match-done.png",
+      "sha256": "1d8939c5d1b9f76c70182ffb571b8b6b62c74a4492fe9a08f0fbe46ec395d1ad"
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-qa-11/artifacts/rocknix-images/qa-cf511ce79b-webdav-a-20261005-0552/walks/confirm-cloud-folder/04-folder-result.png",
+      "sha256": "402450bca1f8ca9f9d321d4c9620b5e8a2c67fb83c55da039349c01c7d64d088"
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-qa-11/artifacts/rocknix-images/qa-cf511ce79b-webdav-a-20261005-0552/walks/tick-roms/03-roms-flipped.png",
+      "sha256": "934b130af23423474f5537be1feed8fa49a1ee9ddd8c54853a87a0390e938424"
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-qa-11/artifacts/rocknix-images/qa-cf511ce79b-webdav-a-20261005-0552/walks/tick-settings/03-settings-flipped.png",
+      "sha256": "d0e7812865211ac65bf42456d4ad165bd048723d73019e977adf757bb4e629d4"
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-qa-11/artifacts/rocknix-images/qa-cf511ce79b-webdav-a-20261005-0552/walks/continue-to-systems/05-systems-page.png",
+      "sha256": "1f32c55af3d8fd0b67e156edf9faee001ea16094fee34f31128b3c4af7e2f7e7"
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-qa-11/artifacts/rocknix-images/qa-cf511ce79b-webdav-a-20261005-0552/walks/run-transfer-frames/07-t02.png",
+      "sha256": "bb2d77571a1c58d8fde9ae1641d606f3970e451a3effa18f82a2fb81361dcfa6"
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-qa-11/artifacts/rocknix-images/qa-cf511ce79b-webdav-a-20261005-0552/walks/run-transfer-frames/22-t60.png",
+      "sha256": "c284a7129ec08bdeb373a6f98b3f985acb8af48c19b0887d172d4a5770c98aa0"
+    }
+  ],
+  "observations": [
+    "Actual probe boot frames visible in launch and relaunch captures; byte-identical fresh-path copy resolves stale inline preview for r1.",
+    "Cloud hub and back-up selection have intended tiers and readable labels.",
+    "Restore tier selection and settings-unavailable explanation visible.",
+    "Match confirmation lists three files and 229KB; completed result agrees and states saves/states/screenshots are protected.",
+    "Changed cloud folder result displays /pixelelated/Saves.",
+    "ROMs/BIOS selected changes action to Continue; independent Settings selected retains Back Up.",
+    "System-selection page reached with separate all/individual system choices.",
+    "Backup preparation/cancel and completed/close states visible; completed result24 files/640KB."
+  ],
+  "timing_scope": "Single sample .73s first probe frame/1.33s exit stamp/1.01s next frame; unknown game-to-game stamp is not preservation PASS. Dedicated runtime proof remains."
+}
