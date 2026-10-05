@@ -196,3 +196,5 @@ QA08 reached correct initial identity/Information but generic dismiss/reopen/cou
 - 2026-10-05 06:55 UTC — Settings owner inherited an old ES hash despite updated source/build identity. The identity guard stopped before mutation. Fresh owner derives expected hashes from verified immutable image extraction and reports actual plus expected; original failure retained. #443.
 
 - 2026-10-05 07:44 UTC — guest10 runner died/tool143 while its independently sessioned command/guest survived; eight cases passed and K remained incomplete. Guard: tools/watch-build-submit keeps launch independent of the submitting shell, distinguishes submission from completion, and rejects duplicate owners. Verified cleanup and fresh sealed guest11 chain preserve the interrupted run. Issue #444.
+
+- 2026-10-05 08:39 UTC — fresh proxy owner assumed an externally created pair/ directory; ssh-keygen refused beforeguest. Memory/UI/subset templates had the same assumption. Guard: sealed prepare-dirs.py creates/validates private runtime directories in each fresh harness; real keygen/missing-directory/symlink controls and nine-owner directory/source/dependency readback. Issue #445.

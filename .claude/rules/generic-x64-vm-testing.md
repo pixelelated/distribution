@@ -775,6 +775,13 @@ report directory are the activity signal when the summary is quiet. Set
 outputs stay outside that activity directory. Keep the runner/watcher copies
 unchanged while executing, along with the exact command and source identities.
 
+**A fresh owner creates its own runtime directories (#445).** Sealed source
+manifests do not capture empty directories from an older preparation. Create
+and validate private key/artifact directories inside the harness before image
+conversion or key generation; do not rely on a former owner having them.
+When rebinding a chain, verify directory contracts as well as source hashes
+and dependency paths. Preserve executed failures and prepare new owners.
+
 Pair the recorder with an active harness waiter, checked within 60 seconds.
 Announce named suite failures, stale/dead monitoring, suspected stalls and
 terminal results promptly. A suspected stall triggers process/log inspection,
