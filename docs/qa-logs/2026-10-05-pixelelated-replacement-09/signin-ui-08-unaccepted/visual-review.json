@@ -1,0 +1,83 @@
+{
+  "passed": false,
+  "issue": 447,
+  "command_rc": 0,
+  "checks": 17,
+  "reviewed_frames": [
+    {
+      "file": "01-local-redirect.png",
+      "sha256": "a977f54c172314104ab1c5d5e647bc192c871a35b7ee130576de2b95329c5f85",
+      "observation": "FAIL visual: QA redirect heading/input rendered but old loading-page and jagged black repaint blocks remain below. Load-finished is not stable compositor evidence.",
+      "reviewed_utc": "2026-10-05T09:52:01.010825+00:00"
+    },
+    {
+      "file": "02-finishing-marker-stand-in.png",
+      "sha256": "68a39b5225e347322b2c7ec1b56a4fa1ce3a9dd1e39504c17dbf044c71eaff50",
+      "observation": "PASS presentation: Connected / Finishing up on your handheld. Explicit done-file stand-in, not authentication.",
+      "reviewed_utc": "2026-10-05T09:52:01.010857+00:00"
+    },
+    {
+      "file": "03-public-dropbox-login.png",
+      "sha256": "cc798a33bab4ad47fffae6e8bb8f65359ac2edbc6d96e49338175c8f8ca74f7b",
+      "observation": "PASS public touch login and cookie choices within640x480; no credentials entered.",
+      "reviewed_utc": "2026-10-05T09:52:01.010905+00:00"
+    },
+    {
+      "file": "04-phone-checking.png",
+      "sha256": "910c847e497120d068f86e6042999e6eaa7c5f957b0c89855ff459c28f3cf6c1",
+      "observation": "PASS actual390px phone page Checking state, keyboard/pointer/Close and network warning visible.",
+      "reviewed_utc": "2026-10-05T09:52:01.010931+00:00"
+    },
+    {
+      "file": "05-phone-connected.png",
+      "sha256": "ec309e31b63d64a8921861f8405d0fdf8a3360af7343be988cc829a6558dab42",
+      "observation": "PASS actual390px Connected state, expected controls and vertical spacing.",
+      "reviewed_utc": "2026-10-05T09:52:01.010956+00:00"
+    },
+    {
+      "file": "06-actual-oauth-provider.png",
+      "sha256": "b422cc65c4219bef24625016ef67f418d1ad3a8509fbb61a9004c2939300936e",
+      "observation": "PASS actual public rclone OAuth Dropbox page at640x480 with cookie choices; no trust/authentication claim.",
+      "reviewed_utc": "2026-10-05T09:52:01.010986+00:00"
+    }
+  ],
+  "cleanup": {
+    "observed_utc": "2026-10-05T09:47:31.018991+00:00",
+    "submission_tool_chunk": "2d1edb",
+    "submission_rc": 0,
+    "job_rc": 0,
+    "job_result_source": "/workspace/tmp/pixelelated-m7-signin-ui-08/launcher-result.json",
+    "result_channels": {
+      "/workspace/tmp/pixelelated-m7-signin-ui-08/inner.rc": 0,
+      "/workspace/tmp/pixelelated-m7-signin-ui-08/outer.rc": 0,
+      "/workspace/tmp/pixelelated-m7-signin-ui-08/tool-wrapper.rc": 0,
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/.build-runs/20261005T094500Z-f791ee02/build.rc": 0
+    },
+    "owned_processes": [
+      {
+        "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/.build-runs/20261005T094500Z-f791ee02/build.pid",
+        "pid": 596708,
+        "state": "absent"
+      },
+      {
+        "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/.build-runs/20261005T094500Z-f791ee02/watcher.pid",
+        "pid": 596716,
+        "state": "absent"
+      },
+      {
+        "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/.build-runs/20261005T094500Z-f791ee02/command.pid",
+        "pid": 596748,
+        "state": "absent"
+      },
+      {
+        "source": "/workspace/tmp/pixelelated-m7-signin-ui-08/guest.pid",
+        "pid": 597156,
+        "state": "absent"
+      }
+    ],
+    "qemu_absent": true,
+    "run": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/.build-runs/20261005T094500Z-f791ee02",
+    "build_log_sha256": "b4271cea4e6b84f7b0c52b705cdc69934a1ee9581d772d79016f8baed6823f22"
+  },
+  "limitation": "First local frame rejected; no completed sign-in visual acceptance."
+}

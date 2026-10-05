@@ -1,0 +1,84 @@
+/workspace/tmp/pixelelated-m7-cloud-ui-07/cloud-ui.sh: OK
+/workspace/tmp/pixelelated-m7-cloud-ui-07/outer.sh: OK
+/workspace/tmp/pixelelated-m7-cloud-ui-07/prepare-dirs.py: OK
+/workspace/tmp/pixelelated-m7-cloud-ui-07/provenance.json: OK
+/workspace/tmp/pixelelated-m7-cloud-ui-07/required-directories.json: OK
+/workspace/tmp/pixelelated-m7-cloud-ui-07/run.sh: OK
+/workspace/tmp/pixelelated-m7-cloud-ui-07/seed.py: OK
+/workspace/tmp/pixelelated-m7-cloud-ui-07/stop-guest.py: OK
+/workspace/tmp/pixelelated-m7-cloud-ui-07/successor-provenance.json: OK
+/workspace/tmp/pixelelated-m7-cloud-ui-07/verify-inputs.py: OK
+/workspace/tmp/pixelelated-m7-cloud-ui-07/wizard.steps: OK
+PASS owned private pair/artifacts directories ready
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/79d560046ee52e28b72f16588168dd7c8fb2637c1cc585713216a8ec828e9d81
+Preparing independent 16GiB guest d from the verified pixelelated image
+Image resized.
+No errors were found on the image.
+31695/262144 = 12.09% allocated, 0.00% fragmented, 0.00% compressed clusters
+Image end offset: 2077818880
+[W][09:23:17.989382] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][09:23:17.989414] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+ready after ~30s
+PASS guest d exact BUILD_ID and OS_NAME cf511ce79b83cba7fea8b14cfa3d04fb13e4b4fb pixelelated
+PASS QA ROM bytes /storage/roms/gb/Ninoid.gb a40191c169c68e6607ace072da96aab957f306f55ded59ce1f287c1f5273387b
+PASS QA ROM bytes /storage/roms/gbc/Tobu Tobu Girl Deluxe.gb 0a0e8018dbbc8d7f8cd99f05e7cdc7b4cc9e358ecfe9377ebfb2291a84c6e310
+PASS QA ROM bytes /storage/roms/nes/Bobl.nes 025ec44d0d84ac469b442ee56c3d69e035e9a38430ae849172fe3a1e569d0dea
+PASS guest d seeded and idle
+up: webdav serving /workspace/tmp/pixelelated-m7-cloud-ui-07/cloud/data at http://127.0.0.1:9040 (guest: http://10.0.2.2:9040)
+09:23:52 === cloud-epic on guest d, BUILD_ID="cf511ce79b83cba7fea8b14cfa3d04fb13e4b4fb"
+232
+09:23:52 == setup: the QA remote on the guest (the host backend's conf), then the QA cloud holds the fork's earlier layout with files in every folder of ours; the guest points at it
+remote: qa-cloud:
+09:23:54   cloud: ROCKNIX/Backups/2026_09_29-090000-Retroid-Pocket-Nova-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Backups/2026_09_30-120000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Content/BIOS/disksys.rom ROCKNIX/Content/ROMs/nes/Probe.nes ROCKNIX/Saves-replaced/nes/Probe.srm.1 ROCKNIX/Saves/nes/Probe.srm 
+09:23:54   guest conf: SAVES_REMOTE="/ROCKNIX/Saves" SETTINGS_REMOTE="/ROCKNIX/Backups" CONTENT_REMOTE="/ROCKNIX/Content" LAYOUT_KEEP="" 
+label=GENERIC-X64
+09:24:22   picks reset: content=0 saves=1
+09:24:42 == UI17: actual wizard failure, completion and next-boot recovery
+09:24:45 PASS UI17 real connectivity gate passes despite layout-only fault
+09:24:45 PASS UI17 selected layout operation really fails before driving wizard
+09:24:45 PASS UI17 control reached fault; clear only its test count
+CONNECTED
+09:26:46 PASS walk UI17-wizard.steps
+09:26:46 FAIL UI17 wizard folder scan reaches selected provider fault
+09:26:46 PASS UI17 fault occurs at wizard folder step
+09:26:53 PASS walk epic-UI17-dismiss.steps
+09:26:53 PASS UI17 dismissing failure reaches actual wizard completion
+09:26:53 FAIL UI17 failed scan and seeding preserve all cloud bytes; no README or marker added
+09:26:53 FAIL UI17 failed scan and seeding leave inherited pointers unchanged
+09:26:53 FAIL UI17 wizard creates neither old nor new root after settlement failure
+09:27:04 PASS walk epic-UI17-close.steps
+rm: can't remove '/tmp/cloud-epic-protocol/fault': No such file or directory
+09:28:04   UI17-recovery-boot: 86 frames under /workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot
+09:28:19 PASS walk epic-UI17-recover.steps
+09:28:19 PASS UI17 next-boot move preserves original save exactly once
+09:28:19 PASS UI17 recovery publishes supported layout marker
+09:28:19 PASS UI17 recovery publishes current saves pointer
+09:28:20 PASS UI17 recovery clears local pending record
+09:28:20 PASS supplemental UI route launched no game
+09:28:20 done: 14 PASS, 4 FAIL
+09:28:20 === cloud-epic on guest d, BUILD_ID="cf511ce79b83cba7fea8b14cfa3d04fb13e4b4fb"
+232
+09:28:20 == setup: the QA remote on the guest (the host backend's conf), then the QA cloud holds the fork's earlier layout with files in every folder of ours; the guest points at it
+remote: qa-cloud:
+09:28:22   cloud: ROCKNIX/Backups/2026_09_29-090000-Retroid-Pocket-Nova-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Backups/2026_09_30-120000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Content/BIOS/disksys.rom ROCKNIX/Content/ROMs/nes/Probe.nes ROCKNIX/Saves-replaced/nes/Probe.srm.1 ROCKNIX/Saves/nes/Probe.srm 
+09:28:22   guest conf: SAVES_REMOTE="/ROCKNIX/Saves" SETTINGS_REMOTE="/ROCKNIX/Backups" CONTENT_REMOTE="/ROCKNIX/Content" LAYOUT_KEEP="" 
+label=GENERIC-X64
+09:28:50   picks reset: content=0 saves=1
+09:29:10 == UI26: unsupported marker refusal through actual transfer page
+09:30:27 PASS walk epic-UI26-malformed.steps
+09:30:27 PASS UI26 malformed scan has no success stamp
+09:30:27 PASS UI26 malformed installed scan refuses unsupported marker
+09:30:27 PASS UI26 malformed UI/scan preserve every cloud byte and marker
+09:30:27 PASS UI26 malformed UI/scan preserve every pointer and keep choice
+09:30:39 PASS walk epic-UI26-malformed-close.steps
+09:31:52 PASS walk epic-UI26-future.steps
+09:31:52 PASS UI26 future scan has no success stamp
+09:31:53 PASS UI26 future installed scan refuses unsupported marker
+09:31:53 PASS UI26 future UI/scan preserve every cloud byte and marker
+09:31:53 PASS UI26 future UI/scan preserve every pointer and keep choice
+09:32:04 PASS walk epic-UI26-future-close.steps
+09:32:04 PASS supplemental UI route launched no game
+09:32:04 done: 13 PASS, 0 FAIL
+PASS owned guest stopped 491855
+down

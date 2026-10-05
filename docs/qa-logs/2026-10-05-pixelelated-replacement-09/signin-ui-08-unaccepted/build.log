@@ -1,0 +1,54 @@
+/workspace/tmp/pixelelated-m7-signin-ui-08/outer.sh: OK
+/workspace/tmp/pixelelated-m7-signin-ui-08/prepare-dirs.py: OK
+/workspace/tmp/pixelelated-m7-signin-ui-08/provenance.json: OK
+/workspace/tmp/pixelelated-m7-signin-ui-08/reboot-fault-provenance.json: OK
+/workspace/tmp/pixelelated-m7-signin-ui-08/required-directories.json: OK
+/workspace/tmp/pixelelated-m7-signin-ui-08/run.sh: OK
+/workspace/tmp/pixelelated-m7-signin-ui-08/seed.py: OK
+/workspace/tmp/pixelelated-m7-signin-ui-08/signin-proof.py: OK
+/workspace/tmp/pixelelated-m7-signin-ui-08/stop-guest.py: OK
+/workspace/tmp/pixelelated-m7-signin-ui-08/successor-provenance.json: OK
+/workspace/tmp/pixelelated-m7-signin-ui-08/verify-inputs.py: OK
+PASS owned private pair/artifacts directories ready
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/79d560046ee52e28b72f16588168dd7c8fb2637c1cc585713216a8ec828e9d81
+Preparing independent 16GiB guest d from the verified pixelelated image
+Image resized.
+No errors were found on the image.
+31695/262144 = 12.09% allocated, 0.00% fragmented, 0.00% compressed clusters
+Image end offset: 2077818880
+[W][09:45:08.655831] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][09:45:08.655862] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+ready after ~31s
+PASS guest d exact BUILD_ID and OS_NAME cf511ce79b83cba7fea8b14cfa3d04fb13e4b4fb pixelelated
+PASS QA ROM bytes /storage/roms/gb/Ninoid.gb a40191c169c68e6607ace072da96aab957f306f55ded59ce1f287c1f5273387b
+PASS QA ROM bytes /storage/roms/gbc/Tobu Tobu Girl Deluxe.gb 0a0e8018dbbc8d7f8cd99f05e7cdc7b4cc9e358ecfe9377ebfb2291a84c6e310
+PASS QA ROM bytes /storage/roms/nes/Bobl.nes 025ec44d0d84ac469b442ee56c3d69e035e9a38430ae849172fe3a1e569d0dea
+PASS guest d seeded and idle
+PASS installed chassis is handset
+PASS installed usr/bin/cloud-signin-window matches exact image payload
+PASS installed usr/bin/cloud_oauth matches exact image payload
+PASS installed window follows real HTTP302
+PASS installed window sends Mobile Safari UA
+PASS actual navigator.userAgent echoes Mobile Safari/605.1.15
+captured /workspace/tmp/pixelelated-m7-signin-ui-08/artifacts/signin/01-local-redirect.png
+PASS 01-local-redirect is panel-sized
+captured /workspace/tmp/pixelelated-m7-signin-ui-08/artifacts/signin/02-finishing-marker-stand-in.png
+PASS 02-finishing-marker-stand-in is panel-sized
+captured /workspace/tmp/pixelelated-m7-signin-ui-08/artifacts/signin/03-public-dropbox-login.png
+PASS 03-public-dropbox-login is panel-sized
+MEASURED public-dropbox peak RSS KiB 706132
+PASS actual phone page Checking at 390 CSS pixels
+PASS 04-phone-checking captures actual 390px frame
+PASS Connected came from actual installed OAuth probe
+PASS 05-phone-connected captures actual 390px frame
+PASS Checking… has .75rem vertical margins
+PASS Connected. has .75rem vertical margins
+captured /workspace/tmp/pixelelated-m7-signin-ui-08/artifacts/signin/06-actual-oauth-provider.png
+PASS 06-actual-oauth-provider is panel-sized
+PASS actual OAuth provider window finished loading
+PASS sign-in presentation commands; semantic frame review remains required
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/79d560046ee52e28b72f16588168dd7c8fb2637c1cc585713216a8ec828e9d81
+PASS frozen source inputs, ES pin and candidate input custody
+PASS sign-in commands; frame review and authenticated Dropbox trust page remain separate
+PASS owned guest stopped 597156

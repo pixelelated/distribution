@@ -1,0 +1,60 @@
+{
+  "observed_utc": "2026-10-05T09:46:36.963811+00:00",
+  "checks": [
+    "installed chassis is handset",
+    "installed usr/bin/cloud-signin-window matches exact image payload",
+    "installed usr/bin/cloud_oauth matches exact image payload",
+    "installed window follows real HTTP302",
+    "installed window sends Mobile Safari UA",
+    "actual navigator.userAgent echoes Mobile Safari/605.1.15",
+    "01-local-redirect is panel-sized",
+    "02-finishing-marker-stand-in is panel-sized",
+    "03-public-dropbox-login is panel-sized",
+    "actual phone page Checking at 390 CSS pixels",
+    "04-phone-checking captures actual 390px frame",
+    "Connected came from actual installed OAuth probe",
+    "05-phone-connected captures actual 390px frame",
+    "Checking\u2026 has .75rem vertical margins",
+    "Connected. has .75rem vertical margins",
+    "06-actual-oauth-provider is panel-sized",
+    "actual OAuth provider window finished loading"
+  ],
+  "frames": [
+    {
+      "file": "01-local-redirect.png",
+      "sha256": "a977f54c172314104ab1c5d5e647bc192c871a35b7ee130576de2b95329c5f85",
+      "visual_review": "pending"
+    },
+    {
+      "file": "02-finishing-marker-stand-in.png",
+      "sha256": "68a39b5225e347322b2c7ec1b56a4fa1ce3a9dd1e39504c17dbf044c71eaff50",
+      "visual_review": "pending"
+    },
+    {
+      "file": "03-public-dropbox-login.png",
+      "sha256": "cc798a33bab4ad47fffae6e8bb8f65359ac2edbc6d96e49338175c8f8ca74f7b",
+      "visual_review": "pending"
+    },
+    {
+      "file": "04-phone-checking.png",
+      "sha256": "910c847e497120d068f86e6042999e6eaa7c5f957b0c89855ff459c28f3cf6c1",
+      "visual_review": "pending"
+    },
+    {
+      "file": "05-phone-connected.png",
+      "sha256": "ec309e31b63d64a8921861f8405d0fdf8a3360af7343be988cc829a6558dab42",
+      "visual_review": "pending"
+    },
+    {
+      "file": "06-actual-oauth-provider.png",
+      "sha256": "b422cc65c4219bef24625016ef67f418d1ad3a8509fbb61a9004c2939300936e",
+      "visual_review": "pending"
+    }
+  ],
+  "limitations": [
+    "Visual review pending.",
+    "Finishing uses explicit done-file stand-in, not authenticated sign-in.",
+    "No authenticated Dropbox trust-page claim.",
+    "Memory is measured without a numerical ceiling assertion."
+  ]
+}

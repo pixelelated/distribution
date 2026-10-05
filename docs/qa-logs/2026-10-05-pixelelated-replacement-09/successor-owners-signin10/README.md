@@ -1,0 +1,3 @@
+# Exact finishing-document transition diagnostic
+
+Refs #447/#362. Preparationa9723c=0; separate44-member/source/directory/predicate preflight5af8af=0; M7readback5d6c82=0 precedes submissiona31e0b. Fresh signin-ui10 observes installed page record and actual done/window/load-count state without URL values. Initial local form must reject the finishing predicate; old2second observation is retained; exact finishing-document load must occur within60seconds before stable capture. No product edits; no blind retry. Both earlier sign-in command0/visual rejections remain intact. Fresh baseline1g10 and provider1g02 depend on accepted proof.

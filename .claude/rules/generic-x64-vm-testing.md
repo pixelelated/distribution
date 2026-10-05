@@ -782,6 +782,38 @@ conversion or key generation; do not rely on a former owner having them.
 When rebinding a chain, verify directory contracts as well as source hashes
 and dependency paths. Preserve executed failures and prepare new owners.
 
+**Reboot invalidates volatile fault fixtures (#446).** Arm `/tmp` shims and
+triggers after the final preparation reboot. Before driving the interface,
+verify the consumed executable, the intended failing operation and an actual
+fired marker while the independent connectivity control still succeeds. Stop
+on an unarmed fixture; a pre-reboot control cannot qualify a post-reboot fault.
+
+**A browser load event is not a rendered frame (#447).** Before accepting a
+panel screenshot after navigation, first require an observable transition to
+the intended document/state, then a bounded stable-screen observation and
+actual image review. A stable old page is not the requested outcome. `vm-visual-qa settle` can exit0 while reporting
+that the screen is still moving; test the reported state, not just the exit.
+Retain a visually rejected capture separately from its successful command.
+
+When host captures disagree with the loaded page, compare the actual QEMU
+viewer frame with a native compositor capture before changing product code.
+Record the graphics mode actually used. In #447, software `--gl none` kept
+stale or partially repainted host frames while native `grim` was correct;
+keeping VNC connected did not eliminate it. The canonical virgl profile
+produced matching frames. Neither a native capture alone nor a forced resize
+qualifies the host display. Use the declared profile and an intended-frame
+check with real stale/partial-frame rejection; preserve software-path limits
+explicitly. Save diagnostic requests before assertions so failed checks retain
+the input that failed. Import new helper dependencies in the runner's actual
+Python environment before launching a VM; syntax parsing alone is insufficient.
+
+For a memory-budget guest, distinguish allocated RAM from Linux `MemTotal`
+(#362). Verify the actual QEMU allocation and guest firmware capacity, and
+record usable RAM and the kernel reservation log separately. A guessed lower
+bound for usable RAM rejected the correctly allocated 1GiB guest before any
+workload. Keep real wrong-allocation controls and the page-load, responsiveness,
+and no-OOM requirements; do not turn an allocation check into an RSS waiver.
+
 Pair the recorder with an active harness waiter, checked within 60 seconds.
 Announce named suite failures, stale/dead monitoring, suspected stalls and
 terminal results promptly. A suspected stall triggers process/log inspection,

@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Saved 2026-10-05T09:24:37.030588+00:00. Previous checkpoint archived at `.github/sessions/archived/saved-session-state-next-20261005T092437Z.md`.
+> Saved 2026-10-05T16:54:49.242954+00:00. Previous checkpoint archived at `.github/sessions/archived/saved-session-state-next-20261005T165449Z.md`.
 > Branch feature/conflict-resolution; primary /workspace/repos/rocknix stays next.
 
 ## Start here
@@ -30,7 +30,7 @@ and precise harness-manifest wording findings are corrected.
 A helper installation is COMPLETE; do not ask to reinstall it.
 
 
-## Current focus — replacement09 bilingual UI qualification passed
+## Current gate — remaining P3 proofs after sign-in qualification
 
 M7.P3 is current. The frozen candidate is source `cf511ce79b83cba7fea8b14cfa3d04fb13e4b4fb`, input manifest `817fd9ff49b1ecf6bcc859cfa38985a65fbcfe5514c33a0a5c9dd60af6cc6c6e`, immutable bundle `79d560046ee52e28b72f16588168dd7c8fb2637c1cc585713216a8ec828e9d81`. Build and inventory pass; 14 licence metadata gaps remain for P5.
 
@@ -56,163 +56,89 @@ Boot04/tool90675/all four rc0 passes four clean/upgraded boots at 640x480 and 12
 
 **Memory qualification passed:** memory11 durable09:04:57/allfourrc0 passes10virgl,10software and50software-with-sync measured launches after five warm-ups each. Virtual growth0KiB in all three; resident growth-208/788/624KiB, below unchanged1024/2048KiB limits. All55 sync stamps are distinct successful completions. Thirty-second sign-in page load passes with peak291924KiB; this is example.org, not provider authentication. Actualafe676=0 at09:05:33 proves all owner/guest processes absent/no QEMU; source/bundle reverified.440artifact hashes retained with raw cycle tables and stamps.
 
-**Bilingual UI qualification passed:** UI13 durable09:17:05/allfourrc0. All70 actual EN/FR640x480/1280x960 menu/Tools frames directly reviewed; all12 ES lifetime records pass, including actual Settings Back/Back save to Updates. Dimensions and intended pages pass. Actual8c4a9d=0 at09:17:24 verifies owner/guest absent/no QEMU. Source/bundle reverified;547artifact hashes/128public files retained. Boot04 supplies the separately accepted exact clean/upgraded boot matcher and negative controls. Earlier failed/interrupted UI owners remain unchanged. #422/#431 scoped closure follows publication.
+**Bilingual UI qualification passed:** UI13 durable09:17:05/allfourrc0. All70 actual EN/FR640x480/1280x960 menu/Tools frames directly reviewed; all12 ES lifetime records pass, including actual Settings Back/Back save to Updates. Dimensions and intended pages pass. Actual8c4a9d=0 at09:17:24 verifies owner/guest absent/no QEMU. Source/bundle reverified;547artifact hashes/128public files retained. Boot04 supplies the separately accepted exact clean/upgraded boot matcher and negative controls. Earlier failed/interrupted UI owners remain unchanged. #422/#431 scoped closure is verified after publication.
 
 **RC2 recovery passed:** predecessor09 durable09:19:19/allfourrc0 passes65 assertions across five states actually produced by the old RC2 migration script on the upgraded guest COW. All payloads and pointers recover; marker failure retains retry state; repeats preserve bytes. Actual81b7e2=0 at09:20:06 verifies owner/guest absent/noQEMU; original backing/source/bundle unchanged.157artifact hashes/139public files retained.
 
 **Subset HTTP qualification passed:** subset08 durable09:21:41/allfourrc0 passes35 installed assertions. A503 subset refusal keeps the queued award; retry refreshes its own game and uploads only the refused award. No stale deletion or duplicate base upload; empty repeat makes no request. Actualba9ad7=0 at09:22:44 proves owner/guest cleanup/noQEMU; source/bundle unchanged. Six public artifacts retain both flush results and real loopback request history. Synthetic QA data, not a new ordinary account award.
 
-**Current priority:** cloud-ui07 ACTIVE, submission2f3a27. Actual09:23:39 launcher491400/runner491401/watcher491403/command491440 and guest491855 live. Watched run20261005T092309Z-db61a4cf. Standard watcher5second heartbeats/5minute inactivity; active supervision within60seconds. UI17 wizard failure/recovery and UI26 unsupported-marker transfer refusal need commands plus actual frame review. No RC/device-ready claim; disconnected alerts remain #395.
+**Supplemental cloud UI passed:** cloud-ui08 durable09:43:59/allfourrc0 passes32 assertions (UI17 nineteen, UI26 thirteen). Actualc230d7=0 at09:44:34 proves owner/guest absent/noQEMU. Nine selected actual failure/completion/recovery/refusal frames reviewed;154artifact hashes/53public files retained. Source/bundle reverified. Original cloud-ui07 durable1/four failures remain intact under cloud-ui-07-failed/. #446 moves volatile fault setup after reboot and adds fail-closed executable/connectivity/failure/fired controls; three fresh owners/35sealed members prepared2c6ff8, verified before launch.
 
-**Remaining order:** cloud-ui07 → signin-ui07 → signin-1g07 → ordinary RetroAchievements proof → P4 primary OpenAI plus Fable5.1/xhigh through the verified Facilitator → H700 DDR4/RG35XX SP arm, then aarch64. Predecessor09 consumed the completed boot04 proof and actual UI13 visual review. External inputs and P5 publication gates remain recorded. Can this be done on the VM? **Yes.**
+**Sign-in08 visually unaccepted:** durable09:46:40/allfourrc0 and17 commands pass; actual5960e1=0 at09:47:31 proves cleanup. All six frames reviewed; first local302 frame has incomplete repaint blocks, other five intended surfaces pass. #447 preserves command success separately from visual rejection. Public Dropbox peak706132KiB across one window/network/web process; not comparable to simple-page baseline as if equal workloads.
 
-#433/#436 remain closed from their artifact-scoped replacement08 repair proofs. #437/#438 and #439/#440/#441 are closed with published scoped evidence; actual52959=0 verifies the latter three bodies/states. Content/settings publication49305=0 put featureb7f9cac3 on nexte1f2baaf, with both remote hashes verified. #442/#443 are closed completed; actual19135=0 verifies their acceptance bodies and states. These closures do not qualify the whole candidate.
+**Sign-in09/10 remain visually unaccepted:** both command0;09 has21 checks and10 has24. Exact finishing document and stable-screen wait do not establish the intended capture. All six original10 frames reviewed; finishing still old.10 durable10:02:16/all four rc0, actual57ee2b cleanup16:02:21 after capacity interruption. Retained signin-ui-09-unaccepted/ and signin-ui-10-unaccepted/.
 
+**Render diagnosis:**01 completed16:12:09/all0, actual41e305 cleanup. Native grim shows Connected at0/5/15seconds while HMP shows old form.02 completed16:16:12/all0, actual3fe75e cleanup: one-frame VNC stale0/5 then correct15, HMP still old. All eight/eleven comparison frames directly reviewed and retained.02's post-resize HMP has mixed geometry; resize is not a remedy. No product cause established. QEMU10.2.1 refresh source plus one-frame client lifetime motivates a persistent read-only receiver control; that remains a hypothesis.
 
-Latest normal publication534e2c=0: feature22834a6557b6846ee0dc63d97eceff9efbf0d8eb → next2f67ba428042e7580aa4f5f10c4d6fb8cfba356f, both remote hashes verified. #444/#445 closed completed. Current UI evidence follows that publication; original failures stay intact.
+**Preserved diagnostic failures:**03 failed import before sign-in (Pillow absent), durable16:20:00/all1; actual1daf63 cleanup.04 stdlib encoder/import controls pass, but local HTTP-UA assertion fails before finishing. Durable16:22:46/all1, actual0c8bda cleanup. The old helper wrote request evidence only after that assertion; the offending request is unavailable. Original results remain intact under signin-render-diagnostic-03-failed/ and04-failed/. No visual qualification transfers from these runs.
+
+**Canonical sign-in accepted:** render-diagnostic05 completed16:26:31/all four rc0, actual8f03d7 cleanup; its persistent viewer did not eliminate software-host lag. Render06 changed only graphics to actual canonical virgl: all nine native/host frames agree exactly, durable16:29:54/all0, actual321973 cleanup. Fresh full signin-ui11 completed16:35:21/all four rc0/27 checks, actual061ffa cleanup16:35:39. All six intended frames directly reviewed; exact finishing pixels match the reviewed native reference; real old/partial/wrong-size controls reject; four stable receipts pass and an actual zero-exit unsettled result rejects. Public Dropbox peak662412KiB on8GiB. No authenticated trust-page claim. The software scanout discrepancy remains unresolved under #447; no product patch or waiver. Diagnostic04's missing offending UA remains a watch observation; later request evidence is saved before assertions.
+
+**Actual1GiB resource checks accepted:** baseline signin-1g12 and public-provider signin-provider1g04 both complete with four matching rc0 channels. Actual QEMU allocation1024MiB and guest firmware1048576KiB are verified; Linux usable810368/810372KiB is recorded separately. Both30-second workloads load, remain responsive and have no kernel OOM. Peaks: example.org264076KiB, public Dropbox387668KiB. Actual640x480 frames reviewed. Baseline cleanup95f1c2 at16:44:23; provider cleanupa04e75 at16:51:54 proves all owner/guest processes absent and no QEMU. Provider durable result16:46:03; build-log SHA58d5bd3ff31cb3a29c05fc37f3ed44b558e9338efd961ac8a61ddc20b784b678. Original signin-1g11 rejected an invented usable-RAM floor before workload; preserve its all1 failure. Fresh controls reject actual8GiB, mismatched firmware and zero/excess usable RAM. No numerical RSS ceiling is invented; different workloads/allocations are not equal-memory comparisons.
+
+**Current priority:** reconcile/publish these retained proofs and their issue criteria, then resolve #447's software display discrepancy and the remaining ordinary RetroAchievements/authenticated Dropbox criteria. No build, test, guest or watcher is active at the latest host observation16:51:54. All completed owners are immutable; earlier prepared sign-in/resource owners are superseded and must not be launched.
+
+**Remaining order:** remaining P3 software/account proofs → P4 primary OpenAI + Fable5.1/xhigh through the verified Facilitator → H700 DDR4/RG35XX SP arm, then aarch64 → separately authorized device actions/publication. Ordinary Tobu100359 is already earned; the earlier request for a reset or alternate dedicated QA account is unanswered. Authenticated Dropbox trust needs dedicated QA access; public pages/done-file stand-ins cannot replace it. Public-docs access,14P5 licence metadata gaps and #395 disconnected notification destination remain recorded. P4 has not started; no RC/device-ready claim. Can this be done on the VM? **Yes**, including all remaining software/account proofs.
+
+Published UI13/predecessor09/subset08 evidence: featuredf13f273a0745628780ef1abfaae8f8f22c55f0b → next908bc62f94d059864a0c466eedb31ac2955fa4ec; both remote heads verified09:25:37.
+
+Scoped #422/#431/#426 are now CLOSED completed: actual000718=0 readback verifies all criteria from published evidence. #391/#310 were already closed on earlier artifacts; their replacement09 checks are renewed evidence. Tools/status issue #416 also CLOSED completed, actual23e12e=0. No candidate-wide acceptance follows.
+
 ## Immediate commands and custody
 
-Guest11 is COMPLETE and retained. All19cases/249assertions/0failures;
-32actual selected frames reviewed. Durable result08:25:35/allfourrc0;
-actualeee27c=0 at08:26:26 proves owner/guest absence, no QEMU.
-Submission497141=0 is a launch receipt, not the job result. Run
-/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/.build-runs/20261005T074403Z-d4dcde5e.
-Completion/qualification: /workspace/tmp/pixelelated-m7-guest-11/.
-Retained guest-11/ holds1708 hashes/140selected public files. Original
-guest10/tool59031=143 remains interrupted with missing channels still absent.
+No active job at16:51:54UTC. All current tests have durable terminal receipts,
+four matching result channels, direct frame review and actual host cleanup.
+The latest provider1g04 submission8797cf is distinct from its job0; completion
+receipta04e75 confirms actual process absence. Every retention helper already
+ran; do not replay exclusive completion/review/retention writes.
 
-Runtime12 COMPLETE: submission24679f distinct from durable08:32:24/allfourrc0.
-14archive/4timing/13identity checks pass; medians269/245ms,24ms delta under30ms.
-Actualbd3e21=0 at08:33:00 all owner/guest249581 absent; backing unchanged.
-Retained runtime-12/97hashes/93files. Proxy10 then failed before guestboot:
-submission16d437, durable/allfourrc1. No pair/ directory for ssh-keygen;
-actual2320ec=0 at08:34:37 all owner processes absent/no QEMU. Original preserved.
+Accepted owners: cloud-ui08 (32assertions/nine reviewed frames), signin-ui11
+(27checks/six reviewed frames), signin-1g12 (example.org), and
+signin-provider1g04 (public Dropbox). All live under
+/workspace/tmp/pixelelated-m7-NAME and are retained under
+docs/qa-logs/2026-10-05-pixelelated-replacement-09/NAME/.
+The13 resource artifact hashes/ten public files for each1GiB owner include
+actual graphics/firmware allocation, resource, frame and cleanup evidence.
+Original cloud-ui07, signin08/09/10, render03/04 and signin-1g11 failures or
+visual rejections remain separately retained. Render01/02/05/06 are diagnostics,
+not substitutes for full sign-in qualification. No frozen product change.
 
-Proxy11 COMPLETE: submission841c71 distinct from durable08:41:18/allfourrc0.
-All22 installed proxy preservation assertions pass. Actual15f790=0 at08:41:44
-owner/guest290623 absent, noQEMU; source/bundle reverified. Retained proxy-11/.
-Original proxy10 failure remains under proxy-10-failed/, never relabelled.
+Next actions:
+1. Finish the current evidence publication on feature/conflict-resolution,
+   exact cherry-pick -x onto primarynext and normal pushes. Fresh publisher:
+   /tmp/pixelelated-publish09-signin-complete.py; receipt:
+   /tmp/pixelelated-replacement09-signin-complete-published.json. Inspect actual
+   git heads/receipt before doing anything; never replay an already-run commit.
+   Required rules/register/index/ceremony checks and normal hooks stay enabled.
+2. Reconcile #446's four artifact criteria and close after publication. #351
+   phone-spacing criterion is now proved; its authenticated trust criterion
+   remains open. Update #362's resource evidence without silently closing its
+   cold-build/freshness criterion. #356/#365 supplemental UI evidence is complete;
+   reconcile remaining broader criteria against their exact existing artifacts.
+3. #447 remains open for reproducible software-host stale/partial scanout.
+   Read render-diagnostic05/06 side-by-side: native correct, software host slow,
+   canonical virgl correct without resize/input. Persistent VNC is insufficient.
+   File/record any new test plan on447 before a fresh sealed owner; do not patch
+   product HTML on a capture-path hypothesis. No current owner may be edited.
+4. OrdinaryRA/authenticatedDropbox need previously requested dedicated account
+   inputs. Do not reset an account or substitute hardcore/public-page success.
+   Only then P4, then H700 builds/device gates. Initial375/382 audits are done.
 
-Optins11 COMPLETE: submission66b7e8 distinct from durable08:47:52/allfourrc0.
-S3 round-trip120s and mixed actualRC2/fresh migration42assertions/zero failures.
-Actualc3d137=0 at08:50:30 confirms owner processes absent and no QEMU.
-Retained optins-11/ contains four public artifacts. Independent resume proof
-resume-proof-optins11.md verified all source/bundle/owner hashes and actual
-mixed guest311770/314457 identities before completion. No qualification claim
-is attributed to that handoff proof. Command shorthand is corrected below.
+Future jobs use tools/watch-build-submit and standard watcher, with active
+supervision within60seconds; the recorder alone cannot notify after model
+capacity/disconnection. #395 has no destination. Actual host /proc needs an
+escalated read because sandbox PIDs are hidden. Fixed-port VM jobs serialize.
+No swap while VM work runs. No credential values/private disks enter Git.
 
-Memory11 COMPLETE: submissione0396b distinct from durable09:04:57/allfourrc0.
-All10virgl/10software/50sync-enabled measured cycles pass with five warm-ups.
-Virtual growth0 in all; resident-208/788/624KiB.55 unique successful sync stamps.
-Thirty-second example.org sign-in load passes, peak291924KiB. Actualafe676=0
-at09:05:33 owner/guest processes absent and no QEMU.440hashes/67public files
-retained, including three raw cycle tables and55stamps. This is not provider
-trust-page authentication. All installed and frozen source bytes reverify.
+Frozen source /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09, branch build/m7-pixelelated-replacement09, is immutable. Build owner /workspace/tmp/pixelelated-m7-replacement-09. Sourcecf511ce79b83cba7fea8b14cfa3d04fb13e4b4fb; ESf6f0c134212bc696f2f6a747c8d390a588f2f0ce. Input manifest817fd9ff49b1ecf6bcc859cfa38985a65fbcfe5514c33a0a5c9dd60af6cc6c6e:6547product/180symlinks/200QA. Verifier requires ES_SRC=/home/max/Development/emulationstation-next.worktrees/qa-integration and frozen cwd. Full inputs.json stays outside Git; inputs-reference.json only in repository.
 
-UI13 COMPLETE: submissionff7a02 distinct from durable09:17:05/allfourrc0.
-All70 actual EN/FR640x480/1280x960 menu frames directly reviewed; all12 ES
-lifetime records pass. Original frames and observations are hash-bound in
-owner/visual-review.json, retained in ui-13/ with547hashes/128public files.
-Actual8c4a9d=0 at09:17:24 proves owner/guest absence/no QEMU. Boot04 supplies
-exact-candidate clean/upgraded matcher/control proof; extra UI boot captures
-are only inventoried. /tmp/pixelelated-accept-ui13.py ALREADY RAN successfully.
-Original ledger /tmp/pixelelated-ui13-reviewed.json has70frames. UI13 was
-retained by /tmp/pixelelated-retain-submitted-09-v3.py; do not replay retention.
-#422/#431 closure follows normal evidence publication, not capture-only0.
+Bundle /workspace/artifacts/pixelelated-candidates/sha256/79d560046ee52e28b72f16588168dd7c8fb2637c1cc585713216a8ec828e9d81;14boundmembers. Image pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz SHAb9be57ee7b83d8c6b3be48e2aa29e2c033d7bb5779f3d036fdc251b0c13d5686; tarSHA6072dbc593290a6f05c6c68595fc4ca4d6f434cd465966154355dc19b39c111f. Raw/updateSYSTEM both4c7c1fcce5f9e0032d1d57f9099d32fb8de7322f77b1018ae95f3cb12210634e. Extractedroot /workspace/tmp/pixelelated-m7-image-11/root. InstalledES31e1a0cf5efe9ffee5769715bc54b5125ccd21bb927b20a3eab2e650a06591b3. Actual RC2-upgraded backing /workspace/tmp/pixelelated-m7-qa-13/pair/vm-a.qcow2 remains unchanged.
 
-Predecessor09 COMPLETE: submissionbd4245 distinct from durable09:19:19/allfourrc0.
-Five actualRC2-created states/65assertions pass on the actual upgraded COW;
-original backing/source/bundle unchanged. Actual81b7e2=0 at09:20:06 proves
-owner/guest cleanup/noQEMU. Retained157hashes/139public files. UI13 and
-predecessor retention helpers ALREADY RAN; never replay those.
 
-Subset08 COMPLETE: submission386306 distinct from durable09:21:41/allfourrc0.
-All35 installed assertions pass. Actual HTTP503 subset refusal retained, retry
-sends only subset and clears queue, empty repeat sends nothing. Actualba9ad7=0
-at09:22:44 proves owner/guest cleanup/noQEMU. Six public artifacts retained;
-source/bundle unchanged. Not a real ordinary-account award.
-
-Cloud-ui07 ACTIVE: /workspace/tmp/pixelelated-m7-cloud-ui-07,
-submission2f3a27, run20261005T092309Z-db61a4cf. Actual09:23:39 launcher491400,
-runner491401/watcher491403/command491440/guest491855 live. Poll console.log,
-launcher-result.json and build.status under directory named in run.path.
-UI17/UI26 each reset their synthetic fixture. After actual completion, inspect
-all assertions and actual wizard/failure/completion/recovery/refusal frames,
-write hashed review only after inspecting images, then retain using v3.
-Finish-submitted-owner.py must confirm allfour matching rc channels and actual
-host cleanup before signin-ui07 starts. No swap during VM work.
-Fresh9owner/96member directory chain: /tmp/pixelelated-proxy11-chain.json and
-successor-owners-proxy11/. Preparation234a03=0/readback8eb312=0 and M7 readback
-1634=0 preceded proxy11 launch. All source assertions remain unchanged.
-
-After a durable job actually completes, use actual host process access:
-python3 /workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-05-watch-submit/finish-submitted-owner.py OWNER SUBMISSION_CHUNK
-This requires four real matching rc channels, terminal watcher and cleanup.
-Then python3 /tmp/pixelelated-retain-submitted-09-v3.py OWNER_SHORT_NAME (job_rc schema).
-All prior retention/preparation scripts ALREADY RAN; never replay them.
-All prepared-owner sources are sealed; never edit executed or readonly owners.
-
-Frozen tree /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09,
-branch build/m7-pixelelated-replacement09; NEVER edit product or executed owner.
-Build owner /workspace/tmp/pixelelated-m7-replacement-09. Sourcecf511ce79b83cba7fea8b14cfa3d04fb13e4b4fb,
-ESf6f0c134212bc696f2f6a747c8d390a588f2f0ce. Input manifest817fd9ff49b1ecf6bcc859cfa38985a65fbcfe5514c33a0a5c9dd60af6cc6c6e.
-Bundle /workspace/artifacts/pixelelated-candidates/sha256/79d560046ee52e28b72f16588168dd7c8fb2637c1cc585713216a8ec828e9d81.
-Image b9be57ee7b83d8c6b3be48e2aa29e2c033d7bb5779f3d036fdc251b0c13d5686;
-tar6072dbc593290a6f05c6c68595fc4ca4d6f434cd465966154355dc19b39c111f.
-6547 product files,180 symlinks,200 frozen QA files remain exact. The feature's
-new transfer claim/comment are external sealed QA13 inputs, not product changes.
-
-Completed receipts: build12792, store30378, inventory08/24423, QA13/42880,
-boot04/90675, image11/1600, sweep09/81204, settings11/91974, link10/56478 all passed. Original QA11/64718,
-QA12 inlinecfec69, boot03/60221 and sweep08/43694 remain failed/refused.
-Evidence docs/qa-logs/2026-10-05-pixelelated-replacement-09/ plus transfer-first-sample.
-Fresh resume proof resume-proof-boot04.md records independent custody checks and
-timing changes; all reported stale snapshots are reconciled in this batch.
-
-Remaining owners, prefix /workspace/tmp/pixelelated-m7-:
-cloud-ui-07(active) → signin-ui-07 → signin-1g-07.
-All after cloud-ui07 are UNSTARTED; inspect actual launch files before acting.
-Earlier proxy10 failed; its other8dependents remain sealed/unstarted. Do not
-execute the superseded chain. Predecessor09 consumed completed boot04 and
-actual UI13 visual-review.json PASS after inspecting all70frames.
-Proxy22/subset35 assertions unchanged. Fixture /tmp/m7-proxy-predecessor/store.sqlite3
-SHAa796c1e6ce6373a6620dfa983e16de3012b6d8feb83f9a2c178f437d8c0adca5.
-
-Launch only after separate preparation/seal verification and actual prior cleanup.
-From frozen09 cwd invoke the CURRENT tool by absolute path:
-python3 /workspace/repos/rocknix.worktrees/conflict-resolution/tools/watch-build-submit
---owner OWNER -- --interval 5 --stall-min 5 --recursive-activity
---activity-dir OWNER/artifacts -- OWNER/outer.sh BUNDLE.
-Submission exits immediately; record its actual tool chunk, then actively poll.
-The retained launcher copy and frozen standard runner remain unchanged in flight.
-No swap reclaim during VM work. Fixed ports serialize. All preparation/retention
-scripts already ran and are not safe to replay. Retainer /tmp/pixelelated-retain-submitted-09-v3.py handles this chain and job_rc; never label submission_rc as completion_rc.
-
-QA13's actual upgraded backing is /workspace/tmp/pixelelated-m7-qa-13/pair/vm-a.qcow2.
-External RC2 evidence /workspace/artifacts/rocknix-images/qa-cf511ce79b-upgrade-from-69e6039f8f-20261005-0632:
-rehearsal.log/rc/journal-err-after.txt public; state-after.txt HASHONLY.
-Do not copy private keys, saved configs or VM disks into Git. Full frozen input
-manifest stays outside Git; inputs-reference.json records its digest.
-
-Last published feature22834a6557b6846ee0dc63d97eceff9efbf0d8eb → next2f67ba428042e7580aa4f5f10c4d6fb8cfba356f,
-actual534e2c=0, both remote hashes verified. #445 closed/readback414e77=0.
-Pending publication: UI13 semantic/lifetime/cleanup and predecessor09 recovery evidence, plus subset08 preservation and cloud-ui07
-handoff. Latest M7 subset-stage readback903121=0, update to cloudUI stage next.
-Current tracking includes #426; regex matches only the complete M7.P3 priority
-line, avoiding its older duplicate. Prior UI13 fresh resume proof verified
-6547/200/180/14/96members, actual640guest/owner and correct dependencies.
-Later UI completion and predecessor launch are separately observed events.
-Continue explicit-commit/cherry-pick-x and normal fork pushes; close scoped
-#422/#431 only after publishing this actual evidence and reconciling criteria.
-
-P4 NOT STARTED: primary OpenAI + Fable5.1/xhigh verified Facilitator, blind then
-refutation; no Daybreak or same-provider substitute. Complete remaining matrix
-and ordinaryRA criterion before P4, then H700DDR4/RG35XXSP arm/aarch64.
-Unanswered external inputs remain: ordinaryRA unearned achievement/account,
-Dropbox dedicated authenticated QA account path, public docs push destination,
-and #395 disconnected notification destination. No renewed duplicate question.
-FOSS observability #432 is backlog; no stack deployed. Watcher exists for each
-active owner; disconnected delivery is not yet implemented.
+Previous published evidence is featuredf13f273a0745628780ef1abfaae8f8f22c55f0b →
+next908bc62f94d059864a0c466eedb31ac2955fa4ec, verified09:25:37. This checkpoint
+and new cloud/sign-in/resource evidence are the current publication batch;
+use git log and the receipt above for the actual integration/push result.
 
 ## Completed replacement08 and source integration (historical snapshot)
 

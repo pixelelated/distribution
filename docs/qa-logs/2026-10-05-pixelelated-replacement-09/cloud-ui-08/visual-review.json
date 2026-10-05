@@ -1,0 +1,101 @@
+{
+  "owner": "/workspace/tmp/pixelelated-m7-cloud-ui-08",
+  "reviewed_frames": [
+    {
+      "path": "/workspace/tmp/pixelelated-m7-cloud-ui-08/artifacts/cloud-ui/UI17/frames/01-UI17-scan-failed.png",
+      "sha256": "28de34833bc4221dbf6c500155607ce4a8e6d830408156b0f1e8bbdf3e2de362",
+      "observed_utc": "2026-10-05T09:39:40.418733+00:00",
+      "observation": "Actual error outcome: cloud stopped answering, nothing changed, Close/Try Again."
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-cloud-ui-08/artifacts/cloud-ui/UI17/frames/13-UI17-after-step3.png",
+      "sha256": "28de34833bc4221dbf6c500155607ce4a8e6d830408156b0f1e8bbdf3e2de362",
+      "observed_utc": "2026-10-05T09:39:40.418780+00:00",
+      "observation": "Actual wizard step3 reaches error card with cloud stopped answering."
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-cloud-ui-08/artifacts/cloud-ui/UI17/frames/02-UI17-setup-complete.png",
+      "sha256": "9aaa8d8bb657c4d778a8fd98563da060326443a3b2ee15538406ac5c3741fb5b",
+      "observed_utc": "2026-10-05T09:39:40.418807+00:00",
+      "observation": "Actual completion retains /GAMES and explicitly says folders could not be set up yet; full warning row scrolls/truncates at this sample. Connection is available; folder failure is disclosed."
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-cloud-ui-08/artifacts/cloud-ui/UI17/frames/09-UI17-after-step1.png",
+      "sha256": "e232c67576c7442e95f8a60d69268f7f19ae68dfd85bf07dabfe226b4d581316",
+      "observed_utc": "2026-10-05T09:39:40.418829+00:00",
+      "observation": "Repair step2 shows owned loopback SSH connection and stock disposable VM password; no personal credential."
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-cloud-ui-08/artifacts/cloud-ui/UI17/frames/11-UI17-after-step2.png",
+      "sha256": "ea0fac6020c6106fbd57b2a692860f9ff1765ba95e8381001ea70b487c0152af",
+      "observed_utc": "2026-10-05T09:39:40.418848+00:00",
+      "observation": "Repair step3 shows reconnect instructions for synthetic qa-cloud."
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-cloud-ui-08/artifacts/cloud-ui/UI17/frames/01-UI17-boot-move-question.png",
+      "sha256": "61956b6fa7514ffea4b115c249794c2df662dd15ae28685037f98211b2043d40",
+      "observed_utc": "2026-10-05T09:40:48.348497+00:00",
+      "observation": "Following reboot offers MOVE/KEEP/NOT NOW for inherited /ROCKNIX."
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-cloud-ui-08/artifacts/cloud-ui/UI17/frames/02-UI17-move-complete.png",
+      "sha256": "88ade6da712751df6b074a096936ccfbbf24bf096f5aafd0f62d81d402110c3b",
+      "observed_utc": "2026-10-05T09:40:48.348542+00:00",
+      "observation": "Actual recovery completed; one file moved, new cloud folder /pixelelated."
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-cloud-ui-08/artifacts/cloud-ui/UI26/frames/01-UI26-malformed-refusal.png",
+      "sha256": "d1402d4d7a1fc1363db385b4f938947ac8050eda8d55d5b6dc2b7b4ca8bf040d",
+      "observed_utc": "2026-10-05T09:43:24.291082+00:00",
+      "observation": "Malformed layout marker: actual scan refuses, says nothing changed and offers Close/Try Again."
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-cloud-ui-08/artifacts/cloud-ui/UI26/frames/01-UI26-future-refusal.png",
+      "sha256": "e34abe2496ca40f6dfd4ef1655ac7b6e48fdd58a69f2cf66f7290d85f1a6a26a",
+      "observed_utc": "2026-10-05T09:44:38.157139+00:00",
+      "observation": "Future layout marker: actual scan refuses, says nothing changed and offers Close/Try Again."
+    }
+  ],
+  "passed": true,
+  "assertions": 32,
+  "selected_frames": 9,
+  "scope": "Actual wizard error/completion/recovery and malformed/future-marker refusal frames; intermediate route/boot captures only inventoried.",
+  "completion": {
+    "observed_utc": "2026-10-05T09:44:34.164608+00:00",
+    "submission_tool_chunk": "da33dc",
+    "submission_rc": 0,
+    "job_rc": 0,
+    "job_result_source": "/workspace/tmp/pixelelated-m7-cloud-ui-08/launcher-result.json",
+    "result_channels": {
+      "/workspace/tmp/pixelelated-m7-cloud-ui-08/inner.rc": 0,
+      "/workspace/tmp/pixelelated-m7-cloud-ui-08/outer.rc": 0,
+      "/workspace/tmp/pixelelated-m7-cloud-ui-08/tool-wrapper.rc": 0,
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/.build-runs/20261005T093506Z-d98817d4/build.rc": 0
+    },
+    "owned_processes": [
+      {
+        "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/.build-runs/20261005T093506Z-d98817d4/build.pid",
+        "pid": 550826,
+        "state": "absent"
+      },
+      {
+        "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/.build-runs/20261005T093506Z-d98817d4/watcher.pid",
+        "pid": 550827,
+        "state": "absent"
+      },
+      {
+        "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/.build-runs/20261005T093506Z-d98817d4/command.pid",
+        "pid": 550856,
+        "state": "absent"
+      },
+      {
+        "source": "/workspace/tmp/pixelelated-m7-cloud-ui-08/guest.pid",
+        "pid": 551584,
+        "state": "absent"
+      }
+    ],
+    "qemu_absent": true,
+    "run": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/.build-runs/20261005T093506Z-d98817d4",
+    "build_log_sha256": "23eb3f698673c8cc4d18c67610b8fb7ce7c00e9bc851ef815d0c67a3a8794c15"
+  }
+}

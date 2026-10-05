@@ -1,0 +1,3 @@
+# Rendered sign-in and1GiB proof owners
+
+Refs #447/#362. Preparation5e950f=0; separate41-member source/private-directory/URL/dependency readbackb186b9=0 and M7readbackaedf5a=0 precede signin-ui09 submission268e56. Stable-panel helper requires the actual bounded still result; a real timeout0 control must demonstrate that command0 with an unsettled result is rejected. Original signin-ui08 command0 remains visually unaccepted; signin-1g08 is never executed. Fresh signin-1g09 measures the approved example.org baseline; signin-provider1g01 measures public Dropbox independently after baseline success. No credentials are entered; no numerical RSS ceiling is invented. Candidate product bytes unchanged.
