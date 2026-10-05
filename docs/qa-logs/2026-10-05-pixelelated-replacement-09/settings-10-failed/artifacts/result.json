@@ -1,0 +1,20 @@
+{
+  "pass": false,
+  "checks": [
+    {
+      "name": "candidate BUILD_ID",
+      "pass": true
+    },
+    {
+      "name": "installed bytes /usr/bin/emulationstation",
+      "pass": false,
+      "sha256": "8cfb6ff75fd3624945676f51210bbded0ec9354acd7b665450e2d1a2af8f947f"
+    },
+    {
+      "name": "exception",
+      "pass": false,
+      "type": "RuntimeError",
+      "message": "installed bytes /usr/bin/emulationstation"
+    }
+  ]
+}
