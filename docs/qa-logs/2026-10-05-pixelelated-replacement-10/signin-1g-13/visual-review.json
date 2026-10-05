@@ -1,0 +1,31 @@
+{
+  "utc": "2026-10-05T20:58:00.344694+00:00",
+  "passed": true,
+  "method": "Direct view_image of actual loaded frame; checked resource-budget.json and terminal/cleanup agreement.",
+  "frames": [
+    {
+      "path": "/workspace/tmp/pixelelated-m7-signin-1g-13/artifacts/loaded-640x480.png",
+      "sha256": "0280870e41ba79d790fb2549c7e095240704170732e28b946c9dc4a5b006801b",
+      "observation": "Directly viewed the actual example.org documentation page at640x480: rendered multilingual content and browser control strip are readable, with normal vertical continuation and no stale fragments.",
+      "passed": true
+    }
+  ],
+  "budget": {
+    "observed_utc": "2026-10-05T20:57:28.306165+00:00",
+    "guest_memtotal_kib": 810372,
+    "configured_memory_mib": 1024,
+    "actual_measurement_rc": 0,
+    "loaded_frame_captured": true,
+    "oom_lines": [],
+    "payload_sha256": "fc9a3473490f52e8da76d473a2265e56d1dd362977351b4b732ed2bcd1419990",
+    "numerical_rss_ceiling_enforced": false,
+    "loaded": true,
+    "measurement_pass": true,
+    "peak_total_rss_kib": 271416
+  },
+  "limitations": [
+    "30-second public page workload; not authenticated provider trust.",
+    "Baseline and provider pages are different workloads; RSS values are not a like-for-like growth comparison.",
+    "No arbitrary numerical RSS ceiling was added."
+  ]
+}

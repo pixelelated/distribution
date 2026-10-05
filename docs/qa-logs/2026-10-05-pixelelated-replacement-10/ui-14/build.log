@@ -1,0 +1,448 @@
+/workspace/tmp/pixelelated-m7-ui-14/capture-boot.py: OK
+/workspace/tmp/pixelelated-m7-ui-14/es_lifecycle.py: OK
+/workspace/tmp/pixelelated-m7-ui-14/identity.steps: OK
+/workspace/tmp/pixelelated-m7-ui-14/m7-cloud-sync.steps: OK
+/workspace/tmp/pixelelated-m7-ui-14/m7-retro-achievements.steps: OK
+/workspace/tmp/pixelelated-m7-ui-14/outer.sh: OK
+/workspace/tmp/pixelelated-m7-ui-14/prepare-dirs.py: OK
+/workspace/tmp/pixelelated-m7-ui-14/provenance-replacement10.json: OK
+/workspace/tmp/pixelelated-m7-ui-14/provenance.json: OK
+/workspace/tmp/pixelelated-m7-ui-14/required-directories.json: OK
+/workspace/tmp/pixelelated-m7-ui-14/run.sh: OK
+/workspace/tmp/pixelelated-m7-ui-14/seed.py: OK
+/workspace/tmp/pixelelated-m7-ui-14/stop-guest.py: OK
+/workspace/tmp/pixelelated-m7-ui-14/successor-provenance.json: OK
+/workspace/tmp/pixelelated-m7-ui-14/tools-frames.py: OK
+/workspace/tmp/pixelelated-m7-ui-14/ui.py: OK
+/workspace/tmp/pixelelated-m7-ui-14/verify-inputs.py: OK
+/workspace/tmp/pixelelated-m7-ui-14/verify-renderer.py: OK
+PASS owned private pair/artifacts directories ready
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/1c69bcf5ab6ebdc3e893a6a989545ac7a23359f0e07baef4e9c2beaca94c52b4
+Preparing independent 16GiB candidate guest d
+Image resized.
+No errors were found on the image.
+31695/262144 = 12.09% allocated, 0.00% fragmented, 0.00% compressed clusters
+Image end offset: 2077818880
+up: webdav serving /workspace/tmp/pixelelated-m7-ui-14/cloud/data at http://127.0.0.1:9040 (guest: http://10.0.2.2:9040)
+[W][20:41:26.192278] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][20:41:26.192311] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+CAPTURED guest boot frames 10
+CAPTURED guest boot frames 20
+CAPTURED guest boot frames 30
+CAPTURED guest boot frames 40
+CAPTURED guest boot frames 50
+CAPTURED guest boot frames 60
+CAPTURED guest boot frames 70
+CAPTURED guest boot frames 80
+CAPTURED guest boot frames 90
+CAPTURED guest boot frames 100
+CAPTURED guest boot frames 110
+CAPTURED guest boot frames 120
+CAPTURED guest boot frames 130
+CAPTURED guest boot frames 140
+CAPTURED guest boot frames 150
+PASS boot frame capture only; branding classification remains required 153
+ready after ~0s
+PASS guest d exact BUILD_ID d6e8390c93bed87efe2dcc23cd402a271cacd1c7
+PASS QA ROM bytes /storage/roms/gb/Ninoid.gb a40191c169c68e6607ace072da96aab957f306f55ded59ce1f287c1f5273387b
+PASS QA ROM bytes /storage/roms/gbc/Tobu Tobu Girl Deluxe.gb 0a0e8018dbbc8d7f8cd99f05e7cdc7b4cc9e358ecfe9377ebfb2291a84c6e310
+PASS QA ROM bytes /storage/roms/nes/Bobl.nes 025ec44d0d84ac469b442ee56c3d69e035e9a38430ae849172fe3a1e569d0dea
+PASS guest d seeded and idle
+PASS installed selector/unit and actual software compositor: ui-640x480
+1 press(es) moved the screen, back on the carousel
+START en_US 640x480 retro-achievements
+changed after 0.2s (`key ret`, line 4)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/en_US-640x480/retro-achievements/01-main-menu-entry.png
+changed after 0.2s (`key x`, line 8)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/en_US-640x480/retro-achievements/02-game-settings-entry.png
+changed after 0.2s (`key down`, line 12)
+changed after 0.2s (`key down`, line 14)
+settle: still after 1.9s
+changed after 0.2s (`key x`, line 17)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/en_US-640x480/retro-achievements/03-retroachievements-settings.png
+changed after 0.2s (`key down`, line 21)
+changed after 0.2s (`key down`, line 23)
+changed after 0.2s (`key down`, line 25)
+changed after 0.2s (`key down`, line 27)
+changed after 0.2s (`key down`, line 29)
+settle: still after 1.9s
+changed after 0.2s (`key x`, line 32)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/en_US-640x480/retro-achievements/04-offline-achievements.png
+dismiss-dialogs: 5 press(es) moved the screen, back on the carousel
+CAPTURED en_US 640x480 retro-achievements
+START en_US 640x480 cloud-sync
+changed after 0.2s (`key ret`, line 4)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/en_US-640x480/cloud-sync/01-main-menu-entry.png
+changed after 0.2s (`key x`, line 8)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/en_US-640x480/cloud-sync/02-game-settings-entry.png
+changed after 0.2s (`key up`, line 12)
+changed after 0.2s (`key up`, line 14)
+changed after 0.2s (`key up`, line 16)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/en_US-640x480/cloud-sync/03-game-settings-cloud-rows.png
+changed after 0.8s (`key x`, line 20)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/en_US-640x480/cloud-sync/04-cloud-hub.png
+changed after 0.2s (`key x`, line 24)
+settle: still after 3.5s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/en_US-640x480/cloud-sync/05-back-up-to-the-cloud.png
+changed after 0.2s (`key z`, line 28)
+settle: still after 1.9s
+changed after 0.2s (`key down`, line 31)
+changed after 0.2s (`key down`, line 33)
+changed after 0.2s (`key down`, line 35)
+changed after 0.2s (`key down`, line 37)
+changed after 0.2s (`key down`, line 39)
+changed after 0.2s (`key down`, line 41)
+changed after 0.2s (`key down`, line 43)
+changed after 0.2s (`key down`, line 45)
+settle: still after 1.9s
+changed after 0.2s (`key x`, line 48)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/en_US-640x480/cloud-sync/06-connect-or-repair-cloud-storage.png
+dismiss-dialogs: 5 press(es) moved the screen, back on the carousel
+CAPTURED en_US 640x480 cloud-sync
+START en_US 640x480 identity
+changed after 0.2s (`key ret`, line 2)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/en_US-640x480/identity/01-main-menu-identity.png
+changed after 0.2s (`key up`, line 6)
+changed after 0.2s (`key up`, line 8)
+changed after 0.2s (`key up`, line 10)
+changed after 0.2s (`key x`, line 12)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/en_US-640x480/identity/02-system-settings.png
+changed after 0.2s (`key x`, line 16)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/en_US-640x480/identity/03-information.png
+changed after 0.2s (`key z`, line 22)
+changed after 0.2s (`key z`, line 24)
+changed after 0.2s (`key up`, line 26)
+changed after 0.2s (`key x`, line 28)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/en_US-640x480/identity/04-updates.png
+changed after 0.2s (`key up`, line 33)
+changed after 0.2s (`key up`, line 35)
+changed after 0.2s (`key x`, line 37)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/en_US-640x480/identity/05-manual-update-message.png
+dismiss-dialogs: 4 press(es) moved the screen, back on the carousel
+CAPTURED en_US 640x480 identity
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/en_US-640x480/tools/tools-row-00.png
+settle: still after 4.6s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/en_US-640x480/tools/tools-row-01.png
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/en_US-640x480/tools/tools-row-02.png
+settle: still after 9.7s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/en_US-640x480/tools/tools-row-03.png
+settle: still after 4.6s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/en_US-640x480/tools/tools-row-04.png
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/en_US-640x480/tools/tools-row-05.png
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/en_US-640x480/tools/tools-row-06.png
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/en_US-640x480/tools/tools-row-07.png
+settle: still moving at the bound after 10.2s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/en_US-640x480/tools/tools-row-08.png
+settle: still moving at the bound after 10.2s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/en_US-640x480/tools/tools-row-09.png
+CAPTURED ten installed Tools rows; visual review required
+PASS original owned guest UI settings restored
+PASS capture dimensions; visual review still required en_US 640x480 25
+1 press(es) moved the screen, back on the carousel
+START fr_FR 640x480 retro-achievements
+changed after 0.2s (`key ret`, line 4)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/fr_FR-640x480/retro-achievements/01-main-menu-entry.png
+changed after 0.2s (`key x`, line 8)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/fr_FR-640x480/retro-achievements/02-game-settings-entry.png
+changed after 0.2s (`key down`, line 12)
+changed after 0.2s (`key down`, line 14)
+settle: still after 1.9s
+changed after 0.2s (`key x`, line 17)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/fr_FR-640x480/retro-achievements/03-retroachievements-settings.png
+changed after 0.2s (`key down`, line 21)
+changed after 0.2s (`key down`, line 23)
+changed after 0.2s (`key down`, line 25)
+changed after 0.2s (`key down`, line 27)
+changed after 0.2s (`key down`, line 29)
+settle: still after 1.9s
+changed after 0.2s (`key x`, line 32)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/fr_FR-640x480/retro-achievements/04-offline-achievements.png
+dismiss-dialogs: 5 press(es) moved the screen, back on the carousel
+CAPTURED fr_FR 640x480 retro-achievements
+START fr_FR 640x480 cloud-sync
+changed after 0.2s (`key ret`, line 4)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/fr_FR-640x480/cloud-sync/01-main-menu-entry.png
+changed after 0.2s (`key x`, line 8)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/fr_FR-640x480/cloud-sync/02-game-settings-entry.png
+changed after 0.2s (`key up`, line 12)
+changed after 0.2s (`key up`, line 14)
+changed after 0.2s (`key up`, line 16)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/fr_FR-640x480/cloud-sync/03-game-settings-cloud-rows.png
+changed after 0.2s (`key x`, line 20)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/fr_FR-640x480/cloud-sync/04-cloud-hub.png
+changed after 0.2s (`key x`, line 24)
+settle: still after 3.5s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/fr_FR-640x480/cloud-sync/05-back-up-to-the-cloud.png
+changed after 0.2s (`key z`, line 28)
+settle: still after 1.9s
+changed after 0.2s (`key down`, line 31)
+changed after 0.2s (`key down`, line 33)
+changed after 0.2s (`key down`, line 35)
+changed after 0.2s (`key down`, line 37)
+changed after 0.2s (`key down`, line 39)
+changed after 0.2s (`key down`, line 41)
+changed after 0.2s (`key down`, line 43)
+changed after 0.2s (`key down`, line 45)
+settle: still after 1.9s
+changed after 0.2s (`key x`, line 48)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/fr_FR-640x480/cloud-sync/06-connect-or-repair-cloud-storage.png
+dismiss-dialogs: 5 press(es) moved the screen, back on the carousel
+CAPTURED fr_FR 640x480 cloud-sync
+START fr_FR 640x480 identity
+changed after 0.2s (`key ret`, line 2)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/fr_FR-640x480/identity/01-main-menu-identity.png
+changed after 0.2s (`key up`, line 6)
+changed after 0.2s (`key up`, line 8)
+changed after 0.2s (`key up`, line 10)
+changed after 0.2s (`key x`, line 12)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/fr_FR-640x480/identity/02-system-settings.png
+changed after 0.2s (`key x`, line 16)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/fr_FR-640x480/identity/03-information.png
+changed after 0.2s (`key z`, line 22)
+changed after 0.2s (`key z`, line 24)
+changed after 0.2s (`key up`, line 26)
+changed after 0.2s (`key x`, line 28)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/fr_FR-640x480/identity/04-updates.png
+changed after 0.2s (`key up`, line 33)
+changed after 0.2s (`key up`, line 35)
+changed after 0.2s (`key x`, line 37)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/fr_FR-640x480/identity/05-manual-update-message.png
+dismiss-dialogs: 4 press(es) moved the screen, back on the carousel
+CAPTURED fr_FR 640x480 identity
+PASS capture dimensions; visual review still required fr_FR 640x480 15
+PASS owned guest stopped 3868434
+[W][20:49:03.933993] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][20:49:03.934027] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+CAPTURED guest boot frames 10
+CAPTURED guest boot frames 20
+CAPTURED guest boot frames 30
+CAPTURED guest boot frames 40
+CAPTURED guest boot frames 50
+CAPTURED guest boot frames 60
+CAPTURED guest boot frames 70
+CAPTURED guest boot frames 80
+CAPTURED guest boot frames 90
+CAPTURED guest boot frames 100
+CAPTURED guest boot frames 110
+CAPTURED guest boot frames 120
+CAPTURED guest boot frames 130
+CAPTURED guest boot frames 140
+PASS boot frame capture only; branding classification remains required 142
+ready after ~0s
+PASS guest d exact BUILD_ID d6e8390c93bed87efe2dcc23cd402a271cacd1c7
+PASS QA ROM bytes /storage/roms/gb/Ninoid.gb a40191c169c68e6607ace072da96aab957f306f55ded59ce1f287c1f5273387b
+PASS QA ROM bytes /storage/roms/gbc/Tobu Tobu Girl Deluxe.gb 0a0e8018dbbc8d7f8cd99f05e7cdc7b4cc9e358ecfe9377ebfb2291a84c6e310
+PASS QA ROM bytes /storage/roms/nes/Bobl.nes 025ec44d0d84ac469b442ee56c3d69e035e9a38430ae849172fe3a1e569d0dea
+PASS guest d seeded and idle
+PASS installed selector/unit and actual software compositor: ui-1280x960
+1 press(es) moved the screen, back on the carousel
+START en_US 1280x960 retro-achievements
+changed after 0.2s (`key ret`, line 4)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/en_US-1280x960/retro-achievements/01-main-menu-entry.png
+changed after 0.2s (`key x`, line 8)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/en_US-1280x960/retro-achievements/02-game-settings-entry.png
+changed after 0.2s (`key down`, line 12)
+changed after 0.2s (`key down`, line 14)
+settle: still after 1.9s
+changed after 0.2s (`key x`, line 17)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/en_US-1280x960/retro-achievements/03-retroachievements-settings.png
+changed after 0.2s (`key down`, line 21)
+changed after 0.2s (`key down`, line 23)
+changed after 0.2s (`key down`, line 25)
+changed after 0.2s (`key down`, line 27)
+changed after 0.2s (`key down`, line 29)
+settle: still after 1.9s
+changed after 0.2s (`key x`, line 32)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/en_US-1280x960/retro-achievements/04-offline-achievements.png
+dismiss-dialogs: 5 press(es) moved the screen, back on the carousel
+CAPTURED en_US 1280x960 retro-achievements
+START en_US 1280x960 cloud-sync
+changed after 0.2s (`key ret`, line 4)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/en_US-1280x960/cloud-sync/01-main-menu-entry.png
+changed after 0.2s (`key x`, line 8)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/en_US-1280x960/cloud-sync/02-game-settings-entry.png
+changed after 0.2s (`key up`, line 12)
+changed after 0.2s (`key up`, line 14)
+changed after 0.2s (`key up`, line 16)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/en_US-1280x960/cloud-sync/03-game-settings-cloud-rows.png
+changed after 0.2s (`key x`, line 20)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/en_US-1280x960/cloud-sync/04-cloud-hub.png
+changed after 0.2s (`key x`, line 24)
+settle: still after 3.6s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/en_US-1280x960/cloud-sync/05-back-up-to-the-cloud.png
+changed after 0.2s (`key z`, line 28)
+settle: still after 1.9s
+changed after 0.2s (`key down`, line 31)
+changed after 0.2s (`key down`, line 33)
+changed after 0.2s (`key down`, line 35)
+changed after 0.2s (`key down`, line 37)
+changed after 0.2s (`key down`, line 39)
+changed after 0.2s (`key down`, line 41)
+changed after 0.2s (`key down`, line 43)
+changed after 0.2s (`key down`, line 45)
+settle: still after 1.9s
+changed after 0.2s (`key x`, line 48)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/en_US-1280x960/cloud-sync/06-connect-or-repair-cloud-storage.png
+dismiss-dialogs: 5 press(es) moved the screen, back on the carousel
+CAPTURED en_US 1280x960 cloud-sync
+START en_US 1280x960 identity
+changed after 0.2s (`key ret`, line 2)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/en_US-1280x960/identity/01-main-menu-identity.png
+changed after 0.2s (`key up`, line 6)
+changed after 0.2s (`key up`, line 8)
+changed after 0.2s (`key up`, line 10)
+changed after 0.2s (`key x`, line 12)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/en_US-1280x960/identity/02-system-settings.png
+changed after 0.2s (`key x`, line 16)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/en_US-1280x960/identity/03-information.png
+changed after 0.2s (`key z`, line 22)
+changed after 0.2s (`key z`, line 24)
+changed after 0.2s (`key up`, line 26)
+changed after 0.2s (`key x`, line 28)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/en_US-1280x960/identity/04-updates.png
+changed after 0.2s (`key up`, line 33)
+changed after 0.2s (`key up`, line 35)
+changed after 0.2s (`key x`, line 37)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/en_US-1280x960/identity/05-manual-update-message.png
+dismiss-dialogs: 4 press(es) moved the screen, back on the carousel
+CAPTURED en_US 1280x960 identity
+PASS capture dimensions; visual review still required en_US 1280x960 15
+1 press(es) moved the screen, back on the carousel
+START fr_FR 1280x960 retro-achievements
+changed after 0.2s (`key ret`, line 4)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/fr_FR-1280x960/retro-achievements/01-main-menu-entry.png
+changed after 0.2s (`key x`, line 8)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/fr_FR-1280x960/retro-achievements/02-game-settings-entry.png
+changed after 0.2s (`key down`, line 12)
+changed after 0.2s (`key down`, line 14)
+settle: still after 1.9s
+changed after 0.2s (`key x`, line 17)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/fr_FR-1280x960/retro-achievements/03-retroachievements-settings.png
+changed after 0.2s (`key down`, line 21)
+changed after 0.2s (`key down`, line 23)
+changed after 0.2s (`key down`, line 25)
+changed after 0.2s (`key down`, line 27)
+changed after 0.2s (`key down`, line 29)
+settle: still after 1.9s
+changed after 0.2s (`key x`, line 32)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/fr_FR-1280x960/retro-achievements/04-offline-achievements.png
+dismiss-dialogs: 5 press(es) moved the screen, back on the carousel
+CAPTURED fr_FR 1280x960 retro-achievements
+START fr_FR 1280x960 cloud-sync
+changed after 0.2s (`key ret`, line 4)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/fr_FR-1280x960/cloud-sync/01-main-menu-entry.png
+changed after 0.2s (`key x`, line 8)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/fr_FR-1280x960/cloud-sync/02-game-settings-entry.png
+changed after 0.2s (`key up`, line 12)
+changed after 0.2s (`key up`, line 14)
+changed after 0.2s (`key up`, line 16)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/fr_FR-1280x960/cloud-sync/03-game-settings-cloud-rows.png
+changed after 0.2s (`key x`, line 20)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/fr_FR-1280x960/cloud-sync/04-cloud-hub.png
+changed after 0.2s (`key x`, line 24)
+settle: still after 3.6s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/fr_FR-1280x960/cloud-sync/05-back-up-to-the-cloud.png
+changed after 0.2s (`key z`, line 28)
+settle: still after 1.9s
+changed after 0.2s (`key down`, line 31)
+changed after 0.2s (`key down`, line 33)
+changed after 0.2s (`key down`, line 35)
+changed after 0.2s (`key down`, line 37)
+changed after 0.2s (`key down`, line 39)
+changed after 0.2s (`key down`, line 41)
+changed after 0.2s (`key down`, line 43)
+changed after 0.2s (`key down`, line 45)
+settle: still after 1.9s
+changed after 0.2s (`key x`, line 48)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/fr_FR-1280x960/cloud-sync/06-connect-or-repair-cloud-storage.png
+dismiss-dialogs: 5 press(es) moved the screen, back on the carousel
+CAPTURED fr_FR 1280x960 cloud-sync
+START fr_FR 1280x960 identity
+changed after 0.2s (`key ret`, line 2)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/fr_FR-1280x960/identity/01-main-menu-identity.png
+changed after 0.2s (`key up`, line 6)
+changed after 0.2s (`key up`, line 8)
+changed after 0.2s (`key up`, line 10)
+changed after 0.2s (`key x`, line 12)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/fr_FR-1280x960/identity/02-system-settings.png
+changed after 0.2s (`key x`, line 16)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/fr_FR-1280x960/identity/03-information.png
+changed after 0.2s (`key z`, line 22)
+changed after 0.2s (`key z`, line 24)
+changed after 0.2s (`key up`, line 26)
+changed after 0.2s (`key x`, line 28)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/fr_FR-1280x960/identity/04-updates.png
+changed after 0.2s (`key up`, line 33)
+changed after 0.2s (`key up`, line 35)
+changed after 0.2s (`key x`, line 37)
+settle: still after 1.9s
+captured /workspace/tmp/pixelelated-m7-ui-14/artifacts/fr_FR-1280x960/identity/05-manual-update-message.png
+dismiss-dialogs: 4 press(es) moved the screen, back on the carousel
+CAPTURED fr_FR 1280x960 identity
+PASS capture dimensions; visual review still required fr_FR 1280x960 15
+PASS owned guest stopped 3906105
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/1c69bcf5ab6ebdc3e893a6a989545ac7a23359f0e07baef4e9c2beaca94c52b4
+PASS frozen source inputs, ES pin and candidate input custody
+PASS four language/panel captures; visual review remains required
+down
