@@ -1,0 +1,18 @@
+{
+  "utc": "2026-10-05T22:23:26.208350+00:00",
+  "unchanged_reviewed_sources": {
+    "storage.py": "62a545a1b27ef4fee7a1a7084a8944b47a1581c3892ef078469bfb5f8db72e30",
+    "cache_keys.py": "19c79b3ca76ba5de4ff274842470773154873f13da513518d2e49a1bdf9fd2e1"
+  },
+  "schema": "api_cache cacheKey/responseBody/sourceRomPath/cachedAt; pending_awards id/achievementId/queryString/requestBody/queuedAt/status; additive cached_game_meta/triggers unchanged",
+  "reviewed_queries": [
+    "pending COUNT",
+    "pending-ids signed-in owner/order",
+    "summary patch/achievementsets/unlocks/pending",
+    "account login2",
+    "ready_games_into",
+    "whole_games and streaming fallback"
+  ],
+  "production_logic_unchanged": true,
+  "review_pin": "3036478f2b2d22db451396a48f44feee94e8462f"
+}
