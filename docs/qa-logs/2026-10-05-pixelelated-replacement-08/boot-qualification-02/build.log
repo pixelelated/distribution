@@ -1,0 +1,148 @@
+/workspace/tmp/pixelelated-m7-boot-qualification-02/capture-boot.py: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-02/match-splash.py: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-02/old-logo.png: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-02/outer.sh: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-02/provenance.json: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-02/qualify-boot.py: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-02/reference-1280.png: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-02/reference-640.png: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-02/run.sh: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-02/stop-guest.py: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-02/verify-inputs.py: OK
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/84a794165a6e421cd1aa1dd6d37b97b257c700738c0a53edd282475ecd4780e9
+Image resized.
+Formatting '/workspace/tmp/pixelelated-m7-boot-qualification-02/clean-640.qcow2', fmt=qcow2 cluster_size=65536 extended_l2=off compression_type=zlib size=17179869184 backing_file=/workspace/tmp/pixelelated-m7-boot-qualification-02/clean-base.qcow2 backing_fmt=qcow2 lazy_refcounts=off refcount_bits=16
+[W][05:21:30.656628] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][05:21:30.656662] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+CAPTURED guest boot frames 10
+CAPTURED guest boot frames 20
+CAPTURED guest boot frames 30
+CAPTURED guest boot frames 40
+CAPTURED guest boot frames 50
+CAPTURED guest boot frames 60
+CAPTURED guest boot frames 70
+CAPTURED guest boot frames 80
+CAPTURED guest boot frames 90
+CAPTURED guest boot frames 100
+CAPTURED guest boot frames 110
+CAPTURED guest boot frames 120
+CAPTURED guest boot frames 130
+CAPTURED guest boot frames 140
+CAPTURED guest boot frames 150
+CAPTURED guest boot frames 160
+CAPTURED guest boot frames 170
+CAPTURED guest boot frames 180
+CAPTURED guest boot frames 190
+CAPTURED guest boot frames 200
+CAPTURED guest boot frames 210
+CAPTURED guest boot frames 220
+CAPTURED guest boot frames 230
+CAPTURED guest boot frames 240
+CAPTURED guest boot frames 250
+CAPTURED guest boot frames 260
+CAPTURED guest boot frames 270
+CAPTURED guest boot frames 280
+CAPTURED guest boot frames 290
+CAPTURED guest boot frames 300
+CAPTURED guest boot frames 310
+CAPTURED guest boot frames 320
+CAPTURED guest boot frames 330
+PASS boot frame capture only; branding classification remains required 338
+ready after ~0s
+PASS owned guest stopped 3124653
+{"pass": true, "threshold": 0.995, "rectangle_half_open": [104, 212, 535, 267], "best": {"file": "019.png", "elapsed_seconds": 3.884, "sha256": "a137be6cc91067688f30a17c203b45a5136f9d337d8241bac3a21beef4da1f2f", "agreement": 1.0}, "controls": [{"name": "old-logo", "agreement": 0.44079308162834846, "rejected": true}, {"name": "blank", "agreement": 0.689938831470154, "rejected": true}, {"name": "wrong-resolution", "agreement": 0.0, "rejected": true}]}
+Formatting '/workspace/tmp/pixelelated-m7-boot-qualification-02/clean-1280.qcow2', fmt=qcow2 cluster_size=65536 extended_l2=off compression_type=zlib size=17179869184 backing_file=/workspace/tmp/pixelelated-m7-boot-qualification-02/clean-base.qcow2 backing_fmt=qcow2 lazy_refcounts=off refcount_bits=16
+[W][05:22:35.644505] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][05:22:35.644537] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+CAPTURED guest boot frames 10
+CAPTURED guest boot frames 20
+CAPTURED guest boot frames 30
+CAPTURED guest boot frames 40
+CAPTURED guest boot frames 50
+CAPTURED guest boot frames 60
+CAPTURED guest boot frames 70
+CAPTURED guest boot frames 80
+CAPTURED guest boot frames 90
+CAPTURED guest boot frames 100
+CAPTURED guest boot frames 110
+CAPTURED guest boot frames 120
+CAPTURED guest boot frames 130
+CAPTURED guest boot frames 140
+CAPTURED guest boot frames 150
+CAPTURED guest boot frames 160
+CAPTURED guest boot frames 170
+CAPTURED guest boot frames 180
+CAPTURED guest boot frames 190
+CAPTURED guest boot frames 200
+CAPTURED guest boot frames 210
+CAPTURED guest boot frames 220
+CAPTURED guest boot frames 230
+CAPTURED guest boot frames 240
+CAPTURED guest boot frames 250
+CAPTURED guest boot frames 260
+CAPTURED guest boot frames 270
+CAPTURED guest boot frames 280
+CAPTURED guest boot frames 290
+PASS boot frame capture only; branding classification remains required 297
+ready after ~0s
+PASS owned guest stopped 3129430
+{"pass": true, "threshold": 0.995, "rectangle_half_open": [182, 422, 1098, 538], "best": {"file": "019.png", "elapsed_seconds": 4.021, "sha256": "b718d9958cee084a49909710bcd3cbaa21806ea491481e736fbe45c4f94618b2", "agreement": 1.0}, "controls": [{"name": "old-logo", "agreement": 0.44501016413190786, "rejected": true}, {"name": "blank", "agreement": 0.7035461526878483, "rejected": true}, {"name": "wrong-resolution", "agreement": 0.0, "rejected": true}]}
+Formatting '/workspace/tmp/pixelelated-m7-boot-qualification-02/upgrade-640.qcow2', fmt=qcow2 cluster_size=65536 extended_l2=off compression_type=zlib size=17179869184 backing_file=/workspace/tmp/pixelelated-m7-qa-10/pair/vm-a.qcow2 backing_fmt=qcow2 lazy_refcounts=off refcount_bits=16
+[W][05:23:43.549356] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][05:23:43.549387] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+CAPTURED guest boot frames 10
+CAPTURED guest boot frames 20
+CAPTURED guest boot frames 30
+CAPTURED guest boot frames 40
+CAPTURED guest boot frames 50
+CAPTURED guest boot frames 60
+CAPTURED guest boot frames 70
+CAPTURED guest boot frames 80
+CAPTURED guest boot frames 90
+CAPTURED guest boot frames 100
+CAPTURED guest boot frames 110
+CAPTURED guest boot frames 120
+CAPTURED guest boot frames 130
+CAPTURED guest boot frames 140
+CAPTURED guest boot frames 150
+CAPTURED guest boot frames 160
+CAPTURED guest boot frames 170
+CAPTURED guest boot frames 180
+CAPTURED guest boot frames 190
+CAPTURED guest boot frames 200
+CAPTURED guest boot frames 210
+CAPTURED guest boot frames 220
+PASS boot frame capture only; branding classification remains required 224
+ready after ~0s
+PASS owned guest stopped 3134208
+{"pass": true, "threshold": 0.995, "rectangle_half_open": [104, 212, 535, 267], "best": {"file": "021.png", "elapsed_seconds": 3.949, "sha256": "2f87c518c867895322fffea1d585fcc4ef85c82406fb0a5a8211c2dd149512f3", "agreement": 1.0}, "controls": [{"name": "old-logo", "agreement": 0.44079308162834846, "rejected": true}, {"name": "blank", "agreement": 0.689938831470154, "rejected": true}, {"name": "wrong-resolution", "agreement": 0.0, "rejected": true}]}
+Formatting '/workspace/tmp/pixelelated-m7-boot-qualification-02/upgrade-1280.qcow2', fmt=qcow2 cluster_size=65536 extended_l2=off compression_type=zlib size=17179869184 backing_file=/workspace/tmp/pixelelated-m7-qa-10/pair/vm-a.qcow2 backing_fmt=qcow2 lazy_refcounts=off refcount_bits=16
+[W][05:24:28.218486] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][05:24:28.218520] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+CAPTURED guest boot frames 10
+CAPTURED guest boot frames 20
+CAPTURED guest boot frames 30
+CAPTURED guest boot frames 40
+CAPTURED guest boot frames 50
+CAPTURED guest boot frames 60
+CAPTURED guest boot frames 70
+CAPTURED guest boot frames 80
+CAPTURED guest boot frames 90
+CAPTURED guest boot frames 100
+CAPTURED guest boot frames 110
+CAPTURED guest boot frames 120
+CAPTURED guest boot frames 130
+CAPTURED guest boot frames 140
+CAPTURED guest boot frames 150
+CAPTURED guest boot frames 160
+CAPTURED guest boot frames 170
+CAPTURED guest boot frames 180
+CAPTURED guest boot frames 190
+PASS boot frame capture only; branding classification remains required 194
+ready after ~0s
+PASS owned guest stopped 3137606
+{"pass": true, "threshold": 0.995, "rectangle_half_open": [182, 422, 1098, 538], "best": {"file": "020.png", "elapsed_seconds": 4.207, "sha256": "f4e87cf9e83c20ec23c42b510b1c53344d2219e040381fe0a9d8d38459ff73f3", "agreement": 1.0}, "controls": [{"name": "old-logo", "agreement": 0.44501016413190786, "rejected": true}, {"name": "blank", "agreement": 0.7035461526878483, "rejected": true}, {"name": "wrong-resolution", "agreement": 0.0, "rejected": true}]}
+PASS four actual candidate clean/upgrade boots with unchanged splash threshold and controls
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/84a794165a6e421cd1aa1dd6d37b97b257c700738c0a53edd282475ecd4780e9

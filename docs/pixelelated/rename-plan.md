@@ -65,7 +65,7 @@ frames, installed-byte readbacks and the release criteria supply that proof.
 
 Prepared player documentation: `docs/pixelelated/cloud-folders.md`. The
 upstream proxy contribution draft under
-`docs/upstream/raofflineproxy/rasteratops-identity/` now matches the new
-identity patch; its historical directory name is retained, and nothing has
+`docs/upstream/raofflineproxy/pixelelated-identity/` matches the new
+identity patch, which recognizes only ROCKNIX and pixelelated; nothing has
 been submitted upstream. #409 stays open through image qualification/P4;
 its source/build portion, not closure of the whole issue, precedes P4.

@@ -178,3 +178,5 @@ QA08 reached correct initial identity/Information but generic dismiss/reopen/cou
 
 - 2026-10-05 04:13 UTC — QA08/09 were initially classified as menu-position failures without checking ES lifecycle. Diagnostic03 proves an abort/status134 on an empty GPU governor selection, followed by supervisor restart. Existing engineering rule already required process checks before re-driving; the repair adds a real old/new callback control to default VM QA and the next identity walk must assert process continuity. Issue #436; navigation history #422 preserved.
 - 2026-10-05 04:13 UTC — Diagnostic01 preparation failed syntax, but a compound shell launch continued and returned125 before any guest. Fresh diagnostic02/03 use separate validated preparation and launch; original failure retained. Issue #422.
+
+- 2026-10-05 05:24 UTC — QA evidence retention stopped safely on an unexpected state-after dump beside the upgrade logs. Retain only explicitly allowed public files and hash the excluded dump; no config contents copied. Guard: allowlisted retention and manifest. Issue #383.

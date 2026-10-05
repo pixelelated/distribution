@@ -26,10 +26,11 @@ are byte-identical. Linux embeds initramfs in pre_make_target; a cached kernel
 does not recreate that image-install stamp. Supplemental provenance retains
 the embedded recipe for the P5 source bundle; this is not a lost OS component.
 
-QA10/tool98190 started04:40:44 under watch-build5s/5min recursive activity.
-Initial clean payload and Back/Back identity walk pass. ES stays PID1636,
-start_ticks556; all five actual frames directly reviewed. Defaults and actual
-RC2 upgrade remain running. No complete candidate qualification or RC claim.
+QA10/tool98190 completed all15defaults,16walks/78frames and actualRC2upgrade26
+checks. Clean/upgraded identity lifecycle and ten frames pass; actual05:18:52
+owner/guests absent. Full receipts in qa-10/. Boot02/tool86957 allfourrc0, allfour
+clean/upgraded640/1280 matches1.0, unchanged0.995/negativecontrols. Fouractual
+frames reviewed; actual05:26:50 cleanup. See boot-qualification-02/.
 
 Prepared owner sources remain under prepared-owners/. QA10/UI09 preserve the
 save path and record lifecycle/journal evidence. Existing controls reject the
@@ -37,12 +38,12 @@ actual07 crash/restart. First control fixture wrongly supplied a blank line
 for no process; corrected to actual empty output and independently rerun.
 No executed owner or frozen product was edited.
 
-Next: complete QA10 → boot02 clean/upgraded640/1280 with unchanged0.995 and
-negative controls → image09/sweep06/settings08/link08/guest08/runtime09/
-proxy07/optins07/memory07/UI09 → predecessor05/subset04/cloud-ui03/signin-ui03/
-signin-1g03/ordinaryRA → P4 independent fixes audit → H700 arm then aarch64.
-Old failure evidence remains under replacement07. #436 needs upgrade proof;
-#433 and #426 still need installed candidate qualification. No inherited passes.
+Next: integrate the authorized unshipped proxy identity cleanup, freeze/build
+replacement09, and qualify those exact bytes. Fifteen other08 owners remain
+sealed/unstarted. All scoped passes here belong to frozen72121, not to09.
+After the renewed matrix: predecessor/subset/cloudUI/signin/1GiB/ordinaryRA,
+then P4 primary+Fable5.1/xhigh and H700 arm/aarch64. #436/#433 now have scoped
+installed proof; #426/#409 and candidate-wide qualification remain pending.
 
 Publication preparation initially stopped before commit on a trailing space in
 the raw inventory console log (`cbindgen: `). The original log remains intact;

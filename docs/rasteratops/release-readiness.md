@@ -14,20 +14,24 @@ package tasks and exact payload checks (actual49805=0; store68326=0).
 Actual runner/watcher/container cleanup is verified. Image SHA7a60c191… and
 update d196d9c2… are bound to input7578b0d9…; no mutable target selection.
 
-QA10/tool98190 now runs full defaults and actual RC2 upgrade. The initial clean
-identity walk retains Back/Back and passes actual ES process continuity;
-all five captured identity/update frames were directly reviewed. #436 stays
-open until upgraded installed behavior and relevant qualification pass.
-Inventory06/tool20676 passes0 source errors. Fourteen known P5 licence metadata
-gaps remain.583 mapped components/525 install stamps differ from07 only by the
-initramfs metapackage stamp: packaged kernel, assembled init and recipe match
-exactly; supplemental provenance covers the cached embedded component.
+QA10/tool98190 and all result channels pass:15default suites,16walks/78frames,
+0unexpected differences, actualRC2 upgrade26checks. Clean and upgraded Back/Back
+Settings save preserve the ES process; ten identity frames were reviewed.
+Boot02/tool86957 passes allfour clean/upgraded640/1280 comparisons at1.0 with
+unchanged0.995 threshold and allnegativecontrols rejected. Actual owner/guest
+cleanup is verified. Scoped #436/#433 repairs now have installed evidence.
+Inventory06 passes0source errors;14P5licence metadata gaps remain. Supplemental
+provenance covers the cached embedded initramfs despite its omitted installstamp.
 
 Evidence: `docs/qa-logs/2026-10-05-pixelelated-replacement-08/`.
-Original07 crash/status134 and failed QA08/09 remain retained separately.
-After QA10, boot02 verifies clean/upgraded640/1280 under the unchanged matcher,
-then the full candidate matrix. #433/#426 still require new installed proof.
-P4 primary+Fable5.1/xhigh precedes H700 arm/aarch64; no RC/device-ready call.
+Original07 crashes and earlier failed boot observations remain retained.
+The authorized side-conversation proxy identity cleanup removes an unshipped
+OS alias and requires replacement09 before the remaining longqualification.
+No functionality changes for ROCKNIX or pixelelated;16hosttests/directidentity
+controls pass. The15 remaining08owners stayunstarted. Next: integrate/freeze09,
+independentcache/build, renew exactcandidate defaults/upgrade/boot/fullmatrix,
+then ordinaryRA and P4 primary+Fable5.1/xhigh before H700 arm/aarch64.
+No RC/device-ready call. #409/#426 remainopen for their broader criteria.
 
 ## Historical replacement06 qualification
 
