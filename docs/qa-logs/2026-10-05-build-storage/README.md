@@ -79,3 +79,14 @@ and active source/licence inventory. Preserve failed attempts and their logs.
 No generic age-based or wildcard cleanup is proposed. Work on #453 is inventory
 and proposal only; an approved cleanup should receive its own named execution
 record. The ongoing VM qualification remains the critical path.
+
+## Follow-up custody check
+
+All five proposed trees map to retained immutable candidate bundles. Their
+manifest digests and every retained payload hash were reverified successfully;
+`custody-leads/` preserves the exact tool output and source-commit mapping.
+Every tree has the generated emulator-documentation diff; no source checkout
+was discarded or restored. This establishes retained image/input custody only.
+Unique consumed-source/debug data, QA backing references, live process checks
+and a final preservation/removal plan remain prerequisites to deletion. No
+removal is approved or performed by this observation.

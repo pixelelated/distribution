@@ -1,0 +1,22 @@
+{
+  "observed_through_utc": "2026-10-05T22:57:18Z",
+  "reader": "/root/m7_candidate12_qa_handoff",
+  "scope": "session-stash fresh-context resume proof; not P4 audit",
+  "published_next": "e574726a240bc514507197d88ba304e2d989e566",
+  "reader_verified": {
+    "product_files": 6549,
+    "qa_files": 202,
+    "symlinks": 180,
+    "mismatches": 0,
+    "input_manifest_sha256": "bfdcf9b2655157b7e4d3a59f1c6fa803f68989b2cfb8b460eb0f2a666ee98192",
+    "build_image_inventory_four_zero_channels": true,
+    "qa15_running": true,
+    "proxy12_subset09_unstarted": true,
+    "storage453_closed_without_cleanup": true
+  },
+  "parent_followup": {
+    "generated_documentation": "Direct diff and hashes retained under generated-documentation; bytes match replacement10; absent from all sealed maps; leave build tree untouched",
+    "freshness_checkbox": "361 criterion reconciled from actual freshness03 + candidate bundle, exact live body readback verified; issue remains open"
+  },
+  "observer_exception": "One canonical status invocation appended the shared /tmp/pixelelated-active-polls.jsonl observer log. No repository, owner, tracker, guest or product state was mutated by the reader. Subsequent reads were direct."
+}
