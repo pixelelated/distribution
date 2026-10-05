@@ -1,0 +1,19 @@
+{
+  "utc": "2026-10-05T20:07:22.351685+00:00",
+  "phase": "upgrade-software640x480",
+  "reviewer": "primary assistant direct view_image",
+  "passed": true,
+  "observations": [
+    "Main menu shows pixelelated0.0.1 community",
+    "System Settings and Information render correctly at640x480; full frozen build ID visible",
+    "Updates page and complete manual-update message render; long releases URL wraps across lines",
+    "No partial or stale repaint in the five actual frames"
+  ],
+  "frames": {
+    "01-main-menu-identity.png": "f3e71baf9a4fe1bc9cab2bfe588adafa9cddf8f17b2f7ea4e9937df5a5441b00",
+    "02-system-settings.png": "7e1c008458a22c1e49e18a1b74096a9ce97bceca79d07e0f0ed189a6ca1186a7",
+    "03-information.png": "8d09028a48170727b7ef53180710c2bdcd79152e8bcf8a7e32da1e667b47f21a",
+    "04-updates.png": "6d881f74208d35d2714d3b3d9cfa0b56bf5be549ce0d9bd209bfbc525b792bb0",
+    "05-manual-update-message.png": "288c704f4d04660986a2d0df852c10ee645ba32091652f5f35e87dab3570e18c"
+  }
+}
