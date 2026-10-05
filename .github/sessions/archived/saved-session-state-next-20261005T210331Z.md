@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Saved 2026-10-05T21:03:31.074328+00:00. Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261005T210331Z.md`.
+> Saved 2026-10-05T20:42:58.466307+00:00. Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261005T204258Z.md`.
 > Branch feature/conflict-resolution; primary /workspace/repos/rocknix stays next.
 
 ## Start here
@@ -30,7 +30,7 @@ old undated proof times removed; M7 competing current priorities reconciled.
 A helper installation is COMPLETE; do not ask to reinstall it.
 
 
-## Current Focus — fallback qualified and #447 closed; remaining M7.P3 gates
+## Current Focus — permanent GENERIC_X64 Pixman fallback (#447)
 
 Maintainer: "Let's proceed with this fix." The selected source is now
 published: feature2feafc12d2fea9ada9730156cb9340b01a3a4e26 → exact cherry-pick
@@ -48,7 +48,7 @@ guest PIDs absent. Allthree failed predecessors remain failed:01 wrong direct
 sysfs path (kernel registers DRM at transport parent),02 wrong fixture /lib
 instead of /usr/lib,03 unsynced QA key lost across hard stop.04 uses correct
 image loader and standard per-boot key setup plus sync. #450 fixture repair
-is CLOSED from published artifacts; #447 is now CLOSED from installed-image qualification below.
+is CLOSED from published artifacts; #447 remains OPEN for installed-image QA.
 Evidence docs/qa-logs/2026-10-05-generic-x64-pixman/ (114 retained members).
 These checks prove selection, not installation/rendering. Prior runtime Pixman
 and actual ROCKNIX RC2 history are in the archived checkpoint and frozen09.
@@ -130,71 +130,48 @@ height640x480.30second example.org load passes, peak290096KiB on8GiB.
 Retained546artifact hashes/163publicfiles plus source/actualcleanup/review,
 including original cycleCSV and allsync stamps. No changes to limits/fixtures.
 
-UI14 COMPLETE: durable20:55:36/allfour0. Actual2e3c9e cleanup20:55:54
-verifies all6owner/guest PIDs absent;70159a20:55:58 verifies backend3868404
-absent. All70actual English/French640/1280menu/Tools frames directly reviewed;
-all12ESlifetimes preserve before/afterPID/startticks and journals. Installed
-Pixman verified at both sizes. Retained428artifact hashes/129public artifacts
-plus sources and visual-review.json. Boot05 remains exact splash acceptance.
-All frames accepted in /tmp/pixelelated-ui14-reviewed.json; no pending batch.
-
-Baseline1GiB13 COMPLETE: durable20:57:32/allfour0; actual3800ee cleanup20:57:56,
-all5PIDsabsent. PublicDropbox1GiB05 COMPLETE: durable20:59:35/allfour0;
-actual7b0659 cleanup20:59:51/all5PIDsabsent/noQEMU. Both prove actual1024MiB
-QEMU, firmware1GiB, Linux usable810372KiB and installed automatic Pixman.
-Original30second page-load/responsiveness/noOOM checks pass. Both actual
-loaded640x480frames directly reviewed; baselinepeak271416KiB/provider395676KiB.
-Different workloads are not a growth comparison or authenticated trust proof.
-Each retains16artifact hashes/11public artifacts plus sealed source/review.
-
-All planned affected regressions COMPLETE; no build/VM/backend job remains
-active. Actual publication 2026-10-05T21:02:21.213095+00:00:
-featurecb33b9f86d065b17ca9a8ebeb125e553f4baebdf → nextd7a3edc74741309fa3f008098aa87febe24cfce3;
-both remote hashes verified. All460new local artifacts/151public copies and
-64sealed sources independently read back against their hashes. Product unchanged.
-Evidence index docs/qa-logs/2026-10-05-pixelelated-replacement-10/README.md.
-
-#447 is CLOSED as completed with all8criteria mapped to exact artifacts and
-Already written treatment. M7 and383/409/344/351/362 top summaries now state
-completed replacement10 proof and remaining release gates; old09 history is
-explicitly historical. Actual PATCH/GET readbacks: /tmp/pixelelated-fallback-final-tracking-210241.
+ACTIVE UI14, submittedba9ee7 at20:41:16; owner
+/workspace/tmp/pixelelated-m7-ui-14; launcher3867627; actuale08a62 guest3868434;
+backend3868404 observedbf3338. Both are recorded for eventual actualcleanup.
+Run /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement10/.build-runs/20261005T204116Z-fbc89769.
+70English/French menu/Tools frames at640x480/1280x960 and12ESlifetimechecks;
+automatic installed Pixman proof at each size. No runtime override. Boot05
+remains the separate exact boot/splash acceptance; UI bootcapture is not a new
+matcher acceptance. Current640English walks started; no UI acceptance yet.
 
 ## Next Steps — execute in order
 
-1. No test job to resume. Never replay completed owners or their preparation,
-   completion, retention or publication scripts. Every result remains immutable.
-2. Reconcile remaining M7.P3 acceptance against exact published candidate
-   evidence, starting #362's cold-build/freshness criterion and #356/#365.
-   #362's runtime criterion is now checked from published replacement10 proof:
-   ordinary8GiB baseline283.3MiB agrees with the approved approximately284MiB;
-   installed sign-in and both actual1GiB workloads pass. Run tools/archaeology
-   before declaring an item new/open; read live issue bodies and last comments.
-   Shared product bytes are unchanged from09 except the GENERIC_X64 fallback;
-   preserve evidence scope instead of broadly repeating unaffected suites.
-3. Complete ordinary RA and authenticated Dropbox proofs once their existing
-   dedicated-QA-account questions have answers. Do not reset an account, use
-   hardcore as a substitute, or call a synthetic/public-page result trust proof.
-   Read the unanswered inputs below. Other evidence reconciliation can proceed.
-4. Approved P4 independent fixes audit follows P3: primary plus Fable5.1/xhigh
-   via verified Facilitator/OpenRouter; no Daybreak. Audit cadence is overdue
-   and unwaived. Then H700 DDR4/RG35XXSP arm, then aarch64, then named physical/
-   P5 gates. No RC or device-ready designation has been made.
-5. Future long jobs still use tools/watch-build-submit and its durable watcher,
-   actual result/cleanup verification and connected supervision. #395 remains
-   unconfigured for disconnected delivery. Read-only helper paths below remain
-   available, but none of this completed qualification should be rerun.
+1. Observe active UI14 with /tmp/pixelelated-status.py OWNER. Do not replay.
+   Record each actual guest PID with /tmp/pixelelated-observe-qa-processes.py
+   (escalated host/proc), including the second1280guest after restart. On terminal,
+   /tmp/pixelelated-complete-durable.py OWNER 0 checks every result and actual
+   owner/guest absence/noQEMU; run /tmp/pixelelated-complete-backend.py OWNER
+   to verify observed backend absence. These create exclusive receipts; never
+   rerun after success. Directly review all70actual UI frames and12lifetime
+   records before acceptance/retention. Prepared ui.py records dimensions only.
+2. Remaining SEALED/UNSTARTED: signin-1g13 → signin-provider1g05, both
+   /workspace/tmp/pixelelated-m7-. Launch with
+   /tmp/pixelelated-launch-fallback.py OWNER from frozen10. Do not rerun any
+   preparation/completed owner. Both1GiBworkloads prove actual1024MiBallocation,
+   firmware/usablememory,30secondload/responsiveness/noOOM. Baselineexample.org
+   and publicDropbox are not authenticatedtrust. Directly review their actual
+   loaded-640x480.png and resource-budget.json before completing/retaining.
+   Semanticdependency requires already-passed signin14 completion+visualreview.
+3. /tmp/pixelelated-retain-10.py SHORT_OWNER 0 fromfeaturetree after completion
+   and visualreview retains sealed sources/hashes/logs. Original failures stay
+   failed; fresh owner after any executed failure. Never edit running shelltools.
+4. Publish exact-byte evidence; reconcile #447 criteria from this installed
+   candidate, then remaining P3 accounts/criteria → approved P4 → H700 arm then
+   aarch64 → named physical/P5 actions. No RC claim or test transfer from09.
+5. Standard watcher records5secheartbeat/5mininactivity; connected agent polls
+   within60seconds (do not claim perfect historical adherence). #395 still lacks
+   disconnected delivery. /tmp/pixelelated-active-polls.jsonl records observations.
+   /tmp/pixelelated-track-fallback-stage.py ACTIVE updates/readbacks M7/#447;
+   it requires completed/sign-in reviewed predecessors and actuallyactive owner.
 
 ## Key Files and Context
 
-- Final fresh-context m7_fallback_complete_resume_proof independently verified
- all6549product/201QA/180symlinks,14bundle members including fullimage/update,
- 2106artifact hashes/638public copies/166sealed source members, nine successful
- qualification owners,12actual UI lifetimes and64recordedPIDs plus supplemental
- guests absent/noQEMU. Live447closed8/8 and corrected M7 priorities rechecked.
- No remaining continuation-blocking contradiction; no product audit claim.
- Retained closure/resume-proof.md and closure/tracker-readback.json under the
- replacement10 QA directory. Closing checkpoint accompanies these records.
-- Prior20:34 fresh-context m7_fallback_qualification_resume_proof independently verified all
+- Fresh-context m7_fallback_qualification_resume_proof independently verified all
  6549product/201QA/180symlinks,14bundle members including full image/tar,
  1100local artifact hashes/324public copies,41completed PIDs absent,75remaining
  harness members and actualactive memory12. Corrected M7 orderedtable/readiness
@@ -202,7 +179,7 @@ explicitly historical. Actual PATCH/GET readbacks: /tmp/pixelelated-fallback-fin
  preserving09 history. No product/audit claim from this read-only handoff proof.
 - Committed read-only helper: docs/qa-logs/2026-10-05-generic-x64-pixman/verify-installed-renderer.py;
   read-only installed bytes/unit/realGPU/process proof copied into153sealed members.
-- M7/#447 and383/409/344/351/362 are read back after final publication: all affected tests complete, #447/#450 closed, remaining P3 gates current.
+- M7 body and #447 read back20:41: allthree sign-in profiles and memory12 pass, UI14 active; #450 closed.
 - Current source publisher /tmp/pixelelated-publish-pixman-source.py ALREADY RAN;
   receipt /tmp/pixelelated-pixman-source-published.json. Never replay it.
 - Prior bundle79d560... imageb9be57ee... sourcecf511ce... is immutable baseline,
@@ -224,7 +201,8 @@ completion. #395 destination still missing, so no disconnected alert claim.
 
 Boot05/signin14/15/16 and the prior checkpoint are published as
 next8aefd9c751da96c34e38a64d329bbcbe095e000c / featureb54270e0cc98bd5b6910214592d27c8cf82db04f,
-remote-verified20:25:07. Handoff corrections subsequently published as next3752364f1da128b6de8adf96856379cc155b56af / feature038b197a1d1bf99802bd4127a8b72a7a7eca7b48 at20:37:03. Memory evidence subsequently published as nexta63b254f/feature073872d5 at20:44:16. Final UI/1GiB evidence publication is recorded above. This closing checkpoint accompanies a separate documentation commit; verify actual HEAD/remotes rather than assuming it is unpushed.
+remote-verified20:25:07. Handoff corrections subsequently published as next3752364f1da128b6de8adf96856379cc155b56af / feature038b197a1d1bf99802bd4127a8b72a7a7eca7b48 at20:37:03. This checkpoint and memory evidence accompany their own normal
+evidence commit; verify actual HEAD/remotes rather than assuming it is unpushed.
 Frozen10 remains d6e8390c. Priorpublisher scripts already ran; never replay them.
 
 P4 has NOT STARTED. #375/#382 initial reviews complete; don't restart them.
@@ -256,13 +234,6 @@ Ordinary Tobu100359 is already earned on the dedicated QA account. The prior
 async question asks the owner to reset that game or provide another QA account
 through ~/.ROCKNIX/qa-accounts (0600). No reply. Never print values, reset the
 account, substitute hardcore mode or report a vacuous award PASS.
-
-Authenticated Dropbox trust (#351) still needs the owner to identify a
-dedicated QA credential-file location. The earlier async question is
-unanswered. Do not request credentials in chat or substitute public login,
-OAuth-page rendering, phone Connected state or the synthetic finishing marker
-for an authenticated trust result. This remains VM-testable once QA access is
-available; no personal-cloud mutation is authorized by these test passes.
 
 Public-site frame4f6df54 is local in /home/max/Development/rocknix.org,
 branch docs/cloud-saves-native-wizard. Blitterbot received403 from

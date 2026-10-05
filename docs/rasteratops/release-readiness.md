@@ -85,7 +85,7 @@ recorded. Nine actual loopback controls pass; full13 keeps every original
 assertion/reference and changes only the tested observer. No result transfer
 from failed12. Both scoped fixes have retained source/result/cleanup evidence.
 
-**Historical next action (now implemented; qualification pending above):** #447 remained OPEN. Turn the validated Pixman
+**Historical next action (now implemented and qualified above):** #447 remained OPEN. Turn the validated Pixman
 workaround into a narrow, explicit GENERIC_X64 software fallback; preserve
 accelerated guests and handheld renderers. Prove clean/upgrade selection,
 ES/emulator behavior, visual correctness and performance. A product change
