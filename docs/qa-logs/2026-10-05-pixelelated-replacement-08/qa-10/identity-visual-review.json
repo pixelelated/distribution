@@ -1,0 +1,68 @@
+{
+  "recorded_utc": "2026-10-05T05:23:50.881090+00:00",
+  "method": "Direct inspection of actual captured PNGs in this session; original review completed before 05:20 UTC.",
+  "scope": "Clean and actual RC2-upgraded identity navigation only, preserving Back/Back Settings save. No candidate-wide acceptance.",
+  "passed": true,
+  "frames": [
+    {
+      "phase": "initial-clean",
+      "file": "artifacts/identity-initial-clean/01-main-menu-identity.png",
+      "sha256": "b3fc068423b0abf69467447f915495d0a128ac5d4852fabd7f0cedc83e6d4764",
+      "observation": "Lowercase pixelelated 0.0.1 footer and Community Release."
+    },
+    {
+      "phase": "initial-clean",
+      "file": "artifacts/identity-initial-clean/02-system-settings.png",
+      "sha256": "3d38d67f2fdf5ba301d6033662dec458884dd54ab4a87bea428353c178dec5cb",
+      "observation": "System Settings rows visible without exception."
+    },
+    {
+      "phase": "initial-clean",
+      "file": "artifacts/identity-initial-clean/03-information.png",
+      "sha256": "e717946f7265664213656d1ca003a5a0e5ec6419e849a979b4debc0e781c508d",
+      "observation": "Operating system pixelelated, build72121fd03a/replacement08, Linux7.1.2."
+    },
+    {
+      "phase": "initial-clean",
+      "file": "artifacts/identity-initial-clean/04-updates.png",
+      "sha256": "c35988cd42c88b64a43cc84186892f4808baa1f02e601c16be6c370a7024b53f",
+      "observation": "Updates set to Manual."
+    },
+    {
+      "phase": "initial-clean",
+      "file": "artifacts/identity-initial-clean/05-manual-update-message.png",
+      "sha256": "e1bcfe5a66b58b2764c061f039729a84ccf48ada8883ecfe95b5acf68c04ba1c",
+      "observation": "Manual update instruction uses github.com/pixelelated/distribution/releases."
+    },
+    {
+      "phase": "upgrade",
+      "file": "artifacts/identity-upgrade/01-main-menu-identity.png",
+      "sha256": "bb379c28f56d823612f9606aa58366e6e6fb355c5749d21b25c061613b3080ca",
+      "observation": "Lowercase pixelelated 0.0.1 footer and Community Release."
+    },
+    {
+      "phase": "upgrade",
+      "file": "artifacts/identity-upgrade/02-system-settings.png",
+      "sha256": "9c6a8c4ec02572e1b435b07619ab63d828789bb54803240c4102a8a1cd19c634",
+      "observation": "System Settings rows visible without exception."
+    },
+    {
+      "phase": "upgrade",
+      "file": "artifacts/identity-upgrade/03-information.png",
+      "sha256": "8e555fdecb407efe4a55952e49dfa97897c8b29a8672a9d610de93c8ad60e1ab",
+      "observation": "Operating system pixelelated, build72121fd03a/replacement08, Linux7.1.2."
+    },
+    {
+      "phase": "upgrade",
+      "file": "artifacts/identity-upgrade/04-updates.png",
+      "sha256": "67999934baa253085fa555c9012e70eaf11e3a338b2c3d3f7a280cddd1a29207",
+      "observation": "Updates set to Manual."
+    },
+    {
+      "phase": "upgrade",
+      "file": "artifacts/identity-upgrade/05-manual-update-message.png",
+      "sha256": "99ede456ff0b4bf371d98dad79d90233a523b4f255c2b50de6bfb170102dab84",
+      "observation": "Manual update instruction uses github.com/pixelelated/distribution/releases."
+    }
+  ]
+}

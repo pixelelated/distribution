@@ -1,0 +1,59 @@
+{
+  "observed_utc": "2026-10-05T05:25:14.551845+00:00",
+  "scope": "first boot of two clean16GiB disks and two COW boots of actualRC2-upgraded disk; no boot config/product edits",
+  "results": {
+    "clean-640": {
+      "passed": true,
+      "matcher_rc": 0,
+      "best": {
+        "file": "019.png",
+        "elapsed_seconds": 3.884,
+        "sha256": "a137be6cc91067688f30a17c203b45a5136f9d337d8241bac3a21beef4da1f2f",
+        "agreement": 1.0
+      },
+      "build_id": "72121fd03a558725328ea58c092faf1b3324317f",
+      "kernel_sha256": "8dfcd6bb7d4dcdbdb128c8a15c901185e6213245c128652bb76b2591a5807cd3",
+      "quiet": true
+    },
+    "clean-1280": {
+      "passed": true,
+      "matcher_rc": 0,
+      "best": {
+        "file": "019.png",
+        "elapsed_seconds": 4.021,
+        "sha256": "b718d9958cee084a49909710bcd3cbaa21806ea491481e736fbe45c4f94618b2",
+        "agreement": 1.0
+      },
+      "build_id": "72121fd03a558725328ea58c092faf1b3324317f",
+      "kernel_sha256": "8dfcd6bb7d4dcdbdb128c8a15c901185e6213245c128652bb76b2591a5807cd3",
+      "quiet": true
+    },
+    "upgrade-640": {
+      "passed": true,
+      "matcher_rc": 0,
+      "best": {
+        "file": "021.png",
+        "elapsed_seconds": 3.949,
+        "sha256": "2f87c518c867895322fffea1d585fcc4ef85c82406fb0a5a8211c2dd149512f3",
+        "agreement": 1.0
+      },
+      "build_id": "72121fd03a558725328ea58c092faf1b3324317f",
+      "kernel_sha256": "8dfcd6bb7d4dcdbdb128c8a15c901185e6213245c128652bb76b2591a5807cd3",
+      "quiet": false
+    },
+    "upgrade-1280": {
+      "passed": true,
+      "matcher_rc": 0,
+      "best": {
+        "file": "020.png",
+        "elapsed_seconds": 4.207,
+        "sha256": "f4e87cf9e83c20ec23c42b510b1c53344d2219e040381fe0a9d8d38459ff73f3",
+        "agreement": 1.0
+      },
+      "build_id": "72121fd03a558725328ea58c092faf1b3324317f",
+      "kernel_sha256": "8dfcd6bb7d4dcdbdb128c8a15c901185e6213245c128652bb76b2591a5807cd3",
+      "quiet": false
+    }
+  },
+  "passed": true
+}

@@ -1,0 +1,77 @@
+{
+  "utc": "2026-10-05T05:03:14.910274+00:00",
+  "method": "Direct inspection of actual PNGs",
+  "scope": "Fourteen selected default/timing frames; baseline comparison and remaining walks are pending. No candidate acceptance.",
+  "frames": [
+    {
+      "path": "/workspace/tmp/pixelelated-m7-qa-10/artifacts/rocknix-images/qa-72121fd03a-webdav-a-20261005-0442/time-to-play/frames/r1-launch-02-first-game-frame.png",
+      "sha256": "f4cc7aa753984b3f6df09f2282dbfb3757876777dfde08fca8ed0da13c279e73",
+      "observation": "Visible emulator boot output at actual panel size."
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-qa-10/artifacts/rocknix-images/qa-72121fd03a-webdav-a-20261005-0442/time-to-play/frames/g1-exit-002.png",
+      "sha256": "3c48f5f81376b5bb4cfc6217b2c0aaf9b7866ff2982c50ceb77c05f1ca3545ca",
+      "observation": "Visible second emulator boot output; byte-identical to g1-exit-game2.png. Sampled time precedes the injected button event because the game had already relaunched, a case explicitly documented in measure_exit. Unknown sync stamp is retained, not treated as preservation proof."
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-qa-10/artifacts/rocknix-images/qa-72121fd03a-webdav-a-20261005-0442/walks/to-manage-cloud-storage/01-cloud-hub.png",
+      "sha256": "f1c18f66055b70a6aba2fad8a72fe82fdf0bd6ac8ebcdde096b8fe696b45d58e",
+      "observation": "Cloud hub has expected backup, restore, matching and sync rows with no clipping."
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-qa-10/artifacts/rocknix-images/qa-72121fd03a-webdav-a-20261005-0442/walks/back-up-page/02-back-up-page.png",
+      "sha256": "c18fde65a696f003fc1d82181c1352b57b73a25cd341f3991de6325337cae9f4",
+      "observation": "Four intended tiers and Back/Back Up controls are visible."
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-qa-10/artifacts/rocknix-images/qa-72121fd03a-webdav-a-20261005-0442/walks/restore-page/02-restore-page.png",
+      "sha256": "a6e6c09c6c45b232923e144a6352e9a1fa57c74104b5725b1db21cd157a6e7fc",
+      "observation": "Four intended tiers, settings unavailable explanation and Back/Restore controls are visible."
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-qa-10/artifacts/rocknix-images/qa-72121fd03a-webdav-a-20261005-0442/walks/match-dialog/03-match-confirm.png",
+      "sha256": "a52b189d2f5dbc5777853f6079766f038a6f96591a4c3840c310d8f3bc514e8d",
+      "observation": "Confirmation names three device-only ROM files, sizes, download behavior and explicit save/state/screenshot protection."
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-qa-10/artifacts/rocknix-images/qa-72121fd03a-webdav-a-20261005-0442/walks/confirm-cloud-folder/03-folder-editor.png",
+      "sha256": "1cfab8d840573bcb497cfc29fb80f4fc89889c9dbb34c594af136523f27fac9a",
+      "observation": "Cloud Folder editor displays exact lowercase /pixelelated/Saves."
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-qa-10/artifacts/rocknix-images/qa-72121fd03a-webdav-a-20261005-0442/walks/confirm-cloud-folder/04-folder-result.png",
+      "sha256": "662f8cdb86d64155b83f70cfa432d434ec29dfae98c14a59c707d324a0bd9b0f",
+      "observation": "Returned Cloud hub row displays exact lowercase /pixelelated/Saves."
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-qa-10/artifacts/rocknix-images/qa-72121fd03a-webdav-a-20261005-0442/walks/confirm-cloud-folder/05-after-dismiss.png",
+      "sha256": "4d8b6a1532d4befeb34a947480c7350413bcb5d6ac7f803160e487e4a0773c2a",
+      "observation": "Actual frame is the Cloud Folder editor reopened with the same value; filename alone is not a closed-dialog claim."
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-qa-10/artifacts/rocknix-images/qa-72121fd03a-webdav-a-20261005-0442/walks/run-transfer-frames/07-t02.png",
+      "sha256": "5188d898d1aeb316fc4ecd936e737a22fa2e58522325485e332c7f9544f41288",
+      "observation": "Actual backup progress says saves, item1of5, Working."
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-qa-10/artifacts/rocknix-images/qa-72121fd03a-webdav-a-20261005-0442/walks/run-transfer-frames/13-t20.png",
+      "sha256": "59779a368b786caf5ed7ea949adf0401c47259e53d5cff3838f27cc80bad538c",
+      "observation": "Actual completion says24files/640KB backed up, elapsed4s."
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-qa-10/artifacts/rocknix-images/qa-72121fd03a-webdav-a-20261005-0442/walks/run-transfer-frames/22-t60.png",
+      "sha256": "59779a368b786caf5ed7ea949adf0401c47259e53d5cff3838f27cc80bad538c",
+      "observation": "Byte-identical to reviewed t20 completion; completion remains on screen through the final sample."
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-qa-10/artifacts/rocknix-images/qa-72121fd03a-webdav-a-20261005-0442/walks/manager-nes/04-3-manager.png",
+      "sha256": "86c32ace495785b328ff664476a2bcb27a4184ee320a859e0e2b12c256560cf4",
+      "observation": "Start New Game arrow points right; recorded NES thumbnail retains its expected rotation and Auto Save caption."
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-qa-10/artifacts/rocknix-images/qa-72121fd03a-webdav-a-20261005-0442/walks/manager-nes/05-4-manager-next-tile.png",
+      "sha256": "62d8aeaaecd5a8e3e0c950b67e877aff8687b12ce2e2b8afbee3d3382fb21f0e",
+      "observation": "Selection moves to Auto Save; thumbnail, date and Delete/Copy to Free Slot/Launch prompts remain visible."
+    }
+  ]
+}
