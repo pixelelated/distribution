@@ -1,0 +1,30 @@
+{
+  "observed_utc": "2026-10-05T04:35:29.446162+00:00",
+  "actual_tool_session": 55433,
+  "actual_tool_rc": 0,
+  "result_channels": {
+    "/workspace/tmp/pixelelated-m7-replacement-08/copy.rc": 0,
+    "/workspace/tmp/pixelelated-m7-replacement-08/copy.outer.rc": 0,
+    "/workspace/tmp/pixelelated-m7-replacement-08/copy.wrapper.rc": 0,
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement08/.build-runs/20261005T042229Z-894c0b1b/build.rc": 0
+  },
+  "owned_processes": [
+    {
+      "source": "build.pid",
+      "pid": 2413938,
+      "state": "absent"
+    },
+    {
+      "source": "watcher.pid",
+      "pid": 2413940,
+      "state": "absent"
+    },
+    {
+      "source": "command.pid",
+      "pid": 2413969,
+      "state": "absent"
+    }
+  ],
+  "run": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement08/.build-runs/20261005T042229Z-894c0b1b",
+  "log_sha256": "2f3d2bd7f69ddb646fe7c4a6ab0b4f664ae463e8876b24868dbbf0d56555b617"
+}

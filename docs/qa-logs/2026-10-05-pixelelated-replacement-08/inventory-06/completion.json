@@ -1,0 +1,31 @@
+{
+  "observed_utc": "2026-10-05T04:44:47.850116+00:00",
+  "actual_tool_session": 20676,
+  "actual_tool_rc": 0,
+  "result_channels": {
+    "/workspace/tmp/pixelelated-m7-inventory-06/inner.rc": 0,
+    "/workspace/tmp/pixelelated-m7-inventory-06/outer.rc": 0,
+    "/workspace/tmp/pixelelated-m7-inventory-06/tool-wrapper.rc": 0,
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261005T044043Z-b8d93be9/build.rc": 0
+  },
+  "owned_processes": [
+    {
+      "name": "build.pid",
+      "pid": 2622418,
+      "exists": false
+    },
+    {
+      "name": "watcher.pid",
+      "pid": 2622419,
+      "exists": false
+    },
+    {
+      "name": "command.pid",
+      "pid": 2622448,
+      "exists": false
+    }
+  ],
+  "run": "/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261005T044043Z-b8d93be9",
+  "build_log_sha256": "5fcfb53fa80cfb1011474a4d4814d806628fb2fb3165e834e974ece46be6c814",
+  "scope": "inventory owner only; QA10 remains active"
+}
