@@ -1,0 +1,17 @@
+1791231756966	geckodriver	INFO	Listening on 127.0.0.1:57023
+1791231757468	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" "/usr/lib/firefox/firefox" "--marionette" "-headless" "-no-remote" "-profile" "/tmp/rust_mozprofileYWiPFh"
+[3770468] Sandbox: CanCreateUserNamespace() unshare(CLONE_NEWPID): EPERM
+*** You are running in headless mode.
+1791231757590	Marionette	INFO	Marionette enabled
+1791231757630	Marionette	INFO	Listening on port 40963
+Read port: 40963
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: [Exception... "Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsIContentSniffer.getMIMETypeFromContent]"  nsresult: "0x80040111 (NS_ERROR_NOT_AVAILABLE)"  location: "JS frame :: resource:///modules/FaviconLoader.sys.mjs :: onStopRequest :: line 356"  data: no]
+console.error: "Experiment desktop-release-rollout-show-relay-to-all-browsers-next-sign-up-modal-cta has unknown featureId: email-autocomplete-relay"
+console.error: "Experiment visual-card-updates has unknown featureId: newtabRefinedCardsLayout"
+console.error: "Experiment enable-nimbus-unenrollment-synchronization has unknown featureId: nimbusStore"
+console.error: "Experiment private-window-visual-refresh-design-change-only has unknown featureId: feltPrivacy"
+1791231759954	Marionette	WARN	Connection attempt denied because an active session has been found
+1791231768589	Marionette	INFO	Stopped listening on port 40963
+JavaScript error: resource://gre/modules/PrivateBrowsingUtils.sys.mjs, line 50: TypeError: can't access property "QueryInterface", aWindow.docShell is null
+1791231769972	webdriver::server	INFO	Shutting down

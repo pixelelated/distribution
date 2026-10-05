@@ -26,12 +26,17 @@ cleanup confirms4owner/6guest PIDs absent. Single-sample timing smoke passes;
 the fast game-to-game sample lacks a new sync stamp and does not establish
 active-sync behavior (retained timing-review.json).
 
-Boot05 is active: four clean/actual-upgraded software boots at640/1280, with
-unchanged exact splash references/0.995threshold/12negative controls. Then
-sign-in14/15/16, memory12 with both-profile emulator exit/time-to-play,
-bilingual software UI14 and both1GiB workloads. Earlier
-replacement09 passes remain historical evidence; affected graphics acceptance
-must come from the new installed image. #447 stays open until that proof.
+Boot05 passes all four clean/actual-upgraded software boots at640/1280 with
+exact1.0matches and12negative rejections; allfourframes directly reviewed.
+Installed clean software/signin14, actual-upgraded software/signin15 and
+acceleratedvirgl/signin16 each pass40checks and15directlyreviewedframes.
+Allnine finishing comparisons per profile match unchanged pixels without
+runtime overrides or forced repaint. Actual terminal and cleanup receipts
+are retained under replacement10. Authenticated trust remains separate.
+
+Memory12 now runs original10/10/50launches plus both-profile exit/time-to-play.
+Then bilingualsoftwareUI14 and both1GiBworkloads. #447 stays open until affected
+qualification completes. Earlier replacement09 evidence remains historical.
 P4 and H700 follow remaining P3 acceptance; no RC/device-ready claim.
 
 ## Historical diagnosis — ROCKNIX RC2 replay and working Pixman experiment

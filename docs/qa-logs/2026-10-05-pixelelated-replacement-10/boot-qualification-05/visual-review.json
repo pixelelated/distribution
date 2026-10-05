@@ -1,0 +1,32 @@
+{
+  "utc": "2026-10-05T20:15:41.170777+00:00",
+  "method": "Direct view_image inspection of all four actual best frames",
+  "passed": true,
+  "observations": "Lowercase pixelelated Tiny5 Duo LCD Ocean Bands wordmark complete and centered; negative pixel gaps intact; version/build and loading text below. Upgraded 640 frame also has Welcome to Linux below, without covering wordmark.",
+  "frames": [
+    {
+      "phase": "clean-640",
+      "path": "/workspace/tmp/pixelelated-m7-boot-qualification-05/artifacts/clean-640/016.png",
+      "sha256": "23a0482f85a378dd604308dbe0a40ec249fd0594565ff3e6140e0e05005634df",
+      "passed": true
+    },
+    {
+      "phase": "clean-1280",
+      "path": "/workspace/tmp/pixelelated-m7-boot-qualification-05/artifacts/clean-1280/015.png",
+      "sha256": "0fa41a42f3e0c7fb646cd9c25cf34c22ccedf73d95f9738f8acc3788430392bc",
+      "passed": true
+    },
+    {
+      "phase": "upgrade-640",
+      "path": "/workspace/tmp/pixelelated-m7-boot-qualification-05/artifacts/upgrade-640/017.png",
+      "sha256": "a4c7984b0160dce8457f3c9cf9c2f0b8327a28d1d33851962dd4b197db6f5bbc",
+      "passed": true
+    },
+    {
+      "phase": "upgrade-1280",
+      "path": "/workspace/tmp/pixelelated-m7-boot-qualification-05/artifacts/upgrade-1280/016.png",
+      "sha256": "df1cfe0c6aec1255a14ec38388919d27e6ee2eeadce01fdb1db87f58a3c5fdf0",
+      "passed": true
+    }
+  ]
+}

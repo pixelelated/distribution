@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Saved 2026-10-05T20:09:33.013355+00:00. Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261005T200933Z.md`.
+> Saved 2026-10-05T20:24:20.103397+00:00. Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261005T202420Z.md`.
 > Branch feature/conflict-resolution; primary /workspace/repos/rocknix stays next.
 
 ## Start here
@@ -53,7 +53,7 @@ Evidence docs/qa-logs/2026-10-05-generic-x64-pixman/ (114 retained members).
 These checks prove selection, not installation/rendering. Prior runtime Pixman
 and actual ROCKNIX RC2 history are in the archived checkpoint and frozen09.
 
-## Current build and running QA14
+## Current build and completed default/upgrade QA14
 
 Frozen tree /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement10,
 branch build/m7-pixelelated-replacement10, commitd6e8390c93bed87efe2dcc23cd402a271cacd1c7.
@@ -93,66 +93,71 @@ sample lacks a new sync stamp and is not active-sync behavior proof. Read
 qa14/artifacts/timing-review.json. Original reused GPU-screenshot surface
 check intentionally permits aspect-correct viewport filling panel height.
 
-QA14 evidence is retained locally at replacement10/qa-14 (180artifact hashes,
-171public files plus actual rehearsal log), awaiting normal publication.
-Installed fixed helper reclaimed swap again at the verified idle boundary;
-actual1d0bcb=0/READY8GiBfree. No helper reinstall or busy-host reclaim.
+QA14 evidence is published as nexta76111439e158e8555ad99d30cc983e346322242 /
+feature1694c0af686d3fc5c478c621e781d5af33d2375c; actual remote verification20:10:55.
+Retained180artifact hashes/171public files plus actual rehearsal log.
 
-ACTIVE boot-qualification05 /workspace/tmp/pixelelated-m7-boot-qualification-05,
-submittedf15207 at20:08:12; launcher3702400; run
-/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement10/.build-runs/20261005T200812Z-9cc9a8fc.
-Four clean/actualQA14-upgraded software boots at640/1280. Byte-identical
-original capture/matcher/references and12negative controls, threshold0.995.
-Adds actual installed renderer verification. Prepared c6f2d1 initially hit
-inherited readonly file mode before sealing;6d5fa7 finished preparation and
-independent readback. No prior boot05 execution. Current first-clean capture
-at20:08:50; no accepted result yet. Preserve exact helper sources/seals.
+Boot05 COMPLETE: durable20:12:13/allfour0; actuala37d22 cleanup20:12:47 verifies
+all8PIDs absent/noQEMU. Four clean/actualQA14-upgraded software boots at640/1280
+match1.0 against unchanged0.995threshold,12negative controls reject, allfour
+best frames directly reviewed. Installed automatic Pixman verified each boot.
+ActualQA14 backing SHA4b21af1fee202f7622d5528886e717d5bb870267bfe3441230f17909cc3de62c
+remains unchanged. Retained boot-qualification-05/ contains791artifact hashes,
+42public artifacts, source seals, completion and visual-review.json.
 
-Poll /tmp/pixelelated-poll-owner.py OWNER [copy.run]; actual observation log
-/tmp/pixelelated-active-polls.jsonl. Observe within60seconds, do not claim
-perfect historical adherence. #395 still lacks disconnected delivery.
+All three installed sign-in profiles COMPLETE, each40checks (original27 plus
+13native/host/viewer checks), sixsemantic+ninecomparisonframes directly reviewed:
+- signin-ui14 clean software: durable20:18:01; actualf688e5 cleanup20:18:13.
+- signin-ui15 actualQA14-upgraded COW software: durable20:20:21; actualf84d5b
+  cleanup20:20:29; original backing unchanged.
+- signin-ui16 cleanvirgl: durable20:22:53; actualf55277 cleanup20:23:05.
+Allfourchannels0/each5PIDsabsent/noQEMU betweenowners. Installed software selects
+Pixman, accelerated retainsvirgl. No runtime override/forced repaint; unchanged
+exact finishing pixels at0/5/15seconds for native/HMP/VNC. Original negatives,
+HTTP302/mobileUA/phone390margins/public-provider assertions retained. Finishing
+marker is an explicit stand-in, not authenticated success/trust. Each owner has
+43artifact hashes/37public files plus source and actual cleanup/review receipts.
+
+ACTIVE memory12, submitted0ccb58 at20:23:14; qa.start 2026-10-05T20:23:15Z;
+owner /workspace/tmp/pixelelated-m7-memory-12; launcher3773740; actual6a9da3 guest3774189.
+Run /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement10/.build-runs/20261005T202314Z-0be6ba04.
+Original10virgl/10software/50software+sync measured cycles after5warmups;
+unchanged1024KiBVmSize/2048KiBRSSgrowth limits. Added installed renderer proof
+and original exit/time-to-play suites on bothprofiles. No acceptance yet.
+Host20:21 read-only memory observation: swap0used/8GiBfree; no busy reclaim.
 
 ## Next Steps — execute in order
 
-1. Observe active boot05; do not submit it again. Require matching launcher/inner/
-   outer/wrapper/runner results, real guest and owner cleanup, suite artifacts
-   and direct identity frames. /tmp/pixelelated-complete-durable.py OWNER 0
-   checks actual host process absence; owner pair pidfiles may be removed by
-   cleanup, so retain/verify every actually observed guest PID separately.
-2. Build02 bundle.path is authoritative; original root10/inputs.json remains
-   intentionally referenced by QA verifiers. Both input files match exactly.
-   Build/cache/image12 are complete. Never rerun their owners/preparers.
-3. Launch remaining prepared owners in order with
-   /tmp/pixelelated-launch-fallback.py OWNER from frozen10. It checks successful
-   build02, fresh owner/private dirs/seals/noQEMU before durable submission.
-   Require previous result/cleanup/frame acceptance before moving onward.
-4. QA14 is complete, boot05 RUNNING. Remaining SEALED/UNSTARTED owners:
-   signin-ui-14 → signin-ui-15 → signin-ui-16 → memory-12 → ui-14 →
-   signin-1g-13 → signin-provider1g-05, all /workspace/tmp/pixelelated-m7-.
-   Prep /tmp/pixelelated-prepare-fallback-qualification.py and regressions.py
-   ALREADY RAN. Independent a1a8f3 verifies153sealed files, all directory/import/
-   embedded-code contracts, unchanged exact reference/stable/observer helpers.
-   /tmp/pixelelated-fallback-preparation-readback.json retains this result.
-   qa14 runs all15defaults/currentclaims + actualRC2 upgrade and software/virgl
-   installed selector proof. signin14 cleansoftware;15 COW of qa14's actual
-   upgraded disk;16 cleanvirgl. Every full sign-in proof retains original27
-   checks and adds nine exact native/host comparisons, no runtime overrides or
-   fullscreen manipulation. memory12 adds both-profile exit/time-to-play to
-   original10/10/50launches; UI14 exercises software EN/FR640/1280; both1GiB
-   workloads use software/Pixman and preserve actualallocation/OOM/load checks.
-   Each owner uses standard watcher/durable submission. Require actual terminal
-   results, cleanup and direct frames. semantic-dependency.py for1GiB needs
-   signin14/completion.json with job_rc0/qemu_absent plus passedvisual-review.
-   Retain original failures; fresh owner after any executed failure.
-5. Publish exact-byte evidence, reconcile #447 criteria, then remaining P3
-   accounts/criteria → approved P4 → H700 arm then aarch64 → named device/P5
-   actions. No full RC claim, no product-test transfer from frozen09.
+1. Observe active memory12 with /tmp/pixelelated-status.py OWNER. Do not replay.
+   Record each actual guest PID with /tmp/pixelelated-observe-qa-processes.py
+   (escalated host/proc). On terminal, /tmp/pixelelated-complete-durable.py OWNER 0
+   checks every result, observed owner/guest absence and noQEMU. Review actual
+   timing/emulator frames and memory artifacts before acceptance/retention.
+2. Remaining SEALED/UNSTARTED: ui14 → signin-1g13 → signin-provider1g05.
+   All /workspace/tmp/pixelelated-m7-. Launch with
+   /tmp/pixelelated-launch-fallback.py OWNER from frozen10. Do not rerun any
+   preparation or completed owner. UI14:70English/French640/1280 softwareframes,
+   12lifetimechecks; directframe review required. Both1GiBworkloads prove actual
+   1024MiBallocation/firmware/usablememory,30secondload/responsiveness/noOOM.
+   Baselineexample.org and publicDropbox are not authenticatedtrust.
+   Semanticdependency requires already-passed signin14 completion+visualreview.
+3. /tmp/pixelelated-retain-10.py SHORT_OWNER 0 fromfeaturetree after completion
+   and visualreview retains sealed sources/hashes/logs. Original failures stay
+   failed; fresh owner after any executed failure. Never edit running shelltools.
+4. Publish exact-byte evidence; reconcile #447 criteria from this installed
+   candidate, then remaining P3 accounts/criteria → approved P4 → H700 arm then
+   aarch64 → named physical/P5 actions. No RC claim or test transfer from09.
+5. Standard watcher records5secheartbeat/5mininactivity; connected agent polls
+   within60seconds (do not claim perfect historical adherence). #395 still lacks
+   disconnected delivery. /tmp/pixelelated-active-polls.jsonl records observations.
+   /tmp/pixelelated-track-fallback-stage.py ACTIVE updates/readbacks M7/#447;
+   it requires completed/sign-in reviewed predecessors and actuallyactive owner.
 
 ## Key Files and Context
 
 - Committed read-only helper: docs/qa-logs/2026-10-05-generic-x64-pixman/verify-installed-renderer.py;
   read-only installed bytes/unit/realGPU/process proof copied into153sealed members.
-- M7 body and #447 read back19:07 after source publication; #450 scoped closed.
+- M7 body and #447 read back20:23: allthree sign-in profiles pass, memory12 active; #450 closed.
 - Current source publisher /tmp/pixelelated-publish-pixman-source.py ALREADY RAN;
   receipt /tmp/pixelelated-pixman-source-published.json. Never replay it.
 - Prior bundle79d560... imageb9be57ee... sourcecf511ce... is immutable baseline,
@@ -172,9 +177,10 @@ stop named owned PIDs only, never broad pkill. tools/watch-build records five-
 second heartbeat and five-minute inactivity; connected agent supervises actual
 completion. #395 destination still missing, so no disconnected alert claim.
 
-Primary nextea8144335b0e37d79389935f54515a38e5587781 includes built image evidence;
-feature3dc3bcd86be8ca12be76dd03c7d451faa1a40379. This updated checkpoint and
-work log andQA14 evidence are local until the next normal publication. Frozen10 stays d6e8390c.
+Primary nexta76111439e158e8555ad99d30cc983e346322242, feature1694c0af686d3fc5c478c621e781d5af33d2375c
+are the published QA14 evidence. This checkpoint, boot05/signin14/15/16 receipts,
+readiness/worklog/VMledger await the next normal evidence publication. Frozen10
+remains d6e8390c. Priorpublisher scripts already ran; never replay them.
 
 P4 has NOT STARTED. #375/#382 initial reviews complete; don't restart them.
 Read full code-auditor skill/routing then use approved primary + Fable5.1/xhigh
@@ -235,5 +241,5 @@ completion.json exclusively; never rerun after success.
 hashes all artifacts; boot PNGs retain best/control frames, all raw originals
 remain local. Visual reviews must be based on actual view_image calls.
 /tmp/pixelelated-launch-fallback.py OWNER is checked, no-QEMU and fail-fast;
-currently permits boot05 plus the seven remaining owners. Run from frozen10.
+permits all recorded qualification owners, but every completed owner refuses replay. Run from frozen10.
 The two preparation scripts in the earlier checkpoint ALREADY RAN.
