@@ -1,0 +1,107 @@
+09:35:48 === cloud-epic on guest d, BUILD_ID="cf511ce79b83cba7fea8b14cfa3d04fb13e4b4fb"
+232
+09:35:48 == setup: the QA remote on the guest (the host backend's conf), then the QA cloud holds the fork's earlier layout with files in every folder of ours; the guest points at it
+remote: qa-cloud:
+09:35:50   cloud: ROCKNIX/Backups/2026_09_29-090000-Retroid-Pocket-Nova-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Backups/2026_09_30-120000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Content/BIOS/disksys.rom ROCKNIX/Content/ROMs/nes/Probe.nes ROCKNIX/Saves-replaced/nes/Probe.srm.1 ROCKNIX/Saves/nes/Probe.srm 
+09:35:50   guest conf: SAVES_REMOTE="/ROCKNIX/Saves" SETTINGS_REMOTE="/ROCKNIX/Backups" CONTENT_REMOTE="/ROCKNIX/Content" LAYOUT_KEEP="" 
+label=GENERIC-X64
+09:36:18   picks reset: content=0 saves=1
+09:36:38 == UI17: actual wizard failure, completion and next-boot recovery
+09:37:14   reboot_guest: /isIdle yes after 1s
+settle: still after 1.9s
+09:37:25 PASS UI17 post-reboot fault files and actual executable selection verified
+09:37:26 PASS UI17 real connectivity gate passes despite layout-only fault
+09:37:26 PASS UI17 selected layout operation really fails before driving wizard
+09:37:26 PASS UI17 control reached fault; clear only its test count
+CONNECTED
+dismiss-dialogs: 1 press(es) moved the screen, back on the carousel
+changed after 0.1s (`key ret`, line 3)
+settle: still after 1.7s
+changed after 0.1s (`key x`, line 6)
+settle: still after 1.3s
+changed after 0.1s (`key up`, line 9)
+changed after 0.1s (`key up`, line 11)
+changed after 0.1s (`key up`, line 13)
+settle: still after 1.3s
+changed after 0.0s (`key x`, line 16)
+settle: still after 1.3s
+captured /workspace/tmp/pixelelated-m7-cloud-ui-08/artifacts/cloud-ui/UI17/frames/01-UI17-hub.png
+changed after 0.1s (`key down`, line 20)
+changed after 0.1s (`key down`, line 22)
+changed after 0.1s (`key down`, line 24)
+changed after 0.1s (`key down`, line 26)
+changed after 0.1s (`key down`, line 28)
+changed after 0.1s (`key down`, line 30)
+changed after 0.0s (`key down`, line 32)
+changed after 0.1s (`key down`, line 34)
+settle: still after 1.3s
+captured /workspace/tmp/pixelelated-m7-cloud-ui-08/artifacts/cloud-ui/UI17/frames/02-UI17-connect-row.png
+changed after 0.1s (`key x`, line 38)
+settle: still after 1.3s
+captured /workspace/tmp/pixelelated-m7-cloud-ui-08/artifacts/cloud-ui/UI17/frames/03-UI17-provider-list.png
+changed after 0.0s (`key up`, line 42)
+changed after 0.1s (`key up`, line 44)
+settle: still after 1.3s
+captured /workspace/tmp/pixelelated-m7-cloud-ui-08/artifacts/cloud-ui/UI17/frames/04-UI17-use-computer-row.png
+changed after 0.1s (`key x`, line 48)
+settle: still after 1.3s
+captured /workspace/tmp/pixelelated-m7-cloud-ui-08/artifacts/cloud-ui/UI17/frames/05-UI17-setup-page.png
+changed after 0.0s (`key up`, line 52)
+changed after 0.1s (`key up`, line 54)
+settle: still after 1.3s
+captured /workspace/tmp/pixelelated-m7-cloud-ui-08/artifacts/cloud-ui/UI17/frames/06-UI17-repair-row.png
+changed after 0.1s (`key x`, line 58)
+settle: still after 1.3s
+captured /workspace/tmp/pixelelated-m7-cloud-ui-08/artifacts/cloud-ui/UI17/frames/07-UI17-step1.png
+changed after 0.1s (`key up`, line 62)
+changed after 0.0s (`key right`, line 64)
+settle: still after 1.3s
+captured /workspace/tmp/pixelelated-m7-cloud-ui-08/artifacts/cloud-ui/UI17/frames/08-UI17-step1-continue.png
+changed after 0.1s (`key x`, line 68)
+settle: still after 3.4s
+captured /workspace/tmp/pixelelated-m7-cloud-ui-08/artifacts/cloud-ui/UI17/frames/09-UI17-after-step1.png
+changed after 0.1s (`key up`, line 72)
+changed after 0.1s (`key right`, line 74)
+settle: still after 1.3s
+captured /workspace/tmp/pixelelated-m7-cloud-ui-08/artifacts/cloud-ui/UI17/frames/10-UI17-step2-continue.png
+changed after 0.1s (`key x`, line 78)
+settle: still after 3.4s
+captured /workspace/tmp/pixelelated-m7-cloud-ui-08/artifacts/cloud-ui/UI17/frames/11-UI17-after-step2.png
+changed after 0.1s (`key up`, line 82)
+changed after 0.1s (`key right`, line 84)
+settle: still after 1.3s
+captured /workspace/tmp/pixelelated-m7-cloud-ui-08/artifacts/cloud-ui/UI17/frames/12-UI17-step3-continue.png
+changed after 0.1s (`key x`, line 88)
+settle: still after 3.4s
+captured /workspace/tmp/pixelelated-m7-cloud-ui-08/artifacts/cloud-ui/UI17/frames/13-UI17-after-step3.png
+09:38:41 PASS walk UI17-wizard.steps
+09:38:41 PASS UI17 wizard folder scan reaches selected provider fault
+09:38:41 PASS UI17 fault occurs at wizard folder step
+captured /workspace/tmp/pixelelated-m7-cloud-ui-08/artifacts/cloud-ui/UI17/frames/01-UI17-scan-failed.png
+changed after 0.1s (`key z`, line 2)
+settle: still after 3.4s
+captured /workspace/tmp/pixelelated-m7-cloud-ui-08/artifacts/cloud-ui/UI17/frames/02-UI17-setup-complete.png
+09:38:47 PASS walk epic-UI17-dismiss.steps
+09:38:47 PASS UI17 dismissing failure reaches actual wizard completion
+09:38:47 PASS UI17 failed scan and seeding preserve all cloud bytes; no README or marker added
+09:38:47 PASS UI17 failed scan and seeding leave inherited pointers unchanged
+09:38:47 PASS UI17 wizard creates neither old nor new root after settlement failure
+dismiss-dialogs: 6 press(es) moved the screen, back on the carousel
+09:38:59 PASS walk epic-UI17-close.steps
+09:39:35   reboot_guest: /isIdle yes after 1s
+settle: still after 1.9s
+09:39:59   UI17-recovery-boot: 86 frames under /workspace/tmp/pixelelated-m7-cloud-ui-08/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot
+captured /workspace/tmp/pixelelated-m7-cloud-ui-08/artifacts/cloud-ui/UI17/frames/01-UI17-boot-move-question.png
+changed after 0.0s (`key x`, line 2)
+settle: still after 4.7s
+captured /workspace/tmp/pixelelated-m7-cloud-ui-08/artifacts/cloud-ui/UI17/frames/02-UI17-move-complete.png
+changed after 0.1s (`key x`, line 6)
+settle: still after 2.2s
+dismiss-dialogs: 1 press(es) moved the screen, back on the carousel
+09:40:13 PASS walk epic-UI17-recover.steps
+09:40:13 PASS UI17 next-boot move preserves original save exactly once
+09:40:13 PASS UI17 recovery publishes supported layout marker
+09:40:13 PASS UI17 recovery publishes current saves pointer
+09:40:14 PASS UI17 recovery clears local pending record
+09:40:14 PASS supplemental UI route launched no game
+09:40:14 done: 19 PASS, 0 FAIL

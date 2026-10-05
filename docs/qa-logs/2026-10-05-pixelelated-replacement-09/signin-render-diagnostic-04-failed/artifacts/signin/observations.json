@@ -1,0 +1,25 @@
+{
+  "observed_utc": "2026-10-05T16:22:45.026875+00:00",
+  "checks": [
+    "installed chassis is handset",
+    "installed usr/bin/cloud-signin-window matches exact image payload",
+    "installed usr/bin/cloud_oauth matches exact image payload",
+    "persistent read-only VNC viewer obtained initial frame",
+    "installed window follows real HTTP302",
+    "failure-panel rendered surface is stable",
+    "failure-panel is panel-sized"
+  ],
+  "frames": [
+    {
+      "file": "failure-panel.png",
+      "sha256": "bd81979c07a130213c668373dd03811c5218ae48fc891dd0991bace10598e252",
+      "visual_review": "pending"
+    }
+  ],
+  "limitations": [
+    "Visual review pending.",
+    "Finishing uses explicit done-file stand-in, not authenticated sign-in.",
+    "No authenticated Dropbox trust-page claim.",
+    "Memory is measured without a numerical ceiling assertion."
+  ]
+}

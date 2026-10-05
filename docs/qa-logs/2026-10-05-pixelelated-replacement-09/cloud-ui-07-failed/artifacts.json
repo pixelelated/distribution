@@ -1,0 +1,926 @@
+[
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/UI17-wizard.steps",
+    "bytes": 1151,
+    "sha256": "6a39e266a5d6133f576eb73dd0f2eef6bb423914653606967cf78e7d6b207071",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/epic-UI17-close.steps",
+    "bytes": 16,
+    "sha256": "54411a1ba729c67a74fbd853e47975143ed85752a7fa95a70d7530cb689bf006",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/epic-UI17-dismiss.steps",
+    "bytes": 82,
+    "sha256": "f4d6231c566a67bfba9a7b1581865985b3d2215c39633573d6571ba05ce844d5",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/epic-UI17-recover.steps",
+    "bytes": 133,
+    "sha256": "29422c20ed9b13cda06f175518c55386d7d716828d9cf02f265bb7208eab523d",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/01-UI17-boot-move-question.png",
+    "bytes": 125087,
+    "sha256": "981d2ad465e36966f85f40fe36d67ff6e98517554fc2f931ffc6fb38ad6574ba",
+    "retained_in_git": true
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/01-UI17-hub.png",
+    "bytes": 34099,
+    "sha256": "7514c29788aa12baba457a6aca01602d2dc5c87a5db4c92765b9d1c9dd6b9c25",
+    "retained_in_git": true
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/01-UI17-scan-failed.png",
+    "bytes": 65230,
+    "sha256": "0cb3c43849d1a6e019796ef0b53c29a4cc41794d017c1ddd5075a5ba3221a498",
+    "retained_in_git": true
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/02-UI17-connect-row.png",
+    "bytes": 35585,
+    "sha256": "a696827b5981957be8cb80577291d492aee9b518c8b951015f77995284c64166",
+    "retained_in_git": true
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/02-UI17-move-complete.png",
+    "bytes": 42535,
+    "sha256": "2794e5deeee1b5de49c43a08065be5dfe885a9b7a606cd223e8e8f22708bdf58",
+    "retained_in_git": true
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/02-UI17-setup-complete.png",
+    "bytes": 35718,
+    "sha256": "e05ee3cfdc8faf13d39b59d2b653cca785b0040deeb14d57a1c27b7c7ea64cf2",
+    "retained_in_git": true
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/03-UI17-provider-list.png",
+    "bytes": 24594,
+    "sha256": "88c59274c5dfec097afe37039b4f7b9566135a74d339cd85926f882f0a46ef07",
+    "retained_in_git": true
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/04-UI17-use-computer-row.png",
+    "bytes": 28370,
+    "sha256": "c3803f97bdfc3c6198f377d34501472dd5a7f2dba9be76594cf77f33738538f1",
+    "retained_in_git": true
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/05-UI17-setup-page.png",
+    "bytes": 18917,
+    "sha256": "da55d01a72d6af9fb4bb27665ecac28d1db9fefffca2d57165c992cf149862d0",
+    "retained_in_git": true
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/06-UI17-repair-row.png",
+    "bytes": 18798,
+    "sha256": "6acb2d3737ebd921e80811df348dc82ba5978d40e84f502b8f4c51a69939fff8",
+    "retained_in_git": true
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/07-UI17-step1.png",
+    "bytes": 11966,
+    "sha256": "7ef1d04b0dc47d48557fa2bf6d5e0a678012ce7d71766d038c7fb0313c70a698",
+    "retained_in_git": true
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/08-UI17-step1-continue.png",
+    "bytes": 11885,
+    "sha256": "ac9bdea0fd9c7dd118dda4b1df7c4d6d42ec8dacc0055bf50d6e9dccbe179af4",
+    "retained_in_git": true
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/09-UI17-after-step1.png",
+    "bytes": 23682,
+    "sha256": "e232c67576c7442e95f8a60d69268f7f19ae68dfd85bf07dabfe226b4d581316",
+    "retained_in_git": true
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/10-UI17-step2-continue.png",
+    "bytes": 23931,
+    "sha256": "82076d1baea78f377c0bca2414dc270d8d061534f50f56be437268e7ac7faa69",
+    "retained_in_git": true
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/11-UI17-after-step2.png",
+    "bytes": 19874,
+    "sha256": "ea0fac6020c6106fbd57b2a692860f9ff1765ba95e8381001ea70b487c0152af",
+    "retained_in_git": true
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/12-UI17-step3-continue.png",
+    "bytes": 20149,
+    "sha256": "21c0cbe3c44408cf1482aa93f5c402055767bf9c450994f47f2649dcc66c7f9e",
+    "retained_in_git": true
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/13-UI17-after-step3.png",
+    "bytes": 65230,
+    "sha256": "0cb3c43849d1a6e019796ef0b53c29a4cc41794d017c1ddd5075a5ba3221a498",
+    "retained_in_git": true
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0000.png",
+    "bytes": 141730,
+    "sha256": "75cedc577abc00127fea5d4ee3a1d7c710862c1184cf59f3258c85a89cc86d55",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0001.png",
+    "bytes": 972,
+    "sha256": "441da7236f6ffdd8fb4cdfa2d9ce7b8d8df8cf2f7a8e82c530714d92266ce613",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0002.png",
+    "bytes": 972,
+    "sha256": "441da7236f6ffdd8fb4cdfa2d9ce7b8d8df8cf2f7a8e82c530714d92266ce613",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0003.png",
+    "bytes": 972,
+    "sha256": "441da7236f6ffdd8fb4cdfa2d9ce7b8d8df8cf2f7a8e82c530714d92266ce613",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0004.png",
+    "bytes": 972,
+    "sha256": "441da7236f6ffdd8fb4cdfa2d9ce7b8d8df8cf2f7a8e82c530714d92266ce613",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0005.png",
+    "bytes": 972,
+    "sha256": "441da7236f6ffdd8fb4cdfa2d9ce7b8d8df8cf2f7a8e82c530714d92266ce613",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0006.png",
+    "bytes": 972,
+    "sha256": "441da7236f6ffdd8fb4cdfa2d9ce7b8d8df8cf2f7a8e82c530714d92266ce613",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0007.png",
+    "bytes": 972,
+    "sha256": "441da7236f6ffdd8fb4cdfa2d9ce7b8d8df8cf2f7a8e82c530714d92266ce613",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0008.png",
+    "bytes": 972,
+    "sha256": "441da7236f6ffdd8fb4cdfa2d9ce7b8d8df8cf2f7a8e82c530714d92266ce613",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0009.png",
+    "bytes": 1384,
+    "sha256": "beb3d1db6648dcbf09630db2c2df74c11f07b5901c0435df286b56c59439985c",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0010.png",
+    "bytes": 5568,
+    "sha256": "6ec75ecd2e8075fdddcbe74701e50b5185f5e076d5fc8502800c5914cfde352c",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0011.png",
+    "bytes": 8239,
+    "sha256": "607c3279bca092aaf7308473fcb57623b71949f3a3627af9f7539f1748b2feaa",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0012.png",
+    "bytes": 8239,
+    "sha256": "607c3279bca092aaf7308473fcb57623b71949f3a3627af9f7539f1748b2feaa",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0013.png",
+    "bytes": 1384,
+    "sha256": "beb3d1db6648dcbf09630db2c2df74c11f07b5901c0435df286b56c59439985c",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0014.png",
+    "bytes": 972,
+    "sha256": "441da7236f6ffdd8fb4cdfa2d9ce7b8d8df8cf2f7a8e82c530714d92266ce613",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0015.png",
+    "bytes": 2508,
+    "sha256": "88557fa6b0533698efc62bd060f253ddd0d4c276291dee9cd416c7c94f4e6244",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0016.png",
+    "bytes": 2539,
+    "sha256": "6c00a9d529021c9c44b09d24873aafddf7f461448b7bb7283d2dad551b630b09",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0017.png",
+    "bytes": 2465,
+    "sha256": "98ed1574325a4fd19b6c74ed4f4edeafbae66678d50d18976f45701067d86295",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0018.png",
+    "bytes": 1057,
+    "sha256": "2cd1392aebecb03f225001b1df3a5674fa0b8f80460b0ed5b09f6fceeb6ffb03",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0019.png",
+    "bytes": 116618,
+    "sha256": "d309ebf83eb1d64cc43f94b5d7ba6ff323598813f6c68531689b106d55a2ec73",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0020.png",
+    "bytes": 116570,
+    "sha256": "bf10c8a65890983d0f4f1ede03fa293c051f73e78734e08d8d98ece03d847d58",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0021.png",
+    "bytes": 116570,
+    "sha256": "bf10c8a65890983d0f4f1ede03fa293c051f73e78734e08d8d98ece03d847d58",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0022.png",
+    "bytes": 116570,
+    "sha256": "bf10c8a65890983d0f4f1ede03fa293c051f73e78734e08d8d98ece03d847d58",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0023.png",
+    "bytes": 116570,
+    "sha256": "bf10c8a65890983d0f4f1ede03fa293c051f73e78734e08d8d98ece03d847d58",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0024.png",
+    "bytes": 116702,
+    "sha256": "b958f75dec45fbbb913dcc4b081256cc9e963e85d710fc9ad50d4de66689b7f8",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0025.png",
+    "bytes": 117328,
+    "sha256": "d809937a0e3a509a51aa92c7caf718106b47f2f9f396a34bfc41ce117602eebe",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0026.png",
+    "bytes": 115595,
+    "sha256": "1023bd797b265e1756ad12da6674af6f522003abab2ace0cda6bee2753af0f42",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0027.png",
+    "bytes": 115595,
+    "sha256": "1023bd797b265e1756ad12da6674af6f522003abab2ace0cda6bee2753af0f42",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0028.png",
+    "bytes": 141730,
+    "sha256": "75cedc577abc00127fea5d4ee3a1d7c710862c1184cf59f3258c85a89cc86d55",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0029.png",
+    "bytes": 141730,
+    "sha256": "75cedc577abc00127fea5d4ee3a1d7c710862c1184cf59f3258c85a89cc86d55",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0030.png",
+    "bytes": 41270,
+    "sha256": "6bed8527f612448e56a7a422392dbf0012294be6c8fa7147e8efff67c3520327",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0031.png",
+    "bytes": 125087,
+    "sha256": "981d2ad465e36966f85f40fe36d67ff6e98517554fc2f931ffc6fb38ad6574ba",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0032.png",
+    "bytes": 125087,
+    "sha256": "981d2ad465e36966f85f40fe36d67ff6e98517554fc2f931ffc6fb38ad6574ba",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0033.png",
+    "bytes": 125087,
+    "sha256": "981d2ad465e36966f85f40fe36d67ff6e98517554fc2f931ffc6fb38ad6574ba",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0034.png",
+    "bytes": 125087,
+    "sha256": "981d2ad465e36966f85f40fe36d67ff6e98517554fc2f931ffc6fb38ad6574ba",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0035.png",
+    "bytes": 125087,
+    "sha256": "981d2ad465e36966f85f40fe36d67ff6e98517554fc2f931ffc6fb38ad6574ba",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0036.png",
+    "bytes": 125087,
+    "sha256": "981d2ad465e36966f85f40fe36d67ff6e98517554fc2f931ffc6fb38ad6574ba",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0037.png",
+    "bytes": 125087,
+    "sha256": "981d2ad465e36966f85f40fe36d67ff6e98517554fc2f931ffc6fb38ad6574ba",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0038.png",
+    "bytes": 125087,
+    "sha256": "981d2ad465e36966f85f40fe36d67ff6e98517554fc2f931ffc6fb38ad6574ba",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0039.png",
+    "bytes": 125087,
+    "sha256": "981d2ad465e36966f85f40fe36d67ff6e98517554fc2f931ffc6fb38ad6574ba",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0040.png",
+    "bytes": 125087,
+    "sha256": "981d2ad465e36966f85f40fe36d67ff6e98517554fc2f931ffc6fb38ad6574ba",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0041.png",
+    "bytes": 125087,
+    "sha256": "981d2ad465e36966f85f40fe36d67ff6e98517554fc2f931ffc6fb38ad6574ba",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0042.png",
+    "bytes": 125087,
+    "sha256": "981d2ad465e36966f85f40fe36d67ff6e98517554fc2f931ffc6fb38ad6574ba",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0043.png",
+    "bytes": 125087,
+    "sha256": "981d2ad465e36966f85f40fe36d67ff6e98517554fc2f931ffc6fb38ad6574ba",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0044.png",
+    "bytes": 125087,
+    "sha256": "981d2ad465e36966f85f40fe36d67ff6e98517554fc2f931ffc6fb38ad6574ba",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0045.png",
+    "bytes": 125087,
+    "sha256": "981d2ad465e36966f85f40fe36d67ff6e98517554fc2f931ffc6fb38ad6574ba",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0046.png",
+    "bytes": 125087,
+    "sha256": "981d2ad465e36966f85f40fe36d67ff6e98517554fc2f931ffc6fb38ad6574ba",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0047.png",
+    "bytes": 125087,
+    "sha256": "981d2ad465e36966f85f40fe36d67ff6e98517554fc2f931ffc6fb38ad6574ba",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0048.png",
+    "bytes": 125087,
+    "sha256": "981d2ad465e36966f85f40fe36d67ff6e98517554fc2f931ffc6fb38ad6574ba",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0049.png",
+    "bytes": 125087,
+    "sha256": "981d2ad465e36966f85f40fe36d67ff6e98517554fc2f931ffc6fb38ad6574ba",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0050.png",
+    "bytes": 125087,
+    "sha256": "981d2ad465e36966f85f40fe36d67ff6e98517554fc2f931ffc6fb38ad6574ba",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0051.png",
+    "bytes": 125087,
+    "sha256": "981d2ad465e36966f85f40fe36d67ff6e98517554fc2f931ffc6fb38ad6574ba",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0052.png",
+    "bytes": 125087,
+    "sha256": "981d2ad465e36966f85f40fe36d67ff6e98517554fc2f931ffc6fb38ad6574ba",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0053.png",
+    "bytes": 125087,
+    "sha256": "981d2ad465e36966f85f40fe36d67ff6e98517554fc2f931ffc6fb38ad6574ba",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0054.png",
+    "bytes": 125087,
+    "sha256": "981d2ad465e36966f85f40fe36d67ff6e98517554fc2f931ffc6fb38ad6574ba",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0055.png",
+    "bytes": 125087,
+    "sha256": "981d2ad465e36966f85f40fe36d67ff6e98517554fc2f931ffc6fb38ad6574ba",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0056.png",
+    "bytes": 125087,
+    "sha256": "981d2ad465e36966f85f40fe36d67ff6e98517554fc2f931ffc6fb38ad6574ba",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0057.png",
+    "bytes": 125087,
+    "sha256": "981d2ad465e36966f85f40fe36d67ff6e98517554fc2f931ffc6fb38ad6574ba",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0058.png",
+    "bytes": 125087,
+    "sha256": "981d2ad465e36966f85f40fe36d67ff6e98517554fc2f931ffc6fb38ad6574ba",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0059.png",
+    "bytes": 125087,
+    "sha256": "981d2ad465e36966f85f40fe36d67ff6e98517554fc2f931ffc6fb38ad6574ba",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0060.png",
+    "bytes": 125087,
+    "sha256": "981d2ad465e36966f85f40fe36d67ff6e98517554fc2f931ffc6fb38ad6574ba",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0061.png",
+    "bytes": 125087,
+    "sha256": "981d2ad465e36966f85f40fe36d67ff6e98517554fc2f931ffc6fb38ad6574ba",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0062.png",
+    "bytes": 125087,
+    "sha256": "981d2ad465e36966f85f40fe36d67ff6e98517554fc2f931ffc6fb38ad6574ba",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0063.png",
+    "bytes": 125087,
+    "sha256": "981d2ad465e36966f85f40fe36d67ff6e98517554fc2f931ffc6fb38ad6574ba",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0064.png",
+    "bytes": 125087,
+    "sha256": "981d2ad465e36966f85f40fe36d67ff6e98517554fc2f931ffc6fb38ad6574ba",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0065.png",
+    "bytes": 125087,
+    "sha256": "981d2ad465e36966f85f40fe36d67ff6e98517554fc2f931ffc6fb38ad6574ba",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0066.png",
+    "bytes": 125087,
+    "sha256": "981d2ad465e36966f85f40fe36d67ff6e98517554fc2f931ffc6fb38ad6574ba",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0067.png",
+    "bytes": 125087,
+    "sha256": "981d2ad465e36966f85f40fe36d67ff6e98517554fc2f931ffc6fb38ad6574ba",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0068.png",
+    "bytes": 125087,
+    "sha256": "981d2ad465e36966f85f40fe36d67ff6e98517554fc2f931ffc6fb38ad6574ba",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0069.png",
+    "bytes": 125087,
+    "sha256": "981d2ad465e36966f85f40fe36d67ff6e98517554fc2f931ffc6fb38ad6574ba",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0070.png",
+    "bytes": 125087,
+    "sha256": "981d2ad465e36966f85f40fe36d67ff6e98517554fc2f931ffc6fb38ad6574ba",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0071.png",
+    "bytes": 125087,
+    "sha256": "981d2ad465e36966f85f40fe36d67ff6e98517554fc2f931ffc6fb38ad6574ba",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0072.png",
+    "bytes": 125087,
+    "sha256": "981d2ad465e36966f85f40fe36d67ff6e98517554fc2f931ffc6fb38ad6574ba",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0073.png",
+    "bytes": 125087,
+    "sha256": "981d2ad465e36966f85f40fe36d67ff6e98517554fc2f931ffc6fb38ad6574ba",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0074.png",
+    "bytes": 125087,
+    "sha256": "981d2ad465e36966f85f40fe36d67ff6e98517554fc2f931ffc6fb38ad6574ba",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0075.png",
+    "bytes": 125087,
+    "sha256": "981d2ad465e36966f85f40fe36d67ff6e98517554fc2f931ffc6fb38ad6574ba",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0076.png",
+    "bytes": 125087,
+    "sha256": "981d2ad465e36966f85f40fe36d67ff6e98517554fc2f931ffc6fb38ad6574ba",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0077.png",
+    "bytes": 125087,
+    "sha256": "981d2ad465e36966f85f40fe36d67ff6e98517554fc2f931ffc6fb38ad6574ba",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0078.png",
+    "bytes": 125087,
+    "sha256": "981d2ad465e36966f85f40fe36d67ff6e98517554fc2f931ffc6fb38ad6574ba",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0079.png",
+    "bytes": 125087,
+    "sha256": "981d2ad465e36966f85f40fe36d67ff6e98517554fc2f931ffc6fb38ad6574ba",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0080.png",
+    "bytes": 125087,
+    "sha256": "981d2ad465e36966f85f40fe36d67ff6e98517554fc2f931ffc6fb38ad6574ba",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0081.png",
+    "bytes": 125087,
+    "sha256": "981d2ad465e36966f85f40fe36d67ff6e98517554fc2f931ffc6fb38ad6574ba",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0082.png",
+    "bytes": 125087,
+    "sha256": "981d2ad465e36966f85f40fe36d67ff6e98517554fc2f931ffc6fb38ad6574ba",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0083.png",
+    "bytes": 125087,
+    "sha256": "981d2ad465e36966f85f40fe36d67ff6e98517554fc2f931ffc6fb38ad6574ba",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot-0084.png",
+    "bytes": 125087,
+    "sha256": "981d2ad465e36966f85f40fe36d67ff6e98517554fc2f931ffc6fb38ad6574ba",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot/UI17-recovery-boot.csv",
+    "bytes": 2270,
+    "sha256": "61586534c51653515869dfddd472aa3db0b14fc300f12809ae084c42e1dcf546",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot.capture.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "retained_in_git": true
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot.capture.pid",
+    "bytes": 7,
+    "sha256": "8952776fac4ba460c2c247cb80d7ba21b6290ab683ec288101d38a4ee01fa8eb",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/frames/UI17-recovery-boot.stop",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/held-ssh.pid",
+    "bytes": 7,
+    "sha256": "7c5689124849ac92ed240ae82ad8b68c1a4c3fe6b99ce1a4602bad61064282f4",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/layout-fault-rclone",
+    "bytes": 370,
+    "sha256": "442246289d906aa2e18fd5ff8575e5ee5a0a62d8b666c94855fec3814f7797fc",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/logs/UI17-before-cloud.json",
+    "bytes": 100,
+    "sha256": "af55c6379c55c889e670865c82f7bcd18c0e76433a2ac1ae4bb8bae49f393ef0",
+    "retained_in_git": true
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/logs/UI17-before-pointers.txt",
+    "bytes": 98,
+    "sha256": "337d556418dd57980072b255d13fb314daa66a093ea34169b45367b218938e12",
+    "retained_in_git": true
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/logs/UI17-failed-cloud.json",
+    "bytes": 583,
+    "sha256": "d4532c7084a01469d6dea275a47062ffbee0b0d9ff39ac1d82f0b0e7bd9a1c6b",
+    "retained_in_git": true
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/logs/UI17-failed-pointers.txt",
+    "bytes": 109,
+    "sha256": "f922db7c262dd6db3a25e024c01f0ca6bea1e0f9edc31e7c3532e74bb7aa34d2",
+    "retained_in_git": true
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/logs/UI17-recovered-cloud.json",
+    "bytes": 686,
+    "sha256": "2c6a05cb2dd6ae0781acfdc8d8885000445d37eb3f813c3713ef7e642e1529cc",
+    "retained_in_git": true
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/logs/UI17-recovered-pointers.txt",
+    "bytes": 117,
+    "sha256": "e709312d1bd7911f310c253ef8629a1af670914cf4e87b2f04833ab850c8017f",
+    "retained_in_git": true
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/logs/UI17-recovery-journal.log",
+    "bytes": 683,
+    "sha256": "0c4139b5d39c7bc8e277002d8101c91e201d9ab4b8ed3d3e80223c0e0054e844",
+    "retained_in_git": true
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/logs/UI17-recovery-step.log",
+    "bytes": 333,
+    "sha256": "8836bb834da0c8929bdfbe76aabde2e27317bd3087af96aa4a19d11fd910ea23",
+    "retained_in_git": true
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/logs/UI17-wizard-complete.log",
+    "bytes": 107,
+    "sha256": "ab6a1a787dd65f0352bad47696d9897fcbb6cdfefbbac2990d2b53023f343487",
+    "retained_in_git": true
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/logs/UI17-wizard-folder.log",
+    "bytes": 92,
+    "sha256": "664b725bf29ccc138c6a33ce292f9089d3b51a605c275409a8861b4246b5b55b",
+    "retained_in_git": true
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/logs/run.log",
+    "bytes": 6119,
+    "sha256": "535924875f02bd37043048b9d7ac96e4a0fe56e756c486247f6c6a40e8c136e8",
+    "retained_in_git": true
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI17/protocol-rclone",
+    "bytes": 252,
+    "sha256": "dab15b492dc9b8a86cee3937d5334f9b6034c55ebad67967c8d3593f8f975394",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI26/epic-UI26-future-close.steps",
+    "bytes": 70,
+    "sha256": "db8460cd3423db2d06c47e5d6d6c5e7360fbfd403e4ff2d0239a55738932d7dc",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI26/epic-UI26-future.steps",
+    "bytes": 351,
+    "sha256": "e678c83c8dfe0051c824f5a7e6d5782808786e3cd2ebd68eea5707866a229760",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI26/epic-UI26-malformed-close.steps",
+    "bytes": 73,
+    "sha256": "c33bb84e58be13de6aa5a4d068ed23ff973754dc0b7e1e5225a3b0f71c803a13",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI26/epic-UI26-malformed.steps",
+    "bytes": 363,
+    "sha256": "2ce27e20951a9ec88b9c110ee2287dc93958972ab0e3428cf5f80bc04f08af52",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI26/frames/01-UI26-future-hub.png",
+    "bytes": 34162,
+    "sha256": "7ba3b3286b023fbec01a870d3c1348ee8335ece82e92880efd86266c48aff57f",
+    "retained_in_git": true
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI26/frames/01-UI26-future-refusal.png",
+    "bytes": 40654,
+    "sha256": "50979a5f64a8e79b09270ca60ffca95bf558028c9395f4a1c0351a7d44a2dbbd",
+    "retained_in_git": true
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI26/frames/01-UI26-malformed-hub.png",
+    "bytes": 34162,
+    "sha256": "7ba3b3286b023fbec01a870d3c1348ee8335ece82e92880efd86266c48aff57f",
+    "retained_in_git": true
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI26/frames/01-UI26-malformed-refusal.png",
+    "bytes": 40709,
+    "sha256": "08bb6a947ed4adb2b949876efabceafec4c29dd8fc37790e803f44162517d448",
+    "retained_in_git": true
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI26/frames/02-UI26-future-scan-0.png",
+    "bytes": 40654,
+    "sha256": "50979a5f64a8e79b09270ca60ffca95bf558028c9395f4a1c0351a7d44a2dbbd",
+    "retained_in_git": true
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI26/frames/02-UI26-malformed-scan-0.png",
+    "bytes": 40709,
+    "sha256": "08bb6a947ed4adb2b949876efabceafec4c29dd8fc37790e803f44162517d448",
+    "retained_in_git": true
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI26/frames/03-UI26-future-scan-1.png",
+    "bytes": 40654,
+    "sha256": "50979a5f64a8e79b09270ca60ffca95bf558028c9395f4a1c0351a7d44a2dbbd",
+    "retained_in_git": true
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI26/frames/03-UI26-malformed-scan-1.png",
+    "bytes": 40709,
+    "sha256": "08bb6a947ed4adb2b949876efabceafec4c29dd8fc37790e803f44162517d448",
+    "retained_in_git": true
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI26/frames/04-UI26-future-after-scan.png",
+    "bytes": 40654,
+    "sha256": "50979a5f64a8e79b09270ca60ffca95bf558028c9395f4a1c0351a7d44a2dbbd",
+    "retained_in_git": true
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI26/frames/04-UI26-malformed-after-scan.png",
+    "bytes": 40709,
+    "sha256": "08bb6a947ed4adb2b949876efabceafec4c29dd8fc37790e803f44162517d448",
+    "retained_in_git": true
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI26/logs/UI26-future-after-cloud.json",
+    "bytes": 294,
+    "sha256": "be08511adbb27d611b86a75aa87359fa3fa3e2996b6c9d84069d98c60f43d4a3",
+    "retained_in_git": true
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI26/logs/UI26-future-after-pointers.txt",
+    "bytes": 128,
+    "sha256": "65006d5d4deb2abb996e2961266aea761fea4676bc762646cf99bea147824bc0",
+    "retained_in_git": true
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI26/logs/UI26-future-before-cloud.json",
+    "bytes": 294,
+    "sha256": "be08511adbb27d611b86a75aa87359fa3fa3e2996b6c9d84069d98c60f43d4a3",
+    "retained_in_git": true
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI26/logs/UI26-future-before-pointers.txt",
+    "bytes": 128,
+    "sha256": "65006d5d4deb2abb996e2961266aea761fea4676bc762646cf99bea147824bc0",
+    "retained_in_git": true
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI26/logs/UI26-future-interface.log",
+    "bytes": 116,
+    "sha256": "6b92b858c991456b3a34bb8d9026928c11b827c7282ec16b1bf0c1195af9e334",
+    "retained_in_git": true
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI26/logs/UI26-future-script.log",
+    "bytes": 79,
+    "sha256": "3cdd95af3804e70af0ff54ea7578b82f0048363ddcedae244e6773bbcc39af04",
+    "retained_in_git": true
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI26/logs/UI26-future-script.rc",
+    "bytes": 2,
+    "sha256": "7de1555df0c2700329e815b93b32c571c3ea54dc967b89e81ab73b9972b72d1d",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI26/logs/UI26-malformed-after-cloud.json",
+    "bytes": 294,
+    "sha256": "15e8b5b95cc89a71ae21048dd88b760f04162de68b4125283899fb2f7f0e0587",
+    "retained_in_git": true
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI26/logs/UI26-malformed-after-pointers.txt",
+    "bytes": 128,
+    "sha256": "65006d5d4deb2abb996e2961266aea761fea4676bc762646cf99bea147824bc0",
+    "retained_in_git": true
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI26/logs/UI26-malformed-before-cloud.json",
+    "bytes": 294,
+    "sha256": "15e8b5b95cc89a71ae21048dd88b760f04162de68b4125283899fb2f7f0e0587",
+    "retained_in_git": true
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI26/logs/UI26-malformed-before-pointers.txt",
+    "bytes": 128,
+    "sha256": "65006d5d4deb2abb996e2961266aea761fea4676bc762646cf99bea147824bc0",
+    "retained_in_git": true
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI26/logs/UI26-malformed-interface.log",
+    "bytes": 116,
+    "sha256": "03d180c0aa49592dd6a710be33376271e31db0954bc662314842c89d765f50b5",
+    "retained_in_git": true
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI26/logs/UI26-malformed-script.log",
+    "bytes": 79,
+    "sha256": "3cdd95af3804e70af0ff54ea7578b82f0048363ddcedae244e6773bbcc39af04",
+    "retained_in_git": true
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI26/logs/UI26-malformed-script.rc",
+    "bytes": 2,
+    "sha256": "7de1555df0c2700329e815b93b32c571c3ea54dc967b89e81ab73b9972b72d1d",
+    "retained_in_git": false
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/cloud-ui/UI26/logs/run.log",
+    "bytes": 4181,
+    "sha256": "77279f7e79e443fbf63b0b40e674f7efa916cdffa9d440e0b8223397e83ec56e",
+    "retained_in_git": true
+  },
+  {
+    "path": "/workspace/tmp/pixelelated-m7-cloud-ui-07/artifacts/disk-initial.json",
+    "bytes": 1050,
+    "sha256": "c04f3f693daa12187306becd61cb8a2b11a9df86fb53668fb2a322ea605cdcb1",
+    "retained_in_git": true
+  }
+]

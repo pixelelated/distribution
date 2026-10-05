@@ -1,0 +1,40 @@
+{
+  "passed": false,
+  "issue": 447,
+  "command_rc": 0,
+  "checks": 24,
+  "reviewed_utc": "2026-10-05T16:15:19.025350+00:00",
+  "reviewed_frames": [
+    {
+      "file": "01-local-redirect.png",
+      "sha256": "cec567d20eda071aabc3eaa667d11df0f449c766becae9ce6f2792801cc94f49",
+      "observation": "PASS clean local redirect form."
+    },
+    {
+      "file": "02-finishing-marker-stand-in.png",
+      "sha256": "81db1962e3e9a8de951eb915e52870ff271b759058d53af0cc8dc51d1cbf64fe",
+      "observation": "FAIL intended capture: old local form despite exact finishing document recorded and stable surface."
+    },
+    {
+      "file": "03-public-dropbox-login.png",
+      "sha256": "e1bf807c32fdafa4a55fb0c7053704ee8ca48f479d3a539d972582af2c2f4560",
+      "observation": "PASS public Dropbox login and cookie controls; no authenticated trust."
+    },
+    {
+      "file": "04-phone-checking.png",
+      "sha256": "910c847e497120d068f86e6042999e6eaa7c5f957b0c89855ff459c28f3cf6c1",
+      "observation": "PASS actual390px Checking state."
+    },
+    {
+      "file": "05-phone-connected.png",
+      "sha256": "ec309e31b63d64a8921861f8405d0fdf8a3360af7343be988cc829a6558dab42",
+      "observation": "PASS actual390px Connected state and controls."
+    },
+    {
+      "file": "06-actual-oauth-provider.png",
+      "sha256": "167289d20256a5eb23402ad8c444ccbf84f8306a0a23676f4944f75e82f10fff",
+      "observation": "PASS public OAuth provider login/cookie controls; no authenticated trust."
+    }
+  ],
+  "reason": "Exact loaded document and stable HMP pixels alone do not prove intended visible capture; diagnostic01 subsequently finds native/HMP discrepancy."
+}

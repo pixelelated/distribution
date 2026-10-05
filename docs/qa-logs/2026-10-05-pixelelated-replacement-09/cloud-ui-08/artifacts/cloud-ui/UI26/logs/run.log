@@ -1,0 +1,71 @@
+09:40:14 === cloud-epic on guest d, BUILD_ID="cf511ce79b83cba7fea8b14cfa3d04fb13e4b4fb"
+232
+09:40:14 == setup: the QA remote on the guest (the host backend's conf), then the QA cloud holds the fork's earlier layout with files in every folder of ours; the guest points at it
+remote: qa-cloud:
+09:40:16   cloud: ROCKNIX/Backups/2026_09_29-090000-Retroid-Pocket-Nova-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Backups/2026_09_30-120000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Content/BIOS/disksys.rom ROCKNIX/Content/ROMs/nes/Probe.nes ROCKNIX/Saves-replaced/nes/Probe.srm.1 ROCKNIX/Saves/nes/Probe.srm 
+09:40:16   guest conf: SAVES_REMOTE="/ROCKNIX/Saves" SETTINGS_REMOTE="/ROCKNIX/Backups" CONTENT_REMOTE="/ROCKNIX/Content" LAYOUT_KEEP="" 
+label=GENERIC-X64
+09:40:44   picks reset: content=0 saves=1
+09:41:04 == UI26: unsupported marker refusal through actual transfer page
+09:41:42   reboot_guest: /isIdle yes after 1s
+settle: still after 1.9s
+dismiss-dialogs: 1 press(es) moved the screen, back on the carousel
+changed after 0.1s (`key ret`, line 3)
+settle: still after 1.7s
+changed after 0.1s (`key x`, line 6)
+settle: still after 1.3s
+changed after 0.1s (`key up`, line 9)
+changed after 0.1s (`key up`, line 11)
+changed after 0.1s (`key up`, line 13)
+settle: still after 1.3s
+changed after 0.1s (`key x`, line 16)
+settle: still after 1.3s
+captured /workspace/tmp/pixelelated-m7-cloud-ui-08/artifacts/cloud-ui/UI26/frames/01-UI26-malformed-hub.png
+changed after 0.1s (`key down`, line 20)
+changed after 0.1s (`key x`, line 22)
+captured /workspace/tmp/pixelelated-m7-cloud-ui-08/artifacts/cloud-ui/UI26/frames/02-UI26-malformed-scan-0.png
+captured /workspace/tmp/pixelelated-m7-cloud-ui-08/artifacts/cloud-ui/UI26/frames/03-UI26-malformed-scan-1.png
+settle: still after 3.4s
+captured /workspace/tmp/pixelelated-m7-cloud-ui-08/artifacts/cloud-ui/UI26/frames/04-UI26-malformed-after-scan.png
+09:42:17 PASS walk epic-UI26-malformed.steps
+09:42:18 PASS UI26 malformed scan has no success stamp
+09:42:18 PASS UI26 malformed installed scan refuses unsupported marker
+09:42:18 PASS UI26 malformed UI/scan preserve every cloud byte and marker
+09:42:18 PASS UI26 malformed UI/scan preserve every pointer and keep choice
+captured /workspace/tmp/pixelelated-m7-cloud-ui-08/artifacts/cloud-ui/UI26/frames/01-UI26-malformed-refusal.png
+changed after 0.1s (`key z`, line 2)
+settle: still after 1.3s
+dismiss-dialogs: 4 press(es) moved the screen, back on the carousel
+09:42:29 PASS walk epic-UI26-malformed-close.steps
+09:43:07   reboot_guest: /isIdle yes after 1s
+settle: still after 1.9s
+dismiss-dialogs: 1 press(es) moved the screen, back on the carousel
+changed after 0.0s (`key ret`, line 3)
+settle: still after 1.7s
+changed after 0.1s (`key x`, line 6)
+settle: still after 1.3s
+changed after 0.1s (`key up`, line 9)
+changed after 0.0s (`key up`, line 11)
+changed after 0.1s (`key up`, line 13)
+settle: still after 1.3s
+changed after 0.0s (`key x`, line 16)
+settle: still after 1.3s
+captured /workspace/tmp/pixelelated-m7-cloud-ui-08/artifacts/cloud-ui/UI26/frames/01-UI26-future-hub.png
+changed after 0.1s (`key down`, line 20)
+changed after 0.1s (`key x`, line 22)
+captured /workspace/tmp/pixelelated-m7-cloud-ui-08/artifacts/cloud-ui/UI26/frames/02-UI26-future-scan-0.png
+captured /workspace/tmp/pixelelated-m7-cloud-ui-08/artifacts/cloud-ui/UI26/frames/03-UI26-future-scan-1.png
+settle: still after 3.4s
+captured /workspace/tmp/pixelelated-m7-cloud-ui-08/artifacts/cloud-ui/UI26/frames/04-UI26-future-after-scan.png
+09:43:43 PASS walk epic-UI26-future.steps
+09:43:43 PASS UI26 future scan has no success stamp
+09:43:43 PASS UI26 future installed scan refuses unsupported marker
+09:43:43 PASS UI26 future UI/scan preserve every cloud byte and marker
+09:43:43 PASS UI26 future UI/scan preserve every pointer and keep choice
+captured /workspace/tmp/pixelelated-m7-cloud-ui-08/artifacts/cloud-ui/UI26/frames/01-UI26-future-refusal.png
+changed after 0.1s (`key z`, line 2)
+settle: still after 1.3s
+dismiss-dialogs: 4 press(es) moved the screen, back on the carousel
+09:43:55 PASS walk epic-UI26-future-close.steps
+09:43:55 PASS supplemental UI route launched no game
+09:43:55 done: 13 PASS, 0 FAIL

@@ -1,0 +1,47 @@
+{
+  "passed": false,
+  "issue": 447,
+  "command_rc": 0,
+  "checks": 21,
+  "reviewed_frames": [
+    {
+      "file": "01-local-redirect.png",
+      "sha256": "cec567d20eda071aabc3eaa667d11df0f449c766becae9ce6f2792801cc94f49",
+      "observation": "PASS actual stable local redirect frame fully painted.",
+      "reviewed_utc": "2026-10-05T09:57:25.680259+00:00"
+    },
+    {
+      "file": "02-finishing-marker-stand-in.png",
+      "sha256": "81db1962e3e9a8de951eb915e52870ff271b759058d53af0cc8dc51d1cbf64fe",
+      "observation": "FAIL intended page: stable captured old QA redirect page; Connected/Finishing absent.",
+      "reviewed_utc": "2026-10-05T09:57:25.680380+00:00"
+    },
+    {
+      "file": "03-public-dropbox-login.png",
+      "sha256": "e1bf807c32fdafa4a55fb0c7053704ee8ca48f479d3a539d972582af2c2f4560",
+      "observation": "PASS public touch login with cookie controls.",
+      "reviewed_utc": "2026-10-05T09:57:25.680478+00:00"
+    },
+    {
+      "file": "04-phone-checking.png",
+      "sha256": "910c847e497120d068f86e6042999e6eaa7c5f957b0c89855ff459c28f3cf6c1",
+      "observation": "PASS actual390px Checking phone state and expected controls.",
+      "reviewed_utc": "2026-10-05T09:57:25.680559+00:00"
+    },
+    {
+      "file": "05-phone-connected.png",
+      "sha256": "ec309e31b63d64a8921861f8405d0fdf8a3360af7343be988cc829a6558dab42",
+      "observation": "PASS actual390px Connected phone state and expected spacing/controls.",
+      "reviewed_utc": "2026-10-05T09:57:25.680633+00:00"
+    },
+    {
+      "file": "06-actual-oauth-provider.png",
+      "sha256": "fb13c2651144fe3e6e1a0803b92deebf1955368e7a88a8b46a56f65d40198915",
+      "observation": "PASS public OAuth login with cookie controls; no authenticated trust claim.",
+      "reviewed_utc": "2026-10-05T09:57:25.680705+00:00"
+    }
+  ],
+  "reason": "Stable old local form is not finishing-state acceptance.",
+  "four_positive_stability_receipts": true,
+  "actual_unsettled_zero_exit_rejected": true
+}

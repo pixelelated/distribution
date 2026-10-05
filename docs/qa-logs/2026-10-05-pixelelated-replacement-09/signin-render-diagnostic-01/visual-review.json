@@ -1,0 +1,49 @@
+{
+  "issue": 447,
+  "command_rc": 0,
+  "candidate_qualification": false,
+  "reviewed_utc": "2026-10-05T16:15:19.025350+00:00",
+  "reviewed_frames": [
+    {
+      "file": "render-00-qemu.png",
+      "sha256": "81db1962e3e9a8de951eb915e52870ff271b759058d53af0cc8dc51d1cbf64fe",
+      "observation": "Old local form persists."
+    },
+    {
+      "file": "render-00-grim.png",
+      "sha256": "6afa36c72fca1186732068eafe13319984a9b9182b4b2e66ca12a9d4ab961f3f",
+      "observation": "Correct Connected/Finishing page."
+    },
+    {
+      "file": "render-05-qemu.png",
+      "sha256": "be4de073b416e327dd905c1090fa1224e647d1ff420a5f68691f65704e058c40",
+      "observation": "Old local form persists."
+    },
+    {
+      "file": "render-05-grim.png",
+      "sha256": "6afa36c72fca1186732068eafe13319984a9b9182b4b2e66ca12a9d4ab961f3f",
+      "observation": "Correct Connected/Finishing page."
+    },
+    {
+      "file": "render-15-qemu.png",
+      "sha256": "68a39b5225e347322b2c7ec1b56a4fa1ce3a9dd1e39504c17dbf044c71eaff50",
+      "observation": "Old local form persists."
+    },
+    {
+      "file": "render-15-grim.png",
+      "sha256": "6afa36c72fca1186732068eafe13319984a9b9182b4b2e66ca12a9d4ab961f3f",
+      "observation": "Correct Connected/Finishing page."
+    },
+    {
+      "file": "after-resize-qemu.png",
+      "sha256": "68a39b5225e347322b2c7ec1b56a4fa1ce3a9dd1e39504c17dbf044c71eaff50",
+      "observation": "Correct Connected/Finishing page after controlled fullscreen toggle."
+    },
+    {
+      "file": "after-resize-grim.png",
+      "sha256": "6afa36c72fca1186732068eafe13319984a9b9182b4b2e66ca12a9d4ab961f3f",
+      "observation": "Correct Connected/Finishing page after controlled fullscreen toggle."
+    }
+  ],
+  "finding": "At declared0/5/15seconds HMP and native compositor disagree; after resize agree. Underlying cause not established."
+}

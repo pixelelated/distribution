@@ -1,0 +1,41 @@
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-03/diagnostic-provenance.json: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-03/outer.sh: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-03/persistent-diagnostic-provenance.json: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-03/persistent_viewer.py: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-03/prepare-dirs.py: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-03/provenance.json: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-03/reboot-fault-provenance.json: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-03/render-provenance.json: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-03/required-directories.json: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-03/run.sh: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-03/seed.py: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-03/signin-proof.py: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-03/stable_panel.py: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-03/stop-guest.py: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-03/successor-provenance.json: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-03/transition-provenance.json: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-03/verify-inputs.py: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-03/vnc-diagnostic-provenance.json: OK
+PASS owned private pair/artifacts directories ready
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/79d560046ee52e28b72f16588168dd7c8fb2637c1cc585713216a8ec828e9d81
+Preparing independent 16GiB guest d from the verified pixelelated image
+Image resized.
+No errors were found on the image.
+31695/262144 = 12.09% allocated, 0.00% fragmented, 0.00% compressed clusters
+Image end offset: 2077818880
+[W][16:19:23.207338] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:19:23.207371] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+ready after ~30s
+PASS guest d exact BUILD_ID and OS_NAME cf511ce79b83cba7fea8b14cfa3d04fb13e4b4fb pixelelated
+PASS QA ROM bytes /storage/roms/gb/Ninoid.gb a40191c169c68e6607ace072da96aab957f306f55ded59ce1f287c1f5273387b
+PASS QA ROM bytes /storage/roms/gbc/Tobu Tobu Girl Deluxe.gb 0a0e8018dbbc8d7f8cd99f05e7cdc7b4cc9e358ecfe9377ebfb2291a84c6e310
+PASS QA ROM bytes /storage/roms/nes/Bobl.nes 025ec44d0d84ac469b442ee56c3d69e035e9a38430ae849172fe3a1e569d0dea
+PASS guest d seeded and idle
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-signin-render-diagnostic-03/signin-proof.py", line 11, in <module>
+    from persistent_viewer import observe_frames
+  File "/workspace/tmp/pixelelated-m7-signin-render-diagnostic-03/persistent_viewer.py", line 2, in <module>
+    from PIL import Image
+ModuleNotFoundError: No module named 'PIL'
+PASS owned guest stopped 2197633

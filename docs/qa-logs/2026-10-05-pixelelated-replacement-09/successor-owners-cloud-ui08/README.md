@@ -1,0 +1,3 @@
+# Post-reboot cloud fault qualification owners
+
+Refs #446. Three fresh sealed owners preserve the failed cloud-ui07 and the unstarted signin-ui07/signin-1g07. Preparation2c6ff8=0; separate source seal/directory/order assertions succeeded before an unset ES_SRC stopped the independent verifier (22ec37=1, no launch/mutation). Explicit ES_SRC verifier a64d85=0 then proves candidate custody from the frozen cwd; sealed run.sh already sets this environment. M7 readback14cd00=0 precedes cloud-ui08 submissionda33dc. Product image and preservation assertions unchanged; post-reboot fault controls must pass before wizard input.

@@ -1,0 +1,38 @@
+{
+  "observed_utc": "2026-10-05T16:02:21.510774+00:00",
+  "submission_tool_chunk": "a31e0b",
+  "submission_rc": 0,
+  "job_rc": 0,
+  "job_result_source": "/workspace/tmp/pixelelated-m7-signin-ui-10/launcher-result.json",
+  "result_channels": {
+    "/workspace/tmp/pixelelated-m7-signin-ui-10/inner.rc": 0,
+    "/workspace/tmp/pixelelated-m7-signin-ui-10/outer.rc": 0,
+    "/workspace/tmp/pixelelated-m7-signin-ui-10/tool-wrapper.rc": 0,
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/.build-runs/20261005T100015Z-82729f80/build.rc": 0
+  },
+  "owned_processes": [
+    {
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/.build-runs/20261005T100015Z-82729f80/build.pid",
+      "pid": 660927,
+      "state": "absent"
+    },
+    {
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/.build-runs/20261005T100015Z-82729f80/watcher.pid",
+      "pid": 660932,
+      "state": "absent"
+    },
+    {
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/.build-runs/20261005T100015Z-82729f80/command.pid",
+      "pid": 660966,
+      "state": "absent"
+    },
+    {
+      "source": "/workspace/tmp/pixelelated-m7-signin-ui-10/guest.pid",
+      "pid": 661714,
+      "state": "absent"
+    }
+  ],
+  "qemu_absent": true,
+  "run": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/.build-runs/20261005T100015Z-82729f80",
+  "build_log_sha256": "0e8521bedac7b602ca3ce3cb6d46a1ead6a6455950cac2a0c7492bde7fe08daa"
+}

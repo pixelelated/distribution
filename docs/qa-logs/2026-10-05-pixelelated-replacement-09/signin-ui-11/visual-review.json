@@ -1,0 +1,49 @@
+{
+  "passed": true,
+  "issue": 447,
+  "command_rc": 0,
+  "checks": 27,
+  "reviewed_utc": "2026-10-05T16:36:41.174934+00:00",
+  "reviewed_frames": [
+    {
+      "file": "01-local-redirect.png",
+      "sha256": "cec567d20eda071aabc3eaa667d11df0f449c766becae9ce6f2792801cc94f49",
+      "observation": "Clean local302 form, complete pixels."
+    },
+    {
+      "file": "02-finishing-marker-stand-in.png",
+      "sha256": "68a39b5225e347322b2c7ec1b56a4fa1ce3a9dd1e39504c17dbf044c71eaff50",
+      "observation": "Correct Connected/Finishing page, exact reference comparison passes."
+    },
+    {
+      "file": "03-public-dropbox-login.png",
+      "sha256": "f6c22fe2cd536549505ecae65a86dd32a45867bdeea415c8110a9316ccbac6ed",
+      "observation": "Public touch Dropbox login/cookie controls; no authenticated trust claim."
+    },
+    {
+      "file": "04-phone-checking.png",
+      "sha256": "910c847e497120d068f86e6042999e6eaa7c5f957b0c89855ff459c28f3cf6c1",
+      "observation": "Actual390px Checking page with expected controls."
+    },
+    {
+      "file": "05-phone-connected.png",
+      "sha256": "ec309e31b63d64a8921861f8405d0fdf8a3360af7343be988cc829a6558dab42",
+      "observation": "Actual390px Connected page with expected .75rem margins."
+    },
+    {
+      "file": "06-actual-oauth-provider.png",
+      "sha256": "167289d20256a5eb23402ad8c444ccbf84f8306a0a23676f4944f75e82f10fff",
+      "observation": "Actual public OAuth provider login/cookie controls; no authenticated trust claim."
+    }
+  ],
+  "four_positive_stability_receipts": true,
+  "actual_unsettled_zero_exit_rejected": true,
+  "old_partial_wrong_size_pixels_rejected": true,
+  "renderer": "actual canonical virtio-gpu-gl/egl-headless",
+  "limitations": [
+    "Finishing done-file is explicit stand-in; no real sign-in result claimed.",
+    "Authenticated Dropbox trust remains separate.",
+    "Software VM scanout discrepancy is preserved, not repaired by product changes.",
+    "Diagnostic04 one-time UA failure remains unexplained; later request evidence is retained."
+  ]
+}

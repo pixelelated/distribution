@@ -1,0 +1,70 @@
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-05/diagnostic-provenance.json: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-05/outer.sh: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-05/persistent-diagnostic-provenance.json: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-05/persistent_viewer.py: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-05/prepare-dirs.py: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-05/provenance.json: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-05/reboot-fault-provenance.json: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-05/render-provenance.json: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-05/request-diagnostic-provenance.json: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-05/required-directories.json: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-05/run.sh: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-05/seed.py: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-05/signin-proof.py: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-05/stable_panel.py: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-05/stdlib-viewer-provenance.json: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-05/stop-guest.py: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-05/successor-provenance.json: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-05/transition-provenance.json: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-05/verify-inputs.py: OK
+/workspace/tmp/pixelelated-m7-signin-render-diagnostic-05/vnc-diagnostic-provenance.json: OK
+PASS owned private pair/artifacts directories ready
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/79d560046ee52e28b72f16588168dd7c8fb2637c1cc585713216a8ec828e9d81
+Preparing independent 16GiB guest d from the verified pixelelated image
+Image resized.
+No errors were found on the image.
+31695/262144 = 12.09% allocated, 0.00% fragmented, 0.00% compressed clusters
+Image end offset: 2077818880
+[W][16:25:24.448059] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:25:24.448087] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+ready after ~32s
+PASS guest d exact BUILD_ID and OS_NAME cf511ce79b83cba7fea8b14cfa3d04fb13e4b4fb pixelelated
+PASS QA ROM bytes /storage/roms/gb/Ninoid.gb a40191c169c68e6607ace072da96aab957f306f55ded59ce1f287c1f5273387b
+PASS QA ROM bytes /storage/roms/gbc/Tobu Tobu Girl Deluxe.gb 0a0e8018dbbc8d7f8cd99f05e7cdc7b4cc9e358ecfe9377ebfb2291a84c6e310
+PASS QA ROM bytes /storage/roms/nes/Bobl.nes 025ec44d0d84ac469b442ee56c3d69e035e9a38430ae849172fe3a1e569d0dea
+PASS guest d seeded and idle
+PASS installed chassis is handset
+PASS installed usr/bin/cloud-signin-window matches exact image payload
+PASS installed usr/bin/cloud_oauth matches exact image payload
+PASS persistent read-only VNC viewer obtained initial frame
+PASS installed window follows real HTTP302
+PASS installed window sends Mobile Safari UA
+PASS actual navigator.userAgent echoes Mobile Safari/605.1.15
+PASS 01-local-redirect rendered surface is stable
+captured /workspace/tmp/pixelelated-m7-signin-render-diagnostic-05/artifacts/signin/01-local-redirect.png
+PASS 01-local-redirect is panel-sized
+PASS finishing predicate rejects actual prior local page
+PASS actual done marker reached the running installed window
+PASS installed page record changed to the exact Connected/Finishing document
+PASS 02-finishing-marker-stand-in rendered surface is stable
+captured /workspace/tmp/pixelelated-m7-signin-render-diagnostic-05/artifacts/signin/02-finishing-marker-stand-in.png
+PASS 02-finishing-marker-stand-in is panel-sized
+PASS finishing document remains current at offset0
+captured /workspace/tmp/pixelelated-m7-signin-render-diagnostic-05/artifacts/signin/render-00-qemu.png
+PASS render-00 VNC capture is panel-sized
+PASS render-00 native compositor capture is panel-sized
+PASS finishing document remains current at offset5
+captured /workspace/tmp/pixelelated-m7-signin-render-diagnostic-05/artifacts/signin/render-05-qemu.png
+PASS render-05 VNC capture is panel-sized
+PASS render-05 native compositor capture is panel-sized
+PASS finishing document remains current at offset15
+captured /workspace/tmp/pixelelated-m7-signin-render-diagnostic-05/artifacts/signin/render-15-qemu.png
+PASS render-15 VNC capture is panel-sized
+PASS render-15 native compositor capture is panel-sized
+PASS persistent viewer stayed connected without errors or input
+PASS bounded compositor/capture diagnostic collected; semantic interpretation required
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/79d560046ee52e28b72f16588168dd7c8fb2637c1cc585713216a8ec828e9d81
+PASS frozen source inputs, ES pin and candidate input custody
+PASS bounded render diagnostic; no sign-in qualification claim
+PASS owned guest stopped 2222561
