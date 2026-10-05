@@ -1,0 +1,10 @@
+RAM    62347MB total, 18963MB used, 43383MB available
+Swap   8191MB total, 8191MB used, 0MB free
+Disk   400G free of 3.6T  (not the usual limit)
+
+  SWAP EXHAUSTED: 0MB of 8191MB free. There is no cushion;
+    the next spike is an OOM kill rather than a slowdown. To reclaim it:
+      tools/build-preflight --reclaim-swap
+    Uses the installed guarded /swap.img helper; see tools/host-maintenance/README.md.
+
+Worth clearing the above first; a build that finishes beats one that is fast.

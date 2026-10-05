@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Saved 2026-10-05T19:25:51.313854+00:00. Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261005T192551Z.md`.
+> Saved 2026-10-05T19:16:36.210705+00:00. Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261005T191636Z.md`.
 > Branch feature/conflict-resolution; primary /workspace/repos/rocknix stays next.
 
 ## Start here
@@ -21,12 +21,12 @@ The archive above preserves all earlier failed/successful artifact history.
 
 User authorizes ordinary fixes/tests/isolated VMs, explicit-commit integration
 onto next and normal fork pushes. Physical-device actions, personal-cloud
-mutations and publication retain their named gates. No goal tool created. Prior fresh-context resume proofs are preserved with
-full historical context in the checkpoint archives. Latest read-only proof
-m7_pixman_frozen10_resume_proof independently verified all6549product/201QA/
-180symlink inputs, six build-harness and153QA-harness members, successful cache
-completion and first build refusal. Corrections: helper is already committed;
-old undated proof times removed; M7 competing current priorities reconciled.
+mutations and publication retain their named gates. No goal tool created. Fresh-context resume proof at18:37 passed source,
+bundle, live process and next-action checks; its shorthand/historical-label
+findings are corrected. Retained in replacement03/resume-proof.md. Fresh-context settings_permissions
+resume proof at19:29 also verified all6547 sources/180 symlinks,11 bundle
+files,live regression and7 unstarted owners. Its stale readiness paragraph
+and precise harness-manifest wording findings are corrected.
 A helper installation is COMPLETE; do not ask to reinstall it.
 
 
@@ -53,64 +53,60 @@ Evidence docs/qa-logs/2026-10-05-generic-x64-pixman/ (114 retained members).
 These checks prove selection, not installation/rendering. Prior runtime Pixman
 and actual ROCKNIX RC2 history are in the archived checkpoint and frozen09.
 
-## Current build and running QA14
+## In Progress — independent replacement10 cache copy
 
 Frozen tree /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement10,
 branch build/m7-pixelelated-replacement10, commitd6e8390c93bed87efe2dcc23cd402a271cacd1c7.
-Original freeze/cache owner /workspace/tmp/pixelelated-m7-replacement-10.
-Manifest0b24bfcd0d7dad134872b88ed6a2955ddaf9cdf9d55f8a25c17fa5e2de36ad51:
-6549product/180symlinks/201QA. Product and canonical container unchanged.
+Build owner /workspace/tmp/pixelelated-m7-replacement-10. Manifest
+0b24bfcd0d7dad134872b88ed6a2955ddaf9cdf9d55f8a25c17fa5e2de36ad51:
+6549product files/180symlinks/201QAfiles. ESf6f0c134212bc696f2f6a747c8d390a588f2f0ce.
+The QA changes since09 are already-published claims.txt, run-transfer-frames.steps
+and watch-build-submit. No dependency bump. Canonical container digest988c0ba...
+and worktree mount /workspace/repos/rocknix.worktrees/m7-pixelelated are retained.
 
-Cache completed19:22:21: empty checksum comparison,2526399 independent files,
-all result channels0, actualb53cb1 cleanup19:22:43/all8PIDs absent. Original root
-build attempt refused swap before compilation (durable19:22:48 rc1). Its caller
-lacked fail-fast; inner guard held. build-refusal.json confirms missing start/
-run.path/inner.rc and actual5cc528 cleanup19:24:03. Never replay this owner.
-Unrelated containers are not ours to stop. Fixed helper reclaimed swap safely.
+Cache owner CHILD /workspace/tmp/pixelelated-m7-replacement-10/cache-copy.
+Actual launchc5fcc1 at19:09:13: launcher3005624, runner3005625,
+watcher3005626, command3005655. Run:
+/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement10/.build-runs/20261005T190913Z-df6ff1a0.
+Parent copy.run points there. Copy104.25GB of file content finished19:14:01;
+checksum comparison is running at checkpoint time, followed by independent
+inode checks. Actual19:14:48 rsync3026921/3026922 have read6.9/6.7GB each.
+Do not edit executing source or treat quiet checksum logs as proven stall.
+Observe actual /proc and I/O if watcher reports suspected inactivity.
 
-Fresh build owner /workspace/tmp/pixelelated-m7-replacement-10-build02 has the
-identical manifest/cache receipts. Actual52de55 submitted19:24:34 after
-fail-fast preflight. Build completed19:26:30,642/642,allfour0. Actual047d1c
-19:26:43 proves all4owner PIDs absent and observedc51a20b1 container removed.
-Installed wrapper/drop-in match frozen bytes. Immutable bundle:
-/workspace/artifacts/pixelelated-candidates/sha256/1c69bcf5ab6ebdc3e893a6a989545ac7a23359f0e07baef4e9c2beaca94c52b4
-Image1cc9c22d63286fbe5d6bdf7f1826d5d977798a472c7f87f8546c1d272a6492bb;
-tara9fa66dc63fdb42678a98c42b3abbe84d20f623eb922501bd36f0aa50dfdc1a3.
-Image12 completed19:27:17/allfour0; actuald62687cleanup19:27:23/noQEMU.
-Raw GPT image/update SYSTEM both5bf4888cfcb29798887f2daab0858981a969e8d3eb71797c0a0a18ffde42cf32.
-Extracted root /workspace/tmp/pixelelated-m7-image-12/root.
-Retained docs/qa-logs/2026-10-05-pixelelated-replacement-10/.
+Preflighte41413 correctly refused exhausted swap before submission. Installed
+fixed helper actual65b66c=0 reclaimed /swap.img while idle; subsequent c5fcc1
+preflight35GBavailable/8GBswapfree. Preserve prelaunch-before-reclaim.txt and
+swap-reclaim-observation.json. No helper reinstall or broad sudo.
 
-ACTIVE QA14 /workspace/tmp/pixelelated-m7-qa-14 submitted5e8d69 at19:27:43.
-Launcher3210173/runner3210174/watcher3210175; run
-/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement10/.build-runs/20261005T192743Z-7c965ec8.
-Guests3210987/3211017 launched19:27:58; initial startup at19:28:22, no suite
-acceptance yet. This owner runs defaults/currentclaims, actualRC2upgrade,
-installed clean/upgrade virgl and upgraded software selection proof.
-The generic launch helper first refused missing required-directories.json on
-QA14 before submission; corrected to its actual explicit pair/artifacts0700
-contract. QA14 owner source/seal unchanged; no phantom failed execution.
-
-Poll /tmp/pixelelated-poll-owner.py OWNER [copy.run]; actual observation log
-/tmp/pixelelated-active-polls.jsonl. Observe within60seconds, do not claim
-perfect historical adherence. #395 still lacks disconnected delivery.
+No VM is running. The image build has NOT STARTED; owner root stays fresh.
+The prior09 tree, cache, bundle and QA owners remain immutable.
+Active poll helper /tmp/pixelelated-poll-owner.py OWNER [copy.run] records real
+observations in /tmp/pixelelated-active-polls.jsonl. Recorder is not disconnected
+delivery: #395 still has no configured destination. Observe within60seconds;
+one preparation interval this turn was61.7seconds, not perfect compliance.
 
 ## Next Steps — execute in order
 
-1. Observe active QA14; do not submit it again. Require matching launcher/inner/
-   outer/wrapper/runner results, real guest and owner cleanup, suite artifacts
-   and direct identity frames. /tmp/pixelelated-complete-durable.py OWNER 0
-   checks actual host process absence; owner pair pidfiles may be removed by
-   cleanup, so retain/verify every actually observed guest PID separately.
-2. Build02 bundle.path is authoritative; original root10/inputs.json remains
-   intentionally referenced by QA verifiers. Both input files match exactly.
-   Build/cache/image12 are complete. Never rerun their owners/preparers.
-3. Launch remaining prepared owners in order with
-   /tmp/pixelelated-launch-fallback.py OWNER from frozen10. It checks successful
-   build02, fresh owner/private dirs/seals/noQEMU before durable submission.
-   Require previous result/cleanup/frame acceptance before moving onward.
-4. QA14 is RUNNING. Remaining SEALED/UNSTARTED owners, inspect before launch:
-   signin-ui-14 → signin-ui-15 → signin-ui-16 → memory-12 → ui-14 →
+1. Observe cache-copy launcher-result.json, root copy.rc/copy.outer.rc and
+   runner build.rc/status. Require all0, cache-ready.rc0, empty
+   cache-compare.txt, independent inode proof, and actual owner PID absence.
+   Retain copy-completion.json. Do not rerun /tmp/pixelelated-freeze10.py or
+   either preparation script: they already created exclusive owners.
+2. From the frozen10 tree, verify owner/harness.sha256 and verify-source.py,
+   idle host/preflight, then start root owner exactly once:
+   `tools/watch-build-submit --owner /workspace/tmp/pixelelated-m7-replacement-10 -- --docker --interval 5 --stall-min 5 -- /workspace/tmp/pixelelated-m7-replacement-10/outer.sh`.
+   Standard --docker monitor watches package logs with structured build progress.
+   Verify actual container image/mounts/user while running, then all result
+   channels and actual process/container exit. build.sh removes only the new
+   tree's image stamp and checks installed wrapper/drop-in bytes and mode.
+3. Adapt /tmp/pixelelated-store09.py into a fresh store10 helper after verified
+   completion. Keep manifest-bound image+tar and checksums, logs, input/cache/
+   container receipts in the content-addressed pixelelated-candidates store.
+   Check assembled SYSTEM matches image/update SYSTEM; original image11 owner
+   is reference-only, never rerun it. This artifact is not yet a qualified RC.
+4. The following SEALED/UNSTARTED owners are prepared; inspect before launch:
+   qa-14 → signin-ui-14 → signin-ui-15 → signin-ui-16 → memory-12 → ui-14 →
    signin-1g-13 → signin-provider1g-05, all /workspace/tmp/pixelelated-m7-.
    Prep /tmp/pixelelated-prepare-fallback-qualification.py and regressions.py
    ALREADY RAN. Independent a1a8f3 verifies153sealed files, all directory/import/
@@ -133,7 +129,7 @@ perfect historical adherence. #395 still lacks disconnected delivery.
 
 ## Key Files and Context
 
-- Committed read-only helper: docs/qa-logs/2026-10-05-generic-x64-pixman/verify-installed-renderer.py;
+- New uncommitted helper: docs/qa-logs/2026-10-05-generic-x64-pixman/verify-installed-renderer.py;
   read-only installed bytes/unit/realGPU/process proof copied into153sealed members.
 - M7 body and #447 read back19:07 after source publication; #450 scoped closed.
 - Current source publisher /tmp/pixelelated-publish-pixman-source.py ALREADY RAN;
@@ -154,10 +150,6 @@ sandbox; actual custody requires escalated read. Fixed-port VM owners serialize;
 stop named owned PIDs only, never broad pkill. tools/watch-build records five-
 second heartbeat and five-minute inactivity; connected agent supervises actual
 completion. #395 destination still missing, so no disconnected alert claim.
-
-Primary next16c79050d6992be04b1b0ab30e5f0200d3dc83f3 includes the prior checkpoint;
-feature29d7c21a395e5aafe5f56b94fe4b62cf404239c4. This updated checkpoint and
-work log are local until the next normal publication. Frozen10 stays d6e8390c.
 
 P4 has NOT STARTED. #375/#382 initial reviews complete; don't restart them.
 Read full code-auditor skill/routing then use approved primary + Fable5.1/xhigh

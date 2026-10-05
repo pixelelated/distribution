@@ -1,0 +1,37 @@
+{
+  "observed_utc": "2026-10-05T19:24:42.308100+00:00",
+  "container": {
+    "id": "c51a20b1e3dcaf99d4d6684ccee81b485684e8c2d6e1fdbfa05b00df359078c6",
+    "image": "sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39",
+    "user": "1000:1000",
+    "working_dir": "/workspace/repos/rocknix.worktrees/m7-pixelelated",
+    "mounts": [
+      {
+        "type": "bind",
+        "source": "/home/max/.ROCKNIX/options",
+        "destination": "/home/max/.ROCKNIX/options",
+        "rw": true
+      },
+      {
+        "type": "bind",
+        "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement10",
+        "destination": "/workspace/repos/rocknix.worktrees/m7-pixelelated",
+        "rw": true
+      },
+      {
+        "type": "bind",
+        "source": "/workspace/repos/rocknix/.git",
+        "destination": "/workspace/repos/rocknix/.git",
+        "rw": true
+      },
+      {
+        "type": "bind",
+        "source": "/workspace/cache/rocknix-sources",
+        "destination": "/workspace/repos/rocknix.worktrees/m7-pixelelated/sources",
+        "rw": true
+      }
+    ],
+    "running": true,
+    "pid": 3080047
+  }
+}

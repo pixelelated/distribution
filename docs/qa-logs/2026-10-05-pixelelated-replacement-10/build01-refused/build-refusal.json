@@ -1,0 +1,26 @@
+{
+  "utc": "2026-10-05T19:24:03.035198+00:00",
+  "run": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement10/.build-runs/20261005T192243Z-64d60745",
+  "channels": {
+    "/workspace/tmp/pixelelated-m7-replacement-10/outer.rc": 1,
+    "/workspace/tmp/pixelelated-m7-replacement-10/tool-wrapper.rc": 1,
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement10/.build-runs/20261005T192243Z-64d60745/build.rc": 1
+  },
+  "absent_pids": [
+    3071862,
+    3071863,
+    3071864,
+    3071895
+  ],
+  "reason": "swap exhausted; inner preflight refused before compilation",
+  "outer_submission_preflight_mistake": "caller used semicolons without fail-fast; inner build guard held",
+  "missing_files": [
+    "build.start",
+    "run.path",
+    "inner.rc",
+    "container-actual.json"
+  ],
+  "no_qemu_or_owned_container": true,
+  "unrelated_containers": 16,
+  "first_cleanup_verifier_refused": "incorrectly required no unrelated containers; no cleanup result was written"
+}
