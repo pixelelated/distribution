@@ -1,0 +1,31 @@
+This device stores:
+  saves    qa-cloud:/GAMES
+  backups  qa-cloud:/GAMES/backup
+
+The current layout is:
+  saves    qa-cloud:/ROCKNIX/Saves
+  backups  qa-cloud:/ROCKNIX/Backups
+
+Would move, server-side, leaving anything else where it is:
+  qa-cloud:/GAMES/backup  ->  qa-cloud:/ROCKNIX/Backups
+  qa-cloud:/GAMES  ->  qa-cloud:/ROCKNIX/Saves
+
+Copying backups...
+Verifying backups...
+Now using /ROCKNIX/Backups for your settings backups.
+Removing the old backups folder...
+Copying saves...
+Verifying saves...
+Now using /ROCKNIX/Saves for your saves.
+Removing the old saves folder...
+Would copy, verify, then remove  qa-cloud:/GAMES/Content  ->  qa-cloud:/ROCKNIX/Content
+Copying content...
+Verifying content...
+Now using /ROCKNIX/Content for your ROMs, BIOS, and game content.
+Removing the old content folder...
+Content is now at qa-cloud:/ROCKNIX/Content.
+
+Done. Saves are at qa-cloud:/ROCKNIX/Saves, backups at qa-cloud:/ROCKNIX/Backups.
+Old folders were left in place if anything else was in them.
+
+M7_COMMAND_RC=0

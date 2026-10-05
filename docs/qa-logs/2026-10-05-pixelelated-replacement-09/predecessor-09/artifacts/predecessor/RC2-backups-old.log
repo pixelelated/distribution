@@ -1,0 +1,18 @@
+This device stores:
+  saves    qa-cloud:/GAMES
+  backups  qa-cloud:/GAMES/backup
+
+The current layout is:
+  saves    qa-cloud:/ROCKNIX/Saves
+  backups  qa-cloud:/ROCKNIX/Backups
+
+Would move, server-side, leaving anything else where it is:
+  qa-cloud:/GAMES/backup  ->  qa-cloud:/ROCKNIX/Backups
+  qa-cloud:/GAMES  ->  qa-cloud:/ROCKNIX/Saves
+
+Copying backups...
+injected QA provider operation failure
+Couldn't finish copying backups. Nothing was removed from the old folder; some files may already be in the new one.
+Nothing else attempted.
+
+M7_COMMAND_RC=5

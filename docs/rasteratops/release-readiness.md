@@ -7,9 +7,9 @@ Duo LCD wordmark (D-WORKFLOW-144/145); the cloud default is `/pixelelated`
 is unchanged. The required adoption flow is **ROCKNIX → pixelelated**;
 there are no fielded /Rasteratops systems requiring an additional gate.
 
-Status updated 2026-10-05T09:07:31.077678+00:00.
+Status updated 2026-10-05T09:24:37.030588+00:00.
 
-## Current gate — replacement09 memory qualification passed
+## Current gate — replacement09 bilingual UI qualification passed
 
 M7.P3 is current. The frozen candidate is source `cf511ce79b83cba7fea8b14cfa3d04fb13e4b4fb`, input manifest `817fd9ff49b1ecf6bcc859cfa38985a65fbcfe5514c33a0a5c9dd60af6cc6c6e`, immutable bundle `79d560046ee52e28b72f16588168dd7c8fb2637c1cc585713216a8ec828e9d81`. Build and inventory pass; 14 licence metadata gaps remain for P5.
 
@@ -35,14 +35,20 @@ Boot04/tool90675/all four rc0 passes four clean/upgraded boots at 640x480 and 12
 
 **Memory qualification passed:** memory11 durable09:04:57/allfourrc0 passes10virgl,10software and50software-with-sync measured launches after five warm-ups each. Virtual growth0KiB in all three; resident growth-208/788/624KiB, below unchanged1024/2048KiB limits. All55 sync stamps are distinct successful completions. Thirty-second sign-in page load passes with peak291924KiB; this is example.org, not provider authentication. Actualafe676=0 at09:05:33 proves all owner/guest processes absent/no QEMU; source/bundle reverified.440artifact hashes retained with raw cycle tables and stamps.
 
-**Current priority:** UI13 ACTIVE, submissionff7a02. Actual09:06:33 launcher413999/runner414000/watcher414005/command414039 and640panel guest414781 live. Watched run20261005T090612Z-35985aae. Standard watcher5second heartbeats/5minute inactivity; active supervision within60seconds. English/French640x480/1280x960 menu captures require direct visual review and ES lifetime proof before predecessor09. No RC/device-ready claim; disconnected alerts remain #395.
+**Bilingual UI qualification passed:** UI13 durable09:17:05/allfourrc0. All70 actual EN/FR640x480/1280x960 menu/Tools frames directly reviewed; all12 ES lifetime records pass, including actual Settings Back/Back save to Updates. Dimensions and intended pages pass. Actual8c4a9d=0 at09:17:24 verifies owner/guest absent/no QEMU. Source/bundle reverified;547artifact hashes/128public files retained. Boot04 supplies the separately accepted exact clean/upgraded boot matcher and negative controls. Earlier failed/interrupted UI owners remain unchanged. #422/#431 scoped closure follows publication.
 
-**Remaining order:** UI13 → predecessor09 → subset08 → cloud-ui07 → signin-ui07 → signin-1g07 → ordinary RetroAchievements proof → P4 primary OpenAI plus Fable5.1/xhigh through the verified Facilitator → H700 DDR4/RG35XX SP arm, then aarch64. Predecessor09 requires the completed boot04 proof and an actual UI13 visual review. External inputs and P5 publication gates remain recorded. Can this be done on the VM? **Yes.**
+**RC2 recovery passed:** predecessor09 durable09:19:19/allfourrc0 passes65 assertions across five states actually produced by the old RC2 migration script on the upgraded guest COW. All payloads and pointers recover; marker failure retains retry state; repeats preserve bytes. Actual81b7e2=0 at09:20:06 verifies owner/guest absent/noQEMU; original backing/source/bundle unchanged.157artifact hashes/139public files retained.
+
+**Subset HTTP qualification passed:** subset08 durable09:21:41/allfourrc0 passes35 installed assertions. A503 subset refusal keeps the queued award; retry refreshes its own game and uploads only the refused award. No stale deletion or duplicate base upload; empty repeat makes no request. Actualba9ad7=0 at09:22:44 proves owner/guest cleanup/noQEMU; source/bundle unchanged. Six public artifacts retain both flush results and real loopback request history. Synthetic QA data, not a new ordinary account award.
+
+**Current priority:** cloud-ui07 ACTIVE, submission2f3a27. Actual09:23:39 launcher491400/runner491401/watcher491403/command491440 and guest491855 live. Watched run20261005T092309Z-db61a4cf. Standard watcher5second heartbeats/5minute inactivity; active supervision within60seconds. UI17 wizard failure/recovery and UI26 unsupported-marker transfer refusal need commands plus actual frame review. No RC/device-ready claim; disconnected alerts remain #395.
+
+**Remaining order:** cloud-ui07 → signin-ui07 → signin-1g07 → ordinary RetroAchievements proof → P4 primary OpenAI plus Fable5.1/xhigh through the verified Facilitator → H700 DDR4/RG35XX SP arm, then aarch64. Predecessor09 consumed the completed boot04 proof and actual UI13 visual review. External inputs and P5 publication gates remain recorded. Can this be done on the VM? **Yes.**
 
 #433/#436 remain closed from their artifact-scoped replacement08 repair proofs. #437/#438 and #439/#440/#441 are closed with published scoped evidence; actual52959=0 verifies the latter three bodies/states. Content/settings publication49305=0 put featureb7f9cac3 on nexte1f2baaf, with both remote hashes verified. #442/#443 are closed completed; actual19135=0 verifies their acceptance bodies and states. These closures do not qualify the whole candidate.
 
 
-Latest normal publicationa981e3=0: featurefbc4cf75946d8d119a4066527ba51557edba90cf → next49012c27027593204c7db30d0e8bfffd8ad1c1ea, both remote hashes verified. #444 and #445 are closed completed; #445 closure/readback414e77=0 verifies allfour criteria from published evidence. Memory11 is now complete; UI13 is active.
+Latest normal publication534e2c=0: feature22834a6557b6846ee0dc63d97eceff9efbf0d8eb → next2f67ba428042e7580aa4f5f10c4d6fb8cfba356f, both remote hashes verified. #444/#445 closed completed. Current UI evidence follows that publication; original failures stay intact.
 ## Historical replacement06 qualification
 
 The following evidence applies only to frozen57cbc replacement06 and records

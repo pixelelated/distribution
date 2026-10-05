@@ -1,0 +1,65 @@
+[
+  {
+    "method": "GET",
+    "action": "patch",
+    "game": 100,
+    "achievement": 0,
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "action": "patch",
+    "game": 200,
+    "achievement": 0,
+    "status": 200
+  },
+  {
+    "method": "POST",
+    "action": "awardachievement",
+    "game": 0,
+    "achievement": 1,
+    "status": 200
+  },
+  {
+    "method": "POST",
+    "action": "awardachievement",
+    "game": 0,
+    "achievement": 2,
+    "status": 503
+  },
+  {
+    "method": "GET",
+    "action": "unlocks",
+    "game": 100,
+    "achievement": 0,
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "action": "unlocks",
+    "game": 200,
+    "achievement": 0,
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "action": "patch",
+    "game": 200,
+    "achievement": 0,
+    "status": 200
+  },
+  {
+    "method": "POST",
+    "action": "awardachievement",
+    "game": 0,
+    "achievement": 2,
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "action": "unlocks",
+    "game": 200,
+    "achievement": 0,
+    "status": 200
+  }
+]

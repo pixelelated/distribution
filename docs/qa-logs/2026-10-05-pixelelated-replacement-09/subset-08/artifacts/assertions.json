@@ -1,0 +1,142 @@
+[
+  {
+    "assertion": "actual packaged modules, no source override",
+    "passed": true
+  },
+  {
+    "assertion": "packaged detector recognizes pixelelated",
+    "passed": true
+  },
+  {
+    "assertion": "canonical account path is discovered without override",
+    "passed": true
+  },
+  {
+    "assertion": "reopen 1 retains all predecessor cache rows",
+    "passed": true
+  },
+  {
+    "assertion": "reopen 1 retains all predecessor pending rows",
+    "passed": true
+  },
+  {
+    "assertion": "reopen 1 retains base/subset award mapping",
+    "passed": true
+  },
+  {
+    "assertion": "reopen 1 retains synthetic cached sign-in",
+    "passed": true
+  },
+  {
+    "assertion": "reopen 1 backfills inherited game metadata",
+    "passed": true
+  },
+  {
+    "assertion": "reopen 2 retains all predecessor cache rows",
+    "passed": true
+  },
+  {
+    "assertion": "reopen 2 retains all predecessor pending rows",
+    "passed": true
+  },
+  {
+    "assertion": "reopen 2 retains base/subset award mapping",
+    "passed": true
+  },
+  {
+    "assertion": "reopen 2 retains synthetic cached sign-in",
+    "passed": true
+  },
+  {
+    "assertion": "reopen 2 backfills inherited game metadata",
+    "passed": true
+  },
+  {
+    "assertion": "legacy unsharded image path remains readable",
+    "passed": true
+  },
+  {
+    "assertion": "packaged resolver reads canonical synthetic account automatically",
+    "passed": true
+  },
+  {
+    "assertion": "real packaged service serves inherited game cache",
+    "passed": true
+  },
+  {
+    "assertion": "real service serves inherited base and subset sets",
+    "passed": true
+  },
+  {
+    "assertion": "queued award remains visible in game 100",
+    "passed": true
+  },
+  {
+    "assertion": "queued award remains visible in game 200",
+    "passed": true
+  },
+  {
+    "assertion": "real service serves original legacy image bytes",
+    "passed": true
+  },
+  {
+    "assertion": "offline service retains both queued awards without flushing",
+    "passed": true
+  },
+  {
+    "assertion": "owned packaged service stops cleanly",
+    "passed": true
+  },
+  {
+    "assertion": "flush uses installed module without source replacement",
+    "passed": true
+  },
+  {
+    "assertion": "base accepted and temporarily refused subset stays pending, not stale",
+    "passed": true
+  },
+  {
+    "assertion": "subset failure retains queued row with retry count",
+    "passed": true
+  },
+  {
+    "assertion": "actual HTTP patch refresh includes the subset own game200",
+    "passed": true
+  },
+  {
+    "assertion": "provider accepted only base before retry",
+    "passed": true
+  },
+  {
+    "assertion": "installed retry flushes subset without stale deletion",
+    "passed": true
+  },
+  {
+    "assertion": "provider receives both awards without resending successful base",
+    "passed": true
+  },
+  {
+    "assertion": "subset has exactly refused and successful HTTP attempts",
+    "passed": true
+  },
+  {
+    "assertion": "processed queue clears only after every award accepted",
+    "passed": true
+  },
+  {
+    "assertion": "subset unlock cache records actual accepted subset result",
+    "passed": true
+  },
+  {
+    "assertion": "completed retry writes actual one-award flush stamp",
+    "passed": true
+  },
+  {
+    "assertion": "empty repeat makes no provider request",
+    "passed": true
+  },
+  {
+    "assertion": "loopback provider stopped",
+    "passed": true
+  }
+]

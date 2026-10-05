@@ -1,0 +1,65 @@
+/workspace/tmp/pixelelated-m7-subset-08/guest-proof.py: OK
+/workspace/tmp/pixelelated-m7-subset-08/host-proof.py: OK
+/workspace/tmp/pixelelated-m7-subset-08/outer.sh: OK
+/workspace/tmp/pixelelated-m7-subset-08/prepare-dirs.py: OK
+/workspace/tmp/pixelelated-m7-subset-08/provenance.json: OK
+/workspace/tmp/pixelelated-m7-subset-08/required-directories.json: OK
+/workspace/tmp/pixelelated-m7-subset-08/run.sh: OK
+/workspace/tmp/pixelelated-m7-subset-08/stop-guest.py: OK
+/workspace/tmp/pixelelated-m7-subset-08/successor-provenance.json: OK
+/workspace/tmp/pixelelated-m7-subset-08/verify-inputs.py: OK
+PASS owned private pair/artifacts directories ready
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/79d560046ee52e28b72f16588168dd7c8fb2637c1cc585713216a8ec828e9d81
+Image resized.
+No errors were found on the image.
+31695/262144 = 12.09% allocated, 0.00% fragmented, 0.00% compressed clusters
+Image end offset: 2077818880
+[W][09:20:54.769665] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][09:20:54.769696] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+ready after ~30s
+PASS exact pixelelated replacement09 BUILD_ID
+PASS actual packaged modules, no source override
+PASS packaged detector recognizes pixelelated
+PASS canonical account path is discovered without override
+PASS reopen 1 retains all predecessor cache rows
+PASS reopen 1 retains all predecessor pending rows
+PASS reopen 1 retains base/subset award mapping
+PASS reopen 1 retains synthetic cached sign-in
+PASS reopen 1 backfills inherited game metadata
+PASS reopen 2 retains all predecessor cache rows
+PASS reopen 2 retains all predecessor pending rows
+PASS reopen 2 retains base/subset award mapping
+PASS reopen 2 retains synthetic cached sign-in
+PASS reopen 2 backfills inherited game metadata
+PASS legacy unsharded image path remains readable
+PASS packaged resolver reads canonical synthetic account automatically
+PASS real packaged service serves inherited game cache
+PASS real service serves inherited base and subset sets
+PASS queued award remains visible in game 100
+PASS queued award remains visible in game 200
+PASS real service serves original legacy image bytes
+PASS offline service retains both queued awards without flushing
+PASS owned packaged service stops cleanly
+PASS packaged account discovery, predecessor cache/sign-in/queue reopen and offline HTTP service
+PASS flush uses installed module without source replacement
+POST failed status=503 reason=Service Unavailable url=http://127.0.0.1:41849/dorequest.php?r=awardachievement&a=2&u=QA&h=0
+Flush network error: achievementId=2 retryCount=1 lastError=HTTP 503
+PASS base accepted and temporarily refused subset stays pending, not stale
+PASS subset failure retains queued row with retry count
+PASS actual HTTP patch refresh includes the subset own game200
+PASS provider accepted only base before retry
+PASS installed retry flushes subset without stale deletion
+PASS provider receives both awards without resending successful base
+PASS subset has exactly refused and successful HTTP attempts
+PASS processed queue clears only after every award accepted
+PASS subset unlock cache records actual accepted subset result
+PASS completed retry writes actual one-award flush stamp
+PASS empty repeat makes no provider request
+PASS loopback provider stopped
+PASS installed subset refresh, temporary refusal, retention and HTTP retry
+
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/79d560046ee52e28b72f16588168dd7c8fb2637c1cc585713216a8ec828e9d81
+PASS frozen source inputs, ES pin and candidate input custody
+PASS pixelelated replacement09 installed subset HTTP flush proof
+PASS owned guest stopped 481693

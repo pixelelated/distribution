@@ -1,0 +1,91 @@
+/workspace/tmp/pixelelated-m7-predecessor-09/archive-proof.py: OK
+/workspace/tmp/pixelelated-m7-predecessor-09/outer.sh: OK
+/workspace/tmp/pixelelated-m7-predecessor-09/predecessor-proof.py: OK
+/workspace/tmp/pixelelated-m7-predecessor-09/prepare-dirs.py: OK
+/workspace/tmp/pixelelated-m7-predecessor-09/provenance.json: OK
+/workspace/tmp/pixelelated-m7-predecessor-09/rc2-cloud-migrate-layout: OK
+/workspace/tmp/pixelelated-m7-predecessor-09/required-directories.json: OK
+/workspace/tmp/pixelelated-m7-predecessor-09/run.sh: OK
+/workspace/tmp/pixelelated-m7-predecessor-09/stop-guest.py: OK
+/workspace/tmp/pixelelated-m7-predecessor-09/successor-provenance.json: OK
+/workspace/tmp/pixelelated-m7-predecessor-09/verify-inputs.py: OK
+PASS owned private pair/artifacts directories ready
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/79d560046ee52e28b72f16588168dd7c8fb2637c1cc585713216a8ec828e9d81
+Formatting '/workspace/tmp/pixelelated-m7-predecessor-09/upgraded-overlay.qcow2', fmt=qcow2 cluster_size=65536 extended_l2=off compression_type=zlib size=17179869184 backing_file=/workspace/tmp/pixelelated-m7-qa-13/pair/vm-a.qcow2 backing_fmt=qcow2 lazy_refcounts=off refcount_bits=16
+up: webdav serving /workspace/tmp/pixelelated-m7-predecessor-09/cloud/data at http://127.0.0.1:9040 (guest: http://10.0.2.2:9040)
+[W][09:18:15.551408] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][09:18:15.551443] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+ready after ~18s
+PASS exact upgraded candidate BUILD_ID
+PASS installed migration equals frozen source
+PASS exact RC2 migration script transferred without substitutions
+PASS real profile selects provider-operation shim
+PASS RC2-backups predecessor returns actual operation failure
+PASS RC2-backups fault is reached
+PASS RC2-backups predecessor has no new-format recovery record
+PASS RC2-backups every inherited payload survives
+PASS RC2-backups installed candidate recovery succeeds
+PASS RC2-backups all candidate payload bytes match
+PASS RC2-backups no owned payload remains under earlier folders
+PASS RC2-backups exact completion marker published
+PASS RC2-backups every pointer follows recovered bytes
+PASS RC2-backups completed local record cleared
+PASS RC2-backups repeated migration preserves exact cloud bytes and pointers
+PASS RC2-saves predecessor returns actual operation failure
+PASS RC2-saves fault is reached
+PASS RC2-saves predecessor has no new-format recovery record
+PASS RC2-saves every inherited payload survives
+PASS RC2-saves installed candidate recovery succeeds
+PASS RC2-saves all candidate payload bytes match
+PASS RC2-saves no owned payload remains under earlier folders
+PASS RC2-saves exact completion marker published
+PASS RC2-saves every pointer follows recovered bytes
+PASS RC2-saves completed local record cleared
+PASS RC2-saves repeated migration preserves exact cloud bytes and pointers
+PASS RC2-content predecessor returns actual operation failure
+PASS RC2-content fault is reached
+PASS RC2-content predecessor has no new-format recovery record
+PASS RC2-content actual predecessor writes the reported split pointers
+PASS RC2-content every inherited payload survives
+PASS RC2-content installed candidate recovery succeeds
+PASS RC2-content all candidate payload bytes match
+PASS RC2-content no owned payload remains under earlier folders
+PASS RC2-content exact completion marker published
+PASS RC2-content every pointer follows recovered bytes
+PASS RC2-content completed local record cleared
+PASS RC2-content repeated migration preserves exact cloud bytes and pointers
+PASS RC2-complete predecessor completes old layout
+PASS RC2-complete predecessor has no new-format recovery record
+PASS RC2-complete every inherited payload survives
+PASS RC2-complete installed candidate recovery succeeds
+PASS RC2-complete all candidate payload bytes match
+PASS RC2-complete no owned payload remains under earlier folders
+PASS RC2-complete exact completion marker published
+PASS RC2-complete every pointer follows recovered bytes
+PASS RC2-complete completed local record cleared
+PASS RC2-complete repeated migration preserves exact cloud bytes and pointers
+PASS RC2-content-reinterrupted predecessor returns actual operation failure
+PASS RC2-content-reinterrupted fault is reached
+PASS RC2-content-reinterrupted predecessor has no new-format recovery record
+PASS RC2-content-reinterrupted actual predecessor writes the reported split pointers
+PASS RC2-content-reinterrupted every inherited payload survives
+PASS RC2-content-reinterrupted installed recovery reaches and returns marker failure
+PASS RC2-content-reinterrupted failed publication retains retry record without completion marker
+PASS RC2-content-reinterrupted boot offers retry
+PASS RC2-content-reinterrupted transfer scan offers retry
+PASS RC2-content-reinterrupted installed candidate recovery succeeds
+PASS RC2-content-reinterrupted all candidate payload bytes match
+PASS RC2-content-reinterrupted no owned payload remains under earlier folders
+PASS RC2-content-reinterrupted exact completion marker published
+PASS RC2-content-reinterrupted every pointer follows recovered bytes
+PASS RC2-content-reinterrupted completed local record cleared
+PASS RC2-content-reinterrupted repeated migration preserves exact cloud bytes and pointers
+PASS installed candidate migration remains unchanged
+PASS five RC2-script-created states on actual-upgrade candidate COW
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/79d560046ee52e28b72f16588168dd7c8fb2637c1cc585713216a8ec828e9d81
+PASS frozen source inputs, ES pin and candidate input custody
+PASS pixelelated installed recovery of RC2-script-created partial states
+PASS owned guest stopped 470587
+down
+/workspace/tmp/pixelelated-m7-qa-13/pair/vm-a.qcow2: OK
