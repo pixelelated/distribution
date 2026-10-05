@@ -1,0 +1,61 @@
+{
+  "reported_at_utc": "2026-10-05T23:54:05.749780+00:00",
+  "reader": "/root/m7_completed12_resume_proof",
+  "scope": "Fresh-context session-stash resume proof; read-only, not a P4 audit or new test run",
+  "published_next": "d97f64ddfd172041ef65911b1747fdae5065bf33",
+  "frozen_source": "55d8ee8f75965a560f75d187e34c9beaa93133f1",
+  "reader_verified": {
+    "source_observed_utc": "2026-10-05T23:50:37Z",
+    "product_files": 6549,
+    "qa_files": 202,
+    "symlinks": 180,
+    "source_mismatches": 0,
+    "bundle_observed_utc": "2026-10-05T23:51:13Z",
+    "bundle_members": 18,
+    "bundle_mismatches": 0,
+    "retained_sha256_files": 518,
+    "retained_mismatches": 0,
+    "original_upgraded_disk_hash_unchanged": true,
+    "build_log_hashes": 8,
+    "failed_aggregates_preserved": [
+      "qa15",
+      "qa16"
+    ],
+    "successful_scoped_runs": [
+      "qa17",
+      "proxy13",
+      "subset10"
+    ],
+    "reviewed_comparison": {
+      "screens": 19,
+      "claimed": 14,
+      "unclaimed": 0,
+      "missing": 0
+    },
+    "original_baseline_files_verified": 20,
+    "gb_frame_directly_reviewed": true,
+    "host_observed_utc": "2026-10-05T23:49:49Z",
+    "recorded_pids_absent": 44,
+    "matching_qemu_watcher_backend_processes": 0,
+    "available_gib": 195.04,
+    "reserved_gib": 186.32,
+    "live_closed_issues": [
+      453,
+      454,
+      455
+    ],
+    "live_open_issues": [
+      361,
+      168
+    ],
+    "milestone_order": "P3 before approved P4, then H700 arm and aarch64"
+  },
+  "finding": "No blocking evidence contradiction. Make unblocked P3 reconciliation explicit before pending account proofs in README/readiness. Historical tracker headings should clearly say historical.",
+  "limitations": "No new tests, provider calls, cleanup, audit, repository or tracker mutations. Frozen generated emulator documentation remains outside sealed inputs. No RC or disconnected notification claim.",
+  "parent_clarity_retest": {
+    "passed": true,
+    "scope": "Documentation-only second read; no hash, test or audit rerun",
+    "criteria_scope_preserved": true,
+    "correction": "Proxy-refresh wording now limits completion to affected installed preservation/native-format/HTTP checks; P3 mapping and account/telemetry gates remain open."
+  }
+}

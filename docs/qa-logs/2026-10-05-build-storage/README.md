@@ -34,6 +34,11 @@ the reserved amount remained 186.32 GiB. The exact later byte counts are in
 filesystem reserve explain part of the difference; retained data explains
 most of it. No reserve setting was changed.
 
+After the scoped QA follow-ups, the23:43:15 sample records **195.09 GiB
+available**, with the same186.32 GiB reserve. The exact bytes are retained in
+`capacity-after-qa-followups.json`. This is a later capacity sample, not a
+second directory inventory; no cleanup occurred between the samples.
+
 ## Largest consumers and what they retain
 
 - `rocknix.worktrees/devices`: 464.79 GiB across six device/architecture roots.
