@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Saved 2026-10-05T23:02:54.965945+00:00. Prior checkpoint: `.github/sessions/archived/saved-session-state-next-20261005T225818Z.md`.
+> Saved 2026-10-05T22:51:31.234450+00:00. Prior checkpoint: `.github/sessions/archived/saved-session-state-next-20261005T225131Z.md`.
 > Feature `feature/conflict-resolution`; primary `/workspace/repos/rocknix` stays `next`.
 
 ## Start here
@@ -34,8 +34,8 @@ why the 4 TB drive has only246GB free. Read-only inventory is complete (#453);
 The original build task continues. No cleanup, filesystem reserve change,
 personal-cloud operation or device action has been authorized by that question.
 
-Published checkpoint-only heads before this update: feature29ae6227397100e3504b75acf2b0d7e36b4f017a
-and nexte574726a240bc514507197d88ba304e2d989e566 (remote verified22:53:40).
+Published checkpoint-only heads before this update: feature798f9765a291bfc20dbc26f143f8297e12c114d6
+and next6324db2f92dabfbd81d0b0f484519fa274aaef6c (remote verified22:33:33).
 Product source is still frozen55d8ee8f75965a560f75d187e34c9beaa93133f1.
 #356/#365/#451/#362/#452 are CLOSED with explicit criterion maps. Their source
 and successful evidence are published; original failures remain retained.
@@ -47,9 +47,8 @@ Owner `/workspace/tmp/pixelelated-m7-qa-15`; source tree
 Started22:47:25UTC2026-10-05, run `.build-runs/20261005T224725Z-fc6fcd8a`.
 Launcher405153. At22:48:20 actual host proof observed guests406301/406327,
 owned by QA15; append further observations with the helper below.
-At23:02:19 the standard watcher reports running. Ten default suites have
-passed (scripts780s, lifetime,wrapper,vocabulary,french,quoting,menumap,register,
-pair-identity,fresh); round-trip is active. No terminal owner result exists yet. Do not launch another VM owner or edit these
+At22:50:23 the standard watcher reports running, current script tests pass;
+no terminal result exists yet. Do not launch another VM owner or edit these
 running scripts. Default QA takes tens of minutes; watch actual artifacts.
 
 Poll:
@@ -195,22 +194,3 @@ don'tautofork/changecredentials. FourteenP5licencemetadatagaps unchanged:
 enet,freej2me-lr,harfbuzz-icu,libretro-database,libspeexdsp,libxmp-lite,openbor,
 opusfile,rclone,retropie-shaders,slang-shaders,tailscale,wildmidi,zerotier-one.
 #432FOSSobservabilitybacklognotRCgate;#168upstreamproxydraftsnotyet sent.
-
-Build-generated documentation observation: frozen12's tracked
-`documentation/PER_DEVICE_DOCUMENTATION/GENERIC_X64/SUPPORTED_EMULATORS_AND_CORES.md`
-has a four-row generated update after image construction. This file is outside
-the sealed product/QA inputs; the source hashes remain verified. Preserve it
-and its retained diff under `generated-documentation/`; do not restore or
-merge the build worktree during QA. This is not a clean-worktree claim.
-
-Fresh-context resume proof passed through22:57:18; exact report and parent
-follow-up retained in replacement12/resume-reader-proof.json. #361 freshness
-checkbox now checked from actual frozen03 receipt and completed bundle; issue
-still open. #453 is CLOSED for inventory/proposal, not cleanup. Five proposed
-old candidate bundles fully reverified, with source mappings/raw output in
-build-storage/custody-leads; source/debug/backing checks still required before
-any removal approval. Initial-clean five1280x800identity frames directly
-reviewed; receipt/tmp/pixelelated-qa15-initial-frames-review.json awaits full
-owner retention. No upgraded/runtime completion claim. Do not use the canonical
-status helper for a strictly zero-write observer: it appends the shared
-/tmp/pixelelated-active-polls.jsonl log; direct build.status/log reads are pure.

@@ -49,3 +49,10 @@ Account inputs remain unanswered. Source09/10 evidence retains its own scope.
 The full inputs.json remains sealed at the owner and in the immutable bundle.
 The normal credential hook rejects two historical patch filenames in that
 mapping as credential-shaped, so Git carries its digest/counts. No hook bypass.
+
+Build-generated documentation observation: frozen12's tracked
+`documentation/PER_DEVICE_DOCUMENTATION/GENERIC_X64/SUPPORTED_EMULATORS_AND_CORES.md`
+has a four-row generated update after image construction. This file is outside
+the sealed product/QA inputs; the source hashes remain verified. Preserve it
+and its retained diff under `generated-documentation/`; do not restore or
+merge the build worktree during QA. This is not a clean-worktree claim.
