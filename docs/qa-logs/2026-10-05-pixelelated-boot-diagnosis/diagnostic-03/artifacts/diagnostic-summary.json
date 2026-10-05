@@ -1,0 +1,27 @@
+{
+  "observed_utc": "2026-10-05T02:32:46.519441+00:00",
+  "scope": "two predeclared quiet boot observations after asserting actual BIOS/Syslinux boot; COW config only",
+  "results": {
+    "quiet-640": {
+      "matcher_rc": 0,
+      "best": {
+        "file": "018.png",
+        "elapsed_seconds": 3.714,
+        "sha256": "146799911ab451f3dcb73b92553bb1043cf5e9087bf08e5058e6ea38c9b8cc37",
+        "agreement": 1.0
+      },
+      "pass": true
+    },
+    "quiet-1280": {
+      "matcher_rc": 0,
+      "best": {
+        "file": "018.png",
+        "elapsed_seconds": 3.869,
+        "sha256": "bf318dbef4ee71f0edf9be572e6617da84e7bd070cd4c8642a17726cf3aa7794",
+        "agreement": 1.0
+      },
+      "pass": true
+    }
+  },
+  "not_candidate_acceptance": true
+}

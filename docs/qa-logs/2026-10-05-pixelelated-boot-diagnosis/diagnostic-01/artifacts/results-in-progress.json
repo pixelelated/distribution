@@ -1,0 +1,62 @@
+{
+  "original-640": {
+    "matcher_rc": 1,
+    "best": {
+      "file": "025.png",
+      "elapsed_seconds": 4.668,
+      "sha256": "343172bd6e4af516d64a886039efe23cc9ef4f6638ac5dac4dea5ecb49bef263",
+      "agreement": 0.8515924910356465
+    },
+    "pass": false
+  },
+  "text-mode-drawn": {
+    "matcher_rc": 0,
+    "best": {
+      "file": "000.png",
+      "elapsed_seconds": 0,
+      "sha256": "e362aeddf0c9f3fd7073385ea32bd5d3fd27389f40754c9a4ea8e9a948cbcfb6",
+      "agreement": 1.0
+    },
+    "pass": true
+  },
+  "text-mode-erased-line": {
+    "matcher_rc": 1,
+    "best": {
+      "file": "000.png",
+      "elapsed_seconds": 0,
+      "sha256": "5a0fb2e46094ef1b71636a6ac2e14450a888e76ac668131ff4547d70f7b394ab",
+      "agreement": 0.98169162623919
+    },
+    "pass": false
+  },
+  "graphics-mode-drawn": {
+    "matcher_rc": 0,
+    "best": {
+      "file": "000.png",
+      "elapsed_seconds": 0,
+      "sha256": "e362aeddf0c9f3fd7073385ea32bd5d3fd27389f40754c9a4ea8e9a948cbcfb6",
+      "agreement": 1.0
+    },
+    "pass": true
+  },
+  "graphics-mode-console-write": {
+    "matcher_rc": 0,
+    "best": {
+      "file": "000.png",
+      "elapsed_seconds": 0,
+      "sha256": "e362aeddf0c9f3fd7073385ea32bd5d3fd27389f40754c9a4ea8e9a948cbcfb6",
+      "agreement": 1.0
+    },
+    "pass": true
+  },
+  "quiet-640": {
+    "matcher_rc": 1,
+    "best": {
+      "file": "016.png",
+      "elapsed_seconds": 3.45,
+      "sha256": "146b7c44bec459ebd3197e3a45097d06121600a58069c5647bbd589747429e21",
+      "agreement": 0.689938831470154
+    },
+    "pass": false
+  }
+}

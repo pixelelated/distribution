@@ -44,6 +44,12 @@ projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm \
   run --headless --res 640x480 target/ROCKNIX-GENERIC_X64.x86_64-<date>.qcow2
 ```
 
+Normal boots suppress kernel console messages so console redraws cannot erase
+the framebuffer splash. The serial QA shell and kernel journal remain available.
+The initramfs applies this default on upgraded GENERIC_X64 guests whose existing
+boot configuration lacks `quiet`. For verbose boot diagnosis, remove `quiet` and
+add `debugging` to the active boot entry (Syslinux on BIOS, GRUB on UEFI).
+
 Generate the UTM bundle (a qcow2 that needs another file -- a backing image,
 an external data file -- is refused: the bundle carries the one file; flatten
 it with `qemu-img convert -O qcow2` first):

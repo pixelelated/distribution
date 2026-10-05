@@ -71,8 +71,9 @@
     SYSTEM_SIZE="4096"
     SYSTEM_PART_START="8192"
 
-  # Extra command line for x86_64
-    EXTRA_CMDLINE="console=ttyS0,115200 console=tty0"
+  # Keep kernel console redraws from erasing the framebuffer splash (#433).
+  # Serial QA access stays enabled; remove quiet and add debugging for verbosity.
+    EXTRA_CMDLINE="quiet console=ttyS0,115200 console=tty0"
 
   # Disable joypad driver for x86_64
     ROCKNIX_JOYPAD="no"

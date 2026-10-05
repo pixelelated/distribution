@@ -1,0 +1,74 @@
+/workspace/tmp/pixelelated-m7-boot-diagnostic-03/capture-boot.py: OK
+/workspace/tmp/pixelelated-m7-boot-diagnostic-03/diagnostic.py: OK
+/workspace/tmp/pixelelated-m7-boot-diagnostic-03/match-splash.py: OK
+/workspace/tmp/pixelelated-m7-boot-diagnostic-03/old-logo.png: OK
+/workspace/tmp/pixelelated-m7-boot-diagnostic-03/outer.sh: OK
+/workspace/tmp/pixelelated-m7-boot-diagnostic-03/provenance.json: OK
+/workspace/tmp/pixelelated-m7-boot-diagnostic-03/reference-1280.png: OK
+/workspace/tmp/pixelelated-m7-boot-diagnostic-03/reference-640.png: OK
+/workspace/tmp/pixelelated-m7-boot-diagnostic-03/run.sh: OK
+/workspace/tmp/pixelelated-m7-boot-diagnostic-03/stop-guest.py: OK
+/workspace/tmp/pixelelated-m7-boot-diagnostic-03/verify-inputs.py: OK
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/d4007387afd5ac42104a53a3073b93fdadd33c51179bf9f3142101609f821ec9
+Formatting '/workspace/tmp/pixelelated-m7-boot-diagnostic-03/guest-d.qcow2', fmt=qcow2 cluster_size=65536 extended_l2=off compression_type=zlib size=17179869184 backing_file=/workspace/tmp/pixelelated-m7-ui-07/guest-d.qcow2 backing_fmt=qcow2 lazy_refcounts=off refcount_bits=16
+[W][02:30:59.758982] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][02:30:59.759013] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+ready after ~18s
+PASS owned guest stopped 1322482
+[W][02:31:19.505961] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][02:31:19.505998] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+CAPTURED guest boot frames 10
+CAPTURED guest boot frames 20
+CAPTURED guest boot frames 30
+CAPTURED guest boot frames 40
+CAPTURED guest boot frames 50
+CAPTURED guest boot frames 60
+CAPTURED guest boot frames 70
+CAPTURED guest boot frames 80
+CAPTURED guest boot frames 90
+CAPTURED guest boot frames 100
+CAPTURED guest boot frames 110
+CAPTURED guest boot frames 120
+CAPTURED guest boot frames 130
+CAPTURED guest boot frames 140
+CAPTURED guest boot frames 150
+CAPTURED guest boot frames 160
+CAPTURED guest boot frames 170
+CAPTURED guest boot frames 180
+CAPTURED guest boot frames 190
+CAPTURED guest boot frames 200
+CAPTURED guest boot frames 210
+CAPTURED guest boot frames 220
+PASS boot frame capture only; branding classification remains required 222
+ready after ~0s
+{"pass": true, "threshold": 0.995, "rectangle_half_open": [104, 212, 535, 267], "best": {"file": "018.png", "elapsed_seconds": 3.714, "sha256": "146799911ab451f3dcb73b92553bb1043cf5e9087bf08e5058e6ea38c9b8cc37", "agreement": 1.0}, "controls": [{"name": "old-logo", "agreement": 0.44079308162834846, "rejected": true}, {"name": "blank", "agreement": 0.689938831470154, "rejected": true}, {"name": "wrong-resolution", "agreement": 0.0, "rejected": true}]}
+PASS owned guest stopped 1323947
+[W][02:32:02.144962] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][02:32:02.145008] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+CAPTURED guest boot frames 10
+CAPTURED guest boot frames 20
+CAPTURED guest boot frames 30
+CAPTURED guest boot frames 40
+CAPTURED guest boot frames 50
+CAPTURED guest boot frames 60
+CAPTURED guest boot frames 70
+CAPTURED guest boot frames 80
+CAPTURED guest boot frames 90
+CAPTURED guest boot frames 100
+CAPTURED guest boot frames 110
+CAPTURED guest boot frames 120
+CAPTURED guest boot frames 130
+CAPTURED guest boot frames 140
+CAPTURED guest boot frames 150
+CAPTURED guest boot frames 160
+CAPTURED guest boot frames 170
+CAPTURED guest boot frames 180
+CAPTURED guest boot frames 190
+PASS boot frame capture only; branding classification remains required 190
+ready after ~0s
+{"pass": true, "threshold": 0.995, "rectangle_half_open": [182, 422, 1098, 538], "best": {"file": "018.png", "elapsed_seconds": 3.869, "sha256": "bf318dbef4ee71f0edf9be572e6617da84e7bd070cd4c8642a17726cf3aa7794", "agreement": 1.0}, "controls": [{"name": "old-logo", "agreement": 0.44501016413190786, "rejected": true}, {"name": "blank", "agreement": 0.7035461526878483, "rejected": true}, {"name": "wrong-resolution", "agreement": 0.0, "rejected": true}]}
+PASS owned guest stopped 1326918
+COMPLETE bounded quiet-boot observations; inspect evidence before selecting a fix
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/d4007387afd5ac42104a53a3073b93fdadd33c51179bf9f3142101609f821ec9
