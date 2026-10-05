@@ -18,10 +18,18 @@ The installed selector/drop-in match frozen bytes. Cache checks passed2526399
 independent files. First build attempt remains failed on swap preflight before
 compilation; the installed guarded helper reclaimed swap before fresh build02.
 
-Next: immutable bundle and SYSTEM equality, then prepared QA14, clean software
-sign-in14, actual RC2-upgraded sign-in15, accelerated sign-in16, memory12 with
-both-profile emulator exit/time-to-play, bilingual software UI14, and both1GiB
-workloads. No VM acceptance on this image yet. Earlier
+QA14 now passes all15default suites and26actualROCKNIXRC2 upgrade checks.
+Frame comparison:21expected regions,0unclaimed,0missing. All15identity frames
+were directly reviewed; installed clean/upgraded virgl and upgraded software
+Pixman proofs pass. Durable20:06:08/allfour0; actual2a3cd7 plus supplemental
+cleanup confirms4owner/6guest PIDs absent. Single-sample timing smoke passes;
+the fast game-to-game sample lacks a new sync stamp and does not establish
+active-sync behavior (retained timing-review.json).
+
+Boot05 is active: four clean/actual-upgraded software boots at640/1280, with
+unchanged exact splash references/0.995threshold/12negative controls. Then
+sign-in14/15/16, memory12 with both-profile emulator exit/time-to-play,
+bilingual software UI14 and both1GiB workloads. Earlier
 replacement09 passes remain historical evidence; affected graphics acceptance
 must come from the new installed image. #447 stays open until that proof.
 P4 and H700 follow remaining P3 acceptance; no RC/device-ready claim.

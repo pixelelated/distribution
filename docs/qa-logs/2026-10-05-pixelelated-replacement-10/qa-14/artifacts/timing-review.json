@@ -1,0 +1,17 @@
+{
+  "utc": "2026-10-05T19:48:47.825073+00:00",
+  "review": "primary assistant direct frames and exact time-to-play source",
+  "suite_pass": true,
+  "scope": "emulator launch and exit timing smoke, one sample; accelerated guest",
+  "observations": [
+    "Launch frame shows actual Game Boy startup pixels at full viewport height with aspect-correct sidebars",
+    "Second frame shows emulator auto-state loading; it is not the interface or launch question",
+    "GPU screenshot889x800 spans full1280x800 panel height; surface_check intentionally accepts aspect-correct viewport (existing#291)",
+    "Game-to-game sample has no new sync stamp. Source permits launch before a sync is in flight; the later synthetic key press does not establish that a question appeared. Do not use this sample as active-sync behavior proof."
+  ],
+  "hashes": {
+    "time-to-play.json": "fa1e9efd16338bfd1f21d15af9068a7b331c034edac7b2b6f3ced39dfc86450c",
+    "frames/r1-launch-02-first-game-frame.png": "f4cc7aa753984b3f6df09f2282dbfb3757876777dfde08fca8ed0da13c279e73",
+    "frames/g1-exit-game2.png": "8eced1c674939f6f9e597010cb848b6bc1cecac1fa1587d1437eb86938122629"
+  }
+}

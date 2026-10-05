@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Saved 2026-10-05T20:09:33.013355+00:00. Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261005T200933Z.md`.
+> Saved 2026-10-05T19:25:51.313854+00:00. Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261005T192551Z.md`.
 > Branch feature/conflict-resolution; primary /workspace/repos/rocknix stays next.
 
 ## Start here
@@ -81,32 +81,15 @@ Raw GPT image/update SYSTEM both5bf4888cfcb29798887f2daab0858981a969e8d3eb71797c
 Extracted root /workspace/tmp/pixelelated-m7-image-12/root.
 Retained docs/qa-logs/2026-10-05-pixelelated-replacement-10/.
 
-QA14 is COMPLETE, durable20:06:08/allfour0. Actual2a3cd7 cleanup20:06:47
-plus cleanup-supplement.json proves all4owner and6guest PIDs absent/noQEMU.
-All15default suites pass;16walks/78frames compare21expected regions,0unclaimed,
-0missing. ActualRC2 upgrade passes26checks (external rehearsal log is retained
-under qa-14/upgrade-rehearsal). Installed selection passes clean virgl,
-upgraded virgl and actual upgraded software/Pixman, no runtime override.
-All15actual identity frames reviewed and correct;640px long URL wraps but
-retains complete address/instructions. Timing smoke passes; the quick g2g
-sample lacks a new sync stamp and is not active-sync behavior proof. Read
-qa14/artifacts/timing-review.json. Original reused GPU-screenshot surface
-check intentionally permits aspect-correct viewport filling panel height.
-
-QA14 evidence is retained locally at replacement10/qa-14 (180artifact hashes,
-171public files plus actual rehearsal log), awaiting normal publication.
-Installed fixed helper reclaimed swap again at the verified idle boundary;
-actual1d0bcb=0/READY8GiBfree. No helper reinstall or busy-host reclaim.
-
-ACTIVE boot-qualification05 /workspace/tmp/pixelelated-m7-boot-qualification-05,
-submittedf15207 at20:08:12; launcher3702400; run
-/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement10/.build-runs/20261005T200812Z-9cc9a8fc.
-Four clean/actualQA14-upgraded software boots at640/1280. Byte-identical
-original capture/matcher/references and12negative controls, threshold0.995.
-Adds actual installed renderer verification. Prepared c6f2d1 initially hit
-inherited readonly file mode before sealing;6d5fa7 finished preparation and
-independent readback. No prior boot05 execution. Current first-clean capture
-at20:08:50; no accepted result yet. Preserve exact helper sources/seals.
+ACTIVE QA14 /workspace/tmp/pixelelated-m7-qa-14 submitted5e8d69 at19:27:43.
+Launcher3210173/runner3210174/watcher3210175; run
+/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement10/.build-runs/20261005T192743Z-7c965ec8.
+Guests3210987/3211017 launched19:27:58; initial startup at19:28:22, no suite
+acceptance yet. This owner runs defaults/currentclaims, actualRC2upgrade,
+installed clean/upgrade virgl and upgraded software selection proof.
+The generic launch helper first refused missing required-directories.json on
+QA14 before submission; corrected to its actual explicit pair/artifacts0700
+contract. QA14 owner source/seal unchanged; no phantom failed execution.
 
 Poll /tmp/pixelelated-poll-owner.py OWNER [copy.run]; actual observation log
 /tmp/pixelelated-active-polls.jsonl. Observe within60seconds, do not claim
@@ -114,7 +97,7 @@ perfect historical adherence. #395 still lacks disconnected delivery.
 
 ## Next Steps — execute in order
 
-1. Observe active boot05; do not submit it again. Require matching launcher/inner/
+1. Observe active QA14; do not submit it again. Require matching launcher/inner/
    outer/wrapper/runner results, real guest and owner cleanup, suite artifacts
    and direct identity frames. /tmp/pixelelated-complete-durable.py OWNER 0
    checks actual host process absence; owner pair pidfiles may be removed by
@@ -126,7 +109,7 @@ perfect historical adherence. #395 still lacks disconnected delivery.
    /tmp/pixelelated-launch-fallback.py OWNER from frozen10. It checks successful
    build02, fresh owner/private dirs/seals/noQEMU before durable submission.
    Require previous result/cleanup/frame acceptance before moving onward.
-4. QA14 is complete, boot05 RUNNING. Remaining SEALED/UNSTARTED owners:
+4. QA14 is RUNNING. Remaining SEALED/UNSTARTED owners, inspect before launch:
    signin-ui-14 → signin-ui-15 → signin-ui-16 → memory-12 → ui-14 →
    signin-1g-13 → signin-provider1g-05, all /workspace/tmp/pixelelated-m7-.
    Prep /tmp/pixelelated-prepare-fallback-qualification.py and regressions.py
@@ -172,9 +155,9 @@ stop named owned PIDs only, never broad pkill. tools/watch-build records five-
 second heartbeat and five-minute inactivity; connected agent supervises actual
 completion. #395 destination still missing, so no disconnected alert claim.
 
-Primary nextea8144335b0e37d79389935f54515a38e5587781 includes built image evidence;
-feature3dc3bcd86be8ca12be76dd03c7d451faa1a40379. This updated checkpoint and
-work log andQA14 evidence are local until the next normal publication. Frozen10 stays d6e8390c.
+Primary next16c79050d6992be04b1b0ab30e5f0200d3dc83f3 includes the prior checkpoint;
+feature29d7c21a395e5aafe5f56b94fe4b62cf404239c4. This updated checkpoint and
+work log are local until the next normal publication. Frozen10 stays d6e8390c.
 
 P4 has NOT STARTED. #375/#382 initial reviews complete; don't restart them.
 Read full code-auditor skill/routing then use approved primary + Fable5.1/xhigh
@@ -224,16 +207,3 @@ critical path. Standard HyperDX Compose currently includes MongoDB/SSPL;
 record that dependency instead of assuming the bundle meets the preference.
 Existing watch-build/watch-job local receipts stay authoritative; #395 still
 needs verified disconnected delivery. #387 concerns separate device telemetry.
-
-## Continuation helpers
-
-/tmp/pixelelated-status.py OWNER emits a compact actual watcher observation.
-/tmp/pixelelated-complete-durable.py OWNER EXPECTED_RC requires allchannels,
-actual noQEMU and all recorded up/down/explicit owner PIDs absent. It creates
-completion.json exclusively; never rerun after success.
-/tmp/pixelelated-retain-10.py SHORT_OWNER EXPECTED_RC retains sealed source and
-hashes all artifacts; boot PNGs retain best/control frames, all raw originals
-remain local. Visual reviews must be based on actual view_image calls.
-/tmp/pixelelated-launch-fallback.py OWNER is checked, no-QEMU and fail-fast;
-currently permits boot05 plus the seven remaining owners. Run from frozen10.
-The two preparation scripts in the earlier checkpoint ALREADY RAN.

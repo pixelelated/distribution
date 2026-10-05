@@ -1,0 +1,19 @@
+{
+  "utc": "2026-10-05T20:05:46.766025+00:00",
+  "phase": "upgrade-virgl",
+  "reviewer": "primary assistant direct view_image",
+  "passed": true,
+  "observations": [
+    "Main menu shows lowercase pixelelated0.0.1 community after actual ROCKNIXRC2 upgrade",
+    "System Settings and Information are legible; correct frozen d6e8390/replacement10 shown",
+    "Updates and manual-update message are complete and correctly laid out",
+    "No stale/partial repaint visible in five actual frames"
+  ],
+  "frames": {
+    "01-main-menu-identity.png": "072c62a87df0c13190a83452cbbd35670de9a24f5e1c209b647b03d387c28cc2",
+    "02-system-settings.png": "6b226745382f89cb31e1cc6983b7a5c7bef60ae34c1f44ac502e2fe8740d7e3a",
+    "03-information.png": "1efd5c8c6f92d8d8dbeb0c25d502d6abc43b8b9b5baced91076b82e014830457",
+    "04-updates.png": "b92afd276c06f6b65b9288ccd83d43e99b2dfdaca20f3b169d6930e838292618",
+    "05-manual-update-message.png": "728e8ce1772fc11c55507fbef7ec14cbcaaec0d9171183615afd8f07a6d71b66"
+  }
+}
