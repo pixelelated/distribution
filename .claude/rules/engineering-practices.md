@@ -232,6 +232,20 @@ not prove receipt. Until that path is configured, call the run actively
 supervised and state that it cannot alert after disconnection. A missing
 delivery path stays an open issue, even if every recorder control passes.
 
+**Submit long agent-owned jobs durably (#444, D-WORKFLOW-148).** From the
+frozen worktree, run `tools/watch-build-submit --owner <fresh-owner> --`
+followed by the standard `watch-build` arguments. If the frozen worktree
+predates the launcher, invoke the current launcher's absolute path; its
+retained owner copy still calls the frozen worktree's unchanged runner.
+The submission exits immediately and cannot prove job success. Read the
+owner's `launcher-result.json` and `tool-wrapper.rc`, the runner's
+`build.rc`/terminal status, the command's own result channels, and actual
+process cleanup before accepting completion. Keep polling within60seconds.
+If the runner dies, preserve that result and check its independently
+sessioned command/guests by their recorded PIDs; do not mark its children
+finished merely because the runner is gone. Use a fresh owner after an
+interruption. This launcher does not deliver disconnected notifications.
+
 Two more traps met arming it, both already in this project's records:
 `pgrep -f` on the job's name matched the session's own shell (blindspot: the
 self-matching pattern — anchor it: `^/bin/bash \./build-h700\.sh$`), and

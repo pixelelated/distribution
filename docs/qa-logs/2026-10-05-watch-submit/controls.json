@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "fixture": "/tmp/pixelelated-watch-submit-vdexkrm1",
+  "controls": [
+    {
+      "case": "success",
+      "submission_rc": 0,
+      "completion_rc": 0,
+      "duplicate_rc": 2
+    },
+    {
+      "case": "nonzero",
+      "submission_rc": 0,
+      "completion_rc": 7,
+      "duplicate_rc": 2
+    },
+    {
+      "case": "submitting_process_group_terminated",
+      "controller_signal": 15,
+      "detached_completion_rc": 0
+    },
+    {
+      "case": "all_standard_terminal_receipts_and_process_cleanup",
+      "pass": true
+    }
+  ]
+}

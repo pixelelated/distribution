@@ -1,0 +1,55 @@
+07:16:11 === cloud-epic on guest d, BUILD_ID="cf511ce79b83cba7fea8b14cfa3d04fb13e4b4fb"
+232
+07:16:11 == setup: the QA remote on the guest (the host backend's conf), then the QA cloud holds the fork's earlier layout with files in every folder of ours; the guest points at it
+remote: qa-cloud:
+07:16:13   cloud: ROCKNIX/Backups/2026_09_29-090000-Retroid-Pocket-Nova-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Backups/2026_09_30-120000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz ROCKNIX/Content/BIOS/disksys.rom ROCKNIX/Content/ROMs/nes/Probe.nes ROCKNIX/Saves-replaced/nes/Probe.srm.1 ROCKNIX/Saves/nes/Probe.srm 
+07:16:13   guest conf: SAVES_REMOTE="/ROCKNIX/Saves" SETTINGS_REMOTE="/ROCKNIX/Backups" CONTENT_REMOTE="/ROCKNIX/Content" LAYOUT_KEEP="" 
+label=GENERIC-X64
+07:16:40   picks reset: content=0 saves=1
+07:17:00 == A: RESTORE FROM THE CLOUD opens on the scan page; an earlier /ROCKNIX with saves gets the move dialog; MOVE runs the move page
+dismiss-dialogs: 2 press(es) moved the screen, back on the carousel
+changed after 0.1s (`key ret`, line 3)
+settle: still after 1.7s
+changed after 0.0s (`key x`, line 6)
+settle: still after 1.3s
+changed after 0.1s (`key up`, line 9)
+changed after 0.0s (`key up`, line 11)
+changed after 0.1s (`key up`, line 13)
+settle: still after 1.3s
+changed after 0.0s (`key x`, line 16)
+settle: still after 1.3s
+captured /workspace/tmp/pixelelated-m7-guest-10/artifacts/cloud-epic/A/frames/01-A-hub.png
+changed after 0.0s (`key down`, line 20)
+changed after 0.1s (`key x`, line 22)
+captured /workspace/tmp/pixelelated-m7-guest-10/artifacts/cloud-epic/A/frames/02-A-scan-0.png
+captured /workspace/tmp/pixelelated-m7-guest-10/artifacts/cloud-epic/A/frames/03-A-scan-1.png
+settle: still after 3.4s
+captured /workspace/tmp/pixelelated-m7-guest-10/artifacts/cloud-epic/A/frames/04-A-after-scan.png
+07:17:30 PASS walk epic-A.steps
+changed after 0.1s (`key x`, line 1)
+captured /workspace/tmp/pixelelated-m7-guest-10/artifacts/cloud-epic/A/frames/01-A-move-running.png
+settle: still after 4.2s
+captured /workspace/tmp/pixelelated-m7-guest-10/artifacts/cloud-epic/A/frames/02-A-move-done.png
+changed after 0.0s (`key x`, line 7)
+captured /workspace/tmp/pixelelated-m7-guest-10/artifacts/cloud-epic/A/frames/03-A-rescan.png
+settle: still after 4.7s
+captured /workspace/tmp/pixelelated-m7-guest-10/artifacts/cloud-epic/A/frames/04-A-options-after-move.png
+dismiss-dialogs: 5 press(es) moved the screen, back on the carousel
+07:17:53 PASS walk epic-A2.steps
+07:17:53   cloud after the move: pixelelated/.layout pixelelated/Backups/2026_09_29-090000-Retroid-Pocket-Nova-ROCKNIX_SETTINGS.tar.gz pixelelated/Backups/2026_09_30-120000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz pixelelated/Content/BIOS/disksys.rom pixelelated/Content/ROMs/nes/Probe.nes pixelelated/Saves-replaced/nes/Probe.srm.1 pixelelated/Saves/nes/Probe.srm 
+07:17:53   marker: layout=2
+07:17:53   guest conf: SAVES_REMOTE="/pixelelated/Saves" SETTINGS_REMOTE="/pixelelated/Backups" CONTENT_REMOTE="/pixelelated/Content" LAYOUT_KEEP="" 
+07:17:53 PASS A: the four folders of ours are under /pixelelated after MOVE (saves, settings backup, content, the set-aside)
+07:17:53 PASS A: nothing of ours remains under /ROCKNIX
+07:17:53 PASS A: the layout marker is written
+07:17:53 PASS A: the guest now points at /pixelelated/Saves
+2026-10-05T03:17:26-04:00 GENERIC-X64-474c cloud_scan[9570]: scan: done (2 archives, superseded-with-files, content ok)
+2026-10-05T03:17:32-04:00 GENERIC-X64-474c cloud_migrate_layout[9929]: migration step=1 from=1 to=2 stage=begin
+2026-10-05T03:17:33-04:00 GENERIC-X64-474c cloud_migrate_layout[10086]: migration step=1 from=1 to=2 stage=backups
+2026-10-05T03:17:33-04:00 GENERIC-X64-474c cloud_migrate_layout[10177]: migration step=1 from=1 to=2 stage=saves
+2026-10-05T03:17:34-04:00 GENERIC-X64-474c cloud_migrate_layout[10262]: migration step=1 from=1 to=2 stage=discarded
+2026-10-05T03:17:34-04:00 GENERIC-X64-474c cloud_migrate_layout[10397]: migration step=1 from=1 to=2 stage=content
+2026-10-05T03:17:34-04:00 GENERIC-X64-474c cloud_migrate_layout[10454]: migration step=1 from=1 to=2 stage=complete
+2026-10-05T03:17:41-04:00 GENERIC-X64-474c cloud_scan[11812]: scan: done (2 archives, current, content ok)
+07:17:53   frames: 8 under /workspace/tmp/pixelelated-m7-guest-10/artifacts/cloud-epic/A/frames (numbered walk captures); boot and continuous captures are in their named subdirectories
+07:17:53 done: 6 PASS, 0 FAIL

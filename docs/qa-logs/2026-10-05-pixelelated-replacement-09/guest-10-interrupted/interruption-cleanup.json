@@ -1,0 +1,36 @@
+{
+  "utc": "2026-10-05T07:42:37.575234+00:00",
+  "actual_tool_session": 59031,
+  "actual_tool_rc": 143,
+  "owner_state": "interrupted",
+  "original_watcher_state": "died",
+  "inner_rc": 1,
+  "absent_original_channels": [
+    "outer.rc",
+    "tool-wrapper.rc",
+    "build.rc"
+  ],
+  "owned_pids_absent": [
+    4088162,
+    4088163,
+    4088192,
+    4088193,
+    4088916,
+    4091137,
+    4091478
+  ],
+  "qemu_absent": true,
+  "case_results": {
+    "A": "07:17:53 done: 6 PASS, 0 FAIL",
+    "E": "07:27:43 done: 6 PASS, 0 FAIL",
+    "D": "07:22:54 done: 5 PASS, 0 FAIL",
+    "B": "07:25:13 done: 7 PASS, 0 FAIL",
+    "H": "07:16:10 done: 5 PASS, 0 FAIL",
+    "K": "INCOMPLETE",
+    "C": "07:19:20 done: 3 PASS, 0 FAIL",
+    "J": "07:36:13 done: 4 PASS, 0 FAIL",
+    "I": "07:33:17 done: 11 PASS, 0 FAIL"
+  },
+  "run": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/.build-runs/20261005T071357Z-f6da357e",
+  "build_log_sha256": "d8309cdde981a2bafa96be6f51fe7139793f4c3b50e8da59e1d2074e93d905be"
+}

@@ -1,8 +1,8 @@
 # M7.P3 replacement09 build and qualification (#409, #383)
 
-Status updated 2026-10-05T07:14:45.911585+00:00.
+Status updated 2026-10-05T07:47:41.212845+00:00.
 
-## Current gate — replacement09 boot qualification passed
+## Current gate — replacement09 cloud qualification resumed
 
 M7.P3 is current. The frozen candidate is source `cf511ce79b83cba7fea8b14cfa3d04fb13e4b4fb`, input manifest `817fd9ff49b1ecf6bcc859cfa38985a65fbcfe5514c33a0a5c9dd60af6cc6c6e`, immutable bundle `79d560046ee52e28b72f16588168dd7c8fb2637c1cc585713216a8ec828e9d81`. Build and inventory pass; 14 licence metadata gaps remain for P5.
 
@@ -16,11 +16,16 @@ Boot04/tool90675/all four rc0 passes four clean/upgraded boots at 640x480 and 12
 
 **Link-loss qualification:** link10/tool56478/all four rc0 passes all14 WebDAV/S3 interruption cases:151 PASS lines, zero failures/skips. Receiving files remain whole, markers stay correct, and plain retries complete after reconnecting. Actual07:13:44 all owner/four guest processes absent; frozen source and bundle reverified.
 
-**Current action:** guest10/tool59031 runs19 independently reset cloud regression cases on a fresh isolated VM. The standard watcher checks every5seconds and warns after5minutes without log progress. This remains an engineering candidate; RC/device-ready gates have not passed.
+**Cloud qualification interrupted:** guest10/tool59031 returned143; its watcher recorded runner death07:37:31. Eight cases/47 assertions passed, K was incomplete, ten cases had not started. Original missing outer/wrapper/build result files remain missing. Actual07:42:37 all seven observed owner/guest/backend PIDs absent. No product failure or signal sender is inferred. #444 preserves the original and requires a fresh complete run.
 
-**Remaining order:** guest10 → runtime11 → proxy09 → optins09 → memory09 → UI11 → predecessor07 → subset06 → cloud-ui05 → signin-ui05 → signin-1g05 → ordinary RetroAchievements proof → P4 primary OpenAI plus Fable5.1/xhigh through the verified Facilitator → H700 DDR4/RG35XX SP arm, then aarch64. Predecessor07 requires the completed boot04 proof and an actual UI11 visual review. External inputs and P5 publication gates remain recorded. Can this be done on the VM? **Yes.**
+**Current action:** fresh guest11 runs all19 unchanged cloud cases on the same exact image. Durable submission497141=0 means submitted only; launcher27507, runner27508, watcher27512 and command27541 were verified live07:44:19. The standard watcher checks every5seconds with a5minute inactivity warning; this session checks within60seconds. Completion requires launcher-result, all four actual result channels, frame review and host cleanup. Submission controls pass success/nonzero/duplicate refusal/loss of submitting process group. Disconnected alerts remain #395. This remains an engineering candidate.
+
+**Remaining order:** guest11 → runtime12 → proxy10 → optins10 → memory10 → UI12 → predecessor08 → subset07 → cloud-ui06 → signin-ui06 → signin-1g06 → ordinary RetroAchievements proof → P4 primary OpenAI plus Fable5.1/xhigh through the verified Facilitator → H700 DDR4/RG35XX SP arm, then aarch64. Predecessor08 requires the completed boot04 proof and an actual UI12 visual review. External inputs and P5 publication gates remain recorded. Can this be done on the VM? **Yes.**
 
 #433/#436 remain closed from their artifact-scoped replacement08 repair proofs. #437/#438 and #439/#440/#441 are closed with published scoped evidence; actual52959=0 verifies the latter three bodies/states. Content/settings publication49305=0 put featureb7f9cac3 on nexte1f2baaf, with both remote hashes verified. #442/#443 are closed completed; actual19135=0 verifies their acceptance bodies and states. These closures do not qualify the whole candidate.
+
+
+Latest normal publication52508=0: feature7a865e8599d59804aea313086f96a14eb87b5fa6 → nextcd5f292fef7611831cce006cb49c20309b7c6a1c, both remote hashes verified. Current #444 work follows that publication.
 
 ## Preparation snapshot (historical)
 

@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Saved 2026-10-05T07:14:45.911585+00:00. Previous checkpoint archived at `.github/sessions/archived/saved-session-state-next-20261005T071445Z.md`.
+> Saved 2026-10-05T07:47:41.212845+00:00. Previous checkpoint archived at `.github/sessions/archived/saved-session-state-next-20261005T074741Z.md`.
 > Branch feature/conflict-resolution; primary /workspace/repos/rocknix stays next.
 
 ## Start here
@@ -30,7 +30,7 @@ and precise harness-manifest wording findings are corrected.
 A helper installation is COMPLETE; do not ask to reinstall it.
 
 
-## Current focus — replacement09 boot qualification passed
+## Current focus — replacement09 cloud qualification resumed
 
 M7.P3 is current. The frozen candidate is source `cf511ce79b83cba7fea8b14cfa3d04fb13e4b4fb`, input manifest `817fd9ff49b1ecf6bcc859cfa38985a65fbcfe5514c33a0a5c9dd60af6cc6c6e`, immutable bundle `79d560046ee52e28b72f16588168dd7c8fb2637c1cc585713216a8ec828e9d81`. Build and inventory pass; 14 licence metadata gaps remain for P5.
 
@@ -44,24 +44,33 @@ Boot04/tool90675/all four rc0 passes four clean/upgraded boots at 640x480 and 12
 
 **Link-loss qualification:** link10/tool56478/all four rc0 passes all14 WebDAV/S3 interruption cases:151 PASS lines, zero failures/skips. Receiving files remain whole, markers stay correct, and plain retries complete after reconnecting. Actual07:13:44 all owner/four guest processes absent; frozen source and bundle reverified.
 
-**Current action:** guest10/tool59031 runs19 independently reset cloud regression cases on a fresh isolated VM. The standard watcher checks every5seconds and warns after5minutes without log progress. This remains an engineering candidate; RC/device-ready gates have not passed.
+**Cloud qualification interrupted:** guest10/tool59031 returned143; its watcher recorded runner death07:37:31. Eight cases/47 assertions passed, K was incomplete, ten cases had not started. Original missing outer/wrapper/build result files remain missing. Actual07:42:37 all seven observed owner/guest/backend PIDs absent. No product failure or signal sender is inferred. #444 preserves the original and requires a fresh complete run.
 
-**Remaining order:** guest10 → runtime11 → proxy09 → optins09 → memory09 → UI11 → predecessor07 → subset06 → cloud-ui05 → signin-ui05 → signin-1g05 → ordinary RetroAchievements proof → P4 primary OpenAI plus Fable5.1/xhigh through the verified Facilitator → H700 DDR4/RG35XX SP arm, then aarch64. Predecessor07 requires the completed boot04 proof and an actual UI11 visual review. External inputs and P5 publication gates remain recorded. Can this be done on the VM? **Yes.**
+**Current action:** fresh guest11 runs all19 unchanged cloud cases on the same exact image. Durable submission497141=0 means submitted only; launcher27507, runner27508, watcher27512 and command27541 were verified live07:44:19. The standard watcher checks every5seconds with a5minute inactivity warning; this session checks within60seconds. Completion requires launcher-result, all four actual result channels, frame review and host cleanup. Submission controls pass success/nonzero/duplicate refusal/loss of submitting process group. Disconnected alerts remain #395. This remains an engineering candidate.
+
+**Remaining order:** guest11 → runtime12 → proxy10 → optins10 → memory10 → UI12 → predecessor08 → subset07 → cloud-ui06 → signin-ui06 → signin-1g06 → ordinary RetroAchievements proof → P4 primary OpenAI plus Fable5.1/xhigh through the verified Facilitator → H700 DDR4/RG35XX SP arm, then aarch64. Predecessor08 requires the completed boot04 proof and an actual UI12 visual review. External inputs and P5 publication gates remain recorded. Can this be done on the VM? **Yes.**
 
 #433/#436 remain closed from their artifact-scoped replacement08 repair proofs. #437/#438 and #439/#440/#441 are closed with published scoped evidence; actual52959=0 verifies the latter three bodies/states. Content/settings publication49305=0 put featureb7f9cac3 on nexte1f2baaf, with both remote hashes verified. #442/#443 are closed completed; actual19135=0 verifies their acceptance bodies and states. These closures do not qualify the whole candidate.
 
+
+Latest normal publication52508=0: feature7a865e8599d59804aea313086f96a14eb87b5fa6 → nextcd5f292fef7611831cce006cb49c20309b7c6a1c, both remote hashes verified. Current #444 work follows that publication.
+
 ## Immediate commands and custody
 
-Guest10/tool59031 is ACTIVE. Owner /workspace/tmp/pixelelated-m7-guest-10.
-Poll actual tool and console.log; run.path names its standard watcher run.
-After actual tool return, read guest.pid and use host process access:
-python3 /tmp/pixelelated-finish-owner.py OWNER 59031 ACTUAL_RC GUEST_PID
-Then /tmp/pixelelated-retain-09-successors-v3.py guest-10. Inspect cloud-epic
-reports for all19 independently reset cases. Next runtime11 follows.
-Link10 is complete, source/bundle reverified and all four guests absent at07:13:44.
-Its75 WebDAV+76 S3 PASS lines and no failures/skips are retained.
-Settings11 completed20 race/29 mode checks; sweep09 passed full-image
-content/localisation. Original settings10/sweep08 failures stay intact.
+Guest11 is ACTIVE. Owner /workspace/tmp/pixelelated-m7-guest-11.
+Submission tool497141 returned0; this is NOT job completion. Durable launcher27507
+owns runner27508/watcher27512/command27541. Run.path names the standard run.
+Poll console.log, launcher-result.json and current build.status within60seconds.
+After launcher-result exists, use actual host process access:
+python3 /workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-05-watch-submit/finish-submitted-owner.py OWNER 497141
+This requires all four real rc channels, terminal watcher and owned cleanup.
+Do not use finish-owner's actual-tool-result schema for a submitted job.
+Inspect all19case logs and original frames, retain selected PNGs plus all hashes.
+Guest10 is INTERRUPTED: tool59031=143, inner1, no outer/wrapper/build rc.
+Eight cases/47 assertions pass, K incomplete; actual07:42:37 all processes absent.
+Original interrupted owner/receipts are preserved; never manufacture its missing rc.
+Fresh11owners/94sealed members prepared d579cb=0 and readback45c906=0 before launch.
+Next runtime12 follows actual accepted guest11 completion.
 
 Frozen tree /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09,
 branch build/m7-pixelelated-replacement09; NEVER edit product or executed owner.
@@ -81,26 +90,25 @@ Fresh resume proof resume-proof-boot04.md records independent custody checks and
 timing changes; all reported stale snapshots are reconciled in this batch.
 
 Remaining owners, prefix /workspace/tmp/pixelelated-m7-:
-guest-10(active) → runtime-11 → proxy-09 → optins-09 →
-memory-09 → ui-11 → predecessor-07 → subset-06 → cloud-ui-05 → signin-ui-05 → signin-1g-05.
-All after guest10 UNSTARTED. Settings11 is a separate completed #443 successor.
-Sources/seals for16successors are recorded in successor-owners-qa13/; manifest
-/workspace/tmp/pixelelated-m7-continuation-owners-01/manifest.json. Sweep09 is a
-fresh additional owner for #442, prepared d671f8=0/separate readback2ccf53=0.
-Predecessor07 requires boot04 PASS and actual UI11 visual-review.json PASS.
-Do not create a visual-pass receipt before inspecting actual frames.
+guest-11(active) → runtime-12 → proxy-10 → optins-10 → memory-10 → ui-12 →
+predecessor-08 → subset-07 → cloud-ui-06 → signin-ui-06 → signin-1g-06.
+All after guest11 UNSTARTED. Prior11owners stay sealed/unstarted/interrupted;
+do not execute them. Mapping/seals: successor-owners-guest11/ and
+/tmp/pixelelated-guest11-chain.json. Predecessor08 requires completed boot04
+and actual UI12 visual-review.json PASS, written only after inspecting frames.
 Proxy22/subset35 assertions unchanged. Fixture /tmp/m7-proxy-predecessor/store.sqlite3
 SHAa796c1e6ce6373a6620dfa983e16de3012b6d8feb83f9a2c178f437d8c0adca5.
 
-Each launch from frozen09 cwd: verify successful preparation/seal and activity
-directory exists, then tools/watch-build --interval 5 --stall-min 5
---recursive-activity --activity-dir OWNER/artifacts -- OWNER/outer.sh BUNDLE.
-Capture actual tool session, console.log and tool-wrapper.rc. Inspect each
-preparation result before dependent launch; sequential calls alone are not a gate.
-Fixed VM ports serialize. No swap reclaim during VM work. Finish-owner checks
-actual /proc and global QEMU absence; use only after the tool really returns.
-Generic retainer /tmp/pixelelated-retain-09-successors-v3.py supports these names;
-all existing prepare/retain/freeze/store scripts ALREADY RAN: never replay them.
+Launch only after separate preparation/seal verification and actual prior cleanup.
+From frozen09 cwd invoke the CURRENT tool by absolute path:
+python3 /workspace/repos/rocknix.worktrees/conflict-resolution/tools/watch-build-submit
+--owner OWNER -- --interval 5 --stall-min 5 --recursive-activity
+--activity-dir OWNER/artifacts -- OWNER/outer.sh BUNDLE.
+Submission exits immediately; record its actual tool chunk, then actively poll.
+The retained launcher copy and frozen standard runner remain unchanged in flight.
+No swap reclaim during VM work. Fixed ports serialize. All preparation/retention
+scripts already ran and are not safe to replay. Update retainers for new owner
+names and job_rc schema; never label submission_rc as completion_rc.
 
 QA13's actual upgraded backing is /workspace/tmp/pixelelated-m7-qa-13/pair/vm-a.qcow2.
 External RC2 evidence /workspace/artifacts/rocknix-images/qa-cf511ce79b-upgrade-from-69e6039f8f-20261005-0632:
@@ -108,14 +116,12 @@ rehearsal.log/rc/journal-err-after.txt public; state-after.txt HASHONLY.
 Do not copy private keys, saved configs or VM disks into Git. Full frozen input
 manifest stays outside Git; inputs-reference.json records its digest.
 
-Last published featureb7f9cac3c8ba63281e81635e13fee9a97b59c777 → nexte1f2baaf4b819b30dedb648bea9ebe8ef1d09658,
-actual49305=0, both remote hashes verified. #439/440/441 closed completed
-actual52959=0; #442/443 closed completed actual19135=0. Receipts live under
-/tmp/pixelelated-439441-closed and /tmp/pixelelated-442443-closed.
-Pending publication: link10 evidence and this updated checkpoint/readiness/worklog.
-Use explicit commit/cherry-pick-x to primary next and normal fork pushes. Never
-whole-feature merge. Manual whitespace checks exclude retained raw reports;
-normal credential/commit/push hooks still inspect all files. P4 cadence is due.
+Last published feature7a865e8599d59804aea313086f96a14eb87b5fa6 → nextcd5f292fef7611831cce006cb49c20309b7c6a1c,
+actual52508=0, both remote hashes verified. #439/440/441 and #442/443 are
+closed completed with published scoped evidence. Current pending publication:
+#444 durable launcher/controls, interrupted guest10, fresh successor chain and
+updated milestone/checkpoint. Use explicit commit/cherry-pick-x and normal
+fork pushes. Original evidence bytes remain exact; all normal hooks apply.
 
 P4 NOT STARTED: primary OpenAI + Fable5.1/xhigh verified Facilitator, blind then
 refutation; no Daybreak or same-provider substitute. Complete remaining matrix
