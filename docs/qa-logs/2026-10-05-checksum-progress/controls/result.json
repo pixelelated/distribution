@@ -1,0 +1,27 @@
+{
+  "utc": "2026-10-05T05:56:00.556905+00:00",
+  "passed": true,
+  "scope": "Host-only isolated controls, synthetic counters; not a new real-copy acceptance",
+  "adapter_sha256": "8ab16760c79a4112796cd042c95e943bd45d609a68f0e17409bf9611490a88ad",
+  "watcher_sha256": "052cdea2b449eb4a61f33ed41f4079a36d82605fa08c99a4006f3112d57926a2",
+  "checks": [
+    "JSON-only receipt reproduces stalled despite alive job",
+    "first observation creates no activity log",
+    "actual watcher identifies corrected .log and reports running",
+    "unchanged counters do not refresh log or content",
+    "reused PID with new start identity creates no activity",
+    "counter regression creates no activity"
+  ],
+  "cleanup": [
+    {
+      "pid": 7,
+      "returncode": -15,
+      "absent": true
+    },
+    {
+      "pid": 6,
+      "returncode": -15,
+      "absent": true
+    }
+  ]
+}

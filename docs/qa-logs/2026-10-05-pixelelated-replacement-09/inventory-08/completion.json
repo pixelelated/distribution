@@ -1,0 +1,48 @@
+{
+  "observed_utc": "2026-10-05T05:56:54.864590+00:00",
+  "actual_tool_session": 24423,
+  "actual_tool_rc": 0,
+  "result_channels": {
+    "/workspace/tmp/pixelelated-m7-inventory-08/inner.rc": 0,
+    "/workspace/tmp/pixelelated-m7-inventory-08/outer.rc": 0,
+    "/workspace/tmp/pixelelated-m7-inventory-08/tool-wrapper.rc": 0,
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261005T055410Z-897e54ea/build.rc": 0
+  },
+  "owned_processes": [
+    {
+      "source": "build.pid",
+      "pid": 3410791,
+      "state": "absent"
+    },
+    {
+      "source": "watcher.pid",
+      "pid": 3410793,
+      "state": "absent"
+    },
+    {
+      "source": "command.pid",
+      "pid": 3410842,
+      "state": "absent"
+    }
+  ],
+  "run": "/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261005T055410Z-897e54ea",
+  "build_log_sha256": "b2e54bc28db3b9046fa2011d6d415b97262d014ac2d3f07a5f731184ff8d3197",
+  "scope": "Inventory-only cleanup; QA11 has its independent active owner. No global QEMU absence claimed.",
+  "parallel_qa": [
+    {
+      "file": "build.pid",
+      "pid": 3382071,
+      "state": "S"
+    },
+    {
+      "file": "watcher.pid",
+      "pid": 3382072,
+      "state": "S"
+    },
+    {
+      "file": "command.pid",
+      "pid": 3382101,
+      "state": "S"
+    }
+  ]
+}

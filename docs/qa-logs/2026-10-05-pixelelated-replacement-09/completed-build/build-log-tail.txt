@@ -1,0 +1,80 @@
+ #16    16     :  :05.365 (00.7%)        |     16        :  :02.832 (00.4%)
+ #17    23     :  :05.179 (00.7%)        |     17        :  :02.511 (00.3%)
+ #18    03     :  :05.121 (00.7%)        |     18        :  :02.376 (00.3%)
+ #19    15     :  :05.029 (00.7%)        |     19        :  :02.279 (00.3%)
+ #20    22     :  :04.993 (00.6%)        |     20        :  :02.169 (00.3%)
+ #21    11     :  :04.908 (00.6%)        |     21        :  :02.092 (00.3%)
+ #22    19     :  :04.732 (00.6%)        |     22        :  :02.011 (00.3%)
+ #23    21     :  :04.555 (00.6%)        |     23        :  :01.806 (00.2%)
+ #24    12     :  :04.477 (00.6%)        |     24        :  :01.618 (00.2%)
+-----------------------------------------+---------------------------------
+ TOTALS        :02:59.150 (23.2%)                        :02:59.150 (23.2%)
+
+Successful build, creating image...
+Parallel mksquashfs: Using 24 processors
+Creating 4.0 filesystem on /workspace/repos/rocknix.worktrees/m7-pixelelated/target/pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.system, block size 1048576.
+
+[/                                                           ]     0/36069   0%
+[===|                                                        ]  4200/64832   6%
+[===========================================================/] 64832/64832 100%
+
+Exportable Squashfs 4.0 filesystem, zstd compressed, data block size 1048576
+	compressed data, compressed metadata, compressed fragments,
+	no xattrs, compressed ids
+	duplicates are removed
+Filesystem size 1977005.79 Kbytes (1930.67 Mbytes)
+	29.72% of uncompressed filesystem size (6651485.55 Kbytes)
+Inode table size 466846 bytes (455.90 Kbytes)
+	23.27% of uncompressed inode table size (2006148 bytes)
+Directory table size 788622 bytes (770.14 Kbytes)
+	34.59% of uncompressed directory table size (2280133 bytes)
+Number of duplicate files found 5032
+Number of inodes 61042
+Number of files 57035
+Number of fragments 1549
+Number of symbolic links 1345
+Number of device nodes 0
+Number of fifo nodes 0
+Number of socket nodes 0
+Number of directories 2662
+Number of hard-links 258
+Number of ids (unique uids + gids) 2
+Number of uids 1
+	root (0)
+Number of gids 2
+	root (0)
+	unknown (81)
+Running /workspace/repos/rocknix.worktrees/m7-pixelelated/projects/ROCKNIX/bootloader/install
+install: building ROCKNIX bootloader for GENERIC_X64 (syslinux) ...
+install: installing syslinux bootloader files
+install: copying syslinux files to bootloader location
+'/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/share/syslinux/bootx64.efi' -> '/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/share/bootloader/bootx64.efi'
+'/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/share/syslinux/gptmbr.bin' -> '/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/share/bootloader/gptmbr.bin'
+'/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/share/syslinux/ldlinux.c32' -> '/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/share/bootloader/ldlinux.c32'
+'/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/share/syslinux/ldlinux.e64' -> '/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/share/bootloader/ldlinux.e64'
+'/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/share/syslinux/mbr.bin' -> '/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/share/bootloader/mbr.bin'
+install: ROCKNIX bootloader installation completed for syslinux
+Running /workspace/repos/rocknix.worktrees/m7-pixelelated/projects/ROCKNIX/bootloader/release
+
+image: creating sparse file for disk image pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img...
+image: creating gpt partition table...
+image: creating partitions...
+image: writing mbr...
+image: creating sparse file for part2...
+image: creating filesystem on part2...
+image: populating filesystem on part2...
+image: merging part2 into disk image...
+image: creating sparse file for part1...
+image: creating filesystem on part1...
+image: creating bootloader configuration... (syslinux)
+image: installing syslinux to part1...
+image: copying files to part1...
+image: checking filesystem on part1...
+image: merging part1 into disk image...
+image: compressing...
+image: cleanup...
+
+make[2]: Leaving directory '/workspace/repos/rocknix.worktrees/m7-pixelelated'
+make[1]: Leaving directory '/workspace/repos/rocknix.worktrees/m7-pixelelated'
+PASS frozen inputs, host options, container and 24/4 concurrency
+PASS assembled initramfs quiet fallback, OS_NAME export, XML/text, proxy, identity and licence payload

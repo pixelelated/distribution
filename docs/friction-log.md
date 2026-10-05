@@ -182,3 +182,6 @@ QA08 reached correct initial identity/Information but generic dismiss/reopen/cou
 - 2026-10-05 05:24 UTC — QA evidence retention stopped safely on an unexpected state-after dump beside the upgrade logs. Retain only explicitly allowed public files and hash the excluded dump; no config contents copied. Guard: allowlisted retention and manifest. Issue #383.
 
 - 2026-10-05 05:38 UTC — Full source manifest hit the credential-shaped-line guard on existing kernel filenames. Keep its exact original in immutable artifact custody and retain a digest reference in Git; no guard exemption. Issue #383.
+
+- 2026-10-05 06:06 UTC — External checksum observer wrote JSON while watch-job intentionally scans *.log; genuine reads did not refresh the watched signal. Guard: positive same-process byte deltas alone append checksum-progress.log, with six actualwatcher controls and original receipts retained. Issue #437.
+- 2026-10-05 06:06 UTC — Parallel inventory launched from the active QA worktree and was refused before start. Guard: fresh inventory08 explicitly requires the separate coordination cwd; same frozen input paths, no lock bypass. Actual24423/allrc0 and independent cleanup verified. Issue #438.
