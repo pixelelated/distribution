@@ -1,0 +1,26 @@
+{
+  "utc": "2026-10-05T06:04:34.683343+00:00",
+  "passed": true,
+  "actual_archive": "/workspace/artifacts/pixelelated-candidates/sha256/79d560046ee52e28b72f16588168dd7c8fb2637c1cc585713216a8ec828e9d81/pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.tar",
+  "kernel_member": "pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX/target/KERNEL",
+  "recipe": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/projects/ROCKNIX/packages/virtual/initramfs/package.mk",
+  "observations": [
+    {
+      "replacement": "08",
+      "kernel_sha256": "8dfcd6bb7d4dcdbdb128c8a15c901185e6213245c128652bb76b2591a5807cd3",
+      "assembled_init_sha256": "44838adbec3d83ff689858f8ca2fb193680b6a3d00157186c677596e8a2cedcc",
+      "initramfs_recipe_sha256": "ffa34c9ccd3d90f3eeb4c4f2739472f3d5a76db74d2e47b075610a1ea8e84821",
+      "initramfs_install_target_present": false,
+      "linux_build_stamp_sha256": "80bca748e90e1412311360dd9fce9c1fe534befcb580d5dc9c74d31e13bf602a"
+    },
+    {
+      "replacement": "09",
+      "kernel_sha256": "8dfcd6bb7d4dcdbdb128c8a15c901185e6213245c128652bb76b2591a5807cd3",
+      "assembled_init_sha256": "44838adbec3d83ff689858f8ca2fb193680b6a3d00157186c677596e8a2cedcc",
+      "initramfs_recipe_sha256": "ffa34c9ccd3d90f3eeb4c4f2739472f3d5a76db74d2e47b075610a1ea8e84821",
+      "initramfs_install_target_present": false,
+      "linux_build_stamp_sha256": "80bca748e90e1412311360dd9fce9c1fe534befcb580d5dc9c74d31e13bf602a"
+    }
+  ],
+  "interpretation": "Actual09 packaged kernel, assembled init, recipe and Linux stamp match08. Cached Linux embeds initramfs; omitted metapackage install stamp is not a missing payload. Retain recipe in P5 source bundle."
+}

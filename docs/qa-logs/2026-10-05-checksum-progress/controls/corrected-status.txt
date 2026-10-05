@@ -1,0 +1,12 @@
+state:       running
+written:     2026-10-05 05:56:00 UTC   <- if this is stale, investigate the watcher
+watcher_pid: 7
+job_pid:     6  alive=yes
+started:     2026-10-05 05:55:59 UTC
+progress:    none matched
+log:         /tmp/pixelelated-checksum-progress-controls-01/job.log  (last written 181s ago)
+activity:    /tmp/pixelelated-checksum-progress-controls-01/copy-artifacts/checksum-progress.log  (last written 1s ago)
+activity_dir: /tmp/pixelelated-checksum-progress-controls-01/copy-artifacts
+activity_progress: 
+tail:
+  {"observed_utc": "2026-10-05T05:55:59.551271+00:00", "scope": "Actual same-process rsync read deltas; not checksum acceptance", "r

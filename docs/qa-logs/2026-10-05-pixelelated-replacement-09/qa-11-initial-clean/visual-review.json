@@ -1,0 +1,20 @@
+{
+  "recorded_utc": "2026-10-05T06:04:34.683343+00:00",
+  "passed": true,
+  "review_method": "All five actual PNGs directly inspected during this session before context compaction",
+  "assertions": [
+    "Main footer is lowercase pixelelated 0.0.1 (community)",
+    "System Settings and Information reached",
+    "Information shows pixelelated/cf511ce on build/m7-pixelelated-replacement09 and Linux7.1.2",
+    "Back/Back preserves ES1640/start_ticks597; no lifecycle exception",
+    "Updates manual message has github.com/pixelelated/distribution/releases"
+  ],
+  "frames": {
+    "03-information.png": "2d145d3d8439a99af7bbf129e5d16c1d5b4c34d9a6babed4eba33d5681bc8963",
+    "05-manual-update-message.png": "8a6b62fa3e89f458a74ce5031e00dca22d79f4f06a920754deb872860ccb348f",
+    "02-system-settings.png": "834e77c8f5c92ed8eb737d988985635cf71dd2d66d5d5c04d549956b83a1c3ce",
+    "01-main-menu-identity.png": "05d11b35b663c271ab33b33cfbc9e938680a5ce52254d5d35a1d8bc0196fb81d",
+    "04-updates.png": "64e600ea2db4bf4d9eaca16ce30b26255120beb2d99836b116d4bf7161855572"
+  },
+  "scope": "Initial clean identity only; default suites and actual RC2 upgrade still in progress"
+}

@@ -1,0 +1,59 @@
+{
+  "observed_utc": "2026-10-05T05:44:34.837671+00:00",
+  "scope": "Actual cumulative rsync worker reads; no inferred checksum acceptance",
+  "rchar_deltas_since_previous_observation": {
+    "3204146": 22733234212,
+    "3204147": 22421224226,
+    "3204148": 14224752
+  },
+  "workers": [
+    {
+      "ppid": 3183124,
+      "state": "D",
+      "start_ticks": 27035709,
+      "exe": "rsync",
+      "pid": 3204146,
+      "io": {
+        "rchar": 95085669096,
+        "wchar": 109603594,
+        "syscr": 2548111,
+        "syscw": 5062,
+        "read_bytes": 95963762688,
+        "write_bytes": 0,
+        "cancelled_write_bytes": 0
+      }
+    },
+    {
+      "ppid": 3204146,
+      "state": "S",
+      "start_ticks": 27035709,
+      "exe": "rsync",
+      "pid": 3204147,
+      "io": {
+        "rchar": 90189707500,
+        "wchar": 202216,
+        "syscr": 2528990,
+        "syscw": 4694,
+        "read_bytes": 95624331264,
+        "write_bytes": 0,
+        "cancelled_write_bytes": 0
+      }
+    },
+    {
+      "ppid": 3204147,
+      "state": "S",
+      "start_ticks": 27035710,
+      "exe": "rsync",
+      "pid": 3204148,
+      "io": {
+        "rchar": 109603072,
+        "wchar": 109613651,
+        "syscr": 5961,
+        "syscw": 5793,
+        "read_bytes": 0,
+        "write_bytes": 0,
+        "cancelled_write_bytes": 0
+      }
+    }
+  ]
+}

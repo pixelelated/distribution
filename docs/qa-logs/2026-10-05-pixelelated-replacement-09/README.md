@@ -1,4 +1,30 @@
-# M7.P3 replacement09 preparation (#409, #383)
+# M7.P3 replacement09 build and qualification (#409, #383)
+
+Status updated 2026-10-05T06:06:42.302205+00:00.
+
+The [M7 milestone body](https://github.com/pixelelated/distribution/milestone/7)
+is the binding running order. **Replacement09 built; QA11 qualification active.**
+Sourcecf511ce79b / ESf6f0 / input817fd9ff… built642 tasks (actual12792/allrc0).
+Actual owner/container cleanup verified. Store30378=0 binds14files in immutable
+bundle79d56004…; imageb9be57ee… and update6072dbc5…. Only the authorized unused
+proxy identity/patch filename changed from08; no package pin changed.
+
+QA11/tool64718 is running full defaults and actualRC2upgrade. Initial clean
+payload, installed proxy identity/account fixtures and Back/Back process
+continuity pass; allfive identity/updateframes reviewed. Inventory08/tool24423
+passes583components/568roots/525stamps/0errors; actual embeddedinit/kernel
+provenance matches08. Fourteen P5 licence-metadata gaps remain. Original refused
+inventory07 and corrected coordination guard are retained under #438. #437's
+measured copy progress adapter passes six actualwatcher controls; original
+copy warning and I/O remain. No frozen/executed owner was changed.
+
+Evidence: `docs/qa-logs/2026-10-05-pixelelated-replacement-09/`.
+Next: finish QA11 → boot03 clean/upgraded640/1280 → remaining exact-image
+qualification → ordinaryRA and P4 primary+Fable5.1/xhigh → H700 arm/aarch64.
+#433/#436 are closed from08 installed repairproof; passes stayartifact-scoped.
+#409/#426 and wider readiness criteria remain open. No RC/device-ready claim.
+
+## Preparation snapshot (historical)
 
 Snapshot 2026-10-05T05:35:11.400623+00:00. Frozen distribution cf511ce79b83cba7fea8b14cfa3d04fb13e4b4fb,
 ES f6f0c134212bc696f2f6a747c8d390a588f2f0ce, manifest 817fd9ff49b1ecf6bcc859cfa38985a65fbcfe5514c33a0a5c9dd60af6cc6c6e.

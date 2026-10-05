@@ -8,33 +8,26 @@ is unchanged. The required adoption flow is **ROCKNIX → pixelelated**;
 there are no fielded /Rasteratops systems requiring an additional gate.
 
 The [M7 milestone body](https://github.com/pixelelated/distribution/milestone/7)
-is the binding running order. **Replacement09 frozen; cache preparation in progress.**
-The preceding build08, source72121fd03a / ESf6f0c1342 / immutable bundle84a79416…, completed all642
-package tasks and exact payload checks (actual49805=0; store68326=0).
-Actual runner/watcher/container cleanup is verified. Image SHA7a60c191… and
-update d196d9c2… are bound to input7578b0d9…; no mutable target selection.
+is the binding running order. **Replacement09 built; QA11 qualification active.**
+Sourcecf511ce79b / ESf6f0 / input817fd9ff… built642 tasks (actual12792/allrc0).
+Actual owner/container cleanup verified. Store30378=0 binds14files in immutable
+bundle79d56004…; imageb9be57ee… and update6072dbc5…. Only the authorized unused
+proxy identity/patch filename changed from08; no package pin changed.
 
-QA10/tool98190 and all result channels pass:15default suites,16walks/78frames,
-0unexpected differences, actualRC2 upgrade26checks. Clean and upgraded Back/Back
-Settings save preserve the ES process; ten identity frames were reviewed.
-Boot02/tool86957 passes allfour clean/upgraded640/1280 comparisons at1.0 with
-unchanged0.995 threshold and allnegativecontrols rejected. Actual owner/guest
-cleanup is verified. Scoped #436/#433 repairs now have installed evidence.
-Inventory06 passes0source errors;14P5licence metadata gaps remain. Supplemental
-provenance covers the cached embedded initramfs despite its omitted installstamp.
+QA11/tool64718 is running full defaults and actualRC2upgrade. Initial clean
+payload, installed proxy identity/account fixtures and Back/Back process
+continuity pass; allfive identity/updateframes reviewed. Inventory08/tool24423
+passes583components/568roots/525stamps/0errors; actual embeddedinit/kernel
+provenance matches08. Fourteen P5 licence-metadata gaps remain. Original refused
+inventory07 and corrected coordination guard are retained under #438. #437's
+measured copy progress adapter passes six actualwatcher controls; original
+copy warning and I/O remain. No frozen/executed owner was changed.
 
-Evidence: `docs/qa-logs/2026-10-05-pixelelated-replacement-08/`.
-Original07 crashes and earlier failed boot observations remain retained.
-The authorized proxy identity cleanup is published (52870=0) and frozen as
-replacement09, source cf511ce79b83cba7fea8b14cfa3d04fb13e4b4fb, input817fd9ff….
-Same proxy/ES/splash pins; only an unshipped OS alias is removed. Independent
-cache copy91647 is active under watcher3183094. All18 new owners are prepared
-and unstarted, including installed proxy identity/account-discovery checks.
-#436/#433 are closed from published08 evidence. No09 image exists yet.
-Next: complete copy/checksums/inodes, guarded idle preflight, proxy/image build,
-immutable bundle and renewed full qualification, then ordinaryRA and the
-approved P4 primary+Fable5.1/xhigh before H700 arm/aarch64.
-No RC/device-ready call. #409/#426 remainopen for their broader criteria.
+Evidence: `docs/qa-logs/2026-10-05-pixelelated-replacement-09/`.
+Next: finish QA11 → boot03 clean/upgraded640/1280 → remaining exact-image
+qualification → ordinaryRA and P4 primary+Fable5.1/xhigh → H700 arm/aarch64.
+#433/#436 are closed from08 installed repairproof; passes stayartifact-scoped.
+#409/#426 and wider readiness criteria remain open. No RC/device-ready claim.
 
 ## Historical replacement06 qualification
 

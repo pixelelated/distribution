@@ -1,0 +1,15 @@
+{
+  "utc": "2026-10-05T06:04:09.971657+00:00",
+  "actual_inline_chunk": "ed01a0",
+  "actual_rc": 2,
+  "tool_session_allocated": false,
+  "absent": [
+    "start",
+    "inner.rc",
+    "outer.rc",
+    "run.path"
+  ],
+  "inventory_started": false,
+  "cause": "watch-build one-owner-per-worktree lock; QA11 already owns frozen09",
+  "replacement": "inventory-08 uses its guarded feature coordination cwd"
+}
