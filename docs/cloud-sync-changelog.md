@@ -1,5 +1,13 @@
 # Cloud sync, backup and restore — change summary
 
+## Safely leave System Settings without GPU governor support (2026-10-05)
+
+Source correction #436 leaves the saved GPU preference untouched when the
+device offers no governor choices. The old save callback crashes on that
+empty list; six callback controls pass with the repair, including supported
+selection and apply behavior. Replacement07's actual VM journal confirms
+the old crash. Corrected-image clean and upgrade validation remains pending.
+
 ## 0.0.1 identity transition — 2026-10-04 (#409)
 
 The next candidate is named **pixelelated**, always lowercase. New cloud
@@ -3221,4 +3229,3 @@ frames of RetroArch text taken on a guest are now what a device draws, and the Q
 runner refuses a run whose RetroArch surface was smaller than the screen.
 webkitgtk stays 2.52.6 (D-WORKFLOW-041); the 2.54 bump is the next candidate's
 first work (D-WORKFLOW-042).
-

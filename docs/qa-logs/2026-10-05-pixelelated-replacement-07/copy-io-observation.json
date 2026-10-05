@@ -1,0 +1,75 @@
+{
+  "observed_utc": "2026-10-05T03:26:47.605074+00:00",
+  "processes": [
+    {
+      "pid": 1861503,
+      "name": "copy-outer.sh",
+      "state": "S",
+      "io": {
+        "rchar": 5568,
+        "wchar": 0,
+        "syscr": 12,
+        "syscw": 0,
+        "read_bytes": 0,
+        "write_bytes": 0,
+        "cancelled_write_bytes": 0
+      }
+    },
+    {
+      "pid": 1861504,
+      "name": "copy-cache.sh",
+      "state": "S",
+      "io": {
+        "rchar": 209219246785,
+        "wchar": 208758976423,
+        "syscr": 12550354,
+        "syscw": 9225667,
+        "read_bytes": 112065724416,
+        "write_bytes": 110429822976,
+        "cancelled_write_bytes": 0
+      }
+    },
+    {
+      "pid": 1881646,
+      "name": "rsync",
+      "state": "D",
+      "io": {
+        "rchar": 21671251030,
+        "wchar": 48027550,
+        "syscr": 981350,
+        "syscw": 1832,
+        "read_bytes": 23866146816,
+        "write_bytes": 0,
+        "cancelled_write_bytes": 0
+      }
+    },
+    {
+      "pid": 1881647,
+      "name": "rsync",
+      "state": "S",
+      "io": {
+        "rchar": 21499949156,
+        "wchar": 54164,
+        "syscr": 980243,
+        "syscw": 1530,
+        "read_bytes": 23849824256,
+        "write_bytes": 0,
+        "cancelled_write_bytes": 0
+      }
+    },
+    {
+      "pid": 1881648,
+      "name": "rsync",
+      "state": "S",
+      "io": {
+        "rchar": 48027028,
+        "wchar": 48034517,
+        "syscr": 2418,
+        "syscw": 2347,
+        "read_bytes": 0,
+        "write_bytes": 0,
+        "cancelled_write_bytes": 0
+      }
+    }
+  ]
+}

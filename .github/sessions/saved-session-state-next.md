@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Saved 2026-10-05T03:15:54.020727+00:00. Previous full checkpoint archived at `.github/sessions/archived/saved-session-state-next-20261005T031554Z.md`.
+> Saved 2026-10-05T04:14:58.664819+00:00. Previous checkpoint archived at `.github/sessions/archived/saved-session-state-next-20261005T041458Z.md`.
 > Branch feature/conflict-resolution; primary /workspace/repos/rocknix stays next.
 
 ## Start here
@@ -30,113 +30,115 @@ and precise harness-manifest wording findings are corrected.
 A helper installation is COMPLETE; do not ask to reinstall it.
 
 
-## Current focus: proxy host validation complete; replacement07 not yet frozen
+## Current focus: repair confirmed System Settings crash, then replacement08
 
-No build, QA VM or watcher is active. Actual tool5816 completed0 at03:06;
-observed03:11:24: runner1430289/watcher1430291/command1430320 all absent.
-815 patched upstream tests with native hashing/no skips,11 downstream integration
-tests and full scripts1719PASS/0FAIL/0SKIP. Inner/wrapper/watcher results0;
-all27 sealed input hashes exact. Host/source proof uses previous candidate's
-native library/applets; it is not new-image installed QA.
+No build, watcher or QA VM is running. Replacement07 BUILT but is NOT qualified.
+Source a2586374b7b565965fe0c644656e22ff3c0ec317 / ES c75aa3fac967ba532fd9ba1c21fa10ca024e8bc1.
+Frozen tree /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement07,
+branch build/m7-pixelelated-replacement07; owner /workspace/tmp/pixelelated-m7-replacement-07.
+Manifest dcc242bbb3039559515b20ca395135af809fdb099d31b3710cf907c97c4d4e84;
+6547product/180links/200QA. Immutable bundle:
+/workspace/artifacts/pixelelated-candidates/sha256/95dbc93b666f886c35af16a5b67e81dd77fad7f667e2307efb061cabf1ffc188
+Image347c9da649b795f3af48bb9c83e79d21a22a9a7301163a8b3d3c17a6d470c66d;
+tare057d9c11e72c90adcaf27733ecc116ba285a6d26fc22f844b6617cb723396fe.
 
-Owner /tmp/pixelelated-proxy-7252fc/final-host-tests; completion.json has actual_rc0.
-Run /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261005T025342Z-b3979a0e.
-Retained91 files under docs/qa-logs/2026-10-05-proxy-7252fc/, SHA256SUMS.
-Retainer /tmp/pixelelated-retain-proxy7252.py ALREADY RAN; never rerun it.
-The three prior failed upstream owners and old-API/new-fixture failures remain
-retained with their actual failures; no production consent gate was weakened.
+Successful build owner is CHILD build-attempt-02, actual68993/allfourrc0,
+642packages; assembled initramfs/export/identity/proxy bytes PASS. Actual03:41:43
+runner1935790/watch1935791/command1935822 absent; pinned container1237c7c67bb7
+also independently exited. Store/independent verify17028=0;15bound files.
+Independent cache copy74291/allrc0 checksum-equal2525219distinct files.
+Initial parent build7435/allrc2 remains failed; incorrect owner-cwd watcher
+launch refused image compilation after two cleans. Parent outer.rc MUST remain2.
+Corrected child has pre-mutation cwd guard, wrong2/correct0. #435 closure needs
+published receipts/checkpoint. Inventory05/tool30750/allrc0:584components,
+568roots/526stamps,0sourceerrors,14known P5licence metadata gaps unchanged.
 
-Current feature before this checkpoint commit is59fc12261a0e03a7490f83146031a6577a5ad646;
-primary nextbed8e2bb1e3f4eac9fbef405d6e496f71ff687d6. Both pushed normally,
-actual74439=0, remote hashes read back; /tmp/pixelelated-splash-published.json.
-Local changes now comprise current proxy integration, two harnesses, review/
-friction/worklog/evidence and this checkpoint. Commit those exact paths with
-Refs #426/#433/#383; cherry-pick -x the FULL feature commit onto clean next,
-normal pushes/readbacks. Never merge the historical feature branch wholesale.
-Then save /tmp/pixelelated-replacement07-published.json with key next = full
-published next commit. This must be actual readback, not an anticipated hash.
+QA08/tool38098/allrc1 and QA09/tool26670/allrc1 failed in the INITIAL identity
+walk BEFORE defaults or actual RC2 upgrade. Both complete cleanup receipts exist.
+QA09/pair/vm-a.qcow2 is a clean failed identity guest, NOT an upgraded disk.
+Their earlier navigation-only diagnosis under #422 is superseded by #436.
+Never use close-all as a workaround to pass this defect.
 
-## Boot diagnosis and source repair (#433; fixture #434 closed)
+Diagnostic01/tool1868=125 failed preparation/launch before any guest (Python
+syntax error followed by unexecutable outer.sh). Preserve no-inner/no-outer
+result and missingqa.start. Diagnostic02/tool40399/allrc0 records black on
+Back/Back, while START-close/START-open reaches Updates/manual message.
+Actual04:03:02 all owned processes absent. Diagnostic03/tool31827/allrc0 proves
+PRODUCT CRASH: ES1511 aborts/status134 on second Back, empty-vector exception,
+then ES3017 starts. Journal records absent099-freqfunctions. Actual black,
+PICO-8 carousel and reopened menu frames reviewed. Actual04:07:53 runner2324528,
+watch2324529,command2324558,guest2324581 absent; original backing/source/bundle
+unchanged. Diagnostic success is not candidate acceptance.
+Owners /workspace/tmp/pixelelated-m7-identity-diagnostic-01/02/03.
+Retained build/inventory/failures/diagnostics in
+docs/qa-logs/2026-10-05-pixelelated-replacement-07/; all retainers ALREADY RAN.
 
-Original UI07/tool90920 runner/allrc0 but640 boot match0.9610208816705337
-fails unchanged0.995 threshold;924 expected-colored pixels black rows212–239.
-1280 passes0.9960472820. Exact frames/failed match remain retained. #433 open.
+## #436 repair and publication state
 
-Three new bounded owners /workspace/tmp/pixelelated-m7-boot-diagnostic-01/02/03:
-01 actual84845/allrc1: original640 match0.8515924910; exact consumed splash
-text-mode1.0 then console clear0.9816916262; graphics mode remains1.0.
-Wrong GRUB-only quiet fixture is rejected because actual BIOS Syslinux is used.
-02 actual75715/allrc1 fixes Syslinux but assumes wrong flat GRUB path; stops.
-03 actual7616/allrc0 discovers EFI/BOOT/grub.cfg and modifies both COW boot
-configs; quiet640 and1280 each match1.0 with unchanged threshold and negative
-controls. Actual kernel cmdline proves quiet, portable and both consoles.
-All observed owner/QEMU PIDs absent02:33:25; original source/bundle/backing exact.
-Viewed both quiet frames and drawn/erased controls. No specific kernel message
-is claimed as culprit, and disposable quiet COW does not qualify a new image.
+Source cause: global GPU governor save calls getSelected even when runtime
+enumeration returns no entries; OptionList selects.at(0) throws. CPU has a
+fallback; per-game GPU changed() already returns false for no selection.
+Fix only global callback with hasSelection return; no preference write or
+unsupported apply when absent, same supported behavior/rows/labels.
+ES feature worktree /tmp/pixelelated-es-gpu-governor,
+feature/m7-gpu-governor-capability, commitf6f0c134212bc696f2f6a747c8d390a588f2f0ce.
+Integrated by fast-forward into test/qa-integration and normal push/tool39201=0;
+remote full hash read back. ES canonical sibling path now has this NEW commit.
+Old frozen07 owners expecting c75 must NOT be rerun with that changed sibling.
+Six actual callback/selection-method controls pass, oldc75 controlfails1 with
+the observed empty-vector exception. Pinned container syntax/tool66802=0.
+Actual combined default lifetime function runs ASan page tests then GPU tests0.
+Controls retained in replacement07/gpu-governor-controls.
 
-Published59fc→bed8 source: GENERIC_X64/options adds quiet. BusyBox init also
-sets existing quiet printk policy for GENERIC_X64 unless debugging without
-quiet, covering upgrades that keep old boot config. H700/AMD64 behavior and
-serial/journal access retained.16 real old/new predicate controls pass, with
-old missing-quiet behavior failing the intended contract. VM README documents it.
-Retained docs/qa-logs/2026-10-05-pixelelated-boot-diagnosis/; its retainer ALREADY RAN.
-#434 closed completed with published fixture proof. #433 requires actual new
-clean and retained-RC2-upgrade boots at640 and1280; do not close from diagnostics.
+Feature distribution HEAD before pending commit70e76d17f61a7a85d2da893d0abf1db12fefc67e;
+primary nexta2586374b7b565965fe0c644656e22ff3c0ec317. Both published earlier.
+LOCAL dirty: ES pinf6f0, tools/vm-qa default lifetime regression, completed07
+evidence, work/friction/readiness/checkpoint. No frozen product edited.
+Next: normal gates → exact feature commit → cherry-pick -x fullcommit onto
+clean next → normal pushes/readback. No whole historical feature merge.
 
-## Current proxy7252fc (#426)
+## Next execution in order
 
-Pin7252fc781392d45b22f50d1a92f9febc4d1fa172; archive
-c5c85da105782828c738539db048e62677c9da11d215c0dcc5dae8c3f79c5680.
-Official upstream misantronic/RAOfflineProxy. Three commits since865e21 include
-Linux large-library memory/menu fixes,2.1.0-alpha1 and Android auth changes.
-Eleven consumed Python files change; all53 native files unchanged. Parent
-rcheevos1433173220a7eaede6a9ed7a18e94117be1821e0 and
-libchdr8e7b8bd32bc676b7e5c6b42fe7d2daca986c4a0d unchanged.
+1. Publish this source/evidence/checkpoint after fresh-context resume proof.
+2. Prepared /tmp/pixelelated-freeze08.py is NOT EXECUTED; review/run only after
+   actual publication receipt /tmp/pixelelated-replacement08-published.json
+   has the full next hash. It creates NEW replacement08 from published next. Change versus
+   a258 product is only ES packagepin; QA change tools/vm-qa. Inherit proxy7252fc,
+   splash8c71126/font2.007, container988c0b…, host24/4. Copy independent07cache
+   with checksums/inode proof, then guarded idle preflight, rebuild ES/image.
+   /tmp/pixelelated-freeze07.py and all07 preparers already ran: reference only.
+   New preparation must assert watcher cwd before mutations (#435) and separate
+   validated preparation from launch. Do not modify frozen07 or executed owners.
+3. New QA10 from QA09 must bind new manifest/commit/ES. KEEP actual Back/Back
+   save transition, add frontend PID/start-time continuity plus journal capture
+   even on failure; no close-all bypass. Clean and actual RC2 upgrade checks.
+4. Four clean/actual-upgraded boot checks640/1280 with unchanged.995 matcher and
+   negative controls (#433), including retained RC2 boot config withoutquiet.
+   All07 remaining prepared owners are now HISTORICAL/UNSTARTED: create new
+  08-bound owners, not passes or runtime overrides. Current07 dependency is
+   failedQA09. Ordered scopes: image → sweep → settings → link → guest → runtime
+   → proxy → optins → memory → UI → predecessor → subset → cloudUI → signinUI
+   → signin1GiB. Predecessor needs accepted boot + semantic UI review receipt.
+5. Ordinary RA fixture → P4 primary+Fable5.1/xhigh through approved Facilitator
+   → H700 DDR4/RG35XXSP arm thenaarch64. #409 remains open throughP4. No RC call.
 
-Storage keeps old cache/award columns, adds cached_game_meta/index/triggers/
-backfill. APIs stream bodies or return keys/summaries. OS image helper and ctl
-fallback stream; refresh uses keys/summary and newest timestamp. Patch003
-import context,005 key-based bounded thread wrapper,008 upstream test consent
-adaptation only. All15 patches apply fuzz0. Real predecessor store reopens
-preserve cache/sign-in/base/subset awards/images, metadata backfills. Current
-full test results above; source review in docs/rasteratops/raofflineproxy-refresh.md.
-Pristine/patched trees under /tmp/pixelelated-proxy-7252fc; final patched-v6.
-Do not edit previously executed trees. Source schema lint and pkgcheck passed.
-Freshness actual9508=0, /tmp/pixelelated-replacement07-freshness-after.log/.rc.
-No need to chase newer upstream during the coming qualification.
+## Inherited source repairs that replacement08 must retain
 
-## Immediate next commands and gates
+#433: default GENERIC_X64 quiet plus BusyBox-init console quiet fallback for
+retained old boot config, unless debug withoutquiet.16old/newpredicatecontrols;
+controlled quiet640/1280 matcher1.0 from diagnostics, no threshold weakening.
+Installed07/08 boot qualification has NOT run. Original06 failed match retained.
+#434 loader-fixture defect closed. Boot sourceproof retained under
+docs/qa-logs/2026-10-05-pixelelated-boot-diagnosis/.
 
-1. Finish normal checks/commit/integration/push; actual remote readback to
-   /tmp/pixelelated-replacement07-published.json. Run fresh-context resume proof.
-2. Prepared /tmp/pixelelated-freeze07.py is NOT EXECUTED. Review then execute
-   with host Docker/git/out-of-root access AFTER publication. Creates branch
-   build/m7-pixelelated-replacement07 and tree
-   /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement07; owner
-   /workspace/tmp/pixelelated-m7-replacement-07. Expected6547files/180links/200QA;
-   exactly10 product paths differ from57cbc and2QA tools. It checks5816
-   completion, freshness, clean next and actual Docker image.
-3. Frozen06 remains immutable. New cache is independent rsync-aH copy plus
-   full checksums/inode proof (~104GB/2.5million files), preserving identical
-   source mtimes; no hard links to old root. Review generated copy/build scripts
-   and seals; report VM question/plan on #383/#433/#426 BEFORE build. Launch
-   copy through newtree tools/watch-build --interval5 --stall-min5 using its
-   copy-artifacts activity dir and copy-outer.sh. Real checksum I/O can be quiet;
-   inspect owned process I/O before calling it stalled. Retain actual return,
-   copy.rc/copy.outer.rc/wrapper/build.rc and actual PID exits.
-4. Only idle: tools/build-preflight --reclaim-swap, existing fixed helper.
-   Build through watch-build --docker and owner/outer.sh. It cleans BusyBox
-   and proxy, removes linux/image build stamps, rebuilds kernel/initramfs/image
-   in canonical container mount. No generated script has run yet. Verify the
-   assembled init fallback and expected product bytes before candidate-store.
-5. Store manifest-bound image/tar; new owner QA08 from prior QA07 pattern
-   performs all15 defaults, actual retained ROCKNIX RC2 upgrade and payload/
-   identity checks. Add new boot proof of clean AND actualRC2-upgraded at640/
-   1280, including upgraded cmdline lacking quiet to exercise init fallback.
-   Prepared old proof owners below still bind frozen06; do not run/relabel them.
-6. Renew affected full candidate matrix, then predecessor/subset/cloudUI/
-   signin/1GiB/ordinaryRA → P4 primary + verified Fable5.1/xhigh → first H700
-   arm then aarch64. No device build is started. #409 stays open throughP4.
+#426 proxy7252fc781392d45b22f50d1a92f9febc4d1fa172, archivec5c85da105782828c738539db048e62677c9da11d215c0dcc5dae8c3f79c5680.
+Hosttool5816:815upstream/noSKIP,11integration,1719scriptsPASS/0FAIL/0SKIP,
+27sealedinputs/actualcleanup. Native53files/pins unchanged. Streaming cache,
+key/summary APIs and additive metadata backfill adapted in3OSconsumers/patches;
+15patchesfuzz0. Receiptspublished docs/qa-logs/2026-10-05-proxy-7252fc/.
+Currentpatched source /tmp/pixelelated-proxy-7252fc/patched-v6 neveredit.
+Freshness9508=0 before07; do not chase newer upstream midqualification.
+Installed new-proxy preservation still needed; no ordinary real-new-award claim.
 
 ## Historical frozen06: preserve; not the coming replacement
 
@@ -162,7 +164,7 @@ Inventory04/53198 roots568/cache547/errors0,583components525stamps;14P5
 license metadata gaps remain. All raw receipts/history in archived checkpoint
 and docs/qa-logs/2026-10-04-pixelelated-57cbc-qualification/.
 Original runtime06 timing36ms failure, UI06 interruption143 and all fixture
-failures remain real. Nothing runs now; none of these qualify replacement07.
+failures remain real. Nothing runs now; none of these qualify replacement08.
 
 ActualRC2 base /workspace/artifacts/rocknix-images/x64-all-20260929-69e6039f8f/ROCKNIX-GENERIC_X64.x86_64-20260929.img.gz.
 06 actual upgraded disk /workspace/tmp/pixelelated-m7-qa-07/pair/vm-a.qcow2.
@@ -191,7 +193,7 @@ with the prepared1GiB proof still unexecuted. Link06 prior proof retained.
 
 The #356/#365 criteria exceed script T17/T26 coverage. The prepared frozen06
 `/workspace/tmp/pixelelated-m7-cloud-ui-01` is reference-only. Create a NEW
-replacement07-bound owner after the new subset proof; do not run the old owner.
+replacement08-bound owner after the new subset proof; do not run the old owner.
 Eight sealed inputs, bash/Python parsing passed; NEVER EXECUTED. run.sh gates
 on subset02 success. It reuses the proven case-L navigation and isolated
 layout-only fault to drive wizard failure → completion → next-boot recovery;
@@ -205,7 +207,7 @@ killed/waited; eight inputs resealed, old seal retained as
 harness-before-ssh-cleanup.sha256. No executed source changed.
 
 The old #351/#362 /workspace/tmp/pixelelated-m7-signin-ui-01 is UNSTARTED
-and reference-only; create a NEW replacement07-bound owner. Read
+and reference-only; create a NEW replacement08-bound owner. Read
 `docs/qa-logs/2026-10-04-pixelelated-57cbc-qualification/signin-ui-proof-plan.md`:
 public HTTPS login, installed Mobile UA/HTTP redirect echo, binary's finishing
 page as a named done-file stand-in, actual phone Checking/Connected390px
@@ -251,7 +253,7 @@ no council/same-lab substitution. Key ~/.config/council/env, never print values.
 Audit cadence is due/unwaived; normal push gate0 is not RC/audit acceptance.
 
 ES /home/max/Development/emulationstation-next.worktrees/qa-integration,
-test/qa-integration,c75aa3fac967ba532fd9ba1c21fa10ca024e8bc1,cleanpublished.
+test/qa-integration,f6f0c134212bc696f2f6a747c8d390a588f2f0ce,cleanpublished.
 Splash /tmp/rasteratops-rc-delivery-20261002/splash,master,
 8c71126ceef702528c87a4c49625e64988609f26,published.
 Tiny5DuoLCD2.007,Gissio/font_Tiny5@f740beb653d6839fac1f8c794668ffcf22037342.

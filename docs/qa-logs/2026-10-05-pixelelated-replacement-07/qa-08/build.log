@@ -1,0 +1,49 @@
+/workspace/tmp/pixelelated-m7-qa-08/check-payload.py: OK
+/workspace/tmp/pixelelated-m7-qa-08/identity-frames.py: OK
+/workspace/tmp/pixelelated-m7-qa-08/identity.steps: OK
+/workspace/tmp/pixelelated-m7-qa-08/outer.sh: OK
+/workspace/tmp/pixelelated-m7-qa-08/qualify.sh: OK
+/workspace/tmp/pixelelated-m7-qa-08/verify-inputs.py: OK
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/95dbc93b666f886c35af16a5b67e81dd77fad7f667e2307efb061cabf1ffc188
+up: a (pid 2218252, ssh :10022, serial /tmp/rocknix-qemu-serial.sock, mac 52:54:00:52:4E:58)
+up: b (pid 2218309, ssh :10023, serial /tmp/rocknix-qemu-serial-b.sock, mac 52:54:00:52:4E:59)
+ready: a on a2586374b7 over ssh :10022 (answered after 1s)
+ready: b on a2586374b7 over ssh :10023 (answered after 0s)
+PASS initial-clean exact identity, installed scripts, policy and Ocean SVG bytes/modes
+1 press(es) moved the screen, back on the carousel
+wait-for-change: `key up` (line 36) was eaten after 30.2s; re-sending (1)
+WALK FAILED: wait-for-change (line 37): the screen did not change within 30s of `key up` on line 36, even after 1 re-send(s). The press was eaten, so every step after this one would run against the wrong screen. The frame is the last one in /workspace/tmp/pixelelated-m7-qa-08/artifacts/identity-initial-clean.
+changed after 0.1s (`key ret`, line 2)
+settle: still after 1.4s
+captured /workspace/tmp/pixelelated-m7-qa-08/artifacts/identity-initial-clean/01-main-menu-identity.png
+changed after 0.1s (`key up`, line 6)
+changed after 0.1s (`key up`, line 8)
+changed after 0.1s (`key up`, line 10)
+changed after 0.1s (`key x`, line 12)
+settle: still after 1.3s
+captured /workspace/tmp/pixelelated-m7-qa-08/artifacts/identity-initial-clean/02-system-settings.png
+changed after 0.1s (`key x`, line 16)
+settle: still after 1.3s
+captured /workspace/tmp/pixelelated-m7-qa-08/artifacts/identity-initial-clean/03-information.png
+dismiss-dialogs: 5 press(es) moved the screen, back on the carousel
+changed after 0.1s (`key ret`, line 21)
+changed after 0.1s (`key up`, line 23)
+changed after 0.1s (`key up`, line 25)
+changed after 0.1s (`key up`, line 27)
+changed after 0.1s (`key up`, line 29)
+changed after 0.1s (`key x`, line 31)
+settle: still after 1.3s
+captured /workspace/tmp/pixelelated-m7-qa-08/artifacts/identity-initial-clean/04-updates.png
+captured /workspace/tmp/pixelelated-m7-qa-08/artifacts/identity-initial-clean/05-stuck-after-up.png
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-qa-08/identity-frames.py", line 11, in <module>
+    subprocess.run(v+['run',str(owner/'identity.steps'),'--outdir',str(owner/'artifacts'/('identity-'+phase))],check=True)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['./tools/vm-visual-qa', '--monitor', '/tmp/rocknix-qemu-monitor.sock', 'run', '/workspace/tmp/pixelelated-m7-qa-08/identity.steps', '--outdir', '/workspace/tmp/pixelelated-m7-qa-08/artifacts/identity-initial-clean']' returned non-zero exit status 3.
+down: a (pid 2218252)
+down: b (pid 2218309)
+down

@@ -8,7 +8,30 @@ is unchanged. The required adoption flow is **ROCKNIX → pixelelated**;
 there are no fielded /Rasteratops systems requiring an additional gate.
 
 The [M7 milestone body](https://github.com/pixelelated/distribution/milestone/7)
-is the binding running order. **Current engineering image: replacement06**,
+is the binding running order. **Replacement07 built; not qualified.** Source
+a2586374b7 / immutable bundle95dbc93b… completed all642 packages and exact
+payload checks (actual68993=0; store17028=0). Inventory05 has0source errors,
+14previous P5licence metadata gaps. QA08/09 stopped before defaults/upgrade.
+Lifecycle diagnostic03 proves an ES abort/status134 on returning from System
+Settings when no GPU governor is available (#436). Menu re-navigation cannot
+waive this defect. Original failures and sanitized lifecycle/frames are retained
+in `docs/qa-logs/2026-10-05-pixelelated-replacement-07/`.
+
+ES f6f0c1342 has a scoped no-selection guard: preserves saved preferences and
+supported-device apply behavior. Six old/new callback controls and pinned
+syntax pass; the old empty-list control fails. Default VM QA now runs this
+regression. Source repair is not installed proof: publish/freeze replacement08,
+build, prove clean/RC2-upgraded System Settings process continuity, then boot
+and full candidate matrix. #433/#426 still require new installed proof. P4
+primary+Fable5.1/xhigh precedes H700 arm/aarch64; no RC/device-ready call.
+
+## Historical replacement06 qualification
+
+The following evidence applies only to frozen57cbc replacement06 and records
+the status at that time; its instructions do not override the current order.
+
+The [M7 milestone body](https://github.com/pixelelated/distribution/milestone/7)
+is the binding running order. **Historical engineering image: replacement06**,
 frozen57cbc9b981205328444d41f6c4237dc9f5736d7f, built642/642 at22:49:13UTC
 October4. Actual28970/allrc0 and actual runner/watcher/container cleanup pass.
 The immutable bundled4007387… holds image1e16122c… and update1786a568…;

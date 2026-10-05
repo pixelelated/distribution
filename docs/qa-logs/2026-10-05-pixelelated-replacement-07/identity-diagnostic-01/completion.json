@@ -1,0 +1,21 @@
+{
+  "observed_utc": "2026-10-05T03:57:21.246358+00:00",
+  "actual_tool_session": 1868,
+  "actual_tool_rc": 125,
+  "watcher_rc": 125,
+  "wrapper_rc": 125,
+  "owner_not_started": true,
+  "inner_outer_rc_absent": true,
+  "owned_processes": [
+    {
+      "pid": 2275068,
+      "state": "absent"
+    },
+    {
+      "pid": 2275069,
+      "state": "absent"
+    }
+  ],
+  "run": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement07/.build-runs/20261005T035516Z-58559639",
+  "reason": "preparation syntax error; shell continued to non-executable outer; watch-build refused launch before any guest"
+}
