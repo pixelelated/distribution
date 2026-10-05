@@ -1,0 +1,133 @@
+{
+  "scope": "isolated real init predicate; no host console write or VM qualification claim",
+  "checks": [
+    {
+      "source": "old",
+      "device": "GENERIC_X64",
+      "quiet": "",
+      "debug": "",
+      "suppressed": false,
+      "meets_fixed_policy": false
+    },
+    {
+      "source": "old",
+      "device": "GENERIC_X64",
+      "quiet": "yes",
+      "debug": "",
+      "suppressed": true,
+      "meets_fixed_policy": true
+    },
+    {
+      "source": "old",
+      "device": "GENERIC_X64",
+      "quiet": "",
+      "debug": "yes",
+      "suppressed": false,
+      "meets_fixed_policy": true
+    },
+    {
+      "source": "old",
+      "device": "GENERIC_X64",
+      "quiet": "yes",
+      "debug": "yes",
+      "suppressed": true,
+      "meets_fixed_policy": true
+    },
+    {
+      "source": "old",
+      "device": "H700",
+      "quiet": "",
+      "debug": "",
+      "suppressed": false,
+      "meets_fixed_policy": true
+    },
+    {
+      "source": "old",
+      "device": "H700",
+      "quiet": "yes",
+      "debug": "",
+      "suppressed": true,
+      "meets_fixed_policy": true
+    },
+    {
+      "source": "old",
+      "device": "AMD64",
+      "quiet": "",
+      "debug": "",
+      "suppressed": false,
+      "meets_fixed_policy": true
+    },
+    {
+      "source": "old",
+      "device": "AMD64",
+      "quiet": "yes",
+      "debug": "",
+      "suppressed": true,
+      "meets_fixed_policy": true
+    },
+    {
+      "source": "new",
+      "device": "GENERIC_X64",
+      "quiet": "",
+      "debug": "",
+      "suppressed": true,
+      "meets_fixed_policy": true
+    },
+    {
+      "source": "new",
+      "device": "GENERIC_X64",
+      "quiet": "yes",
+      "debug": "",
+      "suppressed": true,
+      "meets_fixed_policy": true
+    },
+    {
+      "source": "new",
+      "device": "GENERIC_X64",
+      "quiet": "",
+      "debug": "yes",
+      "suppressed": false,
+      "meets_fixed_policy": true
+    },
+    {
+      "source": "new",
+      "device": "GENERIC_X64",
+      "quiet": "yes",
+      "debug": "yes",
+      "suppressed": true,
+      "meets_fixed_policy": true
+    },
+    {
+      "source": "new",
+      "device": "H700",
+      "quiet": "",
+      "debug": "",
+      "suppressed": false,
+      "meets_fixed_policy": true
+    },
+    {
+      "source": "new",
+      "device": "H700",
+      "quiet": "yes",
+      "debug": "",
+      "suppressed": true,
+      "meets_fixed_policy": true
+    },
+    {
+      "source": "new",
+      "device": "AMD64",
+      "quiet": "",
+      "debug": "",
+      "suppressed": false,
+      "meets_fixed_policy": true
+    },
+    {
+      "source": "new",
+      "device": "AMD64",
+      "quiet": "yes",
+      "debug": "",
+      "suppressed": true,
+      "meets_fixed_policy": true
+    }
+  ]
+}

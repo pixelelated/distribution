@@ -1,0 +1,13 @@
+state:       finished
+written:     2026-10-05 02:29:07 UTC   <- terminal result; heartbeat stops here
+watcher_pid: 1312527
+job_pid:     1312526  alive=yes
+started:     2026-10-05 02:28:42 UTC
+progress:    none matched
+log:         /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement06/.build-runs/20261005T022842Z-48943769/build.log  (last written 0s ago)
+activity:    /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement06/.build-runs/20261005T022842Z-48943769/build.log  (last written 0s ago)
+activity_dir: /workspace/tmp/pixelelated-m7-boot-diagnostic-02/artifacts
+outcome:     rc=1
+tail:
+                               output=stdout, stderr=stderr)
+  subprocess.CalledProcessError: Command '['ssh', '-i', '/workspace/tmp/pixelelated-m7-ui-07/pair/qa-key', '-p', '10026', '-o', 'Bat

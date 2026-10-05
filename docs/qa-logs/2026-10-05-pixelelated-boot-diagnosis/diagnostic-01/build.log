@@ -1,0 +1,84 @@
+/workspace/tmp/pixelelated-m7-boot-diagnostic-01/capture-boot.py: OK
+/workspace/tmp/pixelelated-m7-boot-diagnostic-01/consumed-init-splash: OK
+/workspace/tmp/pixelelated-m7-boot-diagnostic-01/diagnostic.py: OK
+/workspace/tmp/pixelelated-m7-boot-diagnostic-01/match-splash.py: OK
+/workspace/tmp/pixelelated-m7-boot-diagnostic-01/old-logo.png: OK
+/workspace/tmp/pixelelated-m7-boot-diagnostic-01/outer.sh: OK
+/workspace/tmp/pixelelated-m7-boot-diagnostic-01/provenance.json: OK
+/workspace/tmp/pixelelated-m7-boot-diagnostic-01/reference-1280.png: OK
+/workspace/tmp/pixelelated-m7-boot-diagnostic-01/reference-640.png: OK
+/workspace/tmp/pixelelated-m7-boot-diagnostic-01/run.sh: OK
+/workspace/tmp/pixelelated-m7-boot-diagnostic-01/stop-guest.py: OK
+/workspace/tmp/pixelelated-m7-boot-diagnostic-01/verify-inputs.py: OK
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/d4007387afd5ac42104a53a3073b93fdadd33c51179bf9f3142101609f821ec9
+Formatting '/workspace/tmp/pixelelated-m7-boot-diagnostic-01/guest-d.qcow2', fmt=qcow2 cluster_size=65536 extended_l2=off compression_type=zlib size=17179869184 backing_file=/workspace/tmp/pixelelated-m7-ui-07/guest-d.qcow2 backing_fmt=qcow2 lazy_refcounts=off refcount_bits=16
+[W][02:21:36.429783] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][02:21:36.429816] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+CAPTURED guest boot frames 10
+CAPTURED guest boot frames 20
+CAPTURED guest boot frames 30
+CAPTURED guest boot frames 40
+CAPTURED guest boot frames 50
+CAPTURED guest boot frames 60
+CAPTURED guest boot frames 70
+CAPTURED guest boot frames 80
+CAPTURED guest boot frames 90
+CAPTURED guest boot frames 100
+CAPTURED guest boot frames 110
+CAPTURED guest boot frames 120
+CAPTURED guest boot frames 130
+CAPTURED guest boot frames 140
+CAPTURED guest boot frames 150
+CAPTURED guest boot frames 160
+CAPTURED guest boot frames 170
+CAPTURED guest boot frames 180
+CAPTURED guest boot frames 190
+CAPTURED guest boot frames 200
+CAPTURED guest boot frames 210
+CAPTURED guest boot frames 220
+PASS boot frame capture only; branding classification remains required 223
+ready after ~0s
+{"pass": false, "threshold": 0.995, "rectangle_half_open": [104, 212, 535, 267], "best": {"file": "025.png", "elapsed_seconds": 4.668, "sha256": "343172bd6e4af516d64a886039efe23cc9ef4f6638ac5dac4dea5ecb49bef263", "agreement": 0.8515924910356465}, "controls": [{"name": "old-logo", "agreement": 0.44079308162834846, "rejected": true}, {"name": "blank", "agreement": 0.689938831470154, "rejected": true}, {"name": "wrong-resolution", "agreement": 0.0, "rejected": true}]}
+captured /workspace/tmp/pixelelated-m7-boot-diagnostic-01/artifacts/text-mode-drawn/000.png
+{"pass": true, "threshold": 0.995, "rectangle_half_open": [104, 212, 535, 267], "best": {"file": "000.png", "elapsed_seconds": 0, "sha256": "e362aeddf0c9f3fd7073385ea32bd5d3fd27389f40754c9a4ea8e9a948cbcfb6", "agreement": 1.0}, "controls": [{"name": "old-logo", "agreement": 0.44079308162834846, "rejected": true}, {"name": "blank", "agreement": 0.689938831470154, "rejected": true}, {"name": "wrong-resolution", "agreement": 0.0, "rejected": true}]}
+captured /workspace/tmp/pixelelated-m7-boot-diagnostic-01/artifacts/text-mode-erased-line/000.png
+{"pass": false, "threshold": 0.995, "rectangle_half_open": [104, 212, 535, 267], "best": {"file": "000.png", "elapsed_seconds": 0, "sha256": "5a0fb2e46094ef1b71636a6ac2e14450a888e76ac668131ff4547d70f7b394ab", "agreement": 0.98169162623919}, "controls": [{"name": "old-logo", "agreement": 0.44079308162834846, "rejected": true}, {"name": "blank", "agreement": 0.689938831470154, "rejected": true}, {"name": "wrong-resolution", "agreement": 0.0, "rejected": true}]}
+captured /workspace/tmp/pixelelated-m7-boot-diagnostic-01/artifacts/graphics-mode-drawn/000.png
+{"pass": true, "threshold": 0.995, "rectangle_half_open": [104, 212, 535, 267], "best": {"file": "000.png", "elapsed_seconds": 0, "sha256": "e362aeddf0c9f3fd7073385ea32bd5d3fd27389f40754c9a4ea8e9a948cbcfb6", "agreement": 1.0}, "controls": [{"name": "old-logo", "agreement": 0.44079308162834846, "rejected": true}, {"name": "blank", "agreement": 0.689938831470154, "rejected": true}, {"name": "wrong-resolution", "agreement": 0.0, "rejected": true}]}
+captured /workspace/tmp/pixelelated-m7-boot-diagnostic-01/artifacts/graphics-mode-console-write/000.png
+{"pass": true, "threshold": 0.995, "rectangle_half_open": [104, 212, 535, 267], "best": {"file": "000.png", "elapsed_seconds": 0, "sha256": "e362aeddf0c9f3fd7073385ea32bd5d3fd27389f40754c9a4ea8e9a948cbcfb6", "agreement": 1.0}, "controls": [{"name": "old-logo", "agreement": 0.44079308162834846, "rejected": true}, {"name": "blank", "agreement": 0.689938831470154, "rejected": true}, {"name": "wrong-resolution", "agreement": 0.0, "rejected": true}]}
+PASS owned guest stopped 1281134
+[W][02:22:26.129505] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][02:22:26.129538] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+CAPTURED guest boot frames 10
+CAPTURED guest boot frames 20
+CAPTURED guest boot frames 30
+CAPTURED guest boot frames 40
+CAPTURED guest boot frames 50
+CAPTURED guest boot frames 60
+CAPTURED guest boot frames 70
+CAPTURED guest boot frames 80
+CAPTURED guest boot frames 90
+CAPTURED guest boot frames 100
+CAPTURED guest boot frames 110
+CAPTURED guest boot frames 120
+CAPTURED guest boot frames 130
+CAPTURED guest boot frames 140
+CAPTURED guest boot frames 150
+CAPTURED guest boot frames 160
+CAPTURED guest boot frames 170
+CAPTURED guest boot frames 180
+CAPTURED guest boot frames 190
+CAPTURED guest boot frames 200
+CAPTURED guest boot frames 210
+CAPTURED guest boot frames 220
+PASS boot frame capture only; branding classification remains required 220
+ready after ~0s
+{"pass": false, "threshold": 0.995, "rectangle_half_open": [104, 212, 535, 267], "best": {"file": "016.png", "elapsed_seconds": 3.45, "sha256": "146b7c44bec459ebd3197e3a45097d06121600a58069c5647bbd589747429e21", "agreement": 0.689938831470154}, "controls": [{"name": "old-logo", "agreement": 0.44079308162834846, "rejected": true}, {"name": "blank", "agreement": 0.689938831470154, "rejected": true}, {"name": "wrong-resolution", "agreement": 0.0, "rejected": true}]}
+PASS owned guest stopped 1285003
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-boot-diagnostic-01/diagnostic.py", line 72, in <module>
+    cmdline=boot(name,res);assert 'quiet' in cmdline.split();guest('sync');stop()
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

@@ -1,0 +1,45 @@
+{
+  "reference": "/workspace/tmp/pixelelated-m7-boot-diagnostic-01/reference-640.png",
+  "reference_sha256": "a3211e6206231751725e3aaa0f4dbcdc9e9071529c45dc5f00a9f42b9fe7f504",
+  "old_logo_sha256": "d69fb396fd89977b885f11351e387363d798a160ffde517259b363f8a0406716",
+  "threshold": 0.995,
+  "rectangle_half_open": [
+    104,
+    212,
+    535,
+    267
+  ],
+  "scored_pixels": 23705,
+  "frames": [
+    {
+      "file": "000.png",
+      "elapsed_seconds": 0,
+      "sha256": "5a0fb2e46094ef1b71636a6ac2e14450a888e76ac668131ff4547d70f7b394ab",
+      "agreement": 0.98169162623919
+    }
+  ],
+  "best": {
+    "file": "000.png",
+    "elapsed_seconds": 0,
+    "sha256": "5a0fb2e46094ef1b71636a6ac2e14450a888e76ac668131ff4547d70f7b394ab",
+    "agreement": 0.98169162623919
+  },
+  "controls": [
+    {
+      "name": "old-logo",
+      "agreement": 0.44079308162834846,
+      "rejected": true
+    },
+    {
+      "name": "blank",
+      "agreement": 0.689938831470154,
+      "rejected": true
+    },
+    {
+      "name": "wrong-resolution",
+      "agreement": 0.0,
+      "rejected": true
+    }
+  ],
+  "pass": false
+}

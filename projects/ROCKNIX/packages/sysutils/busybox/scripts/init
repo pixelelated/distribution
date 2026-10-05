@@ -7,6 +7,7 @@
 # Copyright (C) 2016-2018 Team LibreELEC (https://libreelec.tv)
 # Copyright (C) 2018-present Team CoreELEC (https://coreelec.org)
 # Copyright (C) 2023 JELOS (https://github.com/JustEnoughLinuxOS)
+# Copyright (C) 2026-present ROCKNIX (https://github.com/ROCKNIX)
 
 # create directories
 /usr/bin/busybox mkdir -p /dev
@@ -1270,8 +1271,10 @@ for arg in $(cat /proc/cmdline); do
   esac
 done
 
-# hide kernel log messages on console
-if [ "${QUIET}" = "yes" ]; then
+# Existing GENERIC_X64 installs retain a boot config without quiet. Keep kernel
+# console redraws off the splash there too; debugging without quiet opts out.
+# This only changes console output, not the kernel log retained by journald.
+if [ "${QUIET}" = "yes" ] || { [ "@DEVICENAME@" = "GENERIC_X64" ] && [ "${DEBUG}" != "yes" ]; }; then
   echo '1 4 1 7' > /proc/sys/kernel/printk
 fi
 

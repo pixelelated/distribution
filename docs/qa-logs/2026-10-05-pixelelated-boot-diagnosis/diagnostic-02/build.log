@@ -1,0 +1,34 @@
+/workspace/tmp/pixelelated-m7-boot-diagnostic-02/capture-boot.py: OK
+/workspace/tmp/pixelelated-m7-boot-diagnostic-02/diagnostic.py: OK
+/workspace/tmp/pixelelated-m7-boot-diagnostic-02/match-splash.py: OK
+/workspace/tmp/pixelelated-m7-boot-diagnostic-02/old-logo.png: OK
+/workspace/tmp/pixelelated-m7-boot-diagnostic-02/outer.sh: OK
+/workspace/tmp/pixelelated-m7-boot-diagnostic-02/provenance.json: OK
+/workspace/tmp/pixelelated-m7-boot-diagnostic-02/reference-1280.png: OK
+/workspace/tmp/pixelelated-m7-boot-diagnostic-02/reference-640.png: OK
+/workspace/tmp/pixelelated-m7-boot-diagnostic-02/run.sh: OK
+/workspace/tmp/pixelelated-m7-boot-diagnostic-02/stop-guest.py: OK
+/workspace/tmp/pixelelated-m7-boot-diagnostic-02/verify-inputs.py: OK
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/d4007387afd5ac42104a53a3073b93fdadd33c51179bf9f3142101609f821ec9
+Formatting '/workspace/tmp/pixelelated-m7-boot-diagnostic-02/guest-d.qcow2', fmt=qcow2 cluster_size=65536 extended_l2=off compression_type=zlib size=17179869184 backing_file=/workspace/tmp/pixelelated-m7-ui-07/guest-d.qcow2 backing_fmt=qcow2 lazy_refcounts=off refcount_bits=16
+[W][02:28:45.012271] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][02:28:45.012302] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+ready after ~21s
+cat: can't open '/flash/grub.cfg': No such file or directory
+PASS owned guest stopped 1312590
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-boot-diagnostic-02/diagnostic.py", line 51, in <module>
+    original_cfg=guest('cat '+shlex.quote(cfg));(out/(Path(cfg).stem+'-original.cfg')).write_text(original_cfg)
+  File "/workspace/tmp/pixelelated-m7-boot-diagnostic-02/diagnostic.py", line 13, in guest
+    def guest(cmd,stdin=None):return subprocess.check_output(ssh+[cmd],input=stdin,text=True,timeout=45)
+                                     ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 473, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+               **kwargs).stdout
+               ^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['ssh', '-i', '/workspace/tmp/pixelelated-m7-ui-07/pair/qa-key', '-p', '10026', '-o', 'BatchMode=yes', '-o', 'ConnectTimeout=8', '-o', 'StrictHostKeyChecking=no', '-o', 'UserKnownHostsFile=/dev/null', '-o', 'LogLevel=ERROR', 'root@127.0.0.1', 'cat /flash/grub.cfg']' returned non-zero exit status 1.
