@@ -20,7 +20,8 @@ script `/tmp/pixelelated-prepare-signin-ui-01.py` has already run: do not rerun.
 
 - Exercise the installed `cloud-signin-window` against an isolated HTTP
   redirect/echo fixture. Read its actual Mobile user agent, CHASSIS=handset,
-  successful redirected request and panel-sized frame. Keep synthetic pages
+  successful redirected request and panel-sized frame. A local JavaScript echo
+  also records the actual `navigator.userAgent`, matching #351 exactly. Keep synthetic pages
   explicitly distinct from provider pages.
 - Load the public Dropbox login page over verified HTTPS with no account
   entered; inspect the actual frame. Trigger the binary's own finishing page
@@ -63,6 +64,20 @@ distribution, emulationstation, splash, world, art and hiring; no documentation
 repository was found there. Do not create a fork or swap credentials to bypass
 the recorded403/404 destination problem.
 
-#362's old phrase “within its bound” remains unresolved acceptance wording.
-It must be reconciled against D-WORKFLOW-048 and actual measurements before
-closure; the prepared script does not invent a numerical pass threshold.
+#362's old phrase “within its bound” was reconciled in the live body against
+D-WORKFLOW-048 (readback tool28412). Memory05 actually loaded example.org
+for30seconds with291120KiB peak combined RSS, about284MiB as in the recorded
+ordinary-guest comparison. No numerical ceiling assertion was added.
+
+After signin-ui-01, the sealed, unstarted owner
+`/workspace/tmp/pixelelated-m7-signin-1g-01` verifies the1GiB observation:
+actual guest MemTotal, exact installed window,30-second loaded-page memory,
+640x480 frame, no kernel OOM and continued SSH responsiveness. It imports the
+unchanged canonical VM runner and overrides RAM only in the in-memory
+profile8192→1024MiB; launch arguments are retained. Eight inputs are sealed.
+Preparation `/tmp/pixelelated-prepare-signin-1g.py` ALREADY RAN. None of this
+prepared proof has executed; it cannot yet satisfy the criterion.
+
+Before execution, the navigator echo and failure-frame capture were added to
+the unstarted owner. Original script/seal remain beside it, with
+`navigator-preparation.json`; seven current input hashes were resealed.

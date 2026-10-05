@@ -1,0 +1,40 @@
+{
+  "observed_utc": "2026-10-05T01:27:37.384764+00:00",
+  "actual_tool": 34776,
+  "actual_rc": 0,
+  "launch_results": [
+    {
+      "name": "virgl-10",
+      "pid": 2023,
+      "cycles": 10,
+      "warmup": 5,
+      "vmsize_growth_kib": 0,
+      "rss_growth_kib": -72,
+      "passed": true
+    },
+    {
+      "name": "software-10",
+      "pid": 1972,
+      "cycles": 10,
+      "warmup": 5,
+      "vmsize_growth_kib": 0,
+      "rss_growth_kib": 492,
+      "passed": true
+    },
+    {
+      "name": "software-sync-50",
+      "pid": 17339,
+      "cycles": 50,
+      "warmup": 5,
+      "vmsize_growth_kib": 0,
+      "rss_growth_kib": 472,
+      "passed": true
+    }
+  ],
+  "exit_sync_stamps": 55,
+  "signin_load_pass": true,
+  "signin_peak_total_rss_kib": 291120,
+  "signin_scope": "30-second example.org load and measured peak memory; no numerical ceiling, provider sign-in or redirect claim.",
+  "all_artifacts": 438,
+  "retained_artifacts": 262
+}

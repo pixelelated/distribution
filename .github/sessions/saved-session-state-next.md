@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Updated 2026-10-05T01:14:32.549640+00:00. Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261005T011432Z.md`.
+> Updated 2026-10-05T01:58:00.822043+00:00. Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261005T015800Z.md`.
 
 ## Start here
 
@@ -28,7 +28,7 @@ files,live regression and7 unstarted owners. Its stale readiness paragraph
 and precise harness-manifest wording findings are corrected.
 A helper installation is COMPLETE; do not ask to reinstall it.
 
-## Current: replacement06 cloud/runtime/proxy/optins PASS; memory05 ACTIVE
+## Current: UI07 runner complete; 640x480 boot match blocks qualification (#433)
 
 Frozen tree /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement06,
 build/m7-pixelelated-replacement06, commit57cbc9b981205328444d41f6c4237dc9f5736d7f.
@@ -164,7 +164,7 @@ boundaries valid, no migration preparation. Source/bundle/backing reverify.
 Actual01:02:20 runner892481/watch892482/command892511/guest892922/backend
 absent. runtime07 receipts retained; retainer already ran. Originalruntime06
 36ms failure stays real, no particular host cause conclusively established.
-No product change. #429/#430 ready for scoped closure after publication;
+No product change. #429/#430 subsequently closed after scoped publication/readback;
 `timing-diagnosis.md` maps all original failures, fixture repair and results.
 
 Only UNSTARTED proxy05 dependency was rebound to runtime07. Prior launcher
@@ -182,22 +182,65 @@ Actual01:12:58 runner914305/watcher914306/command914335/observedguests915438/
 915465 absent, no QEMU remains; owned MinIO and backend absent. Receipts and
 backend-exited.json retained under qualification/optins-05; retainer ran.
 
-CURRENT /workspace/tmp/pixelelated-m7-memory-05, actual34776, started01:13:19,
-run frozen06/.build-runs/20261005T011319Z-4ebed6fc. Virgl10/software10 then
-software50+exit syncs, followed by example.org sign-in memory measurement.
-Actual01:13:42 runner952705/watch952706/command952735/guest953481 alive;
-guest owner path verified. Same five-second recursive watcher/connected
-supervision. Poll34776; preserve terminal result and verify actual cleanup.
+memory05 actual34776/allrc0 completed. Virgl10/software10/software50 after
+five warmups each: VmSizegrowth0/0/0KiB, RSSgrowth-72/492/472KiB; unchanged
+strict1024/2048KiB limits pass. All55 exit-sync stamps completed. Example.org
+actually loads,30-second peak291120KiB (~284MiB), no numerical RSS ceiling
+assertion or authenticated provider claim. Source/bundle pass. Actual01:27:37
+runner952705/watch952706/command952735/guests953481/968354/backend990415
+absent, no QEMU remains. Receipts retained; memory retainer ALREADY RAN.
 
-Remaining sealed UNSTARTED owners: ui06 → predecessor03 → subset02 →
-cloud-ui-01 → signin-ui-01, all/workspace/tmp/pixelelated-m7-.
-Their normal success chain now leads from accepted runtime07 through proxy05.
-No executed owner or frozen product was edited. Never rerun prep scripts.
+UI06/tool35647 is INTERRUPTED, not qualified (#431). Run012741Z-2e1af5ff:
+actual143, inner/outer1, wrapper/build.rc missing; watcher DIED01:35:08.
+All six observed PIDs absent at01:36:17 and independent01:37:06. Forty640
+walk captures plus four partial1280 frames retained,26 selected640 inspected;
+both boot crops pass unchanged99.5% matcher/negative controls. This partial
+proof does not qualify the whole UI matrix. Original sender remains unknown.
+Evidence retained in current qualification/ui-06; retainer ALREADY RAN.
+
+UI07/tool90920 COMPLETED with actual/inner/outer/wrapper/build results0.
+All70 walk captures completed;42 selected actual frames directly inspected.
+Source/bundle verify at end. Actual01:52:41 runner1087000/watch1087001/outer
+1087030/guests1087847/1115332/backend1087816 absent, no QEMU remains.
+No repeat termination; originalUI06 sender still unknown. Signal-only trace
+retained locally,3209-file digest manifest and six process traces in Git;
+known-sender control retained. No syscall/env/exec payload logging.
+
+CURRENT BLOCKER #433: separate unchanged640 boot matcher FAILS0.9610208817
+against0.995. Best122.png at21.96s, SHA4a67a5af39290d2d9c4d08efb6a010eb694ddd040af2760992552be9cfef1195.
+All924 differences are expected colored pixels rendered black, rows212–239.
+1280 best034.png passes0.9960472820. Old-logo/blank/wrong-size controls reject
+both. Actual boot frames visibly include console text. Console/framebuffer
+interaction or signal-trace timing are hypotheses, not established causes.
+Do not lower threshold or repeat blindly. Evidence currentqualification/ui-07;
+retainer /tmp/pixelelated-retain-ui07.py ALREADY RAN. UI07 runner0 does not mean
+full UI qualification. No QA/build/watch process is left active.
+
+Next diagnose #433 using retained frames/source and a bounded fresh owner.
+Read projects/ROCKNIX/packages/sysutils/busybox/scripts/init load_splash
+(calls splash then console text), separate pinned splash main.c/fbsplash.c
+(reads existing framebuffer, writes once), and GENERIC_X64 tty0/serial config.
+Never edit frozen06 or executed owners. Product correction would need a new
+candidate freeze/requalification; a hypothesis does not authorize skipping it.
+Predecessor03 remains UNSTARTED with its original failedUI06 gate. Rebind
+only after accepted replacement evidence, retaining old launcher/seal.
+
+Remaining sealed UNSTARTED owners: predecessor03 → subset02 → cloud-ui-01 →
+signin-ui-01 → signin-1g-01, all/workspace/tmp/pixelelated-m7-.
+New1GiB owner is prepared only by /tmp/pixelelated-prepare-signin-1g.py
+(ALREADY RAN), gate signin-ui-01. It imports the unmodified canonical runner,
+changes only in-memory profile RAM8192→1024MiB and retains launch args. Exact
+installed window, guest MemTotal,30s actual loaded-page RSS,640frame, kernel
+OOM absence and continued SSH are checked. No numerical RSS limit invented.
+This concretizes D-WORKFLOW-048; #362 wording/live M7 read back by
+/tmp/pixelelated-ui06-tracking/readback.json. No executed owner/frozen product
+edited. Never rerun preparation scripts.
 
 Fresh-context handoff proof00:32 independently verified source/bundle/seals,
 completed-owner exits and then-live guest06 ownership; retained under
-replacement06/resume-proof-guest06.md. Its only clarification is #362's
-unspecified memory-bound wording, still open. Link06 prior proof retained.
+replacement06/resume-proof-guest06.md. Its clarification was #362's
+unspecified memory-bound wording; now reconciled against D-WORKFLOW-048,
+with the prepared1GiB proof still unexecuted. Link06 prior proof retained.
 
 ## Newly identified remaining acceptance proof (not new product defects)
 
@@ -228,7 +271,8 @@ floors at500px; an unchanged390px iframe has actual innerWidth390. Prepared
 proof uses element screenshots, asserts dimensions and computes actual state
 margins. Seven inputs sealed/parsing passes. Preparation helper
 /tmp/pixelelated-prepare-signin-ui-01.py ALREADY RAN. No browser packages
-installed. Authenticated Dropbox trust
+installed. Navigator refinement retains navigator-preparation.json,
+harness-before-navigator.sha256 and signin-proof-before-navigator.py. Authenticated Dropbox trust
 page needs dedicated QA access; new async question pending, no reply.
 Ordinary RA fixture async question also remains unanswered.
 
@@ -237,8 +281,9 @@ Live M7 and #356/#365 updated/read back00:20 actualcommand0;
 /tmp/pixelelated-cloud-ui-tracking/readback.json and
 /tmp/pixelelated-signin-ui-tracking/readback.json. M7 now orders the two
 focused proof steps after subset02, before ordinaryRA/P4/H700. The normal
-published source/checkpoint stillfeature6a0127eb → nextc6cf90f7; these new
-plans/checkpoint/worklog currently uncommitted. Live org listing found no
+last verified publication base is feature483ce62c → nextcdb1b307. The commit
+carrying this checkpoint also retains memory05 and UI06/UI07 evidence; verify
+its feature/next integration from Git and actual remote hashes on resumption. Live org listing found no
 existing docs repository; public-site403/404 is not solved by org rename.
 
 ## Retained qa06 failure and current inventory
@@ -465,9 +510,10 @@ opusfile,rclone,retropie-shaders,slang-shaders,tailscale,wildmidi,zerotier-one.
 
 ## Next in binding M7 order
 
-1. Supervise active memory05/tool34776. Reconcile real
-   terminal result, every channel and actual process/container/backend cleanup.
-2. Then ui06 → predecessor03 → subset02 → cloud-ui-01 → signin-ui-01.
+1. Diagnose #433: retained UI07 failed640 boot match; all runner channels0
+   and actual cleanup verified. No QA owner is active. Preserve frozen source
+   and original captures; prepare bounded fresh diagnostic only after tracing cause.
+2. Then predecessor03 → subset02 → cloud-ui-01 → signin-ui-01 → signin-1g-01.
    All bind frozen57cbc, manifest82764873 and bundled4007387. Earlier defaults,
    actualupgrade/imageequality/content/settings/providers/cloud/runtime/proxy/optins
    proof is complete above; do not rerun completed owners.
@@ -480,13 +526,13 @@ opusfile,rclone,retropie-shaders,slang-shaders,tailscale,wildmidi,zerotier-one.
    from the feature cwd. It has already run for qa07/image07/sweep04/settings06/link06/proxy05/optins05;
    never rerun those retention invocations. Guest/memory/UI need tailored
    frame selection rather than copying every capture into Git.
-4. ui06 boot matcher uses actual640/1280 captures, unchanged99.5% threshold,
+4. UI07 boot matcher retains failed640/passed1280, unchanged99.5% threshold,
    approved Ocean proofs and old-logo/blank/wrong-size rejection controls.
    Review intended EN/FR pages. #424/#428 are CLOSED completed with clean/upgraded evidence;
    #426 proxy05 preservation20 is complete; subset02 HTTP retry remains.
 5. #384/#391/#425/#366 CLOSED completed with exact published receipts,
    code-traces/Already written comments/live readbacks actual15451/68014=0.
-   #422 firsttwo/dependency criteria ticked; final EN/FR panel proof awaitsui06.
+   #422 EN/FR pages reviewed in UI07; dependency binding awaits #433 boot proof.
    Its former identity blocker424 is fixed and closed from qa07 proof.
    Reconcile only proved #422/#416/#352/#353/#327 items. Earlier completed
    #320/#392/#417/#419/#420/#421 remain closed. #427 closed notplanned as disproved.
@@ -497,12 +543,26 @@ opusfile,rclone,retropie-shaders,slang-shaders,tailscale,wildmidi,zerotier-one.
    H700 DDR4/RG35XX SP build. P5 source/licences/docs/publication and named
    physical-action gates remain. No RC/device-ready claim.
 
-Latest completed-evidence/checkpoint publication: feature6a0127ebc6eeada804a757989b6af34032e55aa0 →
+Previous completed-evidence/checkpoint publication: feature6a0127ebc6eeada804a757989b6af34032e55aa0 →
 nextc6cf90f7c5be3eff8f0dad42a98240e5b084c80e, actual54348=0 normalpush/readback.
-New guest/runtime/proxy/optins/diagnostic receipts, proof plans and checkpoint are
-uncommitted at this update. #429/#430 closures require publication/readback.
-M7 current priority updated/read back01:07:52 to activeoptins05 after
-acceptedruntime07/proxy05; /tmp/pixelelated-optins05-tracking/readback.json.
+New guest/runtime/proxy/optins/diagnostic receipts were published as
+feature483ce62c0ca2f07c4dba1ca515828baf7733808b →
+nextcdb1b307e74ebb9b2cf36f2dffa451468c6fb358, actual63259=0 both normal
+pushes and remote hash readbacks. #429/#430 CLOSED completed with allcriteria/
+Code trace/Already written and live readback actual67822=0; trace filenames
+corrected/read back separately. #363 CLOSED completed actual61071=0 with
+current scripts1461/1462, guest E/I/J/K/L frames/journal predicates, accepted
+runtime07 timing and optins42. Its obsolete literal no-call wording now
+reflects D-CLOUD-172/173; local --superseded remains intentional.
+This checkpoint publication includes memory05, UI06/UI07 receipts and the
+FOSS observability decision. Integrate its exact commit onto next, not the
+whole historical feature branch; verify normal push and remote hashes. Raw retained logs contain trailing whitespace;
+their original bytes/hashes are preserved, while prose diff checks pass.
+M7 previously advanced ui06→ui07 (readbacks28412/4863); current priority
+is #433 boot-match diagnosis before predecessor03. Terminal tracker readback
+actual85469=0 at01:58:55 in /tmp/pixelelated-ui07-terminal-tracking/readback.json.
+Earlier01:07:52 optins snapshot
+retained in /tmp/pixelelated-optins05-tracking/readback.json.
 Earlier00:47 #429 diagnosis snapshot retained separately; dated history below.
 M7/#383/#409/#344 updated/read back23:39 actual70226=0, prioritylink06 then
 remaining orderedowners/P4/H700. #424/#428 closedcompleted by same actual
@@ -624,3 +684,16 @@ branch docs/cloud-saves-native-wizard. Blitterbot received403 from
 maxengel/rocknix.org; rasteratops/rocknix.org returned404. No alternate
 credentials or new fork are assumed. #395's off-session alert destination is
 still pending. The P4 audit cadence warning is not waived.
+
+## Backlog: build/VM QA observability #432
+
+The maintainer asks about OTel, suggests Apache SkyWalking or ClickHouse with
+“Clickwatch”, and prefers fully FOSS throughout. D-INFRA-016 records the
+preference: evaluate full component licenses/resource cost and local-site or
+self-hosted online deployment, likely when a dedicated second build machine
+allows a separate agent/observer host. ClickStack is a possible intended name;
+async clarification pending. Do not install a platform or put this in M7's
+critical path. Standard HyperDX Compose currently includes MongoDB/SSPL;
+record that dependency instead of assuming the bundle meets the preference.
+Existing watch-build/watch-job local receipts stay authoritative; #395 still
+needs verified disconnected delivery. #387 concerns separate device telemetry.

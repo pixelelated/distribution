@@ -613,6 +613,8 @@ This is the index of decisions; `docs/work-logs/` is the narrative,
 
 | D-INFRA-015 | 2026-10-04 | **Build-host swap reclamation uses a guarded, root-owned fixed-target helper with a narrow exact-action sudo grant, invoked explicitly before a build.** Owner: "I'll do it manually now, and then let's create the guarded host helper." Only the already-active `/swap.img` is eligible; no caller-selected path/command/threshold, broad passwordless sudo, timer or privileged-container workaround. Check memory headroom, ownership, concurrent work and actual reactivation; preserve default read-only preflight and frozen in-flight builds. | #410; `tools/host-maintenance/`; `tools/build-preflight` |
 
+| D-INFRA-016 | 2026-10-05 | **Prefer a fully free/open-source stack for future build and VM QA observability, evaluating Apache SkyWalking and the proposed ClickHouse option with every component's license and resource footprint checked.** The maintainer: "I prefer purely FOS tools up and down the stack." Retain local-site and self-hosted online possibilities; consider a dedicated build machine and a separate agent/observation machine when the second host is available. Track the evaluation as backlog #432, outside the current M7 RC critical path. No platform or deployment is selected; the supplied name "Clickwatch" awaits clarification. Existing durable watcher evidence and D-WORKFLOW-143's delivery requirement remain in force. | #432; D-WORKFLOW-142; D-WORKFLOW-143 |
+
 ## Open decisions
 
 | ID | Question | Home |

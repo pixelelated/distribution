@@ -17,7 +17,7 @@ product files,180links and200QA files. Previous05cache was independently
 copied and checksum/inode verified2525217files before use. Guarded preflight
 reclaimed swap; no helper reinstall is needed.
 
-**Verdict: cloud, runtime, proxy and mixed-installation checks pass; memory05 active.**
+**Verdict: completed runtime/memory/menu checks; 640x480 boot splash match blocks qualification (#433).**
 qa07 actual44253/allrc0 completed23:31UTC: all15defaults,16walks/78frames,
 baseline21claimed/0unclaimed/0missing, actualRC2 preservation and exact clean/
 upgraded bytes/modes. Actual ES process identity and five1280x800frames in
@@ -59,8 +59,21 @@ Runtime/failure receipts: `docs/qa-logs/2026-10-04-pixelelated-57cbc-qualificati
 
 Optins05 actual62343/allrc0 passes S3 round-trip108s and mixed RC2/fresh
 pair42 checks; source/bundle and actual01:12:58 cleanup verified. Current
-memory05 actual34776 started01:13:19. Then ui06 → predecessor03 → subset02.
-#429/#430 scoped closure awaits receipt publication/readback. Only unstarted
+memory05 actual34776/allrc0 passes VmSizegrowth0/0/0 and RSSgrowth-72/492/472KiB
+for virgl10/software10/software50,55 completed sync stamps. Example.org loads
+at291120KiB peak combined RSS (~284MiB). Actual01:27:37 cleanup verified.
+UI06/tool35647 was interrupted: actual143, inner/outer1, no wrapper/build
+exit record; watcher DIED at01:35:08. Partial captures and cleanup receipts
+remain retained under ui-06, with no inferred signal sender (#431).
+UI07/tool90920 completed all four panel/language walks and all result channels0;
+42 actual menu/Tools frames reviewed, source/bundle pass. Actual01:52:41 all
+owned processes/backends absent. Separate boot matcher fails640x480 at96.1021%
+versus unchanged99.5%;1280x960 passes99.6047%, all negative controls reject.
+All924 differing pixels are black instead of expected palette colors. #433
+owns diagnosis; console redraw/tracing effects are unproved hypotheses. No
+blind rerun, threshold waiver or RC acceptance. After accepted boot proof,
+rebind only unstarted predecessor03's oldui06 gate, then predecessor03→subset02.
+#429/#430 and #363 closed completed from published exact-candidate proof. Only unstarted
 proxy05 was rebound to runtime07; prior seal/launcher retained.
 Follow with the prepared
 cloud-ui-01 proof for #365 wizard failure/recovery and #356 unsupported-marker
@@ -68,7 +81,10 @@ frames; then prepared signin-ui-01 for #351/#362 sign-in/window/phone proof. The
 memory owner measures example.org loading and has no numerical memory ceiling
 assertion; it does not prove provider login or redirect behavior. Authenticated
 Dropbox trust-page QA access is pending. Both proof plans are in the current
-qualification directory. Then reconcile remaining criteria, ordinary RA proof, approved P4 primary+Fable5.1/xhigh review and first
+qualification directory. A prepared signin-1g-01 owner follows signin-ui-01
+to verify D-WORKFLOW-048's1GiB page-load budget without inventing a numerical
+RSS ceiling. #362 wording is reconciled; actual proof remains pending. Then
+reconcile remaining criteria, ordinary RA proof, approved P4 primary+Fable5.1/xhigh review and first
 H700 DDR4/RG35XX SP build. Daybreak is not required or claimed. Ordinary RA
 fixture, public-site delivery, disconnected alert destination, publication and
 physical actions retain their named gates.
