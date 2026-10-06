@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Updated 2026-10-06T20:35:53.944191+00:00; QA19 active; CI fixture correction locally verified; seven follow-on owners prepared.
+> Updated 2026-10-06T20:19:24.892124+00:00; candidate15 image sweep/inventory verified; QA19 active; eight audit acceptance outcomes open.
 > Previous: `.github/sessions/archived/saved-session-state-next-20261006T201924Z.md`.
 > Both fork refs verified after normal hooked publication; see current focus below.
 
@@ -24,42 +24,6 @@ primary verification and all verdicts; helpers never count as review seats.
 
 
 ## Current focus — M7 P4 audit#471 Phase7 remediation in progress
-
-**Live update 2026-10-06T20:35:53.944191+00:00:** QA19 thirteen suitesPASS and walks advancing;
-run/watcher435200 unchanged. Detailed owner artifacts, not parent log, establish
-walk activity. No overall result yet. New three default cloud frame reviews and
-five timing frame reviews are retained under candidate15; rapid relaunch lacks
-new sync stamp and is not sync-completion evidence. All8audit outcomesOPEN.
-
-New #472: fork-checks still invoked October3 historical Docker-routing fixture.
-One-line workflow correction selects the already-existing October4 fixture.
-Owner /workspace/tmp/pixelelated-m7-watcher-ci-01 completed20:34:54, owner
-verification20:35:12: allfour0,13seals,4actual exits.35PASS/0FAIL; fixture
-cleanup20:35:24. Evidence retained in candidate15/watcher-ci-01. Normal hooked
-publication and actual hosted corrected-step readback remain required; no
-whole-CI-green claim. Feature wordlist's two September25 historical archive hits
-are separately recorded; next wordlist passes. No frozen product change.
-
-New prepared/unexecuted owners AFTER the existing five, serially:
-6. /workspace/tmp/pixelelated-m7-p4-library-fixes-01/outer.sh BUNDLE — actual
-   installed125 indexed/unindexed games, production timers, SIGTERM/retry,
-   persisted pause/429 local-provider controls. No native/timer mocks.
-7. /workspace/tmp/pixelelated-m7-boot-qualification-06/outer.sh BUNDLE — four
-   clean/actualRC2-upgraded640/1280 boots and exact wordmark negative controls;
-   QEMU capture from boot, actual forced ES update watcher/CLI, local9045
-   positive control. Requires QA19 owner-verification and guest-cleanup-verification
-   withpassedtrue; those completion receipts do not exist until primary verifies.
-Both owners are sealed and retained in prepared-audit-owners. Parser's three
-synthetic controls pass, but no guest outcome exists. Never replay preparation.
-
-Account metadata01 readback20:31:52 confirms same bot id, threeorgrepos/write
-permissions, token expiry2027-10-01 05:27:47UTC and current GitHub-hosted runner.
-No token contents, full permission-grant inventory, mail reminder or historical
-throwaway-fork scheduling proof. Retained sanitized metadata/failed CIlogs.
-Pending local changes are evidence/checkpoint/worklog and oneCIinvocation;
-lastpublished feature82d78b0e9bcf4f2e311d64a4886a935d835ee06f /
-nextcc25d7af394984ba7adde67cab8b8de45807a85a (163changedpathsremoteverified20:20:58).
-
 
 **Latest live state:** QA19 is still active, actual watcher435200 verified20:17:01;
 its ten first suites pass (full scripts828s), round-trip now advances. Do not

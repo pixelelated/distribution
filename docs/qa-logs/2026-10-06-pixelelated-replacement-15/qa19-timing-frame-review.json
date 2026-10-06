@@ -1,0 +1,33 @@
+{
+  "recorded_utc": "2026-10-06T20:25:14.013984+00:00",
+  "reviewed_before_utc": "2026-10-06T20:21:54Z",
+  "reviewer": "primary direct image inspection",
+  "scope": "First pixels and normal completed exit card only; single-sample smoke. Rapid relaunch has no new sync stamp and proves no sync completion/interruption. Transient startup labels are not typography acceptance.",
+  "frames": [
+    {
+      "file": "/workspace/tmp/pixelelated-m7-qa-19/artifacts/rocknix-images/qa-ed5a6a51f5-webdav-a-20261006-2003/time-to-play/frames/r1-launch-02-first-game-frame.png",
+      "sha256": "f4cc7aa753984b3f6df09f2282dbfb3757876777dfde08fca8ed0da13c279e73",
+      "observation": "Actual first-game boot pixels centered at full panel height, side bars."
+    },
+    {
+      "file": "/workspace/tmp/pixelelated-m7-qa-19/artifacts/rocknix-images/qa-ed5a6a51f5-webdav-a-20261006-2003/time-to-play/frames/r1-exit-005.png",
+      "sha256": "ce77f298a9d620ff59891f6c08fd9742b98b295c7514c535707b8e40df7d0677",
+      "observation": "ES carousel with SYNC SAVES / COMPLETED card visible."
+    },
+    {
+      "file": "/workspace/tmp/pixelelated-m7-qa-19/artifacts/rocknix-images/qa-ed5a6a51f5-webdav-a-20261006-2003/time-to-play/frames/g1-launch-02-first-game-frame.png",
+      "sha256": "c8191725717bc40efba971602dab4d892a500cc1951264a51b5a542b19840198",
+      "observation": "Actual game boot pixels; transient auto-load message is clipped at edge, not a steady UI typography acceptance frame."
+    },
+    {
+      "file": "/workspace/tmp/pixelelated-m7-qa-19/artifacts/rocknix-images/qa-ed5a6a51f5-webdav-a-20261006-2003/time-to-play/frames/g1-exit-000.png",
+      "sha256": "05713dbacb00cfa92e8cad1581147b0f1349f6ee14c97d122440aff36011bd53",
+      "observation": "Black handover frame at exit."
+    },
+    {
+      "file": "/workspace/tmp/pixelelated-m7-qa-19/artifacts/rocknix-images/qa-ed5a6a51f5-webdav-a-20261006-2003/time-to-play/frames/g1-exit-game2.png",
+      "sha256": "ea296e0ec35e00f7972b6ed3d70780d9ac8fed7d98a8011c663c456c7e9c7910",
+      "observation": "Game boot pixels after rapid relaunch; same transient message limitation."
+    }
+  ]
+}
