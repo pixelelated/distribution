@@ -1,0 +1,38 @@
+test_auth_server_and_non_api_errors_keep_unavailable_response (linux.tests.test_linux_client_errors.ClientErrorResponseTests.test_auth_server_and_non_api_errors_keep_unavailable_response) ... ok
+test_client_error_status_reason_type_and_body_are_preserved (linux.tests.test_linux_client_errors.ClientErrorResponseTests.test_client_error_status_reason_type_and_body_are_preserved) ... 
+  test_client_error_status_reason_type_and_body_are_preserved (linux.tests.test_linux_client_errors.ClientErrorResponseTests.test_client_error_status_reason_type_and_body_are_preserved) (status=400) ... FAIL
+  test_client_error_status_reason_type_and_body_are_preserved (linux.tests.test_linux_client_errors.ClientErrorResponseTests.test_client_error_status_reason_type_and_body_are_preserved) (status=404) ... FAIL
+  test_client_error_status_reason_type_and_body_are_preserved (linux.tests.test_linux_client_errors.ClientErrorResponseTests.test_client_error_status_reason_type_and_body_are_preserved) (status=429) ... FAIL
+test_network_failure_still_uses_offline_cache (linux.tests.test_linux_client_errors.ClientErrorResponseTests.test_network_failure_still_uses_offline_cache) ... ok
+
+======================================================================
+FAIL: test_client_error_status_reason_type_and_body_are_preserved (linux.tests.test_linux_client_errors.ClientErrorResponseTests.test_client_error_status_reason_type_and_body_are_preserved) (status=400)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/pixelelated-upstream-drafts-distribution-proof-01/client-errors-before/linux/tests/test_linux_client_errors.py", line 24, in test_client_error_status_reason_type_and_body_are_preserved
+    self.assertEqual(headers.splitlines()[0], f"HTTP/1.1 {status} {reason}".encode())
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: b'HTTP/1.1 503 upstream unavailable' != b'HTTP/1.1 400 Bad Request'
+
+======================================================================
+FAIL: test_client_error_status_reason_type_and_body_are_preserved (linux.tests.test_linux_client_errors.ClientErrorResponseTests.test_client_error_status_reason_type_and_body_are_preserved) (status=404)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/pixelelated-upstream-drafts-distribution-proof-01/client-errors-before/linux/tests/test_linux_client_errors.py", line 24, in test_client_error_status_reason_type_and_body_are_preserved
+    self.assertEqual(headers.splitlines()[0], f"HTTP/1.1 {status} {reason}".encode())
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: b'HTTP/1.1 503 upstream unavailable' != b'HTTP/1.1 404 Not Found'
+
+======================================================================
+FAIL: test_client_error_status_reason_type_and_body_are_preserved (linux.tests.test_linux_client_errors.ClientErrorResponseTests.test_client_error_status_reason_type_and_body_are_preserved) (status=429)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/pixelelated-upstream-drafts-distribution-proof-01/client-errors-before/linux/tests/test_linux_client_errors.py", line 24, in test_client_error_status_reason_type_and_body_are_preserved
+    self.assertEqual(headers.splitlines()[0], f"HTTP/1.1 {status} {reason}".encode())
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: b'HTTP/1.1 503 upstream unavailable' != b'HTTP/1.1 429 Too Many Requests'
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+FAILED (failures=3)

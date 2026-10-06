@@ -1,0 +1,121 @@
+--- a/linux/raofflineproxy/config.py
++++ b/linux/raofflineproxy/config.py
+@@ -332,6 +332,11 @@
+     return data
+ 
+ 
++def log_upload_enabled(config_data: dict | None = None) -> bool:
++    """Automatic log upload requires an explicit JSON true, never truthiness."""
++    return (config_data or {}).get("upload_logs") is True
++
++
+ def image_caching_enabled(config_data: dict | None = None) -> bool:
+     config_data = config_data or {}
+     configured = config_data.get("cache_images")
+--- a/linux/raofflineproxy/proxy_service.py
++++ b/linux/raofflineproxy/proxy_service.py
+@@ -22,6 +22,7 @@
+     FALLBACK_USER_AGENT,
+     RA_MEDIA_HOST,
+     image_caching_enabled,
++    log_upload_enabled,
+     proxy_host,
+     proxy_port,
+     upstream_host,
+@@ -1201,13 +1202,16 @@
+     return due
+ 
+ 
+-def retry_storage_corruption_report() -> None:
++def retry_storage_corruption_report(config_data: dict | None = None) -> None:
+     # The menu only ever attempts this once (on first open after the incident) and shows
+     # the user the outcome regardless of success, so it doesn't nag them again — if that
+     # one attempt happened while offline, the report would otherwise never reach us. The
+     # service retries silently on every startup until it actually gets through.
+     incident = storage_corruption.load_incident()
+     if incident is None or incident.get("reported"):
++        return
++    if not log_upload_enabled(config_data):
++        LOGGER.info("Storage corruption report not sent: upload_logs is off")
+         return
+     try:
+         upload_id = log_uploader.report_storage_corruption(incident)
+@@ -1251,7 +1255,7 @@
+         save_online_state(initial_online)
+         if initial_online:
+             server.flush_pending_awards()
+-            retry_storage_corruption_report()
++            retry_storage_corruption_report(config_data)
+         connectivity_monitor.start()
+         periodic_refresh.start()
+         cache_queue_worker.start()
+--- a/linux/tests/test_linux_storage_corruption_retry.py
++++ b/linux/tests/test_linux_storage_corruption_retry.py
+@@ -5,12 +5,39 @@
+ 
+ 
+ class RetryStorageCorruptionReportTests(unittest.TestCase):
++    def test_default_does_not_upload_unreported_incident(self) -> None:
++        incident = {"reported": False, "upload_id": None}
++        with (
++            mock.patch.object(proxy_service.storage_corruption, "load_incident", return_value=incident),
++            mock.patch.object(proxy_service.log_uploader, "report_storage_corruption", return_value="fixture-report") as report,
++            mock.patch.object(proxy_service.storage_corruption, "mark_reported") as mark,
++        ):
++            proxy_service.retry_storage_corruption_report()
++        report.assert_not_called()
++        mark.assert_not_called()
++
++    def test_automatic_upload_requires_explicit_true(self) -> None:
++        incident = {"reported": False, "upload_id": None}
++        for config in ({}, {"upload_logs": None}, {"upload_logs": False},
++                       {"upload_logs": 0}, {"upload_logs": 1},
++                       {"upload_logs": "false"}, {"upload_logs": "true"},
++                       {"upload_logs": "yes"}, None):
++            with (
++                self.subTest(config=config),
++                mock.patch.object(proxy_service.storage_corruption, "load_incident", return_value=incident),
++                mock.patch.object(proxy_service.log_uploader, "report_storage_corruption") as report,
++                mock.patch.object(proxy_service.storage_corruption, "mark_reported") as mark,
++            ):
++                proxy_service.retry_storage_corruption_report(config)
++                report.assert_not_called()
++                mark.assert_not_called()
++
+     def test_noop_when_no_incident(self) -> None:
+         with (
+             mock.patch.object(proxy_service.storage_corruption, "load_incident", return_value=None),
+             mock.patch.object(proxy_service.log_uploader, "report_storage_corruption") as report,
+         ):
+-            proxy_service.retry_storage_corruption_report()
++            proxy_service.retry_storage_corruption_report({"upload_logs": True})
+ 
+         report.assert_not_called()
+ 
+@@ -20,7 +47,7 @@
+             mock.patch.object(proxy_service.storage_corruption, "load_incident", return_value=incident),
+             mock.patch.object(proxy_service.log_uploader, "report_storage_corruption") as report,
+         ):
+-            proxy_service.retry_storage_corruption_report()
++            proxy_service.retry_storage_corruption_report({"upload_logs": True})
+ 
+         report.assert_not_called()
+ 
+@@ -33,7 +60,7 @@
+             ),
+             mock.patch.object(proxy_service.storage_corruption, "mark_reported") as mark_reported,
+         ):
+-            proxy_service.retry_storage_corruption_report()
++            proxy_service.retry_storage_corruption_report({"upload_logs": True})
+ 
+         mark_reported.assert_called_once_with("abc123")
+ 
+@@ -48,7 +75,7 @@
+             ),
+             mock.patch.object(proxy_service.storage_corruption, "mark_reported") as mark_reported,
+         ):
+-            proxy_service.retry_storage_corruption_report()
++            proxy_service.retry_storage_corruption_report({"upload_logs": True})
+ 
+         mark_reported.assert_not_called()
+ 

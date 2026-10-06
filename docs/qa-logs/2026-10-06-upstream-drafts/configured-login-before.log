@@ -1,0 +1,81 @@
+test_configured_name_matches_case_insensitive_cache_key (linux.tests.test_linux_configured_login.ConfiguredLoginTests.test_configured_name_matches_case_insensitive_cache_key) ... FAIL
+test_explicit_token_still_takes_precedence (linux.tests.test_linux_configured_login.ConfiguredLoginTests.test_explicit_token_still_takes_precedence) ... ok
+test_failed_sign_in_does_not_fall_back_to_other_account (linux.tests.test_linux_configured_login.ConfiguredLoginTests.test_failed_sign_in_does_not_fall_back_to_other_account) ... FAIL
+test_malformed_configured_row_triggers_login (linux.tests.test_linux_configured_login.ConfiguredLoginTests.test_malformed_configured_row_triggers_login) ... FAIL
+test_no_configured_account_keeps_cached_login_fallback (linux.tests.test_linux_configured_login.ConfiguredLoginTests.test_no_configured_account_keeps_cached_login_fallback) ... ok
+test_other_account_cache_does_not_block_new_sign_in (linux.tests.test_linux_configured_login.ConfiguredLoginTests.test_other_account_cache_does_not_block_new_sign_in) ... FAIL
+test_selects_configured_account_from_two_cached_accounts (linux.tests.test_linux_configured_login.ConfiguredLoginTests.test_selects_configured_account_from_two_cached_accounts) ... FAIL
+
+======================================================================
+FAIL: test_configured_name_matches_case_insensitive_cache_key (linux.tests.test_linux_configured_login.ConfiguredLoginTests.test_configured_name_matches_case_insensitive_cache_key)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/pixelelated-upstream-drafts-distribution-proof-01/configured-login-before/linux/tests/test_linux_configured_login.py", line 60, in test_configured_name_matches_case_insensitive_cache_key
+    self.assertEqual(auth.resolve_credentials(self.store, self.config), expected)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'user': 'alice', 'token': 'fixture-alice'} != {'user': 'bob', 'token': 'fixture-bob'}
+- {'token': 'fixture-alice', 'user': 'alice'}
+?                    ^^^^^            ^^^^^
+
++ {'token': 'fixture-bob', 'user': 'bob'}
+?                    ^^^            ^^^
+
+
+======================================================================
+FAIL: test_failed_sign_in_does_not_fall_back_to_other_account (linux.tests.test_linux_configured_login.ConfiguredLoginTests.test_failed_sign_in_does_not_fall_back_to_other_account)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/pixelelated-upstream-drafts-distribution-proof-01/configured-login-before/linux/tests/test_linux_configured_login.py", line 54, in test_failed_sign_in_does_not_fall_back_to_other_account
+    self.assertIsNone(auth.resolve_credentials(self.store, self.config))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'user': 'alice', 'token': 'fixture-alice'} is not None
+
+======================================================================
+FAIL: test_malformed_configured_row_triggers_login (linux.tests.test_linux_configured_login.ConfiguredLoginTests.test_malformed_configured_row_triggers_login)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/pixelelated-upstream-drafts-distribution-proof-01/configured-login-before/linux/tests/test_linux_configured_login.py", line 76, in test_malformed_configured_row_triggers_login
+    self.assertEqual(auth.resolve_credentials(self.store, self.config), credentials("bob"))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'user': 'alice', 'token': 'fixture-alice'} != {'user': 'bob', 'token': 'fixture-bob'}
+- {'token': 'fixture-alice', 'user': 'alice'}
+?                    ^^^^^            ^^^^^
+
++ {'token': 'fixture-bob', 'user': 'bob'}
+?                    ^^^            ^^^
+
+
+======================================================================
+FAIL: test_other_account_cache_does_not_block_new_sign_in (linux.tests.test_linux_configured_login.ConfiguredLoginTests.test_other_account_cache_does_not_block_new_sign_in)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/pixelelated-upstream-drafts-distribution-proof-01/configured-login-before/linux/tests/test_linux_configured_login.py", line 49, in test_other_account_cache_does_not_block_new_sign_in
+    self.assertEqual(auth.resolve_credentials(self.store, self.config), expected)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'user': 'alice', 'token': 'fixture-alice'} != {'user': 'bob', 'token': 'fixture-bob'}
+- {'token': 'fixture-alice', 'user': 'alice'}
+?                    ^^^^^            ^^^^^
+
++ {'token': 'fixture-bob', 'user': 'bob'}
+?                    ^^^            ^^^
+
+
+======================================================================
+FAIL: test_selects_configured_account_from_two_cached_accounts (linux.tests.test_linux_configured_login.ConfiguredLoginTests.test_selects_configured_account_from_two_cached_accounts)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/pixelelated-upstream-drafts-distribution-proof-01/configured-login-before/linux/tests/test_linux_configured_login.py", line 43, in test_selects_configured_account_from_two_cached_accounts
+    self.assertEqual(auth.resolve_credentials(self.store, self.config), expected)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'user': 'alice', 'token': 'fixture-alice'} != {'user': 'bob', 'token': 'fixture-bob'}
+- {'token': 'fixture-alice', 'user': 'alice'}
+?                    ^^^^^            ^^^^^
+
++ {'token': 'fixture-bob', 'user': 'bob'}
+?                    ^^^            ^^^
+
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.008s
+
+FAILED (failures=5)

@@ -1,7 +1,7 @@
 # Saved Session State
 
-> Saved 2026-10-06T04:12:11.064119+00:00; feature/conflict-resolution → primary next.
-> Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261006T041211Z.md`.
+> Saved 2026-10-06T03:36:21.160721+00:00; feature/conflict-resolution → primary next.
+> Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261006T033621Z.md`.
 
 ## Start here
 
@@ -21,40 +21,7 @@ cloud mutation or publication. No Daybreak or goal tool. Only the required
 fresh no-context resume proof permits delegation here.
 
 
-## Current focus — upstream drafts prepared; dedicated account proofs remain
-
-#461 quotes the maintainer's new post-success cleanup request. D-INFRA-018 and
-`.claude/rules/worktrees.md` now require a retention review after qualification
-and a measured capacity review before the next build. The recurring planner
-and next authorized batch remain infrastructure follow-up, not new M7 RC gates.
-No additional deletion, full disk inventory, reserve change or build occurred.
-
-#168 has ten tested upstream drafts. Seven new independent patches for
-001/002/005/007/008/013/015 have40 targeted tests and169 related-suite executions
-passing, no skips. Test-only negative controls retain pristine production
-hashes. Exact source879b158 remains live upstream main; two open PRs concern
-SteamOS/RetroDECK packaging/discovery, sharing config.py context to recheck.
-No upstream contribution has been submitted. D-RA-016 requires go before an
-outward issue/PR; all local drafts and evidence are concrete for review.
-
-Read `docs/upstream/raofflineproxy/contribution-map.md`, each draft README, and
-`docs/qa-logs/2026-10-06-upstream-drafts/README.md`. The latter retains exact
-patch/archive hashes, before/after logs and `verify-drafts.py`; DNS uses its
-own result subdirectory. Failed005 context preparation, sandbox socket errors
-and DNS fixture import error remain preserved. No product fix was needed.
-
-Remaining contribution items003/004/010/011/012/016 and older API/CLI/SDL ideas
-have explicit interface/policy reasons for not submitting code yet. Existing
-001/002/005/007/008/009/013/015/018/019 drafts keep their scoped test evidence;
-no claim that169 tests qualify the full fork or authenticated accounts.
-
-The dedicated RA reset/alternate account status and Dropbox QA credential-file
-path were requested again through the asynchronous question; no reply arrived
-before this checkpoint. Ask for status/paths only, never secrets in chat.
-Next is account-backed P3 proof, then approved P4 and H700 builds as below.
-No build, QA or cleanup owner is active. No P4 or RC/device-ready claim.
-
-## Completed cleanup — historical execution, never replay
+## Current focus — cleanup complete; return to remaining P3 release gates
 
 User started the read-only root watcher (“running”). #459's five approved
 removals03/05/06/07/08 are complete. All directories/registrations absent,
@@ -129,9 +96,8 @@ Still no dedicated RA Tobu100359reset/alternateQAaccount status or DropboxQA
 credential-filepath reply. Ask only status/paths, never secrets inchat. No
 accountreset/hardcore/old-award substitution; public/synthetic tests do not
 prove authenticated trust. #168 map is docs/upstream/raofflineproxy/contribution-map.md:
-ten tested unsubmitted drafts: concurrency1test,discovery16,earlyconsent8,
-and seven independent fixes with40 targeted/169 related-suite executions.
-Other rows need API/policy agreement; read the updated contribution map. D-RA-016go before outwardsubmission.
+three tested unsubmitted drafts(concurrency1test,discovery16,earlyconsent8);
+others need APIagreement/standaloneregressions. D-RA-016go before outwardsubmission.
 Publicdocs4f6df54 at /home/max/Development/rocknix.org remains403/404; don't
 autofork/changecredentials. FourteenP5licencemetadata gaps remain. #395 lacks a
 selected/tested disconnectedalertdestination; #432FOSSobservability staysbacklog.
@@ -195,7 +161,7 @@ result is asserted as a new14 execution.
 
 
 
-## Earlier cleanup publication and handoff
+## Publication and handoff
 
 Pre-change heads feature6402eb2c7277c88f39ba2fe59348fcb906d6f56b,
 nextc367af2977de43ca4636051df6eb3d4c9b15e838. Integrationuses explicitcherry-pick-x
@@ -208,16 +174,3 @@ Requiredfreshno-contextresumeproof followsintegration. Runrules-check,
 register-check,work-log-index--check,ceremony-check--gate; auditcadenceisoverdue
 andCIredbutallowsfixpushes. No waiver; no completedP4. Frozen14 neveradvances
 duringmetadata publication. Archivebothcheckpointfilesbeforechanges.
-
-
-## This session publication and handoff
-
-Working branch started at cef65430f750fc6d6935d2a10c3996ecfe6d47f1;
-primary next started at7942765b6debb4440e1aee8ebc17ad56cc779860.
-Integrate explicit cherry-pick -x; normal hooked pushes, no historical merge.
-Current publication/tracker receipts live in
-`/tmp/pixelelated-retention-upstream-publication-20261006/`.
-Before relying on publication, read its actual receipt and branch/remote heads.
-New commits own #461/#168/#361/#383. Frozen14 never advances for these docs/tests.
-Required fresh no-context resume proof follows integration. Audit cadence is
-still overdue (CI red, fixes may push); no waiver or completed P4.

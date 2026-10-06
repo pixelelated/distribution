@@ -1,0 +1,12 @@
+test_configured_name_matches_case_insensitive_cache_key (linux.tests.test_linux_configured_login.ConfiguredLoginTests.test_configured_name_matches_case_insensitive_cache_key) ... ok
+test_explicit_token_still_takes_precedence (linux.tests.test_linux_configured_login.ConfiguredLoginTests.test_explicit_token_still_takes_precedence) ... ok
+test_failed_sign_in_does_not_fall_back_to_other_account (linux.tests.test_linux_configured_login.ConfiguredLoginTests.test_failed_sign_in_does_not_fall_back_to_other_account) ... ok
+test_malformed_configured_row_triggers_login (linux.tests.test_linux_configured_login.ConfiguredLoginTests.test_malformed_configured_row_triggers_login) ... ok
+test_no_configured_account_keeps_cached_login_fallback (linux.tests.test_linux_configured_login.ConfiguredLoginTests.test_no_configured_account_keeps_cached_login_fallback) ... ok
+test_other_account_cache_does_not_block_new_sign_in (linux.tests.test_linux_configured_login.ConfiguredLoginTests.test_other_account_cache_does_not_block_new_sign_in) ... ok
+test_selects_configured_account_from_two_cached_accounts (linux.tests.test_linux_configured_login.ConfiguredLoginTests.test_selects_configured_account_from_two_cached_accounts) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.007s
+
+OK

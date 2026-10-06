@@ -1,0 +1,116 @@
+test_auth_server_and_non_api_errors_keep_unavailable_response (linux.tests.test_linux_client_errors.ClientErrorResponseTests.test_auth_server_and_non_api_errors_keep_unavailable_response) ... ok
+test_client_error_status_reason_type_and_body_are_preserved (linux.tests.test_linux_client_errors.ClientErrorResponseTests.test_client_error_status_reason_type_and_body_are_preserved) ... ok
+test_network_failure_still_uses_offline_cache (linux.tests.test_linux_client_errors.ClientErrorResponseTests.test_network_failure_still_uses_offline_cache) ... ok
+test_award_offset_seconds_reports_clamp_state (linux.tests.test_linux_award_parity.LinuxAwardParityTests.test_award_offset_seconds_reports_clamp_state) ... ok
+test_build_achievement_game_ids_uses_each_sets_own_game_id (linux.tests.test_linux_award_parity.LinuxAwardParityTests.test_build_achievement_game_ids_uses_each_sets_own_game_id) ... ok
+test_build_award_request_body_recomputes_offset_and_validation_hash (linux.tests.test_linux_award_parity.LinuxAwardParityTests.test_build_award_request_body_recomputes_offset_and_validation_hash) ... ok
+test_cache_session_merges_pending_awards_into_cached_startsession (linux.tests.test_linux_award_parity.LinuxAwardParityTests.test_cache_session_merges_pending_awards_into_cached_startsession) ... ok
+test_clamp_award_offset_seconds_matches_two_week_limit (linux.tests.test_linux_award_parity.LinuxAwardParityTests.test_clamp_award_offset_seconds_matches_two_week_limit) ... ok
+test_flush_pending_awards_does_not_invalidate_token_on_per_award_auth_error (linux.tests.test_linux_award_parity.LinuxAwardParityTests.test_flush_pending_awards_does_not_invalidate_token_on_per_award_auth_error) ... Flush auth error: achievementId=22 lastError=Token rejected by server (HTTP 401)
+ok
+test_flush_pending_awards_repairs_forked_chain_before_flushing (linux.tests.test_linux_award_parity.LinuxAwardParityTests.test_flush_pending_awards_repairs_forked_chain_before_flushing) ... ok
+test_flush_pending_awards_resolves_credentials_with_our_own_user_agent (linux.tests.test_linux_award_parity.LinuxAwardParityTests.test_flush_pending_awards_resolves_credentials_with_our_own_user_agent) ... Flush aborted: no RetroAchievements credentials
+ok
+test_merge_start_session_unlock_ids_adds_pending_awards_for_same_game_and_user (linux.tests.test_linux_award_parity.LinuxAwardParityTests.test_merge_start_session_unlock_ids_adds_pending_awards_for_same_game_and_user) ... ok
+test_merge_start_session_unlock_ids_deduplicates_cached_and_pending_ids (linux.tests.test_linux_award_parity.LinuxAwardParityTests.test_merge_start_session_unlock_ids_deduplicates_cached_and_pending_ids) ... ok
+test_merge_start_session_unlock_ids_excludes_other_users_games_statuses_and_hardcore (linux.tests.test_linux_award_parity.LinuxAwardParityTests.test_merge_start_session_unlock_ids_excludes_other_users_games_statuses_and_hardcore) ... ok
+test_proxy_user_agent_is_idempotent (linux.tests.test_linux_award_parity.LinuxAwardParityTests.test_proxy_user_agent_is_idempotent) ... ok
+test_proxy_user_agent_uses_linux_suffix (linux.tests.test_linux_award_parity.LinuxAwardParityTests.test_proxy_user_agent_uses_linux_suffix) ... ok
+test_queue_award_serializes_near_simultaneous_appends (linux.tests.test_linux_award_parity.LinuxAwardParityTests.test_queue_award_serializes_near_simultaneous_appends) ... ERROR
+test_queue_award_skips_cached_already_unlocked_achievement (linux.tests.test_linux_award_parity.LinuxAwardParityTests.test_queue_award_skips_cached_already_unlocked_achievement) ... ERROR
+test_queue_award_skips_cached_already_unlocked_from_achievementsets (linux.tests.test_linux_award_parity.LinuxAwardParityTests.test_queue_award_skips_cached_already_unlocked_from_achievementsets) ... ERROR
+test_refresh_and_load_achievement_ids_clears_invalid_token_on_success (linux.tests.test_linux_award_parity.LinuxAwardParityTests.test_refresh_and_load_achievement_ids_clears_invalid_token_on_success) ... ok
+test_refresh_and_load_achievement_ids_marks_token_invalid_on_auth_error (linux.tests.test_linux_award_parity.LinuxAwardParityTests.test_refresh_and_load_achievement_ids_marks_token_invalid_on_auth_error) ... Flush marked token invalid: user=testuser reason=HTTP Error 401: Unauthorized
+ok
+test_refresh_and_load_achievement_ids_recovers_from_generic_error (linux.tests.test_linux_award_parity.LinuxAwardParityTests.test_refresh_and_load_achievement_ids_recovers_from_generic_error) ... Flush could not refresh patch data: patch request failed: boom
+ok
+test_repair_pending_chain_rebases_forked_links (linux.tests.test_linux_award_parity.LinuxAwardParityTests.test_repair_pending_chain_rebases_forked_links) ... ok
+test_send_award_replaces_stale_embedded_token_with_current_credentials (linux.tests.test_linux_award_parity.LinuxAwardParityTests.test_send_award_replaces_stale_embedded_token_with_current_credentials) ... ok
+test_verify_chain_accepts_valid_sequence (linux.tests.test_linux_award_parity.LinuxAwardParityTests.test_verify_chain_accepts_valid_sequence) ... ok
+test_verify_chain_detects_broken_link (linux.tests.test_linux_award_parity.LinuxAwardParityTests.test_verify_chain_detects_broken_link) ... ok
+
+======================================================================
+ERROR: test_queue_award_serializes_near_simultaneous_appends (linux.tests.test_linux_award_parity.LinuxAwardParityTests.test_queue_award_serializes_near_simultaneous_appends)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/pixelelated-upstream-20261006/client-errors-distribution-check/linux/tests/test_linux_award_parity.py", line 638, in test_queue_award_serializes_near_simultaneous_appends
+    server = proxy_service.ProxyRuntimeServer({"proxy_port": 8080}, store)
+  File "/tmp/pixelelated-upstream-20261006/client-errors-distribution-check/linux/raofflineproxy/proxy_service.py", line 297, in __init__
+    super().__init__(
+    ~~~~~~~~~~~~~~~~^
+        (host, port),
+        ^^^^^^^^^^^^^
+        ProxyRequestHandler,
+        ^^^^^^^^^^^^^^^^^^^^
+        bind_and_activate=inherited is None,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/usr/lib/python3.14/socketserver.py", line 453, in __init__
+    self.socket = socket.socket(self.address_family,
+                  ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+                                self.socket_type)
+                                ^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/socket.py", line 236, in __init__
+    _socket.socket.__init__(self, family, type, proto, fileno)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_queue_award_skips_cached_already_unlocked_achievement (linux.tests.test_linux_award_parity.LinuxAwardParityTests.test_queue_award_skips_cached_already_unlocked_achievement)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/pixelelated-upstream-20261006/client-errors-distribution-check/linux/tests/test_linux_award_parity.py", line 546, in test_queue_award_skips_cached_already_unlocked_achievement
+    server = proxy_service.ProxyRuntimeServer({"proxy_port": 8080}, store)
+  File "/tmp/pixelelated-upstream-20261006/client-errors-distribution-check/linux/raofflineproxy/proxy_service.py", line 297, in __init__
+    super().__init__(
+    ~~~~~~~~~~~~~~~~^
+        (host, port),
+        ^^^^^^^^^^^^^
+        ProxyRequestHandler,
+        ^^^^^^^^^^^^^^^^^^^^
+        bind_and_activate=inherited is None,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/usr/lib/python3.14/socketserver.py", line 453, in __init__
+    self.socket = socket.socket(self.address_family,
+                  ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+                                self.socket_type)
+                                ^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/socket.py", line 236, in __init__
+    _socket.socket.__init__(self, family, type, proto, fileno)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_queue_award_skips_cached_already_unlocked_from_achievementsets (linux.tests.test_linux_award_parity.LinuxAwardParityTests.test_queue_award_skips_cached_already_unlocked_from_achievementsets)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/pixelelated-upstream-20261006/client-errors-distribution-check/linux/tests/test_linux_award_parity.py", line 597, in test_queue_award_skips_cached_already_unlocked_from_achievementsets
+    server = proxy_service.ProxyRuntimeServer({"proxy_port": 8080}, store)
+  File "/tmp/pixelelated-upstream-20261006/client-errors-distribution-check/linux/raofflineproxy/proxy_service.py", line 297, in __init__
+    super().__init__(
+    ~~~~~~~~~~~~~~~~^
+        (host, port),
+        ^^^^^^^^^^^^^
+        ProxyRequestHandler,
+        ^^^^^^^^^^^^^^^^^^^^
+        bind_and_activate=inherited is None,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/usr/lib/python3.14/socketserver.py", line 453, in __init__
+    self.socket = socket.socket(self.address_family,
+                  ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+                                self.socket_type)
+                                ^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/socket.py", line 236, in __init__
+    _socket.socket.__init__(self, family, type, proto, fileno)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+----------------------------------------------------------------------
+Ran 26 tests in 3.023s
+
+FAILED (errors=3)

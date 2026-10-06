@@ -1,0 +1,18 @@
+test_head_does_not_attempt_connection_after_dns_failure (linux.tests.test_linux_bounded_dns.BoundedDnsTests.test_head_does_not_attempt_connection_after_dns_failure) ... FAIL
+
+======================================================================
+FAIL: test_head_does_not_attempt_connection_after_dns_failure (linux.tests.test_linux_bounded_dns.BoundedDnsTests.test_head_does_not_attempt_connection_after_dns_failure)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/pixelelated-upstream-drafts-dns-proof-02/bounded-dns-before/linux/tests/test_linux_bounded_dns.py", line 31, in test_head_does_not_attempt_connection_after_dns_failure
+    connect.assert_not_called()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.14/unittest/mock.py", line 947, in assert_not_called
+    raise AssertionError(msg)
+AssertionError: Expected 'urlopen' to not have been called. Called 1 times.
+Calls: [call(<urllib.request.Request object at 0x7868965ca120>, timeout=5, context=<ssl.SSLContext object at 0x7868965c4560>)].
+
+----------------------------------------------------------------------
+Ran 1 test in 0.003s
+
+FAILED (failures=1)

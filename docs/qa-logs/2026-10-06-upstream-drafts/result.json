@@ -1,0 +1,60 @@
+{
+  "base": "879b158995d412af434301ebdae581f66b8b6d57",
+  "archive_sha256": "984957322337d1325f1b0fc11502336a80241ec511fd041c969bb0103c231664",
+  "drafts": [
+    {
+      "draft": "client-errors",
+      "patch_sha256": "07b5ced6d5221db4950cf0e4f10eea24404d84d2daa5dec4c9abf3b1a0fa6d73",
+      "before_rc": 1,
+      "before_summary": "FAILED (failures=3)",
+      "fixed_rc": 0,
+      "fixed_executions": 26,
+      "production_unchanged_before": true
+    },
+    {
+      "draft": "warning-sets",
+      "patch_sha256": "fd31f5e76c951ed373bf9294929eaf1960f60e0cd89d95c9006d711fb02b7026",
+      "before_rc": 1,
+      "before_summary": "FAILED (failures=3)",
+      "fixed_rc": 0,
+      "fixed_executions": 27,
+      "production_unchanged_before": true
+    },
+    {
+      "draft": "configured-login",
+      "patch_sha256": "e5dc655faba403eec67f1b833e26e9a3b026d5542be08230560fd708ec241735",
+      "before_rc": 1,
+      "before_summary": "FAILED (failures=5)",
+      "fixed_rc": 0,
+      "fixed_executions": 7,
+      "production_unchanged_before": true
+    },
+    {
+      "draft": "refresh-resilience",
+      "patch_sha256": "308d620e344c3cb93e049c95154f4012522da4d84cba7daca723d5d7061333d8",
+      "before_rc": 1,
+      "before_summary": "FAILED (failures=2, errors=1)",
+      "fixed_rc": 0,
+      "fixed_executions": 57,
+      "production_unchanged_before": true
+    },
+    {
+      "draft": "log-consent",
+      "patch_sha256": "221d6aa672ff6f57c7949a84bad33c7a1a8f6836270de8ae6862079d06ce4544",
+      "before_rc": 1,
+      "before_summary": "FAILED (failures=1)",
+      "fixed_rc": 0,
+      "fixed_executions": 6,
+      "production_unchanged_before": true
+    },
+    {
+      "draft": "image-completeness",
+      "patch_sha256": "5a12fa9c0af0d4eb69aad7bfad7d594b6b49578d16a87602a7b2435ddbd4e665",
+      "before_rc": 1,
+      "before_summary": "FAILED (failures=7)",
+      "fixed_rc": 0,
+      "fixed_executions": 16,
+      "production_unchanged_before": true
+    }
+  ]
+}

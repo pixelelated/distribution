@@ -133,6 +133,30 @@ vanishes mid-command and everything afterwards fails for an unrelated-looking
 reason. Detach it instead (`git switch --detach`) if you only need its branch
 freed; the tool refuses this case outright.
 
+## Review retention after qualification
+
+A successful build followed by its required QA triggers a **retention review**
+(D-INFRA-018, #461). Before the next build, compare available space with its
+build, independent-copy and QA footprint plus a measured margin; filesystem
+reserve is not build headroom. Compiler success alone does not release an old
+candidate. This review is infrastructure work, not a new RC acceptance gate.
+
+Keep the current candidate and useful rebuild tree, a qualified fallback for
+each device/architecture, the ROCKNIX upgrade baseline, exact source/licence
+inputs, the shared source cache, and failure evidence. Protect their transitive
+dependencies: qcow2 backing chains and objects referenced across preservation
+stores count even when their original run failed. Independent, verified copies
+of compact evidence can replace an otherwise unnecessary full build tree.
+
+The next cleanup report names exact proposed removals, protected identities,
+dependency checks, preservation cost, expected net recovery and next-build
+headroom. Inspect active host processes and container mounts before execution;
+unreadable or unclassified dependencies prevent a removal proposal. Use the
+standard guarded worktree helper and watched owner for an authorized batch,
+then verify removal, retained inputs and actual free space. A retention review
+never extends an earlier batch's deletion scope. #461 tracks the repeatable
+planner and first later batch; automatic cleanup is not implemented.
+
 ## Create a worktree + branch from next
 
 Always branch from the latest `next` — fetch first so the personal overlay (instruction

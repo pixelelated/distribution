@@ -52,6 +52,18 @@ remain; the root watcher exited automatically. #460 fixes the cleanup helper's
 read-only-directory handling with six controls. No build/QA/cleanup job remains
 active. This changes host cleanup, not product bytes or RC readiness.
 
+#461/D-INFRA-018 now records retention review after qualification and capacity
+review before the next build. The recurring planner and next cleanup batch are
+infrastructure follow-up, outside the RC gate; no further deletion occurred.
+
+#168 now has ten tested upstream drafts. Seven additional standalone drafts
+cover001/002/005/007/008/013/015:40 targeted tests and169 related-suite executions
+pass, with before-fix failures and exact distributed patch hashes retained.
+[Contribution evidence](../qa-logs/2026-10-06-upstream-drafts/README.md).
+Upstream main remains879b158. API/policy-dependent proposals have explicit
+reasons in the contribution map; no upstream submission or acceptance is claimed.
+Dedicated account proofs still precede P4; no new build or audit has started.
+
 ## Completed installed GENERIC_X64 Pixman fallback (#447)
 
 The permanent selector is published as next `d6e8390c93bed87efe2dcc23cd402a271cacd1c7`

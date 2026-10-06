@@ -1,0 +1,18 @@
+test_default_does_not_upload_unreported_incident (linux.tests.test_linux_storage_corruption_retry.RetryStorageCorruptionReportTests.test_default_does_not_upload_unreported_incident) ... FAIL
+
+======================================================================
+FAIL: test_default_does_not_upload_unreported_incident (linux.tests.test_linux_storage_corruption_retry.RetryStorageCorruptionReportTests.test_default_does_not_upload_unreported_incident)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/pixelelated-upstream-drafts-distribution-proof-01/log-consent-before/linux/tests/test_linux_storage_corruption_retry.py", line 16, in test_default_does_not_upload_unreported_incident
+    report.assert_not_called()
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.14/unittest/mock.py", line 947, in assert_not_called
+    raise AssertionError(msg)
+AssertionError: Expected 'report_storage_corruption' to not have been called. Called 1 times.
+Calls: [call({'reported': False, 'upload_id': None})].
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+FAILED (failures=1)

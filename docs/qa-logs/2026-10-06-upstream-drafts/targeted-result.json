@@ -1,0 +1,90 @@
+[
+  {
+    "draft": "client-errors",
+    "fork_patch": "001-dorequest-4xx-passthrough.patch",
+    "before_rc": 1,
+    "after_rc": 0,
+    "tests": 3,
+    "before_failures": 3,
+    "patch_sha256": "a396d91ad897da79be2af7cd542cac85955d431bcc6ddb6b50aaca67df6ca603",
+    "draft_sha256": "07b5ced6d5221db4950cf0e4f10eea24404d84d2daa5dec4c9abf3b1a0fa6d73",
+    "changed_paths": [
+      "linux/raofflineproxy/proxy_service.py",
+      "linux/tests/test_linux_client_errors.py"
+    ]
+  },
+  {
+    "draft": "warning-sets",
+    "fork_patch": "002-no-synthetic-casual-only-achievement.patch",
+    "before_rc": 1,
+    "after_rc": 0,
+    "tests": 4,
+    "before_failures": 3,
+    "patch_sha256": "4bbc21724eba0e005d2cf82b2d5944d6a4a137fc9a95969fcd30bcf7b8bb222b",
+    "draft_sha256": "fd31f5e76c951ed373bf9294929eaf1960f60e0cd89d95c9006d711fb02b7026",
+    "changed_paths": [
+      "linux/raofflineproxy/rom_cache.py",
+      "linux/tests/test_linux_warning_sets.py"
+    ]
+  },
+  {
+    "draft": "configured-login",
+    "fork_patch": "007-cached-sign-in-of-the-configured-account.patch",
+    "before_rc": 1,
+    "after_rc": 0,
+    "tests": 7,
+    "before_failures": 5,
+    "patch_sha256": "6ef15a93bcd662d10856a0a771f56677bf50326dd3d9ff0f5c9f6febd6f16d3a",
+    "draft_sha256": "e5dc655faba403eec67f1b833e26e9a3b026d5542be08230560fd708ec241735",
+    "changed_paths": [
+      "linux/raofflineproxy/auth.py",
+      "linux/tests/test_linux_configured_login.py"
+    ]
+  },
+  {
+    "draft": "refresh-resilience",
+    "work_tree": "refresh-resilience-v2",
+    "fork_patch": "005-keep-the-refresh-thread-alive.patch",
+    "before_rc": 1,
+    "after_rc": 0,
+    "tests": 6,
+    "before_summary": "FAILED (failures=2, errors=1)",
+    "patch_sha256": "996abb6cc1d5fee8204c977f9fd051526c9805ee461906850c284870c37ad62e",
+    "draft_sha256": "308d620e344c3cb93e049c95154f4012522da4d84cba7daca723d5d7061333d8",
+    "changed_paths": [
+      "linux/raofflineproxy/proxy_service.py",
+      "linux/tests/test_linux_refresh_resilience.py"
+    ]
+  },
+  {
+    "draft": "log-consent",
+    "work_tree": "log-consent-v2",
+    "fork_patch": "008-log-upload-opt-in.patch",
+    "before_rc": 1,
+    "after_rc": 0,
+    "tests": 6,
+    "before_summary": "FAILED (failures=1)",
+    "patch_sha256": "e8d80fab8eabad8d0b4b40113e1e9c01a50fa72c33e35e5a2ac5bd1dedfef53c",
+    "draft_sha256": "221d6aa672ff6f57c7949a84bad33c7a1a8f6836270de8ae6862079d06ce4544",
+    "changed_paths": [
+      "linux/raofflineproxy/config.py",
+      "linux/raofflineproxy/proxy_service.py",
+      "linux/tests/test_linux_storage_corruption_retry.py"
+    ]
+  },
+  {
+    "draft": "image-completeness",
+    "fork_patch": "013-validate-a-cached-image-before-publishing-it.patch",
+    "before_rc": 1,
+    "after_rc": 0,
+    "tests": 6,
+    "before_summary": "FAILED (failures=7)",
+    "patch_sha256": "b7e16f2ab9c97f550deeaf55a21a315b83f432a5f1c90d04b15bca8a728d7003",
+    "draft_sha256": "5a12fa9c0af0d4eb69aad7bfad7d594b6b49578d16a87602a7b2435ddbd4e665",
+    "changed_paths": [
+      "linux/raofflineproxy/image_cache.py",
+      "linux/tests/test_linux_image_cache_shutdown.py",
+      "linux/tests/test_linux_image_completeness.py"
+    ]
+  }
+]
