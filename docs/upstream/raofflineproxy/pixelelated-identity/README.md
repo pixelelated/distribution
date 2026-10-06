@@ -24,3 +24,12 @@ Recognize only the complete ROCKNIX and pixelelated OS_NAME records. Rasteratops
 never shipped as an OS identity and needs no compatibility branch. Tests cover
 branded account lookup,
 configured-path precedence, and rejection of commented/partial names.
+
+## Current-base recheck — 2026-10-06
+
+The unchanged draft applies at fuzz0 to b09d604ecaba7c973028a659b69106b72d3c9514.
+Its regression with pristine production code fails; with the draft fix, all
+16 selected tests pass. This recheck does not claim the earlier broader
+combined suite was repeated for this standalone draft.
+[Before/after logs and patch hashes](../../../qa-logs/2026-10-06-proxy-consent/upstream-draft-recheck/).
+No upstream submission has been made.

@@ -239,8 +239,8 @@
 #
 # The store this reads -- read-only, through the service's own sqlite3
 # module, never written here -- is the client's schema at the commit
-# package.mk pins (3036478f2b2d22db451396a48f44feee94e8462f, storage.py
-# _initialize_sqlite, reviewed 2026-10-05 for #452). Consumed columns and
+# package.mk pins (b09d604ecaba7c973028a659b69106b72d3c9514, storage.py
+# _initialize_sqlite, reviewed 2026-10-06 for #457). Consumed columns and
 # cache-key spellings remain compatible. The additive cached_game_meta table
 # and delete/rename triggers index existing rows without changing award data. The suite reads a store the current client wrote,
 # and the integration fixture reopens the predecessor's store with current

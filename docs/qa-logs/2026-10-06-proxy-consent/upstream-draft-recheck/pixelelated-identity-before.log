@@ -1,0 +1,51 @@
+test_autostart_command_uses_rocknix_launcher (linux.tests.test_linux_rocknix.RocknixAutostartTests.test_autostart_command_uses_rocknix_launcher) ... ok
+test_resolve_startup_script_path_uses_rocknix_when_detected (linux.tests.test_linux_rocknix.RocknixAutostartTests.test_resolve_startup_script_path_uses_rocknix_when_detected) ... ok
+test_rocknix_boot_hook_reinjects_tools_launcher (linux.tests.test_linux_rocknix.RocknixAutostartTests.test_rocknix_boot_hook_reinjects_tools_launcher) ... ok
+test_rocknix_ensure_boot_hook_writes_executable_script (linux.tests.test_linux_rocknix.RocknixAutostartTests.test_rocknix_ensure_boot_hook_writes_executable_script) ... ok
+test_rocknix_remove_boot_hook_deletes_script (linux.tests.test_linux_rocknix.RocknixAutostartTests.test_rocknix_remove_boot_hook_deletes_script) ... ok
+test_detect_retroarch_cfg_uses_rocknix_path (linux.tests.test_linux_rocknix.RocknixConfigPathTests.test_detect_retroarch_cfg_uses_rocknix_path) ... ok
+test_detect_retroarch_cfg_uses_storage_layout_when_name_check_fails (linux.tests.test_linux_rocknix.RocknixConfigPathTests.test_detect_retroarch_cfg_uses_storage_layout_when_name_check_fails)
+running_on_rocknix() returns False on an unreadable /etc/os-release. ... ok
+test_resolve_config_dir_uses_rocknix_dir (linux.tests.test_linux_rocknix.RocknixConfigPathTests.test_resolve_config_dir_uses_rocknix_dir) ... ok
+test_pixelelated_discovers_rocknix_account_settings (linux.tests.test_linux_rocknix.RocknixDetectionTests.test_pixelelated_discovers_rocknix_account_settings) ... FAIL
+test_platform_name_must_be_the_complete_os_name_record (linux.tests.test_linux_rocknix.RocknixDetectionTests.test_platform_name_must_be_the_complete_os_name_record) ... 
+  test_platform_name_must_be_the_complete_os_name_record (linux.tests.test_linux_rocknix.RocknixDetectionTests.test_platform_name_must_be_the_complete_os_name_record) (text='# OS_NAME="ROCKNIX"') ... FAIL
+  test_platform_name_must_be_the_complete_os_name_record (linux.tests.test_linux_rocknix.RocknixDetectionTests.test_platform_name_must_be_the_complete_os_name_record) (text='PREVIOUS_OS_NAME="ROCKNIX"') ... FAIL
+test_running_on_rocknix_false_when_os_release_differs (linux.tests.test_linux_rocknix.RocknixDetectionTests.test_running_on_rocknix_false_when_os_release_differs) ... ok
+test_running_on_rocknix_false_when_os_release_missing (linux.tests.test_linux_rocknix.RocknixDetectionTests.test_running_on_rocknix_false_when_os_release_missing) ... ok
+test_running_on_rocknix_true_when_os_release_matches (linux.tests.test_linux_rocknix.RocknixDetectionTests.test_running_on_rocknix_true_when_os_release_matches) ... ok
+test_resolve_rom_root_falls_back_to_rocknix_roms_root (linux.tests.test_linux_rocknix.RocknixRomRootTests.test_resolve_rom_root_falls_back_to_rocknix_roms_root) ... ok
+test_find_platform_asset_url_matches_rocknix_installer (linux.tests.test_linux_rocknix.RocknixUpdateTests.test_find_platform_asset_url_matches_rocknix_installer) ... ok
+test_validate_platform_accepts_rocknix (linux.tests.test_linux_rocknix.RocknixUpdateTests.test_validate_platform_accepts_rocknix) ... ok
+
+======================================================================
+FAIL: test_pixelelated_discovers_rocknix_account_settings (linux.tests.test_linux_rocknix.RocknixDetectionTests.test_pixelelated_discovers_rocknix_account_settings)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/pixelelated-p3-20261006/draft-recheck/pixelelated-identity/linux/tests/test_linux_rocknix.py", line 31, in test_pixelelated_discovers_rocknix_account_settings
+    self.assertTrue(config.running_on_rocknix())
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_platform_name_must_be_the_complete_os_name_record (linux.tests.test_linux_rocknix.RocknixDetectionTests.test_platform_name_must_be_the_complete_os_name_record) (text='# OS_NAME="ROCKNIX"')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/pixelelated-p3-20261006/draft-recheck/pixelelated-identity/linux/tests/test_linux_rocknix.py", line 45, in test_platform_name_must_be_the_complete_os_name_record
+    self.assertFalse(config.running_on_rocknix())
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_platform_name_must_be_the_complete_os_name_record (linux.tests.test_linux_rocknix.RocknixDetectionTests.test_platform_name_must_be_the_complete_os_name_record) (text='PREVIOUS_OS_NAME="ROCKNIX"')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/pixelelated-p3-20261006/draft-recheck/pixelelated-identity/linux/tests/test_linux_rocknix.py", line 45, in test_platform_name_must_be_the_complete_os_name_record
+    self.assertFalse(config.running_on_rocknix())
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.002s
+
+FAILED (failures=3)
