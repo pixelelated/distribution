@@ -1,0 +1,74 @@
+{
+  "utc": "2026-10-06T01:55:32.135226+00:00",
+  "publication": {
+    "utc": "2026-10-06T01:53:32.977362+00:00",
+    "feature": "9243514f1893a36de1b9a420620db4b573890de3",
+    "next": "89e44e3f39d33023539a00ea3c921200acb4499b",
+    "product_changed": false,
+    "remote_hashes_verified": true
+  },
+  "trackers": [
+    {
+      "url": "https://github.com/pixelelated/distribution/issues/361",
+      "title": "M7.P2: raofflineproxy \u2014 refresh current upstream while preserving offline functionality",
+      "state": "open",
+      "updated_at": "2026-10-06T01:54:18Z",
+      "body_sha256": "23ea0387deb5ce7a5b90e317fbed2fb9d92512eeb9e30d2c96d97b4c22592e2e",
+      "criteria": [
+        "- [x] Owner disposition recorded in D-WORKFLOW-138: refresh current upstream, preserve functionality; prior pin proposal withdrawn.",
+        "- [x] Every patch has a source-backed retained/rebased/superseded disposition and the final series applies cleanly.",
+        "- [x] Indexed and unindexed whole-library scans retain truthful readiness, no total-library cap, interruption/retry, polite request pacing, and safe handling of server 429s; a synthetic library over 100 games proves the boundary.",
+        "- [x] Existing cached sign-in, cache rows, ROM/image paths, pending base/subset awards and restart/reconnection survive an upgrade fixture; declined/unanswered telemetry never sends.",
+        "- [ ] Upstream Linux suites and fork proxy regression sections pass on the exact selected source; cold image build, tools/ra-offline-test and UI/progress/flush proof pass on the VM.",
+        "- [x] tools/fork-package-freshness exits0 on frozen replacement14; freshness05/allfour0 and exact recipe/tool verification retained. Earlier failed13 and completed12 results remain their own evidence.",
+        "- [ ] Remaining general-purpose fixes are reconciled with #168 for focused upstream contributions and regression tests."
+      ]
+    },
+    {
+      "url": "https://github.com/pixelelated/distribution/issues/383",
+      "title": "M7: Deliver and qualify the pixelelated 0.0.1 candidate",
+      "state": "open",
+      "updated_at": "2026-10-06T01:54:20Z",
+      "body_sha256": "daabb3fbbfe6b41b4e062bc9b835bbae6dffaa917d5fbd49ffa932409c11f3ca",
+      "criteria": [
+        "- [x] #365's T01\u2013T26 table maps each relevant actor/state cell to executable assertions or a justified inapplicable cell; #356 adds strict supported-version, numbered-step, marker-failure and interrupted retry/fleet controls; #320 has deterministic recovery-race controls; writer-shaped archive discovery is the first negative control. The promoted guest proof resets every case and exits nonzero on an injected assertion failure.",
+        "- [ ] #376/#377/#379/#380/#381 and #365 settlement, #363 card ordering, #364 timing, #366 fixture defects have source fixes and retained passing/failing controls. Each owning issue carries its own evidence.",
+        "- [ ] #361/#362/#386 input refresh and preservation checks pass; #310/#327/#332 carry-forward software criteria and host gates are resolved. #337's approved OS identity is integrated on the frozen upstream baseline. One recorded input set produces the candidate; clean install, RC2 upgrade, full VM QA, pair migration, visual and timing evidence identify that build.",
+        "- [ ] The code-auditor review of the fixes includes the approved independent other-lab model through the Facilitator; findings are resolved and any resulting product changes rebuilt and requalified before an RC claim."
+      ]
+    },
+    {
+      "url": "https://github.com/pixelelated/distribution/issues/456",
+      "title": "M7.P3: Prepare safe reclamation of superseded build trees",
+      "state": "open",
+      "updated_at": "2026-10-06T01:54:22Z",
+      "body_sha256": "d655b60e761e6c0ed3aee5956bbf01e1290696d9b22aebc95a205b6bd2bf1c1a",
+      "criteria": [
+        "- [x] Per-tree manifest names its branch/source, tracked modifications and retained image/input/log custody, with exact hashes in the preservation report.",
+        "- [ ] All retained qcow2 backing references and live process/container dependencies are checked; any dependent or uniquely required payload is excluded or preserved, with the report naming each disposition.",
+        "- [x] Required source/licence inputs, unstripped debugging outputs and failed-run evidence have a verified preservation destination, with byte/hash comparison receipts.",
+        "- [x] A concrete tools/fork-worktree removal command list and net recovery estimate are recorded for the named trees; the report explicitly distinguishes prepared preservation from approved/executed deletion."
+      ]
+    },
+    {
+      "url": "https://github.com/pixelelated/distribution/issues/458",
+      "title": "M7.P3: Preserve malformed ELF fixtures during build cleanup",
+      "state": "closed",
+      "updated_at": "2026-10-06T01:54:25Z",
+      "body_sha256": "3d8534a8d3115e29b61d67ed03e84af248ab38cc79bff80f025ab37a461b66aa",
+      "criteria": [
+        "- [x] The actual invalid-data fixture reproduces the old assertion; corrected classification retains malformed ELF-looking fixtures as opaque bytes, with valid ELF32/ELF64 and truncated controls recorded.",
+        "- [x] A fresh sealed owner completes preservation across all five named old trees, independently verifies every retained destination and records original-source stability. Runtime01 stays failed.",
+        "- [x] Completion, actual process cleanup, custody hashes and the explicit remaining removal gates are published; no deletion is authorized or executed by this fix."
+      ]
+    },
+    {
+      "url": "https://github.com/pixelelated/distribution/milestone/7",
+      "title": "M7: pixelelated 0.0.1",
+      "state": "open",
+      "updated_at": "2026-10-06T01:54:16Z",
+      "body_sha256": "92e50c1f3601b06c93be726ddcfbd5c0b2e1076e0deb38d363bf5da482b08c1a",
+      "criteria": []
+    }
+  ]
+}

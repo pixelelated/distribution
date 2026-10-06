@@ -1,0 +1,213 @@
+{
+  "schema": 1,
+  "utc": "2026-10-06T01:58:40.442486+00:00",
+  "purpose": "Fresh-context read-only resume proof required by session-stash and D-WORKFLOW-133; not a code audit or P4.",
+  "scope": {
+    "repository": "/workspace/repos/rocknix.worktrees/conflict-resolution",
+    "supplied_context": "Repository and read-only resume-proof assignment only; no prior conversation inherited. Parent supplied a later host-readback path, inspected separately.",
+    "mutations": "Only this report at /tmp/pixelelated-final14-resume-proof.json. No repository/tracker/device/cloud mutations or build/QA owners started."
+  },
+  "verdict": "PASS_RESUMABLE_WITH_DOCUMENTED_VERIFICATION_LIMITS",
+  "project": {
+    "name": "pixelelated",
+    "version": "0.0.1",
+    "milestone": "M7: pixelelated 0.0.1",
+    "kind": "Immutable handheld gaming Linux distribution, ROCKNIX/JELOS fork using LibreELEC/CoreELEC cross-compilation; no application server.",
+    "required_adoption": "ROCKNIX to pixelelated",
+    "current_phase": "M7.P3; completed replacement14 planned VM sequence, remaining dedicated QA-account proofs and contribution preparation before P4."
+  },
+  "checkpoint": {
+    "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/.github/sessions/saved-session-state-next.md",
+    "sha256": "7297cecdd20ef451af44a1c16ddd7b89789f70c0d0e4394d4b3b12f08aa20588",
+    "saved": "2026-10-06T01:51:59.924599+00:00",
+    "rules_equal_next": true,
+    "feature_head": "9243514f1893a36de1b9a420620db4b573890de3",
+    "next_head": "89e44e3f39d33023539a00ea3c921200acb4499b",
+    "both_heads_verified_via_live_github_api": true,
+    "feature_and_primary_worktrees_clean_when_read": true
+  },
+  "exact_artifact": {
+    "tree": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement14",
+    "branch": "build/m7-pixelelated-replacement14",
+    "source": "7afa9efcfc0c1ce4b89774b38878fc1b9a9063d2",
+    "inputs_sha256": "70cb0448872f39b5382939173b2182a783381142df6dd5630b9e00a2c3ba6ccc",
+    "es": "f6f0c134212bc696f2f6a747c8d390a588f2f0ce",
+    "splash": "8c71126ceef702528c87a4c49625e64988609f26",
+    "proxy": "879b158995d412af434301ebdae581f66b8b6d57",
+    "container": "sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39",
+    "concurrency": {
+      "global": 24,
+      "webkit": 4
+    },
+    "bundle": "/workspace/artifacts/pixelelated-candidates/sha256/b77e47e57a4bb35f885ba78669ee8176a9ac978b27c1cbcfaad66e18f684a9f1",
+    "image_sha256": "c7df6a6f428086f79a377ca1b049f20694f34a868987cf12c493c78eab7b2254",
+    "update_sha256": "a6fdf2e36ff73842a5048994ee515cbdf44c34cd6f27eb20140f61ccce578df5",
+    "manifest_bound_bundle_files_verified": 19,
+    "product_files_verified": 6550,
+    "qa_files_verified": 207,
+    "symlinks_verified": 180,
+    "recipe_count_in_manifest": 1608,
+    "all_input_and_bundle_hashes_match": true,
+    "dirty_build_tree_note": "Only documentation/PER_DEVICE_DOCUMENTATION/GENERIC_X64/SUPPORTED_EMULATORS_AND_CORES.md differs from HEAD. It is outside frozen product/QA inputs. Every frozen input was directly rehashed and matched. Do not restore or advance this tree as part of handoff."
+  },
+  "checks": [
+    {
+      "check": "Canonical rules and handoff routing",
+      "result": "PASS",
+      "evidence": "git diff --quiet next -- .claude CLAUDE.md AGENTS.md returned 0; read canonical next checkpoint, AGENTS, every-session rule files through applicable excerpt scan, session-stash skill, learning-capture D-WORKFLOW-133, release-readiness, dated work log and contribution map."
+    },
+    {
+      "check": "Frozen source, exact bundle and five installed-owner harness seals",
+      "result": "PASS",
+      "evidence": "Independent SHA256 of inputs.json and all 6550 product/207 QA files, 180 symlink targets, all 19 bundle files including both approximately 2GB artifacts; bundle directory equals manifest hash; manifest inputs equal owner inputs; consent02/image14/qa18/proxy14/subset11 harness.sha256 all return 0. ES qa-integration HEAD equals frozen pin and is clean."
+    },
+    {
+      "check": "Completion, raw log identity and result files",
+      "result": "PASS",
+      "evidence": "For all 12 current build/QA/cleanup owners, directly read inner.rc, outer.rc, tool-wrapper.rc and build.rc, compared with completion.json; independently hashed actual run build.log. Every result matches. Additional cache-copy and freshness owners also independently match. runtime01 remains four rc1, all other listed owners four rc0."
+    },
+    {
+      "check": "Raw QA evidence and copied artifact seals",
+      "result": "PASS",
+      "evidence": "Consent02/proxy14/subset11/qa18 SHA256SUMS all pass. Raw default report has 15 PASS suite rows; scripts.log has 1719 whitespace-tolerant PASS lines, 0 FAIL, 0 SKIP; 78 PNG walk frames; actual RC2 rehearsal has 26 PASS assertions and correct old/new build IDs. Native log says 18 tests OK with no skips. Consent guest.log has 30 PASS cases and usage-only counter observation has uptime 16.705487703, actual/expected 8."
+    },
+    {
+      "check": "Current owner processes, independently visible sandbox scope",
+      "result": "PASS_WITH_SCOPE_LIMIT",
+      "evidence": "Recorded absent PIDs for all 12 owners plus cache-copy/freshness remain absent in /proc. No readable QEMU/watch-job/watch-build/cloud-test-backend process found; ss shows no listener on 9010. Sandbox visibility is not treated as root-only whole-host dependency proof."
+    },
+    {
+      "check": "Parent actual-host readback",
+      "result": "INSPECTED_PARENT_EVIDENCE",
+      "path": "/tmp/pixelelated-final14-host-readback.json",
+      "sha256": "94816d28bd9196ffb9dcc96bd0b7c9527185ae250b652b33fa5348193cd7e054",
+      "evidence": "Recorded at 2026-10-06T01:57:01.472595+00:00 by parent using host view: 9 owner PID lists absent, no QEMU, 16 unrelated running containers and zero containers mounting replacement trees. Separate from this reader's independent hash/process checks."
+    },
+    {
+      "check": "Live tracker and publication",
+      "result": "PASS",
+      "evidence": "Read GitHub API for #383/#361/#168/#456/#458/#457 and milestone description nested in #383. Current M7 and #383/#361 name completed replacement14 and remaining P3 before P4. #457 and #458 are closed. #456 dependency checkbox remains open. Live next and feature refs match publication receipt. Tracker completion at /tmp/pixelelated-qa18-finish-tracking/completion.json records 01:54:26.622856+00:00 and verified readbacks."
+    },
+    {
+      "check": "Decision/pending-state archaeology",
+      "result": "PASS",
+      "evidence": "tools/archaeology --no-gh --since 2026-10-02 Tobu100359|Dropbox|D-WORKFLOW-133|D-RA-016 returned 0; direct D-RA-016 and D-WORKFLOW-133/138/140 rows read; live #168/#361/#456 comments inspected. No newer status or path answer found in inspected records."
+    },
+    {
+      "check": "Root-only cleanup readback remains pending",
+      "result": "CONFIRMED_NOT_COMPLETE",
+      "evidence": "/tmp/pixelelated-cleanup-root-process-readback.json remains 0 bytes. Read-only helper independently hashes to 51a9b6c6026e94717505cc4376b1f5ce7b516261d7593b90b86d8955d9ad445e. Existing preservation/dependency report explicitly requires effective UID0, no unreadable fields and no references before named deletion approval."
+    },
+    {
+      "check": "Corrected handoff rerun",
+      "result": "PASS",
+      "evidence": "Re-read current feature pointer and canonical final section; verified both pre-correction archives exactly equal HEAD versions and changed tracked paths limited to sessions/docs. No stale active-job instruction remains in the current feature pointer."
+    }
+  ],
+  "actual_jobs": {
+    "running_current_build_or_qa_owners": [],
+    "notification": "No unattended alert armed per canonical checkpoint; completed ordinary watchers have exited. #395 destination remains unconfigured.",
+    "completed_success": [
+      "replacement14 cache-copy",
+      "freshness05",
+      "replacement14 build",
+      "consent02",
+      "image14",
+      "inventory10",
+      "qa18",
+      "proxy14",
+      "subset11",
+      "cleanup breakdown01",
+      "cleanup preserve01",
+      "cleanup runtime02",
+      "cleanup dependencies02"
+    ],
+    "completed_failure_to_preserve": [
+      "cleanup runtime01: malformed ELF fixture; all four rc1"
+    ],
+    "never_replay_completed_owners": true
+  },
+  "ordered_next_actions": [
+    "Publish the already-corrected, byte-exact archived handoff metadata and retain final receipt under /tmp/pixelelated-final14-handoff-published.json. No product bytes changed; original stale pointer was corrected and independently reread.",
+    "Continue unblocked #168 concrete contribution preparation/dispositions using docs/upstream/raofflineproxy/contribution-map.md: three tested drafts exist; remaining rows name standalone regressions or API agreement. Preserve local fixes. D-RA-016 requires maintainer go before outward PR/issue submission; upstream acceptance is not the candidate gate.",
+    "When the already-requested dedicated QA inputs arrive, complete remaining ordinary-mode RA award/reconnect and authenticated Dropbox trust/account proofs on isolated QA guests; reconcile #361/#351/#362 criteria from actual artifacts. Do not substitute synthetic/public login proof or consume an already-earned award.",
+    "After remaining P3 acceptance, run approved P4 primary plus Fable 5.1/xhigh through verified Facilitator/OpenRouter using the complete code-auditor skill and references. Initial #375/#382 audits do not replace the fixes review under #383.",
+    "Resolve findings; rebuild and renew affected qualification if product bytes change.",
+    "Build H700 DDR4/RG35XXSP arm first, aarch64 second from qualified inputs; then named physical and P5 source/licence/docs/publication gates. No RC, device-ready or publication claim yet.",
+    "Separately, await the requested root-only #456 process readback; validate it and refresh dependencies/preservation before any concrete named deletion approval. No deletion, reserve change or large cache copy now."
+  ],
+  "pending_user_input": [
+    {
+      "item": "Dedicated ordinary RA test account",
+      "needed": "Status of Tobu100359 reset or alternate QA-account availability; never secret values. No reset, hardcore switch or reuse of already-owned achievement authorized."
+    },
+    {
+      "item": "Dedicated Dropbox QA credentials",
+      "needed": "Credential-file path/status, never credential values; public/synthetic provider evidence cannot close authenticated trust."
+    },
+    {
+      "item": "Root-only cleanup dependencies",
+      "needed": "Previously requested saved output from sudo /usr/bin/python3 -I /tmp/pixelelated-readonly-process-dependencies.py > /tmp/pixelelated-cleanup-root-process-readback.json. Do not repeat the question or infer approval from elapsed time."
+    },
+    {
+      "item": "Later separate approvals",
+      "needed": "Maintainer go on concrete outward contributions; named cleanup removal; physical-device/personal-cloud actions; release publication. Public docs repository destination/access and disconnected notification destination remain unresolved external inputs, not reasons to rerun completed VM work."
+    }
+  ],
+  "cleanup": {
+    "proposed_trees": [
+      "replacement03",
+      "replacement05",
+      "replacement06",
+      "replacement07",
+      "replacement08"
+    ],
+    "deletion_authorized_or_executed": false,
+    "estimated_net_gib": 524.84,
+    "preservation_stores_to_keep": [
+      "issue-456-es-logs-01",
+      "issue-456-runtime-01",
+      "issue-456-runtime-02"
+    ],
+    "critical_warning": "Failed runtime01 partial objects must remain because successful runtime02 references reverified objects there. Protect14,13unbuilt,12,10,09, every candidate bundle/RC2/backing chain, shared source cache and recovered rclone archive. Root-only dependency criterion remains open."
+  },
+  "gaps": [
+    {
+      "severity": "handoff_text",
+      "path": ".github/sessions/saved-session-state-feature-conflict-resolution.md",
+      "finding": "Pointer says QA18 full defaults/actualRC2 upgrade running, now false. It correctly directs readers to canonical next first, so resume succeeded; its focus line must be corrected. Parent notified.",
+      "status": "CORRECTED_AND_REVERIFIED_IN_WORKTREE",
+      "resolved_utc": "2026-10-06T01:59:00.635450+00:00",
+      "resolution": "Parent archived old copies byte-for-byte, corrected the feature pointer and appended current publication/closure/process scope. This reader checked corrected text and archive equality; final metadata push remains parent-owned."
+    },
+    {
+      "severity": "verification_scope",
+      "finding": "This reader's Docker CLI returned permission denied (rc1); blank stdout was not absence. Current host container/process facts are parent-supplied escalated readback evidence, explicitly separated above. Do not claim whole host has no containers."
+    },
+    {
+      "severity": "known_release_limits",
+      "finding": "Timing is one-sample smoke; rapid relaunch has no new sync stamp. Initial small frame is not text/widget-size evidence. Synthetic proxy/provider tests do not prove authenticated trust. 14 P5 licence metadata gaps remain. No visual screenshots or semantic suite execution was repeated by this read-only handoff check."
+    },
+    {
+      "severity": "bookkeeping",
+      "finding": "Canonical checkpoint publication section uses future wording and old prior heads. It explicitly instructs reading actual receipt; receipt and live branch refs resolve final feature9243514f/next89e44e3f, and live #458 is closed. Parent plans an archived final append.",
+      "status": "CORRECTED_AND_REVERIFIED_IN_WORKTREE",
+      "resolved_utc": "2026-10-06T01:59:00.635450+00:00",
+      "resolution": "Parent archived old copies byte-for-byte, corrected the feature pointer and appended current publication/closure/process scope. This reader checked corrected text and archive equality; final metadata push remains parent-owned."
+    }
+  ],
+  "safety_boundary": "No new user question, no product code audit, no delegation, no owner replay, no device/cloud/account access or mutation, no cleanup or reserve change.",
+  "correction_verification": {
+    "utc": "2026-10-06T01:59:00.635450+00:00",
+    "result": "PASS",
+    "feature_pointer_corrected": true,
+    "feature_pointer_sha256": "e25a26f17fe75cccb5f442de35e0faca6e44011a0646e71edc5ea04b8ebdb685",
+    "canonical_worktree_checkpoint_sha256": "7297cecdd20ef451af44a1c16ddd7b89789f70c0d0e4394d4b3b12f08aa20588",
+    "old_pointer_archived_byte_exact": true,
+    "old_checkpoint_archived_byte_exact": true,
+    "publication_458_and_456_current_status_appended": true,
+    "host_container_scope_corrected": true,
+    "modified_tracked_paths_are_handoff_or_docs_only": true,
+    "publication_scope": "Corrections verified in current worktree before parent final metadata publication; earlier live feature9243514f/next89e44e3f publication remains independently verified. Final handoff receipt path is /tmp/pixelelated-final14-handoff-published.json."
+  }
+}

@@ -176,35 +176,3 @@ It is a handoff check, notP4. No arbitrarysubagents. For future longjobs use
 watch-build-submit fromexactfrozentree,5sheartbeat/5minstall, explicitnested
 activity and actualI/O when quiet. Poll/report≤60s. Recordterminal promptly,
 then actualowner/guest/backendexit. Do not edit a running shelltool or pkill.
-
-## Final publication and fresh-reader reconciliation — 2026-10-06T01:57:57.238460+00:00
-
-Evidence is published: feature9243514f1893a36de1b9a420620db4b573890de3,
-next89e44e3f39d33023539a00ea3c921200acb4499b, normal hooks and remote hashes
-verified. Tracker update/readback completed01:54:26 in
-/tmp/pixelelated-qa18-finish-tracking/completion.json. #458 is CLOSED with all
-criteria verified; #456 has custody/preservation/command-estimate criteria
-ticked and dependency criterion OPEN. #361's preservation/consent criterion
-is ticked; account/progress and general-contribution criteria remain open.
-M7/#383 reflect completed QA and the remaining ordered route.
-
-Original publication attempt stopped before commit on a raw generated timing
-report's trailing blank line. It remains byte-identical; the retry excludes
-that exact raw artifact from the authored-file check. Normal hooks were used,
-no bypass. Logs /tmp/pixelelated-final14-publication.log and -retry.log.
-
-Independent fresh-reader proof rehashed all6550product/207QA/180symlinks,
-all19bundle files and five installed-owner harnesses. All12named completion
-receipts match their actual result files and log hashes. It found a stale
-feature pointer saying QA18running; the pointer is corrected and archived.
-The final report is /tmp/pixelelated-final14-resume-proof.json; retain its
-specific scope/limitations. Parent escalated01:57:01host readback separately
-confirms no QEMU, allnine selected owner PID lists absent,16unrelated containers
-and0replacement-tree mounts. No whole-host Docker absence claim.
-
-Root process helper output is still0bytes at01:57:22; no answer/approval arrived.
-No build/QA/preservation job is running and no completed owner may be replayed.
-Session evidence verification rehashed198QA18,26proxy14,24subset11 and82cleanup
-receipt files with0mismatches. Final handoff metadata publication receipt:
-/tmp/pixelelated-final14-handoff-published.json. This metadata does not change
-frozen7afa9ef product bytes or complete P4/account/cleanup dependency gates.

@@ -23,12 +23,12 @@ Verified immutable bundle:
 Image SHA256 `c7df6a6f428086f79a377ca1b049f20694f34a868987cf12c493c78eab7b2254`.
 Update SHA256 `a6fdf2e36ff73842a5048994ee515cbdf44c34cd6f27eb20140f61ccce578df5`.
 
-Fresh consent02 is first:30installed reporting/restart cases and early uptime,
-synthetic state and real loopback HTTP. Then image14 equality, qa18 default
-and actual RC2 upgrade, proxy14 native/legacy/preservation and subset11 HTTP.
-Inventory10 records actual consumed inputs. These were prepared separately;
-preparation is not proof of success. Original consent01 and all earlier
-failures remain unchanged. No new RC, device-ready or P4 completion claim.
+Qualification followed consent02 (30installed reporting/restart cases and
+early uptime), image14 equality, QA18 defaults/actual RC2 upgrade, proxy14
+native/legacy/preservation and subset11 HTTP. Inventory10 records actual
+consumed inputs. Their completed results and scope are below. Original
+consent01 and all earlier failures remain unchanged. No new RC, device-ready
+or P4 completion claim.
 
 Dedicated RA/Dropbox account inputs, remaining P3 criteria and upstream draft
 dispositions precede approved P4 primary+Fable5.1/xhigh via Facilitator.
