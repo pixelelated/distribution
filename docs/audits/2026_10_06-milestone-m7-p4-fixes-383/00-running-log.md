@@ -359,3 +359,48 @@ cleanup verified20:35:24. An initial broad cleanup observer self-matched its
 shell argv, refused its receipt, and was replaced by actual cwd/path comparisons.
 Hosted corrected-step proof remains open until normal publication/readback.
 Candidate15 and its actual watcher were not changed. QA19 walks remain active.
+
+## 2026-10-06T20:43:38.649801+00:00 — #471 candidate15 baseline complete; installed acceptance active
+
+QA19 finished20:41:54. Primary20:42:07 verified allfour results0,10sealed
+inputs and actual owner/watcher exits, then no actual QEMU/backend/owner
+processes and all five ports released. All15default suites pass;78walkframes,
+35claimedregions,0unclaimed/0missing. Actual September29 ROCKNIX RC2 upgrade
+preserves seeded saves/settings/cloud configuration/archive and retires only
+owned old quirks. Exact payload/proxy identities and actual virgl/640software
+rendering pass. Ten upgraded identity/manual-update frames directly reviewed;
+five initial identity frames and selected default/timing frames were reviewed
+earlier. Timing remains one-sample smoke; rapid relaunch has no new sync stamp.
+Evidence: candidate15/qa19; no private key duplicate retained.
+
+The85-case installed audit owner started20:42:15, launcher999510/runner999511/
+watcher999516/command999567, guests1000346/1000368. Fresh watched activity uses
+the existing proof directory recursively. It is active, not yet passed.
+After completion and primary cleanup:10extra →localEN/FRphone/native/reconnect
+→18cloudUI →8recoveryUI →125gameproxy →fourboot/network proofs. All8audit
+outcomes remainOPEN. No additional external review or permission is pending.
+
+#472 is closed after actual hosted job112489445225 on next3e446806 passes the
+corrected watcher step.35local assertions and hosted invocation retained under
+watcher-ci-01/hosted. The only failed step in that job is audit cadence, which
+remains due while#471is unresolved; wholeCI is not green. Feature historical
+wordlist failures remain a distinct recorded concern.
+
+## 2026-10-06T20:48:34.713814+00:00 — #471 remaining acceptance fixtures prepared
+
+Two additional sealed owners are prepared after the seven previously listed:
+`p4-bucket-retry-01` exercises the literal old-path backup guard, its deliberate
+fallback after an unknown listing, a separately denied copy, and successful
+retry with distinct cloud/local witnesses. `p4-coverage-ui-01` adds six cases
+for installed settings-only setup/restore, EN/FR foreign-archive hostname
+preservation, actual mid-copy process termination followed by a second UI MOVE,
+the next discarded-save shelf, and fresh cloud tiers. These are unexecuted
+fixtures, with pending navigation and assertion validation; no PASS is inferred.
+Prepared sources and seals are retained under candidate15/prepared-audit-owners.
+
+The coverage preparer stopped before launch because it tried to hash its
+provenance before creating it. The ordering was corrected and the fresh,
+unstarted owner sealed. No running tool or product file changed. The actual
+host ceremony check permits push and reports the unfinished audit cadence:
+70 closures and two days. The earlier sandboxed check could not reach GitHub
+and is not the authoritative tracker result.

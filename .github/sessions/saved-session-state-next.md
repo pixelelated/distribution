@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Updated 2026-10-06T20:35:53.944191+00:00; QA19 active; CI fixture correction locally verified; seven follow-on owners prepared.
+> Updated 2026-10-06T20:43:38.649801+00:00; QA19 complete; installed audit85cases active; #472 closed.
 > Previous: `.github/sessions/archived/saved-session-state-next-20261006T201924Z.md`.
 > Both fork refs verified after normal hooked publication; see current focus below.
 
@@ -24,6 +24,34 @@ primary verification and all verdicts; helpers never count as review seats.
 
 
 ## Current focus — M7 P4 audit#471 Phase7 remediation in progress
+
+**Current verified override:** QA19 completed20:41:54 and primary verified
+allfour0/10seals/actual owner exits and VM/backend/five-port cleanup20:42:07.
+All15defaults, actualROCKNIXRC2upgrade, exactpayload/proxy, virgl/640software
+rendering pass. Ten upgraded identity frames directly reviewed; evidence
+docs/qa-logs/2026-10-06-pixelelated-replacement-15/qa19. Never replay QA19.
+
+ACTIVE: /workspace/tmp/pixelelated-m7-p4-installed-fixes-01, started20:42:15,
+run15tree/.build-runs/20261006T204215Z-8f9fe42c. Launcher999510, runner999511,
+watcher999516, command999567; guests1000346/1000368; localWebDAV9040.
+Read console.log, proof/artifacts, run.path/build.status and allfour result
+channels. Primary verifies /tmp/pixelelated-verify-owner.py then
+/tmp/pixelelated-verify-vm-cleanup.py OWNER 9040 10022 10023 5909 5910,
+only after completion. Current recursive activitydir is OWNER/proof.
+Six prepared owners follow serially as listed below; none submitted yet.
+After those, two prepared/unexecuted owners cover the remaining gaps:
+/workspace/tmp/pixelelated-m7-p4-bucket-retry-01/run.py BUNDLE via python3-I,
+then /workspace/tmp/pixelelated-m7-p4-coverage-ui-01/outer.sh BUNDLE.
+Both use OWNER/artifacts activity recursively; sources/seals are retained.
+
+#472closed: actual corrected watcher stepSUCCESS on hosted37527891607/job
+112489445225, next3e44680631aaf1b1b90ea9cb76a03dcbb706c11b. Separate audit
+cadence stepfails as expected until Phase7 complete. No fullCIgreen claim.
+Featureb2f545a68e910f91eb8c71296d20e1496fbfd27e andnext3e446806 are
+remoteverified at20:37:45,96changedpaths equal. New receipts/logs not yet
+published. Frozen candidate15 productunchanged. Continue#471; no pause.
+
+## Earlier checkpoints — live statements below are superseded
 
 **Live update 2026-10-06T20:35:53.944191+00:00:** QA19 thirteen suitesPASS and walks advancing;
 run/watcher435200 unchanged. Detailed owner artifacts, not parent log, establish
