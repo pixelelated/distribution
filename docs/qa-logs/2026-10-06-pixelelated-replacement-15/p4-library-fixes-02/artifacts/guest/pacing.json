@@ -1,0 +1,24 @@
+[
+  {
+    "case": "indexed125",
+    "pacing": {
+      "requests": 375,
+      "throttle_returns": 375,
+      "min_client_interval": 0.30006481600000257,
+      "min_provider_arrival_interval": 0.26435456100000465,
+      "cooldowns": 2,
+      "scope": "Product gate completion timestamps; server arrival jitter retained separately."
+    }
+  },
+  {
+    "case": "unindexed125-retry",
+    "pacing": {
+      "requests": 501,
+      "throttle_returns": 501,
+      "min_client_interval": 0.3000749310000117,
+      "min_provider_arrival_interval": 0.26024661999997534,
+      "cooldowns": 3,
+      "scope": "Product gate completion timestamps; server arrival jitter retained separately."
+    }
+  }
+]

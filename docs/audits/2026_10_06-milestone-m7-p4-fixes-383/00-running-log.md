@@ -885,3 +885,95 @@ Next: boot/network proof → bucket retry → remaining cloud coverage → genui
 Exact tracker/M7 readbacks retained recovery06-resolution-01. #473 criteria
 re-derived from all eight executed cases, lifecycle receipts and46 reviewed
 frames; publication precedes closing the delivered QA fixture issue.
+
+
+## 2026-10-06T22:17:25.659617+00:00 — Recovery evidence published; #473 closed completed
+
+Feature b5953a15149214e94d861f9599fec4ee284a926f and next 10a0c9d20210b3b3e088314aa51702b5a045869b remotely verified22:16:42, with equality of all1000 changed paths. Normal
+hooks pass; primary publication lifecycle verified after allfour0. #473 now
+closed completed after exact body/comment/state readback, with Code trace
+and Already written disposition. Product PL004/005 remain open for rebuilt
+visual acceptance. Library01 remains actively supervised.
+
+
+## 2026-10-06T22:17:57.759520+00:00 — Installed indexed library completes; interrupted path running
+
+Direct library01 log:125 indexed patches/aliases/source paths exact, zero
+queued;375 actual cache requests and no game-id lookup. Observed HTTP gaps
+pass production .3second throttle and both30second cooldown checks. Unindexed
+interruption/retry still running; no overall library acceptance yet. Boot06
+source re-read:four clean/actualRC2-upgrade COW guests, unchanged backing hashes,
+exact kernel/renderer and forced installed updater probes, closePCAP before
+classification, .995 logo matcher and three controls/profile. Never retain rawPCAP.
+
+
+## 2026-10-06T22:18:27.969365+00:00 — Remaining criteria readback
+
+Retained current full bodies/comments for #361/#337/#344/#377/#349/#379/#354
+in remaining-criteria01. #377 and #379 are closed; their exact missing audit
+proofs remain in the prepared queue, without reopening on mere uncertainty.
+#361 combines source/image/offline/UI gates; a125game pass alone cannot close
+it. #337/#344 include explicit P5/source/permission/physical gates, kept
+separate from VM acceptance. #349 still needs foreign-only hostname proof
+and public docs; #354 exact historical no-join control remains prepared.
+
+
+## 2026-10-06T22:21:06.505899+00:00 — Fresh-cloud proof strengthened before execution (#337/#471)
+
+Full coverage02 source read shows the fresh-root case only seeded directories.
+I337-L40 also requires actual use after backup and sync. Prepared fresh03
+retains all six cases and adds real backuptool archive creation/upload, content
+upload, automatic receive/send with distinct witnesses, independent backend ls
+and all-write/current-root checks. Source indent mismatch stopped preparation
+before sealing/launch; corrected and Python parse/shell syntax pass.02 remains
+unsubmitted; launch03 after boot/bucket. No running input or product changed.
+
+
+## 2026-10-06T22:21:52.606370+00:00 — Library01 failed; exact spacing/isolation investigation
+
+Run completed22:21:08, four rc1 and actual owner/guest cleanup verified.
+Indexed125 pacing and all patch/alias/source paths pass. Real SIGTERM on61
+retains60 completed patches; retry reaches all125 with no refetch of first60.
+Actual HTTP minimum spacing on the unindexed history fails .26seconds. The
+outer observer also finds the default route restored; one-time route deletion
+is not durable isolation. All provider timestamps and failures retained;
+inspect exact request pairs before attributing product versus fixture. Pause
+controls were not reached and remain untested. No overall library acceptance.
+
+
+## 2026-10-06T22:24:20.097388+00:00 — #474 library observer/isolation correction prepared
+
+Primary request analysis: exactly1/875 arrival gaps below .26seconds,
+.258471262 at achievementsets33→gameid34. Installed RequestThrottle.wait
+sets the gate timestamp before request construction/urllib/server dispatch;
+arrival is not its direct measurement. Fresh library02 adds a read-only Python
+profile observer of the actual installed gate return, per-process .299second
+floor for the unchanged .3second constant, exact HTTP/observer count, and a
+deliberate10ms negative timestamp control. All provider arrivals stay retained
+as observations. No product function or timer replaced. Entire proof/provider/
+children run in a private loopback-only network namespace, with before/after
+route/interface checks and per-child namespace assertion. Copied read-only
+input initially refused preparation; only the fresh owned copies were made
+writable.11sealed inputs; Python/shell parse pass. Failed01 remains failed.
+
+
+## 2026-10-06 22:27 UTC — Library fixture correction and continued qualification (#474/#471)
+
+Library01 failed22:21:08; primary22:21:45/49 verified all four result channels1,10 seals, owner/guest cleanup and free ports. All125 indexed and125 unindexed games were cached after a real interruption/retry, but the provider-arrival timing assertion failed on one .258471262second gap, and the guest default route reappeared. Later pause/429 cases were not reached. Retain this failed run; neither observation yet establishes a product throttle defect. QA issue#474 owns the fixture correction.
+
+**Active:** library02 started22:24:23, watcher2632710, run20261006T222423Z-d1a70b3f, owner `/workspace/tmp/pixelelated-m7-p4-library-fixes-02`. It observes actual installed client-throttle returns without changing product functions or production timers; server-arrival times remain separate. The loopback-only private network namespace and observer negative control have passed initial checks. Indexed/unindexed125-game caching, real interruption/retry, persisted pause/429 and upstream-budget controls remain under active supervision. The primary reads this watcher at most60seconds apart; no disconnected alert delivery is configured.
+
+Recovery06 evidence is published at featureb5953a1514 / next10a0c9d202; all1000 changed paths and both remotes verified. #473 is closed completed with eight behavioral passes and46 reviewed frames. Its three product presentation failures remain#468/PL004/005. ES integration staysbab4df until the candidate15 queue finishes; repaired source requires installed16 proof. Audit status remains four resolved/four open, with no RC claim.
+
+Next: library02 → boot06 → bucket01 → coverage-ui03 (including actual fresh-root backup and save send/receive) → historical mixed-installation no-join negative01 → build16 and affected/final installed qualification → #471/P4 closure → capacity#461 → H700 DDR4 RG35XX SP arm, thenaarch64 → named physical/P5 gates.
+
+
+## 2026-10-06 22:33 UTC — Installed library qualification complete; boot06 active (#474/#361/#471)
+
+Library02 completed22:32:11UTC; primary22:32:23 independently verified all four results0,11 unchanged seals, actual owner/guest exits and free ports. All415 assertions pass: indexed/unindexed125 cached games, real interruption at61 with60 completed games preserved and never refetched, production batch cooldowns, persisted pause, indexed/unindexed429 Retry-After and restart, unchanged upstream100-budget queuing. All46 installed files remain unchanged. Raw879 requests include876 matched client gate observations for the two whole-library paths; minimum client intervals .300064816/.300074931seconds. Private loopback-only namespace is unchanged before/after. Failed01 remains failed under#474; no product throttle repair was needed. Exact proof and independent arithmetic are retained in p4-library-fixes-02 and library02-acceptance-01.
+
+**Active:** boot06, started22:32:32UTC, run20261006T223232Z-3116c3d3, watcher2667870, owner `/workspace/tmp/pixelelated-m7-boot-qualification-06`. Four clean/actual-RC2-upgraded640/1280 boots keep the fixed .995 splash predicate and negative controls, then observe installed forced-update/CLI network behavior with a local positive capture control. Primary active supervision consumes results; no disconnected alerts. Raw packet captures remain private at the owner.
+
+Next: complete boot06 → bucket01 → coverage-ui03 → genuine historical mixed-installation no-join-negative01 → integrate ES source fixes, build16 and renew affected/final installed acceptance → #471/P4 closure → capacity#461 → H700 DDR4 RG35XX SP arm, thenaarch64 → named physical/P5 gates. Four product findings remain open. No RC claim.
+
+#474 criteria were independently re-derived and ticked; close after evidence publication. #361 compound acceptance remains open.

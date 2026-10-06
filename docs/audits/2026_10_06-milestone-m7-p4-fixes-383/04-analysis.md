@@ -8,8 +8,11 @@
 ESf6f0c134212bc696f2f6a747c8d390a588f2f0ce;
 proxy879b158995d412af434301ebdae581f66b8b6d57.
 **Bundle:** b77e47e57a4bb35f885ba78669ee8176a9ac978b27c1cbcfaad66e18f684a9f1.
-**Status:** primary synthesis; independent external opinion pending. No Phase5
-punch list, audit completion, product fix or RC approval is implied.
+**Status:** historical primary synthesis, subsequently extended by the verified
+external review below. Both external calls and grading are complete. Current
+Phase7 outcomes live in [08-installed-resolution.md](08-installed-resolution.md);
+the original criterion grades here remain unchanged. No audit-completion or RC
+approval is implied.
 
 ## Executive Summary
 
