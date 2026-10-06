@@ -125,3 +125,50 @@ Skill validation,30-rule checks,599-decision checks,work-log index and authored
 whitespace pass. Live ceremony gate exits0 but retains overdue audit67closures/
 2days; it is not waived. Full host scripts are still advancing. Completed the
 remaining relocation source read; no primary grade or provider call yet.
+
+### Phase1 — 2026-10-06T15:05:06.996967+00:00 — process correction published; research continues
+
+Feature2b6346e75b and nextce64fc581a remotely verified with normal hooks;
+#466 closed with four evidenced criteria and383 actual-resumption comment.
+Read cross-system acceptance criteria,344 phase boundaries, blindspots and
+primary visual manifest structure/counts. Continuing Phase1 scope inventory
+while full scripts run; prior verdicts remain sequestered.
+
+### Phase1 complete — 2026-10-06T15:06:04.962530+00:00
+
+Exact scope manifest preserves455 rows, restores multiline criteria and
+separates261 forward/190 supporting/4 later-release rows. Prior answer keys
+remain sequestered. Research summary and Tier B/provenance map are written.
+Next action is Phase2 independent source/evidence/refutation, not a pause.
+
+### Phase2 — 2026-10-06 15:08UTC: first criteria and compiler-launch correction
+
+Read SystemConf publication/LockBusy code and deterministic two-case tests,
+old two failures/119 assertions and installed guest20 assertions with exact
+newer live/record hashes. A first isolated ES compiler submit ran inside the
+sandbox and produced no launcher-start/status/result after submission; no
+execution claimed. Retain owner01 and launch fresh02 on the actual host.
+Submission success remains distinct from live ownership and completion.
+
+### Phase2 — 2026-10-06T15:09:08.109811+00:00: first independent grades
+
+Fresh source-built ES settings tests pass10cases/119assertions; vocabulary164/0
+wrong, allfourrc0 and actualfourPIDabsence verified15:08:30. Recorded four
+independent320 criteria from source, old failing controls, exact installed
+guest hashes and requested historical resolution metadata. Prior375/382/411
+answer keys remain closed. Full host script suite continues under its owner.
+
+### Phase2 — 2026-10-06T15:13:46.975884+00:00: host regression completion consumed
+
+Host-checks01 finished15:12:13UTC; five subcommands met their expected status,
+including the constructed rc1 negative. Allfour terminal channels0 and actual
+launcher/runner/watcher/command absence verified; raw counts/commands/seals
+retained under evidence/host-checks-01. Completion proactively reported in
+the connected session. Source review continues with archive/UI criteria;
+I349-L43 records a narrow missing hostname assertion, not a product failure.
+
+- 2026-10-06: separated the preserved host-checks01 cloud-layout results from the five-command results after detecting a destination-name collision. Original owner files were intact; cloud-layout-results.json and results.json now retain both. Continued archive primary review, including actual recovery records and640x480 writer UI.
+
+- 15:25:18–15:26:33UTC: durable content-probe01 ran on exact unchanged replacement14. Four results rc1,7fixtures (3PASS/4FAIL); actual guest/watcher/launcher/command absence and five unbound ports verified15:27:11.411836UTC. Preserved evidence/content-probe-01. Unrelated configured folders falsely classify ok; explicit-root tiered/empty-local legacy game folders falsely classify empty. Primary source explains both; no product patch or RC claim. Continue Phase2, retain findings for later verification/disposition.
+
+- Primary read correction: the UI26 future-refusal image says COULDN’T FIND YOUR CLOUD FOLDER, not the newer-build diagnostic inferred from the marker script. Corrected the just-written evidence sentence immediately; inspect this cross-layer reason loss as its own potential finding. Do not write image-dependent grades in the same call that retrieves the unseen image.

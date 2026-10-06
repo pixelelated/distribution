@@ -1,0 +1,30 @@
+[
+  [
+    "compile",
+    [
+      "c++",
+      "-std=c++17",
+      "-pthread",
+      "-I/home/max/Development/emulationstation-next.worktrees/qa-integration/es-app/tests/unit/fakes",
+      "-I/home/max/Development/emulationstation-next.worktrees/qa-integration/es-core/src",
+      "-I/home/max/Development/emulationstation-next.worktrees/qa-integration/external",
+      "/home/max/Development/emulationstation-next.worktrees/qa-integration/es-app/tests/unit/SystemConfTests.cpp",
+      "/home/max/Development/emulationstation-next.worktrees/qa-integration/es-core/src/SystemConf.cpp",
+      "/home/max/Development/emulationstation-next.worktrees/qa-integration/es-core/src/utils/AtomicFileUtil.cpp",
+      "-o",
+      "/tmp/pixelelated-m7-p4-es-checks-02/es-conf-tests"
+    ]
+  ],
+  [
+    "es-conf",
+    [
+      "/tmp/pixelelated-m7-p4-es-checks-02/es-conf-tests"
+    ]
+  ],
+  [
+    "vocabulary",
+    [
+      "/workspace/repos/rocknix.worktrees/conflict-resolution/tools/vocabulary-check"
+    ]
+  ]
+]

@@ -1,0 +1,72 @@
+[
+  {
+    "name": "menu-map",
+    "command": [
+      "tools/es-menu-map-check",
+      "--es-src",
+      "/home/max/Development/emulationstation-next.worktrees/qa-integration"
+    ],
+    "started_utc": "2026-10-06T14:54:52.220799+00:00",
+    "completed_utc": "2026-10-06T14:54:52.355526+00:00",
+    "rc": 0,
+    "expected_rc": 0,
+    "passed": true
+  },
+  {
+    "name": "schema",
+    "command": [
+      "tools/rc-preflight",
+      "--only",
+      "proxy-schema"
+    ],
+    "started_utc": "2026-10-06T14:54:52.355646+00:00",
+    "completed_utc": "2026-10-06T14:54:52.391103+00:00",
+    "rc": 0,
+    "expected_rc": 0,
+    "passed": true
+  },
+  {
+    "name": "cloud-layout",
+    "command": [
+      "tools/last-good-scripts-test",
+      "--cloud-layout",
+      "--rclone",
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement14/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/bin/rclone",
+      "--output",
+      "/tmp/pixelelated-m7-p4-host-checks-01/cloud-layout"
+    ],
+    "started_utc": "2026-10-06T14:54:52.391236+00:00",
+    "completed_utc": "2026-10-06T14:59:15.583712+00:00",
+    "rc": 0,
+    "expected_rc": 0,
+    "passed": true
+  },
+  {
+    "name": "cloud-negative",
+    "command": [
+      "tools/last-good-scripts-test",
+      "--cloud-layout",
+      "--rclone",
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement14/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/bin/rclone",
+      "--output",
+      "/tmp/pixelelated-m7-p4-host-checks-01/cloud-negative",
+      "--inject-failure"
+    ],
+    "started_utc": "2026-10-06T14:59:15.583884+00:00",
+    "completed_utc": "2026-10-06T14:59:15.659746+00:00",
+    "rc": 1,
+    "expected_rc": 1,
+    "passed": true
+  },
+  {
+    "name": "scripts",
+    "command": [
+      "tools/last-good-scripts-test"
+    ],
+    "started_utc": "2026-10-06T14:59:15.659860+00:00",
+    "completed_utc": "2026-10-06T15:12:11.026429+00:00",
+    "rc": 0,
+    "expected_rc": 0,
+    "passed": true
+  }
+]
