@@ -10,6 +10,7 @@
 # files that already exist unless they differ.
 #
 # Usage:
+#   cloud_content_restore --known-directories  print local/supported directory names
 #   cloud_content_restore --list           print top-level remote directories
 #   cloud_content_restore <dir> [<dir>..]  copy remote dirs into /storage/roms
 #   cloud_content_restore --all            copy the whole remote content root
@@ -26,6 +27,39 @@
 LOG_FILE="/var/log/cloud_sync.log"
 SCRIPT_NAME=$(basename "$0")
 DEST="/storage/roms"
+
+# Local directory membership shared with cloud_setup discovery. This read-only
+# mode needs neither credentials nor a nonempty local library: a fresh device
+# still recognizes every system in its installed EmulationStation config.
+legacy_dirs() {
+    local d base
+    for d in "${DEST}"/*/; do
+        [ -d "${d}" ] || continue
+        base=$(basename "${d}")
+        case "${base}" in savefiles|savestates|screenshots|backup) continue ;; esac
+        echo "${base}"
+    done
+}
+
+# Match installed paths, not system labels: several labels differ from the
+# actual directory a game uses. The same functions drive --scan below.
+es_systems_file() {
+    for c in /storage/.config/emulationstation/es_systems.cfg \
+             /usr/config/emulationstation/es_systems.cfg; do
+        [ -r "${c}" ] && { echo "${c}"; return 0; }
+    done
+}
+
+supported_systems() {
+    local c; c=$(es_systems_file)
+    [ -n "${c}" ] || return 0
+    sed -n 's:.*<path>/storage/roms/\([^</]*\).*:\1:p' "${c}" | sort -u
+}
+
+if [ "${1:-}" = --known-directories ]; then
+    { legacy_dirs; supported_systems; echo bios; } | sort -u
+    exit 0
+fi
 
 # The exit that means "nothing ran: another cloud sync holds the lock", which
 # EmulationStation names (SKIPPED - ANOTHER CLOUD SYNC IS RUNNING). It was 3
@@ -358,15 +392,6 @@ stop_no_network() {
 # owner's own folders too. Only directories this device actually has locally
 # are offered from there - listing somebody's holiday photos as restorable ROMs
 # would be worse than the empty list this fixes.
-legacy_dirs() {
-    local d base
-    for d in "${DEST}"/*/; do
-        [ -d "${d}" ] || continue
-        base=$(basename "${d}")
-        case "${base}" in savefiles|savestates|screenshots|backup) continue ;; esac
-        echo "${base}"
-    done
-}
 
 # Where a local directory lives in the current cloud layout.
 #
@@ -489,22 +514,6 @@ SELECTION="/storage/.cache/cloud_sync/content-systems"
 selected_systems() {
     [ -r "${SELECTION}" ] || return 0
     grep -E '^[A-Za-z0-9_][A-Za-z0-9._-]*$' "${SELECTION}" 2>/dev/null
-}
-
-# The systems this image can actually run, from its own EmulationStation
-# config. Matched on <path>, not <name>: they differ for a dozen systems and
-# matching names silently mislabels those as unsupported.
-es_systems_file() {
-    for c in /storage/.config/emulationstation/es_systems.cfg \
-             /usr/config/emulationstation/es_systems.cfg; do
-        [ -r "${c}" ] && { echo "${c}"; return 0; }
-    done
-}
-
-supported_systems() {
-    local c; c=$(es_systems_file)
-    [ -n "${c}" ] || return 0
-    sed -n 's:.*<path>/storage/roms/\([^</]*\).*:\1:p' "${c}" | sort -u
 }
 
 # Total bytes per top-level directory, from ONE recursive listing.
@@ -1305,8 +1314,9 @@ case "${1}" in
         # folder in the account -- "my Hello sign directory, documents,
         # videos" -- was listed as a system to restore).
         sizes_under "${ROOT}" | grep -vE '^(ROMs|BIOS)\|' \
-            | awk -F'|' -v loc=" $(legacy_dirs | tr '\n' ' ') " -v sup="$(printf '\n%s\n' "${SUP}")" \
-                  '{ if (index(loc, " " $1 " ") || index(sup, "\n" $1 "\n")) print }' > "${TMP}/legacy"
+            | awk -F'|' -v loc=" $(legacy_dirs | tr '\n' ' ') " -v sup="${SUP}" \
+                  'BEGIN { sup = "\n" sup "\n" }
+                   { if (index(loc, " " $1 " ") || index(sup, "\n" $1 "\n")) print }' > "${TMP}/legacy"
         {
             cut -d'|' -f2 "${TMP}/cloud" | cut -d/ -f1
             local_content_dirs

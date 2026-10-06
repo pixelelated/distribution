@@ -438,6 +438,19 @@ static const char *FINISHING_PAGE =
     "<body><div class=card><h1>Connected</h1>"
     "<p class=note>Finishing up on your handheld&hellip;</p></div></body>";
 
+/* The broker passes the handheld's ES locale, shared with the phone's close
+ * confirmation. HTML entities keep this data URL independent of encoding. */
+static const char *FINISHING_PAGE_FR =
+    "data:text/html,<meta name=viewport content='width=device-width'>"
+    "<style>body{font:16px/1.5 system-ui,sans-serif;margin:0;padding:20px;"
+    "background:%23111;color:%23eee;min-height:100vh;box-sizing:border-box;"
+    "display:flex;align-items:center;justify-content:center}"
+    ".card{max-width:34rem;text-align:center}"
+    "h1{font-size:1.6rem;margin:0 0 .5rem;color:%232d7}"
+    ".note{color:%23aaa;font-size:1rem}</style>"
+    "<body><div class=card lang=fr><h1>Connect&eacute;</h1>"
+    "<p class=note>Finalisation sur votre console&hellip;</p></div></body>";
+
 static gboolean probe_tick(gpointer data)
 {
     Osk *osk = data;
@@ -447,7 +460,8 @@ static gboolean probe_tick(gpointer data)
      * until EmulationStation is back. */
     const char *done_file = g_getenv("CLOUD_SIGNIN_DONE_FILE");
     if (done_file && g_file_test(done_file, G_FILE_TEST_EXISTS)) {
-        webkit_web_view_load_uri(osk->view, FINISHING_PAGE);
+        webkit_web_view_load_uri(osk->view,
+            g_strcmp0(g_getenv("CLOUD_SIGNIN_LANGUAGE"), "fr") == 0 ? FINISHING_PAGE_FR : FINISHING_PAGE);
         if (osk->hints)
             gtk_widget_hide(osk->hints);
         gtk_revealer_set_reveal_child(GTK_REVEALER(osk->revealer), FALSE);

@@ -313,6 +313,10 @@ src_of() { # <repo-relative path> <destination>
         cp "${ROOT}/${1}" "${2}" || { echo "cannot read ${1}" >&2; exit 2; }
     fi
     case "${1}" in
+        */cloud_setup)
+            # Discovery shares the restore scanner's local membership.
+            src_of "${RCLONE_REL}/cloud_content_restore" "$(dirname "$2")/cloud_content_restore"
+            chmod +x "$(dirname "$2")/cloud_content_restore" ;;
         */cloud_content_backup|*/cloud_content_restore)
             local guard_rel="${RCLONE_REL}/cloud_content_transfer" guard_dst
             guard_dst="$(dirname "$2")/cloud_content_transfer"
@@ -4473,6 +4477,8 @@ if [ -n "${BB}" ]; then CSBB=(--ro-bind "${TMP}/bbin" /bbin --ro-bind "${BB_HOST
 # path-based and holds no folder yet (lsd answers "directory not found").
 C1="${CS}/c1"; mkdir -p "${C1}/shim" "${C1}/repo" "${C1}/storage/.config"
 cp "${CS}/src/cloud_setup" "${C1}/repo/cloud_setup"
+cp "${CS}/src/cloud_content_restore" "${C1}/repo/cloud_content_restore"
+chmod +x "${C1}/repo/cloud_content_restore"
 # The layout tool beside it, as on the device: --seed-folders joins a fleet's earlier folder first.
 cp "${CS}/src/cloud_migrate_layout" "${C1}/repo/cloud_migrate_layout" && chmod +x "${C1}/repo/cloud_migrate_layout" || { echo "cannot place cloud_migrate_layout beside cloud_setup" >&2; exit 2; }
 printf 'export PATH=%s\n' "${CSPATH}" > "${C1}/profile"
@@ -4525,15 +4531,19 @@ c1 --set-saves-remote /Mine/Saves
 
 # --set-content-remote (the chooser, fork #352): the content root alone
 # moves, the other two stay; a top-level folder is fine here; the root,
-# "..", a quote and a space are refused with the config as it was.
+# traversal components, unsafe syntax and controls are refused unchanged.
 cp "${ROOT}/${RCLONE_REL}/cloud_sync.conf" "${CONF1}"
 c1 --set-saves-remote /Mine/Saves
 c1 --set-content-remote Games/
 [ "${RC}" -eq 0 ] && [ "$(conf1)" = 'SAVES_REMOTE="/Mine/Saves" SETTINGS_REMOTE="/Mine/Backups" CONTENT_REMOTE="/Games" ' ] && grep -qx 'OK /Games' "${C1}/out"; check $? "--set-content-remote Games/ stores /Games as the content root and leaves the saves and settings folders alone (rc ${RC})" "rc ${RC}; config: $(conf1); said '$(tr '\n' ' ' < "${C1}/out" | cut -c1-120)'"
 cp "${CONF1}" "${C1}/conf.before"
-for bad in / '/a/../b' "/It's" '/Two Words'; do
+for bad in / '/a/../b' '/a/./b' '/a//b' '/quote"' '/$HOME' '/`id`' $'/two\nlines' $'/trailing\n' $'/tab\tname'; do
     c1 --set-content-remote "${bad}"
     [ "${RC}" -ne 0 ] && cmp -s "${CONF1}" "${C1}/conf.before"; check $? "--set-content-remote refuses '${bad}' and leaves the config as it was (rc ${RC})" "rc ${RC}; said '$(tr '\n' ' ' < "${C1}/out" | cut -c1-120)'"
+done
+for good in '/MyGames' '/My Games' '/Games..old' "/Kid's Games"; do
+    c1 --set-content-remote "${good}"
+    [ "${RC}" -eq 0 ] && grep -qxF "CONTENT_REMOTE=\"${good}\"" "${CONF1}"; check $? "the content chooser accepts literal folder ${good}" "rc ${RC}; $(cat "${C1}/out")"
 done
 
 # PL-051: the config is written as text. & and | used to reach sed's
@@ -4747,7 +4757,7 @@ unbounded() { awk '/^(lsf|lsd|mkdir|copyto) / && !(/--low-level-retries 3/ && /-
 c2reset path; c2 --seed-folders
 [ -s "${C2}/rec/argv" ] && [ -z "$(unbounded)" ]; check $? "every rclone call --seed-folders makes carries the listing bound ($(grep -cE '^(lsf|mkdir|copyto) ' "${C2}/rec/argv") calls)" "unbounded: $(unbounded | head -2 | tr '\n' '|')"
 rm -f "${C2}/rec/argv"; c2 --content-location
-[ -s "${C2}/rec/argv" ] && [ "$(grep -c '^lsf ' "${C2}/rec/argv")" -ge 2 ] && [ -z "$(unbounded)" ]; check $? "and so does every listing --content-location makes ($(grep -c '^lsf ' "${C2}/rec/argv") listings)" "unbounded: $(unbounded | head -2 | tr '\n' '|')"
+[ -s "${C2}/rec/argv" ] && [ "$(grep -c '^lsf ' "${C2}/rec/argv")" -ge 1 ] && [ -z "$(unbounded)" ]; check $? "and so does every listing --content-location makes ($(grep -c '^lsf ' "${C2}/rec/argv") listings)" "unbounded: $(unbounded | head -2 | tr '\n' '|')"
 
 # #308 gpt F-RS-20: CONTENT_REMOTE="" is --use-content-root's "the root",
 # which the content scripts read as the root (ROOT="qa:"); seeding put
@@ -5816,6 +5826,30 @@ def remote_listings_run_without_the_old_constant():
 EOPY
 # C3: new test groups go above this line
 cat >> "${C3}/cloud_oauth_test.py" <<'EOPY'
+@test
+def companion_confirmation_locale():
+    m, d = load("locale")
+    keys = ("LANGUAGE", "LC_ALL", "LC_MESSAGES", "LANG")
+    original = {k: os.environ.get(k) for k in keys}
+    try:
+        for key in keys:
+            os.environ.pop(key, None)
+        for environment, expected in [({"LANGUAGE":"fr_FR", "LANG":"en_US.UTF-8"}, "fr"),
+                                      ({"LANGUAGE":"fr-CA:en"}, "fr"),
+                                      ({"LANGUAGE":"en:fr", "LANG":"fr_FR"}, "en"),
+                                      ({"LC_ALL":"fr_FR.UTF-8"}, "fr"), ({}, "en")]:
+            for key in keys: os.environ.pop(key, None)
+            os.environ.update(environment)
+            page = m.phone_page("QA", "1234")
+            words = ("Fermer la page de connexion sur votre console ?", "Garder ouverte", "id=leave-close>Fermer") if expected=="fr" else ("Close the sign-in page on your handheld?", "id=leave-keep>Keep", "id=leave-close>Close")
+            result(m.signin_language()==expected and all(word in page for word in words),
+                   "phone close confirmation follows handheld locale %r -> %s" % (environment, expected),
+                   "phone close confirmation has the wrong language for %r" % environment)
+    finally:
+        for key, value in original.items():
+            if value is None: os.environ.pop(key, None)
+            else: os.environ[key] = value
+
 if MODE == "drive":
     sys.exit(driver())
 
@@ -8755,6 +8789,37 @@ grep -qx 'FOUND=/pixelelated/Content' "${M0}/out" && grep -qx 'STATE=found-elsew
 printf 'SAVESPATH="/storage/roms"\nSAVES_REMOTE="/pixelelated/Saves"\nSETTINGS_REMOTE="/pixelelated/Backups"\nCONTENT_REMOTE="/pixelelated/Content"\n' > "${M0}/storage/.config/cloud_sync.conf"
 sa_run "${M0}" cloud_setup --content-location
 grep -qx 'FOUND=' "${M0}/out" && grep -qx 'STATE=ok' "${M0}/out"; check $? "and with the root configured where the games are, FOUND is empty and the state ok" "rc ${RC}; out: $(sa_tail "${M0}")"
+# #471 PL-001/#467: membership is the scanner's, even on an empty device.
+mkdir -p "${M0}/storage/.config/emulationstation"
+printf '<systemList><system><name>Game Boy</name><path>/storage/roms/gb</path></system></systemList>\n' > "${M0}/storage/.config/emulationstation/es_systems.cfg"
+rm -rf "${M0}/storage/roms"/* "${M0}/cloud"/*
+printf 'SAVES_REMOTE="/pixelelated/Saves"\nCONTENT_REMOTE="/Mine"\n' > "${M0}/storage/.config/cloud_sync.conf"
+mkdir -p "${M0}/cloud/Mine/Photos"; echo photo > "${M0}/cloud/Mine/Photos/x.jpg"
+sa_run "${M0}" cloud_setup --content-location
+[ "${RC}" -eq 0 ] && grep -qx STATE=empty "${M0}/out"; check $? "#467: unrelated configured folders do not count as games" "rc ${RC}; $(sa_tail "${M0}")"
+mkdir -p "${M0}/cloud/pixelelated/Content/ROMs/gb"; echo game > "${M0}/cloud/pixelelated/Content/ROMs/gb/A.gb"
+sa_run "${M0}" cloud_setup --content-location
+[ "${RC}" -eq 0 ] && grep -qx STATE=found-elsewhere "${M0}/out" && grep -qx FOUND=/pixelelated/Content "${M0}/out"; check $? "#467: unrelated configured folders do not hide the usable fallback" "rc ${RC}; $(sa_tail "${M0}")"
+rm -rf "${M0}/cloud"/*
+mkdir -p "${M0}/cloud/ROMs/gb"; echo game > "${M0}/cloud/ROMs/gb/A.gb"
+sed -i 's|^CONTENT_REMOTE=.*|CONTENT_REMOTE=""|' "${M0}/storage/.config/cloud_sync.conf"
+sa_run "${M0}" cloud_setup --content-location
+[ "${RC}" -eq 0 ] && grep -qx STATE=ok "${M0}/out"; check $? "#467: explicit account root recognizes tiered games on an empty device" "rc ${RC}; $(sa_tail "${M0}")"
+rm -rf "${M0}/cloud"/*; mkdir -p "${M0}/cloud/gb"; echo game > "${M0}/cloud/gb/A.gb"
+sa_run "${M0}" cloud_setup --content-location
+[ "${RC}" -eq 0 ] && grep -qx STATE=ok "${M0}/out"; check $? "#467: installed ES paths recognize flat games without a local directory" "rc ${RC}; $(sa_tail "${M0}")"
+sed -i 's|^CONTENT_REMOTE=.*|CONTENT_REMOTE="/Mine"|' "${M0}/storage/.config/cloud_sync.conf"
+sa_run "${M0}" cloud_setup --content-location
+[ "${RC}" -eq 0 ] && grep -qx STATE=stranded-at-root "${M0}/out" && grep -qx FOUND=/ "${M0}/out"; check $? "#467: legacy root discovery supplies the reachable root selection" "rc ${RC}; $(sa_tail "${M0}")"
+sa_run "${M0}" cloud_setup --use-content-root
+[ "${RC}" -eq 0 ]; check $? "#467: the root selection persists" "rc ${RC}; $(sa_tail "${M0}")"
+sa_run "${M0}" cloud_content_restore --scan
+[ "${RC}" -eq 0 ] && grep -q '^gb|5|' "${M0}/out"; check $? "#467: the next content scan actually sees the legacy-root game's bytes" "rc ${RC}; $(sa_tail "${M0}")"
+cp "${M0}/storage/.config/cloud_sync.conf" "${M0}/conf-before"
+printf '%s\t%s\n' '^lsf ' 5 > "${M0}/ctl/fail"
+sa_run "${M0}" cloud_setup --content-location
+[ "${RC}" -ne 0 ] && grep -qx STATE=unreadable "${M0}/out" && cmp -s "${M0}/conf-before" "${M0}/storage/.config/cloud_sync.conf"; check $? "#467: a refused listing stays unreadable and preserves the selection" "rc ${RC}; $(sa_tail "${M0}")"
+: > "${M0}/ctl/fail"
 echo "    A1. PL-001: --match --apply enforces the preview, and a failed listing plans nothing"
 M=$(sa_new pl001); sa_script "${M}" cloud_content_restore
 printf 'SAVESPATH="/storage/roms"\nCONTENT_REMOTE="/pixelelated/Content"\n' > "${M}/storage/.config/cloud_sync.conf"
@@ -9084,7 +9149,9 @@ sa_run "${MG}" cloud_migrate_layout --apply
 # a hashless remote, and the exclusion pattern reaching rclone unexpanded.
 mg_seed
 sa_run "${MG}" cloud_migrate_layout --apply
-unbounded=$(grep -vE '^(listremotes|version)' "${MG}/ctl/argv" | grep -v -- '--low-level-retries' | head -2)
+# config dump parses the local provider configuration for the recovery digest;
+# it does not contact the cloud. Keep every actual provider operation bounded.
+unbounded=$(grep -vE '^(listremotes|version)( |$)|^config dump$' "${MG}/ctl/argv" | grep -v -- '--low-level-retries' | head -2)
 [ -z "${unbounded}" ] && [ -s "${MG}/ctl/argv" ]; check $? "F-CS-23: every rclone call the migration makes against the cloud carries a bound" "unbounded: ${unbounded:-none} (rclone's defaults: ten low-level retries, three runs)"
 mg_seed
 # The holder execs its sleep, so the pid killed below is the one holding
@@ -10886,6 +10953,8 @@ if [ -n "${BB}" ]; then CFBB=(--ro-bind "${TMP}/bbin" /bbin --ro-bind "${BB_HOST
 # path-based and empty, every call it gets written down.
 CF1="${CF}/1"; mkdir -p "${CF1}/shim" "${CF1}/repo" "${CF1}/storage/.config"
 cp "${CF}/src/cloud_setup" "${CF1}/repo/cloud_setup"
+cp "${CF}/src/cloud_content_restore" "${CF1}/repo/cloud_content_restore"
+chmod +x "${CF1}/repo/cloud_content_restore"
 printf 'export PATH=%s\n' "${CFPATH}" > "${CF1}/profile"
 printf '#!/bin/sh\nexit 0\n' > "${CF1}/shim/logger"
 cat > "${CF1}/shim/rclone" <<'EOR'
@@ -13345,6 +13414,7 @@ case "$cmd" in
   listremotes) echo "qa:" ;;
   lsd) exit 0 ;;
   backend) echo '{"Hashes":["md5"],"CaseInsensitive":false}' ;;
+  config) [ "$1" = dump ] || exit 1; echo '{"qa":{"type":"alias","remote":"/cloud"}}' ;;
   lsf)
     # fail-rocknix: every listing under /ROCKNIX fails as a provider error does
     # (exit 1), and the root lists ROCKNIX/, so the walk that tells a missing
@@ -13528,7 +13598,9 @@ case "$1" in
   --state) if [ -e /rec/superseded ] && [ ! -e /rec/followed ]; then printf 'SAVES=/ROCKNIX/Saves\nCURRENT=/pixelelated/Saves\nCURRENT_EXISTS=1\nSTATE=superseded-empty\n'
            else printf 'SAVES=/pixelelated/Saves\nCURRENT=/pixelelated/Saves\nCURRENT_EXISTS=1\nSTATE=current\n'; fi; exit 0 ;;
   --follow) touch /rec/followed; exit 0 ;;
-  --join) if [ -e /rec/join-fail ]; then exit 5; elif [ -e /rec/join-timeout ]; then exit 124; elif [ -e /rec/join ]; then touch /rec/joined; exit 0; else exit 3; fi ;;
+  --join) if [ -e /rec/join-fail ]; then echo '>>> why YOUR CLOUD STOPPED ANSWERING'; exit 5
+          elif [ -e /rec/join-layout-fail ]; then echo '>>> why THE PREVIOUS CLOUD MOVE NEEDS ITS ORIGINAL CONNECTION'; exit 5
+          elif [ -e /rec/join-timeout ]; then exit 124; elif [ -e /rec/join ]; then touch /rec/joined; exit 0; else exit 3; fi ;;
 esac
 exit 1
 EOR
@@ -13587,6 +13659,8 @@ rm -f "${SC}"/rec/*; touch "${SC}/rec/join"; sc_run
 [ "${SCRC}" = 0 ] && [ -e "${SC}/rec/joined" ] && [ "$(grep -nx -- '--join' "${SC}/rec/argv" | cut -d: -f1)" -lt "$(grep -nx -- '--state' "${SC}/rec/argv" | head -1 | cut -d: -f1)" ] && [ -f "${SCO}/done" ]; check $? "the scan joins before it reads the state, and goes on (rc ${SCRC})" "$(sc_out); argv: $(tr '\n' ' ' < "${SC}/rec/argv" | cut -c1-160)"
 rm -f "${SC}"/rec/*; touch "${SC}/rec/join-fail"; sc_run
 [ "${SCRC}" = 5 ] && grep -q '^>>> why YOUR CLOUD STOPPED ANSWERING' "${SC}/out" && ! grep -qx -- '--state' "${SC}/rec/argv" && [ ! -f "${SCO}/done" ]; check $? "a join the cloud refused ends the scan with its why, before any state is written (rc ${SCRC})" "$(sc_out)"
+rm -f "${SC}"/rec/*; touch "${SC}/rec/join-layout-fail"; sc_run
+[ "${SCRC}" = 5 ] && grep -q '^>>> why THE PREVIOUS CLOUD MOVE NEEDS ITS ORIGINAL CONNECTION' "${SC}/out" && ! grep -q '^>>> why YOUR CLOUD STOPPED ANSWERING' "${SC}/out" && [ ! -f "${SCO}/done" ]; check $? "an application refusal sharing code 5 keeps its own connection-recovery reason" "$(sc_out)"
 rm -f "${SC}"/rec/*; touch "${SC}/rec/join-timeout"; sc_run
 [ "${SCRC}" = 124 ] && grep -q '^>>> why YOUR CLOUD STOPPED ANSWERING' "${SC}/out" && [ ! -f "${SCO}/done" ]; check $? "and one that ran out its time says the cloud stopped answering (rc ${SCRC})" "$(sc_out)"
 rm -f "${SC}"/rec/*

@@ -1,0 +1,65 @@
+[
+  {
+    "case": "PL001-discovery-unrelated",
+    "expected_old_failure": true,
+    "actual": {
+      "case": "PL001-discovery-unrelated",
+      "status": "FAIL",
+      "why": "unrelated: CONTENT_REMOTE=/Mine\nAT_PATH=1\nAT_ROOT=0\nROOT_DIRS=\nFOUND=\nSTATE=ok\n"
+    }
+  },
+  {
+    "case": "PL002-atomic-join-SETTINGS_REMOTE",
+    "expected_old_failure": true,
+    "actual": {
+      "case": "PL002-atomic-join-SETTINGS_REMOTE",
+      "status": "FAIL",
+      "why": "failed transition published part of its settings"
+    }
+  },
+  {
+    "case": "PL003-active-sibling-custom",
+    "expected_old_failure": true,
+    "actual": {
+      "case": "PL003-active-sibling-custom",
+      "status": "FAIL",
+      "why": "active sibling shelf was offered as this device recovery"
+    }
+  },
+  {
+    "case": "PL004-binding-comments",
+    "expected_old_failure": true,
+    "actual": {
+      "case": "PL004-binding-comments",
+      "status": "FAIL",
+      "why": "harmless rewrite stranded pending move"
+    }
+  },
+  {
+    "case": "PL005-reason-future",
+    "expected_old_failure": true,
+    "actual": {
+      "case": "PL005-reason-future",
+      "status": "FAIL",
+      "why": "future: lost application reason: >>> unit CLOUD FOLDER||\n>>> doing scan\n>>> why COULDN'T FIND YOUR CLOUD FOLDER\n"
+    }
+  },
+  {
+    "case": "PL006-folder-My Games",
+    "expected_old_failure": true,
+    "actual": {
+      "case": "PL006-folder-My Games",
+      "status": "FAIL",
+      "why": "offered folder was refused"
+    }
+  },
+  {
+    "case": "PL008-reader-escaped",
+    "expected_old_failure": true,
+    "actual": {
+      "case": "PL008-reader-escaped",
+      "status": "FAIL",
+      "why": "escaped/cloud_scan: >>> unit CLOUD FOLDER||\n>>> doing scan\n>>> unit SETTINGS BACKUPS||\n>>> doing scan\n>>> why YOUR CLOUD SYNC SETTINGS COULDN'T BE READ\n"
+    }
+  }
+]

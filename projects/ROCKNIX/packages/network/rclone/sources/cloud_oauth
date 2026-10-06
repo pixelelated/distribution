@@ -89,6 +89,33 @@ def state_path(name):
     return os.path.join(STATE_DIR, name)
 
 
+def signin_language():
+    """Use the handheld locale inherited from ES, never the phone's locale.
+
+    EsLocale::changeLocale exports LANGUAGE to its child processes. The locale
+    environment is the fallback for a sign-in started outside the interface.
+    Both companion confirmation and native finishing page use this selection.
+    """
+    value = next((os.environ[key] for key in ("LANGUAGE", "LC_ALL", "LC_MESSAGES", "LANG")
+                  if os.environ.get(key)), "en")
+    primary = value.split(":", 1)[0].replace("-", "_").split("_", 1)[0].split(".", 1)[0].lower()
+    return "fr" if primary == "fr" else "en"
+
+
+def phone_page(name, pin):
+    page = REMOTE_PAGE % {"style": STYLE, "name": name, "pin": pin}
+    if signin_language() == "fr":
+        for before, after in (
+            ("id=leave-ask>Close page", "id=leave-ask>Fermer la page"),
+            ("<span>Close the sign-in page on your handheld?</span>",
+             "<span>Fermer la page de connexion sur votre console ?</span>"),
+            ("id=leave-keep>Keep", "id=leave-keep>Garder ouverte"),
+            ("id=leave-close>Close", "id=leave-close>Fermer"),
+        ):
+            page = page.replace(before, after)
+    return page
+
+
 # session.json is written by three threads of the serve (the collector, the
 # request handlers, the main thread) and read by other processes (`status`,
 # `info`, the interface). It was truncated and rewritten in place, and
@@ -880,6 +907,7 @@ class BrowserSession:
         # tell when the provider has moved on.
         env["CLOUD_SIGNIN_PAGE_FILE"] = state_path("page")
         env["CLOUD_SIGNIN_DONE_FILE"] = state_path("signed-in")
+        env["CLOUD_SIGNIN_LANGUAGE"] = signin_language()
         # And where it records that a field on that page has had the caret,
         # which is when the phone's text can go across (the probe below). A
         # record a previous window left says nothing about this one.
@@ -2147,11 +2175,7 @@ def make_handler(holder, shutdown):
             # page itself; where it can, offering both is offering a wrong
             # turn.
             if browser_stack_available():
-                self._send(REMOTE_PAGE % {
-                    "style": STYLE,
-                    "name": holder.name,
-                    "pin": holder.pin,
-                })
+                self._send(phone_page(holder.name, holder.pin))
                 return
 
             self._send(PAGE % {

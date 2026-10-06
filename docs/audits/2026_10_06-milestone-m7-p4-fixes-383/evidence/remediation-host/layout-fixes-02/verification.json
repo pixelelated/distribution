@@ -1,0 +1,41 @@
+{
+  "utc": "2026-10-06T19:20:05.383923+00:00",
+  "result": "FAIL",
+  "channels": {
+    "inner.rc": "1",
+    "outer.rc": "1",
+    "tool-wrapper.rc": "1",
+    "build.rc": "1"
+  },
+  "sealed_inputs": 27,
+  "pids_absent": [
+    3331921,
+    3331922,
+    3331923,
+    3331952
+  ],
+  "pass": 39,
+  "fail": [
+    {
+      "case": "PL003-active-sibling-root",
+      "status": "FAIL",
+      "why": "unreadable earlier saves became an orphaned shelf"
+    },
+    {
+      "case": "PL003-active-sibling-custom",
+      "status": "FAIL",
+      "why": "unreadable earlier saves became an orphaned shelf"
+    },
+    {
+      "case": "PL003-active-sibling-foreign",
+      "status": "FAIL",
+      "why": "unreadable earlier saves became an orphaned shelf"
+    },
+    {
+      "case": "PL003-active-sibling-fleet",
+      "status": "FAIL",
+      "why": "unreadable earlier saves became an orphaned shelf"
+    }
+  ],
+  "cause": "Injected pattern expected the path immediately after lsf; actual argv places listing flags before the path. No failure was injected. Corrected the fixture, not the product verdict."
+}

@@ -1,0 +1,24 @@
+{
+  "utc": "2026-10-06T19:25:53.002327+00:00",
+  "result": "FAIL",
+  "scope": "early discovery-only snapshot; no image qualification",
+  "channels": {
+    "inner.rc": "1",
+    "outer.rc": "1",
+    "tool-wrapper.rc": "1",
+    "build.rc": "1"
+  },
+  "sealed_inputs": 30972,
+  "pids_absent": [
+    3159795,
+    3159796,
+    3159797,
+    3159826
+  ],
+  "failures": [
+    "FAIL  CONTENT_REMOTE='/Mine/Content', --content-location said:  (G-C-03)",
+    "FAIL  unbounded:",
+    "FAIL  rc 0;",
+    "FAIL  PL-021: CONTENT_REMOTE is '' to --content-location, '/pixelelated/Content' after the cleanup, '/pixelelated/Content' to the content scripts"
+  ]
+}

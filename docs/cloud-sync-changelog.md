@@ -1,5 +1,29 @@
 # Cloud sync, backup and restore — change summary
 
+## Cloud-folder audit repairs (2026-10-06)
+
+Source regressions pass in the focused 50-case matrix; rebuilt-image and
+EN/FR UI qualification remain pending under audit #471. These are changes
+for the next engineering candidate, not an RC clearance.
+
+- **Content discovery recognizes supported game folders on an empty device.**
+  Unrelated directories no longer hide the folder choice. Recognized content
+  at the cloud root can be selected without moving the files (#467, D-CLOUD-156).
+- **A failed folder change keeps the previous choices together.** Retrying
+  completes the intended saves, settings-backup and content selections (#471).
+- **A device keeps another active device's discarded-save history in place.**
+  Recovery of an interrupted older move remains separately supported (#471).
+- **Interrupted moves tolerate harmless connection-file changes.** New recovery
+  records allow comments, field reordering and ordinary token refresh while
+  retaining the original connection binding. Older records keep their original
+  binding and are read compatibly (#471).
+- **Folder and timeout failures keep their actual reason.** An unreadable
+  layout no longer appears as a missing folder (#468).
+- **Ordinary content-folder names work in the chooser.** Spaces, apostrophes
+  and dots within a name are accepted; traversal and unsafe forms are refused
+  (#471). French phone-close and native finishing text now follow the handheld's
+  language; their installed screen proof is still required (#469, D-CLOUD-164).
+
 ## Safely leave System Settings without GPU governor support (2026-10-05)
 
 Source correction #436 leaves the saved GPU preference untouched when the

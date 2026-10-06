@@ -137,8 +137,8 @@ flowchart TD
     CREATEQ -->|CREATE IT| CREATE[CREATING YOUR CLOUD FOLDER<br/>then the scan again]
     CREATEQ -->|CHOOSE A FOLDER| KB
     SCAN --> TICK[tick: SAVES · ROMS AND BIOS · GAME CONTENT · SETTINGS<br/>restore: SETTINGS offered as DEVICE, DATE, or dimmed NO SETTINGS BACKUP FROM THIS DEVICE YET, D-CLOUD-162<br/>CONTINUE]
-    TICK -->|ROMS AND BIOS or GAME CONTENT ticked, restore| CFQ{{the content folder: the one the scan found is used; none found asks CHOOSE THE FOLDER WHERE YOUR GAMES ARE?}}
-    CFQ -->|CHOOSE A FOLDER| CHOOSER[CHOOSE A CLOUD FOLDER<br/>the folders at the cloud's root, the one found first]
+    TICK -->|ROMS AND BIOS or GAME CONTENT ticked, restore| CFQ{{the content folder: the recognized folder or legacy cloud root found by the scan is used; none found asks CHOOSE THE FOLDER WHERE YOUR GAMES ARE?}}
+    CFQ -->|CHOOSE A FOLDER| CHOOSER[CHOOSE A CLOUD FOLDER<br/>the folders at the cloud's root and / for the root itself; the one found first]
     CFQ --> CSCAN[CHECKING YOUR CLOUD<br/>cloud_scan --content in the classes ticked; goes on by itself]
     CHOOSER --> CSCAN
     TICK -->|ROMS AND BIOS or GAME CONTENT ticked, backup| CSCAN

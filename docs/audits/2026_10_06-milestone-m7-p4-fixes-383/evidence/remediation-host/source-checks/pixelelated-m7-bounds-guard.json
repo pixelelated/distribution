@@ -1,0 +1,23 @@
+{
+  "utc": "2026-10-06T19:31:23.194092+00:00",
+  "source_sha256": "06481a64f74d3065d1ef9c7d6a61420193068f15973aedfaa2c24b2a193eac58",
+  "guard": "unbounded=$(grep -vE '^(listremotes|version)( |$)|^config dump$' \"${MG}/ctl/argv\" | grep -v -- '--low-level-retries' | head -2)",
+  "actual_argv_sha256": "cdb8e6b76f3ca5c673de9f405817541a70be367e0ba6667a3d370dbc766a1a7e",
+  "checks": [
+    {
+      "case": "real-migration",
+      "passed": true,
+      "observed": ""
+    },
+    {
+      "case": "missing-bound",
+      "passed": true,
+      "observed": "lsf qa:/unsafe"
+    },
+    {
+      "case": "unknown-config-operation",
+      "passed": true,
+      "observed": "config reconnect qa:"
+    }
+  ]
+}
