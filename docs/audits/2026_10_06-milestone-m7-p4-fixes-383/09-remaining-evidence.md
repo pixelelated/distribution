@@ -37,3 +37,6 @@ name the current owner. Evidence paths below are relative to
 All runtime tests above are feasible on isolated VMs with owned local fixtures.
 Physical facts and separately authorized publication/account actions keep their
 existing later gates. No added external review transfer is required.
+
+
+Owner-requested#482: revised English/French interruption/retry copy source and full ES pin are verified; rebuilt16 EN/FR640/1280 actual frames remain required alongside#479 actual partial-file retry. Candidate16 allocation is waiting only on the separate reviewed two-file QA cleanup approval after the copy pin/evidence publication.

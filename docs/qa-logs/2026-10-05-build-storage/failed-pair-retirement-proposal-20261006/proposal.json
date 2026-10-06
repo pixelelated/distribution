@@ -1,0 +1,30 @@
+{
+  "utc": "2026-10-06T23:29:37.087087+00:00",
+  "targets": [
+    {
+      "path": "/workspace/tmp/pixelelated-m7-p4-no-join-negative-01/pair/vm-a.qcow2",
+      "sha256": "439837ac0afd9bf371bbf10598c093abb0518fd8e58b94f0cdfe04497032d887",
+      "device": 66304,
+      "inode": 86514447,
+      "size": 8470921216,
+      "allocated_bytes": 8470896640,
+      "mtime_ns": 1791328294028643047
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-p4-no-join-negative-01/pair/vm-b.qcow2",
+      "sha256": "3f7b2f545a06ffce0f1e5347fc41d255ce25c96df81eb9dacd383eef6ea0d3fd",
+      "device": 66304,
+      "inode": 86516453,
+      "size": 2242641920,
+      "allocated_bytes": 2242588672,
+      "mtime_ns": 1791328280243492911
+    }
+  ],
+  "reclaim_bytes": 10713485312,
+  "available_bytes": 341081661440,
+  "required_bytes": 347886931968,
+  "projected_bytes": 351795146752,
+  "permission": "NOT APPROVED: proposal only",
+  "retained": "All failed01 logs/frames/source records, successful02 pair, retained RC2/1ac source images, every candidate/build/source cache; only the two failed01 standalone QA disk files are proposed.",
+  "scope": "Four established storage roots; QCOW2 suffix; no followed directory symlinks. All backing chains checked; no live QEMU. No deletion performed."
+}

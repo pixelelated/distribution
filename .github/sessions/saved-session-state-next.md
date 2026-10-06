@@ -1,6 +1,6 @@
 # Saved Session State
 
-Updated 2026-10-06 23:22 UTC. Audit Phase7 continues under standing authority.
+Updated 2026-10-06 23:32 UTC. Audit Phase7 continues under standing authority.
 Previous complete checkpoint: `.github/sessions/archived/saved-session-state-next-20261006T210229Z.md`.
 Read this first; historical active/idle statements in that archive are superseded.
 
@@ -18,13 +18,19 @@ No new agents, external reviewers, goal tools or Daybreak. Auditor instruction
 recommendation mode: do not edit instruction files. Standing authority covers
 fixes, isolated VM QA, tracker/milestone updates and ordinary fork pushes/builds.
 No release publication, outward upstream PR, physical device/personal cloud,
-arbitrary root, wider cleanup or reserve change authority. No pending permission.
+arbitrary root, wider cleanup or reserve change authority. Separate two-file QA cleanup approval is pending; no other approval needed.
 
 Read AGENTS.md, next's canonical every-session/scoped rules, audit00/04/05/07/08,
 release-readiness, today's work log and liveM7/#471/#383/#459/#361/#168. The
 milestone body is the ordered plan. Canonical rules matched next21:00.
 
-## Active owner — monitor first
+## Current priority — supersedes historical active labels below
+
+2026-10-06 23:32 UTC: owner-requested interruption-copy review#482 is implemented in English/French. Canonical COULDN'T FINISH and the actual reason remain. The helper says TRY AGAIN TO MOVE THE REMAINING FILES.; reopened prompt puts FILES ALREADY MOVED WILL BE KEPT. before TRY AGAIN?. Exact compiler/vocabulary164/msgfmt/diff checks pass in copy-host03 (allfour0/seven seals/actual owner exits); refused01 and failed02 host-tool lookup are retained. ES feature and integration remotely verified at `72494bc72e3d64d4dcfeb4e6478052bbdf166c5b` with normal hooks. Distribution pin now selects it locally; follow-up evidence publication is next. Actual EN/FR640/1280 frames and successful interrupted-file retry remain required; #482 and PL001/003/004/005 stay open.
+
+Capacity preflight01 completed23:29:40, primary23:30:15 allfour0/two seals/owner exits. All288 QCOW2 chains across3,486,276 directories in the four established roots were readable and have no backing references to the proposed two disks; no matching active container mounts. The fixed proposal only retires failed nojoin01 pair/vm-a.qcow2 and vm-b.qcow2 (10713485312bytes/9.98GiB), retaining all evidence, successful02, source images and build/candidate/source stores. Available341081661440; required347886931968; projected351795146752. Existing reserves unchanged. **Explicit two-file cleanup approval is pending in chat. No deletion, no candidate16 allocation, no build running.**
+
+Next: publish the final copy pin/evidence → approved two-file retirement with fresh identity/capacity checks → freeze/copy/build16 → actual truncated-copy/UI retry and full EN/FR640/1280 affected/final qualification → #471/P4 closure → capacity#461 → H700 DDR4 RG35XX SP arm, thenaarch64 → named physical/P5. No RC designation. Both Fable audit transfers are already complete; do not replay.
 
 Library02 completed22:32:11UTC; primary22:32:23 independently verified all four results0,11 unchanged seals, actual owner/guest exits and free ports. All415 assertions pass: indexed/unindexed125 cached games, real interruption at61 with60 completed games preserved and never refetched, production batch cooldowns, persisted pause, indexed/unindexed429 Retry-After and restart, unchanged upstream100-budget queuing. All46 installed files remain unchanged. Raw879 requests include876 matched client gate observations for the two whole-library paths; minimum client intervals .300064816/.300074931seconds. Private loopback-only namespace is unchanged before/after. Failed01 remains failed under#474; no product throttle repair was needed. Exact proof and independent arithmetic are retained in p4-library-fixes-02 and library02-acceptance-01.
 

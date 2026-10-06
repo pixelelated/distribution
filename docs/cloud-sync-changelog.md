@@ -1,5 +1,17 @@
 # Cloud sync, backup and restore — change summary
 
+## Clearer guidance after an interrupted cloud move (2026-10-06)
+
+The source and French translation pass the image compiler, vocabulary and
+gettext checks. Actual English/French640px and1280px screen proof remains
+pending on candidate16 (#482).
+
+- **The interruption screen gives a direct next step:**
+  `TRY AGAIN TO MOVE THE REMAINING FILES.` The reopened prompt puts the
+  reassurance about files already moved before `TRY AGAIN?`. English and
+  French retain the existing outcome words and recovery actions
+  (D-UI-045, D-UI-031, D-UI-028, D-UI-051).
+
 ## Retry interrupted cloud files and read recovery guidance (2026-10-06)
 
 The source repair passes 398 real-rclone regression cases, including 22

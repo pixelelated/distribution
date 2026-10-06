@@ -1,0 +1,49 @@
+watch-build: recording in /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261006T232338Z-2bf6c2fa
+Inspected 114189 directories; found 265 qcow2 paths
+Inspected 213648 directories; found 266 qcow2 paths
+Inspected 310825 directories; found 266 qcow2 paths
+Inspected 413551 directories; found 266 qcow2 paths
+Inspected 509657 directories; found 267 qcow2 paths
+Inspected 607951 directories; found 267 qcow2 paths
+Inspected 706821 directories; found 268 qcow2 paths
+Inspected 803113 directories; found 268 qcow2 paths
+Inspected 900428 directories; found 269 qcow2 paths
+Inspected 993108 directories; found 269 qcow2 paths
+Inspected 1128138 directories; found 269 qcow2 paths
+Inspected 1226536 directories; found 270 qcow2 paths
+Inspected 1323929 directories; found 270 qcow2 paths
+Inspected 1412583 directories; found 271 qcow2 paths
+Inspected 1507910 directories; found 271 qcow2 paths
+Inspected 1607784 directories; found 271 qcow2 paths
+Inspected 1708367 directories; found 272 qcow2 paths
+Inspected 1808669 directories; found 272 qcow2 paths
+Inspected 1902893 directories; found 274 qcow2 paths
+Inspected 1991765 directories; found 274 qcow2 paths
+Inspected 2084323 directories; found 275 qcow2 paths
+Inspected 2180988 directories; found 275 qcow2 paths
+Inspected 2280878 directories; found 275 qcow2 paths
+Inspected 2372737 directories; found 284 qcow2 paths
+Inspected 2469274 directories; found 284 qcow2 paths
+Inspected 2575187 directories; found 285 qcow2 paths
+Inspected 2669098 directories; found 285 qcow2 paths
+Inspected 2770963 directories; found 286 qcow2 paths
+Inspected 2878554 directories; found 286 qcow2 paths
+Inspected 2977042 directories; found 286 qcow2 paths
+Inspected 3075620 directories; found 287 qcow2 paths
+Inspected 3179296 directories; found 287 qcow2 paths
+Inspected 3279996 directories; found 288 qcow2 paths
+Inspected 3382754 directories; found 288 qcow2 paths
+Inspected 1 of 288 backing chains
+Inspected 26 of 288 backing chains
+Inspected 51 of 288 backing chains
+Inspected 76 of 288 backing chains
+Inspected 101 of 288 backing chains
+Inspected 126 of 288 backing chains
+Inspected 151 of 288 backing chains
+Inspected 176 of 288 backing chains
+Inspected 201 of 288 backing chains
+Inspected 226 of 288 backing chains
+Inspected 251 of 288 backing chains
+Inspected 276 of 288 backing chains
+{"utc": "2026-10-06T23:29:37.079091+00:00", "report_sha256": "aa297152b3d20babd87eda1056fb156d879128129deebb70b4fecad51ee7e95c", "directories": 3486276, "disks": 288, "discovery_errors": 0, "qemu_errors": 0, "backing_matches": 0, "disks_inside_proposed_trees": 2, "container_matches": 0, "process_scope": "Completed owned QA pair: exact prior cleanup receipt plus fresh actual process readback; no whole-host root file-descriptor inspection claimed", "deletion_performed": false}
+{"utc": "2026-10-06T23:29:37.087087+00:00", "targets": [{"path": "/workspace/tmp/pixelelated-m7-p4-no-join-negative-01/pair/vm-a.qcow2", "sha256": "439837ac0afd9bf371bbf10598c093abb0518fd8e58b94f0cdfe04497032d887", "device": 66304, "inode": 86514447, "size": 8470921216, "allocated_bytes": 8470896640, "mtime_ns": 1791328294028643047}, {"path": "/workspace/tmp/pixelelated-m7-p4-no-join-negative-01/pair/vm-b.qcow2", "sha256": "3f7b2f545a06ffce0f1e5347fc41d255ce25c96df81eb9dacd383eef6ea0d3fd", "device": 66304, "inode": 86516453, "size": 2242641920, "allocated_bytes": 2242588672, "mtime_ns": 1791328280243492911}], "reclaim_bytes": 10713485312, "available_bytes": 341081661440, "required_bytes": 347886931968, "projected_bytes": 351795146752, "permission": "NOT APPROVED: proposal only", "retained": "All failed01 logs/frames/source records, successful02 pair, retained RC2/1ac source images, every candidate/build/source cache; only the two failed01 standalone QA disk files are proposed.", "scope": "Four established storage roots; QCOW2 suffix; no followed directory symlinks. All backing chains checked; no live QEMU. No deletion performed."}
