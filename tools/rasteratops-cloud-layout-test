@@ -600,15 +600,14 @@ def predecessor_retry(f, stage, interrupt_again=False):
     require(again.returncode in (0,3) and (cloud_hashes(f),f.pointers())==before, 'repeated upgraded migration changed bytes/pointers')
 
 
-def predecessor_boundaries(f, kind):
+def predecessor_boundaries(f, kind, active=False):
     # Current primary pointers with an inherited shelf; a chosen content
     # location remains independent even when its spelling ends in /Content.
     content = '' if kind == 'root' else '/Mine/Content'
     f.conf(content=content)
     f.file(NEW+'/Saves/gb/A.srm','current progress\n')
-    # A sibling can still use the earlier layout. Current primary pointers
-    # authorize only the unfinished shelf/content, never those live tiers.
-    f.file(OLD+'/Saves/gb/Other.srm','another device save\n')
+    # Distinguish an orphaned predecessor shelf from a live sibling's history.
+    if active: f.file(OLD+'/Saves/gb/Other.srm','another device save\n')
     f.file(OLD+'/Backups/QA/other.tar.gz','another device backup\n')
     f.file(OLD+'/Saves-replaced/gb/A.srm','earlier progress\n')
     f.file((content or '')+'/ROMs/gb/A.gb','chosen content\n')
@@ -617,6 +616,20 @@ def predecessor_boundaries(f, kind):
     if kind == 'fleet': f.file(NEW+'/.layout','layout=2\n')
     before=cloud_hashes(f),f.pointers()
     state=f.run('cloud_scan','--folder')
+    if active:
+        require(state.returncode==0 and 'STATE=current' in
+                (f.path/'storage/.cache/cloud_sync/scan/state').read_text(), 'active sibling shelf was offered as this device recovery')
+        for _ in range(2):
+            applied=f.run('cloud_migrate_layout','--apply')
+            require(applied.returncode in (0,3), 'settled current layout refused')
+            after=cloud_hashes(f)
+            require(all(after.get(name)==digest for name,digest in before[0].items()) and
+                    set(after)-set(before[0]) <= {'pixelelated/.layout'} and f.pointers()==before[1],
+                    'current device moved its active sibling history')
+        f.fault(r'^lsf .*qa:/ROCKNIX/Saves/? ')
+        refused=f.run('cloud_migrate_layout','--state')
+        require(refused.returncode != 0 and (f.path/'ctl/fault-fired').exists(), 'unreadable earlier saves became an orphaned shelf')
+        return
     require(state.returncode==0 and 'STATE=migration-pending' in
             (f.path/'storage/.cache/cloud_sync/scan/state').read_text(), 'inherited shelf is not offered through transfer recovery')
     r=f.run('cloud_migrate_layout','--apply')
@@ -626,8 +639,7 @@ def predecessor_boundaries(f, kind):
         return
     require(r.returncode in (0,3), f'{kind}: recovery failed: {r.stdout[-400:]}')
     require(f.pointers()['CONTENT_REMOTE']==content, 'recovery changed an independent content choice')
-    for name,data in [('Saves/gb/Other.srm','another device save\n'),
-                      ('Backups/QA/other.tar.gz','another device backup\n')]:
+    for name,data in [('Backups/QA/other.tar.gz','another device backup\n')]:
         require((f.path/'cloud/ROCKNIX'/name).is_file() and
                 (f.path/'cloud/ROCKNIX'/name).read_text()==data,
                 'recovering the shelf moved an unselected live tier')
@@ -638,6 +650,166 @@ def predecessor_boundaries(f, kind):
     values=[p.read_text() for p in (f.path/'cloud/pixelelated').rglob('*.srm')]
     require('current progress\n' in values and 'earlier progress\n' in values, 'recovery lost a progress version')
     if kind == 'fleet': require('foreign progress\n' in values, 'marked merge lost the other progress version')
+
+
+def content_discovery(f, kind):
+    layouts={
+        'empty':('/Mine',[],'empty',''),
+        'unrelated':('/Mine',['Mine/Photos/x.jpg'],'empty',''),
+        'fallback':('/Mine',['Mine/Photos/x.jpg','pixelelated/Content/ROMs/gb/A.gb'],'found-elsewhere',NEW+'/Content'),
+        'tiered':('/Mine',['Mine/ROMs/gb/A.gb'],'ok',''),
+        'root-tiered':('', ['ROMs/gb/A.gb'],'ok',''),
+        'root-flat':('', ['gb/A.gb'],'ok',''),
+        'root-unrelated':('', ['Photos/x.jpg'],'empty',''),
+        'stranded':('/Mine',['gb/A.gb'],'stranded-at-root','/'),
+        'refused':('/Mine',['Mine/ROMs/gb/A.gb'],'unreadable',None),
+    }
+    content,files,state,found=layouts[kind]
+    f.conf(content=content)
+    put(f.path/'storage/.config/emulationstation/es_systems.cfg', '<systemList>\n<path>/storage/roms/gb</path>\n</systemList>\n')
+    for name in files: f.file(name,'game\n')
+    if kind=='refused': f.fault(r'^lsf --dirs-only qa:Mine ')
+    before=cloud_hashes(f),f.pointers()
+    result=f.run('cloud_setup','--content-location')
+    facts=dict(line.split('=',1) for line in result.stdout.splitlines() if '=' in line)
+    require(facts.get('STATE')==state and (found is None or facts.get('FOUND')==found), f'{kind}: {result.stdout}')
+    require((cloud_hashes(f),f.pointers())==before,'classification mutated state')
+    require((result.returncode != 0)==(kind=='refused'), 'wrong classification status')
+    if kind=='stranded':
+        chosen=f.run('cloud_setup','--use-content-root')
+        require(chosen.returncode==0 and f.pointers()['CONTENT_REMOTE']=='', 'root choice did not persist')
+    if kind in ('root-flat','stranded'):
+        scanned=f.run('cloud_content_restore','--scan')
+        require(scanned.returncode==0 and re.search(r'^gb\|5\|',scanned.stdout,re.M), 'root game absent from actual scan: '+scanned.stdout)
+        require(cloud_hashes(f)==before[0], 'selection or scan changed cloud bytes')
+
+
+def content_folder_names(f, name):
+    f.file(name+'/ROMs/gb/A.gb','game\n')
+    initial=cloud_hashes(f)
+    listing=f.run('cloud_scan')
+    require(listing.returncode==0 and name in (f.path/'storage/.cache/cloud_sync/scan/root-dirs').read_text().splitlines(), 'chooser does not offer existing folder')
+    selected=f.run('cloud_setup','--set-content-remote',name)
+    require(selected.returncode==0 and f.pointers()['CONTENT_REMOTE']=='/'+name, 'offered folder was refused')
+    scanned=f.run('cloud_scan','--content')
+    require(scanned.returncode==0 and re.search(r'^gb\|5\|',(f.path/'storage/.cache/cloud_sync/scan/scan').read_text(),re.M), 'selected game is not scanned')
+    require(cloud_hashes(f)==initial, 'choosing folder changed cloud bytes')
+    config=f.path/'storage/.config/cloud_sync.conf';before=config.read_bytes()
+    for bad in ['/a/../b','/a/./b','/a//b','/two\nlines','/trailing\n','/tab\tname','/$HOME','/`id`','/quote"']:
+        refused=f.run('cloud_setup','--set-content-remote',bad)
+        require(refused.returncode != 0 and config.read_bytes()==before,'unsafe path changed settings: '+repr(bad))
+
+
+def scan_reason(f, kind):
+    expected="YOUR CLOUD FOLDER COULDN'T BE READ"
+    if kind in ('future','malformed'):
+        f.file(NEW+'/.layout','layout=999\n' if kind=='future' else 'layout=2\nextra\n')
+    elif kind=='config':
+        with (f.path/'storage/.config/cloud_sync.conf').open('a') as stream: stream.write('export SETTINGS_REMOTE="/Other"\n')
+        expected="YOUR CLOUD SYNC SETTINGS COULDN'T BE READ"
+    elif kind=='record':
+        put(f.path/'storage/.config/cloud-layout-migration.json','{invalid')
+    elif kind=='write':
+        f.file(OLD+'/Saves/gb/A.srm')
+        put(f.path/'shim/mv','#!/bin/sh\nexit 1\n',True)
+        expected="YOUR CLOUD SYNC SETTINGS COULDN'T BE SAVED"
+    elif kind=='network':
+        f.fault(r'^lsd qa: ',5); expected='YOUR CLOUD STOPPED ANSWERING'
+    elif kind=='timeout':
+        put(f.path/'shim/timeout','#!/bin/sh\nexit 124\n',True)
+        expected='YOUR CLOUD STOPPED ANSWERING'
+    before=cloud_hashes(f),(f.path/'storage/.config/cloud_sync.conf').read_bytes()
+    result=f.run('cloud_scan','--folder')
+    require(result.returncode != 0 and '>>> why '+expected in result.stdout,
+            f'{kind}: lost application reason: {result.stdout}')
+    require("COULDN'T FIND YOUR CLOUD FOLDER" not in result.stdout,'application failure mapped to missing directory')
+    require((cloud_hashes(f),(f.path/'storage/.config/cloud_sync.conf').read_bytes())==before,'refusal changed cloud/settings')
+
+
+def reader_grammar(f, kind):
+    forms={'escaped': 'SETTINGS_REMOTE="/Custom/My\\$Backups"',
+           'single': "SETTINGS_REMOTE='/Custom/Backups' # comment",
+           'bare': 'SETTINGS_REMOTE=/Custom/Backups # comment',
+           'double': 'SETTINGS_REMOTE="/Custom/Backups" # comment',
+           'duplicate': 'SETTINGS_REMOTE="/Custom/Backups"\nSETTINGS_REMOTE="/Other/Backups"',
+           'export': 'export SETTINGS_REMOTE="/Custom/Backups"',
+           'trailing': 'SETTINGS_REMOTE="/Custom/Backups" invalid',
+           'control': 'SETTINGS_REMOTE="/Custom/Backups"\r'}
+    config=f.path/'storage/.config/cloud_sync.conf'
+    config.write_text(re.sub(r'^SETTINGS_REMOTE=.*$',lambda m:forms[kind],config.read_text(),flags=re.M))
+    before=config.read_bytes(),cloud_hashes(f)
+    for script,args in [('cloud_migrate_layout',['--state']),('cloud_scan',[])]:
+        result=f.run(script,*args)
+        require((result.returncode != 0)==(kind in ('export','trailing','control')), f'{kind}/{script}: {result.stdout[-400:]}')
+    require((config.read_bytes(),cloud_hashes(f))==before, 'reader changed state')
+    if kind in ('export','trailing','control'):
+        argv=(f.path/'ctl/argv').read_text()
+        require(not re.search(r'^(lsf|lsd|copy|rcat|mkdir) ',argv,re.M),'invalid settings reached provider')
+
+
+def atomic_pointers(f, mode, boundary):
+    f.conf(NEW+'/Saves' if mode=='--join' else OLD+'/Saves',
+           NEW+'/Backups' if mode=='--join' else OLD+'/Backups',
+           NEW+'/Content' if mode=='--join' else OLD+'/Content')
+    if mode=='--join': f.file(OLD+'/Saves/gb/A.srm')
+    if mode=='--follow': f.file(NEW+'/Saves/gb/A.srm')
+    config=f.path/'storage/.config/cloud_sync.conf'
+    config.chmod(0o640)
+    before=config.read_bytes(),cloud_hashes(f)
+    command='mv' if boundary=='publish' else 'sed'
+    match='[ "${!#}" = /storage/.config/cloud_sync.conf ]' if command=='mv' else f'[[ "$*" == *"^{boundary}="* ]]'
+    put(f.path/'shim'/command, '#!/bin/bash\nif '+match+'; then echo fired > /ctl/pointer-fault; exit 1; fi\nexec /usr/bin/'+command+' "$@"\n', True)
+    first=f.run('cloud_migrate_layout',mode)
+    require(first.returncode != 0 and (f.path/'ctl/pointer-fault').exists(), 'pointer fault not reached')
+    require((config.read_bytes(),cloud_hashes(f))==before, 'failed transition published part of its settings')
+    (f.path/'shim'/command).unlink()
+    retry=f.run('cloud_migrate_layout',mode)
+    target=OLD if mode=='--join' else NEW
+    require(retry.returncode==0, 'retry did not complete the transition')
+    for key,suffix in [('SAVES_REMOTE','Saves'),('SETTINGS_REMOTE','Backups'),('CONTENT_REMOTE','Content')]:
+        require(f.pointers()[key]==target+'/'+suffix, 'retry left mixed pointers: '+key)
+    require(cloud_hashes(f)==before[1] and config.stat().st_mode & 0o777 == 0o640, 'transition changed cloud bytes or config permissions')
+
+
+def binding_rewrite(f, kind):
+    f.conf(OLD+'/Saves',OLD+'/Backups',OLD+'/Content')
+    f.file(OLD+'/Saves/gb/A.srm','save\n'); f.file(OLD+'/Content/ROMs/gb/A.gb','game\n')
+    f.fault(r'^copy qa:/ROCKNIX/Content/? ')
+    first=f.run('cloud_migrate_layout','--apply')
+    record=f.path/'storage/.config/cloud-layout-migration.json'
+    require(first.returncode != 0 and record.is_file() and (f.path/'ctl/fault-fired').exists(), 'move did not stop with recovery state')
+    (f.path/'ctl/faults').unlink()
+    config=f.path/'storage/.config/rclone/rclone.conf'; original=config.read_text()
+    if kind.startswith('legacy'):
+        data=json.loads(record.read_text());data.pop('fingerprint_format',None)
+        data['fingerprint']=hashlib.sha256((original.rstrip('\n')+'\n').encode()).hexdigest()
+        record.write_text(json.dumps(data)+'\n')
+    before=cloud_hashes(f),f.pointers(),record.read_bytes()
+    if kind=='endpoint':
+        f.directory('/another-cloud'); config.write_text('[qa]\ntype = alias\nremote = /cloud/another-cloud\n')
+    elif kind in ('comments','legacy-comments'):
+        config.write_text(original+'\n# harmless comment\n')
+    elif kind=='format':
+        config.write_text('; harmless header\n[qa]\nremote=/cloud\n\ntype=alias\n')
+    elif kind=='token':
+        config.write_text(original+'token = {"access_token":"synthetic"}\n')
+    state=f.run('cloud_migrate_layout','--state')
+    if kind in ('endpoint','legacy-comments'):
+        require(state.returncode==5 and 'NEEDS ITS ORIGINAL CONNECTION' in state.stdout, 'changed binding was not explained/refused')
+        refused=f.run('cloud_migrate_layout','--apply')
+        require(refused.returncode==5 and (cloud_hashes(f),f.pointers(),record.read_bytes())==before,
+                'changed binding changed data or rebound its record')
+        seeded=f.run('cloud_setup','--seed-folders')
+        require(seeded.returncode==5 and 'NEEDS ITS ORIGINAL CONNECTION' in seeded.stdout
+                and (cloud_hashes(f),f.pointers(),record.read_bytes())==before,
+                'seeding lost the binding reason or changed pending state')
+        config.write_text(original) # Existing connection repair restores the original binding.
+    else:
+        require(state.returncode==0 and 'STATE=migration-pending' in state.stdout, 'harmless rewrite stranded pending move')
+    resumed=f.run('cloud_migrate_layout','--apply')
+    require(resumed.returncode==0, 'original binding could not resume: '+resumed.stdout[-300:])
+    require((f.path/'cloud/pixelelated/Saves/gb/A.srm').read_text()=='save\n' and
+            (f.path/'cloud/pixelelated/Content/ROMs/gb/A.gb').read_text()=='game\n', 'resume lost progress/content')
 
 
 def predecessor_content_only(f, empty=False):
@@ -807,6 +979,20 @@ def main():
                   lambda f:predecessor_retry(f,'content',True)))
     for kind in ['root','custom','foreign','fleet']:
         cases.append((f'T23-predecessor-boundary-{kind}',lambda f,k=kind:predecessor_boundaries(f,k)))
+        cases.append((f'PL003-active-sibling-{kind}',lambda f,k=kind:predecessor_boundaries(f,k,True)))
+    for mode in ['--join','--follow','--settle']:
+        for boundary in ['SAVES_REMOTE','SETTINGS_REMOTE','CONTENT_REMOTE','publish']:
+            cases.append((f'PL002-atomic-{mode[2:]}-{boundary}',lambda f,m=mode,b=boundary:atomic_pointers(f,m,b)))
+    for kind in ['comments','format','token','endpoint','legacy','legacy-comments']:
+        cases.append((f'PL004-binding-{kind}',lambda f,k=kind:binding_rewrite(f,k)))
+    for kind in ['empty','unrelated','fallback','tiered','root-tiered','root-flat','root-unrelated','stranded','refused']:
+        cases.append((f'PL001-discovery-{kind}',lambda f,k=kind:content_discovery(f,k)))
+    for name in ['MyGames','My Games','Games..old',"Kid's Games"]:
+        cases.append((f'PL006-folder-{name}',lambda f,n=name:content_folder_names(f,n)))
+    for kind in ['escaped','single','bare','double','duplicate','export','trailing','control']:
+        cases.append((f'PL008-reader-{kind}',lambda f,k=kind:reader_grammar(f,k)))
+    for kind in ['future','malformed','config','record','write','network','timeout']:
+        cases.append((f'PL005-reason-{kind}',lambda f,k=kind:scan_reason(f,k)))
     for empty in (False,True):
         cases.append((f'T23-predecessor-content-only-{"empty" if empty else "populated"}',
                       lambda f,e=empty:predecessor_content_only(f,e)))

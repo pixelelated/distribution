@@ -1,0 +1,18 @@
+watch-build: recording in /workspace/tmp/pixelelated-m7-p4-binding-fixes-04/tree/.build-runs/20261006T193450Z-bf3ddbe9
+rclone: rclone v1.75.1 (/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement14/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/bin/rclone)
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-p4-binding-fixes-04/tree/tools/rasteratops-cloud-layout-test", line 1037, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/workspace/tmp/pixelelated-m7-p4-binding-fixes-04/tree/tools/rasteratops-cloud-layout-test", line 1019, in main
+    fixture=Fixture(output/name,args)
+  File "/workspace/tmp/pixelelated-m7-p4-binding-fixes-04/tree/tools/rasteratops-cloud-layout-test", line 87, in __init__
+    bt = subprocess.run(['git', '-C', str(ROOT), 'show', f'{args.ref}:{bt_rel}'], capture_output=True, check=True).stdout if args.ref else (ROOT/bt_rel).read_bytes()
+                                                                                                                                           ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.14/pathlib/__init__.py", line 778, in read_bytes
+    with self.open(mode='rb', buffering=0) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/pathlib/__init__.py", line 772, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/workspace/tmp/pixelelated-m7-p4-binding-fixes-04/tree/projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool'

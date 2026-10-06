@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Saved 2026-10-06T19:02:58.561849+00:00; both approved Fable calls and primary grading complete; #471 Phase7 fixes next.
+> Updated 2026-10-06T19:41 UTC; both Fable calls complete; #471 Phase7 repairs and monitored host checks in progress.
 > Previous: `.github/sessions/archived/saved-session-state-next-20261006T181314Z.md`.
 > Both fork refs verified after normal hooked publication; see current focus below.
 
@@ -23,7 +23,39 @@ code-auditor Phase1.4.5 read-only research helpers. Root performs commands,
 primary verification and all verdicts; helpers never count as review seats.
 
 
-## Current focus — M7 P4 final audit#471 open; remediation next
+## Current focus — M7 P4 audit#471 Phase7 remediation in progress
+
+**Live override 19:41 UTC:** Phase7 product repairs and fixtures are drafted for
+all eight items. ES bab4df649f48847cc43d21c77c058107ad902754 is published and
+remote-verified on feature/m7-audit-remediation and test/qa-integration; the
+recipe pins it. Syntax,179 unit tests/1,928 assertions and French catalog pass.
+Distribution product/tools/docs are being committed for replacement15; all
+05/#471 outcomes stay open pending installed acceptance.
+
+Host full02 finished with five fixture/guard failures and zero skips; its
+366-case real-rclone layout matrix passed. Primary19:39:55 verified four rc1
+channels,31,038 seals and all four process exits. Missing fake config-dump
+support and fake why lines are repaired, along with the exact-local-read guard.
+Binding05 passed6/6 including seed refusal; four rc0,28 seals and actual exit
+verified19:36:05. Earlier50-case matrix and seven deliberately failing old-source
+controls remain retained. Evidence: audit/evidence/remediation-host.
+
+Full03 owns /workspace/tmp/pixelelated-m7-p4-remediation-host-03/tree,
+run20261006T194043Z-479f53b7; launcher4043246. Read its run.path, terminal files
+and actual processes; verify all31,038 seals and four result channels. Do not
+edit or replay this snapshot. All source fixes plus latest fixtures are present.
+The live VM boundary tool has49 additional cases, parsed but not yet executed.
+No repaired image or installed acceptance PASS is claimed.
+
+Guarded swap reclaim completed; /swap.img active with0MiB used,8191MiB free,
+36,257MiB RAM available,537GiB filesystem headroom. Cache14 costs111530045440
+bytes. No additional deletion. Next: land source/evidence through normal hooks,
+freeze replacement15 using /tmp/pixelelated-prepare-replacement15.py after
+review, verify an independent copy of14, finish full03 before the build, then
+rebuild rclone/cloud-signin-window/ES and qualify clean/upgrade plus installed/UI
+cases. The prepared script submits nothing; inspect generated harness before
+watch-build-submit. Frozen14 and all protected evidence remain intact.
+The dated entries below are historical, not current idleness.
 
 User resumed after token repair. Actual-host/GitHub access works. The complete
 261-criterion primary audit, retrospective and provisional analysis are published
@@ -84,14 +116,14 @@ anthropic/claude-fable-5.1 from provider response, xhigh effort/54082 reasoning
 tokens, unchanged input/output digests, actual owner and recorded descendants
 absent. `second-opinions/blind-verification.json` is the accepted receipt;
 `evidence/fable-blind-01/` retains the complete owner/watcher. Its14 B leads
-remain leads pending primary-artifact verification, not14 confirmed defects.
+were graded against primary artifacts below, not accepted as14 defects.
 
 Refutation finished18:49:11UTC, first observed18:49:16, verified18:49:33.
 `second-opinions/refutation-verification.json`: allfive0,29sealed inputs,
 Fable5.1/xhigh,36704 reasoning tokens, no retries; all four host processes
 absent. Output SHA72c95da873fcbcaa004d55d69af114e343c9d7f63a8f7845d47d6fc675822233.
 Full response read. Both external calls are complete; no permission pending.
-Raw responses/packets/provenances stay untouched. Primary grading is unfinished:
+Raw responses/packets/provenances stay untouched. Primary grading is complete:
 14 blind items, five R leads, F01–03 refutations and coverage questions.
 Separate reading notes and UI26 marker hash readback are in second-opinions.
 
@@ -189,8 +221,9 @@ No additionalcleanup orreservechange is authorized. No sudoaction remains.
 
 ## Next steps
 
-1. Publish the completed independent review, final open punch list and#470 guard
-   correction under normal hooks; explicit cherry-pick-x to next and readback.
+1. Completed: the independent review, final open punch list and#470 guard
+   correction are published under normal hooks; explicit cherry-pick-x to next
+   and remote readback verified. #470 closed/read back19:07:39UTC.
 2. Work through#471/05's eight fixes under existing authority, preserving every
    stored-state contract and logging actual commits/acceptance artifacts.
 3. Rebuild and requalify repaired product bytes, resolve all known P4 software
@@ -264,9 +297,10 @@ result is asserted as a new14 execution.
 
 ## Current publication and continuation
 
-Last verified remote feature28abfefb40063360c98445db743b9f1b69e625a9 and
-next14eaa833c77e57a61bec492d8479ccdf230348e9. New local audit evidence/checkpoint
-is not yet committed. Commit with#383, explicit cherry-pick-x into primary next,
-normal hooked pushes and actual remote readback. Preserve raw evidence bytes.
-This is a concrete external-transfer approval gate, not an owner-requested pause.
-No background process is running; no full audit-completion claim exists.
+Last verified remote featurebf616c7fd63cf7976a5bff00782d972206601c63 and
+next850cf9bee75eda20f73f2c3eb2bb586230d3cf60. Both normal hooked pushes and
+remote readback completed; next contains the explicit cherry-pick-x. #470 is
+closed with all four criteria verified and seventeen retained CLI controls.
+No transfer approval remains pending. Both external reviews and primary grading
+are complete; #471's eight product repairs remain open. No background process
+is running. Continue Phase7 with PL-001/#467, then the ordered M7 repair plan.

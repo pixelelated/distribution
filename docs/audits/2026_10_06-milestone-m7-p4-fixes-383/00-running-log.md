@@ -228,3 +228,61 @@ Both full reviewer outputs read and graded. Ten lead experiments03 completed18:5
 ## 2026-10-06T19:02:58.561849+00:00 — Phase5/6 complete; resolution remains open
 
 Eight final punch items (1High/6Medium/1Low), all honestly open. Default lint correctly refused all eight but was also mandatory before the issue existed; #470 adds an explicit pre-issue artifact phase, keeping default completion strict.17 positive/negative CLI controls passed, including model/digest corruption and outcome/index failures. Current pre-issue artifacts pass. Mandatory M7.P4 audit/punch-list issue#471 created and exact body/M7/eight unchecked items read back. Phase7 remediation is next; no product fix or RC claim.
+
+## 2026-10-06T19:22 UTC — #471 Phase7 repairs and discriminating host regressions
+
+Both approved Fable transfers and all primary grading are published at feature bf616c7fd63cf7976a5bff00782d972206601c63 / next850cf9bee75eda20f73f2c3eb2bb586230d3cf60. Actual GitHub readback confirmed both; #470's four criteria and17 CLI controls verified, issue closed/read back19:07:39UTC. #471's eight product items remain open.
+
+Draft repairs now cover all eight findings in the feature tree and isolated ES feature/m7-audit-remediation at /home/max/Development/emulationstation-next.worktrees/m7-audit-remediation (base f6f0c134). No package pin, frozen14, cloud account or device changed. Shared local/supported content membership and root selection; atomic pointer-only transactions; active earlier-save ownership protecting sibling shelves; canonical rclone JSON fingerprints with strict legacy binding; application refusal/timeout reasons; literal representable folder names; handheld LANGUAGE driving French phone-close/native finish text; shared strict non-evaluating scan reader. Rebuilt VM/UI proof and original-connection recovery UI remain acceptance work; no finding resolved yet.
+
+Focused owner /workspace/tmp/pixelelated-m7-p4-layout-fixes-03 finished50/50 host cases, allfour0,27sealed inputs unchanged, actual four processes absent at19:21:40. This is host source regression, not installed-image qualification. It predates the additional trailing-newline setter guard; rerun that changed case. Earlier02 retains39PASS/4FAIL because its failure pattern never matched rclone's actual flag-before-path argv;03 corrects the injection and proves refusal. Original01 dispatch refused a second monitored job in the active worktree before execution; each subsequent check owns its separate frozen source snapshot and watcher. Seven deliberately old-source controls completed as expected, terminal19:22:06, pending primary receipt inspection.
+
+Full first discovery snapshot /workspace/tmp/pixelelated-m7-p4-remediation-host-01 remains monitored on run20261006T191042Z-58952ba4 (launcher3159795/watcher3159797). Four recorded failures: three test fixtures omitted the new local-membership helper; one revealed the scan's lost trailing-newline delimiter excluding the last supported system on an empty device. Both corrected in the working tree, never in the running snapshot. Wait for its full results and rerun current sources. Four edited ES units passed real candidate cross-compiler syntax checks; French catalogue completion and full image/UI checks still owed.
+
+## 2026-10-06T19:32 UTC — #471 source repairs, interface publication and regression continuity
+
+ES bab4df649f48847cc43d21c77c058107ad902754 is published/read back on both
+feature/m7-audit-remediation and test/qa-integration. Four changed C++ units
+passed candidate-toolchain syntax; 179 pure tests passed 1,928 assertions;
+French msgfmt, vocabulary and register checks pass. Distribution pin updated;
+no repaired image exists yet. All eight audit outcomes remain open.
+
+Early full host01 ended with four failures, none skipped; verified19:25:53
+with30,972 input digests and four actual processes absent. Its three helper
+fixtures and real supported-system delimiter bug were corrected in full02,
+which is actively monitored under owner pixelelated-m7-p4-remediation-host-02.
+That run currently has one guard failure: local config dump was mistaken for
+network I/O. The current extracted guard passes the real retained migration
+argv and still catches an unbounded listing and unknown config operation.
+Five handheld-locale phone-confirmation controls pass in full02. Seven old
+source failures were verified19:22:55, giving discriminating controls for the
+focused50-case source matrix. Original failed runs and cache-write syntax
+failure remain recorded; the cache-disabled syntax repeat passed.
+
+The VM boundary runner gains the audit cases, including actual historical
+writers in a private guest QA directory; none has run yet on repaired bytes.
+Capacity measured575742697472 available bytes against111530045440 cache-copy
+bytes. Existing pair disks cost about4.49GB; retain ample build/QA margin.
+Swap7565/8191MiB used requires the already-installed guarded reclaim action
+after current watchers exit and before the next build. No broader cleanup.
+Rules reopened include the cloud, ES, VM, packaging, upgrade, watcher/build,
+worktree and change-log rules, plus code-auditor Phase7. See
+`docs/audits/2026_10_06-milestone-m7-p4-fixes-383/evidence/remediation-host/`.
+
+## 19:41 UTC — #471 full host result, corrected fixtures and build preparation
+
+Full02 finished five failures/zero skips, with366 real-rclone layout cases PASS.
+Primary19:39:55 verified four rc1 channels,31,038 sealed inputs and four absent
+host processes. Three fake-rclone/config-dump and bound-guard failures plus two
+fake application-refusal outputs are corrected; the fixture now explicitly
+proves distinct application reasons at the same rc5. Binding05 passed6/6 with
+actual seed/state/apply original-connection refusal, legacy compatibility and
+unchanged state; verified19:36:05. All earlier failed attempts remain retained.
+
+After all watchers exited, the installed guarded swap helper succeeded: active
+swap0/8191MiB used,36,257MiB RAM available,537GiB free. Full03 started19:40:43
+under its fresh sealed tree and durable watcher; launcher4043246. Its input
+snapshot contains all final product fixes, ES pin and test fixtures. It is not
+complete. Source publication and separate checksum/inode-verified cache copy
+can proceed while tests run; the build waits for the completed full result.
+No audit resolution, image qualification, broader cleanup or RC claim.

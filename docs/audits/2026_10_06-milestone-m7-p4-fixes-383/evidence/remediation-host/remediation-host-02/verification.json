@@ -1,0 +1,25 @@
+{
+  "utc": "2026-10-06T19:39:55.176409+00:00",
+  "result": "FAIL",
+  "scope": "second repaired-source host snapshot; five fixture/guard failures, no image qualification",
+  "channels": {
+    "inner.rc": "1",
+    "outer.rc": "1",
+    "tool-wrapper.rc": "1",
+    "build.rc": "1"
+  },
+  "sealed_inputs": 31038,
+  "pids_absent": [
+    3604131,
+    3604132,
+    3604133,
+    3604162
+  ],
+  "failures": [
+    "FAIL  unbounded: config dump",
+    "FAIL  This device stores:|  saves    qa:/ROCKNIX/Saves|  backups  qa:/ROCKNIX/Backups||The current layout is:|  saves    qa:/pixelelated/Saves|  backups  qa:/pixelelated/Backups||Another device has already moved to qa:/pixelelated: this one's fol",
+    "FAIL  This device stores:|  saves    qa:/ROCKNIX/Saves|  backups  qa:/ROCKNIX/Backups||The current layout is:|  saves    qa:/pixelelated/Saves|  backups  qa:/pixelelated/Backups||Another device has already moved to qa:/pixelelated: this one's fol",
+    "FAIL  >>> unit CLOUD FOLDER|||>>> doing scan|>>> why YOUR CLOUD FOLDER COULDN'T BE READ|",
+    "FAIL  >>> unit CLOUD FOLDER|||>>> doing scan|>>> why YOUR CLOUD FOLDER COULDN'T BE READ|"
+  ]
+}

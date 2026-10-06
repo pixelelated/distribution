@@ -1,0 +1,36 @@
+watch-build: recording in /workspace/tmp/pixelelated-m7-p4-old-controls-01/tree/.build-runs/20261006T192201Z-dc1ca500
+rclone: rclone v1.75.1 (/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement14/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/bin/rclone)
+FAIL PL001-discovery-unrelated unrelated: CONTENT_REMOTE=/Mine
+AT_PATH=1
+AT_ROOT=0
+ROOT_DIRS=
+FOUND=
+STATE=ok
+
+cloud-layout-test: 0 PASS, 1 FAIL; artifacts: /workspace/tmp/pixelelated-m7-p4-old-controls-01/proof/PL001-discovery-unrelated
+rclone: rclone v1.75.1 (/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement14/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/bin/rclone)
+FAIL PL002-atomic-join-SETTINGS_REMOTE failed transition published part of its settings
+cloud-layout-test: 0 PASS, 1 FAIL; artifacts: /workspace/tmp/pixelelated-m7-p4-old-controls-01/proof/PL002-atomic-join-SETTINGS_REMOTE
+rclone: rclone v1.75.1 (/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement14/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/bin/rclone)
+FAIL PL003-active-sibling-custom active sibling shelf was offered as this device recovery
+cloud-layout-test: 0 PASS, 1 FAIL; artifacts: /workspace/tmp/pixelelated-m7-p4-old-controls-01/proof/PL003-active-sibling-custom
+rclone: rclone v1.75.1 (/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement14/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/bin/rclone)
+FAIL PL004-binding-comments harmless rewrite stranded pending move
+cloud-layout-test: 0 PASS, 1 FAIL; artifacts: /workspace/tmp/pixelelated-m7-p4-old-controls-01/proof/PL004-binding-comments
+rclone: rclone v1.75.1 (/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement14/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/bin/rclone)
+FAIL PL005-reason-future future: lost application reason: >>> unit CLOUD FOLDER||
+>>> doing scan
+>>> why COULDN'T FIND YOUR CLOUD FOLDER
+
+cloud-layout-test: 0 PASS, 1 FAIL; artifacts: /workspace/tmp/pixelelated-m7-p4-old-controls-01/proof/PL005-reason-future
+rclone: rclone v1.75.1 (/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement14/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/bin/rclone)
+FAIL PL006-folder-My Games offered folder was refused
+cloud-layout-test: 0 PASS, 1 FAIL; artifacts: /workspace/tmp/pixelelated-m7-p4-old-controls-01/proof/PL006-folder-My Games
+rclone: rclone v1.75.1 (/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement14/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/bin/rclone)
+FAIL PL008-reader-escaped escaped/cloud_scan: >>> unit CLOUD FOLDER||
+>>> doing scan
+>>> unit SETTINGS BACKUPS||
+>>> doing scan
+>>> why YOUR CLOUD SYNC SETTINGS COULDN'T BE READ
+
+cloud-layout-test: 0 PASS, 1 FAIL; artifacts: /workspace/tmp/pixelelated-m7-p4-old-controls-01/proof/PL008-reader-escaped

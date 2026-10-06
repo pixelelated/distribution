@@ -111,6 +111,9 @@ class Proof:
     def reset(self):
         self.cursors = {}
         for guest in ('a', 'b'):
+            self.on(guest, f'set -e; rm -f {QA}/sed {QA}/mv {QA}/pointer-fired; '
+                    f'cp {QA}/original-rclone.conf /storage/.config/rclone/rclone.conf; '
+                    f'cp {QA}/original-sync.conf {CONF}')
             self.on(guest, f'set -e; rm -f {QA}/fault {QA}/fired /storage/.config/cloud-layout-migration.json; '
                     'rm -rf /storage/.cache/cloud_sync/scan')
             cursor = self.on(guest, 'journalctl -n 0 --show-cursor --no-pager').stdout
@@ -270,11 +273,13 @@ class Proof:
             require(build == self.args.build_id, 'guest BUILD_ID differs from frozen candidate')
             identities.append({'guest': guest, 'build': build, 'boot_id': self.on(guest, 'cat /proc/sys/kernel/random/boot_id').stdout.strip(),
                                'device_id': self.on(guest, '/usr/bin/cloud_device_id').stdout.strip()})
-            for script in ['cloud_migrate_layout', 'cloud_scan', 'cloud_setup']:
+            for script in ['cloud_migrate_layout', 'cloud_scan', 'cloud_setup', 'cloud_content_restore']:
                 value = self.on(guest, 'sha256sum /usr/bin/' + script).stdout.split()[0]
                 require(value == sha(self.tree / SOURCES / script), 'installed source mismatch: ' + script)
                 self.original_scripts[guest + '/' + script] = value
             self.on(guest, f'test ! -e {QA} && test ! -e {SHIM}; mkdir -p {QA} /storage/.config/profile.d')
+            self.on(guest, f'set -e; cp {CONF} {QA}/original-sync.conf; '
+                    f'cp /storage/.config/rclone/rclone.conf {QA}/original-rclone.conf')
         require(identities[0]['boot_id'] != identities[1]['boot_id'] and
                 identities[0]['device_id'] != identities[1]['device_id'], 'pair is not two independent devices')
         save(self.logs / 'identities.json', identities)
@@ -288,6 +293,13 @@ if [ -f {QA}/fault ]; then
  if [ "$1" = lsf ] && [ "$expected" = "lsf-root {self.remote}" ]; then
   for arg in "$@"; do [ "$arg" != "{self.remote}" ] || matched=yes; done
  fi
+ if [ "$1" = lsf ]; then
+  case "$expected" in
+   'lsf-path '*)
+    path=${{expected#lsf-path }}
+    for arg in "$@"; do [ "${{arg%/}}" != "${{path%/}}" ] || matched=yes; done ;;
+  esac
+ fi
  if [ "$matched" = yes ]; then
   printf '%s\\n' "$*" >> {QA}/fired
   echo 'injected local QA provider refusal' >&2
@@ -299,6 +311,240 @@ exec /usr/bin/rclone "$@"
         self.on('a', f'cat > {QA}/rclone; chmod 755 {QA}/rclone', data=shim)
         self.on('a', 'printf "%s\\n" ' + shlex.quote(f'export PATH={QA}:$PATH') + f' > {SHIM}')
         require(self.on('a', 'command -v rclone').stdout.strip() == QA + '/rclone', 'provider shim not selected')
+
+    def audit_snapshot(self):
+        return dict(cloud=self.hashes(), pointers=self.pointers(),
+                    config_sha256=self.on('a', 'sha256sum ' + CONF).stdout.split()[0])
+
+    def audit_current(self, content='/pixelelated/Content'):
+        self.conf('/pixelelated/Saves', '/pixelelated/Backups', content)
+        self.put('pixelelated/Saves/gb/current.srm', b'current progress\n')
+        self.put('pixelelated/.layout', b'layout=2\n')
+
+    def audit_atomic(self, mode, boundary):
+        root = '/pixelelated' if mode == '--join' else '/ROCKNIX'
+        self.conf(root + '/Saves', root + '/Backups', root + '/Content')
+        if mode == '--join':
+            self.put('ROCKNIX/Saves/gb/A.srm')
+        elif mode == '--follow':
+            self.put('pixelelated/Saves/gb/A.srm')
+        self.on('a', 'chmod 640 ' + CONF)
+        before = self.audit_snapshot()
+        command = 'mv' if boundary == 'publish' else 'sed'
+        match = '[ "${!#}" = ' + CONF + ' ]' if command == 'mv' else f'[[ "$*" == *"^{boundary}="* ]]'
+        shim = f'#!/bin/bash\nif {match}; then echo fired > {QA}/pointer-fired; exit 1; fi\nexec /usr/bin/{command} "$@"\n'
+        self.on('a', f'cat > {QA}/{command}; chmod 755 {QA}/{command}', data=shim)
+        interrupted = self.migrate(mode, allowed=None)
+        self.on('a', f'test -s {QA}/pointer-fired; rm -f {QA}/{command}')
+        require(interrupted.returncode != 0, 'pointer-publication fault reported success')
+        require(self.audit_snapshot() == before, 'partial pointer set became live')
+        self.migrate(mode)
+        target = '/ROCKNIX' if mode == '--join' else '/pixelelated'
+        require(all(self.pointers()[k] == target + '/' + suffix for k, suffix in
+                    [('SAVES_REMOTE', 'Saves'), ('SETTINGS_REMOTE', 'Backups'), ('CONTENT_REMOTE', 'Content')]),
+                'retry left a mixed pointer set')
+        require(self.hashes() == before['cloud'], 'pointer-only transition changed cloud bytes')
+        require(self.on('a', "stat -c '%a' " + CONF).stdout.strip() == '640', 'config mode changed')
+        save(self.logs / (self.case + '-publication.json'), dict(before=before, after=self.audit_snapshot()))
+
+    def audit_sibling(self, content):
+        self.audit_current(content)
+        self.put('ROCKNIX/Saves/gb/kept.srm', b'sibling progress\n')
+        self.put('ROCKNIX/Saves-replaced/stamp/gb/older.srm', b'sibling older progress\n')
+        self.migrate('--keep', guest='b')
+        before = self.audit_snapshot(), self.pointers('b')
+        for _ in range(2):
+            self.on('a', '/usr/bin/cloud_scan --folder')
+            self.on('a', 'grep -qx STATE=current /storage/.cache/cloud_sync/scan/state')
+            self.migrate(allowed=(0, 3))
+            require((self.audit_snapshot(), self.pointers('b')) == before, 'active sibling shelf moved')
+
+    def audit_binding(self, kind):
+        self.put('ROCKNIX/Saves/gb/A.srm', b'save witness\n')
+        self.put('ROCKNIX/Content/ROMs/gb/A.gb', b'content witness\n')
+        self.fault('copy', self.remote + '/ROCKNIX/Content')
+        if kind == 'legacy':
+            ref = '7afa9efcfc0c1ce4b89774b38878fc1b9a9063d2'
+            old = subprocess.check_output(['git', '-C', str(self.tree), 'show', ref + ':' + SOURCES + '/cloud_migrate_layout'])
+            self.on('a', f'cat > {QA}/predecessor; chmod 755 {QA}/predecessor', data=old.decode())
+            first = self.on('a', f'{QA}/predecessor --apply', allowed=None)
+            save(self.logs / (self.case + '-predecessor.json'), dict(ref=ref, sha256=hashlib.sha256(old).hexdigest()))
+        else:
+            first = self.migrate(allowed=None)
+        require(first.returncode != 0, 'copy interruption did not fire')
+        record = '/storage/.config/cloud-layout-migration.json'
+        self.on('a', f'test -s {QA}/fired; test -s {record}')
+        self.clear_fault()
+        config = '/storage/.config/rclone/rclone.conf'
+        if kind == 'legacy':
+            self.on('a', f"jq -e 'has(\"fingerprint_format\") | not' {record} >/dev/null")
+        if kind == 'endpoint':
+            self.put('other-cloud/foreign-witness.txt', b'other connection\n')
+        before = self.audit_snapshot()
+        record_hash = self.on('a', 'sha256sum ' + record).stdout.split()[0]
+        if kind == 'comments':
+            self.on('a', "printf '\\n# harmless QA comment\\n' >> " + config)
+        elif kind == 'token':
+            self.on('a', "printf '\\ntoken = synthetic-unused\\n' >> " + config)
+        elif kind == 'format':
+            self.on('a', 'python3 -', data=f'''from pathlib import Path
+p=Path({config!r})
+lines=p.read_text().splitlines()
+header=[x for x in lines if x.startswith('[')]
+fields=[x for x in lines if '=' in x and not x.lstrip().startswith(('#',';'))]
+p.write_text('; harmless QA header\\n'+ '\\n'.join(header+list(reversed([x.replace(' = ', '=') for x in fields])))+'\\n')
+''')
+        elif kind == 'endpoint':
+            self.on('a', 'python3 -', data=f'''from pathlib import Path
+import re
+p=Path({config!r})
+text,n=re.subn(r'^url\\s*=\\s*(.*?)\\s*$', lambda m:'url = '+m[1].rstrip('/')+'/other-cloud/', p.read_text(), flags=re.M)
+assert n==1
+p.write_text(text)
+''')
+        state = self.migrate('--state', allowed=None)
+        if kind == 'endpoint':
+            require(state.returncode == 5 and 'NEEDS ITS ORIGINAL CONNECTION' in state.stdout,
+                    'changed binding was not truthfully refused')
+            for command in ['/usr/bin/cloud_migrate_layout --apply', '/usr/bin/cloud_setup --seed-folders']:
+                result = self.on('a', command, allowed=None)
+                require(result.returncode != 0 and 'NEEDS ITS ORIGINAL CONNECTION' in result.stdout,
+                        'recovery entry point lost the binding reason')
+            require(self.audit_snapshot() == before, 'binding refusal changed cloud/settings')
+            require(self.on('a', 'sha256sum ' + record).stdout.split()[0] == record_hash, 'record was rebound')
+            self.on('a', f'cp {QA}/original-rclone.conf {config}')
+        else:
+            require(state.returncode == 0 and 'STATE=migration-pending' in state.stdout,
+                    'harmless rewrite stranded the move')
+        self.migrate()
+        self.on('a', 'test ! -e ' + record)
+        require((self.data / 'pixelelated/Saves/gb/A.srm').read_bytes() == b'save witness\n', 'save lost')
+        require((self.data / 'pixelelated/Content/ROMs/gb/A.gb').read_bytes() == b'content witness\n', 'content lost')
+
+    def audit_reader(self, kind):
+        self.audit_current()
+        forms = {
+            'escaped': r'SETTINGS_REMOTE="/Custom/My\$Backups"',
+            'single': "SETTINGS_REMOTE='/Custom/Backups' # comment",
+            'bare': 'SETTINGS_REMOTE=/Custom/Backups # comment',
+            'double': 'SETTINGS_REMOTE="/Custom/Backups" # comment',
+            'duplicate': 'SETTINGS_REMOTE="/Custom/Backups"\nSETTINGS_REMOTE="/Other/Backups"',
+            'export': 'export SETTINGS_REMOTE="/Custom/Backups"',
+            'trailing': 'SETTINGS_REMOTE="/Custom/Backups" invalid',
+            'control': 'SETTINGS_REMOTE="/Custom/Backups"\r',
+        }
+        self.on('a', "sed -i '/^SETTINGS_REMOTE=/d' " + CONF + '; printf "%s\\n" ' +
+                shlex.quote(forms[kind]) + ' >> ' + CONF)
+        before = self.audit_snapshot()
+        malformed = kind in ('export', 'trailing', 'control')
+        if malformed:
+            self.fault('listremotes', '')
+        for command in ['/usr/bin/cloud_migrate_layout --state', '/usr/bin/cloud_scan']:
+            result = self.on('a', command, allowed=None)
+            require((result.returncode != 0) == malformed, 'reader disagreement: ' + kind)
+        require(self.audit_snapshot() == before, 'reader changed cloud/settings')
+        if malformed:
+            self.on('a', f'test ! -e {QA}/fired')
+
+    def audit_chooser(self, folder):
+        self.audit_current()
+        self.put(folder + '/ROMs/gb/Chosen.gb', b'chosen content\n')
+        self.on('a', '/usr/bin/cloud_scan')
+        listed = self.on('a', 'cat /storage/.cache/cloud_sync/scan/root-dirs').stdout.splitlines()
+        require(folder in listed, 'ordinary folder not offered')
+        before = self.hashes()
+        self.on('a', '/usr/bin/cloud_setup --set-content-remote ' + shlex.quote('/' + folder))
+        require(self.pointers()['CONTENT_REMOTE'] == '/' + folder, 'selection was not saved')
+        self.on('a', '/usr/bin/cloud_scan --content')
+        listing = self.on('a', 'cat /storage/.cache/cloud_sync/scan/scan').stdout
+        require(re.search(r'^gb\|15\|', listing, re.M), 'chosen content missing from scan')
+        require(self.hashes() == before, 'folder selection changed cloud bytes')
+        selected = self.audit_snapshot()
+        for invalid in ['/a/../b', '/a/./b', '/a//b', '/$HOME', '/`id`', '/two\nlines', '/trailing\n']:
+            require(self.on('a', '/usr/bin/cloud_setup --set-content-remote ' + shlex.quote(invalid),
+                            allowed=None).returncode != 0, 'unsafe name accepted')
+            require(self.audit_snapshot() == selected, 'unsafe name changed settings')
+
+    def audit_reason(self, kind):
+        self.audit_current()
+        expected = "YOUR CLOUD FOLDER COULDN'T BE READ"
+        if kind in ('future', 'malformed'):
+            self.put('pixelelated/.layout', b'layout=999\n' if kind == 'future' else b'layout=2\nextra\n')
+        elif kind == 'record':
+            self.on('a', "printf '{invalid' > /storage/.config/cloud-layout-migration.json")
+        elif kind == 'config':
+            self.on('a', "printf 'export SETTINGS_REMOTE=bad\\n' >> " + CONF)
+            expected = "YOUR CLOUD SYNC SETTINGS COULDN'T BE READ"
+        before = self.audit_snapshot()
+        result = self.on('a', '/usr/bin/cloud_scan --folder', allowed=None)
+        require(result.returncode != 0 and '>>> why ' + expected in result.stdout,
+                'application refusal lost its reason')
+        require("COULDN'T FIND YOUR CLOUD FOLDER" not in result.stdout, 'false missing-folder reason')
+        require(self.audit_snapshot() == before, 'refusal changed cloud/settings')
+
+    def audit_discovery(self, kind):
+        layouts = {
+            'empty': ('/Mine', [], 'empty', ''),
+            'unrelated': ('/Mine', ['Mine/Photos/witness.jpg'], 'empty', ''),
+            'fallback': ('/Mine', ['Mine/Photos/witness.jpg', 'pixelelated/Content/ROMs/gb/A.gb'], 'found-elsewhere', '/pixelelated/Content'),
+            'tiered': ('/Mine', ['Mine/ROMs/gb/A.gb'], 'ok', ''),
+            'root-tiered': ('', ['ROMs/gb/A.gb'], 'ok', ''),
+            'root-flat': ('', ['gb/A.gb'], 'ok', ''),
+            'root-unrelated': ('', ['Photos/witness.jpg'], 'empty', ''),
+            'stranded': ('/Mine', ['gb/A.gb'], 'stranded-at-root', '/'),
+            'refused': ('/Mine', ['Mine/ROMs/gb/A.gb'], 'unreadable', None),
+        }
+        content, paths, state, found = layouts[kind]
+        self.audit_current(content)
+        for path in paths:
+            self.put(path, b'game\n')
+        if kind == 'refused':
+            self.fault('lsf-path', self.remote + 'Mine')
+        before = self.audit_snapshot()
+        result = self.on('a', '/usr/bin/cloud_setup --content-location', allowed=None)
+        facts = dict(x.split('=', 1) for x in result.stdout.splitlines() if '=' in x)
+        require(facts.get('STATE') == state and (found is None or facts.get('FOUND') == found),
+                'content classification disagrees: ' + repr(facts))
+        require((result.returncode != 0) == (kind == 'refused'), 'content listing refusal hidden')
+        require(self.audit_snapshot() == before, 'classification changed state')
+        if kind == 'refused':
+            self.on('a', f'test -s {QA}/fired')
+        if kind == 'stranded':
+            self.on('a', '/usr/bin/cloud_setup --use-content-root')
+            require(self.pointers()['CONTENT_REMOTE'] == '', 'root selection not retained')
+        if kind in ('stranded', 'root-flat', 'root-tiered', 'tiered'):
+            result = self.on('a', '/usr/bin/cloud_content_restore --scan')
+            require(re.search(r'^gb\|5\|', result.stdout, re.M), 'supported game absent from next scan')
+            require(self.hashes() == before['cloud'], 'selection or scan changed cloud bytes')
+
+    def audit_inherited(self, stage):
+        ref = '69e6039f8f'
+        self.conf('/GAMES', '/GAMES/backup', '/GAMES/Content')
+        payloads = {'GAMES/gb/A.srm': b'save\n', 'GAMES/backup/QA/settings.tar.gz': b'settings\n',
+                    'GAMES/Content/ROMs/gb/A.gb': b'game\n'}
+        for path, value in payloads.items():
+            self.put(path, value)
+        old = subprocess.check_output(['git', '-C', str(self.tree), 'show', ref + ':' + SOURCES + '/cloud_migrate_layout'])
+        self.on('a', f'cat > {QA}/predecessor; chmod 755 {QA}/predecessor', data=old.decode())
+        paths = {'backups': '/GAMES/backup', 'saves': '/GAMES', 'content': '/GAMES/Content'}
+        if stage != 'complete':
+            self.fault('copy', self.remote + paths[stage])
+        result = self.on('a', f'{QA}/predecessor --apply', allowed=None)
+        if stage != 'complete':
+            require(result.returncode != 0, 'predecessor interruption did not fire')
+            self.on('a', f'test -s {QA}/fired')
+        self.on('a', 'test ! -e /storage/.config/cloud-layout-migration.json')
+        save(self.logs / (self.case + '-predecessor.json'), dict(ref=ref, sha256=hashlib.sha256(old).hexdigest(),
+             rc=result.returncode, state=self.audit_snapshot()))
+        self.clear_fault()
+        self.migrate(allowed=(0, 3))
+        for path, value in [('Saves/gb/A.srm', b'save\n'), ('Backups/QA/settings.tar.gz', b'settings\n'),
+                            ('Content/ROMs/gb/A.gb', b'game\n')]:
+            require((self.data / 'pixelelated' / path).read_bytes() == value, 'inherited payload lost: ' + path)
+        require((self.data / 'pixelelated/.layout').read_bytes() == b'layout=2\n', 'inherited move did not settle')
+        before = self.audit_snapshot()
+        self.migrate(allowed=(0, 3))
+        require(self.audit_snapshot() == before, 'inherited repeat changed state')
 
     def run_cases(self):
         cases = [('layout1-to2', lambda: self.migration_case())]
@@ -315,6 +561,26 @@ exec /usr/bin/rclone "$@"
         for root in ['/GAMES', '/ROCKNIX/Saves']:
             cases.append(('T22-' + root.replace('/', '_'), lambda r=root: self.two_roots(r)))
         cases += [('T23-content-collision', self.collision), ('T25-restricted-parent', self.restricted)]
+        for kind in ['empty', 'unrelated', 'fallback', 'tiered', 'root-tiered', 'root-flat', 'root-unrelated', 'stranded', 'refused']:
+            cases.append(('PL001-discovery-' + kind, lambda k=kind: self.audit_discovery(k)))
+        for mode in ['--join', '--follow', '--settle']:
+            for boundary in ['SAVES_REMOTE', 'SETTINGS_REMOTE', 'CONTENT_REMOTE', 'publish']:
+                cases.append((f'PL002-{mode[2:]}-{boundary}', lambda m=mode, b=boundary: self.audit_atomic(m, b)))
+        for label, content in [('root', ''), ('custom', '/Mine/Content'), ('current', '/pixelelated/Content')]:
+            cases.append(('PL003-kept-sibling-' + label, lambda c=content: self.audit_sibling(c)))
+        for stage in ['backups', 'saves', 'content', 'complete']:
+            cases.append(('PL003-inherited-RC2-' + stage, lambda s=stage: self.audit_inherited(s)))
+        for kind in ['comments', 'format', 'token', 'endpoint', 'legacy']:
+            cases.append(('PL004-binding-' + kind, lambda k=kind: self.audit_binding(k)))
+        for kind in ['future', 'malformed', 'config', 'record']:
+            cases.append(('PL005-reason-' + kind, lambda k=kind: self.audit_reason(k)))
+        for folder in ['MyGames', 'My Games', 'Games..old', "Kid's Games"]:
+            cases.append(('PL006-chooser-' + folder, lambda f=folder: self.audit_chooser(f)))
+        for kind in ['escaped', 'single', 'bare', 'double', 'duplicate', 'export', 'trailing', 'control']:
+            cases.append(('PL008-reader-' + kind, lambda k=kind: self.audit_reader(k)))
+        if self.args.case:
+            cases = [(name, action) for name, action in cases if self.args.case in name]
+        require(cases, 'no cases match the requested scope')
         for name, action in cases:
             self.case = name
             print('START ' + name, flush=True)
@@ -364,6 +630,7 @@ def main():
     p.add_argument('--image', type=Path)
     p.add_argument('--build-id')
     p.add_argument('--output', type=Path)
+    p.add_argument('--case', help='run only cases containing this text; still owns a fresh pair')
     p.add_argument('--inject-failure', action='store_true')
     args = p.parse_args()
     if args.inject_failure:

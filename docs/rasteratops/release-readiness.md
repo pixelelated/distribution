@@ -1,6 +1,16 @@
 # pixelelated 0.0.1 release readiness
 
-## Current work — P4 audit#471: eight verified findings await remediation
+## Current work — P4 audit#471: source repairs under verification
+
+As of19:41UTC, all eight repairs are drafted and ES bab4df649f48847cc43d21c77c058107ad902754
+is published. Host layout02 passed366 cases; full02 finished with five fixture/
+guard failures, all corrected in the active full03 snapshot. Focused binding05
+passes6/6; earlier50 cases and seven old-source negative controls are retained.
+Distribution source publication and independent replacement15 cache preparation
+are next. Guarded swap reclaim and capacity preflight pass. No repaired image
+exists, and no audit item has closed. Finish full03, rebuild, qualify clean and
+upgrade plus installed/UI cases, then assess P4 closure. Dated receipts below
+are historical; only this current section describes active work.
 
 Replacement12 remains frozen55d8ee8f75965a560f75d187e34c9beaa93133f1;
 its build, scoped preservation/native/HTTP and QA15→17 evidence are retained
@@ -81,7 +91,7 @@ The earlier proof receipts above retain their original scope; passing them did
 not establish these newly challenged cases. D-QA-058 keeps hosted accounts and
 offsite endpoints optional; #463 remains unverified, #464 reset automation is
 backlog. #466/D-WORKFLOW-149 requires continuing authorized audits after saving.
-No executable job remains active; verified cross-lab review is the next gated action.
+Both cross-lab calls are complete; current remediation execution is recorded above.
 
 Frozen13 freshness caught an Android-only upstream commit before any cache
 copy/build. [Exact equality evidence](../qa-logs/2026-10-06-proxy-879b158/README.md)
