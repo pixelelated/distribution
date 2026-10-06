@@ -172,3 +172,5 @@ no new stamp for rapidrelaunch, so no active-sync completion/interruption claim.
 Dedicated account proofs and P4 remain before device builds/RC designation.
 
 | 2026-10-06 | `7afa9efcfc0` pixelelated replacement14, unchanged frozen image | fresh isolated vm-pair, virgl, cloud01 | WebDAV/SFTP/MinIO-S3 round trips each106 PASS/0FAIL/0SKIP;318 total. All four watcher results0; actual owner/guest/backend cleanup verified05:59:18. Installed identity/scripts and pre/post bundle/input hashes pass. Hosted OAuth/Dropbox and separate RA award excluded. [Evidence](qa-logs/2026-10-06-local-cloud/README.md); #462, D-QA-058. |
+
+| 2026-10-06 | `7afa9efcfc0` pixelelated replacement14 | isolated vm-pair guest a, virgl, ra01 | Ordinary Tobu15738/100359:33 PASS/0FAIL/0SKIP. API unearned → actual offline award → pending1 after exit → reconnect flush1/pending0 → provider earned → relaunch28/28→27/28. Four rc0; credential and actual process cleanup verified. Four unique exit frames reviewed, no card-layout claim. [Evidence](qa-logs/2026-10-06-ra-award/README.md); #361/#383. |

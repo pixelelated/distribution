@@ -1,7 +1,7 @@
 # Saved Session State
 
-> Saved 2026-10-06T06:15:46.337682+00:00; feature/conflict-resolution → primary next.
-> Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261006T061546Z.md`.
+> Saved 2026-10-06T05:59:59.823065+00:00; feature/conflict-resolution → primary next.
+> Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261006T055959Z.md`.
 
 ## Start here
 
@@ -21,7 +21,7 @@ cloud mutation or publication. No Daybreak or goal tool. Only the required
 fresh no-context resume proof permits delegation here.
 
 
-## Current focus — local cloud and ordinary RA award proofs complete; reconcile P3
+## Current focus — local cloud qualification complete; RA reset remains
 
 The maintainer explicitly removed Dropbox credentials/offsite accounts as
 release dependencies now and going forward (#462, D-QA-058, reaffirming
@@ -40,37 +40,15 @@ completion.json and all four result channels. Actual guest/backend/owner
 cleanup is verified; no build or QA job remains active. No product bytes
 changed and no new build is needed for this policy/evidence work.
 
-The maintainer confirmed “Progress reset.” The ordinary RetroAchievements
-proof is now complete: fresh owner `/workspace/tmp/pixelelated-m7-ra-01`,
-run20261006T060338Z-0420faa8, 33 PASS/0 FAIL/0 SKIP. Tobu Tobu Girl Deluxe
-(game15738), Potato-tan Secret (achievement100359), softcore/normal: API
-unearned preflight → real offline award → pending1 after exit → reconnect
-flush1/pending0 → provider earned receipt → relaunch28/28 to27/28 active.
-All four results0, terminal06:09:20; actualcleanup06:10:11 confirms five PIDs
-absent, no QEMU and unbound SSH/VNC ports. Account-clear readback passed.
-Read `docs/qa-logs/2026-10-06-ra-award/README.md`, ra-offline.log, completion
-and sealed harness. No job is active. This reset is consumed; do not repeat
-or ask again for the already-completed run.
-
-**Remaining P3 distinction:** all40 exit captures contain only four unique
-ES carousel frames, each directly reviewed; no queue/send card was captured.
-This is actual award/reconnect/API proof, not new UI/progress-card proof.
-The retained replacement10 UI14 frames cover settings/intro pages. #361's
-compound source/build/award/UI criterion stays open until its remaining
-UI/progress coverage is located or verified on the installed guest. Inspect
-`tools/ra-offline-test` setup ordering and ES account/proxy state, then prepare
-a fresh local-only UI fixture proof if needed. Do not infer a product defect
-from absent captures or consume another real award as a preliminary control.
-
-#464 is the newly requested **backlog** task for automated dedicated QA reset,
-comparing supported API/browser paths, local/self-hosted FOSS, Browserbase
-and Kitesurf. D-QA-059 reopens D-QA-035's manual-only decision; #240 now owns
-additional softcore routes/reset guidance. Exact account/game/mode validation,
-API readback, serialized fixture use and two unattended cycles are criteria.
-No vendor/hosted credential transfer chosen; no new RC gate. Until qualified,
-the manual reset is the fallback for a future actual award test. Dedicated
-account file is `$HOME/.ROCKNIX/qa-accounts` (0600); never print its contents.
-Free ROM: `/workspace/artifacts/rocknix-qa-roms/tobu/Tobu Tobu Girl Deluxe.gb`.
+The remaining dedicated QA reset is **Tobu Tobu Girl Deluxe (game15738),
+Potato-tan Secret (achievement100359), softcore/normal progress** on the
+RetroAchievements website. No RetroArch settings reset. The user was given
+this exact target and an asynchronous reset-status question; no confirmation
+has arrived at this checkpoint. Never substitute a spent award, hardcore,
+a synthetic fixture or an unapproved personal account. Ask status only,
+never secrets. tools/ra-offline-test already routes `--game tobu`; the free
+ROM lives at `/workspace/artifacts/rocknix-qa-roms/tobu/Tobu Tobu Girl Deluxe.gb`.
+Dedicated account file is `$HOME/.ROCKNIX/qa-accounts` (0600); do not print it.
 
 #168 has ten tested, unsubmitted upstream drafts; all other rows have explicit
 API/policy dispositions. Read `docs/upstream/raofflineproxy/contribution-map.md`
@@ -138,23 +116,22 @@ No additionalcleanup orreservechange is authorized. No sudoaction remains.
 
 ## Next steps
 
-1. Read live M7/#464/#240/#383/#361 and verify the completed RA/local-cloud
-   receipts. #351/#462 are closed; #463 is optional. No account input is
-   currently requested, and no build/QA job is active. Do not replay owners.
-2. Reconcile remaining P3 software criteria against exact artifacts, starting
-   with #361's UI/progress clause. Actual RA33 proves award/queue/flush/API;
-   settings-page frames do not prove queue/send cards. If a local UI fixture
-   run is needed, record its VM plan on #361 before a fresh sealed owner,
-   use the standard watcher and retain frames plus actual cleanup. Do not
-   rebuild unchanged frozen14 for policy or host-harness metadata.
-3. After P3 is satisfied, run approved P4 primary + Fable5.1/xhigh through
-   the verified Facilitator/OpenRouter. Read the complete code-auditor skill
-   and references; #375/#382 do not replace this fixes review. No P4 folder
-   or external reviewer run has started. Resolve findings and requalify any
-   changed product bytes before advancing.
-4. Then measure next-build capacity and build H700 DDR4/RG35XXSP arm first,
-   aarch64 second from qualified inputs. Named physical/P5 gates follow.
-   No RC/device-ready claim yet; reset automation #464 stays backlog.
+1. Read live M7/#462/#463/#351/#383/#361 and the reset-question status. No
+   hosted-cloud credentials are needed. Do not rebuild frozen14 for docs or
+   host-harness metadata. Verify the local-cloud completion artifacts first.
+2. When the dedicated RA reset is confirmed, prepare a fresh sealed QA owner
+   from frozen14, boot an isolated guest and run the ordinary Tobu award/
+   offline queue/reconnect/API proof once via the standard durable watcher.
+   Never replay an old owner or consume the award during a preliminary
+   control. Use the fixed external ROM path if owner-specific artifacts
+   would redirect the harness's ROM default. Retain sanitized logs/frames,
+   account cleanup and actual process exit. Credentials stay out of outputs.
+3. Complete remaining P3 criteria, then approved P4 primary + Fable5.1/xhigh
+   through the verified Facilitator/OpenRouter. Read the complete code-auditor
+   skill/references first; #375/#382 do not replace this fixes review. Resolve
+   findings and rebuild/requalify only changed product bytes.
+4. Then build H700 DDR4/RG35XXSP arm first, aarch64 second from qualified
+   inputs; named physical/P5 gates follow. No RC/device-ready claim yet.
 
 Public docs4f6df54 at /home/max/Development/rocknix.org remains403/404; do not
 change credentials/autofork. Fourteen P5 licence gaps remain. #395 lacks a
@@ -240,13 +217,11 @@ duringmetadata publication. Archivebothcheckpointfilesbeforechanges.
 ## This session publication and handoff
 
 This session started at featured770d95d0ee80d0fb9b1247a4effa18e8172ab5a,
-next8639fe90be4408cb9615fa781e9d3f76a050ff7d. Owning issues #462/#361; reset automation #464, prior routes #240; optional
+next8639fe90be4408cb9615fa781e9d3f76a050ff7d. Owning issue #462; optional
 provider observation #463. Explicit cherry-pick -x only; normal hooked pushes.
 New evidence/publication/resume receipts live under
-`docs/qa-logs/2026-10-06-local-cloud/`, `docs/qa-logs/2026-10-06-ra-award/`,
-`/tmp/pixelelated-cloud-policy-tracker/` and `/tmp/pixelelated-ra-task-tracker/`. Read actual local/remote heads and
+`docs/qa-logs/2026-10-06-local-cloud/` and
+`/tmp/pixelelated-cloud-policy-tracker/`. Read actual local/remote heads and
 receipt content before assuming publication. Frozen14 stays unchanged.
-Local-cloud publication feature a167052bfd / next406228a364 was verified.
-RA/task metadata publication is a later commit; read actual heads/receipts.
 Required fresh no-context resume proof follows integration. Cheap checks are
 required; audit cadence remains overdue (CI red, fixes may push), not waived.

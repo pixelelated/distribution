@@ -53,8 +53,8 @@
 # account on login. Nothing here touches a handheld or a cloud account; the
 # only account is the QA RetroAchievements one, and one PASS spends one of
 # its cheap achievements (the candidates below are what it has to spend --
-# a nightly needs a reset of the account's progress on those games, or a
-# fresh account, once they are gone).
+# a repeat needs the dedicated account's softcore progress reset. #464 tracks
+# reset automation; the manual reset remains the fallback until qualified).
 #
 # Exit 0 when every assertion passed, 1 otherwise, 2 on usage or a
 # precondition that could not be checked. A guest that does not answer, a
@@ -215,7 +215,7 @@ for g in ${GAME:-$CANDIDATES}; do
 done
 if [ -z "$PICK" ]; then
   if [ -n "$unknown" ]; then check 1 "RetroAchievements' API did not answer for: $unknown -- whether the account has anything left to unlock is unknown, so nothing runs"
-  else check 1 "the QA account has already earned every achievement this fixture can reach: ${spent} -- reset the account's progress on that game at retroachievements.org (or use a second QA account) and run again"; fi
+  else check 1 "the QA account has already earned every achievement this fixture can reach: ${spent} -- reset the dedicated QA account's softcore progress on that game at retroachievements.org and run again (#464 tracks reset automation)"; fi
   echo; echo "FAILED ($FAILS) -- no achievement to unlock; nothing launched"; exit 1
 fi
 check 0 "chosen: $PICK -- ${TITLE[$PICK]} (achievement ${ACHID[$PICK]}, game ${GAMEID[$PICK]}, ${SYSTEM[$PICK]})"
