@@ -1,0 +1,45 @@
+[
+  {
+    "case": "PL003-unreadable-active-sibling",
+    "status": "PASS"
+  },
+  {
+    "case": "PL005-record-write-retry",
+    "status": "PASS"
+  },
+  {
+    "case": "PL005-marker-write-retry",
+    "status": "PASS"
+  },
+  {
+    "case": "PL005-real-closed-endpoint",
+    "status": "PASS"
+  },
+  {
+    "case": "PL002-already-written-join",
+    "status": "PASS"
+  },
+  {
+    "case": "PL002-already-written-follow",
+    "status": "PASS"
+  },
+  {
+    "case": "PL002-already-written-settle",
+    "status": "PASS"
+  },
+  {
+    "case": "PL001-empty-local-last-supported",
+    "reason": "PL001-empty-local-last-supported/a: rc1; see 0221-PL001-empty-local-last-supported-a.log",
+    "status": "FAIL"
+  },
+  {
+    "case": "PL001-empty-local-bios",
+    "reason": "PL001-empty-local-bios/a: rc1; see 0236-PL001-empty-local-bios-a.log",
+    "status": "FAIL"
+  },
+  {
+    "case": "PL001-empty-local-empty-directory",
+    "reason": "PL001-empty-local-empty-directory/a: rc1; see 0251-PL001-empty-local-empty-directory-a.log",
+    "status": "FAIL"
+  }
+]

@@ -1,0 +1,37 @@
+This device stores:
+  saves    qa-cloud:/ROCKNIX/Saves
+  backups  qa-cloud:/ROCKNIX/Backups
+
+The current layout is:
+  saves    qa-cloud:/pixelelated/Saves
+  backups  qa-cloud:/pixelelated/Backups
+
+Would move, server-side, leaving anything else where it is:
+  qa-cloud:/ROCKNIX/Saves  ->  qa-cloud:/pixelelated/Saves
+  qa-cloud:/ROCKNIX/Content  ->  qa-cloud:/pixelelated/Content
+
+Now using /pixelelated/Backups for your settings backups.
+>>> unit SAVES|1|2
+Copying saves...
+>>> doing copy
+Transferred:   	         13 B / 13 B, 100%, 0 B/s, ETA -
+Checks:                 0 / 0, -, Listed 2
+Transferred:            1 / 1, 100%
+Server Side Copies:     1 @ 13 B
+Elapsed time:         0.0s
+Verifying saves...
+>>> doing verify
+Now using /pixelelated/Saves for your saves.
+Removing the old saves folder...
+>>> doing remove
+>>> unit ROMS, BIOS, AND GAME CONTENT|2|2
+Would copy, verify, then remove  qa-cloud:/ROCKNIX/Content  ->  qa-cloud:/pixelelated/Content
+Copying content...
+>>> doing copy
+injected local QA provider refusal
+injected local QA provider refusal
+Couldn't finish copying content. Nothing was removed from the old folder; some files may already be in the new one.
+The config is unchanged.
+>>> why SOME FILES DIDN'T FINISH
+
+Saves are at qa-cloud:/pixelelated/Saves and backups at qa-cloud:/pixelelated/Backups, but your ROMs and BIOS files didn't move. Try again.

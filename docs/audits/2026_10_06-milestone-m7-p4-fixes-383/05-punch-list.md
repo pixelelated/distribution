@@ -5,7 +5,7 @@
 **Generated:** 2026-10-06
 **Source audit:** [04-analysis.md](04-analysis.md)
 **Total items:**8 (Critical:0, High:1, Medium:6, Low:1)
-**State:** Phase5 plan; every item remains open. No product fix, complete-audit or RC claim.
+**State:** Phase7 remediation on rebuilt candidate15. PL-008 is resolved; seven installed acceptance outcomes remain open. No complete-audit or RC claim.
 
 The two Fable calls are verified and their leads have been checked against
 primary source and fourteen installed experiments. These eight items are
@@ -136,9 +136,10 @@ scope is not silently waived or duplicated into PL IDs.
 
 ## Phase 7 resolution gate
 
-No item has a resolution yet. An open row is intentional pending remediation,
-not a named deferral or a passing gate. Re-derive every later outcome from an
-executed command and its primary artifacts; the audit tracker stays open.
+PL-008 is resolved from landed source and installed positive/negative controls.
+The remaining open rows await their named acceptance evidence; they are not
+deferrals or passing gates. The audit tracker stays open. Detailed command and
+state-preservation evidence is in [08-installed-resolution.md](08-installed-resolution.md).
 
 | Item | Outcome | Evidence |
 | --- | --- | --- |
@@ -149,7 +150,7 @@ executed command and its primary artifacts; the audit tracker stays open.
 | PL-005 | Open | Acceptance unproved on repaired bytes. |
 | PL-006 | Open | Acceptance unproved on repaired bytes. |
 | PL-007 | Open | Acceptance unproved on repaired bytes. |
-| PL-008 | Open | Acceptance unproved on repaired bytes. |
+| PL-008 | Resolved | `ed5a6a51f5974deec8748fbf0dbd2f4984b690f5`; reader-values04:8 installed cases, exact values/archive selection and old-source failure control; [resolution](08-installed-resolution.md). |
 
 ## Machine-readable index
 
@@ -226,5 +227,7 @@ punch_index:
   owner_area: "cloud layout/configuration and setup"
   where: "projects/ROCKNIX/packages/network/rclone/sources/cloud_scan:60; cloud_migrate_layout:160; cloud_setup:131"
   acceptance: "Installed state and full scan agree on every supported quoted/bare/escaped and duplicate-key fixture, including the escaped-dollar case; exported/malformed/control-character cases stop before listings or mutations. Keep first-assignment semantics and avoid evaluating config as shell."
-  outcome: open
+  outcome: resolved
+  resolution_commit: "ed5a6a51f5974deec8748fbf0dbd2f4984b690f5"
+  resolution_evidence: "08-installed-resolution.md; ../../qa-logs/2026-10-06-pixelelated-replacement-15/p4-reader-values-04/"
 ```

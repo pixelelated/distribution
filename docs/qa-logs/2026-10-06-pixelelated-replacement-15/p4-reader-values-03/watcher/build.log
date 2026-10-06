@@ -1,0 +1,32 @@
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/43a698bcd7d570c63ebdd5db015e5302463f7ee4a15438fd9ef2359437be19da
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-p4-reader-values-03/run.py", line 17, in <module>
+    code=subprocess.run([str(owner/'reader-value-control.py'),'--tree',str(tree),'--image',str(bundle/'pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz'),'--build-id','ed5a6a51f5974deec8748fbf0dbd2f4984b690f5','--output',str(owner/'proof'),'--case','PL008']).returncode
+         ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 555, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 1875, in _execute_child
+    self._posix_spawn(args, executable, env, restore_signals, close_fds,
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                      p2cread, p2cwrite,
+                      ^^^^^^^^^^^^^^^^^^
+                      c2pread, c2pwrite,
+                      ^^^^^^^^^^^^^^^^^^
+                      errread, errwrite)
+                      ^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 1819, in _posix_spawn
+    self.pid = os.posix_spawn(executable, args, env, **kwargs)
+               ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: '/workspace/tmp/pixelelated-m7-p4-reader-values-03/reader-value-control.py'

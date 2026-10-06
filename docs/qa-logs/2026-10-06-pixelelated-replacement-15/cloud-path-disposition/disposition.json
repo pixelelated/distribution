@@ -1,0 +1,983 @@
+{
+  "checked_utc": "2026-10-06T20:50:08.902603+00:00",
+  "baseline_ref": "51f78ac5b4723681dbb2e88dd66fbe3d2f9e85c4",
+  "candidate_ref": "ed5a6a51f5974deec8748fbf0dbd2f4984b690f5",
+  "report_sha256": "cb170c6d284af63a470ab156d59a5872fded812c527749e5080bf719dd899775",
+  "count": 56,
+  "counts": {
+    "KEEP_UPSTREAM_URL": 21,
+    "KEEP_BUILD_PATH": 9,
+    "KEEP_LEGACY_COMMENT": 13,
+    "CHANGED_CURRENT_DEFAULT": 12,
+    "CHANGED_FORK_SOURCE": 1
+  },
+  "source_sha256": {
+    "distributions/ROCKNIX/options": {
+      "baseline_sha256": "1ab179d2e5ec03bd42abc4728861c3110025d12ec3a3231d4cbd3f71a23e9b65",
+      "candidate_sha256": "7b128144184ebf7e4753a30b8e4376394e9159f4fb6c733ee3f793cc7298c99e"
+    },
+    "projects/ROCKNIX/bootloader/install": {
+      "baseline_sha256": "7b620487fe0328a3193c53aac671db85df053961869d81bc6728738882d7c1aa",
+      "candidate_sha256": "7b620487fe0328a3193c53aac671db85df053961869d81bc6728738882d7c1aa"
+    },
+    "projects/ROCKNIX/config.xml": {
+      "baseline_sha256": "c8d8947f8e17f757e938307e1f2fac00e0a823a8d1a993d527cbf6021662c89e",
+      "candidate_sha256": "c8d8947f8e17f757e938307e1f2fac00e0a823a8d1a993d527cbf6021662c89e"
+    },
+    "projects/ROCKNIX/devices/RK3326/packages/u-boot-legacy/package.mk": {
+      "baseline_sha256": "e1005e682007584bba12a1e6d2439a19c6efc383a19b9cc67c010ce4ed3520eb",
+      "candidate_sha256": "e1005e682007584bba12a1e6d2439a19c6efc383a19b9cc67c010ce4ed3520eb"
+    },
+    "projects/ROCKNIX/devices/RK3588/packages/u-boot/package.mk": {
+      "baseline_sha256": "0ec83ad33ec42230ca75760ebc521e6df27dffabbc884c7b6de1e04c28ae2fef",
+      "candidate_sha256": "0ec83ad33ec42230ca75760ebc521e6df27dffabbc884c7b6de1e04c28ae2fef"
+    },
+    "projects/ROCKNIX/devices/S922X/packages/u-boot/package.mk": {
+      "baseline_sha256": "105bdfaa94b00a2d83d66e8be8e10d15160cd9fec8f5797b72a3cc70d1ff094d",
+      "candidate_sha256": "105bdfaa94b00a2d83d66e8be8e10d15160cd9fec8f5797b72a3cc70d1ff094d"
+    },
+    "projects/ROCKNIX/packages/apps/commander/package.mk": {
+      "baseline_sha256": "e16278695d2f2d293619e1185d0e58ce058abb237a9667888dc0ca3f3a8245db",
+      "candidate_sha256": "e16278695d2f2d293619e1185d0e58ce058abb237a9667888dc0ca3f3a8245db"
+    },
+    "projects/ROCKNIX/packages/apps/jstest-sdl/package.mk": {
+      "baseline_sha256": "44b5b231ea20d7fabc917efb3b23a54e8f4c8025ada20e5eac57711b6a725777",
+      "candidate_sha256": "44b5b231ea20d7fabc917efb3b23a54e8f4c8025ada20e5eac57711b6a725777"
+    },
+    "projects/ROCKNIX/packages/apps/portmaster/package.mk": {
+      "baseline_sha256": "366332fca9fd07fd7081f716dbaddd8dd8baf4c3c36aa15053496b0b4f87ca59",
+      "candidate_sha256": "366332fca9fd07fd7081f716dbaddd8dd8baf4c3c36aa15053496b0b4f87ca59"
+    },
+    "projects/ROCKNIX/packages/apps/rocknix-hotkey/package.mk": {
+      "baseline_sha256": "1fb7bc488d54ceaa81fc66527b5b615d6c1677090ff4a1abf9e19c0e96ae7947",
+      "candidate_sha256": "1fb7bc488d54ceaa81fc66527b5b615d6c1677090ff4a1abf9e19c0e96ae7947"
+    },
+    "projects/ROCKNIX/packages/compress/cabextract/package.mk": {
+      "baseline_sha256": "32099c08afaed8d579519cddfefdcca99e0c332a1d996dd2977f535a8127adcd",
+      "candidate_sha256": "32099c08afaed8d579519cddfefdcca99e0c332a1d996dd2977f535a8127adcd"
+    },
+    "projects/ROCKNIX/packages/emulators/libretro/idtech-lr/package.mk": {
+      "baseline_sha256": "4ad739b1287a353ed0b4cf2abbc7b322659a67d249bd019afbbc70ec2d0503e7",
+      "candidate_sha256": "4ad739b1287a353ed0b4cf2abbc7b322659a67d249bd019afbbc70ec2d0503e7"
+    },
+    "projects/ROCKNIX/packages/emulators/standalone/aethersx2-sa/package.mk": {
+      "baseline_sha256": "c8d78a30d4ae821a1adab830f87652ced7e8ac79141fb02aac1695db2e749efc",
+      "candidate_sha256": "c8d78a30d4ae821a1adab830f87652ced7e8ac79141fb02aac1695db2e749efc"
+    },
+    "projects/ROCKNIX/packages/emulators/standalone/drastic-sa/package.mk": {
+      "baseline_sha256": "89d85e7adb1ec8e8ab98c613dfd688f1967e2168e2af82331a8b24c7eca0d5dc",
+      "candidate_sha256": "89d85e7adb1ec8e8ab98c613dfd688f1967e2168e2af82331a8b24c7eca0d5dc"
+    },
+    "projects/ROCKNIX/packages/graphics/libmali/package.mk": {
+      "baseline_sha256": "eb06a98b192a2150a80dcc6da068c8602c36cbdc5b23ffbd749ab9dc33637f74",
+      "candidate_sha256": "eb06a98b192a2150a80dcc6da068c8602c36cbdc5b23ffbd749ab9dc33637f74"
+    },
+    "projects/ROCKNIX/packages/linux-drivers/chipone_tddi/package.mk": {
+      "baseline_sha256": "1f8f2209885a101b1bc446fdd32515e90df48da78db7ade5cdedc2fb4408a87f",
+      "candidate_sha256": "1f8f2209885a101b1bc446fdd32515e90df48da78db7ade5cdedc2fb4408a87f"
+    },
+    "projects/ROCKNIX/packages/linux-drivers/rocknix-joypad/package.mk": {
+      "baseline_sha256": "1bdea9109a6fb7d2c4e6b19e39eefb84424f5e4dfddc79960a9a387e4bc0d6a9",
+      "candidate_sha256": "1bdea9109a6fb7d2c4e6b19e39eefb84424f5e4dfddc79960a9a387e4bc0d6a9"
+    },
+    "projects/ROCKNIX/packages/linux-firmware/extra-firmware/package.mk": {
+      "baseline_sha256": "0bd11aee879ba7dedb4acbad3920b1dcd05f157f7756d7b0fe8200af727e1528",
+      "candidate_sha256": "0bd11aee879ba7dedb4acbad3920b1dcd05f157f7756d7b0fe8200af727e1528"
+    },
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_migrate_layout": {
+      "baseline_sha256": "76f003f52d98056bda9685d44cb224d4c4034089e6ce70509ffaa294da275f27",
+      "candidate_sha256": "f274835902a9d0c4538151bc6b2c29d63e2c9d77ea88cf1fea33fd4d383f01be"
+    },
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_restore": {
+      "baseline_sha256": "f636ecfcc6d5962e2c626ab8f0249c355964d787343b5a7e7b95726add2300e2",
+      "candidate_sha256": "ec63c21ad782703c6679ce5e1a7b8c5e8f610daeec8cdda224d166df945d0544"
+    },
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_setup": {
+      "baseline_sha256": "758a22e635803234f581f229c6daed8e2b078eac05f8d69f3aeca0e9d978b4fe",
+      "candidate_sha256": "44f0c93b5eb1380fd237fe9a3fbbd604bb8b60181923a6f3e78c0dffa501fc3f"
+    },
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_sync.conf": {
+      "baseline_sha256": "ab4fa98cd44b6cae9fa2127a37ce650bfd9f3b684567de5dba468a915589a6e8",
+      "candidate_sha256": "5bdcfed4cdfe506e1be1cbb0161ea244ef4d9bb5617168d206eb3fc8b3568be2"
+    },
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_sync.conf.defaults": {
+      "baseline_sha256": "d19020c584de7d5f12e1fe7d28df06b11488a8857f35d92771bc5a558b48d4ba",
+      "candidate_sha256": "0ff36d8e0e0988e59a0e6655c251c5050d2891481c587724e59d6813f33550e6"
+    },
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_sync_helper": {
+      "baseline_sha256": "3c7738648fe946c74d2c8e9d38fc5e7529f6f41a831a6c546c84765891f26385",
+      "candidate_sha256": "3c7738648fe946c74d2c8e9d38fc5e7529f6f41a831a6c546c84765891f26385"
+    },
+    "projects/ROCKNIX/packages/textproc/textviewer/package.mk": {
+      "baseline_sha256": "9d847dfed6baf89e99ee8a5911e9ace336e51ee4fb8390506cb6c211745352b1",
+      "candidate_sha256": "9d847dfed6baf89e99ee8a5911e9ace336e51ee4fb8390506cb6c211745352b1"
+    },
+    "projects/ROCKNIX/packages/tools/inputplumber/package.mk": {
+      "baseline_sha256": "bf5e04335136bab1807f03e7e2c7b037d79cd114712a7314d7ed21d837fbca14",
+      "candidate_sha256": "bf5e04335136bab1807f03e7e2c7b037d79cd114712a7314d7ed21d837fbca14"
+    },
+    "projects/ROCKNIX/packages/tools/rocknix-abl/package.mk": {
+      "baseline_sha256": "de789f38a8a9067cf5f30b0aa2b6af6cdf722756527a60848275d3e582da61dd",
+      "candidate_sha256": "de789f38a8a9067cf5f30b0aa2b6af6cdf722756527a60848275d3e582da61dd"
+    },
+    "projects/ROCKNIX/packages/tools/rocknix-splash/package.mk": {
+      "baseline_sha256": "a5e0ade974561a91743a34ad1182e0d09690df70be352d63d6ea66e1ca1d8bd0",
+      "candidate_sha256": "3e5bae773734d8c1438157174c65b04da43f60ebce66627b6e9be6e02ce2ab4b"
+    },
+    "projects/ROCKNIX/packages/tools/sound/soundfont-generaluser/package.mk": {
+      "baseline_sha256": "02cda9c40508f666a23805f7340db005dea073a48a03017a680e751e0364a941",
+      "candidate_sha256": "02cda9c40508f666a23805f7340db005dea073a48a03017a680e751e0364a941"
+    },
+    "projects/ROCKNIX/packages/virtual/arm/package.mk": {
+      "baseline_sha256": "f49a1b3e3c551494898d6ae44453d642ef5f3d9bca653ae119a716a35ef3b8a3",
+      "candidate_sha256": "f49a1b3e3c551494898d6ae44453d642ef5f3d9bca653ae119a716a35ef3b8a3"
+    },
+    "scripts/update_packages": {
+      "baseline_sha256": "4af9b4f6b536e5149dc3ff547e9cea212b1b4cbf55612342e26a27306ec67ba1",
+      "candidate_sha256": "4af9b4f6b536e5149dc3ff547e9cea212b1b4cbf55612342e26a27306ec67ba1"
+    }
+  },
+  "rows": [
+    {
+      "id": 1,
+      "path": "distributions/ROCKNIX/options",
+      "baseline_line": 186,
+      "baseline_text": "DISTRO_MIRROR=\"https://github.com/ROCKNIX/distribution-sources/releases/download/sources-v2\"",
+      "disposition": "KEEP_UPSTREAM_URL",
+      "reason": "Upstream package/source attribution or download location; not a player cloud path.",
+      "candidate_matches": [
+        {
+          "line": 186,
+          "text": "DISTRO_MIRROR=\"https://github.com/ROCKNIX/distribution-sources/releases/download/sources-v2\""
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "path": "projects/ROCKNIX/bootloader/install",
+      "baseline_line": 53,
+      "baseline_text": "# projects/ROCKNIX/bootloader/mkimage's mkimage_abl() mcopies the",
+      "disposition": "KEEP_BUILD_PATH",
+      "reason": "Build-system project/directory reference retained by D-WORKFLOW-123; not a cloud destination.",
+      "candidate_matches": [
+        {
+          "line": 53,
+          "text": "# projects/ROCKNIX/bootloader/mkimage's mkimage_abl() mcopies the"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "path": "projects/ROCKNIX/config.xml",
+      "baseline_line": 48,
+      "baseline_text": "<!-- see projects/ROCKNIX/devices/RK3326/packages/u-boot/package.mk, function generate_custom_extlinux_conf_files -->",
+      "disposition": "KEEP_BUILD_PATH",
+      "reason": "Build-system project/directory reference retained by D-WORKFLOW-123; not a cloud destination.",
+      "candidate_matches": [
+        {
+          "line": 48,
+          "text": "<!-- see projects/ROCKNIX/devices/RK3326/packages/u-boot/package.mk, function generate_custom_extlinux_conf_files -->"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "path": "projects/ROCKNIX/devices/RK3326/packages/u-boot-legacy/package.mk",
+      "baseline_line": 9,
+      "baseline_text": "PKG_URL=\"https://github.com/ROCKNIX/hardkernel-uboot/archive/${PKG_VERSION}.tar.gz\"",
+      "disposition": "KEEP_UPSTREAM_URL",
+      "reason": "Upstream package/source attribution or download location; not a player cloud path.",
+      "candidate_matches": [
+        {
+          "line": 9,
+          "text": "PKG_URL=\"https://github.com/ROCKNIX/hardkernel-uboot/archive/${PKG_VERSION}.tar.gz\""
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "path": "projects/ROCKNIX/devices/RK3588/packages/u-boot/package.mk",
+      "baseline_line": 9,
+      "baseline_text": "PKG_URL=\"https://github.com/ROCKNIX/rk3588-uboot/archive/${PKG_VERSION}.tar.gz\"",
+      "disposition": "KEEP_UPSTREAM_URL",
+      "reason": "Upstream package/source attribution or download location; not a player cloud path.",
+      "candidate_matches": [
+        {
+          "line": 9,
+          "text": "PKG_URL=\"https://github.com/ROCKNIX/rk3588-uboot/archive/${PKG_VERSION}.tar.gz\""
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "path": "projects/ROCKNIX/devices/S922X/packages/u-boot/package.mk",
+      "baseline_line": 10,
+      "baseline_text": "PKG_URL=\"https://github.com/ROCKNIX/u-boot/archive/${PKG_VERSION}.tar.gz\"",
+      "disposition": "KEEP_UPSTREAM_URL",
+      "reason": "Upstream package/source attribution or download location; not a player cloud path.",
+      "candidate_matches": [
+        {
+          "line": 10,
+          "text": "PKG_URL=\"https://github.com/ROCKNIX/u-boot/archive/${PKG_VERSION}.tar.gz\""
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "path": "projects/ROCKNIX/packages/apps/commander/package.mk",
+      "baseline_line": 8,
+      "baseline_text": "PKG_SITE=\"https://github.com/ROCKNIX/commander\"",
+      "disposition": "KEEP_UPSTREAM_URL",
+      "reason": "Upstream package/source attribution or download location; not a player cloud path.",
+      "candidate_matches": [
+        {
+          "line": 8,
+          "text": "PKG_SITE=\"https://github.com/ROCKNIX/commander\""
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "path": "projects/ROCKNIX/packages/apps/jstest-sdl/package.mk",
+      "baseline_line": 9,
+      "baseline_text": "PKG_SITE=\"https://github.com/ROCKNIX/jstest-sdl\"",
+      "disposition": "KEEP_UPSTREAM_URL",
+      "reason": "Upstream package/source attribution or download location; not a player cloud path.",
+      "candidate_matches": [
+        {
+          "line": 9,
+          "text": "PKG_SITE=\"https://github.com/ROCKNIX/jstest-sdl\""
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "path": "projects/ROCKNIX/packages/apps/portmaster/package.mk",
+      "baseline_line": 14,
+      "baseline_text": "COMPAT_URL=\"https://github.com/ROCKNIX/packages/raw/main/compat.tar.gz\" #f0f5e94",
+      "disposition": "KEEP_UPSTREAM_URL",
+      "reason": "Upstream package/source attribution or download location; not a player cloud path.",
+      "candidate_matches": [
+        {
+          "line": 14,
+          "text": "COMPAT_URL=\"https://github.com/ROCKNIX/packages/raw/main/compat.tar.gz\" #f0f5e94"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "path": "projects/ROCKNIX/packages/apps/rocknix-hotkey/package.mk",
+      "baseline_line": 8,
+      "baseline_text": "PKG_SITE=\"https://github.com/ROCKNIX/rocknix-hotkey\"",
+      "disposition": "KEEP_UPSTREAM_URL",
+      "reason": "Upstream package/source attribution or download location; not a player cloud path.",
+      "candidate_matches": [
+        {
+          "line": 8,
+          "text": "PKG_SITE=\"https://github.com/ROCKNIX/rocknix-hotkey\""
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "path": "projects/ROCKNIX/packages/compress/cabextract/package.mk",
+      "baseline_line": 9,
+      "baseline_text": "PKG_URL=\"https://github.com/ROCKNIX/packages/raw/main/cabextract.tar.xz\"",
+      "disposition": "KEEP_UPSTREAM_URL",
+      "reason": "Upstream package/source attribution or download location; not a player cloud path.",
+      "candidate_matches": [
+        {
+          "line": 9,
+          "text": "PKG_URL=\"https://github.com/ROCKNIX/packages/raw/main/cabextract.tar.xz\""
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "path": "projects/ROCKNIX/packages/emulators/libretro/idtech-lr/package.mk",
+      "baseline_line": 12,
+      "baseline_text": "PKG_DOOM_SHAREWARE=\"https://github.com/ROCKNIX/packages/raw/main/doom.tar.gz\"",
+      "disposition": "KEEP_UPSTREAM_URL",
+      "reason": "Upstream package/source attribution or download location; not a player cloud path.",
+      "candidate_matches": [
+        {
+          "line": 12,
+          "text": "PKG_DOOM_SHAREWARE=\"https://github.com/ROCKNIX/packages/raw/main/doom.tar.gz\""
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "path": "projects/ROCKNIX/packages/emulators/standalone/aethersx2-sa/package.mk",
+      "baseline_line": 8,
+      "baseline_text": "PKG_SITE=\"https://github.com/ROCKNIX/packages\"",
+      "disposition": "KEEP_UPSTREAM_URL",
+      "reason": "Upstream package/source attribution or download location; not a player cloud path.",
+      "candidate_matches": [
+        {
+          "line": 8,
+          "text": "PKG_SITE=\"https://github.com/ROCKNIX/packages\""
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "path": "projects/ROCKNIX/packages/emulators/standalone/drastic-sa/package.mk",
+      "baseline_line": 8,
+      "baseline_text": "PKG_URL=\"https://github.com/ROCKNIX/packages/raw/main/drastic.tar.gz\"",
+      "disposition": "KEEP_UPSTREAM_URL",
+      "reason": "Upstream package/source attribution or download location; not a player cloud path.",
+      "candidate_matches": [
+        {
+          "line": 8,
+          "text": "PKG_URL=\"https://github.com/ROCKNIX/packages/raw/main/drastic.tar.gz\""
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "path": "projects/ROCKNIX/packages/graphics/libmali/package.mk",
+      "baseline_line": 8,
+      "baseline_text": "PKG_SITE=\"https://github.com/ROCKNIX/libmali\"",
+      "disposition": "KEEP_UPSTREAM_URL",
+      "reason": "Upstream package/source attribution or download location; not a player cloud path.",
+      "candidate_matches": [
+        {
+          "line": 8,
+          "text": "PKG_SITE=\"https://github.com/ROCKNIX/libmali\""
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "path": "projects/ROCKNIX/packages/linux-drivers/chipone_tddi/package.mk",
+      "baseline_line": 8,
+      "baseline_text": "PKG_SITE=\"https://github.com/ROCKNIX/chipone_tddi\"",
+      "disposition": "KEEP_UPSTREAM_URL",
+      "reason": "Upstream package/source attribution or download location; not a player cloud path.",
+      "candidate_matches": [
+        {
+          "line": 8,
+          "text": "PKG_SITE=\"https://github.com/ROCKNIX/chipone_tddi\""
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "path": "projects/ROCKNIX/packages/linux-drivers/rocknix-joypad/package.mk",
+      "baseline_line": 8,
+      "baseline_text": "PKG_SITE=\"https://github.com/ROCKNIX/rocknix-joypad\"",
+      "disposition": "KEEP_UPSTREAM_URL",
+      "reason": "Upstream package/source attribution or download location; not a player cloud path.",
+      "candidate_matches": [
+        {
+          "line": 8,
+          "text": "PKG_SITE=\"https://github.com/ROCKNIX/rocknix-joypad\""
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "path": "projects/ROCKNIX/packages/linux-firmware/extra-firmware/package.mk",
+      "baseline_line": 8,
+      "baseline_text": "PKG_SITE=\"https://github.com/ROCKNIX/extra-firmware\"",
+      "disposition": "KEEP_UPSTREAM_URL",
+      "reason": "Upstream package/source attribution or download location; not a player cloud path.",
+      "candidate_matches": [
+        {
+          "line": 8,
+          "text": "PKG_SITE=\"https://github.com/ROCKNIX/extra-firmware\""
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "path": "projects/ROCKNIX/packages/linux-firmware/extra-firmware/package.mk",
+      "baseline_line": 9,
+      "baseline_text": "PKG_URL=\"https://github.com/ROCKNIX/extra-firmware/archive/${PKG_VERSION}.tar.gz\"",
+      "disposition": "KEEP_UPSTREAM_URL",
+      "reason": "Upstream package/source attribution or download location; not a player cloud path.",
+      "candidate_matches": [
+        {
+          "line": 9,
+          "text": "PKG_URL=\"https://github.com/ROCKNIX/extra-firmware/archive/${PKG_VERSION}.tar.gz\""
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_migrate_layout",
+      "baseline_line": 16,
+      "baseline_text": "# The default has been /ROCKNIX/Saves and /ROCKNIX/Backups since b35c5832b1,",
+      "disposition": "KEEP_LEGACY_COMMENT",
+      "reason": "Historical layout or migration/normalization example; not a current default.",
+      "candidate_matches": [
+        {
+          "line": 16,
+          "text": "# The default has been /ROCKNIX/Saves and /ROCKNIX/Backups since b35c5832b1,"
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_migrate_layout",
+      "baseline_line": 33,
+      "baseline_text": "NEW_SAVES=\"/ROCKNIX/Saves\"",
+      "disposition": "CHANGED_CURRENT_DEFAULT",
+      "reason": "Current default/destination uses /pixelelated under D-CLOUD-174.",
+      "candidate_matches": [
+        {
+          "line": 57,
+          "text": "NEW_SAVES=\"/pixelelated/Saves\""
+        }
+      ],
+      "history": [
+        "48c2df30a971a095627a6c0ed81d400f2cd6936d rclone: /Rasteratops is the cloud folder; the layout as facts, a kept folder, the fleet followed (#353, #356)",
+        "2233a981142efe9670abf6ee24450f73aebad48b cloud-sync: move devices off the mirror default, and off the old layout"
+      ]
+    },
+    {
+      "id": 22,
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_migrate_layout",
+      "baseline_line": 34,
+      "baseline_text": "NEW_BACKUPS=\"/ROCKNIX/Backups\"",
+      "disposition": "CHANGED_CURRENT_DEFAULT",
+      "reason": "Current default/destination uses /pixelelated under D-CLOUD-174.",
+      "candidate_matches": [
+        {
+          "line": 58,
+          "text": "NEW_BACKUPS=\"/pixelelated/Backups\""
+        }
+      ],
+      "history": [
+        "48c2df30a971a095627a6c0ed81d400f2cd6936d rclone: /Rasteratops is the cloud folder; the layout as facts, a kept folder, the fleet followed (#353, #356)",
+        "2233a981142efe9670abf6ee24450f73aebad48b cloud-sync: move devices off the mirror default, and off the old layout"
+      ]
+    },
+    {
+      "id": 23,
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_migrate_layout",
+      "baseline_line": 35,
+      "baseline_text": "NEW_CONTENT=\"/ROCKNIX/Content\"",
+      "disposition": "CHANGED_CURRENT_DEFAULT",
+      "reason": "Current default/destination uses /pixelelated under D-CLOUD-174.",
+      "candidate_matches": [
+        {
+          "line": 59,
+          "text": "NEW_CONTENT=\"/pixelelated/Content\""
+        }
+      ],
+      "history": [
+        "48c2df30a971a095627a6c0ed81d400f2cd6936d rclone: /Rasteratops is the cloud folder; the layout as facts, a kept folder, the fleet followed (#353, #356)",
+        "6717e0b34890f472eeffb2187cc2cea51553706a cloud_migrate_layout: ROMs move with the saves they belong to"
+      ]
+    },
+    {
+      "id": 24,
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_migrate_layout",
+      "baseline_line": 103,
+      "baseline_text": "# raw string with /ROCKNIX/Saves, so SAVES_REMOTE=\"/ROCKNIX/Saves/\" -- a",
+      "disposition": "KEEP_LEGACY_COMMENT",
+      "reason": "Historical layout or migration/normalization example; not a current default.",
+      "candidate_matches": [
+        {
+          "line": 216,
+          "text": "# raw string with /ROCKNIX/Saves, so SAVES_REMOTE=\"/ROCKNIX/Saves/\" -- a"
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_migrate_layout",
+      "baseline_line": 376,
+      "baseline_text": "# A destination inside the source -- a saves folder at /ROCKNIX moving",
+      "disposition": "KEEP_LEGACY_COMMENT",
+      "reason": "Historical layout or migration/normalization example; not a current default.",
+      "candidate_matches": [
+        {
+          "line": 509,
+          "text": "# A destination inside the source -- a saves folder at /ROCKNIX moving"
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_migrate_layout",
+      "baseline_line": 377,
+      "baseline_text": "# to /ROCKNIX/Saves -- is never listed as the source's own: a run cut",
+      "disposition": "KEEP_LEGACY_COMMENT",
+      "reason": "Historical layout or migration/normalization example; not a current default.",
+      "candidate_matches": [
+        {
+          "line": 510,
+          "text": "# to /ROCKNIX/Saves -- is never listed as the source's own: a run cut"
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_migrate_layout",
+      "baseline_line": 379,
+      "baseline_text": "# into /ROCKNIX/Saves/Saves (PL-001, found with the spelling cases).",
+      "disposition": "KEEP_LEGACY_COMMENT",
+      "reason": "Historical layout or migration/normalization example; not a current default.",
+      "candidate_matches": [
+        {
+          "line": 512,
+          "text": "# into /ROCKNIX/Saves/Saves (PL-001, found with the spelling cases)."
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_migrate_layout",
+      "baseline_line": 479,
+      "baseline_text": "# to /ROCKNIX and left CONTENT_REMOTE behind, so a migrated device looked for its",
+      "disposition": "KEEP_LEGACY_COMMENT",
+      "reason": "Historical layout or migration/normalization example; not a current default.",
+      "candidate_matches": [
+        {
+          "line": 734,
+          "text": "# to /ROCKNIX and left CONTENT_REMOTE behind, so a migrated device looked for its"
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_migrate_layout",
+      "baseline_line": 573,
+      "baseline_text": "# holds /rocknix/saves and /ROCKNIX/Saves as two folders. One that folds",
+      "disposition": "KEEP_LEGACY_COMMENT",
+      "reason": "Historical layout or migration/normalization example; not a current default.",
+      "candidate_matches": [
+        {
+          "line": 1220,
+          "text": "# holds /rocknix/saves and /ROCKNIX/Saves as two folders. One that folds"
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_migrate_layout",
+      "baseline_line": 587,
+      "baseline_text": "# /ROCKNIX/Old/../Saves to /ROCKNIX/Saves -- so a layout holding one is",
+      "disposition": "KEEP_LEGACY_COMMENT",
+      "reason": "Historical layout or migration/normalization example; not a current default.",
+      "candidate_matches": [
+        {
+          "line": 1234,
+          "text": "# /ROCKNIX/Old/../Saves to /ROCKNIX/Saves -- so a layout holding one is"
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_migrate_layout",
+      "baseline_line": 604,
+      "baseline_text": "# has nothing to migrate. Until 2026-09-11 only the /ROCKNIX names counted",
+      "disposition": "KEEP_LEGACY_COMMENT",
+      "reason": "Historical layout or migration/normalization example; not a current default.",
+      "candidate_matches": [
+        {
+          "line": 1257,
+          "text": "# has nothing to migrate. Until 2026-09-11 only the /ROCKNIX names counted"
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_migrate_layout",
+      "baseline_line": 755,
+      "baseline_text": "# /ROCKNIX derives /ROCKNIX/Content, the new folder itself, which the",
+      "disposition": "KEEP_LEGACY_COMMENT",
+      "reason": "Historical layout or migration/normalization example; not a current default.",
+      "candidate_matches": [
+        {
+          "line": 1544,
+          "text": "# /ROCKNIX derives /ROCKNIX/Content, the new folder itself, which the"
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_restore",
+      "baseline_line": 1702,
+      "baseline_text": "# only the parent: /ROCKNIX/Savez has a present parent and got the",
+      "disposition": "KEEP_LEGACY_COMMENT",
+      "reason": "Historical layout or migration/normalization example; not a current default.",
+      "candidate_matches": [
+        {
+          "line": 1719,
+          "text": "# only the parent: /ROCKNIX/Savez has a present parent and got the"
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_setup",
+      "baseline_line": 693,
+      "baseline_text": "SAVES=\"${SAVES_REMOTE:-/ROCKNIX/Saves}\"",
+      "disposition": "CHANGED_CURRENT_DEFAULT",
+      "reason": "Current default/destination uses /pixelelated under D-CLOUD-174.",
+      "candidate_matches": [
+        {
+          "line": 829,
+          "text": "SAVES=\"${SAVES_REMOTE:-/pixelelated/Saves}\""
+        }
+      ],
+      "history": [
+        "48c2df30a971a095627a6c0ed81d400f2cd6936d rclone: /Rasteratops is the cloud folder; the layout as facts, a kept folder, the fleet followed (#353, #356)",
+        "24dce33f23a63ad9788b0a8709e0926060ab9497 cloud-sync: one vocabulary \u2014 settings, saves, ROMs and BIOS (#73, D-UI-022)"
+      ]
+    },
+    {
+      "id": 35,
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_setup",
+      "baseline_line": 694,
+      "baseline_text": "BACKUPS=\"${SETTINGS_REMOTE:-/ROCKNIX/Backups}\"",
+      "disposition": "CHANGED_CURRENT_DEFAULT",
+      "reason": "Current default/destination uses /pixelelated under D-CLOUD-174.",
+      "candidate_matches": [
+        {
+          "line": 830,
+          "text": "BACKUPS=\"${SETTINGS_REMOTE:-/pixelelated/Backups}\""
+        }
+      ],
+      "history": [
+        "48c2df30a971a095627a6c0ed81d400f2cd6936d rclone: /Rasteratops is the cloud folder; the layout as facts, a kept folder, the fleet followed (#353, #356)",
+        "24dce33f23a63ad9788b0a8709e0926060ab9497 cloud-sync: one vocabulary \u2014 settings, saves, ROMs and BIOS (#73, D-UI-022)"
+      ]
+    },
+    {
+      "id": 36,
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_setup",
+      "baseline_line": 702,
+      "baseline_text": "CONTENT=\"/ROCKNIX/Content\"",
+      "disposition": "CHANGED_CURRENT_DEFAULT",
+      "reason": "Current default/destination uses /pixelelated under D-CLOUD-174.",
+      "candidate_matches": [
+        {
+          "line": 838,
+          "text": "CONTENT=\"/pixelelated/Content\""
+        }
+      ],
+      "history": [
+        "48c2df30a971a095627a6c0ed81d400f2cd6936d rclone: /Rasteratops is the cloud folder; the layout as facts, a kept folder, the fleet followed (#353, #356)",
+        "7d17396c685f6c453fa69f2568f520e6d1e727eb cloud_setup: an empty CONTENT_REMOTE seeds the root, as it means"
+      ]
+    },
+    {
+      "id": 37,
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_sync.conf",
+      "baseline_line": 30,
+      "baseline_text": "SAVES_REMOTE=\"/ROCKNIX/Saves\"",
+      "disposition": "CHANGED_CURRENT_DEFAULT",
+      "reason": "Current default/destination uses /pixelelated under D-CLOUD-174.",
+      "candidate_matches": [
+        {
+          "line": 30,
+          "text": "SAVES_REMOTE=\"/pixelelated/Saves\""
+        }
+      ],
+      "history": [
+        "48c2df30a971a095627a6c0ed81d400f2cd6936d rclone: /Rasteratops is the cloud folder; the layout as facts, a kept folder, the fleet followed (#353, #356)",
+        "24dce33f23a63ad9788b0a8709e0926060ab9497 cloud-sync: one vocabulary \u2014 settings, saves, ROMs and BIOS (#73, D-UI-022)"
+      ]
+    },
+    {
+      "id": 38,
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_sync.conf",
+      "baseline_line": 34,
+      "baseline_text": "SETTINGS_REMOTE=\"/ROCKNIX/Backups\"",
+      "disposition": "CHANGED_CURRENT_DEFAULT",
+      "reason": "Current default/destination uses /pixelelated under D-CLOUD-174.",
+      "candidate_matches": [
+        {
+          "line": 34,
+          "text": "SETTINGS_REMOTE=\"/pixelelated/Backups\""
+        }
+      ],
+      "history": [
+        "48c2df30a971a095627a6c0ed81d400f2cd6936d rclone: /Rasteratops is the cloud folder; the layout as facts, a kept folder, the fleet followed (#353, #356)",
+        "24dce33f23a63ad9788b0a8709e0926060ab9497 cloud-sync: one vocabulary \u2014 settings, saves, ROMs and BIOS (#73, D-UI-022)"
+      ]
+    },
+    {
+      "id": 39,
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_sync.conf",
+      "baseline_line": 46,
+      "baseline_text": "CONTENT_REMOTE=\"/ROCKNIX/Content\"",
+      "disposition": "CHANGED_CURRENT_DEFAULT",
+      "reason": "Current default/destination uses /pixelelated under D-CLOUD-174.",
+      "candidate_matches": [
+        {
+          "line": 46,
+          "text": "CONTENT_REMOTE=\"/pixelelated/Content\""
+        }
+      ],
+      "history": [
+        "48c2df30a971a095627a6c0ed81d400f2cd6936d rclone: /Rasteratops is the cloud folder; the layout as facts, a kept folder, the fleet followed (#353, #356)",
+        "24dce33f23a63ad9788b0a8709e0926060ab9497 cloud-sync: one vocabulary \u2014 settings, saves, ROMs and BIOS (#73, D-UI-022)"
+      ]
+    },
+    {
+      "id": 40,
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_sync.conf.defaults",
+      "baseline_line": 30,
+      "baseline_text": "DEFAULT_SAVES_REMOTE=\"/ROCKNIX/Saves\"",
+      "disposition": "CHANGED_CURRENT_DEFAULT",
+      "reason": "Current default/destination uses /pixelelated under D-CLOUD-174.",
+      "candidate_matches": [
+        {
+          "line": 30,
+          "text": "DEFAULT_SAVES_REMOTE=\"/pixelelated/Saves\""
+        }
+      ],
+      "history": [
+        "48c2df30a971a095627a6c0ed81d400f2cd6936d rclone: /Rasteratops is the cloud folder; the layout as facts, a kept folder, the fleet followed (#353, #356)",
+        "24dce33f23a63ad9788b0a8709e0926060ab9497 cloud-sync: one vocabulary \u2014 settings, saves, ROMs and BIOS (#73, D-UI-022)"
+      ]
+    },
+    {
+      "id": 41,
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_sync.conf.defaults",
+      "baseline_line": 34,
+      "baseline_text": "DEFAULT_SETTINGS_REMOTE=\"/ROCKNIX/Backups\"",
+      "disposition": "CHANGED_CURRENT_DEFAULT",
+      "reason": "Current default/destination uses /pixelelated under D-CLOUD-174.",
+      "candidate_matches": [
+        {
+          "line": 34,
+          "text": "DEFAULT_SETTINGS_REMOTE=\"/pixelelated/Backups\""
+        }
+      ],
+      "history": [
+        "48c2df30a971a095627a6c0ed81d400f2cd6936d rclone: /Rasteratops is the cloud folder; the layout as facts, a kept folder, the fleet followed (#353, #356)",
+        "24dce33f23a63ad9788b0a8709e0926060ab9497 cloud-sync: one vocabulary \u2014 settings, saves, ROMs and BIOS (#73, D-UI-022)"
+      ]
+    },
+    {
+      "id": 42,
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_sync.conf.defaults",
+      "baseline_line": 46,
+      "baseline_text": "DEFAULT_CONTENT_REMOTE=\"/ROCKNIX/Content\"",
+      "disposition": "CHANGED_CURRENT_DEFAULT",
+      "reason": "Current default/destination uses /pixelelated under D-CLOUD-174.",
+      "candidate_matches": [
+        {
+          "line": 46,
+          "text": "DEFAULT_CONTENT_REMOTE=\"/pixelelated/Content\""
+        }
+      ],
+      "history": [
+        "48c2df30a971a095627a6c0ed81d400f2cd6936d rclone: /Rasteratops is the cloud folder; the layout as facts, a kept folder, the fleet followed (#353, #356)",
+        "24dce33f23a63ad9788b0a8709e0926060ab9497 cloud-sync: one vocabulary \u2014 settings, saves, ROMs and BIOS (#73, D-UI-022)"
+      ]
+    },
+    {
+      "id": 43,
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_sync_helper",
+      "baseline_line": 375,
+      "baseline_text": "# SAVES_REMOTE pointing at /ROCKNIX/Saves and silently stop syncing to",
+      "disposition": "KEEP_LEGACY_COMMENT",
+      "reason": "Historical layout or migration/normalization example; not a current default.",
+      "candidate_matches": [
+        {
+          "line": 375,
+          "text": "# SAVES_REMOTE pointing at /ROCKNIX/Saves and silently stop syncing to"
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_sync_helper",
+      "baseline_line": 469,
+      "baseline_text": "# up before the /ROCKNIX layout. Adding the literal default would put",
+      "disposition": "KEEP_LEGACY_COMMENT",
+      "reason": "Historical layout or migration/normalization example; not a current default.",
+      "candidate_matches": [
+        {
+          "line": 469,
+          "text": "# up before the /ROCKNIX layout. Adding the literal default would put"
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "path": "projects/ROCKNIX/packages/textproc/textviewer/package.mk",
+      "baseline_line": 8,
+      "baseline_text": "PKG_SITE=\"https://github.com/ROCKNIX/TvTextViewer\"",
+      "disposition": "KEEP_UPSTREAM_URL",
+      "reason": "Upstream package/source attribution or download location; not a player cloud path.",
+      "candidate_matches": [
+        {
+          "line": 8,
+          "text": "PKG_SITE=\"https://github.com/ROCKNIX/TvTextViewer\""
+        }
+      ]
+    },
+    {
+      "id": 46,
+      "path": "projects/ROCKNIX/packages/tools/inputplumber/package.mk",
+      "baseline_line": 15,
+      "baseline_text": "# Our own configs (projects/ROCKNIX/devices/*/filesystem/usr/share/inputplumber)",
+      "disposition": "KEEP_BUILD_PATH",
+      "reason": "Build-system project/directory reference retained by D-WORKFLOW-123; not a cloud destination.",
+      "candidate_matches": [
+        {
+          "line": 15,
+          "text": "# Our own configs (projects/ROCKNIX/devices/*/filesystem/usr/share/inputplumber)"
+        }
+      ]
+    },
+    {
+      "id": 47,
+      "path": "projects/ROCKNIX/packages/tools/rocknix-abl/package.mk",
+      "baseline_line": 7,
+      "baseline_text": "PKG_SITE=\"https://github.com/ROCKNIX/abl\"",
+      "disposition": "KEEP_UPSTREAM_URL",
+      "reason": "Upstream package/source attribution or download location; not a player cloud path.",
+      "candidate_matches": [
+        {
+          "line": 7,
+          "text": "PKG_SITE=\"https://github.com/ROCKNIX/abl\""
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "path": "projects/ROCKNIX/packages/tools/rocknix-abl/package.mk",
+      "baseline_line": 8,
+      "baseline_text": "PKG_URL=\"https://github.com/ROCKNIX/abl/releases/download/v${PKG_VERSION}/rocknix-abl-v${PKG_VERSION}.tar.gz\"",
+      "disposition": "KEEP_UPSTREAM_URL",
+      "reason": "Upstream package/source attribution or download location; not a player cloud path.",
+      "candidate_matches": [
+        {
+          "line": 8,
+          "text": "PKG_URL=\"https://github.com/ROCKNIX/abl/releases/download/v${PKG_VERSION}/rocknix-abl-v${PKG_VERSION}.tar.gz\""
+        }
+      ]
+    },
+    {
+      "id": 49,
+      "path": "projects/ROCKNIX/packages/tools/rocknix-splash/package.mk",
+      "baseline_line": 9,
+      "baseline_text": "PKG_URL=\"https://github.com/ROCKNIX/${PKG_NAME}/archive/${PKG_VERSION}.tar.gz\"",
+      "disposition": "CHANGED_FORK_SOURCE",
+      "reason": "Fork-owned splash source moved to canonical pixelelated organization; not a player cloud folder.",
+      "candidate_matches": [
+        {
+          "line": 9,
+          "text": "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+        },
+        {
+          "line": 8,
+          "text": "PKG_SITE=\"https://github.com/pixelelated/splash\""
+        }
+      ],
+      "history": [
+        "3d7c075f63277506dffb65c41f23d23c14775faf identity: prepare Rasteratops 0.0.1 source inputs (#337, #383)",
+        "9f1fab30f6bbbc22c859b0cc5097b488466efefd projects: add modifications for ROCKNIX"
+      ]
+    },
+    {
+      "id": 50,
+      "path": "projects/ROCKNIX/packages/tools/sound/soundfont-generaluser/package.mk",
+      "baseline_line": 9,
+      "baseline_text": "PKG_URL=\"https://github.com/ROCKNIX/generaluser-gs/archive/${PKG_VERSION}.tar.gz\"",
+      "disposition": "KEEP_UPSTREAM_URL",
+      "reason": "Upstream package/source attribution or download location; not a player cloud path.",
+      "candidate_matches": [
+        {
+          "line": 9,
+          "text": "PKG_URL=\"https://github.com/ROCKNIX/generaluser-gs/archive/${PKG_VERSION}.tar.gz\""
+        }
+      ]
+    },
+    {
+      "id": 51,
+      "path": "projects/ROCKNIX/packages/virtual/arm/package.mk",
+      "baseline_line": 44,
+      "baseline_text": "EMUS_32BIT=$(ENABLE_32BIT=true bash -c \". ${ROOT}/projects/ROCKNIX/packages/virtual/emulators/package.mk; echo \\$EMUS_32BIT\")",
+      "disposition": "KEEP_BUILD_PATH",
+      "reason": "Build-system project/directory reference retained by D-WORKFLOW-123; not a cloud destination.",
+      "candidate_matches": [
+        {
+          "line": 44,
+          "text": "EMUS_32BIT=$(ENABLE_32BIT=true bash -c \". ${ROOT}/projects/ROCKNIX/packages/virtual/emulators/package.mk; echo \\$EMUS_32BIT\")"
+        }
+      ]
+    },
+    {
+      "id": 52,
+      "path": "scripts/update_packages",
+      "baseline_line": 7,
+      "baseline_text": "OPTIONS=\"distributions/ROCKNIX/options\"",
+      "disposition": "KEEP_BUILD_PATH",
+      "reason": "Build-system project/directory reference retained by D-WORKFLOW-123; not a cloud destination.",
+      "candidate_matches": [
+        {
+          "line": 7,
+          "text": "OPTIONS=\"distributions/ROCKNIX/options\""
+        }
+      ]
+    },
+    {
+      "id": 53,
+      "path": "scripts/update_packages",
+      "baseline_line": 8,
+      "baseline_text": "PACKAGES=(\"projects/ROCKNIX/packages/virtual/emulators/package.mk\" \\",
+      "disposition": "KEEP_BUILD_PATH",
+      "reason": "Build-system project/directory reference retained by D-WORKFLOW-123; not a cloud destination.",
+      "candidate_matches": [
+        {
+          "line": 8,
+          "text": "PACKAGES=(\"projects/ROCKNIX/packages/virtual/emulators/package.mk\" \\"
+        }
+      ]
+    },
+    {
+      "id": 54,
+      "path": "scripts/update_packages",
+      "baseline_line": 9,
+      "baseline_text": "\"projects/ROCKNIX/packages/virtual/es-themes/package.mk\" \\",
+      "disposition": "KEEP_BUILD_PATH",
+      "reason": "Build-system project/directory reference retained by D-WORKFLOW-123; not a cloud destination.",
+      "candidate_matches": [
+        {
+          "line": 9,
+          "text": "\"projects/ROCKNIX/packages/virtual/es-themes/package.mk\" \\"
+        }
+      ]
+    },
+    {
+      "id": 55,
+      "path": "scripts/update_packages",
+      "baseline_line": 10,
+      "baseline_text": "\"projects/ROCKNIX/packages/virtual/gamesupport/package.mk\" )",
+      "disposition": "KEEP_BUILD_PATH",
+      "reason": "Build-system project/directory reference retained by D-WORKFLOW-123; not a cloud destination.",
+      "candidate_matches": [
+        {
+          "line": 10,
+          "text": "\"projects/ROCKNIX/packages/virtual/gamesupport/package.mk\" )"
+        }
+      ]
+    },
+    {
+      "id": 56,
+      "path": "scripts/update_packages",
+      "baseline_line": 16,
+      "baseline_text": "PKG_PATH=\"./projects/ROCKNIX/packages\"",
+      "disposition": "KEEP_BUILD_PATH",
+      "reason": "Build-system project/directory reference retained by D-WORKFLOW-123; not a cloud destination.",
+      "candidate_matches": [
+        {
+          "line": 16,
+          "text": "PKG_PATH=\"./projects/ROCKNIX/packages\""
+        }
+      ]
+    }
+  ],
+  "scope": "Retrospective exact 56-entry reconciliation to candidate15 source. Not a claim that a new same-commit reconciliation existed at the old baseline; not a whole-image sweep."
+}

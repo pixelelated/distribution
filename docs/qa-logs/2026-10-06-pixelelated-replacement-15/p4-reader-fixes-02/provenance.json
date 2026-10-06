@@ -1,0 +1,9 @@
+{
+  "prepared_utc": "2026-10-06T20:51:56.150807+00:00",
+  "candidate_source": "ed5a6a51f5974deec8748fbf0dbd2f4984b690f5",
+  "prior_run": "/workspace/tmp/pixelelated-m7-p4-installed-fixes-01",
+  "reason": "Three malformed-config cases wrongly faulted local listremotes, preventing actual config parsing. Replacement observer logs actual operations, permits only local enumeration, requires exact malformed-config reason and has a real lsf negative control.",
+  "cases": 8,
+  "product_unchanged": true,
+  "qa_override": "Sealed copy of corrected coordination-tree fixture; original frozen QA input manifest stays intact. Only affected reader cases rerun."
+}
