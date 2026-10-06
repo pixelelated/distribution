@@ -1,0 +1,98 @@
+{
+  "reviewed_utc": "2026-10-06T20:42:47.375138+00:00",
+  "reviewer": "primary",
+  "method": "Directly viewed all ten original screenshots; no contact-sheet rendering used.",
+  "frames": [
+    {
+      "file": "artifacts/identity-upgrade/01-main-menu-identity.png",
+      "sha256": "e373d62dbf280c9253e82ed013b3ad14a5ab8e7ad674cef35089d816fc98b563",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "observation": "Lowercase pixelelated 0.0.1 (community) and navigable main menu."
+    },
+    {
+      "file": "artifacts/identity-upgrade/02-system-settings.png",
+      "sha256": "3b3650453522baa60857c6fcfa4850fa0a54a26a457bedd7eaa03e58ef607f60",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "observation": "System settings and Information entry legible at the actual viewport."
+    },
+    {
+      "file": "artifacts/identity-upgrade/03-information.png",
+      "sha256": "3c1cd1cb0f48edecbe4a2c84175108d6f094b52209e9e116adbe6ca897eb652d",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "observation": "Operating system pixelelated, 0.0.1, ed5a6a5 build/m7-pixelelated-replacement15 and Linux 7.1.2 x86_64 visible."
+    },
+    {
+      "file": "artifacts/identity-upgrade/04-updates.png",
+      "sha256": "a4c2ce482a2147622adc164463b64d15045c7bf3688ff5b1a3c092b8b66d8520",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "observation": "Manual Updates entry visible; no automatic update choice displayed."
+    },
+    {
+      "file": "artifacts/identity-upgrade/05-manual-update-message.png",
+      "sha256": "9ccf91daf2aa37621eca54b99cb7cfc59df6294b8956cf9fb55f9ef4f9e63747",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "observation": "Manual update instructions name github.com/pixelelated/distribution/releases. At 640px the address wraps across lines and remains readable; no guest network-silence claim."
+    },
+    {
+      "file": "artifacts/identity-upgrade-software/01-main-menu-identity.png",
+      "sha256": "f3e71baf9a4fe1bc9cab2bfe588adafa9cddf8f17b2f7ea4e9937df5a5441b00",
+      "dimensions": [
+        640,
+        480
+      ],
+      "observation": "Lowercase pixelelated 0.0.1 (community) and navigable main menu."
+    },
+    {
+      "file": "artifacts/identity-upgrade-software/02-system-settings.png",
+      "sha256": "7e1c008458a22c1e49e18a1b74096a9ce97bceca79d07e0f0ed189a6ca1186a7",
+      "dimensions": [
+        640,
+        480
+      ],
+      "observation": "System settings and Information entry legible at the actual viewport."
+    },
+    {
+      "file": "artifacts/identity-upgrade-software/03-information.png",
+      "sha256": "8030c95e2bd1e8d2d3b74b867c82ae390bcc6831c34bb4d8e8d23d5126e74603",
+      "dimensions": [
+        640,
+        480
+      ],
+      "observation": "Operating system pixelelated, 0.0.1, ed5a6a5 build/m7-pixelelated-replacement15 and Linux 7.1.2 x86_64 visible."
+    },
+    {
+      "file": "artifacts/identity-upgrade-software/04-updates.png",
+      "sha256": "6d881f74208d35d2714d3b3d9cfa0b56bf5be549ce0d9bd209bfbc525b792bb0",
+      "dimensions": [
+        640,
+        480
+      ],
+      "observation": "Manual Updates entry visible; no automatic update choice displayed."
+    },
+    {
+      "file": "artifacts/identity-upgrade-software/05-manual-update-message.png",
+      "sha256": "288c704f4d04660986a2d0df852c10ee645ba32091652f5f35e87dab3570e18c",
+      "dimensions": [
+        640,
+        480
+      ],
+      "observation": "Manual update instructions name github.com/pixelelated/distribution/releases. At 640px the address wraps across lines and remains readable; no guest network-silence claim."
+    }
+  ],
+  "scope": "Visible identity and manual-update presentation only; actual renderer and payload checked independently. Scrollable page content outside viewport is not claimed visible."
+}
