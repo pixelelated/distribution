@@ -1,0 +1,14 @@
+state:       finished
+written:     2026-10-06 18:49:11 UTC   <- terminal result; heartbeat stops here
+watcher_pid: 2993490
+job_pid:     2993489  alive=yes
+started:     2026-10-06 18:39:06 UTC
+progress:    none matched
+log:         /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261006T183906Z-138f56bd/build.log  (last written 605s ago)
+activity:    /tmp/pixelelated-m7-p4-fable-refutation-01/activity/facilitator.log  (last written 5s ago)
+activity_dir: /tmp/pixelelated-m7-p4-fable-refutation-01/activity
+outcome:     rc=0
+activity_progress: 
+tail:
+  attempt=1/4 transport=buffered http=200 model=anthropic/claude-fable-5.1 providers=["Anthropic"] effort=xhigh reasoning=36704 cont
+  ✓ claude success — wrote 20721b to claude-audit.md (provenance: claude-audit.md.provenance.json)

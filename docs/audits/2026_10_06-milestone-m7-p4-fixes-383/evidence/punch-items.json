@@ -1,0 +1,101 @@
+[
+  {
+    "id": "PL-001",
+    "severity": "High",
+    "category": "Acceptance Criteria Gap",
+    "source_finding": "F-01; B-01/B-02/R-01; I352-L32/L33/L44",
+    "owner_area": "cloud content discovery and ES chooser",
+    "title": "Recognize usable content and offer the actual legacy root",
+    "where": "projects/ROCKNIX/packages/network/rclone/sources/cloud_setup:490; cloud_content_restore:1235; ES es-app/src/guis/GuiMenu.cpp:5228",
+    "what": "Use the supported tiered/legacy membership rules consistently at named folders and the explicit cloud root. Distinguish unrelated folders, absent data and listing refusal. Make an actually discovered legacy root reachable in the scan-first flow. Preserve the approved automatic found-folder behavior and explicit-root/custom-path contracts.",
+    "evidence": "evidence/refutation-03: seven unchanged14 cases, three controls pass/four challenges fail; expected unrelated\u2192empty and explicit valid root\u2192ok, actual ok/empty respectively. reviewer-coverage-01 R01 finds root content but the actual scan reports cloud_bytes0.",
+    "acceptance": "A rebuilt candidate passes all seven original controls/challenges plus stranded legacy-root selection/scan, failed-listing refusal and supported-system/empty-local cases; retain cloud hashes/pointers and EN/FR640px chooser/options frames. A deliberately old-source control must reproduce the misses.",
+    "issue": 467
+  },
+  {
+    "id": "PL-002",
+    "source_finding": "G-03; B-07",
+    "category": "Interaction Defect",
+    "where": "projects/ROCKNIX/packages/network/rclone/sources/cloud_migrate_layout:656,878,922,948",
+    "acceptance": "Installed join/follow/settle with failures at every pointer-publication boundary either retain the entire old selection or recover the complete intended selection on retry; no false current state. Controls preserve custom content/root and nonempty backup tiers. Retain source/installed hashes, pointers and unchanged cloud bytes.",
+    "severity": "Medium",
+    "title": "Pointer-only transition failure can persist after successful retry",
+    "owner_area": "cloud layout/configuration and setup",
+    "what": "Publish intended pointer sets atomically or retain retryable intent; verify failure at each boundary and preserve independent/custom/nonempty tier choices.",
+    "evidence": "Refuse the SETTINGS_REMOTE write after SAVES_REMOTE lands. All three transitions exit1; retry returns3 without completing settings/content pointers. Follow/settle scan report current for the mixed defaults. Cloud bytes unchanged. Re-grade Low to Medium because the installed failure survives retry. Artifact: evidence/reviewer-leads-03/artifacts/B07-{join,follow,settle}-observation.json"
+  },
+  {
+    "id": "PL-003",
+    "source_finding": "G-01; B-05",
+    "category": "Interaction Defect",
+    "where": "projects/ROCKNIX/packages/network/rclone/sources/cloud_migrate_layout:819,1239",
+    "acceptance": "Two installed guests, one current and one KEEP on an earlier layout, leave the active earlier shelf in place and current state settled. The genuine recorded/inherited RC2 partial-migration recovery still completes all owned tiers without loss. Include unreadable-listing refusal and repeated scans.",
+    "severity": "Medium",
+    "title": "A current device treats a kept sibling discarded-save shelf as its unfinished move",
+    "owner_area": "cloud layout/configuration and setup",
+    "what": "Distinguish an active earlier-layout sibling from this device unfinished migration, while retaining real interrupted-RC2 shelf recovery.",
+    "evidence": "With current marker/layout and another guest explicitly keeping ROCKNIX, state reports migration-pending; apply moves and deletes that live sibling shelf. Bytes survive at the new location and live saves/pointers are preserved; no data-loss claim. Artifact: evidence/reviewer-leads-03/artifacts/B05-kept-sibling-observation.json"
+  },
+  {
+    "id": "PL-004",
+    "source_finding": "G-02; B-06",
+    "category": "Interaction Defect",
+    "where": "projects/ROCKNIX/packages/network/rclone/sources/cloud_migrate_layout:1015,1056,1185; cloud_setup:744; ES cloud-folder error/recovery flow",
+    "acceptance": "An installed interrupted migration survives harmless provider-config rewrites and ordinary token refresh; genuinely changed endpoint/root remains safely refused with a truthful reason and a supported recovery route. No record is silently rebound to another cloud and all partial copies/source data are retained. Old-record compatibility is explicitly proved.",
+    "severity": "Medium",
+    "title": "A harmless provider-config change strands a pending migration record",
+    "owner_area": "cloud layout/configuration and setup",
+    "what": "Preserve endpoint/root binding and partial data; support harmless rewrites and a truthful, safe recovery route for changed bindings without silently rebinding an old record.",
+    "evidence": "Adding only a comment after an actual interrupted copy makes state/apply/seed all return5. The token field remains excluded and restoring provider/root config permits verified resume. Intentional binding protects data; unsupported recovery/overbroad binding is the defect, not fail-closed refusal. Artifact: evidence/reviewer-leads-03/artifacts/B06-record-fingerprint-observation.json"
+  },
+  {
+    "id": "PL-005",
+    "severity": "Medium",
+    "category": "Interaction Defect",
+    "source_finding": "F-02; B-03/R-03; I356-L76/I363-L76",
+    "owner_area": "cloud scan/application outcomes and ES startup card",
+    "title": "Preserve truthful migration and timeout reasons",
+    "where": "projects/ROCKNIX/packages/network/rclone/sources/cloud_scan:93,163; cloud_migrate_layout:991; ES main.cpp:686; ThreadedCloudSync.cpp:80",
+    "what": "Keep migration application refusals separate from rclone transport return codes. Carry the true reason for unsupported/malformed layout, unreadable settings/record, failed writes and the outer scan timeout into the page/card.",
+    "evidence": "Retained UI26 reports a missing folder for a present unsupported marker; full marker/pointer manifests are unchanged. reviewer-coverage-01 R03 returns124 after30.229s without a why line, reaching ES generic fallback.",
+    "acceptance": "Installed future/malformed marker, config-read, record/write and outer-timeout challenges each stop safely, preserve state and emit the correct player reason. EN/FR640px page/card frames show those reasons; network refusal and genuine missing-folder controls remain distinct.",
+    "issue": 468
+  },
+  {
+    "id": "PL-006",
+    "source_finding": "G-05; B-14",
+    "category": "Acceptance Criteria Gap",
+    "where": "projects/ROCKNIX/packages/network/rclone/sources/cloud_setup:569; cloud_scan:243; ES GuiMenu.cpp:5256",
+    "acceptance": "Installed scan offers and successfully selects MyGames, My Games and Games..old, preserving cloud bytes and completing a content scan. A640px chooser frame and resulting options/selection frame prove the manual path. Traversal components, newlines and unsafe shell forms remain rejected with unchanged settings.",
+    "severity": "Medium",
+    "title": "Content chooser offers ordinary folder names that its setter rejects",
+    "owner_area": "cloud layout/configuration and setup",
+    "what": "Accept representable folder names, reject actual traversal components and unsafe syntax, and retain successful installed selection/scan and UI proof.",
+    "evidence": "Actual root scan offers MyGames, My Games and Games..old. Only MyGames can be selected; the other two return1 and retain the old path. No cloud mutation. Re-grade Low to Medium for an actual blocked selection of ordinary existing folders. Artifact: evidence/reviewer-leads-03/artifacts/B14-{control,space,dots}-observation.json"
+  },
+  {
+    "id": "PL-007",
+    "severity": "Medium",
+    "category": "Acceptance Criteria Gap",
+    "source_finding": "F-03; B-13; I351-L62; D-CLOUD-164",
+    "owner_area": "phone sign-in and native finishing surface",
+    "title": "Implement the required French phone confirmation and finishing text",
+    "where": "projects/ROCKNIX/packages/network/rclone/sources/cloud_oauth; cloud-signin-window.c",
+    "what": "Implement the explicitly approved phone-close confirmation and native finishing strings in French with an explicit locale source, preserving done-marker and queued reconnect-card behavior. Keep the current local mock-provider QA path.",
+    "evidence": "The standalone HTML literals have no French selection; ES gettext strings cannot translate them. D-CLOUD-164 explicitly includes both surfaces. Existing EN proofs do not establish FR behavior.",
+    "acceptance": "Installed EN/FR local-fixture proof retains390px phone confirmation and640px native finishing frames, correct locale text, persistence of finishing until the existing done marker and normal delayed reconnect-card dismissal. No Dropbox credential or additional account reset required.",
+    "issue": 469
+  },
+  {
+    "id": "PL-008",
+    "source_finding": "G-04; B-09; D-CLOUD-149",
+    "category": "Code Quality",
+    "where": "projects/ROCKNIX/packages/network/rclone/sources/cloud_scan:60; cloud_migrate_layout:160; cloud_setup:131",
+    "acceptance": "Installed state and full scan agree on every supported quoted/bare/escaped and duplicate-key fixture, including the escaped-dollar case; exported/malformed/control-character cases stop before listings or mutations. Keep first-assignment semantics and avoid evaluating config as shell.",
+    "severity": "Low",
+    "title": "Opening scan rejects a valid escaped config value accepted by the shared reader",
+    "owner_area": "cloud layout/configuration and setup",
+    "what": "Use the same supported non-executing configuration grammar and first-assignment semantics across readers; preserve malformed-input refusal.",
+    "evidence": "Strict state reads /Custom/My$Backups successfully from the escaped double-quoted assignment; full scan exits1 at SETTINGS BACKUPS. Unsupported export is safely rejected before any wrong-root scan. Artifact: evidence/reviewer-leads-03/artifacts/B09-escaped-observation.json"
+  }
+]

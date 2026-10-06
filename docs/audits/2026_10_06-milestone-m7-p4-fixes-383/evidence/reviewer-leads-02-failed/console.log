@@ -1,0 +1,39 @@
+watch-build: recording in /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261006T185035Z-7035f9b6
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/b77e47e57a4bb35f885ba78669ee8176a9ac978b27c1cbcfaad66e18f684a9f1
+up: a (pid 3046140, ssh :10022, serial /tmp/rocknix-qemu-serial.sock, mac 52:54:00:52:4E:58)
+up: b (pid 3046162, ssh :10023, serial /tmp/rocknix-qemu-serial-b.sock, mac 52:54:00:52:4E:59)
+ready: a on 7afa9efcfc over ssh :10022 (answered after 0s)
+ready: b on 7afa9efcfc over ssh :10023 (answered after 0s)
+up: webdav serving /workspace/tmp/pixelelated-m7-p4-reviewer-leads-02/proof/cloud/data at http://127.0.0.1:9040 (guest: http://10.0.2.2:9040)
+START B05-kept-sibling
+OBSERVED B05-kept-sibling
+START B06-record-fingerprint
+OBSERVED B06-record-fingerprint
+START B07-join
+OBSERVED B07-join
+START B07-follow
+OBSERVED B07-follow
+START B07-settle
+OBSERVED B07-settle
+START B09-export
+OBSERVED B09-export
+START B09-escaped
+OBSERVED B09-escaped
+START B14-control
+down: owned QEMU exited (pid 3046140)
+down: owned QEMU exited (pid 3046162)
+down
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-p4-reviewer-leads-02/probe.py", line 197, in <module>
+    code = proof.run_cases()
+  File "/workspace/tmp/pixelelated-m7-p4-reviewer-leads-02/probe.py", line 164, in run_cases
+    observation = action()
+  File "/workspace/tmp/pixelelated-m7-p4-reviewer-leads-02/probe.py", line 158, in <lambda>
+    cases += [('B14-' + label, lambda f=folder: self.chooser(f))
+                                                ~~~~~~~~~~~~^^^
+  File "/workspace/tmp/pixelelated-m7-p4-reviewer-leads-02/probe.py", line 143, in chooser
+    mod.require(scan['rc'] == 0, 'chooser pre-scan failed')
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tmp/pixelelated-m7-p4-reviewer-leads-02/boundaries.py", line 31, in require
+    raise AssertionError(message)
+AssertionError: chooser pre-scan failed

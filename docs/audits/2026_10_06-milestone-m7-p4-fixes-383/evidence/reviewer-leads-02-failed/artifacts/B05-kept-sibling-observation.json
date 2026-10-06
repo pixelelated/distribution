@@ -1,0 +1,53 @@
+{
+  "after": {
+    "cloud": {
+      "ROCKNIX/Saves/gb/kept.srm": "51ecd899257f59b44663dd2fcfeafea5409f0f1d97a8420f1468f321d51a185c",
+      "pixelelated/.layout": "be68d69fa1fe3ddbcaa9295b8e3e732fd0113d909e38cf643d95aab41c9b1a22",
+      "pixelelated/Saves-replaced/stamp/gb/older.srm": "d35790f359951bd512a8a7faedea528a4d108fac0a9f34ab9e4139589f304791",
+      "pixelelated/Saves/gb/current.srm": "1801145f200c89f7f49be05065267d026f4a6ef3cc1f00772eff6ea47eca939d"
+    },
+    "pointers": {
+      "CONTENT_REMOTE": "/pixelelated/Content",
+      "LAYOUT_KEEP": "",
+      "SAVES_REMOTE": "/pixelelated/Saves",
+      "SETTINGS_REMOTE": "/pixelelated/Backups"
+    }
+  },
+  "apply": {
+    "rc": 0,
+    "stderr": "",
+    "stdout": "This device stores:\n  saves    qa-cloud:/pixelelated/Saves\n  backups  qa-cloud:/pixelelated/Backups\n\nThe current layout is:\n  saves    qa-cloud:/pixelelated/Saves\n  backups  qa-cloud:/pixelelated/Backups\n\nWould move, server-side, leaving anything else where it is:\n  qa-cloud:/ROCKNIX/Saves-replaced  ->  qa-cloud:/pixelelated/Saves-replaced\n\n>>> unit DISCARDED SAVES|1|1\nCopying discarded saves...\n>>> doing copy\nTransferred:   \t         24 B / 24 B, 100%, 0 B/s, ETA -\nChecks:                 0 / 0, -, Listed 3\nTransferred:            1 / 1, 100%\nServer Side Copies:     1 @ 24 B\nElapsed time:         0.1s\nVerifying discarded saves...\n>>> doing verify\nRemoving the old discarded saves folder...\n>>> doing remove\n\nDone. Saves are at qa-cloud:/pixelelated/Saves, backups at qa-cloud:/pixelelated/Backups.\n"
+  },
+  "before": {
+    "cloud": {
+      "ROCKNIX/Saves-replaced/stamp/gb/older.srm": "d35790f359951bd512a8a7faedea528a4d108fac0a9f34ab9e4139589f304791",
+      "ROCKNIX/Saves/gb/kept.srm": "51ecd899257f59b44663dd2fcfeafea5409f0f1d97a8420f1468f321d51a185c",
+      "pixelelated/.layout": "be68d69fa1fe3ddbcaa9295b8e3e732fd0113d909e38cf643d95aab41c9b1a22",
+      "pixelelated/Saves/gb/current.srm": "1801145f200c89f7f49be05065267d026f4a6ef3cc1f00772eff6ea47eca939d"
+    },
+    "pointers": {
+      "CONTENT_REMOTE": "/pixelelated/Content",
+      "LAYOUT_KEEP": "",
+      "SAVES_REMOTE": "/pixelelated/Saves",
+      "SETTINGS_REMOTE": "/pixelelated/Backups"
+    }
+  },
+  "case": "B05-kept-sibling",
+  "kept_b": {
+    "CONTENT_REMOTE": "/ROCKNIX/Content",
+    "LAYOUT_KEEP": "/ROCKNIX/Saves",
+    "SAVES_REMOTE": "/ROCKNIX/Saves",
+    "SETTINGS_REMOTE": "/ROCKNIX/Backups"
+  },
+  "kept_b_after": {
+    "CONTENT_REMOTE": "/ROCKNIX/Content",
+    "LAYOUT_KEEP": "/ROCKNIX/Saves",
+    "SAVES_REMOTE": "/ROCKNIX/Saves",
+    "SETTINGS_REMOTE": "/ROCKNIX/Backups"
+  },
+  "state": {
+    "rc": 0,
+    "stderr": "",
+    "stdout": "SAVES=/pixelelated/Saves\nBACKUPS=/pixelelated/Backups\nCONTENT=/pixelelated/Content\nCURRENT=/pixelelated/Saves\nSOURCE=-\nCURRENT_EXISTS=1\nMARKER=layout=2\nSTATE=migration-pending\n"
+  }
+}

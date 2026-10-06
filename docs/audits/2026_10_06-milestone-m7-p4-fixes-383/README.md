@@ -1,4 +1,4 @@
-# M7 P4 fixes audit — independent review pending
+# M7 P4 fixes audit — review complete; eight fixes open
 
 The authorized primary audit is complete through Phase4.5. All261 forward
 criteria are recorded:204PASS,36PARTIAL,3FAIL,18SKIP. Independent entries were
@@ -6,16 +6,22 @@ completed before prior answers were opened;123prior criteria are compared.
 Phase3 covers30rules,74distinct blindspots and190supporting-history criteria.
 The latter are historical trust review, not190new test executions.
 
-Three product findings remain: #467 content recognition, #468 refusal reason
+Three primary product findings remain: #467 content recognition, #468 refusal reason
 and #469 French sign-in text. Refutation03 repeats the seven actual14 cases,
 3PASS/4FAIL expected, with no state changes and actual process/port cleanup.
 No product patch, new image or RC clearance exists.
 
-Phase4.6 awaits approval for the exact prepared source/spec/QA transfer through
-OpenRouter to Fable5.1/xhigh, blind then refutation. Automatic review refused
-the transfer before execution; authentication itself is restored. No external
-call or background build/VM/reviewer process is active. After approval, use a
-fresh sealed durable watcher and verify identity/effort/output provenance.
+Both approved external Fable5.1/xhigh calls completed and passed identity,
+effort, digest and actual-process cleanup checks. Both full responses were
+read and every item graded against primary evidence, including14 completed
+installed experiments. No command/guest is running. Raw results and failed
+attempts remain retained. See04 for the complete disposition tables.
+
+[Final punch list](05-punch-list.md) / [M7.P4 audit#471](https://github.com/pixelelated/distribution/issues/471):
+eight open product findings,1High/6Medium/1Low. Phase7 fixes and requalification
+are next. #470 adds explicit pre-issue artifact validation (17 CLI controls);
+default resolution still fails all eight open items. No completed-audit or RC
+claim. Existing milestone proof gaps and P5 work remain separate.
 
 - [Running log](00-running-log.md): stage timestamps and failed attempts.
 - [Research](01-research-notes.md): primary sources and exact frozen scope.
@@ -30,5 +36,5 @@ Frozen distribution7afa9efcfc0c1ce4b89774b38878fc1b9a9063d2;
 ESf6f0c134212bc696f2f6a747c8d390a588f2f0ce;
 bundleb77e47e57a4bb35f885ba78669ee8176a9ac978b27c1cbcfaad66e18f684a9f1.
 Qualified UI prerequisite:109assertions/23directly reviewed frames, allfour0.
-Phase5 final punch list and Phase6 tracker follow verified independent review;
-Phase7 fixes/requalification precede capacity#461 and device/P5 work.
+Phase5/6 are complete; Phase7 fixes/requalification precede capacity#461
+and device/P5 work.

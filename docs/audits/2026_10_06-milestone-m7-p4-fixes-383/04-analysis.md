@@ -1,5 +1,7 @@
 # Audit analysis — M7 P4 fixes (#383)
 
+**Audit tracker:** [M7.P4 #471](https://github.com/pixelelated/distribution/issues/471) — open; remediation required.
+
 **Date:** 2026-10-06
 **Spec:** inputs/scoped-criteria.json; M7/#383 current P4 gate
 **Commits:** distribution7afa9efcfc0c1ce4b89774b38878fc1b9a9063d2;
@@ -20,8 +22,8 @@ proofs are qualified. The old ROCKNIX build history does not establish that all
 these paths were previously sound; the audit distinguishes prior evidence,
 changed code, changed fixtures and new observations.
 
-The frozen candidate is **not RC-ready**. Three provisional product findings
-remain: content-folder classification prevents discovery of valid content,
+The frozen candidate is **not RC-ready**. Eight verified product findings now remain (three primary and five from
+independent review). The original three are: content-folder classification prevents discovery of valid content,
 unsupported-layout refusal uses a false missing-folder explanation, and the
 required phone/finishing French strings are not implemented. Precise missing
 measurements and stale active contract text also remain; they are not36 distinct
@@ -31,8 +33,8 @@ P4 closure and capacity review. No product bytes changed during this audit.
 Phase2 independently recorded261 criteria before opening prior answers. Phase2.5
 compared all123 previous criteria; Phase3 covers30 canonical rules,74 distinct
 blindspot entries and190 supporting-history criteria across55 issues. The
-planned independent reviewer is Anthropic Fable5.1/xhigh through the Facilitator,
-one external lab in two sequential calls. It has not yet been invoked. The token repair restored actual-host access at16:58UTC; the refutation repeat then completed on the build volume. External dispatch follows this settled record.
+independent Anthropic Fable5.1/xhigh reviewer completed both sequential calls
+through the Facilitator; their verified outputs and all primary grades follow below. This primary synthesis was settled before reviewer invocation. The token repair restored actual-host access at16:58UTC; the refutation repeat then completed on the build volume. Current external-review execution is recorded in the Phase4.6 section below.
 
 ## Acceptance-criteria scorecard
 
@@ -448,8 +450,10 @@ QA chains, source transitions and searched frame/runtime outputs. For the
 updater claim the primary search is recorded in the packet supplement; no new
 network trace was found in those project QA directories. Prior375 comparison
 explains why old missing-measurement rows remain narrower gaps after substantial
-new proof. Fresh remote/account observation is blocked before execution and is
-not represented as a negative search of the remote account.
+new proof. The recorded fresh remote/account probe failed before execution during the
+earlier authentication outage. Later access recovery does not supply the
+unexecuted account-metadata proof; this remains an evidence gap, not a
+negative search result for the remote account.
 
 ## Tier B visual-QA consolidation
 
@@ -535,10 +539,103 @@ complete; no product code was changed.
 
 ## Second opinion (Phase 4.6)
 
-Ready after completed4.5. Primary Codex/OpenAI (exact variant unknown; session harness identity).
-Selected independent depth: two perspectives total, one external Anthropic
-Fable5.1/xhigh reviewer, blind then refutation. Zero calls completed. Specific external packet transfer is awaiting owner approval after automatic review rejected the first submission before execution. No served
-identity, provenance receipt or independent conclusion exists yet. Prior approval authentication failure is resolved; normal authorized routing is restored. Final punch list waits for this gate.
+**Complete:** both external calls verified, full answers read, every lead graded
+against primary source/installed evidence. Primary: Codex/OpenAI, exact variant
+unknown. Independent depth: **two model perspectives, one external reviewer,
+two sequential calls**; no five-seat council and no substitute reviewer.
+The owner explicitly approved both transfers (`transfer-approval.json`).
+
+Both calls used `tools/council/run invoke --member claude --provider openrouter
+--prompt-file <packet> --output <answer>` through sealed, actively supervised
+`watch-build-submit` owners. Facilitator1.14.0 attested actual served
+`anthropic/claude-fable-5.1`, effort`xhigh`, success, provider-response identity
+PASS and output hashes. Provider reported Anthropic; the approved recipe is
+not provider-pinned (`NOT_PINNED`). No retries occurred.
+
+| Call | Packet / answer and provenance | Terminal / verified UTC | Reasoning tokens |
+| --- | --- | --- | ---: |
+| Blind | `second-opinions/claude-blind-brief.md` → `claude-blind.md`; `claude-blind.md.provenance.json`; `blind-verification.json` |18:36:42 /18:36:55|54082|
+| Refutation | `second-opinions/claude-brief.md` → `claude-audit.md`; `claude-audit.md.provenance.json`; `refutation-verification.json` |18:49:11 /18:49:33|36704|
+
+Each had five successful status channels, all sealed inputs unchanged at
+verification (43/29), and actual owner processes absent. First terminal
+observations were18:36:43 and18:49:16. Raw responses, packets and receipts are
+retained unchanged. `evidence/fable-blind-01` and `fable-refutation-01` retain
+owner/watcher records. Active-session supervision delivered these results;
+#395 off-session alerts remain unconfigured. The observation gap over the
+18:42–18:44 context transition is visible in the raw log; no uninterrupted
+60-second coverage claim.
+
+Primary verification then ran fourteen installed experiments on frozen14:
+`evidence/reviewer-leads-03` (ten) and `reviewer-coverage-01` (four), all four
+status channels0 per run, unchanged installed hashes, six actual PIDs absent
+per run and five owned ports unbound. These zero statuses mean the experiments
+completed, **not that every challenged product behavior passed**. The first
+lead dispatch failed before execution on an absent activity directory;02
+failed after an invalid-assignment fixture survived reset. Both are retained;
+03 restored the entire synthetic config between cases and repeated all ten.
+All runtime cloud data were synthetic/local. No personal cloud was contacted.
+
+### Blind-pass grading
+
+Source paths below are the installed rclone sources under
+`projects/ROCKNIX/packages/network/rclone/sources/`, or the separately pinned
+ES tree. Runtime filenames are under the named evidence run's `artifacts/`.
+
+| Item | Primary grade | Evidence and disposition |
+| --- | --- | --- |
+| B-01 | confirmed; folded F-01 High | Original/refutation03 unrelated-folder failures repeat exactly; GuiMenu5239 bypasses chooser on false ok. Listing-error/absence branch stays in #467 repair scope. |
+| B-02 | confirmed; folded F-01 | Explicit tiered/legacy root cases wrongly empty on14; both controls and unchanged pointers retained. |
+| B-03 | confirmed; folded F-02 Medium | UI26 false missing-folder reason; marker before/after equality re-read in `second-opinions/ui26-marker-readback.json`. |
+| B-04 | disagree with runtime prohibition; agree, narrowed to existing contract reconciliation | D-CLOUD-173 expressly permits boot preparation; main683–687 implements the30-second ceiling and stop-before-transfer. B-04 was withdrawn as a defect in refutation. Old no-per-sync wording needs its boot exception, not a code reversal. |
+| B-05 | confirmed, G-01 Medium | `reviewer-leads-03/B05-kept-sibling-observation.json`: current marker/layout plus guest b KEEP yields migration-pending and moves b's live discarded shelf. Live saves and b pointers remain unchanged; bytes survive at the new shelf. |
+| B-06 | agree, narrowed; G-02 Medium | `B06-record-fingerprint-observation.json`: comment-only config change after actual interruption makes state/apply/seed exit5; token exclusion succeeds, original binding resumes. Safe refusal is intentional; overbroad invalidation and absent supported recovery are the gap. No claim ordinary OAuth refresh breaks it. |
+| B-07 | agree, re-graded Medium; G-03 | `B07-{join,follow,settle}-observation.json`: second pointer fault returns1; unfaulted retry returns3 with the partial pointers still present. Follow/settle report current. Persistent missed recovery warrants Medium rather than source-only Low. |
+| B-08 | agree, narrowed to existing bookkeeping | D-UI-112 and player-language48–58 permit proposed words built for owner review; size-aware shortening is established. No per-string historic approval invented. Reviewer citation D-WORKFLOW-094 is unrelated rolling-release policy and is not used. Record proposed repair wording in the owning issues; do not create a permission blocker from this lead. |
+| B-09 | agree, narrowed to reproduced G-04 Low | Strict join reader safely rejects the exported-assignment control before scan. A valid escaped-dollar folder is accepted by state but scan exits1 at SETTINGS BACKUPS (`B09-escaped`). Shared grammar is inconsistent; no wrong-root listing claim survives. |
+| B-10 | agree, narrowed to existing contract reconciliation | Current plus pending record/historical content intentionally returns0; source1507–1526, #391 target recovery and host migration_retry cover it. Clarify stale I363-L75, no runtime defect. |
+| B-11 | disagree with an unbounded-listing finding | Per-operation listing bounds plus actual S3 scan refusal41.4s in I401-L35 answer it. Refutation withdrew it. No new global worst-case guarantee inferred. |
+| B-12 | agree, narrowed to explicitly scoped evidence reuse | Relevant09 ES/script bytes match14; actual frames were directly inspected. Refutation withdrew invalidation. Actual09 renderer identity was not located, so no virgl assertion is invented. Fresh final repaired-image frames remain owed. |
+| B-13 | confirmed, folded F-03 and existing publication gaps | D-CLOUD-164 explicitly requires French for the phone confirmation/native finish. Token metadata and final sweep gaps already appear above and are not duplicate findings. |
+| B-14 | agree, re-graded Medium; G-05 | `B14-{control,space,dots}`: actual root listing offers all three; MyGames selects, My Games/Games..old are refused with unchanged pointers. Ordinary valid library names cannot be selected; stronger than an unexecuted style concern. |
+
+### Refutation-pass grading
+
+| Item | Primary grade | Evidence and disposition |
+| --- | --- | --- |
+| R-01 | confirmed; folded F-01 | `reviewer-coverage-01/R01-stranded-root-observation.json`: STATE=stranded-at-root, but actual content scan reports gb cloud_bytes0 with a real root game present. Full ES source search has no stranded/root-action consumer. Include legacy root discovery/selection in #467; do not add a duplicate PL. |
+| R-02 | disagree with stated ordinary-upgrade trigger | `post-update:108–111` invokes helper; `cloud_sync_helper:466–492` intentionally derives root for /GAMES. Installed `R02-stock-helper` writes explicit empty CONTENT_REMOTE and preserves cloud hashes. Forced missing-key readers differ, but the proposed normal NOT NOW window omits update initialization. I380's established transition contract is not downgraded on that premise. |
+| R-03 | confirmed; folded F-02 | Installed `R03-outer-timeout`: second marker read stalled, outer ceiling returns124 in30.229s with no why and unchanged cloud/pointers. ThreadedCloudSync80–96 has no124-specific fallback, so generic reason follows. No card pixels for this new timeout are claimed; repair requires them. |
+| R-04 | confirmed as pre-existing tracked boundary | T25 already proves configured prefix usable while full chooser scan refuses root denial. This is in #365's residual scope, not a new audit PL or an accepted all-provider guarantee. |
+| R-05 | disagree for the stated wizard ceiling | GuiMenu7462 wraps seed-folders in timeout90. The direct script/create-page path has per-operation limits and is a distinct coverage boundary, not proof the wizard lacks its bound. |
+| F-01 refutation | confirmed, High retained | Primary seven-case kill pass, full consumer and new R01 target case; no mitigating supported scan path repairs the earlier wrong branch. Automatic found-folder behavior follows D-CLOUD-167; reviewer suggestion to restrict it is a design lead, not a new owner decision. |
+| F-02 refutation | confirmed, Medium retained | Marker bytes and pointers safe; message wrong. Extend sibling coverage to application rc2/5 and outer124 without treating all failures as transport errors. |
+| F-03 refutation | confirmed, Medium retained | Independent HTML is English; D-CLOUD-164 specifies the exact phone/finish strings. Repair must state its locale source and prove EN/FR on both surfaces. |
+
+### Packet coverage questions
+
+| Question | Primary disposition |
+| --- | --- |
+|1 root consumer completeness| Full ES search and installed R01 settle the missing consumer/scanner effect; folded F01. |
+|2 missing-key initialization| Installed helper plus post-update call settle the ordinary stock-shaped upgrade premise; no blanket claim arbitrary malformed state is healed. |
+|3 timeout descendants| `C03-timeout-child` used installed /usr/bin/timeout, exit124; its owned sleep child was absent after the deadline. This exact control passes; no arbitrary daemon escape guarantee. |
+|4 marker bytes| Both UI26 original before/after cloud manifests include the exact .layout hash and compare equal; readback JSON retained. |
+|5 boundaries base| Retained exact `evidence/refutation-03/boundaries.py` and current target base read directly; Proof verifies BUILD_ID, installed hashes, fixture reset, cloud hashes and cleanup. It was omitted from the review excerpt, not absent from primary evidence. |
+|6 B05/B06 execution| Both executed on unchanged14 with before/after proof in reviewer-leads03, including binding/token controls. |
+|7 string approvals| No uncited owner approval claimed. Existing proposed-wording practice applies; exact original criteria/proposed strings remain bookkeeping scope. |
+|8 preparation card text| Directly re-read E-boot0025 (SYNCING SAVES AT STARTUP / CHECKING THE CONNECTION) and0030 (SKIPPED / cloud folder not set up). Exact preparation-subphase timestamp is not identified; no new wrong-card claim or full transient-state proof. |
+|9 outer124 reachability| Actual stalled second marker read reaches124 in30.229s; folded F02. |
+|10 non-TTY progress| New B05/B06 installed output captured over SSH without a TTY includes Transferred/Elapsed progress; retained #401 stalled-transfer proof supplies the guard's stop-time evidence. |
+
+Net effect: **five new findings G-01–G-05**, two Low→Medium re-grades after
+runtime proof, original F-01–F-03 retained; R01/R03 folded into their repair
+scope. B04/B11 are not runtime defects; B08/B10 are existing contract work;
+B12 remains accurately bounded evidence reuse. R02's upgrade premise and R05's
+wizard premise are refuted. Eight product findings total:1High,6Medium,1Low;
+zero Critical. No known defect is waived and no product source changed.
+The261-entry independent scorecard is preserved as the pre-review record;
+these additional cross-cutting findings extend the final punch list rather
+than silently rewriting that historical independence boundary.
 
 ## Quality Self-Check
 
@@ -548,7 +645,7 @@ identity, provenance receipt or independent conclusion exists yet. Prior approva
 | Conformance tables |30rules and74distinct blindspots in03;190supporting IDs mapped separately. |
 | Coverage boundary | Present in02 and04; runtime/source/host reuse distinguished. |
 | Finding verification | Complete; fresh repeat and exact failed attempts recorded. |
-| Second opinion | Pending4.6; operational auth blocker recorded, no same-lab substitute. |
+| Second opinion | Complete: two verified calls,14blind/fiveR/threeF items and10coverage questions graded against primary artifacts. |
 | Instruction recommendations | Present; existing-rule enforcement, no ungrounded new doctrine. |
 | Tier B consolidation | Present with original image/run/frame identities and remaining repairs. |
 | Verdict vocabulary | PASS/PARTIAL/FAIL/SKIP/UNTESTABLE only in forward ledger. |

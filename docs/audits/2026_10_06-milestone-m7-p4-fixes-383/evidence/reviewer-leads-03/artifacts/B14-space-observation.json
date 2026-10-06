@@ -1,0 +1,39 @@
+{
+  "after": {
+    "cloud": {
+      "My Games/ROMs/gb/A.gb": "74b48462648f3d4483001726461f51165ba5981465f1d9ddf2cb7dbc0578ab36",
+      "pixelelated/.layout": "be68d69fa1fe3ddbcaa9295b8e3e732fd0113d909e38cf643d95aab41c9b1a22",
+      "pixelelated/Saves/gb/current.srm": "1801145f200c89f7f49be05065267d026f4a6ef3cc1f00772eff6ea47eca939d"
+    },
+    "pointers": {
+      "CONTENT_REMOTE": "/pixelelated/Content",
+      "LAYOUT_KEEP": "",
+      "SAVES_REMOTE": "/pixelelated/Saves",
+      "SETTINGS_REMOTE": "/pixelelated/Backups"
+    }
+  },
+  "before": {
+    "cloud": {
+      "My Games/ROMs/gb/A.gb": "74b48462648f3d4483001726461f51165ba5981465f1d9ddf2cb7dbc0578ab36",
+      "pixelelated/.layout": "be68d69fa1fe3ddbcaa9295b8e3e732fd0113d909e38cf643d95aab41c9b1a22",
+      "pixelelated/Saves/gb/current.srm": "1801145f200c89f7f49be05065267d026f4a6ef3cc1f00772eff6ea47eca939d"
+    },
+    "pointers": {
+      "CONTENT_REMOTE": "/pixelelated/Content",
+      "LAYOUT_KEEP": "",
+      "SAVES_REMOTE": "/pixelelated/Saves",
+      "SETTINGS_REMOTE": "/pixelelated/Backups"
+    }
+  },
+  "case": "B14-space",
+  "listed": {
+    "rc": 0,
+    "stderr": "",
+    "stdout": "My Games\npixelelated\n"
+  },
+  "selected": {
+    "rc": 1,
+    "stderr": "",
+    "stdout": "That folder name has characters your cloud sync settings can't hold.\n"
+  }
+}

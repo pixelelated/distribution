@@ -1,0 +1,59 @@
+{
+  "after": {
+    "cloud": {
+      "pixelelated/Backups/new_SETTINGS.tar.gz": "ce576527ef85abaad138fd293416057a37c379e3ad3c8895771de6df2ac5f780",
+      "pixelelated/Saves/gb/A.srm": "c7a8cb1f72020fea07586d979dcadcbfe0f74872f80a77fe0cd77212a557bd38"
+    },
+    "pointers": {
+      "CONTENT_REMOTE": "/ROCKNIX/Content",
+      "LAYOUT_KEEP": "",
+      "SAVES_REMOTE": "/pixelelated/Saves",
+      "SETTINGS_REMOTE": "/ROCKNIX/Backups"
+    }
+  },
+  "before": {
+    "cloud": {
+      "pixelelated/Backups/new_SETTINGS.tar.gz": "ce576527ef85abaad138fd293416057a37c379e3ad3c8895771de6df2ac5f780",
+      "pixelelated/Saves/gb/A.srm": "c7a8cb1f72020fea07586d979dcadcbfe0f74872f80a77fe0cd77212a557bd38"
+    },
+    "pointers": {
+      "CONTENT_REMOTE": "/ROCKNIX/Content",
+      "LAYOUT_KEEP": "",
+      "SAVES_REMOTE": "/ROCKNIX/Saves",
+      "SETTINGS_REMOTE": "/ROCKNIX/Backups"
+    }
+  },
+  "case": "B07-follow",
+  "interrupted": {
+    "rc": 1,
+    "stderr": "",
+    "stdout": "Now using /pixelelated/Saves for your saves.\nCouldn't save the new folder in this device's settings. It still uses the old one, and nothing was removed from it.\n"
+  },
+  "partial": {
+    "cloud": {
+      "pixelelated/Backups/new_SETTINGS.tar.gz": "ce576527ef85abaad138fd293416057a37c379e3ad3c8895771de6df2ac5f780",
+      "pixelelated/Saves/gb/A.srm": "c7a8cb1f72020fea07586d979dcadcbfe0f74872f80a77fe0cd77212a557bd38"
+    },
+    "pointers": {
+      "CONTENT_REMOTE": "/ROCKNIX/Content",
+      "LAYOUT_KEEP": "",
+      "SAVES_REMOTE": "/pixelelated/Saves",
+      "SETTINGS_REMOTE": "/ROCKNIX/Backups"
+    }
+  },
+  "retry": {
+    "rc": 3,
+    "stderr": "",
+    "stdout": ""
+  },
+  "scan": {
+    "rc": 0,
+    "stderr": "",
+    "stdout": ">>> unit CLOUD FOLDER||\n>>> doing scan\n"
+  },
+  "state": {
+    "rc": 0,
+    "stderr": "",
+    "stdout": "SAVES=/pixelelated/Saves\nBACKUPS=/ROCKNIX/Backups\nCONTENT=/ROCKNIX/Content\nCURRENT=/pixelelated/Saves\nSOURCE=-\nCURRENT_EXISTS=1\nMARKER=-\nSTATE=current\n"
+  }
+}

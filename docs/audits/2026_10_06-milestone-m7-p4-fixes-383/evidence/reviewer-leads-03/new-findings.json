@@ -1,0 +1,51 @@
+{
+  "utc": "2026-10-06T18:56:40.154404+00:00",
+  "runtime_assertions_checked": true,
+  "findings": [
+    {
+      "id": "G-01",
+      "reviewer": "B-05",
+      "severity": "Medium",
+      "title": "A current device treats a kept sibling discarded-save shelf as its unfinished move",
+      "evidence": "reviewer-leads-03/artifacts/B05-kept-sibling-observation.json",
+      "finding": "With current marker/layout and another guest explicitly keeping ROCKNIX, state reports migration-pending; apply moves and deletes that live sibling shelf. Bytes survive at the new location and live saves/pointers are preserved; no data-loss claim.",
+      "repair": "Distinguish an active earlier-layout sibling from this device unfinished migration, while retaining real interrupted-RC2 shelf recovery."
+    },
+    {
+      "id": "G-02",
+      "reviewer": "B-06",
+      "severity": "Medium",
+      "title": "A harmless provider-config change strands a pending migration record",
+      "evidence": "reviewer-leads-03/artifacts/B06-record-fingerprint-observation.json",
+      "finding": "Adding only a comment after an actual interrupted copy makes state/apply/seed all return5. The token field remains excluded and restoring provider/root config permits verified resume. Intentional binding protects data; unsupported recovery/overbroad binding is the defect, not fail-closed refusal.",
+      "repair": "Preserve endpoint/root binding and partial data; support harmless rewrites and a truthful, safe recovery route for changed bindings without silently rebinding an old record."
+    },
+    {
+      "id": "G-03",
+      "reviewer": "B-07",
+      "severity": "Medium",
+      "title": "Pointer-only transition failure can persist after successful retry",
+      "evidence": "reviewer-leads-03/artifacts/B07-{join,follow,settle}-observation.json",
+      "finding": "Refuse the SETTINGS_REMOTE write after SAVES_REMOTE lands. All three transitions exit1; retry returns3 without completing settings/content pointers. Follow/settle scan report current for the mixed defaults. Cloud bytes unchanged. Re-grade Low to Medium because the installed failure survives retry.",
+      "repair": "Publish intended pointer sets atomically or retain retryable intent; verify failure at each boundary and preserve independent/custom/nonempty tier choices."
+    },
+    {
+      "id": "G-04",
+      "reviewer": "B-09",
+      "severity": "Low",
+      "title": "Opening scan rejects a valid escaped config value accepted by the shared reader",
+      "evidence": "reviewer-leads-03/artifacts/B09-escaped-observation.json",
+      "finding": "Strict state reads /Custom/My$Backups successfully from the escaped double-quoted assignment; full scan exits1 at SETTINGS BACKUPS. Unsupported export is safely rejected before any wrong-root scan.",
+      "repair": "Use the same supported non-executing configuration grammar and first-assignment semantics across readers; preserve malformed-input refusal."
+    },
+    {
+      "id": "G-05",
+      "reviewer": "B-14",
+      "severity": "Medium",
+      "title": "Content chooser offers ordinary folder names that its setter rejects",
+      "evidence": "reviewer-leads-03/artifacts/B14-{control,space,dots}-observation.json",
+      "finding": "Actual root scan offers MyGames, My Games and Games..old. Only MyGames can be selected; the other two return1 and retain the old path. No cloud mutation. Re-grade Low to Medium for an actual blocked selection of ordinary existing folders.",
+      "repair": "Accept representable folder names, reject actual traversal components and unsafe syntax, and retain successful installed selection/scan and UI proof."
+    }
+  ]
+}

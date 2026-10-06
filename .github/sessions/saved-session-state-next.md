@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Saved 2026-10-06T18:13:14.325447+00:00; primary audit published, external-review transfer approval pending.
+> Saved 2026-10-06T19:02:58.561849+00:00; both approved Fable calls and primary grading complete; #471 Phase7 fixes next.
 > Previous: `.github/sessions/archived/saved-session-state-next-20261006T181314Z.md`.
 > Both fork refs verified after normal hooked publication; see current focus below.
 
@@ -23,7 +23,7 @@ code-auditor Phase1.4.5 read-only research helpers. Root performs commands,
 primary verification and all verdicts; helpers never count as review seats.
 
 
-## Current focus — M7 P4 primary audit complete through4.5; external transfer approval pending
+## Current focus — M7 P4 final audit#471 open; remediation next
 
 User resumed after token repair. Actual-host/GitHub access works. The complete
 261-criterion primary audit, retrospective and provisional analysis are published
@@ -63,7 +63,7 @@ Refutation found no mitigation for the three product defects. Source/retained
 outputs and fresh target repeat are recorded in finding-verification.json.
 Watcher recorded correctly; final observation lag exceeded60seconds while
 preflight ran, explicitly recorded in friction log. No uninterrupted supervision
-claim. No executable or reasoning background worker is active now.
+claim. Those earlier refutation owners are finished; the current target owner is named below.
 
 External gate: selected code-auditor independent depth, Codex/OpenAI primary
 (exact model variant unknown) plus Anthropic Fable5.1/xhigh via Facilitator and
@@ -74,24 +74,51 @@ fa0030b86a47b65a9ff1ce4e5f6ff8d1bc477783d030470bf47073ab2a89c058.
 It carries261criteria, observations with verdicts/findings withheld, actual
 source/diffs and sanitized QA fixtures. Generator and input hashes retained.
 
-Automatic approval review rejected the intended external dispatch BEFORE ANY
-COMMAND EXECUTED: the exact source/spec/QA payload and OpenRouter destination
-needed explicit approval despite earlier audit authorization. An async question
-requests BOTH this blind transfer and the later analysis+blind-response
-refutation transfer. Wait for that answer; do not interpret elapsed time or
-'can you try again' from before the question as approval. Do not bypass the
-reviewer, use direct provider calls or a same-lab substitute. Owner
-/tmp/pixelelated-m7-p4-fable-blind-01 was named in the rejected command but was
-not created; verify before using it. Provider was NOT contacted; no review
-output/provenance exists. If exact transfer approved, prepare its sealed wrapper,
-submit durably, supervise within60seconds and verify identity/effort/digests
-before reading answer and before the second call. Do not mutate blind packet
-while its hash is the pending approval.4.6→5→6→7 remains serial.
+The owner explicitly replied “Approve both Fable audit transfers.” The earlier
+specific egress rejection is resolved; do not request that permission again.
+Receipt: `second-opinions/transfer-approval.json`. Both the sealed blind packet
+and the subsequent analysis plus blind-response refutation transfer are approved.
 
-All local primary work/checks are done enough to resume at that gate. Final
-punch list/Phase6issue does not exist yet; artifact-contract lint cannot be
-claimed complete without4.6/05. Product fixes wait for settled independent
-review and Phase7, then rebuilt affected image qualification. No RC claim.
+Blind pass completed successfully: all five result statuses0, verified served
+anthropic/claude-fable-5.1 from provider response, xhigh effort/54082 reasoning
+tokens, unchanged input/output digests, actual owner and recorded descendants
+absent. `second-opinions/blind-verification.json` is the accepted receipt;
+`evidence/fable-blind-01/` retains the complete owner/watcher. Its14 B leads
+remain leads pending primary-artifact verification, not14 confirmed defects.
+
+Refutation finished18:49:11UTC, first observed18:49:16, verified18:49:33.
+`second-opinions/refutation-verification.json`: allfive0,29sealed inputs,
+Fable5.1/xhigh,36704 reasoning tokens, no retries; all four host processes
+absent. Output SHA72c95da873fcbcaa004d55d69af114e343c9d7f63a8f7845d47d6fc675822233.
+Full response read. Both external calls are complete; no permission pending.
+Raw responses/packets/provenances stay untouched. Primary grading is unfinished:
+14 blind items, five R leads, F01–03 refutations and coverage questions.
+Separate reading notes and UI26 marker hash readback are in second-opinions.
+
+Target lead proof03 completed18:54:30, verified18:55:21; coverage01 completed
+18:57:00, verified18:57:36. Fourteen observations total, each run allfour0,
+34/35 sealed inputs and6/8 installed hashes unchanged; actual six owner/guest
+PIDs per run absent and five ports unbound. Evidence reviewer-leads-03 and
+reviewer-coverage-01. Failed lead01 dispatch and02 fixture carryover retained.
+Nothing executable is running now. All external/raw evidence is preserved.
+
+Phase4.6 primary grading is complete in04:14B/fiveR/threeF/tencoverage rows.
+Eight final product findings (1High/6Medium/1Low), recorded in05 with all outcomes
+OPEN and mandatory M7.P4 audit tracker#471, created/read back. New G01kept
+sibling shelf, G02record binding/recovery, G03partial pointer publication,
+G04reader grammar, G05valid chooser names. R01/R03 broaden existing#467/#468.
+No product code changed; no next-phase/release gate passed.
+
+Process issue#470: pre-Phase6 lint incorrectly demanded final Phase7 outcomes.
+Explicit --phase pre-issue now validates review artifacts while the default
+still refuses open outcomes.17 meaningful positive/negative CLI controls pass;
+current pre-issue check passes. tools/lint-audit-artifacts is the only modified
+executable. No instruction files edited. Phase7 product fixes follow normal
+publication of these audit/process artifacts, then affected rebuild/qualification.
+
+Primary grading, final05 and Phase6 tracker#471 are complete. The pre-issue
+artifact check passes; the default resolution gate stays failed while the eight
+fixes remain open. Proceed Phase7, then rebuilt affected-image qualification.
 
 Existing qualified prerequisites: UI03 unchanged14,109assertions/23EN/FRframes,
 allfour0/actualcleanup07:01:20; all23frames primary reviewed. RA33 actualTobu15738/
@@ -162,17 +189,13 @@ No additionalcleanup orreservechange is authorized. No sudoaction remains.
 
 ## Next steps
 
-1. Read the pending exact external-transfer answer; continue local publication
-   under standing authority. No need to repeat permission for authorized audit.
-2. After explicit transfer approval, call Fable blind via current Facilitator
-   with a fresh sealed watch-build-submit owner. Verify served identity, effort,
-   successful outcome, digest and actual cleanup. Stop on mismatch, no retry.
-3. Prepare refutation packet with full02/03/04, source/evidence and the untouched
-   blind answer; second sequential call through same verified recipe.
-4. Verify every reviewer item against primary artifacts; write final05, run
-   lint-audit-artifacts, create mandatory audit issue, then resolve/track every
-   item under Phase7 and requalify changed product bytes.
-5. Capacity#461→H700DDR4RG35XXSP arm→aarch64→separately authorized physical/P5.
+1. Publish the completed independent review, final open punch list and#470 guard
+   correction under normal hooks; explicit cherry-pick-x to next and readback.
+2. Work through#471/05's eight fixes under existing authority, preserving every
+   stored-state contract and logging actual commits/acceptance artifacts.
+3. Rebuild and requalify repaired product bytes, resolve all known P4 software
+   defects and exact outstanding evidence gaps before any RC claim.
+4. Capacity#461→H700DDR4RG35XXSP arm→aarch64→separately authorized physical/P5.
 
 ## Exact frozen image
 

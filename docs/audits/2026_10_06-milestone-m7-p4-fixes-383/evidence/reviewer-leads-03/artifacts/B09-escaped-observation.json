@@ -1,0 +1,41 @@
+{
+  "after": {
+    "cloud": {
+      "Custom/My$Backups/witness.txt": "321680e0f6357844807e32b001a93aaaee4137b901e8c990c993e336c8989950",
+      "pixelelated/.layout": "be68d69fa1fe3ddbcaa9295b8e3e732fd0113d909e38cf643d95aab41c9b1a22",
+      "pixelelated/Content/ROMs/gb/A.gb": "4d276c0b013c4cd2417845edac4e60f969b60b8cf852dac72c91332506053f5e",
+      "pixelelated/Saves/gb/current.srm": "1801145f200c89f7f49be05065267d026f4a6ef3cc1f00772eff6ea47eca939d"
+    },
+    "pointers": {
+      "CONTENT_REMOTE": "/pixelelated/Content",
+      "LAYOUT_KEEP": "",
+      "SAVES_REMOTE": "/pixelelated/Saves",
+      "SETTINGS_REMOTE": "/Custom/My\\$Backups"
+    }
+  },
+  "before": {
+    "cloud": {
+      "Custom/My$Backups/witness.txt": "321680e0f6357844807e32b001a93aaaee4137b901e8c990c993e336c8989950",
+      "pixelelated/.layout": "be68d69fa1fe3ddbcaa9295b8e3e732fd0113d909e38cf643d95aab41c9b1a22",
+      "pixelelated/Content/ROMs/gb/A.gb": "4d276c0b013c4cd2417845edac4e60f969b60b8cf852dac72c91332506053f5e",
+      "pixelelated/Saves/gb/current.srm": "1801145f200c89f7f49be05065267d026f4a6ef3cc1f00772eff6ea47eca939d"
+    },
+    "pointers": {
+      "CONTENT_REMOTE": "/pixelelated/Content",
+      "LAYOUT_KEEP": "",
+      "SAVES_REMOTE": "/pixelelated/Saves",
+      "SETTINGS_REMOTE": "/Custom/My\\$Backups"
+    }
+  },
+  "case": "B09-escaped",
+  "scan": {
+    "rc": 1,
+    "stderr": "",
+    "stdout": ">>> unit CLOUD FOLDER||\n>>> doing scan\n>>> unit SETTINGS BACKUPS||\n>>> doing scan\n>>> why YOUR CLOUD SYNC SETTINGS COULDN'T BE READ\n"
+  },
+  "state": {
+    "rc": 0,
+    "stderr": "",
+    "stdout": "SAVES=/pixelelated/Saves\nBACKUPS=/Custom/My$Backups\nCONTENT=/pixelelated/Content\nCURRENT=/pixelelated/Saves\nSOURCE=-\nCURRENT_EXISTS=1\nMARKER=layout=2\nSTATE=current\n"
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "utc": "2026-10-06T18:41:20.278624+00:00",
+  "phase": "4.6 in progress; unsealed primary reading notes, not final dispositions",
+  "product_mutation": false,
+  "rows": [
+    {
+      "id": "B-01",
+      "status": "existing F-01; runtime already reproduced",
+      "source": "cloud_setup:523-558; GuiMenu.cpp:5239-5248",
+      "observation": "Any configured subdirectory counts; explicit-root count depends on cloud_content_backup --list. Existing refutation03 records four failed challenges. Listing-error suppression is an additional facet to check in the F-01 repair."
+    },
+    {
+      "id": "B-02",
+      "status": "existing F-01; no duplicate finding",
+      "source": "cloud_setup:523-530,553-558",
+      "observation": "Tiered/legacy root false absence is among the existing actual-target failed challenges."
+    },
+    {
+      "id": "B-03",
+      "status": "existing F-02",
+      "source": "cloud_scan:93-100,163-183; cloud_migrate_layout:970-994",
+      "observation": "Producer status namespaces collide; existing actual UI26 evidence owns repair. Conf/record siblings also require truthful reasons."
+    },
+    {
+      "id": "B-04",
+      "status": "primary counterevidence located; final disposition awaits second pass",
+      "source": "docs/decision-register.md D-CLOUD-173 line590; ES main.cpp:683-686",
+      "observation": "The decision explicitly authorizes boot-only join/state/follow before transfers with 30-second ceiling and failure stopping the worker. Literal older checkbox wording needs reconciliation; this is not evidence of an unapproved recurring per-sync change. Whole-boot measurement remains required."
+    },
+    {
+      "id": "B-05",
+      "status": "source lead requires target challenge",
+      "source": "cloud_migrate_layout:819-828,1239-1244",
+      "observation": "Current primary pointers plus any superseded discarded shelf produce migration-pending; source does not distinguish a newly active kept sibling from a historical partial migration. D-CLOUD-165/168 explain moving shelves but do not yet settle repeated coexistence semantics."
+    },
+    {
+      "id": "B-06",
+      "status": "source lead requires target challenge",
+      "source": "cloud_migrate_layout:1015-1072,1185-1191; cloud_setup migration-record search",
+      "observation": "Remote fingerprint excludes OAuth token lines. Changed remote name/non-token config still refuses record load. Join/follow skip, state refuses, setup seed refuses; no reset path located in cloud_setup. Safe preservation is intentional; supported recovery and truthful reason need separate evaluation."
+    },
+    {
+      "id": "B-07",
+      "status": "source fact verified; exact impact unverified",
+      "source": "cloud_migrate_layout:878-884,922-924,948-952",
+      "observation": "Pointers publish separately. Current recovery handles some partially moved states; the claimed persistent split must be tested on exact join/follow/settle failure boundaries before accepting its consequence."
+    },
+    {
+      "id": "B-08",
+      "status": "contract/approval evidence review pending",
+      "source": "docs/decision-register.md D-CLOUD-164,170,171,173; D-WORKFLOW-094",
+      "observation": "Additional approved/refining decisions exist beyond the blind packet's thirteen-string excerpt. Do not infer absent approval from that excerpt alone; map the exact remaining strings."
+    },
+    {
+      "id": "B-09",
+      "status": "primary counterevidence located; parser mismatch remains",
+      "source": "cloud_scan:60-72,204,211; cloud_migrate_layout:1100-1108",
+      "observation": "Private conf_get differs, but opening scan first calls migration --join, whose main validates SETTINGS_REMOTE plus five other keys with the strict grammar. A stable malformed config is refused before the permissive parser; do not claim a reproduced wrong-root listing. Escaped but valid inputs and between-read changes still need examination."
+    },
+    {
+      "id": "B-10",
+      "status": "existing active-contract reconciliation; source matches intended partial recovery",
+      "source": "cloud_migrate_layout:1507-1526; tools/rasteratops-cloud-layout-test:507-511; state-table recovery section",
+      "observation": "Current/record/historical-content exception is explicitly exercised by migration_retry host coverage and retained target interrupted-move proof. Literal I363-L75 needs refinement; no new runtime failure follows merely from return0."
+    },
+    {
+      "id": "B-11",
+      "status": "unverified scope lead",
+      "source": "cloud_content_transfer callers; cloud_content_backup/restore listings",
+      "observation": "Copy/sync inactivity guard and bounded listing options are different mechanisms. Exact target SDK-stalled list/mkdir bound is not yet established; no product timeout violation invented."
+    },
+    {
+      "id": "B-12",
+      "status": "traceability search in progress",
+      "source": "replacement09/guest-11/run.sh:55",
+      "observation": "Executed launcher requests --gl auto; that flag alone does not prove actual virgl selection. Continue looking for actual guest/host renderer evidence before dismissing the concern."
+    },
+    {
+      "id": "B-13",
+      "status": "existing F-03 plus already recorded metadata/sweep gaps",
+      "source": "D-CLOUD-164 explicitly requires French on phone and finishing page; original04 missing-artifact table",
+      "observation": "French scope is explicit without relying solely on D-UI-051. Token metadata/final repaired-image sweep remain tracked evidence/publication gates."
+    },
+    {
+      "id": "B-14",
+      "status": "source mismatch verified; target chooser proof pending",
+      "source": "cloud_setup:581-585 versus validate_sync_path:301-345; cloud_scan:243",
+      "observation": "Content setter rejects whitespace and any .. substring; saves setter permits quoted spaces and rejects path components. The chooser lists all root directories. Determine intended contract and exact target selection behavior before final grade."
+    }
+  ],
+  "continued_utc": "2026-10-06T18:47:20.804676+00:00",
+  "additional_observations": {
+    "B-08": "D-WORKFLOW-094 is rolling-release policy, not approval of strings; do not cite it for that purpose. Later cloud decisions and standing remediation authority need exact criterion reconciliation without inventing prior per-string approval.",
+    "B-09": "Strict migration reader rejects export/declare and malformed assignments before cloud_scan private parser runs. Prepare both rejected export control and valid escaped-dollar divergence.",
+    "B-12": "guest11 actual-processes.json names only build/watcher/command PIDs. qualification.json records execution/frame review, not renderer identity. No actual renderer proof located; --gl auto is not a measured renderer."
+  }
+}

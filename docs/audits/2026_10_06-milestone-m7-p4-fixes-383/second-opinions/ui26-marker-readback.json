@@ -1,0 +1,31 @@
+{
+  "utc": "2026-10-06T18:51:23.313033+00:00",
+  "rows": [
+    {
+      "case": "future",
+      "before": "docs/qa-logs/2026-10-05-pixelelated-replacement-09/cloud-ui-08/artifacts/cloud-ui/UI26/logs/UI26-future-before-cloud.json",
+      "after": "docs/qa-logs/2026-10-05-pixelelated-replacement-09/cloud-ui-08/artifacts/cloud-ui/UI26/logs/UI26-future-after-cloud.json",
+      "before_sha256": "be08511adbb27d611b86a75aa87359fa3fa3e2996b6c9d84069d98c60f43d4a3",
+      "after_sha256": "be08511adbb27d611b86a75aa87359fa3fa3e2996b6c9d84069d98c60f43d4a3",
+      "parsed_cloud_equal": true,
+      "cloud_manifest": {
+        "ROCKNIX/Saves/nes/Old.srm": "32aa1865bd8fad2215878b1ae29557066b8a374250f07d5f177bce8a18bd256a",
+        "pixelelated/.layout": "d81e804343334d81e07a8c88ed0712190b2de667acc711b851851757fc452aeb",
+        "pixelelated/Saves/nes/Current.srm": "697549cfbfbdd0b6a8dd96cd07997009ff53e53c007d0aeb20965cfb08beb045"
+      }
+    },
+    {
+      "case": "malformed",
+      "before": "docs/qa-logs/2026-10-05-pixelelated-replacement-09/cloud-ui-08/artifacts/cloud-ui/UI26/logs/UI26-malformed-before-cloud.json",
+      "after": "docs/qa-logs/2026-10-05-pixelelated-replacement-09/cloud-ui-08/artifacts/cloud-ui/UI26/logs/UI26-malformed-after-cloud.json",
+      "before_sha256": "15e8b5b95cc89a71ae21048dd88b760f04162de68b4125283899fb2f7f0e0587",
+      "after_sha256": "15e8b5b95cc89a71ae21048dd88b760f04162de68b4125283899fb2f7f0e0587",
+      "parsed_cloud_equal": true,
+      "cloud_manifest": {
+        "ROCKNIX/Saves/nes/Old.srm": "32aa1865bd8fad2215878b1ae29557066b8a374250f07d5f177bce8a18bd256a",
+        "pixelelated/.layout": "19bd7ace2e8a6f1315fce3490f513d28e13e3ea4ac96df58483dd4bd68df1110",
+        "pixelelated/Saves/nes/Current.srm": "697549cfbfbdd0b6a8dd96cd07997009ff53e53c007d0aeb20965cfb08beb045"
+      }
+    }
+  ]
+}

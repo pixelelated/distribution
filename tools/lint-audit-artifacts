@@ -2,6 +2,7 @@
 """Check a code-auditor audit folder against the artifact contract.
 
     tools/lint-audit-artifacts docs/audits/<folder> [--issue N]
+    tools/lint-audit-artifacts docs/audits/<folder> --phase pre-issue
 
 SKILL.md § Phase 6 says to run an artifact-contract lint before creating the
 punch-list issue, and to verify the contract by hand where none exists. The
@@ -13,6 +14,9 @@ punch-list issue, and to verify the contract by hand where none exists. The
   Phase 7 gate lived in the file and not in the tracker.
 
 Both are mechanically checkable. Manual verification is not.
+The explicit pre-issue phase permits honestly open findings before Phase 6
+creates their tracker. The default resolution phase still requires outcomes;
+pre-issue success never certifies a completed audit or release gate (#470).
 """
 import argparse, hashlib, json, pathlib, re, subprocess, sys
 
@@ -103,6 +107,8 @@ def main():
     ap.add_argument("folder")
     ap.add_argument("--issue", type=int, help="audit issue number to check the task list")
     ap.add_argument("--repo", default="pixelelated/distribution")
+    ap.add_argument("--phase", choices=("pre-issue", "resolution"), default="resolution",
+                    help="pre-issue validates open review artifacts; default resolution requires every outcome")
     args = ap.parse_args()
     d = pathlib.Path(args.folder)
     fails = []
@@ -315,7 +321,14 @@ def main():
         elif "Deferred" in cell and not re.search(r"#\d+|`[0-9a-f]{7,40}`", cell):
             bad(f"{pl} marked Deferred but names no follow-up issue or commit")
         elif not re.search(r"Resolved|Deferred|Withdrawn", cell):
-            bad(f"{pl} outcome is not one of Resolved/Deferred/Withdrawn")
+            # Only an explicit Open outcome cell is valid at this earlier
+            # gate. An absent/unknown outcome is never silently made open.
+            open_row = re.match(r"^\|\s*" + re.escape(pl) + r"\s*\|\s*Open\s*\|", row)
+            if args.phase == "pre-issue" and open_row:
+                table_words[pl] = "open"
+                ok(f"{pl} explicitly open; resolution remains required")
+            else:
+                bad(f"{pl} outcome is not one of Resolved/Deferred/Withdrawn")
         else:
             ok(f"{pl} outcome recorded with evidence")
         for w in ("Resolved", "Deferred", "Withdrawn"):
@@ -329,6 +342,7 @@ def main():
     # table's word: resolved/deferred/withdrawn against Resolved/Deferred/
     # Withdrawn; `open` only where the table has no outcome yet.
     idx = re.search(r"^punch_index:\s*$(.*?)^```", punch, re.M | re.S)
+    indexed = set()
     if not idx:
         # The YAML index arrived with the 2026-09-12 audit; the two folders
         # before it have a table alone, which is what the checks above read.
@@ -336,6 +350,7 @@ def main():
     else:
         for m in re.finditer(r"id:\s*(PL-\d+)\b(.*?)(?=\n-\s*(?:\{)?\s*id:|\Z)", idx.group(1), re.S):
             pl, body = m.group(1), m.group(2)
+            indexed.add(pl)
             # `outcome: deferred:#144`, `deferred (#N)`, `resolved (abc)`: the word is the first token
             om = re.search(r"outcome:\s*['\"]?([A-Za-z]+)", body)
             index_word = om.group(1).lower() if om else ""
@@ -348,6 +363,11 @@ def main():
                 bad(f"{pl} punch_index says {index_word!r} while the Phase 7 table records no outcome")
             else:
                 ok(f"{pl} index and table agree ({index_word})")
+
+    if args.phase == "pre-issue":
+        for pl, word in table_words.items():
+            if word == "open" and pl not in indexed:
+                bad(f"{pl} is open but has no matching punch_index entry")
 
     if args.issue:
         try:
@@ -364,7 +384,9 @@ def main():
         for pl in items:
             (ok if pl in body else bad)(f"issue #{args.issue} references {pl}")
 
-    print(f"\n{'PASS' if not fails else f'{len(fails)} CONTRACT FAILURE(S)'}")
+    success = ("PASS pre-issue artifacts (does not certify resolution)"
+               if args.phase == "pre-issue" else "PASS")
+    print(f"\n{success if not fails else f'{len(fails)} CONTRACT FAILURE(S)'}")
     return 1 if fails else 0
 
 
