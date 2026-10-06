@@ -1,0 +1,188 @@
+{
+  "body": "## Current identity transition \u2014 2026-10-04\n\n#409 is first within M7.P3 before the next freeze/build: lowercase **pixelelated**, organization `pixelelated`, owner `rasteratops`, unchanged developer `blitterbot`, default `/pixelelated`. Rasteratops remains a character. D-WORKFLOW-144/D-CLOUD-174 supersede earlier project/default naming below. The owner confirms no systems use `/Rasteratops`: **ROCKNIX \u2192 pixelelated** is the required adoption path. Existing cloud folders may move through the established verified migration. Historical replacement02 remains RASTERATOPS evidence; new bytes require new qualification. The milestone body owns the order, followed by remaining P3 checks, expanded P4 fixes audit and separately gated P5.\n\n## The maintainer's words (2026-09-30, the Retroid Pocket Nova's first boots on RC2)\n\n> I just turned on the console, and an odd screen appeared, which I hadn't seen before. It says, \"Your cloud has no /games folder yet. Create it now\" and \"Create it\" and \"Not now\" as options. The screen needs to be formatted differently because there's a question mark separating the two rows of text.\n>\n> Also, I'd expect this screen to be shown immediately after linking a cloud provider. We also should give someone the option of choosing a different directory if all of their contents are already in a different location. Additionally, instead of saying a /games folder, we might want to move to a /Rasteratops folder.\n\n## What exists today, and the cause (read from the device and the code, 2026-09-30)\n\n- The screen is the saves-folder offer: `cloud_restore:1729` prints `>>> offer create-saves-folder|<saves folder>` when the configured saves folder is absent but its parent lists, and `CloudOffer.cpp:59-64` shows `YOUR CLOUD HAS NO %s FOLDER YET.\\n\\nCREATE IT NOW?` with CREATE IT / NOT NOW. It runs from the startup sync (`GuiCloudTransfer.cpp:297`), which is why it appeared at a boot and not after the sign-in.\n- **The folder it names is upstream ROCKNIX's shipped default, not ours.** The Nova ran stock ROCKNIX 20260901 before RC1, and stock ships `SYNCPATH=\"/GAMES\"` (`upstream/next:cloud_sync.conf:18`). The fork's `cloud_sync_helper` renames the keys and keeps the values on purpose (`:393-395`, `:467-473`: *\"an upgrading device keeps whatever it had - '/GAMES' for anyone set\u2026\"*, D-WORKFLOW-101's \"configured root wins on upgrade\"). Read from the Nova (`rocknix_ed25519`, a read): `SAVES_REMOTE=\"/GAMES\"`, `SETTINGS_REMOTE=\"/GAMES/backup\"`, `CONTENT_REMOTE=\"\"` (`/storage/.config/cloud_sync.conf:67-69`, written 2026-09-29 15:35 EDT at RC1's first boot); the Dropbox holds `/ROCKNIX/{Backups,Content,Saves,Saves-replaced}` and **no `/GAMES`**. So the device offers to create a folder the player never chose beside the one their other devices use, and its content root, empty, is the Dropbox root: **this is the cause of #352's listing too.**\n- A `/GAMES` typed by hand is refused (`cloud_setup:350-366`: the saves folder needs a parent); a `/GAMES` carried across an upgrade is never checked.\n- The dialog's icon is `ICON_AUTOMATIC` (`GuiMsgBox.h:15`), chosen by the trailing `?`; the \"question mark separating the two rows\" is that icon's placement at the Nova's panel size, to be seen on a frame.\n\nThe remedy on the Nova tonight is one line on the maintainer's yes: `cloud_setup --set-saves-remote /ROCKNIX/Saves` writes the three fork paths (`cloud_setup:629-631`) and moves nothing in the cloud.\n\n## Can this be done on the VM?\n\n**Yes.** Guest d boots the previous stock-shaped conf (`SYNCPATH=\"/GAMES\"`) through `tools/vm-upgrade-rehearsal`'s seeding, with the QA cloud holding `/ROCKNIX/Saves` and no `/GAMES`; the offer's frame at 640x480 and the journal are the observation. The naming question is the maintainer's.\n\n## Acceptance criteria\n\n- [ ] A carried upstream `/GAMES` (a value no player typed) counts as no folder (D-CLOUD-161). At the end of cloud setup the seeding points it at `/pixelelated` and makes the three folders without asking (D-CLOUD-169: `tools/last-good-scripts-test`'s `--settle` lines); at boot the cloud folder step offers CREATE IT / CHOOSE A FOLDER / NOT NOW (D-CLOUD-170: guest d's epic proof, case E's frame), and so does a transfer page's scan, where CREATE IT writes the three `/pixelelated` paths (case B: the conf's three lines and `tools/cloud-test-backend ls`); with a `/GAMES` that holds files the dialog is the move naming `/GAMES` (case B0's frame).\n- [ ] An earlier `/ROCKNIX` folder gets one dialog, MOVE first (D-CLOUD-160): MOVE copies, verifies and deletes (the move page's frames on guest d; `tools/cloud-test-backend ls` shows `/pixelelated` whole and no `/ROCKNIX`; a kill during the copy leaves `/ROCKNIX` intact and a second MOVE completes it); another device on `/ROCKNIX` is re-pointed at its next cloud folder step or transfer-page scan with no dialog (`tools/cloud-pair-migration` step 5's journal line, D-CLOUD-170), one that wrote there first is merged by its MOVE (step 5m, D-CLOUD-168); KEEP USING leaves a device on `/ROCKNIX` for good; NOT NOW asks again at the next boot and the next transfer page.\n- [ ] The folder is settled by the cloud folder step, at the end of cloud setup and at boot (D-CLOUD-170, #363), never by a sync: with the folder absent the startup and exit syncs end in the card's `SKIPPED - YOUR CLOUD FOLDER ISN'T SET UP YET` pointing at MANAGE CLOUD STORAGE (the startup stamp's `78 no-folder`, D-CLOUD-166), and 640x480 frames show the step at the end of setup (guest d's epic proof, case L) and at boot (cases E and I).\n- [ ] The offer carries a third choice to pick a different folder (the folder chooser of #352), and its text has no icon or glyph drawn between its two sentences: a 640x480 frame from guest d and, when it is next staged, one from the device.\n- [ ] The words the offer uses are approved by the maintainer before the build (`player-language.md`): proposed `YOUR CLOUD HAS NO /ROCKNIX/Saves FOLDER YET.` / `CREATE IT`, `CHOOSE A FOLDER`, `NOT NOW`; their French lands in the same commit (D-UI-051).\n- [ ] The default folder's name (`/ROCKNIX` today, D-WORKFLOW-101; `/pixelelated` proposed) is a register row on the maintainer's word, with D-WORKFLOW-101's mixed-installation test run before any default changes.\n\n\n\n## The maintainer, later the same evening (the timing)\n\n> Beyond just the scan, we also need to make sure that the directory checking is happening after adding a new rclone remote backend, and not showing on start-up like it did for me. Maybe it was the auto sync game saves that caused that prompt to appear, but it was unexpected there and is much more helpful to be shown during the cloud setup process.\n\nRead: the offer came from the startup saves sync (`GuiCloudTransfer.cpp:297` presents whatever `cloud_restore` printed as `>>> offer`), which is the case they met. The timing checkbox above is rewritten to their words: the check belongs to cloud setup, after the remote is added; the syncs only report.\n\n\n\n## Decided 2026-10-01 (D-CLOUD-165): the set-aside moves too\n\n> I agree with your recommendation. Let's migrate that as well. For a user, we want the process to feel seamless, and their expectation would be that things kept working and that this was more of a cosmetic shift than a functional one.\n\n- [ ] The move carries `Saves-replaced` (the set-aside of conflict losers beside the saves folder) to `/pixelelated/Saves-replaced` by the same copy, verify, delete, and nothing of ours remains under the old name afterwards: a `tools/last-good-scripts-test` case seeds a set-aside copy under the old layout and reads it back under the new one with the old folder gone; the round trip on the VM shows the sync's next set-aside landing under `/pixelelated`.\n",
+  "comments": [
+    {
+      "id": "IC_kwDOMM7sFc8AAAABYPgX8Q",
+      "author": {
+        "login": "blitterbot"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "Added by D-CLOUD-158 (the default folder is `/Rasteratops`):\n\n- [ ] The sweep of the old words: `tools/archaeology --reversal /ROCKNIX/Saves` lists every rule, register row and document naming `/ROCKNIX` as the cloud root; each is reworded to `/Rasteratops` or marked as history in the same change as the code, and the command then prints only history (`decision-register.md` \u00a7 A reversal sweeps its old words).",
+      "createdAt": "2026-09-30T23:54:16Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/pixelelated/distribution/issues/353#issuecomment-5921839089",
+      "viewerDidAuthor": true
+    },
+    {
+      "id": "IC_kwDOMM7sFc8AAAABYPk1DA",
+      "author": {
+        "login": "blitterbot"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "**Placement, 2026-10-01 (D-CLOUD-159).** The maintainer: *\"let's move everything to \\\"/Rasteratops\\\" as the default root directory we look for. that should be part of our baseline brand transition\"*. So the default itself lands with #337's identity change in the same candidate; this epic's #353 keeps the migrations (a carried `/GAMES` re-pointed without a question; the fork's earlier `/ROCKNIX` read and offered the move) and the guards. The Nova's one-line re-point to `/ROCKNIX/Saves` is withdrawn as moot; its cloud moves to `/Rasteratops` with the candidate, on a yes asked by name.",
+      "createdAt": "2026-10-01T00:01:40Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/pixelelated/distribution/issues/353#issuecomment-5921912076",
+      "viewerDidAuthor": true
+    },
+    {
+      "id": "IC_kwDOMM7sFc8AAAABYQEMWA",
+      "author": {
+        "login": "blitterbot"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "**Answers, 2026-10-01 (questions 1 and 2 of 5, D-CLOUD-160 and D-CLOUD-161).** An earlier `/ROCKNIX` is moved on one question, MOVE first (copy, verify, then delete; safe to interrupt; the other devices follow when they next check). A carried upstream `/GAMES` is treated as no folder: the device is asked whether to create `/Rasteratops` with its sync folders, the same offer the setup step makes; a `/GAMES` that actually holds files gets the move dialog naming it. The silent re-point criterion above is superseded by these; the body is edited in the same action.",
+      "createdAt": "2026-10-01T00:46:12Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/pixelelated/distribution/issues/353#issuecomment-5922425944",
+      "viewerDidAuthor": true
+    },
+    {
+      "id": "IC_kwDOMM7sFc8AAAABYS7-yQ",
+      "author": {
+        "login": "blitterbot"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "## Phase 1 design, from the reads (2026-10-01)\n\nWhat exists: `cloud_migrate_layout` already moves a device off an old layout by copy, verify (`rclone check`, whole output read), then delete, refuses a merge into a non-empty target, resumes a cut-short copy, and is driven from the cloud storage page by its `--check` output (`GuiMenu.cpp:5158-5230`); `cloud_sync_helper` carries keys and superseded *numbers* across an upgrade (`migrate_default`) but leaves a carried `/GAMES` alone by design; `cloud_setup --seed-folders` makes the configured folders at the end of the wizard; `cloud_restore` prints `>>> offer create-saves-folder` when the saves folder is absent and its parent lists.\n\nThe changes, each a small edit to that machinery:\n\n1. **Defaults** (D-CLOUD-158/159): `/Rasteratops/{Saves,Backups,Content}` in `cloud_sync.conf`, `.defaults`, `cloud_setup`'s fallbacks and `cloud_migrate_layout`'s `NEW_*`.\n2. **Superseded defaults are not \"a layout of your own\"**: `cloud_migrate_layout` keeps a list of the defaults it ever shipped (`/GAMES` and `/ROCKNIX/Saves` with their siblings); a device whose saves folder equals one is offered the move (today the sibling-layout branch returns \"nothing to move\" for `/ROCKNIX`); any other folder stays the player's own (D-CLOUD-160's KEEP is implicit there).\n3. **Layout state as a verb**: `cloud_setup --layout-state` prints `STATE=current | superseded-empty | superseded-with-files | own | no-remote` with the folders named, so the interface decides without parsing prose: `superseded-with-files` \u2192 the MOVE / KEEP USING / NOT NOW dialog (D-CLOUD-160); `superseded-empty` \u2192 the create-`/Rasteratops` offer (D-CLOUD-161); `current` and `own` \u2192 nothing. KEEP writes `LAYOUT_KEEP=<folder>` to the conf (asked once); NOT NOW writes nothing (asked again at the next setup or scan).\n4. **Following**: in `cloud_restore`'s absent-folder path, a superseded default whose current-default sibling already exists in the cloud (another device moved) is re-pointed without a question, with a journal line; the offer, where it still applies, names the current default.\n5. **Where it is asked**: the cloud setup page's completion step and the scan page (#350), never the startup or exit sync, whose card ends with an action line pointing at MANAGE CLOUD STORAGE when the folder is a superseded default (the timing rule on this issue).\n6. **The marker** (#356): `cloud_migrate_layout` writes `/Rasteratops/.layout` (`layout=2`) after a move or a seeding; a device reads it before offering anything.\n\nProofs on `tools/vm-pair` and `tools/cloud-round-trip` as the criteria say; the interface half (the dialog, the scan page) follows the script half.",
+      "createdAt": "2026-10-01T05:37:00Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/pixelelated/distribution/issues/353#issuecomment-5925437129",
+      "viewerDidAuthor": true
+    },
+    {
+      "id": "IC_kwDOMM7sFc8AAAABYTHq0A",
+      "author": {
+        "login": "blitterbot"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "**From the futro (2026-10-01), two criteria added ahead of the interface work:**\n\n- [ ] `cloud_migrate_layout --state` looks for every superseded default's folder in the cloud, not only the configured one: a device configured for `/GAMES` whose cloud holds `/ROCKNIX/Saves` with files reads `STATE=superseded-with-files` with `SOURCE=/ROCKNIX/Saves`, and the move dialog, not the creation, is offered (the Nova's real case: its conf names `/GAMES`, its saves sit in `/ROCKNIX/Saves`); a sandbox check in `tools/last-good-scripts-test` section aa fails against the verb as first written.\n- [ ] `--follow` refuses to re-point a device whose old folder still holds files the new folder lacks: it reads `superseded-with-files` and the move is offered instead; the `tools/cloud-round-trip` move case seeds a save into the old folder after the move and shows the second device offered, not followed, with the save intact.\n- [ ] `Saves-replaced` (the set-aside of conflict losers beside the saves folder) moves with the saves, or the notes say it stays under the old name -- the maintainer's call, asked in the futro's report.",
+      "createdAt": "2026-10-01T05:55:45Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/pixelelated/distribution/issues/353#issuecomment-5925628624",
+      "viewerDidAuthor": true
+    },
+    {
+      "id": "IC_kwDOMM7sFc8AAAABYTOJBQ",
+      "author": {
+        "login": "blitterbot"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "**Phase 1, the script half, landed on `feature/cloud-epic` at `48c2df30a9` (2026-10-01).** The defaults are `/Rasteratops/{Saves,Backups,Content}`; `cloud_migrate_layout` knows the superseded defaults (`/GAMES`, `/ROCKNIX/Saves`), offers the move for them, and gains `--state`, `--keep`, `--follow`, `--superseded` and the `.layout` marker (#356); the sync scripts follow the fleet before writing. `tools/last-good-scripts-test`: PASSED (1403 lines) with the new section aa (15 checks; 12 fail against the old tool) and sections x, y, z moved to the new default. Still open from the futro before the interface reads the verb: the state verb's look across every superseded folder (the Nova's `/GAMES`-in-conf, `/ROCKNIX`-in-cloud case) and the follow's refusal when the old folder holds newer files -- next.",
+      "createdAt": "2026-10-01T06:05:45Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/pixelelated/distribution/issues/353#issuecomment-5925734661",
+      "viewerDidAuthor": true
+    },
+    {
+      "id": "IC_kwDOMM7sFc8AAAABYTUtxQ",
+      "author": {
+        "login": "blitterbot"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "**The futro's two criteria, the script side, at `1de43faa25`.** `--state` looks across every superseded default's folder and names the one holding files (`SOURCE=`); `--check`/`--apply` move from it; `--follow` refuses while the old folder holds files. Section aa of `tools/last-good-scripts-test` carries both (twenty checks; three fail against `48c2df30a9`); the suite PASSED at 1407 lines. The criteria themselves were posted as a comment (not in the body), so there is nothing to tick in the list above yet; the round-trip half of the follow's proof waits for the VM run.",
+      "createdAt": "2026-10-01T06:15:33Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/pixelelated/distribution/issues/353#issuecomment-5925842373",
+      "viewerDidAuthor": true
+    },
+    {
+      "id": "IC_kwDOMM7sFc8AAAABYaHt-g",
+      "author": {
+        "login": "blitterbot"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "**The set-aside moves too, at `79aa0b28e4` (D-CLOUD-165).** `relocate` takes a folder with no pointer; the move carries `<saves>-replaced` after the saves; `--check` lists it. The suite's local-backend case moves `/ROCKNIX/Saves-replaced/<stamp>/gb/L.srm` to `/Rasteratops/Saves-replaced/\u2026`, leaves nothing under `/ROCKNIX`, and reads `layout=2` back; PASSED at 1409 lines. The criterion's VM half (the sync's next set-aside landing under `/Rasteratops`) waits for the round trip.",
+      "createdAt": "2026-10-01T13:57:47Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/pixelelated/distribution/issues/353#issuecomment-5932969466",
+      "viewerDidAuthor": true
+    },
+    {
+      "id": "IC_kwDOMM7sFc8AAAABYa38sA",
+      "author": {
+        "login": "blitterbot"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "**The interface half, at ES `dc819f432` and scripts `b221d9e142` (D-CLOUD-166/167).** The scan page that opens both transfer pages reads `cloud_migrate_layout --state` and raises, before anything is offered:\n\n- `superseded-with-files` (the fork's earlier `/ROCKNIX`, or upstream's `/GAMES`, holds saves and no current folder exists): YOUR CLOUD HAS A /ROCKNIX FOLDER FROM AN EARLIER VERSION. MOVE IT TO /Rasteratops? YOUR OTHER DEVICES WILL FOLLOW. -- MOVE / KEEP USING /ROCKNIX / NOT NOW. MOVE runs `--apply` on its own page, MOVING YOUR CLOUD FOLDER: the script now announces each tier (`>>> unit SAVES|i|n`, SETTINGS BACKUPS, DISCARDED SAVES, the content) and its steps (`>>> doing copy|verify|remove` -> COPYING..., CHECKING THE COPY..., REMOVING THE OLD FOLDER...), streaming the copy's progress; a move that could not finish reads COULDN'T FINISH - <why> with YOUR CLOUD STILL HAS /ROCKNIX. NOTHING WAS REMOVED. and TRY AGAIN beside CLOSE; one that did is dismissed by the player and scans again. KEEP USING runs `--keep`; NOT NOW asks next time.\n- `superseded-empty`, or no current folder on a restore: YOUR CLOUD HAS NO /Rasteratops FOLDER YET. CREATE IT, WITH FOLDERS FOR SAVES, SETTINGS BACKUPS, AND GAME CONTENT? -- CREATE IT (the re-point, then `--seed-folders`, on a page that goes on by itself) / CHOOSE A FOLDER (the CLOUD FOLDER keyboard) / NOT NOW.\n- a superseded, empty folder beside a current one that exists is followed inside the scan, with no question (D-CLOUD-160's \"your other devices will follow\").\n\nAnd the automatic card (D-CLOUD-166): a startup or exit sync with no saves folder says SKIPPED - YOUR CLOUD FOLDER ISN'T SET UP YET with SET IT UP: GAME SETTINGS > MANAGE CLOUD STORAGE, stamps `CloudExit::NoFolder` (78) so the row under SYNC SAVES DURING STARTUP says the same, and raises no dialog -- the screen the maintainer met on the Nova at startup. The scripts are unchanged there (exit 0 and the offer line); the card reads the offer for its automatic origins.\n\nCan this be done on the VM? **Yes** -- `tools/vm-pair` with guest a on this cut and guest b on RC2, the WebDAV seeded with `/ROCKNIX/{Saves,Backups,Content,Saves-replaced}` and a `/GAMES` conf on a; the frames at 640x480 of each dialog and page; the move's `rclone check` read from the backend. That proof is next, before the pin bump.\n",
+      "createdAt": "2026-10-01T14:41:13Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/pixelelated/distribution/issues/353#issuecomment-5933759664",
+      "viewerDidAuthor": true
+    },
+    {
+      "id": "IC_kwDOMM7sFc8AAAABYb-Mnw",
+      "author": {
+        "login": "blitterbot"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "**The mixed-installation test (D-CLOUD-158's gate, D-WORKFLOW-101 row 4) ran on `tools/vm-pair`, and the second device's move is a merge now (D-CLOUD-168, `49b2baddba`).**\n\nThe test (`epic-mixed-pair.sh`, 15:40 UTC): guest a on run 95's image (`92c6cf25f1`), guest b on RC2's (`69e6039f8f`), one QA WebDAV seeded with `/ROCKNIX/Saves/nes/Probe.srm`, both devices configured for `/ROCKNIX`.\n\n1. b (the old build) restores from `/ROCKNIX`, adds a save, backs up: its save is in `/ROCKNIX/Saves`. PASS.\n2. a (this cut) reads `superseded-with-files` and moves: both saves under `/Rasteratops`, `/ROCKNIX/Saves` gone, the marker written, a re-pointed. PASS.\n3. b keeps playing on the old build: a new save goes up under `/ROCKNIX/Saves`, which comes back with three files; a's next restore does not see it. PASS -- the split D-CLOUD-160 accepts until b moves, recorded.\n3b. a changes `Probe.srm` and backs it up: the two folders now hold a differing version of one save.\n4. The second device's move (a's conf pointed back at `/ROCKNIX`, as b's reads after its upgrade): `--state` reads `superseded-with-files` with `CURRENT_EXISTS=1` and the marker; `--follow` refuses (3), since the old folder holds files; `--apply` **used to refuse** (`REFUSING: /Rasteratops/Saves already exists`, the futro's pre-mortem) and now merges: the differing `Probe.srm` is shelved first under `/Rasteratops/Saves-replaced/<stamp>-move/`, the copy runs with `--update` and `--backup-dir` on that shelf, the old folder is removed once every name is present. After it: `/Rasteratops/Saves` holds `FromB2.srm` beside the fleet's two, the fleet's newer `Probe.srm` is the one kept, the old folder's copy is on the shelf, nothing under `/ROCKNIX`. PASS (10 of 10).\n\nThe gate is the fleet's marker (`.layout`): a `/Rasteratops` with no marker is somebody's own folder and is still refused. Four sandbox cases in `last-good-scripts-test` section aa cover the refusal, the `--check` wording, the merge's commands and the shelf. **D-CLOUD-168 is a fork resolved under D-CLOUD-160's \"your other devices will follow\", for the maintainer to confirm or reverse**; the shelf is pruned to one generation by the next backup like every set-aside.\n\nAlso from the guest-d proof of run 95 (`docs/qa-frames/2026-10-01/354/`): the move dialog, the move page, the create offer and the startup card's SKIPPED line are as approved; CREATE IT on a carried stock conf (`CONTENT_REMOTE=\"\"`) seeded ROMs and BIOS at the cloud's root -- an empty content pointer now follows the saves to `/Rasteratops/Content` (`49b2baddba`).\n",
+      "createdAt": "2026-10-01T15:41:45Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/pixelelated/distribution/issues/353#issuecomment-5934910623",
+      "viewerDidAuthor": true
+    },
+    {
+      "id": "IC_kwDOMM7sFc8AAAABYcIHXQ",
+      "author": {
+        "login": "blitterbot"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "**Code trace** (D-WORKFLOW-050, for the candidate's preflight): the folder's state is `cloud_migrate_layout --state` (`744c4dcee6`, `b221d9e142`): every default this project ever shipped (`SUPERSEDED_DEFAULT_SAVES`: `/GAMES`, `/ROCKNIX/Saves`) is looked at and the one holding files is the move's source, so a device set to `/GAMES` whose cloud holds `/ROCKNIX/Saves` reads `superseded-with-files` naming it. `cloud_scan` runs the verb when BACK UP TO THE CLOUD or RESTORE FROM THE CLOUD opens (ES `dc819f432`, `cloudOpenTransfer`), follows the fleet in the scan when the old folder is empty and the current one exists, and `cloudOfferFolder` raises the move dialog (`superseded-with-files`) or the create offer (`superseded-empty`, or no current folder on a restore). MOVE runs `--apply` on a page; onto a current folder another device made (the `.layout` marker) it merges, newer wins, the differing versions shelved first under `<saves>-replaced/<stamp>-move` (`49b2baddba`, D-CLOUD-168); CREATE IT runs the re-point and `cloud_setup --seed-folders`, with an empty content pointer carried to `/Rasteratops/Content`. The automatic syncs raise no dialog: `ThreadedCloudSync` reads the scripts' offer on a startup or exit origin as `SKIPPED - YOUR CLOUD FOLDER ISN'T SET UP YET`, stamped `78 no-folder` (ES `dc819f432`, D-CLOUD-166).\n\nAlready written: a device upgraded from stock carries `SAVES_REMOTE=\"/GAMES\"`, `SETTINGS_REMOTE=\"/GAMES/backup\"`, `CONTENT_REMOTE=\"\"` (the Nova, read 2026-09-30) -- read as before by `cloud_sync_helper`, never rewritten by it; the scan reads that conf and the cloud together, so the Nova is offered the move from `/ROCKNIX/Saves` (where its saves are), not a `/GAMES` creation. A device on the fork's earlier `/ROCKNIX` keeps syncing there until it answers the dialog (KEEP USING keeps it for good, `LAYOUT_KEEP`); its `Saves-replaced` set-aside moves with its saves (D-CLOUD-165). Nothing in any cloud changes until MOVE or CREATE IT is pressed; a startup on the old folder with the current one already made is re-pointed by the follow, which refuses while the old folder holds files (the futro's rule). The kept core of the verb's crash and the debug binary were deleted from guest d.\n",
+      "createdAt": "2026-10-01T15:49:18Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/pixelelated/distribution/issues/353#issuecomment-5935073117",
+      "viewerDidAuthor": true
+    },
+    {
+      "id": "IC_kwDOMM7sFc8AAAABYjgEWA",
+      "author": {
+        "login": "blitterbot"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "Three acceptance criteria rewritten in the body to the decisions made since: a carried `/GAMES` is settled silently by the seeding at the end of setup (D-CLOUD-169) and offered CREATE IT by the cloud folder step at boot (D-CLOUD-170); another device follows at its step or a transfer page's scan rather than before a sync, and one that wrote into the old folder first is merged by its MOVE (D-CLOUD-168, D-CLOUD-170); and the folder is settled by the step at the end of setup and at boot, never by a sync (D-CLOUD-166, D-CLOUD-170, #363). Each now names the frame or suite line that ticks it; run 100 (`cb0b051b72`) is building and its guest-d proof carries the cases named (B0, B, E, I, L).",
+      "createdAt": "2026-10-01T23:41:49Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/pixelelated/distribution/issues/353#issuecomment-5942805592",
+      "viewerDidAuthor": true
+    }
+  ],
+  "number": 353,
+  "state": "OPEN",
+  "title": "M7.P3: The saves-folder offer names upstream's /GAMES on a device upgraded from stock ROCKNIX; show it after the sign-in, with a folder choice"
+}

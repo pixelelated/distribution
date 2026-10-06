@@ -1,0 +1,227 @@
+/workspace/tmp/pixelelated-m7-p4-recovery-ui-fixes-06/check-payload.py: OK
+/workspace/tmp/pixelelated-m7-p4-recovery-ui-fixes-06/cloud-ui-proof.py: OK
+/workspace/tmp/pixelelated-m7-p4-recovery-ui-fixes-06/outer.sh: OK
+/workspace/tmp/pixelelated-m7-p4-recovery-ui-fixes-06/provenance.json: OK
+/workspace/tmp/pixelelated-m7-p4-recovery-ui-fixes-06/proxy-identity.py: OK
+/workspace/tmp/pixelelated-m7-p4-recovery-ui-fixes-06/run.sh: OK
+/workspace/tmp/pixelelated-m7-p4-recovery-ui-fixes-06/seed.py: OK
+/workspace/tmp/pixelelated-m7-p4-recovery-ui-fixes-06/stop-guest.py: OK
+/workspace/tmp/pixelelated-m7-p4-recovery-ui-fixes-06/verify-inputs.py: OK
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/43a698bcd7d570c63ebdd5db015e5302463f7ee4a15438fd9ef2359437be19da
+Preparing independent 16GiB guest d from the verified pixelelated image
+Image resized.
+No errors were found on the image.
+31695/262144 = 12.09% allocated, 0.00% fragmented, 0.00% compressed clusters
+Image end offset: 2077818880
+[W][22:00:14.108773] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][22:00:14.108805] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+ready after ~30s
+PASS guest d exact BUILD_ID and OS_NAME ed5a6a51f5974deec8748fbf0dbd2f4984b690f5 pixelelated
+PASS QA ROM bytes /storage/roms/gb/Ninoid.gb a40191c169c68e6607ace072da96aab957f306f55ded59ce1f287c1f5273387b
+PASS QA ROM bytes /storage/roms/gbc/Tobu Tobu Girl Deluxe.gb 0a0e8018dbbc8d7f8cd99f05e7cdc7b4cc9e358ecfe9377ebfb2291a84c6e310
+PASS QA ROM bytes /storage/roms/nes/Bobl.nes 025ec44d0d84ac469b442ee56c3d69e035e9a38430ae849172fe3a1e569d0dea
+PASS guest d seeded and idle
+up: webdav serving /workspace/tmp/pixelelated-m7-p4-recovery-ui-fixes-06/cloud/data at http://127.0.0.1:9040 (guest: http://10.0.2.2:9040)
+PASS cloud-ui-before exact identity, installed scripts, policy and Ocean SVG bytes/modes
+PASS cloud-ui-before installed proxy identities and account discovery
+PASS setup: candidate identity
+START en_US-outer-timeout
+PASS en_US-outer-timeout: one local QA remote
+PASS en_US-outer-timeout: private QA timeout fault selected
+PASS en_US-outer-timeout: private QA rclone fault selected
+PASS en_US-outer-timeout: actual installed ES startup outcome stamp appeared
+PASS en_US-outer-timeout: actual startup stamp retains exact outer timeout reason
+PASS en_US-outer-timeout: stock outer timeout enforced its real thirty-second bound
+PASS en_US-outer-timeout: outer-timeout refusal preserves cloud and pointers
+PASS en_US-outer-timeout: timed-out provider and sleep child actually exited
+START en_US-original-connection-recovery
+PASS en_US-original-connection-recovery: private QA rclone fault selected
+PASS en_US-original-connection-recovery: installed real partial migration created before endpoint change
+PASS en_US-original-connection-recovery: owned local endpoint only
+PASS en_US-original-connection-recovery: no game running before carousel
+PASS en_US-original-connection-recovery: actual UI walk carousel
+PASS en_US-original-connection-recovery: no game running after carousel
+PASS en_US-original-connection-recovery: no game running before hub-menu
+PASS en_US-original-connection-recovery: actual UI walk hub-menu
+PASS en_US-original-connection-recovery: no game running after hub-menu
+PASS en_US-original-connection-recovery: START changes the captured screen; direct main-menu review required
+PASS en_US-original-connection-recovery: no game running before hub
+PASS en_US-original-connection-recovery: actual UI walk hub
+PASS en_US-original-connection-recovery: no game running after hub
+PASS en_US-original-connection-recovery: no game running before opening-scan
+PASS en_US-original-connection-recovery: actual UI walk opening-scan
+PASS en_US-original-connection-recovery: no game running after opening-scan
+PASS en_US-original-connection-recovery: changed endpoint preserves truthful original-connection reason
+PASS en_US-original-connection-recovery: refusal leaves all source/partial files, pointers and binding untouched
+PASS en_US-original-connection-recovery: no game running before leave-refusal
+PASS en_US-original-connection-recovery: actual UI walk leave-refusal
+PASS en_US-original-connection-recovery: no game running after leave-refusal
+PASS en_US-original-connection-recovery: no game running before hub-menu
+PASS en_US-original-connection-recovery: actual UI walk hub-menu
+PASS en_US-original-connection-recovery: no game running after hub-menu
+PASS en_US-original-connection-recovery: START changes the captured screen; direct main-menu review required
+PASS en_US-original-connection-recovery: no game running before hub
+PASS en_US-original-connection-recovery: actual UI walk hub
+PASS en_US-original-connection-recovery: no game running after hub
+PASS en_US-original-connection-recovery: no game running before repair-entry
+PASS en_US-original-connection-recovery: actual UI walk repair-entry
+PASS en_US-original-connection-recovery: no game running after repair-entry
+PASS en_US-original-connection-recovery: no game running before computer-path
+PASS en_US-original-connection-recovery: actual UI walk computer-path
+PASS en_US-original-connection-recovery: no game running after computer-path
+PASS en_US-original-connection-recovery: no game running before repair-choice
+PASS en_US-original-connection-recovery: actual UI walk repair-choice
+PASS en_US-original-connection-recovery: no game running after repair-choice
+PASS en_US-original-connection-recovery: no game running before ssh-continue
+PASS en_US-original-connection-recovery: actual UI walk ssh-continue
+PASS en_US-original-connection-recovery: no game running after ssh-continue
+PASS en_US-original-connection-recovery: no game running before connection-continue
+PASS en_US-original-connection-recovery: actual UI walk connection-continue
+PASS en_US-original-connection-recovery: no game running after connection-continue
+PASS en_US-original-connection-recovery: terminal repair does not rebind or replace the pending record
+PASS en_US-original-connection-recovery: no game running before verify-repaired-connection
+PASS en_US-original-connection-recovery: actual UI walk verify-repaired-connection
+PASS en_US-original-connection-recovery: no game running after verify-repaired-connection
+PASS en_US-original-connection-recovery: no game running before retry-owned-move
+PASS en_US-original-connection-recovery: actual UI walk retry-owned-move
+PASS en_US-original-connection-recovery: no game running after retry-owned-move
+PASS en_US-original-connection-recovery: real UI retry completed and removed owned migration record
+PASS en_US-original-connection-recovery: both source tiers survive supported recovery
+PASS en_US-original-connection-recovery: other endpoint unchanged
+START en_US-missing-folder
+PASS en_US-missing-folder: no game running before carousel
+PASS en_US-missing-folder: actual UI walk carousel
+PASS en_US-missing-folder: no game running after carousel
+PASS en_US-missing-folder: no game running before hub-menu
+PASS en_US-missing-folder: actual UI walk hub-menu
+PASS en_US-missing-folder: no game running after hub-menu
+PASS en_US-missing-folder: START changes the captured screen; direct main-menu review required
+PASS en_US-missing-folder: no game running before hub
+PASS en_US-missing-folder: actual UI walk hub
+PASS en_US-missing-folder: no game running after hub
+PASS en_US-missing-folder: no game running before opening-scan
+PASS en_US-missing-folder: actual UI walk opening-scan
+PASS en_US-missing-folder: no game running after opening-scan
+PASS en_US-missing-folder: genuine missing saves folder is classified absent
+PASS en_US-missing-folder: missing folder offers creation without silently writing
+START en_US-network-refusal
+PASS en_US-network-refusal: no game running before carousel
+PASS en_US-network-refusal: actual UI walk carousel
+PASS en_US-network-refusal: no game running after carousel
+PASS en_US-network-refusal: no game running before hub-menu
+PASS en_US-network-refusal: actual UI walk hub-menu
+PASS en_US-network-refusal: no game running after hub-menu
+PASS en_US-network-refusal: START changes the captured screen; direct main-menu review required
+PASS en_US-network-refusal: no game running before hub
+PASS en_US-network-refusal: actual UI walk hub
+PASS en_US-network-refusal: no game running after hub
+PASS en_US-network-refusal: no game running before opening-scan
+PASS en_US-network-refusal: actual UI walk opening-scan
+PASS en_US-network-refusal: no game running after opening-scan
+PASS en_US-network-refusal: real closed local endpoint gives transport reason
+PASS en_US-network-refusal: transport refusal preserves all state
+START fr_FR-outer-timeout
+PASS fr_FR-outer-timeout: one local QA remote
+PASS fr_FR-outer-timeout: private QA timeout fault selected
+PASS fr_FR-outer-timeout: private QA rclone fault selected
+PASS fr_FR-outer-timeout: actual installed ES startup outcome stamp appeared
+PASS fr_FR-outer-timeout: actual startup stamp retains exact outer timeout reason
+PASS fr_FR-outer-timeout: stock outer timeout enforced its real thirty-second bound
+PASS fr_FR-outer-timeout: outer-timeout refusal preserves cloud and pointers
+PASS fr_FR-outer-timeout: timed-out provider and sleep child actually exited
+START fr_FR-original-connection-recovery
+PASS fr_FR-original-connection-recovery: private QA rclone fault selected
+PASS fr_FR-original-connection-recovery: installed real partial migration created before endpoint change
+PASS fr_FR-original-connection-recovery: owned local endpoint only
+PASS fr_FR-original-connection-recovery: no game running before carousel
+PASS fr_FR-original-connection-recovery: actual UI walk carousel
+PASS fr_FR-original-connection-recovery: no game running after carousel
+PASS fr_FR-original-connection-recovery: no game running before hub-menu
+PASS fr_FR-original-connection-recovery: actual UI walk hub-menu
+PASS fr_FR-original-connection-recovery: no game running after hub-menu
+PASS fr_FR-original-connection-recovery: START changes the captured screen; direct main-menu review required
+PASS fr_FR-original-connection-recovery: no game running before hub
+PASS fr_FR-original-connection-recovery: actual UI walk hub
+PASS fr_FR-original-connection-recovery: no game running after hub
+PASS fr_FR-original-connection-recovery: no game running before opening-scan
+PASS fr_FR-original-connection-recovery: actual UI walk opening-scan
+PASS fr_FR-original-connection-recovery: no game running after opening-scan
+PASS fr_FR-original-connection-recovery: changed endpoint preserves truthful original-connection reason
+PASS fr_FR-original-connection-recovery: refusal leaves all source/partial files, pointers and binding untouched
+PASS fr_FR-original-connection-recovery: no game running before leave-refusal
+PASS fr_FR-original-connection-recovery: actual UI walk leave-refusal
+PASS fr_FR-original-connection-recovery: no game running after leave-refusal
+PASS fr_FR-original-connection-recovery: no game running before hub-menu
+PASS fr_FR-original-connection-recovery: actual UI walk hub-menu
+PASS fr_FR-original-connection-recovery: no game running after hub-menu
+PASS fr_FR-original-connection-recovery: START changes the captured screen; direct main-menu review required
+PASS fr_FR-original-connection-recovery: no game running before hub
+PASS fr_FR-original-connection-recovery: actual UI walk hub
+PASS fr_FR-original-connection-recovery: no game running after hub
+PASS fr_FR-original-connection-recovery: no game running before repair-entry
+PASS fr_FR-original-connection-recovery: actual UI walk repair-entry
+PASS fr_FR-original-connection-recovery: no game running after repair-entry
+PASS fr_FR-original-connection-recovery: no game running before computer-path
+PASS fr_FR-original-connection-recovery: actual UI walk computer-path
+PASS fr_FR-original-connection-recovery: no game running after computer-path
+PASS fr_FR-original-connection-recovery: no game running before repair-choice
+PASS fr_FR-original-connection-recovery: actual UI walk repair-choice
+PASS fr_FR-original-connection-recovery: no game running after repair-choice
+PASS fr_FR-original-connection-recovery: no game running before ssh-continue
+PASS fr_FR-original-connection-recovery: actual UI walk ssh-continue
+PASS fr_FR-original-connection-recovery: no game running after ssh-continue
+PASS fr_FR-original-connection-recovery: no game running before connection-continue
+PASS fr_FR-original-connection-recovery: actual UI walk connection-continue
+PASS fr_FR-original-connection-recovery: no game running after connection-continue
+PASS fr_FR-original-connection-recovery: terminal repair does not rebind or replace the pending record
+PASS fr_FR-original-connection-recovery: no game running before verify-repaired-connection
+PASS fr_FR-original-connection-recovery: actual UI walk verify-repaired-connection
+PASS fr_FR-original-connection-recovery: no game running after verify-repaired-connection
+PASS fr_FR-original-connection-recovery: no game running before retry-owned-move
+PASS fr_FR-original-connection-recovery: actual UI walk retry-owned-move
+PASS fr_FR-original-connection-recovery: no game running after retry-owned-move
+PASS fr_FR-original-connection-recovery: real UI retry completed and removed owned migration record
+PASS fr_FR-original-connection-recovery: both source tiers survive supported recovery
+PASS fr_FR-original-connection-recovery: other endpoint unchanged
+START fr_FR-missing-folder
+PASS fr_FR-missing-folder: no game running before carousel
+PASS fr_FR-missing-folder: actual UI walk carousel
+PASS fr_FR-missing-folder: no game running after carousel
+PASS fr_FR-missing-folder: no game running before hub-menu
+PASS fr_FR-missing-folder: actual UI walk hub-menu
+PASS fr_FR-missing-folder: no game running after hub-menu
+PASS fr_FR-missing-folder: START changes the captured screen; direct main-menu review required
+PASS fr_FR-missing-folder: no game running before hub
+PASS fr_FR-missing-folder: actual UI walk hub
+PASS fr_FR-missing-folder: no game running after hub
+PASS fr_FR-missing-folder: no game running before opening-scan
+PASS fr_FR-missing-folder: actual UI walk opening-scan
+PASS fr_FR-missing-folder: no game running after opening-scan
+PASS fr_FR-missing-folder: genuine missing saves folder is classified absent
+PASS fr_FR-missing-folder: missing folder offers creation without silently writing
+START fr_FR-network-refusal
+PASS fr_FR-network-refusal: no game running before carousel
+PASS fr_FR-network-refusal: actual UI walk carousel
+PASS fr_FR-network-refusal: no game running after carousel
+PASS fr_FR-network-refusal: no game running before hub-menu
+PASS fr_FR-network-refusal: actual UI walk hub-menu
+PASS fr_FR-network-refusal: no game running after hub-menu
+PASS fr_FR-network-refusal: START changes the captured screen; direct main-menu review required
+PASS fr_FR-network-refusal: no game running before hub
+PASS fr_FR-network-refusal: actual UI walk hub
+PASS fr_FR-network-refusal: no game running after hub
+PASS fr_FR-network-refusal: no game running before opening-scan
+PASS fr_FR-network-refusal: actual UI walk opening-scan
+PASS fr_FR-network-refusal: no game running after opening-scan
+PASS fr_FR-network-refusal: real closed local endpoint gives transport reason
+PASS fr_FR-network-refusal: transport refusal preserves all state
+PASS fr_FR-network-refusal: installed product hashes unchanged
+PASS actual timeout/recovery/refusal cases; primary visual review required
+PASS cloud-ui-after exact identity, installed scripts, policy and Ocean SVG bytes/modes
+PASS cloud-ui-after installed proxy identities and account discovery
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/43a698bcd7d570c63ebdd5db015e5302463f7ee4a15438fd9ef2359437be19da
+PASS frozen source inputs, ES pin and candidate input custody
+PASS supplemental cloud UI commands; actual frame review remains required
+PASS owned guest stopped 2510005
+down

@@ -1,0 +1,21 @@
+{
+  "verified_utc": "2026-10-06T21:50:26.969419+00:00",
+  "passed": true,
+  "owner_result": "FAILED",
+  "no_live_qemu": true,
+  "no_live_owner_processes": true,
+  "recorded_pidfiles_absent": {
+    "guest.pid": 2201350
+  },
+  "unbound_tcp_ports": [
+    10022,
+    10023,
+    10026,
+    5909,
+    5910,
+    5912,
+    9040
+  ],
+  "recorded_log_and_cleanup_pids_absent": [],
+  "scope": "Actual host process table, exact owner path arguments/cwd, recorded pidfiles, and TCP bind checks. Observer ancestors excluded."
+}

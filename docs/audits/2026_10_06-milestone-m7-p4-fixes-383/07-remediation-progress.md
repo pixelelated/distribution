@@ -336,3 +336,149 @@ history source. Additional shelves use the existing verified relocation path
 and bounded re-entry; retries retain the record until completion. Current
 installed candidate15 is unchanged: PL-001 and PL-003 remain open until a new
 engineering image proves these repairs. UI04 remains actively supervised.
+
+
+## 2026-10-06T21:44:23.397175+00:00 — French reason fit remains within PL-005
+
+Direct actual640px review of UI04 fr_FR-reason-config-opening-result shows the
+correct settings-read reason ellipsized at SYNCHR.... The command assertion
+passes its full emitted English key, but the French screen does not display
+the complete localized reason. PL-005 remains open; review the remaining
+recovery/timeout frames before choosing the bounded text/layout correction.
+This is a presentation failure, not an incorrect parser result or ninth punch item.
+The EN/FR legacy-root capability labels likewise remain PL-001. 106frames
+now have individual hash-bound primary verdicts.
+
+
+## 2026-10-06T21:47:05.280560+00:00 — Installed UI04 complete; PL-002 and PL-006 resolved
+
+All 18 automated cases pass; 110 frames directly reviewed. Two legacy-root
+capability frames and one French settings-reason frame fail visual acceptance
+under existing PL-001/005. All four rc0,9sealed inputs and owner exits verified
+21:44:40; actual guest/backend/seven-port cleanup21:44:54. PL-002 resolves from
+12 installed atomic fault/retry boundaries, backup/content controls and actual
+old-pointer editor recovery. PL-006 resolves from valid/unsafe installed name
+cases and 54 EN/FR chooser frames. Outcomes re-derived in08 and command receipts.
+Four findings remain open:001/003/004/005. Recovery-ui03 is now active under
+watcher2200861; no claim that this later proof has passed.
+
+
+## 2026-10-06T21:49:40.335201+00:00 — Tested source repairs published; normal guard retained
+
+History/capability repair commit e98339387135678f7ec82a8f90bde9643d2e4cd0
+is on the feature remote; integration ec2283f20f10e692f15bdb417917adb0e320155f
+is on next. Exact remote readback and all 34,498 changed-path object equality
+verified21:48:32. Push-only owner02 finished21:48:34; primary21:49:05 confirms
+allfour0, unchanged seal and four actual PIDs absent. Full hooks ran unchanged.
+Candidate15 remains frozen and does not contain these source repairs.
+
+Original publication01 committed/integrated but failed its first push with
+`could not diff ... to scan it`; allfour1 and actual exits retained. The same
+patch scan to /dev/null succeeds; a watched independent read-only reproduction
+of each scan stage on disk also succeeds (782,710,170 patch bytes;
+3,456,110,992 labeled-line bytes). The successful push-only retry uses its owned
+disk TMPDIR and leaves it empty. Original failure's exact underlying stderr was
+suppressed by the existing hook: temporary-storage pressure is not established
+as the cause. No credentials/rules/guard were bypassed or relaxed. Retained
+fixtures account for the large diff; future evidence capture should avoid
+repeating identical source trees per case while preserving exact input hashes.
+
+
+## 2026-10-06T21:52:47.112468+00:00 — Recovery03 navigation fixture failed; reason-fit gap retained
+
+Recovery03 finished21:49:58 with allfour1. Actual owner verification21:50:26
+confirms9 unchanged input seals and allfour PIDs absent; guest/backend cleanup
+at the same minute confirms no QEMU/owner process and all seven ports free.
+The installed real30second startup-timeout checks pass. The next repair walk
+stopped when RIGHT was sent while CURRENT PASSWORD was selected, before the
+button bar. Source GuiMenu.cpp step2 has two selectable rows: ON YOUR COMPUTER
+and CURRENT PASSWORD; fresh04 needs two DOWNs before RIGHT/CONTINUE. This is
+a fixture correction, not a product change. Failed03 is retained, never replayed.
+
+Nine original-connection recovery frames and the stopped frame were directly
+reviewed: the initial refusal reason is clipped at ORIGINAL C... on actual640px
+English output. This joins the French settings-read clipping in existingPL005.
+The pending move and foreign-cloud bytes remained preserved before navigation
+failed; no completed-recovery claim. Timeout-card visual acceptance remains
+pending. Evidence p4-recovery-ui-fixes-03/artifacts/cloud-ui.
+
+
+## 2026-10-06T22:04:26.685552+00:00 — Reason-fit source compiler gate passes
+
+reason-fit-host01 finished22:03:44; actual primary verification22:04:09
+confirms four result channels0,7 unchanged input seals and four owner PIDs
+absent. tools/es-syntax-check used candidate15's image compiler and source
+feature headers; PASS. Vocabulary judged164strings,0wrong; git diff --check
+passes. Eight-line CPP edit remains uncommitted on the ES feature branch;
+integration staysbab4df so live15 checks retain their custody. No new strings
+or font/row changes. Installed EN/FR640/1280 validation remains open.
+
+
+## 2026-10-06T22:07:06.000732+00:00 — Active identity contracts match settled decisions
+
+Read#337 through its last comment, #409 current checklist/latest futro and
+D-WORKFLOW-098/099/123/128/129/144 plus D-CLOUD-173/174; archaeology37hits
+retained. #337 now separates historical proposals from current instructions,
+checks active path assignments while preserving archive-format comments,
+requires the explicit56-entry retrospective mapping without a false same-old-
+commit claim, and follows lowercaseorg/owner/wordmark/site decisions. #409
+gets current Phase7 status and the reconciled contract boundary. Exact GitHub
+readbacks retained contract-reconciliation-01. No checkbox ticked, no issue
+closed, no instruction file changed. P5 site/release/docs and H700 remain owed.
+
+
+## 2026-10-06T22:09:30.531287+00:00 — Boot contract readback and ongoing recovery
+
+Read all #353 and #363 comments and current bodies from retained boot-contract-01.
+The old never-by-a-sync clause in #353 and overbroad checked no-preparation
+clause in #363 need the existing D-CLOUD-173 exception: bounded boot preparation
+before startup transfer. This is B04 contract reconciliation, not a runtime
+reversal; original historical audit grades remain. Recovery06 watcher2509345
+is live; all four EN behavior cases pass and French repair is active. Directly
+viewed EN missing-folder and real closed-endpoint grids: all eight frames
+readable, correct controls, main-menu transitions evident. Persisted frame
+verdicts follow with exact original hashes.
+
+
+## 2026-10-06T22:10:26.468671+00:00 — Boot contract reconciliation verified
+
+Read both issue comment histories and actual main.cpp boot command. #353 and
+#363 now explicitly state D-CLOUD-173's 30-second boot-only preparation before
+startup transfer, failure-before-transfer and notification linger/fade ordering.
+Exact GitHub readbacks retained under boot-contract-reconciliation-01. States,
+historical titles and checkbox counts unchanged; no runtime acceptance added.
+B-04's narrowed contract work is complete; original audit grades stay intact.
+
+
+## 2026-10-06T22:11:19.311704+00:00 — French recovery behavior passes; instruction-fit gap retained
+
+All twelve French repair frames directly reviewed. Actual retry completes,
+removes its bound record, preserves both source tiers and leaves the other
+endpoint unchanged. The original-connection reason clips at SA CON..., and
+the third terminal instruction clips after POU.... Both stay under PL005;
+PL004 acceptance is not closed while its full recovery instructions need fit
+review.38 frames retained with individual verdicts,35PASS/3FAIL.
+
+
+## 2026-10-06T22:12:05.803078+00:00 — French repair instruction shortened
+
+The nonselectable InfoRow is single-line, so the lost French instruction cannot
+marquee. Its translation now says AUTRES OPTIONS : rclone config, PUIS E POUR
+MODIFIER, preserving the actual command and edit key. msgfmt --check and
+--check-format pass; source diff check passes. Feature-only change, with no
+integration/pin movement while candidate15 runs. Actual rebuilt640/1280
+frames remain required. The map's old no-sync-check sentence is a closing
+instruction recommendation; no instruction file edited in this audit.
+
+
+## 2026-10-06T22:14:51.083830+00:00 — Recovery06 complete; library01 actively supervised (#471/#473)
+
+Recovery06 completed22:12:39 on unchanged candidate15:8 behavioral cases PASS; primary22:13:12 verified four zero result channels,9 unchanged input seals and actual owner exits;22:13:15 verified guest/backend/seven-port cleanup. All46 EN/FR640px frames were directly reviewed,43PASS/3FAIL. Both terminal-repair/UI retries preserve source data, endpoint binding and the other cloud. PL004 remains open until the full recovery instruction is readable; PL005 retains the clipped EN/FR original-connection reasons and French terminal instruction, alongside UI04's French settings-read line. The bounded reason-fit CPP edit passes the actual image compiler; shortened French instruction passes msgfmt. Both edits remain on the isolated ES feature; integration/pin stays unchanged until candidate15's queue finishes. Failed03/04/05 receipts remain intact.
+
+**Active:** installed125-game library01, watcher2566864, run20261006T221325Z-802116ae, owner `/workspace/tmp/pixelelated-m7-p4-library-fixes-01`. Actual helper/native hashing and local HTTP retain production request/batch timers; indexed/unindexed, real interruption/retry and persisted429 controls are pending. One serial primary orchestrator consumes watcher results; no off-session alerts are configured.
+
+Next: boot/network proof → bucket retry → remaining cloud coverage → genuine mixed-installation no-join negative → build16 with all source repairs and renewed affected/final qualification → #471/P4 closure → capacity#461 → H700 arm thenaarch64 → named physical/P5 gates. #337/#409 and #353/#363 stale contract clauses now match settled decisions, with exact readbacks and no acceptance ticks. No RC claim.
+
+Exact tracker/M7 readbacks retained recovery06-resolution-01. #473 criteria
+re-derived from all eight executed cases, lifecycle receipts and46 reviewed
+frames; publication precedes closing the delivered QA fixture issue.

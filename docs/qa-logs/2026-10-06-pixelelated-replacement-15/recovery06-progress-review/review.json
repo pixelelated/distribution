@@ -1,0 +1,374 @@
+{
+  "reviewed_utc": "2026-10-06T22:13:21.764602+00:00",
+  "scope": "All46 actual EN/FR640px frames directly inspected at original size;43PASS/3FAIL. Behavioral8case run passed; two original-connection pages and French repair instruction fail PL005 visual acceptance.",
+  "frames": [
+    {
+      "file": "frames/01-en_US-original-connection-recovery-computer-setup.png",
+      "sha256": "ca9a075bb5dea93f365315e6f902d2d529f54769b604f1cd1b6c8778cce135af",
+      "grid": "en_US-original-connection-recovery-0.png",
+      "position": "top left",
+      "verdict": "PASS",
+      "observation": "Actual640px EN recovery route is readable; retry confirmation and completion match asserted retained state. Partial rows at page viewport edges are normal scrolling."
+    },
+    {
+      "file": "frames/01-en_US-original-connection-recovery-connect-repair-row.png",
+      "sha256": "d9b79c32562576c9be247ee5522080c336272f2babf291a235dbd772bd2fc1a3",
+      "grid": "en_US-original-connection-recovery-0.png",
+      "position": "top right",
+      "verdict": "PASS",
+      "observation": "Actual640px EN recovery route is readable; retry confirmation and completion match asserted retained state. Partial rows at page viewport edges are normal scrolling."
+    },
+    {
+      "file": "frames/01-en_US-original-connection-recovery-hub.png",
+      "sha256": "60c1b8ea7493b0b8538f3bdb9d7cd2a16ec514a874f262986ec7e128fcf170e3",
+      "grid": "en_US-original-connection-recovery-0.png",
+      "position": "bottom left",
+      "verdict": "PASS",
+      "observation": "Actual640px EN recovery route is readable; retry confirmation and completion match asserted retained state. Partial rows at page viewport edges are normal scrolling."
+    },
+    {
+      "file": "frames/01-en_US-original-connection-recovery-menu-before.png",
+      "sha256": "67ede7330240d86795d65b638c1bfc5abc2f05c9e1c8a74c2831e2da9c6e8736",
+      "grid": "en_US-original-connection-recovery-0.png",
+      "position": "bottom right",
+      "verdict": "PASS",
+      "observation": "Actual640px EN recovery route is readable; retry confirmation and completion match asserted retained state. Partial rows at page viewport edges are normal scrolling."
+    },
+    {
+      "file": "frames/01-en_US-original-connection-recovery-move-finished.png",
+      "sha256": "76426adba6acd197cfbd8548e6e9334e38fcf48e4674ddaa4b10fb54f98fde5d",
+      "grid": "en_US-original-connection-recovery-1.png",
+      "position": "top left",
+      "verdict": "PASS",
+      "observation": "Actual640px EN recovery route is readable; retry confirmation and completion match asserted retained state. Partial rows at page viewport edges are normal scrolling."
+    },
+    {
+      "file": "frames/01-en_US-original-connection-recovery-opening-result.png",
+      "sha256": "120d6d03d92c9e6b737a0356d11ad9b333bacbab1c36de9cf6ce845ad2eae515",
+      "grid": "en_US-original-connection-recovery-1.png",
+      "position": "top right",
+      "verdict": "FAIL",
+      "observation": "PL005: original-connection reason clipped at ORIGINAL C...; requires rebuilt source fit."
+    },
+    {
+      "file": "frames/01-en_US-original-connection-recovery-repair-instructions.png",
+      "sha256": "01dd7cf38ae589ea7f880d2e3ee0a38add74f8d0442fb7793f4c8fc1f7f82c80",
+      "grid": "en_US-original-connection-recovery-1.png",
+      "position": "bottom left",
+      "verdict": "PASS",
+      "observation": "Actual640px EN recovery route is readable; retry confirmation and completion match asserted retained state. Partial rows at page viewport edges are normal scrolling."
+    },
+    {
+      "file": "frames/01-en_US-original-connection-recovery-retry-owned-move.png",
+      "sha256": "ec1d4104201e952e12ca51f72107b833bd946c595a65432bdeaa7a9b14a82499",
+      "grid": "en_US-original-connection-recovery-1.png",
+      "position": "bottom right",
+      "verdict": "PASS",
+      "observation": "Actual640px EN recovery route is readable; retry confirmation and completion match asserted retained state. Partial rows at page viewport edges are normal scrolling."
+    },
+    {
+      "file": "frames/01-en_US-original-connection-recovery-ssh-connect.png",
+      "sha256": "53e8e50d079632ec76a206e6241880eabac76e69c5c0ccf57e41e62dfccdc6b6",
+      "grid": "en_US-original-connection-recovery-2.png",
+      "position": "top left",
+      "verdict": "PASS",
+      "observation": "Actual640px EN recovery route is readable; retry confirmation and completion match asserted retained state. Partial rows at page viewport edges are normal scrolling."
+    },
+    {
+      "file": "frames/01-en_US-original-connection-recovery-ssh-setup.png",
+      "sha256": "13f1e4817de367977ba2274dc888e74eb6f52a2b22f568408a2946ce2db654f1",
+      "grid": "en_US-original-connection-recovery-2.png",
+      "position": "top right",
+      "verdict": "PASS",
+      "observation": "Actual640px EN recovery route is readable; retry confirmation and completion match asserted retained state. Partial rows at page viewport edges are normal scrolling."
+    },
+    {
+      "file": "frames/02-en_US-original-connection-recovery-main-menu.png",
+      "sha256": "f3e71baf9a4fe1bc9cab2bfe588adafa9cddf8f17b2f7ea4e9937df5a5441b00",
+      "grid": "en_US-original-connection-recovery-2.png",
+      "position": "bottom left",
+      "verdict": "PASS",
+      "observation": "Actual640px EN recovery route is readable; retry confirmation and completion match asserted retained state. Partial rows at page viewport edges are normal scrolling."
+    },
+    {
+      "file": "frames/02-en_US-original-connection-recovery-providers.png",
+      "sha256": "360d7364d7c4b3601878109f3b20c8e831aab138927b5e985a03daeacf4a3ce1",
+      "grid": "en_US-original-connection-recovery-2.png",
+      "position": "bottom right",
+      "verdict": "PASS",
+      "observation": "Actual640px EN recovery route is readable; retry confirmation and completion match asserted retained state. Partial rows at page viewport edges are normal scrolling."
+    },
+    {
+      "file": "frames/01-en_US-missing-folder-hub.png",
+      "sha256": "60c1b8ea7493b0b8538f3bdb9d7cd2a16ec514a874f262986ec7e128fcf170e3",
+      "grid": "en_US-missing-folder-0.png",
+      "position": "top left",
+      "verdict": "PASS",
+      "observation": "Absent folder correctly offers CREATE IT, CHOOSE A FOLDER and NOT NOW; readable actual640px controls. Main-menu transition directly visible."
+    },
+    {
+      "file": "frames/01-en_US-missing-folder-menu-before.png",
+      "sha256": "279efbcf35039f710945729ebe84515d7555ab850d8c5984b551759359ecbb07",
+      "grid": "en_US-missing-folder-0.png",
+      "position": "top right",
+      "verdict": "PASS",
+      "observation": "Absent folder correctly offers CREATE IT, CHOOSE A FOLDER and NOT NOW; readable actual640px controls. Main-menu transition directly visible."
+    },
+    {
+      "file": "frames/01-en_US-missing-folder-opening-result.png",
+      "sha256": "f0934c9b28235ebc0f01867ed3ae7308579dc9279c1b66e8e8657e2c4c16d12d",
+      "grid": "en_US-missing-folder-0.png",
+      "position": "bottom left",
+      "verdict": "PASS",
+      "observation": "Absent folder correctly offers CREATE IT, CHOOSE A FOLDER and NOT NOW; readable actual640px controls. Main-menu transition directly visible."
+    },
+    {
+      "file": "frames/02-en_US-missing-folder-main-menu.png",
+      "sha256": "f3e71baf9a4fe1bc9cab2bfe588adafa9cddf8f17b2f7ea4e9937df5a5441b00",
+      "grid": "en_US-missing-folder-0.png",
+      "position": "bottom right",
+      "verdict": "PASS",
+      "observation": "Absent folder correctly offers CREATE IT, CHOOSE A FOLDER and NOT NOW; readable actual640px controls. Main-menu transition directly visible."
+    },
+    {
+      "file": "frames/01-en_US-network-refusal-hub.png",
+      "sha256": "60c1b8ea7493b0b8538f3bdb9d7cd2a16ec514a874f262986ec7e128fcf170e3",
+      "grid": "en_US-network-refusal-0.png",
+      "position": "top left",
+      "verdict": "PASS",
+      "observation": "Closed endpoint correctly shows CLOUD FOLDER - YOUR CLOUD STOPPED ANSWERING, nothing-changed statement and retry controls without clipping; readable actual640px controls. Main-menu transition directly visible."
+    },
+    {
+      "file": "frames/01-en_US-network-refusal-menu-before.png",
+      "sha256": "9ca62344d68a6c7fd655066b5c73b353f9ec214bcf1ff0d0e66dbcbd30cb7fa2",
+      "grid": "en_US-network-refusal-0.png",
+      "position": "top right",
+      "verdict": "PASS",
+      "observation": "Closed endpoint correctly shows CLOUD FOLDER - YOUR CLOUD STOPPED ANSWERING, nothing-changed statement and retry controls without clipping; readable actual640px controls. Main-menu transition directly visible."
+    },
+    {
+      "file": "frames/01-en_US-network-refusal-opening-result.png",
+      "sha256": "dd2c9211b5224c1ed100e3ed51356aa08c01fa31c699853f009f85d8ba6aac5b",
+      "grid": "en_US-network-refusal-0.png",
+      "position": "bottom left",
+      "verdict": "PASS",
+      "observation": "Closed endpoint correctly shows CLOUD FOLDER - YOUR CLOUD STOPPED ANSWERING, nothing-changed statement and retry controls without clipping; readable actual640px controls. Main-menu transition directly visible."
+    },
+    {
+      "file": "frames/02-en_US-network-refusal-main-menu.png",
+      "sha256": "f3e71baf9a4fe1bc9cab2bfe588adafa9cddf8f17b2f7ea4e9937df5a5441b00",
+      "grid": "en_US-network-refusal-0.png",
+      "position": "bottom right",
+      "verdict": "PASS",
+      "observation": "Closed endpoint correctly shows CLOUD FOLDER - YOUR CLOUD STOPPED ANSWERING, nothing-changed statement and retry controls without clipping; readable actual640px controls. Main-menu transition directly visible."
+    },
+    {
+      "file": "frames/en_US-outer-timeout-timeout-card-0.png",
+      "sha256": "42e9104449ee0be7bdfa8cdb3cdfc1e4996eb48e042b10ffc1ef6175baef60b3",
+      "grid": "outer-timeout-0.png",
+      "position": "top left",
+      "verdict": "PASS",
+      "observation": "Direct actual640px English/French timeout card: complete localized timeout reason and next-startup retry guidance readable; no clipping or overlapping setup dialog."
+    },
+    {
+      "file": "frames/en_US-outer-timeout-timeout-card-1.png",
+      "sha256": "42e9104449ee0be7bdfa8cdb3cdfc1e4996eb48e042b10ffc1ef6175baef60b3",
+      "grid": "outer-timeout-0.png",
+      "position": "top right",
+      "verdict": "PASS",
+      "observation": "Direct actual640px English/French timeout card: complete localized timeout reason and next-startup retry guidance readable; no clipping or overlapping setup dialog."
+    },
+    {
+      "file": "frames/en_US-outer-timeout-timeout-card-2.png",
+      "sha256": "42e9104449ee0be7bdfa8cdb3cdfc1e4996eb48e042b10ffc1ef6175baef60b3",
+      "grid": "outer-timeout-0.png",
+      "position": "bottom left",
+      "verdict": "PASS",
+      "observation": "Direct actual640px English/French timeout card: complete localized timeout reason and next-startup retry guidance readable; no clipping or overlapping setup dialog."
+    },
+    {
+      "file": "frames/fr_FR-outer-timeout-timeout-card-0.png",
+      "sha256": "bd4fb67efd015e301761464ffa30cfa60fbb163fedf3afd299dc9d3c697605fa",
+      "grid": "outer-timeout-0.png",
+      "position": "bottom right",
+      "verdict": "PASS",
+      "observation": "Direct actual640px English/French timeout card: complete localized timeout reason and next-startup retry guidance readable; no clipping or overlapping setup dialog."
+    },
+    {
+      "file": "frames/fr_FR-outer-timeout-timeout-card-1.png",
+      "sha256": "bd4fb67efd015e301761464ffa30cfa60fbb163fedf3afd299dc9d3c697605fa",
+      "grid": "outer-timeout-1.png",
+      "position": "top left",
+      "verdict": "PASS",
+      "observation": "Direct actual640px English/French timeout card: complete localized timeout reason and next-startup retry guidance readable; no clipping or overlapping setup dialog."
+    },
+    {
+      "file": "frames/fr_FR-outer-timeout-timeout-card-2.png",
+      "sha256": "bd4fb67efd015e301761464ffa30cfa60fbb163fedf3afd299dc9d3c697605fa",
+      "grid": "outer-timeout-1.png",
+      "position": "top right",
+      "verdict": "PASS",
+      "observation": "Direct actual640px English/French timeout card: complete localized timeout reason and next-startup retry guidance readable; no clipping or overlapping setup dialog."
+    },
+    {
+      "file": "frames/01-fr_FR-original-connection-recovery-computer-setup.png",
+      "sha256": "2f37e7ac2b27710c4c456b36cdf4e2c6901baafde0a4adf5fd4174df7edd5ea7",
+      "grid": "fr_FR-original-connection-recovery-0.png",
+      "position": "top left",
+      "verdict": "PASS",
+      "observation": "Actual French640px route readable; retry confirmation and completion agree with preserved-state assertions. Viewport-edge partial rows are normal scrolling."
+    },
+    {
+      "file": "frames/01-fr_FR-original-connection-recovery-connect-repair-row.png",
+      "sha256": "e31bc5c5d7ac41db664c709d43034ee7cc8f35233549eba40f4bed9a89b39098",
+      "grid": "fr_FR-original-connection-recovery-0.png",
+      "position": "top right",
+      "verdict": "PASS",
+      "observation": "Actual French640px route readable; retry confirmation and completion agree with preserved-state assertions. Viewport-edge partial rows are normal scrolling."
+    },
+    {
+      "file": "frames/01-fr_FR-original-connection-recovery-hub.png",
+      "sha256": "639639447f6cca590cf73ec07169fd586a7802283fbcf13df0e01ca38f86a9f0",
+      "grid": "fr_FR-original-connection-recovery-0.png",
+      "position": "bottom left",
+      "verdict": "PASS",
+      "observation": "Actual French640px route readable; retry confirmation and completion agree with preserved-state assertions. Viewport-edge partial rows are normal scrolling."
+    },
+    {
+      "file": "frames/01-fr_FR-original-connection-recovery-menu-before.png",
+      "sha256": "898e575dcf679049a54ae61f2db1a66c009c3be423ed1e799e1cb03ee07ce50b",
+      "grid": "fr_FR-original-connection-recovery-0.png",
+      "position": "bottom right",
+      "verdict": "PASS",
+      "observation": "Actual French640px route readable; retry confirmation and completion agree with preserved-state assertions. Viewport-edge partial rows are normal scrolling."
+    },
+    {
+      "file": "frames/01-fr_FR-original-connection-recovery-move-finished.png",
+      "sha256": "90c21af02d9c5c160c8d63d41f68f3f19a40e11c6763b814c4ab6c3d577c4f66",
+      "grid": "fr_FR-original-connection-recovery-1.png",
+      "position": "top left",
+      "verdict": "PASS",
+      "observation": "Actual French640px route readable; retry confirmation and completion agree with preserved-state assertions. Viewport-edge partial rows are normal scrolling."
+    },
+    {
+      "file": "frames/01-fr_FR-original-connection-recovery-opening-result.png",
+      "sha256": "d8a8a5ac52223e511d9ccac75434b9b5c59b59a538168c44c73c9c8617a76b8a",
+      "grid": "fr_FR-original-connection-recovery-1.png",
+      "position": "top right",
+      "verdict": "FAIL",
+      "observation": "PL005: full original-connection reason clipped at SA CON... on actual French640px page."
+    },
+    {
+      "file": "frames/01-fr_FR-original-connection-recovery-repair-instructions.png",
+      "sha256": "fe1d5327220c8223a5bf28bbb8f0b8e642cb948a6a31b77b28334113236f4b55",
+      "grid": "fr_FR-original-connection-recovery-1.png",
+      "position": "bottom left",
+      "verdict": "FAIL",
+      "observation": "PL005: third terminal-repair instruction line is clipped after POU... on actual French640px. Inspect row behavior and correct full instruction visibility before acceptance."
+    },
+    {
+      "file": "frames/01-fr_FR-original-connection-recovery-retry-owned-move.png",
+      "sha256": "a4386ba81feeab64bc691160a6f8d2a6831106195de57d4f8078a66643401101",
+      "grid": "fr_FR-original-connection-recovery-1.png",
+      "position": "bottom right",
+      "verdict": "PASS",
+      "observation": "Actual French640px route readable; retry confirmation and completion agree with preserved-state assertions. Viewport-edge partial rows are normal scrolling."
+    },
+    {
+      "file": "frames/01-fr_FR-original-connection-recovery-ssh-connect.png",
+      "sha256": "a4380027f9ecd00dc5f7118a9abf81b6ae23cb72df88f0ed9d5590a7c078b817",
+      "grid": "fr_FR-original-connection-recovery-2.png",
+      "position": "top left",
+      "verdict": "PASS",
+      "observation": "Actual French640px route readable; retry confirmation and completion agree with preserved-state assertions. Viewport-edge partial rows are normal scrolling."
+    },
+    {
+      "file": "frames/01-fr_FR-original-connection-recovery-ssh-setup.png",
+      "sha256": "fec4226b8d86f630cad3872fd07373e1039c2c12b834550826a9389dfd1c1019",
+      "grid": "fr_FR-original-connection-recovery-2.png",
+      "position": "top right",
+      "verdict": "PASS",
+      "observation": "Actual French640px route readable; retry confirmation and completion agree with preserved-state assertions. Viewport-edge partial rows are normal scrolling."
+    },
+    {
+      "file": "frames/02-fr_FR-original-connection-recovery-main-menu.png",
+      "sha256": "3cca27f9bddf72287f6c0746f0b2db9ad9328d3c2e74ecb258238f989e6bb656",
+      "grid": "fr_FR-original-connection-recovery-2.png",
+      "position": "bottom left",
+      "verdict": "PASS",
+      "observation": "Actual French640px route readable; retry confirmation and completion agree with preserved-state assertions. Viewport-edge partial rows are normal scrolling."
+    },
+    {
+      "file": "frames/02-fr_FR-original-connection-recovery-providers.png",
+      "sha256": "399019b73d99c7593c29f1d593445e2453056d061a2b94b87fda1f6b1ceaa2fd",
+      "grid": "fr_FR-original-connection-recovery-2.png",
+      "position": "bottom right",
+      "verdict": "PASS",
+      "observation": "Actual French640px route readable; retry confirmation and completion agree with preserved-state assertions. Viewport-edge partial rows are normal scrolling."
+    },
+    {
+      "file": "frames/01-fr_FR-missing-folder-hub.png",
+      "sha256": "639639447f6cca590cf73ec07169fd586a7802283fbcf13df0e01ca38f86a9f0",
+      "grid": "fr_FR-missing-folder-0.png",
+      "position": "top left",
+      "verdict": "PASS",
+      "observation": "Actual French640px absent-folder prompt fully readable, with create, choose folder and not-now choices. Main-menu transition visible. No silent creation per independent byte assertions."
+    },
+    {
+      "file": "frames/01-fr_FR-missing-folder-menu-before.png",
+      "sha256": "fef2ea0acf548035d11e893e0a7bf3600d24fefa5bc1d85be099456707f47f50",
+      "grid": "fr_FR-missing-folder-0.png",
+      "position": "top right",
+      "verdict": "PASS",
+      "observation": "Actual French640px absent-folder prompt fully readable, with create, choose folder and not-now choices. Main-menu transition visible. No silent creation per independent byte assertions."
+    },
+    {
+      "file": "frames/01-fr_FR-missing-folder-opening-result.png",
+      "sha256": "7a4cd47554b6489523878ab25c217d1bd6960992313c9f6066835a4e7289fdfb",
+      "grid": "fr_FR-missing-folder-0.png",
+      "position": "bottom left",
+      "verdict": "PASS",
+      "observation": "Actual French640px absent-folder prompt fully readable, with create, choose folder and not-now choices. Main-menu transition visible. No silent creation per independent byte assertions."
+    },
+    {
+      "file": "frames/02-fr_FR-missing-folder-main-menu.png",
+      "sha256": "3cca27f9bddf72287f6c0746f0b2db9ad9328d3c2e74ecb258238f989e6bb656",
+      "grid": "fr_FR-missing-folder-0.png",
+      "position": "bottom right",
+      "verdict": "PASS",
+      "observation": "Actual French640px absent-folder prompt fully readable, with create, choose folder and not-now choices. Main-menu transition visible. No silent creation per independent byte assertions."
+    },
+    {
+      "file": "frames/01-fr_FR-network-refusal-hub.png",
+      "sha256": "639639447f6cca590cf73ec07169fd586a7802283fbcf13df0e01ca38f86a9f0",
+      "grid": "fr_FR-network-refusal-0.png",
+      "position": "top left",
+      "verdict": "PASS",
+      "observation": "Actual French640px real closed-endpoint reason and safe retry controls fully visible; distinct from missing-folder prompt. Main-menu transition visible."
+    },
+    {
+      "file": "frames/01-fr_FR-network-refusal-menu-before.png",
+      "sha256": "44cc351ccc6d13cd8a998883bd4d5452386900073700cb6bb9feadf179741136",
+      "grid": "fr_FR-network-refusal-0.png",
+      "position": "top right",
+      "verdict": "PASS",
+      "observation": "Actual French640px real closed-endpoint reason and safe retry controls fully visible; distinct from missing-folder prompt. Main-menu transition visible."
+    },
+    {
+      "file": "frames/01-fr_FR-network-refusal-opening-result.png",
+      "sha256": "362252c3154f1b5a681af8e0a93552b5d400a638ed5fe8707f8ac55a0211e9aa",
+      "grid": "fr_FR-network-refusal-0.png",
+      "position": "bottom left",
+      "verdict": "PASS",
+      "observation": "Actual French640px real closed-endpoint reason and safe retry controls fully visible; distinct from missing-folder prompt. Main-menu transition visible."
+    },
+    {
+      "file": "frames/02-fr_FR-network-refusal-main-menu.png",
+      "sha256": "3cca27f9bddf72287f6c0746f0b2db9ad9328d3c2e74ecb258238f989e6bb656",
+      "grid": "fr_FR-network-refusal-0.png",
+      "position": "bottom right",
+      "verdict": "PASS",
+      "observation": "Actual French640px real closed-endpoint reason and safe retry controls fully visible; distinct from missing-folder prompt. Main-menu transition visible."
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "utc": "2026-10-06T21:46:00.679851+00:00",
+  "source_commit": "ed5a6a51f5974deec8748fbf0dbd2f4984b690f5",
+  "commands": [
+    {
+      "command": [
+        "git",
+        "branch",
+        "--contains",
+        "ed5a6a51f5974deec8748fbf0dbd2f4984b690f5"
+      ],
+      "rc": 0,
+      "stdout": "+ build/m7-pixelelated-replacement15\n+ next\n"
+    },
+    {
+      "command": [
+        "git",
+        "log",
+        "-1",
+        "--format=%H %s",
+        "--",
+        "projects/ROCKNIX/packages/network/rclone/sources/cloud_migrate_layout"
+      ],
+      "rc": 0,
+      "stdout": "e98339387135678f7ec82a8f90bde9643d2e4cd0 rclone - finish earlier history recovery and correct legacy support labels\n"
+    },
+    {
+      "command": [
+        "git",
+        "log",
+        "-1",
+        "--format=%H %s",
+        "--",
+        "projects/ROCKNIX/packages/network/rclone/sources/cloud_setup"
+      ],
+      "rc": 0,
+      "stdout": "7ad24b5812257ba6854f512a556d47400c6f1d41 cloud: repair the M7 independent audit findings\n"
+    }
+  ],
+  "note": "The historical-shelf/capability follow-up is integrated locally but still under guarded publication. Candidate15 proves PL002/PL006 at ed5a6a51; other PL001/003 source revisions need rebuilt-image regression."
+}

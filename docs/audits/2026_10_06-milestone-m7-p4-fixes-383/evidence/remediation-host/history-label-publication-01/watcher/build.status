@@ -1,0 +1,13 @@
+state:       finished
+written:     2026-10-06 21:39:07 UTC   <- terminal result; heartbeat stops here
+watcher_pid: 1930035
+job_pid:     1930034  alive=yes
+started:     2026-10-06 21:38:32 UTC
+progress:    none matched
+log:         /workspace/repos/rocknix/.build-runs/20261006T213832Z-08578899/build.log  (last written 4s ago)
+activity:    /workspace/repos/rocknix/.build-runs/20261006T213832Z-08578899/build.log  (last written 4s ago)
+activity_root: /workspace/repos/rocknix
+outcome:     rc=1
+tail:
+             ^^^^^^^^^^^^^^^^^^^^
+  AssertionError: push-feature failed; read retained log

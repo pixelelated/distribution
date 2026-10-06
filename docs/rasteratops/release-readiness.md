@@ -1,9 +1,9 @@
 # pixelelated 0.0.1 release readiness
 
-## Current work — P4 remediation, 2026-10-06 21:37 UTC
+## Current work — P4 remediation, 2026-10-06 22:15 UTC
 
 Both approved Fable calls and primary grading are complete. Audit #471 has
-eight findings: PL-007/008 are resolved from installed evidence; six remain
+eight findings: PL-002/006/007/008 are resolved from installed evidence; four remain
 open. Candidate15 is frozen at distribution
 `ed5a6a51f5974deec8748fbf0dbd2f4984b690f5` and ES
 `bab4df649f48847cc43d21c77c058107ad902754`. Its build, bundle, raw/update
@@ -15,14 +15,18 @@ licence metadata gaps. [Evidence](../qa-logs/2026-10-06-pixelelated-replacement-
 Installed follow-up checks exposed two remaining defects: a successful move
 can leave RC2's `/GAMES-replaced` history behind, and legacy-root game rows
 can show a false unsupported-system label. Neither establishes data loss.
-The working repairs pass 376 real-rclone source cases and specific failing
+The published repairs pass 376 real-rclone source cases and specific failing
 old-source controls. They still require a new engineering image and installed
-acceptance. Current English/French UI checks continue on unchanged candidate15;
-check the session checkpoint and actual watcher before starting any owner.
+acceptance. UI04 completed, exposing a clipped French settings-read reason that remains
+PL-005. Recovery06 passes all eight EN/FR behavioral cases, with verified
+owner/guest/backend cleanup and all46 frames reviewed. Three frames retain
+reason/instruction clipping; bounded ES source fixes pass compiler/msgfmt but
+need rebuilt visual proof. Four punch findings remain open. Library01 is active
+under watcher2566864; check the checkpoint before starting any other VM owner.
 
-Order: finish cloud UI → recovery/timeout UI → 125-game pacing/retry → clean
+Order: complete active125-game pacing/retry → clean
 and RC2-upgraded boot/network proof → bucket retry → remaining cloud coverage
-and criterion reconciliation → build and qualify repaired image16 → close
+and genuine mixed-installation negative → build and qualify repaired image16 → close
 #471/P4 → capacity #461 → H700 DDR4 RG35XX SP arm, then aarch64 → named
 physical and P5 publication gates. No RC designation or device readiness claim.
 #469 is closed with corrected #351 bilingual evidence; #467/#468/#471 remain open.

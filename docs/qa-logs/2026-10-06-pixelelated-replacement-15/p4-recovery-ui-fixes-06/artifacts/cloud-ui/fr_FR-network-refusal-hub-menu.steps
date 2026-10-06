@@ -1,0 +1,8 @@
+wake
+dismiss-dialogs
+settle 60 3
+shot fr_FR-network-refusal-menu-before
+key ret
+wait-for-change 30 0
+settle 60 3
+shot fr_FR-network-refusal-main-menu

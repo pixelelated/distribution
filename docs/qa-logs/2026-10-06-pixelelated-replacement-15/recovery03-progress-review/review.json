@@ -1,0 +1,36 @@
+{
+  "reviewed_utc": "2026-10-06T21:54:07.898274+00:00",
+  "method": "Primary directly viewed all five actual PNGs at original640x480 resolution.",
+  "frames": [
+    {
+      "frame": "p4-recovery-ui-fixes-03/artifacts/cloud-ui/en_US-outer-timeout-timeout-card-0.png",
+      "sha256": "42e9104449ee0be7bdfa8cdb3cdfc1e4996eb48e042b10ffc1ef6175baef60b3",
+      "verdict": "PASS",
+      "observation": "Actual English 640px startup timeout card displays the full timeout outcome and retry instruction, no clipping, with game carousel underneath."
+    },
+    {
+      "frame": "p4-recovery-ui-fixes-03/artifacts/cloud-ui/en_US-outer-timeout-timeout-card-1.png",
+      "sha256": "42e9104449ee0be7bdfa8cdb3cdfc1e4996eb48e042b10ffc1ef6175baef60b3",
+      "verdict": "PASS",
+      "observation": "Actual English 640px startup timeout card displays the full timeout outcome and retry instruction, no clipping, with game carousel underneath."
+    },
+    {
+      "frame": "p4-recovery-ui-fixes-03/artifacts/cloud-ui/en_US-outer-timeout-timeout-card-2.png",
+      "sha256": "42e9104449ee0be7bdfa8cdb3cdfc1e4996eb48e042b10ffc1ef6175baef60b3",
+      "verdict": "PASS",
+      "observation": "Actual English 640px startup timeout card displays the full timeout outcome and retry instruction, no clipping, with game carousel underneath."
+    },
+    {
+      "frame": "p4-recovery-ui-fixes-03/artifacts/cloud-ui/01-en_US-original-connection-recovery-opening-result.png",
+      "sha256": "b4aac073ea0312f77492899ebaa22db6fba3678ac4f33a72b6287c602ae1aed1",
+      "verdict": "FAIL",
+      "observation": "The reason is clipped at ORIGINAL C...; existing PL005 stays open."
+    },
+    {
+      "frame": "p4-recovery-ui-fixes-03/artifacts/cloud-ui/01-stuck-after-right.png",
+      "sha256": "de17163a0397babe65edea34432199f7922c6e3c3e81b54513c994653fdadf0b",
+      "verdict": "FIXTURE FAILURE",
+      "observation": "CURRENT PASSWORD selected; button bar requires one additional DOWN before RIGHT/CONTINUE. Isolated QA credential only."
+    }
+  ]
+}

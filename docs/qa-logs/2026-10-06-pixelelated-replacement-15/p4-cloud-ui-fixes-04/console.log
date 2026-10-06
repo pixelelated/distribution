@@ -1,0 +1,486 @@
+watch-build: recording in /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement15/.build-runs/20261006T211732Z-f1c79753
+/workspace/tmp/pixelelated-m7-p4-cloud-ui-fixes-04/check-payload.py: OK
+/workspace/tmp/pixelelated-m7-p4-cloud-ui-fixes-04/cloud-ui-proof.py: OK
+/workspace/tmp/pixelelated-m7-p4-cloud-ui-fixes-04/outer.sh: OK
+/workspace/tmp/pixelelated-m7-p4-cloud-ui-fixes-04/provenance.json: OK
+/workspace/tmp/pixelelated-m7-p4-cloud-ui-fixes-04/proxy-identity.py: OK
+/workspace/tmp/pixelelated-m7-p4-cloud-ui-fixes-04/run.sh: OK
+/workspace/tmp/pixelelated-m7-p4-cloud-ui-fixes-04/seed.py: OK
+/workspace/tmp/pixelelated-m7-p4-cloud-ui-fixes-04/stop-guest.py: OK
+/workspace/tmp/pixelelated-m7-p4-cloud-ui-fixes-04/verify-inputs.py: OK
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/43a698bcd7d570c63ebdd5db015e5302463f7ee4a15438fd9ef2359437be19da
+Preparing independent 16GiB guest d from the verified pixelelated image
+Image resized.
+No errors were found on the image.
+31695/262144 = 12.09% allocated, 0.00% fragmented, 0.00% compressed clusters
+Image end offset: 2077818880
+[W][21:17:41.253923] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][21:17:41.253960] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+ready after ~31s
+PASS guest d exact BUILD_ID and OS_NAME ed5a6a51f5974deec8748fbf0dbd2f4984b690f5 pixelelated
+PASS QA ROM bytes /storage/roms/gb/Ninoid.gb a40191c169c68e6607ace072da96aab957f306f55ded59ce1f287c1f5273387b
+PASS QA ROM bytes /storage/roms/gbc/Tobu Tobu Girl Deluxe.gb 0a0e8018dbbc8d7f8cd99f05e7cdc7b4cc9e358ecfe9377ebfb2291a84c6e310
+PASS QA ROM bytes /storage/roms/nes/Bobl.nes 025ec44d0d84ac469b442ee56c3d69e035e9a38430ae849172fe3a1e569d0dea
+PASS guest d seeded and idle
+up: webdav serving /workspace/tmp/pixelelated-m7-p4-cloud-ui-fixes-04/cloud/data at http://127.0.0.1:9040 (guest: http://10.0.2.2:9040)
+PASS cloud-ui-before exact identity, installed scripts, policy and Ocean SVG bytes/modes
+PASS cloud-ui-before installed proxy identities and account discovery
+PASS setup: candidate identity
+START en_US-chooser-MyGames
+PASS en_US-chooser-MyGames: no game running before carousel
+PASS en_US-chooser-MyGames: actual UI walk carousel
+PASS en_US-chooser-MyGames: no game running after carousel
+PASS en_US-chooser-MyGames: no game running before hub-menu
+PASS en_US-chooser-MyGames: actual UI walk hub-menu
+PASS en_US-chooser-MyGames: no game running after hub-menu
+PASS en_US-chooser-MyGames: START changes the captured screen; direct main-menu review required
+PASS en_US-chooser-MyGames: no game running before hub
+PASS en_US-chooser-MyGames: actual UI walk hub
+PASS en_US-chooser-MyGames: no game running after hub
+PASS en_US-chooser-MyGames: no game running before opening-scan
+PASS en_US-chooser-MyGames: actual UI walk opening-scan
+PASS en_US-chooser-MyGames: no game running after opening-scan
+PASS en_US-chooser-MyGames: no game running before continue
+PASS en_US-chooser-MyGames: actual UI walk continue
+PASS en_US-chooser-MyGames: no game running after continue
+PASS en_US-chooser-MyGames: unrelated configured folder offers manual selection
+PASS en_US-chooser-MyGames: no game running before chooser
+PASS en_US-chooser-MyGames: actual UI walk chooser
+PASS en_US-chooser-MyGames: no game running after chooser
+PASS en_US-chooser-MyGames: actual opening scan lists MyGames
+PASS en_US-chooser-MyGames: no game running before select
+PASS en_US-chooser-MyGames: actual UI walk select
+PASS en_US-chooser-MyGames: no game running after select
+PASS en_US-chooser-MyGames: actual UI persists MyGames
+PASS en_US-chooser-MyGames: chosen content scan completed
+PASS en_US-chooser-MyGames: selected game appears in actual scan
+PASS en_US-chooser-MyGames: selection preserves every cloud byte
+PASS en_US-chooser-MyGames: no game running before close
+PASS en_US-chooser-MyGames: actual UI walk close
+PASS en_US-chooser-MyGames: no game running after close
+START en_US-chooser-My Games
+PASS en_US-chooser-My Games: no game running before carousel
+PASS en_US-chooser-My Games: actual UI walk carousel
+PASS en_US-chooser-My Games: no game running after carousel
+PASS en_US-chooser-My Games: no game running before hub-menu
+PASS en_US-chooser-My Games: actual UI walk hub-menu
+PASS en_US-chooser-My Games: no game running after hub-menu
+PASS en_US-chooser-My Games: START changes the captured screen; direct main-menu review required
+PASS en_US-chooser-My Games: no game running before hub
+PASS en_US-chooser-My Games: actual UI walk hub
+PASS en_US-chooser-My Games: no game running after hub
+PASS en_US-chooser-My Games: no game running before opening-scan
+PASS en_US-chooser-My Games: actual UI walk opening-scan
+PASS en_US-chooser-My Games: no game running after opening-scan
+PASS en_US-chooser-My Games: no game running before continue
+PASS en_US-chooser-My Games: actual UI walk continue
+PASS en_US-chooser-My Games: no game running after continue
+PASS en_US-chooser-My Games: unrelated configured folder offers manual selection
+PASS en_US-chooser-My Games: no game running before chooser
+PASS en_US-chooser-My Games: actual UI walk chooser
+PASS en_US-chooser-My Games: no game running after chooser
+PASS en_US-chooser-My Games: actual opening scan lists My Games
+PASS en_US-chooser-My Games: no game running before select
+PASS en_US-chooser-My Games: actual UI walk select
+PASS en_US-chooser-My Games: no game running after select
+PASS en_US-chooser-My Games: actual UI persists My Games
+PASS en_US-chooser-My Games: chosen content scan completed
+PASS en_US-chooser-My Games: selected game appears in actual scan
+PASS en_US-chooser-My Games: selection preserves every cloud byte
+PASS en_US-chooser-My Games: no game running before close
+PASS en_US-chooser-My Games: actual UI walk close
+PASS en_US-chooser-My Games: no game running after close
+START en_US-chooser-Games..old
+PASS en_US-chooser-Games..old: no game running before carousel
+PASS en_US-chooser-Games..old: actual UI walk carousel
+PASS en_US-chooser-Games..old: no game running after carousel
+PASS en_US-chooser-Games..old: no game running before hub-menu
+PASS en_US-chooser-Games..old: actual UI walk hub-menu
+PASS en_US-chooser-Games..old: no game running after hub-menu
+PASS en_US-chooser-Games..old: START changes the captured screen; direct main-menu review required
+PASS en_US-chooser-Games..old: no game running before hub
+PASS en_US-chooser-Games..old: actual UI walk hub
+PASS en_US-chooser-Games..old: no game running after hub
+PASS en_US-chooser-Games..old: no game running before opening-scan
+PASS en_US-chooser-Games..old: actual UI walk opening-scan
+PASS en_US-chooser-Games..old: no game running after opening-scan
+PASS en_US-chooser-Games..old: no game running before continue
+PASS en_US-chooser-Games..old: actual UI walk continue
+PASS en_US-chooser-Games..old: no game running after continue
+PASS en_US-chooser-Games..old: unrelated configured folder offers manual selection
+PASS en_US-chooser-Games..old: no game running before chooser
+PASS en_US-chooser-Games..old: actual UI walk chooser
+PASS en_US-chooser-Games..old: no game running after chooser
+PASS en_US-chooser-Games..old: actual opening scan lists Games..old
+PASS en_US-chooser-Games..old: no game running before select
+PASS en_US-chooser-Games..old: actual UI walk select
+PASS en_US-chooser-Games..old: no game running after select
+PASS en_US-chooser-Games..old: actual UI persists Games..old
+PASS en_US-chooser-Games..old: chosen content scan completed
+PASS en_US-chooser-Games..old: selected game appears in actual scan
+PASS en_US-chooser-Games..old: selection preserves every cloud byte
+PASS en_US-chooser-Games..old: no game running before close
+PASS en_US-chooser-Games..old: actual UI walk close
+PASS en_US-chooser-Games..old: no game running after close
+START en_US-legacy-root
+PASS en_US-legacy-root: no game running before carousel
+PASS en_US-legacy-root: actual UI walk carousel
+PASS en_US-legacy-root: no game running after carousel
+PASS en_US-legacy-root: no game running before hub-menu
+PASS en_US-legacy-root: actual UI walk hub-menu
+PASS en_US-legacy-root: no game running after hub-menu
+PASS en_US-legacy-root: START changes the captured screen; direct main-menu review required
+PASS en_US-legacy-root: no game running before hub
+PASS en_US-legacy-root: actual UI walk hub
+PASS en_US-legacy-root: no game running after hub
+PASS en_US-legacy-root: no game running before opening-scan
+PASS en_US-legacy-root: actual UI walk opening-scan
+PASS en_US-legacy-root: no game running after opening-scan
+PASS en_US-legacy-root: no game running before continue
+PASS en_US-legacy-root: actual UI walk continue
+PASS en_US-legacy-root: no game running after continue
+PASS en_US-legacy-root: stranded root selected by real UI
+PASS en_US-legacy-root: legacy root scan completed
+PASS en_US-legacy-root: legacy root game visible
+PASS en_US-legacy-root: legacy root files unchanged
+PASS en_US-legacy-root: no game running before close
+PASS en_US-legacy-root: actual UI walk close
+PASS en_US-legacy-root: no game running after close
+START en_US-old-pointer-recovery
+PASS en_US-old-pointer-recovery: actual old writer leaves partial pointers
+PASS en_US-old-pointer-recovery: old partial state reproduced
+PASS en_US-old-pointer-recovery: no game running before carousel
+PASS en_US-old-pointer-recovery: actual UI walk carousel
+PASS en_US-old-pointer-recovery: no game running after carousel
+PASS en_US-old-pointer-recovery: no game running before hub-menu
+PASS en_US-old-pointer-recovery: actual UI walk hub-menu
+PASS en_US-old-pointer-recovery: no game running after hub-menu
+PASS en_US-old-pointer-recovery: START changes the captured screen; direct main-menu review required
+PASS en_US-old-pointer-recovery: no game running before hub
+PASS en_US-old-pointer-recovery: actual UI walk hub
+PASS en_US-old-pointer-recovery: no game running after hub
+PASS en_US-old-pointer-recovery: no game running before folder-editor
+PASS en_US-old-pointer-recovery: actual UI walk folder-editor
+PASS en_US-old-pointer-recovery: no game running after folder-editor
+PASS en_US-old-pointer-recovery: no game running before save-selection
+PASS en_US-old-pointer-recovery: actual UI walk save-selection
+PASS en_US-old-pointer-recovery: no game running after save-selection
+PASS en_US-old-pointer-recovery: real editor repairs complete sibling pointers
+PASS en_US-old-pointer-recovery: editor recovery keeps cloud bytes
+PASS en_US-old-pointer-recovery: no game running before close
+PASS en_US-old-pointer-recovery: actual UI walk close
+PASS en_US-old-pointer-recovery: no game running after close
+START en_US-reason-future
+PASS en_US-reason-future: no game running before carousel
+PASS en_US-reason-future: actual UI walk carousel
+PASS en_US-reason-future: no game running after carousel
+PASS en_US-reason-future: no game running before hub-menu
+PASS en_US-reason-future: actual UI walk hub-menu
+PASS en_US-reason-future: no game running after hub-menu
+PASS en_US-reason-future: START changes the captured screen; direct main-menu review required
+PASS en_US-reason-future: no game running before hub
+PASS en_US-reason-future: actual UI walk hub
+PASS en_US-reason-future: no game running after hub
+PASS en_US-reason-future: no game running before opening-scan
+PASS en_US-reason-future: actual UI walk opening-scan
+PASS en_US-reason-future: no game running after opening-scan
+PASS en_US-reason-future: installed application emits YOUR CLOUD FOLDER COULDN'T BE READ
+PASS en_US-reason-future: no false missing-folder reason
+PASS en_US-reason-future: refusal preserves cloud/pointers
+PASS en_US-reason-future: no game running before close
+PASS en_US-reason-future: actual UI walk close
+PASS en_US-reason-future: no game running after close
+START en_US-reason-malformed
+PASS en_US-reason-malformed: no game running before carousel
+PASS en_US-reason-malformed: actual UI walk carousel
+PASS en_US-reason-malformed: no game running after carousel
+PASS en_US-reason-malformed: no game running before hub-menu
+PASS en_US-reason-malformed: actual UI walk hub-menu
+PASS en_US-reason-malformed: no game running after hub-menu
+PASS en_US-reason-malformed: START changes the captured screen; direct main-menu review required
+PASS en_US-reason-malformed: no game running before hub
+PASS en_US-reason-malformed: actual UI walk hub
+PASS en_US-reason-malformed: no game running after hub
+PASS en_US-reason-malformed: no game running before opening-scan
+PASS en_US-reason-malformed: actual UI walk opening-scan
+PASS en_US-reason-malformed: no game running after opening-scan
+PASS en_US-reason-malformed: installed application emits YOUR CLOUD FOLDER COULDN'T BE READ
+PASS en_US-reason-malformed: no false missing-folder reason
+PASS en_US-reason-malformed: refusal preserves cloud/pointers
+PASS en_US-reason-malformed: no game running before close
+PASS en_US-reason-malformed: actual UI walk close
+PASS en_US-reason-malformed: no game running after close
+START en_US-reason-config
+PASS en_US-reason-config: no game running before carousel
+PASS en_US-reason-config: actual UI walk carousel
+PASS en_US-reason-config: no game running after carousel
+PASS en_US-reason-config: no game running before hub-menu
+PASS en_US-reason-config: actual UI walk hub-menu
+PASS en_US-reason-config: no game running after hub-menu
+PASS en_US-reason-config: START changes the captured screen; direct main-menu review required
+PASS en_US-reason-config: no game running before hub
+PASS en_US-reason-config: actual UI walk hub
+PASS en_US-reason-config: no game running after hub
+PASS en_US-reason-config: no game running before opening-scan
+PASS en_US-reason-config: actual UI walk opening-scan
+PASS en_US-reason-config: no game running after opening-scan
+PASS en_US-reason-config: installed application emits YOUR CLOUD SYNC SETTINGS COULDN'T BE READ
+PASS en_US-reason-config: no false missing-folder reason
+PASS en_US-reason-config: refusal preserves cloud/pointers
+PASS en_US-reason-config: no game running before close
+PASS en_US-reason-config: actual UI walk close
+PASS en_US-reason-config: no game running after close
+START en_US-reason-record
+PASS en_US-reason-record: no game running before carousel
+PASS en_US-reason-record: actual UI walk carousel
+PASS en_US-reason-record: no game running after carousel
+PASS en_US-reason-record: no game running before hub-menu
+PASS en_US-reason-record: actual UI walk hub-menu
+PASS en_US-reason-record: no game running after hub-menu
+PASS en_US-reason-record: START changes the captured screen; direct main-menu review required
+PASS en_US-reason-record: no game running before hub
+PASS en_US-reason-record: actual UI walk hub
+PASS en_US-reason-record: no game running after hub
+PASS en_US-reason-record: no game running before opening-scan
+PASS en_US-reason-record: actual UI walk opening-scan
+PASS en_US-reason-record: no game running after opening-scan
+PASS en_US-reason-record: installed application emits YOUR CLOUD FOLDER COULDN'T BE READ
+PASS en_US-reason-record: no false missing-folder reason
+PASS en_US-reason-record: refusal preserves cloud/pointers
+PASS en_US-reason-record: no game running before close
+PASS en_US-reason-record: actual UI walk close
+PASS en_US-reason-record: no game running after close
+START fr_FR-chooser-MyGames
+PASS fr_FR-chooser-MyGames: no game running before carousel
+PASS fr_FR-chooser-MyGames: actual UI walk carousel
+PASS fr_FR-chooser-MyGames: no game running after carousel
+PASS fr_FR-chooser-MyGames: no game running before hub-menu
+PASS fr_FR-chooser-MyGames: actual UI walk hub-menu
+PASS fr_FR-chooser-MyGames: no game running after hub-menu
+PASS fr_FR-chooser-MyGames: START changes the captured screen; direct main-menu review required
+PASS fr_FR-chooser-MyGames: no game running before hub
+PASS fr_FR-chooser-MyGames: actual UI walk hub
+PASS fr_FR-chooser-MyGames: no game running after hub
+PASS fr_FR-chooser-MyGames: no game running before opening-scan
+PASS fr_FR-chooser-MyGames: actual UI walk opening-scan
+PASS fr_FR-chooser-MyGames: no game running after opening-scan
+PASS fr_FR-chooser-MyGames: no game running before continue
+PASS fr_FR-chooser-MyGames: actual UI walk continue
+PASS fr_FR-chooser-MyGames: no game running after continue
+PASS fr_FR-chooser-MyGames: unrelated configured folder offers manual selection
+PASS fr_FR-chooser-MyGames: no game running before chooser
+PASS fr_FR-chooser-MyGames: actual UI walk chooser
+PASS fr_FR-chooser-MyGames: no game running after chooser
+PASS fr_FR-chooser-MyGames: actual opening scan lists MyGames
+PASS fr_FR-chooser-MyGames: no game running before select
+PASS fr_FR-chooser-MyGames: actual UI walk select
+PASS fr_FR-chooser-MyGames: no game running after select
+PASS fr_FR-chooser-MyGames: actual UI persists MyGames
+PASS fr_FR-chooser-MyGames: chosen content scan completed
+PASS fr_FR-chooser-MyGames: selected game appears in actual scan
+PASS fr_FR-chooser-MyGames: selection preserves every cloud byte
+PASS fr_FR-chooser-MyGames: no game running before close
+PASS fr_FR-chooser-MyGames: actual UI walk close
+PASS fr_FR-chooser-MyGames: no game running after close
+START fr_FR-chooser-My Games
+PASS fr_FR-chooser-My Games: no game running before carousel
+PASS fr_FR-chooser-My Games: actual UI walk carousel
+PASS fr_FR-chooser-My Games: no game running after carousel
+PASS fr_FR-chooser-My Games: no game running before hub-menu
+PASS fr_FR-chooser-My Games: actual UI walk hub-menu
+PASS fr_FR-chooser-My Games: no game running after hub-menu
+PASS fr_FR-chooser-My Games: START changes the captured screen; direct main-menu review required
+PASS fr_FR-chooser-My Games: no game running before hub
+PASS fr_FR-chooser-My Games: actual UI walk hub
+PASS fr_FR-chooser-My Games: no game running after hub
+PASS fr_FR-chooser-My Games: no game running before opening-scan
+PASS fr_FR-chooser-My Games: actual UI walk opening-scan
+PASS fr_FR-chooser-My Games: no game running after opening-scan
+PASS fr_FR-chooser-My Games: no game running before continue
+PASS fr_FR-chooser-My Games: actual UI walk continue
+PASS fr_FR-chooser-My Games: no game running after continue
+PASS fr_FR-chooser-My Games: unrelated configured folder offers manual selection
+PASS fr_FR-chooser-My Games: no game running before chooser
+PASS fr_FR-chooser-My Games: actual UI walk chooser
+PASS fr_FR-chooser-My Games: no game running after chooser
+PASS fr_FR-chooser-My Games: actual opening scan lists My Games
+PASS fr_FR-chooser-My Games: no game running before select
+PASS fr_FR-chooser-My Games: actual UI walk select
+PASS fr_FR-chooser-My Games: no game running after select
+PASS fr_FR-chooser-My Games: actual UI persists My Games
+PASS fr_FR-chooser-My Games: chosen content scan completed
+PASS fr_FR-chooser-My Games: selected game appears in actual scan
+PASS fr_FR-chooser-My Games: selection preserves every cloud byte
+PASS fr_FR-chooser-My Games: no game running before close
+PASS fr_FR-chooser-My Games: actual UI walk close
+PASS fr_FR-chooser-My Games: no game running after close
+START fr_FR-chooser-Games..old
+PASS fr_FR-chooser-Games..old: no game running before carousel
+PASS fr_FR-chooser-Games..old: actual UI walk carousel
+PASS fr_FR-chooser-Games..old: no game running after carousel
+PASS fr_FR-chooser-Games..old: no game running before hub-menu
+PASS fr_FR-chooser-Games..old: actual UI walk hub-menu
+PASS fr_FR-chooser-Games..old: no game running after hub-menu
+PASS fr_FR-chooser-Games..old: START changes the captured screen; direct main-menu review required
+PASS fr_FR-chooser-Games..old: no game running before hub
+PASS fr_FR-chooser-Games..old: actual UI walk hub
+PASS fr_FR-chooser-Games..old: no game running after hub
+PASS fr_FR-chooser-Games..old: no game running before opening-scan
+PASS fr_FR-chooser-Games..old: actual UI walk opening-scan
+PASS fr_FR-chooser-Games..old: no game running after opening-scan
+PASS fr_FR-chooser-Games..old: no game running before continue
+PASS fr_FR-chooser-Games..old: actual UI walk continue
+PASS fr_FR-chooser-Games..old: no game running after continue
+PASS fr_FR-chooser-Games..old: unrelated configured folder offers manual selection
+PASS fr_FR-chooser-Games..old: no game running before chooser
+PASS fr_FR-chooser-Games..old: actual UI walk chooser
+PASS fr_FR-chooser-Games..old: no game running after chooser
+PASS fr_FR-chooser-Games..old: actual opening scan lists Games..old
+PASS fr_FR-chooser-Games..old: no game running before select
+PASS fr_FR-chooser-Games..old: actual UI walk select
+PASS fr_FR-chooser-Games..old: no game running after select
+PASS fr_FR-chooser-Games..old: actual UI persists Games..old
+PASS fr_FR-chooser-Games..old: chosen content scan completed
+PASS fr_FR-chooser-Games..old: selected game appears in actual scan
+PASS fr_FR-chooser-Games..old: selection preserves every cloud byte
+PASS fr_FR-chooser-Games..old: no game running before close
+PASS fr_FR-chooser-Games..old: actual UI walk close
+PASS fr_FR-chooser-Games..old: no game running after close
+START fr_FR-legacy-root
+PASS fr_FR-legacy-root: no game running before carousel
+PASS fr_FR-legacy-root: actual UI walk carousel
+PASS fr_FR-legacy-root: no game running after carousel
+PASS fr_FR-legacy-root: no game running before hub-menu
+PASS fr_FR-legacy-root: actual UI walk hub-menu
+PASS fr_FR-legacy-root: no game running after hub-menu
+PASS fr_FR-legacy-root: START changes the captured screen; direct main-menu review required
+PASS fr_FR-legacy-root: no game running before hub
+PASS fr_FR-legacy-root: actual UI walk hub
+PASS fr_FR-legacy-root: no game running after hub
+PASS fr_FR-legacy-root: no game running before opening-scan
+PASS fr_FR-legacy-root: actual UI walk opening-scan
+PASS fr_FR-legacy-root: no game running after opening-scan
+PASS fr_FR-legacy-root: no game running before continue
+PASS fr_FR-legacy-root: actual UI walk continue
+PASS fr_FR-legacy-root: no game running after continue
+PASS fr_FR-legacy-root: stranded root selected by real UI
+PASS fr_FR-legacy-root: legacy root scan completed
+PASS fr_FR-legacy-root: legacy root game visible
+PASS fr_FR-legacy-root: legacy root files unchanged
+PASS fr_FR-legacy-root: no game running before close
+PASS fr_FR-legacy-root: actual UI walk close
+PASS fr_FR-legacy-root: no game running after close
+START fr_FR-old-pointer-recovery
+PASS fr_FR-old-pointer-recovery: actual old writer leaves partial pointers
+PASS fr_FR-old-pointer-recovery: old partial state reproduced
+PASS fr_FR-old-pointer-recovery: no game running before carousel
+PASS fr_FR-old-pointer-recovery: actual UI walk carousel
+PASS fr_FR-old-pointer-recovery: no game running after carousel
+PASS fr_FR-old-pointer-recovery: no game running before hub-menu
+PASS fr_FR-old-pointer-recovery: actual UI walk hub-menu
+PASS fr_FR-old-pointer-recovery: no game running after hub-menu
+PASS fr_FR-old-pointer-recovery: START changes the captured screen; direct main-menu review required
+PASS fr_FR-old-pointer-recovery: no game running before hub
+PASS fr_FR-old-pointer-recovery: actual UI walk hub
+PASS fr_FR-old-pointer-recovery: no game running after hub
+PASS fr_FR-old-pointer-recovery: no game running before folder-editor
+PASS fr_FR-old-pointer-recovery: actual UI walk folder-editor
+PASS fr_FR-old-pointer-recovery: no game running after folder-editor
+PASS fr_FR-old-pointer-recovery: no game running before save-selection
+PASS fr_FR-old-pointer-recovery: actual UI walk save-selection
+PASS fr_FR-old-pointer-recovery: no game running after save-selection
+PASS fr_FR-old-pointer-recovery: real editor repairs complete sibling pointers
+PASS fr_FR-old-pointer-recovery: editor recovery keeps cloud bytes
+PASS fr_FR-old-pointer-recovery: no game running before close
+PASS fr_FR-old-pointer-recovery: actual UI walk close
+PASS fr_FR-old-pointer-recovery: no game running after close
+START fr_FR-reason-future
+PASS fr_FR-reason-future: no game running before carousel
+PASS fr_FR-reason-future: actual UI walk carousel
+PASS fr_FR-reason-future: no game running after carousel
+PASS fr_FR-reason-future: no game running before hub-menu
+PASS fr_FR-reason-future: actual UI walk hub-menu
+PASS fr_FR-reason-future: no game running after hub-menu
+PASS fr_FR-reason-future: START changes the captured screen; direct main-menu review required
+PASS fr_FR-reason-future: no game running before hub
+PASS fr_FR-reason-future: actual UI walk hub
+PASS fr_FR-reason-future: no game running after hub
+PASS fr_FR-reason-future: no game running before opening-scan
+PASS fr_FR-reason-future: actual UI walk opening-scan
+PASS fr_FR-reason-future: no game running after opening-scan
+PASS fr_FR-reason-future: installed application emits YOUR CLOUD FOLDER COULDN'T BE READ
+PASS fr_FR-reason-future: no false missing-folder reason
+PASS fr_FR-reason-future: refusal preserves cloud/pointers
+PASS fr_FR-reason-future: no game running before close
+PASS fr_FR-reason-future: actual UI walk close
+PASS fr_FR-reason-future: no game running after close
+START fr_FR-reason-malformed
+PASS fr_FR-reason-malformed: no game running before carousel
+PASS fr_FR-reason-malformed: actual UI walk carousel
+PASS fr_FR-reason-malformed: no game running after carousel
+PASS fr_FR-reason-malformed: no game running before hub-menu
+PASS fr_FR-reason-malformed: actual UI walk hub-menu
+PASS fr_FR-reason-malformed: no game running after hub-menu
+PASS fr_FR-reason-malformed: START changes the captured screen; direct main-menu review required
+PASS fr_FR-reason-malformed: no game running before hub
+PASS fr_FR-reason-malformed: actual UI walk hub
+PASS fr_FR-reason-malformed: no game running after hub
+PASS fr_FR-reason-malformed: no game running before opening-scan
+PASS fr_FR-reason-malformed: actual UI walk opening-scan
+PASS fr_FR-reason-malformed: no game running after opening-scan
+PASS fr_FR-reason-malformed: installed application emits YOUR CLOUD FOLDER COULDN'T BE READ
+PASS fr_FR-reason-malformed: no false missing-folder reason
+PASS fr_FR-reason-malformed: refusal preserves cloud/pointers
+PASS fr_FR-reason-malformed: no game running before close
+PASS fr_FR-reason-malformed: actual UI walk close
+PASS fr_FR-reason-malformed: no game running after close
+START fr_FR-reason-config
+PASS fr_FR-reason-config: no game running before carousel
+PASS fr_FR-reason-config: actual UI walk carousel
+PASS fr_FR-reason-config: no game running after carousel
+PASS fr_FR-reason-config: no game running before hub-menu
+PASS fr_FR-reason-config: actual UI walk hub-menu
+PASS fr_FR-reason-config: no game running after hub-menu
+PASS fr_FR-reason-config: START changes the captured screen; direct main-menu review required
+PASS fr_FR-reason-config: no game running before hub
+PASS fr_FR-reason-config: actual UI walk hub
+PASS fr_FR-reason-config: no game running after hub
+PASS fr_FR-reason-config: no game running before opening-scan
+PASS fr_FR-reason-config: actual UI walk opening-scan
+PASS fr_FR-reason-config: no game running after opening-scan
+PASS fr_FR-reason-config: installed application emits YOUR CLOUD SYNC SETTINGS COULDN'T BE READ
+PASS fr_FR-reason-config: no false missing-folder reason
+PASS fr_FR-reason-config: refusal preserves cloud/pointers
+PASS fr_FR-reason-config: no game running before close
+PASS fr_FR-reason-config: actual UI walk close
+PASS fr_FR-reason-config: no game running after close
+START fr_FR-reason-record
+PASS fr_FR-reason-record: no game running before carousel
+PASS fr_FR-reason-record: actual UI walk carousel
+PASS fr_FR-reason-record: no game running after carousel
+PASS fr_FR-reason-record: no game running before hub-menu
+PASS fr_FR-reason-record: actual UI walk hub-menu
+PASS fr_FR-reason-record: no game running after hub-menu
+PASS fr_FR-reason-record: START changes the captured screen; direct main-menu review required
+PASS fr_FR-reason-record: no game running before hub
+PASS fr_FR-reason-record: actual UI walk hub
+PASS fr_FR-reason-record: no game running after hub
+PASS fr_FR-reason-record: no game running before opening-scan
+PASS fr_FR-reason-record: actual UI walk opening-scan
+PASS fr_FR-reason-record: no game running after opening-scan
+PASS fr_FR-reason-record: installed application emits YOUR CLOUD FOLDER COULDN'T BE READ
+PASS fr_FR-reason-record: no false missing-folder reason
+PASS fr_FR-reason-record: refusal preserves cloud/pointers
+PASS fr_FR-reason-record: no game running before close
+PASS fr_FR-reason-record: actual UI walk close
+PASS fr_FR-reason-record: no game running after close
+PASS fr_FR-reason-record: installed product hashes unchanged
+PASS actual chooser/recovery/refusal actions; all frames require primary review
+PASS cloud-ui-after exact identity, installed scripts, policy and Ocean SVG bytes/modes
+PASS cloud-ui-after installed proxy identities and account discovery
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/43a698bcd7d570c63ebdd5db015e5302463f7ee4a15438fd9ef2359437be19da
+PASS frozen source inputs, ES pin and candidate input custody
+PASS supplemental cloud UI commands; actual frame review remains required
+PASS owned guest stopped 1279887
+down

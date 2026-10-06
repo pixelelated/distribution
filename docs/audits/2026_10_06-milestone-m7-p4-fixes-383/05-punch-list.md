@@ -5,7 +5,7 @@
 **Generated:** 2026-10-06
 **Source audit:** [04-analysis.md](04-analysis.md)
 **Total items:**8 (Critical:0, High:1, Medium:6, Low:1)
-**State:** Phase7 remediation on rebuilt candidate15. PL-007 and PL-008 are resolved; six installed acceptance outcomes remain open. No complete-audit or RC claim.
+**State:** Phase7 remediation on rebuilt candidate15. PL-002/006/007/008 are resolved; four installed acceptance outcomes remain open. No complete-audit or RC claim.
 
 The two Fable calls are verified and their leads have been checked against
 primary source and fourteen installed experiments. These eight items are
@@ -138,7 +138,7 @@ scope is not silently waived or duplicated into PL IDs.
 
 ## Phase 7 resolution gate
 
-PL-007 and PL-008 are resolved from landed source and installed acceptance evidence.
+PL-002/006/007/008 are resolved from landed source and installed acceptance evidence.
 The remaining open rows await their named acceptance evidence; they are not
 deferrals or passing gates. The audit tracker stays open. Detailed command and
 state-preservation evidence is in [08-installed-resolution.md](08-installed-resolution.md).
@@ -146,11 +146,11 @@ state-preservation evidence is in [08-installed-resolution.md](08-installed-reso
 | Item | Outcome | Evidence |
 | --- | --- | --- |
 | PL-001 | Open | Acceptance unproved on repaired bytes. |
-| PL-002 | Open | Acceptance unproved on repaired bytes. |
+| PL-002 | Resolved | Candidate15 `ed5a6a51f5` / ES `bab4df649f4`; installed boundary cases and direct EN/FR UI04 proof; [resolution](08-installed-resolution.md). |
 | PL-003 | Open | Acceptance unproved on repaired bytes. |
 | PL-004 | Open | Acceptance unproved on repaired bytes. |
 | PL-005 | Open | Acceptance unproved on repaired bytes. |
-| PL-006 | Open | Acceptance unproved on repaired bytes. |
+| PL-006 | Resolved | Candidate15 `ed5a6a51f5` / ES `bab4df649f4`; installed boundary cases and direct EN/FR UI04 proof; [resolution](08-installed-resolution.md). |
 | PL-007 | Resolved | `ed5a6a51f5974deec8748fbf0dbd2f4984b690f5` / ES `bab4df649f48847cc43d21c77c058107ad902754`; presentation01: installed EN/FR phone/native and reconnect assertions,29 directly reviewed frames, full owner/guest/browser cleanup; [resolution](08-installed-resolution.md). |
 | PL-008 | Resolved | `ed5a6a51f5974deec8748fbf0dbd2f4984b690f5`; reader-values04:8 installed cases, exact values/archive selection and old-source failure control; [resolution](08-installed-resolution.md). |
 
@@ -175,7 +175,9 @@ punch_index:
   owner_area: "cloud layout/configuration and setup"
   where: "projects/ROCKNIX/packages/network/rclone/sources/cloud_migrate_layout:656,878,922,948"
   acceptance: "Installed join/follow/settle with failures at every pointer-publication boundary either retain the entire old selection or recover the complete intended selection on retry; no false current state. Controls preserve custom content/root and nonempty backup tiers. Retain source/installed hashes, pointers and unchanged cloud bytes."
-  outcome: open
+  outcome: resolved
+  resolution_commit: "ed5a6a51f5974deec8748fbf0dbd2f4984b690f5"
+  resolution_evidence: "08-installed-resolution.md; evidence/remediation-host/pl002-pl006-acceptance.json"
 
 - id: PL-003
   severity: "Medium"
@@ -211,7 +213,9 @@ punch_index:
   owner_area: "cloud layout/configuration and setup"
   where: "projects/ROCKNIX/packages/network/rclone/sources/cloud_setup:569; cloud_scan:243; ES GuiMenu.cpp:5256"
   acceptance: "Installed scan offers and successfully selects MyGames, My Games and Games..old, preserving cloud bytes and completing a content scan. A640px chooser frame and resulting options/selection frame prove the manual path. Traversal components, newlines and unsafe shell forms remain rejected with unchanged settings."
-  outcome: open
+  outcome: resolved
+  resolution_commit: "ed5a6a51f5974deec8748fbf0dbd2f4984b690f5"
+  resolution_evidence: "08-installed-resolution.md; evidence/remediation-host/pl002-pl006-acceptance.json"
 
 - id: PL-007
   severity: "Medium"
