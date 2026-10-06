@@ -1,0 +1,25 @@
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/43a698bcd7d570c63ebdd5db015e5302463f7ee4a15438fd9ef2359437be19da
+up: a (pid 1057818, ssh :10022, serial /tmp/rocknix-qemu-serial.sock, mac 52:54:00:52:4E:58)
+up: b (pid 1057840, ssh :10023, serial /tmp/rocknix-qemu-serial-b.sock, mac 52:54:00:52:4E:59)
+ready: a on ed5a6a51f5 over ssh :10022 (answered after 1s)
+ready: b on ed5a6a51f5 over ssh :10023 (answered after 0s)
+up: webdav serving /workspace/tmp/pixelelated-m7-p4-reader-fixes-02/proof/cloud/data at http://127.0.0.1:9040 (guest: http://10.0.2.2:9040)
+START PL008-reader-escaped
+PASS PL008-reader-escaped
+START PL008-reader-single
+PASS PL008-reader-single
+START PL008-reader-bare
+PASS PL008-reader-bare
+START PL008-reader-double
+PASS PL008-reader-double
+START PL008-reader-duplicate
+PASS PL008-reader-duplicate
+START PL008-reader-export
+PASS PL008-reader-export
+START PL008-reader-trailing
+PASS PL008-reader-trailing
+START PL008-reader-control
+PASS PL008-reader-control
+down
+PASS frozen source inputs, ES pin and candidate input custody

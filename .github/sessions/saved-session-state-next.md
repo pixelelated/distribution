@@ -1,436 +1,156 @@
 # Saved Session State
 
-> Updated 2026-10-06T20:43:38.649801+00:00; QA19 complete; installed audit85cases active; #472 closed.
-> Previous: `.github/sessions/archived/saved-session-state-next-20261006T201924Z.md`.
-> Both fork refs verified after normal hooked publication; see current focus below.
+Updated 2026-10-06 21:02 UTC. Audit Phase7 continues under standing authority.
+Previous complete checkpoint: `.github/sessions/archived/saved-session-state-next-20261006T210229Z.md`.
+Read this first; historical active/idle statements in that archive are superseded.
 
-## Start here
+## Current priority and authority
 
-pixelelated is an immutable handheld Linux distribution forked from ROCKNIX,
-version0.0.1/M7. Always lowercase; org pixelelated, owner rasteratops, developer
-blitterbot. Tiny5 Duo LCD/Ocean Bands wordmark; only ROCKNIX→pixelelated adoption.
-No app server. Primary /workspace/repos/rocknix stays on next; feature work is
-/workspace/repos/rocknix.worktrees/conflict-resolution. Read AGENTS.md and
-next's every-session/scoped rules, this checkpoint, release-readiness, today's
-work log and live M7/#459/#383/#361/#168. M7 body owns execution order.
-Rules match next. Integrate only explicit cherry-pick -x, normal hooked pushes.
+pixelelated is the lowercase handheld Linux distribution, version0.0.1/M7.
+Org pixelelated, maintainer rasteratops, developer blitterbot. Tiny5 Duo LCD,
+Ocean Bands. Only ROCKNIX→pixelelated adoption; no fielded Rasteratops gate.
 
-Standing permission covers fixes, isolated VM QA, tracker updates and fork
-pushes. D-INFRA-017 authorized only the five old-tree removals, now completed; it is
-not permission for further deletion. No reserve change, wider cleanup, device/personal
-cloud mutation or publication. No Daybreak or goal tool. Delegation is limited to the required fresh no-context resume proof and
-code-auditor Phase1.4.5 read-only research helpers. Root performs commands,
-primary verification and all verdicts; helpers never count as review seats.
+Both owner-approved Fable transfers are COMPLETE, verified and graded; never
+replay or ask approval again. Audit code-auditor v1.13 Phase7 has8 findings:
+PL-008 resolved; PL-001–007 open pending named acceptance. Tracker#471 stays
+open. Root is the single serial orchestrator. Checkpoints do not pause work.
+No new agents, external reviewers, goal tools or Daybreak. Auditor instruction
+recommendation mode: do not edit instruction files. Standing authority covers
+fixes, isolated VM QA, tracker/milestone updates and ordinary fork pushes/builds.
+No release publication, outward upstream PR, physical device/personal cloud,
+arbitrary root, wider cleanup or reserve change authority. No pending permission.
 
+Read AGENTS.md, next's canonical every-session/scoped rules, audit00/04/05/07/08,
+release-readiness, today's work log and liveM7/#471/#383/#459/#361/#168. The
+milestone body is the ordered plan. Canonical rules matched next21:00.
 
-## Current focus — M7 P4 audit#471 Phase7 remediation in progress
+## Active owner — monitor first
 
-**Current verified override:** QA19 completed20:41:54 and primary verified
-allfour0/10seals/actual owner exits and VM/backend/five-port cleanup20:42:07.
-All15defaults, actualROCKNIXRC2upgrade, exactpayload/proxy, virgl/640software
-rendering pass. Ten upgraded identity frames directly reviewed; evidence
-docs/qa-logs/2026-10-06-pixelelated-replacement-15/qa19. Never replay QA19.
+`/workspace/tmp/pixelelated-m7-p4-presentation-fixes-01` started20:59:41;
+launcher1091368, runner1091369, watcher1091370, command1091399.
+Run15tree/.build-runs/20261006T205941Z-22ff8bed; actual watcher verified live.
+Recursive activity=owner/artifacts. EN/FR installed local phone/native finishing
+and reconnect matrix640/1280. Guestd ports10026/5912 plus owned ephemeral local
+HTTP/tunnel/WebDriver. Provider Session stand-in; no real OAuth credentials.
+EN/FR phone and native surfaces have passed automated assertions; reconnect
+matrix is still active. Six sign-in frames require hash-bound direct review;
+five were directly viewed21:01 (FR15 remains), and all reconnect frames remain.
+French proof covers four requested controls, not all phone-page text.
 
-ACTIVE: /workspace/tmp/pixelelated-m7-p4-installed-fixes-01, started20:42:15,
-run15tree/.build-runs/20261006T204215Z-8f9fe42c. Launcher999510, runner999511,
-watcher999516, command999567; guests1000346/1000368; localWebDAV9040.
-Read console.log, proof/artifacts, run.path/build.status and allfour result
-channels. Primary verifies /tmp/pixelelated-verify-owner.py then
-/tmp/pixelelated-verify-vm-cleanup.py OWNER 9040 10022 10023 5909 5910,
-only after completion. Current recursive activitydir is OWNER/proof.
-Six prepared owners follow serially as listed below; none submitted yet.
-After those, two prepared/unexecuted owners cover the remaining gaps:
-/workspace/tmp/pixelelated-m7-p4-bucket-retry-01/run.py BUNDLE via python3-I,
-then /workspace/tmp/pixelelated-m7-p4-coverage-ui-01/outer.sh BUNDLE.
-Both use OWNER/artifacts activity recursively; sources/seals are retained.
+Read console.log, artifacts, run.path/build.status and actual host processes
+at least every60seconds, report progress. After terminal state: allfour rc
+channels, input seals, owner/guest/backend/browser/tunnel processes and ports.
+Use existing actual-host helpers (escalation needed to see host /tmp/proc):
+`python3 -I /tmp/pixelelated-verify-owner.py OWNER`
+`python3 -I /tmp/pixelelated-verify-vm-cleanup.py OWNER PORTS...`
+`python3 -I /tmp/pixelelated-retain-vm-owner.py OWNER`
+Run each only once after completion; they create exclusive receipts. Explicitly
+inspect Firefox/geckodriver/tunnel descendants as well. Watcher only records
+locally; no off-session alert exists (#395). Continue next job immediately.
 
-#472closed: actual corrected watcher stepSUCCESS on hosted37527891607/job
-112489445225, next3e44680631aaf1b1b90ea9cb76a03dcbb706c11b. Separate audit
-cadence stepfails as expected until Phase7 complete. No fullCIgreen claim.
-Featureb2f545a68e910f91eb8c71296d20e1496fbfd27e andnext3e446806 are
-remoteverified at20:37:45,96changedpaths equal. New receipts/logs not yet
-published. Frozen candidate15 productunchanged. Continue#471; no pause.
+## Next serial owners — prepared, unexecuted
 
-## Earlier checkpoints — live statements below are superseded
+Use frozen15/tools/watch-build-submit --owner OWNER -- --activity-dir
+OWNER/artifacts --recursive-activity -- OWNER/outer.sh BUNDLE, except where
+python3-I and proof directory are specified below. All inputs sealed; no live
+script edits. Read prepared source before launch. Fresh owner for every retry.
 
-**Live update 2026-10-06T20:35:53.944191+00:00:** QA19 thirteen suitesPASS and walks advancing;
-run/watcher435200 unchanged. Detailed owner artifacts, not parent log, establish
-walk activity. No overall result yet. New three default cloud frame reviews and
-five timing frame reviews are retained under candidate15; rapid relaunch lacks
-new sync stamp and is not sync-completion evidence. All8audit outcomesOPEN.
+1. `/workspace/tmp/pixelelated-m7-p4-empty-library-02/run.py BUNDLE` via python3-I,
+   activityOWNER/proof. Three affected empty-local membership cases only;
+   empty owned directory bind-mounted over guest/storage/roms, unmounted in
+   finally and original directory listing compared. Corrects extra01 setup
+   failure, not product bytes. Parent7cases already pass; do not replay them.
+2. `/workspace/tmp/pixelelated-m7-p4-cloud-ui-fixes-01/outer.sh BUNDLE`:18 EN/FR
+   chooser, legacy root, partial pointers and truthful refusal cases640.
+3. `/workspace/tmp/pixelelated-m7-p4-recovery-ui-fixes-02/outer.sh BUNDLE`:8 EN/FR
+   actual30s outer timeout/child cleanup, changedbinding→terminalrepair→UIretry,
+   genuine missing folder and closed endpoint. **Never submit recovery01**;
+   it has an incorrect expected string and was never run.02 fixes only that.
+4. `/workspace/tmp/pixelelated-m7-p4-library-fixes-01/outer.sh BUNDLE`:installed125
+   indexed/unindexed games, production pacing, SIGTERM/retry,429/persistedpause.
+5. `/workspace/tmp/pixelelated-m7-boot-qualification-06/outer.sh BUNDLE`:four clean/
+   actualRC2-upgraded640/1280 boots, exact wordmark controls, actual boot/updater
+   packet capture and local9045 positive control. QA19 prerequisite now passes.
+   Do not commit raw actual PCAP; retain digests/classified summaries.
+6. `/workspace/tmp/pixelelated-m7-p4-bucket-retry-01/run.py BUNDLE` via python3-I,
+   activityOWNER/artifacts. Host actualrclone1.75.1/bwrap synthetic bucket-shim
+   parent-list/copy faults and literal/ROCKNIX/Saves retry; no real S3 claim.
+7. `/workspace/tmp/pixelelated-m7-p4-coverage-ui-01/outer.sh BUNDLE`:6 settings-only
+   restore, foreign-hostname EN/FR UI, actual first-copy kill/UIretry, next-sync
+   discarded-save shelf and fresh3tier cases. Unexecuted assumptions need proof.
 
-New #472: fork-checks still invoked October3 historical Docker-routing fixture.
-One-line workflow correction selects the already-existing October4 fixture.
-Owner /workspace/tmp/pixelelated-m7-watcher-ci-01 completed20:34:54, owner
-verification20:35:12: allfour0,13seals,4actual exits.35PASS/0FAIL; fixture
-cleanup20:35:24. Evidence retained in candidate15/watcher-ci-01. Normal hooked
-publication and actual hosted corrected-step readback remain required; no
-whole-CI-green claim. Feature wordlist's two September25 historical archive hits
-are separately recorded; next wordlist passes. No frozen product change.
+Prepared inputs/provenance retained under candidate15/prepared-audit-owners,
+including empty-library02/recovery02. After acceptance and remaining exact
+coverage:resolve05/#471→auditlint/P4closure→capacity#461→H700DDR4RG35XXSP arm
+then aarch64→namedphysical/P5. No RC designation yet.
 
-New prepared/unexecuted owners AFTER the existing five, serially:
-6. /workspace/tmp/pixelelated-m7-p4-library-fixes-01/outer.sh BUNDLE — actual
-   installed125 indexed/unindexed games, production timers, SIGTERM/retry,
-   persisted pause/429 local-provider controls. No native/timer mocks.
-7. /workspace/tmp/pixelelated-m7-boot-qualification-06/outer.sh BUNDLE — four
-   clean/actualRC2-upgraded640/1280 boots and exact wordmark negative controls;
-   QEMU capture from boot, actual forced ES update watcher/CLI, local9045
-   positive control. Requires QA19 owner-verification and guest-cleanup-verification
-   withpassedtrue; those completion receipts do not exist until primary verifies.
-Both owners are sealed and retained in prepared-audit-owners. Parser's three
-synthetic controls pass, but no guest outcome exists. Never replay preparation.
+## Frozen source and artifact
 
-Account metadata01 readback20:31:52 confirms same bot id, threeorgrepos/write
-permissions, token expiry2027-10-01 05:27:47UTC and current GitHub-hosted runner.
-No token contents, full permission-grant inventory, mail reminder or historical
-throwaway-fork scheduling proof. Retained sanitized metadata/failed CIlogs.
-Pending local changes are evidence/checkpoint/worklog and oneCIinvocation;
-lastpublished feature82d78b0e9bcf4f2e311d64a4886a935d835ee06f /
-nextcc25d7af394984ba7adde67cab8b8de45807a85a (163changedpathsremoteverified20:20:58).
-
-
-**Latest live state:** QA19 is still active, actual watcher435200 verified20:17:01;
-its ten first suites pass (full scripts828s), round-trip now advances. Do not
-replay QA19. Initial5identity frames directly reviewed; remaining frames and
-all final result/process/guest/backend/port verification still owed.
-The parent log can be quiet while the detailed artifact log advances:
-`/workspace/tmp/pixelelated-m7-qa-19/artifacts/rocknix-images/qa-ed5a6a51f5-webdav-a-20261006-2003/`.
-Use existing owner artifact/proof directories with --activity-dir and
---recursive-activity for every subsequent submission; default QA19 activity
-root is the build tree. No off-session notification; root actively supervises.
-
-Sweep10 failed on one exact copyright context, allfour1 verified20:15:11;
-retained. Sweep11 adds only that required upstream attribution path/hash and
-passes21context/63negative/10scanner controls. Finished20:16:00, actual verified
-20:16:25: four0,12seals and4process exits.57,295files/8,604contexts;zeroFIX,
-UNKNOWN or unclassified credential matches;70public matches in20exact files.
-Localization854entries/95XML,56retired/2removed,noactiveorphans. Extracted shadow
-mode restored0000, bytes invariant. Image/bundle not modified. Inventory11
-finished20:16:35, actual verified20:17:01: four0,7seals,4exits;568roots,
-583components,525stamps,noerrors,14knownP5license gaps. Do not replay either.
-Evidence retained in candidate15 QA folder; source inventory is not a complete
-publication bundle. Both read-only owners used the coordination worktree.
-
-Follow-on owners, ALL PREPARED ONLY and never submitted, run serially from15tree:
-1. `/workspace/tmp/pixelelated-m7-p4-installed-fixes-01/run.py BUNDLE` via python3-I:85cases.
-2. `/workspace/tmp/pixelelated-m7-p4-extra-fixes-01/run.py BUNDLE` via python3-I:10extra cases.
-3. `/workspace/tmp/pixelelated-m7-p4-presentation-fixes-01/outer.sh BUNDLE`: localphone/native/reconnect.
-4. `/workspace/tmp/pixelelated-m7-p4-cloud-ui-fixes-01/outer.sh BUNDLE`:18EN/FRchooser/refusal/recoverycases.
-5. `/workspace/tmp/pixelelated-m7-p4-recovery-ui-fixes-01/outer.sh BUNDLE`:8EN/FRactualstartup-timeout,
-   changed-binding/terminal-repair/UIretry,missingfolder/networkcontrolcases.
-Exact harnesses/seals copied under candidate15/prepared-audit-owners. Fixtures
-are unexecuted; navigation assumptions need actual frames. No installed code
-replacement, personal cloud, hosted OAuth or new account reset. Fresh owners
-for failed runs. Retain failures; never edit live tools. Later gates remain below.
-
-Evidence publication379a94a44680c69b62e314feb003f646a2cb2c94/nextc87cc1d2ef728cb1d006ee3fd9f14d19b3079415
-was remote verified20:05:10,86changed paths equal. Whole trees differ in historical
-session archives. New evidence/log/checkpoint files are not yet published;
-normal explicit cherry-pick-x and hooked push remains authorized. Cite#471
-in each new commit body. Receipt under audit/evidence/remediation-host.
-No product changes since frozen15; eight acceptance outcomes remainOPEN.
-
-
-**Live override 19:59 UTC:** Both approved Fable calls and primary grading are
-complete. Eight source repairs are published at feature7ad24b5812257ba6854f512a556d47400c6f1d41,
-nexted5a6a51f5974deec8748fbf0dbd2f4984b690f5 and ESbab4df649f48847cc43d21c77c058107ad902754.
-All eight installed acceptance outcomes in05/#471 remain OPEN.
-
-Full host03 finished19:54:57, verified19:55:02: allfourrc0,31,038 sealed
-inputs unchanged, four actual processes absent,366 real-rclone cases PASS.
-The1,793 console PASS lines are not a distinct-assertion count. All6,550product
-and207QA hashes match frozen15. Binding05 passes6/6;179ES tests/1,928assertions,
-C/C++ syntax, French catalog and52-screen menu-map check pass. Failed01/02
-runs and old-source negative controls remain retained. See audit/evidence/remediation-host.
-Three real old-writer partial-pointer fixtures pass explicit folder-selection
-recovery with cloud bytes unchanged; installed/UI recovery remains required.
-
-Candidate15 cache verified19:55:52: checksum-equal14→15,2,526,406 independent
-regular files, five zero copy channels and four actual process exits. Build
-finished19:59:08 and verified20:00:04: allfourrc0, seals unchanged and actual
-process/container exit. Preserve the generated emulator-table diff. Bundle
-43a698bcd7d570c63ebdd5db015e5302463f7ee4a15438fd9ef2359437be19da is verified;
-image15 raw/update SYSTEM equality passed20:02:08, cleanup verified20:02:18.
-QA19 is ACTIVE below; never replay completed build/store/image owners.
-
-- Owner /workspace/tmp/pixelelated-m7-replacement-15; launcher284564,
-  runner284565, watcher284566, command284595 (actual readback19:58).
-- Tree /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement15,
-  branch build/m7-pixelelated-replacement15, commit ed5a6a51f5974deec8748fbf0dbd2f4984b690f5.
-- run.path points to .build-runs/20261006T195606Z-cfbc5dea. Read console.log,
-  build.status (not status.json), inner.rc/outer.rc/tool-wrapper.rc and run/build.rc.
-  The watcher records locally; root actively supervises; no off-session alert.
-- Manifest0bc7c44d06fc0180eaa170d8ec68bad2247c34af90319a9491beafeb538580d6;
-  build.sh rebuilds rclone/cloud-signin-window/ES and forces the image stamp.
-- Copy/build preparation evidence: docs/qa-logs/2026-10-06-pixelelated-replacement-15.
-
-Immutable bundle is at /workspace/artifacts/pixelelated-candidates/sha256/
+Tree `/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement15`, build/
+m7-pixelelated-replacement15. Distribution ed5a6a51f5974deec8748fbf0dbd2f4984b690f5;
+ES bab4df649f48847cc43d21c77c058107ad902754. Manifest
+0bc7c44d06fc0180eaa170d8ec68bad2247c34af90319a9491beafeb538580d6.
+BUNDLE=/workspace/artifacts/pixelelated-candidates/sha256/
 43a698bcd7d570c63ebdd5db015e5302463f7ee4a15438fd9ef2359437be19da (one path).
-QA19 started20:02:18, launcher435198/runner435199/watcher435200;
-run .build-runs/20261006T200218Z-4586eb46 in15tree. Initial guest PIDs435995/436021.
-Read owner/run.path,console.log,inner/outer/tool-wrapper.rc andrun/build.rc;
-then verify seals and actual guest/backend/process/port cleanup. Root supervises.
-Subsequent owners run serially through tools/watch-build-submit from15tree.
-1. COMPLETE: /workspace/tmp/pixelelated-m7-image-15; raw/update SYSTEM equality.
-2. ACTIVE: /workspace/tmp/pixelelated-m7-qa-19/outer.sh BUNDLE:15defaults, actualRC2upgrade,
-   installedpayload/identity, virgl and640software rendering.
-3. /workspace/tmp/pixelelated-m7-p4-installed-fixes-01/run.py BUNDLE:85cases,
-   including49audit additions and actual historical writers in private QA paths.
-4. /workspace/tmp/pixelelated-m7-p4-presentation-fixes-01/outer.sh BUNDLE:
-   EN/FR local sign-in/native finish at640 plus reconnect at640/1280.
-   This new presentation fixture is unexecuted, not hosted OAuth evidence.
-Use fresh owners for retries; retain failures. Prepared scripts under/tmp were
-already executed to create these owners; never replay preparation or old jobs.
+Do not alter frozen product/QA manifest. Preserve generated emulator-table diff.
+Raw/updateSYSTEM equality6f018b6655074f02a46e377f4e33f59c4dbe2359d19e90da9380fe0df8bf4f93.
+Source6550/QA207/symlinks180; newer QA fixture copies are separately sealed.
 
-Exact additional UI/recovery/timeout and remaining milestone coverage gaps are
-in04/05 and07-remediation-progress.md. Only then resolve05/#471 and audit lint,
-P4 closure, capacity#461, H700DDR4RG35XXSP arm→aarch64, namedphysical/P5 gates.
-No further cleanup, reservechange, accountreset, device or release action authorized.
+## Completed — do not replay
 
-## Historical audit chronology — superseded status statements below
+- Host03:366real-rclone cases;179ES tests/1928assertions; full scripts and syntax.
+  Build15:642tasks, allfour0 and actual cleanup. Bundle/image verification passes.
+- QA19:all15suites,78walkframes/35claimed/0unclaimed/0missing. Actual September29
+  RC2→15 preservation, virgl/640software and payload/proxy pass. Finished20:41:54,
+  primary cleanup20:42:07. Ten upgraded identity frames directly reviewed;
+  timing is single-sample and rapid relaunch has no new sync stamp. Evidenceqa19.
+- Installed-fixes01:82PASS/3FAIL; allfour1/210seals, primary cleanup20:50:55/56.
+  Malformed-reader observer faulted local listremotes before parser. Failure kept.
+- Reader-fixes02:8PASS, allfour0/211seals, cleanup20:53:56. Correct observer.
+- Reader-values03:dispatch failed before any guest; allfour1/212seals, cleanup20:55:28.
+- Reader-values04:8PASS with exact state/selectedarchive/source and newer wrong-
+  directory distractor; malformed cases permit only local listremotes, real lsf
+  negative controls. Actual old scanner fails escaped config at settingsstage;
+  installed corrected scanner selects correctarchive. PrivateQAoldsource only,
+  not old installed image. Allfour0/212seals, cleanup20:57:20. PL-008 resolved.
+- Extra-fixes01:7PASS/3FAIL, allfour1/211seals, cleanup20:59:15. Active sibling
+  listing refusal, record/marker retry, real connection refusal, oldpartial
+  join/follow/settle→explicit recovery pass. Empty-local3 fail mountpoint setup;
+  freshempty-library02 prepared. All failed receipts preserved.
+- Sweep11:57295files/8604contexts,0FIX/UNKNOWN,70publiccredentialpatternmatches
+  all classified. Inventory11:568roots583components525stamps,14knownP5licence gaps.
+- Historical cloud-path mapping:56entries,21upstreamURL/9build/13comment/
+  12changeddefault/1forksource;0unclassified. Retrospective, not oldcommitproof.
+- #472closed:35local watcher assertions and hosted corrected stepSUCCESS
+  run37527891607/job112489445225. Separate auditcadence stepfails; no wholeCIgreen.
+- Candidate14 RA33 actualTobu15738/Potato100359 offline→flush/API/relaunch passed.
+  WebDAV/SFTP/S3 each106/0/0 qualified14; not newly rerun15 fullmatrix. Noresetowed.
 
-User resumed after token repair. Actual-host/GitHub access works. The complete
-261-criterion primary audit, retrospective and provisional analysis are published
-on feature 3abe4111a4bed8583a4a444850d6bac0d4853ba6 and
-next dbfcfdff83de09616946851f83e8d238ca4a7588. Both refs were read back from
-GitHub after normal commit/push hooks. Evidence: `evidence/primary-publication.json`.
-A generated QA private-key duplicate was removed before committing; the original
-runtime file remains retained, with an omission/hash receipt. No key was published.
+Evidence root docs/qa-logs/2026-10-06-pixelelated-replacement-15 and audit
+ docs/audits/2026_10_06-milestone-m7-p4-fixes-383. Primary externalgrade:
+261criteria204PASS36PARTIAL3FAIL18SKIP;123priorcomparisons;14target experiments.
+One external reviewer/two calls Fable5.1/xhigh verified; no council. Raw artifacts
+untouched. #467/#468/#469/#471open;#470/#472closed.
 
-Audit: `docs/audits/2026_10_06-milestone-m7-p4-fixes-383/`.
-Read00→02 summary and current04, then03 and machine evidence as needed.
-Independent Phase2:261/261,204PASS/36PARTIAL/3FAIL/18SKIP by16:28:47UTC.
-Prior answers first opened16:29:42UTC; Phase2.5 exact123 comparisons:45agree,
-76changed,2superseded. Phase3:30rules,74distinct blindspots (two historical29
-entries),190supporting-history criteria across55issues. Those190 are scoped
-historical trust review, not190 fresh PASS claims. Four criteria from issue#265 remain later-release scope.
+## Remaining tracking and publication
 
-Phase4 synthesis has three provisional product findings: #467 content recognition
-(two failedACs, four failed runtime challenges); #468 safe future-layout refusal
-with false missing-folder reason; #469 missing French standalone phone/native
-finishing text (published and read back after auth repair). OtherPARTIALs
-are exact missing measurements, existing P5 work and stale contract text; they
-are not36unique defects. Frozen product7afa9efcfc0/ESf6f0c134 remains unchanged.
+PL-008 table/index and08 resolution saved; GitHub#471 andM7body read back21:01.
+Lastpublishedfeature39d1ce11014fa2ba4587ad6f36f338a031e64927 andnext
+ee2537388141ed429a78df36c10d1bea4cf8ee20, remoteverified20:49:06,260changedpaths
+equal. Whole trees differ in historical archives by design. New QA tool correction,
+evidence/logs/checkpoint/PL008resolution not yet published. Normal explicit
+cherry-pick-x and hooked push, cite#471. Publication receipt itself belongs in
+next evidence commit. Recheck primary next clean before integration.
 
-Phase4.5 actual repeat03 on/workspace finished17:06:00UTC, allfourrc1 expected,
-3controlsPASS/4challengesFAIL, same outputs as original15:26probe, all before/
-after hashes/pointers unchanged. Actual6PIDs/5ports absent17:08:41UTC. Evidence:
-`evidence/refutation-03/`. First repeat01 missed the required proof directory
-and failed before guest creation;02 ran raw-image expansion on quota-limited
-/tmp and could not write outer results. Both remain failed. Partial3.65GBimage
-is preserved/hash-verified at/workspace/tmp/pixelelated-m7-p4-refutation-failed02/
-incomplete-image.img; only its newly created/tmp copy was removed after equality.
-No protected build tree or old evidence was deleted. Never replay any owner.
-Future VM owners go on/workspace, with fresh empty proof directory prepared.
+Exact remaining gaps include mixed updated/fresh no-join negative; oldscript
+on currentguest is not that. #337/#409 active naming/criteria reconciliation
+still needed. NAMING.md stale cleanup line becomes closing recommendation,
+not in-audit instruction edit. Account metadata confirms identity/access/expiry
+but not full grants or mail reminder.14licence/source gaps and publicdocsP5.
+#168ten upstream draft fixes unsubmitted; outward permission still required.
+#463Dropboxoptional;#432FOSSobservability/#464RAresetautomationbacklog.
 
-Refutation found no mitigation for the three product defects. Source/retained
-outputs and fresh target repeat are recorded in finding-verification.json.
-Watcher recorded correctly; final observation lag exceeded60seconds while
-preflight ran, explicitly recorded in friction log. No uninterrupted supervision
-claim. Those earlier refutation owners are finished; the current target owner is named below.
-
-External gate: selected code-auditor independent depth, Codex/OpenAI primary
-(exact model variant unknown) plus Anthropic Fable5.1/xhigh via Facilitator and
-OpenRouter. Two calls, blind then refutation, one external reviewer; no five-seat
-council. Fresh verify-pins/efforts/drift each exit0. Review-plan.json exists.
-Blind packet `second-opinions/claude-blind-brief.md` is856187bytes, SHA256
-fa0030b86a47b65a9ff1ce4e5f6ff8d1bc477783d030470bf47073ab2a89c058.
-It carries261criteria, observations with verdicts/findings withheld, actual
-source/diffs and sanitized QA fixtures. Generator and input hashes retained.
-
-The owner explicitly replied “Approve both Fable audit transfers.” The earlier
-specific egress rejection is resolved; do not request that permission again.
-Receipt: `second-opinions/transfer-approval.json`. Both the sealed blind packet
-and the subsequent analysis plus blind-response refutation transfer are approved.
-
-Blind pass completed successfully: all five result statuses0, verified served
-anthropic/claude-fable-5.1 from provider response, xhigh effort/54082 reasoning
-tokens, unchanged input/output digests, actual owner and recorded descendants
-absent. `second-opinions/blind-verification.json` is the accepted receipt;
-`evidence/fable-blind-01/` retains the complete owner/watcher. Its14 B leads
-were graded against primary artifacts below, not accepted as14 defects.
-
-Refutation finished18:49:11UTC, first observed18:49:16, verified18:49:33.
-`second-opinions/refutation-verification.json`: allfive0,29sealed inputs,
-Fable5.1/xhigh,36704 reasoning tokens, no retries; all four host processes
-absent. Output SHA72c95da873fcbcaa004d55d69af114e343c9d7f63a8f7845d47d6fc675822233.
-Full response read. Both external calls are complete; no permission pending.
-Raw responses/packets/provenances stay untouched. Primary grading is complete:
-14 blind items, five R leads, F01–03 refutations and coverage questions.
-Separate reading notes and UI26 marker hash readback are in second-opinions.
-
-Target lead proof03 completed18:54:30, verified18:55:21; coverage01 completed
-18:57:00, verified18:57:36. Fourteen observations total, each run allfour0,
-34/35 sealed inputs and6/8 installed hashes unchanged; actual six owner/guest
-PIDs per run absent and five ports unbound. Evidence reviewer-leads-03 and
-reviewer-coverage-01. Failed lead01 dispatch and02 fixture carryover retained.
-Nothing executable is running now. All external/raw evidence is preserved.
-
-Phase4.6 primary grading is complete in04:14B/fiveR/threeF/tencoverage rows.
-Eight final product findings (1High/6Medium/1Low), recorded in05 with all outcomes
-OPEN and mandatory M7.P4 audit tracker#471, created/read back. New G01kept
-sibling shelf, G02record binding/recovery, G03partial pointer publication,
-G04reader grammar, G05valid chooser names. R01/R03 broaden existing#467/#468.
-No product code changed; no next-phase/release gate passed.
-
-Process issue#470: pre-Phase6 lint incorrectly demanded final Phase7 outcomes.
-Explicit --phase pre-issue now validates review artifacts while the default
-still refuses open outcomes.17 meaningful positive/negative CLI controls pass;
-current pre-issue check passes. tools/lint-audit-artifacts is the only modified
-executable. No instruction files edited. Phase7 product fixes follow normal
-publication of these audit/process artifacts, then affected rebuild/qualification.
-
-Primary grading, final05 and Phase6 tracker#471 are complete. The pre-issue
-artifact check passes; the default resolution gate stays failed while the eight
-fixes remain open. Proceed Phase7, then rebuilt affected-image qualification.
-
-Existing qualified prerequisites: UI03 unchanged14,109assertions/23EN/FRframes,
-allfour0/actualcleanup07:01:20; all23frames primary reviewed. RA33 actualTobu15738/
-Potato100359 unearned→offlinepending→realflush/APIearned→relaunch, cleanup06:10:11.
-Cloud WebDAV/SFTP/S3 each106/0/0, cleanup05:59:18. No new account reset, cloud
-credentials or ordinary award rerun. #463Dropbox optional unverified; #464reset
-and#432FOSSobservability backlog. #168ten upstream drafts tested but unsubmitted;
-owner go still required for outward PRs. #395disconnectedalert unconfigured.
-
-Current documented test gaps: foreign-only hostname; successful manual chooser;
-settings-only setup completion; actual installed mid-copy kill/retry; next-sync
-new discarded-save shelf; literal bucket-backup retry; installed125-game proxy
-scan; exact mixed-pair no-join negative; updater guest network capture. Final
-repairedimage needs freshfull brand/secret/leak sweeps. Token scope/expiry metadata,
-14license/source publication and public docs remain their owning later gates.
-See02 exactcriteria and04table, not this shorthand, before changing verdicts.
-
-## Completed cleanup — historical execution, never replay
-
-User started the read-only root watcher (“running”). #459's five approved
-removals03/05/06/07/08 are complete. All directories/registrations absent,
-branches/heads retained. Finalverification passes. **Nothing is running**;
-rootwatcher stopped automatically; no disconnected notification is armed.
-No build/QA result changed and no RC/device-ready claim is made.
-
-Evidence: docs/qa-logs/2026-10-05-build-storage/approved-cleanup-20261006/README.md.
-Final retention:15,206oldretainedfiles+19currentbundlefiles=15,225files,
-47,029,011,798bytes;15manifests,27gitsourceinputs,12protectedpathidentities,
-frozen14inputs and230survivingbackingchains verify. Five internalqcow2fixtures
-were removed with their approvedtrees. Discovery limited to priorfourroots,
-qcow2suffix/no followed directorysymlinks; no whole-host discovery claim.
-
-Measured579,115,601,920bytes recovered (539.34GiB). Available
-618,960,564,224bytes (576.45GiB), from39,844,962,304bytes. Reserveunchanged
-200,056,127,488bytes. Earlier524.84GiBnetestimate charged preservation stores;
-they already existed in the executionbefore sample. Smalllivehostchanges
-affect the delta; do not represent it as exact atomic directory accounting.
-
-## Cleanup execution record — never replay
-
-Owners under /tmp/pixelelated-approved-cleanup-:
-- Original03 FAILED03:22:47/allfour1 afterpartialdeletion/unregistration on
-  owner-owned0555Go module directories. Actualowner/helperexits verified.
-- repair03-01 COMPLETE03:27:10/allfour0; actual03:27:42. Restoredmetadata at
-  exact02163b4/buildbranch/saved42065b0diff, not deletedintermediatebuildfiles.
-- 03-v2 COMPLETE03:28:09,05-v3 COMPLETE03:30:24,06-v3 COMPLETE03:31:17,
-  07-v3 COMPLETE03:32:06,08-v3 COMPLETE03:33:23; allfour0 and actualhelper/
-  ownerexit, directory/registrationabsence, retainedbranch/head verified.
-- 05-v2 FAILED03:28:38/allfour1 beforemutation/Git removal: emptyroot-owned
-  sourcesmountpoint. Finalguard fixes overlystrictcheck; originalfailurekept.
-- final-01 COMPLETE03:34:03/allfour0, actualprocessabsence03:34:30. Rootwatcher
-  2780340 stoppedautomatically after03:33:14UID0/allfiveabsent/0matches report.
-
-**Every old prepared owner is obsolete.** Never submit original05/06/07/08
-or v2-06/07/08. All targettrees are gone. Preserve everyfailed/successfulreceipt.
-Currenthelperhash421c627ad4cb66b1bf3a4796f202f827761401a0f0f9d15dde484a5fcbbd164b.
-#460 source in tools/fork-worktree; final six controls at
-docs/qa-logs/2026-10-06-worktree-permissions/controls-02/result.json.
-Completepermissioninspection precedes anychmod/deletion; directorydescriptors,
-no directorysymlinkfollowing, onlyneededownerwrite/search onownednonemptydirs.
-Emptydirs need parentrights, not ownwritepermission. No regularfilemodechange.
-
-Retain replacement09/10/12/13/14, allcandidatebundles, September29ROCKNIXRC2/
-backingchains, sharedsourcecache, recoveredrcloneinput and ALLthree456stores.
-**Keep failed runtime-01 store:** successfulruntime-02 references itsobjects.
-Exactprotectedpaths in /tmp/pixelelated-approved-cleanup-20261006/protected-before.json.
-No additionalcleanup orreservechange is authorized. No sudoaction remains.
-
-## Next steps
-
-1. Completed: the independent review, final open punch list and#470 guard
-   correction are published under normal hooks; explicit cherry-pick-x to next
-   and remote readback verified. #470 closed/read back19:07:39UTC.
-2. Work through#471/05's eight fixes under existing authority, preserving every
-   stored-state contract and logging actual commits/acceptance artifacts.
-3. Rebuild and requalify repaired product bytes, resolve all known P4 software
-   defects and exact outstanding evidence gaps before any RC claim.
-4. Capacity#461→H700DDR4RG35XXSP arm→aarch64→separately authorized physical/P5.
-
-## Exact frozen image
-
-Tree `/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement14`, branch
-build/m7-pixelelated-replacement14. Source
-`7afa9efcfc0c1ce4b89774b38878fc1b9a9063d2`.
-Manifest `70cb0448872f39b5382939173b2182a783381142df6dd5630b9e00a2c3ba6ccc`:
-6550product/207QA/180symlinks/1608recipes.
-ES f6f0c134212bc696f2f6a747c8d390a588f2f0ce;
-splash8c71126ceef702528c87a4c49625e64988609f26;
-proxy879b158995d412af434301ebdae581f66b8b6d57 with16fork patches.
-879 changes Android only; Linux/native bytes equal qualifiedb09.
-Container988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39.
-Global24/WebKit4. Metadata commits do not advance this frozen tree.
-Its sole tracked diff is
-`documentation/PER_DEVICE_DOCUMENTATION/GENERIC_X64/SUPPORTED_EMULATORS_AND_CORES.md`
-(four generated-table rows). Preserve it; it is outside source_files,
-qa_source_files and source_symlinks in the frozen manifest. Do not call the
-build checkout clean or reset it merely to clean status. Verified product
-inputs and candidate identity remain the authority for qualification.
-
-Bundle `/workspace/artifacts/pixelelated-candidates/sha256/b77e47e57a4bb35f885ba78669ee8176a9ac978b27c1cbcfaad66e18f684a9f1`.
-Image c7df6a6f428086f79a377ca1b049f20694f34a868987cf12c493c78eab7b2254;
-update a6fdf2e36ff73842a5048994ee515cbdf44c34cd6f27eb20140f61ccce578df5.
-Names pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz/.tar.
-19bundlefiles verify. Main evidence:
-`docs/qa-logs/2026-10-06-pixelelated-replacement-14/README.md`.
-
-## Completed owners — never replay
-
-Owner prefix `/workspace/tmp/pixelelated-m7-`:
-- replacement-14: independentcopy2,526,412files finished00:55:36, actual00:55:56;
-  build642/642 finished00:59:09, actualcontainer/process exit00:59:32. Allfour0.
-- consent-02:30installed reporting/restart cases finished01:01:02, cleanup01:01:30.
-  Firstgrantcounter7→8 at16.705487703seconds. LoopbackHTTP, installedbytecodes.
-  Scheduler/UI/provider behavior outside scope. #457 closed after publication.
-- image-14: rawimage/updateSYSTEMequality finished01:01:50, cleanup01:02:36.
-- inventory-10:568roots/583components/525stamps, noerrors; finished01:02:00,
-  cleanup01:02:36. FourteenP5licence metadata gaps remain.
-- qa-18:run20261006T010236Z-a12444e5, finished01:41:30/allfour0.
-  Default15suites allPASS;1,719script PASS/0FAIL/0SKIP;16walks/78frames,
- 34claimed diff regions/0unclaimed/0missing;26actualSeptember29RC2 upgrade
-  assertions. Installed payload/proxy/actualvirgl and softwarePixman pass.
-  Actualcleanup01:44:24; supplemental01:45:14 verifies extra reboot PID,
-  backend process/pidfile absence and no9010listener. All15identity frames,
- 21selectedwalk and5timing frames directly reviewed, hashes retained.
-- proxy-14:run20261006T014514Z-af918192, finished01:46:05/allfour0,
-  actualcleanup01:46:22.22preservation/18native with0skips/fourlegacyCHD cases
-  and malformed-header refusal. Libraryhash matches assembled14.
-- subset-11:run20261006T014634Z-51697784, finished01:47:35/allfour0,
-  actualcleanup01:48:00.35loopbackHTTP preservation/refusal/retry/idempotence
-  assertions. No external provider contact.
-
-Timing limitations: one-sample smoke0.603s firstpixels/1.33s completedbackup/
-1.017s rapidrelaunch; no new sync stamp for rapidrelaunch, so no active-sync
-completion/interruption claim. Early small startup frame is not text/widget
-size evidence; actual later GPUviewport889x800 fills panelheight800.
-
-All owners retain completion.json, source/bundle/harness seals and four result
-channels. QA18 upgrade artifacts originally at
-/workspace/artifacts/rocknix-images/qa-7afa9efcfc-upgrade-from-69e6039f8f-20261006-0137;
-compiled evidence in repository includes its26assertions. No previous-image
-result is asserted as a new14 execution.
-
-
-
-## Current publication and continuation
-
-Source refs feature7ad24b5812257ba6854f512a556d47400c6f1d41 and
-nexted5a6a51f5974deec8748fbf0dbd2f4984b690f5 are remote-verified.
-Only documentation/evidence changed since the frozen15 source. Current active
-job and next commands are at the top; historical idle statements are not current.
-Both Fable transfers are complete; no user approval remains pending.
+Approvedcleanup03/05/06/07/08 complete539.34GiB; no moredeletionauthorized.
+Protect09/10/12/13/14/15,bundles,RC2backingchains,allthree#456stores including
+failedruntime01 referencedby02,sharedsources,recoveredrclone. No swapreclaim
+whileQA. No root request pending. Continue work after saving this checkpoint.

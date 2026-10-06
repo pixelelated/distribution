@@ -108,3 +108,27 @@ corrected watcher step.35local assertions and hosted invocation retained under
 watcher-ci-01/hosted. The only failed step in that job is audit cadence, which
 remains due while#471is unresolved; wholeCI is not green. Feature historical
 wordlist failures remain a distinct recorded concern.
+
+## 2026-10-06T21:00:59.060627+00:00 — #471 reader acceptance resolved; additional installed/UI verification continues
+
+PL-008 resolved at landed ed5a6a51f5 using reader-values04:8 exact-value/archive
+and malformed-provider-observation cases PASS, actual old scanner negative control,
+allfour0/212seals and actual process/guest/backend/five-port cleanup20:57:20.
+The original85 run retains82PASS/3FAIL; corrected reader02 passes8; reader03
+failed before any guest due wrapper dispatch;04 provides final stronger evidence.
+No installed bytes changed. Phase7 table/index and08 record the disposition.
+
+Extra01 completed20:58:54 with7PASS/3FAIL; actual verification20:59:15 confirms
+allfour1/211seals, allowner/guest/backend processes gone and five ports free.
+Three empty-local cases failed setup by trying to rename /storage/roms, an
+active mount point. Fresh empty-library02 uses an empty bind mount with exact
+restoration checking and repeats only those3cases. It is prepared, unexecuted.
+The7passed cases prove active-sibling listing refusal, real endpoint refusal,
+record/marker retry and actual old-writer partial join/follow/settle recovery.
+
+Presentation01 started20:59:41, watcher1091370: actual installed EN/FR phone,
+native finishing and reconnect proof; frame review still required. After verified
+completion:empty-library02 →cloudUI01 →recoveryUI02 →library01 →boot06 →bucket01
+→coverageUI01, then remaining criterion reconciliation. Recovery02 corrects only
+an expected string against the installed source; original01 was never submitted.
+All jobs are serialized and actively supervised; no off-session notification.

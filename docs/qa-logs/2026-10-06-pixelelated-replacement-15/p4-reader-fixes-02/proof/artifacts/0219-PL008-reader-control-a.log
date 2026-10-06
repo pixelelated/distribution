@@ -1,0 +1,22 @@
+#!/bin/sh
+if [ -f /tmp/pixelelated-cloud-boundaries/fault ]; then
+ expected=$(cat /tmp/pixelelated-cloud-boundaries/fault)
+ matched=no
+ [ "$1 $2" != "$expected" ] || matched=yes
+ if [ "$1" = lsf ] && [ "$expected" = "lsf-root qa-cloud:" ]; then
+  for arg in "$@"; do [ "$arg" != "qa-cloud:" ] || matched=yes; done
+ fi
+ if [ "$1" = lsf ]; then
+  case "$expected" in
+   'lsf-path '*)
+    path=${expected#lsf-path }
+    for arg in "$@"; do [ "${arg%/}" != "${path%/}" ] || matched=yes; done ;;
+  esac
+ fi
+ if [ "$matched" = yes ]; then
+  printf '%s\n' "$*" >> /tmp/pixelelated-cloud-boundaries/fired
+  echo 'injected local QA provider refusal' >&2
+  exit 5
+ fi
+fi
+exec /usr/bin/rclone "$@"

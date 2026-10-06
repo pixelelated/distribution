@@ -1,0 +1,29 @@
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/43a698bcd7d570c63ebdd5db015e5302463f7ee4a15438fd9ef2359437be19da
+up: a (pid 1081941, ssh :10022, serial /tmp/rocknix-qemu-serial.sock, mac 52:54:00:52:4E:58)
+up: b (pid 1081963, ssh :10023, serial /tmp/rocknix-qemu-serial-b.sock, mac 52:54:00:52:4E:59)
+ready: a on ed5a6a51f5 over ssh :10022 (answered after 0s)
+ready: b on ed5a6a51f5 over ssh :10023 (answered after 0s)
+up: webdav serving /workspace/tmp/pixelelated-m7-p4-extra-fixes-01/proof/cloud/data at http://127.0.0.1:9040 (guest: http://10.0.2.2:9040)
+START PL003-unreadable-active-sibling
+PASS PL003-unreadable-active-sibling
+START PL005-record-write-retry
+PASS PL005-record-write-retry
+START PL005-marker-write-retry
+PASS PL005-marker-write-retry
+START PL005-real-closed-endpoint
+PASS PL005-real-closed-endpoint
+START PL002-already-written-join
+PASS PL002-already-written-join
+START PL002-already-written-follow
+PASS PL002-already-written-follow
+START PL002-already-written-settle
+PASS PL002-already-written-settle
+START PL001-empty-local-last-supported
+FAIL PL001-empty-local-last-supported: PL001-empty-local-last-supported/a: rc1; see 0221-PL001-empty-local-last-supported-a.log
+START PL001-empty-local-bios
+FAIL PL001-empty-local-bios: PL001-empty-local-bios/a: rc1; see 0236-PL001-empty-local-bios-a.log
+START PL001-empty-local-empty-directory
+FAIL PL001-empty-local-empty-directory: PL001-empty-local-empty-directory/a: rc1; see 0251-PL001-empty-local-empty-directory-a.log
+down
+PASS frozen source inputs, ES pin and candidate input custody

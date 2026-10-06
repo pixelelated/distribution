@@ -1,0 +1,180 @@
+watch-build: recording in /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement15/.build-runs/20261006T204215Z-8f9fe42c
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/43a698bcd7d570c63ebdd5db015e5302463f7ee4a15438fd9ef2359437be19da
+up: a (pid 1000346, ssh :10022, serial /tmp/rocknix-qemu-serial.sock, mac 52:54:00:52:4E:58)
+up: b (pid 1000368, ssh :10023, serial /tmp/rocknix-qemu-serial-b.sock, mac 52:54:00:52:4E:59)
+ready: a on ed5a6a51f5 over ssh :10022 (answered after 0s)
+ready: b on ed5a6a51f5 over ssh :10023 (answered after 1s)
+up: webdav serving /workspace/tmp/pixelelated-m7-p4-installed-fixes-01/proof/cloud/data at http://127.0.0.1:9040 (guest: http://10.0.2.2:9040)
+START layout1-to2
+PASS layout1-to2
+START pair-copy-Backups
+PASS pair-copy-Backups
+START pair-copy-Saves
+PASS pair-copy-Saves
+START pair-copy-Saves-replaced
+PASS pair-copy-Saves-replaced
+START pair-copy-Content
+PASS pair-copy-Content
+START pair-delete-Backups
+PASS pair-delete-Backups
+START pair-delete-Saves
+PASS pair-delete-Saves
+START pair-delete-Saves-replaced
+PASS pair-delete-Saves-replaced
+START pair-delete-Content
+PASS pair-delete-Content
+START pair-rcat-marker
+PASS pair-rcat-marker
+START T20-follow-ROCKNIX-False
+PASS T20-follow-ROCKNIX-False
+START T20-follow-GAMES-False
+PASS T20-follow-GAMES-False
+START T20-follow-ROCKNIX-True
+PASS T20-follow-ROCKNIX-True
+START T20-settle-ROCKNIX-False
+PASS T20-settle-ROCKNIX-False
+START T20-settle-GAMES-False
+PASS T20-settle-GAMES-False
+START T20-settle-ROCKNIX-True
+PASS T20-settle-ROCKNIX-True
+START T21-join-missing
+PASS T21-join-missing
+START T21-join-root
+PASS T21-join-root
+START T21-join-derived
+PASS T21-join-derived
+START T21-join-custom
+PASS T21-join-custom
+START T21-follow-missing
+PASS T21-follow-missing
+START T21-follow-root
+PASS T21-follow-root
+START T21-follow-derived
+PASS T21-follow-derived
+START T21-follow-custom
+PASS T21-follow-custom
+START T21-settle-missing
+PASS T21-settle-missing
+START T21-settle-root
+PASS T21-settle-root
+START T21-settle-derived
+PASS T21-settle-derived
+START T21-settle-custom
+PASS T21-settle-custom
+START T21-apply-missing
+PASS T21-apply-missing
+START T21-apply-root
+PASS T21-apply-root
+START T21-apply-derived
+PASS T21-apply-derived
+START T21-apply-custom
+PASS T21-apply-custom
+START T22-_GAMES
+PASS T22-_GAMES
+START T22-_ROCKNIX_Saves
+PASS T22-_ROCKNIX_Saves
+START T23-content-collision
+PASS T23-content-collision
+START T25-restricted-parent
+PASS T25-restricted-parent
+START PL001-discovery-empty
+PASS PL001-discovery-empty
+START PL001-discovery-unrelated
+PASS PL001-discovery-unrelated
+START PL001-discovery-fallback
+PASS PL001-discovery-fallback
+START PL001-discovery-tiered
+PASS PL001-discovery-tiered
+START PL001-discovery-root-tiered
+PASS PL001-discovery-root-tiered
+START PL001-discovery-root-flat
+PASS PL001-discovery-root-flat
+START PL001-discovery-root-unrelated
+PASS PL001-discovery-root-unrelated
+START PL001-discovery-stranded
+PASS PL001-discovery-stranded
+START PL001-discovery-refused
+PASS PL001-discovery-refused
+START PL002-join-SAVES_REMOTE
+PASS PL002-join-SAVES_REMOTE
+START PL002-join-SETTINGS_REMOTE
+PASS PL002-join-SETTINGS_REMOTE
+START PL002-join-CONTENT_REMOTE
+PASS PL002-join-CONTENT_REMOTE
+START PL002-join-publish
+PASS PL002-join-publish
+START PL002-follow-SAVES_REMOTE
+PASS PL002-follow-SAVES_REMOTE
+START PL002-follow-SETTINGS_REMOTE
+PASS PL002-follow-SETTINGS_REMOTE
+START PL002-follow-CONTENT_REMOTE
+PASS PL002-follow-CONTENT_REMOTE
+START PL002-follow-publish
+PASS PL002-follow-publish
+START PL002-settle-SAVES_REMOTE
+PASS PL002-settle-SAVES_REMOTE
+START PL002-settle-SETTINGS_REMOTE
+PASS PL002-settle-SETTINGS_REMOTE
+START PL002-settle-CONTENT_REMOTE
+PASS PL002-settle-CONTENT_REMOTE
+START PL002-settle-publish
+PASS PL002-settle-publish
+START PL003-kept-sibling-root
+PASS PL003-kept-sibling-root
+START PL003-kept-sibling-custom
+PASS PL003-kept-sibling-custom
+START PL003-kept-sibling-current
+PASS PL003-kept-sibling-current
+START PL003-inherited-RC2-backups
+PASS PL003-inherited-RC2-backups
+START PL003-inherited-RC2-saves
+PASS PL003-inherited-RC2-saves
+START PL003-inherited-RC2-content
+PASS PL003-inherited-RC2-content
+START PL003-inherited-RC2-complete
+PASS PL003-inherited-RC2-complete
+START PL004-binding-comments
+PASS PL004-binding-comments
+START PL004-binding-format
+PASS PL004-binding-format
+START PL004-binding-token
+PASS PL004-binding-token
+START PL004-binding-endpoint
+PASS PL004-binding-endpoint
+START PL004-binding-legacy
+PASS PL004-binding-legacy
+START PL005-reason-future
+PASS PL005-reason-future
+START PL005-reason-malformed
+PASS PL005-reason-malformed
+START PL005-reason-config
+PASS PL005-reason-config
+START PL005-reason-record
+PASS PL005-reason-record
+START PL006-chooser-MyGames
+PASS PL006-chooser-MyGames
+START PL006-chooser-My Games
+PASS PL006-chooser-My Games
+START PL006-chooser-Games..old
+PASS PL006-chooser-Games..old
+START PL006-chooser-Kid's Games
+PASS PL006-chooser-Kid's Games
+START PL008-reader-escaped
+PASS PL008-reader-escaped
+START PL008-reader-single
+PASS PL008-reader-single
+START PL008-reader-bare
+PASS PL008-reader-bare
+START PL008-reader-double
+PASS PL008-reader-double
+START PL008-reader-duplicate
+PASS PL008-reader-duplicate
+START PL008-reader-export
+FAIL PL008-reader-export: PL008-reader-export/a: rc1; see 2165-PL008-reader-export-a.log
+START PL008-reader-trailing
+FAIL PL008-reader-trailing: PL008-reader-trailing/a: rc1; see 2188-PL008-reader-trailing-a.log
+START PL008-reader-control
+FAIL PL008-reader-control: PL008-reader-control/a: rc1; see 2211-PL008-reader-control-a.log
+down
+PASS frozen source inputs, ES pin and candidate input custody
