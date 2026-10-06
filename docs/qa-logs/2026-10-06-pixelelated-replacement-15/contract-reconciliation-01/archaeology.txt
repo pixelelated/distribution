@@ -1,0 +1,50 @@
+archaeology: D-WORKFLOW-144|D-CLOUD-173|placeholder since 2026-09-30
+
+== The decision register (8)
+  2026-09-30  register decided D-WORKFLOW-098  The site is a placeholder: the name at the domain and nothing else, because nobody is being onboarded and other players are not supported yet. A cloud presence exists on…
+  2026-09-30  register decided D-WORKFLOW-099  The placeholder page is served by GitHub Pages from a repository in the organisation, its workflow on hosted runners; Hostinger keeps the mail and the domain's DNS. Main…
+  2026-09-30  register decided D-WORKFLOW-104  The domain stays registered where it is, under the maintainer's own name, at no hosting company; its name servers move to Cloudflare, whose DNS points each record to its…
+  2026-10-01  register decided D-WORKFLOW-130  Until the icon is ready, the identity ships a word mark alone as its placeholder: the splash and the theme's logo carry the name in the chosen face with no pictorial mar…
+  2026-10-02  register decided D-CLOUD-173  Boot prepares eligible legacy cloud pointers through the existing join/state/follow scan before startup transfers, with a30-second ceiling; a failed preparation ends the…
+  2026-10-04  register decided D-CLOUD-174  The new default and migration destination are `/pixelelated/Saves`, `/pixelelated/Backups` and `/pixelelated/Content`. Supersedes D-CLOUD-158/159's `/Rasteratops` destin…
+  2026-10-04  register decided D-WORKFLOW-144  The next 0.0.1 RC is named `pixelelated`, always lowercase, including display, OS_NAME, DISTRONAME and image prefixes. The GitHub organization is `pixelelated`; the main…
+  2026-10-04  register decided D-WORKFLOW-145  Use Tiny5 Duo LCD for the lowercase pixelelated splash wordmark, with the wordmark alone for now. The maintainer: "we can also use Tiny5 Duo LCD for the splash font, and…
+
+== The blindspot register (0)
+
+== Work logs (8)
+  2026-09-30  work-log 14:01                #338 the toolchain reworded for rasteratops and committed; the run unblocked (D-WORKFLOW-090)
+  2026-09-30  work-log 18:54                the site is a placeholder; cloud only for a needed service (D-WORKFLOW-098)
+  2026-09-30  work-log 18:59                the placeholder page on GitHub Pages (D-WORKFLOW-099)
+  2026-09-30  work-log 20:13                DNS at Cloudflare, the domain at the registrar (D-WORKFLOW-104)
+  2026-10-01  work-log 04:33                the interim 32x20 icon received (#337), kept under docs/rasteratops/art/
+  2026-10-02  work-log 20:18                #365/#383: full suite green; two sibling cases reproduced
+  2026-10-04  work-log 01:45                #409: lowercase pixelelated and the existing ROCKNIX upgrade path
+  2026-10-05  work-log 05:00                side conversation: remove unshipped proxy identity (#409, #168)
+
+== Rules (6)
+              rule es-code-traps.md         A rescan that deletes FileData drops the view first (2026-09-22, #246)
+              rule es-native-ui.md          The other files that carry the interface law
+              rule es-player-text.md        es-player-text.md
+              rule es-ui-style-guide.md     es-ui-style-guide.md
+              rule es-ui-style-guide.md     Text
+              rule fork-workflow.md         Safety net: pre-push guard, and the pre-commit scan
+
+== Git history (-G, on this checkout) (15)
+  2026-10-06  git 0718c4b3ac                qa: verify installed cloud reader values and record audit resolution
+  2026-10-06  git 28abfefb40                audit: record continued M7 review and installed cloud failures
+  2026-10-06  git 379a94a446                M7: retain repaired candidate15 build and qualification handoff
+  2026-10-06  git 39d1ce1101                qa: retain candidate15 baseline and hosted watcher proof
+  2026-10-06  git 3abe4111a4                audit: record M7 primary findings and external review gate
+  2026-10-06  git 46ed7d662b                audit: record published primary checkpoint and milestone order
+  2026-10-06  git 7ad24b5812                cloud: repair the M7 independent audit findings
+  2026-10-06  git 82d78b0e9b                M7 - retain candidate15 image sweep and audit proof queue
+  2026-10-06  git 9243514f18                M7.P3: record replacement14 VM qualification and cleanup custody
+  2026-10-06  git b2f545a68e                fork-checks: run the current watcher routing fixture
+  2026-10-06  git bf616c7fd6                audit: verify Fable reviews and record M7 fixes
+  2026-10-06  git cc058c962c                audit: retain installed French proof and historical migration gap
+  2026-10-06  git cd1a56f81f                M7.P3: reconcile active QA handoff and cleanup dependencies
+  2026-10-06  git e983393871                rclone - finish earlier history recovery and correct legacy support labels
+  2026-10-06  git fd9ad83107                audit: freeze M7 fixes review inputs
+
+37 line(s). A decision listed as pending without a register OPEN row above is a claim to check.

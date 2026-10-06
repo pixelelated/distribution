@@ -610,3 +610,278 @@ history source. Additional shelves use the existing verified relocation path
 and bounded re-entry; retries retain the record until completion. Current
 installed candidate15 is unchanged: PL-001 and PL-003 remain open until a new
 engineering image proves these repairs. UI04 remains actively supervised.
+
+
+## 2026-10-06T21:44:23.397175+00:00 — French reason fit remains within PL-005
+
+Direct actual640px review of UI04 fr_FR-reason-config-opening-result shows the
+correct settings-read reason ellipsized at SYNCHR.... The command assertion
+passes its full emitted English key, but the French screen does not display
+the complete localized reason. PL-005 remains open; review the remaining
+recovery/timeout frames before choosing the bounded text/layout correction.
+This is a presentation failure, not an incorrect parser result or ninth punch item.
+The EN/FR legacy-root capability labels likewise remain PL-001. 106frames
+now have individual hash-bound primary verdicts.
+
+
+## 2026-10-06T21:47:05.280560+00:00 — Installed UI04 complete; PL-002 and PL-006 resolved
+
+All 18 automated cases pass; 110 frames directly reviewed. Two legacy-root
+capability frames and one French settings-reason frame fail visual acceptance
+under existing PL-001/005. All four rc0,9sealed inputs and owner exits verified
+21:44:40; actual guest/backend/seven-port cleanup21:44:54. PL-002 resolves from
+12 installed atomic fault/retry boundaries, backup/content controls and actual
+old-pointer editor recovery. PL-006 resolves from valid/unsafe installed name
+cases and 54 EN/FR chooser frames. Outcomes re-derived in08 and command receipts.
+Four findings remain open:001/003/004/005. Recovery-ui03 is now active under
+watcher2200861; no claim that this later proof has passed.
+
+
+## 2026-10-06T21:49:40.335201+00:00 — Tested source repairs published; normal guard retained
+
+History/capability repair commit e98339387135678f7ec82a8f90bde9643d2e4cd0
+is on the feature remote; integration ec2283f20f10e692f15bdb417917adb0e320155f
+is on next. Exact remote readback and all 34,498 changed-path object equality
+verified21:48:32. Push-only owner02 finished21:48:34; primary21:49:05 confirms
+allfour0, unchanged seal and four actual PIDs absent. Full hooks ran unchanged.
+Candidate15 remains frozen and does not contain these source repairs.
+
+Original publication01 committed/integrated but failed its first push with
+`could not diff ... to scan it`; allfour1 and actual exits retained. The same
+patch scan to /dev/null succeeds; a watched independent read-only reproduction
+of each scan stage on disk also succeeds (782,710,170 patch bytes;
+3,456,110,992 labeled-line bytes). The successful push-only retry uses its owned
+disk TMPDIR and leaves it empty. Original failure's exact underlying stderr was
+suppressed by the existing hook: temporary-storage pressure is not established
+as the cause. No credentials/rules/guard were bypassed or relaxed. Retained
+fixtures account for the large diff; future evidence capture should avoid
+repeating identical source trees per case while preserving exact input hashes.
+
+
+## 2026-10-06T21:52:47.112468+00:00 — Recovery03 navigation fixture failed; reason-fit gap retained
+
+Recovery03 finished21:49:58 with allfour1. Actual owner verification21:50:26
+confirms9 unchanged input seals and allfour PIDs absent; guest/backend cleanup
+at the same minute confirms no QEMU/owner process and all seven ports free.
+The installed real30second startup-timeout checks pass. The next repair walk
+stopped when RIGHT was sent while CURRENT PASSWORD was selected, before the
+button bar. Source GuiMenu.cpp step2 has two selectable rows: ON YOUR COMPUTER
+and CURRENT PASSWORD; fresh04 needs two DOWNs before RIGHT/CONTINUE. This is
+a fixture correction, not a product change. Failed03 is retained, never replayed.
+
+Nine original-connection recovery frames and the stopped frame were directly
+reviewed: the initial refusal reason is clipped at ORIGINAL C... on actual640px
+English output. This joins the French settings-read clipping in existingPL005.
+The pending move and foreign-cloud bytes remained preserved before navigation
+failed; no completed-recovery claim. Timeout-card visual acceptance remains
+pending. Evidence p4-recovery-ui-fixes-03/artifacts/cloud-ui.
+
+
+## 2026-10-06T21:54:29.029473+00:00 — Recovery retry under verified supervision
+
+English timeout03 card directly reviewed in all three capturedframes: full
+reason and retry instruction visible at640x480. Hash-bound review retained.
+Recovery04 submission rejected incorrect watcher flags before starting a
+watcher or guest (launcher rc2/absent, no qa.start/run.path). Failed receipt
+retained, no four-channel claim. Fresh05 uses documented --activity-dir and
+--recursive-activity; actual watcher2482634 and guest verified21:54.
+Step2 navigation corrected against source and failed03 frame; product15 frozen.
+
+
+## 2026-10-06T21:54:48.498756+00:00 — Whole-library fixture reviewed before submission
+
+Read whole-library-proof.py, whole-library-installed.py and run.sh directly.
+The prepared125-game proof uses actual packaged modules/native hashes, installed
+subprocesses and local HTTP, preserves production .3second/50game/30second
+pacing, interrupts at game61, checks sixty completed patches on retry, and
+checks persisted429/budget behavior without claiming hosted RA acceptance.
+Pair/artifacts directories must exist before submission. No run launched while
+recovery05 owns the frozen15 VM monitor. Fable blind/refutation primary receipts
+also re-read: served Anthropic Fable5.1/xhigh, five result channels0 on both,
+43/29seals, provider-model identity checksPASS; no new transfer is needed.
+
+
+## 2026-10-06T21:55:21.500138+00:00 — Genuine pre-join negative-control preparation
+
+Read retained1acdaf2cce image RECORD/SHA256SUMS, original cloud-pair-migration
+procedure and vm-pair ownership/upgrade mechanics. Its genuine pre-join code
+has no layout_join and uses /Rasteratops as historical default. The negative
+fixture must derive that default from the historical installed code; current
+/pixelelated assumptions would fail the premise rather than test absentjoin.
+Plan uses actualRC2 backup, in-place historical update, fresh historicalpeer,
+then actual scan/seed/restore with cloud preservation and exact guest-byte
+identity. This is a historical negative, not a fielded Rasteratops releasegate.
+Retained image hashes are being checked; no VM negative has run yet.
+
+
+## 2026-10-06T21:57:49.874701+00:00 — Genuine historical negative sealed, not run
+
+Retained RC2 image plus1acdaf2cce image/update hashes match their archived
+SHA256SUMS. No-join-negative01 now contains a prepared actual two-VM workflow
+with21 input seals, five actual RC2 script hashes and six historical new-build
+script hashes. RC2 predates cloud_scan; it is not incorrectly required there.
+The test checks actual update boot identity, preserved ROCKNIX pointers/cloud,
+correct earlier-folder scan premise, expected failed fresh-peerjoin/restore,
+and preserved source data. Preparation is retained as such; no acceptance
+claim until actual execution and cleanup. Library01 directories are ready.
+
+
+## 2026-10-06T21:58:21.668246+00:00 — Remaining prepared proof review and text-fit scope
+
+Read boot06 qualify-boot/updater-network-proof and bucket-retry01 source.
+Boot06 checks four clean/actualRC2-upgraded boots, preserved backing hashes,
+unchanged.995 wordmark threshold with three wrong controls, installed forced
+update watcher/CLI and closed-QEMU packet classification with local HTTP
+positive control. Raw packet captures remain private runtime evidence.
+Bucket retry is explicitly host real-rclone/bwrap with staged bucket-parent
+listing/copy faults, not an installed or real-S3 claim. Both still unexecuted.
+GuiCloudTransfer.cpp847 clips concatenated unitname/reason. A bounded candidate
+fix is to omit a redundant CLOUD FOLDER prefix on single-unit scan failures
+when needed, preserving the whole reason. Remaining actual EN/FR recovery
+frames must be reviewed before finalizing any source change.
+
+
+## 2026-10-06T21:59:21.243135+00:00 — Step2 source-description correction
+
+The earlier entry incorrectly called ON YOUR COMPUTER selectable. Re-reading
+cloudSetupAddProse confirms row.selectable=false. CURRENT PASSWORD is the
+selectable fact. The extraDOWN remains confirmed by the actual stopped03frame
+and successful05walk, but the explanation is reaching the button bar from the
+initial page focus, not two selectable text rows. Actual05 step2/step3frames
+are readable and retained as primary review leads while the run continues.
+
+
+## 2026-10-06T22:00:21.721993+00:00 — Recovery05 stopped before final button; fresh06 submitted
+
+Recovery05 completed21:59:01 allfour1,9inputseals and actual four-ownerPID
+exit verified21:59:43. Guest2483379 and all seven ports cleared at21:59:43;
+failed owner retained in p4-recovery-ui-fixes-05. Actual step3 stoppedframe
+and MenuComponent.cpp123 show initial list focus, not selected CONTINUE.
+Fresh06 adds DOWN before RIGHT/CONTINUE at that step; twoDOWN correction in
+step2 remains independently passed. No completed-migration recovery claim.
+Prepared historical no-join01 and library01 remain unsubmitted, serial behind
+recovery. Product files in candidate15 and its ES integration stay unchanged.
+
+
+## 2026-10-06T22:01:27.456040+00:00 — Live plan reconciled to current remediation
+
+Exact GitHub readbacks for#471/#468/M7 verified: four resolved/four open,
+both source repair pushes complete, recovery06 active, EN original-connection
+clipping added to existingPL005 beside French settings-read. Milestone's stale
+eight-open table corrected. Remaining serial order is recovery/library/boot/
+bucket/coverage/genuine-negative, bounded presentation fixes/build16 and final
+installed proof before#471/P4 closure, capacity/H700/P5. No issue closed from
+partial proof. Readbacks retained tracker-recovery06-01.
+
+
+## 2026-10-06T22:02:34.133056+00:00 — Recovery fixture gets dedicated tracking
+
+Filed#473 M7.P4: Correct recovery proof wizard navigation, with actual
+EN/FR recovery/frame/hash/lifecycle acceptance and explicit VM-only scope.
+Corrections began under#471 before the dedicated issue; this is recorded
+plainly in its body and frictionlog. It is a harness issue, not a ninth audit
+product finding. Recovery06 is still active; no checkbox claims its success.
+
+
+## 2026-10-06T22:03:16.823916+00:00 — Bounded reason-fit source repair prepared
+
+Read GuiCloudTransfer blame: generic failure grouping intentionally retains
+failed units; preserve that contract. The eight-line feature edit only removes
+redundant CLOUD FOLDER from a single scan failure when the full line exceeds
+the actual font width. Existing localized reason remains whole input; no font
+shrink, new string or menu reordering. ESfeature m7-audit-remediation differs
+frombab4df only here; QA integration and frozen candidate15 remain unchanged.
+Compiler/source checks and rebuilt EN/FR640/1280 frames still required. This
+addresses already captured EN/FR clipping; further recovery frames may reveal
+additional bounded changes before the next pin moves. Refs#468/#471.
+
+
+## 2026-10-06T22:04:26.685552+00:00 — Reason-fit source compiler gate passes
+
+reason-fit-host01 finished22:03:44; actual primary verification22:04:09
+confirms four result channels0,7 unchanged input seals and four owner PIDs
+absent. tools/es-syntax-check used candidate15's image compiler and source
+feature headers; PASS. Vocabulary judged164strings,0wrong; git diff --check
+passes. Eight-line CPP edit remains uncommitted on the ES feature branch;
+integration staysbab4df so live15 checks retain their custody. No new strings
+or font/row changes. Installed EN/FR640/1280 validation remains open.
+
+
+## 2026-10-06T22:05:15.709408+00:00 — EN recovery path passes its installed behavioral assertions
+
+Active recovery06 has completed the EN changed-endpoint route: actual UI
+step3 verify and retry pass, installed migration removes its owned record,
+save/content witnesses reach /pixelelated unchanged, foreign endpoint witness
+is intact. EN absence/network and all French cases remain in flight; no full
+run or PL004 closure yet. Direct full-frame review follows the captured bytes.
+Both earlier navigation failures remain retained under#473.
+
+
+## 2026-10-06T22:07:06.000732+00:00 — Active identity contracts match settled decisions
+
+Read#337 through its last comment, #409 current checklist/latest futro and
+D-WORKFLOW-098/099/123/128/129/144 plus D-CLOUD-173/174; archaeology37hits
+retained. #337 now separates historical proposals from current instructions,
+checks active path assignments while preserving archive-format comments,
+requires the explicit56-entry retrospective mapping without a false same-old-
+commit claim, and follows lowercaseorg/owner/wordmark/site decisions. #409
+gets current Phase7 status and the reconciled contract boundary. Exact GitHub
+readbacks retained contract-reconciliation-01. No checkbox ticked, no issue
+closed, no instruction file changed. P5 site/release/docs and H700 remain owed.
+
+
+## 2026-10-06T22:09:30.531287+00:00 — Boot contract readback and ongoing recovery
+
+Read all #353 and #363 comments and current bodies from retained boot-contract-01.
+The old never-by-a-sync clause in #353 and overbroad checked no-preparation
+clause in #363 need the existing D-CLOUD-173 exception: bounded boot preparation
+before startup transfer. This is B04 contract reconciliation, not a runtime
+reversal; original historical audit grades remain. Recovery06 watcher2509345
+is live; all four EN behavior cases pass and French repair is active. Directly
+viewed EN missing-folder and real closed-endpoint grids: all eight frames
+readable, correct controls, main-menu transitions evident. Persisted frame
+verdicts follow with exact original hashes.
+
+
+## 2026-10-06T22:10:26.468671+00:00 — Boot contract reconciliation verified
+
+Read both issue comment histories and actual main.cpp boot command. #353 and
+#363 now explicitly state D-CLOUD-173's 30-second boot-only preparation before
+startup transfer, failure-before-transfer and notification linger/fade ordering.
+Exact GitHub readbacks retained under boot-contract-reconciliation-01. States,
+historical titles and checkbox counts unchanged; no runtime acceptance added.
+B-04's narrowed contract work is complete; original audit grades stay intact.
+
+
+## 2026-10-06T22:11:19.311704+00:00 — French recovery behavior passes; instruction-fit gap retained
+
+All twelve French repair frames directly reviewed. Actual retry completes,
+removes its bound record, preserves both source tiers and leaves the other
+endpoint unchanged. The original-connection reason clips at SA CON..., and
+the third terminal instruction clips after POU.... Both stay under PL005;
+PL004 acceptance is not closed while its full recovery instructions need fit
+review.38 frames retained with individual verdicts,35PASS/3FAIL.
+
+
+## 2026-10-06T22:12:05.803078+00:00 — French repair instruction shortened
+
+The nonselectable InfoRow is single-line, so the lost French instruction cannot
+marquee. Its translation now says AUTRES OPTIONS : rclone config, PUIS E POUR
+MODIFIER, preserving the actual command and edit key. msgfmt --check and
+--check-format pass; source diff check passes. Feature-only change, with no
+integration/pin movement while candidate15 runs. Actual rebuilt640/1280
+frames remain required. The map's old no-sync-check sentence is a closing
+instruction recommendation; no instruction file edited in this audit.
+
+
+## 2026-10-06T22:14:51.083830+00:00 — Recovery06 complete; library01 actively supervised (#471/#473)
+
+Recovery06 completed22:12:39 on unchanged candidate15:8 behavioral cases PASS; primary22:13:12 verified four zero result channels,9 unchanged input seals and actual owner exits;22:13:15 verified guest/backend/seven-port cleanup. All46 EN/FR640px frames were directly reviewed,43PASS/3FAIL. Both terminal-repair/UI retries preserve source data, endpoint binding and the other cloud. PL004 remains open until the full recovery instruction is readable; PL005 retains the clipped EN/FR original-connection reasons and French terminal instruction, alongside UI04's French settings-read line. The bounded reason-fit CPP edit passes the actual image compiler; shortened French instruction passes msgfmt. Both edits remain on the isolated ES feature; integration/pin stays unchanged until candidate15's queue finishes. Failed03/04/05 receipts remain intact.
+
+**Active:** installed125-game library01, watcher2566864, run20261006T221325Z-802116ae, owner `/workspace/tmp/pixelelated-m7-p4-library-fixes-01`. Actual helper/native hashing and local HTTP retain production request/batch timers; indexed/unindexed, real interruption/retry and persisted429 controls are pending. One serial primary orchestrator consumes watcher results; no off-session alerts are configured.
+
+Next: boot/network proof → bucket retry → remaining cloud coverage → genuine mixed-installation no-join negative → build16 with all source repairs and renewed affected/final qualification → #471/P4 closure → capacity#461 → H700 arm thenaarch64 → named physical/P5 gates. #337/#409 and #353/#363 stale contract clauses now match settled decisions, with exact readbacks and no acceptance ticks. No RC claim.
+
+Exact tracker/M7 readbacks retained recovery06-resolution-01. #473 criteria
+re-derived from all eight executed cases, lifecycle receipts and46 reviewed
+frames; publication precedes closing the delivered QA fixture issue.

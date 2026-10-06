@@ -1,0 +1,99 @@
+watch-build: recording in /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement15/.build-runs/20261006T214501Z-9db35e9b
+/workspace/tmp/pixelelated-m7-p4-recovery-ui-fixes-03/check-payload.py: OK
+/workspace/tmp/pixelelated-m7-p4-recovery-ui-fixes-03/cloud-ui-proof.py: OK
+/workspace/tmp/pixelelated-m7-p4-recovery-ui-fixes-03/outer.sh: OK
+/workspace/tmp/pixelelated-m7-p4-recovery-ui-fixes-03/provenance.json: OK
+/workspace/tmp/pixelelated-m7-p4-recovery-ui-fixes-03/proxy-identity.py: OK
+/workspace/tmp/pixelelated-m7-p4-recovery-ui-fixes-03/run.sh: OK
+/workspace/tmp/pixelelated-m7-p4-recovery-ui-fixes-03/seed.py: OK
+/workspace/tmp/pixelelated-m7-p4-recovery-ui-fixes-03/stop-guest.py: OK
+/workspace/tmp/pixelelated-m7-p4-recovery-ui-fixes-03/verify-inputs.py: OK
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/43a698bcd7d570c63ebdd5db015e5302463f7ee4a15438fd9ef2359437be19da
+Preparing independent 16GiB guest d from the verified pixelelated image
+Image resized.
+No errors were found on the image.
+31695/262144 = 12.09% allocated, 0.00% fragmented, 0.00% compressed clusters
+Image end offset: 2077818880
+[W][21:45:10.863286] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][21:45:10.863315] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+ready after ~31s
+PASS guest d exact BUILD_ID and OS_NAME ed5a6a51f5974deec8748fbf0dbd2f4984b690f5 pixelelated
+PASS QA ROM bytes /storage/roms/gb/Ninoid.gb a40191c169c68e6607ace072da96aab957f306f55ded59ce1f287c1f5273387b
+PASS QA ROM bytes /storage/roms/gbc/Tobu Tobu Girl Deluxe.gb 0a0e8018dbbc8d7f8cd99f05e7cdc7b4cc9e358ecfe9377ebfb2291a84c6e310
+PASS QA ROM bytes /storage/roms/nes/Bobl.nes 025ec44d0d84ac469b442ee56c3d69e035e9a38430ae849172fe3a1e569d0dea
+PASS guest d seeded and idle
+up: webdav serving /workspace/tmp/pixelelated-m7-p4-recovery-ui-fixes-03/cloud/data at http://127.0.0.1:9040 (guest: http://10.0.2.2:9040)
+PASS cloud-ui-before exact identity, installed scripts, policy and Ocean SVG bytes/modes
+PASS cloud-ui-before installed proxy identities and account discovery
+PASS setup: candidate identity
+START en_US-outer-timeout
+PASS en_US-outer-timeout: one local QA remote
+PASS en_US-outer-timeout: private QA timeout fault selected
+PASS en_US-outer-timeout: private QA rclone fault selected
+PASS en_US-outer-timeout: actual installed ES startup outcome stamp appeared
+PASS en_US-outer-timeout: actual startup stamp retains exact outer timeout reason
+PASS en_US-outer-timeout: stock outer timeout enforced its real thirty-second bound
+PASS en_US-outer-timeout: outer-timeout refusal preserves cloud and pointers
+PASS en_US-outer-timeout: timed-out provider and sleep child actually exited
+START en_US-original-connection-recovery
+PASS en_US-original-connection-recovery: private QA rclone fault selected
+PASS en_US-original-connection-recovery: installed real partial migration created before endpoint change
+PASS en_US-original-connection-recovery: owned local endpoint only
+PASS en_US-original-connection-recovery: no game running before carousel
+PASS en_US-original-connection-recovery: actual UI walk carousel
+PASS en_US-original-connection-recovery: no game running after carousel
+PASS en_US-original-connection-recovery: no game running before hub-menu
+PASS en_US-original-connection-recovery: actual UI walk hub-menu
+PASS en_US-original-connection-recovery: no game running after hub-menu
+PASS en_US-original-connection-recovery: START changes the captured screen; direct main-menu review required
+PASS en_US-original-connection-recovery: no game running before hub
+PASS en_US-original-connection-recovery: actual UI walk hub
+PASS en_US-original-connection-recovery: no game running after hub
+PASS en_US-original-connection-recovery: no game running before opening-scan
+PASS en_US-original-connection-recovery: actual UI walk opening-scan
+PASS en_US-original-connection-recovery: no game running after opening-scan
+PASS en_US-original-connection-recovery: changed endpoint preserves truthful original-connection reason
+PASS en_US-original-connection-recovery: refusal leaves all source/partial files, pointers and binding untouched
+PASS en_US-original-connection-recovery: no game running before leave-refusal
+PASS en_US-original-connection-recovery: actual UI walk leave-refusal
+PASS en_US-original-connection-recovery: no game running after leave-refusal
+PASS en_US-original-connection-recovery: no game running before hub-menu
+PASS en_US-original-connection-recovery: actual UI walk hub-menu
+PASS en_US-original-connection-recovery: no game running after hub-menu
+PASS en_US-original-connection-recovery: START changes the captured screen; direct main-menu review required
+PASS en_US-original-connection-recovery: no game running before hub
+PASS en_US-original-connection-recovery: actual UI walk hub
+PASS en_US-original-connection-recovery: no game running after hub
+PASS en_US-original-connection-recovery: no game running before repair-entry
+PASS en_US-original-connection-recovery: actual UI walk repair-entry
+PASS en_US-original-connection-recovery: no game running after repair-entry
+PASS en_US-original-connection-recovery: no game running before computer-path
+PASS en_US-original-connection-recovery: actual UI walk computer-path
+PASS en_US-original-connection-recovery: no game running after computer-path
+PASS en_US-original-connection-recovery: no game running before repair-choice
+PASS en_US-original-connection-recovery: actual UI walk repair-choice
+PASS en_US-original-connection-recovery: no game running after repair-choice
+PASS en_US-original-connection-recovery: no game running before ssh-continue
+PASS en_US-original-connection-recovery: actual UI walk ssh-continue
+PASS en_US-original-connection-recovery: no game running after ssh-continue
+PASS en_US-original-connection-recovery: no game running before connection-continue
+FAIL en_US-original-connection-recovery: actual UI walk connection-continue
+PASS en_US-original-connection-recovery: no game running after connection-continue
+PASS en_US-original-connection-recovery: installed product hashes unchanged
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-p4-recovery-ui-fixes-03/cloud-ui-proof.py", line 229, in <module>
+    case=language+'-'+name;print('START '+case,flush=True);reset(language);action()
+                                                                           ~~~~~~^^
+  File "/workspace/tmp/pixelelated-m7-p4-recovery-ui-fixes-03/cloud-ui-proof.py", line 167, in binding_recovery
+    walk('connection-continue',press('down','right','x')+screenshot('repair-instructions'))
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tmp/pixelelated-m7-p4-recovery-ui-fixes-03/cloud-ui-proof.py", line 32, in walk
+    check(r.returncode==0,'actual UI walk '+tag)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tmp/pixelelated-m7-p4-recovery-ui-fixes-03/cloud-ui-proof.py", line 17, in check
+    if not ok:raise AssertionError(text)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: actual UI walk connection-continue
+PASS owned guest stopped 2201350
+down

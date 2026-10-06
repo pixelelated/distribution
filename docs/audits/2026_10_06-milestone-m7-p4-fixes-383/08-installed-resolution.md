@@ -81,3 +81,53 @@ attributed to the old image. Six remaining audit items still block closure.
 Original-source French-output control: [retained handler experiment](../../qa-logs/2026-10-06-pixelelated-replacement-15/presentation-language-control/result.json) executes actual old/fixed Handler rendering with an in-memory HTTP sink. Old EN and FR output is identical and lacks all four French controls; fixed EN/FR contains the expected controls. This is a host source control, not an old installed window run.
 
 The actual native C-file integration command is [window receipt](evidence/remediation-host/pl007-window-resolution-command.json); it corrects the earlier receipt’s nonexistent rclone-package C path.
+
+
+## PL-002 — Resolved on candidate15
+
+Verified 2026-10-06 21:47 UTC at distribution
+`ed5a6a51f5974deec8748fbf0dbd2f4984b690f5`. The command-backed integration
+receipt is `evidence/remediation-host/pl002-pl006-resolution-commands.json`;
+`pl002-pl006-acceptance.json` names the executed cases and limits.
+
+The retained installed-fixes01 matrix passes all 12 join/follow/settle failure
+boundaries: each of the three assignments and final publication. Each deliberate
+fault fires and returns nonzero while the complete original configuration and
+cloud hashes remain unchanged. Removing the fault and retrying produces all
+three intended pointers together; each publication receipt independently checks
+the resulting pointers and unchanged cloud hashes. Configuration mode 0640
+survives. Six populated/custom-backup controls and all 16 missing/root/derived/
+custom-content controls also pass. Actual original candidate14 failures remain
+in reviewer-leads03 B07; the full candidate15 run retains its three unrelated
+reader-fixture failures and actual four-channel/guest cleanup rather than being
+relabeled an overall pass.
+
+Already written: existing partial pointers from the older writer retain a
+supported explicit folder-editor recovery route. The EN/FR UI04 cases execute
+that old writer, prove its partial state, then use the actual editor to restore
+the complete current choice without modifying cloud bytes. All 12 recovery
+frames were directly reviewed. This resolves the atomic-publication finding;
+later historical-shelf changes still require the new image's regression.
+
+## PL-006 — Resolved on candidate15
+
+Distribution `ed5a6a51f5974deec8748fbf0dbd2f4984b690f5`, ES
+`bab4df649f48847cc43d21c77c058107ad902754`. Installed-fixes01 passes four
+ordinary names, including an apostrophe; each also rejects all seven unsafe
+forms (traversal, dot/empty components, shell forms and embedded/trailing
+newlines), preserving the selected configuration and cloud bytes. The actual
+old-image B14 space/dot failures remain in reviewer-leads03.
+
+UI04 drives the actual 640px EN/FR scan → missing-content offer → chooser →
+selection → content scan for MyGames, My Games and Games..old. All six flows
+pass, and all 54 chooser/options/system frames were directly reviewed with no
+clipped controls. The supported GB row appears, each selected path persists,
+and every cloud byte remains unchanged. Owner completion 21:44:29, primary
+four-result/input/process verification 21:44:40, actual guest/backend/seven-port
+cleanup 21:44:54. All 110 UI frames were reviewed; the separate legacy-root
+capability and French settings-reason fit failures remain PL-001/005.
+
+Already written: existing safe folder names with spaces or internal dots are
+selectable directly; no folder rename or cloud rewrite is needed. Unsafe forms
+remain refused. This finding does not claim that every other content or failure
+surface is accepted.

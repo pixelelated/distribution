@@ -1,0 +1,10 @@
+commit completed
+integration completed
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-p4-history-label-publication-01/publish.py", line 20, in <module>
+    operation('push-feature',repo,'push','origin','HEAD:feature/conflict-resolution')
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tmp/pixelelated-m7-p4-history-label-publication-01/publish.py", line 14, in operation
+    assert result.returncode==0,label+' failed; read retained log'
+           ^^^^^^^^^^^^^^^^^^^^
+AssertionError: push-feature failed; read retained log

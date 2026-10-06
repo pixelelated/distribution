@@ -1,6 +1,6 @@
 # Saved Session State
 
-Updated 2026-10-06 21:35 UTC. Audit Phase7 continues under standing authority.
+Updated 2026-10-06 22:15 UTC. Audit Phase7 continues under standing authority.
 Previous complete checkpoint: `.github/sessions/archived/saved-session-state-next-20261006T210229Z.md`.
 Read this first; historical active/idle statements in that archive are superseded.
 
@@ -12,7 +12,7 @@ Ocean Bands. Only ROCKNIX→pixelelated adoption; no fielded Rasteratops gate.
 
 Both owner-approved Fable transfers are COMPLETE, verified and graded; never
 replay or ask approval again. Audit code-auditor v1.13 Phase7 has8 findings:
-PL-007/008 resolved on candidate15; PL-001–006 open pending acceptance. Tracker#471 stays
+PL-002/006/007/008 resolved on candidate15; PL-001/003/004/005 open pending acceptance. Tracker#471 stays
 open. Root is the single serial orchestrator. Checkpoints do not pause work.
 No new agents, external reviewers, goal tools or Daybreak. Auditor instruction
 recommendation mode: do not edit instruction files. Standing authority covers
@@ -24,28 +24,48 @@ Read AGENTS.md, next's canonical every-session/scoped rules, audit00/04/05/07/08
 release-readiness, today's work log and liveM7/#471/#383/#459/#361/#168. The
 milestone body is the ordered plan. Canonical rules matched next21:00.
 
-## Active owners — monitor first
+## Active owner — monitor first
 
-Primary remains one serial Phase7 orchestrator. Both commands are isolated
-checks within this phase, not parallel audit phases. Legacy-support01 uses the coordination
-checkout monitor; frozen15 monitor belongs only to UI04. Host01 submission was
-refused by that exclusive lock and started no test. Poll each at most60seconds.
+Library01 is active: /workspace/tmp/pixelelated-m7-p4-library-fixes-01,
+started22:13:25, launcher2566862, runner2566863, watcher2566864, command2566893.
+Frozen15 run20261006T221325Z-802116ae; actual watcher/processes verified22:14.
+125 distinct native hashes pass; indexed125 actual HTTP cache run underway.
+Production .3second/50batch/30second timers retained. Real SIGTERM/retry,
+persisted pause/429 controls follow. Poll at most60seconds and consume terminal
+results; existing owner/artifacts recursive activity. No pending approval.
 
-- UI: `/workspace/tmp/pixelelated-m7-p4-cloud-ui-fixes-04`, started21:17:32;
-  launcher1279097, runner1279098, watcher1279103. Run frozen15/.build-runs/
-  20261006T211732Z-f1c79753.18 EN/FR installed unchanged15 chooser/root/reasons/
-  partial-pointer cases. Actual watcher live; all nine EN cases complete; French MyGames complete and My Games
-  selection is active. English legacy-root false capability label remains PL001. activity=owner/artifacts, recursive.
-- Source regression: `/workspace/tmp/pixelelated-m7-p4-legacy-support-host-01`,
-  started21:30:35, launcher1655772/runner1655774/watcher1655783/command1655812.
-  Coordination run20261006T213035Z-e609c71e. Sealed snapshot of both product
-  repairs and tests, realrclone/bwrap. Old source has2 expected support FAIL
-  and2 controlPASS; fixed13focusedPASS; full376-case regression completed21:36:29 with376PASS/0FAIL; verified
-  21:36:45 allfour0/27seals/allfourPIDs absent and separately retained owner cleanup.
-  Evidence remediation-host/legacy-support-host-01 includes both executed product scripts.
-  Historical-host04 completed21:30:01:372PASS/0FAIL, allfour0/27seals,
-  primary actual owner cleanup21:30:34. Retained remediation-host/historical-host-04.
-  That earlier snapshot lacks the later capability-label fix.
+Recovery06 finished22:12:39:8behavioralPASS. Primary22:13:12 allfour0/9seals/
+owner exits;22:13:15 actual guest/backend/seven-port cleanup. All46frames
+directly reviewed43PASS/3FAIL. Both EN/FR actual endpoint repairs and UI retries
+complete, preserve source tiers and leave othercloud unchanged. EN/FR original-
+connection reasons and French terminal instruction are clipped underPL005;
+PL004 stays open until its full recovery instruction is readable. #473 QA
+fixture acceptance re-derived; close after evidence publication. Failed03/05
+allfour1/cleanup and04 pre-watcher submission retained. Never replay any.
+Correct focus: step2 twoDOWNs, step3 oneDOWN beforeRIGHT/CONTINUE. ON YOUR
+COMPUTER prose is nonselectable; CURRENT PASSWORD is selectable.
+
+ES feature /home/max/Development/emulationstation-next.worktrees/m7-audit-remediation
+has uncommitted GuiCloudTransfer.cpp eight-line bounded single-scan reason-fit
+change and one shortened French terminal instruction translation. Actual image
+compiler/vocabulary/diff checks pass (reason-fit-host01,22:04:09); msgfmt checks
+pass22:12:05 (reason-fit-translation01). No new strings or font/row changes.
+Do not integrate/bump ES until candidate15 queue finishes: each owner requires
+clean integrationbab4df. Rebuilt640/1280 actual visual proof remains required.
+
+UI04 finished21:44:29;18automatedPASS, allfour0/9seals, owner exits21:44:40,
+actual guest/backend/seven-port cleanup21:44:54. Retained p4-cloud-ui-fixes-04.
+All110frames directly reviewed:54chooser frames supportPL006;12oldpointer
+recovery frames supportPL002. EN/FR root capability labels failPL001; French
+settings-read reason ellipsized at SYNCHR... failsPL005. Review all recovery
+frames before choosing bounded text/layout fixes. New frontend revision and
+rebuilt installed proof are required. No overall UI acceptance claim.
+
+Combined hostlegacy-support01 finished21:36:29:376PASS/0FAIL,13focusedPASS;
+oldsource2expectedFAIL/2controlPASS. Primary21:36:45 allfour0/27seals/fourPIDs
+absent; exact owner cleanup separately retained. Both product scripts and test
+bytes retained. Historicalhost04 earlier372PASS lacks capability fix. Both
+repairs are now committed/published (below), but remain unqualified on installed16.
 
 Actual host /tmp and /proc require escalated tools. Existing helpers:
 `python3 -I /tmp/pixelelated-verify-owner.py OWNER` (four rc channels/seals/PIDs),
@@ -57,16 +77,13 @@ consumes results and announces them. No off-session alerts (#395).
 
 ## Next serial VM owners — prepared, unexecuted
 
-After current UI terminal verification/cleanup, use frozen15/tools/watch-build-submit
+After the active library owner is verified/cleaned, use frozen15/tools/watch-build-submit
 with an EXISTING activity directory, recursive activity, owner/outer.sh BUNDLE.
 Read inputs first. Never change a running script; fresh owner for a retry.
 
-1. `/workspace/tmp/pixelelated-m7-p4-recovery-ui-fixes-03`:8 actual timeout,
-   changed-binding terminal repair/UIretry, missing-folder and connection-refusal
-   EN/FR640 cases. Guarded no-game/START frames. Only original-connection exact
-   reason is valid. Check screenshot filename lookup if names contain punctuation.
-2. `/workspace/tmp/pixelelated-m7-p4-library-fixes-01`:125 indexed/unindexed games,
-   production pacing, SIGTERM/retry,429/persisted pause.
+1. COMPLETED recovery06; never replay (receipts above).
+2. ACTIVE `/workspace/tmp/pixelelated-m7-p4-library-fixes-01`:125 indexed/unindexed
+   games, production pacing, SIGTERM/retry,429/persisted pause.
 3. `/workspace/tmp/pixelelated-m7-boot-qualification-06`:four clean/actual-RC2-
    upgraded640/1280 boots, wordmark controls and actual network capture. Local9045
    positive; retain digests/classification, never raw actualPCAP.
@@ -77,8 +94,8 @@ Read inputs first. Never change a running script; fresh owner for a retry.
 
 PL-003 needs a new product build after the historical-shelf repair; candidate15
 checks collect other remaining findings, not qualification of changed source.
-New product changes currently UNCOMMITTED: cloud_migrate_layout,
-cloud_content_restore and rasteratops-cloud-layout-test. Review/test before integration. No frozen15 edits.
+Published product repairs: cloud_migrate_layout, cloud_content_restore and
+rasteratops-cloud-layout-test at nextec2283f20f (featuree983393871). Both distribution source repairs were tested/integrated. No frozen15 edits.
 The repair preflights eligible earlier shelves, keeps active siblings alone,
 retains endpoint/configured-pointer binding while advancing the history source,
 and bounds remaining shelf recovery before Done. The pre-tier scan now uses
@@ -162,19 +179,34 @@ rc2:missing activity directory, before watcher/guest; no four-result claim.
 Fresh04 creates that directory and fixes filename normalization. All failures
 retained. Do not launch obsoletecloud01/02/03,recovery01/02,coverage01.
 
-Last published featurecc058c962c629b460432ee7d96edba8b3c52970f and
-next4a8ab3adaa1a01380f2c3c2896d4e42b373073e3; remoteverified21:25:58,
-1625changedpaths equal. Publication ownerpresentation-publication01 completed
-21:26:00; primary actual verification21:26:39, allfour0/3seals/4PIDs absent.
-No product repair included. Receipt plus latest evidence/docs remain uncommitted.
-Primary next was clean; recheck before integration. Normal hooks/cherry-pick-x,
-no whole-tree equality claim (historical archives differ). UI progress receipt
-has64directlyreviewedframes:9ENcases+FRMyGames. No overall UIpass because the
-ENlegacy-root GameBoy row says THIS DEVICE CANNOT RUN IT; switchstillenabled.
-Older 0fff618bef ancestry retained that0flag; not evidence of blocked restore.
-Use fresh watched owners; never replay completed publications.
+Last published featuree98339387135678f7ec82a8f90bde9643d2e4cd0 and
+nextec2283f20f10e692f15bdb417917adb0e320155f. Remoteverified21:48:32,
+34,498changedpaths equal. Publication01 committed/integrated but first push's
+scan stage failed; allfour1/3seals and owner exits verified21:39:26. Separate
+watched read-only scan diagnosis passesallstages, allfour0/1seal/exits21:41:43.
+Push-only owner02 used unchanged hooks with owned disk TMPDIR; finished21:48:34,
+primary21:49:05 allfour0/1seal/fourPIDsabsent. Exact original cause unproved;
+no ENOSPC claim and no guard bypass. Retained receipts under remediation-host.
+Do not replay any publication owner. Primary next clean at integration.
 
-#337/#409 active naming/criteria reconciliation remains. NAMING.md stale cleanup
+Latest4resolved/4open outcomes are local08/05 and live#471/M7 (exact21:48readback,
+tracker-ui04-01); the final110frames/new resolution docs are uncommitted pending
+next evidence publication. #468 now includes full French reason fit. No issue
+closure forPL001/003/004/005. Follow-on host source changes need no extra review
+transfer. No pending user approval.
+
+Genuine no-join-negative01 prepared (not yet tested),21inputseals; retained image/tar hashes verified. Source scripts captured for actualRC2 and historical1ac; actual updated-a/fresh-b proof prepared at /workspace/tmp/pixelelated-m7-p4-no-join-negative-01. Retained image:
+/workspace/artifacts/rocknix-images/x64-all-20261001-1acdaf2cce/
+ROCKNIX-GENERIC_X64.x86_64-20261001.img.gz, withtar/SHA256SUMS/RECORD.
+Source1acdaf2cce has no layout_join; defaults/Rasteratops. RC2actualprevious
+69e6039f8f retained. This is a historical negative-control build, not a new
+Rasteratops adoption gate. Prepare/run a genuine mixed-pair no-join proof after
+existing queue; no weakening/rewording of I354-L66 has been made. Archive old
+host22FAIL was not this experiment. Need actual hashes/guestbytes before claim.
+
+#337/#409 naming/criteria reconciliation and #353/#363 boot-contract exception
+reconciliation COMPLETE with exact retained readbacks; states and checkbox counts
+unchanged. See contract-reconciliation-01 and boot-contract-reconciliation-01. NAMING.md stale cleanup
 line is a closing recommendation, no in-audit instruction edit.14P5license/source
 gaps and publicdocs remain. #168 ten upstream drafts not submitted; outward
 permission required. #463Dropboxoptional; #432observability/#464resetautomation
