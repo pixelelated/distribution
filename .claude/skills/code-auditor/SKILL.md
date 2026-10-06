@@ -4,9 +4,9 @@ description: Rigorous multi-pass code auditor that independently verifies spec c
 license: Apache-2.0
 metadata:
   execution: serial
-  version: 1.12.0
+  version: 1.13.0
   origin: 'Imported from birdwork-preflight .claude/skills/code-auditor; adapted for scaffold (bedrock→cornerstone; foreign refs softened). v1.7 platform-probe evidence floor adapted 2026-07-10 from birdwork/birdwork@e0ff051.'
-  adapted: 'v1.12 2026-10-02 cross-lab reviewer selection and explicit local/two-model/extended audit depth; five-seat council remains a separate release escalation (D-WORKFLOW-137, fork #378). v1.11 2026-09-24 the second opinion is a phase (4.6): the council GPT seat at max effort refutes and extends every Epic/Milestone audit, graded against the artifact, failing closed without the seat (fork #260; #186 had it by choice, #258 lacked it). v1.10 2026-08-24 gate hardening: mandatory tools/lint-audit-artifacts before Phase 6; Phase 7 outcomes re-derived from commands, not memory. v1.9 2026-08-24 earned from the first ROCKNIX run: Phase 0 stale-skill-copy check; dependent failures are UNTESTABLE not FAIL; one false tick voids the list; explicit tier-selection table (two or more epics => milestone). v1.8 2026-08-24 adapted to ROCKNIX: cornerstone rubric -> instruction files + blindspot register; docs/planning -> GitHub issues on maxengel/rocknix; logs/audits -> docs/audits; foreign mechanical checks -> pkgcheck / cloud-round-trip / vm-visual-qa; added the run-it-on-a-device and cannot-fail-is-not-evidence floors.'
+  adapted: 'v1.13 2026-10-06 continuous authorized execution across checkpoints, durable monitored long commands, and accurate background ownership (D-WORKFLOW-149, fork #466). v1.12 2026-10-02 cross-lab reviewer selection and explicit local/two-model/extended audit depth; five-seat council remains a separate release escalation (D-WORKFLOW-137, fork #378). v1.11 2026-09-24 the second opinion is a phase (4.6): the council GPT seat at max effort refutes and extends every Epic/Milestone audit, graded against the artifact, failing closed without the seat (fork #260; #186 had it by choice, #258 lacked it). v1.10 2026-08-24 gate hardening: mandatory tools/lint-audit-artifacts before Phase 6; Phase 7 outcomes re-derived from commands, not memory. v1.9 2026-08-24 earned from the first ROCKNIX run: Phase 0 stale-skill-copy check; dependent failures are UNTESTABLE not FAIL; one false tick voids the list; explicit tier-selection table (two or more epics => milestone). v1.8 2026-08-24 adapted to ROCKNIX: cornerstone rubric -> instruction files + blindspot register; docs/planning -> GitHub issues on maxengel/rocknix; logs/audits -> docs/audits; foreign mechanical checks -> pkgcheck / cloud-round-trip / vm-visual-qa; added the run-it-on-a-device and cannot-fail-is-not-evidence floors.'
 ---
 
 # Code Auditor
@@ -24,6 +24,37 @@ before it. Run stages **strictly in order, under ONE orchestrator, never in para
 only where a stage explicitly says so. Swarm rule: while this skill is active on a
 scope, do not mutate that scope from elsewhere - an audit of a moving target
 proves nothing about either state.
+
+## Continue through checkpoints (D-WORKFLOW-149)
+
+A saved research or phase checkpoint preserves an authorized audit; it does
+not end it. Write the checkpoint, then take the next runnable action in the
+same session. Do not ask for renewed permission or end the turn merely because
+notes were saved, a phase completed, or the audit needs sustained work. Stop
+only on completion, an explicit owner pause, a concrete blocker that prevents
+further authorized work, or an actual execution limit; record the exact state
+and reason. Continue independent work while a blocked step is investigated.
+
+Keep **one serial orchestrator**. Use a persistent agent/session continuation
+only when the harness provides it and the scope permits it; record the live
+owner and its next gated action. A checkpoint, spawned research helper, status
+file or detached shell is not an audit orchestrator. When no persistent agent
+facility is available, continue the primary review in the active session.
+
+Run long executable checks and Facilitator calls with the existing durable
+`tools/watch-build-submit` → `tools/watch-build` / `tools/watch-job` framework
+and fresh owners, following `engineering-practices.md`. Bind the command to
+the frozen inputs, verify the watcher is live, record status/result paths,
+and actively consume completion, failure and stall observations. Provider
+calls remain through the Facilitator at their prescribed phase; making a call
+durable does not authorize concurrent phases or bypass identity checks.
+Submission success is not completion. Do not edit an in-flight tool.
+
+Before reporting that work continues in the background, verify the named
+process/agent is actually live and state its result-delivery mechanism. A
+command watcher does not deliver off-session notifications by itself (#395),
+and a live command does not imply the remaining reasoning stages will run.
+Report unfinished-but-idle work plainly and resume it under existing permission.
 
 ## Review depth and scope
 

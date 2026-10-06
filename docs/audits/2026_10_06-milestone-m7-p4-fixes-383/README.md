@@ -23,4 +23,9 @@ Published host UI baseline:feature629603d6ad18cbcf4f02e3be36d6e3393698c169,
 next63675be4e1bb2ab36748a725612d11a77be7f2f5. Product stays frozen.
 
 Prior per-criterion audit verdicts remain sequestered until Phase2.5.
-No build, VM, provider call or background audit worker is active.
+The primary review resumed at14:53UTC after the mistaken checkpoint stop
+(recorded in #466/D-WORKFLOW-149). Host regression owner
+`/tmp/pixelelated-m7-p4-host-checks-01` is supervised through
+`.build-runs/20261006T145452Z-fbbc4681/build.status`. Its results are consumed
+in the active session; this is not an off-session reasoning worker.
+No build, VM or provider call is active.
