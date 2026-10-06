@@ -63,6 +63,11 @@ it has its artifact.
    previous device build (`tools/vm-upgrade-rehearsal`); and each bumped
    package's own proof -- the sign-in window for webkitgtk, `tools/ra-offline-test`
    for the proxy. RECORD.txt written, the catalog regenerated.
+   Cloud qualification uses local WebDAV, SFTP and MinIO/S3 with the image's
+   installed rclone/cloud scripts (D-QA-058). Dropbox credentials and other
+   hosted/offsite accounts do not block this or later routine RCs. Keep any
+   provider-specific authenticated observation explicitly unverified in its
+   follow-up; local protocol passes do not imply OAuth or provider-page proof.
 4. **The full upstream audit, by two agents**: the code auditor at milestone
    tier over everything going upstream -- the distribution's diff against
    `upstream/next` and the EmulationStation fork's against ROCKNIX's master --

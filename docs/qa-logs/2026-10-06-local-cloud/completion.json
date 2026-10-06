@@ -1,0 +1,67 @@
+{
+  "utc": "2026-10-06T05:59:18.035969+00:00",
+  "owner": "/workspace/tmp/pixelelated-m7-cloud-01",
+  "run": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement14/.build-runs/20261006T055322Z-2568638b",
+  "results": {
+    "inner.rc": 0,
+    "outer.rc": 0,
+    "tool-wrapper.rc": 0,
+    "build.rc": 0
+  },
+  "watcher_state": "finished",
+  "recorded_pids_absent": [
+    3430889,
+    3430890,
+    3430892,
+    3432014,
+    3432040,
+    3452444
+  ],
+  "qemu_processes_absent": true,
+  "minio_container_absent": true,
+  "backend_pidfiles_absent": true,
+  "ports_unbound": [
+    9010,
+    9011,
+    9012,
+    9013,
+    10022,
+    10023
+  ],
+  "suites": {
+    "webdav": {
+      "report": "/workspace/tmp/pixelelated-m7-cloud-01/artifacts/rocknix-images/qa-7afa9efcfc-webdav-a-20261006-0554/report.md",
+      "report_sha256": "19808464d1270bc47c1e425b3a99ed4fe0e8b5537be19372fe8d89b20fa1b7a7",
+      "log_sha256": "f7087792302b2a7bff0c5bc1dbf302d673545121c46d7271d5575dcee751c93e",
+      "counts": {
+        "PASS": 106,
+        "FAIL": 0,
+        "SKIP": 0
+      }
+    },
+    "sftp": {
+      "report": "/workspace/tmp/pixelelated-m7-cloud-01/artifacts/rocknix-images/qa-7afa9efcfc-sftp-a-20261006-0555/report.md",
+      "report_sha256": "670859fdd03a0b216efaa48f9c7e17baca16e3e8e914d9fa4d5b6c67e1917c79",
+      "log_sha256": "f542ff9fd486dba33cc5047907ee4711153fa3bd1c1c07f69d17e4998b072a62",
+      "counts": {
+        "PASS": 106,
+        "FAIL": 0,
+        "SKIP": 0
+      }
+    },
+    "s3": {
+      "report": "/workspace/tmp/pixelelated-m7-cloud-01/artifacts/rocknix-images/qa-7afa9efcfc-s3-a-20261006-0556/report.md",
+      "report_sha256": "a5680e5d226ac1bf95f19a68f59cee20c1cc0c5e12d0c3a8e054ba2d5ea43202",
+      "log_sha256": "180e37db8dbbb61f15ea3696c594024d8449019349c3f29c3a53d02811249d82",
+      "counts": {
+        "PASS": 106,
+        "FAIL": 0,
+        "SKIP": 0
+      }
+    }
+  },
+  "harness_verified": true,
+  "source": "7afa9efcfc0c1ce4b89774b38878fc1b9a9063d2",
+  "image_sha256": "c7df6a6f428086f79a377ca1b049f20694f34a868987cf12c493c78eab7b2254",
+  "scope": "Three local round-trip suites; no hosted OAuth/Dropbox or RA award execution."
+}

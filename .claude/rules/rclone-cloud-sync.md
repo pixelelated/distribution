@@ -602,12 +602,21 @@ fresh image, and the console gives a root shell without login.
   assertion: the allowlist check skips rather than passes when the upload
   produced nothing.
 
-The OAuth handshake is not covered - `rclone authorize`, port 53682, token
-refresh still need a real provider, and so does the hosted half of #133
-(Google Drive, Box, pCloud, Mega), which needs QA accounts somebody has to
-create. Everything else the matrix covers runs here, so "we would need a real
-provider" is not an answer to *can this be done on the VM?* (`vm-first.md`). The wizard's *gates* (`--connected`,
-`--check`, `--free-auth-port`) are plain checks and do test here.
+**Standing local qualification (D-QA-058, #462):** verify the candidate's
+installed rclone/cloud scripts against WebDAV, SFTP and MinIO/S3. Keep a
+separate report for each backend, exact image identity and actual endpoint
+readback. Use the durable watcher and verify guest/backend cleanup. The
+broader SMB/FTP matrix remains #133/#232; it is not a hosted-account gate.
+
+Dropbox credentials, an offsite endpoint and hosted-provider accounts are
+**not RC prerequisites now or in future routine qualification** (D-QA-041,
+D-QA-058). Authenticated OAuth/token refresh and provider-owned pages remain
+outside local-protocol proof; record them as optional observations when QA
+access exists, without claiming they passed. #463 owns the deferred Dropbox
+trust-page observation. This does not defer the separate RetroAchievements
+award/reconnect proof. "We would need a real provider" is not an answer to
+*can this be done on the VM?* (`vm-first.md`). The wizard's local gates
+(`--connected`, `--check`, `--free-auth-port`) do test here.
 
 ## rocknix.org docs & gaps
 

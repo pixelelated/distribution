@@ -45,6 +45,12 @@ runs WebDAV, S3, SFTP, SMB and FTP backends of its own (`tools/cloud-test-backen
 #133) and a VM guest can sign in to a hosted QA account. **"It already has the
 history" is not a no**: `upgrade-and-install.md` says how the VM gets it.
 
+For cloud qualification, D-QA-058 makes WebDAV, SFTP and local MinIO/S3 the
+standing baseline. Hosted accounts and offsite endpoints are optional; their
+absence does not hold a candidate or turn a local protocol test into a device
+test. Keep authenticated provider observations explicitly separate. The
+RetroAchievements award/reconnect proof is a different acceptance criterion.
+
 ## What the VM has
 
 The GENERIC_X64 image runs the same busybox, scripts, EmulationStation binary,

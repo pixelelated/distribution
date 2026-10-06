@@ -1,0 +1,12 @@
+{
+  "scope": "Read-only installed sign-in payload comparison while local-cloud QA owns the isolated guest; reuses prior runtime evidence only when bytes match.",
+  "candidate_source": "7afa9efcfc0c1ce4b89774b38878fc1b9a9063d2",
+  "prior_runtime_source": "d6e8390c93bed87efe2dcc23cd402a271cacd1c7",
+  "prior_evidence": "docs/qa-logs/2026-10-05-pixelelated-replacement-10/signin-ui-14",
+  "files": {
+    "/usr/bin/cloud-signin-window": "fc9a3473490f52e8da76d473a2265e56d1dd362977351b4b732ed2bcd1419990",
+    "/usr/bin/cloud_oauth": "c9982e2828502bedfa73b033d7ed3641f140f12d5878deb0b34f237c165b8042"
+  },
+  "CHASSIS": "handset",
+  "passed": true
+}

@@ -1,7 +1,7 @@
 # Saved Session State
 
-> Saved 2026-10-06T05:59:59.823065+00:00; feature/conflict-resolution → primary next.
-> Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261006T055959Z.md`.
+> Saved 2026-10-06T04:12:11.064119+00:00; feature/conflict-resolution → primary next.
+> Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261006T041211Z.md`.
 
 ## Start here
 
@@ -21,47 +21,38 @@ cloud mutation or publication. No Daybreak or goal tool. Only the required
 fresh no-context resume proof permits delegation here.
 
 
-## Current focus — local cloud qualification complete; RA reset remains
+## Current focus — upstream drafts prepared; dedicated account proofs remain
 
-The maintainer explicitly removed Dropbox credentials/offsite accounts as
-release dependencies now and going forward (#462, D-QA-058, reaffirming
-D-QA-041). Do not ask for a Dropbox credential path. Routine local baseline:
-WebDAV, SFTP and MinIO/S3 using the candidate image's installed rclone/scripts.
-Optional authenticated Dropbox trust-page observation is milestone-less #463,
-explicitly unverified. This is a scope decision, not an authenticated PASS.
-#351's locally verifiable sign-in/handset/Mobile-UA criteria are complete;
-retained replacement10 runtime evidence plus current14 installed byte-equality
-and handset readback identify what was reused, not rerun.
+#461 quotes the maintainer's new post-success cleanup request. D-INFRA-018 and
+`.claude/rules/worktrees.md` now require a retention review after qualification
+and a measured capacity review before the next build. The recurring planner
+and next authorized batch remain infrastructure follow-up, not new M7 RC gates.
+No additional deletion, full disk inventory, reserve change or build occurred.
 
-Fresh owner `/workspace/tmp/pixelelated-m7-cloud-01` ran all three protocols
-against frozen14. Each round-trip has106 PASS,0 FAIL,0 SKIP (318 assertions).
-Read `docs/qa-logs/2026-10-06-local-cloud/README.md`, per-backend reports,
-completion.json and all four result channels. Actual guest/backend/owner
-cleanup is verified; no build or QA job remains active. No product bytes
-changed and no new build is needed for this policy/evidence work.
+#168 has ten tested upstream drafts. Seven new independent patches for
+001/002/005/007/008/013/015 have40 targeted tests and169 related-suite executions
+passing, no skips. Test-only negative controls retain pristine production
+hashes. Exact source879b158 remains live upstream main; two open PRs concern
+SteamOS/RetroDECK packaging/discovery, sharing config.py context to recheck.
+No upstream contribution has been submitted. D-RA-016 requires go before an
+outward issue/PR; all local drafts and evidence are concrete for review.
 
-The remaining dedicated QA reset is **Tobu Tobu Girl Deluxe (game15738),
-Potato-tan Secret (achievement100359), softcore/normal progress** on the
-RetroAchievements website. No RetroArch settings reset. The user was given
-this exact target and an asynchronous reset-status question; no confirmation
-has arrived at this checkpoint. Never substitute a spent award, hardcore,
-a synthetic fixture or an unapproved personal account. Ask status only,
-never secrets. tools/ra-offline-test already routes `--game tobu`; the free
-ROM lives at `/workspace/artifacts/rocknix-qa-roms/tobu/Tobu Tobu Girl Deluxe.gb`.
-Dedicated account file is `$HOME/.ROCKNIX/qa-accounts` (0600); do not print it.
+Read `docs/upstream/raofflineproxy/contribution-map.md`, each draft README, and
+`docs/qa-logs/2026-10-06-upstream-drafts/README.md`. The latter retains exact
+patch/archive hashes, before/after logs and `verify-drafts.py`; DNS uses its
+own result subdirectory. Failed005 context preparation, sandbox socket errors
+and DNS fixture import error remain preserved. No product fix was needed.
 
-#168 has ten tested, unsubmitted upstream drafts; all other rows have explicit
-API/policy dispositions. Read `docs/upstream/raofflineproxy/contribution-map.md`
-and `docs/qa-logs/2026-10-06-upstream-drafts/README.md`. Seven new drafts have
-40 targeted tests/169 related-suite executions,0 skips; not a full-fork or
-account proof. Upstream879b158 was unchanged at the recorded read; recheck
-before submission. D-RA-016 requires go before an outward issue/PR; upstream
-acceptance is not a candidate gate.
+Remaining contribution items003/004/010/011/012/016 and older API/CLI/SDL ideas
+have explicit interface/policy reasons for not submitting code yet. Existing
+001/002/005/007/008/009/013/015/018/019 drafts keep their scoped test evidence;
+no claim that169 tests qualify the full fork or authenticated accounts.
 
-#461/D-INFRA-018 retains post-qualification storage review and measured
-capacity before the next build. Local-cloud launch measured576.47GiB free;
-no additional deletion or reserve change occurred. Protect current/fallback
-candidates, exact inputs, RC2 and every transitive backing/store dependency.
+The dedicated RA reset/alternate account status and Dropbox QA credential-file
+path were requested again through the asynchronous question; no reply arrived
+before this checkpoint. Ask for status/paths only, never secrets in chat.
+Next is account-backed P3 proof, then approved P4 and H700 builds as below.
+No build, QA or cleanup owner is active. No P4 or RC/device-ready claim.
 
 ## Completed cleanup — historical execution, never replay
 
@@ -116,29 +107,34 @@ No additionalcleanup orreservechange is authorized. No sudoaction remains.
 
 ## Next steps
 
-1. Read live M7/#462/#463/#351/#383/#361 and the reset-question status. No
-   hosted-cloud credentials are needed. Do not rebuild frozen14 for docs or
-   host-harness metadata. Verify the local-cloud completion artifacts first.
-2. When the dedicated RA reset is confirmed, prepare a fresh sealed QA owner
-   from frozen14, boot an isolated guest and run the ordinary Tobu award/
-   offline queue/reconnect/API proof once via the standard durable watcher.
-   Never replay an old owner or consume the award during a preliminary
-   control. Use the fixed external ROM path if owner-specific artifacts
-   would redirect the harness's ROM default. Retain sanitized logs/frames,
-   account cleanup and actual process exit. Credentials stay out of outputs.
-3. Complete remaining P3 criteria, then approved P4 primary + Fable5.1/xhigh
-   through the verified Facilitator/OpenRouter. Read the complete code-auditor
-   skill/references first; #375/#382 do not replace this fixes review. Resolve
-   findings and rebuild/requalify only changed product bytes.
-4. Then build H700 DDR4/RG35XXSP arm first, aarch64 second from qualified
-   inputs; named physical/P5 gates follow. No RC/device-ready claim yet.
+1. Read live M7/#383/#361/#168 and dedicated-account question status; continue
+   remaining P3 account proofs and upstream contribution preparation. Do not
+   rebuild the already-qualified frozen14 merely for hosttool/metadata changes.
+2. If account input is still absent, continue independent upstream preparation;
+   leave authenticatedaccount criteria open. No substitute synthetic/public proof.
+3. Complete approved P4 fixesreview through verifiedFacilitator, resolve findings
+   and requalify anychangedproductbytes; then H700armfirst/aarch64second and
+   namedphysical/P5gates. Preserve allpreviousfailed image/run evidence.
 
-Public docs4f6df54 at /home/max/Development/rocknix.org remains403/404; do not
-change credentials/autofork. Fourteen P5 licence gaps remain. #395 lacks a
-selected/tested disconnected alert destination; connected sessions actively
-supervise standard5second watcher/5minute stall detection and report outcomes.
-#432 FOSS observability stays backlog. Broader SMB/FTP coverage is #133/#232,
-not a new M7 hosted-account gate. No new build, P4 audit or device action ran.
+## Release path after cleanup
+
+Remaining P3 dedicated RA/Dropbox account proofs and #168 contribution
+preparation/dispositions → approved P4 primary + Fable5.1/xhigh via verified
+Facilitator/OpenRouter → fix/requalify changed productbytes → H700 DDR4/RG35XXSP
+armfirst,aarch64second → namedphysical/P5gates. No RC/device-ready claim. P4 has
+not started;375/382initialaudits do not replace383fixesreview. Read complete
+code-auditor skill/references before that audit. Upstream acceptance is not a gate.
+
+Still no dedicated RA Tobu100359reset/alternateQAaccount status or DropboxQA
+credential-filepath reply. Ask only status/paths, never secrets inchat. No
+accountreset/hardcore/old-award substitution; public/synthetic tests do not
+prove authenticated trust. #168 map is docs/upstream/raofflineproxy/contribution-map.md:
+ten tested unsubmitted drafts: concurrency1test,discovery16,earlyconsent8,
+and seven independent fixes with40 targeted/169 related-suite executions.
+Other rows need API/policy agreement; read the updated contribution map. D-RA-016go before outwardsubmission.
+Publicdocs4f6df54 at /home/max/Development/rocknix.org remains403/404; don't
+autofork/changecredentials. FourteenP5licencemetadata gaps remain. #395 lacks a
+selected/tested disconnectedalertdestination; #432FOSSobservability staysbacklog.
 
 ## Exact frozen image
 
@@ -216,12 +212,12 @@ duringmetadata publication. Archivebothcheckpointfilesbeforechanges.
 
 ## This session publication and handoff
 
-This session started at featured770d95d0ee80d0fb9b1247a4effa18e8172ab5a,
-next8639fe90be4408cb9615fa781e9d3f76a050ff7d. Owning issue #462; optional
-provider observation #463. Explicit cherry-pick -x only; normal hooked pushes.
-New evidence/publication/resume receipts live under
-`docs/qa-logs/2026-10-06-local-cloud/` and
-`/tmp/pixelelated-cloud-policy-tracker/`. Read actual local/remote heads and
-receipt content before assuming publication. Frozen14 stays unchanged.
-Required fresh no-context resume proof follows integration. Cheap checks are
-required; audit cadence remains overdue (CI red, fixes may push), not waived.
+Working branch started at cef65430f750fc6d6935d2a10c3996ecfe6d47f1;
+primary next started at7942765b6debb4440e1aee8ebc17ad56cc779860.
+Integrate explicit cherry-pick -x; normal hooked pushes, no historical merge.
+Current publication/tracker receipts live in
+`/tmp/pixelelated-retention-upstream-publication-20261006/`.
+Before relying on publication, read its actual receipt and branch/remote heads.
+New commits own #461/#168/#361/#383. Frozen14 never advances for these docs/tests.
+Required fresh no-context resume proof follows integration. Audit cadence is
+still overdue (CI red, fixes may push); no waiver or completed P4.

@@ -35,9 +35,18 @@ Every owner has four zero results and verified process cleanup. No build or
 QA job remains active. Timing remains a single-sample smoke with its recorded
 rapid-relaunch/no-new-stamp limitation; no wider performance claim is made.
 
-Current order: remaining P3 criteria and #168
-upstream mapping; ordinary RetroAchievements and authenticated Dropbox proofs
-need the still-pending dedicated QA-account inputs. Both precede approved P4,
+Local WebDAV, SFTP and MinIO/S3 qualification (#462) is complete: each has
+106 PASS, 0 FAIL and 0 SKIP, for 318 assertions on unchanged replacement14.
+All four watcher results are zero; actual cleanup verifies all owned processes,
+VMs and backends exited. [Local cloud evidence](../qa-logs/2026-10-06-local-cloud/README.md).
+
+Current order: the separate ordinary RetroAchievements award/reconnect proof
+precedes approved P4.
+D-QA-058 reaffirms D-QA-041: Dropbox credentials, other hosted accounts and
+offsite endpoints are optional now and in future routine RC qualification;
+#463 keeps the authenticated provider-page observation explicitly unverified.
+The RA reset target is Tobu Tobu Girl Deluxe (game15738), Potato-tan Secret
+(achievement100359), softcore/normal on the dedicated QA account. Then approved P4,
 H700 arm then aarch64 and named physical/P5 gates. No RC or device-ready claim.
 
 Frozen13 freshness caught an Android-only upstream commit before any cache
@@ -49,8 +58,8 @@ links the new pin to the completed source suites; no test execution is invented.
 rehashed15,206retained files plus the19current bundle files; frozen14inputs,
 27sourcegitinputs and230surviving backingchains pass. All protected artifacts
 remain; the root watcher exited automatically. #460 fixes the cleanup helper's
-read-only-directory handling with six controls. No build/QA/cleanup job remains
-active. This changes host cleanup, not product bytes or RC readiness.
+read-only-directory handling with six controls. Those owners have all exited;
+#462 owns the subsequent local-cloud QA run. This changes host cleanup, not product bytes or RC readiness.
 
 #461/D-INFRA-018 now records retention review after qualification and capacity
 review before the next build. The recurring planner and next cleanup batch are
@@ -62,7 +71,12 @@ pass, with before-fix failures and exact distributed patch hashes retained.
 [Contribution evidence](../qa-logs/2026-10-06-upstream-drafts/README.md).
 Upstream main remains879b158. API/policy-dependent proposals have explicit
 reasons in the contribution map; no upstream submission or acceptance is claimed.
-Dedicated account proofs still precede P4; no new build or audit has started.
+The separate RA account proof still precedes P4; no new build or audit has started.
+The fresh watched local-backend run is recorded under #462.
+
+> Earlier dated records below preserve their original account limitations.
+> D-QA-058/#462 supersedes any Dropbox-account prerequisite; #463 is optional.
+> No earlier public/synthetic page is asserted to prove authenticated behavior.
 
 ## Completed installed GENERIC_X64 Pixman fallback (#447)
 
@@ -558,7 +572,7 @@ five-seat council is required to resolve these first-release defects.
    actual artifacts with manifest/digests, verify before/after QA. Never
    rename a warm root or select a newest-date glob.
 4. **M7.P3 — Qualify that image:** clean install, RC2 upgrade, 15 default vm-qa
-   suites plus required link/RA opt-ins, WebDAV/S3, guest pair, independently
+   suites plus required link/RA opt-ins, local WebDAV/SFTP/MinIO-S3, guest pair, independently
    reset promoted cases and failing controls, future-marker/retry cases,
    writer-shaped archives, pending subset flush, memory/launch/timing,
    boot/card/update/identity frames at 640×480 and Nova's 1280×960 in English
