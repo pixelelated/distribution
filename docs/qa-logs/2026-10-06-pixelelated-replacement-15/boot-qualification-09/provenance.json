@@ -1,0 +1,21 @@
+{
+  "prepared_utc": "2026-10-06T22:37:59.975673+00:00",
+  "prepared_only": true,
+  "parent": "/workspace/tmp/pixelelated-m7-boot-qualification-05",
+  "criteria": [
+    "I337-L28",
+    "I344-L229",
+    "I344-L234",
+    "I344-L259"
+  ],
+  "candidate": "ed5a6a51f5974deec8748fbf0dbd2f4984b690f5",
+  "backing": "QA19 actualRC2-upgraded disk, after verified completion and cleanup",
+  "scope": "four actual clean/upgrade boots640/1280; unchanged .995 wordmark predicate and old-logo controls; QEMU packet capture from boot, observed installed ES forced-update watcher and real manual CLI, local9045 capture positive control",
+  "limitations": "unexecuted on guest; parser controls only; private captures contain owned guest traffic and are retained privately; no all-time/all-protocol silence claim",
+  "supersedes_failed": [
+    "/workspace/tmp/pixelelated-m7-boot-qualification-07",
+    "/workspace/tmp/pixelelated-m7-boot-qualification-08"
+  ],
+  "issue": 475,
+  "correction": "Same19 tested decoder observations as07; executable capture wrapper derives the owned artifacts directory from its own path. Real-QEMU --version, wrong-owner/missing-netdev and executable-path census pass. Historical log text excluded from executable census."
+}

@@ -1,0 +1,32 @@
+{
+  "started_utc": "2026-10-06T22:33:49.545436+00:00",
+  "finished_utc": "2026-10-06T22:33:57.780129+00:00",
+  "scope": "installed ES startup watcher with both inherited update switches enabled, direct compatibility CLI calls, and local positive capture control",
+  "watcher_log": "2026-10-06 18:33:50\t[2365]\tDEBUG\tNetworkThread : Starting\n2026-10-06 18:33:56\t[2382]\tDEBUG\tCheckUpdatesComponent : Checking for updates\n2026-10-06 18:33:56\t[2382]\tDEBUG\tApiSystem::canUpdate\n2026-10-06 18:33:56\t[2382]\tDEBUG\tNetworkThread : No update found\n",
+  "cli": [
+    {
+      "arguments": "check",
+      "returncode": 1,
+      "stdout": ""
+    },
+    {
+      "arguments": "--help",
+      "returncode": 0,
+      "stdout": "This version uses manual updates.\nGet the update for your device and its instructions from:\nhttps://github.com/pixelelated/distribution/releases\n"
+    },
+    {
+      "arguments": "",
+      "returncode": 1,
+      "stdout": "This version uses manual updates.\nGet the update for your device and its instructions from:\nhttps://github.com/pixelelated/distribution/releases\n"
+    }
+  ],
+  "settings": "updates.enabled=1 updates.force=1",
+  "positive_control": [
+    "/pixelelated-network-positive-control"
+  ],
+  "installed_bytes": {
+    "/usr/bin/rocknix-update": "b61f04c6f09f25868101c1ce103e01e05e4222a2685d6a52abbf2d33736cb206",
+    "/usr/bin/emulationstation": "cec3ed458b9d281743a44e3534e439cf52e8a18e2bad6710f2800d1f9d1d2dcc"
+  },
+  "packet_verdict": "requires closed QEMU capture classification"
+}

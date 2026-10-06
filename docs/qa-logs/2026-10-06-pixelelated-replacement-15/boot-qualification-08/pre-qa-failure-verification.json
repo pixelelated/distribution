@@ -1,0 +1,22 @@
+{
+  "verified_utc": "2026-10-06T22:37:59.828345+00:00",
+  "channels": {
+    "outer.rc": "1",
+    "tool-wrapper.rc": "1",
+    "build.rc": "1"
+  },
+  "missing_inner_rc": "Expected: input seal check failed before qa.start/trap/guest",
+  "pids_absent": [
+    2695610,
+    2695611,
+    2695612,
+    2695641
+  ],
+  "no_guest": true,
+  "ports_free": [
+    10026,
+    5912,
+    9045
+  ],
+  "cause": "Preparation path census included a historical injected-web.log and stopped before sealing; orchestrator incorrectly submitted without checking that preparation exit code. Missing seal refused execution."
+}

@@ -1,0 +1,299 @@
+watch-build: recording in /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement15/.build-runs/20261006T223800Z-a3b54ac9
+/workspace/tmp/pixelelated-m7-boot-qualification-09/blank.json: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-09/blank.log: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-09/blank.pcap: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-09/capture-boot.py: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-09/capture-qemu: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-09/classify-guest-pcap.py: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-09/injected-web.json: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-09/injected-web.log: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-09/injected-web.pcap: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-09/match-splash.py: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-09/network-inputs.json: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-09/old-logo.png: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-09/outer.sh: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-09/positive.json: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-09/positive.log: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-09/positive.pcap: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-09/provenance.json: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-09/qualify-boot.py: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-09/reference-1280.png: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-09/reference-640.png: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-09/results.json: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-09/run.sh: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-09/stop-guest.py: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-09/updater-network-proof.py: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-09/verify-inputs.py: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-09/verify-renderer.py: OK
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/43a698bcd7d570c63ebdd5db015e5302463f7ee4a15438fd9ef2359437be19da
+Image resized.
+Formatting '/workspace/tmp/pixelelated-m7-boot-qualification-09/clean-640.qcow2', fmt=qcow2 cluster_size=65536 extended_l2=off compression_type=zlib size=17179869184 backing_file=/workspace/tmp/pixelelated-m7-boot-qualification-09/clean-base.qcow2 backing_fmt=qcow2 lazy_refcounts=off refcount_bits=16
+[W][22:38:08.160536] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][22:38:08.160568] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+CAPTURED guest boot frames 10
+CAPTURED guest boot frames 20
+CAPTURED guest boot frames 30
+CAPTURED guest boot frames 40
+CAPTURED guest boot frames 50
+CAPTURED guest boot frames 60
+CAPTURED guest boot frames 70
+CAPTURED guest boot frames 80
+CAPTURED guest boot frames 90
+CAPTURED guest boot frames 100
+CAPTURED guest boot frames 110
+CAPTURED guest boot frames 120
+CAPTURED guest boot frames 130
+CAPTURED guest boot frames 140
+CAPTURED guest boot frames 150
+CAPTURED guest boot frames 160
+CAPTURED guest boot frames 170
+CAPTURED guest boot frames 180
+CAPTURED guest boot frames 190
+CAPTURED guest boot frames 200
+CAPTURED guest boot frames 210
+CAPTURED guest boot frames 220
+PASS boot frame capture only; branding classification remains required 229
+ready after ~0s
+PASS installed selector/unit and actual software compositor: clean-640
+PASS observed installed update watcher, CLI and local capture-positive control clean-640
+PASS owned guest stopped 2699144
+{
+  "observed_utc": "2026-10-06T22:39:20.925072+00:00",
+  "pcap_sha256": "65fd23667353b3ba476080ecb23f39668881814a969d5da67df1ee7ba8b2ccef",
+  "bytes": 308562,
+  "packets": 1094,
+  "outbound_packets": 533,
+  "capture_seconds": 70.39939308166504,
+  "positive_control_requests": 1,
+  "outbound_web_packets": [],
+  "dns_questions": [
+    "2.pool.ntp.org",
+    "2.pool.ntp.org"
+  ],
+  "upstream_dns_queries": [],
+  "ipv6_extensions": {
+    "0": 12
+  },
+  "transport_protocols": {
+    "58": 19,
+    "17": 97,
+    "2": 7,
+    "6": 402
+  },
+  "icmpv6_types": {
+    "131": 2,
+    "135": 5,
+    "143": 10,
+    "136": 1,
+    "133": 1
+  },
+  "passed": true,
+  "scope": "Bounded startup/forced-update/CLI capture; no TCP/UDP80/443 or named upstream/project DNS requests. Local9045 positive required. Unsupported or fragmented traffic refuses proof; not a claim of all-protocol silence."
+}
+{"pass": true, "threshold": 0.995, "rectangle_half_open": [104, 212, 535, 267], "best": {"file": "016.png", "elapsed_seconds": 4.262, "sha256": "78cc4e97174be9553a7f29f27315715fff3268b1eea5d9e3ae704949e4a048b4", "agreement": 1.0}, "controls": [{"name": "old-logo", "agreement": 0.44079308162834846, "rejected": true}, {"name": "blank", "agreement": 0.689938831470154, "rejected": true}, {"name": "wrong-resolution", "agreement": 0.0, "rejected": true}]}
+Formatting '/workspace/tmp/pixelelated-m7-boot-qualification-09/clean-1280.qcow2', fmt=qcow2 cluster_size=65536 extended_l2=off compression_type=zlib size=17179869184 backing_file=/workspace/tmp/pixelelated-m7-boot-qualification-09/clean-base.qcow2 backing_fmt=qcow2 lazy_refcounts=off refcount_bits=16
+[W][22:39:22.006685] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][22:39:22.006719] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+CAPTURED guest boot frames 10
+CAPTURED guest boot frames 20
+CAPTURED guest boot frames 30
+CAPTURED guest boot frames 40
+CAPTURED guest boot frames 50
+CAPTURED guest boot frames 60
+CAPTURED guest boot frames 70
+CAPTURED guest boot frames 80
+CAPTURED guest boot frames 90
+CAPTURED guest boot frames 100
+CAPTURED guest boot frames 110
+CAPTURED guest boot frames 120
+CAPTURED guest boot frames 130
+CAPTURED guest boot frames 140
+CAPTURED guest boot frames 150
+CAPTURED guest boot frames 160
+CAPTURED guest boot frames 170
+CAPTURED guest boot frames 180
+CAPTURED guest boot frames 190
+CAPTURED guest boot frames 200
+CAPTURED guest boot frames 210
+PASS boot frame capture only; branding classification remains required 213
+ready after ~0s
+PASS installed selector/unit and actual software compositor: clean-1280
+PASS observed installed update watcher, CLI and local capture-positive control clean-1280
+PASS owned guest stopped 2704755
+{
+  "observed_utc": "2026-10-06T22:40:34.412625+00:00",
+  "pcap_sha256": "3fa306d1d8e9db3af1ebe06478be39119358548a9e54796abde5268fc9c572fa",
+  "bytes": 306677,
+  "packets": 1080,
+  "outbound_packets": 521,
+  "capture_seconds": 69.90180993080139,
+  "positive_control_requests": 1,
+  "outbound_web_packets": [],
+  "dns_questions": [
+    "2.pool.ntp.org",
+    "2.pool.ntp.org"
+  ],
+  "upstream_dns_queries": [],
+  "ipv6_extensions": {
+    "0": 13
+  },
+  "transport_protocols": {
+    "58": 20,
+    "17": 91,
+    "2": 7,
+    "6": 394
+  },
+  "icmpv6_types": {
+    "131": 2,
+    "135": 5,
+    "143": 11,
+    "136": 1,
+    "133": 1
+  },
+  "passed": true,
+  "scope": "Bounded startup/forced-update/CLI capture; no TCP/UDP80/443 or named upstream/project DNS requests. Local9045 positive required. Unsupported or fragmented traffic refuses proof; not a claim of all-protocol silence."
+}
+{"pass": true, "threshold": 0.995, "rectangle_half_open": [182, 422, 1098, 538], "best": {"file": "015.png", "elapsed_seconds": 4.243, "sha256": "e4696be615febdf4c5470e545062fbfedb7a0c89755513c5ac28d74a2ca05f88", "agreement": 1.0}, "controls": [{"name": "old-logo", "agreement": 0.44501016413190786, "rejected": true}, {"name": "blank", "agreement": 0.7035461526878483, "rejected": true}, {"name": "wrong-resolution", "agreement": 0.0, "rejected": true}]}
+Formatting '/workspace/tmp/pixelelated-m7-boot-qualification-09/upgrade-640.qcow2', fmt=qcow2 cluster_size=65536 extended_l2=off compression_type=zlib size=17179869184 backing_file=/workspace/tmp/pixelelated-m7-qa-19/pair/vm-a.qcow2 backing_fmt=qcow2 lazy_refcounts=off refcount_bits=16
+[W][22:40:37.673739] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][22:40:37.673766] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+CAPTURED guest boot frames 10
+CAPTURED guest boot frames 20
+CAPTURED guest boot frames 30
+CAPTURED guest boot frames 40
+CAPTURED guest boot frames 50
+CAPTURED guest boot frames 60
+CAPTURED guest boot frames 70
+CAPTURED guest boot frames 80
+CAPTURED guest boot frames 90
+CAPTURED guest boot frames 100
+CAPTURED guest boot frames 110
+CAPTURED guest boot frames 120
+CAPTURED guest boot frames 130
+CAPTURED guest boot frames 140
+CAPTURED guest boot frames 150
+PASS boot frame capture only; branding classification remains required 152
+ready after ~0s
+PASS installed selector/unit and actual software compositor: upgrade-640
+PASS observed installed update watcher, CLI and local capture-positive control upgrade-640
+PASS owned guest stopped 2710333
+{
+  "observed_utc": "2026-10-06T22:41:30.495958+00:00",
+  "pcap_sha256": "7f99bc5a5b888ee9e4c73ad9ce6f2a74d65b05386fccd493a43e8d2617670a6a",
+  "bytes": 308841,
+  "packets": 1085,
+  "outbound_packets": 526,
+  "capture_seconds": 51.00830817222595,
+  "positive_control_requests": 1,
+  "outbound_web_packets": [],
+  "dns_questions": [
+    "2.pool.ntp.org",
+    "2.pool.ntp.org"
+  ],
+  "upstream_dns_queries": [],
+  "ipv6_extensions": {
+    "0": 14
+  },
+  "transport_protocols": {
+    "58": 20,
+    "17": 96,
+    "2": 7,
+    "6": 395
+  },
+  "icmpv6_types": {
+    "131": 1,
+    "135": 4,
+    "143": 13,
+    "136": 1,
+    "133": 1
+  },
+  "passed": true,
+  "scope": "Bounded startup/forced-update/CLI capture; no TCP/UDP80/443 or named upstream/project DNS requests. Local9045 positive required. Unsupported or fragmented traffic refuses proof; not a claim of all-protocol silence."
+}
+{"pass": true, "threshold": 0.995, "rectangle_half_open": [104, 212, 535, 267], "best": {"file": "017.png", "elapsed_seconds": 4.521, "sha256": "0e5a09b8d6a4b0b0f588b4bfa140583866f803f8d2e06a905943d234129afc94", "agreement": 1.0}, "controls": [{"name": "old-logo", "agreement": 0.44079308162834846, "rejected": true}, {"name": "blank", "agreement": 0.689938831470154, "rejected": true}, {"name": "wrong-resolution", "agreement": 0.0, "rejected": true}]}
+Formatting '/workspace/tmp/pixelelated-m7-boot-qualification-09/upgrade-1280.qcow2', fmt=qcow2 cluster_size=65536 extended_l2=off compression_type=zlib size=17179869184 backing_file=/workspace/tmp/pixelelated-m7-qa-19/pair/vm-a.qcow2 backing_fmt=qcow2 lazy_refcounts=off refcount_bits=16
+[W][22:41:31.325943] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][22:41:31.325983] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+CAPTURED guest boot frames 10
+CAPTURED guest boot frames 20
+CAPTURED guest boot frames 30
+CAPTURED guest boot frames 40
+CAPTURED guest boot frames 50
+CAPTURED guest boot frames 60
+CAPTURED guest boot frames 70
+CAPTURED guest boot frames 80
+CAPTURED guest boot frames 90
+CAPTURED guest boot frames 100
+CAPTURED guest boot frames 110
+CAPTURED guest boot frames 120
+CAPTURED guest boot frames 130
+CAPTURED guest boot frames 140
+PASS boot frame capture only; branding classification remains required 141
+ready after ~0s
+PASS installed selector/unit and actual software compositor: upgrade-1280
+PASS observed installed update watcher, CLI and local capture-positive control upgrade-1280
+PASS owned guest stopped 2714274
+{
+  "observed_utc": "2026-10-06T22:42:23.957347+00:00",
+  "pcap_sha256": "05cb0c9368d8c5b4f566f55548a336267e7859d0657b917550a5bc9197aa7a25",
+  "bytes": 307620,
+  "packets": 1090,
+  "outbound_packets": 526,
+  "capture_seconds": 50.630922079086304,
+  "positive_control_requests": 1,
+  "outbound_web_packets": [],
+  "dns_questions": [
+    "2.pool.ntp.org",
+    "2.pool.ntp.org"
+  ],
+  "upstream_dns_queries": [],
+  "ipv6_extensions": {
+    "0": 13
+  },
+  "transport_protocols": {
+    "58": 19,
+    "17": 92,
+    "2": 7,
+    "6": 400
+  },
+  "icmpv6_types": {
+    "131": 1,
+    "135": 4,
+    "143": 12,
+    "136": 1,
+    "133": 1
+  },
+  "passed": true,
+  "scope": "Bounded startup/forced-update/CLI capture; no TCP/UDP80/443 or named upstream/project DNS requests. Local9045 positive required. Unsupported or fragmented traffic refuses proof; not a claim of all-protocol silence."
+}
+{"pass": true, "threshold": 0.995, "rectangle_half_open": [182, 422, 1098, 538], "best": {"file": "016.png", "elapsed_seconds": 4.528, "sha256": "503419c9b95944eb541f2e92276a7aad9cc5ceb18c56bd7fb644687e765024ee", "agreement": 1.0}, "controls": [{"name": "old-logo", "agreement": 0.44501016413190786, "rejected": true}, {"name": "blank", "agreement": 0.7035461526878483, "rejected": true}, {"name": "wrong-resolution", "agreement": 0.0, "rejected": true}]}
+PASS four actual candidate clean/upgrade boots with unchanged splash threshold and controls
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/43a698bcd7d570c63ebdd5db015e5302463f7ee4a15438fd9ef2359437be19da
+/workspace/tmp/pixelelated-m7-boot-qualification-09/blank.json: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-09/blank.log: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-09/blank.pcap: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-09/capture-boot.py: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-09/capture-qemu: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-09/classify-guest-pcap.py: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-09/injected-web.json: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-09/injected-web.log: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-09/injected-web.pcap: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-09/match-splash.py: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-09/network-inputs.json: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-09/old-logo.png: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-09/outer.sh: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-09/positive.json: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-09/positive.log: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-09/positive.pcap: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-09/provenance.json: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-09/qualify-boot.py: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-09/reference-1280.png: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-09/reference-640.png: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-09/results.json: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-09/run.sh: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-09/stop-guest.py: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-09/updater-network-proof.py: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-09/verify-inputs.py: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-09/verify-renderer.py: OK

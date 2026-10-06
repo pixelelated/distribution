@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-boot-qualification-07/classify-guest-pcap.py", line 30, in <module>
+    assert not struct.unpack('!H',ip[6:8])[0]&0x3fff,'IPv4 fragment requires reassembly'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: IPv4 fragment requires reassembly

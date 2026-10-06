@@ -559,3 +559,27 @@ Library02 completed22:32:11UTC; primary22:32:23 independently verified all four 
 Next: complete boot06 → bucket01 → coverage-ui03 → genuine historical mixed-installation no-join-negative01 → integrate ES source fixes, build16 and renew affected/final installed acceptance → #471/P4 closure → capacity#461 → H700 DDR4 RG35XX SP arm, thenaarch64 → named physical/P5 gates. Four product findings remain open. No RC claim.
 
 #474 criteria were independently re-derived and ticked; close after evidence publication. #361 compound acceptance remains open.
+
+
+## 2026-10-06 22:38 UTC — Boot decoder and owner preparation repaired; boot09 active (#475/#471)
+
+**Active:** boot09, started22:38:00UTC, run20261006T223800Z-a3b54ac9, watcher2698722, owner `/workspace/tmp/pixelelated-m7-boot-qualification-09`; actual clean640 guest2699144 and frame capture verified. Four clean/actual-RC2-upgraded640/1280 boots retain the fixed .995 matcher and installed updater/CLI exercise. The corrected bounded IPv6 decoder passes17 synthetic cases and old-fail/new-pass observations of the closed06 capture; independent tcpdump identifies12 Hop-by-Hop multicast-listener packets. Raw actual PCAP stays private. Three wrapper dispatch/refusal controls pass. Primary actively consumes watcher results; no disconnected alert delivery.
+
+Boot06 failed before network classification (allfour1/26seals/actual cleanup22:34:27); boot07's copied wrapper still required owner06 (allfour1/26seals/cleanup22:37:08). Boot08 preparation stopped on historical log text, and the orchestrator incorrectly submitted without checking its exit status: the missing-seal guard refused it before qa.start or any guest. Its three existing result channels1 and missing-inner reason are explicitly retained. Fresh09 submission is dependent on successful preparation/seal checks. #475 tracks these QA failures; no product or splash-threshold changes.
+
+Library02's415PASS/879requests/46unchanged installed files and cleanup are published at feature89879687b6c859747a8756c00307ee449c97192a / next9a81b5425bb1787fa7ca295b33cfa76f96315d46. All196 changed paths and both remotes verified22:34:29; publication primary22:35:02 allfour0/2seals. #474 is closed completed. #471 remains four resolved/four open; no RC claim.
+
+Remaining serial order: boot09 → bucket01 → coverage03 → genuine no-join negative → integrate ES/build16/affected and final qualification.
+
+
+## 2026-10-06 22:50 UTC — Boot/bucket acceptance complete; coverage04 active (#475/#476/#471)
+
+Boot09 completed22:42:31; primary22:42:56 verified allfour0/26seals, all four guest PIDs absent, owner cleanup and free10026/5912/9045. All four clean/actual-RC2-upgraded640/1280 profiles pass: exact1.0 splash agreement at unchanged.995 threshold,12 rejected visual controls, four directly reviewed frames, actual forced updater/CLI and positive-control network windows without TCP/UDP80/443 or upstream/project DNS. Original QA19 backing and clean base unchanged. Raw PCAP remains private. Failed06/07/08 are retained under#475.
+
+Bucket02 completed22:44:14; primary22:44:42 allfour0/28seals/actual cleanup. Both real-rclone synthetic cases pass: parent-only unknown-listing fallback and separately injected copy refusal→retry, original local/cloud bytes and pointers preserved, actual new witnesses uploaded. Failed01's copy regex missed intervening options; the corrected observer asserts fault-fired before outcome. #476 tracks this QA repair. This is host synthetic bucket coverage, separate from existing installed S3 restore proof.
+
+**Active:** coverage-ui04, started22:49:47, run20261006T224947Z-902e01f4, watcher2750602, owner `/workspace/tmp/pixelelated-m7-p4-coverage-ui-04`. Six isolated VM/WebDAV cases cover settings-only ROCKNIX/GAMES recovery, foreign-hostname EN/FR UI, actual partial-copy kill/UI retry/next shelf and fresh three-tier backup plus automatic save receive/send. Primary actively consumes results; no disconnected alert.
+
+Coverage03 failed22:45:47 after restoring the exact archive sentinel because its oracle omitted five established setup README notes. Allfour1/9seals/cleanup22:46:08 are retained. #477 records the source-defined note hashes and unchanged archive; fresh04 has10 seals, immediate cloud snapshots, one positive/five negative oracle controls and explicit-root path controls. No product change.
+
+Next: complete coverage04 → actual historical no-join-negative01 → integrate tested ES changes and build16 → affected/final installed acceptance → #471/P4 closure → capacity#461 → H700 DDR4 RG35XX SP arm, thenaarch64 → named physical/P5 gates. Four product findings remain open. Capacity measured22:40:43:111663730688byte cache,347886931968byte total requirement retaining40/80/100GiB reserves,375514476544free. Recheck free bytes before allocation; no cleanup or reserve changes. No RC claim.

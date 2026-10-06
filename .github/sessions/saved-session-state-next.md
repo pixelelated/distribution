@@ -1,6 +1,6 @@
 # Saved Session State
 
-Updated 2026-10-06 22:33 UTC. Audit Phase7 continues under standing authority.
+Updated 2026-10-06 22:50 UTC. Audit Phase7 continues under standing authority.
 Previous complete checkpoint: `.github/sessions/archived/saved-session-state-next-20261006T210229Z.md`.
 Read this first; historical active/idle statements in that archive are superseded.
 
@@ -28,9 +28,15 @@ milestone body is the ordered plan. Canonical rules matched next21:00.
 
 Library02 completed22:32:11UTC; primary22:32:23 independently verified all four results0,11 unchanged seals, actual owner/guest exits and free ports. All415 assertions pass: indexed/unindexed125 cached games, real interruption at61 with60 completed games preserved and never refetched, production batch cooldowns, persisted pause, indexed/unindexed429 Retry-After and restart, unchanged upstream100-budget queuing. All46 installed files remain unchanged. Raw879 requests include876 matched client gate observations for the two whole-library paths; minimum client intervals .300064816/.300074931seconds. Private loopback-only namespace is unchanged before/after. Failed01 remains failed under#474; no product throttle repair was needed. Exact proof and independent arithmetic are retained in p4-library-fixes-02 and library02-acceptance-01.
 
-**Active:** boot06, started22:32:32UTC, run20261006T223232Z-3116c3d3, watcher2667870, owner `/workspace/tmp/pixelelated-m7-boot-qualification-06`. Four clean/actual-RC2-upgraded640/1280 boots keep the fixed .995 splash predicate and negative controls, then observe installed forced-update/CLI network behavior with a local positive capture control. Primary active supervision consumes results; no disconnected alerts. Raw packet captures remain private at the owner.
+Boot09 completed22:42:31; primary22:42:56 verified allfour0/26seals, all four guest PIDs absent, owner cleanup and free10026/5912/9045. All four clean/actual-RC2-upgraded640/1280 profiles pass: exact1.0 splash agreement at unchanged.995 threshold,12 rejected visual controls, four directly reviewed frames, actual forced updater/CLI and positive-control network windows without TCP/UDP80/443 or upstream/project DNS. Original QA19 backing and clean base unchanged. Raw PCAP remains private. Failed06/07/08 are retained under#475.
 
-Next: complete boot06 → bucket01 → coverage-ui03 → genuine historical mixed-installation no-join-negative01 → integrate ES source fixes, build16 and renew affected/final installed acceptance → #471/P4 closure → capacity#461 → H700 DDR4 RG35XX SP arm, thenaarch64 → named physical/P5 gates. Four product findings remain open. No RC claim.
+Bucket02 completed22:44:14; primary22:44:42 allfour0/28seals/actual cleanup. Both real-rclone synthetic cases pass: parent-only unknown-listing fallback and separately injected copy refusal→retry, original local/cloud bytes and pointers preserved, actual new witnesses uploaded. Failed01's copy regex missed intervening options; the corrected observer asserts fault-fired before outcome. #476 tracks this QA repair. This is host synthetic bucket coverage, separate from existing installed S3 restore proof.
+
+**Active:** coverage-ui04, started22:49:47, run20261006T224947Z-902e01f4, watcher2750602, owner `/workspace/tmp/pixelelated-m7-p4-coverage-ui-04`. Six isolated VM/WebDAV cases cover settings-only ROCKNIX/GAMES recovery, foreign-hostname EN/FR UI, actual partial-copy kill/UI retry/next shelf and fresh three-tier backup plus automatic save receive/send. Primary actively consumes results; no disconnected alert.
+
+Coverage03 failed22:45:47 after restoring the exact archive sentinel because its oracle omitted five established setup README notes. Allfour1/9seals/cleanup22:46:08 are retained. #477 records the source-defined note hashes and unchanged archive; fresh04 has10 seals, immediate cloud snapshots, one positive/five negative oracle controls and explicit-root path controls. No product change.
+
+Next: complete coverage04 → actual historical no-join-negative01 → integrate tested ES changes and build16 → affected/final installed acceptance → #471/P4 closure → capacity#461 → H700 DDR4 RG35XX SP arm, thenaarch64 → named physical/P5 gates. Four product findings remain open. Capacity measured22:40:43:111663730688byte cache,347886931968byte total requirement retaining40/80/100GiB reserves,375514476544free. Recheck free bytes before allocation; no cleanup or reserve changes. No RC claim.
 
 Recovery06 finished22:12:39:8behavioralPASS. Primary22:13:12 allfour0/9seals/
 owner exits;22:13:15 actual guest/backend/seven-port cleanup. All46frames
@@ -81,12 +87,12 @@ Read inputs first. Never change a running script; fresh owner for a retry.
 
 1. COMPLETED recovery06; never replay (receipts above).
 2. COMPLETED library02:415PASS, allfour0/11seals, cleanup22:32:23. Never replay.
-3. ACTIVE `/workspace/tmp/pixelelated-m7-boot-qualification-06`:four clean/actual-RC2-
+3. COMPLETED `/workspace/tmp/pixelelated-m7-boot-qualification-09`:four clean/actual-RC2-
    upgraded640/1280 boots, wordmark controls and actual network capture. Local9045
    positive; retain digests/classification, never raw actualPCAP.
-4. `/workspace/tmp/pixelelated-m7-p4-bucket-retry-01/run.py BUNDLE` via python3-I:
+4. COMPLETED bucket02 (01 failed injection); two cases/allfour0/28seals. Original entry:
    realrclone/bwrap synthetic bucket-parent/copy faults. Not a real S3 claim.
-5. `/workspace/tmp/pixelelated-m7-p4-coverage-ui-03`:settings-only/foreign archive
+5. ACTIVE `/workspace/tmp/pixelelated-m7-p4-coverage-ui-04`:settings-only/foreign archive
    hostname EN/FR, actual first-copy kill/UIretry/next backup shelf, fresh3tiers plus actual settings/content backup and automatic save receive/send.
 
 PL-003 needs a new product build after the historical-shelf repair; candidate15
@@ -152,6 +158,8 @@ One external reviewer/two calls Fable5.1/xhigh verified; no council. Raw artifac
 untouched. #467/#468/#471open;#469/#470/#472closed.
 
 ## Latest completion and publication state
+
+Latest feature89879687b6c859747a8756c00307ee449c97192a / next9a81b5425bb1787fa7ca295b33cfa76f96315d46, remoteverified22:34:29. Library publication primary22:35:02 allfour0/2seals. #474 closed. Later boot06/07/08 failures, decoder/wrapper controls, boot09 status and publication receipts are uncommitted; earlier publication statements below are historical.
 
 Latest featureb5953a15149214e94d861f9599fec4ee284a926f / next10a0c9d20210b3b3e088314aa51702b5a045869b, remoteverified22:16:42. Recovery publication primary22:17:16 allfour0/2seals/fourPIDs absent. Subsequent library01 failure, library02 preparation and tracker receipts are uncommitted. Earlier publication details below are historical.
 

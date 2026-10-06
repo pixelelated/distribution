@@ -1,0 +1,8 @@
+watch-build: recording in /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement15/.build-runs/20261006T224300Z-f12dea28
+PASS frozen source inputs, ES pin and candidate input custody
+PASS parent-only-fallback
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-p4-bucket-retry-01/proof.py", line 31, in <module>
+    assert first.returncode!=0 and "Couldn't finish" in first.stdout,'denied copy did not report failure'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: denied copy did not report failure

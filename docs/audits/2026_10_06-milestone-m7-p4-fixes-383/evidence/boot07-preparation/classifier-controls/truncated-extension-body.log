@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-boot-qualification-07/classify-guest-pcap.py", line 43, in <module>
+    assert length<=len(payload),'truncated IPv6 extension body'
+           ^^^^^^^^^^^^^^^^^^^^
+AssertionError: truncated IPv6 extension body

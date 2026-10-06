@@ -1,0 +1,10 @@
+#!/usr/bin/env python3
+"""Add a packet recorder to the standard QEMU command for this owned guest."""
+import os,sys
+from pathlib import Path
+p=Path(os.environ['PIXELELATED_QA_PCAP'])
+assert not p.exists()
+assert p.parent.resolve() == Path(__file__).resolve().parent / 'artifacts', 'capture must stay under its own owner'
+args=sys.argv[1:]
+assert '-netdev' in args and 'id=net0' in args[args.index('-netdev')+1]
+os.execv('/usr/bin/qemu-system-x86_64',['/usr/bin/qemu-system-x86_64',*args,'-object','filter-dump,id=qa_capture,netdev=net0,file='+str(p)])

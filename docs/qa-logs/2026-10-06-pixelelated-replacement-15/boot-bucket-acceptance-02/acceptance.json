@@ -1,0 +1,36 @@
+{
+  "verified_utc": "2026-10-06T22:50:29.552709+00:00",
+  "boot_profiles": 4,
+  "direct_frames_pass": 4,
+  "exact_pixel_agreement": 1.0,
+  "negative_controls": 12,
+  "network_captures": [
+    {
+      "profile": "clean-640",
+      "capture_sha256": "65fd23667353b3ba476080ecb23f39668881814a969d5da67df1ee7ba8b2ccef",
+      "packets": 1094,
+      "capture_seconds": 70.39939308166504
+    },
+    {
+      "profile": "clean-1280",
+      "capture_sha256": "3fa306d1d8e9db3af1ebe06478be39119358548a9e54796abde5268fc9c572fa",
+      "packets": 1080,
+      "capture_seconds": 69.90180993080139
+    },
+    {
+      "profile": "upgrade-640",
+      "capture_sha256": "7f99bc5a5b888ee9e4c73ad9ce6f2a74d65b05386fccd493a43e8d2617670a6a",
+      "packets": 1085,
+      "capture_seconds": 51.00830817222595
+    },
+    {
+      "profile": "upgrade-1280",
+      "capture_sha256": "05cb0c9368d8c5b4f566f55548a336267e7859d0657b917550a5bc9197aa7a25",
+      "packets": 1090,
+      "capture_seconds": 50.630922079086304
+    }
+  ],
+  "backing_unchanged": true,
+  "bucket_cases": 2,
+  "scope": "Candidate15 clean/RC2-storage boot and bounded updater capture; real-rclone synthetic host bucket faults, not newly installed S3 coverage. Failed06/07/08 and bucket01 remain retained."
+}
