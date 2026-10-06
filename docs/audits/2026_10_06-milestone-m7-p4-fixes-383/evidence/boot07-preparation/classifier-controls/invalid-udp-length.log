@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-boot-qualification-07/classify-guest-pcap.py", line 62, in <module>
+    assert 8<=length<=len(payload),'invalid UDP length'
+           ^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: invalid UDP length

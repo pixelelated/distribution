@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-boot-qualification-07/classify-guest-pcap.py", line 40, in <module>
+    assert chain<8 and len(payload)>=8,'truncated/overlong IPv6 extension chain'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: truncated/overlong IPv6 extension chain

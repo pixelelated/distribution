@@ -1,0 +1,54 @@
+{
+  "utc": "2026-10-06T22:49:40.813069+00:00",
+  "old_owner": "/workspace/tmp/pixelelated-m7-p4-coverage-ui-03",
+  "observed_failed_cloud": {
+    "pixelelated/.layout": "be68d69fa1fe3ddbcaa9295b8e3e732fd0113d909e38cf643d95aab41c9b1a22",
+    "ROCKNIX/Backups/README.txt": "a2e91a3dddf28269cbf704b1b7e2540608e9851a88f09679701e0c6629fd7f5c",
+    "ROCKNIX/Backups/GENERIC-X64-474cbdb64c/2026_10_06-000000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz": "6f6bf56f9a0e301827eb5f42ea24621d3391dbce5525d922a28b5908fdc2b53a",
+    "pixelelated/Content/README.txt": "cb0db1a29003ebedb5a5f92d17c49e7eadebedcc10e883e9d9af052fd4a57456",
+    "pixelelated/Saves/README.txt": "81283a71c8db19f49232b395e3527170b14ae38add60d5180071196f24c283bf",
+    "pixelelated/Content/ROMs/README.txt": "cdbf34d6dc27ad558261bd99b99bbc91850ba28a1150ef2488b18dbe87637bcd",
+    "pixelelated/Content/BIOS/README.txt": "12345b222d272bcccee06cac35e9b0d4ac10a76617a32b72cefa8542a90d1f67"
+  },
+  "original_archive": {
+    "ROCKNIX/Backups/GENERIC-X64-474cbdb64c/2026_10_06-000000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz": "6f6bf56f9a0e301827eb5f42ea24621d3391dbce5525d922a28b5908fdc2b53a"
+  },
+  "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement15/projects/ROCKNIX/packages/network/rclone/sources/cloud_setup",
+  "source_sha256": "44f0c93b5eb1380fd237fe9a3fbbd604bb8b60181923a6f3e78c0dffa501fc3f",
+  "source_note_hashes": {
+    "SAVES": "81283a71c8db19f49232b395e3527170b14ae38add60d5180071196f24c283bf",
+    "BACKUPS": "a2e91a3dddf28269cbf704b1b7e2540608e9851a88f09679701e0c6629fd7f5c",
+    "CONTENT": "cb0db1a29003ebedb5a5f92d17c49e7eadebedcc10e883e9d9af052fd4a57456",
+    "CONTENT/ROMs": "cdbf34d6dc27ad558261bd99b99bbc91850ba28a1150ef2488b18dbe87637bcd",
+    "CONTENT/BIOS": "12345b222d272bcccee06cac35e9b0d4ac10a76617a32b72cefa8542a90d1f67"
+  },
+  "positive_control": true,
+  "negative_controls": [
+    {
+      "case": "wrong note bytes",
+      "rejected": true
+    },
+    {
+      "case": "unexpected payload",
+      "rejected": true
+    },
+    {
+      "case": "changed original archive",
+      "rejected": true
+    },
+    {
+      "case": "wrong marker",
+      "rejected": true
+    },
+    {
+      "case": "missing expected note",
+      "rejected": true
+    }
+  ],
+  "explicit_root_notes": {
+    "GAMES/README.txt": "81283a71c8db19f49232b395e3527170b14ae38add60d5180071196f24c283bf",
+    "GAMES/backup/README.txt": "a2e91a3dddf28269cbf704b1b7e2540608e9851a88f09679701e0c6629fd7f5c",
+    "ROMs/README.txt": "cdbf34d6dc27ad558261bd99b99bbc91850ba28a1150ef2488b18dbe87637bcd",
+    "BIOS/README.txt": "12345b222d272bcccee06cac35e9b0d4ac10a76617a32b72cefa8542a90d1f67"
+  }
+}

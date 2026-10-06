@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-boot-qualification-06/classify-guest-pcap.py", line 21, in <module>
+    assert proto not in (0,43,44,50,51,60),'unclassified IPv6 extension chain'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unclassified IPv6 extension chain

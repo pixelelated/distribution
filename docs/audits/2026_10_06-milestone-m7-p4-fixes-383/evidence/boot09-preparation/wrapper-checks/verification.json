@@ -1,0 +1,22 @@
+{
+  "verified_utc": "2026-10-06T22:37:59.975754+00:00",
+  "controls": [
+    {
+      "case": "own-path-version",
+      "returncode": 0,
+      "expected": 0
+    },
+    {
+      "case": "foreign-owner",
+      "returncode": 1,
+      "expected": 1
+    },
+    {
+      "case": "missing-netdev",
+      "returncode": 1,
+      "expected": 1
+    }
+  ],
+  "no_guest_started": true,
+  "no_capture_created": true
+}

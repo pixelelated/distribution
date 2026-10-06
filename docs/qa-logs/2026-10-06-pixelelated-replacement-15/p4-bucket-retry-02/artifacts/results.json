@@ -1,0 +1,75 @@
+{
+  "rclone_version": "rclone v1.75.1",
+  "rclone_sha256": "361c27d953f822969afc25a73e0cc2122fd8e161545f9c0e5f63c5baad92724c",
+  "results": [
+    {
+      "case": "parent-only-fallback",
+      "status": "PASS",
+      "first_rc": 0,
+      "retry_rc": 0,
+      "fault_calls": [
+        "lsf --dirs-only qa:/ROCKNIX/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1"
+      ],
+      "before": {
+        "cloud": "991c9af7a01defe0d92baf3a7160969ac4bbcb635d4611c2ee2aaf91ce2bff31",
+        "local": "a86012afa3ac666da53e19b4c81145c039d035756bf0caef3a34a3e141c00698",
+        "pointers": {
+          "SAVESPATH": "/storage/roms",
+          "SAVES_REMOTE": "/ROCKNIX/Saves",
+          "SETTINGS_BACKUPS": "/storage/roms/backup",
+          "SETTINGS_REMOTE": "/ROCKNIX/Backups",
+          "BACKUPMETHOD": "copy",
+          "RESTOREMETHOD": "copy",
+          "BACKUPFILE_BACKUP_OPTION": "no",
+          "BACKUPFILE_RESTORE_OPTION": "no",
+          "LOG_LEVEL": "INFO",
+          "LAYOUT_KEEP": "",
+          "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+          "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+          "CONTENT_REMOTE": "/ROCKNIX/Content"
+        }
+      },
+      "after_cloud": {
+        "ROCKNIX/Saves/gb/After.srm": "efe5ef48a719635c450ffd360e9a4826398a4321f534a3d226f751191c69ce7d",
+        "ROCKNIX/Saves/gb/CloudOnly.srm": "991c9af7a01defe0d92baf3a7160969ac4bbcb635d4611c2ee2aaf91ce2bff31",
+        "ROCKNIX/Saves/gb/Local.srm": "a86012afa3ac666da53e19b4c81145c039d035756bf0caef3a34a3e141c00698"
+      },
+      "interpretation": "Failed parent listing is unknown. Production deliberately permits backup fallback. Nonzero failure requires the separately injected copy refusal."
+    },
+    {
+      "case": "parent-and-copy-failure",
+      "status": "PASS",
+      "first_rc": 5,
+      "retry_rc": 0,
+      "fault_calls": [
+        "lsf --dirs-only qa:/ROCKNIX/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1",
+        "copy --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt --log-level INFO --stats 1s --exclude=bios/** --exclude=backup/** --backup-dir=qa:/ROCKNIX/Saves-replaced/2026_10_06-224412 --contimeout 1s --timeout 2s --low-level-retries 1 --retries 1 /storage/roms/ qa:/ROCKNIX/Saves/"
+      ],
+      "before": {
+        "cloud": "991c9af7a01defe0d92baf3a7160969ac4bbcb635d4611c2ee2aaf91ce2bff31",
+        "local": "a86012afa3ac666da53e19b4c81145c039d035756bf0caef3a34a3e141c00698",
+        "pointers": {
+          "SAVESPATH": "/storage/roms",
+          "SAVES_REMOTE": "/ROCKNIX/Saves",
+          "SETTINGS_BACKUPS": "/storage/roms/backup",
+          "SETTINGS_REMOTE": "/ROCKNIX/Backups",
+          "BACKUPMETHOD": "copy",
+          "RESTOREMETHOD": "copy",
+          "BACKUPFILE_BACKUP_OPTION": "no",
+          "BACKUPFILE_RESTORE_OPTION": "no",
+          "LOG_LEVEL": "INFO",
+          "LAYOUT_KEEP": "",
+          "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+          "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+          "CONTENT_REMOTE": "/ROCKNIX/Content"
+        }
+      },
+      "after_cloud": {
+        "ROCKNIX/Saves/gb/After.srm": "efe5ef48a719635c450ffd360e9a4826398a4321f534a3d226f751191c69ce7d",
+        "ROCKNIX/Saves/gb/CloudOnly.srm": "991c9af7a01defe0d92baf3a7160969ac4bbcb635d4611c2ee2aaf91ce2bff31",
+        "ROCKNIX/Saves/gb/Local.srm": "a86012afa3ac666da53e19b4c81145c039d035756bf0caef3a34a3e141c00698"
+      },
+      "interpretation": "Failed parent listing is unknown. Production deliberately permits backup fallback. Nonzero failure requires the separately injected copy refusal."
+    }
+  ]
+}

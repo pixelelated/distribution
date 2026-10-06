@@ -1,0 +1,142 @@
+{
+  "verified_utc": "2026-10-06T22:36:12.659806+00:00",
+  "controls": [
+    {
+      "case": "hbh-icmp-positive",
+      "expected_pass": true,
+      "returncode": 0,
+      "script_sha256": "64cffa511569a350492eafc7e03b52418cf4ad9e826a11563f1d772609d05e8b",
+      "input_sha256": "e2dba241521c9a46d9bdd6ff86f640b50b4c702648097f6b154e7cf3312e6e53"
+    },
+    {
+      "case": "direct-ipv6-positive",
+      "expected_pass": true,
+      "returncode": 0,
+      "script_sha256": "64cffa511569a350492eafc7e03b52418cf4ad9e826a11563f1d772609d05e8b",
+      "input_sha256": "c5e1a9e734f94ef795de81cfd5e49ba8954c6f485d46a416ed96c709f65ffcad"
+    },
+    {
+      "case": "routing-destination-chain-positive",
+      "expected_pass": true,
+      "returncode": 0,
+      "script_sha256": "64cffa511569a350492eafc7e03b52418cf4ad9e826a11563f1d772609d05e8b",
+      "input_sha256": "73078fd7c0000fe102ff736d2716b00d4c649594484b63eaa6e5da87ac9c4143"
+    },
+    {
+      "case": "tcp443-behind-two-extensions",
+      "expected_pass": false,
+      "returncode": 1,
+      "script_sha256": "64cffa511569a350492eafc7e03b52418cf4ad9e826a11563f1d772609d05e8b",
+      "input_sha256": "476ea825c1b22908aca363e90c85cd5e358c30afebedd2ad0b23bae6985d7607"
+    },
+    {
+      "case": "udp443-behind-hbh",
+      "expected_pass": false,
+      "returncode": 1,
+      "script_sha256": "64cffa511569a350492eafc7e03b52418cf4ad9e826a11563f1d772609d05e8b",
+      "input_sha256": "6cbf2ee8bbffffd652b0a2174ab4c5b391e7d9335f7e1afc79e37908945ed1fa"
+    },
+    {
+      "case": "dns-behind-destination",
+      "expected_pass": false,
+      "returncode": 1,
+      "script_sha256": "64cffa511569a350492eafc7e03b52418cf4ad9e826a11563f1d772609d05e8b",
+      "input_sha256": "e283a64141bc37c3793739bda44bff7d1e0ca3bc739d76cbe1fc6292718c0e15"
+    },
+    {
+      "case": "truncated-extension-body",
+      "expected_pass": false,
+      "returncode": 1,
+      "script_sha256": "64cffa511569a350492eafc7e03b52418cf4ad9e826a11563f1d772609d05e8b",
+      "input_sha256": "40fa77c06e129db351c9b2f7ab09f3e18e1b368b86a6bbc1c2f5a10f092519f7"
+    },
+    {
+      "case": "truncated-extension-header",
+      "expected_pass": false,
+      "returncode": 1,
+      "script_sha256": "64cffa511569a350492eafc7e03b52418cf4ad9e826a11563f1d772609d05e8b",
+      "input_sha256": "440b3514c234614739a403e48281a6765cac1763e41c0b793833100283bf8dc8"
+    },
+    {
+      "case": "ipv6-fragment",
+      "expected_pass": false,
+      "returncode": 1,
+      "script_sha256": "64cffa511569a350492eafc7e03b52418cf4ad9e826a11563f1d772609d05e8b",
+      "input_sha256": "ad95b0bc085ce453c94b04ccda3a173ce19e832c1ed77d3b348ccc18d90d0386"
+    },
+    {
+      "case": "unsupported-esp",
+      "expected_pass": false,
+      "returncode": 1,
+      "script_sha256": "64cffa511569a350492eafc7e03b52418cf4ad9e826a11563f1d772609d05e8b",
+      "input_sha256": "f346283d8fe56e97fea6d41273830e2a534d951886c586ed1888f81c870229ee"
+    },
+    {
+      "case": "ipv4-fragment",
+      "expected_pass": false,
+      "returncode": 1,
+      "script_sha256": "64cffa511569a350492eafc7e03b52418cf4ad9e826a11563f1d772609d05e8b",
+      "input_sha256": "733c99fc8ed70d0378bac6cf279b7539173d042a3d0ae271232307156ec10603"
+    },
+    {
+      "case": "invalid-tcp-header",
+      "expected_pass": false,
+      "returncode": 1,
+      "script_sha256": "64cffa511569a350492eafc7e03b52418cf4ad9e826a11563f1d772609d05e8b",
+      "input_sha256": "8e903aea25ceaa210a11cf4eba0c8102d15de5c704e91a19a18c28c2a5f78048"
+    },
+    {
+      "case": "invalid-udp-length",
+      "expected_pass": false,
+      "returncode": 1,
+      "script_sha256": "64cffa511569a350492eafc7e03b52418cf4ad9e826a11563f1d772609d05e8b",
+      "input_sha256": "76daeebf05151ca500a76d461d0a435c86b9bf400d9980e71ebe2843adf1a724"
+    },
+    {
+      "case": "overlong-extension-chain",
+      "expected_pass": false,
+      "returncode": 1,
+      "script_sha256": "64cffa511569a350492eafc7e03b52418cf4ad9e826a11563f1d772609d05e8b",
+      "input_sha256": "12077539c335b6055d01f2485203d811ff671417d5eb60c8ed0787925ede6a09"
+    },
+    {
+      "case": "no-positive-control",
+      "expected_pass": false,
+      "returncode": 1,
+      "script_sha256": "64cffa511569a350492eafc7e03b52418cf4ad9e826a11563f1d772609d05e8b",
+      "input_sha256": "39e58d8bafd9392ccbc643ad528e2add39ef6f932be3ee315727a3d1c2d069ea"
+    },
+    {
+      "case": "direct-ipv4-web",
+      "expected_pass": false,
+      "returncode": 1,
+      "script_sha256": "64cffa511569a350492eafc7e03b52418cf4ad9e826a11563f1d772609d05e8b",
+      "input_sha256": "27909c022c326e3e82f3c6f8f34638f13f4c26ae2a4df352c97f5a27a407a8ca"
+    },
+    {
+      "case": "truncated-record",
+      "expected_pass": false,
+      "returncode": 1,
+      "script_sha256": "64cffa511569a350492eafc7e03b52418cf4ad9e826a11563f1d772609d05e8b",
+      "input_sha256": "7d9035a55d273911cfa2da60ce9704f4dac292949acaeb47a5a4c3a9aa8dded2"
+    },
+    {
+      "case": "old-parser-actual-capture",
+      "expected_pass": false,
+      "returncode": 1,
+      "script_sha256": "0bd56585b21b5f9589c30503062b2f9a6ad2c05e650f208808d55e8a1c54e6ae",
+      "input_sha256": "6ba48ec1d0549c4c5f9e889abbbaf1e85dde03a2603b1fa10fd42ffa2c657fa5"
+    },
+    {
+      "case": "corrected-parser-actual-capture",
+      "expected_pass": true,
+      "returncode": 0,
+      "script_sha256": "64cffa511569a350492eafc7e03b52418cf4ad9e826a11563f1d772609d05e8b",
+      "input_sha256": "6ba48ec1d0549c4c5f9e889abbbaf1e85dde03a2603b1fa10fd42ffa2c657fa5"
+    }
+  ],
+  "all_expected_outcomes": true,
+  "actual_capture_sha256": "6ba48ec1d0549c4c5f9e889abbbaf1e85dde03a2603b1fa10fd42ffa2c657fa5",
+  "actual_capture_private": true,
+  "rfc": "https://www.rfc-editor.org/rfc/rfc8200.html#section-4.3"
+}

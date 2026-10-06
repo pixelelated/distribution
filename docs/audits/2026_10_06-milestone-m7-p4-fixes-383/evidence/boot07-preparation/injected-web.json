@@ -1,0 +1,20 @@
+{
+  "observed_utc": "2026-10-06T20:29:27.518314+00:00",
+  "pcap_sha256": "2ef102ad305cf18d76e4552f39b14050a4778475eb9b358403cde34033b823a6",
+  "bytes": 218,
+  "packets": 2,
+  "outbound_packets": 2,
+  "capture_seconds": 0.0,
+  "positive_control_requests": 1,
+  "outbound_web_packets": [
+    {
+      "destination": "10.0.2.2",
+      "port": 443,
+      "seconds": 1791318600.0
+    }
+  ],
+  "dns_questions": [],
+  "upstream_dns_queries": [],
+  "passed": false,
+  "scope": "bounded guest startup/forced-update/CLI observation; no HTTP80/TLS443 packets or upstream-host DNS queries during this capture; local9045 positive control required, no claim of all-protocol silence"
+}

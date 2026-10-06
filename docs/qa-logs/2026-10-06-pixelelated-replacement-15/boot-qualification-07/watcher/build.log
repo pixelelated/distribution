@@ -1,0 +1,46 @@
+/workspace/tmp/pixelelated-m7-boot-qualification-07/blank.json: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-07/blank.log: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-07/blank.pcap: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-07/capture-boot.py: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-07/capture-qemu: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-07/classify-guest-pcap.py: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-07/injected-web.json: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-07/injected-web.log: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-07/injected-web.pcap: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-07/match-splash.py: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-07/network-inputs.json: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-07/old-logo.png: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-07/outer.sh: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-07/positive.json: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-07/positive.log: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-07/positive.pcap: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-07/provenance.json: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-07/qualify-boot.py: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-07/reference-1280.png: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-07/reference-640.png: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-07/results.json: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-07/run.sh: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-07/stop-guest.py: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-07/updater-network-proof.py: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-07/verify-inputs.py: OK
+/workspace/tmp/pixelelated-m7-boot-qualification-07/verify-renderer.py: OK
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/43a698bcd7d570c63ebdd5db015e5302463f7ee4a15438fd9ef2359437be19da
+Image resized.
+Formatting '/workspace/tmp/pixelelated-m7-boot-qualification-07/clean-640.qcow2', fmt=qcow2 cluster_size=65536 extended_l2=off compression_type=zlib size=17179869184 backing_file=/workspace/tmp/pixelelated-m7-boot-qualification-07/clean-base.qcow2 backing_fmt=qcow2 lazy_refcounts=off refcount_bits=16
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-boot-qualification-07/capture-qemu", line 7, in <module>
+    assert p.parent.name=='artifacts' and p.parent.parent.name=='pixelelated-m7-boot-qualification-06'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-boot-qualification-07/qualify-boot.py", line 42, in <module>
+    run([vm,'run','--daemonize',*args]);pid=int(Path('/tmp/rocknix-qemu-d.pid').read_text());pids.append(pid);(owner/'guest.pid').write_text(str(pid)+'\n');save('owned-pids.json',pids)
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tmp/pixelelated-m7-boot-qualification-07/qualify-boot.py", line 9, in run
+    def run(args,**kw):return subprocess.run(args,check=True,**kw)
+                              ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['./projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm', 'run', '--daemonize', '--headless', '--gl', 'none', '--res', '640x480', '--monitor', '/tmp/rocknix-qemu-monitor-d.sock', '--serial', '/tmp/rocknix-qemu-serial-d.sock', '--pidfile', '/tmp/rocknix-qemu-d.pid', '--vnc', '12', '--ssh-port', '10026', '--mac', '52:54:00:52:4E:5B', '/workspace/tmp/pixelelated-m7-boot-qualification-07/clean-640.qcow2']' returned non-zero exit status 1.

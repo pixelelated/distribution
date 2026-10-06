@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-boot-qualification-07/classify-guest-pcap.py", line 19, in <module>
+    assert offset+n<=len(raw) and n==original,'truncated packet content'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: truncated packet content

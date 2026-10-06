@@ -1,0 +1,20 @@
+[
+  {
+    "name": "positive",
+    "expected_rc": 0,
+    "actual_rc": 0,
+    "synthetic_only": true
+  },
+  {
+    "name": "blank",
+    "expected_rc": 1,
+    "actual_rc": 1,
+    "synthetic_only": true
+  },
+  {
+    "name": "injected-web",
+    "expected_rc": 1,
+    "actual_rc": 1,
+    "synthetic_only": true
+  }
+]

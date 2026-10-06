@@ -1,0 +1,59 @@
+{
+  "observed_utc": "2026-10-06T22:42:26.070442+00:00",
+  "scope": "actual clean/RC2-upgraded boot branding at640/1280 plus bounded startup/update network capture and local positive control; owned storage update switches changed only for force-setting challenge; product/boot bytes unchanged",
+  "results": {
+    "clean-640": {
+      "passed": true,
+      "matcher_rc": 0,
+      "best": {
+        "file": "016.png",
+        "elapsed_seconds": 4.262,
+        "sha256": "78cc4e97174be9553a7f29f27315715fff3268b1eea5d9e3ae704949e4a048b4",
+        "agreement": 1.0
+      },
+      "build_id": "ed5a6a51f5974deec8748fbf0dbd2f4984b690f5",
+      "kernel_sha256": "8dfcd6bb7d4dcdbdb128c8a15c901185e6213245c128652bb76b2591a5807cd3",
+      "quiet": true
+    },
+    "clean-1280": {
+      "passed": true,
+      "matcher_rc": 0,
+      "best": {
+        "file": "015.png",
+        "elapsed_seconds": 4.243,
+        "sha256": "e4696be615febdf4c5470e545062fbfedb7a0c89755513c5ac28d74a2ca05f88",
+        "agreement": 1.0
+      },
+      "build_id": "ed5a6a51f5974deec8748fbf0dbd2f4984b690f5",
+      "kernel_sha256": "8dfcd6bb7d4dcdbdb128c8a15c901185e6213245c128652bb76b2591a5807cd3",
+      "quiet": true
+    },
+    "upgrade-640": {
+      "passed": true,
+      "matcher_rc": 0,
+      "best": {
+        "file": "017.png",
+        "elapsed_seconds": 4.521,
+        "sha256": "0e5a09b8d6a4b0b0f588b4bfa140583866f803f8d2e06a905943d234129afc94",
+        "agreement": 1.0
+      },
+      "build_id": "ed5a6a51f5974deec8748fbf0dbd2f4984b690f5",
+      "kernel_sha256": "8dfcd6bb7d4dcdbdb128c8a15c901185e6213245c128652bb76b2591a5807cd3",
+      "quiet": false
+    },
+    "upgrade-1280": {
+      "passed": true,
+      "matcher_rc": 0,
+      "best": {
+        "file": "016.png",
+        "elapsed_seconds": 4.528,
+        "sha256": "503419c9b95944eb541f2e92276a7aad9cc5ceb18c56bd7fb644687e765024ee",
+        "agreement": 1.0
+      },
+      "build_id": "ed5a6a51f5974deec8748fbf0dbd2f4984b690f5",
+      "kernel_sha256": "8dfcd6bb7d4dcdbdb128c8a15c901185e6213245c128652bb76b2591a5807cd3",
+      "quiet": false
+    }
+  },
+  "passed": true
+}

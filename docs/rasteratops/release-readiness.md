@@ -1,6 +1,6 @@
 # pixelelated 0.0.1 release readiness
 
-## Current work — P4 remediation, 2026-10-06 22:33 UTC
+## Current work — P4 remediation, 2026-10-06 22:50 UTC
 
 Both approved Fable calls and primary grading are complete. Audit #471 has
 eight findings: PL-002/006/007/008 are resolved from installed evidence; four remain
@@ -23,9 +23,10 @@ owner/guest/backend cleanup and all46 frames reviewed. Three frames retain
 reason/instruction clipping; bounded ES source fixes pass compiler/msgfmt but
 need rebuilt visual proof. Four punch findings remain open. Library01 failed its timing/isolation fixture checks and is retained under#474.
 Corrected library02 passes415 assertions with11 seals, four zero results and verified cleanup.
-Boot06 is active under watcher2667870; check the checkpoint before starting another VM owner.
+Boot09 and bucket02 pass with verified cleanup. Coverage04 is active under
+watcher2750602; check the checkpoint before starting another VM owner.
 
-Order: complete active clean/RC2-upgraded boot/network proof → bucket retry → remaining cloud coverage
+Order: complete remaining cloud coverage
 and genuine mixed-installation negative → build and qualify repaired image16 → close
 #471/P4 → capacity #461 → H700 DDR4 RG35XX SP arm, then aarch64 → named
 physical and P5 publication gates. No RC designation or device readiness claim.

@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-boot-qualification-07/classify-guest-pcap.py", line 55, in <module>
+    assert 20<=header_size<=len(payload),'invalid TCP header length'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: invalid TCP header length

@@ -1,0 +1,34 @@
+{
+  "reviewed_utc": "2026-10-06T22:43:18.488391+00:00",
+  "frames": [
+    {
+      "profile": "clean-640",
+      "file": "frames/clean-640.png",
+      "sha256": "78cc4e97174be9553a7f29f27315715fff3268b1eea5d9e3ae704949e4a048b4",
+      "verdict": "PASS",
+      "observation": "Direct original640x480 view: lowercase pixelelated centered and unobscured, Ocean hard bands and LCD gaps visible. Ordinary version/build/initialization text stays below the wordmark. Exact approved crop agreement1.0; not a no-console-text claim."
+    },
+    {
+      "profile": "clean-1280",
+      "file": "frames/clean-1280.png",
+      "sha256": "e4696be615febdf4c5470e545062fbfedb7a0c89755513c5ac28d74a2ca05f88",
+      "verdict": "PASS",
+      "observation": "Direct original1280x960 view: lowercase Ocean LCD wordmark centered and unobscured; hard bands and glyph gaps remain crisp. Version/build/initialization text below; exact approved crop agreement1.0."
+    },
+    {
+      "profile": "upgrade-640",
+      "file": "frames/upgrade-640.png",
+      "sha256": "0e5a09b8d6a4b0b0f588b4bfa140583866f803f8d2e06a905943d234129afc94",
+      "verdict": "PASS",
+      "observation": "Direct original640x480 actual-RC2-retained-storage boot: centered lowercase Ocean LCD wordmark, crisp hard bands and glyph gaps, no overwritten logo. Version/build/loading text stays below. Exact approved crop agreement1.0."
+    },
+    {
+      "profile": "upgrade-1280",
+      "file": "frames/upgrade-1280.png",
+      "sha256": "503419c9b95944eb541f2e92276a7aad9cc5ceb18c56bd7fb644687e765024ee",
+      "verdict": "PASS",
+      "observation": "Direct original1280x960 actual-RC2-retained-storage boot: complete centered lowercase Ocean LCD wordmark, crisp hard bands and glyph gaps. Version/build/loading text below; exact approved crop agreement1.0."
+    }
+  ],
+  "remaining_profiles": []
+}

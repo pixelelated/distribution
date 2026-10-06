@@ -1,0 +1,25 @@
+{
+  "observed_utc": "2026-10-06T22:36:11.795683+00:00",
+  "pcap_sha256": "73078fd7c0000fe102ff736d2716b00d4c649594484b63eaa6e5da87ac9c4143",
+  "bytes": 238,
+  "packets": 2,
+  "outbound_packets": 2,
+  "capture_seconds": 1.0,
+  "positive_control_requests": 1,
+  "outbound_web_packets": [],
+  "dns_questions": [],
+  "upstream_dns_queries": [],
+  "ipv6_extensions": {
+    "43": 1,
+    "60": 1
+  },
+  "transport_protocols": {
+    "6": 1,
+    "58": 1
+  },
+  "icmpv6_types": {
+    "143": 1
+  },
+  "passed": true,
+  "scope": "Bounded startup/forced-update/CLI capture; no TCP/UDP80/443 or named upstream/project DNS requests. Local9045 positive required. Unsupported or fragmented traffic refuses proof; not a claim of all-protocol silence."
+}

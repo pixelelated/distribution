@@ -1,0 +1,5 @@
+qa - retain installed library pacing and recovery evidence
+
+Refs #474, #471, #361, #395. Preserve failed measurements and bind the
+corrected installed proof to unchanged product bytes and actual cleanup.
+Keep the remaining serial qualification and rebuilt-image gates explicit.
