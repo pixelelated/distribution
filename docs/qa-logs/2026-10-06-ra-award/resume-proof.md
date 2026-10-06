@@ -17,3 +17,7 @@ table diff is explicitly acknowledged in the checkpoint and preserved; closed
 #462's historical running note now carries a subsequent completion note.
 The reader also distinguished terminal alive=yes snapshots from later actual
 cleanup evidence. These are handoff clarifications, not new qualification.
+
+The same reader re-read both corrections and confirmed they resolve the
+ambiguities: the preserved table diff is explicit, and live #462 labels its
+earlier running note historical. The correction check was read-only.
