@@ -1,0 +1,31 @@
+{
+  "utc": "2026-10-06T23:28:05.941833+00:00",
+  "issue": 482,
+  "English": {
+    "YOUR CLOUD FOLDER MOVE DIDN'T FINISH.\\n\\nTRY AGAIN? FILES ALREADY MOVED WILL BE KEPT.": "COULDN'T FINISH MOVING YOUR CLOUD FOLDER.\\n\\nFILES ALREADY MOVED WILL BE KEPT. TRY AGAIN?",
+    "WHAT MOVED IS IN THE NEW FOLDER. TRY AGAIN TO FINISH.": "TRY AGAIN TO MOVE THE REMAINING FILES."
+  },
+  "French": {
+    "guidance": "RÉESSAYEZ POUR DÉPLACER LES FICHIERS RESTANTS.",
+    "prompt": "LE DÉPLACEMENT DU DOSSIER CLOUD N’EST PAS TERMINÉ.\n\nLES FICHIERS DÉJÀ DÉPLACÉS SONT CONSERVÉS. RÉESSAYER ?"
+  },
+  "files": [
+    {
+      "path": "es-app/src/guis/GuiMenu.cpp",
+      "before_sha256": "c35e6b1823a493baf4187a1ca0925ed2a925d2cc3a0256ce430499759c960a9b",
+      "after_sha256": "f37e239656b25dbb3ebaacbb74c37a4d4e97d1198c1072a9cafe42d3d03a2586"
+    },
+    {
+      "path": "locale/lang/fr/LC_MESSAGES/emulationstation2.po",
+      "before_sha256": "cee623af59722f761f152a9601b000725eff38bd9a8f1e83eab636f9fb709c7e",
+      "after_sha256": "9384ea95ee7b57594ed31e49caac7aad61bf888eb843ab27589b95f1d2701268"
+    }
+  ],
+  "rules": [
+    "D-UI-045",
+    "D-UI-031",
+    "D-UI-028",
+    "D-UI-051"
+  ],
+  "scope": "Only two localized UI strings; same move/retry callbacks, scripts, buttons and result handling. Does not promise that partial bytes are complete or that all files already reached the new folder."
+}

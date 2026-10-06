@@ -314,3 +314,7 @@ QA08 reached correct initial identity/Information but generic dismiss/reopen/cou
 - 2026-10-06 23:11 UTC — #480 fresh-root fixture explicitly stopped ES for backup and omitted restart before a checker requiring its running identity. Preserve06behavioralPASS/overallFAIL;07 restores only the fixture lifecycle and passes unchanged identity/cloud-byte checks. #479 source review also exposed current-run versus prior-run record confusion; retain the independent failing Content control and tighten before integration.
 
 - 2026-10-06 23:18 UTC — issue: #481. Historical no-join01 used a newer cloud_scan flag and expected a newer layout state; actual old source supports full scan and reports current at its own default. Require a successful historical scan and a positive direct source read before claiming the expected negative.
+
+- 2026-10-06 23:29 UTC — issue: #482. Copy-check01 was correctly refused by the per-worktree watcher lock while capacity discovery ran there; no tests executed. Fresh02 uses the idle primary checkout with matching command cwd. Source-publication receipt recorder also stopped after verified issue closures/log append on missing Python re import; resumed only checkpoint/index, without replaying completed mutations.
+
+- 2026-10-06 23:32 UTC — issue: #482. Copy-host02 passed compiler/vocabulary, then bare msgfmt was absent on hostPATH. Retained allfour127/seals/owner exits. Fresh03 uses the exact existing image-toolchain msgfmt from the earlier translation proof; all source checks pass. No package installation needed.

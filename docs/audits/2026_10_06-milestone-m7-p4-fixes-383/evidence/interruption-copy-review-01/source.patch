@@ -1,0 +1,47 @@
+diff --git a/es-app/src/guis/GuiMenu.cpp b/es-app/src/guis/GuiMenu.cpp
+index 245232524..ccce0ce42 100644
+--- a/es-app/src/guis/GuiMenu.cpp
++++ b/es-app/src/guis/GuiMenu.cpp
+@@ -5351,11 +5351,11 @@ static void cloudOfferFolder(Window* window, const CloudFolderAsk& ask)
+ 	{
+ 		LOG(LogInfo) << "cloud folder: interrupted move; offering retry";
+ 		window->pushGui(new GuiMsgBox(window,
+-			_("YOUR CLOUD FOLDER MOVE DIDN'T FINISH.\n\nTRY AGAIN? FILES ALREADY MOVED WILL BE KEPT."),
++			_("COULDN'T FINISH MOVING YOUR CLOUD FOLDER.\n\nFILES ALREADY MOVED WILL BE KEPT. TRY AGAIN?"),
+ 			_("TRY AGAIN"), [window, newRoot, rescan, abandon]
+ 			{
+ 				auto page = new GuiCloudTransfer(window, "/usr/bin/cloud_migrate_layout --apply", _("MOVING YOUR CLOUD FOLDER"));
+-				page->setFailedNote(_("WHAT MOVED IS IN THE NEW FOLDER. TRY AGAIN TO FINISH."));
++				page->setFailedNote(_("TRY AGAIN TO MOVE THE REMAINING FILES."));
+ 				page->setCompletedAction(rescan, _("CONTINUE"), _("PRESS ANY BUTTON TO CONTINUE"),
+ 					Utils::String::format(_("YOUR CLOUD FOLDER IS NOW %s.").c_str(), newRoot.c_str()), true);
+ 				if (abandon)
+@@ -5378,7 +5378,7 @@ static void cloudOfferFolder(Window* window, const CloudFolderAsk& ask)
+ 			{
+ 				LOG(LogInfo) << "cloud folder: moving " << oldRoot << " to " << newRoot;
+ 				auto page = new GuiCloudTransfer(window, "/usr/bin/cloud_migrate_layout --apply", _("MOVING YOUR CLOUD FOLDER"));
+-				page->setFailedNote(_("WHAT MOVED IS IN THE NEW FOLDER. TRY AGAIN TO FINISH."));
++				page->setFailedNote(_("TRY AGAIN TO MOVE THE REMAINING FILES."));
+ 				// One short sentence: the longer one, naming the three tiers,
+ 				// was cut at 640 px (guest d, 2026-10-01).
+ 				page->setCompletedAction(rescan, _("CONTINUE"), _("PRESS ANY BUTTON TO CONTINUE"),
+diff --git a/locale/lang/fr/LC_MESSAGES/emulationstation2.po b/locale/lang/fr/LC_MESSAGES/emulationstation2.po
+index fba916c2f..bc3b34bc2 100644
+--- a/locale/lang/fr/LC_MESSAGES/emulationstation2.po
++++ b/locale/lang/fr/LC_MESSAGES/emulationstation2.po
+@@ -6620,11 +6620,11 @@ msgstr "MISES À JOUR MANUELLES"
+ msgid "This version uses manual updates. Open github.com/pixelelated/distribution/releases on a computer, choose the update for your device, and follow the instructions."
+ msgstr "Cette version utilise des mises à jour manuelles. Sur un ordinateur, ouvrez github.com/pixelelated/distribution/releases, choisissez la mise à jour pour votre appareil, puis suivez les instructions."
+ 
+-msgid "YOUR CLOUD FOLDER MOVE DIDN'T FINISH.\n\nTRY AGAIN? FILES ALREADY MOVED WILL BE KEPT."
+-msgstr "LE DÉPLACEMENT DU DOSSIER CLOUD N'A PAS ABOUTI.\n\nRÉESSAYER ? LES FICHIERS DÉJÀ DÉPLACÉS SERONT CONSERVÉS."
++msgid "COULDN'T FINISH MOVING YOUR CLOUD FOLDER.\n\nFILES ALREADY MOVED WILL BE KEPT. TRY AGAIN?"
++msgstr "LE DÉPLACEMENT DU DOSSIER CLOUD N’EST PAS TERMINÉ.\n\nLES FICHIERS DÉJÀ DÉPLACÉS SONT CONSERVÉS. RÉESSAYER ?"
+ 
+-msgid "WHAT MOVED IS IN THE NEW FOLDER. TRY AGAIN TO FINISH."
+-msgstr "LES FICHIERS DÉPLACÉS SONT DANS LE NOUVEAU DOSSIER. RÉESSAYEZ POUR TERMINER."
++msgid "TRY AGAIN TO MOVE THE REMAINING FILES."
++msgstr "RÉESSAYEZ POUR DÉPLACER LES FICHIERS RESTANTS."
+ 
+ msgid "YOUR CLOUD FOLDER COULDN'T BE READ"
+ msgstr "IMPOSSIBLE DE LIRE VOTRE DOSSIER CLOUD"

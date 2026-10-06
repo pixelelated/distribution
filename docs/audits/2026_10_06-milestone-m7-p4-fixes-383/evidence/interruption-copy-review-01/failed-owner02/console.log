@@ -1,0 +1,13 @@
+watch-build: recording in /workspace/repos/rocknix/.build-runs/20261006T232938Z-c9c6b670
+/workspace/tmp/pixelelated-m7-p4-interruption-copy-host-02/run.sh: OK
+/workspace/tmp/pixelelated-m7-p4-interruption-copy-host-02/outer.sh: OK
+/home/max/Development/emulationstation-next.worktrees/m7-audit-remediation/es-app/src/guis/GuiMenu.cpp: OK
+/home/max/Development/emulationstation-next.worktrees/m7-audit-remediation/locale/lang/fr/LC_MESSAGES/emulationstation2.po: OK
+/workspace/repos/rocknix.worktrees/conflict-resolution/tools/es-syntax-check: OK
+/workspace/repos/rocknix.worktrees/conflict-resolution/tools/vocabulary-check: OK
+using emulationstation-bab4df649f48847cc43d21c77c058107ad902754
+  OK      /home/max/Development/emulationstation-next.worktrees/m7-audit-remediation/es-app/src/guis/GuiMenu.cpp
+PASS
+  allowed  es-app/src/guis/GuiBackupStart.cpp: BACKUP USER DATA  -- upstream batocera GuiBackupStart, hidden on ROCKNIX (no ApiSystem::BACKUP); its msgid keys translations
+vocabulary-check: 164 string(s) with back up / backup, save state or Wi-Fi judged, 0 wrong
+/workspace/tmp/pixelelated-m7-p4-interruption-copy-host-02/run.sh: line 15: msgfmt: command not found

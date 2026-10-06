@@ -1,0 +1,7 @@
+watch-build: recording in /workspace/repos/rocknix/.build-runs/20261006T233131Z-8d4f1798
+PASS diff-check
+PASS commit
+PASS integration
+PASS feature-push
+PASS integration-push
+{"verified_utc": "2026-10-06T23:31:36.213672+00:00", "commit": "72494bc72e3d64d4dcfeb4e6478052bbdf166c5b", "source_sha256": {"es-app/src/guis/GuiMenu.cpp": "f37e239656b25dbb3ebaacbb74c37a4d4e97d1198c1072a9cafe42d3d03a2586", "locale/lang/fr/LC_MESSAGES/emulationstation2.po": "9384ea95ee7b57594ed31e49caac7aad61bf888eb843ab27589b95f1d2701268"}, "source_checks": "Exact-byte interruption-copy-host03 image compiler,164 vocabulary strings, msgfmt and diff checks pass. Refused01/failed02 retained.", "normal_hooks": true, "remote_refs_verified": true, "scope": "Owner-requested English/French interruption guidance and retry prompt; actions unchanged. Actual rebuilt640/1280 visual and retry acceptance remains required under#482."}
