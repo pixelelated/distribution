@@ -1,0 +1,48 @@
+test_connection_reuses_answer_without_second_platform_lookup (linux.tests.test_linux_bounded_dns.BoundedDnsTests.test_connection_reuses_answer_without_second_platform_lookup) ... ok
+test_expired_answer_falls_back_to_platform (linux.tests.test_linux_bounded_dns.BoundedDnsTests.test_expired_answer_falls_back_to_platform) ... ok
+test_head_does_not_attempt_connection_after_dns_failure (linux.tests.test_linux_bounded_dns.BoundedDnsTests.test_head_does_not_attempt_connection_after_dns_failure) ... ok
+test_ipv6_port_reuse_preserves_flow_and_scope (linux.tests.test_linux_bounded_dns.BoundedDnsTests.test_ipv6_port_reuse_preserves_flow_and_scope) ... ok
+test_next_bounded_probe_asks_platform_again (linux.tests.test_linux_bounded_dns.BoundedDnsTests.test_next_bounded_probe_asks_platform_again) ... ok
+test_other_host_or_unavailable_family_uses_platform (linux.tests.test_linux_bounded_dns.BoundedDnsTests.test_other_host_or_unavailable_family_uses_platform) ... ok
+test_service_forwarder_returns_network_error_without_connecting (linux.tests.test_linux_bounded_dns.BoundedDnsTests.test_service_forwarder_returns_network_error_without_connecting) ... ERROR
+test_timeout_returns_before_resolver_finishes_and_worker_can_exit (linux.tests.test_linux_bounded_dns.BoundedDnsTests.test_timeout_returns_before_resolver_finishes_and_worker_can_exit) ... ok
+test_configure_logging_writes_to_service_log (linux.tests.test_linux_network.LinuxNetworkTests.test_configure_logging_writes_to_service_log) ... ok
+test_configured_ssl_context_uses_explicit_ca_file (linux.tests.test_linux_network.LinuxNetworkTests.test_configured_ssl_context_uses_explicit_ca_file) ... ok
+test_down_interface_is_not_active (linux.tests.test_linux_network.LinuxNetworkTests.test_down_interface_is_not_active) ... ok
+test_forced_probe_gives_up_after_max_attempts (linux.tests.test_linux_network.LinuxNetworkTests.test_forced_probe_gives_up_after_max_attempts) ... ok
+test_forced_probe_retries_transient_failures (linux.tests.test_linux_network.LinuxNetworkTests.test_forced_probe_retries_transient_failures) ... ok
+test_http_get_in_background_pauses_on_429_without_retrying (linux.tests.test_linux_network.LinuxNetworkTests.test_http_get_in_background_pauses_on_429_without_retrying) ... /usr/lib/python3.14/tempfile.py:484: ResourceWarning: Implicitly cleaning up <HTTPError 429: 'Too Many Requests'>
+  _warnings.warn(self.warn_message, ResourceWarning)
+ok
+test_http_get_logs_connection_errors_with_redacted_url (linux.tests.test_linux_network.LinuxNetworkTests.test_http_get_logs_connection_errors_with_redacted_url) ... ok
+test_http_get_marks_retroachievements_unreachable_on_connection_error (linux.tests.test_linux_network.LinuxNetworkTests.test_http_get_marks_retroachievements_unreachable_on_connection_error) ... ok
+test_http_get_retries_429_then_succeeds (linux.tests.test_linux_network.LinuxNetworkTests.test_http_get_retries_429_then_succeeds) ... ok
+test_http_get_surfaces_retroachievements_error_code (linux.tests.test_linux_network.LinuxNetworkTests.test_http_get_surfaces_retroachievements_error_code) ... /usr/lib/python3.14/tempfile.py:484: ResourceWarning: Implicitly cleaning up <HTTPError 403: 'Forbidden'>
+  _warnings.warn(self.warn_message, ResourceWarning)
+ok
+test_probe_logs_reason_once_while_offline (linux.tests.test_linux_network.LinuxNetworkTests.test_probe_logs_reason_once_while_offline) ... ok
+test_probe_logs_reason_when_interface_is_missing (linux.tests.test_linux_network.LinuxNetworkTests.test_probe_logs_reason_when_interface_is_missing) ... ok
+test_probe_retroachievements_returns_cached_success_without_network_call (linux.tests.test_linux_network.LinuxNetworkTests.test_probe_retroachievements_returns_cached_success_without_network_call) ... ok
+test_rate_limit_pause_lasts_at_least_ten_minutes (linux.tests.test_linux_network.LinuxNetworkTests.test_rate_limit_pause_lasts_at_least_ten_minutes) ... ok
+test_redacted_url_hides_sensitive_query_values (linux.tests.test_linux_network.LinuxNetworkTests.test_redacted_url_hides_sensitive_query_values) ... ok
+test_request_path_probe_does_not_retry (linux.tests.test_linux_network.LinuxNetworkTests.test_request_path_probe_does_not_retry) ... ok
+test_should_probe_retroachievements_false_for_recent_success (linux.tests.test_linux_network.LinuxNetworkTests.test_should_probe_retroachievements_false_for_recent_success) ... ok
+test_should_probe_retroachievements_true_after_interval (linux.tests.test_linux_network.LinuxNetworkTests.test_should_probe_retroachievements_true_after_interval) ... ok
+test_tethered_interface_with_carrier_counts_as_active (linux.tests.test_linux_network.LinuxNetworkTests.test_tethered_interface_with_carrier_counts_as_active) ... ok
+test_unknown_interface_with_unreadable_carrier_is_not_active (linux.tests.test_linux_network.LinuxNetworkTests.test_unknown_interface_with_unreadable_carrier_is_not_active) ... ok
+test_unknown_interface_without_carrier_is_not_active (linux.tests.test_linux_network.LinuxNetworkTests.test_unknown_interface_without_carrier_is_not_active) ... ok
+test_up_interface_is_active_without_carrier_file (linux.tests.test_linux_network.LinuxNetworkTests.test_up_interface_is_active_without_carrier_file) ... ok
+
+======================================================================
+ERROR: test_service_forwarder_returns_network_error_without_connecting (linux.tests.test_linux_bounded_dns.BoundedDnsTests.test_service_forwarder_returns_network_error_without_connecting)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/pixelelated-upstream-drafts-dns-proof-01/bounded-dns-fixed/linux/tests/test_linux_bounded_dns.py", line 97, in test_service_forwarder_returns_network_error_without_connecting
+    with mock.patch.object(proxy_service, "resolve_host_bounded", return_value=(False, "fixture DNS failure")), mock.patch.object(proxy_service.urllib.request, "urlopen") as connect, mock.patch.object(proxy_service, "mark_retroachievements_unreachable") as unreachable:
+                                                                                                                                  ^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'linux.raofflineproxy.proxy_service' has no attribute 'urllib'
+
+----------------------------------------------------------------------
+Ran 30 tests in 0.121s
+
+FAILED (errors=1)

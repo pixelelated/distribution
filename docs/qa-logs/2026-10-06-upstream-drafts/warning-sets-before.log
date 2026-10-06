@@ -1,0 +1,66 @@
+test_existing_cache_is_filtered_on_read_without_rewriting_history (linux.tests.test_linux_warning_sets.WarningAchievementSetTests.test_existing_cache_is_filtered_on_read_without_rewriting_history) ... FAIL
+test_filter_preserves_real_core_definitions_and_input (linux.tests.test_linux_warning_sets.WarningAchievementSetTests.test_filter_preserves_real_core_definitions_and_input) ... FAIL
+test_non_set_response_and_malformed_json_are_unchanged (linux.tests.test_linux_warning_sets.WarningAchievementSetTests.test_non_set_response_and_malformed_json_are_unchanged) ... ok
+test_online_response_and_new_cache_omit_warning (linux.tests.test_linux_warning_sets.WarningAchievementSetTests.test_online_response_and_new_cache_omit_warning) ... FAIL
+
+======================================================================
+FAIL: test_existing_cache_is_filtered_on_read_without_rewriting_history (linux.tests.test_linux_warning_sets.WarningAchievementSetTests.test_existing_cache_is_filtered_on_read_without_rewriting_history)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/pixelelated-upstream-drafts-distribution-proof-01/warning-sets-before/linux/tests/test_linux_warning_sets.py", line 44, in test_existing_cache_is_filtered_on_read_without_rewriting_history
+    self.assert_sets(json.loads(response.split(b"\r\n\r\n", 1)[1]))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/pixelelated-upstream-drafts-distribution-proof-01/warning-sets-before/linux/tests/test_linux_warning_sets.py", line 33, in assert_sets
+    self.assertEqual([[a["ID"] for a in s["Achievements"]] for s in payload["Sets"]], [[12, 14], [22]])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: [[101000001, 12, 14], [101000001, 22]] != [[12, 14], [22]]
+
+First differing element 0:
+[101000001, 12, 14]
+[12, 14]
+
+- [[101000001, 12, 14], [101000001, 22]]
++ [[12, 14], [22]]
+
+======================================================================
+FAIL: test_filter_preserves_real_core_definitions_and_input (linux.tests.test_linux_warning_sets.WarningAchievementSetTests.test_filter_preserves_real_core_definitions_and_input)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/pixelelated-upstream-drafts-distribution-proof-01/warning-sets-before/linux/tests/test_linux_warning_sets.py", line 37, in test_filter_preserves_real_core_definitions_and_input
+    self.assert_sets(rom_cache.filter_warning_achievement_definitions(self.payload))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/pixelelated-upstream-drafts-distribution-proof-01/warning-sets-before/linux/tests/test_linux_warning_sets.py", line 33, in assert_sets
+    self.assertEqual([[a["ID"] for a in s["Achievements"]] for s in payload["Sets"]], [[12, 14], [22]])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: [[101000001, 12, 14], [101000001, 22]] != [[12, 14], [22]]
+
+First differing element 0:
+[101000001, 12, 14]
+[12, 14]
+
+- [[101000001, 12, 14], [101000001, 22]]
++ [[12, 14], [22]]
+
+======================================================================
+FAIL: test_online_response_and_new_cache_omit_warning (linux.tests.test_linux_warning_sets.WarningAchievementSetTests.test_online_response_and_new_cache_omit_warning)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/pixelelated-upstream-drafts-distribution-proof-01/warning-sets-before/linux/tests/test_linux_warning_sets.py", line 52, in test_online_response_and_new_cache_omit_warning
+    self.assert_sets(json.loads(response.split(b"\r\n\r\n", 1)[1]))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/pixelelated-upstream-drafts-distribution-proof-01/warning-sets-before/linux/tests/test_linux_warning_sets.py", line 33, in assert_sets
+    self.assertEqual([[a["ID"] for a in s["Achievements"]] for s in payload["Sets"]], [[12, 14], [22]])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: [[101000001, 12, 14], [101000001, 22]] != [[12, 14], [22]]
+
+First differing element 0:
+[101000001, 12, 14]
+[12, 14]
+
+- [[101000001, 12, 14], [101000001, 22]]
++ [[12, 14], [22]]
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.004s
+
+FAILED (failures=3)

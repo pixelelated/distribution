@@ -1,0 +1,87 @@
+--- a/linux/raofflineproxy/rom_cache.py
++++ b/linux/raofflineproxy/rom_cache.py
+@@ -40,6 +40,12 @@
+ 
+ 
+ def filter_warning_achievement_definitions(payload: dict) -> dict:
++    # RetroAchievements prepends its client warning (CLIENT_WARNING_ID,
++    # "Warning: Casual Only" for a client it allows casual unlocks from) to
++    # the first set with Flags=3, the same flag as a core achievement, so the
++    # Flags filter below keeps it. Drop it by id as the patch, unlocks and
++    # startsession filters do, or the emulator counts it in the set and
++    # awards it a few seconds into every session.
+     filtered_payload = json.loads(json.dumps(payload))
+ 
+     sets = filtered_payload.get("Sets")
+@@ -56,6 +62,7 @@
+                 achievement
+                 for achievement in achievements
+                 if isinstance(achievement, dict)
++                and achievement.get("ID") != WARNING_ACHIEVEMENT_ID
+                 and achievement.get("Flags", RC_ACHIEVEMENT_FLAG_CORE) == RC_ACHIEVEMENT_FLAG_CORE
+             ]
+ 
+--- /dev/null
++++ b/linux/tests/test_linux_warning_sets.py
+@@ -0,0 +1,61 @@
++import copy
++import json
++import tempfile
++import unittest
++from pathlib import Path
++from unittest import mock
++
++from linux.raofflineproxy import proxy_service, rom_cache, storage
++
++
++class WarningAchievementSetTests(unittest.TestCase):
++    def setUp(self):
++        self.temp = tempfile.TemporaryDirectory()
++        self.addCleanup(self.temp.cleanup)
++        patcher = mock.patch.object(storage, "ensure_config_dir")
++        patcher.start()
++        self.addCleanup(patcher.stop)
++        self.store = storage.Storage(Path(self.temp.name) / "cache.sqlite3")
++        self.addCleanup(self.store.close)
++        self.server = object.__new__(proxy_service.ProxyRuntimeServer)
++        self.server.storage = self.store
++        self.server.config_data = {"cache_images": False}
++        self.server._proxy_base_url = lambda: "http://127.0.0.1:12345"
++        self.path = "/dorequest.php?r=achievementsets&m=fixture&u=testuser"
++        self.key = proxy_service.cache_key_for_request(self.path, "")
++        self.payload = {"Success": True, "Sets": [
++            {"ID": 42, "Achievements": [{"ID": 101000001, "Flags": 3}, {"ID": 12, "Flags": 3}, {"ID": 13, "Flags": 5}, {"ID": 14}]},
++            {"ID": 43, "Achievements": [{"ID": 101000001, "Flags": 3}, {"ID": 22, "Flags": 3}]},
++        ]}
++
++    def assert_sets(self, payload):
++        self.assertEqual([s["ID"] for s in payload["Sets"]], [42, 43])
++        self.assertEqual([[a["ID"] for a in s["Achievements"]] for s in payload["Sets"]], [[12, 14], [22]])
++
++    def test_filter_preserves_real_core_definitions_and_input(self):
++        original = copy.deepcopy(self.payload)
++        self.assert_sets(rom_cache.filter_warning_achievement_definitions(self.payload))
++        self.assertEqual(self.payload, original)
++
++    def test_existing_cache_is_filtered_on_read_without_rewriting_history(self):
++        body = json.dumps(self.payload)
++        self.store.upsert_cache(self.key, body)
++        response = self.server.handle_offline_request(self.path, "", "achievementsets")
++        self.assert_sets(json.loads(response.split(b"\r\n\r\n", 1)[1]))
++        self.assertEqual(self.store.get_cache(self.key)["responseBody"], body)
++
++    def test_online_response_and_new_cache_omit_warning(self):
++        body = json.dumps(self.payload)
++        result = ("success", 200, "OK", body.encode(), "application/json", body)
++        with mock.patch.object(self.server, "forward_to_upstream_result", return_value=result), mock.patch.object(proxy_service, "image_caching_enabled", return_value=False):
++            response = self.server.handle_online_request("GET", self.path, "", "achievementsets", {})
++        self.assert_sets(json.loads(response.split(b"\r\n\r\n", 1)[1]))
++        self.assert_sets(json.loads(self.store.get_cache(self.key)["responseBody"]))
++
++    def test_non_set_response_and_malformed_json_are_unchanged(self):
++        self.assertEqual(rom_cache.filter_warning_achievements_for_action("gameid", '{"GameID":42}'), '{"GameID":42}')
++        self.assertEqual(rom_cache.filter_warning_achievements_for_action("achievementsets", "invalid"), "invalid")
++
++
++if __name__ == "__main__":
++    unittest.main()

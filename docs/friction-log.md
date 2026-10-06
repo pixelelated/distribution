@@ -226,3 +226,5 @@ QA08 reached correct initial identity/Information but generic dismiss/reopen/cou
 - 2026-10-06 01:30 UTC — Cleanup runtime preservation assumed every ELF-looking executable fixture had a valid byte-order field; pypackaging deliberately carries malformed ELF fixtures. Runtime01 stopped with four rc1 channels and no source mutation. Classify malformed fixtures as opaque bytes and preserve them; retain the failure and use a fresh sealed owner. issue: #458
 
 - 2026-10-06 01:53 UTC — Publication stopped before commit on the generated timing report's trailing blank line. Retain raw proof bytes and explicitly scope the authored-file whitespace check; no hook bypass. Failed publication log retained. issue: #383
+
+- 2026-10-06 04:08 UTC — Standalone proxy preparation exposed005 context coupled to001; the first rewrite failed before tests. Regenerate against pristine upstream and reapply at fuzz0. Existing award tests also require local sockets: sandbox permission errors were preserved and the unchanged suite passed with socket access. Guard: `docs/qa-logs/2026-10-06-upstream-drafts/verify-drafts.py`; issue: #168.

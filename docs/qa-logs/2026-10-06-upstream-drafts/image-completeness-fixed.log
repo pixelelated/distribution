@@ -1,0 +1,21 @@
+test_complete_png_with_trailing_bytes_is_kept (linux.tests.test_linux_image_completeness.ImageCompletenessTests.test_complete_png_with_trailing_bytes_is_kept) ... ok
+test_existing_image_is_not_refetched_or_replaced (linux.tests.test_linux_image_completeness.ImageCompletenessTests.test_existing_image_is_not_refetched_or_replaced) ... ok
+test_incomplete_or_corrupt_png_is_not_published_and_can_be_retried (linux.tests.test_linux_image_completeness.ImageCompletenessTests.test_incomplete_or_corrupt_png_is_not_published_and_can_be_retried) ... ok
+test_matching_or_absent_length_passes_body_unchanged (linux.tests.test_linux_image_completeness.ImageCompletenessTests.test_matching_or_absent_length_passes_body_unchanged) ... ok
+test_short_reused_connection_body_is_rejected_and_connection_dropped (linux.tests.test_linux_image_completeness.ImageCompletenessTests.test_short_reused_connection_body_is_rejected_and_connection_dropped) ... ok
+test_short_urllib_body_is_rejected_before_publication (linux.tests.test_linux_image_completeness.ImageCompletenessTests.test_short_urllib_body_is_rejected_before_publication) ... ok
+test_a_connection_the_server_closed_is_replaced (linux.tests.test_linux_image_cache_shutdown.ImageConnectionReuseTests.test_a_connection_the_server_closed_is_replaced) ... ok
+test_anything_but_200_goes_through_urllib (linux.tests.test_linux_image_cache_shutdown.ImageConnectionReuseTests.test_anything_but_200_goes_through_urllib) ... ok
+test_images_share_one_connection_per_thread (linux.tests.test_linux_image_cache_shutdown.ImageConnectionReuseTests.test_images_share_one_connection_per_thread) ... ok
+test_batch_downloads_run_at_normal_priority_and_lazy_ones_at_the_lowest (linux.tests.test_linux_image_cache_shutdown.ImageDownloadPriorityTests.test_batch_downloads_run_at_normal_priority_and_lazy_ones_at_the_lowest) ... ok
+test_queued_downloads_do_not_hold_up_interpreter_exit (linux.tests.test_linux_image_cache_shutdown.ImageDownloadShutdownTests.test_queued_downloads_do_not_hold_up_interpreter_exit) ... ok
+test_shutdown_is_safe_to_call_when_nothing_was_queued (linux.tests.test_linux_image_cache_shutdown.ImageDownloadShutdownTests.test_shutdown_is_safe_to_call_when_nothing_was_queued) ... ok
+test_a_download_lands_in_its_shard_folder (linux.tests.test_linux_image_cache_shutdown.ShardedStaticImagesTests.test_a_download_lands_in_its_shard_folder) ... ok
+test_a_missing_image_is_not_found (linux.tests.test_linux_image_cache_shutdown.ShardedStaticImagesTests.test_a_missing_image_is_not_found) ... ok
+test_badges_spread_over_many_folders (linux.tests.test_linux_image_cache_shutdown.ShardedStaticImagesTests.test_badges_spread_over_many_folders) ... ok
+test_images_cached_before_sharding_are_still_found_and_not_downloaded_again (linux.tests.test_linux_image_cache_shutdown.ShardedStaticImagesTests.test_images_cached_before_sharding_are_still_found_and_not_downloaded_again) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 2.164s
+
+OK

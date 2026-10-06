@@ -1,0 +1,144 @@
+--- a/linux/raofflineproxy/auth.py
++++ b/linux/raofflineproxy/auth.py
+@@ -47,10 +47,6 @@
+     if token_credentials is not None:
+         return cache_token_credentials(storage, token_credentials)
+ 
+-    cached = storage.load_login_credentials()
+-    if cached is not None and not storage.is_token_invalid(cached["token"]):
+-        return cached
+-
+     # spruce keeps its credentials in its own settings file and only copies them into
+     # the RetroArch config when a game launches, so before the first launch that file is
+     # the only source.
+@@ -60,6 +56,23 @@
+         or load_rocknix_system_password_credentials(rocknix_system_cfg)
+         or load_spruce_credentials()
+     )
++
++    # A cached sign-in is taken only when it is the configured account's.
++    # When a password names the account, the cached row looked up is that
++    # user's; the first login row in the store, whoever's it is, was what
++    # this returned before -- so a device that had signed in as one account
++    # and now holds another's password (and no token yet) kept caching,
++    # refreshing and flushing as the first.
++    expected_user = ""
++    if password_credentials is not None:
++        expected_user = cache_keys.normalize_user(str(password_credentials.get("user") or ""))
++    if expected_user:
++        cached = load_cached_login_for(storage, expected_user)
++    else:
++        cached = storage.load_login_credentials()
++    if cached is not None and not storage.is_token_invalid(cached["token"]):
++        return cached
++
+     if password_credentials is not None:
+         refreshed = login_and_cache_token(
+             storage, config_data, password_credentials, user_agent
+@@ -68,6 +81,22 @@
+             return refreshed
+ 
+     return cached
++
++
++def load_cached_login_for(storage: Storage, user: str) -> dict | None:
++    """The cached sign-in of one account, by its login row, or None."""
++    entry = storage.get_cache(cache_keys.login(user))
++    if entry is None:
++        return None
++    try:
++        payload = json.loads(entry["responseBody"])
++    except Exception:
++        return None
++    cached_user = payload.get("User")
++    token = payload.get("Token")
++    if not cached_user or not token:
++        return None
++    return {"user": cached_user, "token": token}
+ 
+ 
+ def cache_token_credentials(storage: Storage, credentials: dict) -> dict | None:
+--- /dev/null
++++ b/linux/tests/test_linux_configured_login.py
+@@ -0,0 +1,81 @@
++import json
++import tempfile
++import unittest
++from pathlib import Path
++from unittest import mock
++
++from linux.raofflineproxy import auth, cache_keys, storage
++
++
++def credentials(user):
++    return {"user": user, "token": "fixture-" + user}
++
++
++class ConfiguredLoginTests(unittest.TestCase):
++    def setUp(self):
++        self.temp = tempfile.TemporaryDirectory()
++        self.addCleanup(self.temp.cleanup)
++        root = Path(self.temp.name)
++        for name, value in (("load_spruce_credentials", None), ("detect_rocknix_system_cfg", str(root / "missing-system.cfg")), ("cheevos_append_cfg_path", root / "missing-append.cfg")):
++            patcher = mock.patch.object(auth, name, return_value=value)
++            patcher.start()
++            self.addCleanup(patcher.stop)
++        patcher = mock.patch.object(storage, "ensure_config_dir")
++        patcher.start()
++        self.addCleanup(patcher.stop)
++        self.store = storage.Storage(root / "cache.sqlite3")
++        self.addCleanup(self.store.close)
++        self.cfg = root / "retroarch.cfg"
++        self.config = {"retroarch_cfg": str(self.cfg)}
++        self.cache("alice")
++        self.cfg.write_text('cheevos_username = "bob"\ncheevos_password = "fixture-only"\n')
++        patcher = mock.patch.object(auth, "login_and_cache_token", return_value=None)
++        self.login = patcher.start()
++        self.addCleanup(patcher.stop)
++
++    def cache(self, user):
++        value = credentials(user)
++        self.store.upsert_cache(cache_keys.login(user), json.dumps({"Success": True, "User": value["user"], "Token": value["token"]}))
++        return value
++
++    def test_selects_configured_account_from_two_cached_accounts(self):
++        expected = self.cache("bob")
++        self.assertEqual(auth.resolve_credentials(self.store, self.config), expected)
++        self.login.assert_not_called()
++
++    def test_other_account_cache_does_not_block_new_sign_in(self):
++        expected = credentials("bob")
++        self.login.return_value = expected
++        self.assertEqual(auth.resolve_credentials(self.store, self.config), expected)
++        self.assertEqual(self.login.call_args.args[2]["user"], "bob")
++        self.assertEqual(json.loads(self.store.get_cache(cache_keys.login("alice"))["responseBody"])["User"], "alice")
++
++    def test_failed_sign_in_does_not_fall_back_to_other_account(self):
++        self.assertIsNone(auth.resolve_credentials(self.store, self.config))
++        self.login.assert_called_once()
++
++    def test_configured_name_matches_case_insensitive_cache_key(self):
++        expected = self.cache("bob")
++        self.cfg.write_text('cheevos_username = "BOB"\ncheevos_password = "fixture-only"\n')
++        self.assertEqual(auth.resolve_credentials(self.store, self.config), expected)
++        self.login.assert_not_called()
++
++    def test_explicit_token_still_takes_precedence(self):
++        self.cfg.write_text('cheevos_username = "bob"\ncheevos_token = "fixture-bob"\n')
++        self.assertEqual(auth.resolve_credentials(self.store, self.config), credentials("bob"))
++        self.login.assert_not_called()
++
++    def test_no_configured_account_keeps_cached_login_fallback(self):
++        self.cfg.write_text("")
++        self.assertEqual(auth.resolve_credentials(self.store, self.config), credentials("alice"))
++        self.login.assert_not_called()
++
++    def test_malformed_configured_row_triggers_login(self):
++        self.store.upsert_cache(cache_keys.login("bob"), "invalid-json")
++        self.login.return_value = credentials("bob")
++        self.assertEqual(auth.resolve_credentials(self.store, self.config), credentials("bob"))
++        self.login.assert_called_once()
++
++
++if __name__ == "__main__":
++    unittest.main()

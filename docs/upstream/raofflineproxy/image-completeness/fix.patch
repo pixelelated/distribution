@@ -1,0 +1,207 @@
+--- a/linux/raofflineproxy/image_cache.py
++++ b/linux/raofflineproxy/image_cache.py
+@@ -208,7 +208,12 @@
+             target.parent.mkdir(parents=True, exist_ok=True)
+             tmp = target.with_suffix(target.suffix + ".tmp")
+             try:
+-                tmp.write_bytes(_fetch_image(url, user_agent))
++                payload = _fetch_image(url, user_agent)
++                if clean_path.lower().endswith(".png"):
++                    problem = png_problem(payload)
++                    if problem is not None:
++                        raise ValueError(problem)
++                tmp.write_bytes(payload)
+                 tmp.rename(target)
+                 tmp = None
+             finally:
+@@ -252,7 +257,11 @@
+             _drop_thread_connection(parts.netloc)
+         if response.status != _HTTP_OK:
+             return _fetch_with_urllib(url, user_agent)
+-        return body
++        try:
++            return _checked_image_body(response, body)
++        except ValueError:
++            _drop_thread_connection(parts.netloc)
++            raise
+     raise OSError(f"could not fetch {url}")
+ 
+ 
+@@ -263,7 +272,14 @@
+         method="GET",
+     )
+     with urllib.request.urlopen(request, timeout=10, context=configured_ssl_context()) as response:
+-        return response.read()
++        return _checked_image_body(response, response.read())
++
++
++def _checked_image_body(response, payload: bytes) -> bytes:
++    declared = response.getheader("Content-Length")
++    if declared is not None and declared.isdigit() and len(payload) != int(declared):
++        raise ValueError(f"short read: {len(payload)} of {declared} bytes")
++    return payload
+ 
+ 
+ def _thread_connection(host: str) -> http.client.HTTPSConnection:
+@@ -380,3 +396,43 @@
+ def clear_all_cached_images() -> None:
+     if IMAGE_CACHE_DIR.exists():
+         shutil.rmtree(IMAGE_CACHE_DIR, ignore_errors=True)
++
++
++def png_problem(payload: bytes) -> str | None:
++    """Why payload is not a whole PNG, or None when it is.
++
++    The signature; every chunk's length and CRC, up to and including IEND;
++    and IDAT data that inflates. The frame alone -- signature and an IEND in
++    the last twelve bytes -- admitted a body whose image data was garbage
++    (ROCKNIX audit #258, the seat's G-01) and refused a whole PNG an encoder
++    had followed with a few bytes after its IEND, which readers ignore (audit
++    #308 F-RA-13): such a badge was dropped at every fetch and never cached.
++    So the chunk walk is the test, and it ends at IEND wherever IEND is. A
++    few microseconds per badge. One test for a download and for a file
++    already cached (ROCKNIX's raofflineproxy-cache-images --verify, #308
++    F-RA-12). Written for ROCKNIX (fork maxengel/rocknix#213).
++    """
++    if not payload.startswith(b"\x89PNG\r\n\x1a\n"):
++        return "not a PNG"
++    pos, idat, ended = 8, b"", False
++    while pos + 12 <= len(payload):
++        length = int.from_bytes(payload[pos:pos + 4], "big")
++        ctype = payload[pos + 4:pos + 8]
++        data = payload[pos + 8:pos + 8 + length]
++        crc = payload[pos + 8 + length:pos + 12 + length]
++        if len(data) != length or len(crc) != 4 or (zlib.crc32(ctype + data) & 0xFFFFFFFF) != int.from_bytes(crc, "big"):
++            return f"PNG chunk {ctype!r} fails its CRC"
++        if ctype == b"IDAT":
++            idat += data
++        pos += 12 + length
++        if ctype == b"IEND":
++            ended = True
++            break
++    if not ended:
++        return "no IEND: the PNG is cut short"
++    try:
++        zlib.decompress(idat)
++    except zlib.error as exc:
++        return f"PNG image data does not inflate: {exc}"
++    return None
++
+--- a/linux/tests/test_linux_image_cache_shutdown.py
++++ b/linux/tests/test_linux_image_cache_shutdown.py
+@@ -64,6 +64,9 @@
+                 self.status = status
+                 self.will_close = False
+ 
++            def getheader(self, _name):
++                return "3"
++
+             def read(self) -> bytes:
+                 return b"png"
+ 
+@@ -173,7 +176,9 @@
+     def test_a_download_lands_in_its_shard_folder(self) -> None:
+         from unittest import mock
+ 
+-        with mock.patch.object(self.image_cache, "_fetch_image", return_value=b"png"):
++        # This test isolates sharded placement; publication validity has its own controls.
++        with mock.patch.object(self.image_cache, "png_problem", return_value=None), \
++                mock.patch.object(self.image_cache, "_fetch_image", return_value=b"png"):
+             self.image_cache.download_static_image("https://media/Badge/123456.png", "/Badge/123456.png", "ua")
+ 
+         expected = self.image_cache.sharded_static_path("Badge/123456.png")
+--- /dev/null
++++ b/linux/tests/test_linux_image_completeness.py
+@@ -0,0 +1,92 @@
++import struct
++import tempfile
++import unittest
++import zlib
++from pathlib import Path
++from unittest import mock
++
++from linux.raofflineproxy import image_cache
++
++
++def chunk(kind, payload):
++    return struct.pack(">I", len(payload)) + kind + payload + struct.pack(">I", zlib.crc32(kind + payload) & 0xffffffff)
++
++
++def png(idat=None):
++    image = zlib.compress(b"\x00\xff\x00\x00") if idat is None else idat
++    return b"\x89PNG\r\n\x1a\n" + chunk(b"IHDR", struct.pack(">IIBBBBB", 1, 1, 8, 2, 0, 0, 0)) + chunk(b"IDAT", image) + chunk(b"IEND", b"")
++
++
++class ImageCompletenessTests(unittest.TestCase):
++    def setUp(self):
++        temp = tempfile.TemporaryDirectory()
++        self.addCleanup(temp.cleanup)
++        self.root = Path(temp.name)
++        for name, path in (("STATIC_DIR", self.root / "static"), ("GAMES_DIR", self.root / "games")):
++            patcher = mock.patch.object(image_cache, name, path)
++            patcher.start()
++            self.addCleanup(patcher.stop)
++        self.target = image_cache.sharded_static_path("Badge/42.png")
++
++    def download(self, body):
++        with mock.patch.object(image_cache, "_fetch_image", return_value=body):
++            image_cache.download_static_image("https://fixture.invalid/Badge/42.png", "/Badge/42.png", "fixture")
++
++    def test_incomplete_or_corrupt_png_is_not_published_and_can_be_retried(self):
++        good = png()
++        broken_crc = good[:-1] + bytes([good[-1] ^ 1])
++        for bad in (b"not a png", good[:-12], broken_crc, png(b"not zlib")):
++            with self.subTest(body=bad[:12]):
++                self.download(bad)
++                self.assertFalse(self.target.exists())
++                self.assertEqual(list(self.root.rglob("*.tmp")), [])
++        self.download(good)
++        self.assertEqual(self.target.read_bytes(), good)
++
++    def test_complete_png_with_trailing_bytes_is_kept(self):
++        good = png() + b"allowed trailer"
++        self.download(good)
++        self.assertEqual(self.target.read_bytes(), good)
++
++    def test_existing_image_is_not_refetched_or_replaced(self):
++        good = png()
++        self.download(good)
++        with mock.patch.object(image_cache, "_fetch_image", side_effect=AssertionError("unexpected network")) as fetch:
++            image_cache.download_static_image("https://fixture.invalid/Badge/42.png", "/Badge/42.png", "fixture")
++        fetch.assert_not_called()
++        self.assertEqual(self.target.read_bytes(), good)
++
++    def test_short_urllib_body_is_rejected_before_publication(self):
++        response = mock.MagicMock()
++        response.__enter__.return_value = response
++        response.getheader.return_value = "100"
++        response.read.return_value = b"short"
++        with mock.patch.object(image_cache.urllib.request, "urlopen", return_value=response):
++            with self.assertRaises(ValueError):
++                image_cache._fetch_with_urllib("https://fixture.invalid/Badge/42.png", "fixture")
++
++    def test_short_reused_connection_body_is_rejected_and_connection_dropped(self):
++        response = mock.Mock(status=200, will_close=False)
++        response.getheader.return_value = "100"
++        response.read.return_value = b"short"
++        connection = mock.Mock()
++        connection.getresponse.return_value = response
++        with mock.patch.object(image_cache, "_thread_connection", return_value=connection), mock.patch.object(image_cache, "_drop_thread_connection") as drop:
++            with self.assertRaises(ValueError):
++                image_cache._fetch_image("https://fixture.invalid/Badge/42.png", "fixture")
++        drop.assert_called_with("fixture.invalid")
++
++    def test_matching_or_absent_length_passes_body_unchanged(self):
++        good = png()
++        for declared in (str(len(good)), None):
++            with self.subTest(declared=declared):
++                response = mock.MagicMock()
++                response.__enter__.return_value = response
++                response.getheader.return_value = declared
++                response.read.return_value = good
++                with mock.patch.object(image_cache.urllib.request, "urlopen", return_value=response):
++                    self.assertEqual(image_cache._fetch_with_urllib("https://fixture.invalid/Badge/42.png", "fixture"), good)
++
++
++if __name__ == "__main__":
++    unittest.main()

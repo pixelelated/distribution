@@ -1,0 +1,79 @@
+test_active_gameplay_defers_refresh (linux.tests.test_linux_refresh_resilience.RefreshResilienceTests.test_active_gameplay_defers_refresh) ... ok
+test_auth_failure_ends_pass_without_trying_other_games (linux.tests.test_linux_refresh_resilience.RefreshResilienceTests.test_auth_failure_ends_pass_without_trying_other_games) ... Periodic refresh failed for game 1: rejected
+FAIL
+test_next_interval_survives_pass_level_exception (linux.tests.test_linux_refresh_resilience.RefreshResilienceTests.test_next_interval_survives_pass_level_exception) ... ERROR
+test_rate_limit_ends_pass_after_failed_game (linux.tests.test_linux_refresh_resilience.RefreshResilienceTests.test_rate_limit_ends_pass_after_failed_game) ... Periodic refresh failed for game 1: slow down
+Periodic refresh stopped; RetroAchievements answered 429
+ok
+test_success_resets_failure_streak (linux.tests.test_linux_refresh_resilience.RefreshResilienceTests.test_success_resets_failure_streak) ... Periodic refresh failed for game 1: offline
+Periodic refresh failed for game 2: offline
+Periodic refresh failed for game 4: offline
+Periodic refresh failed for game 5: offline
+ok
+test_three_consecutive_failures_end_pass (linux.tests.test_linux_refresh_resilience.RefreshResilienceTests.test_three_consecutive_failures_end_pass) ... Periodic refresh failed for game 1: offline
+Periodic refresh failed for game 2: offline
+Periodic refresh failed for game 3: offline
+Periodic refresh failed for game 4: offline
+FAIL
+
+======================================================================
+ERROR: test_next_interval_survives_pass_level_exception (linux.tests.test_linux_refresh_resilience.RefreshResilienceTests.test_next_interval_survives_pass_level_exception)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/pixelelated-upstream-drafts-distribution-proof-01/refresh-resilience-before/linux/tests/test_linux_refresh_resilience.py", line 52, in test_next_interval_survives_pass_level_exception
+    self.worker.run()
+    ~~~~~~~~~~~~~~~^^
+  File "/tmp/pixelelated-upstream-drafts-distribution-proof-01/refresh-resilience-before/linux/raofflineproxy/proxy_service.py", line 1041, in run
+    credentials = resolve_credentials(
+        self.server.storage,
+        self.server.config_data,
+        user_agent,
+    )
+  File "/usr/lib/python3.14/unittest/mock.py", line 1176, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/unittest/mock.py", line 1180, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/unittest/mock.py", line 1245, in _execute_mock_call
+    raise result
+OSError: fixture failure
+
+======================================================================
+FAIL: test_auth_failure_ends_pass_without_trying_other_games (linux.tests.test_linux_refresh_resilience.RefreshResilienceTests.test_auth_failure_ends_pass_without_trying_other_games)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/pixelelated-upstream-drafts-distribution-proof-01/refresh-resilience-before/linux/tests/test_linux_refresh_resilience.py", line 31, in test_auth_failure_ends_pass_without_trying_other_games
+    self.assertEqual((count, calls), (0, [1]))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (2, [1, 2, 3]) != (0, [1])
+
+First differing element 0:
+2
+0
+
+- (2, [1, 2, 3])
++ (0, [1])
+
+======================================================================
+FAIL: test_three_consecutive_failures_end_pass (linux.tests.test_linux_refresh_resilience.RefreshResilienceTests.test_three_consecutive_failures_end_pass)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/pixelelated-upstream-drafts-distribution-proof-01/refresh-resilience-before/linux/tests/test_linux_refresh_resilience.py", line 35, in test_three_consecutive_failures_end_pass
+    self.assertEqual((count, calls), (0, [1, 2, 3]))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (0, [1, 2, 3, 4]) != (0, [1, 2, 3])
+
+First differing element 1:
+[1, 2, 3, 4]
+[1, 2, 3]
+
+- (0, [1, 2, 3, 4])
+?             ---
+
++ (0, [1, 2, 3])
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.003s
+
+FAILED (failures=2, errors=1)

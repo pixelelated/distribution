@@ -1,0 +1,93 @@
+test_active_gameplay_defers_refresh (linux.tests.test_linux_refresh_resilience.RefreshResilienceTests.test_active_gameplay_defers_refresh) ... ok
+test_auth_failure_ends_pass_without_trying_other_games (linux.tests.test_linux_refresh_resilience.RefreshResilienceTests.test_auth_failure_ends_pass_without_trying_other_games) ... Periodic refresh: sign-in refused (rejected); ending the pass
+ok
+test_next_interval_survives_pass_level_exception (linux.tests.test_linux_refresh_resilience.RefreshResilienceTests.test_next_interval_survives_pass_level_exception) ... Periodic refresh pass failed; the next runs in 3600s
+Traceback (most recent call last):
+  File "/tmp/pixelelated-upstream-drafts-distribution-proof-01/refresh-resilience-fixed/linux/raofflineproxy/proxy_service.py", line 1042, in run
+    self.run_pass()
+    ~~~~~~~~~~~~~^^
+  File "/tmp/pixelelated-upstream-drafts-distribution-proof-01/refresh-resilience-fixed/linux/raofflineproxy/proxy_service.py", line 1053, in run_pass
+    credentials = resolve_credentials(
+        self.server.storage,
+        self.server.config_data,
+        user_agent,
+    )
+  File "/usr/lib/python3.14/unittest/mock.py", line 1176, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/unittest/mock.py", line 1180, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/unittest/mock.py", line 1245, in _execute_mock_call
+    raise result
+OSError: fixture failure
+ok
+test_rate_limit_ends_pass_after_failed_game (linux.tests.test_linux_refresh_resilience.RefreshResilienceTests.test_rate_limit_ends_pass_after_failed_game) ... Periodic refresh: game 1 not refreshed: slow down
+Periodic refresh stopped; RetroAchievements answered 429
+ok
+test_success_resets_failure_streak (linux.tests.test_linux_refresh_resilience.RefreshResilienceTests.test_success_resets_failure_streak) ... Periodic refresh: game 1 not refreshed: offline
+Periodic refresh: game 2 not refreshed: offline
+Periodic refresh: game 4 not refreshed: offline
+Periodic refresh: game 5 not refreshed: offline
+ok
+test_three_consecutive_failures_end_pass (linux.tests.test_linux_refresh_resilience.RefreshResilienceTests.test_three_consecutive_failures_end_pass) ... Periodic refresh: game 1 not refreshed: offline
+Periodic refresh: game 2 not refreshed: offline
+Periodic refresh: game 3 not refreshed: offline
+Periodic refresh: 3 fetches failed in a row; ending the pass
+ok
+test_already_cached_game_is_not_downloaded_again (linux.tests.test_linux_refresh_scope.AlreadyCachedTests.test_already_cached_game_is_not_downloaded_again) ... ok
+test_already_cached_game_records_rom_path (linux.tests.test_linux_refresh_scope.AlreadyCachedTests.test_already_cached_game_records_rom_path) ... ok
+test_new_game_is_downloaded (linux.tests.test_linux_refresh_scope.AlreadyCachedTests.test_new_game_is_downloaded) ... ok
+test_caches_genuine_no_match (linux.tests.test_linux_refresh_scope.CacheableGameIdResponseTests.test_caches_genuine_no_match) ... ok
+test_caches_match (linux.tests.test_linux_refresh_scope.CacheableGameIdResponseTests.test_caches_match) ... ok
+test_caches_match_without_success_flag (linux.tests.test_linux_refresh_scope.CacheableGameIdResponseTests.test_caches_match_without_success_flag) ... ok
+test_skips_error_response (linux.tests.test_linux_refresh_scope.CacheableGameIdResponseTests.test_skips_error_response) ... ok
+test_skips_no_match_without_success_flag (linux.tests.test_linux_refresh_scope.CacheableGameIdResponseTests.test_skips_no_match_without_success_flag) ... ok
+test_skips_non_json_and_empty_bodies (linux.tests.test_linux_refresh_scope.CacheableGameIdResponseTests.test_skips_non_json_and_empty_bodies) ... ok
+test_deduplicates_games_cached_for_several_users (linux.tests.test_linux_refresh_scope.DueRefreshGameIdsTests.test_deduplicates_games_cached_for_several_users) ... ok
+test_nothing_due_when_nothing_played (linux.tests.test_linux_refresh_scope.DueRefreshGameIdsTests.test_nothing_due_when_nothing_played) ... ok
+test_only_recently_played_games_are_due (linux.tests.test_linux_refresh_scope.DueRefreshGameIdsTests.test_only_recently_played_games_are_due) ... ok
+test_json_eviction_keeps_game_data (linux.tests.test_linux_refresh_scope.EvictionTests.test_json_eviction_keeps_game_data) ... ok
+test_sqlite_eviction_keeps_game_data (linux.tests.test_linux_refresh_scope.EvictionTests.test_sqlite_eviction_keeps_game_data) ... ok
+test_cached_match_skips_lookup (linux.tests.test_linux_refresh_scope.FetchGameIdCacheTests.test_cached_match_skips_lookup) ... ok
+test_error_response_is_not_cached (linux.tests.test_linux_refresh_scope.FetchGameIdCacheTests.test_error_response_is_not_cached) ... ok
+test_expired_no_match_is_looked_up_again (linux.tests.test_linux_refresh_scope.FetchGameIdCacheTests.test_expired_no_match_is_looked_up_again) ... ok
+test_fresh_no_match_skips_lookup (linux.tests.test_linux_refresh_scope.FetchGameIdCacheTests.test_fresh_no_match_skips_lookup) ... ok
+test_no_match_is_cached (linux.tests.test_linux_refresh_scope.FetchGameIdCacheTests.test_no_match_is_cached) ... ok
+test_counts_down_and_reaches_idle (linux.tests.test_linux_refresh_scope.GameActivityTrackerTests.test_counts_down_and_reaches_idle) ... ok
+test_idle_when_nothing_happened (linux.tests.test_linux_refresh_scope.GameActivityTrackerTests.test_idle_when_nothing_happened) ... ok
+test_waits_full_delay_right_after_activity (linux.tests.test_linux_refresh_scope.GameActivityTrackerTests.test_waits_full_delay_right_after_activity) ... ok
+test_clear_cache_removes_last_played (linux.tests.test_linux_refresh_scope.GameDeletionTests.test_clear_cache_removes_last_played) ... ok
+test_remove_cached_game_removes_last_played (linux.tests.test_linux_refresh_scope.GameDeletionTests.test_remove_cached_game_removes_last_played) ... ok
+test_builds_key (linux.tests.test_linux_refresh_scope.LastPlayedKeyTests.test_builds_key) ... ok
+test_parses_key (linux.tests.test_linux_refresh_scope.LastPlayedKeyTests.test_parses_key) ... ok
+test_rejects_malformed_keys (linux.tests.test_linux_refresh_scope.LastPlayedKeyTests.test_rejects_malformed_keys) ... ok
+test_request_with_game_id_is_activity (linux.tests.test_linux_refresh_scope.NoteGameRequestTests.test_request_with_game_id_is_activity) ... ok
+test_request_with_leaderboard_id_is_activity (linux.tests.test_linux_refresh_scope.NoteGameRequestTests.test_request_with_leaderboard_id_is_activity) ... ok
+test_request_without_game_is_not_activity (linux.tests.test_linux_refresh_scope.NoteGameRequestTests.test_request_without_game_is_not_activity) ... ok
+test_drops_entries_older_than_window (linux.tests.test_linux_refresh_scope.RecentlyPlayedTests.test_drops_entries_older_than_window) ... ok
+test_ignores_unparseable_keys (linux.tests.test_linux_refresh_scope.RecentlyPlayedTests.test_ignores_unparseable_keys) ... ok
+test_keeps_entries_inside_window (linux.tests.test_linux_refresh_scope.RecentlyPlayedTests.test_keeps_entries_inside_window) ... ok
+test_ignores_missing_or_non_numeric_game_id (linux.tests.test_linux_refresh_scope.RecordGameActivityTests.test_ignores_missing_or_non_numeric_game_id) ... ok
+test_only_ping_and_startsession_count_as_playing (linux.tests.test_linux_refresh_scope.RecordGameActivityTests.test_only_ping_and_startsession_count_as_playing) ... ok
+test_records_game_from_g_param (linux.tests.test_linux_refresh_scope.RecordGameActivityTests.test_records_game_from_g_param) ... ok
+test_collapses_writes_inside_interval (linux.tests.test_linux_refresh_scope.RecordGamePlayedTests.test_collapses_writes_inside_interval) ... ok
+test_ignores_non_positive_game_id (linux.tests.test_linux_refresh_scope.RecordGamePlayedTests.test_ignores_non_positive_game_id) ... ok
+test_writes_again_after_interval (linux.tests.test_linux_refresh_scope.RecordGamePlayedTests.test_writes_again_after_interval) ... ok
+test_writes_timestamp (linux.tests.test_linux_refresh_scope.RecordGamePlayedTests.test_writes_timestamp) ... ok
+test_active_proxy_defers_until_idle (linux.tests.test_linux_refresh_scope.RefreshIdleGuardTests.test_active_proxy_defers_until_idle) ... ok
+test_activity_during_deferral_skips_cycle (linux.tests.test_linux_refresh_scope.RefreshIdleGuardTests.test_activity_during_deferral_skips_cycle) ... ok
+test_idle_proxy_refreshes_immediately (linux.tests.test_linux_refresh_scope.RefreshIdleGuardTests.test_idle_proxy_refreshes_immediately) ... ok
+test_refreshes_every_due_game_while_idle (linux.tests.test_linux_refresh_scope.RefreshIdleGuardTests.test_refreshes_every_due_game_while_idle) ... ok
+test_stop_during_deferral_skips_cycle (linux.tests.test_linux_refresh_scope.RefreshIdleGuardTests.test_stop_during_deferral_skips_cycle) ... ok
+test_stops_when_play_resumes_mid_cycle (linux.tests.test_linux_refresh_scope.RefreshIdleGuardTests.test_stops_when_play_resumes_mid_cycle) ... ok
+test_aborted (linux.tests.test_linux_refresh_scope.SingleCacheMessageTests.test_aborted) ... ok
+test_already_cached_game (linux.tests.test_linux_refresh_scope.SingleCacheMessageTests.test_already_cached_game) ... ok
+test_failure_shows_reason (linux.tests.test_linux_refresh_scope.SingleCacheMessageTests.test_failure_shows_reason) ... ok
+test_new_game (linux.tests.test_linux_refresh_scope.SingleCacheMessageTests.test_new_game) ... ok
+test_queued_game_shows_when_caching_continues (linux.tests.test_linux_refresh_scope.SingleCacheMessageTests.test_queued_game_shows_when_caching_continues) ... ok
+
+----------------------------------------------------------------------
+Ran 57 tests in 0.015s
+
+OK

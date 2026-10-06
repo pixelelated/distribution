@@ -1,0 +1,83 @@
+--- a/linux/raofflineproxy/proxy_service.py
++++ b/linux/raofflineproxy/proxy_service.py
+@@ -83,6 +83,20 @@
+ REFRESH_PLAYED_WINDOW_MS = REFRESH_PLAYED_WINDOW_DAYS * 24 * 60 * 60 * 1000
+ CACHE_QUEUE_POLL_SECONDS = 60
+ ALWAYS_TRY_UPSTREAM_ACTIONS = {"login", "login2"}
++# A 4xx RetroAchievements sends for a dorequest.php call it understood but
++# cannot satisfy -- 404 "Unknown game" for a hash with no set, 400 for a bad
++# parameter -- carries the reason the emulator shows the player, and passes
++# through as it came. 401 and 403 do not: an auth failure keeps the 503, so
++# nothing about how credentials are handled changes here.
++AUTH_FAILURE_STATUSES = {401, 403}
++
++
++def is_passthrough_client_error(path: str, status: int) -> bool:
++    return (
++        path.startswith("/dorequest.php")
++        and 400 <= status < 500
++        and status not in AUTH_FAILURE_STATUSES
++    )
+ 
+ 
+ def is_static_asset_request(path: str) -> bool:
+@@ -527,6 +541,12 @@
+             return self.handle_offline_request(path, raw_body, action)
+ 
+         if upstream[0] != "success":
++            if upstream[0] == "http_error" and is_passthrough_client_error(
++                path, upstream[1]
++            ):
++                return raw_response_bytes(
++                    upstream[1], upstream[3], upstream[4], upstream[2]
++                )
+             return error_json(503, "upstream unavailable")
+ 
+         status_code = upstream[1]
+--- /dev/null
++++ b/linux/tests/test_linux_client_errors.py
+@@ -0,0 +1,44 @@
++import unittest
++from unittest import mock
++
++from linux.raofflineproxy import proxy_service
++
++
++class ClientErrorResponseTests(unittest.TestCase):
++    def setUp(self):
++        self.server = object.__new__(proxy_service.ProxyRuntimeServer)
++        self.server.storage = mock.Mock()
++        self.offline = mock.Mock(return_value=b"cached offline response")
++        self.server.handle_offline_request = self.offline
++
++    def response(self, result, path="/dorequest.php?r=patch&g=42"):
++        with mock.patch.object(self.server, "forward_to_upstream_result", return_value=result):
++            return self.server.handle_online_request("GET", path, "", "patch", {})
++
++    def test_client_error_status_reason_type_and_body_are_preserved(self):
++        body = b'{"Success":false,"Error":"Unknown game"}'
++        for status, reason in ((400, "Bad Request"), (404, "Not Found"), (429, "Too Many Requests")):
++            with self.subTest(status=status):
++                response = self.response(("http_error", status, reason, body, "application/json", body.decode()))
++                headers, actual = response.split(b"\r\n\r\n", 1)
++                self.assertEqual(headers.splitlines()[0], f"HTTP/1.1 {status} {reason}".encode())
++                self.assertIn(b"Content-Type: application/json", headers)
++                self.assertEqual(actual, body)
++        self.server.storage.upsert_cache.assert_not_called()
++        self.offline.assert_not_called()
++
++    def test_auth_server_and_non_api_errors_keep_unavailable_response(self):
++        for status, path in ((401, "/dorequest.php"), (403, "/dorequest.php"), (500, "/dorequest.php"), (502, "/dorequest.php"), (404, "/other")):
++            with self.subTest(status=status, path=path):
++                response = self.response(("http_error", status, "Error", b"upstream body", "text/plain", None), path)
++                self.assertTrue(response.startswith(b"HTTP/1.1 503 "))
++                self.assertNotIn(b"upstream body", response)
++        self.offline.assert_not_called()
++
++    def test_network_failure_still_uses_offline_cache(self):
++        self.assertEqual(self.response(("network_error",)), b"cached offline response")
++        self.offline.assert_called_once_with("/dorequest.php?r=patch&g=42", "", "patch")
++
++
++if __name__ == "__main__":
++    unittest.main()

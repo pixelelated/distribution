@@ -1,0 +1,79 @@
+test_complete_png_with_trailing_bytes_is_kept (linux.tests.test_linux_image_completeness.ImageCompletenessTests.test_complete_png_with_trailing_bytes_is_kept) ... ok
+test_existing_image_is_not_refetched_or_replaced (linux.tests.test_linux_image_completeness.ImageCompletenessTests.test_existing_image_is_not_refetched_or_replaced) ... ok
+test_incomplete_or_corrupt_png_is_not_published_and_can_be_retried (linux.tests.test_linux_image_completeness.ImageCompletenessTests.test_incomplete_or_corrupt_png_is_not_published_and_can_be_retried) ... 
+  test_incomplete_or_corrupt_png_is_not_published_and_can_be_retried (linux.tests.test_linux_image_completeness.ImageCompletenessTests.test_incomplete_or_corrupt_png_is_not_published_and_can_be_retried) (body=b'not a png') ... FAIL
+  test_incomplete_or_corrupt_png_is_not_published_and_can_be_retried (linux.tests.test_linux_image_completeness.ImageCompletenessTests.test_incomplete_or_corrupt_png_is_not_published_and_can_be_retried) (body=b'\x89PNG\r\n\x1a\n\x00\x00\x00\r') ... FAIL
+  test_incomplete_or_corrupt_png_is_not_published_and_can_be_retried (linux.tests.test_linux_image_completeness.ImageCompletenessTests.test_incomplete_or_corrupt_png_is_not_published_and_can_be_retried) (body=b'\x89PNG\r\n\x1a\n\x00\x00\x00\r') ... FAIL
+  test_incomplete_or_corrupt_png_is_not_published_and_can_be_retried (linux.tests.test_linux_image_completeness.ImageCompletenessTests.test_incomplete_or_corrupt_png_is_not_published_and_can_be_retried) (body=b'\x89PNG\r\n\x1a\n\x00\x00\x00\r') ... FAIL
+test_incomplete_or_corrupt_png_is_not_published_and_can_be_retried (linux.tests.test_linux_image_completeness.ImageCompletenessTests.test_incomplete_or_corrupt_png_is_not_published_and_can_be_retried) ... FAIL
+test_matching_or_absent_length_passes_body_unchanged (linux.tests.test_linux_image_completeness.ImageCompletenessTests.test_matching_or_absent_length_passes_body_unchanged) ... ok
+test_short_reused_connection_body_is_rejected_and_connection_dropped (linux.tests.test_linux_image_completeness.ImageCompletenessTests.test_short_reused_connection_body_is_rejected_and_connection_dropped) ... FAIL
+test_short_urllib_body_is_rejected_before_publication (linux.tests.test_linux_image_completeness.ImageCompletenessTests.test_short_urllib_body_is_rejected_before_publication) ... FAIL
+
+======================================================================
+FAIL: test_incomplete_or_corrupt_png_is_not_published_and_can_be_retried (linux.tests.test_linux_image_completeness.ImageCompletenessTests.test_incomplete_or_corrupt_png_is_not_published_and_can_be_retried) (body=b'not a png')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/pixelelated-upstream-drafts-distribution-proof-01/image-completeness-before/linux/tests/test_linux_image_completeness.py", line 41, in test_incomplete_or_corrupt_png_is_not_published_and_can_be_retried
+    self.assertFalse(self.target.exists())
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_incomplete_or_corrupt_png_is_not_published_and_can_be_retried (linux.tests.test_linux_image_completeness.ImageCompletenessTests.test_incomplete_or_corrupt_png_is_not_published_and_can_be_retried) (body=b'\x89PNG\r\n\x1a\n\x00\x00\x00\r')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/pixelelated-upstream-drafts-distribution-proof-01/image-completeness-before/linux/tests/test_linux_image_completeness.py", line 41, in test_incomplete_or_corrupt_png_is_not_published_and_can_be_retried
+    self.assertFalse(self.target.exists())
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_incomplete_or_corrupt_png_is_not_published_and_can_be_retried (linux.tests.test_linux_image_completeness.ImageCompletenessTests.test_incomplete_or_corrupt_png_is_not_published_and_can_be_retried) (body=b'\x89PNG\r\n\x1a\n\x00\x00\x00\r')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/pixelelated-upstream-drafts-distribution-proof-01/image-completeness-before/linux/tests/test_linux_image_completeness.py", line 41, in test_incomplete_or_corrupt_png_is_not_published_and_can_be_retried
+    self.assertFalse(self.target.exists())
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_incomplete_or_corrupt_png_is_not_published_and_can_be_retried (linux.tests.test_linux_image_completeness.ImageCompletenessTests.test_incomplete_or_corrupt_png_is_not_published_and_can_be_retried) (body=b'\x89PNG\r\n\x1a\n\x00\x00\x00\r')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/pixelelated-upstream-drafts-distribution-proof-01/image-completeness-before/linux/tests/test_linux_image_completeness.py", line 41, in test_incomplete_or_corrupt_png_is_not_published_and_can_be_retried
+    self.assertFalse(self.target.exists())
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_incomplete_or_corrupt_png_is_not_published_and_can_be_retried (linux.tests.test_linux_image_completeness.ImageCompletenessTests.test_incomplete_or_corrupt_png_is_not_published_and_can_be_retried)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/pixelelated-upstream-drafts-distribution-proof-01/image-completeness-before/linux/tests/test_linux_image_completeness.py", line 44, in test_incomplete_or_corrupt_png_is_not_published_and_can_be_retried
+    self.assertEqual(self.target.read_bytes(), good)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: b'not a png' != b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x[160 chars]\x82'
+
+======================================================================
+FAIL: test_short_reused_connection_body_is_rejected_and_connection_dropped (linux.tests.test_linux_image_completeness.ImageCompletenessTests.test_short_reused_connection_body_is_rejected_and_connection_dropped)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/pixelelated-upstream-drafts-distribution-proof-01/image-completeness-before/linux/tests/test_linux_image_completeness.py", line 75, in test_short_reused_connection_body_is_rejected_and_connection_dropped
+    with self.assertRaises(ValueError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_short_urllib_body_is_rejected_before_publication (linux.tests.test_linux_image_completeness.ImageCompletenessTests.test_short_urllib_body_is_rejected_before_publication)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/pixelelated-upstream-drafts-distribution-proof-01/image-completeness-before/linux/tests/test_linux_image_completeness.py", line 65, in test_short_urllib_body_is_rejected_before_publication
+    with self.assertRaises(ValueError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.010s
+
+FAILED (failures=7)
