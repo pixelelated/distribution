@@ -1,0 +1,22 @@
+{
+  "utc": "2026-10-06T17:03:29.919345+00:00",
+  "failure": "/tmp tmpfs quota during gzip expansion; no VM/backend start",
+  "pids_absent": {
+    "build.pid": 2553614,
+    "watcher.pid": 2553615,
+    "command.pid": 2553644
+  },
+  "ports_unbound": [
+    9040,
+    10022,
+    10023,
+    5909,
+    5910
+  ],
+  "build_rc": "1",
+  "outer_results": "unwritten due quota; do not manufacture",
+  "preserved_partial": "/workspace/tmp/pixelelated-m7-p4-refutation-failed02/incomplete-image.img",
+  "partial_sha256": "07cebad69c4755cdb74b3571cd208ea5738f19cf332aabb3ff8307ca404ebc29",
+  "partial_bytes": 3650232320,
+  "action": "Only exact newly created incomplete /tmp image removed after byte-identical preservation on /workspace; no build tree or existing evidence deleted"
+}

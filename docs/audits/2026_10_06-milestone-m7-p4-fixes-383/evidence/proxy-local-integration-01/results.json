@@ -1,0 +1,26 @@
+[
+  {
+    "utc": "2026-10-06T15:54:44.770121+00:00",
+    "argv": [
+      "tools/raofflineproxy-integration-test",
+      "--source",
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement14/build.pixelelated-GENERIC_X64.x86_64/build/raofflineproxy-879b158995d412af434301ebdae581f66b8b6d57",
+      "--predecessor-source",
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement12/build.pixelelated-GENERIC_X64.x86_64/build/raofflineproxy-3036478f2b2d22db451396a48f44feee94e8462f"
+    ],
+    "rc": 0,
+    "scope": "Unprivileged host Python/synthetic boundaries; no network listeners or external service. Not installed VM proof."
+  },
+  {
+    "utc": "2026-10-06T15:54:45.063748+00:00",
+    "argv": [
+      "tools/raofflineproxy-integration-test",
+      "--source",
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement14/build.pixelelated-GENERIC_X64.x86_64/build/raofflineproxy-879b158995d412af434301ebdae581f66b8b6d57",
+      "--predecessor-source",
+      "/tmp/pixelelated-proxy-865e21/patched"
+    ],
+    "rc": 0,
+    "scope": "Unprivileged host Python/synthetic boundaries; no network listeners or external service. Not installed VM proof."
+  }
+]

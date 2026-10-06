@@ -1,0 +1,1896 @@
+{
+  "utc": "2026-10-06T16:39:46.259982+00:00",
+  "scope": "Phase3 supporting-history trust review; not part of261 forward scorecard and not190 fresh execution/PASS claims",
+  "groups": [
+    {
+      "name": "process",
+      "issues": [
+        367,
+        368,
+        370,
+        371,
+        385,
+        388,
+        389
+      ],
+      "artifacts": [
+        ".claude/rules/issue-tracking.md",
+        ".claude/rules/milestone-phase-naming.md",
+        ".claude/skills/session-stash/SKILL.md",
+        ".githooks/pre-push",
+        "tools/rules-check",
+        "docs/rasteratops/release-readiness.md"
+      ],
+      "disposition": "Historical rule/handoff/tracker controls and current rule equality reviewed; fresh tracker metadata cannot be reread while approval authentication is blocked. No new no-context helper run is claimed for this active checkpoint."
+    },
+    {
+      "name": "watcher",
+      "issues": [
+        393,
+        394,
+        395,
+        412,
+        413,
+        435,
+        437,
+        438,
+        440,
+        441,
+        444,
+        445
+      ],
+      "artifacts": [
+        "tools/watch-job",
+        "tools/watch-build",
+        "tools/watch-build-submit",
+        "docs/qa-logs/2026-10-03-watch-job/tests.log",
+        "docs/qa-logs/2026-10-04-watch-progress",
+        "docs/qa-logs/2026-10-03-watch-delivery/results.json",
+        "docs/qa-logs/2026-10-05-watch-submit/controls.json"
+      ],
+      "disposition": "Retained failure/success/lifecycle controls plus actual completed current14/UI03 ownership establish recorder trust. Disconnected notification remains unconfigured#395; no future alert or background reasoning is inferred."
+    },
+    {
+      "name": "cloud-fixtures",
+      "issues": [
+        396,
+        398,
+        399,
+        400,
+        402,
+        403,
+        425,
+        446
+      ],
+      "artifacts": [
+        "tools/cloud-round-trip",
+        "tools/vm-qa",
+        "tools/vm-pair",
+        "tools/last-good-scripts-test",
+        "docs/qa-logs/2026-10-05-p3-reconciliation",
+        "docs/qa-logs/2026-10-06-local-cloud"
+      ],
+      "disposition": "Production compatibility and three actual installed backends checked in Phase2. Former failed stamps/keys/too-fast cuts remain historical failures; accepted scoped retries do not prove actual mid-copy SIGKILL or every negative mixed-pair clause."
+    },
+    {
+      "name": "visual-custody",
+      "issues": [
+        404,
+        406,
+        415,
+        422,
+        427,
+        431,
+        439,
+        448,
+        449,
+        450
+      ],
+      "artifacts": [
+        "tools/vm-qa",
+        "tools/vm-visual-qa",
+        "docs/qa-logs/2026-10-05-vnc-observer/controls.log",
+        "docs/qa-logs/2026-10-05-pixelelated-replacement-09",
+        "docs/qa-logs/2026-10-05-pixelelated-replacement-10",
+        "docs/qa-logs/2026-10-06-pixelelated-replacement-14"
+      ],
+      "disposition": "Original frames and qualification manifests separately reviewed. Observer complete-frame controls, selected system and setup metadata distinguish present files from valid pixels. Earlier owners/counts/claims are not rewritten."
+    },
+    {
+      "name": "identity-fixtures",
+      "issues": [
+        397,
+        416,
+        417,
+        418,
+        428,
+        434,
+        442,
+        443
+      ],
+      "artifacts": [
+        "NAMING.md",
+        "scripts/image",
+        "tools/rasteratops-identity-check",
+        "docs/qa-logs/2026-10-06-pixelelated-replacement-14"
+      ],
+      "disposition": "Source and installed current14 identity/license/export tested in Phase2. Earlier09 full artifact sweep remains09 evidence; current/repaired final image needs a fresh full sweep. Bootloader-specific proof checks actual GRUB, not an inactive syslinux file."
+    },
+    {
+      "name": "proxy-continuity",
+      "issues": [
+        419,
+        426
+      ],
+      "artifacts": [
+        "projects/ROCKNIX/packages/network/raofflineproxy/package.mk",
+        "docs/audits/2026_10_06-milestone-m7-p4-fixes-383/evidence/proxy-source-equality.json",
+        "docs/audits/2026_10_06-milestone-m7-p4-fixes-383/evidence/proxy-local-integration-01"
+      ],
+      "disposition": "Intervening upstream pins retained as their own build history. Current exact879 source/native equality, cache preservation and real award/UI qualification govern; freshness is a timestamped upstream observation, not perpetual latest."
+    },
+    {
+      "name": "settings-race",
+      "issues": [
+        420
+      ],
+      "artifacts": [
+        "docs/qa-logs/2026-10-05-pixelelated-replacement-09",
+        "docs/audits/2026_10_06-milestone-m7-p4-fixes-383/evidence/es-checks-02"
+      ],
+      "disposition": "Same installed ES process paused around actual shell writes; current source equality and fresh119assertions independently checked. Hook installation alone is not proof of interleaving."
+    },
+    {
+      "name": "memory-help",
+      "issues": [
+        405
+      ],
+      "artifacts": [
+        "tools/signin-memory"
+      ],
+      "disposition": "Help contract is host tooling only; actual loaded-page/RSS qualification belongs to I362-L71. No helper text is promoted to a runtime measurement."
+    },
+    {
+      "name": "host-swap",
+      "issues": [
+        410
+      ],
+      "artifacts": [
+        "tools/host-maintenance/reclaim-swap",
+        "tools/host-maintenance/install",
+        "tools/build-preflight",
+        "docs/audits/2026_10_04-issue-410-guarded-swap",
+        "docs/qa-logs/2026-10-04-host-swap-rollout/installed.json"
+      ],
+      "disposition": "Prior isolated35-test review, later37-test policy controls and actual authorized rollout are distinct. Root-only policy digest is attributed to owner readback. No current swap or privileged recovery operation rerun."
+    },
+    {
+      "name": "cleanup",
+      "issues": [
+        453,
+        456,
+        458,
+        459,
+        460
+      ],
+      "artifacts": [
+        "tools/fork-worktree",
+        "docs/qa-logs/2026-10-05-build-storage/approved-cleanup-20261006/final-verification.json",
+        "docs/qa-logs/2026-10-06-worktree-permissions/controls-02/result.json"
+      ],
+      "disposition": "Historical exact authorized five-tree removal and preserved files/source/backing chains reviewed; original03/05 failures retained. Scope excludes new deletion, reserve change or a new full capacity inventory."
+    }
+  ],
+  "rows": [
+    {
+      "id": "I367-L27",
+      "issue": 367,
+      "criterion": "A register row records the call that no work starts without an issue that owns it, and `tools/register-check` passes. (D-WORKFLOW-132 in `bf121ce876`; `register-check: 576 IDs, each once`.)",
+      "source": "inputs/issues/367.md:27",
+      "group": "process",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I367-L28",
+      "issue": 367,
+      "criterion": "`issue-tracking.md` carries the rule, quoting the request verbatim, and says plainly what no tool checks; `tools/rules-check` passes. (\u00a7 No work without an issue in `bf121ce876`; `rules-check: 29 rule files, every one front-mattered and indexed`.)",
+      "source": "inputs/issues/367.md:28",
+      "group": "process",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I367-L29",
+      "issue": 367,
+      "criterion": "A comment on this issue lists every item of work in flight on 2026-10-02 with the issue that owns it, and every item without one has one, linked from the comment. ([the inventory](https://github.com/rasteratops/distribution/issues/367#issuecomment-5944098009); the one item without an issue now has #369.)",
+      "source": "inputs/issues/367.md:29",
+      "group": "process",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I367-L30",
+      "issue": 367,
+      "criterion": "`docs/friction-log.md` carries a line for each slowdown named above, each with its issue or an in-tree guard, and `tools/ceremony-check` reads `ok friction`. (Seven lines at 01:46 UTC in `bf121ce876`; `ok    friction  every entry since 2026-09-21 has an issue or a guard within 3 days`.)",
+      "source": "inputs/issues/367.md:30",
+      "group": "process",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I367-L31",
+      "issue": 367,
+      "criterion": "The 2026-10-02 work log carries an entry, headed by its issue, for each decision and finding of the night, and `tools/work-log-index --check` passes. (The 01:47 UTC entry in `bf121ce876`; `work-log index: current`.)",
+      "source": "inputs/issues/367.md:31",
+      "group": "process",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I367-L32",
+      "issue": 367,
+      "criterion": "For the part a tool can see, a check is proposed on this issue (for example, commits on `next` that cite no issue number) or the rule says that no tool checks it. ([proposed](https://github.com/rasteratops/distribution/issues/367#issuecomment-5944098009): 225 of 588 fork commits since 2026-09-21 cite no issue; the rule's \u00a7 What no tool checks yet says the rest.)",
+      "source": "inputs/issues/367.md:32",
+      "group": "process",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I367-L34",
+      "issue": 367,
+      "criterion": "`tools/ceremony-check` has an `issues` line that fails on a fork commit on `next` made after `bf121ce876` that cites no `#N`; its constructed positive (a commit citing none) is recorded in the work log with the command.",
+      "source": "inputs/issues/367.md:34",
+      "group": "process",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I367-L35",
+      "issue": 367,
+      "criterion": "`tools/watch-job`'s usage says what `--pid` (the job's process) and `--pattern` (the log's progress line) take, and `tools/watch-job --help` prints it.",
+      "source": "inputs/issues/367.md:35",
+      "group": "process",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I368-L24",
+      "issue": 368,
+      "criterion": "A stash written per the `session-stash` skill, at the path a new agent is pointed to first, with the previous copy archived; it names each item of work in flight with its issue, branch, worktree and next command, every process still running with its pid and status file, and what is waiting on the maintainer.",
+      "source": "inputs/issues/368.md:24",
+      "group": "process",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I368-L25",
+      "issue": 368,
+      "criterion": "An agent given only the repository and the stash's path writes a resume briefing; the briefing is attached here and matches the ground truth line by line, and every place it went wrong is fixed in the stash, a rule or a tool, then re-tested.",
+      "source": "inputs/issues/368.md:25",
+      "group": "process",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I368-L26",
+      "issue": 368,
+      "criterion": "Every armature the test shows missing (an entry point that does not name the stash, a rule a new agent cannot find, a tool with no usage line) has an issue or is fixed, and this issue lists which.",
+      "source": "inputs/issues/368.md:26",
+      "group": "process",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I370-L18",
+      "issue": 370,
+      "criterion": "`tools/rules-check` matches the count in either case; run against today's `AGENTS.md` (\"all 27\") it FAILs with its `count` line, and that run is recorded in the day's work log with its command.",
+      "source": "inputs/issues/370.md:18",
+      "group": "process",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I370-L19",
+      "issue": 370,
+      "criterion": "`AGENTS.md` names the right number, and `tools/rules-check` prints an `ok count` line for each of `CLAUDE.md` and `AGENTS.md`.",
+      "source": "inputs/issues/370.md:19",
+      "group": "process",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I371-L18",
+      "issue": 371,
+      "criterion": "The hook's scan for an existing branch excludes commits any `origin/*` ref already holds; pushing `feature/conflict-resolution` at `bbb2c635fe` passes, and the push's output is quoted on this issue.",
+      "source": "inputs/issues/371.md:18",
+      "group": "process",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I371-L19",
+      "issue": 371,
+      "criterion": "A constructed commit on a throwaway branch that adds a credential-shaped line is still refused, and that run is recorded in the day's work log with its command (the guard keeps its positive).",
+      "source": "inputs/issues/371.md:19",
+      "group": "process",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I385-L18",
+      "issue": 385,
+      "criterion": "A release-readiness document maps every current release goal to its owning issues, source evidence, required candidate evidence and gate (before build, RC qualification, publication or explicitly later).",
+      "source": "inputs/issues/385.md:18",
+      "group": "process",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I385-L19",
+      "issue": 385,
+      "criterion": "Review all open milestone issues, package dependencies and older bug/audit carry-forwards; identify stale bodies, labels and prior-candidate exceptions without treating deferral as a fix.",
+      "source": "inputs/issues/385.md:19",
+      "group": "process",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I385-L20",
+      "issue": 385,
+      "criterion": "Reconcile the historical VM results against source revisions and the T01\u2013T25 migration model; name missing interruption, retry, multi-device and future-version cases.",
+      "source": "inputs/issues/385.md:20",
+      "group": "process",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I385-L21",
+      "issue": 385,
+      "criterion": "Record current source preflight, actual build/job/artifact status and the exact remaining ordered route; no candidate readiness from old image PASS counts.",
+      "source": "inputs/issues/385.md:21",
+      "group": "process",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I385-L22",
+      "issue": 385,
+      "criterion": "Reconcile milestone/delivery acceptance criteria with current decisions and evidence, including #356 and #361/#362; record the version recommendation without an unrequested identity rename.",
+      "source": "inputs/issues/385.md:22",
+      "group": "process",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I385-L23",
+      "issue": 385,
+      "criterion": "Link the readiness verdict and executable completion plan from #383 and the canonical session resume.",
+      "source": "inputs/issues/385.md:23",
+      "group": "process",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I388-L22",
+      "issue": 388,
+      "criterion": "The milestone body lists ordered phases, the current/next work, linked owning issues, exit gates, and explicit later scope; engineering builds are permitted before image-verification issues close, while RC designation requires their evidence.",
+      "source": "inputs/issues/388.md:22",
+      "group": "process",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I388-L23",
+      "issue": 388,
+      "criterion": "A canonical, indexed naming rule defines milestone-name-derived M, phase-derived P, optional Epic/sub-id scope, reactive/standing titles, open-only retrofit, and same-session updates when order changes.",
+      "source": "inputs/issues/388.md:23",
+      "group": "process",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I388-L24",
+      "issue": 388,
+      "criterion": "Every open issue in this release has a title consistent with the milestone phase or documented milestone-wide umbrella role; live readback matches the prepared map. Closed issue titles are unchanged.",
+      "source": "inputs/issues/388.md:24",
+      "group": "process",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I388-L25",
+      "issue": 388,
+      "criterion": "The active delivery/contract issue bodies, readiness document and canonical resume point at the milestone's binding phase chain; historical #344 section labels are explicitly distinguished.",
+      "source": "inputs/issues/388.md:25",
+      "group": "process",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I388-L26",
+      "issue": 388,
+      "criterion": "Rules/register/work-log/whitespace checks pass; the decision and source-policy provenance are recorded, with before/after tracker evidence.",
+      "source": "inputs/issues/388.md:26",
+      "group": "process",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I389-L22",
+      "issue": 389,
+      "criterion": "Changed delivery references resolve to this repository's canonical rules; link inspection and rules-check output retained.",
+      "source": "inputs/issues/389.md:22",
+      "group": "process",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I389-L23",
+      "issue": 389,
+      "criterion": "Resume/stash instructions reconcile canonical next, live milestone priorities and existing authorization, without a redundant continuation prompt; reviewed instruction diff retained.",
+      "source": "inputs/issues/389.md:23",
+      "group": "process",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I389-L24",
+      "issue": 389,
+      "criterion": "Milestone body and canonical handoff show the current M7.P1 regression work and next action; GitHub readback retained.",
+      "source": "inputs/issues/389.md:24",
+      "group": "process",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I389-L25",
+      "issue": 389,
+      "criterion": "A failing production-script migration regression is recorded under #356/#365, demonstrating that delivery has resumed.",
+      "source": "inputs/issues/389.md:25",
+      "group": "process",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I393-L29",
+      "issue": 393,
+      "criterion": "A retained regression reproduces the old false stall when the main log is old but a package log advances; the corrected watcher reports running and identifies the fresh package log in its status artifact.",
+      "source": "inputs/issues/393.md:29",
+      "group": "watcher",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I393-L32",
+      "issue": 393,
+      "criterion": "Controls prove a genuinely quiet live process reports suspected stall; success/nonzero result codes and death without a result remain distinct. Missing output and malformed inputs cannot silently pass.",
+      "source": "inputs/issues/393.md:32",
+      "group": "watcher",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I393-L35",
+      "issue": 393,
+      "criterion": "A replacement host watcher has a live heartbeat and retained PID, uses explicit package-log inputs, and observes the same untouched builder and frozen source. Retain before/after status, watcher bytes and checks.",
+      "source": "inputs/issues/393.md:35",
+      "group": "watcher",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I393-L38",
+      "issue": 393,
+      "criterion": "Rules, work log and canonical checkpoint explain the signal and its limits, including the separate notification requirement. Normal guards pass; source and evidence are delivered to next.",
+      "source": "inputs/issues/393.md:38",
+      "group": "watcher",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I394-L26",
+      "issue": 394,
+      "criterion": "Native device/image/package builds and Docker build targets enter a common monitored runner automatically; retained routing tests catch a removed entrypoint hook. Interactive shells and non-build helpers retain their behavior.",
+      "source": "inputs/issues/394.md:26",
+      "group": "watcher",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I394-L30",
+      "issue": 394,
+      "criterion": "Each top-level run retains private log, PID, atomic result and status plus a run-owned watcher copy. Nested package/image invocations reuse it; native and container paths identify the same run. The monitor includes buffered package logs belonging to that worktree.",
+      "source": "inputs/issues/394.md:30",
+      "group": "watcher",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I394-L34",
+      "issue": 394,
+      "criterion": "Passing and injected failure controls prove return-code, argument, environment and output preservation, startup refusal when monitoring cannot arm, signal handling and durable completion/death reporting.",
+      "source": "inputs/issues/394.md:34",
+      "group": "watcher",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I394-L37",
+      "issue": 394,
+      "criterion": "Canonical commands/rules and CI or push checks enforce the route; tracker, work log and checkpoint retain delivery and explicit notification limitations. No source mutation or rebuild of the frozen M7 image occurs.",
+      "source": "inputs/issues/394.md:37",
+      "group": "watcher",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I395-L29",
+      "issue": 395,
+      "criterion": "Future long jobs name a working delivery mechanism as well as the recorder; retain the setup/probe receipt. Active sessions receive an explicit completion/failure update without waiting for a status question.",
+      "source": "inputs/issues/395.md:29",
+      "group": "watcher",
+      "disposition": "open delivery limit",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I395-L32",
+      "issue": 395,
+      "criterion": "Completion, nonzero failure, and death without a result produce distinct notices identifying the run and evidence. Retained controls demonstrate successful delivery and visible delivery failure; status-file creation alone is never counted as delivery.",
+      "source": "inputs/issues/395.md:32",
+      "group": "watcher",
+      "disposition": "open delivery limit",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I395-L36",
+      "issue": 395,
+      "criterion": "Define and verify delivery when the conversation is disconnected, or explicitly constrain the mechanism to an actively supervised session. Record the selected destination and its real delivery receipt; never claim that a local log or submitted request proves an alert was delivered.",
+      "source": "inputs/issues/395.md:36",
+      "group": "watcher",
+      "disposition": "open delivery limit",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I395-L40",
+      "issue": 395,
+      "criterion": "Rules, milestone priorities, work log and resume agree on the mechanism, its limits, and M7.P3 image qualification as the current product work.",
+      "source": "inputs/issues/395.md:40",
+      "group": "watcher",
+      "disposition": "open delivery limit",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I396-L16",
+      "issue": 396,
+      "criterion": "The archive-name assertion accepts a device-labelled ROCKNIX writer archive on both display identities and refuses RASTERATOPS writer suffixes, wrong/missing device labels and malformed stamps; retained before/after controls prove the guard.",
+      "source": "inputs/issues/396.md:16",
+      "group": "cloud-fixtures",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I396-L17",
+      "issue": 396,
+      "criterion": "A corrected complete cloud round-trip passes against the unchanged branded candidate, with archive integrity and old/new reader compatibility preserved in its log.",
+      "source": "inputs/issues/396.md:17",
+      "group": "cloud-fixtures",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I396-L18",
+      "issue": 396,
+      "criterion": "The initial failure and harness source hash are retained with candidate test evidence; the live M7 priority and handoff name the outcome.",
+      "source": "inputs/issues/396.md:18",
+      "group": "cloud-fixtures",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I397-L14",
+      "issue": 397,
+      "criterion": "Branded image assembly installs LICENSE.md and TRADEMARK.md in `/usr/share/licenses/rasteratops/`, byte-identical to the source, with ordinary readable file permissions and no copied credentials.",
+      "source": "inputs/issues/397.md:14",
+      "group": "identity-fixtures",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I397-L15",
+      "issue": 397,
+      "criterion": "A retained negative control proves absence on the first candidate; actual build/staging proof verifies the correction and all required package/instruction checks pass.",
+      "source": "inputs/issues/397.md:15",
+      "group": "identity-fixtures",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I397-L16",
+      "issue": 397,
+      "criterion": "A replacement immutable candidate's clean-install and upgrade readbacks carry both source-identical files; the candidate manifest and live M7 status identify the replacement rather than marking the old image qualified.",
+      "source": "inputs/issues/397.md:16",
+      "group": "identity-fixtures",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I398-L14",
+      "issue": 398,
+      "criterion": "The actual assertion accepts both two-field and extended valid nonzero stamps, rejects success and malformed/missing/out-of-range codes; retained old-source controls reproduce the false failure.",
+      "source": "inputs/issues/398.md:14",
+      "group": "cloud-fixtures",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I398-L15",
+      "issue": 398,
+      "criterion": "Full seven-case WebDAV link-loss rerun passes against unchanged candidate bytes (or names separately owned remaining defects), with interruption/timeout/retry evidence retained and no relaxed time bounds.",
+      "source": "inputs/issues/398.md:15",
+      "group": "cloud-fixtures",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I398-L16",
+      "issue": 398,
+      "criterion": "Initial failure, correction/harness hashes, test results and current priority are retained in the issue, work log and canonical checkpoint.",
+      "source": "inputs/issues/398.md:16",
+      "group": "cloud-fixtures",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I399-L25",
+      "issue": 399,
+      "criterion": "vm-qa selects the same QA key as vm-pair, preserving the existing default; source controls identify selected paths.",
+      "source": "inputs/issues/399.md:25",
+      "group": "cloud-fixtures",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I399-L26",
+      "issue": 399,
+      "criterion": "A fresh run with a key different from the default authenticates and executes the actual link suite; retained report and key-public-digest comparison prove it.",
+      "source": "inputs/issues/399.md:26",
+      "group": "cloud-fixtures",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I399-L27",
+      "issue": 399,
+      "criterion": "Preserve the initial setup failure, normal watcher terminal result and owned cleanup; link-02 receipts.",
+      "source": "inputs/issues/399.md:27",
+      "group": "cloud-fixtures",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I400-L14",
+      "issue": 400,
+      "criterion": "Retain failed WebDAV report, retry output and source trace; distinguish observed facts from the fixture diagnosis.",
+      "source": "inputs/issues/400.md:14",
+      "group": "cloud-fixtures",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I400-L15",
+      "issue": 400,
+      "criterion": "The archive-upload interruption fixture remains demonstrably in flight when cut, yet its healthy retry drains inside the unchanged product stall bound; actual WebDAV proof has no accepted skip.",
+      "source": "inputs/issues/400.md:15",
+      "group": "cloud-fixtures",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I400-L16",
+      "issue": 400,
+      "criterion": "Matching strict S3 interruption/retry/content/marker proof passes on the same candidate; all other cases keep their original evidence.",
+      "source": "inputs/issues/400.md:16",
+      "group": "cloud-fixtures",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I400-L17",
+      "issue": 400,
+      "criterion": "Record source, hashes, result delivery and remaining qualification status in the milestone/checkpoint/work log.",
+      "source": "inputs/issues/400.md:17",
+      "group": "cloud-fixtures",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I402-L14",
+      "issue": 402,
+      "criterion": "Initial too-fast precondition failure and endpoint/candidate/harness identity retained.",
+      "source": "inputs/issues/402.md:14",
+      "group": "cloud-fixtures",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I402-L15",
+      "issue": 402,
+      "criterion": "Corrected fixture proves an actual in-flight S3 listing and absent route during the cut; a completed-before-cut control still fails.",
+      "source": "inputs/issues/402.md:15",
+      "group": "cloud-fixtures",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I402-L16",
+      "issue": 402,
+      "criterion": "Actual interrupted scan reports a bounded honest result and plain rerun returns all expected systems/BIOS; original successful WebDAV scan remains covered.",
+      "source": "inputs/issues/402.md:16",
+      "group": "cloud-fixtures",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I403-L24",
+      "issue": 403,
+      "criterion": "Support an explicit image-system root for both BusyBox and rclone, fail closed if that named input is absent/unusable, and discover branded roots when no override is named.",
+      "source": "inputs/issues/403.md:24",
+      "group": "cloud-fixtures",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I403-L25",
+      "issue": 403,
+      "criterion": "Actual selection controls fail against the old logic and pass with the correction, including a spaced path and an invalid explicit root.",
+      "source": "inputs/issues/403.md:25",
+      "group": "cloud-fixtures",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I403-L26",
+      "issue": 403,
+      "criterion": "Full host regression runs with the candidate executable hashes retained; correct any failures and record exact source scope.",
+      "source": "inputs/issues/403.md:26",
+      "group": "cloud-fixtures",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I404-L20",
+      "issue": 404,
+      "criterion": "Correct the final per-case frame count to match actual numbered PNGs, retaining the separate boot/continuous-capture directories.",
+      "source": "inputs/issues/404.md:20",
+      "group": "visual-custody",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I404-L21",
+      "issue": 404,
+      "criterion": "Compare the corrected count against actual retained H/A/L artifacts and preserve the original misleading logs.",
+      "source": "inputs/issues/404.md:21",
+      "group": "visual-custody",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I404-L22",
+      "issue": 404,
+      "criterion": "Record the correction with the final matrix receipts; do not reinterpret screenshot existence as passing visual quality.",
+      "source": "inputs/issues/404.md:22",
+      "group": "visual-custody",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I405-L11",
+      "issue": 405,
+      "criterion": "Both --help and -h print the documented port/URL/seconds/key/JSON usage without implementation text and exit0.",
+      "source": "inputs/issues/405.md:11",
+      "group": "memory-help",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I405-L12",
+      "issue": 405,
+      "criterion": "Keep runtime measurement unchanged; preserve the actual before/after help receipt.",
+      "source": "inputs/issues/405.md:12",
+      "group": "memory-help",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I406-L16",
+      "issue": 406,
+      "criterion": "Retain and inspect baseline/current five-second frames plus current eight-second/completed frames, recording the expected statistics and no clipping.",
+      "source": "inputs/issues/406.md:16",
+      "group": "visual-custody",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I406-L17",
+      "issue": 406,
+      "criterion": "A narrowly scoped claim names this issue and this baseline/sample; the same78-frame comparison passes with zero unclaimed/missing frames.",
+      "source": "inputs/issues/406.md:17",
+      "group": "visual-custody",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I406-L18",
+      "issue": 406,
+      "criterion": "Removing the new claim or shrinking it beyond the observed region fails the original comparison; baseline bytes remain unchanged.",
+      "source": "inputs/issues/406.md:18",
+      "group": "visual-custody",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I410-L26",
+      "issue": 410,
+      "criterion": "Guard tests cover allowed/no-op/refused paths, memory headroom, exact file/command scope, concurrency, active jobs, malformed observations, failed swapoff/swapon and interruption recovery; retain failing controls and exit results.",
+      "source": "inputs/issues/410.md:26",
+      "group": "host-swap",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I410-L27",
+      "issue": 410,
+      "criterion": "Preflight remains read-only by default, invokes only the installed fixed helper with explicit opt-in, and verifies fresh memory state; missing privilege or helper fails visibly.",
+      "source": "inputs/issues/410.md:27",
+      "group": "host-swap",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I410-L28",
+      "issue": 410,
+      "criterion": "Reviewed installer stages root-owned immutable helper and exact-action sudoers policy; visudo validates it and hostile environment/extra arguments cannot expand privilege. Installation readback identifies exact bytes/owner/mode and the permitted action.",
+      "source": "inputs/issues/410.md:28",
+      "group": "host-swap",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I410-L29",
+      "issue": 410,
+      "criterion": "Future-build instructions name the mechanism, limitations and recovery; existing frozen build/VM evidence stays unchanged. Record isolated-test versus actual-host verification scopes separately.",
+      "source": "inputs/issues/410.md:29",
+      "group": "host-swap",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I412-L18",
+      "issue": 412,
+      "criterion": "A retained control with structured overall progress followed by package counters reproduces the incorrect total before the fix and passes with the fix; package-only output is never represented as overall build progress.",
+      "source": "inputs/issues/412.md:18",
+      "group": "watcher",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I412-L19",
+      "issue": 412,
+      "criterion": "Build invocations distinguish the structured pkgbuilder counter from package activity; custom/generic QA progress remains usable. Retain passing shared watcher/runner lifecycle checks.",
+      "source": "inputs/issues/412.md:19",
+      "group": "watcher",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I412-L20",
+      "issue": 412,
+      "criterion": "Live-log read-only replay reports the actual structured total; the currently running build scripts and watcher remain unchanged. Record the corrected future-run behavior and its limits.",
+      "source": "inputs/issues/412.md:20",
+      "group": "watcher",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I413-L16",
+      "issue": 413,
+      "criterion": "The stale fixture failure is retained; the corrected current fixture identifies the pinned image argument and exercises the actual host/inner shared-run behavior successfully.",
+      "source": "inputs/issues/413.md:16",
+      "group": "watcher",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I413-L17",
+      "issue": 413,
+      "criterion": "The complete current routing/lifecycle regression run passes with its original assertions and without invoking real Docker or changing frozen build inputs. Retain a negative control for the old namespace lookup.",
+      "source": "inputs/issues/413.md:17",
+      "group": "watcher",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I415-L18",
+      "issue": 415,
+      "criterion": "Inspect and retain all three baseline/current frame pairs; verify that the unclaimed changes are the approved lowercase cloud-folder text.",
+      "source": "inputs/issues/415.md:18",
+      "group": "visual-custody",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I415-L19",
+      "issue": 415,
+      "criterion": "Update only those three text claims against the unchanged baseline. The same78 actual frames pass comparison; missing/undersized claims and a changed pixel outside them still fail.",
+      "source": "inputs/issues/415.md:19",
+      "group": "visual-custody",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I415-L20",
+      "issue": 415,
+      "criterion": "Record the failure and fix in the QA ledger and source handoff; preserve the original report and do not represent the scripts-failing candidate as qualified.",
+      "source": "inputs/issues/415.md:20",
+      "group": "visual-custody",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I416-L22",
+      "issue": 416,
+      "criterion": "Retained before evidence identifies each stale display/help string and its consumer, distinguishing retained machine/attribution values.",
+      "source": "inputs/issues/416.md:22",
+      "group": "identity-fixtures",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I416-L23",
+      "issue": 416,
+      "criterion": "Corrected source uses lowercase pixelelated or clear neutral wording and passes relevant XML/shell/vocabulary/identity checks; persisted command/path/attribution contracts stay verified.",
+      "source": "inputs/issues/416.md:23",
+      "group": "identity-fixtures",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I416-L24",
+      "issue": 416,
+      "criterion": "A newly frozen candidate's installed metadata/status/help bytes and relevant VM frame contain the corrections; the complete brand classification has zero unexplained hits.",
+      "source": "inputs/issues/416.md:24",
+      "group": "identity-fixtures",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I416-L25",
+      "issue": 416,
+      "criterion": "M7, #409 and readiness/checkpoint records identify the new artifact and its remaining qualification accurately.",
+      "source": "inputs/issues/416.md:25",
+      "group": "identity-fixtures",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I417-L12",
+      "issue": 417,
+      "criterion": "The original strict-parser failure is retained and the corrected XML parses.",
+      "source": "inputs/issues/417.md:12",
+      "group": "identity-fixtures",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I417-L13",
+      "issue": 417,
+      "criterion": "Decoding the corrected entity preserves the literal player-visible ampersand, with no unrelated metadata change from this correction.",
+      "source": "inputs/issues/417.md:13",
+      "group": "identity-fixtures",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I417-L14",
+      "issue": 417,
+      "criterion": "The replacement candidate installs the valid XML bytes; retain an installed-file parse receipt.",
+      "source": "inputs/issues/417.md:14",
+      "group": "identity-fixtures",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I418-L10",
+      "issue": 418,
+      "criterion": "Preserve the original failure and its scope; do not rewrite its results.",
+      "source": "inputs/issues/418.md:10",
+      "group": "identity-fixtures",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I418-L11",
+      "issue": 418,
+      "criterion": "A fresh launcher explicitly supplies ES_SRC, and an actual pre-launch input verification passes in that environment.",
+      "source": "inputs/issues/418.md:11",
+      "group": "identity-fixtures",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I418-L12",
+      "issue": 418,
+      "criterion": "The fresh watched run extracts the immutable artifact, verifies image/update SYSTEM equality, and returns matching terminal results.",
+      "source": "inputs/issues/418.md:12",
+      "group": "identity-fixtures",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I419-L29",
+      "issue": 419,
+      "criterion": "The new upstream archive hash, exact Linux/native subtree equality, unchanged submodule pins and all15 zero-fuzz patch applications are retained in a receipt.",
+      "source": "inputs/issues/419.md:29",
+      "group": "proxy-continuity",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I419-L30",
+      "issue": 419,
+      "criterion": "Package pin/schema-review note agree, package lint and live freshness pass; unchanged Linux tests are traced to byte-identical tested source, with any changed Linux path requiring its regression proof.",
+      "source": "inputs/issues/419.md:30",
+      "group": "proxy-continuity",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I419-L31",
+      "issue": 419,
+      "criterion": "A new explicit frozen input set includes the refreshed pin and #416/#417; original98d0 frozen source and completed cache-copy provenance remain preserved. The unbuilt independent cache may be relocated after its copying/verification processes exit.",
+      "source": "inputs/issues/419.md:31",
+      "group": "proxy-continuity",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I419-L32",
+      "issue": 419,
+      "criterion": "Corrected image source/payload custody and installed proxy preservation/default VM evidence name the new build; no prior-artifact pass is transferred.",
+      "source": "inputs/issues/419.md:32",
+      "group": "proxy-continuity",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I420-L21",
+      "issue": 420,
+      "criterion": "Diagnose the absent hook from actual guest process/service/probe evidence; retain settings-01 failure unchanged.",
+      "source": "inputs/issues/420.md:21",
+      "group": "settings-race",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I420-L22",
+      "issue": 420,
+      "criterion": "A fresh owner proves recovery paused after releasing the settings lock, actual script writers publish newer bytes, and the same installed ES preserves those bytes on resumption; captured result JSON passes.",
+      "source": "inputs/issues/420.md:22",
+      "group": "settings-race",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I420-L23",
+      "issue": 420,
+      "criterion": "Missing probe/interleaving cannot pass; bounded failure, exact product hash checks, original settings restoration and owned guest cleanup are retained.",
+      "source": "inputs/issues/420.md:23",
+      "group": "settings-race",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I422-L88",
+      "issue": 422,
+      "criterion": "The failing owner, screenshot, status and actual cleanup are retained.",
+      "source": "inputs/issues/422.md:88",
+      "group": "visual-custody",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I422-L89",
+      "issue": 422,
+      "criterion": "Candidate-bound UI walks explicitly declare their first-row fixture and no longer depend on a full counted wrap; syntax/source controls pass.",
+      "source": "inputs/issues/422.md:89",
+      "group": "visual-custody",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I422-L90",
+      "issue": 422,
+      "criterion": "A fresh owner completes both language/panel walks; actual frames show the intended pages and capture dimensions match.",
+      "source": "inputs/issues/422.md:90",
+      "group": "visual-custody",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I422-L91",
+      "issue": 422,
+      "criterion": "Accepted replacement09 UI13/boot04 proof is named by M7/checkpoint and fresh predecessor09 dependency before launch. Original UI06 interruption and UI07 boot failure remain unchanged; superseded predecessor03 is never used.",
+      "source": "inputs/issues/422.md:91",
+      "group": "visual-custody",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I425-L14",
+      "issue": 425,
+      "criterion": "Original failed log/status and actual cleanup/backing checks are retained.",
+      "source": "inputs/issues/425.md:14",
+      "group": "cloud-fixtures",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I425-L15",
+      "issue": 425,
+      "criterion": "Parser controls reject missing result and preserve actual nonzero status while accepting silent and noisy success.",
+      "source": "inputs/issues/425.md:15",
+      "group": "cloud-fixtures",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I425-L16",
+      "issue": 425,
+      "criterion": "A fresh installed-owner run completes all five RC2-created states, including marker-failure boot/scan retry and no-change repeat checks.",
+      "source": "inputs/issues/425.md:16",
+      "group": "cloud-fixtures",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I426-L64",
+      "issue": 426,
+      "criterion": "Retain exact archive hash, consumed source review, native comparison and coupled pins: source review and comparison.json in `docs/qa-logs/2026-10-05-proxy-7252fc/`.",
+      "source": "inputs/issues/426.md:64",
+      "group": "proxy-continuity",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I426-L65",
+      "issue": 426,
+      "criterion": "All15 patches apply at fuzz0; recipe/schema/freshness agree. Actual5816=0:815 patched upstream tests with native hashing/no skips,11 downstream integration tests,1719 host scripts PASS/0FAIL/0SKIP. Source seals and three recorded result channels verify; real runner/watcher/command absent03:11:24. Original failed test attempts remain retained.",
+      "source": "inputs/issues/426.md:65",
+      "group": "proxy-continuity",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I426-L66",
+      "issue": 426,
+      "criterion": "Freeze/build7252fc with the #433 splash repair; retain exact source/payload and new-image installed preservation/subset HTTP proof. Old candidate successes do not close this criterion.",
+      "source": "inputs/issues/426.md:66",
+      "group": "proxy-continuity",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I427-L20",
+      "issue": 427,
+      "criterion": "Before/after discovery shows only the16 intended default walks, with both dedicated walk contents preserved outside that glob.",
+      "source": "inputs/issues/427.md:20",
+      "group": "visual-custody",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I427-L21",
+      "issue": 427,
+      "criterion": "The new frozen source/manifests, transferred cache custody and dedicated owner references agree; old06 remains recorded as never built.",
+      "source": "inputs/issues/427.md:21",
+      "group": "visual-custody",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I427-L22",
+      "issue": 427,
+      "criterion": "Exact new candidate default-suite/frame comparison and dedicated bilingual UI walks pass with their respective fixtures.",
+      "source": "inputs/issues/427.md:22",
+      "group": "visual-custody",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I428-L12",
+      "issue": 428,
+      "criterion": "Original failed result, exact Git/package mode contract, and actual cleanup are retained.",
+      "source": "inputs/issues/428.md:12",
+      "group": "identity-fixtures",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I428-L13",
+      "issue": 428,
+      "criterion": "A fresh harness expects the Git executable mode0755, with negative wrong-mode controls and verified dependency seals.",
+      "source": "inputs/issues/428.md:13",
+      "group": "identity-fixtures",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I428-L14",
+      "issue": 428,
+      "criterion": "New candidate clean/upgraded payload checks, actual ES environment and default/upgrade suites pass in the fresh owner.",
+      "source": "inputs/issues/428.md:14",
+      "group": "identity-fixtures",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I431-L76",
+      "issue": 431,
+      "criterion": "Original result-channel discrepancy, partial captures and actual cleanup observations retained unchanged; source/bundle custody reverified.",
+      "source": "inputs/issues/431.md:76",
+      "group": "visual-custody",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I431-L77",
+      "issue": 431,
+      "criterion": "Signal recorder control captures a known termination and sender without command/env payloads; fresh owner retains its own sealed inputs and normal shared watcher behavior.",
+      "source": "inputs/issues/431.md:77",
+      "group": "visual-custody",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I431-L78",
+      "issue": 431,
+      "criterion": "Fresh owner completes EN/FR640x480/1280x960 intended pages with actual semantic frame review and unchanged boot matcher controls; actual tool/results/cleanup agree. This does not require inventing a cause for the original interruption.",
+      "source": "inputs/issues/431.md:78",
+      "group": "visual-custody",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I431-L79",
+      "issue": 431,
+      "criterion": "M7/checkpoint and dependent unstarted owner identify the accepted fresh UI proof; original UI06 remains failed and is never reused.",
+      "source": "inputs/issues/431.md:79",
+      "group": "visual-custody",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I434-L14",
+      "issue": 434,
+      "criterion": "Original failed owner, all exit channels, process cleanup and unchanged backing digest retained.",
+      "source": "inputs/issues/434.md:14",
+      "group": "identity-fixtures",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I434-L15",
+      "issue": 434,
+      "criterion": "Corrected fixture records both original/modified Syslinux and GRUB configuration and asserts consumed `quiet` plus expected console arguments in both observed boots.",
+      "source": "inputs/issues/434.md:15",
+      "group": "identity-fixtures",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I434-L16",
+      "issue": 434,
+      "criterion": "Two bounded quiet boot observations retain frames, matcher results and actual terminal/cleanup proof; no retry-until-pass or candidate qualification from modified guest bytes.",
+      "source": "inputs/issues/434.md:16",
+      "group": "identity-fixtures",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I435-L14",
+      "issue": 435,
+      "criterion": "Retain original actual7435=2, all result channels and actual process/container exit evidence.",
+      "source": "inputs/issues/435.md:14",
+      "group": "watcher",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I435-L15",
+      "issue": 435,
+      "criterion": "A fresh attempt asserts the worktree cwd before any package mutation; original owner cwd is rejected and intended worktree cwd accepted.",
+      "source": "inputs/issues/435.md:15",
+      "group": "watcher",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I435-L16",
+      "issue": 435,
+      "criterion": "Corrected actual image build finishes with consistent watcher/result channels and exact source/payload checks; retain original failure separately.",
+      "source": "inputs/issues/435.md:16",
+      "group": "watcher",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I435-L17",
+      "issue": 435,
+      "criterion": "Checkpoint and M7 priorities name the accepted build attempt and safe current commands.",
+      "source": "inputs/issues/435.md:17",
+      "group": "watcher",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I437-L18",
+      "issue": 437,
+      "criterion": "A reusable observation adapter emits a watched *.log only when same-process byte counters actually advance; first/unchanged/restarted observations do not manufacture activity.",
+      "source": "inputs/issues/437.md:18",
+      "group": "watcher",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I437-L19",
+      "issue": 437,
+      "criterion": "An isolated actual watcher fixture reproduces JSON-only suspected-stall, then identifies the corrected progress log as running; unchanged counters leave its mtime unchanged.",
+      "source": "inputs/issues/437.md:19",
+      "group": "watcher",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I437-L20",
+      "issue": 437,
+      "criterion": "Original copy warning/I/O/completion and corrected source/control receipts are retained. Checkpoint/work log name the .log contract; no executed owner or frozen input is edited.",
+      "source": "inputs/issues/437.md:20",
+      "group": "watcher",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I438-L16",
+      "issue": 438,
+      "criterion": "Retain the original refusal/result and verify inventory07 never started.",
+      "source": "inputs/issues/438.md:16",
+      "group": "watcher",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I438-L17",
+      "issue": 438,
+      "criterion": "A new sealed inventory owner explicitly guards its separate coordination cwd before starting, binds the same frozen09 inputs, and passes inventory/component checks while QA11 keeps its own watcher.",
+      "source": "inputs/issues/438.md:17",
+      "group": "watcher",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I438-L18",
+      "issue": 438,
+      "criterion": "Actual result channels, process cleanup, source counts and instruction/checkpoint corrections are retained and published; no shared lock is bypassed and no old receipt is overwritten.",
+      "source": "inputs/issues/438.md:18",
+      "group": "watcher",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I439-L18",
+      "issue": 439,
+      "criterion": "Retain original QA11 failure/cleanup and actual baseline/current first sample plus completed frame, with correct sampling interpretation.",
+      "source": "inputs/issues/439.md:18",
+      "group": "visual-custody",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I439-L19",
+      "issue": 439,
+      "criterion": "One issue-bound claim covers only the measured first-sample status region; the same78-frame comparison passes with zero unclaimed/missing frames and unchanged baseline/masks/engine.",
+      "source": "inputs/issues/439.md:19",
+      "group": "visual-custody",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I439-L20",
+      "issue": 439,
+      "criterion": "Removing the claim and shrinking its measured boundary both fail; an unrelated changed heading and missing frame still fail.",
+      "source": "inputs/issues/439.md:20",
+      "group": "visual-custody",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I439-L21",
+      "issue": 439,
+      "criterion": "Publish the corrected claim and evidence, and document the fresh continuation owner's dependency on original fourteen-suite results plus corrected comparison before actualRC2 upgrade. No original receipt or executed owner is rewritten.",
+      "source": "inputs/issues/439.md:21",
+      "group": "visual-custody",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I440-L14",
+      "issue": 440,
+      "criterion": "Retain original refusal/rc2 and verify no start or guest was created.",
+      "source": "inputs/issues/440.md:14",
+      "group": "watcher",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I440-L15",
+      "issue": 440,
+      "criterion": "Fresh sealed continuation owner creates and checks its activity directory before watch-build launch; original source and QA receipts stay untouched.",
+      "source": "inputs/issues/440.md:15",
+      "group": "watcher",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I440-L16",
+      "issue": 440,
+      "criterion": "Standard watcher actually starts, records its run/owned PIDs and observes the new job's logs; checkpoint/work log retain the preparation correction.",
+      "source": "inputs/issues/440.md:16",
+      "group": "watcher",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I441-L16",
+      "issue": 441,
+      "criterion": "Retain failed preparation and boot03's original dependency failure with actual result channels and verified process absence.",
+      "source": "inputs/issues/441.md:16",
+      "group": "watcher",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I441-L17",
+      "issue": 441,
+      "criterion": "Fresh sealed successor owners bind QA13 and one another consistently, preserving original owners; preparation verifies all old hashes and parses every new source before any launch.",
+      "source": "inputs/issues/441.md:17",
+      "group": "watcher",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I441-L18",
+      "issue": 441,
+      "criterion": "Launch follows a separately verified successful preparation result, and the new boot owner proves it consumes the actual QA13-upgraded disk; standard watcher ownership is observed.",
+      "source": "inputs/issues/441.md:18",
+      "group": "watcher",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I442-L16",
+      "issue": 442,
+      "criterion": "Retain original sweep08 failure, counts, actual cleanup and all20 exact context bytes/digests with source/policy classification.",
+      "source": "inputs/issues/442.md:16",
+      "group": "identity-fixtures",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I442-L17",
+      "issue": 442,
+      "criterion": "Add only reviewed path/context hashes in a new sealed owner; no pattern, scanner, public credential exception or product changes.",
+      "source": "inputs/issues/442.md:17",
+      "group": "identity-fixtures",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I442-L18",
+      "issue": 442,
+      "criterion": "Exact reviewed bytes pass; removal, altered context and different path still fail, alongside existing ten controls.",
+      "source": "inputs/issues/442.md:18",
+      "group": "identity-fixtures",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I442-L19",
+      "issue": 442,
+      "criterion": "Fresh full-image scan has zero unknown/FIX/credential findings and installed localisation/theme/Tools checks pass. Preserve original failure and publish scoped evidence.",
+      "source": "inputs/issues/442.md:19",
+      "group": "identity-fixtures",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I443-L16",
+      "issue": 443,
+      "criterion": "Preserve original failure/cleanup and compare all expected hashes against the immutable image extraction; record the prior stale ES value explicitly.",
+      "source": "inputs/issues/443.md:16",
+      "group": "identity-fixtures",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I443-L17",
+      "issue": 443,
+      "criterion": "Fresh sealed owner derives all expected file hashes from that payload and records actual plus expected values. An obsolete digest still rejects; original assertion remains mandatory.",
+      "source": "inputs/issues/443.md:17",
+      "group": "identity-fixtures",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I443-L18",
+      "issue": 443,
+      "criterion": "Installed actual-upgraded guest passes exact identities, recovery-race assertions and all29 settings-mode/refusal checks; original backing and installed files remain unchanged and actual process cleanup is verified.",
+      "source": "inputs/issues/443.md:18",
+      "group": "identity-fixtures",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I443-L19",
+      "issue": 443,
+      "criterion": "Publish scoped evidence and reconcile current milestone/checkpoint before closing.",
+      "source": "inputs/issues/443.md:19",
+      "group": "identity-fixtures",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I444-L16",
+      "issue": 444,
+      "criterion": "Interrupted-run receipt preserves actual tool143, original terminal watcher status, completed case outcomes, incomplete K, and verifies all owned guests/endpoints/processes stopped.",
+      "source": "inputs/issues/444.md:16",
+      "group": "watcher",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I444-L17",
+      "issue": 444,
+      "criterion": "Lifecycle control log proves the fresh durable launch survives loss of its submitting shell, records actual success/failure, and refuses duplicate owner execution; launch success cannot be reported as job completion.",
+      "source": "inputs/issues/444.md:17",
+      "group": "watcher",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I444-L18",
+      "issue": 444,
+      "criterion": "A fresh sealed owner completes all19 unchanged cloud cases on the exact immutable candidate, with source/bundle verification, frame review, actual terminal codes and process cleanup.",
+      "source": "inputs/issues/444.md:18",
+      "group": "watcher",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I444-L19",
+      "issue": 444,
+      "criterion": "Checkpoint and M7 body name the accepted owner and remaining order; dependent owners require its completed proof. Original interrupted owner is never relabelled successful.",
+      "source": "inputs/issues/444.md:19",
+      "group": "watcher",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I445-L16",
+      "issue": 445,
+      "criterion": "Original failed results/logs and actual no-guest cleanup are retained without rewriting the executed owner.",
+      "source": "inputs/issues/445.md:16",
+      "group": "watcher",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I445-L17",
+      "issue": 445,
+      "criterion": "A real ssh-keygen control reproduces missing-directory refusal and succeeds with the corrected explicit directory setup; key files remain private and outside Git.",
+      "source": "inputs/issues/445.md:17",
+      "group": "watcher",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I445-L18",
+      "issue": 445,
+      "criterion": "Fresh sealed proxy owner passes all22 unchanged installed assertions on the exact candidate and verifies source, bundle and cleanup.",
+      "source": "inputs/issues/445.md:18",
+      "group": "watcher",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I445-L19",
+      "issue": 445,
+      "criterion": "Remaining owner directory/dependency contracts and checkpoint/M7 order are reconciled and independently read back before further launch.",
+      "source": "inputs/issues/445.md:19",
+      "group": "watcher",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I446-L18",
+      "issue": 446,
+      "criterion": "Preserve original four failures, actual frames, hashes, durable result channels and verified owned cleanup.",
+      "source": "inputs/issues/446.md:18",
+      "group": "cloud-fixtures",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I446-L19",
+      "issue": 446,
+      "criterion": "Fresh sealed owner arms the real layout-only injector after reboot. Actual post-reboot executable selection, connectivity success, failing layout operation and fired trigger are proved before wizard input; original preservation/recovery assertions stay intact.",
+      "source": "inputs/issues/446.md:19",
+      "group": "cloud-fixtures",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I446-L20",
+      "issue": 446,
+      "criterion": "Fresh complete UI17/UI26 pass with actual intended failure/completion/recovery/refusal frame review and matching results/cleanup; frozen source and bundle still verify.",
+      "source": "inputs/issues/446.md:20",
+      "group": "cloud-fixtures",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I446-L21",
+      "issue": 446,
+      "criterion": "M7/checkpoint and fresh downstream dependencies name the accepted proof. Earlier failed owner is never relabelled or reused.",
+      "source": "inputs/issues/446.md:21",
+      "group": "cloud-fixtures",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I448-L14",
+      "issue": 448,
+      "criterion": "Original failing result/log/cleanup retained without claiming a rendering result.",
+      "source": "inputs/issues/448.md:14",
+      "group": "visual-custody",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I448-L15",
+      "issue": 448,
+      "criterion": "Fresh metadata check derives presence/content from verified RC2 SYSTEM and rejects wrong presence/hash; current mobile qualification predicates remain intact.",
+      "source": "inputs/issues/448.md:15",
+      "group": "visual-custody",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I448-L16",
+      "issue": 448,
+      "criterion": "Fresh software/accelerated historical comparisons reach and retain the original finishing page with exact baseline identity/payload checks and agreed terminal cleanup; #447 owns interpretation.",
+      "source": "inputs/issues/448.md:16",
+      "group": "visual-custody",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I449-L18",
+      "issue": 449,
+      "criterion": "Preserve the original result, six actual frames, last observer timestamp and actual cleanup.",
+      "source": "inputs/issues/449.md:18",
+      "group": "visual-custody",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I449-L19",
+      "issue": 449,
+      "criterion": "A bounded initial frame and partial-message reads reject timeout/EOF/truncation/invalid rectangle/overlapping incomplete coverage; valid fragmented data reconstructs exact pixels.",
+      "source": "inputs/issues/449.md:19",
+      "group": "visual-custody",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I449-L20",
+      "issue": 449,
+      "criterion": "A complete frame followed by a quiet open connection stays idle until requested stop; idle never becomes proof that the display is current. Record read-phase errors and separate boundary-idle observations.",
+      "source": "inputs/issues/449.md:20",
+      "group": "visual-custody",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I449-L21",
+      "issue": 449,
+      "criterion": "Fresh full software/Pixman sign-in run has clean observer shutdown, all unchanged assertions, six reviewed intended frames, exact finishing-reference match and terminal/cleanup agreement.",
+      "source": "inputs/issues/449.md:21",
+      "group": "visual-custody",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I450-L15",
+      "issue": 450,
+      "criterion": "Failed selector02 result and original error are retained with actual process cleanup.",
+      "source": "inputs/issues/450.md:15",
+      "group": "visual-custody",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I450-L16",
+      "issue": 450,
+      "criterion": "Fresh guest fixture executes actual BusyBox with the image library layout; all selector boundary controls pass on software and virgl guests.",
+      "source": "inputs/issues/450.md:16",
+      "group": "visual-custody",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I450-L17",
+      "issue": 450,
+      "criterion": "Product selection evidence remains distinct from installation/full rendering acceptance under #447.",
+      "source": "inputs/issues/450.md:17",
+      "group": "visual-custody",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I453-L18",
+      "issue": 453,
+      "criterion": "Retain a timestamped per-directory size inventory, filesystem capacity/reserve figures and any permission/error limitations.",
+      "source": "inputs/issues/453.md:18",
+      "group": "cleanup",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I453-L19",
+      "issue": 453,
+      "criterion": "Explain the largest storage consumers and distinguish rebuildable build roots from candidate/source bundles and retained QA evidence.",
+      "source": "inputs/issues/453.md:19",
+      "group": "cleanup",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I453-L20",
+      "issue": 453,
+      "criterion": "Produce a concrete reclaim proposal with expected space, active-owner exclusions and artifact/source/upgrade retention dependencies. Any approved worktree removal uses tools/fork-worktree; no deletion is implied by this inventory question.",
+      "source": "inputs/issues/453.md:20",
+      "group": "cleanup",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I456-L26",
+      "issue": 456,
+      "criterion": "Per-tree manifest names its branch/source, tracked modifications and retained image/input/log custody, with exact hashes in the preservation report.",
+      "source": "inputs/issues/456.md:26",
+      "group": "cleanup",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I456-L27",
+      "issue": 456,
+      "criterion": "All retained qcow2 backing references and live process/container dependencies are checked; any dependent or uniquely required payload is excluded or preserved, with the report naming each disposition.",
+      "source": "inputs/issues/456.md:27",
+      "group": "cleanup",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I456-L28",
+      "issue": 456,
+      "criterion": "Required source/licence inputs, unstripped debugging outputs and failed-run evidence have a verified preservation destination, with byte/hash comparison receipts.",
+      "source": "inputs/issues/456.md:28",
+      "group": "cleanup",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I456-L29",
+      "issue": 456,
+      "criterion": "A concrete tools/fork-worktree removal command list and net recovery estimate are recorded for the named trees; the report explicitly distinguishes prepared preservation from approved/executed deletion.",
+      "source": "inputs/issues/456.md:29",
+      "group": "cleanup",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I458-L16",
+      "issue": 458,
+      "criterion": "The actual invalid-data fixture reproduces the old assertion; corrected classification retains malformed ELF-looking fixtures as opaque bytes, with valid ELF32/ELF64 and truncated controls recorded.",
+      "source": "inputs/issues/458.md:16",
+      "group": "cleanup",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I458-L17",
+      "issue": 458,
+      "criterion": "A fresh sealed owner completes preservation across all five named old trees, independently verifies every retained destination and records original-source stability. Runtime01 stays failed.",
+      "source": "inputs/issues/458.md:17",
+      "group": "cleanup",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I458-L18",
+      "issue": 458,
+      "criterion": "Completion, actual process cleanup, custody hashes and the explicit remaining removal gates are published; no deletion is authorized or executed by this fix.",
+      "source": "inputs/issues/458.md:18",
+      "group": "cleanup",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I459-L14",
+      "issue": 459,
+      "criterion": "Retention/source/diffs verified; fresh UID0 process snapshots, current container mounts and surviving backing chains checked before each removal. All15,206retained files and19current bundle files rehash successfully afterward;15manifests/27gitinputs/frozen14inputs verify. Evidence: root-before.json per successful owner and final-verification.json.",
+      "source": "inputs/issues/459.md:14",
+      "group": "cleanup",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I459-L15",
+      "issue": 459,
+      "criterion": "All five exact removals succeeded. Directory and registration absence, retained branch/head, protected path identity and actual helper/owner process exits verify for each tree. Evidence: removed-03/05/06/07/08.json, successful owner completion.json/helper-completion.json;12protected paths retained.",
+      "source": "inputs/issues/459.md:15",
+      "group": "cleanup",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I459-L16",
+      "issue": 459,
+      "criterion": "Before/after free-space measurements, actual result/process receipts and preservation hashes are published. M7 and canonical handoff reflect completed cleanup and remaining P3 work. Evidence: execution-before.json/final-verification.json, published next and live milestone readback.",
+      "source": "inputs/issues/459.md:16",
+      "group": "cleanup",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I460-L14",
+      "issue": 460,
+      "criterion": "An isolated real Git worktree reproduces the original permission failure; the fixed helper removes its read-only build cache, with actual directory/registration absence and retained branch. controls-02/original and corrected outputs plus result.json.",
+      "source": "inputs/issues/460.md:14",
+      "group": "cleanup",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I460-L15",
+      "issue": 460,
+      "criterion": "Incomplete/unrepairable directory inspection refuses before Git deletion/unregistration; no-force and external symlink-target preservation pass. Empty-directory handling performs no chmod; a controlled nonzero Git exit remains nonzero. All six final controls pass in controls-02/result.json.",
+      "source": "inputs/issues/460.md:15",
+      "group": "cleanup",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    },
+    {
+      "id": "I460-L16",
+      "issue": 460,
+      "criterion": "Original03 and05-v2 remain failed. Watched repair03 restores exact02163b4commit/buildbranch/42065b0tracked diff; fresh guarded removals of all five approved trees complete. Final retention and process checks pass without expanding cleanup scope. #459 records actual outcomes.",
+      "source": "inputs/issues/460.md:16",
+      "group": "cleanup",
+      "disposition": "retained scoped evidence reviewed; limits in group",
+      "claimed_fresh_execution": false
+    }
+  ]
+}

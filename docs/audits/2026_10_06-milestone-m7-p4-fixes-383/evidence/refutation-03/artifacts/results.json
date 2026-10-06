@@ -1,0 +1,263 @@
+[
+  {
+    "after": {
+      "cloud": {},
+      "pointers": {
+        "CONTENT_REMOTE": "/Mine",
+        "LAYOUT_KEEP": "",
+        "SAVES_REMOTE": "/pixelelated/Saves",
+        "SETTINGS_REMOTE": "/pixelelated/Backups"
+      }
+    },
+    "before": {
+      "cloud": {},
+      "pointers": {
+        "CONTENT_REMOTE": "/Mine",
+        "LAYOUT_KEEP": "",
+        "SAVES_REMOTE": "/pixelelated/Saves",
+        "SETTINGS_REMOTE": "/pixelelated/Backups"
+      }
+    },
+    "case": "empty-configured",
+    "expected_found": "",
+    "expected_state": "empty",
+    "facts": {
+      "AT_PATH": "0",
+      "AT_ROOT": "0",
+      "CONTENT_REMOTE": "/Mine",
+      "FOUND": "",
+      "ROOT_DIRS": "",
+      "STATE": "empty"
+    },
+    "rc": 0,
+    "status": "PASS"
+  },
+  {
+    "after": {
+      "cloud": {
+        "Mine/Photos/x.jpg": "ab10bb7bc26c1ec27f9a3696ed3ff66f9caad8de197ebe9a4f3332f1577670b9"
+      },
+      "pointers": {
+        "CONTENT_REMOTE": "/Mine",
+        "LAYOUT_KEEP": "",
+        "SAVES_REMOTE": "/pixelelated/Saves",
+        "SETTINGS_REMOTE": "/pixelelated/Backups"
+      }
+    },
+    "before": {
+      "cloud": {
+        "Mine/Photos/x.jpg": "ab10bb7bc26c1ec27f9a3696ed3ff66f9caad8de197ebe9a4f3332f1577670b9"
+      },
+      "pointers": {
+        "CONTENT_REMOTE": "/Mine",
+        "LAYOUT_KEEP": "",
+        "SAVES_REMOTE": "/pixelelated/Saves",
+        "SETTINGS_REMOTE": "/pixelelated/Backups"
+      }
+    },
+    "case": "unrelated-configured",
+    "expected_found": "",
+    "expected_state": "empty",
+    "facts": {
+      "AT_PATH": "1",
+      "AT_ROOT": "0",
+      "CONTENT_REMOTE": "/Mine",
+      "FOUND": "",
+      "ROOT_DIRS": "",
+      "STATE": "ok"
+    },
+    "rc": 0,
+    "status": "FAIL"
+  },
+  {
+    "after": {
+      "cloud": {
+        "Mine/Photos/x.jpg": "ab10bb7bc26c1ec27f9a3696ed3ff66f9caad8de197ebe9a4f3332f1577670b9",
+        "pixelelated/Content/ROMs/gb/A.gb": "fa50d02b39b239f20fa5810196dfbce4960c77fc7a2a2e893473da4e95382136"
+      },
+      "pointers": {
+        "CONTENT_REMOTE": "/Mine",
+        "LAYOUT_KEEP": "",
+        "SAVES_REMOTE": "/pixelelated/Saves",
+        "SETTINGS_REMOTE": "/pixelelated/Backups"
+      }
+    },
+    "before": {
+      "cloud": {
+        "Mine/Photos/x.jpg": "ab10bb7bc26c1ec27f9a3696ed3ff66f9caad8de197ebe9a4f3332f1577670b9",
+        "pixelelated/Content/ROMs/gb/A.gb": "fa50d02b39b239f20fa5810196dfbce4960c77fc7a2a2e893473da4e95382136"
+      },
+      "pointers": {
+        "CONTENT_REMOTE": "/Mine",
+        "LAYOUT_KEEP": "",
+        "SAVES_REMOTE": "/pixelelated/Saves",
+        "SETTINGS_REMOTE": "/pixelelated/Backups"
+      }
+    },
+    "case": "unrelated-configured-fallback",
+    "expected_found": "/pixelelated/Content",
+    "expected_state": "found-elsewhere",
+    "facts": {
+      "AT_PATH": "1",
+      "AT_ROOT": "0",
+      "CONTENT_REMOTE": "/Mine",
+      "FOUND": "",
+      "ROOT_DIRS": "",
+      "STATE": "ok"
+    },
+    "rc": 0,
+    "status": "FAIL"
+  },
+  {
+    "after": {
+      "cloud": {
+        "Mine/BIOS/qa.bin": "54bdd075d07d3bb149baf7f7684a7a56a3be6ae66bc2a18a221ac33544d17e19",
+        "Mine/ROMs/gb/A.gb": "fa50d02b39b239f20fa5810196dfbce4960c77fc7a2a2e893473da4e95382136"
+      },
+      "pointers": {
+        "CONTENT_REMOTE": "/Mine",
+        "LAYOUT_KEEP": "",
+        "SAVES_REMOTE": "/pixelelated/Saves",
+        "SETTINGS_REMOTE": "/pixelelated/Backups"
+      }
+    },
+    "before": {
+      "cloud": {
+        "Mine/BIOS/qa.bin": "54bdd075d07d3bb149baf7f7684a7a56a3be6ae66bc2a18a221ac33544d17e19",
+        "Mine/ROMs/gb/A.gb": "fa50d02b39b239f20fa5810196dfbce4960c77fc7a2a2e893473da4e95382136"
+      },
+      "pointers": {
+        "CONTENT_REMOTE": "/Mine",
+        "LAYOUT_KEEP": "",
+        "SAVES_REMOTE": "/pixelelated/Saves",
+        "SETTINGS_REMOTE": "/pixelelated/Backups"
+      }
+    },
+    "case": "tiered-configured",
+    "expected_found": "",
+    "expected_state": "ok",
+    "facts": {
+      "AT_PATH": "2",
+      "AT_ROOT": "0",
+      "CONTENT_REMOTE": "/Mine",
+      "FOUND": "",
+      "ROOT_DIRS": "",
+      "STATE": "ok"
+    },
+    "rc": 0,
+    "status": "PASS"
+  },
+  {
+    "after": {
+      "cloud": {
+        "BIOS/qa.bin": "54bdd075d07d3bb149baf7f7684a7a56a3be6ae66bc2a18a221ac33544d17e19",
+        "ROMs/gb/A.gb": "fa50d02b39b239f20fa5810196dfbce4960c77fc7a2a2e893473da4e95382136"
+      },
+      "pointers": {
+        "CONTENT_REMOTE": "",
+        "LAYOUT_KEEP": "",
+        "SAVES_REMOTE": "/pixelelated/Saves",
+        "SETTINGS_REMOTE": "/pixelelated/Backups"
+      }
+    },
+    "before": {
+      "cloud": {
+        "BIOS/qa.bin": "54bdd075d07d3bb149baf7f7684a7a56a3be6ae66bc2a18a221ac33544d17e19",
+        "ROMs/gb/A.gb": "fa50d02b39b239f20fa5810196dfbce4960c77fc7a2a2e893473da4e95382136"
+      },
+      "pointers": {
+        "CONTENT_REMOTE": "",
+        "LAYOUT_KEEP": "",
+        "SAVES_REMOTE": "/pixelelated/Saves",
+        "SETTINGS_REMOTE": "/pixelelated/Backups"
+      }
+    },
+    "case": "tiered-explicit-root",
+    "expected_found": "",
+    "expected_state": "ok",
+    "facts": {
+      "AT_PATH": "0",
+      "AT_ROOT": "0",
+      "CONTENT_REMOTE": "",
+      "FOUND": "",
+      "ROOT_DIRS": "",
+      "STATE": "empty"
+    },
+    "rc": 0,
+    "status": "FAIL"
+  },
+  {
+    "after": {
+      "cloud": {
+        "gb/A.gb": "fa50d02b39b239f20fa5810196dfbce4960c77fc7a2a2e893473da4e95382136"
+      },
+      "pointers": {
+        "CONTENT_REMOTE": "",
+        "LAYOUT_KEEP": "",
+        "SAVES_REMOTE": "/pixelelated/Saves",
+        "SETTINGS_REMOTE": "/pixelelated/Backups"
+      }
+    },
+    "before": {
+      "cloud": {
+        "gb/A.gb": "fa50d02b39b239f20fa5810196dfbce4960c77fc7a2a2e893473da4e95382136"
+      },
+      "pointers": {
+        "CONTENT_REMOTE": "",
+        "LAYOUT_KEEP": "",
+        "SAVES_REMOTE": "/pixelelated/Saves",
+        "SETTINGS_REMOTE": "/pixelelated/Backups"
+      }
+    },
+    "case": "legacy-explicit-root",
+    "expected_found": "",
+    "expected_state": "ok",
+    "facts": {
+      "AT_PATH": "0",
+      "AT_ROOT": "0",
+      "CONTENT_REMOTE": "",
+      "FOUND": "",
+      "ROOT_DIRS": "",
+      "STATE": "empty"
+    },
+    "rc": 0,
+    "status": "FAIL"
+  },
+  {
+    "after": {
+      "cloud": {
+        "Photos/x.jpg": "ab10bb7bc26c1ec27f9a3696ed3ff66f9caad8de197ebe9a4f3332f1577670b9"
+      },
+      "pointers": {
+        "CONTENT_REMOTE": "",
+        "LAYOUT_KEEP": "",
+        "SAVES_REMOTE": "/pixelelated/Saves",
+        "SETTINGS_REMOTE": "/pixelelated/Backups"
+      }
+    },
+    "before": {
+      "cloud": {
+        "Photos/x.jpg": "ab10bb7bc26c1ec27f9a3696ed3ff66f9caad8de197ebe9a4f3332f1577670b9"
+      },
+      "pointers": {
+        "CONTENT_REMOTE": "",
+        "LAYOUT_KEEP": "",
+        "SAVES_REMOTE": "/pixelelated/Saves",
+        "SETTINGS_REMOTE": "/pixelelated/Backups"
+      }
+    },
+    "case": "unrelated-explicit-root",
+    "expected_found": "",
+    "expected_state": "empty",
+    "facts": {
+      "AT_PATH": "0",
+      "AT_ROOT": "0",
+      "CONTENT_REMOTE": "",
+      "FOUND": "",
+      "ROOT_DIRS": "",
+      "STATE": "empty"
+    },
+    "rc": 0,
+    "status": "PASS"
+  }
+]

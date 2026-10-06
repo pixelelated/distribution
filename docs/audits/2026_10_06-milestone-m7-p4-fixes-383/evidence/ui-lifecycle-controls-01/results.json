@@ -1,0 +1,42 @@
+{
+  "utc": "2026-10-06T16:04:00.884497+00:00",
+  "results": [
+    {
+      "name": "nova-led",
+      "command": [
+        "python3",
+        "-B",
+        "tools/nova-led-test"
+      ],
+      "rc": 0
+    },
+    {
+      "name": "gpu-save",
+      "command": [
+        "python3",
+        "-B",
+        "/home/max/Development/emulationstation-next.worktrees/qa-integration/tests/gpu-governor-save.py"
+      ],
+      "rc": 0
+    },
+    {
+      "name": "vm-stop",
+      "command": [
+        "python3",
+        "-B",
+        "tools/vm-stop-test"
+      ],
+      "rc": 1
+    },
+    {
+      "name": "old-export",
+      "rc": 0,
+      "identity_matches": false
+    },
+    {
+      "name": "new-export",
+      "rc": 0,
+      "identity_matches": true
+    }
+  ]
+}

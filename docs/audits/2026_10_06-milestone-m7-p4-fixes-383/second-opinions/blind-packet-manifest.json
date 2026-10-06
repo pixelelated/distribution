@@ -1,0 +1,283 @@
+{
+  "frozen_distribution": "7afa9efcfc0c1ce4b89774b38878fc1b9a9063d2",
+  "frozen_es": "f6f0c134212bc696f2f6a747c8d390a588f2f0ce",
+  "criteria": 261,
+  "primary_verdict_fields_included": false,
+  "prior_comparison_included": false,
+  "source_excerpt_inputs": [
+    {
+      "path": "docs/audits/2026_10_06-milestone-m7-p4-fixes-383/inputs/distribution-product-diff.patch",
+      "sha256": "d1cfd4b4b4e4438199f7fe52516bc889b69b85b022c1916cc4876b3d4c333d87",
+      "lines": [
+        1,
+        4927
+      ]
+    },
+    {
+      "path": "docs/audits/2026_10_06-milestone-m7-p4-fixes-383/inputs/es-diff.patch",
+      "sha256": "c2cc7bb616cb0ce2cacf82f18adfbf23e32c6e3bfe8b54b85109a2379e01e24b",
+      "lines": [
+        1,
+        892
+      ]
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_setup",
+      "sha256": "26243a8965d9bb1b1a81eb1dc0e90e894a1cb3783b601c6785e712c6c636dc7a",
+      "lines": [
+        1,
+        972
+      ]
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_scan",
+      "sha256": "29dd9da8a9dafa3433013c2b433a40d0c10b7fb0435e6f281000f3465077502f",
+      "lines": [
+        1,
+        248
+      ]
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_migrate_layout",
+      "sha256": "fe184dc2a20f991d35402065c36373f915aa821c96f15b8dbfdd09ba8e533555",
+      "lines": [
+        1,
+        1529
+      ]
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_content_backup",
+      "sha256": "c6789f9476d1c13cc00050fe2478d26629da05ef6af89222eb0ef72f3bf594ae",
+      "lines": [
+        1,
+        754
+      ]
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_content_restore",
+      "sha256": "0dbb66f0f8a7d8e46b240eb67041adc3b4dab05ad6a83ccdc132023d01120174",
+      "lines": [
+        1,
+        1598
+      ]
+    },
+    {
+      "path": "docs/audits/2026_10_06-milestone-m7-p4-fixes-383/evidence/refutation-03/probe.py",
+      "sha256": "36bf3529560e59e5d8a1ed01554f19f4c7c19c0ba072339700feed71ce8b248f",
+      "lines": [
+        1,
+        81
+      ]
+    },
+    {
+      "path": "docs/audits/2026_10_06-milestone-m7-p4-fixes-383/evidence/refutation-03/artifacts/results.json",
+      "sha256": "ec9c3701487d3ede289a60640d673fab378fcc70b86fddf79d564be68274a328",
+      "lines": [
+        1,
+        263
+      ]
+    },
+    {
+      "path": "docs/audits/2026_10_06-milestone-m7-p4-fixes-383/evidence/refutation-03/console.log",
+      "sha256": "5333e90f7559849687da9ce567d66eaaf33cc09e293212911b65303da2e98b75",
+      "lines": [
+        1,
+        24
+      ]
+    },
+    {
+      "path": "docs/audits/2026_10_06-milestone-m7-p4-fixes-383/evidence/proxy-source-equality.json",
+      "sha256": "942d664d2c5e7c5564168460c38c9c88bb191dc016738eb040a16a1729680f36",
+      "lines": [
+        1,
+        16
+      ]
+    },
+    {
+      "path": "docs/audits/2026_10_06-milestone-m7-p4-fixes-383/evidence/memory-recalculation.json",
+      "sha256": "2725efdb4203036dae62c1187b33080dfa06be0660dccbed6129c1877efcb555",
+      "lines": [
+        1,
+        59
+      ]
+    },
+    {
+      "path": "docs/qa-logs/2026-10-06-ra-ui/qualification.json",
+      "sha256": "bf0c1858cb38e410b544150ab2da31580367328506c6c115e6fa835880709ed6",
+      "lines": [
+        1,
+        40
+      ]
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_oauth",
+      "sha256": "c9982e2828502bedfa73b033d7ed3641f140f12d5878deb0b34f237c165b8042",
+      "lines": [
+        570,
+        780
+      ]
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_oauth",
+      "sha256": "c9982e2828502bedfa73b033d7ed3641f140f12d5878deb0b34f237c165b8042",
+      "lines": [
+        975,
+        1190
+      ]
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/cloud-signin-window/sources/cloud-signin-window.c",
+      "sha256": "09cc91290ae42a4a089fef6f5ba34b0990565b237939dc053ce7eb6faab268bb",
+      "lines": [
+        420,
+        480
+      ]
+    },
+    {
+      "path": "/home/max/Development/emulationstation-next.worktrees/qa-integration/es-app/src/guis/GuiMenu.cpp",
+      "sha256": "f174888b6922b8afe4f7650a3b3eced535b23a5771bc369e882e4bed58981a0d",
+      "lines": [
+        4860,
+        4910
+      ]
+    },
+    {
+      "path": "/home/max/Development/emulationstation-next.worktrees/qa-integration/es-app/src/guis/GuiMenu.cpp",
+      "sha256": "f174888b6922b8afe4f7650a3b3eced535b23a5771bc369e882e4bed58981a0d",
+      "lines": [
+        5185,
+        5270
+      ]
+    },
+    {
+      "path": "docs/qa-logs/2026-10-05-pixelelated-replacement-09/cloud-ui-07-failed/artifacts/cloud-ui/UI26/logs/UI26-future-after-pointers.txt",
+      "sha256": "65006d5d4deb2abb996e2961266aea761fea4676bc762646cf99bea147824bc0",
+      "lines": [
+        1,
+        4
+      ]
+    },
+    {
+      "path": "docs/qa-logs/2026-10-05-pixelelated-replacement-09/cloud-ui-07-failed/artifacts/cloud-ui/UI26/logs/UI26-future-before-pointers.txt",
+      "sha256": "65006d5d4deb2abb996e2961266aea761fea4676bc762646cf99bea147824bc0",
+      "lines": [
+        1,
+        4
+      ]
+    },
+    {
+      "path": "docs/qa-logs/2026-10-05-pixelelated-replacement-09/cloud-ui-07-failed/artifacts/cloud-ui/UI26/logs/UI26-future-interface.log",
+      "sha256": "6b92b858c991456b3a34bb8d9026928c11b827c7282ec16b1bf0c1195af9e334",
+      "lines": [
+        1,
+        1
+      ]
+    },
+    {
+      "path": "docs/qa-logs/2026-10-05-pixelelated-replacement-09/cloud-ui-07-failed/artifacts/cloud-ui/UI26/logs/UI26-future-script.log",
+      "sha256": "3cdd95af3804e70af0ff54ea7578b82f0048363ddcedae244e6773bbcc39af04",
+      "lines": [
+        1,
+        3
+      ]
+    },
+    {
+      "path": "docs/qa-logs/2026-10-05-pixelelated-replacement-09/cloud-ui-07-failed/artifacts/cloud-ui/UI26/logs/UI26-malformed-after-pointers.txt",
+      "sha256": "65006d5d4deb2abb996e2961266aea761fea4676bc762646cf99bea147824bc0",
+      "lines": [
+        1,
+        4
+      ]
+    },
+    {
+      "path": "docs/qa-logs/2026-10-05-pixelelated-replacement-09/cloud-ui-07-failed/artifacts/cloud-ui/UI26/logs/UI26-malformed-before-pointers.txt",
+      "sha256": "65006d5d4deb2abb996e2961266aea761fea4676bc762646cf99bea147824bc0",
+      "lines": [
+        1,
+        4
+      ]
+    },
+    {
+      "path": "docs/qa-logs/2026-10-05-pixelelated-replacement-09/cloud-ui-07-failed/artifacts/cloud-ui/UI26/logs/UI26-malformed-interface.log",
+      "sha256": "03d180c0aa49592dd6a710be33376271e31db0954bc662314842c89d765f50b5",
+      "lines": [
+        1,
+        1
+      ]
+    },
+    {
+      "path": "docs/qa-logs/2026-10-05-pixelelated-replacement-09/cloud-ui-07-failed/artifacts/cloud-ui/UI26/logs/UI26-malformed-script.log",
+      "sha256": "3cdd95af3804e70af0ff54ea7578b82f0048363ddcedae244e6773bbcc39af04",
+      "lines": [
+        1,
+        3
+      ]
+    },
+    {
+      "path": "docs/qa-logs/2026-10-05-pixelelated-replacement-09/cloud-ui-08/artifacts/cloud-ui/UI26/logs/UI26-future-after-pointers.txt",
+      "sha256": "65006d5d4deb2abb996e2961266aea761fea4676bc762646cf99bea147824bc0",
+      "lines": [
+        1,
+        4
+      ]
+    },
+    {
+      "path": "docs/qa-logs/2026-10-05-pixelelated-replacement-09/cloud-ui-08/artifacts/cloud-ui/UI26/logs/UI26-future-before-pointers.txt",
+      "sha256": "65006d5d4deb2abb996e2961266aea761fea4676bc762646cf99bea147824bc0",
+      "lines": [
+        1,
+        4
+      ]
+    },
+    {
+      "path": "docs/qa-logs/2026-10-05-pixelelated-replacement-09/cloud-ui-08/artifacts/cloud-ui/UI26/logs/UI26-future-interface.log",
+      "sha256": "0caaddecf06bc0470520757b31f9e9d4e941a6c4e281117a4e19361eecd331a1",
+      "lines": [
+        1,
+        1
+      ]
+    },
+    {
+      "path": "docs/qa-logs/2026-10-05-pixelelated-replacement-09/cloud-ui-08/artifacts/cloud-ui/UI26/logs/UI26-future-script.log",
+      "sha256": "3cdd95af3804e70af0ff54ea7578b82f0048363ddcedae244e6773bbcc39af04",
+      "lines": [
+        1,
+        3
+      ]
+    },
+    {
+      "path": "docs/qa-logs/2026-10-05-pixelelated-replacement-09/cloud-ui-08/artifacts/cloud-ui/UI26/logs/UI26-malformed-after-pointers.txt",
+      "sha256": "65006d5d4deb2abb996e2961266aea761fea4676bc762646cf99bea147824bc0",
+      "lines": [
+        1,
+        4
+      ]
+    },
+    {
+      "path": "docs/qa-logs/2026-10-05-pixelelated-replacement-09/cloud-ui-08/artifacts/cloud-ui/UI26/logs/UI26-malformed-before-pointers.txt",
+      "sha256": "65006d5d4deb2abb996e2961266aea761fea4676bc762646cf99bea147824bc0",
+      "lines": [
+        1,
+        4
+      ]
+    },
+    {
+      "path": "docs/qa-logs/2026-10-05-pixelelated-replacement-09/cloud-ui-08/artifacts/cloud-ui/UI26/logs/UI26-malformed-interface.log",
+      "sha256": "4b04ee3687340c0e12efa75ff116b16bebb5308c09592c1d77a6cec9137f84ca",
+      "lines": [
+        1,
+        1
+      ]
+    },
+    {
+      "path": "docs/qa-logs/2026-10-05-pixelelated-replacement-09/cloud-ui-08/artifacts/cloud-ui/UI26/logs/UI26-malformed-script.log",
+      "sha256": "3cdd95af3804e70af0ff54ea7578b82f0048363ddcedae244e6773bbcc39af04",
+      "lines": [
+        1,
+        3
+      ]
+    }
+  ],
+  "brief_sha256": "fa0030b86a47b65a9ff1ce4e5f6ff8d1bc477783d030470bf47073ab2a89c058",
+  "brief_bytes": 856187
+}

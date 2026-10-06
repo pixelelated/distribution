@@ -1,0 +1,26 @@
+{
+  "utc": "2026-10-06T16:44:35.790380+00:00",
+  "retained_probe_files_rehashed": 314,
+  "original_execution": "2026-10-06T15:25\u201315:27UTC, actual unchanged candidate14",
+  "counts": {
+    "PASS": 3,
+    "FAIL": 4
+  },
+  "no_mutation_cases": 7,
+  "source_mitigations_checked": [
+    "cloud_setup:497\u2013569",
+    "cloud_content_backup:433\u2013457",
+    "cloud_content_restore:361\u2013369,504\u2013509,1307\u20131310",
+    "ES GuiMenu.cpp:5190\u20135250"
+  ],
+  "conclusion": "F01 survives completed source/artifact and fresh actual-target refutation; Phase4.5 complete",
+  "repeat_launch": "Completed17:06:00UTC; actual cleanup consumed17:08:41UTC",
+  "repeat_owner": "/workspace/tmp/pixelelated-m7-p4-refutation-03",
+  "phase_4_5": "complete: actual repeat03 reproduced3PASS/4FAIL; allfourrc1 and actual-host cleanup verified",
+  "repeat_evidence": "evidence/refutation-03/completion.json",
+  "repeat_prior_attempts": [
+    "01 missing proof directory, allfour1, no VM",
+    "02 /tmp quota, buildrc1/otherchannels missing; incompleteimage preserved"
+  ],
+  "completed_utc": "2026-10-06T17:11:01.231953+00:00"
+}

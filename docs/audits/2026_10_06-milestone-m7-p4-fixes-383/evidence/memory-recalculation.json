@@ -1,0 +1,59 @@
+{
+  "csv_results": [
+    {
+      "profile": "software-10",
+      "rows": 16,
+      "pid_count": 1,
+      "measured_cycles": 10,
+      "virtual_growth_kib": -448,
+      "resident_growth_kib": 684,
+      "stamp_files": 0
+    },
+    {
+      "profile": "software-sync-50",
+      "rows": 56,
+      "pid_count": 1,
+      "measured_cycles": 50,
+      "virtual_growth_kib": 0,
+      "resident_growth_kib": 444,
+      "stamp_files": 55,
+      "unique_stamps": 55,
+      "stamp_example": "1791232317 0 completed"
+    },
+    {
+      "profile": "virgl-10",
+      "rows": 16,
+      "pid_count": 1,
+      "measured_cycles": 10,
+      "virtual_growth_kib": 0,
+      "resident_growth_kib": 224,
+      "stamp_files": 0
+    }
+  ],
+  "new_rwxp_maps": [
+    "7f27bec00000-7f27c0000000 rwxp 00000000 00:00 0 "
+  ],
+  "maps": {
+    "003.maps": {
+      "rwxp": [
+        "7f27bf600000-7f27c0000000 rwxp 00000000 00:00 0 ",
+        "7f27e0400000-7f27e0e00000 rwxp 00000000 00:00 0 ",
+        "7f27e2400000-7f27e2e00000 rwxp 00000000 00:00 0 ",
+        "7f27fc800000-7f27fd200000 rwxp 00000000 00:00 0 "
+      ],
+      "bytes": 41943040
+    },
+    "004.maps": {
+      "rwxp": [
+        "7f27bec00000-7f27c0000000 rwxp 00000000 00:00 0 ",
+        "7f27e0400000-7f27e0e00000 rwxp 00000000 00:00 0 ",
+        "7f27e2400000-7f27e2e00000 rwxp 00000000 00:00 0 ",
+        "7f27fc800000-7f27fd200000 rwxp 00000000 00:00 0 "
+      ],
+      "bytes": 52428800
+    }
+  },
+  "rwxp_growth_bytes": 10485760,
+  "map_note": "Adjacent anonymous mappings merge: newly printed20MiB region replaces an existing10MiB region; total growth is10MiB, not20MiB.",
+  "all55_sync_stamps_successful": true
+}

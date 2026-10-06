@@ -1,7 +1,8 @@
 # Saved Session State
 
-> Saved 2026-10-06T15:33:32.807750+00:00; active audit checkpoint, continue immediately.
-> Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261006T153332Z.md`.
+> Saved 2026-10-06T18:03:34.510289+00:00; local feature checkpoint, external-review transfer approval pending.
+> Previous: `.github/sessions/archived/saved-session-state-next-20261006T180334Z.md`.
+> Primary next still carries earlier49criteria until explicit integration.
 
 ## Start here
 
@@ -22,105 +23,89 @@ code-auditor Phase1.4.5 read-only research helpers. Root performs commands,
 primary verification and all verdicts; helpers never count as review seats.
 
 
-## Current focus — approved M7 P4 fixes audit, Phase2 continuing
+## Current focus — M7 P4 primary audit complete through4.5; external transfer approval pending
 
-Latest maintainer: “Please proceed with the remaining UI proof. If that's
-successful, you may begin the audit.” UI109/23frames qualified; #465 closed.
-Published feature629603d6ad18cbcf4f02e3be36d6e3393698c169 and primary
-63675be4e1bb2ab36748a725612d11a77be7f2f5 were remotely verified07:04:47UTC.
-No product change, new account award/reset or image rebuild occurred.
+User resumed after token repair. Actual-host/GitHub access now works; last
+read-only refs check confirms feature28abfefb40063360c98445db743b9f1b69e625a9
+and next14eaa833c77e57a61bec492d8479ccdf230348e9. Those published only the49-AC
+checkpoint; local261-AC work/03retrospective/04analysis remain unpublished until
+this evidence checkpoint lands. Never claim current remote from local files.
 
-Audit started07:04:22UTC; the mistaken stop after07:20 was corrected under
-#466/D-WORKFLOW-149. Process instructions/work/friction logs were published
-(feature2b6346e75b3a70cf824593780009c8062df501d4,
-nextce64fc581afe90c5a0db6bf110af0517d20617ae). Do not stop after this save.
+Audit: `docs/audits/2026_10_06-milestone-m7-p4-fixes-383/`.
+Read00→02 summary and current04, then03 and machine evidence as needed.
+Independent Phase2:261/261,204PASS/36PARTIAL/3FAIL/18SKIP by16:28:47UTC.
+Prior answers first opened16:29:42UTC; Phase2.5 exact123 comparisons:45agree,
+76changed,2superseded. Phase3:30rules,74distinct blindspots (two historical29
+entries),190supporting-history criteria across55issues. Those190 are scoped
+historical trust review, not190 fresh PASS claims. Four criteria from issue#265 remain later-release scope.
 
-Folder `docs/audits/2026_10_06-milestone-m7-p4-fixes-383/`: Phase1 complete;
-Phase2 has49/261 forward criteria recorded (2 FAIL, 4 PARTIAL, 42 PASS, 1 SKIP). Read02-forward-audit,
-evidence/forward-verdicts.json and inputs/scoped-criteria.json.107issue bodies
-contain455 historical/raw criteria:261forward,190supporting-history for Phase3,
-4later-release.12multiline quotes are restored in scoped-criteria; original
-inventory remains unchanged. Prior375/382/411 per-AC verdicts are sequestered
-until2.5. Three read-only research helpers finished; no helper remains active.
+Phase4 synthesis has three provisional product findings: #467 content recognition
+(two failedACs, four failed runtime challenges); #468 safe future-layout refusal
+with false missing-folder reason; #469 missing French standalone phone/native
+finishing text (published and read back after auth repair). OtherPARTIALs
+are exact missing measurements, existing P5 work and stale contract text; they
+are not36unique defects. Frozen product7afa9efcfc0/ESf6f0c134 remains unchanged.
 
-Milestone scope / independent depth: P1–P3 fixes, cloud/state × proxy × identity/VM.
-Frozen source7afa9efcfc0, ESf6f0c134, bundleb77e47e57a unchanged. Product sources
-still match; source continuity09→10 renderer-only,10→14 proxy/libchdr/019/ctl-only.
-Canonical6550product/207QA/180rawsymlink checks and19bundle/302UI hashes pass.
-Do not relabel older unchanged-byte execution as a new14 execution.
+Phase4.5 actual repeat03 on/workspace finished17:06:00UTC, allfourrc1 expected,
+3controlsPASS/4challengesFAIL, same outputs as original15:26probe, all before/
+after hashes/pointers unchanged. Actual6PIDs/5ports absent17:08:41UTC. Evidence:
+`evidence/refutation-03/`. First repeat01 missed the required proof directory
+and failed before guest creation;02 ran raw-image expansion on quota-limited
+/tmp and could not write outer results. Both remain failed. Partial3.65GBimage
+is preserved/hash-verified at/workspace/tmp/pixelelated-m7-p4-refutation-failed02/
+incomplete-image.img; only its newly created/tmp copy was removed after equality.
+No protected build tree or old evidence was deleted. Never replay any owner.
+Future VM owners go on/workspace, with fresh empty proof directory prepared.
 
-Completed durable checks: host-checks01 (/tmp)1719script checks/316layout checks
-PASS, injected failure rc1, terminal15:12:13UTC; ES-checks02 (/tmp)10cases/
-119assertions PASS, vocabulary164/0. All channels and actual process absence
-verified. No active executable worker. The first sandbox ES submission01 has
-no execution receipt and is retained unused; only actual-host02 is accepted.
+Refutation found no mitigation for the three product defects. Source/retained
+outputs and fresh target repeat are recorded in finding-verification.json.
+Watcher recorded correctly; final observation lag exceeded60seconds while
+preflight ran, explicitly recorded in friction log. No uninterrupted supervision
+claim. No executable or reasoning background worker is active now.
 
-New confirmed findings: #467 content classifier counts unrelated configured
-folders as content and misses actual root content on empty devices. Fresh owned
-`/workspace/tmp/pixelelated-m7-p4-content-probe-01` on exact14 ended15:26:33UTC,
-3controlsPASS/4challengedFAIL, four rc1, all bytes/pointers unchanged; actual
-process/port cleanup verified15:27:11. Evidence/content-probe-01 retains sealed
-harness, raw cases, watcher and cleanup. Do not replay the owner. #468: actual
-UI26 future-marker frame says COULDN’T FIND YOUR CLOUD FOLDER because cloud_scan
-maps applicationrc4 as rclone absence after suppressing the true reason. Safe
-refusal is intact. I356-L76 amendedPARTIAL after pixel read; initial inferred
-wording was corrected with an explicit amendment. No product patch yet.
+External gate: selected code-auditor independent depth, Codex/OpenAI primary
+(exact model variant unknown) plus Anthropic Fable5.1/xhigh via Facilitator and
+OpenRouter. Two calls, blind then refutation, one external reviewer; no five-seat
+council. Fresh verify-pins/efforts/drift each exit0. Review-plan.json exists.
+Blind packet `second-opinions/claude-blind-brief.md` is856187bytes, SHA256
+fa0030b86a47b65a9ff1ce4e5f6ff8d1bc477783d030470bf47073ab2a89c058.
+It carries261criteria, observations with verdicts/findings withheld, actual
+source/diffs and sanitized QA fixtures. Generator and input hashes retained.
 
-Narrow evidence gaps: I349-L43 foreign-only hostname comparison and I352-L34
-successful manual chooser selection. Current D walk cancels the chooser and
-proves only automatic fallback. Public docs remain P5, not a claimed PASS.
+Automatic approval review rejected the intended external dispatch BEFORE ANY
+COMMAND EXECUTED: the exact source/spec/QA payload and OpenRouter destination
+needed explicit approval despite earlier audit authorization. An async question
+requests BOTH this blind transfer and the later analysis+blind-response
+refutation transfer. Wait for that answer; do not interpret elapsed time or
+'can you try again' from before the question as approval. Do not bypass the
+reviewer, use direct provider calls or a same-lab substitute. Owner
+/tmp/pixelelated-m7-p4-fable-blind-01 was named in the rejected command but was
+not created; verify before using it. Provider was NOT contacted; no review
+output/provenance exists. If exact transfer approved, prepare its sealed wrapper,
+submit durably, supervise within60seconds and verify identity/effort/digests
+before reading answer and before the second call. Do not mutate blind packet
+while its hash is the pending approval.4.6→5→6→7 remains serial.
 
-Next runnable action: continue independent Phase2 cloud remaining criteria
-(379,353,365,363/364/429/430,377/366/390/401), then proxy/dependencies and
-identity/VM/umbrella criteria. /tmp/p4-record.py only formats manually derived
-entries into02/ledger; it does not invent verdicts. Read→write each finding.
-Then2.5 prior comparison→3/4/4.5 interaction/refutation→4.6 external→5/6/7
-punch-list disposition/repair/requalification. No phase fan-out or prior-answer
-shortcut. Keep primary review active after checkpoint/publication.
+All local primary work/checks are done enough to resume at that gate. Final
+punch list/Phase6issue does not exist yet; artifact-contract lint cannot be
+claimed complete without4.6/05. Product fixes wait for settled independent
+review and Phase7, then rebuilt affected image qualification. No RC claim.
 
-Review plan: Codex/OpenAI primary (exact model variant unknown), Anthropic
-Fable5.1/xhigh via installed `claude` Facilitator recipe/OpenRouter. Blind and
-refutation are two calls to one external reviewer; two perspectives total,
-no five-seat council. Do not call it before preceding phases settle. Read
-council hard rules/model verification and Phase4.6 before invocation.
-`tools/council/run invoke --member claude --provider openrouter --prompt-file
-FILE --output FILE`; identity/effort/output provenance required, fail closed.
-No Daybreak or alternative unverified reviewer. Standing review permission
-is recorded; no further user approval is needed for this planned review.
+Existing qualified prerequisites: UI03 unchanged14,109assertions/23EN/FRframes,
+allfour0/actualcleanup07:01:20; all23frames primary reviewed. RA33 actualTobu15738/
+Potato100359 unearned→offlinepending→realflush/APIearned→relaunch, cleanup06:10:11.
+Cloud WebDAV/SFTP/S3 each106/0/0, cleanup05:59:18. No new account reset, cloud
+credentials or ordinary award rerun. #463Dropbox optional unverified; #464reset
+and#432FOSSobservability backlog. #168ten upstream drafts tested but unsubmitted;
+owner go still required for outward PRs. #395disconnectedalert unconfigured.
 
-Qualified UI: owner `/workspace/tmp/pixelelated-m7-ra-ui-03`, run
-20261006T065301Z-41c3ed1c,109PASS/0FAIL/0SKIP, allfourrc0, terminal07:00:43,
-actualcleanup07:01:20. All23 original frames directly reviewed across EN/FR
-640x480/1280x960;46 installed hashes invariant. Actual flusher/ctl/Storage/ES
-with synthetic local HTTP demonstrates sending/sent/dismissed/empty-repeat
-and EN640refused-send/pending-retained. No real provider claim from this UI
-fixture. Read docs/qa-logs/2026-10-06-ra-ui/qualification.json and manifests.
-
-Owners01/02 are superseded, retained unchanged:01 missed compiled-bytecode
-census;02 carried refused pending1 into French baseline. Corrected03 passes.
-The report-reader status0 assumption was corrected to installed5/not-sent;
-raw refusal unchanged. Do not rerun finalize-report.py (it appends/rewrites
-qualified evidence) or replay any used owner. The edited ordinary award runner
-has not been rerun in full; installed settings/reconnect mechanics are proved
-separately. No new account reset is requested.
-
-No build, QA, cleanup, external provider or background audit job is active.
-Audit work resumes in the foreground from this checkpoint. Fresh resume proof
-is recorded separately; do not mistake reused research helpers for that proof.
-
-RA33: `docs/qa-logs/2026-10-06-ra-award/`, ownerra01/run060338-0420faa8,
-Tobu15738/Potato-tanSecret100359 softcore, actual unearned→award→pending1→
-flush1/pending0→provider earned→relaunch27/28. Allfour0 and cleanup/account-clear
-06:10:11. No send card was captured there; do not invent its UI coverage.
-Cloud318: `docs/qa-logs/2026-10-06-local-cloud/`, WebDAV/SFTP/MinIO-S3 each
-106/0/0; allfour0 and cleanup05:59:18. D-QA-058 keeps Dropbox/offsite optional;
-#351/#462 closed, #463 remains explicitly unverified and milestone-less.
-
-#464/D-QA-059 records reset automation as backlog; no vendor/hosted credential
-transfer selected. #240 owns additional softcore routes. Manual reset is the
-fallback for a FUTURE real award, not requested here. #168 has ten tested,
-unsubmitted upstream drafts and explicit API/policy dispositions; acceptance
-is not a candidate gate, D-RA-016 still requires go before outward submission.
+Current documented test gaps: foreign-only hostname; successful manual chooser;
+settings-only setup completion; actual installed mid-copy kill/retry; next-sync
+new discarded-save shelf; literal bucket-backup retry; installed125-game proxy
+scan; exact mixed-pair no-join negative; updater guest network capture. Final
+repairedimage needs freshfull brand/secret/leak sweeps. Token scope/expiry metadata,
+14license/source publication and public docs remain their owning later gates.
+See02 exactcriteria and04table, not this shorthand, before changing verdicts.
 
 ## Completed cleanup — historical execution, never replay
 
@@ -175,18 +160,17 @@ No additionalcleanup orreservechange is authorized. No sudoaction remains.
 
 ## Next steps
 
-1. Continue P4 Phase2 from the independent ledger, then serial
-   2.5→3→4→4.5→4.6→5→6→7. No prior-verdict shortcut or provider call
-   before the primary analysis is settled. Resolve/requalify changed product.
-2. After P4 passes, measure capacity (#461), then H700 DDR4/RG35XXSP arm first,
-   aarch64 second. Named physical/P5 gates follow. No RC/device-ready claim.
-
-Public docs4f6df54 at /home/max/Development/rocknix.org remains403/404; do not
-change credentials/autofork. Fourteen P5 licence gaps remain. #395 has no
-selected/tested disconnected alert destination; connected watchers are actively
-supervised. #432 FOSS observability and #464 reset automation stay backlog.
-No additional deletion, filesystem reserve change, personal-cloud/device action
-or public release is authorized. Protect current/fallback/RC2/exact inputs.
+1. Read the pending exact external-transfer answer; continue local publication
+   under standing authority. No need to repeat permission for authorized audit.
+2. After explicit transfer approval, call Fable blind via current Facilitator
+   with a fresh sealed watch-build-submit owner. Verify served identity, effort,
+   successful outcome, digest and actual cleanup. Stop on mismatch, no retry.
+3. Prepare refutation packet with full02/03/04, source/evidence and the untouched
+   blind answer; second sequential call through same verified recipe.
+4. Verify every reviewer item against primary artifacts; write final05, run
+   lint-audit-artifacts, create mandatory audit issue, then resolve/track every
+   item under Phase7 and requalify changed product bytes.
+5. Capacity#461→H700DDR4RG35XXSP arm→aarch64→separately authorized physical/P5.
 
 ## Exact frozen image
 
@@ -253,15 +237,11 @@ result is asserted as a new14 execution.
 
 
 
-## Current publication and handoff
+## Current publication and continuation
 
-Continuity correction #466 is published feature2b6346e7/nextce64fc58; active
-Phase2 evidence/checkpoint changes are being prepared under #383/#467/#468.
-Use actual heads/remote receipts to determine publication. Integrate only explicit
-feature SHA by cherry-pick-x, normal hooks, exact remote readback; frozen14 stays.
-
-This is an active save, not a handoff or permission to pause. No detached reasoning
-worker exists. Latest milestone7 body records current findings and the unchanged
-P4→capacity→H700 arm→aarch64→physical/P5 order. No audit-complete record/waiver.
-Live ceremony check previously rc0 reports67closures/2days overdue audit; rerun
-required checks before the next push. No build/QA/provider job is running.
+Last verified remote feature28abfefb40063360c98445db743b9f1b69e625a9 and
+next14eaa833c77e57a61bec492d8479ccdf230348e9. New local audit evidence/checkpoint
+is not yet committed. Commit with#383, explicit cherry-pick-x into primary next,
+normal hooked pushes and actual remote readback. Preserve raw evidence bytes.
+This is a concrete external-transfer approval gate, not an owner-requested pause.
+No background process is running; no full audit-completion claim exists.

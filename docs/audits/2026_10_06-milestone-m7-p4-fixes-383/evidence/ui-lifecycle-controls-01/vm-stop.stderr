@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "<string>", line 2, in <module>
+    s=socket.socket();s.bind(('127.0.0.1',0));s.listen()
+  File "/usr/lib/python3.14/socket.py", line 236, in __init__
+    _socket.socket.__init__(self, family, type, proto, fileno)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+Traceback (most recent call last):
+  File "/workspace/repos/rocknix.worktrees/conflict-resolution/tools/vm-stop-test", line 35, in <module>
+    port = int(child.stdout.readline())
+ValueError: invalid literal for int() with base 10: ''

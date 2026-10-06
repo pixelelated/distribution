@@ -398,5 +398,1734 @@
     "correction_utc": "2026-10-06T15:30:47.019602+00:00",
     "gaps": "The actual future-marker refusal frame misleadingly says COULDN\u2019T FIND YOUR CLOUD FOLDER. cloud_scan discards the layout explanation, then maps application rc4 to the rclone missing-folder meaning. Preserve refusal safety but propagate a truthful reason before considering the full outcome accepted.",
     "amendment_utc": "2026-10-06T15:31:16.331342+00:00"
+  },
+  {
+    "id": "I363-L73",
+    "verdict": "PASS",
+    "evidence": "cloud_backup:826-840 performs only local --superseded lookup; :1670-1698 retains the one legacy-parent existence probe and unknown fallback. cloud_restore has no networked migration preparation. Fresh scripts.log:1461-1462 records both no-folder-check PASS lines; T18 missing/unknown controls pass.",
+    "refutation": "Inspected main.cpp:683 separately: startup orchestration deliberately prepares the folder before transfer under D-CLOUD-173. The no-per-sync preparation rule applies to transfer scripts, not removal of this approved boot-only ordering.",
+    "notes": "No extra recurring join/state/follow/move has been added; the absent-folder guard is not waived.",
+    "utc": "2026-10-06T15:37:16.047296+00:00"
+  },
+  {
+    "id": "I363-L74",
+    "verdict": "PASS",
+    "evidence": "docs/qa-logs/2026-10-05-pixelelated-replacement-09/runtime-12/artifacts/timing/installed-samples.json contains two separate warmups and10 alternating measured transfers, all rc0 with local/remote hashes equal; comparison.json reports269/245ms medians,24ms absolute difference,30ms limit and0migration journal delta. timing-proof.py measures exact installed cloud_backup SHA12a231698b70a8b83eb9d1fd1bc593f4507313030635a6750392f5fd19130a03.",
+    "refutation": "Read every sample and the predeclared ordering, not only the aggregate; waiting for valid upload timestamps occurs outside measurement. Source continuity09\u219214 preserves this script.",
+    "notes": "Earlier runtime07 result28ms and the original36ms failure are distinct retained attempts; this is runtime12 evidence, not a new14 performance execution.",
+    "utc": "2026-10-06T15:37:16.047370+00:00"
+  },
+  {
+    "id": "I363-L75",
+    "verdict": "PASS",
+    "evidence": "cloud_migrate_layout:1520-1560 implements --needs-step before network/locking. Fresh scripts.log:1453-1460 checks earlier defaults0, current/custom/kept/no-remote1, unreadable2, exact case matching and no rclone execution. Fresh evidence/host-checks-01/activity/scripts.log and cloud-layout-results.json:1719/316 PASS, expected injected rc1.",
+    "refutation": "Confirmed pending-record exception intentionally returns0; local eligibility cannot silently claim a remote marker check.",
+    "notes": "The predicate is exercised through host exact-source controls and whole-guest boot cases, not inferred solely from a comment.",
+    "utc": "2026-10-06T15:37:16.047408+00:00"
+  },
+  {
+    "id": "I363-L76",
+    "verdict": "PARTIAL",
+    "evidence": "cloud_scan:read_folder and --folder branch remove only state, preserve opening scan files and omit archive/root listing. Fresh scripts.log:1479 verifies this; refused join stops without state. Actual UI26 proves refusal but reason is mislabeled for an unsupported layout.",
+    "refutation": "Cross-layer rc4 means unsupported layout to migration and missing folder to the rclone-only mapper; suppression of stdout loses the truthful reason.",
+    "notes": "Folder-only scope passes; truthful refused-join explanation is affected by #468.",
+    "gaps": "Resolve #468 reason propagation and requalify join/state/follow failure outcomes without changing folder-only listing scope.",
+    "utc": "2026-10-06T15:37:16.047433+00:00"
+  },
+  {
+    "id": "I363-L77",
+    "verdict": "PASS",
+    "evidence": "GuiMenu.cpp:5440-5475 constructs a fresh scan on every cloud transfer open. cloud_scan removes prior done/state/facts and reruns prepare/folder/archives/content before publishing done. Fresh host sectionab passes; guest11 A/H/G/F/C demonstrate repeated independent opens including failed/no-stamp path.",
+    "refutation": "Checked that cached facts do not bypass the next scan, and the filesystem exists check for rclone.conf explicitly bypasses cached misses.",
+    "notes": "No restored old done stamp is accepted as the next opening scan.",
+    "utc": "2026-10-06T15:37:16.047454+00:00"
+  },
+  {
+    "id": "I379-L22",
+    "verdict": "PARTIAL",
+    "evidence": "Actual archives-runtime/archive-proof.py:82-95 independently resets ROCKNIX/GAMES settings-only clouds, runs follow/settle, calls full scan and restores the writer sentinel; assertions.json records those four cycles. Focused boundary36 adds current-name follow/settle/custom payload preservation. Fresh T20 actor wizard/transfer/boot rows pass.",
+    "refutation": "The retained archive VM cycles directly prove follow/settle/full scan/restore. They do not execute cloud_setup completion for that same settings-only fixture; host wizard coverage is not a substitute for the explicitly required VM path.",
+    "notes": "No observed archive loss; this is an incomplete setup-route receipt.",
+    "gaps": "Locate a settings-only installed setup\u2192scan\u2192restore receipt or add it to the next bounded VM qualification, retaining old/new pointer and selected archive/sentinel evidence.",
+    "utc": "2026-10-06T15:37:16.047471+00:00"
+  },
+  {
+    "id": "I379-L23",
+    "verdict": "PASS",
+    "evidence": "cloud_migrate_layout:118 backup_pointer_for keeps custom/populated tiers; independently reset T20 actor and follow/settle/default/custom/apply-other-source cases all pass in fresh316results. Baseline October2 T20 failures and fixed results retain before/after negative controls; focused boundaries six settings-only controls run on a genuine installed guest.",
+    "refutation": "Checked custom tier and empty old saves are independent; a populated save root is not needed to keep old backup content.",
+    "notes": "Existing no-archive/kept/classification controls preserve intentional policy; no OS-name assumption substitutes for archive discovery.",
+    "utc": "2026-10-06T15:37:16.047491+00:00"
+  },
+  {
+    "id": "I379-L24",
+    "verdict": "PASS",
+    "evidence": "docs/rasteratops/cloud-folder-state-table.md T20 and executable actor map explicitly separate settings presence from saves and suffix compatibility. Main replacement14 three local backends each106PASS; focused36-case paired migration has distinct devices and per-case byte/pointer assertions. Fresh evidence/host-checks-01/activity/scripts.log and cloud-layout-results.json:1719/316 PASS, expected injected rc1.",
+    "refutation": "Read the current remediation/coverage section as distinct from preserved historical baseline defects.",
+    "notes": "Protocol matrix and specific settings-only fixtures are both retained; current14 local runs do not relabel older pair execution.",
+    "utc": "2026-10-06T15:37:16.047507+00:00"
+  },
+  {
+    "id": "I430-L28",
+    "verdict": "PASS",
+    "evidence": "runtime12/timing-proof.py:25-55 waits on actual guest time until previous remote mtime+2s, writes real fresh bytes, retains actual mtime, and requires >previous+1s before measured command. docs/qa-logs/2026-10-05-pixelelated-replacement-09/runtime-12/artifacts/timing/installed-samples.json records every boundary.",
+    "refutation": "The wait uses monotonic only for its30s timeout; neither guest clock nor file mtime is forced forward. Measurement starts after the wait/fixture write.",
+    "notes": "Remote upload mtime, not an assumed host/guest clock relation, determines readiness.",
+    "utc": "2026-10-06T15:37:16.047522+00:00"
+  },
+  {
+    "id": "I430-L29",
+    "verdict": "PASS",
+    "evidence": "timing-proof.py appends before-command row before timing, after-command row containing rc/hash/mtime before transfer assertions, and sanitized failed output before throwing. All10 measured rows plus warmups retained in installed-samples.json.",
+    "refutation": "Read order of writes relative to asserts to check that a failing byte predicate cannot erase the measured failed sample.",
+    "notes": "Raw synthetic fixture evidence is retained; credentials are not logged.",
+    "utc": "2026-10-06T15:37:16.047538+00:00"
+  },
+  {
+    "id": "I430-L30",
+    "verdict": "PASS",
+    "evidence": "docs/qa-logs/2026-10-05-pixelelated-replacement-09/runtime-12/artifacts/timing/timestamp-controls.json records same-time/within-window/exact-boundary refusals and later acceptance. Read timestamp_valid and asserts; all10 installed measured transfers have real matching bytes with no utime/clock modification.",
+    "refutation": "A no-op transfer cannot count: each sample writes random2000-byte save content and compares local/remote SHA before accepting timing.",
+    "notes": "The threshold is unchanged; success is not achieved by future-dating the file.",
+    "utc": "2026-10-06T15:37:16.047555+00:00"
+  },
+  {
+    "id": "I363-L78",
+    "verdict": "PASS",
+    "evidence": "docs/qa-logs/2026-10-05-pixelelated-replacement-09/optins-11/artifacts/pair-console.log step2 on actual RC269e6039f8f/newcf511ce79b shows folder scan superseded/move, NOT NOW then seeding at the joined ROCKNIX tier, no pixelelated duplicate and byte-identical restore. guest11 L7checks retain setup ordering; directly viewed L setup-complete640px frame preserves ROCKNIX paths. GuiMenu.cpp:5495-5525 sets setup rescan/abandon to finish before seeding.",
+    "refutation": "A mixed-image pair is named by both builds; the setup route is not inferred from a same-image clean install.",
+    "notes": "Automatic default migration is not confused with copying game files during pointer preparation.",
+    "utc": "2026-10-06T15:38:46.236869+00:00"
+  },
+  {
+    "id": "I363-L79",
+    "verdict": "PASS",
+    "evidence": "docs/qa-logs/2026-10-05-pixelelated-replacement-09/guest11 I/logs/run.log verifies first boot offer, NOT NOW keeps pointer, second boot repeats, MOVE transfers and repoints, third boot --needs-step1. E frame shows startup card alone then creation dialog without card. GuiMenu.cpp:5585-5609 waits for hasAsyncNotifications as well as worker and GUI/game state.",
+    "refutation": "Checked actual notification lifetime gate; worker termination alone would allow the previously observed overlap.",
+    "notes": "Continuous captures and prior primary visual manifest remain retained; fresh review sampled original E frames and read all I assertions.",
+    "utc": "2026-10-06T15:38:46.236946+00:00"
+  },
+  {
+    "id": "I363-L80",
+    "verdict": "PASS",
+    "evidence": "docs/qa-logs/2026-10-05-pixelelated-replacement-09/guest11 J/logs/run.log4checks and directly reviewed01-J-offline.png at640x480 show FINISH CLOUD SETUP, exact offline explanation, CONNECT TO WI-FI/NOT NOW. GuiMenu.cpp:5550-5568 uses default-route test and offers Wi-Fi callback.",
+    "refutation": "The fixture cuts the guest link, not a refused application endpoint; NOT NOW is separately asserted.",
+    "notes": "No physical radio claim is made by a VM network-link proof.",
+    "utc": "2026-10-06T15:38:46.236978+00:00"
+  },
+  {
+    "id": "I363-L81",
+    "verdict": "PASS",
+    "evidence": "docs/qa-logs/2026-10-05-pixelelated-replacement-09/guest11 K7checks retain restore marker, LATER suppresses cloud step, FINISH consumes marker and brings it. Directly reviewed01-K-restore-page.png and03-K-after-finish.png show restore first and move later, with no overlay.",
+    "refutation": "The marker is explicitly injected as a named stand-in; this does not pretend the walk independently performed a real cloud settings restore.",
+    "notes": "Actual archive restoration is proved separately; this fixture isolates boot ordering.",
+    "utc": "2026-10-06T15:38:46.237010+00:00"
+  },
+  {
+    "id": "I363-L82",
+    "verdict": "PASS",
+    "evidence": "docs/qa-logs/2026-10-05-pixelelated-replacement-09/optins-11/artifacts/pair-console.log step5 follows with journal/quiet state, step5m stages old pointers and proves absent-root backup refusal then follow, step5n stages older cloud bytes and proves protected merge with all final bytes/no old files; final42PASS/0FAIL.",
+    "refutation": "Read the staged-input labels:5m resets candidate pointers and5n plants older-build bytes; neither is relabeled as an old binary understanding the new marker.",
+    "notes": "Initial mixed-image/actual update phases1\u20134 and staged later-state phases5m/5n are distinct.",
+    "utc": "2026-10-06T15:38:46.237028+00:00"
+  },
+  {
+    "id": "I353-L31",
+    "verdict": "PASS",
+    "evidence": "docs/qa-logs/2026-10-05-pixelelated-replacement-09/guest11 B7checks and E6checks show populatedGAMES prompts move; absentGAMES CREATE IT settles saves/backups; boot offers CREATE/CHOOSE/NOT NOW after78no-folder. Fresh scripts1719 includes settle and current/legacy creation controls.",
+    "refutation": "B\u2019s explicit empty CONTENT_REMOTE intentionally preserves the cloud root under #380; the literal historical three-path phrasing does not authorize overwriting that deliberate content choice.",
+    "notes": "Defaults follow D-WORKFLOW-144, and independent content choices follow #380.",
+    "utc": "2026-10-06T15:38:46.237045+00:00"
+  },
+  {
+    "id": "I353-L33",
+    "verdict": "PASS",
+    "evidence": "docs/qa-logs/2026-10-05-pixelelated-replacement-09/guest11 E/L/I logs and directly viewed E card/offer plus L setup-complete demonstrate setup/boot settlement and78no-folder refusal. cloud_backup:1670-1698 suppresses absent earlier defaults; fresh sectionad four controls pass.",
+    "refutation": "No sync silently creates oldGAMES; boot-only pointer preparation is explicitly approved D-CLOUD-173 and not a recurring migration before each transfer.",
+    "notes": "The card and later dialog are separate observed surfaces.",
+    "utc": "2026-10-06T15:38:46.237063+00:00"
+  },
+  {
+    "id": "I353-L34",
+    "verdict": "PASS",
+    "evidence": "Directly viewed E/01-E-step-offer.png640x480: CREATE IT, CHOOSE A FOLDER, NOT NOW; no icon/glyph between explanatory sentences. GuiMenu.cpp:5410-5440 routes CHOOSE A FOLDER through the existing sync path editor.",
+    "refutation": "Distinguished the cloud-root choice from the content-only chooser; both have their own source paths.",
+    "notes": "Physical-device repeat is later staging evidence; the named UI behavior is VM-verifiable.",
+    "utc": "2026-10-06T15:38:46.237081+00:00"
+  },
+  {
+    "id": "I353-L35",
+    "verdict": "PASS",
+    "evidence": "D-CLOUD-164 records owner approval of all13cloud-epic strings. ESdc819f432483acad722a14234d7bbe6b999a705c introduces source and French together; fr.po includes creation/move/chooser lines. Current E/K images show the revised dynamic pixelelated destination.",
+    "refutation": "Verified the decision\u2019s explicit approval instead of asking again or treating a proposal as approval.",
+    "notes": "D-WORKFLOW-144 changes project spelling without reopening settled cloud behavior.",
+    "utc": "2026-10-06T15:38:46.237098+00:00"
+  },
+  {
+    "id": "I353-L36",
+    "verdict": "PASS",
+    "evidence": "D-CLOUD-158 explicitly reverses D-WORKFLOW-101 and keeps mixed-installation gate; D-WORKFLOW-144 changes destination to lowercasepixelelated. docs/qa-logs/2026-10-05-pixelelated-replacement-09/optins-11/artifacts/pair-console.log names real old69e6039f8f and currentcf511ce79b, updates the old guest in place and verifies byte-preserving convergence;42PASS.",
+    "refutation": "Checked the oldbinary identity rather than a simulated branded predecessor; no unfielded /Rasteratops adoption test is required.",
+    "notes": "The required supported adoption is ROCKNIX\u2192pixelelated.",
+    "utc": "2026-10-06T15:38:46.237114+00:00"
+  },
+  {
+    "id": "I364-L33",
+    "verdict": "PASS",
+    "evidence": "cloud_backup:1670-1698 returns the create-saves-folder offer without mkdir/copy when a successful parent probe proves absence. Fresh scripts.log:1492-1495 passes deliberate and recent-automatic absentGAMES, existingGAMES and absent-current controls.",
+    "refutation": "Positive existing and current cases prevent a trivial fix that refuses every backup; unknown provider controls are separately preserved.",
+    "notes": "No extra layout preparation replaces the bounded existence check.",
+    "utc": "2026-10-06T15:38:46.237130+00:00"
+  },
+  {
+    "id": "I364-L34",
+    "verdict": "PASS",
+    "evidence": "docs/qa-logs/2026-10-05-pixelelated-replacement-09/guest11 E log records1791186987 78 no-folder, noGAMES payload, unchanged configuredGAMES afterNOT NOW and creation offer; direct640px startup/offer frames match.",
+    "refutation": "Read cloud absence assertion and kept pointer, not only the reassuring card text.",
+    "notes": "This is a stock-shaped configuration fixture, explicitly distinct from the separate actualRC2 update.",
+    "utc": "2026-10-06T15:38:46.237147+00:00"
+  },
+  {
+    "id": "I364-L35",
+    "verdict": "PASS",
+    "evidence": "cloud_backup:810-823 uses one trailing-slash parent-directory listing, with unknown fallback at1670-1698; D-CLOUD-173 retains absence safety. runtime12 actual-byte timing gives269/245ms medians,24ms\u226430,0migration prep; original historical costs remain recorded.",
+    "refutation": "The overhead decision preserves the missing-folder guard rather than caching away a required check or relaxing the30ms limit.",
+    "notes": "Current evidence is identified runtime12; no new performance measurement is inferred from unrelated14 smoke.",
+    "utc": "2026-10-06T15:38:46.237162+00:00"
+  },
+  {
+    "id": "I353-L32",
+    "verdict": "PARTIAL",
+    "evidence": "docs/qa-logs/2026-10-05-pixelelated-replacement-09/optins-11/artifacts/pair-console.log establishes move/follow/staged late-write merge; guest11 I proves NOT NOW/retry/settled boot; fresh A57 host check kills process group before the third copy and recovers. Focused boundaries adds four copy/deletion fault classes on real guests.",
+    "refutation": "Read tools/last-good-scripts-test:8622-8660: the SIGKILL hook is before rclone copy starts. Neither that nor an injected provider error proves an actual installed transfer killed while copying.",
+    "notes": "Safe copy/verify/delete and boundary retry are established, but the explicit during-copy kill requirement remains narrower than available evidence.",
+    "gaps": "Locate an actual installed mid-copy kill receipt or add one on the owned VM/backend before closing this criterion; preserve source bytes and complete a secondMOVE.",
+    "utc": "2026-10-06T15:38:46.237178+00:00"
+  },
+  {
+    "id": "I353-L52",
+    "verdict": "PARTIAL",
+    "evidence": "guest11 A verifies all four folders including Saves-replaced moved, old source removed. Focused boundaries preserves distinct discarded-save SHA through faults/retries; fresh host tests retain shelf cases.",
+    "refutation": "Pair5n merges distinct names; that alone does not establish a new conflicting save\u2019s next set-aside under pixelelated.",
+    "notes": "Existing shelf migration passes. The explicit next-sync set-aside receipt has not yet been located in the read evidence.",
+    "gaps": "Read a subsequent installed sync conflict/shelf path assertion, or retain that check during the next affected qualification.",
+    "utc": "2026-10-06T15:38:46.237195+00:00"
+  },
+  {
+    "id": "I365-L101",
+    "verdict": "PASS",
+    "evidence": "docs/rasteratops/cloud-folder-state-table.md:18\u2013121 records dimensions, eight concrete call paths for seven actors, T01\u2013T25 decisions and named disagreement dispositions; :173 onward adds T26 and executable current-source coverage. R/cloud_migrate_layout shared transition, cloud_setup settlement guard, cloud_backup/restore probes and E/main.cpp startup gate were read against this map.",
+    "refutation": "Did not treat the deliberately preserved run101 table as current behavior: remediation/current-source sections and source anchors distinguish historical failures. Direct-save bypass is an explicit D-CLOUD-169 boundary.",
+    "notes": "The table is a classified behavioral model. Newly found content recognition and refusal wording defects #467/#468 remain audit findings; this document criterion does not waive them.",
+    "utc": "2026-10-06T15:44:25.291764+00:00"
+  },
+  {
+    "id": "I365-L103",
+    "verdict": "PASS",
+    "evidence": "tools/rasteratops-vm-cloud-epic:4\u201340 runs each selected case in a separate process and returns accumulated failure; fresh evidence/guest-negative-02/result.json records actual expected rc1, console 0 PASS/1 FAIL at15:43:45UTC. Q09/guest-11 retains installed per-case resets and runtime assertions.",
+    "refutation": "Ran --inject-failure ourselves without a guest: failure propagates through the actual check/done/exit path. Inspected normal prerequisite and per-case dispatch rather than counting a printed PASS.",
+    "notes": "The injected negative tests process reporting; it does not simulate a VM failure. Normal installed runtime evidence is separate.",
+    "utc": "2026-10-06T15:44:25.291830+00:00"
+  },
+  {
+    "id": "I365-L104",
+    "verdict": "PASS",
+    "evidence": "docs/retros/2026-10-02-cloud-runs-95-101.md names five patterns and links implemented guards: actor-state runner, source-derived stale-path checks, separate-process/reset/negative controls, actual UI/byte assertions, and issue-tracking reconciliation. Current tools/rasteratops-cloud-layout-test, rasteratops-vm-cloud-epic and last-good-scripts-test implement those guards.",
+    "refutation": "Compared claimed guard mechanisms to executable sources and fresh316/1719 outputs, rather than accepting the older322/1367 count as current.",
+    "notes": "Historical run counts remain labeled as historical.",
+    "utc": "2026-10-06T15:44:25.291857+00:00"
+  },
+  {
+    "id": "I365-L117",
+    "verdict": "PASS",
+    "evidence": "Q09/cloud-ui-08/artifacts/cloud-ui/UI17/logs/run.log has19PASS/0FAIL; UI17-before-cloud.json equals the failed cloud snapshot, with Setup.srm SHA d7c0956d2b153e4c48ac6e75125255c465555cbc0a65793c3e4e459b108afa5d. Recovery retains that byte stream under pixelelated/Saves and markerSHA be68d69fa1fe3ddbcaa9295b8e3e732fd0113d909e38cf643d95aab41c9b1a22; recovery-step/journal logs show next-boot MOVE and completion.",
+    "refutation": "Read real fault activation, wizard completion, absence of README/marker/new roots while faulted, initial/final pointers and payload hashes. Fault dismissal alone would not satisfy the case.",
+    "notes": "Replacement09 execution; cloud scripts are byte-continuous through frozen14. No new14 UI execution is claimed.",
+    "utc": "2026-10-06T15:44:25.291883+00:00"
+  },
+  {
+    "id": "I365-L118",
+    "verdict": "PASS",
+    "evidence": "State table T20\u2013T26 plus tools/pixelelated-vm-cloud-boundaries and BND/proof.py map independent backup/content pointers, root/omitted/custom transitions, configured-first residual, collision, restricted parent and distinct-follower recovery. Retained BND36 installed assertions include reset and exact bytes/pointers; Q09 predecessor65/UI17/guest cases separately exercise startup and archive behavior. Fresh guest negative rc1 is retained.",
+    "refutation": "Inspected setup/reset and fault boundaries in the actual proof, including distinct second-guest identity; source hypotheses are not treated as executed failures. No actual mid-copy kill is inferred.",
+    "notes": "I353-L32 separately records the missing mid-transfer kill proof; this does not invalidate the executed operation-boundary/dimension coverage.",
+    "utc": "2026-10-06T15:44:25.291902+00:00"
+  },
+  {
+    "id": "I390-L18",
+    "verdict": "PASS",
+    "evidence": "tools/last-good-scripts-test:4620\u20134685 C2 fixture now makes cat return3 for absence or stored marker bytes and rcat persist stdin. C2 path/bucket setup cases and the fresh1719-script suite pass; the focused316-layout suite also passes.",
+    "refutation": "Read marker read/write fixture branches and separate backend path handling; absent marker is not represented as empty successful content. The old host-suite-before-fixture-fix.log exposes44 harness failures.",
+    "notes": "Host fixture contract, not a production runtime claim.",
+    "utc": "2026-10-06T15:44:25.291920+00:00"
+  },
+  {
+    "id": "I390-L19",
+    "verdict": "PASS",
+    "evidence": "docs/qa-logs/2026-10-03-m7-p1/host-suite-after.log ends PASSED (focused93/0 then full suite result). Fresh evidence/host-checks-01/activity/scripts.log has1719PASS/0FAIL; results.json records command rc0 with frozen14 system and exact E.",
+    "refutation": "Compared original44 failures with corrected run, then independently ran current complete suite; retained command/source custody prevents silently substituting another checkout.",
+    "notes": "Current count is1719, not the older historical count.",
+    "utc": "2026-10-06T15:44:25.291936+00:00"
+  },
+  {
+    "id": "I390-L20",
+    "verdict": "PASS",
+    "evidence": "docs/qa-logs/2026-10-03-m7-p1/host-suite-before-fixture-fix.log marker failures occur in the C2 test shim; production malformed/future-marker and retry-before artifacts are separate. Source correction is in last-good-scripts-test cat/rcat fixture, while R/cloud_migrate_layout owns the product marker validation.",
+    "refutation": "Followed the failing setup path into the fixture and compared its supplied marker bytes; did not attribute44 test-environment failures to the product.",
+    "notes": "Independent #468 remains a real installed UI reason defect, distinct from this repaired fixture.",
+    "utc": "2026-10-06T15:44:25.291952+00:00"
+  },
+  {
+    "id": "I365-L102",
+    "verdict": "PASS",
+    "evidence": "docs/rasteratops/cloud-folder-state-table.md:173\u2013end and actor-case-map.json name208 actor cells across26 states. Fresh evidence/actor-map-pass-coverage.json mechanically matches all210 unique executable case names to PASS lines in our current host suite (0 missing). Earlier baseline.log has36PASS/22FAIL, including T17/18/20/21/24 changed behavior; boundary/predecessor old/fixed controls cover later extensions.",
+    "refutation": "Checked actual map cardinality and all named PASS lines, plus original failure text and the fixture implementation. T23 reuse and T26 direct/preflight distinctions are explicitly documented rather than pretending208 wholly independent functions.",
+    "notes": "Fresh316 focused/1719 total checks pass; installed VM coverage is separately required and assessed.",
+    "utc": "2026-10-06T15:45:09.677511+00:00"
+  },
+  {
+    "id": "I377-L22",
+    "verdict": "PASS",
+    "evidence": "R/cloud_backup:810\u2013840/1670 and cloud_restore:1688\u20131760 distinguish present/absent/unknown; failed discovery suppresses creation. Oct2 baseline.log contains both T18-bucket-backup-unknown and restore FAIL; fresh316 focused run passes the exact whole-script cases and parent error3/4/5/7 controls. Installed S3 attempt03 demonstrates actual parent403 with child200.",
+    "refutation": "Read the exact whole-script injected predicate and proof that fault-fired exists; failed features read is an additional restore case. Confirmed original absence-offer failure rather than a generic unavailable endpoint.",
+    "notes": "Unknown backup retains the existing fallback policy; the criterion forbids a false create-folder offer, not all backup attempts.",
+    "utc": "2026-10-06T15:45:09.677581+00:00"
+  },
+  {
+    "id": "I377-L23",
+    "verdict": "PASS",
+    "evidence": "Both production helper/caller pairs and tools/rasteratops-cloud-layout-test:335\u2013347 were read together. Synthetic bucket sets the literal /ROCKNIX/Saves so the superseded backup guard is reachable. Actual bucket-prefixed S3 restore has no corresponding literal gate; its HTTP proxy-events.json records403 at Rasteratops/ after200 at child.",
+    "refutation": "Confirmed ordinary rocknix-qa/Rasteratops/Saves cannot satisfy the exact old-root backup predicate; did not count the normal S3 backup round trip as that branch proof.",
+    "notes": "Separate host synthetic backup and installed S3 restore evidence preserve branch reachability distinctions.",
+    "utc": "2026-10-06T15:45:09.677608+00:00"
+  },
+  {
+    "id": "I377-L24",
+    "verdict": "PARTIAL",
+    "evidence": "Current provider_failure fixture reaches the literal backup guard, asserts fault-fired/no create offer/unchanged cloud sentinel; baseline fails and fresh host run passes. Actual S3 attempt03 assertions/proxy-events/refused-output/sentinels prove nonzero restore, truthful refusal, local/cloud preservation, removal of403 fault and exact retry restore.",
+    "refutation": "Read the entire synthetic provider_failure function: it does not remove the fault and run a successful backup retry, nor assert backup terminal status/truthful outcome. No such additional literal-backup receipt is established by the normal bucket-prefixed S3 result.",
+    "notes": "This is a missing part of the literal-backup test contract, not an observed product data-loss defect.",
+    "gaps": "Add a reachable literal synthetic bucket backup failure\u2192retry proof with distinct local/cloud hashes and truthful terminal outcome; retain actual S3 restore evidence.",
+    "utc": "2026-10-06T15:45:09.677636+00:00"
+  },
+  {
+    "id": "I377-L25",
+    "verdict": "PASS",
+    "evidence": "Fresh316/1719 suites cover absent legacy refusal/current/custom creation; Q09/optins-11 actual42PASS mixed predecessor pair preserves/follows/merges, and runtime12 five-sample installed comparison is269vs245ms (24ms, limit30) with identical2000-byte payload and no migration journal.",
+    "refutation": "Inspected single-parent listing implementation and actual paired timing rows. Current14 single-sample protocol smoke is not substituted for the five-sample performance evidence.",
+    "notes": "Runtime09 source continuity to14 established separately; no new recurring network probe is introduced by the reviewed change.",
+    "utc": "2026-10-06T15:45:09.677656+00:00"
+  },
+  {
+    "id": "I366-L34",
+    "verdict": "PASS",
+    "evidence": "last-good-scripts-test:9005\u20139060 derives whole-component patterns from production --superseded. 2026-10-04-qa-fixture-guard/guard-extracted.py and old.log identify actual b2378d9 source line806 and reject its backend prefix/default mismatch; result.json binds old-backendSHA90f5df2d and guardSHA c53df68f. Current full suite passes this exact guard.",
+    "refutation": "Read the actual old failure output and source-derived regex, including inline-comment control. Bare /GAMES is matched without maintaining another hand-coded old-name list.",
+    "notes": "Historical command and work-log21:58 retained; fresh full-suite run independently validates current guard.",
+    "utc": "2026-10-06T15:45:56.647276+00:00"
+  },
+  {
+    "id": "I366-L35",
+    "verdict": "PASS",
+    "evidence": "Current full1719 suite runs advertised-backend loop. Guard result.json lists webdav/ftp /pixelelated/Saves, S3 /rocknix-qa/pixelelated/Saves, SMB /qashare/pixelelated/Saves and the SFTP QA data prefix. Source derives prefix plus shipped default and rejects each superseded path.",
+    "refutation": "Checked nonempty unique backend enumeration and S3 name regex/no-IP/no-double-dot controls, not merely one WebDAV result.",
+    "notes": "No backend listener is started by these path-query controls.",
+    "utc": "2026-10-06T15:45:56.647339+00:00"
+  },
+  {
+    "id": "I366-L36",
+    "verdict": "PASS",
+    "evidence": "2026-10-03-archive-harness/rerun/report.md exact503e24e10d first post-fix image has round-trip PASS81s; round-trip.log says /Rasteratops/Saves and all9 uploaded and restored byte-identical.",
+    "refutation": "Read original historical build identity and then-current default; do not rewrite the old run as /pixelelated. Original unrelated harness failures remain retained.",
+    "notes": "Current14 separate three-protocol318 proof uses the renamed default; it is not substituted for the first-post-fix criterion.",
+    "utc": "2026-10-06T15:45:56.647373+00:00"
+  },
+  {
+    "id": "I366-L37",
+    "verdict": "PASS",
+    "evidence": "2026-10-03-m7-qa-01/s3/report.md actual503e24e10d PASS107s; round-trip.log selects /rocknix-qa/Rasteratops/Saves and verifies all9 original, all9 replaced, all9 restored bytes. Current full guard validates legal S3 bucket names.",
+    "refutation": "A bucket prefix remains distinct from an ordinary path, and successful transfer assertions defeat a trivially empty-upload pass.",
+    "notes": "No live provider account or personal data involved.",
+    "utc": "2026-10-06T15:45:56.647394+00:00"
+  },
+  {
+    "id": "I401-L33",
+    "verdict": "PASS",
+    "evidence": "2026-10-03-content-network/s3-before-link.log:51\u201381 retains actual LINK3/4 success-after-outage failures at70.3/59.0s and wrongly successful stamps; s3-before-guest.log retains actual command output. Shared helper and caller diff show the formerly direct rclone commands now use progress-sensitive bounded_content_rclone.",
+    "refutation": "Separated LINK7 pre-cut fixture failure (#402) from the two genuine interrupted-transfer product failures; byte-valid retries do not excuse waiting out the outage.",
+    "notes": "Original failures preserved without relabeling.",
+    "utc": "2026-10-06T15:46:44.920230+00:00"
+  },
+  {
+    "id": "I401-L34",
+    "verdict": "PASS",
+    "evidence": "R/cloud_content_transfer:28\u2013164 parses five monotonic high-water counters, bounds inactivity and preserves progressing operations; SIGINT/TERM/EXIT clean tracked child/tee. test-content-guard.py executes source-extracted old/new copy calls; guard-controls and BusyBox summaries each12PASS/6FAIL before,18PASS/0FAIL after. Current1719 suite reexecutes permanent whole-script6 controls.",
+    "refutation": "Read cancellation waiting for a live child, stale retry totals versus growing bytes/listed counts, >3GiB arithmetic, failed guard storage and unchanged6s grace. Progress tests last beyond the stall bound; no overall transfer timeout is imposed.",
+    "notes": "Installed link-loss results below establish target behavior; host controls alone are not image qualification.",
+    "utc": "2026-10-06T15:46:44.920287+00:00"
+  },
+  {
+    "id": "I401-L35",
+    "verdict": "PASS",
+    "evidence": "Q09/link-10 actual two installed seven-case matrices:75 WebDAV/76 S3 assertions, four result channels0 and actual cleanup07:13:44. S3 LINK3/4 stop35.1/35.2s after cut withrc69; WebDAV30.1/30.0s. Both prove no partial litter, matching whole receiving files, failure stamps and plain-retry exact bytes; scans preserve unrelated stamps and recover24systems+BIOS.",
+    "refutation": "Read logs with observed unavailable route/address during40.7s outage, not merely an endpoint URL refusal. S3 scan is plainrc1 after41.4s with truthful reason; did not misreport it asrc69.",
+    "notes": "Replacement09 execution is byte-continuous for these scripts through14; no repeated14 cut run claimed.",
+    "utc": "2026-10-06T15:46:44.920314+00:00"
+  },
+  {
+    "id": "I401-L36",
+    "verdict": "PASS",
+    "evidence": "Fresh host-checks01 full1719 and focused316 pass with exact14 tools; frozen14 qa18 clean/default and actual26-check RC2 upgrade receipts bind unchanged helper and both callers. Q09/link-10 completion and frozen source/bundle custody retain exact runtime inputs.",
+    "refutation": "Retained prior1373/322 and outer143 discrepancy as historical; acceptance uses current complete result channels and actual cleanup, never outer-only success.",
+    "notes": "Image/source/gate receipts are independently audited; candidate still blocked by new unrelated findings #467/#468.",
+    "utc": "2026-10-06T15:46:44.920340+00:00"
+  },
+  {
+    "id": "I429-L28",
+    "verdict": "PASS",
+    "evidence": "2026-10-04-pixelelated-57cbc-qualification/runtime-06/comparison.json retains286/250ms=36ms>30, same cloud_backupSHA12a23169; completion has actual/four rc1 and all5ownedPIDs absent00:43:50. timing-diagnosis.md and diagnostic02 separate24ms listing cost, actual timestamp evidence and three predeclared batches.",
+    "refutation": "No unsupported causal claim that swap or VM noise caused the36ms difference; diagnostic01 missing-byte failure and diagnostic02 parser error remain failures.",
+    "notes": "Acceptance is distinct fresh runtime07 and later runtime12, not a renamed failed run.",
+    "utc": "2026-10-06T15:46:44.920358+00:00"
+  },
+  {
+    "id": "I429-L29",
+    "verdict": "PASS",
+    "evidence": "Product cloud_backup retains parent-directory predicate and missing/unknown branch distinction; fresh T14/T18 and all parent-error controls pass. Diagnostic change is only the clock-safe helper; timing-proof.py waits beyond remote timestamp outside measurement without modifying product, clock or mtime.",
+    "refutation": "Compared source hashes before/after and inspected meaningful absent/unknown negative controls. No presence cache or retry-until-lucky change was introduced.",
+    "notes": "Fresh owners preserve original failed backing/receipts.",
+    "utc": "2026-10-06T15:46:44.920375+00:00"
+  },
+  {
+    "id": "I429-L30",
+    "verdict": "PASS",
+    "evidence": "runtime07 completion actual29491/fourrc0; installed-samples/comparison gives272/244ms=28\u226430, twelve actual transferred-byte/timestamp records and zero migration journal. Later Q09/runtime12 same script five alternating medians269/245=24ms with all12 byte comparisons.",
+    "refutation": "Original runtime06 36ms remainsfailed; fresh repeat justified by actual fixture flaw, three declared diagnostic batches and separate trace collection. Single-sample14 smoke not used as acceptance timing.",
+    "notes": "Neither instrumented trace timings nor successful diagnostic substeps qualify the acceptance owner.",
+    "utc": "2026-10-06T15:46:44.920390+00:00"
+  },
+  {
+    "id": "I430-L31",
+    "verdict": "PASS",
+    "evidence": "Original diagnostic01 actual/fourrc1 remains retained; inspection01 failed-save-facts.json shows persisted c8629db9 bytes on both sides and guest mtime1135.277ms older, not the original live4ff90268 write. Diagnostic02 actual/fourrc1, trace01 actual/fourrc0, runtime07 actual/fourrc0 have separate owners and actual cleanup receipts.",
+    "refutation": "Read persisted byte hashes and receipt chronology; inspection after abrupt guest stop cannot reconstruct the lost live timestamp. Instrumented trace and diagnostic batches never substituted for uninstrumented acceptance.",
+    "notes": "The evidence explicitly limits what the read-only inspection proves.",
+    "utc": "2026-10-06T15:46:44.920409+00:00"
+  },
+  {
+    "id": "I429-L31",
+    "verdict": "PASS",
+    "evidence": "runtime07 identity-proof.py executes installed13 checks; assertions.json confirms actual upgraded Tools XML/hash, identity, retired reporting/updater, policy bytes. Exact actual/fourrc0 and owner cleanup independently read. Current M7 body and checkpoint retain accepted frozen14 custody and P4\u2192capacity\u2192H700 order.",
+    "refutation": "Read the executed consumer commands: /storage/.config/modules/gamelist.xml is hashed and parsed, not only the package template. Silent update decline is rc1/zero bytes, not generic help success.",
+    "notes": "This closes the original identity stage; later product defects still block overall readiness.",
+    "utc": "2026-10-06T15:49:19.887883+00:00"
+  },
+  {
+    "id": "I351-L58",
+    "verdict": "PASS",
+    "evidence": "R/cloud_oauth:646\u2013657/1000\u20131023 places .leave after the note with2rem margin; :1179 confirmation uses Keep before Close and sends Escape only on confirmed click. Fresh full-script log:650\u2013653 executes the node page interaction/load controls. Directly reviewed Q10/signin-ui14 04/05 phone frames; signin-proof.py:308\u2013331 uses actual headless Firefox157 and390px iframe.",
+    "refutation": "Keep sends nothing; hidden CSS rule prevents both controls showing together. Actual390px frames place Close below the complete note and separated from the pointer pad.",
+    "notes": "Frame review performed before this verdict; no mocked DOM screenshot claim.",
+    "utc": "2026-10-06T15:49:19.887952+00:00"
+  },
+  {
+    "id": "I351-L59",
+    "verdict": "PASS",
+    "evidence": "Q10/signin-ui14 phone-metrics.json records actual390px width/root font16px and12px top/bottom margins in Checking\u2026 and Connected. Both original frames directly viewed. R/cloud_oauth #state margin is .75rem 0.",
+    "refutation": "Actual installed probe transition supplies Connected; delayed first probe preserves Checking, not a manually replaced text node.",
+    "notes": "Two measured states, not inferred CSS alone.",
+    "utc": "2026-10-06T15:49:19.887985+00:00"
+  },
+  {
+    "id": "I351-L60",
+    "verdict": "PASS",
+    "evidence": "Q10/signin-ui14 build.log and all-local-requests.json show actual HTTP/start/302/mobile-form Mobile Safari user agent; all-local-navigator.json independently records navigator.userAgent. Frozen14 signin-payload-continuity.json verifies CHASSIS handset and exact windowSHAfc9a3473/OAuthSHAc9982e28.",
+    "refutation": "Distinguished rclone Go-http-client probe from browser requests; did not count public Dropbox page as authenticated trust-page proof.",
+    "notes": "Identified prior runtime on unchanged installed bytes, as this reconciled criterion explicitly permits.",
+    "utc": "2026-10-06T15:49:19.888016+00:00"
+  },
+  {
+    "id": "I351-L61",
+    "verdict": "PASS",
+    "evidence": "cloud-signin-window.c:415\u2013450 FINISHING_PAGE uses shared visual styling, green Connected heading and Finishing up on your handheld\u2026 note. Directly viewed installed02-finishing-marker-stand-in.png; finishing-transition.json changes actual pageSHA36043094\u2192890973b0 after done marker while window stays open.",
+    "refutation": "Prior local form is rejected by transition/pixel guard; finishing is stable at0/5/10/20s and not merely a screenshot taken from the wrong prior page.",
+    "notes": "English presentation passes; French completeness fails the separate criterion below.",
+    "utc": "2026-10-06T15:49:19.888036+00:00"
+  },
+  {
+    "id": "I351-L62",
+    "verdict": "FAIL",
+    "evidence": "D-CLOUD-164 expressly includes phone close confirmation and finishing two lines, each with French. R/cloud_oauth:1016/1179 serves literal English Close/Keep/question; cloud-signin-window.c:430\u2013450 loads one static English FINISHING_PAGE. Source search finds no gettext/system.language/setlocale route in either implementation. Installed payload hashes match these sources; actual EN frames show their shipped wording. Fresh vocabulary164/0 and full script checks pass their narrower scope.",
+    "refutation": "tools/archaeology --no-gh --since2026-10-01 finishing finds the binding bilingual decision and no exemption. ES catalog mechanism does not translate a static HTML/data URL produced by independent Python/C programs.",
+    "notes": "This is a failed source/localization contract. No French-mode VM sign-in execution is claimed; add it to repair qualification. External tracker publication is temporarily blocked by approval-review sign-in failure.",
+    "gaps": "Translate the newly required phone confirmation and finishing text through the selected system language, with EN/FR390px phone and actual installed finishing frames plus unchanged action/escape controls.",
+    "utc": "2026-10-06T15:49:19.888053+00:00"
+  },
+  {
+    "id": "I362-L68",
+    "verdict": "PASS",
+    "evidence": "D-WORKFLOW-138 in docs/decision-register.md:592 explicitly withdraws libsoup3.6.6/proxy old-pin exceptions, requires functionality preservation and refresh. Current libsoup recipe3.8.0 and selected WebKit2.54.1 follow that disposition.",
+    "refutation": "Read recorded maintainer language and exact current recipes, not issue status.",
+    "notes": "Decision compliance is separate from complete runtime proof.",
+    "utc": "2026-10-06T15:51:57.281490+00:00"
+  },
+  {
+    "id": "I362-L69",
+    "verdict": "PASS",
+    "evidence": "packages/web/libsoup/package.mk names3.8.0 SHA bbf08fa3e03a88c31a3d27a0d87cb422e9490f2d08e149211103df6d638a2238; cold consumed inventory retains matching1609676-byte archive. Explicit optional settings include disabledzstd/brotli/ntlm/gssapi/sysprof/introspection. Fresh evidence/local-pkgcheck01 validates actual matched recipe rc0/0FAIL.",
+    "refutation": "Checked late-binding options inside pre_configure_target and actual recipe match; rc0 without a matched file is not counted (the separate libchdr shorthand mistake was corrected).",
+    "notes": "No product recipe changed during audit.",
+    "utc": "2026-10-06T15:51:57.281569+00:00"
+  },
+  {
+    "id": "I362-L70",
+    "verdict": "PASS",
+    "evidence": "P3 cold-webkit-libsoup.json binds consumed archive/build stamps and unchanged recipe hashes. Directly read original cold build.log lines310232/310242 and1179166/1179405: targetlibsoup3.8.0 built, targetWebKit found linkedSoup3.8.0. Frozen14 preparation/package-freshness.log and freshness-completion.json actual/fourrc0 at00:42 bind1608 recipes/tools and both CURRENT inputs.",
+    "refutation": "Did not count a cached install stamp as cold compilation; original cold log/source inventory is named, replacement10\u219214 recipe continuity separately verified.",
+    "notes": "A new optional audit-time network check is pending approval-service authentication; this PASS is the criterion\u2019s retained cold/cut proof, not a later latest-version claim.",
+    "utc": "2026-10-06T15:51:57.281596+00:00"
+  },
+  {
+    "id": "I362-L71",
+    "verdict": "PASS",
+    "evidence": "Installed signin-ui14 actualHTTP302/Mobile-UA/JS-UA and inspected phone/finishing frames establish touch/redirect behavior; public HTTPS pages load. Ordinary8GiB public-login30s peak701264KiB is a heavier workload than D-WORKFLOW-048 simple-page\u2248284MiB. Actual1GiB signin-1g13 example.org271416KiB and signin-provider1g05 publiclogin395676KiB,30s, responsive/no kernelOOM; actualQEMU1024MiB/firmware1048576KiB, Linux810372KiB recorded. Both loaded640x480frames directly viewed.",
+    "refutation": "Compared workload and allocation explicitly rather than claiming like-for-like growth from different pages; checked real low-memory allocation, no numerical RSS ceiling invented, no authenticated Dropbox claim.",
+    "notes": "Source/script payload continuity to14 established. Localization defect I351-L62 remains separate.",
+    "utc": "2026-10-06T15:51:57.281617+00:00"
+  },
+  {
+    "id": "I462-L28",
+    "verdict": "PASS",
+    "evidence": "D-QA-058 is appended with exact owner direction; vm-first/release-candidates localWebDAV/SFTP/MinIO rules, readiness active heading, saved handoff and tracker-readback.json reconcile hosted-optional gate.",
+    "refutation": "Read current rule text and exact readback body hashes; historical old Dropbox prerequisites are marked superseded, not counted as active blockers.",
+    "notes": "No relaxation of separate RA award proof.",
+    "utc": "2026-10-06T15:51:57.281636+00:00"
+  },
+  {
+    "id": "I462-L29",
+    "verdict": "PASS",
+    "evidence": "2026-10-06-local-cloud three actual7afa9efcfc reports name bundleb77e47e5/imagec7df6a6f and PASS86/73/110s; each round-trip106PASS/0FAIL/0SKIP. Logs verify9upload/replacement/restorebytes, excludes, refusal/stamps and serialization; completion totals318.",
+    "refutation": "Read installed reports and meaningful negative lines, not only completion summary. Provenance UNSTARTED is the original launch input; later terminal receipts establish actual execution.",
+    "notes": "Three owned local protocols, no hosted-authentication inference.",
+    "utc": "2026-10-06T15:51:57.281654+00:00"
+  },
+  {
+    "id": "I462-L30",
+    "verdict": "PASS",
+    "evidence": "Local-cloud harness seals/source manifest70cb0448 and completion05:59:18 retain four rc0, actual6PIDs absent, noQEMU/MinIO/backendpidfiles and ports9010/9011/9012/9013/10022/10023unbound. Raw sanitized protocol logs and SHA256SUMS are retained.",
+    "refutation": "Matched source/image and terminal ownership to original fresh owner; submission receipt alone is not qualification.",
+    "notes": "No original failed owner was overwritten.",
+    "utc": "2026-10-06T15:51:57.281670+00:00"
+  },
+  {
+    "id": "I462-L31",
+    "verdict": "PARTIAL",
+    "evidence": "tracker-readback.json records463OPEN/milestone null and named hosted-optional gate; signin-payload-continuity explicitly reuses prior installed browser evidence without authenticatedDropbox. I351-L58\u201361 pass against actual artifacts.",
+    "refutation": "Independent review found that #351 bilingual criterion is not satisfied: static phone/finishing English has no translation route despite D-CLOUD-164. Prior closure is not sufficient reconciliation.",
+    "notes": "Dropbox deferral is valid and remains unchanged; this gap is local interface localization.",
+    "gaps": "Reconcile #351\u2019s translation criterion and qualify its French repair; no hosted account is needed.",
+    "utc": "2026-10-06T15:51:57.281685+00:00"
+  },
+  {
+    "id": "I462-L32",
+    "verdict": "PASS",
+    "evidence": "Saved checkpoint and RA-award completion identify Tobu15738/Potato-tanSecret100359 softcore:33PASS, initialunearned\u2192queue1\u2192pending0\u2192provider-earned, relaunch28\u219227, actual/fourrc0 and06:10cleanup/accountclear. Milestone evidence/p4-milestone-after.json orders P4 before capacity461/H700arm\u2192aarch64.",
+    "refutation": "Kept account-backed proof separate from synthetic UI109 and local cloud318. No renewed reset required merely to restate this proof.",
+    "notes": "No device action or upstream/publication permission inferred.",
+    "utc": "2026-10-06T15:51:57.281701+00:00"
+  },
+  {
+    "id": "I361-L119",
+    "verdict": "PASS",
+    "evidence": "D-WORKFLOW-138 owner direction explicitly withdraws the old proxy/libsoup exception; P/package.mk pins879b158 and parent-coupled libchdr607694c/rcheevos1433173. Current scope preserves whole-library offline behavior and prepares upstream fixes.",
+    "refutation": "Read exact pinned recipe and disposition, not a branch name or closed tracker.",
+    "notes": "Freshness is timed evidence, not a timeless statement.",
+    "utc": "2026-10-06T15:53:38.800827+00:00"
+  },
+  {
+    "id": "I361-L121",
+    "verdict": "PARTIAL",
+    "evidence": "P/raofflineproxy-cache-indexed:87\u2013112 uses background pacing and persists pauses; unindexed call explicitly opts out of100-game budget and rejects queued readiness. tools/raofflineproxy-integration-test tests125indexed/unindexed,124+retry, persistedpause,429stop/restart and upstream100default. Original whole-library-before reports125OKbut100actual; after125actual. b09host11 tests pass with consumed-source equality to879.",
+    "refutation": "Reviewed actual cached-row assertions and pause persistence, not reported OK counts. These125-game executions use host Python and mocked provider behavior; current installed proxy14 proves preservation/service/native formats but not this125-game scanner boundary.",
+    "notes": "No product failure inferred from the missing target-runtime boundary.",
+    "gaps": "Execute the125-game indexed/unindexed and queued/429/retry controls against installed candidate modules/helper in an isolated VM, preserving pacing semantics and failure controls.",
+    "utc": "2026-10-06T15:53:38.800914+00:00"
+  },
+  {
+    "id": "I361-L124",
+    "verdict": "PASS",
+    "evidence": "Frozen14 preparation/package-freshness.log starts/ends exact1608recipe/tool verification and CURRENT879b158/libchdr607694c/libsoup3.8.0/WebKit2.54.1; freshness-completion.json actual/allfour0 at00:42 and fourabsentPIDs. Frozen13 freshness04 failed on newer879 remains separate.",
+    "refutation": "Read actual exit channels and package rows; not relabeling prior12 or failed13. Purposeful parent-coupled pins are explicitly marked PINNED.",
+    "notes": "This criterion names frozen14 freshness05. New audit-time recheck is unstarted because approval-service authentication is still failing.",
+    "utc": "2026-10-06T15:53:38.800942+00:00"
+  },
+  {
+    "id": "I408-L18",
+    "verdict": "PASS",
+    "evidence": "2026-10-03-proxy-identity/packaged-identity.json identifies installed config.pyc/OS_NAME RASTERATOPS, automatic=false but explicit=true; assertions.json exactbuild/syntheticaccount pass and automaticdiscovery fails.",
+    "refutation": "Both routes use the same synthetic account and canonical parser; no credential value appears in the result. Original failure is distinguished from later lowercase identity.",
+    "notes": "Historical intermediate brand was never fielded; current required transition remains ROCKNIX\u2192pixelelated.",
+    "utc": "2026-10-06T15:53:38.800962+00:00"
+  },
+  {
+    "id": "I408-L19",
+    "verdict": "PASS",
+    "evidence": "P/patches/018-pixelelated-platform-identity.patch matches complete OS_NAME records for ROCKNIX/pixelelated; focused tests cover custom override, commented/previous-field/lookalike rejection. Original7control before/after and b09 upstream Linux818 tests retain negative/fixed evidence.",
+    "refutation": "Read full patch and original automatic-versus-explicit controls; no account/cache path relocation. Current lowercase patch supersedes historical Rasteratops spelling.",
+    "notes": "Generic detector policy only, no behavior change on unrelated OS identities.",
+    "utc": "2026-10-06T15:53:38.800983+00:00"
+  },
+  {
+    "id": "I408-L20",
+    "verdict": "PASS",
+    "evidence": "Frozen14 proxy14/assertions.json22PASS: actual packaged modules, lowercase detector/canonical syntheticaccount, all predecessor cache/pending rows and base/subset mapping through2reopens, legacy image bytes, actual service HTTP/cache paths, pending awards remain while offline. Native18/0skip separate.",
+    "refutation": "Read explicit no-source-override claim together with actual installed custody and real-service assertions; exactrow preservation is stronger than only a count.",
+    "notes": "Synthetic account/owned VM; separate RA33 proves actual provider award path.",
+    "utc": "2026-10-06T15:53:38.801004+00:00"
+  },
+  {
+    "id": "I384-L14",
+    "verdict": "PASS",
+    "evidence": "2026-10-02-candidate-preflight/subset-old-source.txt actual1\u2192100,2\u2192100 contradicts expectedsubset200; subset-backport-tests.log23passed. Current U/rom_cache.py:362\u2013458 iterates each achievement set\u2019s GameId and lookupwantedIDs. Current b09 Linux818 includes award parity; consumed runtime/test trees equality independently recomputed.",
+    "refutation": "Read nested set ownership rather than base GameId alone; old ambiguity is reproduced, not merely inferred.",
+    "notes": "Patch017 is retired because upstream implements the preservation; no duplicate backport remains.",
+    "utc": "2026-10-06T15:55:48.391596+00:00"
+  },
+  {
+    "id": "I384-L15",
+    "verdict": "PASS",
+    "evidence": "Frozen14 subset11/assertions.json35PASS, actualHTTP provider-requests.json fetches game100 andgame200; first flush acceptsbase1/refusessubset2with503 retainingpending1, second sends onlysubset2 and pending0. Empty repeat has no requests; subsetunlock andflushstamp assertions pass.",
+    "refutation": "Queued subset is neither remapped tobase nor discarded asstale/deleted; failure and retry are actualloopbackHTTP with installed modules.",
+    "notes": "Syntheticprovider fixture, separate from genuine providerRA33.",
+    "utc": "2026-10-06T15:55:48.391658+00:00"
+  },
+  {
+    "id": "I384-L16",
+    "verdict": "PASS",
+    "evidence": "P/package.mk879b158 SHA98495732; full-series disposition retires017; exact U/rom_cache.py has set-aware mapping. Frozen14 preparation inventory and installedsubset/proxy custodysource7afa9efcfc bind selected implementation.",
+    "refutation": "Compared actual current mapping and no017patch in16-file series; recipecomment alone would not prove it.",
+    "notes": "Historical backport23tests remain dated original evidence.",
+    "utc": "2026-10-06T15:55:48.391686+00:00"
+  },
+  {
+    "id": "I451-L28",
+    "verdict": "PASS",
+    "evidence": "2026-10-05-proxy-3036478/host01-failed/predecessor-diagnostic-stderr.log retains AttributeError get_all_cache_by_prefix; completion actual/allfour1 and all4PIDs absent22:08:07.",
+    "refutation": "Read actual exception from actual725 predecessor API, not a fake expected failure; old emptybuild.log has its own SHA and does not carry the missingtrace.",
+    "notes": "This was a harness API failure, not data migration failure.",
+    "utc": "2026-10-06T15:55:48.391707+00:00"
+  },
+  {
+    "id": "I451-L29",
+    "verdict": "PASS",
+    "evidence": "host02/run.sh separately executes actual7252fc and historical865predecessor integrations; bothlogs11testsOK, fourrc0/cleanup22:10:32. tools/raofflineproxy-integration-test:132\u2013170 dispatches old list versusnewiterator API and compares fullrows/signin/images/base-subset through2reopens. Fresh evidence/proxy-local-integration01 separately passes11each against selected879 with303and865predecessors.",
+    "refutation": "No monkeypatch of old schema; oldsource constructs its ownrealStorage. Current fresh303 execution is not relabeled725.",
+    "notes": "Hostupgrade fixtures separately backed by installed14 preservation22.",
+    "utc": "2026-10-06T15:55:48.391731+00:00"
+  },
+  {
+    "id": "I451-L30",
+    "verdict": "PASS",
+    "evidence": "host02/patched.log actual815Linux tests/12.751s/OK, no skip line; run.sh compiles coupledlibchdr607694c native helper before setting explicit RAOFFLINEPROXY_RCHASH_LIB; input/native-library hashes and completion bind actual source/build/result. Frozen14 native-result18/0skip plus4legacyCHD/canary/malformed controls exercise installedlibSHA6c484a29.",
+    "refutation": "Distinguished host815original andlater818afterconsenttests; native capability cannot pass by skipping. Parentcoupled input is verified independently of recipe text.",
+    "notes": "Exact original host02andcurrentinstalled14 receipts remain separate.",
+    "utc": "2026-10-06T15:55:48.391748+00:00"
+  },
+  {
+    "id": "I457-L16",
+    "verdict": "PASS",
+    "evidence": "Original early-consent-before.json uptime0/5grantedcounter0versusexpected1,31scontrol1. early-before.log has3assertionfailures/8methods; fixed8pass. Patch019 sentinelNone forcesinitial/invalidated read while retaining30s post-observation cache. Fresh evidence/proxy-local-integration01/consent.log executes exact selected879ConsentTests8/0fail.",
+    "refutation": "Grant/decline/regrant and unanswered controls tested; no change to storedformat or oldmissedcounter recovery claimed.",
+    "notes": "SourceSHA recorded for fresh unprivileged run; installedproof below.",
+    "utc": "2026-10-06T15:55:48.391763+00:00"
+  },
+  {
+    "id": "I457-L17",
+    "verdict": "PASS",
+    "evidence": "b09host818/no skip plus11each303/865 integration passed; independent evidence/proxy-source-equality.json compares219nonbackup/nonbytecode Linux files and53native files to frozen879 with0added/removed/changed. Fresh879integration11each andConsentTests8pass. Fresh12actualrecipe lints and hostchecks01schema pass.",
+    "refutation": "Original222Linux equality count included generated .orig backups; current explicitscope excludes .orig/.rej/.pyc and verifiesall219consumed/testfiles. No claim that full818 were freshly reexecuted under879.",
+    "notes": "Exact consumed source equivalence supports the retained full suite, with fresh currentintegration/consent checks.",
+    "utc": "2026-10-06T15:55:48.391779+00:00"
+  },
+  {
+    "id": "I457-L18",
+    "verdict": "PASS",
+    "evidence": "Frozen14 consent02summary30cases across15consentvalues/restarts, actualloopbackcollector, actualfirstgrantcounter7\u21928at16.705s; loaded8moduleSHA preserved. Invalid/nonbool/unanswered/declined/oldgrant produce0requests; positive usage1/logs2/both3 thenreplay0. Completion actual/four0and5PIDs absent01:01:30.",
+    "refutation": "Positivecounter catches earlycachebug; negative-only silentcollector would be vacuous. Current installed pyc identities checked; earlier consent01failedreceipt retained.",
+    "notes": "No scheduler/UI/externalcollector claim; this is the specified installed reporting-function HTTPproof.",
+    "utc": "2026-10-06T15:55:48.391793+00:00"
+  },
+  {
+    "id": "I457-L19",
+    "verdict": "PASS",
+    "evidence": "docs/upstream/raofflineproxy/early-consent/{README.md,fix.patch} namesbaseb09, exactapply/testinstructions and8test before/fixedresults. Fresh bytecomparison showsdraft==packaged019. Contributionmaprow019ownedby168 and explicitunsubmittedstatus.",
+    "refutation": "Patchincludesits3regressionmethods and format-preservation rationale; combinedforkPASSis not the only suppliedreproduction.",
+    "notes": "Preparation does not imply submission/acceptance or outboundpermission.",
+    "utc": "2026-10-06T15:55:48.391810+00:00"
+  },
+  {
+    "id": "I361-L122",
+    "verdict": "PASS",
+    "evidence": "Frozen14 proxy14actual22preservation andsubset11actual35HTTPassertions preservecachedsign-in,fullrows,ROMpaths,legacyimagebytes andpendingbase/subsetthrough2reopens/reconnection/refusedretry. Consent02actual30cases andloadedmodulehashes enforce unanswered/declinednoHTTP.",
+    "refutation": "Failure503retains onlysubsetpending, acceptedbaseisnotresent; positiveconsentcontrolproducesrequests while negativecontrolsdo not.",
+    "notes": "Owned syntheticfixtures; actualaccountRA33separatelyprovidesproviderconfirmation.",
+    "utc": "2026-10-06T15:55:48.391825+00:00"
+  },
+  {
+    "id": "I414-L20",
+    "verdict": "PASS",
+    "evidence": "2026-10-04-proxy-schema-note/source-proof.json retains identical old/new storage SHA15e17157 and cache_keys19c79b3c, noncomment-script equality and the original1688PASS/1schemaFAIL. Every direct SQL query was checked: ctl 581,613,680\u2013683,768,1010/1021,1478/1493 consumes existing api_cache/pending_awards columns; current Storage DDL105\u2013167 and cache-key builders preserve them. Streaming whole_games fallback uses current iter_cache_by_prefix. Source/schema equality is retained in docs/qa-logs/2026-10-05-proxy-schema-3036478/schema-review.json. Fresh host-checks01 full script suite1719/0 includes actual-current-Storage writer/ctl reader test; frozen14 installed suite supplies target execution.",
+    "refutation": "Compared both schema and callers, not merely matching the comment hash; additive cached_game_meta does not replace consumed fields.",
+    "notes": "Original414 fix and later452/879 comment refresh remain distinct historical events.",
+    "utc": "2026-10-06T16:01:19.176941+00:00"
+  },
+  {
+    "id": "I414-L21",
+    "verdict": "PASS",
+    "evidence": "tools/rc-preflight132\u2013165 validates exactly one full recipe/header pin before /etc/profile. Fresh evidence/proxy-schema-controls-01:15PASS/0FAIL rc0; missing/short/duplicate/stale/below-header controls reject, absent files return2, matching succeeds, ordinary dispatcher stale returns1.",
+    "refutation": "Historical control used ec60 literally; adapted only its current-pin variable/root so negatives actually corrupt today\u2019s879 note. Runtime Storage writer/reader assertion remains independently present/executed.",
+    "notes": "The guard proves review-note agreement, not schema compatibility by itself.",
+    "utc": "2026-10-06T16:01:19.177003+00:00"
+  },
+  {
+    "id": "I414-L22",
+    "verdict": "PASS",
+    "evidence": "Original b137d8c373 scripts1688/1 retained with SHA802533b8 in source-proof.json; replacement14 frozen installed script suite1719/0 and custody-verified ctl contains879-reviewed note. Historical corrected recipe changes no executable lines.",
+    "refutation": "Did not erase original failure or call a host-only guard a rebuilt image. Exact14 source/payload and installed suite are separately retained.",
+    "notes": "Later proxy advances supersede the original pin with reviewed notes.",
+    "utc": "2026-10-06T16:01:19.177038+00:00"
+  },
+  {
+    "id": "I452-L28",
+    "verdict": "PASS",
+    "evidence": "docs/qa-logs/2026-10-05-proxy-schema-3036478/before.log and frozen11-negative.log retain old725 note/current303 rc1; schema-review.json records actual725/303 storage62a545a1 and cachekeys19c79b3c equality. Every direct SQL query was checked: ctl 581,613,680\u2013683,768,1010/1021,1478/1493 consumes existing api_cache/pending_awards columns; current Storage DDL105\u2013167 and cache-key builders preserve them. Streaming whole_games fallback uses current iter_cache_by_prefix. Source/schema equality is retained in docs/qa-logs/2026-10-05-proxy-schema-3036478/schema-review.json. Fresh host-checks01 full script suite1719/0 includes actual-current-Storage writer/ctl reader test; frozen14 installed suite supplies target execution.",
+    "refutation": "Searched all execute/SELECT occurrences, including duplicated head parser and streaming fallback; read fields/key owner scoping, not only declaration list.",
+    "notes": "Native/API interface refresh elsewhere is independently audited.",
+    "utc": "2026-10-06T16:01:19.177059+00:00"
+  },
+  {
+    "id": "I452-L29",
+    "verdict": "PASS",
+    "evidence": "git show fc689bdfc2709a2855424460fb70681622b959ce changes only two comment lines725\u2192303 and review citation426\u2192452. docs/qa-logs/2026-10-05-proxy-schema-3036478/after.log and frozen11-negative.log retain positive/negative guard; fresh local-pkgcheck-01 raofflineproxy matched actual recipe rc0, fresh15-control guard passes.",
+    "refutation": "Compared actual commit diff; matching comment is not used as runtime compatibility evidence. Frozen11 negative retained.",
+    "notes": "No runtime source modified in this correction.",
+    "utc": "2026-10-06T16:01:19.177079+00:00"
+  },
+  {
+    "id": "I452-L30",
+    "verdict": "PASS",
+    "evidence": "replacement12/preparation/pre-freeze-schema.log names primary next55d8ee8f75 and PASS303 review before build; freeze-receipt.json seals6549product/180symlinks/202QA with SHA bfdcf9b2655157b7e4d3a59f1c6fa803f68989b2cfb8b460eb0f2a666ee98192. Historical12 build/adoption receipts retain source55d8, custody and terminal all-zero channels; source publication is ancestor of frozen14.",
+    "refutation": "Unbuilt11 copy/adoption is distinct from compilation; no build claimed on the failed11 freeze. Actual pre-freeze command output names corrected source, not only README.",
+    "notes": "Current package inputs are subsequently frozen879; this criterion concerns the original452 sequence.",
+    "utc": "2026-10-06T16:01:19.177095+00:00"
+  },
+  {
+    "id": "I386-L26",
+    "verdict": "PASS",
+    "evidence": "2026-10-03-dependencies archives.json binds five exact archives; glslang-known-good.json selects ef96ed7/4965431 and both current recipes repeat that parent coupling. Actual compat-build.log links native SPIRV/glslang/shaderc and compiles752-byte Vulkan vertex shader; cbindgen-build.log builds/reports0.29.4 on project Rust1.94.1. translator-header-compat.json shows candidate13ahead/0behind declared translator revision; tllist real tags resolve1.1.0. Frozen14 package-freshness lists glslang16.6/current,cbindgen0.29.4/current,tllist1.1/current and explicit coupledheaders exception.",
+    "refutation": "Did not treat shaderc\u2019s older tested DEPS baseline as an upper-version constraint; tested its actual compile/link. Headers remain parent-coupled, not falsely advertised newest standalone.",
+    "notes": "Source-current evidence is timestamped Oct3/cut Oct6 00:42. Native host probes do not claim hardware acceptance; actual target consumers/build receipts below.",
+    "utc": "2026-10-06T16:03:18.967184+00:00"
+  },
+  {
+    "id": "I386-L27",
+    "verdict": "PASS",
+    "evidence": "tools/fork-package-freshness58\u201364/147 adds Codeberg tags resolver. Retained codeberg-before.log fails stable/new-stable controls, after passesall6. Fresh evidence/dependency-controls-01 rc0: six controls pass incl prerelease exclusion,newstableBEHIND,empty/malformed/requesterror UNKNOWN even withvalidbody. tllist-live.log actual1.1.0CURRENT and frozen14 freshness repeatsit.",
+    "refutation": "Fixture curl is a local executable asserting exact URL; fresh test proves classification without claiming a live lookup. Transport failure cannot become CURRENT.",
+    "notes": "Fresh live network check remains approval-service blocked; does not invalidate retained cut-time lookup.",
+    "utc": "2026-10-06T16:03:18.967249+00:00"
+  },
+  {
+    "id": "I386-L28",
+    "verdict": "PASS",
+    "evidence": "Fresh local-pkgcheck01 matched glslang,spirv-tools,spirv-headers,shaderc,cbindgen,tllist rc0. Original cold bundle22533e35 build.log99343/170387/704632/801533 explicitly builds hostglslang,targettllist,SPIRV-Tools,targetglslang. Frozen14 inventory10 source-inventory.json binds exact archives and actual target/host stamps plus Mesa/Vulkan/WebKit consumers; accepted642-taskimage/default15suite/virgl-Pixman installed qualification binds source7afa9 and manifest70cb0448.",
+    "refutation": "Shaderc/cbindgen host compatibility is retained separately; not invented as installed GENERIC_X64 components. Actual cold compile lines supplement later cached stamps. No hardware acceptance inferred.",
+    "notes": "#361/#362 runtime gates are independently graded; unchanged graphics dependency inputs carry their original cold compilation lineage.",
+    "utc": "2026-10-06T16:03:18.967277+00:00"
+  },
+  {
+    "id": "I386-L29",
+    "verdict": "PASS",
+    "evidence": "Q14/preparation/freshness-completion.json real00:42:18 UTC records allfour0 and fourPIDabsence for frozen14run004114; package-freshness.log has explained PINNED and no BEHIND/UNKNOWN. Q14 inventory10 errors0/568roots records exact checked archives and stamps; input manifest70cb0448 binds1608recipes.",
+    "refutation": "Earlier freshness04 is retained failed on new879; no success borrowed from outdated13freeze. Fullinventorysuccess is distinct from separate proxy/browseracceptance.",
+    "notes": "This is the frozen-cut freshness criterion, not a claim no upstream commit has arrived since.",
+    "utc": "2026-10-06T16:03:18.967298+00:00"
+  },
+  {
+    "id": "I361-L120",
+    "verdict": "PASS",
+    "evidence": "docs/rasteratops/raofflineproxy-refresh.md enumerates001\u2013019 with16 retained and006/014/017retired. Currentstorage64\u201370/815\u2013855 protects permanent prefixes in bothSQLite/JSON; image_cache246\u2013315 reuses thread/host connections withdrop/retry/redirectfallback; subsetmapping source independently verifiedI384. Selected879 patch-application.log retains all16 zero-fuzzapplications, fresh proxy-source-equality219Linux/53native zerochanged confirms qualifiedb09consumedbytes.",
+    "refutation": "Connection reuse does not substitute for009atomicpublication; retired017 was checked against nested set IDs, not top-levelonly. Distinct019initialconsentfix has independent old/new regression.",
+    "notes": "Offsets are not fuzz; application and behavior evidence remain distinct.",
+    "utc": "2026-10-06T16:03:18.967323+00:00"
+  },
+  {
+    "id": "I361-L125",
+    "verdict": "PASS",
+    "evidence": "docs/upstream/raofflineproxy/contribution-map.md reconciles all16 retained patches,3retired and older168ideas; ten standalone drafts have explicit unsubmittedstatus. 2026-10-06-upstream-drafts raw before/fixed logs independently show7drafts:40targeted/169related executions,zero skips; originals fail real400/404/429 response,wrongaccount,warningfilter,refreshstops,consent,PNG/DNS assertions. Earlier image-publication/identity recheckreceipt and before/fixedlogs bindb09;019consent8-test evidence reviewedseparately.",
+    "refutation": "Pristine production hash controls distinguish signature-only or sandbox failures; six interface-dependent contributions remain expressly API/policy discussions. No combinedseries test was silently sold as eachstandalonedraft.",
+    "notes": "No PR submitted/accepted; owner approval remains required for outward168contribution.",
+    "utc": "2026-10-06T16:03:18.967340+00:00"
+  },
+  {
+    "id": "I332-L22",
+    "verdict": "PASS",
+    "evidence": "Fresh evidence/ui-lifecycle-controls-01/nova-led.stdout: actualscripts14PASS0FAIL, each8brightnessmax255/mid128/min32;RGBwhite,explicitcustom,off,7batterycolors and10blinksteps. Original2026-10-03-led/before.log6PASS8batteryFAIL retained; correctedafter14PASS.",
+    "refutation": "Tool adaptation changes only profile/path/service/sleep boundaries; all branch/brightness/RGB code executes. Fixed fixture starts all8values0 and asserts exact perLED outputs.",
+    "notes": "Hostfixture is explicitly requested by this criterion; no physical perceivedbrightness claimed.",
+    "utc": "2026-10-06T16:04:49.889329+00:00"
+  },
+  {
+    "id": "I332-L23",
+    "verdict": "PASS",
+    "evidence": "ActualOct3isolatedVM ui-reselection brightness-before0\u00d78\u2192after128\u00d78, allwhiteRGBunchanged, actualcalls rgb then brightnessmid, savedsettingsstillrgb/mid. Viewed01-mid-already-selected and02-mid-reselected frames; result.json9observedchecks and ui-source-match.json bind exact menu/popup code. E GuiMenu2140\u20132181 callback reapplies selectedvalue.",
+    "refutation": "Zeroedfixture supplies negative state even thoughMIDalreadyselected; aftervalues distinguishcallbackfromunchangedsavedpreference. HistoricalfullscreenROCKNIXframe is not mislabeled branded14.",
+    "notes": "ExactunchangedLEDblock proof travels with sourcecontinuity; physical Nova illumination remains laterfact.",
+    "utc": "2026-10-06T16:04:49.889404+00:00"
+  },
+  {
+    "id": "I424-L18",
+    "verdict": "PASS",
+    "evidence": "2026-10-04-es-identity-export/installed-negative.txt hasos-releasepixelelated butprocessPID2470noOS_NAME andoldexportSHA6fbbd886. Directlyviewedactualmain-menuROCKNIX andwrongupdateNOUPDATEAVAILABLE. ProfileomitsOS_NAME; ApiSystem applicationnamefallbackROCKNIX explainsboth.",
+    "refutation": "Correctfilealone was insufficient; readactualchildenvironment andtwoactualconsumerframes.",
+    "notes": "Oldfailed1e6a preserved, nohotpatchofthatimage.",
+    "utc": "2026-10-06T16:04:49.889443+00:00"
+  },
+  {
+    "id": "I424-L19",
+    "verdict": "PASS",
+    "evidence": "tools/rasteratops-identity-check116\u2013130 sourcesactualexportprofile undercleanenvironment thenexecs/bin/shchild; freshui-lifecycle-controls01 oldexportunset/0.0.1/community, newexportpixelelated/0.0.1/community. Allotherprofilevaluesidentical. Historicalwholeidentitybefore1failure/after0retained.",
+    "refutation": "Newchildreceivesexportedvalue ratherthanparent-onlyshellvariable; oldprofilenegativeactually executedfresh.",
+    "notes": "Focusedcurrentchildcontrol succeeds; nofullhostnamespace identityrunclaimed.",
+    "utc": "2026-10-06T16:04:49.889466+00:00"
+  },
+  {
+    "id": "I424-L20",
+    "verdict": "PASS",
+    "evidence": "Q14qa18 installedpayload-initial-clean PID1639 andpayload-upgrade PID1484 actual/usr/bin/emulationstation environmentOS_NAMEpixelelated withexportSHA3708af2b andbuild7afa9. Directlyviewedboth01mainmenus displaypixelelated0.0.1 andboth05manualdialogs pointtopixelelated/distribution/releases.",
+    "refutation": "Verifiedrunningconsumerplusactualframes onclean/retainedstorage; notos-releasealone norhostsourceguard.",
+    "notes": "ActualRC2upgradequalification chain separatelyretained; noautomaticupdatesrequested.",
+    "utc": "2026-10-06T16:04:49.889484+00:00"
+  },
+  {
+    "id": "I424-L21",
+    "verdict": "PASS",
+    "evidence": "Currentidentity-checkchildassertionfailsoldprofile andpassesnew; Q14check-payload reads/proc/<ES>/environ andinstalledprofilehash. Before/afterlogs,negativeoldframes andnewconsumerframesremain distinctartifacts.",
+    "refutation": "Sourcecheckdoesnotreplaceinstalledpayload/frames; earlierpost-buildsuccessneverrewritesoldnegative.",
+    "notes": "Consumeridentitycontract is nowexplicitlytested atbothboundaries.",
+    "utc": "2026-10-06T16:04:49.889501+00:00"
+  },
+  {
+    "id": "I436-L50",
+    "verdict": "PASS",
+    "evidence": "Replacement07 identity-diagnostic03: before/information PID1405 restart0; back-two journal line99 throws vector::_M_range_check from empty selection; delayed/reopen PID2925 restart1. GPU controls old.log reproduces absent selection exception. GuiMenu2321\u20132350 formerly saved getSelected even when capability list empty.",
+    "refutation": "This is the actual old-image process transition and exception, not a navigation screenshot interpreted as a crash.",
+    "notes": "#422 navigation timing remains a different scope.",
+    "utc": "2026-10-06T16:06:29.597518+00:00"
+  },
+  {
+    "id": "I436-L51",
+    "verdict": "PASS",
+    "evidence": "Current GuiMenu GPU save callback checks hasSelection before any config write/command. Fresh source-extracted C++ control in ui-lifecycle-controls01 passes six cases: absent, retained absent, unselected, unchanged, changed, fallback. Original old.log fails absent case.",
+    "refutation": "Test compiles release NDEBUG semantics but contract assertions remain active; present/unchanged selection still invokes its command, changed selection saves only selected value.",
+    "notes": "Source controls complement installed evidence below.",
+    "utc": "2026-10-06T16:06:29.597584+00:00"
+  },
+  {
+    "id": "I436-L52",
+    "verdict": "PASS",
+    "evidence": "Copied exact QA18 owner lifecycle files into evidence/ui-lifecycle-controls01/installed-{initial-clean,upgrade,upgrade-software}. Actual PID/start ticks stay1639/509,1484/354,1489/353 across System Settings walks; each result passes and retained journals contain no range exception/termination. Exact14 identity frames reviewed separately. Original08 clean/upgrade lifecycle passes are also retained.",
+    "refutation": "Compared start ticks as well as PID, and actual logs/frames; no restarted process with a reused name is accepted.",
+    "notes": "These are completed Oct6 QA18 observations, not a newly launched VM.",
+    "utc": "2026-10-06T16:06:29.597613+00:00"
+  },
+  {
+    "id": "I436-L53",
+    "verdict": "PASS",
+    "evidence": "Replacement07 gpu-governor-controls syntax.log explicitly checks GuiMenu.cpp PASS with corresponding rc0; source pin is inherited by current frozen ESf6f0c134. Current package lint, actual14 build/defaults/upgrade and independent lifecycle checks pass. Retained tracker-readback and published checkpoint preserve P4 before device work, with #422 separately named.",
+    "refutation": "Source syntax alone was not used to close runtime criterion; exact clean/retained evidence above is required.",
+    "notes": "No RC assertion; later independent audit remains underway.",
+    "utc": "2026-10-06T16:06:29.597635+00:00"
+  },
+  {
+    "id": "I454-L12",
+    "verdict": "PASS",
+    "evidence": "tools/vm-stop13\u201358 validates QEMU executable and exact -drive argument, captures start ticks, opens pidfd, rechecks identity, signals same handle and polls boundedly; timeout retains pidfile. Q12 harness-controls/stop-final/controls.log has seven actual-host controls including self-removed pidfile and immediate port reuse.",
+    "refutation": "Fresh local rerun retained in ui-lifecycle-controls01 failed before controls because sandbox denied socket creation; not counted as PASS or product failure. Original real-host seven-control receipt plus QA17 immediate restart is the executable evidence.",
+    "notes": "A new host rerun remains approval-auth blocked; no bypass attempted.",
+    "utc": "2026-10-06T16:06:29.597653+00:00"
+  },
+  {
+    "id": "I454-L13",
+    "verdict": "PASS",
+    "evidence": "Q12 QA17 upgraded-disk-custody.json names actual QA15 diskSHA3c2d5dc1, independent inode, guest-byte equality and standalone16GiB converted copy. Renderer software/virgl and ten installed identity frames retained; completion23:40:46 records four0 and all observed process absence, supplement closes5909/10022/9010 and backend.",
+    "refutation": "Different qcow container hashes do not mean different guest bytes; qemu-img comparison and no backing dependency establish independent copy. No arbitrary sleep substitutes for vm-stop.",
+    "notes": "QA15 original disk remains unchanged; follow-up scope is explicit.",
+    "utc": "2026-10-06T16:06:29.597672+00:00"
+  },
+  {
+    "id": "I454-L14",
+    "verdict": "PASS",
+    "evidence": "Q12 QA15 completion allfour1 with15 reported defaults/26 actual RC2 assertions retained; QA16 allfour1 self-removed-pidfile failure also retained. QA17 seals exact12 source/input and scoped continuation, and current14 full QA18 reruns the corrected shared harness. Historical downstream proxy13/subset10 retain their plan/candidate bindings.",
+    "refutation": "Neither failed aggregate is rewritten green; scoped follow-up is not described as fresh full15 defaults.",
+    "notes": "Later14 full qualification is distinct from12 continuation.",
+    "utc": "2026-10-06T16:06:29.597689+00:00"
+  },
+  {
+    "id": "I455-L12",
+    "verdict": "PASS",
+    "evidence": "#455 source snapshot and Q12 QA17 fixture/readback record match-dialog removes GB ROMs, causing requested GB to fall back to FBNeo in QA15/QA14 and earlier accepted baseline. vm-qa ensure_manager_fixture now precedes each manager; scoped walk log records reseeding. Actual selected-system receipt and frame establish corrected outcome.",
+    "refutation": "An identical wrong baseline could pass image comparison; system/game evidence is separately required. This is inherited harness coverage, not proof of a pixelelated regression.",
+    "notes": "Prior wrong frames and first comparison remain retained.",
+    "utc": "2026-10-06T16:06:29.597706+00:00"
+  },
+  {
+    "id": "I455-L13",
+    "verdict": "PASS",
+    "evidence": "tools/vm-qa449\u2013462 records real ES system-selected event, queries visible systems and invokes vm-manager-system-check before walk acceptance. Fresh manager-controls.json has six expected results: valid passes; wrong,missing,duplicate,hidden,empty refuse. Q12 original five controls and three CLI refusals retained.",
+    "refutation": "Checks actual selection, not StartupSystem preference or screenshot filename. Missing games cannot silently fall back and still pass.",
+    "notes": "Host parser fixture is supplemented by actual installed-system output below.",
+    "utc": "2026-10-06T16:06:29.597722+00:00"
+  },
+  {
+    "id": "I455-L14",
+    "verdict": "PASS",
+    "evidence": "Exact14 QA18 defaults/walks manager-{gb,nes,fbn}-system-check logs pass actual gb/nes/fbn. Directly viewed all three04-manager frames: GB/Ninoid landscape160\u00d7144 ratio; NES/Bobl and FBNeo/Ms.Pac-Man portrait with round rings and top green orientation mark; consistent start arrow. QA17 comparison-reviewed retains19screens/14claims/0unclaimed/0missing with unchanged baseline/masks.",
+    "refutation": "Game labels and geometry were read from actual pixels, not per-walk names; two initial unclaimed carousel regions remain preserved with bounded fixture-composition explanations.",
+    "notes": "No silent new baseline or masked content error accepted.",
+    "utc": "2026-10-06T16:06:29.597738+00:00"
+  },
+  {
+    "id": "I310-L21",
+    "verdict": "PASS",
+    "evidence": "Oct3 software-3/003.maps\u2192004.maps adds10MiB total anonymous rwxp; adjacent mappings merge so the newly printed20MiB region replaces an existing10MiB mapping. Fresh evidence/memory-recalculation.json retains both totals. jit-trace.log mmap length10485760/protection7/flags34 and matching jit-symbols.txt resolve rtasm_exec_malloc\u2192SSE vertex translation; unload-trace records driver unloading.",
+    "refutation": "Did not mistake merged20MiB map size for per-cycle growth. Virgl control remains flat; allocator reload before/after50 cycles retains512000KiB versus0.",
+    "notes": "Mesa001 pairs executable arena/bookkeeping teardown and unwinds mmap/calloc/atexit failures.",
+    "utc": "2026-10-06T16:07:51.468273+00:00"
+  },
+  {
+    "id": "I310-L22",
+    "verdict": "PASS",
+    "evidence": "Fresh independent CSV recomputation of Q10 memory12: five warmups then10 software cycles, onePID2010, VmSize-448KiB/RSS+684KiB; virgl onePID2137,0/+224KiB. Both within original1024/2048 limits. Installed identities and renderer receipts bind frozen10; unchanged ES/Mesa/SDL bytes carry to14.",
+    "refutation": "No threshold changed; earlier Mesa-only and one-trim failures remain retained. Read source glibc-only trims, udev enumeration release/copy-before-free and packaged SDL/Mesa cleanup.",
+    "notes": "This is retained completed VM qualification with fresh arithmetic, not a new14 endurance execution.",
+    "utc": "2026-10-06T16:07:51.468337+00:00"
+  },
+  {
+    "id": "I310-L23",
+    "verdict": "PASS",
+    "evidence": "Q10 software-sync50 cycles.csv has56rows including initial state, five warmups and50 measured cycles, samePID7226; fresh computation0KiB virtual/+444KiB resident. All55 exit-sync files have distinct timestamps and status0 completed. Original failed intermediate RSS endurance runs remain retained.",
+    "refutation": "Counted and parsed every stamp rather than accepting file existence; stable memory and completed sync are simultaneous in same run.",
+    "notes": "Even the stricter2048KiB RSS endurance condition passes; criterion originally required flat VmSize.",
+    "utc": "2026-10-06T16:07:51.468364+00:00"
+  },
+  {
+    "id": "I310-L24",
+    "verdict": "PASS",
+    "evidence": "Defect consists of anonymous process mappings, lost DSO pointers, udev/SDL allocations and retained freed heap. Source fixes only process lifecycle resources; actual restart/newprocess measurements reset these. No storage/cloud migration is added by Mesa/SDL patches or ES trims.",
+    "refutation": "Inspected all three packaged patches and relevant ES ownership/trim sites; no serialization or persistent format changes.",
+    "notes": "Historical already-written statement accurately limits impact to running-process memory.",
+    "utc": "2026-10-06T16:07:51.468385+00:00"
+  },
+  {
+    "id": "I433-L73",
+    "verdict": "PASS",
+    "evidence": "Original57cbc UI07 splash640 result0.9610208817<0.995 and1280 result0.996047282 retain frames/hashes and allzero command completion. Directly viewed failed640 actual-best: console overlay removes glyph pixels. Separate visual result remains failed despite successful runner and verified cleanup.",
+    "refutation": "No threshold reduction or retitling original success; all924 differing pixels and original negative controls remain recorded.",
+    "notes": "Command completion and visual acceptance explicitly differ.",
+    "utc": "2026-10-06T16:10:48.114182+00:00"
+  },
+  {
+    "id": "I433-L74",
+    "verdict": "PASS",
+    "evidence": "Boot diagnostic01 actual original0.85159249; exact splash drawn in text mode1.0 then line erasure0.981691626; graphics mode console write stays1.0. Diagnostic03 actual quiet640/1280 both1.0 after asserting Syslinux/GRUB consumption; failed01/02 setup attempts retained. Fresh renderer-controls01 executes16 real init-predicate observations including original policy failure and debug/other-device controls.",
+    "refutation": "The first quiet attempt edited inactive GRUB and is retained failed; corrected active boot-path assertion precedes quiet comparison. No attribution to one particular kernel message is invented.",
+    "notes": "Controlled console redraw explains mechanism; diagnostic COW is not candidate qualification.",
+    "utc": "2026-10-06T16:10:48.114244+00:00"
+  },
+  {
+    "id": "I433-L75",
+    "verdict": "PASS",
+    "evidence": "GENERIC_X64 options74\u201376 adds quiet while retaining serial/tty0. BusyBox init1274\u20131279 applies same suppression to old no-quiet configs unless debugging. Q10 boot05 allfour clean/actualRC2-upgraded640/1280 result1.0 at0.995 with12 rejected controls; directly viewed allfour exact best frames. Earlier08/09 same boot proof and newer14 unchanged boot inputs retained.",
+    "refutation": "Upgraded cmdlines retain old no-quiet state, so test exercises fallback rather than silently rewriting owner config. Serial/journal access preserved; new product freeze followed source change.",
+    "notes": "Separate renderer/sign-in qualification is not inferred from splash alone.",
+    "utc": "2026-10-06T16:10:48.114272+00:00"
+  },
+  {
+    "id": "I433-L76",
+    "verdict": "PASS",
+    "evidence": "Retained #433 source snapshot identifies published cf511ce replacement09, source/manifest and predecessor06 dependence on boot03/UI10; #441 subsequent failed binding retained then boot04 verifies actual QA13 upgraded disk with full build/kernel/backing checks. Boot05 provenance names prior04 and actualQA14 upgraded backing for new10. Current milestone/checkpoint retains ordered P4 before device builds.",
+    "refutation": "Replacement08 remaining owners remain unstarted; passes not transferred across changed images. Source custody and accepted successor paths corroborate tracker ordering.",
+    "notes": "Historical dependency corrections remain explicit; no successor is replayed.",
+    "utc": "2026-10-06T16:10:48.114292+00:00"
+  },
+  {
+    "id": "I447-L70",
+    "verdict": "PASS",
+    "evidence": "Q09 signin-ui08-unaccepted retains command17checks/allzero and original local frameSHAa977f54c; directly viewed partial old loading page/jagged blocks below redirect. Five other original frames and all hashes retained;09:47:31 cleanup identifies absent owner/guest and noQEMU.",
+    "refutation": "A loaded page and rc0 do not establish painted correctness; original remains visually unaccepted.",
+    "notes": "Later09/10 stale-frame and12 observer failures also remain separate.",
+    "utc": "2026-10-06T16:10:48.114318+00:00"
+  },
+  {
+    "id": "I447-L71",
+    "verdict": "PASS",
+    "evidence": "stable_panel.py requires rc0 plus exact settle:still output after2quiet seconds within30seconds. Actual zero-timeout receipt returns0 but moving-at-bound and passedfalse; source assertion requires rejection. Four stable page receipts retained in accepted14.",
+    "refutation": "Stable-but-wrong page remains possible and is separately rejected by finishing pixel reference; stable flag alone cannot qualify intent.",
+    "notes": "Capture bound is fixed; no repeat-until-pass or forced resize.",
+    "utc": "2026-10-06T16:10:48.114335+00:00"
+  },
+  {
+    "id": "I447-L72",
+    "verdict": "PASS",
+    "evidence": "Q10 signin14/15/16 each40checks/fifteenframes with actual HTTP+navigator Mobile UA, redirect,390CSS-pixel phone metrics and installed hashes. Six intended14frames directly viewed across this review: complete local form, finishing message, public login, Checking/Connected phone and public OAuth login. Each owner four0 with actual process absence20:18/20:20/20:23.",
+    "refutation": "No authenticated trust/Dropbox account claim; finished markup, actual painted page and process cleanup are separate predicates.",
+    "notes": "English presentation verified; French source omission separately failsI351-L62.",
+    "utc": "2026-10-06T16:10:48.114350+00:00"
+  },
+  {
+    "id": "I447-L73",
+    "verdict": "PASS",
+    "evidence": "#447 retained issue records accepted source8708d8e, runtime13 scope and ordered freshfreeze10/clean-upgrade/1GiB/account/audit beforeH700. Current checkpoint identifies accepted frozen14 and later realRA33/localcloud318, with optionalDropbox#463 and independent audit still incomplete.",
+    "refutation": "Account-backed proof never inferred from public sign-in or synthetic UI; optional Dropbox disposition is D-QA-058.",
+    "notes": "Tracker phase names and remaining gates remain explicit.",
+    "utc": "2026-10-06T16:10:48.114366+00:00"
+  },
+  {
+    "id": "I447-L74",
+    "verdict": "PASS",
+    "evidence": "Q10 signin14 actual0/5/15 render observations bind correct finishing documentSHA890973b0, QEMU/VNC identicalSHA68a39b52 and native raw-pixel comparison PASS at each offset. Fresh exact-pixel controls accept correct image and reject real old09 and partial08 frames. Earlier matched Pixman/GLES2 and actualROCKNIX RC2 controls retained.",
+    "refutation": "No forced resize/input; GLES2 stale0/5 and recovered15 is retained, while Pixman has allnine correct samples. Claim is renderer/allocation-path isolation, not blame assigned to an unproved individual component.",
+    "notes": "Software profile receives direct proof, not substitution with successful virgl.",
+    "utc": "2026-10-06T16:10:48.114383+00:00"
+  },
+  {
+    "id": "I447-L152",
+    "verdict": "PASS",
+    "evidence": "Current14 QA18 installed renderer records: clean/upgradevirgl negotiatedbit0=1, WLR_RENDERER unset and GLES2virgl; upgrade softwarebit0=0, WLR_RENDERERpixman. WrapperSHA15b13fa9/dropinSHAca1e6aaf/sharedswaySHA1b42a41b agree. Q10 cleansoftware boot05 and signin14, upgradedsoftware15 provide installed clean/retained selection with actual kernelfeatures/logs.",
+    "refutation": "Render-node presence is not used as capability; actual selected virtio child negotiated features decide. No runtime override supplies the PASS.",
+    "notes": "Unchanged10\u219214 renderer bytes explicitly carry earlier clean software tests.",
+    "utc": "2026-10-06T16:10:48.114400+00:00"
+  },
+  {
+    "id": "I447-L153",
+    "verdict": "PASS",
+    "evidence": "GENERIC_X64 wrapper validates exact single card and one virtio child, actual driver and binary>=64bit feature string; explicit renderer/render-device returns unchanged. Selector04 executes22 cases on each image BusyBox actual software/virgl guest; all boundaries pass, including multiple/unknown/nonvirtio/malformed and multidigit card. Shared sway hash1b42a41b unchanged.",
+    "refutation": "Unknown capability fails to existing behavior; no broadened software override on handhelds. Wrapper is device overlay/service drop-in only.",
+    "notes": "Selection fixtures do not by themselves prove compositor output; installed rendered proof above does.",
+    "utc": "2026-10-06T16:10:48.114415+00:00"
+  },
+  {
+    "id": "I447-L154",
+    "verdict": "PASS",
+    "evidence": "Q10 memory12 both installed profiles pass10-cycle launch/exit and strict growth, plus software50sync. Exit/time-to-play logs retain firstpixels0.570/0.636s, backup1.324/1.673s, relaunch1.012/1.011s; exact boot/sign-in/identity visuals and QA14 defaults/actualRC2 upgrade retained. Later14 QA18 repeats full defaults and installedrenderer checks.",
+    "refutation": "One-repeat timing smoke is not a distribution or proof of active-sync interruption; original failed owners remain failed. Current review independently recalculates CSV and all55 stamps.",
+    "notes": "Physical hardware performance remains a later named fact.",
+    "utc": "2026-10-06T16:10:48.114430+00:00"
+  },
+  {
+    "id": "I327-L20",
+    "verdict": "PASS",
+    "evidence": "GuiRetroAchievementsSettings.cpp:53\u201368 uses description-font measured wrapping; :95\u2013105 supplies the two paragraphs; :431\u2013435 separates them. Directly inspected docs/qa-frames/2026-10-03/327/{before,en-640x480,fr-640x480}.png: the old all-caps block becomes two separated, readable paragraphs entirely inside the panel. Actual replacement10 ui-14 retains this unchanged surface.",
+    "refutation": "Compared the old frame with both languages at the smallest panel; the longer French second paragraph still fits. Checked that conditional indexing text is measured using the longest version, preventing height underallocation.",
+    "notes": "This is explanation-page evidence, not offline award or reconnect evidence.",
+    "utc": "2026-10-06T16:15:31.698370+00:00"
+  },
+  {
+    "id": "I327-L21",
+    "verdict": "PASS",
+    "evidence": "Fresh audit host-checks01 menu-map and vocabulary commands passed; ES-checks02 vocabulary reports 164 strings / 0 wrong. ES commit c0cb9925eb41c313d011634c79adc6fd45acb099 changes both the page and locale/lang/fr/LC_MESSAGES/emulationstation2.po; direct diff contains all four replacement prose sentences plus scan outcome strings.",
+    "refutation": "Read the actual French commit diff, rather than the commit message alone; each conditional and unconditional sentence has a translated msgstr. French 640 frame confirms runtime translation.",
+    "notes": "Current source retains the same prose. Exact executed check receipts are in evidence/host-checks-01 and evidence/es-checks-02.",
+    "utc": "2026-10-06T16:15:31.698467+00:00"
+  },
+  {
+    "id": "I327-L22",
+    "verdict": "PASS",
+    "evidence": "Local website commit 4f6df54ca16121ff2cd0620407aea6434ee59147 changes docs/_inc/images/retro-achievements/offline-achievements.png. Fresh sha256sum of that file and the directly reviewed en-640x480.png both equal a40331aa212c7e9d4e3901b990bfac0bfe1013803a66346e763c92f72d943976.",
+    "refutation": "Verified exact screenshot bytes instead of trusting the docs commit title; it is the new two-paragraph capture, not the retained before image.",
+    "notes": "Criterion asks for a retaken site asset. Public website publication remains a separate P5 gate with prior 403/404, not claimed here.",
+    "utc": "2026-10-06T16:15:31.698494+00:00"
+  },
+  {
+    "id": "I357-L16",
+    "verdict": "PASS",
+    "evidence": "Source rocknix-report-stats is an unconditional exit 0 with no endpoint. system.d/rocknix-report-stats.timer is masked to /dev/null. Read actual upgraded guest docs/qa-logs/2026-10-03-m7-final-runtime/artifacts/identity/{003,004,005,006}.log and pixelelated-1e6a runtime-05 timers.txt: only evidence/tmpfiles timers, masked statistics unit, endpoint count 0. Replacement09 installed artifact sweep retains the same b03adb70 shim hash and /dev/null target; unchanged source continuity through frozen14 was verified.",
+    "refutation": "Found a retained timers.target.wants symlink and checked its ultimate target. It points at the masked /dev/null unit, so its presence cannot schedule collection. The retained service invokes only the inert shim.",
+    "notes": "Earlier guest runtime evidence is attributed to its actual image; not reported as a new14 timer execution.",
+    "utc": "2026-10-06T16:16:51.958004+00:00"
+  },
+  {
+    "id": "I337-L28",
+    "verdict": "PARTIAL",
+    "evidence": "Actual14 qa-18 installed payload and identity frames prove inherited OS_NAME=pixelelated, its wordmark and MANUAL UPDATES. Actual boot-qualification05 provides unchanged boot renderer proof. ES ApiSystem refuses automatic/forced update checks for pixelelated; rocknix-update is inert, and older installed identity logs show query rc1 without output.",
+    "refutation": "Searched retained QA logs for packet captures/network capture evidence and read the shipped updater; located source/installed-shim checks but no captured guest network trace establishing the literal final clause. tools/rasteratops-identity-check itself explicitly says it does not replace guest network proof.",
+    "notes": "No automatic upstream request is indicated by source. This is a missing specified measurement, not an observed unwanted request.",
+    "gaps": "Retain a bounded guest network observation covering automatic startup/update query paths, with a positive capture control, or explicitly reconcile the criterion to the stronger scoped evidence accepted by the owner.",
+    "utc": "2026-10-06T16:16:51.958069+00:00"
+  },
+  {
+    "id": "I337-L27",
+    "verdict": "PASS",
+    "evidence": "D-WORKFLOW-084 settles the fork direction and GPL-2/MIT preservation; D-WORKFLOW-144 makes pixelelated the current name. LICENSE.md retains upstream attribution and original code terms, distinguishes ROCKNIX branding CC BY-NC-SA 4.0 from new project artwork, and TRADEMARK.md governs project marks. Actual14 uses the new LCD wordmark.",
+    "refutation": "Checked that old branding terms were not silently applied to new artwork and that upstream credits were not erased by a blanket rename. The criterion shorthand CC BY-SA omits NC; the actual retained licence is correctly BY-NC-SA.",
+    "notes": "No legal interpretation beyond verifying the project\u2019s recorded policy and source text.",
+    "utc": "2026-10-06T16:16:51.958104+00:00"
+  },
+  {
+    "id": "I359-L29",
+    "verdict": "PASS",
+    "evidence": "D-WORKFLOW-131 sets artwork and trademark policy; D-WORKFLOW-136/144 update bot/project names. LICENSE.md branding section and TRADEMARK.md implement those terms. Fresh local hashes agree with actual14 qa-18 installed payload records: LICENSE 1a277de267611abc4242e6a1e08ac2abac54316e7abcbf8ae7afd0a1dc98ec6c, TRADEMARK d46db25cb845b021cd7f1c13dabcd98d04e77d89a45968527e58abc9e3788761, both mode644. Fresh audit vocabulary passed.",
+    "refutation": "Checked whole installed-file hashes on clean and upgrade, rather than only matching the displayed name; verified the font\u2019s separate OFL terms are retained and not overwritten by project artwork terms.",
+    "notes": "Registration is deferred #360; current trademark policy exists without claiming registered status.",
+    "utc": "2026-10-06T16:16:51.958126+00:00"
+  },
+  {
+    "id": "I409-L266",
+    "verdict": "PASS",
+    "evidence": "docs/pixelelated/art/wordmark-system.md and source/pixelelated-live-text.svg explicitly use Tiny5 Duo LCD. source/font.json pins version2.007, upstream f740beb653d6839fac1f8c794668ffcf22037342 and SHA256 b0cada86874b192d304716536e84e735ec9b22719a3b9c2ba390ab0881a3a916. Fresh generator --check with the actual pinned splash font reproduced all ten SVG/CSS products; evidence/wordmark-controls-01/reproduce.log.",
+    "refutation": "Used the installed build source\u2019s font bytes and generator family/hash check, not an approximate font name. A deliberately wrong font hash is rejected.",
+    "notes": "Default python lacks fontTools; the existing /tmp/pixelelated-fontenv interpreter supplies the documented4.66.1 dependency. No download or font substitution.",
+    "utc": "2026-10-06T16:18:15.161844+00:00"
+  },
+  {
+    "id": "I409-L267",
+    "verdict": "PASS",
+    "evidence": "Fresh wordmark-controls-01 results: ten vector/CSS files exactly reproduced from150 original LCD contours; all24 PNGs use exactly their RGB555-derived colors and only alpha0/255. Standard alpha masks are identical and Scanline strictly removes rows. Direct source read shows five exact rectangles, vertical zones only for Dual, horizontal bands otherwise, and no background/image/font embedding in production SVG.",
+    "refutation": "Four invalid RGB555 inputs and wrong font hash were rejected. Compared complete transparency masks across every treatment; verified Scanline removes pixels rather than adding a background. Source color conversion resolves inconsistent draft hex examples using canonical triplets.",
+    "notes": "Six multicolor and two monochrome products are preserved. Runtime\u2019s NanoSVG-compatible flattened path asset is separately verified, not confused with the portable clipped master.",
+    "utc": "2026-10-06T16:18:15.161912+00:00"
+  },
+  {
+    "id": "I409-L268",
+    "verdict": "PASS",
+    "evidence": "Directly reviewed art/proofs/backgrounds.png: all eight treatments on white, near-black, mid-gray and saturated magenta, including expected low-contrast monochrome examples. small-sizes.png compares Ocean and light monochrome at16/24/32/64px. Boot-qualification05 and actual14 installed f5fa9839 assets separately establish integration.",
+    "refutation": "The small proof exposes weak24px LCD sampling; it is not represented as universally readable. The specification permits monochrome/dedicated small marks, while current boot uses the larger approved form. Checked that background examples do not become standard asset backgrounds via fresh alpha checks.",
+    "notes": "Portable design proofs are not asserted as device rendering tests.",
+    "utc": "2026-10-06T16:18:15.161941+00:00"
+  },
+  {
+    "id": "I337-L29",
+    "verdict": "SKIP",
+    "evidence": "D-WORKFLOW-098 explicitly chooses a name-only placeholder, superseding the criterion\u2019s lineage/adoption link requirement. D-WORKFLOW-099 selects GitHub Pages and leaves deployment separately tracked; input issue337 itself calls this the approved placeholder rather than a full-site gate.",
+    "refutation": "Read the actual decision text against the checkbox: the checkbox still asks for content expressly removed by the owner. No site build/retrieval proof was located in current P4 evidence.",
+    "notes": "Stale contract and P5 deployment follow-up; do not claim a deployed site or add unapproved content. Reconcile the issue body during punch-list disposition.",
+    "utc": "2026-10-06T16:18:15.161961+00:00"
+  },
+  {
+    "id": "I337-L53",
+    "verdict": "PARTIAL",
+    "evidence": "D-WORKFLOW-129 records the unchanged rocknix password and later #358. NAMING.md retains the password contract. Searches of current docs/releases, docs/rasteratops and the local website do not locate the required0.0.1 release note and SSH-page change; current website FAQs instead describes upstream generated passwords.",
+    "refutation": "Checked the actual local website content rather than assuming the policy row was already published. The #327 screenshot commit does not change SSH documentation.",
+    "notes": "Known P5 documentation/release work, not a new device-runtime regression.",
+    "gaps": "Write and publish the accurate fork release/adoption and SSH documentation before distribution to players; keep site access403/404 disposition explicit.",
+    "utc": "2026-10-06T16:18:15.161984+00:00"
+  },
+  {
+    "id": "I359-L30",
+    "verdict": "PARTIAL",
+    "evidence": "LICENSE.md and TRADEMARK.md implement the approved terms and actual14 carries their identical bytes. No0.0.1 release-note lineage/non-endorsement paragraph is present under docs/releases; #344\u2019s release-note criterion remains explicitly P5 in the current milestone.",
+    "refutation": "Searched the release and identity documentation for the actual promised paragraph and terms links; policy files alone do not satisfy a release-note claim.",
+    "notes": "Existing later publication gate, not completed by this P4 audit.",
+    "gaps": "P5 release notes must state lineage/non-endorsement and link the same installed project terms.",
+    "utc": "2026-10-06T16:18:15.162004+00:00"
+  },
+  {
+    "id": "I465-L20",
+    "verdict": "PASS",
+    "evidence": "Read tools/ra-ui-test:139\u2013169 and :126\u2013135: hash installed ES/ctl/all proxy bytecode, stop ES, write settings, clear owned fixture, then restart and verify a different PID; actual NetworkManager disconnect removes the address for two watcher observations. qualified-03 contains all four corresponding assertion sets. Fresh local readback confirms all46 installed hashes invariant across profiles and unchanged ES lifetime within each.",
+    "refutation": "Earlier owner01 omitted compiled modules; owner03 explicitly requires flusher.pyc and hashes all44 proxy files. Earlier owner02 carried pending state into French; owner03 clears its owned fixture before restart and asserts no startup outcome.",
+    "notes": "Dedicated synthetic QA fixture; no real account or physical network operation.",
+    "utc": "2026-10-06T16:19:25.158403+00:00"
+  },
+  {
+    "id": "I465-L21",
+    "verdict": "PASS",
+    "evidence": "Directly reviewed all four profiles\u2019 sending and sent frames at640x480 and1280x960. Cards remain within panel bounds; English/French text fits. qualified-03 actual installed flusher.pyc receipts show patch/award/unlocks HTTP200, flushed1/pending0; installed ctl pending assertions and last-sync-link status0 sent agree. Fresh local reconciliation totals109 passing assertions.",
+    "refutation": "Compared images with raw provider and stamp evidence, rather than treating a sending card or an exit frame as proof of upload. Checked both languages and both panel sizes.",
+    "notes": "Local HTTP provider verifies actual installed flusher/UI composition. Real RetroAchievements acceptance is separately established by RA33, not by these synthetic cases.",
+    "utc": "2026-10-06T16:19:25.158465+00:00"
+  },
+  {
+    "id": "I465-L22",
+    "verdict": "PASS",
+    "evidence": "EN640 refuse-flush.json records HTTP503, flushed0/pending1; refuse-stamp.txt is status5 not-sent IT STOPPED ANSWERING. Directly viewed refusal sending/outcome/dismissal: bounded failure and retry sentence, then no card. All four empty-repeat frames have no notification and assertions require unchanged last-sync-link.",
+    "refutation": "The rejected request does not yield a success stamp or drop the award. Read the bounded polling rather than assuming the card ended from a screenshot alone; the positive send and refused request provide contrasting outcomes.",
+    "notes": "Failure case is English640 only as specified; full four-profile failure localization is not claimed.",
+    "utc": "2026-10-06T16:19:25.158492+00:00"
+  },
+  {
+    "id": "I465-L23",
+    "verdict": "PASS",
+    "evidence": "All23 qualified originals directly viewed during this independent audit, plus the superseded French baseline showing its erroneous startup send. Owner01/02 evidence remains present. Qualified completion.json records all four rc0 and actual five-process absence, no QEMU, unbound10026/5912 at07:01:20; fixture checks every local provider/flusher exited.",
+    "refutation": "Successful wrapper codes did not rescue earlier invalid owners. Per-profile visual_review=pending is intentionally immutable; separate visual-review.json and actual pixel inspection complete that later gate. Read both terminal and cleanup evidence.",
+    "notes": "Connected standard watcher was consumed; no off-session notification claim.",
+    "utc": "2026-10-06T16:19:25.158520+00:00"
+  },
+  {
+    "id": "I465-L24",
+    "verdict": "PASS",
+    "evidence": "Direct git diff629603d6 for tools/ra-offline-test adds settings reload before launch, actual address removal, reconnect capture/wait and current sent stamp; existing unearned/account/API checks remain. Fresh bash -n exits0. UI owner03 separately executes the changed settings/address/card mechanics on frozen14. RA33 evidence remains separate and immutable.",
+    "refutation": "No changed ordinary-runner full execution is claimed. Reviewed the complete diff for weakened assertions: screenshot failure now propagates, and outcome timestamp must follow T_UP. Existing account checks were not deleted or relaxed.",
+    "notes": "Future ordinary award run still needs an unearned achievement; no new reset consumed for this audit.",
+    "utc": "2026-10-06T16:19:25.158539+00:00"
+  },
+  {
+    "id": "I465-L25",
+    "verdict": "PASS",
+    "evidence": "Actual qualification07:01:40 precedes audit setup07:04:22. inputs/ui-publication.json records remote feature629603d6 and next63675be4 readback07:04:47; inputs/ui-tracker-completion.json and retained issue bodies reconcile361/383/465 and M7 at07:05:49. Published commit contains the exact qualified receipts and harness change.",
+    "refutation": "Distinguished UI qualification, publication and audit phase timestamps. Review started only after UI passed; neither this ordering nor #465 closure is used as evidence that P4 itself has passed.",
+    "notes": "This audit later found separate content/sign-in issues. They do not falsify the narrow reconnect-card qualification.",
+    "utc": "2026-10-06T16:19:25.158556+00:00"
+  },
+  {
+    "id": "I337-L40",
+    "verdict": "PARTIAL",
+    "evidence": "Both current cloud_sync.conf files define /pixelelated/Saves, /pixelelated/Backups and /pixelelated/Content. Actual mixed pair optins-11 starts a fresh guest on all three and verifies final remote bytes/config convergence; guest-11 creation cases and actual14 cloud318/default round-trip verify installed consumers. Fresh vocabulary passed.",
+    "refutation": "Ran the requested ROCKNIX source search: it returns two archive-format comments, one per conf, describing the retained ROCKNIX_SETTINGS suffix. These are valid compatibility documentation, not stale default paths.",
+    "notes": "The functional destination requirement is supported; the literal grep-empty clause contradicts retained archive compatibility and needs reconciliation.",
+    "gaps": "Amend the source predicate to check active path values while explicitly allowing the two archive-format comments; retain a named fresh-guest three-tier listing as the criterion\u2019s exact artifact.",
+    "utc": "2026-10-06T16:21:18.341104+00:00"
+  },
+  {
+    "id": "I337-L41",
+    "verdict": "PARTIAL",
+    "evidence": "Historical p0-sweep-hits.txt records the56 cloud-path hits; p0-sweep.md explicitly dates its immutable baseline51f78ac5b4. Current NAMING.md and rename-plan.md classify legacy roots as migration/kept-choice/archive inputs, while current defaults use /pixelelated. Actual replacement09 artifact classification reports zero FIX/UNKNOWN contexts, with retained-context allowlist.",
+    "refutation": "The old56-line list is a historical snapshot, not a refreshed one-to-one mapping to today\u2019s source. Its broad cloud-path rule also included a mirror URL. A zero unclassified installed sweep does not establish every old line\u2019s exact same-commit disposition.",
+    "notes": "No new incorrect default path is demonstrated by this bookkeeping gap. Existing #467 concerns content discovery separately.",
+    "gaps": "Reconcile the old per-hit criterion to the current context-based source/artifact classification, or supply the explicit56-entry disposition map. Do not erase valid legacy readers to satisfy a blanket grep.",
+    "utc": "2026-10-06T16:21:18.341177+00:00"
+  },
+  {
+    "id": "I337-L50",
+    "verdict": "PASS",
+    "evidence": "distributions/ROCKNIX/options sets DISTRONAME=pixelelated; scripts/image uses it for OS_NAME and artifact names. Actual14 installed payloads and directly reviewed identity frames show pixelelated; the frozen image/update names begin pixelelated and conf defaults use /pixelelated.",
+    "refutation": "Actual OS_NAME propagation was separately verified at the child-process boundary (#424), not inferred only from os-release. The criterion\u2019s repositories/hosts stay rasteratops clause is superseded by D-WORKFLOW-144; retained internal ROCKNIX contracts follow D-WORKFLOW-123.",
+    "notes": "Functional current identity passes. Reconcile stale criterion wording; no backward rename of organization or machine contracts.",
+    "utc": "2026-10-06T16:21:18.341206+00:00"
+  },
+  {
+    "id": "I337-L51",
+    "verdict": "PARTIAL",
+    "evidence": "IMAGE_SUFFIX=from-ROCKNIX and scripts/image:116\u2013117 append it. Actual14 qa-18 upgrade/rehearsal.log boots retained September29 RC2 69e6039f8f, stages pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.tar, returns7afa9efcfc and passes26 preservation assertions.",
+    "refutation": "Checked real old-build identity, update queue and preserved bytes; this is not a newly created old-shaped guest. No current H700 image is present, so the literal H700 filename/build clause is not inferred from x64.",
+    "notes": "VM adoption is qualified; H700 and later suffix removal remain planned release work.",
+    "gaps": "Build the frozen H700 arm/aarch64 chain after P4/capacity gates, retain its actual named artifact and perform the separately authorized physical adoption check.",
+    "utc": "2026-10-06T16:21:18.341227+00:00"
+  },
+  {
+    "id": "I337-L52",
+    "verdict": "PASS",
+    "evidence": "Source splash pin8c71126c and ES/theme assets use the canonical f5fa9839 lowercase LCD wordmark with no icon. Actual14 payload hashes match; boot-qualification05 clean/upgraded640/1280 frames directly reviewed in I433 and exact template match1.0 with12 rejected negative controls. Fresh portable asset proofs contain only lettering.",
+    "refutation": "Checked old-logo negative rejection and that neither theme selection nor runtime asset introduces character art. The old Rasteratops icon was not merely recolored.",
+    "notes": "Separate boot status text is outside the wordmark; transparency is preserved in the canonical source.",
+    "utc": "2026-10-06T16:21:18.341248+00:00"
+  },
+  {
+    "id": "I354-L67",
+    "verdict": "PASS",
+    "evidence": "Actual14 qa-18 upgrade/rehearsal.log independently shows retained RC2 identity, four save/state hashes, marker, setting, remote, cloud pointers and backup unchanged after the update. guest-11 E installed logs and previously directly reviewed640 offer show startup78 no-folder followed by CREATE IT / CHOOSE A FOLDER / NOT NOW for empty stock-shaped GAMES.",
+    "refutation": "The startup path does not issue the interactive dialog itself; boot setup owns the offer. Existing populated and keep fixtures take different paths, so this is not an unconditional CREATE IT screenshot.",
+    "notes": "Uses unchanged cloud source from replacement09 and current14 upgrade evidence, with their actual image identities.",
+    "utc": "2026-10-06T16:21:18.341265+00:00"
+  },
+  {
+    "id": "I354-L68",
+    "verdict": "PASS",
+    "evidence": "Actual14 qa-18 default suite results: all15 suites pass,1719 script assertions and16 walks/78 frames; frame-diff has34 claimed regions and no unclaimed/missing changes. Fresh audit host menu-map/vocabulary and ES vocabulary checks pass.",
+    "refutation": "Earlier QA15/16 manager failures and wrong-fixture frames are preserved and not accepted. Actual14 manager source/lifetimes and exact GB/NES/FBNeo frames were rechecked independently under I455.",
+    "notes": "A green existing suite is limited to its predicates; separately discovered #467/#468 remain valid audit findings.",
+    "utc": "2026-10-06T16:21:18.341281+00:00"
+  },
+  {
+    "id": "I354-L69",
+    "verdict": "PARTIAL",
+    "evidence": "D-CLOUD-164 approves13 strings and ESdc819f43 includes cloud page strings and French together; dated changelog records Oct1 cloud features and Oct4 /pixelelated transition. docs/pixelelated/cloud-folders.md prepares current wording. Actual local website cloud-sync.md:108 still says /ROCKNIX.",
+    "refutation": "Read the site file instead of assuming the prepared fork document updated it. Independent I351-L62 also finds the approved French phone/finishing strings absent, despite broader page translations.",
+    "notes": "Combines a current localization defect with separate P5 website work.",
+    "gaps": "Fix French phone/finishing surfaces under the recorded draft finding and verify both languages; reconcile/publish the cloud-sync site with the current default once the website destination/access is resolved.",
+    "utc": "2026-10-06T16:21:18.341298+00:00"
+  },
+  {
+    "id": "I354-L66",
+    "verdict": "PARTIAL",
+    "evidence": "Directly read actual optins-11 pair-console.log: retained69e6039f8f upgraded in place, freshcf511 guest,42 passing assertions, save bytes in both directions, per-tier copy/verify before removal, marker follow and staged late-write MOVE merge. Separate guest-11 B explicit-root fixture and prior independently audited custom backup controls preserve independent pointers.",
+    "refutation": "The old-code host baseline has22 real failures and constructed runner negatives exist, but searches did not locate the literal mixed-pair run on a build without the join. Staged late writes are explicitly distinguished from an old live guest writing concurrently.",
+    "notes": "Positive mixed-installation behavior is qualified; the requested exact negative remains an evidence gap.",
+    "gaps": "Locate or retain the installed no-join mixed-pair negative, or reconcile the criterion to the named old-code and guest controls without relabeling them.",
+    "utc": "2026-10-06T16:23:14.264428+00:00"
+  },
+  {
+    "id": "I361-L123",
+    "verdict": "PASS",
+    "evidence": "The upstream Linux818-test execution uses b09 source whose219 Linux and53 native files compare byte-for-byte with selected879, excluding generated .orig files; equality evidence retained. Fresh selected879 focused proxy controls and actual14 proxy22/native18/legacyCHD4/subset35 all pass. Cold build provenance, later frozen14 build642/642, RA33 real unearned/offline/provider/relaunch and UI465109 assertions/23 frames establish the composed VM gate.",
+    "refutation": "Did not pretend that818 upstream tests were newly executed on an879 checkout; source equality is explicit. UI exit-only frames were insufficient until separate real-address reconnect proof. Original runtime/header/schema/consent failures remain retained.",
+    "notes": "Indexed125-game performance proof is separately partial under I361-L121; this clause\u2019s ordinary offline award/UI/flush proof is complete.",
+    "utc": "2026-10-06T16:23:14.264498+00:00"
+  },
+  {
+    "id": "I383-L284",
+    "verdict": "PASS",
+    "evidence": "Independent actor-map-pass-coverage.json connects208 actor/state cells to210 exact assertion names; fresh full1719/focused316 host tests pass with expected injected rc1. Actual guest-11 and focused cloud-boundaries01 cover strict markers, numbered steps, nine copy/delete/marker fault/follower cases. Fresh deterministic ES320 tests119 assertions and old failures verify lock recovery. Writer-shaped archive negative is first in retained remediation baseline. Guest-negative02 records actual0PASS/1FAIL rc1.",
+    "refutation": "Read case-reset mechanism and actual installed negative rather than accepting a check that exited before a guest. Source/error controls distinguish unknown markers from absence, and unsupported marker UI wording remains separately defective #468.",
+    "notes": "Coverage-map completeness does not erase behavior defects discovered outside its predicates.",
+    "utc": "2026-10-06T16:23:14.264533+00:00"
+  },
+  {
+    "id": "I383-L285",
+    "verdict": "PARTIAL",
+    "evidence": "Independent child entries verify source/installed controls for376/377/379/380/381/365/363/364/366, including fixed timing and archive restoration. This review also confirms #467 content classification and #468 future-marker reason loss; narrow settlement/manual chooser/hostname/S3 retry evidence gaps remain in the ledger.",
+    "refutation": "Re-derived child criteria instead of treating closed tracker states or broad suite success as sufficient. Some compound clauses do not have their exact requested runtime observation.",
+    "notes": "This is the ongoing P4 fixes audit\u2019s aggregate punch list, not a new claim that all remediation failed.",
+    "gaps": "Resolve confirmed product findings and exact child evidence gaps; update owning issue criteria/evidence and requalify affected frozen inputs before an RC.",
+    "utc": "2026-10-06T16:23:14.264555+00:00"
+  },
+  {
+    "id": "I383-L286",
+    "verdict": "PARTIAL",
+    "evidence": "Current input refresh and preserved state/native/proxy tests are verified under361/362/386. Carry-forward310/327/332 software proofs pass. Frozen14 manifest6550/207/180, immutable bundle19 files, actual clean/RC2 upgrade/default QA and unchanged-source pair/boot/visual/endurance evidence are tied to their proper builds.",
+    "refutation": "Prior-image evidence is carried only with consumed-byte continuity, not renamed as14 execution. Literal125-game installed scan is still missing; identity criteria include stale contract text and a missing guest network capture.",
+    "notes": "Image is an engineering candidate with known audit findings, not yet a release candidate.",
+    "gaps": "Close current product/evidence punch list, preserve exact input custody through any fixes, and rerun affected VM gates.",
+    "utc": "2026-10-06T16:23:14.264574+00:00"
+  },
+  {
+    "id": "I383-L287",
+    "verdict": "PARTIAL",
+    "evidence": "This milestone-tier code-auditor run selected independent depth: Codex primary plus Fable5.1/xhigh through the verified Facilitator. Phase2 is active; external blind/refutation calls correctly await2.5/3/4/4.5. Frozen product has not been mutated mid-audit.",
+    "refutation": "No live detached reviewer or completed external opinion exists. The approval service currently cannot refresh its login token; no provider command executed and no substituted local seat counts.",
+    "notes": "Existing authorized next gate, not a request for new permission.",
+    "gaps": "Complete the serial primary stages, restore tool approval authentication, run verified other-lab review, disposition/refute findings, then fix/rebuild/requalify before any RC claim.",
+    "utc": "2026-10-06T16:23:14.264593+00:00"
+  },
+  {
+    "id": "I409-L236",
+    "verdict": "PARTIAL",
+    "evidence": "D-WORKFLOW-144/145/146 and D-CLOUD-174 record lowercase identity, characters/LCD and new root. NAMING.md, active rules and rename-plan.md agree; M7 keeps its ordered current phases and frozen historical artifacts.",
+    "refutation": "Exact input issues still contain stale requirements:337L50 says repositories/hosts remain rasteratops,337L29 asks for links removed by D-WORKFLOW-098, and blanket grep predicates conflict with retained compatibility comments. NAMING\u2019s seven FIX contexts paragraph is historical but not labeled as such after416 resolved it.",
+    "notes": "Core naming implementation is correct; full active-contract reconciliation is incomplete.",
+    "gaps": "Reconcile affected open acceptance text and clearly label the first-sweep status as historical; preserve closed titles and original evidence.",
+    "utc": "2026-10-06T16:23:14.264612+00:00"
+  },
+  {
+    "id": "I409-L237",
+    "verdict": "PARTIAL",
+    "evidence": "NAMING v2 and rename-plan classify compatibility/history/owner/character references. Fresh local remotes show distribution and ES origins under pixelelated, while upstream and verified historical maxengel forks remain. Actual published source refs and consumed ghcr.io/pixelelated/build digest support new namespace use. User confirmation and the dated Oct4 work log record owner rasteratops and unchanged Blitterbot; rocknix.org403/404 is explicitly unresolved.",
+    "refutation": "Did not globally rewrite maxengel forks or assume the website transferred. A fresh external readback was attempted but rejected before execution by approval-service login refresh failure; no new account/API verification can be claimed.",
+    "notes": "Source/remote classification is supported; the original detailed repo/account readback receipt was not located in retained primary artifacts during this audit.",
+    "gaps": "Retain a sanitized repo/account ID and canonical URL readback once approval authentication works; keep website destination/access unresolved rather than silently selecting another repository.",
+    "utc": "2026-10-06T16:23:14.264628+00:00"
+  },
+  {
+    "id": "I409-L238",
+    "verdict": "PASS",
+    "evidence": "Current distro options, ES f6f0c134, splash8c71126c, theme canonical f5fa9839 wordmark and LICENSE/TRADEMARK use lowercase pixelelated. Fresh package checks, ES unit/vocabulary guards, source export controls and exact font reproduction pass; retained native/C++ syntax checks and actual14 installed identity support runtime.",
+    "refutation": "Checked compiled OS_NAME propagation, real XML parser, OFL font provenance and preserved upstream credits rather than a global string replacement. The previously retained old wording/XML failures remain as controls.",
+    "notes": "No icon or alternate font is introduced; current input and source hash continuity are retained.",
+    "utc": "2026-10-06T16:23:14.264646+00:00"
+  },
+  {
+    "id": "I409-L239",
+    "verdict": "PASS",
+    "evidence": "Current defaults use /pixelelated; actual mixed RC2/fresh pair42 checks, guest-11 keep/not-now/explicit-root cases, focused boundaries and actual14 upgrade26 retain source bytes and configured pointers. Fresh316 layout plus1719 full host checks exercise legacy archive readers and interrupted recovery.",
+    "refutation": "Migration is explicit copy/verify/remove, not a blind remote rename. Custom backup/content pointers are kept independent. Existing legacy archive suffixes/readers remain; configured/kept ROCKNIX/GAMES do not become empty new folders.",
+    "notes": "The separate #467 content-presence classifier defect does not demonstrate relocation or archive loss; it remains a blocker under its own criteria.",
+    "utc": "2026-10-06T16:23:14.264661+00:00"
+  },
+  {
+    "id": "I409-L240",
+    "verdict": "PASS",
+    "evidence": "Actual14 rehearsal boots69e6039f8f and applies the named from-ROCKNIX tar, returns7afa9efcfc with26 preservation assertions. Current init:883 substitutes @DISTRONAME@ from scripts/image, and options supplies pixelelated; future pixelelated filenames satisfy that predicate.",
+    "refutation": "Read the original predecessor\u2019s filename match and actual staged filename. This does not assert OTA offering, version ordering, wrong-architecture protection, or an executed future0.0.2 update.",
+    "notes": "D-WORKFLOW-128 makes suffix removal/fork-to-fork runtime proof a later release gate; actual RC2 adoption is qualified now.",
+    "utc": "2026-10-06T16:23:14.264676+00:00"
+  },
+  {
+    "id": "I409-L241",
+    "verdict": "PASS",
+    "evidence": "Consumed-container.json for the cold build records ghcr.io/pixelelated/build@sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39 as configured and consumed. Exact source inventory568 roots and archive hashes bind frozen14\u2019s new bundleb77e47e57a; watched build642/642 and four terminal rc0 are retained. Actual14 identity/licence/manual-update/default/upgrade plus unchanged-source classified/localized/visual/performance evidence are separately identified.",
+    "refutation": "Replacement02 remains historical and is not renamed. New manifests and hashes identify actual new bytes; source/QA files and raw symlink targets were independently reverified. Public component licence metadata gaps and off-session notification are not claimed complete.",
+    "notes": "This passes engineering build qualification scope, not P5 publication readiness.",
+    "utc": "2026-10-06T16:23:14.264691+00:00"
+  },
+  {
+    "id": "I409-L242",
+    "verdict": "PARTIAL",
+    "evidence": "The current383 audit explicitly includes rename/identity, renderer, cloud and proxy changes on frozen14 and records the authorized Fable5.1 Facilitator plan. It has found product issues and is still in the primary stages.",
+    "refutation": "No external review has run in this audit and no finding has been silently waived or fixed while scope was under review.",
+    "notes": "Current authorized work; no RC designation.",
+    "gaps": "Finish serial review, obtain verified independent opinion, resolve all blocker findings and renew affected installed proofs after changes.",
+    "utc": "2026-10-06T16:23:14.264707+00:00"
+  },
+  {
+    "id": "I344-L196",
+    "verdict": "PASS",
+    "evidence": "p0-read.md starts with the three answers and a decision/evidence row for each base-plan section2 topic. Fresh historical source read confirms config/options sources a DISTRO directory and scripts/image derives display/artifact identity from DISTRONAME.",
+    "refutation": "Checked mechanism references against historical51f78ac5b4, not just today\u2019s renamed tree.",
+    "notes": "Historical P0 read, not current runtime qualification; current lowercase scope is D-WORKFLOW-144.",
+    "utc": "2026-10-06T16:24:27.284871+00:00"
+  },
+  {
+    "id": "I344-L197",
+    "verdict": "PASS",
+    "evidence": "Fresh parser verifies2415 rows and2415 unique path/line keys: classes1323/561/393/138. The sole class2\u20134 non-KEEP is rocknix-update endpoint with path:line, reason and D-WORKFLOW-093.",
+    "refutation": "Rejected malformed rows and duplicate file/line classifications; examined the explicit exception.",
+    "notes": "Historical snapshot51f78ac5b4; later approved cloud-default changes supersede its KEEP choices and need current criterion reconciliation separately.",
+    "utc": "2026-10-06T16:24:27.284932+00:00"
+  },
+  {
+    "id": "I344-L198",
+    "verdict": "PASS",
+    "evidence": "p0-updater.md provides mechanism, filename/board gate, curl redirect behavior, draft handling, manual route and both ordering tables; it selects Branch B with the reason that RC2 asks ROCKNIX\u2019s service.",
+    "refutation": "Read comparison rows: there is no client semantic-version ordering, and forced mode only accepts dates. A one-line new-image endpoint edit cannot change fielded RC2. Actual RC2\u219214 rehearsal corroborates the filename/manual path.",
+    "notes": "Later D-WORKFLOW-128 chooses suffix placement; historical updater note is not a current OTA implementation claim.",
+    "utc": "2026-10-06T16:24:27.284959+00:00"
+  },
+  {
+    "id": "I344-L199",
+    "verdict": "PASS",
+    "evidence": "p0-read.md BUILD_ID section quotes image source and actual RC2 metadata: checkout commit or CUSTOM_GIT_HASH, separate BUILD_DATE and branch, no embedded timestamp. Current14 manifest/source confirm the same derivation.",
+    "refutation": "Checked branch/host/time distinctions; two worktrees of one commit do not imply distinct BUILD_ID values.",
+    "notes": "Manifest binds more than BUILD_ID, which alone does not identify all consumed inputs.",
+    "utc": "2026-10-06T16:24:27.284990+00:00"
+  },
+  {
+    "id": "I344-L200",
+    "verdict": "PASS",
+    "evidence": "support-matrix.md has all requested target/arch, board, guest, clean/upgrade, boot/recovery and attachment columns; RG35XX SP is the mandatory migration device. D-WORKFLOW-114 explicitly defers RK3566 and preserves two panel sizes.",
+    "refutation": "Read physical board and target distinctions, including DDR3/DDR4 and Nova ABL facts; old observations are dated and not represented as pixelelated tests.",
+    "notes": "Creation/content of the matrix passes; current device qualification is still later work.",
+    "utc": "2026-10-06T16:24:27.285011+00:00"
+  },
+  {
+    "id": "I344-L201",
+    "verdict": "PASS",
+    "evidence": "p0-read.md records Sep30 df volume bytes, seven root du values, shared archives, four QA disks and retained candidates; forecast separates old/new roots, cache growth, overlays and retained images.",
+    "refutation": "Verified line items and units are present, rather than a claim that a4TB nominal disk has that much free space.",
+    "notes": "Historical capacity only. Current measured cleanup/retention and #461 capacity gate supersede this forecast before device builds.",
+    "utc": "2026-10-06T16:24:27.285028+00:00"
+  },
+  {
+    "id": "I344-L202",
+    "verdict": "PASS",
+    "evidence": "p0-read.md Platform facts records dated GitHub asset limit/source, quotes ES MIT terms, names upstream splash owner/pin, consumed container digest and DISTRO_SRC/mirror. Current ES recipe says MIT, correcting the earlier discrepancy.",
+    "refutation": "Checked each required fact is attributed and dated; font terms remain distinct.",
+    "notes": "The criterion is the P0 record. Publication must revalidate platform limits and actual asset sizes; no current internet lookup was possible here.",
+    "utc": "2026-10-06T16:24:27.285044+00:00"
+  },
+  {
+    "id": "I344-L203",
+    "verdict": "PASS",
+    "evidence": "p0-read.md Platform facts explicitly identifies D-WORKFLOW-088\u2019s absence from the old packet and strikes Choice2 via D-WORKFLOW-096, which records the second Lenovo64GB choice.",
+    "refutation": "Read the actual decision row to ensure the missing choice was settled, not silently discarded.",
+    "notes": "No new infrastructure is created by this audit.",
+    "utc": "2026-10-06T16:24:27.285060+00:00"
+  },
+  {
+    "id": "I344-L204",
+    "verdict": "PASS",
+    "evidence": "Fresh git log at historical51f78ac5b4 confirms last distributions commit ff8058e311, upstream GRUB selection. P0 document retains the47-tag/no0.0.1 observation; current git tag --list0.0.1 is still empty.",
+    "refutation": "Evaluated this pre-change criterion at its dated baseline, not today when identity commits appropriately exist.",
+    "notes": "Historical sequencing gate passes; current identity commits are intended.",
+    "utc": "2026-10-06T16:24:27.285077+00:00"
+  },
+  {
+    "id": "I344-L212",
+    "verdict": "PARTIAL",
+    "evidence": "Current distro/ES origins are pixelelated; pinned ES/splash source archives and published refs are retained. Fresh remotes also retain ROCKNIX/upstream and maxengel historical forks deliberately.",
+    "refutation": "A blanket every-recipe/every-remote fork-only requirement would incorrectly rewrite upstream dependencies and historical forks; input409 has the approved classified policy. Detailed account/repo transfer readback is currently blocked/unlocated.",
+    "notes": "Reconcile the literal old contract with D-WORKFLOW-144; do not destroy upstream remotes.",
+    "gaps": "Retain sanitized canonical repository/account readbacks and update the criterion to distinguish project origins from upstream source URLs and intentional remotes.",
+    "utc": "2026-10-06T16:25:48.911566+00:00"
+  },
+  {
+    "id": "I344-L213",
+    "verdict": "PARTIAL",
+    "evidence": "The bot migration preserves Blitterbot and standing fork push identity; current git origins use the blitterbot SSH alias. No sanitized repositories\u00d7permissions\u00d7expiry inventory plus tested mail-reminder receipt was located in the project audit inputs.",
+    "refutation": "A successful prior push proves usable Git authentication, not API permission scope or expiry notification. No secret token was read or printed.",
+    "notes": "Credential operations metadata remains a release-process item; the API-switch problem is separate.",
+    "gaps": "Locate or record non-secret permission/expiry metadata and the configured reminder evidence. Do not send mail or change tokens without the applicable named authorization.",
+    "utc": "2026-10-06T16:25:48.911632+00:00"
+  },
+  {
+    "id": "I344-L214",
+    "verdict": "PARTIAL",
+    "evidence": "Fresh grep of all workflow files shows every runs-on is GitHub-hosted ubuntu; validate-pull-request and its reusable freeze check are ubuntu-24.04. No self-hosted label exists.",
+    "refutation": "Read reusable workflow routing as well as direct PR jobs; disabled ai-usage is not an active workflow. A throwaway-fork scheduling experiment receipt was not located.",
+    "notes": "Source-level unsafe routing is absent; historical end-to-end dry-run clause remains unproved.",
+    "gaps": "Retain the trigger dry-run or explicitly reconcile it to current fully hosted routing; repeat full isolation/scheduling proof before any self-hosted runner is introduced.",
+    "utc": "2026-10-06T16:25:48.911661+00:00"
+  },
+  {
+    "id": "I344-L215",
+    "verdict": "SKIP",
+    "evidence": "D-WORKFLOW-119 conditions the trust boundary on self-hosted runner introduction; all current workflow jobs target hosted ubuntu. Infrastructure topology is later under D-WORKFLOW-113.",
+    "refutation": "No local runner-user sudo/secret access test was run, and source routing alone is not a claim about organization runner registration.",
+    "notes": "Not applicable to the present local-build/hosted-CI execution path. Keep the checks mandatory before enabling a self-hosted runner; no runner-is-disabled assertion is invented.",
+    "utc": "2026-10-06T16:25:48.911689+00:00"
+  },
+  {
+    "id": "I344-L216",
+    "verdict": "PASS",
+    "evidence": "Cold consumed-container.json records configured ghcr.io/pixelelated/build@sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39 and identical consumed image digest, running as1000:1000. Frozen14 inputs bind that same digest.",
+    "refutation": "Checked consumed image ID as well as a tag/name string; namespace migration did not silently select a different container.",
+    "notes": "No current registry probe is claimed; retained executed build is the evidence.",
+    "utc": "2026-10-06T16:25:48.911708+00:00"
+  },
+  {
+    "id": "I344-L217",
+    "verdict": "PARTIAL",
+    "evidence": "Actual14 source-inventory10 records568 roots,583 components and525 install stamps with zero inventory errors; exact source archives are hashed and retained in the shared cache and immutable input records.",
+    "refutation": "An inventory is not a complete publicly retrievable corresponding-source bundle. Fourteen component licence metadata gaps remain, and off-host backup/restore infrastructure is explicitly deferred.",
+    "notes": "Source input custody for engineering QA passes; publication/backup-scope completion is distinct.",
+    "gaps": "Finish component dispositions and the retrievable corresponding-source package before release; preserve the deferred Infrastructure topology boundary rather than claiming an off-host backup exists.",
+    "utc": "2026-10-06T16:25:48.911724+00:00"
+  },
+  {
+    "id": "I344-L219",
+    "verdict": "PASS",
+    "evidence": "tools/rasteratops-candidate-store uses fcntl.flock LOCK_EX, temporary staging, source/destination digest comparison, read-only files and atomic rename to sha256/<manifest>. Fresh initial audit verify accepted all19 current bundle files. Retained preflight controls reuse same input, preserve changed-input bundle and reject corrupted image bytes. D-WORKFLOW-111 records upstream freeze.",
+    "refutation": "Read verifier\u2019s manifest digest, unexpected file, symlink, size and hash checks; confirmed corruption returnedFAIL rather than trusting directory naming.",
+    "notes": "Read-only ownership is an accidental-write guard; explicit local owner chmod is not claimed cryptographically impossible.",
+    "utc": "2026-10-06T16:25:48.911741+00:00"
+  },
+  {
+    "id": "I344-L220",
+    "verdict": "PASS",
+    "evidence": "D-WORKFLOW-111 states exact9fd38fa87094d4f0e956d03ac6c660fe4fd5e9d6 freeze and the named security-fix exception. Fresh merge-base of frozen14 and upstream/next returns that exact base.",
+    "refutation": "Older merge commits in ancestry predate the freeze and are not mistaken for new post-freeze merges.",
+    "notes": "Current package refreshes do not imply an upstream distribution merge.",
+    "utc": "2026-10-06T16:25:48.911758+00:00"
+  },
+  {
+    "id": "I344-L228",
+    "verdict": "PASS",
+    "evidence": "Actual cold-01 sourceb137d8c3, global24 workers, pinned container and manifestc83828fa are retained with642/642 jobs and build/inner/watcher rc0. Full216844873-byte build log lives in immutable bundle22533e35. Later independently copied/requalified14 has its own642/642 four-channel rc0 record.",
+    "refutation": "The original outer tool session returned143 with no outer.rc; retained outer-session.json does not conceal it. Actual command completion, checksummed outputs and exited owner/container independently establish the build criterion.",
+    "notes": "Cold provenance belongs to cold01, not a falsely described cold14. Final14 has its own source manifest and qualification.",
+    "utc": "2026-10-06T16:26:58.914568+00:00"
+  },
+  {
+    "id": "I344-L229",
+    "verdict": "PARTIAL",
+    "evidence": "Replacement09 sweep-09 reads57293 files and8603 classified contexts against NAMING v2 with zero FIX/UNKNOWN; ten scanner and60 context mutation controls pass. Current boot05 template matches1.0 and rejects12 old-logo/blank/wrong-size controls.",
+    "refutation": "The broad installed sweep is bound to cf511 replacement09. Frozen14 changes proxy/native artifacts; exact current14 full-image classification receipt was not located. Unchanged artwork/source continuity alone is not a new whole-image sweep.",
+    "notes": "Current branding frames and changed-source review are supported; the literal complete-candidate sweep needs final refresh.",
+    "gaps": "Run/bind the complete artifact classification to the final repaired candidate before RC, retaining fixed allowlist/context provenance and all negative controls.",
+    "utc": "2026-10-06T16:26:58.914636+00:00"
+  },
+  {
+    "id": "I344-L230",
+    "verdict": "PASS",
+    "evidence": "Sweep09 localisation.json pins ESf6f0c134 (same as frozen14), reconciles851 catalogue/95 XML entries,57 retired/two removed entries, zero unclassified and zero active orphans. Installed Tools XML parses and matches source; actual14 unchanged ES/theme/Tools hashes corroborate continuity.",
+    "refutation": "Checked the actual report\u2019s commit identities and orphan counts rather than only README. No later locale/XML source changes were found in09\u219214 product delta.",
+    "notes": "This verifies touched catalogue/XML reconciliation, not universal translation coverage; missing plain phone/finishing French strings remain a separate confirmed finding.",
+    "utc": "2026-10-06T16:26:58.914666+00:00"
+  },
+  {
+    "id": "I344-L231",
+    "verdict": "PARTIAL",
+    "evidence": "Sweep09 reports zero unclassified credential-pattern matches;70 matches in20 files are reviewed public constants bound to exact source/hash proofs. Actual frozen14 input custody and public QA sanitation are retained.",
+    "refutation": "The wording all counts zero is inaccurate for deliberate public-key/constant matches, and the full secret sweep is from09 rather than current14\u2019s changed proxy artifacts. No secret exposure is demonstrated.",
+    "notes": "Counts-only reporting is preserved; no raw credential values were exposed during this review.",
+    "gaps": "Refresh the full scanner on final candidate bytes and state zero unclassified/private matches with explicit reviewed public false positives; reconcile the literal zero-all-counts checkbox.",
+    "utc": "2026-10-06T16:26:58.914687+00:00"
+  },
+  {
+    "id": "I344-L232",
+    "verdict": "PASS",
+    "evidence": "Actual14 qa-18/defaults/report.md identifies bundleb77e47e57a, source7afa9efcfc and all15 passing suites. qa-18/build.log:12\u201313 and243\u2013244 verifies frozen inputs and candidate-store hashes before and after; initial independent audit reverified all19 bundle files.",
+    "refutation": "Verified the reports name the immutable candidate, not mutable target outputs. Earlier failed QA owners and incorrect fixture baselines remain excluded.",
+    "notes": "Scoped suites passed; audit-discovered behavior gaps are not invalidated by a general PASS banner.",
+    "utc": "2026-10-06T16:26:58.914713+00:00"
+  },
+  {
+    "id": "I344-L233",
+    "verdict": "PASS",
+    "evidence": "Fresh git merge-base frozen7afa9efcfc and upstream/next returns exact9fd38fa87094d4f0e956d03ac6c660fe4fd5e9d6, matching D-WORKFLOW-111 and recorded manifest ancestry.",
+    "refutation": "Distinguished older pre-freeze upstream merges in history from a new integration during qualification.",
+    "notes": "Package refreshes and the local overlay advanced without moving the upstream baseline.",
+    "utc": "2026-10-06T16:26:58.914732+00:00"
+  },
+  {
+    "id": "I344-L234",
+    "verdict": "PARTIAL",
+    "evidence": "p0-updater.md explicitly derives no fork offering on RC2: it contacts ROCKNIX\u2019s endpoint, has no semantic comparison and only accepts dates for forced selection. Actual retained RC2 upgrade proves the manual adoption route.",
+    "refutation": "No retained live RC2 offered/not-offered network observation was located. Source analysis and manual staging do not establish a captured server response.",
+    "notes": "Branch B is already approved; do not contact a real update service merely to chase stale Branch A wording.",
+    "gaps": "Reconcile the early-signal clause to approved manual adoption or retain a bounded isolated old-client observation without altering a personal device.",
+    "utc": "2026-10-06T16:26:58.914748+00:00"
+  },
+  {
+    "id": "I344-L235",
+    "verdict": "SKIP",
+    "evidence": "Current M7 milestone explicitly maps #344 contract P2 draft/asset selection into current P5 under #265/#344 after P4 and device gates. Current bytes remain in immutable engineering candidate storage.",
+    "refutation": "No draft-release API result is available or claimed. Successful fork code pushes are not release creation.",
+    "notes": "Expected later work, not a newly discovered P4 product defect; create only the concrete qualified draft at its ordered stage.",
+    "utc": "2026-10-06T16:26:58.914764+00:00"
+  },
+  {
+    "id": "I344-L241",
+    "verdict": "SKIP",
+    "evidence": "inputs/milestone.md explicitly maps #344 contract P2b/P3/P4 to current M7.P5 after the fixes audit and capacity review. support-matrix.md and device-facts.md distinguish historic ROCKNIX observations from the unbuilt pixelelated device artifacts.",
+    "refutation": "No current H700/Nova build or physical measurement is inferred from the successful GENERIC_X64 image. No device action or publication occurred during this audit.",
+    "notes": "Frozen-input H700 arm/aarch64 build and per-image manifest remains an existing ordered later gate, not a newly discovered P4 product failure.",
+    "utc": "2026-10-06T16:28:00.024923+00:00"
+  },
+  {
+    "id": "I344-L248",
+    "verdict": "SKIP",
+    "evidence": "inputs/milestone.md explicitly maps #344 contract P2b/P3/P4 to current M7.P5 after the fixes audit and capacity review. support-matrix.md and device-facts.md distinguish historic ROCKNIX observations from the unbuilt pixelelated device artifacts.",
+    "refutation": "No current H700/Nova build or physical measurement is inferred from the successful GENERIC_X64 image. No device action or publication occurred during this audit.",
+    "notes": "Mandatory RG35XX SP manual migration, network and state-preservation proof; future fork-to-fork gate remains an existing ordered later gate, not a newly discovered P4 product failure.",
+    "utc": "2026-10-06T16:28:00.024998+00:00"
+  },
+  {
+    "id": "I344-L254",
+    "verdict": "SKIP",
+    "evidence": "inputs/milestone.md explicitly maps #344 contract P2b/P3/P4 to current M7.P5 after the fixes audit and capacity review. support-matrix.md and device-facts.md distinguish historic ROCKNIX observations from the unbuilt pixelelated device artifacts.",
+    "refutation": "No current H700/Nova build or physical measurement is inferred from the successful GENERIC_X64 image. No device action or publication occurred during this audit.",
+    "notes": "Remaining supported matrix builds and source-set comparison remains an existing ordered later gate, not a newly discovered P4 product failure.",
+    "utc": "2026-10-06T16:28:00.025028+00:00"
+  },
+  {
+    "id": "I344-L255",
+    "verdict": "PARTIAL",
+    "evidence": "Current immutable bundle manifests record x64 image2073512198 bytes and tar2074368000 bytes, both below the recorded2147483648-byte limit. Initial audit verifies their hashes against manifestb77e47e57a.",
+    "refutation": "No H700 or Nova asset is attached or represented by these x64 hashes; per-asset checks must follow each later build.",
+    "notes": "Known P5 matrix completion, with current x64 integrity already verified.",
+    "gaps": "Verify every future device asset against its manifest and the publication-time host limit before attachment.",
+    "utc": "2026-10-06T16:28:00.025049+00:00"
+  },
+  {
+    "id": "I344-L256",
+    "verdict": "PARTIAL",
+    "evidence": "Existing sweep09 provides full brand/credential/localisation controls; current14 has exact payload/identity custody and unchanged locale source. Current P2 audit entries229/231 identify the missing renewed full scan on14 changed artifacts.",
+    "refutation": "Old-image zero-unclassified results cannot simply be renamed as results for all later device images.",
+    "notes": "Current final-image refresh and later per-device execution are separately owed.",
+    "gaps": "Run all required sweeps on the repaired final x64 image and every device image before their attachment; retain original results and no broad allowlist exemptions.",
+    "utc": "2026-10-06T16:28:00.025068+00:00"
+  },
+  {
+    "id": "I344-L257",
+    "verdict": "SKIP",
+    "evidence": "inputs/milestone.md explicitly maps #344 contract P2b/P3/P4 to current M7.P5 after the fixes audit and capacity review. support-matrix.md and device-facts.md distinguish historic ROCKNIX observations from the unbuilt pixelelated device artifacts.",
+    "refutation": "No current H700/Nova build or physical measurement is inferred from the successful GENERIC_X64 image. No device action or publication occurred during this audit.",
+    "notes": "Per-SoC clean/update/downgrade boot-chain comparison and smoke evidence remains an existing ordered later gate, not a newly discovered P4 product failure.",
+    "utc": "2026-10-06T16:28:00.025087+00:00"
+  },
+  {
+    "id": "I344-L258",
+    "verdict": "PARTIAL",
+    "evidence": "Actual inventory10 contains583 mapped shipped components and568 source roots with zero source-inventory errors. The recorded qualification explicitly retains14 component licence-metadata gaps and says publication corresponding-source bundle is incomplete.",
+    "refutation": "An upstream URL, shared source cache or successful package fetch alone does not demonstrate a retrievable complete corresponding-source release.",
+    "notes": "Existing P5 publication gate under D-WORKFLOW-121.",
+    "gaps": "Resolve all14 dispositions and produce/retrieve/hash-verify the corresponding-source bundle, including exact patches/build scripts, before release publication.",
+    "utc": "2026-10-06T16:28:00.025104+00:00"
+  },
+  {
+    "id": "I344-L259",
+    "verdict": "PARTIAL",
+    "evidence": "Current updater shim returns1 for check and ES blocks automatic/forced update checks for pixelelated. P0 derives Branch B and shows RC2 does not query GitHub Releases; current candidate remains in immutable local storage.",
+    "refutation": "No retained controlled end-to-end draft/pre-release/CI versus stable offering demonstration or guest network capture was found; source gating alone is not that requested experiment.",
+    "notes": "No new automated channel exists; keep this contract aligned with manual adoption rather than inventing an OTA service.",
+    "gaps": "Reconcile the demonstration to manual-update semantics or retain a bounded isolated test proving current query behavior before P5 closure.",
+    "utc": "2026-10-06T16:28:00.025120+00:00"
+  },
+  {
+    "id": "I344-L260",
+    "verdict": "SKIP",
+    "evidence": "inputs/milestone.md explicitly maps #344 contract P2b/P3/P4 to current M7.P5 after the fixes audit and capacity review. support-matrix.md and device-facts.md distinguish historic ROCKNIX observations from the unbuilt pixelelated device artifacts.",
+    "refutation": "No current H700/Nova build or physical measurement is inferred from the successful GENERIC_X64 image. No device action or publication occurred during this audit.",
+    "notes": "Per-device smoke proof before attachment; untested assets remain held remains an existing ordered later gate, not a newly discovered P4 product failure.",
+    "utc": "2026-10-06T16:28:00.025136+00:00"
+  },
+  {
+    "id": "I344-L261",
+    "verdict": "SKIP",
+    "evidence": "inputs/milestone.md explicitly maps #344 contract P2b/P3/P4 to current M7.P5 after the fixes audit and capacity review. support-matrix.md and device-facts.md distinguish historic ROCKNIX observations from the unbuilt pixelelated device artifacts.",
+    "refutation": "No current H700/Nova build or physical measurement is inferred from the successful GENERIC_X64 image. No device action or publication occurred during this audit.",
+    "notes": "Release/adoption/recovery/source/lineage/non-endorsement documentation remains an existing ordered later gate, not a newly discovered P4 product failure.",
+    "utc": "2026-10-06T16:28:00.025151+00:00"
+  },
+  {
+    "id": "I344-L262",
+    "verdict": "PASS",
+    "evidence": "Current readiness, milestone and all14 qualification records explicitly stop short of RC/device-ready/publication claims and identify immutable bundleb77e47e57a. Current git tag0.0.1 is absent. Standing fork-push permission is not recorded as release publication approval.",
+    "refutation": "Checked that completed cleanup/build/QA and user permission to proceed are not being relabeled as approval to publish the release.",
+    "notes": "Audit continues actively. Stopped at immutable candidate describes publication state, not an owner request to pause audit work.",
+    "utc": "2026-10-06T16:28:00.025168+00:00"
+  },
+  {
+    "id": "I344-L266",
+    "verdict": "SKIP",
+    "evidence": "The exact source checkbox is under #344 contract P5 \u2014 Post-0.0.1 background; the current milestone explicitly preserves that as later work. D-WORKFLOW-111/116/117/122 retain the release freeze and future cadence/redirect conditions.",
+    "refutation": "No background experiment, new guard relaxation, fielded update or completed general retention policy is asserted. Current #461 capacity/retention review and measured #364 timing controls keep their own narrower scope.",
+    "notes": "Deferred any needed #341 secret/PII guard relaxation and bidirectional controls; no extra first-RC gate is inferred from its inclusion in the historical parent issue.",
+    "utc": "2026-10-06T16:28:00.025183+00:00"
+  },
+  {
+    "id": "I344-L267",
+    "verdict": "SKIP",
+    "evidence": "The exact source checkbox is under #344 contract P5 \u2014 Post-0.0.1 background; the current milestone explicitly preserves that as later work. D-WORKFLOW-111/116/117/122 retain the release freeze and future cadence/redirect conditions.",
+    "refutation": "No background experiment, new guard relaxation, fielded update or completed general retention policy is asserted. Current #461 capacity/retention review and measured #364 timing controls keep their own narrower scope.",
+    "notes": "Deferred first post-freeze merge-cadence cost report; no extra first-RC gate is inferred from its inclusion in the historical parent issue.",
+    "utc": "2026-10-06T16:28:00.025199+00:00"
+  },
+  {
+    "id": "I344-L268",
+    "verdict": "SKIP",
+    "evidence": "The exact source checkbox is under #344 contract P5 \u2014 Post-0.0.1 background; the current milestone explicitly preserves that as later work. D-WORKFLOW-111/116/117/122 retain the release freeze and future cadence/redirect conditions.",
+    "refutation": "No background experiment, new guard relaxation, fielded update or completed general retention policy is asserted. Current #461 capacity/retention review and measured #364 timing controls keep their own narrower scope.",
+    "notes": "Deferred hosted QA ten-run feasibility and transfer-cost experiment; no extra first-RC gate is inferred from its inclusion in the historical parent issue.",
+    "utc": "2026-10-06T16:28:00.025213+00:00"
+  },
+  {
+    "id": "I344-L269",
+    "verdict": "SKIP",
+    "evidence": "The exact source checkbox is under #344 contract P5 \u2014 Post-0.0.1 background; the current milestone explicitly preserves that as later work. D-WORKFLOW-111/116/117/122 retain the release freeze and future cadence/redirect conditions.",
+    "refutation": "No background experiment, new guard relaxation, fielded update or completed general retention policy is asserted. Current #461 capacity/retention review and measured #364 timing controls keep their own narrower scope.",
+    "notes": "Deferred fielded-device redirect sunset after a fork-to-fork update; no extra first-RC gate is inferred from its inclusion in the historical parent issue.",
+    "utc": "2026-10-06T16:28:00.025231+00:00"
+  },
+  {
+    "id": "I344-L270",
+    "verdict": "SKIP",
+    "evidence": "The exact source checkbox is under #344 contract P5 \u2014 Post-0.0.1 background; the current milestone explicitly preserves that as later work. D-WORKFLOW-111/116/117/122 retain the release freeze and future cadence/redirect conditions.",
+    "refutation": "No background experiment, new guard relaxation, fielded update or completed general retention policy is asserted. Current #461 capacity/retention review and measured #364 timing controls keep their own narrower scope.",
+    "notes": "Deferred general QA-frame retention and one-sided timing policy; no extra first-RC gate is inferred from its inclusion in the historical parent issue.",
+    "utc": "2026-10-06T16:28:00.025247+00:00"
+  },
+  {
+    "id": "I344-L276",
+    "verdict": "SKIP",
+    "evidence": "The source checkbox is explicitly #344 contract P6 \u2014 Post-0.0.1 Step0 under D-WORKFLOW-102, separately owned by #336/#339/#346. Current M7 plan keeps the existing ES/RetroArch launch stack.",
+    "refutation": "No experimental runner implementation or its test result is inferred from current emulator-exit or proxy preservation tests.",
+    "notes": "Deferred runner feasibility and ownership/lifecycle spike; outside the current fixes audit implementation surface.",
+    "utc": "2026-10-06T16:28:00.025263+00:00"
+  },
+  {
+    "id": "I344-L277",
+    "verdict": "SKIP",
+    "evidence": "The source checkbox is explicitly #344 contract P6 \u2014 Post-0.0.1 Step0 under D-WORKFLOW-102, separately owned by #336/#339/#346. Current M7 plan keeps the existing ES/RetroArch launch stack.",
+    "refutation": "No experimental runner implementation or its test result is inferred from current emulator-exit or proxy preservation tests.",
+    "notes": "Deferred background Tier1/launch-slice review; outside the current fixes audit implementation surface.",
+    "utc": "2026-10-06T16:28:00.025277+00:00"
+  },
+  {
+    "id": "I344-L278",
+    "verdict": "SKIP",
+    "evidence": "The source checkbox is explicitly #344 contract P6 \u2014 Post-0.0.1 Step0 under D-WORKFLOW-102, separately owned by #336/#339/#346. Current M7 plan keeps the existing ES/RetroArch launch stack.",
+    "refutation": "No experimental runner implementation or its test result is inferred from current emulator-exit or proxy preservation tests.",
+    "notes": "Deferred RetroArch/runner bidirectional state interchange; outside the current fixes audit implementation surface.",
+    "utc": "2026-10-06T16:28:00.025292+00:00"
+  },
+  {
+    "id": "I344-L299",
+    "verdict": "PASS",
+    "evidence": "The source issue maps approved fourteen-row decisions to D-WORKFLOW-115\u2013126 and explicitly names superseded102/CLOUD158/P0 rows. Direct register reads match the approved changes; fresh tools/register-check exits0 with599 IDs, each once, and all live citations resolved.",
+    "refutation": "Verified row10 was not adopted as drafted and did not reintroduce a second-human-owner requirement; later identity and namespace decisions refine earlier terms.",
+    "notes": "The mechanical check proves identifier/citation consistency; row content was separately read.",
+    "utc": "2026-10-06T16:28:00.025309+00:00"
   }
 ]
