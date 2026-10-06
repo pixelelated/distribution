@@ -1,5 +1,16 @@
 # Current RAOfflineProxy integration for0.0.1
 
+Selected879b158995d412af434301ebdae581f66b8b6d57, archive SHA256
+984957322337d1325f1b0fc11502336a80241ec511fd041c969bb0103c231664.
+The final frozen13 freshness check caught this Android-only update before
+copy/build. All16 patches apply at fuzz0; complete patched Linux222files and
+native53files are byte-identical to qualified b09 below; gitlinks unchanged.
+[Exact comparison and failed freshness](../qa-logs/2026-10-06-proxy-879b158/README.md).
+Package/schema guards pass. Freeze replacement14, build and run installed
+consent/default/upgrade/proxy proof; no new image or RC claim yet.
+
+# Previous b09d604 source qualification
+
 M7.P3, #457/#361/#168, D-WORKFLOW-138. Selected main:
 `b09d604ecaba7c973028a659b69106b72d3c9514` (reviewed2026-10-06).
 Archive SHA256: `ff2f67b6620349d7821214c463a56dc9c4d008bba96bdde48b4c77819b9fe427`.

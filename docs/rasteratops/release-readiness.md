@@ -11,17 +11,21 @@ Installed consent01 subsequently failed the positive counter control after
 #457 identifies upstream's0.0 consent-cache sentinel: during uptime below
 30seconds, a granted choice is not initially read. Patch019 fixes initial and
 invalidated observation without changing persisted consent or stored formats.
-Selected upstream b09d604 changes Android only; Linux/native trees and coupled
+Selected upstream879b158 changes Android only; Linux/native trees and coupled
 pins are unchanged. All16 patches apply without fuzz;818 native-enabled Linux
 tests and11 integration cases for each actual303/historical865 predecessor
 pass. [Source proof and failed installed run](../qa-logs/2026-10-06-proxy-consent/README.md).
 
-Current order: finish source qualification, freeze/build replacement13, then
+Current order: source qualification complete; freeze/build replacement14, then
 installed consent positive/negative/restart proof and affected proxy/default/
 actual ROCKNIX RC2 upgrade checks. Next are remaining P3 criteria and #168
 upstream mapping; ordinary RetroAchievements and authenticated Dropbox proofs
 need the still-pending dedicated QA-account inputs. Both precede approved P4,
 H700 arm then aarch64 and named physical/P5 gates. No RC or device-ready claim.
+
+Frozen13 freshness caught an Android-only upstream commit before any cache
+copy/build. [Exact equality evidence](../qa-logs/2026-10-06-proxy-879b158/README.md)
+links the new pin to the completed source suites; no test execution is invented.
 
 #456 prepares preservation and a named removal proposal for five superseded
 trees (539GiB gross). The earlier [storage inventory](../qa-logs/2026-10-05-build-storage/README.md)
