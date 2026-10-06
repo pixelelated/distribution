@@ -1,4 +1,5 @@
 # Session pointer
 
-Read [the canonical checkpoint](saved-session-state-next.md) on `next`.
-This feature branch uses the same current handoff.
+Read the canonical `.github/sessions/saved-session-state-next.md` on `next`.
+Feature work is explicitly cherry-picked into next; never merge historical
+feature history merely to refresh instructions.
