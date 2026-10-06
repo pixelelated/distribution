@@ -1,0 +1,27 @@
+{
+  "utc": "2026-10-06T19:55:02.738788+00:00",
+  "scope": "complete repaired-source host suite; installed-image acceptance remains separate",
+  "result": "PASS",
+  "channels": {
+    "inner.rc": "0",
+    "outer.rc": "0",
+    "tool-wrapper.rc": "0",
+    "build.rc": "0"
+  },
+  "sealed_inputs": 31038,
+  "pids_absent": [
+    4043246,
+    4043247,
+    4043248,
+    4043277
+  ],
+  "tail": [
+    "PASS refuse-chmod",
+    "PASS refuse-stat",
+    "PASS refuse-producer",
+    "PASS refuse-rename",
+    "    PASS  #421: private modes and refused publications",
+    "PASSED"
+  ],
+  "pass_lines": 1793
+}

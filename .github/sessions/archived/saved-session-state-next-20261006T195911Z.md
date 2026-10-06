@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Updated 2026-10-06T19:59:11.267309+00:00; candidate15 build/payload verified; QA19 active; all eight audit acceptance outcomes open.
+> Updated 2026-10-06T19:41 UTC; both Fable calls complete; #471 Phase7 repairs and monitored host checks in progress.
 > Previous: `.github/sessions/archived/saved-session-state-next-20261006T181314Z.md`.
 > Both fork refs verified after normal hooked publication; see current focus below.
 
@@ -25,63 +25,37 @@ primary verification and all verdicts; helpers never count as review seats.
 
 ## Current focus — M7 P4 audit#471 Phase7 remediation in progress
 
-**Live override 19:59 UTC:** Both approved Fable calls and primary grading are
-complete. Eight source repairs are published at feature7ad24b5812257ba6854f512a556d47400c6f1d41,
-nexted5a6a51f5974deec8748fbf0dbd2f4984b690f5 and ESbab4df649f48847cc43d21c77c058107ad902754.
-All eight installed acceptance outcomes in05/#471 remain OPEN.
+**Live override 19:41 UTC:** Phase7 product repairs and fixtures are drafted for
+all eight items. ES bab4df649f48847cc43d21c77c058107ad902754 is published and
+remote-verified on feature/m7-audit-remediation and test/qa-integration; the
+recipe pins it. Syntax,179 unit tests/1,928 assertions and French catalog pass.
+Distribution product/tools/docs are being committed for replacement15; all
+05/#471 outcomes stay open pending installed acceptance.
 
-Full host03 finished19:54:57, verified19:55:02: allfourrc0,31,038 sealed
-inputs unchanged, four actual processes absent,366 real-rclone cases PASS.
-The1,793 console PASS lines are not a distinct-assertion count. All6,550product
-and207QA hashes match frozen15. Binding05 passes6/6;179ES tests/1,928assertions,
-C/C++ syntax, French catalog and52-screen menu-map check pass. Failed01/02
-runs and old-source negative controls remain retained. See audit/evidence/remediation-host.
-Three real old-writer partial-pointer fixtures pass explicit folder-selection
-recovery with cloud bytes unchanged; installed/UI recovery remains required.
+Host full02 finished with five fixture/guard failures and zero skips; its
+366-case real-rclone layout matrix passed. Primary19:39:55 verified four rc1
+channels,31,038 seals and all four process exits. Missing fake config-dump
+support and fake why lines are repaired, along with the exact-local-read guard.
+Binding05 passed6/6 including seed refusal; four rc0,28 seals and actual exit
+verified19:36:05. Earlier50-case matrix and seven deliberately failing old-source
+controls remain retained. Evidence: audit/evidence/remediation-host.
 
-Candidate15 cache verified19:55:52: checksum-equal14→15,2,526,406 independent
-regular files, five zero copy channels and four actual process exits. Build
-finished19:59:08 and verified20:00:04: allfourrc0, seals unchanged and actual
-process/container exit. Preserve the generated emulator-table diff. Bundle
-43a698bcd7d570c63ebdd5db015e5302463f7ee4a15438fd9ef2359437be19da is verified;
-image15 raw/update SYSTEM equality passed20:02:08, cleanup verified20:02:18.
-QA19 is ACTIVE below; never replay completed build/store/image owners.
+Full03 owns /workspace/tmp/pixelelated-m7-p4-remediation-host-03/tree,
+run20261006T194043Z-479f53b7; launcher4043246. Read its run.path, terminal files
+and actual processes; verify all31,038 seals and four result channels. Do not
+edit or replay this snapshot. All source fixes plus latest fixtures are present.
+The live VM boundary tool has49 additional cases, parsed but not yet executed.
+No repaired image or installed acceptance PASS is claimed.
 
-- Owner /workspace/tmp/pixelelated-m7-replacement-15; launcher284564,
-  runner284565, watcher284566, command284595 (actual readback19:58).
-- Tree /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement15,
-  branch build/m7-pixelelated-replacement15, commit ed5a6a51f5974deec8748fbf0dbd2f4984b690f5.
-- run.path points to .build-runs/20261006T195606Z-cfbc5dea. Read console.log,
-  build.status (not status.json), inner.rc/outer.rc/tool-wrapper.rc and run/build.rc.
-  The watcher records locally; root actively supervises; no off-session alert.
-- Manifest0bc7c44d06fc0180eaa170d8ec68bad2247c34af90319a9491beafeb538580d6;
-  build.sh rebuilds rclone/cloud-signin-window/ES and forces the image stamp.
-- Copy/build preparation evidence: docs/qa-logs/2026-10-06-pixelelated-replacement-15.
-
-Immutable bundle is at /workspace/artifacts/pixelelated-candidates/sha256/
-43a698bcd7d570c63ebdd5db015e5302463f7ee4a15438fd9ef2359437be19da (one path).
-QA19 started20:02:18, launcher435198/runner435199/watcher435200;
-run .build-runs/20261006T200218Z-4586eb46 in15tree. Initial guest PIDs435995/436021.
-Read owner/run.path,console.log,inner/outer/tool-wrapper.rc andrun/build.rc;
-then verify seals and actual guest/backend/process/port cleanup. Root supervises.
-Subsequent owners run serially through tools/watch-build-submit from15tree.
-1. COMPLETE: /workspace/tmp/pixelelated-m7-image-15; raw/update SYSTEM equality.
-2. ACTIVE: /workspace/tmp/pixelelated-m7-qa-19/outer.sh BUNDLE:15defaults, actualRC2upgrade,
-   installedpayload/identity, virgl and640software rendering.
-3. /workspace/tmp/pixelelated-m7-p4-installed-fixes-01/run.py BUNDLE:85cases,
-   including49audit additions and actual historical writers in private QA paths.
-4. /workspace/tmp/pixelelated-m7-p4-presentation-fixes-01/outer.sh BUNDLE:
-   EN/FR local sign-in/native finish at640 plus reconnect at640/1280.
-   This new presentation fixture is unexecuted, not hosted OAuth evidence.
-Use fresh owners for retries; retain failures. Prepared scripts under/tmp were
-already executed to create these owners; never replay preparation or old jobs.
-
-Exact additional UI/recovery/timeout and remaining milestone coverage gaps are
-in04/05 and07-remediation-progress.md. Only then resolve05/#471 and audit lint,
-P4 closure, capacity#461, H700DDR4RG35XXSP arm→aarch64, namedphysical/P5 gates.
-No further cleanup, reservechange, accountreset, device or release action authorized.
-
-## Historical audit chronology — superseded status statements below
+Guarded swap reclaim completed; /swap.img active with0MiB used,8191MiB free,
+36,257MiB RAM available,537GiB filesystem headroom. Cache14 costs111530045440
+bytes. No additional deletion. Next: land source/evidence through normal hooks,
+freeze replacement15 using /tmp/pixelelated-prepare-replacement15.py after
+review, verify an independent copy of14, finish full03 before the build, then
+rebuild rclone/cloud-signin-window/ES and qualify clean/upgrade plus installed/UI
+cases. The prepared script submits nothing; inspect generated harness before
+watch-build-submit. Frozen14 and all protected evidence remain intact.
+The dated entries below are historical, not current idleness.
 
 User resumed after token repair. Actual-host/GitHub access works. The complete
 261-criterion primary audit, retrospective and provisional analysis are published
@@ -323,8 +297,10 @@ result is asserted as a new14 execution.
 
 ## Current publication and continuation
 
-Source refs feature7ad24b5812257ba6854f512a556d47400c6f1d41 and
-nexted5a6a51f5974deec8748fbf0dbd2f4984b690f5 are remote-verified.
-Only documentation/evidence changed since the frozen15 source. Current active
-job and next commands are at the top; historical idle statements are not current.
-Both Fable transfers are complete; no user approval remains pending.
+Last verified remote featurebf616c7fd63cf7976a5bff00782d972206601c63 and
+next850cf9bee75eda20f73f2c3eb2bb586230d3cf60. Both normal hooked pushes and
+remote readback completed; next contains the explicit cherry-pick-x. #470 is
+closed with all four criteria verified and seventeen retained CLI controls.
+No transfer approval remains pending. Both external reviews and primary grading
+are complete; #471's eight product repairs remain open. No background process
+is running. Continue Phase7 with PL-001/#467, then the ordered M7 repair plan.
