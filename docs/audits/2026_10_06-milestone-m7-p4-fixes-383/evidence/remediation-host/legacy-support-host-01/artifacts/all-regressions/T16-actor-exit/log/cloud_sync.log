@@ -1,0 +1,38 @@
+[2026-10-06 21:32:39] [INFO] [cloud_backup] Loading configuration from cloud_sync.conf
+[2026-10-06 21:32:39] [INFO] [cloud_backup] Original RCLONEOPTS: --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt
+[2026-10-06 21:32:39] [INFO] [cloud_backup] After newline cleanup: --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt 
+[2026-10-06 21:32:39] [INFO] [cloud_backup] After removing verbose flags: --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt 
+[2026-10-06 21:32:39] [INFO] [cloud_backup] After spacing fix: --progress  --log-file /var/log/cloud_sync.log  --filter-from /storage/.config/cloud_sync-rules.txt 
+[2026-10-06 21:32:39] [INFO] [cloud_backup] After final cleanup: --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt 
+[2026-10-06 21:32:39] [INFO] [cloud_backup] Options array has 5 elements
+[2026-10-06 21:32:39] [INFO] [cloud_backup] rclone network bound: --contimeout 1s --timeout 2s --low-level-retries 1 --retries 1
+[2026-10-06 21:32:39] [INFO] [cloud_backup] automatic run: --contimeout 5s --timeout 5s --retries 1 --max-duration 90s --low-level-retries 5 --transfers 1; ceiling 90s from start
+[2026-10-06 21:32:39] [INFO] [cloud_backup] Configuration loaded successfully
+[2026-10-06 21:32:39] [INFO] [cloud_backup] =>  CLOUD BACKUP\n
+[2026-10-06 21:32:39] [INFO] [cloud_backup] ====================================
+[2026-10-06 21:32:39] [INFO] [cloud_backup] BACKING UP YOUR GAME SAVES
+[2026-10-06 21:32:39] [INFO] [cloud_backup] ====================================
+[2026-10-06 21:32:39] [INFO] [cloud_backup] Starting backup from /storage/roms to qa:/Mine/Saves
+[2026-10-06 21:32:39] [INFO] [cloud_backup] Backup started at Tue Oct  6 21:32:39 UTC 2026
+[2026-10-06 21:32:39] [INFO] [cloud_backup] recent: no successful backup on record, doing a full pass
+[2026-10-06 21:32:39] [INFO] [cloud_backup] the remote keeps modtimes or hashes: rclone's own comparison
+[2026-10-06 21:32:39] [INFO] [cloud_backup] anything replaced (or, in sync mode, removed) in the cloud goes to /Mine/Saves-replaced
+[2026-10-06 21:32:39] [INFO] [cloud_backup] About to execute: rclone copy --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt --log-level INFO --stats 1s --exclude=bios/** --exclude=backup/** --backup-dir=qa:/Mine/Saves-replaced/2026_10_06-213239 /storage/roms/ qa:/Mine/Saves/
+2026/10/06 21:32:39 INFO  : Local file system at /cloud/Mine/Saves: Transfer session HARD deadline: 2026/10/06 21:34:09
+2026/10/06 21:32:39 INFO  : gb/Local.srm: Copied (new)
+2026/10/06 21:32:39 INFO  : gb: Set directory modification time (using DirSetModTime)
+2026/10/06 21:32:39 INFO  : 
+Transferred:   	         15 B / 15 B, 100%, 0 B/s, ETA -
+Checks:                 0 / 0, -, Listed 3
+Transferred:            1 / 1, 100%
+Elapsed time:         0.0s
+
+[2026-10-06 21:32:39] [INFO] [cloud_backup] Backing up your saves: completed.
+[2026-10-06 21:32:39] [INFO] [cloud_backup] Skipped settings this time - saves only.
+[2026-10-06 21:32:39] [INFO] [cloud_backup] ====================================
+[2026-10-06 21:32:39] [INFO] [cloud_backup] BACKUP SUMMARY:
+[2026-10-06 21:32:39] [INFO] [cloud_backup] Game saves: COMPLETED
+[2026-10-06 21:32:39] [INFO] [cloud_backup] Completed.
+[2026-10-06 21:32:39] [INFO] [cloud_backup] Log file: /var/log/cloud_sync.log
+[2026-10-06 21:32:39] [INFO] [cloud_backup] ====================================
+[2026-10-06 21:32:39] [INFO] [cloud_backup] Script completed in 0 seconds with exit code 0

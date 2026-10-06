@@ -1,0 +1,5 @@
+#!/bin/sh
+case "$1" in
+ --label) echo QA;; --legacy) cat /ctl/legacy 2>/dev/null;;
+ --previous) cat /ctl/previous 2>/dev/null;; *) echo QA-deadbeef01;;
+esac

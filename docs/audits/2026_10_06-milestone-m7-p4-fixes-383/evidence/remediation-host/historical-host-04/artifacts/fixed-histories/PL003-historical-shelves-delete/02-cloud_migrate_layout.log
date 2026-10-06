@@ -1,0 +1,28 @@
+This device stores:
+  saves    qa:/ROCKNIX/Saves
+  backups  qa:/ROCKNIX/Backups
+
+The current layout is:
+  saves    qa:/pixelelated/Saves
+  backups  qa:/pixelelated/Backups
+
+Would move, server-side, leaving anything else where it is:
+  qa:/GAMES-replaced  ->  qa:/pixelelated/Saves-replaced
+
+Now using /pixelelated/Backups for your settings backups.
+Now using /pixelelated/Saves for your saves.
+>>> unit DISCARDED SAVES|1|1
+Copying discarded saves...
+>>> doing copy
+Transferred:   	          0 B / 0 B, -, 0 B/s, ETA -
+Checks:                 1 / 1, 100%, Listed 6
+Elapsed time:         0.0s
+Verifying discarded saves...
+>>> doing verify
+Removing the old discarded saves folder...
+>>> doing remove
+Nothing is stored at qa:/ROCKNIX/Content, so only the setting changes.
+Now using /pixelelated/Content for your ROMs, BIOS, and game content.
+Content is now at qa:/pixelelated/Content.
+
+Done. Saves are at qa:/pixelelated/Saves, backups at qa:/pixelelated/Backups.

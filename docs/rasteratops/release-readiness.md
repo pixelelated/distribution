@@ -1,26 +1,31 @@
 # pixelelated 0.0.1 release readiness
 
-## Current work — P4 audit#471: candidate15 VM qualification active
+## Current work — P4 remediation, 2026-10-06 21:37 UTC
 
-As of20:19UTC, all eight source repairs are published at nexted5a6a51f5974deec8748fbf0dbd2f4984b690f5
-and ESbab4df649f48847cc43d21c77c058107ad902754. Full host03 and independent
-cache checks pass. Candidate15 finished19:59:08, verified20:00:04 with allfour
-results0, unchanged seals and actual container/process exit. Its immutable
-bundle43a698bcd7d570c63ebdd5db015e5302463f7ee4a15438fd9ef2359437be19da verifies.
-Image15 raw/update SYSTEM equality passes. QA19 started20:02:18 and actively
-runs the15 defaults then actual ROCKNIX RC2 upgrade. Follow with85 installed
-boundary cases and EN/FR presentation/recovery proofs. All eight audit outcomes
-remain open; only then assess P4 closure.
-[Candidate15 evidence](../qa-logs/2026-10-06-pixelelated-replacement-15/README.md).
+Both approved Fable calls and primary grading are complete. Audit #471 has
+eight findings: PL-007/008 are resolved from installed evidence; six remain
+open. Candidate15 is frozen at distribution
+`ed5a6a51f5974deec8748fbf0dbd2f4984b690f5` and ES
+`bab4df649f48847cc43d21c77c058107ad902754`. Its build, bundle, raw/update
+SYSTEM equality and full QA19 pass, including all 15 default suites and actual
+ROCKNIX RC2 upgrade preservation. Sweep11 classifies all 8,604 branding
+contexts and all credential-pattern matches. Inventory11 retains 14 known P5
+licence metadata gaps. [Evidence](../qa-logs/2026-10-06-pixelelated-replacement-15/README.md).
 
-Image sweep11 and source inventory11 are now freshly verified on candidate15:
-57,295files,8,604classified branding contexts, zero unclassified credential
-matches;854localization entries and95XML entries reconcile. Inventory maps
-568roots/583components/525stamps;14P5license metadata gaps remain. QA19 has
-ten completed suites and is still running. Five sealed follow-on owners
-cover85boundary+10extra+18cloudUI+8recoveryUI cases and localphone/native/
-reconnect presentation; all remain unexecuted. See the current checkpoint
-and candidate15 evidence before running any owner.
+Installed follow-up checks exposed two remaining defects: a successful move
+can leave RC2's `/GAMES-replaced` history behind, and legacy-root game rows
+can show a false unsupported-system label. Neither establishes data loss.
+The working repairs pass 376 real-rclone source cases and specific failing
+old-source controls. They still require a new engineering image and installed
+acceptance. Current English/French UI checks continue on unchanged candidate15;
+check the session checkpoint and actual watcher before starting any owner.
+
+Order: finish cloud UI → recovery/timeout UI → 125-game pacing/retry → clean
+and RC2-upgraded boot/network proof → bucket retry → remaining cloud coverage
+and criterion reconciliation → build and qualify repaired image16 → close
+#471/P4 → capacity #461 → H700 DDR4 RG35XX SP arm, then aarch64 → named
+physical and P5 publication gates. No RC designation or device readiness claim.
+#469 is closed with corrected #351 bilingual evidence; #467/#468/#471 remain open.
 
 ## Historical qualification — earlier status statements retain their dates
 

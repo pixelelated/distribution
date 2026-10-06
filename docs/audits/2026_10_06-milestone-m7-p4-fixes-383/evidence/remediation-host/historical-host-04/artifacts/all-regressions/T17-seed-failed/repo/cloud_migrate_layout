@@ -1,0 +1,3 @@
+#!/bin/sh
+[ "$1" = --settle ] && exit 1
+printf "/GAMES\n/ROCKNIX/Saves\n"

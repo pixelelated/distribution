@@ -1,6 +1,6 @@
 # Saved Session State
 
-Updated 2026-10-06 21:06 UTC. Audit Phase7 continues under standing authority.
+Updated 2026-10-06 21:35 UTC. Audit Phase7 continues under standing authority.
 Previous complete checkpoint: `.github/sessions/archived/saved-session-state-next-20261006T210229Z.md`.
 Read this first; historical active/idle statements in that archive are superseded.
 
@@ -27,20 +27,25 @@ milestone body is the ordered plan. Canonical rules matched next21:00.
 ## Active owners — monitor first
 
 Primary remains one serial Phase7 orchestrator. Both commands are isolated
-checks within this phase, not parallel audit phases. Host03 uses the coordination
+checks within this phase, not parallel audit phases. Legacy-support01 uses the coordination
 checkout monitor; frozen15 monitor belongs only to UI04. Host01 submission was
 refused by that exclusive lock and started no test. Poll each at most60seconds.
 
 - UI: `/workspace/tmp/pixelelated-m7-p4-cloud-ui-fixes-04`, started21:17:32;
   launcher1279097, runner1279098, watcher1279103. Run frozen15/.build-runs/
   20261006T211732Z-f1c79753.18 EN/FR installed unchanged15 chooser/root/reasons/
-  partial-pointer cases. Actual watcher live; first MyGames completed; second
-  My Games is in progress. activity=owner/artifacts, recursive.
-- Source regression: `/workspace/tmp/pixelelated-m7-p4-historical-host-04`,
-  launcher1338147, runner1338148, watcher1338149; reads a sealed snapshot of the uncommitted PL-003 repair and
-  tests.Old-source owner02 proves3 exact historical-tier failures and2 earlier-cut
-  controls pass; fresh04 passes10 shelf/sibling and5 actual-RC2 cases; full372-case regression is active. Host03 retained9PASS/1 fixture failure: real parent listing correctly proved the denied child absent;04 makes that source actually exist before refusing its listing. Product source unchanged. Real rclone/bwrap only;
-  does not qualify an installed image. Read run.path/console and watcher.
+  partial-pointer cases. Actual watcher live; all nine EN cases complete; French MyGames complete and My Games
+  selection is active. English legacy-root false capability label remains PL001. activity=owner/artifacts, recursive.
+- Source regression: `/workspace/tmp/pixelelated-m7-p4-legacy-support-host-01`,
+  started21:30:35, launcher1655772/runner1655774/watcher1655783/command1655812.
+  Coordination run20261006T213035Z-e609c71e. Sealed snapshot of both product
+  repairs and tests, realrclone/bwrap. Old source has2 expected support FAIL
+  and2 controlPASS; fixed13focusedPASS; full376-case regression completed21:36:29 with376PASS/0FAIL; verified
+  21:36:45 allfour0/27seals/allfourPIDs absent and separately retained owner cleanup.
+  Evidence remediation-host/legacy-support-host-01 includes both executed product scripts.
+  Historical-host04 completed21:30:01:372PASS/0FAIL, allfour0/27seals,
+  primary actual owner cleanup21:30:34. Retained remediation-host/historical-host-04.
+  That earlier snapshot lacks the later capability-label fix.
 
 Actual host /tmp and /proc require escalated tools. Existing helpers:
 `python3 -I /tmp/pixelelated-verify-owner.py OWNER` (four rc channels/seals/PIDs),
@@ -72,11 +77,13 @@ Read inputs first. Never change a running script; fresh owner for a retry.
 
 PL-003 needs a new product build after the historical-shelf repair; candidate15
 checks collect other remaining findings, not qualification of changed source.
-New product changes currently UNCOMMITTED: cloud_migrate_layout and
-rasteratops-cloud-layout-test. Review/test before integration. No frozen15 edits.
+New product changes currently UNCOMMITTED: cloud_migrate_layout,
+cloud_content_restore and rasteratops-cloud-layout-test. Review/test before integration. No frozen15 edits.
 The repair preflights eligible earlier shelves, keeps active siblings alone,
 retains endpoint/configured-pointer binding while advancing the history source,
-and bounds remaining shelf recovery before Done. No success claim yet.
+and bounds remaining shelf recovery before Done. The pre-tier scan now uses
+the same installed-system/BIOS capability flag as tiered rows. Both source
+repairs still require installed16 proof; do not close PL001/003 on host results.
 
 Then exact remaining coverage (mixed updated/fresh no-join negative), new build16/
 affected and final qualification, #471 resolution/auditlint/P4 closure, capacity
@@ -128,7 +135,7 @@ Evidence root docs/qa-logs/2026-10-06-pixelelated-replacement-15 and audit
  docs/audits/2026_10_06-milestone-m7-p4-fixes-383. Primary externalgrade:
 261criteria204PASS36PARTIAL3FAIL18SKIP;123priorcomparisons;14target experiments.
 One external reviewer/two calls Fable5.1/xhigh verified; no council. Raw artifacts
-untouched. #467/#468/#469/#471open;#470/#472closed.
+untouched. #467/#468/#471open;#469/#470/#472closed.
 
 ## Latest completion and publication state
 
@@ -137,7 +144,10 @@ Presentation01 completed21:08:18, primary actual cleanup21:09:00:allfour0,
 EN/FR390px phone controls and640px actual native finishing/done callback;
 EN/FR reconnect640/1280 plusEN640refusal. Browser/tunnel/ports also cleared.
 PL-007 resolved, oldFrench handler control separately proves old output fails.
-#469/#351 reconciliation and evidence publication are still pending.
+#469 closed completed and #351 historical bilingual checkbox corrected with
+exact published proof21:26. Live bodies/states retained under
+tracker-presentation-resolution-02. #467/#471 now include the false root label
+without inventing a ninth punch item; tracker-legacy-capability-01.
 
 Empty-library02 completed21:10:13,verified21:10:38:3PASS,allfour0/212seals,
 actual empty mount plus original listing restoration, all guest/backend cleanup.
@@ -152,12 +162,17 @@ rc2:missing activity directory, before watcher/guest; no four-result claim.
 Fresh04 creates that directory and fixes filename normalization. All failures
 retained. Do not launch obsoletecloud01/02/03,recovery01/02,coverage01.
 
-Last published feature0718c4b3ac9de0d7ddac28ca5ff31f634594ccd4 and
-nextcda4cb25b6542bab19b8994fbf3dee17af83d9d6; remoteverified21:04:36,
-6419changedpaths equal. Primary next was clean. New evidence/docs plus PL003
-source/test changes uncommitted. Publish with normal hooks/explicit cherry-pick-x;
-do not include unqualified product edits in an evidence-only commit. Whole trees
-differ in historical archives by design. Read currentGitHub#471/M7 after updates.
+Last published featurecc058c962c629b460432ee7d96edba8b3c52970f and
+next4a8ab3adaa1a01380f2c3c2896d4e42b373073e3; remoteverified21:25:58,
+1625changedpaths equal. Publication ownerpresentation-publication01 completed
+21:26:00; primary actual verification21:26:39, allfour0/3seals/4PIDs absent.
+No product repair included. Receipt plus latest evidence/docs remain uncommitted.
+Primary next was clean; recheck before integration. Normal hooks/cherry-pick-x,
+no whole-tree equality claim (historical archives differ). UI progress receipt
+has64directlyreviewedframes:9ENcases+FRMyGames. No overall UIpass because the
+ENlegacy-root GameBoy row says THIS DEVICE CANNOT RUN IT; switchstillenabled.
+Older 0fff618bef ancestry retained that0flag; not evidence of blocked restore.
+Use fresh watched owners; never replay completed publications.
 
 #337/#409 active naming/criteria reconciliation remains. NAMING.md stale cleanup
 line is a closing recommendation, no in-audit instruction edit.14P5license/source

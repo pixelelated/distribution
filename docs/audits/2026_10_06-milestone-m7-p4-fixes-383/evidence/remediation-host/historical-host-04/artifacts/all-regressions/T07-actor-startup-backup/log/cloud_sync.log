@@ -1,0 +1,30 @@
+[2026-10-06 21:25:20] [INFO] [cloud_backup] Loading configuration from cloud_sync.conf
+[2026-10-06 21:25:20] [INFO] [cloud_backup] Original RCLONEOPTS: --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt
+[2026-10-06 21:25:20] [INFO] [cloud_backup] After newline cleanup: --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt 
+[2026-10-06 21:25:20] [INFO] [cloud_backup] After removing verbose flags: --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt 
+[2026-10-06 21:25:20] [INFO] [cloud_backup] After spacing fix: --progress  --log-file /var/log/cloud_sync.log  --filter-from /storage/.config/cloud_sync-rules.txt 
+[2026-10-06 21:25:20] [INFO] [cloud_backup] After final cleanup: --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt 
+[2026-10-06 21:25:20] [INFO] [cloud_backup] Options array has 5 elements
+[2026-10-06 21:25:20] [INFO] [cloud_backup] rclone network bound: --contimeout 1s --timeout 2s --low-level-retries 1 --retries 1
+[2026-10-06 21:25:20] [INFO] [cloud_backup] automatic run: --contimeout 5s --timeout 5s --retries 1 --max-duration 90s --low-level-retries 5 --transfers 1; ceiling 90s from start
+[2026-10-06 21:25:20] [INFO] [cloud_backup] Transfer method overridden from command line: copy
+[2026-10-06 21:25:20] [INFO] [cloud_backup] Added --update from command line
+[2026-10-06 21:25:20] [WARN] [cloud_backup] SETTINGS_REMOTE=/GAMES/backup is inside SAVES_REMOTE=/GAMES
+[2026-10-06 21:25:20] [WARN] [cloud_backup] CONTENT_REMOTE=/GAMES/Content is inside SAVES_REMOTE=/GAMES
+[2026-10-06 21:25:20] [INFO] [cloud_backup] Configuration loaded successfully
+[2026-10-06 21:25:20] [INFO] [cloud_backup] =>  CLOUD BACKUP\n
+[2026-10-06 21:25:20] [INFO] [cloud_backup] ====================================
+[2026-10-06 21:25:20] [INFO] [cloud_backup] BACKING UP YOUR GAME SAVES
+[2026-10-06 21:25:20] [INFO] [cloud_backup] ====================================
+[2026-10-06 21:25:20] [INFO] [cloud_backup] Starting backup from /storage/roms to qa:/GAMES
+[2026-10-06 21:25:20] [INFO] [cloud_backup] Backup started at Tue Oct  6 21:25:20 UTC 2026
+[2026-10-06 21:25:20] [INFO] [cloud_backup] saves folder /GAMES is a default an earlier version shipped, and the cloud has none; a backup does not make it (D-CLOUD-172)
+[2026-10-06 21:25:20] [INFO] [cloud_backup] Nothing backed up: your cloud has no /GAMES folder yet.
+[2026-10-06 21:25:20] [INFO] [cloud_backup] Skipped settings this time - saves only.
+[2026-10-06 21:25:20] [INFO] [cloud_backup] ====================================
+[2026-10-06 21:25:20] [INFO] [cloud_backup] BACKUP SUMMARY:
+[2026-10-06 21:25:20] [INFO] [cloud_backup] Game saves: COMPLETED
+[2026-10-06 21:25:20] [INFO] [cloud_backup] Completed.
+[2026-10-06 21:25:20] [INFO] [cloud_backup] Log file: /var/log/cloud_sync.log
+[2026-10-06 21:25:20] [INFO] [cloud_backup] ====================================
+[2026-10-06 21:25:20] [INFO] [cloud_backup] Script completed in 1 seconds with exit code 0
