@@ -1,10 +1,11 @@
 # Superseded-build preservation and removal proposal — #456, #458
 
-No deletion or filesystem-reserve change is approved or executed. This report
-prepares removal of replacement03/05/06/07/08 only. Run any eventual removal
-from `/workspace/repos/rocknix.worktrees/conflict-resolution`, after the final
-dependency readback and named approval. Product14 and its VM evidence remain
-untouched.
+This is the completed #456 preservation proposal. The maintainer subsequently
+approved the five removals under #459/D-INFRA-017. See the
+[execution checkpoint](../approved-cleanup-20261006/README.md): fresh retention
+and disk/container checks passed; fresh root process visibility remains pending
+interactive sudo. No removal or filesystem-reserve change has occurred.
+Product14 and its VM evidence remain untouched.
 
 ## Completed preservation
 

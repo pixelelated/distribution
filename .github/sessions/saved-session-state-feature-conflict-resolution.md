@@ -1,9 +1,8 @@
 # Session pointer
 
 Read `.github/sessions/saved-session-state-next.md` on `next` first.
-Current focus: replacement14 build/default QA/actual RC2 upgrade/installed proxy
-qualification are complete. Remaining P3 dedicated account proofs and upstream
-preparation precede P4 and H700 builds. Root-only cleanup dependency readback
-passed at02:22:23UTC; named removal approval is pending. No build or QA job is running.
-Feature/conflict-resolution integrates by explicit cherry-pick -x;
-frozen14 product inputs never advance during metadata publication.
+#459 cleanup of replacement03/05/06/07/08 is approved; no removal started.
+Preservation/disk/container preflight passed; fresh root process watcher awaits
+interactive sudo. Do not ask again for deletion approval. No build/QA job is active.
+Replacement14 VM qualification is complete; remaining P3 account/upstream work
+precedes P4 and H700. Integrate by explicit cherry-pick -x; frozen14 stays unchanged.
