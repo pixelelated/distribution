@@ -1,0 +1,361 @@
+[
+  {
+    "tree": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement03",
+    "head": "02163b440bfb055531f50f30184327336a67f886",
+    "branch": "build/m7-pixelelated-replacement03",
+    "tracked_status": " M documentation/PER_DEVICE_DOCUMENTATION/GENERIC_X64/SUPPORTED_EMULATORS_AND_CORES.md\n",
+    "tracked_diff_sha256": "42065b015a65d1e363d5daca24c1d2754007b7296faff853b7e5aa7283c3a3c6",
+    "diff_file": "m7-pixelelated-replacement03.patch",
+    "retained_bundles": [
+      {
+        "path": "/workspace/artifacts/pixelelated-candidates/sha256/8e9eb161b8b4ab84b6339ff58d478acf00322f3c8fa70d5c2c4575849c6a149f",
+        "manifest_sha256": "8e9eb161b8b4ab84b6339ff58d478acf00322f3c8fa70d5c2c4575849c6a149f",
+        "files": {
+          "build.log": {
+            "bytes": 2986216,
+            "sha256": "15c1f71aa16af019eda871dcc83af60e69609a889d2a71b8c7b919da3beeaea1"
+          },
+          "build.status": {
+            "bytes": 754,
+            "sha256": "68f9a65585c299d10aea064f5abd4b4a17b466773575e9a479a88f7f1a396533"
+          },
+          "cache-ready.json": {
+            "bytes": 605,
+            "sha256": "5907b7f525d2ea76ed07de42d78a7ec01b536f211f29ac7daeffea4fcb5db092"
+          },
+          "completion.json": {
+            "bytes": 762,
+            "sha256": "b4e7d4d791f478ba937d57a4eccb6ec0d95eeaa4ac8b7e38563fd3945a1922b9"
+          },
+          "container-actual.json": {
+            "bytes": 1070,
+            "sha256": "5ea3546bb11b8bda813676ab26819bcd378931721c306200d352f95799c4c59b"
+          },
+          "host-preflight.txt": {
+            "bytes": 154,
+            "sha256": "44e12034540b0a66d6fca40bc17bd8a92277323f23282fb57f102961513cfeaa"
+          },
+          "package-freshness.log": {
+            "bytes": 3389,
+            "sha256": "2ddd04721b9b0f65169fabb92f4d516b88d3a9e8b7d77d907b407aa13cf1363c"
+          },
+          "pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz": {
+            "bytes": 2073133862,
+            "sha256": "2778135724712ce688f4391ccc970b18210665a64f118b7d25a93787e234f982"
+          },
+          "pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz.sha256": {
+            "bytes": 123,
+            "sha256": "5c1dc5338ca4e8f5f0fd9c74ab734401f79bd653a4916e7f65fd61333c8f4e6b"
+          },
+          "pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.tar": {
+            "bytes": 2073989120,
+            "sha256": "ff4805f2b86bc942d8f416f8a7aa7738b5232294ecf5e8c2755e54edc0d19aff"
+          },
+          "pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.tar.sha256": {
+            "bytes": 120,
+            "sha256": "212b40d4bd7027c5fc420d97cf5da3202d3780bbec7ca6000f22927be5dce070"
+          }
+        },
+        "scope": "manifest digest verified now; payload reverified in retained custody-leads receipt"
+      }
+    ],
+    "top_level_symlinks": [],
+    "deletion_authorized": false
+  },
+  {
+    "tree": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement05",
+    "head": "1e6a156b5477650e298b6a4dfff996673bf33fb1",
+    "branch": "build/m7-pixelelated-replacement05",
+    "tracked_status": " M documentation/PER_DEVICE_DOCUMENTATION/GENERIC_X64/SUPPORTED_EMULATORS_AND_CORES.md\n",
+    "tracked_diff_sha256": "42065b015a65d1e363d5daca24c1d2754007b7296faff853b7e5aa7283c3a3c6",
+    "diff_file": "m7-pixelelated-replacement05.patch",
+    "retained_bundles": [
+      {
+        "path": "/workspace/artifacts/pixelelated-candidates/sha256/a179bd73a732f49c4219177c89a860d561dad4d16a3467aae2cbafc15152b3ea",
+        "manifest_sha256": "a179bd73a732f49c4219177c89a860d561dad4d16a3467aae2cbafc15152b3ea",
+        "files": {
+          "build.log": {
+            "bytes": 2979679,
+            "sha256": "bd76700c92b7fcc9732914e50a4ff3db4d03bd65622a87878c6821e39bc6b51c"
+          },
+          "build.status": {
+            "bytes": 754,
+            "sha256": "21c0c706b9fc5ae77e9e3724689a2bad0de1411df8995400c87160281bccdcbb"
+          },
+          "cache-ready.json": {
+            "bytes": 1137,
+            "sha256": "97ab153347c5ba6d85ed19322f52506fff0014f5cb5424a32ee856172a05d92c"
+          },
+          "completion.json": {
+            "bytes": 612,
+            "sha256": "d7b90b3d1d651bfbf6b2c775be8c8a4d3782c872a0aed2d1120eea87adbeccb2"
+          },
+          "container-actual.json": {
+            "bytes": 1052,
+            "sha256": "771f845f114045db4bcadb31cbf4ff315dcd4818cd6a5af3ae8ea6d520a3fcb9"
+          },
+          "host-preflight.txt": {
+            "bytes": 153,
+            "sha256": "39aad1f939f6acdcf5ea43ad017efb40af3b3c59656d3203eb76b09dadb6f8ce"
+          },
+          "package-freshness.log": {
+            "bytes": 343,
+            "sha256": "5e568ee9cfa2ea293c07f2735f4db89c1b120aa771c19d07aa43a2a67e9eb6f2"
+          },
+          "pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz": {
+            "bytes": 2073133734,
+            "sha256": "a16f9532e3e18116c307bf75dfa58f2446809efd127169a8739faa32487be7ca"
+          },
+          "pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz.sha256": {
+            "bytes": 123,
+            "sha256": "91a7da8a82f0cb1644037b174438417bf2160dfb42d95ac77a6553992c62675a"
+          },
+          "pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.tar": {
+            "bytes": 2073989120,
+            "sha256": "f0e2752d85e416504198980f20a7bc68da79ba6ce24054a01d9e0252946e093f"
+          },
+          "pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.tar.sha256": {
+            "bytes": 120,
+            "sha256": "29aece5bc4cc9eca9dc799459198e716c8439a851f97f15915aea58f155ca267"
+          },
+          "prelaunch-host.txt": {
+            "bytes": 253,
+            "sha256": "1620919512f67652cf3462965bd43c9e14e74b00213c847f78bcf409cc76f6f7"
+          }
+        },
+        "scope": "manifest digest verified now; payload reverified in retained custody-leads receipt"
+      }
+    ],
+    "top_level_symlinks": [],
+    "deletion_authorized": false
+  },
+  {
+    "tree": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement06",
+    "head": "57cbc9b981205328444d41f6c4237dc9f5736d7f",
+    "branch": "build/m7-pixelelated-replacement06",
+    "tracked_status": " M documentation/PER_DEVICE_DOCUMENTATION/GENERIC_X64/SUPPORTED_EMULATORS_AND_CORES.md\n",
+    "tracked_diff_sha256": "42065b015a65d1e363d5daca24c1d2754007b7296faff853b7e5aa7283c3a3c6",
+    "diff_file": "m7-pixelelated-replacement06.patch",
+    "retained_bundles": [
+      {
+        "path": "/workspace/artifacts/pixelelated-candidates/sha256/d4007387afd5ac42104a53a3073b93fdadd33c51179bf9f3142101609f821ec9",
+        "manifest_sha256": "d4007387afd5ac42104a53a3073b93fdadd33c51179bf9f3142101609f821ec9",
+        "files": {
+          "build.log": {
+            "bytes": 2979768,
+            "sha256": "c91c80c11a30b49e62b0e962b4614c0740461f0fea1ee4e1a615b744ce7bb1de"
+          },
+          "build.status": {
+            "bytes": 746,
+            "sha256": "29c1fe1287635588c14b00a171ecd79ab8737cf2841172efbf430f4ae7ee92b0"
+          },
+          "cache-ready.json": {
+            "bytes": 295,
+            "sha256": "446a57f8cebbe3cd2cd93efe3c3ce15cd95edc179215e5c7835bde4a1b353264"
+          },
+          "completion.json": {
+            "bytes": 1287,
+            "sha256": "591f6757018256f05adba56329271e982f0a3cc0825577c4604fc960bfad6c4f"
+          },
+          "container-actual.json": {
+            "bytes": 1103,
+            "sha256": "f64f36dadf67144f2463fb9b7f030fe7cdef52ec7e372663a12fee6e0c43b4a8"
+          },
+          "container-exited.json": {
+            "bytes": 157,
+            "sha256": "5a43e5c2d8633adcc6b5e563773bd8e16608819a802b5c8dd4a0f4e9e38eec17"
+          },
+          "copy-completion.json": {
+            "bytes": 929,
+            "sha256": "91c05b1caa2554181500d957fe34b561ca93a2abd6a88e3fddb5396ecb5e66be"
+          },
+          "host-preflight.txt": {
+            "bytes": 153,
+            "sha256": "9fa9f4be7dc9e6fc7c508d446c55cffa77450c29b6a8ff24f825d40649edcbd6"
+          },
+          "package-freshness.log": {
+            "bytes": 3389,
+            "sha256": "f942a6189e2d64529b5431d7b2a6d6d360507d3e44e409cfb3056d58c983631d"
+          },
+          "pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz": {
+            "bytes": 2073134283,
+            "sha256": "1e16122cc48ed7552f42598c2c251930a4b5ad451c1040c345aecda35dae130e"
+          },
+          "pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz.sha256": {
+            "bytes": 123,
+            "sha256": "fa72096058c36fdf630fb7588c6caa436aafa79336981e49f0967b9331363ec2"
+          },
+          "pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.tar": {
+            "bytes": 2073989120,
+            "sha256": "1786a568db2320a1482ff58165c20280d1d2bfa11e197abb4f3eee5847dbbe28"
+          },
+          "pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.tar.sha256": {
+            "bytes": 120,
+            "sha256": "3621728a116efa7dc2627160802d81972db9745ad912c3e9f24e02633d3d2764"
+          },
+          "prelaunch-host.txt": {
+            "bytes": 253,
+            "sha256": "28d00c3f3d0199da64365f3f9d4fcdd07353b7ee7abdc6d78a74fefa92a883c2"
+          }
+        },
+        "scope": "manifest digest verified now; payload reverified in retained custody-leads receipt"
+      }
+    ],
+    "top_level_symlinks": [],
+    "deletion_authorized": false
+  },
+  {
+    "tree": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement07",
+    "head": "a2586374b7b565965fe0c644656e22ff3c0ec317",
+    "branch": "build/m7-pixelelated-replacement07",
+    "tracked_status": " M documentation/PER_DEVICE_DOCUMENTATION/GENERIC_X64/SUPPORTED_EMULATORS_AND_CORES.md\n",
+    "tracked_diff_sha256": "42065b015a65d1e363d5daca24c1d2754007b7296faff853b7e5aa7283c3a3c6",
+    "diff_file": "m7-pixelelated-replacement07.patch",
+    "retained_bundles": [
+      {
+        "path": "/workspace/artifacts/pixelelated-candidates/sha256/95dbc93b666f886c35af16a5b67e81dd77fad7f667e2307efb061cabf1ffc188",
+        "manifest_sha256": "95dbc93b666f886c35af16a5b67e81dd77fad7f667e2307efb061cabf1ffc188",
+        "files": {
+          "build.log": {
+            "bytes": 4299860,
+            "sha256": "4056e4f6882672b6b2a10ba5f427b1fafcfde2a5a35d66304f1a64efa7d1efb2"
+          },
+          "build.status": {
+            "bytes": 786,
+            "sha256": "1c7ec50779ebd3a45b5086ae8c06dd4b70186c614e2ceec8fc6095c0aa0f8e0e"
+          },
+          "cache-ready.json": {
+            "bytes": 295,
+            "sha256": "0a6ebb0d5e9ec975d3afaad1ddf99e8a6ff032e23b68c7520ea6333762e8c076"
+          },
+          "completion.json": {
+            "bytes": 1338,
+            "sha256": "03accdbdbd112679381308799cf064fe91a63f10bc575d1d39507a3604454c8f"
+          },
+          "container-actual.json": {
+            "bytes": 941,
+            "sha256": "b6a7b61a0cb51a00887501fe75aaf2ed90b02afbc2264d638afcd00a13d5c18c"
+          },
+          "container-exited.json": {
+            "bytes": 170,
+            "sha256": "3bb6e72f26d27d41808fbfedf99c150b69aeacbdc769ec565cabda932872cbb3"
+          },
+          "copy-completion.json": {
+            "bytes": 1035,
+            "sha256": "ae89e2b0b2ec942d6f42997d75dc2f035490da54e78292e01bd639882ee14500"
+          },
+          "failed-completion.json": {
+            "bytes": 991,
+            "sha256": "de91d1a6f8f139b7432b22de3d469ac050f8e84596f2b136387ee7c94fef2658"
+          },
+          "host-preflight.txt": {
+            "bytes": 153,
+            "sha256": "63046ee69f90868edbe80af8c9bb401ad1058060a4a8cebf9293cf79f006e714"
+          },
+          "package-freshness.log": {
+            "bytes": 3389,
+            "sha256": "9156cc43157ea62de2665ab67bb7c40d91ee23488c7cb14ea065fcd6d2b4e2eb"
+          },
+          "pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz": {
+            "bytes": 2073510170,
+            "sha256": "347c9da649b795f3af48bb9c83e79d21a22a9a7301163a8b3d3c17a6d470c66d"
+          },
+          "pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz.sha256": {
+            "bytes": 123,
+            "sha256": "2af83cb401f37c60eae52e35496ed806773dd0e3281a2914c203b80da539557a"
+          },
+          "pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.tar": {
+            "bytes": 2074368000,
+            "sha256": "e057d9c11e72c90adcaf27733ecc116ba285a6d26fc22f844b6617cb723396fe"
+          },
+          "pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.tar.sha256": {
+            "bytes": 120,
+            "sha256": "7342f9ea5ef2f5d380aa8f26cda1ea71ae953c9f44f539a6cdfdd39571f38dbc"
+          },
+          "prelaunch-host.txt": {
+            "bytes": 153,
+            "sha256": "9e693834b2719f5d45b3bbf0eb52056da7a61cc54b7a2638baf5d8c333f9aca8"
+          }
+        },
+        "scope": "manifest digest verified now; payload reverified in retained custody-leads receipt"
+      }
+    ],
+    "top_level_symlinks": [],
+    "deletion_authorized": false
+  },
+  {
+    "tree": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement08",
+    "head": "72121fd03a558725328ea58c092faf1b3324317f",
+    "branch": "build/m7-pixelelated-replacement08",
+    "tracked_status": " M documentation/PER_DEVICE_DOCUMENTATION/GENERIC_X64/SUPPORTED_EMULATORS_AND_CORES.md\n",
+    "tracked_diff_sha256": "42065b015a65d1e363d5daca24c1d2754007b7296faff853b7e5aa7283c3a3c6",
+    "diff_file": "m7-pixelelated-replacement08.patch",
+    "retained_bundles": [
+      {
+        "path": "/workspace/artifacts/pixelelated-candidates/sha256/84a794165a6e421cd1aa1dd6d37b97b257c700738c0a53edd282475ecd4780e9",
+        "manifest_sha256": "84a794165a6e421cd1aa1dd6d37b97b257c700738c0a53edd282475ecd4780e9",
+        "files": {
+          "build.log": {
+            "bytes": 3039721,
+            "sha256": "e9fd837fee5b110603a9133413840604f1624f4ffe94a883f5088ff19118c3b7"
+          },
+          "build.status": {
+            "bytes": 786,
+            "sha256": "a5c18e0d1600e998e1b928260d1e527408c96a40744cf2ad524e356f1e65f113"
+          },
+          "cache-ready.json": {
+            "bytes": 295,
+            "sha256": "cc74feba17b3445ce5ce6ece468662f67d1083e6701ff62611c778b41993dfb4"
+          },
+          "completion.json": {
+            "bytes": 1287,
+            "sha256": "9672e972ee02d164425508023043e72addf53d66979e8f1dac688a2156db639c"
+          },
+          "container-actual.json": {
+            "bytes": 991,
+            "sha256": "c81a58ce7062e0005c26c428b85ebe0fb9a2166deb61ad750b24794024cef542"
+          },
+          "container-exited.json": {
+            "bytes": 170,
+            "sha256": "1d7fe57c5fabc31876d12486b18501be491fb04609f51da3014ffa99d65a7e52"
+          },
+          "copy-completion.json": {
+            "bytes": 956,
+            "sha256": "b4d95989f2deb98168d7be091ae95ff5ab356e91bb6c44b6cbc1bcda69bc679f"
+          },
+          "host-preflight.txt": {
+            "bytes": 153,
+            "sha256": "b13d253c2d9d417142bcb563351a289b9e29ac611d70b19a62668e00c922034b"
+          },
+          "package-freshness-inherited07.log": {
+            "bytes": 3389,
+            "sha256": "9156cc43157ea62de2665ab67bb7c40d91ee23488c7cb14ea065fcd6d2b4e2eb"
+          },
+          "pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz": {
+            "bytes": 2073510659,
+            "sha256": "7a60c191755cc6203eca4624700249538ecc24182087f8aa20a8ea8afeae59ad"
+          },
+          "pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz.sha256": {
+            "bytes": 123,
+            "sha256": "0a80163fe8de65c53e683c39269cddebe8778ada74a7d01f54f0b182e65332a9"
+          },
+          "pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.tar": {
+            "bytes": 2074368000,
+            "sha256": "d196d9c2cff496ab8d8a53ac7536e60428b5f18c431090ff44de0f5074864d9b"
+          },
+          "pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.tar.sha256": {
+            "bytes": 120,
+            "sha256": "f4e32fe4dce859edba808942a0bcbb0571b4fbd4e20995e9f4d69d7bc22f264e"
+          },
+          "prelaunch-host.txt": {
+            "bytes": 253,
+            "sha256": "f30f39a23bd5761e953a91d1cc6adfd03eeab56324765b8502fee61467b76523"
+          }
+        },
+        "scope": "manifest digest verified now; payload reverified in retained custody-leads receipt"
+      }
+    ],
+    "top_level_symlinks": [],
+    "deletion_authorized": false
+  }
+]

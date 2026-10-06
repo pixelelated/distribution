@@ -1,0 +1,201 @@
+{
+  "scope": "Read-only D-WORKFLOW-133 checkpoint resume proof; not a P4 audit or runtime acceptance",
+  "started_utc": "2026-10-06T01:08:34.452049+00:00",
+  "completed_utc": "2026-10-06T01:08:37.798667+00:00",
+  "verdict": "Operationally resumable; refresh stale bookkeeping paragraphs before final handoff",
+  "canonical_checkpoint": ".github/sessions/saved-session-state-next.md at next77776ef0a25fcf5a224af1d699ed2378c96c5613",
+  "feature_head": "3510b65cc665c47f2a81bb89f96c7ecadff44ad8",
+  "frozen_head": "7afa9efcfc0c1ce4b89774b38878fc1b9a9063d2",
+  "source_manifest_sha256": "70cb0448872f39b5382939173b2182a783381142df6dd5630b9e00a2c3ba6ccc",
+  "source_verification": {
+    "observed_utc": "2026-10-06T01:07:36.759501+00:00",
+    "product_files": 6550,
+    "qa_files": 207,
+    "symlinks": 180,
+    "mismatches": []
+  },
+  "harness_seals": {
+    "qa18": {
+      "members": 11,
+      "mismatches": []
+    },
+    "proxy14": {
+      "members": 17,
+      "mismatches": []
+    },
+    "subset11": {
+      "members": 10,
+      "mismatches": []
+    }
+  },
+  "bundle": "/workspace/artifacts/pixelelated-candidates/sha256/b77e47e57a4bb35f885ba78669ee8176a9ac978b27c1cbcfaad66e18f684a9f1",
+  "bundle_manifest_hash_matches_directory": true,
+  "all_bundle_files_verified": {
+    "build.log": {
+      "size_match": true,
+      "hash_match": true
+    },
+    "build.status": {
+      "size_match": true,
+      "hash_match": true
+    },
+    "cache-compare.txt": {
+      "size_match": true,
+      "hash_match": true
+    },
+    "cache-ready.json": {
+      "size_match": true,
+      "hash_match": true
+    },
+    "completion.json": {
+      "size_match": true,
+      "hash_match": true
+    },
+    "container-actual.json": {
+      "size_match": true,
+      "hash_match": true
+    },
+    "container-exited.json": {
+      "size_match": true,
+      "hash_match": true
+    },
+    "copy-completion.json": {
+      "size_match": true,
+      "hash_match": true
+    },
+    "copy-input-proof.json": {
+      "size_match": true,
+      "hash_match": true
+    },
+    "copy-io-observations.jsonl": {
+      "size_match": true,
+      "hash_match": true
+    },
+    "freshness-completion.json": {
+      "size_match": true,
+      "hash_match": true
+    },
+    "host-preflight.txt": {
+      "size_match": true,
+      "hash_match": true
+    },
+    "package-freshness.log": {
+      "size_match": true,
+      "hash_match": true
+    },
+    "pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz": {
+      "size_match": true,
+      "hash_match": true
+    },
+    "pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz.sha256": {
+      "size_match": true,
+      "hash_match": true
+    },
+    "pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.tar": {
+      "size_match": true,
+      "hash_match": true
+    },
+    "pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.tar.sha256": {
+      "size_match": true,
+      "hash_match": true
+    },
+    "pre-freeze-schema.log": {
+      "size_match": true,
+      "hash_match": true
+    },
+    "prelaunch-host.txt": {
+      "size_match": true,
+      "hash_match": true
+    }
+  },
+  "completed_owners_rechecked": {
+    "replacement-14": {
+      "completion_utc": "2026-10-06T00:59:32.530524+00:00",
+      "actual_channels": {
+        "inner.rc": 0,
+        "outer.rc": 0,
+        "tool-wrapper.rc": 0,
+        "build.rc": 0
+      },
+      "recorded_pids_still_present": [],
+      "build_log_hash_matches": true
+    },
+    "consent-02": {
+      "completion_utc": "2026-10-06T01:01:30.573472+00:00",
+      "actual_channels": {
+        "inner.rc": 0,
+        "outer.rc": 0,
+        "tool-wrapper.rc": 0,
+        "build.rc": 0
+      },
+      "recorded_pids_still_present": [],
+      "build_log_hash_matches": true
+    },
+    "image-14": {
+      "completion_utc": "2026-10-06T01:02:36.812373+00:00",
+      "actual_channels": {
+        "inner.rc": 0,
+        "outer.rc": 0,
+        "tool-wrapper.rc": 0,
+        "build.rc": 0
+      },
+      "recorded_pids_still_present": [],
+      "build_log_hash_matches": true
+    },
+    "inventory-10": {
+      "completion_utc": "2026-10-06T01:02:36.840248+00:00",
+      "actual_channels": {
+        "inner.rc": 0,
+        "outer.rc": 0,
+        "tool-wrapper.rc": 0,
+        "build.rc": 0
+      },
+      "recorded_pids_still_present": [],
+      "build_log_hash_matches": true
+    }
+  },
+  "qa18": {
+    "run": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement14/.build-runs/20261006T010236Z-a12444e5",
+    "pids_present": {
+      "1805328": true,
+      "1805329": true,
+      "1805331": true,
+      "1805360": true,
+      "1806101": true,
+      "1806128": true
+    },
+    "status": "state:       running\nwritten:     2026-10-06 01:08:34 UTC   <- if this is stale, investigate the watcher\nwatcher_pid: 1805331\njob_pid:     1805329  alive=yes\nstarted:     2026-10-06 01:02:36 UTC\nprogress:    none matched\nlog:         /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement14/.build-runs/20261006T010236Z-a12444e5/build.log  (last written 272s ago)\nactivity:    /workspace/tmp/pixelelated-m7-qa-18/artifacts/rocknix-images/qa-7afa9efcfc-webdav-a-20261006-0104/scripts.log  (last written 1s ago)\nactivity_dir: /workspace/tmp/pixelelated-m7-qa-18/artifacts\nactivity_progress: \ntail:\n      PASS  with no system picked and no BIOS in the cloud there is still nothing to do, and it says so (rc 1)\n      A12. #308 claude F-CS-04: cloud_restore under --yes waits for nobody\n",
+    "terminal_results_present": []
+  },
+  "tracker_readback": {
+    "M7_updated": "2026-10-06T01:07:19Z",
+    "383_updated": "2026-10-06T01:07:23Z",
+    "457_state": "CLOSED",
+    "457_criteria": "all four ticked",
+    "168_state": "OPEN; contribution dispositions/regressions remain",
+    "456_state": "OPEN; preservation custody incomplete; no deletion approval"
+  },
+  "checkpoint_gaps": [
+    {
+      "severity": "bookkeeping",
+      "finding": "Current docs staged for publication and previous metadata heads remain after actual publication; replace with feature3510/next7777 and completed tracker readback."
+    },
+    {
+      "severity": "bookkeeping",
+      "finding": "#457 can close / installed criterionOPEN / refresh after publication remain after #457 closed; mark complete and retain original consent01 failure."
+    }
+  ],
+  "safe_resume_sequence": [
+    "Poll QA18 status and actual host process state at most60seconds apart; do not launch or stop anything while active.",
+    "After actual terminal results and owner/guest/backend exit, invoke complete-durable once with actual RC; retain failures and do not replay completed owners.",
+    "On accepted QA18 inspect actual frames/reports/source evidence, then launch prepared proxy14 from frozen14 with its exact immutable bundle, five-second watcher and recursive artifact activity.",
+    "After accepted proxy14 and actual cleanup, run subset11 identically; account-dependent proof awaits dedicated RA status and Dropbox credential-file path.",
+    "Remaining P3 precedes verified primary+Fable5.1/xhigh P4 and device/P5 gates; no cleanup deletion or reserve change authorized."
+  ],
+  "limitations": [
+    "No guest commands, job launch/stop, tracker update, repository mutation or completion writer invoked.",
+    "Prepared-owner provenance state is a frozen preparation record; actual started/running status was read from run/process artifacts.",
+    "This checks handoff usability, not all runtime claims or P4 code correctness."
+  ],
+  "report_path": "/tmp/m7-qa18-resume-proof-20261006.json"
+}

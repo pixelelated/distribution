@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Saved 2026-10-06T01:13:44.129792+00:00. Previous full candidate12 handoff archived at
+> Saved 2026-10-06T01:04:13.073547+00:00. Previous full candidate12 handoff archived at
 > `.github/sessions/archived/saved-session-state-next-20261006T004508Z.md`. Feature worktree remains conflict-resolution;
 > primary /workspace/repos/rocknix remains next. This is an active-job checkpoint.
 
@@ -74,8 +74,7 @@ cases pass. Firstgrantcounter7→8 at16.705487703seconds uptime (required<30).
 Loadedbytecodehashesmatchassembled14; actual loopbackusagePOST/logPOST+PUT,
 syntheticstate only. No scheduler/UI/provider claim. Finished01:01:02/allfour0,
 actualcleanup01:01:30; ownerPIDs1793734/35/36/65 andguest1794173gone.
-Original consent01 remains failed. #457 is CLOSED with all four criteria verified;
-readback /tmp/pixelelated-close457/readback.json records published evidence.
+Originalconsent01 remains failed. #457 can close after this evidence publishes.
 
 **Completed image14 and inventory10:** allfour0 at01:01:50/01:02:00,
 actualcleanup01:02:36beforeQA. Rawimage/updateSYSTEMmatch; extractedroot is
@@ -111,17 +110,13 @@ ThenremainingP3/account/upstream→approvedP4primary+Fable5.1/xhighverified
 Facilitator/OpenRouter→resolve/requalify→H700DDR4/RG35XXSParmfirst,aarch64second→
 namedphysical/P5. NoP4started. PendingdedicatedRA/Dropboxanswersbelowremain.
 
-Completed build/consent/image/inventory evidence and active QA checkpoint are
-published: feature3510b65cc665c47f2a81bb89f96c7ecadff44ad8,
-next77776ef0a25fcf5a224af1d699ed2378c96c5613. Product remains7afa;
-metadata commits do not advance the frozen tree. Normal hooks and remote
-readback pass. Receipt /tmp/pixelelated-built14-published.json.
-M7/#361/#383 live current sections refreshed and read back at01:07;
-receipts /tmp/pixelelated-qa18-tracking. #457 closed after publication.
-No source qualification, publication or issue closure above should be replayed.
-Fresh-context proof /tmp/m7-qa18-resume-proof-20261006.json verifies frozen
-inputs, three harnesses and19bundle files; its stale bookkeeping findings
-are corrected here. QA18 remains active; inspect current status immediately.
+Current docs staged for publication: replacement14cache/build/consent/image/
+inventoryreceipts,readiness,worklog,friction,checkpoint. EarlierfeatureHEAD
+b617c7cc62b41ccad74f5cb3250aa0f912257d85,nextfc057b8e58a8b3e6fe889737f6b748acfbefcd04
+aremetadataheads; product14remains7afa. Useexplicitxpickandnormalhooks.
+Afterpublicationupdate#457criterion/closewithlink,refreshM7/#361/#383current
+QAstateandreadback. Fresh-contextstashproofrequired; priorproofin
+cache-preparation/fresh-context-resume-proof.jsontestedpreviouscheckpoint.
 
 ## Consent failure and fix — #457
 
@@ -164,8 +159,7 @@ Source qualification on b09+16patches:
   generatedpatchcontext. Preservedbytes; scoped editablefile check + actual
   appliedpatch suite. Normalhooks, no bypass; failedpublicationlog retained.
 
-#457 all four criteria are verified and the issue is CLOSED; consent02 above
-provides the fresh installed-image proof. Original consent01 remains failed.
+#457 first,second,fourthcriteria ticked; installed-image criterionOPEN.
 #168 full patch/olderaudit mapping ticked; general fixes/PRdispositions remain
 OPEN. docs/upstream/raofflineproxy/contribution-map.md has exactdispositions;
 three standalone drafts prepared, none submitted. D-RA-016 requested go before
@@ -225,24 +219,9 @@ The prior stash was archived before thiswrite; a fresh no-context read-only
 resume proof is required after checkpointpublication. It is not a code audit.
 No new physical/cloud action or deletion is authorized by this handoff.
 
-## Latest checkpoint custody and cleanup follow-up
+## Latest checkpoint custody
 
-Previous checkpoint archived before this correction; archive path recorded in
-/tmp/pixelelated-active18-correction-archive.path. Current active job is QA18,
-not the completed copy/build/consent/image/inventory jobs. Its initial five
-identity frames were directly reviewed; /tmp/pixelelated-qa18-initial-frames-review.json.
-Later frames and suite results remain ungraded until observed.
-
-Cleanup custody01 (/tmp/pixelelated-cleanup-custody-01) completed01:12:04,
-allfour0; own processes absent01:12:29 while the separately owned QA18 guests
-continued. Five source/branch/diff/bundle manifests retained.206QAbackingchains
-have no errors or references to proposed03/05/06/07/08. No matching container
-mount or readable process reference.537processes unreadable and excluded
-package roots keep this a bounded inspection; no whole-host absence claim.
-Full raw host records stay local with hashes in docs/qa-logs/2026-10-05-build-storage/
-custody-followup-20261006. Required source/debug/licence/failed-log preservation,
-net recovery and exact removal proposal remain incomplete. No deletion approved.
-At01:07:42about62GiBwasavailable; remeasure before further heavy allocations.
-
-No completed owner may be replayed. No account input has arrived. After QA18,
-proxy14 and subset11 remain the next prepared jobs before account/P4 gates.
+Previous active-copy stash archived at `.github/sessions/archived/saved-session-state-next-20261006T010413Z.md` before this write.
+LiveM7/#361/#383wereupdated01:00withbuildactive; refreshforcompletedbuild/
+consentandactiveQA18afterpublication. LowerM7.P3rowwasalreadycorrected.
+Do not replay completed scripts under/tmp; use fresh filenames/owners.

@@ -95,3 +95,22 @@ was discarded or restored. This establishes retained image/input custody only.
 Unique consumed-source/debug data, QA backing references, live process checks
 and a final preservation/removal plan remain prerequisites to deletion. No
 removal is approved or performed by this observation.
+
+## October 6 dependency follow-up — #456
+
+A separately watched read-only inspection completed01:12:04/allfour0,
+actual owned-process cleanup01:12:29 while the independent QA18 guests
+continued. All five branches/heads, tracked diffs and retained candidate
+manifest identities were recorded. All206discovered QA qcow2 backing chains
+were readable, with zero references to the proposed five trees. No matching
+container mount or readable process reference was found.
+
+This is bounded evidence: package build roots, git metadata and node_modules
+were excluded from QA-disk discovery;537processes were unreadable in the
+initial scan. No complete live-dependency absence claim is made. Required
+source/licence, unstripped debug outputs and failed-run preservation, final
+net recovery and exact commands remain unfinished. Full path/process records
+stay under `/tmp/pixelelated-cleanup-custody-01`, with hashes in the receipt.
+`custody-followup-20261006/` retains the scoped public evidence. No deletion,
+reservation change or removal approval. Current14 and all earlier protected
+inputs remain excluded. At01:07:42the build volume had about62GiBavailable.

@@ -1,0 +1,22 @@
+{
+  "utc": "2026-10-06T01:13:05.785988+00:00",
+  "original_owner": "/tmp/pixelelated-cleanup-custody-01",
+  "detailed_host_records": [
+    {
+      "name": "discovery-scope.json",
+      "bytes": 40038,
+      "sha256": "17e537bcf99fd8bbd85fc99ae8811e94541fcce703873f242a899b87358a3388"
+    },
+    {
+      "name": "backing-chains.json",
+      "bytes": 335138,
+      "sha256": "38932cbb76254497e6bc4afd9f5a6ee7bb6c68f498a7fa49d951fd9f0ff5432b"
+    },
+    {
+      "name": "live-dependencies.json",
+      "bytes": 52744,
+      "sha256": "98cae3acc93edc0ade4743a4dae652b881bb22ba93b0c9f42938ddbe7d83afb7"
+    }
+  ],
+  "reason": "Full host paths and process inspection details stay with the original owner; public receipt preserves exact hashes and scope/counts."
+}
