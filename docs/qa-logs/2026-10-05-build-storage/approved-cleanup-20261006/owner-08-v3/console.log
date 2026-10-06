@@ -1,0 +1,17 @@
+watch-build: recording in /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261006T033253Z-b4231037
+remove-one.py: OK
+run.sh: OK
+outer.sh: OK
+Gates passed; removing approved tree 08 with 231 surviving chains checked
+Removal activity 08 available_bytes 502954852352 helper_pid 2834431
+  destroying build output as instructed:
+    build.pixelelated-GENERIC_X64.x86_64
+    sources
+    target
+  removal permissions: 206306 directories checked; 1224 owner-write/search repairs
+Removal activity 08 available_bytes 529235333120 helper_pid 2834431
+Removal activity 08 available_bytes 552431906816 helper_pid 2834431
+Removal activity 08 available_bytes 585427857408 helper_pid 2834431
+Removal activity 08 available_bytes 618514366464 helper_pid 2834431
+  removed: /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement08
+PASS removed 08 {"utc": "2026-10-06T03:33:19.138123+00:00", "started": "2026-10-06T03:32:54.126638+00:00", "tree": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement08", "helper_rc": 0, "helper_pid": 2834431, "directory_absent": true, "registration_absent": true, "branch_retained": "build/m7-pixelelated-replacement08", "head_retained": "72121fd03a558725328ea58c092faf1b3324317f", "surviving_chains_verified": 231, "container_count": 16, "root_snapshot_utc": "2026-10-06T03:32:49.365802+00:00", "before": {"available_bytes": 502954852352, "free_bytes": 703010979840, "reserved_bytes": 200056127488}, "after": {"available_bytes": 618960621568, "free_bytes": 819016749056, "reserved_bytes": 200056127488}, "observed_free_byte_increase": 116005769216, "protected_paths_present": true}

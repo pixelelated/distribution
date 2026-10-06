@@ -1,12 +1,11 @@
 # Build-host storage inventory — #453
 
-**Current follow-up:** #459 owns the approved removal of replacement03/05/06/07/08
-(D-INFRA-017). The [fresh preflight](approved-cleanup-20261006/README.md)
-passed: 15,206 retained files rehashed, 235 disk chains checked, no backing or
-container dependencies. No removal has started. Fresh root process snapshots
-await the maintainer-run read-only watcher because sudo requires interactive
-authentication. Estimated net benefit remains 524.84 GiB; no measured recovery
-or reserve change. #456 preparation and the dated inventory remain historical.
+**Current follow-up:** #459 completed the five approved removals. [Execution
+and final retention proof](approved-cleanup-20261006/README.md) verifies
+539.34 GiB recovered, 576.45 GiB available, unchanged reserve and all
+protected artifacts retained. #460 fixed read-only directory handling with
+six regression controls. No cleanup/build/QA job remains active; the root
+watcher stopped automatically. The dated inventory below remains historical.
 
 The maintainer asked: “With the 4 TB drive, shouldn't we have more than 246 GB
 available, or is it because we have multiple builds on disk already?”

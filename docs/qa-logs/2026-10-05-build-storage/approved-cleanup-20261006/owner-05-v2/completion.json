@@ -1,0 +1,27 @@
+{
+  "utc": "2026-10-06T03:29:16.673626+00:00",
+  "owner": "/tmp/pixelelated-approved-cleanup-05-v2",
+  "run": "/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261006T032828Z-fa1f38d5",
+  "result_channels": {
+    "inner.rc": 1,
+    "outer.rc": 1,
+    "tool-wrapper.rc": 1,
+    "build.rc": 1
+  },
+  "absent_pids": [
+    2810783,
+    2810784,
+    2810785,
+    2810813
+  ],
+  "job_rc": 1,
+  "durable_runner_rc": 1,
+  "qemu_absent": true,
+  "build_log_sha256": "f0d83e0c58ffc6cc1103ee1b8ac47ed4b0d6b1024be3c57fdecd3771e582785e",
+  "launcher_result": {
+    "utc": "2026-10-06T03:28:38.927705+00:00",
+    "pid": 2810783,
+    "runner_returncode": 1,
+    "submission_is_not_completion": true
+  }
+}

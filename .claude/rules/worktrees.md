@@ -107,6 +107,15 @@ git has been observed to unregister it and leave the contents behind: a
 directory that is no longer a worktree, with orphaned build roots, reported only
 as a non-zero exit. In a loop over several worktrees that exit scrolls past.
 
+An approved forced removal first inspects directory permissions. Go module
+caches contain owner-owned read-only directories; Git otherwise discovers
+them only after partially deleting and unregistering the worktree (#460).
+The helper adds owner write/search bits only where needed, after a complete
+scan, without following directory symlinks or changing regular-file modes.
+Unreadable, unrepairable or cross-filesystem directories stop the operation
+before Git removal. Keep a failed run's receipt; repair a partial worktree
+with the preserved commit and tracked diff, then use a fresh retry owner.
+
 ```bash
 ./tools/fork-worktree list                        # what each one is holding
 ./tools/fork-worktree remove <path>               # refuses if build output is present

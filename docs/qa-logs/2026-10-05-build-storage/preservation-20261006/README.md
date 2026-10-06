@@ -1,11 +1,10 @@
 # Superseded-build preservation and removal proposal — #456, #458
 
-This is the completed #456 preservation proposal. The maintainer subsequently
-approved the five removals under #459/D-INFRA-017. See the
-[execution checkpoint](../approved-cleanup-20261006/README.md): fresh retention
-and disk/container checks passed; fresh root process visibility remains pending
-interactive sudo. No removal or filesystem-reserve change has occurred.
-Product14 and its VM evidence remain untouched.
+This is the completed #456 preservation proposal. The five removals were
+subsequently approved under #459/D-INFRA-017 and are now complete. See the
+[execution and retention proof](../approved-cleanup-20261006/README.md):
+539.34 GiB recovered, 576.45 GiB available; all preserved artifacts and the
+current candidate verify. No filesystem-reserve or product change.
 
 ## Completed preservation
 

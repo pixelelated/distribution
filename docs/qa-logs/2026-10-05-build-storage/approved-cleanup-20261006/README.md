@@ -1,65 +1,86 @@
-# Approved five-tree cleanup — #459
+# Approved five-tree cleanup complete — #459
 
-The maintainer approved the exact proposal: “Yes, you have my approval.”
-D-INFRA-017 permits only replacement03/05/06/07/08, one at a time through
-`tools/fork-worktree remove … --force`. No removal has started. No filesystem
-reserve change is authorized. #456 preservation preparation is complete.
+Removed only replacement03/05/06/07/08 under D-INFRA-017. Each successful run
+has four zero result channels, actual helper/owner process exits, directory
+and worktree-registration absence, and retained branch/head verification.
+All protected paths and preserved artifacts remain. No reserve setting changed.
 
-The fresh preflight finished at 03:12:13 UTC on October 6; all four result
-channels are zero. Actual runner/watcher/command and both child processes
-were absent at 03:12:20. Receipts and the sealed harness are in `preflight/`.
+The live filesystem sample increased from **37.11 GiB available to
+576.45 GiB**, recovering **539.34 GiB** (579,115,601,920 bytes).
+The earlier 524.84 GiB net estimate subtracted preservation storage; those
+stores already existed in this execution's before sample. Do not subtract
+their cost twice. Small concurrent host allocations can affect this measured
+delta; it is not an atomic per-directory accounting claim.
 
-- Rehashed 15,206 retained files, 42,878,140,697 bytes; 27 git source inputs
-  and submodules, all five branch heads and tracked diffs match custody.
-- Traversed 4,221,608 directories across the four project storage roots;
-  all 235 qcow2-suffixed files/backing chains passed, with no discovery or
-  qemu errors, backing references into these trees, or container mount matches.
-  Directory symlinks are not followed; this is the recorded scope, not a
-  claim about arbitrary host files. The five internal disks are test fixtures.
-- Full large preservation/dependency reports stay at their original local
-  paths; their SHA256 values are recorded here. Preserved objects remain in
-  the three stores documented by the earlier proposal. Keep runtime-01:
-  accepted runtime-02 references its independently verified objects.
+| Tree | Successful owner suffix | Terminal UTC, October 6 | Result |
+| --- | --- | --- | --- |
+| replacement03 | `03-v2` | 03:28:09 | Removed; branch retained |
+| replacement05 | `05-v3` | 03:30:24 | Removed; branch retained |
+| replacement06 | `06-v3` | 03:31:17 | Removed; branch retained |
+| replacement07 | `07-v3` | 03:32:06 | Removed; branch retained |
+| replacement08 | `08-v3` | 03:33:23 | Removed; branch retained |
 
-## Only remaining execution prerequisite
+Owners are under `/tmp/pixelelated-approved-cleanup-`; their complete receipts
+are retained in this directory. Never replay any completed or failed owner.
+The original unsubmitted owners and v2 owners06/07/08 are obsolete preparations,
+not outstanding work. The root watcher stopped automatically after its
+03:33:14 UID0 snapshot saw all five directories absent, with zero matching
+references and unreadable fields. Actual PID2780340 absence is verified.
 
-At 03:02:30, noninteractive sudo required interactive authentication. This
-is not an automatic approval-review rejection or a request for deletion
-approval again. The earlier 02:22:23 root report passed, but is too old to
-serve as the immediate live-process check for new removals.
+## Final retention verification
 
-The maintainer has been asked to run this read-only watcher and leave it
-running, then reply “running”:
+Final read-only owner `final-01` finished03:34:03 with all four results0;
+actual runner/watcher/command process absence verified03:34:30.
 
-```sh
-sudo /usr/bin/python3 -I /tmp/pixelelated-approved-cleanup-20261006/watch-process-references.py > /tmp/pixelelated-approved-cleanup-20261006/root-watch.jsonl
-```
+- Rehashed all **15,206 retained files**, plus the current candidate's
+  **19 bundle files**: 15,225 files / 47,029,011,798 bytes total, no mismatch.
+- Verified all15retention manifests,27git source inputs/submodules and12
+  protected path identities, including current/protected worktree heads.
+- The original frozen14 verifier passes: product/QA source files and symlinks,
+  host-options hash, container identity and build concurrency are unchanged.
+- Re-read all230surviving disk backing chains; no dependency points into a
+  removed tree. The only five missing disks are the removed internal test
+  fixtures. Discovery scope remains the four project roots and qcow2 suffix;
+  directory symlinks were not followed during the preflight inventory.
+- Reserved bytes remain200,056,127,488. Current14, unbuilt13, retained12,
+  qualified10, source09, all bundles, RC2/backing chains, shared source cache,
+  recovered rclone input and all three preservation stores remain protected.
 
-It only reads process references and writes JSON to stdout. It performs no
-deletion, permission change or command execution. Every five seconds it
-checks cwd/exe/root/arguments/fds/maps for the five exact roots; it stops
-when all five directories are absent or after one hour. Its sealed source
-and hash are retained here. There is no permanent sudo grant.
+`final-verification.json` records exact byte counts, branches, source hashes,
+per-removal space samples and the final verification. Full initial retention
+and disk-discovery reports remain at their recorded local paths with published
+digests. The failed runtime-01 preservation store remains because accepted
+runtime-02 references its reverified objects.
 
-No root-watch report exists at this checkpoint. All five removal owners are
-prepared but unsubmitted. The entry point rechecks source/diff, preservation
-metadata/manifests, protected paths, surviving disk chains, current container
-mounts, absence of QEMU and a clean UID0 snapshot less than 15 seconds old
-before invoking the ordinary-user worktree helper. It verifies directory
-and registration absence, retained branch/head, protected paths and actual
-free-space delta after each removal. Failure stops the chain.
+## Failures retained and corrected — #460
 
-Expected historical gross recovery is 539.33 GiB; after 14.49 GiB of retained
-preservation data, estimated net benefit is 524.84 GiB. Neither number is a
-measurement of reclaimed space. `capacity-before-removal.json` is a live
-pre-removal capacity sample. Actual recovery must be measured after execution.
+Original03 failed03:22:47/allfour1 after Git encountered owner-owned0555 Go
+module directories and partially deleted/unregistered the tree. Watched
+repair03 restored registration at02163b4 and its exact saved branch/diff;
+allfour0 and actual exits verified before fresh03-v2. Already-removed build
+intermediates were not reconstructed. The original failure remains failed.
 
-Protect replacement14/current, unbuilt13, retained12, qualified10, source09,
-every candidate bundle, original ROCKNIX RC2 and backing chains, shared source
-cache, the recovered rclone input and all three preservation stores. The
-exact protected paths/inodes/heads are in `protected-before.json`.
+The first permission-preflight version refused05's empty root-owned Docker
+mountpoint before mutation or Git removal;05-v2 remains failed/allfour1.
+The final helper permits empty-directory removal through the writable parent,
+and repairs only necessary owner-write/search bits on owned nonempty
+directories after a complete scan. It leaves files and symlink targets alone.
+Six isolated regression controls pass; see
+`../../2026-10-06-worktree-permissions/README.md`.
 
-Can this be done on the VM? No: this is host allocation and host dependency
-inspection. No physical device, personal cloud or product changes are involved.
-The remaining release order stays P3 dedicated account proofs/upstream
-preparation, then P4 fixes audit, then H700 and separately gated P5 work.
+This host-tool fix is now the normal forced-removal path. No running tool was
+edited. The two original failures, their source versions, repair and every
+fresh owner are retained rather than rewritten as successful attempts.
+
+## Release status
+
+Frozen replacement14 remains7afa9efcfc0c1ce4b89774b38878fc1b9a9063d2,
+bundleb77e47e57a4bb35f885ba78669ee8176a9ac978b27c1cbcfaad66e18f684a9f1.
+No product or VM qualification result changed. Nothing is running and no
+disconnected alert is armed. Remaining P3 dedicated RA/Dropbox account proofs
+and upstream preparation precede P4, H700 and separately gated physical/P5
+work. Cleanup success is not an RC/device-ready claim.
+
+Can this be done on the VM? No: these are host filesystem/worktree operations.
+All five removals were already explicitly approved. No wider cleanup,
+filesystem reserve change, physical device or personal-cloud action occurred.

@@ -1,0 +1,5 @@
+refusing: /tmp/pixelelated-worktree-permissions-p76pvsn6/no-force/target holds build output that is not in git (12K):
+    build.fixture
+  Each build.* directory is hours of work and cannot be recovered from a clone.
+  Keep it:     fork-worktree remove /tmp/pixelelated-worktree-permissions-p76pvsn6/no-force/target --preserve <dir>
+  Destroy it:  fork-worktree remove /tmp/pixelelated-worktree-permissions-p76pvsn6/no-force/target --force

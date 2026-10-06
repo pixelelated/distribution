@@ -1,0 +1,15 @@
+remove-one.py: OK
+run.sh: OK
+outer.sh: OK
+Gates passed; removing approved tree 05 with 234 surviving chains checked
+Removal activity 05 available_bytes 155590172672 helper_pid 2811822
+  destroying build output as instructed:
+    build.pixelelated-GENERIC_X64.x86_64
+    sources
+    target
+error: removal permission preflight failed: directory is not writable or owned by this user: ./sources
+Traceback (most recent call last):
+  File "/tmp/pixelelated-approved-cleanup-05-v2/remove-one.py", line 100, in <module>
+    rc=child.wait();assert rc==0,('Removal helper failed; stop before later trees',number,rc)
+                           ^^^^^
+AssertionError: ('Removal helper failed; stop before later trees', '05', 1)
