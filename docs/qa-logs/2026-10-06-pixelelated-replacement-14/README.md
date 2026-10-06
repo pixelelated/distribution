@@ -33,7 +33,10 @@ or P4 completion claim.
 Dedicated RA/Dropbox account inputs, remaining P3 criteria and upstream draft
 dispositions precede approved P4 primary+Fable5.1/xhigh via Facilitator.
 Then H700DDR4/RG35XXSP arm first,aarch64 second and named physical/P5 gates.
-#456cleanup preparation remains separate; no deletion/reservechange occurred.
+At this qualification checkpoint, #456 cleanup preparation was separate and
+no deletion or reserve change had occurred. The later #459 execution completed
+the five approved removals; see the [completed cleanup record](../2026-10-05-build-storage/approved-cleanup-20261006/README.md).
+The filesystem reserve remains unchanged.
 
 ## Installed early-boot consent proof
 
