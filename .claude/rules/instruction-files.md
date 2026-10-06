@@ -169,6 +169,7 @@ both lists and to this table, or it is invisible.**
 | `emulator-exit-test`, `wait-lock-test`, `last-good-scripts-test` | the exit hotkey, the lock's patience, the scripts under busybox | `generic-x64-vm-testing.md` |
 | `time-to-play` | interface to a game's first frame, and game to game | `time-to-play.md` |
 | `ra-offline-test` | an achievement earned offline survives to the server | `generic-x64-vm-testing.md` |
+| `ra-ui-test` | installed reconnect cards with local success/refusal fixtures and full-panel frames | `generic-x64-vm-testing.md` |
 | `ra-candidate-games` | which homebrew titles have cheap achievements, and does a ROM carry its set | `generic-x64-vm-testing.md` |
 | `retroarch-wrapper-test` | does the threaded video wrapper run a posted command exactly once | `engineering-practices.md` |
 | `es-menu-map-check` | does `docs/es-menu-map.md` still describe the menus that ship | `es-native-ui.md` |

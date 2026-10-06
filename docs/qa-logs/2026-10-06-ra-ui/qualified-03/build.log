@@ -1,0 +1,144 @@
+/workspace/tmp/pixelelated-m7-ra-ui-03/check-payload.py: OK
+/workspace/tmp/pixelelated-m7-ra-ui-03/outer.sh: OK
+/workspace/tmp/pixelelated-m7-ra-ui-03/proxy-identity.py: OK
+/workspace/tmp/pixelelated-m7-ra-ui-03/ra-ui-test: OK
+/workspace/tmp/pixelelated-m7-ra-ui-03/run.sh: OK
+/workspace/tmp/pixelelated-m7-ra-ui-03/stop-guest.py: OK
+/workspace/tmp/pixelelated-m7-ra-ui-03/verify-inputs.py: OK
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/b77e47e57a4bb35f885ba78669ee8176a9ac978b27c1cbcfaad66e18f684a9f1
+No errors were found on the image.
+31695/262144 = 12.09% allocated, 0.00% fragmented, 0.00% compressed clusters
+Image end offset: 2077818880
+[W][06:53:09.816138] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][06:53:09.816173] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+ready after ~31s
+PASS ui-before-640x480 exact identity, installed scripts, policy and Ocean SVG bytes/modes
+PASS ui-before-640x480 installed proxy identities and account discovery
+PASS exact candidate BUILD_ID
+PASS no configured real account
+PASS no game running before UI proof
+PASS identity census includes installed compiled proxy modules
+PASS profile starts with an empty owned fixture
+PASS no startup send outcome before reconnect stimulus
+PASS settings loaded by restarted ES
+PASS baseline panel dimensions
+PASS accept actual ctl pending1
+PASS accept actual address removed
+PASS accept actual address restored
+PASS accept-sending panel dimensions
+PASS accept UI outcome stamp sent
+PASS accept-outcome panel dimensions
+PASS accept actual UI log matches outcome
+PASS accept queue state matches outcome
+PASS accept-dismissed panel dimensions
+PASS empty repeat actual address removed
+PASS empty repeat actual address restored
+PASS empty reconnect writes no new send outcome
+PASS empty-repeat panel dimensions
+PASS refuse actual ctl pending1
+PASS refuse actual address removed
+PASS refuse actual address restored
+PASS refuse-sending panel dimensions
+PASS refuse UI outcome stamp not-sent
+PASS refuse-outcome panel dimensions
+PASS refuse actual UI log matches outcome
+PASS refuse queue state matches outcome
+PASS refuse-dismissed panel dimensions
+PASS installed ES/ctl/compiled proxy bytes unchanged
+PASS same ES PID and start ticks throughout proof
+PASS no game running after UI proof
+PASS all local provider/flusher processes exited
+PASS installed reconnect-card assertions; direct visual review required
+PASS exact candidate BUILD_ID
+PASS no configured real account
+PASS no game running before UI proof
+PASS identity census includes installed compiled proxy modules
+PASS profile starts with an empty owned fixture
+PASS no startup send outcome before reconnect stimulus
+PASS settings loaded by restarted ES
+PASS baseline panel dimensions
+PASS accept actual ctl pending1
+PASS accept actual address removed
+PASS accept actual address restored
+PASS accept-sending panel dimensions
+PASS accept UI outcome stamp sent
+PASS accept-outcome panel dimensions
+PASS accept actual UI log matches outcome
+PASS accept queue state matches outcome
+PASS accept-dismissed panel dimensions
+PASS empty repeat actual address removed
+PASS empty repeat actual address restored
+PASS empty reconnect writes no new send outcome
+PASS empty-repeat panel dimensions
+PASS installed ES/ctl/compiled proxy bytes unchanged
+PASS same ES PID and start ticks throughout proof
+PASS no game running after UI proof
+PASS all local provider/flusher processes exited
+PASS installed reconnect-card assertions; direct visual review required
+PASS ui-after-640x480 exact identity, installed scripts, policy and Ocean SVG bytes/modes
+PASS ui-after-640x480 installed proxy identities and account discovery
+PASS owned guest stopped 3712330
+[W][06:57:39.508871] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][06:57:39.508903] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+ready after ~18s
+PASS ui-before-1280x960 exact identity, installed scripts, policy and Ocean SVG bytes/modes
+PASS ui-before-1280x960 installed proxy identities and account discovery
+PASS exact candidate BUILD_ID
+PASS no configured real account
+PASS no game running before UI proof
+PASS identity census includes installed compiled proxy modules
+PASS profile starts with an empty owned fixture
+PASS no startup send outcome before reconnect stimulus
+PASS settings loaded by restarted ES
+PASS baseline panel dimensions
+PASS accept actual ctl pending1
+PASS accept actual address removed
+PASS accept actual address restored
+PASS accept-sending panel dimensions
+PASS accept UI outcome stamp sent
+PASS accept-outcome panel dimensions
+PASS accept actual UI log matches outcome
+PASS accept queue state matches outcome
+PASS accept-dismissed panel dimensions
+PASS empty repeat actual address removed
+PASS empty repeat actual address restored
+PASS empty reconnect writes no new send outcome
+PASS empty-repeat panel dimensions
+PASS installed ES/ctl/compiled proxy bytes unchanged
+PASS same ES PID and start ticks throughout proof
+PASS no game running after UI proof
+PASS all local provider/flusher processes exited
+PASS installed reconnect-card assertions; direct visual review required
+PASS exact candidate BUILD_ID
+PASS no configured real account
+PASS no game running before UI proof
+PASS identity census includes installed compiled proxy modules
+PASS profile starts with an empty owned fixture
+PASS no startup send outcome before reconnect stimulus
+PASS settings loaded by restarted ES
+PASS baseline panel dimensions
+PASS accept actual ctl pending1
+PASS accept actual address removed
+PASS accept actual address restored
+PASS accept-sending panel dimensions
+PASS accept UI outcome stamp sent
+PASS accept-outcome panel dimensions
+PASS accept actual UI log matches outcome
+PASS accept queue state matches outcome
+PASS accept-dismissed panel dimensions
+PASS empty repeat actual address removed
+PASS empty repeat actual address restored
+PASS empty reconnect writes no new send outcome
+PASS empty-repeat panel dimensions
+PASS installed ES/ctl/compiled proxy bytes unchanged
+PASS same ES PID and start ticks throughout proof
+PASS no game running after UI proof
+PASS all local provider/flusher processes exited
+PASS installed reconnect-card assertions; direct visual review required
+PASS ui-after-1280x960 exact identity, installed scripts, policy and Ocean SVG bytes/modes
+PASS ui-after-1280x960 installed proxy identities and account discovery
+PASS owned guest stopped 3738169
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/b77e47e57a4bb35f885ba78669ee8176a9ac978b27c1cbcfaad66e18f684a9f1
+PASS frozen source inputs, ES pin and candidate input custody
+PASS installed reconnect UI matrix; direct frame review remains required

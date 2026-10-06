@@ -45,11 +45,15 @@ reset, fresh owner ra01 passed33 assertions, no failures/skips. The real
 softcore award survived exit offline, flushed on reconnect, appeared in the
 provider API and was recognized on relaunch. All four results0 and actual
 cleanup/account-clear verified. [Award evidence](../qa-logs/2026-10-06-ra-award/README.md).
-The reset is now consumed. No queue/send card was captured; these frames prove
-only post-exit ES screens. #361's remaining UI/progress evidence must be
-reconciled separately before its compound criterion closes.
+The reset is now consumed. Those exit frames remain carousel-only evidence.
+The remaining reconnect-card proof (#465) now passes separately on unchanged14:
+109 assertions,23 directly reviewed frames, EN/FR at640x480 and1280x960,
+success/refusal/empty-repeat controls. Allfourrc0; actualcleanup07:01:20.
+[Installed UI proof](../qa-logs/2026-10-06-ra-ui/README.md) uses synthetic local
+HTTP and unchanged installed components; it does not claim another real award.
+Two earlier harness attempts are preserved as superseded. No job is active.
 
-Current order: finish remaining P3 criterion reconciliation, then approved P4,
+Current order: publish/reconcile the qualified UI evidence, then approved P4,
 H700 arm then aarch64 and named physical/P5 gates. D-QA-058 keeps Dropbox,
 other hosted accounts and offsite endpoints optional now and in future routine
 RC qualification; #463 is explicitly unverified. #464/D-QA-059 reopens dedicated

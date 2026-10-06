@@ -1,0 +1,166 @@
+{
+  "method": "Primary agent directly opened every original full-panel PNG, including empty baselines; no filename-only grading.",
+  "frames": [
+    {
+      "path": "qualified-03/artifacts/en_US-640x480/baseline.png",
+      "sha256": "b53b5e3e3cd356538d2fd11b89329644f70e0282bcf45fe27066ca68cce0a1ae",
+      "reviewed_utc": "2026-10-06T06:54:42.901476+00:00",
+      "observation": "Complete English carousel; no notification before the stimulus.",
+      "passed": true
+    },
+    {
+      "path": "qualified-03/artifacts/en_US-640x480/accept-sending.png",
+      "sha256": "c165da0b33df1de9e8cb864aa3e39b0cd383ae2101f719303aac678931270d4f",
+      "reviewed_utc": "2026-10-06T06:54:42.901575+00:00",
+      "observation": "Readable RETROACHIEVEMENTS and SENDING 1 EARNED OFFLINE... card with no clipping.",
+      "passed": true
+    },
+    {
+      "path": "qualified-03/artifacts/en_US-640x480/accept-outcome.png",
+      "sha256": "578c6f09a7dcdd7d60813833edb7baa7b12978f1235d5367794f8d1a644504dc",
+      "reviewed_utc": "2026-10-06T06:54:42.901634+00:00",
+      "observation": "COMPLETED and the account outcome sentence fit the card without overlap.",
+      "passed": true
+    },
+    {
+      "path": "qualified-03/artifacts/en_US-640x480/accept-dismissed.png",
+      "sha256": "37173e7bf5be0008339a3ac503ce2e485901c13621c3a8707ea7f2695feaf2a9",
+      "reviewed_utc": "2026-10-06T06:54:42.901735+00:00",
+      "observation": "Notification has dismissed; full English carousel and help bar remain.",
+      "passed": true
+    },
+    {
+      "path": "qualified-03/artifacts/en_US-640x480/empty-repeat.png",
+      "sha256": "be51b8ab00ea3078d00c96271d23e6b02a8203089e7733bdf9d47d9265b81457",
+      "reviewed_utc": "2026-10-06T06:55:38.351674+00:00",
+      "observation": "No duplicate notification after reconnecting with an empty queue.",
+      "passed": true
+    },
+    {
+      "path": "qualified-03/artifacts/en_US-640x480/refuse-sending.png",
+      "sha256": "c165da0b33df1de9e8cb864aa3e39b0cd383ae2101f719303aac678931270d4f",
+      "reviewed_utc": "2026-10-06T06:55:38.351772+00:00",
+      "observation": "The refusal control starts with a readable sending card, fully inside the panel.",
+      "passed": true
+    },
+    {
+      "path": "qualified-03/artifacts/en_US-640x480/refuse-outcome.png",
+      "sha256": "86293658f6135191cbc7025bd0449bcaeb310c49809adbaf83429487daa392ea",
+      "reviewed_utc": "2026-10-06T06:56:39.118647+00:00",
+      "observation": "The stopped-answering and retry sentences fit the card; no false success is shown.",
+      "passed": true
+    },
+    {
+      "path": "qualified-03/artifacts/en_US-640x480/refuse-dismissed.png",
+      "sha256": "42fe809e3f4857c3e50b55dd1bf43abc491cb77e53c759645586be016ec6dfa3",
+      "reviewed_utc": "2026-10-06T06:56:39.118785+00:00",
+      "observation": "Refusal card has dismissed; full carousel and help bar remain.",
+      "passed": true
+    },
+    {
+      "path": "qualified-03/artifacts/fr_FR-640x480/baseline.png",
+      "sha256": "27c7563475b9494c30687adec7ccaa530f09bf5ab2b11bb1559917b1f68a0f71",
+      "reviewed_utc": "2026-10-06T06:56:47.727389+00:00",
+      "observation": "Clean French carousel with no startup card after the prior refusal; profile isolation is visibly effective.",
+      "passed": true
+    },
+    {
+      "path": "qualified-03/artifacts/fr_FR-640x480/accept-sending.png",
+      "sha256": "115925a3f9333e5a2ff6916c720d1ad08c74dd80ff204c922015777fdbb33972",
+      "reviewed_utc": "2026-10-06T06:57:46.538414+00:00",
+      "observation": "French sending sentence fully visible within the card; no overlap or clipping.",
+      "passed": true
+    },
+    {
+      "path": "qualified-03/artifacts/fr_FR-640x480/accept-outcome.png",
+      "sha256": "ebaa516f71146884117cd087c70b94d8c20c0293f0e912e2e1dc8b567ecbf937",
+      "reviewed_utc": "2026-10-06T06:57:46.538491+00:00",
+      "observation": "TERMINE and the full French account outcome sentence fit the panel.",
+      "passed": true
+    },
+    {
+      "path": "qualified-03/artifacts/fr_FR-640x480/accept-dismissed.png",
+      "sha256": "251c2b065e07acb7b0f1f8fe5bc3c8078dc959b55c483a379b321090adf03b5e",
+      "reviewed_utc": "2026-10-06T06:57:46.538609+00:00",
+      "observation": "French notification has dismissed; carousel and help bar remain.",
+      "passed": true
+    },
+    {
+      "path": "qualified-03/artifacts/fr_FR-640x480/empty-repeat.png",
+      "sha256": "251c2b065e07acb7b0f1f8fe5bc3c8078dc959b55c483a379b321090adf03b5e",
+      "reviewed_utc": "2026-10-06T06:57:46.538706+00:00",
+      "observation": "No new notification after empty reconnect; complete French carousel.",
+      "passed": true
+    },
+    {
+      "path": "qualified-03/artifacts/en_US-1280x960/baseline.png",
+      "sha256": "61e816c1614916ef063147eb7dfeea1060872d7b66f945e9eefb856e153119f6",
+      "reviewed_utc": "2026-10-06T06:59:16.850560+00:00",
+      "observation": "Complete 1280x960 English carousel, no notification before the stimulus.",
+      "passed": true
+    },
+    {
+      "path": "qualified-03/artifacts/en_US-1280x960/accept-sending.png",
+      "sha256": "b44f77a671d822a181be116b23711a2a06a481ebb9f7c904e7df54e40b299625",
+      "reviewed_utc": "2026-10-06T06:59:16.850722+00:00",
+      "observation": "Readable scaled English sending card, correctly bounded within the full panel.",
+      "passed": true
+    },
+    {
+      "path": "qualified-03/artifacts/en_US-1280x960/accept-outcome.png",
+      "sha256": "ce226ad13bbf02744b2b6f5c4fcdc94bc98d9e115a8cda6faa2095dbd500c30c",
+      "reviewed_utc": "2026-10-06T06:59:30.904664+00:00",
+      "observation": "The full English completion/account sentence fits the scaled card without clipping.",
+      "passed": true
+    },
+    {
+      "path": "qualified-03/artifacts/en_US-1280x960/accept-dismissed.png",
+      "sha256": "61e816c1614916ef063147eb7dfeea1060872d7b66f945e9eefb856e153119f6",
+      "reviewed_utc": "2026-10-06T06:59:30.904867+00:00",
+      "observation": "Complete 1280x960 carousel after card dismissal.",
+      "passed": true
+    },
+    {
+      "path": "qualified-03/artifacts/en_US-1280x960/empty-repeat.png",
+      "sha256": "8a79e9e6e0a1abc7ef1a9c601ad4257da764ef421b1cff31aa72b4aeedf6ca18",
+      "reviewed_utc": "2026-10-06T06:59:30.905036+00:00",
+      "observation": "No duplicate send card on the empty reconnect; full English panel.",
+      "passed": true
+    },
+    {
+      "path": "qualified-03/artifacts/fr_FR-1280x960/baseline.png",
+      "sha256": "5c4bd18e3726c4332258acc369d6fdc12977c460bb4ab83a4abf3dfbfc705cdf",
+      "reviewed_utc": "2026-10-06T07:00:30.620090+00:00",
+      "observation": "Clean full French1280x960 carousel; no startup notification.",
+      "passed": true
+    },
+    {
+      "path": "qualified-03/artifacts/fr_FR-1280x960/accept-sending.png",
+      "sha256": "069f9634f2e92ba893601070fd47cecb8491b9258f1fd3a609e7672537d6d719",
+      "reviewed_utc": "2026-10-06T07:00:30.620252+00:00",
+      "observation": "French sending text is readable and correctly bounded in the larger panel.",
+      "passed": true
+    },
+    {
+      "path": "qualified-03/artifacts/fr_FR-1280x960/accept-outcome.png",
+      "sha256": "47ba405d947e5da5d31d9833f1cb64c89bc43b5523524adab03769fddac11029",
+      "reviewed_utc": "2026-10-06T07:00:30.620354+00:00",
+      "observation": "TERMINE and the full French account outcome sentence fit without clipping.",
+      "passed": true
+    },
+    {
+      "path": "qualified-03/artifacts/fr_FR-1280x960/accept-dismissed.png",
+      "sha256": "b2e38658ef2698687684453f87b9c5cc783a3284b9a8adf3f24ac5852c0eb06d",
+      "reviewed_utc": "2026-10-06T07:00:30.620472+00:00",
+      "observation": "French card has dismissed; complete carousel and help bar remain.",
+      "passed": true
+    },
+    {
+      "path": "qualified-03/artifacts/fr_FR-1280x960/empty-repeat.png",
+      "sha256": "b2e38658ef2698687684453f87b9c5cc783a3284b9a8adf3f24ac5852c0eb06d",
+      "reviewed_utc": "2026-10-06T07:01:05.957311+00:00",
+      "observation": "No duplicate send card after empty reconnect; full French1280x960 panel remains.",
+      "passed": true
+    }
+  ]
+}

@@ -9,7 +9,7 @@
 #       --monitor /tmp/rocknix-qemu-monitor-d.sock --serial /tmp/rocknix-qemu-serial-d.sock
 #   ./tools/ra-offline-test ... --control        # the toggle OFF: the same unlock is lost (#162)
 #   ./tools/ra-offline-test ... --game bobl      # this game, whatever the account holds
-#   ./tools/ra-offline-test ... --frames DIR     # also frame the interface after each exit (the sync card's sentences, #173)
+#   ./tools/ra-offline-test ... --frames DIR     # frame exits and the reconnect send card (#465)
 #   ./tools/ra-offline-test --list-games         # the candidates, in the order they are tried
 #
 # What one run does, in order (the proxy on; --control differs where noted):
@@ -115,15 +115,15 @@ S() { ssh -n "${SSHO[@]}" "$HOST" "$@"; }
 # pending check failed on exactly that (2026-09-14).
 SER() { python3 "$ROOT/tools/vm-serial" --socket "$SERIAL" --timeout "${2:-25}" sh "$1" 2>/dev/null | tr -d '\r'; }
 MON() { printf '%s\n' "$1" | socat -t 1 - "UNIX-CONNECT:$MONITOR" >/dev/null 2>&1; }
-# With --frames: screendumps of the interface for ~12 s after a game exit,
-# 0.6 s apart, kept as <name>-<n>.png -- the exit sync card's sentence about
-# the awards (D-RA-004) is on screen for a few seconds and gone; a person
-# reads the frames, this tool asserts nothing from them.
+# With --frames: screendumps at an event, 0.6 s apart. Reconnect captures
+# start before the address returns; exit captures alone cannot show the
+# send card (D-RA-030, #465). A person still reviews the actual pixels.
 frames_after_exit() {
   [ -n "$FRAMES" ] || return 0
-  mkdir -p "$FRAMES"; local i
-  for i in $(seq 1 20); do "$ROOT/tools/vm-visual-qa" --monitor "$MONITOR" shot "$FRAMES/$1-$i.png" >/dev/null 2>&1; sleep 0.6; done
-  say "frames: $FRAMES/$1-1..20.png"
+  mkdir -p "$FRAMES"; local i result=0
+  for i in $(seq 1 "${2:-20}"); do "$ROOT/tools/vm-visual-qa" --monitor "$MONITOR" shot "$FRAMES/$1-$i.png" >/dev/null 2>&1 || result=1; sleep 0.6; done
+  say "frames: $FRAMES/$1-1..${2:-20}.png"
+  return "$result"
 }
 # A key on the monitor, held for ms (QEMU's default press is 100 ms; a
 # platformer wants longer holds), then a gap so the game sees it released.
@@ -232,6 +232,7 @@ cleanup() {
   echo "10 cleanup"
   S 'pgrep -f ^/usr/bin/retroarch >/dev/null && /tmp/ra-offline-kill; sleep 2; pkill -f ^/usr/bin/retroarch 2>/dev/null; rm -f /tmp/ra-offline-kill; true' >/dev/null 2>&1
   MON "set_link $NETDEV on"
+  SER 'nmcli device connect eth0 >/dev/null 2>&1' 30 >/dev/null
   for i in $(seq 1 20); do S true 2>/dev/null && break; sleep 3; done
   [ -n "${VD_WAS:-}" ] && S "sed -i 's/^video_driver = .*/${VD_WAS}/' /storage/.config/retroarch/retroarch.cfg" >/dev/null 2>&1
   if [ "${TOGGLE_WAS:-0}" = 1 ]; then S 'raofflineproxy-ctl enable' >/dev/null 2>&1; else S 'raofflineproxy-ctl disable' >/dev/null 2>&1; fi
@@ -242,6 +243,7 @@ cleanup() {
     "$ROOT/tools/qa-accounts" "$PORT" clear 2>&1 | sed 's/^/  |     /'
   fi
   S ". /etc/profile; set_setting global.retroachievements '${RA_WAS:-default}'; set_setting global.retroachievements.hardcore '${HC_WAS:-default}'" >/dev/null 2>&1
+  S 'systemctl restart essway' >/dev/null 2>&1
   st=$(S 'raofflineproxy-ctl status 2>/dev/null | tr "\n" " "'); link=$(S 'cat /sys/class/net/eth0/operstate 2>/dev/null')
   say "left: ${st}eth0=${link:-?} account cleared; global.retroachievements=${RA_WAS:-unset} hardcore=${HC_WAS:-unset} put back"
   echo; if [ "$FAILS" = 0 ]; then echo "PASSED ($PASSES)"; else echo "FAILED ($FAILS of $((FAILS+PASSES)))"; fi
@@ -282,6 +284,18 @@ else
   check "$([ "$p" = 0 ] && [ "$prc" = 1 ]; echo $?)" "the award queue is empty before the run (pending=${p:-?} exit ${prc:-?})"
   S 'rm -f /storage/.config/raofflineproxy/last-flush' >/dev/null 2>&1
 fi
+[ "$FAILS" = 0 ] || { cleanup; exit 1; }
+# Shell-side settings do not update SystemConf's in-memory values. Restart
+# before launch so the reconnect UI sees the same toggle the ctl reads.
+es_before=$(S 'pidof emulationstation' 2>/dev/null)
+S 'systemctl restart essway' >/dev/null 2>&1
+es_after=""
+for _i in $(seq 1 60); do
+  es_after=$(S 'pidof emulationstation' 2>/dev/null)
+  [ -n "$es_after" ] && [ "$es_after" != "$es_before" ] && break
+  sleep 1
+done
+check "$([ -n "$es_after" ] && [ "$es_after" != "$es_before" ]; echo $?)" "EmulationStation restarted after account/toggle changes (#465)"
 [ "$FAILS" = 0 ] || { cleanup; exit 1; }
 # The shipped exit hotkey, extracted from the installed input_sense so the
 # signal and its marker are the code under test (tools/emulator-exit-test).
@@ -383,7 +397,13 @@ LOG0=$(S "[ -f $PROXYLOG ] && wc -l < $PROXYLOG || echo 0" 2>/dev/null); LOG0=${
 
 # --- 5 the link cut ------------------------------------------------------------
 echo "5  the link cut on the monitor"
-T_CUT=$(now); MON "set_link $NETDEV off"
+T_CUT=$(now)
+# QEMU link-off can leave an address assigned; the UI watches addresses.
+# Disconnect through NetworkManager as well, as an actual Wi-Fi toggle does.
+SER 'nmcli device disconnect eth0 >/dev/null 2>&1' 30 >/dev/null
+MON "set_link $NETDEV off"
+address_state=$(SER 'test -z "$(ip -4 -o addr show dev eth0 scope global)" && echo address-absent' 8)
+check "$([ "$address_state" = address-absent ]; echo $?)" "eth0 has no global IPv4 address while disconnected (#465)"
 down=1; for i in $(seq 1 10); do [ "$(SER 'cat /sys/class/net/eth0/operstate' 8)" = down ] && { down=0; break; }; sleep 1; done
 check "$down" "eth0 operstate=down over serial"
 if [ "$CONTROL" = 0 ]; then
@@ -447,7 +467,10 @@ else check "$([ "$p" = 0 ] && [ "$prc" = 1 ]; echo $?)" "raofflineproxy-ctl pend
 
 # --- 8 the link back -----------------------------------------------------------
 echo "8  the link back"
+frames_after_exit reconnect 60 &
+reconnect_capture=$!
 T_UP=$(now); MON "set_link $NETDEV on"
+SER 'nmcli device connect eth0 >/dev/null 2>&1' 30 >/dev/null
 for i in $(seq 1 30); do S true 2>/dev/null && break; sleep 2; done
 check "$(S true; echo $?)" "ssh back $(( $(now) - T_UP )) s after set_link on"
 if [ "$CONTROL" = 0 ]; then
@@ -469,6 +492,15 @@ if [ "$CONTROL" = 0 ]; then
   done
   check "$([ -n "$ev" ]; echo $?)" "the flush left its stamp and it was read or taken: ${ev:-neither the last-flush stamp nor a 'sent' link stamp after the link returned (last-flush '${stamp:-none}', link '${link:-none}')}"
   p=$(S 'raofflineproxy-ctl pending 2>/dev/null'); check "$([ "$p" = 0 ]; echo $?)" "raofflineproxy-ctl pending = ${p:-?} after the flush"
+fi
+wait "$reconnect_capture"
+capture_rc=$?
+check "$capture_rc" "reconnect capture completed without screenshot errors (#465)"
+if [ "$CONTROL" = 0 ] && [ -n "$FRAMES" ]; then
+  link=$(S 'cat /storage/.cache/cloud_sync/last-sync-link 2>/dev/null')
+  link_ok=1
+  case "$link" in [0-9]*" 0 sent"*) [ "${link%% *}" -ge "$T_UP" ] && link_ok=0 ;; esac
+  check "$link_ok" "the reconnect UI recorded this batch as sent (#465)"
 fi
 
 # --- 9 recorded, or lost -------------------------------------------------------
