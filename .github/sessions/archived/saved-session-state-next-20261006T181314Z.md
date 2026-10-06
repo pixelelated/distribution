@@ -1,8 +1,8 @@
 # Saved Session State
 
-> Saved 2026-10-06T18:13:14.325447+00:00; primary audit published, external-review transfer approval pending.
-> Previous: `.github/sessions/archived/saved-session-state-next-20261006T181314Z.md`.
-> Both fork refs verified after normal hooked publication; see current focus below.
+> Saved 2026-10-06T18:03:34.510289+00:00; local feature checkpoint, external-review transfer approval pending.
+> Previous: `.github/sessions/archived/saved-session-state-next-20261006T180334Z.md`.
+> Primary next still carries earlier49criteria until explicit integration.
 
 ## Start here
 
@@ -25,13 +25,11 @@ primary verification and all verdicts; helpers never count as review seats.
 
 ## Current focus — M7 P4 primary audit complete through4.5; external transfer approval pending
 
-User resumed after token repair. Actual-host/GitHub access works. The complete
-261-criterion primary audit, retrospective and provisional analysis are published
-on feature 3abe4111a4bed8583a4a444850d6bac0d4853ba6 and
-next dbfcfdff83de09616946851f83e8d238ca4a7588. Both refs were read back from
-GitHub after normal commit/push hooks. Evidence: `evidence/primary-publication.json`.
-A generated QA private-key duplicate was removed before committing; the original
-runtime file remains retained, with an omission/hash receipt. No key was published.
+User resumed after token repair. Actual-host/GitHub access now works; last
+read-only refs check confirms feature28abfefb40063360c98445db743b9f1b69e625a9
+and next14eaa833c77e57a61bec492d8479ccdf230348e9. Those published only the49-AC
+checkpoint; local261-AC work/03retrospective/04analysis remain unpublished until
+this evidence checkpoint lands. Never claim current remote from local files.
 
 Audit: `docs/audits/2026_10_06-milestone-m7-p4-fixes-383/`.
 Read00→02 summary and current04, then03 and machine evidence as needed.
