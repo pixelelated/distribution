@@ -65,3 +65,10 @@ not these behavioral fixes. Their bodies and file lists are retained. They
 share config.py with the existing identity/consent proposals, so recheck that
 context before submission or rebasing. This check does not claim a merge is
 conflict-free.
+
+The fresh-context resume proof in `resume-proof.json` found no blocking mismatch.
+It verified heads, frozen manifest identity, completed process absence, cleanup
+state and draft result/hash records. One historical cleanup sentence was clarified
+and independently reread. `publication.json` and `local-final-verification.json`
+retain the original published-head/tracker and host checks; later handoff commits
+do not change the candidate or these test results.
