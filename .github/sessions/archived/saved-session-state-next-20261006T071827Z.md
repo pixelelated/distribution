@@ -1,7 +1,7 @@
 # Saved Session State
 
-> Saved 2026-10-06T07:18:27.160403+00:00; feature/conflict-resolution → primary next.
-> Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261006T071827Z.md`.
+> Saved 2026-10-06T07:17:23.970827+00:00; feature/conflict-resolution → primary next.
+> Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261006T071723Z.md`.
 
 ## Start here
 
@@ -237,20 +237,44 @@ result is asserted as a new14 execution.
 
 
 
-## Current publication and handoff
+## Earlier cleanup publication and handoff
 
-Qualified UI publication is feature629603d6ad / next63675be4e1, remote-verified.
-The audit research checkpoint is a later documentation-only commit: use actual
-local/remote heads and its publication receipt, not the UI commit, to determine
-whether it has landed. Integration is explicit cherry-pick-x of the feature SHA
-into primary next, with normal hooks and remote readback. Frozen14 never moves.
+Pre-change heads feature6402eb2c7277c88f39ba2fe59348fcb906d6f56b,
+nextc367af2977de43ca4636051df6eb3d4c9b15e838. Integrationuses explicitcherry-pick-x
+and normalhookedforkpushes; publicationreceipt is
+/tmp/pixelelated-approved-cleanup-20261006/completion-published.json.
+Finaltrackerreadbacks/459and460closures are recorded in
+/tmp/pixelelated-approved-cleanup-20261006/closure-tracker-completion.json.
+Readactualreceipts ratherthan treating these paths asproof of futurework.
+Requiredfreshno-contextresumeproof followsintegration. Runrules-check,
+register-check,work-log-index--check,ceremony-check--gate; auditcadenceisoverdue
+andCIredbutallowsfixpushes. No waiver; no completedP4. Frozen14 neveradvances
+duringmetadata publication. Archivebothcheckpointfilesbeforechanges.
 
-The first fresh no-context reader correctly found a stale tail paragraph that
-still described the older award-only session. That paragraph is preserved in
-the archived checkpoint and removed here. Primary next's older checkpoint is
-expected until this prepared research commit is integrated; final readback and
-resume retest must verify both copies match. Research helpers are not that proof.
 
-Cheap checks pass. Live ceremony gate exits0 but reports67 closed issues/2days
-since the previous audit: CI remains overdue while this new audit is incomplete.
-No waiver or audit-complete record has been added. No build/QA/provider job runs.
+## This session publication and handoff
+
+This session started at featured770d95d0ee80d0fb9b1247a4effa18e8172ab5a,
+next8639fe90be4408cb9615fa781e9d3f76a050ff7d. Owning issues #462/#361; reset automation #464, prior routes #240; optional
+provider observation #463. Explicit cherry-pick -x only; normal hooked pushes.
+New evidence/publication/resume receipts live under
+`docs/qa-logs/2026-10-06-local-cloud/`, `docs/qa-logs/2026-10-06-ra-award/`,
+`/tmp/pixelelated-cloud-policy-tracker/` and `/tmp/pixelelated-ra-task-tracker/`. Read actual local/remote heads and
+receipt content before assuming publication. Frozen14 stays unchanged.
+Local-cloud publication feature a167052bfd / next406228a364 was verified.
+RA/task metadata publication is a later commit; read actual heads/receipts.
+Required fresh no-context resume proof follows integration. Cheap checks are
+required; audit cadence remains overdue (CI red, fixes may push), not waived.
+
+## Award/task publication and fresh resume proof
+
+Award evidence and reset-task policy published feature23b65a6177 / next48f53f8425;
+normal hooked pushes and remote heads verified. Publication receipt is retained
+with the award evidence. The fresh no-context reader independently checked
+RA33/cloud318, all four result files per run, eleven PID absences and free
+recorded guest/backend ports, live M7 order and unchanged frozen source.
+No blocking mismatch. Generated-table status is now explicit above, and closed
+#462's old running sentence has a subsequent completion note. A watcher's
+terminal alive=yes snapshot predates cleanup: read actual completion/PID receipts.
+No account input, build or QA process is pending. P3 UI coverage remains open;
+P4 is not started. Required checks passed; overdue audit cadence is not waived.

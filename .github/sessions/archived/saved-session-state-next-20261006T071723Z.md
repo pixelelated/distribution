@@ -1,7 +1,7 @@
 # Saved Session State
 
-> Saved 2026-10-06T07:18:27.160403+00:00; feature/conflict-resolution → primary next.
-> Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261006T071827Z.md`.
+> Saved 2026-10-06T07:02:54.281090+00:00; feature/conflict-resolution → primary next.
+> Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261006T070236Z.md`.
 
 ## Start here
 
@@ -17,80 +17,59 @@ Rules match next. Integrate only explicit cherry-pick -x, normal hooked pushes.
 Standing permission covers fixes, isolated VM QA, tracker updates and fork
 pushes. D-INFRA-017 authorized only the five old-tree removals, now completed; it is
 not permission for further deletion. No reserve change, wider cleanup, device/personal
-cloud mutation or publication. No Daybreak or goal tool. Delegation is limited to the required fresh no-context resume proof and
-code-auditor Phase1.4.5 read-only research helpers. Root performs commands,
-primary verification and all verdicts; helpers never count as review seats.
+cloud mutation or publication. No Daybreak or goal tool. Only the required
+fresh no-context resume proof permits delegation here.
 
 
-## Current focus — approved M7 P4 fixes audit, Phase1 in progress
+## Current focus — #465 UI proof qualified; approved P4 next
 
 Latest maintainer: “Please proceed with the remaining UI proof. If that's
-successful, you may begin the audit.” UI109/23frames qualified; #465 closed.
-Published feature629603d6ad18cbcf4f02e3be36d6e3393698c169 and primary
-63675be4e1bb2ab36748a725612d11a77be7f2f5 were remotely verified07:04:47UTC.
-No product change, new account award/reset or image rebuild occurred.
+successful, you may begin the audit.” That UI condition is now satisfied.
+No build, QA or cleanup job is active. No real account/reset is requested.
 
-Audit started07:04:22UTC. Folder:
-`docs/audits/2026_10_06-milestone-m7-p4-fixes-383/`. Read README,00-running-log,
-01-research-notes and inputs/research-leads.md. **Phase1 is still in progress.**
-No independent acceptance grades, prior-answer-key reads, provider calls or
-completed audit. Prior375/382/411 per-AC verdicts remain sequestered until2.5.
-Current M7 paragraph/table now consistently names P4 current; original snapshot
-and exact reconciliation receipt are both retained. #361 compound criterion
-stays open pending full reconciliation; UI clause is satisfied.
+Owner `/workspace/tmp/pixelelated-m7-ra-ui-03`, run20261006T065301Z-41c3ed1c:
+109 PASS/0FAIL/0SKIP, allfourrc0, terminal07:00:43UTC. Actualcleanup07:01:20
+verifies launcher3711572, job3711573, watcher3711574 and both guests3712330/
+3738169 absent; no QEMU and10026/5912 unbound. All23 original full-panel
+frames directly reviewed. Four EN/FR640x480/1280x960 profiles pass, with46
+identical installed hashes per profile. Read
+`docs/qa-logs/2026-10-06-ra-ui/README.md`, qualification.json,
+visual-review.json and qualified-03/completion.json. No product bytes changed.
 
-Scope: Milestone-tier / independent depth, P1–P3 fixes and cloud/state × proxy ×
-identity/VM interactions, parent383/344/354. Frozen source7afa9efcfc0, ESf6f0c134;
-bundleb77e47e57a. Prior375 source baselineb2378d9c33/ESe108699ea3. No product
-mutations while auditing. Full distribution/product and ES diff packets stored.
-107 primary issue bodies and455 raw checkbox lines captured; those lines include
-historical/later-phase items, not455 current audit ACs. Three research helpers
-completed and their leads are on disk; no helper remains running.
+The fixture uses installed Storage/flusher/ctl/ES and actual loopback HTTP,
+with synthetic local award/account and no real configured account. Empty
+baselines, actual address loss/return, pending1/sending, flush1/sent/pending0,
+dismissal, empty repeat and controlled503/not-sent/retry are verified.
+This is separate from actual RA33 provider evidence below; do not collapse
+both into one new uninterrupted provider run. Original per-profile results
+retain visual_review=pending; the later visual manifest/qualification closes
+that distinct gate. The changed ordinary award runner has not been rerun
+end-to-end; this matrix proves the changed settings/reconnect mechanics.
 
-Fresh checks:302 UI evidence hashes and19 bundle files pass. Canonical frozen
-verify-inputs.py verifies6550 product/207 QA/180 symlink inputs plus exact ES/
-bundle identity. Audit-local first attempt falsely flagged seven symlinks
-because Path.readlink normalizes trailing slash; raw os.readlink/canonical
-checker passes. Both attempts retained.09→10 product delta is only renderer
-wrapper/drop-in/README;10→14 only proxy/libchdr/019/ctl. Continuity of source is
-not permission to relabel an older execution as a14 execution.
+Superseded owner01 (89 assertions/allfour0) omitted compiled.pyc census;
+owner02 (101/allfour0) carried a refused pending award into French startup.
+Both are retained with original frames/receipts. Owner03 fixes both.
+The report reader also initially expected status0 for refusal; source proves
+status5/not-sent plus a reason. Corrected aggregation passed with raw evidence
+unchanged. Do not replay any used owner or request another consumed reset.
 
-Next audit action: finish primary issue/spec/source reads and scoped AC/rule/
-blindspot/TierB inventory. Then Phase2 independently grades every current AC,
-with executed available checks and refutation;2.5 compares prior verdicts;
-3/4/4.5 inspect interactions and attack findings;4.6 invokes Fable;5/6/7
-produce/track/resolve punch items. Use code-auditor SKILL.md and all references,
-append00/01 immediately after each meaningful read. No prefilled PASS grades.
+New host tools/rules/evidence are ready for normal publication. Run final
+checks, commit explicit paths, cherry-pick-x the explicit feature SHA into
+primary next, normal hooked pushes and remote-head readback. Owning #465
+closes after published evidence/readback. #361's UI portion is now satisfied;
+retain precise source/build/RA33 mapping for the compound criterion. M7 body
+must move from active UI to approved P4, then capacity/H700/P5.
 
-Review plan: Codex/OpenAI primary (exact model variant unknown), Anthropic
-Fable5.1/xhigh via installed `claude` Facilitator recipe/OpenRouter. Blind and
-refutation are two calls to one external reviewer; two perspectives total,
-no five-seat council. Do not call it before preceding phases settle. Read
-council hard rules/model verification and Phase4.6 before invocation.
-`tools/council/run invoke --member claude --provider openrouter --prompt-file
-FILE --output FILE`; identity/effort/output provenance required, fail closed.
-No Daybreak or alternative unverified reviewer. Standing review permission
-is recorded; no further user approval is needed for this planned review.
-
-Qualified UI: owner `/workspace/tmp/pixelelated-m7-ra-ui-03`, run
-20261006T065301Z-41c3ed1c,109PASS/0FAIL/0SKIP, allfourrc0, terminal07:00:43,
-actualcleanup07:01:20. All23 original frames directly reviewed across EN/FR
-640x480/1280x960;46 installed hashes invariant. Actual flusher/ctl/Storage/ES
-with synthetic local HTTP demonstrates sending/sent/dismissed/empty-repeat
-and EN640refused-send/pending-retained. No real provider claim from this UI
-fixture. Read docs/qa-logs/2026-10-06-ra-ui/qualification.json and manifests.
-
-Owners01/02 are superseded, retained unchanged:01 missed compiled-bytecode
-census;02 carried refused pending1 into French baseline. Corrected03 passes.
-The report-reader status0 assumption was corrected to installed5/not-sent;
-raw refusal unchanged. Do not rerun finalize-report.py (it appends/rewrites
-qualified evidence) or replay any used owner. The edited ordinary award runner
-has not been rerun in full; installed settings/reconnect mechanics are proved
-separately. No new account reset is requested.
-
-No build, QA, cleanup, external provider or background audit job is active.
-Audit work resumes in the foreground from this checkpoint. Fresh resume proof
-is recorded separately; do not mistake reused research helpers for that proof.
+**P4 has not started yet.** Start immediately after UI publication. Use full
+code-auditor skill/references: Milestone scope, independent depth; Codex/OpenAI
+primary + Anthropic Fable5.1/xhigh through Facilitator/OpenRouter, blind then
+refutation. No five-seat council. #375/#382 are prior inputs, not this fixes
+review; sequester prior AC verdicts until Phase2.5. Start a dated folder and
+append running notes after every meaningful action. Skill-authorized Phase1
+read-only per-Epic research helpers may map sources, never provide verdicts;
+primary performs git/npm/gh/build/test operations. No external call yet.
+Raw source snapshots only are in `/tmp/pixelelated-m7-p4-inputs/`; refresh live
+tracker state after publication. Product/source scope remains frozen14/ESf6f0.
 
 RA33: `docs/qa-logs/2026-10-06-ra-award/`, ownerra01/run060338-0420faa8,
 Tobu15738/Potato-tanSecret100359 softcore, actual unearned→award→pending1→
@@ -159,11 +138,13 @@ No additionalcleanup orreservechange is authorized. No sudoaction remains.
 
 ## Next steps
 
-1. Continue P4 Phase1 from the audit folder and source leads, then serial
-   Phase2→2.5→3→4→4.5→4.6→5→6→7. No prior-verdict shortcut or provider call
-   before the primary analysis is settled. Resolve/requalify changed product.
-2. After P4 passes, measure capacity (#461), then H700 DDR4/RG35XXSP arm first,
-   aarch64 second. Named physical/P5 gates follow. No RC/device-ready claim.
+1. Publish qualified UI proof and reconcile #465/#361/M7. No job remains
+   active. Preserve every superseded run and the already-consumed RA33 fixture.
+2. Execute approved
+   P4 fixes audit in serial gated phases, resolving findings and requalifying
+   any changed product bytes. No account/reset or rebuild of unchanged14.
+3. After P4 passes, measure capacity (#461), then H700 DDR4/RG35XXSP arm first,
+   aarch64 second. Named physical/P5 gates follow; no RC/device-ready claim.
 
 Public docs4f6df54 at /home/max/Development/rocknix.org remains403/404; do not
 change credentials/autofork. Fourteen P5 licence gaps remain. #395 has no
@@ -237,20 +218,44 @@ result is asserted as a new14 execution.
 
 
 
-## Current publication and handoff
+## Earlier cleanup publication and handoff
 
-Qualified UI publication is feature629603d6ad / next63675be4e1, remote-verified.
-The audit research checkpoint is a later documentation-only commit: use actual
-local/remote heads and its publication receipt, not the UI commit, to determine
-whether it has landed. Integration is explicit cherry-pick-x of the feature SHA
-into primary next, with normal hooks and remote readback. Frozen14 never moves.
+Pre-change heads feature6402eb2c7277c88f39ba2fe59348fcb906d6f56b,
+nextc367af2977de43ca4636051df6eb3d4c9b15e838. Integrationuses explicitcherry-pick-x
+and normalhookedforkpushes; publicationreceipt is
+/tmp/pixelelated-approved-cleanup-20261006/completion-published.json.
+Finaltrackerreadbacks/459and460closures are recorded in
+/tmp/pixelelated-approved-cleanup-20261006/closure-tracker-completion.json.
+Readactualreceipts ratherthan treating these paths asproof of futurework.
+Requiredfreshno-contextresumeproof followsintegration. Runrules-check,
+register-check,work-log-index--check,ceremony-check--gate; auditcadenceisoverdue
+andCIredbutallowsfixpushes. No waiver; no completedP4. Frozen14 neveradvances
+duringmetadata publication. Archivebothcheckpointfilesbeforechanges.
 
-The first fresh no-context reader correctly found a stale tail paragraph that
-still described the older award-only session. That paragraph is preserved in
-the archived checkpoint and removed here. Primary next's older checkpoint is
-expected until this prepared research commit is integrated; final readback and
-resume retest must verify both copies match. Research helpers are not that proof.
 
-Cheap checks pass. Live ceremony gate exits0 but reports67 closed issues/2days
-since the previous audit: CI remains overdue while this new audit is incomplete.
-No waiver or audit-complete record has been added. No build/QA/provider job runs.
+## This session publication and handoff
+
+This session started at featured770d95d0ee80d0fb9b1247a4effa18e8172ab5a,
+next8639fe90be4408cb9615fa781e9d3f76a050ff7d. Owning issues #462/#361; reset automation #464, prior routes #240; optional
+provider observation #463. Explicit cherry-pick -x only; normal hooked pushes.
+New evidence/publication/resume receipts live under
+`docs/qa-logs/2026-10-06-local-cloud/`, `docs/qa-logs/2026-10-06-ra-award/`,
+`/tmp/pixelelated-cloud-policy-tracker/` and `/tmp/pixelelated-ra-task-tracker/`. Read actual local/remote heads and
+receipt content before assuming publication. Frozen14 stays unchanged.
+Local-cloud publication feature a167052bfd / next406228a364 was verified.
+RA/task metadata publication is a later commit; read actual heads/receipts.
+Required fresh no-context resume proof follows integration. Cheap checks are
+required; audit cadence remains overdue (CI red, fixes may push), not waived.
+
+## Award/task publication and fresh resume proof
+
+Award evidence and reset-task policy published feature23b65a6177 / next48f53f8425;
+normal hooked pushes and remote heads verified. Publication receipt is retained
+with the award evidence. The fresh no-context reader independently checked
+RA33/cloud318, all four result files per run, eleven PID absences and free
+recorded guest/backend ports, live M7 order and unchanged frozen source.
+No blocking mismatch. Generated-table status is now explicit above, and closed
+#462's old running sentence has a subsequent completion note. A watcher's
+terminal alive=yes snapshot predates cleanup: read actual completion/PID receipts.
+No account input, build or QA process is pending. P3 UI coverage remains open;
+P4 is not started. Required checks passed; overdue audit cadence is not waived.

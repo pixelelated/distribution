@@ -1,0 +1,892 @@
+diff --git a/es-app/src/ApiSystem.cpp b/es-app/src/ApiSystem.cpp
+index 4bc0989d1..323267a82 100644
+--- a/es-app/src/ApiSystem.cpp
++++ b/es-app/src/ApiSystem.cpp
+@@ -171,7 +171,8 @@ std::string ApiSystem::getVersion(bool extra)
+ 
+ std::string ApiSystem::getApplicationName()
+ {
+-	return "ROCKNIX";
++    const std::string name = Utils::Platform::GetEnv("OS_NAME");
++    return name.empty() ? "ROCKNIX" : name;
+ }
+ 
+ bool ApiSystem::setOverscan(bool enable) 
+@@ -447,6 +448,9 @@ bool ApiSystem::canArchitectureUpdate(std::string& architecture) {
+ bool ApiSystem::canUpdate(std::vector<std::string>& output) 
+ {
+ 	LOG(LogDebug) << "ApiSystem::canUpdate";
++    // Manual adoption in pixelelated0.0.1, including inherited force settings.
++    if (getApplicationName() == "pixelelated")
++        return false;
+ 
+ 	FILE *pipe = popen("rocknix-update check", "r");
+ 	if (pipe == NULL)
+diff --git a/es-app/src/FileData.cpp b/es-app/src/FileData.cpp
+index e463b20d7..15d9a1bed 100644
+--- a/es-app/src/FileData.cpp
++++ b/es-app/src/FileData.cpp
+@@ -40,6 +40,9 @@
+ #include "guis/GuiLoading.h"
+ #include "views/ViewController.h"
+ #include <chrono>
++#if defined(__GLIBC__)
++#include <malloc.h>
++#endif
+ #include <thread>
+ #include <atomic>
+ #include "OfflineAchievements.h"
+@@ -1070,6 +1073,12 @@ bool FileData::launchGame(Window* window, LaunchGameOptions options)
+ 
+ 	bool hideWindow = Settings::getInstance()->getBool("HideWindow");
+ 	window->deinit(hideWindow);
++
++#if defined(__GLIBC__)
++	// Renderer teardown frees large heaps which glibc may keep mapped.
++	// Return those pages before the emulator needs memory (distro #310).
++	malloc_trim(0);
++#endif
+ 	
+ 	const std::string rom = Utils::FileSystem::getEscapedPath(getPath());
+ 	const std::string basename = Utils::FileSystem::getStem(getPath());
+@@ -1201,6 +1210,12 @@ bool FileData::launchGame(Window* window, LaunchGameOptions options)
+ 
+ 	window->reactivateGui();
+ 
++#if defined(__GLIBC__)
++	// Resource reload also leaves temporary heap pages behind. Release
++	// them once the interface is ready, rather than accumulating them.
++	malloc_trim(0);
++#endif
++
+ 	// A screenshot taken in this session is in a folder the viewer scanned
+ 	// at boot. Re-read the folders that changed, once the launch has fully
+ 	// unwound (#82; the rescan may delete this very FileData when the game
+diff --git a/es-app/src/guis/GuiMenu.cpp b/es-app/src/guis/GuiMenu.cpp
+index 1295575ae..2d399196e 100644
+--- a/es-app/src/guis/GuiMenu.cpp
++++ b/es-app/src/guis/GuiMenu.cpp
+@@ -559,8 +559,8 @@ void GuiMenu::addVersionInfo()
+ 
+ 	if (!ApiSystem::getInstance()->getVersion().empty())
+ 	{
+-		if (ApiSystem::getInstance()->getApplicationName() == "ROCKNIX")
+-			label = "ROCKNIX " + ApiSystem::getInstance()->getVersion() + " (" + ApiSystem::getInstance()->getVersion(true) + ")";
++		if (ApiSystem::getInstance()->getApplicationName() == "ROCKNIX" || ApiSystem::getInstance()->getApplicationName() == "pixelelated")
++			label = ApiSystem::getInstance()->getApplicationName() + " " + ApiSystem::getInstance()->getVersion() + " (" + ApiSystem::getInstance()->getVersion(true) + ")";
+ 		else
+ 		{
+ 			std::string aboutInfo = ApiSystem::getInstance()->getApplicationName() + " V" + ApiSystem::getInstance()->getVersion();
+@@ -1502,9 +1502,18 @@ void GuiMenu::openUpdatesSettings(bool selectTorrentService)
+ 		});
+ 	}
+ 
+-	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::UPGRADE))
+-	{
+-		updateGui->addGroup(_("SOFTWARE UPDATES"));
++    if (ApiSystem::getInstance()->getApplicationName() == "pixelelated")
++    {
++        updateGui->addGroup(_("SOFTWARE UPDATES"));
++        updateGui->addEntry(_("MANUAL UPDATES"), true, [this]
++        {
++            mWindow->pushGui(new GuiMsgBox(mWindow,
++                _("This version uses manual updates. Open github.com/pixelelated/distribution/releases on a computer, choose the update for your device, and follow the instructions."), _("OK")));
++        });
++    }
++    else if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::UPGRADE))
++    {
++        updateGui->addGroup(_("SOFTWARE UPDATES"));
+ 
+ 		// Enable updates
+ 		updateGui->addSwitch(_("CHECK FOR UPDATES"), "updates.enabled", false);
+@@ -1975,7 +1984,16 @@ void GuiMenu::openSystemSettings()
+       auto rocknix_screenshot_enabled = std::make_shared<SwitchComponent>(mWindow);
+       bool rocknixscreenshotenabled = SystemConf::getInstance()->get("rocknix.screenshot.enabled") == "1";
+       rocknix_screenshot_enabled->setState(SystemConf::getInstance()->getBool("rocknix.screenshot.enabled"));
+-      s->addWithLabel(_("ENABLE ROCKNIX SCREENSHOT"), rocknix_screenshot_enabled);
++      // This brand stays lowercase; addWithLabel uppercases the entire label.
++      ComponentListRow screenshotRow;
++      auto screenshotTheme = ThemeData::getMenuTheme();
++      auto screenshotLabel = std::make_shared<TextComponent>(mWindow,
++          _("ENABLE pixelelated SCREENSHOT"), screenshotTheme->Text.font, screenshotTheme->Text.color);
++      if (EsLocale::isRTL())
++          screenshotLabel->setHorizontalAlignment(Alignment::ALIGN_RIGHT);
++      screenshotRow.addElement(screenshotLabel, true);
++      screenshotRow.addElement(rocknix_screenshot_enabled, false);
++      s->addRow(screenshotRow);
+       rocknix_screenshot_enabled->setOnChangedCallback([rocknix_screenshot_enabled] {
+               bool rocknixscreenshotenabled = rocknix_screenshot_enabled->getState();
+                      SystemConf::getInstance()->set("rocknix.screenshot.enabled", rocknixscreenshotenabled ? "1" : "0");
+@@ -2321,6 +2339,10 @@ void GuiMenu::openSystemSettings()
+ 	s->addWithLabel(_("DEFAULT GPU SCALING GOVERNOR"), optionsGpuGovernors);
+ 	s->addSaveFunc([selectedGpuGovernor, optionsGpuGovernors]
+ 	{
++		// A device without GPU governor support has no option to apply.
++		if (!optionsGpuGovernors->hasSelection())
++			return;
++
+ 		if (optionsGpuGovernors->changed()) {
+ 			SystemConf::getInstance()->set("system.gpuperf", optionsGpuGovernors->getSelected());
+ 		}
+@@ -5318,8 +5340,26 @@ static void cloudOfferFolder(Window* window, const CloudFolderAsk& ask)
+ 	const std::function<void()> abandon = ask.abandon;
+ 	const auto st = cloudScanFacts("state");
+ 	const std::string state = cloudScanFact(st, "STATE");
+-	const std::string current = cloudScanFact(st, "CURRENT").empty() ? "/Rasteratops/Saves" : cloudScanFact(st, "CURRENT");
++	const std::string current = cloudScanFact(st, "CURRENT").empty() ? "/pixelelated/Saves" : cloudScanFact(st, "CURRENT");
+ 	const std::string newRoot = cloudRootOf(current);
++	if (state == "migration-pending")
++	{
++		LOG(LogInfo) << "cloud folder: interrupted move; offering retry";
++		window->pushGui(new GuiMsgBox(window,
++			_("YOUR CLOUD FOLDER MOVE DIDN'T FINISH.\n\nTRY AGAIN? FILES ALREADY MOVED WILL BE KEPT."),
++			_("TRY AGAIN"), [window, newRoot, rescan, abandon]
++			{
++				auto page = new GuiCloudTransfer(window, "/usr/bin/cloud_migrate_layout --apply", _("MOVING YOUR CLOUD FOLDER"));
++				page->setFailedNote(_("WHAT MOVED IS IN THE NEW FOLDER. TRY AGAIN TO FINISH."));
++				page->setCompletedAction(rescan, _("CONTINUE"), _("PRESS ANY BUTTON TO CONTINUE"),
++					Utils::String::format(_("YOUR CLOUD FOLDER IS NOW %s.").c_str(), newRoot.c_str()), true);
++				if (abandon)
++					page->setDismissedAction(abandon);
++				window->pushGui(page);
++			},
++			_("NOT NOW"), then));
++		return;
++	}
+ 	if (state == "superseded-with-files")
+ 	{
+ 		const std::string source = cloudScanFact(st, "SOURCE") == "-" || cloudScanFact(st, "SOURCE").empty()
+@@ -5333,7 +5373,7 @@ static void cloudOfferFolder(Window* window, const CloudFolderAsk& ask)
+ 			{
+ 				LOG(LogInfo) << "cloud folder: moving " << oldRoot << " to " << newRoot;
+ 				auto page = new GuiCloudTransfer(window, "/usr/bin/cloud_migrate_layout --apply", _("MOVING YOUR CLOUD FOLDER"));
+-				page->setFailedNote(Utils::String::format(_("YOUR CLOUD STILL HAS %s. NOTHING WAS REMOVED.").c_str(), oldRoot.c_str()));
++				page->setFailedNote(_("WHAT MOVED IS IN THE NEW FOLDER. TRY AGAIN TO FINISH."));
+ 				// One short sentence: the longer one, naming the three tiers,
+ 				// was cut at 640 px (guest d, 2026-10-01).
+ 				page->setCompletedAction(rescan, _("CONTINUE"), _("PRESS ANY BUTTON TO CONTINUE"),
+@@ -5547,8 +5587,13 @@ static bool cloudFolderStepIfQuiet(Window* window)
+ 	if (sCloudFolderStepOffered)
+ 		return true;
+ 	if (window->peekGui() != ViewController::get() || FileData::GetRunningGame() != nullptr
+-		|| ThreadedCloudSync::isRunning() || CloudTransferJob::running())
++		|| ThreadedCloudSync::isRunning() || CloudTransferJob::running()
++		|| window->hasAsyncNotifications())
+ 		return false;
++
++	// Worker completion releases the sync lock before its outcome card's
++	// linger and fade finish. Let the actual window relinquish that surface
++	// before the setup step takes it (#363), including any queued card.
+ 	sCloudFolderStepOffered = true;
+ 	cloudFolderStepAtBoot(window);
+ 	return true;
+@@ -5782,7 +5827,7 @@ static void cloudPreviewTidyFolders(Window* window)
+ // The row's line, from what the check would move: one whole sentence per
+ // shape, each with its French, the tiers in the vocabulary's words. The
+ // line used to name /ROCKNIX, the folder of an earlier build, on a build
+-// whose folder is /Rasteratops, and SAVES AND SETTINGS BACKUPS when the
++// whose folder is /pixelelated, and SAVES AND SETTINGS BACKUPS when the
+ // check planned the content folder alone (2026-10-01, fork #353).
+ static std::string cloudTidyLine(const CloudText::TidyPlan& plan)
+ {
+diff --git a/es-app/src/main.cpp b/es-app/src/main.cpp
+index ad2b5717d..a11963bb1 100644
+--- a/es-app/src/main.cpp
++++ b/es-app/src/main.cpp
+@@ -675,6 +675,16 @@ static void startStartupSavesSync(Window* window)
+ 		" done;"
+ 		" [ \"$_up\" = 1 ] || exit " + noNetwork + ";"
+ 		" fi;"
++		// Boot-only preparation uses the same join/follow classifier as the
++		// folder page. It must precede writes: a startup backup into an empty
++		// old folder could otherwise make it win over the fleet's real saves
++		// (#365, T08/T11/T12). This does not show or apply the move; its page
++		// still waits for this worker and its outcome card to finish.
++		" if [ -x /usr/bin/cloud_migrate_layout ] && [ -x /usr/bin/cloud_scan ]; then"
++		" /usr/bin/cloud_migrate_layout --needs-step >/dev/null 2>&1; _s=$?;"
++		" if [ \"$_s\" = 0 ]; then"
++		" timeout 30 /usr/bin/cloud_scan --folder; _s=$?; [ \"$_s\" = 0 ] || exit \"$_s\";"
++		" elif [ \"$_s\" != 1 ]; then exit \"$_s\"; fi; fi;"
+ 		" echo \">>> doing receive\";"
+ 		" /usr/bin/cloud_restore --yes --method=copy --update --saves-only --automatic; _r=$?;"
+ 		" echo \">>> tier RESTORING SAVES|$_r\";"
+@@ -924,7 +934,7 @@ int main(int argc, char* argv[])
+ 		f.close();
+ 
+ 		if (val == "1")
+-		window.pushGui(new GuiMsgBox(&window, "ROCKNIX IS FREE SOFTWARE.\n\n IF YOU PAID FOR ROCKNIX YOU HAVE BEEN SCAMMED.\n\n PLEASE REQUEST A REFUND FROM THE SELLER!", _("AGREE")));
++		window.pushGui(new GuiMsgBox(&window, "pixelelated IS FREE SOFTWARE.\n\n IF YOU PAID FOR pixelelated YOU HAVE BEEN SCAMMED.\n\n PLEASE REQUEST A REFUND FROM THE SELLER!", _("AGREE")));
+ 
+ 		std::remove(markerFile.c_str());
+ 	}
+diff --git a/es-app/tests/unit/SystemConfTests.cpp b/es-app/tests/unit/SystemConfTests.cpp
+index 81e89960e..90d991e41 100644
+--- a/es-app/tests/unit/SystemConfTests.cpp
++++ b/es-app/tests/unit/SystemConfTests.cpp
+@@ -94,6 +94,12 @@ struct SystemConfTestAccess
+ 		return SystemConf::getInstance();
+ 	}
+ 
++	// Resume at the actual publication boundary with a captured earlier read.
++	static void record(SystemConf* conf, const std::string& snapshot)
++	{
++		conf->recordLastGood(snapshot);
++	}
++
+ 	static bool recovered() { return SystemConf::sRecovered; }
+ };
+ 
+@@ -455,3 +461,46 @@ TEST_CASE("a record cut short is neither loaded nor recorded, and the defaults a
+ 		CHECK(get(path + ".backup") == whole);
+ 	}
+ }
++
++TEST_CASE("a script's newer good state published between the read and the record is not overwritten")
++{
++	ScratchDir dir;
++	const std::string path = dir / "system.cfg";
++	const std::string lockPath = dir / ".system.cfg.lock";
++	const std::string earlier = "system.hostname=A\naudio.volume=70\n";
++	const std::string newer = "system.hostname=A\naudio.volume=40\n";
++	put(path, earlier);
++	SystemConf* conf = SystemConfTestAccess::fresh(path, lockPath, 20);
++	// The loader/save retains this snapshot while a script gets its turn.
++	const std::string snapshot = get(path);
++	{
++		PidLock script(lockPath);
++		REQUIRE(script.acquire(1000));
++		REQUIRE(Utils::AtomicFile::writeText(path, newer, 0600));
++		REQUIRE(Utils::AtomicFile::writeText(path + ".backup", newer, 0600));
++	}
++	SystemConfTestAccess::record(conf, snapshot);
++	CHECK(get(path) == newer);
++	CHECK(get(path + ".backup") == newer);
++	CHECK(modeOf(path + ".backup") == 0600);
++}
++
++TEST_CASE("LockBusy recovery reads its temporary without publishing over the holder's record")
++{
++	ScratchDir dir;
++	const std::string path = dir / "system.cfg";
++	const std::string lockPath = dir / ".system.cfg.lock";
++	const std::string unfinished = "system.hostname=A\naudio.volume=70\n";
++	const std::string recorded = "system.hostname=A\naudio.volume=40\n";
++	put(path, "system.hostname=A\naudio.vol");
++	put(path + ".tmp", unfinished);
++	put(path + ".backup", recorded);
++	PidLock script(lockPath);
++	REQUIRE(script.acquire(1000));
++	SystemConf* conf = SystemConfTestAccess::fresh(path, lockPath, 20);
++	CHECK(conf->get("audio.volume") == "70");
++	CHECK(SystemConfTestAccess::recovered());
++	CHECK(get(path) == "system.hostname=A\naudio.vol");
++	CHECK(get(path + ".backup") == recorded);
++	CHECK(get(path + ".tmp") == unfinished);
++}
+diff --git a/es-core/src/GunManager.cpp b/es-core/src/GunManager.cpp
+index 11bd02430..c6ba2270a 100644
+--- a/es-core/src/GunManager.cpp
++++ b/es-core/src/GunManager.cpp
+@@ -938,6 +938,7 @@ void GunManager::udev_initial_gunsList()
+ 	bool bGunborder;
+ 
+ 	struct udev_enumerate *enumerate = udev_enumerate_new(udev);
++	if (enumerate == NULL) return;
+ 	udev_enumerate_add_match_property(enumerate, "ID_INPUT_GUN", "1");
+ 	udev_enumerate_add_match_subsystem(enumerate, "input");
+ 	udev_enumerate_scan_devices(enumerate);
+@@ -956,6 +957,7 @@ void GunManager::udev_initial_gunsList()
+ 
+ 		if (udev_addGun(dev, NULL, bGunborder) == false) udev_device_unref(dev); // unhandled device
+ 	}
++	udev_enumerate_unref(enumerate);
+ }
+ 
+ bool GunManager::udev_addGun(struct udev_device *dev, Window* window, bool needGunBorder)
+diff --git a/es-core/src/InputConfig.cpp b/es-core/src/InputConfig.cpp
+index eac76c64d..f149f45f4 100644
+--- a/es-core/src/InputConfig.cpp
++++ b/es-core/src/InputConfig.cpp
+@@ -69,6 +69,7 @@ std::string getDeviceParentSyspath(const std::string& path) {
+   if (udev != NULL)
+     {
+       struct udev_enumerate *enumerate = udev_enumerate_new(udev);
++      if (enumerate == NULL) { udev_unref(udev); return res; }
+       udev_enumerate_add_match_subsystem(enumerate, "input");
+       udev_enumerate_scan_devices(enumerate);
+       devs = udev_enumerate_get_list_entry(enumerate);
+@@ -85,6 +86,7 @@ std::string getDeviceParentSyspath(const std::string& path) {
+ 		const char *bt_parent_sysname = udev_device_get_syspath(bt_parent);
+ 		res = bt_parent_sysname;
+ 		udev_device_unref(ud);
++		udev_enumerate_unref(enumerate);
+ 		udev_unref(udev);
+ 		return res;
+ 	      }
+@@ -95,6 +97,7 @@ std::string getDeviceParentSyspath(const std::string& path) {
+ 		const char *usb_parent_sysname = udev_device_get_syspath(usb_parent);
+ 		res = usb_parent_sysname;
+ 		udev_device_unref(ud);
++		udev_enumerate_unref(enumerate);
+ 		udev_unref(udev);
+ 		return res;
+ 	      }
+@@ -103,10 +106,12 @@ std::string getDeviceParentSyspath(const std::string& path) {
+ 
+ 	    // fallback (should not happen) ; return the device path
+ 	    res = name;
++	    udev_enumerate_unref(enumerate);
+ 	    udev_unref(udev);
+-	    return name;
++	    return res;
+ 	  }
+ 	}
++      udev_enumerate_unref(enumerate);
+       udev_unref(udev);
+     }
+   return "";
+@@ -140,6 +145,7 @@ bool InputConfig::isWheel(const std::string path) {
+ 	if (udev != NULL)
+ 	  {
+ 	    struct udev_enumerate *enumerate = udev_enumerate_new(udev);
++	    if (enumerate == NULL) { udev_unref(udev); return false; }
+ 	    udev_enumerate_add_match_property(enumerate, "ID_INPUT_WHEEL", "1");
+ 	    udev_enumerate_add_match_subsystem(enumerate, "input");
+ 	    udev_enumerate_scan_devices(enumerate);
+@@ -160,6 +166,7 @@ bool InputConfig::isWheel(const std::string path) {
+ 	    	}
+ 	    	udev_device_unref(dev);
+ 	      }
++	    udev_enumerate_unref(enumerate);
+ 	    udev_unref(udev);
+ 	  }
+ 	return res;
+diff --git a/es-core/src/InputManager.cpp b/es-core/src/InputManager.cpp
+index b8da3ee39..2da307f66 100644
+--- a/es-core/src/InputManager.cpp
++++ b/es-core/src/InputManager.cpp
+@@ -117,6 +117,7 @@ std::vector<std::string> InputManager::getMice() {
+   if (udev != NULL)
+     {
+       struct udev_enumerate *enumerate = udev_enumerate_new(udev);
++      if (enumerate == NULL) { udev_unref(udev); return mice; }
+       udev_enumerate_add_match_property(enumerate, "ID_INPUT_MOUSE", "1");
+       udev_enumerate_add_match_subsystem(enumerate, "input");
+       udev_enumerate_scan_devices(enumerate);
+@@ -141,6 +142,7 @@ std::vector<std::string> InputManager::getMice() {
+ 	  udev_device_unref(dev);
+ 	}
+ 
++      udev_enumerate_unref(enumerate);
+       udev_unref(udev);
+     }
+   #endif
+diff --git a/es-core/src/Splash.h b/es-core/src/Splash.h
+index 2daf55e36..8705ab81a 100644
+--- a/es-core/src/Splash.h
++++ b/es-core/src/Splash.h
+@@ -7,7 +7,10 @@
+ class Window;
+ class TextureResource;
+ 
+-#if WIN32
++#if defined(ROCKNIX)
++#define DEFAULT_SPLASH_IMAGE ":/pixelelated-wordmark.svg"
++#define OLD_SPLASH_LAYOUT true
++#elif WIN32
+ #define DEFAULT_SPLASH_IMAGE ":/splash.svg"
+ #define OLD_SPLASH_LAYOUT true
+ #else
+diff --git a/es-core/src/SystemConf.cpp b/es-core/src/SystemConf.cpp
+index 8d6ccf2a0..1869f3f9d 100644
+--- a/es-core/src/SystemConf.cpp
++++ b/es-core/src/SystemConf.cpp
+@@ -85,6 +85,17 @@ void SystemConf::parseSystemConf(const std::string& text)
+ // every start and after every save, and most of those change nothing.
+ void SystemConf::recordLastGood(const std::string& text, int recoveredMode)
+ {
++	// The load/save released its lock before reaching this publication.
++	// Reacquire and compare the complete current choice under the lock: a
++	// script's newer state must win over this call's older snapshot (#320).
++	Utils::AtomicFile::PidLock lock(sLockPath);
++	if (!lock.acquire(sLockBudgetMs))
++		return;
++	const auto current = Utils::AtomicFile::chooseConfig(mSystemConfFile);
++	if (current.text != text ||
++		(!current.record && current.source != Utils::AtomicFile::LoadedConfig::Source::Backup))
++		return;
++
+ 	// No less private than the live file it copies (#308 F-ES-08): a record
+ 	// an earlier build made 0644 beside a 0600 file is rewritten for its mode
+ 	// even when its text is the same. A recovery passes the mode every copy
+@@ -93,7 +104,7 @@ void SystemConf::recordLastGood(const std::string& text, int recoveredMode)
+ 	// is no file -- made a 0600 temporary's text a 0644 record (audit of the
+ 	// fix round, gpt G2-E-core-05).
+ 	const std::string backup = mSystemConfFile + ".backup";
+-	const int mode = recoveredMode >= 0 ? recoveredMode : Utils::AtomicFile::modeOf(mSystemConfFile, 0644);
++	const int mode = current.mode & (recoveredMode >= 0 ? recoveredMode : 07777);
+ 	if (Utils::AtomicFile::readText(backup) == text && Utils::AtomicFile::modeOf(backup, mode) == mode)
+ 		return;
+ 	if (!Utils::AtomicFile::writeText(backup, text, mode))
+@@ -234,7 +245,8 @@ bool SystemConf::loadFromDisk()
+ 			<< ".tmp that an interrupted save left -- loading that and writing it back";
+ 		parseSystemConf(chosen.text);
+ 		reportWriteBack("its .tmp");
+-		recordLastGood(chosen.text, mode);
++		if (wrote != Utils::AtomicFile::RecoveryWrite::LockBusy)
++			recordLastGood(chosen.text, mode);
+ 		sRecovered = true;
+ 		return true;
+ 
+@@ -247,7 +259,8 @@ bool SystemConf::loadFromDisk()
+ 		// copy shares, which the live file is written with (claude
+ 		// G2-E-core-04 b: a record an earlier build made 0644 stayed so beside
+ 		// the 0600 file until the next save).
+-		recordLastGood(chosen.text, mode);
++		if (wrote != Utils::AtomicFile::RecoveryWrite::LockBusy)
++			recordLastGood(chosen.text, mode);
+ 		sRecovered = true;
+ 		return true;
+ 
+@@ -316,7 +329,8 @@ bool SystemConf::saveSystemConf()
+ 
+ 	// What was just written is, by construction, the newest good state, so
+ 	// it becomes the record (D-CLOUD-078: a success becomes the last known
+-	// good). Outside the lock: the shell never takes it for the record.
++	// good). recordLastGood reacquires the lock and revalidates that snapshot;
++	// a script may have published a newer state since this save released it.
+ 	// Unless it was merged onto a file cut short: the record then keeps the
+ 	// keys the cut lost (audit of the fixes G-E1-04).
+ 	if (baseWhole)
+diff --git a/es-core/src/Window.cpp b/es-core/src/Window.cpp
+index 223659821..78da39809 100644
+--- a/es-core/src/Window.cpp
++++ b/es-core/src/Window.cpp
+@@ -1143,6 +1143,12 @@ void Window::renderScreenSaver()
+ 		mScreenSaver->renderScreenSaver();
+ }
+ 
++bool Window::hasAsyncNotifications()
++{
++	std::unique_lock<std::mutex> lock(mNotificationMessagesLock);
++	return !mAsyncNotificationComponent.empty();
++}
++
+ AsyncNotificationComponent* Window::createAsyncNotificationComponent(bool actionLine)
+ {
+ 	std::unique_lock<std::mutex> lock(mNotificationMessagesLock);
+diff --git a/es-core/src/Window.h b/es-core/src/Window.h
+index 8b8f65b2f..1f1fd7e1c 100644
+--- a/es-core/src/Window.h
++++ b/es-core/src/Window.h
+@@ -97,6 +97,8 @@ public:
+ 	std::shared_ptr<BatteryIndicatorComponent>	getBatteryIndicator() { return mBatteryIndicator; }
+ 
+ 	AsyncNotificationComponent* createAsyncNotificationComponent(bool actionLine = false);
++	// Includes queued, lingering and fading cards until the window removes them.
++	bool hasAsyncNotifications();
+ 
+ 	bool isCalibratingGun() { return mCalibrationText != nullptr; }
+ 	void setGunCalibrationState(bool isCalibrating);
+diff --git a/locale/lang/fr/LC_MESSAGES/emulationstation2.po b/locale/lang/fr/LC_MESSAGES/emulationstation2.po
+index 1d92db348..f6f9b733f 100644
+--- a/locale/lang/fr/LC_MESSAGES/emulationstation2.po
++++ b/locale/lang/fr/LC_MESSAGES/emulationstation2.po
+@@ -5113,8 +5113,8 @@ msgstr "ACTIVER LA SURCOUCHE MANGOHUD"
+ msgid "ENABLE TOUCHSCREEN KEYBOARD"
+ msgstr "ACTIVER LE CLAVIER TACTILE"
+ 
+-msgid "ENABLE ROCKNIX SCREENSHOT"
+-msgstr "ACTIVER LA CAPTURE D’ÉCRAN ROCKNIX"
++msgid "ENABLE pixelelated SCREENSHOT"
++msgstr "ACTIVER LA CAPTURE D’ÉCRAN pixelelated"
+ 
+ msgid "SCREEN BRIGHTNESS"
+ msgstr "LUMINOSITÉ DE L’ÉCRAN"
+@@ -6613,3 +6613,18 @@ msgstr "VOUS N’ÊTES PAS EN LIGNE. CONNECTEZ-VOUS POUR TERMINER LA CONFIGURATI
+ 
+ msgid "CONNECT TO WI-FI"
+ msgstr "SE CONNECTER AU WI-FI"
++
++msgid "MANUAL UPDATES"
++msgstr "MISES À JOUR MANUELLES"
++
++msgid "This version uses manual updates. Open github.com/pixelelated/distribution/releases on a computer, choose the update for your device, and follow the instructions."
++msgstr "Cette version utilise des mises à jour manuelles. Sur un ordinateur, ouvrez github.com/pixelelated/distribution/releases, choisissez la mise à jour pour votre appareil, puis suivez les instructions."
++
++msgid "YOUR CLOUD FOLDER MOVE DIDN'T FINISH.\n\nTRY AGAIN? FILES ALREADY MOVED WILL BE KEPT."
++msgstr "LE DÉPLACEMENT DU DOSSIER CLOUD N'A PAS ABOUTI.\n\nRÉESSAYER ? LES FICHIERS DÉJÀ DÉPLACÉS SERONT CONSERVÉS."
++
++msgid "WHAT MOVED IS IN THE NEW FOLDER. TRY AGAIN TO FINISH."
++msgstr "LES FICHIERS DÉPLACÉS SONT DANS LE NOUVEAU DOSSIER. RÉESSAYEZ POUR TERMINER."
++
++msgid "YOUR CLOUD FOLDER COULDN'T BE READ"
++msgstr "IMPOSSIBLE DE LIRE VOTRE DOSSIER CLOUD"
+diff --git a/resources/Tiny5-OFL.txt b/resources/Tiny5-OFL.txt
+new file mode 100644
+index 000000000..df38291f4
+--- /dev/null
++++ b/resources/Tiny5-OFL.txt
+@@ -0,0 +1,93 @@
++Copyright 2026 The Tiny5 Project Authors (https://github.com/Gissio/font_Tiny5)
++
++This Font Software is licensed under the SIL Open Font License, Version 1.1.
++This license is copied below, and is also available with a FAQ at:
++https://scripts.sil.org/OFL
++
++
++-----------------------------------------------------------
++SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
++-----------------------------------------------------------
++
++PREAMBLE
++The goals of the Open Font License (OFL) are to stimulate worldwide
++development of collaborative font projects, to support the font creation
++efforts of academic and linguistic communities, and to provide a free and
++open framework in which fonts may be shared and improved in partnership
++with others.
++
++The OFL allows the licensed fonts to be used, studied, modified and
++redistributed freely as long as they are not sold by themselves. The
++fonts, including any derivative works, can be bundled, embedded, 
++redistributed and/or sold with any software provided that any reserved
++names are not used by derivative works. The fonts and derivatives,
++however, cannot be released under any other type of license. The
++requirement for fonts to remain under this license does not apply
++to any document created using the fonts or their derivatives.
++
++DEFINITIONS
++"Font Software" refers to the set of files released by the Copyright
++Holder(s) under this license and clearly marked as such. This may
++include source files, build scripts and documentation.
++
++"Reserved Font Name" refers to any names specified as such after the
++copyright statement(s).
++
++"Original Version" refers to the collection of Font Software components as
++distributed by the Copyright Holder(s).
++
++"Modified Version" refers to any derivative made by adding to, deleting,
++or substituting -- in part or in whole -- any of the components of the
++Original Version, by changing formats or by porting the Font Software to a
++new environment.
++
++"Author" refers to any designer, engineer, programmer, technical
++writer or other person who contributed to the Font Software.
++
++PERMISSION & CONDITIONS
++Permission is hereby granted, free of charge, to any person obtaining
++a copy of the Font Software, to use, study, copy, merge, embed, modify,
++redistribute, and sell modified and unmodified copies of the Font
++Software, subject to the following conditions:
++
++1) Neither the Font Software nor any of its individual components,
++in Original or Modified Versions, may be sold by itself.
++
++2) Original or Modified Versions of the Font Software may be bundled,
++redistributed and/or sold with any software, provided that each copy
++contains the above copyright notice and this license. These can be
++included either as stand-alone text files, human-readable headers or
++in the appropriate machine-readable metadata fields within text or
++binary files as long as those fields can be easily viewed by the user.
++
++3) No Modified Version of the Font Software may use the Reserved Font
++Name(s) unless explicit written permission is granted by the corresponding
++Copyright Holder. This restriction only applies to the primary font name as
++presented to the users.
++
++4) The name(s) of the Copyright Holder(s) or the Author(s) of the Font
++Software shall not be used to promote, endorse or advertise any
++Modified Version, except to acknowledge the contribution(s) of the
++Copyright Holder(s) and the Author(s) or with their explicit written
++permission.
++
++5) The Font Software, modified or unmodified, in part or in whole,
++must be distributed entirely under this license, and must not be
++distributed under any other license. The requirement for fonts to
++remain under this license does not apply to any document created
++using the Font Software.
++
++TERMINATION
++This license becomes null and void if any of the above conditions are
++not met.
++
++DISCLAIMER
++THE FONT SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
++EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF
++MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT
++OF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL THE
++COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
++INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL
++DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
++FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
++OTHER DEALINGS IN THE FONT SOFTWARE.
+diff --git a/resources/pixelelated-wordmark.svg b/resources/pixelelated-wordmark.svg
+new file mode 100644
+index 000000000..213585ef4
+--- /dev/null
++++ b/resources/pixelelated-wordmark.svg
+@@ -0,0 +1,263 @@
++<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 32" width="480" height="256" shape-rendering="crispEdges" role="img" aria-labelledby="title">
++<title id="title">pixelelated</title>
++<g id="wordmark">
++<path fill="#10E6FF" d="M6.9375 14.5625 L6.0625 14.5625 L6.0625 15.3125 L6.9375 15.3125 Z"/>
++<path fill="#10A5FF" d="M6.9375 15.3125 L6.0625 15.3125 L6.0625 15.4375 L6.9375 15.4375 Z"/>
++<path fill="#10E6FF" d="M5.9375 14.5625 L5.0625 14.5625 L5.0625 15.3125 L5.9375 15.3125 Z"/>
++<path fill="#10A5FF" d="M5.9375 15.3125 L5.0625 15.3125 L5.0625 15.4375 L5.9375 15.4375 Z"/>
++<path fill="#10E6FF" d="M4.9375 14.5625 L4.0625 14.5625 L4.0625 15.3125 L4.9375 15.3125 Z"/>
++<path fill="#10A5FF" d="M4.9375 15.3125 L4.0625 15.3125 L4.0625 15.4375 L4.9375 15.4375 Z"/>
++<path fill="#10E6FF" d="M3.9375 14.5625 L3.0625 14.5625 L3.0625 15.3125 L3.9375 15.3125 Z"/>
++<path fill="#10A5FF" d="M3.9375 15.3125 L3.0625 15.3125 L3.0625 15.4375 L3.9375 15.4375 Z"/>
++<path fill="#10A5FF" d="M7.9375 15.5625 L7.0625 15.5625 L7.0625 16.4375 L7.9375 16.4375 Z"/>
++<path fill="#10A5FF" d="M6.9375 15.5625 L6.0625 15.5625 L6.0625 16.4375 L6.9375 16.4375 Z"/>
++<path fill="#10A5FF" d="M4.9375 15.5625 L4.0625 15.5625 L4.0625 16.4375 L4.9375 16.4375 Z"/>
++<path fill="#10A5FF" d="M3.9375 15.5625 L3.0625 15.5625 L3.0625 16.4375 L3.9375 16.4375 Z"/>
++<path fill="#10A5FF" d="M7.9375 16.5625 L7.0625 16.5625 L7.0625 16.6875 L7.9375 16.6875 Z"/>
++<path fill="#1963FF" d="M7.9375 16.6875 L7.0625 16.6875 L7.0625 17.4375 L7.9375 17.4375 Z"/>
++<path fill="#10A5FF" d="M6.9375 16.5625 L6.0625 16.5625 L6.0625 16.6875 L6.9375 16.6875 Z"/>
++<path fill="#1963FF" d="M6.9375 16.6875 L6.0625 16.6875 L6.0625 17.4375 L6.9375 17.4375 Z"/>
++<path fill="#10A5FF" d="M4.9375 16.5625 L4.0625 16.5625 L4.0625 16.6875 L4.9375 16.6875 Z"/>
++<path fill="#1963FF" d="M4.9375 16.6875 L4.0625 16.6875 L4.0625 17.4375 L4.9375 17.4375 Z"/>
++<path fill="#10A5FF" d="M3.9375 16.5625 L3.0625 16.5625 L3.0625 16.6875 L3.9375 16.6875 Z"/>
++<path fill="#1963FF" d="M3.9375 16.6875 L3.0625 16.6875 L3.0625 17.4375 L3.9375 17.4375 Z"/>
++<path fill="#1963FF" d="M6.9375 17.5625 L6.0625 17.5625 L6.0625 18.0625 L6.9375 18.0625 Z"/>
++<path fill="#1921B5" d="M6.9375 18.0625 L6.0625 18.0625 L6.0625 18.4375 L6.9375 18.4375 Z"/>
++<path fill="#1963FF" d="M5.9375 17.5625 L5.0625 17.5625 L5.0625 18.0625 L5.9375 18.0625 Z"/>
++<path fill="#1921B5" d="M5.9375 18.0625 L5.0625 18.0625 L5.0625 18.4375 L5.9375 18.4375 Z"/>
++<path fill="#1963FF" d="M4.9375 17.5625 L4.0625 17.5625 L4.0625 18.0625 L4.9375 18.0625 Z"/>
++<path fill="#1921B5" d="M4.9375 18.0625 L4.0625 18.0625 L4.0625 18.4375 L4.9375 18.4375 Z"/>
++<path fill="#1963FF" d="M3.9375 17.5625 L3.0625 17.5625 L3.0625 18.0625 L3.9375 18.0625 Z"/>
++<path fill="#1921B5" d="M3.9375 18.0625 L3.0625 18.0625 L3.0625 18.4375 L3.9375 18.4375 Z"/>
++<path fill="#1921B5" d="M3.9375 18.5625 L3.0625 18.5625 L3.0625 19.4375 L3.9375 19.4375 Z"/>
++<path fill="#1921B5" d="M4.9375 18.5625 L4.0625 18.5625 L4.0625 19.4375 L4.9375 19.4375 Z"/>
++<path fill="#A5FFFF" d="M9.9375 12.5625 L9.0625 12.5625 L9.0625 13.4375 L9.9375 13.4375 Z"/>
++<path fill="#A5FFFF" d="M10.9375 12.5625 L10.0625 12.5625 L10.0625 13.4375 L10.9375 13.4375 Z"/>
++<path fill="#10E6FF" d="M9.9375 14.5625 L9.0625 14.5625 L9.0625 15.3125 L9.9375 15.3125 Z"/>
++<path fill="#10A5FF" d="M9.9375 15.3125 L9.0625 15.3125 L9.0625 15.4375 L9.9375 15.4375 Z"/>
++<path fill="#10E6FF" d="M10.9375 14.5625 L10.0625 14.5625 L10.0625 15.3125 L10.9375 15.3125 Z"/>
++<path fill="#10A5FF" d="M10.9375 15.3125 L10.0625 15.3125 L10.0625 15.4375 L10.9375 15.4375 Z"/>
++<path fill="#10A5FF" d="M9.9375 15.5625 L9.0625 15.5625 L9.0625 16.4375 L9.9375 16.4375 Z"/>
++<path fill="#10A5FF" d="M10.9375 15.5625 L10.0625 15.5625 L10.0625 16.4375 L10.9375 16.4375 Z"/>
++<path fill="#10A5FF" d="M9.9375 16.5625 L9.0625 16.5625 L9.0625 16.6875 L9.9375 16.6875 Z"/>
++<path fill="#1963FF" d="M9.9375 16.6875 L9.0625 16.6875 L9.0625 17.4375 L9.9375 17.4375 Z"/>
++<path fill="#10A5FF" d="M10.9375 16.5625 L10.0625 16.5625 L10.0625 16.6875 L10.9375 16.6875 Z"/>
++<path fill="#1963FF" d="M10.9375 16.6875 L10.0625 16.6875 L10.0625 17.4375 L10.9375 17.4375 Z"/>
++<path fill="#1963FF" d="M9.9375 17.5625 L9.0625 17.5625 L9.0625 18.0625 L9.9375 18.0625 Z"/>
++<path fill="#1921B5" d="M9.9375 18.0625 L9.0625 18.0625 L9.0625 18.4375 L9.9375 18.4375 Z"/>
++<path fill="#1963FF" d="M10.9375 17.5625 L10.0625 17.5625 L10.0625 18.0625 L10.9375 18.0625 Z"/>
++<path fill="#1921B5" d="M10.9375 18.0625 L10.0625 18.0625 L10.0625 18.4375 L10.9375 18.4375 Z"/>
++<path fill="#10E6FF" d="M12.9375 14.5625 L12.0625 14.5625 L12.0625 15.3125 L12.9375 15.3125 Z"/>
++<path fill="#10A5FF" d="M12.9375 15.3125 L12.0625 15.3125 L12.0625 15.4375 L12.9375 15.4375 Z"/>
++<path fill="#10E6FF" d="M13.9375 14.5625 L13.0625 14.5625 L13.0625 15.3125 L13.9375 15.3125 Z"/>
++<path fill="#10A5FF" d="M13.9375 15.3125 L13.0625 15.3125 L13.0625 15.4375 L13.9375 15.4375 Z"/>
++<path fill="#10E6FF" d="M15.9375 14.5625 L15.0625 14.5625 L15.0625 15.3125 L15.9375 15.3125 Z"/>
++<path fill="#10A5FF" d="M15.9375 15.3125 L15.0625 15.3125 L15.0625 15.4375 L15.9375 15.4375 Z"/>
++<path fill="#10E6FF" d="M16.9375 14.5625 L16.0625 14.5625 L16.0625 15.3125 L16.9375 15.3125 Z"/>
++<path fill="#10A5FF" d="M16.9375 15.3125 L16.0625 15.3125 L16.0625 15.4375 L16.9375 15.4375 Z"/>
++<path fill="#10A5FF" d="M13.9375 15.5625 L13.0625 15.5625 L13.0625 16.4375 L13.9375 16.4375 Z"/>
++<path fill="#10A5FF" d="M14.9375 15.5625 L14.0625 15.5625 L14.0625 16.4375 L14.9375 16.4375 Z"/>
++<path fill="#10A5FF" d="M15.9375 15.5625 L15.0625 15.5625 L15.0625 16.4375 L15.9375 16.4375 Z"/>
++<path fill="#10A5FF" d="M12.9375 16.5625 L12.0625 16.5625 L12.0625 16.6875 L12.9375 16.6875 Z"/>
++<path fill="#1963FF" d="M12.9375 16.6875 L12.0625 16.6875 L12.0625 17.4375 L12.9375 17.4375 Z"/>
++<path fill="#10A5FF" d="M13.9375 16.5625 L13.0625 16.5625 L13.0625 16.6875 L13.9375 16.6875 Z"/>
++<path fill="#1963FF" d="M13.9375 16.6875 L13.0625 16.6875 L13.0625 17.4375 L13.9375 17.4375 Z"/>
++<path fill="#10A5FF" d="M15.9375 16.5625 L15.0625 16.5625 L15.0625 16.6875 L15.9375 16.6875 Z"/>
++<path fill="#1963FF" d="M15.9375 16.6875 L15.0625 16.6875 L15.0625 17.4375 L15.9375 17.4375 Z"/>
++<path fill="#10A5FF" d="M16.9375 16.5625 L16.0625 16.5625 L16.0625 16.6875 L16.9375 16.6875 Z"/>
++<path fill="#1963FF" d="M16.9375 16.6875 L16.0625 16.6875 L16.0625 17.4375 L16.9375 17.4375 Z"/>
++<path fill="#1963FF" d="M12.9375 17.5625 L12.0625 17.5625 L12.0625 18.0625 L12.9375 18.0625 Z"/>
++<path fill="#1921B5" d="M12.9375 18.0625 L12.0625 18.0625 L12.0625 18.4375 L12.9375 18.4375 Z"/>
++<path fill="#1963FF" d="M13.9375 17.5625 L13.0625 17.5625 L13.0625 18.0625 L13.9375 18.0625 Z"/>
++<path fill="#1921B5" d="M13.9375 18.0625 L13.0625 18.0625 L13.0625 18.4375 L13.9375 18.4375 Z"/>
++<path fill="#1963FF" d="M15.9375 17.5625 L15.0625 17.5625 L15.0625 18.0625 L15.9375 18.0625 Z"/>
++<path fill="#1921B5" d="M15.9375 18.0625 L15.0625 18.0625 L15.0625 18.4375 L15.9375 18.4375 Z"/>
++<path fill="#1963FF" d="M16.9375 17.5625 L16.0625 17.5625 L16.0625 18.0625 L16.9375 18.0625 Z"/>
++<path fill="#1921B5" d="M16.9375 18.0625 L16.0625 18.0625 L16.0625 18.4375 L16.9375 18.4375 Z"/>
++<path fill="#10E6FF" d="M19.9375 14.5625 L19.0625 14.5625 L19.0625 15.3125 L19.9375 15.3125 Z"/>
++<path fill="#10A5FF" d="M19.9375 15.3125 L19.0625 15.3125 L19.0625 15.4375 L19.9375 15.4375 Z"/>
++<path fill="#10E6FF" d="M20.9375 14.5625 L20.0625 14.5625 L20.0625 15.3125 L20.9375 15.3125 Z"/>
++<path fill="#10A5FF" d="M20.9375 15.3125 L20.0625 15.3125 L20.0625 15.4375 L20.9375 15.4375 Z"/>
++<path fill="#10E6FF" d="M21.9375 14.5625 L21.0625 14.5625 L21.0625 15.3125 L21.9375 15.3125 Z"/>
++<path fill="#10A5FF" d="M21.9375 15.3125 L21.0625 15.3125 L21.0625 15.4375 L21.9375 15.4375 Z"/>
++<path fill="#10A5FF" d="M18.9375 15.5625 L18.0625 15.5625 L18.0625 16.4375 L18.9375 16.4375 Z"/>
++<path fill="#10A5FF" d="M19.9375 15.5625 L19.0625 15.5625 L19.0625 16.4375 L19.9375 16.4375 Z"/>
++<path fill="#10A5FF" d="M20.9375 15.5625 L20.0625 15.5625 L20.0625 16.4375 L20.9375 16.4375 Z"/>
++<path fill="#10A5FF" d="M21.9375 15.5625 L21.0625 15.5625 L21.0625 16.4375 L21.9375 16.4375 Z"/>
++<path fill="#10A5FF" d="M22.9375 15.5625 L22.0625 15.5625 L22.0625 16.4375 L22.9375 16.4375 Z"/>
++<path fill="#10A5FF" d="M18.9375 16.5625 L18.0625 16.5625 L18.0625 16.6875 L18.9375 16.6875 Z"/>
++<path fill="#1963FF" d="M18.9375 16.6875 L18.0625 16.6875 L18.0625 17.4375 L18.9375 17.4375 Z"/>
++<path fill="#10A5FF" d="M19.9375 16.5625 L19.0625 16.5625 L19.0625 16.6875 L19.9375 16.6875 Z"/>
++<path fill="#1963FF" d="M19.9375 16.6875 L19.0625 16.6875 L19.0625 17.4375 L19.9375 17.4375 Z"/>
++<path fill="#1963FF" d="M19.9375 17.5625 L19.0625 17.5625 L19.0625 18.0625 L19.9375 18.0625 Z"/>
++<path fill="#1921B5" d="M19.9375 18.0625 L19.0625 18.0625 L19.0625 18.4375 L19.9375 18.4375 Z"/>
++<path fill="#1963FF" d="M20.9375 17.5625 L20.0625 17.5625 L20.0625 18.0625 L20.9375 18.0625 Z"/>
++<path fill="#1921B5" d="M20.9375 18.0625 L20.0625 18.0625 L20.0625 18.4375 L20.9375 18.4375 Z"/>
++<path fill="#1963FF" d="M21.9375 17.5625 L21.0625 17.5625 L21.0625 18.0625 L21.9375 18.0625 Z"/>
++<path fill="#1921B5" d="M21.9375 18.0625 L21.0625 18.0625 L21.0625 18.4375 L21.9375 18.4375 Z"/>
++<path fill="#1963FF" d="M22.9375 17.5625 L22.0625 17.5625 L22.0625 18.0625 L22.9375 18.0625 Z"/>
++<path fill="#1921B5" d="M22.9375 18.0625 L22.0625 18.0625 L22.0625 18.4375 L22.9375 18.4375 Z"/>
++<path fill="#A5FFFF" d="M24.9375 13.5625 L24.0625 13.5625 L24.0625 13.9375 L24.9375 13.9375 Z"/>
++<path fill="#10E6FF" d="M24.9375 13.9375 L24.0625 13.9375 L24.0625 14.4375 L24.9375 14.4375 Z"/>
++<path fill="#A5FFFF" d="M25.9375 13.5625 L25.0625 13.5625 L25.0625 13.9375 L25.9375 13.9375 Z"/>
++<path fill="#10E6FF" d="M25.9375 13.9375 L25.0625 13.9375 L25.0625 14.4375 L25.9375 14.4375 Z"/>
++<path fill="#10E6FF" d="M24.9375 14.5625 L24.0625 14.5625 L24.0625 15.3125 L24.9375 15.3125 Z"/>
++<path fill="#10A5FF" d="M24.9375 15.3125 L24.0625 15.3125 L24.0625 15.4375 L24.9375 15.4375 Z"/>
++<path fill="#10E6FF" d="M25.9375 14.5625 L25.0625 14.5625 L25.0625 15.3125 L25.9375 15.3125 Z"/>
++<path fill="#10A5FF" d="M25.9375 15.3125 L25.0625 15.3125 L25.0625 15.4375 L25.9375 15.4375 Z"/>
++<path fill="#10A5FF" d="M24.9375 15.5625 L24.0625 15.5625 L24.0625 16.4375 L24.9375 16.4375 Z"/>
++<path fill="#10A5FF" d="M25.9375 15.5625 L25.0625 15.5625 L25.0625 16.4375 L25.9375 16.4375 Z"/>
++<path fill="#10A5FF" d="M24.9375 16.5625 L24.0625 16.5625 L24.0625 16.6875 L24.9375 16.6875 Z"/>
++<path fill="#1963FF" d="M24.9375 16.6875 L24.0625 16.6875 L24.0625 17.4375 L24.9375 17.4375 Z"/>
++<path fill="#10A5FF" d="M25.9375 16.5625 L25.0625 16.5625 L25.0625 16.6875 L25.9375 16.6875 Z"/>
++<path fill="#1963FF" d="M25.9375 16.6875 L25.0625 16.6875 L25.0625 17.4375 L25.9375 17.4375 Z"/>
++<path fill="#1963FF" d="M24.9375 17.5625 L24.0625 17.5625 L24.0625 18.0625 L24.9375 18.0625 Z"/>
++<path fill="#1921B5" d="M24.9375 18.0625 L24.0625 18.0625 L24.0625 18.4375 L24.9375 18.4375 Z"/>
++<path fill="#1963FF" d="M25.9375 17.5625 L25.0625 17.5625 L25.0625 18.0625 L25.9375 18.0625 Z"/>
++<path fill="#1921B5" d="M25.9375 18.0625 L25.0625 18.0625 L25.0625 18.4375 L25.9375 18.4375 Z"/>
++<path fill="#10E6FF" d="M28.9375 14.5625 L28.0625 14.5625 L28.0625 15.3125 L28.9375 15.3125 Z"/>
++<path fill="#10A5FF" d="M28.9375 15.3125 L28.0625 15.3125 L28.0625 15.4375 L28.9375 15.4375 Z"/>
++<path fill="#10E6FF" d="M29.9375 14.5625 L29.0625 14.5625 L29.0625 15.3125 L29.9375 15.3125 Z"/>
++<path fill="#10A5FF" d="M29.9375 15.3125 L29.0625 15.3125 L29.0625 15.4375 L29.9375 15.4375 Z"/>
++<path fill="#10E6FF" d="M30.9375 14.5625 L30.0625 14.5625 L30.0625 15.3125 L30.9375 15.3125 Z"/>
++<path fill="#10A5FF" d="M30.9375 15.3125 L30.0625 15.3125 L30.0625 15.4375 L30.9375 15.4375 Z"/>
++<path fill="#10A5FF" d="M27.9375 15.5625 L27.0625 15.5625 L27.0625 16.4375 L27.9375 16.4375 Z"/>
++<path fill="#10A5FF" d="M28.9375 15.5625 L28.0625 15.5625 L28.0625 16.4375 L28.9375 16.4375 Z"/>
++<path fill="#10A5FF" d="M29.9375 15.5625 L29.0625 15.5625 L29.0625 16.4375 L29.9375 16.4375 Z"/>
++<path fill="#10A5FF" d="M30.9375 15.5625 L30.0625 15.5625 L30.0625 16.4375 L30.9375 16.4375 Z"/>
++<path fill="#10A5FF" d="M31.9375 15.5625 L31.0625 15.5625 L31.0625 16.4375 L31.9375 16.4375 Z"/>
++<path fill="#10A5FF" d="M27.9375 16.5625 L27.0625 16.5625 L27.0625 16.6875 L27.9375 16.6875 Z"/>
++<path fill="#1963FF" d="M27.9375 16.6875 L27.0625 16.6875 L27.0625 17.4375 L27.9375 17.4375 Z"/>
++<path fill="#10A5FF" d="M28.9375 16.5625 L28.0625 16.5625 L28.0625 16.6875 L28.9375 16.6875 Z"/>
++<path fill="#1963FF" d="M28.9375 16.6875 L28.0625 16.6875 L28.0625 17.4375 L28.9375 17.4375 Z"/>
++<path fill="#1963FF" d="M28.9375 17.5625 L28.0625 17.5625 L28.0625 18.0625 L28.9375 18.0625 Z"/>
++<path fill="#1921B5" d="M28.9375 18.0625 L28.0625 18.0625 L28.0625 18.4375 L28.9375 18.4375 Z"/>
++<path fill="#1963FF" d="M29.9375 17.5625 L29.0625 17.5625 L29.0625 18.0625 L29.9375 18.0625 Z"/>
++<path fill="#1921B5" d="M29.9375 18.0625 L29.0625 18.0625 L29.0625 18.4375 L29.9375 18.4375 Z"/>
++<path fill="#1963FF" d="M30.9375 17.5625 L30.0625 17.5625 L30.0625 18.0625 L30.9375 18.0625 Z"/>
++<path fill="#1921B5" d="M30.9375 18.0625 L30.0625 18.0625 L30.0625 18.4375 L30.9375 18.4375 Z"/>
++<path fill="#1963FF" d="M31.9375 17.5625 L31.0625 17.5625 L31.0625 18.0625 L31.9375 18.0625 Z"/>
++<path fill="#1921B5" d="M31.9375 18.0625 L31.0625 18.0625 L31.0625 18.4375 L31.9375 18.4375 Z"/>
++<path fill="#A5FFFF" d="M33.9375 13.5625 L33.0625 13.5625 L33.0625 13.9375 L33.9375 13.9375 Z"/>
++<path fill="#10E6FF" d="M33.9375 13.9375 L33.0625 13.9375 L33.0625 14.4375 L33.9375 14.4375 Z"/>
++<path fill="#A5FFFF" d="M34.9375 13.5625 L34.0625 13.5625 L34.0625 13.9375 L34.9375 13.9375 Z"/>
++<path fill="#10E6FF" d="M34.9375 13.9375 L34.0625 13.9375 L34.0625 14.4375 L34.9375 14.4375 Z"/>
++<path fill="#10E6FF" d="M33.9375 14.5625 L33.0625 14.5625 L33.0625 15.3125 L33.9375 15.3125 Z"/>
++<path fill="#10A5FF" d="M33.9375 15.3125 L33.0625 15.3125 L33.0625 15.4375 L33.9375 15.4375 Z"/>
++<path fill="#10E6FF" d="M34.9375 14.5625 L34.0625 14.5625 L34.0625 15.3125 L34.9375 15.3125 Z"/>
++<path fill="#10A5FF" d="M34.9375 15.3125 L34.0625 15.3125 L34.0625 15.4375 L34.9375 15.4375 Z"/>
++<path fill="#10A5FF" d="M33.9375 15.5625 L33.0625 15.5625 L33.0625 16.4375 L33.9375 16.4375 Z"/>
++<path fill="#10A5FF" d="M34.9375 15.5625 L34.0625 15.5625 L34.0625 16.4375 L34.9375 16.4375 Z"/>
++<path fill="#10A5FF" d="M33.9375 16.5625 L33.0625 16.5625 L33.0625 16.6875 L33.9375 16.6875 Z"/>
++<path fill="#1963FF" d="M33.9375 16.6875 L33.0625 16.6875 L33.0625 17.4375 L33.9375 17.4375 Z"/>
++<path fill="#10A5FF" d="M34.9375 16.5625 L34.0625 16.5625 L34.0625 16.6875 L34.9375 16.6875 Z"/>
++<path fill="#1963FF" d="M34.9375 16.6875 L34.0625 16.6875 L34.0625 17.4375 L34.9375 17.4375 Z"/>
++<path fill="#1963FF" d="M33.9375 17.5625 L33.0625 17.5625 L33.0625 18.0625 L33.9375 18.0625 Z"/>
++<path fill="#1921B5" d="M33.9375 18.0625 L33.0625 18.0625 L33.0625 18.4375 L33.9375 18.4375 Z"/>
++<path fill="#1963FF" d="M34.9375 17.5625 L34.0625 17.5625 L34.0625 18.0625 L34.9375 18.0625 Z"/>
++<path fill="#1921B5" d="M34.9375 18.0625 L34.0625 18.0625 L34.0625 18.4375 L34.9375 18.4375 Z"/>
++<path fill="#10E6FF" d="M37.9375 14.5625 L37.0625 14.5625 L37.0625 15.3125 L37.9375 15.3125 Z"/>
++<path fill="#10A5FF" d="M37.9375 15.3125 L37.0625 15.3125 L37.0625 15.4375 L37.9375 15.4375 Z"/>
++<path fill="#10E6FF" d="M38.9375 14.5625 L38.0625 14.5625 L38.0625 15.3125 L38.9375 15.3125 Z"/>
++<path fill="#10A5FF" d="M38.9375 15.3125 L38.0625 15.3125 L38.0625 15.4375 L38.9375 15.4375 Z"/>
++<path fill="#10E6FF" d="M39.9375 14.5625 L39.0625 14.5625 L39.0625 15.3125 L39.9375 15.3125 Z"/>
++<path fill="#10A5FF" d="M39.9375 15.3125 L39.0625 15.3125 L39.0625 15.4375 L39.9375 15.4375 Z"/>
++<path fill="#10E6FF" d="M40.9375 14.5625 L40.0625 14.5625 L40.0625 15.3125 L40.9375 15.3125 Z"/>
++<path fill="#10A5FF" d="M40.9375 15.3125 L40.0625 15.3125 L40.0625 15.4375 L40.9375 15.4375 Z"/>
++<path fill="#10A5FF" d="M36.9375 15.5625 L36.0625 15.5625 L36.0625 16.4375 L36.9375 16.4375 Z"/>
++<path fill="#10A5FF" d="M37.9375 15.5625 L37.0625 15.5625 L37.0625 16.4375 L37.9375 16.4375 Z"/>
++<path fill="#10A5FF" d="M39.9375 15.5625 L39.0625 15.5625 L39.0625 16.4375 L39.9375 16.4375 Z"/>
++<path fill="#10A5FF" d="M40.9375 15.5625 L40.0625 15.5625 L40.0625 16.4375 L40.9375 16.4375 Z"/>
++<path fill="#10A5FF" d="M36.9375 16.5625 L36.0625 16.5625 L36.0625 16.6875 L36.9375 16.6875 Z"/>
++<path fill="#1963FF" d="M36.9375 16.6875 L36.0625 16.6875 L36.0625 17.4375 L36.9375 17.4375 Z"/>
++<path fill="#10A5FF" d="M37.9375 16.5625 L37.0625 16.5625 L37.0625 16.6875 L37.9375 16.6875 Z"/>
++<path fill="#1963FF" d="M37.9375 16.6875 L37.0625 16.6875 L37.0625 17.4375 L37.9375 17.4375 Z"/>
++<path fill="#10A5FF" d="M39.9375 16.5625 L39.0625 16.5625 L39.0625 16.6875 L39.9375 16.6875 Z"/>
++<path fill="#1963FF" d="M39.9375 16.6875 L39.0625 16.6875 L39.0625 17.4375 L39.9375 17.4375 Z"/>
++<path fill="#10A5FF" d="M40.9375 16.5625 L40.0625 16.5625 L40.0625 16.6875 L40.9375 16.6875 Z"/>
++<path fill="#1963FF" d="M40.9375 16.6875 L40.0625 16.6875 L40.0625 17.4375 L40.9375 17.4375 Z"/>
++<path fill="#1963FF" d="M37.9375 17.5625 L37.0625 17.5625 L37.0625 18.0625 L37.9375 18.0625 Z"/>
++<path fill="#1921B5" d="M37.9375 18.0625 L37.0625 18.0625 L37.0625 18.4375 L37.9375 18.4375 Z"/>
++<path fill="#1963FF" d="M38.9375 17.5625 L38.0625 17.5625 L38.0625 18.0625 L38.9375 18.0625 Z"/>
++<path fill="#1921B5" d="M38.9375 18.0625 L38.0625 18.0625 L38.0625 18.4375 L38.9375 18.4375 Z"/>
++<path fill="#1963FF" d="M39.9375 17.5625 L39.0625 17.5625 L39.0625 18.0625 L39.9375 18.0625 Z"/>
++<path fill="#1921B5" d="M39.9375 18.0625 L39.0625 18.0625 L39.0625 18.4375 L39.9375 18.4375 Z"/>
++<path fill="#1963FF" d="M40.9375 17.5625 L40.0625 17.5625 L40.0625 18.0625 L40.9375 18.0625 Z"/>
++<path fill="#1921B5" d="M40.9375 18.0625 L40.0625 18.0625 L40.0625 18.4375 L40.9375 18.4375 Z"/>
++<path fill="#A5FFFF" d="M42.9375 13.5625 L42.0625 13.5625 L42.0625 13.9375 L42.9375 13.9375 Z"/>
++<path fill="#10E6FF" d="M42.9375 13.9375 L42.0625 13.9375 L42.0625 14.4375 L42.9375 14.4375 Z"/>
++<path fill="#A5FFFF" d="M43.9375 13.5625 L43.0625 13.5625 L43.0625 13.9375 L43.9375 13.9375 Z"/>
++<path fill="#10E6FF" d="M43.9375 13.9375 L43.0625 13.9375 L43.0625 14.4375 L43.9375 14.4375 Z"/>
++<path fill="#10E6FF" d="M42.9375 14.5625 L42.0625 14.5625 L42.0625 15.3125 L42.9375 15.3125 Z"/>
++<path fill="#10A5FF" d="M42.9375 15.3125 L42.0625 15.3125 L42.0625 15.4375 L42.9375 15.4375 Z"/>
++<path fill="#10E6FF" d="M43.9375 14.5625 L43.0625 14.5625 L43.0625 15.3125 L43.9375 15.3125 Z"/>
++<path fill="#10A5FF" d="M43.9375 15.3125 L43.0625 15.3125 L43.0625 15.4375 L43.9375 15.4375 Z"/>
++<path fill="#10E6FF" d="M44.9375 14.5625 L44.0625 14.5625 L44.0625 15.3125 L44.9375 15.3125 Z"/>
++<path fill="#10A5FF" d="M44.9375 15.3125 L44.0625 15.3125 L44.0625 15.4375 L44.9375 15.4375 Z"/>
++<path fill="#10A5FF" d="M42.9375 15.5625 L42.0625 15.5625 L42.0625 16.4375 L42.9375 16.4375 Z"/>
++<path fill="#10A5FF" d="M43.9375 15.5625 L43.0625 15.5625 L43.0625 16.4375 L43.9375 16.4375 Z"/>
++<path fill="#10A5FF" d="M42.9375 16.5625 L42.0625 16.5625 L42.0625 16.6875 L42.9375 16.6875 Z"/>
++<path fill="#1963FF" d="M42.9375 16.6875 L42.0625 16.6875 L42.0625 17.4375 L42.9375 17.4375 Z"/>
++<path fill="#10A5FF" d="M43.9375 16.5625 L43.0625 16.5625 L43.0625 16.6875 L43.9375 16.6875 Z"/>
++<path fill="#1963FF" d="M43.9375 16.6875 L43.0625 16.6875 L43.0625 17.4375 L43.9375 17.4375 Z"/>
++<path fill="#1963FF" d="M43.9375 17.5625 L43.0625 17.5625 L43.0625 18.0625 L43.9375 18.0625 Z"/>
++<path fill="#1921B5" d="M43.9375 18.0625 L43.0625 18.0625 L43.0625 18.4375 L43.9375 18.4375 Z"/>
++<path fill="#1963FF" d="M44.9375 17.5625 L44.0625 17.5625 L44.0625 18.0625 L44.9375 18.0625 Z"/>
++<path fill="#1921B5" d="M44.9375 18.0625 L44.0625 18.0625 L44.0625 18.4375 L44.9375 18.4375 Z"/>
++<path fill="#10E6FF" d="M47.9375 14.5625 L47.0625 14.5625 L47.0625 15.3125 L47.9375 15.3125 Z"/>
++<path fill="#10A5FF" d="M47.9375 15.3125 L47.0625 15.3125 L47.0625 15.4375 L47.9375 15.4375 Z"/>
++<path fill="#10E6FF" d="M48.9375 14.5625 L48.0625 14.5625 L48.0625 15.3125 L48.9375 15.3125 Z"/>
++<path fill="#10A5FF" d="M48.9375 15.3125 L48.0625 15.3125 L48.0625 15.4375 L48.9375 15.4375 Z"/>
++<path fill="#10E6FF" d="M49.9375 14.5625 L49.0625 14.5625 L49.0625 15.3125 L49.9375 15.3125 Z"/>
++<path fill="#10A5FF" d="M49.9375 15.3125 L49.0625 15.3125 L49.0625 15.4375 L49.9375 15.4375 Z"/>
++<path fill="#10A5FF" d="M46.9375 15.5625 L46.0625 15.5625 L46.0625 16.4375 L46.9375 16.4375 Z"/>
++<path fill="#10A5FF" d="M47.9375 15.5625 L47.0625 15.5625 L47.0625 16.4375 L47.9375 16.4375 Z"/>
++<path fill="#10A5FF" d="M48.9375 15.5625 L48.0625 15.5625 L48.0625 16.4375 L48.9375 16.4375 Z"/>
++<path fill="#10A5FF" d="M49.9375 15.5625 L49.0625 15.5625 L49.0625 16.4375 L49.9375 16.4375 Z"/>
++<path fill="#10A5FF" d="M50.9375 15.5625 L50.0625 15.5625 L50.0625 16.4375 L50.9375 16.4375 Z"/>
++<path fill="#10A5FF" d="M46.9375 16.5625 L46.0625 16.5625 L46.0625 16.6875 L46.9375 16.6875 Z"/>
++<path fill="#1963FF" d="M46.9375 16.6875 L46.0625 16.6875 L46.0625 17.4375 L46.9375 17.4375 Z"/>
++<path fill="#10A5FF" d="M47.9375 16.5625 L47.0625 16.5625 L47.0625 16.6875 L47.9375 16.6875 Z"/>
++<path fill="#1963FF" d="M47.9375 16.6875 L47.0625 16.6875 L47.0625 17.4375 L47.9375 17.4375 Z"/>
++<path fill="#1963FF" d="M47.9375 17.5625 L47.0625 17.5625 L47.0625 18.0625 L47.9375 18.0625 Z"/>
++<path fill="#1921B5" d="M47.9375 18.0625 L47.0625 18.0625 L47.0625 18.4375 L47.9375 18.4375 Z"/>
++<path fill="#1963FF" d="M48.9375 17.5625 L48.0625 17.5625 L48.0625 18.0625 L48.9375 18.0625 Z"/>
++<path fill="#1921B5" d="M48.9375 18.0625 L48.0625 18.0625 L48.0625 18.4375 L48.9375 18.4375 Z"/>
++<path fill="#1963FF" d="M49.9375 17.5625 L49.0625 17.5625 L49.0625 18.0625 L49.9375 18.0625 Z"/>
++<path fill="#1921B5" d="M49.9375 18.0625 L49.0625 18.0625 L49.0625 18.4375 L49.9375 18.4375 Z"/>
++<path fill="#1963FF" d="M50.9375 17.5625 L50.0625 17.5625 L50.0625 18.0625 L50.9375 18.0625 Z"/>
++<path fill="#1921B5" d="M50.9375 18.0625 L50.0625 18.0625 L50.0625 18.4375 L50.9375 18.4375 Z"/>
++<path fill="#A5FFFF" d="M56.9375 13.5625 L56.0625 13.5625 L56.0625 13.9375 L56.9375 13.9375 Z"/>
++<path fill="#10E6FF" d="M56.9375 13.9375 L56.0625 13.9375 L56.0625 14.4375 L56.9375 14.4375 Z"/>
++<path fill="#A5FFFF" d="M55.9375 13.5625 L55.0625 13.5625 L55.0625 13.9375 L55.9375 13.9375 Z"/>
++<path fill="#10E6FF" d="M55.9375 13.9375 L55.0625 13.9375 L55.0625 14.4375 L55.9375 14.4375 Z"/>
++<path fill="#10E6FF" d="M56.9375 14.5625 L56.0625 14.5625 L56.0625 15.3125 L56.9375 15.3125 Z"/>
++<path fill="#10A5FF" d="M56.9375 15.3125 L56.0625 15.3125 L56.0625 15.4375 L56.9375 15.4375 Z"/>
++<path fill="#10E6FF" d="M55.9375 14.5625 L55.0625 14.5625 L55.0625 15.3125 L55.9375 15.3125 Z"/>
++<path fill="#10A5FF" d="M55.9375 15.3125 L55.0625 15.3125 L55.0625 15.4375 L55.9375 15.4375 Z"/>
++<path fill="#10E6FF" d="M54.9375 14.5625 L54.0625 14.5625 L54.0625 15.3125 L54.9375 15.3125 Z"/>
++<path fill="#10A5FF" d="M54.9375 15.3125 L54.0625 15.3125 L54.0625 15.4375 L54.9375 15.4375 Z"/>
++<path fill="#10E6FF" d="M53.9375 14.5625 L53.0625 14.5625 L53.0625 15.3125 L53.9375 15.3125 Z"/>
++<path fill="#10A5FF" d="M53.9375 15.3125 L53.0625 15.3125 L53.0625 15.4375 L53.9375 15.4375 Z"/>
++<path fill="#10A5FF" d="M53.9375 15.5625 L53.0625 15.5625 L53.0625 16.4375 L53.9375 16.4375 Z"/>
++<path fill="#10A5FF" d="M56.9375 15.5625 L56.0625 15.5625 L56.0625 16.4375 L56.9375 16.4375 Z"/>
++<path fill="#10A5FF" d="M55.9375 15.5625 L55.0625 15.5625 L55.0625 16.4375 L55.9375 16.4375 Z"/>
++<path fill="#10A5FF" d="M52.9375 15.5625 L52.0625 15.5625 L52.0625 16.4375 L52.9375 16.4375 Z"/>
++<path fill="#10A5FF" d="M56.9375 16.5625 L56.0625 16.5625 L56.0625 16.6875 L56.9375 16.6875 Z"/>
++<path fill="#1963FF" d="M56.9375 16.6875 L56.0625 16.6875 L56.0625 17.4375 L56.9375 17.4375 Z"/>
++<path fill="#10A5FF" d="M55.9375 16.5625 L55.0625 16.5625 L55.0625 16.6875 L55.9375 16.6875 Z"/>
++<path fill="#1963FF" d="M55.9375 16.6875 L55.0625 16.6875 L55.0625 17.4375 L55.9375 17.4375 Z"/>
++<path fill="#10A5FF" d="M53.9375 16.5625 L53.0625 16.5625 L53.0625 16.6875 L53.9375 16.6875 Z"/>
++<path fill="#1963FF" d="M53.9375 16.6875 L53.0625 16.6875 L53.0625 17.4375 L53.9375 17.4375 Z"/>
++<path fill="#10A5FF" d="M52.9375 16.5625 L52.0625 16.5625 L52.0625 16.6875 L52.9375 16.6875 Z"/>
++<path fill="#1963FF" d="M52.9375 16.6875 L52.0625 16.6875 L52.0625 17.4375 L52.9375 17.4375 Z"/>
++<path fill="#1963FF" d="M53.9375 17.5625 L53.0625 17.5625 L53.0625 18.0625 L53.9375 18.0625 Z"/>
++<path fill="#1921B5" d="M53.9375 18.0625 L53.0625 18.0625 L53.0625 18.4375 L53.9375 18.4375 Z"/>
++<path fill="#1963FF" d="M56.9375 17.5625 L56.0625 17.5625 L56.0625 18.0625 L56.9375 18.0625 Z"/>
++<path fill="#1921B5" d="M56.9375 18.0625 L56.0625 18.0625 L56.0625 18.4375 L56.9375 18.4375 Z"/>
++<path fill="#1963FF" d="M55.9375 17.5625 L55.0625 17.5625 L55.0625 18.0625 L55.9375 18.0625 Z"/>
++<path fill="#1921B5" d="M55.9375 18.0625 L55.0625 18.0625 L55.0625 18.4375 L55.9375 18.4375 Z"/>
++<path fill="#1963FF" d="M54.9375 17.5625 L54.0625 17.5625 L54.0625 18.0625 L54.9375 18.0625 Z"/>
++<path fill="#1921B5" d="M54.9375 18.0625 L54.0625 18.0625 L54.0625 18.4375 L54.9375 18.4375 Z"/>
++</g>
++</svg>

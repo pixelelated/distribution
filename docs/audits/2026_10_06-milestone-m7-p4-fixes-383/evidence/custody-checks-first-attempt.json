@@ -1,0 +1,65 @@
+{
+  "utc": "2026-10-06T07:12:57.985860+00:00",
+  "records": [
+    {
+      "name": "ui-artifact-hashes",
+      "command": [
+        "sha256sum",
+        "-c",
+        "SHA256SUMS"
+      ],
+      "cwd": "docs/qa-logs/2026-10-06-ra-ui",
+      "rc": 0,
+      "ok_lines": 302
+    },
+    {
+      "name": "candidate-store",
+      "command": [
+        "tools/rasteratops-candidate-store",
+        "verify",
+        "/workspace/artifacts/pixelelated-candidates/sha256/b77e47e57a4bb35f885ba78669ee8176a9ac978b27c1cbcfaad66e18f684a9f1"
+      ],
+      "cwd": ".",
+      "rc": 0,
+      "ok_lines": 0
+    },
+    {
+      "name": "frozen-inputs",
+      "manifest_sha256": "70cb0448872f39b5382939173b2182a783381142df6dd5630b9e00a2c3ba6ccc",
+      "product": 6550,
+      "qa": 207,
+      "symlinks": 180,
+      "errors": [
+        [
+          "symlink",
+          "projects/Generic/devices/Generic-legacy/patches"
+        ],
+        [
+          "symlink",
+          "projects/ROCKNIX/packages/devel/cmake/patches"
+        ],
+        [
+          "symlink",
+          "projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/patches/SM6115"
+        ],
+        [
+          "symlink",
+          "projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/patches/SM8550"
+        ],
+        [
+          "symlink",
+          "projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/patches/SM8650"
+        ],
+        [
+          "symlink",
+          "projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/patches/SM8750"
+        ],
+        [
+          "symlink",
+          "projects/ROCKNIX/packages/lang/gcc/patches"
+        ]
+      ],
+      "rc": 1
+    }
+  ]
+}
