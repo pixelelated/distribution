@@ -1,0 +1,65 @@
+{
+  "verified_utc": "2026-10-06T23:22:58.518708+00:00",
+  "historical_proof": {
+    "verified_utc": "2026-10-06T23:18:38.597339+00:00",
+    "previous_commit": "69e6039f8fdbf971d3e6b694537f250036fdcd98",
+    "negative_commit": "1acdaf2cce908b25758a004dca0f22ad3ff7af49",
+    "a_before": "SAVES_REMOTE=\"/ROCKNIX/Saves\"\nSETTINGS_REMOTE=\"/ROCKNIX/Backups\"\nCONTENT_REMOTE=\"/ROCKNIX/Content\"\n",
+    "a_after": "SAVES_REMOTE=\"/ROCKNIX/Saves\"\nSETTINGS_REMOTE=\"/ROCKNIX/Backups\"\nCONTENT_REMOTE=\"/ROCKNIX/Content\"\n",
+    "b_before": "SAVES_REMOTE=\"/Rasteratops/Saves\"\nSETTINGS_REMOTE=\"/Rasteratops/Backups\"\nCONTENT_REMOTE=\"/Rasteratops/Content\"\n",
+    "b_after": "SAVES_REMOTE=\"/Rasteratops/Saves\"\nSETTINGS_REMOTE=\"/Rasteratops/Backups\"\nCONTENT_REMOTE=\"/Rasteratops/Content\"\n",
+    "cloud_before": {
+      "ROCKNIX/Backups/GENERIC-X64-15ca35b6b4/2026_10_06-191722-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz": "f18094816c4137445a2547a47b5390a9022761c531efbcbc6ea7b396795e8132",
+      "ROCKNIX/Backups/GENERIC-X64-15ca35b6b4/device.json": "d5efd1d208ee053fb33b7aa5d3f7a5d11621fd1cbaa14f415b8400a436cfec77",
+      "ROCKNIX/Saves/nes/NoJoinFromA.srm": "b665d50b94a516adc52f9860203bf21819002e847eab6eefad809e1aca0fc524"
+    },
+    "cloud_after": {
+      "ROCKNIX/Backups/GENERIC-X64-15ca35b6b4/2026_10_06-191722-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz": "f18094816c4137445a2547a47b5390a9022761c531efbcbc6ea7b396795e8132",
+      "ROCKNIX/Backups/GENERIC-X64-15ca35b6b4/device.json": "d5efd1d208ee053fb33b7aa5d3f7a5d11621fd1cbaa14f415b8400a436cfec77",
+      "ROCKNIX/Saves/nes/NoJoinFromA.srm": "b665d50b94a516adc52f9860203bf21819002e847eab6eefad809e1aca0fc524",
+      "Rasteratops/.layout": "be68d69fa1fe3ddbcaa9295b8e3e732fd0113d909e38cf643d95aab41c9b1a22",
+      "Rasteratops/Backups/README.txt": "a2e91a3dddf28269cbf704b1b7e2540608e9851a88f09679701e0c6629fd7f5c",
+      "Rasteratops/Content/BIOS/README.txt": "12345b222d272bcccee06cac35e9b0d4ac10a76617a32b72cefa8542a90d1f67",
+      "Rasteratops/Content/README.txt": "cb0db1a29003ebedb5a5f92d17c49e7eadebedcc10e883e9d9af052fd4a57456",
+      "Rasteratops/Content/ROMs/README.txt": "cdbf34d6dc27ad558261bd99b99bbc91850ba28a1150ef2488b18dbe87637bcd",
+      "Rasteratops/Saves/README.txt": "81283a71c8db19f49232b395e3527170b14ae38add60d5180071196f24c283bf"
+    },
+    "scan_state": "SAVES=/Rasteratops/Saves\nBACKUPS=/Rasteratops/Backups\nCONTENT=/Rasteratops/Content\nCURRENT=/Rasteratops/Saves\nSOURCE=-\nCURRENT_EXISTS=0\nMARKER=-\nSTATE=current\n",
+    "join_assertion": "EXPECTED FAIL",
+    "restore_witness_assertion": "EXPECTED FAIL",
+    "restore_returncode": 0,
+    "original_bytes_preserved": true,
+    "scope": "Actual retained pre-join image on updated RC2 guest a and fresh guest b. Historical default is intentionally not the current product default. No personal provider or fielded Rasteratops migration claim."
+  },
+  "positive_source_access": {
+    "source": "/ROCKNIX/Saves/nes/NoJoinFromA.srm",
+    "sha256": "b665d50b94a516adc52f9860203bf21819002e847eab6eefad809e1aca0fc524"
+  },
+  "all_runtime_cloud_hashes_rechecked": true,
+  "host_repair": {
+    "verified_utc": "2026-10-06T23:22:50.529406+00:00",
+    "counts": {
+      "focused": {
+        "PASS": 22
+      },
+      "full": {
+        "PASS": 398
+      },
+      "old-prefix": {
+        "FAIL": 4
+      },
+      "old-no-record": {
+        "PASS": 4
+      },
+      "old-different": {
+        "PASS": 1
+      }
+    },
+    "source_sha256": {
+      "current-cloud_migrate_layout": "0e4ccebde159006acb6313027e33b363b177eff2b62db2bacc93fea05396b2c1",
+      "current-cloud-layout-test": "c72c531b340ca70b6ac0a2362ba1f8f63c513571931c8a251fe66bb7c9bb76ca"
+    },
+    "scope": "Refined prior-record and pre-record Content refusal regression passes with actual installed1.75.1 rclone. Source acceptance only; actual rebuilt UI retry remains required. First repair/independent failing Content control retained."
+  },
+  "scope": "Genuine historical negative completes missing no-join evidence; source repair acceptance remains separate from mandatory rebuilt16 UI qualification."
+}

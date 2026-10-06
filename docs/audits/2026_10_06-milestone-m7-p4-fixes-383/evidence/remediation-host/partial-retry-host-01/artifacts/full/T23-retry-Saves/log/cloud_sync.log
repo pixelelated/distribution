@@ -1,0 +1,186 @@
+[2026-10-06 23:09:25] [INFO] [cloud_setup] Seeding: cloud folder settlement exited 5; nothing was made
+[2026-10-06 23:09:25] [INFO] [cloud_restore] Loading configuration from cloud_sync.conf
+[2026-10-06 23:09:25] [INFO] [cloud_restore] Original RCLONEOPTS: --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt
+[2026-10-06 23:09:25] [INFO] [cloud_restore] After newline cleanup: --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt 
+[2026-10-06 23:09:25] [INFO] [cloud_restore] After removing verbose flags: --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt 
+[2026-10-06 23:09:25] [INFO] [cloud_restore] After removing restore-unsafe delete flags: --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt 
+[2026-10-06 23:09:25] [INFO] [cloud_restore] After spacing fix: --progress  --log-file /var/log/cloud_sync.log  --filter-from /storage/.config/cloud_sync-rules.txt 
+[2026-10-06 23:09:25] [INFO] [cloud_restore] After final cleanup: --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt 
+[2026-10-06 23:09:25] [INFO] [cloud_restore] Options array has 5 elements
+[2026-10-06 23:09:25] [INFO] [cloud_restore] rclone network bound: --contimeout 1s --timeout 2s --low-level-retries 1 --retries 1
+[2026-10-06 23:09:25] [INFO] [cloud_restore] automatic run: --contimeout 5s --timeout 5s --retries 1 --max-duration 90s --low-level-retries 5 --transfers 1; ceiling 90s from start
+[2026-10-06 23:09:25] [INFO] [cloud_restore] Transfer method overridden from command line: copy
+[2026-10-06 23:09:25] [INFO] [cloud_restore] Added --update from command line
+[2026-10-06 23:09:25] [INFO] [cloud_restore] Configuration loaded successfully
+[2026-10-06 23:09:25] [INFO] [cloud_restore] =>  CLOUD RESTORE\n
+[2026-10-06 23:09:25] [INFO] [cloud_restore] ====================================
+[2026-10-06 23:09:25] [INFO] [cloud_restore] RESTORING YOUR GAME SAVES
+[2026-10-06 23:09:25] [INFO] [cloud_restore] ====================================
+[2026-10-06 23:09:25] [INFO] [cloud_restore] Starting restore from qa:/ROCKNIX/Saves to /storage/roms
+[2026-10-06 23:09:25] [INFO] [cloud_restore] Restore started at Tue Oct  6 23:09:25 UTC 2026
+[2026-10-06 23:09:25] [INFO] [cloud_restore] Checking if remote path exists: qa:/ROCKNIX/Saves
+[2026-10-06 23:09:26] [INFO] [cloud_restore] the remote keeps modtimes or hashes: rclone's own comparison
+[2026-10-06 23:09:26] [INFO] [cloud_restore] About to execute: rclone copy --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt --update --log-level INFO --stats 1s --exclude=bios/** --exclude=backup/** --backup-dir=/storage/.cache/cloud_sync/replaced/2026_10_06-230926 qa:/ROCKNIX/Saves/ /storage/roms/
+2026/10/06 23:09:26 INFO  : Local file system at /storage/roms: Transfer session HARD deadline: 2026/10/06 23:10:56
+2026/10/06 23:09:26 INFO  : gb/A.srm: Copied (new)
+2026/10/06 23:09:26 INFO  : gb: Set directory modification time (using DirSetModTime)
+2026/10/06 23:09:26 INFO  : 
+Transferred:   	         11 B / 11 B, 100%, 0 B/s, ETA -
+Checks:                 0 / 0, -, Listed 3
+Transferred:            1 / 1, 100%
+Elapsed time:         0.0s
+
+[2026-10-06 23:09:26] [INFO] [cloud_restore] Restoring your saves: completed.
+[2026-10-06 23:09:26] [INFO] [cloud_restore] Skipped settings this time - saves only.
+[2026-10-06 23:09:26] [INFO] [cloud_restore] ====================================
+[2026-10-06 23:09:26] [INFO] [cloud_restore] RESTORE SUMMARY:
+[2026-10-06 23:09:26] [INFO] [cloud_restore] Game saves: COMPLETED
+[2026-10-06 23:09:26] [INFO] [cloud_restore] Completed.
+[2026-10-06 23:09:26] [INFO] [cloud_restore] Log file: /var/log/cloud_sync.log
+[2026-10-06 23:09:26] [INFO] [cloud_restore] ====================================
+[2026-10-06 23:09:26] [INFO] [cloud_restore] Script completed in 1 seconds with exit code 0
+[2026-10-06 23:09:26] [INFO] [cloud_backup] Loading configuration from cloud_sync.conf
+[2026-10-06 23:09:26] [INFO] [cloud_backup] Original RCLONEOPTS: --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt
+[2026-10-06 23:09:26] [INFO] [cloud_backup] After newline cleanup: --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt 
+[2026-10-06 23:09:26] [INFO] [cloud_backup] After removing verbose flags: --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt 
+[2026-10-06 23:09:26] [INFO] [cloud_backup] After spacing fix: --progress  --log-file /var/log/cloud_sync.log  --filter-from /storage/.config/cloud_sync-rules.txt 
+[2026-10-06 23:09:26] [INFO] [cloud_backup] After final cleanup: --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt 
+[2026-10-06 23:09:26] [INFO] [cloud_backup] Options array has 5 elements
+[2026-10-06 23:09:26] [INFO] [cloud_backup] rclone network bound: --contimeout 1s --timeout 2s --low-level-retries 1 --retries 1
+[2026-10-06 23:09:26] [INFO] [cloud_backup] automatic run: --contimeout 5s --timeout 5s --retries 1 --max-duration 90s --low-level-retries 5 --transfers 1; ceiling 90s from start
+[2026-10-06 23:09:26] [INFO] [cloud_backup] Transfer method overridden from command line: copy
+[2026-10-06 23:09:26] [INFO] [cloud_backup] Added --update from command line
+[2026-10-06 23:09:26] [INFO] [cloud_backup] Configuration loaded successfully
+[2026-10-06 23:09:26] [INFO] [cloud_backup] =>  CLOUD BACKUP\n
+[2026-10-06 23:09:26] [INFO] [cloud_backup] ====================================
+[2026-10-06 23:09:26] [INFO] [cloud_backup] BACKING UP YOUR GAME SAVES
+[2026-10-06 23:09:26] [INFO] [cloud_backup] ====================================
+[2026-10-06 23:09:26] [INFO] [cloud_backup] Starting backup from /storage/roms to qa:/ROCKNIX/Saves
+[2026-10-06 23:09:26] [INFO] [cloud_backup] Backup started at Tue Oct  6 23:09:26 UTC 2026
+[2026-10-06 23:09:26] [INFO] [cloud_backup] Ensuring remote sync path exists: qa:/ROCKNIX/Saves
+[2026-10-06 23:09:26] [INFO] [cloud_backup] the remote keeps modtimes or hashes: rclone's own comparison
+[2026-10-06 23:09:26] [INFO] [cloud_backup] anything replaced (or, in sync mode, removed) in the cloud goes to /ROCKNIX/Saves-replaced
+[2026-10-06 23:09:26] [INFO] [cloud_backup] About to execute: rclone copy --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt --update --log-level INFO --stats 1s --exclude=bios/** --exclude=backup/** --backup-dir=qa:/ROCKNIX/Saves-replaced/2026_10_06-230926 /storage/roms/ qa:/ROCKNIX/Saves/
+2026/10/06 23:09:26 INFO  : Local file system at /cloud/ROCKNIX/Saves: Transfer session HARD deadline: 2026/10/06 23:10:56
+2026/10/06 23:09:26 INFO  : There was nothing to transfer
+2026/10/06 23:09:26 INFO  : 
+Transferred:   	          0 B / 0 B, -, 0 B/s, ETA -
+Checks:                 1 / 1, 100%, Listed 5
+Elapsed time:         0.0s
+
+[2026-10-06 23:09:26] [INFO] [cloud_backup] Backing up your saves: completed.
+[2026-10-06 23:09:26] [INFO] [cloud_backup] Skipped settings this time - saves only.
+[2026-10-06 23:09:26] [INFO] [cloud_backup] ====================================
+[2026-10-06 23:09:26] [INFO] [cloud_backup] BACKUP SUMMARY:
+[2026-10-06 23:09:26] [INFO] [cloud_backup] Game saves: COMPLETED
+[2026-10-06 23:09:26] [INFO] [cloud_backup] Completed.
+[2026-10-06 23:09:26] [INFO] [cloud_backup] Log file: /var/log/cloud_sync.log
+[2026-10-06 23:09:26] [INFO] [cloud_backup] ====================================
+[2026-10-06 23:09:26] [INFO] [cloud_backup] Script completed in 0 seconds with exit code 0
+[2026-10-06 23:09:26] [INFO] [cloud_backup] Loading configuration from cloud_sync.conf
+[2026-10-06 23:09:26] [INFO] [cloud_backup] Original RCLONEOPTS: --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt
+[2026-10-06 23:09:26] [INFO] [cloud_backup] After newline cleanup: --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt 
+[2026-10-06 23:09:26] [INFO] [cloud_backup] After removing verbose flags: --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt 
+[2026-10-06 23:09:26] [INFO] [cloud_backup] After spacing fix: --progress  --log-file /var/log/cloud_sync.log  --filter-from /storage/.config/cloud_sync-rules.txt 
+[2026-10-06 23:09:26] [INFO] [cloud_backup] After final cleanup: --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt 
+[2026-10-06 23:09:26] [INFO] [cloud_backup] Options array has 5 elements
+[2026-10-06 23:09:26] [INFO] [cloud_backup] rclone network bound: --contimeout 1s --timeout 2s --low-level-retries 1 --retries 1
+[2026-10-06 23:09:26] [INFO] [cloud_backup] automatic run: --contimeout 5s --timeout 5s --retries 1 --max-duration 90s --low-level-retries 5 --transfers 1; ceiling 90s from start
+[2026-10-06 23:09:26] [INFO] [cloud_backup] Configuration loaded successfully
+[2026-10-06 23:09:26] [INFO] [cloud_backup] =>  CLOUD BACKUP\n
+[2026-10-06 23:09:26] [INFO] [cloud_backup] ====================================
+[2026-10-06 23:09:26] [INFO] [cloud_backup] BACKING UP YOUR GAME SAVES
+[2026-10-06 23:09:26] [INFO] [cloud_backup] ====================================
+[2026-10-06 23:09:26] [INFO] [cloud_backup] Starting backup from /storage/roms to qa:/ROCKNIX/Saves
+[2026-10-06 23:09:26] [INFO] [cloud_backup] Backup started at Tue Oct  6 23:09:26 UTC 2026
+[2026-10-06 23:09:26] [INFO] [cloud_backup] recent: only files changed in the last 600s, since the last successful backup
+[2026-10-06 23:09:26] [INFO] [cloud_backup] the remote keeps modtimes or hashes: rclone's own comparison
+[2026-10-06 23:09:26] [INFO] [cloud_backup] anything replaced (or, in sync mode, removed) in the cloud goes to /ROCKNIX/Saves-replaced
+[2026-10-06 23:09:26] [INFO] [cloud_backup] About to execute: rclone copy --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt --log-level INFO --stats 1s --exclude=bios/** --max-age 600s --no-traverse --exclude=backup/** --backup-dir=qa:/ROCKNIX/Saves-replaced/2026_10_06-230926 /storage/roms/ qa:/ROCKNIX/Saves/
+2026/10/06 23:09:26 INFO  : Local file system at /cloud/ROCKNIX/Saves: Transfer session HARD deadline: 2026/10/06 23:10:56
+2026/10/06 23:09:26 INFO  : gb: Set directory modification time (using DirSetModTime)
+2026/10/06 23:09:26 INFO  : There was nothing to transfer
+2026/10/06 23:09:26 INFO  : 
+Transferred:   	          0 B / 0 B, -, 0 B/s, ETA -
+Checks:                 1 / 1, 100%, Listed 3
+Elapsed time:         0.0s
+
+[2026-10-06 23:09:26] [INFO] [cloud_backup] Backing up your saves: completed.
+[2026-10-06 23:09:26] [INFO] [cloud_backup] Skipped settings this time - saves only.
+[2026-10-06 23:09:26] [INFO] [cloud_backup] ====================================
+[2026-10-06 23:09:26] [INFO] [cloud_backup] BACKUP SUMMARY:
+[2026-10-06 23:09:26] [INFO] [cloud_backup] Game saves: COMPLETED
+[2026-10-06 23:09:26] [INFO] [cloud_backup] Completed.
+[2026-10-06 23:09:26] [INFO] [cloud_backup] Log file: /var/log/cloud_sync.log
+[2026-10-06 23:09:26] [INFO] [cloud_backup] ====================================
+[2026-10-06 23:09:26] [INFO] [cloud_backup] Script completed in 0 seconds with exit code 0
+[2026-10-06 23:09:26] [INFO] [cloud_restore] Loading configuration from cloud_sync.conf
+[2026-10-06 23:09:26] [INFO] [cloud_restore] Original RCLONEOPTS: --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt
+[2026-10-06 23:09:26] [INFO] [cloud_restore] After newline cleanup: --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt 
+[2026-10-06 23:09:26] [INFO] [cloud_restore] After removing verbose flags: --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt 
+[2026-10-06 23:09:26] [INFO] [cloud_restore] After removing restore-unsafe delete flags: --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt 
+[2026-10-06 23:09:26] [INFO] [cloud_restore] After spacing fix: --progress  --log-file /var/log/cloud_sync.log  --filter-from /storage/.config/cloud_sync-rules.txt 
+[2026-10-06 23:09:26] [INFO] [cloud_restore] After final cleanup: --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt 
+[2026-10-06 23:09:26] [INFO] [cloud_restore] Options array has 5 elements
+[2026-10-06 23:09:26] [INFO] [cloud_restore] rclone network bound: --contimeout 1s --timeout 2s --low-level-retries 1 --retries 1
+[2026-10-06 23:09:26] [INFO] [cloud_restore] deliberate run: stall ceiling 8s (rclone idle timeout 2s + 6s grace)
+[2026-10-06 23:09:26] [INFO] [cloud_restore] Configuration loaded successfully
+[2026-10-06 23:09:26] [INFO] [cloud_restore] =>  CLOUD RESTORE\n
+[2026-10-06 23:09:26] [INFO] [cloud_restore] ====================================
+[2026-10-06 23:09:26] [INFO] [cloud_restore] RESTORING YOUR GAME SAVES
+[2026-10-06 23:09:26] [INFO] [cloud_restore] ====================================
+[2026-10-06 23:09:26] [INFO] [cloud_restore] Starting restore from qa:/ROCKNIX/Saves to /storage/roms
+[2026-10-06 23:09:26] [INFO] [cloud_restore] Restore started at Tue Oct  6 23:09:26 UTC 2026
+[2026-10-06 23:09:26] [INFO] [cloud_restore] Checking if remote path exists: qa:/ROCKNIX/Saves
+[2026-10-06 23:09:27] [INFO] [cloud_restore] the remote keeps modtimes or hashes: rclone's own comparison
+[2026-10-06 23:09:27] [INFO] [cloud_restore] About to execute: rclone copy --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt --log-level INFO --stats 1s --exclude=bios/** --exclude=backup/** --backup-dir=/storage/.cache/cloud_sync/replaced/2026_10_06-230927 qa:/ROCKNIX/Saves/ /storage/roms/
+2026/10/06 23:09:27 INFO  : There was nothing to transfer
+2026/10/06 23:09:27 INFO  : 
+Transferred:   	          0 B / 0 B, -, 0 B/s, ETA -
+Checks:                 1 / 1, 100%, Listed 5
+Elapsed time:         0.0s
+
+[2026-10-06 23:09:27] [INFO] [cloud_restore] Restoring your saves: completed.
+[2026-10-06 23:09:27] [INFO] [cloud_restore] Skipped settings this time - saves only.
+[2026-10-06 23:09:27] [INFO] [cloud_restore] ====================================
+[2026-10-06 23:09:27] [INFO] [cloud_restore] RESTORE SUMMARY:
+[2026-10-06 23:09:27] [INFO] [cloud_restore] Game saves: COMPLETED
+[2026-10-06 23:09:27] [INFO] [cloud_restore] Completed.
+[2026-10-06 23:09:27] [INFO] [cloud_restore] Log file: /var/log/cloud_sync.log
+[2026-10-06 23:09:27] [INFO] [cloud_restore] ====================================
+[2026-10-06 23:09:27] [INFO] [cloud_restore] Script completed in 1 seconds with exit code 0
+[2026-10-06 23:09:27] [INFO] [cloud_backup] Loading configuration from cloud_sync.conf
+[2026-10-06 23:09:27] [INFO] [cloud_backup] Original RCLONEOPTS: --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt
+[2026-10-06 23:09:27] [INFO] [cloud_backup] After newline cleanup: --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt 
+[2026-10-06 23:09:27] [INFO] [cloud_backup] After removing verbose flags: --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt 
+[2026-10-06 23:09:27] [INFO] [cloud_backup] After spacing fix: --progress  --log-file /var/log/cloud_sync.log  --filter-from /storage/.config/cloud_sync-rules.txt 
+[2026-10-06 23:09:27] [INFO] [cloud_backup] After final cleanup: --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt 
+[2026-10-06 23:09:27] [INFO] [cloud_backup] Options array has 5 elements
+[2026-10-06 23:09:28] [INFO] [cloud_backup] rclone network bound: --contimeout 1s --timeout 2s --low-level-retries 1 --retries 1
+[2026-10-06 23:09:28] [INFO] [cloud_backup] deliberate run: stall ceiling 8s (rclone idle timeout 2s + 6s grace)
+[2026-10-06 23:09:28] [INFO] [cloud_backup] Configuration loaded successfully
+[2026-10-06 23:09:28] [INFO] [cloud_backup] =>  CLOUD BACKUP\n
+[2026-10-06 23:09:28] [INFO] [cloud_backup] ====================================
+[2026-10-06 23:09:28] [INFO] [cloud_backup] BACKING UP YOUR GAME SAVES
+[2026-10-06 23:09:28] [INFO] [cloud_backup] ====================================
+[2026-10-06 23:09:28] [INFO] [cloud_backup] Starting backup from /storage/roms to qa:/ROCKNIX/Saves
+[2026-10-06 23:09:28] [INFO] [cloud_backup] Backup started at Tue Oct  6 23:09:28 UTC 2026
+[2026-10-06 23:09:28] [INFO] [cloud_backup] Ensuring remote sync path exists: qa:/ROCKNIX/Saves
+[2026-10-06 23:09:28] [INFO] [cloud_backup] the remote keeps modtimes or hashes: rclone's own comparison
+[2026-10-06 23:09:28] [INFO] [cloud_backup] anything replaced (or, in sync mode, removed) in the cloud goes to /ROCKNIX/Saves-replaced
+[2026-10-06 23:09:28] [INFO] [cloud_backup] About to execute: rclone copy --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt --log-level INFO --stats 1s --exclude=bios/** --exclude=backup/** --backup-dir=qa:/ROCKNIX/Saves-replaced/2026_10_06-230928 /storage/roms/ qa:/ROCKNIX/Saves/
+2026/10/06 23:09:28 INFO  : There was nothing to transfer
+2026/10/06 23:09:28 INFO  : 
+Transferred:   	          0 B / 0 B, -, 0 B/s, ETA -
+Checks:                 1 / 1, 100%, Listed 5
+Elapsed time:         0.0s
+
+[2026-10-06 23:09:28] [INFO] [cloud_backup] Backing up your saves: completed.
+[2026-10-06 23:09:29] [INFO] [cloud_backup] Skipped settings this time - saves only.
+[2026-10-06 23:09:29] [INFO] [cloud_backup] ====================================
+[2026-10-06 23:09:29] [INFO] [cloud_backup] BACKUP SUMMARY:
+[2026-10-06 23:09:29] [INFO] [cloud_backup] Game saves: COMPLETED
+[2026-10-06 23:09:29] [INFO] [cloud_backup] Completed.
+[2026-10-06 23:09:29] [INFO] [cloud_backup] Log file: /var/log/cloud_sync.log
+[2026-10-06 23:09:29] [INFO] [cloud_backup] ====================================
+[2026-10-06 23:09:29] [INFO] [cloud_backup] Script completed in 2 seconds with exit code 0

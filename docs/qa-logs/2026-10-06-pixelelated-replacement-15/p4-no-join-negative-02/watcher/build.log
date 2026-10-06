@@ -1,0 +1,91 @@
+/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement15/projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm: OK
+/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement15/tools/cloud-test-backend: OK
+/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement15/tools/vm-pair: OK
+/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement15/tools/vm-serial: OK
+/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement15/tools/vm-stop: OK
+/workspace/tmp/pixelelated-m7-p4-no-join-negative-02/expected-scripts.json: OK
+/workspace/tmp/pixelelated-m7-p4-no-join-negative-02/historical-sources/1acdaf2cce908b25758a004dca0f22ad3ff7af49/cloud_backup: OK
+/workspace/tmp/pixelelated-m7-p4-no-join-negative-02/historical-sources/1acdaf2cce908b25758a004dca0f22ad3ff7af49/cloud_migrate_layout: OK
+/workspace/tmp/pixelelated-m7-p4-no-join-negative-02/historical-sources/1acdaf2cce908b25758a004dca0f22ad3ff7af49/cloud_restore: OK
+/workspace/tmp/pixelelated-m7-p4-no-join-negative-02/historical-sources/1acdaf2cce908b25758a004dca0f22ad3ff7af49/cloud_scan: OK
+/workspace/tmp/pixelelated-m7-p4-no-join-negative-02/historical-sources/1acdaf2cce908b25758a004dca0f22ad3ff7af49/cloud_setup: OK
+/workspace/tmp/pixelelated-m7-p4-no-join-negative-02/historical-sources/1acdaf2cce908b25758a004dca0f22ad3ff7af49/cloud_sync_helper: OK
+/workspace/tmp/pixelelated-m7-p4-no-join-negative-02/historical-sources/69e6039f8fdbf971d3e6b694537f250036fdcd98/cloud_backup: OK
+/workspace/tmp/pixelelated-m7-p4-no-join-negative-02/historical-sources/69e6039f8fdbf971d3e6b694537f250036fdcd98/cloud_migrate_layout: OK
+/workspace/tmp/pixelelated-m7-p4-no-join-negative-02/historical-sources/69e6039f8fdbf971d3e6b694537f250036fdcd98/cloud_restore: OK
+/workspace/tmp/pixelelated-m7-p4-no-join-negative-02/historical-sources/69e6039f8fdbf971d3e6b694537f250036fdcd98/cloud_setup: OK
+/workspace/tmp/pixelelated-m7-p4-no-join-negative-02/historical-sources/69e6039f8fdbf971d3e6b694537f250036fdcd98/cloud_sync_helper: OK
+/workspace/tmp/pixelelated-m7-p4-no-join-negative-02/outer.sh: OK
+/workspace/tmp/pixelelated-m7-p4-no-join-negative-02/provenance.json: OK
+/workspace/tmp/pixelelated-m7-p4-no-join-negative-02/run.py: OK
+/workspace/tmp/pixelelated-m7-p4-no-join-negative-02/run.sh: OK
+PASS fresh independent pair directory
+PASS retained image hash ROCKNIX-GENERIC_X64.x86_64-20261001.img.gz
+PASS retained image hash ROCKNIX-GENERIC_X64.x86_64-20261001.tar
+PASS retained image hash ROCKNIX-GENERIC_X64.x86_64-20260929.img.gz
+PASS backend-up exit 0
+PASS pair-up exit 0
+PASS fresh-b exit 0
+PASS previous-a exact installed BUILD_ID
+PASS previous-a exact installed cloud_migrate_layout
+PASS previous-a exact installed cloud_setup
+PASS previous-a exact installed cloud_sync_helper
+PASS previous-a exact installed cloud_restore
+PASS previous-a exact installed cloud_backup
+PASS fresh-b exact installed BUILD_ID
+PASS fresh-b exact installed cloud_migrate_layout
+PASS fresh-b exact installed cloud_setup
+PASS fresh-b exact installed cloud_sync_helper
+PASS fresh-b exact installed cloud_restore
+PASS fresh-b exact installed cloud_backup
+PASS fresh-b exact installed cloud_scan
+PASS historical installed migration has no join implementation
+PASS actual RC2 starts on ROCKNIX
+PASS historical fresh peer starts on its own shipped default
+PASS historical build recognizes the earlier source; negative premise valid
+PASS actual RC2 backup reached the cloud byte for byte
+PASS actual RC2 settings archive also reached cloud
+PASS a-update-copy exit 0
+PASS a rebooted for actual in-place update
+PASS updated-a exact installed BUILD_ID
+PASS updated-a exact installed cloud_migrate_layout
+PASS updated-a exact installed cloud_setup
+PASS updated-a exact installed cloud_sync_helper
+PASS updated-a exact installed cloud_restore
+PASS updated-a exact installed cloud_backup
+PASS updated-a exact installed cloud_scan
+PASS in-place update retains the populated ROCKNIX pointers
+PASS in-place update preserves original cloud bytes
+PASS one owned historical QA remote
+PASS actual historical client reads earlier source witness before negative control
+PASS historical scan runs successfully before join assertion
+PASS EXPECTED NEGATIVE: historical fresh default ignores reachable earlier source
+PASS historical wizard seeding completed
+PASS EXPECTED NEGATIVE: genuine old fresh build did not join any of the three earlier pointers
+PASS EXPECTED NEGATIVE: fresh peer cannot restore the existing earlier save through its unchanged defaults
+PASS all original cloud bytes remain intact during negative control
+PASS source witness survives byte for byte
+PASS pair-down exit 0
+PASS backend-down exit 0
+PASS genuine installed mixed-pair no-join expected negative
+/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement15/projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm: OK
+/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement15/tools/cloud-test-backend: OK
+/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement15/tools/vm-pair: OK
+/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement15/tools/vm-serial: OK
+/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement15/tools/vm-stop: OK
+/workspace/tmp/pixelelated-m7-p4-no-join-negative-02/expected-scripts.json: OK
+/workspace/tmp/pixelelated-m7-p4-no-join-negative-02/historical-sources/1acdaf2cce908b25758a004dca0f22ad3ff7af49/cloud_backup: OK
+/workspace/tmp/pixelelated-m7-p4-no-join-negative-02/historical-sources/1acdaf2cce908b25758a004dca0f22ad3ff7af49/cloud_migrate_layout: OK
+/workspace/tmp/pixelelated-m7-p4-no-join-negative-02/historical-sources/1acdaf2cce908b25758a004dca0f22ad3ff7af49/cloud_restore: OK
+/workspace/tmp/pixelelated-m7-p4-no-join-negative-02/historical-sources/1acdaf2cce908b25758a004dca0f22ad3ff7af49/cloud_scan: OK
+/workspace/tmp/pixelelated-m7-p4-no-join-negative-02/historical-sources/1acdaf2cce908b25758a004dca0f22ad3ff7af49/cloud_setup: OK
+/workspace/tmp/pixelelated-m7-p4-no-join-negative-02/historical-sources/1acdaf2cce908b25758a004dca0f22ad3ff7af49/cloud_sync_helper: OK
+/workspace/tmp/pixelelated-m7-p4-no-join-negative-02/historical-sources/69e6039f8fdbf971d3e6b694537f250036fdcd98/cloud_backup: OK
+/workspace/tmp/pixelelated-m7-p4-no-join-negative-02/historical-sources/69e6039f8fdbf971d3e6b694537f250036fdcd98/cloud_migrate_layout: OK
+/workspace/tmp/pixelelated-m7-p4-no-join-negative-02/historical-sources/69e6039f8fdbf971d3e6b694537f250036fdcd98/cloud_restore: OK
+/workspace/tmp/pixelelated-m7-p4-no-join-negative-02/historical-sources/69e6039f8fdbf971d3e6b694537f250036fdcd98/cloud_setup: OK
+/workspace/tmp/pixelelated-m7-p4-no-join-negative-02/historical-sources/69e6039f8fdbf971d3e6b694537f250036fdcd98/cloud_sync_helper: OK
+/workspace/tmp/pixelelated-m7-p4-no-join-negative-02/outer.sh: OK
+/workspace/tmp/pixelelated-m7-p4-no-join-negative-02/provenance.json: OK
+/workspace/tmp/pixelelated-m7-p4-no-join-negative-02/run.py: OK
+/workspace/tmp/pixelelated-m7-p4-no-join-negative-02/run.sh: OK

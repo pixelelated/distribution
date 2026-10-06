@@ -1,0 +1,22 @@
+{
+  "prepared_utc": "2026-10-06T22:49:40.805762+00:00",
+  "prepared_only": true,
+  "candidate": "ed5a6a51f5974deec8748fbf0dbd2f4984b690f5",
+  "criteria": [
+    "I349-L43",
+    "I379-L22",
+    "I353-L32",
+    "I353-L52",
+    "I337-L40"
+  ],
+  "cases": 6,
+  "base": "/workspace/tmp/pixelelated-m7-p4-cloud-ui-fixes-01",
+  "scope": "Six existing coverage cases with stronger fresh-root case: actual generated settings archive, content upload and automatic save receive/send, backend listing and exact witness hashes. Local disposable VM/WebDAV only; no boot-scheduler claim.",
+  "preparation_correction": "Initial preparation tried to hash not-yet-created provenance; stopped before launch. Metadata is now written before sealing; preparer order corrected.",
+  "supersedes_unsubmitted": "/workspace/tmp/pixelelated-m7-p4-coverage-ui-02",
+  "guard_correction": "No game running before and after every actual UI walk, including failing walks. START must change captured before/main-menu frames; primary visual review remains mandatory. Product bytes unchanged.",
+  "reason": "I337-L40 requires writes after backup and sync; seed-only proof would be incomplete. Planned proof strengthened before submission, under existing #337/#471.",
+  "supersedes_failed": "/workspace/tmp/pixelelated-m7-p4-coverage-ui-03",
+  "issue": 477,
+  "correction": "Exact source-defined README hashes at resulting pointers plus current marker; original archive invariant; seed/restore snapshots retained; five negative controls. No installed product changes."
+}

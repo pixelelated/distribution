@@ -1,0 +1,11 @@
+listremotes
+lsf -R --files-only --format sp --separator | qa:ROMs/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf -R --files-only --format sp --separator | qa:BIOS/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsd qa: --contimeout 10s --timeout 20s --low-level-retries 1 --retries 1
+lsf -R --files-only --format sp --separator | qa: --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+listremotes
+listremotes
+lsf qa:BIOS --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf --dirs-only qa:BIOS/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:ROMs/gb --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+copy qa:ROMs/gb /storage/roms/gb --contimeout 1s --timeout 2s --low-level-retries 1 --retries 1 --exclude *.srm --exclude *.sav --exclude *.fs --exclude *.state* --exclude *.auto --exclude *.dsv* --exclude *.eep --exclude *.mpk --exclude *.sra --exclude *.fla --exclude *.mcd --exclude *.mcr --exclude save/** --exclude memcards/** --exclude shared/savefiles/** --exclude PPSSPP/** --exclude **conflicted copy** --exclude **.sync-conflict-** --exclude *.????????.partial --exclude /images/** --exclude /videos/** --exclude /manuals/** --exclude /screenshots/** --exclude /fanart/** --exclude /boxart/** --exclude /wheel/** --exclude /mix/** --exclude /maps/** --exclude /media/** --exclude gamelist.xml --exclude **/gamelist.xml --exclude /README.txt --progress --stats 1s --log-file /var/log/cloud_sync.log --log-level INFO

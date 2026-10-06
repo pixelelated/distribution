@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "step": 1,
+  "from": 1,
+  "to": 2,
+  "remote": "qa:",
+  "fingerprint": "efb0bb891874dc0c6279be93fe88fce94af96fc27146e35eb68eaff35cdeb999",
+  "fingerprint_format": "rclone-json-v1",
+  "source": {
+    "saves": "/ROCKNIX/Saves",
+    "backups": "/ROCKNIX/Backups",
+    "content": "/ROCKNIX/Content",
+    "discarded": "/ROCKNIX/Saves-replaced"
+  },
+  "configured": {
+    "saves": "/ROCKNIX/Saves",
+    "backups": "/ROCKNIX/Backups",
+    "content": "/ROCKNIX/Content"
+  },
+  "stage": "saves"
+}

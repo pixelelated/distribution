@@ -1,0 +1,19 @@
+{
+  "before": "M7-OWNED-HOSTNAME-WITNESS",
+  "after": "M7-OWNED-HOSTNAME-WITNESS",
+  "facts": {
+    "SOURCE": "qa-cloud:/pixelelated/Backups/GENERIC-X64-474cbdb64c",
+    "LABEL": "GENERIC-X64",
+    "MINE": "",
+    "NEWEST": "2026_10_06-235959-FOREIGN-QA-ROCKNIX_SETTINGS.tar.gz",
+    "COUNT": "1"
+  },
+  "local_archives_before": "fc6429bb81453546e290bf47682b6fac758fa180ab2926690dadf63ec95641cd  /storage/roms/backup/2026_10_06-000000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz\n",
+  "local_archives_after": "fc6429bb81453546e290bf47682b6fac758fa180ab2926690dadf63ec95641cd  /storage/roms/backup/2026_10_06-000000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz\n",
+  "cloud": {
+    "pixelelated/.layout": "be68d69fa1fe3ddbcaa9295b8e3e732fd0113d909e38cf643d95aab41c9b1a22",
+    "pixelelated/Backups/GENERIC-X64-474cbdb64c/2026_10_06-235959-FOREIGN-QA-ROCKNIX_SETTINGS.tar.gz": "bf0919b6c03faa6c3789b4c141257f4f1cdd4d8329e4eb1c0474764a0c0eba1d",
+    "pixelelated/Saves/gb/A.srm": "a9a1235e15e7b7b1188c6ec90bc52c233c5225944fa57be3a60ae0fd650873ef"
+  },
+  "scope": "Real UI restore options and disabled settings row. Does not invoke the intentional broader console restore fallback."
+}

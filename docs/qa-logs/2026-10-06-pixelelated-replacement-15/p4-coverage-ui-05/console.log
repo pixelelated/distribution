@@ -1,0 +1,82 @@
+watch-build: recording in /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement15/.build-runs/20261006T225715Z-f4e5f83f
+/workspace/tmp/pixelelated-m7-p4-coverage-ui-05/check-payload.py: OK
+/workspace/tmp/pixelelated-m7-p4-coverage-ui-05/cloud-ui-proof.py: OK
+/workspace/tmp/pixelelated-m7-p4-coverage-ui-05/outer.sh: OK
+/workspace/tmp/pixelelated-m7-p4-coverage-ui-05/provenance.json: OK
+/workspace/tmp/pixelelated-m7-p4-coverage-ui-05/proxy-identity.py: OK
+/workspace/tmp/pixelelated-m7-p4-coverage-ui-05/run.sh: OK
+/workspace/tmp/pixelelated-m7-p4-coverage-ui-05/seed-oracle.py: OK
+/workspace/tmp/pixelelated-m7-p4-coverage-ui-05/seed.py: OK
+/workspace/tmp/pixelelated-m7-p4-coverage-ui-05/stop-guest.py: OK
+/workspace/tmp/pixelelated-m7-p4-coverage-ui-05/verify-inputs.py: OK
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/43a698bcd7d570c63ebdd5db015e5302463f7ee4a15438fd9ef2359437be19da
+Preparing independent 16GiB guest d from the verified pixelelated image
+Image resized.
+No errors were found on the image.
+31695/262144 = 12.09% allocated, 0.00% fragmented, 0.00% compressed clusters
+Image end offset: 2077818880
+[W][22:57:24.013778] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][22:57:24.013809] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+ready after ~32s
+PASS guest d exact BUILD_ID and OS_NAME ed5a6a51f5974deec8748fbf0dbd2f4984b690f5 pixelelated
+PASS QA ROM bytes /storage/roms/gb/Ninoid.gb a40191c169c68e6607ace072da96aab957f306f55ded59ce1f287c1f5273387b
+PASS QA ROM bytes /storage/roms/gbc/Tobu Tobu Girl Deluxe.gb 0a0e8018dbbc8d7f8cd99f05e7cdc7b4cc9e358ecfe9377ebfb2291a84c6e310
+PASS QA ROM bytes /storage/roms/nes/Bobl.nes 025ec44d0d84ac469b442ee56c3d69e035e9a38430ae849172fe3a1e569d0dea
+PASS guest d seeded and idle
+up: webdav serving /workspace/tmp/pixelelated-m7-p4-coverage-ui-05/cloud/data at http://127.0.0.1:9040 (guest: http://10.0.2.2:9040)
+PASS cloud-ui-before exact identity, installed scripts, policy and Ocean SVG bytes/modes
+PASS cloud-ui-before installed proxy identities and account discovery
+PASS setup: candidate identity
+START en_US-mid-copy-kill-ui-retry-next-shelf
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: no game running before carousel
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: actual UI walk carousel
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: no game running after carousel
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: no game running before hub-menu
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: actual UI walk hub-menu
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: no game running after hub-menu
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: START changes the captured screen; direct main-menu review required
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: no game running before hub
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: actual UI walk hub
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: no game running after hub
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: no game running before opening-scan
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: actual UI walk opening-scan
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: no game running after opening-scan
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: no game running before move-first
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: actual UI walk move-first
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: no game running after move-first
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: actual first copy wrote a strict partial destination
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: no game running before interrupted
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: actual UI walk interrupted
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: no game running after interrupted
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: kill during copy preserved every old source byte
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: incomplete first copy did not publish new pointers
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: interrupted migration retains recovery record
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: no game running before hub-menu
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: actual UI walk hub-menu
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: no game running after hub-menu
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: START changes the captured screen; direct main-menu review required
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: no game running before hub
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: actual UI walk hub
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: no game running after hub
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: no game running before opening-scan
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: actual UI walk opening-scan
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: no game running after opening-scan
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: no game running before move-second
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: actual UI walk move-second
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: no game running after move-second
+FAIL en_US-mid-copy-kill-ui-retry-next-shelf: second real UI MOVE completed all original bytes
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: installed product hashes unchanged
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-p4-coverage-ui-05/cloud-ui-proof.py", line 301, in <module>
+    reset(language);guest('rm -f /storage/.config/.restore-finish-pending');action();rows.append({'case':case,'status':'PASS','visual_review':'pending when UI exists'});(out/'results.json').write_text(json.dumps(rows,indent=2)+'\n')
+                                                                            ~~~~~~^^
+  File "/workspace/tmp/pixelelated-m7-p4-coverage-ui-05/cloud-ui-proof.py", line 231, in kill_during_move
+    check(all((data/('pixelelated/'+p.split('/',1)[1])).is_file() and hashlib.sha256((data/('pixelelated/'+p.split('/',1)[1])).read_bytes()).hexdigest()==h for p,h in before.items()),'second real UI MOVE completed all original bytes')
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tmp/pixelelated-m7-p4-coverage-ui-05/cloud-ui-proof.py", line 17, in check
+    if not ok:raise AssertionError(text)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: second real UI MOVE completed all original bytes
+PASS owned guest stopped 2813058
+down

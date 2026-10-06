@@ -1,0 +1,26 @@
+{
+  "utc": "2026-10-06T23:13:22.795834+00:00",
+  "results": {
+    "focused": {
+      "PASS": 18,
+      "FAIL": 0
+    },
+    "old-prefix": {
+      "PASS": 0,
+      "FAIL": 4
+    },
+    "old-no-record": {
+      "PASS": 1,
+      "FAIL": 0
+    },
+    "old-different": {
+      "PASS": 1,
+      "FAIL": 0
+    },
+    "full": {
+      "PASS": 394,
+      "FAIL": 0
+    }
+  },
+  "scope": "These checks pass, but final source acceptance is withheld: independent Content/no-prior-record control fails. Runtime fixture repo duplicates retained at owner; source/tool snapshots retained here."
+}

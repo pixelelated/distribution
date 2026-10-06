@@ -1,0 +1,16 @@
+{
+  "utc": "2026-10-06T23:08:06.139552+00:00",
+  "source_sha256": "9a1aa1a5d251b802d999a4f485db433fb65db6c5919cdf66ba19d24e9319e070",
+  "rows": [
+    {
+      "stage": "Backups",
+      "result": "REFUSAL PASS"
+    },
+    {
+      "stage": "Content",
+      "result": "REFUSAL FAIL",
+      "why": "no-record changed bytes/pointers or accepted a foreign/unreadable destination"
+    }
+  ],
+  "scope": "First source repair distinguishes active state but not a record loaded from a prior invocation. Content preflight follows begin-record creation, so it incorrectly admits a same-prefix destination without an earlier record. No deployed change; strengthen before integration."
+}

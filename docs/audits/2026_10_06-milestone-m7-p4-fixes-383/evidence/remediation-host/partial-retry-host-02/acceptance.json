@@ -1,0 +1,25 @@
+{
+  "verified_utc": "2026-10-06T23:22:50.529406+00:00",
+  "counts": {
+    "focused": {
+      "PASS": 22
+    },
+    "full": {
+      "PASS": 398
+    },
+    "old-prefix": {
+      "FAIL": 4
+    },
+    "old-no-record": {
+      "PASS": 4
+    },
+    "old-different": {
+      "PASS": 1
+    }
+  },
+  "source_sha256": {
+    "current-cloud_migrate_layout": "0e4ccebde159006acb6313027e33b363b177eff2b62db2bacc93fea05396b2c1",
+    "current-cloud-layout-test": "c72c531b340ca70b6ac0a2362ba1f8f63c513571931c8a251fe66bb7c9bb76ca"
+  },
+  "scope": "Refined prior-record and pre-record Content refusal regression passes with actual installed1.75.1 rclone. Source acceptance only; actual rebuilt UI retry remains required. First repair/independent failing Content control retained."
+}

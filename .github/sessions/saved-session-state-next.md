@@ -1,6 +1,6 @@
 # Saved Session State
 
-Updated 2026-10-06 22:50 UTC. Audit Phase7 continues under standing authority.
+Updated 2026-10-06 23:22 UTC. Audit Phase7 continues under standing authority.
 Previous complete checkpoint: `.github/sessions/archived/saved-session-state-next-20261006T210229Z.md`.
 Read this first; historical active/idle statements in that archive are superseded.
 
@@ -32,11 +32,19 @@ Boot09 completed22:42:31; primary22:42:56 verified allfour0/26seals, all four gu
 
 Bucket02 completed22:44:14; primary22:44:42 allfour0/28seals/actual cleanup. Both real-rclone synthetic cases pass: parent-only unknown-listing fallback and separately injected copy refusal→retry, original local/cloud bytes and pointers preserved, actual new witnesses uploaded. Failed01's copy regex missed intervening options; the corrected observer asserts fault-fired before outcome. #476 tracks this QA repair. This is host synthetic bucket coverage, separate from existing installed S3 restore proof.
 
-**Active:** coverage-ui04, started22:49:47, run20261006T224947Z-902e01f4, watcher2750602, owner `/workspace/tmp/pixelelated-m7-p4-coverage-ui-04`. Six isolated VM/WebDAV cases cover settings-only ROCKNIX/GAMES recovery, foreign-hostname EN/FR UI, actual partial-copy kill/UI retry/next shelf and fresh three-tier backup plus automatic save receive/send. Primary actively consumes results; no disconnected alert.
+Coverage04 completed22:54:33 with four behavioral cases passing: settings-only ROCKNIX/GAMES setup/fullscan/actualrestore with original archive and exact sentinel preserved; EN/FR foreign-only archive leaves hostname/local archives/cloud unchanged and disabled settings explanations directly reviewed. All15frames reviewed14PASS/1FAIL: the first-copy frame already shows100% and verification, so no SIGKILL occurred. The overall run remains failed, allfour1/10seals, primary22:54:50 and actual cleanup22:54:53. Fresh-root case did not run. #477 README oracle repair passes its cases; #478 separately tracks the copy observer.
 
-Coverage03 failed22:45:47 after restoring the exact archive sentinel because its oracle omitted five established setup README notes. Allfour1/9seals/cleanup22:46:08 are retained. #477 records the source-defined note hashes and unchanged archive; fresh04 has10 seals, immediate cloud snapshots, one positive/five negative oracle controls and explicit-root path controls. No product change.
+Actual installed1.75.1 client/same host WebDAV server control: default server-side copy takes0.102s for8MiB despite256k limit; --disable copy yields126976/8388608partial bytes, with exact client/server cleanup. Initial malformed connection-string control retained; explicit-config02 passes. Production is unchanged. Fresh05 disables server-side copy only for the first interruption, then removes both fixture options for normal UI retry.
 
-Next: complete coverage04 → actual historical no-join-negative01 → integrate tested ES changes and build16 → affected/final installed acceptance → #471/P4 closure → capacity#461 → H700 DDR4 RG35XX SP arm, thenaarch64 → named physical/P5 gates. Four product findings remain open. Capacity measured22:40:43:111663730688byte cache,347886931968byte total requirement retaining40/80/100GiB reserves,375514476544free. Recheck free bytes before allocation; no cleanup or reserve changes. No RC claim.
+Coverage05 exposes installed retry defect#479: after a real258048/8391392byte copy is killed, all original data/pointers and the recovery record survive, but actual TRY AGAIN refuses the partial destination. The exact-file resumable guard supports completed subsets, not truncated files. Allfour1/10seals and actual cleanup23:00:41/45 are retained; no retry acceptance and no data-loss claim. Repair remains within openPL003. #478 now distinguishes the successful injection from this product failure. Source repair must preserve foreign-folder refusal and original connection/pointer binding, with full regression and rebuilt16 actual interruption/UI proof.
+
+Freshroot07 completed23:08:00; primary23:08:31 allfour0/10seals,23:08:36 actual guest/backend cleanup and free ports. Actual generated settings archive, settings/content uploads, automatic save receive/send and independent backend listing pass; every retained cloud hash rechecked against runtime bytes. Installed ES restarted, exact identity/post-payload check passes, cloud bytes unchanged. Failed06 remains allfour1 with its missing ES restart under#480. #477 settings-only and all remaining coverage dispositions are now recorded; the actual partial retry remains a separate product defect#479/#478.
+
+Historical no-join02 completed23:18:40; primary23:18:52 verified allfour0/21seals and owner exits,23:18:55 verified both guests/backend/ports stopped. Actual RC2→retained1ac update preserves populated ROCKNIX pointers/cloud bytes. Fresh historical1ac directly reads the earlier save with its own installed client, then its supported full scan reports current/SOURCE=-, seeding does not join any of the three earlier pointers, and successful default restore transfers0bytes without the witness. All original bytes survive. Every runtime cloud hash is independently rechecked in nojoin02-acceptance-01. This supplies the exact historical negative for I354-L66; no new Rasteratops adoption gate. Failed01 remains a fixture error under#481.
+
+Refined partial-retry-host02 completed; primary `2026-10-06T23:22:50.529406+00:00` verifies allfour0/27seals, no owner process,22focusedPASS/398fullPASS,4old-source expectedFAIL and5oldrefusal controlsPASS. Exact tested source/tool snapshots retained. The guard requires a validated prior record and verifies every destination byte against the source prefix; unrelated/missing/changed/longer files, wrong binding, failed reads/listings and unrecorded partial destinations are refused. Content is checked before creating a record or advancing any tier. Intermediate host01 and its failing missing-record Content control stay retained. Source acceptance only: installed16 must pass actual interruption/UI retry and next backup shelf before#479/PL003 can close.
+
+Next: integrate tested source/ES fixes and build16 → actual truncated-copy/UI retry plus affected/final installed acceptance → #471/P4 closure → capacity#461 → H700 DDR4 RG35XX SP arm, thenaarch64 → named physical/P5 gates. PL001/003/004/005 remain open. No RC designation; no pending approval. #477/#480/#481 fixture criteria verified; close after evidence publication.
 
 Recovery06 finished22:12:39:8behavioralPASS. Primary22:13:12 allfour0/9seals/
 owner exits;22:13:15 actual guest/backend/seven-port cleanup. All46frames
@@ -49,13 +57,9 @@ allfour1/cleanup and04 pre-watcher submission retained. Never replay any.
 Correct focus: step2 twoDOWNs, step3 oneDOWN beforeRIGHT/CONTINUE. ON YOUR
 COMPUTER prose is nonselectable; CURRENT PASSWORD is selectable.
 
-ES feature /home/max/Development/emulationstation-next.worktrees/m7-audit-remediation
-has uncommitted GuiCloudTransfer.cpp eight-line bounded single-scan reason-fit
-change and one shortened French terminal instruction translation. Actual image
-compiler/vocabulary/diff checks pass (reason-fit-host01,22:04:09); msgfmt checks
-pass22:12:05 (reason-fit-translation01). No new strings or font/row changes.
-Do not integrate/bump ES until candidate15 queue finishes: each owner requires
-clean integrationbab4df. Rebuilt640/1280 actual visual proof remains required.
+ES reason-fit CPP and French edit instruction are committed and remotely verified on feature/m7-audit-remediation and test/qa-integration at `8beab9090c73ccc47da49f29f31fa73584fc0877`. Primary23:24 completion allfour0/two seals/owner exits. Distribution package pin now updated locally; source+evidence publication follows. Exact preexisting compiler/vocabulary/msgfmt proofs bind these bytes. Rebuilt640/1280 actual visual proof remains required. Completed frozen15 queue must not be rerun against the changed integration; new QA uses candidate16.
+
+Build16 capacity: last read341441167360available,347886931968required with unchanged40/80/100GiB reserves. Read-only QA-disk retirement preflight01 is active; proposed scope only failed nojoin01 pair/vm-a.qcow2 and vm-b.qcow2. No deletion approval and no candidate16 allocation yet.
 
 UI04 finished21:44:29;18automatedPASS, allfour0/9seals, owner exits21:44:40,
 actual guest/backend/seven-port cleanup21:44:54. Retained p4-cloud-ui-fixes-04.
@@ -92,8 +96,8 @@ Read inputs first. Never change a running script; fresh owner for a retry.
    positive; retain digests/classification, never raw actualPCAP.
 4. COMPLETED bucket02 (01 failed injection); two cases/allfour0/28seals. Original entry:
    realrclone/bwrap synthetic bucket-parent/copy faults. Not a real S3 claim.
-5. ACTIVE `/workspace/tmp/pixelelated-m7-p4-coverage-ui-04`:settings-only/foreign archive
-   hostname EN/FR, actual first-copy kill/UIretry/next backup shelf, fresh3tiers plus actual settings/content backup and automatic save receive/send.
+5. COMPLETED coverage04/05 and fresh-root07; exact successes and failures above.
+6. COMPLETED historical no-join02; exact expected negative accepted above. Failed01 retained under#481.
 
 PL-003 needs a new product build after the historical-shelf repair; candidate15
 checks collect other remaining findings, not qualification of changed source.

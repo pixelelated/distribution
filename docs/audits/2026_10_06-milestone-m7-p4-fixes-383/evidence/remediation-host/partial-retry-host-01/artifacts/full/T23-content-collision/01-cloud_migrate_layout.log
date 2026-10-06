@@ -1,0 +1,33 @@
+This device stores:
+  saves    qa:/ROCKNIX/Saves
+  backups  qa:/ROCKNIX/Backups
+
+The current layout is:
+  saves    qa:/pixelelated/Saves
+  backups  qa:/pixelelated/Backups
+
+Would move, server-side, leaving anything else where it is:
+  qa:/ROCKNIX/Saves  ->  qa:/pixelelated/Saves
+  qa:/ROCKNIX/Content  ->  qa:/pixelelated/Content
+
+Now using /pixelelated/Backups for your settings backups.
+>>> unit SAVES|1|2
+Copying saves...
+>>> doing copy
+Transferred:   	          9 B / 9 B, 100%, 0 B/s, ETA -
+Checks:                 0 / 0, -, Listed 2
+Transferred:            1 / 1, 100%
+Elapsed time:         0.0s
+Verifying saves...
+>>> doing verify
+Now using /pixelelated/Saves for your saves.
+Removing the old saves folder...
+>>> doing remove
+>>> unit ROMS, BIOS, AND GAME CONTENT|2|2
+jq: error (at <stdin>:6): not a truncated subset
+REFUSING: qa:/pixelelated/Content already exists, and qa:/ROCKNIX/Content
+holds files. Nothing moved and the config is unchanged -- merging two
+content folders is not something to do without being asked.
+>>> why THE NEW FOLDER ALREADY HAS FILES IN IT
+
+Saves are at qa:/pixelelated/Saves and backups at qa:/pixelelated/Backups, but your ROMs and BIOS files didn't move. Try again.

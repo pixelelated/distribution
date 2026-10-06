@@ -1,0 +1,112 @@
+{
+  "owner": "/workspace/tmp/pixelelated-m7-p4-coverage-ui-04",
+  "frames": [
+    {
+      "file": "01-en_US-foreign-hostname-menu-before.png",
+      "sha256": "9a98cd8b56c5219f18ddb9cbd05eb92c7a4908d7292a8f90886c1463ac4dfc82",
+      "reviewed_utc": "2026-10-06T22:52:44.179713+00:00",
+      "verdict": "PASS",
+      "observation": "Direct original640x480 review: carousel then MAIN MENU; restore page SETTINGS visibly disabled with complete NO SETTINGS BACKUP FROM THIS DEVICE YET explanation. No game frame or clipping."
+    },
+    {
+      "file": "02-en_US-foreign-hostname-main-menu.png",
+      "sha256": "f3e71baf9a4fe1bc9cab2bfe588adafa9cddf8f17b2f7ea4e9937df5a5441b00",
+      "reviewed_utc": "2026-10-06T22:52:44.179753+00:00",
+      "verdict": "PASS",
+      "observation": "Direct original640x480 review: carousel then MAIN MENU; restore page SETTINGS visibly disabled with complete NO SETTINGS BACKUP FROM THIS DEVICE YET explanation. No game frame or clipping."
+    },
+    {
+      "file": "01-en_US-foreign-hostname-opening-result.png",
+      "sha256": "e28bbf35c6f2894e5539ba0a4d53b086b1e8846be84ac1a6f333a9a75856dc06",
+      "reviewed_utc": "2026-10-06T22:52:44.179778+00:00",
+      "verdict": "PASS",
+      "observation": "Direct original640x480 review: carousel then MAIN MENU; restore page SETTINGS visibly disabled with complete NO SETTINGS BACKUP FROM THIS DEVICE YET explanation. No game frame or clipping."
+    },
+    {
+      "file": "01-en_US-foreign-hostname-foreign-settings-disabled.png",
+      "sha256": "e28bbf35c6f2894e5539ba0a4d53b086b1e8846be84ac1a6f333a9a75856dc06",
+      "reviewed_utc": "2026-10-06T22:52:44.179799+00:00",
+      "verdict": "PASS",
+      "observation": "Direct original640x480 review: carousel then MAIN MENU; restore page SETTINGS visibly disabled with complete NO SETTINGS BACKUP FROM THIS DEVICE YET explanation. No game frame or clipping."
+    },
+    {
+      "file": "01-en_US-foreign-hostname-hub.png",
+      "sha256": "a4bf3c0098bd1318cfc1334980449a5adff82c9e95fa0d88d9fa8911886d708f",
+      "reviewed_utc": "2026-10-06T22:53:21.159876+00:00",
+      "verdict": "PASS",
+      "observation": "Direct original640x480 review: expected localized carousel/main-menu/cloud hub; French restore PARAMETRES disabled with complete no-backup-for-this-device explanation. No launched game or clipped required reason."
+    },
+    {
+      "file": "01-fr_FR-foreign-hostname-menu-before.png",
+      "sha256": "bbdedce0556eccf0a2c66c6e910187d8582cae9ff30ac976b89093b1b1f38d50",
+      "reviewed_utc": "2026-10-06T22:53:21.159963+00:00",
+      "verdict": "PASS",
+      "observation": "Direct original640x480 review: expected localized carousel/main-menu/cloud hub; French restore PARAMETRES disabled with complete no-backup-for-this-device explanation. No launched game or clipped required reason."
+    },
+    {
+      "file": "02-fr_FR-foreign-hostname-main-menu.png",
+      "sha256": "3cca27f9bddf72287f6c0746f0b2db9ad9328d3c2e74ecb258238f989e6bb656",
+      "reviewed_utc": "2026-10-06T22:53:21.159993+00:00",
+      "verdict": "PASS",
+      "observation": "Direct original640x480 review: expected localized carousel/main-menu/cloud hub; French restore PARAMETRES disabled with complete no-backup-for-this-device explanation. No launched game or clipped required reason."
+    },
+    {
+      "file": "01-fr_FR-foreign-hostname-hub.png",
+      "sha256": "4b5df14b8875c9df107d7985fe9b3df8e95f16b0d034f8ad1d314dc0f280b04d",
+      "reviewed_utc": "2026-10-06T22:53:21.160018+00:00",
+      "verdict": "PASS",
+      "observation": "Direct original640x480 review: expected localized carousel/main-menu/cloud hub; French restore PARAMETRES disabled with complete no-backup-for-this-device explanation. No launched game or clipped required reason."
+    },
+    {
+      "file": "01-fr_FR-foreign-hostname-opening-result.png",
+      "sha256": "3176d3252d9cc84653fe9878faa1e1f93e17781b66bb5f63da65d4101ed55a41",
+      "reviewed_utc": "2026-10-06T22:53:21.160040+00:00",
+      "verdict": "PASS",
+      "observation": "Direct original640x480 review: expected localized carousel/main-menu/cloud hub; French restore PARAMETRES disabled with complete no-backup-for-this-device explanation. No launched game or clipped required reason."
+    },
+    {
+      "file": "01-fr_FR-foreign-hostname-foreign-settings-disabled.png",
+      "sha256": "3176d3252d9cc84653fe9878faa1e1f93e17781b66bb5f63da65d4101ed55a41",
+      "reviewed_utc": "2026-10-06T22:53:21.160061+00:00",
+      "verdict": "PASS",
+      "observation": "Direct original640x480 review: expected localized carousel/main-menu/cloud hub; French restore PARAMETRES disabled with complete no-backup-for-this-device explanation. No launched game or clipped required reason."
+    },
+    {
+      "file": "01-en_US-mid-copy-kill-ui-retry-next-shelf-first-copy-running.png",
+      "sha256": "8c8c74986cde697ec8b1a8d38f56c1e141d28a22128f4899180f90d25b2b0abe",
+      "reviewed_utc": "2026-10-06T22:58:08.649358+00:00",
+      "verdict": "FAIL",
+      "observation": "Test premise fails: frame already shows 8.0MB/8.0MB100% and COMPARING FILES, so it is not a partial-copy frame. Product failure not established; transport control confirms server-side copy bypasses client throttling."
+    },
+    {
+      "file": "01-en_US-mid-copy-kill-ui-retry-next-shelf-hub.png",
+      "sha256": "a4bf3c0098bd1318cfc1334980449a5adff82c9e95fa0d88d9fa8911886d708f",
+      "reviewed_utc": "2026-10-06T22:58:08.649392+00:00",
+      "verdict": "PASS",
+      "observation": "Direct640x480 review: expected carousel/main menu/cloud hub and ROCKNIX move confirmation."
+    },
+    {
+      "file": "01-en_US-mid-copy-kill-ui-retry-next-shelf-menu-before.png",
+      "sha256": "ef623cdb91fadf728bd6aa6fd14fb8b1e07dd12cdbaf565f6c71ed7b7bda6380",
+      "reviewed_utc": "2026-10-06T22:58:08.649455+00:00",
+      "verdict": "PASS",
+      "observation": "Direct640x480 review: expected carousel/main menu/cloud hub and ROCKNIX move confirmation."
+    },
+    {
+      "file": "01-en_US-mid-copy-kill-ui-retry-next-shelf-opening-result.png",
+      "sha256": "37aec496d19740c14cc35fedcd5457ecc0ce92da4c8e5a7d0f08ed7f5edd6225",
+      "reviewed_utc": "2026-10-06T22:58:08.649485+00:00",
+      "verdict": "PASS",
+      "observation": "Direct640x480 review: expected carousel/main menu/cloud hub and ROCKNIX move confirmation."
+    },
+    {
+      "file": "02-en_US-mid-copy-kill-ui-retry-next-shelf-main-menu.png",
+      "sha256": "f3e71baf9a4fe1bc9cab2bfe588adafa9cddf8f17b2f7ea4e9937df5a5441b00",
+      "reviewed_utc": "2026-10-06T22:58:08.649507+00:00",
+      "verdict": "PASS",
+      "observation": "Direct640x480 review: expected carousel/main menu/cloud hub and ROCKNIX move confirmation."
+    }
+  ],
+  "complete": true,
+  "scope": "All15 original640x480 frames directly reviewed. Four complete behavioral cases; partial-copy premise fails, so no interruption/retry acceptance."
+}

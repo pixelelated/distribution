@@ -1,0 +1,27 @@
+{
+  "utc": "2026-10-06T22:59:54.290201+00:00",
+  "scope": "Snapshot before second opening-scan reuses opening-result path; no harness mutation",
+  "files": [
+    {
+      "file": "01-en_US-mid-copy-kill-ui-retry-next-shelf-opening-result.png",
+      "sha256": "37aec496d19740c14cc35fedcd5457ecc0ce92da4c8e5a7d0f08ed7f5edd6225",
+      "verdict": "PASS",
+      "observation": "MOVE from /ROCKNIX to /pixelelated confirmation; explicit MOVE/KEEP/NOT NOW choices.",
+      "reviewed_utc": "2026-10-06T23:00:00.812209+00:00"
+    },
+    {
+      "file": "01-en_US-mid-copy-kill-ui-retry-next-shelf-first-copy-running.png",
+      "sha256": "7b4fecaad3f6eeceee2c534eeec57fe8066674623395f1021322f87b8328daed",
+      "verdict": "PASS",
+      "observation": "MOVING YOUR CLOUD FOLDER, SETTINGS BACKUPS, COPYING at elapsed0:02; paired strict partial bytes and live rclone PID prove actual interruption point.",
+      "reviewed_utc": "2026-10-06T23:00:00.812227+00:00"
+    },
+    {
+      "file": "01-en_US-mid-copy-kill-ui-retry-next-shelf-copy-interrupted.png",
+      "sha256": "e3fcb5c0a2c22f1417e11603a2900ee8d3fbb9651be592c6886b15257bb78e6f",
+      "verdict": "PASS",
+      "observation": "COULDNT FINISH with complete retry guidance and CLOSE/TRY AGAIN controls. No success claim.",
+      "reviewed_utc": "2026-10-06T23:00:00.812229+00:00"
+    }
+  ]
+}

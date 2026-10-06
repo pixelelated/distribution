@@ -1,0 +1,101 @@
+This device stores:
+  saves    qa:/ROCKNIX/Saves
+  backups  qa:/ROCKNIX/Backups
+
+The current layout is:
+  saves    qa:/pixelelated/Saves
+  backups  qa:/pixelelated/Backups
+
+Would move, server-side, leaving anything else where it is:
+  qa:/ROCKNIX/Backups  ->  qa:/pixelelated/Backups
+  qa:/ROCKNIX/Saves  ->  qa:/pixelelated/Saves
+  qa:/ROCKNIX/Saves-replaced  ->  qa:/pixelelated/Saves-replaced
+  qa:/GAMES-replaced  ->  qa:/pixelelated/Saves-replaced
+  qa:/ROCKNIX/Content  ->  qa:/pixelelated/Content
+
+>>> unit SETTINGS BACKUPS|1|4
+Copying backups...
+>>> doing copy
+Transferred:   	         15 B / 15 B, 100%, 0 B/s, ETA -
+Checks:                 0 / 0, -, Listed 2
+Transferred:            1 / 1, 100%
+Elapsed time:         0.0s
+Verifying backups...
+>>> doing verify
+Now using /pixelelated/Backups for your settings backups.
+Removing the old backups folder...
+>>> doing remove
+>>> unit SAVES|2|4
+Copying saves...
+>>> doing copy
+Transferred:   	         14 B / 14 B, 100%, 0 B/s, ETA -
+Checks:                 0 / 0, -, Listed 2
+Transferred:            1 / 1, 100%
+Elapsed time:         0.0s
+Verifying saves...
+>>> doing verify
+Now using /pixelelated/Saves for your saves.
+Removing the old saves folder...
+>>> doing remove
+>>> unit DISCARDED SAVES|3|4
+Copying discarded saves...
+>>> doing copy
+Transferred:   	         25 B / 25 B, 100%, 0 B/s, ETA -
+Checks:                 0 / 0, -, Listed 3
+Transferred:            1 / 1, 100%
+Elapsed time:         0.0s
+Verifying discarded saves...
+>>> doing verify
+Removing the old discarded saves folder...
+>>> doing remove
+>>> unit ROMS, BIOS, AND GAME CONTENT|4|4
+Would copy, verify, then remove  qa:/ROCKNIX/Content  ->  qa:/pixelelated/Content
+Copying content...
+>>> doing copy
+Transferred:   	         11 B / 11 B, 100%, 0 B/s, ETA -
+Checks:                 0 / 0, -, Listed 3
+Transferred:            1 / 1, 100%
+Elapsed time:         0.0s
+Verifying content...
+>>> doing verify
+Now using /pixelelated/Content for your ROMs, BIOS, and game content.
+Removing the old content folder...
+>>> doing remove
+Content is now at qa:/pixelelated/Content.
+
+This device stores:
+  saves    qa:/ROCKNIX/Saves
+  backups  qa:/ROCKNIX/Backups
+
+The current layout is:
+  saves    qa:/pixelelated/Saves
+  backups  qa:/pixelelated/Backups
+
+Another device has already moved to qa:/pixelelated: this one's folders merge into it, the newer copy of each file kept and the other set aside.
+Would move, server-side, leaving anything else where it is:
+  qa:/GAMES-replaced  ->  qa:/pixelelated/Saves-replaced
+
+Now using /pixelelated/Backups for your settings backups.
+Now using /pixelelated/Saves for your saves.
+>>> unit DISCARDED SAVES|1|1
+Merging discarded saves into qa:/pixelelated/Saves-replaced: the newer copy of each file is kept, the other set aside under /pixelelated/Saves-replaced-replaced/2026_10_06-232108-move.
+>>> doing copy
+1 discarded saves file(s) differ between the folders; the old folder's copies are on the shelf.
+Copying discarded saves...
+>>> doing copy
+Transferred:   	         23 B / 23 B, 100%, 0 B/s, ETA -
+Checks:                 3 / 3, 100%, Listed 6
+Deleted:                1 (files), 0 (dirs), 23 B (freed)
+Renamed:                1
+Transferred:            1 / 1, 100%
+Server Side Moves:      1 @ 25 B
+Elapsed time:         0.0s
+Verifying discarded saves...
+>>> doing verify
+Removing the old discarded saves folder...
+>>> doing remove
+Nothing is stored at qa:/ROCKNIX/Content, so only the setting changes.
+Now using /pixelelated/Content for your ROMs, BIOS, and game content.
+Content is now at qa:/pixelelated/Content.
+
+Done. Saves are at qa:/pixelelated/Saves, backups at qa:/pixelelated/Backups.
