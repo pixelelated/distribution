@@ -91,6 +91,68 @@ cmd_list() {
     done
 }
 
+# Go's downloaded modules contain owner-owned 0555 directories. Git starts
+# deleting before it encounters them, then unregisters the partially removed
+# tree even on failure (#460). Inspect the entire directory tree first, then
+# grant only the directory owner's write/search bits needed for this removal.
+# File permissions and symlink targets are never changed.
+prepare_forced_removal() {
+    python3 - "${1}" <<'PY'
+import os
+import stat
+import sys
+import time
+
+def fail(error):
+    raise error
+
+root = os.open(sys.argv[1], os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW)
+try:
+    device = os.fstat(root).st_dev
+    pending = {}
+    count = 0
+    last = time.monotonic()
+    for path, dirs, files, fd in os.fwalk('.', dir_fd=root,
+                                         follow_symlinks=False, onerror=fail):
+        info = os.fstat(fd)
+        if info.st_dev != device:
+            raise RuntimeError('refusing removal across a filesystem: ' + path)
+        # An empty directory is removed through its parent; its own write bit
+        # is irrelevant. Docker may leave an empty root-owned sources mountpoint.
+        if (dirs or files) and not os.access('.', os.W_OK | os.X_OK, dir_fd=fd):
+            if info.st_uid != os.geteuid():
+                raise PermissionError('directory is not writable or owned by this user: ' + path)
+            pending[path] = (info.st_dev, info.st_ino, stat.S_IMODE(info.st_mode))
+        count += 1
+        if time.monotonic() - last >= 10:
+            print('  inspected removal permissions:', count, 'directories', flush=True)
+            last = time.monotonic()
+    changed = 0
+    if pending:
+        for path, dirs, files, fd in os.fwalk('.', dir_fd=root,
+                                             follow_symlinks=False, onerror=fail):
+            if path not in pending:
+                continue
+            info = os.fstat(fd)
+            expected = pending.pop(path)
+            if (info.st_dev, info.st_ino, stat.S_IMODE(info.st_mode)) != expected:
+                raise RuntimeError('directory changed during permission inspection: ' + path)
+            if info.st_uid != os.geteuid():
+                raise PermissionError('directory ownership changed: ' + path)
+            os.fchmod(fd, expected[2] | stat.S_IWUSR | stat.S_IXUSR)
+            changed += 1
+        if pending:
+            raise RuntimeError('directories disappeared during permission inspection')
+    print('  removal permissions:', count, 'directories checked;', changed,
+          'owner-write/search repairs', flush=True)
+except (OSError, RuntimeError) as error:
+    print('error: removal permission preflight failed:', error, file=sys.stderr)
+    sys.exit(1)
+finally:
+    os.close(root)
+PY
+}
+
 cmd_remove() {
     local wt="" preserve="" force=0
     while [ $# -gt 0 ]; do
@@ -133,6 +195,9 @@ cmd_remove() {
         echo "  destroying build output as instructed:"; printf '%s\n' "${art}" | sed 's/^/    /'
     fi
 
+    if [ "${force}" -eq 1 ]; then
+        prepare_forced_removal "${wt}" || exit 1
+    fi
     git worktree remove --force "${wt}"
     local rc=$?
 
@@ -144,6 +209,7 @@ cmd_remove() {
         echo "    fork-worktree repair ${wt}" >&2
         exit 1
     fi
+    [ "${rc}" -eq 0 ] || exit "${rc}"
     echo "  removed: ${wt}"
 }
 

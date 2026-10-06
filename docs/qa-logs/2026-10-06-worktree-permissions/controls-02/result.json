@@ -1,0 +1,45 @@
+{
+  "utc": "2026-10-06T03:29:46.434339+00:00",
+  "fixture_root": "/tmp/pixelelated-worktree-permissions-p76pvsn6",
+  "source_sha256": "421c627ad4cb66b1bf3a4796f202f827761401a0f0f9d15dde484a5fcbbd164b",
+  "original_sha256": "3bdc4dfc40b7d47ea8921f80ba9baf2e482e10198e3ab8a9f2f104aa59ed79d9",
+  "cases": [
+    {
+      "case": "original",
+      "rc": 1,
+      "pass": true,
+      "verified": "Original actual permission failure leaves an unregistered partial directory"
+    },
+    {
+      "case": "corrected",
+      "rc": 0,
+      "pass": true,
+      "verified": "Directory and registration absent; branch retained; external symlink target bytes and mode unchanged"
+    },
+    {
+      "case": "no-force",
+      "rc": 1,
+      "pass": true,
+      "verified": "Unapproved build-output deletion refuses without permission changes"
+    },
+    {
+      "case": "empty-readonly",
+      "rc": 0,
+      "pass": true,
+      "verified": "Empty read-only directories need no chmod: removal uses their writable parent"
+    },
+    {
+      "case": "unreadable",
+      "rc": 1,
+      "pass": true,
+      "verified": "Incomplete inspection refuses before chmod/deletion/unregistration"
+    },
+    {
+      "case": "git-result",
+      "rc": 42,
+      "pass": true,
+      "verified": "A nonzero Git result is propagated even if the directory is absent"
+    }
+  ],
+  "all_pass": true
+}

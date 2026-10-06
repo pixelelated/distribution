@@ -1,7 +1,7 @@
 # Saved Session State
 
-> Saved 2026-10-06T03:13:55.268771+00:00; feature/conflict-resolution → primary next.
-> Prior checkpoint archived at `.github/sessions/archived/saved-session-state-next-20261006T031355Z.md`.
+> Saved 2026-10-06T03:36:21.160721+00:00; feature/conflict-resolution → primary next.
+> Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261006T033621Z.md`.
 
 ## Start here
 
@@ -15,71 +15,73 @@ work log and live M7/#459/#383/#361/#168. M7 body owns execution order.
 Rules match next. Integrate only explicit cherry-pick -x, normal hooked pushes.
 
 Standing permission covers fixes, isolated VM QA, tracker updates and fork
-pushes. D-INFRA-017 now additionally authorizes the five exact old-tree removals
-below; **do not ask again**. No reserve change, wider cleanup, device/personal
+pushes. D-INFRA-017 authorized only the five old-tree removals, now completed; it is
+not permission for further deletion. No reserve change, wider cleanup, device/personal
 cloud mutation or publication. No Daybreak or goal tool. Only the required
 fresh no-context resume proof permits delegation here.
 
-## Current focus — approved cleanup awaits root process watcher
 
-User: “Yes, you have my approval.” #459 is the execution issue; #456 preparation
-is CLOSED. Only replacement03/05/06/07/08 may be removed. No removal has started.
-Fresh preflight /tmp/pixelelated-cleanup-preflight-01 completed03:12:13/allfour0;
-actual four owner PIDs and both children absent03:12:20. No build/QA job is
-running and no disconnected notification is armed. Never replay this owner.
+## Current focus — cleanup complete; return to remaining P3 release gates
+
+User started the read-only root watcher (“running”). #459's five approved
+removals03/05/06/07/08 are complete. All directories/registrations absent,
+branches/heads retained. Finalverification passes. **Nothing is running**;
+rootwatcher stopped automatically; no disconnected notification is armed.
+No build/QA result changed and no RC/device-ready claim is made.
 
 Evidence: docs/qa-logs/2026-10-05-build-storage/approved-cleanup-20261006/README.md.
-15,206retainedfiles/42,878,140,697bytes rehashed;27gitinputs; fivehead/diffs match.
-4,221,608directories/235qcow2chains;0errors/backing/container matches. Full reports
-local under /tmp/pixelelated-approved-cleanup-20261006/preservation-reverified.json
-and preflight/dependencies.json, digests in published summaries. Four storage
-roots scanned, no package pruning, no followed directory symlinks; no broader
-whole-host discovery claim. Estimated524.84GiBnet, not measured recovery.
+Final retention:15,206oldretainedfiles+19currentbundlefiles=15,225files,
+47,029,011,798bytes;15manifests,27gitsourceinputs,12protectedpathidentities,
+frozen14inputs and230survivingbackingchains verify. Five internalqcow2fixtures
+were removed with their approvedtrees. Discovery limited to priorfourroots,
+qcow2suffix/no followed directorysymlinks; no whole-host discovery claim.
 
-Noninteractive sudo03:02:30 said interactive authentication required. This is
-NOT an auto-review rejection. Earlier02:22:23 UID0 report passed but is stale
-for immediate live checks. The pending async request asks the user to run:
+Measured579,115,601,920bytes recovered (539.34GiB). Available
+618,960,564,224bytes (576.45GiB), from39,844,962,304bytes. Reserveunchanged
+200,056,127,488bytes. Earlier524.84GiBnetestimate charged preservation stores;
+they already existed in the executionbefore sample. Smalllivehostchanges
+affect the delta; do not represent it as exact atomic directory accounting.
 
-```sh
-sudo /usr/bin/python3 -I /tmp/pixelelated-approved-cleanup-20261006/watch-process-references.py > /tmp/pixelelated-approved-cleanup-20261006/root-watch.jsonl
-```
+## Cleanup execution record — never replay
 
-Then leave it running and reply “running”. No report existed at this checkpoint.
-Read-only source SHA4d79c6fcf725334d2d90140719164559adddb043061c05ede8e74036fd123064;
-every5seconds, expires1hour or all five dirs absent. No deletion/permission
-changes/subprocesses. Do not modify after start. Do not bypass sudo using Docker.
+Owners under /tmp/pixelelated-approved-cleanup-:
+- Original03 FAILED03:22:47/allfour1 afterpartialdeletion/unregistration on
+  owner-owned0555Go module directories. Actualowner/helperexits verified.
+- repair03-01 COMPLETE03:27:10/allfour0; actual03:27:42. Restoredmetadata at
+  exact02163b4/buildbranch/saved42065b0diff, not deletedintermediatebuildfiles.
+- 03-v2 COMPLETE03:28:09,05-v3 COMPLETE03:30:24,06-v3 COMPLETE03:31:17,
+  07-v3 COMPLETE03:32:06,08-v3 COMPLETE03:33:23; allfour0 and actualhelper/
+  ownerexit, directory/registrationabsence, retainedbranch/head verified.
+- 05-v2 FAILED03:28:38/allfour1 beforemutation/Git removal: emptyroot-owned
+  sourcesmountpoint. Finalguard fixes overlystrictcheck; originalfailurekept.
+- final-01 COMPLETE03:34:03/allfour0, actualprocessabsence03:34:30. Rootwatcher
+  2780340 stoppedautomatically after03:33:14UID0/allfiveabsent/0matches report.
 
-## Next steps — concrete execution
+**Every old prepared owner is obsolete.** Never submit original05/06/07/08
+or v2-06/07/08. All targettrees are gone. Preserve everyfailed/successfulreceipt.
+Currenthelperhash421c627ad4cb66b1bf3a4796f202f827761401a0f0f9d15dde484a5fcbbd164b.
+#460 source in tools/fork-worktree; final six controls at
+docs/qa-logs/2026-10-06-worktree-permissions/controls-02/result.json.
+Completepermissioninspection precedes anychmod/deletion; directorydescriptors,
+no directorysymlinkfollowing, onlyneededownerwrite/search onownednonemptydirs.
+Emptydirs need parentrights, not ownwritepermission. No regularfilemodechange.
 
-1. Inspect the arrived root-watch.jsonl and actual root-owned watcher PID/source.
-   Fresh samples must have UID0,exactfive roots,no matches,no unreadable fields.
-   Approval is already recorded in authorization.json and D-INFRA-017.
-2. Submit /tmp/pixelelated-approved-cleanup-03 from the feature tree:
-   `tools/watch-build-submit --owner /tmp/pixelelated-approved-cleanup-03 -- --interval 5 --stall-min 5 -- bash /tmp/pixelelated-approved-cleanup-03/outer.sh`.
-   The sealed remove-one.py performs fresh gates, then ordinary-user
-   tools/fork-worktree remove for that exact tree. Never use raw rm/git removal.
-   Sequentially repeat fresh prepared owners05,06,07,08 only after each success.
-   No owner has been submitted yet. Check this again before starting anything.
-3. Poll with `python3 /tmp/pixelelated-status.py OWNER run.path` at≤60seconds;
-   report terminal promptly. Actual child deletion can be long;5second watcher
-   and free-space/I/O logs show real activity. This cannot alert disconnected.
-   Never edit running scripts or stop processes by command-line pattern.
-4. Verify allfourrcs, launcher result, actual owner and removal.pid absence;
-   run /tmp/pixelelated-complete-durable.py OWNER 0 only after actual exits.
-   Independently inspect BASE/removed-NN.json, target directory/registration
-   absence, retainedbranch/head and protectedpathchecks. The generic completion
-   helper does not read removal.pid; check it separately. Failure stops chain.
-5. Measure actual recovered free space; reverify protected state and retained
-   objects, publish receipts, update M7/checkpoint and close459 only when all
-   criteria have artifacts. If time passed materially, refresh disk discovery
-   before trusting old preflight; each removal already rereads surviving chains,
-   livecontainer mounts, retainedmetadata/source and a root sample<15seconds.
+Retain replacement09/10/12/13/14, allcandidatebundles, September29ROCKNIXRC2/
+backingchains, sharedsourcecache, recoveredrcloneinput and ALLthree456stores.
+**Keep failed runtime-01 store:** successfulruntime-02 references itsobjects.
+Exactprotectedpaths in /tmp/pixelelated-approved-cleanup-20261006/protected-before.json.
+No additionalcleanup orreservechange is authorized. No sudoaction remains.
 
-Preserve12 exactprotectedpaths in BASE/protected-before.json: replacement09/10/
-12/13/14, allcandidatebundles, September29ROCKNIXRC2/backingchain, sharedsourcecache,
-allthree456preservationstores and exactrecoveredrcloneinput. **Keep failed
-runtime-01 store**, because successfulruntime-02 references its rehashedobjects.
-BASE=/tmp/pixelelated-approved-cleanup-20261006. Branches remain after removals.
+## Next steps
+
+1. Read live M7/#383/#361/#168 and dedicated-account question status; continue
+   remaining P3 account proofs and upstream contribution preparation. Do not
+   rebuild the already-qualified frozen14 merely for hosttool/metadata changes.
+2. If account input is still absent, continue independent upstream preparation;
+   leave authenticatedaccount criteria open. No substitute synthetic/public proof.
+3. Complete approved P4 fixesreview through verifiedFacilitator, resolve findings
+   and requalify anychangedproductbytes; then H700armfirst/aarch64second and
+   namedphysical/P5gates. Preserve allpreviousfailed image/run evidence.
 
 ## Release path after cleanup
 
@@ -158,13 +160,17 @@ compiled evidence in repository includes its26assertions. No previous-image
 result is asserted as a new14 execution.
 
 
-## Publication / handoff
 
-Pre-change clean heads feature9860ea1135e97bfac09bdc4d3afcdbd307059d12 and
-next9870382d34f60f96722105a885f07fed44858460. Current publication receipts go in
-BASE/published.json; use actual receipt, not this proposed path as proof.
-Run rules-check, register-check, work-log-index --check, ceremony-check --gate;
-normal hooks throughout. Audit cadence is overdue and keeps CI red, but does
-not block these fixes; no waiver claimed. Metadata never advances frozen14.
-Archive pointer/canonical stash before rewrites. Required fresh no-context
-read-only resume proof follows integration (session-stash/D-WORKFLOW-133).
+## Publication and handoff
+
+Pre-change heads feature6402eb2c7277c88f39ba2fe59348fcb906d6f56b,
+nextc367af2977de43ca4636051df6eb3d4c9b15e838. Integrationuses explicitcherry-pick-x
+and normalhookedforkpushes; publicationreceipt is
+/tmp/pixelelated-approved-cleanup-20261006/completion-published.json.
+Finaltrackerreadbacks/459and460closures are recorded in
+/tmp/pixelelated-approved-cleanup-20261006/closure-tracker-completion.json.
+Readactualreceipts ratherthan treating these paths asproof of futurework.
+Requiredfreshno-contextresumeproof followsintegration. Runrules-check,
+register-check,work-log-index--check,ceremony-check--gate; auditcadenceisoverdue
+andCIredbutallowsfixpushes. No waiver; no completedP4. Frozen14 neveradvances
+duringmetadata publication. Archivebothcheckpointfilesbeforechanges.

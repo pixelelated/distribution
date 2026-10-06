@@ -1,0 +1,19 @@
+outer.sh: OK
+remove-one.py: OK
+run.sh: OK
+Gates passed; removing approved tree 03 with 235 surviving chains checked
+Removal activity 03 available_bytes 39844909056 helper_pid 2784880
+  destroying build output as instructed:
+    build.pixelelated-GENERIC_X64.x86_64
+    sources
+    target
+Removal activity 03 available_bytes 74332786688 helper_pid 2784880
+error: failed to delete '/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement03': Permission denied
+warning: /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement03 still exists on disk after removal (git exit 255).
+  It is no longer a registered worktree. Re-register it with:
+    fork-worktree repair /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement03
+Traceback (most recent call last):
+  File "/tmp/pixelelated-approved-cleanup-03/remove-one.py", line 96, in <module>
+    rc=child.wait();assert rc==0,('Removal helper failed; stop before later trees',number,rc)
+                           ^^^^^
+AssertionError: ('Removal helper failed; stop before later trees', '03', 1)

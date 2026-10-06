@@ -44,14 +44,13 @@ Frozen13 freshness caught an Android-only upstream commit before any cache
 copy/build. [Exact equality evidence](../qa-logs/2026-10-06-proxy-879b158/README.md)
 links the new pin to the completed source suites; no test execution is invented.
 
-#456 preservation preparation is complete. The maintainer approved removing
-only replacement03/05/06/07/08 under #459/D-INFRA-017. The
-[fresh preflight](../qa-logs/2026-10-05-build-storage/approved-cleanup-20261006/README.md)
-rehashed 15,206 retained files and checked 235 disk chains with no backing or
-container matches. No removal has started; fresh root process snapshots await
-the maintainer-run read-only watcher because sudo requires interactive
-authentication. The 524.84 GiB net estimate is not measured reclaimed space.
-No reserve change; all current/protected trees and preservation stores remain.
+#459 completed the five approved old-tree removals: 539.34 GiB recovered,
+576.45 GiB available, reserve unchanged. [Final verification](../qa-logs/2026-10-05-build-storage/approved-cleanup-20261006/README.md)
+rehashed15,206retained files plus the19current bundle files; frozen14inputs,
+27sourcegitinputs and230surviving backingchains pass. All protected artifacts
+remain; the root watcher exited automatically. #460 fixes the cleanup helper's
+read-only-directory handling with six controls. No build/QA/cleanup job remains
+active. This changes host cleanup, not product bytes or RC readiness.
 
 ## Completed installed GENERIC_X64 Pixman fallback (#447)
 

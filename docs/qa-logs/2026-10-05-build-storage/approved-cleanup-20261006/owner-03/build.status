@@ -1,0 +1,13 @@
+state:       finished
+written:     2026-10-06 03:22:47 UTC   <- terminal result; heartbeat stops here
+watcher_pid: 2783830
+job_pid:     2783829  alive=yes
+started:     2026-10-06 03:22:32 UTC
+progress:    none matched
+log:         /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261006T032232Z-5b643e91/build.log  (last written 4s ago)
+activity:    /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261006T032232Z-5b643e91/build.log  (last written 4s ago)
+activity_root: /workspace/repos/rocknix.worktrees/conflict-resolution
+outcome:     rc=1
+tail:
+                             ^^^^^
+  AssertionError: ('Removal helper failed; stop before later trees', '03', 1)
