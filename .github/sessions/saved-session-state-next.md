@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Saved 2026-10-06T00:45:08.904876+00:00. Previous full candidate12 handoff archived at
+> Saved 2026-10-06T01:04:13.073547+00:00. Previous full candidate12 handoff archived at
 > `.github/sessions/archived/saved-session-state-next-20261006T004508Z.md`. Feature worktree remains conflict-resolution;
 > primary /workspace/repos/rocknix remains next. This is an active-job checkpoint.
 
@@ -31,93 +31,92 @@ No disconnected alert destination exists (#395). Never edit a running shell
 tool or replay a completed owner. Actual PID/artifact checks establish success.
 Preserve all failed attempts and the immutable source/image inputs.
 
-## Current focus — replacement14 cache copy is RUNNING; image not built
+## Current focus — replacement14 built; full QA18 RUNNING
 
 Latest user: "I didn't mean to interrupt the conversation. Please continue."
-Continue M7.P3 toward first device-testable build, with safe cleanup preparation
-alongside. Source consent fix has passed complete tests and is published.
-The new fixed image and installed proof are still required. No RC claim.
-
-Published source as of00:40:40UTC2026-10-06:
-- feature b24da37ab7fb19de65be8c8b8df288e7a54e134a
-- next **7afa9efcfc0c1ce4b89774b38878fc1b9a9063d2**
-- receipt /tmp/pixelelated-p3-20261006/source879-published.json
-Normal hooks/remote hashes pass. Audit cadence remains overdue/unwaived.
+Continue M7.P3 toward device-testable build and safe cleanup preparation.
+No RC/device-ready claim; no deletion/reserve change authorized/performed.
 
 Frozen tree `/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement14`,
-branch build/m7-pixelelated-replacement14, source7afa9efcfc above.
-Owner **/workspace/tmp/pixelelated-m7-replacement-14**.
-Manifest **70cb0448872f39b5382939173b2182a783381142df6dd5630b9e00a2c3ba6ccc**:6550product files,207QA files,
-180symlinks,1608recipes. ESf6f0c134212bc696f2f6a747c8d390a588f2f0ce;
-splash8c71126ceef702528c87a4c49625e64988609f26. Pinned container
-sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39,
-global24/WebKit4, unchanged host options. Full details in owner/inputs.json.
+branch build/m7-pixelelated-replacement14, source
+**7afa9efcfc0c1ce4b89774b38878fc1b9a9063d2**.
+Build owner `/workspace/tmp/pixelelated-m7-replacement-14`.
+Manifest **70cb0448872f39b5382939173b2182a783381142df6dd5630b9e00a2c3ba6ccc**:
+6550product/207QA/180symlinks/1608recipes. ESf6f0c134212bc696f2f6a747c8d390a588f2f0ce;
+splash8c71126ceef702528c87a4c49625e64988609f26. Currentproxy879b158995d412af434301ebdae581f66b8b6d57,
+archive984957322337d1325f1b0fc11502336a80241ec511fd041c969bb0103c231664.
+Complete Linux/native equality to qualifiedb09 and unchangedgitlinks retained.
+Frozen13/freshness04 failed before copy/build; preserve unchanged.
 
-Selected proxy **879b158995d412af434301ebdae581f66b8b6d57**, archive SHA
-984957322337d1325f1b0fc11502336a80241ec511fd041c969bb0103c231664.
-Native rcheevos1433173220a7eaede6a9ed7a18e94117be1821e0 and
-libchdr607694ca0812edfc9cc2030c64634fc2393668de unchanged.16patches applyfuzz0.
-Frozen13 at e4276a6743 was stopped by full freshness04 before copy/build;
-upstream879 arrived during source tests and changes four Android update files.
-Retain13 (unbuilt) and failed freshness04, allfour1/cleanup00:38:16.
-Full pristine219Linux/53native and patched222Linux/53native file equality
-plus unchangedgitlinks establish equivalence to qualified b09 source; no
-new test execution is invented. Current recipe/schema note advanced together.
+Fullfreshness05 on actual14 passes. Independent cache copy completed00:55:36,
+allfour0; actualcleanup00:55:56. Fullchecksums match,2,526,412regular files
+have independent inodes. Quietchecksumphase had suspected-log-inactivity;
+actual same-PID I/O rose steadily. Retained copy-process/IO observations;
+no running tool edited, no progress fabricated. The #437 observer was omitted
+from this copy setup; future copies need explicit activity-dir plus real I/O
+progress logging. No repeat-copy needed. Parentcopy-completion.json retained.
 
-Full freshness05 on actual frozen14 completed00:41:30/allfour0, actual
-cleanup00:42:18; exact1608recipe/checker hashes pass before/after. Owner
-/tmp/pixelelated-m7-p3-freshness-05 is COMPLETE; do not replay. Its log and
-completion are copied to build owner/package-freshness.log and
-freshness-completion.json. This is not an installed-image proof.
+Guarded idle swap recycle succeeded and build started00:57:08. Exact actual
+container image988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39,
+UID1000:1000 and source/git/cache mounts verified. All642package tasks and
+assembled payload checks pass. Build finished00:59:09/allfour0;
+actualcleanup00:59:32, container removed. **Do not replay build/copy owners.**
 
-**Active independent copy:**
-- owner /workspace/tmp/pixelelated-m7-replacement-14/cache-copy
-- run /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement14/.build-runs/20261006T004222Z-e4ace79d
-- launcher1592160, runner1592161, watcher1592162, command1592191
-- started00:42:22; at00:45:16 running, ~55.6GB copied, log advancing.
-  rsync's incremental percentage is not total completion.
-- source root is retained replacement12/build.pixelelated-GENERIC_X64.x86_64;
-  destination is new14. No hard links to original; checksum and inode checks
-  must finish. Original source hash/three-file product-delta guard passed.
-- copy-cache.sh writes parent copy.rc/cache-ready.rc/cache-ready.json;
-  child wrappers separately write inner/outer/tool-wrapper and standard build.rc.
-- No VM, image compilation or other QA job is active. No old tree was deleted.
+Verified immutable bundle:
+**/workspace/artifacts/pixelelated-candidates/sha256/b77e47e57a4bb35f885ba78669ee8176a9ac978b27c1cbcfaad66e18f684a9f1**.
+ImageSHA c7df6a6f428086f79a377ca1b049f20694f34a868987cf12c493c78eab7b2254;
+updateSHA a6fdf2e36ff73842a5048994ee515cbdf44c34cd6f27eb20140f61ccce578df5.
+Buildowneraccepted-build.json and bundle.path bind these exact inputs.
 
-Poll from host with:
-`python3 /tmp/pixelelated-status.py /workspace/tmp/pixelelated-m7-replacement-14/cache-copy run.path`
-Tool needs real host /proc for lifecycle inspection (require_escalated).
-If allfour0 and actual processes gone, run ONCE:
-`python3 /tmp/pixelelated-complete-durable.py /workspace/tmp/pixelelated-m7-replacement-14/cache-copy 0`
-Do not run completion until terminal. Verify parent checksum report empty and
-cache-ready.json true/independent file count. Retain actual completion as
-parent copy-completion.json before storing the final bundle.
+**Completed installed consent02:** owner/workspace/tmp/pixelelated-m7-consent-02,
+run20261006T010012Z-01b63232. All30actual installed positive/negative/restart
+cases pass. Firstgrantcounter7→8 at16.705487703seconds uptime (required<30).
+Loadedbytecodehashesmatchassembled14; actual loopbackusagePOST/logPOST+PUT,
+syntheticstate only. No scheduler/UI/provider claim. Finished01:01:02/allfour0,
+actualcleanup01:01:30; ownerPIDs1793734/35/36/65 andguest1794173gone.
+Originalconsent01 remains failed. #457 can close after this evidence publishes.
 
-After copy finishes: idle host tools/build-preflight; if swap gate fails,
-use authorized tools/build-preflight --reclaim-swap only after all watchers/
-VMs/compilers exited. Prior successful recycle log lives in
-/tmp/pixelelated-p3-20261006/swap-reclaim.log; copy can refill swap.
-Then from the EXACT frozen14 cwd, launch the already sealed owner/outer.sh
-through `tools/watch-build-submit --owner /workspace/tmp/pixelelated-m7-replacement-14 -- --interval 5 --stall-min 5 -- bash /workspace/tmp/pixelelated-m7-replacement-14/outer.sh`.
-Do not reuse cache-copy as build owner. Build.sh checks cwd, idle preflight,
-source seal/cache-ready and clean tracked state, cleans only raofflineproxy,
-invalidates image stamp and builds via canonical container mount path.
-Observe actual container image/user/workdir/mounts and actual exit; retain
-container-actual.json/container-exited.json as earlier build12 did.
+**Completed image14 and inventory10:** allfour0 at01:01:50/01:02:00,
+actualcleanup01:02:36beforeQA. Rawimage/updateSYSTEMmatch; extractedroot is
+/workspace/tmp/pixelelated-m7-image-14/root. Sourceinventory568roots,
+583mappedcomponents,525installedstamps,noerrors. FourteenP5licencegapsremain.
+Owners /workspace/tmp/pixelelated-m7-image-14 and -inventory-10; no replay.
 
-After success: validate allfourresults/PIDs/container gone, input seal and
-assembled payload; adapt /tmp/pixelelated-store12.py into a NEW store14 script.
-Its old adoption-only receipts do not exist for14: include actual independent
-copy receipts instead. Never replay store12. Use candidate-store put/verify
-and exact output hashes; retain full inputs in immutable bundle, digest/counts
-in Git (historical filenames trip credential guard; no bypass).
+**ACTIVE QA18:** /workspace/tmp/pixelelated-m7-qa-18.
+Run frozen14/.build-runs/**20261006T010236Z-a12444e5**.
+Started01:02:36; launcher1805328,runner1805329,watcher1805331,command1805360.
+Guests a1806101,b1806128observed01:03:23; bothreadyon7afa9efcfc.
+Five-secondwatcher/5minstall with recursive artifacts/*.log activity;
+activepoll≤60s. Full15defaults→actualretainedSeptember29ROCKNIXRC2upgrade→
+exactupgradedpayload/virgl+Pixmanidentity. FrozenQAalreadyhas#454/#455fixes;
+nooverlayandnoearlierresulttransfer. Currentno terminalresult.
 
-Then prepare fresh image/inventory/default+RC2upgrade/proxy/subset/consent
-owners from completed12 templates. Do not edit executed owners. New consent
-is the first targeted proof of#457 and should require early uptime. No
-prepared14 VM owners exist yet. Current qa tools include repaired vm-stop
-and actual manager-system guard, so no oldoverlay is needed. Match actual
-new image BUILD_ID, module hashes and frozen QA bytes. All earlier image
-proofs remain scoped to their actual inputs.
+Poll: `python3 /tmp/pixelelated-status.py /workspace/tmp/pixelelated-m7-qa-18 run.path`.
+Actualguests: `python3 /tmp/pixelelated-observe-qa-processes.py /workspace/tmp/pixelelated-m7-qa-18`.
+Usehostprocessview(require_escalated). Onactualallfourterminal/PIDabsence,
+`python3 /tmp/pixelelated-complete-durable.py /workspace/tmp/pixelelated-m7-qa-18 RC`
+onceonly,thenverifyallrecordedguest/backendexit,reportcounts/frames/source.
+Do not pass from a summary alone. Open identity/timing/walk frames for review.
+
+**Prepared/unstarted subsequent owners:** proxy14,subset11.
+/workspace/tmp/pixelelated-m7-proxy-14 (22preservation/native18/legacyCHD4),
+/workspace/tmp/pixelelated-m7-subset-11 (HTTP35). Each uses fresh16GiBguest,
+currentfrozenvm-stop,exactmanifest,actualprerequisitecompletion,privatepair/
+andartifacts/,harness.sha256. FromEXACTfrozen14cwd use:
+`tools/watch-build-submit --owner OWNER -- --interval 5 --stall-min 5 --activity-dir OWNER/artifacts --recursive-activity -- bash OWNER/outer.sh BUNDLE`.
+No personalaccountproof. Launchonlyafterprioracceptedandrootlockreleased.
+
+ThenremainingP3/account/upstream→approvedP4primary+Fable5.1/xhighverified
+Facilitator/OpenRouter→resolve/requalify→H700DDR4/RG35XXSParmfirst,aarch64second→
+namedphysical/P5. NoP4started. PendingdedicatedRA/Dropboxanswersbelowremain.
+
+Current docs staged for publication: replacement14cache/build/consent/image/
+inventoryreceipts,readiness,worklog,friction,checkpoint. EarlierfeatureHEAD
+b617c7cc62b41ccad74f5cb3250aa0f912257d85,nextfc057b8e58a8b3e6fe889737f6b748acfbefcd04
+aremetadataheads; product14remains7afa. Useexplicitxpickandnormalhooks.
+Afterpublicationupdate#457criterion/closewithlink,refreshM7/#361/#383current
+QAstateandreadback. Fresh-contextstashproofrequired; priorproofin
+cache-preparation/fresh-context-resume-proof.jsontestedpreviouscheckpoint.
 
 ## Consent failure and fix — #457
 
@@ -187,7 +186,7 @@ roots total539.33GiBgross. Their immutable bundles reverify; generateddocdiffs
 exist. Unique source/debug/licence/failedlog and backing-chain custody is NOT
 yet complete, so not approval-ready. Preserve current14,13unbuiltfailure,
 12,qualified10,source09, allcandidatebundles/originalRC2/backingchains/cache.
-Available193GiBbeforecopy; copy consumes~104GiB; measurecurrentbeforedeciding.
+Aftercopy89GiBavailable; build/imageextraction/QAconsumeadditionalspace. Measurecurrentbeforedeciding.
 Read docs/qa-logs/2026-10-05-build-storage/README.md; issue456 hasfullAC.
 
 Candidate12source55d8ee8f75965a560f75d187e34c9beaa93133f1, bundle
@@ -209,7 +208,7 @@ tailscale,wildmidi,zerotier-one). Publicdocsbranchdocs/cloud-saves-native-wizard
 rasteratops404; don'tautofork/changecredentials. #432FOSSobservability is
 backlog,notRCgate. #395needsconfigured/testeddisconnectedalertdestination.
 
-## Current tracker and checkpoint custody
+## Previous tracker and checkpoint custody (historical)
 
 M7/#383/#361 updated/readback00:43:19–23 with activecopy/order; #457/#168
 criteria readback00:41–42. Feature→next integration stays explicitxpick.
@@ -219,3 +218,10 @@ uninterrupted60second host-poll cadence. Split future long drafting calls.
 The prior stash was archived before thiswrite; a fresh no-context read-only
 resume proof is required after checkpointpublication. It is not a code audit.
 No new physical/cloud action or deletion is authorized by this handoff.
+
+## Latest checkpoint custody
+
+Previous active-copy stash archived at `.github/sessions/archived/saved-session-state-next-20261006T010413Z.md` before this write.
+LiveM7/#361/#383wereupdated01:00withbuildactive; refreshforcompletedbuild/
+consentandactiveQA18afterpublication. LowerM7.P3rowwasalreadycorrected.
+Do not replay completed scripts under/tmp; use fresh filenames/owners.

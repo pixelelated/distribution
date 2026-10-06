@@ -1,0 +1,76 @@
+[
+  {
+    "method": "POST",
+    "path": "/usage",
+    "bytes": 472,
+    "sha256": "bf3c5b240fd355999ee1fa0d9f56a970d59a8a65d5c35560748aa9ecd2cd45ff",
+    "payload_fields": [
+      "app_version",
+      "build",
+      "client_id",
+      "consent_version",
+      "counters",
+      "device",
+      "emulators",
+      "gauges",
+      "os",
+      "os_version",
+      "platform",
+      "schema_version"
+    ]
+  },
+  {
+    "method": "POST",
+    "path": "/request-upload",
+    "bytes": 139,
+    "sha256": "f4b8290f2354998e703a6590af0c92261036f0f3ae4c4c7a2b37c7e46f803d50"
+  },
+  {
+    "method": "PUT",
+    "path": "/upload",
+    "bytes": 641,
+    "sha256": "3cdeca351840747c78db43222f2da84a56d2f999f6faaf2944bcf4f4250c1321",
+    "archive_members": [
+      "service.log",
+      "storage_corruption.txt",
+      "synthetic.json.corrupt-test"
+    ]
+  },
+  {
+    "method": "POST",
+    "path": "/usage",
+    "bytes": 472,
+    "sha256": "bf3c5b240fd355999ee1fa0d9f56a970d59a8a65d5c35560748aa9ecd2cd45ff",
+    "payload_fields": [
+      "app_version",
+      "build",
+      "client_id",
+      "consent_version",
+      "counters",
+      "device",
+      "emulators",
+      "gauges",
+      "os",
+      "os_version",
+      "platform",
+      "schema_version"
+    ]
+  },
+  {
+    "method": "POST",
+    "path": "/request-upload",
+    "bytes": 139,
+    "sha256": "f4b8290f2354998e703a6590af0c92261036f0f3ae4c4c7a2b37c7e46f803d50"
+  },
+  {
+    "method": "PUT",
+    "path": "/upload",
+    "bytes": 643,
+    "sha256": "cebc6826b6641db156faf3e8648282a06bf1af2226000c61befceca87dd39e1d",
+    "archive_members": [
+      "service.log",
+      "storage_corruption.txt",
+      "synthetic.json.corrupt-test"
+    ]
+  }
+]
