@@ -65,3 +65,19 @@ four actual process exits. Binding04 failed before the first case because its
 snapshot omitted backuptool; the retry used the previously verified dependency
 manifest. Both attempts are retained. The full02 snapshot predates this final
 reason propagation and must not be cited as testing that line.
+
+The Already-written check generated three partial pointer configurations using
+actual frozen14 join/follow/settle writers, then read them with current source.
+All remain readable and cloud bytes stay unchanged. The existing explicit
+CHANGE CLOUD FOLDER action (`cloud_setup --set-saves-remote`) repairs each
+complete sibling selection. It is an explicit choice: without an old intent
+record, a mixed selection is indistinguishable from independent chosen tiers
+and must not be silently repointed. Three host controls passed in foreground;
+installed/UI proof is still owed. Evidence: `already-written-01/`.
+
+Full snapshot03 finished PASSED at19:54:57UTC. Primary verification19:55:02
+checked four zero result channels,31,038 unchanged input digests and actual
+absence of all four owner processes. Its366-case real-rclone matrix passed.
+The complete6,550 product and207 QA source hashes match frozen candidate15.
+The console has1,793 PASS lines; this is a line count, not a distinct-criterion
+count. No installed-image acceptance is inferred from these host results.

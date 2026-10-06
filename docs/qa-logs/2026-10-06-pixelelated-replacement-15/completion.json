@@ -1,0 +1,29 @@
+{
+  "verified_utc": "2026-10-06T20:00:04.683694+00:00",
+  "result": "PASS",
+  "channels": {
+    "inner.rc": "0",
+    "outer.rc": "0",
+    "tool-wrapper.rc": "0",
+    "build.rc": "0"
+  },
+  "pids_absent": [
+    284564,
+    284565,
+    284566,
+    284595
+  ],
+  "container_absent": "621c7012746d",
+  "manifest_sha256": "0bc7c44d06fc0180eaa170d8ec68bad2247c34af90319a9491beafeb538580d6",
+  "harness_sha256": "4a9a65235e65193a55850024850ec8c7a9b69d3456331467560160fece95ae83",
+  "generated_tracked_changes": [
+    " M documentation/PER_DEVICE_DOCUMENTATION/GENERIC_X64/SUPPORTED_EMULATORS_AND_CORES.md"
+  ],
+  "launcher_result": {
+    "utc": "2026-10-06T19:59:08.039342+00:00",
+    "pid": 284564,
+    "runner_returncode": 0,
+    "submission_is_not_completion": true
+  },
+  "verification_note": "Initial verifier failed on lowercase Docker no-such-object diagnostic; this verification uses an exact container ID inventory instead. Build results were already all zero."
+}

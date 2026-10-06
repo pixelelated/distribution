@@ -1,16 +1,19 @@
 # pixelelated 0.0.1 release readiness
 
-## Current work — P4 audit#471: source repairs under verification
+## Current work — P4 audit#471: candidate15 VM qualification active
 
-As of19:41UTC, all eight repairs are drafted and ES bab4df649f48847cc43d21c77c058107ad902754
-is published. Host layout02 passed366 cases; full02 finished with five fixture/
-guard failures, all corrected in the active full03 snapshot. Focused binding05
-passes6/6; earlier50 cases and seven old-source negative controls are retained.
-Distribution source publication and independent replacement15 cache preparation
-are next. Guarded swap reclaim and capacity preflight pass. No repaired image
-exists, and no audit item has closed. Finish full03, rebuild, qualify clean and
-upgrade plus installed/UI cases, then assess P4 closure. Dated receipts below
-are historical; only this current section describes active work.
+As of20:02UTC, all eight source repairs are published at nexted5a6a51f5974deec8748fbf0dbd2f4984b690f5
+and ESbab4df649f48847cc43d21c77c058107ad902754. Full host03 and independent
+cache checks pass. Candidate15 finished19:59:08, verified20:00:04 with allfour
+results0, unchanged seals and actual container/process exit. Its immutable
+bundle43a698bcd7d570c63ebdd5db015e5302463f7ee4a15438fd9ef2359437be19da verifies.
+Image15 raw/update SYSTEM equality passes. QA19 started20:02:18 and actively
+runs the15 defaults then actual ROCKNIX RC2 upgrade. Follow with85 installed
+boundary cases and EN/FR presentation/recovery proofs. All eight audit outcomes
+remain open; only then assess P4 closure.
+[Candidate15 evidence](../qa-logs/2026-10-06-pixelelated-replacement-15/README.md).
+
+## Historical qualification — earlier status statements retain their dates
 
 Replacement12 remains frozen55d8ee8f75965a560f75d187e34c9beaa93133f1;
 its build, scoped preservation/native/HTTP and QA15→17 evidence are retained
