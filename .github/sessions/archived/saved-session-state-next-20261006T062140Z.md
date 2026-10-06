@@ -1,7 +1,7 @@
 # Saved Session State
 
-> Saved 2026-10-06T06:21:40.420102+00:00; feature/conflict-resolution → primary next.
-> Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261006T062140Z.md`.
+> Saved 2026-10-06T06:15:46.337682+00:00; feature/conflict-resolution → primary next.
+> Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261006T061546Z.md`.
 
 ## Start here
 
@@ -176,12 +176,6 @@ proxy879b158995d412af434301ebdae581f66b8b6d57 with16fork patches.
 879 changes Android only; Linux/native bytes equal qualifiedb09.
 Container988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39.
 Global24/WebKit4. Metadata commits do not advance this frozen tree.
-Its sole tracked diff is
-`documentation/PER_DEVICE_DOCUMENTATION/GENERIC_X64/SUPPORTED_EMULATORS_AND_CORES.md`
-(four generated-table rows). Preserve it; it is outside source_files,
-qa_source_files and source_symlinks in the frozen manifest. Do not call the
-build checkout clean or reset it merely to clean status. Verified product
-inputs and candidate identity remain the authority for qualification.
 
 Bundle `/workspace/artifacts/pixelelated-candidates/sha256/b77e47e57a4bb35f885ba78669ee8176a9ac978b27c1cbcfaad66e18f684a9f1`.
 Image c7df6a6f428086f79a377ca1b049f20694f34a868987cf12c493c78eab7b2254;
@@ -256,16 +250,3 @@ Local-cloud publication feature a167052bfd / next406228a364 was verified.
 RA/task metadata publication is a later commit; read actual heads/receipts.
 Required fresh no-context resume proof follows integration. Cheap checks are
 required; audit cadence remains overdue (CI red, fixes may push), not waived.
-
-## Award/task publication and fresh resume proof
-
-Award evidence and reset-task policy published feature23b65a6177 / next48f53f8425;
-normal hooked pushes and remote heads verified. Publication receipt is retained
-with the award evidence. The fresh no-context reader independently checked
-RA33/cloud318, all four result files per run, eleven PID absences and free
-recorded guest/backend ports, live M7 order and unchanged frozen source.
-No blocking mismatch. Generated-table status is now explicit above, and closed
-#462's old running sentence has a subsequent completion note. A watcher's
-terminal alive=yes snapshot predates cleanup: read actual completion/PID receipts.
-No account input, build or QA process is pending. P3 UI coverage remains open;
-P4 is not started. Required checks passed; overdue audit cadence is not waived.
