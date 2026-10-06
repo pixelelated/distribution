@@ -1,6 +1,6 @@
 # pixelelated 0.0.1 release readiness
 
-## Current work — P4 audit found content-discovery and refusal-message defects
+## Current work — P4 primary audit complete; exact external transfer awaits approval
 
 Replacement12 remains frozen55d8ee8f75965a560f75d187e34c9beaa93133f1;
 its build, scoped preservation/native/HTTP and QA15→17 evidence are retained
@@ -56,20 +56,27 @@ Two earlier harness attempts are preserved as superseded. No job is active.
 Current order: continue the serial P4 independent audit, resolve and requalify
 its findings, then measured capacity, H700 arm/aarch64 and named physical/P5
 gates. [Audit record](../audits/2026_10_06-milestone-m7-p4-fixes-383/README.md).
-Phase1 is complete and Phase2 is active; no external review has been called.
+The primary audit is complete through4.5:261criteria (204PASS/36PARTIAL/3FAIL/
+18SKIP),123prior comparisons and full retrospective. External Fable5.1/xhigh
+blind thenrefutation is next, pending the exact source/spec/QA payload transfer
+approval requested after automatic review rejected it before execution. No
+provider was contacted. Authentication is restored; there is no running job.
 
 The unchanged14 content probe confirms #467: unrelated configured directories
 suppress the chooser/fallback, and root game folders on an empty device are
 misclassified. Three controls pass and four challenged fixtures fail; four rc1
 results and actual cleanup are retained. #468 captures safe future-layout
 refusal with a misleading missing-folder message. These findings prevent RC
-clearance until repaired and requalified. No product patch/new image yet.
+clearance until repaired and requalified. #469 additionally records the missing
+approved French phone/native finishing text. Refutation03 independently repeats
+all seven content cases with identical outputs, four expected rc1 channels and
+actual cleanup. No product patch/new image yet.
 
 The earlier proof receipts above retain their original scope; passing them did
 not establish these newly challenged cases. D-QA-058 keeps hosted accounts and
 offsite endpoints optional; #463 remains unverified, #464 reset automation is
 backlog. #466/D-WORKFLOW-149 requires continuing authorized audits after saving.
-No executable job remains active; primary review continues in this session.
+No executable job remains active; verified cross-lab review is the next gated action.
 
 Frozen13 freshness caught an Android-only upstream commit before any cache
 copy/build. [Exact equality evidence](../qa-logs/2026-10-06-proxy-879b158/README.md)
@@ -94,7 +101,7 @@ pass, with before-fix failures and exact distributed patch hashes retained.
 Upstream main remains879b158. API/policy-dependent proposals have explicit
 reasons in the contribution map; no upstream submission or acceptance is claimed.
 The separate RA account proof is complete in the record above; no new build
-has started. P4 audit research is current; local qualification is recorded
+has started. P4 awaits the exact external-review transfer approval; local qualification is recorded
 under #462.
 
 > Earlier dated records below preserve their original account limitations.

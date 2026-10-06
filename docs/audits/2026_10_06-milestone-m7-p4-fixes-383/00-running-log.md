@@ -172,3 +172,27 @@ I349-L43 records a narrow missing hostname assertion, not a product failure.
 - 15:25:18–15:26:33UTC: durable content-probe01 ran on exact unchanged replacement14. Four results rc1,7fixtures (3PASS/4FAIL); actual guest/watcher/launcher/command absence and five unbound ports verified15:27:11.411836UTC. Preserved evidence/content-probe-01. Unrelated configured folders falsely classify ok; explicit-root tiered/empty-local legacy game folders falsely classify empty. Primary source explains both; no product patch or RC claim. Continue Phase2, retain findings for later verification/disposition.
 
 - Primary read correction: the UI26 future-refusal image says COULDN’T FIND YOUR CLOUD FOLDER, not the newer-build diagnostic inferred from the marker script. Corrected the just-written evidence sentence immediately; inspect this cross-layer reason loss as its own potential finding. Do not write image-dependent grades in the same call that retrieves the unseen image.
+
+## 2026-10-06T15:49:19.902967+00:00 — local review continues; host approval authentication unavailable
+
+Package-checks03 is prepared/sealed but UNSTARTED. Actual-host submission was not executed: automatic approval review could not refresh its access token after logout/account change. This is not a safety determination and not a user pause. Requested restored sign-in once; continue local independent Phase2. Do not bypass the approval service. No provider or package worker is live. Phone/finishing French omission independently recorded I351-L62; draft issue awaits restored tracker access.
+
+## 2026-10-06T16:28:47.044075+00:00 — Phase2 independent forward audit complete; continue2.5
+
+261/261 criteria:204 PASS,36 PARTIAL,3 FAIL,18 SKIP. Each exact forward ID appears once; no prior answers have been opened. Fresh LCD reproduction and24 palette/alpha proofs pass; all23 qualified reconnect frames directly reviewed with109 assertions and46 invariant installed hashes. Detailed product, evidence and later-scope distinctions are in02. Approval-service authentication still rejects read-only GitHub commands before execution after the API switch. No executable worker is live. This is an active save; next action is prior-verdict comparison, then doctrine/interactions, not a stop.
+
+### [Phase2.5] 2026-10-06T16:34:36.604187+00:00 — prior comparison complete
+
+Compared all123 prior AC entries after the sealed independent boundary; exact mapping/explanations saved in evidence/prior-verdict-comparison.json. Read prior#382 and#411 punch dispositions directly; network readback remains auth-blocked. Three changed prior conclusions (content classification, French sign-in and refusal reason) carry forward; original current261 entries unchanged. Proceed to Phase3 supporting trust, doctrine, blindspots and interactions.
+
+### [Phase3→4] 2026-10-06T16:42:28.668938+00:00 — retrospective and provisional synthesis
+
+Reviewed interactions, all30rules/74distinct blindspots and190supporting-history criteria across55issues; saved03 and exact supporting map. Synthesis04 carries three provisional product findings, exact261scorecard and all remaining narrow measurements/P5 limits. Product inputs unchanged. Proceed to4.5 refutation; no external call or final punch list yet.
+
+### [Phase4.5] 2026-10-06T16:44:35.790380+00:00 — refutation source work complete; repeat launch blocked
+
+Rehashed314original content-probe files, confirmed3PASS/4FAIL and7unchanged before/after states. Re-read full discovery/UI consumer and sibling paths; F01 survives. Fresh sealed owner/tmp/pixelelated-m7-p4-refutation-20261006T164343Z was prepared and submitted via watch-build-submit, but approval authentication rejected before execution. No launcher files or job exist. Phase4.5 remains pending the actual repeat;4.6 and final punch list have not begun. This is an actual service blocker, not a checkpoint pause.
+
+### [Phase4.5 complete] 2026-10-06T17:11:01.231953+00:00 — restored access, repeated installed failure
+
+Refutation03 on/workspace completed17:06:00UTC:3controlsPASS/4challengesFAIL, exact original outputs, unchanged bytes/pointers; allfourrc1 and actual6PIDs/5ports absent at17:08:41. Failed01 missing proofdir and02/tmp quota preserved, including hash-preserved partialimage. Source/effort/drift Facilitator guards exit0. Proceed4.6 blind thenrefutation; no product edit.

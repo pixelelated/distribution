@@ -1,0 +1,32 @@
+{
+  "utc": "2026-10-06T17:08:41.379223+00:00",
+  "results": {
+    "inner.rc": "1",
+    "outer.rc": "1",
+    "tool-wrapper.rc": "1",
+    "build.rc": "1"
+  },
+  "pids_absent_actual_host": {
+    "build.pid": 2571497,
+    "watcher.pid": 2571498,
+    "command.pid": 2571527,
+    "launcher": 2571496,
+    "qemu-a": 2572302,
+    "qemu-b": 2572324
+  },
+  "ports_unbound": [
+    9040,
+    10022,
+    10023,
+    5909,
+    5910
+  ],
+  "cases": 7,
+  "outcomes": {
+    "PASS": 3,
+    "FAIL": 4
+  },
+  "matches_original_cases_and_outputs": true,
+  "all_before_after_equal": true,
+  "scope": "Expected failing refutation; F01 survives. No fix or green product claim."
+}

@@ -1,0 +1,13 @@
+test_consent_changes_apply_immediately_during_early_uptime (linux.tests.test_linux_usage_stats.ConsentTests.test_consent_changes_apply_immediately_during_early_uptime) ... ok
+test_consent_for_an_older_scope_is_asked_again_but_a_decline_is_kept (linux.tests.test_linux_usage_stats.ConsentTests.test_consent_for_an_older_scope_is_asked_again_but_a_decline_is_kept) ... ok
+test_declining_deletes_collected_counters (linux.tests.test_linux_usage_stats.ConsentTests.test_declining_deletes_collected_counters) ... ok
+test_grant_and_decline_are_stored_with_the_current_version (linux.tests.test_linux_usage_stats.ConsentTests.test_grant_and_decline_are_stored_with_the_current_version) ... ok
+test_granted_consent_counts_during_early_uptime (linux.tests.test_linux_usage_stats.ConsentTests.test_granted_consent_counts_during_early_uptime) ... ok
+test_nothing_is_counted_without_consent (linux.tests.test_linux_usage_stats.ConsentTests.test_nothing_is_counted_without_consent) ... ok
+test_unanswered_is_none (linux.tests.test_linux_usage_stats.ConsentTests.test_unanswered_is_none) ... ok
+test_unanswered_is_not_counted_during_early_uptime (linux.tests.test_linux_usage_stats.ConsentTests.test_unanswered_is_not_counted_during_early_uptime) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.002s
+
+OK

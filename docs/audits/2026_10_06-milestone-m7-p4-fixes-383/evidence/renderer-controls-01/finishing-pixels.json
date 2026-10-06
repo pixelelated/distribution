@@ -1,0 +1,20 @@
+[
+  {
+    "name": "correct",
+    "path": "docs/qa-logs/2026-10-05-pixelelated-replacement-10/signin-ui-14/artifacts/signin/02-finishing-marker-stand-in.png",
+    "expected": true,
+    "actual": true
+  },
+  {
+    "name": "stale",
+    "path": "docs/qa-logs/2026-10-05-pixelelated-replacement-09/signin-ui-09-unaccepted/artifacts/signin/02-finishing-marker-stand-in.png",
+    "expected": false,
+    "actual": false
+  },
+  {
+    "name": "partial",
+    "path": "docs/qa-logs/2026-10-05-pixelelated-replacement-09/signin-ui-08-unaccepted/artifacts/signin/01-local-redirect.png",
+    "expected": false,
+    "actual": false
+  }
+]

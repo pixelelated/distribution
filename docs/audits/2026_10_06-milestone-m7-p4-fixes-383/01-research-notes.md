@@ -316,3 +316,9 @@ Fresh seven-case content-probe01 completed on exact14, no product binary changed
 ### Marker refusal reason is lost across the script/UI boundary
 
 Direct original UI26 future-refusal640px frame and UI26-future-script.log both say COULDN’T FIND YOUR CLOUD FOLDER. `cloud_migrate_layout::read_marker` accurately detects unsupported marker and returns application4; `cloud_scan::read_folder` discards its explanation and `why_for_rc` treats4 as rclone missing directory. Writes/marker/pointers remain protected. Criterion I356-L76 reassessed PARTIAL for this presentation defect. Earlier inferred newer-build wording was corrected immediately, with the correction retained in00/02 and ledger metadata.
+
+### 2026-10-06T15:49:19.902967+00:00 — newly required sign-in strings have no French route
+
+D-CLOUD-164 includes the phone close question and finishing page; cloud_oauth serves literal English and cloud-signin-window.c FINISHING_PAGE is one static English data URL. Actual installed matching bytes and EN frames establish the implementation; no French-mode guest test is claimed. Catalogue translation elsewhere cannot affect these independent processes. I351-L62 FAIL, with scoped repair/VM proof owed.
+
+- Phase2 UI465 primary inspection: read the complete fixture’s installed Storage/flusher path, actual address removal/restoration, settings-before-ES ordering, pending checks, immutable module census and bounded outcome polling. Directly reviewed all ten qualified EN/FR640 baseline/sending/sent/dismissed/empty-repeat images: baselines and repeats are empty, both translated cards fit. Remaining1280 and refusal frames are next; no grade yet. The fixture explicitly disables background proxy scheduling and invokes the real installed flusher; it does not independently prove automatic scheduler behavior.

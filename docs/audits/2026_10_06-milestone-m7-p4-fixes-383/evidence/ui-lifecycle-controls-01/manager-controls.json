@@ -1,0 +1,38 @@
+[
+  {
+    "case": "correct",
+    "rc": 0,
+    "expected": 0,
+    "output": "PASS actual selected manager system gb\n"
+  },
+  {
+    "case": "wrong-selection",
+    "rc": 1,
+    "expected": 1,
+    "output": "FAIL manager system: actual selected system is 'fbn', expected 'gb'\n"
+  },
+  {
+    "case": "missing",
+    "rc": 1,
+    "expected": 1,
+    "output": "FAIL manager system: requested system is missing or duplicated\n"
+  },
+  {
+    "case": "duplicate",
+    "rc": 1,
+    "expected": 1,
+    "output": "FAIL manager system: requested system is missing or duplicated\n"
+  },
+  {
+    "case": "hidden",
+    "rc": 1,
+    "expected": 1,
+    "output": "FAIL manager system: requested system is not visible\n"
+  },
+  {
+    "case": "empty",
+    "rc": 1,
+    "expected": 1,
+    "output": "FAIL manager system: requested system has no visible games\n"
+  }
+]

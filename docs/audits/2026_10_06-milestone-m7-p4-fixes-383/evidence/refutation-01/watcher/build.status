@@ -1,0 +1,13 @@
+state:       finished
+written:     2026-10-06 16:58:30 UTC   <- terminal result; heartbeat stops here
+watcher_pid: 2544557
+job_pid:     2544556  alive=yes
+started:     2026-10-06 16:58:25 UTC
+progress:    none matched
+log:         /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261006T165825Z-7b5b5306/build.log  (last written 4s ago)
+activity:    /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261006T165825Z-7b5b5306/build.log  (last written 4s ago)
+activity_dir: /tmp/pixelelated-m7-p4-refutation-20261006T164343Z/activity
+outcome:     rc=1
+tail:
+    File "<frozen posixpath>", line 457, in realpath
+  FileNotFoundError: [Errno 2] No such file or directory: '/tmp/pixelelated-m7-p4-refutation-20261006T164343Z/proof'

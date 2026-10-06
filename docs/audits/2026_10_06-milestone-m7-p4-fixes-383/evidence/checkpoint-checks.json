@@ -1,0 +1,46 @@
+{
+  "utc": "2026-10-06T18:08:30.535065+00:00",
+  "rules": {
+    "rc": 0,
+    "files": 30
+  },
+  "register": {
+    "rc": 0,
+    "ids": 599
+  },
+  "work_log_index": {
+    "rc": 0,
+    "current": true
+  },
+  "coverage": {
+    "forward": 261,
+    "supporting": 190,
+    "prior": 123,
+    "exact_unique": true
+  },
+  "whitespace_tracked": {
+    "rc": 0
+  },
+  "ceremony": {
+    "rc": 0,
+    "warning": "CI audit cadence overdue:68closed/2days since2026-10-04; active audit incomplete. No completion claimed or gate bypass."
+  },
+  "facilitator_local_preflight": {
+    "verify_pins": 0,
+    "efforts": 0,
+    "drift": 0
+  },
+  "provider_calls": 0,
+  "whitespace_staged": {
+    "full_rc": 2,
+    "reports": 510,
+    "only_path": "second-opinions/claude-blind-brief.md",
+    "reason": "Line-numbered original source and unified-diff excerpts retain original whitespace; sealed approval payload is unchanged.",
+    "authored_excluding_sealed_packet_rc": 0
+  },
+  "precommit_initial": {
+    "rc": 1,
+    "reason": "Generated QA private-key duplicate staged in failed-run evidence; omitted before commit, original preserved.",
+    "receipt": "evidence/refutation-02/publication-omissions.json"
+  }
+}

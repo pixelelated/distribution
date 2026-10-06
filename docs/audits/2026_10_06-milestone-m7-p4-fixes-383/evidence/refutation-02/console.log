@@ -1,0 +1,56 @@
+watch-build: recording in /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261006T170032Z-85a5f029
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/b77e47e57a4bb35f885ba78669ee8176a9ac978b27c1cbcfaad66e18f684a9f1
+
+gzip: stdout: Disk quota exceeded
+Traceback (most recent call last):
+  File "/tmp/pixelelated-m7-p4-refutation-02/probe.py", line 77, in <module>
+    proof.start()
+    ~~~~~~~~~~~^^
+  File "/tmp/pixelelated-m7-p4-refutation-02/boundaries.py", line 259, in start
+    self.local('vm-pair', 'up', str(self.args.image.resolve(strict=True)))
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/pixelelated-m7-p4-refutation-02/boundaries.py", line 63, in local
+    return subprocess.run([str(self.tree / 'tools' / tool), *args],
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                          env=self.env, cwd=self.tree, check=True, **kwargs)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['/workspace/repos/rocknix.worktrees/conflict-resolution/tools/vm-pair', 'up', '/workspace/artifacts/pixelelated-candidates/sha256/b77e47e57a4bb35f885ba78669ee8176a9ac978b27c1cbcfaad66e18f684a9f1/pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz']' returned non-zero exit status 1.
+
+During handling of the above exception, another exception occurred:
+
+OSError: [Errno 122] Disk quota exceeded
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/tmp/pixelelated-m7-p4-refutation-02/probe.py", line 80, in <module>
+    proof.cleanup()
+    ~~~~~~~~~~~~~^^
+  File "/tmp/pixelelated-m7-p4-refutation-02/probe.py", line 65, in cleanup
+    mod.save(self.owner / 'cleanup.json', {'owned_guests_stopped': True, 'backend_stopped': True,
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                          'ports_unbound': [9040, 10022, 10023, 5909, 5910]})
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/pixelelated-m7-p4-refutation-02/boundaries.py", line 39, in save
+    path.write_text(json.dumps(value, indent=2, sort_keys=True) + '\n')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/pathlib/__init__.py", line 810, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 122] Disk quota exceeded
+OSError: [Errno 122] Disk quota exceeded
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/tmp/pixelelated-m7-p4-refutation-02/run.py", line 32, in <module>
+    (owner / 'inner.rc').write_text(str(code) + '\n')
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/pathlib/__init__.py", line 810, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 122] Disk quota exceeded
+watch-build-submit: [Errno 122] Disk quota exceeded

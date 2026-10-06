@@ -1,0 +1,24 @@
+{
+  "utc": "2026-10-06T16:59:39.533419+00:00",
+  "failure": "missing required proof directory; no Probe.start/no VM/backend started",
+  "results": {
+    "inner.rc": "1",
+    "outer.rc": "1",
+    "tool-wrapper.rc": "1"
+  },
+  "build_rc": "1",
+  "pids": {
+    "build.pid": {
+      "pid": 2544556,
+      "present": false
+    },
+    "watcher.pid": {
+      "pid": 2544557,
+      "present": false
+    },
+    "command.pid": {
+      "pid": 2544586,
+      "present": false
+    }
+  }
+}

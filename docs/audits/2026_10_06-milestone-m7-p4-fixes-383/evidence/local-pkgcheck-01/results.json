@@ -1,0 +1,67 @@
+{
+  "utc": "2026-10-06T15:50:04.127484+00:00",
+  "scope": "Local unprivileged recipe lint only; no network or host escalation. Freshness remains unstarted pending approval-service authentication.",
+  "results": [
+    {
+      "package": "rclone",
+      "rc": 0,
+      "fail_lines": 0
+    },
+    {
+      "package": "cloud-signin-window",
+      "rc": 0,
+      "fail_lines": 0
+    },
+    {
+      "package": "libsoup",
+      "rc": 0,
+      "fail_lines": 0
+    },
+    {
+      "package": "webkitgtk",
+      "rc": 0,
+      "fail_lines": 0
+    },
+    {
+      "package": "raofflineproxy",
+      "rc": 0,
+      "fail_lines": 0
+    },
+    {
+      "package": "glslang",
+      "rc": 0,
+      "fail_lines": 0
+    },
+    {
+      "package": "spirv-tools",
+      "rc": 0,
+      "fail_lines": 0
+    },
+    {
+      "package": "spirv-headers",
+      "rc": 0,
+      "fail_lines": 0
+    },
+    {
+      "package": "shaderc",
+      "rc": 0,
+      "fail_lines": 0
+    },
+    {
+      "package": "cbindgen",
+      "rc": 0,
+      "fail_lines": 0
+    },
+    {
+      "package": "tllist",
+      "rc": 0,
+      "fail_lines": 0
+    },
+    {
+      "package": "raofflineproxy-libchdr",
+      "rc": 0,
+      "fail_lines": 0
+    }
+  ],
+  "invalidated_empty_match": "libchdr rc0 matched no recipe. Exact raofflineproxy-libchdr rerun below; recipe names print on stderr."
+}

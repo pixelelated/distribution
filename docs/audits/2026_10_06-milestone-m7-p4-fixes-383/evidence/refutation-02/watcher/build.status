@@ -1,0 +1,13 @@
+state:       finished
+written:     2026-10-06 17:00:42 UTC   <- terminal result; heartbeat stops here
+watcher_pid: 2553615
+job_pid:     2553614  alive=yes
+started:     2026-10-06 17:00:32 UTC
+progress:    none matched
+log:         /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261006T170032Z-85a5f029/build.log  (last written 3s ago)
+activity:    /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261006T170032Z-85a5f029/build.log  (last written 3s ago)
+activity_dir: /tmp/pixelelated-m7-p4-refutation-02/proof
+outcome:     rc=1
+tail:
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  OSError: [Errno 122] Disk quota exceeded
