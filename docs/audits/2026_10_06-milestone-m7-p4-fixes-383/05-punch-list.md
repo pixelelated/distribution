@@ -5,7 +5,7 @@
 **Generated:** 2026-10-06
 **Source audit:** [04-analysis.md](04-analysis.md)
 **Total items:**8 (Critical:0, High:1, Medium:6, Low:1)
-**State:** Phase7 remediation on rebuilt candidate15. PL-008 is resolved; seven installed acceptance outcomes remain open. No complete-audit or RC claim.
+**State:** Phase7 remediation on rebuilt candidate15. PL-007 and PL-008 are resolved; six installed acceptance outcomes remain open. No complete-audit or RC claim.
 
 The two Fable calls are verified and their leads have been checked against
 primary source and fourteen installed experiments. These eight items are
@@ -57,6 +57,7 @@ changed candidate before P4 closure; all known bugs must be resolved before RC.
 - **Where:** projects/ROCKNIX/packages/network/rclone/sources/cloud_migrate_layout:819,1239
 - **Why:** Preserve usable cloud content, consistent stored selections and truthful recoverable outcomes under the cited contract.
 - **Evidence:** With current marker/layout and another guest explicitly keeping ROCKNIX, state reports migration-pending; apply moves and deletes that live sibling shelf. Bytes survive at the new location and live saves/pointers are preserved; no data-loss claim. Artifact: evidence/reviewer-leads-03/artifacts/B05-kept-sibling-observation.json
+- **Requalification finding (21:11 UTC):** Actual RC2→candidate15 apply reports success while `/GAMES-replaced/stamp/gb/A.srm` remains at its old root. Preserved evidence: `../../qa-logs/2026-10-06-pixelelated-replacement-15/p4-inherited-shelf-01/`. No bytes lost; the first successful apply must complete this owned historical tier. PL-003 remains open and needs another product build.
 - **Acceptance:** Two installed guests, one current and one KEEP on an earlier layout, leave the active earlier shelf in place and current state settled. The genuine recorded/inherited RC2 partial-migration recovery still completes all owned tiers without loss. Include unreadable-listing refusal and repeated scans.
 
 ## PL-004: A harmless provider-config change strands a pending migration record
@@ -136,7 +137,7 @@ scope is not silently waived or duplicated into PL IDs.
 
 ## Phase 7 resolution gate
 
-PL-008 is resolved from landed source and installed positive/negative controls.
+PL-007 and PL-008 are resolved from landed source and installed acceptance evidence.
 The remaining open rows await their named acceptance evidence; they are not
 deferrals or passing gates. The audit tracker stays open. Detailed command and
 state-preservation evidence is in [08-installed-resolution.md](08-installed-resolution.md).
@@ -149,7 +150,7 @@ state-preservation evidence is in [08-installed-resolution.md](08-installed-reso
 | PL-004 | Open | Acceptance unproved on repaired bytes. |
 | PL-005 | Open | Acceptance unproved on repaired bytes. |
 | PL-006 | Open | Acceptance unproved on repaired bytes. |
-| PL-007 | Open | Acceptance unproved on repaired bytes. |
+| PL-007 | Resolved | `ed5a6a51f5974deec8748fbf0dbd2f4984b690f5` / ES `bab4df649f48847cc43d21c77c058107ad902754`; presentation01: installed EN/FR phone/native and reconnect assertions,29 directly reviewed frames, full owner/guest/browser cleanup; [resolution](08-installed-resolution.md). |
 | PL-008 | Resolved | `ed5a6a51f5974deec8748fbf0dbd2f4984b690f5`; reader-values04:8 installed cases, exact values/archive selection and old-source failure control; [resolution](08-installed-resolution.md). |
 
 ## Machine-readable index
@@ -218,7 +219,9 @@ punch_index:
   owner_area: "phone sign-in and native finishing surface"
   where: "projects/ROCKNIX/packages/network/rclone/sources/cloud_oauth; cloud-signin-window.c"
   acceptance: "Installed EN/FR local-fixture proof retains390px phone confirmation and640px native finishing frames, correct locale text, persistence of finishing until the existing done marker and normal delayed reconnect-card dismissal. No Dropbox credential or additional account reset required."
-  outcome: open
+  outcome: resolved
+  resolution_commit: "ed5a6a51f5974deec8748fbf0dbd2f4984b690f5"
+  resolution_evidence: "08-installed-resolution.md; ../../qa-logs/2026-10-06-pixelelated-replacement-15/p4-presentation-fixes-01/"
 
 - id: PL-008
   severity: "Low"

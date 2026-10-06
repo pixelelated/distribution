@@ -1,0 +1,13 @@
+START old-RC2-history
+rclone: rclone v1.75.1 (/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement15/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/bin/rclone)
+PASS T23-predecessor-RC2-backups 
+PASS T23-predecessor-RC2-saves 
+FAIL T23-predecessor-RC2-content RC2/content: upgrade left Saves-replaced/stamp/gb/A.srm behind
+FAIL T23-predecessor-RC2-complete RC2/complete: upgrade left Saves-replaced/stamp/gb/A.srm behind
+FAIL T23-predecessor-RC2-reinterrupted RC2/content: upgrade left Saves-replaced/stamp/gb/A.srm behind
+cloud-layout-test: 2 PASS, 3 FAIL; artifacts: /workspace/tmp/pixelelated-m7-p4-historical-host-02/artifacts/old-RC2-history
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-p4-historical-host-02/run.py", line 22, in <module>
+    assert len(cases)==5 and all(x['status']=='FAIL' and 'Saves-replaced/stamp/gb/A.srm' in x['why'] for x in cases),cases
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: [{'case': 'T23-predecessor-RC2-backups', 'status': 'PASS'}, {'case': 'T23-predecessor-RC2-saves', 'status': 'PASS'}, {'case': 'T23-predecessor-RC2-content', 'status': 'FAIL', 'why': 'RC2/content: upgrade left Saves-replaced/stamp/gb/A.srm behind'}, {'case': 'T23-predecessor-RC2-complete', 'status': 'FAIL', 'why': 'RC2/complete: upgrade left Saves-replaced/stamp/gb/A.srm behind'}, {'case': 'T23-predecessor-RC2-reinterrupted', 'status': 'FAIL', 'why': 'RC2/content: upgrade left Saves-replaced/stamp/gb/A.srm behind'}]

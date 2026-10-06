@@ -1,0 +1,47 @@
+This device stores:
+  saves    qa-cloud:/ROCKNIX/Saves
+  backups  qa-cloud:/ROCKNIX/Backups
+
+The current layout is:
+  saves    qa-cloud:/pixelelated/Saves
+  backups  qa-cloud:/pixelelated/Backups
+
+Would move, server-side, leaving anything else where it is:
+  qa-cloud:/ROCKNIX/Backups  ->  qa-cloud:/pixelelated/Backups
+  qa-cloud:/ROCKNIX/Saves  ->  qa-cloud:/pixelelated/Saves
+  qa-cloud:/ROCKNIX/Saves-replaced  ->  qa-cloud:/pixelelated/Saves-replaced
+  qa-cloud:/ROCKNIX/Content  ->  qa-cloud:/pixelelated/Content
+
+>>> unit SETTINGS BACKUPS|1|4
+Copying backups...
+>>> doing copy
+Transferred:   	         17 B / 17 B, 100%, 0 B/s, ETA -
+Checks:                 0 / 0, -, Listed 2
+Transferred:            1 / 1, 100%
+Server Side Copies:     1 @ 17 B
+Elapsed time:         0.0s
+Verifying backups...
+>>> doing verify
+Now using /pixelelated/Backups for your settings backups.
+Removing the old backups folder...
+>>> doing remove
+>>> unit SAVES|2|4
+Copying saves...
+>>> doing copy
+Transferred:   	         14 B / 14 B, 100%, 0 B/s, ETA -
+Checks:                 0 / 0, -, Listed 2
+Transferred:            1 / 1, 100%
+Server Side Copies:     1 @ 14 B
+Elapsed time:         0.0s
+Verifying saves...
+>>> doing verify
+Now using /pixelelated/Saves for your saves.
+Removing the old saves folder...
+>>> doing remove
+>>> unit DISCARDED SAVES|3|4
+Copying discarded saves...
+>>> doing copy
+injected local QA provider refusal
+injected local QA provider refusal
+Couldn't finish copying discarded saves. Nothing was removed from the old folder; some files may already be in the new one.
+Your discarded saves didn't finish moving; they are still at qa-cloud:/ROCKNIX/Saves-replaced. Try again.

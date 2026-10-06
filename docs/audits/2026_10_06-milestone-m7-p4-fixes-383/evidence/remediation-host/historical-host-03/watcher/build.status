@@ -1,0 +1,13 @@
+state:       finished
+written:     2026-10-06 21:23:02 UTC   <- terminal result; heartbeat stops here
+watcher_pid: 1311935
+job_pid:     1311934  alive=yes
+started:     2026-10-06 21:22:32 UTC
+progress:    none matched
+log:         /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261006T212232Z-9b04be35/build.log  (last written 5s ago)
+activity:    /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261006T212232Z-9b04be35/build.log  (last written 5s ago)
+activity_dir: /workspace/tmp/pixelelated-m7-p4-historical-host-03/artifacts
+outcome:     rc=1
+tail:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  AssertionError: ('fixed-histories', 1)

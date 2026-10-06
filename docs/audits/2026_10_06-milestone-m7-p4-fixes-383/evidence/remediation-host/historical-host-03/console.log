@@ -1,0 +1,19 @@
+watch-build: recording in /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261006T212232Z-9b04be35
+START fixed-histories
+rclone: rclone v1.75.1 (/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement15/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/bin/rclone)
+PASS PL003-historical-shelves-complete 
+PASS PL003-historical-shelves-copy 
+PASS PL003-historical-shelves-delete 
+PASS PL003-historical-shelves-active 
+PASS PL003-historical-shelves-foreign 
+FAIL PL003-historical-shelves-unreadable unreadable source or unowned destination did not refuse before mutation
+PASS PL003-active-sibling-root 
+PASS PL003-active-sibling-custom 
+PASS PL003-active-sibling-foreign 
+PASS PL003-active-sibling-fleet 
+cloud-layout-test: 9 PASS, 1 FAIL; artifacts: /workspace/tmp/pixelelated-m7-p4-historical-host-03/artifacts/fixed-histories
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-p4-historical-host-03/run.py", line 23, in <module>
+    assert result.returncode==expected,(name,result.returncode)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('fixed-histories', 1)

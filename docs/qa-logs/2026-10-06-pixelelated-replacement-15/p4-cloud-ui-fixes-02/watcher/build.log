@@ -1,0 +1,91 @@
+/workspace/tmp/pixelelated-m7-p4-cloud-ui-fixes-02/check-payload.py: OK
+/workspace/tmp/pixelelated-m7-p4-cloud-ui-fixes-02/cloud-ui-proof.py: OK
+/workspace/tmp/pixelelated-m7-p4-cloud-ui-fixes-02/outer.sh: OK
+/workspace/tmp/pixelelated-m7-p4-cloud-ui-fixes-02/provenance.json: OK
+/workspace/tmp/pixelelated-m7-p4-cloud-ui-fixes-02/proxy-identity.py: OK
+/workspace/tmp/pixelelated-m7-p4-cloud-ui-fixes-02/run.sh: OK
+/workspace/tmp/pixelelated-m7-p4-cloud-ui-fixes-02/seed.py: OK
+/workspace/tmp/pixelelated-m7-p4-cloud-ui-fixes-02/stop-guest.py: OK
+/workspace/tmp/pixelelated-m7-p4-cloud-ui-fixes-02/verify-inputs.py: OK
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/43a698bcd7d570c63ebdd5db015e5302463f7ee4a15438fd9ef2359437be19da
+Preparing independent 16GiB guest d from the verified pixelelated image
+Image resized.
+No errors were found on the image.
+31695/262144 = 12.09% allocated, 0.00% fragmented, 0.00% compressed clusters
+Image end offset: 2077818880
+[W][21:12:53.790916] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][21:12:53.790952] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+ready after ~31s
+PASS guest d exact BUILD_ID and OS_NAME ed5a6a51f5974deec8748fbf0dbd2f4984b690f5 pixelelated
+PASS QA ROM bytes /storage/roms/gb/Ninoid.gb a40191c169c68e6607ace072da96aab957f306f55ded59ce1f287c1f5273387b
+PASS QA ROM bytes /storage/roms/gbc/Tobu Tobu Girl Deluxe.gb 0a0e8018dbbc8d7f8cd99f05e7cdc7b4cc9e358ecfe9377ebfb2291a84c6e310
+PASS QA ROM bytes /storage/roms/nes/Bobl.nes 025ec44d0d84ac469b442ee56c3d69e035e9a38430ae849172fe3a1e569d0dea
+PASS guest d seeded and idle
+up: webdav serving /workspace/tmp/pixelelated-m7-p4-cloud-ui-fixes-02/cloud/data at http://127.0.0.1:9040 (guest: http://10.0.2.2:9040)
+PASS cloud-ui-before exact identity, installed scripts, policy and Ocean SVG bytes/modes
+PASS cloud-ui-before installed proxy identities and account discovery
+PASS setup: candidate identity
+START en_US-chooser-MyGames
+PASS en_US-chooser-MyGames: no game running before carousel
+PASS en_US-chooser-MyGames: actual UI walk carousel
+PASS en_US-chooser-MyGames: no game running after carousel
+PASS en_US-chooser-MyGames: no game running before hub-menu
+PASS en_US-chooser-MyGames: actual UI walk hub-menu
+PASS en_US-chooser-MyGames: no game running after hub-menu
+PASS en_US-chooser-MyGames: START changes the captured screen; direct main-menu review required
+PASS en_US-chooser-MyGames: no game running before hub
+PASS en_US-chooser-MyGames: actual UI walk hub
+PASS en_US-chooser-MyGames: no game running after hub
+PASS en_US-chooser-MyGames: no game running before opening-scan
+PASS en_US-chooser-MyGames: actual UI walk opening-scan
+PASS en_US-chooser-MyGames: no game running after opening-scan
+PASS en_US-chooser-MyGames: no game running before continue
+PASS en_US-chooser-MyGames: actual UI walk continue
+PASS en_US-chooser-MyGames: no game running after continue
+PASS en_US-chooser-MyGames: unrelated configured folder offers manual selection
+PASS en_US-chooser-MyGames: no game running before chooser
+PASS en_US-chooser-MyGames: actual UI walk chooser
+PASS en_US-chooser-MyGames: no game running after chooser
+PASS en_US-chooser-MyGames: actual opening scan lists MyGames
+PASS en_US-chooser-MyGames: no game running before select
+PASS en_US-chooser-MyGames: actual UI walk select
+PASS en_US-chooser-MyGames: no game running after select
+PASS en_US-chooser-MyGames: actual UI persists MyGames
+PASS en_US-chooser-MyGames: chosen content scan completed
+PASS en_US-chooser-MyGames: selected game appears in actual scan
+PASS en_US-chooser-MyGames: selection preserves every cloud byte
+PASS en_US-chooser-MyGames: no game running before close
+PASS en_US-chooser-MyGames: actual UI walk close
+PASS en_US-chooser-MyGames: no game running after close
+START en_US-chooser-My Games
+PASS en_US-chooser-My Games: no game running before carousel
+PASS en_US-chooser-My Games: actual UI walk carousel
+PASS en_US-chooser-My Games: no game running after carousel
+PASS en_US-chooser-My Games: no game running before hub-menu
+PASS en_US-chooser-My Games: actual UI walk hub-menu
+PASS en_US-chooser-My Games: no game running after hub-menu
+FAIL en_US-chooser-My Games: START changes the captured screen; direct main-menu review required
+PASS en_US-chooser-My Games: installed product hashes unchanged
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-p4-cloud-ui-fixes-02/cloud-ui-proof.py", line 137, in <module>
+    reset(language);action();rows.append({'case':case,'status':'PASS','visual_review':'pending'});(out/'results.json').write_text(json.dumps(rows,indent=2)+'\n')
+                    ~~~~~~^^
+  File "/workspace/tmp/pixelelated-m7-p4-cloud-ui-fixes-02/cloud-ui-proof.py", line 132, in <lambda>
+    cases=[('chooser-'+folder,lambda f=folder:chooser(f)) for folder in ['MyGames','My Games','Games..old']]
+                                              ~~~~~~~^^^
+  File "/workspace/tmp/pixelelated-m7-p4-cloud-ui-fixes-02/cloud-ui-proof.py", line 69, in chooser
+    put('Mine/Photos/witness.jpg',b'unrelated picture\n');before=hashes();start();restore();content_continue()
+                                                                                  ~~~~~~~^^
+  File "/workspace/tmp/pixelelated-m7-p4-cloud-ui-fixes-02/cloud-ui-proof.py", line 63, in restore
+    hub();walk('opening-scan',press('down','x')+['settle 90 3','shot '+case+'-opening-result'])
+    ~~~^^
+  File "/workspace/tmp/pixelelated-m7-p4-cloud-ui-fixes-02/cloud-ui-proof.py", line 60, in hub
+    check(len(before)==1 and len(after)==1 and before[0].read_bytes()!=after[0].read_bytes(),'START changes the captured screen; direct main-menu review required')
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tmp/pixelelated-m7-p4-cloud-ui-fixes-02/cloud-ui-proof.py", line 17, in check
+    if not ok:raise AssertionError(text)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: START changes the captured screen; direct main-menu review required
+PASS owned guest stopped 1259145
+down

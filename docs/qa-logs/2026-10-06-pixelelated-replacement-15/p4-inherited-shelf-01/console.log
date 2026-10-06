@@ -1,0 +1,16 @@
+watch-build: recording in /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement15/.build-runs/20261006T211038Z-241642bb
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/43a698bcd7d570c63ebdd5db015e5302463f7ee4a15438fd9ef2359437be19da
+up: a (pid 1250022, ssh :10022, serial /tmp/rocknix-qemu-serial.sock, mac 52:54:00:52:4E:58)
+up: b (pid 1250045, ssh :10023, serial /tmp/rocknix-qemu-serial-b.sock, mac 52:54:00:52:4E:59)
+ready: a on ed5a6a51f5 over ssh :10022 (answered after 0s)
+ready: b on ed5a6a51f5 over ssh :10023 (answered after 0s)
+up: webdav serving /workspace/tmp/pixelelated-m7-p4-inherited-shelf-01/proof/cloud/data at http://127.0.0.1:9040 (guest: http://10.0.2.2:9040)
+START PL003-historical-shelf-rc2-complete
+FAIL PL003-historical-shelf-rc2-complete: [Errno 2] No such file or directory: '/workspace/tmp/pixelelated-m7-p4-inherited-shelf-01/proof/cloud/data/pixelelated/Saves-replaced/stamp/gb/A.srm'
+START PL003-historical-shelf-record-copy
+PASS PL003-historical-shelf-record-copy
+START PL003-historical-shelf-record-delete
+PASS PL003-historical-shelf-record-delete
+down
+PASS frozen source inputs, ES pin and candidate input custody

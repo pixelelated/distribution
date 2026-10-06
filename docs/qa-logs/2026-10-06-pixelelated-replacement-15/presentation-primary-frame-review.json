@@ -1,0 +1,270 @@
+{
+  "reviewed_utc": "2026-10-06T21:09:56.882469+00:00",
+  "owner": "/workspace/tmp/pixelelated-m7-p4-presentation-fixes-01",
+  "reviewer": "primary agent direct image inspection",
+  "scope": "All29 captured frames directly inspected, hashes match retained copies. Phone/native EN+FR six; reconnect EN+FR640/1280 twenty-three, refusal control EN640 only.",
+  "frames": [
+    {
+      "file": "signin-en_US/phone-confirmation-en_US.png",
+      "sha256": "dc8658c563ebc191604e54e157f07db2fbd2484225b83c2e489df727c5f7bd79",
+      "dimensions": [
+        390,
+        1000
+      ],
+      "direct_review": "PASS: requested localized confirmation or finishing text fully visible; French confirmation wraps. Broader phone page remains English and is outside this translation claim."
+    },
+    {
+      "file": "signin-en_US/native-finishing-en_US-0.png",
+      "sha256": "c83940aeef2633d4a7350dee68e3177cdb388ce3117e5dbff2609513aa0b5b27",
+      "dimensions": [
+        640,
+        480
+      ],
+      "direct_review": "PASS: requested localized confirmation or finishing text fully visible; French confirmation wraps. Broader phone page remains English and is outside this translation claim."
+    },
+    {
+      "file": "signin-en_US/native-finishing-en_US-15.png",
+      "sha256": "c83940aeef2633d4a7350dee68e3177cdb388ce3117e5dbff2609513aa0b5b27",
+      "dimensions": [
+        640,
+        480
+      ],
+      "direct_review": "PASS: requested localized confirmation or finishing text fully visible; French confirmation wraps. Broader phone page remains English and is outside this translation claim."
+    },
+    {
+      "file": "signin-fr_FR/phone-confirmation-fr_FR.png",
+      "sha256": "5c7519bc2d9daa9492029ef73dd8a814eb7252c888d0cec18d83fcd18aa62fd9",
+      "dimensions": [
+        390,
+        1000
+      ],
+      "direct_review": "PASS: requested localized confirmation or finishing text fully visible; French confirmation wraps. Broader phone page remains English and is outside this translation claim."
+    },
+    {
+      "file": "signin-fr_FR/native-finishing-fr_FR-0.png",
+      "sha256": "8fd227c1477e9d974d431a7b5887fce588e6779e2067bc4a51ac0dfb4efcf4cd",
+      "dimensions": [
+        640,
+        480
+      ],
+      "direct_review": "PASS: requested localized confirmation or finishing text fully visible; French confirmation wraps. Broader phone page remains English and is outside this translation claim."
+    },
+    {
+      "file": "signin-fr_FR/native-finishing-fr_FR-15.png",
+      "sha256": "8fd227c1477e9d974d431a7b5887fce588e6779e2067bc4a51ac0dfb4efcf4cd",
+      "dimensions": [
+        640,
+        480
+      ],
+      "direct_review": "PASS: requested localized confirmation or finishing text fully visible; French confirmation wraps. Broader phone page remains English and is outside this translation claim."
+    },
+    {
+      "file": "en_US-640x480/baseline.png",
+      "sha256": "b2ea4a8db39d559ed3b6846e8baffed2f10ff15fecf67a2075f08667619c5989",
+      "dimensions": [
+        640,
+        480
+      ],
+      "direct_review": "PASS: expected text/surface visible without clipping; baseline/dismissed/empty-repeat have no card"
+    },
+    {
+      "file": "en_US-640x480/accept-sending.png",
+      "sha256": "c165da0b33df1de9e8cb864aa3e39b0cd383ae2101f719303aac678931270d4f",
+      "dimensions": [
+        640,
+        480
+      ],
+      "direct_review": "PASS: expected text/surface visible without clipping; baseline/dismissed/empty-repeat have no card"
+    },
+    {
+      "file": "en_US-640x480/accept-outcome.png",
+      "sha256": "578c6f09a7dcdd7d60813833edb7baa7b12978f1235d5367794f8d1a644504dc",
+      "dimensions": [
+        640,
+        480
+      ],
+      "direct_review": "PASS: expected text/surface visible without clipping; baseline/dismissed/empty-repeat have no card"
+    },
+    {
+      "file": "en_US-640x480/accept-dismissed.png",
+      "sha256": "6a67cab3ac59c0d92316d40ecac3c60bde2f86a537b4162a5c127fb7829c3795",
+      "dimensions": [
+        640,
+        480
+      ],
+      "direct_review": "PASS: expected text/surface visible without clipping; baseline/dismissed/empty-repeat have no card"
+    },
+    {
+      "file": "en_US-640x480/empty-repeat.png",
+      "sha256": "6a67cab3ac59c0d92316d40ecac3c60bde2f86a537b4162a5c127fb7829c3795",
+      "dimensions": [
+        640,
+        480
+      ],
+      "direct_review": "PASS: expected text/surface visible without clipping; baseline/dismissed/empty-repeat have no card"
+    },
+    {
+      "file": "en_US-640x480/refuse-sending.png",
+      "sha256": "c165da0b33df1de9e8cb864aa3e39b0cd383ae2101f719303aac678931270d4f",
+      "dimensions": [
+        640,
+        480
+      ],
+      "direct_review": "PASS: expected text/surface visible without clipping; baseline/dismissed/empty-repeat have no card"
+    },
+    {
+      "file": "en_US-640x480/refuse-outcome.png",
+      "sha256": "86293658f6135191cbc7025bd0449bcaeb310c49809adbaf83429487daa392ea",
+      "dimensions": [
+        640,
+        480
+      ],
+      "direct_review": "PASS: expected text/surface visible without clipping; baseline/dismissed/empty-repeat have no card"
+    },
+    {
+      "file": "en_US-640x480/refuse-dismissed.png",
+      "sha256": "5dbde14c0b43540d7a7846d54e661f7856cca1137d3170e5445e7415868d8081",
+      "dimensions": [
+        640,
+        480
+      ],
+      "direct_review": "PASS: expected text/surface visible without clipping; baseline/dismissed/empty-repeat have no card"
+    },
+    {
+      "file": "fr_FR-640x480/baseline.png",
+      "sha256": "c566f29d00caf246f742806fc54fb955e7c9144633ee63d2b30689db7009d751",
+      "dimensions": [
+        640,
+        480
+      ],
+      "direct_review": "PASS: localized sending/completed text fully visible; baseline/dismissed/empty-repeat have no card."
+    },
+    {
+      "file": "fr_FR-640x480/accept-sending.png",
+      "sha256": "115925a3f9333e5a2ff6916c720d1ad08c74dd80ff204c922015777fdbb33972",
+      "dimensions": [
+        640,
+        480
+      ],
+      "direct_review": "PASS: localized sending/completed text fully visible; baseline/dismissed/empty-repeat have no card."
+    },
+    {
+      "file": "fr_FR-640x480/accept-outcome.png",
+      "sha256": "ebaa516f71146884117cd087c70b94d8c20c0293f0e912e2e1dc8b567ecbf937",
+      "dimensions": [
+        640,
+        480
+      ],
+      "direct_review": "PASS: localized sending/completed text fully visible; baseline/dismissed/empty-repeat have no card."
+    },
+    {
+      "file": "fr_FR-640x480/accept-dismissed.png",
+      "sha256": "c566f29d00caf246f742806fc54fb955e7c9144633ee63d2b30689db7009d751",
+      "dimensions": [
+        640,
+        480
+      ],
+      "direct_review": "PASS: localized sending/completed text fully visible; baseline/dismissed/empty-repeat have no card."
+    },
+    {
+      "file": "fr_FR-640x480/empty-repeat.png",
+      "sha256": "0f64de2ec85eb03ebe4fa776b3b8b25362f35630918c5ae417c29ab19417fc8a",
+      "dimensions": [
+        640,
+        480
+      ],
+      "direct_review": "PASS: localized sending/completed text fully visible; baseline/dismissed/empty-repeat have no card."
+    },
+    {
+      "file": "en_US-1280x960/baseline.png",
+      "sha256": "72fa284db76c151bb0fb387f0068d9d89687d59ff3680c8219f44dff1d59008e",
+      "dimensions": [
+        1280,
+        960
+      ],
+      "direct_review": "PASS: expected localized sending/completed text visible without clipping; baseline/dismissed/empty-repeat show no card."
+    },
+    {
+      "file": "en_US-1280x960/accept-sending.png",
+      "sha256": "b44f77a671d822a181be116b23711a2a06a481ebb9f7c904e7df54e40b299625",
+      "dimensions": [
+        1280,
+        960
+      ],
+      "direct_review": "PASS: expected localized sending/completed text visible without clipping; baseline/dismissed/empty-repeat show no card."
+    },
+    {
+      "file": "en_US-1280x960/accept-outcome.png",
+      "sha256": "ce226ad13bbf02744b2b6f5c4fcdc94bc98d9e115a8cda6faa2095dbd500c30c",
+      "dimensions": [
+        1280,
+        960
+      ],
+      "direct_review": "PASS: expected localized sending/completed text visible without clipping; baseline/dismissed/empty-repeat show no card."
+    },
+    {
+      "file": "en_US-1280x960/accept-dismissed.png",
+      "sha256": "cd35cdf34e663e16eeeae0377444094fa25ef865d1f0bccd130b56622e74659f",
+      "dimensions": [
+        1280,
+        960
+      ],
+      "direct_review": "PASS: expected localized sending/completed text visible without clipping; baseline/dismissed/empty-repeat show no card."
+    },
+    {
+      "file": "en_US-1280x960/empty-repeat.png",
+      "sha256": "cd35cdf34e663e16eeeae0377444094fa25ef865d1f0bccd130b56622e74659f",
+      "dimensions": [
+        1280,
+        960
+      ],
+      "direct_review": "PASS: expected localized sending/completed text visible without clipping; baseline/dismissed/empty-repeat show no card."
+    },
+    {
+      "file": "fr_FR-1280x960/baseline.png",
+      "sha256": "a758a28d637a0cb5a7b2d4f8eb58206f95aff9fd5c35ab1087374658a904efde",
+      "dimensions": [
+        1280,
+        960
+      ],
+      "direct_review": "PASS: expected localized sending/completed text visible without clipping; baseline/dismissed/empty-repeat show no card."
+    },
+    {
+      "file": "fr_FR-1280x960/accept-sending.png",
+      "sha256": "069f9634f2e92ba893601070fd47cecb8491b9258f1fd3a609e7672537d6d719",
+      "dimensions": [
+        1280,
+        960
+      ],
+      "direct_review": "PASS: expected localized sending/completed text visible without clipping; baseline/dismissed/empty-repeat show no card."
+    },
+    {
+      "file": "fr_FR-1280x960/accept-outcome.png",
+      "sha256": "47ba405d947e5da5d31d9833f1cb64c89bc43b5523524adab03769fddac11029",
+      "dimensions": [
+        1280,
+        960
+      ],
+      "direct_review": "PASS: expected localized sending/completed text visible without clipping; baseline/dismissed/empty-repeat show no card."
+    },
+    {
+      "file": "fr_FR-1280x960/accept-dismissed.png",
+      "sha256": "a758a28d637a0cb5a7b2d4f8eb58206f95aff9fd5c35ab1087374658a904efde",
+      "dimensions": [
+        1280,
+        960
+      ],
+      "direct_review": "PASS: expected localized sending/completed text visible without clipping; baseline/dismissed/empty-repeat show no card."
+    },
+    {
+      "file": "fr_FR-1280x960/empty-repeat.png",
+      "sha256": "9238bcc2e073c6e77e611fedcd15dc41af79baeb4132d15ae628fe4d8705122a",
+      "dimensions": [
+        1280,
+        960
+      ],
+      "direct_review": "PASS: expected localized sending/completed text visible without clipping; baseline/dismissed/empty-repeat show no card."
+    }
+  ],
+  "result": "PASS"
+}

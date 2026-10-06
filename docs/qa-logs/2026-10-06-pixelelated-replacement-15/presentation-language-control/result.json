@@ -1,0 +1,59 @@
+{
+  "utc": "2026-10-06T21:11:41.343138+00:00",
+  "passed": true,
+  "observations": [
+    {
+      "source": "old",
+      "ref": "7afa9efcfc0c1ce4b89774b38878fc1b9a9063d2",
+      "source_sha256": "c9982e2828502bedfa73b033d7ed3641f140f12d5878deb0b34f237c165b8042",
+      "language": "en_US",
+      "required_controls_present": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "output_sha256": "215f0a16e309ad2dd14cc2b37abbbb8ad16094601732929d168f9228fb28e902"
+    },
+    {
+      "source": "old",
+      "ref": "7afa9efcfc0c1ce4b89774b38878fc1b9a9063d2",
+      "source_sha256": "c9982e2828502bedfa73b033d7ed3641f140f12d5878deb0b34f237c165b8042",
+      "language": "fr_FR",
+      "required_controls_present": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "output_sha256": "215f0a16e309ad2dd14cc2b37abbbb8ad16094601732929d168f9228fb28e902"
+    },
+    {
+      "source": "fixed",
+      "ref": "ed5a6a51f5974deec8748fbf0dbd2f4984b690f5",
+      "source_sha256": "fec8240db342eb9432f9423f5ee3f5bd53df499012dffd1e4ac9ae81c316cbf5",
+      "language": "en_US",
+      "required_controls_present": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "output_sha256": "215f0a16e309ad2dd14cc2b37abbbb8ad16094601732929d168f9228fb28e902"
+    },
+    {
+      "source": "fixed",
+      "ref": "ed5a6a51f5974deec8748fbf0dbd2f4984b690f5",
+      "source_sha256": "fec8240db342eb9432f9423f5ee3f5bd53df499012dffd1e4ac9ae81c316cbf5",
+      "language": "fr_FR",
+      "required_controls_present": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "output_sha256": "d69660e075bf77b071e22651348fee51ce1436ed52eb3a5078d430526f3acd0d"
+    }
+  ],
+  "scope": "Host execution of actual old/fixed handler _render, with only display-availability predicate and response sink stood in. No browser, OAuth, network, native-window or old-image execution claim. Actual native EN/FR and full interactions are separately proved on installed candidate15."
+}
