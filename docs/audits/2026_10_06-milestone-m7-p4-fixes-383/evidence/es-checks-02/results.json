@@ -1,0 +1,36 @@
+[
+  {
+    "name": "compile",
+    "command": [
+      "c++",
+      "-std=c++17",
+      "-pthread",
+      "-I/home/max/Development/emulationstation-next.worktrees/qa-integration/es-app/tests/unit/fakes",
+      "-I/home/max/Development/emulationstation-next.worktrees/qa-integration/es-core/src",
+      "-I/home/max/Development/emulationstation-next.worktrees/qa-integration/external",
+      "/home/max/Development/emulationstation-next.worktrees/qa-integration/es-app/tests/unit/SystemConfTests.cpp",
+      "/home/max/Development/emulationstation-next.worktrees/qa-integration/es-core/src/SystemConf.cpp",
+      "/home/max/Development/emulationstation-next.worktrees/qa-integration/es-core/src/utils/AtomicFileUtil.cpp",
+      "-o",
+      "/tmp/pixelelated-m7-p4-es-checks-02/es-conf-tests"
+    ],
+    "rc": 0,
+    "utc": "2026-10-06T15:07:58.644836+00:00"
+  },
+  {
+    "name": "es-conf",
+    "command": [
+      "/tmp/pixelelated-m7-p4-es-checks-02/es-conf-tests"
+    ],
+    "rc": 0,
+    "utc": "2026-10-06T15:08:00.519440+00:00"
+  },
+  {
+    "name": "vocabulary",
+    "command": [
+      "/workspace/repos/rocknix.worktrees/conflict-resolution/tools/vocabulary-check"
+    ],
+    "rc": 0,
+    "utc": "2026-10-06T15:08:00.581378+00:00"
+  }
+]

@@ -224,3 +224,95 @@ own input list; successful merge verification requires every listed old name
 to exist at destination, with differing bytes intentionally preserved on a
 replacement shelf. Pointer readback precedes listed-source deletion. The
 negative actor cases must prove those ordering guards, not only final files.
+
+### 2026-10-06T15:02:33.042637+00:00 — scope and inherited failure modes
+
+Read exact111-style cloud/state owning criteria (320,349–356,363–366,376/377/
+379/380/381,390/391/392,401/407/421,429/430/462) from the captured primary
+bodies. They include historical name wording superseded by D-WORKFLOW-144,
+public-site delivery and physical frames that remain later gates. Do not drop
+those clauses from the final coverage table or count all455 raw lines as
+current product acceptance. Read blindspot register initial table and35–42: real
+backend failure semantics, source-derived defaults, positive/negative controls,
+actual target tools, native-size surfaces, operation ownership and current
+runtime state govern the proof. The skill summary of twelve blindspots is
+stale; the actual register has entries through73 and is authoritative.
+
+### 2026-10-06T15:05:06.996906+00:00 — cross-system criteria and Tier B inventory
+
+Read exact owning acceptance text for proxy/dependencies, identity/VM, memory,
+LED software, native input preservation and UI (310/327/332/337/357/359/361/
+362/383/384/386/408/409/414/419/424/426/433/436/447/451/452/454/455/457/465).
+Read344 contract criteria with section names: P2b/P3/P4 are later hardware/
+publication gates, P5/P6 post-release; neither is the current executionP4.
+No current telemetry/upgrade claim can be justified by the old brand words
+only; network capture and future-name acceptance remain evidence leads.
+
+Read blindspots43–73, especially exact-run logs, real loaded-page memory,
+renderer/surface identity, installed dependency provenance, controlled failure
+and source-to-fixture drift. Their relevance will be graded in Phase3, not
+assumed from a table count. Earlier entries17–24 were reread for the whole
+update pipeline, file-level tier ownership and strict false/unknown probes.
+
+Primary Tier B manifests read: replacement09 guest11 maps15 UI cases/32
+selected original frames; cloud-ui08 maps9 UI17/UI26 frames. Replacement10
+signin14/15/16 map15 frames each; ui14 maps70 menu/Tools frames; boot05 maps
+four clean/upgrade640/1280 frames. Current14 QA18 walk review maps21 selected
+walk frames, with separate initial/upgrade/software/timing reviews. RA UI
+qualified03 maps23 original full-panel EN/FR640/1280 frames; prior failed01/02
+remain distinct. These are visual-review inputs, not new pixel inspection or
+current14 executions of the09/10 flows. Primary frame/refutation checks follow
+where scope changed or a flow was not covered.
+
+### 2026-10-06T15:06:04.962491+00:00 — exact scope inventory and research summary
+
+Read the remaining supporting host/process acceptance text. Found that the raw
+checkbox inventory captured only first lines for multiline criteria; preserved
+it unchanged and restored continuations from the exact issue body in
+inputs/scoped-criteria.json. This is an audit-reader correction, not a product
+defect. 12 criteria needed continuation lines.
+
+The scope manifest assigns every raw criterion:261 forward criteria across51
+owning product/qualification issues and344 release boundary;190 supporting
+historical host/process criteria for Phase3 trust/interaction review;4 later
+versioning criteria from265. Supporting dispositions are not PASS grades and
+are not claims of repeating privileged cleanup or every prior build. Forward
+entries will quote exact text; explicit later/historical clauses retain their
+own reason, never disappearing into a green umbrella.
+
+Prior provenance:375 is the prior cloud/release fixes baselineb2378d9c33/
+ESe108699ea, with primary plus Fable blind/refutation;410 is separate privileged
+host-helper review, primary plus Fable refutation. Their answers remain closed
+until2.5. September29/313 is a historical source for320, not a current image
+qualification. The sole October2–6 phase retro subsumes Step2.5 in375; Tier B
+inputs are enumerated above. No new page-scale design review is substituted
+for those existing proofs.
+
+Planned scope: coverage first, structural fixes, qualified dependencies and
+combined immutable image, then this independent cross-lab audit. Source delta
+is86 product/build files and18 ES files; archived raw diffs and exact frozen
+inputs bind the review. Constraints: no data loss, current compatible upstream,
+ROCKNIX→pixelelated adoption, honest synthetic/runtime boundaries, target tools,
+serial audit gates and no prior-answer anchoring. Red flags to refute: actual
+kill versus injected failure, archive selection intent, updater network proof,
+future-name update validation, exact installed continuity, timing ownership,
+public docs/P5 boundaries and background delivery. Phase1 research is settled
+for this scope; proceed immediately to independent Phase2 entries.
+
+### Continued cloud proof review
+
+Replacement14 local reports each name7afa9efcfc and the immutable bundle: WebDAV86s, SFTP73s, S3110s; completion records106/0/0 each and actual process/backend cleanup. The initial provenance UNSTARTED field is historical, superseded by terminal receipts. Focused replacement10 boundary proof uses genuinely distinct guests (boot IDs3df800d3.../aef12ea9...), but faults return operation failure; that is not itself a real mid-copy kill. Foreign-only UI hostname assertion remains a narrow evidence gap pending wider search.
+
+### Phase2 content-location lead — requires executable confirmation
+
+Read cloud_setup:497–566: AT_PATH counts **every directory** under a nonempty configured CONTENT_REMOTE, while AT_ROOT filters through local content directories and fallback FOUND requires ROMs/BIOS. The D proof empties the configured content folder and places Photos/Documents at the account root. It does not challenge a configured content folder containing only unrelated directories. Under #352's criterion “no ROMs/ and no known system folder,” that input appears able to report STATE=ok and suppress both fallback discovery and the chooser. This is a source-derived lead, not yet a reproduced product defect. Read GuiMenu content-location routing, perform literal/history search and an actual installed-guest negative/positive probe before disposition. Preserve the existing passing empty-folder frame as its narrower evidence.
+
+Directly viewed original640x480 F outcome and D question/chooser/systems frames: failure names the stopped cloud with CLOSE/TRY AGAIN; the empty-folder question is clear; Documents/Photos appear as selectable cloud folders, not systems; the content page lists NES only. The D walk cancels the manual chooser rather than selecting a folder, so manual-selection/journal acceptance needs a separate receipt.
+
+### Installed content probe confirms classification asymmetry
+
+Fresh seven-case content-probe01 completed on exact14, no product binary changed. Controls empty-configured, genuine tiered-configured and unrelated-explicit-root pass. Unrelated configured directory returns ok and blocks a real default Content fallback; tiered explicit root returns empty. A valid legacy cloud gb directory with an empty local gb also returns empty: cloud_content_backup:430–454 lists only local folders already carrying content (has_content), so it cannot serve as the supported-system predicate for restoring onto an empty device. This is the direct cause, not a credential or VM-resource failure. Criterion failures I352-L33/L44 are recorded; explicit-root sibling is retained for Phase3 prescription verification. Four process channels rc1 and exact cleanup verified15:27:11UTC. No background worker remains.
+
+### Marker refusal reason is lost across the script/UI boundary
+
+Direct original UI26 future-refusal640px frame and UI26-future-script.log both say COULDN’T FIND YOUR CLOUD FOLDER. `cloud_migrate_layout::read_marker` accurately detects unsupported marker and returns application4; `cloud_scan::read_folder` discards its explanation and `why_for_rc` treats4 as rclone missing directory. Writes/marker/pointers remain protected. Criterion I356-L76 reassessed PARTIAL for this presentation defect. Earlier inferred newer-build wording was corrected immediately, with the correction retained in00/02 and ledger metadata.

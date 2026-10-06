@@ -1,6 +1,6 @@
 # pixelelated 0.0.1 release readiness
 
-## Current work — UI qualified; P4 fixes audit in research
+## Current work — P4 audit found content-discovery and refusal-message defects
 
 Replacement12 remains frozen55d8ee8f75965a560f75d187e34c9beaa93133f1;
 its build, scoped preservation/native/HTTP and QA15→17 evidence are retained
@@ -53,15 +53,23 @@ success/refusal/empty-repeat controls. Allfourrc0; actualcleanup07:01:20.
 HTTP and unchanged installed components; it does not claim another real award.
 Two earlier harness attempts are preserved as superseded. No job is active.
 
-Current order: P4 fixes audit is in Phase1 research/evidence mapping
-([running audit](../audits/2026_10_06-milestone-m7-p4-fixes-383/README.md));
-no independent AC verdict or external reviewer call is complete. UI evidence
-is published and #465 closed. Finish the audit and resolve/requalify findings,
-then measured capacity, H700 arm/aarch64 and named physical/P5 gates. D-QA-058 keeps Dropbox,
-other hosted accounts and offsite endpoints optional now and in future routine
-RC qualification; #463 is explicitly unverified. #464/D-QA-059 reopens dedicated
-QA reset automation as backlog; no vendor chosen or new RC gate. No RC or
-device-ready claim, and no build/QA job remains active.
+Current order: continue the serial P4 independent audit, resolve and requalify
+its findings, then measured capacity, H700 arm/aarch64 and named physical/P5
+gates. [Audit record](../audits/2026_10_06-milestone-m7-p4-fixes-383/README.md).
+Phase1 is complete and Phase2 is active; no external review has been called.
+
+The unchanged14 content probe confirms #467: unrelated configured directories
+suppress the chooser/fallback, and root game folders on an empty device are
+misclassified. Three controls pass and four challenged fixtures fail; four rc1
+results and actual cleanup are retained. #468 captures safe future-layout
+refusal with a misleading missing-folder message. These findings prevent RC
+clearance until repaired and requalified. No product patch/new image yet.
+
+The earlier proof receipts above retain their original scope; passing them did
+not establish these newly challenged cases. D-QA-058 keeps hosted accounts and
+offsite endpoints optional; #463 remains unverified, #464 reset automation is
+backlog. #466/D-WORKFLOW-149 requires continuing authorized audits after saving.
+No executable job remains active; primary review continues in this session.
 
 Frozen13 freshness caught an Android-only upstream commit before any cache
 copy/build. [Exact equality evidence](../qa-logs/2026-10-06-proxy-879b158/README.md)

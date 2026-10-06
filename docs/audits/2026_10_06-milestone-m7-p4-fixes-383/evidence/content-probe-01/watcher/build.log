@@ -1,0 +1,23 @@
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/b77e47e57a4bb35f885ba78669ee8176a9ac978b27c1cbcfaad66e18f684a9f1
+up: a (pid 2116513, ssh :10022, serial /tmp/rocknix-qemu-serial.sock, mac 52:54:00:52:4E:58)
+up: b (pid 2116535, ssh :10023, serial /tmp/rocknix-qemu-serial-b.sock, mac 52:54:00:52:4E:59)
+ready: a on 7afa9efcfc over ssh :10022 (answered after 0s)
+ready: b on 7afa9efcfc over ssh :10023 (answered after 0s)
+up: webdav serving /workspace/tmp/pixelelated-m7-p4-content-probe-01/proof/cloud/data at http://127.0.0.1:9040 (guest: http://10.0.2.2:9040)
+START empty-configured
+PASS empty-configured expected=empty actual=empty
+START unrelated-configured
+FAIL unrelated-configured expected=empty actual=ok
+START unrelated-configured-fallback
+FAIL unrelated-configured-fallback expected=found-elsewhere actual=ok
+START tiered-configured
+PASS tiered-configured expected=ok actual=ok
+START tiered-explicit-root
+FAIL tiered-explicit-root expected=ok actual=empty
+START legacy-explicit-root
+FAIL legacy-explicit-root expected=ok actual=empty
+START unrelated-explicit-root
+PASS unrelated-explicit-root expected=empty actual=empty
+down: owned QEMU exited (pid 2116513)
+down: owned QEMU exited (pid 2116535)
+down

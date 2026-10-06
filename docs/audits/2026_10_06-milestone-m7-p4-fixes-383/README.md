@@ -3,8 +3,9 @@
 The maintainer authorized this audit after the remaining UI proof passed.
 The UI prerequisite is complete:109 assertions and23 directly reviewed frames.
 
-Current stage: **Phase1 research and evidence mapping**. No independent
-acceptance verdict, external review, punch-list resolution or RC claim exists.
+Current stage: **Phase2 independent acceptance verification**. Research is
+settled and49 of261 scoped forward criteria are recorded: 2 FAIL, 4 PARTIAL, 42 PASS, 1 SKIP. No external review, completed
+punch-list resolution or RC claim exists.
 
 - [Running log](00-running-log.md) records actual stage progress.
 - [Research notes](01-research-notes.md) distinguish primary reads from leads.
@@ -25,7 +26,8 @@ next63675be4e1bb2ab36748a725612d11a77be7f2f5. Product stays frozen.
 Prior per-criterion audit verdicts remain sequestered until Phase2.5.
 The primary review resumed at14:53UTC after the mistaken checkpoint stop
 (recorded in #466/D-WORKFLOW-149). Host regression owner
-`/tmp/pixelelated-m7-p4-host-checks-01` is supervised through
-`.build-runs/20261006T145452Z-fbbc4681/build.status`. Its results are consumed
-in the active session; this is not an off-session reasoning worker.
-No build, VM or provider call is active.
+`/tmp/pixelelated-m7-p4-host-checks-01` completed successfully at15:12:13UTC;
+all four results and actual process absence were verified. The fresh ES test
+also completed. Receipts are under evidence/. The primary reasoning continues
+in the active session; no off-session reasoning worker is claimed.
+The focused unchanged-image content probe completed at15:26:33UTC with3PASS/4FAIL, exposing a content-location defect; all four rc1 results and actual cleanup are retained under evidence/content-probe-01. No build, VM or provider call is active. Primary Phase2 continues.

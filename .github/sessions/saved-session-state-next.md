@@ -1,7 +1,7 @@
 # Saved Session State
 
-> Saved 2026-10-06T07:18:27.160403+00:00; feature/conflict-resolution → primary next.
-> Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261006T071827Z.md`.
+> Saved 2026-10-06T15:33:32.807750+00:00; active audit checkpoint, continue immediately.
+> Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261006T153332Z.md`.
 
 ## Start here
 
@@ -22,7 +22,7 @@ code-auditor Phase1.4.5 read-only research helpers. Root performs commands,
 primary verification and all verdicts; helpers never count as review seats.
 
 
-## Current focus — approved M7 P4 fixes audit, Phase1 in progress
+## Current focus — approved M7 P4 fixes audit, Phase2 continuing
 
 Latest maintainer: “Please proceed with the remaining UI proof. If that's
 successful, you may begin the audit.” UI109/23frames qualified; #465 closed.
@@ -30,37 +30,53 @@ Published feature629603d6ad18cbcf4f02e3be36d6e3393698c169 and primary
 63675be4e1bb2ab36748a725612d11a77be7f2f5 were remotely verified07:04:47UTC.
 No product change, new account award/reset or image rebuild occurred.
 
-Audit started07:04:22UTC. Folder:
-`docs/audits/2026_10_06-milestone-m7-p4-fixes-383/`. Read README,00-running-log,
-01-research-notes and inputs/research-leads.md. **Phase1 is still in progress.**
-No independent acceptance grades, prior-answer-key reads, provider calls or
-completed audit. Prior375/382/411 per-AC verdicts remain sequestered until2.5.
-Current M7 paragraph/table now consistently names P4 current; original snapshot
-and exact reconciliation receipt are both retained. #361 compound criterion
-stays open pending full reconciliation; UI clause is satisfied.
+Audit started07:04:22UTC; the mistaken stop after07:20 was corrected under
+#466/D-WORKFLOW-149. Process instructions/work/friction logs were published
+(feature2b6346e75b3a70cf824593780009c8062df501d4,
+nextce64fc581afe90c5a0db6bf110af0517d20617ae). Do not stop after this save.
 
-Scope: Milestone-tier / independent depth, P1–P3 fixes and cloud/state × proxy ×
-identity/VM interactions, parent383/344/354. Frozen source7afa9efcfc0, ESf6f0c134;
-bundleb77e47e57a. Prior375 source baselineb2378d9c33/ESe108699ea3. No product
-mutations while auditing. Full distribution/product and ES diff packets stored.
-107 primary issue bodies and455 raw checkbox lines captured; those lines include
-historical/later-phase items, not455 current audit ACs. Three research helpers
-completed and their leads are on disk; no helper remains running.
+Folder `docs/audits/2026_10_06-milestone-m7-p4-fixes-383/`: Phase1 complete;
+Phase2 has49/261 forward criteria recorded (2 FAIL, 4 PARTIAL, 42 PASS, 1 SKIP). Read02-forward-audit,
+evidence/forward-verdicts.json and inputs/scoped-criteria.json.107issue bodies
+contain455 historical/raw criteria:261forward,190supporting-history for Phase3,
+4later-release.12multiline quotes are restored in scoped-criteria; original
+inventory remains unchanged. Prior375/382/411 per-AC verdicts are sequestered
+until2.5. Three read-only research helpers finished; no helper remains active.
 
-Fresh checks:302 UI evidence hashes and19 bundle files pass. Canonical frozen
-verify-inputs.py verifies6550 product/207 QA/180 symlink inputs plus exact ES/
-bundle identity. Audit-local first attempt falsely flagged seven symlinks
-because Path.readlink normalizes trailing slash; raw os.readlink/canonical
-checker passes. Both attempts retained.09→10 product delta is only renderer
-wrapper/drop-in/README;10→14 only proxy/libchdr/019/ctl. Continuity of source is
-not permission to relabel an older execution as a14 execution.
+Milestone scope / independent depth: P1–P3 fixes, cloud/state × proxy × identity/VM.
+Frozen source7afa9efcfc0, ESf6f0c134, bundleb77e47e57a unchanged. Product sources
+still match; source continuity09→10 renderer-only,10→14 proxy/libchdr/019/ctl-only.
+Canonical6550product/207QA/180rawsymlink checks and19bundle/302UI hashes pass.
+Do not relabel older unchanged-byte execution as a new14 execution.
 
-Next audit action: finish primary issue/spec/source reads and scoped AC/rule/
-blindspot/TierB inventory. Then Phase2 independently grades every current AC,
-with executed available checks and refutation;2.5 compares prior verdicts;
-3/4/4.5 inspect interactions and attack findings;4.6 invokes Fable;5/6/7
-produce/track/resolve punch items. Use code-auditor SKILL.md and all references,
-append00/01 immediately after each meaningful read. No prefilled PASS grades.
+Completed durable checks: host-checks01 (/tmp)1719script checks/316layout checks
+PASS, injected failure rc1, terminal15:12:13UTC; ES-checks02 (/tmp)10cases/
+119assertions PASS, vocabulary164/0. All channels and actual process absence
+verified. No active executable worker. The first sandbox ES submission01 has
+no execution receipt and is retained unused; only actual-host02 is accepted.
+
+New confirmed findings: #467 content classifier counts unrelated configured
+folders as content and misses actual root content on empty devices. Fresh owned
+`/workspace/tmp/pixelelated-m7-p4-content-probe-01` on exact14 ended15:26:33UTC,
+3controlsPASS/4challengedFAIL, four rc1, all bytes/pointers unchanged; actual
+process/port cleanup verified15:27:11. Evidence/content-probe-01 retains sealed
+harness, raw cases, watcher and cleanup. Do not replay the owner. #468: actual
+UI26 future-marker frame says COULDN’T FIND YOUR CLOUD FOLDER because cloud_scan
+maps applicationrc4 as rclone absence after suppressing the true reason. Safe
+refusal is intact. I356-L76 amendedPARTIAL after pixel read; initial inferred
+wording was corrected with an explicit amendment. No product patch yet.
+
+Narrow evidence gaps: I349-L43 foreign-only hostname comparison and I352-L34
+successful manual chooser selection. Current D walk cancels the chooser and
+proves only automatic fallback. Public docs remain P5, not a claimed PASS.
+
+Next runnable action: continue independent Phase2 cloud remaining criteria
+(379,353,365,363/364/429/430,377/366/390/401), then proxy/dependencies and
+identity/VM/umbrella criteria. /tmp/p4-record.py only formats manually derived
+entries into02/ledger; it does not invent verdicts. Read→write each finding.
+Then2.5 prior comparison→3/4/4.5 interaction/refutation→4.6 external→5/6/7
+punch-list disposition/repair/requalification. No phase fan-out or prior-answer
+shortcut. Keep primary review active after checkpoint/publication.
 
 Review plan: Codex/OpenAI primary (exact model variant unknown), Anthropic
 Fable5.1/xhigh via installed `claude` Facilitator recipe/OpenRouter. Blind and
@@ -159,8 +175,8 @@ No additionalcleanup orreservechange is authorized. No sudoaction remains.
 
 ## Next steps
 
-1. Continue P4 Phase1 from the audit folder and source leads, then serial
-   Phase2→2.5→3→4→4.5→4.6→5→6→7. No prior-verdict shortcut or provider call
+1. Continue P4 Phase2 from the independent ledger, then serial
+   2.5→3→4→4.5→4.6→5→6→7. No prior-verdict shortcut or provider call
    before the primary analysis is settled. Resolve/requalify changed product.
 2. After P4 passes, measure capacity (#461), then H700 DDR4/RG35XXSP arm first,
    aarch64 second. Named physical/P5 gates follow. No RC/device-ready claim.
@@ -239,18 +255,13 @@ result is asserted as a new14 execution.
 
 ## Current publication and handoff
 
-Qualified UI publication is feature629603d6ad / next63675be4e1, remote-verified.
-The audit research checkpoint is a later documentation-only commit: use actual
-local/remote heads and its publication receipt, not the UI commit, to determine
-whether it has landed. Integration is explicit cherry-pick-x of the feature SHA
-into primary next, with normal hooks and remote readback. Frozen14 never moves.
+Continuity correction #466 is published feature2b6346e7/nextce64fc58; active
+Phase2 evidence/checkpoint changes are being prepared under #383/#467/#468.
+Use actual heads/remote receipts to determine publication. Integrate only explicit
+feature SHA by cherry-pick-x, normal hooks, exact remote readback; frozen14 stays.
 
-The first fresh no-context reader correctly found a stale tail paragraph that
-still described the older award-only session. That paragraph is preserved in
-the archived checkpoint and removed here. Primary next's older checkpoint is
-expected until this prepared research commit is integrated; final readback and
-resume retest must verify both copies match. Research helpers are not that proof.
-
-Cheap checks pass. Live ceremony gate exits0 but reports67 closed issues/2days
-since the previous audit: CI remains overdue while this new audit is incomplete.
-No waiver or audit-complete record has been added. No build/QA/provider job runs.
+This is an active save, not a handoff or permission to pause. No detached reasoning
+worker exists. Latest milestone7 body records current findings and the unchanged
+P4→capacity→H700 arm→aarch64→physical/P5 order. No audit-complete record/waiver.
+Live ceremony check previously rc0 reports67closures/2days overdue audit; rerun
+required checks before the next push. No build/QA/provider job is running.
