@@ -1,7 +1,7 @@
 # Saved Session State
 
-> Updated 2026-10-06T19:59:11.267309+00:00; candidate15 build/payload verified; QA19 active; all eight audit acceptance outcomes open.
-> Previous: `.github/sessions/archived/saved-session-state-next-20261006T181314Z.md`.
+> Updated 2026-10-06T20:19:24.892124+00:00; candidate15 image sweep/inventory verified; QA19 active; eight audit acceptance outcomes open.
+> Previous: `.github/sessions/archived/saved-session-state-next-20261006T201924Z.md`.
 > Both fork refs verified after normal hooked publication; see current focus below.
 
 ## Start here
@@ -24,6 +24,48 @@ primary verification and all verdicts; helpers never count as review seats.
 
 
 ## Current focus — M7 P4 audit#471 Phase7 remediation in progress
+
+**Latest live state:** QA19 is still active, actual watcher435200 verified20:17:01;
+its ten first suites pass (full scripts828s), round-trip now advances. Do not
+replay QA19. Initial5identity frames directly reviewed; remaining frames and
+all final result/process/guest/backend/port verification still owed.
+The parent log can be quiet while the detailed artifact log advances:
+`/workspace/tmp/pixelelated-m7-qa-19/artifacts/rocknix-images/qa-ed5a6a51f5-webdav-a-20261006-2003/`.
+Use existing owner artifact/proof directories with --activity-dir and
+--recursive-activity for every subsequent submission; default QA19 activity
+root is the build tree. No off-session notification; root actively supervises.
+
+Sweep10 failed on one exact copyright context, allfour1 verified20:15:11;
+retained. Sweep11 adds only that required upstream attribution path/hash and
+passes21context/63negative/10scanner controls. Finished20:16:00, actual verified
+20:16:25: four0,12seals and4process exits.57,295files/8,604contexts;zeroFIX,
+UNKNOWN or unclassified credential matches;70public matches in20exact files.
+Localization854entries/95XML,56retired/2removed,noactiveorphans. Extracted shadow
+mode restored0000, bytes invariant. Image/bundle not modified. Inventory11
+finished20:16:35, actual verified20:17:01: four0,7seals,4exits;568roots,
+583components,525stamps,noerrors,14knownP5license gaps. Do not replay either.
+Evidence retained in candidate15 QA folder; source inventory is not a complete
+publication bundle. Both read-only owners used the coordination worktree.
+
+Follow-on owners, ALL PREPARED ONLY and never submitted, run serially from15tree:
+1. `/workspace/tmp/pixelelated-m7-p4-installed-fixes-01/run.py BUNDLE` via python3-I:85cases.
+2. `/workspace/tmp/pixelelated-m7-p4-extra-fixes-01/run.py BUNDLE` via python3-I:10extra cases.
+3. `/workspace/tmp/pixelelated-m7-p4-presentation-fixes-01/outer.sh BUNDLE`: localphone/native/reconnect.
+4. `/workspace/tmp/pixelelated-m7-p4-cloud-ui-fixes-01/outer.sh BUNDLE`:18EN/FRchooser/refusal/recoverycases.
+5. `/workspace/tmp/pixelelated-m7-p4-recovery-ui-fixes-01/outer.sh BUNDLE`:8EN/FRactualstartup-timeout,
+   changed-binding/terminal-repair/UIretry,missingfolder/networkcontrolcases.
+Exact harnesses/seals copied under candidate15/prepared-audit-owners. Fixtures
+are unexecuted; navigation assumptions need actual frames. No installed code
+replacement, personal cloud, hosted OAuth or new account reset. Fresh owners
+for failed runs. Retain failures; never edit live tools. Later gates remain below.
+
+Evidence publication379a94a44680c69b62e314feb003f646a2cb2c94/nextc87cc1d2ef728cb1d006ee3fd9f14d19b3079415
+was remote verified20:05:10,86changed paths equal. Whole trees differ in historical
+session archives. New evidence/log/checkpoint files are not yet published;
+normal explicit cherry-pick-x and hooked push remains authorized. Cite#471
+in each new commit body. Receipt under audit/evidence/remediation-host.
+No product changes since frozen15; eight acceptance outcomes remainOPEN.
+
 
 **Live override 19:59 UTC:** Both approved Fable calls and primary grading are
 complete. Eight source repairs are published at feature7ad24b5812257ba6854f512a556d47400c6f1d41,

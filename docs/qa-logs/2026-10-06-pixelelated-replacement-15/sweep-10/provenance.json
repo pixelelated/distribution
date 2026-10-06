@@ -1,0 +1,18 @@
+{
+  "prepared_utc": "2026-10-06T20:14:33.387398+00:00",
+  "source_owner": "/workspace/tmp/pixelelated-m7-sweep-09",
+  "source_files": {
+    "scan-artifact.py": "2dd5e547e77f2674843a5105111b9f9b9fca6e7c841f12271cf0940c86474456",
+    "allowlist.json": "88f970a9ee8a4a65df671ec1c7178e85f21a56158d223490e816f7b0c571e5e8",
+    "secret-patterns": "57fd72093984263035b0b547965ef2a524badbebbf2b8f5aa96c3a7d51e1b61a",
+    "check-controls.py": "dbbda15bcd6da82684f2ed2777d0b57f0cd7d5332bdced06ee3f25a6a7975eb7",
+    "context-controls.py": "5de8dab1f8d028141c76574a85842eab2f3723806feba0dc78de025def8b1152",
+    "context-review.json": "c988e5c1a11c36b8e6ada66318810565e471c42a1e636bd6cf8b15aea401f759",
+    "parse-theme.cpp": "fb71b17906eb234af5e7da238ed8df11fa5fe044d3b32193fb54731b91817065",
+    "reconcile-locales.py": "4464fbfa07a4afe572664a60ef8b3bc6d9110f1f1a90fd4b8284e2ec4350892e"
+  },
+  "scope": "Fresh whole candidate15 image sweep against unchanged, previously reviewed exact-context allowlist; unknown contexts fail. Fresh localization reconciliation against installed PO/MO and exact new ES source. No VM input or guest mutation.",
+  "tree": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement15",
+  "primary_worktree_runner": "/workspace/repos/rocknix.worktrees/conflict-resolution",
+  "prepared_only": true
+}

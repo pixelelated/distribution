@@ -24,12 +24,13 @@ build failure.
 
 Can this be done on the VM? Yes: subsequent qualification uses independent
 local guests and local provider fixtures; no handheld or personal cloud.
-Prepared owners image-15,qa-19,p4-installed-fixes-01 and
-p4-presentation-fixes-01 are unexecuted. Raw/update SYSTEM equality precedes
-all15 default suites and the actual ROCKNIX RC2 upgrade. Then85 installed
-boundary cases and EN/FR sign-in/reconnect proof, plus exact remaining audit
-coverage. Phone-provider fixture cannot prove hosted OAuth. All eight05/#471
-outcomes stay open. Continue serially; this checkpoint is not a pause.
+Raw/update SYSTEM equality is complete. QA19 default suites and the actual
+ROCKNIX RC2 upgrade are active. After primary completion/cleanup/frame review,
+run85installed boundaries,10extra cases, EN/FRlocalphone/native/reconnect,
+18chooser/recovery/refusal UI cases and8timeout/binding-recovery/control
+UI cases. All prepared owners are sealed under prepared-audit-owners and
+remain unexecuted. Hosted OAuth is outside the local fixture's scope. All
+eight05/#471 outcomes stay open. Continue serially; this is not a pause.
 
 Immutable bundle43a698bcd7d570c63ebdd5db015e5302463f7ee4a15438fd9ef2359437be19da
 is preserved and verified. Store owner finished20:01:39, verified20:01:52,
@@ -50,3 +51,34 @@ The full input mapping remains in the immutable bundle and original owner.
 See input-manifest-location.json. A redundant repository copy triggered the
 credential-pattern guard on two upstream patch filenames; it was omitted
 without changing the manifest or bypassing the guard.
+
+
+## 2026-10-06T20:18:52.771493+00:00 — #471 candidate15 image sweep and inventory verified; QA19 active
+
+Sweep10 retained a single unclassified copyright context and four rc1 results;
+verified20:15:11 with12 sealed inputs and four actual processes absent. The
+literal ROCKNIX copyright in usr/lib/sway/sway-generic-x64 equals the source
+and is required retained attribution under NAMING v2. Added only that exact
+path/context pair; fresh21positive/63negative context controls and10scanner
+controls pass. Sweep11 finished20:16:00, verified20:16:25: allfourrc0,12seals
+and actual exits.57,295files/6,806,490,511bytes read;8,604brand contexts all
+classified; zeroFIX/UNKNOWN and zero unclassified credential matches. All70
+pattern matches remain the20exact previously reviewed public files. Extracted
+shadow mode restored0000 with unchanged content; immutable image untouched.
+Installed localization854entries/95XMLentries,56retired/2removed, no active
+orphans; Tools XML and theme consumer checks pass. This does not prove guest
+updater network silence or replace visual old-logo checks.
+
+Inventory11 finished20:16:35, verified20:17:01: four zero results,7seals and
+actual process exits.568unpacked roots/583components/525install stamps, no
+inventory errors. Exact rclone archive/binary and proxy source continuity
+verified.14pre-existing license metadata gaps remain P5; publication bundle
+is explicitly incomplete. Evidence under candidate15 QA directory.
+
+QA19 ten suites pass so far, including full scripts828s; remaining pair,
+walks/timing/upgrade and render checks continue. Initial five identity frames
+were directly reviewed; later frames still required. All eight audit acceptance
+items remain OPEN. Five sealed follow-on owners are prepared/unexecuted:
+85boundaries,10extra installed cases, localEN/FRphone/native/reconnect,
+18cloud chooser/recovery/refusal UI cases,8timeout/binding-recovery/control
+UI cases. Root continues serially; no additional external transfer needed.
