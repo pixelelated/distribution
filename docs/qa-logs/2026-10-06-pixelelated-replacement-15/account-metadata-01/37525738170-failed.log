@@ -1,0 +1,65 @@
+record	builds always enter the shared watcher and retain lifecycle evidence	﻿2026-10-06T20:21:23.6616950Z ##[group]Run python3 docs/qa-logs/2026-10-03-watch-job/test-watch-job.py tools/watch-job
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:21:23.6617640Z ^[[36;1mpython3 docs/qa-logs/2026-10-03-watch-job/test-watch-job.py tools/watch-job^[[0m
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:21:23.6618163Z ^[[36;1mpython3 docs/qa-logs/2026-10-03-watch-job/test-watch-build.py^[[0m
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:21:23.6680945Z shell: /usr/bin/bash -e {0}
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:21:23.6681207Z ##[endgroup]
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:21:23.7625721Z PASS: fresh package log prevents false stall; both progress counters retained
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:21:23.8151823Z PASS: nested QA logs are opt-in; default build observation stays shallow
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:21:23.8673043Z PASS: recursive QA activity prevents a false stall from a quiet summary
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:21:24.8773696Z PASS: nested non-log heartbeat does not mask quiet QA
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:21:24.8818604Z PASS: recursive activity refuses a missing scope
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:21:24.9339784Z PASS: quiet logs stall; unrelated heartbeat files do not mask it
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:21:25.9452282Z PASS: new package log resumes activity after stall
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:21:27.1455882Z PASS: live watcher refreshes heartbeat without package completion
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:21:28.3469574Z PASS: stopping watcher leaves detectably stale heartbeat
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:21:28.3982473Z PASS: result code 0 preserved
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:21:28.3983093Z PASS: finished observer exits for result 0
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:21:28.4493710Z PASS: result code 23 preserved
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:21:28.4494640Z PASS: finished observer exits for result 23
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:21:29.5119212Z PASS: job death without result is detected
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:21:29.6640234Z PASS: unreaped zombie is not a live job
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:21:29.7151946Z PASS: invalid result fails closed: ''
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:21:29.7661972Z PASS: invalid result fails closed: 'invalid'
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:21:29.8173291Z PASS: invalid result fails closed: '256'
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:21:30.8766575Z PASS: job that never writes a log eventually stalls
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:21:31.9381207Z PASS: lost activity directory is an observation error
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:21:32.0525448Z PASS: detach retains activity argument and acknowledges actual child
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:21:33.0366768Z PASS: detached watcher records subsequent failure
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:21:33.0385693Z PASS: refuse invalid setup --interval 0
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:21:33.0403088Z PASS: refuse invalid setup --stall-min -1
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:21:33.0421538Z PASS: refuse invalid setup --pid 0
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:21:33.0453631Z PASS: refuse invalid setup --pattern [
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:21:33.0470788Z PASS: refuse invalid setup --log
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:21:33.0503746Z PASS: refuse invalid setup --activity-dir /tmp/watch-job-393-h40xvzlx/absent
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:21:33.0559885Z PASS: refuse invalid setup --status /tmp/watch-job-393-h40xvzlx/detached/build.log
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:21:33.0638962Z PASS: refuse invalid setup --status /tmp/watch-job-393-h40xvzlx/detached/package logs/self.log
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:21:33.0736521Z PASS: refuse invalid setup --status /tmp/watch-job-393-h40xvzlx/absent/status
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:21:33.0762929Z PASS: help is side effect free and documents package activity
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:21:33.0792045Z 32 PASS; 0 FAIL
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:21:35.2331759Z PASS: shared runner observes nested QA logs and retains terminal result
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:21:40.3221935Z PASS: automatic direct entry: build_distro
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:21:40.3222577Z PASS: arguments and environment preserved: build_distro
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:21:40.3222964Z PASS: private run and logs: build_distro
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:21:45.4455739Z PASS: automatic direct entry: image
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:21:45.4456445Z PASS: arguments and environment preserved: image
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:21:45.4457180Z PASS: private run and logs: image
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:21:50.5451490Z PASS: automatic direct entry: build
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:21:50.5452130Z PASS: arguments and environment preserved: build
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:21:50.5455580Z PASS: private run and logs: build
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:21:55.6463324Z PASS: automatic direct entry: build_compat
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:21:55.6464080Z PASS: arguments and environment preserved: build_compat
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:21:55.6464981Z PASS: private run and logs: build_compat
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:22:00.7327522Z PASS: automatic direct entry: install
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:22:00.7328172Z PASS: arguments and environment preserved: install
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:22:00.7328720Z PASS: private run and logs: install
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:22:05.8368670Z PASS: native make route: GENERIC_X64
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:22:10.9838532Z PASS: native make route: image
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:22:16.1044825Z PASS: native make route: package
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:22:16.2640832Z PASS: routing regression check fails when an entrypoint loses its hook
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:22:21.4784826Z Traceback (most recent call last):
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:22:21.4786274Z   File "/home/runner/work/distribution/distribution/docs/qa-logs/2026-10-03-watch-job/test-watch-build.py", line 150, in <module>
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:22:21.4787684Z     check(result.returncode == 0 and finished(d, 0), 'Docker host runner and inner scripts share one run')
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:22:21.4799050Z   File "/home/runner/work/distribution/distribution/docs/qa-logs/2026-10-03-watch-job/test-watch-build.py", line 24, in check
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:22:21.4815420Z     raise AssertionError(label)
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:22:21.4816023Z AssertionError: Docker host runner and inner scripts share one run
+record	builds always enter the shared watcher and retain lifecycle evidence	2026-10-06T20:22:21.4958009Z ##[error]Process completed with exit code 1.

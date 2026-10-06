@@ -1,0 +1,205 @@
+{
+  "observed_utc": "2026-10-06T20:31:52.500316+00:00",
+  "identity": {
+    "login": "blitterbot",
+    "id": 335883270,
+    "name": "blitterbot",
+    "type": "User"
+  },
+  "token_response_metadata": {
+    "github-authentication-token-expiration": "2027-10-01 05:27:47 UTC"
+  },
+  "scope": "read-only current authenticated account/API metadata; no token value read or retained",
+  "token_inventory_complete": false,
+  "expiry_reminder": "not configured or sent by this proof; requires existing receipt or named authorization",
+  "organization": {
+    "available": true,
+    "login": "pixelelated",
+    "id": 335817768,
+    "default_repository_permission": null,
+    "members_can_create_repositories": false
+  },
+  "repositories": [
+    {
+      "id": 818867221,
+      "full_name": "pixelelated/distribution",
+      "html_url": "https://github.com/pixelelated/distribution",
+      "private": false,
+      "fork": true,
+      "default_branch": "next",
+      "archived": false,
+      "permissions": {
+        "admin": false,
+        "maintain": false,
+        "push": true,
+        "triage": true,
+        "pull": true
+      },
+      "owner": "pixelelated",
+      "parent": "ROCKNIX/distribution"
+    },
+    {
+      "id": 953769478,
+      "full_name": "pixelelated/emulationstation",
+      "html_url": "https://github.com/pixelelated/emulationstation",
+      "private": false,
+      "fork": true,
+      "default_branch": "master",
+      "archived": false,
+      "permissions": {
+        "admin": false,
+        "maintain": false,
+        "push": true,
+        "triage": true,
+        "pull": true
+      },
+      "owner": "pixelelated",
+      "parent": "batocera-linux/batocera-emulationstation"
+    },
+    {
+      "id": 1398901413,
+      "full_name": "pixelelated/splash",
+      "html_url": "https://github.com/pixelelated/splash",
+      "private": false,
+      "fork": true,
+      "default_branch": "master",
+      "archived": false,
+      "permissions": {
+        "admin": false,
+        "maintain": false,
+        "push": true,
+        "triage": true,
+        "pull": true
+      },
+      "owner": "pixelelated",
+      "parent": "ROCKNIX/rocknix-splash"
+    }
+  ],
+  "recent_runs": [
+    {
+      "id": 37525738170,
+      "name": "fork record checks",
+      "event": "push",
+      "path": ".github/workflows/fork-checks.yml",
+      "status": "completed",
+      "conclusion": "failure",
+      "head_sha": "cc25d7af394984ba7adde67cab8b8de45807a85a",
+      "html_url": "https://github.com/pixelelated/distribution/actions/runs/37525738170",
+      "created_at": "2026-10-06T20:20:48Z"
+    },
+    {
+      "id": 37525738109,
+      "name": "fork wordlist check",
+      "event": "push",
+      "path": ".github/workflows/fork-wordlist.yml",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "cc25d7af394984ba7adde67cab8b8de45807a85a",
+      "html_url": "https://github.com/pixelelated/distribution/actions/runs/37525738109",
+      "created_at": "2026-10-06T20:20:48Z"
+    },
+    {
+      "id": 37525716097,
+      "name": "fork wordlist check",
+      "event": "push",
+      "path": ".github/workflows/fork-wordlist.yml",
+      "status": "completed",
+      "conclusion": "failure",
+      "head_sha": "82d78b0e9bcf4f2e311d64a4886a935d835ee06f",
+      "html_url": "https://github.com/pixelelated/distribution/actions/runs/37525716097",
+      "created_at": "2026-10-06T20:20:38Z"
+    },
+    {
+      "id": 37523697924,
+      "name": "fork record checks",
+      "event": "push",
+      "path": ".github/workflows/fork-checks.yml",
+      "status": "completed",
+      "conclusion": "failure",
+      "head_sha": "c87cc1d2ef728cb1d006ee3fd9f14d19b3079415",
+      "html_url": "https://github.com/pixelelated/distribution/actions/runs/37523697924",
+      "created_at": "2026-10-06T20:04:42Z"
+    },
+    {
+      "id": 37523697816,
+      "name": "fork wordlist check",
+      "event": "push",
+      "path": ".github/workflows/fork-wordlist.yml",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "c87cc1d2ef728cb1d006ee3fd9f14d19b3079415",
+      "html_url": "https://github.com/pixelelated/distribution/actions/runs/37523697816",
+      "created_at": "2026-10-06T20:04:42Z"
+    },
+    {
+      "id": 37523606707,
+      "name": "fork wordlist check",
+      "event": "push",
+      "path": ".github/workflows/fork-wordlist.yml",
+      "status": "completed",
+      "conclusion": "failure",
+      "head_sha": "379a94a44680c69b62e314feb003f646a2cb2c94",
+      "html_url": "https://github.com/pixelelated/distribution/actions/runs/37523606707",
+      "created_at": "2026-10-06T20:03:58Z"
+    },
+    {
+      "id": 37521021693,
+      "name": "fork wordlist check",
+      "event": "push",
+      "path": ".github/workflows/fork-wordlist.yml",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "ed5a6a51f5974deec8748fbf0dbd2f4984b690f5",
+      "html_url": "https://github.com/pixelelated/distribution/actions/runs/37521021693",
+      "created_at": "2026-10-06T19:42:41Z"
+    },
+    {
+      "id": 37521021677,
+      "name": "fork record checks",
+      "event": "push",
+      "path": ".github/workflows/fork-checks.yml",
+      "status": "completed",
+      "conclusion": "failure",
+      "head_sha": "ed5a6a51f5974deec8748fbf0dbd2f4984b690f5",
+      "html_url": "https://github.com/pixelelated/distribution/actions/runs/37521021677",
+      "created_at": "2026-10-06T19:42:41Z"
+    },
+    {
+      "id": 37520978556,
+      "name": "fork wordlist check",
+      "event": "push",
+      "path": ".github/workflows/fork-wordlist.yml",
+      "status": "completed",
+      "conclusion": "failure",
+      "head_sha": "7ad24b5812257ba6854f512a556d47400c6f1d41",
+      "html_url": "https://github.com/pixelelated/distribution/actions/runs/37520978556",
+      "created_at": "2026-10-06T19:42:20Z"
+    },
+    {
+      "id": 37516327648,
+      "name": "fork wordlist check",
+      "event": "push",
+      "path": ".github/workflows/fork-wordlist.yml",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "850cf9bee75eda20f73f2c3eb2bb586230d3cf60",
+      "html_url": "https://github.com/pixelelated/distribution/actions/runs/37516327648",
+      "created_at": "2026-10-06T19:05:28Z"
+    }
+  ],
+  "latest_run_jobs": [
+    {
+      "id": 112482147665,
+      "name": "record",
+      "status": "completed",
+      "conclusion": "failure",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_name": "GitHub Actions 1000000576",
+      "runner_group_name": "GitHub Actions",
+      "html_url": "https://github.com/pixelelated/distribution/actions/runs/37525738170/job/112482147665"
+    }
+  ],
+  "workflow_scope": "actual current run/job metadata only; not the historical throwaway-fork scheduling experiment"
+}
