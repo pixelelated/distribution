@@ -1,0 +1,37 @@
+{
+  "agent": "/root/m7_cleanup_approval_resume",
+  "method": "Fresh agent with no conversation context, given only /workspace/repos/rocknix and a read-only resume-proof task",
+  "reported_time_utc": "2026-10-06 03:16",
+  "result": "passed; no blocking contradiction found",
+  "observations": {
+    "five_target_trees_present": true,
+    "five_removal_owners_unsubmitted": true,
+    "prepared_script_hashes_verified": 15,
+    "root_watcher_source_sha256": "4d79c6fcf725334d2d90140719164559adddb043061c05ede8e74036fd123064",
+    "root_watch_report_exists": false,
+    "recorded_pids_absent": 42,
+    "completion_records_checked": 8,
+    "completion_result_channels": "four zero results in each inspected record",
+    "protected_paths_present": 12,
+    "local_next": "ffc2aa4ded9f67e9d4f67dcb30ddedf78673a47b",
+    "origin_next": "9870382d34f60f96722105a885f07fed44858460",
+    "published_receipt_exists": false
+  },
+  "recovered_approval": "D-INFRA-017 and authorization.json permit only replacement03/05/06/07/08, sequentially through tools/fork-worktree remove --force after fresh gates; do not request deletion approval again",
+  "recovered_next_step": "Maintainer starts the recorded read-only sudo watcher; verify actual root-owned process, sealed source and a clean UID0 sample less than 15 seconds old before submitting the first prepared removal owner",
+  "recovered_release_order": "Remaining P3 dedicated RA/Dropbox proofs and #168 preparation, approved P4 Facilitator review, fixes/requalification as needed, H700 arm then aarch64, separately gated physical/P5 work; no RC or device-ready claim",
+  "scope": [
+    "Canonical stash and AGENTS",
+    "Relevant workflow-rule passages, current readiness section and today's work log",
+    "Approval and protected-state artifacts",
+    "Completion receipts and harness seals",
+    "Cached M7, #383 and #361 readbacks",
+    "Recorded process IDs and readable /proc command lines"
+  ],
+  "limitations": [
+    "No privileged whole-host process clearance",
+    "No repeated large preservation or candidate-bundle rehash",
+    "No independent live GitHub readback",
+    "No external calls, jobs, mutations or delegation"
+  ]
+}
