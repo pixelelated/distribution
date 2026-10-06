@@ -196,3 +196,7 @@ Rehashed314original content-probe files, confirmed3PASS/4FAIL and7unchanged befo
 ### [Phase4.5 complete] 2026-10-06T17:11:01.231953+00:00 — restored access, repeated installed failure
 
 Refutation03 on/workspace completed17:06:00UTC:3controlsPASS/4challengesFAIL, exact original outputs, unchanged bytes/pointers; allfourrc1 and actual6PIDs/5ports absent at17:08:41. Failed01 missing proofdir and02/tmp quota preserved, including hash-preserved partialimage. Source/effort/drift Facilitator guards exit0. Proceed4.6 blind thenrefutation; no product edit.
+
+## 18:13:14 UTC — Primary checkpoint published
+
+Normal hooked feature commit 3abe4111a4bed8583a4a444850d6bac0d4853ba6 was explicitly cherry-picked with -x as next dbfcfdff83de09616946851f83e8d238ca4a7588; both fork refs read back exactly after push. Generated runtime key omitted before commit; original retained and omission receipt recorded. Blind packet hash is unchanged. Phase4.6 external-transfer approval remains pending; no provider call or product mutation.
