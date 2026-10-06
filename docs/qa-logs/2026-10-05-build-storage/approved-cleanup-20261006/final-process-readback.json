@@ -1,0 +1,105 @@
+{
+  "utc": "2026-10-06T03:39:31.233946+00:00",
+  "owners": [
+    {
+      "owner": "/tmp/pixelelated-approved-cleanup-03",
+      "job_rc": 1,
+      "absent_pids": [
+        2783828,
+        2783829,
+        2783830,
+        2783858,
+        2784880
+      ]
+    },
+    {
+      "owner": "/tmp/pixelelated-approved-cleanup-repair03-01",
+      "job_rc": 0,
+      "absent_pids": [
+        2803631,
+        2803632,
+        2803635,
+        2803664
+      ]
+    },
+    {
+      "owner": "/tmp/pixelelated-approved-cleanup-03-v2",
+      "job_rc": 0,
+      "absent_pids": [
+        2806911,
+        2806912,
+        2806913,
+        2806941,
+        2807962
+      ]
+    },
+    {
+      "owner": "/tmp/pixelelated-approved-cleanup-05-v2",
+      "job_rc": 1,
+      "absent_pids": [
+        2810783,
+        2810784,
+        2810785,
+        2810813,
+        2811822
+      ]
+    },
+    {
+      "owner": "/tmp/pixelelated-approved-cleanup-05-v3",
+      "job_rc": 0,
+      "absent_pids": [
+        2817835,
+        2817836,
+        2817837,
+        2817865,
+        2819189
+      ]
+    },
+    {
+      "owner": "/tmp/pixelelated-approved-cleanup-06-v3",
+      "job_rc": 0,
+      "absent_pids": [
+        2822392,
+        2822393,
+        2822394,
+        2822422,
+        2823423
+      ]
+    },
+    {
+      "owner": "/tmp/pixelelated-approved-cleanup-07-v3",
+      "job_rc": 0,
+      "absent_pids": [
+        2827062,
+        2827063,
+        2827064,
+        2827092,
+        2828121
+      ]
+    },
+    {
+      "owner": "/tmp/pixelelated-approved-cleanup-08-v3",
+      "job_rc": 0,
+      "absent_pids": [
+        2833395,
+        2833396,
+        2833398,
+        2833436,
+        2834431
+      ]
+    },
+    {
+      "owner": "/tmp/pixelelated-approved-cleanup-final-01",
+      "job_rc": 0,
+      "absent_pids": [
+        2840311,
+        2840312,
+        2840313,
+        2840341
+      ]
+    }
+  ],
+  "root_watcher_absent": 2780340,
+  "all_five_directories_absent": true,
+  "scope": "Recorded cleanup owners and root watcher; unrelated host processes not asserted absent"
+}
