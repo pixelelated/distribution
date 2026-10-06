@@ -1,34 +1,31 @@
 # pixelelated 0.0.1 release readiness
 
-## Current work — candidate software proofs retained; QA-account inputs needed
+## Current work — early-boot consent fix needs a new image
 
-Replacement12 remains frozen at55d8ee8f75965a560f75d187e34c9beaa93133f1.
-Build642/642, image SYSTEM equality and consumed-source inventory pass.
-QA15 reported15default PASS results and26actualRC2 upgrade checks before a
-VM shutdown/restart race failed its aggregate run. QA16's initial helper
-correction failure is also retained. QA17 completes upgraded virgl/Pixman
-readback and correct manager-system coverage on an independent disk copy:
-allfour0,19walk frames and10directlyreviewed identity frames. Reviewed
-comparison has14expected regions,0unclaimed and0missing; initial comparison
-findings remain recorded. #454/#455 contain the QA-only fixes and criteria.
+Replacement12 remains frozen55d8ee8f75965a560f75d187e34c9beaa93133f1;
+its build, scoped preservation/native/HTTP and QA15→17 evidence are retained
+[with their limitations](../qa-logs/2026-10-05-pixelelated-replacement-12/README.md).
+Installed consent01 subsequently failed the positive counter control after
+24 negative/restart checks. It remains failed; all owned processes exited.
 
-Proxy13 passes22preservation assertions,18native tests/no skips and4legacyCHD
-cases. Subset10 passes35installed HTTP retry/idempotence assertions. Actual
-owner/guest/backend cleanup is verified; no long job remains running.
-[Exact evidence and limitations](../qa-logs/2026-10-05-pixelelated-replacement-12/README.md).
+#457 identifies upstream's0.0 consent-cache sentinel: during uptime below
+30seconds, a granted choice is not initially read. Patch019 fixes initial and
+invalidated observation without changing persisted consent or stored formats.
+Selected upstream b09d604 changes Android only; Linux/native trees and coupled
+pins are unchanged. All16 patches apply without fuzz;818 native-enabled Linux
+tests and11 integration cases for each actual303/historical865 predecessor
+pass. [Source proof and failed installed run](../qa-logs/2026-10-06-proxy-consent/README.md).
 
-Next unblocked: remaining P3 acceptance/upstream mapping; the
-[criterion reconciliation](../qa-logs/2026-10-05-pixelelated-replacement-12/p3-criteria.md)
-names the evidence and gaps. Ordinary RetroAchievements and authenticated
-Dropbox QA-account proofs await inputs. Both precede approved independent
-P4 review, H700 arm then aarch64 and named physical/P5 gates. Fourteen P5
-licence gaps and public-doc access remain separate. No RC claim.
+Current order: finish source qualification, freeze/build replacement13, then
+installed consent positive/negative/restart proof and affected proxy/default/
+actual ROCKNIX RC2 upgrade checks. Next are remaining P3 criteria and #168
+upstream mapping; ordinary RetroAchievements and authenticated Dropbox proofs
+need the still-pending dedicated QA-account inputs. Both precede approved P4,
+H700 arm then aarch64 and named physical/P5 gates. No RC or device-ready claim.
 
-[Storage inventory](../qa-logs/2026-10-05-build-storage/README.md): worktrees
-1776GiB, artifacts917GiB, temporaryQA497GiB and sources63GiB at scan time.
-After additional QA disks, available space195.09GiB at23:43:15. Five old trees
-total539GiBgross pending custody/dependency review and named removal approval.
-No deletion or filesystem-reserve change was made.
+#456 prepares preservation and a named removal proposal for five superseded
+trees (539GiB gross). The earlier [storage inventory](../qa-logs/2026-10-05-build-storage/README.md)
+remains evidence, not deletion approval. No files or filesystem reserve changed.
 
 ## Completed installed GENERIC_X64 Pixman fallback (#447)
 

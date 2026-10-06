@@ -775,6 +775,19 @@ the shell: `map` shows only `BLK0`/`BLK1`, **no `FS0:`**; firmware prints
 
 ## One command for every check
 
+`tools/raofflineproxy-consent-test` runs inside a fresh isolated QA guest with
+no IPv4/IPv6 default route. Pass `--expected-build <full BUILD_ID> --output
+/storage/.cache/<fresh-owner>`. It imports only installed `/usr/lib` bytecode,
+seeds synthetic cached sign-in/counters/incidents, and captures real loopback
+usage/log HTTP requests. Unanswered, declined, malformed and stale consent
+must send nothing; independent explicit-true controls must send and restart
+must not duplicate them. The host checks loaded module hashes against the
+assembled candidate. This proves reporting functions, not scheduler timing,
+the consent UI or a real account. `--require-early-uptime` additionally refuses
+a granted counter observation outside the initial30second cache window;
+actual counter/uptime/module hashes are saved before assertion (#457).
+Preserve every failed attempt (#361).
+
 **Supervise long QA runs as well as builds (#395, D-WORKFLOW-143).** Use the
 shared `tools/watch-build` runner around the frozen checkout's test command.
 For long agent-owned runs, submit that runner through

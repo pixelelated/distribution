@@ -31,3 +31,12 @@ finished image.
 Adds a deterministic regression that fails on current main and passes with
 the fix. Validation:105 tests pass across the caching queue, award parity,
 usage consent, image-cache/shutdown and new publication suites.
+
+## Current-base recheck — 2026-10-06
+
+The unchanged draft applies at fuzz0 to b09d604ecaba7c973028a659b69106b72d3c9514.
+Its regression with pristine production code fails; with the draft fix, all
+1 selected tests pass. This recheck does not claim the earlier broader
+combined suite was repeated for this standalone draft.
+[Before/after logs and patch hashes](../../../qa-logs/2026-10-06-proxy-consent/upstream-draft-recheck/).
+No upstream submission has been made.

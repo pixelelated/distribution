@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/storage/.cache/consent-test.py", line 216, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/storage/.cache/consent-test.py", line 130, in main
+    child(args.output, args.case, args.endpoint, args.replay)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/.cache/consent-test.py", line 70, in child
+    assert stats.snapshot().get('requests_emulator') == (8 if expected_usage else 7)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

@@ -1,5 +1,26 @@
 # Current RAOfflineProxy integration for0.0.1
 
+M7.P3, #457/#361/#168, D-WORKFLOW-138. Selected main:
+`b09d604ecaba7c973028a659b69106b72d3c9514` (reviewed2026-10-06).
+Archive SHA256: `ff2f67b6620349d7821214c463a56dc9c4d008bba96bdde48b4c77819b9fe427`.
+
+Upstream changes only Android automation/docs since3036478; its219 Linux files,
+53 native files and both coupled gitlinks are identical. The fork adds019:
+an unobserved/invalidated consent cache uses None so an explicit grant is read
+even during the first30seconds of boot. No stored format changes. Unanswered
+and declined consent still refuse reporting; missed counters cannot be recreated.
+
+All16 patches apply at fuzz0;818 native-enabled Linux tests and11 integration
+checks with each actual303/historical865 predecessor pass. Package lint and
+schema note match. [Source and original failed installed proof](../qa-logs/2026-10-06-proxy-consent/README.md).
+Replacement12 stays frozen; its newly attempted consent proof failed the
+positive counter control and remains failed. A new fixed image and installed
+positive/negative/restart HTTP proof are required. The focused upstream draft
+is prepared only; remaining contribution mapping is tracked in#168. No RC,
+account-backed award or authenticated Dropbox success is claimed.
+
+# Previous3036478 source and image qualification
+
 M7.P3, #361/#451, D-WORKFLOW-138. Selected main:
 `3036478f2b2d22db451396a48f44feee94e8462f` (reviewed2026-10-05).
 Archive SHA256: `8db22d572e963193031bb9e27bcbbe5d7767ab7a24e7b23b0efaedfda2f75e2e`.
@@ -76,6 +97,7 @@ This is source integration; candidate build and VM qualification remain required
 |003|Rebased: atomic flush notification stamp; preserve upstream usage accounting.|
 |004|Replaced: the old total-library cap is gone upstream. An explicit `budgeted=False` API lets the OS's deliberate scan finish a whole library, retaining queue locks, pacing, batch bounds and server pauses. Default upstream callers keep their100-game window.|
 |005|Rebased: refresh thread survives exceptions; auth refusal and consecutive failures stop a pass, alongside upstream background429 handling.|
+|006|Retired: upstream protects permanent game-cache prefixes from age eviction, including patch, achievementsets, unlocks, startsession and gameid; the former per-game eviction patch is unnecessary.|
 |007|Retained: use only the configured account's cached sign-in.|
 |008|Rebased: automatic corruption-log upload requires JSON true; new usage consent remains independently enforced upstream.|
 |009|Rebased: distinct process/thread temporary image paths and atomic publication.|
@@ -88,12 +110,13 @@ This is source integration; candidate build and VM qualification remain required
 |016|Rebased: downloaded/cached, absent404/410 and transient outcomes remain visible to the image helper.|
 |017|Retired: upstream subset-aware `_iter_achievementsets_achievements`/`build_achievement_game_ids` and award-parity tests already preserve each set's game ID.|
 |018|Retained for the renamed project: recognize complete `OS_NAME="pixelelated"` records while preserving ROCKNIX account paths and configured overrides; focused platform-discovery tests travel with the patch.|
+|019|New: observe/invalidate usage consent even at uptime0/5 seconds; standalone consent-transition regression tests accompany the fix (#457).|
 
-Fifteen patches, including the renamed platform-discovery follow-up, apply
-without fuzz to selected parent3036478. Its coupled pins are
+Sixteen patches, including the early-boot consent fix, apply
+without fuzz to selected parentb09d604. Its coupled pins are
 rcheevos1433173220a7eaede6a9ed7a18e94117be1821e0 and
 libchdr607694ca0812edfc9cc2030c64634fc2393668de. Exact archives, patch
-application and815 native-enabled Linux tests are retained in the current
+application and818 native-enabled Linux tests are retained in the current
 evidence linked above. The older libchdr8e7b8bd belongs to earlier refreshes.
 The whole upstream download/queue model remains available. The deliberate OS
 helper explicitly opts out of its game-count window and checks `queued`; a

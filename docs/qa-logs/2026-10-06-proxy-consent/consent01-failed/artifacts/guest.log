@@ -1,0 +1,32 @@
+PASS unanswered first call 0 HTTP requests
+PASS unanswered restart 0 HTTP requests
+PASS declined first call 0 HTTP requests
+PASS declined restart 0 HTTP requests
+PASS null first call 0 HTTP requests
+PASS null restart 0 HTTP requests
+PASS zero first call 0 HTTP requests
+PASS zero restart 0 HTTP requests
+PASS one first call 0 HTTP requests
+PASS one restart 0 HTTP requests
+PASS string-false first call 0 HTTP requests
+PASS string-false restart 0 HTTP requests
+PASS string-true first call 0 HTTP requests
+PASS string-true restart 0 HTTP requests
+PASS list first call 0 HTTP requests
+PASS list restart 0 HTTP requests
+PASS object first call 0 HTTP requests
+PASS object restart 0 HTTP requests
+PASS old-grant first call 0 HTTP requests
+PASS old-grant restart 0 HTTP requests
+PASS old-decline first call 0 HTTP requests
+PASS old-decline restart 0 HTTP requests
+PASS explicit-decline first call 0 HTTP requests
+PASS explicit-decline restart 0 HTTP requests
+Traceback (most recent call last):
+  File "/storage/.cache/consent-test.py", line 216, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/storage/.cache/consent-test.py", line 196, in main
+    assert run.returncode == 0, (name, replay, run.returncode)
+           ^^^^^^^^^^^^^^^^^^^
+AssertionError: ('usage-only', False, 1)

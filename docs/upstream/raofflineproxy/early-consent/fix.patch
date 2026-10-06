@@ -1,0 +1,81 @@
+usage_stats: distinguish an unchecked consent cache from uptime zero
+
+A fresh process stores 0.0 as the last consent check. During the first
+30 seconds after boot, monotonic() is below the cache interval, so a
+configured grant is never read and opted-in requests are not counted.
+The same sentinel cannot reliably invalidate consent during early boot.
+
+Use None for an unobserved/invalidated cache and read consent on its first
+use. Preserve the existing interval after a real observation, explicit
+decline clearing, version checks and report gating. No stored format changes.
+Regression tests cover uptime zero/five, decline/regrant and unanswered
+consent. Original failures remain under fork #457; contribution tracked #168.
+
+--- a/linux/raofflineproxy/usage_stats.py
++++ b/linux/raofflineproxy/usage_stats.py
+@@ -231,17 +231,17 @@
+         self._pending = PendingCounters()
+         self._last_flush = time.monotonic()
+         self._consent: Optional[bool] = None
+-        self._consent_checked_at = 0.0
++        self._consent_checked_at: Optional[float] = None
+ 
+     def forget_consent(self) -> None:
+         with self._mutex:
+-            self._consent_checked_at = 0.0
++            self._consent_checked_at = None
+             if load_consent() is not True:
+                 self._pending = PendingCounters()
+ 
+     def _consented(self) -> bool:
+         now = time.monotonic()
+-        if now - self._consent_checked_at >= CONSENT_CACHE_SECONDS:
++        if self._consent_checked_at is None or now - self._consent_checked_at >= CONSENT_CACHE_SECONDS:
+             self._consent = load_consent()
+             self._consent_checked_at = now
+         return self._consent is True
+--- a/linux/tests/test_linux_usage_stats.py
++++ b/linux/tests/test_linux_usage_stats.py
+@@ -39,6 +39,42 @@
+ 
+ 
+ class ConsentTests(UsageIsolation):
++    def test_granted_consent_counts_during_early_uptime(self) -> None:
++        for uptime in (0.0, 5.0):
++            with self.subTest(uptime=uptime), mock.patch.object(
++                usage_stats.time, "monotonic", return_value=uptime
++            ), mock.patch.object(usage_stats, "_recorder", usage_stats._Recorder()):
++                usage_stats.clear()
++                self.config.update({"usage_stats_consent": True, "usage_stats_consent_version": 1})
++                usage_stats.record_request(usage_stats.SOURCE_EMULATOR, 200)
++                usage_stats.flush()
++                self.assertEqual(usage_stats.snapshot().get("requests_emulator"), 1)
++
++    def test_consent_changes_apply_immediately_during_early_uptime(self) -> None:
++        with mock.patch.object(usage_stats.time, "monotonic", return_value=5.0), mock.patch.object(
++            usage_stats, "_recorder", usage_stats._Recorder()
++        ):
++            usage_stats.save_consent(True)
++            usage_stats.record_request(usage_stats.SOURCE_EMULATOR, 200)
++            usage_stats.flush()
++            self.assertEqual(usage_stats.snapshot().get("requests_emulator"), 1)
++            usage_stats.save_consent(False)
++            usage_stats.record_request(usage_stats.SOURCE_EMULATOR, 200)
++            usage_stats.flush()
++            self.assertEqual(usage_stats.snapshot(), {})
++            usage_stats.save_consent(True)
++            usage_stats.record_request(usage_stats.SOURCE_EMULATOR, 200)
++            usage_stats.flush()
++            self.assertEqual(usage_stats.snapshot().get("requests_emulator"), 1)
++
++    def test_unanswered_is_not_counted_during_early_uptime(self) -> None:
++        with mock.patch.object(usage_stats.time, "monotonic", return_value=0.0), mock.patch.object(
++            usage_stats, "_recorder", usage_stats._Recorder()
++        ):
++            usage_stats.record_request(usage_stats.SOURCE_EMULATOR, 200)
++            usage_stats.flush()
++            self.assertEqual(usage_stats.snapshot(), {})
++
+     def test_unanswered_is_none(self) -> None:
+         self.assertIsNone(usage_stats.load_consent())
+ 
