@@ -40,14 +40,21 @@ Local WebDAV, SFTP and MinIO/S3 qualification (#462) is complete: each has
 All four watcher results are zero; actual cleanup verifies all owned processes,
 VMs and backends exited. [Local cloud evidence](../qa-logs/2026-10-06-local-cloud/README.md).
 
-Current order: the separate ordinary RetroAchievements award/reconnect proof
-precedes approved P4.
-D-QA-058 reaffirms D-QA-041: Dropbox credentials, other hosted accounts and
-offsite endpoints are optional now and in future routine RC qualification;
-#463 keeps the authenticated provider-page observation explicitly unverified.
-The RA reset target is Tobu Tobu Girl Deluxe (game15738), Potato-tan Secret
-(achievement100359), softcore/normal on the dedicated QA account. Then approved P4,
-H700 arm then aarch64 and named physical/P5 gates. No RC or device-ready claim.
+The ordinary RetroAchievements proof is now complete: after the confirmed
+reset, fresh owner ra01 passed33 assertions, no failures/skips. The real
+softcore award survived exit offline, flushed on reconnect, appeared in the
+provider API and was recognized on relaunch. All four results0 and actual
+cleanup/account-clear verified. [Award evidence](../qa-logs/2026-10-06-ra-award/README.md).
+The reset is now consumed. No queue/send card was captured; these frames prove
+only post-exit ES screens. #361's remaining UI/progress evidence must be
+reconciled separately before its compound criterion closes.
+
+Current order: finish remaining P3 criterion reconciliation, then approved P4,
+H700 arm then aarch64 and named physical/P5 gates. D-QA-058 keeps Dropbox,
+other hosted accounts and offsite endpoints optional now and in future routine
+RC qualification; #463 is explicitly unverified. #464/D-QA-059 reopens dedicated
+QA reset automation as backlog; no vendor chosen or new RC gate. No RC or
+device-ready claim, and no build/QA job remains active.
 
 Frozen13 freshness caught an Android-only upstream commit before any cache
 copy/build. [Exact equality evidence](../qa-logs/2026-10-06-proxy-879b158/README.md)
@@ -71,8 +78,8 @@ pass, with before-fix failures and exact distributed patch hashes retained.
 [Contribution evidence](../qa-logs/2026-10-06-upstream-drafts/README.md).
 Upstream main remains879b158. API/policy-dependent proposals have explicit
 reasons in the contribution map; no upstream submission or acceptance is claimed.
-The separate RA account proof still precedes P4; no new build or audit has started.
-The fresh watched local-backend run is recorded under #462.
+The separate RA account proof is complete in the record above; no new build or
+audit has started. Local-backend qualification is recorded under #462.
 
 > Earlier dated records below preserve their original account limitations.
 > D-QA-058/#462 supersedes any Dropbox-account prerequisite; #463 is optional.

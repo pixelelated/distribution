@@ -1048,8 +1048,13 @@ Three things about it that are not obvious from the outside:
   achievements the QA account has NOT earned, and FAILs naming the spent one
   with its date when none is left -- never passes over nothing. The
   maintainer resets the account's progress on the game at retroachievements.org
-  between runs (2026-09-14), or a second QA account is used. A nightly that
-  includes this suite needs one of those every run.
+  between runs (2026-09-14). D-QA-059/#464 reopens automated reset of the
+  dedicated QA account, refining D-QA-035: evaluate the supported browser/API
+  path and FOSS/self-hosting tradeoffs, verify account/game/softcore scope,
+  serialize fixture use and read back unearned state through RA's API. Until
+  that path is qualified, the current manual reset remains the fallback;
+  automation is backlog, not another RC gate. Do not treat hardcore as another
+  spend or create another account merely to evade the fixture's state.
 - **A route is a key cadence someone has driven to the award.** Tobu's hidden
   song: two STARTs to the MAIN MENU, then left/right through the carousel with
   4.5 s on each entry -- the award at about the 18th press, 90 s in. Böbl's

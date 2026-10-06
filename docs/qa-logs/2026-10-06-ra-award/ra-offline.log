@@ -1,0 +1,58 @@
+ra-offline-test: guest :10022, proxy on, 2026-10-06 06:04 UTC
+0  preconditions
+  PASS  guest :10022 answers over ssh (build 7afa9efcfc); monitor, serial, ROMs and the accounts file are here
+  PASS  /usr/bin/raofflineproxy-ctl is on the image
+  PASS  EmulationStation is up and its HTTP API answers on the guest's loopback
+  PASS  the serial console answers
+1  the games with RetroAchievements sets are on the guest
+  |     copied tobu/Tobu Tobu Girl Deluxe.gb -> /storage/roms/gbc/Tobu Tobu Girl Deluxe.gb (missing, or other bytes were there)
+  PASS  tobu: /storage/roms/gbc/Tobu Tobu Girl Deluxe.gb sha256 0a0e8018dbbc8d7f... (got 0a0e8018dbbc8d7f)
+  |     copied ninoid/Ninoid.gb -> /storage/roms/gb/Ninoid.gb (missing, or other bytes were there)
+  PASS  ninoid: /storage/roms/gb/Ninoid.gb sha256 a40191c169c68e66... (got a40191c169c68e66)
+  |     copied bobl/Bobl (v1.2)-unpacked/böbl-1.2.nes -> /storage/roms/nes/Bobl.nes (missing, or other bytes were there)
+  PASS  bobl: /storage/roms/nes/Bobl.nes sha256 025ec44d0d84ac46... (got 025ec44d0d84ac46)
+  |     a ROM was copied: rebooting so EmulationStation scans it
+  PASS  EmulationStation back after the reboot
+2  a cheap achievement the QA account has not earned
+  |     tobu: 100359 Potato-tan Secret -- not earned
+  PASS  chosen: tobu -- Potato-tan Secret (achievement 100359, game 15738, gbc)
+3  the QA account on, the toggle on
+  |     as found: global.retroachievements=0 hardcore=0 toggle enabled=0
+  PASS  tools/qa-accounts 10022 ra: set on :10022: global.retroachievements=1 global.retroachievements.username global.retroachievements.password global.retroachievements.key (read by the interface at its next start: reboot the guest)
+  PASS  raofflineproxy-ctl status: enabled=1 marker=1 service=active hardcore=0 (the toggle on)
+  PASS  the proxy listens on 127.0.0.1:8080 (waited up to 15 s for the socket)
+  PASS  the award queue is empty before the run (pending=0 exit 1)
+4  the game launched online through the interface
+  |     the interface idle after 1 s (GET /isIdle)
+  PASS  POST /launch /storage/roms/gbc/Tobu Tobu Girl Deluxe.gb -> HTTP 200; RetroArch running
+  PASS  RetroArch: logged in
+  PASS  RetroArch: Identified game: 15738
+  PASS  RetroArch: Set 6292: 28/28 achievements active
+  PASS  RetroArch through the proxy: Using host: 127.0.0.1:8080
+  PASS  no synthetic 'Casual Only' award (101000001) in the session (D-RA-005)
+5  the link cut on the monitor
+  PASS  eth0 operstate=down over serial
+  PASS  the proxy's online_state.json reads false (15 s after the cut)
+6  the game driven over the monitor until the unlock
+  PASS  RetroArch: [INFO] [RCHEEVOS] Awarding achievement 100359: Potato-tan Secret
+  PASS  RetroArch: Achievement 100359: queued_offline (the proxy took it)
+  PASS  proxy: raofflineproxy Queued offline award: achievementId=100359 queuedAt=1791266852382
+7  the game ended with the link still down
+  |     frames: /workspace/tmp/pixelelated-m7-ra-01/artifacts/frames/exit-offline-1..20.png
+  PASS  RetroArch gone after execute_kill (the interface's exit path ran with eth0 down)
+  PASS  EmulationStation still up
+  PASS  raofflineproxy-ctl pending = 1 (exit 0): one award waiting
+8  the link back
+  PASS  ssh back 6 s after set_link on
+  PASS  proxy: raofflineproxy Flush complete: total=1 flushed=1 skipped_deleted=0 skipped_stale=0 pending_remaining=0 (6 s after the link returned)
+  PASS  the flush left its stamp and it was read or taken: the last-flush stamp read '1791266899 1'
+  PASS  raofflineproxy-ctl pending = 0 after the flush
+9  RetroAchievements' answer, and a relaunch online
+  PASS  RetroAchievements' API: achievement 100359 earned by the QA account (answer '1 2026-10-06 06:07:32')
+  PASS  relaunch: Set 6292: 27/28 achievements active -- one fewer active than 28/28 before
+  |     frames: /workspace/tmp/pixelelated-m7-ra-01/artifacts/frames/exit-online-1..20.png
+10 cleanup
+  |     cleared: global.retroachievements.username global.retroachievements.password global.retroachievements.key global.retroachievements.token ScreenScraperUser ScreenScraperPass ScreenScraperDevId ScreenScraperDevPass
+  |     left: enabled=0 marker=0 service=inactive hardcore=0 eth0=up account cleared; global.retroachievements=0 hardcore=0 put back
+
+PASSED (33)

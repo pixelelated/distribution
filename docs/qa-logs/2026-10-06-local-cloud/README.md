@@ -58,8 +58,9 @@ or future routine RC qualification. OAuth/token refresh and provider-owned
 pages remain outside these results, explicitly unverified. SMB/FTP remain
 broader follow-up under #133/#232.
 
-The separate RetroAchievements award/reconnect proof still requires the QA
-account's softcore reset of Tobu Tobu Girl Deluxe game15738, Potato-tan Secret
-achievement100359. The exact target was given to the maintainer; confirmation
-has not arrived. Then approved P4 fixes review, any required rebuild/requalification,
-and H700 arm followed by aarch64. No RC/device-ready claim.
+At this run's checkpoint, the separate RetroAchievements proof awaited the
+Tobu softcore reset. The maintainer subsequently confirmed it; the fresh
+[ordinary award proof](../2026-10-06-ra-award/README.md) passed33 assertions.
+Its queue/send-card UI coverage remains separate. Next: remaining P3 criteria,
+approved P4 fixes review, required requalification, then H700 arm/aarch64.
+No RC/device-ready claim. #464 reset automation is backlog, not a new gate.

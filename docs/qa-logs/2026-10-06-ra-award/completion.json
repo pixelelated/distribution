@@ -1,0 +1,92 @@
+{
+  "utc": "2026-10-06T06:10:11.717885+00:00",
+  "owner": "/workspace/tmp/pixelelated-m7-ra-01",
+  "run": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement14/.build-runs/20261006T060338Z-0420faa8",
+  "results": {
+    "inner.rc": 0,
+    "outer.rc": 0,
+    "tool-wrapper.rc": 0,
+    "build.rc": 0
+  },
+  "recorded_pids_absent": [
+    3491913,
+    3491914,
+    3491915,
+    3492743,
+    3492769
+  ],
+  "qemu_processes_absent": true,
+  "ports_unbound": [
+    10022,
+    10023,
+    5909,
+    5910
+  ],
+  "account_cleanup_verified_by_tool": true,
+  "passes": 33,
+  "failures": 0,
+  "skips": 0,
+  "game_id": 15738,
+  "achievement_id": 100359,
+  "mode": "softcore/normal",
+  "initial_unearned": true,
+  "offline_queue_after_exit": 1,
+  "after_flush_pending": 0,
+  "provider_earned_verified": true,
+  "relaunch_active_before": 28,
+  "relaunch_active_after": 27,
+  "frame_groups": {
+    "b324a24694000e05b8655a9726ea6f0de883c8a87dca5524bedb6070e7daca4d": [
+      "exit-offline-1.png",
+      "exit-offline-10.png",
+      "exit-offline-11.png",
+      "exit-offline-12.png",
+      "exit-offline-13.png",
+      "exit-offline-2.png",
+      "exit-offline-3.png",
+      "exit-offline-4.png",
+      "exit-offline-5.png",
+      "exit-offline-6.png",
+      "exit-offline-7.png",
+      "exit-offline-8.png",
+      "exit-offline-9.png"
+    ],
+    "17c7f0d05447f6b00e9928e961de23443e9f0196103d424767fab39aa2fc76b1": [
+      "exit-offline-14.png",
+      "exit-offline-15.png",
+      "exit-offline-16.png",
+      "exit-offline-17.png",
+      "exit-offline-18.png",
+      "exit-offline-19.png",
+      "exit-offline-20.png"
+    ],
+    "92fc8e58006642c2f89381deb6eefb2d5f9975a166fbc3e9907ac0744050fe75": [
+      "exit-online-1.png",
+      "exit-online-10.png",
+      "exit-online-11.png",
+      "exit-online-12.png",
+      "exit-online-13.png",
+      "exit-online-14.png",
+      "exit-online-15.png",
+      "exit-online-16.png",
+      "exit-online-17.png",
+      "exit-online-18.png",
+      "exit-online-19.png",
+      "exit-online-2.png",
+      "exit-online-3.png",
+      "exit-online-4.png",
+      "exit-online-5.png",
+      "exit-online-6.png",
+      "exit-online-7.png",
+      "exit-online-8.png",
+      "exit-online-9.png"
+    ],
+    "0c4a9cf8476e6c0e8fbf8f9dfac02e9409400080e48a7c804afa29b14d52c847": [
+      "exit-online-20.png"
+    ]
+  },
+  "visual_review": "Four unique images directly inspected: complete ES carousel after exits, offline/online indicator changes; no credentials/account identity shown. No achievement send/queue card captured; no new card-layout claim.",
+  "harness_verified": true,
+  "source": "7afa9efcfc0c1ce4b89774b38878fc1b9a9063d2",
+  "image_sha256": "c7df6a6f428086f79a377ca1b049f20694f34a868987cf12c493c78eab7b2254"
+}
