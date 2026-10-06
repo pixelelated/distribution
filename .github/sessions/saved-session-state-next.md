@@ -1,7 +1,7 @@
 # Saved Session State
 
-> Saved 2026-10-06T06:21:40.420102+00:00; feature/conflict-resolution → primary next.
-> Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261006T062140Z.md`.
+> Saved 2026-10-06T07:02:54.281090+00:00; feature/conflict-resolution → primary next.
+> Previous checkpoint: `.github/sessions/archived/saved-session-state-next-20261006T070236Z.md`.
 
 ## Start here
 
@@ -21,69 +21,69 @@ cloud mutation or publication. No Daybreak or goal tool. Only the required
 fresh no-context resume proof permits delegation here.
 
 
-## Current focus — local cloud and ordinary RA award proofs complete; reconcile P3
+## Current focus — #465 UI proof qualified; approved P4 next
 
-The maintainer explicitly removed Dropbox credentials/offsite accounts as
-release dependencies now and going forward (#462, D-QA-058, reaffirming
-D-QA-041). Do not ask for a Dropbox credential path. Routine local baseline:
-WebDAV, SFTP and MinIO/S3 using the candidate image's installed rclone/scripts.
-Optional authenticated Dropbox trust-page observation is milestone-less #463,
-explicitly unverified. This is a scope decision, not an authenticated PASS.
-#351's locally verifiable sign-in/handset/Mobile-UA criteria are complete;
-retained replacement10 runtime evidence plus current14 installed byte-equality
-and handset readback identify what was reused, not rerun.
+Latest maintainer: “Please proceed with the remaining UI proof. If that's
+successful, you may begin the audit.” That UI condition is now satisfied.
+No build, QA or cleanup job is active. No real account/reset is requested.
 
-Fresh owner `/workspace/tmp/pixelelated-m7-cloud-01` ran all three protocols
-against frozen14. Each round-trip has106 PASS,0 FAIL,0 SKIP (318 assertions).
-Read `docs/qa-logs/2026-10-06-local-cloud/README.md`, per-backend reports,
-completion.json and all four result channels. Actual guest/backend/owner
-cleanup is verified; no build or QA job remains active. No product bytes
-changed and no new build is needed for this policy/evidence work.
+Owner `/workspace/tmp/pixelelated-m7-ra-ui-03`, run20261006T065301Z-41c3ed1c:
+109 PASS/0FAIL/0SKIP, allfourrc0, terminal07:00:43UTC. Actualcleanup07:01:20
+verifies launcher3711572, job3711573, watcher3711574 and both guests3712330/
+3738169 absent; no QEMU and10026/5912 unbound. All23 original full-panel
+frames directly reviewed. Four EN/FR640x480/1280x960 profiles pass, with46
+identical installed hashes per profile. Read
+`docs/qa-logs/2026-10-06-ra-ui/README.md`, qualification.json,
+visual-review.json and qualified-03/completion.json. No product bytes changed.
 
-The maintainer confirmed “Progress reset.” The ordinary RetroAchievements
-proof is now complete: fresh owner `/workspace/tmp/pixelelated-m7-ra-01`,
-run20261006T060338Z-0420faa8, 33 PASS/0 FAIL/0 SKIP. Tobu Tobu Girl Deluxe
-(game15738), Potato-tan Secret (achievement100359), softcore/normal: API
-unearned preflight → real offline award → pending1 after exit → reconnect
-flush1/pending0 → provider earned receipt → relaunch28/28 to27/28 active.
-All four results0, terminal06:09:20; actualcleanup06:10:11 confirms five PIDs
-absent, no QEMU and unbound SSH/VNC ports. Account-clear readback passed.
-Read `docs/qa-logs/2026-10-06-ra-award/README.md`, ra-offline.log, completion
-and sealed harness. No job is active. This reset is consumed; do not repeat
-or ask again for the already-completed run.
+The fixture uses installed Storage/flusher/ctl/ES and actual loopback HTTP,
+with synthetic local award/account and no real configured account. Empty
+baselines, actual address loss/return, pending1/sending, flush1/sent/pending0,
+dismissal, empty repeat and controlled503/not-sent/retry are verified.
+This is separate from actual RA33 provider evidence below; do not collapse
+both into one new uninterrupted provider run. Original per-profile results
+retain visual_review=pending; the later visual manifest/qualification closes
+that distinct gate. The changed ordinary award runner has not been rerun
+end-to-end; this matrix proves the changed settings/reconnect mechanics.
 
-**Remaining P3 distinction:** all40 exit captures contain only four unique
-ES carousel frames, each directly reviewed; no queue/send card was captured.
-This is actual award/reconnect/API proof, not new UI/progress-card proof.
-The retained replacement10 UI14 frames cover settings/intro pages. #361's
-compound source/build/award/UI criterion stays open until its remaining
-UI/progress coverage is located or verified on the installed guest. Inspect
-`tools/ra-offline-test` setup ordering and ES account/proxy state, then prepare
-a fresh local-only UI fixture proof if needed. Do not infer a product defect
-from absent captures or consume another real award as a preliminary control.
+Superseded owner01 (89 assertions/allfour0) omitted compiled.pyc census;
+owner02 (101/allfour0) carried a refused pending award into French startup.
+Both are retained with original frames/receipts. Owner03 fixes both.
+The report reader also initially expected status0 for refusal; source proves
+status5/not-sent plus a reason. Corrected aggregation passed with raw evidence
+unchanged. Do not replay any used owner or request another consumed reset.
 
-#464 is the newly requested **backlog** task for automated dedicated QA reset,
-comparing supported API/browser paths, local/self-hosted FOSS, Browserbase
-and Kitesurf. D-QA-059 reopens D-QA-035's manual-only decision; #240 now owns
-additional softcore routes/reset guidance. Exact account/game/mode validation,
-API readback, serialized fixture use and two unattended cycles are criteria.
-No vendor/hosted credential transfer chosen; no new RC gate. Until qualified,
-the manual reset is the fallback for a future actual award test. Dedicated
-account file is `$HOME/.ROCKNIX/qa-accounts` (0600); never print its contents.
-Free ROM: `/workspace/artifacts/rocknix-qa-roms/tobu/Tobu Tobu Girl Deluxe.gb`.
+New host tools/rules/evidence are ready for normal publication. Run final
+checks, commit explicit paths, cherry-pick-x the explicit feature SHA into
+primary next, normal hooked pushes and remote-head readback. Owning #465
+closes after published evidence/readback. #361's UI portion is now satisfied;
+retain precise source/build/RA33 mapping for the compound criterion. M7 body
+must move from active UI to approved P4, then capacity/H700/P5.
 
-#168 has ten tested, unsubmitted upstream drafts; all other rows have explicit
-API/policy dispositions. Read `docs/upstream/raofflineproxy/contribution-map.md`
-and `docs/qa-logs/2026-10-06-upstream-drafts/README.md`. Seven new drafts have
-40 targeted tests/169 related-suite executions,0 skips; not a full-fork or
-account proof. Upstream879b158 was unchanged at the recorded read; recheck
-before submission. D-RA-016 requires go before an outward issue/PR; upstream
-acceptance is not a candidate gate.
+**P4 has not started yet.** Start immediately after UI publication. Use full
+code-auditor skill/references: Milestone scope, independent depth; Codex/OpenAI
+primary + Anthropic Fable5.1/xhigh through Facilitator/OpenRouter, blind then
+refutation. No five-seat council. #375/#382 are prior inputs, not this fixes
+review; sequester prior AC verdicts until Phase2.5. Start a dated folder and
+append running notes after every meaningful action. Skill-authorized Phase1
+read-only per-Epic research helpers may map sources, never provide verdicts;
+primary performs git/npm/gh/build/test operations. No external call yet.
+Raw source snapshots only are in `/tmp/pixelelated-m7-p4-inputs/`; refresh live
+tracker state after publication. Product/source scope remains frozen14/ESf6f0.
 
-#461/D-INFRA-018 retains post-qualification storage review and measured
-capacity before the next build. Local-cloud launch measured576.47GiB free;
-no additional deletion or reserve change occurred. Protect current/fallback
-candidates, exact inputs, RC2 and every transitive backing/store dependency.
+RA33: `docs/qa-logs/2026-10-06-ra-award/`, ownerra01/run060338-0420faa8,
+Tobu15738/Potato-tanSecret100359 softcore, actual unearned→award→pending1→
+flush1/pending0→provider earned→relaunch27/28. Allfour0 and cleanup/account-clear
+06:10:11. No send card was captured there; do not invent its UI coverage.
+Cloud318: `docs/qa-logs/2026-10-06-local-cloud/`, WebDAV/SFTP/MinIO-S3 each
+106/0/0; allfour0 and cleanup05:59:18. D-QA-058 keeps Dropbox/offsite optional;
+#351/#462 closed, #463 remains explicitly unverified and milestone-less.
+
+#464/D-QA-059 records reset automation as backlog; no vendor/hosted credential
+transfer selected. #240 owns additional softcore routes. Manual reset is the
+fallback for a FUTURE real award, not requested here. #168 has ten tested,
+unsubmitted upstream drafts and explicit API/policy dispositions; acceptance
+is not a candidate gate, D-RA-016 still requires go before outward submission.
 
 ## Completed cleanup — historical execution, never replay
 
@@ -138,30 +138,20 @@ No additionalcleanup orreservechange is authorized. No sudoaction remains.
 
 ## Next steps
 
-1. Read live M7/#464/#240/#383/#361 and verify the completed RA/local-cloud
-   receipts. #351/#462 are closed; #463 is optional. No account input is
-   currently requested, and no build/QA job is active. Do not replay owners.
-2. Reconcile remaining P3 software criteria against exact artifacts, starting
-   with #361's UI/progress clause. Actual RA33 proves award/queue/flush/API;
-   settings-page frames do not prove queue/send cards. If a local UI fixture
-   run is needed, record its VM plan on #361 before a fresh sealed owner,
-   use the standard watcher and retain frames plus actual cleanup. Do not
-   rebuild unchanged frozen14 for policy or host-harness metadata.
-3. After P3 is satisfied, run approved P4 primary + Fable5.1/xhigh through
-   the verified Facilitator/OpenRouter. Read the complete code-auditor skill
-   and references; #375/#382 do not replace this fixes review. No P4 folder
-   or external reviewer run has started. Resolve findings and requalify any
-   changed product bytes before advancing.
-4. Then measure next-build capacity and build H700 DDR4/RG35XXSP arm first,
-   aarch64 second from qualified inputs. Named physical/P5 gates follow.
-   No RC/device-ready claim yet; reset automation #464 stays backlog.
+1. Publish qualified UI proof and reconcile #465/#361/M7. No job remains
+   active. Preserve every superseded run and the already-consumed RA33 fixture.
+2. Execute approved
+   P4 fixes audit in serial gated phases, resolving findings and requalifying
+   any changed product bytes. No account/reset or rebuild of unchanged14.
+3. After P4 passes, measure capacity (#461), then H700 DDR4/RG35XXSP arm first,
+   aarch64 second. Named physical/P5 gates follow; no RC/device-ready claim.
 
 Public docs4f6df54 at /home/max/Development/rocknix.org remains403/404; do not
-change credentials/autofork. Fourteen P5 licence gaps remain. #395 lacks a
-selected/tested disconnected alert destination; connected sessions actively
-supervise standard5second watcher/5minute stall detection and report outcomes.
-#432 FOSS observability stays backlog. Broader SMB/FTP coverage is #133/#232,
-not a new M7 hosted-account gate. No new build, P4 audit or device action ran.
+change credentials/autofork. Fourteen P5 licence gaps remain. #395 has no
+selected/tested disconnected alert destination; connected watchers are actively
+supervised. #432 FOSS observability and #464 reset automation stay backlog.
+No additional deletion, filesystem reserve change, personal-cloud/device action
+or public release is authorized. Protect current/fallback/RC2/exact inputs.
 
 ## Exact frozen image
 

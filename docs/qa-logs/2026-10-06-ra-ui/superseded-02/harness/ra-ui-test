@@ -1,0 +1,215 @@
+#!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-2.0-or-later
+# Copyright (C) 2026-present pixelelated
+"""Installed reconnect-card proof on a disposable QA guest (Refs #465).
+
+Synthetic local award/account, installed Storage/flusher/ctl/ES, loopback HTTP.
+No real account or award is used. The ordinary provider proof remains separate.
+Run under a candidate-bound owner which verifies image/input hashes and cleanup.
+"""
+import argparse
+import hashlib
+import json
+from pathlib import Path
+import struct
+import subprocess
+import time
+
+GUEST = r'''
+import dataclasses,json,sys,time,threading
+from pathlib import Path
+from http.server import BaseHTTPRequestHandler,ThreadingHTTPServer
+from urllib.parse import parse_qs,urlsplit
+from raofflineproxy import storage,cache_keys,flusher,config
+root=Path('/storage/.cache/ra-ui-qa');root.mkdir(exist_ok=True)
+assert Path(storage.__file__).is_relative_to('/usr/lib/python3.14/site-packages/')
+assert config.CONFIG_DIR==Path('/storage/.config/raofflineproxy')
+mode=sys.argv[1]
+if mode=='seed':
+    db=config.DATABASE_FILE
+    assert not db.exists() or (root/'owned').exists(),'refuse preexisting unowned store'
+    (root/'owned').touch()
+    for name in [db.name,db.name+'-wal',db.name+'-shm','last-flush']:
+        (config.CONFIG_DIR/name).unlink(missing_ok=True)
+    st=storage.Storage()
+    st.upsert_cache(cache_keys.login('QA'),json.dumps({'User':'QA','Token':'local-ui-fixture'}))
+    st.upsert_cache(cache_keys.patch(100,'QA'),json.dumps({'PatchData':{'ID':100,'Title':'Local UI fixture','Achievements':[{'ID':1}]}}))
+    st.upsert_pending_award({'achievementId':1,'queryString':'/dorequest.php?r=awardachievement&a=1&u=QA&h=0','requestBody':'a=1&u=QA&h=0','userAgent':'Local-UI-QA','queuedAt':int(time.time()*1000)})
+    assert len(st.get_pending_awards())==1
+    st.close();print('PASS installed Storage wrote one synthetic softcore award')
+elif mode in ('accept','refuse'):
+    requests=[]
+    class Provider(BaseHTTPRequestHandler):
+        def log_message(self,*a): pass
+        def do_GET(self): self.api(False)
+        def do_POST(self): self.api(True)
+        def api(self,post):
+            p=parse_qs(urlsplit(self.path).query)
+            if post:p.update(parse_qs(self.rfile.read(int(self.headers.get('Content-Length','0'))).decode()))
+            action=p.get('r',[''])[0];aid=int(p.get('a',['0'])[0]);game=int(p.get('g',['0'])[0]);code=200
+            if action=='patch' and game==100:payload={'Success':True,'PatchData':{'ID':100,'Achievements':[{'ID':1}]}}
+            elif action=='unlocks' and game==100:payload={'Success':True,'UserUnlocks':[]}
+            elif action=='awardachievement' and aid==1:
+                code=200 if mode=='accept' else 503;payload={'Success':mode=='accept'}
+            else:code=400;payload={'Success':False,'Error':'unexpected local fixture request'}
+            requests.append({'action':action,'achievement':aid,'game':game,'status':code})
+            data=json.dumps(payload).encode();self.send_response(code);self.send_header('Content-Length',str(len(data)));self.end_headers();self.wfile.write(data)
+    server=ThreadingHTTPServer(('127.0.0.1',0),Provider)
+    thread=threading.Thread(target=server.serve_forever,daemon=True);thread.start()
+    st=storage.Storage()
+    try:
+        result=flusher.flush_pending_awards(st,{'upstream_host':f'http://127.0.0.1:{server.server_port}','upload_logs':False,'upload_usage_stats':False})
+        assert result.flushed==(1 if mode=='accept' else 0)
+        assert result.pending_remaining==(0 if mode=='accept' else 1)
+        assert any(r['action']=='awardachievement' for r in requests)
+        print(json.dumps({'outcome':dataclasses.asdict(result),'requests':requests,'installed_flusher':flusher.__file__}))
+    finally:
+        st.close();server.shutdown();server.server_close();thread.join(timeout=5)
+    assert not thread.is_alive()
+else:raise ValueError(mode)
+'''
+
+
+def main():
+    ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument('--identity', required=True)
+    ap.add_argument('--port', type=int, default=10026)
+    ap.add_argument('--monitor', required=True)
+    ap.add_argument('--serial', required=True)
+    ap.add_argument('--out', type=Path, required=True)
+    ap.add_argument('--build-id', required=True)
+    ap.add_argument('--language', choices=['en_US', 'fr_FR'], required=True)
+    ap.add_argument('--resolution', choices=['640x480', '1280x960'], required=True)
+    ap.add_argument('--failure-control', action='store_true')
+    a = ap.parse_args()
+    a.out.mkdir(parents=True, exist_ok=False)
+    tools = Path(__file__).resolve().parent
+    # Sealed owners can provide the immutable distribution tools directory.
+    import os
+    tools = Path(os.environ.get('RA_UI_TOOLS', str(tools)))
+    ssh = ['ssh', '-i', a.identity, '-p', str(a.port), '-o', 'BatchMode=yes',
+           '-o', 'ConnectTimeout=8', '-o', 'StrictHostKeyChecking=no',
+           '-o', 'UserKnownHostsFile=/dev/null', '-o', 'LogLevel=ERROR', 'root@127.0.0.1']
+    assertions = []
+
+    def guest(command, check=True, data=None):
+        return subprocess.run(ssh+[command], input=data, text=True, capture_output=True,
+                              timeout=75, check=check)
+
+    def check(ok, name):
+        assertions.append({'assertion': name, 'passed': bool(ok)})
+        (a.out/'assertions.json').write_text(json.dumps(assertions, indent=2)+'\n')
+        print(('PASS ' if ok else 'FAIL ')+name, flush=True)
+        if not ok: raise RuntimeError(name)
+
+    def serial(command):
+        return subprocess.run([str(tools/'vm-serial'), '--socket', a.serial,
+                               '--timeout', '45', 'sh', command], text=True,
+                              capture_output=True, check=True, timeout=55).stdout.strip().replace('\r','')
+
+    def shot(name):
+        path = a.out/(name+'.png')
+        subprocess.run([str(tools/'vm-visual-qa'), '--monitor', a.monitor,
+                        'shot', str(path)], check=True, stdout=subprocess.DEVNULL, timeout=20)
+        check(struct.unpack('>II', path.read_bytes()[16:24]) == tuple(map(int, a.resolution.split('x'))), name+' panel dimensions')
+        return path
+
+    def wait_ssh():
+        for _ in range(40):
+            if guest('true', check=False).returncode == 0: return
+            time.sleep(1)
+        raise RuntimeError('SSH did not return')
+
+    def link_cycle(label):
+        serial('nmcli device disconnect eth0 >/dev/null 2>&1; sleep 2; test -z "$(ip -4 -o addr show dev eth0 scope global)" && echo address-absent')
+        check('address-absent' in serial('test -z "$(ip -4 -o addr show dev eth0 scope global)" && echo address-absent'), label+' actual address removed')
+        # NetworkStateWatcher samples at five seconds; allow two observations.
+        time.sleep(12)
+        serial('nmcli device connect eth0 >/dev/null 2>&1; ip -4 -o addr show dev eth0 scope global | wc -l')
+        wait_ssh()
+        check(bool(guest('ip -4 -o addr show dev eth0 scope global').stdout.strip()), label+' actual address restored')
+
+    check(guest('sed -n "s/^BUILD_ID=//p" /etc/os-release').stdout.strip().strip('"') == a.build_id, 'exact candidate BUILD_ID')
+    check(guest('. /etc/profile >/dev/null 2>&1; test -z "$(get_setting global.retroachievements.username)"', check=False).returncode == 0, 'no configured real account')
+    check(guest("pgrep -f '^/usr/bin/retroarch'", check=False).returncode == 1, 'no game running before UI proof')
+    old_es = guest('pidof emulationstation').stdout.strip()
+    identity_command='sha256sum /usr/bin/emulationstation /usr/bin/raofflineproxy-ctl; find /usr/lib/python3.14/site-packages/raofflineproxy -type f -exec sha256sum {} \\; | sort'
+    before = guest(identity_command).stdout
+    check(any('/raofflineproxy/flusher.pyc' in row for row in before.splitlines()) and len(before.splitlines())>20,
+          'identity census includes installed compiled proxy modules')
+    (a.out/'installed-before.sha256').write_text(before)
+    guest('mkdir -p /storage/.cache/ra-ui-qa; cat > /storage/.cache/ra-ui-qa/fixture.py', data=GUEST)
+    guest('systemctl stop essway; systemctl stop raofflineproxy; . /etc/profile >/dev/null 2>&1; '
+          'set_setting global.retroachievements 0; set_setting global.retroachievements.offlineproxy 1; '
+          'set_setting cloudsaves.startup 0; set_setting cloudsaves.gameexit 0; set_setting system.language '+a.language)
+    # Enable only diagnostics; no renderer override or packaged-code replacement.
+    guest("python3 - <<'PY'\nfrom pathlib import Path\nimport re\np=Path('/storage/.emulationstation/es_settings.cfg')\ns=p.read_text();s=re.sub(r'<bool name=\"Debug\" value=\"[^\"]*\"\\s*/>', '',s);entry='\\n<bool name=\"Debug\" value=\"true\" />\\n';s=s.replace('</config>',entry+'</config>') if '</config>' in s else s+entry;p.write_text(s)\nPY")
+    guest('rm -f /storage/.cache/cloud_sync/last-sync-link; systemctl start essway')
+    for _ in range(90):
+        r=guest('curl -s -m 3 http://127.0.0.1:1234/isIdle', check=False)
+        if r.returncode == 0 and r.stdout.strip() == '[ true ]': break
+        try:
+            if json.loads(r.stdout)==[True]: break
+        except ValueError: pass
+        time.sleep(1)
+    else: raise RuntimeError('ES not idle after settings reload')
+    subprocess.run([str(tools/'vm-visual-qa'), '--monitor', a.monitor, 'dismiss'], check=True, stdout=subprocess.DEVNULL)
+    time.sleep(6)
+    settings = guest('. /etc/profile >/dev/null 2>&1; test "$(get_setting global.retroachievements.offlineproxy)" = 1 && pidof emulationstation')
+    check(bool(settings.stdout.strip()) and settings.stdout.strip() != old_es, 'settings loaded by restarted ES')
+    lifecycle_command="p=$(pidof emulationstation); test -n \"$p\" && awk '{print $1, $22}' /proc/$p/stat"
+    lifetime=guest(lifecycle_command).stdout.strip()
+    (a.out/'es-before.txt').write_text(lifetime+'\n')
+    shot('baseline')
+    cases = ['accept', 'refuse'] if a.failure_control else ['accept']
+    for mode in cases:
+        guest('rm -f /storage/.cache/cloud_sync/last-sync-link; python3 /storage/.cache/ra-ui-qa/fixture.py seed')
+        check(guest('raofflineproxy-ctl pending').stdout.strip()=='1', mode+' actual ctl pending1')
+        log_offset=int(guest('wc -l < /var/log/es_log.txt').stdout.strip())
+        link_cycle(mode)
+        # Capture while pending is held; the actual flusher has not been invoked.
+        time.sleep(7)
+        shot(mode+'-sending')
+        response=guest('python3 /storage/.cache/ra-ui-qa/fixture.py '+mode).stdout
+        (a.out/(mode+'-flush.json')).write_text(response)
+        expected='sent' if mode=='accept' else 'not-sent'
+        stamp=''
+        for i in range(60):
+            stamp=guest('cat /storage/.cache/cloud_sync/last-sync-link 2>/dev/null', check=False).stdout.strip()
+            if stamp: break
+            time.sleep(.5)
+        if mode=='refuse' and not stamp:
+            for i in range(45):
+                stamp=guest('cat /storage/.cache/cloud_sync/last-sync-link 2>/dev/null', check=False).stdout.strip()
+                if stamp: break
+                time.sleep(.5)
+        check(len(stamp.split())>=3 and stamp.split()[2]==expected, mode+' UI outcome stamp '+expected)
+        shot(mode+'-outcome')
+        (a.out/(mode+'-stamp.txt')).write_text(stamp+'\n')
+        log=guest('tail -n +'+str(log_offset+1)+' /var/log/es_log.txt | grep -E "ProxyCards:|AsyncNotification" | grep -v -i -E "key|pass|token|user|psk"', check=False).stdout
+        (a.out/(mode+'-ui.log')).write_text(log)
+        check('send card ended '+expected in log, mode+' actual UI log matches outcome')
+        pending=guest('raofflineproxy-ctl pending', check=False).stdout.strip()
+        check(pending==('0' if mode=='accept' else '1'), mode+' queue state matches outcome')
+        time.sleep(7)
+        shot(mode+'-dismissed')
+        if mode=='accept':
+            link_cycle('empty repeat')
+            time.sleep(8)
+            repeated=guest('cat /storage/.cache/cloud_sync/last-sync-link').stdout.strip()
+            check(repeated==stamp, 'empty reconnect writes no new send outcome')
+            shot('empty-repeat')
+    after=guest(identity_command).stdout
+    (a.out/'installed-after.sha256').write_text(after)
+    check(after==before, 'installed ES/ctl/compiled proxy bytes unchanged')
+    after_lifetime=guest(lifecycle_command).stdout.strip()
+    (a.out/'es-after.txt').write_text(after_lifetime+'\n')
+    check(after_lifetime==lifetime, 'same ES PID and start ticks throughout proof')
+    check(guest("pgrep -f '^/usr/bin/retroarch'", check=False).returncode == 1, 'no game running after UI proof')
+    check(guest("pgrep -f '^python3 /storage/.cache/ra-ui-qa/fixture.py'", check=False).returncode == 1, 'all local provider/flusher processes exited')
+    (a.out/'result.json').write_text(json.dumps({'assertions':len(assertions),'failures':0,'language':a.language,'resolution':a.resolution,'fixture':'synthetic local award; installed flusher, ctl and ES','visual_review':'pending','source_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()},indent=2)+'\n')
+    print('PASS installed reconnect-card assertions; direct visual review required',flush=True)
+
+
+if __name__=='__main__':
+    main()

@@ -1145,6 +1145,25 @@ offline list -- and the timer graded the dialog PASS because it held still.
   is what "Wi-Fi off" means on a device. ssh dies with the link: read through
   `tools/vm-serial` until `set_link on` and `nmcli dev connect eth0`.
 
+### Reconnect-card proof without consuming another real award
+
+`tools/ra-ui-test` exercises installed ES, ctl, Storage and flusher against a
+loopback HTTP provider on a disposable guest. Clear only the owned synthetic
+store before each profile starts ES: a refusal intentionally leaves pending
+state and must not trigger the next profile's startup card. Verify the empty
+baseline directly before attributing a card to reconnect. Its synthetic account/award is
+explicitly separate from `tools/ra-offline-test`'s real award/API proof. Use a
+candidate-bound, sealed owner with the standard watcher; retain installed
+**compiled** proxy-module checksums, actual ES restart/lifetime, address loss
+and return, queue/stamp/log outcomes, frames and actual cleanup. Review the
+sending, success, refusal/retry, dismissed and empty-repeat frames directly.
+English/French at 640×480 and 1280×960 are the current matrix (#465).
+
+The ordinary award runner must reload shell-written toggles before launch and
+capture reconnect as well as game exit. Game exit deliberately has no award
+card (D-RA-030); a carousel frame there does not establish a product defect.
+Do not repeat an already-consumed real award merely to collect the UI evidence.
+
 ## One writer per QA cloud folder
 
 `tools/cloud-test-backend` serves one directory to every guest, and the

@@ -1,0 +1,83 @@
+{
+  "method": "Primary agent directly opened original full-panel PNGs; no inferred review from filenames or test results.",
+  "frames": [
+    {
+      "path": "superseded-02/artifacts/en_US-640x480/baseline.png",
+      "sha256": "c93753c050e138062866ff538a9f3db3a38265e909d1dad11263e120c8e02b50",
+      "reviewed_utc": "2026-10-06T06:46:49.280740+00:00",
+      "observation": "Complete 640x480 English carousel; no notification.",
+      "passed": true
+    },
+    {
+      "path": "superseded-02/artifacts/en_US-640x480/accept-sending.png",
+      "sha256": "c165da0b33df1de9e8cb864aa3e39b0cd383ae2101f719303aac678931270d4f",
+      "reviewed_utc": "2026-10-06T06:46:49.280838+00:00",
+      "observation": "RETROACHIEVEMENTS and SENDING 1 EARNED OFFLINE... fully visible within the card.",
+      "passed": true
+    },
+    {
+      "path": "superseded-02/artifacts/en_US-640x480/accept-outcome.png",
+      "sha256": "578c6f09a7dcdd7d60813833edb7baa7b12978f1235d5367794f8d1a644504dc",
+      "reviewed_utc": "2026-10-06T06:46:49.280895+00:00",
+      "observation": "COMPLETED and account outcome sentence fully visible; no clipping or overlap.",
+      "passed": true
+    },
+    {
+      "path": "superseded-02/artifacts/en_US-640x480/accept-dismissed.png",
+      "sha256": "e756ca077aa37427e5ed1a13d27d4243d3576116e04ed3a3b16239c19d0c86aa",
+      "reviewed_utc": "2026-10-06T06:46:49.280997+00:00",
+      "observation": "Notification has disappeared; complete carousel and help bar visible.",
+      "passed": true
+    },
+    {
+      "path": "superseded-02/artifacts/en_US-640x480/empty-repeat.png",
+      "sha256": "e756ca077aa37427e5ed1a13d27d4243d3576116e04ed3a3b16239c19d0c86aa",
+      "reviewed_utc": "2026-10-06T06:48:04.909460+00:00",
+      "observation": "No duplicate notification after an empty reconnect; complete English carousel remains.",
+      "passed": true
+    },
+    {
+      "path": "superseded-02/artifacts/en_US-640x480/refuse-sending.png",
+      "sha256": "c165da0b33df1de9e8cb864aa3e39b0cd383ae2101f719303aac678931270d4f",
+      "reviewed_utc": "2026-10-06T06:48:04.909556+00:00",
+      "observation": "The refused-send control begins with the same readable sending card, before the controlled HTTP503.",
+      "passed": true
+    },
+    {
+      "path": "superseded-02/artifacts/en_US-640x480/refuse-outcome.png",
+      "sha256": "86293658f6135191cbc7025bd0449bcaeb310c49809adbaf83429487daa392ea",
+      "reviewed_utc": "2026-10-06T06:48:50.189897+00:00",
+      "observation": "COULDN'T FINISH - IT STOPPED ANSWERING and retry sentence fully visible, without clipping or false success.",
+      "passed": true
+    },
+    {
+      "path": "superseded-02/artifacts/en_US-640x480/refuse-dismissed.png",
+      "sha256": "d2606ae0fcc44f9f28133116ce7fc319ec6c8060d32e94275c4ed6103f19db57",
+      "reviewed_utc": "2026-10-06T06:48:50.190035+00:00",
+      "observation": "Failure notification dismissed; full English carousel remains.",
+      "passed": true
+    },
+    {
+      "path": "superseded-02/artifacts/fr_FR-640x480/baseline.png",
+      "sha256": "115925a3f9333e5a2ff6916c720d1ad08c74dd80ff204c922015777fdbb33972",
+      "reviewed_utc": "2026-10-06T06:50:01.668612+00:00",
+      "observation": "Unexpected sending card already present before the French reconnect stimulus: profile isolation failed.",
+      "passed": false
+    },
+    {
+      "path": "superseded-02/artifacts/fr_FR-640x480/accept-sending.png",
+      "sha256": "115925a3f9333e5a2ff6916c720d1ad08c74dd80ff204c922015777fdbb33972",
+      "reviewed_utc": "2026-10-06T06:50:01.668692+00:00",
+      "observation": "Readable French sending card; cannot isolate its origin from the startup card in this run.",
+      "passed": true
+    },
+    {
+      "path": "superseded-02/artifacts/fr_FR-640x480/accept-outcome.png",
+      "sha256": "ebaa516f71146884117cd087c70b94d8c20c0293f0e912e2e1dc8b567ecbf937",
+      "reviewed_utc": "2026-10-06T06:50:01.668753+00:00",
+      "observation": "Readable French completion/account sentence; origin boundary remains as above.",
+      "passed": true
+    }
+  ],
+  "qualification": "Superseded: the French640 baseline already shows a card from the prior refused pending award. Requires profile isolation and owner03."
+}

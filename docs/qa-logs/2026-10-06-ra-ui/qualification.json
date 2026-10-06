@@ -1,0 +1,40 @@
+{
+  "qualified_utc": "2026-10-06T07:01:40.373352+00:00",
+  "source": "7afa9efcfc0c1ce4b89774b38878fc1b9a9063d2",
+  "candidate_bundle": "b77e47e57a4bb35f885ba78669ee8176a9ac978b27c1cbcfaad66e18f684a9f1",
+  "assertions": 109,
+  "failures": 0,
+  "skips": 0,
+  "frames_directly_reviewed": 23,
+  "profiles": [
+    {
+      "profile": "en_US-1280x960",
+      "assertions": 25,
+      "frames": 5,
+      "passed": true
+    },
+    {
+      "profile": "en_US-640x480",
+      "assertions": 34,
+      "frames": 8,
+      "passed": true
+    },
+    {
+      "profile": "fr_FR-1280x960",
+      "assertions": 25,
+      "frames": 5,
+      "passed": true
+    },
+    {
+      "profile": "fr_FR-640x480",
+      "assertions": 25,
+      "frames": 5,
+      "passed": true
+    }
+  ],
+  "installed_file_hashes_per_profile": 46,
+  "same_installed_hashes_all_profiles": true,
+  "all_four_results_zero": true,
+  "actual_cleanup_verified_utc": "2026-10-06T07:01:20.488225+00:00",
+  "boundary": "Synthetic local award/HTTP provider; installed ES/ctl/Storage/flusher. Real provider award remains separate RA33. No whole changed ordinary-runner rerun."
+}
