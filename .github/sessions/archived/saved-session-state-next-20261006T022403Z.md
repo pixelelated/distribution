@@ -3,24 +3,6 @@
 > Saved 2026-10-06T01:51:59.924599+00:00. Branch feature/conflict-resolution; primary next.
 > Previous active-job checkpoint archived at `.github/sessions/archived/saved-session-state-next-20261006T015159Z.md`.
 
-## Latest cleanup update — 2026-10-06T02:24:03.648824+00:00
-
-The maintainer ran the requested root-only helper. Its02:22:23UTC report is
-verified: UID0,237user-space processes,329kernel threads excluded,0matches,
-0unreadable entries. Exact five roots and helper SHA match the prepared scope.
-Published report path: docs/qa-logs/2026-10-05-build-storage/preservation-20261006/root-process-readback.json.
-SHA256 f61f110d3b42e737c8a395429fb507107b97cd37d9ad5eb634d81cb01240abf9.
-The prior pending-root-input statements below are historical and superseded.
-#456 preparation criteria now have their evidence; publication/closure receipt
-will be /tmp/pixelelated-root-readback-20261006/tracker-completion.json.
-Deletion of replacement03/05/06/07/08 is still UNAPPROVED and UNEXECUTED.
-The concrete proposal remains524.84GiB net; all current/protected artifacts
-remain retained. Request named removal approval only against the prepared
-report; refresh live dependencies and retained hashes before any approved
-removal. User authorization to run/inspect this read-only check is not removal
-permission. No product, build or QA status changed; remaining dedicated
-RA/Dropbox account proofs/upstream preparation still precede P4/H700.
-
 ## Start here
 
 **pixelelated** is an immutable handheld gaming Linux distribution, forked from
