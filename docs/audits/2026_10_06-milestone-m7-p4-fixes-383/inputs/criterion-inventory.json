@@ -1,0 +1,3374 @@
+[
+  {
+    "issue": 265,
+    "file": "inputs/issues/265.md",
+    "criteria": [
+      {
+        "line": 26,
+        "heading": "Acceptance criteria",
+        "checked": false,
+        "text": "A decision-register row fixes the scheme (what each component means, the pre-release form, the relation to BUILD_ID) after the maintainer's word."
+      },
+      {
+        "line": 27,
+        "heading": "Acceptance criteria",
+        "checked": false,
+        "text": "A build's image carries its version where BUILD_ID is shown today, and `tools/fork-publish-release` tags by it."
+      },
+      {
+        "line": 28,
+        "heading": "Acceptance criteria",
+        "checked": false,
+        "text": "Issues can be targeted at a version (milestone or label), and the fork's docs say how a version's contents are read."
+      },
+      {
+        "line": 29,
+        "heading": "Acceptance criteria",
+        "checked": false,
+        "text": "Applied first to the release following the one being cut now (the maintainer: *\"the release following what we're working on now\"*), with webkitgtk 2.54 (#228, D-WORKFLOW-042) as one of its named features."
+      }
+    ]
+  },
+  {
+    "issue": 310,
+    "file": "inputs/issues/310.md",
+    "criteria": [
+      {
+        "line": 21,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "The mapping is named: a diff of the interface's `/proc/<pid>/maps` across one launch/exit cycle on the VM shows the 10 MiB region and the code that makes it (the region's flags and backing in the issue)."
+      },
+      {
+        "line": 22,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "With the fix, `E1-pl069-control.sh`'s 10 cycles on the VM leave VmSize within one cycle's noise (under 1 MB of growth over 10) and VmRSS within 2 MB; equivalent launch/exit CSV and identity receipts filed under `docs/qa-logs/2026-10-03-launch-memory/`."
+      },
+      {
+        "line": 23,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "`E1-pl069.sh`'s 50 cycles with the exit sync on show the same flat VmSize, so PL-069's fix and this one are shown apart (the csv filed)."
+      },
+      {
+        "line": 24,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Already written: nothing -- the growth lives in the running process and a restart clears it."
+      }
+    ]
+  },
+  {
+    "issue": 320,
+    "file": "inputs/issues/320.md",
+    "criteria": [
+      {
+        "line": 32,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "`recordLastGood` is taken under the same lock as the read it records, or compares the live file's identity (size and mtime, or a hash) before publishing and skips when it changed: the `es-conf-tests` case `a script's newer good state published between the read and the record is not overwritten` seen to FAIL on the code before the fix and PASS after."
+      },
+      {
+        "line": 33,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "The `LockBusy` path does not publish a recovery record from a read it could not lock: a second `es-conf-tests` case, seen to FAIL first."
+      },
+      {
+        "line": 34,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "On a guest, a script write of `system.cfg` raced against the interface's recovery (a damaged live file restored at start-up while `set_setting` writes) leaves the last-good record at the script's newer state: the record's bytes compared after the race, in `tools/vm-qa`'s `last-good` suite or a proof script under `docs/qa-frames/`."
+      },
+      {
+        "line": 35,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "`docs/audits/2026_09_29-milestone-audit-of-the-313-fixes/05-punch-list.md` \u00a7 Deferred cites this issue, and its Phase 7 row records the commit."
+      }
+    ]
+  },
+  {
+    "issue": 327,
+    "file": "inputs/issues/327.md",
+    "criteria": [
+      {
+        "line": 20,
+        "heading": "Acceptance criteria",
+        "checked": false,
+        "text": "A frame of the page at 640x480 from `tools/vm-walks/docs/retro-achievements.steps` on the first-release candidate image shows the explanation as short lines under the rows they explain (or one short block in the description size), each row visibly separated, the approved two paragraphs wrap within the panel without clipping (D-UI-119), and the frame filed under `docs/qa-frames/` beside the before frame."
+      },
+      {
+        "line": 21,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "`tools/es-menu-map-check` PASS, the French strings for every changed sentence in the same commit (D-UI-051), `tools/vocabulary-check` PASS."
+      },
+      {
+        "line": 22,
+        "heading": "Acceptance criteria",
+        "checked": false,
+        "text": "The site's `retro-achievements/offline-achievements.png` retaken from the walk after the change."
+      }
+    ]
+  },
+  {
+    "issue": 332,
+    "file": "inputs/issues/332.md",
+    "criteria": [
+      {
+        "line": 22,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "A run of the Nova's `ledcontrol` on the host with `LED_PATH` pointed at a fixture: `brightness max|mid|min` writes three distinct `brightness` values to all eight LEDs (today it writes nothing); `battery`, `rgb` and `off` each leave the fixture in a stated state; the transcript filed here."
+      },
+      {
+        "line": 23,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Choosing the value already selected in LED COLOR or LED BRIGHTNESS applies it (the row's callback runs on a press, not only on a change), shown by the fixture's files changing on a walk of the page on a guest with the quirk's script and a fake `LED_PATH`, or by a frame of the row plus the device's sysfs read after the press."
+      }
+    ]
+  },
+  {
+    "issue": 337,
+    "file": "inputs/issues/337.md",
+    "criteria": [
+      {
+        "line": 27,
+        "heading": "Acceptance criteria",
+        "checked": false,
+        "text": "The register row that calls the direction (D-WORKFLOW-081's answer) names the fork's name and the licence terms it keeps (GPL-2 and MIT kept whole; the CC BY-SA attribution line; no ROCKNIX images)."
+      },
+      {
+        "line": 28,
+        "heading": "Acceptance criteria",
+        "checked": false,
+        "text": "A GENERIC_X64 image boots under the new name with its own splash and logo, `OS_NAME` read from `/etc/os-release`, the manual-update row visible, and no automatic upstream update request in the captured guest network evidence (frame/readback/capture filed here)."
+      },
+      {
+        "line": 29,
+        "heading": "Acceptance criteria",
+        "checked": false,
+        "text": "The approved placeholder site under the fork domain carries lineage/attribution and release/adoption links; its build/retrieval receipt is filed here. A full site is later scope (D-WORKFLOW-098)."
+      },
+      {
+        "line": 40,
+        "heading": "Added 2026-10-01: the cloud root is part of the brand transition (D-CLOUD-159)",
+        "checked": false,
+        "text": "A fresh guest on the candidate, signed in to the QA cloud, creates and uses `/pixelelated/{Saves,Backups,Content}`: `tools/cloud-test-backend ls` after a backup and a saves sync shows the three folders and nothing under `/ROCKNIX`; `grep -rn ROCKNIX projects/ROCKNIX/packages/network/rclone/sources/cloud_sync.conf*` prints nothing; `tools/vocabulary-check` passes."
+      },
+      {
+        "line": 41,
+        "heading": "Added 2026-10-01: the cloud root is part of the brand transition (D-CLOUD-159)",
+        "checked": false,
+        "text": "Every `/ROCKNIX` cloud path in the interface and the scripts is listed by the sweep (`docs/rasteratops/p0-sweep-hits.txt`, rule `cloud-path`, 56 lines) and each is changed or marked history in the same commit; the sweep re-run on the candidate's tree lists none as current."
+      },
+      {
+        "line": 50,
+        "heading": "Added 2026-10-01: the case, the placeholder mark, the tar's name, the password note (D-WORKFLOW-127 to 130)",
+        "checked": false,
+        "text": "`DISTRONAME=\"pixelelated\"`: `os-release` reads `OS_NAME=\"pixelelated\"`, the images are `pixelelated-<board>.<arch>-0.0.1.*`, the info page reads `OPERATING SYSTEM: pixelelated` (a 640x480 frame from guest d; `/etc/os-release` from the image's SYSTEM); repositories, packages and hosts stay lowercase `rasteratops`; the cloud folder is `/pixelelated` (D-CLOUD-158)."
+      },
+      {
+        "line": 51,
+        "heading": "Added 2026-10-01: the case, the placeholder mark, the tar's name, the password note (D-WORKFLOW-127 to 130)",
+        "checked": false,
+        "text": "The migration tar carries the suffix `-from-ROCKNIX` (`IMAGE_SUFFIX`), so its name passes the RC2 init's check (`init:882`): the built name is `pixelelated-H700.aarch64-0.0.1-from-ROCKNIX.tar` and `tools/vm-upgrade-rehearsal` from RC2's image applies it; the suffix is dropped in the build after 0.0.1 (D-WORKFLOW-128)."
+      },
+      {
+        "line": 52,
+        "heading": "Added 2026-10-01: the case, the placeholder mark, the tar's name, the password note (D-WORKFLOW-127 to 130)",
+        "checked": false,
+        "text": "The splash and the theme's logo carry the word mark alone until the icon arrives (D-WORKFLOW-130): the splash frame at boot and the theme's logo frame on guest d show the name in the chosen face and no pictorial mark."
+      },
+      {
+        "line": 53,
+        "heading": "Added 2026-10-01: the case, the placeholder mark, the tar's name, the password note (D-WORKFLOW-127 to 130)",
+        "checked": false,
+        "text": "The release notes and the site's ssh page say the ssh password is unchanged in 0.0.1 (D-WORKFLOW-129, #358): the notes file's line and the docs PR."
+      }
+    ]
+  },
+  {
+    "issue": 344,
+    "file": "inputs/issues/344.md",
+    "criteria": [
+      {
+        "line": 196,
+        "heading": "P0 \u2014 Read before commit",
+        "checked": true,
+        "text": "`docs/rasteratops/p0-read.md` exists with one decision per row of the base plan's \u00a72, each citing `path:line`, and its first line answers three questions: does `DISTRO=rasteratops` imply a new directory; do image and asset file names derive from `DISTRO`, `DISTRONAME` or something else; what does `rocknix-update` match on. -- done 2026-09-30, `224b73ea54`: `docs/rasteratops/p0-read.md`"
+      },
+      {
+        "line": 197,
+        "heading": "P0 \u2014 Read before commit",
+        "checked": true,
+        "text": "The sweep report from the base plan's \u00a71.15 command lists every hit in exactly one of four classes (display text; machine identity; persisted paths and network names; boot and storage contracts); every class 2 to 4 hit is marked KEEP, and any non-KEEP carries `path:line`, a reason and a reference to a recorded yes. -- done 2026-09-30, `224b73ea54`: `docs/rasteratops/p0-sweep.md and p0-sweep-hits.txt`"
+      },
+      {
+        "line": 198,
+        "heading": "P0 \u2014 Read before commit",
+        "checked": true,
+        "text": "The updater note records the mechanism, the asset pattern, redirect handling, any distro-name check, draft and pre-release handling, the manual route, and the comparison function's result on `0.0.1` against RC2's version string as a table, and names Branch A (unaided over-the-air) or Branch B (manual adoption). -- done 2026-09-30, `224b73ea54`: `docs/rasteratops/p0-updater.md`"
+      },
+      {
+        "line": 199,
+        "heading": "P0 \u2014 Read before commit",
+        "checked": true,
+        "text": "`BUILD_ID`'s derivation is quoted with `path:line`, with its timestamp and host dependence stated. -- done 2026-09-30, `224b73ea54`: `docs/rasteratops/p0-read.md \u00a7 BUILD_ID`"
+      },
+      {
+        "line": 200,
+        "heading": "P0 \u2014 Read before commit",
+        "checked": true,
+        "text": "`docs/rasteratops/support-matrix.md` exists with the columns target/arch, physical boards, QA guest, clean install, upgrade, boot medium and boot-chain deltas, recovery method, attachment status; the mandatory migration device is marked. -- done 2026-09-30, `224b73ea54`: `docs/rasteratops/support-matrix.md`"
+      },
+      {
+        "line": 201,
+        "heading": "P0 \u2014 Read before commit",
+        "checked": true,
+        "text": "`df -B1` of the build volume and `du -sb` per existing root are recorded, with the forecast as line items (old roots, new roots, source archives, VM overlays, retained candidates). -- done 2026-09-30, `224b73ea54`: `docs/rasteratops/p0-read.md \u00a7 Disk`"
+      },
+      {
+        "line": 202,
+        "heading": "P0 \u2014 Read before commit",
+        "checked": true,
+        "text": "The per-asset size limit is recorded with its source and date; the ES licence is quoted from the ES tree; the splash repository's owner is recorded; the digest behind the build container's `:latest` is recorded; `DISTRO_SRC` or its equivalent is recorded. -- done 2026-09-30, `224b73ea54`: `docs/rasteratops/p0-read.md \u00a7 Platform facts`"
+      },
+      {
+        "line": 203,
+        "heading": "P0 \u2014 Read before commit",
+        "checked": true,
+        "text": "D-WORKFLOW-088 (present in the register; absent from the run's packet) is cited, and Choice 2 of #338 is labelled or struck. -- done 2026-09-30, `224b73ea54`: `docs/rasteratops/p0-read.md \u00a7 Platform facts`"
+      },
+      {
+        "line": 204,
+        "heading": "P0 \u2014 Read before commit",
+        "checked": true,
+        "text": "`git log -- distributions/` shows no identity commit and `git tag` shows no `0.0.1`. -- done 2026-09-30, `224b73ea54`: `docs/rasteratops/p0-read.md \u00a7 Platform facts`"
+      },
+      {
+        "line": 212,
+        "heading": "P1 \u2014 Plumbing (blocking) and background",
+        "checked": false,
+        "text": "The three repositories are transferred and `rocknix-splash` forked; the ES and splash commits are pinned; every recipe URL and `git remote -v` in every worktree shows fork addresses."
+      },
+      {
+        "line": 213,
+        "heading": "P1 \u2014 Plumbing (blocking) and background",
+        "checked": false,
+        "text": "The bot token's scope inventory (repositories \u00d7 permissions \u00d7 expiry) is recorded and an expiry reminder is configured on the mail channel."
+      },
+      {
+        "line": 214,
+        "heading": "P1 \u2014 Plumbing (blocking) and background",
+        "checked": false,
+        "text": "A workflow grep finds no `pull_request`, `pull_request_target` or `workflow_run` job with `runs-on: self-hosted`; a trigger dry-run from a throwaway fork schedules no self-hosted job."
+      },
+      {
+        "line": 215,
+        "heading": "P1 \u2014 Plumbing (blocking) and background",
+        "checked": false,
+        "text": "Isolation: `sudo -u runner test -r <path>; echo $?` prints `1` for each secret path; a canary read alerts; `sudo -u runner id` shows no `docker`; `sudo -u runner sudo -l` is empty; `sudo -u runner test -r /var/run/docker.sock` fails; the setuid audit is recorded. If any check fails, the runner is shown disabled."
+      },
+      {
+        "line": 216,
+        "heading": "P1 \u2014 Plumbing (blocking) and background",
+        "checked": false,
+        "text": "The build container is mirrored under fork control; the build invocation references it by `@sha256:`; `docker inspect` or a build-log line shows that digest consumed."
+      },
+      {
+        "line": 217,
+        "heading": "P1 \u2014 Plumbing (blocking) and background",
+        "checked": false,
+        "text": "A source-tarball archive index lists every fetched tarball with its hash, in fork-owned storage inside the backup scope."
+      },
+      {
+        "line": 219,
+        "heading": "P1 \u2014 Plumbing (blocking) and background",
+        "checked": false,
+        "text": "The candidate store path and its `flock` wrapper are in place; the upstream base commit is recorded as frozen."
+      },
+      {
+        "line": 220,
+        "heading": "P1 \u2014 Plumbing (blocking) and background",
+        "checked": true,
+        "text": "The freeze is in force with the emergency exception written. -- D-WORKFLOW-111, 2026-10-01: `upstream/next` at `9fd38fa870` (fetched 2026-09-29 11:02 UTC); the exception is a security fix for a matrix target, cherry-picked by a register row."
+      },
+      {
+        "line": 228,
+        "heading": "P2 \u2014 Identity on X64",
+        "checked": false,
+        "text": "A cold `GENERIC_X64` build exits `0` with `DISTRONAME` set and `DISTRO=ROCKNIX` retained (or the split's completed build-and-boot log, if P0 supplied a reason); the build log is archived with the manifest; the concurrency setting is recorded."
+      },
+      {
+        "line": 229,
+        "heading": "P2 \u2014 Identity on X64",
+        "checked": false,
+        "text": "The brand sweep reports zero unclassified hits against `NAMING.md` allowlist vN (N recorded); an injected old-logo frame fails the template match (threshold and bounding box recorded)."
+      },
+      {
+        "line": 230,
+        "heading": "P2 \u2014 Identity on X64",
+        "checked": false,
+        "text": "The localisation reconciliation lists every touched `.po` and `.xml` entry, with no orphan."
+      },
+      {
+        "line": 231,
+        "heading": "P2 \u2014 Identity on X64",
+        "checked": false,
+        "text": "The secret sweep reports counts only, all zero."
+      },
+      {
+        "line": 232,
+        "heading": "P2 \u2014 Identity on X64",
+        "checked": false,
+        "text": "`tools/vm-qa` reads PASS bound to a candidate-store hash equal to the manifest hash, before and after the run."
+      },
+      {
+        "line": 233,
+        "heading": "P2 \u2014 Identity on X64",
+        "checked": false,
+        "text": "The upstream base commit is unchanged since P1."
+      },
+      {
+        "line": 234,
+        "heading": "P2 \u2014 Identity on X64",
+        "checked": false,
+        "text": "The RC2 guest's early signal is recorded (offered or not offered; the comparison result)."
+      },
+      {
+        "line": 235,
+        "heading": "P2 \u2014 Identity on X64",
+        "checked": false,
+        "text": "A draft release exists with only the X64 asset."
+      },
+      {
+        "line": 241,
+        "heading": "P2b \u2014 The mandatory device image",
+        "checked": false,
+        "text": "The device image is built; the manifest's input block (distribution, ES and splash commits, container digest, source index) is diff-empty against P2's; the per-image `BUILD_ID` and hash are in the manifest and the candidate store."
+      },
+      {
+        "line": 248,
+        "heading": "P3 \u2014 The migration contract on the mandatory device",
+        "checked": false,
+        "text": "Branch B: `docs/releases/device-facts.md` carries the migration device's row showing the seven-step procedure completed; the fork-aware updater prints \"manual update required\"; a network capture shows no request to the upstream host; post-upgrade hashes equal the pre-upgrade ones; the fork-to-fork proof is written as the `0.0.2` gate."
+      },
+      {
+        "line": 254,
+        "heading": "P4 \u2014 The remaining images and publication",
+        "checked": false,
+        "text": "Every matrix target is built from P2's input set; the requalification check is diff-empty, or the X64 re-run is recorded."
+      },
+      {
+        "line": 255,
+        "heading": "P4 \u2014 The remaining images and publication",
+        "checked": false,
+        "text": "Each asset's hash equals its manifest entry; each attached asset is under the recorded per-asset limit."
+      },
+      {
+        "line": 256,
+        "heading": "P4 \u2014 The remaining images and publication",
+        "checked": false,
+        "text": "The brand, secret, leak and localisation sweeps are re-run on every image with P2's PASS conditions."
+      },
+      {
+        "line": 257,
+        "heading": "P4 \u2014 The remaining images and publication",
+        "checked": false,
+        "text": "The per-SoC boot-artifact matrix is filled (upgrade against clean flash; downgrade safety); any target with a boot-chain delta has its device-facts smoke-test row before attachment."
+      },
+      {
+        "line": 258,
+        "heading": "P4 \u2014 The remaining images and publication",
+        "checked": false,
+        "text": "The component inventory file has a disposition per item; the corresponding-source bundle is retrievable and hash-verified."
+      },
+      {
+        "line": 259,
+        "heading": "P4 \u2014 The remaining images and publication",
+        "checked": false,
+        "text": "The channel-separation demonstration is recorded: a draft, pre-release or CI candidate is not offered on the stable channel."
+      },
+      {
+        "line": 260,
+        "heading": "P4 \u2014 The remaining images and publication",
+        "checked": false,
+        "text": "Each device asset has its smoke-test evidence recorded before attachment; untested assets remain held (D-WORKFLOW-120, supersedes the earlier Branch B disclosure alternative)."
+      },
+      {
+        "line": 261,
+        "heading": "P4 \u2014 The remaining images and publication",
+        "checked": false,
+        "text": "The release notes carry the support matrix with per-device verification status, adoption instructions, the trust assumption, recovery, source links, lineage and non-endorsement (not \"marks retained\"), the cloud compatibility exception, and the redirect dependency."
+      },
+      {
+        "line": 262,
+        "heading": "P4 \u2014 The remaining images and publication",
+        "checked": false,
+        "text": "The publication yes is recorded in the action log; otherwise the state reads \"stopped at immutable candidate\"."
+      },
+      {
+        "line": 266,
+        "heading": "P5 \u2014 Post-0.0.1 background",
+        "checked": false,
+        "text": "Each #341 relaxation the release needs lands with a bidirectional test: the newly permitted pattern passes and the secret and PII fixtures are still blocked."
+      },
+      {
+        "line": 267,
+        "heading": "P5 \u2014 Post-0.0.1 background",
+        "checked": false,
+        "text": "The first merge-cadence run records divergence, patch-refresh and ES conflict numbers."
+      },
+      {
+        "line": 268,
+        "heading": "P5 \u2014 Post-0.0.1 background",
+        "checked": false,
+        "text": "The hosted-QA experiment log records N=10 boot and flow runs, the failure count and the transfer cost, with no timing claims."
+      },
+      {
+        "line": 269,
+        "heading": "P5 \u2014 Post-0.0.1 background",
+        "checked": false,
+        "text": "Redirect-sunset tracking records the fielded devices that have completed one fork-to-fork update."
+      },
+      {
+        "line": 270,
+        "heading": "P5 \u2014 Post-0.0.1 background",
+        "checked": false,
+        "text": "A QA-frame retention policy is written, and a one-sided regression limit for any timing gate."
+      },
+      {
+        "line": 276,
+        "heading": "P6 \u2014 Post-0.0.1: Step 0 feasibility and the scoped review (D-WORKFLOW-102)",
+        "checked": false,
+        "text": "The feasibility proof on `GENERIC_X64` covers display ownership, compositing, focus, controller ownership and lifecycle when either process exits; any command interface is bound to localhost with the address recorded."
+      },
+      {
+        "line": 277,
+        "heading": "P6 \u2014 Post-0.0.1: Step 0 feasibility and the scoped review (D-WORKFLOW-102)",
+        "checked": false,
+        "text": "A background Tier 1 report covers the files Step 0 did not touch; the launch-slice review follows the spike."
+      },
+      {
+        "line": 278,
+        "heading": "P6 \u2014 Post-0.0.1: Step 0 feasibility and the scoped review (D-WORKFLOW-102)",
+        "checked": false,
+        "text": "The bidirectional RetroArch \u2192 runner \u2192 RetroArch interchange test (saves, states, auto-slot, pending achievements, queue location) passes before #336 Step 1."
+      },
+      {
+        "line": 299,
+        "heading": "Register rows to write, each as the sentence the row carries",
+        "checked": false,
+        "text": "Each row above the owner approves is in `docs/decision-register.md` with its ID, and `tools/register-check` passes."
+      }
+    ]
+  },
+  {
+    "issue": 349,
+    "file": "inputs/issues/349.md",
+    "criteria": [
+      {
+        "line": 29,
+        "heading": "Acceptance criteria",
+        "checked": false,
+        "text": "On the transfer page, the SETTINGS restore row's line under the label names the device the archive to be restored came from, read from the label in its file name (`backuptool` prints it; the interface reads it): a 640x480 frame from a `tools/vm-walks` walk shows `<DEVICE>, <DATE>` (D-CLOUD-164)."
+      },
+      {
+        "line": 33,
+        "heading": "Acceptance criteria",
+        "checked": false,
+        "text": "`docs/es-menu-map.md` carries the SETTINGS row's two states, offered with the device and date or dimmed with `NO SETTINGS BACKUP FROM THIS DEVICE YET` (D-UI-039, D-CLOUD-162), and `tools/es-menu-map-check` passes in `tools/vm-qa`'s `menumap` suite. *(Rewritten 2026-10-01: the choice page it named is superseded.)*"
+      },
+      {
+        "line": 34,
+        "heading": "Acceptance criteria",
+        "checked": false,
+        "text": "The public page for cloud sync says the SETTINGS row restores this device's own newest backup and is dimmed when the cloud has none from it (docs follow-up with #42, `documentation-accuracy.md`). *(Rewritten 2026-10-01: a restore from another device is not offered.)*"
+      },
+      {
+        "line": 42,
+        "heading": "Design, 2026-09-30 (D-CLOUD-156): scan first, then offer only what this device can restore",
+        "checked": false,
+        "text": "After the scan page (#350), the SETTINGS restore row is offered only when the cloud's Backups folder holds an archive whose label equals this device's `cloud_device_id --label`; with the QA cloud seeded with a foreign label only, guest d's 640x480 frame shows the row dimmed with its reason, and with its own label seeded the row is offered with `<DEVICE>, <DATE>` (D-CLOUD-164) under it."
+      },
+      {
+        "line": 43,
+        "heading": "Design, 2026-09-30 (D-CLOUD-156): scan first, then offer only what this device can restore",
+        "checked": false,
+        "text": "A restore never takes another device's archive by default: the cloud restore selects this device model's newest compatible archive and passes it to `backuptool`, and its journal line names the label it chose; the foreign-label case on guest d leaves `system.hostname` unchanged."
+      },
+      {
+        "line": 44,
+        "heading": "Design, 2026-09-30 (D-CLOUD-156): scan first, then offer only what this device can restore",
+        "checked": false,
+        "text": "The scan page's line reads, while it runs, the words approved for #350 (proposed: `CHECKING WHAT SETTINGS AND CONTENT YOUR CLOUD HAS FOR THIS DEVICE...`), and the outcome vocabulary when it ends (`es-player-text.md`); frames from the walk show both."
+      }
+    ]
+  },
+  {
+    "issue": 350,
+    "file": "inputs/issues/350.md",
+    "criteria": [
+      {
+        "line": 24,
+        "heading": "Acceptance criteria",
+        "checked": false,
+        "text": "Opening BACK UP TO THE CLOUD or RESTORE FROM THE CLOUD opens CHECKING YOUR CLOUD before any options (D-CLOUD-167), with the live line and CANCEL as the one way out while it runs (D-UI-078); the options page follows when the listing is in. A `tools/vm-walks` frame sequence shows menu, scan page, options, and no frame with a card drawn over a dialog."
+      },
+      {
+        "line": 25,
+        "heading": "Acceptance criteria",
+        "checked": false,
+        "text": "When the comparison fails (the cloud unreachable: the dead port of `tools/cloud-test-backend`), the page says why in the outcome vocabulary (`COULDN'T FINISH - \u2026`, `es-player-text.md`) and offers TRY AGAIN beside CLOSE; a frame shows it."
+      },
+      {
+        "line": 26,
+        "heading": "Acceptance criteria",
+        "checked": false,
+        "text": "`docs/es-menu-map.md` carries the page (D-UI-039); `tools/es-menu-map-check` passes."
+      },
+      {
+        "line": 27,
+        "heading": "Acceptance criteria",
+        "checked": false,
+        "text": "The interface edit passes `tools/es-syntax-check` before the pin moves, and `docs/cloud-sync-changelog.md` carries the change the day it lands."
+      },
+      {
+        "line": 35,
+        "heading": "Design, 2026-09-30 (D-CLOUD-156): the scan page is where the offer is decided",
+        "checked": false,
+        "text": "The opening scan checks folder state, settings archives by label and content location before options; CONTINUE with content selected runs the second content scan in the selected classes (D-CLOUD-167); the options page on guest d lists only rows the scan found (a frame per seeded case: settings for this label, settings for a foreign label only, content under `/ROCKNIX/Content`, content nowhere)."
+      },
+      {
+        "line": 36,
+        "heading": "Design, 2026-09-30 (D-CLOUD-156): the scan page is where the offer is decided",
+        "checked": false,
+        "text": "Its live line says what it is checking in the words approved for it (D-CLOUD-164: `CHECKING WHAT SETTINGS AND CONTENT YOUR CLOUD HAS FOR THIS DEVICE...`); the string and its French land in the same commit (D-UI-051)."
+      }
+    ]
+  },
+  {
+    "issue": 351,
+    "file": "inputs/issues/351.md",
+    "criteria": [
+      {
+        "line": 58,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "1: the Close control sits at the bottom of the page, below the note, with at least 2rem of space above it, and a tap asks a confirmation (the safe answer first) before Escape is sent; a 390 px headless-Firefox render shows the placement, and the page's load test (the harness from #330) passes."
+      },
+      {
+        "line": 59,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "2: the state line has at least `.75rem` above and below it in both states (`Checking\u2026`, `Connected.`); the two 390 px renders show it."
+      },
+      {
+        "line": 60,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "3: the image ships `CHASSIS=handset` and the installed sign-in window sends Mobile Safari in both actual HTTP requests and `navigator.userAgent`. Replacement10 signin-ui14/15/16 each retain 40 passing checks and 15 reviewed frames; `signin-ui-14/build.log` lines41\u201347 and `artifacts/signin/all-local-navigator.json` prove this. Replacement14 readback under #462 confirms handset chassis and identical installed `cloud-signin-window`/`cloud_oauth` hashes (`signin-payload-continuity.json`). This reuses explicitly identified prior runtime evidence on unchanged bytes; it is not a new authenticated Dropbox execution. The provider-owned trust-page observation is #463, outside M7."
+      },
+      {
+        "line": 61,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "4: the finishing page carries the shared `STYLE` (the card, the `h1`, the note), reads as a success, and says what happens next; a frame from guest d's window shows it."
+      },
+      {
+        "line": 62,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Every string added has its French in the same commit where it is an interface string (D-UI-051), and `tools/vocabulary-check` passes on the scripts."
+      }
+    ]
+  },
+  {
+    "issue": 352,
+    "file": "inputs/issues/352.md",
+    "criteria": [
+      {
+        "line": 32,
+        "heading": "Acceptance criteria",
+        "checked": false,
+        "text": "`cloud_content_restore --scan` lists a pre-tier folder only when this device has a folder of that name under `/storage/roms` or the name is a supported system (`legacy_dirs` / `supported_systems`), the same rule `resolve_src` applies; a `tools/cloud-round-trip` case seeds `Photos/` and `Documents/` at the root and the scan's output carries neither line."
+      },
+      {
+        "line": 33,
+        "heading": "Acceptance criteria",
+        "checked": false,
+        "text": "When the content root holds no `ROMs/` and no known system folder, the page says so instead of listing: `YOUR CLOUD HAS NO ROMS OR BIOS AT <folder>.` / `CHOOSE THE FOLDER WHERE YOUR GAMES ARE?` (approved D-CLOUD-164), with a row that opens the folder chooser; a 640x480 frame shows it."
+      },
+      {
+        "line": 34,
+        "heading": "Acceptance criteria",
+        "checked": false,
+        "text": "A CHOOSE CLOUD FOLDER page (the `GuiFileBrowser` pattern fed by `rclone lsf`, `es-native-ui.md` \u00a7 Reusable precedents) sets `CONTENT_REMOTE` through `cloud_setup`, and the transfer page re-reads it; the walk's frames show the chosen folder and the journal shows the `Content path` line."
+      },
+      {
+        "line": 35,
+        "heading": "Acceptance criteria",
+        "checked": false,
+        "text": "With `CONTENT_REMOTE` back at `/ROCKNIX/Content` and the QA cloud seeded with `Photos/` and `Documents/` at its root, CONTENT TO RESTORE on guest d lists only ROM systems and BIOS: the walk's 640x480 frame and the scan's output lines. (The Nova's own listing is re-read on its next staging, as a read, and noted here in a comment.)"
+      },
+      {
+        "line": 36,
+        "heading": "Acceptance criteria",
+        "checked": false,
+        "text": "`docs/es-menu-map.md` carries the chooser (D-UI-039); `tools/es-menu-map-check` and `tools/vocabulary-check` pass; the cloud-sync page on the site says where the content folder is chosen (`documentation-accuracy.md`)."
+      },
+      {
+        "line": 44,
+        "heading": "Design, 2026-09-30 (D-CLOUD-156): find the folder under the cloud root before asking",
+        "checked": false,
+        "text": "When the configured content root holds no `ROMs/` and no known system folder, the scan looks under the cloud root's `/ROCKNIX/Content` (the saves root's parent, `cloud_setup:629-631`) and, finding `ROMs/` or `BIOS/` there, uses that folder automatically and writes `CONTENT_REMOTE` (D-CLOUD-167, no USE IT confirmation); on guest d with `CONTENT_REMOTE=\"\"` and content seeded under `/ROCKNIX/Content`, the frame sequence advances to the options and the journal shows the `Content path` line."
+      },
+      {
+        "line": 45,
+        "heading": "Design, 2026-09-30 (D-CLOUD-156): find the folder under the cloud root before asking",
+        "checked": false,
+        "text": "Only then, with nothing found under either, the chooser opens; a frame shows it with the QA cloud's root folders listed as folders to pick from, never as systems."
+      }
+    ]
+  },
+  {
+    "issue": 353,
+    "file": "inputs/issues/353.md",
+    "criteria": [
+      {
+        "line": 31,
+        "heading": "Acceptance criteria",
+        "checked": false,
+        "text": "A carried upstream `/GAMES` (a value no player typed) counts as no folder (D-CLOUD-161). At the end of cloud setup the seeding points it at `/pixelelated` and makes the three folders without asking (D-CLOUD-169: `tools/last-good-scripts-test`'s `--settle` lines); at boot the cloud folder step offers CREATE IT / CHOOSE A FOLDER / NOT NOW (D-CLOUD-170: guest d's epic proof, case E's frame), and so does a transfer page's scan, where CREATE IT writes the three `/pixelelated` paths (case B: the conf's three lines and `tools/cloud-test-backend ls`); with a `/GAMES` that holds files the dialog is the move naming `/GAMES` (case B0's frame)."
+      },
+      {
+        "line": 32,
+        "heading": "Acceptance criteria",
+        "checked": false,
+        "text": "An earlier `/ROCKNIX` folder gets one dialog, MOVE first (D-CLOUD-160): MOVE copies, verifies and deletes (the move page's frames on guest d; `tools/cloud-test-backend ls` shows `/pixelelated` whole and no `/ROCKNIX`; a kill during the copy leaves `/ROCKNIX` intact and a second MOVE completes it); another device on `/ROCKNIX` is re-pointed at its next cloud folder step or transfer-page scan with no dialog (`tools/cloud-pair-migration` step 5's journal line, D-CLOUD-170), one that wrote there first is merged by its MOVE (step 5m, D-CLOUD-168); KEEP USING leaves a device on `/ROCKNIX` for good; NOT NOW asks again at the next boot and the next transfer page."
+      },
+      {
+        "line": 33,
+        "heading": "Acceptance criteria",
+        "checked": false,
+        "text": "The folder is settled by the cloud folder step, at the end of cloud setup and at boot (D-CLOUD-170, #363), never by a sync: with the folder absent the startup and exit syncs end in the card's `SKIPPED - YOUR CLOUD FOLDER ISN'T SET UP YET` pointing at MANAGE CLOUD STORAGE (the startup stamp's `78 no-folder`, D-CLOUD-166), and 640x480 frames show the step at the end of setup (guest d's epic proof, case L) and at boot (cases E and I)."
+      },
+      {
+        "line": 34,
+        "heading": "Acceptance criteria",
+        "checked": false,
+        "text": "The offer carries a third choice to pick a different folder (the folder chooser of #352), and its text has no icon or glyph drawn between its two sentences: a 640x480 frame from guest d and, when it is next staged, one from the device."
+      },
+      {
+        "line": 35,
+        "heading": "Acceptance criteria",
+        "checked": false,
+        "text": "The words the offer uses are approved by the maintainer before the build (`player-language.md`): proposed `YOUR CLOUD HAS NO /ROCKNIX/Saves FOLDER YET.` / `CREATE IT`, `CHOOSE A FOLDER`, `NOT NOW`; their French lands in the same commit (D-UI-051)."
+      },
+      {
+        "line": 36,
+        "heading": "Acceptance criteria",
+        "checked": false,
+        "text": "The default folder's name (`/ROCKNIX` today, D-WORKFLOW-101; `/pixelelated` proposed) is a register row on the maintainer's word, with D-WORKFLOW-101's mixed-installation test run before any default changes."
+      },
+      {
+        "line": 52,
+        "heading": "Decided 2026-10-01 (D-CLOUD-165): the set-aside moves too",
+        "checked": false,
+        "text": "The move carries `Saves-replaced` (the set-aside of conflict losers beside the saves folder) to `/pixelelated/Saves-replaced` by the same copy, verify, delete, and nothing of ours remains under the old name afterwards: a `tools/last-good-scripts-test` case seeds a set-aside copy under the old layout and reads it back under the new one with the old folder gone; the round trip on the VM shows the sync's next set-aside landing under `/pixelelated`."
+      }
+    ]
+  },
+  {
+    "issue": 354,
+    "file": "inputs/issues/354.md",
+    "criteria": [
+      {
+        "line": 66,
+        "heading": "Acceptance criteria (the epic's own; each child carries its list)",
+        "checked": false,
+        "text": "The mixed-installation test (`tools/cloud-pair-migration` on `tools/vm-pair`): guest a updated in place from RC2's image with a `/ROCKNIX` cloud, guest b a fresh install on the same QA cloud; for the default-derived fixture both confs end at `/pixelelated/{Saves,Backups,Content}`; separate populated/custom backup and explicit-root content fixtures retain their independent pointers and byte access, a save written on each arrives on the other, nothing was removed from `/ROCKNIX` before its verified copy, a guest that missed its step and wrote into the earlier folder is merged by MOVE (D-CLOUD-168), and the log names each step: its PASS lines, and its negative control on a build without the join (D-CLOUD-169) failing."
+      },
+      {
+        "line": 67,
+        "heading": "Acceptance criteria (the epic's own; each child carries its list)",
+        "checked": false,
+        "text": "The rehearsal (`tools/vm-upgrade-rehearsal`) from RC2's x64 image keeps every piece of state across the update (its PASS), and a stock-shaped conf carried across (`/GAMES`, nothing in the cloud) meets the cloud folder step at the boot after rather than a dialog from the startup sync: the startup stamp's `78 no-folder` and the step's CREATE IT offer in 640x480 frames (guest d's epic proof, case E; D-CLOUD-166, D-CLOUD-170)."
+      },
+      {
+        "line": 68,
+        "heading": "Acceptance criteria (the epic's own; each child carries its list)",
+        "checked": false,
+        "text": "`tools/vm-qa` on the candidate passes every suite, `frame-diff` against the accepted baseline explains every changed frame by one of the children, `tools/vocabulary-check` and `tools/es-menu-map-check` pass."
+      },
+      {
+        "line": 69,
+        "heading": "Acceptance criteria (the epic's own; each child carries its list)",
+        "checked": false,
+        "text": "Every string the five children add is approved by the maintainer before the build and lands with its French (D-UI-051); `docs/cloud-sync-changelog.md` carries the changes the day they land (`change-log.md`); the site's cloud-sync page names `/pixelelated` (`documentation-accuracy.md`, with #42)."
+      }
+    ]
+  },
+  {
+    "issue": 356,
+    "file": "inputs/issues/356.md",
+    "criteria": [
+      {
+        "line": 75,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "`cloud_migrate_layout` runs numbered steps from the marker's version to the build's, each with the move dialog, each copy-verify-delete, each a journal line naming the step; a `tools/pixelelated-vm-cloud-boundaries` case (paired with the retained MOVE UI proof) seeds layout 1 and ends at layout 2 with the marker written and nothing lost (hash list before and after)."
+      },
+      {
+        "line": 76,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "A second guest on the same cloud takes the new marker at its next check with no dialog (its journal line), and the version-aware candidate offered a newer or malformed marker refuses unsupported writes/marker overwrite, showing a supported outcome (frame plus byte/pointer assertions). The separate RC2\u2192candidate and mixed-installation receipts name the actual old binary and prove preservation; they do not claim RC2 implements this future protocol."
+      },
+      {
+        "line": 77,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Fault injection after each completed tier and at marker publication followed by retry preserves both sides, completes without duplicate/lost state, and lets a second guest follow; logs identify the numbered step and hashes."
+      },
+      {
+        "line": 78,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "The step for `/GAMES` and `/ROCKNIX` is step 1 and is the one #353 ships; the design note lives in `docs/rasteratops/cloud-layout.md`."
+      }
+    ]
+  },
+  {
+    "issue": 357,
+    "file": "inputs/issues/357.md",
+    "criteria": [
+      {
+        "line": 16,
+        "heading": "For 0.0.1 (the identity change, #337)",
+        "checked": true,
+        "text": "No device on the candidate posts to `stats.rocknix.org`: the timer is not enabled in the image (`systemctl list-timers` on guest d after a boot shows no `rocknix-report-stats`), and the script, if kept, has no ROCKNIX endpoint (`grep -c rocknix.org` on the shipped script prints 0)."
+      }
+    ]
+  },
+  {
+    "issue": 359,
+    "file": "inputs/issues/359.md",
+    "criteria": [
+      {
+        "line": 29,
+        "heading": "Acceptance criteria",
+        "checked": false,
+        "text": "A register row records the artwork licence and whether a trademark policy exists; `LICENSE.md`'s branding section names the fork's terms and `TRADEMARK.md` exists or the row says why not (`tools/vocabulary-check` and the licence text in the image's `/usr/share/licenses` agree: a `grep` on the image's SYSTEM)."
+      },
+      {
+        "line": 30,
+        "heading": "Acceptance criteria",
+        "checked": false,
+        "text": "The release notes' lineage and non-endorsement paragraph (#344 P4) points at the same terms."
+      }
+    ]
+  },
+  {
+    "issue": 361,
+    "file": "inputs/issues/361.md",
+    "criteria": [
+      {
+        "line": 119,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Owner disposition recorded in D-WORKFLOW-138: refresh current upstream, preserve functionality; prior pin proposal withdrawn."
+      },
+      {
+        "line": 120,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Every patch has a source-backed retained/rebased/superseded disposition and the final series applies cleanly."
+      },
+      {
+        "line": 121,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Indexed and unindexed whole-library scans retain truthful readiness, no total-library cap, interruption/retry, polite request pacing, and safe handling of server 429s; a synthetic library over 100 games proves the boundary."
+      },
+      {
+        "line": 122,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Existing cached sign-in, cache rows, ROM/image paths, pending base/subset awards and restart/reconnection survive an upgrade fixture; declined/unanswered telemetry never sends."
+      },
+      {
+        "line": 123,
+        "heading": "Acceptance criteria",
+        "checked": false,
+        "text": "Upstream Linux suites and fork proxy regression sections pass on the exact selected source; cold image build, tools/ra-offline-test and UI/progress/flush proof pass on the VM."
+      },
+      {
+        "line": 124,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "tools/fork-package-freshness exits0 on frozen replacement14; freshness05/allfour0 and exact recipe/tool verification retained. Earlier failed13 and completed12 results remain their own evidence."
+      },
+      {
+        "line": 125,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Remaining general-purpose fixes are reconciled with #168 for focused upstream contributions and regression tests. Ten tested drafts and interface-dependent dispositions are published in the linked contribution map; submission/acceptance remain separate."
+      }
+    ]
+  },
+  {
+    "issue": 362,
+    "file": "inputs/issues/362.md",
+    "criteria": [
+      {
+        "line": 68,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Owner disposition recorded in D-WORKFLOW-138: refresh with existing functionality preserved."
+      },
+      {
+        "line": 69,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Recipe uses verified 3.8.0 archive and explicit optional dependency settings; pkgcheck passes."
+      },
+      {
+        "line": 70,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Cold-build WebKitGTK 2.54.1 against libsoup 3.8.0; tools/fork-package-freshness exits 0 and the cut record names both inputs."
+      },
+      {
+        "line": 71,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "VM sign-in frames show the sign-in page in touch layout and finishing page; report the30-second combined RSS against D-WORKFLOW-048's approved loaded-page profile (about284MiB on the ordinary guest), explain any material growth, and prove the page loads in an actual1GiB guest without a kernel OOM or lost responsiveness; HTTP/TLS/redirect behavior works on the resulting image. This replaces the undefined \u201cwithin its bound\u201d: the existing tool has no numerical ceiling assertion."
+      }
+    ]
+  },
+  {
+    "issue": 363,
+    "file": "inputs/issues/363.md",
+    "criteria": [
+      {
+        "line": 73,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "No sync runs networked layout join/state/follow/migration preparation before transfer. The local `cloud_migrate_layout --superseded` string-list call and per-run legacy saves-folder existence probe required by D-CLOUD-172 remain permitted. `tools/last-good-scripts-test` reports both no-folder-check PASS lines; missing/unknown-root controls preserve D-CLOUD-172. This corrects the obsolete literal no-call wording against D-CLOUD-170/172/173, rather than removing the required absent-folder guard."
+      },
+      {
+        "line": 74,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "An exit sync on an existing earlier `/ROCKNIX` folder and the current folder meets the unchanged five-alternating-sample median difference limit of30ms. Current candidate runtime07:272/244ms medians,28ms difference, real transferred bytes and zero migration preparation. #429 preserves the original36ms failed attempt and justifies the new fixture-bound qualification."
+      },
+      {
+        "line": 75,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "`cloud_migrate_layout --needs-step` answers with no network: 0 for an earlier default, not kept, with a remote set up; 1 for the current folder, a folder of the player's own, a kept one, or no remote; 2 for a conf it cannot read; rclone never starts (`tools/last-good-scripts-test` section aa, its `--needs-step` lines)."
+      },
+      {
+        "line": 76,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "`cloud_scan --folder` is the folder item alone -- the join, the state, the quiet follow -- with no archive or root listing, the opening scan's files left as they were, and a refused join ending with its why and no state (section ab, its `--folder` lines)."
+      },
+      {
+        "line": 77,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "The transfer pages' scan still checks on every open (`tools/last-good-scripts-test` section ab)."
+      },
+      {
+        "line": 78,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "At the end of cloud setup, for a fresh install whose cloud holds its saves under an earlier folder, the step reads the move before the seeding (`tools/cloud-pair-migration` step 2's lines), and the frames show CHECKING YOUR CLOUD, the MOVE question, then CLOUD SETUP COMPLETE after the answer (`tools/vm-visual-qa` frames at 640x480)."
+      },
+      {
+        "line": 79,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "At boot, for a guest whose conf names an earlier folder it has not kept, with a remote set up, the step comes up after the startup sync's card: CHECKING YOUR CLOUD, then the question; NOT NOW brings it back at the next boot; after MOVE the next boot raises nothing and the journal reads `nothing to settle` (frames at 640x480 and the journal, guest d)."
+      },
+      {
+        "line": 80,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Offline at boot (the guest's link cut on the QEMU monitor), the step asks `FINISH CLOUD SETUP` / `YOU'RE NOT ONLINE. CONNECT TO FINISH SETTING UP YOUR CLOUD FOLDER.` with CONNECT TO WI-FI and NOT NOW (a frame at 640x480)."
+      },
+      {
+        "line": 81,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "With a settings restore's marker and an earlier folder both set at boot (written on guest d, a named stand-in for a restore followed by an update), FINISH RESTORE PROCESS comes first with nothing over it; its FINISH brings the step once the screen is free; its LATER brings neither until the next boot (frames at 640x480)."
+      },
+      {
+        "line": 82,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "`tools/cloud-pair-migration` covers both later cases: the other guest's step follows after the move (step 5), and a guest that missed its step and backed up into the earlier folder has those saves merged by MOVE with nothing left behind (step 5n; 5m checks absent-root refusal/follow) -- its PASS lines."
+      }
+    ]
+  },
+  {
+    "issue": 364,
+    "file": "inputs/issues/364.md",
+    "criteria": [
+      {
+        "line": 33,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "A backup on a carried `/GAMES` the cloud does not hold makes no `/GAMES`, sends nothing, prints `>>> offer create-saves-folder|/GAMES` and ends 0, on a deliberate run and on the exit sync's `--automatic --recent` run. A `/GAMES` the cloud holds is backed up as before, and an absent current folder is still made (`tools/last-good-scripts-test` section ad, its four PASS lines; against the previous commit the first two FAIL)."
+      },
+      {
+        "line": 34,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "At a boot on a stock-shaped conf with nothing in the cloud, the startup card reads SKIPPED with `78 no-folder`, the QA cloud holds no `/GAMES` afterwards, and the cloud folder step offers CREATE IT (guest d's epic proof, case E: its PASS lines and `tools/cloud-test-backend ls`)."
+      },
+      {
+        "line": 35,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "The cost the listing adds to an exit sync on an earlier folder (59 ms on run 101's follow benchmark, against 16 ms on run 100) is kept with its reason or removed, decided against #365's folder table (D-WORKFLOW-134)."
+      }
+    ]
+  },
+  {
+    "issue": 365,
+    "file": "inputs/issues/365.md",
+    "criteria": [
+      {
+        "line": 101,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "`docs/` carries the cloud folder's state table: each combination of conf state and cloud state, with what each actor does and the code line that does it. A walk of the table against the scripts lists no cell where two actors disagree, or names each disagreement as a decision."
+      },
+      {
+        "line": 102,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "An actor \u00d7 state coverage map names an executable assertion for every applicable T01\u2013T26 cell (and a reason for each inapplicable one); `tools/last-good-scripts-test` runs those cases and passes. The previous commit fails the cases for the cells this work changed."
+      },
+      {
+        "line": 103,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "The guest-d proof runs from `tools/` with a per-case state reset. Its exit code is non-zero when any check fails, seen once on a constructed failure."
+      },
+      {
+        "line": 104,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "The retro file over runs 95 to 101 names each pattern with its guard, in `tools/`, `.githooks/` or `.claude/rules/`, as `ceremonies.md` asks of a blindspot."
+      },
+      {
+        "line": 117,
+        "heading": "Verified independent-review additions (2026-10-02, #375)",
+        "checked": true,
+        "text": "T17 fault-and-recovery VM case proves no misleading old-root seeding after failed settlement while the wizard can finish and the boot step can retry; retained log shows initial/final pointers, README locations and sentinel hashes."
+      },
+      {
+        "line": 118,
+        "heading": "Verified independent-review additions (2026-10-02, #375)",
+        "checked": true,
+        "text": "The new independent settings/content/archive dimensions and residual cases are represented in the table and promoted guest proof with reset, failing negative control and byte/pointer assertions; source-only hypotheses remain explicitly distinguished from executed failures."
+      }
+    ]
+  },
+  {
+    "issue": 366,
+    "file": "inputs/issues/366.md",
+    "criteria": [
+      {
+        "line": 34,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "The stale-name check reads the list from `cloud_migrate_layout --superseded` and matches each entry as a whole path component; run against today's `tools/cloud-test-backend` (the bare `/GAMES` at line 806) it FAILs, and that failing run is recorded in the day's work log with its command (`engineering-practices.md` \u00a7 Guards must fail closed)."
+      },
+      {
+        "line": 35,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "`tools/cloud-test-backend saves-remote` names, on every backend `tools/cloud-test-backend backends` lists, a folder that `cloud_migrate_layout --superseded` does not list: a check in `tools/last-good-scripts-test` that loops over the backends and PASSes."
+      },
+      {
+        "line": 36,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "`tools/vm-qa`'s round-trip suite reads PASS in `report.md` on the first image built after the fix, and its `round-trip.log` names the new folder on the `SAVES_REMOTE` line."
+      },
+      {
+        "line": 37,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "The S3 backend still gets a legal bucket name: `tools/cloud-round-trip --backend s3` against a QA guest logs `only 9/9` or no shortfall line for its saves upload."
+      }
+    ]
+  },
+  {
+    "issue": 367,
+    "file": "inputs/issues/367.md",
+    "criteria": [
+      {
+        "line": 27,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "A register row records the call that no work starts without an issue that owns it, and `tools/register-check` passes. (D-WORKFLOW-132 in `bf121ce876`; `register-check: 576 IDs, each once`.)"
+      },
+      {
+        "line": 28,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "`issue-tracking.md` carries the rule, quoting the request verbatim, and says plainly what no tool checks; `tools/rules-check` passes. (\u00a7 No work without an issue in `bf121ce876`; `rules-check: 29 rule files, every one front-mattered and indexed`.)"
+      },
+      {
+        "line": 29,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "A comment on this issue lists every item of work in flight on 2026-10-02 with the issue that owns it, and every item without one has one, linked from the comment. ([the inventory](https://github.com/rasteratops/distribution/issues/367#issuecomment-5944098009); the one item without an issue now has #369.)"
+      },
+      {
+        "line": 30,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "`docs/friction-log.md` carries a line for each slowdown named above, each with its issue or an in-tree guard, and `tools/ceremony-check` reads `ok friction`. (Seven lines at 01:46 UTC in `bf121ce876`; `ok    friction  every entry since 2026-09-21 has an issue or a guard within 3 days`.)"
+      },
+      {
+        "line": 31,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "The 2026-10-02 work log carries an entry, headed by its issue, for each decision and finding of the night, and `tools/work-log-index --check` passes. (The 01:47 UTC entry in `bf121ce876`; `work-log index: current`.)"
+      },
+      {
+        "line": 32,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "For the part a tool can see, a check is proposed on this issue (for example, commits on `next` that cite no issue number) or the rule says that no tool checks it. ([proposed](https://github.com/rasteratops/distribution/issues/367#issuecomment-5944098009): 225 of 588 fork commits since 2026-09-21 cite no issue; the rule's \u00a7 What no tool checks yet says the rest.)"
+      },
+      {
+        "line": 34,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "`tools/ceremony-check` has an `issues` line that fails on a fork commit on `next` made after `bf121ce876` that cites no `#N`; its constructed positive (a commit citing none) is recorded in the work log with the command."
+      },
+      {
+        "line": 35,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "`tools/watch-job`'s usage says what `--pid` (the job's process) and `--pattern` (the log's progress line) take, and `tools/watch-job --help` prints it."
+      }
+    ]
+  },
+  {
+    "issue": 368,
+    "file": "inputs/issues/368.md",
+    "criteria": [
+      {
+        "line": 24,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "A stash written per the `session-stash` skill, at the path a new agent is pointed to first, with the previous copy archived; it names each item of work in flight with its issue, branch, worktree and next command, every process still running with its pid and status file, and what is waiting on the maintainer."
+      },
+      {
+        "line": 25,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "An agent given only the repository and the stash's path writes a resume briefing; the briefing is attached here and matches the ground truth line by line, and every place it went wrong is fixed in the stash, a rule or a tool, then re-tested."
+      },
+      {
+        "line": 26,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Every armature the test shows missing (an entry point that does not name the stash, a rule a new agent cannot find, a tool with no usage line) has an issue or is fixed, and this issue lists which."
+      }
+    ]
+  },
+  {
+    "issue": 370,
+    "file": "inputs/issues/370.md",
+    "criteria": [
+      {
+        "line": 18,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "`tools/rules-check` matches the count in either case; run against today's `AGENTS.md` (\"all 27\") it FAILs with its `count` line, and that run is recorded in the day's work log with its command."
+      },
+      {
+        "line": 19,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "`AGENTS.md` names the right number, and `tools/rules-check` prints an `ok count` line for each of `CLAUDE.md` and `AGENTS.md`."
+      }
+    ]
+  },
+  {
+    "issue": 371,
+    "file": "inputs/issues/371.md",
+    "criteria": [
+      {
+        "line": 18,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "The hook's scan for an existing branch excludes commits any `origin/*` ref already holds; pushing `feature/conflict-resolution` at `bbb2c635fe` passes, and the push's output is quoted on this issue."
+      },
+      {
+        "line": 19,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "A constructed commit on a throwaway branch that adds a credential-shaped line is still refused, and that run is recorded in the day's work log with its command (the guard keeps its positive)."
+      }
+    ]
+  },
+  {
+    "issue": 376,
+    "file": "inputs/issues/376.md",
+    "criteria": [
+      {
+        "line": 22,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "A regression case runs the production reader with RASTERATOPS OS identity and selects the same-device legacy ROCKNIX archive; its negative control at the old commit fails. The suite's PASS lines and fixture bytes are retained."
+      },
+      {
+        "line": 23,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "New/legacy same-device and foreign-device fixtures prove selection prefers this device model's newest compatible archive, the transfer-page SETTINGS row is gated on MINE (D-CLOUD-156/162), and the console retains its deliberate NEWEST fallback when only a foreign archive exists (D-CLOUD-067); selected names and restored sentinel hashes are retained."
+      },
+      {
+        "line": 24,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Local backup, pre-restore snapshot, revert and retention cases prove the documented legacy/new-name contract without dropping recoverable files; retained names and restored sentinel hashes are in the log."
+      },
+      {
+        "line": 25,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "The final branded image's RC2 upgrade rehearsal preserves existing settings archives and restores them through the cloud and local recovery entry points; logs identify image hashes and the selected archives."
+      }
+    ]
+  },
+  {
+    "issue": 377,
+    "file": "inputs/issues/377.md",
+    "criteria": [
+      {
+        "line": 22,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Production-path cases distinguish present, absent and failed parent listings; the failed listing cannot produce a create-folder offer. The old commit fails the regression case and the fixed commit's PASS lines are retained."
+      },
+      {
+        "line": 23,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "The corresponding backup/restore bucket predicates are audited together; each failed-read fixture either passes a regression test or has a documented source-based reason it cannot reach the bad branch."
+      },
+      {
+        "line": 24,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "A whole-script synthetic bucket case with a reachable superseded literal tests the backup guard; an S3 QA fault case tests the ungated restore sibling. Each injects the failed parent listing, preserves sentinel hashes, reports the truthful outcome and succeeds after the fault is removed. The normal bucket-prefixed S3 backup fixture does not reach superseded_saves_setting and cannot count as that branch\u2019s test."
+      },
+      {
+        "line": 25,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Existing absent-legacy-root refusal, current/custom-root creation and corrected pair-migration cases remain green. No extra recurring network probe is introduced without #364's timing acceptance being reverified."
+      }
+    ]
+  },
+  {
+    "issue": 379,
+    "file": "inputs/issues/379.md",
+    "criteria": [
+      {
+        "line": 22,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "A synthetic cloud with no save files and one same-device settings archive in each old layout keeps that archive discoverable after follow, settle, setup and transfer-page scan; VM log records pointer values, selected filename and restored sentinel hash."
+      },
+      {
+        "line": 23,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Controls with save files, no archives, a kept layout and an explicit custom Backups folder preserve the documented behavior; each case has a reset and negative control on the old commit."
+      },
+      {
+        "line": 24,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "The state/actor table includes saves-empty / Backups-nonempty independently of OS-name compatibility #376; main and pair migration suites remain green."
+      }
+    ]
+  },
+  {
+    "issue": 380,
+    "file": "inputs/issues/380.md",
+    "criteria": [
+      {
+        "line": 22,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Regression fixtures distinguish missing CONTENT_REMOTE, explicit empty cloud root, a derived old Content folder and a named custom folder for join, follow, settle and apply; log records before/after values."
+      },
+      {
+        "line": 23,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "On GENERIC_X64, an explicit root holding ROMs/BIOS remains the selected location after a layout transition and the scan lists/restores the original sentinel; missing-key fixtures get the documented default."
+      },
+      {
+        "line": 24,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "The contradictory seeding/migration fixtures and state table agree on one representation without silently replacing a player-selected folder; existing content-root tests remain green."
+      }
+    ]
+  },
+  {
+    "issue": 381,
+    "file": "inputs/issues/381.md",
+    "criteria": [
+      {
+        "line": 24,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "A candidate guest creates a settings archive through production cloud_backup, then opens RESTORE FROM CLOUD; the scan selects the actual archive and a640x480 frame shows SETTINGS enabled with the approved device/date text. Archive path, scan facts and frame are retained."
+      },
+      {
+        "line": 25,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Production restore consumes exactly the archive the scan selected; sentinel hash and journal verify it. Current device, legacy device name, healed previous IDs, foreign-only and flat-root fixtures preserve the documented selection behavior."
+      },
+      {
+        "line": 26,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "The old scan fails a regression using writer-shaped per-device directories; the corrected scan passes. Existing flat-root cases remain compatibility controls, not the only fixtures."
+      },
+      {
+        "line": 27,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "The final RASTERATOPS image also discovers legacy ROCKNIX-suffixed archives under those folders (#376), and main WebDAV/S3 plus pair migration suites remain green."
+      }
+    ]
+  },
+  {
+    "issue": 383,
+    "file": "inputs/issues/383.md",
+    "criteria": [
+      {
+        "line": 284,
+        "heading": "Ordered acceptance criteria",
+        "checked": true,
+        "text": "#365's T01\u2013T26 table maps each relevant actor/state cell to executable assertions or a justified inapplicable cell; #356 adds strict supported-version, numbered-step, marker-failure and interrupted retry/fleet controls; #320 has deterministic recovery-race controls; writer-shaped archive discovery is the first negative control. The promoted guest proof resets every case and exits nonzero on an injected assertion failure."
+      },
+      {
+        "line": 285,
+        "heading": "Ordered acceptance criteria",
+        "checked": false,
+        "text": "#376/#377/#379/#380/#381 and #365 settlement, #363 card ordering, #364 timing, #366 fixture defects have source fixes and retained passing/failing controls. Each owning issue carries its own evidence."
+      },
+      {
+        "line": 286,
+        "heading": "Ordered acceptance criteria",
+        "checked": false,
+        "text": "#361/#362/#386 input refresh and preservation checks pass; #310/#327/#332 carry-forward software criteria and host gates are resolved. #337's approved OS identity is integrated on the frozen upstream baseline. One recorded input set produces the candidate; clean install, RC2 upgrade, full VM QA, pair migration, visual and timing evidence identify that build."
+      },
+      {
+        "line": 287,
+        "heading": "Ordered acceptance criteria",
+        "checked": false,
+        "text": "The code-auditor review of the fixes includes the approved independent other-lab model through the Facilitator; findings are resolved and any resulting product changes rebuilt and requalified before an RC claim."
+      }
+    ]
+  },
+  {
+    "issue": 384,
+    "file": "inputs/issues/384.md",
+    "criteria": [
+      {
+        "line": 14,
+        "heading": "M7.P2: Preserve queued subset awards through the proxy refresh",
+        "checked": true,
+        "text": "The original mapping fails and the patched mapping passes, with the upstream award-parity tests passing against the patched source."
+      },
+      {
+        "line": 15,
+        "heading": "M7.P2: Preserve queued subset awards through the proxy refresh",
+        "checked": true,
+        "text": "The candidate guest preserves each subset game ID and retains the queued award in the offline/proxy regression suite."
+      },
+      {
+        "line": 16,
+        "heading": "M7.P2: Preserve queued subset awards through the proxy refresh",
+        "checked": true,
+        "text": "The candidate records the refreshed exact upstream pin, retired duplicate patch disposition and corresponding source containing the preservation fix."
+      }
+    ]
+  },
+  {
+    "issue": 385,
+    "file": "inputs/issues/385.md",
+    "criteria": [
+      {
+        "line": 18,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "A release-readiness document maps every current release goal to its owning issues, source evidence, required candidate evidence and gate (before build, RC qualification, publication or explicitly later)."
+      },
+      {
+        "line": 19,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Review all open milestone issues, package dependencies and older bug/audit carry-forwards; identify stale bodies, labels and prior-candidate exceptions without treating deferral as a fix."
+      },
+      {
+        "line": 20,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Reconcile the historical VM results against source revisions and the T01\u2013T25 migration model; name missing interruption, retry, multi-device and future-version cases."
+      },
+      {
+        "line": 21,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Record current source preflight, actual build/job/artifact status and the exact remaining ordered route; no candidate readiness from old image PASS counts."
+      },
+      {
+        "line": 22,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Reconcile milestone/delivery acceptance criteria with current decisions and evidence, including #356 and #361/#362; record the version recommendation without an unrequested identity rename."
+      },
+      {
+        "line": 23,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Link the readiness verdict and executable completion plan from #383 and the canonical session resume."
+      }
+    ]
+  },
+  {
+    "issue": 386,
+    "file": "inputs/issues/386.md",
+    "criteria": [
+      {
+        "line": 26,
+        "heading": "Acceptance criteria",
+        "checked": false,
+        "text": "Each listed package has a verified current source and consumer-compatibility result; the recipes are refreshed, or an actual parent-coupled/version constraint is documented with evidence and a recorded disposition. No unexplained old-pin exception."
+      },
+      {
+        "line": 27,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "tllist's upstream version is resolved; any freshness resolver fix has a retained failing/passing control. UNKNOWN is not CURRENT."
+      },
+      {
+        "line": 28,
+        "heading": "Acceptance criteria",
+        "checked": false,
+        "text": "tools/pkgcheck passes for changed recipes; relevant consumers build and their VM acceptance receipts identify the exact candidate inputs."
+      },
+      {
+        "line": 29,
+        "heading": "Acceptance criteria",
+        "checked": false,
+        "text": "tools/fork-package-freshness exits 0 on the frozen candidate inputs and the source manifest names the verified archives/hashes. #361/#362 qualification remains separately required."
+      }
+    ]
+  },
+  {
+    "issue": 388,
+    "file": "inputs/issues/388.md",
+    "criteria": [
+      {
+        "line": 22,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "The milestone body lists ordered phases, the current/next work, linked owning issues, exit gates, and explicit later scope; engineering builds are permitted before image-verification issues close, while RC designation requires their evidence."
+      },
+      {
+        "line": 23,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "A canonical, indexed naming rule defines milestone-name-derived M, phase-derived P, optional Epic/sub-id scope, reactive/standing titles, open-only retrofit, and same-session updates when order changes."
+      },
+      {
+        "line": 24,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Every open issue in this release has a title consistent with the milestone phase or documented milestone-wide umbrella role; live readback matches the prepared map. Closed issue titles are unchanged."
+      },
+      {
+        "line": 25,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "The active delivery/contract issue bodies, readiness document and canonical resume point at the milestone's binding phase chain; historical #344 section labels are explicitly distinguished."
+      },
+      {
+        "line": 26,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Rules/register/work-log/whitespace checks pass; the decision and source-policy provenance are recorded, with before/after tracker evidence."
+      }
+    ]
+  },
+  {
+    "issue": 389,
+    "file": "inputs/issues/389.md",
+    "criteria": [
+      {
+        "line": 22,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Changed delivery references resolve to this repository's canonical rules; link inspection and rules-check output retained."
+      },
+      {
+        "line": 23,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Resume/stash instructions reconcile canonical next, live milestone priorities and existing authorization, without a redundant continuation prompt; reviewed instruction diff retained."
+      },
+      {
+        "line": 24,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Milestone body and canonical handoff show the current M7.P1 regression work and next action; GitHub readback retained."
+      },
+      {
+        "line": 25,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "A failing production-script migration regression is recorded under #356/#365, demonstrating that delivery has resumed."
+      }
+    ]
+  },
+  {
+    "issue": 390,
+    "file": "inputs/issues/390.md",
+    "criteria": [
+      {
+        "line": 18,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "The fixture returns absence for a missing marker, returns stored marker bytes, and retains rcat bytes; targeted setup cases exercise both path and bucket modes."
+      },
+      {
+        "line": 19,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "The complete host script suite has no regressions from the fixture correction; output and source revision retained."
+      },
+      {
+        "line": 20,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "The marker failure is recorded as fixture evidence, distinct from the reproduced production failures on #356."
+      }
+    ]
+  },
+  {
+    "issue": 391,
+    "file": "inputs/issues/391.md",
+    "criteria": [
+      {
+        "line": 22,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Historical RC2/run101 controls reproduce all four failures before the fix, then recover every owned payload and complete marker publication; retained logs identify predecessor script hashes and before/after pointers/hashes."
+      },
+      {
+        "line": 23,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Recovery remains interruptible and repeatable; controls retain custom content/root choices, refuse unmarked foreign destination conflicts, and preserve both versions when an allowed merge is required."
+      },
+      {
+        "line": 24,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Candidate VM/upgrade proof verifies the inherited partial state and its recovery, naming the image and showing payload hashes and the supported retry/move path."
+      }
+    ]
+  },
+  {
+    "issue": 392,
+    "file": "inputs/issues/392.md",
+    "criteria": [
+      {
+        "line": 18,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Empty/failed remote discovery produces a nonzero setup refusal for both transfer scripts, with unchanged pointers/payloads and no create-folder offer; before/after production-script receipts retained."
+      },
+      {
+        "line": 19,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "A writable local path supplied as the cloud path is not read or written when no remote is linked; configured-cloud controls continue to pass."
+      },
+      {
+        "line": 20,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Candidate guest evidence records the refusal/outcome and unchanged bytes for direct and automatic calls."
+      }
+    ]
+  },
+  {
+    "issue": 393,
+    "file": "inputs/issues/393.md",
+    "criteria": [
+      {
+        "line": 29,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "A retained regression reproduces the old false stall when the main"
+      },
+      {
+        "line": 32,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Controls prove a genuinely quiet live process reports suspected"
+      },
+      {
+        "line": 35,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "A replacement host watcher has a live heartbeat and retained PID,"
+      },
+      {
+        "line": 38,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Rules, work log and canonical checkpoint explain the signal and its"
+      }
+    ]
+  },
+  {
+    "issue": 394,
+    "file": "inputs/issues/394.md",
+    "criteria": [
+      {
+        "line": 26,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Native device/image/package builds and Docker build targets enter a"
+      },
+      {
+        "line": 30,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Each top-level run retains private log, PID, atomic result and status"
+      },
+      {
+        "line": 34,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Passing and injected failure controls prove return-code, argument,"
+      },
+      {
+        "line": 37,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Canonical commands/rules and CI or push checks enforce the route;"
+      }
+    ]
+  },
+  {
+    "issue": 395,
+    "file": "inputs/issues/395.md",
+    "criteria": [
+      {
+        "line": 29,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Future long jobs name a working delivery mechanism as well as the"
+      },
+      {
+        "line": 32,
+        "heading": "Acceptance criteria",
+        "checked": false,
+        "text": "Completion, nonzero failure, and death without a result produce"
+      },
+      {
+        "line": 36,
+        "heading": "Acceptance criteria",
+        "checked": false,
+        "text": "Define and verify delivery when the conversation is disconnected, or"
+      },
+      {
+        "line": 40,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Rules, milestone priorities, work log and resume agree on the mechanism,"
+      }
+    ]
+  },
+  {
+    "issue": 396,
+    "file": "inputs/issues/396.md",
+    "criteria": [
+      {
+        "line": 16,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "The archive-name assertion accepts a device-labelled ROCKNIX writer archive on both display identities and refuses RASTERATOPS writer suffixes, wrong/missing device labels and malformed stamps; retained before/after controls prove the guard."
+      },
+      {
+        "line": 17,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "A corrected complete cloud round-trip passes against the unchanged branded candidate, with archive integrity and old/new reader compatibility preserved in its log."
+      },
+      {
+        "line": 18,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "The initial failure and harness source hash are retained with candidate test evidence; the live M7 priority and handoff name the outcome."
+      }
+    ]
+  },
+  {
+    "issue": 397,
+    "file": "inputs/issues/397.md",
+    "criteria": [
+      {
+        "line": 14,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Branded image assembly installs LICENSE.md and TRADEMARK.md in `/usr/share/licenses/rasteratops/`, byte-identical to the source, with ordinary readable file permissions and no copied credentials."
+      },
+      {
+        "line": 15,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "A retained negative control proves absence on the first candidate; actual build/staging proof verifies the correction and all required package/instruction checks pass."
+      },
+      {
+        "line": 16,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "A replacement immutable candidate's clean-install and upgrade readbacks carry both source-identical files; the candidate manifest and live M7 status identify the replacement rather than marking the old image qualified."
+      }
+    ]
+  },
+  {
+    "issue": 398,
+    "file": "inputs/issues/398.md",
+    "criteria": [
+      {
+        "line": 14,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "The actual assertion accepts both two-field and extended valid nonzero stamps, rejects success and malformed/missing/out-of-range codes; retained old-source controls reproduce the false failure."
+      },
+      {
+        "line": 15,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Full seven-case WebDAV link-loss rerun passes against unchanged candidate bytes (or names separately owned remaining defects), with interruption/timeout/retry evidence retained and no relaxed time bounds."
+      },
+      {
+        "line": 16,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Initial failure, correction/harness hashes, test results and current priority are retained in the issue, work log and canonical checkpoint."
+      }
+    ]
+  },
+  {
+    "issue": 399,
+    "file": "inputs/issues/399.md",
+    "criteria": [
+      {
+        "line": 25,
+        "heading": "Acceptance",
+        "checked": true,
+        "text": "vm-qa selects the same QA key as vm-pair, preserving the existing default; source controls identify selected paths."
+      },
+      {
+        "line": 26,
+        "heading": "Acceptance",
+        "checked": true,
+        "text": "A fresh run with a key different from the default authenticates and executes the actual link suite; retained report and key-public-digest comparison prove it."
+      },
+      {
+        "line": 27,
+        "heading": "Acceptance",
+        "checked": true,
+        "text": "Preserve the initial setup failure, normal watcher terminal result and owned cleanup; link-02 receipts."
+      }
+    ]
+  },
+  {
+    "issue": 400,
+    "file": "inputs/issues/400.md",
+    "criteria": [
+      {
+        "line": 14,
+        "heading": "Acceptance",
+        "checked": true,
+        "text": "Retain failed WebDAV report, retry output and source trace; distinguish observed facts from the fixture diagnosis."
+      },
+      {
+        "line": 15,
+        "heading": "Acceptance",
+        "checked": true,
+        "text": "The archive-upload interruption fixture remains demonstrably in flight when cut, yet its healthy retry drains inside the unchanged product stall bound; actual WebDAV proof has no accepted skip."
+      },
+      {
+        "line": 16,
+        "heading": "Acceptance",
+        "checked": true,
+        "text": "Matching strict S3 interruption/retry/content/marker proof passes on the same candidate; all other cases keep their original evidence."
+      },
+      {
+        "line": 17,
+        "heading": "Acceptance",
+        "checked": true,
+        "text": "Record source, hashes, result delivery and remaining qualification status in the milestone/checkpoint/work log."
+      }
+    ]
+  },
+  {
+    "issue": 401,
+    "file": "inputs/issues/401.md",
+    "criteria": [
+      {
+        "line": 33,
+        "heading": "Acceptance",
+        "checked": true,
+        "text": "Retain both original failures and code/history trace with actual guest evidence."
+      },
+      {
+        "line": 34,
+        "heading": "Acceptance",
+        "checked": true,
+        "text": "Content network operations stop after bounded inactivity across provider SDK retries; progressing large transfers and cancellation remain functional. Actual-source stalled/progressing/failure controls prove the distinction."
+      },
+      {
+        "line": 35,
+        "heading": "Acceptance",
+        "checked": true,
+        "text": "WebDAV and S3 content backup/restore and affected scan cases pass real link-loss/retry/whole-byte/stamp checks under unchanged bounds on the replacement image."
+      },
+      {
+        "line": 36,
+        "heading": "Acceptance",
+        "checked": true,
+        "text": "Full affected host/package gates and image upgrade/clean qualification pass; source, artifact and remaining priorities are recorded."
+      }
+    ]
+  },
+  {
+    "issue": 402,
+    "file": "inputs/issues/402.md",
+    "criteria": [
+      {
+        "line": 14,
+        "heading": "Acceptance",
+        "checked": true,
+        "text": "Initial too-fast precondition failure and endpoint/candidate/harness identity retained."
+      },
+      {
+        "line": 15,
+        "heading": "Acceptance",
+        "checked": true,
+        "text": "Corrected fixture proves an actual in-flight S3 listing and absent route during the cut; a completed-before-cut control still fails."
+      },
+      {
+        "line": 16,
+        "heading": "Acceptance",
+        "checked": true,
+        "text": "Actual interrupted scan reports a bounded honest result and plain rerun returns all expected systems/BIOS; original successful WebDAV scan remains covered."
+      }
+    ]
+  },
+  {
+    "issue": 403,
+    "file": "inputs/issues/403.md",
+    "criteria": [
+      {
+        "line": 24,
+        "heading": "Acceptance",
+        "checked": true,
+        "text": "Support an explicit image-system root for both BusyBox and rclone, fail closed if that named input is absent/unusable, and discover branded roots when no override is named."
+      },
+      {
+        "line": 25,
+        "heading": "Acceptance",
+        "checked": true,
+        "text": "Actual selection controls fail against the old logic and pass with the correction, including a spaced path and an invalid explicit root."
+      },
+      {
+        "line": 26,
+        "heading": "Acceptance",
+        "checked": true,
+        "text": "Full host regression runs with the candidate executable hashes retained; correct any failures and record exact source scope."
+      }
+    ]
+  },
+  {
+    "issue": 404,
+    "file": "inputs/issues/404.md",
+    "criteria": [
+      {
+        "line": 20,
+        "heading": "Acceptance",
+        "checked": true,
+        "text": "Correct the final per-case frame count to match actual numbered PNGs, retaining the separate boot/continuous-capture directories."
+      },
+      {
+        "line": 21,
+        "heading": "Acceptance",
+        "checked": true,
+        "text": "Compare the corrected count against actual retained H/A/L artifacts and preserve the original misleading logs."
+      },
+      {
+        "line": 22,
+        "heading": "Acceptance",
+        "checked": true,
+        "text": "Record the correction with the final matrix receipts; do not reinterpret screenshot existence as passing visual quality."
+      }
+    ]
+  },
+  {
+    "issue": 405,
+    "file": "inputs/issues/405.md",
+    "criteria": [
+      {
+        "line": 11,
+        "heading": "M7.P3: Restore sign-in memory tool help",
+        "checked": true,
+        "text": "Both --help and -h print the documented port/URL/seconds/key/JSON usage without implementation text and exit0."
+      },
+      {
+        "line": 12,
+        "heading": "M7.P3: Restore sign-in memory tool help",
+        "checked": true,
+        "text": "Keep runtime measurement unchanged; preserve the actual before/after help receipt."
+      }
+    ]
+  },
+  {
+    "issue": 406,
+    "file": "inputs/issues/406.md",
+    "criteria": [
+      {
+        "line": 16,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Retain and inspect baseline/current five-second frames plus current eight-second/completed frames, recording the expected statistics and no clipping."
+      },
+      {
+        "line": 17,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "A narrowly scoped claim names this issue and this baseline/sample; the same78-frame comparison passes with zero unclaimed/missing frames."
+      },
+      {
+        "line": 18,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Removing the new claim or shrinking it beyond the observed region fails the original comparison; baseline bytes remain unchanged."
+      }
+    ]
+  },
+  {
+    "issue": 407,
+    "file": "inputs/issues/407.md",
+    "criteria": [
+      {
+        "line": 18,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "A focused old-code control observes the empty destination; corrected output clearly names the cloud root while retaining named-folder output."
+      },
+      {
+        "line": 19,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Explicit CONTENT_REMOTE remains empty after the actual transition and root ROM/BIOS restores remain byte-identical on the resulting image."
+      }
+    ]
+  },
+  {
+    "issue": 408,
+    "file": "inputs/issues/408.md",
+    "criteria": [
+      {
+        "line": 18,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Exact branded image reproduces missing automatic account discovery while an explicit-path control succeeds; no credential values enter evidence."
+      },
+      {
+        "line": 19,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "A focused upstream-compatible patch recognizes both identities, preserves unrelated-platform behavior and configured overrides, and passes old-code negative controls."
+      },
+      {
+        "line": 20,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "The next image's packaged resolver automatically reads the canonical synthetic account, and existing cache/sign-in/base/subset queue state survives reopen."
+      }
+    ]
+  },
+  {
+    "issue": 409,
+    "file": "inputs/issues/409.md",
+    "criteria": [
+      {
+        "line": 236,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Record the new identity hierarchy and lowercase default in the append-only decision register; reconcile active naming policy, instructions, milestone order and open issue criteria. Retain historical attribution and closed titles."
+      },
+      {
+        "line": 237,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Classify old-name references across active source, tools, sibling repos and infrastructure; retain an explicit compatibility/history/owner/character allowlist. Canonical org URLs and relevant Git remotes resolve to pixelelated; the personal account is verified as rasteratops and the bot identity is unchanged. Historical maxengel-owned forks retain their verified locations; rasteratops/rocknix.org returned 404 and no transfer is assumed."
+      },
+      {
+        "line": 238,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Distribution/ES/splash/theme and licence/trademark source use the agreed lowercase identity and Tiny5 Duo LCD wordmark alone. Exact source pins and existing lint/syntax/identity guards pass; obsolete brand references are classified rather than globally replaced."
+      },
+      {
+        "line": 239,
+        "heading": "Acceptance criteria",
+        "checked": false,
+        "text": "New setup defaults to /pixelelated; configured /ROCKNIX and /GAMES selections and archive discovery remain usable. Isolated controls and candidate clean/upgrade receipts demonstrate no silent cloud relocation or archive loss."
+      },
+      {
+        "line": 240,
+        "heading": "Acceptance criteria",
+        "checked": false,
+        "text": "The update asset naming/procedure satisfies the ROCKNIX RC2 predecessor init check, and the new image accepts future pixelelated updates. Retain actual upgrade evidence for ROCKNIX RC2."
+      },
+      {
+        "line": 241,
+        "heading": "Acceptance criteria",
+        "checked": false,
+        "text": "Verify the build-container namespace/digest and source fetches. A monitored build with tested delivery produces a newly frozen pixelelated artifact; retain the image identity/manual-update/brand/licence/source/localisation checks and affected default/upgrade/visual/performance evidence. Do not rename or relabel replacement02."
+      },
+      {
+        "line": 242,
+        "heading": "Acceptance criteria",
+        "checked": false,
+        "text": "Expand the approved P4 primary plus Fable5.1 Facilitator fixes review to this transition; resolve findings and renew affected artifact proofs before calling the image an RC."
+      },
+      {
+        "line": 266,
+        "heading": "Interim wordmark system \u2014 owner refinement",
+        "checked": true,
+        "text": "Saved specification and editable master explicitly name Tiny5 Duo LCD; recorded font hash matches the existing approved face."
+      },
+      {
+        "line": 267,
+        "heading": "Interim wordmark system \u2014 owner refinement",
+        "checked": true,
+        "text": "Six outlined SVGs and two monochrome variants reproduce from the pinned font/palettes; exact RGB555 colors, alpha gaps, orientation and hard boundaries pass artifact checks."
+      },
+      {
+        "line": 268,
+        "heading": "Interim wordmark system \u2014 owner refinement",
+        "checked": true,
+        "text": "Retained light/dark/midtone/saturated and small-size proofs demonstrate the portable assets; runtime integration remains separately tracked before the image freeze."
+      }
+    ]
+  },
+  {
+    "issue": 410,
+    "file": "inputs/issues/410.md",
+    "criteria": [
+      {
+        "line": 26,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Guard tests cover allowed/no-op/refused paths, memory headroom, exact file/command scope, concurrency, active jobs, malformed observations, failed swapoff/swapon and interruption recovery; retain failing controls and exit results."
+      },
+      {
+        "line": 27,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Preflight remains read-only by default, invokes only the installed fixed helper with explicit opt-in, and verifies fresh memory state; missing privilege or helper fails visibly."
+      },
+      {
+        "line": 28,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Reviewed installer stages root-owned immutable helper and exact-action sudoers policy; visudo validates it and hostile environment/extra arguments cannot expand privilege. Installation readback identifies exact bytes/owner/mode and the permitted action."
+      },
+      {
+        "line": 29,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Future-build instructions name the mechanism, limitations and recovery; existing frozen build/VM evidence stays unchanged. Record isolated-test versus actual-host verification scopes separately."
+      }
+    ]
+  },
+  {
+    "issue": 412,
+    "file": "inputs/issues/412.md",
+    "criteria": [
+      {
+        "line": 18,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "A retained control with structured overall progress followed by package counters reproduces the incorrect total before the fix and passes with the fix; package-only output is never represented as overall build progress."
+      },
+      {
+        "line": 19,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Build invocations distinguish the structured pkgbuilder counter from package activity; custom/generic QA progress remains usable. Retain passing shared watcher/runner lifecycle checks."
+      },
+      {
+        "line": 20,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Live-log read-only replay reports the actual structured total; the currently running build scripts and watcher remain unchanged. Record the corrected future-run behavior and its limits."
+      }
+    ]
+  },
+  {
+    "issue": 413,
+    "file": "inputs/issues/413.md",
+    "criteria": [
+      {
+        "line": 16,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "The stale fixture failure is retained; the corrected current fixture identifies the pinned image argument and exercises the actual host/inner shared-run behavior successfully."
+      },
+      {
+        "line": 17,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "The complete current routing/lifecycle regression run passes with its original assertions and without invoking real Docker or changing frozen build inputs. Retain a negative control for the old namespace lookup."
+      }
+    ]
+  },
+  {
+    "issue": 414,
+    "file": "inputs/issues/414.md",
+    "criteria": [
+      {
+        "line": 20,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Correct the compatibility note after verifying the exact pinned storage schema and caller assumptions; retain the equality and current-Storage test evidence."
+      },
+      {
+        "line": 21,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "An early package/preflight check fails for stale, missing or malformed recorded pins, passes the corrected package, and does not bypass the existing runtime/schema assertion."
+      },
+      {
+        "line": 22,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "A replacement artifact includes the corrected script and passes the affected script suite; preserve the original failed candidate and its evidence."
+      }
+    ]
+  },
+  {
+    "issue": 415,
+    "file": "inputs/issues/415.md",
+    "criteria": [
+      {
+        "line": 18,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Inspect and retain all three baseline/current frame pairs; verify that the unclaimed changes are the approved lowercase cloud-folder text."
+      },
+      {
+        "line": 19,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Update only those three text claims against the unchanged baseline. The same78 actual frames pass comparison; missing/undersized claims and a changed pixel outside them still fail."
+      },
+      {
+        "line": 20,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Record the failure and fix in the QA ledger and source handoff; preserve the original report and do not represent the scripts-failing candidate as qualified."
+      }
+    ]
+  },
+  {
+    "issue": 416,
+    "file": "inputs/issues/416.md",
+    "criteria": [
+      {
+        "line": 22,
+        "heading": "Historical source record",
+        "checked": true,
+        "text": "Retained before evidence identifies each stale display/help string and its consumer, distinguishing retained machine/attribution values."
+      },
+      {
+        "line": 23,
+        "heading": "Historical source record",
+        "checked": true,
+        "text": "Corrected source uses lowercase pixelelated or clear neutral wording and passes relevant XML/shell/vocabulary/identity checks; persisted command/path/attribution contracts stay verified."
+      },
+      {
+        "line": 24,
+        "heading": "Historical source record",
+        "checked": true,
+        "text": "A newly frozen candidate's installed metadata/status/help bytes and relevant VM frame contain the corrections; the complete brand classification has zero unexplained hits."
+      },
+      {
+        "line": 25,
+        "heading": "Historical source record",
+        "checked": true,
+        "text": "M7, #409 and readiness/checkpoint records identify the new artifact and its remaining qualification accurately."
+      }
+    ]
+  },
+  {
+    "issue": 417,
+    "file": "inputs/issues/417.md",
+    "criteria": [
+      {
+        "line": 12,
+        "heading": "M7.P3: Escape the literal ampersand in Tools metadata",
+        "checked": true,
+        "text": "The original strict-parser failure is retained and the corrected XML parses."
+      },
+      {
+        "line": 13,
+        "heading": "M7.P3: Escape the literal ampersand in Tools metadata",
+        "checked": true,
+        "text": "Decoding the corrected entity preserves the literal player-visible ampersand, with no unrelated metadata change from this correction."
+      },
+      {
+        "line": 14,
+        "heading": "M7.P3: Escape the literal ampersand in Tools metadata",
+        "checked": true,
+        "text": "The replacement candidate installs the valid XML bytes; retain an installed-file parse receipt."
+      }
+    ]
+  },
+  {
+    "issue": 418,
+    "file": "inputs/issues/418.md",
+    "criteria": [
+      {
+        "line": 10,
+        "heading": "M7.P3: Supply the pinned ES input to artifact analysis",
+        "checked": true,
+        "text": "Preserve the original failure and its scope; do not rewrite its results."
+      },
+      {
+        "line": 11,
+        "heading": "M7.P3: Supply the pinned ES input to artifact analysis",
+        "checked": true,
+        "text": "A fresh launcher explicitly supplies ES_SRC, and an actual pre-launch input verification passes in that environment."
+      },
+      {
+        "line": 12,
+        "heading": "M7.P3: Supply the pinned ES input to artifact analysis",
+        "checked": true,
+        "text": "The fresh watched run extracts the immutable artifact, verifies image/update SYSTEM equality, and returns matching terminal results."
+      }
+    ]
+  },
+  {
+    "issue": 419,
+    "file": "inputs/issues/419.md",
+    "criteria": [
+      {
+        "line": 29,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "The new upstream archive hash, exact Linux/native subtree equality, unchanged submodule pins and all15 zero-fuzz patch applications are retained in a receipt."
+      },
+      {
+        "line": 30,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Package pin/schema-review note agree, package lint and live freshness pass; unchanged Linux tests are traced to byte-identical tested source, with any changed Linux path requiring its regression proof."
+      },
+      {
+        "line": 31,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "A new explicit frozen input set includes the refreshed pin and #416/#417; original98d0 frozen source and completed cache-copy provenance remain preserved. The unbuilt independent cache may be relocated after its copying/verification processes exit."
+      },
+      {
+        "line": 32,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Corrected image source/payload custody and installed proxy preservation/default VM evidence name the new build; no prior-artifact pass is transferred."
+      }
+    ]
+  },
+  {
+    "issue": 420,
+    "file": "inputs/issues/420.md",
+    "criteria": [
+      {
+        "line": 21,
+        "heading": "Verification progress \u2014 2026-10-04 19:21 UTC",
+        "checked": true,
+        "text": "Diagnose the absent hook from actual guest process/service/probe evidence; retain settings-01 failure unchanged."
+      },
+      {
+        "line": 22,
+        "heading": "Verification progress \u2014 2026-10-04 19:21 UTC",
+        "checked": true,
+        "text": "A fresh owner proves recovery paused after releasing the settings lock, actual script writers publish newer bytes, and the same installed ES preserves those bytes on resumption; captured result JSON passes."
+      },
+      {
+        "line": 23,
+        "heading": "Verification progress \u2014 2026-10-04 19:21 UTC",
+        "checked": true,
+        "text": "Missing probe/interleaving cannot pass; bounded failure, exact product hash checks, original settings restoration and owned guest cleanup are retained."
+      }
+    ]
+  },
+  {
+    "issue": 421,
+    "file": "inputs/issues/421.md",
+    "criteria": [
+      {
+        "line": 23,
+        "heading": "Source and engineering build pass \u2014 2026-10-04 19:57 UTC",
+        "checked": true,
+        "text": "All four settings writers preserve restrictive input modes, including a private recovery record and permissive pre-existing temporary, with byte-correct set/delete/sort/pair operations; old-source controls fail and corrected controls pass."
+      },
+      {
+        "line": 24,
+        "heading": "Source and engineering build pass \u2014 2026-10-04 19:57 UTC",
+        "checked": true,
+        "text": "chksysconfig backup/restore retains the privacy of its source/destination; failures leave original published bytes and report failure."
+      },
+      {
+        "line": 25,
+        "heading": "Source and engineering build pass \u2014 2026-10-04 19:57 UTC",
+        "checked": true,
+        "text": "Corrected image clean/actual-RC2 qualification plus installed settings-race/mode proof pass; exact hashes bind the new candidate and original02163 results remain retained."
+      }
+    ]
+  },
+  {
+    "issue": 422,
+    "file": "inputs/issues/422.md",
+    "criteria": [
+      {
+        "line": 88,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "The failing owner, screenshot, status and actual cleanup are retained."
+      },
+      {
+        "line": 89,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Candidate-bound UI walks explicitly declare their first-row fixture and no longer depend on a full counted wrap; syntax/source controls pass."
+      },
+      {
+        "line": 90,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "A fresh owner completes both language/panel walks; actual frames show the intended pages and capture dimensions match."
+      },
+      {
+        "line": 91,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Accepted replacement09 UI13/boot04 proof is named by M7/checkpoint and fresh predecessor09 dependency before launch. Original UI06 interruption and UI07 boot failure remain unchanged; superseded predecessor03 is never used."
+      }
+    ]
+  },
+  {
+    "issue": 424,
+    "file": "inputs/issues/424.md",
+    "criteria": [
+      {
+        "line": 18,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Retain exact installed negative evidence and identify the source/environment boundary."
+      },
+      {
+        "line": 19,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Add a focused regression that fails against the old launch/profile and proves OS_NAME reaches the actual child without unrelated identity/config changes."
+      },
+      {
+        "line": 20,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "A replacement candidate's clean and retained-storage ES process receives pixelelated; actual menu and manual-update frames show the intended behavior."
+      },
+      {
+        "line": 21,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Reconcile the sweep/identity checks so a correct os-release file alone cannot close this consumer criterion; retain the superseded artifact's results honestly."
+      }
+    ]
+  },
+  {
+    "issue": 425,
+    "file": "inputs/issues/425.md",
+    "criteria": [
+      {
+        "line": 14,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Original failed log/status and actual cleanup/backing checks are retained."
+      },
+      {
+        "line": 15,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Parser controls reject missing result and preserve actual nonzero status while accepting silent and noisy success."
+      },
+      {
+        "line": 16,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "A fresh installed-owner run completes all five RC2-created states, including marker-failure boot/scan retry and no-change repeat checks."
+      }
+    ]
+  },
+  {
+    "issue": 426,
+    "file": "inputs/issues/426.md",
+    "criteria": [
+      {
+        "line": 64,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Retain exact archive hash, consumed source review, native comparison and coupled pins: source review and comparison.json in `docs/qa-logs/2026-10-05-proxy-7252fc/`."
+      },
+      {
+        "line": 65,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "All15 patches apply at fuzz0; recipe/schema/freshness agree. Actual5816=0:815 patched upstream tests with native hashing/no skips,11 downstream integration tests,1719 host scripts PASS/0FAIL/0SKIP. Source seals and three recorded result channels verify; real runner/watcher/command absent03:11:24. Original failed test attempts remain retained."
+      },
+      {
+        "line": 66,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Freeze/build7252fc with the #433 splash repair; retain exact source/payload and new-image installed preservation/subset HTTP proof. Old candidate successes do not close this criterion."
+      }
+    ]
+  },
+  {
+    "issue": 427,
+    "file": "inputs/issues/427.md",
+    "criteria": [
+      {
+        "line": 20,
+        "heading": "Original hypothesis (superseded)",
+        "checked": false,
+        "text": "Before/after discovery shows only the16 intended default walks, with both dedicated walk contents preserved outside that glob."
+      },
+      {
+        "line": 21,
+        "heading": "Original hypothesis (superseded)",
+        "checked": false,
+        "text": "The new frozen source/manifests, transferred cache custody and dedicated owner references agree; old06 remains recorded as never built."
+      },
+      {
+        "line": 22,
+        "heading": "Original hypothesis (superseded)",
+        "checked": false,
+        "text": "Exact new candidate default-suite/frame comparison and dedicated bilingual UI walks pass with their respective fixtures."
+      }
+    ]
+  },
+  {
+    "issue": 428,
+    "file": "inputs/issues/428.md",
+    "criteria": [
+      {
+        "line": 12,
+        "heading": "M7.P3: Match export-profile QA to its executable mode contract",
+        "checked": true,
+        "text": "Original failed result, exact Git/package mode contract, and actual cleanup are retained."
+      },
+      {
+        "line": 13,
+        "heading": "M7.P3: Match export-profile QA to its executable mode contract",
+        "checked": true,
+        "text": "A fresh harness expects the Git executable mode0755, with negative wrong-mode controls and verified dependency seals."
+      },
+      {
+        "line": 14,
+        "heading": "M7.P3: Match export-profile QA to its executable mode contract",
+        "checked": true,
+        "text": "New candidate clean/upgraded payload checks, actual ES environment and default/upgrade suites pass in the fresh owner."
+      }
+    ]
+  },
+  {
+    "issue": 429,
+    "file": "inputs/issues/429.md",
+    "criteria": [
+      {
+        "line": 28,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Retained original failure, all result channels and actual cleanup receipt; diagnosis names measured operations/conditions and distinguishes product cost from measurement noise."
+      },
+      {
+        "line": 29,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Any correction preserves missing/unknown-folder behavior with meaningful negative controls; no original frozen owner or source tree is edited."
+      },
+      {
+        "line": 30,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Exact candidate installed qualification meets the unchanged five-sample alternating median30ms limit, with every transfer byte verified and no migration preparation; retain all attempts and justify any repeat from the diagnosis."
+      },
+      {
+        "line": 31,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Installed identity/Tools consumer proof completes, and M7/checkpoint identify the accepted artifact and next dependency-gated owner."
+      }
+    ]
+  },
+  {
+    "issue": 430,
+    "file": "inputs/issues/430.md",
+    "criteria": [
+      {
+        "line": 28,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "A fresh fixture waits outside measurement until the actual guest clock exceeds this layout's previous remote upload timestamp plus the comparison window; it asserts and retains the actual newly written mtime and preceding remote mtime before measuring the unchanged production command."
+      },
+      {
+        "line": 29,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Every sample retains timing, return code, local/remote hashes and timestamp facts before a possible assertion; failed output is captured privately/sanitized before teardown."
+      },
+      {
+        "line": 30,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "A deliberately invalid timestamp boundary is rejected by the fixture predicate; fixed predeclared diagnostic batches transfer every changed save without forcing future mtimes, changing clocks or bypassing production comparison."
+      },
+      {
+        "line": 31,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Original failures and limited readonly-inspection evidence are retained, and fresh acceptance ownership remains distinct from diagnostics under #429."
+      }
+    ]
+  },
+  {
+    "issue": 431,
+    "file": "inputs/issues/431.md",
+    "criteria": [
+      {
+        "line": 76,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Original result-channel discrepancy, partial captures and actual cleanup observations retained unchanged; source/bundle custody reverified."
+      },
+      {
+        "line": 77,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Signal recorder control captures a known termination and sender without command/env payloads; fresh owner retains its own sealed inputs and normal shared watcher behavior."
+      },
+      {
+        "line": 78,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Fresh owner completes EN/FR640x480/1280x960 intended pages with actual semantic frame review and unchanged boot matcher controls; actual tool/results/cleanup agree. This does not require inventing a cause for the original interruption."
+      },
+      {
+        "line": 79,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "M7/checkpoint and dependent unstarted owner identify the accepted fresh UI proof; original UI06 remains failed and is never reused."
+      }
+    ]
+  },
+  {
+    "issue": 433,
+    "file": "inputs/issues/433.md",
+    "criteria": [
+      {
+        "line": 73,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Retain original failed640/passed1280 matcher outputs, selected actual frames, capture hashes, all runner results and verified cleanup without conflating runner success with visual acceptance."
+      },
+      {
+        "line": 74,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "A bounded diagnostic distinguishes the failure cause using captured framebuffer/console facts and controls; no blind repeat-until-pass or threshold change."
+      },
+      {
+        "line": 75,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Any necessary product/harness fix has source-level evidence plus exact-candidate clean/retained-state boot proof at both sizes with unchanged matcher/negative controls. If product inputs change, freeze a new candidate and reconcile required qualification."
+      },
+      {
+        "line": 76,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Published evidence and the M7/#409/#422/#431 bodies identify the accepted replacement and safe downstream dependency binding before any successor predecessor proof advances."
+      }
+    ]
+  },
+  {
+    "issue": 434,
+    "file": "inputs/issues/434.md",
+    "criteria": [
+      {
+        "line": 14,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Original failed owner, all exit channels, process cleanup and unchanged backing digest retained."
+      },
+      {
+        "line": 15,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Corrected fixture records both original/modified Syslinux and GRUB configuration and asserts consumed `quiet` plus expected console arguments in both observed boots."
+      },
+      {
+        "line": 16,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Two bounded quiet boot observations retain frames, matcher results and actual terminal/cleanup proof; no retry-until-pass or candidate qualification from modified guest bytes."
+      }
+    ]
+  },
+  {
+    "issue": 435,
+    "file": "inputs/issues/435.md",
+    "criteria": [
+      {
+        "line": 14,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Retain original actual7435=2, all result channels and actual process/container exit evidence."
+      },
+      {
+        "line": 15,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "A fresh attempt asserts the worktree cwd before any package mutation; original owner cwd is rejected and intended worktree cwd accepted."
+      },
+      {
+        "line": 16,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Corrected actual image build finishes with consistent watcher/result channels and exact source/payload checks; retain original failure separately."
+      },
+      {
+        "line": 17,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Checkpoint and M7 priorities name the accepted build attempt and safe current commands."
+      }
+    ]
+  },
+  {
+    "issue": 436,
+    "file": "inputs/issues/436.md",
+    "criteria": [
+      {
+        "line": 50,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Retained actual old-image reproduction binds the exception, process restart, missing capability and affected save callback."
+      },
+      {
+        "line": 51,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "The corrected UI safely handles absent GPU governor capability while preserving selection/save behavior when capability exists; old failing and new passing controls are retained."
+      },
+      {
+        "line": 52,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Fresh and retained-state upgraded candidate guests return from System Settings without an ES process restart or exception, with actual menu frames and journal proof."
+      },
+      {
+        "line": 53,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Relevant syntax/package checks, candidate qualification, milestone order and checkpoint reflect the repair; #422 retains its separate navigation scope."
+      }
+    ]
+  },
+  {
+    "issue": 437,
+    "file": "inputs/issues/437.md",
+    "criteria": [
+      {
+        "line": 18,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "A reusable observation adapter emits a watched *.log only when same-process byte counters actually advance; first/unchanged/restarted observations do not manufacture activity."
+      },
+      {
+        "line": 19,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "An isolated actual watcher fixture reproduces JSON-only suspected-stall, then identifies the corrected progress log as running; unchanged counters leave its mtime unchanged."
+      },
+      {
+        "line": 20,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Original copy warning/I/O/completion and corrected source/control receipts are retained. Checkpoint/work log name the .log contract; no executed owner or frozen input is edited."
+      }
+    ]
+  },
+  {
+    "issue": 438,
+    "file": "inputs/issues/438.md",
+    "criteria": [
+      {
+        "line": 16,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Retain the original refusal/result and verify inventory07 never started."
+      },
+      {
+        "line": 17,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "A new sealed inventory owner explicitly guards its separate coordination cwd before starting, binds the same frozen09 inputs, and passes inventory/component checks while QA11 keeps its own watcher."
+      },
+      {
+        "line": 18,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Actual result channels, process cleanup, source counts and instruction/checkpoint corrections are retained and published; no shared lock is bypassed and no old receipt is overwritten."
+      }
+    ]
+  },
+  {
+    "issue": 439,
+    "file": "inputs/issues/439.md",
+    "criteria": [
+      {
+        "line": 18,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Retain original QA11 failure/cleanup and actual baseline/current first sample plus completed frame, with correct sampling interpretation."
+      },
+      {
+        "line": 19,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "One issue-bound claim covers only the measured first-sample status region; the same78-frame comparison passes with zero unclaimed/missing frames and unchanged baseline/masks/engine."
+      },
+      {
+        "line": 20,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Removing the claim and shrinking its measured boundary both fail; an unrelated changed heading and missing frame still fail."
+      },
+      {
+        "line": 21,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Publish the corrected claim and evidence, and document the fresh continuation owner's dependency on original fourteen-suite results plus corrected comparison before actualRC2 upgrade. No original receipt or executed owner is rewritten."
+      }
+    ]
+  },
+  {
+    "issue": 440,
+    "file": "inputs/issues/440.md",
+    "criteria": [
+      {
+        "line": 14,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Retain original refusal/rc2 and verify no start or guest was created."
+      },
+      {
+        "line": 15,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Fresh sealed continuation owner creates and checks its activity directory before watch-build launch; original source and QA receipts stay untouched."
+      },
+      {
+        "line": 16,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Standard watcher actually starts, records its run/owned PIDs and observes the new job's logs; checkpoint/work log retain the preparation correction."
+      }
+    ]
+  },
+  {
+    "issue": 441,
+    "file": "inputs/issues/441.md",
+    "criteria": [
+      {
+        "line": 16,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Retain failed preparation and boot03's original dependency failure with actual result channels and verified process absence."
+      },
+      {
+        "line": 17,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Fresh sealed successor owners bind QA13 and one another consistently, preserving original owners; preparation verifies all old hashes and parses every new source before any launch."
+      },
+      {
+        "line": 18,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Launch follows a separately verified successful preparation result, and the new boot owner proves it consumes the actual QA13-upgraded disk; standard watcher ownership is observed."
+      }
+    ]
+  },
+  {
+    "issue": 442,
+    "file": "inputs/issues/442.md",
+    "criteria": [
+      {
+        "line": 16,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Retain original sweep08 failure, counts, actual cleanup and all20 exact context bytes/digests with source/policy classification."
+      },
+      {
+        "line": 17,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Add only reviewed path/context hashes in a new sealed owner; no pattern, scanner, public credential exception or product changes."
+      },
+      {
+        "line": 18,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Exact reviewed bytes pass; removal, altered context and different path still fail, alongside existing ten controls."
+      },
+      {
+        "line": 19,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Fresh full-image scan has zero unknown/FIX/credential findings and installed localisation/theme/Tools checks pass. Preserve original failure and publish scoped evidence."
+      }
+    ]
+  },
+  {
+    "issue": 443,
+    "file": "inputs/issues/443.md",
+    "criteria": [
+      {
+        "line": 16,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Preserve original failure/cleanup and compare all expected hashes against the immutable image extraction; record the prior stale ES value explicitly."
+      },
+      {
+        "line": 17,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Fresh sealed owner derives all expected file hashes from that payload and records actual plus expected values. An obsolete digest still rejects; original assertion remains mandatory."
+      },
+      {
+        "line": 18,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Installed actual-upgraded guest passes exact identities, recovery-race assertions and all29 settings-mode/refusal checks; original backing and installed files remain unchanged and actual process cleanup is verified."
+      },
+      {
+        "line": 19,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Publish scoped evidence and reconcile current milestone/checkpoint before closing."
+      }
+    ]
+  },
+  {
+    "issue": 444,
+    "file": "inputs/issues/444.md",
+    "criteria": [
+      {
+        "line": 16,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Interrupted-run receipt preserves actual tool143, original terminal watcher status, completed case outcomes, incomplete K, and verifies all owned guests/endpoints/processes stopped."
+      },
+      {
+        "line": 17,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Lifecycle control log proves the fresh durable launch survives loss of its submitting shell, records actual success/failure, and refuses duplicate owner execution; launch success cannot be reported as job completion."
+      },
+      {
+        "line": 18,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "A fresh sealed owner completes all19 unchanged cloud cases on the exact immutable candidate, with source/bundle verification, frame review, actual terminal codes and process cleanup."
+      },
+      {
+        "line": 19,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Checkpoint and M7 body name the accepted owner and remaining order; dependent owners require its completed proof. Original interrupted owner is never relabelled successful."
+      }
+    ]
+  },
+  {
+    "issue": 445,
+    "file": "inputs/issues/445.md",
+    "criteria": [
+      {
+        "line": 16,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Original failed results/logs and actual no-guest cleanup are retained without rewriting the executed owner."
+      },
+      {
+        "line": 17,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "A real ssh-keygen control reproduces missing-directory refusal and succeeds with the corrected explicit directory setup; key files remain private and outside Git."
+      },
+      {
+        "line": 18,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Fresh sealed proxy owner passes all22 unchanged installed assertions on the exact candidate and verifies source, bundle and cleanup."
+      },
+      {
+        "line": 19,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Remaining owner directory/dependency contracts and checkpoint/M7 order are reconciled and independently read back before further launch."
+      }
+    ]
+  },
+  {
+    "issue": 446,
+    "file": "inputs/issues/446.md",
+    "criteria": [
+      {
+        "line": 18,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Preserve original four failures, actual frames, hashes, durable result channels and verified owned cleanup."
+      },
+      {
+        "line": 19,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Fresh sealed owner arms the real layout-only injector after reboot. Actual post-reboot executable selection, connectivity success, failing layout operation and fired trigger are proved before wizard input; original preservation/recovery assertions stay intact."
+      },
+      {
+        "line": 20,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Fresh complete UI17/UI26 pass with actual intended failure/completion/recovery/refusal frame review and matching results/cleanup; frozen source and bundle still verify."
+      },
+      {
+        "line": 21,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "M7/checkpoint and fresh downstream dependencies name the accepted proof. Earlier failed owner is never relabelled or reused."
+      }
+    ]
+  },
+  {
+    "issue": 447,
+    "file": "inputs/issues/447.md",
+    "criteria": [
+      {
+        "line": 70,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Original command success, failed local frame, five other reviewed frames, hashes and actual cleanup retained without relabelling."
+      },
+      {
+        "line": 71,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "New sealed capture path requires the existing visual tool's stable-screen result with a bound; unsteady/no-result cases cannot count as accepted captures."
+      },
+      {
+        "line": 72,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Fresh full sign-in proof passes actual redirect/UA/phone checks; six intended frames are semantically reviewed with stability receipts and actual result/cleanup agreement. Authenticated Dropbox trust remains separate."
+      },
+      {
+        "line": 73,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "M7 and checkpoint identify accepted successor and the remaining1GiB/account/audit gates."
+      },
+      {
+        "line": 74,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Resolve the reproducible software-host stale/partial scanout on the declared software VM profile: fresh bounded native/host comparison and full sign-in semantic frames agree without forced resize/input, with actual old/partial/unsettled rejection, matching terminal results and cleanup. Canonical virgl success alone does not satisfy this criterion."
+      },
+      {
+        "line": 152,
+        "heading": "ROCKNIX RC2 comparison \u2014 2026-10-05",
+        "checked": true,
+        "text": "Rebuilt GENERIC_X64 clean/RC2-upgraded guests select Pixman without virgl and retain accelerated virgl; actual GPU features, compositor environment/logs and installed file hashes prove selection."
+      },
+      {
+        "line": 153,
+        "heading": "ROCKNIX RC2 comparison \u2014 2026-10-05",
+        "checked": true,
+        "text": "Selector boundary controls preserve explicit/unknown/non-virtio/multi-GPU cases; shared handheld startup bytes remain unchanged."
+      },
+      {
+        "line": 154,
+        "heading": "ROCKNIX RC2 comparison \u2014 2026-10-05",
+        "checked": true,
+        "text": "Relevant ES, emulator launch/exit, visual and time-to-play checks pass on the rebuilt software and accelerated profiles; original failures remain preserved."
+      }
+    ]
+  },
+  {
+    "issue": 448,
+    "file": "inputs/issues/448.md",
+    "criteria": [
+      {
+        "line": 14,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Original failing result/log/cleanup retained without claiming a rendering result."
+      },
+      {
+        "line": 15,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Fresh metadata check derives presence/content from verified RC2 SYSTEM and rejects wrong presence/hash; current mobile qualification predicates remain intact."
+      },
+      {
+        "line": 16,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Fresh software/accelerated historical comparisons reach and retain the original finishing page with exact baseline identity/payload checks and agreed terminal cleanup; #447 owns interpretation."
+      }
+    ]
+  },
+  {
+    "issue": 449,
+    "file": "inputs/issues/449.md",
+    "criteria": [
+      {
+        "line": 18,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Preserve the original result, six actual frames, last observer timestamp and actual cleanup."
+      },
+      {
+        "line": 19,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "A bounded initial frame and partial-message reads reject timeout/EOF/truncation/invalid rectangle/overlapping incomplete coverage; valid fragmented data reconstructs exact pixels."
+      },
+      {
+        "line": 20,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "A complete frame followed by a quiet open connection stays idle until requested stop; idle never becomes proof that the display is current. Record read-phase errors and separate boundary-idle observations."
+      },
+      {
+        "line": 21,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Fresh full software/Pixman sign-in run has clean observer shutdown, all unchanged assertions, six reviewed intended frames, exact finishing-reference match and terminal/cleanup agreement."
+      }
+    ]
+  },
+  {
+    "issue": 450,
+    "file": "inputs/issues/450.md",
+    "criteria": [
+      {
+        "line": 15,
+        "heading": "M7.P3: Match selector fixtures to the image loader paths",
+        "checked": true,
+        "text": "Failed selector02 result and original error are retained with actual process cleanup."
+      },
+      {
+        "line": 16,
+        "heading": "M7.P3: Match selector fixtures to the image loader paths",
+        "checked": true,
+        "text": "Fresh guest fixture executes actual BusyBox with the image library layout; all selector boundary controls pass on software and virgl guests."
+      },
+      {
+        "line": 17,
+        "heading": "M7.P3: Match selector fixtures to the image loader paths",
+        "checked": true,
+        "text": "Product selection evidence remains distinct from installation/full rendering acceptance under #447."
+      }
+    ]
+  },
+  {
+    "issue": 451,
+    "file": "inputs/issues/451.md",
+    "criteria": [
+      {
+        "line": 28,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "The original current-predecessor AttributeError and actual nonzero outcomes are retained."
+      },
+      {
+        "line": 29,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Fresh execution passes all11 fork integration checks with both current7252fc and historical865e21 predecessor sources, preserving exact cache rows, queued base/subset awards, sign-in and legacy images across two reopens."
+      },
+      {
+        "line": 30,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "The815 upstream Linux checks pass with the newly compiled libchdr607694c library and no native skips; exact source/helper hashes and actual terminal/cleanup receipts are retained."
+      }
+    ]
+  },
+  {
+    "issue": 452,
+    "file": "inputs/issues/452.md",
+    "criteria": [
+      {
+        "line": 28,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Retain the actual old-note rc1 and source/schema byte comparison; review every direct SQL query against the selected schema."
+      },
+      {
+        "line": 29,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Only the reviewed pin comment changes; package lint and existing offline schema preflight pass, while the original frozen input still fails."
+      },
+      {
+        "line": 30,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "The corrected source is published and a new sealed candidate input set passes the guard before any build or cache adoption."
+      }
+    ]
+  },
+  {
+    "issue": 453,
+    "file": "inputs/issues/453.md",
+    "criteria": [
+      {
+        "line": 18,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Retain a timestamped per-directory size inventory, filesystem capacity/reserve figures and any permission/error limitations."
+      },
+      {
+        "line": 19,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Explain the largest storage consumers and distinguish rebuildable build roots from candidate/source bundles and retained QA evidence."
+      },
+      {
+        "line": 20,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Produce a concrete reclaim proposal with expected space, active-owner exclusions and artifact/source/upgrade retention dependencies. Any approved worktree removal uses tools/fork-worktree; no deletion is implied by this inventory question."
+      }
+    ]
+  },
+  {
+    "issue": 454,
+    "file": "inputs/issues/454.md",
+    "criteria": [
+      {
+        "line": 12,
+        "heading": "M7.P3: Wait for owned QEMU exit before reusing VM ports",
+        "checked": true,
+        "text": "Shared stop verifies the QEMU/owned-disk identity, waits for the same process to exit, fails boundedly on timeout, and retains the pidfile on failure. Deterministic tests retain delayed exit, wrong-process refusal and timeout controls."
+      },
+      {
+        "line": 13,
+        "heading": "M7.P3: Wait for owned QEMU exit before reusing VM ports",
+        "checked": true,
+        "text": "Actual upgraded QA15 disk is preserved and continued in a fresh owner; virgl and automatic software/Pixman checks and identity frames pass, with immediate stop/restart and actual terminal cleanup evidence."
+      },
+      {
+        "line": 14,
+        "heading": "M7.P3: Wait for owned QEMU exit before reusing VM ports",
+        "checked": true,
+        "text": "QA15's original failure,15default/26upgrade results, source/input identities and follow-up scope are retained; downstream unstarted owners bind the completed evidence chain explicitly."
+      }
+    ]
+  },
+  {
+    "issue": 455,
+    "file": "inputs/issues/455.md",
+    "criteria": [
+      {
+        "line": 12,
+        "heading": "M7.P3: Make the Game Boy manager walkthrough verify its system",
+        "checked": true,
+        "text": "Root cause and first available historical evidence are recorded from actual fixture/system state; inherited coverage is not represented as a new branding regression."
+      },
+      {
+        "line": 13,
+        "heading": "M7.P3: Make the Game Boy manager walkthrough verify its system",
+        "checked": true,
+        "text": "Harness fails for a wrong/missing requested system before accepting the walkthrough, with a retained negative control."
+      },
+      {
+        "line": 14,
+        "heading": "M7.P3: Make the Game Boy manager walkthrough verify its system",
+        "checked": true,
+        "text": "Game Boy, NES and FBNeo each reach the intended manager on the exact candidate; actual frames and relevant aspect/orientation evidence retained without silently accepting a new baseline."
+      }
+    ]
+  },
+  {
+    "issue": 456,
+    "file": "inputs/issues/456.md",
+    "criteria": [
+      {
+        "line": 26,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Per-tree manifest names its branch/source, tracked modifications and retained image/input/log custody, with exact hashes in the preservation report."
+      },
+      {
+        "line": 27,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "All retained qcow2 backing references and live process/container dependencies are checked; any dependent or uniquely required payload is excluded or preserved, with the report naming each disposition."
+      },
+      {
+        "line": 28,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Required source/licence inputs, unstripped debugging outputs and failed-run evidence have a verified preservation destination, with byte/hash comparison receipts."
+      },
+      {
+        "line": 29,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "A concrete tools/fork-worktree removal command list and net recovery estimate are recorded for the named trees; the report explicitly distinguishes prepared preservation from approved/executed deletion."
+      }
+    ]
+  },
+  {
+    "issue": 457,
+    "file": "inputs/issues/457.md",
+    "criteria": [
+      {
+        "line": 16,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "A regression fails on unchanged upstream at uptime0/5 and passes with the correction, including immediate consent changes and declined/unanswered controls; source/output hashes retained."
+      },
+      {
+        "line": 17,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "All selected upstream Linux tests and relevant fork integration tests pass with the narrow patch; package lint and schema guard pass."
+      },
+      {
+        "line": 18,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "A fresh candidate contains the correction and the installed positive/negative/restart HTTP proof passes; loaded module hashes and actual completion/cleanup receipts retained."
+      },
+      {
+        "line": 19,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "A focused upstream patch plus reproduction/test instructions is prepared under #168; no upstream submission is implied by preparation."
+      }
+    ]
+  },
+  {
+    "issue": 458,
+    "file": "inputs/issues/458.md",
+    "criteria": [
+      {
+        "line": 16,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "The actual invalid-data fixture reproduces the old assertion; corrected classification retains malformed ELF-looking fixtures as opaque bytes, with valid ELF32/ELF64 and truncated controls recorded."
+      },
+      {
+        "line": 17,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "A fresh sealed owner completes preservation across all five named old trees, independently verifies every retained destination and records original-source stability. Runtime01 stays failed."
+      },
+      {
+        "line": 18,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Completion, actual process cleanup, custody hashes and the explicit remaining removal gates are published; no deletion is authorized or executed by this fix."
+      }
+    ]
+  },
+  {
+    "issue": 459,
+    "file": "inputs/issues/459.md",
+    "criteria": [
+      {
+        "line": 14,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Retention/source/diffs verified; fresh UID0 process snapshots, current container mounts and surviving backing chains checked before each removal. All15,206retained files and19current bundle files rehash successfully afterward;15manifests/27gitinputs/frozen14inputs verify. Evidence: root-before.json per successful owner and final-verification.json."
+      },
+      {
+        "line": 15,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "All five exact removals succeeded. Directory and registration absence, retained branch/head, protected path identity and actual helper/owner process exits verify for each tree. Evidence: removed-03/05/06/07/08.json, successful owner completion.json/helper-completion.json;12protected paths retained."
+      },
+      {
+        "line": 16,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Before/after free-space measurements, actual result/process receipts and preservation hashes are published. M7 and canonical handoff reflect completed cleanup and remaining P3 work. Evidence: execution-before.json/final-verification.json, published next and live milestone readback."
+      }
+    ]
+  },
+  {
+    "issue": 460,
+    "file": "inputs/issues/460.md",
+    "criteria": [
+      {
+        "line": 14,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "An isolated real Git worktree reproduces the original permission failure; the fixed helper removes its read-only build cache, with actual directory/registration absence and retained branch. controls-02/original and corrected outputs plus result.json."
+      },
+      {
+        "line": 15,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Incomplete/unrepairable directory inspection refuses before Git deletion/unregistration; no-force and external symlink-target preservation pass. Empty-directory handling performs no chmod; a controlled nonzero Git exit remains nonzero. All six final controls pass in controls-02/result.json."
+      },
+      {
+        "line": 16,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Original03 and05-v2 remain failed. Watched repair03 restores exact02163b4commit/buildbranch/42065b0tracked diff; fresh guarded removals of all five approved trees complete. Final retention and process checks pass without expanding cleanup scope. #459 records actual outcomes."
+      }
+    ]
+  },
+  {
+    "issue": 462,
+    "file": "inputs/issues/462.md",
+    "criteria": [
+      {
+        "line": 28,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Append a decision refining D-QA-017/D-QA-041 and update active rules, release readiness, tracker priorities, and resume handoff to make hosted accounts optional; source/readback evidence identifies the changed gate."
+      },
+      {
+        "line": 29,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Frozen replacement14 has separate WebDAV, SFTP, and MinIO/S3 round-trip PASS reports; report exact cases, failures/skips and scope, with immutable image/source identity."
+      },
+      {
+        "line": 30,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Retain fresh-owner harness seals, all four watcher result channels, final process/VM/backend cleanup readback, and sanitized evidence. Submission is not completion."
+      },
+      {
+        "line": 31,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Preserve unverified Dropbox trust-page behavior in a milestone-less follow-up; reconcile #351's local browser criteria against existing artifacts without claiming an authenticated Dropbox test."
+      },
+      {
+        "line": 32,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Publish the explicit RA reset target and retain account-backed proof status separately; M7 continues P3 \u2192 approved P4 review \u2192 H700 arm then aarch64."
+      }
+    ]
+  },
+  {
+    "issue": 465,
+    "file": "inputs/issues/465.md",
+    "criteria": [
+      {
+        "line": 20,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "A reusable harness loads settings before ES starts, verifies the unchanged installed ES/proxy/ctl identities, and records a real interface address disconnect/reconnect."
+      },
+      {
+        "line": 21,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "English/French sending and sent outcome frames at640x480 and1280x960 show readable correctly bounded cards, matched to pending counts, actual installed-flusher loopback receipts and `last-sync-link` records."
+      },
+      {
+        "line": 22,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "A controlled refused send retains pending state and produces the bounded failure/retry outcome; empty/repeated link transitions do not invent another successful send."
+      },
+      {
+        "line": 23,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Every frame claim is directly reviewed; original failures are retained. The standard watcher, four terminal result channels and actual owned guest/provider cleanup are verified."
+      },
+      {
+        "line": 24,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "The ordinary award harness starts ES with its updated settings and captures reconnect as well as exit events, without weakening its unearned/API checks. Changed harness behavior has VM evidence; the completed RA33 account proof remains immutable."
+      },
+      {
+        "line": 25,
+        "heading": "Acceptance criteria",
+        "checked": true,
+        "text": "Publish exact evidence and reconcile #361/M7 coverage. Begin the approved #383 P4 fixes audit only after the remaining software qualification is satisfied."
+      }
+    ]
+  }
+]

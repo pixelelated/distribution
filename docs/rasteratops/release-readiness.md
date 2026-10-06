@@ -1,6 +1,6 @@
 # pixelelated 0.0.1 release readiness
 
-## Current work — replacement14 default, upgrade and proxy checks pass
+## Current work — UI qualified; P4 fixes audit in research
 
 Replacement12 remains frozen55d8ee8f75965a560f75d187e34c9beaa93133f1;
 its build, scoped preservation/native/HTTP and QA15→17 evidence are retained
@@ -53,8 +53,11 @@ success/refusal/empty-repeat controls. Allfourrc0; actualcleanup07:01:20.
 HTTP and unchanged installed components; it does not claim another real award.
 Two earlier harness attempts are preserved as superseded. No job is active.
 
-Current order: publish/reconcile the qualified UI evidence, then approved P4,
-H700 arm then aarch64 and named physical/P5 gates. D-QA-058 keeps Dropbox,
+Current order: P4 fixes audit is in Phase1 research/evidence mapping
+([running audit](../audits/2026_10_06-milestone-m7-p4-fixes-383/README.md));
+no independent AC verdict or external reviewer call is complete. UI evidence
+is published and #465 closed. Finish the audit and resolve/requalify findings,
+then measured capacity, H700 arm/aarch64 and named physical/P5 gates. D-QA-058 keeps Dropbox,
 other hosted accounts and offsite endpoints optional now and in future routine
 RC qualification; #463 is explicitly unverified. #464/D-QA-059 reopens dedicated
 QA reset automation as backlog; no vendor chosen or new RC gate. No RC or
@@ -82,8 +85,9 @@ pass, with before-fix failures and exact distributed patch hashes retained.
 [Contribution evidence](../qa-logs/2026-10-06-upstream-drafts/README.md).
 Upstream main remains879b158. API/policy-dependent proposals have explicit
 reasons in the contribution map; no upstream submission or acceptance is claimed.
-The separate RA account proof is complete in the record above; no new build or
-audit has started. Local-backend qualification is recorded under #462.
+The separate RA account proof is complete in the record above; no new build
+has started. P4 audit research is current; local qualification is recorded
+under #462.
 
 > Earlier dated records below preserve their original account limitations.
 > D-QA-058/#462 supersedes any Dropbox-account prerequisite; #463 is optional.
