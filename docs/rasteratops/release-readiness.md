@@ -48,7 +48,8 @@ links the new pin to the completed source suites; no test execution is invented.
 trees (539GiB gross). The earlier [storage inventory](../qa-logs/2026-10-05-build-storage/README.md)
 remains evidence, not deletion approval. Independent ES/log/runtime copies and
 source inventories are verified;233disk chains have no references into the
-five proposed trees. The root-only process readback is still pending. The
+five proposed trees. The root-only process check passed at02:22:23UTC:
+237user-space processes, zero matching or unreadable references. The
 concrete removal proposal estimates524.84GiB net after14.49GiB of retained
 preservation data. No original build files were deleted or reserve changed.
 

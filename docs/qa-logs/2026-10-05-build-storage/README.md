@@ -2,8 +2,9 @@
 
 **Current follow-up:** #456 now has verified independent preservation and an
 expanded233disk-chain check. The [exact preservation/removal proposal](preservation-20261006/README.md)
-estimates524.84GiB net. The root-only process readback and named deletion
-approval remain pending; no removal or reserve change has occurred. The dated
+estimates524.84GiB net. The root-only process check passed at02:22:23UTC:
+237user-space processes, zero matching or unreadable references. Named deletion
+approval remains pending; no removal or reserve change has occurred. The dated
 inventory and earlier incomplete-custody observations below remain historical.
 
 The maintainer asked: “With the 4 TB drive, shouldn't we have more than 246 GB

@@ -1,0 +1,227 @@
+{
+  "schema": "pixelelated.bounded-resume-proof.v1",
+  "checked_utc": "2026-10-06T02:26:17.068866+00:00",
+  "status": "PASS_WITH_PUBLICATION_PENDING",
+  "purpose": "D-WORKFLOW-133 fresh-context metadata handoff, bounded to root-process dependency report and permission boundary; not P4 or new product qualification.",
+  "repository": "/workspace/repos/rocknix.worktrees/conflict-resolution",
+  "branch": "feature/conflict-resolution",
+  "head": "cbc04caf98fb4bccddd1e198f24ba9b90e5712e5",
+  "next": "7ae3f9d6e59ffe651d767e8f56d1b1e5fb254c20",
+  "instruction_sources": [
+    "AGENTS.md",
+    ".claude/skills/session-stash/SKILL.md",
+    ".claude/rules/learning-capture.md",
+    ".claude/rules/worktrees.md",
+    ".claude/rules/decision-register.md",
+    ".claude/rules/vm-first.md",
+    ".claude/rules/issue-tracking.md",
+    ".claude/rules/milestone-phase-naming.md"
+  ],
+  "checks": {
+    "report_copy_byte_identical": true,
+    "report_hash_matches_recorded": true,
+    "helper_copy_byte_identical": true,
+    "helper_hash_matches_recorded": true,
+    "report_uid_is_zero": true,
+    "report_roots_exactly_match_proposal": true,
+    "report_no_matches": true,
+    "report_no_unreadable_entries": true,
+    "report_readonly_true": true,
+    "report_timestamp_matches_new_metadata": true,
+    "report_counts_match_new_metadata": true,
+    "rule_tree_matches_next": true,
+    "changed_report_and_related_checksum_entries_match": true,
+    "proposed_removal_commands_name_exactly_five_roots": true,
+    "helper_uses_nul_delimited_arguments": true,
+    "five_proposed_roots_still_exist_and_are_registered": true,
+    "checkpoint_archives_preserve_preedit_bytes": true
+  },
+  "evidence": [
+    {
+      "name": "temporary_report",
+      "path": "/tmp/pixelelated-cleanup-root-process-readback.json",
+      "bytes": 582,
+      "sha256": "f61f110d3b42e737c8a395429fb507107b97cd37d9ad5eb634d81cb01240abf9"
+    },
+    {
+      "name": "retained_report",
+      "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-05-build-storage/preservation-20261006/root-process-readback.json",
+      "bytes": 582,
+      "sha256": "f61f110d3b42e737c8a395429fb507107b97cd37d9ad5eb634d81cb01240abf9"
+    },
+    {
+      "name": "temporary_helper",
+      "path": "/tmp/pixelelated-readonly-process-dependencies.py",
+      "bytes": 1906,
+      "sha256": "51a9b6c6026e94717505cc4376b1f5ce7b516261d7593b90b86d8955d9ad445e"
+    },
+    {
+      "name": "retained_helper",
+      "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-05-build-storage/preservation-20261006/readonly-process-dependencies.py",
+      "bytes": 1906,
+      "sha256": "51a9b6c6026e94717505cc4376b1f5ce7b516261d7593b90b86d8955d9ad445e"
+    },
+    {
+      "name": "proposal",
+      "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-05-build-storage/preservation-20261006/README.md",
+      "bytes": 7174,
+      "sha256": "3179a81491f6452ce21e2d176d2fc8f1a244bea82edac956e6304d6f729faf7b"
+    },
+    {
+      "name": "checkpoint",
+      "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/.github/sessions/saved-session-state-next.md",
+      "bytes": 13994,
+      "sha256": "2993ed0affef17dcc8e54f6f543eff3043a91a0d8db4a9764b4c503822b768b8"
+    },
+    {
+      "name": "feature_pointer",
+      "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/.github/sessions/saved-session-state-feature-conflict-resolution.md",
+      "bytes": 548,
+      "sha256": "55aa3a1703d28a38fc3db30364d72d03abeb2f64471e2c952887b3acee79caee"
+    },
+    {
+      "name": "checksums",
+      "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-05-build-storage/preservation-20261006/SHA256SUMS",
+      "bytes": 7637,
+      "sha256": "d71d9709f4d28be66fb696196e4d93798d86ddda0b4084c6f8114e5711972750"
+    }
+  ],
+  "related_checksum_entries": [
+    {
+      "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-05-build-storage/preservation-20261006/README.md",
+      "sha256": "3179a81491f6452ce21e2d176d2fc8f1a244bea82edac956e6304d6f729faf7b",
+      "expected_sha256": "3179a81491f6452ce21e2d176d2fc8f1a244bea82edac956e6304d6f729faf7b",
+      "matches": true
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-05-build-storage/preservation-20261006/readonly-process-dependencies.py",
+      "sha256": "51a9b6c6026e94717505cc4376b1f5ce7b516261d7593b90b86d8955d9ad445e",
+      "expected_sha256": "51a9b6c6026e94717505cc4376b1f5ce7b516261d7593b90b86d8955d9ad445e",
+      "matches": true
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-05-build-storage/preservation-20261006/root-process-attempt.json",
+      "sha256": "1101fb14f87306732cf5f232a60a33de1fcc677e28fb66933f658ce18ce13d32",
+      "expected_sha256": "1101fb14f87306732cf5f232a60a33de1fcc677e28fb66933f658ce18ce13d32",
+      "matches": true
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-05-build-storage/preservation-20261006/root-process-readback.json",
+      "sha256": "f61f110d3b42e737c8a395429fb507107b97cd37d9ad5eb634d81cb01240abf9",
+      "expected_sha256": "f61f110d3b42e737c8a395429fb507107b97cd37d9ad5eb634d81cb01240abf9",
+      "matches": true
+    }
+  ],
+  "archive_checks": [
+    {
+      "path": ".github/sessions/archived/saved-session-state-next-20261006T022403Z.md",
+      "sha256": "7297cecdd20ef451af44a1c16ddd7b89789f70c0d0e4394d4b3b12f08aa20588",
+      "equals_preedit_HEAD": true
+    },
+    {
+      "path": ".github/sessions/archived/saved-session-state-feature-conflict-resolution-20261006T022403Z.md",
+      "sha256": "e25a26f17fe75cccb5f442de35e0faca6e44011a0646e71edc5ea04b8ebdb685",
+      "equals_preedit_HEAD": true
+    }
+  ],
+  "root_report": {
+    "utc": "2026-10-06T02:22:23.498092+00:00",
+    "effective_uid": 0,
+    "roots": [
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement03",
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement05",
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement06",
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement07",
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement08"
+    ],
+    "userspace_examined": 237,
+    "kernel_threads_excluded": 329,
+    "disappeared": 0,
+    "matches": [],
+    "unreadable": [],
+    "readonly": true
+  },
+  "proposed_roots_current_registration": [
+    {
+      "root": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement03",
+      "exists": true,
+      "registered": true
+    },
+    {
+      "root": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement05",
+      "exists": true,
+      "registered": true
+    },
+    {
+      "root": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement06",
+      "exists": true,
+      "registered": true
+    },
+    {
+      "root": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement07",
+      "exists": true,
+      "registered": true
+    },
+    {
+      "root": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement08",
+      "exists": true,
+      "registered": true
+    }
+  ],
+  "scope": {
+    "new_report": "Snapshot of readable /proc entries in the helper process namespace at the report timestamp, matching the exact five tree path strings against cwd/exe/root/arguments/fds/maps; kernel threads excluded.",
+    "existing_disk_container_report": "Historical dependencies02: four named project storage roots, .qcow2 suffix discovery, no followed directory symlinks, 233 chains. Read from retained report; not rerun or widened here.",
+    "not_repeated": [
+      "builds",
+      "VM or package tests",
+      "candidate bundle hashing",
+      "preservation-store bulk hashing",
+      "fresh privileged process scan",
+      "container scan",
+      "backing-chain discovery"
+    ],
+    "limitations": [
+      "The new JSON reports UID 0 and zero matches/unreadable entries; this check validates its bytes/schema against retained helper scope and does not newly observe host-wide process absence.",
+      "Saved report has no embedded helper hash or independent exit-code receipt; helper copies and expected hash were checked separately.",
+      "The snapshot does not authorize future deletion or replace the required immediately-before-removal dependency and preservation checks.",
+      "Existing product and completed-owner evidence remains inherited from the checkpoint; unchanged multi-GB artifacts were intentionally not rehashed.",
+      "Live tracker was not reread over the network; local before snapshots and absence of new completion receipts were inspected."
+    ]
+  },
+  "latest_completed_action": {
+    "at": "2026-10-06T02:22:23.498092+00:00",
+    "description": "Maintainer-supplied root-only process readback records zero matching or unreadable references; parent has prepared metadata recording that result. New report/helper bytes verify, and old checkpoint copies are preserved exactly."
+  },
+  "next_actions": [
+    "Parent publishes the current metadata through normal hook-protected fork integration, explicit cherry-pick -x into next and remote hash readback; retain publication receipt.",
+    "Parent updates and rereads #456/M7 (and affected tracking references), explicitly separating completed preparation from unapproved deletion; retain tracker-completion.json.",
+    "Seek separate named authorization only for the prepared five-tree removal proposal. After authorization, refresh dependencies and retained preservation hashes/tracked diffs immediately before each approved tools/fork-worktree remove operation; stop on new dependency or failure.",
+    "Continue the milestone order: remaining P3 dedicated RA/Dropbox account proofs and #168 contribution preparation, then approved P4 via verified Facilitator, requalify any changed product bytes, then H700 arm followed by aarch64 and named physical/P5 gates."
+  ],
+  "permission_boundary": {
+    "deletion_authorized": false,
+    "deletion_executed_claim": "No deletion is recorded; all five named directories remain present and registered. This is not a recursive proof that every original file is unchanged.",
+    "authorized_here": "Read existing metadata and helper/report bytes; create this one /tmp proof file only.",
+    "parent_standing_authority_from_checkpoint": "Metadata fixes, normal hook-protected fork pushes, explicit cherry-pick -x into next and tracker updates remain authorized.",
+    "not_authorized": [
+      "Deleting replacement03/05/06/07/08 or any other tree",
+      "Filesystem reserve changes",
+      "Physical-device or personal-cloud actions",
+      "Release publication",
+      "Outward upstream contribution submission without D-RA-016 maintainer go"
+    ],
+    "retention": "Keep replacement14, unbuilt13, retained12, qualified10, source09/cloud evidence, every candidate/RC2 bundle and backing chain, shared source cache, recovered rclone archive and all three preservation stores including failed runtime01."
+  },
+  "contradictions": [
+    {
+      "severity": "publication_state_wording",
+      "path": ".github/sessions/saved-session-state-next.md",
+      "text": "Published report path",
+      "observed": "The new report is an untracked local file at check time; tracker-completion.json and a new publication receipt are absent. Parent publication is the next action.",
+      "required_resolution": "Treat the path as prepared/local until actual publication completes, or change wording before publication and then record the real publication/tracker receipts."
+    }
+  ],
+  "reconciled_historical_statements": "Older pending-root-input statements are explicitly superseded by the top update; next and local before tracker snapshots still carry earlier pending state because publication/tracker reconciliation has not yet occurred. This is expected unfinished metadata work, not deletion permission.",
+  "briefing": "Root-only dependency evidence is now locally verified for the exact five trees. Publish and reconcile the tracker next. Deletion remains separately unapproved; completed QA/build owners must not be replayed, and P3 account/contribution work still precedes P4/H700.",
+  "mutations": "Only this /tmp JSON proof file was written. No repository, tracker, device, cloud, process or candidate mutation."
+}

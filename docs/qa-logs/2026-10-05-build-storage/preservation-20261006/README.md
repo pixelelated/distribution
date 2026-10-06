@@ -52,7 +52,7 @@ the exact operation was read-only on originals **plus independent copies into
 new preservation stores**, as the retained source and summary show. Separately
 owned QA18 guests were intentionally running then, not leaked by preservation.
 
-## Dependency scope and remaining prerequisite
+## Verified dependency scope
 
 Expanded dependencies02 traversed4,221,564directories in `/workspace/tmp`,
 `/workspace/artifacts`, `/workspace/repos/rocknix.worktrees` and
@@ -68,14 +68,19 @@ storage roots and `.qcow2` filenames. This is not a claim about arbitrary
 unrelated host files. Full detailed path records remain local with their
 hash published. Completed01:46:57/allfour0; actualcleanup01:48:00.
 
-**Root-only live process references remain unverified.** The prior bounded
-scan had537unreadable processes; classifying kernel threads or exited PIDs
-does not establish absence of userspace references. Prepared read-only helper
+**The root-only process check passed at 02:22:23 UTC on October 6.**
+The maintainer ran the prepared helper with sudo. Its report records effective
+UID 0, 237 user-space processes inspected, 329 kernel threads excluded,
+zero matching references, and zero unreadable entries. The exact report is
+retained in `root-process-readback.json`, SHA256
+`f61f110d3b42e737c8a395429fb507107b97cd37d9ad5eb634d81cb01240abf9`.
+This resolves the earlier bounded scan's unreadable-process gap.
+
+Read-only helper
 SHA256`51a9b6c6026e94717505cc4376b1f5ce7b516261d7593b90b86d8955d9ad445e`
 checks cwd/exe/root/arguments/fds/maps for exactly the five named trees.
-Noninteractive sudo refused because interactive authentication is required;
-this was not an automatic approval-review rejection. The maintainer has been
-asked to run the helper and save its output. No answer/result yet.
+The earlier noninteractive sudo attempt required interactive authentication;
+that failed attempt is retained separately from this successful report.
 
 Before removal, require that report's effective UID0, no unreadable fields and
 no live references; refresh process/container checks immediately before each
@@ -108,4 +113,4 @@ Protect replacement14, unbuilt13, retained12, qualified10, source09/cloud
 evidence; every immutable bundle and original ROCKNIX RC2 image; all retained
 QA disks/backing chains; shared source cache; all three preservation stores
 and the recovered rclone archive. This report finishes the command/estimate
-preparation; the dependency criterion and removal approval remain open.
+preparation and dependency review; named removal approval remains outstanding.
