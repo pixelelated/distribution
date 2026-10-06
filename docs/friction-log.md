@@ -222,3 +222,7 @@ QA08 reached correct initial identity/Information but generic dismiss/reopen/cou
 - 2026-10-06 00:45 UTC — Writing the full checkpoint delayed host copy polling94seconds despite the60second rule. The5second watcher remained live and the copy was still running. Guard: split long drafting calls and poll before resuming; no uninterrupted cadence claim. Issue: #395.
 
 - 2026-10-06 00:59 UTC — Cache14 omitted the existing #437 positive-I/O observer/activity-directory setup, so its quiet checksum phase produced suspected log inactivity despite increasing same-PID reads. Active inspection confirmed progress and retained actual I/O; copy ultimately passed. Future cache owners must include the existing observed-progress setup before launch; do not edit running shell tools or invent heartbeat progress. Issues: #437, #383.
+
+- 2026-10-06 01:30 UTC — Cleanup runtime preservation assumed every ELF-looking executable fixture had a valid byte-order field; pypackaging deliberately carries malformed ELF fixtures. Runtime01 stopped with four rc1 channels and no source mutation. Classify malformed fixtures as opaque bytes and preserve them; retain the failure and use a fresh sealed owner. issue: #458
+
+- 2026-10-06 01:53 UTC — Publication stopped before commit on the generated timing report's trailing blank line. Retain raw proof bytes and explicitly scope the authored-file whitespace check; no hook bypass. Failed publication log retained. issue: #383

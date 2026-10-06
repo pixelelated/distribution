@@ -1,0 +1,56 @@
+{
+  "utc": "2026-10-06T01:37:39.972394+00:00",
+  "source_cache": "/workspace/cache/rocknix-sources",
+  "source_cache_must_be_retained": true,
+  "rclone_archive": "/workspace/artifacts/pixelelated-build-inputs/m7-cold-01-consumed/0d5570db7b689e96fb5e3d33293a5275e92d6df244acbcb8a1db1929bc3f491b/rclone-v1.75.1-linux-amd64.zip",
+  "rclone_archive_sha256": "982b5aa772841168f8e380f139e9e787b2a105403e32b94da8676a0e1c0a13ab",
+  "trees": [
+    {
+      "tree": "03",
+      "commit": "02163b440bfb055531f50f30184327336a67f886",
+      "manifest": "/workspace/artifacts/pixelelated-build-custody/issue-456-runtime-02/source-inventory-03-qualified.json",
+      "sha256": "4b51b9d4ae2df3813c63e367bd83dcf52c35bcfebc0ea9fed6e6e1888c38ae61",
+      "source_roots": 568,
+      "cache_inputs": 547,
+      "errors": 0
+    },
+    {
+      "tree": "05",
+      "commit": "1e6a156b5477650e298b6a4dfff996673bf33fb1",
+      "manifest": "/workspace/artifacts/pixelelated-build-custody/issue-456-runtime-02/source-inventory-05-qualified.json",
+      "sha256": "705cb48fec9c657bcce7bea63b0459bce89a649c558c71c39d1588bcd354bfe5",
+      "source_roots": 568,
+      "cache_inputs": 547,
+      "errors": 0
+    },
+    {
+      "tree": "06",
+      "commit": "57cbc9b981205328444d41f6c4237dc9f5736d7f",
+      "manifest": "/workspace/artifacts/pixelelated-build-custody/issue-456-runtime-02/source-inventory-06-qualified.json",
+      "sha256": "4dc903ac4e284c4a37feb7be2a38f3cd5f82f344c7ab61047230ff4284ac643d",
+      "source_roots": 568,
+      "cache_inputs": 547,
+      "errors": 0
+    },
+    {
+      "tree": "07",
+      "commit": "a2586374b7b565965fe0c644656e22ff3c0ec317",
+      "manifest": "/workspace/artifacts/pixelelated-build-custody/issue-456-runtime-02/source-inventory-07-qualified.json",
+      "sha256": "47bf958ae0f7f8c9747fc87c4f3d6b209e1e290a62564ee04671222c6df63eae",
+      "source_roots": 568,
+      "cache_inputs": 547,
+      "errors": 0
+    },
+    {
+      "tree": "08",
+      "commit": "72121fd03a558725328ea58c092faf1b3324317f",
+      "manifest": "/workspace/artifacts/pixelelated-build-custody/issue-456-runtime-02/source-inventory-08-qualified.json",
+      "sha256": "ef0e7dc19a8a65e6421d1678f5c73a460448cb4f76b98f1f3e1c005399385695",
+      "source_roots": 568,
+      "cache_inputs": 547,
+      "errors": 0
+    }
+  ],
+  "scope": "Exact matching archives/git inputs and local frozen source manifests; this is cleanup custody, not the complete backed-up release source/licence bundle",
+  "deletion_performed": false
+}

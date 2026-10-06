@@ -1,0 +1,60 @@
+{
+  "tests_run": 18,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "module": "/usr/lib/python3.14/site-packages/raofflineproxy/rom_hashing.pyc",
+  "library": "/usr/lib/libraproxy_rchash.so",
+  "loader_name": "libraproxy_rchash.so",
+  "library_sha256": "6c484a2947a5f2a7c187e60dd93de73593d5fa98d57309bfb4b5f07bf390220d",
+  "legacy_chd": {
+    "cases": [
+      {
+        "version": 1,
+        "cylinders": 1,
+        "bytes_per_sector": 512,
+        "fixture_sha256": "50ff6faf7f00ce95e781fb25db71c9a71550f1fd0746ce4d72dfe174ee595115",
+        "metadata_hex": "43594c533a312c48454144533a312c534543533a312c4250533a35313200",
+        "full_metadata": true,
+        "bounded_short_copy_canary": true,
+        "absent_index_refused": true,
+        "hunk_bytes_equal": true
+      },
+      {
+        "version": 1,
+        "cylinders": 2147483647,
+        "bytes_per_sector": 512,
+        "fixture_sha256": "4e57a77495d5252dad8510611abcafe45f9d5dbf71b0f659df854b1b983dabb5",
+        "metadata_hex": "43594c533a323134373438333634372c48454144533a312c534543533a312c4250533a35313200",
+        "full_metadata": true,
+        "bounded_short_copy_canary": true,
+        "absent_index_refused": true,
+        "hunk_bytes_equal": true
+      },
+      {
+        "version": 2,
+        "cylinders": 1,
+        "bytes_per_sector": 4096,
+        "fixture_sha256": "4c510a5cf0a440783c120a0ca30042fac1f1a7c1adf538743fb71d8b4287f8e5",
+        "metadata_hex": "43594c533a312c48454144533a312c534543533a312c4250533a3430393600",
+        "full_metadata": true,
+        "bounded_short_copy_canary": true,
+        "absent_index_refused": true,
+        "hunk_bytes_equal": true
+      },
+      {
+        "version": 2,
+        "cylinders": 2147483648,
+        "bytes_per_sector": 512,
+        "fixture_sha256": "83f258ce94d029cd35dd831ad28a938a69c6b23501a3f39a31e92549cea75994",
+        "metadata_hex": "43594c533a2d323134373438333634382c48454144533a312c534543533a312c4250533a35313200",
+        "full_metadata": true,
+        "bounded_short_copy_canary": true,
+        "absent_index_refused": true,
+        "hunk_bytes_equal": true
+      }
+    ],
+    "malformed_header_refused": true,
+    "passed": true
+  }
+}

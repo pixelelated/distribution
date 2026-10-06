@@ -1,0 +1,32 @@
+{
+  "utc": "2026-10-06T01:30:21.039096+00:00",
+  "owner": "/tmp/pixelelated-cleanup-runtime-01",
+  "run": "/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261006T012826Z-2a7faffd",
+  "result_channels": {
+    "inner.rc": 1,
+    "outer.rc": 1,
+    "tool-wrapper.rc": 1,
+    "build.rc": 1
+  },
+  "absent_pids": [
+    2252538,
+    2252539,
+    2252540,
+    2252569
+  ],
+  "separate_QA18_guests_intentionally_running": [
+    1806101,
+    1806128
+  ],
+  "scope": "read-only host custody inspection; this owner starts no guests",
+  "job_rc": 1,
+  "durable_runner_rc": 1,
+  "qemu_absent": false,
+  "build_log_sha256": "0f1199f116efe63999a446d6d267cfa5adf9ddd11e9b212e7559ac6a6d553d0b",
+  "launcher_result": {
+    "utc": "2026-10-06T01:29:16.395911+00:00",
+    "pid": 2252538,
+    "runner_returncode": 1,
+    "submission_is_not_completion": true
+  }
+}

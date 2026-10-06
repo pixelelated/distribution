@@ -1,5 +1,11 @@
 # Build-host storage inventory — #453
 
+**Current follow-up:** #456 now has verified independent preservation and an
+expanded233disk-chain check. The [exact preservation/removal proposal](preservation-20261006/README.md)
+estimates524.84GiB net. The root-only process readback and named deletion
+approval remain pending; no removal or reserve change has occurred. The dated
+inventory and earlier incomplete-custody observations below remain historical.
+
 The maintainer asked: “With the 4 TB drive, shouldn't we have more than 246 GB
 available, or is it because we have multiple builds on disk already?”
 

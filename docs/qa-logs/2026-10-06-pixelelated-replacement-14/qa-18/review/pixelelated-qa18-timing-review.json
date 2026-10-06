@@ -1,0 +1,56 @@
+{
+  "utc": "2026-10-06T01:22:37.442868+00:00",
+  "source": "/workspace/tmp/pixelelated-m7-qa-18/artifacts/rocknix-images/qa-7afa9efcfc-webdav-a-20261006-0104/time-to-play",
+  "json_sha256": "dd46cc89c8372f7dd106b94c2a8e8fd14b429259640b06e0aef4f45bdac540f0",
+  "surface": {
+    "surface": "889x800",
+    "source": "RetroArch's GPU screenshot",
+    "panel": "1280x800",
+    "scaled": false,
+    "evidence": [
+      "164:[INFO] [Content] Loading content file: \"/storage/roms/gb/TTProbe.gb\".",
+      "240:[INFO] [GL] Detecting screen resolution: 1280x800.",
+      "245:[INFO] [GL] Using resolution 240x256.",
+      "21:19:38"
+    ]
+  },
+  "repeat": 1,
+  "launch_first_frame_seconds": 0.603,
+  "exit_sync": {
+    "raw": "1791249587 0 completed",
+    "epoch": "1791249587",
+    "rc": "0",
+    "token": "completed",
+    "why": ""
+  },
+  "exit_sync_seconds": 1.33,
+  "rapid_relaunch_seconds": 1.017,
+  "rapid_relaunch_has_new_stamp": false,
+  "limitations": [
+    "Single-sample timing smoke; not a repeated performance distribution.",
+    "Initial captured content is briefly small at the lower left. Later actual GPU viewport889x800 fills panel height800 and passes existing surface guard; early frame is not evidence for text/widget sizing.",
+    "Rapid relaunch has no new exit-sync stamp; this sample does not prove an active-sync completion or interruption outcome."
+  ],
+  "reviewed_frames": [
+    {
+      "name": "r1-launch-02-first-game-frame.png",
+      "sha256": "42990c8acd2ed0eab47a76aeda7753c353d719e4def881cc8c3c95a63a8806b3"
+    },
+    {
+      "name": "g1-launch-02-first-game-frame.png",
+      "sha256": "8b36ab5fd9a549d52f321c0282cad16e8c1f57cbc41c6d923f4e27aa5a43b30b"
+    },
+    {
+      "name": "r1-exit-000.png",
+      "sha256": "05713dbacb00cfa92e8cad1581147b0f1349f6ee14c97d122440aff36011bd53"
+    },
+    {
+      "name": "r1-exit-007.png",
+      "sha256": "7bd57fcd059db6bee2da9161ff2bfb155e726fa8cb4fe646e86097df8929ebdc"
+    },
+    {
+      "name": "g1-exit-game2.png",
+      "sha256": "a30800c0d1e5a996a60fa3d9a87e89bb41f95254768acf5dfa5ef68960bcbf8f"
+    }
+  ]
+}

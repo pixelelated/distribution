@@ -1,6 +1,6 @@
 # pixelelated 0.0.1 release readiness
 
-## Current work — replacement14 built; installed qualification in progress
+## Current work — replacement14 default, upgrade and proxy checks pass
 
 Replacement12 remains frozen55d8ee8f75965a560f75d187e34c9beaa93133f1;
 its build, scoped preservation/native/HTTP and QA15→17 evidence are retained
@@ -26,8 +26,16 @@ Installed consent02 passes all30reporting/restart cases, including the
 first granted counter at16.705487703seconds (7→8). Image14 verifies raw/update
 SYSTEM equality; inventory10 passes with the14knownP5licence gaps retained.
 
-Current order: qa18 full defaults and actual ROCKNIX RC2 upgrade, then
-proxy14 preservation/native/legacy checks and subset11 reconnect proof. Next are remaining P3 criteria and #168
+QA18 completed01:41:30UTC with all15default suites and26actual ROCKNIX RC2
+upgrade assertions passing. All78walk frames compare with0unclaimed changes;
+installed virgl/Pixman and identity checks pass. Proxy14 completes22offline
+preservation checks,18native tests with0skips and four legacyCHD cases.
+Subset11 completes35loopback HTTP preservation/refusal/retry assertions.
+Every owner has four zero results and verified process cleanup. No build or
+QA job remains active. Timing remains a single-sample smoke with its recorded
+rapid-relaunch/no-new-stamp limitation; no wider performance claim is made.
+
+Current order: remaining P3 criteria and #168
 upstream mapping; ordinary RetroAchievements and authenticated Dropbox proofs
 need the still-pending dedicated QA-account inputs. Both precede approved P4,
 H700 arm then aarch64 and named physical/P5 gates. No RC or device-ready claim.
@@ -38,7 +46,11 @@ links the new pin to the completed source suites; no test execution is invented.
 
 #456 prepares preservation and a named removal proposal for five superseded
 trees (539GiB gross). The earlier [storage inventory](../qa-logs/2026-10-05-build-storage/README.md)
-remains evidence, not deletion approval. No files or filesystem reserve changed.
+remains evidence, not deletion approval. Independent ES/log/runtime copies and
+source inventories are verified;233disk chains have no references into the
+five proposed trees. The root-only process readback is still pending. The
+concrete removal proposal estimates524.84GiB net after14.49GiB of retained
+preservation data. No original build files were deleted or reserve changed.
 
 ## Completed installed GENERIC_X64 Pixman fallback (#447)
 
