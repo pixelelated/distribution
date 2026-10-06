@@ -1,0 +1,194 @@
+[
+  {
+    "assertion": "fresh independent pair directory",
+    "passed": true
+  },
+  {
+    "assertion": "retained image hash ROCKNIX-GENERIC_X64.x86_64-20261001.img.gz",
+    "passed": true
+  },
+  {
+    "assertion": "retained image hash ROCKNIX-GENERIC_X64.x86_64-20261001.tar",
+    "passed": true
+  },
+  {
+    "assertion": "retained image hash ROCKNIX-GENERIC_X64.x86_64-20260929.img.gz",
+    "passed": true
+  },
+  {
+    "assertion": "backend-up exit 0",
+    "passed": true
+  },
+  {
+    "assertion": "pair-up exit 0",
+    "passed": true
+  },
+  {
+    "assertion": "fresh-b exit 0",
+    "passed": true
+  },
+  {
+    "assertion": "previous-a exact installed BUILD_ID",
+    "passed": true
+  },
+  {
+    "assertion": "previous-a exact installed cloud_migrate_layout",
+    "passed": true
+  },
+  {
+    "assertion": "previous-a exact installed cloud_setup",
+    "passed": true
+  },
+  {
+    "assertion": "previous-a exact installed cloud_sync_helper",
+    "passed": true
+  },
+  {
+    "assertion": "previous-a exact installed cloud_restore",
+    "passed": true
+  },
+  {
+    "assertion": "previous-a exact installed cloud_backup",
+    "passed": true
+  },
+  {
+    "assertion": "fresh-b exact installed BUILD_ID",
+    "passed": true
+  },
+  {
+    "assertion": "fresh-b exact installed cloud_migrate_layout",
+    "passed": true
+  },
+  {
+    "assertion": "fresh-b exact installed cloud_setup",
+    "passed": true
+  },
+  {
+    "assertion": "fresh-b exact installed cloud_sync_helper",
+    "passed": true
+  },
+  {
+    "assertion": "fresh-b exact installed cloud_restore",
+    "passed": true
+  },
+  {
+    "assertion": "fresh-b exact installed cloud_backup",
+    "passed": true
+  },
+  {
+    "assertion": "fresh-b exact installed cloud_scan",
+    "passed": true
+  },
+  {
+    "assertion": "historical installed migration has no join implementation",
+    "passed": true
+  },
+  {
+    "assertion": "actual RC2 starts on ROCKNIX",
+    "passed": true
+  },
+  {
+    "assertion": "historical fresh peer starts on its own shipped default",
+    "passed": true
+  },
+  {
+    "assertion": "historical build recognizes the earlier source; negative premise valid",
+    "passed": true
+  },
+  {
+    "assertion": "actual RC2 backup reached the cloud byte for byte",
+    "passed": true
+  },
+  {
+    "assertion": "actual RC2 settings archive also reached cloud",
+    "passed": true
+  },
+  {
+    "assertion": "a-update-copy exit 0",
+    "passed": true
+  },
+  {
+    "assertion": "a rebooted for actual in-place update",
+    "passed": true
+  },
+  {
+    "assertion": "updated-a exact installed BUILD_ID",
+    "passed": true
+  },
+  {
+    "assertion": "updated-a exact installed cloud_migrate_layout",
+    "passed": true
+  },
+  {
+    "assertion": "updated-a exact installed cloud_setup",
+    "passed": true
+  },
+  {
+    "assertion": "updated-a exact installed cloud_sync_helper",
+    "passed": true
+  },
+  {
+    "assertion": "updated-a exact installed cloud_restore",
+    "passed": true
+  },
+  {
+    "assertion": "updated-a exact installed cloud_backup",
+    "passed": true
+  },
+  {
+    "assertion": "updated-a exact installed cloud_scan",
+    "passed": true
+  },
+  {
+    "assertion": "in-place update retains the populated ROCKNIX pointers",
+    "passed": true
+  },
+  {
+    "assertion": "in-place update preserves original cloud bytes",
+    "passed": true
+  },
+  {
+    "assertion": "one owned historical QA remote",
+    "passed": true
+  },
+  {
+    "assertion": "actual historical client reads earlier source witness before negative control",
+    "passed": true
+  },
+  {
+    "assertion": "historical scan runs successfully before join assertion",
+    "passed": true
+  },
+  {
+    "assertion": "EXPECTED NEGATIVE: historical fresh default ignores reachable earlier source",
+    "passed": true
+  },
+  {
+    "assertion": "historical wizard seeding completed",
+    "passed": true
+  },
+  {
+    "assertion": "EXPECTED NEGATIVE: genuine old fresh build did not join any of the three earlier pointers",
+    "passed": true
+  },
+  {
+    "assertion": "EXPECTED NEGATIVE: fresh peer cannot restore the existing earlier save through its unchanged defaults",
+    "passed": true
+  },
+  {
+    "assertion": "all original cloud bytes remain intact during negative control",
+    "passed": true
+  },
+  {
+    "assertion": "source witness survives byte for byte",
+    "passed": true
+  },
+  {
+    "assertion": "pair-down exit 0",
+    "passed": true
+  },
+  {
+    "assertion": "backend-down exit 0",
+    "passed": true
+  }
+]

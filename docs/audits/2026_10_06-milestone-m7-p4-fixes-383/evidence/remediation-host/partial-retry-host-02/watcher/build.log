@@ -1,0 +1,534 @@
+/workspace/tmp/pixelelated-m7-p4-partial-retry-host-02/run.sh: OK
+/workspace/tmp/pixelelated-m7-p4-partial-retry-host-02/outer.sh: OK
+/workspace/repos/rocknix.worktrees/conflict-resolution/tools/rasteratops-cloud-layout-test: OK
+/workspace/repos/rocknix.worktrees/conflict-resolution/projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool: OK
+/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement15/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/bin/rclone: OK
+/workspace/repos/rocknix.worktrees/conflict-resolution/projects/ROCKNIX/packages/network/rclone/sources/cloud_backup: OK
+/workspace/repos/rocknix.worktrees/conflict-resolution/projects/ROCKNIX/packages/network/rclone/sources/cloud_capture: OK
+/workspace/repos/rocknix.worktrees/conflict-resolution/projects/ROCKNIX/packages/network/rclone/sources/cloud_content_backup: OK
+/workspace/repos/rocknix.worktrees/conflict-resolution/projects/ROCKNIX/packages/network/rclone/sources/cloud_content_restore: OK
+/workspace/repos/rocknix.worktrees/conflict-resolution/projects/ROCKNIX/packages/network/rclone/sources/cloud_content_transfer: OK
+/workspace/repos/rocknix.worktrees/conflict-resolution/projects/ROCKNIX/packages/network/rclone/sources/cloud_device_id: OK
+/workspace/repos/rocknix.worktrees/conflict-resolution/projects/ROCKNIX/packages/network/rclone/sources/cloud_log_scrub: OK
+/workspace/repos/rocknix.worktrees/conflict-resolution/projects/ROCKNIX/packages/network/rclone/sources/cloud_migrate_layout: OK
+/workspace/repos/rocknix.worktrees/conflict-resolution/projects/ROCKNIX/packages/network/rclone/sources/cloud_net_ready: OK
+/workspace/repos/rocknix.worktrees/conflict-resolution/projects/ROCKNIX/packages/network/rclone/sources/cloud_oauth: OK
+/workspace/repos/rocknix.worktrees/conflict-resolution/projects/ROCKNIX/packages/network/rclone/sources/cloud_remote: OK
+/workspace/repos/rocknix.worktrees/conflict-resolution/projects/ROCKNIX/packages/network/rclone/sources/cloud_restore: OK
+/workspace/repos/rocknix.worktrees/conflict-resolution/projects/ROCKNIX/packages/network/rclone/sources/cloud_saves_root: OK
+/workspace/repos/rocknix.worktrees/conflict-resolution/projects/ROCKNIX/packages/network/rclone/sources/cloud_scan: OK
+/workspace/repos/rocknix.worktrees/conflict-resolution/projects/ROCKNIX/packages/network/rclone/sources/cloud_setup: OK
+/workspace/repos/rocknix.worktrees/conflict-resolution/projects/ROCKNIX/packages/network/rclone/sources/cloud_sync-rules.txt: OK
+/workspace/repos/rocknix.worktrees/conflict-resolution/projects/ROCKNIX/packages/network/rclone/sources/cloud_sync-rules.txt.defaults: OK
+/workspace/repos/rocknix.worktrees/conflict-resolution/projects/ROCKNIX/packages/network/rclone/sources/cloud_sync.conf: OK
+/workspace/repos/rocknix.worktrees/conflict-resolution/projects/ROCKNIX/packages/network/rclone/sources/cloud_sync.conf.defaults: OK
+/workspace/repos/rocknix.worktrees/conflict-resolution/projects/ROCKNIX/packages/network/rclone/sources/cloud_sync_cleanup_duplicates.sh: OK
+/workspace/repos/rocknix.worktrees/conflict-resolution/projects/ROCKNIX/packages/network/rclone/sources/cloud_sync_helper: OK
+/workspace/repos/rocknix.worktrees/conflict-resolution/projects/ROCKNIX/packages/network/rclone/sources/rasteratops-settings-archive: OK
+rclone: rclone v1.75.1 (/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement15/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/bin/rclone)
+PASS PL003-truncated-prefix-Backups 
+PASS PL003-truncated-prefix-Saves 
+PASS PL003-truncated-no-record-Saves 
+PASS PL003-truncated-prefix-Saves-replaced 
+PASS PL003-truncated-no-record-Saves-replaced 
+PASS PL003-truncated-prefix-Content 
+PASS PL003-truncated-no-record-Content 
+PASS PL003-truncated-fresh-content 
+PASS PL003-truncated-empty 
+PASS PL003-truncated-complete 
+PASS PL003-truncated-different 
+PASS PL003-truncated-longer 
+PASS PL003-truncated-same-size 
+PASS PL003-truncated-extra 
+PASS PL003-truncated-missing 
+PASS PL003-truncated-changed-complete 
+PASS PL003-truncated-no-record 
+PASS PL003-truncated-wrong-binding 
+PASS PL003-truncated-read-source 
+PASS PL003-truncated-read-destination 
+PASS PL003-truncated-list-source 
+PASS PL003-truncated-list-destination 
+cloud-layout-test: 22 PASS, 0 FAIL; artifacts: /workspace/tmp/pixelelated-m7-p4-partial-retry-host-02/artifacts/focused
+rclone: rclone v1.75.1 (/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement15/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/bin/rclone)
+FAIL PL003-truncated-prefix-Backups truncated retry did not complete: This device stores:
+  saves    qa:/ROCKNIX/Saves
+  backups  qa:/ROCKNIX/Backups
+
+The current layout is:
+  saves    qa:/pixelelated/Saves
+  backups  qa:/pixelelated/Backups
+
+REFUSING: qa:/pixelelated/Backups already exists.
+>>> why THE NEW FOLDER ALREADY HAS FILES IN IT
+
+FAIL PL003-truncated-prefix-Saves truncated retry did not complete: This device stores:
+  saves    qa:/ROCKNIX/Saves
+  backups  qa:/ROCKNIX/Backups
+
+The current layout is:
+  saves    qa:/pixelelated/Saves
+  backups  qa:/pixelelated/Backups
+
+REFUSING: qa:/pixelelated/Saves already exists.
+>>> why THE NEW FOLDER ALREADY HAS FILES IN IT
+
+FAIL PL003-truncated-prefix-Saves-replaced truncated retry did not complete: This device stores:
+  saves    qa:/ROCKNIX/Saves
+  backups  qa:/ROCKNIX/Backups
+
+The current layout is:
+  saves    qa:/pixelelated/Saves
+  backups  qa:/pixelelated/Backups
+
+REFUSING: qa:/pixelelated/Saves-replaced already exists.
+>>> why THE NEW FOLDER ALREADY HAS FILES IN IT
+
+FAIL PL003-truncated-prefix-Content truncated retry did not complete: ckups for your settings backups.
+Now using /pixelelated/Saves for your saves.
+>>> unit ROMS, BIOS, AND GAME CONTENT|1|1
+REFUSING: qa:/pixelelated/Content already exists, and qa:/ROCKNIX/Content
+holds files. Nothing moved and the config is unchanged -- merging two
+content folders is not something to do without being asked.
+>>> why THE NEW FOLDER ALREADY HAS FILES IN IT
+
+Saves are at qa:/pixelelated/Saves and backups at qa:/pixelelated/Backups, but your ROMs and BIOS files didn't move. Try again.
+
+cloud-layout-test: 0 PASS, 4 FAIL; artifacts: /workspace/tmp/pixelelated-m7-p4-partial-retry-host-02/artifacts/old-prefix
+PASS four old-source partial-file positives fail as expected
+rclone: rclone v1.75.1 (/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement15/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/bin/rclone)
+PASS PL003-truncated-no-record-Saves 
+PASS PL003-truncated-no-record-Saves-replaced 
+PASS PL003-truncated-no-record-Content 
+PASS PL003-truncated-no-record 
+cloud-layout-test: 4 PASS, 0 FAIL; artifacts: /workspace/tmp/pixelelated-m7-p4-partial-retry-host-02/artifacts/old-no-record
+rclone: rclone v1.75.1 (/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement15/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/bin/rclone)
+PASS PL003-truncated-different 
+cloud-layout-test: 1 PASS, 0 FAIL; artifacts: /workspace/tmp/pixelelated-m7-p4-partial-retry-host-02/artifacts/old-different
+rclone: rclone v1.75.1 (/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement15/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/bin/rclone)
+PASS T24-production-backup-scan-restore 
+PASS T24-local-legacy-recovery 
+PASS T24-local-renamed-recovery 
+PASS T24-current-legacy-os 
+PASS T24-current-renamed 
+PASS T24-legacy-legacy-os 
+PASS T24-legacy-renamed 
+PASS T24-healed-legacy-os 
+PASS T24-healed-renamed 
+PASS T24-flat-legacy-os 
+PASS T24-flat-renamed 
+PASS T24-foreign-legacy-os 
+PASS T24-foreign-renamed 
+PASS T01-classification 
+PASS T01-actor-wizard 
+PASS T01-actor-transfer 
+PASS T01-actor-boot 
+PASS T01-actor-startup-restore 
+PASS T01-actor-startup-backup 
+PASS T01-actor-exit 
+PASS T01-actor-saves-restore 
+PASS T01-actor-saves-backup 
+PASS T02-classification 
+PASS T02-actor-wizard 
+PASS T02-actor-transfer 
+PASS T02-actor-boot 
+PASS T02-actor-startup-restore 
+PASS T02-actor-startup-backup 
+PASS T02-actor-exit 
+PASS T02-actor-saves-restore 
+PASS T02-actor-saves-backup 
+PASS T03-classification 
+PASS T03-actor-wizard 
+PASS T03-actor-transfer 
+PASS T03-actor-boot 
+PASS T03-actor-startup-restore 
+PASS T03-actor-startup-backup 
+PASS T03-actor-exit 
+PASS T03-actor-saves-restore 
+PASS T03-actor-saves-backup 
+PASS T04-classification 
+PASS T04-actor-wizard 
+PASS T04-actor-transfer 
+PASS T04-actor-boot 
+PASS T04-actor-startup-restore 
+PASS T04-actor-startup-backup 
+PASS T04-actor-exit 
+PASS T04-actor-saves-restore 
+PASS T04-actor-saves-backup 
+PASS T05-classification 
+PASS T05-actor-wizard 
+PASS T05-actor-transfer 
+PASS T05-actor-boot 
+PASS T05-actor-startup-restore 
+PASS T05-actor-startup-backup 
+PASS T05-actor-exit 
+PASS T05-actor-saves-restore 
+PASS T05-actor-saves-backup 
+PASS T06-classification 
+PASS T06-actor-wizard 
+PASS T06-actor-transfer 
+PASS T06-actor-boot 
+PASS T06-actor-startup-restore 
+PASS T06-actor-startup-backup 
+PASS T06-actor-exit 
+PASS T06-actor-saves-restore 
+PASS T06-actor-saves-backup 
+PASS T07-classification 
+PASS T07-actor-wizard 
+PASS T07-actor-transfer 
+PASS T07-actor-boot 
+PASS T07-actor-startup-restore 
+PASS T07-actor-startup-backup 
+PASS T07-actor-exit 
+PASS T07-actor-saves-restore 
+PASS T07-actor-saves-backup 
+PASS T08-classification 
+PASS T08-actor-wizard 
+PASS T08-actor-transfer 
+PASS T08-actor-boot 
+PASS T08-actor-startup-restore 
+PASS T08-actor-startup-backup 
+PASS T08-actor-exit 
+PASS T08-actor-saves-restore 
+PASS T08-actor-saves-backup 
+PASS T09-classification 
+PASS T09-actor-wizard 
+PASS T09-actor-transfer 
+PASS T09-actor-boot 
+PASS T09-actor-startup-restore 
+PASS T09-actor-startup-backup 
+PASS T09-actor-exit 
+PASS T09-actor-saves-restore 
+PASS T09-actor-saves-backup 
+PASS T10-classification 
+PASS T10-actor-wizard 
+PASS T10-actor-transfer 
+PASS T10-actor-boot 
+PASS T10-actor-startup-restore 
+PASS T10-actor-startup-backup 
+PASS T10-actor-exit 
+PASS T10-actor-saves-restore 
+PASS T10-actor-saves-backup 
+PASS T11-classification 
+PASS T11-actor-wizard 
+PASS T11-actor-transfer 
+PASS T11-actor-boot 
+PASS T11-actor-startup-restore 
+PASS T11-actor-startup-backup 
+PASS T11-actor-exit 
+PASS T11-actor-saves-restore 
+PASS T11-actor-saves-backup 
+PASS T12-classification 
+PASS T12-actor-wizard 
+PASS T12-actor-transfer 
+PASS T12-actor-boot 
+PASS T12-actor-startup-restore 
+PASS T12-actor-startup-backup 
+PASS T12-actor-exit 
+PASS T12-actor-saves-restore 
+PASS T12-actor-saves-backup 
+PASS T13-classification 
+PASS T13-actor-wizard 
+PASS T13-actor-transfer 
+PASS T13-actor-boot 
+PASS T13-actor-startup-restore 
+PASS T13-actor-startup-backup 
+PASS T13-actor-exit 
+PASS T13-actor-saves-restore 
+PASS T13-actor-saves-backup 
+PASS T14-classification 
+PASS T14-actor-wizard 
+PASS T14-actor-transfer 
+PASS T14-actor-boot 
+PASS T14-actor-startup-restore 
+PASS T14-actor-startup-backup 
+PASS T14-actor-exit 
+PASS T14-actor-saves-restore 
+PASS T14-actor-saves-backup 
+PASS T15-classification 
+PASS T15-actor-wizard 
+PASS T15-actor-transfer 
+PASS T15-actor-boot 
+PASS T15-actor-startup-restore 
+PASS T15-actor-startup-backup 
+PASS T15-actor-exit 
+PASS T15-actor-saves-restore 
+PASS T15-actor-saves-backup 
+PASS T16-classification 
+PASS T16-actor-wizard 
+PASS T16-actor-transfer 
+PASS T16-actor-boot 
+PASS T16-actor-startup-restore 
+PASS T16-actor-startup-backup 
+PASS T16-actor-exit 
+PASS T16-actor-saves-restore 
+PASS T16-actor-saves-backup 
+PASS T20-classification 
+PASS T20-actor-wizard 
+PASS T20-actor-transfer 
+PASS T20-actor-boot 
+PASS T20-actor-startup-restore 
+PASS T20-actor-startup-backup 
+PASS T20-actor-exit 
+PASS T20-actor-saves-restore 
+PASS T20-actor-saves-backup 
+PASS T21-classification 
+PASS T21-actor-wizard 
+PASS T21-actor-transfer 
+PASS T21-actor-boot 
+PASS T21-actor-startup-restore 
+PASS T21-actor-startup-backup 
+PASS T21-actor-exit 
+PASS T21-actor-saves-restore 
+PASS T21-actor-saves-backup 
+PASS T22-classification 
+PASS T22-actor-wizard 
+PASS T22-actor-transfer 
+PASS T22-actor-boot 
+PASS T22-actor-startup-restore 
+PASS T22-actor-startup-backup 
+PASS T22-actor-exit 
+PASS T22-actor-saves-restore 
+PASS T22-actor-saves-backup 
+PASS T24-classification 
+PASS T24-actor-wizard 
+PASS T24-actor-transfer 
+PASS T24-actor-boot 
+PASS T24-actor-startup-restore 
+PASS T24-actor-startup-backup 
+PASS T24-actor-exit 
+PASS T24-actor-saves-restore 
+PASS T24-actor-saves-backup 
+PASS T11-note-only 
+PASS T17-follow-call-failure 
+PASS T17-follow-read-failure 
+PASS T17-unreadable 
+PASS T17-seed-timeout 
+PASS T17-seed-failed 
+PASS T18-bucket-backup-unknown 
+PASS T18-bucket-restore-unknown 
+PASS T19-no-remote 
+PASS T23-content-collision 
+PASS T25-restricted-prefix 
+PASS T17-actor-wizard 
+PASS T17-actor-transfer 
+PASS T17-actor-boot 
+PASS T17-actor-startup-restore 
+PASS T17-actor-startup-backup 
+PASS T17-actor-exit 
+PASS T17-actor-saves-restore 
+PASS T17-actor-saves-backup 
+PASS T19-actor-wizard 
+PASS T19-actor-transfer 
+PASS T19-actor-boot 
+PASS T19-actor-startup-restore 
+PASS T19-actor-startup-backup 
+PASS T19-actor-exit 
+PASS T19-actor-saves-restore 
+PASS T19-actor-saves-backup 
+PASS T18-actor-startup-restore 
+PASS T18-actor-startup-backup 
+PASS T18-actor-exit 
+PASS T18-actor-saves-restore 
+PASS T18-actor-saves-backup 
+PASS T18-actor-wizard 
+PASS T18-actor-transfer 
+PASS T18-actor-boot 
+PASS T25-actor-wizard 
+PASS T25-actor-transfer 
+PASS T25-actor-boot 
+PASS T25-actor-startup-restore 
+PASS T25-actor-startup-backup 
+PASS T25-actor-exit 
+PASS T25-actor-saves-restore 
+PASS T25-actor-saves-backup 
+PASS T19-local-path-cloud_backup-empty-config 
+PASS T19-local-path-cloud_backup-failed-discovery 
+PASS T19-local-path-cloud_restore-empty-config 
+PASS T19-local-path-cloud_restore-failed-discovery 
+PASS T18-cloud_backup-parent-error-3 
+PASS T18-cloud_backup-parent-error-4 
+PASS T18-cloud_backup-parent-error-7 
+PASS T18-cloud_restore-parent-error-3 
+PASS T18-cloud_restore-parent-error-4 
+PASS T18-cloud_restore-parent-error-7 
+PASS T18-restore-features-error 
+PASS T20-follow-ROCKNIX 
+PASS T20-follow-GAMES 
+PASS T20-follow-custom 
+PASS T20-settle-ROCKNIX 
+PASS T20-settle-GAMES 
+PASS T20-settle-custom 
+PASS T20-apply-other-source-default 
+PASS T20-apply-other-source-custom 
+PASS T26-marker-malformed-apply 
+PASS T26-marker-malformed-follow 
+PASS T26-marker-malformed-settle 
+PASS T26-marker-malformed-join 
+PASS T26-marker-malformed-state 
+PASS T26-marker-malformed-seed 
+PASS T26-marker-malformed-scan 
+PASS T26-marker-future-apply 
+PASS T26-marker-future-follow 
+PASS T26-marker-future-settle 
+PASS T26-marker-future-join 
+PASS T26-marker-future-state 
+PASS T26-marker-future-seed 
+PASS T26-marker-future-scan 
+PASS T26-marker-trailing-apply 
+PASS T26-marker-trailing-follow 
+PASS T26-marker-trailing-settle 
+PASS T26-marker-trailing-join 
+PASS T26-marker-trailing-state 
+PASS T26-marker-trailing-seed 
+PASS T26-marker-trailing-scan 
+PASS T26-direct-exit 
+PASS T26-direct-saves-restore 
+PASS T26-direct-saves-backup 
+PASS T23-retry-Backups 
+PASS T23-retry-Saves 
+PASS T23-retry-Saves-replaced 
+PASS T23-retry-Content 
+PASS T23-retry-marker 
+PASS PL003-truncated-prefix-Backups 
+PASS PL003-truncated-prefix-Saves 
+PASS PL003-truncated-no-record-Saves 
+PASS PL003-truncated-prefix-Saves-replaced 
+PASS PL003-truncated-no-record-Saves-replaced 
+PASS PL003-truncated-prefix-Content 
+PASS PL003-truncated-no-record-Content 
+PASS PL003-truncated-fresh-content 
+PASS PL003-truncated-empty 
+PASS PL003-truncated-complete 
+PASS PL003-truncated-different 
+PASS PL003-truncated-longer 
+PASS PL003-truncated-same-size 
+PASS PL003-truncated-extra 
+PASS PL003-truncated-missing 
+PASS PL003-truncated-changed-complete 
+PASS PL003-truncated-no-record 
+PASS PL003-truncated-wrong-binding 
+PASS PL003-truncated-read-source 
+PASS PL003-truncated-read-destination 
+PASS PL003-truncated-list-source 
+PASS PL003-truncated-list-destination 
+PASS T23-retry-delete-Backups 
+PASS T23-retry-delete-Saves 
+PASS T23-retry-delete-Saves-replaced 
+PASS T23-retry-delete-Content 
+PASS T23-retry-legacy-record 
+PASS T23-predecessor-RC2-backups 
+PASS T23-predecessor-RC2-saves 
+PASS T23-predecessor-RC2-content 
+PASS T23-predecessor-RC2-complete 
+PASS T23-predecessor-RC2-reinterrupted 
+PASS PL003-historical-shelves-complete 
+PASS PL003-historical-shelves-copy 
+PASS PL003-historical-shelves-delete 
+PASS PL003-historical-shelves-active 
+PASS PL003-historical-shelves-foreign 
+PASS PL003-historical-shelves-unreadable 
+PASS T23-predecessor-boundary-root 
+PASS PL003-active-sibling-root 
+PASS T23-predecessor-boundary-custom 
+PASS PL003-active-sibling-custom 
+PASS T23-predecessor-boundary-foreign 
+PASS PL003-active-sibling-foreign 
+PASS T23-predecessor-boundary-fleet 
+PASS PL003-active-sibling-fleet 
+PASS PL002-atomic-join-SAVES_REMOTE 
+PASS PL002-atomic-join-SETTINGS_REMOTE 
+PASS PL002-atomic-join-CONTENT_REMOTE 
+PASS PL002-atomic-join-publish 
+PASS PL002-atomic-follow-SAVES_REMOTE 
+PASS PL002-atomic-follow-SETTINGS_REMOTE 
+PASS PL002-atomic-follow-CONTENT_REMOTE 
+PASS PL002-atomic-follow-publish 
+PASS PL002-atomic-settle-SAVES_REMOTE 
+PASS PL002-atomic-settle-SETTINGS_REMOTE 
+PASS PL002-atomic-settle-CONTENT_REMOTE 
+PASS PL002-atomic-settle-publish 
+PASS PL004-binding-comments 
+PASS PL004-binding-format 
+PASS PL004-binding-token 
+PASS PL004-binding-endpoint 
+PASS PL004-binding-legacy 
+PASS PL004-binding-legacy-comments 
+PASS PL001-discovery-empty 
+PASS PL001-discovery-unrelated 
+PASS PL001-discovery-fallback 
+PASS PL001-discovery-tiered 
+PASS PL001-discovery-root-tiered 
+PASS PL001-discovery-root-flat 
+PASS PL001-discovery-root-unrelated 
+PASS PL001-discovery-stranded 
+PASS PL001-discovery-refused 
+PASS PL001-legacy-support-supported 
+PASS PL001-legacy-support-tiered 
+PASS PL001-legacy-support-bios 
+PASS PL001-legacy-support-unsupported 
+PASS PL006-folder-MyGames 
+PASS PL006-folder-My Games 
+PASS PL006-folder-Games..old 
+PASS PL006-folder-Kid's Games 
+PASS PL008-reader-escaped 
+PASS PL008-reader-single 
+PASS PL008-reader-bare 
+PASS PL008-reader-double 
+PASS PL008-reader-duplicate 
+PASS PL008-reader-export 
+PASS PL008-reader-trailing 
+PASS PL008-reader-control 
+PASS PL005-reason-future 
+PASS PL005-reason-malformed 
+PASS PL005-reason-config 
+PASS PL005-reason-record 
+PASS PL005-reason-write 
+PASS PL005-reason-network 
+PASS PL005-reason-timeout 
+PASS T23-predecessor-content-only-populated 
+PASS T23-predecessor-content-only-empty 
+PASS T21-join-missing 
+PASS T21-join-root 
+PASS T21-join-derived 
+PASS T21-join-custom 
+PASS T21-follow-missing 
+PASS T21-follow-root 
+PASS T21-follow-derived 
+PASS T21-follow-custom 
+PASS T21-settle-missing 
+PASS T21-settle-root 
+PASS T21-settle-derived 
+PASS T21-settle-custom 
+PASS T21-apply-missing 
+PASS T21-apply-root 
+PASS T21-apply-derived 
+PASS T21-apply-custom 
+cloud-layout-test: 398 PASS, 0 FAIL; artifacts: /workspace/tmp/pixelelated-m7-p4-partial-retry-host-02/artifacts/full
+/workspace/tmp/pixelelated-m7-p4-partial-retry-host-02/run.sh: OK
+/workspace/tmp/pixelelated-m7-p4-partial-retry-host-02/outer.sh: OK
+/workspace/repos/rocknix.worktrees/conflict-resolution/tools/rasteratops-cloud-layout-test: OK
+/workspace/repos/rocknix.worktrees/conflict-resolution/projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool: OK
+/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement15/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/bin/rclone: OK
+/workspace/repos/rocknix.worktrees/conflict-resolution/projects/ROCKNIX/packages/network/rclone/sources/cloud_backup: OK
+/workspace/repos/rocknix.worktrees/conflict-resolution/projects/ROCKNIX/packages/network/rclone/sources/cloud_capture: OK
+/workspace/repos/rocknix.worktrees/conflict-resolution/projects/ROCKNIX/packages/network/rclone/sources/cloud_content_backup: OK
+/workspace/repos/rocknix.worktrees/conflict-resolution/projects/ROCKNIX/packages/network/rclone/sources/cloud_content_restore: OK
+/workspace/repos/rocknix.worktrees/conflict-resolution/projects/ROCKNIX/packages/network/rclone/sources/cloud_content_transfer: OK
+/workspace/repos/rocknix.worktrees/conflict-resolution/projects/ROCKNIX/packages/network/rclone/sources/cloud_device_id: OK
+/workspace/repos/rocknix.worktrees/conflict-resolution/projects/ROCKNIX/packages/network/rclone/sources/cloud_log_scrub: OK
+/workspace/repos/rocknix.worktrees/conflict-resolution/projects/ROCKNIX/packages/network/rclone/sources/cloud_migrate_layout: OK
+/workspace/repos/rocknix.worktrees/conflict-resolution/projects/ROCKNIX/packages/network/rclone/sources/cloud_net_ready: OK
+/workspace/repos/rocknix.worktrees/conflict-resolution/projects/ROCKNIX/packages/network/rclone/sources/cloud_oauth: OK
+/workspace/repos/rocknix.worktrees/conflict-resolution/projects/ROCKNIX/packages/network/rclone/sources/cloud_remote: OK
+/workspace/repos/rocknix.worktrees/conflict-resolution/projects/ROCKNIX/packages/network/rclone/sources/cloud_restore: OK
+/workspace/repos/rocknix.worktrees/conflict-resolution/projects/ROCKNIX/packages/network/rclone/sources/cloud_saves_root: OK
+/workspace/repos/rocknix.worktrees/conflict-resolution/projects/ROCKNIX/packages/network/rclone/sources/cloud_scan: OK
+/workspace/repos/rocknix.worktrees/conflict-resolution/projects/ROCKNIX/packages/network/rclone/sources/cloud_setup: OK
+/workspace/repos/rocknix.worktrees/conflict-resolution/projects/ROCKNIX/packages/network/rclone/sources/cloud_sync-rules.txt: OK
+/workspace/repos/rocknix.worktrees/conflict-resolution/projects/ROCKNIX/packages/network/rclone/sources/cloud_sync-rules.txt.defaults: OK
+/workspace/repos/rocknix.worktrees/conflict-resolution/projects/ROCKNIX/packages/network/rclone/sources/cloud_sync.conf: OK
+/workspace/repos/rocknix.worktrees/conflict-resolution/projects/ROCKNIX/packages/network/rclone/sources/cloud_sync.conf.defaults: OK
+/workspace/repos/rocknix.worktrees/conflict-resolution/projects/ROCKNIX/packages/network/rclone/sources/cloud_sync_cleanup_duplicates.sh: OK
+/workspace/repos/rocknix.worktrees/conflict-resolution/projects/ROCKNIX/packages/network/rclone/sources/cloud_sync_helper: OK
+/workspace/repos/rocknix.worktrees/conflict-resolution/projects/ROCKNIX/packages/network/rclone/sources/rasteratops-settings-archive: OK
+PASS partial-file source repair; rebuilt installed UI acceptance remains required

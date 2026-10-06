@@ -1,0 +1,11 @@
+{
+  "prepared_utc": "2026-10-06T21:57:33.728402+00:00",
+  "criterion": "I354-L66, #354/#471",
+  "state": "prepared not submitted",
+  "scope": "Actual retained pre-join historical build on actual RC2-updated a plus fresh b; synthetic local WebDAV only. Positive current migration remains separate. Default is read from historical bytes.",
+  "source_commits": [
+    "69e6039f8fdbf971d3e6b694537f250036fdcd98",
+    "1acdaf2cce908b25758a004dca0f22ad3ff7af49"
+  ],
+  "historical_source_note": "RC2 predates cloud_scan. Identity hashes cover its actual five relevant scripts; updated/fresh historical peers cover all six."
+}

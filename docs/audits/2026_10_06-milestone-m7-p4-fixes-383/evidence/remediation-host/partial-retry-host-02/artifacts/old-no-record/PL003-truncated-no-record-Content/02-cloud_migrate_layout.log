@@ -1,0 +1,18 @@
+This device stores:
+  saves    qa:/pixelelated/Saves
+  backups  qa:/pixelelated/Backups
+
+The current layout is:
+  saves    qa:/pixelelated/Saves
+  backups  qa:/pixelelated/Backups
+
+Would move, server-side, leaving anything else where it is:
+  qa:/ROCKNIX/Content  ->  qa:/pixelelated/Content
+
+>>> unit ROMS, BIOS, AND GAME CONTENT|1|1
+REFUSING: qa:/pixelelated/Content already exists, and qa:/ROCKNIX/Content
+holds files. Nothing moved and the config is unchanged -- merging two
+content folders is not something to do without being asked.
+>>> why THE NEW FOLDER ALREADY HAS FILES IN IT
+
+Saves are at qa:/pixelelated/Saves and backups at qa:/pixelelated/Backups, but your ROMs and BIOS files didn't move. Try again.

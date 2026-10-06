@@ -131,3 +131,14 @@ Already written: existing safe folder names with spaces or internal dots are
 selectable directly; no folder rename or cloud rewrite is needed. Unsafe forms
 remain refused. This finding does not claim that every other content or failure
 surface is accepted.
+
+
+## PL-003 — Additional installed defect; source repair qualified, rebuilt proof pending
+
+Coverage05 interrupts a real258048/8391392byte settings copy and preserves all original files/pointers, but actual TRY AGAIN refuses the partial file (#479). All eight final frames directly reviewed6PASS/2FAIL; earlier three first-copy frames separately retained. Partial-retry-host02 qualifies the bounded source repair22focused/398full with old-source failures and refusal controls. This does not resolve PL003. Actual rebuilt16 must complete retry and next shelf with original bytes preserved.
+
+## I354-L66 — Historical no-join evidence gap resolved
+
+Historical no-join02 completed23:18:40; primary23:18:52 verified allfour0/21seals and owner exits,23:18:55 verified both guests/backend/ports stopped. Actual RC2→retained1ac update preserves populated ROCKNIX pointers/cloud bytes. Fresh historical1ac directly reads the earlier save with its own installed client, then its supported full scan reports current/SOURCE=-, seeding does not join any of the three earlier pointers, and successful default restore transfers0bytes without the witness. All original bytes survive. Every runtime cloud hash is independently rechecked in nojoin02-acceptance-01. This supplies the exact historical negative for I354-L66; no new Rasteratops adoption gate. Failed01 remains a fixture error under#481.
+
+Original forward-audit counts remain the frozen audit baseline; this later disposition supplies its missing evidence without rewriting history.

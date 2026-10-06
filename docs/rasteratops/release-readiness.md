@@ -1,6 +1,6 @@
 # pixelelated 0.0.1 release readiness
 
-## Current work — P4 remediation, 2026-10-06 22:50 UTC
+## Current work — P4 remediation, 2026-10-06 22:58 UTC
 
 Both approved Fable calls and primary grading are complete. Audit #471 has
 eight findings: PL-002/006/007/008 are resolved from installed evidence; four remain
@@ -23,14 +23,17 @@ owner/guest/backend cleanup and all46 frames reviewed. Three frames retain
 reason/instruction clipping; bounded ES source fixes pass compiler/msgfmt but
 need rebuilt visual proof. Four punch findings remain open. Library01 failed its timing/isolation fixture checks and is retained under#474.
 Corrected library02 passes415 assertions with11 seals, four zero results and verified cleanup.
-Boot09 and bucket02 pass with verified cleanup. Coverage04 is active under
-watcher2750602; check the checkpoint before starting another VM owner.
+Boot09 and bucket02 pass with verified cleanup.
 
-Order: complete remaining cloud coverage
-and genuine mixed-installation negative → build and qualify repaired image16 → close
-#471/P4 → capacity #461 → H700 DDR4 RG35XX SP arm, then aarch64 → named
-physical and P5 publication gates. No RC designation or device readiness claim.
-#469 is closed with corrected #351 bilingual evidence; #467/#468/#471 remain open.
+Coverage05 exposes installed retry defect#479: after a real258048/8391392byte copy is killed, all original data/pointers and the recovery record survive, but actual TRY AGAIN refuses the partial destination. The exact-file resumable guard supports completed subsets, not truncated files. Allfour1/10seals and actual cleanup23:00:41/45 are retained; no retry acceptance and no data-loss claim. Repair remains within openPL003. #478 now distinguishes the successful injection from this product failure. Source repair must preserve foreign-folder refusal and original connection/pointer binding, with full regression and rebuilt16 actual interruption/UI proof.
+
+Freshroot07 completed23:08:00; primary23:08:31 allfour0/10seals,23:08:36 actual guest/backend cleanup and free ports. Actual generated settings archive, settings/content uploads, automatic save receive/send and independent backend listing pass; every retained cloud hash rechecked against runtime bytes. Installed ES restarted, exact identity/post-payload check passes, cloud bytes unchanged. Failed06 remains allfour1 with its missing ES restart under#480. #477 settings-only and all remaining coverage dispositions are now recorded; the actual partial retry remains a separate product defect#479/#478.
+
+Historical no-join02 completed23:18:40; primary23:18:52 verified allfour0/21seals and owner exits,23:18:55 verified both guests/backend/ports stopped. Actual RC2→retained1ac update preserves populated ROCKNIX pointers/cloud bytes. Fresh historical1ac directly reads the earlier save with its own installed client, then its supported full scan reports current/SOURCE=-, seeding does not join any of the three earlier pointers, and successful default restore transfers0bytes without the witness. All original bytes survive. Every runtime cloud hash is independently rechecked in nojoin02-acceptance-01. This supplies the exact historical negative for I354-L66; no new Rasteratops adoption gate. Failed01 remains a fixture error under#481.
+
+Refined partial-retry-host02 completed; primary `2026-10-06T23:22:50.529406+00:00` verifies allfour0/27seals, no owner process,22focusedPASS/398fullPASS,4old-source expectedFAIL and5oldrefusal controlsPASS. Exact tested source/tool snapshots retained. The guard requires a validated prior record and verifies every destination byte against the source prefix; unrelated/missing/changed/longer files, wrong binding, failed reads/listings and unrecorded partial destinations are refused. Content is checked before creating a record or advancing any tier. Intermediate host01 and its failing missing-record Content control stay retained. Source acceptance only: installed16 must pass actual interruption/UI retry and next backup shelf before#479/PL003 can close.
+
+Next: integrate tested source/ES fixes and build16 → actual truncated-copy/UI retry plus affected/final installed acceptance → #471/P4 closure → capacity#461 → H700 DDR4 RG35XX SP arm, thenaarch64 → named physical/P5 gates. PL001/003/004/005 remain open. No RC designation; no pending approval. #477/#480/#481 fixture criteria verified; close after evidence publication.
 
 ## Historical qualification — earlier status statements retain their dates
 

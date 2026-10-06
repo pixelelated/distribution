@@ -1,0 +1,109 @@
+{
+  "utc": "2026-10-06T22:58:08.650060+00:00",
+  "completed_cases": [
+    {
+      "case": "en_US-settings-only-ROCKNIX",
+      "status": "PASS",
+      "visual_review": "pending when UI exists"
+    },
+    {
+      "case": "en_US-settings-only-GAMES",
+      "status": "PASS",
+      "visual_review": "pending when UI exists"
+    },
+    {
+      "case": "en_US-foreign-hostname",
+      "status": "PASS",
+      "visual_review": "pending when UI exists"
+    },
+    {
+      "case": "fr_FR-foreign-hostname",
+      "status": "PASS",
+      "visual_review": "pending when UI exists"
+    }
+  ],
+  "details": {
+    "ROCKNIX": {
+      "original_archive": {
+        "ROCKNIX/Backups/GENERIC-X64-474cbdb64c/2026_10_06-000000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz": "02ebe1f30d21d890aea2a8c5c5f3fd93a676478a0489731a978e118d9729c9d3"
+      },
+      "seed_notes": {
+        "pixelelated/Saves/README.txt": "81283a71c8db19f49232b395e3527170b14ae38add60d5180071196f24c283bf",
+        "ROCKNIX/Backups/README.txt": "a2e91a3dddf28269cbf704b1b7e2540608e9851a88f09679701e0c6629fd7f5c",
+        "pixelelated/Content/ROMs/README.txt": "cdbf34d6dc27ad558261bd99b99bbc91850ba28a1150ef2488b18dbe87637bcd",
+        "pixelelated/Content/BIOS/README.txt": "12345b222d272bcccee06cac35e9b0d4ac10a76617a32b72cefa8542a90d1f67",
+        "pixelelated/Content/README.txt": "cb0db1a29003ebedb5a5f92d17c49e7eadebedcc10e883e9d9af052fd4a57456"
+      },
+      "sentinel_sha256": "bfb8d52745e782a64c3e8bf7a93b06ff47a307e816ec7f1e3c189076b7b7c8a8",
+      "facts": {
+        "SOURCE": "qa-cloud:/ROCKNIX/Backups/GENERIC-X64-474cbdb64c",
+        "LABEL": "GENERIC-X64",
+        "MINE": "2026_10_06-000000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz",
+        "NEWEST": "2026_10_06-000000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz",
+        "COUNT": "1"
+      }
+    },
+    "GAMES": {
+      "original_archive": {
+        "GAMES/backup/GENERIC-X64-474cbdb64c/2026_10_06-000000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz": "fc6429bb81453546e290bf47682b6fac758fa180ab2926690dadf63ec95641cd"
+      },
+      "seed_notes": {
+        "pixelelated/Saves/README.txt": "81283a71c8db19f49232b395e3527170b14ae38add60d5180071196f24c283bf",
+        "GAMES/backup/README.txt": "a2e91a3dddf28269cbf704b1b7e2540608e9851a88f09679701e0c6629fd7f5c",
+        "ROMs/README.txt": "cdbf34d6dc27ad558261bd99b99bbc91850ba28a1150ef2488b18dbe87637bcd",
+        "BIOS/README.txt": "12345b222d272bcccee06cac35e9b0d4ac10a76617a32b72cefa8542a90d1f67"
+      },
+      "sentinel_sha256": "a6396fbab358d8eb2cad7a27efabc2e59880d717b09ffaebf1872ee3d6d10a67",
+      "facts": {
+        "SOURCE": "qa-cloud:/GAMES/backup/GENERIC-X64-474cbdb64c",
+        "LABEL": "GENERIC-X64",
+        "MINE": "2026_10_06-000000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz",
+        "NEWEST": "2026_10_06-000000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz",
+        "COUNT": "1"
+      }
+    },
+    "en_US": {
+      "before": "M7-OWNED-HOSTNAME-WITNESS",
+      "after": "M7-OWNED-HOSTNAME-WITNESS",
+      "facts": {
+        "SOURCE": "qa-cloud:/pixelelated/Backups/GENERIC-X64-474cbdb64c",
+        "LABEL": "GENERIC-X64",
+        "MINE": "",
+        "NEWEST": "2026_10_06-235959-FOREIGN-QA-ROCKNIX_SETTINGS.tar.gz",
+        "COUNT": "1"
+      },
+      "local_archives_before": "fc6429bb81453546e290bf47682b6fac758fa180ab2926690dadf63ec95641cd  /storage/roms/backup/2026_10_06-000000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz\n",
+      "local_archives_after": "fc6429bb81453546e290bf47682b6fac758fa180ab2926690dadf63ec95641cd  /storage/roms/backup/2026_10_06-000000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz\n",
+      "cloud": {
+        "pixelelated/.layout": "be68d69fa1fe3ddbcaa9295b8e3e732fd0113d909e38cf643d95aab41c9b1a22",
+        "pixelelated/Backups/GENERIC-X64-474cbdb64c/2026_10_06-235959-FOREIGN-QA-ROCKNIX_SETTINGS.tar.gz": "bf0919b6c03faa6c3789b4c141257f4f1cdd4d8329e4eb1c0474764a0c0eba1d",
+        "pixelelated/Saves/gb/A.srm": "a9a1235e15e7b7b1188c6ec90bc52c233c5225944fa57be3a60ae0fd650873ef"
+      },
+      "scope": "Real UI restore options and disabled settings row. Does not invoke the intentional broader console restore fallback."
+    },
+    "fr_FR": {
+      "before": "M7-OWNED-HOSTNAME-WITNESS",
+      "after": "M7-OWNED-HOSTNAME-WITNESS",
+      "facts": {
+        "SOURCE": "qa-cloud:/pixelelated/Backups/GENERIC-X64-474cbdb64c",
+        "LABEL": "GENERIC-X64",
+        "MINE": "",
+        "NEWEST": "2026_10_06-235959-FOREIGN-QA-ROCKNIX_SETTINGS.tar.gz",
+        "COUNT": "1"
+      },
+      "local_archives_before": "fc6429bb81453546e290bf47682b6fac758fa180ab2926690dadf63ec95641cd  /storage/roms/backup/2026_10_06-000000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz\n",
+      "local_archives_after": "fc6429bb81453546e290bf47682b6fac758fa180ab2926690dadf63ec95641cd  /storage/roms/backup/2026_10_06-000000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz\n",
+      "cloud": {
+        "pixelelated/.layout": "be68d69fa1fe3ddbcaa9295b8e3e732fd0113d909e38cf643d95aab41c9b1a22",
+        "pixelelated/Backups/GENERIC-X64-474cbdb64c/2026_10_06-235959-FOREIGN-QA-ROCKNIX_SETTINGS.tar.gz": "f772537f3e8557a0ceac63c7e36543b72a567d09fb0cfb0eff4714b5a1872627",
+        "pixelelated/Saves/gb/A.srm": "a9a1235e15e7b7b1188c6ec90bc52c233c5225944fa57be3a60ae0fd650873ef"
+      },
+      "scope": "Real UI restore options and disabled settings row. Does not invoke the intentional broader console restore fallback."
+    }
+  },
+  "frames": 15,
+  "frame_pass": 14,
+  "frame_fail": 1,
+  "overall_run": "FAILED at unfulfilled partial-copy premise before SIGKILL; fresh root not run",
+  "installed_hashes_unchanged": true
+}

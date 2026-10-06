@@ -1,0 +1,22 @@
+[
+  {
+    "case": "PL003-truncated-prefix-Backups",
+    "status": "FAIL",
+    "why": "truncated retry did not complete: This device stores:\n  saves    qa:/ROCKNIX/Saves\n  backups  qa:/ROCKNIX/Backups\n\nThe current layout is:\n  saves    qa:/pixelelated/Saves\n  backups  qa:/pixelelated/Backups\n\nREFUSING: qa:/pixelelated/Backups already exists.\n>>> why THE NEW FOLDER ALREADY HAS FILES IN IT\n"
+  },
+  {
+    "case": "PL003-truncated-prefix-Saves",
+    "status": "FAIL",
+    "why": "truncated retry did not complete: This device stores:\n  saves    qa:/ROCKNIX/Saves\n  backups  qa:/ROCKNIX/Backups\n\nThe current layout is:\n  saves    qa:/pixelelated/Saves\n  backups  qa:/pixelelated/Backups\n\nREFUSING: qa:/pixelelated/Saves already exists.\n>>> why THE NEW FOLDER ALREADY HAS FILES IN IT\n"
+  },
+  {
+    "case": "PL003-truncated-prefix-Saves-replaced",
+    "status": "FAIL",
+    "why": "truncated retry did not complete: This device stores:\n  saves    qa:/ROCKNIX/Saves\n  backups  qa:/ROCKNIX/Backups\n\nThe current layout is:\n  saves    qa:/pixelelated/Saves\n  backups  qa:/pixelelated/Backups\n\nREFUSING: qa:/pixelelated/Saves-replaced already exists.\n>>> why THE NEW FOLDER ALREADY HAS FILES IN IT\n"
+  },
+  {
+    "case": "PL003-truncated-prefix-Content",
+    "status": "FAIL",
+    "why": "truncated retry did not complete: ckups for your settings backups.\nNow using /pixelelated/Saves for your saves.\n>>> unit ROMS, BIOS, AND GAME CONTENT|1|1\nREFUSING: qa:/pixelelated/Content already exists, and qa:/ROCKNIX/Content\nholds files. Nothing moved and the config is unchanged -- merging two\ncontent folders is not something to do without being asked.\n>>> why THE NEW FOLDER ALREADY HAS FILES IN IT\n\nSaves are at qa:/pixelelated/Saves and backups at qa:/pixelelated/Backups, but your ROMs and BIOS files didn't move. Try again.\n"
+  }
+]

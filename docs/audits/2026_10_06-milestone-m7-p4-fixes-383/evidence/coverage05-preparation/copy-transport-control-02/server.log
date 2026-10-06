@@ -1,0 +1,105 @@
+2026/10/06 22:56:07 DEBUG : rclone: Version "v1.60.1-DEV" starting with parameters ["/usr/bin/rclone" "serve" "webdav" "/workspace/tmp/pixelelated-m7-copy-transport-control-02/data" "--addr" "127.0.0.1:9046" "--dir-cache-time" "1s" "--config" "/dev/null" "-vv"]
+2026/10/06 22:56:07 DEBUG : Creating backend with remote "/workspace/tmp/pixelelated-m7-copy-transport-control-02/data"
+2026/10/06 22:56:07 DEBUG : Using config file from ""
+2026/10/06 22:56:07 INFO  : Local file system at /workspace/tmp/pixelelated-m7-copy-transport-control-02/data: poll-interval is not supported by this remote
+2026/10/06 22:56:07 NOTICE: Local file system at /workspace/tmp/pixelelated-m7-copy-transport-control-02/data: WebDav Server started on http://127.0.0.1:9046/
+2026/10/06 22:56:07 DEBUG : /source: OpenFile: flags=O_RDONLY, perm=----------
+2026/10/06 22:56:07 DEBUG : /source: >OpenFile: fd=source/ (r), err=<nil>
+2026/10/06 22:56:07 INFO  : /source: PROPFIND from 127.0.0.1:57968
+2026/10/06 22:56:07 INFO  : /default: PROPFIND from 127.0.0.1:57980
+2026/10/06 22:56:07 DEBUG : /source/: OpenFile: flags=O_RDONLY, perm=----------
+2026/10/06 22:56:07 DEBUG : /source/: >OpenFile: fd=source/ (r), err=<nil>
+2026/10/06 22:56:07 DEBUG : /source/: OpenFile: flags=O_RDONLY, perm=----------
+2026/10/06 22:56:07 DEBUG : /source/: >OpenFile: fd=source/ (r), err=<nil>
+2026/10/06 22:56:07 DEBUG : /source/witness: OpenFile: flags=O_RDONLY, perm=----------
+2026/10/06 22:56:07 DEBUG : source/witness: Open: flags=O_RDONLY
+2026/10/06 22:56:07 DEBUG : source/witness: >Open: fd=source/witness (r), err=<nil>
+2026/10/06 22:56:07 DEBUG : /source/witness: >OpenFile: fd=source/witness (r), err=<nil>
+2026/10/06 22:56:07 INFO  : /source/: PROPFIND from 127.0.0.1:57968
+2026/10/06 22:56:07 INFO  : /default/: PROPFIND from 127.0.0.1:57980
+2026/10/06 22:56:07 DEBUG : : Added virtual directory entry vAddDir: "default"
+2026/10/06 22:56:07 INFO  : /default/: MKCOL from 127.0.0.1:57980
+2026/10/06 22:56:07 DEBUG : /source/witness: OpenFile: flags=O_RDONLY, perm=----------
+2026/10/06 22:56:07 DEBUG : source/witness: Open: flags=O_RDONLY
+2026/10/06 22:56:07 DEBUG : source/witness: >Open: fd=source/witness (r), err=<nil>
+2026/10/06 22:56:07 DEBUG : /source/witness: >OpenFile: fd=source/witness (r), err=<nil>
+2026/10/06 22:56:07 DEBUG : /default/witness: OpenFile: flags=O_RDWR|O_CREATE|O_TRUNC, perm=-rw-rw-r--
+2026/10/06 22:56:07 DEBUG : default/witness: Open: flags=O_RDWR|O_CREATE|O_TRUNC
+2026/10/06 22:56:07 DEBUG : default: Added virtual directory entry vAddFile: "witness"
+2026/10/06 22:56:07 DEBUG : default/witness: >Open: fd=default/witness (w), err=<nil>
+2026/10/06 22:56:07 DEBUG : /default/witness: >OpenFile: fd=default/witness (w), err=<nil>
+2026/10/06 22:56:07 DEBUG : source/witness: ChunkedReader.openRange at 0 length 134217728
+2026/10/06 22:56:07 DEBUG : source/witness: ChunkedReader.Read at 0 length 4096 chunkOffset 0 chunkSize 134217728
+2026/10/06 22:56:07 DEBUG : source/witness: ChunkedReader.Read at 4096 length 8192 chunkOffset 0 chunkSize 134217728
+2026/10/06 22:56:07 DEBUG : source/witness: ChunkedReader.Read at 12288 length 16384 chunkOffset 0 chunkSize 134217728
+2026/10/06 22:56:07 DEBUG : source/witness: ChunkedReader.Read at 28672 length 32768 chunkOffset 0 chunkSize 134217728
+2026/10/06 22:56:07 DEBUG : source/witness: ChunkedReader.Read at 61440 length 65536 chunkOffset 0 chunkSize 134217728
+2026/10/06 22:56:07 DEBUG : source/witness: ChunkedReader.Read at 126976 length 131072 chunkOffset 0 chunkSize 134217728
+2026/10/06 22:56:07 DEBUG : source/witness: ChunkedReader.Read at 258048 length 262144 chunkOffset 0 chunkSize 134217728
+2026/10/06 22:56:07 DEBUG : default: Added virtual directory entry vAddFile: "witness"
+2026/10/06 22:56:07 DEBUG : source/witness: ChunkedReader.Read at 520192 length 524288 chunkOffset 0 chunkSize 134217728
+2026/10/06 22:56:07 DEBUG : source/witness: ChunkedReader.Read at 1044480 length 1048576 chunkOffset 0 chunkSize 134217728
+2026/10/06 22:56:07 DEBUG : source/witness: ChunkedReader.Read at 2093056 length 1048576 chunkOffset 0 chunkSize 134217728
+2026/10/06 22:56:07 DEBUG : source/witness: ChunkedReader.Read at 3141632 length 1048576 chunkOffset 0 chunkSize 134217728
+2026/10/06 22:56:07 DEBUG : source/witness: ChunkedReader.Read at 4190208 length 1048576 chunkOffset 0 chunkSize 134217728
+2026/10/06 22:56:07 DEBUG : source/witness: ChunkedReader.Read at 5238784 length 1048576 chunkOffset 0 chunkSize 134217728
+2026/10/06 22:56:07 DEBUG : source/witness: ChunkedReader.Read at 6287360 length 1048576 chunkOffset 0 chunkSize 134217728
+2026/10/06 22:56:07 DEBUG : source/witness: ChunkedReader.Read at 7335936 length 1048576 chunkOffset 0 chunkSize 134217728
+2026/10/06 22:56:07 DEBUG : source/witness: ChunkedReader.Read at 8384512 length 1048576 chunkOffset 0 chunkSize 134217728
+2026/10/06 22:56:07 DEBUG : default/witness: md5 = ce06e59c3306aa4fb71f6af4b70f73d7 OK
+2026/10/06 22:56:07 DEBUG : default/witness: Size and md5 of src and dst objects identical
+2026/10/06 22:56:07 DEBUG : default: Added virtual directory entry vAddFile: "witness"
+2026/10/06 22:56:07 INFO  : /source/witness: COPY from 127.0.0.1:57968
+2026/10/06 22:56:07 DEBUG : /default/witness: OpenFile: flags=O_RDONLY, perm=----------
+2026/10/06 22:56:07 DEBUG : default/witness: Open: flags=O_RDONLY
+2026/10/06 22:56:07 DEBUG : default/witness: >Open: fd=default/witness (r), err=<nil>
+2026/10/06 22:56:07 DEBUG : /default/witness: >OpenFile: fd=default/witness (r), err=<nil>
+2026/10/06 22:56:07 INFO  : /default/witness: PROPFIND from 127.0.0.1:57980
+2026/10/06 22:56:07 DEBUG : /source: OpenFile: flags=O_RDONLY, perm=----------
+2026/10/06 22:56:07 DEBUG : /source: >OpenFile: fd=source/ (r), err=<nil>
+2026/10/06 22:56:07 INFO  : /source: PROPFIND from 127.0.0.1:57986
+2026/10/06 22:56:07 INFO  : /streamed: PROPFIND from 127.0.0.1:57992
+2026/10/06 22:56:07 DEBUG : /source/: OpenFile: flags=O_RDONLY, perm=----------
+2026/10/06 22:56:07 DEBUG : /source/: >OpenFile: fd=source/ (r), err=<nil>
+2026/10/06 22:56:07 DEBUG : /source/: OpenFile: flags=O_RDONLY, perm=----------
+2026/10/06 22:56:07 DEBUG : /source/: >OpenFile: fd=source/ (r), err=<nil>
+2026/10/06 22:56:07 DEBUG : /source/witness: OpenFile: flags=O_RDONLY, perm=----------
+2026/10/06 22:56:07 DEBUG : source/witness: Open: flags=O_RDONLY
+2026/10/06 22:56:07 DEBUG : source/witness: >Open: fd=source/witness (r), err=<nil>
+2026/10/06 22:56:07 DEBUG : /source/witness: >OpenFile: fd=source/witness (r), err=<nil>
+2026/10/06 22:56:07 INFO  : /source/: PROPFIND from 127.0.0.1:57986
+2026/10/06 22:56:07 INFO  : /streamed/: PROPFIND from 127.0.0.1:57992
+2026/10/06 22:56:07 DEBUG : /source/witness: OpenFile: flags=O_RDONLY, perm=----------
+2026/10/06 22:56:07 DEBUG : source/witness: Open: flags=O_RDONLY
+2026/10/06 22:56:07 DEBUG : source/witness: >Open: fd=source/witness (r), err=<nil>
+2026/10/06 22:56:07 DEBUG : /source/witness: >OpenFile: fd=source/witness (r), err=<nil>
+2026/10/06 22:56:07 DEBUG : source/witness: ChunkedReader.openRange at 0 length 134217728
+2026/10/06 22:56:07 DEBUG : source/witness: ChunkedReader.Read at 0 length 4096 chunkOffset 0 chunkSize 134217728
+2026/10/06 22:56:07 DEBUG : source/witness: ChunkedReader.Read at 4096 length 8192 chunkOffset 0 chunkSize 134217728
+2026/10/06 22:56:07 DEBUG : source/witness: ChunkedReader.Read at 12288 length 16384 chunkOffset 0 chunkSize 134217728
+2026/10/06 22:56:07 DEBUG : source/witness: ChunkedReader.Read at 28672 length 32768 chunkOffset 0 chunkSize 134217728
+2026/10/06 22:56:07 DEBUG : source/witness: ChunkedReader.Read at 61440 length 65536 chunkOffset 0 chunkSize 134217728
+2026/10/06 22:56:07 DEBUG : source/witness: ChunkedReader.Read at 126976 length 131072 chunkOffset 0 chunkSize 134217728
+2026/10/06 22:56:07 DEBUG : source/witness: ChunkedReader.Read at 258048 length 262144 chunkOffset 0 chunkSize 134217728
+2026/10/06 22:56:07 DEBUG : source/witness: ChunkedReader.Read at 520192 length 524288 chunkOffset 0 chunkSize 134217728
+2026/10/06 22:56:07 DEBUG : source/witness: ChunkedReader.Read at 1044480 length 1048576 chunkOffset 0 chunkSize 134217728
+2026/10/06 22:56:07 DEBUG : source/witness: ChunkedReader.Read at 2093056 length 1048576 chunkOffset 0 chunkSize 134217728
+2026/10/06 22:56:07 DEBUG : : Added virtual directory entry vAddDir: "streamed"
+2026/10/06 22:56:07 INFO  : /streamed/: MKCOL from 127.0.0.1:57992
+2026/10/06 22:56:07 DEBUG : source/witness: ChunkedReader.Read at 3141632 length 1048576 chunkOffset 0 chunkSize 134217728
+2026/10/06 22:56:07 DEBUG : source/witness: ChunkedReader.Read at 4190208 length 1048576 chunkOffset 0 chunkSize 134217728
+2026/10/06 22:56:07 DEBUG : source/witness: ChunkedReader.Read at 5238784 length 1048576 chunkOffset 0 chunkSize 134217728
+2026/10/06 22:56:07 DEBUG : source/witness: ChunkedReader.Read at 6287360 length 1048576 chunkOffset 0 chunkSize 134217728
+2026/10/06 22:56:07 DEBUG : source/witness: ChunkedReader.Read at 7335936 length 1048576 chunkOffset 0 chunkSize 134217728
+2026/10/06 22:56:07 DEBUG : source/witness: ChunkedReader.Read at 8384512 length 1048576 chunkOffset 0 chunkSize 134217728
+2026/10/06 22:56:07 DEBUG : /streamed/witness: OpenFile: flags=O_RDWR|O_CREATE|O_TRUNC, perm=-rw-rw-rw-
+2026/10/06 22:56:07 DEBUG : streamed/witness: Open: flags=O_RDWR|O_CREATE|O_TRUNC
+2026/10/06 22:56:07 DEBUG : streamed: Added virtual directory entry vAddFile: "witness"
+2026/10/06 22:56:07 DEBUG : streamed/witness: >Open: fd=streamed/witness (w), err=<nil>
+2026/10/06 22:56:07 DEBUG : /streamed/witness: >OpenFile: fd=streamed/witness (w), err=<nil>
+2026/10/06 22:56:07 DEBUG : streamed: Added virtual directory entry vAddFile: "witness"
+2026/10/06 22:56:07 INFO  : /source/witness: GET from 127.0.0.1:57986
+2026/10/06 22:56:07 DEBUG : streamed/witness: md5 = 03ed7cb440b9965dcf43b55f0978d66d OK
+2026/10/06 22:56:07 DEBUG : streamed/witness: Size and md5 of src and dst objects identical
+2026/10/06 22:56:07 DEBUG : streamed: Added virtual directory entry vAddFile: "witness"
+2026/10/06 22:56:07 INFO  : /streamed/witness: PUT from 127.0.0.1:57992

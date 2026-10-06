@@ -1,0 +1,15 @@
+#!/bin/bash
+printf '%s\n' "$*" >> /ctl/argv
+if [ -f /ctl/faults ]; then
+ while IFS=$'\t' read -r pattern code; do
+  [[ "$*" =~ $pattern ]] && { printf '%s\n' "$*" >> /ctl/fault-fired; echo 'injected provider failure' >&2; exit "$code"; }
+ done < /ctl/faults
+fi
+if [ -e /ctl/bucket ]; then
+ if [ "$1 $2" = 'backend features' ]; then
+  printf '{"Hashes":["md5"],"Features":{"BucketBased":true}}\n'; exit 0
+ fi
+ # Bucket prefixes can return successful empty lsd for a missing prefix.
+ if [ "$1" = lsd ]; then exit 0; fi
+fi
+exec /rclone.real "$@"

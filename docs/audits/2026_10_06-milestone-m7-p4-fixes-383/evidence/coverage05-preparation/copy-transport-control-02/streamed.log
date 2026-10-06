@@ -1,0 +1,13 @@
+2026/10/06 22:56:07 INFO  : Starting bandwidth limiter at 256Ki Byte/s
+2026/10/06 22:56:07 DEBUG : rclone: Version "v1.75.1" starting with parameters ["/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement15/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/bin/rclone" "copy" "qa:source" "qa:streamed" "--config" "/workspace/tmp/pixelelated-m7-copy-transport-control-02/rclone.conf" "--bwlimit" "256k" "--disable" "copy" "-vv"]
+2026/10/06 22:56:07 DEBUG : Creating backend with remote "qa:source"
+2026/10/06 22:56:07 DEBUG : Using config file from "/workspace/tmp/pixelelated-m7-copy-transport-control-02/rclone.conf"
+2026/10/06 22:56:07 DEBUG : found headers: 
+2026/10/06 22:56:07 DEBUG : Reset feature "copy"
+2026/10/06 22:56:07 DEBUG : Creating backend with remote "qa:streamed"
+2026/10/06 22:56:07 DEBUG : found headers: 
+2026/10/06 22:56:07 DEBUG : Reset feature "copy"
+2026/10/06 22:56:07 DEBUG : witness: Need to transfer - File not found at Destination
+2026/10/06 22:56:07 DEBUG : webdav root 'streamed': Waiting for checks to finish
+2026/10/06 22:56:07 DEBUG : webdav root 'streamed': Waiting for transfers to finish
+2026/10/06 22:56:07 DEBUG : witness: Update will use the normal upload strategy (no chunks)

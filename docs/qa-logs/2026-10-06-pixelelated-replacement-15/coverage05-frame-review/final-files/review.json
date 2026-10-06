@@ -1,0 +1,59 @@
+{
+  "reviewed_utc": "2026-10-06T23:20:01.621813+00:00",
+  "method": "Primary directly viewed all eight final retained frames at original640x480. Separate first-copy directory preserves three earlier overwritten frames.",
+  "frames": [
+    {
+      "path": "docs/qa-logs/2026-10-06-pixelelated-replacement-15/p4-coverage-ui-05/artifacts/cloud-ui/01-en_US-mid-copy-kill-ui-retry-next-shelf-copy-interrupted.png",
+      "sha256": "e3fcb5c0a2c22f1417e11603a2900ee8d3fbb9651be592c6886b15257bb78e6f",
+      "result": "PASS",
+      "observation": "Expected interrupted-copy result with full retry guidance."
+    },
+    {
+      "path": "docs/qa-logs/2026-10-06-pixelelated-replacement-15/p4-coverage-ui-05/artifacts/cloud-ui/01-en_US-mid-copy-kill-ui-retry-next-shelf-first-copy-running.png",
+      "sha256": "7b4fecaad3f6eeceee2c534eeec57fe8066674623395f1021322f87b8328daed",
+      "result": "PASS",
+      "observation": "Actual first settings-backup copy running at0:02."
+    },
+    {
+      "path": "docs/qa-logs/2026-10-06-pixelelated-replacement-15/p4-coverage-ui-05/artifacts/cloud-ui/01-en_US-mid-copy-kill-ui-retry-next-shelf-hub.png",
+      "sha256": "a4bf3c0098bd1318cfc1334980449a5adff82c9e95fa0d88d9fa8911886d708f",
+      "result": "PASS",
+      "observation": "Cloud backup/restore rows and WebDAV connection visible."
+    },
+    {
+      "path": "docs/qa-logs/2026-10-06-pixelelated-replacement-15/p4-coverage-ui-05/artifacts/cloud-ui/01-en_US-mid-copy-kill-ui-retry-next-shelf-menu-before.png",
+      "sha256": "8f0a525369b8f938e817b9285ece08eaa35e4c50fd2faeb833475c31cf1b95e3",
+      "result": "PASS",
+      "observation": "PICO-8 carousel and controls visible."
+    },
+    {
+      "path": "docs/qa-logs/2026-10-06-pixelelated-replacement-15/p4-coverage-ui-05/artifacts/cloud-ui/01-en_US-mid-copy-kill-ui-retry-next-shelf-opening-result.png",
+      "sha256": "788659c80ed6fb00f180b6700bfbf75e3831e556be3575c062d3087b6d44da93",
+      "result": "PASS",
+      "observation": "Second opening offers TRY AGAIN and explains interrupted move; full text visible."
+    },
+    {
+      "path": "docs/qa-logs/2026-10-06-pixelelated-replacement-15/p4-coverage-ui-05/artifacts/cloud-ui/01-en_US-mid-copy-kill-ui-retry-next-shelf-second-copy-running.png",
+      "sha256": "f9c9d6a7306f964bd22aa1f727e3e74030158841bca26579fe0d00b8909cd06e",
+      "result": "FAIL",
+      "observation": "Actual retry immediately refuses partial destination; COULDN\u2019T FINISH and existing-files reason."
+    },
+    {
+      "path": "docs/qa-logs/2026-10-06-pixelelated-replacement-15/p4-coverage-ui-05/artifacts/cloud-ui/02-en_US-mid-copy-kill-ui-retry-next-shelf-main-menu.png",
+      "sha256": "f3e71baf9a4fe1bc9cab2bfe588adafa9cddf8f17b2f7ea4e9937df5a5441b00",
+      "result": "PASS",
+      "observation": "Lowercase pixelelated0.0.1 identity and main menu visible."
+    },
+    {
+      "path": "docs/qa-logs/2026-10-06-pixelelated-replacement-15/p4-coverage-ui-05/artifacts/cloud-ui/02-en_US-mid-copy-kill-ui-retry-next-shelf-second-move-done.png",
+      "sha256": "f9c9d6a7306f964bd22aa1f727e3e74030158841bca26579fe0d00b8909cd06e",
+      "result": "FAIL",
+      "observation": "Final actual retry remains refused; no completion or next-shelf acceptance."
+    }
+  ],
+  "counts": {
+    "PASS": 6,
+    "FAIL": 2
+  },
+  "scope": "Both failed frames retain actual product defect#479/PL003. Overall failed05 remains FAILED."
+}

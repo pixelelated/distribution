@@ -1,0 +1,122 @@
+watch-build: recording in /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement15/.build-runs/20261006T224947Z-902e01f4
+/workspace/tmp/pixelelated-m7-p4-coverage-ui-04/check-payload.py: OK
+/workspace/tmp/pixelelated-m7-p4-coverage-ui-04/cloud-ui-proof.py: OK
+/workspace/tmp/pixelelated-m7-p4-coverage-ui-04/outer.sh: OK
+/workspace/tmp/pixelelated-m7-p4-coverage-ui-04/provenance.json: OK
+/workspace/tmp/pixelelated-m7-p4-coverage-ui-04/proxy-identity.py: OK
+/workspace/tmp/pixelelated-m7-p4-coverage-ui-04/run.sh: OK
+/workspace/tmp/pixelelated-m7-p4-coverage-ui-04/seed-oracle.py: OK
+/workspace/tmp/pixelelated-m7-p4-coverage-ui-04/seed.py: OK
+/workspace/tmp/pixelelated-m7-p4-coverage-ui-04/stop-guest.py: OK
+/workspace/tmp/pixelelated-m7-p4-coverage-ui-04/verify-inputs.py: OK
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/43a698bcd7d570c63ebdd5db015e5302463f7ee4a15438fd9ef2359437be19da
+Preparing independent 16GiB guest d from the verified pixelelated image
+Image resized.
+No errors were found on the image.
+31695/262144 = 12.09% allocated, 0.00% fragmented, 0.00% compressed clusters
+Image end offset: 2077818880
+[W][22:49:55.845625] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][22:49:55.845653] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+ready after ~31s
+PASS guest d exact BUILD_ID and OS_NAME ed5a6a51f5974deec8748fbf0dbd2f4984b690f5 pixelelated
+PASS QA ROM bytes /storage/roms/gb/Ninoid.gb a40191c169c68e6607ace072da96aab957f306f55ded59ce1f287c1f5273387b
+PASS QA ROM bytes /storage/roms/gbc/Tobu Tobu Girl Deluxe.gb 0a0e8018dbbc8d7f8cd99f05e7cdc7b4cc9e358ecfe9377ebfb2291a84c6e310
+PASS QA ROM bytes /storage/roms/nes/Bobl.nes 025ec44d0d84ac469b442ee56c3d69e035e9a38430ae849172fe3a1e569d0dea
+PASS guest d seeded and idle
+up: webdav serving /workspace/tmp/pixelelated-m7-p4-coverage-ui-04/cloud/data at http://127.0.0.1:9040 (guest: http://10.0.2.2:9040)
+PASS cloud-ui-before exact identity, installed scripts, policy and Ocean SVG bytes/modes
+PASS cloud-ui-before installed proxy identities and account discovery
+PASS setup: candidate identity
+START en_US-settings-only-ROCKNIX
+PASS en_US-settings-only-ROCKNIX: actual archive label safe
+PASS en_US-settings-only-ROCKNIX: setup preserves archive and writes only exact source-defined notes/current marker
+PASS en_US-settings-only-ROCKNIX: setup and full scan retain selected same-device archive
+PASS en_US-settings-only-ROCKNIX: selected archive hash preserved
+PASS en_US-settings-only-ROCKNIX: installed recovery restores exact sentinel
+PASS en_US-settings-only-ROCKNIX: setup/scan/restore preserve every original cloud archive byte
+PASS en_US-settings-only-ROCKNIX: only exact source-defined notes/current marker accompany original archive
+PASS en_US-settings-only-ROCKNIX: scan and restore make no additional cloud changes
+START en_US-settings-only-GAMES
+PASS en_US-settings-only-GAMES: actual archive label safe
+PASS en_US-settings-only-GAMES: setup preserves archive and writes only exact source-defined notes/current marker
+PASS en_US-settings-only-GAMES: setup and full scan retain selected same-device archive
+PASS en_US-settings-only-GAMES: selected archive hash preserved
+PASS en_US-settings-only-GAMES: installed recovery restores exact sentinel
+PASS en_US-settings-only-GAMES: setup/scan/restore preserve every original cloud archive byte
+PASS en_US-settings-only-GAMES: only exact source-defined notes/current marker accompany original archive
+PASS en_US-settings-only-GAMES: scan and restore make no additional cloud changes
+START en_US-foreign-hostname
+PASS en_US-foreign-hostname: no game running before carousel
+PASS en_US-foreign-hostname: actual UI walk carousel
+PASS en_US-foreign-hostname: no game running after carousel
+PASS en_US-foreign-hostname: no game running before hub-menu
+PASS en_US-foreign-hostname: actual UI walk hub-menu
+PASS en_US-foreign-hostname: no game running after hub-menu
+PASS en_US-foreign-hostname: START changes the captured screen; direct main-menu review required
+PASS en_US-foreign-hostname: no game running before hub
+PASS en_US-foreign-hostname: actual UI walk hub
+PASS en_US-foreign-hostname: no game running after hub
+PASS en_US-foreign-hostname: no game running before opening-scan
+PASS en_US-foreign-hostname: actual UI walk opening-scan
+PASS en_US-foreign-hostname: no game running after opening-scan
+PASS en_US-foreign-hostname: completed scan sees foreign archive but selects none for UI
+PASS en_US-foreign-hostname: foreign scan completed
+PASS en_US-foreign-hostname: no game running before foreign-row
+PASS en_US-foreign-hostname: actual UI walk foreign-row
+PASS en_US-foreign-hostname: no game running after foreign-row
+PASS en_US-foreign-hostname: foreign-only UI leaves hostname unchanged
+PASS en_US-foreign-hostname: foreign-only UI changes neither local archives nor cloud
+START fr_FR-foreign-hostname
+PASS fr_FR-foreign-hostname: no game running before carousel
+PASS fr_FR-foreign-hostname: actual UI walk carousel
+PASS fr_FR-foreign-hostname: no game running after carousel
+PASS fr_FR-foreign-hostname: no game running before hub-menu
+PASS fr_FR-foreign-hostname: actual UI walk hub-menu
+PASS fr_FR-foreign-hostname: no game running after hub-menu
+PASS fr_FR-foreign-hostname: START changes the captured screen; direct main-menu review required
+PASS fr_FR-foreign-hostname: no game running before hub
+PASS fr_FR-foreign-hostname: actual UI walk hub
+PASS fr_FR-foreign-hostname: no game running after hub
+PASS fr_FR-foreign-hostname: no game running before opening-scan
+PASS fr_FR-foreign-hostname: actual UI walk opening-scan
+PASS fr_FR-foreign-hostname: no game running after opening-scan
+PASS fr_FR-foreign-hostname: completed scan sees foreign archive but selects none for UI
+PASS fr_FR-foreign-hostname: foreign scan completed
+PASS fr_FR-foreign-hostname: no game running before foreign-row
+PASS fr_FR-foreign-hostname: actual UI walk foreign-row
+PASS fr_FR-foreign-hostname: no game running after foreign-row
+PASS fr_FR-foreign-hostname: foreign-only UI leaves hostname unchanged
+PASS fr_FR-foreign-hostname: foreign-only UI changes neither local archives nor cloud
+START en_US-mid-copy-kill-ui-retry-next-shelf
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: no game running before carousel
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: actual UI walk carousel
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: no game running after carousel
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: no game running before hub-menu
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: actual UI walk hub-menu
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: no game running after hub-menu
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: START changes the captured screen; direct main-menu review required
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: no game running before hub
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: actual UI walk hub
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: no game running after hub
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: no game running before opening-scan
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: actual UI walk opening-scan
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: no game running after opening-scan
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: no game running before move-first
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: actual UI walk move-first
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: no game running after move-first
+FAIL en_US-mid-copy-kill-ui-retry-next-shelf: actual first copy wrote a strict partial destination
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: installed product hashes unchanged
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-p4-coverage-ui-04/cloud-ui-proof.py", line 299, in <module>
+    reset(language);guest('rm -f /storage/.config/.restore-finish-pending');action();rows.append({'case':case,'status':'PASS','visual_review':'pending when UI exists'});(out/'results.json').write_text(json.dumps(rows,indent=2)+'\n')
+                                                                            ~~~~~~^^
+  File "/workspace/tmp/pixelelated-m7-p4-coverage-ui-04/cloud-ui-proof.py", line 206, in kill_during_move
+    check(observed is not None,'actual first copy wrote a strict partial destination')
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tmp/pixelelated-m7-p4-coverage-ui-04/cloud-ui-proof.py", line 17, in check
+    if not ok:raise AssertionError(text)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: actual first copy wrote a strict partial destination
+PASS owned guest stopped 2751299
+down

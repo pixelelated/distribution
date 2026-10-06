@@ -1,0 +1,46 @@
+{
+  "default": {
+    "returncode": 0,
+    "seconds": 0.10220826900331303,
+    "server_side_copy_log": true,
+    "destination_bytes": 8388608
+  },
+  "streamed": {
+    "partial": {
+      "path": "/workspace/tmp/pixelelated-m7-copy-transport-control-02/data/streamed/witness",
+      "bytes": 126976,
+      "source_bytes": 8388608,
+      "pid": 2807531,
+      "argv": [
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement15/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/bin/rclone",
+        "copy",
+        "qa:source",
+        "qa:streamed",
+        "--config",
+        "/workspace/tmp/pixelelated-m7-copy-transport-control-02/rclone.conf",
+        "--bwlimit",
+        "256k",
+        "--disable",
+        "copy",
+        "-vv"
+      ]
+    },
+    "observed_files": {
+      "source/witness": 8388608,
+      "default/witness": 8388608,
+      "streamed/witness": 126976
+    },
+    "control_termination_rc": -15
+  },
+  "utc": "2026-10-06T22:56:07.998218+00:00",
+  "client_sha256": "361c27d953f822969afc25a73e0cc2122fd8e161545f9c0e5f63c5baad92724c",
+  "client_version": "rclone v1.75.1\n- os/version: ubuntu 26.04 (64 bit)\n- os/kernel: 7.0.0-38-generic (x86_64)\n- os/type: linux\n- os/arch: amd64\n- go/version: go1.26.8\n- go/linking: static\n- go/tags: none\n",
+  "server_version": "rclone v1.60.1-DEV\n- os/version: ubuntu 26.04 (64 bit)\n- os/kernel: 7.0.0-38-generic (x86_64)\n- os/type: linux\n- os/arch: amd64\n- go/version: go1.26.0\n- go/linking: dynamic\n- go/tags: none\n",
+  "scope": "Host transport control using actual installed candidate15 client and same host WebDAV server binary. No installed UI acceptance claim.",
+  "cleanup": {
+    "server_pid_absent": 2807504,
+    "client_pid_absent": 2807531,
+    "port9046_free": true,
+    "seconds": 0.8346314099617302
+  }
+}

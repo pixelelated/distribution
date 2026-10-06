@@ -1,5 +1,22 @@
 # Cloud sync, backup and restore — change summary
 
+## Retry interrupted cloud files and read recovery guidance (2026-10-06)
+
+The source repair passes 398 real-rclone regression cases, including 22
+focused retry/refusal checks and four failing old-source controls. The ES
+changes pass image-compiler, vocabulary and translation checks. Installed
+qualification in candidate16 is still required; candidate15 retains the
+actual partial-file retry failure.
+
+- **An interrupted move can retry a truncated file from its original source.**
+  The validated prior recovery record and matching source-prefix bytes are
+  both required. Unrelated destinations remain refused before changing
+  pointers or creating a record (#479, PL-003; D-CLOUD-026).
+- **A narrow folder-scan card keeps the full failure reason.** Its redundant
+  group label is omitted only when needed to fit the single-scan explanation.
+  French terminal guidance retains the command and edit action in a shorter
+  line (#468, PL-004/005).
+
 ## Earlier cloud history and legacy game labels (2026-10-06)
 
 The source regression passes 376 cases with real rclone, including old-source

@@ -1,0 +1,12 @@
+Coverage04 passes both settings-only restores and English/French foreign-hostname UI cases, then fails before injecting SIGKILL because its first-copy observer never sees a partial destination. Actual frame shows 8 MiB already copied and verification running; the original archive and complete destination match. Allfour1/10seals and actual cleanup are retained.
+
+The exact installed1.75.1 client and same host WebDAV server binary reproduce server-side copying in0.102s despite --bwlimit256k. The bounded --disable copy control instead observes126976 of8388608 bytes and terminates its exact owned process; both processes/port9046 are released. Official option: https://rclone.org/docs/#disable-feature-feature . Initial connection-string parser failure is retained with cleanup; fresh explicit-config control passes. This is a QA transport assumption, not a demonstrated product failure.
+
+Can this be done on the VM? Yes: disposable guest and owned local WebDAV. No personal provider or physical device. The fixture disables server-side copy for the first interruption only and restores ordinary options for the actual UI retry.
+
+Acceptance criteria:
+- [ ] Preserve failed04 allfour1/10seals, exact frames and source/destination hashes; retain actual default-versus-streamed transport controls and cleanup.
+- [ ] Fresh sealed owner observes strict partial bytes from actual installed rclone copy, records PID/start-time/argv, kills only that process, and verifies every original byte/pointer plus the recovery record before actual UI retry.
+- [ ] Second UI MOVE completes all original data; next conflicting backup preserves displaced bytes under the current shelf. Fresh three-tier settings/content backup and automatic save receive/send also pass with exact witnesses. Retain all result channels, input seals, actual cleanup and direct frame review.
+
+Already written: production correctly uses server-side copying where available. Do not change product copying or weaken the strict partial-byte predicate. Refs #353, #337, #477, #471.
