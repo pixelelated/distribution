@@ -44,14 +44,14 @@ Frozen13 freshness caught an Android-only upstream commit before any cache
 copy/build. [Exact equality evidence](../qa-logs/2026-10-06-proxy-879b158/README.md)
 links the new pin to the completed source suites; no test execution is invented.
 
-#456 prepares preservation and a named removal proposal for five superseded
-trees (539GiB gross). The earlier [storage inventory](../qa-logs/2026-10-05-build-storage/README.md)
-remains evidence, not deletion approval. Independent ES/log/runtime copies and
-source inventories are verified;233disk chains have no references into the
-five proposed trees. The root-only process check passed at02:22:23UTC:
-237user-space processes, zero matching or unreadable references. The
-concrete removal proposal estimates524.84GiB net after14.49GiB of retained
-preservation data. No original build files were deleted or reserve changed.
+#456 preservation preparation is complete. The maintainer approved removing
+only replacement03/05/06/07/08 under #459/D-INFRA-017. The
+[fresh preflight](../qa-logs/2026-10-05-build-storage/approved-cleanup-20261006/README.md)
+rehashed 15,206 retained files and checked 235 disk chains with no backing or
+container matches. No removal has started; fresh root process snapshots await
+the maintainer-run read-only watcher because sudo requires interactive
+authentication. The 524.84 GiB net estimate is not measured reclaimed space.
+No reserve change; all current/protected trees and preservation stores remain.
 
 ## Completed installed GENERIC_X64 Pixman fallback (#447)
 

@@ -1,67 +1,104 @@
 # Saved Session State
 
-> Saved 2026-10-06T01:51:59.924599+00:00. Branch feature/conflict-resolution; primary next.
-> Previous active-job checkpoint archived at `.github/sessions/archived/saved-session-state-next-20261006T015159Z.md`.
-
-## Latest cleanup update — 2026-10-06T02:24:03.648824+00:00
-
-The maintainer ran the requested root-only helper. Its02:22:23UTC report is
-verified: UID0,237user-space processes,329kernel threads excluded,0matches,
-0unreadable entries. Exact five roots and helper SHA match the prepared scope.
-Published report path: docs/qa-logs/2026-10-05-build-storage/preservation-20261006/root-process-readback.json.
-SHA256 f61f110d3b42e737c8a395429fb507107b97cd37d9ad5eb634d81cb01240abf9.
-The prior pending-root-input statements below are historical and superseded.
-#456 preparation criteria now have their evidence; publication/closure receipt
-will be /tmp/pixelelated-root-readback-20261006/tracker-completion.json.
-Deletion of replacement03/05/06/07/08 is still UNAPPROVED and UNEXECUTED.
-The concrete proposal remains524.84GiB net; all current/protected artifacts
-remain retained. Request named removal approval only against the prepared
-report; refresh live dependencies and retained hashes before any approved
-removal. User authorization to run/inspect this read-only check is not removal
-permission. No product, build or QA status changed; remaining dedicated
-RA/Dropbox account proofs/upstream preparation still precede P4/H700.
+> Saved 2026-10-06T03:13:55.268771+00:00; feature/conflict-resolution → primary next.
+> Prior checkpoint archived at `.github/sessions/archived/saved-session-state-next-20261006T031355Z.md`.
 
 ## Start here
 
-**pixelelated** is an immutable handheld gaming Linux distribution, forked from
-ROCKNIX. Version0.0.1, milestoneM7. Always lowercase. GitHub org pixelelated,
-owner rasteratops, developer blitterbot. Rasteratops is the lead character;
-Tiny5 Duo LCD/Ocean Bands is the temporary wordmark. No application server.
-Only ROCKNIX→pixelelated adoption is required.
+pixelelated is an immutable handheld Linux distribution forked from ROCKNIX,
+version0.0.1/M7. Always lowercase; org pixelelated, owner rasteratops, developer
+blitterbot. Tiny5 Duo LCD/Ocean Bands wordmark; only ROCKNIX→pixelelated adoption.
+No app server. Primary /workspace/repos/rocknix stays on next; feature work is
+/workspace/repos/rocknix.worktrees/conflict-resolution. Read AGENTS.md and
+next's every-session/scoped rules, this checkpoint, release-readiness, today's
+work log and live M7/#459/#383/#361/#168. M7 body owns execution order.
+Rules match next. Integrate only explicit cherry-pick -x, normal hooked pushes.
 
-Repository /workspace/repos/rocknix.worktrees/conflict-resolution is on
-feature/conflict-resolution; /workspace/repos/rocknix stays on next. Read
-AGENTS.md and next's every-session/scoped rules, then this checkpoint,
-`docs/rasteratops/release-readiness.md`, today's work log, live M7 and
-#383/#361/#168/#456/#458. Compare rules with next before trusting a worktree.
-The milestone body owns the execution order; this file owns exact local paths.
+Standing permission covers fixes, isolated VM QA, tracker updates and fork
+pushes. D-INFRA-017 now additionally authorizes the five exact old-tree removals
+below; **do not ask again**. No reserve change, wider cleanup, device/personal
+cloud mutation or publication. No Daybreak or goal tool. Only the required
+fresh no-context resume proof permits delegation here.
 
-Standing permission covers fixes, isolated QA guests, explicit cherry-pick -x
-into next, normal hook-protected fork pushes and tracker updates. No repeated
-push question. No physical device/personal cloud action, release publication,
-cleanup deletion or reserve change authorized. Guarded swap helper only while
-idle. No Daybreak, no goal tool. No arbitrary delegation: the fresh no-context
-read-only resume proof below is required by session-stash/D-WORKFLOW-133.
+## Current focus — approved cleanup awaits root process watcher
 
-## Current state — replacement14 planned VM sequence COMPLETE
+User: “Yes, you have my approval.” #459 is the execution issue; #456 preparation
+is CLOSED. Only replacement03/05/06/07/08 may be removed. No removal has started.
+Fresh preflight /tmp/pixelelated-cleanup-preflight-01 completed03:12:13/allfour0;
+actual four owner PIDs and both children absent03:12:20. No build/QA job is
+running and no disconnected notification is armed. Never replay this owner.
 
-Latest user: "I didn't mean to interrupt the conversation. Please continue."
-All current build/QA/preservation owners have terminal results and actual
-process cleanup. **Nothing is running; no unattended alert is armed.**
-Do not replay any completed owner. No RC/device-ready claim and no P4 started.
+Evidence: docs/qa-logs/2026-10-05-build-storage/approved-cleanup-20261006/README.md.
+15,206retainedfiles/42,878,140,697bytes rehashed;27gitinputs; fivehead/diffs match.
+4,221,608directories/235qcow2chains;0errors/backing/container matches. Full reports
+local under /tmp/pixelelated-approved-cleanup-20261006/preservation-reverified.json
+and preflight/dependencies.json, digests in published summaries. Four storage
+roots scanned, no package pruning, no followed directory symlinks; no broader
+whole-host discovery claim. Estimated524.84GiBnet, not measured recovery.
 
-Next in order: remaining P3 dedicated RA/Dropbox account proofs and #168
-contribution preparation/dispositions → approved P4 primary plus Fable5.1/xhigh
-through verified Facilitator/OpenRouter → resolve/requalify changed product
-bytes → H700 DDR4/RG35XXSP arm first, aarch64 second → named physical/P5 gates.
-Upstream acceptance is not a candidate gate; local functionality and contribution
-preparation remain tracked. Read complete code-auditor skill/references for P4.
-Initial audits375/382 do not replace the fixes review383.
+Noninteractive sudo03:02:30 said interactive authentication required. This is
+NOT an auto-review rejection. Earlier02:22:23 UID0 report passed but is stale
+for immediate live checks. The pending async request asks the user to run:
 
-No reply yet to dedicated RA Tobu100359 reset/alternate QA-account status or
-Dropbox QA credential-file path questions. Ask for status/paths only, never
-secret values. Do not reset accounts, switch to hardcore, consume an already
-owned award or substitute public/synthetic proof for authenticated trust.
+```sh
+sudo /usr/bin/python3 -I /tmp/pixelelated-approved-cleanup-20261006/watch-process-references.py > /tmp/pixelelated-approved-cleanup-20261006/root-watch.jsonl
+```
+
+Then leave it running and reply “running”. No report existed at this checkpoint.
+Read-only source SHA4d79c6fcf725334d2d90140719164559adddb043061c05ede8e74036fd123064;
+every5seconds, expires1hour or all five dirs absent. No deletion/permission
+changes/subprocesses. Do not modify after start. Do not bypass sudo using Docker.
+
+## Next steps — concrete execution
+
+1. Inspect the arrived root-watch.jsonl and actual root-owned watcher PID/source.
+   Fresh samples must have UID0,exactfive roots,no matches,no unreadable fields.
+   Approval is already recorded in authorization.json and D-INFRA-017.
+2. Submit /tmp/pixelelated-approved-cleanup-03 from the feature tree:
+   `tools/watch-build-submit --owner /tmp/pixelelated-approved-cleanup-03 -- --interval 5 --stall-min 5 -- bash /tmp/pixelelated-approved-cleanup-03/outer.sh`.
+   The sealed remove-one.py performs fresh gates, then ordinary-user
+   tools/fork-worktree remove for that exact tree. Never use raw rm/git removal.
+   Sequentially repeat fresh prepared owners05,06,07,08 only after each success.
+   No owner has been submitted yet. Check this again before starting anything.
+3. Poll with `python3 /tmp/pixelelated-status.py OWNER run.path` at≤60seconds;
+   report terminal promptly. Actual child deletion can be long;5second watcher
+   and free-space/I/O logs show real activity. This cannot alert disconnected.
+   Never edit running scripts or stop processes by command-line pattern.
+4. Verify allfourrcs, launcher result, actual owner and removal.pid absence;
+   run /tmp/pixelelated-complete-durable.py OWNER 0 only after actual exits.
+   Independently inspect BASE/removed-NN.json, target directory/registration
+   absence, retainedbranch/head and protectedpathchecks. The generic completion
+   helper does not read removal.pid; check it separately. Failure stops chain.
+5. Measure actual recovered free space; reverify protected state and retained
+   objects, publish receipts, update M7/checkpoint and close459 only when all
+   criteria have artifacts. If time passed materially, refresh disk discovery
+   before trusting old preflight; each removal already rereads surviving chains,
+   livecontainer mounts, retainedmetadata/source and a root sample<15seconds.
+
+Preserve12 exactprotectedpaths in BASE/protected-before.json: replacement09/10/
+12/13/14, allcandidatebundles, September29ROCKNIXRC2/backingchain, sharedsourcecache,
+allthree456preservationstores and exactrecoveredrcloneinput. **Keep failed
+runtime-01 store**, because successfulruntime-02 references its rehashedobjects.
+BASE=/tmp/pixelelated-approved-cleanup-20261006. Branches remain after removals.
+
+## Release path after cleanup
+
+Remaining P3 dedicated RA/Dropbox account proofs and #168 contribution
+preparation/dispositions → approved P4 primary + Fable5.1/xhigh via verified
+Facilitator/OpenRouter → fix/requalify changed productbytes → H700 DDR4/RG35XXSP
+armfirst,aarch64second → namedphysical/P5gates. No RC/device-ready claim. P4 has
+not started;375/382initialaudits do not replace383fixesreview. Read complete
+code-auditor skill/references before that audit. Upstream acceptance is not a gate.
+
+Still no dedicated RA Tobu100359reset/alternateQAaccount status or DropboxQA
+credential-filepath reply. Ask only status/paths, never secrets inchat. No
+accountreset/hardcore/old-award substitution; public/synthetic tests do not
+prove authenticated trust. #168 map is docs/upstream/raofflineproxy/contribution-map.md:
+three tested unsubmitted drafts(concurrency1test,discovery16,earlyconsent8);
+others need APIagreement/standaloneregressions. D-RA-016go before outwardsubmission.
+Publicdocs4f6df54 at /home/max/Development/rocknix.org remains403/404; don't
+autofork/changecredentials. FourteenP5licencemetadata gaps remain. #395 lacks a
+selected/tested disconnectedalertdestination; #432FOSSobservability staysbacklog.
 
 ## Exact frozen image
 
@@ -120,109 +157,14 @@ channels. QA18 upgrade artifacts originally at
 compiled evidence in repository includes its26assertions. No previous-image
 result is asserted as a new14 execution.
 
-## Cleanup preparation — #456 and fixed scanner #458
 
-Proposed removal only03/05/06/07/08, historical539.33GiBgross. Exact report:
-`docs/qa-logs/2026-10-05-build-storage/preservation-20261006/README.md`.
-Source/branch/diff/bundle custody already verified. Independentpreservation:
-/workspace/artifacts/pixelelated-build-custody/issue-456-es-logs-01
-(complete ESsource/build, logs/stamps,3585objects), issue-456-runtime-01
-(failed partialobjects, KEEP because accepted02references reverifiedobjects),
-and issue-456-runtime-02 (91496runtime/opaqueentries,11038uniqueobjects).
-Source originals unchanged; all destination hashes verified; all five source
-inventories568roots/547cachedinputs/0errors. Sharedcache and exact recovered
-rclone archive listed in report MUSTremain. This is cleanup custody, not P5.
+## Publication / handoff
 
-Owners under /tmp/pixelelated-cleanup-:
-- breakdown-01:completed01:24:36/allfour0, actual01:25:26.
-- preserve-01:completed01:26:57/allfour0, actual01:27:56.
-- runtime-01:FAILED01:29:16/allfour1, actual01:30:21. IntentionalinvalidELF
-  fixture caused classifierassertion. Never erase/reclassify this failure.
-- runtime-02:completed01:36:51/allfour0, actual01:37:39. Eightclassifier
-  controls and independentcopies preserve malformedELFfixtures as opaque.
-- dependencies-02:completed01:46:57/allfour0, actual01:48:00;233qcow2chains,
- 4,221,564directories,0errors/backing/container matches. No package-root
-  pruning; directory symlinks notfollowed, scopefourprojectroots/.qcow2suffix.
-
-Root-only live process references remain pending. Prepared readonly helper:
-`/tmp/pixelelated-readonly-process-dependencies.py`, SHA256
-51a9b6c6026e94717505cc4376b1f5ce7b516261d7593b90b86d8955d9ad445e.
-Noninteractive sudo failed(interactiveauthentication), NOTauto-reviewrejection.
-User was asked to run:
-`sudo /usr/bin/python3 -I /tmp/pixelelated-readonly-process-dependencies.py > /tmp/pixelelated-cleanup-root-process-readback.json`
-then reply saved. No answer; readback still0bytes at01:52. Do not askagain or
-infer consent fromtime. Require UID0, no unreadable references and no matches.
-
-Concrete tools/fork-worktree remove commands are PREPARED ONLY. Separate
-named deletion approval remains required after dependencies verify. Net estimate
-524.84GiB after14.49GiBpreservationallocation. Available37.14GiB at01:48:00.
-No reserve changes. Protect14,13unbuilt,12,qualified10,source09, everybundle/
-RC2/backingchain/cache and all preservationstores. Do not launch another
-largecachecopy before space/dependency/cleanup is resolved.
-
-## Remaining upstream and other gates
-
-#168:full16patch/retired006/014/017/olderaudit map in
-`docs/upstream/raofflineproxy/contribution-map.md`. Three tested drafts:
-concurrentpublication1test,pixelelateddiscovery16,earlyconsent8, each fails
-before/passes after. Others identify API agreement or standalone regression
-stillneeded. No PR submitted; D-RA-016 retains maintainer go for outward
-contributions. Prepare concrete contributions before asking; preserve local
-fixes until upstreamadoption and integrationqualification.
-
-Prior10 retains comprehensive software/display/memory/1GiB/bilingual evidence;
-prior12 QA15/16 failures and QA17 scopedfix remain historical. Details in the
-archivedcheckpointchain. Frozen13 failedfreshness beforecopy/build. Original
-consent01failedpositivecontrol on12;019None-sentinelfix nowqualified on14.
-Publicdocs branch4f6df54 at/home/max/Development/rocknix.org remains403/404;
-do notautofork/changecredentials.14P5licencegaps listed inreadinessdocument.
-#432FOSSobservability is backlog, notnewRCgate. #395 disconnectednotification
-needsselected/testeddestination; ordinary5secondwatcher cannotmessageoffline.
-
-## Publication and handoff
-
-This checkpoint/evidence update uses normal hooks, explicit cherry-pick -x
-and remotehashreadback. Priorheads featurecd1a56f/next1f21f16. Finalreceipt
-will be `/tmp/pixelelated-final14-published.json`; tracker readbacks
-`/tmp/pixelelated-qa18-finish-tracking/`. Checkactualresults, notfuturewording.
-#458 closes only after publishedcompletion/custody evidence. #456dependency
-criterion remains open. #361preservation/consent criterion can tick from the
-fresh installedproofs; liveaccount/UI/generalcontribution criteria remain.
-
-Required fresh no-context read-only resumeproof follows checkpoint publication.
-It is a handoff check, notP4. No arbitrarysubagents. For future longjobs use
-watch-build-submit fromexactfrozentree,5sheartbeat/5minstall, explicitnested
-activity and actualI/O when quiet. Poll/report≤60s. Recordterminal promptly,
-then actualowner/guest/backendexit. Do not edit a running shelltool or pkill.
-
-## Final publication and fresh-reader reconciliation — 2026-10-06T01:57:57.238460+00:00
-
-Evidence is published: feature9243514f1893a36de1b9a420620db4b573890de3,
-next89e44e3f39d33023539a00ea3c921200acb4499b, normal hooks and remote hashes
-verified. Tracker update/readback completed01:54:26 in
-/tmp/pixelelated-qa18-finish-tracking/completion.json. #458 is CLOSED with all
-criteria verified; #456 has custody/preservation/command-estimate criteria
-ticked and dependency criterion OPEN. #361's preservation/consent criterion
-is ticked; account/progress and general-contribution criteria remain open.
-M7/#383 reflect completed QA and the remaining ordered route.
-
-Original publication attempt stopped before commit on a raw generated timing
-report's trailing blank line. It remains byte-identical; the retry excludes
-that exact raw artifact from the authored-file check. Normal hooks were used,
-no bypass. Logs /tmp/pixelelated-final14-publication.log and -retry.log.
-
-Independent fresh-reader proof rehashed all6550product/207QA/180symlinks,
-all19bundle files and five installed-owner harnesses. All12named completion
-receipts match their actual result files and log hashes. It found a stale
-feature pointer saying QA18running; the pointer is corrected and archived.
-The final report is /tmp/pixelelated-final14-resume-proof.json; retain its
-specific scope/limitations. Parent escalated01:57:01host readback separately
-confirms no QEMU, allnine selected owner PID lists absent,16unrelated containers
-and0replacement-tree mounts. No whole-host Docker absence claim.
-
-Root process helper output is still0bytes at01:57:22; no answer/approval arrived.
-No build/QA/preservation job is running and no completed owner may be replayed.
-Session evidence verification rehashed198QA18,26proxy14,24subset11 and82cleanup
-receipt files with0mismatches. Final handoff metadata publication receipt:
-/tmp/pixelelated-final14-handoff-published.json. This metadata does not change
-frozen7afa9ef product bytes or complete P4/account/cleanup dependency gates.
+Pre-change clean heads feature9860ea1135e97bfac09bdc4d3afcdbd307059d12 and
+next9870382d34f60f96722105a885f07fed44858460. Current publication receipts go in
+BASE/published.json; use actual receipt, not this proposed path as proof.
+Run rules-check, register-check, work-log-index --check, ceremony-check --gate;
+normal hooks throughout. Audit cadence is overdue and keeps CI red, but does
+not block these fixes; no waiver claimed. Metadata never advances frozen14.
+Archive pointer/canonical stash before rewrites. Required fresh no-context
+read-only resume proof follows integration (session-stash/D-WORKFLOW-133).
