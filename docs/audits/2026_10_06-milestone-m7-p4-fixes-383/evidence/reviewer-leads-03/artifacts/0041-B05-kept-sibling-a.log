@@ -1,0 +1,25 @@
+This device stores:
+  saves    qa-cloud:/pixelelated/Saves
+  backups  qa-cloud:/pixelelated/Backups
+
+The current layout is:
+  saves    qa-cloud:/pixelelated/Saves
+  backups  qa-cloud:/pixelelated/Backups
+
+Would move, server-side, leaving anything else where it is:
+  qa-cloud:/ROCKNIX/Saves-replaced  ->  qa-cloud:/pixelelated/Saves-replaced
+
+>>> unit DISCARDED SAVES|1|1
+Copying discarded saves...
+>>> doing copy
+Transferred:   	         24 B / 24 B, 100%, 0 B/s, ETA -
+Checks:                 0 / 0, -, Listed 3
+Transferred:            1 / 1, 100%
+Server Side Copies:     1 @ 24 B
+Elapsed time:         0.1s
+Verifying discarded saves...
+>>> doing verify
+Removing the old discarded saves folder...
+>>> doing remove
+
+Done. Saves are at qa-cloud:/pixelelated/Saves, backups at qa-cloud:/pixelelated/Backups.

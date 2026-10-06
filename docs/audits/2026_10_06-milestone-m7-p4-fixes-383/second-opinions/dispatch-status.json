@@ -1,12 +1,69 @@
 {
-  "utc": "2026-10-06T18:03:34.510289+00:00",
-  "state": "not executed: explicit payload/destination approval requested",
-  "reason": "Automatic review recognized substantive external review authorization but requires exact856187byte packet and OpenRouter transfer approval",
+  "utc": "2026-10-06T18:51:13.103326+00:00",
+  "state": "both approved calls complete and verified; primary grading in progress",
+  "reason": "explicit approval fulfilled; both served identity/effort/hash/cleanup gates passed",
   "requested_calls": [
     "blind",
     "refutation"
   ],
   "packet_sha256": "fa0030b86a47b65a9ff1ce4e5f6ff8d1bc477783d030470bf47073ab2a89c058",
-  "provider_contacted": false,
-  "owner_created": false
+  "provider_contacted": true,
+  "owner_created": true,
+  "history": [
+    {
+      "utc": "2026-10-06T18:03:34.510289+00:00",
+      "state": "not executed: explicit payload/destination approval requested",
+      "reason": "Automatic review recognized substantive external review authorization but requires exact856187byte packet and OpenRouter transfer approval",
+      "requested_calls": [
+        "blind",
+        "refutation"
+      ],
+      "packet_sha256": "fa0030b86a47b65a9ff1ce4e5f6ff8d1bc477783d030470bf47073ab2a89c058",
+      "provider_contacted": false,
+      "owner_created": false
+    },
+    {
+      "utc": "2026-10-06T18:39:41.592632+00:00",
+      "state": "blind verified; refutation running under durable watcher",
+      "reason": "Automatic review recognized substantive external review authorization but requires exact856187byte packet and OpenRouter transfer approval",
+      "requested_calls": [
+        "blind",
+        "refutation"
+      ],
+      "packet_sha256": "fa0030b86a47b65a9ff1ce4e5f6ff8d1bc477783d030470bf47073ab2a89c058",
+      "provider_contacted": true,
+      "owner_created": true,
+      "owner": "/tmp/pixelelated-m7-p4-fable-refutation-01",
+      "approval": "transfer-approval.json",
+      "last_actual_live_verification": "2026-10-06T18:39:20.393796+00:00",
+      "delivery": "active root supervision; no disconnected alert destination",
+      "blind_verified": "blind-verification.json",
+      "blind_owner": "/tmp/pixelelated-m7-p4-fable-blind-01",
+      "refutation_packet_sha256": "7168dd04c3409db8a6d9dcc94cd403a16aaecf6356eb307efbfcd7e39e8df8e6",
+      "completed_calls": 1,
+      "run": ".build-runs/20261006T183906Z-138f56bd",
+      "pids": {
+        "launcher": 2993488,
+        "runner": 2993489,
+        "watcher": 2993490,
+        "command": 2993519
+      }
+    }
+  ],
+  "owner": "/tmp/pixelelated-m7-p4-fable-refutation-01",
+  "approval": "transfer-approval.json",
+  "last_actual_live_verification": "2026-10-06T18:39:20.393796+00:00",
+  "delivery": "both call terminal results observed; active root supervises reviewer-leads02 VM proof",
+  "blind_verified": "blind-verification.json",
+  "blind_owner": "/tmp/pixelelated-m7-p4-fable-blind-01",
+  "refutation_packet_sha256": "7168dd04c3409db8a6d9dcc94cd403a16aaecf6356eb307efbfcd7e39e8df8e6",
+  "completed_calls": 2,
+  "run": ".build-runs/20261006T183906Z-138f56bd",
+  "pids": {
+    "launcher": 2993488,
+    "runner": 2993489,
+    "watcher": 2993490,
+    "command": 2993519
+  },
+  "refutation_verified": "refutation-verification.json"
 }

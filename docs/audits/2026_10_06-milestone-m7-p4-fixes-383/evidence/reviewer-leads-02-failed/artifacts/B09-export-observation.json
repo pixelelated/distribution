@@ -1,0 +1,37 @@
+{
+  "after": {
+    "cloud": {
+      "pixelelated/.layout": "be68d69fa1fe3ddbcaa9295b8e3e732fd0113d909e38cf643d95aab41c9b1a22",
+      "pixelelated/Content/ROMs/gb/A.gb": "4d276c0b013c4cd2417845edac4e60f969b60b8cf852dac72c91332506053f5e",
+      "pixelelated/Saves/gb/current.srm": "1801145f200c89f7f49be05065267d026f4a6ef3cc1f00772eff6ea47eca939d"
+    },
+    "pointers": {
+      "CONTENT_REMOTE": "/pixelelated/Content",
+      "LAYOUT_KEEP": "",
+      "SAVES_REMOTE": "/pixelelated/Saves"
+    }
+  },
+  "before": {
+    "cloud": {
+      "pixelelated/.layout": "be68d69fa1fe3ddbcaa9295b8e3e732fd0113d909e38cf643d95aab41c9b1a22",
+      "pixelelated/Content/ROMs/gb/A.gb": "4d276c0b013c4cd2417845edac4e60f969b60b8cf852dac72c91332506053f5e",
+      "pixelelated/Saves/gb/current.srm": "1801145f200c89f7f49be05065267d026f4a6ef3cc1f00772eff6ea47eca939d"
+    },
+    "pointers": {
+      "CONTENT_REMOTE": "/pixelelated/Content",
+      "LAYOUT_KEEP": "",
+      "SAVES_REMOTE": "/pixelelated/Saves"
+    }
+  },
+  "case": "B09-export",
+  "scan": {
+    "rc": 2,
+    "stderr": "",
+    "stdout": ">>> unit CLOUD FOLDER||\n>>> doing scan\n>>> why SOMETHING WENT WRONG\n"
+  },
+  "state": {
+    "rc": 2,
+    "stderr": "Your cloud sync settings couldn't be read (/storage/.config/cloud_sync.conf: line 164: SETTINGS_REMOTE set in a form this reader does not read).\n",
+    "stdout": ""
+  }
+}

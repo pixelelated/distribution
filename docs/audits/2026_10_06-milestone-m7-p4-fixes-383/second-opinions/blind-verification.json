@@ -1,0 +1,66 @@
+{
+  "utc": "2026-10-06T18:36:55.567793+00:00",
+  "owner": "/tmp/pixelelated-m7-p4-fable-blind-01",
+  "run": "/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261006T182301Z-038ba417",
+  "result": "PASS",
+  "channels": {
+    "inner.rc": "0",
+    "outer.rc": "0",
+    "tool-wrapper.rc": "0",
+    "provider.rc": "0",
+    "build.rc": "0"
+  },
+  "actual_host_processes": {
+    "launcher": {
+      "pid": 2921833,
+      "absent": true
+    },
+    "runner": {
+      "pid": 2921834,
+      "absent": true
+    },
+    "watcher": {
+      "pid": 2921835,
+      "absent": true
+    },
+    "command": {
+      "pid": 2921864,
+      "absent": true
+    }
+  },
+  "sealed_inputs": 43,
+  "prompt_sha256": "fa0030b86a47b65a9ff1ce4e5f6ff8d1bc477783d030470bf47073ab2a89c058",
+  "output_sha256": "2b988336470baf8856d2e01ebce0b15613f03ad1fdb2f7eedf50158edee412bd",
+  "output_bytes": 21732,
+  "facilitator_version": "council-facilitator@1.14.0",
+  "verification": {
+    "result": "PASS",
+    "match_kind": "semantic",
+    "declared": "anthropic/claude-fable-5.1 (OpenRouter, effort=xhigh)",
+    "observed": "anthropic/claude-fable-5.1",
+    "model_identity_source": "provider_response"
+  },
+  "effort_verification": {
+    "result": "PASS",
+    "declared": "xhigh",
+    "evidence": "reasoning_tokens",
+    "observed_reasoning_tokens": 54082
+  },
+  "provider_verification": {
+    "result": "NOT_PINNED",
+    "declared": null,
+    "evidence": "response_provider_field",
+    "observed": "Anthropic",
+    "observed_providers": [
+      "Anthropic"
+    ]
+  },
+  "duration_ms": 816658,
+  "retries_used": 0,
+  "tokens": {
+    "prompt": 382625,
+    "completion": 63220,
+    "total": 445845,
+    "reasoning": 54082
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "after": {
+    "cloud": {
+      "ROCKNIX/Backups/old_SETTINGS.tar.gz": "ce576527ef85abaad138fd293416057a37c379e3ad3c8895771de6df2ac5f780",
+      "ROCKNIX/Saves/gb/A.srm": "ab4600eab70bdde95433653c8ea4d95bd5b6ade3521fb883d36ed0a8ef716a28"
+    },
+    "pointers": {
+      "CONTENT_REMOTE": "/pixelelated/Content",
+      "LAYOUT_KEEP": "",
+      "SAVES_REMOTE": "/ROCKNIX/Saves",
+      "SETTINGS_REMOTE": "/pixelelated/Backups"
+    }
+  },
+  "before": {
+    "cloud": {
+      "ROCKNIX/Backups/old_SETTINGS.tar.gz": "ce576527ef85abaad138fd293416057a37c379e3ad3c8895771de6df2ac5f780",
+      "ROCKNIX/Saves/gb/A.srm": "ab4600eab70bdde95433653c8ea4d95bd5b6ade3521fb883d36ed0a8ef716a28"
+    },
+    "pointers": {
+      "CONTENT_REMOTE": "/pixelelated/Content",
+      "LAYOUT_KEEP": "",
+      "SAVES_REMOTE": "/pixelelated/Saves",
+      "SETTINGS_REMOTE": "/pixelelated/Backups"
+    }
+  },
+  "case": "B07-join",
+  "interrupted": {
+    "rc": 1,
+    "stderr": "",
+    "stdout": "Now using /ROCKNIX/Saves for your saves.\nCouldn't save the new folder in this device's settings. It still uses the old one, and nothing was removed from it.\n"
+  },
+  "partial": {
+    "cloud": {
+      "ROCKNIX/Backups/old_SETTINGS.tar.gz": "ce576527ef85abaad138fd293416057a37c379e3ad3c8895771de6df2ac5f780",
+      "ROCKNIX/Saves/gb/A.srm": "ab4600eab70bdde95433653c8ea4d95bd5b6ade3521fb883d36ed0a8ef716a28"
+    },
+    "pointers": {
+      "CONTENT_REMOTE": "/pixelelated/Content",
+      "LAYOUT_KEEP": "",
+      "SAVES_REMOTE": "/ROCKNIX/Saves",
+      "SETTINGS_REMOTE": "/pixelelated/Backups"
+    }
+  },
+  "retry": {
+    "rc": 3,
+    "stderr": "",
+    "stdout": ""
+  },
+  "scan": {
+    "rc": 0,
+    "stderr": "",
+    "stdout": ">>> unit CLOUD FOLDER||\n>>> doing scan\n"
+  },
+  "state": {
+    "rc": 0,
+    "stderr": "",
+    "stdout": "SAVES=/ROCKNIX/Saves\nBACKUPS=/pixelelated/Backups\nCONTENT=/pixelelated/Content\nCURRENT=/pixelelated/Saves\nSOURCE=/ROCKNIX/Saves\nCURRENT_EXISTS=0\nMARKER=-\nSTATE=superseded-with-files\n"
+  }
+}

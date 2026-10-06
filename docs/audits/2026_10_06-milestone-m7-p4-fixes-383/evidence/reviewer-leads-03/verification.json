@@ -1,0 +1,31 @@
+{
+  "utc": "2026-10-06T18:55:21.007380+00:00",
+  "owner": "/workspace/tmp/pixelelated-m7-p4-reviewer-leads-03",
+  "run": "/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261006T185255Z-4fb5085e",
+  "channels": {
+    "inner.rc": "0",
+    "outer.rc": "0",
+    "tool-wrapper.rc": "0",
+    "build.rc": "0"
+  },
+  "pids_absent": [
+    3056358,
+    3056359,
+    3056360,
+    3056389,
+    3057173,
+    3057196
+  ],
+  "ports_unbound": [
+    9040,
+    10022,
+    10023,
+    5909,
+    5910
+  ],
+  "sealed_inputs": 34,
+  "installed_hashes_unchanged": 6,
+  "observations_complete": 10,
+  "product_verdict": "not an aggregate PASS; primary case grading follows",
+  "runtime_key_policy": "QA private key remains only in runtime owner; artifacts copied by allowlist"
+}

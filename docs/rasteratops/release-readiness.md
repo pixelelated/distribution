@@ -1,6 +1,6 @@
 # pixelelated 0.0.1 release readiness
 
-## Current work — P4 primary audit complete; exact external transfer awaits approval
+## Current work — P4 audit#471: eight verified findings await remediation
 
 Replacement12 remains frozen55d8ee8f75965a560f75d187e34c9beaa93133f1;
 its build, scoped preservation/native/HTTP and QA15→17 evidence are retained
@@ -58,9 +58,14 @@ its findings, then measured capacity, H700 arm/aarch64 and named physical/P5
 gates. [Audit record](../audits/2026_10_06-milestone-m7-p4-fixes-383/README.md).
 The primary audit is complete through4.5:261criteria (204PASS/36PARTIAL/3FAIL/
 18SKIP),123prior comparisons and full retrospective. External Fable5.1/xhigh
-blind thenrefutation is next, pending the exact source/spec/QA payload transfer
-approval requested after automatic review rejected it before execution. No
-provider was contacted. Authentication is restored; there is no running job.
+blind and refutation calls are complete and verified: served Fable5.1/xhigh,
+no retries, all result channels0, unchanged sealed inputs and actual owner cleanup.
+All14 blind/five refutation leads are graded against primary artifacts and14
+completed installed experiments. Mandatory audit#471 carries eight open findings
+(1High/6Medium/1Low); final05 and all proof/cleanup receipts are retained. No
+executable is running. Product unchanged; Phase7 fixes/requalification precede
+P4 closure or any RC claim. #470 pre-issue validation passes, while the default
+resolution check correctly refuses all eight open outcomes.
 
 The unchanged14 content probe confirms #467: unrelated configured directories
 suppress the chooser/fallback, and root game folders on an empty device are
@@ -101,7 +106,7 @@ pass, with before-fix failures and exact distributed patch hashes retained.
 Upstream main remains879b158. API/policy-dependent proposals have explicit
 reasons in the contribution map; no upstream submission or acceptance is claimed.
 The separate RA account proof is complete in the record above; no new build
-has started. P4 awaits the exact external-review transfer approval; local qualification is recorded
+has started. P4 is remediating the eight verified findings in#471; local qualification is recorded
 under #462.
 
 > Earlier dated records below preserve their original account limitations.

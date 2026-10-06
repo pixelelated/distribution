@@ -2,7 +2,8 @@
 
 Read [the canonical checkpoint](saved-session-state-next.md).
 
-#383 primary audit is complete through4.5;261forward criteria and123prior
-comparisons recorded,03/04written. Exact external Fable packet transfer awaits
-requested approval after auto-review rejection. No provider/build/VM worker
-is active. Product unchanged; no RC-ready claim.
+Both approved Fable calls, primary grading and fourteen installed experiments
+are complete. Final audit#471 has eight open findings; Phase7 fixes are next.
+No executable is running, no product patch/RC claim. #470 adds explicit
+pre-issue validation while default resolution stays strict. Publish this
+checkpoint/evidence normally, then continue remediation under standing authority.

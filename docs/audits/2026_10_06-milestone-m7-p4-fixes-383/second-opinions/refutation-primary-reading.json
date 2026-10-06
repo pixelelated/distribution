@@ -1,0 +1,37 @@
+{
+  "utc": "2026-10-06T18:51:13.103326+00:00",
+  "response_read_whole": true,
+  "response_sha256": "72c95da873fcbcaa004d55d69af114e343c9d7f63a8f7845d47d6fc675822233",
+  "observations": [
+    {
+      "id": "R-01",
+      "status": "source consumer gap verified; runtime consequence unverified",
+      "evidence": "Full ES es-app/src search finds no stranded-at-root or --use-content-root consumer. GuiMenu.cpp:5228-5276 handles found-elsewhere/empty and subfolders only. Fold potential root-selection repair into F01, not a duplicate runtime finding."
+    },
+    {
+      "id": "R-02",
+      "status": "counterevidence to proposed stock-upgrade trigger",
+      "evidence": "post-update:108-111 calls installed cloud_sync_helper before normal updated operation. helper:466-492 intentionally derives explicit root for carried top-level /GAMES, preserving prior content location. Absent-key readers differ in forced configs, but the claimed ordinary NOT NOW upgrade window omits post-update initialization."
+    },
+    {
+      "id": "R-03",
+      "status": "source mapping gap confirmed; runtime outer-timeout not yet executed",
+      "evidence": "ThreadedCloudSync.cpp:80-96 lacks124/2-specific fallback; main.cpp:686-687 can return those. Fold siblings into F02/#468 with targeted output proof owed, no separate high/medium runtime claim."
+    },
+    {
+      "id": "R-04",
+      "status": "pre-existing tracked boundary",
+      "evidence": "T25 restricted-parent proof already establishes full scan refusal after successful configured-folder scan. Owning #365 table includes this limitation. No new PL duplication."
+    },
+    {
+      "id": "R-05",
+      "status": "primary counterevidence to wizard claim",
+      "evidence": "GuiMenu.cpp:7462 invokes timeout90 cloud_setup --seed-folders. Direct script call has only per-operation bounds; move-page seed call must be distinguished from wizard criterion."
+    }
+  ],
+  "notes": [
+    "All three primary findings upheld by external reviewer; independent acceptance still rests on primary artifacts.",
+    "B08 reviewer cites D-WORKFLOW-094 incorrectly: it is rolling-release policy. D-UI-112/player-language supports proposed words under existing execution authority; no invented individual owner approval.",
+    "B05/B06/B07/B09/B14 target observations pending live reviewer-leads02; no Phase5 advance yet."
+  ]
+}

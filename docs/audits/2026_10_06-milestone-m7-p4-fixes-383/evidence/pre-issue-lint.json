@@ -1,0 +1,10 @@
+{
+  "utc": "2026-10-06T19:00:09.561160+00:00",
+  "command": [
+    "tools/lint-audit-artifacts",
+    "docs/audits/2026_10_06-milestone-m7-p4-fixes-383"
+  ],
+  "returncode": 1,
+  "stdout": "== docs/audits/2026_10_06-milestone-m7-p4-fixes-383\n  ok    01-research-notes.md\n  ok    02-forward-audit.md\n  ok    03-retrospective.md\n  ok    04-analysis.md\n  ok    05-punch-list.md\n  ok    00-running-log.md (mandatory at milestone tier)\n  ok    04 \u00a7 Executive summary\n  ok    04 \u00a7 Acceptance-criteria scorecard\n  ok    04 \u00a7 Risk assessment\n  ok    04 \u00a7 Coverage boundary\n  ok    04 \u00a7 Quality self-check\n  ok    review plan: independent, 2 model perspectives, 2 verified external calls\n  ok    8 punch item(s): PL-001, PL-002, PL-003, PL-004, PL-005, PL-006, PL-007, PL-008\n  FAIL  PL-001 outcome is not one of Resolved/Deferred/Withdrawn\n  FAIL  PL-002 outcome is not one of Resolved/Deferred/Withdrawn\n  FAIL  PL-003 outcome is not one of Resolved/Deferred/Withdrawn\n  FAIL  PL-004 outcome is not one of Resolved/Deferred/Withdrawn\n  FAIL  PL-005 outcome is not one of Resolved/Deferred/Withdrawn\n  FAIL  PL-006 outcome is not one of Resolved/Deferred/Withdrawn\n  FAIL  PL-007 outcome is not one of Resolved/Deferred/Withdrawn\n  FAIL  PL-008 outcome is not one of Resolved/Deferred/Withdrawn\n  ok    PL-001 index and table agree (open)\n  ok    PL-002 index and table agree (open)\n  ok    PL-003 index and table agree (open)\n  ok    PL-004 index and table agree (open)\n  ok    PL-005 index and table agree (open)\n  ok    PL-006 index and table agree (open)\n  ok    PL-007 index and table agree (open)\n  ok    PL-008 index and table agree (open)\n\n8 CONTRACT FAILURE(S)\n",
+  "stderr": ""
+}

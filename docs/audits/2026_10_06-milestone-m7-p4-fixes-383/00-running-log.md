@@ -200,3 +200,31 @@ Refutation03 on/workspace completed17:06:00UTC:3controlsPASS/4challengesFAIL, ex
 ## 18:13:14 UTC — Primary checkpoint published
 
 Normal hooked feature commit 3abe4111a4bed8583a4a444850d6bac0d4853ba6 was explicitly cherry-picked with -x as next dbfcfdff83de09616946851f83e8d238ca4a7588; both fork refs read back exactly after push. Generated runtime key omitted before commit; original retained and omission receipt recorded. Blind packet hash is unchanged. Phase4.6 external-transfer approval remains pending; no provider call or product mutation.
+
+## 2026-10-06T18:22:51.043044+00:00 — Both external audit transfers approved
+
+Owner explicitly approved both Fable audit transfers. Exact blind packet remains fa0030b86a47b65a9ff1ce4e5f6ff8d1bc477783d030470bf47073ab2a89c058 (856187 bytes). Fresh sealed owner /tmp/pixelelated-m7-p4-fable-blind-01 prepared for Facilitator-only dispatch with normal durable supervision. Local sandbox preflight hit the known tsx IPC restriction before provider contact; preflight runs inside the watched actual-host command. No product changes.
+
+## 2026-10-06T18:38:44.334260+00:00 — Verified blind review; refutation prepared
+
+Blind attempt1 completed in816658ms, no retry: served anthropic/claude-fable-5.1, model PASS from provider response, xhigh effort PASS with54082 reasoning tokens. All five recorded statuses0 and actual launcher/runner/watcher/command absent. Packet/output hashes verify, all43 sealed inputs unchanged; evidence copied under evidence/fable-blind-01. Full response read:14 B leads, preserved unchanged. Refutation packet includes whole02/03,04throughFindingVerification, the original evidence packet, untouched blind response and additional primary source/decision context. No product changed. New sealed owner /tmp/pixelelated-m7-p4-fable-refutation-01 is prepared for the already-approved second transfer.
+
+## 2026-10-06T18:47:20.804676+00:00 — Phase4.6 primary lead checks continue during refutation
+
+The second approved call remains live under its sealed owner, observed on the actual host. No provider response has been consumed. Prepared ten unchanged14 VM experiments under evidence/reviewer-leads-01/probe.py for B05/B06/B07/B09/B14. They are unexecuted and make no verdict claims. Direct source reading refutes the stable malformed/exported-config wrong-root scenario: cloud_scan first calls the strict migration reader. Valid escaped values still need a target check. D-CLOUD-173 settles the boot-preparation design; no new boot prohibition. Actual guest11 renderer evidence was not located in retained process/qualification receipts; retain that traceability limit. Product bytes and every sealed input remain untouched.
+
+## 2026-10-06T18:49:43.481144+00:00 — Refutation complete and verified
+
+Second call ended18:49:11UTC, first observed18:49:16UTC; actual-host verification18:49:33UTC passed all five statuses,29 sealed inputs, exact Fable5.1/xhigh identity and output digest.36704 reasoning tokens, no retries,599169ms. All four owner processes absent. Evidence retained in evidence/fable-refutation-01; full output/provenance preserved. Both external calls now verified; continue primary grading and the prepared unchanged14 target challenges inside4.6.
+
+## 2026-10-06T18:50:29.047440+00:00 — reviewer-leads01 dispatch refused before command
+
+watch-build exited2 because proof/artifacts did not yet exist. No run.path, inner/outer command, VM or backend started. Actual launcher3042211 absent. Keep the failed owner; prepare reviewer-leads02 with unchanged probe and existing proof directory as activity root. Full refutation read; R01–R05 and all14 blind re-grades will receive primary grading. New source counterevidence: post-update:108–111 invokes cloud_sync_helper; the helper intentionally derives explicit root for a carried top-level /GAMES (R02).
+
+## 2026-10-06T18:58:52.167440+00:00 — Phase4.6 complete; eight findings enter Phase5
+
+Both full reviewer outputs read and graded. Ten lead experiments03 completed18:54:30 and verified18:55:21; four coverage experiments completed18:57:00 and verified18:57:36, allfour0 each, source/installed hash custody and actual guest/backend cleanup. Five new runtime findings G01–05; originalF01–03 stand, R01/R03 extend existing repair scopes. Whole04 records14B/fiveR/threeF/tenpacket-question dispositions. No product change. Continue Phase5 final punch list; no pause.
+
+## 2026-10-06T19:02:58.561849+00:00 — Phase5/6 complete; resolution remains open
+
+Eight final punch items (1High/6Medium/1Low), all honestly open. Default lint correctly refused all eight but was also mandatory before the issue existed; #470 adds an explicit pre-issue artifact phase, keeping default completion strict.17 positive/negative CLI controls passed, including model/digest corruption and outcome/index failures. Current pre-issue artifacts pass. Mandatory M7.P4 audit/punch-list issue#471 created and exact body/M7/eight unchecked items read back. Phase7 remediation is next; no product fix or RC claim.

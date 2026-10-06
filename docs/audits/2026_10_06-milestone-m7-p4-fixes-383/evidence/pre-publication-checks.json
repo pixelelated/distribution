@@ -1,0 +1,37 @@
+{
+  "utc": "2026-10-06T19:03:58.223427+00:00",
+  "rules_check": {
+    "exit": 0,
+    "rules": 30
+  },
+  "register_check": {
+    "exit": 0,
+    "ids": 599
+  },
+  "work_log_index_check": {
+    "exit": 0
+  },
+  "ceremony_check_gate": {
+    "exit": 0,
+    "warning": "audit overdue:68 closures/2days; active #471 resolution is not complete"
+  },
+  "lint_pre_issue_with_tracker": {
+    "exit": 0,
+    "issue": 471,
+    "items": 8
+  },
+  "default_resolution": "still rejects all eight open items; no completed gate claimed",
+  "product_diff_against_frozen": {
+    "exit": 0,
+    "paths": [
+      "projects",
+      "packages",
+      "distributions",
+      "config"
+    ]
+  },
+  "guard_controls": {
+    "expected_results": 17,
+    "pass": true
+  }
+}

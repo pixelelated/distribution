@@ -1,0 +1,17 @@
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/b77e47e57a4bb35f885ba78669ee8176a9ac978b27c1cbcfaad66e18f684a9f1
+up: a (pid 3068810, ssh :10022, serial /tmp/rocknix-qemu-serial.sock, mac 52:54:00:52:4E:58)
+up: b (pid 3068832, ssh :10023, serial /tmp/rocknix-qemu-serial-b.sock, mac 52:54:00:52:4E:59)
+ready: a on 7afa9efcfc over ssh :10022 (answered after 0s)
+ready: b on 7afa9efcfc over ssh :10023 (answered after 1s)
+up: webdav serving /workspace/tmp/pixelelated-m7-p4-reviewer-coverage-01/proof/cloud/data at http://127.0.0.1:9040 (guest: http://10.0.2.2:9040)
+START R01-stranded-root
+OBSERVED R01-stranded-root
+START R02-stock-helper
+OBSERVED R02-stock-helper
+START C03-timeout-child
+OBSERVED C03-timeout-child
+START R03-outer-timeout
+OBSERVED R03-outer-timeout
+down: owned QEMU exited (pid 3068810)
+down: owned QEMU exited (pid 3068832)
+down

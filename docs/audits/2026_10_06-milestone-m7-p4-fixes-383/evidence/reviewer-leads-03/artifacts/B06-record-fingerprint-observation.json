@@ -1,0 +1,60 @@
+{
+  "after": {
+    "cloud": {
+      "pixelelated/.layout": "be68d69fa1fe3ddbcaa9295b8e3e732fd0113d909e38cf643d95aab41c9b1a22",
+      "pixelelated/Content/ROMs/gb/A.gb": "2d0eede5bd75eb6ac737169692fdaaf30f389bbbb60ee0774f18462a6e2c6bef",
+      "pixelelated/Saves/gb/A.srm": "087babad1e70b626728c8febc2e82202ec743a4f4d00e4b67204bcd7f240a852"
+    },
+    "pointers": {
+      "CONTENT_REMOTE": "/pixelelated/Content",
+      "LAYOUT_KEEP": "",
+      "SAVES_REMOTE": "/pixelelated/Saves",
+      "SETTINGS_REMOTE": "/pixelelated/Backups"
+    }
+  },
+  "before": {
+    "cloud": {
+      "ROCKNIX/Content/ROMs/gb/A.gb": "2d0eede5bd75eb6ac737169692fdaaf30f389bbbb60ee0774f18462a6e2c6bef",
+      "pixelelated/Saves/gb/A.srm": "087babad1e70b626728c8febc2e82202ec743a4f4d00e4b67204bcd7f240a852"
+    },
+    "pointers": {
+      "CONTENT_REMOTE": "/ROCKNIX/Content",
+      "LAYOUT_KEEP": "",
+      "SAVES_REMOTE": "/pixelelated/Saves",
+      "SETTINGS_REMOTE": "/pixelelated/Backups"
+    }
+  },
+  "case": "B06-record-fingerprint",
+  "changed_config": {
+    "--apply": {
+      "rc": 5,
+      "stderr": "",
+      "stdout": "The previous cloud move couldn't be read safely. Nothing more was changed.\n"
+    },
+    "--state": {
+      "rc": 5,
+      "stderr": "",
+      "stdout": "The previous cloud move couldn't be read safely. Nothing more was changed.\n"
+    },
+    "seed": {
+      "rc": 5,
+      "stderr": "",
+      "stdout": "Your cloud folder couldn't be checked, so no folders were made. Try again.\n"
+    }
+  },
+  "initial": {
+    "rc": 5,
+    "stderr": "",
+    "stdout": "This device stores:\n  saves    qa-cloud:/ROCKNIX/Saves\n  backups  qa-cloud:/ROCKNIX/Backups\n\nThe current layout is:\n  saves    qa-cloud:/pixelelated/Saves\n  backups  qa-cloud:/pixelelated/Backups\n\nWould move, server-side, leaving anything else where it is:\n  qa-cloud:/ROCKNIX/Saves  ->  qa-cloud:/pixelelated/Saves\n  qa-cloud:/ROCKNIX/Content  ->  qa-cloud:/pixelelated/Content\n\nNow using /pixelelated/Backups for your settings backups.\n>>> unit SAVES|1|2\nCopying saves...\n>>> doing copy\nTransferred:   \t         15 B / 15 B, 100%, 0 B/s, ETA -\nChecks:                 0 / 0, -, Listed 2\nTransferred:            1 / 1, 100%\nServer Side Copies:     1 @ 15 B\nElapsed time:         0.0s\nVerifying saves...\n>>> doing verify\nNow using /pixelelated/Saves for your saves.\nRemoving the old saves folder...\n>>> doing remove\n>>> unit ROMS, BIOS, AND GAME CONTENT|2|2\nWould copy, verify, then remove  qa-cloud:/ROCKNIX/Content  ->  qa-cloud:/pixelelated/Content\nCopying content...\n>>> doing copy\ninjected local QA provider refusal\ninjected local QA provider refusal\nCouldn't finish copying content. Nothing was removed from the old folder; some files may already be in the new one.\nThe config is unchanged.\n>>> why SOME FILES DIDN'T FINISH\n\nSaves are at qa-cloud:/pixelelated/Saves and backups at qa-cloud:/pixelelated/Backups, but your ROMs and BIOS files didn't move. Try again.\n"
+  },
+  "recovery": {
+    "rc": 0,
+    "stderr": "",
+    "stdout": "This device stores:\n  saves    qa-cloud:/ROCKNIX/Saves\n  backups  qa-cloud:/ROCKNIX/Backups\n\nThe current layout is:\n  saves    qa-cloud:/pixelelated/Saves\n  backups  qa-cloud:/pixelelated/Backups\n\nWould move, server-side, leaving anything else where it is:\n  qa-cloud:/ROCKNIX/Content  ->  qa-cloud:/pixelelated/Content\n\nNow using /pixelelated/Backups for your settings backups.\nNow using /pixelelated/Saves for your saves.\n>>> unit ROMS, BIOS, AND GAME CONTENT|1|1\nWould copy, verify, then remove  qa-cloud:/ROCKNIX/Content  ->  qa-cloud:/pixelelated/Content\nCopying content...\n>>> doing copy\nTransferred:   \t         15 B / 15 B, 100%, 0 B/s, ETA -\nChecks:                 0 / 0, -, Listed 3\nTransferred:            1 / 1, 100%\nServer Side Copies:     1 @ 15 B\nElapsed time:         0.1s\nVerifying content...\n>>> doing verify\nNow using /pixelelated/Content for your ROMs, BIOS, and game content.\nRemoving the old content folder...\n>>> doing remove\nContent is now at qa-cloud:/pixelelated/Content.\n\nDone. Saves are at qa-cloud:/pixelelated/Saves, backups at qa-cloud:/pixelelated/Backups.\n"
+  },
+  "token_control": {
+    "rc": 0,
+    "stderr": "",
+    "stdout": "STATE=migration-pending\nSOURCE=/ROCKNIX/Saves\nCURRENT=/pixelelated/Saves\n"
+  }
+}

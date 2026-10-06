@@ -1,0 +1,191 @@
+{
+  "utc": "2026-10-06T19:01:40.946252+00:00",
+  "fixture": "/tmp/pixelelated-audit-lint-470-as6l8cp5/2026_10_06-milestone-fixture",
+  "synthetic_only": true,
+  "cases": [
+    {
+      "case": "open-default",
+      "command": [
+        "/workspace/repos/rocknix.worktrees/conflict-resolution/tools/lint-audit-artifacts",
+        "/tmp/pixelelated-audit-lint-470-as6l8cp5/2026_10_06-milestone-fixture"
+      ],
+      "returncode": 1,
+      "expected": 1
+    },
+    {
+      "case": "open-pre-issue",
+      "command": [
+        "/workspace/repos/rocknix.worktrees/conflict-resolution/tools/lint-audit-artifacts",
+        "/tmp/pixelelated-audit-lint-470-as6l8cp5/2026_10_06-milestone-fixture",
+        "--phase",
+        "pre-issue"
+      ],
+      "returncode": 0,
+      "expected": 0
+    },
+    {
+      "case": "unknown-outcome-pre-issue",
+      "command": [
+        "/workspace/repos/rocknix.worktrees/conflict-resolution/tools/lint-audit-artifacts",
+        "/tmp/pixelelated-audit-lint-470-as6l8cp5/2026_10_06-milestone-fixture",
+        "--phase",
+        "pre-issue"
+      ],
+      "returncode": 1,
+      "expected": 1
+    },
+    {
+      "case": "unknown-outcome-resolution",
+      "command": [
+        "/workspace/repos/rocknix.worktrees/conflict-resolution/tools/lint-audit-artifacts",
+        "/tmp/pixelelated-audit-lint-470-as6l8cp5/2026_10_06-milestone-fixture",
+        "--phase",
+        "resolution"
+      ],
+      "returncode": 1,
+      "expected": 1
+    },
+    {
+      "case": "missing-row-pre-issue",
+      "command": [
+        "/workspace/repos/rocknix.worktrees/conflict-resolution/tools/lint-audit-artifacts",
+        "/tmp/pixelelated-audit-lint-470-as6l8cp5/2026_10_06-milestone-fixture",
+        "--phase",
+        "pre-issue"
+      ],
+      "returncode": 1,
+      "expected": 1
+    },
+    {
+      "case": "missing-row-resolution",
+      "command": [
+        "/workspace/repos/rocknix.worktrees/conflict-resolution/tools/lint-audit-artifacts",
+        "/tmp/pixelelated-audit-lint-470-as6l8cp5/2026_10_06-milestone-fixture",
+        "--phase",
+        "resolution"
+      ],
+      "returncode": 1,
+      "expected": 1
+    },
+    {
+      "case": "mismatched-index-pre-issue",
+      "command": [
+        "/workspace/repos/rocknix.worktrees/conflict-resolution/tools/lint-audit-artifacts",
+        "/tmp/pixelelated-audit-lint-470-as6l8cp5/2026_10_06-milestone-fixture",
+        "--phase",
+        "pre-issue"
+      ],
+      "returncode": 1,
+      "expected": 1
+    },
+    {
+      "case": "mismatched-index-resolution",
+      "command": [
+        "/workspace/repos/rocknix.worktrees/conflict-resolution/tools/lint-audit-artifacts",
+        "/tmp/pixelelated-audit-lint-470-as6l8cp5/2026_10_06-milestone-fixture",
+        "--phase",
+        "resolution"
+      ],
+      "returncode": 1,
+      "expected": 1
+    },
+    {
+      "case": "uncited-deferral-pre-issue",
+      "command": [
+        "/workspace/repos/rocknix.worktrees/conflict-resolution/tools/lint-audit-artifacts",
+        "/tmp/pixelelated-audit-lint-470-as6l8cp5/2026_10_06-milestone-fixture",
+        "--phase",
+        "pre-issue"
+      ],
+      "returncode": 1,
+      "expected": 1
+    },
+    {
+      "case": "uncited-deferral-resolution",
+      "command": [
+        "/workspace/repos/rocknix.worktrees/conflict-resolution/tools/lint-audit-artifacts",
+        "/tmp/pixelelated-audit-lint-470-as6l8cp5/2026_10_06-milestone-fixture",
+        "--phase",
+        "resolution"
+      ],
+      "returncode": 1,
+      "expected": 1
+    },
+    {
+      "case": "open-missing-index",
+      "command": [
+        "/workspace/repos/rocknix.worktrees/conflict-resolution/tools/lint-audit-artifacts",
+        "/tmp/pixelelated-audit-lint-470-as6l8cp5/2026_10_06-milestone-fixture",
+        "--phase",
+        "pre-issue"
+      ],
+      "returncode": 1,
+      "expected": 1
+    },
+    {
+      "case": "wrong-model-pre-issue",
+      "command": [
+        "/workspace/repos/rocknix.worktrees/conflict-resolution/tools/lint-audit-artifacts",
+        "/tmp/pixelelated-audit-lint-470-as6l8cp5/2026_10_06-milestone-fixture",
+        "--phase",
+        "pre-issue"
+      ],
+      "returncode": 1,
+      "expected": 1
+    },
+    {
+      "case": "wrong-model-resolution",
+      "command": [
+        "/workspace/repos/rocknix.worktrees/conflict-resolution/tools/lint-audit-artifacts",
+        "/tmp/pixelelated-audit-lint-470-as6l8cp5/2026_10_06-milestone-fixture",
+        "--phase",
+        "resolution"
+      ],
+      "returncode": 1,
+      "expected": 1
+    },
+    {
+      "case": "tampered-output-pre-issue",
+      "command": [
+        "/workspace/repos/rocknix.worktrees/conflict-resolution/tools/lint-audit-artifacts",
+        "/tmp/pixelelated-audit-lint-470-as6l8cp5/2026_10_06-milestone-fixture",
+        "--phase",
+        "pre-issue"
+      ],
+      "returncode": 1,
+      "expected": 1
+    },
+    {
+      "case": "tampered-output-resolution",
+      "command": [
+        "/workspace/repos/rocknix.worktrees/conflict-resolution/tools/lint-audit-artifacts",
+        "/tmp/pixelelated-audit-lint-470-as6l8cp5/2026_10_06-milestone-fixture",
+        "--phase",
+        "resolution"
+      ],
+      "returncode": 1,
+      "expected": 1
+    },
+    {
+      "case": "synthetic-resolved-default",
+      "command": [
+        "/workspace/repos/rocknix.worktrees/conflict-resolution/tools/lint-audit-artifacts",
+        "/tmp/pixelelated-audit-lint-470-as6l8cp5/2026_10_06-milestone-fixture"
+      ],
+      "returncode": 0,
+      "expected": 0
+    },
+    {
+      "case": "synthetic-resolved-pre-issue",
+      "command": [
+        "/workspace/repos/rocknix.worktrees/conflict-resolution/tools/lint-audit-artifacts",
+        "/tmp/pixelelated-audit-lint-470-as6l8cp5/2026_10_06-milestone-fixture",
+        "--phase",
+        "pre-issue"
+      ],
+      "returncode": 0,
+      "expected": 0
+    }
+  ],
+  "all_expected": true
+}
