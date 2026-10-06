@@ -4,7 +4,7 @@ The source repairs are published at distribution feature `7ad24b5812257ba6854f51
 and next `ed5a6a51f5974deec8748fbf0dbd2f4984b690f5`, with ES
 `bab4df649f48847cc43d21c77c058107ad902754`. Remote readback is retained in
 `evidence/remediation-host/source-publication.json`. These are source commits;
-all eight installed acceptance outcomes in05 and#471 remain open.
+PL-007/008 have installed acceptance; PL-001–006 remain open. PL-003 now needs a further historical-shelf repair and rebuild.
 
 | Item | Source repair | Already written: disposition and remaining proof |
 | --- | --- | --- |
@@ -197,3 +197,86 @@ completion:empty-library02 →cloudUI01 →recoveryUI02 →library01 →boot06 �
 →coverageUI01, then remaining criterion reconciliation. Recovery02 corrects only
 an expected string against the installed source; original01 was never submitted.
 All jobs are serialized and actively supervised; no off-session notification.
+
+## 2026-10-06 21:06 UTC — Guarded UI preparation and reader evidence published (#471)
+
+Reader/PL-008 evidence published normally at feature0718c4b3ac9de0d7ddac28ca5ff31f634594ccd4
+and nextcda4cb25b6542bab19b8994fbf3dee17af83d9d6; remote and6419changed-path
+verification21:04:36. The frozen candidate remainsed5a6a51f5. New publication
+receipt is retained for the next evidence commit. Pre-issue audit/rules/register/
+worklog checks pass; the audit cadence remains due until Phase7 completes.
+
+Before submission, source review found three new UI fixtures lacked the required
+before/after no-game checks. Fresh sealed cloud-ui-fixes02, recovery-ui-fixes03
+and coverage-ui02 add those guards and explicit START before/main-menu frames.
+Their predecessors remain prepared but must never be submitted. No live tool
+or product file was edited. Primary image review is still required for the
+actual main-menu frames. Serialized order now:activepresentation01 →empty-library02
+→cloudUI02 →recoveryUI03 →library01 →boot06 →bucket01 →coverageUI02.
+
+Presentation's six phone/native frames and eight EN640/fiveFR640 reconnect
+frames have been directly reviewed and hash-bound. Required localized text is
+visible; French phone confirmation wraps without clipping. Remaining phone
+page text is English, outside this scoped translation claim. Both640profiles
+pass;1280matrix is still running. No overall presentation result yet.
+
+
+## 2026-10-06T21:18:00.766311+00:00 — #471 installed presentation resolved, historical shelf gap retained
+
+Candidate15 presentation01 completed21:08:18:145 assertions and29 directly reviewed,
+hash-bound frames pass. Actual cleanup21:09:00 includes both guests, browser,
+WebDriver and tunnel. PL-007 is resolved locally; original French HTML control
+also fails on old source and passes on fixed EN/FR. Empty-library02 passes all
+three cases with verified empty mount and restored original listing.
+
+Inherited-shelf01 exposes a real PL-003 gap: actual RC2 migration leaves
+/GAMES-replaced; candidate15 apply returns0 and publishes current pointers and
+marker while that history remains at the old root. Bytes survive; no data-loss
+claim. The two recorded-interruption controls pass. Allfourrc1,212seals and
+actual cleanup are retained. Candidate15 cannot close PL-003; fix and new
+frozen image required. A second apply was not executed and is not claimed.
+
+CloudUI02 passes MyGames, then its frame guard fails because vm-visual-qa
+normalizes spaces/punctuation in screenshot names. Directly viewed My Games
+before/after frames prove carousel→MAIN MENU worked; the assertion looked up
+wrong filenames. Completion21:15:56, primary verification21:16:11/24,
+allfourrc1/9owner seals/guest and five ports clear. Fresh03 then failed before
+watcher/guest creation because the activity directory was missing (launcher
+rc2 only; no four-channel claim). Both failures retained. Fresh04 precreates
+its activity directory and fixes filename normalization; it is the sole
+submitted UI owner. No product bytes or live tools changed.
+
+
+## 2026-10-06 21:23 UTC — PL-003 source repair under test
+
+Working source now preflights all eligible earlier history shelves, leaves active
+siblings alone, preserves original endpoint/configured-pointer binding while
+advancing the pending discarded source, and bounds extra recovery before Done.
+Actual predecessor fixtures now carry a GAMES-replaced witness. Six additional
+cases cover two generations with colliding names, copy/delete interruption,
+active sibling, foreign destination and unreadable source. No new installed
+build exists and PL-003 remains open.
+
+Host01 submission was refused because frozen15's monitor belongs to UI04; no
+test started. Host02 on the coordination monitor produced2 original-source
+PASS/3 expected historical-tier FAIL, but its wrapper incorrectly expected all5
+to fail. Earlier RC2 cuts still point at GAMES and already move that shelf; only
+the later ROCKNIX selection misses it. Allfourrc1/27seals and actual owner
+cleanup are retained. Fresh03 runs corrected source only against that verified
+baseline; original results are not replayed. Existing exclusive-monitor and
+sealed-owner rules caught the fixture mistakes; no product result is waived.
+
+
+## 2026-10-06 21:25 UTC — focused historical repair passes; full regression active
+
+Host04 passes10 shelf/sibling cases and5 actual-RC2 upgrade cases, including the
+three historical-tier misses reproduced by old source02. Full372-case realrclone
+regression is running under coordination watcher1338149. Source unchanged since
+host03: its9PASS/1FAIL was a fixture assumption. A denied child lookup of absent
+/GAMES was correctly resolved by a successful real parent listing;04 creates
+that directory so unreadability is genuine. Failed03 is retained with allfour1,
+27seals and actual owner cleanup. The repaired image is still required.
+
+Live#471 andM7 were updated and read back exactly21:24UTC:2resolved/6open,
+historical PL003 gap and remaining test/build order. New presentation evidence
+was explicitly labelled local pending publication. No audit or RC closure.

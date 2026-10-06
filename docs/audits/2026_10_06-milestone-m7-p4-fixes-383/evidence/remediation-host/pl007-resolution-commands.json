@@ -1,0 +1,34 @@
+{
+  "utc": "2026-10-06T21:09:56.882469+00:00",
+  "commands": {
+    "git -C /workspace/repos/rocknix branch --contains ed5a6a51f5974deec8748fbf0dbd2f4984b690f5": "+ build/m7-pixelelated-replacement15\n* next\n",
+    "git -C /workspace/repos/rocknix log -1 --format=%H %s next -- projects/ROCKNIX/packages/network/rclone/sources/cloud_oauth projects/ROCKNIX/packages/network/rclone/sources/cloud-signin-window.c": "ed5a6a51f5974deec8748fbf0dbd2f4984b690f5 cloud: repair the M7 independent audit findings\n",
+    "git -C /home/max/Development/emulationstation-next.worktrees/qa-integration branch --contains bab4df649f48847cc43d21c77c058107ad902754": "+ feature/m7-audit-remediation\n* test/qa-integration\n"
+  },
+  "profile_assertions": [
+    {
+      "profile": "en_US-1280x960",
+      "assertions": 25
+    },
+    {
+      "profile": "en_US-640x480",
+      "assertions": 34
+    },
+    {
+      "profile": "fr_FR-1280x960",
+      "assertions": 25
+    },
+    {
+      "profile": "fr_FR-640x480",
+      "assertions": 25
+    },
+    {
+      "profile": "signin-en_US",
+      "assertions": 18
+    },
+    {
+      "profile": "signin-fr_FR",
+      "assertions": 18
+    }
+  ]
+}

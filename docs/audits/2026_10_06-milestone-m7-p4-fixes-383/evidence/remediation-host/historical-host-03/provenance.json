@@ -1,0 +1,15 @@
+{
+  "prepared_utc": "2026-10-06T21:22:32.362063+00:00",
+  "scope": "Host source regression only, actual rclone/bwrap. Frozen snapshot of uncommitted PL003 history repair and test witnesses. Candidate15 UI remains separately unchanged.",
+  "original": "ed5a6a51f5974deec8748fbf0dbd2f4984b690f5",
+  "installed_proof": "Required on a new build before resolution",
+  "corrected_monitor_root": "coordination checkout; frozen15 monitor remains exclusively owned by UI04",
+  "supersedes_unstarted": "/workspace/tmp/pixelelated-m7-p4-historical-host-01",
+  "negative_control": {
+    "owner": "/workspace/tmp/pixelelated-m7-p4-historical-host-02",
+    "original_pass": 2,
+    "original_expected_failure": 3,
+    "interpretation": "Only after RC2 advances saves to ROCKNIX does candidate15 skip the GAMES history. Earlier cuts still select GAMES and pass. Original five-fail expectation was overbroad; all source/control receipts retained, not replayed."
+  },
+  "supersedes_failed": "/workspace/tmp/pixelelated-m7-p4-historical-host-02"
+}

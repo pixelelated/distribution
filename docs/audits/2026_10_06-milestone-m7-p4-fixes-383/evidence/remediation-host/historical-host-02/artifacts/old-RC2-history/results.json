@@ -1,0 +1,25 @@
+[
+  {
+    "case": "T23-predecessor-RC2-backups",
+    "status": "PASS"
+  },
+  {
+    "case": "T23-predecessor-RC2-saves",
+    "status": "PASS"
+  },
+  {
+    "case": "T23-predecessor-RC2-content",
+    "status": "FAIL",
+    "why": "RC2/content: upgrade left Saves-replaced/stamp/gb/A.srm behind"
+  },
+  {
+    "case": "T23-predecessor-RC2-complete",
+    "status": "FAIL",
+    "why": "RC2/complete: upgrade left Saves-replaced/stamp/gb/A.srm behind"
+  },
+  {
+    "case": "T23-predecessor-RC2-reinterrupted",
+    "status": "FAIL",
+    "why": "RC2/content: upgrade left Saves-replaced/stamp/gb/A.srm behind"
+  }
+]

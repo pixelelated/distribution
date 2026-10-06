@@ -40,3 +40,44 @@ observer faulted local listremotes before the parser. Corrected reader02 passes
 8cases; reader03 failed before guest creation because its new wrapper lacked an
 executable dispatch. Exact-value/control owner04 supplies the final acceptance.
 All these receipts remain retained. The whole audit stays open for PL-001–007.
+
+## PL-007 — Resolved on candidate15
+
+Distribution `ed5a6a51f5974deec8748fbf0dbd2f4984b690f5`, ES
+`bab4df649f48847cc43d21c77c058107ad902754`. Command-backed integration receipt:
+[evidence/remediation-host/pl007-resolution-commands.json](evidence/remediation-host/pl007-resolution-commands.json).
+
+[presentation01](../../qa-logs/2026-10-06-pixelelated-replacement-15/p4-presentation-fixes-01/)
+executes installed OAuth handler/window and the real done callback against a
+local provider Session stand-in. Running ES exports the chosen locale. Both
+390px phone confirmations show the requested EN/FR question, Keep and Close;
+Keep retains the actual window, Close ends it without creating a done marker.
+After the real signed-in callback the actual640px native finishing page and
+done marker remain at0,5,15seconds until explicit dismissal. Installed scripts,
+window and ES hashes are unchanged. This is not a hosted OAuth credential test.
+The broader phone keyboard page remains English; only the specified controls
+and finishing text are covered by this translation finding.
+
+The actual installed reconnect/flusher path also passes EN/FR640 and1280
+success/dismissal/empty-repeat profiles, plus EN640 refusal/pending retention.
+All29 frames were directly reviewed and their hashes checked against retained
+copies: [frame review](../../qa-logs/2026-10-06-pixelelated-replacement-15/presentation-primary-frame-review.json).
+Text is fully visible. The French phone question wraps into a narrow column
+without clipping. Reconnect outcomes match actual local-provider receipts,
+queue state and stamps; no new real achievement was consumed.
+
+Finished21:08:18; primary verification21:09:00 confirms allfour results0,
+11sealed owner files, actual owner processes and both resolution-specific
+QEMU PIDs absent. Browser cleanup independently checks both Firefox PIDs,
+no Firefox/geckodriver remains, and all recorded driver/Marionette ports are
+unbound. Generic cleanup checks owner servers/SSH tunnel and10026/5912.
+
+Already written: no stored settings, tokens, callback protocol or cloud bytes
+need conversion. The explicit ES locale now reaches the standalone presentation;
+done-marker and dismissal behavior retain their prior meaning. The source
+finding was directly observed before this repair; no post-fix result is
+attributed to the old image. Six remaining audit items still block closure.
+
+Original-source French-output control: [retained handler experiment](../../qa-logs/2026-10-06-pixelelated-replacement-15/presentation-language-control/result.json) executes actual old/fixed Handler rendering with an in-memory HTTP sink. Old EN and FR output is identical and lacks all four French controls; fixed EN/FR contains the expected controls. This is a host source control, not an old installed window run.
+
+The actual native C-file integration command is [window receipt](evidence/remediation-host/pl007-window-resolution-command.json); it corrects the earlier receipt’s nonexistent rclone-package C path.

@@ -1,0 +1,96 @@
+{
+  "utc": "2026-10-06T21:01:23.325603+00:00",
+  "checks": [
+    {
+      "assertion": "candidate build identity",
+      "passed": true
+    },
+    {
+      "assertion": "no game running",
+      "passed": true
+    },
+    {
+      "assertion": "running ES exports requested language",
+      "passed": true
+    },
+    {
+      "assertion": "persistent read-only VNC viewer ready",
+      "passed": true
+    },
+    {
+      "assertion": "no finishing page before done callback",
+      "passed": true
+    },
+    {
+      "assertion": "actual phone confirmation language",
+      "passed": true
+    },
+    {
+      "assertion": "phone-confirmation-fr_FR.png dimensions",
+      "passed": true
+    },
+    {
+      "assertion": "Keep retains the installed window",
+      "passed": true
+    },
+    {
+      "assertion": "Close does not mark a successful sign-in",
+      "passed": true
+    },
+    {
+      "assertion": "finishing retained at 0 seconds",
+      "passed": true
+    },
+    {
+      "assertion": "native-finishing-fr_FR-0 actual native frame stable",
+      "passed": true
+    },
+    {
+      "assertion": "native-finishing-fr_FR-0.png dimensions",
+      "passed": true
+    },
+    {
+      "assertion": "finishing retained at 5 seconds",
+      "passed": true
+    },
+    {
+      "assertion": "finishing retained at 15 seconds",
+      "passed": true
+    },
+    {
+      "assertion": "native-finishing-fr_FR-15 actual native frame stable",
+      "passed": true
+    },
+    {
+      "assertion": "native-finishing-fr_FR-15.png dimensions",
+      "passed": true
+    },
+    {
+      "assertion": "installed presentation bytes unchanged",
+      "passed": true
+    },
+    {
+      "assertion": "owned installed window and server cleanup",
+      "passed": true
+    }
+  ],
+  "frames": [
+    {
+      "file": "phone-confirmation-fr_FR.png",
+      "sha256": "5c7519bc2d9daa9492029ef73dd8a814eb7252c888d0cec18d83fcd18aa62fd9",
+      "visual_review": "pending"
+    },
+    {
+      "file": "native-finishing-fr_FR-0.png",
+      "sha256": "8fd227c1477e9d974d431a7b5887fce588e6779e2067bc4a51ac0dfb4efcf4cd",
+      "visual_review": "pending"
+    },
+    {
+      "file": "native-finishing-fr_FR-15.png",
+      "sha256": "8fd227c1477e9d974d431a7b5887fce588e6779e2067bc4a51ac0dfb4efcf4cd",
+      "visual_review": "pending"
+    }
+  ],
+  "cleanup_errors": [],
+  "scope": "actual installed presentation with local provider Session stand-in and explicit done callback; no OAuth exchange; direct visual review pending; queued reconnect UI is a separate proof"
+}

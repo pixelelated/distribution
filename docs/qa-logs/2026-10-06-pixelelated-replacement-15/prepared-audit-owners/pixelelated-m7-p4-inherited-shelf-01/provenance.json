@@ -1,0 +1,9 @@
+{
+  "prepared_utc": "2026-10-06T21:08:37.866994+00:00",
+  "prepared_only": true,
+  "scope": "PL003 exact historical discarded-shelf coverage: actual RC2 completed migration leaving its original shelf, plus actual candidate14 retained records interrupted at discarded copy/delete. Four tier byte witnesses, current installed recovery, no false completion or second mutation.",
+  "why": "Earlier inherited-RC2 fixture omitted a discarded-save witness. This fixture does not infer coverage from unrelated four-tier current-script tests.",
+  "installed_product_replaced": false,
+  "historical_sources": "Private guest QA paths only; not old installed images",
+  "sequence": "after empty-library02 before cloud UI"
+}

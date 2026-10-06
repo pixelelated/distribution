@@ -1,0 +1,405 @@
+<!doctype html><meta name=viewport content="width=device-width,initial-scale=1">
+<title>Keyboard for QA local page</title>
+<style>
+body{font:16px/1.5 system-ui,sans-serif;margin:0;padding:20px;background:#111;color:#eee}
+.card{max-width:34rem;margin:0 auto}
+h1{font-size:1.3rem;margin:0 0 .25rem}
+h2{font-size:1rem;margin:1.5rem 0 .5rem;color:#9cf;text-transform:uppercase;
+   letter-spacing:.05em}
+ol{padding-left:1.3rem;margin:.5rem 0}li{margin:.4rem 0}
+a.go{display:block;background:#2d7;color:#000;padding:14px;border-radius:8px;
+     text-align:center;font-weight:600;text-decoration:none;margin:.5rem 0}
+input{width:100%;padding:12px;font-size:16px;border-radius:8px;border:1px solid #555;
+      background:#1c1c1c;color:#eee;box-sizing:border-box}
+/* Four characters do not need the width of a phone. Sized in ch so it tracks
+   the font rather than assuming one, and capped against the card so it still
+   shrinks rather than overflowing on a narrow screen. */
+input.pin{font-size:24px;letter-spacing:.5em;text-align:center;
+          width:7ch;max-width:100%;padding-left:.6em}
+form.narrow{text-align:center}
+form.narrow button{width:auto;min-width:9rem}
+button{margin-top:10px;padding:12px 20px;font-size:16px;border-radius:8px;
+       border:0;background:#4af;color:#000;font-weight:600;width:100%}
+button.minor{background:#333;color:#ddd;font-weight:500}
+.note{color:#aaa;font-size:.9rem}
+/* The connection line sits between the heading and the field; without
+   margins of its own it read as part of both (fork #351). */
+#state{margin:.75rem 0}
+/* The way off the handheld's page lives at the very bottom, under the note,
+   with room above it, so a drag on the pad that runs off its edge lands
+   on text and not on Close (fork #351, D-CLOUD-163). Its two-step
+   confirmation replaces the row in place. */
+[hidden]{display:none!important}
+.leave{margin-top:2rem}
+.leave .ask{display:flex;gap:8px;align-items:center}
+.leave .ask span{flex:1 1 auto;color:#aaa;font-size:.9rem}
+.leave .ask button{flex:0 0 auto;width:auto;padding:12px 18px;margin-top:0}
+.err{background:#722;padding:12px;border-radius:8px;margin:1rem 0}
+.ok{background:#272;padding:12px;border-radius:8px;margin:1rem 0}
+.box{border:1px solid #444;border-radius:10px;padding:14px;margin:1rem 0}
+.big{font-size:1.6rem;text-align:center;margin:1rem 0}
+/* Five buttons on a phone's 350 px share the row from a basis of nothing
+   (flex:1 1 0) and may shrink below their words (min-width:0, which flex
+   items refuse by default); width:auto undoes the block rule's 100%, which
+   as a basis put every button on a row of its own. Show sat off the right
+   edge of an iPhone's screen (fork #330). */
+.keys{display:flex;gap:8px;margin-top:10px}
+.keys button{flex:1 1 0;min-width:0;width:auto;padding:12px 6px;margin-top:0}
+/* The trackpad. Tall enough to drag across a four-inch screen's worth of
+   page without lifting a finger, and touch-action:none so the browser does
+   not steal the gesture to scroll its own page. */
+.pad{height:11rem;margin-top:12px;border:1px dashed #555;border-radius:10px;
+     background:#181818;touch-action:none;display:flex;align-items:center;
+     justify-content:center;color:#666;font-size:.85rem;user-select:none}
+.pad.live{border-color:#4af;color:#4af}
+</style>
+<div class=card>
+<h1>Keyboard for QA local page</h1>
+
+<div id=state class=note>Checking&hellip;</div>
+
+<input id=kb type=password placeholder="Type here" autocapitalize=off
+       autocorrect=off spellcheck=false autofocus>
+<div id=warn class=err hidden></div>
+<div class=keys>
+<button type=button class=minor data-key=backspace>Back</button>
+<button type=button class=minor data-key=tab>Tab</button>
+<button type=button class=minor data-key=enter>Enter</button>
+<button type=button class=minor id=clear>Clear</button>
+<button type=button class=minor id=show>Show</button>
+</div>
+
+
+<div class=keys>
+<button type=button class=minor data-key=left>&larr;</button>
+<button type=button class=minor data-key=up>&uarr;</button>
+<button type=button class=minor data-key=down>&darr;</button>
+<button type=button class=minor data-key=right>&rarr;</button>
+</div>
+<div class=keys>
+<button type=button class=minor data-key=f2>Page up</button>
+<button type=button class=minor data-key=f3>Page down</button>
+</div>
+<h2>Pointer</h2>
+<div class=pad id=pad>drag to move &middot; tap to click</div>
+
+<p class=note>The sign-in page is on your handheld&rsquo;s screen, not here.
+This types for it, so you can more easily retrieve and type your login
+info. What you type crosses your network unencrypted, so use this on a
+network you trust.</p>
+
+<!-- A way off the handheld's page that does not depend on its gamepad: a
+     pad the bridge cannot read (#308 gpt F-RS-16) leaves this, and the
+     window quits on Escape. At the bottom, under the note, because it sat
+     right above the drag pad and a thumb found it by accident (fork #351);
+     and asked once, in place, before Escape is sent (D-CLOUD-163). -->
+<div class=leave id=leave>
+<button type=button class=minor id=leave-ask>Fermer la page</button>
+<div class=ask id=leave-confirm hidden><span>Fermer la page de connexion sur votre console ?</span>
+<button type=button class=minor id=leave-keep>Garder ouverte</button><button type=button id=leave-close>Fermer</button></div>
+</div>
+</div>
+
+<script>
+// A script that dies before it starts leaves the page saying Checking... for
+// as long as it is open, its taps dead (fork #330). Said on the page, with
+// the browser's words for the ROCKNIX team, instead of nothing.
+window.onerror = function (message) {
+  var state = document.getElementById("state");
+  if (!state) return;
+  state.className = "err";
+  state.textContent = "This page stopped working. Reload it; if it happens again, report it to the pixelelated project: " + message;
+};
+(function () {
+  var pin = "synthetic-pin";
+  var box = document.getElementById("kb");
+  var warn = document.getElementById("warn");
+  var state = document.getElementById("state");
+  var pad = document.getElementById("pad");
+
+  // One request at a time, in order. Backspaces and characters that overtake
+  // each other arrive as scrambled text in the field on the handheld.
+  //
+  // Two states from the probe: winUp, the window is on the handheld's
+  // screen (the named keys drive it -- Tab is how a field the page did not
+  // focus is reached); ready, a field on its page has had the caret, so
+  // text has somewhere to go. It was `up` until fork #330 -- the same name
+  // as the pad's up(e) below, and a var assigned false over a hoisted
+  // function makes addEventListener("touchend", up) throw before poll()
+  // ever runs: the page sat on Checking... with its taps dead on every
+  // browser, while drags moved the pointer (their handler was bound first).
+  var winUp = false;
+  var ready = false;
+  var page = null;
+  var queue = Promise.resolve();
+  function send(body) {
+    queue = queue.then(function () {
+      return fetch("/" + pin, {
+        method: "POST",
+        headers: {"Content-Type": "application/x-www-form-urlencoded"},
+        body: body + "&pin=" + encodeURIComponent(pin)
+      }).catch(function () {});
+    });
+    return queue;
+  }
+
+  // Two different strings, which is the distinction the first cut missed.
+  // `shown` is what is in the box; `sent` is what has actually reached the
+  // handheld. They differ whenever somebody types before the page is open --
+  // the order this flow asks for, since the QR is on the screen the sign-in
+  // page replaces.
+  var sent = "";
+
+  function deliver(v) {
+    if (v === sent) return;
+    if (v.length > sent.length && v.indexOf(sent) === 0) {
+      send("type=" + encodeURIComponent(v.slice(sent.length)));
+    } else if (v.length < sent.length && sent.indexOf(v) === 0) {
+      for (var i = 0; i < sent.length - v.length; i++) send("key=backspace");
+    } else {
+      for (var j = 0; j < sent.length; j++) send("key=backspace");
+      if (v) send("type=" + encodeURIComponent(v));
+    }
+    sent = v;
+  }
+
+  // Every named key -- from the buttons below and from the phone's own
+  // keyboard alike -- goes through here, so the box and the handheld's field
+  // never part. The buttons used to post their key and nothing else: Back
+  // deleted on the handheld and left the box as it was, and every later
+  // keystroke was reckoned against a box one character off, so a password
+  // typed with one correction went across altered (audit #307 PL-017).
+  //
+  // The box holds what has been typed into the handheld's field since the
+  // focus last moved there. Back trims it, and with it empty still deletes
+  // on the handheld -- text that was there already. Enter submits the field,
+  // and Tab, the arrows and Close move away from it: what the box holds was
+  // for the field left behind, so it starts again. Page up and down only
+  // scroll.
+  function act(named) {
+    if (named === "backspace") {
+      if (box.value) {
+        box.value = box.value.slice(0, -1);
+        if (ready) deliver(box.value);
+      } else if (winUp) {
+        send("key=backspace");
+      }
+      return;
+    }
+    if (!winUp) return;
+    send("key=" + named);
+    if (named !== "f2" && named !== "f3") { box.value = ""; sent = ""; dropped = []; warnSay(); }
+  }
+
+  // Only what the handheld can type goes in the box: printable ASCII,
+  // [ -~], the US layout cloud_oauth types with. Anything else used to be
+  // sent, dropped at the other end without a word, and left showing here
+  // -- a credential altered in silence (#308 claude F-RS-16, gpt F-RS-13).
+  // It is taken out of the box instead, and the page says which.
+  //
+  // The line names the characters only while Show is on. With the box
+  // masked it counts them: a password's characters written out under a
+  // box that hides them is the box's masking undone (G-C-05, the audit of
+  // stream C).
+  var dropped = [];
+  function warnSay() {
+    if (!dropped.length) { warn.hidden = true; return; }
+    var many = dropped.length > 1;
+    warn.textContent = box.type === "password"
+      ? "The handheld can't type " + (many ? dropped.length + " of the characters you entered"
+          : "one of the characters you entered") + ", so " + (many ? "they were" : "it was") + " left out."
+      : "The handheld can't type " + dropped.join(" ") + ", so "
+          + (many ? "they were" : "it was") + " left out.";
+    warn.hidden = false;
+  }
+  function typable() {
+    var v = box.value, kept = v.replace(/[^ -~]/g, "");
+    if (kept === v) return;
+    dropped = v.replace(/[ -~]/g, "").split("");
+    box.value = kept;
+    warnSay();
+  }
+
+  // What you typed stays visible. Clearing the box after every keystroke made
+  // a keyboard that looked broken -- you type and nothing appears anywhere
+  // you can see.
+  box.addEventListener("input", function () {
+    typable();
+    if (ready) deliver(box.value);
+  });
+  box.addEventListener("keydown", function (e) {
+    var named = {Enter: "enter", Backspace: "backspace", Tab: "tab"}[e.key];
+    if (!named) return;
+    e.preventDefault();
+    act(named);
+  });
+
+  // Masked, because what goes through this box is mostly a password, and
+  // it stayed readable on the phone's screen after it was sent (#308 gpt
+  // F-RS-14). Show reveals it for checking; it hides again on a second
+  // press.
+  var show = document.getElementById("show");
+  show.addEventListener("click", function () {
+    var hidden = box.type === "password";
+    box.type = hidden ? "text" : "password";
+    show.textContent = hidden ? "Hide" : "Show";
+    warnSay();
+  });
+
+  // Local only: the handheld has moved to another field and this box still
+  // holds what went into the last one.
+  document.getElementById("clear").addEventListener("click", function () {
+    box.value = ""; sent = ""; dropped = []; warnSay(); box.focus();
+  });
+
+  // Close page asks once, in place, in the words approved for it (D-CLOUD-164
+  // string 12): the button gives way to the question with Keep and Close;
+  // Keep puts the button back, Close sends Escape as the old button did.
+  // Static markup toggled by hidden, nothing built at run time: the page's
+  // load test under node has no createElement, and a browser's confirm()
+  // cannot carry these words.
+  var leaveAsk = document.getElementById("leave-ask"), leaveConfirm = document.getElementById("leave-confirm");
+  function leaveShow(asking) { leaveAsk.hidden = asking; leaveConfirm.hidden = !asking; }
+  leaveAsk.addEventListener("click", function () { leaveShow(true); });
+  document.getElementById("leave-keep").addEventListener("click", function () { leaveShow(false); });
+  document.getElementById("leave-close").addEventListener("click", function () { act("escape"); leaveShow(false); });
+  Array.prototype.forEach.call(document.querySelectorAll("[data-key]"), function (b) {
+    b.addEventListener("click", function () { act(b.dataset.key); });
+  });
+
+  // Drag to move, tap to click. Deltas rather than absolute positions,
+  // because the pointer belongs to the handheld's screen and this pad has no
+  // idea how big that is.
+  var px = 0, py = 0, moved = 0, tracking = false;
+  // 1:1 with the finger. Anything else has to be learned, and the pointer is
+  // already moving on a screen the hand holding it is not touching.
+  var SPEED = 1.0;
+  // Whatever is left after rounding is carried, not dropped. Discarding it
+  // every event loses a fraction of a pixel per move, which over a drag is a
+  // pointer that slides away from where the finger went.
+  var restX = 0, restY = 0;
+  function at(e) { var t = e.touches ? e.touches[0] : e; return {x: t.clientX, y: t.clientY}; }
+
+  // Movement is coalesced, not queued. A finger produces about sixty events a
+  // second and each request takes longer than that to complete, so putting
+  // them in the same strict queue as keystrokes built a backlog that kept
+  // draining after the finger stopped -- the pointer carried on travelling on
+  // its own. At most one move is ever in flight; whatever arrives meanwhile
+  // is added up and sent as a single delta when it returns. Keystrokes still
+  // go through the ordered queue, because for them order is the point.
+  var pendX = 0, pendY = 0, inFlight = false;
+  function flushMove() {
+    if (inFlight || (!pendX && !pendY)) return;
+    var dx = pendX, dy = pendY;
+    pendX = 0; pendY = 0;
+    inFlight = true;
+    fetch("/" + pin, {
+      method: "POST",
+      headers: {"Content-Type": "application/x-www-form-urlencoded"},
+      body: "move=" + dx + "," + dy + "&pin=" + encodeURIComponent(pin)
+    }).catch(function () {}).then(function () {
+      inFlight = false;
+      flushMove();
+    });
+  }
+  function pushMove(dx, dy) { pendX += dx; pendY += dy; flushMove(); }
+  function down(e) {
+    var p = at(e); px = p.x; py = p.y; moved = 0; tracking = true;
+    restX = 0; restY = 0;
+    pad.classList.add("live"); e.preventDefault();
+  }
+  function move(e) {
+    if (!tracking) return;
+    var p = at(e);
+    var dx = (p.x - px) * SPEED + restX, dy = (p.y - py) * SPEED + restY;
+    px = p.x; py = p.y;
+    var ix = Math.trunc(dx), iy = Math.trunc(dy);
+    restX = dx - ix; restY = dy - iy;
+    moved += Math.abs(ix) + Math.abs(iy);
+    if (ix || iy) pushMove(ix, iy);
+    e.preventDefault();
+  }
+  function up(e) {
+    if (!tracking) return;
+    tracking = false;
+    pad.classList.remove("live");
+    // Let any outstanding movement land first, so the click happens where
+    // the finger finished rather than where it was a moment earlier.
+    if (moved < 8) setTimeout(function () { send("click=1"); }, 60);
+    e.preventDefault();
+  }
+  pad.addEventListener("touchstart", down, {passive: false});
+  pad.addEventListener("touchmove", move, {passive: false});
+  pad.addEventListener("touchend", up, {passive: false});
+  pad.addEventListener("mousedown", down);
+  window.addEventListener("mousemove", move);
+  window.addEventListener("mouseup", up);
+
+  // This page is scanned before the window exists -- the QR is on the screen
+  // the sign-in page then replaces -- so it has to come alive by itself.
+  //
+  // A probe that fails is counted; five in a row (ten seconds) and the line
+  // says the handheld cannot be reached and what to look at, instead of
+  // Checking... for as long as the page is open (fork #330: an iPhone with a
+  // VPN badge in its status bar showed Checking... for two minutes while
+  // its taps went nowhere). The polling goes on: the moment an answer comes
+  // the line changes to what it says.
+  var failed = 0;
+  function unreachable() {
+    state.className = "err";
+    state.textContent = "Your phone can't reach your handheld. Both need to be "
+      + "on the same Wi-Fi, and a VPN on your phone can get in the way.";
+  }
+  function poll() {
+    fetch("/" + pin + "?probe=1", {cache: "no-store"}).then(function (r) {
+        if (!r.ok) throw new Error("status " + r.status);
+        failed = 0;
+        return r.text();
+      })
+      .then(function (t) {
+        // "open <page>" -- the page token changes when the handheld
+        // navigates, which is when what is in this box stopped being
+        // relevant to what is on that screen.
+        var parts = t.trim().split(" ");
+        var open = parts[0] === "open";
+        var isUp = open || parts[0] === "loading";
+        // A new page: what is in the box was for the one before. Noticed
+        // while the new one loads too, so what is typed meanwhile is kept
+        // for it.
+        if (isUp && parts[1] && parts[1] !== page) {
+          if (page !== null) { box.value = ""; sent = ""; }
+          page = parts[1];
+        }
+        winUp = isUp;
+        state.className = open ? "ok" : "note";
+        state.textContent = open
+          ? "Connected."
+          : isUp
+          ? "Opening on your handheld. You can keep typing here; it goes "
+            + "across once a box on that page is ready."
+          : "Not open yet -- choose CONTINUE on your handheld. You can type "
+            + "or paste here meanwhile; it goes across when the page opens.";
+        // The box is never disabled. It was, until this said the handheld was
+        // ready -- so somebody who scanned the QR first, which is the order
+        // this flow asks for, could not type at all and saw nothing appear.
+        // Re-asserting disabled every two seconds also dismisses a phone
+        // keyboard in the middle of typing.
+        //
+        // And what was typed meanwhile goes across the moment it opens. The
+        // box only ever sent on an input event, so text typed while the page
+        // said "not open yet" -- the order this flow asks for -- was never
+        // delivered at all, and the next keystroke added only itself (audit
+        // #307 PL-016). The window opens on an empty field, so nothing has
+        // been sent to it yet: `sent` starts again from nothing. And not
+        // before a field has the caret -- open is that, not the window's
+        // process starting (claude G2-C-01) -- and again on each new page.
+        var opened = open && !ready;
+        ready = open;
+        if (opened) { sent = ""; deliver(box.value); }
+      })
+      .catch(function () { if (++failed >= 5) unreachable(); })
+      .then(function () { setTimeout(poll, 2000); });
+  }
+  poll();
+})();
+</script>
