@@ -1,0 +1,56 @@
+PASS accepted replacement14 build dependency; broader VM qualification is subsequent
+/workspace/tmp/pixelelated-m7-consent-02/consent-test.py: OK
+/workspace/tmp/pixelelated-m7-consent-02/host-proof.py: OK
+/workspace/tmp/pixelelated-m7-consent-02/outer.sh: OK
+/workspace/tmp/pixelelated-m7-consent-02/prepare-dirs.py: OK
+/workspace/tmp/pixelelated-m7-consent-02/run.sh: OK
+/workspace/tmp/pixelelated-m7-consent-02/scope.json: OK
+/workspace/tmp/pixelelated-m7-consent-02/verify-build.py: OK
+/workspace/tmp/pixelelated-m7-consent-02/verify-inputs.py: OK
+/workspace/tmp/pixelelated-m7-consent-02/vm-stop: OK
+PASS owned private pair/artifacts directories ready
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/b77e47e57a4bb35f885ba78669ee8176a9ac978b27c1cbcfaad66e18f684a9f1
+Image resized.
+No errors were found on the image.
+31695/262144 = 12.09% allocated, 0.00% fragmented, 0.00% compressed clusters
+Image end offset: 2077818880
+[W][01:00:22.417122] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][01:00:22.417154] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+ready after ~31s
+PASS usage-only first call 1 HTTP requests
+PASS usage-only restart 0 HTTP requests
+PASS unanswered first call 0 HTTP requests
+PASS unanswered restart 0 HTTP requests
+PASS declined first call 0 HTTP requests
+PASS declined restart 0 HTTP requests
+PASS null first call 0 HTTP requests
+PASS null restart 0 HTTP requests
+PASS zero first call 0 HTTP requests
+PASS zero restart 0 HTTP requests
+PASS one first call 0 HTTP requests
+PASS one restart 0 HTTP requests
+PASS string-false first call 0 HTTP requests
+PASS string-false restart 0 HTTP requests
+PASS string-true first call 0 HTTP requests
+PASS string-true restart 0 HTTP requests
+PASS list first call 0 HTTP requests
+PASS list restart 0 HTTP requests
+PASS object first call 0 HTTP requests
+PASS object restart 0 HTTP requests
+PASS old-grant first call 0 HTTP requests
+PASS old-grant restart 0 HTTP requests
+PASS old-decline first call 0 HTTP requests
+PASS old-decline restart 0 HTTP requests
+PASS explicit-decline first call 0 HTTP requests
+PASS explicit-decline restart 0 HTTP requests
+PASS logs-only first call 2 HTTP requests
+PASS logs-only restart 0 HTTP requests
+PASS both-enabled first call 3 HTTP requests
+PASS both-enabled restart 0 HTTP requests
+
+PASS 30 installed consent/restart cases and assembled module hashes
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/b77e47e57a4bb35f885ba78669ee8176a9ac978b27c1cbcfaad66e18f684a9f1
+PASS frozen source inputs, ES pin and candidate input custody
+PASS pixelelated frozen7afa9efcfc installed consent and HTTP capture proof
+down: owned QEMU exited (pid 1794173)

@@ -1,0 +1,159 @@
+{
+  "build_id": "7afa9efcfc0c1ce4b89774b38878fc1b9a9063d2",
+  "checks": 30,
+  "results": [
+    {
+      "case": "usage-only",
+      "replay": false,
+      "requests": 1
+    },
+    {
+      "case": "usage-only",
+      "replay": true,
+      "requests": 0
+    },
+    {
+      "case": "unanswered",
+      "replay": false,
+      "requests": 0
+    },
+    {
+      "case": "unanswered",
+      "replay": true,
+      "requests": 0
+    },
+    {
+      "case": "declined",
+      "replay": false,
+      "requests": 0
+    },
+    {
+      "case": "declined",
+      "replay": true,
+      "requests": 0
+    },
+    {
+      "case": "null",
+      "replay": false,
+      "requests": 0
+    },
+    {
+      "case": "null",
+      "replay": true,
+      "requests": 0
+    },
+    {
+      "case": "zero",
+      "replay": false,
+      "requests": 0
+    },
+    {
+      "case": "zero",
+      "replay": true,
+      "requests": 0
+    },
+    {
+      "case": "one",
+      "replay": false,
+      "requests": 0
+    },
+    {
+      "case": "one",
+      "replay": true,
+      "requests": 0
+    },
+    {
+      "case": "string-false",
+      "replay": false,
+      "requests": 0
+    },
+    {
+      "case": "string-false",
+      "replay": true,
+      "requests": 0
+    },
+    {
+      "case": "string-true",
+      "replay": false,
+      "requests": 0
+    },
+    {
+      "case": "string-true",
+      "replay": true,
+      "requests": 0
+    },
+    {
+      "case": "list",
+      "replay": false,
+      "requests": 0
+    },
+    {
+      "case": "list",
+      "replay": true,
+      "requests": 0
+    },
+    {
+      "case": "object",
+      "replay": false,
+      "requests": 0
+    },
+    {
+      "case": "object",
+      "replay": true,
+      "requests": 0
+    },
+    {
+      "case": "old-grant",
+      "replay": false,
+      "requests": 0
+    },
+    {
+      "case": "old-grant",
+      "replay": true,
+      "requests": 0
+    },
+    {
+      "case": "old-decline",
+      "replay": false,
+      "requests": 0
+    },
+    {
+      "case": "old-decline",
+      "replay": true,
+      "requests": 0
+    },
+    {
+      "case": "explicit-decline",
+      "replay": false,
+      "requests": 0
+    },
+    {
+      "case": "explicit-decline",
+      "replay": true,
+      "requests": 0
+    },
+    {
+      "case": "logs-only",
+      "replay": false,
+      "requests": 2
+    },
+    {
+      "case": "logs-only",
+      "replay": true,
+      "requests": 0
+    },
+    {
+      "case": "both-enabled",
+      "replay": false,
+      "requests": 3
+    },
+    {
+      "case": "both-enabled",
+      "replay": true,
+      "requests": 0
+    }
+  ],
+  "external_provider_contact": false,
+  "required_early_uptime": true,
+  "scope": "Installed reporting functions and actual loopback HTTP; no scheduler/UI proof"
+}

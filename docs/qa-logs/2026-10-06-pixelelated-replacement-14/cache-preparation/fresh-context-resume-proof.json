@@ -1,0 +1,120 @@
+{
+  "observed_utc": "2026-10-06T00:53:18.716293+00:00",
+  "scope": "D-WORKFLOW-133 fresh-context checkpoint usability/evidence proof; read-only; not the M7.P4 code audit",
+  "repository": "/workspace/repos/rocknix",
+  "canonical_checkpoint": ".github/sessions/saved-session-state-next.md",
+  "checkpoint_saved": "2026-10-06T00:45:08.904876+00:00",
+  "outcome": "Usable for safe continuation; no blocking missing command found.",
+  "current": {
+    "work": "M7.P3 replacement14 independent cache copy/checksum/inode verification before image build and installed #457 proof.",
+    "canonical_next": "fc057b8e58a8b3e6fe889737f6b748acfbefcd04",
+    "feature": "b617c7cc62b41ccad74f5cb3250aa0f912257d85",
+    "frozen_source": "7afa9efcfc0c1ce4b89774b38878fc1b9a9063d2",
+    "branches_clean_and_rules_equal_next": true,
+    "manifest_sha256": "70cb0448872f39b5382939173b2182a783381142df6dd5630b9e00a2c3ba6ccc",
+    "source_files_verified": 6550,
+    "qa_files_verified": 207,
+    "symlinks_verified": 180,
+    "recipes": 1608,
+    "verify_source_result": "PASS frozen inputs, host options, container and 24/4 concurrency",
+    "harness_seal": "All six owner harness file hashes match harness.sha256.",
+    "proxy_archive": "/tmp/pixelelated-proxy-879b158/proxy.tar.gz",
+    "proxy_archive_sha256": "984957322337d1325f1b0fc11502336a80241ec511fd041c969bb0103c231664",
+    "proxy_archive_note": "Hash verified against bytes. Archive was not yet in shared raofflineproxy download-cache directory at inspection; canonical build can download its hash-pinned input. Local verified source exists.",
+    "freshness": "Freshness05 actual inner/outer/wrapper/build rc0, recorded PIDs absent and live build-log hash matches completion receipt. Do not replay.",
+    "candidate12": "All 18 payload/evidence files plus manifest verify with tools/rasteratops-candidate-store verify; bundle 1b3c2c04de5ec6947cfb678279bcc9721167f8409ee825f8d72489838f1c2382.",
+    "active_owner": "/workspace/tmp/pixelelated-m7-replacement-14/cache-copy",
+    "active_run": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement14/.build-runs/20261006T004222Z-e4ace79d",
+    "observed_owner_pids": [
+      1592160,
+      1592161,
+      1592162,
+      1592191
+    ],
+    "checksum_pids": [
+      1619760,
+      1619761,
+      1619762
+    ],
+    "lifecycle": "All four owner processes confirmed live in host /proc at00:50:08; actual rsync -aHnc workers observed at00:51:13. No QEMU, compiler or image build container seen. build.start and all copy success/terminal receipts were absent.",
+    "last_poll": "At00:52:21 watcher state became stalled, with fresh00:52:20 heartbeat and no log write for303seconds. This is suspected inactivity, not a failed/completed copy: last line says checksum comparison begins.",
+    "disk_available": "89GiB shown by df at00:50:08; do not reuse pre-copy193GiB estimate."
+  },
+  "immediate_next_action": {
+    "now": "Continue host polling and inspect actual same-PID checksum I/O when quiet-log stall is suspected. Do not restart the copy or launch the build yet.",
+    "poll": "python3 /tmp/pixelelated-status.py /workspace/tmp/pixelelated-m7-replacement-14/cache-copy run.path",
+    "after_terminal": "Only when launcher/result channels agree, actual owned processes are gone and no completion receipt already exists: python3 /tmp/pixelelated-complete-durable.py /workspace/tmp/pixelelated-m7-replacement-14/cache-copy 0",
+    "cache_gate": "Require copy.rc=0 and cache-ready.rc=0, cache-ready.json checksum_equal=true plus independent_regular_files count, empty cache-compare.txt, and preserve child completion.json as parent copy-completion.json.",
+    "host_gate": "Then run read-only tools/build-preflight while idle; use authorized --reclaim-swap only if needed and all watchers/VMs/compilers have exited.",
+    "build_cwd": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement14",
+    "build_command": "tools/watch-build-submit --owner /workspace/tmp/pixelelated-m7-replacement-14 -- --interval 5 --stall-min 5 -- bash /workspace/tmp/pixelelated-m7-replacement-14/outer.sh",
+    "build_custody": "Sealed build script verifies cwd, cache/source/clean-state/preflight gates and cleans only raofflineproxy plus image stamp. Retain actual container image/user/workdir/mounts and actual exit.",
+    "after_build": "New store14 script and immutable bundle; fresh image/inventory/default+actual RC2 upgrade/proxy/subset/early-uptime consent owners. No prepared14 VM owners exist in checkpoint; never execute old owners unchanged."
+  },
+  "authorizations_and_gates": [
+    "Ordinary fixes/tests/isolated VMs, explicit cherry-pick -x into next, normal hook-protected fork pushes/tracker updates and guarded idle swap helper are standing-authorized in checkpoint.",
+    "This verifier has read-only authorization only and executed no build/copy/VM/account operation, completion writer, cleanup, tracker mutation, publication or review.",
+    "#457 remains open on fresh installed-image positive/negative/restart HTTP proof, including loaded modules and early uptime. Original consent01 remains all-four1; no positive result may be inferred from24 negative cases.",
+    "Remaining P3/account/upstream acceptance precedes approved P4 primary plus Fable5.1/xhigh through verified Facilitator/OpenRouter. P4 has not started; this report is not that audit.",
+    "Then resolve/requalify, H700 DDR4/RG35XXSP arm first and aarch64 second, followed by named physical/P5 gates. No RC/device-ready/publication claim.",
+    "Dedicated RA reset/alternate QA-account status and dedicated Dropbox credential-file path remain unanswered in the live tracker. No account reset, hardcore use or already-earned award substitution is authorized.",
+    "D-RA-016 requires the maintainer go before outward submissions; three prepared standalone drafts are not submitted PRs.",
+    "#456 authorizes safe cleanup preparation only. Preserve14,13,12,10,09, all candidate bundles, actual RC2/backing chains/shared cache; no deletion or reserve change approval.",
+    "Physical-device actions and personal cloud mutations require named gates. Public-docs destination and P5 source/licence work remain. No Daybreak or goal tool; no unrequested delegation.",
+    "#395 has no disconnected alert destination. Active connected supervision and prompt terminal reporting remain required."
+  ],
+  "findings": [
+    {
+      "severity": "nonblocking",
+      "finding": "Lower live M7.P3 Ordered critical path row still named replacement12 while top current section named14. Reported to orchestrator; orchestrator reports corrected live-readback at /tmp/pixelelated-p3-20261006/milestone-row-readback.json. The current top section was unambiguous throughout."
+    },
+    {
+      "severity": "operational",
+      "finding": "Quiet checksum phase yields suspected-stall after five minutes without a log write despite fresh watcher heartbeat. Check live same-PID I/O/CPU before any intervention. Orchestrator separately reports read_bytes rose12.7GB\u219258.9GB between00:48:37 and00:51:42; that I/O sample is parent evidence, not independently measured by this proof."
+    },
+    {
+      "severity": "nonblocking",
+      "finding": "Checkpoint last published source heads differ from current heads because the later checkpoint/evidence commit was integrated. Frozen14 remains correctly at7afa; inspected next delta contains checkpoint/docs/evidence only."
+    }
+  ],
+  "evidence_files": [
+    "/tmp/m7-replacement14-resume-proof-live.json",
+    "/tmp/m7-replacement14-resume-proof-inputs.json",
+    "/tmp/m7-replacement14-resume-proof-milestone.json",
+    "/tmp/m7-replacement14-resume-proof-archaeology.txt"
+  ],
+  "limitations": "No product suite rerun, installed14 proof, image build, complete cleanup-custody proof or P4 review performed. Source-suite summaries and original consent failure retain original artifact scope. Live process observations are timestamped and must be refreshed before action.",
+  "source_log_readback": {
+    "host-b09-01": {
+      "patched.log": [
+        "Ran 818 tests in 12.918s",
+        "OK"
+      ],
+      "integration.log": [
+        "Ran 11 tests in 0.169s",
+        "OK"
+      ],
+      "historical-integration.log": [
+        "Ran 11 tests in 0.160s",
+        "OK"
+      ],
+      "sha256": {
+        "patched.log": "e6f5f2c4cf00cbe05d4d7ba757884510af9db1e86ef0e3088338622190663af7",
+        "integration.log": "7ae00e6c883b82c326bdde8f7192d56ae1ec834d71be63d2dcf0807eedd4b790",
+        "historical-integration.log": "7e611ecf9b4e64270362d2c643989c9971bb70607d40a9d8cfcb0c5f3d39d431"
+      }
+    },
+    "scripts-b09-01": {
+      "scripts.log": [
+        "    PASS  the patched client's predicates ran (21 PASS / 0 FAIL lines)",
+        "    PASS  stream D's d13a predicates ran (1 PASS / 0 FAIL)",
+        "    PASS  stream D's d13b predicates ran (3 PASS / 0 FAIL)",
+        "    PASS  stream D's d13c predicates ran (2 PASS / 0 FAIL)",
+        "cloud-layout-test: 316 PASS, 0 FAIL; artifacts: /tmp/cloud-layout-v9urtm3i"
+      ],
+      "sha256": {
+        "scripts.log": "7ae7eaba24c1ff94326c19bf7bb0e97f7c4b56a2a289b22695fb15ab3edefe8a"
+      }
+    }
+  }
+}

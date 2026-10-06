@@ -1,6 +1,6 @@
 # pixelelated 0.0.1 release readiness
 
-## Current work — early-boot consent fix needs a new image
+## Current work — replacement14 built; installed qualification in progress
 
 Replacement12 remains frozen55d8ee8f75965a560f75d187e34c9beaa93133f1;
 its build, scoped preservation/native/HTTP and QA15→17 evidence are retained
@@ -16,9 +16,18 @@ pins are unchanged. All16 patches apply without fuzz;818 native-enabled Linux
 tests and11 integration cases for each actual303/historical865 predecessor
 pass. [Source proof and failed installed run](../qa-logs/2026-10-06-proxy-consent/README.md).
 
-Current order: source qualification complete; freeze/build replacement14, then
-installed consent positive/negative/restart proof and affected proxy/default/
-actual ROCKNIX RC2 upgrade checks. Next are remaining P3 criteria and #168
+Replacement14 source `7afa9efcfc0c1ce4b89774b38878fc1b9a9063d2` built
+successfully at00:59:09UTC2026-10-06:642/642tasks, allfourresults0,
+actual container/process exit00:59:32. Immutable bundle
+`b77e47e57a4bb35f885ba78669ee8176a9ac978b27c1cbcfaad66e18f684a9f1`
+verifies. [Build evidence](../qa-logs/2026-10-06-pixelelated-replacement-14/README.md).
+
+Installed consent02 passes all30reporting/restart cases, including the
+first granted counter at16.705487703seconds (7→8). Image14 verifies raw/update
+SYSTEM equality; inventory10 passes with the14knownP5licence gaps retained.
+
+Current order: qa18 full defaults and actual ROCKNIX RC2 upgrade, then
+proxy14 preservation/native/legacy checks and subset11 reconnect proof. Next are remaining P3 criteria and #168
 upstream mapping; ordinary RetroAchievements and authenticated Dropbox proofs
 need the still-pending dedicated QA-account inputs. Both precede approved P4,
 H700 arm then aarch64 and named physical/P5 gates. No RC or device-ready claim.
