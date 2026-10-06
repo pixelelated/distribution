@@ -2,7 +2,7 @@
 
 ## Current work — P4 audit#471: candidate15 VM qualification active
 
-As of20:02UTC, all eight source repairs are published at nexted5a6a51f5974deec8748fbf0dbd2f4984b690f5
+As of20:19UTC, all eight source repairs are published at nexted5a6a51f5974deec8748fbf0dbd2f4984b690f5
 and ESbab4df649f48847cc43d21c77c058107ad902754. Full host03 and independent
 cache checks pass. Candidate15 finished19:59:08, verified20:00:04 with allfour
 results0, unchanged seals and actual container/process exit. Its immutable
@@ -12,6 +12,15 @@ runs the15 defaults then actual ROCKNIX RC2 upgrade. Follow with85 installed
 boundary cases and EN/FR presentation/recovery proofs. All eight audit outcomes
 remain open; only then assess P4 closure.
 [Candidate15 evidence](../qa-logs/2026-10-06-pixelelated-replacement-15/README.md).
+
+Image sweep11 and source inventory11 are now freshly verified on candidate15:
+57,295files,8,604classified branding contexts, zero unclassified credential
+matches;854localization entries and95XML entries reconcile. Inventory maps
+568roots/583components/525stamps;14P5license metadata gaps remain. QA19 has
+ten completed suites and is still running. Five sealed follow-on owners
+cover85boundary+10extra+18cloudUI+8recoveryUI cases and localphone/native/
+reconnect presentation; all remain unexecuted. See the current checkpoint
+and candidate15 evidence before running any owner.
 
 ## Historical qualification — earlier status statements retain their dates
 

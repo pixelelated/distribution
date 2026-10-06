@@ -1,0 +1,37 @@
+{
+  "reviewed_utc": "2026-10-06T20:08:27.160582+00:00",
+  "reviewer": "primary direct image inspection",
+  "scope": "initial-clean identity/manual-update navigation only; runtime network behavior and broader UI style excluded",
+  "frames": [
+    {
+      "file": "/workspace/tmp/pixelelated-m7-qa-19/artifacts/identity-initial-clean/01-main-menu-identity.png",
+      "sha256": "54cfb8dbb1e3aacfeeed23a369c65df47648ae5ee848922177fdcccbb8ee75c9",
+      "observation": "Lowercase pixelelated0.0.1 community identity visible in main menu footer.",
+      "verdict": "PASS"
+    },
+    {
+      "file": "/workspace/tmp/pixelelated-m7-qa-19/artifacts/identity-initial-clean/02-system-settings.png",
+      "sha256": "4b7d38d635d9a9411b187c72f3e3234d177f4ef0f41ebbec8f1c81e9aaee7405",
+      "observation": "Actual System Settings page reached, Information row selected; navigation evidence only.",
+      "verdict": "PASS"
+    },
+    {
+      "file": "/workspace/tmp/pixelelated-m7-qa-19/artifacts/identity-initial-clean/03-information.png",
+      "sha256": "93d2924637e4ad590901c5dd172180bdd9356b0fab315a59db3fa0af06834934",
+      "observation": "Operating system pixelelated, version0.0.1 community, builded5a6a5/build/m7-pixelelated-replacement15.",
+      "verdict": "PASS"
+    },
+    {
+      "file": "/workspace/tmp/pixelelated-m7-qa-19/artifacts/identity-initial-clean/04-updates.png",
+      "sha256": "7e58dc96c64fc5cc7ec904bea5f747eca08053dc1c07d90be7e071e8cf85982f",
+      "observation": "Manual Updates row present under Software Updates.",
+      "verdict": "PASS"
+    },
+    {
+      "file": "/workspace/tmp/pixelelated-m7-qa-19/artifacts/identity-initial-clean/05-manual-update-message.png",
+      "sha256": "afeaa02ed429fdd6e8cd7055c0daa7c2786db87f5079908b8c4e40151ef9ab46",
+      "observation": "Manual route points at github.com/pixelelated/distribution/releases and gives device-selection instructions; text visible. No network-capture claim.",
+      "verdict": "PASS"
+    }
+  ]
+}

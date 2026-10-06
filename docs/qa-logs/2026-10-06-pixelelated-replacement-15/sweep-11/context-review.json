@@ -1,0 +1,229 @@
+{
+  "issue": 442,
+  "original_receipt": {
+    "observed_utc": "2026-10-05T06:49:17.393917+00:00",
+    "actual_tool_session": 43694,
+    "actual_tool_rc": 1,
+    "result_channels": {
+      "/workspace/tmp/pixelelated-m7-sweep-08/inner.rc": 1,
+      "/workspace/tmp/pixelelated-m7-sweep-08/outer.rc": 1,
+      "/workspace/tmp/pixelelated-m7-sweep-08/tool-wrapper.rc": 1,
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/.build-runs/20261005T064824Z-11377ffd/build.rc": 1
+    },
+    "owned_processes": [
+      {
+        "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/.build-runs/20261005T064824Z-11377ffd/build.pid",
+        "pid": 3949943,
+        "state": "absent"
+      },
+      {
+        "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/.build-runs/20261005T064824Z-11377ffd/watcher.pid",
+        "pid": 3949944,
+        "state": "absent"
+      },
+      {
+        "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/.build-runs/20261005T064824Z-11377ffd/command.pid",
+        "pid": 3949973,
+        "state": "absent"
+      }
+    ],
+    "qemu_absent": true,
+    "run": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/.build-runs/20261005T064824Z-11377ffd",
+    "build_log_sha256": "c580459c763c038e5c9dfb5bfb11c2046e02d19d26f3161d405587741cf34846"
+  },
+  "contexts": [
+    {
+      "path": "usr/bin/perf",
+      "context_sha256": "f8c23347453d7fa2a8d74e302dbccf41809f0b97355fc364c888c299ee810491",
+      "text": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/rust-1.94.1/vendor/object-0.37.3/src/read/coff/section.rs",
+      "file_sha256": "238fbfc570ac2062b4c2228d5ba77ced8d12cfa30ca53b19b80df50042e39ae0",
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/build.pixelelated-GENERIC_X64.x86_64/build/rust-1.94.1/vendor/object-0.37.3/src/read/coff/section.rs",
+      "source_sha256": "0311f810d0a23496895d2506aab9c04fe13837ec589e787cfb93e44a82e3e4f3",
+      "reason": "Compiler source path; retained machine identity under NAMING.md v2. Not player-facing branding."
+    },
+    {
+      "path": "usr/bin/perf",
+      "context_sha256": "8679bf39e971da67d1219e95d6e54cfca3976a37f8a3e75d29cbeaf703094a61",
+      "text": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/rust-1.94.1/vendor/memchr-2.7.6/src/arch/all/twoway.rs",
+      "file_sha256": "238fbfc570ac2062b4c2228d5ba77ced8d12cfa30ca53b19b80df50042e39ae0",
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/build.pixelelated-GENERIC_X64.x86_64/build/rust-1.94.1/vendor/memchr-2.7.6/src/arch/all/twoway.rs",
+      "source_sha256": "47c97a265bfbafde90a618946643d3e97dfd9a85f01aa4ac758cd4c1573a450d",
+      "reason": "Compiler source path; retained machine identity under NAMING.md v2. Not player-facing branding."
+    },
+    {
+      "path": "usr/bin/perf",
+      "context_sha256": "2b7a0ecabafaba026fe23e125a9c867298897b59746f9cdf4c731efedbde4167",
+      "text": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/rust-1.94.1/vendor/memchr-2.7.6/src/memmem/mod.rs",
+      "file_sha256": "238fbfc570ac2062b4c2228d5ba77ced8d12cfa30ca53b19b80df50042e39ae0",
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/build.pixelelated-GENERIC_X64.x86_64/build/rust-1.94.1/vendor/memchr-2.7.6/src/memmem/mod.rs",
+      "source_sha256": "1b0a9d6a681fd0887c677c4fc8d4c8f9719ddde250bdd5ea545365c1a7fb9094",
+      "reason": "Compiler source path; retained machine identity under NAMING.md v2. Not player-facing branding."
+    },
+    {
+      "path": "usr/bin/perf",
+      "context_sha256": "b9d0f1e2cb949f4b7dc374db48a7b62e92b5f29804d419a2028299af0d82ad73",
+      "text": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/rust-1.94.1/vendor/addr2line-0.25.1/src/line.rs",
+      "file_sha256": "238fbfc570ac2062b4c2228d5ba77ced8d12cfa30ca53b19b80df50042e39ae0",
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/build.pixelelated-GENERIC_X64.x86_64/build/rust-1.94.1/vendor/addr2line-0.25.1/src/line.rs",
+      "source_sha256": "374afffcd11e38dc1b093d38b16b42d33c2a5fa9e7dbb759ecf15c1f6c58a7a0",
+      "reason": "Compiler source path; retained machine identity under NAMING.md v2. Not player-facing branding."
+    },
+    {
+      "path": "usr/bin/perf",
+      "context_sha256": "69c3b3e4b64354fefb4ad49c0c51936954921d62aa18137c8901a678624f2974",
+      "text": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/rust-1.94.1/vendor/gimli-0.32.3/src/read/abbrev.rs",
+      "file_sha256": "238fbfc570ac2062b4c2228d5ba77ced8d12cfa30ca53b19b80df50042e39ae0",
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/build.pixelelated-GENERIC_X64.x86_64/build/rust-1.94.1/vendor/gimli-0.32.3/src/read/abbrev.rs",
+      "source_sha256": "a8e35c70c66ee05ee38fed73ee951caec055a6cacdd017cb5e077d24e89d9aa3",
+      "reason": "Compiler source path; retained machine identity under NAMING.md v2. Not player-facing branding."
+    },
+    {
+      "path": "usr/bin/perf",
+      "context_sha256": "679c3cf477f55221a71ec74f2ea9d43861ecea1fb4a1fd2eabcfa565accb9a80",
+      "text": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/rust-1.94.1/vendor/rustc-demangle-0.1.26/src/lib.rs",
+      "file_sha256": "238fbfc570ac2062b4c2228d5ba77ced8d12cfa30ca53b19b80df50042e39ae0",
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/build.pixelelated-GENERIC_X64.x86_64/build/rust-1.94.1/vendor/rustc-demangle-0.1.26/src/lib.rs",
+      "source_sha256": "607fe60c1e65da3f86a0b4b8fececb7db79049a0cd4cb316492e8e6593bf39c6",
+      "reason": "Compiler source path; retained machine identity under NAMING.md v2. Not player-facing branding."
+    },
+    {
+      "path": "usr/bin/perf",
+      "context_sha256": "329283cef1517b9664bae87d589c68f80504d9fafd1b089a05404f6d10cda0a5",
+      "text": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/rust-1.94.1/vendor/gimli-0.32.3/src/read/endian_slice.rs",
+      "file_sha256": "238fbfc570ac2062b4c2228d5ba77ced8d12cfa30ca53b19b80df50042e39ae0",
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/build.pixelelated-GENERIC_X64.x86_64/build/rust-1.94.1/vendor/gimli-0.32.3/src/read/endian_slice.rs",
+      "source_sha256": "5b44661714967780b8c9f52fdaf655a53e309c38cbd3daf11bf6b1d5f6d067bb",
+      "reason": "Compiler source path; retained machine identity under NAMING.md v2. Not player-facing branding."
+    },
+    {
+      "path": "usr/bin/perf",
+      "context_sha256": "6464e572c7b20ddd9da8dc8a785c9e5eea32280850dd57be8d583581d189eabf",
+      "text": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/rust-1.94.1/vendor/gimli-0.32.3/src/read/line.rs",
+      "file_sha256": "238fbfc570ac2062b4c2228d5ba77ced8d12cfa30ca53b19b80df50042e39ae0",
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/build.pixelelated-GENERIC_X64.x86_64/build/rust-1.94.1/vendor/gimli-0.32.3/src/read/line.rs",
+      "source_sha256": "1014bb445d478111fe030702d1cbebb11235660c71cbed1bf0e3af77514fdb2e",
+      "reason": "Compiler source path; retained machine identity under NAMING.md v2. Not player-facing branding."
+    },
+    {
+      "path": "usr/bin/perf",
+      "context_sha256": "1f598ab946798c3c6b4947365ca11b679352a4b660f59f7afa9d6601c7bc1c27",
+      "text": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/rust-1.94.1/vendor/gimli-0.32.3/src/read/index.rs",
+      "file_sha256": "238fbfc570ac2062b4c2228d5ba77ced8d12cfa30ca53b19b80df50042e39ae0",
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/build.pixelelated-GENERIC_X64.x86_64/build/rust-1.94.1/vendor/gimli-0.32.3/src/read/index.rs",
+      "source_sha256": "42c9aae82e87cf7451d4434f68cd5d84e6bb482e51742af213a711b053633085",
+      "reason": "Compiler source path; retained machine identity under NAMING.md v2. Not player-facing branding."
+    },
+    {
+      "path": "usr/bin/perf",
+      "context_sha256": "d871160828a4fded8b16cda5ad67a6964a4a94bbf0dd00f1b16b3497720e8224",
+      "text": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/rust-1.94.1/vendor/addr2line-0.25.1/src/unit.rs",
+      "file_sha256": "238fbfc570ac2062b4c2228d5ba77ced8d12cfa30ca53b19b80df50042e39ae0",
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/build.pixelelated-GENERIC_X64.x86_64/build/rust-1.94.1/vendor/addr2line-0.25.1/src/unit.rs",
+      "source_sha256": "ec201e91333dc8919ab64f0144025521c46ac897679538432a84788af5244667",
+      "reason": "Compiler source path; retained machine identity under NAMING.md v2. Not player-facing branding."
+    },
+    {
+      "path": "usr/bin/perf",
+      "context_sha256": "1e35e2de55ac4e906e1de7c91626aec503d4ec2e78de45b29ae62259fe7f7a82",
+      "text": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/rust-1.94.1/vendor/addr2line-0.25.1/src/function.rs",
+      "file_sha256": "238fbfc570ac2062b4c2228d5ba77ced8d12cfa30ca53b19b80df50042e39ae0",
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/build.pixelelated-GENERIC_X64.x86_64/build/rust-1.94.1/vendor/addr2line-0.25.1/src/function.rs",
+      "source_sha256": "6e0aceeb826db8fcec78376ee72b5dca098ae3e409e9defc5f1af9bfb2c7f173",
+      "reason": "Compiler source path; retained machine identity under NAMING.md v2. Not player-facing branding."
+    },
+    {
+      "path": "usr/bin/perf",
+      "context_sha256": "04ad51f14f851a1c739835fa0a56bb00fd4ac9a8a5f470540d520519ab1fbf4e",
+      "text": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/rust-1.94.1/vendor/rustc-demangle-0.1.26/src/v0.rs",
+      "file_sha256": "238fbfc570ac2062b4c2228d5ba77ced8d12cfa30ca53b19b80df50042e39ae0",
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/build.pixelelated-GENERIC_X64.x86_64/build/rust-1.94.1/vendor/rustc-demangle-0.1.26/src/v0.rs",
+      "source_sha256": "5789e4754fe1d5405a95ab14b53801b51d38f4be4443f533ae80b32403109c31",
+      "reason": "Compiler source path; retained machine identity under NAMING.md v2. Not player-facing branding."
+    },
+    {
+      "path": "usr/bin/perf",
+      "context_sha256": "092bd01254b0b1b57619b17152bc72777e67c76a1dd3b7c677172dbdf0825a16",
+      "text": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/rust-1.94.1/vendor/rustc-demangle-0.1.26/src/legacy.rs",
+      "file_sha256": "238fbfc570ac2062b4c2228d5ba77ced8d12cfa30ca53b19b80df50042e39ae0",
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/build.pixelelated-GENERIC_X64.x86_64/build/rust-1.94.1/vendor/rustc-demangle-0.1.26/src/legacy.rs",
+      "source_sha256": "b4d5a140ed0bf2d792431961d6fd44a21c99235489a2c9f6717d1577a42c09ce",
+      "reason": "Compiler source path; retained machine identity under NAMING.md v2. Not player-facing branding."
+    },
+    {
+      "path": "usr/bin/perf",
+      "context_sha256": "e2690e2c382fff2bb0e4c1db75fbc913ee307fcbd5cdcbea22ddbb9e419d185d",
+      "text": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/rust-1.94.1/vendor/miniz_oxide-0.8.9/src/inflate/output_buffer.rs",
+      "file_sha256": "238fbfc570ac2062b4c2228d5ba77ced8d12cfa30ca53b19b80df50042e39ae0",
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/build.pixelelated-GENERIC_X64.x86_64/build/rust-1.94.1/vendor/miniz_oxide-0.8.9/src/inflate/output_buffer.rs",
+      "source_sha256": "e93b924ae4ffd289b74cb7f91be0c71af0f30ac672c88e25f713f58c85cf125d",
+      "reason": "Compiler source path; retained machine identity under NAMING.md v2. Not player-facing branding."
+    },
+    {
+      "path": "usr/bin/perf",
+      "context_sha256": "1c7519944e442bca9c10c4d5e5eecaefc84e05585d9af98d17d528f95d835fb3",
+      "text": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/rust-1.94.1/vendor/miniz_oxide-0.8.9/src/inflate/core.rs",
+      "file_sha256": "238fbfc570ac2062b4c2228d5ba77ced8d12cfa30ca53b19b80df50042e39ae0",
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/build.pixelelated-GENERIC_X64.x86_64/build/rust-1.94.1/vendor/miniz_oxide-0.8.9/src/inflate/core.rs",
+      "source_sha256": "59611659879c2b2bd70f840565fe618602a64650901b20ee7246a7aea8491d08",
+      "reason": "Compiler source path; retained machine identity under NAMING.md v2. Not player-facing branding."
+    },
+    {
+      "path": "usr/lib/python3.14/site-packages/raofflineproxy/config.pyc",
+      "context_sha256": "452bb658722eeeb9c72349b568602554f32a2006637cbdb9b784f3a04f154147",
+      "text": "running_on_rocknixr&",
+      "file_sha256": "7ed7cf638ec5b6c487e6f7d610130db5d73a282b165e9b4a590150174f8a29d4",
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/build.pixelelated-GENERIC_X64.x86_64/build/raofflineproxy-7252fc781392d45b22f50d1a92f9febc4d1fa172/linux/raofflineproxy/config.py",
+      "source_sha256": "3184e88b2eac7b5da3a5e0f5906ae193f1dcda7df7e0849d05cd5ec91fe5e3bb",
+      "symbol": "running_on_rocknix",
+      "reason": "Existing upstream compatibility identifier verified in consumed proxy config.py; adjacent bytes are marshal references. Retain under NAMING.md v2."
+    },
+    {
+      "path": "usr/lib/python3.14/site-packages/raofflineproxy/config.pyc",
+      "context_sha256": "07e7394c45e817aac529cc0fa629abe5e7cc1ea6a4a4ac41e4a9793a757bebc9",
+      "text": "DEFAULT_ROCKNIX_RETROARCH_CFGr-",
+      "file_sha256": "7ed7cf638ec5b6c487e6f7d610130db5d73a282b165e9b4a590150174f8a29d4",
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/build.pixelelated-GENERIC_X64.x86_64/build/raofflineproxy-7252fc781392d45b22f50d1a92f9febc4d1fa172/linux/raofflineproxy/config.py",
+      "source_sha256": "3184e88b2eac7b5da3a5e0f5906ae193f1dcda7df7e0849d05cd5ec91fe5e3bb",
+      "symbol": "DEFAULT_ROCKNIX_RETROARCH_CFG",
+      "reason": "Existing upstream compatibility identifier verified in consumed proxy config.py; adjacent bytes are marshal references. Retain under NAMING.md v2."
+    },
+    {
+      "path": "usr/lib/python3.14/site-packages/raofflineproxy/config.pyc",
+      "context_sha256": "03b60475b32fdff8639ada2ff2974eb898fa7db389e5a690e1774b91d7973b12",
+      "text": "DEFAULT_ROCKNIX_SYSTEM_CFGr+",
+      "file_sha256": "7ed7cf638ec5b6c487e6f7d610130db5d73a282b165e9b4a590150174f8a29d4",
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/build.pixelelated-GENERIC_X64.x86_64/build/raofflineproxy-7252fc781392d45b22f50d1a92f9febc4d1fa172/linux/raofflineproxy/config.py",
+      "source_sha256": "3184e88b2eac7b5da3a5e0f5906ae193f1dcda7df7e0849d05cd5ec91fe5e3bb",
+      "symbol": "DEFAULT_ROCKNIX_SYSTEM_CFG",
+      "reason": "Existing upstream compatibility identifier verified in consumed proxy config.py; adjacent bytes are marshal references. Retain under NAMING.md v2."
+    },
+    {
+      "path": "usr/lib/python3.14/site-packages/raofflineproxy/config.pyc",
+      "context_sha256": "338f3dd44ebb314ea8308a8bacf3f4b050ce2eb1bf51be582f0f09fa082cfa69",
+      "text": "DEFAULT_ROCKNIX_PPSSPP_INIr+",
+      "file_sha256": "7ed7cf638ec5b6c487e6f7d610130db5d73a282b165e9b4a590150174f8a29d4",
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/build.pixelelated-GENERIC_X64.x86_64/build/raofflineproxy-7252fc781392d45b22f50d1a92f9febc4d1fa172/linux/raofflineproxy/config.py",
+      "source_sha256": "3184e88b2eac7b5da3a5e0f5906ae193f1dcda7df7e0849d05cd5ec91fe5e3bb",
+      "symbol": "DEFAULT_ROCKNIX_PPSSPP_INI",
+      "reason": "Existing upstream compatibility identifier verified in consumed proxy config.py; adjacent bytes are marshal references. Retain under NAMING.md v2."
+    },
+    {
+      "path": "usr/lib/python3.14/site-packages/raofflineproxy/config.pyc",
+      "context_sha256": "fe87a144eaf3297629271ca24cd0871c53cb67b22b0852b7b28dd971e4881873",
+      "text": "\"DEFAULT_ROCKNIX_DOLPHIN_CONFIG_DIRr+",
+      "file_sha256": "7ed7cf638ec5b6c487e6f7d610130db5d73a282b165e9b4a590150174f8a29d4",
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/build.pixelelated-GENERIC_X64.x86_64/build/raofflineproxy-7252fc781392d45b22f50d1a92f9febc4d1fa172/linux/raofflineproxy/config.py",
+      "source_sha256": "3184e88b2eac7b5da3a5e0f5906ae193f1dcda7df7e0849d05cd5ec91fe5e3bb",
+      "symbol": "DEFAULT_ROCKNIX_DOLPHIN_CONFIG_DIR",
+      "reason": "Existing upstream compatibility identifier verified in consumed proxy config.py; adjacent bytes are marshal references. Retain under NAMING.md v2."
+    },
+    {
+      "path": "usr/lib/sway/sway-generic-x64",
+      "context_sha256": "daa577ccb173e644530aaf1bdeb5ba54d39aaf908c6406194293fa6c5c17040b",
+      "disposition": "KEEP",
+      "reason": "Literal upstream copyright/credit comment; NAMING.md v2 explicitly preserves attribution. Source and installed bytes equal; not player-facing OS identity.",
+      "text": "# Copyright (C) 2026 ROCKNIX (https://github.com/ROCKNIX)"
+    }
+  ],
+  "policy_sha256": "b4be10e66a6245f83eca25bd8d9d8f2df91951e0557d090159fa0229a20949a0"
+}

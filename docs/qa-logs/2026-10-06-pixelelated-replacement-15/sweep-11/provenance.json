@@ -1,0 +1,16 @@
+{
+  "reviewed_utc": "2026-10-06T20:15:45.188883+00:00",
+  "reviewer": "primary Codex agent",
+  "predecessor": "/workspace/tmp/pixelelated-m7-sweep-10",
+  "predecessor_result": "FAILED; retained, allfour rc1/process exits/input seals verified",
+  "only_allowlist_addition": {
+    "path": "usr/lib/sway/sway-generic-x64",
+    "context_sha256": "daa577ccb173e644530aaf1bdeb5ba54d39aaf908c6406194293fa6c5c17040b",
+    "disposition": "KEEP",
+    "reason": "Literal upstream copyright/credit comment; NAMING.md v2 explicitly preserves attribution. Source and installed bytes equal; not player-facing OS identity.",
+    "text": "# Copyright (C) 2026 ROCKNIX (https://github.com/ROCKNIX)"
+  },
+  "source_sha256": "15b13fa9aa177641948c26b64a6dff1fba4110d7b8d93d4bb339ba0e24c7f93b",
+  "naming_policy_sha256": "b4be10e66a6245f83eca25bd8d9d8f2df91951e0557d090159fa0229a20949a0",
+  "scope": "Only one path/context pair added; all public credential-pattern permissions unchanged. Fresh positive and removal/alteration/path negative controls cover this context. All original scan evidence retained."
+}

@@ -286,3 +286,33 @@ snapshot contains all final product fixes, ES pin and test fixtures. It is not
 complete. Source publication and separate checksum/inode-verified cache copy
 can proceed while tests run; the build waits for the completed full result.
 No audit resolution, image qualification, broader cleanup or RC claim.
+
+## 2026-10-06T20:18:52.771493+00:00 — #471 candidate15 image sweep and inventory verified; QA19 active
+
+Sweep10 retained a single unclassified copyright context and four rc1 results;
+verified20:15:11 with12 sealed inputs and four actual processes absent. The
+literal ROCKNIX copyright in usr/lib/sway/sway-generic-x64 equals the source
+and is required retained attribution under NAMING v2. Added only that exact
+path/context pair; fresh21positive/63negative context controls and10scanner
+controls pass. Sweep11 finished20:16:00, verified20:16:25: allfourrc0,12seals
+and actual exits.57,295files/6,806,490,511bytes read;8,604brand contexts all
+classified; zeroFIX/UNKNOWN and zero unclassified credential matches. All70
+pattern matches remain the20exact previously reviewed public files. Extracted
+shadow mode restored0000 with unchanged content; immutable image untouched.
+Installed localization854entries/95XMLentries,56retired/2removed, no active
+orphans; Tools XML and theme consumer checks pass. This does not prove guest
+updater network silence or replace visual old-logo checks.
+
+Inventory11 finished20:16:35, verified20:17:01: four zero results,7seals and
+actual process exits.568unpacked roots/583components/525install stamps, no
+inventory errors. Exact rclone archive/binary and proxy source continuity
+verified.14pre-existing license metadata gaps remain P5; publication bundle
+is explicitly incomplete. Evidence under candidate15 QA directory.
+
+QA19 ten suites pass so far, including full scripts828s; remaining pair,
+walks/timing/upgrade and render checks continue. Initial five identity frames
+were directly reviewed; later frames still required. All eight audit acceptance
+items remain OPEN. Five sealed follow-on owners are prepared/unexecuted:
+85boundaries,10extra installed cases, localEN/FRphone/native/reconnect,
+18cloud chooser/recovery/refusal UI cases,8timeout/binding-recovery/control
+UI cases. Root continues serially; no additional external transfer needed.

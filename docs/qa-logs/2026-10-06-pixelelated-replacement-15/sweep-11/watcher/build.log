@@ -1,0 +1,39 @@
+/workspace/tmp/pixelelated-m7-sweep-11/allowlist.json: OK
+/workspace/tmp/pixelelated-m7-sweep-11/check-controls.py: OK
+/workspace/tmp/pixelelated-m7-sweep-11/context-controls.py: OK
+/workspace/tmp/pixelelated-m7-sweep-11/context-review.json: OK
+/workspace/tmp/pixelelated-m7-sweep-11/outer.sh: OK
+/workspace/tmp/pixelelated-m7-sweep-11/parse-theme.cpp: OK
+/workspace/tmp/pixelelated-m7-sweep-11/provenance.json: OK
+/workspace/tmp/pixelelated-m7-sweep-11/reconcile-locales.py: OK
+/workspace/tmp/pixelelated-m7-sweep-11/run.py: OK
+/workspace/tmp/pixelelated-m7-sweep-11/scan-artifact.py: OK
+/workspace/tmp/pixelelated-m7-sweep-11/secret-patterns: OK
+/workspace/tmp/pixelelated-m7-sweep-11/verify-inputs.py: OK
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/43a698bcd7d570c63ebdd5db015e5302463f7ee4a15438fd9ef2359437be19da
+PASS 21 exact contexts and 63 negative controls
+PASS 10 artifact sweep controls; no matching value printed
+Progress: read 10000 regular files
+Progress: read 20000 regular files
+Progress: read 30000 regular files
+Progress: read 40000 regular files
+Progress: read 50000 regular files
+{"counts": {"brand_FIX": 0, "brand_KEEP": 8604, "brand_UNKNOWN": 0, "brand_contexts": 8604, "brand_occurrences": 9633, "bytes_read": 6806490511, "credential_pattern_files": 20, "credential_pattern_matches": 70, "legacy_file_paths": 40, "legacy_symlink_paths": 23, "regular_files": 57295, "reviewed_public_pattern_matches": 70, "symlinks": 1345, "unclassified_credential_pattern_matches": 0}, "pass": true}
+PASS actual pugixml default-load theme parser
+{"catalogue_entries": 854, "retired": 56, "removed": 2, "xml_entries": 95, "active_orphans": 0, "known_image_corrections": []}
+/workspace/tmp/pixelelated-m7-sweep-11/allowlist.json: OK
+/workspace/tmp/pixelelated-m7-sweep-11/check-controls.py: OK
+/workspace/tmp/pixelelated-m7-sweep-11/context-controls.py: OK
+/workspace/tmp/pixelelated-m7-sweep-11/context-review.json: OK
+/workspace/tmp/pixelelated-m7-sweep-11/outer.sh: OK
+/workspace/tmp/pixelelated-m7-sweep-11/parse-theme.cpp: OK
+/workspace/tmp/pixelelated-m7-sweep-11/provenance.json: OK
+/workspace/tmp/pixelelated-m7-sweep-11/reconcile-locales.py: OK
+/workspace/tmp/pixelelated-m7-sweep-11/run.py: OK
+/workspace/tmp/pixelelated-m7-sweep-11/scan-artifact.py: OK
+/workspace/tmp/pixelelated-m7-sweep-11/secret-patterns: OK
+/workspace/tmp/pixelelated-m7-sweep-11/verify-inputs.py: OK
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/43a698bcd7d570c63ebdd5db015e5302463f7ee4a15438fd9ef2359437be19da
+PASS candidate15 whole-image sweep and exact installed localization
