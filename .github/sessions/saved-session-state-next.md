@@ -1,248 +1,178 @@
 # Saved Session State
 
-> Saved 2026-10-06T01:13:44.129792+00:00. Previous full candidate12 handoff archived at
-> `.github/sessions/archived/saved-session-state-next-20261006T004508Z.md`. Feature worktree remains conflict-resolution;
-> primary /workspace/repos/rocknix remains next. This is an active-job checkpoint.
+> Saved 2026-10-06T01:51:59.924599+00:00. Branch feature/conflict-resolution; primary next.
+> Previous active-job checkpoint archived at `.github/sessions/archived/saved-session-state-next-20261006T015159Z.md`.
 
 ## Start here
 
-**pixelelated** (always lowercase) is an immutable handheld gaming Linux distro
-forked from ROCKNIX, version0.0.1/M7. GitHub org pixelelated, owner rasteratops,
-developer blitterbot. Rasteratops is the lead character; Tiny5 Duo LCD/Ocean Bands
-is the interim wordmark. Only ROCKNIX→pixelelated adoption is required. No app
-server to start. D-WORKFLOW-144/145/146, D-CLOUD-174, #409.
+**pixelelated** is an immutable handheld gaming Linux distribution, forked from
+ROCKNIX. Version0.0.1, milestoneM7. Always lowercase. GitHub org pixelelated,
+owner rasteratops, developer blitterbot. Rasteratops is the lead character;
+Tiny5 Duo LCD/Ocean Bands is the temporary wordmark. No application server.
+Only ROCKNIX→pixelelated adoption is required.
 
-Read AGENTS.md, next's every-session rules and scoped rules before edits. Compare
-worktree rules with next: current feature/next were equal before this checkpoint.
-Use the milestone body as execution order, this file for exact commands/owners.
-Read live M7, #383/#361/#457/#168/#456, today's work log and readiness document.
-The archive above retains full candidate12/prior10 details and older limits.
+Repository /workspace/repos/rocknix.worktrees/conflict-resolution is on
+feature/conflict-resolution; /workspace/repos/rocknix stays on next. Read
+AGENTS.md and next's every-session/scoped rules, then this checkpoint,
+`docs/rasteratops/release-readiness.md`, today's work log, live M7 and
+#383/#361/#168/#456/#458. Compare rules with next before trusting a worktree.
+The milestone body owns the execution order; this file owns exact local paths.
 
-Standing authorization: ordinary fixes/tests/isolated VMs, explicit cherry-pick -x
-into next and normal hook-protected fork pushes/tracker updates. No repeated
-permission. No physical action, personal cloud mutation or release publication
-without the named gate. Guarded installed swap helper is authorized while idle.
-No Daybreak, no goal tool. No unrequested delegation; session-stash's fresh
-read-only resume proof is explicitly required by D-WORKFLOW-133 and is not P4.
+Standing permission covers fixes, isolated QA guests, explicit cherry-pick -x
+into next, normal hook-protected fork pushes and tracker updates. No repeated
+push question. No physical device/personal cloud action, release publication,
+cleanup deletion or reserve change authorized. Guarded swap helper only while
+idle. No Daybreak, no goal tool. No arbitrary delegation: the fresh no-context
+read-only resume proof below is required by session-stash/D-WORKFLOW-133.
 
-Use tools/watch-build-submit/watch-build/watch-job;5second heartbeat,5minute
-suspected stall. Actively poll≤60seconds and report terminal/failure promptly.
-No disconnected alert destination exists (#395). Never edit a running shell
-tool or replay a completed owner. Actual PID/artifact checks establish success.
-Preserve all failed attempts and the immutable source/image inputs.
-
-## Current focus — replacement14 built; full QA18 RUNNING
+## Current state — replacement14 planned VM sequence COMPLETE
 
 Latest user: "I didn't mean to interrupt the conversation. Please continue."
-Continue M7.P3 toward device-testable build and safe cleanup preparation.
-No RC/device-ready claim; no deletion/reserve change authorized/performed.
+All current build/QA/preservation owners have terminal results and actual
+process cleanup. **Nothing is running; no unattended alert is armed.**
+Do not replay any completed owner. No RC/device-ready claim and no P4 started.
 
-Frozen tree `/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement14`,
-branch build/m7-pixelelated-replacement14, source
-**7afa9efcfc0c1ce4b89774b38878fc1b9a9063d2**.
-Build owner `/workspace/tmp/pixelelated-m7-replacement-14`.
-Manifest **70cb0448872f39b5382939173b2182a783381142df6dd5630b9e00a2c3ba6ccc**:
-6550product/207QA/180symlinks/1608recipes. ESf6f0c134212bc696f2f6a747c8d390a588f2f0ce;
-splash8c71126ceef702528c87a4c49625e64988609f26. Currentproxy879b158995d412af434301ebdae581f66b8b6d57,
-archive984957322337d1325f1b0fc11502336a80241ec511fd041c969bb0103c231664.
-Complete Linux/native equality to qualifiedb09 and unchangedgitlinks retained.
-Frozen13/freshness04 failed before copy/build; preserve unchanged.
+Next in order: remaining P3 dedicated RA/Dropbox account proofs and #168
+contribution preparation/dispositions → approved P4 primary plus Fable5.1/xhigh
+through verified Facilitator/OpenRouter → resolve/requalify changed product
+bytes → H700 DDR4/RG35XXSP arm first, aarch64 second → named physical/P5 gates.
+Upstream acceptance is not a candidate gate; local functionality and contribution
+preparation remain tracked. Read complete code-auditor skill/references for P4.
+Initial audits375/382 do not replace the fixes review383.
 
-Fullfreshness05 on actual14 passes. Independent cache copy completed00:55:36,
-allfour0; actualcleanup00:55:56. Fullchecksums match,2,526,412regular files
-have independent inodes. Quietchecksumphase had suspected-log-inactivity;
-actual same-PID I/O rose steadily. Retained copy-process/IO observations;
-no running tool edited, no progress fabricated. The #437 observer was omitted
-from this copy setup; future copies need explicit activity-dir plus real I/O
-progress logging. No repeat-copy needed. Parentcopy-completion.json retained.
+No reply yet to dedicated RA Tobu100359 reset/alternate QA-account status or
+Dropbox QA credential-file path questions. Ask for status/paths only, never
+secret values. Do not reset accounts, switch to hardcore, consume an already
+owned award or substitute public/synthetic proof for authenticated trust.
 
-Guarded idle swap recycle succeeded and build started00:57:08. Exact actual
-container image988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39,
-UID1000:1000 and source/git/cache mounts verified. All642package tasks and
-assembled payload checks pass. Build finished00:59:09/allfour0;
-actualcleanup00:59:32, container removed. **Do not replay build/copy owners.**
+## Exact frozen image
 
-Verified immutable bundle:
-**/workspace/artifacts/pixelelated-candidates/sha256/b77e47e57a4bb35f885ba78669ee8176a9ac978b27c1cbcfaad66e18f684a9f1**.
-ImageSHA c7df6a6f428086f79a377ca1b049f20694f34a868987cf12c493c78eab7b2254;
-updateSHA a6fdf2e36ff73842a5048994ee515cbdf44c34cd6f27eb20140f61ccce578df5.
-Buildowneraccepted-build.json and bundle.path bind these exact inputs.
+Tree `/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement14`, branch
+build/m7-pixelelated-replacement14. Source
+`7afa9efcfc0c1ce4b89774b38878fc1b9a9063d2`.
+Manifest `70cb0448872f39b5382939173b2182a783381142df6dd5630b9e00a2c3ba6ccc`:
+6550product/207QA/180symlinks/1608recipes.
+ES f6f0c134212bc696f2f6a747c8d390a588f2f0ce;
+splash8c71126ceef702528c87a4c49625e64988609f26;
+proxy879b158995d412af434301ebdae581f66b8b6d57 with16fork patches.
+879 changes Android only; Linux/native bytes equal qualifiedb09.
+Container988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39.
+Global24/WebKit4. Metadata commits do not advance this frozen tree.
 
-**Completed installed consent02:** owner/workspace/tmp/pixelelated-m7-consent-02,
-run20261006T010012Z-01b63232. All30actual installed positive/negative/restart
-cases pass. Firstgrantcounter7→8 at16.705487703seconds uptime (required<30).
-Loadedbytecodehashesmatchassembled14; actual loopbackusagePOST/logPOST+PUT,
-syntheticstate only. No scheduler/UI/provider claim. Finished01:01:02/allfour0,
-actualcleanup01:01:30; ownerPIDs1793734/35/36/65 andguest1794173gone.
-Original consent01 remains failed. #457 is CLOSED with all four criteria verified;
-readback /tmp/pixelelated-close457/readback.json records published evidence.
+Bundle `/workspace/artifacts/pixelelated-candidates/sha256/b77e47e57a4bb35f885ba78669ee8176a9ac978b27c1cbcfaad66e18f684a9f1`.
+Image c7df6a6f428086f79a377ca1b049f20694f34a868987cf12c493c78eab7b2254;
+update a6fdf2e36ff73842a5048994ee515cbdf44c34cd6f27eb20140f61ccce578df5.
+Names pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz/.tar.
+19bundlefiles verify. Main evidence:
+`docs/qa-logs/2026-10-06-pixelelated-replacement-14/README.md`.
 
-**Completed image14 and inventory10:** allfour0 at01:01:50/01:02:00,
-actualcleanup01:02:36beforeQA. Rawimage/updateSYSTEMmatch; extractedroot is
-/workspace/tmp/pixelelated-m7-image-14/root. Sourceinventory568roots,
-583mappedcomponents,525installedstamps,noerrors. FourteenP5licencegapsremain.
-Owners /workspace/tmp/pixelelated-m7-image-14 and -inventory-10; no replay.
+## Completed owners — never replay
 
-**ACTIVE QA18:** /workspace/tmp/pixelelated-m7-qa-18.
-Run frozen14/.build-runs/**20261006T010236Z-a12444e5**.
-Started01:02:36; launcher1805328,runner1805329,watcher1805331,command1805360.
-Guests a1806101,b1806128observed01:03:23; bothreadyon7afa9efcfc.
-Five-secondwatcher/5minstall with recursive artifacts/*.log activity;
-activepoll≤60s. Full15defaults→actualretainedSeptember29ROCKNIXRC2upgrade→
-exactupgradedpayload/virgl+Pixmanidentity. FrozenQAalreadyhas#454/#455fixes;
-nooverlayandnoearlierresulttransfer. Currentno terminalresult.
+Owner prefix `/workspace/tmp/pixelelated-m7-`:
+- replacement-14: independentcopy2,526,412files finished00:55:36, actual00:55:56;
+  build642/642 finished00:59:09, actualcontainer/process exit00:59:32. Allfour0.
+- consent-02:30installed reporting/restart cases finished01:01:02, cleanup01:01:30.
+  Firstgrantcounter7→8 at16.705487703seconds. LoopbackHTTP, installedbytecodes.
+  Scheduler/UI/provider behavior outside scope. #457 closed after publication.
+- image-14: rawimage/updateSYSTEMequality finished01:01:50, cleanup01:02:36.
+- inventory-10:568roots/583components/525stamps, noerrors; finished01:02:00,
+  cleanup01:02:36. FourteenP5licence metadata gaps remain.
+- qa-18:run20261006T010236Z-a12444e5, finished01:41:30/allfour0.
+  Default15suites allPASS;1,719script PASS/0FAIL/0SKIP;16walks/78frames,
+ 34claimed diff regions/0unclaimed/0missing;26actualSeptember29RC2 upgrade
+  assertions. Installed payload/proxy/actualvirgl and softwarePixman pass.
+  Actualcleanup01:44:24; supplemental01:45:14 verifies extra reboot PID,
+  backend process/pidfile absence and no9010listener. All15identity frames,
+ 21selectedwalk and5timing frames directly reviewed, hashes retained.
+- proxy-14:run20261006T014514Z-af918192, finished01:46:05/allfour0,
+  actualcleanup01:46:22.22preservation/18native with0skips/fourlegacyCHD cases
+  and malformed-header refusal. Libraryhash matches assembled14.
+- subset-11:run20261006T014634Z-51697784, finished01:47:35/allfour0,
+  actualcleanup01:48:00.35loopbackHTTP preservation/refusal/retry/idempotence
+  assertions. No external provider contact.
 
-Poll: `python3 /tmp/pixelelated-status.py /workspace/tmp/pixelelated-m7-qa-18 run.path`.
-Actualguests: `python3 /tmp/pixelelated-observe-qa-processes.py /workspace/tmp/pixelelated-m7-qa-18`.
-Usehostprocessview(require_escalated). Onactualallfourterminal/PIDabsence,
-`python3 /tmp/pixelelated-complete-durable.py /workspace/tmp/pixelelated-m7-qa-18 RC`
-onceonly,thenverifyallrecordedguest/backendexit,reportcounts/frames/source.
-Do not pass from a summary alone. Open identity/timing/walk frames for review.
+Timing limitations: one-sample smoke0.603s firstpixels/1.33s completedbackup/
+1.017s rapidrelaunch; no new sync stamp for rapidrelaunch, so no active-sync
+completion/interruption claim. Early small startup frame is not text/widget
+size evidence; actual later GPUviewport889x800 fills panelheight800.
 
-**Prepared/unstarted subsequent owners:** proxy14,subset11.
-/workspace/tmp/pixelelated-m7-proxy-14 (22preservation/native18/legacyCHD4),
-/workspace/tmp/pixelelated-m7-subset-11 (HTTP35). Each uses fresh16GiBguest,
-currentfrozenvm-stop,exactmanifest,actualprerequisitecompletion,privatepair/
-andartifacts/,harness.sha256. FromEXACTfrozen14cwd use:
-`tools/watch-build-submit --owner OWNER -- --interval 5 --stall-min 5 --activity-dir OWNER/artifacts --recursive-activity -- bash OWNER/outer.sh BUNDLE`.
-No personalaccountproof. Launchonlyafterprioracceptedandrootlockreleased.
+All owners retain completion.json, source/bundle/harness seals and four result
+channels. QA18 upgrade artifacts originally at
+/workspace/artifacts/rocknix-images/qa-7afa9efcfc-upgrade-from-69e6039f8f-20261006-0137;
+compiled evidence in repository includes its26assertions. No previous-image
+result is asserted as a new14 execution.
 
-ThenremainingP3/account/upstream→approvedP4primary+Fable5.1/xhighverified
-Facilitator/OpenRouter→resolve/requalify→H700DDR4/RG35XXSParmfirst,aarch64second→
-namedphysical/P5. NoP4started. PendingdedicatedRA/Dropboxanswersbelowremain.
+## Cleanup preparation — #456 and fixed scanner #458
 
-Completed build/consent/image/inventory evidence and active QA checkpoint are
-published: feature3510b65cc665c47f2a81bb89f96c7ecadff44ad8,
-next77776ef0a25fcf5a224af1d699ed2378c96c5613. Product remains7afa;
-metadata commits do not advance the frozen tree. Normal hooks and remote
-readback pass. Receipt /tmp/pixelelated-built14-published.json.
-M7/#361/#383 live current sections refreshed and read back at01:07;
-receipts /tmp/pixelelated-qa18-tracking. #457 closed after publication.
-No source qualification, publication or issue closure above should be replayed.
-Fresh-context proof /tmp/m7-qa18-resume-proof-20261006.json verifies frozen
-inputs, three harnesses and19bundle files; its stale bookkeeping findings
-are corrected here. QA18 remains active; inspect current status immediately.
+Proposed removal only03/05/06/07/08, historical539.33GiBgross. Exact report:
+`docs/qa-logs/2026-10-05-build-storage/preservation-20261006/README.md`.
+Source/branch/diff/bundle custody already verified. Independentpreservation:
+/workspace/artifacts/pixelelated-build-custody/issue-456-es-logs-01
+(complete ESsource/build, logs/stamps,3585objects), issue-456-runtime-01
+(failed partialobjects, KEEP because accepted02references reverifiedobjects),
+and issue-456-runtime-02 (91496runtime/opaqueentries,11038uniqueobjects).
+Source originals unchanged; all destination hashes verified; all five source
+inventories568roots/547cachedinputs/0errors. Sharedcache and exact recovered
+rclone archive listed in report MUSTremain. This is cleanup custody, not P5.
 
-## Consent failure and fix — #457
+Owners under /tmp/pixelelated-cleanup-:
+- breakdown-01:completed01:24:36/allfour0, actual01:25:26.
+- preserve-01:completed01:26:57/allfour0, actual01:27:56.
+- runtime-01:FAILED01:29:16/allfour1, actual01:30:21. IntentionalinvalidELF
+  fixture caused classifierassertion. Never erase/reclassify this failure.
+- runtime-02:completed01:36:51/allfour0, actual01:37:39. Eightclassifier
+  controls and independentcopies preserve malformedELFfixtures as opaque.
+- dependencies-02:completed01:46:57/allfour0, actual01:48:00;233qcow2chains,
+ 4,221,564directories,0errors/backing/container matches. No package-root
+  pruning; directory symlinks notfollowed, scopefourprojectroots/.qcow2suffix.
 
-Original installed consent01 owner/workspace/tmp/pixelelated-m7-consent-01
-completed00:11:50/allfour1; actual cleanup00:12:03.24negative/restart cases
-reported0HTTP then usage-only failed counter assertion. No positive success,
-so entire proof remains failed. Original guest disk/logs retained. Loaded
-module hashes from24completed cases match candidate12; failing case emitted
-no result/hash receipt. Do not invent one.
+Root-only live process references remain pending. Prepared readonly helper:
+`/tmp/pixelelated-readonly-process-dependencies.py`, SHA256
+51a9b6c6026e94717505cc4376b1f5ce7b516261d7593b90b86d8955d9ad445e.
+Noninteractive sudo failed(interactiveauthentication), NOTauto-reviewrejection.
+User was asked to run:
+`sudo /usr/bin/python3 -I /tmp/pixelelated-readonly-process-dependencies.py > /tmp/pixelelated-cleanup-root-process-readback.json`
+then reply saved. No answer; readback still0bytes at01:52. Do not askagain or
+infer consent fromtime. Require UID0, no unreadable references and no matches.
 
-Root cause: usage_stats._Recorder initializes _consent_checked_at=0.0 and
-_consent=None; before30seconds systemuptime the first config read is skipped.
-forget_consent uses the same ineffective sentinel. Patch019 uses None for
-never-observed/invalidated state. Grant at uptime0/5, decline/regrant and
-unanswered tests:8tests,3 failing assertions before, allpass after. Missed
-counters cannot be recreated; persisted consent/schema unchanged. This is
-missed opt-in counting, not unsolicited upload.
+Concrete tools/fork-worktree remove commands are PREPARED ONLY. Separate
+named deletion approval remains required after dependencies verify. Net estimate
+524.84GiB after14.49GiBpreservationallocation. Available37.14GiB at01:48:00.
+No reserve changes. Protect14,13unbuilt,12,qualified10,source09, everybundle/
+RC2/backingchain/cache and all preservationstores. Do not launch another
+largecachecopy before space/dependency/cleanup is resolved.
 
-New tools/raofflineproxy-consent-test uses installed /usr/lib bytecode,
-synthetic cached credentials/counters/corruption incidents and actual
-loopback HTTP. Guest must have no IPv4/IPv6 default route, exactBUILD_ID
-and fresh /storage/.cache output.30positive/negative/restart cases; independent
-usage/log consent; reject malformed/oldchoices; no duplicate sends. It saves
-counter/uptime/module evidence before assert and --require-early-uptime
-requires first grant before30seconds. It proves reporting functions, NOT
-scheduler timing, UI or real-provider behavior. No reporting guard is mocked.
+## Remaining upstream and other gates
 
-Source qualification on b09+16patches:
-- /tmp/pixelelated-p3-20261006/host-b09-01 COMPLETE00:20:30/allfour0;
-  actualcleanup00:20:53.818Linux tests with rebuilt native library/no skips;
- 11fork cases for each actual303 and historical865 predecessor; source seals.
-- /tmp/pixelelated-p3-20261006/scripts-b09-01 COMPLETE00:34:59/allfour0;
-  actualcleanup00:35:42.1719PASS lines,0FAIL/0SKIP (includes316cloud-layout).
-  Actualcandidate12BusyBox/rclone + b09archive/16patches; host proof only.
-- Upstream image-publication and pixelelated-identity drafts rechecked onb09:
-  pristine fails, fixed1and16tests pass. New early-consent draft8tests.
-- Published receipts docs/qa-logs/2026-10-06-proxy-consent/ and
-  docs/qa-logs/2026-10-06-proxy-879b158/.
-- Initial source publication stopped beforecommit on raw log whitespace and
-  generatedpatchcontext. Preservedbytes; scoped editablefile check + actual
-  appliedpatch suite. Normalhooks, no bypass; failedpublicationlog retained.
+#168:full16patch/retired006/014/017/olderaudit map in
+`docs/upstream/raofflineproxy/contribution-map.md`. Three tested drafts:
+concurrentpublication1test,pixelelateddiscovery16,earlyconsent8, each fails
+before/passes after. Others identify API agreement or standalone regression
+stillneeded. No PR submitted; D-RA-016 retains maintainer go for outward
+contributions. Prepare concrete contributions before asking; preserve local
+fixes until upstreamadoption and integrationqualification.
 
-#457 all four criteria are verified and the issue is CLOSED; consent02 above
-provides the fresh installed-image proof. Original consent01 remains failed.
-#168 full patch/olderaudit mapping ticked; general fixes/PRdispositions remain
-OPEN. docs/upstream/raofflineproxy/contribution-map.md has exactdispositions;
-three standalone drafts prepared, none submitted. D-RA-016 requested go before
-outward submissions. Retired006/014/017 and already-fixed oldfindings are not
-resubmitted. Other API/standalone-regression needs are explicit, not waved away.
+Prior10 retains comprehensive software/display/memory/1GiB/bilingual evidence;
+prior12 QA15/16 failures and QA17 scopedfix remain historical. Details in the
+archivedcheckpointchain. Frozen13 failedfreshness beforecopy/build. Original
+consent01failedpositivecontrol on12;019None-sentinelfix nowqualified on14.
+Publicdocs branch4f6df54 at/home/max/Development/rocknix.org remains403/404;
+do notautofork/changecredentials.14P5licencegaps listed inreadinessdocument.
+#432FOSSobservability is backlog, notnewRCgate. #395 disconnectednotification
+needsselected/testeddestination; ordinary5secondwatcher cannotmessageoffline.
 
-## Remaining gates and cleanup
+## Publication and handoff
 
-After fixed image qualification: remainingP3/account/upstream criteria →
-approvedP4 primary + Fable5.1/xhigh via verifiedFacilitator/OpenRouter →
-resolve/requalify → H700DDR4/RG35XXSP arm FIRST,aarch64 SECOND → namedphysical/P5.
-Read the complete code-auditor skill/references before P4; P4 has NOT started.
-Initial audits375/382 do not close fixesreview383. NoDaybreak/RCwaiver.
+This checkpoint/evidence update uses normal hooks, explicit cherry-pick -x
+and remotehashreadback. Priorheads featurecd1a56f/next1f21f16. Finalreceipt
+will be `/tmp/pixelelated-final14-published.json`; tracker readbacks
+`/tmp/pixelelated-qa18-finish-tracking/`. Checkactualresults, notfuturewording.
+#458 closes only after publishedcompletion/custody evidence. #456dependency
+criterion remains open. #361preservation/consent criterion can tick from the
+fresh installedproofs; liveaccount/UI/generalcontribution criteria remain.
 
-Pending async input has no answer: dedicatedRA Tobu100359 reset or alternate
-QAaccount status; dedicatedDropbox QAcredential-file path. Status/pathsonly,
-nosecrets. Do not reset account/usehardcore/spendalready-earnedaward or use
-public-login/syntheticmarker proof as authenticated trust. Continue independent
-work while awaiting it. No account-dependent proof has started.
-
-#456 owns safe cleanup preparation. #453inventory complete, no deletion or
-reservechange authorized/performed. Five superseded replacement03/05/06/07/08
-roots total539.33GiBgross. Their immutable bundles reverify; generateddocdiffs
-exist. Unique source/debug/licence/failedlog and backing-chain custody is NOT
-yet complete, so not approval-ready. Preserve current14,13unbuiltfailure,
-12,qualified10,source09, allcandidatebundles/originalRC2/backingchains/cache.
-Aftercopy89GiBavailable; build/imageextraction/QAconsumeadditionalspace. Measurecurrentbeforedeciding.
-Read docs/qa-logs/2026-10-05-build-storage/README.md; issue456 hasfullAC.
-
-Candidate12source55d8ee8f75965a560f75d187e34c9beaa93133f1, bundle
-/workspace/artifacts/pixelelated-candidates/sha256/1b3c2c04de5ec6947cfb678279bcc9721167f8409ee825f8d72489838f1c2382.
-Full historicaldetails in archivedcheckpoint: QA15default15PASS/RC2upgrade26
-thenfailedVNCrestart; QA16failedhelper; QA17scopedfollowupallfour0, correct
-19walkframes/10identityframes; proxy13preservation22/native18/legacyCHD4;
-subset10HTTP35. Allactualcleanupcomplete. New consent failure is additional.
-Frozen12's generatedemulatordoc differsoutsideinputmaps; don'trestore/claimclean.
-
-Prior10 (d6e8390c93bed87efe2dcc23cd402a271cacd1c7) retains comprehensive
-Pixman/display/memory/1GiB/bilingual proof; archivehasexactbundle/owners. No
-fullimageequivalenceclaim for14 is made by unchangedrendererbytes.
-
-Other gates:14P5licencegaps(enet,freej2me-lr,harfbuzz-icu,libretro-database,
-libspeexdsp,libxmp-lite,openbor,opusfile,rclone,retropie-shaders,slang-shaders,
-tailscale,wildmidi,zerotier-one). Publicdocsbranchdocs/cloud-saves-native-wizard
-4f6df54 at/home/max/Development/rocknix.org blockedBlitterbot403/maxengel and
-rasteratops404; don'tautofork/changecredentials. #432FOSSobservability is
-backlog,notRCgate. #395needsconfigured/testeddisconnectedalertdestination.
-
-## Previous tracker and checkpoint custody (historical)
-
-M7/#383/#361 updated/readback00:43:19–23 with activecopy/order; #457/#168
-criteria readback00:41–42. Feature→next integration stays explicitxpick.
-A checkpoint-writing interval delayed host polling from00:43:42 to00:45:16
-(94seconds); watcher stayed live and copy stayed running. Do not claim an
-uninterrupted60second host-poll cadence. Split future long drafting calls.
-The prior stash was archived before thiswrite; a fresh no-context read-only
-resume proof is required after checkpointpublication. It is not a code audit.
-No new physical/cloud action or deletion is authorized by this handoff.
-
-## Latest checkpoint custody and cleanup follow-up
-
-Previous checkpoint archived before this correction; archive path recorded in
-/tmp/pixelelated-active18-correction-archive.path. Current active job is QA18,
-not the completed copy/build/consent/image/inventory jobs. Its initial five
-identity frames were directly reviewed; /tmp/pixelelated-qa18-initial-frames-review.json.
-Later frames and suite results remain ungraded until observed.
-
-Cleanup custody01 (/tmp/pixelelated-cleanup-custody-01) completed01:12:04,
-allfour0; own processes absent01:12:29 while the separately owned QA18 guests
-continued. Five source/branch/diff/bundle manifests retained.206QAbackingchains
-have no errors or references to proposed03/05/06/07/08. No matching container
-mount or readable process reference.537processes unreadable and excluded
-package roots keep this a bounded inspection; no whole-host absence claim.
-Full raw host records stay local with hashes in docs/qa-logs/2026-10-05-build-storage/
-custody-followup-20261006. Required source/debug/licence/failed-log preservation,
-net recovery and exact removal proposal remain incomplete. No deletion approved.
-At01:07:42about62GiBwasavailable; remeasure before further heavy allocations.
-
-No completed owner may be replayed. No account input has arrived. After QA18,
-proxy14 and subset11 remain the next prepared jobs before account/P4 gates.
+Required fresh no-context read-only resumeproof follows checkpoint publication.
+It is a handoff check, notP4. No arbitrarysubagents. For future longjobs use
+watch-build-submit fromexactfrozentree,5sheartbeat/5minstall, explicitnested
+activity and actualI/O when quiet. Poll/report≤60s. Recordterminal promptly,
+then actualowner/guest/backendexit. Do not edit a running shelltool or pkill.

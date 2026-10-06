@@ -26,5 +26,8 @@ python3 -m unittest -v linux.tests.test_linux_usage_stats.ConsentTests
 The regression uses simulated monotonic uptime and isolated configuration;
 it makes no external request. Fork full-series qualification and installed
 VM reporting proof are separate gates. The installed positive control first
-found this on candidate12; that run remains failed. No fixed image has been
-qualified yet. The draft is byte-identical to packaged patch019.
+found this on candidate12; that run remains failed. Replacement14 now passes
+all30installed reporting/restart cases, with the first granted counter at
+16.705487703seconds uptime. The draft is byte-identical to packaged patch019.
+[Installed receipts](../../../qa-logs/2026-10-06-pixelelated-replacement-14/README.md)
+are separate from this standalone upstream regression.

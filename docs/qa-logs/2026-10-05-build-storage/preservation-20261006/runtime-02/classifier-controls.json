@@ -1,0 +1,18 @@
+{
+  "utc": "2026-10-06T01:31:22.793842+00:00",
+  "old_actual_fixture_rejects": true,
+  "actual_fixture_sha256": "22e7fb680271534efb9f187ba7113e5f4ba93f4e9cda164891d88f1d958d02cf",
+  "controls": [
+    "real-invalid-data",
+    "truncated-ELF",
+    "invalid-class",
+    "ELF32little",
+    "ELF64little",
+    "ELF32big",
+    "ELF64big",
+    "non-ELF"
+  ],
+  "count": 8,
+  "all_pass": true,
+  "scope": "Header classification only; opaque malformed fixtures are retained by the copier, not validated or executed"
+}

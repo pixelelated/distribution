@@ -1,0 +1,13 @@
+source-inventory.py: OK
+preserve.py: OK
+run.sh: OK
+outer.sh: OK
+Inspected 167157 file names; retained 4404 runtime ELF files; 4647232526 unique bytes
+Inspected 795457 file names; retained 9152 runtime ELF files; 5735204852 unique bytes
+Inspected 1381866 file names; retained 12460 runtime ELF files; 7569653865 unique bytes
+Inspected 1996210 file names; retained 15296 runtime ELF files; 9039238010 unique bytes
+Traceback (most recent call last):
+  File "/tmp/pixelelated-cleanup-runtime-01/preserve.py", line 28, in <module>
+    assert h[5] in (1,2),str(p)
+           ^^^^^^^^^^^^^
+AssertionError: /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement03/build.pixelelated-GENERIC_X64.x86_64/build/pypackaging-26.3/tests/manylinux/hello-world-invalid-data

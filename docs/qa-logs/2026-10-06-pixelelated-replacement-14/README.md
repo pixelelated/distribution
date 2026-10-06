@@ -56,7 +56,40 @@ bytes match; source inventory has568roots,583mapped components,525image
 install stamps and no inventory errors. Fourteen known licence-metadata
 gaps remain; publication bundle is explicitly incomplete.
 
-qa18 started01:02:36 under five-second watcher, active polling and recursive
-activity logs. Full defaults, actual retained RC2 upgrade and both renderer
-readbacks remain in progress. It uses the frozen QA fixes directly, with
-no old overlay and no inherited earlier runtime result.
+## Completed full VM and proxy qualification
+
+QA18 ran01:02:36–01:41:30UTC. All15 default suites passed, including1,719
+script PASS lines with0FAIL/0SKIP. Its16walks produced78frames; comparison
+against the retained accepted baseline found34claimed regions,0unclaimed,
+0missing. The actual September29 ROCKNIX RC2 upgrade passed26assertions:
+saves, save states, settings, remote and cloud folder survived; new defaults
+and retired-file handling passed. Installed payload/account discovery and
+actual virgl/Pixman renderer checks passed on the exact frozen image.
+
+All15identity/update frames and21selected walkthrough frames were directly
+reviewed; the review manifests name their hashes. Five timing frames were
+reviewed with explicit limitations:0.603s first pixels,1.33s completed exit
+backup and1.017s rapid relaunch are single samples. Rapid relaunch produced
+no new sync stamp and does not prove active-sync completion/interruption.
+The initial small startup frame is not text/widget sizing evidence; the later
+actual GPU viewport fills the panel height and passes the surface guard.
+
+Allfourresult channels are0. Actual owner/guest absence verified01:44:24;
+supplemental01:45:14readback verifies the additional reboot PID, backend
+process/pidfile absence and no listener on9010. [QA18 receipts](qa-18/)
+retain the exact logs, frames, hashes and review scope. A context handoff
+delayed completion receipt recording after the01:41:38terminal observation;
+no uninterrupted60second polling claim is made.
+
+Proxy14 ran01:45:14–01:46:05UTC:22installed offline-state preservation
+assertions,18native hashing tests with0skips, four legacyCHD cases and
+malformed-header refusal pass. Loaded native-library SHA matches assembled14.
+Actual cleanup verified01:46:22. [Proxy receipts](proxy-14/).
+
+Subset11 ran01:46:34–01:47:35UTC:35installed assertions pass, including
+real loopback HTTP refusal/retry, preserving the pending subset award,
+not resending the accepted base award, and no request on an empty repeat.
+Actual cleanup verified01:48:00. [Reconnect receipts](subset-11/).
+Both owners have allfourresult channels0 and all owner/guest PIDs absent.
+These proofs use synthetic local accounts and do not establish authenticated
+RetroAchievements/Dropbox behavior. No QA/build job remains running.

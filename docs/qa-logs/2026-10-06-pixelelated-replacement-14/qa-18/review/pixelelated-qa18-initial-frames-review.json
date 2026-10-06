@@ -1,0 +1,57 @@
+{
+  "observed_utc": "2026-10-06T01:08:33.672886+00:00",
+  "scope": "Direct inspection of five initial-clean identity frames only",
+  "frames": [
+    {
+      "path": "/workspace/tmp/pixelelated-m7-qa-18/artifacts/identity-initial-clean/01-main-menu-identity.png",
+      "sha256": "c410d9d059f746f9ad5f8801a7b8b37bf9b0b22b360811f0da54d4ff0a92af0e",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "reviewed": true
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-qa-18/artifacts/identity-initial-clean/02-system-settings.png",
+      "sha256": "051b92a46dddcebd7175fb61ac5db38ef9cafd14b2b62f7e5b855f015bcb82ca",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "reviewed": true
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-qa-18/artifacts/identity-initial-clean/03-information.png",
+      "sha256": "63a4fb153a41b89bb0be685be29a6b5980bb225948047af20af96f766933a5c0",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "reviewed": true
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-qa-18/artifacts/identity-initial-clean/04-updates.png",
+      "sha256": "4187719732713bd687c8cc4f3eef61e5af957d71e293e30560f87a96e67ba28e",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "reviewed": true
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-qa-18/artifacts/identity-initial-clean/05-manual-update-message.png",
+      "sha256": "dfd227fd0be417a41912e2622321da418aa85615d31c529b6956447852e2d3d8",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "reviewed": true
+    }
+  ],
+  "findings": [
+    "Lowercase pixelelated 0.0.1 community visible",
+    "Information shows 7afa9ef and build/m7-pixelelated-replacement14",
+    "Updates page and full pixelelated/distribution/releases message readable without clipping"
+  ],
+  "limitations": "Does not grade later upgrade, timing or complete visual walks"
+}
