@@ -33,6 +33,7 @@ changed candidate before P4 closure; all known bugs must be resolved before RC.
 - **Why:** Preserve usable cloud content, consistent stored selections and truthful recoverable outcomes under the cited contract.
 - **Evidence:** evidence/refutation-03: seven unchanged14 cases, three controls pass/four challenges fail; expected unrelated→empty and explicit valid root→ok, actual ok/empty respectively. reviewer-coverage-01 R01 finds root content but the actual scan reports cloud_bytes0.
 - **Acceptance:** A rebuilt candidate passes all seven original controls/challenges plus stranded legacy-root selection/scan, failed-listing refusal and supported-system/empty-local cases; retain cloud hashes/pointers and EN/FR640px chooser/options frames. A deliberately old-source control must reproduce the misses.
+- **Frame finding (21:27 UTC):** Installed15 discovers and scans legacy-root `gb`, but the screen falsely says `THIS DEVICE CANNOT RUN IT`. The pre-tier scan row hardcodes supported=0; the ES switch itself remains usable. Preserve this frame and prove the corrected capability label in EN/FR on the rebuilt image. `cloud-ui04-progress-review` retains the actual frame.
 - **Existing audit-discovery tracker:** #467 (open).
 
 ## PL-002: Pointer-only transition failure can persist after successful retry
@@ -108,7 +109,7 @@ changed candidate before P4 closure; all known bugs must be resolved before RC.
 - **Why:** Preserve usable cloud content, consistent stored selections and truthful recoverable outcomes under the cited contract.
 - **Evidence:** The standalone HTML literals have no French selection; ES gettext strings cannot translate them. D-CLOUD-164 explicitly includes both surfaces. Existing EN proofs do not establish FR behavior.
 - **Acceptance:** Installed EN/FR local-fixture proof retains390px phone confirmation and640px native finishing frames, correct locale text, persistence of finishing until the existing done marker and normal delayed reconnect-card dismissal. No Dropbox credential or additional account reset required.
-- **Existing audit-discovery tracker:** #469 (open).
+- **Existing audit-discovery tracker:** #469 (closed after installed proof and #351 reconciliation,21:26 UTC).
 
 ## PL-008: Opening scan rejects a valid escaped config value accepted by the shared reader
 

@@ -1,0 +1,34 @@
+[2026-10-06 21:33:12] [INFO] [cloud_restore] Loading configuration from cloud_sync.conf
+[2026-10-06 21:33:12] [INFO] [cloud_restore] Original RCLONEOPTS: --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt
+[2026-10-06 21:33:12] [INFO] [cloud_restore] After newline cleanup: --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt 
+[2026-10-06 21:33:12] [INFO] [cloud_restore] After removing verbose flags: --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt 
+[2026-10-06 21:33:12] [INFO] [cloud_restore] After removing restore-unsafe delete flags: --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt 
+[2026-10-06 21:33:12] [INFO] [cloud_restore] After spacing fix: --progress  --log-file /var/log/cloud_sync.log  --filter-from /storage/.config/cloud_sync-rules.txt 
+[2026-10-06 21:33:12] [INFO] [cloud_restore] After final cleanup: --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt 
+[2026-10-06 21:33:12] [INFO] [cloud_restore] Options array has 5 elements
+[2026-10-06 21:33:12] [INFO] [cloud_restore] rclone network bound: --contimeout 1s --timeout 2s --low-level-retries 1 --retries 1
+[2026-10-06 21:33:12] [INFO] [cloud_restore] deliberate run: stall ceiling 8s (rclone idle timeout 2s + 6s grace)
+[2026-10-06 21:33:12] [INFO] [cloud_restore] Configuration loaded successfully
+[2026-10-06 21:33:12] [INFO] [cloud_restore] =>  CLOUD RESTORE\n
+[2026-10-06 21:33:12] [INFO] [cloud_restore] ====================================
+[2026-10-06 21:33:12] [INFO] [cloud_restore] RESTORING YOUR GAME SAVES
+[2026-10-06 21:33:12] [INFO] [cloud_restore] ====================================
+[2026-10-06 21:33:12] [INFO] [cloud_restore] Starting restore from qa:/ROCKNIX/Saves to /storage/roms
+[2026-10-06 21:33:12] [INFO] [cloud_restore] Restore started at Tue Oct  6 21:33:12 UTC 2026
+[2026-10-06 21:33:12] [INFO] [cloud_restore] Checking if remote path exists: qa:/ROCKNIX/Saves
+[2026-10-06 21:33:12] [INFO] [cloud_restore] the saves restore failed (rclone exit 5) but qa: answers now; reporting rclone's own result
+[2026-10-06 21:33:12] [ERROR] [cloud_restore] Couldn't reach your saves folder in the cloud.
+[2026-10-06 21:33:12] [ERROR] [cloud_restore] Reaching your saves folder: rclone exit 5
+[2026-10-06 21:33:12] [ERROR] [cloud_restore] Reaching your saves folder: your cloud stopped answering.
+[2026-10-06 21:33:12] [INFO] [cloud_restore] why: YOUR CLOUD STOPPED ANSWERING
+[2026-10-06 21:33:12] [INFO] [cloud_restore] ====================================
+[2026-10-06 21:33:12] [INFO] [cloud_restore] RESTORING YOUR SETTINGS BACKUP
+[2026-10-06 21:33:12] [INFO] [cloud_restore] ====================================
+[2026-10-06 21:33:12] [INFO] [cloud_restore] Restoring settings from the cloud is turned off, so it was skipped.
+[2026-10-06 21:33:12] [INFO] [cloud_restore] ====================================
+[2026-10-06 21:33:12] [INFO] [cloud_restore] RESTORE SUMMARY:
+[2026-10-06 21:33:12] [INFO] [cloud_restore] Game saves: COULDN'T FINISH
+[2026-10-06 21:33:12] [ERROR] [cloud_restore] Couldn't finish: your cloud stopped answering. Try again.
+[2026-10-06 21:33:12] [INFO] [cloud_restore] Log file: /var/log/cloud_sync.log
+[2026-10-06 21:33:12] [INFO] [cloud_restore] ====================================
+[2026-10-06 21:33:12] [INFO] [cloud_restore] Script completed in 0 seconds with exit code 5

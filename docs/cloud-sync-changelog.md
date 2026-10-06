@@ -1,5 +1,20 @@
 # Cloud sync, backup and restore — change summary
 
+## Earlier cloud history and legacy game labels (2026-10-06)
+
+The source regression passes 376 cases with real rclone, including old-source
+failure controls. These changes await installed qualification in the next
+engineering image; candidate15 does not contain them.
+
+- **A completed move includes eligible discarded saves left by older moves.**
+  Recovery now includes the `/GAMES-replaced` history left by ROCKNIX RC2,
+  preserves both versions when historical names collide, and leaves another
+  active device's history in place. An interrupted copy retains its original
+  connection binding for retry (#471, PL-003; D-CLOUD-165).
+- **Legacy cloud game folders use the device's actual system support.**
+  Supported games no longer receive `THIS DEVICE CANNOT RUN IT` merely
+  because their cloud folder uses the older layout (#467, PL-001).
+
 ## Cloud-folder audit repairs (2026-10-06)
 
 Source regressions pass in the focused 50-case matrix; rebuilt-image and
@@ -22,7 +37,8 @@ for the next engineering candidate, not an RC clearance.
 - **Ordinary content-folder names work in the chooser.** Spaces, apostrophes
   and dots within a name are accepted; traversal and unsafe forms are refused
   (#471). French phone-close and native finishing text now follow the handheld's
-  language; their installed screen proof is still required (#469, D-CLOUD-164).
+  language. Candidate15's EN/FR phone, native finishing and reconnect proof
+  now passes, with 29 directly reviewed frames (#469, D-CLOUD-164).
 
 ## Safely leave System Settings without GPU governor support (2026-10-05)
 

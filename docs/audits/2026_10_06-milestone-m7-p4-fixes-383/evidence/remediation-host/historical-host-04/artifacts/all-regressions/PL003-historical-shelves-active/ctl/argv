@@ -1,0 +1,75 @@
+listremotes
+lsd qa: --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+backend features qa: --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+cat qa:/pixelelated/.layout --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf --files-only qa:/pixelelated/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf --files-only -R --exclude /backup/** --exclude /Backups/** --exclude /README.txt qa:/ROCKNIX/Saves/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:/GAMES-replaced/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf --files-only -R --exclude /backup/** --exclude /Backups/** --exclude /README.txt --exclude /backup/** --exclude /Content/** --exclude /README.txt qa:/GAMES/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:/ROCKNIX/Saves-replaced/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf --files-only -R --exclude /backup/** --exclude /Backups/** --exclude /README.txt --exclude /README.txt qa:/ROCKNIX/Saves/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf --files-only -R --exclude /backup/** --exclude /Backups/** --exclude /README.txt --exclude /saves/** qa:/ROCKNIX/Saves/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:/ROCKNIX/Backups/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:/pixelelated/Backups --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf --dirs-only qa:/pixelelated/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf --files-only -R --exclude /backup/** --exclude /Backups/** --exclude /README.txt qa:/ROCKNIX/Saves/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:/pixelelated/Saves --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf --dirs-only qa:/pixelelated/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:/ROCKNIX/Saves-replaced/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:/pixelelated/Saves-replaced --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf --dirs-only qa:/pixelelated/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:/ROCKNIX/Backups/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf --files-only -R --exclude /backup/** --exclude /Backups/** --exclude /README.txt qa:/ROCKNIX/Saves/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:/ROCKNIX/Saves-replaced/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:/ROCKNIX/Content/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+config dump
+lsf qa:/ROCKNIX/Backups/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf --files-only -R --exclude /backup/** --exclude /Backups/** --exclude /README.txt qa:/ROCKNIX/Saves/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:/ROCKNIX/Saves-replaced/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:/ROCKNIX/Content/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:/ROCKNIX/Backups/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf -R --files-only qa:/ROCKNIX/Backups --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+copy qa:/ROCKNIX/Backups qa:/pixelelated/Backups --files-from-raw /tmp/cloud_migrate_layout.wUmrDI --create-empty-src-dirs=false --progress --stats 2s --contimeout 1s --timeout 2s --low-level-retries 1 --retries 1
+check qa:/ROCKNIX/Backups qa:/pixelelated/Backups --files-from-raw /tmp/cloud_migrate_layout.wUmrDI --one-way --contimeout 1s --timeout 2s --low-level-retries 1 --retries 1
+delete qa:/ROCKNIX/Backups --files-from-raw /tmp/cloud_migrate_layout.wUmrDI --contimeout 1s --timeout 2s --low-level-retries 1 --retries 1
+rmdirs qa:/ROCKNIX/Backups --contimeout 1s --timeout 2s --low-level-retries 1 --retries 1
+config dump
+lsf --files-only -R --exclude /backup/** --exclude /Backups/** --exclude /README.txt qa:/ROCKNIX/Saves/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf -R --files-only --exclude /backup/** --exclude /Backups/** qa:/ROCKNIX/Saves --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+copy qa:/ROCKNIX/Saves qa:/pixelelated/Saves --files-from-raw /tmp/cloud_migrate_layout.rbTP6N --create-empty-src-dirs=false --progress --stats 2s --contimeout 1s --timeout 2s --low-level-retries 1 --retries 1
+check qa:/ROCKNIX/Saves qa:/pixelelated/Saves --files-from-raw /tmp/cloud_migrate_layout.rbTP6N --one-way --contimeout 1s --timeout 2s --low-level-retries 1 --retries 1
+delete qa:/ROCKNIX/Saves --files-from-raw /tmp/cloud_migrate_layout.rbTP6N --contimeout 1s --timeout 2s --low-level-retries 1 --retries 1
+rmdirs qa:/ROCKNIX/Saves --contimeout 1s --timeout 2s --low-level-retries 1 --retries 1
+config dump
+lsf qa:/ROCKNIX/Saves-replaced/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf -R --files-only qa:/ROCKNIX/Saves-replaced --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+copy qa:/ROCKNIX/Saves-replaced qa:/pixelelated/Saves-replaced --files-from-raw /tmp/cloud_migrate_layout.0bZTAf --create-empty-src-dirs=false --progress --stats 2s --contimeout 1s --timeout 2s --low-level-retries 1 --retries 1
+check qa:/ROCKNIX/Saves-replaced qa:/pixelelated/Saves-replaced --files-from-raw /tmp/cloud_migrate_layout.0bZTAf --one-way --contimeout 1s --timeout 2s --low-level-retries 1 --retries 1
+delete qa:/ROCKNIX/Saves-replaced --files-from-raw /tmp/cloud_migrate_layout.0bZTAf --contimeout 1s --timeout 2s --low-level-retries 1 --retries 1
+rmdirs qa:/ROCKNIX/Saves-replaced --contimeout 1s --timeout 2s --low-level-retries 1 --retries 1
+config dump
+lsf qa:/ROCKNIX/Content/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:/ROCKNIX/Content/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:/pixelelated/Content --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf --dirs-only qa:/pixelelated/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf -R --files-only qa:/ROCKNIX/Content --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+copy qa:/ROCKNIX/Content qa:/pixelelated/Content --files-from-raw /tmp/cloud_migrate_layout.GgxvRW --create-empty-src-dirs=false --progress --stats 2s --contimeout 1s --timeout 2s --low-level-retries 1 --retries 1
+check qa:/ROCKNIX/Content qa:/pixelelated/Content --files-from-raw /tmp/cloud_migrate_layout.GgxvRW --one-way --contimeout 1s --timeout 2s --low-level-retries 1 --retries 1
+delete qa:/ROCKNIX/Content --files-from-raw /tmp/cloud_migrate_layout.GgxvRW --contimeout 1s --timeout 2s --low-level-retries 1 --retries 1
+rmdirs qa:/ROCKNIX/Content --contimeout 1s --timeout 2s --low-level-retries 1 --retries 1
+config dump
+cat qa:/pixelelated/.layout --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf --files-only qa:/pixelelated/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+rcat qa:/pixelelated/.layout --contimeout 1s --timeout 2s --low-level-retries 1 --retries 1
+cat qa:/pixelelated/.layout --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:/GAMES-replaced/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf --files-only -R --exclude /backup/** --exclude /Backups/** --exclude /README.txt --exclude /backup/** --exclude /Content/** --exclude /README.txt qa:/GAMES/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:/ROCKNIX/Saves-replaced/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+config dump
+listremotes
+lsd qa: --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+backend features qa: --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+cat qa:/pixelelated/.layout --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:/GAMES-replaced/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf --files-only -R --exclude /backup/** --exclude /Backups/** --exclude /README.txt --exclude /backup/** --exclude /Content/** --exclude /README.txt qa:/GAMES/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:/ROCKNIX/Saves-replaced/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1

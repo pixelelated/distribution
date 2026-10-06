@@ -1,0 +1,87 @@
+listremotes
+lsd qa: --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+backend features qa: --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf --files-only -R --exclude /backup/** --exclude /Backups/** --exclude /saves/** --exclude /backup/** --exclude /Content/** qa:/GAMES/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:/GAMES/backup/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:/ROCKNIX/Backups --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf --dirs-only qa:/ROCKNIX/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf --files-only -R --exclude /backup/** --exclude /Backups/** --exclude /backup/** --exclude /Content/** qa:/GAMES/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:/ROCKNIX/Saves --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf --dirs-only qa:/ROCKNIX/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:/GAMES/backup/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf --files-only -R --exclude /backup/** --exclude /Backups/** --exclude /backup/** --exclude /Content/** qa:/GAMES/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:/GAMES/backup/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf -R --files-only qa:/GAMES/backup --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+copy qa:/GAMES/backup qa:/ROCKNIX/Backups --files-from-raw /tmp/cloud_migrate_layout.clbVPq --create-empty-src-dirs=false --contimeout 1s --timeout 2s --low-level-retries 1 --retries 1
+listremotes
+lsd qa: --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+backend features qa: --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+cat qa:/pixelelated/.layout --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf --files-only qa:/pixelelated/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf --files-only -R --exclude /backup/** --exclude /Backups/** --exclude /README.txt qa:/GAMES/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:/GAMES-replaced/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf --files-only -R --exclude /backup/** --exclude /Backups/** --exclude /README.txt --exclude /backup/** --exclude /Content/** --exclude /README.txt qa:/GAMES/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:/ROCKNIX/Saves-replaced/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf --files-only -R --exclude /backup/** --exclude /Backups/** --exclude /README.txt --exclude /saves/** --exclude /backup/** --exclude /Content/** qa:/GAMES/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:/GAMES/backup/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:/pixelelated/Backups --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf --dirs-only qa:/pixelelated/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf --files-only -R --exclude /backup/** --exclude /Backups/** --exclude /backup/** --exclude /Content/** --exclude /README.txt qa:/GAMES/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:/pixelelated/Saves --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf --dirs-only qa:/pixelelated/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:/GAMES-replaced/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:/pixelelated/Saves-replaced --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf --dirs-only qa:/pixelelated/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:/GAMES/backup/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf --files-only -R --exclude /backup/** --exclude /Backups/** --exclude /backup/** --exclude /Content/** --exclude /README.txt qa:/GAMES/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:/GAMES-replaced/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:/GAMES/Content/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+config dump
+lsf qa:/GAMES/backup/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf --files-only -R --exclude /backup/** --exclude /Backups/** --exclude /backup/** --exclude /Content/** --exclude /README.txt qa:/GAMES/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:/GAMES-replaced/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:/GAMES/Content/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:/GAMES/backup/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf -R --files-only qa:/GAMES/backup --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+copy qa:/GAMES/backup qa:/pixelelated/Backups --files-from-raw /tmp/cloud_migrate_layout.vbxPx8 --create-empty-src-dirs=false --progress --stats 2s --contimeout 1s --timeout 2s --low-level-retries 1 --retries 1
+check qa:/GAMES/backup qa:/pixelelated/Backups --files-from-raw /tmp/cloud_migrate_layout.vbxPx8 --one-way --contimeout 1s --timeout 2s --low-level-retries 1 --retries 1
+delete qa:/GAMES/backup --files-from-raw /tmp/cloud_migrate_layout.vbxPx8 --contimeout 1s --timeout 2s --low-level-retries 1 --retries 1
+rmdirs qa:/GAMES/backup --contimeout 1s --timeout 2s --low-level-retries 1 --retries 1
+config dump
+lsf --files-only -R --exclude /backup/** --exclude /Backups/** --exclude /backup/** --exclude /Content/** --exclude /README.txt qa:/GAMES/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf -R --files-only --exclude /backup/** --exclude /Backups/** --exclude /backup/** --exclude /Content/** qa:/GAMES --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+copy qa:/GAMES qa:/pixelelated/Saves --files-from-raw /tmp/cloud_migrate_layout.oCcjSK --create-empty-src-dirs=false --progress --stats 2s --contimeout 1s --timeout 2s --low-level-retries 1 --retries 1
+check qa:/GAMES qa:/pixelelated/Saves --files-from-raw /tmp/cloud_migrate_layout.oCcjSK --one-way --contimeout 1s --timeout 2s --low-level-retries 1 --retries 1
+delete qa:/GAMES --files-from-raw /tmp/cloud_migrate_layout.oCcjSK --contimeout 1s --timeout 2s --low-level-retries 1 --retries 1
+rmdirs qa:/GAMES --contimeout 1s --timeout 2s --low-level-retries 1 --retries 1
+config dump
+lsf qa:/GAMES-replaced/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf -R --files-only qa:/GAMES-replaced --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+copy qa:/GAMES-replaced qa:/pixelelated/Saves-replaced --files-from-raw /tmp/cloud_migrate_layout.iRgVCl --create-empty-src-dirs=false --progress --stats 2s --contimeout 1s --timeout 2s --low-level-retries 1 --retries 1
+check qa:/GAMES-replaced qa:/pixelelated/Saves-replaced --files-from-raw /tmp/cloud_migrate_layout.iRgVCl --one-way --contimeout 1s --timeout 2s --low-level-retries 1 --retries 1
+delete qa:/GAMES-replaced --files-from-raw /tmp/cloud_migrate_layout.iRgVCl --contimeout 1s --timeout 2s --low-level-retries 1 --retries 1
+rmdirs qa:/GAMES-replaced --contimeout 1s --timeout 2s --low-level-retries 1 --retries 1
+config dump
+lsf qa:/GAMES/Content/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:/GAMES/Content/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:/pixelelated/Content --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf --dirs-only qa:/pixelelated/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf -R --files-only qa:/GAMES/Content --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+copy qa:/GAMES/Content qa:/pixelelated/Content --files-from-raw /tmp/cloud_migrate_layout.QhulBz --create-empty-src-dirs=false --progress --stats 2s --contimeout 1s --timeout 2s --low-level-retries 1 --retries 1
+check qa:/GAMES/Content qa:/pixelelated/Content --files-from-raw /tmp/cloud_migrate_layout.QhulBz --one-way --contimeout 1s --timeout 2s --low-level-retries 1 --retries 1
+delete qa:/GAMES/Content --files-from-raw /tmp/cloud_migrate_layout.QhulBz --contimeout 1s --timeout 2s --low-level-retries 1 --retries 1
+rmdirs qa:/GAMES/Content --contimeout 1s --timeout 2s --low-level-retries 1 --retries 1
+config dump
+cat qa:/pixelelated/.layout --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf --files-only qa:/pixelelated/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+rcat qa:/pixelelated/.layout --contimeout 1s --timeout 2s --low-level-retries 1 --retries 1
+cat qa:/pixelelated/.layout --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:/GAMES-replaced/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:/ROCKNIX/Saves-replaced/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+config dump
+listremotes
+lsd qa: --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+backend features qa: --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+cat qa:/pixelelated/.layout --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:/GAMES-replaced/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:/ROCKNIX/Saves-replaced/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1

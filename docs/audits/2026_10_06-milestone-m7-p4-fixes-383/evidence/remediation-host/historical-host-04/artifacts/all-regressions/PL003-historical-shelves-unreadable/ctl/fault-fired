@@ -1,0 +1,1 @@
+lsf --files-only -R --exclude /backup/** --exclude /Backups/** --exclude /README.txt --exclude /backup/** --exclude /Content/** --exclude /README.txt qa:/GAMES/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1

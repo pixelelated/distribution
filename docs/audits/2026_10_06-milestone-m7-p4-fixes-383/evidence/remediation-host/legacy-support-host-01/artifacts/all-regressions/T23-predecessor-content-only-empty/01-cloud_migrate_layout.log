@@ -1,0 +1,12 @@
+This device stores:
+  saves    qa:/pixelelated/Saves
+  backups  qa:/pixelelated/Backups
+
+The current layout is:
+  saves    qa:/pixelelated/Saves
+  backups  qa:/pixelelated/Backups
+
+Would move, server-side, leaving anything else where it is:
+>>> plan none /pixelelated
+
+Nothing has been changed. Run with --apply to do it.

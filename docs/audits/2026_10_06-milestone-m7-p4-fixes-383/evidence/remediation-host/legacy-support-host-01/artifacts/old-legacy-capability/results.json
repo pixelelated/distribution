@@ -1,0 +1,20 @@
+[
+  {
+    "case": "PL001-legacy-support-supported",
+    "status": "FAIL",
+    "why": "supported: incorrect system compatibility: gb|5|0|0|0|0|0|0\n"
+  },
+  {
+    "case": "PL001-legacy-support-tiered",
+    "status": "PASS"
+  },
+  {
+    "case": "PL001-legacy-support-bios",
+    "status": "FAIL",
+    "why": "bios: incorrect system compatibility: bios|5|0|0|0|0|0|0\n"
+  },
+  {
+    "case": "PL001-legacy-support-unsupported",
+    "status": "PASS"
+  }
+]

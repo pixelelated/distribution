@@ -1,0 +1,13 @@
+[2026-10-06 21:33:26] [INFO] [cloud_backup] Loading configuration from cloud_sync.conf
+[2026-10-06 21:33:26] [INFO] [cloud_backup] Original RCLONEOPTS: --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt
+[2026-10-06 21:33:26] [INFO] [cloud_backup] After newline cleanup: --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt 
+[2026-10-06 21:33:26] [INFO] [cloud_backup] After removing verbose flags: --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt 
+[2026-10-06 21:33:26] [INFO] [cloud_backup] After spacing fix: --progress  --log-file /var/log/cloud_sync.log  --filter-from /storage/.config/cloud_sync-rules.txt 
+[2026-10-06 21:33:26] [INFO] [cloud_backup] After final cleanup: --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt 
+[2026-10-06 21:33:26] [INFO] [cloud_backup] Options array has 5 elements
+[2026-10-06 21:33:26] [INFO] [cloud_backup] rclone network bound: --contimeout 1s --timeout 2s --low-level-retries 1 --retries 1
+[2026-10-06 21:33:26] [INFO] [cloud_backup] deliberate run: stall ceiling 8s (rclone idle timeout 2s + 6s grace)
+[2026-10-06 21:33:26] [INFO] [cloud_backup] Configuration loaded successfully
+[2026-10-06 21:33:26] [ERROR] [cloud_backup] Your cloud storage isn't set up yet. Set it up under GAME SETTINGS > MANAGE CLOUD STORAGE first.
+[2026-10-06 21:33:26] [INFO] [cloud_backup] why: YOUR CLOUD STORAGE ISN'T SET UP YET
+[2026-10-06 21:33:26] [INFO] [cloud_backup] Script completed in 0 seconds with exit code 1

@@ -1,0 +1,584 @@
+{
+  "reviewed_utc": "2026-10-06T21:30:35.854207+00:00",
+  "owner": "/workspace/tmp/pixelelated-m7-p4-cloud-ui-fixes-04",
+  "scope": "82 directly reviewed frames: all nine EN cases plus all three French named chooser cases. English legacy-root false capability label remains PL-001; no overall UI acceptance claim.",
+  "frames": [
+    {
+      "file": "frames/01-en_US-chooser-MyGames-chooser.png",
+      "sha256": "f3415c6509b25c2af4cefb3ccddc21c6075ed68f6081c99d5306f378d7f5818e",
+      "grid": "en_US-chooser-MyGames-0.png",
+      "position": "top left",
+      "direct_review": "PASS: expected surface and text visible, no clipping; main menu distinct from carousel"
+    },
+    {
+      "file": "frames/01-en_US-chooser-MyGames-chosen-row.png",
+      "sha256": "cc07434ecea5bd565e8dfd445ce060989177a4e171f779cc7b82a83b422dc7ef",
+      "grid": "en_US-chooser-MyGames-0.png",
+      "position": "top right",
+      "direct_review": "PASS: expected surface and text visible, no clipping; main menu distinct from carousel"
+    },
+    {
+      "file": "frames/01-en_US-chooser-MyGames-content-ticked.png",
+      "sha256": "d835866e952a3e465662bf1cb1d705aa77519ae95155194063967c2f7dde49c4",
+      "grid": "en_US-chooser-MyGames-0.png",
+      "position": "bottom left",
+      "direct_review": "PASS: expected surface and text visible, no clipping; main menu distinct from carousel"
+    },
+    {
+      "file": "frames/01-en_US-chooser-MyGames-hub.png",
+      "sha256": "a4bf3c0098bd1318cfc1334980449a5adff82c9e95fa0d88d9fa8911886d708f",
+      "grid": "en_US-chooser-MyGames-0.png",
+      "position": "bottom right",
+      "direct_review": "PASS: expected surface and text visible, no clipping; main menu distinct from carousel"
+    },
+    {
+      "file": "frames/01-en_US-chooser-MyGames-menu-before.png",
+      "sha256": "7784ee5b770e2b062d2c62abc7b425ba1f3940a9144953c0804e28f4f849c9ad",
+      "grid": "en_US-chooser-MyGames-1.png",
+      "position": "top left",
+      "direct_review": "PASS: expected surface and text visible, no clipping; main menu distinct from carousel"
+    },
+    {
+      "file": "frames/01-en_US-chooser-MyGames-opening-result.png",
+      "sha256": "e28bbf35c6f2894e5539ba0a4d53b086b1e8846be84ac1a6f333a9a75856dc06",
+      "grid": "en_US-chooser-MyGames-1.png",
+      "position": "top right",
+      "direct_review": "PASS: expected surface and text visible, no clipping; main menu distinct from carousel"
+    },
+    {
+      "file": "frames/02-en_US-chooser-MyGames-content-outcome.png",
+      "sha256": "8878c2862babd4994dd7c83fe55f64500715701eb43091a2e07316dc4efc285d",
+      "grid": "en_US-chooser-MyGames-1.png",
+      "position": "bottom left",
+      "direct_review": "PASS: expected surface and text visible, no clipping; main menu distinct from carousel"
+    },
+    {
+      "file": "frames/02-en_US-chooser-MyGames-main-menu.png",
+      "sha256": "f3e71baf9a4fe1bc9cab2bfe588adafa9cddf8f17b2f7ea4e9937df5a5441b00",
+      "grid": "en_US-chooser-MyGames-1.png",
+      "position": "bottom right",
+      "direct_review": "PASS: expected surface and text visible, no clipping; main menu distinct from carousel"
+    },
+    {
+      "file": "frames/02-en_US-chooser-MyGames-systems-after-selection.png",
+      "sha256": "aa82d56fb274c26fae74a7db56f12672b33039d8bad1cfb413229392134e2d27",
+      "grid": "en_US-chooser-MyGames-2.png",
+      "position": "top left",
+      "direct_review": "PASS: expected surface and text visible, no clipping; main menu distinct from carousel"
+    },
+    {
+      "file": "frames/01-en_US-chooser-My-Games-chooser.png",
+      "sha256": "f3415c6509b25c2af4cefb3ccddc21c6075ed68f6081c99d5306f378d7f5818e",
+      "grid": "en_US-chooser-My-Games-0.png",
+      "position": "top left",
+      "direct_review": "PASS: expected surface and text visible, no clipping; main menu distinct from carousel"
+    },
+    {
+      "file": "frames/01-en_US-chooser-My-Games-chosen-row.png",
+      "sha256": "ca4c63cbd7851210932ca222fcb9fde3f8a143931f8f04a761154200812bb365",
+      "grid": "en_US-chooser-My-Games-0.png",
+      "position": "top right",
+      "direct_review": "PASS: expected surface and text visible, no clipping; main menu distinct from carousel"
+    },
+    {
+      "file": "frames/01-en_US-chooser-My-Games-content-ticked.png",
+      "sha256": "d835866e952a3e465662bf1cb1d705aa77519ae95155194063967c2f7dde49c4",
+      "grid": "en_US-chooser-My-Games-0.png",
+      "position": "bottom left",
+      "direct_review": "PASS: expected surface and text visible, no clipping; main menu distinct from carousel"
+    },
+    {
+      "file": "frames/01-en_US-chooser-My-Games-hub.png",
+      "sha256": "a4bf3c0098bd1318cfc1334980449a5adff82c9e95fa0d88d9fa8911886d708f",
+      "grid": "en_US-chooser-My-Games-0.png",
+      "position": "bottom right",
+      "direct_review": "PASS: expected surface and text visible, no clipping; main menu distinct from carousel"
+    },
+    {
+      "file": "frames/01-en_US-chooser-My-Games-menu-before.png",
+      "sha256": "6364fe879b101551eb34cfad66682c88e714ee99924c8a6ebb43458af91e175e",
+      "grid": "en_US-chooser-My-Games-1.png",
+      "position": "top left",
+      "direct_review": "PASS: expected surface and text visible, no clipping; main menu distinct from carousel"
+    },
+    {
+      "file": "frames/01-en_US-chooser-My-Games-opening-result.png",
+      "sha256": "e28bbf35c6f2894e5539ba0a4d53b086b1e8846be84ac1a6f333a9a75856dc06",
+      "grid": "en_US-chooser-My-Games-1.png",
+      "position": "top right",
+      "direct_review": "PASS: expected surface and text visible, no clipping; main menu distinct from carousel"
+    },
+    {
+      "file": "frames/02-en_US-chooser-My-Games-content-outcome.png",
+      "sha256": "8878c2862babd4994dd7c83fe55f64500715701eb43091a2e07316dc4efc285d",
+      "grid": "en_US-chooser-My-Games-1.png",
+      "position": "bottom left",
+      "direct_review": "PASS: expected surface and text visible, no clipping; main menu distinct from carousel"
+    },
+    {
+      "file": "frames/02-en_US-chooser-My-Games-main-menu.png",
+      "sha256": "f3e71baf9a4fe1bc9cab2bfe588adafa9cddf8f17b2f7ea4e9937df5a5441b00",
+      "grid": "en_US-chooser-My-Games-1.png",
+      "position": "bottom right",
+      "direct_review": "PASS: expected surface and text visible, no clipping; main menu distinct from carousel"
+    },
+    {
+      "file": "frames/02-en_US-chooser-My-Games-systems-after-selection.png",
+      "sha256": "aa82d56fb274c26fae74a7db56f12672b33039d8bad1cfb413229392134e2d27",
+      "grid": "en_US-chooser-My-Games-2.png",
+      "position": "top left",
+      "direct_review": "PASS: expected surface and text visible, no clipping; main menu distinct from carousel"
+    },
+    {
+      "file": "frames/01-en_US-chooser-Games-old-chooser.png",
+      "sha256": "f3415c6509b25c2af4cefb3ccddc21c6075ed68f6081c99d5306f378d7f5818e",
+      "grid": "en_US-chooser-Games-old-0.png",
+      "position": "top left",
+      "direct_review": "PASS: expected surface and text visible, no clipping; main menu distinct from carousel"
+    },
+    {
+      "file": "frames/01-en_US-chooser-Games-old-chosen-row.png",
+      "sha256": "6327b3e59f8755e757491616ff6e79b0d6dc025106e2d46b6334db715f88def2",
+      "grid": "en_US-chooser-Games-old-0.png",
+      "position": "top right",
+      "direct_review": "PASS: expected surface and text visible, no clipping; main menu distinct from carousel"
+    },
+    {
+      "file": "frames/01-en_US-chooser-Games-old-content-ticked.png",
+      "sha256": "d835866e952a3e465662bf1cb1d705aa77519ae95155194063967c2f7dde49c4",
+      "grid": "en_US-chooser-Games-old-0.png",
+      "position": "bottom left",
+      "direct_review": "PASS: expected surface and text visible, no clipping; main menu distinct from carousel"
+    },
+    {
+      "file": "frames/01-en_US-chooser-Games-old-hub.png",
+      "sha256": "a4bf3c0098bd1318cfc1334980449a5adff82c9e95fa0d88d9fa8911886d708f",
+      "grid": "en_US-chooser-Games-old-0.png",
+      "position": "bottom right",
+      "direct_review": "PASS: expected surface and text visible, no clipping; main menu distinct from carousel"
+    },
+    {
+      "file": "frames/01-en_US-chooser-Games-old-menu-before.png",
+      "sha256": "396acf30835ee7737d467b1b68e665fde236c9d6a6db70536b5c1106de2eeb36",
+      "grid": "en_US-chooser-Games-old-1.png",
+      "position": "top left",
+      "direct_review": "PASS: expected surface and text visible, no clipping; main menu distinct from carousel"
+    },
+    {
+      "file": "frames/01-en_US-chooser-Games-old-opening-result.png",
+      "sha256": "e28bbf35c6f2894e5539ba0a4d53b086b1e8846be84ac1a6f333a9a75856dc06",
+      "grid": "en_US-chooser-Games-old-1.png",
+      "position": "top right",
+      "direct_review": "PASS: expected surface and text visible, no clipping; main menu distinct from carousel"
+    },
+    {
+      "file": "frames/02-en_US-chooser-Games-old-content-outcome.png",
+      "sha256": "8878c2862babd4994dd7c83fe55f64500715701eb43091a2e07316dc4efc285d",
+      "grid": "en_US-chooser-Games-old-1.png",
+      "position": "bottom left",
+      "direct_review": "PASS: expected surface and text visible, no clipping; main menu distinct from carousel"
+    },
+    {
+      "file": "frames/02-en_US-chooser-Games-old-main-menu.png",
+      "sha256": "f3e71baf9a4fe1bc9cab2bfe588adafa9cddf8f17b2f7ea4e9937df5a5441b00",
+      "grid": "en_US-chooser-Games-old-1.png",
+      "position": "bottom right",
+      "direct_review": "PASS: expected surface and text visible, no clipping; main menu distinct from carousel"
+    },
+    {
+      "file": "frames/02-en_US-chooser-Games-old-systems-after-selection.png",
+      "sha256": "aa82d56fb274c26fae74a7db56f12672b33039d8bad1cfb413229392134e2d27",
+      "grid": "en_US-chooser-Games-old-2.png",
+      "position": "top left",
+      "direct_review": "PASS: expected surface and text visible, no clipping; main menu distinct from carousel"
+    },
+    {
+      "file": "frames/01-en_US-legacy-root-content-ticked.png",
+      "sha256": "d835866e952a3e465662bf1cb1d705aa77519ae95155194063967c2f7dde49c4",
+      "grid": "en_US-legacy-root-0.png",
+      "position": "top left",
+      "direct_review": "PASS: expected surface and text visible, no clipping; main menu distinct from carousel"
+    },
+    {
+      "file": "frames/01-en_US-legacy-root-hub.png",
+      "sha256": "a4bf3c0098bd1318cfc1334980449a5adff82c9e95fa0d88d9fa8911886d708f",
+      "grid": "en_US-legacy-root-0.png",
+      "position": "top right",
+      "direct_review": "PASS: expected surface and text visible, no clipping; main menu distinct from carousel"
+    },
+    {
+      "file": "frames/01-en_US-legacy-root-menu-before.png",
+      "sha256": "72791649929d52f728e3e233009e6454693d0e4b028f7fbc9b60995833a7aa15",
+      "grid": "en_US-legacy-root-0.png",
+      "position": "bottom left",
+      "direct_review": "PASS: expected surface and text visible, no clipping; main menu distinct from carousel"
+    },
+    {
+      "file": "frames/01-en_US-legacy-root-opening-result.png",
+      "sha256": "e28bbf35c6f2894e5539ba0a4d53b086b1e8846be84ac1a6f333a9a75856dc06",
+      "grid": "en_US-legacy-root-0.png",
+      "position": "bottom right",
+      "direct_review": "PASS: expected surface and text visible, no clipping; main menu distinct from carousel"
+    },
+    {
+      "file": "frames/02-en_US-legacy-root-content-outcome.png",
+      "sha256": "399662622f976b314473b565b4dc4db2903ff8e5211266c70c7a53a66a466662",
+      "grid": "en_US-legacy-root-1.png",
+      "position": "top left",
+      "direct_review": "FINDING: Game Boy legacy row falsely says THIS DEVICE CANNOT RUN IT"
+    },
+    {
+      "file": "frames/02-en_US-legacy-root-main-menu.png",
+      "sha256": "f3e71baf9a4fe1bc9cab2bfe588adafa9cddf8f17b2f7ea4e9937df5a5441b00",
+      "grid": "en_US-legacy-root-1.png",
+      "position": "top right",
+      "direct_review": "PASS: expected surface and text visible, no clipping; main menu distinct from carousel"
+    },
+    {
+      "file": "frames/01-en_US-old-pointer-recovery-hub-change-folder-row.png",
+      "sha256": "1d1c15b856dc471436f0937c62f4b044d10ce342e3381f569599075663d88ac5",
+      "grid": "en_US-old-pointer-recovery-0.png",
+      "position": "top left",
+      "direct_review": "PASS: actual old-pointer editor and repaired selected folder visible"
+    },
+    {
+      "file": "frames/01-en_US-old-pointer-recovery-hub.png",
+      "sha256": "a4bf3c0098bd1318cfc1334980449a5adff82c9e95fa0d88d9fa8911886d708f",
+      "grid": "en_US-old-pointer-recovery-0.png",
+      "position": "top right",
+      "direct_review": "PASS: actual old-pointer editor and repaired selected folder visible"
+    },
+    {
+      "file": "frames/01-en_US-old-pointer-recovery-menu-before.png",
+      "sha256": "77ad4a807a75c769327c602becdc8ccd365493dde7709ef937bfabd9b73d59b8",
+      "grid": "en_US-old-pointer-recovery-0.png",
+      "position": "bottom left",
+      "direct_review": "PASS: actual old-pointer editor and repaired selected folder visible"
+    },
+    {
+      "file": "frames/01-en_US-old-pointer-recovery-recovered-folder-row.png",
+      "sha256": "1d1c15b856dc471436f0937c62f4b044d10ce342e3381f569599075663d88ac5",
+      "grid": "en_US-old-pointer-recovery-0.png",
+      "position": "bottom right",
+      "direct_review": "PASS: actual old-pointer editor and repaired selected folder visible"
+    },
+    {
+      "file": "frames/02-en_US-old-pointer-recovery-folder-editor.png",
+      "sha256": "406fad2e6ef6d7bdd63b1e40c641b5b90b5621ebb229043ef44d6505a6d116bf",
+      "grid": "en_US-old-pointer-recovery-1.png",
+      "position": "top left",
+      "direct_review": "PASS: actual old-pointer editor and repaired selected folder visible"
+    },
+    {
+      "file": "frames/02-en_US-old-pointer-recovery-main-menu.png",
+      "sha256": "f3e71baf9a4fe1bc9cab2bfe588adafa9cddf8f17b2f7ea4e9937df5a5441b00",
+      "grid": "en_US-old-pointer-recovery-1.png",
+      "position": "top right",
+      "direct_review": "PASS: actual old-pointer editor and repaired selected folder visible"
+    },
+    {
+      "file": "frames/01-en_US-reason-future-hub.png",
+      "sha256": "a4bf3c0098bd1318cfc1334980449a5adff82c9e95fa0d88d9fa8911886d708f",
+      "grid": "en_US-reason-future-0.png",
+      "position": "top left",
+      "direct_review": "PASS: exact unreadable-cloud reason shown, close/retry controls visible, no missing-folder claim"
+    },
+    {
+      "file": "frames/01-en_US-reason-future-menu-before.png",
+      "sha256": "4e5c1127d8c2c8fb3da90e9516f24cb78dc3a8fa85c503b2d6ff6d79013167c0",
+      "grid": "en_US-reason-future-0.png",
+      "position": "top right",
+      "direct_review": "PASS: exact unreadable-cloud reason shown, close/retry controls visible, no missing-folder claim"
+    },
+    {
+      "file": "frames/01-en_US-reason-future-opening-result.png",
+      "sha256": "bf012350b69172baa16254c8cd307a08b23328f3954f9dc4e6c90390c3f46d3b",
+      "grid": "en_US-reason-future-0.png",
+      "position": "bottom left",
+      "direct_review": "PASS: exact unreadable-cloud reason shown, close/retry controls visible, no missing-folder claim"
+    },
+    {
+      "file": "frames/02-en_US-reason-future-main-menu.png",
+      "sha256": "f3e71baf9a4fe1bc9cab2bfe588adafa9cddf8f17b2f7ea4e9937df5a5441b00",
+      "grid": "en_US-reason-future-0.png",
+      "position": "bottom right",
+      "direct_review": "PASS: exact unreadable-cloud reason shown, close/retry controls visible, no missing-folder claim"
+    },
+    {
+      "file": "frames/01-en_US-reason-malformed-hub.png",
+      "sha256": "a4bf3c0098bd1318cfc1334980449a5adff82c9e95fa0d88d9fa8911886d708f",
+      "grid": "en_US-reason-malformed-0.png",
+      "position": "top left",
+      "direct_review": "PASS: exact unreadable-cloud reason shown, close/retry controls visible, no missing-folder claim"
+    },
+    {
+      "file": "frames/01-en_US-reason-malformed-menu-before.png",
+      "sha256": "479892ea9a18e1751e93c1e9b2d6b111d1a1f11f6be4130c070bb02d655145fb",
+      "grid": "en_US-reason-malformed-0.png",
+      "position": "top right",
+      "direct_review": "PASS: exact unreadable-cloud reason shown, close/retry controls visible, no missing-folder claim"
+    },
+    {
+      "file": "frames/01-en_US-reason-malformed-opening-result.png",
+      "sha256": "b9a59fecbad2aa727590537476adc9869d8ada4e1d2cba372e0787113d969677",
+      "grid": "en_US-reason-malformed-0.png",
+      "position": "bottom left",
+      "direct_review": "PASS: exact unreadable-cloud reason shown, close/retry controls visible, no missing-folder claim"
+    },
+    {
+      "file": "frames/02-en_US-reason-malformed-main-menu.png",
+      "sha256": "f3e71baf9a4fe1bc9cab2bfe588adafa9cddf8f17b2f7ea4e9937df5a5441b00",
+      "grid": "en_US-reason-malformed-0.png",
+      "position": "bottom right",
+      "direct_review": "PASS: exact unreadable-cloud reason shown, close/retry controls visible, no missing-folder claim"
+    },
+    {
+      "file": "frames/01-en_US-reason-config-hub.png",
+      "sha256": "a4bf3c0098bd1318cfc1334980449a5adff82c9e95fa0d88d9fa8911886d708f",
+      "grid": "en_US-reason-config-0.png",
+      "position": "top left",
+      "direct_review": "PASS: expected localized surface and text visible without clipping; START main menu distinct from carousel; refusal reasons remain distinct from missing folder"
+    },
+    {
+      "file": "frames/01-en_US-reason-config-menu-before.png",
+      "sha256": "08651dedbea3700592c19fa447d7d6c57a983a2db1aba7ea3ebf5724fc53c07f",
+      "grid": "en_US-reason-config-0.png",
+      "position": "top right",
+      "direct_review": "PASS: expected localized surface and text visible without clipping; START main menu distinct from carousel; refusal reasons remain distinct from missing folder"
+    },
+    {
+      "file": "frames/01-en_US-reason-config-opening-result.png",
+      "sha256": "1e687de8335751001f2bddf96fcaaabf6943021ceb1018a04e4a5f7e4f18f4ca",
+      "grid": "en_US-reason-config-0.png",
+      "position": "bottom left",
+      "direct_review": "PASS: expected localized surface and text visible without clipping; START main menu distinct from carousel; refusal reasons remain distinct from missing folder"
+    },
+    {
+      "file": "frames/02-en_US-reason-config-main-menu.png",
+      "sha256": "f3e71baf9a4fe1bc9cab2bfe588adafa9cddf8f17b2f7ea4e9937df5a5441b00",
+      "grid": "en_US-reason-config-0.png",
+      "position": "bottom right",
+      "direct_review": "PASS: expected localized surface and text visible without clipping; START main menu distinct from carousel; refusal reasons remain distinct from missing folder"
+    },
+    {
+      "file": "frames/01-en_US-reason-record-hub.png",
+      "sha256": "a4bf3c0098bd1318cfc1334980449a5adff82c9e95fa0d88d9fa8911886d708f",
+      "grid": "en_US-reason-record-0.png",
+      "position": "top left",
+      "direct_review": "PASS: expected localized surface and text visible without clipping; START main menu distinct from carousel; refusal reasons remain distinct from missing folder"
+    },
+    {
+      "file": "frames/01-en_US-reason-record-menu-before.png",
+      "sha256": "16e0cbbc0884f5bb6f446e5e70e7b4f20ab8a475238207dbffb535f2a519c95d",
+      "grid": "en_US-reason-record-0.png",
+      "position": "top right",
+      "direct_review": "PASS: expected localized surface and text visible without clipping; START main menu distinct from carousel; refusal reasons remain distinct from missing folder"
+    },
+    {
+      "file": "frames/01-en_US-reason-record-opening-result.png",
+      "sha256": "67e413cbbf45a9d4cf1668b51755ea4d6b3cc8c0e7ed0e09df0262417ed66161",
+      "grid": "en_US-reason-record-0.png",
+      "position": "bottom left",
+      "direct_review": "PASS: expected localized surface and text visible without clipping; START main menu distinct from carousel; refusal reasons remain distinct from missing folder"
+    },
+    {
+      "file": "frames/02-en_US-reason-record-main-menu.png",
+      "sha256": "f3e71baf9a4fe1bc9cab2bfe588adafa9cddf8f17b2f7ea4e9937df5a5441b00",
+      "grid": "en_US-reason-record-0.png",
+      "position": "bottom right",
+      "direct_review": "PASS: expected localized surface and text visible without clipping; START main menu distinct from carousel; refusal reasons remain distinct from missing folder"
+    },
+    {
+      "file": "frames/01-fr_FR-chooser-MyGames-chooser.png",
+      "sha256": "7e91f57405a59a8c23b2f611868b272fd517c6ab46850303843065d2ac31428e",
+      "grid": "fr_FR-chooser-MyGames-0.png",
+      "position": "top left",
+      "direct_review": "PASS: French manual chooser lists and selects MyGames; content options and supported GB row visible without clipping; START reaches main menu"
+    },
+    {
+      "file": "frames/01-fr_FR-chooser-MyGames-chosen-row.png",
+      "sha256": "79a39f47899effd49e113f4867b3ba23e90c6e323812bd8f7b0b6fe6fa27920b",
+      "grid": "fr_FR-chooser-MyGames-0.png",
+      "position": "top right",
+      "direct_review": "PASS: French manual chooser lists and selects MyGames; content options and supported GB row visible without clipping; START reaches main menu"
+    },
+    {
+      "file": "frames/01-fr_FR-chooser-MyGames-content-ticked.png",
+      "sha256": "a53978089741261612d0dbcd45e03a54346ab2e6e47148401c7d2ff635c2f320",
+      "grid": "fr_FR-chooser-MyGames-0.png",
+      "position": "bottom left",
+      "direct_review": "PASS: French manual chooser lists and selects MyGames; content options and supported GB row visible without clipping; START reaches main menu"
+    },
+    {
+      "file": "frames/01-fr_FR-chooser-MyGames-hub.png",
+      "sha256": "4b5df14b8875c9df107d7985fe9b3df8e95f16b0d034f8ad1d314dc0f280b04d",
+      "grid": "fr_FR-chooser-MyGames-0.png",
+      "position": "bottom right",
+      "direct_review": "PASS: French manual chooser lists and selects MyGames; content options and supported GB row visible without clipping; START reaches main menu"
+    },
+    {
+      "file": "frames/01-fr_FR-chooser-MyGames-menu-before.png",
+      "sha256": "c0050413f031a6011cbf11ce88518f77a2aa391af6084c1a5dd405cc9fa85ef8",
+      "grid": "fr_FR-chooser-MyGames-1.png",
+      "position": "top left",
+      "direct_review": "PASS: French manual chooser lists and selects MyGames; content options and supported GB row visible without clipping; START reaches main menu"
+    },
+    {
+      "file": "frames/01-fr_FR-chooser-MyGames-opening-result.png",
+      "sha256": "3176d3252d9cc84653fe9878faa1e1f93e17781b66bb5f63da65d4101ed55a41",
+      "grid": "fr_FR-chooser-MyGames-1.png",
+      "position": "top right",
+      "direct_review": "PASS: French manual chooser lists and selects MyGames; content options and supported GB row visible without clipping; START reaches main menu"
+    },
+    {
+      "file": "frames/02-fr_FR-chooser-MyGames-content-outcome.png",
+      "sha256": "b59be33d35d62ece45b5d8b3223f174c75c1bfe39b2c009d3cdbc32cf6f8c083",
+      "grid": "fr_FR-chooser-MyGames-1.png",
+      "position": "bottom left",
+      "direct_review": "PASS: French manual chooser lists and selects MyGames; content options and supported GB row visible without clipping; START reaches main menu"
+    },
+    {
+      "file": "frames/02-fr_FR-chooser-MyGames-main-menu.png",
+      "sha256": "3cca27f9bddf72287f6c0746f0b2db9ad9328d3c2e74ecb258238f989e6bb656",
+      "grid": "fr_FR-chooser-MyGames-1.png",
+      "position": "bottom right",
+      "direct_review": "PASS: French manual chooser lists and selects MyGames; content options and supported GB row visible without clipping; START reaches main menu"
+    },
+    {
+      "file": "frames/02-fr_FR-chooser-MyGames-systems-after-selection.png",
+      "sha256": "373bc4e4ebd1ea42fc643be0e44d4654741cada290bc5ec6670199a30ee8d20a",
+      "grid": "fr_FR-chooser-MyGames-2.png",
+      "position": "top left",
+      "direct_review": "PASS: French manual chooser lists and selects MyGames; content options and supported GB row visible without clipping; START reaches main menu"
+    },
+    {
+      "file": "frames/01-fr_FR-chooser-My-Games-chooser.png",
+      "sha256": "7e91f57405a59a8c23b2f611868b272fd517c6ab46850303843065d2ac31428e",
+      "grid": "fr_FR-chooser-My-Games-0.png",
+      "position": "top left",
+      "direct_review": "PASS: French chooser lists and selects My Games, content options and supported GB row readable without clipping; START reaches main menu"
+    },
+    {
+      "file": "frames/01-fr_FR-chooser-My-Games-chosen-row.png",
+      "sha256": "956b86bbe850c664ca24b2deb725e9796b5359869ab27198b71c0a154b5a40e0",
+      "grid": "fr_FR-chooser-My-Games-0.png",
+      "position": "top right",
+      "direct_review": "PASS: French chooser lists and selects My Games, content options and supported GB row readable without clipping; START reaches main menu"
+    },
+    {
+      "file": "frames/01-fr_FR-chooser-My-Games-content-ticked.png",
+      "sha256": "a53978089741261612d0dbcd45e03a54346ab2e6e47148401c7d2ff635c2f320",
+      "grid": "fr_FR-chooser-My-Games-0.png",
+      "position": "bottom left",
+      "direct_review": "PASS: French chooser lists and selects My Games, content options and supported GB row readable without clipping; START reaches main menu"
+    },
+    {
+      "file": "frames/01-fr_FR-chooser-My-Games-hub.png",
+      "sha256": "4b5df14b8875c9df107d7985fe9b3df8e95f16b0d034f8ad1d314dc0f280b04d",
+      "grid": "fr_FR-chooser-My-Games-0.png",
+      "position": "bottom right",
+      "direct_review": "PASS: French chooser lists and selects My Games, content options and supported GB row readable without clipping; START reaches main menu"
+    },
+    {
+      "file": "frames/01-fr_FR-chooser-My-Games-menu-before.png",
+      "sha256": "021e3eda1b0c005d6c9908afd336cd335d1e27cf03c81075d21e56e90977962a",
+      "grid": "fr_FR-chooser-My-Games-1.png",
+      "position": "top left",
+      "direct_review": "PASS: French chooser lists and selects My Games, content options and supported GB row readable without clipping; START reaches main menu"
+    },
+    {
+      "file": "frames/01-fr_FR-chooser-My-Games-opening-result.png",
+      "sha256": "3176d3252d9cc84653fe9878faa1e1f93e17781b66bb5f63da65d4101ed55a41",
+      "grid": "fr_FR-chooser-My-Games-1.png",
+      "position": "top right",
+      "direct_review": "PASS: French chooser lists and selects My Games, content options and supported GB row readable without clipping; START reaches main menu"
+    },
+    {
+      "file": "frames/02-fr_FR-chooser-My-Games-content-outcome.png",
+      "sha256": "b59be33d35d62ece45b5d8b3223f174c75c1bfe39b2c009d3cdbc32cf6f8c083",
+      "grid": "fr_FR-chooser-My-Games-1.png",
+      "position": "bottom left",
+      "direct_review": "PASS: French chooser lists and selects My Games, content options and supported GB row readable without clipping; START reaches main menu"
+    },
+    {
+      "file": "frames/02-fr_FR-chooser-My-Games-main-menu.png",
+      "sha256": "3cca27f9bddf72287f6c0746f0b2db9ad9328d3c2e74ecb258238f989e6bb656",
+      "grid": "fr_FR-chooser-My-Games-1.png",
+      "position": "bottom right",
+      "direct_review": "PASS: French chooser lists and selects My Games, content options and supported GB row readable without clipping; START reaches main menu"
+    },
+    {
+      "file": "frames/02-fr_FR-chooser-My-Games-systems-after-selection.png",
+      "sha256": "373bc4e4ebd1ea42fc643be0e44d4654741cada290bc5ec6670199a30ee8d20a",
+      "grid": "fr_FR-chooser-My-Games-2.png",
+      "position": "top left",
+      "direct_review": "PASS: French chooser lists and selects My Games, content options and supported GB row readable without clipping; START reaches main menu"
+    },
+    {
+      "file": "frames/01-fr_FR-chooser-Games-old-chooser.png",
+      "sha256": "7e91f57405a59a8c23b2f611868b272fd517c6ab46850303843065d2ac31428e",
+      "grid": "fr_FR-chooser-Games-old-0.png",
+      "position": "top left",
+      "direct_review": "PASS: French chooser lists and selects Games..old; supported GB row and all required controls readable without clipping; START reaches main menu"
+    },
+    {
+      "file": "frames/01-fr_FR-chooser-Games-old-chosen-row.png",
+      "sha256": "b4724ef883e8a7b0e65c49b5b76baf7b5f38579989fee80ba55873701de39336",
+      "grid": "fr_FR-chooser-Games-old-0.png",
+      "position": "top right",
+      "direct_review": "PASS: French chooser lists and selects Games..old; supported GB row and all required controls readable without clipping; START reaches main menu"
+    },
+    {
+      "file": "frames/01-fr_FR-chooser-Games-old-content-ticked.png",
+      "sha256": "a53978089741261612d0dbcd45e03a54346ab2e6e47148401c7d2ff635c2f320",
+      "grid": "fr_FR-chooser-Games-old-0.png",
+      "position": "bottom left",
+      "direct_review": "PASS: French chooser lists and selects Games..old; supported GB row and all required controls readable without clipping; START reaches main menu"
+    },
+    {
+      "file": "frames/01-fr_FR-chooser-Games-old-hub.png",
+      "sha256": "4b5df14b8875c9df107d7985fe9b3df8e95f16b0d034f8ad1d314dc0f280b04d",
+      "grid": "fr_FR-chooser-Games-old-0.png",
+      "position": "bottom right",
+      "direct_review": "PASS: French chooser lists and selects Games..old; supported GB row and all required controls readable without clipping; START reaches main menu"
+    },
+    {
+      "file": "frames/01-fr_FR-chooser-Games-old-menu-before.png",
+      "sha256": "208b99581679c1458250ed771d341ae939e04a16f8851444354d8849d63418b3",
+      "grid": "fr_FR-chooser-Games-old-1.png",
+      "position": "top left",
+      "direct_review": "PASS: French chooser lists and selects Games..old; supported GB row and all required controls readable without clipping; START reaches main menu"
+    },
+    {
+      "file": "frames/01-fr_FR-chooser-Games-old-opening-result.png",
+      "sha256": "3176d3252d9cc84653fe9878faa1e1f93e17781b66bb5f63da65d4101ed55a41",
+      "grid": "fr_FR-chooser-Games-old-1.png",
+      "position": "top right",
+      "direct_review": "PASS: French chooser lists and selects Games..old; supported GB row and all required controls readable without clipping; START reaches main menu"
+    },
+    {
+      "file": "frames/02-fr_FR-chooser-Games-old-content-outcome.png",
+      "sha256": "b59be33d35d62ece45b5d8b3223f174c75c1bfe39b2c009d3cdbc32cf6f8c083",
+      "grid": "fr_FR-chooser-Games-old-1.png",
+      "position": "bottom left",
+      "direct_review": "PASS: French chooser lists and selects Games..old; supported GB row and all required controls readable without clipping; START reaches main menu"
+    },
+    {
+      "file": "frames/02-fr_FR-chooser-Games-old-main-menu.png",
+      "sha256": "3cca27f9bddf72287f6c0746f0b2db9ad9328d3c2e74ecb258238f989e6bb656",
+      "grid": "fr_FR-chooser-Games-old-1.png",
+      "position": "bottom right",
+      "direct_review": "PASS: French chooser lists and selects Games..old; supported GB row and all required controls readable without clipping; START reaches main menu"
+    },
+    {
+      "file": "frames/02-fr_FR-chooser-Games-old-systems-after-selection.png",
+      "sha256": "373bc4e4ebd1ea42fc643be0e44d4654741cada290bc5ec6670199a30ee8d20a",
+      "grid": "fr_FR-chooser-Games-old-2.png",
+      "position": "top left",
+      "direct_review": "PASS: French chooser lists and selects Games..old; supported GB row and all required controls readable without clipping; START reaches main menu"
+    }
+  ],
+  "result": "FINDING",
+  "updated_utc": "2026-10-06T21:38:27.540784+00:00",
+  "reviewed_frame_count": 82
+}

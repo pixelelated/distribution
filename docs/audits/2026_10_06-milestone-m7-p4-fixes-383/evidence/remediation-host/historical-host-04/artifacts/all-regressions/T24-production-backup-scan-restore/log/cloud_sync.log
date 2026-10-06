@@ -1,0 +1,72 @@
+[2026-10-06 21:24:16] [INFO] [cloud_backup] Loading configuration from cloud_sync.conf
+[2026-10-06 21:24:16] [INFO] [cloud_backup] Original RCLONEOPTS: --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt
+[2026-10-06 21:24:16] [INFO] [cloud_backup] After newline cleanup: --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt 
+[2026-10-06 21:24:16] [INFO] [cloud_backup] After removing verbose flags: --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt 
+[2026-10-06 21:24:16] [INFO] [cloud_backup] After spacing fix: --progress  --log-file /var/log/cloud_sync.log  --filter-from /storage/.config/cloud_sync-rules.txt 
+[2026-10-06 21:24:16] [INFO] [cloud_backup] After final cleanup: --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt 
+[2026-10-06 21:24:16] [INFO] [cloud_backup] Options array has 5 elements
+[2026-10-06 21:24:16] [INFO] [cloud_backup] rclone network bound: --contimeout 1s --timeout 2s --low-level-retries 1 --retries 1
+[2026-10-06 21:24:16] [INFO] [cloud_backup] deliberate run: stall ceiling 8s (rclone idle timeout 2s + 6s grace)
+[2026-10-06 21:24:16] [INFO] [cloud_backup] System-backup phase forced on by --system-only
+[2026-10-06 21:24:16] [INFO] [cloud_backup] Configuration loaded successfully
+[2026-10-06 21:24:16] [INFO] [cloud_backup] Checking cloud storage reachability...
+[2026-10-06 21:24:16] [INFO] [cloud_backup] Cloud storage qa: is reachable
+[2026-10-06 21:24:16] [INFO] [cloud_backup] =>  CLOUD BACKUP\n
+[2026-10-06 21:24:16] [INFO] [cloud_backup] Skipped game saves this time - settings only.
+[2026-10-06 21:24:16] [INFO] [cloud_backup] ====================================
+[2026-10-06 21:24:16] [INFO] [cloud_backup] SENDING YOUR SETTINGS BACKUP
+[2026-10-06 21:24:16] [INFO] [cloud_backup] ====================================
+[2026-10-06 21:24:16] [INFO] [cloud_backup] Starting transfer of settings backup files from /storage/roms/backup to qa:/pixelelated/Backups/QA-deadbeef01
+[2026-10-06 21:24:16] [INFO] [cloud_backup] Sending your settings backup to the cloud...
+[2026-10-06 21:24:16] [INFO] [cloud_backup] Settings backup file transfer started at Tue Oct  6 21:24:16 UTC 2026
+[2026-10-06 21:24:16] [INFO] [cloud_backup] Testing remote backup path connectivity: qa:/pixelelated/Backups/QA-deadbeef01
+[2026-10-06 21:24:17] [INFO] [cloud_backup] Uploading 2026_10_01-120000-QA-ROCKNIX_SETTINGS.tar.gz as 2026_10_01-120000-QA-ROCKNIX_SETTINGS.tar.gz
+[2026-10-06 21:24:18] [INFO] [cloud_backup] ====================================
+[2026-10-06 21:24:18] [INFO] [cloud_backup] BACKUP SUMMARY:
+[2026-10-06 21:24:18] [INFO] [cloud_backup] Game saves: SKIPPED - SETTINGS ONLY
+[2026-10-06 21:24:18] [INFO] [cloud_backup] Settings backup: COMPLETED
+[2026-10-06 21:24:18] [INFO] [cloud_backup] Completed.
+[2026-10-06 21:24:18] [INFO] [cloud_backup] Log file: /var/log/cloud_sync.log
+[2026-10-06 21:24:18] [INFO] [cloud_backup] ====================================
+[2026-10-06 21:24:18] [INFO] [cloud_backup] Script completed in 2 seconds with exit code 0
+[2026-10-06 21:24:19] [INFO] [cloud_restore] Loading configuration from cloud_sync.conf
+[2026-10-06 21:24:19] [INFO] [cloud_restore] Original RCLONEOPTS: --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt
+[2026-10-06 21:24:19] [INFO] [cloud_restore] After newline cleanup: --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt 
+[2026-10-06 21:24:19] [INFO] [cloud_restore] After removing verbose flags: --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt 
+[2026-10-06 21:24:19] [INFO] [cloud_restore] After removing restore-unsafe delete flags: --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt 
+[2026-10-06 21:24:19] [INFO] [cloud_restore] After spacing fix: --progress  --log-file /var/log/cloud_sync.log  --filter-from /storage/.config/cloud_sync-rules.txt 
+[2026-10-06 21:24:19] [INFO] [cloud_restore] After final cleanup: --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt 
+[2026-10-06 21:24:19] [INFO] [cloud_restore] Options array has 5 elements
+[2026-10-06 21:24:19] [INFO] [cloud_restore] rclone network bound: --contimeout 1s --timeout 2s --low-level-retries 1 --retries 1
+[2026-10-06 21:24:19] [INFO] [cloud_restore] deliberate run: stall ceiling 8s (rclone idle timeout 2s + 6s grace)
+[2026-10-06 21:24:19] [INFO] [cloud_restore] System-backup phase forced on by --system-only
+[2026-10-06 21:24:19] [INFO] [cloud_restore] Configuration loaded successfully
+[2026-10-06 21:24:19] [INFO] [cloud_restore] Checking cloud storage reachability...
+[2026-10-06 21:24:19] [INFO] [cloud_restore] Cloud storage qa: is reachable
+[2026-10-06 21:24:19] [INFO] [cloud_restore] =>  CLOUD RESTORE\n
+[2026-10-06 21:24:19] [INFO] [cloud_restore] Skipped game saves this time - settings only.
+[2026-10-06 21:24:19] [INFO] [cloud_restore] ====================================
+[2026-10-06 21:24:19] [INFO] [cloud_restore] RESTORING YOUR SETTINGS BACKUP
+[2026-10-06 21:24:19] [INFO] [cloud_restore] ====================================
+[2026-10-06 21:24:19] [INFO] [cloud_restore] Checking remote backup directory: qa:/pixelelated/Backups
+[2026-10-06 21:24:20] [INFO] [cloud_restore] Starting restore of settings backup files from qa:/pixelelated/Backups to /storage/roms/backup
+[2026-10-06 21:24:20] [INFO] [cloud_restore] Settings backup file restore started at Tue Oct  6 21:24:20 UTC 2026
+[2026-10-06 21:24:20] [INFO] [cloud_restore] Restoring settings from qa:/pixelelated/Backups/QA-deadbeef01 (current device folder)
+[2026-10-06 21:24:20] [INFO] [cloud_restore] Restoring this device's own newest settings backup (named for QA): 2026_10_01-120000-QA-ROCKNIX_SETTINGS.tar.gz
+[2026-10-06 21:24:20] [INFO] [cloud_restore] Restoring 2026_10_01-120000-QA-ROCKNIX_SETTINGS.tar.gz from qa:/pixelelated/Backups/QA-deadbeef01
+[2026-10-06 21:24:20] [INFO] [cloud_restore] Restoring your settings backup from the cloud...
+2026/10/06 21:24:20 INFO  : 2026_10_01-120000-QA-ROCKNIX_SETTINGS.tar.gz: Copied (new)
+2026/10/06 21:24:20 INFO  : 
+Transferred:   	        175 B / 175 B, 100%, 0 B/s, ETA -
+Transferred:            1 / 1, 100%
+Elapsed time:         0.0s
+
+[2026-10-06 21:24:20] [INFO] [cloud_restore] Restoring your settings backup: completed.
+[2026-10-06 21:24:20] [INFO] [cloud_restore] ====================================
+[2026-10-06 21:24:20] [INFO] [cloud_restore] RESTORE SUMMARY:
+[2026-10-06 21:24:20] [INFO] [cloud_restore] Game saves: SKIPPED - SETTINGS ONLY
+[2026-10-06 21:24:20] [INFO] [cloud_restore] Settings backup: COMPLETED
+[2026-10-06 21:24:20] [INFO] [cloud_restore] Completed.
+[2026-10-06 21:24:20] [INFO] [cloud_restore] Log file: /var/log/cloud_sync.log
+[2026-10-06 21:24:20] [INFO] [cloud_restore] ====================================
+[2026-10-06 21:24:21] [INFO] [cloud_restore] Script completed in 1 seconds with exit code 0

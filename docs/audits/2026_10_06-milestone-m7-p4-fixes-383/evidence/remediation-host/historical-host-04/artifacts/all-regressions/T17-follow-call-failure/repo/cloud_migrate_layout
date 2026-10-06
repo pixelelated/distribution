@@ -1,0 +1,3 @@
+#!/bin/sh
+if [ "$1" = --follow ]; then echo follow > /ctl/fault-fired; exit 5; fi
+exec /repo/cloud_migrate_layout.real "$@"
