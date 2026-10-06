@@ -62,6 +62,11 @@ completion. Local Issue reviews make no independent-review claim. A release
 explicitly escalated to council still requires all five seats and its own full
 protocol. Version-based depth recommendations never waive VM or migration QA.
 
+Authorized audits continue across research and phase checkpoints
+(D-WORKFLOW-149, #466). Follow the code-auditor skill's continuity section:
+one serial owner, durable monitored long commands, and observed process/agent
+ownership before claiming background progress. Saving the audit is not a pause.
+
 ## Council model floor
 
 The seeded council preserves the verified model contract (binding now that the

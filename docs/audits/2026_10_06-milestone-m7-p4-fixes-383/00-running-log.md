@@ -92,3 +92,36 @@ Rules30/register598/work-log index and authored-file whitespace checks passed.
 The source/evidence checkpoint is ready for explicit feature commit and
 cherry-pick-x into clean primary next63675be4e1, normal hooks and remote
 readback. This is publication of unfinished research, not an audit verdict.
+
+### Phase1 — 2026-10-06T14:53:47.974377+00:00: resumed; checkpoint stop corrected (#466)
+
+No audit work ran after07:20 publication until the foreground resumption.
+14:48 actual host readback found no named owner. The maintainer did not pause
+this audit. Recorded the error in work/friction logs and D-WORKFLOW-149;
+code-auditor1.13 adds continuity without changing frozen product scope or
+serial/provenance gates. Primary source and criterion reads have resumed.
+
+### Phase1 — 2026-10-06T14:56:36.361260+00:00: monitored executable source checks
+
+Fresh owner /tmp/pixelelated-m7-p4-host-checks-01, run20261006T145452Z-fbbc4681,
+launcher1495136/runner1495137/watcher1495138/command1495167 observed live.
+Menu-map and schema passed; cloud-layout is running with advancing log bytes.
+Canonical watcher interval5seconds; foreground root consumes status/results.
+No off-session delivery or automatic reasoning continuation is claimed.
+Read archive policy end-to-end: directory precedence is intentional D-CLOUD-068;
+recorded this refutation of the initial research suspicion.
+
+### Phase1 — 2026-10-06T15:00:01.961064+00:00: source state machines and live check progress
+
+Read strict migration marker/recovery/pointer state machine and complete bounded
+content-transfer helper; notes above retain the remaining partial relocation
+read. Host cloud-layout completed14:59:15 rc0; injected assertion returned
+expected1; full scripts now running with watcher1495138. No result inferred
+from submission or converted into a target-runtime verdict.
+
+### Phase1 — 2026-10-06T15:01:02.403120+00:00: continuity validation
+
+Skill validation,30-rule checks,599-decision checks,work-log index and authored
+whitespace pass. Live ceremony gate exits0 but retains overdue audit67closures/
+2days; it is not waived. Full host scripts are still advancing. Completed the
+remaining relocation source read; no primary grade or provider call yet.

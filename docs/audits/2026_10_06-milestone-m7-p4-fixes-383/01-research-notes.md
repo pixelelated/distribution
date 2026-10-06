@@ -174,3 +174,53 @@ kill-vs-injected-fault coverage, installed byte continuity, the updater network
 capture criterion, future same-name update acceptance, unchanged-source
 performance evidence, P5/public-docs boundaries and watcher delivery scope.
 None has yet been promoted to a confirmed audit finding.
+
+### Resumed primary research
+
+Read the exact current acceptance text for the parent383 and cloud/archive/
+identity/proxy owning issues from the preserved inventory; historical344
+contract sections explicitly place physical/publication work after software
+qualification. Re-read migration/privacy/agent-first rules and the existing
+durable runner's launch/monitor contract. The archive selector's directory
+precedence and label policy remain a research question, not a proven defect.
+The #466 continuity correction governs execution only; product7afa9efcfc0 and
+all review scope/depth inputs remain frozen.
+
+### 2026-10-06T14:56:36.361260+00:00 — archive directory precedence intent verified
+
+Read cloud_restore2030–2170, cloud_scan190–247, shared selector and D-CLOUD-067/
+068. Directory precedence current→legacy→previous→flat is explicit persisted
+identity policy, not an accidental newest-global search. The console chooses
+its own label inside the selected directory, then deliberately falls back to
+NEWEST with a warning; the UI's MINE gate is separate. A foreign archive in
+the current directory suppressing a compatible archive in an older directory
+is therefore not independently a defect without contradicting that policy.
+Retain mixed-label controls and verify scan/restore agree; do not broaden
+recursive discovery or silently restore other device folders.
+
+Read remaining exact cloud/provider/proxy/numbered-migration criteria from
+inputs for351–365. Their constraints distinguish five-sample timing from smoke,
+actual second guests from reset configurations, and public UA from hosted
+authentication. Physical/publication and D-QA-058 optional accounts retain
+separate scope. The live host check has passed menu-map and schema and is
+exercising independently reset migration states; no grade from a running job.
+
+### 2026-10-06T15:00:01.961064+00:00 — migration and bounded content transfer source read
+
+Read cloud_migrate_layout key-presence/backup-pointer helpers100–150, pointer/
+merge transitions660–795, strict marker and JSON recovery validation960–1305,
+and copy/check/delete relocation480–615. Explicit empty content roots differ
+from absent keys; marker bytes accept only literal1/2; failed listing is not
+absence; recovery paths/config identity are validated before operations.
+Copy completion and verification precede pointer movement and listed-source
+deletion. Need complete494–515/615–655 read before a relocation verdict.
+Read all cloud_content_transfer: high-water progress, bounded idle expiry,
+scoped traps and explicit rclone/tee PID teardown avoid timeout stamp success.
+These are research observations; actor/guest negative controls remain required.
+
+Completed the relocation read at494–515/615–655: same-folder moves are
+refused before writes; a destination nested under source is excluded from its
+own input list; successful merge verification requires every listed old name
+to exist at destination, with differing bytes intentionally preserved on a
+replacement shelf. Pointer readback precedes listed-source deletion. The
+negative actor cases must prove those ordering guards, not only final files.
