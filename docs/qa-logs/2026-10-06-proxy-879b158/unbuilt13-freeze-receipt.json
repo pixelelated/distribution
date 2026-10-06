@@ -1,0 +1,23 @@
+{
+  "manifest_sha256": "df180844610b6436872f1cab5aa4c8dcdc9ce1d0405b45faece7e317be30cd99",
+  "source_files": 6550,
+  "source_symlinks": 180,
+  "qa_source_files": 207,
+  "changed_inputs": [
+    "projects/ROCKNIX/packages/network/raofflineproxy/package.mk",
+    "projects/ROCKNIX/packages/network/raofflineproxy/patches/019-consent-cache-initial-observation.patch",
+    "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl"
+  ],
+  "qa_changed_inputs": [
+    "tools/raofflineproxy-consent-test",
+    "tools/vm-manager-system-check",
+    "tools/vm-pair",
+    "tools/vm-qa",
+    "tools/vm-stop",
+    "tools/vm-stop-test",
+    "tools/vm-walks/claims.txt",
+    "tools/vm-walks/fixtures/system-selected.sh"
+  ],
+  "commit": "e4276a6743c99f357510d4bebdce9500412f8b02",
+  "emulationstation_commit": "f6f0c134212bc696f2f6a747c8d390a588f2f0ce"
+}
