@@ -1,6 +1,6 @@
 # Saved Session State
 
-Updated 2026-10-06 22:15 UTC. Audit Phase7 continues under standing authority.
+Updated 2026-10-06 22:33 UTC. Audit Phase7 continues under standing authority.
 Previous complete checkpoint: `.github/sessions/archived/saved-session-state-next-20261006T210229Z.md`.
 Read this first; historical active/idle statements in that archive are superseded.
 
@@ -26,13 +26,11 @@ milestone body is the ordered plan. Canonical rules matched next21:00.
 
 ## Active owner — monitor first
 
-Library01 is active: /workspace/tmp/pixelelated-m7-p4-library-fixes-01,
-started22:13:25, launcher2566862, runner2566863, watcher2566864, command2566893.
-Frozen15 run20261006T221325Z-802116ae; actual watcher/processes verified22:14.
-125 distinct native hashes pass; indexed125 actual HTTP cache run underway.
-Production .3second/50batch/30second timers retained. Real SIGTERM/retry,
-persisted pause/429 controls follow. Poll at most60seconds and consume terminal
-results; existing owner/artifacts recursive activity. No pending approval.
+Library02 completed22:32:11UTC; primary22:32:23 independently verified all four results0,11 unchanged seals, actual owner/guest exits and free ports. All415 assertions pass: indexed/unindexed125 cached games, real interruption at61 with60 completed games preserved and never refetched, production batch cooldowns, persisted pause, indexed/unindexed429 Retry-After and restart, unchanged upstream100-budget queuing. All46 installed files remain unchanged. Raw879 requests include876 matched client gate observations for the two whole-library paths; minimum client intervals .300064816/.300074931seconds. Private loopback-only namespace is unchanged before/after. Failed01 remains failed under#474; no product throttle repair was needed. Exact proof and independent arithmetic are retained in p4-library-fixes-02 and library02-acceptance-01.
+
+**Active:** boot06, started22:32:32UTC, run20261006T223232Z-3116c3d3, watcher2667870, owner `/workspace/tmp/pixelelated-m7-boot-qualification-06`. Four clean/actual-RC2-upgraded640/1280 boots keep the fixed .995 splash predicate and negative controls, then observe installed forced-update/CLI network behavior with a local positive capture control. Primary active supervision consumes results; no disconnected alerts. Raw packet captures remain private at the owner.
+
+Next: complete boot06 → bucket01 → coverage-ui03 → genuine historical mixed-installation no-join-negative01 → integrate ES source fixes, build16 and renew affected/final installed acceptance → #471/P4 closure → capacity#461 → H700 DDR4 RG35XX SP arm, thenaarch64 → named physical/P5 gates. Four product findings remain open. No RC claim.
 
 Recovery06 finished22:12:39:8behavioralPASS. Primary22:13:12 allfour0/9seals/
 owner exits;22:13:15 actual guest/backend/seven-port cleanup. All46frames
@@ -40,7 +38,7 @@ directly reviewed43PASS/3FAIL. Both EN/FR actual endpoint repairs and UI retries
 complete, preserve source tiers and leave othercloud unchanged. EN/FR original-
 connection reasons and French terminal instruction are clipped underPL005;
 PL004 stays open until its full recovery instruction is readable. #473 QA
-fixture acceptance re-derived; close after evidence publication. Failed03/05
+fixture acceptance re-derived; #473 is now closed after verified publication. Failed03/05
 allfour1/cleanup and04 pre-watcher submission retained. Never replay any.
 Correct focus: step2 twoDOWNs, step3 oneDOWN beforeRIGHT/CONTINUE. ON YOUR
 COMPUTER prose is nonselectable; CURRENT PASSWORD is selectable.
@@ -82,15 +80,14 @@ with an EXISTING activity directory, recursive activity, owner/outer.sh BUNDLE.
 Read inputs first. Never change a running script; fresh owner for a retry.
 
 1. COMPLETED recovery06; never replay (receipts above).
-2. ACTIVE `/workspace/tmp/pixelelated-m7-p4-library-fixes-01`:125 indexed/unindexed
-   games, production pacing, SIGTERM/retry,429/persisted pause.
-3. `/workspace/tmp/pixelelated-m7-boot-qualification-06`:four clean/actual-RC2-
+2. COMPLETED library02:415PASS, allfour0/11seals, cleanup22:32:23. Never replay.
+3. ACTIVE `/workspace/tmp/pixelelated-m7-boot-qualification-06`:four clean/actual-RC2-
    upgraded640/1280 boots, wordmark controls and actual network capture. Local9045
    positive; retain digests/classification, never raw actualPCAP.
 4. `/workspace/tmp/pixelelated-m7-p4-bucket-retry-01/run.py BUNDLE` via python3-I:
    realrclone/bwrap synthetic bucket-parent/copy faults. Not a real S3 claim.
-5. `/workspace/tmp/pixelelated-m7-p4-coverage-ui-02`:settings-only/foreign archive
-   hostname EN/FR, actual first-copy kill/UIretry/next backup shelf, fresh3tiers.
+5. `/workspace/tmp/pixelelated-m7-p4-coverage-ui-03`:settings-only/foreign archive
+   hostname EN/FR, actual first-copy kill/UIretry/next backup shelf, fresh3tiers plus actual settings/content backup and automatic save receive/send.
 
 PL-003 needs a new product build after the historical-shelf repair; candidate15
 checks collect other remaining findings, not qualification of changed source.
@@ -155,6 +152,8 @@ One external reviewer/two calls Fable5.1/xhigh verified; no council. Raw artifac
 untouched. #467/#468/#471open;#469/#470/#472closed.
 
 ## Latest completion and publication state
+
+Latest featureb5953a15149214e94d861f9599fec4ee284a926f / next10a0c9d20210b3b3e088314aa51702b5a045869b, remoteverified22:16:42. Recovery publication primary22:17:16 allfour0/2seals/fourPIDs absent. Subsequent library01 failure, library02 preparation and tracker receipts are uncommitted. Earlier publication details below are historical.
 
 Presentation01 completed21:08:18, primary actual cleanup21:09:00:allfour0,
 11owner seals,145 assertions,29 directly reviewed/hash-bound frames. Local

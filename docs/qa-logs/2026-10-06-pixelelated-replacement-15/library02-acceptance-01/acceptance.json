@@ -1,0 +1,54 @@
+{
+  "verified_utc": "2026-10-06T22:33:51.518481+00:00",
+  "assertions": 415,
+  "failures": 0,
+  "cases": {
+    "init": 129,
+    "indexed125": 133,
+    "unindexed125-interrupt": 3,
+    "unindexed125-retry": 134,
+    "persisted-pause": 3,
+    "actual429-I": 5,
+    "actual429-H": 5,
+    "upstream-budget-control": 3
+  },
+  "requests": 879,
+  "pacing": [
+    {
+      "case": "indexed125",
+      "requests": 375,
+      "client_gate_returns": 375,
+      "minimum_client_interval": 0.30006481600000257,
+      "minimum_provider_arrival_interval": 0.26435456100000465,
+      "provider_cooldowns_at_least29_seconds": 2,
+      "observed_helper_pids": [
+        2215
+      ]
+    },
+    {
+      "case": "unindexed125",
+      "requests": 501,
+      "client_gate_returns": 501,
+      "minimum_client_interval": 0.3000749310000117,
+      "minimum_provider_arrival_interval": 0.26024661999997534,
+      "provider_cooldowns_at_least29_seconds": 3,
+      "observed_helper_pids": [
+        3417,
+        4119
+      ]
+    }
+  ],
+  "namespace_unchanged": true,
+  "installed_files_unchanged": 46,
+  "input_seals": 11,
+  "four_results_zero": true,
+  "cleanup_verified": true,
+  "raw_artifact_sha256": {
+    "owner-verification.json": "930e314cf5d337f0dc0077f394139e535443c629be8493bc211073eace220678",
+    "guest-cleanup-verification.json": "87ebaebca394fc5cd7d1151be9b3c3d96d6ff988767b71adc8bdda8d6a694efa",
+    "artifacts/guest/assertions.json": "efc6ee10976b30614dd4f7d67608481bf0ad00aa0f5af7099025acbbfadf7d5b",
+    "artifacts/guest/provider-requests.json": "510cee40c4bebdd90d12f1b73803bf01f70c7849cd2498c47867fe15f53d19db",
+    "artifacts/guest/network-namespace.json": "7587b6012e07a613a13cd295217e29095eeb128042bf2f4d72400f85f33cd954"
+  },
+  "scope": "Actual installed helper/modules/native hashes and loopback provider in disposable VM; no real account, award, OAuth or product throttle edit. Failed01 retained without relabeling."
+}
