@@ -228,3 +228,5 @@ QA08 reached correct initial identity/Information but generic dismiss/reopen/cou
 - 2026-10-06 01:53 UTC — Publication stopped before commit on the generated timing report's trailing blank line. Retain raw proof bytes and explicitly scope the authored-file whitespace check; no hook bypass. Failed publication log retained. issue: #383
 
 - 2026-10-06 04:08 UTC — Standalone proxy preparation exposed005 context coupled to001; the first rewrite failed before tests. Regenerate against pristine upstream and reapply at fuzz0. Existing award tests also require local sockets: sandbox permission errors were preserved and the unchanged suite passed with socket access. Guard: `docs/qa-logs/2026-10-06-upstream-drafts/verify-drafts.py`; issue: #168.
+
+- 2026-10-06 05:58 UTC — Active release notes and VM/cloud rules reintroduced a hosted-account gate despite D-QA-041. The maintainer clarified the standing local baseline. D-QA-058 now names WebDAV/SFTP/MinIO-S3 and removes hosted-account dependencies; #463 retains the unverified provider observation. Guard: same-change active-rule/tracker/checkpoint sweep and fresh resume proof; issue: #462.

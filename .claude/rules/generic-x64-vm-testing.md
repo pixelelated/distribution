@@ -592,11 +592,14 @@ WebDAV can catch is one WebDAV must keep catching.
 
 ### What the matrix cannot do here
 
-- **No hosted provider.** Google Drive, Box, pCloud and Mega need accounts
-  somebody has to create; that half of #133 is the maintainer's to start.
-  Everything else — the S3 form, a hash-less remote, the WINDOWS SHARE tier,
-  FTP — runs on this host with no account at all, so "we need a real
-  provider" is not an answer to *can this be done on the VM?*
+- **Hosted-provider behavior is optional follow-up.** D-QA-041/D-QA-058
+  remove hosted-account and offsite-endpoint dependencies from routine RC
+  qualification. The standing local baseline is WebDAV, SFTP and MinIO/S3,
+  using the image's installed rclone and separate reports. SMB/FTP remain
+  broader local coverage under #133/#232. OAuth/token refresh and an actual
+  provider-owned authenticated page are not proved by these tests; #463
+  retains the optional Dropbox observation. No credentials need to be
+  requested before proceeding. The separate RA award proof is unchanged.
 - **WebDAV and S3 can be throttled; the other three cannot.** For WebDAV
   `CLOUD_QA_BWLIMIT` is an `rclone serve` flag. For S3 (#151 PL-13,
   `96284d5544`) the same variable moves MinIO to loopback 9022 and fronts

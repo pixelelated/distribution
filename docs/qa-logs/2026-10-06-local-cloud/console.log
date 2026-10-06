@@ -1,0 +1,86 @@
+watch-build: recording in /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement14/.build-runs/20261006T055322Z-2568638b
+/workspace/tmp/pixelelated-m7-cloud-01/check-payload.py: OK
+/workspace/tmp/pixelelated-m7-cloud-01/outer.sh: OK
+/workspace/tmp/pixelelated-m7-cloud-01/provenance.json: OK
+/workspace/tmp/pixelelated-m7-cloud-01/proxy-identity.py: OK
+/workspace/tmp/pixelelated-m7-cloud-01/qualify.sh: OK
+/workspace/tmp/pixelelated-m7-cloud-01/verify-inputs.py: OK
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/b77e47e57a4bb35f885ba78669ee8176a9ac978b27c1cbcfaad66e18f684a9f1
+up: a (pid 3432014, ssh :10022, serial /tmp/rocknix-qemu-serial.sock, mac 52:54:00:52:4E:58)
+up: b (pid 3432040, ssh :10023, serial /tmp/rocknix-qemu-serial-b.sock, mac 52:54:00:52:4E:59)
+ready: a on 7afa9efcfc over ssh :10022 (answered after 0s)
+ready: b on 7afa9efcfc over ssh :10023 (answered after 0s)
+PASS local-cloud exact identity, installed scripts, policy and Ocean SVG bytes/modes
+PASS local-cloud installed proxy identities and account discovery
+BEGIN local cloud backend webdav 2026-10-06T05:54:14Z
+round-trip: PASS in 86s
+
+# vm-qa on 7afa9efcfc
+
+started 2026-10-06 05:54 UTC, guest a at :10022, cloud webdav (port 9010, hash=none modtime=no commit=partial bucket=no), image /workspace/artifacts/pixelelated-candidates/sha256/b77e47e57a4bb35f885ba78669ee8176a9ac978b27c1cbcfaad66e18f684a9f1/pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz, display: GL through virgl on /dev/dri/renderD128
+
+| suite | result | time | log |
+| --- | --- | --- | --- |
+| round-trip | PASS | 86s | `round-trip.log` |
+
+**PASSED** -- every suite that ran passed.
+
+finished 2026-10-06 05:55 UTC
+
+renderer: (no RetroArch launch log on the guest) -- the guest's Mesa, from the launch log; display: GL through virgl on /dev/dri/renderD128
+
+report: /workspace/tmp/pixelelated-m7-cloud-01/artifacts/rocknix-images/qa-7afa9efcfc-webdav-a-20261006-0554/report.md
+PASS backend suite webdav
+down
+END local cloud backend webdav 2026-10-06T05:55:41Z
+BEGIN local cloud backend sftp 2026-10-06T05:55:41Z
+round-trip: PASS in 73s
+
+# vm-qa on 7afa9efcfc
+
+started 2026-10-06 05:55 UTC, guest a at :10022, cloud sftp (port 9013, hash=none modtime=yes commit=partial bucket=no), image /workspace/artifacts/pixelelated-candidates/sha256/b77e47e57a4bb35f885ba78669ee8176a9ac978b27c1cbcfaad66e18f684a9f1/pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz, display: GL through virgl on /dev/dri/renderD128
+
+| suite | result | time | log |
+| --- | --- | --- | --- |
+| round-trip | PASS | 73s | `round-trip.log` |
+
+**PASSED** -- every suite that ran passed.
+
+finished 2026-10-06 05:56 UTC
+
+renderer: (no RetroArch launch log on the guest) -- the guest's Mesa, from the launch log; display: GL through virgl on /dev/dri/renderD128
+
+report: /workspace/tmp/pixelelated-m7-cloud-01/artifacts/rocknix-images/qa-7afa9efcfc-sftp-a-20261006-0555/report.md
+PASS backend suite sftp
+down
+END local cloud backend sftp 2026-10-06T05:56:55Z
+BEGIN local cloud backend s3 2026-10-06T05:56:55Z
+round-trip: PASS in 110s
+
+# vm-qa on 7afa9efcfc
+
+started 2026-10-06 05:56 UTC, guest a at :10022, cloud s3 (port 9012, hash=md5 modtime=yes commit=atomic bucket=yes), image /workspace/artifacts/pixelelated-candidates/sha256/b77e47e57a4bb35f885ba78669ee8176a9ac978b27c1cbcfaad66e18f684a9f1/pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz, display: GL through virgl on /dev/dri/renderD128
+
+| suite | result | time | log |
+| --- | --- | --- | --- |
+| round-trip | PASS | 110s | `round-trip.log` |
+
+**PASSED** -- every suite that ran passed.
+
+finished 2026-10-06 05:58 UTC
+
+renderer: (no RetroArch launch log on the guest) -- the guest's Mesa, from the launch log; display: GL through virgl on /dev/dri/renderD128
+
+report: /workspace/tmp/pixelelated-m7-cloud-01/artifacts/rocknix-images/qa-7afa9efcfc-s3-a-20261006-0556/report.md
+PASS backend suite s3
+down
+END local cloud backend s3 2026-10-06T05:58:47Z
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/b77e47e57a4bb35f885ba78669ee8176a9ac978b27c1cbcfaad66e18f684a9f1
+PASS frozen source inputs, ES pin and candidate input custody
+PASS all three local cloud round-trip suites on frozen replacement14
+down: owned QEMU exited (pid 3432014)
+down: owned QEMU exited (pid 3432040)
+down
+down
+down

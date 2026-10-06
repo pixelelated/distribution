@@ -170,3 +170,5 @@ result channels0 per owner; actualprocess/backend cleanup verified.
 Single-sample timing0.603s firstpixels/1.33s exitbackup/1.017s rapidrelaunch;
 no new stamp for rapidrelaunch, so no active-sync completion/interruption claim.
 Dedicated account proofs and P4 remain before device builds/RC designation.
+
+| 2026-10-06 | `7afa9efcfc0` pixelelated replacement14, unchanged frozen image | fresh isolated vm-pair, virgl, cloud01 | WebDAV/SFTP/MinIO-S3 round trips each106 PASS/0FAIL/0SKIP;318 total. All four watcher results0; actual owner/guest/backend cleanup verified05:59:18. Installed identity/scripts and pre/post bundle/input hashes pass. Hosted OAuth/Dropbox and separate RA award excluded. [Evidence](qa-logs/2026-10-06-local-cloud/README.md); #462, D-QA-058. |
