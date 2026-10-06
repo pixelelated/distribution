@@ -218,3 +218,5 @@ QA08 reached correct initial identity/Information but generic dismiss/reopen/cou
 - 2026-10-06 00:12 UTC — Installed consent proof passed negative cases but the positive counter failed during early boot. A numeric zero sentinel delayed the first consent read until uptime30. Guard: patch019 zero/five-second and consent-transition regressions plus installed loopback positive/negative controls with pre-assert uptime/counter artifacts. Issue: #457. Preserve consent01 as failed.
 
 - 2026-10-06 00:36 UTC — Publication whitespace check stopped before commit on retained raw test logs and the required blank context lines of generated patches. Preserve those bytes and check editable files separately; added patch source lines have no trailing whitespace and the complete applied series already passed. Guard: scoped whitespace check plus exact evidence hashes; issue: #383. No hook bypass.
+
+- 2026-10-06 00:45 UTC — Writing the full checkpoint delayed host copy polling94seconds despite the60second rule. The5second watcher remained live and the copy was still running. Guard: split long drafting calls and poll before resuming; no uninterrupted cadence claim. Issue: #395.
