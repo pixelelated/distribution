@@ -1,0 +1,20 @@
+{
+  "returncode": 0,
+  "state": {
+    "cloud": {
+      "pixelelated/.layout": "be68d69fa1fe3ddbcaa9295b8e3e732fd0113d909e38cf643d95aab41c9b1a22",
+      "pixelelated/Backups/QA/settings.tar.gz": "2898bd0d739178b1ce42790b2c7692d67aebd40aa8df3c4c3f40644398d569e9",
+      "pixelelated/Content/ROMs/gb/A.gb": "7cbfe4f81a94a4ea5fa89ec7e490c46ae17cdea971403e5c0173535840fdeeeb",
+      "pixelelated/Saves-replaced/stamp/gb/A.srm": "b744428b9df741a790f256f5130ab3883a7eb7510600d5bcf30f373042a20e6c",
+      "pixelelated/Saves/gb/A.srm": "7c2ea57b9c564b573ae41fb5e0c37a22e02432d1054453999fb7cd08072ebe34"
+    },
+    "config_sha256": "26f2ed9b233526adc8ca55b227d5da1a58bbedb67b7200f980c3b5f009c9b1bc",
+    "pointers": {
+      "CONTENT_REMOTE": "/pixelelated/Content",
+      "LAYOUT_KEEP": "",
+      "SAVES_REMOTE": "/pixelelated/Saves",
+      "SETTINGS_REMOTE": "/pixelelated/Backups"
+    }
+  },
+  "stdout": "This device stores:\n  saves    qa-cloud:/ROCKNIX/Saves\n  backups  qa-cloud:/ROCKNIX/Backups\n\nThe current layout is:\n  saves    qa-cloud:/pixelelated/Saves\n  backups  qa-cloud:/pixelelated/Backups\n\nWould move, server-side, leaving anything else where it is:\n  qa-cloud:/ROCKNIX/Backups  ->  qa-cloud:/pixelelated/Backups\n  qa-cloud:/ROCKNIX/Saves  ->  qa-cloud:/pixelelated/Saves\n  qa-cloud:/GAMES-replaced  ->  qa-cloud:/pixelelated/Saves-replaced\n  qa-cloud:/ROCKNIX/Content  ->  qa-cloud:/pixelelated/Content\n\n>>> unit SETTINGS BACKUPS|1|4\nCopying backups...\n>>> doing copy\nTransferred:   \t         17 B / 17 B, 100%, 0 B/s, ETA -\nChecks:                 0 / 0, -, Listed 2\nTransferred:            1 / 1, 100%\nServer Side Copies:     1 @ 17 B\nElapsed time:         0.0s\nVerifying backups...\n>>> doing verify\nNow using /pixelelated/Backups for your settings backups.\nRemoving the old backups folder...\n>>> doing remove\n>>> unit SAVES|2|4\nCopying saves...\n>>> doing copy\nTransferred:   \t         14 B / 14 B, 100%, 0 B/s, ETA -\nChecks:                 0 / 0, -, Listed 2\nTransferred:            1 / 1, 100%\nServer Side Copies:     1 @ 14 B\nElapsed time:         0.0s\nVerifying saves...\n>>> doing verify\nNow using /pixelelated/Saves for your saves.\nRemoving the old saves folder...\n>>> doing remove\n>>> unit DISCARDED SAVES|3|4\nCopying discarded saves...\n>>> doing copy\nTransferred:   \t         19 B / 19 B, 100%, 0 B/s, ETA -\nChecks:                 0 / 0, -, Listed 3\nTransferred:            1 / 1, 100%\nServer Side Copies:     1 @ 19 B\nElapsed time:         0.1s\nVerifying discarded saves...\n>>> doing verify\nRemoving the old discarded saves folder...\n>>> doing remove\n>>> unit ROMS, BIOS, AND GAME CONTENT|4|4\nWould copy, verify, then remove  qa-cloud:/ROCKNIX/Content  ->  qa-cloud:/pixelelated/Content\nCopying content...\n>>> doing copy\nTransferred:   \t         13 B / 13 B, 100%, 0 B/s, ETA -\nChecks:                 0 / 0, -, Listed 3\nTransferred:            1 / 1, 100%\nServer Side Copies:     1 @ 13 B\nElapsed time:         0.1s\nVerifying content...\n>>> doing verify\nNow using /pixelelated/Content for your ROMs, BIOS, and game content.\nRemoving the old content folder...\n>>> doing remove\nContent is now at qa-cloud:/pixelelated/Content.\n\nDone. Saves are at qa-cloud:/pixelelated/Saves, backups at qa-cloud:/pixelelated/Backups.\nOld folders were left in place if anything else was in them.\n"
+}

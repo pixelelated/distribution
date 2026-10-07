@@ -1,0 +1,13 @@
+state:       finished
+written:     2026-10-07 00:33:26 UTC   <- terminal result; heartbeat stops here
+watcher_pid: 82232
+job_pid:     82226  alive=yes
+started:     2026-10-07 00:33:11 UTC
+progress:    none matched
+log:         /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261007T003311Z-f785ce7e/build.log  (last written 1s ago)
+activity:    /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261007T003311Z-f785ce7e/build.log  (last written 1s ago)
+activity_dir: /workspace/tmp/pixelelated-m7-sweep-14/artifacts
+outcome:     rc=1
+tail:
+                               output=stdout, stderr=stderr)
+  subprocess.CalledProcessError: Command '['python3', '-I', '/workspace/tmp/pixelelated-m7-sweep-14/reconcile-locales.py', '--root',

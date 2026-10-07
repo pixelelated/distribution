@@ -1,0 +1,13 @@
+state:       finished
+written:     2026-10-07 00:39:57 UTC   <- terminal result; heartbeat stops here
+watcher_pid: 120442
+job_pid:     120441  alive=yes
+started:     2026-10-07 00:39:52 UTC
+progress:    none matched
+log:         /workspace/repos/rocknix/.build-runs/20261007T003952Z-c2d77fe0/build.log  (last written 1s ago)
+activity:    /workspace/repos/rocknix/.build-runs/20261007T003952Z-c2d77fe0/build.log  (last written 1s ago)
+activity_dir: /workspace/tmp/pixelelated-m7-build16-qualification-publication-01
+outcome:     rc=1
+tail:
+             ^^^^^^^^^^^^^^^^^^^^^^
+  AssertionError: commit failed; read retained log

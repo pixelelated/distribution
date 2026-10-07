@@ -30,7 +30,7 @@ name the current owner. Evidence paths below are relative to
 | I344-L213 | Full non-secret grants/expiry inventory and a verified mail reminder remain unproved. No token change or message dispatch is implied by audit authority. |
 | I344-L214 | Corrected hosted watcher CI evidence is retained in `watcher-ci-01`. That is not the historical throwaway-fork scheduling experiment. Reconcile the active contract to current fully hosted routing or retain its exact requested proof; no self-hosted runner is introduced. |
 | I344-L217, I344-L258 | Inventory11 retains 14 known P5 metadata gaps. Resolve dispositions and produce, retrieve and hash-check the corresponding-source bundle before release publication; no off-host backup claim. |
-| I344-L229, I344-L231, I344-L256 | Sweep11 is candidate15 evidence. Repeat required whole-image branding/secret/leak/localization classification on final repaired16 and every published device artifact. Preserve reviewed public false positives and negative controls; zero unclassified/private matches is distinct from zero raw pattern matches. |
+| I344-L229, I344-L231, I344-L256 | Sweep15 now verifies candidate16: 57,295 files, 8,606 classified contexts, zero FIX/UNKNOWN or unclassified credential matches, and exact installed French/XML reconciliation. Evidence is in `../../qa-logs/2026-10-07-pixelelated-replacement-16/sweep-15/`. Repeat for every future published device artifact. Preserve reviewed public false positives and negative controls; zero unclassified/private matches is distinct from zero raw pattern matches. |
 | I344-L234, I344-L259 | Retain the historical RC2 early-signal boundary and reconcile channel separation to the approved manual-update contract. Boot09 measures current installed updater behavior; it cannot alone prove old-client behavior or release publication. |
 | I344-L255 | Check each future attached device asset against its manifest and the publication-time per-asset limit. No assets are published by these VM tests. |
 
@@ -39,4 +39,4 @@ Physical facts and separately authorized publication/account actions keep their
 existing later gates. No added external review transfer is required.
 
 
-Owner-requested#482: revised English/French interruption/retry copy source and full ES pin are verified; rebuilt16 EN/FR640/1280 actual frames remain required alongside#479 actual partial-file retry. Candidate16 allocation is waiting only on the separate reviewed two-file QA cleanup approval after the copy pin/evidence publication.
+Owner-requested#482: revised English/French interruption/retry copy source and full ES pin are verified; rebuilt16 EN/FR640/1280 actual frames remain required alongside#479 actual partial-file retry. The exact approved two-file cleanup, candidate16 build, immutable staging and raw/update payload verification are complete. Installed matrix and bilingual UI acceptance are the current gates; no cleanup approval remains pending.

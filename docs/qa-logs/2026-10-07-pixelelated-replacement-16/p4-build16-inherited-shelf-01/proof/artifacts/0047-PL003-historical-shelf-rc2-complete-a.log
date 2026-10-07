@@ -1,0 +1,70 @@
+This device stores:
+  saves    qa-cloud:/ROCKNIX/Saves
+  backups  qa-cloud:/ROCKNIX/Backups
+
+The current layout is:
+  saves    qa-cloud:/pixelelated/Saves
+  backups  qa-cloud:/pixelelated/Backups
+
+Would move, server-side, leaving anything else where it is:
+  qa-cloud:/ROCKNIX/Backups  ->  qa-cloud:/pixelelated/Backups
+  qa-cloud:/ROCKNIX/Saves  ->  qa-cloud:/pixelelated/Saves
+  qa-cloud:/GAMES-replaced  ->  qa-cloud:/pixelelated/Saves-replaced
+  qa-cloud:/ROCKNIX/Content  ->  qa-cloud:/pixelelated/Content
+
+>>> unit SETTINGS BACKUPS|1|4
+Copying backups...
+>>> doing copy
+Transferred:   	         17 B / 17 B, 100%, 0 B/s, ETA -
+Checks:                 0 / 0, -, Listed 2
+Transferred:            1 / 1, 100%
+Server Side Copies:     1 @ 17 B
+Elapsed time:         0.0s
+Verifying backups...
+>>> doing verify
+Now using /pixelelated/Backups for your settings backups.
+Removing the old backups folder...
+>>> doing remove
+>>> unit SAVES|2|4
+Copying saves...
+>>> doing copy
+Transferred:   	         14 B / 14 B, 100%, 0 B/s, ETA -
+Checks:                 0 / 0, -, Listed 2
+Transferred:            1 / 1, 100%
+Server Side Copies:     1 @ 14 B
+Elapsed time:         0.0s
+Verifying saves...
+>>> doing verify
+Now using /pixelelated/Saves for your saves.
+Removing the old saves folder...
+>>> doing remove
+>>> unit DISCARDED SAVES|3|4
+Copying discarded saves...
+>>> doing copy
+Transferred:   	         19 B / 19 B, 100%, 0 B/s, ETA -
+Checks:                 0 / 0, -, Listed 3
+Transferred:            1 / 1, 100%
+Server Side Copies:     1 @ 19 B
+Elapsed time:         0.1s
+Verifying discarded saves...
+>>> doing verify
+Removing the old discarded saves folder...
+>>> doing remove
+>>> unit ROMS, BIOS, AND GAME CONTENT|4|4
+Would copy, verify, then remove  qa-cloud:/ROCKNIX/Content  ->  qa-cloud:/pixelelated/Content
+Copying content...
+>>> doing copy
+Transferred:   	         13 B / 13 B, 100%, 0 B/s, ETA -
+Checks:                 0 / 0, -, Listed 3
+Transferred:            1 / 1, 100%
+Server Side Copies:     1 @ 13 B
+Elapsed time:         0.1s
+Verifying content...
+>>> doing verify
+Now using /pixelelated/Content for your ROMs, BIOS, and game content.
+Removing the old content folder...
+>>> doing remove
+Content is now at qa-cloud:/pixelelated/Content.
+
+Done. Saves are at qa-cloud:/pixelelated/Saves, backups at qa-cloud:/pixelelated/Backups.
+Old folders were left in place if anything else was in them.

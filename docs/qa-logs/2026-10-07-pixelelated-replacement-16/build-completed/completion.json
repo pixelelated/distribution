@@ -1,0 +1,30 @@
+{
+  "verified_utc": "2026-10-07T00:25:38.640455+00:00",
+  "result": "PASS",
+  "channels": {
+    "inner.rc": "0",
+    "outer.rc": "0",
+    "tool-wrapper.rc": "0",
+    "build.rc": "0"
+  },
+  "pids_absent": [
+    4101283,
+    4101284,
+    4101286,
+    4101318
+  ],
+  "container_absent": "c73051801494a2c3a405f29b7b0f71aa45ecc3f7fe9e4e55edf4158ab02d6a1d",
+  "containers_with_frozen_tree_mount": [],
+  "manifest_sha256": "c72c8d071186ded5e007af4f14c455557aac0e005218879452e68e3947663ee0",
+  "harness_sha256": "ce94e2fecc15b9a1e060aa5070dbfe69b8c55b71d9de401532e2c6a31cf4f65c",
+  "generated_tracked_changes": [
+    " M documentation/PER_DEVICE_DOCUMENTATION/GENERIC_X64/SUPPORTED_EMULATORS_AND_CORES.md"
+  ],
+  "launcher_result": {
+    "utc": "2026-10-07T00:25:17.575817+00:00",
+    "pid": 4101283,
+    "runner_returncode": 0,
+    "submission_is_not_completion": true
+  },
+  "verification_note": "Actual Docker inventory has no container mounting the frozen16 worktree; all source seals and owner exits verified."
+}

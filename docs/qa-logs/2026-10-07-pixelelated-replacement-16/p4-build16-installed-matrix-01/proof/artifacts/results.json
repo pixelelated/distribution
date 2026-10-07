@@ -1,0 +1,343 @@
+[
+  {
+    "case": "layout1-to2",
+    "status": "PASS"
+  },
+  {
+    "case": "pair-copy-Backups",
+    "status": "PASS"
+  },
+  {
+    "case": "pair-copy-Saves",
+    "status": "PASS"
+  },
+  {
+    "case": "pair-copy-Saves-replaced",
+    "status": "PASS"
+  },
+  {
+    "case": "pair-copy-Content",
+    "status": "PASS"
+  },
+  {
+    "case": "pair-delete-Backups",
+    "status": "PASS"
+  },
+  {
+    "case": "pair-delete-Saves",
+    "status": "PASS"
+  },
+  {
+    "case": "pair-delete-Saves-replaced",
+    "status": "PASS"
+  },
+  {
+    "case": "pair-delete-Content",
+    "status": "PASS"
+  },
+  {
+    "case": "pair-rcat-marker",
+    "status": "PASS"
+  },
+  {
+    "case": "T20-follow-ROCKNIX-False",
+    "status": "PASS"
+  },
+  {
+    "case": "T20-follow-GAMES-False",
+    "status": "PASS"
+  },
+  {
+    "case": "T20-follow-ROCKNIX-True",
+    "status": "PASS"
+  },
+  {
+    "case": "T20-settle-ROCKNIX-False",
+    "status": "PASS"
+  },
+  {
+    "case": "T20-settle-GAMES-False",
+    "status": "PASS"
+  },
+  {
+    "case": "T20-settle-ROCKNIX-True",
+    "status": "PASS"
+  },
+  {
+    "case": "T21-join-missing",
+    "status": "PASS"
+  },
+  {
+    "case": "T21-join-root",
+    "status": "PASS"
+  },
+  {
+    "case": "T21-join-derived",
+    "status": "PASS"
+  },
+  {
+    "case": "T21-join-custom",
+    "status": "PASS"
+  },
+  {
+    "case": "T21-follow-missing",
+    "status": "PASS"
+  },
+  {
+    "case": "T21-follow-root",
+    "status": "PASS"
+  },
+  {
+    "case": "T21-follow-derived",
+    "status": "PASS"
+  },
+  {
+    "case": "T21-follow-custom",
+    "status": "PASS"
+  },
+  {
+    "case": "T21-settle-missing",
+    "status": "PASS"
+  },
+  {
+    "case": "T21-settle-root",
+    "status": "PASS"
+  },
+  {
+    "case": "T21-settle-derived",
+    "status": "PASS"
+  },
+  {
+    "case": "T21-settle-custom",
+    "status": "PASS"
+  },
+  {
+    "case": "T21-apply-missing",
+    "status": "PASS"
+  },
+  {
+    "case": "T21-apply-root",
+    "status": "PASS"
+  },
+  {
+    "case": "T21-apply-derived",
+    "status": "PASS"
+  },
+  {
+    "case": "T21-apply-custom",
+    "status": "PASS"
+  },
+  {
+    "case": "T22-_GAMES",
+    "status": "PASS"
+  },
+  {
+    "case": "T22-_ROCKNIX_Saves",
+    "status": "PASS"
+  },
+  {
+    "case": "T23-content-collision",
+    "reason": "[Errno 2] No such file or directory: '/workspace/tmp/pixelelated-m7-p4-build16-installed-matrix-01/proof/cloud/data/pixelelated/Saves/gb/A.srm'",
+    "status": "FAIL"
+  },
+  {
+    "case": "T25-restricted-parent",
+    "status": "PASS"
+  },
+  {
+    "case": "PL001-discovery-empty",
+    "status": "PASS"
+  },
+  {
+    "case": "PL001-discovery-unrelated",
+    "status": "PASS"
+  },
+  {
+    "case": "PL001-discovery-fallback",
+    "status": "PASS"
+  },
+  {
+    "case": "PL001-discovery-tiered",
+    "status": "PASS"
+  },
+  {
+    "case": "PL001-discovery-root-tiered",
+    "status": "PASS"
+  },
+  {
+    "case": "PL001-discovery-root-flat",
+    "status": "PASS"
+  },
+  {
+    "case": "PL001-discovery-root-unrelated",
+    "status": "PASS"
+  },
+  {
+    "case": "PL001-discovery-stranded",
+    "status": "PASS"
+  },
+  {
+    "case": "PL001-discovery-refused",
+    "status": "PASS"
+  },
+  {
+    "case": "PL002-join-SAVES_REMOTE",
+    "status": "PASS"
+  },
+  {
+    "case": "PL002-join-SETTINGS_REMOTE",
+    "status": "PASS"
+  },
+  {
+    "case": "PL002-join-CONTENT_REMOTE",
+    "status": "PASS"
+  },
+  {
+    "case": "PL002-join-publish",
+    "status": "PASS"
+  },
+  {
+    "case": "PL002-follow-SAVES_REMOTE",
+    "status": "PASS"
+  },
+  {
+    "case": "PL002-follow-SETTINGS_REMOTE",
+    "status": "PASS"
+  },
+  {
+    "case": "PL002-follow-CONTENT_REMOTE",
+    "status": "PASS"
+  },
+  {
+    "case": "PL002-follow-publish",
+    "status": "PASS"
+  },
+  {
+    "case": "PL002-settle-SAVES_REMOTE",
+    "status": "PASS"
+  },
+  {
+    "case": "PL002-settle-SETTINGS_REMOTE",
+    "status": "PASS"
+  },
+  {
+    "case": "PL002-settle-CONTENT_REMOTE",
+    "status": "PASS"
+  },
+  {
+    "case": "PL002-settle-publish",
+    "status": "PASS"
+  },
+  {
+    "case": "PL003-kept-sibling-root",
+    "status": "PASS"
+  },
+  {
+    "case": "PL003-kept-sibling-custom",
+    "status": "PASS"
+  },
+  {
+    "case": "PL003-kept-sibling-current",
+    "status": "PASS"
+  },
+  {
+    "case": "PL003-inherited-RC2-backups",
+    "status": "PASS"
+  },
+  {
+    "case": "PL003-inherited-RC2-saves",
+    "status": "PASS"
+  },
+  {
+    "case": "PL003-inherited-RC2-content",
+    "status": "PASS"
+  },
+  {
+    "case": "PL003-inherited-RC2-complete",
+    "status": "PASS"
+  },
+  {
+    "case": "PL004-binding-comments",
+    "status": "PASS"
+  },
+  {
+    "case": "PL004-binding-format",
+    "status": "PASS"
+  },
+  {
+    "case": "PL004-binding-token",
+    "status": "PASS"
+  },
+  {
+    "case": "PL004-binding-endpoint",
+    "status": "PASS"
+  },
+  {
+    "case": "PL004-binding-legacy",
+    "status": "PASS"
+  },
+  {
+    "case": "PL005-reason-future",
+    "status": "PASS"
+  },
+  {
+    "case": "PL005-reason-malformed",
+    "status": "PASS"
+  },
+  {
+    "case": "PL005-reason-config",
+    "status": "PASS"
+  },
+  {
+    "case": "PL005-reason-record",
+    "status": "PASS"
+  },
+  {
+    "case": "PL006-chooser-MyGames",
+    "status": "PASS"
+  },
+  {
+    "case": "PL006-chooser-My Games",
+    "status": "PASS"
+  },
+  {
+    "case": "PL006-chooser-Games..old",
+    "status": "PASS"
+  },
+  {
+    "case": "PL006-chooser-Kid's Games",
+    "status": "PASS"
+  },
+  {
+    "case": "PL008-reader-escaped",
+    "status": "PASS"
+  },
+  {
+    "case": "PL008-reader-single",
+    "status": "PASS"
+  },
+  {
+    "case": "PL008-reader-bare",
+    "status": "PASS"
+  },
+  {
+    "case": "PL008-reader-double",
+    "status": "PASS"
+  },
+  {
+    "case": "PL008-reader-duplicate",
+    "status": "PASS"
+  },
+  {
+    "case": "PL008-reader-export",
+    "status": "PASS"
+  },
+  {
+    "case": "PL008-reader-trailing",
+    "status": "PASS"
+  },
+  {
+    "case": "PL008-reader-control",
+    "status": "PASS"
+  }
+]

@@ -1,0 +1,49 @@
+watch-build: recording in /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261007T003006Z-47765673
+/workspace/tmp/pixelelated-m7-sweep-12/allowlist.json: OK
+/workspace/tmp/pixelelated-m7-sweep-12/check-controls.py: OK
+/workspace/tmp/pixelelated-m7-sweep-12/context-controls.py: OK
+/workspace/tmp/pixelelated-m7-sweep-12/outer.sh: OK
+/workspace/tmp/pixelelated-m7-sweep-12/parse-theme.cpp: OK
+/workspace/tmp/pixelelated-m7-sweep-12/provenance.json: OK
+/workspace/tmp/pixelelated-m7-sweep-12/reconcile-locales.py: OK
+/workspace/tmp/pixelelated-m7-sweep-12/run.py: OK
+/workspace/tmp/pixelelated-m7-sweep-12/scan-artifact.py: OK
+/workspace/tmp/pixelelated-m7-sweep-12/secret-patterns: OK
+/workspace/tmp/pixelelated-m7-sweep-12/verify-inputs.py: OK
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/7f98f2d22985d11fe9c150015457894caf460104c9ce44abd16074167f23815a
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-sweep-12/context-controls.py", line 7, in <module>
+    rows=json.loads((owner/'context-review.json').read_text())['contexts'];allow=json.loads((owner/'allowlist.json').read_text());results=[]
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.14/pathlib/__init__.py", line 788, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/pathlib/__init__.py", line 772, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/workspace/tmp/pixelelated-m7-sweep-12/context-review.json'
+/workspace/tmp/pixelelated-m7-sweep-12/allowlist.json: OK
+/workspace/tmp/pixelelated-m7-sweep-12/check-controls.py: OK
+/workspace/tmp/pixelelated-m7-sweep-12/context-controls.py: OK
+/workspace/tmp/pixelelated-m7-sweep-12/outer.sh: OK
+/workspace/tmp/pixelelated-m7-sweep-12/parse-theme.cpp: OK
+/workspace/tmp/pixelelated-m7-sweep-12/provenance.json: OK
+/workspace/tmp/pixelelated-m7-sweep-12/reconcile-locales.py: OK
+/workspace/tmp/pixelelated-m7-sweep-12/run.py: OK
+/workspace/tmp/pixelelated-m7-sweep-12/scan-artifact.py: OK
+/workspace/tmp/pixelelated-m7-sweep-12/secret-patterns: OK
+/workspace/tmp/pixelelated-m7-sweep-12/verify-inputs.py: OK
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/7f98f2d22985d11fe9c150015457894caf460104c9ce44abd16074167f23815a
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-sweep-12/run.py", line 30, in <module>
+    call(['python3','-I',owner/'context-controls.py'])
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tmp/pixelelated-m7-sweep-12/run.py", line 14, in call
+    def call(args,cwd=tree): subprocess.run([str(x) for x in args],cwd=cwd,check=True)
+                             ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['python3', '-I', '/workspace/tmp/pixelelated-m7-sweep-12/context-controls.py']' returned non-zero exit status 1.

@@ -1,0 +1,14 @@
+watch-build: recording in /workspace/repos/rocknix/.build-runs/20261007T003952Z-c2d77fe0
+PASS rules-check
+PASS register-check
+PASS work-log-index
+PASS audit-pre-issue
+PASS diff-check
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-build16-qualification-publication-01/publish.py", line 44, in <module>
+    run('commit', repo, ['git', 'commit', '-F', str(owner / 'message.txt')])
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tmp/pixelelated-m7-build16-qualification-publication-01/publish.py", line 23, in run
+    assert result.returncode == 0, label + ' failed; read retained log'
+           ^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: commit failed; read retained log
