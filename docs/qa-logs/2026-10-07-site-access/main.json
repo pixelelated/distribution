@@ -1,0 +1,8 @@
+{
+  "utc": "2026-10-07T21:17:40.067147+00:00",
+  "request": "repos/pixelelated/website/commits/main",
+  "filter": "{sha,parents:[.parents[].sha],message:.commit.message}",
+  "returncode": 0,
+  "stdout": "{\"message\":\"website: establish the site plan and agent instructions\\n\\nRefs pixelelated/distribution#511. Preserve the owner-created repository history and private visibility; confirmed domain pixelelated.com. No deployment workflow.\",\"parents\":[\"62b33d31fef4860f46abcb756ca697cd88ff788e\"],\"sha\":\"8559ab3e3c0bc4454ae8e2722fce7b72d677c2dd\"}\n",
+  "stderr": ""
+}

@@ -6,21 +6,27 @@ separate from firmware qualification. No site has been deployed by this work.
 
 ## Repository and existing source
 
-Use a dedicated ordinary repository, proposed `pixelelated/website`. The site
+Use the dedicated ordinary repository, `pixelelated/website`. The site
 and wiki-style guides live together as versioned source. GitHub Pages is a
 hosting service for a repository; GitHub's built-in Wiki is separate and is
 not needed for these guides. A Pages project repository can use the owned
 custom domain; the special `pixelelated.github.io` repository name is needed
 only for the default organization-root site. See [GitHub's site types](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages).
 
-No dedicated site repository appeared in the accessible organization list.
-Private Pages settings were inaccessible, so that inventory does not prove
-absence of all private sites. A direct read of `pixelelated/website` returned
-404. Creation attempts through `gh repo create` and the documented REST
-endpoint were rejected for the current blitterbot token; REST returned403.
-The bot is an active organization member. An owner must create the repository
-and grant write access, or provide the required repository-creation access.
-Do not expose credentials in chat. No repository was created by either call.
+The owner created [pixelelated/website](https://github.com/pixelelated/website)
+as a private repository and granted `blitterbot` maintain/push access. Preserve
+that visibility. The starter is published on `main` at
+`8559ab3e3c0bc4454ae8e2722fce7b72d677c2dd`, a normal fast-forward from the
+owner's initial commit `62b33d31fef4860f46abcb756ca697cd88ff788e`.
+Remote readback verifies README and agent instructions; no workflow or Actions
+run exists. The local checkout is `/workspace/repos/pixelelated-website`.
+
+Earlier creation attempts were rejected by the bot token. That creation blocker
+is resolved by the owner-created repository and the successful push. Reading
+Pages configuration still returns403 with the current token, so its hosting
+state is unknown; do not label that response as a missing or disabled site.
+The starter does not configure hosting. Check the chosen host's requirements
+for a private source repository during implementation, without changing privacy.
 
 The existing docs checkout is `/home/max/Development/rocknix.org`, clean on
 `docs/cloud-saves-native-wizard` at `4f6df54ca16121ff2cd0620407aea6434ee59147`,
@@ -63,14 +69,14 @@ is necessary merely because a future service might exist.
 
 ## Domain and launch sequence
 
-The earlier recorded domain is `pixelelated.com`; a later message says
-`pixelated.com`. Exact spelling is awaiting confirmation before DNS changes.
-For `pixelelated.com` only, current public DNS reads show no A/AAAA record,
-`www` NXDOMAIN, iwantmyname nameservers and Proton Mail MX. Historical
-Cloudflare/Hostinger notes are not current authority. Preserve mail records.
+The maintainer confirmed **`pixelelated.com`** (D-WORKFLOW-154). The earlier
+`pixelated.com` spelling is resolved. The last public DNS read shows no A/AAAA
+record, `www` NXDOMAIN, iwantmyname nameservers and Proton Mail MX. Historical
+Cloudflare/Hostinger notes are not current authority. Recheck before preparing
+web DNS changes and preserve mail records.
 
-1. Establish the dedicated repository and access. Local starter README and
-   agent instructions are prepared; no deployment workflow is enabled.
+1. Repository/access is complete: starter README and agent instructions are
+   published on the private site repository. No deployment workflow is present.
 2. Select a current static-site baseline and dependencies, then import only
    reviewed guides/assets, with their licenses and attribution.
 3. Reconcile cloud guides against final #510/#508 behavior. Build locally,
@@ -79,7 +85,7 @@ Cloudflare/Hostinger notes are not current authority. Preserve mail records.
 4. Configure the chosen host from the reviewed artifact. For Pages, use the
    documented artifact workflow and deployment environment rather than
    inheriting the old fork's force-push workflow without review.
-5. Confirm the owned domain, prepare its exact web DNS changes, establish
+5. Prepare the confirmed domain's exact web DNS changes, establish
    HTTPS, and retain public content/redirect readback. Do not modify mail DNS.
 6. Only then enable the handheld's per-guide QR destinations. ROM and BIOS
    findings say See instructions, opening a controller-dismissable modal.
@@ -89,3 +95,10 @@ Cloudflare/Hostinger notes are not current authority. Preserve mail records.
 Can this be done on the VM? Handheld help/modal behavior and QR rendering can.
 Site builds, browser rendering and public HTTPS/DNS reads are host facts; no
 physical device or personal cloud is required.
+
+## Registrar entries
+
+The exact GitHub Pages A/CNAME records, optional IPv6 entries and setup order
+are in [site-dns.md](site-dns.md). Read-only repository, Pages-access and public
+DNS receipts are under `docs/qa-logs/2026-10-07-site-access/`. The records have
+been provided to the maintainer; no DNS mutation or deployment is claimed.
