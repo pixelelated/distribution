@@ -1,0 +1,50 @@
+{
+  "utc": "2026-10-07T06:11:34.994712+00:00",
+  "effective_uid": 0,
+  "userspace_examined": 235,
+  "kernel_threads_excluded": 337,
+  "disappeared": 0,
+  "matches": [
+    {
+      "pid": 5592,
+      "references": [
+        {
+          "kind": "cwd",
+          "tree": "/workspace/repos/rocknix.worktrees/conflict-resolution"
+        }
+      ]
+    },
+    {
+      "pid": 5966,
+      "references": [
+        {
+          "kind": "cwd",
+          "tree": "/workspace/repos/rocknix.worktrees/conflict-resolution"
+        }
+      ]
+    },
+    {
+      "pid": 2541834,
+      "references": [
+        {
+          "kind": "cwd",
+          "tree": "/workspace/repos/rocknix.worktrees/conflict-resolution"
+        }
+      ]
+    },
+    {
+      "pid": 2543070,
+      "references": [
+        {
+          "kind": "cwd",
+          "tree": "/workspace/repos/rocknix.worktrees/conflict-resolution"
+        }
+      ]
+    }
+  ],
+  "unreadable": [],
+  "readonly": true,
+  "scope": "Matches are classification input, not permission to stop processes or delete files.",
+  "roots_count": 1079,
+  "scope_limit": "Direct child directories only;14 loose firmware files were outside this root scope. See #498 and administrator-scope-gap.json."
+}

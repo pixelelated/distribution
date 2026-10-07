@@ -1,0 +1,14 @@
+{
+  "result": "PASS",
+  "controls": [
+    "loose firmware outside administrator directory scope refused",
+    "parent scope covers loose files and nested targets",
+    "exact file accepted",
+    "wrong digest refused",
+    "changed identity refused",
+    "replacement symlink refused",
+    "extra entry refused before removal",
+    "read-only directory removed without following external file/directory links"
+  ],
+  "count": 8
+}

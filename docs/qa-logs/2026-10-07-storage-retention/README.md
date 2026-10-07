@@ -1,5 +1,42 @@
 # Storage retention review — #493/#494
 
+## Completed cleanup — October 7, 06:38 UTC
+
+The authorized batch removed all 850 selected VM/firmware files, the 30 paths
+holding ten extracted copies, and four old worktrees. The filesystem readback
+measured **2,117,325,385,728 bytes recovered** and **2,290,757,619,712 bytes
+available** after final verification. All 51,070 retained records, 14,489 source
+custody objects and five test-required firmware files still match their hashes.
+There are 415 retirement markers beside retained records. The standard
+`tools/fork-worktree remove` helper removed all four trees; none remains
+registered. Four terminal results are zero, eight sealed inputs match and the
+actual cleanup processes have exited. See `completed/`.
+
+**Administrator-check limitation, #498:** the supplied UID0 snapshot read every
+process without access errors, but its directory-only scope omitted 14 loose
+firmware files directly in the image-store root. These files were explicitly
+authorized and passed hash, ordinary-user live-reference, container and external
+reference checks. Do not claim the administrator snapshot covered them. This
+was discovered after deletion while adding retirement markers; the original
+sealed receipts remain unchanged, with a separate scope-gap record. The current
+executor now refuses any target outside the administrator roots; eight isolated
+controls include this omission and covering-parent cases. These later controls
+do not retroactively validate the old root scope.
+
+The marker writer's first attempt assumed every inventory group was a directory
+and failed before writing markers. Its corrected run uses the containing
+directory for loose files. No additional payload was removed by that correction.
+
+H700 aarch64 firmware started at 06:38:36 after a passing capacity check and
+guarded swap reclamation. The actual pinned container, frozen checkout and
+watcher are verified. SM8550 follows verified H700 artifacts. No firmware
+completion, physical boot or RC designation is claimed. #493 remains open for
+classification of remaining historical stores and the continuing retention
+cadence; the majority-scale batch is complete. Older preparation below remains
+the record of how that batch was selected, not a request to execute it again.
+
+## Historical preparation
+
 The maintainer moved broader cleanup ahead of the next firmware stage and
 made large testing artifacts temporary (D-INFRA-021, D-INFRA-022). Keep one
 only for a named active or immediately queued test, with an owning issue and
@@ -62,7 +99,7 @@ Keep logs, results, commands, environment, inputs, frames and diagnosis for that
 historical record. Keep a large state artifact only for the specific immediate
 test that requires it. Required source/licence inputs remain independent records.
 
-## Remaining work
+## Prerequisites recorded before execution
 
 Consume the requested administrator process readback, classify any matches and
 complete fresh active-use checks before guarded deletion. The ordinary user
