@@ -1,0 +1,7 @@
+{
+  "body": "The candidate 16 artifact-scan preparation omitted `context-review.json`, although `context-controls.py` consumes it. Sweep12 stopped before scanning the image; its four result channels are 1 and all owner processes exited. Product sources and the classification allowlist are unchanged.\n\nCan this be done on the VM? The check reads the exact extracted VM image on the host; no physical device or external account is needed.\n\nThe correction carries the byte-identical prior context fixture into a fresh owner, includes it in the input seals, and adds it to the preparer's dependency list. Sweep13 must retain the failed12 evidence and run all controls and the final artifact scan.\n\n- [ ] Retained sweep12 receipts show the missing fixture, all four failure results, owner exits, and restored extracted-file permissions.\n- [ ] Fresh sweep13 proves the exact context fixture and unchanged allowlist, 21 positive / 63 negative context controls, scanner controls, and final image classification/localization results.\n- [ ] The corrected preparation recipe includes and seals the required fixture; the work log and friction log cite this issue.\n",
+  "number": 484,
+  "state": "OPEN",
+  "title": "M7.P4: Include artifact-scan control fixtures in fresh owners",
+  "updatedAt": "2026-10-07T00:31:45Z"
+}

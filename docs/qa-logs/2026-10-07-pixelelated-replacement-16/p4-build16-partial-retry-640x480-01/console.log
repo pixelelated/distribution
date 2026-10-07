@@ -1,0 +1,90 @@
+watch-build: recording in /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement16/.build-runs/20261007T004110Z-e8f0e007
+/workspace/tmp/pixelelated-m7-p4-build16-partial-retry-640x480-01/check-payload.py: OK
+/workspace/tmp/pixelelated-m7-p4-build16-partial-retry-640x480-01/cloud-ui-proof.py: OK
+/workspace/tmp/pixelelated-m7-p4-build16-partial-retry-640x480-01/outer.sh: OK
+/workspace/tmp/pixelelated-m7-p4-build16-partial-retry-640x480-01/provenance.json: OK
+/workspace/tmp/pixelelated-m7-p4-build16-partial-retry-640x480-01/proxy-identity.py: OK
+/workspace/tmp/pixelelated-m7-p4-build16-partial-retry-640x480-01/run.sh: OK
+/workspace/tmp/pixelelated-m7-p4-build16-partial-retry-640x480-01/seed-oracle.py: OK
+/workspace/tmp/pixelelated-m7-p4-build16-partial-retry-640x480-01/seed.py: OK
+/workspace/tmp/pixelelated-m7-p4-build16-partial-retry-640x480-01/stop-guest.py: OK
+/workspace/tmp/pixelelated-m7-p4-build16-partial-retry-640x480-01/verify-inputs.py: OK
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/7f98f2d22985d11fe9c150015457894caf460104c9ce44abd16074167f23815a
+Preparing independent 16GiB guest d from the verified pixelelated image
+Image resized.
+No errors were found on the image.
+31695/262144 = 12.09% allocated, 0.00% fragmented, 0.00% compressed clusters
+Image end offset: 2077818880
+[W][00:41:18.819400] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][00:41:18.819435] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+ready after ~30s
+PASS guest d exact BUILD_ID and OS_NAME ee014909137e03706e0b3020b8396be589aaa705 pixelelated
+PASS QA ROM bytes /storage/roms/gb/Ninoid.gb a40191c169c68e6607ace072da96aab957f306f55ded59ce1f287c1f5273387b
+PASS QA ROM bytes /storage/roms/gbc/Tobu Tobu Girl Deluxe.gb 0a0e8018dbbc8d7f8cd99f05e7cdc7b4cc9e358ecfe9377ebfb2291a84c6e310
+PASS QA ROM bytes /storage/roms/nes/Bobl.nes 025ec44d0d84ac469b442ee56c3d69e035e9a38430ae849172fe3a1e569d0dea
+PASS guest d seeded and idle
+up: webdav serving /workspace/tmp/pixelelated-m7-p4-build16-partial-retry-640x480-01/cloud/data at http://127.0.0.1:9040 (guest: http://10.0.2.2:9040)
+PASS cloud-ui-before exact identity, installed scripts, policy and Ocean SVG bytes/modes
+PASS cloud-ui-before installed proxy identities and account discovery
+PASS setup: candidate identity
+START en_US-mid-copy-kill-ui-retry-next-shelf
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: no game running before carousel
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: actual UI walk carousel
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: no game running after carousel
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: no game running before hub-menu
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: actual UI walk hub-menu
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: no game running after hub-menu
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: START changes the captured screen; direct main-menu review required
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: no game running before hub
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: actual UI walk hub
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: no game running after hub
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: no game running before opening-scan
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: actual UI walk opening-scan
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: no game running after opening-scan
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: no game running before move-first
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: actual UI walk move-first
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: no game running after move-first
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: actual first copy wrote a strict partial destination
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: no game running before interrupted
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: actual UI walk interrupted
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: no game running after interrupted
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: kill during copy preserved every old source byte
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: incomplete first copy did not publish new pointers
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: interrupted migration retains recovery record
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: no game running before hub-menu
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: actual UI walk hub-menu
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: no game running after hub-menu
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: START changes the captured screen; direct main-menu review required
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: no game running before hub
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: actual UI walk hub
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: no game running after hub
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: no game running before opening-scan
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: actual UI walk opening-scan
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: no game running after opening-scan
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: no game running before move-second
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: actual UI walk move-second
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: no game running after move-second
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: second real UI MOVE completed all original bytes
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: old source folder removed after verified second MOVE
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: second MOVE writes final marker
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: no game running before close
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: actual UI walk close
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: no game running after close
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: next actual backup publishes new save
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: next conflicting backup keeps displaced bytes under current discarded-save shelf
+FAIL en_US-mid-copy-kill-ui-retry-next-shelf: next backup does not recreate old root
+PASS en_US-mid-copy-kill-ui-retry-next-shelf: installed product hashes unchanged
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-p4-build16-partial-retry-640x480-01/cloud-ui-proof.py", line 300, in <module>
+    reset(language);guest('rm -f /storage/.config/.restore-finish-pending');kill_during_move()
+                                                                            ~~~~~~~~~~~~~~~~^^
+  File "/workspace/tmp/pixelelated-m7-p4-build16-partial-retry-640x480-01/cloud-ui-proof.py", line 239, in kill_during_move
+    check(not (data/'ROCKNIX').exists(),'next backup does not recreate old root')
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tmp/pixelelated-m7-p4-build16-partial-retry-640x480-01/cloud-ui-proof.py", line 17, in check
+    if not ok:raise AssertionError(text)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: next backup does not recreate old root
+PASS owned guest stopped 129271
+down

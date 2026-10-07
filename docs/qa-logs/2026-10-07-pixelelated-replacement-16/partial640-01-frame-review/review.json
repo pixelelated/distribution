@@ -1,0 +1,95 @@
+{
+  "reviewed_utc": "2026-10-07T00:47:10.922367+00:00",
+  "scope": "Eight directly inspected English640 frames only. The owner failed a later empty-parent fixture assertion; no overall PASS or French claim.",
+  "source_owner": "/workspace/tmp/pixelelated-m7-p4-build16-partial-retry-640x480-01",
+  "frames": [
+    {
+      "file": "01-en_US-mid-copy-kill-ui-retry-next-shelf-copy-interrupted.png",
+      "sha256": "96d88d468b49969916ef585dfa590e61957adcac2909801b4bb823d3e2adf571",
+      "dimensions": [
+        640,
+        480
+      ],
+      "result": "PASS",
+      "primary_direct_review": true,
+      "observation": "Canonical failure, full reason and TRY AGAIN TO MOVE THE REMAINING FILES fit; retry control visible."
+    },
+    {
+      "file": "01-en_US-mid-copy-kill-ui-retry-next-shelf-first-copy-running.png",
+      "sha256": "0590508de63de96eb25114d87c93b8aeab54d4ea6b80626d9e5b5dffa408cce8",
+      "dimensions": [
+        640,
+        480
+      ],
+      "result": "PASS",
+      "primary_direct_review": true,
+      "observation": "Expected navigation or running-transfer state, complete visible text and controls; no clipping."
+    },
+    {
+      "file": "01-en_US-mid-copy-kill-ui-retry-next-shelf-hub.png",
+      "sha256": "a4bf3c0098bd1318cfc1334980449a5adff82c9e95fa0d88d9fa8911886d708f",
+      "dimensions": [
+        640,
+        480
+      ],
+      "result": "PASS",
+      "primary_direct_review": true,
+      "observation": "Expected navigation or running-transfer state, complete visible text and controls; no clipping."
+    },
+    {
+      "file": "01-en_US-mid-copy-kill-ui-retry-next-shelf-menu-before.png",
+      "sha256": "20bffd9f6c95d12c58883b8704592b46efff98b2207311fca8de9be811c9991c",
+      "dimensions": [
+        640,
+        480
+      ],
+      "result": "PASS",
+      "primary_direct_review": true,
+      "observation": "Expected navigation or running-transfer state, complete visible text and controls; no clipping."
+    },
+    {
+      "file": "01-en_US-mid-copy-kill-ui-retry-next-shelf-opening-result.png",
+      "sha256": "30f5e8951d6a4afab2897bcb5529d3e2bdbc07aa5b084c35e3b67a2a3624daaf",
+      "dimensions": [
+        640,
+        480
+      ],
+      "result": "PASS",
+      "primary_direct_review": true,
+      "observation": "Complete revised retry prompt reassures that moved files are kept; TRY AGAIN/NOT NOW choices fit."
+    },
+    {
+      "file": "01-en_US-mid-copy-kill-ui-retry-next-shelf-second-copy-running.png",
+      "sha256": "b7f4db092a5381e2f3c60f655975447200ce2e97a56362988d72be4c9f9c156a",
+      "dimensions": [
+        640,
+        480
+      ],
+      "result": "PASS",
+      "primary_direct_review": true,
+      "observation": "Expected navigation or running-transfer state, complete visible text and controls; no clipping."
+    },
+    {
+      "file": "02-en_US-mid-copy-kill-ui-retry-next-shelf-main-menu.png",
+      "sha256": "f3e71baf9a4fe1bc9cab2bfe588adafa9cddf8f17b2f7ea4e9937df5a5441b00",
+      "dimensions": [
+        640,
+        480
+      ],
+      "result": "PASS",
+      "primary_direct_review": true,
+      "observation": "Expected navigation or running-transfer state, complete visible text and controls; no clipping."
+    },
+    {
+      "file": "02-en_US-mid-copy-kill-ui-retry-next-shelf-second-move-done.png",
+      "sha256": "9bf0f7d8704cd49f3870eae2123dbe8792e5d16f6ae0495de5f96f85f48cdd72",
+      "dimensions": [
+        640,
+        480
+      ],
+      "result": "PASS",
+      "primary_direct_review": true,
+      "observation": "Completed four-file move and current /pixelelated root fit."
+    }
+  ]
+}

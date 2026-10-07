@@ -1,0 +1,43 @@
+{
+  "verified_utc": "2026-10-07T00:53:09.789188+00:00",
+  "owner": "/workspace/tmp/pixelelated-m7-p4-build16-partial-retry-640x480-02",
+  "behavior_cases": [
+    {
+      "case": "en_US-mid-copy-kill-ui-retry-next-shelf",
+      "status": "PASS",
+      "visual_review": "pending actual frames"
+    },
+    {
+      "case": "fr_FR-mid-copy-kill-ui-retry-next-shelf",
+      "status": "PASS",
+      "visual_review": "pending actual frames"
+    }
+  ],
+  "direct_frames": 16,
+  "actual_partial_copies": {
+    "en_US": {
+      "record_sha256": "3912b5486cb8e547d5b105279ac47064018cfd86b17abded9a5bf04a2fbf1426",
+      "partial_bytes": 258048,
+      "source_bytes": 8391392,
+      "signal": "SIGKILL",
+      "old_parent_unchanged": true,
+      "new_shelf": "pixelelated/Saves-replaced/2026_10_06-204939/gb/Conflict.srm"
+    },
+    "fr_FR": {
+      "record_sha256": "c69c9fe5406db26af0c8876549b7ae1aded6691cba1f8c10ba669988ee1e1be2",
+      "partial_bytes": 258048,
+      "source_bytes": 8391392,
+      "signal": "SIGKILL",
+      "old_parent_unchanged": true,
+      "new_shelf": "pixelelated/Saves-replaced/2026_10_06-205220/gb/Conflict.srm"
+    }
+  },
+  "scope": "English/French640 only;1280/full QA20/local protocols still required. Failed01 remains failed.",
+  "primary_visual_review": {
+    "result": "PASS",
+    "frames": 16,
+    "receipt": "frames.json",
+    "receipt_sha256": "25e9b22d5840bf19cebe76f8d31ba4da2184b2a01bedef60ab24fa4b0151ff92",
+    "note": "Original runner rows retain their pending-primary-review labels; this independently recorded direct review supplies the result."
+  }
+}
