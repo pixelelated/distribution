@@ -1,0 +1,91 @@
+{
+  "result": "PASS",
+  "utc": "2026-10-07T05:29:28.139474+00:00",
+  "source": "/workspace/artifacts/pixelelated-candidates/sha256/7f98f2d22985d11fe9c150015457894caf460104c9ce44abd16074167f23815a/pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz",
+  "source_sha256": "74e57ad8957b1c719c18db098d5713577a952af8802524658d0ada7dee1b6b12",
+  "operations": [
+    {
+      "operation": "decompress firmware to sparse raw disk",
+      "seconds": 6.598615533031989,
+      "logical_bytes": 4333764608,
+      "allocated_bytes": 2080378880
+    },
+    {
+      "operation": "create standalone guest disk",
+      "seconds": 1.0489599570282735,
+      "argv": [
+        "qemu-img",
+        "convert",
+        "-f",
+        "raw",
+        "-O",
+        "qcow2",
+        "/workspace/tmp/pixelelated-m7-regeneration-benchmark-01/scratch.raw",
+        "/workspace/tmp/pixelelated-m7-regeneration-benchmark-01/scratch-base.qcow2"
+      ],
+      "stdout": "",
+      "returncode": 0
+    },
+    {
+      "operation": "resize guest to supported 16 GiB",
+      "seconds": 0.3241730949957855,
+      "argv": [
+        "qemu-img",
+        "resize",
+        "/workspace/tmp/pixelelated-m7-regeneration-benchmark-01/scratch-base.qcow2",
+        "16G"
+      ],
+      "stdout": "Image resized.\n",
+      "returncode": 0
+    },
+    {
+      "operation": "compare recreated guest contents to firmware",
+      "seconds": 0.7294262290233746,
+      "argv": [
+        "qemu-img",
+        "compare",
+        "-f",
+        "raw",
+        "-F",
+        "qcow2",
+        "/workspace/tmp/pixelelated-m7-regeneration-benchmark-01/scratch.raw",
+        "/workspace/tmp/pixelelated-m7-regeneration-benchmark-01/scratch-base.qcow2"
+      ],
+      "stdout": "Warning: Image size mismatch!\nImages are identical.\n",
+      "returncode": 0
+    },
+    {
+      "operation": "create disposable copy-on-write overlay",
+      "seconds": 0.020264220947865397,
+      "argv": [
+        "qemu-img",
+        "create",
+        "-f",
+        "qcow2",
+        "-F",
+        "qcow2",
+        "-b",
+        "/workspace/tmp/pixelelated-m7-regeneration-benchmark-01/scratch-base.qcow2",
+        "/workspace/tmp/pixelelated-m7-regeneration-benchmark-01/scratch-overlay.qcow2"
+      ],
+      "stdout": "Formatting '/workspace/tmp/pixelelated-m7-regeneration-benchmark-01/scratch-overlay.qcow2', fmt=qcow2 cluster_size=65536 extended_l2=off compression_type=zlib size=17179869184 backing_file=/workspace/tmp/pixelelated-m7-regeneration-benchmark-01/scratch-base.qcow2 backing_fmt=qcow2 lazy_refcounts=off refcount_bits=16\n",
+      "returncode": 0
+    }
+  ],
+  "sizes": {
+    "scratch.raw": {
+      "size": 4333764608,
+      "allocated_bytes": 2080378880
+    },
+    "scratch-base.qcow2": {
+      "size": 2077753600,
+      "allocated_bytes": 2077700096
+    },
+    "scratch-overlay.qcow2": {
+      "size": 196864,
+      "allocated_bytes": 200704
+    }
+  },
+  "scratch_removed": true,
+  "scope": "One measurement on the current host; disk recreation only. No boot, test replay, old-state recreation or OS recompilation claimed."
+}

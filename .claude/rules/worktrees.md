@@ -141,12 +141,14 @@ build, independent-copy and QA footprint plus a measured margin; filesystem
 reserve is not build headroom. Compiler success alone does not release an old
 candidate. This review is infrastructure work, not a new RC acceptance gate.
 
-Keep the current candidate and useful rebuild tree, a qualified fallback for
-each device/architecture, the ROCKNIX upgrade baseline, exact source/licence
-inputs, the shared source cache, and failure evidence. Protect their transitive
-dependencies: qcow2 backing chains and objects referenced across preservation
-stores count even when their original run failed. Independent, verified copies
-of compact evidence can replace an otherwise unnecessary full build tree.
+Under D-INFRA-022, keep a large testing payload only when a named test is
+currently running or immediately queued and requires it. Remove completed
+test disks, superseded firmware and extracted OS copies after their compact
+record is accepted. There is no standing allowance for fallback disks or
+historical firmware. Preserve required source/licence inputs, the source cache
+needed by active or queued builds and the record of failures. Protect transitive dependencies while their
+consumer test still needs them; a completed consumer does not extend retention.
+Independent, verified compact evidence can replace unnecessary full build trees.
 
 The next cleanup report names exact proposed removals, protected identities,
 dependency checks, preservation cost, expected net recovery and next-build
@@ -156,6 +158,34 @@ standard guarded worktree helper and watched owner for an authorized batch,
 then verify removal, retained inputs and actual free space. A retention review
 never extends an earlier batch's deletion scope. #461 tracks the repeatable
 planner and first later batch; automatic cleanup is not implemented.
+
+### Retain the record; give a large runtime artifact a reason to stay
+
+D-INFRA-021 and D-INFRA-022 refine this review: the maintainer prioritizes knowing what
+happened over storing completed VM runs. Keep the exact inputs and commands,
+environment/profile, logs, results, relevant frames, hashes and failure
+diagnosis. A historical path or hash in that record is provenance, not by
+itself a live dependency requiring the entire disk to remain.
+
+Each retained large VM disk, extracted OS tree or firmware copy needs a named
+active or immediately queued test, an owning issue, and the completion event
+that releases it. A generic fallback, possible future regression or historical
+failure is not a retention reason. A baseline, backing disk or failure state
+stays only while that particular test needs it. Prefer regenerating a disposable guest
+from retained firmware and fixtures. Measure guest creation separately from
+full OS recompilation; those costs are very different. Record when a payload
+is retired so later readers do not mistake its historical hash for a claim
+that the file is still present. Preserve required source/licence inputs.
+
+Review accumulated runtime payloads immediately when capacity is constrained,
+as well as after qualification. Count verified net recovery, not directory
+names or virtual disk sizes. The compact evidence and named keep set must
+survive cleanup; creating another full-size preservation copy is not recovery.
+The active-use, dependency and guarded execution requirements above still apply.
+The completed test's record names retired paths and hashes, measured recovery,
+and any temporary hold with its specific test and release condition. Do not
+quietly turn a temporary hold into permanent history. This rule does not claim
+that automatic cleanup is implemented; the owning work stream completes it.
 
 ## Create a worktree + branch from next
 

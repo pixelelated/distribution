@@ -1,0 +1,109 @@
+{
+  "path": "/workspace/tmp/pixelelated-m7-broad-retirement-plan-01/plan.json",
+  "sha256": "173ea555d5d62d04a0c456b9398f292c927eaa5e40a53a2838cd032c53e694f1",
+  "status": "PREPARED_REQUIRES_ROOT_READBACK_AND_FINAL_EXECUTION_GUARDS",
+  "payload_count": 850,
+  "retained_record_count": 50983,
+  "retained_records_sha256": "2fe23ce88a5fe9e19a971de37d103a1777c0c3544b8e6ad35583abe9a704ec75",
+  "historical_source_links": 14,
+  "payload_allocated_bytes": 1519418359808,
+  "tree_potential_net_bytes": 464468140032,
+  "protected_test_firmware": [
+    {
+      "path": "/workspace/artifacts/rocknix-images/h700-all-20260929-8dd6765af0/ROCKNIX-H700.aarch64-20260929.tar",
+      "group": "/workspace/artifacts/rocknix-images/h700-all-20260929-8dd6765af0",
+      "identity": {
+        "device": 66304,
+        "inode": 126126283,
+        "size": 1320642560,
+        "allocated_bytes": 1320648704,
+        "mtime_ns": 1790648075229103667,
+        "uid": 1000,
+        "mode": 33188,
+        "links": 1
+      },
+      "kind": "test-required-firmware",
+      "issue": 492,
+      "test": "Queued H700 DDR3/DDR4 adoption and smoke: recovery to the image proven on the two test devices",
+      "release": "H700 adoption/smoke and its recovery needs complete",
+      "sha256": "b3ba8fde1e320608347f0132b008e3d6e88e7f7ee0523c0aaf68886c1503df07"
+    },
+    {
+      "path": "/workspace/artifacts/rocknix-images/h700-all-20260929-8dd6765af0/ROCKNIX-H700.aarch64-20260929-DDR4.img.gz",
+      "group": "/workspace/artifacts/rocknix-images/h700-all-20260929-8dd6765af0",
+      "identity": {
+        "device": 66304,
+        "inode": 126126282,
+        "size": 1300567107,
+        "allocated_bytes": 1300574208,
+        "mtime_ns": 1790648081000000000,
+        "uid": 1000,
+        "mode": 33188,
+        "links": 1
+      },
+      "kind": "test-required-firmware",
+      "issue": 492,
+      "test": "Queued H700 DDR3/DDR4 adoption and smoke: recovery to the image proven on the two test devices",
+      "release": "H700 adoption/smoke and its recovery needs complete",
+      "sha256": "8eb39b6283f97e086884ca396fd18ac3f14e926759e60f657b15041a3c71fc11"
+    },
+    {
+      "path": "/workspace/artifacts/rocknix-images/h700-all-20260929-8dd6765af0/ROCKNIX-H700.aarch64-20260929-DDR3.img.gz",
+      "group": "/workspace/artifacts/rocknix-images/h700-all-20260929-8dd6765af0",
+      "identity": {
+        "device": 66304,
+        "inode": 126126281,
+        "size": 1300567140,
+        "allocated_bytes": 1300574208,
+        "mtime_ns": 1790648090000000000,
+        "uid": 1000,
+        "mode": 33188,
+        "links": 1
+      },
+      "kind": "test-required-firmware",
+      "issue": 492,
+      "test": "Queued H700 DDR3/DDR4 adoption and smoke: recovery to the image proven on the two test devices",
+      "release": "H700 adoption/smoke and its recovery needs complete",
+      "sha256": "274e139846d79a1e442246298e1d4856b787825fae64e22594ab03d29e06a9b6"
+    },
+    {
+      "path": "/workspace/artifacts/rocknix-images/sm8550-all-20260929-5b5005879e/ROCKNIX-SM8550.aarch64-20260929.img.gz",
+      "group": "/workspace/artifacts/rocknix-images/sm8550-all-20260929-5b5005879e",
+      "identity": {
+        "device": 66304,
+        "inode": 126126453,
+        "size": 1610681084,
+        "allocated_bytes": 1610686464,
+        "mtime_ns": 1790674929000000000,
+        "uid": 1000,
+        "mode": 33188,
+        "links": 1
+      },
+      "kind": "test-required-firmware",
+      "issue": 492,
+      "test": "Queued SM8550 adoption and smoke: recovery to the image proven on the test device",
+      "release": "SM8550 adoption/smoke and its recovery needs complete",
+      "sha256": "cdfff4ad5e9fa8669ae43a1326f44f0f14c9877832726802cbbc7f0ddec65a3e"
+    },
+    {
+      "path": "/workspace/artifacts/rocknix-images/sm8550-all-20260929-5b5005879e/ROCKNIX-SM8550.aarch64-20260929.tar",
+      "group": "/workspace/artifacts/rocknix-images/sm8550-all-20260929-5b5005879e",
+      "identity": {
+        "device": 66304,
+        "inode": 126126454,
+        "size": 1615298560,
+        "allocated_bytes": 1615302656,
+        "mtime_ns": 1790674922365161895,
+        "uid": 1000,
+        "mode": 33188,
+        "links": 1
+      },
+      "kind": "test-required-firmware",
+      "issue": 492,
+      "test": "Queued SM8550 adoption and smoke: recovery to the image proven on the test device",
+      "release": "SM8550 adoption/smoke and its recovery needs complete",
+      "sha256": "698dea73d7b9b8bb33bafa29e97ed1f3c14d9e106ab3824c6d9dfd4d078a2367"
+    }
+  ],
+  "deletion_performed": false
+}
