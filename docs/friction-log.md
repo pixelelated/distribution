@@ -318,3 +318,9 @@ QA08 reached correct initial identity/Information but generic dismiss/reopen/cou
 - 2026-10-06 23:29 UTC — issue: #482. Copy-check01 was correctly refused by the per-worktree watcher lock while capacity discovery ran there; no tests executed. Fresh02 uses the idle primary checkout with matching command cwd. Source-publication receipt recorder also stopped after verified issue closures/log append on missing Python re import; resumed only checkpoint/index, without replaying completed mutations.
 
 - 2026-10-06 23:32 UTC — issue: #482. Copy-host02 passed compiler/vocabulary, then bare msgfmt was absent on hostPATH. Retained allfour127/seals/owner exits. Fresh03 uses the exact existing image-toolchain msgfmt from the earlier translation proof; all source checks pass. No package installation needed.
+
+- 2026-10-07 00:10 UTC — issue: #461; guard `tools/build-preflight`. Host swap was fully consumed before candidate16. The already-authorized fixed helper reclaimed it before any watcher started; READY and active priority-1 swap are retained. The two-file disk cleanup recovered exactly the proposal's9.98GiB; no reserve reduction.
+
+- 2026-10-07 00:10 UTC — issue: #254; guard `tools/ceremony-check`. W40 summary was missing at the new-day gate. Restored it from September28–October4 logs before the next push; network-restricted checker output is not a live provider result.
+
+- 2026-10-07 00:13 UTC — issue: #483. Duplicating the raw candidate input inventory into Git matched two upstream filenames in the normal credential guard. Keep exact inputs in runtime/candidate custody and publish their digest/count/location receipt; retain the failed owner and retry without guard changes.

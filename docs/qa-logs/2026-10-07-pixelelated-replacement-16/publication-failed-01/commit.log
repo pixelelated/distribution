@@ -1,0 +1,4 @@
+✖ pre-commit: this commit would add a credential-shaped line:
+    docs/qa-logs/2026-10-07-pixelelated-replacement-16/freeze/inputs.json:3369: +    "projects/ROCKNIX/devices/H700/patches/linux/0158-mmc-sunxi-mmc-ma[REDACTED].patch": "880336a569661a93e5e384fdd58c2c7470c203cc1cfe83d4cfc7e05be89a8c9e",
+    docs/qa-logs/2026-10-07-pixelelated-replacement-16/freeze/inputs.json:3723: +    "projects/ROCKNIX/devices/SM6115/patches/linux/0034-serial-qcom-geni-ma[REDACTED].patch": "766d67c2cf75d66c3a266f74249a0e9fced1fa99350a58fcfcd3f35f8554e7c1",
+  A placeholder belongs in <angle brackets>; a scanner's fixture is built at run time (printf pieces), never written as a literal; a listed word is reworded, never exempted.
