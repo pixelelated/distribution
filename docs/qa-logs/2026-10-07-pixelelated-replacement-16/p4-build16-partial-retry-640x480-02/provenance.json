@@ -1,0 +1,9 @@
+{
+  "prepared_utc": "2026-10-07T00:46:16.600844+00:00",
+  "parent": "/workspace/tmp/pixelelated-m7-p4-build16-partial-retry-640x480-01",
+  "issue": 486,
+  "correction": "Observe old parent existence/device/inode/descendants immediately before and after backup. Require no old descendants and no change. Prior01 allowed an empty parent after MOVE, then incorrectly required absence after backup.",
+  "unchanged": "Actual strict-partial copy, PID/start-tick kill, original-byte/pointer/record protection, actual UI retry, every original destination hash, final marker and next-backup displaced-save checks. Candidate16 and installed product bytes unchanged.",
+  "resolution": "640x480",
+  "state": "prepared, not submitted"
+}

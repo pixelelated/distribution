@@ -1,0 +1,36 @@
+{
+  "partial": {
+    "destination_bytes": 258048,
+    "source_bytes": 8391392,
+    "observed_utc": "2026-10-07T00:48:12.764020+00:00"
+  },
+  "killed": {
+    "pid": 5376,
+    "argv": [
+      "rclone",
+      "copy",
+      "qa-cloud:/ROCKNIX/Backups",
+      "qa-cloud:/pixelelated/Backups",
+      "--files-from-raw",
+      "/tmp/cloud_migrate_layout.of8Vl2",
+      "--create-empty-src-dirs=false",
+      "--progress",
+      "--stats",
+      "2s",
+      "--contimeout",
+      "5s",
+      "--timeout",
+      "15s",
+      "--low-level-retries",
+      "1",
+      "--retries",
+      "1",
+      "--bwlimit",
+      "256k",
+      "--disable",
+      "copy"
+    ],
+    "start_ticks": "8487",
+    "signal": "SIGKILL"
+  }
+}

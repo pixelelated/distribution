@@ -17,7 +17,7 @@ upstream submission, personal cloud, physical-device action, arbitrary root,
 wider deletion or filesystem reserve change is authorized. The exact two-disk
 approval has been exercised and is complete; no user answer is pending.
 
-## Current execution — 2026-10-07 00:41 UTC
+## Current execution — 2026-10-07 00:59 UTC
 
 Both approved Fable audit calls and grading are complete. Phase 7 remains open:
 PL-002/006/007/008 are resolved; PL-001/003/004/005 await candidate 16 installed
@@ -45,9 +45,22 @@ record-copy and record-delete states restore all four owned tiers, remove the
 record and remain unchanged on repeated apply. Primary00:41:06 verified all four
 results zero, 211 seals and actual guest/backend cleanup.
 
-The real partial-copy/UI retry test is active in English/French at 640×480:
-`/workspace/tmp/pixelelated-m7-p4-build16-partial-retry-640x480-01`, launcher128765,
-watcher128767, run `20261007T004110Z-e8f0e007`. Direct frame review is still required.
+Actual interrupted-file retry is COMPLETE in English/French at640x480 and
+1280x800. Each of the four real copies was killed at258,048 of8,391,392bytes;
+original files/pointers and the recovery record survived. Actual UI retry moved
+all4 originals; the next backup preserved the displaced save in current
+Saves-replaced. Empty old-parent state and restart cloud hashes stayed unchanged.
+All32 frames were directly reviewed: complete revised reasons, prompts and
+controls fit both panels. Primary verification:640 at00:53:05 and1280 at00:58:48,
+allfour0/10seals and actual guest/backend/port cleanup for each owner.
+Failed640-01 remains a separate failed fixture run under#486.
+
+The English/French640 legacy-root and truthful-reason proof is active:
+`/workspace/tmp/pixelelated-m7-p4-build16-root-reasons-640x480-01`, launcher291441,
+watcher291443, run `20261007T005857Z-46bc93fa`. Next are1280 root/reasons,
+both-resolution recovery, full clean/actual RC2-upgrade QA20 and local protocols.
+#482/#486 have their installed acceptance; tracker closure follows publication.
+#478/#479 and four original audit findings await their complete final criteria.
 
 Whole-image scan15 passed: 57,295 files, 8,606 classified branding contexts, zero
 FIX/UNKNOWN or unclassified credential matches, and exact French/XML checks.
@@ -58,8 +71,7 @@ The exact approved two-disk retirement is complete: 10,713,485,312 bytes recover
 all other evidence and protected sources preserved. No broader cleanup or reserve
 change was made or is authorized. The fixed swap helper passed before the build.
 
-**Next:** actual interrupted-file UI retry /
-next-backup preservation → English/French recovery/reason/interruption frames at
+**Next:** English/French legacy-root/reason/recovery frames at
 640×480 and 1280×800 → full clean/actual RC2-upgrade QA20 and the standing WebDAV/SFTP/S3 baseline →
 #471/P4 closure → #461 device capacity review → H700 DDR4 RG35XX SP arm, then
 aarch64 → named physical/P5 gates. #478/#479/#482 remain open until acceptance.
@@ -103,20 +115,38 @@ The canonical coordination tool has the corrected T23; frozen16 is unchanged.
 Historical-shelf01 is COMPLETE: all3 PASS, allfour0/211 seals/actual cleanup
 verified00:41:06. Retained under Q16/p4-build16-inherited-shelf-01; do not replay.
 
-ACTIVE partial-retry640 owner:
-`/workspace/tmp/pixelelated-m7-p4-build16-partial-retry-640x480-01`, run
-`20261007T004110Z-e8f0e007`, watcher128767. Read console.log/build.status, then verify
-owner results and actual cleanup (9040/10026/5912; include any additionally
-observed listeners). Directly review every retained affected EN/FR frame.
-Generic owner results alone do not establish #479/#482 acceptance.
+Partial-retry640-01 FAILED at its final old-parent assertion, after actual
+partial copy/kill/UI retry/all original bytes/new marker/next-backup shelf passed.
+Allfour1/10 seals/actual cleanup verified00:45:13; eight English640 frames reviewed
+and retained. No French case ran. #486 owns the inconsistent fixture expectation.
+Actual old parent is empty and predates backup. Fresh02 captures and compares
+its existence/device/inode/descendants before and after; no product change.
 
-Publication01 FAILED before commit on literal scanner rejection-marker constants
-in two retained copy helpers. Independent allfour1/5296 seals/exits receipt is
-retained. The same marker bytes now assemble from pieces under the normal guard
-contract; no exception. Index reset to the pre-publication empty state; working
-files preserved. Fresh publication02 is next after this checkpoint is saved.
+Partial-retry640-02 COMPLETE: both EN/FR cases pass,16 frames directly reviewed
+and hash-bound in Q16/partial640-02-acceptance. Independent allfour0/10 seals/actual
+cleanup verified00:53:05. Original failed640-01 remains failed. No product change.
 
-After the active partial-retry640 owner completes, all remaining owners below are prepared and unexecuted. Run ONE VM owner at a time,
+Partial-retry640-02 and1280-02 are COMPLETE. Each passed both EN/FR behavior
+cases and16 directly reviewed frames. Primary64000:53:05/128000:58:48 verified
+allfour0,10seals and actual cleanup. Both acceptance folders are retained inQ16.
+Failed640-01 stays failed under#486; unexecuted1280-01 is superseded, never run it.
+
+ACTIVE root-reasons640 owner:
+`/workspace/tmp/pixelelated-m7-p4-build16-root-reasons-640x480-01`, run`20261007T005857Z-46bc93fa`, watcher291443.
+Consume completion and actual cleanup9040/10026/5912, then review every frame.
+No other VM owner is active. Both partial-copy evidence sets are ready for
+normal publication and#482/#486 acceptance closure.
+
+Qualification-publication02 COMPLETE: feature `674f4312ffd75c47a5bde8f5dbb4c5df9f941557`, next
+`7b9dae4ac0be43c533ac7cdbc142d383a8ca940c`; 5607 changed paths equal, normal hooks and exact remote refs
+verified00:42:59; independent allfour0/5609 seals/exits verified00:43:18.
+Failed01 remains retained; literal rejection-marker constants were constructed
+from pieces under the existing guard rule. No guard exception or product change.
+No publication is currently running. The audit cadence remains overdue in CI;
+this was not a whole-CI-green claim. #484/#485 are CLOSED completed with exact published-evidence/body/state readbacks
+in Q16/fixture-issue-resolution. #486 remains open for the fresh UI proofs.
+
+After the active root-reasons640 owner completes, all remaining owners below are prepared and unexecuted. Run ONE VM owner at a time,
 after the prior owner's verified guest/backend/port cleanup. Use the immutable
 bundle under `/workspace/artifacts/pixelelated-candidates/sha256/7f98f2d22985d11fe9c150015457894caf460104c9ce44abd16074167f23815a`.
 Use frozen16 cwd and `tools/watch-build-submit --owner OWNER -- --activity-dir
@@ -124,9 +154,9 @@ OWNER/artifacts --recursive-activity -- OWNER/outer.sh BUNDLE` except historical
 shelf uses activity directory `OWNER/proof` and `python3 -I OWNER/run.py BUNDLE`.
 
 1. COMPLETE `pixelelated-m7-p4-build16-inherited-shelf-01`: three historical shelves passed.
-2. ACTIVE `pixelelated-m7-p4-build16-partial-retry-640x480-01`, then
-   `...-1280x800-01`: actual partial-file kill/UI retry and next-backup shelf.
-3. `pixelelated-m7-p4-build16-root-reasons-640x480-01` and `...-1280x800-01`.
+2. COMPLETE `pixelelated-m7-p4-build16-partial-retry-640x480-02` and
+   `pixelelated-m7-p4-build16-partial-retry-1280x800-02`: actual partial-file kill/UI retry and next-backup shelf.
+3. ACTIVE `pixelelated-m7-p4-build16-root-reasons-640x480-01`, then `...-1280x800-01`.
 4. `pixelelated-m7-p4-build16-recovery-640x480-01` and `...-1280x800-01`.
 5. `pixelelated-m7-qa-20`: all15 defaults/78walkframes and actual RC2 upgrade.
 6. `pixelelated-m7-cloud-02`: existing WebDAV/SFTP/MinIO-S3 baseline on these bytes.
@@ -157,7 +187,7 @@ the primary actively consumes terminal status and continues the authorized work.
   This is source acceptance, not installed16 acceptance.
 - Revised interruption copy: TRY AGAIN TO MOVE THE REMAINING FILES. Reopened
   prompt puts FILES ALREADY MOVED WILL BE KEPT before TRY AGAIN? Exact English/
-  French compiler/vocabulary164/msgfmt checks passed. Installed frames still due.
+  French compiler/vocabulary164/msgfmt checks passed. All32 installed EN/FR640/1280 frames now pass.
 - Candidate15:642 build tasks; QA19 all15 default suites/78frames and actualRC2
   upgrade; library415PASS; boot09 four clean/upgrade640/1280 profiles; historical
   no-join02 actualRC2→1ac updated/fresh default-nojoin negative; fresh-root07 actual

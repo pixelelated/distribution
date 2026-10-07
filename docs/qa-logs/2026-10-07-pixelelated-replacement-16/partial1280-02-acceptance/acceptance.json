@@ -1,0 +1,42 @@
+{
+  "verified_utc": "2026-10-07T00:59:31.029941+00:00",
+  "owner": "/workspace/tmp/pixelelated-m7-p4-build16-partial-retry-1280x800-02",
+  "behavior_cases": [
+    {
+      "case": "en_US-mid-copy-kill-ui-retry-next-shelf",
+      "status": "PASS",
+      "visual_review": "pending actual frames"
+    },
+    {
+      "case": "fr_FR-mid-copy-kill-ui-retry-next-shelf",
+      "status": "PASS",
+      "visual_review": "pending actual frames"
+    }
+  ],
+  "direct_frames": 16,
+  "actual_partial_copies": {
+    "en_US": {
+      "record_sha256": "995ae385ad5bc0299ff16248e66dc5902576eb57d18a23782410f3514bc964f4",
+      "partial_bytes": 258048,
+      "source_bytes": 8391392,
+      "signal": "SIGKILL",
+      "old_parent_unchanged": true,
+      "new_shelf": "pixelelated/Saves-replaced/2026_10_06-205604/gb/Conflict.srm"
+    },
+    "fr_FR": {
+      "record_sha256": "c8f5a101fceae91bf44cb7a3d96434eed0a5293a7a586fd99c85db5a23a3ae1e",
+      "partial_bytes": 258048,
+      "source_bytes": 8391392,
+      "signal": "SIGKILL",
+      "old_parent_unchanged": true,
+      "new_shelf": "pixelelated/Saves-replaced/2026_10_06-205818/gb/Conflict.srm"
+    }
+  },
+  "scope": "English/French1280; combined with640-02 supplies four actual partial-copy/retry/next-backup cases and32 directly reviewed frames. Full QA20 and protocols remain required for candidate qualification. Failed640-01 stays failed.",
+  "primary_visual_review": {
+    "result": "PASS",
+    "frames": 16,
+    "receipt": "frames.json",
+    "receipt_sha256": "92fcc0dce74f3d608b4ff94fad969c4d19d542cd4822c6ad0f6498f4b3eb6caa"
+  }
+}

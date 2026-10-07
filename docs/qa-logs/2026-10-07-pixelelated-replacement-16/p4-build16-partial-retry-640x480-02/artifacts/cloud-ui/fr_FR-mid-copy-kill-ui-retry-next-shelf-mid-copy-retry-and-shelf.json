@@ -1,0 +1,64 @@
+{
+  "before": {
+    "ROCKNIX/Backups/GENERIC-X64-474cbdb64c/2026_10_06-120000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz": "4826dbbb9165ce66f539422a1e42a76475aaa5a9c47bcc496e9ee627feb9186d",
+    "ROCKNIX/Content/ROMs/gb/Witness.gb": "4d276c0b013c4cd2417845edac4e60f969b60b8cf852dac72c91332506053f5e",
+    "ROCKNIX/Saves/gb/Conflict.srm": "0cafaaa7034b1e2b6e5e55f2f397cd9c15fad3c8e0dedc8d28d296026782d4ca",
+    "ROCKNIX/Saves-replaced/gb/Older.srm": "d1801ccd699ecfbf05cc3814a45d07ea1d849216869e61501c02ac13cfd2fa0d"
+  },
+  "partial": {
+    "destination_bytes": 258048,
+    "source_bytes": 8391392,
+    "observed_utc": "2026-10-07T00:50:53.965352+00:00"
+  },
+  "killed": {
+    "pid": 12036,
+    "argv": [
+      "rclone",
+      "copy",
+      "qa-cloud:/ROCKNIX/Backups",
+      "qa-cloud:/pixelelated/Backups",
+      "--files-from-raw",
+      "/tmp/cloud_migrate_layout.cQYXSJ",
+      "--create-empty-src-dirs=false",
+      "--progress",
+      "--stats",
+      "2s",
+      "--contimeout",
+      "5s",
+      "--timeout",
+      "15s",
+      "--low-level-retries",
+      "1",
+      "--retries",
+      "1",
+      "--bwlimit",
+      "256k",
+      "--disable",
+      "copy"
+    ],
+    "start_ticks": "24604",
+    "signal": "SIGKILL"
+  },
+  "after": {
+    "pixelelated/.layout": "be68d69fa1fe3ddbcaa9295b8e3e732fd0113d909e38cf643d95aab41c9b1a22",
+    "pixelelated/Backups/GENERIC-X64-474cbdb64c/2026_10_06-120000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz": "4826dbbb9165ce66f539422a1e42a76475aaa5a9c47bcc496e9ee627feb9186d",
+    "pixelelated/Content/ROMs/gb/Witness.gb": "4d276c0b013c4cd2417845edac4e60f969b60b8cf852dac72c91332506053f5e",
+    "pixelelated/Saves/gb/Conflict.srm": "0fab6288e40357a85187723a756cb33bf02228b5e1fd01de96f012442f30292b",
+    "pixelelated/Saves-replaced/2026_10_06-205220/gb/Conflict.srm": "0cafaaa7034b1e2b6e5e55f2f397cd9c15fad3c8e0dedc8d28d296026782d4ca"
+  },
+  "pointers": "SAVES_REMOTE=\"/pixelelated/Saves\"\nSETTINGS_REMOTE=\"/pixelelated/Backups\"\nCONTENT_REMOTE=\"/pixelelated/Content\"\n",
+  "new_shelf": "pixelelated/Saves-replaced/2026_10_06-205220/gb/Conflict.srm",
+  "legacy_parent_before": {
+    "exists": true,
+    "device": 66304,
+    "inode": 86789863,
+    "entries": []
+  },
+  "legacy_parent_after": {
+    "exists": true,
+    "device": 66304,
+    "inode": 86789863,
+    "entries": []
+  },
+  "scope": "First and second MOVE are actual UI actions; killed actual installed rclone after partial bytes existed. Next shelf is from actual installed cloud_backup."
+}

@@ -1,0 +1,11 @@
+{
+  "observed_utc": "2026-10-07T00:47:10.922367+00:00",
+  "path": "/workspace/tmp/pixelelated-m7-p4-build16-partial-retry-640x480-01/cloud/data/ROCKNIX",
+  "device": 66304,
+  "inode": 86789767,
+  "mtime_ns": 1791333845567023208,
+  "children": [],
+  "birth_utc": "2026-10-07 00:42:02.038635913 +0000",
+  "birth_source": "actual stat -c %w readback",
+  "finding": "Existing empty parent predates the next backup; final fixture had never asserted this parent absent before that backup."
+}

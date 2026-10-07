@@ -330,3 +330,5 @@ QA08 reached correct initial identity/Information but generic dismiss/reopen/cou
 - 2026-10-07 00:37 UTC — issue: #485; guard `tools/pixelelated-vm-cloud-boundaries`. The old T23 observer required partial saves/record writes on a foreign-content refusal, contradicting #479's earlier refusal. The corrected case asserts all original state unchanged across two attempts; a fresh installed check includes an actual old-source negative control.
 
 - 2026-10-07 00:40 UTC — issue: #484; guard `.githooks/pre-commit`. Newly retained copy helpers contained literal private-key rejection markers. The normal guard refused before commit; preserve that failure and construct the same marker bytes at runtime under the existing fixture rule. No exemption.
+
+- 2026-10-07 00:47 UTC — issue: #486; guard `docs/qa-logs/2026-10-07-pixelelated-replacement-16/preparation/prepare-partial-ui02.py`. The partial-copy UI observer accepted an empty old parent after migration but required absence after backup. Fresh owners compare the observed parent/descendants before and after, preserving all data assertions.

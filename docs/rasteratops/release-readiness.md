@@ -1,6 +1,6 @@
 # pixelelated 0.0.1 release readiness
 
-## Current execution — 2026-10-07 00:41 UTC
+## Current execution — 2026-10-07 00:59 UTC
 
 Both approved Fable audit calls and grading are complete. Phase 7 remains open:
 PL-002/006/007/008 are resolved; PL-001/003/004/005 await candidate 16 installed
@@ -28,9 +28,22 @@ record-copy and record-delete states restore all four owned tiers, remove the
 record and remain unchanged on repeated apply. Primary00:41:06 verified all four
 results zero, 211 seals and actual guest/backend cleanup.
 
-The real partial-copy/UI retry test is active in English/French at 640×480:
-`/workspace/tmp/pixelelated-m7-p4-build16-partial-retry-640x480-01`, launcher128765,
-watcher128767, run `20261007T004110Z-e8f0e007`. Direct frame review is still required.
+Actual interrupted-file retry is COMPLETE in English/French at640x480 and
+1280x800. Each of the four real copies was killed at258,048 of8,391,392bytes;
+original files/pointers and the recovery record survived. Actual UI retry moved
+all4 originals; the next backup preserved the displaced save in current
+Saves-replaced. Empty old-parent state and restart cloud hashes stayed unchanged.
+All32 frames were directly reviewed: complete revised reasons, prompts and
+controls fit both panels. Primary verification:640 at00:53:05 and1280 at00:58:48,
+allfour0/10seals and actual guest/backend/port cleanup for each owner.
+Failed640-01 remains a separate failed fixture run under#486.
+
+The English/French640 legacy-root and truthful-reason proof is active:
+`/workspace/tmp/pixelelated-m7-p4-build16-root-reasons-640x480-01`, launcher291441,
+watcher291443, run `20261007T005857Z-46bc93fa`. Next are1280 root/reasons,
+both-resolution recovery, full clean/actual RC2-upgrade QA20 and local protocols.
+#482/#486 have their installed acceptance; tracker closure follows publication.
+#478/#479 and four original audit findings await their complete final criteria.
 
 Whole-image scan15 passed: 57,295 files, 8,606 classified branding contexts, zero
 FIX/UNKNOWN or unclassified credential matches, and exact French/XML checks.
@@ -41,8 +54,7 @@ The exact approved two-disk retirement is complete: 10,713,485,312 bytes recover
 all other evidence and protected sources preserved. No broader cleanup or reserve
 change was made or is authorized. The fixed swap helper passed before the build.
 
-**Next:** actual interrupted-file UI retry /
-next-backup preservation → English/French recovery/reason/interruption frames at
+**Next:** English/French legacy-root/reason/recovery frames at
 640×480 and 1280×800 → full clean/actual RC2-upgrade QA20 and the standing WebDAV/SFTP/S3 baseline →
 #471/P4 closure → #461 device capacity review → H700 DDR4 RG35XX SP arm, then
 aarch64 → named physical/P5 gates. #478/#479/#482 remain open until acceptance.

@@ -1,0 +1,7 @@
+{
+  "body": "The candidate16 installed matrix's T23 fixture still requires saves to have moved and a recovery record to exist after refusing foreign content. The #479 source fix deliberately checks content before any tier advances or a recovery record is created, preventing a refused destination from acquiring false interrupted-copy provenance. Matrix01 refused the content correctly, then its old expected-destination read failed.\n\nCan this be done on the VM? Yes: use the unchanged candidate16 image and owned local cloud, compare every original cloud byte and all settings pointers before/after refusal, require no recovery record, repeat the refusal, and verify the stronger invariant rejects the actual prior migration script in a private QA path.\n\n- [ ] Preserve matrix01's actual failure, all case results, source seals and verified guest/backend cleanup.\n- [ ] Correct the T23 acceptance to require unchanged cloud/config/pointers and no created record; retain the foreign-destination and no-complete-marker checks.\n- [ ] A fresh installed VM check passes the stronger invariant, rejects the actual old-script control, and leaves all installed binaries unchanged with verified cleanup.\n\nRefs #479, #471. No product modification or new build is implied by this fixture correction.\n",
+  "number": 485,
+  "state": "OPEN",
+  "title": "M7.P4: Verify collision refusal before any migration writes",
+  "updatedAt": "2026-10-07T00:36:39Z"
+}
