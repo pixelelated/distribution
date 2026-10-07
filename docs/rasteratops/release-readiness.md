@@ -13,11 +13,19 @@ Earlier failed owners, logs and interrupted package scopes are preserved.
 Next is H700 aarch64 firmware, then SM8550. No bootable firmware is claimed.
 The post-arm capacity gate has 161.83 GiB available against 267.74 GiB needed
 for H700 firmware. #494 independently preserved all 14,489 custody objects
-and completed dependency discovery. Keep replacement12 for retained QA
-source links; replacement09/10/14 offer 324.38 GiB potential net recovery.
-The requested read-only administrator process check remains before the exact
-removal proposal; no further deletion is authorized. #493 owns the broader
-post-build review and recurring retention plan before a drive decision.
+and completed dependency discovery. Under the subsequent D-INFRA-022 policy,
+replacement09/10/12/14 offer 432.57 GiB potential net recovery: completed QA
+source links are historical inputs with independently preserved exact source.
+The maintainer has now requested immediate broader cleanup, prioritizing durable
+test records over completed VM disks (D-INFRA-021/022, #493). Every large test
+artifact now requires a named active or immediately queued test and a release
+condition. The revised ordinary-payload selection is all 263 completed QA disks
+and 587 old firmware files, 1,415.07 GiB; both hash passes and external-reference
+classification are accepted. Five firmware files have temporary test-specific
+recovery holds. The plan retains 50,983 compact records. Guest disk recreation
+took about eight seconds from retained firmware, separate from boot/test time.
+The broader read-only administrator process check supersedes the four-tree one.
+No removal has yet occurred. See `docs/qa-logs/2026-10-07-storage-retention/`.
 Physical actions, source/licence/public docs and publication remain gated.
 See `docs/qa-logs/2026-10-07-device-builds/README.md`.
 
