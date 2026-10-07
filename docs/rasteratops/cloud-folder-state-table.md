@@ -1,10 +1,26 @@
 # Cloud folder states and actors
 
+## Current direction — 2026-10-07, #508
+
+D-CLOUD-175 supersedes the migration behavior below. Fresh configurations use
+`/pixelelated`; normal linking seeds the selected folders and READMEs. Existing
+credentials and configured paths remain until the player selects another folder.
+Scans are read-only: they do not join, follow or move a legacy library, and content
+discovery does not silently adopt a different path. The startup migration step
+and optional tidier are retired by #508. Ordinary sync, selective transfer and
+stored-format safeguards remain. Focused implementation/VM evidence belongs to
+#508; this direction is not an assertion about the already accepted firmware.
+
+The remainder is historical migration design and proof, retained for diagnosis.
+Its former requirements do not reopen retired migration work.
+
+## Historical baseline
+
 Review baseline: distribution `b2378d9c33` (run 101), scripts at the original audit baseline;
 EmulationStation `e108699ea`. Written for #365 and #375, 2026-10-02.
 The table preserves the audited baseline. Implemented changes and their receipts
 are recorded below; guest qualification is a separate result.
-D-CLOUD-170 through D-CLOUD-172 remain in force (D-WORKFLOW-134).
+D-CLOUD-170 through D-CLOUD-172 governed this baseline (D-WORKFLOW-134).
 
 ## Image qualification receipt — 2026-10-05
 

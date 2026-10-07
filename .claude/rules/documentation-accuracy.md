@@ -35,7 +35,9 @@ stay consistent with the cloud-sync source of truth in **this** repo:
 - the scripts `cloud_backup`, `cloud_restore`, `cloud_sync_helper`, and the ones
   added since: `cloud_setup`, `cloud_remote`, `cloud_oauth`, `cloud_device_id`,
   `cloud_content_backup`, `cloud_content_restore` (including `--match`, the
-  only content action that deletes — D-CLOUD-023), `cloud_migrate_layout`.
+  only content action that deletes — D-CLOUD-023). `cloud_migrate_layout`
+  and its optional tidier/startup flow are retired by D-CLOUD-175 (#508);
+  current docs describe explicit folder setup and manual library population.
   `rclonectl` is gone (#6).
 
 When you touch any of those, re-check the page for: renamed/removed/added variables, changed

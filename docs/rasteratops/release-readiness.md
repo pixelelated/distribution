@@ -32,6 +32,13 @@ verified at 16:52:09. Raw/update payload equality, GPT/ABL, 187 ARM handoff file
 for original failed owners and terminal evidence. Physical Nova boot/smoke and
 release publication remain separate; no new transfer or reboot was performed.
 
+Immediate P5 priority is #508: replace automatic cloud-folder migration and
+the optional tidier with normal linking, folder creation and explicit selection
+(D-CLOUD-175). Preserve existing credentials and paths; fresh setups default to
+`/pixelelated`. Coordinated script/UI source and synthetic VM proof are in
+progress. The accepted firmware above still contains the old migration flow.
+Its replacement needs qualified inclusion in the selected release artifacts.
+
 Remaining P5 work under #344/#265/#359 is explicit:
 
 - Reconcile each selected image's input deltas, required image sweeps and
@@ -50,12 +57,11 @@ Remaining P5 work under #344/#265/#359 is explicit:
   qualified; public publication remains separate.
 - Complete the queued scoped Milestone independent P5 delta audit under #507.
   Candidate16's completed audit remains accepted; #507 completion is not claimed.
-- Include and qualify #505's diagnostics fix in the final selected artifact
-  after its proposed isolated implementation and focused source-overlay proof complete.
-  The accepted SM8550 checkout remains frozen at0553. Automatic approval
-  review refused applying the diagnostic patch. The reviewed patch and isolated
-  controls are complete; explicit implementation approval has been requested.
-  No personal-cloud retry is inferred.
+- Complete #508, then freeze the resulting P5 delta for #507. The maintainer
+  approved #505's diagnostics patch, then replaced the migration approach.
+  #505 is closed not planned; its isolated draft is unintegrated and must not
+  be resumed. Accepted firmware checkouts remain frozen. Owner Dropbox
+  inventory/reconciliation is separate and is not a release credential gate.
 
 #359's installed branding terms already match current and frozen source on both
 clean and upgraded candidate16 guests; its release-note link remains open.

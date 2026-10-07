@@ -26,6 +26,11 @@ the release's per-SoC boot-chain delta/downgrade disposition from exact inputs.
 Do not replay accepted SP transfer/reboot or common VM qualification merely to
 refresh this table. Further physical actions need their own named authority.
 
+#508/D-CLOUD-175 replaces the cloud migration flow with manual folder setup.
+Its script/UI proof is in progress; none of the accepted artifacts above yet
+includes that replacement. Map and qualify those new inputs before selecting
+release assets. Owner Dropbox reconciliation is separate from board QA.
+
 ## Historical matrix — 2026-09-30, updated 2026-10-01
 
 The original observations and source-line references below are preserved as a

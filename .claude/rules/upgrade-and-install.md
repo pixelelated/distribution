@@ -122,6 +122,18 @@ Applies past config keys: file formats, marker names, menu locations, directory
 layouts. If a device that upgrades and a device that is freshly flashed can both
 be made to just work, that is the answer, and everything else is a fallback.
 
+## Current cloud setup policy
+
+D-CLOUD-175 (#508) retires automatic cloud-folder migration for 0.0.1.
+Normal backend linking creates the selected folders and README files; fresh
+configurations default to `/pixelelated`. Existing credentials and configured
+paths stay unchanged until an explicit folder selection. Scans do not join,
+follow or move an older cloud library, and content discovery never silently
+replaces the selected path. Users populate or rearrange cloud files themselves.
+This does not remove ordinary sync, selective restore or OS upgrade testing.
+The retired migration's history and proofs remain historical evidence. The
+general safeguards below apply if a future migration is actually required.
+
 ## Migrations
 
 If a migration is genuinely needed:
