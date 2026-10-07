@@ -1,0 +1,46 @@
+{
+  "utc": "2026-10-07T09:08:34.762794+00:00",
+  "result": "PASS",
+  "scope": "H700 firmware artifacts; no physical boot/smoke or RC/publication claim",
+  "bundle": "/workspace/artifacts/pixelelated-candidates/sha256/d89b067a5176d7c02633bc9e72ee9b0f96dd3d626d343a0f16949e70c9daf710",
+  "bundle_manifest_sha256": "d89b067a5176d7c02633bc9e72ee9b0f96dd3d626d343a0f16949e70c9daf710",
+  "distribution_commit": "43d0bc3bf47fd858ba8d5c55fbdf52535a0db2aa",
+  "architecture": [
+    {
+      "path": "usr/bin/emulationstation",
+      "arch": "aarch64",
+      "sha256": "30ce3abecd6bf45da280f379bd9e016c04014a7865532bed3cfa4d5a980c34cb"
+    },
+    {
+      "path": "usr/bin/retroarch",
+      "arch": "aarch64",
+      "sha256": "3eec8cc1236e07272482ab843b3a1020e3f2231fef78a04c75b8d3c04d4efdb8"
+    }
+  ],
+  "arm_handoff_files": 185,
+  "variants": [
+    {
+      "image": "pixelelated-H700.aarch64-0.0.1-from-ROCKNIX-DDR3.img.gz",
+      "variant": "DDR3",
+      "system_sha256": "588ac87140057c260a661d0328edfd797d3cec5fbc6b36980aad5ad5ed0ab534",
+      "kernel_sha256": "07a06330474a1e72fa6b6c844ceee8d5d6b3bbf6d6be9e4a6395b87e0592dc60",
+      "bootloader_sha256": "174edf6e299340bd9474936e85722ef9e2a2b553f3d3316602ef63b50d21cf07",
+      "first_sector": 32768,
+      "raw_sha256": "fced767ec7c8dc5f0dd6be0a2ab30808e1aaecf3b06af02d0055733eb54114df",
+      "raw_bytes": 2198863872
+    },
+    {
+      "image": "pixelelated-H700.aarch64-0.0.1-from-ROCKNIX-DDR4.img.gz",
+      "variant": "DDR4",
+      "system_sha256": "588ac87140057c260a661d0328edfd797d3cec5fbc6b36980aad5ad5ed0ab534",
+      "kernel_sha256": "07a06330474a1e72fa6b6c844ceee8d5d6b3bbf6d6be9e4a6395b87e0592dc60",
+      "bootloader_sha256": "dca68e9555a6ed43342aae18f33c95c94a784b893d0614574015608bcb66b4ea",
+      "first_sector": 32768,
+      "raw_sha256": "b9a667b81aebfab234bf8e100bb7e5a07fc8495e47ec895fb2572fc867197b62",
+      "raw_bytes": 2198863872
+    }
+  ],
+  "scratch_removed": true,
+  "source_unchanged": true,
+  "independent_bundle_inodes": true
+}
