@@ -1,0 +1,57 @@
+{
+  "utc": "2026-10-07T02:58:05.263884+00:00",
+  "device_tree": "/workspace/repos/rocknix.worktrees/devices",
+  "device_head": "1acdaf2cce908b25758a004dca0f22ad3ff7af49",
+  "roots_allocated_bytes": {
+    "arm": 30044336128,
+    "aarch64": 117829722112
+  },
+  "artifacts": [
+    {
+      "path": "/workspace/repos/rocknix.worktrees/devices/target/ROCKNIX-H700.aarch64-20260929-DDR3.img.gz",
+      "identity": {
+        "device": 66304,
+        "inode": 136716488,
+        "size": 1300569949,
+        "mtime_ns": 1790720575000000000,
+        "allocated_bytes": 1300574208,
+        "uid": 1000,
+        "links": 1,
+        "mode": 33188
+      },
+      "decoded_bytes": 2198863872
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/devices/target/ROCKNIX-H700.aarch64-20260929-DDR4.img.gz",
+      "identity": {
+        "device": 66304,
+        "inode": 136716486,
+        "size": 1300569902,
+        "mtime_ns": 1790720567000000000,
+        "allocated_bytes": 1300574208,
+        "uid": 1000,
+        "links": 1,
+        "mode": 33188
+      },
+      "decoded_bytes": 2198863872
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/devices/target/ROCKNIX-H700.aarch64-20260929.tar",
+      "identity": {
+        "device": 66304,
+        "inode": 136716483,
+        "size": 1320642560,
+        "mtime_ns": 1790720561391348078,
+        "allocated_bytes": 1320648704,
+        "uid": 1000,
+        "links": 1,
+        "mode": 33188
+      }
+    }
+  ],
+  "system_bytes": 1284382720,
+  "artifact_budget_bytes": 19327352832,
+  "operating_allowance_bytes": 107374182400,
+  "package_growth_allowance_bytes": 42949672960,
+  "basis": "Independent cold worktree estimated from each actual H700 cache; preserve the old device tree. Artifacts: twice actual compressed allocation, actual decompressed DDR3/DDR4 lengths and twice SYSTEM, plus 25%, rounded up to GiB. 40 GiB build growth and 100 GiB operating allowances carried from candidate16 preflight; these are conservative allowances, not measured future peaks. aarch64 forecast includes retained arm root, growth and artifact budget. Remeasure after arm."
+}

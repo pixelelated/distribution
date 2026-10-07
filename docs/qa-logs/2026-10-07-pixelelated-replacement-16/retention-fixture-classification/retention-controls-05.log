@@ -1,0 +1,172 @@
+Inspected 1/1 backing chains
+Inspected 1/1 backing chains
+Inspected 1/1 backing chains
+Inspected 1/2 backing chains
+Inspected 1/1 backing chains
+Inspected 1/1 backing chains
+Inspected 1/1 backing chains
+Inspected 1/1 backing chains
+Inspected 1/1 backing chains
+Inspected 1/1 backing chains
+Inspected 1/1 backing chains
+Inspected 1/1 backing chains
+Inspected 1/2 backing chains
+Inspected 1/1 backing chains
+Inspected 1/2 backing chains
+Inspected 1/2 backing chains
+Inspected 1/2 backing chains
+Inspected 1/1 backing chains
+{
+  "result": "PASS",
+  "controls": [
+    {
+      "name": "eligible independent completed QA disk",
+      "passed": true,
+      "eligible": true,
+      "reasons": []
+    },
+    {
+      "name": "unclassified candidate",
+      "passed": true,
+      "eligible": false,
+      "reasons": [
+        "unclassified candidate"
+      ]
+    },
+    {
+      "name": "actual unreadable disk",
+      "passed": true,
+      "eligible": false,
+      "reasons": [
+        "unreadable or unclassified dependency inventory",
+        "identity changed",
+        "candidate not classified as QCOW2",
+        "unreadable or malformed candidate evidence: [Errno 13] Permission denied: '/tmp/pixelelated-retention-controls-c9kr9mmd/owner/guest.qcow2'"
+      ]
+    },
+    {
+      "name": "unreadable dependency tree",
+      "passed": true,
+      "eligible": false,
+      "reasons": [
+        "unreadable or unclassified dependency inventory"
+      ]
+    },
+    {
+      "name": "actual cross-store QCOW backing dependency",
+      "passed": true,
+      "eligible": false,
+      "reasons": [
+        "qcow-backing reference: /tmp/pixelelated-retention-controls-c9kr9mmd/store/dependent.qcow2"
+      ]
+    },
+    {
+      "name": "cross-store symlink",
+      "passed": true,
+      "eligible": false,
+      "reasons": [
+        "symlink reference: /tmp/pixelelated-retention-controls-c9kr9mmd/store/disk-link"
+      ]
+    },
+    {
+      "name": "cross-store JSON reference",
+      "passed": true,
+      "eligible": false,
+      "reasons": [
+        "cross-store-json reference: /tmp/pixelelated-retention-controls-c9kr9mmd/store/objects.json"
+      ]
+    },
+    {
+      "name": "hardlinked candidate",
+      "passed": true,
+      "eligible": false,
+      "reasons": [
+        "identity changed",
+        "not an exclusively owned regular file"
+      ]
+    },
+    {
+      "name": "actual live owner process",
+      "passed": true,
+      "eligible": false,
+      "reasons": [
+        "active process"
+      ]
+    },
+    {
+      "name": "protected tree",
+      "passed": true,
+      "eligible": false,
+      "reasons": [
+        "protected identity or ancestor"
+      ]
+    },
+    {
+      "name": "changed identity",
+      "passed": true,
+      "eligible": false,
+      "reasons": [
+        "identity changed"
+      ]
+    },
+    {
+      "name": "tampered retained evidence",
+      "passed": true,
+      "eligible": false,
+      "reasons": [
+        "retained evidence hash mismatch: /tmp/pixelelated-retention-controls-c9kr9mmd/kept/cleanup.json"
+      ]
+    },
+    {
+      "name": "eligible after temporary controls removed",
+      "passed": true,
+      "eligible": true,
+      "reasons": []
+    },
+    {
+      "name": "unclassified source disk is still held",
+      "passed": true,
+      "eligible": false,
+      "reasons": [
+        "unreadable or unclassified dependency inventory"
+      ]
+    },
+    {
+      "name": "exact protected archive fixture classified",
+      "passed": true,
+      "eligible": true,
+      "reasons": []
+    },
+    {
+      "name": "changed source fixture rejected",
+      "passed": true,
+      "eligible": false,
+      "reasons": [
+        "unreadable or unclassified dependency inventory"
+      ]
+    },
+    {
+      "name": "changed source archive rejected",
+      "passed": true,
+      "eligible": false,
+      "reasons": [
+        "unreadable or unclassified dependency inventory"
+      ]
+    },
+    {
+      "name": "unprotected fixture rejected",
+      "passed": true,
+      "eligible": false,
+      "reasons": [
+        "unreadable or unclassified dependency inventory"
+      ]
+    },
+    {
+      "name": "exact fixture remains valid after controls",
+      "passed": true,
+      "eligible": true,
+      "reasons": []
+    }
+  ],
+  "tool_sha256": "1187725512f1a0586bc4d7812a886076c71bc6fdd460f6cd4a73e91198518798"
+}

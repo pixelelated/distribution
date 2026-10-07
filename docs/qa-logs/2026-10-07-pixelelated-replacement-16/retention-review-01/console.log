@@ -1,0 +1,96 @@
+watch-build: recording in /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261007T025738Z-12d3d070
+Measured H700 arm root: 30044336128 allocated bytes
+Measured H700 aarch64 root: 117829722112 allocated bytes
+Prepared 24 explicit QA disk candidates; production read-only scan starting
+Inspected 53943 directories; 63 disk paths
+Inspected 97388 directories; 228 disk paths
+Inspected 127394 directories; 285 disk paths
+Inspected 184500 directories; 285 disk paths
+Inspected 225474 directories; 290 disk paths
+Inspected 271651 directories; 290 disk paths
+Inspected 323043 directories; 290 disk paths
+Inspected 368119 directories; 290 disk paths
+Inspected 423423 directories; 290 disk paths
+Inspected 466166 directories; 295 disk paths
+Inspected 511254 directories; 295 disk paths
+Inspected 558999 directories; 295 disk paths
+Inspected 599879 directories; 295 disk paths
+Inspected 655926 directories; 300 disk paths
+Inspected 690931 directories; 300 disk paths
+Inspected 733401 directories; 300 disk paths
+Inspected 785773 directories; 300 disk paths
+Inspected 821321 directories; 300 disk paths
+Inspected 880030 directories; 305 disk paths
+Inspected 915880 directories; 305 disk paths
+Inspected 956001 directories; 305 disk paths
+Inspected 1013272 directories; 305 disk paths
+Inspected 1115019 directories; 305 disk paths
+Inspected 1153511 directories; 305 disk paths
+Inspected 1211361 directories; 310 disk paths
+Inspected 1243614 directories; 310 disk paths
+Inspected 1286104 directories; 310 disk paths
+Inspected 1334232 directories; 310 disk paths
+Inspected 1368976 directories; 310 disk paths
+Inspected 1411517 directories; 310 disk paths
+Inspected 1462525 directories; 315 disk paths
+Inspected 1503623 directories; 315 disk paths
+Inspected 1566428 directories; 315 disk paths
+Inspected 1609153 directories; 315 disk paths
+Inspected 1667936 directories; 320 disk paths
+Inspected 1698812 directories; 320 disk paths
+Inspected 1738513 directories; 320 disk paths
+Inspected 1794267 directories; 320 disk paths
+Inspected 1838869 directories; 325 disk paths
+Inspected 1877020 directories; 325 disk paths
+Inspected 1935968 directories; 330 disk paths
+Inspected 1971487 directories; 330 disk paths
+Inspected 2017147 directories; 330 disk paths
+Inspected 2052552 directories; 335 disk paths
+Inspected 2108315 directories; 335 disk paths
+Inspected 2151106 directories; 335 disk paths
+Inspected 2210638 directories; 335 disk paths
+Inspected 2261011 directories; 335 disk paths
+Inspected 2285777 directories; 335 disk paths
+Inspected 2335865 directories; 335 disk paths
+Inspected 2388865 directories; 348 disk paths
+Inspected 2439427 directories; 349 disk paths
+Inspected 2487393 directories; 349 disk paths
+Inspected 2542831 directories; 349 disk paths
+Inspected 2585987 directories; 354 disk paths
+Inspected 2626298 directories; 354 disk paths
+Inspected 2679757 directories; 354 disk paths
+Inspected 2757412 directories; 359 disk paths
+Inspected 2813655 directories; 359 disk paths
+Inspected 2873857 directories; 359 disk paths
+Inspected 2922337 directories; 359 disk paths
+Inspected 2975651 directories; 364 disk paths
+Inspected 3008077 directories; 364 disk paths
+Inspected 3053003 directories; 364 disk paths
+Inspected 3126183 directories; 364 disk paths
+Inspected 3165098 directories; 364 disk paths
+Inspected 3222725 directories; 369 disk paths
+Inspected 3258189 directories; 369 disk paths
+Inspected 3300885 directories; 369 disk paths
+Inspected 3362779 directories; 369 disk paths
+Inspected 3396361 directories; 369 disk paths
+Inspected 3463736 directories; 374 disk paths
+Inspected 3497963 directories; 374 disk paths
+Inspected 3541390 directories; 374 disk paths
+Inspected 3593376 directories; 374 disk paths
+Inspected 3667149 directories; 375 disk paths
+Inspected 1/375 backing chains
+Inspected 26/375 backing chains
+Inspected 51/375 backing chains
+Inspected 76/375 backing chains
+Inspected 101/375 backing chains
+Inspected 126/375 backing chains
+Inspected 151/375 backing chains
+Inspected 176/375 backing chains
+Inspected 201/375 backing chains
+Inspected 226/375 backing chains
+Inspected 251/375 backing chains
+Inspected 276/375 backing chains
+Inspected 301/375 backing chains
+Inspected 326/375 backing chains
+Inspected 351/375 backing chains
+{"result": "REPORT_COMPLETE", "candidates": 24, "eligible": 0, "errors": 64, "builds": [{"name": "H700 DDR4 RG35XX SP arm", "terms_bytes": {"package_growth": 42949672960, "artifact_and_verification": 19327352832, "operating_allowance": 107374182400, "independent_build": 30044336128}, "required_bytes": 199695544320, "available_bytes": 160256483328, "fits_now": false, "eligible_reclaim_bytes": 0, "headroom_after_proposed_bytes": -39439060992, "basis": "Independent cold worktree estimated from each actual H700 cache; preserve the old device tree. Artifacts: twice actual compressed allocation, actual decompressed DDR3/DDR4 lengths and twice SYSTEM, plus 25%, rounded up to GiB. 40 GiB build growth and 100 GiB operating allowances carried from candidate16 preflight; these are conservative allowances, not measured future peaks. aarch64 forecast includes retained arm root, growth and artifact budget. Remeasure after arm."}, {"name": "H700 DDR4 RG35XX SP aarch64", "terms_bytes": {"package_growth": 42949672960, "artifact_and_verification": 19327352832, "operating_allowance": 107374182400, "independent_build": 117829722112, "retained_new_arm_outputs": 92321361920}, "required_bytes": 379802292224, "available_bytes": 160256483328, "fits_now": false, "eligible_reclaim_bytes": 0, "headroom_after_proposed_bytes": -219545808896, "basis": "Independent cold worktree estimated from each actual H700 cache; preserve the old device tree. Artifacts: twice actual compressed allocation, actual decompressed DDR3/DDR4 lengths and twice SYSTEM, plus 25%, rounded up to GiB. 40 GiB build growth and 100 GiB operating allowances carried from candidate16 preflight; these are conservative allowances, not measured future peaks. aarch64 forecast includes retained arm root, growth and artifact budget. Remeasure after arm."}]}

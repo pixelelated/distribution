@@ -1,0 +1,6 @@
+{
+  "result": "FAILED",
+  "returncode": 1,
+  "observed": "The arbitrary QFI/version-zero test bytes were detected as raw, so the attempted unclassified-format control did not produce a refusal.",
+  "correction": "Use a truncated actual QCOW header. All 19 controls then pass. No production bytes changed."
+}
