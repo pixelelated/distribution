@@ -1,0 +1,37 @@
+boot_id=bf8756cd-06f7-4192-bedb-7d02c5afb6a8
+OS_NAME="pixelelated"
+OS_VERSION="0.0.1"
+OS_BUILD="community"
+GIT_ORGANIZATION="pixelelated"
+GIT_REPO="distribution"
+HOME_URL="https://pixelelated.com"
+BUILD_ID="43d0bc3bf47fd858ba8d5c55fbdf52535a0db2aa"
+BUILD_BRANCH="build/m7-pixelelated-h700-01"
+BUILD_DATE="Wed Oct  7 06:38:38 UTC 2026"
+HW_DEVICE="H700"
+HW_ARCH="aarch64"
+HW_CPU="Allwinner H700"
+DISTRO_DEVICE="H700"
+BUILDER_NAME="pixelelated-build"
+BUILDER_VERSION="sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39"
+model=Anbernic RG35XX SP
+dt_id=sun50i-h700-anbernic-rg35xx-sp
+dram_microvolts=1100000
+/dev/mmcblk0p1 on /flash type vfat (ro,noatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro)
+/dev/mmcblk0p2 on /storage type ext4 (rw,noatime)
+/dev/mmcblk0p2 on /storage/roms type ext4 (rw,noatime)
+queue_entries=0
+588ac87140057c260a661d0328edfd797d3cec5fbc6b36980aad5ad5ed0ab534  /flash/SYSTEM
+07a06330474a1e72fa6b6c844ceee8d5d6b3bbf6d6be9e4a6395b87e0592dc60  /flash/KERNEL
+bfc3503868e5e3cf99c9fe2b86f4b19cc23a1f0319847005858b6daaa67ee13d  /flash/dtb.img
+30ce3abecd6bf45da280f379bd9e016c04014a7865532bed3cfa4d5a980c34cb  /usr/bin/emulationstation
+3eec8cc1236e07272482ab843b3a1020e3f2231fef78a04c75b8d3c04d4efdb8  /usr/bin/retroarch
+1492362554b463172fe8edc1c76ce44f425bdee24b9417e2557e949d5cba049e  /usr/bin/retroarch32
+bootloader_sha256=dca68e9555a6ed43342aae18f33c95c94a784b893d0614574015608bcb66b4ea  -
+MainPID=2549
+NRestarts=0
+ActiveState=active
+SubState=running
+battery_capacity=14
+external_power=1
+Warning: Permanently added '192.168.1.81' (ED25519) to the list of known hosts.

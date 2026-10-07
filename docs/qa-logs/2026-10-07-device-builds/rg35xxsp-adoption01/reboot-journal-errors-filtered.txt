@@ -1,0 +1,6 @@
+Oct 07 07:23:21 ROCKNIX (udev-worker)[360]: mmcblk: /usr/lib/udev/rules.d/10-bfq-sched.rules:1 Failed to write ATTR{/sys/module/mmcblk/queue/scheduler}, ignoring: No such file or directory
+Oct 07 07:23:22 ROCKNIX (udev-worker)[357]: mmcblk0p2: /usr/lib/udev/rules.d/10-bfq-sched.rules:1 Failed to write ATTR{/sys/devices/platform/soc/4020000.mmc/mmc_host/mmc0/mmc0:aaaa/block/mmcblk0/mmcblk0p2/queue/scheduler}, ignoring: No such file or directory
+Oct 07 07:23:22 ROCKNIX (udev-worker)[365]: mmcblk0p1: /usr/lib/udev/rules.d/10-bfq-sched.rules:1 Failed to write ATTR{/sys/devices/platform/soc/4020000.mmc/mmc_host/mmc0/mmc0:aaaa/block/mmcblk0/mmcblk0p1/queue/scheduler}, ignoring: No such file or directory
+Oct 07 07:23:22 ROCKNIX (udev-worker)[358]: mmcblk: /usr/lib/udev/rules.d/10-bfq-sched.rules:1 Failed to write ATTR{/sys/bus/mmc/drivers/mmcblk/queue/scheduler}, ignoring: No such file or directory
+Oct 07 07:23:23 ROCKNIX pipewire-pulse[386]: mod.protocol-pulse: Failed to acquire org.pulseaudio.Server: org.freedesktop.DBus.Error.AccessDenied: Connection ":1.4" is not allowed to own the service "org.pulseaudio.Server" due to security policies in the configuration file
+Warning: Permanently added '192.168.1.81' (ED25519) to the list of known hosts.

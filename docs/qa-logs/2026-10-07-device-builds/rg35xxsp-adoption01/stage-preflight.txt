@@ -1,0 +1,31 @@
+boot_id=33c0063d-cfd3-46f8-8e54-5ff4f9727283
+OS_NAME="ROCKNIX"
+OS_VERSION="20260929"
+OS_BUILD="community"
+GIT_ORGANIZATION="ROCKNIX"
+GIT_REPO="distribution"
+HOME_URL="https://rocknix.org"
+BUILD_ID="69e6039f8fdbf971d3e6b694537f250036fdcd98"
+BUILD_BRANCH="build/devices"
+BUILD_DATE="Tue Sep 29 22:19:37 UTC 2026"
+HW_DEVICE="H700"
+HW_ARCH="aarch64"
+HW_CPU="Allwinner H700"
+DISTRO_DEVICE="H700"
+model=Anbernic RG35XX SP
+dt_id=sun50i-h700-anbernic-rg35xx-sp
+dram_microvolts=1100000
+battery_capacity=6
+battery_status=Charging
+external_power=1
+Filesystem           1K-blocks      Used Available Use% Mounted on
+/dev/mmcblk0p2       189378312   4400076 184961852   2% /storage
+/dev/mmcblk0p1         2093048   1287556    805492  62% /flash
+/dev/mmcblk0p1 on /flash type vfat (ro,noatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro)
+/dev/mmcblk0p2 on /storage type ext4 (rw,noatime)
+/dev/mmcblk0p2 on /storage/roms type ext4 (rw,noatime)
+total 8
+drwxr-xr-x    2 root     root          4096 Sep 29 18:44 .
+drwxr-xr-x   24 root     root          4096 Sep 29 18:45 ..
+   2474 emulationstatio
+Warning: Permanently added '192.168.1.81' (ED25519) to the list of known hosts.

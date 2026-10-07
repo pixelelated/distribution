@@ -1,0 +1,17 @@
+{
+  "observed_utc": "2026-10-07T11:28:13.265379+00:00",
+  "scope": "read-only boot-log comparison, no audio playback test",
+  "messages": [
+    "udev 10-bfq-sched rules attempt writes to absent scheduler paths",
+    "pipewire-pulse org.pulseaudio.Server D-Bus ownership denial"
+  ],
+  "predecessor_same_messages": true,
+  "historical_record": "docs/work-logs/2026_09-work_logs/2026_09_25-work_log.md:456 and :507",
+  "services": {
+    "essway": "active/running, NRestarts=0",
+    "pipewire": "active/running, NRestarts=0",
+    "pipewire-pulse": "active/running, NRestarts=0"
+  },
+  "failed_units": 0,
+  "conclusion": "These messages predate the update; no new failure established by this readback. Audio/gameplay smoke remains outside this operation."
+}
