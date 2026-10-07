@@ -1,4 +1,37 @@
-# Support matrix for 0.0.1 (#344 P0, 2026-09-30)
+# Support matrix for pixelelated 0.0.1 (#344)
+
+## Current accepted evidence and held assets — 2026-10-07
+
+The approved targets remain GENERIC_X64 for QA, H700 for the two named boards,
+and SM8550 for Nova (D-WORKFLOW-114/124). RG35XX SP is the mandatory adoption
+device. RK3566 remains deferred. M7's ordered body controls execution; each
+asset needs its own recorded smoke evidence before attachment (D-WORKFLOW-120).
+
+| Target / arch | Physical board | QA guest | Current clean-install evidence | Current upgrade evidence | Boot medium/chain and remaining disposition | Recovery method | Attachment status |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| GENERIC_X64 / x86_64 | none | candidate16 isolated guests | candidate16 `ee01490913`: 15 default suites and 78 screens accepted | 26 actual RC2 retained-storage upgrade checks accepted | canonical VM profile; candidate16 identity and raw/update evidence accepted; release input/asset mapping remains | recreate disposable guest from retained candidate and fixtures | held for remaining manifest/source/publication gates |
+| H700 / aarch64 + arm | RG35XX SP, LPDDR4/DDR4; mandatory adoption device | none | no new candidate clean-card observation claimed; September baseline below remains historical | #500: ROCKNIX `69e6039f8f` to pixelelated `43d0bc3bf4`, authorized transfer/reboot and exact installed bytes accepted 2026-10-07 | microSD; exact SP DTB and DDR4 bootloader match accepted firmware; original mounts retained; clean-versus-upgrade/downgrade and broader smoke dispositions remain | recorded route: reflash microSD; recovery media/runbook below; no new recovery trial claimed | firmware/adoption accepted; broader smoke and release gates outstanding; held |
+| H700 / aarch64 + arm | RG SP, LPDDR3/DDR3 | none | no pixelelated candidate clean-card observation | no pixelelated candidate adoption proof; older observations below are historical | DDR3 firmware artifact accepted; physical board selection, boot and smoke still require their named evidence | recorded route: reflash microSD; no new recovery trial claimed | artifact accepted; board adoption/smoke and release gates outstanding; held |
+| SM8550 / aarch64 + arm | Retroid Pocket Nova | none | no pixelelated candidate clean-card observation | no pixelelated candidate adoption proof | microSD/GPT/ABL; build04 and independent acceptance04 passed at 16:52 UTC on0553; GPT/ABL and raw/update payload equality verified; physical ABL/boot-chain/smoke evidence remains separate | recorded route: reflash microSD; internal-storage recovery implications must be stated from the accepted boot-chain evidence | artifact accepted; named physical and release gates outstanding; held |
+| RK3566 / aarch64 + arm | RG353M | none | outside this release | outside this release | deferred by D-WORKFLOW-114 | historical route below | not built or attached for 0.0.1 |
+
+Primary records: [candidate16 qualification](../qa-logs/2026-10-07-pixelelated-replacement-16/README.md),
+[H700/SP acceptance](../qa-logs/2026-10-07-device-builds/rg35xxsp-adoption01/README.md),
+[SM8550 continuation04](../qa-logs/2026-10-07-device-builds/sm8550-resume04/README.md)
+and [device facts](../releases/device-facts.md). H700 artifact acceptance covers
+both DDR variants; one board's successful adoption does not qualify the other.
+
+No historical "deltas: none" below is asserted for the new candidate. Re-derive
+the release's per-SoC boot-chain delta/downgrade disposition from exact inputs.
+Do not replay accepted SP transfer/reboot or common VM qualification merely to
+refresh this table. Further physical actions need their own named authority.
+
+## Historical matrix — 2026-09-30, updated 2026-10-01
+
+The original observations and source-line references below are preserved as a
+dated baseline. Their "not built", "deltas: none" and attachment statements do
+not override the current table. Original physical observations are not renamed
+into current candidate proof.
 
 Build targets, the physical boards behind each, and what has been observed on them, from `docs/releases/catalog.md`, `docs/releases/device-facts.md`, the device options and the runbook. The **mandatory migration device is the RG35XX SP** (D-WORKFLOW-100). No boot-chain path has changed since RC2 (`git log 69e6039f8f..next` over `projects/ROCKNIX/devices/{H700,RK3566,SM8550,GENERIC_X64}`, `projects/ROCKNIX/bootloader`, the ABL and u-boot packages, both kernel recipes, both busybox recipes, `scripts/image`, `scripts/mkimage`, `distributions/ROCKNIX` is empty at `51f78ac5b4`); the deltas column is re-derived from the manifest at P2/P2b, since a bump between now and the candidate's build would change it.
 

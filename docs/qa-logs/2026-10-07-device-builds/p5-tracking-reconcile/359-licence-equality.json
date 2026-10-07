@@ -1,0 +1,45 @@
+{
+  "verified_utc": "2026-10-07T16:47:56.248727+00:00",
+  "candidate_commit": "ee014909137e03706e0b3020b8396be589aaa705",
+  "scope": "Independent read-only comparison of retained installed QA20 hashes with current and frozen source bytes; no guest/test rerun",
+  "owner_receipt": "docs/qa-logs/2026-10-07-pixelelated-replacement-16/qa-20/owner-verification.json",
+  "owner_receipt_sha256": "1d05ffc888672a8070be1452c89d40ff7bc1a777caa556a60d19597e0dacf7b1",
+  "files": {
+    "LICENSE.md": {
+      "source_sha256": "1a277de267611abc4242e6a1e08ac2abac54316e7abcbf8ae7afd0a1dc98ec6c",
+      "frozen_source_sha256": "1a277de267611abc4242e6a1e08ac2abac54316e7abcbf8ae7afd0a1dc98ec6c",
+      "installed": {
+        "clean": {
+          "receipt": "docs/qa-logs/2026-10-07-pixelelated-replacement-16/qa-20/artifacts/payload-clean.json",
+          "receipt_sha256": "8c0d712b7bfa8b634f345c2c2dd14c51133a48f122ba57dfaa31187d65feae9b",
+          "sha256": "1a277de267611abc4242e6a1e08ac2abac54316e7abcbf8ae7afd0a1dc98ec6c",
+          "mode": "644"
+        },
+        "upgrade": {
+          "receipt": "docs/qa-logs/2026-10-07-pixelelated-replacement-16/qa-20/artifacts/payload-upgrade.json",
+          "receipt_sha256": "c60f0becbf856951ccd710d741782ccd47ab59271ac1dc23598699b1e454a8f1",
+          "sha256": "1a277de267611abc4242e6a1e08ac2abac54316e7abcbf8ae7afd0a1dc98ec6c",
+          "mode": "644"
+        }
+      }
+    },
+    "TRADEMARK.md": {
+      "source_sha256": "d46db25cb845b021cd7f1c13dabcd98d04e77d89a45968527e58abc9e3788761",
+      "frozen_source_sha256": "d46db25cb845b021cd7f1c13dabcd98d04e77d89a45968527e58abc9e3788761",
+      "installed": {
+        "clean": {
+          "receipt": "docs/qa-logs/2026-10-07-pixelelated-replacement-16/qa-20/artifacts/payload-clean.json",
+          "receipt_sha256": "8c0d712b7bfa8b634f345c2c2dd14c51133a48f122ba57dfaa31187d65feae9b",
+          "sha256": "d46db25cb845b021cd7f1c13dabcd98d04e77d89a45968527e58abc9e3788761",
+          "mode": "644"
+        },
+        "upgrade": {
+          "receipt": "docs/qa-logs/2026-10-07-pixelelated-replacement-16/qa-20/artifacts/payload-upgrade.json",
+          "receipt_sha256": "c60f0becbf856951ccd710d741782ccd47ab59271ac1dc23598699b1e454a8f1",
+          "sha256": "d46db25cb845b021cd7f1c13dabcd98d04e77d89a45968527e58abc9e3788761",
+          "mode": "644"
+        }
+      }
+    }
+  }
+}

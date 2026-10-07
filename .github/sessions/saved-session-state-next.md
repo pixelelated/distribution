@@ -1,202 +1,172 @@
 # Saved Session State
 
-> Saved: 2026-10-07T16:30:26.058895+00:00
+> Saved: 2026-10-07T17:06:06.327418+00:00
 > Coordination branch: feature/conflict-resolution
 > Repository: pixelelated/distribution
 
 ## Start here
 
-This repository builds an immutable handheld Linux distribution, not an app.
-Read AGENTS.md and canonical `.claude/rules/` from next. Primary
-`/workspace/repos/rocknix` stays on next; coordination is
-`/workspace/repos/rocknix.worktrees/conflict-resolution`. The preceding checkpoint
-is `.github/sessions/archived/saved-session-state-next-20261007T153723Z.md`; it
-retains exact accepted H700/SP and candidate16 identities, source custody,
-cleanup receipts and earlier publication. Do not replay accepted tests or failed
-owners. Never print credentials. Check actual processes and bytes, not old prose.
+pixelelated is an immutable handheld Linux distribution, built here as complete
+per-device firmware. Read AGENTS.md and the canonical `.claude/rules/` from
+`next` before work. Primary `/workspace/repos/rocknix` stays on next;
+coordination is `/workspace/repos/rocknix.worktrees/conflict-resolution`.
+The immediately preceding checkpoint is `archived/saved-session-state-next-20261007T170606Z.md`.
+It preserves the full failed-owner history; the older15:37 archive retains
+accepted candidate16/H700/SP inputs. Never replay accepted jobs merely because
+this session resumed. Secrets never appear in output; physical reads use the
+credential filter and state-changing actions use tools/device-act.
 
-Standing authority covers fixes, host/VM QA, scoped fork commits/pushes and
-H700 then SM8550 builds. The user explicitly requested parallel copy/build work.
-They authorized screenshots needed to troubleshoot the SP migration; permission
-persists for those captures. One separately approved directional wake input and
-its follow-up capture completed at16:26UTC. Do not duplicate the input. No
-confirmation input, migration retry, cloud mutation, new reboot/game/update or
-public release is inferred. State-changing device actions use tools/device-act. Device reads use
-the credential filter. No new external audit is owed or authorized here.
+Standing authority covers scoped fixes, host/VM QA, commits/pushes, and the
+H700-then-SM8550 build sequence. The user explicitly requested parallel work.
+The RG35XX SP screenshot permission persists. The separately approved ONE
+wake keypress and follow-up screenshot completed16:26UTC. Do not repeat that
+input. No migration retry, confirmation, new update/reboot/game launch or
+release publication is authorized by that yes.
 
 ## Current Focus
 
-M7.P5 /0.0.1: finish active SM8550 firmware and artifact acceptance after the
-proved FEX repair, now including the approved migration prompt. Investigate the
-owner-initiated SP migration using local evidence; do not retry personal cloud.
-Milestone7's body is the ordered execution plan.
+M7.P5: H700 and SM8550 firmware artifacts are now accepted. The immediate
+follow-up is #505's concrete diagnostics proposal and its exact implementation
+approval, then focused VM proof and final selected-artifact inclusion. #507
+owns the newly due independent audit of the frozen post-candidate16 P5 delta.
+M7's body is the ordered execution plan. Physical/source/publication gates
+remain separate. No RC designation or Nova deployment has occurred.
 
 ## Completed This Session
 
-- #502 complete/closed: exact approved English and French strings in ES
-  5d2fcb9b71f363cfa4813d5356f02c48ab58e139, normal-hook published on
-  feature/m7-migration-copy and test/qa-integration. Compiler/gettext/source
-  checks and four actual EN/FR640x480/1280x800 frames pass. All text/choices
-  visible without scrolling. Temporary guest/keys/binaries retired (2.56GB).
-  Packet docs/qa-logs/2026-10-07-migration-copy. Distribution pin/changelog/
-  D-UI-122/123/124 published on next0553c0193ace3aebbefaae5b7b6d49253c2811d9
-  (featurea963ac13d9). Current handheld firmware is unchanged.
-- #503 proved ARM64 libc headers leaked into FEX x86 guest compilation via
-  pkg-config. Exclude only the rebased standard include root. Exact original
-  Nix/compiler/rootfs controls fail before and pass after; all configured
-  guest libraries build. Fix/evidence on next6b627a38ae, featureb3aef8a38f.
-  The full package now compiles, with14 installed architecture-checked ELFs.
-- Original SM build01, acceptance01 and sequence01 failures remain preserved.
-  Recovery01 archived730 thread logs/stamps and renamed the eight interrupted
-  scopes plus partial image before advancing only the stopped checkout.
-  Recovery fourzero channels/sevenseals/exits verified15:49:57. Guarded swap
-  preflight passed15:49:27 after all guests/watchers exited;8GiBfree then.
-- #506 helper failures are preserved:02 used scaffold guest-libs directories
-  instead of actual Guest/Guest_32;03 proved the corrected helper, then hit
-  canonical checkdeps's writable /nix requirement on a read-only cache mount.
-  02four2/eightseals/exits accepted15:51:05; acceptance02four1/controllerFAILED.
-  03four2/12seals/exits verified16:05:54; acceptance03 never submitted.
-  Neither is relabeled successful; no image assembly occurred in those attempts.
-- #504 read-only review found incomplete migration and missing terminal
-  diagnostics; #505 owns bounded safe results at normal verbosity. Raw device
-  readbacks and authorized screenshot are LOCAL ONLY in the ignored
-  rg35xxsp-migration-review01 directory under today's device QA logs. The image
-  initially exposed no readable error. A subsequent authorized wake and capture
-  exposed the incomplete-transfer result; no confirmation or retry was performed.
-  Expanded GitHub disclosure was rejected; minimal tracker status was then
-  accepted/read back to the verified fork, without raw evidence upload.
+- #502 approved English/French migration copy is published: ES
+  5d2fcb9b71f363cfa4813d5356f02c48ab58e139, distribution0553c0193ace3aebbefaae5b7b6d49253c2811d9.
+  Four actual640x480/1280x800 frames and compiler/gettext checks pass. Temporary
+  QA payloads were removed. Current SP firmware retains the earlier wording.
+- #503 FEX repair and #506 helper corrections are complete/closed. Original
+  ARM64 include contamination reproduced with exact Nix/compiler inputs;
+  narrow standard-include exclusion preserves both guest architectures. Full
+  FEX package and installed14ELF payloads pass. Failed01/02/03 stay historical.
+- SM8550 build04: all737 packages completed, runner0 at16:51:14. Fourzero
+  channels/13seals/exits verified16:51:39. Firmware acceptance PASS16:52:00;
+  fourzero channels/3seals/exits and controllerPASS16:52:09. Host readback at
+  16:56:37 rehashed all bundle bytes, checked independent inodes, all26sequence
+  seals and actual process/container exits. No build or acceptance job remains.
+- #504 historical SP review is complete/closed. Wake/frame exposes an incomplete
+  transfer without the underlying cause. Source tracing confirms discarded is
+  the completed discarded-save tier before content, not an abort/finish marker;
+  elapsed freezes when the worker exits. Copy/check failures share the same
+  generic result. No personal-cloud retry or provider-byte equality is claimed.
+  Raw device data/images remain LOCAL ONLY in the ignored review folder; only
+  its .gitignore and PUBLIC-SUMMARY.md are publishable under existing authority.
+- #344/#265/#359 bodies reconciled from accepted evidence. Installed version
+  and branding licence files are proved; corresponding source, component licence
+  dispositions, publication tooling/docs and broader physical smoke remain open.
+  Readiness/support-matrix docs now distinguish current proof from history.
 
-## In Progress
+## Accepted SM8550 artifact and custody
 
-### #492/#503/#506 — SM8550 build and artifact verification ACTIVE
+Frozen tree `/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01`, branch
+`build/m7-pixelelated-sm8550-01`, HEAD0553c0193ace3aebbefaae5b7b6d49253c2811d9.
+Do not advance it merely because next gains records. Frozen PRODUCT inputs
+are unchanged; the build generated one support-document PS2 row reorder, whose
+exact diff is retained. Do not call the entire checkout clean.
 
-Current source0553c0193ace3aebbefaae5b7b6d49253c2811d9 includes the FEX patch and
-qualified ES copy. No further source change is permitted in this running tree.
+Independent bundle:
+`/workspace/artifacts/pixelelated-candidates/sha256/97367c3235fab7cc6d1ec2b54c390fe7ceff786612f29c9f177aaa288a33fb18`
 
-- Tree `/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01`, branch
-  build/m7-pixelelated-sm8550-01. Earlier failed40f80/6b inputs are historical.
-- Sequence `/workspace/tmp/pixelelated-m7-sm8550-sequence-04`, PID70714;
-  state.json heartbeat every30s; controller-result.json only at terminal.
-- Build `/workspace/tmp/pixelelated-m7-sm8550-build-04`; run.path names its
-  exact tree-relative .build-runs directory. Read build.pid/watcher.pid/
-  command.pid there and runtime-start.json for the observed container.
-- Acceptance `/workspace/tmp/pixelelated-m7-sm8550-acceptance-04`; run.path
-  names its watched run in primary. It follows actual builder/process/container
-  exit before firmware verification. No need for a new permission checkpoint.
-- Actual container00731af86051732418b7c2c567c801a5d50b9970220d24812643f7e1a86e5a0d;
-  image988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39.
-  Observed startup/mounts16:14:08; inside gatePASS16:14:09, canonical checkdeps
-  and original/fixed14ELF proofPASS16:14:10. build_distro reached656/737 at
-  16:14:30 while reinstalling warm completed packages. This is not completion.
-- Global24/WebKit4. Unchanged ARM7946files/807links/245stamps carried; manifest
-  SHA41b6eaa2906661b6fbea165161e958edc42846feeff11cf03c2c935b01fb1ade.
-  The copy under build04/artifacts is mounted and sealed. No ARM rebuild.
-- Private02 Nix cache is RW, an explicit active mutable input; exact nixpkgs
-  snapshot remains RO. Do not make /nix RO: canonical checkdeps requires write.
-  The new startup gate waits for observed container/mount identity before work,
-  avoiding the short-lived-container race in03. No extra Nix copy/reclean/reclaim.
-- Installed acceptance requires ABL/GPT/raw-update equality, identity, ARM/FEX
-  bytes, new English prompt bytes and exact French catalog lookup, plus independent
-  custody. Source/licence and named physical smoke/publication remain separate.
-- Agent sm8550_resume_plan is supervising in this session. On resume, list live
-  agents; if it no longer exists, take over these same owners without submitting
-  another build. Root handles tracking updates.
-  Controller emits local tracker-handoff-started/terminal.json, not external
-  messages. Durable watches do not notify disconnected chat (#395): supervise
-  actively and report terminal outcomes promptly. Never launch a duplicate.
-- Retain recovery01/preserved and control01 snapshot/store plus build02/nix only
-  while this immediate build/source-custody dependency needs them. Retire each
-  only after artifact acceptance AND confirmation that source/licence custody
-  no longer depends on it. Firmware acceptance alone does not clear that hold.
-  Preserve compact records. ~2TB disk free, no new drive needed.
+- img.gz:1611493379bytes, SHA256
+  5be73a7305991599cdad6e68535cf7c79767180b6632ce8061207822869e7c34
+- tar:1616117760bytes, SHA256
+  c9701f3f247f82b4c6a662a315cb1a054864866fc52a738e86fbc15bde662a50
+- SYSTEM:4cf70aaa6a40d73a5858433370ef9842301454722a5de42c8fe9798d311a3f11
+- Raw/update SYSTEM/kernel/ABL equality, GPT, identity,187ARM handoff files,
+  14FEX ELF files, installed English and compiled French migration copy pass.
+  Scratch disks/extractions removed.
 
-### Bounded resume readback
+Owners `/workspace/tmp/pixelelated-m7-sm8550-{sequence,build,acceptance}-04`
+are TERMINAL PASS. All recorded owner/controller PIDs and actual container
+00731af86051732418b7c2c567c801a5d50b9970220d24812643f7e1a86e5a0d are absent.
+Read existing verification receipts; never rerun exclusive verifiers.
+`docs/qa-logs/2026-10-07-device-builds/sm8550-resume04/terminal/` retains compact
+proof. Full terminal packet `/workspace/tmp/pixelelated-m7-sm8550-terminal-04`
+is independently hashed. The retained read-status.py is read-only.
 
-From this repository, run the retained read-only helper:
+Recovery01/preserved, control01 sources/snapshot and build02/nix still have a
+source-custody review hold. Artifact acceptance alone does not authorize their
+retirement. No broad cleanup, swap operation or new drive is needed now.
 
-```bash
-python3 -I docs/qa-logs/2026-10-07-device-builds/sm8550-resume04/read-status.py
-```
+## In Progress — #505 diagnostic proposal, application not approved
 
-It reads state, run.path/status and actual terminal receipt locations without
-changing or submitting anything. Keep status checks within60seconds during the
-active session and consume each terminal outcome before unrelated work.
+Fresh clean feature tree:
+`/workspace/repos/rocknix.worktrees/m7-migration-diagnostics`
+branch `feature/m7-migration-diagnostics`, base next0f4d701a23.
+No production change has been applied there. Automatic approval review rejected
+applying the diagnostic patch because production signal/failure-path changes
+need explicit implementation authority. Do not work around that rejection in
+another worktree. Root will present the concrete reviewed patch and ask for the
+specific approval, then continue under that authorization if received.
 
-The tool sandbox's /proc cannot see these HOST PIDs. A fresh-context reviewer
-confirmed they appear absent inside the sandbox while host processes remain
-alive. Use host-context/escalated execution for process/container readback,
-matching controller70714 start_ticks48133002 and recorded container identity.
-Sandbox-only absence is UNKNOWN, not exit. Do not rerun an exclusive verifier
-whose owner-verification.json already exists; read and validate that receipt.
+Final sealed proposal and scratch controls: `/tmp/pixelelated-505-draft/`;
+start with `README.md` and `proposed.patch`, SHA256
+`8cd8ae12c52223c3c1a5b4fb333db7434cb8deed9153275c76b2e0d7ab102732`.
+All 287 packet seals verify. The preparation and focused read-only review agents
+are complete. All four watched owners02–05 returned zero, and their 16 owned
+processes exited (host-context `owner-exit-verification.json`). All 28 disposable
+fixture roots were removed. No VM/device/cloud run is underway for this proposal.
+The exact patch-and-VM-test approval question was sent; await the user's reply.
 
-### SP investigation — approved wake and follow-up capture complete
+The proposal adds a bounded private helper/script record (current/prior/attempt),
+run/process identity, typed stage/operation/result, atomic0600files, and signal
+interruption without guessing player/game intent. Initial record failure would
+refuse before cloud mutation using existing rc5: this is an explicit new refusal,
+not a claim of wholly unchanged behavior. Later record failure must preserve the
+actual operation result and leave the run distinguishably unfinished.
 
-The user said: "you may capture whatever screenshots you need on the RG 35XX SP
-in order to troubleshoot this issue." That permission is already granted.
-The single capture was blank; local panel/compositor/power observations and the
-source's default screensaver are in the local report. The user then said: "yes, you can send a keypress to wake the screen up".
-The SP review agent completed that ONE directional input through device-act and
-a capture at16:26UTC without selecting a confirmation action. The frame confirms
-an incomplete-transfer result but does not name the underlying error. The local
-packet retains the actual frame and action receipts. Never duplicate the keypress
-merely because a session disconnected. Read-only source tracing continues.
-Exact-pin source tracing is now complete: `discarded` is the successful
-discarded-save tier before content, not an abort marker or terminal timestamp.
-Elapsed time freezes at worker completion; the generic content outcome combines
-copy/check failure and cannot establish which occurred. #504's review is complete;
-#505 owns future terminal diagnostics. No historical cause is claimed solved.
-No migration retry is authorized. The detailed packet is deliberately ignored by
-Git; only PUBLIC-SUMMARY.md and .gitignore may be staged. Do not publish raw images,
-identifiers or detailed readbacks without established disclosure authority.
+The exact old-source missing-record negative control and 12 proposed positive
+controls pass. Lifecycle controls cover TERM/KILL, concurrency, record failure,
+early exit and bounds/privacy. Latest-attempt precedence over an older current
+success is explicit and tested after acquisition-record refusal. `recipe02`
+verifies exact installed bytes, mode0755, Python3 dependency and pkgcheck0.
+First sandbox-unavailable controls never ran the script and are explicitly
+invalidated. Read actual latest manifests/results: no final VM or
+assembled firmware inclusion is claimed. After approval, apply to the isolated
+feature tree, run package checks and hash-verified focused candidate16 VM overlay
+proof; final selected release artifacts still need the fix included/qualified.
 
 ## Next Steps
 
-1. Consume actual04 build and artifact acceptance results, verify all terminal
-   channels/seals/process/container exits, then reconcile #492/#503/#506 and M7.
-   Use existing exclusive receipts if already written; never rerun their verifier.
-2. If build fails, retain all logs before retry. No ad-hoc in-flight script/source
-   edits or unreviewed package clearing. Correct helper defects in fresh owners;
-   do not discard successfully built packages without evidence.
-3. #504's historical review is complete, including the authorized wake/frame and
-   exact-pin source trace. #505 diagnostics are tracked, unimplemented. The review
-   does not prove provider bytes or authorize a retry.
-4. Publish remaining work/friction logs, compact resume02/04 records and checkpoint
-   via scoped NEW commits/cherry-picks. Never merge the entire divergent feature
-   history into next. Check rules/register/index/ceremonies through normal hooks.
-   Both hosted checks passed for0553: record run37648390539 and wordlist
-   run37648390468, read back through the API's exact head_sha filter. Ordinary
-   run-list output was misleadingly stale. Verify the next publication separately.
-   Primary next may advance with docs while the build stays0553.
-   The16:33 ceremony gate passes its blocking checks but now reports12 closures
-   since the accepted audit. Treat that new cadence advisory explicitly; do not
-   rerun completed candidate16 evidence or silently claim the next CI passed.
-5. H700 firmware/SP adoption and candidate16 common QA/audit remain accepted; no
-   repeat VM matrix, Dropbox check, RA reset or external audit is needed. Remaining
-   P5 gates are SM artifacts, separately named device smoke/adoption, corresponding
-   source,14 licence metadata gaps, public docs and manifest-bound release assets.
-   No RC designation or public release is inferred from compiling.
+1. Read #505's sealed concrete patch and isolated controls, obtain explicit
+   implementation approval prompted by automatic review, then run the focused
+   synthetic VM proof. A yes to wake the SP is not that approval or a cloud retry.
+2. Freeze the resulting P5 delta for #507, using the code-auditor skill serially:
+   scoped Milestone, primary plus verified cross-lab reviewer, required blind/
+   refutation passes. No new external call has started. Confirm concrete safe
+   payload/disclosure authority before dispatch; omit private SP records.
+3. Reconcile #492's remaining input-comparison/source inventory criteria. Its
+   actual H700 and SM8550 firmware criteria are proved; compilation is complete.
+4. Continue #344/#265/#359:14 component licence metadata dispositions, retrievable
+   corresponding sources, per-image sweeps/delta mapping, manifest-selected
+   versioned draft publisher, adoption/recovery/release notes/public docs, named
+   per-asset physical smoke. No accepted H700/SP transfer or VM matrix replay.
+5. Publish current compact evidence, readiness docs, logs and this checkpoint as
+   a scoped NEW commit/cherry-pick to next, through normal hooks. Never merge the
+   divergent feature history wholesale. Read exact-head hosted results.
 
-## Key Files Modified
+## Published checks and operational notes
 
-Pending coordination files are the work/friction logs and index, this checkpoint
-and its preserved archive, compact sm8550-resume02/04 evidence, and the minimal
-public SP summary/ignore rule. Product/pin changes are already committed/pushed.
-Local private SP data must stay excluded. Check git status before adding paths.
+Published prior checkpoint: feature786df869939bc45717ec52e9a2cd35c3626aa988,
+next0f4d701a2333b36ad1c45b679e8987e4393212a9. Both wordlist checks pass
+(runs37653130416/37653236283). Record run37653236199 fails ONLY the newly due
+13-closure audit cadence; local blocking gates pass. #507 owns the follow-up.
+#503/#506 then closed, so the next cadence count may be15. Candidate16/#471 is
+not reopened. Read exact head_sha API results; ordinary run-list was stale.
 
-## Related Context and Notes
+GitHub comment/close convenience calls failed transiently. Body updates persisted;
+root read back actual state before continuing. Explicit GraphQL addComment plus
+REST state PATCH succeeded for #503/#506; both completed states were read back.
+Never blindly replay a failed mutation without checking what persisted.
 
-#492 device builds; #497 ARM handoff; #500 completed SP adoption; #502 closed copy;
-#503 FEX repair; #504 review; #505 terminal diagnostics; #506 acceptance helper.
-Completed candidate16, H700 bundle and physical installation hashes are in the
-archived checkpoint above. Exact active owner paths beat any stale count here.
+Host PIDs are invisible in the tool sandbox: use host-context reads with recorded
+start identity, or report unknown. Local watchers do not deliver disconnected chat
+notifications (#395). There are no longer live build or #505 draft-control
+owners to supervise.
 
-The ES source needed C++ Unicode escapes so build-style xgettext extracts the
-curly quotes. A QA guest stopped without flushing had zeroed overlay files and
-locale data; re-stage/hash and flush before stopping disposable guests. Final
-frames are the specifically accepted matrix, not every rc0 capture. The French
-button-panel overhang predates this copy; all choices stay within the screen.
-
-Procedures and controls are retained in compact sm8550-fex-controls01,
-sm8550-resume02 and sm8550-resume04 packets. Do not print giant input inventories;
-extract selected keys. A process State S is ordinary waiting, not system sleep;
-same boot alone cannot exclude sleep, and journal queries need explicit UTC.
+Historical accepted candidate16, H700/SP, source custody and cleanup hashes are
+in the archives. #432FOSS observability/#464RA reset automation remain backlog.
+No Dropbox check or new RA reset is owed.

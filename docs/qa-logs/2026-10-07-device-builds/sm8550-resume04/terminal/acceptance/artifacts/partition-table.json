@@ -1,0 +1,30 @@
+{
+  "partitiontable": {
+    "label": "gpt",
+    "id": "0E44E8E2-9C83-4B4B-B7A7-055D2BA1073A",
+    "device": "/workspace/tmp/pixelelated-m7-sm8550-acceptance-04/scratch/SM8550.img",
+    "unit": "sectors",
+    "firstlba": 34,
+    "lastlba": 4294622,
+    "sectorsize": 512,
+    "partitions": [
+      {
+        "node": "/workspace/tmp/pixelelated-m7-sm8550-acceptance-04/scratch/SM8550.img1",
+        "start": 32768,
+        "size": 4194304,
+        "type": "EBD0A0A2-B9E5-4433-87C0-68B6B72699C7",
+        "uuid": "E1CD1E03-3029-4CF6-995F-41CAADD95852",
+        "name": "system",
+        "attrs": "LegacyBIOSBootable"
+      },
+      {
+        "node": "/workspace/tmp/pixelelated-m7-sm8550-acceptance-04/scratch/SM8550.img2",
+        "start": 4227072,
+        "size": 65536,
+        "type": "0FC63DAF-8483-4772-8E79-3D69D8477DE4",
+        "uuid": "777F99A9-FDA3-4C68-BC32-7832C64BF17F",
+        "name": "storage"
+      }
+    ]
+  }
+}
