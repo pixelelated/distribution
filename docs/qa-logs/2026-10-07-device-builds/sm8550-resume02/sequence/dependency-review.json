@@ -1,0 +1,37 @@
+{
+  "utc": "2026-10-07T15:46:55.168113+00:00",
+  "result": "PREPARED_NOT_SUBMITTED",
+  "correction": "Original ARM manifest independently copied to build02/artifacts; fresh helper/input references use mounted copy; original identity retained as provenance",
+  "copied_manifest": "/workspace/tmp/pixelelated-m7-sm8550-build-02/artifacts/arm-output-manifest.json",
+  "manifest_sha256": "41b6eaa2906661b6fbea165161e958edc42846feeff11cf03c2c935b01fb1ade",
+  "container_dependencies": {
+    "verify-arm.py": [
+      "build02/artifacts/arm-output-manifest.json via build02 mount",
+      "accepted ARM root via worktree mount"
+    ],
+    "verify-fex.py": [
+      "build02/inputs.json and artifacts via build02 mount",
+      "rebuilt FEX/install_pkg/CMakeCache via worktree mount",
+      "Nix profiles under fresh FEX/nix via worktree mount",
+      "exact original compiler/toolchain/rootfs via private /nix mount"
+    ],
+    "nixpkgs": "exact control01 runtime/nixpkgs mounted read-only; NIX_PATH matches"
+  },
+  "nix_registration_readback": {
+    "valid_paths": 1936,
+    "paths_outside_nix_store": 0,
+    "derivers_referencing_out": 0,
+    "var_symlinks": 0,
+    "per_user_profiles": 0,
+    "note": "Restored control store was bootstrapped with nix-store --load-db, no old /out profile; current recipe creates profile in rebuilt FEX/nix",
+    "store_symlinks_checked": 3592,
+    "store_symlinks_referencing_out": 0
+  },
+  "draft_seals": 21,
+  "holds": [
+    "Root review",
+    "Owned ES guest exit",
+    "Guarded preflight before recovery/launch"
+  ],
+  "corrected_arm_helper_result": "PASS7946files/807symlinks/245stamps"
+}

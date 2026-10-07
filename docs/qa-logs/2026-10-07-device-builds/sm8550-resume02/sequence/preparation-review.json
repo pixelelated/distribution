@@ -1,0 +1,30 @@
+{
+  "utc": "2026-10-07T15:43:11.056359+00:00",
+  "result": "PREPARED_NOT_SUBMITTED",
+  "checks": [
+    "All Python scripts parse; shell syntax valid",
+    "21 draft owner seals independently verified",
+    "6730 original source objects become6731 including only approved FEXpatch",
+    "Original frozen HEAD remains40f80c5151d5c9281be5ca95121e0a1fe0d918d9 and clean",
+    "No new launcher/controller submission exists"
+  ],
+  "launch_command": [
+    "python3",
+    "-I",
+    "/workspace/tmp/pixelelated-m7-sm8550-sequence-02/submit-sequence.py",
+    "--run"
+  ],
+  "holds": [
+    "Root review",
+    "Owned ES guest completed/exited",
+    "Guarded host preflight may reclaim swap only after all active guest/compiler/watcher processes exit"
+  ],
+  "limitations": [
+    "Mutable upstream Nix installer retained by existing recipe; NIX_PATH pins exact nixpkgs and completed FEX proof requires Nix2.35.2/exact rootfs+toolchain paths before continuing firmware",
+    "Read-only snapshot/control store must remain until corrected build/source-custody completion",
+    "Controller writes local tracker handoff receipts; root updates GitHub/M7",
+    "Preserved interrupted outputs and private Nix copy need retirement after artifact acceptance"
+  ],
+  "dependency_correction": "Carried ARM manifest copied into build02 mount and hash-bound in fresh helpers/inputs/seals; see dependency-review.json",
+  "review_updated_utc": "2026-10-07T15:48:49.758166+00:00"
+}

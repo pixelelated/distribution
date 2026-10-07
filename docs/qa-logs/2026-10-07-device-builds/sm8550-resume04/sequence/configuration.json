@@ -1,0 +1,30 @@
+{
+  "accept_owner": "/workspace/tmp/pixelelated-m7-sm8550-acceptance-04",
+  "arm_carried_manifest": "/workspace/tmp/pixelelated-m7-sm8550-build-04/artifacts/arm-output-manifest.json",
+  "arm_manifest_sha256": "41b6eaa2906661b6fbea165161e958edc42846feeff11cf03c2c935b01fb1ade",
+  "arm_original_manifest": "/workspace/tmp/pixelelated-m7-sm8550-build-01/artifacts/arm-output-manifest.json",
+  "build_owner": "/workspace/tmp/pixelelated-m7-sm8550-build-04",
+  "controls": [
+    "/workspace/tmp/pixelelated-m7-fex-header-control-01",
+    "/workspace/tmp/pixelelated-m7-fex-guest-controls-02"
+  ],
+  "created_utc": "2026-10-07T16:13:12.738459+00:00",
+  "failed_owner": "/workspace/tmp/pixelelated-m7-sm8550-build-03",
+  "new_commit": "0553c0193ace3aebbefaae5b7b6d49253c2811d9",
+  "nix_control": "/workspace/tmp/pixelelated-m7-fex-header-control-01",
+  "old_commit": "0553c0193ace3aebbefaae5b7b6d49253c2811d9",
+  "product_delta": [],
+  "product_roots": [
+    "config",
+    "distributions",
+    "packages",
+    "projects",
+    "scripts",
+    "Makefile",
+    "LICENSE.md",
+    "TRADEMARK.md"
+  ],
+  "recovery_owner": "/workspace/tmp/pixelelated-m7-sm8550-recovery-01",
+  "scope": "Prepared only: #506 observed-start and Nix-mount correction; unchanged0553/FEX/ARM/qualifiedES",
+  "tree": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01"
+}

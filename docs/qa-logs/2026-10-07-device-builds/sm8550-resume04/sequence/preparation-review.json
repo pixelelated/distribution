@@ -1,0 +1,26 @@
+{
+  "canonical_preconditions": "Explicit -d/-w /nix plus canonical scripts/checkdeps before proof; worktree/sourcecache/owner/buildroot writable; exact project/device/arch/version; nonroot",
+  "checkdeps_review": [
+    "03 reached final Nix guard, so dependency commands/headers/Perl modules and compiler-alternatives checks passed in same pinned container",
+    "RW Nix avoids sudo branch; early canonical check repeats exact requirements",
+    "build_distro performs standard identity package/image refresh; DEVICE_ROOT unset, ARCHaarch64, accepted ARM untouched"
+  ],
+  "entrypoint": [
+    "python3",
+    "-I",
+    "/workspace/tmp/pixelelated-m7-sm8550-sequence-04/submit-sequence.py",
+    "--run"
+  ],
+  "es_proof": "Installed English binary literal and compiled French GNU gettext remain required",
+  "fex_proof": "Original expected helper failure and corrected14installedELFs remain under observed container; no FEX recompile",
+  "holds": [
+    "Root review and explicit launch approval"
+  ],
+  "nix_mount": "RW mutable active cache /workspace/tmp/pixelelated-m7-sm8550-build-02/nix; original scripts/results untouched",
+  "product_delta": [],
+  "result": "PREPARED_NOT_SUBMITTED",
+  "sequence_seals": 26,
+  "source_commit": "0553c0193ace3aebbefaae5b7b6d49253c2811d9",
+  "startup_gate": "120seconds bounded, validates controller receipt/container hostname/digest/mounts before proof/build work",
+  "utc": "2026-10-07T16:13:12.741807+00:00"
+}

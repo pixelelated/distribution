@@ -1,0 +1,13 @@
+{
+  "utc": "2026-10-07T16:03:51.522567+00:00",
+  "result": "PASS",
+  "original_exit": 1,
+  "original_failure": "Expected FileNotFoundError at guest-libs/build.ninja",
+  "corrected_exit": 0,
+  "installed_elf_count": 14,
+  "actual_generated_directories": [
+    "Guest",
+    "Guest_32"
+  ],
+  "scope": "Exact old-helper failing control and corrected actual installed-package proof; no source or package rebuild"
+}

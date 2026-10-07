@@ -1,0 +1,32 @@
+{
+  "accept_owner": "/workspace/tmp/pixelelated-m7-sm8550-acceptance-02",
+  "arm_carried_manifest": "/workspace/tmp/pixelelated-m7-sm8550-build-02/artifacts/arm-output-manifest.json",
+  "arm_manifest_sha256": "41b6eaa2906661b6fbea165161e958edc42846feeff11cf03c2c935b01fb1ade",
+  "arm_original_manifest": "/workspace/tmp/pixelelated-m7-sm8550-build-01/artifacts/arm-output-manifest.json",
+  "build_owner": "/workspace/tmp/pixelelated-m7-sm8550-build-02",
+  "controls": [
+    "/workspace/tmp/pixelelated-m7-fex-header-control-01",
+    "/workspace/tmp/pixelelated-m7-fex-guest-controls-02"
+  ],
+  "created_utc": "2026-10-07T15:40:38.360103+00:00",
+  "failed_owner": "/workspace/tmp/pixelelated-m7-sm8550-build-01",
+  "new_commit": "6b627a38ae3182bf73310ff8819ae4f17da79e36",
+  "nix_control": "/workspace/tmp/pixelelated-m7-fex-header-control-01",
+  "old_commit": "40f80c5151d5c9281be5ca95121e0a1fe0d918d9",
+  "product_delta": [
+    "projects/ROCKNIX/packages/compat/fex-emu/patches/0006-guest-thunks-exclude-rebased-system-headers.patch"
+  ],
+  "product_roots": [
+    "config",
+    "distributions",
+    "packages",
+    "projects",
+    "scripts",
+    "Makefile",
+    "LICENSE.md",
+    "TRADEMARK.md"
+  ],
+  "recovery_owner": "/workspace/tmp/pixelelated-m7-sm8550-recovery-01",
+  "scope": "Prepared only; root review and coordinated guest exit precede explicit --run launch",
+  "tree": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01"
+}

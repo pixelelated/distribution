@@ -246,6 +246,14 @@ sessioned command/guests by their recorded PIDs; do not mark its children
 finished merely because the runner is gone. Use a fresh owner after an
 interruption. This launcher does not deliver disconnected notifications.
 
+**Read host processes from the host namespace (#506).** A sandbox's `/proc`
+can hide every PID of a healthy host build while its watched status keeps
+advancing. An invisible PID is unknown, not exited. Use a host-context read for
+process/container checks and match the recorded start identity to avoid PID
+reuse. Never launch a replacement or claim cleanup from sandbox-only absence.
+A resumed session also verifies whether its previous supervising agent still
+exists; if not, take over the existing owner's watch without submitting it again.
+
 Two more traps met arming it, both already in this project's records:
 `pgrep -f` on the job's name matched the session's own shell (blindspot: the
 self-matching pattern — anchor it: `^/bin/bash \./build-h700\.sh$`), and
