@@ -1,0 +1,25 @@
+{
+  "case": "partial-library",
+  "status": "PASS",
+  "detail": "",
+  "cloud_sha256": {
+    "pixelelated/Content/ROMs/gb/Local.gb": "17c668db43feb25840e4a7572343e371fb7dc4e9de6e296c7022a154139afdd0",
+    "pixelelated/Content/ROMs/gb/Remote.gb": "bbe739123d4beee96ca18ebf80e9973326dc9cee848ddd4935880e34f36a447d",
+    "pixelelated/Content/ROMs/psx/CloudOnly.chd": "27b840ca0732c2dc33eadddc2aaf982764492d476968319125729336318d56b0"
+  },
+  "pointers": {
+    "SAVESPATH": "/storage/roms",
+    "SAVES_REMOTE": "/pixelelated/Saves",
+    "SETTINGS_BACKUPS": "/storage/roms/backup",
+    "SETTINGS_REMOTE": "/pixelelated/Backups",
+    "BACKUPMETHOD": "copy",
+    "RESTOREMETHOD": "copy",
+    "BACKUPFILE_BACKUP_OPTION": "no",
+    "BACKUPFILE_RESTORE_OPTION": "no",
+    "LOG_LEVEL": "INFO",
+    "LAYOUT_KEEP": "",
+    "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+    "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+    "CONTENT_REMOTE": "/pixelelated/Content"
+  }
+}

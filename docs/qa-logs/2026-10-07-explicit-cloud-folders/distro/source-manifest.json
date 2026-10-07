@@ -1,0 +1,40 @@
+{
+  "base": "7cfdf9f73ae2a064ee4f281461e661301cb2dd65",
+  "issue": 508,
+  "files": {
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_sync_cleanup_duplicates.sh": "b62ee55ace6e9d776a89686ed6ecdfa17c90ac0e9a6f16d2e260cb2a7617eac1",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_saves_root": "d0b0c5b850a7b51257797dcc9bfdac2e6f3e0abf2c3be4584ca65583748bfe43",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_device_id": "8f4a4cd1cf3cd0a08777b38b371b83ac3cf1e78d0fda3a9542785533d124a130",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_scan": "32f7b5410e6ec2c6ed91fd9ee4745cd0986b48c7ac0cc187df40bd7a375df892",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_restore": "ec63c21ad782703c6679ce5e1a7b8c5e8f610daeec8cdda224d166df945d0544",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_sync.conf.defaults": "77ce914421b47ef7f0a33e6085a5793cb8be55a5c239788adf8575a57d3ad1c4",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_sync_helper": "3c7738648fe946c74d2c8e9d38fc5e7529f6f41a831a6c546c84765891f26385",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_backup": "b3d3d7b2d37f62e9ec02a446ba809645666a533e7e08e87b3fe6d97e048ef48e",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_content_transfer": "fe292268d9029c2b950a093f6902b5cbe8afb3d57cb47187251cf90c3d85a1a3",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_sync.conf": "a121977066ce805e791108258fe12d1ecbce5e71ce2f61f096394a9fca982305",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_net_ready": "19afce254bc5c55f119b9681463b8103da5f564f3235b64f100ba9c35e62df89",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_sync-rules.txt": "bdb7e18128ce4a604c9b02cfe5b0f10f4e3e4dfd3aa7e2d69ea018b8c9d5484d",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_log_scrub": "5c156d8d43b39172fa71b80a3e47156f46bca0965dcae890ec70f02596f8f126",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_content_backup": "c6789f9476d1c13cc00050fe2478d26629da05ef6af89222eb0ef72f3bf594ae",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_sync-rules.txt.defaults": "951a7d65d83dc2f2a041868cf2ab1e231a8b09873a0656311b1f947fd106df75",
+    "projects/ROCKNIX/packages/network/rclone/sources/rasteratops-settings-archive": "58977f0e8aec6adfe673037c1a926bb2cbee94269ad6306ec02206250bceb50c",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_content_restore": "3b28fd1403657d713f92f216840a52ff7e692bf09746a7ccb8c2519c6940d2f8",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_oauth": "fec8240db342eb9432f9423f5ee3f5bd53df499012dffd1e4ac9ae81c316cbf5",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_capture": "6853272e6eb29b2c61908dbfe135a5cb14cab7e86f833dea69a4cc6ac66a8929",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_setup": "67c6f9be8b2c30ad903139ee34be3ccfb64dcf7b462e1abbf0c0ec648d3860b6",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_remote": "1b4df1b5394647e52df8584e75529ef113be8ccde3ea31b8b7dd1dfd5bb2e99e",
+    "projects/ROCKNIX/packages/network/rclone/package.mk": "40402043c12b8f3cb0e3a474a43f296393d4a323841441c234d0ea7d8228c853",
+    "tools/pixelelated-cloud-folder-test": "e1b5dfaec6416bbd0f3535ac4cc1d9958a3e7b31b7aa24591cbe18d2d830c9b7",
+    "tools/pixelelated-cloud-folder-vm-test": "0337362e906fc23b2f13fbe072d8c35621f898d77ea2e9c4320bd55b06504b5c",
+    "tools/rasteratops-cloud-layout-test": "c72c531b340ca70b6ac0a2362ba1f8f63c513571931c8a251fe66bb7c9bb76ca",
+    ".githooks/pre-push": "fb60f0f0c1e9a7ff5453f6f4eb0ee3134ef8287282966f8c622b1f9e01f42971",
+    ".claude/rules/fork-workflow.md": "8ea17637c2ec582057c7d7dde14a5fa932249d3fd80d4e998159cc51ecf1fad2",
+    ".claude/rules/instruction-files.md": "16c5396d4ec39536bbdc47182d0f334b1efeeb42618f80e6a0297f5205f46681"
+  },
+  "deleted": [
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_migrate_layout"
+  ],
+  "vm13_cloud_setup_sha256": "7b3e080a5bbf233c512ee061f1c0ffc1a41cc8bd65a2e23fd69432b436be8e8d",
+  "final_cloud_setup_sha256": "67c6f9be8b2c30ad903139ee34be3ccfb64dcf7b462e1abbf0c0ec648d3860b6",
+  "remaining": "Combined ES/UI proof and final future assembled firmware inclusion are separate. Final dot-only delta verified on guest; see final-dot-guards.log."
+}

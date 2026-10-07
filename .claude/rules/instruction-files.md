@@ -190,6 +190,8 @@ both lists and to this table, or it is invisible.**
 | `nova-led-test` | exercise all eight LED nodes, saved brightness and the battery writer using actual scripts and fixture sysfs | `generic-x64-vm-testing.md` |
 | `raofflineproxy-integration-test` | preserve old-writer state and prove full-library preparation, retries and rate-limit pacing | `generic-x64-vm-testing.md` |
 | `raofflineproxy-consent-test` | exercise installed reporting consent with synthetic state, actual loopback HTTP and restart controls | `generic-x64-vm-testing.md` |
+| `pixelelated-cloud-folder-test` | isolate ordinary explicit-folder setup and preservation regressions with real rclone and disposable synthetic data | `rclone-cloud-sync.md` |
+| `pixelelated-cloud-folder-vm-test` | prove hash-bound explicit-folder scripts on one owned candidate VM and synthetic WebDAV, with a coordinated UI handoff | `generic-x64-vm-testing.md` |
 | `rasteratops-cloud-layout-test` | prove numbered layout transitions, partial-state recovery and missing-remote refusal | `rclone-cloud-sync.md` |
 | `rasteratops-vm-cloud-epic` | run promoted cloud and settings cases against actual guest scripts | `generic-x64-vm-testing.md` |
 | `pixelelated-vm-cloud-boundaries` | prove explicit layout1 migration, recovered-cloud followers on a separate guest, and independent settings/content/provider boundaries | `generic-x64-vm-testing.md` |

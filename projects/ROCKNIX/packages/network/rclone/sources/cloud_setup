@@ -26,6 +26,7 @@
 #                sync and that is intended (cloud_saves_root)
 #   --check-syncpath [path]  validate a cloud folder against the remote's
 #                shape without changing anything (default: the current one)
+#   --folder-state  read configured folder availability; never change pointers
 #   --content-location  report where this device's ROMs/BIOS actually are in
 #                the cloud (key=value; STATE=ok|stranded-at-root|empty;
 #                unreadable, exit 1, when its value is not in a form the
@@ -293,6 +294,119 @@ absent_not_broken() {
     return 1
 }
 
+# Configuration, availability and the current format are read separately
+# from linking an rclone remote. Existing paths are never adopted or rewritten
+# from another device's folders; only explicit setters change these values.
+folder_path() {
+    local part out="" lead=""; local -a parts=()
+    case "$1" in /*) lead=/ ;; esac
+    IFS=/ read -r -a parts <<< "$1"
+    for part in "${parts[@]}"; do
+        case "${part}" in ""|.) ;; ..) return 2 ;; *) out="${out:+${out}/}${part}" ;; esac
+    done
+    # A nonempty relative dot-only path names the remote root. It must never
+    # collapse into a missing setting and silently select a fresh default.
+    [ -z "$1" ] || [ -n "${lead}${out}" ] || return 2
+    printf '%s%s' "${lead}" "${out}"
+}
+folder_values() {
+    local value field
+    if [ -e "${SYNC_CONF}" ] && [ ! -f "${SYNC_CONF}" ]; then
+        echo ">>> why YOUR CLOUD SYNC SETTINGS COULDN'T BE READ"
+        return 2
+    fi
+    for field in SAVES_REMOTE SETTINGS_REMOTE CONTENT_REMOTE; do
+        value=$(conf_get "${field}") || { echo ">>> why YOUR CLOUD SYNC SETTINGS COULDN'T BE READ"; return 2; }
+        value=$(folder_path "${value}") || { echo ">>> why YOUR CLOUD SYNC SETTINGS COULDN'T BE READ"; return 2; }
+        case "${field}" in
+            SAVES_REMOTE) SAVES="${value:-/pixelelated/Saves}" ;;
+            SETTINGS_REMOTE) BACKUPS="${value:-/pixelelated/Backups}" ;;
+            CONTENT_REMOTE)
+                # Explicit empty still means the cloud root; an absent setting
+                # alone receives the fresh-install default.
+                CONTENT="${value%/}"
+                grep -q '^CONTENT_REMOTE=' "${SYNC_CONF}" || CONTENT=/pixelelated/Content ;;
+        esac
+    done
+}
+folder_listing() { # <remote path> [lsf flags]; missing is distinct from unreadable
+    local path="$1" rc; shift
+    FOLDER_LISTING=$(rclone lsf "$@" "${path}" "${RCLONE_LIST_OPTS[@]}" 2>/dev/null); rc=$?
+    [ "${rc}" -ne 0 ] || return 0
+    if [ "${rc}" -eq 3 ] || [ "${rc}" -eq 4 ] || absent_not_broken "${path}"; then
+        FOLDER_LISTING=""
+        return 0
+    fi
+    echo ">>> why YOUR CLOUD STOPPED ANSWERING"
+    return "${rc}"
+}
+folder_exists() { # return 0 present, 1 absent, or >1 unreadable
+    local path="${1%/}" parent name rc
+    folder_listing "${path}"; rc=$?
+    [ "${rc}" -eq 0 ] || return 5
+    [ -z "${FOLDER_LISTING}" ] || return 0
+    # A successfully listed remote root exists even when it is empty.
+    [ -n "${path#*:}" ] || return 0
+    parent="${path%/*}"; name="${path##*/}"
+    [ -n "${name}" ] || return 1
+    folder_listing "${parent}/" --dirs-only; rc=$?
+    [ "${rc}" -eq 0 ] || return 5
+    printf '%s\n' "${FOLDER_LISTING}" | grep -qxF -- "${name}/"
+}
+folder_current_namespace() {
+    local identity="${SAVES#/}" features folding
+    [ "${identity}" = pixelelated/Saves ] && return 0
+    [ "${identity,,}" = pixelelated/saves ] || return 1
+    # Case variants are the default only on a folding provider. Read the
+    # selected parent in its own spelling; SFTP leading slashes still matter.
+    features=$(rclone backend features "${REMOTE}" "${RCLONE_LIST_OPTS[@]}" 2>/dev/null) || features=""
+    folding=$(printf '%s' "${features}" | jq -r 'if .Features.CaseInsensitive == true then "true" elif .Features.CaseInsensitive == false then "false" else "unknown" end' 2>/dev/null)
+    case "${folding}" in
+        true) return 0 ;;
+        false) return 1 ;;
+        *)
+            echo ">>> why YOUR CLOUD FOLDER COULDN'T BE READ"
+            return 5 ;;
+    esac
+}
+folder_marker_read() {
+    FOLDER_VERSION=0
+    # Custom/legacy paths are independent choices, not a renamed layout.
+    folder_current_namespace; local scope=$?
+    case "${scope}" in 0) ;; 1) return 0 ;; *) return "${scope}" ;; esac
+    local tmp rc version
+    tmp=$(mktemp /tmp/cloud_folder_marker.XXXXXX) || return 5
+    rclone cat "${REMOTE}${SAVES%/*}/.layout" "${RCLONE_LIST_OPTS[@]}" > "${tmp}" 2>/dev/null; rc=$?
+    if [ "${rc}" -ne 0 ]; then
+        rm -f "${tmp}"
+        folder_listing "${REMOTE}${SAVES%/*}/" --files-only || return $?
+        if printf '%s\n' "${FOLDER_LISTING}" | grep -qxF '.layout'; then
+            echo ">>> why YOUR CLOUD STOPPED ANSWERING"
+            return "${rc}"
+        fi
+        return 0
+    fi
+    for version in 1 2; do
+        if printf 'layout=%s\n' "${version}" | cmp -s - "${tmp}"; then
+            FOLDER_VERSION="${version}"
+            rm -f "${tmp}"
+            return 0
+        fi
+    done
+    rm -f "${tmp}"
+    echo ">>> why YOUR CLOUD FOLDER COULDN'T BE READ"
+    echo "This cloud folder uses a layout this version can't read. Check for a newer system version before trying again."
+    return 4
+}
+folder_marker_write() {
+    folder_current_namespace; local scope=$?
+    case "${scope}" in 0) ;; 1) return 0 ;; *) return "${scope}" ;; esac
+    folder_marker_read || return $?
+    printf 'layout=2\n' | rclone rcat "${REMOTE}${SAVES%/*}/.layout" "${RCLONE_LIST_OPTS[@]}" 2>/dev/null || return 5
+    folder_marker_read || return $?
+    [ "${FOLDER_VERSION}" = 2 ] || return 5
+}
+
 # Callers pass the first remote; an empty one stops after the string checks,
 # which hold with no remote configured at all.
 syncpath_problem() {
@@ -456,6 +570,17 @@ syncpath_problem() {
 }
 
 case "$1" in
+    --folder-state)
+        REMOTE=$(rclone listremotes 2>/dev/null | head -1)
+        [ -n "${REMOTE}" ] || { echo "STATE=no-remote"; exit 1; }
+        folder_values || exit $?
+        folder_marker_read || exit $?
+        folder_exists "${REMOTE}${SAVES}"; rc=$?
+        case "${rc}" in 0) state=ready; present=1 ;; 1) state=missing; present=0 ;; *) exit "${rc}" ;; esac
+        printf 'STATE=%s\nSAVES=%s\nBACKUPS=%s\nCONTENT=%s\nSAVES_EXISTS=%s\n' \
+            "${state}" "${SAVES}" "${BACKUPS}" "${CONTENT}" "${present}"
+        exit 0
+    ;;
     --info)
         # Machine-readable connection facts for the native UI.
         resolve_connection
@@ -679,9 +804,8 @@ case "$1" in
             echo "Your cloud sync settings couldn't be read."
             exit 1
         else
-            # The conf's own value is judged as the migration judges it
-            # (the audit of the fixes, claude G3-D-07): one trailing slash
-            # is a spelling, not an empty part.
+            # One trailing slash is a spelling, not an empty part
+            # (the audit of the fixes, claude G3-D-07).
             CAND="${CAND%/}"
         fi
         REMOTE=$(rclone listremotes 2>/dev/null | head -1)
@@ -697,11 +821,10 @@ case "$1" in
     ;;
 
     --set-saves-remote|--set-syncpath)
-        # Change the cloud folder the saves live in, and move the settings
-        # backups and the ROMs with it -- as SIBLINGS, never inside it.
+        # Explicitly select cloud paths for saves, settings backups and content
+        # as siblings. No file moves, copies or deletions are performed here.
         # This used to write SETTINGS_REMOTE="<saves>/backup", which is the
-        # first-layout nesting cloud_migrate_layout exists to undo and the
-        # trap cloud_backup warns about: a mirror of the saves folder can
+        # legacy nesting cloud_backup warns about: a mirror of the saves folder can
         # delete the archives kept beneath it. The siblings are the saves
         # folder's parent's: <parent>/Backups and <parent>/Content. A saves
         # folder at the top of the cloud has no parent and is refused
@@ -781,62 +904,11 @@ case "$1" in
         # layout seeded rather than ours.
         REMOTE=$(rclone listremotes 2>/dev/null | head -1)
         [ -z "${REMOTE}" ] && { echo "ERROR no remote"; exit 2; }
-        # The folder is settled before anything is made
-        # (cloud_migrate_layout --settle, D-CLOUD-169). A fresh install, or
-        # a carried /GAMES, beside a fleet still on the earlier folder joins
-        # it: seeding an empty /pixelelated beside the player's saves left a
-        # new device reading a folder with none of them in it (the
-        # mixed-installation test, D-CLOUD-158), and seeding the carried
-        # /GAMES put a README there that every later check read as saves. A
-        # carried default with nothing anywhere is pointed at the current
-        # folders, which the seeding makes, as for any new cloud. A settle
-        # that could not answer makes nothing. The wizard may still finish;
-        # its boot step retries, without a misleading README at the old root.
-        layout_tool="$(dirname "$(readlink -f "$0")")/cloud_migrate_layout"
-        [ -x "${layout_tool}" ] || layout_tool=/usr/bin/cloud_migrate_layout
-        if [ ! -x "${layout_tool}" ]; then
-            log_message "Seeding: cloud folder settlement is unavailable; nothing was made"
-            exit 1
-        fi
-        settlement=$(timeout 30 "${layout_tool}" --settle 2>&1); settle_rc=$?
-        case "${settle_rc}" in
-            0) log_message "Seeding: this device's cloud folder was settled first (cloud_migrate_layout --settle)" ;;
-            3) ;; # A current, populated, custom or kept folder needs no transition.
-            *) log_message "Seeding: cloud folder settlement exited ${settle_rc}; nothing was made"
-               settle_why=$(printf '%s\n' "${settlement}" | sed -n 's/^>>> why //p' | tail -1)
-               if [ -n "${settle_why}" ]; then
-                   echo ">>> why ${settle_why}"
-               elif [ "${settle_rc}" -eq 124 ]; then
-                   echo ">>> why YOUR CLOUD STOPPED ANSWERING"
-               else
-                   echo ">>> why YOUR CLOUD FOLDER COULDN'T BE READ"
-               fi
-               echo "Your cloud folder couldn't be checked, so no folders were made. Try again."
-               exit "${settle_rc}" ;;
-        esac
-        # Read as text, never eval'd: the config is shell, and a value an
-        # earlier build wrote could carry a command (PL-051). A folder in a
-        # form the scripts cannot read makes nothing: read as empty, it
-        # became the default folder here and was seeded in the player's
-        # cloud (gpt G2-C-01).
-        if ! SAVES_REMOTE="$(conf_get SAVES_REMOTE)" \
-           || ! SETTINGS_REMOTE="$(conf_get SETTINGS_REMOTE)" \
-           || ! CONTENT_REMOTE="$(conf_get CONTENT_REMOTE)"; then
-            echo "Your cloud sync settings couldn't be read, so no folders were made."
-            log_message "Seeding: a folder in ${SYNC_CONF} is not in a form the sync reads; nothing was made"
-            exit 1
-        fi
-        SAVES="${SAVES_REMOTE:-/pixelelated/Saves}"
-        BACKUPS="${SETTINGS_REMOTE:-/pixelelated/Backups}"
-        # An empty CONTENT_REMOTE is not a missing one: it is
-        # --use-content-root's "the cloud's root", which is where the
-        # content scripts put ROMs/ and BIOS/ (ROOT="<remote>:"). Only a
-        # config with no such line gets the default (#308 gpt F-RS-20).
-        if grep -q '^CONTENT_REMOTE=' "${SYNC_CONF}" 2>/dev/null; then
-            CONTENT="${CONTENT_REMOTE%/}"
-        else
-            CONTENT="/pixelelated/Content"
-        fi
+        # Link and folder selection are independent. Seed exactly the configured
+        # paths (fresh defaults when absent), never search for an older fleet or
+        # rewrite pointers. Reject unknown current-layout bytes before any write.
+        folder_values || exit $?
+        folder_marker_read || exit $?
 
         for d in "${SAVES}" "${SAVES}/savefiles" "${SAVES}/savestates" \
                  "${SAVES}/screenshots" "${BACKUPS}" \
@@ -847,27 +919,17 @@ case "$1" in
             # Ignored by path-based backends, so it costs nothing there.
             # Bounded like the listings (#308 claude F-RS-13, gpt F-RS-19):
             # up to two dozen calls under one 90 s box in the interface.
-            rclone mkdir --s3-directory-markers "${REMOTE}${d}" "${RCLONE_LIST_OPTS[@]}" 2>/dev/null
+            if ! rclone mkdir --s3-directory-markers "${REMOTE}${d}" "${RCLONE_LIST_OPTS[@]}" 2>/dev/null; then
+                echo ">>> why YOUR CLOUD FOLDERS COULDN'T BE CREATED"
+                exit 5
+            fi
         done
-        # The layout marker (fork #356): one line at the parent of the saves
-        # folder saying which shape of folders this cloud carries, read by
-        # every device before it offers a move or a creation
-        # (cloud_migrate_layout --state). Written here because seeding is
-        # where a cloud first takes the current shape.
-        # Not beside a folder this project once shipped as its default: a
-        # device that joined one marks nothing, and a layout=2 marker at
-        # /ROCKNIX would say a thing about that cloud that is not so.
-        # The same version-aware writer owns publication for migration and
-        # seeding. Custom and earlier layouts publish no current marker.
-        "${layout_tool}" --write-marker; marker_rc=$?
-        case "${marker_rc}" in
-            0|3) ;;
-            *) log_message "Seeding: layout marker publication failed (${marker_rc})"
-               exit "${marker_rc}" ;;
-        esac
+        # Preserve the version guard for the current namespace. This declares
+        # its folder shape only; no existing library has been moved or verified.
+        folder_marker_write || exit $?
 
         seed_note() {
-            local dir="$1" listing tmp; shift
+            local dir="$1" listing tmp rc; shift
             # Never clobber a note the owner may have written themselves, and
             # never write on a guess. The folder's own listing says whether a
             # README.txt is in it. Asking for the file by name could not: a
@@ -885,10 +947,12 @@ case "$1" in
             printf '%s\n' "$@" > "${tmp}"
             # --ignore-existing: another device may have written one since
             # the listing.
-            rclone copyto --ignore-existing "${tmp}" "${REMOTE}${dir}/README.txt" "${RCLONE_LIST_OPTS[@]}" 2>/dev/null
+            rclone copyto --ignore-existing "${tmp}" "${REMOTE}${dir}/README.txt" "${RCLONE_LIST_OPTS[@]}" 2>/dev/null; rc=$?
             rm -f "${tmp}"
+            return "${rc}"
         }
 
+        seed_failed=0
         seed_note "${SAVES}" \
             "Game saves, save states, and screenshots." \
             "" \
@@ -896,36 +960,38 @@ case "$1" in
             "  savestates/   save state snapshots" \
             "  screenshots/" \
             "" \
-            "The handheld writes these itself. Nothing to put here by hand."
+            "The handheld writes these itself. Nothing to put here by hand." || seed_failed=1
 
         seed_note "${BACKUPS}" \
             "Settings backups, one folder per handheld." \
             "" \
-            "Written by the device. Nothing to put here by hand."
+            "Written by the device. Nothing to put here by hand." || seed_failed=1
 
         # Not at the top of somebody's cloud: with content at the root, the
         # ROMs and BIOS folders carry their own notes and the root keeps
         # whatever the owner has there.
-        [ -n "${CONTENT}" ] && seed_note "${CONTENT}" \
+        if [ -n "${CONTENT}" ]; then
+            seed_note "${CONTENT}" \
             "Put your games and BIOS files here." \
             "" \
             "  ROMs/       one folder per system - snes, psx, n64, gba, ..." \
             "  BIOS/       BIOS and firmware files" \
             "" \
             "The handheld reads these when you choose" \
-            "\"Restore from the cloud\" on it."
+            "\"Restore from the cloud\" on it." || seed_failed=1
+        fi
 
         seed_note "${CONTENT}/ROMs" \
             "Your games, one folder per system." \
             "" \
             "Use the same folder names the handheld uses - snes, psx, n64," \
-            "gba, megadrive, and so on. The game list on the device shows them."
+            "gba, megadrive, and so on. The game list on the device shows them." || seed_failed=1
 
         seed_note "${CONTENT}/BIOS" \
             "BIOS and firmware files." \
             "" \
             "These land in /storage/roms/bios on the handheld, keeping" \
-            "whatever subfolder structure you use here."
+            "whatever subfolder structure you use here." || seed_failed=1
 
         # Report what is actually there, not what we asked for: on a bucket
         # remote a mkdir can succeed and leave nothing behind.
@@ -939,8 +1005,10 @@ case "$1" in
                 echo "OK ${d}"
             else
                 echo "MISSING ${d}"
+                seed_failed=1
             fi
         done
+        [ "${seed_failed}" -eq 0 ] || { echo ">>> why YOUR CLOUD FOLDERS COULDN'T BE CREATED"; exit 5; }
         exit 0
     ;;
 

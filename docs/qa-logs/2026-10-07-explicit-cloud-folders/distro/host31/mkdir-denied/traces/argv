@@ -1,0 +1,4 @@
+listremotes
+cat qa:/pixelelated/.layout --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf --files-only qa:/pixelelated/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+mkdir --s3-directory-markers qa:/pixelelated/Saves --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1

@@ -820,18 +820,11 @@ bucket_dir_listed() {
     printf '%s\n' "${listing}" | grep -qxF -- "${name}/"
 }
 
-# Whether the saves setting is a default this project once shipped
-# (/GAMES, /ROCKNIX/Saves), from cloud_migrate_layout's own list: a string
-# test, no network. Names compared as written.
+# Do not silently recreate an absent legacy root after the owner moved it
+# from a computer. An explicit folder choice settles where future saves go.
+# This is a local stored-interface check, never an automatic migration.
 superseded_saves_setting() {
-    local tool s want="${SAVES_REMOTE%/}"
-    tool="$(dirname "$(readlink -f "$0")")/cloud_migrate_layout"
-    [ -x "${tool}" ] || tool=/usr/bin/cloud_migrate_layout
-    [ -x "${tool}" ] || return 1
-    while IFS= read -r s; do
-        [ -n "${s}" ] && [ "${s%/}" = "${want}" ] && return 0
-    done < <("${tool}" --superseded 2>/dev/null)
-    return 1
+    case "${SAVES_REMOTE%/}" in /GAMES|/ROCKNIX/Saves) return 0 ;; *) return 1 ;; esac
 }
 
 outcome_word() {
@@ -1662,9 +1655,8 @@ backup_game_saves() {
     # nine saves into /GAMES (guest d, run 100). So it says what the
     # restore says -- the offer line, which an automatic sync's card reads
     # as that SKIPPED and a deliberate run as the offer to create the
-    # folder, whose seeding settles the setting on the current folders
-    # (cloud_migrate_layout --settle) -- and the cloud folder step asks at
-    # the next boot (D-CLOUD-170). Asked only for such a setting; a listing
+    # folder. The owner selects its replacement explicitly; no scan or boot
+    # changes these pointers. Asked only for such a setting; a listing
     # that cannot answer leaves the backup as it was, since skipping it on
     # a guess would leave the saves only on the device.
     if superseded_saves_setting; then
