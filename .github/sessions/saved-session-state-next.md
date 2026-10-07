@@ -1,63 +1,109 @@
 # Saved Session State
 
-> Saved: 2026-10-07T17:06:06.327418+00:00
+> Saved: 2026-10-07T18:07:14.611527+00:00
 > Coordination branch: feature/conflict-resolution
 > Repository: pixelelated/distribution
 
 ## Start here
 
-pixelelated is an immutable handheld Linux distribution, built here as complete
-per-device firmware. Read AGENTS.md and the canonical `.claude/rules/` from
-`next` before work. Primary `/workspace/repos/rocknix` stays on next;
-coordination is `/workspace/repos/rocknix.worktrees/conflict-resolution`.
-The immediately preceding checkpoint is `archived/saved-session-state-next-20261007T170606Z.md`.
-It preserves the full failed-owner history; the older15:37 archive retains
-accepted candidate16/H700/SP inputs. Never replay accepted jobs merely because
-this session resumed. Secrets never appear in output; physical reads use the
-credential filter and state-changing actions use tools/device-act.
+pixelelated is an immutable Linux distribution for handheld gaming devices.
+This repository cross-compiles firmware, not an app. Read AGENTS.md and the
+canonical `.claude/rules/` from `next`. The primary checkout is
+`/workspace/repos/rocknix` on next; this coordination checkout is
+`/workspace/repos/rocknix.worktrees/conflict-resolution`. Read the live M7
+milestone body for ordered priorities. The previous checkpoint is
+`archived/saved-session-state-next-20261007T180714Z.md`; older archives retain full candidate16/H700 custody.
 
-Standing authority covers scoped fixes, host/VM QA, commits/pushes, and the
-H700-then-SM8550 build sequence. The user explicitly requested parallel work.
-The RG35XX SP screenshot permission persists. The separately approved ONE
-wake keypress and follow-up screenshot completed16:26UTC. Do not repeat that
-input. No migration retry, confirmation, new update/reboot/game launch or
-release publication is authorized by that yes.
+User authorization persists for scoped implementation, parallel work, host/VM
+checks, commits/pushes, and H700 then SM8550 builds. Product firmware publication,
+new handheld input/reboot/update and personal-cloud mutation retain named scope.
+The one approved SP wake input already completed; do not repeat it. Screenshots
+were separately authorized. Raw SP evidence remains local/ignored. Do not replay
+accepted firmware jobs or QA simply because the session resumed.
 
 ## Current Focus
 
-M7.P5: H700 and SM8550 firmware artifacts are now accepted. The immediate
-follow-up is #505's concrete diagnostics proposal and its exact implementation
-approval, then focused VM proof and final selected-artifact inclusion. #507
-owns the newly due independent audit of the frozen post-candidate16 P5 delta.
-M7's body is the ordered execution plan. Physical/source/publication gates
-remain separate. No RC designation or Nova deployment has occurred.
+M7.P5 #508: remove cloud-folder migration, retain ordinary linking, folder/README
+creation, explicit selection and normal sync/restore. Fresh configurations use
+`/pixelelated`; existing sign-ins and configured paths remain. D-CLOUD-175 records
+the maintainer's direction. No automatic join/follow, boot migration prompt or
+optional TIDY row should remain. Qualify scripts and EN/FR screens, then freeze
+the P5 delta for #507's independent audit and include it in selected firmware.
+The accepted device builds still contain the previous migration implementation.
 
-## Completed This Session
+## Completed this session
 
-- #502 approved English/French migration copy is published: ES
-  5d2fcb9b71f363cfa4813d5356f02c48ab58e139, distribution0553c0193ace3aebbefaae5b7b6d49253c2811d9.
-  Four actual640x480/1280x800 frames and compiler/gettext checks pass. Temporary
-  QA payloads were removed. Current SP firmware retains the earlier wording.
-- #503 FEX repair and #506 helper corrections are complete/closed. Original
-  ARM64 include contamination reproduced with exact Nix/compiler inputs;
-  narrow standard-include exclusion preserves both guest architectures. Full
-  FEX package and installed14ELF payloads pass. Failed01/02/03 stay historical.
-- SM8550 build04: all737 packages completed, runner0 at16:51:14. Fourzero
-  channels/13seals/exits verified16:51:39. Firmware acceptance PASS16:52:00;
-  fourzero channels/3seals/exits and controllerPASS16:52:09. Host readback at
-  16:56:37 rehashed all bundle bytes, checked independent inodes, all26sequence
-  seals and actual process/container exits. No build or acceptance job remains.
-- #504 historical SP review is complete/closed. Wake/frame exposes an incomplete
-  transfer without the underlying cause. Source tracing confirms discarded is
-  the completed discarded-save tier before content, not an abort/finish marker;
-  elapsed freezes when the worker exits. Copy/check failures share the same
-  generic result. No personal-cloud retry or provider-byte equality is claimed.
-  Raw device data/images remain LOCAL ONLY in the ignored review folder; only
-  its .gitignore and PUBLIC-SUMMARY.md are publishable under existing authority.
-- #344/#265/#359 bodies reconciled from accepted evidence. Installed version
-  and branding licence files are proved; corresponding source, component licence
-  dispositions, publication tooling/docs and broader physical smoke remain open.
-  Readiness/support-matrix docs now distinguish current proof from history.
+- Corrected the historical answer: submitted ROCKNIX/distribution PR3404
+  head4c83ebede40af27a375ced4cac72983be5715944 and ES PR40 sourceca300dd41
+  already included an OPTIONAL migration preview with MOVE / LEAVE THEM.
+  The engine began in2233a98114 on September1. Both PRs closed without merging.
+  Automatic startup/fleet-follow behavior came later. Do not claim all migration
+  began at the hard fork; normal setup and the optional tidier coexisted.
+- The user approved #505's exact diagnostic patch, then replaced that approach
+  with manual cloud setup. The patch is applied only in isolated
+  `/workspace/repos/rocknix.worktrees/m7-migration-diagnostics`, unintegrated,
+  unpushed, without a new VM test. #505 CLOSED NOT_PLANNED, superseded by #508.
+  The old automatic-review rejection is resolved, not a pending approval.
+- Created #508 with quoted direction, VM-first answer and acceptance artifacts.
+  M7's top priority, P5 row and historical P1 disposition now agree. #507 audit
+  follows the settled replacement; no external review call has started.
+- Root updated current policy/register, cloud docs, menu map, readiness and
+  support matrix; preserved historical migration evidence as historical.
+- Host Dropbox preflight found empty mode0600 default config and no usable
+  authorization. Prepared private metadata-only inventory; zero remote requests.
+
+## In progress: source and proof owners
+
+Distribution owner `/root/sp_migration_review`:
+`/workspace/repos/rocknix.worktrees/m7-manual-cloud-folders`, branch
+`feature/m7-manual-cloud-folders`, base7cfdf9f73ae2a064ee4f281461e661301cb2dd65.
+Uncommitted replacement removes engine/installation, makes cloud_scan read
+cloud_setup --folder-state (STATE=ready|missing|no-remote, SAVES/BACKUPS/CONTENT,
+SAVES_EXISTS), and seeds selected folders without pointer rewrites. Unknown or
+malformed current-layout markers must still refuse. Existing config bytes stay.
+Twenty-three initial host controls reported PASS at
+`/tmp/pixelelated-508-host01`; exact old source reproduced silent auto-follow.
+Package staging and pkgcheck pass. Reviewer found relative paths could bypass
+marker checks, and the interrupted-state fixture used the wrong historical path;
+fix and rerun before final qualification. No final firmware inclusion claimed.
+A fresh synthetic candidate16 guest has completed11 initial script cases, owner
+`/workspace/tmp/pixelelated-508-vm01`, SSH10158/VNC58/WebDAV9058. Initial PASS is retained in artifacts/result.json; current cloud_setup bytes
+differ from those inputs, so this is not qualification of the later corrections.
+Recorded QEMU PID860697 and guest.json assign the guest to sp_migration_review;
+confirm host liveness and explicit handoff before ES takes control. Corrected
+script proof hands the same guest to ES, avoiding a second retained disk. Active QA callers of cloud_migrate_layout also need a
+compatibility sweep; historical migration suites must not run on new firmware.
+
+ES owner `/root/terminal_handoff_review`:
+`/home/max/Development/emulationstation-next.worktrees/m7-manual-cloud-setup`,
+branch `feature/m7-manual-cloud-setup`, base5d2fcb9b71f363cfa4813d5356f02c48ab58e139.
+Uncommitted removal covers boot/optional migration pages, dead move parser/types,
+locale strings, and silent content adoption. Setup now checks seeding rc, offers
+TRY AGAIN on failure, and only claims readiness on success. Root flagged the
+unconditional connection checkmark; owner made it success-only. Compile actual
+changed production objects/relink using candidate16 inputs read-only, then actual
+EN/FR640x480 and1280x800 frames. Initial host01 correctly refused applying the
+production syntax helper to a unit-test source. host02 passed six production
+syntax checks/vocabulary but stopped on a trailing blank line. Both are failed
+owners. host03 failed one stale known-why assertion; host04 then compiled and
+linked all six changed production objects at18:09:16,178 tests/1886 assertions
+PASS and accepted input hashes unchanged. Owner /tmp/pixelelated-508-es-host04
+contains the binary and artifacts/fr.mo. Actual VM frames remain pending the
+corrected script proof and guest handoff. Inspect latest owner announced by agent;
+never edit its running shell. Owner dirs `/tmp/pixelelated-508-es-host0*` contain
+launcher-result.json, inner.rc, tool-wrapper.rc, console.log and .build-runs.
+
+Reviewer `/root/handoff_review` completed its read-only distro review, identifying
+marker aliases and root-default substitution plus the fixture-record mismatch.
+The private Dropbox procedure is under
+`/tmp/pixelelated-dropbox-preflight-9oje01ie` (0700); REVIEW.md/inventory.py/manifest
+and preflight summaries. Multiple Dropbox sections now require explicit remote
+selection; any failed stat is incomplete, never presumed absent. No credentials
+read and no provider requests. Current pending user question explicitly asks
+permission to copy SP authorization privately to this host for metadata inventory.
+Do not infer a response; the user may instead supply a host config or defer.
+No remote move/copy/delete or handheld rclone execution is authorized. Inventory
+is independent of the software release and stays private.
 
 ## Accepted SM8550 artifact and custody
 
@@ -91,82 +137,56 @@ Recovery01/preserved, control01 sources/snapshot and build02/nix still have a
 source-custody review hold. Artifact acceptance alone does not authorize their
 retirement. No broad cleanup, swap operation or new drive is needed now.
 
-## In Progress — #505 diagnostic proposal, application not approved
+## Next steps
 
-Fresh clean feature tree:
-`/workspace/repos/rocknix.worktrees/m7-migration-diagnostics`
-branch `feature/m7-migration-diagnostics`, base next0f4d701a23.
-No production change has been applied there. Automatic approval review rejected
-applying the diagnostic patch because production signal/failure-path changes
-need explicit implementation authority. Do not work around that rejection in
-another worktree. Root will present the concrete reviewed patch and ask for the
-specific approval, then continue under that authorization if received.
+1. Inspect live agent messages and actual watcher artifacts; continue source
+   review and fixes. Retain failed checks and verify exact corrected bytes.
+   Guest script proof and actual UI frames must finish before their payloads
+   are retired. Record terminal results and actual owner exits.
+2. Integrate checked ES into test/qa-integration through normal hooks, then
+   distribution pin/scripts and coordination docs. Do not push unreviewed drafts.
+   Root coordination branch is divergent: cherry-pick ONLY its new scoped
+   commit to next, never merge the whole historical branch. Fresh #508 feature
+   branches start from next and can use their documented normal integration.
+3. Publish evidence/log/checkpoint through normal checks. Freeze #508/P5 delta
+   for #507 code-auditor, following serial stages and verified cross-lab routing.
+   Prepare and obtain any required exact safe-payload disclosure authorization
+   before external calls; do not reuse old audit-transfer approval blindly.
+4. Bind qualified new inputs into the chosen firmware, then reconcile affected
+   tests/image evidence. Source overlays are not already shipped fixes. Preserve
+   accepted candidate16 and device artifacts as exact historical baselines.
+5. Continue #492 input comparison and #344/#265/#359 release staging: inventory12
+   has583components and14 missing recipe-licence entries; corresponding-source
+   retrieval/hash proof, manifest-selected versioned draft publisher, release
+   notes/public docs and each named board's physical smoke remain outstanding.
+   No Nova deployment, new SP update/reboot or RC designation has happened.
 
-Final sealed proposal and scratch controls: `/tmp/pixelelated-505-draft/`;
-start with `README.md` and `proposed.patch`, SHA256
-`8cd8ae12c52223c3c1a5b4fb333db7434cb8deed9153275c76b2e0d7ab102732`.
-All 287 packet seals verify. The preparation and focused read-only review agents
-are complete. All four watched owners02–05 returned zero, and their 16 owned
-processes exited (host-context `owner-exit-verification.json`). All 28 disposable
-fixture roots were removed. No VM/device/cloud run is underway for this proposal.
-The exact patch-and-VM-test approval question was sent; await the user's reply.
+## Fresh-context handoff proof
 
-The proposal adds a bounded private helper/script record (current/prior/attempt),
-run/process identity, typed stage/operation/result, atomic0600files, and signal
-interruption without guessing player/game intent. Initial record failure would
-refuse before cloud mutation using existing rc5: this is an explicit new refusal,
-not a claim of wholly unchanged behavior. Later record failure must preserve the
-actual operation result and leave the run distinguishably unfinished.
+/root/m7_manual_setup_handoff independently read only this repository and its
+instructions. It found the correct #508 scope and authorization boundaries,
+verified tree bases/owners and highlighted source-hash drift and the stale
+canonical next checkpoint. Current cloud_setup needs its corrected proof;
+this scoped coordination checkpoint must reach next before resume is safe.
+Do not merge this branch wholesale.
 
-The exact old-source missing-record negative control and 12 proposed positive
-controls pass. Lifecycle controls cover TERM/KILL, concurrency, record failure,
-early exit and bounds/privacy. Latest-attempt precedence over an older current
-success is explicit and tested after acquisition-record refusal. `recipe02`
-verifies exact installed bytes, mode0755, Python3 dependency and pkgcheck0.
-First sandbox-unavailable controls never ran the script and are explicitly
-invalidated. Read actual latest manifests/results: no final VM or
-assembled firmware inclusion is claimed. After approval, apply to the isolated
-feature tree, run package checks and hash-verified focused candidate16 VM overlay
-proof; final selected release artifacts still need the fix included/qualified.
+## Checks and operational notes
 
-## Next Steps
+Prior published featureb89e7170cb8b81971d254cfb2254391ee5f8ff99 and
+next7cfdf9f73ae2a064ee4f281461e661301cb2dd65. Both wordlist checks PASS
+37657953188/37657971868; next record run37657971781 fails ONLY15-closure
+independent audit cadence, now owned by #507. Local current rules/register/prose
+checks pass; final checks follow finished source and evidence. Candidate16/#471
+is not reopened. New record CI may remain red until the actual new audit completes.
 
-1. Read #505's sealed concrete patch and isolated controls, obtain explicit
-   implementation approval prompted by automatic review, then run the focused
-   synthetic VM proof. A yes to wake the SP is not that approval or a cloud retry.
-2. Freeze the resulting P5 delta for #507, using the code-auditor skill serially:
-   scoped Milestone, primary plus verified cross-lab reviewer, required blind/
-   refutation passes. No new external call has started. Confirm concrete safe
-   payload/disclosure authority before dispatch; omit private SP records.
-3. Reconcile #492's remaining input-comparison/source inventory criteria. Its
-   actual H700 and SM8550 firmware criteria are proved; compilation is complete.
-4. Continue #344/#265/#359:14 component licence metadata dispositions, retrievable
-   corresponding sources, per-image sweeps/delta mapping, manifest-selected
-   versioned draft publisher, adoption/recovery/release notes/public docs, named
-   per-asset physical smoke. No accepted H700/SP transfer or VM matrix replay.
-5. Publish current compact evidence, readiness docs, logs and this checkpoint as
-   a scoped NEW commit/cherry-pick to next, through normal hooks. Never merge the
-   divergent feature history wholesale. Read exact-head hosted results.
+Watchers record lifecycle but do not deliver disconnected chat alerts (#395).
+An active owner must consume outcomes. Read PIDs in the host namespace and match
+start identity; a PID invisible inside the sandbox is unknown, not exited.
+Never edit a running shell, rerun an exclusive verifier or blindly replay a
+partially successful GitHub mutation. Retain compact inputs/results/logs/frames;
+remove completed disposable VM disks/payloads when their test ends (D-INFRA-022).
+About2TB free after approved cleanup; no swap action or new drive is owed.
 
-## Published checks and operational notes
-
-Published prior checkpoint: feature786df869939bc45717ec52e9a2cd35c3626aa988,
-next0f4d701a2333b36ad1c45b679e8987e4393212a9. Both wordlist checks pass
-(runs37653130416/37653236283). Record run37653236199 fails ONLY the newly due
-13-closure audit cadence; local blocking gates pass. #507 owns the follow-up.
-#503/#506 then closed, so the next cadence count may be15. Candidate16/#471 is
-not reopened. Read exact head_sha API results; ordinary run-list was stale.
-
-GitHub comment/close convenience calls failed transiently. Body updates persisted;
-root read back actual state before continuing. Explicit GraphQL addComment plus
-REST state PATCH succeeded for #503/#506; both completed states were read back.
-Never blindly replay a failed mutation without checking what persisted.
-
-Host PIDs are invisible in the tool sandbox: use host-context reads with recorded
-start identity, or report unknown. Local watchers do not deliver disconnected chat
-notifications (#395). There are no longer live build or #505 draft-control
-owners to supervise.
-
-Historical accepted candidate16, H700/SP, source custody and cleanup hashes are
-in the archives. #432FOSS observability/#464RA reset automation remain backlog.
-No Dropbox check or new RA reset is owed.
+#432FOSS observability and #464RA reset automation remain backlog. No Dropbox
+QA credential or new RA reset is a release gate. Personal Dropbox recovery is
+separate and waits for exact credential/inventory and later action authority.

@@ -284,8 +284,9 @@ migration's refusal), the stamp why `YOU WENT OFFLINE PART-WAY THROUGH` (a run t
 network cut after files moved, stamped `69 gaps`), `SOME ACHIEVEMENT IMAGES
 COULDN'T BE SAVED` (the scan page adds `TRY THE SCAN AGAIN.`), `CHECK WHAT WOULD
 CHANGE FIRST` (`cloud_content_restore`: a match applied without its preview),
-`YOUR CLOUD SYNC SETTINGS COULDN'T BE SAVED` (`cloud_migrate_layout`: a pointer
-that could not be written), and `backuptool`'s
+`YOUR CLOUD SYNC SETTINGS COULDN'T BE SAVED` (historically
+`cloud_migrate_layout`: a pointer that could not be written; the migration
+flow and its exclusive outcomes are retired by D-CLOUD-175/#508), and `backuptool`'s
 `A SIGN-IN WAS FOUND IN THE BACKUP`, `THIS BACKUP HOLDS FILES A RESTORE CAN'T PUT
 BACK, SO NOTHING WAS CHANGED. RESTORE SETTINGS FROM THE CLOUD AGAIN, OR BACK UP
 SETTINGS TO REPLACE IT.` (proposed, D-UI-117), `THERE'S NOTHING TO BACK UP YET`, `A SETTINGS

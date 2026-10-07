@@ -758,6 +758,12 @@ run's percentage into its half of the bar.
 
 ## What the audit of the fix round changed (2026-09-28, #313)
 
+The migration-specific item below is historical: D-CLOUD-175 (#508) removes
+`cloud_migrate_layout`, its optional UI and automatic join/follow. Current
+setup creates explicitly selected folders, retains existing pointers and uses
+`/pixelelated` for fresh defaults. Preserve the remaining config and transfer
+safeguards; removal of migration does not relax ordinary sync safety.
+
 - **The three cloud pointers are compared as folders, never as strings** (D-CLOUD-152):
   `cloud_migrate_layout` cleans each once (a leading slash, no trailing slash, no `.`
   parts), folds case where `rclone backend features` says the cloud is case-insensitive

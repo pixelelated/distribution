@@ -38,11 +38,17 @@ file is right and this file has a bug.
 The next RC is **pixelelated**, always lowercase (D-WORKFLOW-144).
 GitHub organization: `pixelelated`; maintainer: `rasteratops`; developer:
 `blitterbot`, unchanged. Rasteratops is a character, not the OS name.
-Use `/pixelelated` for new cloud setups and migration destinations
-(D-CLOUD-174). The required adoption path is ROCKNIX → pixelelated; no
+Use `/pixelelated` for new cloud setups (D-CLOUD-174/175).
+The required OS adoption path is ROCKNIX → pixelelated; no
 fielded Rasteratops migration gate exists. Preserve ROCKNIX stored interfaces,
 upstream credits and historical evidence. See `NAMING.md` and
 `docs/pixelelated/rename-plan.md` before identity changes.
+
+Cloud setup uses normal linking and explicit folder selection (D-CLOUD-175).
+Fresh configurations use `/pixelelated`; existing credentials and selected paths
+stay unchanged. Retire automatic cloud-folder migration and legacy joining or
+following under #508; users populate or rearrange their cloud folders themselves.
+OS upgrade preservation and normal sync/restore testing still apply.
 
 ## Build & development commands
 
