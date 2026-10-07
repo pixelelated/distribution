@@ -1,0 +1,21 @@
+Candidate16's English640 partial-copy UI proof successfully interrupts an actual partial file, preserves all original bytes and pointers, completes the real UI retry, and verifies the next conflicting backup stores the displaced save under pixelelated/Saves-replaced. It then fails because its final assertion requires the old parent directory itself to be absent. The prior assertion only required that parent's descendants to be absent. The retained ROCKNIX directory is empty, so absence was never established before backup.
+
+Can this be done on the VM? Yes: the same disposable guest and owned local WebDAV. Capture the old parent and descendants immediately before backup, then prove no old data or directories are created by the backup; retain exact bytes/current-root displaced-save checks. No personal cloud or physical device needed.
+
+- [x] Retain failed partial-retry640-01 results, exact partial-copy and UI frames, actual cleanup, and the empty old-parent identity/timestamps.
+- [x] Fresh proof records old-parent existence, inode/device and descendants before backup, verifies all remain unchanged afterward, and keeps all original-data/current-shelf requirements.
+- [x] Corrected English/French640/1280 proofs pass with exact source/result/cleanup evidence and directly reviewed frames before #478/#479/#482 close.
+
+Refs #471, #478, #479, #482. This issue does not authorize deleting cloud parent folders or changing product cleanup scope.
+
+## Verified acceptance — 2026-10-07 01:02 UTC
+
+Candidate16 distribution `ee014909137e03706e0b3020b8396be589aaa705`, ES `72494bc72e3d64d4dcfeb4e6478052bbdf166c5b`. Published evidence commit `63ef4e0590a835e72e52a2ac0999ca497f6cf1aa` has exact file/readback verification.
+
+[640x480 acceptance](https://github.com/pixelelated/distribution/tree/63ef4e0590a835e72e52a2ac0999ca497f6cf1aa/docs/qa-logs/2026-10-07-pixelelated-replacement-16/partial640-02-acceptance/) and [1280x800 acceptance](https://github.com/pixelelated/distribution/tree/63ef4e0590a835e72e52a2ac0999ca497f6cf1aa/docs/qa-logs/2026-10-07-pixelelated-replacement-16/partial1280-02-acceptance/) cover all four English/French scenarios and32 directly reviewed screens. Each real copy was interrupted at258,048 of8,391,392bytes; original bytes/pointers and the recovery record survived; the actual UI retry completed all four files. The next conflicting backup preserved displaced save bytes under the current Saves-replaced path. Exact old-parent state stayed unchanged, and restarting ES changed no cloud bytes.
+
+Independent completion verification recorded all four result channels0,10 input seals and actual guest/backend/port cleanup for each owner (64000:53:05;128000:58:48). The complete guidance, retry consequence/question and actions fit both panels in both languages.
+
+[Failed original proof](https://github.com/pixelelated/distribution/tree/63ef4e0590a835e72e52a2ac0999ca497f6cf1aa/docs/qa-logs/2026-10-07-pixelelated-replacement-16/p4-build16-partial-retry-640x480-01/) remains FAILED. Its [direct frame and old-parent identity record](https://github.com/pixelelated/distribution/tree/63ef4e0590a835e72e52a2ac0999ca497f6cf1aa/docs/qa-logs/2026-10-07-pixelelated-replacement-16/partial640-01-frame-review/) shows the empty parent predated backup. The only observer change compares existence, inode/device and descendants before/after; all byte, recovery-action and displaced-save checks remain. No product cleanup or cloud-directory deletion was added.
+
+This closes only the stated issue criteria. Four original audit findings, root/recovery UI and final clean/upgrade/protocol qualification remain separate M7/P4 gates.

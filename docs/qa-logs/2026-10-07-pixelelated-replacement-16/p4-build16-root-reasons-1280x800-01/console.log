@@ -1,0 +1,248 @@
+watch-build: recording in /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement16/.build-runs/20261007T011212Z-1322e2dc
+/workspace/tmp/pixelelated-m7-p4-build16-root-reasons-1280x800-01/check-payload.py: OK
+/workspace/tmp/pixelelated-m7-p4-build16-root-reasons-1280x800-01/cloud-ui-proof.py: OK
+/workspace/tmp/pixelelated-m7-p4-build16-root-reasons-1280x800-01/outer.sh: OK
+/workspace/tmp/pixelelated-m7-p4-build16-root-reasons-1280x800-01/provenance.json: OK
+/workspace/tmp/pixelelated-m7-p4-build16-root-reasons-1280x800-01/proxy-identity.py: OK
+/workspace/tmp/pixelelated-m7-p4-build16-root-reasons-1280x800-01/run.sh: OK
+/workspace/tmp/pixelelated-m7-p4-build16-root-reasons-1280x800-01/seed.py: OK
+/workspace/tmp/pixelelated-m7-p4-build16-root-reasons-1280x800-01/stop-guest.py: OK
+/workspace/tmp/pixelelated-m7-p4-build16-root-reasons-1280x800-01/verify-inputs.py: OK
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/7f98f2d22985d11fe9c150015457894caf460104c9ce44abd16074167f23815a
+Preparing independent 16GiB guest d from the verified pixelelated image
+Image resized.
+No errors were found on the image.
+31695/262144 = 12.09% allocated, 0.00% fragmented, 0.00% compressed clusters
+Image end offset: 2077818880
+[W][01:12:20.845452] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][01:12:20.845486] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+ready after ~30s
+PASS guest d exact BUILD_ID and OS_NAME ee014909137e03706e0b3020b8396be589aaa705 pixelelated
+PASS QA ROM bytes /storage/roms/gb/Ninoid.gb a40191c169c68e6607ace072da96aab957f306f55ded59ce1f287c1f5273387b
+PASS QA ROM bytes /storage/roms/gbc/Tobu Tobu Girl Deluxe.gb 0a0e8018dbbc8d7f8cd99f05e7cdc7b4cc9e358ecfe9377ebfb2291a84c6e310
+PASS QA ROM bytes /storage/roms/nes/Bobl.nes 025ec44d0d84ac469b442ee56c3d69e035e9a38430ae849172fe3a1e569d0dea
+PASS guest d seeded and idle
+up: webdav serving /workspace/tmp/pixelelated-m7-p4-build16-root-reasons-1280x800-01/cloud/data at http://127.0.0.1:9040 (guest: http://10.0.2.2:9040)
+PASS cloud-ui-before exact identity, installed scripts, policy and Ocean SVG bytes/modes
+PASS cloud-ui-before installed proxy identities and account discovery
+PASS setup: candidate identity
+START en_US-legacy-root
+PASS en_US-legacy-root: no game running before carousel
+PASS en_US-legacy-root: actual UI walk carousel
+PASS en_US-legacy-root: no game running after carousel
+PASS en_US-legacy-root: no game running before hub-menu
+PASS en_US-legacy-root: actual UI walk hub-menu
+PASS en_US-legacy-root: no game running after hub-menu
+PASS en_US-legacy-root: START changes the captured screen; direct main-menu review required
+PASS en_US-legacy-root: no game running before hub
+PASS en_US-legacy-root: actual UI walk hub
+PASS en_US-legacy-root: no game running after hub
+PASS en_US-legacy-root: no game running before opening-scan
+PASS en_US-legacy-root: actual UI walk opening-scan
+PASS en_US-legacy-root: no game running after opening-scan
+PASS en_US-legacy-root: no game running before continue
+PASS en_US-legacy-root: actual UI walk continue
+PASS en_US-legacy-root: no game running after continue
+PASS en_US-legacy-root: stranded root selected by real UI
+PASS en_US-legacy-root: legacy root scan completed
+PASS en_US-legacy-root: legacy root game visible
+PASS en_US-legacy-root: legacy-root row reports supported installed Game Boy capability
+PASS en_US-legacy-root: legacy root files unchanged
+PASS en_US-legacy-root: no game running before close
+PASS en_US-legacy-root: actual UI walk close
+PASS en_US-legacy-root: no game running after close
+START en_US-reason-future
+PASS en_US-reason-future: no game running before carousel
+PASS en_US-reason-future: actual UI walk carousel
+PASS en_US-reason-future: no game running after carousel
+PASS en_US-reason-future: no game running before hub-menu
+PASS en_US-reason-future: actual UI walk hub-menu
+PASS en_US-reason-future: no game running after hub-menu
+PASS en_US-reason-future: START changes the captured screen; direct main-menu review required
+PASS en_US-reason-future: no game running before hub
+PASS en_US-reason-future: actual UI walk hub
+PASS en_US-reason-future: no game running after hub
+PASS en_US-reason-future: no game running before opening-scan
+PASS en_US-reason-future: actual UI walk opening-scan
+PASS en_US-reason-future: no game running after opening-scan
+PASS en_US-reason-future: installed application emits YOUR CLOUD FOLDER COULDN'T BE READ
+PASS en_US-reason-future: no false missing-folder reason
+PASS en_US-reason-future: refusal preserves cloud/pointers
+PASS en_US-reason-future: no game running before close
+PASS en_US-reason-future: actual UI walk close
+PASS en_US-reason-future: no game running after close
+START en_US-reason-malformed
+PASS en_US-reason-malformed: no game running before carousel
+PASS en_US-reason-malformed: actual UI walk carousel
+PASS en_US-reason-malformed: no game running after carousel
+PASS en_US-reason-malformed: no game running before hub-menu
+PASS en_US-reason-malformed: actual UI walk hub-menu
+PASS en_US-reason-malformed: no game running after hub-menu
+PASS en_US-reason-malformed: START changes the captured screen; direct main-menu review required
+PASS en_US-reason-malformed: no game running before hub
+PASS en_US-reason-malformed: actual UI walk hub
+PASS en_US-reason-malformed: no game running after hub
+PASS en_US-reason-malformed: no game running before opening-scan
+PASS en_US-reason-malformed: actual UI walk opening-scan
+PASS en_US-reason-malformed: no game running after opening-scan
+PASS en_US-reason-malformed: installed application emits YOUR CLOUD FOLDER COULDN'T BE READ
+PASS en_US-reason-malformed: no false missing-folder reason
+PASS en_US-reason-malformed: refusal preserves cloud/pointers
+PASS en_US-reason-malformed: no game running before close
+PASS en_US-reason-malformed: actual UI walk close
+PASS en_US-reason-malformed: no game running after close
+START en_US-reason-config
+PASS en_US-reason-config: no game running before carousel
+PASS en_US-reason-config: actual UI walk carousel
+PASS en_US-reason-config: no game running after carousel
+PASS en_US-reason-config: no game running before hub-menu
+PASS en_US-reason-config: actual UI walk hub-menu
+PASS en_US-reason-config: no game running after hub-menu
+PASS en_US-reason-config: START changes the captured screen; direct main-menu review required
+PASS en_US-reason-config: no game running before hub
+PASS en_US-reason-config: actual UI walk hub
+PASS en_US-reason-config: no game running after hub
+PASS en_US-reason-config: no game running before opening-scan
+PASS en_US-reason-config: actual UI walk opening-scan
+PASS en_US-reason-config: no game running after opening-scan
+PASS en_US-reason-config: installed application emits YOUR CLOUD SYNC SETTINGS COULDN'T BE READ
+PASS en_US-reason-config: no false missing-folder reason
+PASS en_US-reason-config: refusal preserves cloud/pointers
+PASS en_US-reason-config: no game running before close
+PASS en_US-reason-config: actual UI walk close
+PASS en_US-reason-config: no game running after close
+START en_US-reason-record
+PASS en_US-reason-record: no game running before carousel
+PASS en_US-reason-record: actual UI walk carousel
+PASS en_US-reason-record: no game running after carousel
+PASS en_US-reason-record: no game running before hub-menu
+PASS en_US-reason-record: actual UI walk hub-menu
+PASS en_US-reason-record: no game running after hub-menu
+PASS en_US-reason-record: START changes the captured screen; direct main-menu review required
+PASS en_US-reason-record: no game running before hub
+PASS en_US-reason-record: actual UI walk hub
+PASS en_US-reason-record: no game running after hub
+PASS en_US-reason-record: no game running before opening-scan
+PASS en_US-reason-record: actual UI walk opening-scan
+PASS en_US-reason-record: no game running after opening-scan
+PASS en_US-reason-record: installed application emits YOUR CLOUD FOLDER COULDN'T BE READ
+PASS en_US-reason-record: no false missing-folder reason
+PASS en_US-reason-record: refusal preserves cloud/pointers
+PASS en_US-reason-record: no game running before close
+PASS en_US-reason-record: actual UI walk close
+PASS en_US-reason-record: no game running after close
+START fr_FR-legacy-root
+PASS fr_FR-legacy-root: no game running before carousel
+PASS fr_FR-legacy-root: actual UI walk carousel
+PASS fr_FR-legacy-root: no game running after carousel
+PASS fr_FR-legacy-root: no game running before hub-menu
+PASS fr_FR-legacy-root: actual UI walk hub-menu
+PASS fr_FR-legacy-root: no game running after hub-menu
+PASS fr_FR-legacy-root: START changes the captured screen; direct main-menu review required
+PASS fr_FR-legacy-root: no game running before hub
+PASS fr_FR-legacy-root: actual UI walk hub
+PASS fr_FR-legacy-root: no game running after hub
+PASS fr_FR-legacy-root: no game running before opening-scan
+PASS fr_FR-legacy-root: actual UI walk opening-scan
+PASS fr_FR-legacy-root: no game running after opening-scan
+PASS fr_FR-legacy-root: no game running before continue
+PASS fr_FR-legacy-root: actual UI walk continue
+PASS fr_FR-legacy-root: no game running after continue
+PASS fr_FR-legacy-root: stranded root selected by real UI
+PASS fr_FR-legacy-root: legacy root scan completed
+PASS fr_FR-legacy-root: legacy root game visible
+PASS fr_FR-legacy-root: legacy-root row reports supported installed Game Boy capability
+PASS fr_FR-legacy-root: legacy root files unchanged
+PASS fr_FR-legacy-root: no game running before close
+PASS fr_FR-legacy-root: actual UI walk close
+PASS fr_FR-legacy-root: no game running after close
+START fr_FR-reason-future
+PASS fr_FR-reason-future: no game running before carousel
+PASS fr_FR-reason-future: actual UI walk carousel
+PASS fr_FR-reason-future: no game running after carousel
+PASS fr_FR-reason-future: no game running before hub-menu
+PASS fr_FR-reason-future: actual UI walk hub-menu
+PASS fr_FR-reason-future: no game running after hub-menu
+PASS fr_FR-reason-future: START changes the captured screen; direct main-menu review required
+PASS fr_FR-reason-future: no game running before hub
+PASS fr_FR-reason-future: actual UI walk hub
+PASS fr_FR-reason-future: no game running after hub
+PASS fr_FR-reason-future: no game running before opening-scan
+PASS fr_FR-reason-future: actual UI walk opening-scan
+PASS fr_FR-reason-future: no game running after opening-scan
+PASS fr_FR-reason-future: installed application emits YOUR CLOUD FOLDER COULDN'T BE READ
+PASS fr_FR-reason-future: no false missing-folder reason
+PASS fr_FR-reason-future: refusal preserves cloud/pointers
+PASS fr_FR-reason-future: no game running before close
+PASS fr_FR-reason-future: actual UI walk close
+PASS fr_FR-reason-future: no game running after close
+START fr_FR-reason-malformed
+PASS fr_FR-reason-malformed: no game running before carousel
+PASS fr_FR-reason-malformed: actual UI walk carousel
+PASS fr_FR-reason-malformed: no game running after carousel
+PASS fr_FR-reason-malformed: no game running before hub-menu
+PASS fr_FR-reason-malformed: actual UI walk hub-menu
+PASS fr_FR-reason-malformed: no game running after hub-menu
+PASS fr_FR-reason-malformed: START changes the captured screen; direct main-menu review required
+PASS fr_FR-reason-malformed: no game running before hub
+PASS fr_FR-reason-malformed: actual UI walk hub
+PASS fr_FR-reason-malformed: no game running after hub
+PASS fr_FR-reason-malformed: no game running before opening-scan
+PASS fr_FR-reason-malformed: actual UI walk opening-scan
+PASS fr_FR-reason-malformed: no game running after opening-scan
+PASS fr_FR-reason-malformed: installed application emits YOUR CLOUD FOLDER COULDN'T BE READ
+PASS fr_FR-reason-malformed: no false missing-folder reason
+PASS fr_FR-reason-malformed: refusal preserves cloud/pointers
+PASS fr_FR-reason-malformed: no game running before close
+PASS fr_FR-reason-malformed: actual UI walk close
+PASS fr_FR-reason-malformed: no game running after close
+START fr_FR-reason-config
+PASS fr_FR-reason-config: no game running before carousel
+PASS fr_FR-reason-config: actual UI walk carousel
+PASS fr_FR-reason-config: no game running after carousel
+PASS fr_FR-reason-config: no game running before hub-menu
+PASS fr_FR-reason-config: actual UI walk hub-menu
+PASS fr_FR-reason-config: no game running after hub-menu
+PASS fr_FR-reason-config: START changes the captured screen; direct main-menu review required
+PASS fr_FR-reason-config: no game running before hub
+PASS fr_FR-reason-config: actual UI walk hub
+PASS fr_FR-reason-config: no game running after hub
+PASS fr_FR-reason-config: no game running before opening-scan
+PASS fr_FR-reason-config: actual UI walk opening-scan
+PASS fr_FR-reason-config: no game running after opening-scan
+PASS fr_FR-reason-config: installed application emits YOUR CLOUD SYNC SETTINGS COULDN'T BE READ
+PASS fr_FR-reason-config: no false missing-folder reason
+PASS fr_FR-reason-config: refusal preserves cloud/pointers
+PASS fr_FR-reason-config: no game running before close
+PASS fr_FR-reason-config: actual UI walk close
+PASS fr_FR-reason-config: no game running after close
+START fr_FR-reason-record
+PASS fr_FR-reason-record: no game running before carousel
+PASS fr_FR-reason-record: actual UI walk carousel
+PASS fr_FR-reason-record: no game running after carousel
+PASS fr_FR-reason-record: no game running before hub-menu
+PASS fr_FR-reason-record: actual UI walk hub-menu
+PASS fr_FR-reason-record: no game running after hub-menu
+PASS fr_FR-reason-record: START changes the captured screen; direct main-menu review required
+PASS fr_FR-reason-record: no game running before hub
+PASS fr_FR-reason-record: actual UI walk hub
+PASS fr_FR-reason-record: no game running after hub
+PASS fr_FR-reason-record: no game running before opening-scan
+PASS fr_FR-reason-record: actual UI walk opening-scan
+PASS fr_FR-reason-record: no game running after opening-scan
+PASS fr_FR-reason-record: installed application emits YOUR CLOUD FOLDER COULDN'T BE READ
+PASS fr_FR-reason-record: no false missing-folder reason
+PASS fr_FR-reason-record: refusal preserves cloud/pointers
+PASS fr_FR-reason-record: no game running before close
+PASS fr_FR-reason-record: actual UI walk close
+PASS fr_FR-reason-record: no game running after close
+PASS fr_FR-reason-record: installed product hashes unchanged
+PASS actual chooser/recovery/refusal actions; all frames require primary review
+PASS cloud-ui-after exact identity, installed scripts, policy and Ocean SVG bytes/modes
+PASS cloud-ui-after installed proxy identities and account discovery
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/7f98f2d22985d11fe9c150015457894caf460104c9ce44abd16074167f23815a
+PASS frozen source inputs, ES pin and candidate input custody
+PASS supplemental cloud UI commands; actual frame review remains required
+PASS owned guest stopped 361883
+down

@@ -5,7 +5,7 @@
 **Generated:** 2026-10-06
 **Source audit:** [04-analysis.md](04-analysis.md)
 **Total items:**8 (Critical:0, High:1, Medium:6, Low:1)
-**State:** Phase7 remediation on rebuilt candidate15. PL-002/006/007/008 are resolved; four installed acceptance outcomes remain open. No complete-audit or RC claim.
+**State:** Phase7 remediation and installed qualification on rebuilt candidate16. PL-002/006/007/008 are resolved; four installed acceptance outcomes remain open. No complete-audit or RC claim.
 
 The two Fable calls are verified and their leads have been checked against
 primary source and fourteen installed experiments. These eight items are
