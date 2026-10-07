@@ -23,6 +23,16 @@ PKG_CMAKE_OPTS_TARGET="-DSPIRV_SKIP_TESTS=ON \
                        -DSPIRV_SKIP_EXECUTABLES=ON \
                        -DBUILD_SHARED_LIBS=ON"
 
+pre_configure_host() {
+  # The pinned build container uses GCC 12, outside upstream's GCC 15 floor.
+  # Its optimized vector diagnostic is a false positive (#495): keep it
+  # visible without making it fatal. Other warnings and target flags stay on.
+  # https://github.com/KhronosGroup/SPIRV-Tools/issues/6919
+  case "$(${CXX} -dumpversion)" in
+    12|12.*) CXXFLAGS+=" -Wno-error=free-nonheap-object" ;;
+  esac
+}
+
 post_unpack() {
   mkdir -p ${PKG_BUILD}/external/spirv-headers
     tar --strip-components=1 \
