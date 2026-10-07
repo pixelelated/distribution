@@ -1,5 +1,22 @@
 # Cloud sync, backup and restore — change summary
 
+## Explain the cloud-folder move across devices (2026-10-07)
+
+The updated English and French prompt passes compiler/gettext checks and actual
+VM screen proof at640x480 and1280x800. It is available for the next build;
+the firmware already installed on the RG35XX SP retains its earlier wording.
+
+- **The prompt identifies the old folder as belonging to a previous OS.**
+  `YOUR CLOUD HAS A ‘/ROCKNIX’ FOLDER FROM A PREVIOUS OS.` It asks
+  `MOVE THE FOLDER TO ‘/pixelelated’?` with literal quotation marks
+  (#502; D-UI-122).
+- **The explanation names when other devices follow the new cloud folder.**
+  They switch automatically once running pixelelated and online. If files
+  remain, `IF FILES STILL NEED MOVING, YOU'LL BE ASKED TO CONFIRM.` The existing
+  migration, automatic following and three choices keep their behavior
+  (#502; D-UI-123, D-UI-124). The maintainer requested *“YOU'LL BE ASKED TO
+  CONFIRM.”*
+
 ## Clearer guidance after an interrupted cloud move (2026-10-06)
 
 The source and French translation pass the image compiler, vocabulary and

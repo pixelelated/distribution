@@ -1,0 +1,55 @@
+{
+  "result": "PASS source integrated/published and scoped VM copy proof; not yet in a distribution image",
+  "es_commit": "5d2fcb9b71f363cfa4813d5356f02c48ab58e139",
+  "base_es": "72494bc72e3d64d4dcfeb4e6478052bbdf166c5b",
+  "distribution": "ee014909137e03706e0b3020b8396be589aaa705",
+  "image_sha256": "74e57ad8957b1c719c18db098d5713577a952af8802524658d0ada7dee1b6b12",
+  "frames": [
+    {
+      "path": "runs/pixelelated-m7-migration-copy-vm04/artifacts/640x480-en_US/01-prompt.png",
+      "sha256": "90dcd1d862ff5bd32565dc668c99f0acb897f3717aab8d259e0e2ea351d71bdb",
+      "width": 640,
+      "height": 480,
+      "steady_path": "runs/pixelelated-m7-migration-copy-vm04/artifacts/640x480-en_US/02-steady.png",
+      "steady_sha256": "90dcd1d862ff5bd32565dc668c99f0acb897f3717aab8d259e0e2ea351d71bdb",
+      "byte_identical": true,
+      "direct_visual_review": "PASS: complete translated prompt, lowercase brand, quoted paths, and all three unchanged buttons visible; no scrolling"
+    },
+    {
+      "path": "runs/pixelelated-m7-migration-copy-vm04/artifacts/640x480-fr_FR/01-prompt.png",
+      "sha256": "05e045b8655adb62fde82852dbd5b196ef4b0d83f2c3a2f4b336c6afb468846f",
+      "width": 640,
+      "height": 480,
+      "steady_path": "runs/pixelelated-m7-migration-copy-vm04/artifacts/640x480-fr_FR/02-steady.png",
+      "steady_sha256": "05e045b8655adb62fde82852dbd5b196ef4b0d83f2c3a2f4b336c6afb468846f",
+      "byte_identical": true,
+      "direct_visual_review": "PASS: complete translated prompt, lowercase brand, quoted paths, and all three unchanged buttons visible; no scrolling"
+    },
+    {
+      "path": "runs/pixelelated-m7-migration-copy-vm04/artifacts/1280x800-en_US/01-prompt.png",
+      "sha256": "54b91eac7f8c2c630fa07be6da6b4f666c2a6a96eabff1d9cb10cc1a7b9210cd",
+      "width": 1280,
+      "height": 800,
+      "steady_path": "runs/pixelelated-m7-migration-copy-vm04/artifacts/1280x800-en_US/02-steady.png",
+      "steady_sha256": "54b91eac7f8c2c630fa07be6da6b4f666c2a6a96eabff1d9cb10cc1a7b9210cd",
+      "byte_identical": true,
+      "direct_visual_review": "PASS: complete translated prompt, lowercase brand, quoted paths, and all three unchanged buttons visible; no scrolling"
+    },
+    {
+      "path": "runs/pixelelated-m7-migration-copy-vm08/artifacts/changed-fr/01-prompt.png",
+      "sha256": "32bd8e5a243acbac343f46514a9b594d74bc745c0515b967e8b04c0d1c8a7e3f",
+      "width": 1280,
+      "height": 800,
+      "steady_path": "runs/pixelelated-m7-migration-copy-vm08/artifacts/changed-fr/02-steady.png",
+      "steady_sha256": "32bd8e5a243acbac343f46514a9b594d74bc745c0515b967e8b04c0d1c8a7e3f",
+      "byte_identical": true,
+      "direct_visual_review": "PASS: complete translated prompt, lowercase brand, quoted paths, and all three unchanged buttons visible; no scrolling"
+    }
+  ],
+  "publication": "runs/pixelelated-m7-migration-copy-publish09/result.json",
+  "runtime_cleanup": "cleanup.json",
+  "visual_review_scope": {
+    "migration_copy_agent": "all four accepted frames and baseline French geometry",
+    "parent_agent": "English and French 640x480 plus final French 1280x800; accepted source/frame change"
+  }
+}
