@@ -1,0 +1,532 @@
+{
+  "schema": 1,
+  "scope": "Only the 22 named superseded QA disks; unprivileged local removal after separate explicit approval and fresh report verification.",
+  "approval_required": true,
+  "approval_received": false,
+  "deletion_performed": false,
+  "source_report": "/workspace/tmp/pixelelated-m7-retention-review-02/artifacts/report.json",
+  "source_report_sha256": "ee4effe1107803d4edd221792747e75ae4d8f8cada1113400a85e49569e55d1f",
+  "report_tool_sha256": "1187725512f1a0586bc4d7812a886076c71bc6fdd460f6cd4a73e91198518798",
+  "plan": "/workspace/tmp/pixelelated-m7-retention-review-02/artifacts/plan.json",
+  "plan_sha256": "5aa0e212384cc7785d42cc7e58eb1b1752f863a43052227b59f73c3e82db062e",
+  "targets": [
+    {
+      "path": "/workspace/tmp/pixelelated-m7-boot-qualification-06/clean-640.qcow2",
+      "identity": {
+        "device": 66304,
+        "inode": 86299776,
+        "size": 166658048,
+        "mtime_ns": 1791326038135484732,
+        "allocated_bytes": 166608896,
+        "uid": 1000,
+        "links": 1,
+        "mode": 33152
+      },
+      "sha256": "4e17c2b46ecd03a4b638dee1cd5565b8cee2e1873b1dd33ccf9bb1f66ee6d196",
+      "eligible": true,
+      "rejection_reasons": []
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-boot-qualification-07/clean-640.qcow2",
+      "identity": {
+        "device": 66304,
+        "inode": 86398597,
+        "size": 196864,
+        "mtime_ns": 1791326195883270908,
+        "allocated_bytes": 200704,
+        "uid": 1000,
+        "links": 1,
+        "mode": 33152
+      },
+      "sha256": "f3bfba0b1a53b464042a69685dff2673cffb47675620533e3a74e8f1ebf2040e",
+      "eligible": true,
+      "rejection_reasons": []
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-p4-build16-partial-retry-1280x800-02/guest-d.qcow2",
+      "identity": {
+        "device": 66304,
+        "inode": 86789957,
+        "size": 2246901760,
+        "mtime_ns": 1791334713620801322,
+        "allocated_bytes": 2246848512,
+        "uid": 1000,
+        "links": 1,
+        "mode": 33152
+      },
+      "sha256": "6ea6960a0aadca70b2a005d42e849566cdfee98b580045d541473d8e3873a6b0",
+      "eligible": true,
+      "rejection_reasons": []
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-p4-build16-partial-retry-640x480-01/guest-d.qcow2",
+      "identity": {
+        "device": 66304,
+        "inode": 86697183,
+        "size": 2245001216,
+        "mtime_ns": 1791333864282233391,
+        "allocated_bytes": 2244952064,
+        "uid": 1000,
+        "links": 1,
+        "mode": 33152
+      },
+      "sha256": "180f3a8dfd1a258f792d892dcfe310353a0126c305b47002f3aede9b4d661288",
+      "eligible": true,
+      "rejection_reasons": []
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-p4-build16-partial-retry-640x480-02/guest-d.qcow2",
+      "identity": {
+        "device": 66304,
+        "inode": 86789847,
+        "size": 2247032832,
+        "mtime_ns": 1791334355666751918,
+        "allocated_bytes": 2246983680,
+        "uid": 1000,
+        "links": 1,
+        "mode": 33152
+      },
+      "sha256": "85a8c25872286931c73a78b3becb3c1633c86e41a85b7e4a4968bf4cd090b047",
+      "eligible": true,
+      "rejection_reasons": []
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-p4-build16-recovery-1280x800-01/guest-d.qcow2",
+      "identity": {
+        "device": 66304,
+        "inode": 86697269,
+        "size": 2250309632,
+        "mtime_ns": 1791337841426174379,
+        "allocated_bytes": 2250256384,
+        "uid": 1000,
+        "links": 1,
+        "mode": 33152
+      },
+      "sha256": "a1d018de0f175a531993deeccfe69ce3186830d3fcbf42dd6bfe6742df170930",
+      "eligible": true,
+      "rejection_reasons": []
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-p4-build16-recovery-640x480-01/guest-d.qcow2",
+      "identity": {
+        "device": 66304,
+        "inode": 86697247,
+        "size": 2250113024,
+        "mtime_ns": 1791337144680299957,
+        "allocated_bytes": 2250063872,
+        "uid": 1000,
+        "links": 1,
+        "mode": 33152
+      },
+      "sha256": "85e2728197d5ff5069dea7e3a07a3f3aafd88736b35557d8308a11cff7e33502",
+      "eligible": true,
+      "rejection_reasons": []
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-p4-build16-root-reasons-1280x800-01/guest-d.qcow2",
+      "identity": {
+        "device": 66304,
+        "inode": 86697225,
+        "size": 2249785344,
+        "mtime_ns": 1791336167807260229,
+        "allocated_bytes": 2249732096,
+        "uid": 1000,
+        "links": 1,
+        "mode": 33152
+      },
+      "sha256": "cdd685a4b3e8ca51ab6882c4f81cb7af34900af934bb9809dcdd315354c6c06a",
+      "eligible": true,
+      "rejection_reasons": []
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-p4-build16-root-reasons-640x480-01/guest-d.qcow2",
+      "identity": {
+        "device": 66304,
+        "inode": 86697203,
+        "size": 2249588736,
+        "mtime_ns": 1791335494513661496,
+        "allocated_bytes": 2249535488,
+        "uid": 1000,
+        "links": 1,
+        "mode": 33152
+      },
+      "sha256": "fdd2968a827ee9300aa2c2d40f12fdcfefab68ffe42a33543ce20eaf88ca4d74",
+      "eligible": true,
+      "rejection_reasons": []
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-p4-cloud-ui-fixes-02/guest-d.qcow2",
+      "identity": {
+        "device": 66304,
+        "inode": 86269527,
+        "size": 2245132288,
+        "mtime_ns": 1791321356312429250,
+        "allocated_bytes": 2245083136,
+        "uid": 1000,
+        "links": 1,
+        "mode": 33152
+      },
+      "sha256": "09b1981fec5527acf44273a8437116e29a9f9a5ab5295b309eda95ad3bb4de41",
+      "eligible": true,
+      "rejection_reasons": []
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-p4-cloud-ui-fixes-04/guest-d.qcow2",
+      "identity": {
+        "device": 66304,
+        "inode": 86269639,
+        "size": 2254045184,
+        "mtime_ns": 1791323066080161704,
+        "allocated_bytes": 2253996032,
+        "uid": 1000,
+        "links": 1,
+        "mode": 33152
+      },
+      "sha256": "a9a799125e18ddfa3b1ef92a358a8055f4db41355f8adfa19ba608be75aaed2c",
+      "eligible": true,
+      "rejection_reasons": []
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-p4-coverage-ui-03/guest-d.qcow2",
+      "identity": {
+        "device": 66304,
+        "inode": 86399829,
+        "size": 2244476928,
+        "mtime_ns": 1791326744603495043,
+        "allocated_bytes": 2244427776,
+        "uid": 1000,
+        "links": 1,
+        "mode": 33152
+      },
+      "sha256": "197f70b72cf657ba2d03a6124c75b9ad3819fad3738a075712576e436d5ad958",
+      "eligible": true,
+      "rejection_reasons": []
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-p4-coverage-ui-04/guest-d.qcow2",
+      "identity": {
+        "device": 66304,
+        "inode": 86399893,
+        "size": 2246901760,
+        "mtime_ns": 1791327267912408485,
+        "allocated_bytes": 2246848512,
+        "uid": 1000,
+        "links": 1,
+        "mode": 33152
+      },
+      "sha256": "b7050af25569eabe195d12e1c2abd54473e5fdfb06a17ea7ea3f8db558928f00",
+      "eligible": true,
+      "rejection_reasons": []
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-p4-coverage-ui-05/guest-d.qcow2",
+      "identity": {
+        "device": 66304,
+        "inode": 86400054,
+        "size": 2245132288,
+        "mtime_ns": 1791327614570204866,
+        "allocated_bytes": 2245083136,
+        "uid": 1000,
+        "links": 1,
+        "mode": 33152
+      },
+      "sha256": "45c148abc18ce66d7d28e42383c0bae02826a782d72e059898e72bc975cd4401",
+      "eligible": true,
+      "rejection_reasons": []
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-p4-fresh-root-06/guest-d.qcow2",
+      "identity": {
+        "device": 66304,
+        "inode": 86400139,
+        "size": 2244870144,
+        "mtime_ns": 1791327918402532267,
+        "allocated_bytes": 2244820992,
+        "uid": 1000,
+        "links": 1,
+        "mode": 33152
+      },
+      "sha256": "be6427d8f4a669a5d749a0332713d7d3eb51dffef58bf198d392e8b22425375a",
+      "eligible": true,
+      "rejection_reasons": []
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-p4-fresh-root-07/guest-d.qcow2",
+      "identity": {
+        "device": 66304,
+        "inode": 86405190,
+        "size": 2244673536,
+        "mtime_ns": 1791328073859234732,
+        "allocated_bytes": 2244624384,
+        "uid": 1000,
+        "links": 1,
+        "mode": 33152
+      },
+      "sha256": "522dc17289b0f25be83ba8d76ccefa5ac37edefed726a1ef839d28b03aa310a9",
+      "eligible": true,
+      "rejection_reasons": []
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-p4-library-fixes-01/guest-d.qcow2",
+      "identity": {
+        "device": 66304,
+        "inode": 86299750,
+        "size": 2261188608,
+        "mtime_ns": 1791325263612718277,
+        "allocated_bytes": 2261139456,
+        "uid": 1000,
+        "links": 1,
+        "mode": 33152
+      },
+      "sha256": "64f5817b338e76e97eada70785e03e409e006616345683cfa826551f23bfa1cb",
+      "eligible": true,
+      "rejection_reasons": []
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-p4-library-fixes-02/guest-d.qcow2",
+      "identity": {
+        "device": 66304,
+        "inode": 86398189,
+        "size": 2263023616,
+        "mtime_ns": 1791325923083182514,
+        "allocated_bytes": 2262978560,
+        "uid": 1000,
+        "links": 1,
+        "mode": 33152
+      },
+      "sha256": "42b208431f60003976b4af23e70f30e652a8f4e3c81dc2fefd41f4a8c3f87081",
+      "eligible": true,
+      "rejection_reasons": []
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-p4-presentation-fixes-01/guest-d.qcow2",
+      "identity": {
+        "device": 66304,
+        "inode": 86170610,
+        "size": 2249850880,
+        "mtime_ns": 1791320895811144825,
+        "allocated_bytes": 2249801728,
+        "uid": 1000,
+        "links": 1,
+        "mode": 33152
+      },
+      "sha256": "d9b5ae62fdbcf42a662215b0ee93f2f509e3fdc8a2c57844b0e3c5747d55b5a0",
+      "eligible": true,
+      "rejection_reasons": []
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-p4-recovery-ui-fixes-03/guest-d.qcow2",
+      "identity": {
+        "device": 66304,
+        "inode": 86299651,
+        "size": 2246049792,
+        "mtime_ns": 1791323396050845846,
+        "allocated_bytes": 2245996544,
+        "uid": 1000,
+        "links": 1,
+        "mode": 33152
+      },
+      "sha256": "bc156c2aa0f819181b926834e8aae47436fe75c0866bf14af0d589d09609f994",
+      "eligible": true,
+      "rejection_reasons": []
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-p4-recovery-ui-fixes-05/guest-d.qcow2",
+      "identity": {
+        "device": 66304,
+        "inode": 86397748,
+        "size": 2245984256,
+        "mtime_ns": 1791323937116886886,
+        "allocated_bytes": 2245935104,
+        "uid": 1000,
+        "links": 1,
+        "mode": 33152
+      },
+      "sha256": "864a218a8f729735d7ea5a4f5c3ef7f1313dcc51f9bdce35ba2f0978d1984ed0",
+      "eligible": true,
+      "rejection_reasons": []
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-p4-recovery-ui-fixes-06/guest-d.qcow2",
+      "identity": {
+        "device": 66304,
+        "inode": 86397860,
+        "size": 2250178560,
+        "mtime_ns": 1791324757166042794,
+        "allocated_bytes": 2250129408,
+        "uid": 1000,
+        "links": 1,
+        "mode": 33152
+      },
+      "sha256": "643eb139eff110e616ed3a9014390230a6ab74fe01df0698b9ecb5be41beb6ea",
+      "eligible": true,
+      "rejection_reasons": []
+    }
+  ],
+  "held": [
+    {
+      "path": "/workspace/tmp/pixelelated-m7-boot-qualification-06/clean-base.qcow2",
+      "identity": {
+        "device": 66304,
+        "inode": 86299777,
+        "size": 2077753600,
+        "mtime_ns": 1791325964806654762,
+        "allocated_bytes": 2077700096,
+        "uid": 1000,
+        "links": 1,
+        "mode": 33152
+      },
+      "sha256": "0503b9c6236ac695a2a6ad35ea58c692262ececb692fee3375ac437b3a3290a9",
+      "eligible": false,
+      "rejection_reasons": [
+        "qcow-backing reference: /workspace/tmp/pixelelated-m7-boot-qualification-06/clean-640.qcow2"
+      ]
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-boot-qualification-07/clean-base.qcow2",
+      "identity": {
+        "device": 66304,
+        "inode": 86398598,
+        "size": 2077753600,
+        "mtime_ns": 1791326195194263093,
+        "allocated_bytes": 2077700096,
+        "uid": 1000,
+        "links": 1,
+        "mode": 33152
+      },
+      "sha256": "0503b9c6236ac695a2a6ad35ea58c692262ececb692fee3375ac437b3a3290a9",
+      "eligible": false,
+      "rejection_reasons": [
+        "qcow-backing reference: /workspace/tmp/pixelelated-m7-boot-qualification-07/clean-640.qcow2"
+      ]
+    }
+  ],
+  "protected": [
+    {
+      "path": "/workspace/artifacts",
+      "identity": {
+        "device": 66304,
+        "inode": 126091265,
+        "size": 4096,
+        "mtime_ns": 1791250007680352968,
+        "allocated_bytes": 4096,
+        "uid": 1000,
+        "links": 12,
+        "mode": 16877
+      }
+    },
+    {
+      "path": "/workspace/repos",
+      "identity": {
+        "device": 66304,
+        "inode": 135790593,
+        "size": 4096,
+        "mtime_ns": 1791151410065405665,
+        "allocated_bytes": 4096,
+        "uid": 1000,
+        "links": 6,
+        "mode": 16877
+      }
+    },
+    {
+      "path": "/workspace/cache/rocknix-sources",
+      "identity": {
+        "device": 66304,
+        "inode": 25690114,
+        "size": 20480,
+        "mtime_ns": 1790676807330139314,
+        "allocated_bytes": 20480,
+        "uid": 1000,
+        "links": 679,
+        "mode": 16877
+      }
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-qa-19",
+      "identity": {
+        "device": 66304,
+        "inode": 86125969,
+        "size": 4096,
+        "mtime_ns": 1791319327864050367,
+        "allocated_bytes": 4096,
+        "uid": 1000,
+        "links": 6,
+        "mode": 16832
+      }
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-qa-20",
+      "identity": {
+        "device": 66304,
+        "inode": 86650568,
+        "size": 4096,
+        "mtime_ns": 1791340372148586908,
+        "allocated_bytes": 4096,
+        "uid": 1000,
+        "links": 6,
+        "mode": 16832
+      }
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-p4-no-join-negative-02",
+      "identity": {
+        "device": 66304,
+        "inode": 86525507,
+        "size": 4096,
+        "mtime_ns": 1791328735855455050,
+        "allocated_bytes": 4096,
+        "uid": 1000,
+        "links": 6,
+        "mode": 16893
+      }
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-boot-qualification-09",
+      "identity": {
+        "device": 66304,
+        "inode": 86398649,
+        "size": 4096,
+        "mtime_ns": 1791326576718590725,
+        "allocated_bytes": 4096,
+        "uid": 1000,
+        "links": 4,
+        "mode": 16893
+      }
+    }
+  ],
+  "builds": [
+    {
+      "name": "H700 DDR4 RG35XX SP arm",
+      "terms_bytes": {
+        "package_growth": 42949672960,
+        "artifact_and_verification": 19327352832,
+        "operating_allowance": 107374182400,
+        "independent_build": 30044336128
+      },
+      "required_bytes": 199695544320,
+      "available_bytes": 160252882944,
+      "fits_now": false,
+      "eligible_reclaim_bytes": 45146046464,
+      "headroom_after_proposed_bytes": 5703385088,
+      "basis": "Independent cold worktree estimated from each actual H700 cache; preserve the old device tree. Artifacts: twice actual compressed allocation, actual decompressed DDR3/DDR4 lengths and twice SYSTEM, plus 25%, rounded up to GiB. 40 GiB build growth and 100 GiB operating allowances carried from candidate16 preflight; these are conservative allowances, not measured future peaks. aarch64 forecast includes retained arm root, growth and artifact budget. Remeasure after arm."
+    },
+    {
+      "name": "H700 DDR4 RG35XX SP aarch64",
+      "terms_bytes": {
+        "package_growth": 42949672960,
+        "artifact_and_verification": 19327352832,
+        "operating_allowance": 107374182400,
+        "independent_build": 117829722112,
+        "retained_new_arm_outputs": 92321361920
+      },
+      "required_bytes": 379802292224,
+      "available_bytes": 160252882944,
+      "fits_now": false,
+      "eligible_reclaim_bytes": 45146046464,
+      "headroom_after_proposed_bytes": -174403362816,
+      "basis": "Independent cold worktree estimated from each actual H700 cache; preserve the old device tree. Artifacts: twice actual compressed allocation, actual decompressed DDR3/DDR4 lengths and twice SYSTEM, plus 25%, rounded up to GiB. 40 GiB build growth and 100 GiB operating allowances carried from candidate16 preflight; these are conservative allowances, not measured future peaks. aarch64 forecast includes retained arm root, growth and artifact budget. Remeasure after arm."
+    }
+  ],
+  "preservation_additional_bytes": 0,
+  "expected_reclaim_bytes": 45146046464
+}

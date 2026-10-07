@@ -7,6 +7,7 @@ import json
 import os
 from pathlib import Path
 import subprocess
+import tarfile
 import tempfile
 
 source = Path(__file__).with_name('retention-report')
@@ -70,4 +71,25 @@ with tempfile.TemporaryDirectory(prefix='pixelelated-retention-controls-') as tm
     try: check('tampered retained evidence',False)
     finally: receipt.write_bytes(before)
     check('eligible after temporary controls removed',True)
+    # A truncated real QCOW header forces an inspection error; arbitrary bytes
+    # can legitimately be detected as a raw image by qemu-img.
+    sample=kept/'source-sample.qcow2';sample.write_bytes(disk.read_bytes()[:32])
+    archive=kept/'source.tar.gz'
+    with tarfile.open(archive,'w:gz') as source_archive:
+        source_archive.add(sample,arcname='tests/mime-detection/source-sample.qcow2')
+    item=dict(path=str(sample),identity=mod.identity(sample),sha256=mod.digest(sample),
+              archive=str(archive),archive_sha256=mod.digest(archive),
+              member='tests/mime-detection/source-sample.qcow2')
+    check('unclassified source disk is still held',False)
+    plan['source_fixtures']=[item]
+    check('exact protected archive fixture classified',True)
+    before=sample.read_bytes();sample.write_bytes(before+b'changed')
+    try: check('changed source fixture rejected',False)
+    finally: sample.write_bytes(before);item['identity']=mod.identity(sample)
+    before=archive.read_bytes();archive.write_bytes(before+b'changed')
+    try: check('changed source archive rejected',False)
+    finally: archive.write_bytes(before)
+    other=copy.deepcopy(plan);other['protected']=[]
+    check('unprotected fixture rejected',False,other)
+    check('exact fixture remains valid after controls',True)
 print(json.dumps(dict(result='PASS',controls=results,tool_sha256=mod.digest(source)),indent=2))

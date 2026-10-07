@@ -40,6 +40,12 @@ The JSON plan contains:
   Include independent build/copy, artifacts, QA and operating allowances.
   Distinguish measurements from future growth estimates. For sequential
   stages, later forecasts include earlier outputs that remain on disk.
+- Optional `source_fixtures`: exact protected source files that resemble disk
+  images but are package test samples. Each names its identity, SHA256, source
+  archive path and SHA256, and exact regular archive member. The tool compares
+  the actual member bytes and rechecks the file during discovery. An altered,
+  unprotected or proposed-for-removal fixture is held. This is an explicit
+  per-file classification; no source directory or extension is skipped.
 
 `identity` contains device, inode, size, nanosecond modification time,
 allocated bytes, uid, hardlink count and mode, as emitted by the tool's
@@ -59,6 +65,10 @@ hardlink counts and JSON references across preservation stores. QCOW headers
 are recognized in `.img`/`.raw` files; explicitly named virtual disks are also
 inspected. Unknown formats and failed chain inspection prevent proposals.
 A disk that another disk references is held even when both are candidates.
+Directory-entry metadata avoids repeated stat calls while retaining traversal
+of every directory in the declared roots. The first production run identified
+64 small shared-mime-info 2.4 MIME samples; they are classified only against
+the override recipe's pinned archive and its exact four members (#490).
 
 Active-use checks inspect actual host process arguments, recorded owner PIDs,
 and all running/stopped container mounts. Any live QEMU holds all candidates.

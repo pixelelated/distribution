@@ -11,7 +11,9 @@ Daybreak or instruction-file edits. Continue through checkpoints.
 Standing authority covers fixes, isolated VM/host QA, tracker updates and
 ordinary fork commits/pushes/builds. No release publication, upstream PR,
 personal-cloud or physical-device action, arbitrary root, wider deletion or
-filesystem-reserve change is authorized. No permission answer is pending.
+filesystem-reserve change is authorized. The prior two-disk approval is consumed.
+Separate approval of the exact #491 proposal is required before its execution;
+inspect the latest thread response rather than inferring permission.
 
 ## Software qualification complete — 2026-10-07 02:48 UTC
 
@@ -57,36 +59,55 @@ The completed two-file retirement authorizes no broader deletion.
 
 ## Immediate next actions
 
-Publication07 and tracker01/02 are completed and independently verified.
-All four result channels are zero and their sealed inputs unchanged. Receipts
-are retained in Q16/phase7-publication-07 and phase7-tracker-01/02. Tracker02
-corrected two summaries to the actual 1280×800 resolution; original snapshots
-remain retained. #461 is scheduled under M7.P5; closed titles are unchanged.
+The software audit and all related gates are closed. Publication08 verified
+feature06e66dd1 / next96c877f6 and both actual GitHub checks PASS. #489's exact
+completed-audit cadence fix is published/closed; no external audit is owed.
+Q16/closure-publication-08 and closure08-ci-01 retain four-result/seal/exits.
 
-The read-only retention review is ACTIVE under
-`/workspace/tmp/pixelelated-m7-retention-review-01`, launcher1313170,
-watcher1313172, run `20261007T025738Z-12d3d070`. Read console.log and run.path;
-verify the terminal result and input seals before retaining the report.
-It measures old H700 roots and artifacts, then inspects 24 explicit QA disks.
-No deletion is authorized by this report. The new planner and its control tool
-must not be edited while the report runs. Thirteen isolated controls pass;
-the first test fixture's coupled evidence failure is preserved separately.
+#461/#490 retention reports are complete. Report01 correctly held removals on
+64 source samples. Report02 inspects 3,722,420 directories and the same311
+actual disk chains, classifies all64 files against the exact pinned archive,
+and has zero unresolved dependencies. All24 original disk hashes/identities
+and protected-root identities are unchanged;22 are eligible, two referenced
+base disks are held. Nineteen planner controls pass. Both report owners are
+independently verified and retained. No deletion occurred.
 
-Next: review actual dependencies/rejections and each architecture's measured
-capacity forecast. Prepare any necessary exact cleanup proposal; no removal
-may ignore unreadable, active, unclassified or referenced dependencies.
-Then publish the closure/retention receipts, update the milestone and proceed
-to H700 arm when capacity is established. Any additional deletion needs its
-own concrete authorization; the old two-disk approval is fully consumed.
+**Next required action: explicit approval of #491's exact22-file proposal.**
+`docs/qa-logs/2026-10-07-pixelelated-replacement-16/h700-retirement-proposal/`
+contains the readable list, immutable proposal.json, independent reconciliation
+and fixed-scope execute.py. Default mode only verifies. Mutation requires the
+exact approved digest, a separate owner approval record and a fresh complete
+read-only report. Never use the earlier D-INFRA-019 approval for this batch.
 
-No VM is active. Final content-routing01, selected-content01, QA20 and cloud02
-are accepted and must not be replayed. #487/#488 are closed completed.
+The helper's verification-only run is COMPLETE and independently verified:
+`/workspace/tmp/pixelelated-m7-retirement-verification-01`,
+run20261007T032535Z-09769acf, all four results zero/four seals/owner exits.
+Q16/retirement-verification-01 retains the exact22-file and evidence readback.
+No --apply flag or approval record
+was supplied. After approval, use a fresh watched execution owner, record the
+actual decision/scope, verify removal and retained evidence, then freeze a
+new H700 build worktree from the unchanged qualified product inputs.
+
+Capacity:149.25GiB available;42.05GiB proposed recovery;191.29GiB afterward.
+The conservative arm budget is185.98GiB, including100GiB operating allowance.
+H700 arm builds compatibility prerequisites; aarch64 creates the firmware.
+The latter's combined forecast is353.72GiB, so reassess after arm and prepare
+further capacity work before that stage. This batch only establishes arm fit.
+
+Publish the retained reports, #489 closure readback, #490 classifier and exact
+proposal with normal hooks. Close #461/#490 on published evidence and retain
+#491's first verification criterion; its execution criteria stay open pending
+authorization and the actual action. Keep the milestone ordered around #491,
+H700 arm, aarch64 capacity/build, then named physical/P5 gates.
+
+No VM or device build is active. Final content-routing01, selected-content01,
+QA20 and cloud02 are accepted and must not be replayed. #487/#488 are closed.
 
 ## Frozen inputs and published heads
 
 - Coordination: /workspace/repos/rocknix.worktrees/conflict-resolution,
-  feature/conflict-resolution at a89e910432d5565562b1a6eb53679b2ca7da962a.
-- Primary: /workspace/repos/rocknix, next at 7f293a22d97317d1632952a5cf2e9d4a45bd2cb2.
+  feature/conflict-resolution at 06e66dd1d6788f85c99fae0b53ad790b500c81f9.
+- Primary: /workspace/repos/rocknix, next at 96c877f617d82a35cb09e93f6408b8fea76142ea.
 - Frozen16: /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement16,
   build/m7-pixelelated-replacement16 at ee014909137e03706e0b3020b8396be589aaa705.
   Never edit/reset/sync it; its generated emulator-table diff is expected.

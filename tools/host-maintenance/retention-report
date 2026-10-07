@@ -13,6 +13,7 @@ import os
 from pathlib import Path
 import stat
 import subprocess
+import tarfile
 import time
 
 
@@ -44,47 +45,90 @@ def strings(value):
             yield from strings(child)
 
 
+def source_fixtures(plan):
+    """Only exact archive members in protected source trees are nonruntime."""
+    accepted, errors, archives = {}, [], {}
+    for item in plan.get('source_fixtures', []):
+        try:
+            path = Path(item['path'])
+            if (not any(within(path, p) for p in plan['protected'])
+                    or any(str(path) == c['path'] for c in plan['candidates'])
+                    or identity(path) != item['identity'] or path.is_symlink()):
+                raise ValueError('fixture is changed, unprotected or a removal candidate')
+            archive = Path(item['archive'])
+            key = (str(archive), item['archive_sha256'])
+            if key not in archives:
+                if digest(archive) != item['archive_sha256']:
+                    raise ValueError('archive digest changed')
+                archives[key] = True
+            with tarfile.open(archive) as source:
+                member = source.getmember(item['member'])
+                if not member.isfile():
+                    raise ValueError('archive member is not a regular file')
+                stream = source.extractfile(member)
+                expected = hashlib.file_digest(stream, 'sha256').hexdigest()
+            if expected != item['sha256'] or digest(path) != expected:
+                raise ValueError('fixture differs from exact archive member')
+            accepted[str(path)] = item
+        except (OSError, ValueError, KeyError, tarfile.TarError) as error:
+            errors.append('source fixture ' + item.get('path', '?') + ': ' + str(error))
+    return accepted, errors
+
+
 def inventory(plan):
     roots = [Path(p) for p in plan['scan_roots']]
     if not roots or any(not p.is_absolute() or not p.is_dir() or p.is_symlink() for p in roots):
         raise ValueError('scan roots must be explicit existing absolute directories')
     if any(not any(within(p, r) for r in roots) for p in plan['reference_stores']):
         raise ValueError('reference stores must be inside scanned roots')
-    errors, edges, disks, manifests = [], [], [], []
+    fixtures, errors = source_fixtures(plan)
+    edges, disks, manifests = [], [], []
     count = 0
     tick = time.monotonic()
     targets = {str(Path(c['path'])) for c in plan['candidates']}
     if len(targets) != len(plan['candidates']):
         raise ValueError('duplicate candidate paths')
     for root in roots:
-        for base, dirs, files in os.walk(root, followlinks=False,
-                                        onerror=lambda e: errors.append(str(e))):
+        pending = [root]
+        while pending:
+            base = pending.pop()
             count += 1
-            for name in dirs + files:
-                p = Path(base) / name
-                try:
-                    if p.is_symlink():
-                        target = str(p.resolve())
-                        if any(within(target, t) or within(t, target) for t in targets):
-                            edges.append(dict(source=str(p), target=target, kind='symlink'))
-                        continue
-                    if name in dirs:
-                        continue
-                    if not stat.S_ISREG(p.lstat().st_mode):
-                        if name.endswith(('.qcow2', '.qcow', '.img', '.json')):
-                            errors.append('unclassified special file: ' + str(p))
-                        continue
-                    if name.endswith(('.qcow2', '.qcow', '.img', '.raw', '.vmdk', '.vdi', '.vhd', '.vhdx')):
-                        with p.open('rb') as stream:
-                            magic = stream.read(4)
-                        if magic == b'QFI\xfb' or name.endswith(('.qcow2', '.qcow', '.vmdk', '.vdi', '.vhd', '.vhdx')):
-                            disks.append(p)
-                    # A cross-store JSON mention is conservatively a reference.
-                    # No inferred exemption for a historical or unfamiliar schema.
-                    if name.endswith('.json') and any(within(p, r) for r in plan['reference_stores']):
-                        manifests.append(p)
-                except (OSError, RuntimeError) as e:
-                    errors.append(str(e))
+            try:
+                with os.scandir(base) as entries:
+                    for entry in entries:
+                        try:
+                            if entry.is_symlink():
+                                target = str(Path(entry.path).resolve())
+                                if any(within(target, t) or within(t, target) for t in targets):
+                                    edges.append(dict(source=entry.path, target=target, kind='symlink'))
+                                continue
+                            if entry.is_dir(follow_symlinks=False):
+                                pending.append(entry.path)
+                                continue
+                            name = entry.name
+                            disk_name = name.endswith(('.qcow2', '.qcow', '.img', '.raw', '.vmdk', '.vdi', '.vhd', '.vhdx'))
+                            if not disk_name and not name.endswith('.json'):
+                                continue
+                            p = Path(entry.path)
+                            if not entry.is_file(follow_symlinks=False):
+                                errors.append('unclassified special file: ' + str(p))
+                                continue
+                            if str(p) in fixtures:
+                                item = fixtures[str(p)]
+                                if identity(p) != item['identity'] or digest(p) != item['sha256']:
+                                    errors.append('source fixture changed during discovery: ' + str(p))
+                                continue
+                            if disk_name:
+                                with p.open('rb') as stream:
+                                    magic = stream.read(4)
+                                if magic == b'QFI\xfb' or name.endswith(('.qcow2', '.qcow', '.vmdk', '.vdi', '.vhd', '.vhdx')):
+                                    disks.append(p)
+                            if name.endswith('.json') and any(within(p, r) for r in plan['reference_stores']):
+                                manifests.append(p)
+                        except (OSError, RuntimeError) as error:
+                            errors.append(str(error))
+            except OSError as error:
+                errors.append(str(error))
             if time.monotonic() - tick > 10:
                 print(f'Inspected {count} directories; {len(disks)} disk paths', flush=True)
                 tick = time.monotonic()
@@ -153,6 +197,7 @@ def inventory(plan):
     except (OSError, ValueError, subprocess.SubprocessError) as e:
         errors.append('container inspection: ' + str(e))
     return dict(directories=count, errors=errors + process_errors, disks=disk_rows,
+                source_fixtures=list(fixtures.values()),
                 references=edges, active=active, container_mounts=mounts,
                 scope='All directories under explicit roots; directory symlinks not followed. '
                       'QCOW magic in img/raw and named virtual disks; JSON references in explicit stores. '

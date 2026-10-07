@@ -1,5 +1,16 @@
 # pixelelated 0.0.1 release readiness
 
+## Current device-build prerequisite — 2026-10-07 03:26 UTC
+
+The full software audit, VM qualification and hosted record checks pass.
+Retention review #461/#490 is complete; #491 proposes only22 superseded QA
+disks (42.05GiB), with all source/evidence hashes checked and two referenced
+bases excluded. This would establish capacity for the H700 arm compatibility
+stage. Aarch64 firmware needs a subsequent capacity review. The exact readable
+list and guarded verification/execution helper are in
+`docs/qa-logs/2026-10-07-pixelelated-replacement-16/h700-retirement-proposal/`.
+Separate approval is required; no removal or device build has started.
+
 ## Software qualification complete — 2026-10-07 02:48 UTC
 
 Candidate 16 has completed the M7 P4 fixes audit: all eight findings have
