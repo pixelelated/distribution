@@ -1,0 +1,16 @@
+{
+  "arm_carried_from": "/workspace/tmp/pixelelated-m7-sm8550-build-01",
+  "arm_manifest_sha256": "41b6eaa2906661b6fbea165161e958edc42846feeff11cf03c2c935b01fb1ade",
+  "branch": "build/m7-pixelelated-sm8550-01",
+  "container": "ghcr.io/pixelelated/build@sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39",
+  "distribution_commit": "6b627a38ae3182bf73310ff8819ae4f17da79e36",
+  "global_jobs": 24,
+  "inputs_sha256": "2affcd4e113def4efbe997ba2da97d70fefa4c76ca24ab2737fd8eea9fdf28d5",
+  "product_delta": [
+    "projects/ROCKNIX/packages/compat/fex-emu/patches/0006-guest-thunks-exclude-rebased-system-headers.patch"
+  ],
+  "scope": "Prepared, not submitted; exact FEX repair with original Nix snapshot",
+  "source_files": 6551,
+  "utc": "2026-10-07T15:50:02.631217+00:00",
+  "webkit_jobs": 4
+}

@@ -1,0 +1,49 @@
+{
+  "utc": "2026-10-07T15:50:04.963581+00:00",
+  "state": "running",
+  "containers": [
+    {
+      "id": "5028c97d949c72047e9f3a6b4d6bd8f088d8c89a8f43618785889b1ea7382e37",
+      "image": "sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39",
+      "state": "running",
+      "host_pid": 4137658,
+      "mounts": [
+        {
+          "source": "/workspace/tmp/pixelelated-m7-sm8550-build-02/nix",
+          "destination": "/nix",
+          "rw": true
+        },
+        {
+          "source": "/workspace/tmp/pixelelated-m7-sm8550-build-02",
+          "destination": "/workspace/tmp/pixelelated-m7-sm8550-build-02",
+          "rw": true
+        },
+        {
+          "source": "/home/max/.ROCKNIX/options",
+          "destination": "/home/max/.ROCKNIX/options",
+          "rw": true
+        },
+        {
+          "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01",
+          "destination": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01",
+          "rw": true
+        },
+        {
+          "source": "/workspace/repos/rocknix/.git",
+          "destination": "/workspace/repos/rocknix/.git",
+          "rw": true
+        },
+        {
+          "source": "/workspace/cache/rocknix-sources",
+          "destination": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/sources",
+          "rw": true
+        },
+        {
+          "source": "/workspace/tmp/pixelelated-m7-fex-header-control-01/runtime/nixpkgs",
+          "destination": "/workspace/tmp/pixelelated-m7-fex-header-control-01/runtime/nixpkgs",
+          "rw": false
+        }
+      ]
+    }
+  ]
+}

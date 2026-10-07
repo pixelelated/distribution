@@ -1,0 +1,12 @@
+{
+  "english": "YOUR CLOUD HAS A \u2018%s\u2019 FOLDER FROM A PREVIOUS OS.\n\nMOVE THE FOLDER TO \u2018%s\u2019?\n\nOTHER DEVICES THAT SYNC WITH THIS CLOUD WILL SWITCH TO THE NEW FOLDER AUTOMATICALLY ONCE THEY\u2019RE RUNNING pixelelated AND ONLINE.\n\nIF FILES STILL NEED MOVING, YOU'LL BE ASKED TO CONFIRM.",
+  "es_commit": "5d2fcb9b71f363cfa4813d5356f02c48ab58e139",
+  "french": "VOTRE CLOUD A UN DOSSIER \u2018%s\u2019 D\u2019UN ANCIEN SYST\u00c8ME D\u2019EXPLOITATION.\n\nD\u00c9PLACER LE DOSSIER VERS \u2018%s\u2019 ?\n\nLES AUTRES APPAREILS QUI SE SYNCHRONISENT AVEC CE CLOUD UTILISERONT AUTOMATIQUEMENT LE NOUVEAU DOSSIER UNE FOIS SOUS pixelelated ET EN LIGNE.\n\nS\u2019IL RESTE DES FICHIERS \u00c0 D\u00c9PLACER, UNE CONFIRMATION VOUS SERA DEMAND\u00c9E.",
+  "french_catalog_path": "usr/config/locale/fr/LC_MESSAGES/emulationstation2.mo",
+  "issue": 502,
+  "scope": "Installed exact English bytes and compiled French lookup; four prior qualified VM frames carry forward for this two-string-only commit",
+  "source_files": {
+    "es-app/src/guis/GuiMenu.cpp": "53741f966f605831a8dc55597cb93beea04d6e41d8024577a0b37bba8d4a3ef8",
+    "locale/lang/fr/LC_MESSAGES/emulationstation2.po": "5ee26b25ef75ff4d96a840e27bc1c74ce1b23437b65dd0fa58dfbbd8e5a073fe"
+  }
+}
