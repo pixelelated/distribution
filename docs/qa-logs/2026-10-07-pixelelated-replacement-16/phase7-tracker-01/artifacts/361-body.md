@@ -1,0 +1,146 @@
+## Accepted on candidate 16
+
+The independent audit proves AC-I361-L123 from upstream/fork controls, exact equality of 219 Linux and 53 native source files source equality, cold compilation lineage, real RA33 ordinary offline award/flush/API/relaunch and UI proof. Library02 supplies 415 assertions and 879 requests; candidate 16 retains all 46 installed proxy files. No new 818-test run, award/reset or live freshness lookup is claimed.
+
+[Primary acceptance](https://github.com/pixelelated/distribution/blob/7f293a22d97317d1632952a5cf2e9d4a45bd2cb2/docs/qa-logs/2026-10-07-pixelelated-replacement-16/unchanged-dependency-custody/verification.json); [criterion reconciliation](https://github.com/pixelelated/distribution/blob/7f293a22d97317d1632952a5cf2e9d4a45bd2cb2/docs/audits/2026_10_06-milestone-m7-p4-fixes-383/10-closure-reconciliation.md); [fix commits and existing-state dispositions](https://github.com/pixelelated/distribution/blob/7f293a22d97317d1632952a5cf2e9d4a45bd2cb2/docs/audits/2026_10_06-milestone-m7-p4-fixes-383/08-installed-resolution.md).
+
+Already written: this closure records verified evidence and changes no player files or cloud data; the original runtime failures and prior source states remain retained.
+
+## Historical request and execution record
+
+Current evidence update 2026-10-06 22:33 UTC: Library02 completed22:32:11UTC; primary22:32:23 independently verified all four results0,11 unchanged seals, actual owner/guest exits and free ports. All415 assertions pass: indexed/unindexed125 cached games, real interruption at61 with60 completed games preserved and never refetched, production batch cooldowns, persisted pause, indexed/unindexed429 Retry-After and restart, unchanged upstream100-budget queuing. All46 installed files remain unchanged. Raw879 requests include876 matched client gate observations for the two whole-library paths; minimum client intervals .300064816/.300074931seconds. Private loopback-only namespace is unchanged before/after. Failed01 remains failed under#474; no product throttle repair was needed. Exact proof and independent arithmetic are retained in p4-library-fixes-02 and library02-acceptance-01.
+
+Both approved external review calls are complete. The compound source/build/award/UI criterion below stays open until repaired-image qualification and P4 reconciliation finish. RA33 already consumed the reset; no further account reset is requested. Earlier status sections below are historical.
+
+## Current qualification — local cloud and ordinary RA award complete, 2026-10-06
+
+**P3 UI proof complete; P4 audit started (#465/#383):** unchanged frozen14 passes109 installed reconnect-card assertions and23 directly reviewed EN/FR frames at640x480 and1280x960. Fresh owner03/run20261006T065301Z-41c3ed1c has allfourrc0; terminal07:00:43UTC, actualcleanup07:01:20 verifies five PIDs absent and ports unbound. Success/refusal/empty-repeat controls pass; all46 installed hashes are invariant. [Published exact evidence](https://github.com/pixelelated/distribution/tree/63675be4e1bb2ab36748a725612d11a77be7f2f5/docs/qa-logs/2026-10-06-ra-ui); feature629603d6ad/next63675be4e1 are remote-verified. Superseded owners01/02 retain the incomplete bytecode census and cross-profile pending-state findings. The local synthetic HTTP UI proof complements, and does not replace or rerun, actual award/provider RA33. No account reset or product rebuild occurred. The code-auditor P4 review started Phase0 at07:04:22UTC: Milestone scope, independent depth, Codex/OpenAI primary + Fable5.1/xhigh via Facilitator/OpenRouter, blind then refutation. No external review call or completed audit yet. Current order: P4 criteria/source/interaction audit → resolve and requalify any product changes → measured capacity → H700 arm, then aarch64 → named physical/P5 gates. #361's compound source/build/award criterion retains its exact proof mapping for audit reconciliation; its UI clause is now satisfied. No RC/device-ready claim.
+
+Frozen replacement14 remains source `7afa9efcfc0c1ce4b89774b38878fc1b9a9063d2`, bundle `b77e47e57a4bb35f885ba78669ee8176a9ac978b27c1cbcfaad66e18f684a9f1`. Default suites, actual ROCKNIX RC2 upgrade, installed consent and proxy preservation checks are complete.
+
+**Local cloud:** WebDAV, SFTP and local MinIO/S3 each pass106 assertions,0failures/0skips (318 total), using the installed rclone/scripts. All four watcher results0; terminal05:58:54UTC, actual cleanup05:59:18. [Evidence](https://github.com/pixelelated/distribution/tree/next/docs/qa-logs/2026-10-06-local-cloud). D-QA-058/#462 keeps Dropbox credentials and other hosted/offsite accounts optional for this and future routine RCs; #463 retains the unverified authenticated observation. #351/#462 are closed.
+
+**Ordinary RetroAchievements:** after “Progress reset.”, fresh watched owner `/workspace/tmp/pixelelated-m7-ra-01` passed33 assertions,0failures/0skips. Tobu game15738 / achievement100359, softcore: API unearned → real offline award → pending1 after exit → reconnect flush1/pending0 → provider earned receipt → relaunch28/28 to27/28 active. All four results0; terminal06:09:20UTC, actualcleanup06:10:11; account-clear, five PID absences, no QEMU and unbound ports verified. [Evidence](https://github.com/pixelelated/distribution/tree/next/docs/qa-logs/2026-10-06-ra-award). The reset is consumed. No job remains active.
+
+**Earlier coverage checkpoint (superseded by the qualified UI proof above):** reconcile remaining P3 software criteria, starting with #361's UI/progress clause. The award run captured only post-exit carousel frames, no queue/send card; retained UI14 settings pages do not by themselves prove that clause. Keep the compound criterion open until the missing coverage is located or verified on the installed guest. This is a coverage distinction, not a demonstrated product defect. Then approved P4 primary + Fable5.1/xhigh through the verified Facilitator → resolve findings/requalify changed product bytes → measured capacity review → H700 DDR4/RG35XXSP arm, then aarch64 → named physical/P5 gates. No P4, H700 build or RC/device-ready claim yet.
+
+#464/D-QA-059 reopens dedicated QA reset automation as **backlog**, comparing supported API/browser paths, local/self-hosted FOSS, Browserbase and Kitesurf. #240 retains additional softcore routes/guidance. Manual reset remains the fallback until qualified; no vendor selected, no hosted credential transfer, no new RC gate. No further account input is requested for the completed proof.
+
+Can this be done on the VM? Yes — isolated installed candidate QA covers local protocols and the dedicated RA fixture. Remaining UI proof belongs on a fresh isolated guest; no personal cloud or handheld is needed.
+
+> Earlier dated status below is historical. Current completion and coverage above supersede earlier reset/running/account-pending status. D-QA-058/#462 removes Dropbox-account dependencies; #463 is optional.
+
+## Historical status — continuation — contribution drafts prepared; account proofs remain
+
+#168 now has **ten tested upstream drafts**. Seven newly prepared standalone fixes for001/002/005/007/008/013/015 pass40 targeted tests and169 related-suite executions with zero skips; pristine negative controls and exact distributed patch hashes are retained. [Published evidence](https://github.com/pixelelated/distribution/tree/202a40cf9d4fb0115fca7e08a8619e2256475d43/docs/qa-logs/2026-10-06-upstream-drafts) and [complete disposition map](https://github.com/pixelelated/distribution/tree/202a40cf9d4fb0115fca7e08a8619e2256475d43/docs/upstream/raofflineproxy/contribution-map.md). Upstream main still879b158; open206/84 concern platform packaging/discovery. API/policy-dependent ideas remain explicit proposals; no upstream issue/PR has been submitted and acceptance is not a candidate gate.
+
+#461/D-INFRA-018 records retention review after successful qualification and capacity review before the next build. Protect current/fallback candidates, the upgrade baseline, exact inputs, failure evidence and transitive dependencies. The recurring planner and next cleanup batch stay infrastructure follow-up, outside RC acceptance; no additional deletion or reserve change occurred.
+
+**Next:** dedicated RetroAchievements reset/alternate QA-account status and Dropbox QA credential-file path are still needed for the remaining P3 account proofs. Then approved P4 primary plus Fable5.1/xhigh via the verified Facilitator, fixes/requalification if needed, H700 arm then aarch64, and named physical/P5 gates. Frozen replacement14 remains unchanged and VM-qualified. No build/QA/cleanup job is active; P4 has not started; no RC/device-ready claim.
+
+## Cleanup complete — return to the remaining P3 release gates
+
+#459 removed only replacement03/05/06/07/08: **539.34 GiB recovered; 576.45 GiB available**, reserve unchanged. [Published execution and final retention proof](https://github.com/pixelelated/distribution/tree/ef1e53334fb63c0690509956445bef6032be6f1c/docs/qa-logs/2026-10-05-build-storage/approved-cleanup-20261006) verifies15,206retained files plus19current bundle files, frozen14inputs,27git source inputs and230surviving backing chains. All protected trees, bundles, source cache and preservation stores remain. The root watcher stopped automatically; no cleanup/build/QA job remains active.
+
+#460 fixes read-only build-cache directories in the standard worktree helper. [Six regression controls and preserved failures](https://github.com/pixelelated/distribution/tree/ef1e53334fb63c0690509956445bef6032be6f1c/docs/qa-logs/2026-10-06-worktree-permissions) cover actual old failure, corrected removal, symlink-target preservation, no-force and incomplete-scan refusal, empty-directory handling and Git result propagation. Current candidate product bytes are unchanged.
+
+**Next:** remaining P3 dedicated RA/Dropbox account proofs and #168 contribution preparation → approved P4 fixes audit → resolve/requalify changed product bytes → H700 arm, then aarch64 → separately gated physical/P5 work. No RC/device-ready claim. Earlier cleanup preparation/waiting statements below are historical and superseded.
+
+## Historical status — M7.P3 execution — replacement14 VM sequence complete
+
+Frozen source `7afa9efcfc0c1ce4b89774b38878fc1b9a9063d2`, immutable bundle `b77e47e57a4bb35f885ba78669ee8176a9ac978b27c1cbcfaad66e18f684a9f1`. [Published evidence](https://github.com/pixelelated/distribution/tree/89e44e3f39d33023539a00ea3c921200acb4499b/docs/qa-logs/2026-10-06-pixelelated-replacement-14) at next `89e44e3f39d33023539a00ea3c921200acb4499b`; normal hooks and remote hashes verified. Product bytes remain frozen.
+
+**Completed:** QA18 finished01:41:30UTC October6: all15default suites,1,719script PASS/0FAIL/0SKIP,16walks/78frames,34claimed diff regions/0unclaimed/0missing,26actual September29ROCKNIX RC2 upgrade assertions. Installed payload/proxy/identity and actual virgl/Pixman checks pass. All15identity and21selected walk frames directly reviewed. Single-sample timing and the rapid-relaunch/no-new-sync-stamp limitation remain explicit.
+
+**Proxy14 and subset11 completed:**22offline-state preservation checks,18native hashing tests with0skips,fourlegacyCHD cases plus malformed-header refusal, then35loopbackHTTP preservation/refusal/retry/idempotence assertions. Allfourresult channels0 per owner; actualowner/guest/backend cleanup verified. No build or QA job remains active. Synthetic local accounts do not close authenticated-provider criteria.
+
+#457 is fixed/closed:30installed consent/restart cases pass, including first granted counter7→8 at16.705487703seconds. Image14 raw/updateSYSTEM equality and inventory10 pass;14knownP5licence metadata gaps remain. Original failures are retained.
+
+**Next, in order:** remaining P3 dedicated RA/Dropbox account proofs and #168 contribution preparation/dispositions → approved P4 primary plus Fable5.1/xhigh through the verified Facilitator/OpenRouter → resolve/requalify changed product bytes → H700 DDR4/RG35XXSP arm first,aarch64 second → named physical/P5 gates. Dedicated RA reset/alternate QA status and Dropbox QA credential-file path remain unanswered. Ten upstream drafts are tested but unsubmitted; upstream acceptance is not a candidate gate. P4 has not started; no RC/device-ready claim.
+
+#456 [preservation and exact removal proposal](https://github.com/pixelelated/distribution/tree/89e44e3f39d33023539a00ea3c921200acb4499b/docs/qa-logs/2026-10-05-build-storage/preservation-20261006) is prepared: independent ES/log/runtime copies and source inventories verified;233disk chains with0errors/backing references/container matches. Root-only process readback passed at02:22:23UTC: UID0,237user-space processes,0matching references and0unreadable entries. #456 preparation is complete; five-tree removal is approved under #459. [Fresh preflight passed](https://github.com/pixelelated/distribution/tree/c367af2977de43ca4636051df6eb3d4c9b15e838/docs/qa-logs/2026-10-05-build-storage/approved-cleanup-20261006): 15,206 retained files rehashed and 235 disk chains checked, zero backing/container matches; actual processes exited. Cleanup #459 is now complete; fresh process checks and all five removals passed, with final retention verification. No root action remains. [Verified root report and final proposal](https://github.com/pixelelated/distribution/tree/9870382d34f60f96722105a885f07fed44858460/docs/qa-logs/2026-10-05-build-storage/preservation-20261006). The earlier proposal estimated524.84GiB net after preservation costs; the five approved removals are now complete as recorded above. No filesystem reserve change was made. Protect all retained inputs and failed-attempt evidence. #395 disconnected alerts remain unconfigured; ordinary watchers recorded the completed jobs and have exited.
+
+Can this be done on the VM? Yes: software behavior uses isolated QA guests and synthetic local state. Build/source/storage dependency facts are inspected on the host. No personal cloud or physical-device action.
+
+## Historical source/build plans (current execution above)
+
+## Historical M7.P3 priority — refreshed proxy image qualification
+
+#356/#365 are complete: [36 focused installed cloud cases plus the mapped prior evidence](https://github.com/pixelelated/distribution/tree/9bb2b42e5a9a689558d518b26ca88d658bd30fcb/docs/qa-logs/2026-10-05-p3-reconciliation). #451 is complete: [815 native-enabled Linux tests and11 integration checks against each predecessor](https://github.com/pixelelated/distribution/tree/9bb2b42e5a9a689558d518b26ca88d658bd30fcb/docs/qa-logs/2026-10-05-proxy-3036478). Both source/evidence branches are published and remote-verified; primary 9bb2b42e5a9a689558d518b26ca88d658bd30fcb.
+
+RAOfflineProxy3036478f2b2d22db451396a48f44feee94e8462f and coupled libchdr607694ca0812edfc9cc2030c64634fc2393668de are selected; all15 patches apply without fuzz and all113 packaged Linux Python files match the previous candidate. Native target/image proof is still required. Replacement10's completed display/cloud proof remains its own evidence. Original failed freshness and failed fixture runs are retained.
+
+**Current order:** freeze replacement11 with the two reviewed recipe changes → independent verified cache copy, full package freshness and build → default VM/actual RC2 upgrade plus affected native/proxy preservation/reconnection checks → ordinary RetroAchievements and authenticated Dropbox QA-account proofs → approved P4 primary plus Fable5.1/xhigh via verified Facilitator → H700 DDR4/RG35XXSP arm, then aarch64 → named physical/P5 gates. No new candidate has built yet. P4 has not started. No RC/device-ready claim.
+
+Can this be done on the VM? Yes: isolated GENERIC_X64 guests and synthetic QA storage for software proof. Ordinary RA reset/alternate QA account and dedicated Dropbox credential-file location remain unanswered. #395 still needs a disconnected notification destination; connected supervision and the standard watcher are required during jobs.
+
+## Historical plans and evidence (superseded current order above)
+
+## Historical upstream review — 2026-10-05
+
+The new full frozen-replacement10 freshness check completed rc1 at21:51:12: RAOfflineProxy7252fc is ten commits behind3036478f2b2d22db451396a48f44feee94e8462f. This is an actual new upstream delta, not a failed download. The compare changes no Linux Python files; the consumed difference is the coupled libchdr pin8e7b8bd→607694ca0812edfc9cc2030c64634fc2393668de (C declaration ordering and legacy CHD metadata formatting). Android/CI/upstream hosted-service updates are outside our installed package. No pin change or waiver has been made yet.
+
+D-WORKFLOW-138 still applies. After the focused cloud gaps identified under #356/#365, qualify the new parent/archive/coupled pin, clean patch application, native hash behavior and affected installed-image behavior. Preserve7252fc/replacement10 evidence as its own input set. Can this be done on the VM? Yes: host source checks plus isolated GENERIC_X64 native hashing/proxy regression, no personal account. Full freshness must actually return0 before its criterion closes.
+
+## Earlier scoped evidence
+
+## Historical frozen proxy input — 2026-10-04
+
+Final preflight found four further upstream commits. The selected parent is **ec60fdd0f6522790d9d1d4d20add397bbc4da945**, archive SHA256 **393ffcec34b223fa4315622db7e68a8778a87e1dff2d3aaf289df857fcb7ff2f**, integrated in frozen distribution b137d8c373. All15 current patches apply with zero fuzz. Comparing actual patched packaged Python trees against5866cd9 shows only APP_VERSION alpha1→alpha2; rcheevos/libchdr gitlinks are unchanged.199 upstream tests and8 fork integration controls pass, using the actual patched5866 tree as this incremental predecessor. Earlier248ce and actualRC2 evidence retain their own scope. Full package freshness exits0.
+
+Receipts: `docs/qa-logs/2026-10-04-proxy-preflight/`; patch disposition document updated. New-image service/UI/preservation/reconnect proof remains open; no pixelelated build has started while the host swap reset is pending. The sections below record prior stages, not the current pin.
+
+## Historical identity transition — 2026-10-04
+
+#409 is first within M7.P3 before the next freeze/build: lowercase **pixelelated**, organization `pixelelated`, owner `rasteratops`, unchanged developer `blitterbot`, default `/pixelelated`. Rasteratops remains a character. D-WORKFLOW-144/D-CLOUD-174 supersede earlier project/default naming below. The owner confirms no systems use `/Rasteratops`: **ROCKNIX → pixelelated** is the required adoption path. Existing cloud folders may move through the established verified migration. Historical replacement02 remains RASTERATOPS evidence; new bytes require new qualification. The milestone body owns the order, followed by remaining P3 checks, expanded P4 fixes audit and separately gated P5.
+
+## Source gate completed — 2026-10-03
+
+Recipe/helper integration now uses5866cd9ba784c13771a99c52dd6b6f2acc546842.
+All14 retained patches apply fuzz0;014/017 are superseded with behavioral
+proof. Eight fork controls pass (old helper5 failures),180 upstream tests
+pass, and the final production broad suite exits0:1367 harness PASS plus322
+focused PASS,0 FAIL/0 SKIP. Actual old cache/sign-in/base+subset award state
+is reopened twice without byte loss;125-game indexed/unindexed preparation,
+retry and persisted429 pacing pass. Background queue still has its upstream
+100-game budget; deliberate preparation opts out without dropping pacing.
+Evidence: `docs/qa-logs/2026-10-03-proxy-refresh/`; patch dispositions:
+`docs/rasteratops/raofflineproxy-refresh.md`. Candidate packaging, VM UI/service,
+reconnect and final cut record criteria remain open. #168 contribution work
+remains separate; upstream acceptance does not block the candidate.
+
+The preparation narrative below is historical and superseded by this result.
+
+## Maintainer direction, 2026-10-02
+
+> why wouldn't we use the current proxy? the offline achievements were working perfectly before the hard fork. with libraries, we should always be working to stay aligned with upstream work where we can by using the latest versions of packages.
+
+> I don't want us to lose any functionality; are my recommendations going to have any potential downsides? also, if there are improvements we can upstream to RAOfflineProxy, we definitely want to contribute back
+
+D-WORKFLOW-138 selects the current upstream refresh, with no loss of the fork's existing functionality. The previous recommendation to retain 248ce5acae is withdrawn. Source inspected: main bdcd229b45e289fdd0d920935887406d7d7b5919, 18 commits ahead of the packaged pin; latest release v2.0.0-alpha1. Keep an exact commit/checksum for reproducibility. D-WORKFLOW-111's frozen distribution ancestry remains separate from package freshness.
+
+Current source audit: 16 patch files; eight apply and eight require review (003,004,005,009,013,014,015,017). Rejection does not imply the behavior is absent: current upstream already implements per-thread image connection reuse and subset-aware award mapping. Inspect semantic equivalence before retiring patches. rcheevos/libchdr submodule pins are unchanged.
+
+The bulk queue introduces 100 new games per 30 minutes and a ten-minute batch limit. The indexed fork path calls cache_game directly, whereas the unindexed path calls add_rom_to_cache, which may now return success with queued=True. A queued game must never be reported as ready for offline play. This is an integration risk identified by source tracing, not a demonstrated defect in the currently shipped old pin.
+
+## Acceptance criteria
+
+- [x] Owner disposition recorded in D-WORKFLOW-138: refresh current upstream, preserve functionality; prior pin proposal withdrawn.
+- [x] Every patch has a source-backed retained/rebased/superseded disposition and the final series applies cleanly.
+- [x] Indexed and unindexed whole-library scans retain truthful readiness, no total-library cap, interruption/retry, polite request pacing, and safe handling of server 429s; a synthetic library over 100 games proves the boundary.
+- [x] Existing cached sign-in, cache rows, ROM/image paths, pending base/subset awards and restart/reconnection survive an upgrade fixture; declined/unanswered telemetry never sends.
+- [x] Upstream Linux suites and fork proxy regression sections pass on the exact selected source; cold image build, tools/ra-offline-test and UI/progress/flush proof pass on the VM.
+- [x] tools/fork-package-freshness exits0 on frozen replacement14; freshness05/allfour0 and exact recipe/tool verification retained. Earlier failed13 and completed12 results remain their own evidence.
+- [x] Remaining general-purpose fixes are reconciled with #168 for focused upstream contributions and regression tests. Ten tested drafts and interface-dependent dispositions are published in the linked contribution map; submission/acceptance remain separate.
+
+Can this be done on the VM? Yes: synthetic local servers/stores cover queue, restart, timeout, image and upgrade behavior; VM exercises the packaged service and UI. No personal account or physical device action is authorized by this proof.
+
+## Historical integration preparation — 2026-10-03
+
+Verified upstream main is now `5866cd9ba784c13771a99c52dd6b6f2acc546842`, one commit beyond yesterday's selection; that commit only changes the usage-statistics page's hardware labels. Archive SHA256: `1bc5a88f379c958e958348efd1e5de3edeb8682fe42432b6415f4f29cabc218e`. Patch reconciliation is being prepared in a fresh temporary source tree while P1's final regression gate runs; the packaged recipe is unchanged.
+
+The queued/readiness risk is now reproduced through the actual current fork helper against current upstream plus the rebased service fixes: a synthetic125-game unindexed job reports `DONE cached=125 failed=0 indexed=0`, but only100 games were cached. The other25 remain queued. Receipt: `/tmp/rasteratops-proxy-refresh-20261003/whole-library-before.log`. Before selecting the new pin, retain whole-library deliberate preparation and ensure queued work never produces an OK/offline-ready result. Preserve upstream queue locks, server pacing and429 pause behavior; background queue defaults remain independently testable.
+
+## Frozen-input freshness criterion — verified 2026-10-05
+
+Actual freshness03 on frozen replacement12 (55d8ee8f75; manifestbfdcf9b2) returned0 at22:26:40UTC. All1608recipes and checker bytes match before/after; actual four owner PIDs absent22:27:12. The completed candidate bundle1b3c2c04 contains the full input manifest, package-freshness.log and freshness-completion.json. [Published receipt and log](https://github.com/pixelelated/distribution/tree/e574726a240bc514507197d88ba304e2d989e566/docs/qa-logs/2026-10-05-pixelelated-replacement-12/preparation). Earlier failed freshness remains retained. This ticks only freshness; remaining installed/account/upstream criteria keep the issue open.

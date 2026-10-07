@@ -1,0 +1,9 @@
+{
+  "number": 487,
+  "title": "M7.P4: Bind SFTP QA observation to the rewritten sshd title",
+  "body": "The candidate16 cloud02 SFTP round-trip is running, but the independent read-only backend observer refused its identity assertion. OpenSSH rewrites its process title into one argv element (`sshd: /usr/sbin/sshd -f <owned config> -E <owned log> [listener] ...`); the observer wrongly requires an argv element beginning with the owner directory. The actual owned PID and exact configuration/log paths are present. No protocol or product failure is inferred.\n\nCan this be done on the VM? The round-trip is VM work; process-title/port attribution is a host fact, requiring the actual owned host PID. No device or cloud credentials are involved.\n\nAcceptance criteria:\n- [ ] Retain the failed observer predicate and actual sanitized SFTP process identity.\n- [ ] A bounded process-title check accepts the exact owned sshd/config/log and rejects wrong-owner and wrong-config controls; capture the live SFTP backend without weakening other backend checks.\n- [ ] Completed cloud02 has independent result/seal/cleanup verification, all three live backend observations, and exact owned process/container disappearance.\n\nRefs #471, #383. This is a QA-observer correction, not a product change.\n",
+  "state": "open",
+  "state_reason": null,
+  "updated_at": "2026-10-07T02:35:54Z",
+  "html_url": "https://github.com/pixelelated/distribution/issues/487"
+}
