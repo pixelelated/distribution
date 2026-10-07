@@ -1,0 +1,43 @@
+watch-build: recording in /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261007T034818Z-3c7a555a
+Inspected 102171 directories; 280 disk paths
+Inspected 207743 directories; 285 disk paths
+Inspected 372451 directories; 286 disk paths
+Inspected 448626 directories; 286 disk paths
+Inspected 583949 directories; 287 disk paths
+Inspected 713188 directories; 287 disk paths
+Inspected 838841 directories; 288 disk paths
+Inspected 1009102 directories; 289 disk paths
+Inspected 1125212 directories; 290 disk paths
+Inspected 1274747 directories; 290 disk paths
+Inspected 1403794 directories; 300 disk paths
+Inspected 1512945 directories; 300 disk paths
+Inspected 1663786 directories; 301 disk paths
+Inspected 1762694 directories; 301 disk paths
+Inspected 1903495 directories; 303 disk paths
+Inspected 2007106 directories; 303 disk paths
+Inspected 2132947 directories; 304 disk paths
+Inspected 2252312 directories; 304 disk paths
+Inspected 2355168 directories; 305 disk paths
+Inspected 2459120 directories; 305 disk paths
+Inspected 2583053 directories; 306 disk paths
+Inspected 2727897 directories; 306 disk paths
+Inspected 2836397 directories; 307 disk paths
+Inspected 3011530 directories; 307 disk paths
+Inspected 3222729 directories; 308 disk paths
+Inspected 3406190 directories; 309 disk paths
+Inspected 3530802 directories; 310 disk paths
+Inspected 1/311 backing chains
+Inspected 26/311 backing chains
+Inspected 51/311 backing chains
+Inspected 76/311 backing chains
+Inspected 101/311 backing chains
+Inspected 126/311 backing chains
+Inspected 151/311 backing chains
+Inspected 176/311 backing chains
+Inspected 201/311 backing chains
+Inspected 226/311 backing chains
+Inspected 251/311 backing chains
+Inspected 276/311 backing chains
+Inspected 301/311 backing chains
+{"result": "REPORT_COMPLETE", "candidates": 24, "eligible": 22, "errors": 0, "builds": [{"name": "H700 DDR4 RG35XX SP arm", "terms_bytes": {"package_growth": 42949672960, "artifact_and_verification": 19327352832, "operating_allowance": 107374182400, "independent_build": 30044336128}, "required_bytes": 199695544320, "available_bytes": 160241344512, "fits_now": false, "eligible_reclaim_bytes": 45146046464, "headroom_after_proposed_bytes": 5691846656, "basis": "Independent cold worktree estimated from each actual H700 cache; preserve the old device tree. Artifacts: twice actual compressed allocation, actual decompressed DDR3/DDR4 lengths and twice SYSTEM, plus 25%, rounded up to GiB. 40 GiB build growth and 100 GiB operating allowances carried from candidate16 preflight; these are conservative allowances, not measured future peaks. aarch64 forecast includes retained arm root, growth and artifact budget. Remeasure after arm."}, {"name": "H700 DDR4 RG35XX SP aarch64", "terms_bytes": {"package_growth": 42949672960, "artifact_and_verification": 19327352832, "operating_allowance": 107374182400, "independent_build": 117829722112, "retained_new_arm_outputs": 92321361920}, "required_bytes": 379802292224, "available_bytes": 160241344512, "fits_now": false, "eligible_reclaim_bytes": 45146046464, "headroom_after_proposed_bytes": -174414901248, "basis": "Independent cold worktree estimated from each actual H700 cache; preserve the old device tree. Artifacts: twice actual compressed allocation, actual decompressed DDR3/DDR4 lengths and twice SYSTEM, plus 25%, rounded up to GiB. 40 GiB build growth and 100 GiB operating allowances carried from candidate16 preflight; these are conservative allowances, not measured future peaks. aarch64 forecast includes retained arm root, growth and artifact budget. Remeasure after arm."}]}
+PASS approved exact batch; protected roots and held bases unchanged; H700 arm budget available

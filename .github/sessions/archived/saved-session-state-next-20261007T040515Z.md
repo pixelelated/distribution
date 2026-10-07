@@ -47,8 +47,8 @@ audit grades remain historical; later dispositions are mapped in audit09/10.
 Acceptance is published on next `7f293a22d97317d1632952a5cf2e9d4a45bd2cb2`.
 #471, #467, #468, #478, #479, #361, #386, #327, #409, #383 and observer repairs
 #487/#488 are closed completed, with exact body/state readbacks. Live audit lint
-confirms all eight checked findings and resolved outcomes. Current: M7.P5 #492
-H700 arm build with #494 retention review, then H700 aarch64, SM8550, and the
+confirms all eight checked findings and resolved outcomes. Current: M7.P5 #491
+exact cleanup approval/execution, then H700 DDR4 RG35XX SP arm, aarch64, and the
 separately gated physical/P5 work.
 
 This is software qualification, not RC designation or release publication.
@@ -60,86 +60,56 @@ The completed two-file retirement authorizes no broader deletion.
 
 ## Immediate next actions
 
-Updated 2026-10-07T04:05:15.529002+00:00. The exact #491 cleanup is complete and independently
-accepted. No approval is pending for the H700 then SM8550 builds (#492).
-Do not extend the consumed cleanup scope to the four trees now under review.
+Updated 2026-10-07T03:51:17.848458+00:00. Continue the authorized work; no approval is
+pending for #491's exact22-file batch or the H700 then SM8550 builds.
 
-### Running: H700 arm compatibility build
+1. Actively supervise `/workspace/tmp/pixelelated-m7-h700-qa-retirement-01`,
+   launcher1581655, run20261007T034818Z-3c7a555a in this coordination worktree.
+   The exact approved proposal digest is
+   ab03cbbb44674b27d6bfbeaf120d8f6f68281ec83e807d6b26df40c6da1a39c9.
+   Seven input seals and approval.json are recorded. The fixed helper first
+   refreshes the full dependency scan, then removes only its22named files.
+   Nothing has been accepted yet. Never edit its tool, proposal, plan or helper.
+   Verify all four terminal channels, seven seals, owner exits, exact removals,
+   protected evidence/bases and measured recovery before closing#491.
+2. Read the separate low-priority storage sizing owner
+   `/workspace/tmp/pixelelated-m7-storage-sizing-02` for #493, running from
+   the primary checkout (launcher1599404). Sizing01 was correctly refused by
+   coordination's occupied watcher lock before its job started; its refusal
+   verification is retained. It runs read-only
+   du over /workspace and retains errors, time and allocated bytes. A zero
+   wrapper result does not imply a complete inventory: inspect du_returncode
+   and complete_inventory. The maintainer clarified RAID0; do not re-ask the
+   level. Assess retention needs before recommending a purchase. Do not format
+   or convert storage. Historical October5 totals are not today's totals.
+3. When both host owners exit, preflight the host. The installed guarded swap
+   helper may run only before a watcher/build/VM is active, and only if needed.
+   Freeze a fresh build/* H700 worktree from current next, comparing product
+   paths to qualified16. Preserve the old devices tree and frozen16. Build
+   H700 arm compatibility first using canonical make docker-H700 with an arm-
+   only COMMAND override; do not launch both architectures on the first-stage
+   budget. Standard Docker mounts include main.git and the shared source cache.
+4. Remeasure after arm before H700 aarch64. The prior conservative combined
+   forecast353.72GiB does not fit the first cleanup alone. Prepare any further
+   exact retention proposal before seeking deletion approval. H700 compilation
+   is already authorized; capacity is a technical prerequisite.
+5. Verify H700 raw/update identity and DDR3/DDR4 artifacts, then capacity-check
+   and build SM8550 in a separate frozen worktree. #492 owns this exact order.
+   Physical actions, source/licence publication and RC designation remain gated.
 
-- Frozen tree: /workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01
-- Branch: build/m7-pixelelated-h700-01; HEAD c7e3bcd6b5634fc4841488ac724d6f619c994d0f
-- Owner: /workspace/tmp/pixelelated-m7-h700-arm-01
-- Run: 20261007T035939Z-a3256af0 in that frozen tree's .build-runs
-- Launcher1635390, runner1635391, watcher1635395, command1635430
-- Actual pinned Docker image and mounts verified in owner/runtime-start.json.
-- Inputs hash e8e6325baabbdd80c4da6ebf6b4995d07b19b12298dd1138ebe20a295f70beaf;
- 6,550 source files,207 QA files,180 symlinks. All product paths equal qualified16.
-- Cold independent root build.pixelelated-H700.arm; shared downloads only.
- 24 global jobs, WebKit4. No firmware image is claimed from this stage.
-
-Consume console.log and watcher status actively. On completion verify all four
-result channels, five owner seals, frozen source, actual builder/container exits
-and artifacts/output-manifest.json before treating arm as complete. Never edit
-this frozen checkout or its sealed owner files while running. An interrupted
-build retains logs and needs diagnosed fresh resumption, not blind re-launch.
-
-### Running: read-only #494 retention/custody-cost review
-
-Owner /workspace/tmp/pixelelated-m7-device-retention-review-01 runs from this
-coordination checkout under run20261007T040312Z-da022a6d, launcher1970017.
-It reviews only replacement09/10/12/14 (about432GiB gross), retaining exact
-heads, generated tracked diffs, frozen source checks and projected independent
-custody/reuse manifests. It copies no payloads and removes nothing. Three seals.
-No further deletion is authorized. Read its result before planning preservation;
-source-archive/live/backing/reference checks and measured net cost remain required.
-The H700 build consumes the same host, so preserve its remaining capacity budget
-before creating any new custody copies. Existing #456 stores remain protected.
-
-### Next in order
-
-1. Supervise both running owners and record actual outcomes promptly.
-2. Finish and verify H700 arm. #494 prepares the concrete further capacity
-   proposal for H700 aarch64; do not count gross candidate size as recovered.
-3. Remeasure capacity, build and verify H700 aarch64 DDR3/DDR4 artifacts, then
-   capacity-check and build SM8550 in its own frozen worktree. Both compilations
-   are already authorized; physical actions and publication remain separately gated.
-4. Publish current approval/cleanup/start/sizing receipts with normal hooks;
-   close #491 on published acceptance and update milestone/issue492 to live build
-   and #494 review. The retained preparation scripts are in
-   docs/qa-logs/2026-10-07-device-builds/preparation/.
-
-### Completed host facts and current storage answer
-
-#491 owner /workspace/tmp/pixelelated-m7-h700-qa-retirement-01 completed all four
-results0/seven unchanged seals/actual exits. Independent acceptance at03:55:52
-verifies exactly22 removals,42.05GiB recovery,seven protected identities,two base
-hashes and2,695 independent evidence hashes. Q16/h700-qa-retirement-01 retains it.
-No other deletion or filesystem reserve change occurred.
-
-Storage sizing02 completed03:57:20, primary verified03:58:02 (four results0,
-one seal, owner exits). It measured1.69TB repositories/builds,1.01TB artifacts,
-0.76TB temporary QA and68GB cache;191.28GiB available before new checkout.
-Only /workspace/lost+found was unreadable; complete_inventory is deliberately
-false, not waived. Public summary and raw report hash/location are in
-Qdevice/storage-sizing02 (Qdevice=docs/qa-logs/2026-10-07-device-builds).
-Sizing01 was a correct pre-job lock refusal; keep its distinct receipt.
-
-The maintainer asks whether another4TB drive is needed and explicitly clarified
-RAID0. #493 owns that question. Current recommendation: defer purchase until
-net retention/next-stage requirements are known; accumulation explains current
-usage. No purchase/RAID conversion is authorized. Primary RAID documentation
-is linked in Qdevice/README.md. Do not re-ask which RAID level was meant.
-
-The already authorized guarded swap helper completed before the H700 watcher:
-active priority-1 swap,8GiB free,35,215MiB RAM available and READY. Do not reclaim
-swap during this build. Its readback is in Qdevice/h700-arm01-start.
+The milestone has been updated and read back. #491 records the approval;
+#492 quotes the full build request; #493 owns the storage assessment and RAID0
+clarification. Their readbacks are in .build-runs/h700-build-order and
+.build-runs/storage-sizing pending evidence retention/publication. Ledger and
+work-log updates are local and need normal fork checks/publication. Source
+product inputs are unchanged. No new external audit or RA reset is needed.
 
 Publication10 is complete and independently verified: feature67fdb62d /
 nextc7e3bcd6,101seals,99equalpaths,fourzeroresults and both hosted checks PASS.
 Owner /workspace/tmp/pixelelated-m7-retention-closure-publication-10 carries
 publication.json, owner-verification.json, ci-owner.json and finalization.json.
 Its CI owner /workspace/tmp/pixelelated-m7-retention10-ci-01 is complete; never
-replay it. Current ledger/checkpoint/evidence edits need the next normal publication.
+replay it. Both checkouts were clean before this new approval work.
 
 ## Frozen inputs and published heads
 
