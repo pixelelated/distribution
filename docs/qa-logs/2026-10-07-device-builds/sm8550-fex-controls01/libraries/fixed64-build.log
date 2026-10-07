@@ -1,0 +1,81 @@
+ninja: Entering directory `/out/fixed64'
+[1/26] Building CXX object CMakeFiles/PlaceholderX11.dir/out/source/ThunkLibs/libX11/libX11_NativeGuest.cpp.o
+Warning: supplying the --target x86_64-linux-gnu != x86_64-unknown-linux-gnu argument to a nix-wrapped compiler may not work correctly - cc-wrapper is currently not designed with multi-target compilers in mind. You may want to use an un-wrapped compiler instead.
+clang++: warning: -lstdc++: 'linker' input unused [-Wunused-command-line-argument]
+clang++: warning: -lstdc++: 'linker' input unused [-Wunused-command-line-argument]
+clang++: warning: argument unused during compilation: '-nostartfiles' [-Wunused-command-line-argument]
+clang++: warning: argument unused during compilation: '-nostartfiles' [-Wunused-command-line-argument]
+[2/26] Linking CXX shared library libPlaceholderX11.so
+Warning: supplying the --target x86_64-linux-gnu != x86_64-unknown-linux-gnu argument to a nix-wrapped compiler may not work correctly - cc-wrapper is currently not designed with multi-target compilers in mind. You may want to use an un-wrapped compiler instead.
+[3/26] Generating gen/thunkgen_guest_libasound.inl
+[4/26] Generating gen/thunkgen_guest_libGL.inl
+[5/26] Generating gen/thunkgen_guest_libvulkan.inl
+[6/26] Generating gen/thunkgen_guest_libdrm.inl
+[7/26] Generating gen/thunkgen_guest_libwayland-client.inl
+[8/26] Generating gen/thunkgen_guest_libVDSO.inl
+[9/26] Generating gen/thunkgen_guest_libcuda.inl
+[10/26] Building CXX object CMakeFiles/asound-guest.dir/out/source/ThunkLibs/libasound/libasound_Guest.cpp.o
+Warning: supplying the --target x86_64-linux-gnu != x86_64-unknown-linux-gnu argument to a nix-wrapped compiler may not work correctly - cc-wrapper is currently not designed with multi-target compilers in mind. You may want to use an un-wrapped compiler instead.
+clang++: warning: -lstdc++: 'linker' input unused [-Wunused-command-line-argument]
+clang++: warning: -lstdc++: 'linker' input unused [-Wunused-command-line-argument]
+clang++: warning: argument unused during compilation: '-nostartfiles' [-Wunused-command-line-argument]
+clang++: warning: argument unused during compilation: '-nostartfiles' [-Wunused-command-line-argument]
+[11/26] Building CXX object CMakeFiles/vulkan-guest.dir/out/source/ThunkLibs/libvulkan/Guest.cpp.o
+Warning: supplying the --target x86_64-linux-gnu != x86_64-unknown-linux-gnu argument to a nix-wrapped compiler may not work correctly - cc-wrapper is currently not designed with multi-target compilers in mind. You may want to use an un-wrapped compiler instead.
+clang++: warning: -lstdc++: 'linker' input unused [-Wunused-command-line-argument]
+clang++: warning: -lstdc++: 'linker' input unused [-Wunused-command-line-argument]
+clang++: warning: argument unused during compilation: '-nostartfiles' [-Wunused-command-line-argument]
+clang++: warning: argument unused during compilation: '-nostartfiles' [-Wunused-command-line-argument]
+[12/26] Building CXX object CMakeFiles/drm-guest.dir/out/source/ThunkLibs/libdrm/Guest.cpp.o
+Warning: supplying the --target x86_64-linux-gnu != x86_64-unknown-linux-gnu argument to a nix-wrapped compiler may not work correctly - cc-wrapper is currently not designed with multi-target compilers in mind. You may want to use an un-wrapped compiler instead.
+clang++: warning: -lstdc++: 'linker' input unused [-Wunused-command-line-argument]
+clang++: warning: -lstdc++: 'linker' input unused [-Wunused-command-line-argument]
+clang++: warning: argument unused during compilation: '-nostartfiles' [-Wunused-command-line-argument]
+clang++: warning: argument unused during compilation: '-nostartfiles' [-Wunused-command-line-argument]
+[13/26] Building CXX object CMakeFiles/wayland-client-guest.dir/out/source/ThunkLibs/libwayland-client/Guest.cpp.o
+Warning: supplying the --target x86_64-linux-gnu != x86_64-unknown-linux-gnu argument to a nix-wrapped compiler may not work correctly - cc-wrapper is currently not designed with multi-target compilers in mind. You may want to use an un-wrapped compiler instead.
+clang++: warning: -lstdc++: 'linker' input unused [-Wunused-command-line-argument]
+clang++: warning: -lstdc++: 'linker' input unused [-Wunused-command-line-argument]
+clang++: warning: argument unused during compilation: '-nostartfiles' [-Wunused-command-line-argument]
+clang++: warning: argument unused during compilation: '-nostartfiles' [-Wunused-command-line-argument]
+[14/26] Building CXX object CMakeFiles/VDSO-guest.dir/out/source/ThunkLibs/libVDSO/libVDSO_Guest.cpp.o
+Warning: supplying the --target x86_64-linux-gnu != x86_64-unknown-linux-gnu argument to a nix-wrapped compiler may not work correctly - cc-wrapper is currently not designed with multi-target compilers in mind. You may want to use an un-wrapped compiler instead.
+clang++: warning: -lstdc++: 'linker' input unused [-Wunused-command-line-argument]
+clang++: warning: -lstdc++: 'linker' input unused [-Wunused-command-line-argument]
+clang++: warning: argument unused during compilation: '-nostartfiles' [-Wunused-command-line-argument]
+clang++: warning: argument unused during compilation: '-nostartfiles' [-Wunused-command-line-argument]
+[15/26] Building CXX object CMakeFiles/GL-guest.dir/out/source/ThunkLibs/libGL/libGL_Guest.cpp.o
+Warning: supplying the --target x86_64-linux-gnu != x86_64-unknown-linux-gnu argument to a nix-wrapped compiler may not work correctly - cc-wrapper is currently not designed with multi-target compilers in mind. You may want to use an un-wrapped compiler instead.
+clang++: warning: -lstdc++: 'linker' input unused [-Wunused-command-line-argument]
+clang++: warning: -lstdc++: 'linker' input unused [-Wunused-command-line-argument]
+clang++: warning: argument unused during compilation: '-nostartfiles' [-Wunused-command-line-argument]
+clang++: warning: argument unused during compilation: '-nostartfiles' [-Wunused-command-line-argument]
+[16/26] Linking CXX shared library libGL-guest.so
+Warning: supplying the --target x86_64-linux-gnu != x86_64-unknown-linux-gnu argument to a nix-wrapped compiler may not work correctly - cc-wrapper is currently not designed with multi-target compilers in mind. You may want to use an un-wrapped compiler instead.
+[17/26] Generating gen/thunkgen_guest_libEGL.inl
+[18/26] Building CXX object CMakeFiles/EGL-guest.dir/out/source/ThunkLibs/libEGL/libEGL_Guest.cpp.o
+Warning: supplying the --target x86_64-linux-gnu != x86_64-unknown-linux-gnu argument to a nix-wrapped compiler may not work correctly - cc-wrapper is currently not designed with multi-target compilers in mind. You may want to use an un-wrapped compiler instead.
+clang++: warning: -lstdc++: 'linker' input unused [-Wunused-command-line-argument]
+clang++: warning: -lstdc++: 'linker' input unused [-Wunused-command-line-argument]
+clang++: warning: argument unused during compilation: '-nostartfiles' [-Wunused-command-line-argument]
+clang++: warning: argument unused during compilation: '-nostartfiles' [-Wunused-command-line-argument]
+[19/26] Linking CXX shared library libasound-guest.so
+Warning: supplying the --target x86_64-linux-gnu != x86_64-unknown-linux-gnu argument to a nix-wrapped compiler may not work correctly - cc-wrapper is currently not designed with multi-target compilers in mind. You may want to use an un-wrapped compiler instead.
+[20/26] Linking CXX shared library libvulkan-guest.so
+Warning: supplying the --target x86_64-linux-gnu != x86_64-unknown-linux-gnu argument to a nix-wrapped compiler may not work correctly - cc-wrapper is currently not designed with multi-target compilers in mind. You may want to use an un-wrapped compiler instead.
+[21/26] Linking CXX shared library libdrm-guest.so
+Warning: supplying the --target x86_64-linux-gnu != x86_64-unknown-linux-gnu argument to a nix-wrapped compiler may not work correctly - cc-wrapper is currently not designed with multi-target compilers in mind. You may want to use an un-wrapped compiler instead.
+[22/26] Linking CXX shared library libwayland-client-guest.so
+Warning: supplying the --target x86_64-linux-gnu != x86_64-unknown-linux-gnu argument to a nix-wrapped compiler may not work correctly - cc-wrapper is currently not designed with multi-target compilers in mind. You may want to use an un-wrapped compiler instead.
+[23/26] Linking CXX shared library libVDSO-guest.so
+Warning: supplying the --target x86_64-linux-gnu != x86_64-unknown-linux-gnu argument to a nix-wrapped compiler may not work correctly - cc-wrapper is currently not designed with multi-target compilers in mind. You may want to use an un-wrapped compiler instead.
+[24/26] Linking CXX shared library libEGL-guest.so
+Warning: supplying the --target x86_64-linux-gnu != x86_64-unknown-linux-gnu argument to a nix-wrapped compiler may not work correctly - cc-wrapper is currently not designed with multi-target compilers in mind. You may want to use an un-wrapped compiler instead.
+[25/26] Building CXX object CMakeFiles/cuda-guest.dir/out/source/ThunkLibs/libcuda/libcuda_Guest.cpp.o
+Warning: supplying the --target x86_64-linux-gnu != x86_64-unknown-linux-gnu argument to a nix-wrapped compiler may not work correctly - cc-wrapper is currently not designed with multi-target compilers in mind. You may want to use an un-wrapped compiler instead.
+clang++: warning: -lstdc++: 'linker' input unused [-Wunused-command-line-argument]
+clang++: warning: -lstdc++: 'linker' input unused [-Wunused-command-line-argument]
+clang++: warning: argument unused during compilation: '-nostartfiles' [-Wunused-command-line-argument]
+clang++: warning: argument unused during compilation: '-nostartfiles' [-Wunused-command-line-argument]
+[26/26] Linking CXX shared library libcuda-guest.so
+Warning: supplying the --target x86_64-linux-gnu != x86_64-unknown-linux-gnu argument to a nix-wrapped compiler may not work correctly - cc-wrapper is currently not designed with multi-target compilers in mind. You may want to use an un-wrapped compiler instead.

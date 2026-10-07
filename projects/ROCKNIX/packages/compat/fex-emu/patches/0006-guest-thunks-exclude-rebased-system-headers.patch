@@ -1,0 +1,23 @@
+guest-thunks: exclude the pkg-config sysroot's standard include directory
+
+The device build exports PKG_CONFIG_SYSROOT_DIR for aarch64. pkg-config
+therefore reports its sysroot/usr/include instead of plain /usr/include,
+which the existing exclusion misses. Passing that directory to the x86
+guest compiler shadows its own libc headers: aarch64 bits/floatn.h aliases
+__builtin_nansf128 to long double, breaking the i686 C++ limits header.
+
+Apply the existing standard-header exclusion to its rebased form as well.
+Keep dependency-specific include directories and the host-thunk build intact.
+
+--- a/ThunkLibs/GuestLibs/CMakeLists.txt
++++ b/ThunkLibs/GuestLibs/CMakeLists.txt
+@@ -11,7 +11,8 @@
+ function(target_include_directories_from_pkgconfig target pkg)
+   pkg_check_modules(PKG QUIET ${pkg})
+   if (PKG_FOUND)
+-    list(REMOVE_ITEM PKG_INCLUDE_DIRS /usr/include)
++    list(REMOVE_ITEM PKG_INCLUDE_DIRS /usr/include
++      "$ENV{PKG_CONFIG_SYSROOT_DIR}/usr/include")
+     target_include_directories(${target} INTERFACE ${PKG_INCLUDE_DIRS})
+   elseif (ARGN)
+     target_include_directories(${target} INTERFACE ${ARGN})
