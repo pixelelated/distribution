@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Saved: 2026-10-07T21:14:09.624076+00:00
+> Saved: 2026-10-07T19:13:55.048345+00:00
 > Coordination branch: feature/conflict-resolution
 > Repository: pixelelated/distribution
 
@@ -11,8 +11,8 @@ OS images. Read AGENTS.md, canonical rules from `next`, then this checkpoint
 and M7's live ordered body. Primary checkout `/workspace/repos/rocknix` is on
 `next`; coordination checkout `/workspace/repos/rocknix.worktrees/conflict-resolution`
 is on `feature/conflict-resolution`. Before this checkpoint, their heads were
-90f9e0eafdf6e95e9d61c6b3e1f828eff836aa39 andef63bf4a487c107e924aa3d169b3370cd310162c respectively.
-The prior checkpoint is `archived/saved-session-state-next-20261007T211409Z.md`; older archives retain full
+357d88010a91d879e08d700d32a8ea8f0c9436a6 andd24d08351e respectively.
+The prior checkpoint is `archived/saved-session-state-next-20261007T191355Z.md`; older archives retain full
 candidate16/H700/SM8550 custody. Never restart accepted jobs from an old handoff.
 
 This coordination branch has divergent history: cherry-pick ONLY its new
@@ -50,9 +50,9 @@ static pages but choose from requirements and keep portable source. A separate
 ordinary site repository is preferred; inventory existing repos before
 creating a duplicate. terminal_handoff_review completed the read-only inventory;
 `docs/pixelelated/site-plan.md` records its findings and launch plan. The lane
-has not deployed or changed DNS. The domain is confirmed as pixelelated.com (D-WORKFLOW-154). The owner created
-the private website repository and the starter is pushed; see final state
-below. Website delivery does not gate firmware/local guidance.
+has not deployed or changed DNS. The exact domain spelling question
+is pending: earlier pixelelated.com versus latest pixelated.com. Do not infer
+an OS rename. Website delivery does not gate firmware/local guidance.
 
 ## Chosen cloud contract
 
@@ -183,9 +183,7 @@ Dropbox credential or fresh RA reset is a gate.
 
 ## Next commands and handoff
 
-- Read live #510/#508/#511 and M7, then docs/pixelelated/site-plan.md and
-  the ready-repository section below. The earlier website agent report is
-  pre-creation history, not current instructions.
+- Read live #510/#508/#511 and M7, inspect website agent's finished inventory.
 - Continue concrete validator contracts/source changes in the owned feature
   trees, then focused host/VM proof; no new device build yet.
 - Use tools/watch-build-submit for long jobs, retain result/exit receipts and
@@ -204,63 +202,33 @@ that README and the harness-hash label. Coordination-only integration is
 explicit above. Website inventory is complete; current status is below. The reader corrections
 were applied and independently rechecked: no remaining inaccurate resume
 instructions, held patch matches all seven deltas, and local website state
-matches. No active agent or job remains in that prior validator review.
+matches. No active agent or job remains in that review.
 
-## Website inventory and ready repository — #511
+## Website inventory and creation limitation — #511
 
-Domain: **pixelelated.com**, confirmed by the maintainer (D-WORKFLOW-154).
-Owner created **private** `pixelelated/website`; preserve its visibility.
-Authenticated `blitterbot` has maintain/push access (adminfalse). The creation
-blocker is resolved, and no domain spelling question remains.
+Existing docs source `/home/max/Development/rocknix.org` is clean at4f6df54ca16121ff2cd0620407aea6434ee59147,
+branchdocs/cloud-saves-native-wizard, one local commit ahead. It is MkDocs and
+Material with selected reusable guides/screenshots. Remotes still name
+maxengel/rocknix.org and ROCKNIX/rocknix.org. Its old branch is238 commits
+behind cached upstream; do not clone it wholesale as a current site. Upstream
+docs PR188 is OPEN/unmerged, unlike distribution/ES PRs3404/40.
 
-Local `/workspace/repos/pixelelated-website`, clean main at
-8559ab3e3c0bc4454ae8e2722fce7b72d677c2dd, published origin/main. This starter
-contains README and AGENTS only and descends from the owner's initial
-62b33d31fef4860f46abcb756ca697cd88ff788e. Previous unpublished bootstrap8423480a
-is retained on local archive/initial-local-bootstrap. Do not push that old
-root over the new main history. Remote SHA/parent/files/permissions readback
-passed; zero Actions runs. No deployment workflow, site build, hosting or DNS
-change occurred. Pages settings return403 with this token: unknown state,
-not a proved disabled site. Check private-repository hosting/access needs
-when implementing; never change visibility merely to enable Pages.
+No dedicated website repo appeared in accessible pixelelated inventory;
+private Pages settings returned403, so no organization-wide absence claim.
+Proposed dedicated repo is pixelelated/website. Creation was attempted with
+both gh GraphQL and documented REST; both refused current blitterbot token
+(Resource not accessible by personal access token; REST403). Blitterbot is
+an active org member. Do not infer repository creation succeeded. Prepared starter README/AGENTS now live in a separate clean local repo,
+`/workspace/repos/pixelelated-website`, branchmain,
+commit8423480a166f3fe6a9673e21c79e806563b9eb49 (temporary source also retained
+in /tmp/pixelelated-website-bootstrap). The proposed origin URL is configured
+but remote creation failed. Repo creation and bot write access are needed
+before a push; never ask for a token in chat. No workflow/deployment/hosting/DNS change was made.
 
-`docs/pixelelated/site-plan.md` holds the first-version scope and launch order.
-Next: select current portable static build inputs; reuse licensed selected
-MkDocs/Material material; draft home and cloud/ROM/BIOS guides that match
-qualified #510/#508 behavior; verify local build/layout/links before deployment.
-Site delivery still does not gate local validator guidance or firmware RC.
-
-Existing docs source `/home/max/Development/rocknix.org` is clean at
-4f6df54ca16121ff2cd0620407aea6434ee59147, branchdocs/cloud-saves-native-wizard,
-one local commit ahead. It is MkDocs/Material with selected guides/screenshots.
-Remotes maxengel/rocknix.org and ROCKNIX/rocknix.org remain. The old branch is238
-commits behind cached upstream, not a whole-site baseline. Upstream docs PR188
-is open/unmerged, unlike distribution/ES PRs3404/40.
-
-Last public DNS read of pixelelated.com: no A/AAAA, www NXDOMAIN, iwantmyname
-nameservers and Proton Mail MX. Recheck before any web DNS change and preserve
-mail records; historical Cloudflare/Hostinger assumptions are stale.
-
-Prior published coordination90f9e0eafd: wordlist37674303626 PASS;
-record37674303589 fails only the15-closure audit cadence (#507), confirmed
-from its actual failed step. This continuation only resolves site access/domain
-and publishes the starter; no product/QA-tool integration or physical action.
-
-DNS request: the owner needs registrar records now. Official current GitHub
-Pages values and setup order are retained in docs/pixelelated/site-dns.md and
-#511. Root public DNS read confirms no current web A/AAAA/CNAME; Proton Mail
-MX remains. Add the domain in repository Pages before pointing DNS. The bot's
-Pages API read is403, so that step is not claimed done; private-repository
-hosting eligibility also needs checking when choosing the host. No DNS writes.
-Filtered actual API/DNS readbacks: docs/qa-logs/2026-10-07-site-access/.
-
-The fresh site_access_handoff reader verified the new local/cached origin
-ancestry, private/domain instructions and separate held product trees. It
-found an old-agent-report pointer and a stale 'proposed repository' label;
-both were corrected. Remote/API/DNS receipts are now retained separately
-for independent readback instead of relying on documentary summaries.
-
-The same fresh reader then rechecked the corrected pointers and all six
-remote/API/DNS receipts against the checkpoint and official DNS instructions;
-no remaining material resume hazard was found. No tests or live changes were
-performed by that review.
+For earlier domain pixelelated.com only, public DNS has no A/AAAA, www NXDOMAIN,
+iwantmyname nameservers and Proton Mail MX. Old Cloudflare/Hostinger assumptions
+are stale. The domain spelling question remains unanswered; do not apply DNS.
+Site v1 can reuse a current static MkDocs/Material base plus selected licensed
+pages, lowercase LCD wordmark, separate cloud/ROM/BIOS guides and release
+links. Keep sources portable and preserve attribution. Firmware payloads do
+not belong in Pages (published-site limit1GB); link release artifacts instead.

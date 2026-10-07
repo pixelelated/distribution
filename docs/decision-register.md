@@ -653,6 +653,8 @@ This is the index of decisions; `docs/work-logs/` is the narrative,
 
 | D-WORKFLOW-153 | 2026-10-07 | **The parallel site track is not bound to GitHub Pages: choose hosting from the actual site/service requirements, keeping the source portable. Use a dedicated ordinary repository for the website if an appropriate one does not already exist.** GitHub Pages is the first static-host candidate, not a requirement to add or avoid future backend services. The maintainer asks how Pages repositories differ from GitHub wikis; inventory existing repositories before creating a duplicate. Refines D-WORKFLOW-152 and D-WORKFLOW-099. Confirm the owned domain's exact spelling before DNS changes; prior canonical identity remains lowercase `pixelelated`. | #511; maintainer's hosting-flexibility and repository messages on 2026-10-07 |
 
+| D-WORKFLOW-154 | 2026-10-07 | **The website domain is `pixelelated.com`, confirmed explicitly by the maintainer.** The earlier `pixelated.com` spelling does not rename the product or change the selected domain. Repository `pixelelated/website` was created privately by the owner; verified `blitterbot` maintain/push access authorizes the prepared starter push while preserving that visibility. Hosting remains flexible under D-WORKFLOW-153; no deployment or DNS change follows merely from repository access. | #511; maintainer's repository-access message and exact domain confirmation; website starter8559ab3e3c0bc4454ae8e2722fce7b72d677c2dd |
+
 ## Open decisions
 
 

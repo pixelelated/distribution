@@ -1,0 +1,40 @@
+{
+  "utc": "2026-10-07T21:17:41.296542+00:00",
+  "queries": [
+    {
+      "name": "pixelelated.com",
+      "type": "NS",
+      "returncode": 0,
+      "stdout": ";; Got answer:\n;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 31207\n;; flags: qr rd ra; QUERY: 1, ANSWER: 3, AUTHORITY: 0, ADDITIONAL: 3\n\n;; OPT PSEUDOSECTION:\n; EDNS: version: 0, flags:; udp: 65494\n;; ANSWER SECTION:\npixelelated.com.\t50\tIN\tNS\tdns1.iwantmyname.com.\npixelelated.com.\t50\tIN\tNS\tdns3.iwantmyname.com.\npixelelated.com.\t50\tIN\tNS\tdns2.iwantmyname.com.\n\n",
+      "stderr": ""
+    },
+    {
+      "name": "pixelelated.com",
+      "type": "A",
+      "returncode": 0,
+      "stdout": ";; Got answer:\n;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 18952\n;; flags: qr rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version: 0, flags:; udp: 65494\n",
+      "stderr": ""
+    },
+    {
+      "name": "pixelelated.com",
+      "type": "AAAA",
+      "returncode": 0,
+      "stdout": ";; Got answer:\n;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 35757\n;; flags: qr rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version: 0, flags:; udp: 65494\n",
+      "stderr": ""
+    },
+    {
+      "name": "www.pixelelated.com",
+      "type": "CNAME",
+      "returncode": 0,
+      "stdout": ";; Got answer:\n;; ->>HEADER<<- opcode: QUERY, status: NXDOMAIN, id: 22234\n;; flags: qr rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version: 0, flags:; udp: 65494\n",
+      "stderr": ""
+    },
+    {
+      "name": "pixelelated.com",
+      "type": "MX",
+      "returncode": 0,
+      "stdout": ";; Got answer:\n;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 33400\n;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version: 0, flags:; udp: 65494\n;; ANSWER SECTION:\npixelelated.com.\t3486\tIN\tMX\t10 mail.protonmail.ch.\npixelelated.com.\t3486\tIN\tMX\t20 mailsec.protonmail.ch.\n\n",
+      "stderr": ""
+    }
+  ]
+}

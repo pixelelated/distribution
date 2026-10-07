@@ -167,8 +167,9 @@ A check or opening instructions authorizes none of these changes.
 
 #511/D-WORKFLOW-152/153 starts a parallel path to a dedicated site repository
 and a static first site, with GitHub Pages as the initial hosting candidate.
-Hosting remains open to actual future service needs. Confirm the domain spelling
-before DNS changes; the previously recorded domain is `pixelelated.com`. It includes a wiki with cloud setup and
+Hosting remains open to actual future service needs. The confirmed domain is
+`pixelelated.com` (D-WORKFLOW-154); the private website repository and starter
+are ready. Recheck live DNS before preparing web records. It includes a wiki with cloud setup and
 separate ROM and BIOS guides. Existing #345 covers the earlier placeholder;
 #323 supplies documentation voice and source material. No site deployment or
 framework change is implied by this review document.
