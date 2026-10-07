@@ -1,0 +1,59 @@
+{
+  "utc": "2026-10-07T04:24:03.928186+00:00",
+  "result": "PRESERVED",
+  "store": "/workspace/artifacts/pixelelated-build-custody/issue-494-device-capacity-01",
+  "trees": [
+    {
+      "tree": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09",
+      "head": "cf511ce79b83cba7fea8b14cfa3d04fb13e4b4fb",
+      "custody_entries": 22956,
+      "manifest_sha256": "e3d1019bd9b9190c797704f20b69d65c21b2b12d0192211665b904615198f98b",
+      "source_inventory": "/workspace/artifacts/pixelelated-build-custody/issue-494-device-capacity-01/source-inventory-09.json",
+      "source_inventory_sha256": "1714b7f63ff7f541a2100f9dee6ddd48fe3ab40b66c741e40c8745a72a0412ad",
+      "source_roots": 568,
+      "source_errors": 0
+    },
+    {
+      "tree": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement10",
+      "head": "d6e8390c93bed87efe2dcc23cd402a271cacd1c7",
+      "custody_entries": 22523,
+      "manifest_sha256": "467a07256cd815ffbabfaf487d034f519ebde4fcfdfe412af3e63789f9933a84",
+      "source_inventory": "/workspace/artifacts/pixelelated-build-custody/issue-494-device-capacity-01/source-inventory-10.json",
+      "source_inventory_sha256": "3a18cc94fb5d7b063d746a615c3635064c3344e77d855b377c902fae21f05359",
+      "source_roots": 568,
+      "source_errors": 0
+    },
+    {
+      "tree": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement12",
+      "head": "55d8ee8f75965a560f75d187e34c9beaa93133f1",
+      "custody_entries": 22466,
+      "manifest_sha256": "0e220740591aba4038029f1c81060643651f8556d4e09ebf6ce4baae4f21ece5",
+      "source_inventory": "/workspace/artifacts/pixelelated-build-custody/issue-494-device-capacity-01/source-inventory-12.json",
+      "source_inventory_sha256": "d81b2bc1461735bc04d7c0c148531659f6cd4aa0c801ae0a182592710033d17c",
+      "source_roots": 568,
+      "source_errors": 0
+    },
+    {
+      "tree": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement14",
+      "head": "7afa9efcfc0c1ce4b89774b38878fc1b9a9063d2",
+      "custody_entries": 22501,
+      "manifest_sha256": "2242102e86457745c95e38919ae689de623ff45edbd80ea6b33931e831f4920a",
+      "source_inventory": "/workspace/artifacts/pixelelated-build-custody/issue-494-device-capacity-01/source-inventory-14.json",
+      "source_inventory_sha256": "d7c9bf741883fc10694e7a3a692239cf182f1a035f6a984647326d1ec21887b7",
+      "source_roots": 568,
+      "source_errors": 0
+    }
+  ],
+  "unique_objects": 14489,
+  "new_content_bytes": 15371743,
+  "new_store_allocated_bytes": 59297792,
+  "gross_candidate_bytes": 464527437824,
+  "estimated_net_recovery_bytes": 464468140032,
+  "capacity_before": {
+    "available": 188081577984,
+    "remaining_arm_budget": 187059011584,
+    "preservation_ceiling": 536870912
+  },
+  "deleted_files": 0,
+  "remaining": "Fresh full backing/reference/container/root-process dependency review and exact deletion approval; no removal authorized by this receipt."
+}
