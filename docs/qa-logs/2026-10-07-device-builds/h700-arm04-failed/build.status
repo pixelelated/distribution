@@ -1,0 +1,13 @@
+state:       finished
+written:     2026-10-07 04:41:28 UTC   <- terminal result; heartbeat stops here
+watcher_pid: 2241026
+job_pid:     2241025  alive=yes
+started:     2026-10-07 04:18:21 UTC
+progress:    [228/244]
+log:         /workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/.build-runs/20261007T041821Z-41e78f9d/build.log  (last written 4s ago)
+activity:    /workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/.build-runs/20261007T041821Z-41e78f9d/build.log  (last written 4s ago)
+activity_root: /workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01
+outcome:     rc=2
+tail:
+  make: *** [Makefile:196: docker-H700] Error 1
+  FAILED command with exit 2

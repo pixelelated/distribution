@@ -1,0 +1,26 @@
+{
+  "utc": "2026-10-07T04:50:26.906415+00:00",
+  "result": "PASS",
+  "scope": "H700 arm compatibility artifact; no aarch64 firmware or physical-device claim",
+  "distribution_commit": "43d0bc3bf47fd858ba8d5c55fbdf52535a0db2aa",
+  "actual_containers_exited": [
+    "6bc2d7eaf914882b6c25206db7e0a60fbc8ac4a8e3d8a580729a0d462538ebf0"
+  ],
+  "actual_container_host_pids_exited": [
+    3549823
+  ],
+  "files_independently_hashed": 7866,
+  "symlinks_verified": 797,
+  "arm_elf_objects": 938,
+  "retroarch_and_libretro_arm_elf": true,
+  "build_stamps_verified": 244,
+  "output_manifest_sha256": "116314730b3ce22407219f14c1646694ebabc2723a2c24c8ca9e553ff5783e18",
+  "owner_results": {
+    "inner.rc": "0",
+    "outer.rc": "0",
+    "tool-wrapper.rc": "0",
+    "build.rc": "0"
+  },
+  "sealed_build_inputs": 7,
+  "tracked_status": ""
+}

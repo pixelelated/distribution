@@ -1,27 +1,25 @@
 # pixelelated 0.0.1 release readiness
 
-## Current device builds — 2026-10-07 04:30 UTC
+## Current device builds — 2026-10-07 04:51 UTC
 
-#491 approved cleanup is complete and closed:22 exact files,42.05GiB recovered
-and independent preservation accepted. #492 H700 arm04 is now compiling under
-a verified watcher/container atf5f815faff after the #495 GCC12 host-only repair.
-SPIRV-Tools source pins and target flags are unchanged; its installed host tools
-pass nine positive/negative shader controls with independently verified hashes.
-#496 corrects the proof helper for the pinned Python3.10. Both repair issues
-are closed with evidence published on next `63ef759a` and both hosted checks
-passing. Earlier failed owners remain failed and retained. Full arm completion
-and firmware are not claimed.
+#492 H700 arm compatibility is accepted from frozen `43d0bc3bf4`: all 244
+tasks complete, four zero results, seven unchanged seals and actual builder
+exit. Independent acceptance hashed 7,866 files, checked 797 symlinks and
+938 ARM ELF objects, including RetroArch and libretro cores. #497 repairs
+the generated-name path mismatch with 42 original/fixed controls and package
+lint; it remains open for the actual aarch64 handoff/image evidence.
+Earlier failed owners, logs and interrupted package scopes are preserved.
 
-Next: verify H700 arm, finish#494 preservation/dependencies and measured
-capacity, build/verify H700 aarch64 DDR3/DDR4, then capacity-check/build/verify
-SM8550. #494 compact preservation is independently accepted: all 14,489 objects
-verify and originals remain intact. Potential net recovery is 432.57 GiB;
-full dependency review and fresh root process inspection remain before a
-concrete removal proposal. No additional removal is authorized. #493 records
-the requested broader post-build review of build, image and temporary-QA
-stores, a recurring retention plan and the basis for any drive purchase. Physical
-operations, corresponding source/licences/public docs and publication remain
-gated. See `docs/qa-logs/2026-10-07-device-builds/README.md`.
+Next is H700 aarch64 firmware, then SM8550. No bootable firmware is claimed.
+The post-arm capacity gate has 161.83 GiB available against 267.74 GiB needed
+for H700 firmware. #494 independently preserved all 14,489 custody objects
+and completed dependency discovery. Keep replacement12 for retained QA
+source links; replacement09/10/14 offer 324.38 GiB potential net recovery.
+The requested read-only administrator process check remains before the exact
+removal proposal; no further deletion is authorized. #493 owns the broader
+post-build review and recurring retention plan before a drive decision.
+Physical actions, source/licence/public docs and publication remain gated.
+See `docs/qa-logs/2026-10-07-device-builds/README.md`.
 
 ## Software qualification complete — 2026-10-07 02:48 UTC
 

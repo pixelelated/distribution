@@ -48,7 +48,7 @@ Acceptance is published on next `7f293a22d97317d1632952a5cf2e9d4a45bd2cb2`.
 #471, #467, #468, #478, #479, #361, #386, #327, #409, #383 and observer repairs
 #487/#488 are closed completed, with exact body/state readbacks. Live audit lint
 confirms all eight checked findings and resolved outcomes. Current: M7.P5 #492
-H700 arm build with #494 retention review, then H700 aarch64, SM8550, and the
+H700 arm accepted; #494 capacity/process check, then H700 aarch64, SM8550, and the
 separately gated physical/P5 work.
 
 This is software qualification, not RC designation or release publication.
@@ -60,118 +60,148 @@ The completed two-file retirement authorizes no broader deletion.
 
 ## Immediate next actions
 
-Updated 2026-10-07 04:31 UTC. No build approval is pending. #491 completed
-and closed: 22 approved files, 42.05 GiB recovered, protected evidence verified.
-The maintainer clarified RAID0 and requests a broader post-build cleanup review
-before deciding whether another drive is needed. Exact quote is retained in
-#493 and Qdevice/post-build-storage-request. M7's live ordered body and #492
-have been updated and read back. No additional deletion or RAID action is
-authorized. D-INFRA-018 already defines the retention cadence.
+Updated 2026-10-07 04:53 UTC. H700 arm compatibility is ACCEPTED. No compiler,
+guest, preservation job or acceptance watcher remains running. H700 firmware
+has not started because the measured capacity gate fails. Do not replay the
+completed build, audit, VM QA or cleanup. Build authority for H700 then
+SM8550 persists; the exact #491 cleanup is completed/consumed.
 
-### Running: H700 arm04 after host compiler repair
+### Required user input: read-only administrator process check
+
+An async request is pending for this exact command:
+
+```bash
+cd /workspace/tmp/pixelelated-m7-device-root-readback-01 && sha256sum -c SHA256SUMS && sudo /usr/bin/python3 -I ./readonly-process-dependencies.py > root-process-readback.json
+```
+
+The helper hash is0c7143d4b9a8607a9a7f5a2a49cfd3f4e219dcbd4f7b518580590568872daf82.
+It only reads process cwd/exe/root/arguments/descriptors/mappings for the four
+review roots09/10/12/14, and emits counts/PIDs/matched roots, not raw command
+lines. No root command has been executed by this session; do not infer
+arbitrary sudo authority. Linux denied ordinary-user reads for196 processes.
+The earlier five-tree root receipt does not cover these four.
+
+When the user reports it ran, inspect the actual JSON, timestamp, effective
+UID0, exact roots, matches and unreadable fields; do not accept the report
+alone. Keep the prepared helper/request and every result. A clean readback
+allows completion of the exact #494 proposal; it does not approve deletion.
+Do not ask the user to repeat an action already evidenced in that file.
+
+### H700 arm05 accepted — #492, #497
 
 - Frozen tree `/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01`,
-  branch `build/m7-pixelelated-h700-01` at
-  `f5f815faff4e18808d2c1c0298e4335cc0b20fe7`.
-- Owner `/workspace/tmp/pixelelated-m7-h700-arm-04`, run
-  `20261007T041821Z-41e78f9d`. Launcher2241024, runner2241025,
-  watcher2241026, command2241057. Actual container/mounts verified04:18:40.
-- Seven sealed inputs; source manifest6,550 files/207 QA files/180 symlinks.
-  Read owner/freeze-receipt.json for hashes. Container988c0ba58626 and24/4
-  concurrency unchanged. Never edit this frozen tree or owner while active.
-- At04:30:37, 90/244 tasks with fresh package activity. Host RAM available
-  27,703 MiB, swap free6,249 MiB, disk available171.53 GiB at04:30:39.
-- Only product delta from qualified16: spirv-tools pre_configure_host adds
-  -Wno-error=free-nonheap-object for GCC12 host builds. Source pins and target
-  flags unchanged. This repair and evidence are published on next63ef759a;
-  both hosted checks passed. #495/#496 are closed with exact readbacks.
-- Full host package and nine shader checks passed; independent hashes verify
-  the installed tools and stamp. This is a host stage, not full arm acceptance.
+  branch `build/m7-pixelelated-h700-01`, commit
+  `43d0bc3bf47fd858ba8d5c55fbdf52535a0db2aa`. Preserve it unchanged.
+- Owner `/workspace/tmp/pixelelated-m7-h700-arm-05`, run
+  `20261007T044830Z-01d9c577`, completed04:50:21:244/244 tasks, four0,
+  seven unchanged seals and actual builder/container exit.
+- Independent owner `/workspace/tmp/pixelelated-m7-h700-arm05-acceptance-01`
+  completed04:50:31: four0/two seals/exits verified04:50:50. It hashed
+  7,866 files, checked797 symlinks,938 ARM ELF objects and244 stamps,
+  including real RetroArch/libretro output. Tracked source is clean.
+- Output manifest SHA256116314730b3ce22407219f14c1646694ebabc2723a2c24c8ca9e553ff5783e18.
+  No bootable aarch64 image, device smoke or release claim is made.
+- #495/#496 host compiler/proof repairs are closed and published. Arm04
+  later failed at228/244 after box86 linked, because installation used
+  build.ROCKNIX-H700.arm instead of build.pixelelated-H700.arm. DISTRO is
+  intentionally ROCKNIX; generated paths use DISTRONAME (D-WORKFLOW-144).
+- #497 fixes six ARM handoff recipes and scripts/build_distro generated
+  paths.42 actual-hook/lifecycle controls pass, including original failures,
+  ROCKNIX parity, old-name collision, missing payload and alias cleanup.
+  All six package lints pass. Source commit feature dba99f4b57 / next43d0bc3bf4.
+  Full product delta from qualified16 is those seven files plus the earlier
+  SPIRV GCC12 host hook; source pins/target flags/stored formats unchanged.
+  #497 stays OPEN for actual aarch64 handoff/image evidence.
 
-Consume build.status and actual package logs actively. On terminal verify all
-four result channels, seven seals, frozen source, actual container/process
-cleanup and artifacts/output-manifest.json. No off-session alert exists#395.
-The owner launches the compiler/package proof and then build_distro; firmware
-comes from the later aarch64 stage. Do not infer success from submission.
+Arm04 stays failed with four2/seven seals and actual exits. Recovery owner
+`/workspace/tmp/pixelelated-m7-h700-arm04-recovery-01` preserved the full
+thread/stamp archive (SHA2563ad02972af24a49b70acfa178ce294fe1327a10f42d2013b2658d36e4cc06bcf),
+all interrupted SDL2_net/box86/harfbuzz/mpg123/wlroots/xterm scopes and changed
+recipe outputs by same-filesystem rename. Four0/one seal/exits verified;
+zero payload deletion before advancing the stopped tree. Controls01's JSON
+spacing assertion remains failed; fresh02 compares JSON contents and passes
+all42 cases. Earlier arm01/02/03 failures and shader controls remain retained.
+Never overwrite or rerun a completed owner. Never reclaim swap during a job.
 
-### Completed failures remain preserved
+### #494: three proposed trees, one held for QA dependencies
 
-Arm01 failed SPIRV-Tools host compilation under pinned GCC12.3, matching
-KhronosGroup/SPIRV-Tools#6919. Original-failing, warning-only, O0, equivalent-loop
-and unrelated-warning controls are verified. Full thread/stamp archive and
-interrupted gcc/glib/lxml/spirv-tools/llvm were preserved by rename before
-advancing the stopped checkout. No payload was deleted; bundled binutils
-fixtures were compared with exact source archives. Arm01 four2/five seals;
-arm02 four1/seven seals (swap preflight); arm03 four2/seven seals (package
-succeeded, final proof hashing used Python3.11 API unavailable in3.10).
-All failed owners have verified exits. Fresh04 uses portable streaming SHA256
-and unchanged shader controls. Never overwrite or rerun failed owners.
-The fixed swap helper restored8 GiB free before03. Never reclaim swap during
-any active build/watcher/guest.
+Completed discovery owner `/workspace/tmp/pixelelated-m7-device-dependencies-01`
+has four0/five seals/exits verified04:36:56. It inspected3,825,745 directories,
+290 disk chains and469 artifact manifests with zero errors. No matching
+container mount or ordinary-user process was found;196 protected process
+readbacks remain unresolved until the administrator check above.
+Full private report SHA256e881acc7bd70d80f42b3f9f58ad6993fef05aae0ff5a6ed9a79665bdad7ee5f8.
 
-### #494 preservation accepted; dependency discovery running
+Classifier `/workspace/tmp/pixelelated-m7-device-dependency-classification-01`
+has four0/three seals/exits verified04:39:11. All52 artifact path references
+are classified historical provenance; five immutable bundles were byte/hash
+verified and their cache-copy independence receipts checked. The14 actual
+QA16/QA17 overlay symlinks target replacement12 source, so KEEP12 entirely.
 
-Preservation owner `/workspace/tmp/pixelelated-m7-device-preservation-01`
-completed04:24:06: four0, nine seals and actual exits verified. Independent
-primary owner `/workspace/tmp/pixelelated-m7-device-preservation-acceptance-01`
-completed04:27:29: four0, three seals and exits verified04:28:43. It hashed
-all14,489 retained objects, checked the four source/custody manifests and
-independent inodes; originals are intact. Four568-root source inventories
-have zero errors, including verified consumed rclone source custody.
+Propose only replacement09/10/14 after root-readback:
+09 cf511ce79b83cba7fea8b14cfa3d04fb13e4b4fb,
+10 d6e8390c93bed87efe2dcc23cd402a271cacd1c7,
+14 7afa9efcfc0c1ce4b89774b38878fc1b9a9063d2.
+Gross348,357,001,216 bytes; potential net348,297,703,424 bytes (324.38 GiB)
+after charging the full59,297,792-byte preservation store. This is NOT free
+space or deletion approval. Protect12/15/16, all device roots, actual ROCKNIX
+baseline, candidate bundles and every source/custody dependency.
 
-New store `/workspace/artifacts/pixelelated-build-custody/issue-494-device-capacity-01`
-uses59,297,792 allocated bytes. Existing verified #456 objects are reused;
-15,371,743 new content bytes copied. Gross proposed roots464,527,437,824 bytes;
-potential net464,468,140,032 bytes (432.57 GiB). This is not recovered space.
-The four exact review roots are replacement09/10/12/14. Current16/fallback15,
-all device roots, ROCKNIX baseline and source/custody dependencies are protected.
-
-Running read-only owner `/workspace/tmp/pixelelated-m7-device-dependencies-01`,
-coordination run20261007T042506Z-040f3611, launcher2466462/runner2466479/
-watcher2466504, five seals. At04:30 it had inspected1.63 million directories.
-It scans full binary/QCOW chains, symlinks, container mounts, processes and
-artifact-manifest path references, including paths within proposed trees.
-On terminal verify owner channels/seals/exits and inspect every error/reference
-in artifacts/dependencies.json. REVIEW_REQUIRED is expected; zero wrapper
-status means discovery recorded, not permission to delete. Unprivileged
-process inspection cannot resolve root-owned mappings/descriptors. A fresh
-scoped root-only readback still needs to be prepared/requested after remaining
-authorized work; the earlier five-tree root receipt does not cover these four.
-No removal proposal is final until dependencies are classified/readable.
+Preservation `/workspace/tmp/pixelelated-m7-device-preservation-01` completed
+four0/nine seals/exits; independent acceptance owner
+`/workspace/tmp/pixelelated-m7-device-preservation-acceptance-01` completed
+four0/three seals/exits. All14,489 objects independently hash correctly,
+destination inodes are independent, originals intact and four568-root source
+inventories have zero errors. New store:
+`/workspace/artifacts/pixelelated-build-custody/issue-494-device-capacity-01`.
+It reuses verified #456 objects and copies15,371,743 new content bytes.
 
 ### Next in order
 
-1. Actively supervise H70004 and dependencies01; consume terminal results.
-2. Finish/read back dependency classification and prepare a concrete root-only
-   check if needed, then exact #494 net-space/removal proposal. No extra
-   deletion is authorized. Record current approvals by exact scope.
-3. After arm completion, remeasure H700 aarch64 capacity before compiling
-   and verifying DDR3/DDR4 firmware. Then capacity-check/build/verify SM8550
-   as already approved. Historical SM8550 roots total175,974,195,200 bytes;
-   planning budget347,688,935,424 bytes includes100 GiB operating,40 GiB growth,
-   18 GiB artifacts and checkout. Remeasure actual conditions at the stage gate.
-4. After successful build/required qualification, #493 broadens retention to
-   retained images and temporary QA history as well as build roots, using
-   D-INFRA-018. Identify exact protected/removable sets, preserve compact
-   evidence, quantify net recovery and recurring capacity triggers before
-   recommending another drive. This is infrastructure follow-up, not a new RC
-   gate or a reason to replace the requested build order. Physical/P5 gates
-   remain separate.
+1. Consume requested root readback, finish exact #494 removal proposal with
+   protected identities, net recovery, fresh live checks and guarded commands;
+   request that concrete batch's deletion approval. No new removal approval
+   exists. The standard tools/fork-worktree remove remains mandatory.
+2. Remeasure after any approved cleanup. At04:50:50, available173,770,547,200
+   bytes (161.83 GiB) was below H700 firmware budget287,480,930,304 bytes
+   (267.74 GiB). Proposed three-tree retirement would fit that stage.
+3. Build/verify H700 aarch64 DDR3/DDR4 from the accepted frozen inputs, with
+   actual32-bit handoff/identity/raw-update/source evidence. Then remeasure
+   SM8550 capacity and build/verify it as already authorized. Its historical
+   roots total175,974,195,200 bytes; stage budget347,688,935,424 bytes includes
+   100 GiB operating,40 GiB growth,18 GiB artifacts and checkout. Both stages
+   with separate full growth margins do not yet fit the combined conservative
+   forecast; do not promise SM8550 fit before remeasurement/retention.
+4. #493 records the maintainer's broader post-build cleanup request verbatim:
+   review large build, image and temporary-QA histories under D-INFRA-018,
+   keep current/fallback/baseline/source/evidence dependencies and establish
+   repeatable capacity triggers before recommending another4TB drive. User
+   means RAID0; no purchase/conversion/reserve change is authorized. The
+   dated image census groups104 x64 and117 H700 directories totaling about
+   798 GiB; names are not proof of disposability. Not a new RC gate.
 
-Publication12 is verified: featureebf9ce808e8c9c1cdd00b2a5bdd6ed93b92e15e5,
-next63ef759ad508d27b0bebc4337a1ed7868cc180c5, 140 seals,138 equal paths,
-normal hooks/remote refs. Both hosted checks37571110653/37571110732 pass;
-CI owner four0/one seal/exits verified04:26:02. Do not replay. Current
-preservation, tracker and storage-follow-up evidence/checkpoint edits await
-the next normal publication. Qdevice is docs/qa-logs/2026-10-07-device-builds.
-Storage sizing02 remains the full-area measurement:1.69 TB repositories,
-1.01 TB artifacts,0.76 TB temporary QA,68 GB cache; only lost+found unreadable.
+### Publication and current record
+
+M7 and #492/#493/#494/#497 have exact live readbacks in Qdevice, including
+H700 arm acceptance and the required capacity/root-check next step. Qdevice:
+`docs/qa-logs/2026-10-07-device-builds/`. Work/friction logs and readiness carry
+the repair, failed controls, accepted output and current capacity.
+
+Publication13 is verified on next70e41ca35098a618674592604cc93b823e618b7b,
+both hosted checks pass and receipts are retained. The following source-only
+repair is locally committed/integrated at dba99f4b57 /43d0bc3bf4. Publication14
+owner `/workspace/tmp/pixelelated-m7-h700-arm-complete-publication-14` carries
+the normal checked push of that repair plus current evidence/checkpoint.
+Read its publication.json and owner-verification.json for the actual later
+feature/next heads; submission alone is not completion. Its CI follow-up is
+`/workspace/tmp/pixelelated-m7-h70014-ci-01`; verify exact head and both checks.
+No build or QA should be restarted merely to refresh this checkpoint.
 
 ## Frozen inputs and published heads
 
 - Coordination: /workspace/repos/rocknix.worktrees/conflict-resolution,
-  feature/conflict-resolution at ebf9ce808e8c9c1cdd00b2a5bdd6ed93b92e15e5 (published repair/evidence).
-- Primary: /workspace/repos/rocknix, next at 63ef759ad508d27b0bebc4337a1ed7868cc180c5 (published repair/evidence).
+  feature/conflict-resolution at dba99f4b57aa60e077d36565f35aca530ecf5747 before publication14; read its verified receipt for the documentation head.
+- Primary: /workspace/repos/rocknix, next at 43d0bc3bf47fd858ba8d5c55fbdf52535a0db2aa before publication14; read its verified receipt for the documentation head.
 - Frozen16: /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement16,
   build/m7-pixelelated-replacement16 at ee014909137e03706e0b3020b8396be589aaa705.
   Never edit/reset/sync it; its generated emulator-table diff is expected.

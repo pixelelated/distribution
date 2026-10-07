@@ -1,0 +1,620 @@
+{
+  "utc": "2026-10-07T04:38:42.521262+00:00",
+  "result": "ROOT_READBACK_REQUIRED",
+  "report_sha256": "e881acc7bd70d80f42b3f9f58ad6993fef05aae0ff5a6ed9a79665bdad7ee5f8",
+  "immutable_bundles_verified": [
+    "/workspace/artifacts/pixelelated-candidates/sha256/1b3c2c04de5ec6947cfb678279bcc9721167f8409ee825f8d72489838f1c2382",
+    "/workspace/artifacts/pixelelated-candidates/sha256/1c69bcf5ab6ebdc3e893a6a989545ac7a23359f0e07baef4e9c2beaca94c52b4",
+    "/workspace/artifacts/pixelelated-candidates/sha256/43a698bcd7d570c63ebdd5db015e5302463f7ee4a15438fd9ef2359437be19da",
+    "/workspace/artifacts/pixelelated-candidates/sha256/79d560046ee52e28b72f16588168dd7c8fb2637c1cc585713216a8ec828e9d81",
+    "/workspace/artifacts/pixelelated-candidates/sha256/b77e47e57a4bb35f885ba78669ee8176a9ac978b27c1cbcfaad66e18f684a9f1"
+  ],
+  "artifact_references_classified": [
+    {
+      "manifest": "/workspace/artifacts/pixelelated-build-custody/issue-494-device-capacity-01/receipt.json",
+      "key": [
+        "trees",
+        0,
+        "tree"
+      ],
+      "value": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09",
+      "classification": "original tree identity in verified independent custody metadata",
+      "manifest_sha256": "67e597a401fb35e44e5d1f82cc10cbbfb119480e248bfb25f03ff6062be8685b"
+    },
+    {
+      "manifest": "/workspace/artifacts/pixelelated-build-custody/issue-494-device-capacity-01/receipt.json",
+      "key": [
+        "trees",
+        1,
+        "tree"
+      ],
+      "value": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement10",
+      "classification": "original tree identity in verified independent custody metadata",
+      "manifest_sha256": "67e597a401fb35e44e5d1f82cc10cbbfb119480e248bfb25f03ff6062be8685b"
+    },
+    {
+      "manifest": "/workspace/artifacts/pixelelated-build-custody/issue-494-device-capacity-01/receipt.json",
+      "key": [
+        "trees",
+        2,
+        "tree"
+      ],
+      "value": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement12",
+      "classification": "original tree identity in verified independent custody metadata",
+      "manifest_sha256": "67e597a401fb35e44e5d1f82cc10cbbfb119480e248bfb25f03ff6062be8685b"
+    },
+    {
+      "manifest": "/workspace/artifacts/pixelelated-build-custody/issue-494-device-capacity-01/receipt.json",
+      "key": [
+        "trees",
+        3,
+        "tree"
+      ],
+      "value": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement14",
+      "classification": "original tree identity in verified independent custody metadata",
+      "manifest_sha256": "67e597a401fb35e44e5d1f82cc10cbbfb119480e248bfb25f03ff6062be8685b"
+    },
+    {
+      "manifest": "/workspace/artifacts/pixelelated-build-custody/issue-494-device-capacity-01/manifests/12-custody-plan.json",
+      "key": [
+        "tree"
+      ],
+      "value": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement12",
+      "classification": "original tree identity in verified independent custody metadata",
+      "manifest_sha256": "0e220740591aba4038029f1c81060643651f8556d4e09ebf6ce4baae4f21ece5"
+    },
+    {
+      "manifest": "/workspace/artifacts/pixelelated-build-custody/issue-494-device-capacity-01/manifests/10-custody-plan.json",
+      "key": [
+        "tree"
+      ],
+      "value": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement10",
+      "classification": "original tree identity in verified independent custody metadata",
+      "manifest_sha256": "467a07256cd815ffbabfaf487d034f519ebde4fcfdfe412af3e63789f9933a84"
+    },
+    {
+      "manifest": "/workspace/artifacts/pixelelated-build-custody/issue-494-device-capacity-01/manifests/09-custody-plan.json",
+      "key": [
+        "tree"
+      ],
+      "value": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09",
+      "classification": "original tree identity in verified independent custody metadata",
+      "manifest_sha256": "e3d1019bd9b9190c797704f20b69d65c21b2b12d0192211665b904615198f98b"
+    },
+    {
+      "manifest": "/workspace/artifacts/pixelelated-build-custody/issue-494-device-capacity-01/manifests/14-custody-plan.json",
+      "key": [
+        "tree"
+      ],
+      "value": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement14",
+      "classification": "original tree identity in verified independent custody metadata",
+      "manifest_sha256": "2242102e86457745c95e38919ae689de623ff45edbd80ea6b33931e831f4920a"
+    },
+    {
+      "manifest": "/workspace/artifacts/pixelelated-build-custody/issue-494-device-capacity-01/manifests/14-inputs.json",
+      "key": [
+        "host_worktree"
+      ],
+      "value": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement14",
+      "classification": "original tree identity in verified independent custody metadata",
+      "manifest_sha256": "70cb0448872f39b5382939173b2182a783381142df6dd5630b9e00a2c3ba6ccc"
+    },
+    {
+      "manifest": "/workspace/artifacts/pixelelated-build-custody/issue-494-device-capacity-01/manifests/12-inputs.json",
+      "key": [
+        "host_worktree"
+      ],
+      "value": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement12",
+      "classification": "original tree identity in verified independent custody metadata",
+      "manifest_sha256": "bfdcf9b2655157b7e4d3a59f1c6fa803f68989b2cfb8b460eb0f2a666ee98192"
+    },
+    {
+      "manifest": "/workspace/artifacts/pixelelated-build-custody/issue-494-device-capacity-01/manifests/10-inputs.json",
+      "key": [
+        "host_worktree"
+      ],
+      "value": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement10",
+      "classification": "original tree identity in verified independent custody metadata",
+      "manifest_sha256": "0b24bfcd0d7dad134872b88ed6a2955ddaf9cdf9d55f8a25c17fa5e2de36ad51"
+    },
+    {
+      "manifest": "/workspace/artifacts/pixelelated-build-custody/issue-494-device-capacity-01/manifests/09-inputs.json",
+      "key": [
+        "host_worktree"
+      ],
+      "value": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09",
+      "classification": "original tree identity in verified independent custody metadata",
+      "manifest_sha256": "817fd9ff49b1ecf6bcc859cfa38985a65fbcfe5514c33a0a5c9dd60af6cc6c6e"
+    },
+    {
+      "manifest": "/workspace/artifacts/pixelelated-candidates/sha256/79d560046ee52e28b72f16588168dd7c8fb2637c1cc585713216a8ec828e9d81/copy-completion.json",
+      "key": [
+        "result_channels",
+        "<key>"
+      ],
+      "value": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/.build-runs/20261005T053303Z-aecc0df2/build.rc",
+      "classification": "historical completed owner path; referenced file/directory represented in accepted independent custody",
+      "manifest_sha256": "da66fdae8624b02008400ff4f83f8c10a67ba3c8ce55c64e7522724a0d9e8ff4"
+    },
+    {
+      "manifest": "/workspace/artifacts/pixelelated-candidates/sha256/79d560046ee52e28b72f16588168dd7c8fb2637c1cc585713216a8ec828e9d81/copy-completion.json",
+      "key": [
+        "run"
+      ],
+      "value": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/.build-runs/20261005T053303Z-aecc0df2",
+      "classification": "historical completed owner path; referenced file/directory represented in accepted independent custody",
+      "manifest_sha256": "da66fdae8624b02008400ff4f83f8c10a67ba3c8ce55c64e7522724a0d9e8ff4"
+    },
+    {
+      "manifest": "/workspace/artifacts/pixelelated-candidates/sha256/79d560046ee52e28b72f16588168dd7c8fb2637c1cc585713216a8ec828e9d81/container-actual.json",
+      "key": [
+        "container",
+        "mounts",
+        1,
+        "source"
+      ],
+      "value": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09",
+      "classification": "historical mount record; current container inventory has no matches",
+      "manifest_sha256": "d104862393233ff6f8fc525798cd4a56af646b0a2e1ffb9a2f060caf43cd017c"
+    },
+    {
+      "manifest": "/workspace/artifacts/pixelelated-candidates/sha256/79d560046ee52e28b72f16588168dd7c8fb2637c1cc585713216a8ec828e9d81/completion.json",
+      "key": [
+        "result_channels",
+        "<key>"
+      ],
+      "value": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/.build-runs/20261005T054744Z-dccacab2/build.rc",
+      "classification": "historical completed owner path; referenced file/directory represented in accepted independent custody",
+      "manifest_sha256": "5a754fe5ecb926dcad4511629d8dcc79da406487f3ca651247cf3d0b7830ac2d"
+    },
+    {
+      "manifest": "/workspace/artifacts/pixelelated-candidates/sha256/79d560046ee52e28b72f16588168dd7c8fb2637c1cc585713216a8ec828e9d81/completion.json",
+      "key": [
+        "owned_processes",
+        0,
+        "source"
+      ],
+      "value": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/.build-runs/20261005T054744Z-dccacab2/build.pid",
+      "classification": "historical completed owner path; referenced file/directory represented in accepted independent custody",
+      "manifest_sha256": "5a754fe5ecb926dcad4511629d8dcc79da406487f3ca651247cf3d0b7830ac2d"
+    },
+    {
+      "manifest": "/workspace/artifacts/pixelelated-candidates/sha256/79d560046ee52e28b72f16588168dd7c8fb2637c1cc585713216a8ec828e9d81/completion.json",
+      "key": [
+        "owned_processes",
+        1,
+        "source"
+      ],
+      "value": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/.build-runs/20261005T054744Z-dccacab2/watcher.pid",
+      "classification": "historical completed owner path; referenced file/directory represented in accepted independent custody",
+      "manifest_sha256": "5a754fe5ecb926dcad4511629d8dcc79da406487f3ca651247cf3d0b7830ac2d"
+    },
+    {
+      "manifest": "/workspace/artifacts/pixelelated-candidates/sha256/79d560046ee52e28b72f16588168dd7c8fb2637c1cc585713216a8ec828e9d81/completion.json",
+      "key": [
+        "owned_processes",
+        2,
+        "source"
+      ],
+      "value": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/.build-runs/20261005T054744Z-dccacab2/command.pid",
+      "classification": "historical completed owner path; referenced file/directory represented in accepted independent custody",
+      "manifest_sha256": "5a754fe5ecb926dcad4511629d8dcc79da406487f3ca651247cf3d0b7830ac2d"
+    },
+    {
+      "manifest": "/workspace/artifacts/pixelelated-candidates/sha256/79d560046ee52e28b72f16588168dd7c8fb2637c1cc585713216a8ec828e9d81/completion.json",
+      "key": [
+        "run"
+      ],
+      "value": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/.build-runs/20261005T054744Z-dccacab2",
+      "classification": "historical completed owner path; referenced file/directory represented in accepted independent custody",
+      "manifest_sha256": "5a754fe5ecb926dcad4511629d8dcc79da406487f3ca651247cf3d0b7830ac2d"
+    },
+    {
+      "manifest": "/workspace/artifacts/pixelelated-candidates/sha256/79d560046ee52e28b72f16588168dd7c8fb2637c1cc585713216a8ec828e9d81/cache-ready.json",
+      "key": [
+        "new"
+      ],
+      "value": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/build.pixelelated-GENERIC_X64.x86_64",
+      "classification": "completed cache-copy origin/destination; checksum-equal independent-file receipt verified",
+      "manifest_sha256": "0ccd690d0bce913cf1ab530be7b317ba93e918d3acf4afd94db353bb18d9b5b9"
+    },
+    {
+      "manifest": "/workspace/artifacts/pixelelated-candidates/sha256/79d560046ee52e28b72f16588168dd7c8fb2637c1cc585713216a8ec828e9d81/manifest.json",
+      "key": [
+        "inputs",
+        "host_worktree"
+      ],
+      "value": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09",
+      "classification": "historical build origin; all immutable bundle bytes verified independently",
+      "manifest_sha256": "79d560046ee52e28b72f16588168dd7c8fb2637c1cc585713216a8ec828e9d81"
+    },
+    {
+      "manifest": "/workspace/artifacts/pixelelated-candidates/sha256/b77e47e57a4bb35f885ba78669ee8176a9ac978b27c1cbcfaad66e18f684a9f1/copy-completion.json",
+      "key": [
+        "run"
+      ],
+      "value": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement14/.build-runs/20261006T004222Z-e4ace79d",
+      "classification": "historical completed owner path; referenced file/directory represented in accepted independent custody",
+      "manifest_sha256": "6ff71658e1fcbbcb9d14127a9e9fd256520d89de092c5a16254ffd2b0637f839"
+    },
+    {
+      "manifest": "/workspace/artifacts/pixelelated-candidates/sha256/b77e47e57a4bb35f885ba78669ee8176a9ac978b27c1cbcfaad66e18f684a9f1/container-actual.json",
+      "key": [
+        "container",
+        "mounts",
+        1,
+        "source"
+      ],
+      "value": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement14",
+      "classification": "historical mount record; current container inventory has no matches",
+      "manifest_sha256": "dae6a872bef6c754e4d28af5ab2a232312b386fecf2f30c231cfe1db9b08f800"
+    },
+    {
+      "manifest": "/workspace/artifacts/pixelelated-candidates/sha256/b77e47e57a4bb35f885ba78669ee8176a9ac978b27c1cbcfaad66e18f684a9f1/freshness-completion.json",
+      "key": [
+        "run"
+      ],
+      "value": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement14/.build-runs/20261006T004114Z-950f2762",
+      "classification": "historical completed owner path; referenced file/directory represented in accepted independent custody",
+      "manifest_sha256": "0f727b6e6cd6922aacb9ad294926d5aea9e7850247756eab5e175397374625c5"
+    },
+    {
+      "manifest": "/workspace/artifacts/pixelelated-candidates/sha256/b77e47e57a4bb35f885ba78669ee8176a9ac978b27c1cbcfaad66e18f684a9f1/completion.json",
+      "key": [
+        "run"
+      ],
+      "value": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement14/.build-runs/20261006T005708Z-70e7203f",
+      "classification": "historical completed owner path; referenced file/directory represented in accepted independent custody",
+      "manifest_sha256": "8d5547a45afacc623671ef82d428b0db07c51aefd0b0c6dbc5a385c8df084e9e"
+    },
+    {
+      "manifest": "/workspace/artifacts/pixelelated-candidates/sha256/b77e47e57a4bb35f885ba78669ee8176a9ac978b27c1cbcfaad66e18f684a9f1/cache-ready.json",
+      "key": [
+        "old"
+      ],
+      "value": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement12/build.pixelelated-GENERIC_X64.x86_64",
+      "classification": "completed cache-copy origin/destination; checksum-equal independent-file receipt verified",
+      "manifest_sha256": "f4f26e7903a39c9da77e3bd0558b16e78c3760ac70d8f9493a2f0c19ef0b8bd1"
+    },
+    {
+      "manifest": "/workspace/artifacts/pixelelated-candidates/sha256/b77e47e57a4bb35f885ba78669ee8176a9ac978b27c1cbcfaad66e18f684a9f1/cache-ready.json",
+      "key": [
+        "new"
+      ],
+      "value": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement14/build.pixelelated-GENERIC_X64.x86_64",
+      "classification": "completed cache-copy origin/destination; checksum-equal independent-file receipt verified",
+      "manifest_sha256": "f4f26e7903a39c9da77e3bd0558b16e78c3760ac70d8f9493a2f0c19ef0b8bd1"
+    },
+    {
+      "manifest": "/workspace/artifacts/pixelelated-candidates/sha256/b77e47e57a4bb35f885ba78669ee8176a9ac978b27c1cbcfaad66e18f684a9f1/manifest.json",
+      "key": [
+        "inputs",
+        "host_worktree"
+      ],
+      "value": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement14",
+      "classification": "historical build origin; all immutable bundle bytes verified independently",
+      "manifest_sha256": "b77e47e57a4bb35f885ba78669ee8176a9ac978b27c1cbcfaad66e18f684a9f1"
+    },
+    {
+      "manifest": "/workspace/artifacts/pixelelated-candidates/sha256/1c69bcf5ab6ebdc3e893a6a989545ac7a23359f0e07baef4e9c2beaca94c52b4/copy-completion.json",
+      "key": [
+        "result_channels",
+        "<key>"
+      ],
+      "value": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement10/.build-runs/20261005T190913Z-df6ff1a0/build.rc",
+      "classification": "historical completed owner path; referenced file/directory represented in accepted independent custody",
+      "manifest_sha256": "aef3c8a4d4a9b944cfc7a91ef757e788fa62f0c175500cbb5d6257e26d16de7d"
+    },
+    {
+      "manifest": "/workspace/artifacts/pixelelated-candidates/sha256/1c69bcf5ab6ebdc3e893a6a989545ac7a23359f0e07baef4e9c2beaca94c52b4/copy-completion.json",
+      "key": [
+        "run"
+      ],
+      "value": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement10/.build-runs/20261005T190913Z-df6ff1a0",
+      "classification": "historical completed owner path; referenced file/directory represented in accepted independent custody",
+      "manifest_sha256": "aef3c8a4d4a9b944cfc7a91ef757e788fa62f0c175500cbb5d6257e26d16de7d"
+    },
+    {
+      "manifest": "/workspace/artifacts/pixelelated-candidates/sha256/1c69bcf5ab6ebdc3e893a6a989545ac7a23359f0e07baef4e9c2beaca94c52b4/copy-completion.json",
+      "key": [
+        "cache_ready",
+        "old"
+      ],
+      "value": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/build.pixelelated-GENERIC_X64.x86_64",
+      "classification": "completed cache-copy origin/destination; checksum-equal independent-file receipt verified",
+      "manifest_sha256": "aef3c8a4d4a9b944cfc7a91ef757e788fa62f0c175500cbb5d6257e26d16de7d"
+    },
+    {
+      "manifest": "/workspace/artifacts/pixelelated-candidates/sha256/1c69bcf5ab6ebdc3e893a6a989545ac7a23359f0e07baef4e9c2beaca94c52b4/copy-completion.json",
+      "key": [
+        "cache_ready",
+        "new"
+      ],
+      "value": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement10/build.pixelelated-GENERIC_X64.x86_64",
+      "classification": "completed cache-copy origin/destination; checksum-equal independent-file receipt verified",
+      "manifest_sha256": "aef3c8a4d4a9b944cfc7a91ef757e788fa62f0c175500cbb5d6257e26d16de7d"
+    },
+    {
+      "manifest": "/workspace/artifacts/pixelelated-candidates/sha256/1c69bcf5ab6ebdc3e893a6a989545ac7a23359f0e07baef4e9c2beaca94c52b4/container-actual.json",
+      "key": [
+        "container",
+        "mounts",
+        1,
+        "source"
+      ],
+      "value": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement10",
+      "classification": "historical mount record; current container inventory has no matches",
+      "manifest_sha256": "b7654a5a1053ec06383466aed64889b06fa3e56ee27892482652fe35006c203c"
+    },
+    {
+      "manifest": "/workspace/artifacts/pixelelated-candidates/sha256/1c69bcf5ab6ebdc3e893a6a989545ac7a23359f0e07baef4e9c2beaca94c52b4/completion.json",
+      "key": [
+        "run"
+      ],
+      "value": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement10/.build-runs/20261005T192434Z-ea340aa7",
+      "classification": "historical completed owner path; referenced file/directory represented in accepted independent custody",
+      "manifest_sha256": "e2678d9326a08af7028f13b2a97efcacc59f53e6954f6aa42882948c0c241439"
+    },
+    {
+      "manifest": "/workspace/artifacts/pixelelated-candidates/sha256/1c69bcf5ab6ebdc3e893a6a989545ac7a23359f0e07baef4e9c2beaca94c52b4/cache-ready.json",
+      "key": [
+        "old"
+      ],
+      "value": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09/build.pixelelated-GENERIC_X64.x86_64",
+      "classification": "completed cache-copy origin/destination; checksum-equal independent-file receipt verified",
+      "manifest_sha256": "c0fcf134c6cfed4c911912275b9d985aedf127a3d046209e5e6dba0539175436"
+    },
+    {
+      "manifest": "/workspace/artifacts/pixelelated-candidates/sha256/1c69bcf5ab6ebdc3e893a6a989545ac7a23359f0e07baef4e9c2beaca94c52b4/cache-ready.json",
+      "key": [
+        "new"
+      ],
+      "value": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement10/build.pixelelated-GENERIC_X64.x86_64",
+      "classification": "completed cache-copy origin/destination; checksum-equal independent-file receipt verified",
+      "manifest_sha256": "c0fcf134c6cfed4c911912275b9d985aedf127a3d046209e5e6dba0539175436"
+    },
+    {
+      "manifest": "/workspace/artifacts/pixelelated-candidates/sha256/1c69bcf5ab6ebdc3e893a6a989545ac7a23359f0e07baef4e9c2beaca94c52b4/manifest.json",
+      "key": [
+        "inputs",
+        "host_worktree"
+      ],
+      "value": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement10",
+      "classification": "historical build origin; all immutable bundle bytes verified independently",
+      "manifest_sha256": "1c69bcf5ab6ebdc3e893a6a989545ac7a23359f0e07baef4e9c2beaca94c52b4"
+    },
+    {
+      "manifest": "/workspace/artifacts/pixelelated-candidates/sha256/1b3c2c04de5ec6947cfb678279bcc9721167f8409ee825f8d72489838f1c2382/copy-completion.json",
+      "key": [
+        "result_channels",
+        "<key>"
+      ],
+      "value": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement12/.build-runs/20261005T223409Z-f8014ecf/build.rc",
+      "classification": "historical completed owner path; referenced file/directory represented in accepted independent custody",
+      "manifest_sha256": "45a4e0cf227c7cf099165b4f0916de6a9f61e32b5894bfebe5e1e9396384deb6"
+    },
+    {
+      "manifest": "/workspace/artifacts/pixelelated-candidates/sha256/1b3c2c04de5ec6947cfb678279bcc9721167f8409ee825f8d72489838f1c2382/copy-completion.json",
+      "key": [
+        "run"
+      ],
+      "value": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement12/.build-runs/20261005T223409Z-f8014ecf",
+      "classification": "historical completed owner path; referenced file/directory represented in accepted independent custody",
+      "manifest_sha256": "45a4e0cf227c7cf099165b4f0916de6a9f61e32b5894bfebe5e1e9396384deb6"
+    },
+    {
+      "manifest": "/workspace/artifacts/pixelelated-candidates/sha256/1b3c2c04de5ec6947cfb678279bcc9721167f8409ee825f8d72489838f1c2382/copy-completion.json",
+      "key": [
+        "cache_ready",
+        "old"
+      ],
+      "value": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement10/build.pixelelated-GENERIC_X64.x86_64",
+      "classification": "completed cache-copy origin/destination; checksum-equal independent-file receipt verified",
+      "manifest_sha256": "45a4e0cf227c7cf099165b4f0916de6a9f61e32b5894bfebe5e1e9396384deb6"
+    },
+    {
+      "manifest": "/workspace/artifacts/pixelelated-candidates/sha256/1b3c2c04de5ec6947cfb678279bcc9721167f8409ee825f8d72489838f1c2382/copy-completion.json",
+      "key": [
+        "cache_ready",
+        "new"
+      ],
+      "value": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement12/build.pixelelated-GENERIC_X64.x86_64",
+      "classification": "completed cache-copy origin/destination; checksum-equal independent-file receipt verified",
+      "manifest_sha256": "45a4e0cf227c7cf099165b4f0916de6a9f61e32b5894bfebe5e1e9396384deb6"
+    },
+    {
+      "manifest": "/workspace/artifacts/pixelelated-candidates/sha256/1b3c2c04de5ec6947cfb678279bcc9721167f8409ee825f8d72489838f1c2382/container-actual.json",
+      "key": [
+        "container",
+        "mounts",
+        1,
+        "source"
+      ],
+      "value": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement12",
+      "classification": "historical mount record; current container inventory has no matches",
+      "manifest_sha256": "b05a39ac9d206428eb9a56ace7c1a6c7861ec6d9d3014488621db59adbf6e0b4"
+    },
+    {
+      "manifest": "/workspace/artifacts/pixelelated-candidates/sha256/1b3c2c04de5ec6947cfb678279bcc9721167f8409ee825f8d72489838f1c2382/cache-relocation.json",
+      "key": [
+        "old"
+      ],
+      "value": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement10/build.pixelelated-GENERIC_X64.x86_64",
+      "classification": "completed cache-copy origin/destination; checksum-equal independent-file receipt verified",
+      "manifest_sha256": "260fdcabd03ed60bff32c8114ebf8178cfec4d50816f71572521ce53961341f1"
+    },
+    {
+      "manifest": "/workspace/artifacts/pixelelated-candidates/sha256/1b3c2c04de5ec6947cfb678279bcc9721167f8409ee825f8d72489838f1c2382/cache-relocation.json",
+      "key": [
+        "new"
+      ],
+      "value": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement12/build.pixelelated-GENERIC_X64.x86_64",
+      "classification": "completed cache-copy origin/destination; checksum-equal independent-file receipt verified",
+      "manifest_sha256": "260fdcabd03ed60bff32c8114ebf8178cfec4d50816f71572521ce53961341f1"
+    },
+    {
+      "manifest": "/workspace/artifacts/pixelelated-candidates/sha256/1b3c2c04de5ec6947cfb678279bcc9721167f8409ee825f8d72489838f1c2382/completion.json",
+      "key": [
+        "run"
+      ],
+      "value": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement12/.build-runs/20261005T224340Z-290c73e5",
+      "classification": "historical completed owner path; referenced file/directory represented in accepted independent custody",
+      "manifest_sha256": "7f1b6b309b500cf7d0203800a31825e56bc2985bcbd645c604f05b33cc1ab07f"
+    },
+    {
+      "manifest": "/workspace/artifacts/pixelelated-candidates/sha256/1b3c2c04de5ec6947cfb678279bcc9721167f8409ee825f8d72489838f1c2382/cache-ready.json",
+      "key": [
+        "old"
+      ],
+      "value": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement10/build.pixelelated-GENERIC_X64.x86_64",
+      "classification": "completed cache-copy origin/destination; checksum-equal independent-file receipt verified",
+      "manifest_sha256": "5e30c0c4bdf915d488123aedfe064e2efde99318b65f25f99f74f8b245dfadc8"
+    },
+    {
+      "manifest": "/workspace/artifacts/pixelelated-candidates/sha256/1b3c2c04de5ec6947cfb678279bcc9721167f8409ee825f8d72489838f1c2382/cache-ready.json",
+      "key": [
+        "new"
+      ],
+      "value": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement12/build.pixelelated-GENERIC_X64.x86_64",
+      "classification": "completed cache-copy origin/destination; checksum-equal independent-file receipt verified",
+      "manifest_sha256": "5e30c0c4bdf915d488123aedfe064e2efde99318b65f25f99f74f8b245dfadc8"
+    },
+    {
+      "manifest": "/workspace/artifacts/pixelelated-candidates/sha256/1b3c2c04de5ec6947cfb678279bcc9721167f8409ee825f8d72489838f1c2382/staging-copy-completion.json",
+      "key": [
+        "cache_ready",
+        "old"
+      ],
+      "value": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement10/build.pixelelated-GENERIC_X64.x86_64",
+      "classification": "completed cache-copy origin/destination; checksum-equal independent-file receipt verified",
+      "manifest_sha256": "bb8653d4c63238a030f9a3a978020b57a9b4575e2f6fea54284ee46d118a9a04"
+    },
+    {
+      "manifest": "/workspace/artifacts/pixelelated-candidates/sha256/1b3c2c04de5ec6947cfb678279bcc9721167f8409ee825f8d72489838f1c2382/manifest.json",
+      "key": [
+        "inputs",
+        "host_worktree"
+      ],
+      "value": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement12",
+      "classification": "historical build origin; all immutable bundle bytes verified independently",
+      "manifest_sha256": "1b3c2c04de5ec6947cfb678279bcc9721167f8409ee825f8d72489838f1c2382"
+    },
+    {
+      "manifest": "/workspace/artifacts/pixelelated-candidates/sha256/43a698bcd7d570c63ebdd5db015e5302463f7ee4a15438fd9ef2359437be19da/copy-verification.json",
+      "key": [
+        "cache",
+        "old"
+      ],
+      "value": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement14/build.pixelelated-GENERIC_X64.x86_64",
+      "classification": "completed cache-copy origin/destination; checksum-equal independent-file receipt verified",
+      "manifest_sha256": "78e4d6aa442e57366d28fe21d56476de05c1bf90296f7e8caff99d3a918c64b3"
+    },
+    {
+      "manifest": "/workspace/artifacts/pixelelated-candidates/sha256/43a698bcd7d570c63ebdd5db015e5302463f7ee4a15438fd9ef2359437be19da/cache-ready.json",
+      "key": [
+        "old"
+      ],
+      "value": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement14/build.pixelelated-GENERIC_X64.x86_64",
+      "classification": "completed cache-copy origin/destination; checksum-equal independent-file receipt verified",
+      "manifest_sha256": "fd7d0a2948ee16447b34f3629cdb33300c262e139a703c12e769ad71d98ee6f2"
+    }
+  ],
+  "held_source_dependencies": [
+    {
+      "source": "/workspace/tmp/pixelelated-m7-qa-16/qa-overlay/AGENTS.md",
+      "target": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement12/AGENTS.md",
+      "kind": "symlink",
+      "classification": "retained QA overlay source dependency; keep replacement12 entirely in this batch"
+    },
+    {
+      "source": "/workspace/tmp/pixelelated-m7-qa-16/qa-overlay/CLAUDE.md",
+      "target": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement12/CLAUDE.md",
+      "kind": "symlink",
+      "classification": "retained QA overlay source dependency; keep replacement12 entirely in this batch"
+    },
+    {
+      "source": "/workspace/tmp/pixelelated-m7-qa-16/qa-overlay/.github",
+      "target": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement12/.github",
+      "kind": "symlink",
+      "classification": "retained QA overlay source dependency; keep replacement12 entirely in this batch"
+    },
+    {
+      "source": "/workspace/tmp/pixelelated-m7-qa-16/qa-overlay/.claude",
+      "target": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement12/.claude",
+      "kind": "symlink",
+      "classification": "retained QA overlay source dependency; keep replacement12 entirely in this batch"
+    },
+    {
+      "source": "/workspace/tmp/pixelelated-m7-qa-16/qa-overlay/projects",
+      "target": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement12/projects",
+      "kind": "symlink",
+      "classification": "retained QA overlay source dependency; keep replacement12 entirely in this batch"
+    },
+    {
+      "source": "/workspace/tmp/pixelelated-m7-qa-16/qa-overlay/packages",
+      "target": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement12/packages",
+      "kind": "symlink",
+      "classification": "retained QA overlay source dependency; keep replacement12 entirely in this batch"
+    },
+    {
+      "source": "/workspace/tmp/pixelelated-m7-qa-16/qa-overlay/docs",
+      "target": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement12/docs",
+      "kind": "symlink",
+      "classification": "retained QA overlay source dependency; keep replacement12 entirely in this batch"
+    },
+    {
+      "source": "/workspace/tmp/pixelelated-m7-qa-17/qa-overlay/AGENTS.md",
+      "target": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement12/AGENTS.md",
+      "kind": "symlink",
+      "classification": "retained QA overlay source dependency; keep replacement12 entirely in this batch"
+    },
+    {
+      "source": "/workspace/tmp/pixelelated-m7-qa-17/qa-overlay/CLAUDE.md",
+      "target": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement12/CLAUDE.md",
+      "kind": "symlink",
+      "classification": "retained QA overlay source dependency; keep replacement12 entirely in this batch"
+    },
+    {
+      "source": "/workspace/tmp/pixelelated-m7-qa-17/qa-overlay/.github",
+      "target": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement12/.github",
+      "kind": "symlink",
+      "classification": "retained QA overlay source dependency; keep replacement12 entirely in this batch"
+    },
+    {
+      "source": "/workspace/tmp/pixelelated-m7-qa-17/qa-overlay/.claude",
+      "target": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement12/.claude",
+      "kind": "symlink",
+      "classification": "retained QA overlay source dependency; keep replacement12 entirely in this batch"
+    },
+    {
+      "source": "/workspace/tmp/pixelelated-m7-qa-17/qa-overlay/projects",
+      "target": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement12/projects",
+      "kind": "symlink",
+      "classification": "retained QA overlay source dependency; keep replacement12 entirely in this batch"
+    },
+    {
+      "source": "/workspace/tmp/pixelelated-m7-qa-17/qa-overlay/packages",
+      "target": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement12/packages",
+      "kind": "symlink",
+      "classification": "retained QA overlay source dependency; keep replacement12 entirely in this batch"
+    },
+    {
+      "source": "/workspace/tmp/pixelelated-m7-qa-17/qa-overlay/docs",
+      "target": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement12/docs",
+      "kind": "symlink",
+      "classification": "retained QA overlay source dependency; keep replacement12 entirely in this batch"
+    }
+  ],
+  "proposed_trees": [
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement09",
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement10",
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement14"
+  ],
+  "held_tree": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement12",
+  "gross_candidate_bytes": 348357001216,
+  "preservation_store_cost_bytes": 59297792,
+  "potential_net_bytes": 348297703424,
+  "process_unreadable": 196,
+  "deletion_performed": false,
+  "remaining": "Fresh privileged process readback, measured next-stage capacity, concrete exact removal proposal and explicit approval."
+}

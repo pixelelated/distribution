@@ -1,0 +1,408 @@
+{
+  "utc": "2026-10-07T04:32:17.308793+00:00",
+  "root": "/workspace/artifacts/rocknix-images",
+  "method": "direct regular files only; allocated blocks, no traversal or deletion",
+  "groups": {
+    "other": {
+      "count": 34,
+      "allocated": 26763264,
+      "apparent": 26670865
+    },
+    ".img.gz": {
+      "count": 9,
+      "allocated": 11937669120,
+      "apparent": 11937613814
+    },
+    ".tar": {
+      "count": 5,
+      "allocated": 6921195520,
+      "apparent": 6921175040
+    }
+  },
+  "files": [
+    {
+      "path": "/workspace/artifacts/rocknix-images/ROCKNIX-H700.aarch64-20260905.tar.sha256",
+      "allocated": 4096,
+      "bytes": 100,
+      "device": 66304,
+      "inode": 126091307,
+      "mtime_ns": 1788591685723391752
+    },
+    {
+      "path": "/workspace/artifacts/rocknix-images/ROCKNIX-H700.aarch64-20260904-DDR3.img.gz",
+      "allocated": 1272328192,
+      "bytes": 1272321936,
+      "device": 66304,
+      "inode": 126091268,
+      "mtime_ns": 1788501224000000000
+    },
+    {
+      "path": "/workspace/artifacts/rocknix-images/build-h700-84-d565aea5e9.log",
+      "allocated": 335872,
+      "bytes": 333846,
+      "device": 66304,
+      "inode": 126091491,
+      "mtime_ns": 1788852312479805695
+    },
+    {
+      "path": "/workspace/artifacts/rocknix-images/build-x64-85-e53dff0e0d.log",
+      "allocated": 2940928,
+      "bytes": 2940738,
+      "device": 66304,
+      "inode": 126091502,
+      "mtime_ns": 1788894903103827399
+    },
+    {
+      "path": "/workspace/artifacts/rocknix-images/build-h700-84-88e5190d65.log",
+      "allocated": 765952,
+      "bytes": 764573,
+      "device": 66304,
+      "inode": 126091497,
+      "mtime_ns": 1788881936483194490
+    },
+    {
+      "path": "/workspace/artifacts/rocknix-images/ROCKNIX-SM8550.aarch64-20260902.img.gz",
+      "allocated": 1628016640,
+      "bytes": 1628009676,
+      "device": 66304,
+      "inode": 126091280,
+      "mtime_ns": 1788384504000000000
+    },
+    {
+      "path": "/workspace/artifacts/rocknix-images/ROCKNIX-H700.aarch64-20260904.tar",
+      "allocated": 1302941696,
+      "bytes": 1302937600,
+      "device": 66304,
+      "inode": 126091272,
+      "mtime_ns": 1788555741642098648
+    },
+    {
+      "path": "/workspace/artifacts/rocknix-images/ROCKNIX-H700.aarch64-20260906-DDR3.img.gz.sha256",
+      "allocated": 4096,
+      "bytes": 108,
+      "device": 66304,
+      "inode": 126091359,
+      "mtime_ns": 1788660674249320732
+    },
+    {
+      "path": "/workspace/artifacts/rocknix-images/build-x64-all-61ae10975f.log",
+      "allocated": 2945024,
+      "bytes": 2944625,
+      "device": 66304,
+      "inode": 126091528,
+      "mtime_ns": 1788906414810001273
+    },
+    {
+      "path": "/workspace/artifacts/rocknix-images/ROCKNIX-H700.aarch64-20260906-DDR4.img.gz",
+      "allocated": 1283112960,
+      "bytes": 1283108101,
+      "device": 66304,
+      "inode": 126091356,
+      "mtime_ns": 1788660017641416297
+    },
+    {
+      "path": "/workspace/artifacts/rocknix-images/ROCKNIX-SM8550.aarch64-20260902.tar.sha256",
+      "allocated": 4096,
+      "bytes": 102,
+      "device": 66304,
+      "inode": 126091283,
+      "mtime_ns": 1788384500582398885
+    },
+    {
+      "path": "/workspace/artifacts/rocknix-images/ROCKNIX-RK3326.aarch64-20260827-a.img.gz.sha256",
+      "allocated": 4096,
+      "bytes": 107,
+      "device": 66304,
+      "inode": 126091275,
+      "mtime_ns": 1787798610721614391
+    },
+    {
+      "path": "/workspace/artifacts/rocknix-images/census-rg35xxsp-round1-report.md",
+      "allocated": 8192,
+      "bytes": 5524,
+      "device": 66304,
+      "inode": 126091436,
+      "mtime_ns": 1788810429224543518
+    },
+    {
+      "path": "/workspace/artifacts/rocknix-images/build-h700-all-50fe7fb9c8.log",
+      "allocated": 811008,
+      "bytes": 810301,
+      "device": 66304,
+      "inode": 126091517,
+      "mtime_ns": 1788900296398867826
+    },
+    {
+      "path": "/workspace/artifacts/rocknix-images/build-h700-wait-9618b63d7c.log",
+      "allocated": 770048,
+      "bytes": 767886,
+      "device": 66304,
+      "inode": 126091486,
+      "mtime_ns": 1788845037280679273
+    },
+    {
+      "path": "/workspace/artifacts/rocknix-images/ROCKNIX-H700.aarch64-20260905-DDR3.img.gz",
+      "allocated": 1283117056,
+      "bytes": 1283110249,
+      "device": 66304,
+      "inode": 126091320,
+      "mtime_ns": 1788591712000000000
+    },
+    {
+      "path": "/workspace/artifacts/rocknix-images/ROCKNIX-H700.aarch64-20260906-DDR3.img.gz",
+      "allocated": 1283112960,
+      "bytes": 1283108141,
+      "device": 66304,
+      "inode": 126091358,
+      "mtime_ns": 1788660674247755996
+    },
+    {
+      "path": "/workspace/artifacts/rocknix-images/ROCKNIX-H700.aarch64-20260904-DDR3.img.gz.sha256",
+      "allocated": 4096,
+      "bytes": 108,
+      "device": 66304,
+      "inode": 126091269,
+      "mtime_ns": 1788501228950578352
+    },
+    {
+      "path": "/workspace/artifacts/rocknix-images/ROCKNIX-H700.aarch64-20260906.tar",
+      "allocated": 1303003136,
+      "bytes": 1302999040,
+      "device": 66304,
+      "inode": 126091357,
+      "mtime_ns": 1788660017857418712
+    },
+    {
+      "path": "/workspace/artifacts/rocknix-images/ROCKNIX-H700.aarch64-20260904-DDR4.img.gz",
+      "allocated": 1272328192,
+      "bytes": 1272321893,
+      "device": 66304,
+      "inode": 126091270,
+      "mtime_ns": 1788501208000000000
+    },
+    {
+      "path": "/workspace/artifacts/rocknix-images/ROCKNIX-H700.aarch64-20260905-DDR4.img.gz.sha256",
+      "allocated": 4096,
+      "bytes": 108,
+      "device": 66304,
+      "inode": 126091323,
+      "mtime_ns": 1788591705734591415
+    },
+    {
+      "path": "/workspace/artifacts/rocknix-images/ROCKNIX-RK3326.aarch64-20260827-b.img.gz.sha256",
+      "allocated": 4096,
+      "bytes": 107,
+      "device": 66304,
+      "inode": 126091277,
+      "mtime_ns": 1787798621029716398
+    },
+    {
+      "path": "/workspace/artifacts/rocknix-images/build-x64-all-748ffd41b8.log",
+      "allocated": 2945024,
+      "bytes": 2941922,
+      "device": 66304,
+      "inode": 126091518,
+      "mtime_ns": 1788900623310127357
+    },
+    {
+      "path": "/workspace/artifacts/rocknix-images/build-h700-ra-guard-89f1cb15b7.log",
+      "allocated": 991232,
+      "bytes": 989593,
+      "device": 66304,
+      "inode": 126091481,
+      "mtime_ns": 1788842733971305171
+    },
+    {
+      "path": "/workspace/artifacts/rocknix-images/ROCKNIX-RK3326.aarch64-20260827-a.img.gz",
+      "allocated": 1316548608,
+      "bytes": 1316542991,
+      "device": 66304,
+      "inode": 126091274,
+      "mtime_ns": 1787798605000000000
+    },
+    {
+      "path": "/workspace/artifacts/rocknix-images/ROCKNIX-H700.aarch64-20260905-DDR4.img.gz",
+      "allocated": 1283117056,
+      "bytes": 1283110218,
+      "device": 66304,
+      "inode": 126091321,
+      "mtime_ns": 1788591693000000000
+    },
+    {
+      "path": "/workspace/artifacts/rocknix-images/census-rg35xxsp-round1-baseline.json",
+      "allocated": 16384,
+      "bytes": 15738,
+      "device": 66304,
+      "inode": 126091435,
+      "mtime_ns": 1788807294540489716
+    },
+    {
+      "path": "/workspace/artifacts/rocknix-images/build-x64-all-50fe7fb9c8.log",
+      "allocated": 2920448,
+      "bytes": 2917569,
+      "device": 66304,
+      "inode": 126091514,
+      "mtime_ns": 1788900208772994136
+    },
+    {
+      "path": "/workspace/artifacts/rocknix-images/.latest-h700-sha",
+      "allocated": 4096,
+      "bytes": 65,
+      "device": 66304,
+      "inode": 126091309,
+      "mtime_ns": 1788595814392235465
+    },
+    {
+      "path": "/workspace/artifacts/rocknix-images/ROCKNIX-H700.aarch64-20260904.tar.sha256",
+      "allocated": 4096,
+      "bytes": 100,
+      "device": 66304,
+      "inode": 126091273,
+      "mtime_ns": 1788555741874038970
+    },
+    {
+      "path": "/workspace/artifacts/rocknix-images/build-x64-85-d3b5a57892.log",
+      "allocated": 2940928,
+      "bytes": 2938156,
+      "device": 66304,
+      "inode": 126091508,
+      "mtime_ns": 1788895338282594285
+    },
+    {
+      "path": "/workspace/artifacts/rocknix-images/build-x64-21-7a6f9ccfae.log",
+      "allocated": 2875392,
+      "bytes": 2872000,
+      "device": 66304,
+      "inode": 126091509,
+      "mtime_ns": 1788895458409634739
+    },
+    {
+      "path": "/workspace/artifacts/rocknix-images/ROCKNIX-RK3326.aarch64-20260827-b.img.gz",
+      "allocated": 1315987456,
+      "bytes": 1315980609,
+      "device": 66304,
+      "inode": 126091276,
+      "mtime_ns": 1787798615000000000
+    },
+    {
+      "path": "/workspace/artifacts/rocknix-images/ROCKNIX-SM8550.aarch64-20260902.tar",
+      "allocated": 1632505856,
+      "bytes": 1632501760,
+      "device": 66304,
+      "inode": 126091282,
+      "mtime_ns": 1788384497161354905
+    },
+    {
+      "path": "/workspace/artifacts/rocknix-images/ROCKNIX-H700.aarch64-20260906-DDR4.img.gz.sha256",
+      "allocated": 4096,
+      "bytes": 108,
+      "device": 66304,
+      "inode": 126091360,
+      "mtime_ns": 1788660674249336159
+    },
+    {
+      "path": "/workspace/artifacts/rocknix-images/ROCKNIX-H700.aarch64-20260905-DDR3.img.gz.sha256",
+      "allocated": 4096,
+      "bytes": 108,
+      "device": 66304,
+      "inode": 126091322,
+      "mtime_ns": 1788591724807781719
+    },
+    {
+      "path": "/workspace/artifacts/rocknix-images/ROCKNIX-SM8550.aarch64-20260902.img.gz.sha256",
+      "allocated": 4096,
+      "bytes": 105,
+      "device": 66304,
+      "inode": 126091281,
+      "mtime_ns": 1788384513630566626
+    },
+    {
+      "path": "/workspace/artifacts/rocknix-images/rgsp-internal-tree-audit-20260908.txt",
+      "allocated": 16384,
+      "bytes": 12713,
+      "device": 66304,
+      "inode": 126091480,
+      "mtime_ns": 1788841558413469714
+    },
+    {
+      "path": "/workspace/artifacts/rocknix-images/ROCKNIX-H700.aarch64-20260905.tar",
+      "allocated": 1303003136,
+      "bytes": 1302999040,
+      "device": 66304,
+      "inode": 126091306,
+      "mtime_ns": 1788591681332347940
+    },
+    {
+      "path": "/workspace/artifacts/rocknix-images/build-h700-84-53a6bdfd51.log",
+      "allocated": 765952,
+      "bytes": 764078,
+      "device": 66304,
+      "inode": 126091492,
+      "mtime_ns": 1788852449348969848
+    },
+    {
+      "path": "/workspace/artifacts/rocknix-images/ROCKNIX-RK3326.aarch64-20260827.tar",
+      "allocated": 1379741696,
+      "bytes": 1379737600,
+      "device": 66304,
+      "inode": 126091278,
+      "mtime_ns": 1787798599970508001
+    },
+    {
+      "path": "/workspace/artifacts/rocknix-images/ROCKNIX-RK3326.aarch64-20260827.tar.sha256",
+      "allocated": 4096,
+      "bytes": 102,
+      "device": 66304,
+      "inode": 126091279,
+      "mtime_ns": 1787798602700535017
+    },
+    {
+      "path": "/workspace/artifacts/rocknix-images/build-h700-all-b6bd7dc3b7.log",
+      "allocated": 835584,
+      "bytes": 835422,
+      "device": 66304,
+      "inode": 126091533,
+      "mtime_ns": 1788906672837411376
+    },
+    {
+      "path": "/workspace/artifacts/rocknix-images/ROCKNIX-H700.aarch64-20260904-DDR4.img.gz.sha256",
+      "allocated": 4096,
+      "bytes": 108,
+      "device": 66304,
+      "inode": 126091271,
+      "mtime_ns": 1788501216450435740
+    },
+    {
+      "path": "/workspace/artifacts/rocknix-images/ROCKNIX-H700.aarch64-20260906.tar.sha256",
+      "allocated": 4096,
+      "bytes": 100,
+      "device": 66304,
+      "inode": 126091361,
+      "mtime_ns": 1788660674249349464
+    },
+    {
+      "path": "/workspace/artifacts/rocknix-images/build-x64-85-83f3a2fc52.log",
+      "allocated": 2949120,
+      "bytes": 2946587,
+      "device": 66304,
+      "inode": 126091503,
+      "mtime_ns": 1788895081433369646
+    },
+    {
+      "path": "/workspace/artifacts/rocknix-images/crash-2026-09-08-sonic3-exec.log",
+      "allocated": 36864,
+      "bytes": 36618,
+      "device": 66304,
+      "inode": 126091465,
+      "mtime_ns": 1788838009809763505
+    },
+    {
+      "path": "/workspace/artifacts/rocknix-images/build-h700-all-748ffd41b8.log",
+      "allocated": 831488,
+      "bytes": 831440,
+      "device": 66304,
+      "inode": 126091523,
+      "mtime_ns": 1788900794713836370
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "utc": "2026-10-07T04:48:17.845752+00:00",
+  "commit": "43d0bc3bf47fd858ba8d5c55fbdf52535a0db2aa",
+  "branch": "build/m7-pixelelated-h700-01",
+  "qualified_product": "ee014909137e03706e0b3020b8396be589aaa705",
+  "product_delta": [
+    "projects/ROCKNIX/packages/compat/box86/package.mk",
+    "projects/ROCKNIX/packages/compat/lib32/package.mk",
+    "projects/ROCKNIX/packages/emulators/libretro/desmume-lr/package.mk",
+    "projects/ROCKNIX/packages/emulators/libretro/gpsp-lr/package.mk",
+    "projects/ROCKNIX/packages/emulators/libretro/retroarch/package.mk",
+    "projects/ROCKNIX/packages/emulators/standalone/daedalusx64-sa/package.mk",
+    "projects/ROCKNIX/packages/graphics/spirv-tools/package.mk",
+    "scripts/build_distro"
+  ],
+  "delta_scope": "host GCC12 warning handling plus generated-name build roots and ARM handoffs; source pins/configuration namespace unchanged",
+  "inputs_sha256": "84563e35fbe2816d9ed13fadd663cab1a47e1016b371f153868d0d4075c9569c",
+  "source_files": 6550,
+  "qa_source_files": 207,
+  "source_symlinks": 180,
+  "container": "ghcr.io/pixelelated/build@sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39",
+  "container_image_id": "sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39",
+  "global_jobs": 24,
+  "webkit_jobs": 4,
+  "scope": "prepared; not submitted"
+}
