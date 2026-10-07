@@ -1,0 +1,53 @@
+{
+  "result": "FAILED",
+  "scope": "next checks passed; feature failed on two historical archive lines absent from next",
+  "owner": "/workspace/tmp/pixelelated-m7-cleanup16-ci-01",
+  "owner_verification": {
+    "verified_utc": "2026-10-07T07:03:49.822692+00:00",
+    "result": "FAILED",
+    "channels": {
+      "inner.rc": "1",
+      "outer.rc": "1",
+      "tool-wrapper.rc": "1",
+      "build.rc": "1"
+    },
+    "pids_absent": [
+      1639646,
+      1639789,
+      1639892,
+      1640160
+    ],
+    "sealed_inputs": 1,
+    "scope": "owner processes and input seals only; separately verify guest/backend cleanup where applicable",
+    "launcher_result": {
+      "utc": "2026-10-07T07:03:05.851196+00:00",
+      "pid": 1639646,
+      "runner_returncode": 1,
+      "submission_is_not_completion": true
+    }
+  },
+  "next_checks": [
+    {
+      "conclusion": "success",
+      "headSha": "9e8cfeff855be64fa85ee84a0a9225e260462f1d",
+      "status": "completed",
+      "url": "https://github.com/pixelelated/distribution/actions/runs/37584530707",
+      "workflowName": "fork record checks"
+    },
+    {
+      "conclusion": "success",
+      "headSha": "9e8cfeff855be64fa85ee84a0a9225e260462f1d",
+      "status": "completed",
+      "url": "https://github.com/pixelelated/distribution/actions/runs/37584530597",
+      "workflowName": "fork wordlist check"
+    }
+  ],
+  "failed_feature": {
+    "conclusion": "failure",
+    "headSha": "c1bd20406a0c54e3959f10fcf5ba2c85a241195d",
+    "status": "completed",
+    "url": "https://github.com/pixelelated/distribution/actions/runs/37584510495",
+    "workflowName": "fork wordlist check"
+  },
+  "correction_issue": 499
+}
