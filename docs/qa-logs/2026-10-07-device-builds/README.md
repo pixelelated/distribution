@@ -8,30 +8,46 @@ No other removal or filesystem-reserve change occurred.
 
 ## H700, then SM8550 — #492
 
-H700 arm compilation started03:59:39UTC under the standard watcher:
-`/workspace/tmp/pixelelated-m7-h700-arm-01`, run20261007T035939Z-a3256af0,
-launcher1635390/watcher1635395. The actual Docker image and mount readback is
-retained in h700-arm01-start. Submission is not completion.
+Current04 runs fromf5f815faff4e18808d2c1c0298e4335cc0b20fe7 in
+`/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01`, branch
+build/m7-pixelelated-h700-01. Owner `/workspace/tmp/pixelelated-m7-h700-arm-04`,
+run20261007T041821Z-41e78f9d; launcher2241024/watcher2241026. Actual pinned
+container/mounts, seven sealed inputs and live processes are verified in
+h700-arm04-start. Full compatibility completion is not yet claimed.
 
-Frozen worktree: `/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01`,
-branch build/m7-pixelelated-h700-01, distributionc7e3bcd6b5634fc4841488ac724d6f619c994d0f.
-All product paths equal qualified16ee014909;6,550source files,207QA files and
-180symlinks are sealed. The private input manifest hash is
-`e8e6325baabbdd80c4da6ebf6b4995d07b19b12298dd1138ebe20a295f70beaf`.
-Pinned container988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39;
-24global jobs and WebKit4. This is a cold independent compatibility root,
-using the shared downloads and preserving the old device tree.
+#495 fixes the exact [upstream GCC12 diagnostic](https://github.com/KhronosGroup/SPIRV-Tools/issues/6919)
+by keeping that one warning nonfatal only for GCC12 host compilation. Current
+SPIRV pins and all target flags remain unchanged. Original-failing/O0/loop/
+warning-only controls and unrelated-warning rejection are in spirv-host-control01.
+The actual installed host package now passes nine assembly/validation/roundtrip/
+optimization checks, including invalid nested structure layout rejection; its
+stamp/executables were independently hashed. Only this host recipe differs
+from qualified16 product sources. Container988c0ba58626 and24/4 concurrency
+remain pinned.
 
-The guarded swap helper restored8GiB free swap before any new build watcher
-started; preflight reports35,215MiB available RAM and READY. Available disk
-after the2.06GB checkout still exceeds the185.98GiB first-stage budget.
-The initial1GiB checkout allowance was lower than actual checkout allocation;
-the subsequent actual-space assertion passed before build submission.
+Arm01's compiler failure, full thread/stamp archive and five interrupted scopes
+are retained; those scopes were moved aside without deletion before repair.
+Arm02 correctly refused exhausted swap before compilation. The authorized
+fixed helper restored8GiB free before03. Arm03's package succeeded, but its
+final proof hashing used a Python3.11 API unavailable in pinned Python3.10;
+#496 fixes only that receipt writer, and fresh04 reran the nine checks. All
+three failed owners retain their original nonzero results and verified exits.
 
-Next: finish/verify arm, remeasure H700 aarch64 capacity and build/verify its
-DDR3/DDR4 artifacts, then remeasure and build SM8550. #494 owns further retention
-review; #493 owns this storage assessment. No physical action or release
-publication is authorized by build approval.
+Next: finish/verify arm, complete#494 measured capacity review, build/verify
+H700 aarch64 DDR3/DDR4, then capacity-check/build/verify SM8550. No physical
+action or release publication is part of compilation approval.
+
+## Further retention — #494
+
+The completed read-only review verifies four old VM trees09/10/12/14 and
+464,527,437,824allocated bytes (432.62GiB gross). Selected custody comprises
+14,489unique objects;13,925have independently verified prior copies and only
+15,371,743new content bytes are projected. The preservation/source-inventory
+owner is running with a512MiB ceiling and the remaining H700 budget protected.
+This is not recovered space or removal approval. Full dependency review,
+independent preservation acceptance and concrete net proposal remain before
+requesting any additional deletion. Current16/fallback15 and old device roots
+remain protected.
 
 ## Current storage — #493
 

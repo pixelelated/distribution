@@ -1,0 +1,112 @@
+{
+  "utc": "2026-10-07T04:18:22.647950+00:00",
+  "result": "PASS",
+  "scope": "installed host package, nested struct layout acceptance/rejection and tool roundtrips",
+  "checks": [
+    {
+      "case": "valid-assemble",
+      "command": [
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/build.pixelelated-H700.arm/toolchain/bin/spirv-as",
+        "--target-env",
+        "vulkan1.2",
+        "/workspace/tmp/pixelelated-m7-h700-arm-04/artifacts/spirv-host/valid.spvasm",
+        "-o",
+        "/workspace/tmp/pixelelated-m7-h700-arm-04/artifacts/spirv-host/valid.spv"
+      ],
+      "returncode": 0
+    },
+    {
+      "case": "invalid-assemble",
+      "command": [
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/build.pixelelated-H700.arm/toolchain/bin/spirv-as",
+        "--target-env",
+        "vulkan1.2",
+        "/workspace/tmp/pixelelated-m7-h700-arm-04/artifacts/spirv-host/invalid.spvasm",
+        "-o",
+        "/workspace/tmp/pixelelated-m7-h700-arm-04/artifacts/spirv-host/invalid.spv"
+      ],
+      "returncode": 0
+    },
+    {
+      "case": "valid-validate",
+      "command": [
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/build.pixelelated-H700.arm/toolchain/bin/spirv-val",
+        "--target-env",
+        "vulkan1.2",
+        "/workspace/tmp/pixelelated-m7-h700-arm-04/artifacts/spirv-host/valid.spv"
+      ],
+      "returncode": 0
+    },
+    {
+      "case": "invalid-layout-rejected",
+      "command": [
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/build.pixelelated-H700.arm/toolchain/bin/spirv-val",
+        "--target-env",
+        "vulkan1.2",
+        "/workspace/tmp/pixelelated-m7-h700-arm-04/artifacts/spirv-host/invalid.spv"
+      ],
+      "returncode": 1
+    },
+    {
+      "case": "disassemble",
+      "command": [
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/build.pixelelated-H700.arm/toolchain/bin/spirv-dis",
+        "/workspace/tmp/pixelelated-m7-h700-arm-04/artifacts/spirv-host/valid.spv",
+        "-o",
+        "/workspace/tmp/pixelelated-m7-h700-arm-04/artifacts/spirv-host/roundtrip.spvasm"
+      ],
+      "returncode": 0
+    },
+    {
+      "case": "reassemble",
+      "command": [
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/build.pixelelated-H700.arm/toolchain/bin/spirv-as",
+        "--target-env",
+        "vulkan1.2",
+        "/workspace/tmp/pixelelated-m7-h700-arm-04/artifacts/spirv-host/roundtrip.spvasm",
+        "-o",
+        "/workspace/tmp/pixelelated-m7-h700-arm-04/artifacts/spirv-host/roundtrip.spv"
+      ],
+      "returncode": 0
+    },
+    {
+      "case": "roundtrip-validate",
+      "command": [
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/build.pixelelated-H700.arm/toolchain/bin/spirv-val",
+        "--target-env",
+        "vulkan1.2",
+        "/workspace/tmp/pixelelated-m7-h700-arm-04/artifacts/spirv-host/roundtrip.spv"
+      ],
+      "returncode": 0
+    },
+    {
+      "case": "optimize",
+      "command": [
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/build.pixelelated-H700.arm/toolchain/bin/spirv-opt",
+        "--target-env=vulkan1.2",
+        "-O",
+        "/workspace/tmp/pixelelated-m7-h700-arm-04/artifacts/spirv-host/valid.spv",
+        "-o",
+        "/workspace/tmp/pixelelated-m7-h700-arm-04/artifacts/spirv-host/optimized.spv"
+      ],
+      "returncode": 0
+    },
+    {
+      "case": "optimized-validate",
+      "command": [
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/build.pixelelated-H700.arm/toolchain/bin/spirv-val",
+        "--target-env",
+        "vulkan1.2",
+        "/workspace/tmp/pixelelated-m7-h700-arm-04/artifacts/spirv-host/optimized.spv"
+      ],
+      "returncode": 0
+    }
+  ],
+  "hashes": {
+    ".stamps/spirv-tools/build_host": "3a99313ce7f0b20b56b224706164998d0a96bbb49dd7d476be06e5fe6b6ed691",
+    "toolchain/bin/spirv-as": "38ba487addb7db0b93fc4f263fb4dcf9bab0626fb625b1c8c713488bec468536",
+    "toolchain/bin/spirv-val": "b197208782bb260f45d088b6734658c690c8c55636cfc9641630c58fe38cd5dd",
+    "toolchain/bin/spirv-dis": "c20f53fd3bdac7dab38d2803ce79e7e5defad0034c46f95b19e712a217bbbeb3",
+    "toolchain/bin/spirv-opt": "b5cd6471979816cb263c15ccc64f84b3c9293106a083974c86f7c68d9ff13f84"
+  }
+}

@@ -1,0 +1,4 @@
+error: line 12: Structure member 0 must be explicitly laid out with Offset or OffsetIdEXT decorations. Instantiated via '2[%2]' in the StorageBuffer storage class using standard layout rules.
+This is may be allowed if you enable the scalarBlockLayout feature (or use the --scalar-block-layout command line flag)
+  %_struct_7 = OpTypeStruct %uint
+

@@ -1,0 +1,24 @@
+{
+  "verified_utc": "2026-10-07T04:08:47.705970+00:00",
+  "result": "PASS",
+  "channels": {
+    "inner.rc": "0",
+    "outer.rc": "0",
+    "tool-wrapper.rc": "0",
+    "build.rc": "0"
+  },
+  "pids_absent": [
+    2169429,
+    2169430,
+    2169431,
+    2169468
+  ],
+  "sealed_inputs": 332,
+  "scope": "owner processes and input seals only; separately verify guest/backend cleanup where applicable",
+  "launcher_result": {
+    "utc": "2026-10-07T04:06:11.509865+00:00",
+    "pid": 2169429,
+    "runner_returncode": 0,
+    "submission_is_not_completion": true
+  }
+}

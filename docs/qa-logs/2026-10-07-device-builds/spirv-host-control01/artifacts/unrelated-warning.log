@@ -1,0 +1,5 @@
+/workspace/tmp/pixelelated-m7-spirv-host-control-01/unused.cpp: In function ‘int main()’:
+/workspace/tmp/pixelelated-m7-spirv-host-control-01/unused.cpp:1:18: error: unused variable ‘unused’ [-Werror=unused-variable]
+    1 | int main() { int unused; return 0; }
+      |                  ^~~~~~
+cc1plus: all warnings being treated as errors

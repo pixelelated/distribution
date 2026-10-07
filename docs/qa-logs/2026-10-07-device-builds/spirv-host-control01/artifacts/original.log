@@ -1,0 +1,27 @@
+In file included from /usr/include/x86_64-linux-gnu/c++/12/bits/c++allocator.h:33,
+                 from /usr/include/c++/12/bits/allocator.h:46,
+                 from /usr/include/c++/12/string:41,
+                 from /workspace/tmp/pixelelated-m7-spirv-host-control-01/original.cpp:17:
+In member function ‘void std::__new_allocator<_Tp>::deallocate(_Tp*, size_type) [with _Tp = unsigned int]’,
+    inlined from ‘static void std::allocator_traits<std::allocator<_CharT> >::deallocate(allocator_type&, pointer, size_type) [with _Tp = unsigned int]’ at /usr/include/c++/12/bits/alloc_traits.h:496:23,
+    inlined from ‘void std::_Vector_base<_Tp, _Alloc>::_M_deallocate(pointer, std::size_t) [with _Tp = unsigned int; _Alloc = std::allocator<unsigned int>]’ at /usr/include/c++/12/bits/stl_vector.h:387:19,
+    inlined from ‘void std::_Vector_base<_Tp, _Alloc>::_M_deallocate(pointer, std::size_t) [with _Tp = unsigned int; _Alloc = std::allocator<unsigned int>]’ at /usr/include/c++/12/bits/stl_vector.h:383:7,
+    inlined from ‘std::_Vector_base<_Tp, _Alloc>::~_Vector_base() [with _Tp = unsigned int; _Alloc = std::allocator<unsigned int>]’ at /usr/include/c++/12/bits/stl_vector.h:366:15,
+    inlined from ‘std::vector<_Tp, _Alloc>::~vector() [with _Tp = unsigned int; _Alloc = std::allocator<unsigned int>]’ at /usr/include/c++/12/bits/stl_vector.h:733:7,
+    inlined from ‘std::vector<unsigned int> spvtools::val::{anonymous}::getStructMembers(uint32_t, spv::Op, spvtools::val::ValidationState_t&)’ at /workspace/tmp/pixelelated-m7-spirv-host-control-01/original.cpp:73:3,
+    inlined from ‘bool spvtools::val::{anonymous}::hasDecoration(uint32_t, spv::Decoration, spvtools::val::ValidationState_t&)’ at /workspace/tmp/pixelelated-m7-spirv-host-control-01/original.cpp:87:75:
+/usr/include/c++/12/bits/new_allocator.h:158:33: error: ‘void operator delete(void*, std::size_t)’ called on pointer ‘<unknown>’ with nonzero offset [1, 9223372036854775804] [-Werror=free-nonheap-object]
+  158 |         _GLIBCXX_OPERATOR_DELETE(_GLIBCXX_SIZED_DEALLOC(__p, __n));
+      |                                 ^
+In member function ‘_Tp* std::__new_allocator<_Tp>::allocate(size_type, const void*) [with _Tp = unsigned int]’,
+    inlined from ‘static _Tp* std::allocator_traits<std::allocator<_CharT> >::allocate(allocator_type&, size_type) [with _Tp = unsigned int]’ at /usr/include/c++/12/bits/alloc_traits.h:464:28,
+    inlined from ‘std::_Vector_base<_Tp, _Alloc>::pointer std::_Vector_base<_Tp, _Alloc>::_M_allocate(std::size_t) [with _Tp = unsigned int; _Alloc = std::allocator<unsigned int>]’ at /usr/include/c++/12/bits/stl_vector.h:378:33,
+    inlined from ‘void std::vector<_Tp, _Alloc>::_M_range_initialize(_ForwardIterator, _ForwardIterator, std::forward_iterator_tag) [with _ForwardIterator = __gnu_cxx::__normal_iterator<const unsigned int*, std::vector<unsigned int> >; _Tp = unsigned int; _Alloc = std::allocator<unsigned int>]’ at /usr/include/c++/12/bits/stl_vector.h:1687:25,
+    inlined from ‘std::vector<_Tp, _Alloc>::vector(_InputIterator, _InputIterator, const allocator_type&) [with _InputIterator = __gnu_cxx::__normal_iterator<const unsigned int*, std::vector<unsigned int> >; <template-parameter-2-2> = void; _Tp = unsigned int; _Alloc = std::allocator<unsigned int>]’ at /usr/include/c++/12/bits/stl_vector.h:706:23,
+    inlined from ‘std::vector<unsigned int> spvtools::val::{anonymous}::getStructMembers(uint32_t, spvtools::val::ValidationState_t&)’ at /workspace/tmp/pixelelated-m7-spirv-host-control-01/original.cpp:62:78,
+    inlined from ‘std::vector<unsigned int> spvtools::val::{anonymous}::getStructMembers(uint32_t, spv::Op, spvtools::val::ValidationState_t&)’ at /workspace/tmp/pixelelated-m7-spirv-host-control-01/original.cpp:69:52,
+    inlined from ‘bool spvtools::val::{anonymous}::hasDecoration(uint32_t, spv::Decoration, spvtools::val::ValidationState_t&)’ at /workspace/tmp/pixelelated-m7-spirv-host-control-01/original.cpp:87:75:
+/usr/include/c++/12/bits/new_allocator.h:137:55: note: returned from ‘void* operator new(std::size_t)’
+  137 |         return static_cast<_Tp*>(_GLIBCXX_OPERATOR_NEW(__n * sizeof(_Tp)));
+      |                                                       ^
+cc1plus: all warnings being treated as errors

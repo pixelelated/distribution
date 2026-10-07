@@ -1,0 +1,17 @@
+{
+  "utc": "2026-10-07T04:20:59.104799+00:00",
+  "result": "PASS",
+  "scope": "SPIRV host package and proof stage only; full H700 owner remains running",
+  "shader_checks": 9,
+  "negative_layout_control": "nonzero as expected",
+  "independent_tool_and_stamp_hashes": {
+    ".stamps/spirv-tools/build_host": "3a99313ce7f0b20b56b224706164998d0a96bbb49dd7d476be06e5fe6b6ed691",
+    "toolchain/bin/spirv-as": "38ba487addb7db0b93fc4f263fb4dcf9bab0626fb625b1c8c713488bec468536",
+    "toolchain/bin/spirv-val": "b197208782bb260f45d088b6734658c690c8c55636cfc9641630c58fe38cd5dd",
+    "toolchain/bin/spirv-dis": "c20f53fd3bdac7dab38d2803ce79e7e5defad0034c46f95b19e712a217bbbeb3",
+    "toolchain/bin/spirv-opt": "b5cd6471979816cb263c15ccc64f84b3c9293106a083974c86f7c68d9ff13f84"
+  },
+  "sealed_inputs": 7,
+  "distribution_commit": "f5f815faff4e18808d2c1c0298e4335cc0b20fe7",
+  "no_full_build_completion_claim": true
+}
