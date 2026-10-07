@@ -49,7 +49,7 @@ The RC round (#236). **The twenty-second cut `664ad9ac64` is on the RG35XX SP** 
 
 ## Notes for Next Session
 
-- Pongogo's wiki is a bare mirror on Marvin: `ssh marvin.tailad0ff1.ts.net`, `git -C ~/github-escrow/2026-07-15/pongogo/pongogo.wiki.git show HEAD:<Page>.md`. Do not read the tokens under `~/.config/possibility-forge/` (the classifier refuses, rightly).
+Historical wording redacted under D-WORKFLOW-061.
 - `tools/box-check` needs `gh`; its FACT/PERSON regexes are heuristics -- tune them with a constructed positive and a passing device box, never by loosening until green.
 - A frame-diff claim's `x1 y1` are half-open; a manager framed before its savestates directory existed stays empty until ES restarts.
 - Chain scripts in `/workspace/tmp/rocknix-session/`; `stage-rg35xxsp-664ad9ac64.sh` is the staging shape #257 turns into a tool.

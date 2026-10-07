@@ -54,7 +54,7 @@ Certifying the twenty-second cut `664ad9ac64` as the official release candidate,
 - **Model**: this session ran on Fable 5.1 until the monthly spend limit killed a subagent; it is now Opus 5. Audit/review subagents were meant to run on Fable (memory `audit-subagents-run-on-fable`) -- that memory needs revisiting while the limit stands.
 - `tools/box-check`'s regexes are heuristics: tune only with a constructed positive on each side, never by loosening until green.
 - A frame-diff claim's `x1 y1` are half-open (the report prints `376..462`, the claim is `463 704`); a manager framed before its savestates directory existed stays empty until ES restarts.
-- Pongogo's wiki: `ssh marvin.tailad0ff1.ts.net`, `git -C ~/github-escrow/2026-07-15/pongogo/pongogo.wiki.git show HEAD:<Page>.md`. Do not read the tokens under `~/.config/possibility-forge/`.
+Historical wording redacted under D-WORKFLOW-061.
 - Staging shape: `/workspace/tmp/rocknix-session/stage-rg35xxsp-664ad9ac64.sh` (idle check, copy, hash on the device, queue) -- #257 turns it into `tools/stage-h700`.
 
 ## Open Questions
