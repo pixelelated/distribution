@@ -1,0 +1,41 @@
+{
+  "utc": "2026-10-07T04:00:24.437769+00:00",
+  "state": "running",
+  "run": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/.build-runs/20261007T035939Z-a3256af0",
+  "pids": {
+    "build.pid": 1635391,
+    "watcher.pid": 1635395,
+    "command.pid": 1635430
+  },
+  "containers": [
+    {
+      "id": "4cc6e03722ef3a336d4e0c16b1a41a0f7d63fd37cec9cb97ed2e716113d3828e",
+      "image": "sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39",
+      "state": "running",
+      "host_pid": 1635563,
+      "mounts": [
+        {
+          "source": "/home/max/.ROCKNIX/options",
+          "destination": "/home/max/.ROCKNIX/options",
+          "rw": true
+        },
+        {
+          "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01",
+          "destination": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01",
+          "rw": true
+        },
+        {
+          "source": "/workspace/repos/rocknix/.git",
+          "destination": "/workspace/repos/rocknix/.git",
+          "rw": true
+        },
+        {
+          "source": "/workspace/cache/rocknix-sources",
+          "destination": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/sources",
+          "rw": true
+        }
+      ]
+    }
+  ],
+  "scope": "Observed actual frozen H700 arm builder; submission is not completion."
+}

@@ -1,0 +1,29 @@
+{
+  "utc": "2026-10-07T03:57:20.605592+00:00",
+  "wrapper_result": "PASS observation recorded",
+  "inventory_complete": false,
+  "unreadable_paths": [
+    "/workspace/lost+found"
+  ],
+  "major_allocated_bytes": {
+    "/workspace/cache": 67857276928,
+    "/workspace/repos": 1688620199936,
+    "/workspace/containers": 4096,
+    "/workspace/tmp": 762008653824,
+    "/workspace/lost+found": 16384,
+    "/workspace/builds": 4096,
+    "/workspace/artifacts": 1012889669632,
+    "/workspace": 3531375828992
+  },
+  "filesystem": {
+    "utc": "2026-10-07T03:57:20.605631+00:00",
+    "total_bytes": 3936820731904,
+    "used_bytes": 3531379212288,
+    "available_bytes": 205385392128,
+    "reserved_free_bytes": 200056127488
+  },
+  "du_total_vs_filesystem_used_difference_bytes": 3383296,
+  "scope": "Allocated blocks, not apparent sparse-image sizes. Low-priority traversal overlapped approved QA-file deletion; filesystem availability was read again at completion. Difference is not a measurement of lost+found contents.",
+  "raw_report": "/workspace/tmp/pixelelated-m7-storage-sizing-02/artifacts/report.json",
+  "raw_report_sha256": "c625592967da5ef91bcb9259fcf5269eec15b1ebfefafb89c2101434880b90f7"
+}

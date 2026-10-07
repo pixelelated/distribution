@@ -1,0 +1,12 @@
+{
+  "command": [
+    "make",
+    "docker-H700",
+    "COMMAND=env -u DEVICE_ROOT PROJECT=ROCKNIX DEVICE=H700 ARCH=arm ./scripts/build_distro"
+  ],
+  "cwd": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01",
+  "device": "H700",
+  "arch": "arm",
+  "container": "ghcr.io/pixelelated/build@sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39",
+  "global_jobs": 24
+}

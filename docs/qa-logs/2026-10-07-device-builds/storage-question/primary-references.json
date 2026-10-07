@@ -1,0 +1,16 @@
+{
+  "checked_utc": "2026-10-07T03:53:45.486006+00:00",
+  "sources": [
+    {
+      "url": "https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/10/html/managing_storage_devices/managing-raid",
+      "section": "16.3 RAID levels and linear support",
+      "supports": "RAID0 stripes across disks, combines their capacity and provides no redundancy; RAID1 mirrors and retains one member capacity."
+    },
+    {
+      "url": "https://docs.kernel.org/admin-guide/md.html",
+      "section": "MD devices in sysfs",
+      "supports": "RAID0/linear have no redundancy information."
+    }
+  ],
+  "interpretation": "Two equal marketed4TB drives in RAID0 provide about8TB decimal (7.28TiB) before filesystem/metadata overhead; a drive failure is not tolerated. Separate volumes provide8TB aggregate without combining their failure domains. No measured build-speed gain is claimed."
+}
