@@ -1,0 +1,23 @@
+{
+  "refusal_stdout": ">>> unit CLOUD FOLDER||\n>>> doing scan\n>>> why THE PREVIOUS CLOUD MOVE NEEDS ITS ORIGINAL CONNECTION\n",
+  "record_before": "3989f3dd8a33ce4f58c204f06fbd7f084f1f1046aaa59aa54548e9d1960b7c95",
+  "before": [
+    {
+      "ROCKNIX/Content/ROMs/gb/A.gb": "4d276c0b013c4cd2417845edac4e60f969b60b8cf852dac72c91332506053f5e",
+      "other-cloud/foreign-witness.txt": "de16e39aef74485096e614610be85b328c8f6d88a597cd6de4453d496508e2d0",
+      "pixelelated/Saves/gb/A.srm": "a9a1235e15e7b7b1188c6ec90bc52c233c5225944fa57be3a60ae0fd650873ef"
+    },
+    "SAVES_REMOTE=\"/pixelelated/Saves\"\nSETTINGS_REMOTE=\"/pixelelated/Backups\"\nCONTENT_REMOTE=\"/ROCKNIX/Content\"\n"
+  ],
+  "after": [
+    {
+      "other-cloud/foreign-witness.txt": "de16e39aef74485096e614610be85b328c8f6d88a597cd6de4453d496508e2d0",
+      "pixelelated/.layout": "be68d69fa1fe3ddbcaa9295b8e3e732fd0113d909e38cf643d95aab41c9b1a22",
+      "pixelelated/Content/ROMs/gb/A.gb": "4d276c0b013c4cd2417845edac4e60f969b60b8cf852dac72c91332506053f5e",
+      "pixelelated/Saves/gb/A.srm": "a9a1235e15e7b7b1188c6ec90bc52c233c5225944fa57be3a60ae0fd650873ef"
+    },
+    "SAVES_REMOTE=\"/pixelelated/Saves\"\nSETTINGS_REMOTE=\"/pixelelated/Backups\"\nCONTENT_REMOTE=\"/pixelelated/Content\"\n"
+  ],
+  "recovery": "Actual UI terminal-repair route plus installed rclone config update URL, then actual UI pending-move retry",
+  "visual_review": "pending"
+}

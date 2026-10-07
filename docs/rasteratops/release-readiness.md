@@ -1,6 +1,6 @@
 # pixelelated 0.0.1 release readiness
 
-## Current execution — 2026-10-07 01:27 UTC
+## Current execution — 2026-10-07 01:40 UTC
 
 Both approved Fable audit calls and grading are complete. Phase 7 remains open:
 PL-002/006/007/008 are resolved; PL-001/003/004/005 await candidate 16 installed
@@ -55,13 +55,21 @@ The separate acceptance reconciles raw reasons, actual old-writer states, exact
 recovered pointers and unchanged installed hashes on both independent guests.
 Failed01 remains a prelaunch-only rc2, with no VM or product assertion.
 
-English/French640x480 recovery UI is active under launcher424034/watcher424036,
-run`20261007T012634Z-85f592d8`, owner
-`/workspace/tmp/pixelelated-m7-p4-build16-recovery-640x480-01`.
-Can this be done on the VM? Yes: owned local WebDAV, stock30-second timeout,
-actual terminal recovery route, real missing-folder and network-refusal controls.
-1280x800 recovery, clean/actual RC2-upgrade QA20 and local protocols follow
-serially after independent completion, frame review and actual cleanup.
+Recovery640 PASSED all eight English/French cases and46 directly reviewed frames.
+Both stock outer timeouts measured30.01seconds, kept all state and retired the
+provider/sleep children. Actual original-connection repair and UI retry complete
+both tiers, remove the record and preserve the unrelated endpoint. Missing-folder
+and network controls remain distinct. Full French original-connection reason and
+rclone config/E edit instruction now fit640px. Primary01:39:37 verified allfour0,
+9seals and actual guest/backend/port cleanup. Q16/recovery-640x480-acceptance
+independently binds raw outcomes, hashes and each reviewed frame.
+
+English/French1280x800 recovery UI is active under launcher503414/watcher503416,
+run`20261007T013954Z-b22dbb20`, owner
+`/workspace/tmp/pixelelated-m7-p4-build16-recovery-1280x800-01`.
+Can this be done on the VM? Yes: the same owned local fixtures, actual timeout,
+terminal repair and controls, with virgl at1280x800. After its verified completion
+and frame review: clean/actual RC2-upgrade QA20, then WebDAV/SFTP/S3 cloud02.
 #482/#486 are CLOSED completed with published evidence and exact body/state
 readbacks in Q16/interruption-issue-resolution. #478/#479 and four original
 audit findings await their complete remaining acceptance.
