@@ -333,6 +333,12 @@ folder_listing() { # <remote path> [lsf flags]; missing is distinct from unreada
     local path="$1" rc; shift
     FOLDER_LISTING=$(rclone lsf "$@" "${path}" "${RCLONE_LIST_OPTS[@]}" 2>/dev/null); rc=$?
     [ "${rc}" -ne 0 ] || return 0
+    # A failed listing may already have printed entries. Those bytes cannot
+    # establish presence or absence, even for a not-found return code.
+    if [ -n "${FOLDER_LISTING}" ]; then
+        echo ">>> why YOUR CLOUD STOPPED ANSWERING"
+        return "${rc}"
+    fi
     if [ "${rc}" -eq 3 ] || [ "${rc}" -eq 4 ] || absent_not_broken "${path}"; then
         FOLDER_LISTING=""
         return 0
@@ -341,15 +347,19 @@ folder_listing() { # <remote path> [lsf flags]; missing is distinct from unreada
     return "${rc}"
 }
 folder_exists() { # return 0 present, 1 absent, or >1 unreadable
-    local path="${1%/}" parent name rc
+    local path="${1%/}" remote relative parent name rc
     folder_listing "${path}"; rc=$?
     [ "${rc}" -eq 0 ] || return 5
     [ -z "${FOLDER_LISTING}" ] || return 0
     # A successfully listed remote root exists even when it is empty.
     [ -n "${path#*:}" ] || return 0
-    parent="${path%/*}"; name="${path##*/}"
+    remote="${path%%:*}:"; relative="${path#*:}"
+    name="${relative##*/}"
     [ -n "${name}" ] || return 1
-    folder_listing "${parent}/" --dirs-only; rc=$?
+    # A relative one-component name belongs to remote:, while /Name belongs
+    # to remote:/. Preserve that distinction for SFTP and similar providers.
+    case "${relative}" in */*) parent="${relative%/*}/" ;; *) parent="" ;; esac
+    folder_listing "${remote}${parent}" --dirs-only; rc=$?
     [ "${rc}" -eq 0 ] || return 5
     printf '%s\n' "${FOLDER_LISTING}" | grep -qxF -- "${name}/"
 }
@@ -1000,13 +1010,12 @@ case "$1" in
             # success for any path at all, so the MISSING branch could never
             # be reached -- the report would have been unconditionally OK,
             # which is the shape of an assertion that cannot fail.
-            if [ -n "$(rclone lsf "${REMOTE}${d}" "${RCLONE_LIST_OPTS[@]}" 2>/dev/null | head -1)" ] \
-               || rclone lsf --dirs-only "${REMOTE}${d%/*}/" "${RCLONE_LIST_OPTS[@]}" 2>/dev/null | grep -qFx -- "${d##*/}/"; then
-                echo "OK ${d}"
-            else
-                echo "MISSING ${d}"
-                seed_failed=1
-            fi
+            folder_exists "${REMOTE}${d}"; read_rc=$?
+            case "${read_rc}" in
+                0) echo "OK ${d}" ;;
+                1) echo "MISSING ${d}"; seed_failed=1 ;;
+                *) seed_failed=1 ;;
+            esac
         done
         [ "${seed_failed}" -eq 0 ] || { echo ">>> why YOUR CLOUD FOLDERS COULDN'T BE CREATED"; exit 5; }
         exit 0

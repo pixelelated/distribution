@@ -1,0 +1,41 @@
+[
+  {
+    "command": [
+      "bash",
+      "-n",
+      "/workspace/repos/rocknix.worktrees/m7-manual-cloud-folders/projects/ROCKNIX/packages/network/rclone/sources/cloud_setup"
+    ],
+    "rc": 0
+  },
+  {
+    "command": [
+      "python3",
+      "-m",
+      "py_compile",
+      "tools/pixelelated-cloud-folder-test"
+    ],
+    "rc": 0
+  },
+  {
+    "command": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "rc": 0
+  },
+  {
+    "command": [
+      "tools/rules-check",
+      "--quiet"
+    ],
+    "rc": 0
+  },
+  {
+    "command": [
+      "tools/pkgcheck",
+      "rclone"
+    ],
+    "rc": 0
+  }
+]

@@ -194,6 +194,66 @@ def dot_root(f, tier):
         require(snapshot(f)==before,'dot-only path refusal changed prior data/config')
 
 
+def relative_empty(f, path):
+    f.conf(path,'/Mine/Backups','/Mine/Content')
+    f.directory(path)
+    before=snapshot(f)
+    result=good(f,'cloud_setup','--folder-state')
+    require(facts(result).get('STATE')=='ready',result.stdout)
+    require(snapshot(f)==before,'empty-folder read changed cloud/config')
+
+
+def relative_home(f, absolute):
+    # A controlled mapping models SFTP's home-relative vs absolute namespaces.
+    # Real rclone reads two different local trees; this is not a live SFTP proof.
+    path='/GAMES' if absolute else 'GAMES'
+    f.conf(path,'/Other/Backups','/Other/Content')
+    f.directory('/GAMES' if absolute else '/home/GAMES')
+    shim=f.path/'shim/rclone'
+    mapping='''mapped=()
+for arg in "$@"; do
+ case "$arg" in qa:) arg=qa:/home;; qa:/*) ;; qa:*) arg="qa:/home/${arg#qa:}";; esac
+ mapped+=("$arg")
+done
+exec /rclone.real "${mapped[@]}"
+'''
+    shim.write_text(shim.read_text().replace('exec /rclone.real "$@"',mapping))
+    before=snapshot(f)
+    result=good(f,'cloud_setup','--folder-state')
+    require(facts(result).get('STATE')=='ready',result.stdout)
+    expected='lsf --dirs-only qa:/ --' if absolute else 'lsf --dirs-only qa: --'
+    require(expected in (f.path/'ctl/argv').read_text(),'parent lookup changed absolute/home-relative meaning')
+    require(snapshot(f)==before,'namespace read changed cloud/config')
+
+
+def partial_readback(f, mode, code):
+    f.conf('/Mine/Saves','/Mine/Backups','/Mine/Content')
+    f.file('/Mine/Saves/gb/progress.srm','existing progress\n')
+    before_conf,before_cloud=snapshot(f)
+    if mode=='direct':
+        injection='''if [ "$1 $2" = "lsf qa:/Mine/Saves" ]; then
+ printf 'direct partial listing\n' >> /ctl/fault-fired
+ printf 'README.txt\n'; exit CODE
+fi
+'''
+    else:
+        injection='''if [ "$1 $2" = "lsf qa:/Mine/Saves" ]; then
+ printf 'direct empty failed listing\n' >> /ctl/fault-fired
+ exit 5
+fi
+if [ "$1 $2 $3" = "lsf --dirs-only qa:/Mine/" ]; then
+ printf 'parent partial listing\n' >> /ctl/fault-fired
+ printf 'Saves/\n'; exit CODE
+fi
+'''
+    shim=f.path/'shim/rclone';shim.write_text(shim.read_text().replace('exec /rclone.real',injection.replace('CODE',str(code))+'exec /rclone.real'))
+    result=f.run('cloud_setup','--seed-folders')
+    after_conf,after_cloud=snapshot(f)
+    require(result.returncode!=0 and 'OK /Mine/Saves' not in result.stdout,'failed final listing was reported as successful presence')
+    require((f.path/'ctl/fault-fired').exists(),'final readback control never fired')
+    require(before_conf==after_conf and all(after_cloud.get(k)==v for k,v in before_cloud.items()),'late failure damaged existing data/config')
+
+
 def carried_root(f):
     f.conf('/','/','/Games')
     f.file('/owner.txt','root sentinel\n')
@@ -258,6 +318,13 @@ def main():
       'guard-future':lambda f:guard(f,'future'),
       'guard-relative-future':lambda f:guard(f,'relative-future'),
       'carried-root':carried_root,
+      'empty-relative-games':lambda f:relative_empty(f,'GAMES'),
+      'empty-relative-saves':lambda f:relative_empty(f,'Saves'),
+      'empty-absolute-games':lambda f:relative_empty(f,'/GAMES'),
+      'empty-relative-nested':lambda f:relative_empty(f,'Mine/Saves'),
+      'home-relative-namespace':lambda f:relative_home(f,False),
+      'absolute-namespace':lambda f:relative_home(f,True),
+      **{f'partial-{mode}-rc{code}':(lambda f,m=mode,c=code:partial_readback(f,m,c)) for mode in ['direct','parent'] for code in [3,4,5]},
       'dot-saves-refused':lambda f:dot_root(f,'saves'),
       'dot-backups-refused':lambda f:dot_root(f,'backups'),
       'dot-content-refused':lambda f:dot_root(f,'content'),
