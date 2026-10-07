@@ -1,5 +1,28 @@
 # Device builds and build-storage assessment — October 7, 2026
 
+## Current status — 06:39 UTC
+
+The broader #493/#494 cleanup recovered 2.117 TB and verified 51,070 retained
+records, 14,489 source objects and five temporary device-test firmware holds.
+All four reviewed build trees are gone. The administrator-scope gap for 14
+loose firmware files and its tested guard correction are recorded in #498 and
+`../2026-10-07-storage-retention/completed/`; no claim of complete root-only
+coverage is made for that historical batch.
+
+H700 aarch64 firmware started at 06:38:36 from the accepted frozen commit
+`43d0bc3bf47fd858ba8d5c55fbdf52535a0db2aa`. The standard watcher, actual pinned
+container and source/cache mounts were verified. Preflight reclaimed the fixed
+swap target before the watcher started, restored 8 GiB swap and reported READY.
+Capacity is now sufficient for this stage. See `h700-firmware01/` for the actual
+owner, command, source identity, capacity and startup receipts. Compilation is
+in progress; raw/update equality, ARM handoff and firmware acceptance follow.
+SM8550 remains next after verified H700 artifacts; no physical action is implied.
+
+The older capacity/proposal sections below are historical preparation. Do not
+repeat completed cleanup or retain replacement12 under its superseded hold.
+
+## Earlier build and capacity record
+
 The exact #491 cleanup is approved, completed and independently accepted:
 22 files removed,42.05GiB recovered, seven protected identities, two held base
 hashes and2,695 independent evidence hashes verified. The full execution and

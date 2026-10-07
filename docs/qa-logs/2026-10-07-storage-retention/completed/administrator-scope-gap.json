@@ -1,0 +1,21 @@
+{
+  "utc": "2026-10-07T06:41:22.207241+00:00",
+  "result": "HISTORICAL_ADMINISTRATOR_SCOPE_GAP",
+  "omitted_targets": [
+    "/workspace/artifacts/rocknix-images/ROCKNIX-H700.aarch64-20260904-DDR3.img.gz",
+    "/workspace/artifacts/rocknix-images/ROCKNIX-H700.aarch64-20260904-DDR4.img.gz",
+    "/workspace/artifacts/rocknix-images/ROCKNIX-H700.aarch64-20260904.tar",
+    "/workspace/artifacts/rocknix-images/ROCKNIX-H700.aarch64-20260905-DDR3.img.gz",
+    "/workspace/artifacts/rocknix-images/ROCKNIX-H700.aarch64-20260905-DDR4.img.gz",
+    "/workspace/artifacts/rocknix-images/ROCKNIX-H700.aarch64-20260905.tar",
+    "/workspace/artifacts/rocknix-images/ROCKNIX-H700.aarch64-20260906-DDR3.img.gz",
+    "/workspace/artifacts/rocknix-images/ROCKNIX-H700.aarch64-20260906-DDR4.img.gz",
+    "/workspace/artifacts/rocknix-images/ROCKNIX-H700.aarch64-20260906.tar",
+    "/workspace/artifacts/rocknix-images/ROCKNIX-RK3326.aarch64-20260827-a.img.gz",
+    "/workspace/artifacts/rocknix-images/ROCKNIX-RK3326.aarch64-20260827-b.img.gz",
+    "/workspace/artifacts/rocknix-images/ROCKNIX-RK3326.aarch64-20260827.tar",
+    "/workspace/artifacts/rocknix-images/ROCKNIX-SM8550.aarch64-20260902.img.gz",
+    "/workspace/artifacts/rocknix-images/ROCKNIX-SM8550.aarch64-20260902.tar"
+  ],
+  "scope": "14 explicitly authorized loose firmware files passed unprivileged current references, container, hash and external-reference checks but were outside the administrator roots. Do not claim the administrator snapshot covered them. Original sealed execution/acceptance remain historical; the repository executor now refuses any uncovered target. No further cleanup is authorized by this receipt."
+}

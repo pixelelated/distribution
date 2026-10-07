@@ -1,0 +1,12 @@
+{
+  "result": "PASS",
+  "controls": [
+    "exact file accepted",
+    "wrong digest refused",
+    "changed identity refused",
+    "replacement symlink refused",
+    "extra entry refused before removal",
+    "read-only directory removed without following external file/directory links"
+  ],
+  "count": 6
+}

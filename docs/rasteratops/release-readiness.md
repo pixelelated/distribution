@@ -1,6 +1,18 @@
 # pixelelated 0.0.1 release readiness
 
-## Current device builds — 2026-10-07 04:51 UTC
+## Current device builds — 2026-10-07 06:39 UTC
+
+The immediate storage cleanup is complete: 2.117 TB recovered, 2.291 TB
+available, 51,070 compact records and 14,489 source custody objects verified,
+plus five temporary test-specific firmware holds. The administrator-check
+coverage limitation affecting 14 loose historical firmware files is explicitly
+recorded under #498; the corrected guard refuses such gaps. H700 aarch64
+firmware is now building from frozen `43d0bc3bf4`, with the actual pinned
+container and standard watcher verified. Its owner is
+`/workspace/tmp/pixelelated-m7-h700-firmware-01`. SM8550 follows accepted H700
+artifacts. Neither bootable firmware nor physical testing has completed yet.
+
+## Historical arm acceptance and capacity gate — 04:51 UTC
 
 #492 H700 arm compatibility is accepted from frozen `43d0bc3bf4`: all 244
 tasks complete, four zero results, seven unchanged seals and actual builder
