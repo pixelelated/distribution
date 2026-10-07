@@ -17,7 +17,7 @@ upstream submission, personal cloud, physical-device action, arbitrary root,
 wider deletion or filesystem reserve change is authorized. The exact two-disk
 approval has been exercised and is complete; no user answer is pending.
 
-## Current execution — 2026-10-07 01:40 UTC
+## Current execution — 2026-10-07 01:51 UTC
 
 Both approved Fable audit calls and grading are complete. Phase 7 remains open:
 PL-002/006/007/008 are resolved; PL-001/003/004/005 await candidate 16 installed
@@ -81,12 +81,20 @@ rclone config/E edit instruction now fit640px. Primary01:39:37 verified allfour0
 9seals and actual guest/backend/port cleanup. Q16/recovery-640x480-acceptance
 independently binds raw outcomes, hashes and each reviewed frame.
 
-English/French1280x800 recovery UI is active under launcher503414/watcher503416,
-run`20261007T013954Z-b22dbb20`, owner
-`/workspace/tmp/pixelelated-m7-p4-build16-recovery-1280x800-01`.
-Can this be done on the VM? Yes: the same owned local fixtures, actual timeout,
-terminal repair and controls, with virgl at1280x800. After its verified completion
-and frame review: clean/actual RC2-upgrade QA20, then WebDAV/SFTP/S3 cloud02.
+Recovery1280 PASSED all eight English/French cases and46 directly reviewed
+frames. Full French original-connection reason and terminal edit instructions
+fit. Both stock timeouts measured30.01seconds; original files, pointers and
+record binding survived refusals, and real terminal repair/UI retry completed.
+Primary01:51:10 verified allfour0/9seals and actual guest/backend/port cleanup.
+The third timeout frame in each language captures normal dismissal; full-text
+fit is proved by the first two. Q16/recovery-1280x800-acceptance retains that limit.
+
+Full clean-install/actual ROCKNIX RC2-upgrade QA20 is active under
+launcher562143/watcher562145, run`20261007T015124Z-b7ddd471`, owner`/workspace/tmp/pixelelated-m7-qa-20`.
+Can this be done on the VM? Yes: all15 default suites,78walk frames, the actual
+retained RC2 image updated in place, and installed identity/renderer readback
+at1280x800 virgl and640x480 software. After verified cleanup: WebDAV/SFTP/S3
+cloud02, then command-backed final audit resolutions. No device action is needed.
 #482/#486 are CLOSED completed with published evidence and exact body/state
 readbacks in Q16/interruption-issue-resolution. #478/#479 and four original
 audit findings await their complete remaining acceptance.
@@ -100,7 +108,7 @@ The exact approved two-disk retirement is complete: 10,713,485,312 bytes recover
 all other evidence and protected sources preserved. No broader cleanup or reserve
 change was made or is authorized. The fixed swap helper passed before the build.
 
-**Next:** English/French recovery frames at640×480 and1280×800 → full clean/actual RC2-upgrade QA20 and the standing WebDAV/SFTP/S3 baseline →
+**Next:** active clean/actual RC2-upgrade QA20 → WebDAV/SFTP/S3 cloud02 →
 #471/P4 closure → #461 device capacity review → H700 DDR4 RG35XX SP arm, then
 aarch64 → named physical/P5 gates. #478/#479 remain open until acceptance;#482 is complete.
 No new RA reset or Dropbox credential is needed. Ten #168 upstream drafts remain
@@ -178,14 +186,19 @@ actual9040/10026/5912 cleanup verified01:39:37. Both timeouts30.01seconds, actua
 terminal repair/UI retry complete, full French edit instruction fits. Exact
 acceptance: Q16/recovery-640x480-acceptance. Never replay exclusive verifiers.
 
-ACTIVE recovery1280 owner:
-`/workspace/tmp/pixelelated-m7-p4-build16-recovery-1280x800-01`, run`20261007T013954Z-b22dbb20`, watcher503416, launcher503414.
-Eight cases and46expected frames; primary review is not yet done. Use the existing
-record-frame-review.py for frames actually viewed and accept-recovery-ui.py after
-owner/cleanup verification and retain-vm16-owner.py. Binding-recovery calls hub
-TWICE and overwrites its menu-before/main-menu/hub captures: record those after
-the second hub, or after the entire case, to avoid grading intermediate hashes.
-QA20 and cloud02 are prepared, sealed and unexecuted; activity dirs checked.
+Recovery1280 is COMPLETE:8cases/46directly reviewed frames, allfour0/9seals
+and actual9040/10026/5912 cleanup verified01:51:10. Both timeout bounds30.01seconds;
+full reasons/instructions and successful terminal repair/UI retry verified.
+First two timeout frames prove full-text fit; third records normal dismissal.
+Q16/recovery-1280x800-acceptance is retained. Never replay exclusive verifiers.
+
+ACTIVE QA20 owner: `/workspace/tmp/pixelelated-m7-qa-20`, run`20261007T015124Z-b7ddd471`, launcher562143/watcher562145.
+All15 defaults/78walk frames and actual RC2 upgrade are in flight. Review all15
+identity frames, four payload/proxy readbacks, three renderer receipts, report,
+frame differences and actual upgrade rehearsal. The upgrade tool writes its
+rehearsal under /workspace/artifacts/rocknix-images/qa-ee01490913-upgrade-from-69e6039f8f-*;
+retain that exact run as well as QA20 owner artifacts. On terminal verify allfour,
+10seals, guests/backends/ports before starting prepared cloud02. No product edits.
 
 Additional prepared read-only observer: .build-runs/observe-cloud02.py. During
 cloud02 run with webdav, sftp and s3 separately while each is live; retains only
@@ -194,6 +207,12 @@ After generic owner and cleanup receipts, run its finished mode. Ports include
 9010/9011/9012/9013/9022/10022/10023/5909/5910 (9022 is MinIO's throttle upstream).
 The actual backend identity still must be captured while live; preparation is
 not evidence. No new cloud account or credentials are needed.
+
+Latest evidence publication05 COMPLETE: feature3af6d5192bc4905f4b814faa7de142f795e387c0,
+next7ce442d53aea3d7998b9e939443ecc9f771b240c. Normal hooks,240changed paths equal,
+exact remote refs verified01:41:58; primary01:42:31 confirms allfour0/242seals/exits.
+Q16/build16-recovery-publication-05 retains the receipt. No publication is running.
+Recovery1280 is the only active VM owner.
 
 Latest evidence publication04 COMPLETE: feature38af8bea74e5da9252c062915f7a58b1aecb2f8b,
 next94b109c279aa6dba142326fb241e9a8a14e2c908. Normal hooks,1191changed paths equal,
@@ -216,7 +235,7 @@ No publication is currently running. The audit cadence remains overdue in CI;
 this was not a whole-CI-green claim. #484/#485 are CLOSED completed with exact published-evidence/body/state readbacks
 in Q16/fixture-issue-resolution. #486 is now CLOSED after both fresh UI proofs and publication03.
 
-After the active recovery1280 owner completes, all remaining owners below are prepared and unexecuted. Run ONE VM owner at a time,
+QA20 is active; cloud02 remains prepared and unexecuted. Completed owners below are historical receipts. Run ONE VM owner at a time,
 after the prior owner's verified guest/backend/port cleanup. Use the immutable
 bundle under `/workspace/artifacts/pixelelated-candidates/sha256/7f98f2d22985d11fe9c150015457894caf460104c9ce44abd16074167f23815a`.
 Use frozen16 cwd and `tools/watch-build-submit --owner OWNER -- --activity-dir
@@ -230,8 +249,8 @@ shelf uses activity directory `OWNER/proof` and `python3 -I OWNER/run.py BUNDLE`
 4. COMPLETE `pixelelated-m7-p4-build16-supplemental-02`:10cases;01failed before any VM.
    Use activity-dir OWNER/proof and `python3 -I OWNER/run.py BUNDLE` (no outer.sh).
    Verify212seals/allfour0 plus actual9040/10022/10023/5909/5910 cleanup.
-5. COMPLETE recovery640x480-01; ACTIVE recovery1280x800-01.
-6. `pixelelated-m7-qa-20`: all15 defaults/78walkframes and actual RC2 upgrade.
+5. COMPLETE recovery640x480-01 and1280x800-01.
+6. ACTIVE `pixelelated-m7-qa-20`: all15 defaults/78walkframes and actual RC2 upgrade.
 7. `pixelelated-m7-cloud-02`: existing WebDAV/SFTP/MinIO-S3 baseline on these bytes.
 
 Directly review every affected EN/FR frame at actual640x480/1280x800. Generic

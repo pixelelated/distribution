@@ -1,0 +1,554 @@
+[
+  {
+    "file": "en_US-outer-timeout-timeout-card-0.png",
+    "sha256": "e0111e02946bf166d593dc0aa1943d121cf29a3992678f2b08423c9adaba9939",
+    "dimensions": [
+      1280,
+      800
+    ],
+    "result": "PASS",
+    "primary_direct_review": true,
+    "reviewed_utc": "2026-10-07T01:43:23.037936+00:00",
+    "observation": "Primary directly viewed both fully displayed English timeout cards. Full cloud-took-too-long reason, unchanged-state reassurance and startup/manual-retry guidance fit1280x800 without clipping. These two frames establish text fit before dismissal."
+  },
+  {
+    "file": "en_US-outer-timeout-timeout-card-1.png",
+    "sha256": "e0111e02946bf166d593dc0aa1943d121cf29a3992678f2b08423c9adaba9939",
+    "dimensions": [
+      1280,
+      800
+    ],
+    "result": "PASS",
+    "primary_direct_review": true,
+    "reviewed_utc": "2026-10-07T01:43:23.038113+00:00",
+    "observation": "Primary directly viewed both fully displayed English timeout cards. Full cloud-took-too-long reason, unchanged-state reassurance and startup/manual-retry guidance fit1280x800 without clipping. These two frames establish text fit before dismissal."
+  },
+  {
+    "file": "en_US-outer-timeout-timeout-card-2.png",
+    "sha256": "7e1697c3b5a0710d935d5d1dac99acfb608ee025c162600d6ecdb8f0428adbc4",
+    "dimensions": [
+      1280,
+      800
+    ],
+    "result": "PASS",
+    "primary_direct_review": true,
+    "reviewed_utc": "2026-10-07T01:43:23.056229+00:00",
+    "observation": "Primary directly viewed this transient dismissal frame: the card is moving/fading above the top edge. It does not prove full text fit; frames0/1 do. Outcome stamp is01:41:20, captures end at01:41:22.236/24.116/25.990. ThreadedCloudSync.cpp733 holds failure outcomes5000ms before AsyncNotificationComponent close/fade, matching this final capture after the hold."
+  },
+  {
+    "file": "01-en_US-original-connection-recovery-opening-result.png",
+    "sha256": "640617d2afbf99026a2efa505e0140a6bf24d7d286c457aacdb33797d589977c",
+    "dimensions": [
+      1280,
+      800
+    ],
+    "result": "PASS",
+    "primary_direct_review": true,
+    "reviewed_utc": "2026-10-07T01:43:59.171678+00:00",
+    "observation": "Primary directly viewed the full original-connection refusal, selected connect/repair row, provider list and computer setup page. Exact reason, reassurance, selected labels and navigation controls fit1280x800; existing cloud selection remains visible."
+  },
+  {
+    "file": "01-en_US-original-connection-recovery-computer-setup.png",
+    "sha256": "4157dac0438aa1213ea2c18b8b206fb2682e824eb2e675794feb9229dd46eecb",
+    "dimensions": [
+      1280,
+      800
+    ],
+    "result": "PASS",
+    "primary_direct_review": true,
+    "reviewed_utc": "2026-10-07T01:43:59.171846+00:00",
+    "observation": "Primary directly viewed the full original-connection refusal, selected connect/repair row, provider list and computer setup page. Exact reason, reassurance, selected labels and navigation controls fit1280x800; existing cloud selection remains visible."
+  },
+  {
+    "file": "01-en_US-original-connection-recovery-connect-repair-row.png",
+    "sha256": "cffa4e9185393621652df3887c58c6d3704ef1f0f6ffa36cc205cd8e95aacd94",
+    "dimensions": [
+      1280,
+      800
+    ],
+    "result": "PASS",
+    "primary_direct_review": true,
+    "reviewed_utc": "2026-10-07T01:43:59.172031+00:00",
+    "observation": "Primary directly viewed the full original-connection refusal, selected connect/repair row, provider list and computer setup page. Exact reason, reassurance, selected labels and navigation controls fit1280x800; existing cloud selection remains visible."
+  },
+  {
+    "file": "02-en_US-original-connection-recovery-providers.png",
+    "sha256": "89021d914eb002b60b8fff9f88dc3325a27f85141691d7adf44cbbd6eb6507de",
+    "dimensions": [
+      1280,
+      800
+    ],
+    "result": "PASS",
+    "primary_direct_review": true,
+    "reviewed_utc": "2026-10-07T01:43:59.172148+00:00",
+    "observation": "Primary directly viewed the full original-connection refusal, selected connect/repair row, provider list and computer setup page. Exact reason, reassurance, selected labels and navigation controls fit1280x800; existing cloud selection remains visible."
+  },
+  {
+    "file": "01-en_US-original-connection-recovery-hub.png",
+    "sha256": "6251ea617bf5e1add5beb7ae96872739bd03c2dffc6e185e301756790c37d0df",
+    "dimensions": [
+      1280,
+      800
+    ],
+    "result": "PASS",
+    "primary_direct_review": true,
+    "reviewed_utc": "2026-10-07T01:45:46.680645+00:00",
+    "observation": "Primary directly viewed the final English carousel, main menu and cloud hub after the repair flow returned. Labels, status and navigation controls fit; pixelelated identity is lowercase and no text clipping is visible."
+  },
+  {
+    "file": "01-en_US-original-connection-recovery-menu-before.png",
+    "sha256": "57ea5f95964ba0dc78d1512982cc68f9f97eb074f4fa6638e583f07c7c417c52",
+    "dimensions": [
+      1280,
+      800
+    ],
+    "result": "PASS",
+    "primary_direct_review": true,
+    "reviewed_utc": "2026-10-07T01:45:46.680825+00:00",
+    "observation": "Primary directly viewed the final English carousel, main menu and cloud hub after the repair flow returned. Labels, status and navigation controls fit; pixelelated identity is lowercase and no text clipping is visible."
+  },
+  {
+    "file": "02-en_US-original-connection-recovery-main-menu.png",
+    "sha256": "303f023a318f2b86be592c34f61b85fdf6bdb4ce323537cd4afe647425aa0e66",
+    "dimensions": [
+      1280,
+      800
+    ],
+    "result": "PASS",
+    "primary_direct_review": true,
+    "reviewed_utc": "2026-10-07T01:45:46.680970+00:00",
+    "observation": "Primary directly viewed the final English carousel, main menu and cloud hub after the repair flow returned. Labels, status and navigation controls fit; pixelelated identity is lowercase and no text clipping is visible."
+  },
+  {
+    "file": "01-en_US-original-connection-recovery-ssh-setup.png",
+    "sha256": "60f640b68e0e30f7b799c817144eec609975f979a98077aab61c9de75c2b7bb9",
+    "dimensions": [
+      1280,
+      800
+    ],
+    "result": "PASS",
+    "primary_direct_review": true,
+    "reviewed_utc": "2026-10-07T01:45:51.932928+00:00",
+    "observation": "Primary directly viewed all three English terminal-repair steps. Full connection command, synthetic local QA connection details, rclone config instruction and E edit option fit the panel; buttons and help controls remain visible."
+  },
+  {
+    "file": "01-en_US-original-connection-recovery-ssh-connect.png",
+    "sha256": "902a613739c12fb3c87e42bb77dc6d691e66353ea0008eb6daab4da7b2c7edfc",
+    "dimensions": [
+      1280,
+      800
+    ],
+    "result": "PASS",
+    "primary_direct_review": true,
+    "reviewed_utc": "2026-10-07T01:45:51.933077+00:00",
+    "observation": "Primary directly viewed all three English terminal-repair steps. Full connection command, synthetic local QA connection details, rclone config instruction and E edit option fit the panel; buttons and help controls remain visible."
+  },
+  {
+    "file": "01-en_US-original-connection-recovery-repair-instructions.png",
+    "sha256": "ab88fd74bef0a1554b77f97da8f1280f9aef5e42c8236f8776a273f3d79e8f0f",
+    "dimensions": [
+      1280,
+      800
+    ],
+    "result": "PASS",
+    "primary_direct_review": true,
+    "reviewed_utc": "2026-10-07T01:45:51.933219+00:00",
+    "observation": "Primary directly viewed all three English terminal-repair steps. Full connection command, synthetic local QA connection details, rclone config instruction and E edit option fit the panel; buttons and help controls remain visible."
+  },
+  {
+    "file": "01-en_US-original-connection-recovery-retry-owned-move.png",
+    "sha256": "b9636ce12ab6dbc6af32c296c33dad1f154c25bd2f1661bf97b6a27a2b57b0e9",
+    "dimensions": [
+      1280,
+      800
+    ],
+    "result": "PASS",
+    "primary_direct_review": true,
+    "reviewed_utc": "2026-10-07T01:45:57.254486+00:00",
+    "observation": "Primary directly viewed English retry and completed-move screens plus missing-folder and network-refusal controls. Revised retry reassurance is complete, finished destination stays lowercase, missing folder offers creation, and transport failure gives its distinct true reason. Full sentences and buttons fit without clipping."
+  },
+  {
+    "file": "01-en_US-original-connection-recovery-move-finished.png",
+    "sha256": "828c55c0ff075d02c556b2f8fc58dc31853fa8d6c7920a3ac8a6f34e1e4f8bc7",
+    "dimensions": [
+      1280,
+      800
+    ],
+    "result": "PASS",
+    "primary_direct_review": true,
+    "reviewed_utc": "2026-10-07T01:45:57.254574+00:00",
+    "observation": "Primary directly viewed English retry and completed-move screens plus missing-folder and network-refusal controls. Revised retry reassurance is complete, finished destination stays lowercase, missing folder offers creation, and transport failure gives its distinct true reason. Full sentences and buttons fit without clipping."
+  },
+  {
+    "file": "01-en_US-missing-folder-opening-result.png",
+    "sha256": "345793ae90398876d1155e1cbfed9b68aa15c6ecff34716ffb36c67a9889b6f4",
+    "dimensions": [
+      1280,
+      800
+    ],
+    "result": "PASS",
+    "primary_direct_review": true,
+    "reviewed_utc": "2026-10-07T01:45:57.254709+00:00",
+    "observation": "Primary directly viewed English retry and completed-move screens plus missing-folder and network-refusal controls. Revised retry reassurance is complete, finished destination stays lowercase, missing folder offers creation, and transport failure gives its distinct true reason. Full sentences and buttons fit without clipping."
+  },
+  {
+    "file": "01-en_US-network-refusal-opening-result.png",
+    "sha256": "d45cca03e969db4b4c4b5ec5b8e485c03389d2aad2b9cf99e2bcbd9070aaafd3",
+    "dimensions": [
+      1280,
+      800
+    ],
+    "result": "PASS",
+    "primary_direct_review": true,
+    "reviewed_utc": "2026-10-07T01:45:57.254759+00:00",
+    "observation": "Primary directly viewed English retry and completed-move screens plus missing-folder and network-refusal controls. Revised retry reassurance is complete, finished destination stays lowercase, missing folder offers creation, and transport failure gives its distinct true reason. Full sentences and buttons fit without clipping."
+  },
+  {
+    "file": "01-en_US-missing-folder-menu-before.png",
+    "sha256": "0a10cd7a8b1375520f1032fa45792c3e4449986cedbc4830f73b2ecb567b276d",
+    "dimensions": [
+      1280,
+      800
+    ],
+    "result": "PASS",
+    "primary_direct_review": true,
+    "reviewed_utc": "2026-10-07T01:46:03.579082+00:00",
+    "observation": "Primary directly viewed both English control-case carousel, main-menu and cloud-hub sets. All displayed labels, descriptions, status and navigation controls fit at1280x800 with consistent lowercase pixelelated identity."
+  },
+  {
+    "file": "02-en_US-missing-folder-main-menu.png",
+    "sha256": "e296f7ae23748a46c74090808fcb2c4aa4fea093d0523b8c2a476bbfde6121a4",
+    "dimensions": [
+      1280,
+      800
+    ],
+    "result": "PASS",
+    "primary_direct_review": true,
+    "reviewed_utc": "2026-10-07T01:46:03.579224+00:00",
+    "observation": "Primary directly viewed both English control-case carousel, main-menu and cloud-hub sets. All displayed labels, descriptions, status and navigation controls fit at1280x800 with consistent lowercase pixelelated identity."
+  },
+  {
+    "file": "01-en_US-missing-folder-hub.png",
+    "sha256": "a4c9ba9dc6304c5a083e4f018b7bf4b1bab2d36bc3783d138981d94014d38fce",
+    "dimensions": [
+      1280,
+      800
+    ],
+    "result": "PASS",
+    "primary_direct_review": true,
+    "reviewed_utc": "2026-10-07T01:46:03.579340+00:00",
+    "observation": "Primary directly viewed both English control-case carousel, main-menu and cloud-hub sets. All displayed labels, descriptions, status and navigation controls fit at1280x800 with consistent lowercase pixelelated identity."
+  },
+  {
+    "file": "01-en_US-network-refusal-menu-before.png",
+    "sha256": "aa3dc12ec718d69c305b05420f14c03736acfdbe44efe5f57c2787cae3816cc4",
+    "dimensions": [
+      1280,
+      800
+    ],
+    "result": "PASS",
+    "primary_direct_review": true,
+    "reviewed_utc": "2026-10-07T01:46:03.579490+00:00",
+    "observation": "Primary directly viewed both English control-case carousel, main-menu and cloud-hub sets. All displayed labels, descriptions, status and navigation controls fit at1280x800 with consistent lowercase pixelelated identity."
+  },
+  {
+    "file": "02-en_US-network-refusal-main-menu.png",
+    "sha256": "b5eb25b4e27a93c3f631527421bb8ee4115b5b70fa3c1688400ce228b32973e2",
+    "dimensions": [
+      1280,
+      800
+    ],
+    "result": "PASS",
+    "primary_direct_review": true,
+    "reviewed_utc": "2026-10-07T01:46:03.579580+00:00",
+    "observation": "Primary directly viewed both English control-case carousel, main-menu and cloud-hub sets. All displayed labels, descriptions, status and navigation controls fit at1280x800 with consistent lowercase pixelelated identity."
+  },
+  {
+    "file": "01-en_US-network-refusal-hub.png",
+    "sha256": "6bcd2fe428cdc7e092f5106a15bd544da34547e11e93ee2da8534b2a7c35b7e5",
+    "dimensions": [
+      1280,
+      800
+    ],
+    "result": "PASS",
+    "primary_direct_review": true,
+    "reviewed_utc": "2026-10-07T01:46:03.579673+00:00",
+    "observation": "Primary directly viewed both English control-case carousel, main-menu and cloud-hub sets. All displayed labels, descriptions, status and navigation controls fit at1280x800 with consistent lowercase pixelelated identity."
+  },
+  {
+    "file": "fr_FR-outer-timeout-timeout-card-0.png",
+    "sha256": "93103f888c22847f8943a3cfd96d101cab6528c8558e7fa8f895f2ca780ca770",
+    "dimensions": [
+      1280,
+      800
+    ],
+    "result": "PASS",
+    "primary_direct_review": true,
+    "reviewed_utc": "2026-10-07T01:46:35.261439+00:00",
+    "observation": "Primary directly viewed both fully displayed French timeout cards. Full took-too-long reason and startup/manual retry guidance fit1280x800 without clipping; these two frames establish full text fit before dismissal."
+  },
+  {
+    "file": "fr_FR-outer-timeout-timeout-card-1.png",
+    "sha256": "93103f888c22847f8943a3cfd96d101cab6528c8558e7fa8f895f2ca780ca770",
+    "dimensions": [
+      1280,
+      800
+    ],
+    "result": "PASS",
+    "primary_direct_review": true,
+    "reviewed_utc": "2026-10-07T01:46:35.261605+00:00",
+    "observation": "Primary directly viewed both fully displayed French timeout cards. Full took-too-long reason and startup/manual retry guidance fit1280x800 without clipping; these two frames establish full text fit before dismissal."
+  },
+  {
+    "file": "fr_FR-outer-timeout-timeout-card-2.png",
+    "sha256": "70448a26de2a0d028e676b80d242684f627fdf9ce06af478f79b2cc62e9544c1",
+    "dimensions": [
+      1280,
+      800
+    ],
+    "result": "PASS",
+    "primary_direct_review": true,
+    "reviewed_utc": "2026-10-07T01:46:45.770779+00:00",
+    "observation": "Primary directly viewed normal French card dismissal: the card is moving above the panel edge after its five-second hold. Outcome stamp01:46:18 and captures01:46:20.207/22.072/23.933 match the existing close/fade behavior. This transition is not full-text-fit evidence; frames0/1 establish that."
+  },
+  {
+    "file": "01-fr_FR-original-connection-recovery-opening-result.png",
+    "sha256": "80ea5ddc2e6a36c3ab724c71b81c6fdb8ca5eae99f924c66fb4663fe972b7f46",
+    "dimensions": [
+      1280,
+      800
+    ],
+    "result": "PASS",
+    "primary_direct_review": true,
+    "reviewed_utc": "2026-10-07T01:47:41.601845+00:00",
+    "observation": "Primary directly viewed the full French original-connection refusal. The complete reason, unchanged-state reassurance, elapsed indicator and close/retry controls fit1280x800 without truncation."
+  },
+  {
+    "file": "01-fr_FR-original-connection-recovery-menu-before.png",
+    "sha256": "8530948159ce177a0ce366eb2df31d8e217da4251268c231e3729f273144923c",
+    "dimensions": [
+      1280,
+      800
+    ],
+    "result": "PASS",
+    "primary_direct_review": true,
+    "reviewed_utc": "2026-10-07T01:48:20.640952+00:00",
+    "observation": "Primary directly viewed the final French carousel, main menu and cloud hub after the second hub entry. Labels, status descriptions and navigation controls fit1280x800; pixelelated identity stays lowercase."
+  },
+  {
+    "file": "02-fr_FR-original-connection-recovery-main-menu.png",
+    "sha256": "411abe83a40f0db1405abe03793e08d6f4b3f24fa7d4366e9c47ea7f3b7502d8",
+    "dimensions": [
+      1280,
+      800
+    ],
+    "result": "PASS",
+    "primary_direct_review": true,
+    "reviewed_utc": "2026-10-07T01:48:20.641135+00:00",
+    "observation": "Primary directly viewed the final French carousel, main menu and cloud hub after the second hub entry. Labels, status descriptions and navigation controls fit1280x800; pixelelated identity stays lowercase."
+  },
+  {
+    "file": "01-fr_FR-original-connection-recovery-hub.png",
+    "sha256": "f35f088eda67b268232b0797126c0f8ef779982ade0d9234f1368f8b0ba1af1c",
+    "dimensions": [
+      1280,
+      800
+    ],
+    "result": "PASS",
+    "primary_direct_review": true,
+    "reviewed_utc": "2026-10-07T01:48:20.641250+00:00",
+    "observation": "Primary directly viewed the final French carousel, main menu and cloud hub after the second hub entry. Labels, status descriptions and navigation controls fit1280x800; pixelelated identity stays lowercase."
+  },
+  {
+    "file": "01-fr_FR-original-connection-recovery-connect-repair-row.png",
+    "sha256": "e8ce02e01a3936ce99c8706cf35b6b884c3eabb2df966622746be60cd4aa0fb7",
+    "dimensions": [
+      1280,
+      800
+    ],
+    "result": "PASS",
+    "primary_direct_review": true,
+    "reviewed_utc": "2026-10-07T01:48:41.979148+00:00",
+    "observation": "Primary directly viewed the French connect/repair selection, provider list and computer setup page. Selected labels, connection and cloud path, complete description and navigation controls fit the panel."
+  },
+  {
+    "file": "02-fr_FR-original-connection-recovery-providers.png",
+    "sha256": "c422f8eab3767c7df437a7ab952a66c04395dbd358341f210aa7996498af97f3",
+    "dimensions": [
+      1280,
+      800
+    ],
+    "result": "PASS",
+    "primary_direct_review": true,
+    "reviewed_utc": "2026-10-07T01:48:41.979290+00:00",
+    "observation": "Primary directly viewed the French connect/repair selection, provider list and computer setup page. Selected labels, connection and cloud path, complete description and navigation controls fit the panel."
+  },
+  {
+    "file": "01-fr_FR-original-connection-recovery-computer-setup.png",
+    "sha256": "e860010c0b80c2457891615beb39aa36cc2b90b326e9e0c5cb5088413d8eb8f0",
+    "dimensions": [
+      1280,
+      800
+    ],
+    "result": "PASS",
+    "primary_direct_review": true,
+    "reviewed_utc": "2026-10-07T01:48:41.979452+00:00",
+    "observation": "Primary directly viewed the French connect/repair selection, provider list and computer setup page. Selected labels, connection and cloud path, complete description and navigation controls fit the panel."
+  },
+  {
+    "file": "01-fr_FR-original-connection-recovery-ssh-setup.png",
+    "sha256": "c800c445a2d5cd85326bf6d6d6a16abc7980abaa67431aec74aef2898628a585",
+    "dimensions": [
+      1280,
+      800
+    ],
+    "result": "PASS",
+    "primary_direct_review": true,
+    "reviewed_utc": "2026-10-07T01:49:07.480889+00:00",
+    "observation": "Primary directly viewed all three French repair steps. Full SSH guidance and command fit, and the formerly clipped rclone config / E edit instruction is now complete. All four terminal instructions and both navigation buttons are visible at1280x800."
+  },
+  {
+    "file": "01-fr_FR-original-connection-recovery-ssh-connect.png",
+    "sha256": "9c20a6a097327743590cb8f30e36a9b0b46ad75e730a5efb3e173e138b6aae52",
+    "dimensions": [
+      1280,
+      800
+    ],
+    "result": "PASS",
+    "primary_direct_review": true,
+    "reviewed_utc": "2026-10-07T01:49:07.481037+00:00",
+    "observation": "Primary directly viewed all three French repair steps. Full SSH guidance and command fit, and the formerly clipped rclone config / E edit instruction is now complete. All four terminal instructions and both navigation buttons are visible at1280x800."
+  },
+  {
+    "file": "01-fr_FR-original-connection-recovery-repair-instructions.png",
+    "sha256": "3cc5185f6d585355eeaf25745d6461476f936003ac46b6d5b6e07b1d91acfd1b",
+    "dimensions": [
+      1280,
+      800
+    ],
+    "result": "PASS",
+    "primary_direct_review": true,
+    "reviewed_utc": "2026-10-07T01:49:07.481194+00:00",
+    "observation": "Primary directly viewed all three French repair steps. Full SSH guidance and command fit, and the formerly clipped rclone config / E edit instruction is now complete. All four terminal instructions and both navigation buttons are visible at1280x800."
+  },
+  {
+    "file": "01-fr_FR-original-connection-recovery-retry-owned-move.png",
+    "sha256": "8330a143626454edacf07d27f1a104570e2ffee66f95674f20ce9a2b76d928f4",
+    "dimensions": [
+      1280,
+      800
+    ],
+    "result": "PASS",
+    "primary_direct_review": true,
+    "reviewed_utc": "2026-10-07T01:49:34.812213+00:00",
+    "observation": "Primary directly viewed the French revised retry prompt and completed move. Both complete sentences and R\u00c9ESSAYER/PAS MAINTENANT fit, kept-files reassurance precedes the question, and the successful destination remains /pixelelated with completion controls visible."
+  },
+  {
+    "file": "01-fr_FR-original-connection-recovery-move-finished.png",
+    "sha256": "b1d21755758c3bf6f98fb714f479573501c36a58e2481d3f7260b3d32939f019",
+    "dimensions": [
+      1280,
+      800
+    ],
+    "result": "PASS",
+    "primary_direct_review": true,
+    "reviewed_utc": "2026-10-07T01:49:34.812302+00:00",
+    "observation": "Primary directly viewed the French revised retry prompt and completed move. Both complete sentences and R\u00c9ESSAYER/PAS MAINTENANT fit, kept-files reassurance precedes the question, and the successful destination remains /pixelelated with completion controls visible."
+  },
+  {
+    "file": "01-fr_FR-missing-folder-menu-before.png",
+    "sha256": "ad4dc4fcd629770da718ec95f8239ac0f188ff7f1c1d701e3a934f7f0e365f7d",
+    "dimensions": [
+      1280,
+      800
+    ],
+    "result": "PASS",
+    "primary_direct_review": true,
+    "reviewed_utc": "2026-10-07T01:50:38.998114+00:00",
+    "observation": "Primary directly viewed all four French missing-folder frames. The actual absence offers creation, choosing another folder or postponement; complete text, path and all three buttons fit. Main-menu, cloud-hub and carousel labels/navigation are visible."
+  },
+  {
+    "file": "02-fr_FR-missing-folder-main-menu.png",
+    "sha256": "6e1c7fba7bd7fa63cf907bf2130f18c444762405ff55bb21faaaf9ccd5d8cae6",
+    "dimensions": [
+      1280,
+      800
+    ],
+    "result": "PASS",
+    "primary_direct_review": true,
+    "reviewed_utc": "2026-10-07T01:50:38.998278+00:00",
+    "observation": "Primary directly viewed all four French missing-folder frames. The actual absence offers creation, choosing another folder or postponement; complete text, path and all three buttons fit. Main-menu, cloud-hub and carousel labels/navigation are visible."
+  },
+  {
+    "file": "01-fr_FR-missing-folder-hub.png",
+    "sha256": "71e3eb08644d177e5976f693165035c68ffd0d1bb2c2541bc93df36e210c2dc3",
+    "dimensions": [
+      1280,
+      800
+    ],
+    "result": "PASS",
+    "primary_direct_review": true,
+    "reviewed_utc": "2026-10-07T01:50:38.998390+00:00",
+    "observation": "Primary directly viewed all four French missing-folder frames. The actual absence offers creation, choosing another folder or postponement; complete text, path and all three buttons fit. Main-menu, cloud-hub and carousel labels/navigation are visible."
+  },
+  {
+    "file": "01-fr_FR-missing-folder-opening-result.png",
+    "sha256": "65f026cb99f88d7c74ddd943740ed2a7d2fc963ed8fb3194a3f955764f092add",
+    "dimensions": [
+      1280,
+      800
+    ],
+    "result": "PASS",
+    "primary_direct_review": true,
+    "reviewed_utc": "2026-10-07T01:50:38.998510+00:00",
+    "observation": "Primary directly viewed all four French missing-folder frames. The actual absence offers creation, choosing another folder or postponement; complete text, path and all three buttons fit. Main-menu, cloud-hub and carousel labels/navigation are visible."
+  },
+  {
+    "file": "01-fr_FR-network-refusal-menu-before.png",
+    "sha256": "9b9572ccafea5ebd414a5863fbfe67f92f0aa6d40b4375c73f4d70c530710aa1",
+    "dimensions": [
+      1280,
+      800
+    ],
+    "result": "PASS",
+    "primary_direct_review": true,
+    "reviewed_utc": "2026-10-07T01:50:57.840170+00:00",
+    "observation": "Primary directly viewed all four French network-refusal frames. Actual refusal says the cloud stopped answering and nothing changed, with close/retry controls fully visible. It is distinct from the missing-folder creation offer; all navigation and menu labels fit1280x800."
+  },
+  {
+    "file": "02-fr_FR-network-refusal-main-menu.png",
+    "sha256": "011c853bcfd59dc5ed493112a4baf6286e6ffa79920bc098b7e6cc128bc1c98d",
+    "dimensions": [
+      1280,
+      800
+    ],
+    "result": "PASS",
+    "primary_direct_review": true,
+    "reviewed_utc": "2026-10-07T01:50:57.840349+00:00",
+    "observation": "Primary directly viewed all four French network-refusal frames. Actual refusal says the cloud stopped answering and nothing changed, with close/retry controls fully visible. It is distinct from the missing-folder creation offer; all navigation and menu labels fit1280x800."
+  },
+  {
+    "file": "01-fr_FR-network-refusal-hub.png",
+    "sha256": "aaf34d64d86fff7d9ded052b334114e6ffb97bc16a7552345f45ca3644f742ae",
+    "dimensions": [
+      1280,
+      800
+    ],
+    "result": "PASS",
+    "primary_direct_review": true,
+    "reviewed_utc": "2026-10-07T01:50:57.840468+00:00",
+    "observation": "Primary directly viewed all four French network-refusal frames. Actual refusal says the cloud stopped answering and nothing changed, with close/retry controls fully visible. It is distinct from the missing-folder creation offer; all navigation and menu labels fit1280x800."
+  },
+  {
+    "file": "01-fr_FR-network-refusal-opening-result.png",
+    "sha256": "37b0e1e23dca7a063740adc26321ee39388ba2c8569cb822409c3fde1daf6e40",
+    "dimensions": [
+      1280,
+      800
+    ],
+    "result": "PASS",
+    "primary_direct_review": true,
+    "reviewed_utc": "2026-10-07T01:50:57.840530+00:00",
+    "observation": "Primary directly viewed all four French network-refusal frames. Actual refusal says the cloud stopped answering and nothing changed, with close/retry controls fully visible. It is distinct from the missing-folder creation offer; all navigation and menu labels fit1280x800."
+  }
+]
