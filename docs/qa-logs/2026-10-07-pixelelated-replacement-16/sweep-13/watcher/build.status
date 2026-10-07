@@ -1,0 +1,13 @@
+state:       finished
+written:     2026-10-07 00:31:23 UTC   <- terminal result; heartbeat stops here
+watcher_pid: 68139
+job_pid:     68138  alive=yes
+started:     2026-10-07 00:31:07 UTC
+progress:    none matched
+log:         /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261007T003107Z-e4aa54a1/build.log  (last written 3s ago)
+activity:    /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261007T003107Z-e4aa54a1/build.log  (last written 3s ago)
+activity_dir: /workspace/tmp/pixelelated-m7-sweep-13/artifacts
+outcome:     rc=1
+tail:
+                               output=stdout, stderr=stderr)
+  subprocess.CalledProcessError: Command '['python3', '-I', '-u', '/workspace/tmp/pixelelated-m7-sweep-13/scan-artifact.py', '--root

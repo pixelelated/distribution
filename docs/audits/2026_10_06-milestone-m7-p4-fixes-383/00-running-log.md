@@ -1120,3 +1120,72 @@ credential is needed. Ten#168 upstream drafts remain unsubmitted.
 Evidence: `docs/qa-logs/2026-10-07-pixelelated-replacement-16/` (local preparation;
 publication receipt will identify the committed refs). Source and older results:
 `docs/audits/2026_10_06-milestone-m7-p4-fixes-383/`.
+
+
+## Current execution — 2026-10-07 00:29 UTC
+
+Both approved Fable audit calls and grading are complete. Phase 7 remains open:
+PL-002/006/007/008 are resolved; PL-001/003/004/005 await candidate 16 installed
+acceptance in #471. The interruption-copy refinement #482 is included at ES
+`72494bc72e3d64d4dcfeb4e6478052bbdf166c5b`.
+
+Candidate 16 built successfully: 642/642 tasks, all four result channels zero,
+source/input seals verified, and its container and worker processes exited.
+Distribution: `ee014909137e03706e0b3020b8396be589aaa705`.
+Immutable bundle: `7f98f2d22985d11fe9c150015457894caf460104c9ce44abd16074167f23815a`.
+Disk-image and update SYSTEM payloads are byte-identical:
+`5767ee7d72f3c538259ee927ad681c63533d661997b64e6beac9d83fdc70812c`.
+Primary verification completed at 00:25:38 (build), 00:26:39 (store), and
+00:28:45 (image extraction). These checks do not establish VM acceptance.
+
+The 85-case installed matrix started at 00:28:54 under
+`/workspace/tmp/pixelelated-m7-p4-build16-installed-matrix-01`, launcher 57723,
+watcher 57725, run `20261007T002854Z-d1d7980f`. Two isolated QA guests are running.
+The primary actively consumes the watcher result; disconnected alerts remain #395.
+
+The exact approved two-disk retirement is complete: 10,713,485,312 bytes recovered,
+all other evidence and protected sources preserved. No broader cleanup or reserve
+change was made or is authorized. The fixed swap helper passed before the build.
+
+**Next:** installed matrix → historical shelf and actual interrupted-file UI retry /
+next-backup preservation → English/French recovery/reason/interruption frames at
+640×480 and 1280×800 → full clean/actual RC2-upgrade QA20 and final artifact scans →
+#471/P4 closure → #461 device capacity review → H700 DDR4 RG35XX SP arm, then
+aarch64 → named physical/P5 gates. #478/#479/#482 remain open until acceptance.
+No new RA reset or Dropbox credential is needed. Ten #168 upstream drafts remain
+unsubmitted. No release-candidate designation or device-readiness claim yet.
+
+Evidence: `docs/qa-logs/2026-10-07-pixelelated-replacement-16/`; source and earlier
+results: `docs/audits/2026_10_06-milestone-m7-p4-fixes-383/`.
+
+
+## 00:39 UTC — #485 unchanged-state collision proof passes; historical shelves active
+
+The original matrix completed85 cases:84 PASS/1 FAIL. Primary00:37:46 verified
+all four results1,212 seals and actual guest/backend/port cleanup. Fresh collision01
+passes T23 twice with every cloud/config/pointer byte unchanged and no recovery
+record, then rejects the actual candidate15 migration script with that same
+predicate. The old control reaches the intended refusal and retains all original
+bytes while demonstrating tier advancement and record creation. Installed binaries
+stay unchanged. Primary00:39:10 verified allfour0,212 seals and actual cleanup.
+No original failed result is relabeled; acceptance is84 cases plus one requalified
+case. The coordination QA tool now carries the corrected observer; frozen16 is
+unchanged. Fresh historical-shelf01 is active under watcher117695, run20261007T003914Z-a75b63e3.
+
+Final scan15/inventory12 are complete. #484 records the fixture/classification
+corrections; #485 records the stale T23 invariant. Product audit findings remain
+open for historical recovery and direct bilingual UI acceptance.
+
+
+## 00:41 UTC — #471/#478 three actual historical shelves pass; partial-copy UI active
+
+Historical-shelf01 passes all3 cases: actual RC2-complete /GAMES-replaced,
+record-copy and record-delete. All original saves, settings, content and discarded
+saves arrive at current roots; no recovery record remains; repeated apply changes
+no cloud/config/pointer hash. Primary00:41:06 verified allfour0,211 seals and
+actual guest/backend/port cleanup. No source modification or replacement image.
+
+Fresh partial-retry640 is active under watcher128767, run20261007T004110Z-e8f0e007, for the
+actual truncated-file kill, UI retry and next-backup shelf in English/French.
+Its direct screen review remains due. All four audit findings stay open until
+their complete rebuilt acceptance is verified.

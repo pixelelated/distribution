@@ -1,0 +1,33 @@
+{
+  "utc": "2026-10-07T00:23:17.495939+00:00",
+  "container_id": "c73051801494a2c3a405f29b7b0f71aa45ecc3f7fe9e4e55edf4158ab02d6a1d",
+  "image": "sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39",
+  "state": {
+    "running": true,
+    "pid": 4102226,
+    "started": "2026-10-07T00:22:27.484288708Z"
+  },
+  "mounts": [
+    {
+      "source": "/home/max/.ROCKNIX/options",
+      "destination": "/home/max/.ROCKNIX/options",
+      "rw": true
+    },
+    {
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement16",
+      "destination": "/workspace/repos/rocknix.worktrees/m7-pixelelated",
+      "rw": true
+    },
+    {
+      "source": "/workspace/repos/rocknix/.git",
+      "destination": "/workspace/repos/rocknix/.git",
+      "rw": true
+    },
+    {
+      "source": "/workspace/cache/rocknix-sources",
+      "destination": "/workspace/repos/rocknix.worktrees/m7-pixelelated/sources",
+      "rw": true
+    }
+  ],
+  "scope": "Exact running candidate16 container only; environment and unrelated services omitted."
+}

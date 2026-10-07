@@ -324,3 +324,9 @@ QA08 reached correct initial identity/Information but generic dismiss/reopen/cou
 - 2026-10-07 00:10 UTC — issue: #254; guard `tools/ceremony-check`. W40 summary was missing at the new-day gate. Restored it from September28–October4 logs before the next push; network-restricted checker output is not a live provider result.
 
 - 2026-10-07 00:13 UTC — issue: #483. Duplicating the raw candidate input inventory into Git matched two upstream filenames in the normal credential guard. Keep exact inputs in runtime/candidate custody and publish their digest/count/location receipt; retain the failed owner and retry without guard changes.
+
+- 2026-10-07 00:35 UTC — issue: #484; guard `docs/qa-logs/2026-10-07-pixelelated-replacement-16/preparation/prepare-build16-final-scans-corrected.py`. New-owner preparation omitted a consumed context fixture; the next scan also required explicit classification of two new historical source comments and one retained documentary XML file. Fresh sealed owners preserve failed receipts; scan15 passes without broad exclusions or changed product bytes.
+
+- 2026-10-07 00:37 UTC — issue: #485; guard `tools/pixelelated-vm-cloud-boundaries`. The old T23 observer required partial saves/record writes on a foreign-content refusal, contradicting #479's earlier refusal. The corrected case asserts all original state unchanged across two attempts; a fresh installed check includes an actual old-source negative control.
+
+- 2026-10-07 00:40 UTC — issue: #484; guard `.githooks/pre-commit`. Newly retained copy helpers contained literal private-key rejection markers. The normal guard refused before commit; preserve that failure and construct the same marker bytes at runtime under the existing fixture rule. No exemption.

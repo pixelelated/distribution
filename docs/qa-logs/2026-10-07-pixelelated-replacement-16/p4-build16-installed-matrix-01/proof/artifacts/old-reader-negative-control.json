@@ -1,0 +1,27 @@
+{
+  "corrected_scan": {
+    "COUNT": "1",
+    "LABEL": "GENERIC-X64",
+    "MINE": "2026_10_06-120000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz",
+    "NEWEST": "2026_10_06-120000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz",
+    "SOURCE": "qa-cloud:/Custom/My$Backups/GENERIC-X64-15ca35b6b4"
+  },
+  "expected": {
+    "expected_archive": "2026_10_06-120000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz",
+    "expected_directory": "/Custom/My$Backups",
+    "scan": {
+      "COUNT": "1",
+      "LABEL": "GENERIC-X64",
+      "MINE": "2026_10_06-120000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz",
+      "NEWEST": "2026_10_06-120000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz",
+      "SOURCE": "qa-cloud:/Custom/My$Backups/GENERIC-X64-15ca35b6b4"
+    },
+    "wrong_archive": "2026_10_06-130000-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz",
+    "wrong_directory": "/Custom/My\\$Backups"
+  },
+  "old_rc": 1,
+  "old_scan": {},
+  "ref": "7afa9efcfc0c1ce4b89774b38878fc1b9a9063d2",
+  "scope": "Actual predecessor scanner in a private guest QA path; installed binaries remain unchanged. This is not an old installed image.",
+  "source_sha256": "29dd9da8a9dafa3433013c2b433a40d0c10b7fb0435e6f281000f3465077502f"
+}

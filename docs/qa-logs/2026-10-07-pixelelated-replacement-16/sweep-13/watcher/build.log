@@ -1,0 +1,47 @@
+/workspace/tmp/pixelelated-m7-sweep-13/allowlist.json: OK
+/workspace/tmp/pixelelated-m7-sweep-13/check-controls.py: OK
+/workspace/tmp/pixelelated-m7-sweep-13/context-controls.py: OK
+/workspace/tmp/pixelelated-m7-sweep-13/context-review.json: OK
+/workspace/tmp/pixelelated-m7-sweep-13/outer.sh: OK
+/workspace/tmp/pixelelated-m7-sweep-13/parse-theme.cpp: OK
+/workspace/tmp/pixelelated-m7-sweep-13/provenance.json: OK
+/workspace/tmp/pixelelated-m7-sweep-13/reconcile-locales.py: OK
+/workspace/tmp/pixelelated-m7-sweep-13/run.py: OK
+/workspace/tmp/pixelelated-m7-sweep-13/scan-artifact.py: OK
+/workspace/tmp/pixelelated-m7-sweep-13/secret-patterns: OK
+/workspace/tmp/pixelelated-m7-sweep-13/verify-inputs.py: OK
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/7f98f2d22985d11fe9c150015457894caf460104c9ce44abd16074167f23815a
+PASS 21 exact contexts and 63 negative controls
+PASS 10 artifact sweep controls; no matching value printed
+Progress: read 10000 regular files
+Progress: read 20000 regular files
+Progress: read 30000 regular files
+Progress: read 40000 regular files
+Progress: read 50000 regular files
+{"counts": {"brand_FIX": 0, "brand_KEEP": 8604, "brand_UNKNOWN": 2, "brand_contexts": 8606, "brand_occurrences": 9635, "bytes_read": 6806495643, "credential_pattern_files": 20, "credential_pattern_matches": 70, "legacy_file_paths": 40, "legacy_symlink_paths": 23, "regular_files": 57295, "reviewed_public_pattern_matches": 70, "symlinks": 1345, "unclassified_credential_pattern_matches": 0}, "pass": false}
+/workspace/tmp/pixelelated-m7-sweep-13/allowlist.json: OK
+/workspace/tmp/pixelelated-m7-sweep-13/check-controls.py: OK
+/workspace/tmp/pixelelated-m7-sweep-13/context-controls.py: OK
+/workspace/tmp/pixelelated-m7-sweep-13/context-review.json: OK
+/workspace/tmp/pixelelated-m7-sweep-13/outer.sh: OK
+/workspace/tmp/pixelelated-m7-sweep-13/parse-theme.cpp: OK
+/workspace/tmp/pixelelated-m7-sweep-13/provenance.json: OK
+/workspace/tmp/pixelelated-m7-sweep-13/reconcile-locales.py: OK
+/workspace/tmp/pixelelated-m7-sweep-13/run.py: OK
+/workspace/tmp/pixelelated-m7-sweep-13/scan-artifact.py: OK
+/workspace/tmp/pixelelated-m7-sweep-13/secret-patterns: OK
+/workspace/tmp/pixelelated-m7-sweep-13/verify-inputs.py: OK
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/7f98f2d22985d11fe9c150015457894caf460104c9ce44abd16074167f23815a
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-sweep-13/run.py", line 32, in <module>
+    call(['python3','-I','-u',owner/'scan-artifact.py','--root',root,'--allowlist',owner/'allowlist.json','--patterns',owner/'secret-patterns','--output',owner/'artifacts/artifact-report.json'])
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tmp/pixelelated-m7-sweep-13/run.py", line 14, in call
+    def call(args,cwd=tree): subprocess.run([str(x) for x in args],cwd=cwd,check=True)
+                             ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['python3', '-I', '-u', '/workspace/tmp/pixelelated-m7-sweep-13/scan-artifact.py', '--root', '/workspace/tmp/pixelelated-m7-image-16/root', '--allowlist', '/workspace/tmp/pixelelated-m7-sweep-13/allowlist.json', '--patterns', '/workspace/tmp/pixelelated-m7-sweep-13/secret-patterns', '--output', '/workspace/tmp/pixelelated-m7-sweep-13/artifacts/artifact-report.json']' returned non-zero exit status 1.

@@ -1,0 +1,4 @@
+✖ pre-commit: this commit would add a credential-shaped line:
+    docs/qa-logs/2026-10-07-pixelelated-replacement-16/preparation/retain-host16-owner.py:20: +  assert b'[REDACTED]-----' not in p.read_bytes()
+    docs/qa-logs/2026-10-07-pixelelated-replacement-16/preparation/retain-vm16-owner.py:30: +        assert not any(marker in b for marker in [b'[REDACTED]-----',b'[REDACTED]-----']),str(p)
+  A placeholder belongs in <angle brackets>; a scanner's fixture is built at run time (printf pieces), never written as a literal; a listed word is reworded, never exempted.

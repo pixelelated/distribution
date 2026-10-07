@@ -13,8 +13,9 @@ for cid in containers:
  info=json.loads(subprocess.check_output(['docker','inspect',cid],text=True))[0]
  if any(m.get('Source')==str(tree) for m in info.get('Mounts',[])):matching.append(cid)
 assert not matching,matching
+observed=json.loads((owner/'container-observed.json').read_text());assert observed['container_id'] not in containers,observed['container_id']
 changed=subprocess.check_output(['git','status','--porcelain'],cwd=tree,text=True).splitlines();allowed='documentation/PER_DEVICE_DOCUMENTATION/GENERIC_X64/SUPPORTED_EMULATORS_AND_CORES.md';assert all(l[3:]==allowed for l in changed),changed
 log=(owner/'console.log').read_text();assert '[642/642]' in log and 'PASS repaired installed scripts and rebuilt ES; unchanged sign-in window' in log
-receipt=dict(verified_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),result='PASS',channels=channels,pids_absent=pids,containers_with_frozen_tree_mount=matching,manifest_sha256=hashlib.sha256((owner/'inputs.json').read_bytes()).hexdigest(),harness_sha256=hashlib.sha256((owner/'harness.sha256').read_bytes()).hexdigest(),generated_tracked_changes=changed,launcher_result=json.loads((owner/'launcher-result.json').read_text()),verification_note='Actual Docker inventory has no container mounting the frozen16 worktree; all source seals and owner exits verified.')
+receipt=dict(verified_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),result='PASS',channels=channels,pids_absent=pids,container_absent=observed['container_id'],containers_with_frozen_tree_mount=matching,manifest_sha256=hashlib.sha256((owner/'inputs.json').read_bytes()).hexdigest(),harness_sha256=hashlib.sha256((owner/'harness.sha256').read_bytes()).hexdigest(),generated_tracked_changes=changed,launcher_result=json.loads((owner/'launcher-result.json').read_text()),verification_note='Actual Docker inventory has no container mounting the frozen16 worktree; all source seals and owner exits verified.')
 with (owner/'completion.json').open('x') as f:json.dump(receipt,f,indent=2);f.write('\n')
 print(json.dumps(receipt))

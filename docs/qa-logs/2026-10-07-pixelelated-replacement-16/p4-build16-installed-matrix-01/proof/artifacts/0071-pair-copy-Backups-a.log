@@ -1,0 +1,21 @@
+This device stores:
+  saves    qa-cloud:/ROCKNIX/Saves
+  backups  qa-cloud:/ROCKNIX/Backups
+
+The current layout is:
+  saves    qa-cloud:/pixelelated/Saves
+  backups  qa-cloud:/pixelelated/Backups
+
+Would move, server-side, leaving anything else where it is:
+  qa-cloud:/ROCKNIX/Backups  ->  qa-cloud:/pixelelated/Backups
+  qa-cloud:/ROCKNIX/Saves  ->  qa-cloud:/pixelelated/Saves
+  qa-cloud:/ROCKNIX/Saves-replaced  ->  qa-cloud:/pixelelated/Saves-replaced
+  qa-cloud:/ROCKNIX/Content  ->  qa-cloud:/pixelelated/Content
+
+>>> unit SETTINGS BACKUPS|1|4
+Copying backups...
+>>> doing copy
+injected local QA provider refusal
+injected local QA provider refusal
+Couldn't finish copying backups. Nothing was removed from the old folder; some files may already be in the new one.
+Nothing else attempted.
