@@ -17,7 +17,7 @@ only named active/immediately queued tests justify a hold; preserve compact
 records and required source/licence material. Requested policy edit is already
 published; no unrelated instruction edit is needed.
 
-## Running now — 2026-10-07T07:29:42.801417+00:00
+## Running now — 2026-10-07T06:52:57.096060+00:00
 
 **H700 aarch64 firmware is BUILDING.** Frozen tree:
 /workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01,
@@ -64,8 +64,7 @@ Read existing owner-verification.json rather than rerunning exclusive writes.
 2. Accept actual firmware/source/ARM-handoff proof; #497 remains open until it.
 3. Remeasure capacity and prepare a separate frozen SM8550 tree from qualified
    product inputs; build/verify it as already authorized. No SM8550 compiler or
-   tree has been started at this checkpoint; the gated controller below can
-   start them after H700 acceptance. Inspect its actual state before acting. Do not wait for physical H700 testing to
+   tree has been started in this turn. Do not wait for physical H700 testing to
    begin SM8550 compilation. Stage budget347,688,935,424bytes (323.81GiB).
 4. Device/P5 gates remain: named physical adoption/smoke actions, corresponding
    source,14 known source/licence metadata gaps, public docs and manifest-bound
@@ -95,8 +94,7 @@ The repository executor now checks every target is covered by administrator
 roots; eight isolated controls pass. Its correction is a different script hash
 from the executed owner. No further deletion is inferred. The initial marker
 attempt failed before writes; the corrected markers use loose files' parent.
-#498 is closed: the correction and limitation are published to next with both
-exact-head checks passing. No additional payload was removed.
+#498 can close once the correction and limitation are published to next.
 
 The actual root receipt is at
 /workspace/tmp/pixelelated-m7-broad-root-readback-01/root-process-readback.json:
@@ -144,55 +142,22 @@ Tobu15738/achievement100359 award/flush and125-game proof complete; no reset or
 Dropbox check owed. Later work#432 FOSS observability,#464 RA automation,#395
 disconnected alerts. A watcher records locally; it is not an off-session alert.
 
-## Continuous device handoff — #492
-
-Prepared owner /workspace/tmp/pixelelated-m7-sm8550-sequence-01. Publication
-precedes launch; inspect controller-start.json/state.json/controller-result.json
-and actual PID before assuming it is running. Never launch a duplicate. The
-source and controls are in docs/qa-logs/2026-10-07-device-builds/sm8550-preparation01/.
-Controller semantics: a standard watched waiter consumes H700 artifact acceptance
-and verifies actual process exits; only then does prepare.py create a fresh
-build/m7-pixelelated-sm8550-01 checkout from published next, with product bytes
-equal to H700, full input hashes and enough measured capacity. Guarded swap
-preflight runs while watched stages are stopped. It submits the canonical
-SM8550 Docker build (ARM compatibility, then aarch64), captures actual container
-and mounts, and submits independent artifact acceptance. #492/M7 get live
-readback updates. The controller heartbeat is local; no off-session chat alert.
-
-Stage paths:
-- /workspace/tmp/pixelelated-m7-sm8550-wait-h700-01 (prepared)
-- /workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01 (not created yet)
-- /workspace/tmp/pixelelated-m7-sm8550-build-01 (created after H700 acceptance)
-- /workspace/tmp/pixelelated-m7-sm8550-acceptance-01 (created before submission)
-
-All stages use normal watchers and exclusive result verification; the outer
-controller only orchestrates them and has its own state/result. If it fails,
-read the exact failed owner and preserve it. Do not reset or blindly replay
-stages. A failed tracker write does not abandon an active compiler; its error
-is retained separately. SM8550 proof covers GPT, ABL files, raw/update payloads,
-installed architecture/identity and ARM handoff. These templates have not yet
-accepted actual SM8550 artifacts. Four sequence controls and three container
-recorder controls pass. No device flashing or release claim is inferred.
-
 ## Publication/checkpoint
 
-Cleanup-completion publication16-retry01 is accepted on next
-9e8cfeff855be64fa85ee84a0a9225e260462f1d, featurec1bd20406a0c54e3959f10fcf5ba2c85a241195d,
-with four0/514seals/exits and both exact-next-head checks passing. Initial16
-failed before staging because its preparer used the primary path; preserved.
-The combined cleanup16-ci-01 owner is FAILED, not passed: it found two old
-feature-only archive lines absent from next. #499 corrected exactly those two
-lines; feature-only normal-hook commitfe471bde1ca154f7147a2d9f2468ac03bb4c83f2,
-full local scan and exact-head hosted37586286848 pass. Both publication and
-CI owners have verified exits. #498/#499 are closed with explicit evidence.
-No product or instruction changed, and next never received those extra archives.
+M7 and#492/#493/#494 now reflect completed cleanup → running H700 firmware →
+SM8550; exact live readbacks are in
+/workspace/tmp/pixelelated-m7-cleanup-completed-tracker-01.
+Previous publication15 is accepted:
+feature194a69f6dbaa40fce5617586f265421dfa548f30,
+next e7af80c92e4af66c048ed3c2bef4ad0d8f85abb6,
+both hosted checks passed. The new checked cleanup-completion publication owner
+is /workspace/tmp/pixelelated-m7-cleanup-build-publication-16-retry01; its actual
+publication.json/owner-verification.json will give new heads. CI follow-up
+/workspace/tmp/pixelelated-m7-cleanup16-ci-01 must be consumed on that exact head.
+The initial publication16 stopped before staging because its preparer used the
+primary directory to locate feature-only files; it has matching failed exits
+and no commit. The retry uses an explicit feature path and verifies its seal
+before submission. No product or instruction change belongs to this publication. Do not stop the
+build or follow-up to publish documentation. Do not claim submission is success.
 
-This next documentation/preparation publication owner is
-/workspace/tmp/pixelelated-m7-device-sequence-publication-17. Its actual
-publication.json/owner-verification.json identify later heads and acceptance.
-Follow-up CI owner /workspace/tmp/pixelelated-m7-device-sequence-ci-01 must be
-consumed on the exact heads. After publication and CI, launch the already sealed
-sequence owner once and read back its PID, waiter watcher and state heartbeat.
-Keep H700 actively supervised; do not stop merely for this checkpoint.
-
-Previous checkpoint: .github/sessions/archived/saved-session-state-next-20261007T072942Z.md.
+Previous full checkpoint: .github/sessions/archived/saved-session-state-next-20261007T065257Z.md.
