@@ -1,0 +1,107 @@
+{
+  "utc": "2026-10-07T04:14:54.089235+00:00",
+  "result": "PASS",
+  "preserved_by_rename": [
+    {
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/build.pixelelated-H700.arm/build/gcc-15.2.0",
+      "destination": "/workspace/tmp/pixelelated-m7-h700-arm-01/interrupted-scopes/build/gcc-15.2.0",
+      "device": 66304,
+      "inode": 60571584
+    },
+    {
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/build.pixelelated-H700.arm/build/glib-2.89.3",
+      "destination": "/workspace/tmp/pixelelated-m7-h700-arm-01/interrupted-scopes/build/glib-2.89.3",
+      "device": 66304,
+      "inode": 60964875
+    },
+    {
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/build.pixelelated-H700.arm/build/lxml-6.1.1",
+      "destination": "/workspace/tmp/pixelelated-m7-h700-arm-01/interrupted-scopes/build/lxml-6.1.1",
+      "device": 66304,
+      "inode": 60967533
+    },
+    {
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/build.pixelelated-H700.arm/build/spirv-tools-ef96ed763b43b59b33b31b362f09a02b729fa1c9",
+      "destination": "/workspace/tmp/pixelelated-m7-h700-arm-01/interrupted-scopes/build/spirv-tools-ef96ed763b43b59b33b31b362f09a02b729fa1c9",
+      "device": 66304,
+      "inode": 60970983
+    },
+    {
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/build.pixelelated-H700.arm/.stamps/glib",
+      "destination": "/workspace/tmp/pixelelated-m7-h700-arm-01/interrupted-scopes/.stamps/glib",
+      "device": 66304,
+      "inode": 60964876
+    },
+    {
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/build.pixelelated-H700.arm/.stamps/spirv-tools",
+      "destination": "/workspace/tmp/pixelelated-m7-h700-arm-01/interrupted-scopes/.stamps/spirv-tools",
+      "device": 66304,
+      "inode": 60968554
+    },
+    {
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/build.pixelelated-H700.arm/.stamps/lxml",
+      "destination": "/workspace/tmp/pixelelated-m7-h700-arm-01/interrupted-scopes/.stamps/lxml",
+      "device": 66304,
+      "inode": 60967418
+    },
+    {
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/build.pixelelated-H700.arm/.stamps/llvm",
+      "destination": "/workspace/tmp/pixelelated-m7-h700-arm-01/interrupted-scopes/.stamps/llvm",
+      "device": 66304,
+      "inode": 60968550
+    },
+    {
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/build.pixelelated-H700.arm/.stamps/gcc",
+      "destination": "/workspace/tmp/pixelelated-m7-h700-arm-01/interrupted-scopes/.stamps/gcc",
+      "device": 66304,
+      "inode": 60571582
+    },
+    {
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/build.pixelelated-H700.arm/.unpack/llvm",
+      "destination": "/workspace/tmp/pixelelated-m7-h700-arm-01/interrupted-scopes/.unpack/llvm",
+      "device": 66304,
+      "inode": 60968526
+    }
+  ],
+  "deleted_payloads": 0,
+  "enumerated_unstamped_scopes": [
+    "gcc",
+    "glib",
+    "lxml",
+    "spirv-tools"
+  ],
+  "incomplete_unpack": "llvm",
+  "verified_source_archive_fixtures": [
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/build.pixelelated-H700.arm/build/binutils-gold-2.46.1/ld/testsuite/ld-scripts/libpr33265-3a.a",
+      "archive": "/workspace/cache/rocknix-sources/binutils-gold/binutils-gold-2.46.1.tar.xz",
+      "member": "binutils-with-gold-2.46.1/ld/testsuite/ld-scripts/libpr33265-3a.a",
+      "sha256": "61d1d928bec3669053d5d0bdf80e7aaf7a051ed5f5a76845e3d60adbaf4e0ba4"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/build.pixelelated-H700.arm/build/binutils-gold-2.46.1/ld/testsuite/ld-scripts/libpr33265-2.a",
+      "archive": "/workspace/cache/rocknix-sources/binutils-gold/binutils-gold-2.46.1.tar.xz",
+      "member": "binutils-with-gold-2.46.1/ld/testsuite/ld-scripts/libpr33265-2.a",
+      "sha256": "82e98cddcb837de7d53f309e64107a67c2a592fc2a8c2e4bd542de22c78ca9d3"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/build.pixelelated-H700.arm/build/binutils-gold-2.46.1/ld/testsuite/ld-scripts/libpr33265-3b.a",
+      "archive": "/workspace/cache/rocknix-sources/binutils-gold/binutils-gold-2.46.1.tar.xz",
+      "member": "binutils-with-gold-2.46.1/ld/testsuite/ld-scripts/libpr33265-3b.a",
+      "sha256": "6bd2d3cde6ea13509ba3de357802932a1b9255f487f00750cb63e158b31b4fdc"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/build.pixelelated-H700.arm/build/binutils-gold-2.46.1/ld/testsuite/ld-scripts/libpr33265-1.a",
+      "archive": "/workspace/cache/rocknix-sources/binutils-gold/binutils-gold-2.46.1.tar.xz",
+      "member": "binutils-with-gold-2.46.1/ld/testsuite/ld-scripts/libpr33265-1.a",
+      "sha256": "421c38a1578e45ae31262813cfdd9eb907b4be47e46e39a6dfb131d376ca77e8"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/build.pixelelated-H700.arm/build/binutils-gold-2.46.1/ld/testsuite/ld-scripts/libpr33265-3c.a",
+      "archive": "/workspace/cache/rocknix-sources/binutils-gold/binutils-gold-2.46.1.tar.xz",
+      "member": "binutils-with-gold-2.46.1/ld/testsuite/ld-scripts/libpr33265-3c.a",
+      "sha256": "6ff8990d82bcd872a91e7d864f599452dc9eec51beb6501667fc1e7d6f962942"
+    }
+  ],
+  "initial_scan_refusal": "Source fixture .a files in binutils-gold were conservatively flagged; lxml was active in Python setup without C objects. No mutation occurred before correcting these classifications."
+}

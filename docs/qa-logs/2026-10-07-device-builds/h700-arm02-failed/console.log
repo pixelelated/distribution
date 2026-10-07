@@ -1,0 +1,15 @@
+watch-build: recording in /workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/.build-runs/20261007T041546Z-207bf743
+PASS frozen inputs, host options, container and 24/4 concurrency
+rc-preflight: /workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01 at f5f815faff (build/m7-pixelelated-h700-01)
+PASS      proxy schema note        review note matches 879b158995d412af434301ebdae581f66b8b6d57; runtime schema proof remains separate
+RAM    62347MB total, 18510MB used, 43837MB available
+Swap   8191MB total, 8181MB used, 10MB free
+Disk   176G free of 3.6T  (not the usual limit)
+
+  SWAP EXHAUSTED: 10MB of 8191MB free. There is no cushion;
+    the next spike is an OOM kill rather than a slowdown. To reclaim it:
+      tools/build-preflight --reclaim-swap
+    Uses the installed guarded /swap.img helper; see tools/host-maintenance/README.md.
+
+Worth clearing the above first; a build that finishes beats one that is fast.
+FAILED command with exit 1

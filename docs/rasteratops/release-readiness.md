@@ -1,22 +1,21 @@
 # pixelelated 0.0.1 release readiness
 
-## Current device builds — 2026-10-07 04:05 UTC
+## Current device builds — 2026-10-07 04:20 UTC
 
-The full software audit and VM qualification pass. The approved #491 cleanup
-is complete: 22 exact files removed,42.05GiB recovered, protected bases and
-2,695 evidence hashes independently verified. The guarded swap helper completed
-before the new watcher, and host preflight passed.
+#491 approved cleanup is complete and closed:22 exact files,42.05GiB recovered
+and independent preservation accepted. #492 H700 arm04 is now compiling under
+a verified watcher/container atf5f815faff after the #495 GCC12 host-only repair.
+SPIRV-Tools source pins and target flags are unchanged; its installed host tools
+pass nine positive/negative shader controls with independently verified hashes.
+#496 corrects the proof helper for the pinned Python3.10. Earlier failed owners
+remain failed and retained. Full arm completion and firmware are not claimed.
 
-#492 H700 arm compatibility is compiling in its own frozen worktree at
-c7e3bcd6, with qualified16 product bytes, the pinned container and standard
-watcher. This stage does not produce the firmware. Next are H700 aarch64
-capacity/build/verification, then SM8550 capacity/build/verification, as the
-maintainer explicitly requested. Physical actions and publication remain gated.
-
-#494 is a read-only preservation/capacity review of four older VM build trees;
-no additional removal is authorized. #493 records the storage/RAID0 question.
-The measured footprint, limitations and expansion recommendation are in
-`docs/qa-logs/2026-10-07-device-builds/README.md`.
+Next: verify H700 arm, finish#494 preservation/dependencies and measured
+capacity, build/verify H700 aarch64 DDR3/DDR4, then capacity-check/build/verify
+SM8550. #494 copies compact evidence now; no additional removal is authorized.
+#493 recommends finishing retention before a hardware purchase. Physical
+operations, corresponding source/licences/public docs and publication remain
+gated. See `docs/qa-logs/2026-10-07-device-builds/README.md`.
 
 ## Software qualification complete — 2026-10-07 02:48 UTC
 

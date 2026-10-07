@@ -1,0 +1,19 @@
+{
+  "utc": "2026-10-07T04:15:30.736020+00:00",
+  "commit": "f5f815faff4e18808d2c1c0298e4335cc0b20fe7",
+  "branch": "build/m7-pixelelated-h700-01",
+  "qualified_product": "ee014909137e03706e0b3020b8396be589aaa705",
+  "product_delta": [
+    "projects/ROCKNIX/packages/graphics/spirv-tools/package.mk"
+  ],
+  "delta_scope": "pre_configure_host GCC12 warning severity only; source pins and target flags unchanged",
+  "inputs_sha256": "383eff8f998a77cb41c2184f85c43245976e12d896ab1e500216f03f591ca128",
+  "source_files": 6550,
+  "qa_source_files": 207,
+  "source_symlinks": 180,
+  "container": "ghcr.io/pixelelated/build@sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39",
+  "container_image_id": "sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39",
+  "global_jobs": 24,
+  "webkit_jobs": 4,
+  "scope": "prepared, not submitted"
+}
