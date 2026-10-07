@@ -1,0 +1,13 @@
+state:       finished
+written:     2026-10-07 18:05:00 UTC   <- terminal result; heartbeat stops here
+watcher_pid: 855581
+job_pid:     855580  alive=yes
+started:     2026-10-07 18:04:55 UTC
+progress:    none matched
+log:         /tmp/pixelelated-508-es-host02/.build-runs/20261007T180455Z-4e6cf1f9/build.log  (last written 1s ago)
+activity:    /tmp/pixelelated-508-es-host02/.build-runs/20261007T180455Z-4e6cf1f9/build.log  (last written 1s ago)
+activity_dir: /tmp/pixelelated-508-es-host02/artifacts
+outcome:     rc=2
+tail:
+  vocabulary-check: 156 string(s) with back up / backup, save state or Wi-Fi judged, 0 wrong
+  es-app/tests/unit/CloudTextTests.cpp:1738: new blank line at EOF.

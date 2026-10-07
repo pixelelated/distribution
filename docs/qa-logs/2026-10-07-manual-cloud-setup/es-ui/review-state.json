@@ -1,0 +1,66 @@
+{
+  "status": "REVIEW HOLD; product integration and device builds not authorized; one visible copy-fit issue remains",
+  "scope": "Focused compiled ES plus sealed distro-script source overlays on one disposable GENERIC_X64 guest. Not an assembled firmware acceptance or public ROCKNIX adoption rehearsal.",
+  "es_base": "5d2fcb9b71f363cfa4813d5356f02c48ab58e139",
+  "es_branch": "feature/m7-manual-cloud-setup",
+  "es_commit": "300f97d28a072b916c54dcbf108f1440e7253761",
+  "es_commit_scope": "Local custody only, branch clean; no push/integration/pin change",
+  "executable_sha256": "053aa74196355df41d9cc4cdea8e3ed291c1d584d072b11b308469358814d45b",
+  "final_french_mo_sha256": "e14286ee7e3a414d1c633561720ebe6efa3bc453c2a997740f74800913034554",
+  "matrix_setup_script_sha256": "67c6f9be8b2c30ad903139ee34be3ccfb64dcf7b462e1abbf0c0ec648d3860b6",
+  "edge_and_chooser_setup_script_sha256": "a7eea3879848ec4879f279f3b7e2a2c08f3531c970ec4dd9858b09290975265c",
+  "validation": {
+    "unit_cases_pass": 178,
+    "unit_assertions_pass": 1886,
+    "unit_receipt": "pixelelated-508-es-host04/artifacts/unit-result.log",
+    "syntax": "six production C++ units pass in host04; final functional GuiMenu.cpp passes host08",
+    "oauth_lifetime": "host04 script checks pass; real OAuth/provider sign-in not exercised",
+    "gettext": "catalog09 msgfmt/check-format and explicit lookups pass; host08 xgettext pass",
+    "accepted_build_inputs": "read-only object/library reuse; before/after manifests equal",
+    "non_ssh_setup": "actual WebDAV form creates connection, seeds; deliberate mkdir refusal stays incomplete, retry reaches ready; finish closes",
+    "edge_checks": "4 empty-folder cases +6 partial-listing refusal cases passed, original config/credentials/provider unchanged; ordinary seed returns0"
+  },
+  "visual": [
+    {
+      "resolution": "640x480",
+      "locale": "en_US",
+      "prefix": "ui-artifacts/640x480-en_US-final",
+      "result": "failure, ready, and manual-guidance directly reviewed; PASS"
+    },
+    {
+      "resolution": "640x480",
+      "locale": "fr_FR",
+      "prefix": "ui-artifacts/640x480-fr_FR-final-frfit",
+      "result": "failure, ready, and manual-guidance directly reviewed; PASS"
+    },
+    {
+      "resolution": "1280x800",
+      "locale": "en_US",
+      "prefix": "ui-artifacts/1280x800-en_US-final-frfit",
+      "result": "failure and new manual guidance fit; older setup-intro sentence is ellipsized in centered dialog; NOT complete visual acceptance"
+    },
+    {
+      "resolution": "1280x800",
+      "locale": "fr_FR",
+      "prefix": "ui-artifacts/1280x800-fr_FR-final-frfit",
+      "result": "failure, ready, and manual-guidance directly reviewed; PASS"
+    }
+  ],
+  "remaining_issue": "SET UP FOR YOU IN YOUR CLOUD ACCOUNT, IF NOT ALREADY THERE: truncates at1280x800 in English. Product wording left unchanged during flow-review hold.",
+  "startup": "1280x800-final-boot-preservation carousel reviewed, /ROCKNIX/Saves config/credentials/sample hash unchanged across reboot+source overlay startup, migrator absent. Exact selected-path preservation only; not public-ROCKNIX image upgrade proof.",
+  "chooser": "offer and NOT NOW preserve full config/credential hashes. Explicit /pixelelated/Content choice changes CONTENT_REMOTE only; other config bytes and provider files equal. Actual list/system-picker frames reviewed; cancelled before RESTORE. See ui-artifacts/chooser-pointer-proof.json.",
+  "chooser_limits": "Restore CONTINUE only when content empty/found elsewhere/at root; list contains discovered candidate, root, root children; no recursive browser, typed arbitrary nested library path, or standalone ROM-library row. CHANGE CLOUD FOLDER invokes --set-syncpath and changes sibling saves/settings/content pointers.",
+  "rejected_or_superseded": {
+    "host01": "helper selected test source as production syntax target; no compile claim",
+    "host02": "diff-check EOF whitespace failure; fixed",
+    "host03": "retired unit assertion failed; fixed",
+    "ui05": "navigation opened provider list instead of confirmation; filenames not acceptance",
+    "ui06_ui07": "real failure/retry captured with pre-fit UI; superseded",
+    "ui08": "retry remained incomplete; stale external fixture metadata; rejected ready/manual filenames retained",
+    "ui09_french": "captured functional success but French text clipped; superseded by ui10",
+    "ui11_english": "functional pass; setup-intro copy still clips"
+  },
+  "cleanup": "ui17 terminal0; QEMU1235151 and host backend863920 absent, guest-loopback provider stopped, disk and QA keys deleted. See ui-artifacts/cleanup.json.",
+  "no_personal_device_or_cloud": true,
+  "pushed_or_integrated": false
+}

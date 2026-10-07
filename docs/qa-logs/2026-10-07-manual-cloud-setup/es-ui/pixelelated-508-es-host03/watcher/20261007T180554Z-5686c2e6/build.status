@@ -1,0 +1,14 @@
+state:       finished
+written:     2026-10-07 18:06:04 UTC   <- terminal result; heartbeat stops here
+watcher_pid: 862061
+job_pid:     862060  alive=yes
+started:     2026-10-07 18:05:54 UTC
+progress:    none matched
+log:         /tmp/pixelelated-508-es-host03/.build-runs/20261007T180554Z-5686c2e6/build.log  (last written 4s ago)
+activity:    /tmp/pixelelated-508-es-host03/artifacts/unit-result.log  (last written 1s ago)
+activity_dir: /tmp/pixelelated-508-es-host03/artifacts
+outcome:     rc=1
+activity_progress: 
+tail:
+  [doctest] assertions: 1887 | 1886 passed | 1 failed |
+  [doctest] Status: FAILURE!

@@ -1,0 +1,45 @@
+[  3%] Building CXX object CMakeFiles/es-unit-tests.dir/CloudTextTests.cpp.o
+[  7%] Building CXX object CMakeFiles/es-unit-tests.dir/CheevosRetryTests.cpp.o
+[ 11%] Building CXX object CMakeFiles/es-unit-tests.dir/OfflineAchievementsTextTests.cpp.o
+[ 14%] Building CXX object CMakeFiles/es-unit-tests.dir/CheevosIndexTests.cpp.o
+[ 18%] Building CXX object CMakeFiles/es-unit-tests.dir/TimeTextTests.cpp.o
+[ 22%] Building CXX object CMakeFiles/es-unit-tests.dir/MaskSecretsTests.cpp.o
+[ 25%] Building CXX object CMakeFiles/es-unit-tests.dir/LogPolicyTests.cpp.o
+[ 29%] Building CXX object CMakeFiles/es-unit-tests.dir/WifiTextTests.cpp.o
+[ 33%] Building CXX object CMakeFiles/es-unit-tests.dir/OfflineProxyUrlTests.cpp.o
+[ 37%] Building CXX object CMakeFiles/es-unit-tests.dir/SaveStateJobQueueTests.cpp.o
+[ 40%] Building CXX object CMakeFiles/es-unit-tests.dir/CaptureRotationTextTests.cpp.o
+[ 44%] Building CXX object CMakeFiles/es-unit-tests.dir/DisplayAspectTextTests.cpp.o
+[ 48%] Building CXX object CMakeFiles/es-unit-tests.dir/CommandLineTests.cpp.o
+[ 51%] Building CXX object CMakeFiles/es-unit-tests.dir/TabStopsTests.cpp.o
+[ 55%] Building CXX object CMakeFiles/es-unit-tests.dir/LaunchCommandTests.cpp.o
+[ 59%] Building CXX object CMakeFiles/es-unit-tests.dir/home/max/Development/emulationstation-next.worktrees/m7-manual-cloud-setup/es-app/src/CloudText.cpp.o
+[ 62%] Building CXX object CMakeFiles/es-unit-tests.dir/home/max/Development/emulationstation-next.worktrees/m7-manual-cloud-setup/es-app/src/CheevosRetry.cpp.o
+[ 66%] Building CXX object CMakeFiles/es-unit-tests.dir/home/max/Development/emulationstation-next.worktrees/m7-manual-cloud-setup/es-app/src/OfflineAchievementsText.cpp.o
+[ 70%] Building CXX object CMakeFiles/es-unit-tests.dir/home/max/Development/emulationstation-next.worktrees/m7-manual-cloud-setup/es-app/src/CheevosIndex.cpp.o
+In file included from /home/max/Development/emulationstation-next.worktrees/m7-manual-cloud-setup/es-app/src/OfflineAchievementsText.cpp:5:
+/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement16/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/include/rapidjson/document.h:102:19: warning: ‘template<class _Category, class _Tp, class _Distance, class _Pointer, class _Reference> struct std::iterator’ is deprecated [-Wdeprecated-declarations]
+  102 |     : public std::iterator<std::random_access_iterator_tag
+      |                   ^~~~~~~~
+In file included from /usr/include/c++/15/bits/stl_iterator_base_funcs.h:68,
+                 from /usr/include/c++/15/string:49,
+                 from /home/max/Development/emulationstation-next.worktrees/m7-manual-cloud-setup/es-app/src/OfflineAchievementsText.h:31,
+                 from /home/max/Development/emulationstation-next.worktrees/m7-manual-cloud-setup/es-app/src/OfflineAchievementsText.cpp:1:
+/usr/include/c++/15/bits/stl_iterator_base_types.h:129:34: note: declared here
+  129 |     struct _GLIBCXX17_DEPRECATED iterator
+      |                                  ^~~~~~~~
+/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement16/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/include/rapidjson/document.h:110:18: warning: ‘template<class _Category, class _Tp, class _Distance, class _Pointer, class _Reference> struct std::iterator’ is deprecated [-Wdeprecated-declarations]
+  110 |     typedef std::iterator<std::random_access_iterator_tag,ValueType> BaseType;
+      |                  ^~~~~~~~
+/usr/include/c++/15/bits/stl_iterator_base_types.h:129:34: note: declared here
+  129 |     struct _GLIBCXX17_DEPRECATED iterator
+      |                                  ^~~~~~~~
+[ 74%] Building CXX object CMakeFiles/es-unit-tests.dir/home/max/Development/emulationstation-next.worktrees/m7-manual-cloud-setup/es-app/src/WifiText.cpp.o
+[ 77%] Building CXX object CMakeFiles/es-unit-tests.dir/home/max/Development/emulationstation-next.worktrees/m7-manual-cloud-setup/es-app/src/SaveStateJobQueue.cpp.o
+[ 81%] Building CXX object CMakeFiles/es-unit-tests.dir/home/max/Development/emulationstation-next.worktrees/m7-manual-cloud-setup/es-app/src/CaptureRotationText.cpp.o
+[ 85%] Building CXX object CMakeFiles/es-unit-tests.dir/home/max/Development/emulationstation-next.worktrees/m7-manual-cloud-setup/es-app/src/DisplayAspectText.cpp.o
+[ 88%] Building CXX object CMakeFiles/es-unit-tests.dir/home/max/Development/emulationstation-next.worktrees/m7-manual-cloud-setup/es-core/src/utils/StringUtil.cpp.o
+[ 92%] Building CXX object CMakeFiles/es-unit-tests.dir/home/max/Development/emulationstation-next.worktrees/m7-manual-cloud-setup/es-core/src/utils/TimeText.cpp.o
+[ 96%] Building CXX object CMakeFiles/es-unit-tests.dir/home/max/Development/emulationstation-next.worktrees/m7-manual-cloud-setup/es-core/src/utils/OfflineProxyUrl.cpp.o
+[100%] Linking CXX executable es-unit-tests
+[100%] Built target es-unit-tests

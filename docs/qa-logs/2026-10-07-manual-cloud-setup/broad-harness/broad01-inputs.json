@@ -1,0 +1,26 @@
+{
+  "prepared_utc": "2026-10-07T18:35:44.930759+00:00",
+  "owner": "/root/handoff_review",
+  "scope": "Host bubblewrap synthetic fixture regression suite; no personal device, authorization, or cloud operations; candidate16 binaries only, not final firmware acceptance",
+  "source_root": "/workspace/repos/rocknix.worktrees/m7-manual-cloud-folders",
+  "source_head": "e484380a3426626d84afa0c5109abeff4512dd0c",
+  "source_status": "",
+  "hashes": {
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/tools/last-good-scripts-test": "95a4da8be7a4df3915d9095afe91eedac939c218f9eb0afbb050d4186b7a2eb5",
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/tools/rasteratops-cloud-layout-test": "1bf79f2ae318cc87bf85ed285d60f9718ec7a1b7197d478341163765906490b7",
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/tools/watch-build": "9c15e068af07a3ab16e8b719027420855def7a2da5ca8da1481ab6837d25d891",
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/tools/watch-job": "052cdea2b449eb4a61f33ed41f4079a36d82605fa08c99a4006f3112d57926a2",
+    "/workspace/repos/rocknix.worktrees/m7-manual-cloud-folders/projects/ROCKNIX/packages/network/rclone/sources/cloud_setup": "67c6f9be8b2c30ad903139ee34be3ccfb64dcf7b462e1abbf0c0ec648d3860b6",
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement16/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/bin/busybox": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346",
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement16/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/bin/rclone": "361c27d953f822969afc25a73e0cc2122fd8e161545f9c0e5f63c5baad92724c"
+  },
+  "argv": [
+    "tools/watch-build",
+    "--",
+    "env",
+    "LAST_GOOD_SOURCE_ROOT=/workspace/repos/rocknix.worktrees/m7-manual-cloud-folders",
+    "QA_SYSTEM_ROOT=/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement16/build.pixelelated-GENERIC_X64.x86_64/image/system",
+    "SOURCES_DIR=/workspace/cache/rocknix-sources",
+    "tools/last-good-scripts-test"
+  ]
+}

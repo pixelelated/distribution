@@ -1,0 +1,46 @@
+watch-build: recording in /tmp/pixelelated-508-ui08/.build-runs/20261007T182356Z-20c16c71
+changed after 0.2s (`key ret`, line 12)
+settle: still after 1.9s
+changed after 0.2s (`key x`, line 15)
+settle: still after 1.9s
+changed after 0.2s (`key up`, line 18)
+changed after 0.2s (`key up`, line 20)
+changed after 0.2s (`key up`, line 22)
+settle: still after 1.9s
+changed after 0.2s (`key x`, line 25)
+settle: still after 1.9s
+captured /tmp/pixelelated-508-ui01/artifacts/640x480-en_US-hub/01-cloud-hub.png
+changed after 0.2s (`key up`, line 1)
+changed after 0.2s (`key up`, line 3)
+changed after 0.2s (`key x`, line 5)
+changed after 0.2s (`key down`, line 7)
+changed after 0.8s (`key x`, line 9)
+settle: still after 1.9s
+captured /tmp/pixelelated-508-ui01/artifacts/640x480-en_US-form/01-form.png
+changed after 0.2s (`key down`, line 13)
+changed after 0.2s (`key x`, line 15)
+settle: still after 1.9s
+captured /tmp/pixelelated-508-ui01/artifacts/640x480-en_US-form/02-address.png
+captured /tmp/pixelelated-508-ui01/artifacts/640x480-en_US-filled/01-filled-form.png
+changed after 0.2s (`key down`, line 1)
+changed after 0.2s (`key x`, line 3)
+settle: still after 1.9s
+captured /tmp/pixelelated-508-ui01/artifacts/640x480-en_US-failure/01-confirm.png
+changed after 0.2s (`key x`, line 7)
+settle: still after 1.9s
+captured /tmp/pixelelated-508-ui01/artifacts/640x480-en_US-failure/02-failure.png
+changed after 0.2s (`key down`, line 1)
+changed after 0.2s (`key x`, line 3)
+settle: still after 1.9s
+captured /tmp/pixelelated-508-ui01/artifacts/640x480-en_US-retry/01-ready.png
+changed after 0.2s (`key down`, line 8)
+settle: still after 1.9s
+captured /tmp/pixelelated-508-ui01/artifacts/640x480-en_US-retry/02-manual-guidance.png
+Traceback (most recent call last):
+  File "/tmp/pixelelated-508-ui08/run.py", line 2, in <module>
+    exec(compile(Path('/tmp/pixelelated-508-matrix.py').read_text(),'/tmp/pixelelated-508-matrix.py','exec'))
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/pixelelated-508-matrix.py", line 21, in <module>
+    assert 'folders=ready' in proof and sha('/tmp/pixelelated-508-es-host07/emulationstation') in proof and '67c6f9be8b2c30ad903139ee34be3ccfb64dcf7b462e1abbf0c0ec648d3860b6' in proof
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

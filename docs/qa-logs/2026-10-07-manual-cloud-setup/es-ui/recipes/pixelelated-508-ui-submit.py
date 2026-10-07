@@ -1,0 +1,3 @@
+from pathlib import Path
+import shutil,subprocess,sys
+owner=Path('/tmp/pixelelated-508-ui'+sys.argv[1]);owner.mkdir();(owner/'artifacts').mkdir();shutil.copytree('/tmp/pixelelated-508-ui01/tools',owner/'tools');shutil.copy2('/tmp/pixelelated-508-ui01/submit.py',owner/'submit.py');script=Path(sys.argv[2]);shutil.copy2(script,owner/'run.py');(owner/'run.sh').write_text('#!/bin/bash\nset -euo pipefail\ntrap \'rc=$?; printf "%s\\n" "$rc" > '+str(owner/'inner.rc')+'\' EXIT\npython3 '+str(owner/'run.py')+'\n');subprocess.run(['python3','submit.py','--owner',str(owner),'--','--activity-dir','/tmp/pixelelated-508-ui01/artifacts','--recursive-activity','--','bash',str(owner/'run.sh')],cwd=owner,check=True)

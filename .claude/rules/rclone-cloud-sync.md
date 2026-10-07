@@ -20,6 +20,36 @@ This package ships ROCKNIX's cloud backup/restore for saves, savestates, screens
 and settings backups. User-facing docs:
 <https://rocknix.org/configure/cloud-sync/#cloud-sync-with-rclone>.
 
+## Folder selection and organization
+
+D-CLOUD-175/176 (#508/#510): linking a backend or choosing a folder does not
+authorize moving its contents. Current setup creates the selected folders and
+preserves existing choices. Any future optional saves/settings organization
+must have a separate scope from ROM/BIOS/game-content relocation. Explain the
+source, destination, data size and transport before an explicit library move;
+never silently fall back to transferring or verifying a large cloud library
+through the handheld. A folder-name pattern is not evidence of user intent.
+
+D-CLOUD-177/178 and #510 hold new device builds and product integration until
+the validator flow is reconciled and qualified. Cloud adoption tests start from published ROCKNIX and
+clean installs; unpublished fork/PR layouts are historical experiments, not
+fielded compatibility requirements. Do not add product branches solely to
+recover the maintainer's experimental cloud. Keep that recovery separate.
+
+**Validation reads; fixes are separate explicit actions** (D-CLOUD-178).
+Check enabled categories within selected roots, distinguish missing/empty from
+unreadable, and report misplaced content only when it was actually found in
+the inspected scope. Folder readiness does not prove transfer integrity or
+BIOS compatibility. Reuse existing readers/classifiers and UI, not backup or
+restore entrypoints that mutate state. A progress-file fix needs its own exact
+plan and confirmation; it cannot include ROMs, BIOS or unrelated files.
+
+ROM/BIOS findings show expected paths and manual instructions. Once the site
+guides exist, **See instructions** opens a QR modal for the relevant guide
+(#511); never expect a clickable link or start a handheld browser. Keep local
+guidance usable before publication and offline. Do not ship a speculative URL
+or put account details or personal folder paths in a documentation QR.
+
 ## What gets synced (scope)
 
 `cloud_sync-rules.txt` is an rclone `--filter-from` **allowlist**, with patterns relative to

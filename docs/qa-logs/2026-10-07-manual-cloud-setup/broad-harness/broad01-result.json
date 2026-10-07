@@ -1,0 +1,28 @@
+{
+  "delivered_utc": "2026-10-07T18:44:33.590499+00:00",
+  "returncode": 0,
+  "watcher_status": "state:       finished",
+  "pass_lines": 1303,
+  "failure_lines": [],
+  "skip_lines": [],
+  "not_applicable": [
+    "    NOT APPLICABLE  historical migration cases: selected source has no engine and its recipe does not install one (#508); no migration checks counted as PASS",
+    "    A5. NOT APPLICABLE: historical engine absent; normal setup and shipped-default checks ran independently",
+    "    A31-A32. NOT APPLICABLE: historical migration engine retired (#508)",
+    "    A37-A38. NOT APPLICABLE: historical migration engine retired (#508)",
+    "    A55. NOT APPLICABLE: historical migration engine retired (#508)",
+    "    A57. NOT APPLICABLE: historical migration engine retired (#508)",
+    "    aa. NOT APPLICABLE: historical layout facts/join/follow engine retired (#508)",
+    "    ae. historical migration matrix NOT APPLICABLE; ordinary T24 archive contracts still run",
+    "1 HISTORICAL FEATURE GROUP(S) NOT APPLICABLE -- no checks counted as PASS"
+  ],
+  "tail": [
+    "PASS refuse-producer",
+    "PASS refuse-rename",
+    "    PASS  #421: private modes and refused publications",
+    "1 HISTORICAL FEATURE GROUP(S) NOT APPLICABLE -- no checks counted as PASS",
+    "PASSED"
+  ],
+  "harness_unchanged": true,
+  "scope": "Full pre-delta host suite against e484380a3426626d84afa0c5109abeff4512dd0c; separately reproduced setup edge cases remain outstanding"
+}

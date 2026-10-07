@@ -12,9 +12,15 @@ credits and historical documentation retain their original names. Tools-list
 `developer` and `publisher` fields preserve attribution. A reference to the
 ROCKNIX partition means the actual retained label, not the distribution name.
 New fork-owned helpers use the `pixelelated` prefix. Existing `rasteratops-*`
-helper names and watcher variables are retained internal interfaces.
-The cloud default is `/pixelelated`; `/GAMES` and `/ROCKNIX` remain migration
-inputs, kept choices, or legacy archive locations (D-CLOUD-174).
+helper names and watcher variables are temporary internal interfaces, with
+their retirement tracked in #509 (D-WORKFLOW-151). Inventory callers and rename
+active fork-owned tools, folders and documents in reviewed batches after their
+running jobs finish. Compatibility aliases need explicit retirement conditions.
+Historical evidence, the Rasteratops character and maintainer handle retain
+their correct names; this cleanup does not rename upstream-owned interfaces.
+The cloud default is `/pixelelated`; existing `/GAMES`, `/ROCKNIX` and custom
+choices remain until explicitly changed. Setup does not move their contents
+(D-CLOUD-174/175/176).
 
 The wordmark uses Tiny5 Duo LCD, whose unmodified source and SIL OFL 1.1 terms are
 retained by the splash fork. Its icon-free form follows D-WORKFLOW-145.

@@ -1,0 +1,18 @@
+{
+  "run_path": "/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261007T183601Z-aed59e8a",
+  "tool_session_id": 58141,
+  "owner": "/root/handoff_review",
+  "processes": {
+    "build.pid": "1062185",
+    "command.pid": "1062214",
+    "watcher.pid": "1062186"
+  },
+  "status": "state:       running\nwritten:     2026-10-07 18:36:06 UTC   <- if this is stale, investigate the watcher\nwatcher_pid: 1062186\njob_pid:     1062185  alive=yes\nstarted:     2026-10-07 18:36:01 UTC\nprogress:    none matched\nlog:         /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261007T183601Z-aed59e8a/build.log  (last written 1s ago)\nactivity:    /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261007T183601Z-aed59e8a/build.log  (last written 1s ago)\nactivity_root: /workspace/repos/rocknix.worktrees/conflict-resolution\ntail:\n    h. the rclone wrapper: an automatic run's stalled call ends at the ceiling, a deliberate run's at the stall ceiling (D-CLOUD-118\n      PASS  the wrapper is lifted from cloud_backup\n",
+  "host_start_ticks": {
+    "build.pid": "48984517",
+    "command.pid": "48984526",
+    "watcher.pid": "48984521"
+  },
+  "launcher": "direct tools/watch-build via exec session58141; no separate durable submit launcher",
+  "delivery": "Active /root/handoff_review supervision through terminal result; automatic off-session delivery not established"
+}

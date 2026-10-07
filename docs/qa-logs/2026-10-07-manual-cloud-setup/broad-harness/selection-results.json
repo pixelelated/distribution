@@ -1,0 +1,26 @@
+{
+  "scope": "synthetic source fixtures; no device/cloud actions",
+  "cases": [
+    {
+      "case": "retired",
+      "status": "PASS",
+      "returncode": 0,
+      "stdout": "    NOT APPLICABLE  historical migration cases: selected source has no engine and its recipe does not install one (#508); no migration checks counted as PASS\navailability=0 na=1\n",
+      "stderr": ""
+    },
+    {
+      "case": "missing-installed",
+      "status": "PASS",
+      "returncode": 2,
+      "stdout": "",
+      "stderr": "cannot test selected source: recipe installs missing cloud_migrate_layout\n"
+    },
+    {
+      "case": "historical-present",
+      "status": "PASS",
+      "returncode": 0,
+      "stdout": "availability=1 na=0\n",
+      "stderr": ""
+    }
+  ]
+}
