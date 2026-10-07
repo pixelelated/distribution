@@ -1,0 +1,84 @@
+{
+  "arm_handoff_files": 187,
+  "bundle": "/workspace/artifacts/pixelelated-candidates/sha256/97367c3235fab7cc6d1ec2b54c390fe7ceff786612f29c9f177aaa288a33fb18",
+  "bundle_bytes_rehashed": true,
+  "bundle_inodes_independent": true,
+  "bundle_manifest_sha256": "97367c3235fab7cc6d1ec2b54c390fe7ceff786612f29c9f177aaa288a33fb18",
+  "container_absent": "00731af86051732418b7c2c567c801a5d50b9970220d24812643f7e1a86e5a0d",
+  "distribution_commit": "0553c0193ace3aebbefaae5b7b6d49253c2811d9",
+  "firmware_files": {
+    "pixelelated-SM8550.aarch64-0.0.1-from-ROCKNIX.img.gz": {
+      "bytes": 1611493379,
+      "sha256": "5be73a7305991599cdad6e68535cf7c79767180b6632ce8061207822869e7c34"
+    },
+    "pixelelated-SM8550.aarch64-0.0.1-from-ROCKNIX.img.gz.sha256": {
+      "bytes": 119,
+      "sha256": "a78b0d25b410cc9d52ee0454043c0c4067b1a5f738d694ba7f24c41904d5057a"
+    },
+    "pixelelated-SM8550.aarch64-0.0.1-from-ROCKNIX.tar": {
+      "bytes": 1616117760,
+      "sha256": "c9701f3f247f82b4c6a662a315cb1a054864866fc52a738e86fbc15bde662a50"
+    },
+    "pixelelated-SM8550.aarch64-0.0.1-from-ROCKNIX.tar.sha256": {
+      "bytes": 116,
+      "sha256": "775071429ab628d5e998fc588f77bacf5358bcc9b0d5219cf4e281e4339b05c8"
+    }
+  },
+  "generated_documentation": {
+    "diff_sha256": "7019a77303fe265434194cc679621a9e6ca9bcec966eb86f04e6392332506424",
+    "git_status": " M documentation/PER_DEVICE_DOCUMENTATION/SM8550/SUPPORTED_EMULATORS_AND_CORES.md\n",
+    "note": "Only tracked delta is generated SM8550 support list (PS2 default order armsx2/aethersx2); outside frozen product inputs. Captured unchanged, not restored.",
+    "path": "documentation/PER_DEVICE_DOCUMENTATION/SM8550/SUPPORTED_EMULATORS_AND_CORES.md",
+    "sha256": "ad29cf0bf70988284d928fb64edb3649ab22b02a4e48c0b812e7b22da6a7ea03"
+  },
+  "installed_es_copy": "English binary and French compiled catalog PASS at qualified5d2fcb9",
+  "installed_fex_elf_count": 14,
+  "no_remaining_tree_consumer": true,
+  "owners": {
+    "acceptance": {
+      "actual_pids_absent": [
+        71105,
+        71106,
+        71107,
+        71136
+      ],
+      "channels": {
+        "build.rc": "0",
+        "inner.rc": "0",
+        "outer.rc": "0",
+        "tool-wrapper.rc": "0"
+      },
+      "sealed_inputs": 3,
+      "verified_utc": "2026-10-07T16:52:09.091209+00:00"
+    },
+    "build": {
+      "actual_pids_absent": [
+        70797,
+        70811,
+        70812,
+        70862
+      ],
+      "channels": {
+        "build.rc": "0",
+        "inner.rc": "0",
+        "outer.rc": "0",
+        "tool-wrapper.rc": "0"
+      },
+      "sealed_inputs": 13,
+      "verified_utc": "2026-10-07T16:51:39.092595+00:00"
+    },
+    "sequence": {
+      "actual_pid_absent": 70714,
+      "result": "PASS",
+      "sealed_inputs": 26,
+      "terminal_utc": "2026-10-07T16:52:09.296285+00:00"
+    }
+  },
+  "result": "PASS",
+  "retention_holds": [
+    "Source custody/release review before retiring recovery01 preserved outputs or build02 private Nix cache",
+    "No physical testing, deploy or release-candidate claim"
+  ],
+  "scope": "Independent readback of existing terminal receipts, seals, actual process/container exits and bundle bytes; no single-use verifier rerun, rebuild, deletion or device action",
+  "utc": "2026-10-07T16:56:37.228297+00:00"
+}

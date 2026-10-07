@@ -1,0 +1,42 @@
+{
+  "utc": "2026-10-07T16:52:00.340300+00:00",
+  "result": "PASS",
+  "scope": "SM8550 firmware artifacts; no physical boot/smoke or RC/publication claim",
+  "bundle": "/workspace/artifacts/pixelelated-candidates/sha256/97367c3235fab7cc6d1ec2b54c390fe7ceff786612f29c9f177aaa288a33fb18",
+  "bundle_manifest_sha256": "97367c3235fab7cc6d1ec2b54c390fe7ceff786612f29c9f177aaa288a33fb18",
+  "distribution_commit": "0553c0193ace3aebbefaae5b7b6d49253c2811d9",
+  "architecture": [
+    {
+      "path": "usr/bin/emulationstation",
+      "arch": "aarch64",
+      "sha256": "3c36d3ead1fe5d8d5bb7b3fb9e6794385a7ec69b31d88721fb292c7f66d526b5"
+    },
+    {
+      "path": "usr/bin/retroarch",
+      "arch": "aarch64",
+      "sha256": "4e916754324aa7df6c6ceeebbd22a733688923cce6f709eba6312fd44ef493e6"
+    }
+  ],
+  "arm_handoff_files": 187,
+  "variants": [
+    {
+      "image": "pixelelated-SM8550.aarch64-0.0.1-from-ROCKNIX.img.gz",
+      "variant": "SM8550",
+      "system_sha256": "4cf70aaa6a40d73a5858433370ef9842301454722a5de42c8fe9798d311a3f11",
+      "kernel_sha256": "d5afbda7f46de11141f6d2e6cc31be81ec8c597cd5fac3a87b8a6bed280a8ccc",
+      "bootloader_files": {
+        "rocknix_abl/restore_backup_abl.sh": "add45f3872e645ba215c8e5b5efcd1ef45e32b8ccf7a9275d9bf8e0de6edd247",
+        "rocknix_abl/backup_abl.sh": "bb0a723734451add4e0b7294dc9b246933e9dbadf965c06234534c923ea2b037",
+        "rocknix_abl/flash_abl.sh": "ceaf2cea5b0c5597944daceb7bee0c5c7eb10641c68f07c3ac87965617838548",
+        "rocknix_abl/abl_signed-SM8550.elf": "1aad3626b7830742cacdcdcf0c8696261ec7fa277bfbcfb9402a60bf896527e9",
+        "rocknix_abl/README": "a95dc2e5611ddc7aa5c6d0a93fd21498934eca7eee6d7aefca11c376217bf77c"
+      },
+      "first_sector": 32768,
+      "raw_sha256": "b3941df95931e376a75ddc31370a3b555430998a75d9ebbb1fd0013bd4de8287",
+      "raw_bytes": 2198863872
+    }
+  ],
+  "scratch_removed": true,
+  "source_unchanged": true,
+  "independent_bundle_inodes": true
+}

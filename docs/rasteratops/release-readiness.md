@@ -1,6 +1,70 @@
 # pixelelated 0.0.1 release readiness
 
-## Current device builds — 2026-10-07 06:39 UTC
+## Current P5 disposition — 2026-10-07
+
+Read [M7's ordered body](https://github.com/pixelelated/distribution/milestone/7)
+for the current execution plan. A version's contents are its milestone's linked
+issues and acceptance evidence, reconciled into the final release notes; a
+BUILD_ID identifies exact image bytes. The dated records below are historical
+snapshots and do not restart completed work.
+
+Candidate16 common QA and P4 are accepted: 15 default VM suites, 78 screens,
+26 actual RC2 upgrade checks and 318 local protocol assertions; all eight #471
+findings resolved. The ordinary RA award/reset and recorded unchanged-input
+carry-forward are complete. See [candidate16 evidence](../qa-logs/2026-10-07-pixelelated-replacement-16/README.md)
+and [installed audit resolutions](../audits/2026_10_06-milestone-m7-p4-fixes-383/08-installed-resolution.md).
+
+H700 firmware from `43d0bc3bf47fd858ba8d5c55fbdf52535a0db2aa` is accepted,
+including both DDR variants and actual ARM handoff. The RG35XX SP's authorized
+transfer and single reboot are complete, with installed bytes and physical
+boot verified; do not repeat them. [The #500 packet](../qa-logs/2026-10-07-device-builds/rg35xxsp-adoption01/README.md)
+explicitly leaves broader device smoke separate. RG SP and Nova do not inherit
+that board's physical evidence.
+
+SM8550 firmware from `0553c0193ace3aebbefaae5b7b6d49253c2811d9` is
+accepted, including the FEX repair and qualified ES copy. All 737 package jobs
+completed; build04 returned 0 at 16:51:14 UTC. Independent acceptance passed
+at 16:52:00; its four result channels, three input seals and process exits were
+verified at 16:52:09. Raw/update payload equality, GPT/ABL, 187 ARM handoff files,
+14 FEX files and installed English/French copy passed. Bundle:
+`97367c3235fab7cc6d1ec2b54c390fe7ceff786612f29c9f177aaa288a33fb18`. Read
+[the continuation04 packet](../qa-logs/2026-10-07-device-builds/sm8550-resume04/README.md)
+for original failed owners and terminal evidence. Physical Nova boot/smoke and
+release publication remain separate; no new transfer or reboot was performed.
+
+Remaining P5 work under #344/#265/#359 is explicit:
+
+- Reconcile each selected image's input deltas, required image sweeps and
+  clean-install/upgrade/boot-chain/recovery evidence; record named smoke per
+  device before attaching that asset. Keep unqualified assets held.
+- Resolve inventory12's 14 missing recipe-licence entries and per-component
+  dispositions, preserve required consumed sources/patches/build scripts and
+  notices, then verify retrieval and hashes of the corresponding-source bundle.
+  Its [583-component inventory](../qa-logs/2026-10-07-pixelelated-replacement-16/inventory-12/artifacts/components.json)
+  explicitly records `publication_bundle_complete: false`. Source custody
+  preservation does not itself complete publication.
+- Complete manifest-selected, versioned draft publication tooling, final release
+  notes and public docs. Include the [support matrix](support-matrix.md), adoption,
+  recovery, trust assumption, source links, lineage/non-endorsement, cloud
+  compatibility and redirect dependency. The local #327 website asset is
+  qualified; public publication remains separate.
+- Complete the queued scoped Milestone independent P5 delta audit under #507.
+  Candidate16's completed audit remains accepted; #507 completion is not claimed.
+- Include and qualify #505's diagnostics fix in the final selected artifact
+  after its proposed isolated implementation and focused source-overlay proof complete.
+  The accepted SM8550 checkout remains frozen at0553. Automatic approval
+  review refused applying the diagnostic patch. The reviewed patch and isolated
+  controls are complete; explicit implementation approval has been requested.
+  No personal-cloud retry is inferred.
+
+#359's installed branding terms already match current and frozen source on both
+clean and upgraded candidate16 guests; its release-note link remains open.
+Publication still requires its named yes, and physical/personal-cloud actions
+retain their per-action authority. This is release staging, not RC designation.
+
+## Historical execution snapshots
+
+## Historical device builds — 2026-10-07 06:39 UTC
 
 The immediate storage cleanup is complete: 2.117 TB recovered, 2.291 TB
 available, 51,070 compact records and 14,489 source custody objects verified,
