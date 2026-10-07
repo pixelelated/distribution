@@ -2,7 +2,9 @@
 
 This supplements the independent frozen forward audit. Original grades and
 failed runs are preserved. These are evidence dispositions; exact GitHub
-body/state readbacks follow ordinary evidence publication.
+body/state readbacks are verified after ordinary evidence publication. All twelve
+listed issues are closed completed; Q16/phase7-tracker-01/02 retains the exact
+before/after bodies and completion records.
 
 | Scope | Acceptance and limit |
 | --- | --- |

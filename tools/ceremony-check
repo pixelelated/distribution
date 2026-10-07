@@ -40,8 +40,10 @@
 
 import datetime as dt
 import glob
+import hashlib
 import json
 import os
+from pathlib import Path
 import re
 import subprocess
 import sys
@@ -78,6 +80,50 @@ def gh_json(args):
         return json.loads(out), None
     except ValueError:
         return None, 'gh returned no JSON'
+
+
+def completed_audit_marker(marker, root, now):
+    """Validate an exact Phase 7 completion receipt before it resets cadence."""
+    root = Path(root).resolve()
+    marker = Path(marker)
+    audit = marker.parent.resolve()
+    if not audit.is_relative_to(root / 'docs/audits') or marker.is_symlink():
+        raise ValueError('completion marker outside audit directory')
+    data = json.loads(marker.read_text())
+    if data.get('schema') != 1 or type(data.get('issue')) is not int:
+        raise ValueError('invalid completed-audit schema')
+    ended = dt.datetime.fromisoformat(data['completed_at'].replace('Z', '+00:00'))
+    if ended.tzinfo is None or ended > now:
+        raise ValueError('completion time is unzoned or in the future')
+    required = {str((audit / name).relative_to(root)) for name in ['04-analysis.md', '05-punch-list.md']}
+    required.update([data['tracker_readback'], data['tracker_completion']])
+    if not required.issubset(data['evidence']):
+        raise ValueError('completion receipt omits required evidence')
+    for name, expected in data['evidence'].items():
+        path = root / name
+        if Path(name).is_absolute() or path.is_symlink() or not path.resolve().is_relative_to(root):
+            raise ValueError('unsafe completion evidence path')
+        with path.open('rb') as stream:
+            if hashlib.file_digest(stream, 'sha256').hexdigest() != expected:
+                raise ValueError('completion evidence changed: ' + name)
+    issue = json.loads((root / data['tracker_readback']).read_text())
+    if (issue.get('number') != data['issue'] or issue.get('state') != 'closed'
+            or issue.get('state_reason') != 'completed'
+            or not re.search(r'^\s*- \[x\]', issue.get('body', ''), re.M)
+            or re.search(r'^\s*- \[ \]', issue.get('body', ''), re.M)):
+        raise ValueError('audit issue is not checked and completed')
+    receipt = json.loads((root / data['tracker_completion']).read_text())
+    if (receipt.get('result') != 'PASS' or not receipt.get('exact_bodies_and_states')
+            or data['issue'] not in receipt.get('closed_completed', [])
+            or receipt.get('verified_utc') != data['completed_at']):
+        raise ValueError('completion time is not the exact verified tracker receipt')
+    return ended, data['issue']
+
+
+def closures_after(rows, cutoff):
+    """Do not count findings that were closed before the audit completed."""
+    return sum(dt.datetime.fromisoformat(row['closedAt'].replace('Z', '+00:00')) > cutoff
+               for row in rows)
 
 
 def work_log_days():
@@ -310,15 +356,37 @@ def main():
                     d = dt.date(*map(int, m.groups()))
                     last_audit = d if last_audit is None or d > last_audit else last_audit
             start = max(SINCE, last_audit) if last_audit else SINCE
+            cutoff = dt.datetime.combine(start, dt.time.min, tzinfo=dt.timezone.utc)
+            completed_by = None
+            for marker in glob.glob(os.path.join(ROOT, 'docs/audits/*/audit-completion.json')):
+                try:
+                    ended, issue = completed_audit_marker(marker, ROOT, dt.datetime.now(dt.timezone.utc))
+                    rc, out, err = sh([os.path.join(ROOT, 'tools/lint-audit-artifacts'),
+                                       os.path.dirname(marker), '--phase', 'resolution'])
+                    if rc:
+                        raise ValueError('resolution lint failed: ' + (out or err)[-160:])
+                    if ended > cutoff:
+                        cutoff, completed_by = ended, '#%d %s' % (issue, os.path.relpath(marker, ROOT))
+                except (OSError, ValueError, KeyError, TypeError) as error:
+                    overdue.append(('ci', 'audit: invalid completion marker %s: %s' % (marker, error)))
+            start = cutoff.date()
             closed, err2 = gh_json(['issue', 'list', '--repo', REPO, '--state', 'closed', '--limit', '200',
-                                    '--search', 'closed:>=%s reason:completed' % start.isoformat(), '--json', 'number'])
-            nclosed = len(closed or [])
+                                    '--search', 'closed:>=%s reason:completed' % start.isoformat(), '--json', 'number,closedAt'])
+            if err2:
+                overdue.append(('ci', 'audit: closure tracker did not answer (%s)' % err2[:80]))
+            try:
+                nclosed = closures_after(closed or [], cutoff)
+            except (KeyError, TypeError, ValueError) as error:
+                overdue.append(('ci', 'audit: invalid closure timestamp (%s)' % error))
+                nclosed = 0
             ndays = (today - start).days
             if nclosed >= AUDIT_CLOSED_ISSUES or ndays >= AUDIT_DAYS:
                 overdue.append(('ci', 'audit: %d issues closed and %d days since %s (cadence %d issues or %d days) -- run the code-auditor skill' % (nclosed, ndays, start, AUDIT_CLOSED_ISSUES, AUDIT_DAYS)))
                 report(False, 'audit', 'OVERDUE: %d closed, %d days since %s' % (nclosed, ndays, start))
             else:
-                report(True, 'audit', 'last %s; %d of %d closed issues, %d of %d days' % (last_audit or 'none', nclosed, AUDIT_CLOSED_ISSUES, ndays, AUDIT_DAYS))
+                report(not err2, 'audit', 'last %s%s; %d of %d closed issues, %d of %d days' % (
+                    cutoff.isoformat(), ' via ' + completed_by if completed_by else '',
+                    nclosed, AUDIT_CLOSED_ISSUES, ndays, AUDIT_DAYS))
         epics, err = gh_json(['issue', 'list', '--repo', REPO, '--state', 'open', '--label', 'epic', '--limit', '50',
                               '--json', 'number,title,createdAt'])
         if err:

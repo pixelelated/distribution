@@ -1,0 +1,73 @@
+#!/usr/bin/env python3
+"""Exercise retention refusals with real temporary QCOW files and processes."""
+import copy
+import importlib.machinery
+import importlib.util
+import json
+import os
+from pathlib import Path
+import subprocess
+import tempfile
+
+source = Path(__file__).with_name('retention-report')
+loader = importlib.machinery.SourceFileLoader('retention', str(source))
+spec = importlib.util.spec_from_loader(loader.name, loader)
+mod = importlib.util.module_from_spec(spec)
+loader.exec_module(mod)
+results = []
+with tempfile.TemporaryDirectory(prefix='pixelelated-retention-controls-') as tmp:
+    root = Path(tmp); owner = root/'owner'; kept = root/'kept'; store = root/'store'
+    for p in [owner, kept, store]: p.mkdir()
+    disk = owner/'guest.qcow2'
+    subprocess.run(['qemu-img','create','-f','qcow2',str(disk),'16M'], check=True, stdout=subprocess.DEVNULL)
+    ended = subprocess.Popen(['true']); ended.wait()
+    lifecycle = dict(pids_absent=[ended.pid], channels={n:'0' for n in ['inner.rc','outer.rc','tool-wrapper.rc','build.rc']})
+    for name, data in [('owner.json',lifecycle),('cleanup.json',{'passed':True})]:
+        text=json.dumps(data);(owner/name).write_text(text);(kept/name).write_text(text)
+    (kept/'replacement.json').write_text(json.dumps({'result':'PASS'}))
+    evidence=[dict(path=str(p),sha256=mod.digest(p)) for p in kept.iterdir()]
+    candidate=dict(path=str(disk),owner=str(owner),classification='superseded-qa-disk',
+                   identity=mod.identity(disk), evidence=evidence,
+                   cleanup_receipt=str(owner/'cleanup.json'),owner_receipt=str(owner/'owner.json'),
+                   superseded_by=dict(path=str(kept/'replacement.json'),sha256=mod.digest(kept/'replacement.json')))
+    plan=dict(scan_roots=[str(root)],reference_stores=[str(store)],protected=[str(kept)],candidates=[candidate],
+              volume=str(root),builds=[dict(name='fixture',terms_bytes={'required':1},
+                                          evidence=[candidate['superseded_by']],basis='fixture')])
+    def check(name, expected, changed=None):
+        current=changed or plan
+        result=mod.report(current);row=result['candidates'][0]
+        assert row['eligible']==expected,(name,row)
+        assert disk.exists() and result['deletion_performed'] is False
+        results.append(dict(name=name,passed=True,eligible=row['eligible'],reasons=row['rejection_reasons']))
+    check('eligible independent completed QA disk',True)
+    other=copy.deepcopy(plan);other['candidates'][0]['classification']='unknown'
+    check('unclassified candidate',False,other)
+    disk.chmod(0)
+    try: check('actual unreadable disk',False)
+    finally: disk.chmod(0o644)
+    # Permission changes altered identity; restore the expected observation.
+    candidate['identity']=mod.identity(disk)
+    hidden=root/'unreadable';hidden.mkdir();hidden.chmod(0)
+    try: check('unreadable dependency tree',False)
+    finally: hidden.chmod(0o755);hidden.rmdir()
+    child=store/'dependent.qcow2'
+    subprocess.run(['qemu-img','create','-f','qcow2','-F','qcow2','-b',str(disk),str(child)],check=True,stdout=subprocess.DEVNULL)
+    check('actual cross-store QCOW backing dependency',False);child.unlink()
+    link=store/'disk-link';link.symlink_to(disk)
+    check('cross-store symlink',False);link.unlink()
+    manifest=store/'objects.json';manifest.write_text(json.dumps({'object':str(disk)}))
+    check('cross-store JSON reference',False);manifest.unlink()
+    hard=store/'hardlink';os.link(disk,hard)
+    check('hardlinked candidate',False);hard.unlink()
+    sleeper=subprocess.Popen(['python3','-c','import time;time.sleep(60)',str(disk)])
+    try: check('actual live owner process',False)
+    finally: sleeper.terminate();sleeper.wait()
+    other=copy.deepcopy(plan);other['protected'].append(str(owner))
+    check('protected tree',False,other)
+    other=copy.deepcopy(plan);other['candidates'][0]['identity']['inode']+=1
+    check('changed identity',False,other)
+    receipt=kept/'cleanup.json';before=receipt.read_bytes();receipt.write_text('{}')
+    try: check('tampered retained evidence',False)
+    finally: receipt.write_bytes(before)
+    check('eligible after temporary controls removed',True)
+print(json.dumps(dict(result='PASS',controls=results,tool_sha256=mod.digest(source)),indent=2))

@@ -1,0 +1,268 @@
+#!/usr/bin/env python3
+"""Read-only build capacity and completed-QA disk retention report (#461).
+
+Inputs are an explicit plan, not deletion authority. This tool never removes
+files, changes permissions, stops processes or invokes privileged commands.
+Only superseded QA disks are eligible; build trees use fork-worktree separately.
+"""
+import argparse
+from datetime import datetime, timezone
+import hashlib
+import json
+import os
+from pathlib import Path
+import stat
+import subprocess
+import time
+
+
+def digest(path):
+    with Path(path).open('rb') as stream:
+        return hashlib.file_digest(stream, 'sha256').hexdigest()
+
+
+def identity(path):
+    s = Path(path).lstat()
+    return dict(device=s.st_dev, inode=s.st_ino, size=s.st_size,
+                mtime_ns=s.st_mtime_ns, allocated_bytes=s.st_blocks * 512,
+                uid=s.st_uid, links=s.st_nlink, mode=s.st_mode)
+
+
+def within(path, root):
+    return Path(path) == Path(root) or Path(root) in Path(path).parents
+
+
+def strings(value):
+    if isinstance(value, str):
+        yield value
+    elif isinstance(value, list):
+        for child in value:
+            yield from strings(child)
+    elif isinstance(value, dict):
+        for key, child in value.items():
+            yield key
+            yield from strings(child)
+
+
+def inventory(plan):
+    roots = [Path(p) for p in plan['scan_roots']]
+    if not roots or any(not p.is_absolute() or not p.is_dir() or p.is_symlink() for p in roots):
+        raise ValueError('scan roots must be explicit existing absolute directories')
+    if any(not any(within(p, r) for r in roots) for p in plan['reference_stores']):
+        raise ValueError('reference stores must be inside scanned roots')
+    errors, edges, disks, manifests = [], [], [], []
+    count = 0
+    tick = time.monotonic()
+    targets = {str(Path(c['path'])) for c in plan['candidates']}
+    if len(targets) != len(plan['candidates']):
+        raise ValueError('duplicate candidate paths')
+    for root in roots:
+        for base, dirs, files in os.walk(root, followlinks=False,
+                                        onerror=lambda e: errors.append(str(e))):
+            count += 1
+            for name in dirs + files:
+                p = Path(base) / name
+                try:
+                    if p.is_symlink():
+                        target = str(p.resolve())
+                        if any(within(target, t) or within(t, target) for t in targets):
+                            edges.append(dict(source=str(p), target=target, kind='symlink'))
+                        continue
+                    if name in dirs:
+                        continue
+                    if not stat.S_ISREG(p.lstat().st_mode):
+                        if name.endswith(('.qcow2', '.qcow', '.img', '.json')):
+                            errors.append('unclassified special file: ' + str(p))
+                        continue
+                    if name.endswith(('.qcow2', '.qcow', '.img', '.raw', '.vmdk', '.vdi', '.vhd', '.vhdx')):
+                        with p.open('rb') as stream:
+                            magic = stream.read(4)
+                        if magic == b'QFI\xfb' or name.endswith(('.qcow2', '.qcow', '.vmdk', '.vdi', '.vhd', '.vhdx')):
+                            disks.append(p)
+                    # A cross-store JSON mention is conservatively a reference.
+                    # No inferred exemption for a historical or unfamiliar schema.
+                    if name.endswith('.json') and any(within(p, r) for r in plan['reference_stores']):
+                        manifests.append(p)
+                except (OSError, RuntimeError) as e:
+                    errors.append(str(e))
+            if time.monotonic() - tick > 10:
+                print(f'Inspected {count} directories; {len(disks)} disk paths', flush=True)
+                tick = time.monotonic()
+    disk_rows = []
+    for n, p in enumerate(disks):
+        try:
+            before = identity(p)
+            run = subprocess.run(['qemu-img', 'info', '--force-share', '--backing-chain',
+                                  '--output=json', str(p)], capture_output=True, text=True, timeout=30)
+            if run.returncode:
+                raise ValueError(str(p) + ': ' + run.stderr.strip())
+            chain = json.loads(run.stdout)
+            if identity(p) != before:
+                raise ValueError('disk changed during inspection: ' + str(p))
+            for row in chain:
+                if row.get('format') not in ['qcow2', 'raw']:
+                    raise ValueError('unclassified disk format: ' + str(p))
+                source = Path(row['filename'])
+                if not source.is_absolute():
+                    source = p.parent / source
+                backing = row.get('full-backing-filename') or row.get('backing-filename')
+                if backing:
+                    target = Path(backing)
+                    if not target.is_absolute():
+                        target = source.parent / target
+                    edges.append(dict(source=str(source.resolve()), target=str(target.resolve()), kind='qcow-backing'))
+            disk_rows.append(dict(path=str(p), identity=before, chain=chain))
+        except (OSError, ValueError, subprocess.TimeoutExpired) as e:
+            errors.append(str(e))
+        if n % 25 == 0:
+            print(f'Inspected {n + 1}/{len(disks)} backing chains', flush=True)
+    for p in manifests:
+        try:
+            if p.stat().st_size > 32 * 1024 * 1024:
+                raise ValueError('unclassified oversized store manifest: ' + str(p))
+            for value in strings(json.loads(p.read_text())):
+                if value in targets:
+                    edges.append(dict(source=str(p), target=value, kind='cross-store-json'))
+        except (OSError, ValueError) as e:
+            errors.append(str(e))
+    active, process_errors = [], []
+    for entry in Path('/proc').glob('[0-9]*/cmdline'):
+        try:
+            argv = entry.read_bytes().split(b'\0')
+            if not argv[0]:
+                continue
+            pid = int(entry.parent.name)
+            if pid == os.getpid():
+                continue
+            if Path(os.fsdecode(argv[0])).name.startswith('qemu-system-'):
+                active.append(dict(pid=pid, kind='live-qemu', scope='all candidates held'))
+            for c in plan['candidates']:
+                if any(os.fsencode(c['path']) in a or os.fsencode(c['owner']) in a for a in argv):
+                    active.append(dict(pid=pid, kind='owner-argv', path=c['path']))
+        except FileNotFoundError:
+            pass  # Process exited between discovery and read.
+        except OSError as e:
+            process_errors.append(str(e))
+    mounts = []
+    try:
+        ids = subprocess.check_output(['docker', 'ps', '-aq'], text=True, timeout=30).split()
+        for cid in ids:
+            data = json.loads(subprocess.check_output(['docker', 'inspect', cid], text=True, timeout=30))[0]
+            for mount in data['Mounts']:
+                mounts.append(dict(container=cid, running=data['State']['Running'], source=mount['Source']))
+    except (OSError, ValueError, subprocess.SubprocessError) as e:
+        errors.append('container inspection: ' + str(e))
+    return dict(directories=count, errors=errors + process_errors, disks=disk_rows,
+                references=edges, active=active, container_mounts=mounts,
+                scope='All directories under explicit roots; directory symlinks not followed. '
+                      'QCOW magic in img/raw and named virtual disks; JSON references in explicit stores. '
+                      'Actual process argv and all container mounts. No whole-host root FD census claimed.')
+
+
+def evaluate(candidate, plan, observed):
+    path = Path(candidate['path'])
+    reasons = []
+    if candidate.get('classification') != 'superseded-qa-disk':
+        reasons.append('unclassified candidate')
+    if not any(within(path, r) for r in plan['scan_roots']):
+        reasons.append('outside scanned roots')
+    if any(within(path, p) or within(p, path) for p in plan['protected']):
+        reasons.append('protected identity or ancestor')
+    if observed['errors']:
+        reasons.append('unreadable or unclassified dependency inventory')
+    if any(a.get('path') == str(path) or a['kind'] == 'live-qemu' for a in observed['active']):
+        reasons.append('active process')
+    for m in observed['container_mounts']:
+        if within(path, m['source']) or within(m['source'], path):
+            reasons.append('container reference: ' + m['container'])
+    for edge in observed['references']:
+        if within(edge['target'], path) or within(path, edge['target']):
+            reasons.append(edge['kind'] + ' reference: ' + edge['source'])
+    try:
+        actual = identity(path)
+        if actual != candidate['identity']:
+            reasons.append('identity changed')
+        if not stat.S_ISREG(actual['mode']) or actual['links'] != 1 or actual['uid'] != os.getuid():
+            reasons.append('not an exclusively owned regular file')
+        if not any(d['path'] == str(path) and d['chain'][0]['format'] == 'qcow2' for d in observed['disks']):
+            reasons.append('candidate not classified as QCOW2')
+        evidence = candidate['evidence']
+        if not evidence or not candidate.get('superseded_by'):
+            reasons.append('missing preservation or replacement evidence')
+        for item in evidence + [candidate['superseded_by']]:
+            if within(item['path'], candidate['owner']):
+                reasons.append('evidence not independently retained')
+            if digest(item['path']) != item['sha256']:
+                reasons.append('retained evidence hash mismatch: ' + item['path'])
+        replacement = json.loads(Path(candidate['superseded_by']['path']).read_text())
+        if replacement.get('result') != 'PASS':
+            reasons.append('replacement qualification not accepted')
+        cleanup = json.loads(Path(candidate['cleanup_receipt']).read_text())
+        lifecycle = json.loads(Path(candidate['owner_receipt']).read_text())
+        if (not cleanup.get('passed') or not lifecycle.get('pids_absent')
+                or set(lifecycle['channels']) != {'inner.rc', 'outer.rc', 'tool-wrapper.rc', 'build.rc'}
+                or len(set(lifecycle['channels'].values())) != 1):
+            reasons.append('missing completed owner/cleanup proof')
+        for pid in lifecycle['pids_absent']:
+            if Path('/proc', str(pid)).exists():
+                reasons.append('recorded owner PID currently exists: ' + str(pid))
+        # Bind the two authority-bearing receipts to the independently retained set.
+        for receipt in [candidate['cleanup_receipt'], candidate['owner_receipt']]:
+            if not any(e['sha256'] == digest(receipt) for e in evidence):
+                reasons.append('completion receipt not preserved independently')
+        sha = digest(path)
+        if identity(path) != actual:
+            reasons.append('candidate changed while hashing')
+    except (OSError, ValueError, KeyError, TypeError) as e:
+        reasons.append('unreadable or malformed candidate evidence: ' + str(e))
+        sha = None
+    return dict(path=str(path), identity=candidate['identity'], sha256=sha,
+                eligible=not reasons, rejection_reasons=reasons)
+
+
+def report(plan):
+    observed = inventory(plan)
+    rows = [evaluate(c, plan, observed) for c in plan['candidates']]
+    free = os.statvfs(plan['volume'])
+    available = free.f_bavail * free.f_frsize
+    preserved = []
+    for p in plan['protected']:
+        preserved.append(dict(path=p, identity=identity(p)))
+    budgets = []
+    for budget in plan['builds']:
+        if not budget['evidence']:
+            raise ValueError('capacity estimate requires retained measurements')
+        for evidence in budget['evidence']:
+            if digest(evidence['path']) != evidence['sha256']:
+                raise ValueError('capacity evidence changed')
+        terms = budget['terms_bytes']
+        if not terms or any(type(v) is not int or v < 0 for v in terms.values()):
+            raise ValueError('invalid capacity terms')
+        need = sum(terms.values())
+        reclaim = sum(r['identity']['allocated_bytes'] for r in rows if r['eligible'])
+        budgets.append(dict(name=budget['name'], terms_bytes=terms, required_bytes=need,
+                            available_bytes=available, fits_now=available >= need,
+                            eligible_reclaim_bytes=reclaim,
+                            headroom_after_proposed_bytes=available + reclaim - need,
+                            basis=budget['basis']))
+    return dict(utc=datetime.now(timezone.utc).isoformat(), schema=1, deletion_performed=False,
+                result='REPORT_COMPLETE', protected=preserved, inventory=observed,
+                candidates=rows, builds=budgets, preservation_additional_bytes=0,
+                limitations='Evidence is already independently retained. Available bytes exclude filesystem reserve. '
+                            'A report is not deletion authority; refresh identities, dependencies and active use before execution.')
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--plan', type=Path, required=True)
+    parser.add_argument('--output', type=Path, required=True)
+    args = parser.parse_args()
+    plan = json.loads(args.plan.read_text())
+    result = report(plan)
+    result['plan_sha256'] = digest(args.plan)
+    result['tool_sha256'] = digest(__file__)
+    with args.output.open('x') as stream:
+        json.dump(result, stream, indent=2); stream.write('\n')
+    print(json.dumps(dict(result=result['result'], candidates=len(result['candidates']),
+                          eligible=sum(r['eligible'] for r in result['candidates']),
+                          errors=len(result['inventory']['errors']), builds=result['builds'])), flush=True)

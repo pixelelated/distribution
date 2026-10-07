@@ -1,0 +1,122 @@
+Inspected 1/1 backing chains
+Inspected 1/1 backing chains
+Inspected 1/1 backing chains
+Inspected 1/2 backing chains
+Inspected 1/1 backing chains
+Inspected 1/1 backing chains
+Inspected 1/1 backing chains
+Inspected 1/1 backing chains
+Inspected 1/1 backing chains
+Inspected 1/1 backing chains
+Inspected 1/1 backing chains
+Inspected 1/1 backing chains
+{
+  "result": "PASS",
+  "controls": [
+    {
+      "name": "eligible independent completed QA disk",
+      "passed": true,
+      "eligible": true,
+      "reasons": []
+    },
+    {
+      "name": "unclassified candidate",
+      "passed": true,
+      "eligible": false,
+      "reasons": [
+        "unclassified candidate"
+      ]
+    },
+    {
+      "name": "actual unreadable disk",
+      "passed": true,
+      "eligible": false,
+      "reasons": [
+        "unreadable or unclassified dependency inventory",
+        "identity changed",
+        "candidate not classified as QCOW2",
+        "unreadable or malformed candidate evidence: [Errno 13] Permission denied: '/tmp/pixelelated-retention-controls-wwzfcf53/owner/guest.qcow2'"
+      ]
+    },
+    {
+      "name": "unreadable dependency tree",
+      "passed": true,
+      "eligible": false,
+      "reasons": [
+        "unreadable or unclassified dependency inventory"
+      ]
+    },
+    {
+      "name": "actual cross-store QCOW backing dependency",
+      "passed": true,
+      "eligible": false,
+      "reasons": [
+        "qcow-backing reference: /tmp/pixelelated-retention-controls-wwzfcf53/store/dependent.qcow2"
+      ]
+    },
+    {
+      "name": "cross-store symlink",
+      "passed": true,
+      "eligible": false,
+      "reasons": [
+        "symlink reference: /tmp/pixelelated-retention-controls-wwzfcf53/store/disk-link"
+      ]
+    },
+    {
+      "name": "cross-store JSON reference",
+      "passed": true,
+      "eligible": false,
+      "reasons": [
+        "cross-store-json reference: /tmp/pixelelated-retention-controls-wwzfcf53/store/objects.json"
+      ]
+    },
+    {
+      "name": "hardlinked candidate",
+      "passed": true,
+      "eligible": false,
+      "reasons": [
+        "identity changed",
+        "not an exclusively owned regular file"
+      ]
+    },
+    {
+      "name": "actual live owner process",
+      "passed": true,
+      "eligible": false,
+      "reasons": [
+        "active process"
+      ]
+    },
+    {
+      "name": "protected tree",
+      "passed": true,
+      "eligible": false,
+      "reasons": [
+        "protected identity or ancestor"
+      ]
+    },
+    {
+      "name": "changed identity",
+      "passed": true,
+      "eligible": false,
+      "reasons": [
+        "identity changed"
+      ]
+    },
+    {
+      "name": "tampered retained evidence",
+      "passed": true,
+      "eligible": false,
+      "reasons": [
+        "retained evidence hash mismatch: /tmp/pixelelated-retention-controls-wwzfcf53/kept/cleanup.json"
+      ]
+    },
+    {
+      "name": "eligible after temporary controls removed",
+      "passed": true,
+      "eligible": true,
+      "reasons": []
+    }
+  ],
+  "tool_sha256": "48c187844d96ef0a56454c23d4a0d4a777559b99ddb78e1ffa33a402d95f4904"
+}

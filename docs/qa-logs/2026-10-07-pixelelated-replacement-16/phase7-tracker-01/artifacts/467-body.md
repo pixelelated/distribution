@@ -1,0 +1,43 @@
+## Accepted on candidate 16
+
+Discovery and capability fixes, installed legacy/tiered/BIOS restores, unsupported controls, and actual EN/FR automatic/default and manual chooser paths all pass. Original source/config/cloud bytes are preserved; clean/actual RC2 upgrade and all three protocols pass.
+
+[Primary acceptance](https://github.com/pixelelated/distribution/blob/7f293a22d97317d1632952a5cf2e9d4a45bd2cb2/docs/qa-logs/2026-10-07-pixelelated-replacement-16/content-routing01-acceptance/acceptance.json); [criterion reconciliation](https://github.com/pixelelated/distribution/blob/7f293a22d97317d1632952a5cf2e9d4a45bd2cb2/docs/audits/2026_10_06-milestone-m7-p4-fixes-383/10-closure-reconciliation.md); [fix commits and existing-state dispositions](https://github.com/pixelelated/distribution/blob/7f293a22d97317d1632952a5cf2e9d4a45bd2cb2/docs/audits/2026_10_06-milestone-m7-p4-fixes-383/08-installed-resolution.md).
+
+Already written: existing player/cloud data is preserved under the explicit migration, refusal and retry dispositions in audit 08; actual old states and corrected installed behavior are retained.
+
+## Historical request and execution record
+
+## Additional installed frame finding — 2026-10-06 21:27 UTC
+
+Candidate15 cloudUI04's real legacy-root content page finds Game Boy but says
+`THIS DEVICE CANNOT RUN IT`. The script's pre-tier scan row hardcodes supported=0,
+while its tiered rows consult installed system support. The ES switch remains
+enabled; this is a false capability message, not a demonstrated blocked restore.
+Local retained frame/review: `docs/qa-logs/2026-10-06-pixelelated-replacement-15/cloud-ui04-progress-review/`.
+Source repair and meaningful legacy/tiered/BIOS/unknown controls are prepared;
+no installed repaired-image result is claimed. PL-001 remains open. Can this
+be done on the VM? Yes: rebuilt-image scan flags and EN/FR640px row frames.
+
+- [x] A supported system at the legacy content root reports supported=1 and shows
+  no false cannot-run message on the rebuilt installed EN/FR content pages; known
+  unsupported-system controls retain supported=0. Actual selected content still
+  restores exact bytes without changing the cloud source.
+
+M7.P4 audit #383 reproduced a content-location defect on the unchanged replacement14 image (source7afa9efcfc0c1ce4b89774b38878fc1b9a9063d2; imagec7df6a6f428086f79a377ca1b049f20694f34a868987cf12c493c78eab7b2254).
+
+The #352 contract says that no `ROMs/` or known-system folder should lead to discovery of the default content folder or a chooser. `cloud_setup --content-location` currently counts every configured subdirectory, so `/Mine/Photos` reports `STATE=ok` and blocks both routes. At the explicit cloud root it instead checks the locally populated backup list, so real `ROMs/`/`BIOS/` or a supported legacy system absent locally reports `STATE=empty`.
+
+Can this be done on the VM? Yes: this is installed script/UI behavior with synthetic local WebDAV. No physical fact or personal account is required.
+
+Primary evidence: `docs/audits/2026_10_06-milestone-m7-p4-fixes-383/evidence/content-probe-01/`. Seven fresh fixtures:3 controls pass,4 challenged cases fail. All before/after cloud hashes and pointers match; installed scripts are unchanged. Four terminal rc1 results, exact process absence and five unbound ports verified15:27:11UTC. Original owner `/workspace/tmp/pixelelated-m7-p4-content-probe-01` is complete and must not be replayed.
+
+Already written: no loss was observed. Existing unrelated directories and valid cloud content are preserved, but the classifier can suppress discovery or offer an unnecessary chooser. The fix must leave configured pointers and cloud bytes unchanged until the normal user/automatic-discovery action selects a valid location.
+
+Acceptance criteria:
+- [x] Configured folders containing only unrelated subdirectories are classified as empty; a real default `Content/ROMs` or `Content/BIOS` fallback is discovered. Retain failing-old/passing-fixed fixtures and exact installed-image results.
+- [x] Explicit root and legacy supported-system content are recognized on an otherwise empty device; genuine configured game content remains recognized, and unrelated folders never become game systems. Retain primary facts and sentinel hashes for all sibling cases.
+- [x] Installed UI proof shows the empty-content chooser and automatic fallback take the correct routes, including a successful manual selection with `CONTENT_REMOTE` readback and its journal; preserve root/chooser controls.
+- [x] Read/list failures remain errors rather than being mistaken for an empty cloud, and discovery changes no cloud payloads. Relevant host regressions plus affected frozen-image clean/upgrade/UI qualification pass before RC clearance.
+
+This issue records a primary Phase2 finding. The serial audit continues through refutation/second opinion and full punch-list reconciliation; neither this issue nor its proof is an overall completed audit.

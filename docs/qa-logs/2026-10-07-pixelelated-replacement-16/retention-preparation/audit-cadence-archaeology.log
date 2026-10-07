@@ -1,0 +1,54 @@
+archaeology: audit.*cadence|ceremony.*audit
+
+== The decision register (3)
+  (open)      register OPEN D-QA-040        The ceremony cadences, and which overdue ceremonies refuse a push rather than only redden CI. `tools/ceremony-check` ships with: a phase retro every 5 active days (block…
+  2026-09-23  register decided D-WORKFLOW-028  The ceremonies are audited by a tool and enforced by the push guard and the fork's CI, not left to judgment: `tools/ceremony-check` reads the record for the last retro, …
+  2026-09-25  register decided D-QA-047     Before the soak, the code auditor audits what changed since the last audit (#258, and #260's items fixed in the twentieth cut): the save tiles' day words (#195), the sta…
+
+== The blindspot register (0)
+
+== Work logs (19)
+  2026-09-23  work-log 21:05                The ceremonies become a state machine a tool turns (#254, D-WORKFLOW-028)
+  2026-09-24  work-log 01:20                Two more asks: the rigorous audit before the candidate, and several upstream PRs
+  2026-09-25  work-log 05:07                Five answers, one question at a time: the audit before the soak (D-QA-047), #265 left for the next release, D-QA-043 closed, the catalog in the repo …
+  2026-09-25  work-log 21:20                The final candidate a65da6c784 is green on every VM proof; #239, #275 and #276 closed; no open bug; the preflight reads MAY BE CUT
+  2026-10-03  work-log 07:04                #371/#367/#332: normal push and delivered closures
+  2026-10-03  work-log 14:10                #383/#344: cold branded build running
+  2026-10-04  work-log 20:41                #383/#320/#420/#421 publish proofs and reconcile live status
+  2026-10-04  work-log 23:44                M7 current evidence published; identity/harness defects closed
+  2026-10-05  work-log 06:52                exact compiled-context reconciliation (#442, #383)
+  2026-10-05  work-log 17:11                evidence published; legacy DRM remedy rejected (#447, #446, #395, #383)
+  2026-10-05  work-log 19:06                #447/#450 selector proof passes both actual GPU modes
+  2026-10-05  work-log 20:36                #447 fresh-context proof reconciles every current-candidate summary
+  2026-10-05  work-log 21:00                #447 final UI and actual 1 GiB regressions pass
+  2026-10-05  work-log 21:03                #447 qualification published and scoped fix closed
+  2026-10-06  work-log                      2026-10-06T20:48:34.713814+00:00 — #471 remaining acceptance fixtures prepared
+  2026-10-06  work-log                      2026-10-06 21:06 UTC — Guarded UI preparation and reader evidence published (#471)
+  2026-10-06  work-log                      2026-10-06T20:43:38.649801+00:00 — #471 candidate15 baseline complete; installed acceptance active
+  2026-10-06  work-log 04:17                #461/#168 publication and fresh resume proof
+  2026-10-06  work-log 06:21                #464/#361 publication and independent resume proof
+
+== Rules (4)
+              rule ceremonies.md            ceremonies.md
+              rule fork-workflow.md         Branch model
+              rule instruction-files.md     The fork's own tools, and which rule documents each
+              rule instruction-files.md     The index
+
+== Git history (-G, on this checkout) (15)
+  2026-10-06  git 1b73920a6d                emulationstation - clarify interrupted cloud move guidance
+  2026-10-06  git 86f793ea3c                cloud - safely retry interrupted partial files and fit recovery guidance
+  2026-10-06  git 89879687b6                qa - retain installed library pacing and recovery evidence
+  2026-10-06  git b5953a1514                qa - record bilingual recovery and current M7 audit evidence
+  2026-10-06  git c944957098                M7 - record verified copy fix and next-build handoff
+  2026-10-06  git cc058c962c                audit: retain installed French proof and historical migration gap
+  2026-10-06  git e983393871                rclone - finish earlier history recovery and correct legacy support labels
+  2026-10-06  git ffae61e343                qa - retain boot qualification and bucket retry evidence
+  2026-10-07  git 0d70d093ba                M7 - freeze candidate16 after approved QA disk retirement
+  2026-10-07  git 38af8bea74                qa: verify legacy folders and cloud error guidance
+  2026-10-07  git 3af6d5192b                qa: verify small-screen cloud recovery and timeout guidance
+  2026-10-07  git 44610451a5                qa: verify interrupted cloud move and revised guidance
+  2026-10-07  git 674f4312ff                qa: verify candidate16 artifacts and collision refusal
+  2026-10-07  git 9b4e91b832                qa: verify bilingual cloud recovery at both resolutions
+  2026-10-07  git a89e910432                qa: complete candidate16 software qualification and audit
+
+41 line(s). A decision listed as pending without a register OPEN row above is a claim to check.

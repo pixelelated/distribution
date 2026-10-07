@@ -1,0 +1,25 @@
+{
+  "utc": "2026-10-07T03:03:05.606504+00:00",
+  "command": [
+    "git",
+    "diff",
+    "--exit-code",
+    "ee014909137e03706e0b3020b8396be589aaa705",
+    "next",
+    "--",
+    "config",
+    "distributions",
+    "packages",
+    "projects",
+    "scripts",
+    "Makefile"
+  ],
+  "returncode": 0,
+  "stdout": "",
+  "stderr": "",
+  "next": "7f293a22d97317d1632952a5cf2e9d4a45bd2cb2",
+  "product": "ee014909137e03706e0b3020b8396be589aaa705",
+  "scripts_build_distro_sha256": "8b8d56c29c0e52f1eba90981973bf55503142faa5a544d863c1aa4a74ef0a609",
+  "h700_options_sha256": "b483174ec81f7711208c10da1c4f7e3f184bad4689a553091b98d06b83cf5f9e",
+  "interpretation": "Current next retains all qualified product paths. H700 arm runs build_compat/install prerequisites; aarch64 creates the firmware. Device work must use a fresh build worktree and keep the old device/fallback tree unchanged."
+}

@@ -41,10 +41,12 @@ Evidence: `docs/audits/2026_10_06-milestone-m7-p4-fixes-383/08-installed-resolut
 and `docs/qa-logs/2026-10-07-pixelelated-replacement-16/`. The original forward
 audit grades remain historical; later dispositions are mapped in audit09/10.
 
-Current action: publish the acceptance and reconcile #471, #467, #468, #478,
-#479, #361, #386, #327, #409, #383 and observer repairs #487/#488 with exact
-body/state readbacks. Then #461 capacity/retention review, H700 DDR4 RG35XX SP
-arm build, aarch64 build, and the separately gated physical/P5 work.
+Acceptance is published on next `7f293a22d97317d1632952a5cf2e9d4a45bd2cb2`.
+#471, #467, #468, #478, #479, #361, #386, #327, #409, #383 and observer repairs
+#487/#488 are closed completed, with exact body/state readbacks. Live audit lint
+confirms all eight checked findings and resolved outcomes. Current: M7.P5 #461
+capacity/retention review, then H700 DDR4 RG35XX SP arm, aarch64, and the
+separately gated physical/P5 work.
 
 This is software qualification, not RC designation or release publication.
 The 14 known component licence/source metadata gaps, corresponding-source
@@ -55,29 +57,36 @@ The completed two-file retirement authorizes no broader deletion.
 
 ## Immediate next actions
 
-1. Run audit resolution lint and the normal instruction/register/index checks.
-2. Prepare fresh evidence publication07 from publication06, with current HEAD
-   guards below. Include audit08/10, all new Q16 evidence, readiness, logs and
-   both checkpoints. Use the durable watcher and normal hooks, then verify all
-   four results, seals, owner exits, equal paths and exact remote refs.
-3. Publish the prepared criterion-specific tracker updates, then re-read each
-   body/state and the milestone. Audit lint with --issue471 verifies its eight
-   checked outcomes. Retain exact tracker and publication receipts; commit them.
-4. Begin #461 read-only retention/capacity report for H700 arm, then aarch64.
-   No removal proposal may ignore unreadable/active/unclassified/referenced
-   dependencies. Existing H700 caches measured ~28GiB arm/~110GiB aarch64 at
-   historical devices1ac; this is not a fit verdict. Remeasure space after QA.
+Publication07 and tracker01/02 are completed and independently verified.
+All four result channels are zero and their sealed inputs unchanged. Receipts
+are retained in Q16/phase7-publication-07 and phase7-tracker-01/02. Tracker02
+corrected two summaries to the actual 1280×800 resolution; original snapshots
+remain retained. #461 is scheduled under M7.P5; closed titles are unchanged.
 
-No VM/build/publication owner is currently active. Final content-routing01,
-selected-content01, QA20 and cloud02 are accepted and must not be replayed.
-All direct frames are recorded and hash-bound. #487 SFTP title observer and
-#488 snapshot-field observer are fixed; close after evidence publication.
+The read-only retention review is ACTIVE under
+`/workspace/tmp/pixelelated-m7-retention-review-01`, launcher1313170,
+watcher1313172, run `20261007T025738Z-12d3d070`. Read console.log and run.path;
+verify the terminal result and input seals before retaining the report.
+It measures old H700 roots and artifacts, then inspects 24 explicit QA disks.
+No deletion is authorized by this report. The new planner and its control tool
+must not be edited while the report runs. Thirteen isolated controls pass;
+the first test fixture's coupled evidence failure is preserved separately.
+
+Next: review actual dependencies/rejections and each architecture's measured
+capacity forecast. Prepare any necessary exact cleanup proposal; no removal
+may ignore unreadable, active, unclassified or referenced dependencies.
+Then publish the closure/retention receipts, update the milestone and proceed
+to H700 arm when capacity is established. Any additional deletion needs its
+own concrete authorization; the old two-disk approval is fully consumed.
+
+No VM is active. Final content-routing01, selected-content01, QA20 and cloud02
+are accepted and must not be replayed. #487/#488 are closed completed.
 
 ## Frozen inputs and published heads
 
 - Coordination: /workspace/repos/rocknix.worktrees/conflict-resolution,
-  feature/conflict-resolution at9b4e91b832489a5852950c77cf5fc8eef0c49691.
-- Primary: /workspace/repos/rocknix, next at32fb5a613df15df5bc30ec7dddcdf2adf3dfbc82.
+  feature/conflict-resolution at a89e910432d5565562b1a6eb53679b2ca7da962a.
+- Primary: /workspace/repos/rocknix, next at 7f293a22d97317d1632952a5cf2e9d4a45bd2cb2.
 - Frozen16: /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement16,
   build/m7-pixelelated-replacement16 at ee014909137e03706e0b3020b8396be589aaa705.
   Never edit/reset/sync it; its generated emulator-table diff is expected.

@@ -28,10 +28,12 @@ Evidence: `docs/audits/2026_10_06-milestone-m7-p4-fixes-383/08-installed-resolut
 and `docs/qa-logs/2026-10-07-pixelelated-replacement-16/`. The original forward
 audit grades remain historical; later dispositions are mapped in audit09/10.
 
-Current action: publish the acceptance and reconcile #471, #467, #468, #478,
-#479, #361, #386, #327, #409, #383 and observer repairs #487/#488 with exact
-body/state readbacks. Then #461 capacity/retention review, H700 DDR4 RG35XX SP
-arm build, aarch64 build, and the separately gated physical/P5 work.
+Acceptance is published on next `7f293a22d97317d1632952a5cf2e9d4a45bd2cb2`.
+#471, #467, #468, #478, #479, #361, #386, #327, #409, #383 and observer repairs
+#487/#488 are closed completed, with exact body/state readbacks. Live audit lint
+confirms all eight checked findings and resolved outcomes. Current: M7.P5 #461
+capacity/retention review, then H700 DDR4 RG35XX SP arm, aarch64, and the
+separately gated physical/P5 work.
 
 This is software qualification, not RC designation or release publication.
 The 14 known component licence/source metadata gaps, corresponding-source

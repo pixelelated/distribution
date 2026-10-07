@@ -1,0 +1,9 @@
+{
+  "number": 488,
+  "title": "M7.P4: Reconcile selected-content acceptance snapshot fields",
+  "body": "The four candidate16 installed selected-content cases passed and all result/input/cleanup checks passed. The separate offline acceptance script then raised `KeyError: a`: it assumed `audit_snapshot()` nested pointers under guest `a`, although the frozen fixture's snapshot has its own explicit pointer field. No failed product assertion or new runtime test is involved.\n\nCan this be done on the VM? The behavior has already been proved on the VM. This correction only re-reads retained host artifacts.\n\nAcceptance criteria:\n- [ ] Retain the failed validator source and exact raw snapshot field structure.\n- [ ] The corrected validator requires the actual empty root pointer, unchanged before/after snapshot, all three downloaded payload hashes, unsupported flag, four passing cases and verified result/seal/cleanup evidence.\n- [ ] Missing/wrong pointer controls are rejected, and the original passing runtime evidence is retained without replay.\n\nRefs #467, #471. This is an offline evidence-validator fix only.\n",
+  "state": "open",
+  "state_reason": null,
+  "updated_at": "2026-10-07T02:40:38Z",
+  "html_url": "https://github.com/pixelelated/distribution/issues/488"
+}

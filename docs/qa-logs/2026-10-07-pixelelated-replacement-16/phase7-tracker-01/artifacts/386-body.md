@@ -1,0 +1,44 @@
+## Accepted on candidate 16
+
+Exact archives, parent-coupled SPIR-V disposition, actual 752-byte Vulkan shader compile/link, cbindgen 0.29.4 compatibility, six Codeberg controls, recipe lints, cold target consumers and frozen-cut freshness are accepted. Candidate16 retains 1,607 unchanged recipes; only the qualified ES pin changes. Source-current evidence retains its original timestamp.
+
+[Primary acceptance](https://github.com/pixelelated/distribution/blob/7f293a22d97317d1632952a5cf2e9d4a45bd2cb2/docs/qa-logs/2026-10-07-pixelelated-replacement-16/unchanged-dependency-custody/parent-criterion-readback.json); [criterion reconciliation](https://github.com/pixelelated/distribution/blob/7f293a22d97317d1632952a5cf2e9d4a45bd2cb2/docs/audits/2026_10_06-milestone-m7-p4-fixes-383/10-closure-reconciliation.md); [fix commits and existing-state dispositions](https://github.com/pixelelated/distribution/blob/7f293a22d97317d1632952a5cf2e9d4a45bd2cb2/docs/audits/2026_10_06-milestone-m7-p4-fixes-383/08-installed-resolution.md).
+
+Already written: this closure records verified evidence and changes no player files or cloud data; the original runtime failures and prior source states remain retained.
+
+## Historical request and execution record
+
+## Final source disposition — 2026-10-04
+
+The complete freshness check now exits0 on the selected recipes. D-WORKFLOW-147 records SPIR-V Headers496543121ce6419f23d6fa5d7194ba66c36212d2 paired with SPIRV-Tools ef96ed763b43b59b33b31b362f09a02b729fa1c9: glslang16.6.0 known_good.json and Tools DEPS independently name this pair, with native consumer/shader proof retained below. The RC acceptance file now names that actual parent-coupled disposition; no bug or VM criterion is waived. #361's final upstream refresh toec60fdd is included in frozen distribution b137d8c373.
+
+Receipts: `docs/qa-logs/2026-10-04-proxy-preflight/`, including complete freshness and the upstream coupling files. The new cold build is prepared but awaits the host swap reset; candidate build/consumer/VM criteria remain open.
+
+## First-release review finding (#385)
+
+The maintainer's direction remains: "with libraries, we should always be working to stay aligned with upstream work where we can by using the latest versions of packages." D-WORKFLOW-138 also requires preservation of functionality.
+
+The 2026-10-02 diagnostic on distribution fcd0f20c9a (integrated next df23faff6c) exits 2: glslang 15.1.0 vs 16.6.0, spirv-headers 126 commits behind, cbindgen 0.29.2 vs 0.29.4, tllist 1.1.0 UNKNOWN (the tool had no Codeberg resolver). Receipt: docs/qa-logs/2026-10-02-readiness/freshness.log. These are additional to #361/#362, not evidence those updates failed.
+
+The proxy's recipe explanation still presents the withdrawn old-pin rationale as PINNED. #361 owns that source change. Recorded parent-coupled gamescope, MangoHud and proxy submodule inputs remain distinct from independent packages; frozen distribution ancestry D-WORKFLOW-111 is not a blanket library exception.
+
+## Can this be done on the VM?
+
+Yes. Resolve sources and dependency constraints on the host, then qualify affected consumers on GENERIC_X64. No physical-device or personal-cloud action is needed.
+
+## Acceptance criteria
+
+- [x] Each listed package has a verified current source and consumer-compatibility result; the recipes are refreshed, or an actual parent-coupled/version constraint is documented with evidence and a recorded disposition. No unexplained old-pin exception.
+- [x] tllist's upstream version is resolved; any freshness resolver fix has a retained failing/passing control. UNKNOWN is not CURRENT.
+- [x] tools/pkgcheck passes for changed recipes; relevant consumers build and their VM acceptance receipts identify the exact candidate inputs.
+- [x] tools/fork-package-freshness exits 0 on the frozen candidate inputs and the source manifest names the verified archives/hashes. #361/#362 qualification remains separately required.
+
+## Source checks — 2026-10-03
+
+`docs/qa-logs/2026-10-03-dependencies/` retains current archive/recipe hashes, the exact build command and full receipts. glslang16.6.0, SPIRV-Tools ef96ed763b43b59b33b31b362f09a02b729fa1c9 and Headers496543121ce6419f23d6fa5d7194ba66c36212d2 built natively; shaderc2025.3 built against them and compiled a752-byte Vulkan vertex shader. Both glslang known_good.json and Tools DEPS specify that pair. Candidate headers contain LLVM translator22.1.5's requested ancestor, with13 additional commits. This is evidenced parent coupling, not a blanket older-pin exception.
+
+cbindgen0.29.4 builds with project Rust1.94.1 and reports the selected version. All four changed recipes pass pkgcheck. The existing shaderc patch lacked a final newline; adding only that newline permits strict zero-fuzz application with the same source changes.
+
+tllist1.1.0 is current: the Codeberg tags API answered. The tool previously had no resolver. Six controlled cases now pass, including stable/prerelease filtering, a newer stable release, malformed/empty responses and failed transport with a body. Two version controls failed before. The live resolver reports CURRENT. Scoped freshness for the seven selected fork-inventory entries exits0; SPIRV-Tools is qualified as the parent-coupled input above rather than being a fork-added inventory entry.
+
+Full cold cross-build, remaining consumers, candidate VM evidence and the complete frozen source manifest/freshness result are still required. Native source checks do not close image acceptance. #362 continues to own libsoup/WebKit runtime qualification.

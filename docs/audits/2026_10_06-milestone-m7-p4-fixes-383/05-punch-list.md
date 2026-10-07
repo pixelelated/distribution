@@ -1,11 +1,11 @@
 # Punch List — M7 P4 fixes audit (#383)
 
-**Audit tracker:** [M7.P4 #471](https://github.com/pixelelated/distribution/issues/471) — all eight outcomes resolved; tracker closure follows evidence publication.
+**Audit tracker:** [M7.P4 #471](https://github.com/pixelelated/distribution/issues/471) — all eight outcomes resolved; CLOSED completed with exact readback in Q16/phase7-tracker-01.
 
 **Generated:** 2026-10-06
 **Source audit:** [04-analysis.md](04-analysis.md)
 **Total items:**8 (Critical:0, High:1, Medium:6, Low:1)
-**State:** Phase7 complete: all eight findings resolved on qualified candidate16. Evidence publication and exact tracker readback follow; no RC or publication claim.
+**State:** Phase7 complete: all eight findings resolved on qualified candidate16. Evidence is published and exact tracker readbacks verified; no RC designation or release publication claim.
 
 The two Fable calls are verified and their leads have been checked against
 primary source and fourteen installed experiments. These eight items are
@@ -34,7 +34,7 @@ changed candidate before P4 closure; all known bugs must be resolved before RC.
 - **Evidence:** evidence/refutation-03: seven unchanged14 cases, three controls pass/four challenges fail; expected unrelated→empty and explicit valid root→ok, actual ok/empty respectively. reviewer-coverage-01 R01 finds root content but the actual scan reports cloud_bytes0.
 - **Acceptance:** A rebuilt candidate passes all seven original controls/challenges plus stranded legacy-root selection/scan, failed-listing refusal and supported-system/empty-local cases; retain cloud hashes/pointers and EN/FR640px chooser/options frames. A deliberately old-source control must reproduce the misses.
 - **Frame finding (21:27 UTC):** Installed15 discovers and scans legacy-root `gb`, but the screen falsely says `THIS DEVICE CANNOT RUN IT`. The pre-tier scan row hardcodes supported=0; the ES switch itself remains usable. Preserve this frame and prove the corrected capability label in EN/FR on the rebuilt image. `cloud-ui04-progress-review` retains the actual frame.
-- **Existing audit-discovery tracker:** #467 (acceptance complete; tracker closure follows publication).
+- **Existing audit-discovery tracker:** #467 (CLOSED completed after published acceptance and exact readback).
 
 ## PL-002: Pointer-only transition failure can persist after successful retry
 
@@ -84,7 +84,7 @@ changed candidate before P4 closure; all known bugs must be resolved before RC.
 - **Why:** Preserve usable cloud content, consistent stored selections and truthful recoverable outcomes under the cited contract.
 - **Evidence:** Retained UI26 reports a missing folder for a present unsupported marker; full marker/pointer manifests are unchanged. reviewer-coverage-01 R03 returns124 after30.229s without a why line, reaching ES generic fallback.
 - **Acceptance:** Installed future/malformed marker, config-read, record/write and outer-timeout challenges each stop safely, preserve state and emit the correct player reason. EN/FR640px page/card frames show those reasons; network refusal and genuine missing-folder controls remain distinct.
-- **Existing audit-discovery tracker:** #468 (acceptance complete; tracker closure follows publication).
+- **Existing audit-discovery tracker:** #468 (CLOSED completed after published acceptance and exact readback).
 
 ## PL-006: Content chooser offers ordinary folder names that its setter rejects
 

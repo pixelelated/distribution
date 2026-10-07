@@ -1,0 +1,6 @@
+{
+  "result": "FAILED",
+  "returncode": 1,
+  "observed_error": "ValueError: capacity evidence changed",
+  "scope": "Initial test used the same fixture as preservation and capacity evidence. The exception was observed in the exec result; the retained log is stdout only. Later controls separate those fixtures; no production state changed."
+}
