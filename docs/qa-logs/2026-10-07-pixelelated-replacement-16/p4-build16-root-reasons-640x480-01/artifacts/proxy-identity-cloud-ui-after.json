@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "installed_module": "/usr/lib/python3.14/site-packages/raofflineproxy/config.pyc",
+  "actual_os_recognized": true,
+  "cases": [
+    {
+      "record": "OS_NAME=\"ROCKNIX\"",
+      "recognized": true
+    },
+    {
+      "record": "OS_NAME=\"pixelelated\"",
+      "recognized": true
+    },
+    {
+      "record": "OS_NAME=\"RASTERATOPS\"",
+      "recognized": false
+    },
+    {
+      "record": "# OS_NAME=\"ROCKNIX\"",
+      "recognized": false
+    },
+    {
+      "record": "PREVIOUS_OS_NAME=\"ROCKNIX\"",
+      "recognized": false
+    }
+  ]
+}

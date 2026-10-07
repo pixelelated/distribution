@@ -1,0 +1,235 @@
+{
+  "verified_utc": "2026-10-07T01:26:21.571439+00:00",
+  "result": "PASS",
+  "cases": [
+    {
+      "case": "PL003-unreadable-active-sibling",
+      "status": "PASS"
+    },
+    {
+      "case": "PL005-record-write-retry",
+      "status": "PASS"
+    },
+    {
+      "case": "PL005-marker-write-retry",
+      "status": "PASS"
+    },
+    {
+      "case": "PL005-real-closed-endpoint",
+      "status": "PASS"
+    },
+    {
+      "case": "PL002-already-written-join",
+      "status": "PASS"
+    },
+    {
+      "case": "PL002-already-written-follow",
+      "status": "PASS"
+    },
+    {
+      "case": "PL002-already-written-settle",
+      "status": "PASS"
+    },
+    {
+      "case": "PL001-empty-local-last-supported",
+      "status": "PASS"
+    },
+    {
+      "case": "PL001-empty-local-bios",
+      "status": "PASS"
+    },
+    {
+      "case": "PL001-empty-local-empty-directory",
+      "status": "PASS"
+    }
+  ],
+  "command_evidence": {
+    "PL003-unreadable-active-sibling": {
+      "commands": 45,
+      "nonzero_commands": [
+        {
+          "file": "0046-PL003-unreadable-active-sibling-a.log",
+          "returncode": 5,
+          "reason_lines": [
+            ">>> why YOUR CLOUD STOPPED ANSWERING"
+          ]
+        },
+        {
+          "file": "0051-PL003-unreadable-active-sibling-a.log",
+          "returncode": 5,
+          "reason_lines": [
+            ">>> why YOUR CLOUD STOPPED ANSWERING"
+          ]
+        },
+        {
+          "file": "0056-PL003-unreadable-active-sibling-a.log",
+          "returncode": 5,
+          "reason_lines": [
+            ">>> why YOUR CLOUD STOPPED ANSWERING"
+          ]
+        }
+      ]
+    },
+    "PL005-record-write-retry": {
+      "commands": 20,
+      "nonzero_commands": [
+        {
+          "file": "0087-PL005-record-write-retry-a.log",
+          "returncode": 5,
+          "reason_lines": [
+            ">>> why YOUR CLOUD SYNC SETTINGS COULDN'T BE SAVED"
+          ]
+        }
+      ]
+    },
+    "PL005-marker-write-retry": {
+      "commands": 17,
+      "nonzero_commands": [
+        {
+          "file": "0105-PL005-marker-write-retry-a.log",
+          "returncode": 5,
+          "reason_lines": [
+            ">>> why SOME FILES DIDN'T FINISH"
+          ]
+        }
+      ]
+    },
+    "PL005-real-closed-endpoint": {
+      "commands": 20,
+      "nonzero_commands": [
+        {
+          "file": "0126-PL005-real-closed-endpoint-a.log",
+          "returncode": 5,
+          "reason_lines": [
+            ">>> why YOUR CLOUD STOPPED ANSWERING"
+          ]
+        }
+      ]
+    },
+    "PL002-already-written-join": {
+      "commands": 26,
+      "nonzero_commands": [
+        {
+          "file": "0147-PL002-already-written-join-a.log",
+          "returncode": 1,
+          "reason_lines": []
+        }
+      ]
+    },
+    "PL002-already-written-follow": {
+      "commands": 26,
+      "nonzero_commands": [
+        {
+          "file": "0173-PL002-already-written-follow-a.log",
+          "returncode": 1,
+          "reason_lines": []
+        }
+      ]
+    },
+    "PL002-already-written-settle": {
+      "commands": 26,
+      "nonzero_commands": [
+        {
+          "file": "0199-PL002-already-written-settle-a.log",
+          "returncode": 1,
+          "reason_lines": []
+        }
+      ]
+    },
+    "PL001-empty-local-last-supported": {
+      "commands": 25,
+      "nonzero_commands": []
+    },
+    "PL001-empty-local-bios": {
+      "commands": 25,
+      "nonzero_commands": []
+    },
+    "PL001-empty-local-empty-directory": {
+      "commands": 25,
+      "nonzero_commands": []
+    }
+  },
+  "membership_and_recovery": {
+    "PL002-already-written-join": {
+      "after": {
+        "CONTENT_REMOTE": "/ROCKNIX/Content",
+        "LAYOUT_KEEP": "",
+        "SAVES_REMOTE": "/ROCKNIX/Saves",
+        "SETTINGS_REMOTE": "/ROCKNIX/Backups"
+      },
+      "partial": {
+        "CONTENT_REMOTE": "/pixelelated/Content",
+        "LAYOUT_KEEP": "",
+        "SAVES_REMOTE": "/ROCKNIX/Saves",
+        "SETTINGS_REMOTE": "/pixelelated/Backups"
+      },
+      "recovery": "installed cloud_setup --set-saves-remote; corresponding UI proof separate",
+      "ref": "7afa9efcfc0c1ce4b89774b38878fc1b9a9063d2",
+      "sha256": "fe184dc2a20f991d35402065c36373f915aa821c96f15b8dbfdd09ba8e533555"
+    },
+    "PL002-already-written-follow": {
+      "after": {
+        "CONTENT_REMOTE": "/pixelelated/Content",
+        "LAYOUT_KEEP": "",
+        "SAVES_REMOTE": "/pixelelated/Saves",
+        "SETTINGS_REMOTE": "/pixelelated/Backups"
+      },
+      "partial": {
+        "CONTENT_REMOTE": "/ROCKNIX/Content",
+        "LAYOUT_KEEP": "",
+        "SAVES_REMOTE": "/pixelelated/Saves",
+        "SETTINGS_REMOTE": "/ROCKNIX/Backups"
+      },
+      "recovery": "installed cloud_setup --set-saves-remote; corresponding UI proof separate",
+      "ref": "7afa9efcfc0c1ce4b89774b38878fc1b9a9063d2",
+      "sha256": "fe184dc2a20f991d35402065c36373f915aa821c96f15b8dbfdd09ba8e533555"
+    },
+    "PL002-already-written-settle": {
+      "after": {
+        "CONTENT_REMOTE": "/pixelelated/Content",
+        "LAYOUT_KEEP": "",
+        "SAVES_REMOTE": "/pixelelated/Saves",
+        "SETTINGS_REMOTE": "/pixelelated/Backups"
+      },
+      "partial": {
+        "CONTENT_REMOTE": "/ROCKNIX/Content",
+        "LAYOUT_KEEP": "",
+        "SAVES_REMOTE": "/pixelelated/Saves",
+        "SETTINGS_REMOTE": "/ROCKNIX/Backups"
+      },
+      "recovery": "installed cloud_setup --set-saves-remote; corresponding UI proof separate",
+      "ref": "7afa9efcfc0c1ce4b89774b38878fc1b9a9063d2",
+      "sha256": "fe184dc2a20f991d35402065c36373f915aa821c96f15b8dbfdd09ba8e533555"
+    },
+    "PL001-empty-local-last-supported": {
+      "kind": "last-supported",
+      "stdout": "CONTENT_REMOTE=/Mine\nAT_PATH=1\nAT_ROOT=0\nROOT_DIRS=\nFOUND=\nSTATE=ok\n",
+      "supported_last": "zxspectrum"
+    },
+    "PL001-empty-local-bios": {
+      "kind": "bios",
+      "stdout": "CONTENT_REMOTE=/Mine\nAT_PATH=1\nAT_ROOT=0\nROOT_DIRS=\nFOUND=\nSTATE=ok\n",
+      "supported_last": "zxspectrum"
+    },
+    "PL001-empty-local-empty-directory": {
+      "kind": "empty-directory",
+      "stdout": "CONTENT_REMOTE=/Mine\nAT_PATH=1\nAT_ROOT=0\nROOT_DIRS=\nFOUND=\nSTATE=ok\n",
+      "supported_last": "zxspectrum"
+    }
+  },
+  "installed_hashes": {
+    "a": {
+      "cloud_migrate_layout": "0e4ccebde159006acb6313027e33b363b177eff2b62db2bacc93fea05396b2c1",
+      "cloud_content_restore": "3b28fd1403657d713f92f216840a52ff7e692bf09746a7ccb8c2519c6940d2f8",
+      "cloud_setup": "44f0c93b5eb1380fd237fe9a3fbbd604bb8b60181923a6f3e78c0dffa501fc3f",
+      "cloud_scan": "a4830b23e7d3df7d86cba7867ccaaca583ea8881e90a4c5d3988671d79b20aa1"
+    },
+    "b": {
+      "cloud_migrate_layout": "0e4ccebde159006acb6313027e33b363b177eff2b62db2bacc93fea05396b2c1",
+      "cloud_scan": "a4830b23e7d3df7d86cba7867ccaaca583ea8881e90a4c5d3988671d79b20aa1",
+      "cloud_setup": "44f0c93b5eb1380fd237fe9a3fbbd604bb8b60181923a6f3e78c0dffa501fc3f",
+      "cloud_content_restore": "3b28fd1403657d713f92f216840a52ff7e692bf09746a7ccb8c2519c6940d2f8"
+    }
+  },
+  "scope": "Ten renewed installed CLI acceptance cases on candidate16, source-defined refusal/preservation/retry and mount restoration assertions. UI and full clean/upgrade qualification remain separate. Original prelaunch01 failure remains failed."
+}

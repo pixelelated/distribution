@@ -1,0 +1,17 @@
+{
+  "after": {
+    "CONTENT_REMOTE": "/pixelelated/Content",
+    "LAYOUT_KEEP": "",
+    "SAVES_REMOTE": "/pixelelated/Saves",
+    "SETTINGS_REMOTE": "/pixelelated/Backups"
+  },
+  "partial": {
+    "CONTENT_REMOTE": "/ROCKNIX/Content",
+    "LAYOUT_KEEP": "",
+    "SAVES_REMOTE": "/pixelelated/Saves",
+    "SETTINGS_REMOTE": "/ROCKNIX/Backups"
+  },
+  "recovery": "installed cloud_setup --set-saves-remote; corresponding UI proof separate",
+  "ref": "7afa9efcfc0c1ce4b89774b38878fc1b9a9063d2",
+  "sha256": "fe184dc2a20f991d35402065c36373f915aa821c96f15b8dbfdd09ba8e533555"
+}

@@ -17,7 +17,7 @@ upstream submission, personal cloud, physical-device action, arbitrary root,
 wider deletion or filesystem reserve change is authorized. The exact two-disk
 approval has been exercised and is complete; no user answer is pending.
 
-## Current execution — 2026-10-07 00:59 UTC
+## Current execution — 2026-10-07 01:27 UTC
 
 Both approved Fable audit calls and grading are complete. Phase 7 remains open:
 PL-002/006/007/008 are resolved; PL-001/003/004/005 await candidate 16 installed
@@ -55,12 +55,33 @@ controls fit both panels. Primary verification:640 at00:53:05 and1280 at00:58:48
 allfour0/10seals and actual guest/backend/port cleanup for each owner.
 Failed640-01 remains a separate failed fixture run under#486.
 
-The English/French640 legacy-root and truthful-reason proof is active:
-`/workspace/tmp/pixelelated-m7-p4-build16-root-reasons-640x480-01`, launcher291441,
-watcher291443, run `20261007T005857Z-46bc93fa`. Next are1280 root/reasons,
-both-resolution recovery, full clean/actual RC2-upgrade QA20 and local protocols.
-#482/#486 have their installed acceptance; tracker closure follows publication.
-#478/#479 and four original audit findings await their complete final criteria.
+Legacy-root/reasons PASSED all10 English/French cases at each resolution,
+640x480 and1280x800, with88 directly reviewed frames total. Actual selection
+shows supported Game Boy content. Future/malformed layout and unreadable
+settings/record refusals preserve cloud/pointers and show complete true reasons.
+The previously clipped French settings reason now fits both panels. Independent
+verification64001:12:01/128001:23:02 confirms allfour0/9seals and actual guest,
+backend and port cleanup for each owner. Q16/root-reasons-*-acceptance retains
+semantic acceptance separately from the raw runner's pending-review labels.
+
+Supplemental02 PASSED all10 renewed installed cases: unreadable active sibling,
+record/marker-write refusal and retry, real network refusal, three predecessor
+partial-pointer recoveries and three empty-local supported-membership cases.
+Primary01:26:18 verified allfour0,212seals and both guests/backend/ports stopped.
+The separate acceptance reconciles raw reasons, actual old-writer states, exact
+recovered pointers and unchanged installed hashes on both independent guests.
+Failed01 remains a prelaunch-only rc2, with no VM or product assertion.
+
+English/French640x480 recovery UI is active under launcher424034/watcher424036,
+run`20261007T012634Z-85f592d8`, owner
+`/workspace/tmp/pixelelated-m7-p4-build16-recovery-640x480-01`.
+Can this be done on the VM? Yes: owned local WebDAV, stock30-second timeout,
+actual terminal recovery route, real missing-folder and network-refusal controls.
+1280x800 recovery, clean/actual RC2-upgrade QA20 and local protocols follow
+serially after independent completion, frame review and actual cleanup.
+#482/#486 are CLOSED completed with published evidence and exact body/state
+readbacks in Q16/interruption-issue-resolution. #478/#479 and four original
+audit findings await their complete remaining acceptance.
 
 Whole-image scan15 passed: 57,295 files, 8,606 classified branding contexts, zero
 FIX/UNKNOWN or unclassified credential matches, and exact French/XML checks.
@@ -71,10 +92,9 @@ The exact approved two-disk retirement is complete: 10,713,485,312 bytes recover
 all other evidence and protected sources preserved. No broader cleanup or reserve
 change was made or is authorized. The fixed swap helper passed before the build.
 
-**Next:** English/French legacy-root/reason/recovery frames at
-640×480 and 1280×800 → full clean/actual RC2-upgrade QA20 and the standing WebDAV/SFTP/S3 baseline →
+**Next:** English/French recovery frames at640×480 and1280×800 → full clean/actual RC2-upgrade QA20 and the standing WebDAV/SFTP/S3 baseline →
 #471/P4 closure → #461 device capacity review → H700 DDR4 RG35XX SP arm, then
-aarch64 → named physical/P5 gates. #478/#479/#482 remain open until acceptance.
+aarch64 → named physical/P5 gates. #478/#479 remain open until acceptance;#482 is complete.
 No new RA reset or Dropbox credential is needed. Ten #168 upstream drafts remain
 unsubmitted. No release-candidate designation or device-readiness claim yet.
 
@@ -131,11 +151,32 @@ cases and16 directly reviewed frames. Primary64000:53:05/128000:58:48 verified
 allfour0,10seals and actual cleanup. Both acceptance folders are retained inQ16.
 Failed640-01 stays failed under#486; unexecuted1280-01 is superseded, never run it.
 
-ACTIVE root-reasons640 owner:
-`/workspace/tmp/pixelelated-m7-p4-build16-root-reasons-640x480-01`, run`20261007T005857Z-46bc93fa`, watcher291443.
-Consume completion and actual cleanup9040/10026/5912, then review every frame.
-No other VM owner is active. Both partial-copy evidence sets are ready for
-normal publication and#482/#486 acceptance closure.
+Root-reasons640 is COMPLETE:10 EN/FR cases,44 directly reviewed frames;
+primary01:12:01 confirms allfour0/9seals/actual cleanup. Exact acceptance is in
+Q16/root-reasons-640x480-acceptance. Never replay its exclusive verifiers.
+
+Root-reasons1280 is COMPLETE:10cases,44directly reviewed frames, allfour0,
+9seals and actual guest/backend/9040/10026/5912 cleanup verified01:23:02.
+Q16/root-reasons-1280x800-acceptance records exact semantic acceptance.
+
+Supplemental02 is COMPLETE:10cases, allfour0/212seals and actual pair/backend/
+9040/10022/10023/5909/5910 cleanup verified01:26:18. Raw reasons, source custody,
+old-writer recovery and empty membership re-derived in Q16/supplemental02-acceptance.
+Relative QA seals are rooted at frozen16; future generic verifier calls for such
+owners run from that cwd. Failed01 is prelaunch-only and remains retained.
+
+ACTIVE recovery640 owner:
+`/workspace/tmp/pixelelated-m7-p4-build16-recovery-640x480-01`, run`20261007T012634Z-85f592d8`, watcher424036.
+Eight cases (four each EN/FR): actual30-second outer timeout, original-connection
+terminal recovery and UI retry, genuine missing-folder and real network refusal.
+Review every frame; allfour0/9seals and actual9040/10026/5912 cleanup are owed.
+Then run the prepared1280 recovery owner; QA20 and cloud02 remain unexecuted.
+
+Latest evidence publication03: feature44610451a5779c4f3d9a17985cc7f86e1a3fd735,
+next63ef4e0590a835e72e52a2ac0999ca497f6cf1aa. Normal hooks,387changed paths equal,
+exact remote refs; primary01:01:15 allfour0/389seals/exits. #482/#486 are CLOSED
+completed with exact readbacks. Later receipts remain uncommitted. No publication
+is running. Candidate16 product bytes have not changed.
 
 Qualification-publication02 COMPLETE: feature `674f4312ffd75c47a5bde8f5dbb4c5df9f941557`, next
 `7b9dae4ac0be43c533ac7cdbc142d383a8ca940c`; 5607 changed paths equal, normal hooks and exact remote refs
@@ -144,9 +185,9 @@ Failed01 remains retained; literal rejection-marker constants were constructed
 from pieces under the existing guard rule. No guard exception or product change.
 No publication is currently running. The audit cadence remains overdue in CI;
 this was not a whole-CI-green claim. #484/#485 are CLOSED completed with exact published-evidence/body/state readbacks
-in Q16/fixture-issue-resolution. #486 remains open for the fresh UI proofs.
+in Q16/fixture-issue-resolution. #486 is now CLOSED after both fresh UI proofs and publication03.
 
-After the active root-reasons640 owner completes, all remaining owners below are prepared and unexecuted. Run ONE VM owner at a time,
+After the active recovery640 owner completes, all remaining owners below are prepared and unexecuted. Run ONE VM owner at a time,
 after the prior owner's verified guest/backend/port cleanup. Use the immutable
 bundle under `/workspace/artifacts/pixelelated-candidates/sha256/7f98f2d22985d11fe9c150015457894caf460104c9ce44abd16074167f23815a`.
 Use frozen16 cwd and `tools/watch-build-submit --owner OWNER -- --activity-dir
@@ -156,16 +197,19 @@ shelf uses activity directory `OWNER/proof` and `python3 -I OWNER/run.py BUNDLE`
 1. COMPLETE `pixelelated-m7-p4-build16-inherited-shelf-01`: three historical shelves passed.
 2. COMPLETE `pixelelated-m7-p4-build16-partial-retry-640x480-02` and
    `pixelelated-m7-p4-build16-partial-retry-1280x800-02`: actual partial-file kill/UI retry and next-backup shelf.
-3. ACTIVE `pixelelated-m7-p4-build16-root-reasons-640x480-01`, then `...-1280x800-01`.
-4. `pixelelated-m7-p4-build16-recovery-640x480-01` and `...-1280x800-01`.
-5. `pixelelated-m7-qa-20`: all15 defaults/78walkframes and actual RC2 upgrade.
-6. `pixelelated-m7-cloud-02`: existing WebDAV/SFTP/MinIO-S3 baseline on these bytes.
+3. COMPLETE root-reasons640x480-01 and1280x800-01:20cases/88frames.
+4. COMPLETE `pixelelated-m7-p4-build16-supplemental-02`:10cases;01failed before any VM.
+   Use activity-dir OWNER/proof and `python3 -I OWNER/run.py BUNDLE` (no outer.sh).
+   Verify212seals/allfour0 plus actual9040/10022/10023/5909/5910 cleanup.
+5. ACTIVE `pixelelated-m7-p4-build16-recovery-640x480-01`, then prepared `...-1280x800-01`.
+6. `pixelelated-m7-qa-20`: all15 defaults/78walkframes and actual RC2 upgrade.
+7. `pixelelated-m7-cloud-02`: existing WebDAV/SFTP/MinIO-S3 baseline on these bytes.
 
 Directly review every affected EN/FR frame at actual640x480/1280x800. Generic
 owner/cleanup receipts do not substitute for semantic screen acceptance.
 Record actual local-backend processes and sanitized MinIO image identity while
 cloud02 runs; prove the owned container is absent afterward. No new RA reset or
-Dropbox account proof is required. #471 and #478/#479/#482 await this acceptance.
+Dropbox account proof is required. #471 and#478/#479 await this acceptance;#482 is closed.
 
 The exact prepared recipes are retained in the new QA preparation folder and
 runtime owners. Never modify an in-flight owner, reclaim swap during a watcher/

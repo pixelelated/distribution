@@ -1,0 +1,33 @@
+{
+  "distribution-contains": {
+    "command": [
+      "git",
+      "branch",
+      "--contains",
+      "ee014909137e03706e0b3020b8396be589aaa705"
+    ],
+    "output": "+ build/m7-pixelelated-replacement16\n+ next\n"
+  },
+  "es-contains": {
+    "command": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next.worktrees/qa-integration",
+      "branch",
+      "--contains",
+      "72494bc72e3d64d4dcfeb4e6478052bbdf166c5b"
+    ],
+    "output": "+ feature/m7-audit-remediation\n* test/qa-integration\n"
+  },
+  "pin-source": {
+    "command": [
+      "git",
+      "log",
+      "-1",
+      "--format=%H %s",
+      "--",
+      "projects/ROCKNIX/packages/ui/emulationstation/package.mk"
+    ],
+    "output": "1b73920a6d7e7d0967587cdfbe4018a88d504c88 emulationstation - clarify interrupted cloud move guidance\n"
+  }
+}

@@ -1,0 +1,14 @@
+This device stores:
+  saves    qa-cloud:/ROCKNIX/Saves
+  backups  qa-cloud:/ROCKNIX/Backups
+
+The current layout is:
+  saves    qa-cloud:/pixelelated/Saves
+  backups  qa-cloud:/pixelelated/Backups
+
+Would move, server-side, leaving anything else where it is:
+  qa-cloud:/ROCKNIX/Saves  ->  qa-cloud:/pixelelated/Saves
+  qa-cloud:/ROCKNIX/Content  ->  qa-cloud:/pixelelated/Content
+
+Couldn't save the cloud move's progress on this device. Try again when storage is available.
+>>> why YOUR CLOUD SYNC SETTINGS COULDN'T BE SAVED

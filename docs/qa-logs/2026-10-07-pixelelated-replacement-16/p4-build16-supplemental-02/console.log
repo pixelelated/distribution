@@ -1,0 +1,30 @@
+watch-build: recording in /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement16/.build-runs/20261007T012423Z-5dae2445
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/7f98f2d22985d11fe9c150015457894caf460104c9ce44abd16074167f23815a
+up: a (pid 414691, ssh :10022, serial /tmp/rocknix-qemu-serial.sock, mac 52:54:00:52:4E:58)
+up: b (pid 414713, ssh :10023, serial /tmp/rocknix-qemu-serial-b.sock, mac 52:54:00:52:4E:59)
+ready: a on ee01490913 over ssh :10022 (answered after 0s)
+ready: b on ee01490913 over ssh :10023 (answered after 0s)
+up: webdav serving /workspace/tmp/pixelelated-m7-p4-build16-supplemental-02/proof/cloud/data at http://127.0.0.1:9040 (guest: http://10.0.2.2:9040)
+START PL003-unreadable-active-sibling
+PASS PL003-unreadable-active-sibling
+START PL005-record-write-retry
+PASS PL005-record-write-retry
+START PL005-marker-write-retry
+PASS PL005-marker-write-retry
+START PL005-real-closed-endpoint
+PASS PL005-real-closed-endpoint
+START PL002-already-written-join
+PASS PL002-already-written-join
+START PL002-already-written-follow
+PASS PL002-already-written-follow
+START PL002-already-written-settle
+PASS PL002-already-written-settle
+START PL001-empty-local-last-supported
+PASS PL001-empty-local-last-supported
+START PL001-empty-local-bios
+PASS PL001-empty-local-bios
+START PL001-empty-local-empty-directory
+PASS PL001-empty-local-empty-directory
+down
+PASS frozen source inputs, ES pin and candidate input custody

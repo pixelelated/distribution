@@ -1,0 +1,110 @@
+{
+  "verified_utc": "2026-10-07T01:12:01.118229+00:00",
+  "owner": "/workspace/tmp/pixelelated-m7-p4-build16-root-reasons-640x480-01",
+  "behavior_cases": [
+    {
+      "case": "en_US-legacy-root",
+      "status": "PASS",
+      "visual_review": "pending"
+    },
+    {
+      "case": "en_US-reason-future",
+      "status": "PASS",
+      "visual_review": "pending"
+    },
+    {
+      "case": "en_US-reason-malformed",
+      "status": "PASS",
+      "visual_review": "pending"
+    },
+    {
+      "case": "en_US-reason-config",
+      "status": "PASS",
+      "visual_review": "pending"
+    },
+    {
+      "case": "en_US-reason-record",
+      "status": "PASS",
+      "visual_review": "pending"
+    },
+    {
+      "case": "fr_FR-legacy-root",
+      "status": "PASS",
+      "visual_review": "pending"
+    },
+    {
+      "case": "fr_FR-reason-future",
+      "status": "PASS",
+      "visual_review": "pending"
+    },
+    {
+      "case": "fr_FR-reason-malformed",
+      "status": "PASS",
+      "visual_review": "pending"
+    },
+    {
+      "case": "fr_FR-reason-config",
+      "status": "PASS",
+      "visual_review": "pending"
+    },
+    {
+      "case": "fr_FR-reason-record",
+      "status": "PASS",
+      "visual_review": "pending"
+    }
+  ],
+  "direct_frames": 44,
+  "dimensions": [
+    640,
+    480
+  ],
+  "installed_product_unchanged": true,
+  "details": {
+    "en_US": {
+      "selected_root": "",
+      "supported_game_boy": true,
+      "reasons": {
+        "future": {
+          "returncode": 4,
+          "why": "YOUR CLOUD FOLDER COULDN'T BE READ"
+        },
+        "malformed": {
+          "returncode": 4,
+          "why": "YOUR CLOUD FOLDER COULDN'T BE READ"
+        },
+        "config": {
+          "returncode": 2,
+          "why": "YOUR CLOUD SYNC SETTINGS COULDN'T BE READ"
+        },
+        "record": {
+          "returncode": 5,
+          "why": "YOUR CLOUD FOLDER COULDN'T BE READ"
+        }
+      }
+    },
+    "fr_FR": {
+      "selected_root": "",
+      "supported_game_boy": true,
+      "reasons": {
+        "future": {
+          "returncode": 4,
+          "why": "YOUR CLOUD FOLDER COULDN'T BE READ"
+        },
+        "malformed": {
+          "returncode": 4,
+          "why": "YOUR CLOUD FOLDER COULDN'T BE READ"
+        },
+        "config": {
+          "returncode": 2,
+          "why": "YOUR CLOUD SYNC SETTINGS COULDN'T BE READ"
+        },
+        "record": {
+          "returncode": 5,
+          "why": "YOUR CLOUD FOLDER COULDN'T BE READ"
+        }
+      }
+    }
+  },
+  "primary_visual_review": "PASS",
+  "scope": "Legacy-root selection and future/malformed/config/record refusal pages in English/French. Connection recovery, timeout and full clean/upgrade/protocol qualification remain separate."
+}

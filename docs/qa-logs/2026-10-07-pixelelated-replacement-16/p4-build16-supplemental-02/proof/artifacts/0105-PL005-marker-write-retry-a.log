@@ -1,0 +1,31 @@
+This device stores:
+  saves    qa-cloud:/ROCKNIX/Saves
+  backups  qa-cloud:/ROCKNIX/Backups
+
+The current layout is:
+  saves    qa-cloud:/pixelelated/Saves
+  backups  qa-cloud:/pixelelated/Backups
+
+Would move, server-side, leaving anything else where it is:
+  qa-cloud:/ROCKNIX/Saves  ->  qa-cloud:/pixelelated/Saves
+
+Now using /pixelelated/Backups for your settings backups.
+>>> unit SAVES|1|1
+Copying saves...
+>>> doing copy
+Transferred:   	         19 B / 19 B, 100%, 0 B/s, ETA -
+Checks:                 0 / 0, -, Listed 2
+Transferred:            1 / 1, 100%
+Server Side Copies:     1 @ 19 B
+Elapsed time:         0.0s
+Verifying saves...
+>>> doing verify
+Now using /pixelelated/Saves for your saves.
+Removing the old saves folder...
+>>> doing remove
+Nothing is stored at qa-cloud:/ROCKNIX/Content, so only the setting changes.
+Now using /pixelelated/Content for your ROMs, BIOS, and game content.
+Content is now at qa-cloud:/pixelelated/Content.
+
+Your files moved, but the cloud folder setup didn't finish. Try the move again to finish it.
+>>> why SOME FILES DIDN'T FINISH
