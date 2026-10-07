@@ -1,0 +1,101 @@
+{
+  "result": "PASS",
+  "records": [
+    {
+      "case": "original32",
+      "exit": 1,
+      "expected_failure": true,
+      "arm64_system_include": true
+    },
+    {
+      "case": "fixed32",
+      "exit": 0,
+      "arm64_system_include": false,
+      "libraries": {
+        "libEGL-guest.so": {
+          "sha256": "1c4a646bdb859bfd2e6ae3f1cc4a268bc89e9eb1cfe4f066ecd653d6639b22de",
+          "bytes": 8604,
+          "bits": 32
+        },
+        "libGL-guest.so": {
+          "sha256": "15ddc7a323d184a0d8a776ae5f6c54f5ddee5e8447592e70583edbc18e2b2c94",
+          "bytes": 1627184,
+          "bits": 32
+        },
+        "libPlaceholderX11.so": {
+          "sha256": "7c70bbfe77e1af6447c9686c9938db3b738ff102635c032510f6077615373bde",
+          "bytes": 1360,
+          "bits": 32
+        },
+        "libVDSO-guest.so": {
+          "sha256": "48c9e9c20066a5543bb3bc801413942e67b2091c5d6315d84dde62d7be027d49",
+          "bytes": 3352,
+          "bits": 32
+        },
+        "libcuda-guest.so": {
+          "sha256": "274b05493b160f3bd1580de1c020c4f0b7baf29eef8685ff9e9459b580be1f4f",
+          "bytes": 213464,
+          "bits": 32
+        },
+        "libwayland-client-guest.so": {
+          "sha256": "de618860e289cda192c27be4276d3f9b8f45b6ece4e957886fef9ff3bc65ebe5",
+          "bytes": 49644,
+          "bits": 32
+        }
+      }
+    },
+    {
+      "case": "fixed64",
+      "exit": 0,
+      "arm64_system_include": false,
+      "libraries": {
+        "libEGL-guest.so": {
+          "sha256": "7085e09360227865c545c05d5a9f108aca855bfecfbe1aadffc5941dae1b341a",
+          "bytes": 9952,
+          "bits": 64
+        },
+        "libGL-guest.so": {
+          "sha256": "c03254b6bbaa6d5a9ef18d11ba3c1b07c1ff869dc4bb0c1819853ee3719c65fb",
+          "bytes": 1700048,
+          "bits": 64
+        },
+        "libPlaceholderX11.so": {
+          "sha256": "49e05ee15c987710cadd4cc69fb4a57f48c7c2a981737822ee8ee6b454213a52",
+          "bytes": 2016,
+          "bits": 64
+        },
+        "libVDSO-guest.so": {
+          "sha256": "8b43adf177e0df3cfe48e434b5e716d0c6e08a5aa747a40cc24927f24c5ab2a9",
+          "bytes": 3584,
+          "bits": 64
+        },
+        "libasound-guest.so": {
+          "sha256": "9acd7ab6c9d65ce6c8a33ba277a4cca3001d46cba3947c962f3948019446b75a",
+          "bytes": 513376,
+          "bits": 64
+        },
+        "libcuda-guest.so": {
+          "sha256": "8c65c1e48803b2b522053f2ee660a546322d9b6ba61457487778dbc1a1fe4cf5",
+          "bytes": 332584,
+          "bits": 64
+        },
+        "libdrm-guest.so": {
+          "sha256": "64ab6ca8cadc765447c150a9674cb3326145a5900103d82b40932cc570486a0d",
+          "bytes": 50896,
+          "bits": 64
+        },
+        "libvulkan-guest.so": {
+          "sha256": "4e470e11c58a44ccd64626a3b6281aea074e7c6b29e76e6dba3b8beead98da05",
+          "bytes": 549616,
+          "bits": 64
+        },
+        "libwayland-client-guest.so": {
+          "sha256": "5c2625fa110235d4a46d8d7fdd7be5495ec2a408b7096ec847ada2d7c8a553c4",
+          "bytes": 45224,
+          "bits": 64
+        }
+      }
+    }
+  ],
+  "scope": "actual guest CMake generation and complete32/64-bit guest library compile/link; full aarch64 package/firmware remains"
+}

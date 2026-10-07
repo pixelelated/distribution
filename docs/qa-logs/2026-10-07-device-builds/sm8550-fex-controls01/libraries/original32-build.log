@@ -1,0 +1,96 @@
+ninja: Entering directory `/out/original32'
+[1/17] Building CXX object CMakeFiles/PlaceholderX11.dir/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/build.pixelelated-SM8550.aarch64/build/fex-emu-e869aa644a16e4332cdc15c1ea0b4d13d482385d/ThunkLibs/libX11/libX11_NativeGuest.cpp.o
+Warning: supplying the --target i686-linux-gnu != i686-unknown-linux-gnu argument to a nix-wrapped compiler may not work correctly - cc-wrapper is currently not designed with multi-target compilers in mind. You may want to use an un-wrapped compiler instead.
+clang++: warning: -lstdc++: 'linker' input unused [-Wunused-command-line-argument]
+clang++: warning: -lstdc++: 'linker' input unused [-Wunused-command-line-argument]
+clang++: warning: argument unused during compilation: '-nostartfiles' [-Wunused-command-line-argument]
+clang++: warning: argument unused during compilation: '-nostartfiles' [-Wunused-command-line-argument]
+[2/17] Linking CXX shared library libPlaceholderX11.so
+Warning: supplying the --target i686-linux-gnu != i686-unknown-linux-gnu argument to a nix-wrapped compiler may not work correctly - cc-wrapper is currently not designed with multi-target compilers in mind. You may want to use an un-wrapped compiler instead.
+[3/17] Generating gen/thunkgen_guest_libwayland-client.inl
+[4/17] Generating gen/thunkgen_guest_libVDSO.inl
+[5/17] Generating gen/thunkgen_guest_libcuda.inl
+[6/17] Generating gen/thunkgen_guest_libGL.inl
+[7/17] Building CXX object CMakeFiles/wayland-client-guest.dir/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/build.pixelelated-SM8550.aarch64/build/fex-emu-e869aa644a16e4332cdc15c1ea0b4d13d482385d/ThunkLibs/libwayland-client/Guest.cpp.o
+FAILED: [code=1] CMakeFiles/wayland-client-guest.dir/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/build.pixelelated-SM8550.aarch64/build/fex-emu-e869aa644a16e4332cdc15c1ea0b4d13d482385d/ThunkLibs/libwayland-client/Guest.cpp.o 
+/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/build.pixelelated-SM8550.aarch64/toolchain/bin/ccache /nix/store/5b9dfyhkw2amg1m02vg6ph7a93xc554r-i686-unknown-linux-gnu-clang-wrapper-21.1.8/bin/i686-unknown-linux-gnu-clang++ -DGUEST_THUNK_LIBRARY -DIS_32BIT_THUNK -Dwayland_client_guest_EXPORTS -I/out/original32/gen -I/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/build.pixelelated-SM8550.aarch64/build/fex-emu-e869aa644a16e4332cdc15c1ea0b4d13d482385d/ThunkLibs/GuestLibs/../include -I/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/build.pixelelated-SM8550.aarch64/toolchain/aarch64-rocknix-linux-gnu/sysroot/usr/include -nodefaultlibs -nostartfiles -lstdc++ -target i686-linux-gnu -msse2 -mfpmath=sse --sysroot=/nix/store/hymgd36hiy3g3pj7pyj6a53q7rbaip3i-fex-dev-rootfs -iwithsysroot/include -nodefaultlibs -nostartfiles -lstdc++ -target i686-linux-gnu -msse2 -mfpmath=sse --sysroot=/nix/store/hymgd36hiy3g3pj7pyj6a53q7rbaip3i-fex-dev-rootfs -iwithsysroot/include -O3 -DNDEBUG -std=gnu++20 -fPIC -fwrapv -msse2 -mfpmath=sse -fno-plt -fno-stack-protector -MD -MT CMakeFiles/wayland-client-guest.dir/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/build.pixelelated-SM8550.aarch64/build/fex-emu-e869aa644a16e4332cdc15c1ea0b4d13d482385d/ThunkLibs/libwayland-client/Guest.cpp.o -MF CMakeFiles/wayland-client-guest.dir/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/build.pixelelated-SM8550.aarch64/build/fex-emu-e869aa644a16e4332cdc15c1ea0b4d13d482385d/ThunkLibs/libwayland-client/Guest.cpp.o.d -o CMakeFiles/wayland-client-guest.dir/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/build.pixelelated-SM8550.aarch64/build/fex-emu-e869aa644a16e4332cdc15c1ea0b4d13d482385d/ThunkLibs/libwayland-client/Guest.cpp.o -c /workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/build.pixelelated-SM8550.aarch64/build/fex-emu-e869aa644a16e4332cdc15c1ea0b4d13d482385d/ThunkLibs/libwayland-client/Guest.cpp
+Warning: supplying the --target i686-linux-gnu != i686-unknown-linux-gnu argument to a nix-wrapped compiler may not work correctly - cc-wrapper is currently not designed with multi-target compilers in mind. You may want to use an un-wrapped compiler instead.
+clang++: warning: -lstdc++: 'linker' input unused [-Wunused-command-line-argument]
+clang++: warning: -lstdc++: 'linker' input unused [-Wunused-command-line-argument]
+clang++: warning: argument unused during compilation: '-nostartfiles' [-Wunused-command-line-argument]
+clang++: warning: argument unused during compilation: '-nostartfiles' [-Wunused-command-line-argument]
+In file included from /workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/build.pixelelated-SM8550.aarch64/build/fex-emu-e869aa644a16e4332cdc15c1ea0b4d13d482385d/ThunkLibs/libwayland-client/Guest.cpp:7:
+In file included from /workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/build.pixelelated-SM8550.aarch64/toolchain/aarch64-rocknix-linux-gnu/sysroot/usr/include/wayland-util.h:36:
+In file included from /workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/build.pixelelated-SM8550.aarch64/toolchain/aarch64-rocknix-linux-gnu/sysroot/usr/include/inttypes.h:27:
+/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/build.pixelelated-SM8550.aarch64/toolchain/aarch64-rocknix-linux-gnu/sysroot/usr/include/stdint.h:98:11: warning: '__INT64_C' macro redefined [-Wmacro-redefined]
+   98 | #  define __INT64_C(c)  c ## LL
+      |           ^
+<built-in>:282:9: note: previous definition is here
+  282 | #define __INT64_C(c) c##LL
+      |         ^
+In file included from /workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/build.pixelelated-SM8550.aarch64/build/fex-emu-e869aa644a16e4332cdc15c1ea0b4d13d482385d/ThunkLibs/libwayland-client/Guest.cpp:7:
+In file included from /workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/build.pixelelated-SM8550.aarch64/toolchain/aarch64-rocknix-linux-gnu/sysroot/usr/include/wayland-util.h:36:
+In file included from /workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/build.pixelelated-SM8550.aarch64/toolchain/aarch64-rocknix-linux-gnu/sysroot/usr/include/inttypes.h:27:
+/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/build.pixelelated-SM8550.aarch64/toolchain/aarch64-rocknix-linux-gnu/sysroot/usr/include/stdint.h:99:11: warning: '__UINT64_C' macro redefined [-Wmacro-redefined]
+   99 | #  define __UINT64_C(c) c ## ULL
+      |           ^
+<built-in>:316:9: note: previous definition is here
+  316 | #define __UINT64_C(c) c##ULL
+      |         ^
+In file included from /workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/build.pixelelated-SM8550.aarch64/build/fex-emu-e869aa644a16e4332cdc15c1ea0b4d13d482385d/ThunkLibs/libwayland-client/Guest.cpp:40:
+In file included from /nix/store/c75a6mvm8bpkqbjlabwr1da715fdwyk4-i686-unknown-linux-gnu-gcc-16.2.0/include/c++/16.2.0/algorithm:65:
+In file included from /nix/store/c75a6mvm8bpkqbjlabwr1da715fdwyk4-i686-unknown-linux-gnu-gcc-16.2.0/include/c++/16.2.0/bits/ranges_algo.h:39:
+In file included from /nix/store/c75a6mvm8bpkqbjlabwr1da715fdwyk4-i686-unknown-linux-gnu-gcc-16.2.0/include/c++/16.2.0/bits/ranges_algobase.h:38:
+In file included from /nix/store/c75a6mvm8bpkqbjlabwr1da715fdwyk4-i686-unknown-linux-gnu-gcc-16.2.0/include/c++/16.2.0/bits/ranges_base.h:41:
+In file included from /nix/store/c75a6mvm8bpkqbjlabwr1da715fdwyk4-i686-unknown-linux-gnu-gcc-16.2.0/include/c++/16.2.0/bits/max_size_type.h:41:
+/nix/store/c75a6mvm8bpkqbjlabwr1da715fdwyk4-i686-unknown-linux-gnu-gcc-16.2.0/include/c++/16.2.0/limits:2176:9: error: size of '__builtin_bit_cast' source type 'long double' does not match destination type '__float128' (12 vs 16 bytes)
+ 2176 |         return __builtin_bit_cast(__float128, __builtin_nansf128(""));
+      |                ^
+/nix/store/c75a6mvm8bpkqbjlabwr1da715fdwyk4-i686-unknown-linux-gnu-gcc-16.2.0/include/c++/16.2.0/limits:2171:7: error: no return statement in constexpr function
+ 2171 |       signaling_NaN() _GLIBCXX_USE_NOEXCEPT
+      |       ^
+2 warnings and 2 errors generated.
+[8/17] Building CXX object CMakeFiles/GL-guest.dir/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/build.pixelelated-SM8550.aarch64/build/fex-emu-e869aa644a16e4332cdc15c1ea0b4d13d482385d/ThunkLibs/libGL/libGL_Guest.cpp.o
+FAILED: [code=1] CMakeFiles/GL-guest.dir/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/build.pixelelated-SM8550.aarch64/build/fex-emu-e869aa644a16e4332cdc15c1ea0b4d13d482385d/ThunkLibs/libGL/libGL_Guest.cpp.o 
+/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/build.pixelelated-SM8550.aarch64/toolchain/bin/ccache /nix/store/5b9dfyhkw2amg1m02vg6ph7a93xc554r-i686-unknown-linux-gnu-clang-wrapper-21.1.8/bin/i686-unknown-linux-gnu-clang++ -DGL_guest_EXPORTS -DGUEST_THUNK_LIBRARY -DIS_32BIT_THUNK -I/out/original32/gen -I/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/build.pixelelated-SM8550.aarch64/build/fex-emu-e869aa644a16e4332cdc15c1ea0b4d13d482385d/ThunkLibs/GuestLibs/../include -I/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/build.pixelelated-SM8550.aarch64/toolchain/aarch64-rocknix-linux-gnu/sysroot/usr/include -nodefaultlibs -nostartfiles -lstdc++ -target i686-linux-gnu -msse2 -mfpmath=sse --sysroot=/nix/store/hymgd36hiy3g3pj7pyj6a53q7rbaip3i-fex-dev-rootfs -iwithsysroot/include -nodefaultlibs -nostartfiles -lstdc++ -target i686-linux-gnu -msse2 -mfpmath=sse --sysroot=/nix/store/hymgd36hiy3g3pj7pyj6a53q7rbaip3i-fex-dev-rootfs -iwithsysroot/include -O3 -DNDEBUG -std=gnu++20 -fPIC -fwrapv -msse2 -mfpmath=sse -fno-plt -fno-stack-protector -MD -MT CMakeFiles/GL-guest.dir/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/build.pixelelated-SM8550.aarch64/build/fex-emu-e869aa644a16e4332cdc15c1ea0b4d13d482385d/ThunkLibs/libGL/libGL_Guest.cpp.o -MF CMakeFiles/GL-guest.dir/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/build.pixelelated-SM8550.aarch64/build/fex-emu-e869aa644a16e4332cdc15c1ea0b4d13d482385d/ThunkLibs/libGL/libGL_Guest.cpp.o.d -o CMakeFiles/GL-guest.dir/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/build.pixelelated-SM8550.aarch64/build/fex-emu-e869aa644a16e4332cdc15c1ea0b4d13d482385d/ThunkLibs/libGL/libGL_Guest.cpp.o -c /workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/build.pixelelated-SM8550.aarch64/build/fex-emu-e869aa644a16e4332cdc15c1ea0b4d13d482385d/ThunkLibs/libGL/libGL_Guest.cpp
+Warning: supplying the --target i686-linux-gnu != i686-unknown-linux-gnu argument to a nix-wrapped compiler may not work correctly - cc-wrapper is currently not designed with multi-target compilers in mind. You may want to use an un-wrapped compiler instead.
+clang++: warning: -lstdc++: 'linker' input unused [-Wunused-command-line-argument]
+clang++: warning: -lstdc++: 'linker' input unused [-Wunused-command-line-argument]
+clang++: warning: argument unused during compilation: '-nostartfiles' [-Wunused-command-line-argument]
+clang++: warning: argument unused during compilation: '-nostartfiles' [-Wunused-command-line-argument]
+In file included from /workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/build.pixelelated-SM8550.aarch64/build/fex-emu-e869aa644a16e4332cdc15c1ea0b4d13d482385d/ThunkLibs/libGL/libGL_Guest.cpp:11:
+In file included from /workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/build.pixelelated-SM8550.aarch64/toolchain/aarch64-rocknix-linux-gnu/sysroot/usr/include/GL/glx.h:32:
+In file included from /workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/build.pixelelated-SM8550.aarch64/toolchain/aarch64-rocknix-linux-gnu/sysroot/usr/include/GL/gl.h:2050:
+In file included from /workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/build.pixelelated-SM8550.aarch64/toolchain/aarch64-rocknix-linux-gnu/sysroot/usr/include/GL/glext.h:37:
+In file included from /workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/build.pixelelated-SM8550.aarch64/toolchain/aarch64-rocknix-linux-gnu/sysroot/usr/include/KHR/khrplatform.h:149:
+/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/build.pixelelated-SM8550.aarch64/toolchain/aarch64-rocknix-linux-gnu/sysroot/usr/include/stdint.h:98:11: warning: '__INT64_C' macro redefined [-Wmacro-redefined]
+   98 | #  define __INT64_C(c)  c ## LL
+      |           ^
+<built-in>:282:9: note: previous definition is here
+  282 | #define __INT64_C(c) c##LL
+      |         ^
+In file included from /workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/build.pixelelated-SM8550.aarch64/build/fex-emu-e869aa644a16e4332cdc15c1ea0b4d13d482385d/ThunkLibs/libGL/libGL_Guest.cpp:11:
+In file included from /workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/build.pixelelated-SM8550.aarch64/toolchain/aarch64-rocknix-linux-gnu/sysroot/usr/include/GL/glx.h:32:
+In file included from /workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/build.pixelelated-SM8550.aarch64/toolchain/aarch64-rocknix-linux-gnu/sysroot/usr/include/GL/gl.h:2050:
+In file included from /workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/build.pixelelated-SM8550.aarch64/toolchain/aarch64-rocknix-linux-gnu/sysroot/usr/include/GL/glext.h:37:
+In file included from /workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/build.pixelelated-SM8550.aarch64/toolchain/aarch64-rocknix-linux-gnu/sysroot/usr/include/KHR/khrplatform.h:149:
+/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/build.pixelelated-SM8550.aarch64/toolchain/aarch64-rocknix-linux-gnu/sysroot/usr/include/stdint.h:99:11: warning: '__UINT64_C' macro redefined [-Wmacro-redefined]
+   99 | #  define __UINT64_C(c) c ## ULL
+      |           ^
+<built-in>:316:9: note: previous definition is here
+  316 | #define __UINT64_C(c) c##ULL
+      |         ^
+In file included from /workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/build.pixelelated-SM8550.aarch64/build/fex-emu-e869aa644a16e4332cdc15c1ea0b4d13d482385d/ThunkLibs/libGL/libGL_Guest.cpp:23:
+In file included from /nix/store/c75a6mvm8bpkqbjlabwr1da715fdwyk4-i686-unknown-linux-gnu-gcc-16.2.0/include/c++/16.2.0/functional:71:
+In file included from /nix/store/c75a6mvm8bpkqbjlabwr1da715fdwyk4-i686-unknown-linux-gnu-gcc-16.2.0/include/c++/16.2.0/tuple:46:
+In file included from /nix/store/c75a6mvm8bpkqbjlabwr1da715fdwyk4-i686-unknown-linux-gnu-gcc-16.2.0/include/c++/16.2.0/bits/ranges_util.h:34:
+In file included from /nix/store/c75a6mvm8bpkqbjlabwr1da715fdwyk4-i686-unknown-linux-gnu-gcc-16.2.0/include/c++/16.2.0/bits/ranges_base.h:41:
+In file included from /nix/store/c75a6mvm8bpkqbjlabwr1da715fdwyk4-i686-unknown-linux-gnu-gcc-16.2.0/include/c++/16.2.0/bits/max_size_type.h:41:
+/nix/store/c75a6mvm8bpkqbjlabwr1da715fdwyk4-i686-unknown-linux-gnu-gcc-16.2.0/include/c++/16.2.0/limits:2176:9: error: size of '__builtin_bit_cast' source type 'long double' does not match destination type '__float128' (12 vs 16 bytes)
+ 2176 |         return __builtin_bit_cast(__float128, __builtin_nansf128(""));
+      |                ^
+/nix/store/c75a6mvm8bpkqbjlabwr1da715fdwyk4-i686-unknown-linux-gnu-gcc-16.2.0/include/c++/16.2.0/limits:2171:7: error: no return statement in constexpr function
+ 2171 |       signaling_NaN() _GLIBCXX_USE_NOEXCEPT
+      |       ^
+2 warnings and 2 errors generated.
+ninja: build stopped: subcommand failed.
