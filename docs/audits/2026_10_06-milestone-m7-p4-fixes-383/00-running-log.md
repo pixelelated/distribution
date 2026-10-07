@@ -1307,3 +1307,46 @@ Recovery640 launched01:26:34 and watcher424036 is verified live, with
 run20261007T012634Z-85f592d8. Actual timeout, terminal recovery and absence/network
 UI controls run in EN/FR before1280, QA20 clean/RC2upgrade and local protocols.
 No original finding is closed before the remaining qualification.
+
+## 01:29 UTC — #471 completed root/reason and supplemental evidence published
+
+Publication04 passed normal hooks,1191changed-path equality and exact remote
+readbacks at01:28:41: feature38af8bea74e5da9252c062915f7a58b1aecb2f8b;
+next94b109c279aa6dba142326fb241e9a8a14e2c908. Independent owner verification
+confirms allfour0/1193seals/exits; receipt retained under Q16. This publishes
+20root/reason cases,88directly reviewed frames,10supplemental cases and retained
+prelaunch01 failure, plus closed#482/#486 evidence. No product bytes changed.
+Recovery640 remains active: actual English startup timeout30.01seconds has its
+complete reason/card, unchanged state and actual provider/sleep-child exits.
+All3timeout cards directly reviewed; terminal recovery continues.
+
+## 01:35 UTC — #471 source integration re-derived; bilingual timeout cards pass
+
+Command receipt `evidence/remediation-host/build16-integration-commands.json`
+re-derives next ancestry for ee01490913, ES integration/pin72494bc7 and exact
+four installed source hashes against next/frozen16. Actual migration path commit
+is 4b312e784f425947defd906a15650b5e0ec0f8ea; the legacy capability path commit
+is ec2283f20f10e692f15bdb417917adb0e320155f. This is integration evidence only,
+not a resolution claim before remaining qualification.
+
+Recovery640: all4English cases and23directly reviewed frames pass. Both actual
+EN/FR stock outer timeouts measure30.01seconds, preserve cloud/pointers and
+retire provider/sleep children. All6timeout cards show complete reasons. English
+real terminal repair/UI retry preserves both tiers and unrelated endpoint,
+removes the pending record and displays the current completed destination.
+French changed-endpoint refusal preserves all state; remaining recovery is active.
+
+## 01:40 UTC — #468/#471 small-screen recovery accepted; large-screen run active
+
+Recovery640 completed01:39:08. Independent01:39:37 verifies allfour0/9seals,
+all owner processes and guest424777 absent, backend gone and ports free. All8
+EN/FR cases and46directly reviewed frames pass. Both actual stock timeouts
+measure30.01seconds; original-connection terminal repair/UI retry preserves
+all original bytes and foreign endpoint, removes the record and completes
+current pointers. Genuine missing-folder offer and network refusal remain
+distinct. French original-connection and rclone config/E edit instructions fit
+in full. Q16/recovery-640x480-acceptance re-derives all gates and frame hashes.
+
+The prepared1280 owner is live under launcher503414/watcher503416,
+run20261007T013954Z-b22dbb20. After its8cases/46frames, QA20 clean/actualRC2upgrade
+and cloud02 protocol baseline remain. No product change or premature closure.

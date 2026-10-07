@@ -1,0 +1,80 @@
+{
+  "verified_utc": "2026-10-07T01:39:37.585058+00:00",
+  "result": "PASS",
+  "owner": "/workspace/tmp/pixelelated-m7-p4-build16-recovery-640x480-01",
+  "dimensions": [
+    640,
+    480
+  ],
+  "cases": [
+    {
+      "case": "en_US-outer-timeout",
+      "status": "PASS",
+      "visual_review": "pending"
+    },
+    {
+      "case": "en_US-original-connection-recovery",
+      "status": "PASS",
+      "visual_review": "pending"
+    },
+    {
+      "case": "en_US-missing-folder",
+      "status": "PASS",
+      "visual_review": "pending"
+    },
+    {
+      "case": "en_US-network-refusal",
+      "status": "PASS",
+      "visual_review": "pending"
+    },
+    {
+      "case": "fr_FR-outer-timeout",
+      "status": "PASS",
+      "visual_review": "pending"
+    },
+    {
+      "case": "fr_FR-original-connection-recovery",
+      "status": "PASS",
+      "visual_review": "pending"
+    },
+    {
+      "case": "fr_FR-missing-folder",
+      "status": "PASS",
+      "visual_review": "pending"
+    },
+    {
+      "case": "fr_FR-network-refusal",
+      "status": "PASS",
+      "visual_review": "pending"
+    }
+  ],
+  "details": {
+    "en_US": {
+      "timeout_seconds": 30.009999999999998,
+      "original_connection_recovery": true,
+      "missing_folder_creation_offer": true,
+      "network_refusal_distinct": true,
+      "frames": {
+        "en_US-outer-timeout": 3,
+        "en_US-original-connection-recovery": 12,
+        "en_US-missing-folder": 4,
+        "en_US-network-refusal": 4
+      }
+    },
+    "fr_FR": {
+      "timeout_seconds": 30.00999999999999,
+      "original_connection_recovery": true,
+      "missing_folder_creation_offer": true,
+      "network_refusal_distinct": true,
+      "frames": {
+        "fr_FR-outer-timeout": 3,
+        "fr_FR-original-connection-recovery": 12,
+        "fr_FR-missing-folder": 4,
+        "fr_FR-network-refusal": 4
+      }
+    }
+  },
+  "direct_frames": 46,
+  "installed_product_unchanged": true,
+  "scope": "Installed EN/FR timeout and supported terminal-recovery UI; real missing-folder/network controls. Full clean/upgrade and protocol qualification remain separate."
+}

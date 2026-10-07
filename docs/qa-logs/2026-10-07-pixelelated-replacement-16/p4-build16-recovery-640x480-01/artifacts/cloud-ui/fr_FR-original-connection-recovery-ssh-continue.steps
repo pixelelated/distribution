@@ -1,0 +1,8 @@
+key down
+wait-for-change 30 0
+key right
+wait-for-change 30 0
+key x
+wait-for-change 30 0
+settle 60 3
+shot fr_FR-original-connection-recovery-ssh-connect
