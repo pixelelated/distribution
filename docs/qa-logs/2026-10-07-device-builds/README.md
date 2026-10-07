@@ -42,12 +42,21 @@ action or release publication is part of compilation approval.
 The completed read-only review verifies four old VM trees09/10/12/14 and
 464,527,437,824allocated bytes (432.62GiB gross). Selected custody comprises
 14,489unique objects;13,925have independently verified prior copies and only
-15,371,743new content bytes are projected. The preservation/source-inventory
-owner is running with a512MiB ceiling and the remaining H700 budget protected.
-This is not recovered space or removal approval. Full dependency review,
-independent preservation acceptance and concrete net proposal remain before
-requesting any additional deletion. Current16/fallback15 and old device roots
-remain protected.
+15,371,743new content bytes were copied. The preservation/source-inventory
+owner completed at 04:24 UTC with four zero result channels, nine unchanged
+seals and verified process exits. The new independent store uses 59,297,792
+allocated bytes (56.55 MiB), leaving 464,468,140,032 bytes (432.57 GiB) of
+potential net recovery. All four 568-root source inventories have zero errors.
+Primary acceptance independently hashed all 14,489 objects, checked the four
+tree manifests and verified separate destination inodes and intact originals.
+See `retention-preservation01` and `retention-acceptance01`.
+
+This is not recovered space or removal approval. Full dependency review and a
+fresh privileged process readback remain before a concrete removal proposal.
+Current16/fallback15 and old device roots remain protected. The dependency
+owner is `/workspace/tmp/pixelelated-m7-device-dependencies-01`, using the
+standard watcher and read-only discovery across the build, source, image and
+temporary stores.
 
 ## Current storage — #493
 
@@ -91,6 +100,36 @@ volumes into one failure domain. No build-speed gain has been measured here.
 See [Red Hat's RAID-level documentation](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/10/html/managing_storage_devices/managing-raid)
 and [Linux MD documentation](https://docs.kernel.org/admin-guide/md.html).
 The maintainer clarified RAID0; no RAID conversion or purchase was requested.
+
+### Requested post-build review
+
+The maintainer's latest request is quoted verbatim in #493. After this build
+and its required qualification, review the large build, image and temporary
+QA stores for maximum safe recovery. #494 is the bounded four-tree proposal
+needed for upcoming firmware stages; it does not exhaust the broader review.
+
+Use the existing D-INFRA-018 retention cadence: after qualification, and
+before the next capacity-intensive build or QA copy. Keep the current useful
+build tree, a qualified fallback per device/architecture, the actual ROCKNIX
+upgrade baseline, exact source/licence inputs and independent failure/QA
+evidence. Resolve transitive backing-file, custody-store and live-process
+dependencies before proposing retirements. Each proposal records preservation
+cost, net recovery and the next workload's full footprint. Execute only an
+approved exact batch using the existing guarded helpers and watched owners.
+
+Measured historical SM8550 roots occupy 175,974,195,200 bytes together. The
+planning budget is 347,688,935,424 bytes, including 100 GiB operating allowance,
+40 GiB growth, 18 GiB artifacts and the measured checkout. This is an estimate;
+remeasure available space after H700 and any approved cleanup before starting
+SM8550. See `device-capacity-measurements.json`. The broader report will use
+these workload budgets to determine whether another drive is warranted.
+
+The first H700 compiler failure was GCC12/SPIRV host compatibility (#495),
+not evidence of a disk-full compiler failure. Disk availability separately
+constrains later build stages. Host repair/proof issues #495/#496 are closed,
+published on next `63ef759a`, with both hosted checks passing. Publication and
+CI receipts are in `publication12` and `publication12-ci`; the refreshed live
+M7 order is retained in `post-build-storage-order`.
 
 The original sizing01 attempt was correctly refused by the one-job-per-worktree
 watcher lock before running. Sizing02 used the idle primary checkout. That refusal
