@@ -1,0 +1,28 @@
+## Failure and cause
+
+H700 arm04 on frozen f5f815faff stopped at228/244 on2026-10-07 04:41:23UTC. box86 linked successfully, then makeinstall_target tried build.ROCKNIX-H700.arm although config/path correctly creates build.pixelelated-H700.arm. Four exit channels are2, seven input seals match, and the actual owner/container exited. The failure is not disk exhaustion.
+
+DISTRO intentionally remains ROCKNIX for the configuration namespace; DISTRONAME is pixelelated under D-WORKFLOW-144. The same reconstructed-path mismatch exists in box86, lib32, RetroArch's32-bit payload, gpSP, DeSmuME, Daedalus and build_distro cleanup/device-root paths. A previous ROCKNIX build had equal DISTRO/DISTRONAME and would not expose this mismatch; GENERIC_X64 qualification does not exercise the arm-to-aarch64 compatibility handoff.
+
+Can this be done on the VM? Path/hook controls run on the host with isolated fixtures, including old/new identities and negative controls. Actual arm compilation and aarch64 payload inspection are build-host facts. No physical-device operation is required for this repair.
+
+## Acceptance criteria
+
+- [x] Isolated install/lifecycle controls fail against the recorded original recipes where applicable, pass with the repair, preserve the ROCKNIX configuration namespace and do not alter unrelated paths; package lint passes for each affected recipe.
+- [x] Preserve failed arm04 logs, stamps and every interrupted package scope before resuming from committed repaired inputs with a new watched owner.
+- [ ] The repaired H700 arm stage has verified terminal results and actual ARM compatibility artifacts; the aarch64 handoff retains required32-bit programs/cores/libraries rather than silently omitting them.
+- [ ] Reconcile H700/SM8550 input manifests, live M7 order, work/friction logs and retained evidence. Capacity, device smoke and release publication retain their existing separate gates.
+
+Source repair is within the authorized pixelelated migration/device-build scope; package versions and user data formats stay pinned. Do not reuse or overwrite the failed owner.
+
+## Source repair and resumption — 2026-10-07 04:49 UTC
+
+Feature dba99f4b57 / local next43d0bc3bf4 changes seven files, only generated-path identity. Forty-two controls pass: original/fixed ROCKNIX layouts, renamed layouts with a conflicting old sibling, missing-payload checks and build cleanup/device-root aliases. The original01 control run retains its failed JSON-whitespace assertion; fresh02 compares JSON contents and passes. All six package lint checks pass. Source fixture outcomes are not device firmware acceptance.
+
+Arm04 remains failed: four2, seven seals, actual container/owner exited. Recovery01 preserved logs/stamps (archive SHA2563ad02972af24a49b70acfa178ce294fe1327a10f42d2013b2658d36e4cc06bcf), all six interrupted package scopes and changed recipe scopes by same-filesystem rename, with zero payload deletion. Recovery owner four0/one seal/exits verified. Fresh arm05 runs from frozen43d0bc3bf47fd858ba8d5c55fbdf52535a0db2aa with seven inputs and actual pinned container/mounts verified. Its completion/artifact verifier is also watched. Keep this issue open until actual ARM output and aarch64 handoff evidence are accepted.
+
+## H700 arm acceptance — 2026-10-07 04:50 UTC
+
+All244 tasks complete on43d0bc3bf47fd858ba8d5c55fbdf52535a0db2aa. Build owner has four0/seven seals; actual container/owner exited. Independent acceptance verified7,866 files,797 symlinks,938 ARM ELF objects and244 build stamps, including RetroArch/libretro. Acceptance owner four0/two seals/exits verified04:50:50. Output manifest SHA256116314730b3ce22407219f14c1646694ebabc2723a2c24c8ca9e553ff5783e18. Evidence: docs/qa-logs/2026-10-07-device-builds/h700-arm05 and h700-arm05-acceptance. This is compatibility output, not the aarch64 firmware image.
+
+Current: #494 root-only readback and exact cleanup proposal. Post-arm availability173,770,547,200 bytes is below H700 firmware-stage budget287,480,930,304 bytes. The proposed three-tree retirement would fit the next stage, but remains unapproved. The administrator read-only check is pending; no compiler is running and firmware has not been submitted. H700 firmware and actual32-bit handoff evidence precede SM8550 capacity/build, as authorized.

@@ -1,0 +1,14 @@
+watch-build: recording in /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261007T044527Z-fb95c196
+PASS box86-original-pixelelated-aarch64-present payload=False
+PASS box86-fixed-pixelelated-aarch64-present payload=True
+PASS box86-original-ROCKNIX-aarch64-present payload=True
+PASS box86-fixed-ROCKNIX-aarch64-present payload=True
+PASS lib32-original-pixelelated-aarch64-present payload=False
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-build-root-controls-01/run.py", line 89, in <module>
+    for version,brand in [('original','pixelelated'),('fixed','pixelelated'),('original','ROCKNIX'),('fixed','ROCKNIX')]:hook(kind,version,brand)
+                                                                                                                         ~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tmp/pixelelated-m7-build-root-controls-01/run.py", line 54, in hook
+    assert observed==expect,(label,completed.returncode,observed,expect)
+           ^^^^^^^^^^^^^^^^
+AssertionError: ('lib32-fixed-pixelelated-aarch64-present', 0, False, True)

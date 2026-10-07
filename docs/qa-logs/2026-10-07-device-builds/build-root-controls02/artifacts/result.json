@@ -1,0 +1,301 @@
+{
+  "utc": "2026-10-07T04:46:08.638176+00:00",
+  "result": "PASS",
+  "cases": [
+    {
+      "case": "box86-original-pixelelated-aarch64-present",
+      "command_rc": 0,
+      "required_payload_verified": false,
+      "expected_payload": false,
+      "result": "PASS"
+    },
+    {
+      "case": "box86-fixed-pixelelated-aarch64-present",
+      "command_rc": 0,
+      "required_payload_verified": true,
+      "expected_payload": true,
+      "result": "PASS"
+    },
+    {
+      "case": "box86-original-ROCKNIX-aarch64-present",
+      "command_rc": 0,
+      "required_payload_verified": true,
+      "expected_payload": true,
+      "result": "PASS"
+    },
+    {
+      "case": "box86-fixed-ROCKNIX-aarch64-present",
+      "command_rc": 0,
+      "required_payload_verified": true,
+      "expected_payload": true,
+      "result": "PASS"
+    },
+    {
+      "case": "lib32-original-pixelelated-aarch64-present",
+      "command_rc": 0,
+      "required_payload_verified": false,
+      "expected_payload": false,
+      "result": "PASS"
+    },
+    {
+      "case": "lib32-fixed-pixelelated-aarch64-present",
+      "command_rc": 0,
+      "required_payload_verified": true,
+      "expected_payload": true,
+      "result": "PASS"
+    },
+    {
+      "case": "lib32-original-ROCKNIX-aarch64-present",
+      "command_rc": 0,
+      "required_payload_verified": true,
+      "expected_payload": true,
+      "result": "PASS"
+    },
+    {
+      "case": "lib32-fixed-ROCKNIX-aarch64-present",
+      "command_rc": 0,
+      "required_payload_verified": true,
+      "expected_payload": true,
+      "result": "PASS"
+    },
+    {
+      "case": "gpsp-lr-original-pixelelated-aarch64-present",
+      "command_rc": 0,
+      "required_payload_verified": false,
+      "expected_payload": false,
+      "result": "PASS"
+    },
+    {
+      "case": "gpsp-lr-fixed-pixelelated-aarch64-present",
+      "command_rc": 0,
+      "required_payload_verified": true,
+      "expected_payload": true,
+      "result": "PASS"
+    },
+    {
+      "case": "gpsp-lr-original-ROCKNIX-aarch64-present",
+      "command_rc": 0,
+      "required_payload_verified": true,
+      "expected_payload": true,
+      "result": "PASS"
+    },
+    {
+      "case": "gpsp-lr-fixed-ROCKNIX-aarch64-present",
+      "command_rc": 0,
+      "required_payload_verified": true,
+      "expected_payload": true,
+      "result": "PASS"
+    },
+    {
+      "case": "desmume-lr-original-pixelelated-aarch64-present",
+      "command_rc": 0,
+      "required_payload_verified": false,
+      "expected_payload": false,
+      "result": "PASS"
+    },
+    {
+      "case": "desmume-lr-fixed-pixelelated-aarch64-present",
+      "command_rc": 0,
+      "required_payload_verified": true,
+      "expected_payload": true,
+      "result": "PASS"
+    },
+    {
+      "case": "desmume-lr-original-ROCKNIX-aarch64-present",
+      "command_rc": 0,
+      "required_payload_verified": true,
+      "expected_payload": true,
+      "result": "PASS"
+    },
+    {
+      "case": "desmume-lr-fixed-ROCKNIX-aarch64-present",
+      "command_rc": 0,
+      "required_payload_verified": true,
+      "expected_payload": true,
+      "result": "PASS"
+    },
+    {
+      "case": "daedalusx64-sa-original-pixelelated-aarch64-present",
+      "command_rc": 0,
+      "required_payload_verified": false,
+      "expected_payload": false,
+      "result": "PASS"
+    },
+    {
+      "case": "daedalusx64-sa-fixed-pixelelated-aarch64-present",
+      "command_rc": 0,
+      "required_payload_verified": true,
+      "expected_payload": true,
+      "result": "PASS"
+    },
+    {
+      "case": "daedalusx64-sa-original-ROCKNIX-aarch64-present",
+      "command_rc": 0,
+      "required_payload_verified": true,
+      "expected_payload": true,
+      "result": "PASS"
+    },
+    {
+      "case": "daedalusx64-sa-fixed-ROCKNIX-aarch64-present",
+      "command_rc": 0,
+      "required_payload_verified": true,
+      "expected_payload": true,
+      "result": "PASS"
+    },
+    {
+      "case": "retroarch-original-pixelelated-aarch64-present",
+      "command_rc": 0,
+      "required_payload_verified": false,
+      "expected_payload": false,
+      "result": "PASS"
+    },
+    {
+      "case": "retroarch-fixed-pixelelated-aarch64-present",
+      "command_rc": 0,
+      "required_payload_verified": true,
+      "expected_payload": true,
+      "result": "PASS"
+    },
+    {
+      "case": "retroarch-original-ROCKNIX-aarch64-present",
+      "command_rc": 0,
+      "required_payload_verified": true,
+      "expected_payload": true,
+      "result": "PASS"
+    },
+    {
+      "case": "retroarch-fixed-ROCKNIX-aarch64-present",
+      "command_rc": 0,
+      "required_payload_verified": true,
+      "expected_payload": true,
+      "result": "PASS"
+    },
+    {
+      "case": "box86-original-ROCKNIX-arm-present",
+      "command_rc": 0,
+      "required_payload_verified": true,
+      "expected_payload": true,
+      "result": "PASS"
+    },
+    {
+      "case": "box86-original-pixelelated-arm-present",
+      "command_rc": 0,
+      "required_payload_verified": false,
+      "expected_payload": false,
+      "result": "PASS"
+    },
+    {
+      "case": "box86-fixed-ROCKNIX-arm-present",
+      "command_rc": 0,
+      "required_payload_verified": true,
+      "expected_payload": true,
+      "result": "PASS"
+    },
+    {
+      "case": "box86-fixed-pixelelated-arm-present",
+      "command_rc": 0,
+      "required_payload_verified": true,
+      "expected_payload": true,
+      "result": "PASS"
+    },
+    {
+      "case": "box86-fixed-pixelelated-aarch64-missing",
+      "command_rc": 1,
+      "required_payload_verified": false,
+      "expected_payload": false,
+      "result": "PASS"
+    },
+    {
+      "case": "lib32-fixed-pixelelated-aarch64-missing",
+      "command_rc": 23,
+      "required_payload_verified": false,
+      "expected_payload": false,
+      "result": "PASS"
+    },
+    {
+      "case": "gpsp-lr-fixed-pixelelated-aarch64-missing",
+      "command_rc": 1,
+      "required_payload_verified": false,
+      "expected_payload": false,
+      "result": "PASS"
+    },
+    {
+      "case": "desmume-lr-fixed-pixelelated-aarch64-missing",
+      "command_rc": 1,
+      "required_payload_verified": false,
+      "expected_payload": false,
+      "result": "PASS"
+    },
+    {
+      "case": "daedalusx64-sa-fixed-pixelelated-aarch64-missing",
+      "command_rc": 1,
+      "required_payload_verified": false,
+      "expected_payload": false,
+      "result": "PASS"
+    },
+    {
+      "case": "retroarch-fixed-pixelelated-aarch64-missing",
+      "command_rc": 0,
+      "required_payload_verified": false,
+      "expected_payload": false,
+      "result": "PASS"
+    },
+    {
+      "case": "lifecycle-original-ROCKNIX-same-device",
+      "command_rc": 0,
+      "generated_paths_cleaned": true,
+      "expected": true,
+      "result": "PASS"
+    },
+    {
+      "case": "lifecycle-original-ROCKNIX-alias",
+      "command_rc": 0,
+      "generated_paths_cleaned": true,
+      "expected": true,
+      "result": "PASS"
+    },
+    {
+      "case": "lifecycle-original-pixelelated-same-device",
+      "command_rc": 0,
+      "generated_paths_cleaned": false,
+      "expected": false,
+      "result": "PASS"
+    },
+    {
+      "case": "lifecycle-original-pixelelated-alias",
+      "command_rc": 1,
+      "generated_paths_cleaned": false,
+      "expected": false,
+      "result": "PASS"
+    },
+    {
+      "case": "lifecycle-fixed-ROCKNIX-same-device",
+      "command_rc": 0,
+      "generated_paths_cleaned": true,
+      "expected": true,
+      "result": "PASS"
+    },
+    {
+      "case": "lifecycle-fixed-ROCKNIX-alias",
+      "command_rc": 0,
+      "generated_paths_cleaned": true,
+      "expected": true,
+      "result": "PASS"
+    },
+    {
+      "case": "lifecycle-fixed-pixelelated-same-device",
+      "command_rc": 0,
+      "generated_paths_cleaned": true,
+      "expected": true,
+      "result": "PASS"
+    },
+    {
+      "case": "lifecycle-fixed-pixelelated-alias",
+      "command_rc": 0,
+      "generated_paths_cleaned": true,
+      "expected": true,
+      "result": "PASS"
+    }
+  ],
+  "scope": "actual recipe install hooks and build_distro in isolated host fixtures; original expected failures, unchanged ROCKNIX controls, renamed collision and missing-payload controls; actual device build acceptance remains separate"
+}

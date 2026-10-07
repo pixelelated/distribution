@@ -1,0 +1,17 @@
+{
+  "utc": "2026-10-07T04:39:03.987140+00:00",
+  "available_bytes": 177227026432,
+  "current_h700_arm_allocated_bytes": 22361726976,
+  "remaining_arm_baseline_bytes": 7682609152,
+  "proposed_three_tree_gross_bytes": 348357001216,
+  "preservation_cost_already_allocated_bytes": 59297792,
+  "proposed_net_recovery_bytes": 348297703424,
+  "post_arm_and_approved_removal_projected_available_bytes": 517901418496,
+  "h700_aarch64_stage_budget_bytes": 287480930304,
+  "sm8550_later_stage_budget_bytes": 347688935424,
+  "combined_remaining_budget_bytes": 535478292480,
+  "assumptions": "Historical measured roots, 100GiB operating allowance shared, separate40GiB growth and18GiB artifacts per device, measured SM checkout. Preservation store cost is already in current availability. No cleanup approved/performed; remeasure at each stage.",
+  "h700_fits_current_available": false,
+  "h700_fits_after_proposed_cleanup": true,
+  "both_fit_full_separate_growth_after_proposed_cleanup": false
+}

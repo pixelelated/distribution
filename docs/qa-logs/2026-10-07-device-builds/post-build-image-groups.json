@@ -1,0 +1,30 @@
+{
+  "utc": "2026-10-07T04:33:06.032531+00:00",
+  "source_inventory_utc": "2026-10-07T03:57:20.605592+00:00",
+  "source_inventory": "/workspace/tmp/pixelelated-m7-storage-sizing-02/artifacts/report.json",
+  "source_sha256": "c625592967da5ef91bcb9259fcf5269eec15b1ebfefafb89c2101434880b90f7",
+  "scope": "existing measured direct-child directory totals grouped by name prefix; names do not prove contents or deletion eligibility",
+  "groups": {
+    "x64-": {
+      "directory_count": 104,
+      "allocated_bytes": 417036288000
+    },
+    "h700-": {
+      "directory_count": 117,
+      "allocated_bytes": 440225484800
+    },
+    "other": {
+      "directory_count": 267,
+      "allocated_bytes": 30314123264
+    },
+    "sm8550-": {
+      "directory_count": 4,
+      "allocated_bytes": 12834508800
+    },
+    "rk3566-": {
+      "directory_count": 2,
+      "allocated_bytes": 8887562240
+    }
+  },
+  "next": "Refresh after H700 qualification; identify current/fallback/upgrade/failure/source dependencies before any exact removal proposal."
+}
