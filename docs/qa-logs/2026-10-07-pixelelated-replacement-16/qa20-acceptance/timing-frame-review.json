@@ -1,0 +1,62 @@
+{
+  "reviewed_utc": "2026-10-07T02:11:46.350548+00:00",
+  "result": "PASS",
+  "frames": [
+    {
+      "file": "frames/r1-launch-02-first-game-frame.png",
+      "sha256": "f4cc7aa753984b3f6df09f2282dbfb3757876777dfde08fca8ed0da13c279e73",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "primary_direct_review": true
+    },
+    {
+      "file": "frames/g1-launch-02-first-game-frame.png",
+      "sha256": "a7f45e94f622cbcea6229d3393e21eb3f40b1c93bceaaaf98553e65b38a071e3",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "primary_direct_review": true
+    },
+    {
+      "file": "frames/g1-exit-game2.png",
+      "sha256": "74cfb7f0f8521f3a9f11218d818e8cac7f5806a33284a599c3d90bb5c4d09c9c",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "primary_direct_review": true
+    },
+    {
+      "file": "frames/r1-exit-001.png",
+      "sha256": "6c7c0b645f0b621f1f7c16fc11c3e274bf6c41a80785d4407bf09e1cd4c41032",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "primary_direct_review": true
+    },
+    {
+      "file": "frames/r1-exit-004.png",
+      "sha256": "ce77f298a9d620ff59891f6c08fd9742b98b295c7514c535707b8e40df7d0677",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "primary_direct_review": true
+    },
+    {
+      "file": "frames/r1-exit-007.png",
+      "sha256": "1e2e074ecf125e4b7e96eb57e447b159a5081d27f53857ede8abd43f3b52d9fd",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "primary_direct_review": true
+    }
+  ],
+  "observations": "Launch/relaunch/game2 show actual emulated Nintendo boot-logo frames; the exit sequence shows the sync card starting and completed, then the unobstructed carousel. The emulator startup notification is partly offscreen in the relaunch captures; those frames prove emulated output, not notification text fit.",
+  "timing_scope": "Quick single-sample VM timing, first emulated frame rather than interactive gameplay. The g2g helper sends its scheduled A press even when no blocking question remains; t_question_answered does not itself prove that a dialog appeared. No g2g sync outcome is inferred from the absent stamp."
+}

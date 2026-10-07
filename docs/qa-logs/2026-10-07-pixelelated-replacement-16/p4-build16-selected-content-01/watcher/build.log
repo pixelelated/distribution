@@ -1,0 +1,17 @@
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/7f98f2d22985d11fe9c150015457894caf460104c9ce44abd16074167f23815a
+up: a (pid 1202558, ssh :10022, serial /tmp/rocknix-qemu-serial.sock, mac 52:54:00:52:4E:58)
+up: b (pid 1202581, ssh :10023, serial /tmp/rocknix-qemu-serial-b.sock, mac 52:54:00:52:4E:59)
+ready: a on ee01490913 over ssh :10022 (answered after 0s)
+ready: b on ee01490913 over ssh :10023 (answered after 0s)
+up: webdav serving /workspace/tmp/pixelelated-m7-p4-build16-selected-content-01/proof/cloud/data at http://127.0.0.1:9040 (guest: http://10.0.2.2:9040)
+START PL001-installed-selected-legacy
+PASS PL001-installed-selected-legacy
+START PL001-installed-selected-tiered
+PASS PL001-installed-selected-tiered
+START PL001-installed-selected-bios
+PASS PL001-installed-selected-bios
+START PL001-installed-selected-unsupported
+PASS PL001-installed-selected-unsupported
+down
+PASS frozen source inputs, ES pin and candidate input custody

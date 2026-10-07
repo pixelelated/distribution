@@ -1,0 +1,28 @@
+{
+  "verified_utc": "2026-10-07T02:45:47.605149+00:00",
+  "result": "PASS",
+  "source_equality_files": {
+    "linux": 219,
+    "third_party": 53
+  },
+  "dependency_lints": 6,
+  "actual_vulkan_shader_bytes": 752,
+  "cbindgen": "0.29.4",
+  "receipts": {
+    "docs/audits/2026_10_06-milestone-m7-p4-fixes-383/evidence/proxy-source-equality.json": "942d664d2c5e7c5564168460c38c9c88bb191dc016738eb040a16a1729680f36",
+    "docs/audits/2026_10_06-milestone-m7-p4-fixes-383/evidence/local-pkgcheck-01/glslang.log": "5352971465563fb75808a2362cb2fb0d6ffa26b25c3da2fe7cdb4130f0cd174c",
+    "docs/audits/2026_10_06-milestone-m7-p4-fixes-383/evidence/local-pkgcheck-01/spirv-tools.log": "0682890a75b83a2159fbda082477352589d6d3721f1bb7cae3620b220d25f8e9",
+    "docs/audits/2026_10_06-milestone-m7-p4-fixes-383/evidence/local-pkgcheck-01/spirv-headers.log": "0a207f9f393cf53d3aac5b5badce263d6e858efd85e286a754103fe819f4747a",
+    "docs/audits/2026_10_06-milestone-m7-p4-fixes-383/evidence/local-pkgcheck-01/shaderc.log": "880b0ef8e0ef21531bc01e81a6d284bb050f34c4d634887c759443c81ea702cb",
+    "docs/audits/2026_10_06-milestone-m7-p4-fixes-383/evidence/local-pkgcheck-01/cbindgen.log": "ec0031c26e7efca962b9ae8d36f005c9eb67e2af5b44f8f1849d4dae4f8fed73",
+    "docs/audits/2026_10_06-milestone-m7-p4-fixes-383/evidence/local-pkgcheck-01/tllist.log": "05c1ced9b73d92663356f1c8cf076b9e3c82dc167dd0ac100b944b927afb3013",
+    "docs/audits/2026_10_06-milestone-m7-p4-fixes-383/evidence/local-pkgcheck-01/results.json": "c6d37cb69a23aa9882b592c73402de29cd91ad4a94f42b45f37a4b1106d3a84a",
+    "docs/qa-logs/2026-10-03-dependencies/compat-build.log": "baac50d493c170566a153f581e577f6146260c11a89fda3000886853bf4b6d95",
+    "docs/qa-logs/2026-10-03-dependencies/compat-build.rc": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "docs/qa-logs/2026-10-03-dependencies/cbindgen-build.log": "a8f1a4794b97fd1310ef2f6f15d2cbb7d7dd060a4cfb5f5cd61f427c9945bb15",
+    "docs/qa-logs/2026-10-03-dependencies/cbindgen-build.rc": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "docs/qa-logs/2026-10-03-dependencies/archives.json": "8b3d9eff209c5f54618d4122f3e953ae924f6801180ccfadda439255c2958177",
+    "docs/qa-logs/2026-10-07-pixelelated-replacement-16/unchanged-dependency-custody/verification.json": "aab97faef67e45c2beae0bd1e041c08fd051634cfd72d1af10a009300962c071"
+  },
+  "scope": "Command-backed readback of previously executed and independently audited source/consumer gates, plus candidate16 byte custody. No suites or live freshness queries were replayed."
+}

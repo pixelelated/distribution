@@ -1,0 +1,200 @@
+{
+  "verified_utc": "2026-10-07T02:04:21.681899+00:00",
+  "original_matrix": {
+    "passed": 84,
+    "failed": 1,
+    "failed_case": "T23-content-collision",
+    "lifecycle_result": 1
+  },
+  "corrected_collision": {
+    "case": "T23-content-collision",
+    "result": "PASS",
+    "lifecycle_result": 0
+  },
+  "discovery": {
+    "empty": {
+      "file": "0859-PL001-discovery-empty-a.log",
+      "sha256": "319c41f6fc9b5775870920a7da1bde40baa4e0d8b237987323d3a92f617b4d86",
+      "facts": {
+        "FOUND": "",
+        "STATE": "empty"
+      },
+      "returncode": 0
+    },
+    "unrelated": {
+      "file": "0880-PL001-discovery-unrelated-a.log",
+      "sha256": "319c41f6fc9b5775870920a7da1bde40baa4e0d8b237987323d3a92f617b4d86",
+      "facts": {
+        "FOUND": "",
+        "STATE": "empty"
+      },
+      "returncode": 0
+    },
+    "fallback": {
+      "file": "0901-PL001-discovery-fallback-a.log",
+      "sha256": "c836529d1d5a1c9ca03142cb0976f1927aa7252f1208b59aada7f00cea52facc",
+      "facts": {
+        "FOUND": "/pixelelated/Content",
+        "STATE": "found-elsewhere"
+      },
+      "returncode": 0
+    },
+    "tiered": {
+      "file": "0922-PL001-discovery-tiered-a.log",
+      "sha256": "ea813871bfe96f0f832c566f7b5b626ed38808ff89d6ed4c50a1705ab03c4ade",
+      "facts": {
+        "FOUND": "",
+        "STATE": "ok"
+      },
+      "returncode": 0
+    },
+    "root-tiered": {
+      "file": "0944-PL001-discovery-root-tiered-a.log",
+      "sha256": "61277ea4856a322e857948ae15f50fb599c2a396d0fc37f64e3be7da8d06d983",
+      "facts": {
+        "FOUND": "",
+        "STATE": "ok"
+      },
+      "returncode": 0
+    },
+    "root-flat": {
+      "file": "0966-PL001-discovery-root-flat-a.log",
+      "sha256": "70b3f3e4bb54c7d4c856b2005c349bf87e1aaafad52e9df2a357ea4e5f3fabb8",
+      "facts": {
+        "FOUND": "",
+        "STATE": "ok"
+      },
+      "returncode": 0
+    },
+    "root-unrelated": {
+      "file": "0988-PL001-discovery-root-unrelated-a.log",
+      "sha256": "9e9af6ff5182335674942aa2a6c206e636e2101a29bda6606c162d9057823b96",
+      "facts": {
+        "FOUND": "",
+        "STATE": "empty"
+      },
+      "returncode": 0
+    },
+    "stranded": {
+      "file": "1009-PL001-discovery-stranded-a.log",
+      "sha256": "f52a1f5cb291ba98461adea707206122dc91908bf0be80f4cfcf77e40ed9925b",
+      "facts": {
+        "FOUND": "/",
+        "STATE": "stranded-at-root"
+      },
+      "returncode": 0
+    },
+    "refused": {
+      "file": "1034-PL001-discovery-refused-a.log",
+      "sha256": "a8e8255dc038ce70f8bc3afa8810d7e6c5f31216b5f350cf1c9f53ded5954149",
+      "facts": {
+        "STATE": "unreadable"
+      },
+      "returncode": 1
+    }
+  },
+  "active_sibling_shelves": {
+    "root": {
+      "a": {
+        "CONTENT_REMOTE": "",
+        "LAYOUT_KEEP": "",
+        "SAVES_REMOTE": "/pixelelated/Saves",
+        "SETTINGS_REMOTE": "/pixelelated/Backups"
+      },
+      "b": {
+        "CONTENT_REMOTE": "/ROCKNIX/Content",
+        "LAYOUT_KEEP": "/ROCKNIX/Saves",
+        "SAVES_REMOTE": "/ROCKNIX/Saves",
+        "SETTINGS_REMOTE": "/ROCKNIX/Backups"
+      },
+      "cloud": {
+        "ROCKNIX/Saves-replaced/stamp/gb/older.srm": "94845f1537cf8fe8a18813100edd24d1651c923071930dadaf221fd7ece13246",
+        "ROCKNIX/Saves/gb/kept.srm": "f8f604d43108809fecebebb6d0f803713e047edcc4854a2c1e397c8df0bfa1d5",
+        "pixelelated/.layout": "be68d69fa1fe3ddbcaa9295b8e3e732fd0113d909e38cf643d95aab41c9b1a22",
+        "pixelelated/Saves/gb/current.srm": "3e90eabcadbac4133167cf5bb07b397c02fa601968fd60a657ad477b0e5256a8"
+      }
+    },
+    "custom": {
+      "a": {
+        "CONTENT_REMOTE": "/Mine/Content",
+        "LAYOUT_KEEP": "",
+        "SAVES_REMOTE": "/pixelelated/Saves",
+        "SETTINGS_REMOTE": "/pixelelated/Backups"
+      },
+      "b": {
+        "CONTENT_REMOTE": "/ROCKNIX/Content",
+        "LAYOUT_KEEP": "/ROCKNIX/Saves",
+        "SAVES_REMOTE": "/ROCKNIX/Saves",
+        "SETTINGS_REMOTE": "/ROCKNIX/Backups"
+      },
+      "cloud": {
+        "ROCKNIX/Saves-replaced/stamp/gb/older.srm": "94845f1537cf8fe8a18813100edd24d1651c923071930dadaf221fd7ece13246",
+        "ROCKNIX/Saves/gb/kept.srm": "f8f604d43108809fecebebb6d0f803713e047edcc4854a2c1e397c8df0bfa1d5",
+        "pixelelated/.layout": "be68d69fa1fe3ddbcaa9295b8e3e732fd0113d909e38cf643d95aab41c9b1a22",
+        "pixelelated/Saves/gb/current.srm": "3e90eabcadbac4133167cf5bb07b397c02fa601968fd60a657ad477b0e5256a8"
+      }
+    },
+    "current": {
+      "a": {
+        "CONTENT_REMOTE": "/pixelelated/Content",
+        "LAYOUT_KEEP": "",
+        "SAVES_REMOTE": "/pixelelated/Saves",
+        "SETTINGS_REMOTE": "/pixelelated/Backups"
+      },
+      "b": {
+        "CONTENT_REMOTE": "/ROCKNIX/Content",
+        "LAYOUT_KEEP": "/ROCKNIX/Saves",
+        "SAVES_REMOTE": "/ROCKNIX/Saves",
+        "SETTINGS_REMOTE": "/ROCKNIX/Backups"
+      },
+      "cloud": {
+        "ROCKNIX/Saves-replaced/stamp/gb/older.srm": "94845f1537cf8fe8a18813100edd24d1651c923071930dadaf221fd7ece13246",
+        "ROCKNIX/Saves/gb/kept.srm": "f8f604d43108809fecebebb6d0f803713e047edcc4854a2c1e397c8df0bfa1d5",
+        "pixelelated/.layout": "be68d69fa1fe3ddbcaa9295b8e3e732fd0113d909e38cf643d95aab41c9b1a22",
+        "pixelelated/Saves/gb/current.srm": "3e90eabcadbac4133167cf5bb07b397c02fa601968fd60a657ad477b0e5256a8"
+      }
+    }
+  },
+  "connection_binding": {
+    "comments": {
+      "recovered_original_bytes": true
+    },
+    "format": {
+      "recovered_original_bytes": true
+    },
+    "token": {
+      "recovered_original_bytes": true
+    },
+    "endpoint": {
+      "recovered_original_bytes": true,
+      "refusal_logs": [
+        "1721-PL004-binding-endpoint-a.log",
+        "1722-PL004-binding-endpoint-a.log",
+        "1723-PL004-binding-endpoint-a.log"
+      ],
+      "foreign_endpoint_unchanged": true
+    },
+    "legacy": {
+      "recovered_original_bytes": true
+    }
+  },
+  "application_reasons": {
+    "future": {
+      "reason": "YOUR CLOUD FOLDER COULDN'T BE READ",
+      "raw_log": "1774-PL005-reason-future-a.log"
+    },
+    "malformed": {
+      "reason": "YOUR CLOUD FOLDER COULDN'T BE READ",
+      "raw_log": "1795-PL005-reason-malformed-a.log"
+    },
+    "config": {
+      "reason": "YOUR CLOUD SYNC SETTINGS COULDN'T BE READ",
+      "raw_log": "1817-PL005-reason-config-a.log"
+    },
+    "record": {
+      "reason": "YOUR CLOUD FOLDER COULDN'T BE READ",
+      "raw_log": "1839-PL005-reason-record-a.log"
+    }
+  },
+  "scope": "Independent reconciliation of key installed CLI outcomes and retained witness hashes. Full clean/upgrade/protocol gates remain pending; no issue or original failed run is relabeled."
+}

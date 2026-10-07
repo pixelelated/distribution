@@ -1,0 +1,154 @@
+watch-build: recording in /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement16/.build-runs/20261007T024024Z-efe9bbec
+/workspace/tmp/pixelelated-m7-p4-build16-content-routing-640x480-01/check-payload.py: OK
+/workspace/tmp/pixelelated-m7-p4-build16-content-routing-640x480-01/cloud-ui-proof.py: OK
+/workspace/tmp/pixelelated-m7-p4-build16-content-routing-640x480-01/outer.sh: OK
+/workspace/tmp/pixelelated-m7-p4-build16-content-routing-640x480-01/provenance.json: OK
+/workspace/tmp/pixelelated-m7-p4-build16-content-routing-640x480-01/proxy-identity.py: OK
+/workspace/tmp/pixelelated-m7-p4-build16-content-routing-640x480-01/run.sh: OK
+/workspace/tmp/pixelelated-m7-p4-build16-content-routing-640x480-01/seed.py: OK
+/workspace/tmp/pixelelated-m7-p4-build16-content-routing-640x480-01/stop-guest.py: OK
+/workspace/tmp/pixelelated-m7-p4-build16-content-routing-640x480-01/verify-inputs.py: OK
+PASS frozen source inputs, ES pin and candidate input custody
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/7f98f2d22985d11fe9c150015457894caf460104c9ce44abd16074167f23815a
+Preparing independent 16GiB guest d from the verified pixelelated image
+Image resized.
+No errors were found on the image.
+31695/262144 = 12.09% allocated, 0.00% fragmented, 0.00% compressed clusters
+Image end offset: 2077818880
+[W][02:40:32.904901] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][02:40:32.904936] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+ready after ~31s
+PASS guest d exact BUILD_ID and OS_NAME ee014909137e03706e0b3020b8396be589aaa705 pixelelated
+PASS QA ROM bytes /storage/roms/gb/Ninoid.gb a40191c169c68e6607ace072da96aab957f306f55ded59ce1f287c1f5273387b
+PASS QA ROM bytes /storage/roms/gbc/Tobu Tobu Girl Deluxe.gb 0a0e8018dbbc8d7f8cd99f05e7cdc7b4cc9e358ecfe9377ebfb2291a84c6e310
+PASS QA ROM bytes /storage/roms/nes/Bobl.nes 025ec44d0d84ac469b442ee56c3d69e035e9a38430ae849172fe3a1e569d0dea
+PASS guest d seeded and idle
+up: webdav serving /workspace/tmp/pixelelated-m7-p4-build16-content-routing-640x480-01/cloud/data at http://127.0.0.1:9040 (guest: http://10.0.2.2:9040)
+PASS cloud-ui-before exact identity, installed scripts, policy and Ocean SVG bytes/modes
+PASS cloud-ui-before installed proxy identities and account discovery
+PASS setup: candidate identity
+START en_US-automatic-fallback
+PASS en_US-automatic-fallback: no game running before carousel
+PASS en_US-automatic-fallback: actual UI walk carousel
+PASS en_US-automatic-fallback: no game running after carousel
+PASS en_US-automatic-fallback: no game running before hub-menu
+PASS en_US-automatic-fallback: actual UI walk hub-menu
+PASS en_US-automatic-fallback: no game running after hub-menu
+PASS en_US-automatic-fallback: START changes the captured screen; direct main-menu review required
+PASS en_US-automatic-fallback: no game running before hub
+PASS en_US-automatic-fallback: actual UI walk hub
+PASS en_US-automatic-fallback: no game running after hub
+PASS en_US-automatic-fallback: no game running before opening-scan
+PASS en_US-automatic-fallback: actual UI walk opening-scan
+PASS en_US-automatic-fallback: no game running after opening-scan
+PASS en_US-automatic-fallback: no game running before continue
+PASS en_US-automatic-fallback: actual UI walk continue
+PASS en_US-automatic-fallback: no game running after continue
+PASS en_US-automatic-fallback: actual UI automatically selects discovered default content
+PASS en_US-automatic-fallback: opening scan retains default fallback facts
+PASS en_US-automatic-fallback: fallback supported game appears in actual scan
+PASS en_US-automatic-fallback: automatic fallback preserves every cloud byte
+PASS en_US-automatic-fallback: no game running before close
+PASS en_US-automatic-fallback: actual UI walk close
+PASS en_US-automatic-fallback: no game running after close
+PASS en_US-automatic-fallback: actual content-setting log records exactly this selection
+START en_US-manual-chooser
+PASS en_US-manual-chooser: no game running before carousel
+PASS en_US-manual-chooser: actual UI walk carousel
+PASS en_US-manual-chooser: no game running after carousel
+PASS en_US-manual-chooser: no game running before hub-menu
+PASS en_US-manual-chooser: actual UI walk hub-menu
+PASS en_US-manual-chooser: no game running after hub-menu
+PASS en_US-manual-chooser: START changes the captured screen; direct main-menu review required
+PASS en_US-manual-chooser: no game running before hub
+PASS en_US-manual-chooser: actual UI walk hub
+PASS en_US-manual-chooser: no game running after hub
+PASS en_US-manual-chooser: no game running before opening-scan
+PASS en_US-manual-chooser: actual UI walk opening-scan
+PASS en_US-manual-chooser: no game running after opening-scan
+PASS en_US-manual-chooser: no game running before continue
+PASS en_US-manual-chooser: actual UI walk continue
+PASS en_US-manual-chooser: no game running after continue
+PASS en_US-manual-chooser: unrelated configured folder offers manual selection
+PASS en_US-manual-chooser: no game running before chooser
+PASS en_US-manual-chooser: actual UI walk chooser
+PASS en_US-manual-chooser: no game running after chooser
+PASS en_US-manual-chooser: actual opening scan lists My Games
+PASS en_US-manual-chooser: no game running before select
+PASS en_US-manual-chooser: actual UI walk select
+PASS en_US-manual-chooser: no game running after select
+PASS en_US-manual-chooser: actual UI persists My Games
+PASS en_US-manual-chooser: chosen content scan completed
+PASS en_US-manual-chooser: selected game appears in actual scan
+PASS en_US-manual-chooser: selection preserves every cloud byte
+PASS en_US-manual-chooser: no game running before close
+PASS en_US-manual-chooser: actual UI walk close
+PASS en_US-manual-chooser: no game running after close
+PASS en_US-manual-chooser: actual content-setting log records exactly this selection
+START fr_FR-automatic-fallback
+PASS fr_FR-automatic-fallback: no game running before carousel
+PASS fr_FR-automatic-fallback: actual UI walk carousel
+PASS fr_FR-automatic-fallback: no game running after carousel
+PASS fr_FR-automatic-fallback: no game running before hub-menu
+PASS fr_FR-automatic-fallback: actual UI walk hub-menu
+PASS fr_FR-automatic-fallback: no game running after hub-menu
+PASS fr_FR-automatic-fallback: START changes the captured screen; direct main-menu review required
+PASS fr_FR-automatic-fallback: no game running before hub
+PASS fr_FR-automatic-fallback: actual UI walk hub
+PASS fr_FR-automatic-fallback: no game running after hub
+PASS fr_FR-automatic-fallback: no game running before opening-scan
+PASS fr_FR-automatic-fallback: actual UI walk opening-scan
+PASS fr_FR-automatic-fallback: no game running after opening-scan
+PASS fr_FR-automatic-fallback: no game running before continue
+PASS fr_FR-automatic-fallback: actual UI walk continue
+PASS fr_FR-automatic-fallback: no game running after continue
+PASS fr_FR-automatic-fallback: actual UI automatically selects discovered default content
+PASS fr_FR-automatic-fallback: opening scan retains default fallback facts
+PASS fr_FR-automatic-fallback: fallback supported game appears in actual scan
+PASS fr_FR-automatic-fallback: automatic fallback preserves every cloud byte
+PASS fr_FR-automatic-fallback: no game running before close
+PASS fr_FR-automatic-fallback: actual UI walk close
+PASS fr_FR-automatic-fallback: no game running after close
+PASS fr_FR-automatic-fallback: actual content-setting log records exactly this selection
+START fr_FR-manual-chooser
+PASS fr_FR-manual-chooser: no game running before carousel
+PASS fr_FR-manual-chooser: actual UI walk carousel
+PASS fr_FR-manual-chooser: no game running after carousel
+PASS fr_FR-manual-chooser: no game running before hub-menu
+PASS fr_FR-manual-chooser: actual UI walk hub-menu
+PASS fr_FR-manual-chooser: no game running after hub-menu
+PASS fr_FR-manual-chooser: START changes the captured screen; direct main-menu review required
+PASS fr_FR-manual-chooser: no game running before hub
+PASS fr_FR-manual-chooser: actual UI walk hub
+PASS fr_FR-manual-chooser: no game running after hub
+PASS fr_FR-manual-chooser: no game running before opening-scan
+PASS fr_FR-manual-chooser: actual UI walk opening-scan
+PASS fr_FR-manual-chooser: no game running after opening-scan
+PASS fr_FR-manual-chooser: no game running before continue
+PASS fr_FR-manual-chooser: actual UI walk continue
+PASS fr_FR-manual-chooser: no game running after continue
+PASS fr_FR-manual-chooser: unrelated configured folder offers manual selection
+PASS fr_FR-manual-chooser: no game running before chooser
+PASS fr_FR-manual-chooser: actual UI walk chooser
+PASS fr_FR-manual-chooser: no game running after chooser
+PASS fr_FR-manual-chooser: actual opening scan lists My Games
+PASS fr_FR-manual-chooser: no game running before select
+PASS fr_FR-manual-chooser: actual UI walk select
+PASS fr_FR-manual-chooser: no game running after select
+PASS fr_FR-manual-chooser: actual UI persists My Games
+PASS fr_FR-manual-chooser: chosen content scan completed
+PASS fr_FR-manual-chooser: selected game appears in actual scan
+PASS fr_FR-manual-chooser: selection preserves every cloud byte
+PASS fr_FR-manual-chooser: no game running before close
+PASS fr_FR-manual-chooser: actual UI walk close
+PASS fr_FR-manual-chooser: no game running after close
+PASS fr_FR-manual-chooser: actual content-setting log records exactly this selection
+PASS fr_FR-manual-chooser: installed product hashes unchanged
+PASS actual chooser/recovery/refusal actions; all frames require primary review
+PASS cloud-ui-after exact identity, installed scripts, policy and Ocean SVG bytes/modes
+PASS cloud-ui-after installed proxy identities and account discovery
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/7f98f2d22985d11fe9c150015457894caf460104c9ce44abd16074167f23815a
+PASS frozen source inputs, ES pin and candidate input custody
+PASS supplemental cloud UI commands; actual frame review remains required
+PASS owned guest stopped 1209801
+down

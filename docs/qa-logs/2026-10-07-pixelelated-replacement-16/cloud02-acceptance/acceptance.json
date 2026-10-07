@@ -1,0 +1,46 @@
+{
+  "verified_utc": "2026-10-07T02:38:44.007077+00:00",
+  "result": "PASS",
+  "build_id": "ee014909137e03706e0b3020b8396be589aaa705",
+  "total_assertions": 318,
+  "backends": {
+    "s3": {
+      "assertions": 106,
+      "failures": 0,
+      "skips": 0,
+      "report": "docs/qa-logs/2026-10-07-pixelelated-replacement-16/cloud-02/artifacts/rocknix-images/qa-ee01490913-s3-a-20261007-0236/report.md",
+      "raw_log_sha256": "8d5fb05962c877f0c6ab9029b99d7235728cef5b8851398782954b32742dcb26",
+      "backend_observed_utc": "2026-10-07T02:36:53.861536+00:00"
+    },
+    "sftp": {
+      "assertions": 106,
+      "failures": 0,
+      "skips": 0,
+      "report": "docs/qa-logs/2026-10-07-pixelelated-replacement-16/cloud-02/artifacts/rocknix-images/qa-ee01490913-sftp-a-20261007-0235/report.md",
+      "raw_log_sha256": "8c7351eaee8747ed53d18c9c523a56fd2f6963879f159ae2b04c5f9ef550a76b",
+      "backend_observed_utc": "2026-10-07T02:36:05.574500+00:00"
+    },
+    "webdav": {
+      "assertions": 106,
+      "failures": 0,
+      "skips": 0,
+      "report": "docs/qa-logs/2026-10-07-pixelelated-replacement-16/cloud-02/artifacts/rocknix-images/qa-ee01490913-webdav-a-20261007-0233/report.md",
+      "raw_log_sha256": "271a656af200d308ecedbb0e67f04817d574dc0afd72a4d1e1c7d282d74512b1",
+      "backend_observed_utc": "2026-10-07T02:34:14.780598+00:00"
+    }
+  },
+  "installed_rclone_version": "v1.75.1",
+  "installed_rclone_sha256": "361c27d953f822969afc25a73e0cc2122fd8e161545f9c0e5f63c5baad92724c",
+  "lifecycle": {
+    "channels": {
+      "inner.rc": "0",
+      "outer.rc": "0",
+      "tool-wrapper.rc": "0",
+      "build.rc": "0"
+    },
+    "sealed_inputs": 6,
+    "actual_cleanup": true
+  },
+  "backend_observation_directory": "docs/qa-logs/2026-10-07-pixelelated-replacement-16/cloud02-runtime-observation",
+  "scope": "Installed scripts and actual local WebDAV, SFTP, and MinIO S3 backends. No hosted provider account or Dropbox OAuth result is claimed."
+}

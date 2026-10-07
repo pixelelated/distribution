@@ -1,0 +1,17 @@
+{
+  "observed_utc": "2026-10-07T01:59:03.504573+00:00",
+  "method": "du -s -B1, actual allocated bytes; read only",
+  "available_snapshot_bytes": 177808605184,
+  "available_snapshot_utc": "2026-10-07 01:56 UTC",
+  "device_tree": "/workspace/repos/rocknix.worktrees/devices",
+  "device_tree_head": "1acdaf2cce908b25758a004dca0f22ad3ff7af49",
+  "allocated_bytes": {
+    "build.ROCKNIX-H700.arm": 30044336128,
+    "build.ROCKNIX-H700.aarch64": 117829722112
+  },
+  "next_device_order": [
+    "H700 DDR4 RG35XX SP arm",
+    "H700 DDR4 RG35XX SP aarch64"
+  ],
+  "limitations": "Preliminary observation during QA20. This is not a build-fit decision, a dependency inventory, a removal proposal, or cleanup authorization. Re-measure after P4 qualification before any device build."
+}

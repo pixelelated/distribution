@@ -1,9 +1,9 @@
 # M7 audit remediation progress
 
 Current outcome index: [08-installed-resolution.md](08-installed-resolution.md)
-records PL-002/006/007/008 resolved. PL-001/003/004/005 remain open. The dated
-entries below preserve the progression; their earlier pending statements are
-historical. The checkpoint and M7 body identify the current live owner.
+records all eight findings resolved after candidate16 final qualification.
+The dated entries below preserve historical intermediate states. No RC or
+release-publication claim is implied.
 
 ## Initial candidate15 source repair and qualification state
 

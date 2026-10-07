@@ -1,0 +1,36 @@
+{
+  "verified_utc": "2026-10-07T02:15:03.036845+00:00",
+  "commands": [
+    {
+      "command": [
+        "git",
+        "-C",
+        "/home/max/Development/rocknix.org",
+        "branch",
+        "--contains",
+        "4f6df54ca16121ff2cd0620407aea6434ee59147"
+      ],
+      "returncode": 0,
+      "stdout": "* docs/cloud-saves-native-wizard\n"
+    },
+    {
+      "command": [
+        "git",
+        "-C",
+        "/home/max/Development/rocknix.org",
+        "log",
+        "-1",
+        "--format=%H %s",
+        "--",
+        "docs/_inc/images/retro-achievements/offline-achievements.png"
+      ],
+      "returncode": 0,
+      "stdout": "4f6df54ca16121ff2cd0620407aea6434ee59147 docs: refresh the offline achievements explanation frame\n"
+    }
+  ],
+  "asset": "/home/max/Development/rocknix.org/docs/_inc/images/retro-achievements/offline-achievements.png",
+  "reviewed_frame": "docs/qa-frames/2026-10-03/327/en-640x480.png",
+  "sha256": "a40331aa212c7e9d4e3901b990bfac0bfe1013803a66346e763c92f72d943976",
+  "bytes_equal": true,
+  "scope": "The refreshed local website asset and its source commit exist. No remote publication or website deployment is claimed."
+}

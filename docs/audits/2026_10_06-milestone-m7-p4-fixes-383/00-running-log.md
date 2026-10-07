@@ -1379,3 +1379,65 @@ actual retained ROCKNIX RC2 upgrade and exact clean/upgraded identity/renderer
 proofs. Live launcher562143/watcher562145, run20261007T015124Z-b7ddd471. After its verified
 cleanup, cloud02 renews WebDAV/SFTP/S3. Four findings and#471 remain open until
 complete acceptance; no source edits, new external calls or device action.
+
+## 01:53 UTC — #471 both-resolution recovery evidence published
+
+Publication06 completed01:52:58; exact remote feature9b4e91b832489a5852950c77cf5fc8eef0c49691
+and next32fb5a613df15df5bc30ec7dddcdf2adf3dfbc82 carry237identical changed paths. Normal hooks passed.
+Primary01:53:11 verifies allfour0/239seals and owner processes exited.
+All16 recovery cases and92directly reviewed frames are now published with
+explicit dismissal-frame limits. QA20 remains the sole live VM owner under
+watcher562145/run20261007T015124Z-b7ddd471. Product inputs stay frozen.
+
+## 2026-10-07 02:05 UTC — Independent final-evidence reconciliation in progress
+
+QA20 remains active under watcher562145; actual nested log advances through
+truncated-copy and refused-read controls with no failure observed so far. No
+terminal default/upgrade result exists yet. Prepared acceptance checks remain
+unexecuted until the owner finishes and cleanup is independently verified.
+
+Q16/matrix-primary-reconciliation re-derives nine discovery classifications
+from the actual stdout/return codes, three kept-sibling shelf hashes/pointers,
+five provider-binding recoveries, unchanged foreign endpoint, and four truthful
+application reasons. The original matrix remains84PASS/1FAIL; corrected T23
+is a separate accepted owner. An initial reconciliation assertion used /Mine
+instead of the fixture's declared /Mine/Content; reading the exact case table
+corrected only this new observer, with no product change or rerun.
+
+Q16/unchanged-dependency-custody verifies46 installed proxy files against the
+accepted library guest, all proxy source inputs and1607unchanged package
+recipes, with the ES pin difference explicit. The original frozen14 freshness
+time remains the claim boundary. Actual current tracker reads show#361/#386/
+#327 have outstanding administrative checkboxes for independently accepted
+evidence; reconcile them only with those primary artifacts and retain separate
+public-site/device/publication limits. Four original punch items remain open.
+
+## 2026-10-07 02:33 UTC — Phase7 full qualification accepted; protocols active
+
+QA20 finished02:32:35. Primary02:32:52 verifies fourzero results,10seals,
+all owner processes and actual guest/backend/port cleanup. Independent02:32:57
+acceptance binds all15default suites,78walk frames/0unclaimed/0missing/0stale,
+15directly reviewed identity frames,4unchanged payload/proxy profiles and
+actual virgl/virgl/software rendering. Actual retained ROCKNIX RC2 upgrade
+passes26checks, preserving saves/save states/settings/cloud selection/archive.
+Exact upgrade output retained separately in Q16/qa20-acceptance. Journal's
+three message types match the accepted predecessor; no clean-journal claim.
+Single-sample first emulated frame0.726s, completed exit sync1.328s and next
+frame1.012s retain their explicitly bounded timing/frame-review evidence.
+
+Can this be done on the VM? Yes: cloud02 renews installed WebDAV/SFTP/MinIO
+S3 round trips with owned local fixtures,106assertions per protocol. Live
+launcher1169981/watcher1169990/run20261007T023305Z-40f28a18; primary consumes
+completion and captures each actual backend identity while live. Four original
+findings remain open until this qualification and command-backed resolution.
+No source change, credential test, deletion or device action.
+
+## 2026-10-07 02:48 UTC — Phase7 all eight outcomes resolved
+
+Final QA20/cloud02, selected-content01 and direct content-routing01 acceptance
+are complete. Re-derived integration/path commits and all original-state
+dispositions are in08; the05table and YAML record eight resolved outcomes.
+Original failed runs and frozen forward-audit grades remain unchanged. Next:
+resolution lint, ordinary evidence publication, exact issue/body readbacks,
+then #461 capacity and H700 arm/aarch64 qualification. No further external
+model call, personal account action, physical test or release is authorized.
