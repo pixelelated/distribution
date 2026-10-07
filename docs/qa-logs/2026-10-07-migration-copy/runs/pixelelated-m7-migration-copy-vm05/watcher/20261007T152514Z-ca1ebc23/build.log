@@ -1,0 +1,16 @@
+2026-10-07T15:25:14Z boot 640x480 original-fr
+ready after ~17s
+settle: still after 1.3s
+captured /workspace/tmp/pixelelated-m7-migration-copy-vm05/artifacts/original-fr/01-prompt.png
+captured /workspace/tmp/pixelelated-m7-migration-copy-vm05/artifacts/original-fr/02-steady.png
+down: owned QEMU exited (pid 4023005)
+2026-10-07T15:25:41Z boot 1280x800 changed-fr
+ready after ~17s
+down: owned QEMU exited (pid 4026168)
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-migration-copy-vm05/run.py", line 41, in <module>
+    (A/(kind+'-prompt.log')).write_text(wait_prompt())
+                                        ~~~~~~~~~~~^^
+  File "/workspace/tmp/pixelelated-m7-migration-copy-vm05/run.py", line 30, in wait_prompt
+    raise RuntimeError('migration prompt did not arrive')
+RuntimeError: migration prompt did not arrive

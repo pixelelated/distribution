@@ -1,0 +1,13 @@
+state:       finished
+written:     2026-10-07 15:29:56 UTC   <- terminal result; heartbeat stops here
+watcher_pid: 4045001
+job_pid:     4044985  alive=yes
+started:     2026-10-07 15:29:36 UTC
+progress:    none matched
+log:         /workspace/tmp/pixelelated-m7-migration-copy-vm06/.build-runs/20261007T152936Z-875add9c/build.log  (last written 1s ago)
+activity:    /workspace/tmp/pixelelated-m7-migration-copy-vm06/.build-runs/20261007T152936Z-875add9c/build.log  (last written 1s ago)
+activity_dir: /workspace/tmp/pixelelated-m7-migration-copy-vm06/artifacts
+outcome:     rc=1
+tail:
+                               output=stdout, stderr=stderr)
+  subprocess.CalledProcessError: Command '['scp', '-q', '-i', '/workspace/tmp/pixelelated-m7-migration-copy-vm06/qa-key', '-P', '101

@@ -1,0 +1,84 @@
+{
+  "result": "PASS",
+  "at": "2026-10-07T15:53:21.486063+00:00",
+  "process_check": {
+    "pids": [
+      3986578,
+      3986593,
+      3986623,
+      3996749,
+      3996764,
+      3996793,
+      4007911,
+      4007927,
+      4007956,
+      4022953,
+      4022968,
+      4022997,
+      4044985,
+      4045001,
+      4045030,
+      4052013,
+      4052028,
+      4052057,
+      4074378,
+      4074393,
+      4074422,
+      4077114
+    ],
+    "exit_code": 1,
+    "stdout": ""
+  },
+  "files": [
+    {
+      "path": "/tmp/pixelelated-m7-migration-copy02/GuiMenu.cpp.o",
+      "bytes": 37355984,
+      "allocated_bytes": 37359616,
+      "sha256": "49ef3ed30853a060b9e6a047a99c07aacb53dd6a97b9ada82b1fc345ce27417a",
+      "absent_after": true
+    },
+    {
+      "path": "/tmp/pixelelated-m7-migration-copy03/emulationstation",
+      "bytes": 237174056,
+      "allocated_bytes": 237174784,
+      "sha256": "f2482f516dbc3954abf623f31a681ee18cefca85f6cbe41f5029ed721a832026",
+      "absent_after": true
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-migration-copy-vm04/emulationstation",
+      "bytes": 11749616,
+      "allocated_bytes": 11751424,
+      "sha256": "70651b586ef39dac7a6a20ec26462a030c77f817ecc6cf1bc039f516d6a3324c",
+      "absent_after": true
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-migration-copy-vm04/vm.qcow2",
+      "bytes": 2269970432,
+      "allocated_bytes": 2269917184,
+      "sha256": "94d9167d31cf740f9435007782c7cebe9884bbd88552556f8f1d1dcb5394d04f",
+      "absent_after": true
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-migration-copy-vm04/vm.ovmf-vars.fd",
+      "bytes": 540672,
+      "allocated_bytes": 540672,
+      "sha256": "88dd2ebfb9e09baba9eb7fca07781db66045685a6a03594b0a3749c1193d6795",
+      "absent_after": true
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-migration-copy-vm04/qa-key",
+      "bytes": 411,
+      "allocated_bytes": 4096,
+      "identity": "ephemeral QA key; contents and fingerprint not retained",
+      "absent_after": true
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-migration-copy-vm04/qa-key.pub",
+      "bytes": 99,
+      "allocated_bytes": 4096,
+      "identity": "ephemeral QA key; contents and fingerprint not retained",
+      "absent_after": true
+    }
+  ],
+  "reclaimed_allocated_bytes": 2556751872
+}

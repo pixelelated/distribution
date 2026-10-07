@@ -1,0 +1,27 @@
++ git -C /home/max/Development/emulationstation-next.worktrees/qa-integration status --porcelain
++ git -C /home/max/Development/emulationstation-next.worktrees/qa-integration branch --show-current
+test/qa-integration
++ git -C /home/max/Development/emulationstation-next.worktrees/qa-integration rev-parse HEAD
+72494bc72e3d64d4dcfeb4e6478052bbdf166c5b
++ git -C /home/max/Development/emulationstation-next.worktrees/qa-integration rev-parse feature/m7-migration-copy
+5d2fcb9b71f363cfa4813d5356f02c48ab58e139
++ git -C /home/max/Development/emulationstation-next.worktrees/qa-integration remote get-url origin
+git@github-blitterbot:pixelelated/emulationstation.git
++ git -C /home/max/Development/emulationstation-next.worktrees/qa-integration config --get core.hooksPath
+/home/max/Development/emulationstation-next.worktrees/qa-integration/.githooks
++ git -C /home/max/Development/emulationstation-next.worktrees/qa-integration merge --ff-only 5d2fcb9b71f363cfa4813d5356f02c48ab58e139
+Updating 72494bc72..5d2fcb9b7
+Fast-forward
+ es-app/src/guis/GuiMenu.cpp                     | 2 +-
+ locale/lang/fr/LC_MESSAGES/emulationstation2.po | 4 ++--
+ 2 files changed, 3 insertions(+), 3 deletions(-)
++ git -C /home/max/Development/emulationstation-next.worktrees/qa-integration status --porcelain
++ git -C /home/max/Development/emulationstation-next.worktrees/qa-integration push --atomic origin feature/m7-migration-copy test/qa-integration
+pre-push: feature/m7-migration-copy -> feature/m7-migration-copy: reading the 1 commit(s) origin is not known to hold
+To github-blitterbot:pixelelated/emulationstation.git
+   72494bc72..5d2fcb9b7  test/qa-integration -> test/qa-integration
+ * [new branch]          feature/m7-migration-copy -> feature/m7-migration-copy
++ git -C /home/max/Development/emulationstation-next.worktrees/qa-integration ls-remote origin refs/heads/feature/m7-migration-copy refs/heads/test/qa-integration
+5d2fcb9b71f363cfa4813d5356f02c48ab58e139	refs/heads/feature/m7-migration-copy
+5d2fcb9b71f363cfa4813d5356f02c48ab58e139	refs/heads/test/qa-integration
+PASS exact source integrated, normal hooks passed, both remote branches verified

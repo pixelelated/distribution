@@ -1,0 +1,19 @@
+2026-10-07T15:29:36Z boot 640x480 baseline-source-fr
+ready after ~17s
+Warning: Identity file /workspace/tmp/pixelelated-m7-migration-copy-vm06/qa-key not accessible: No such file or directory.
+scp: Connection closed
+down: owned QEMU exited (pid 4045038)
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-migration-copy-vm06/run.py", line 44, in <module>
+    scp(O/('baseline-fr.mo' if kind=='baseline-source-fr' else 'fr.mo'),'/storage/qa-copy/fr.mo')
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tmp/pixelelated-m7-migration-copy-vm06/run.py", line 22, in scp
+    def scp(src,dst):run(['scp','-q','-i',O/'qa-key','-P','10142','-o','StrictHostKeyChecking=no','-o','UserKnownHostsFile=/dev/null','-o','BatchMode=yes','-o','LogLevel=ERROR',src,'root@127.0.0.1:'+dst])
+                     ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tmp/pixelelated-m7-migration-copy-vm06/run.py", line 8, in run
+    def run(args,**kw):return subprocess.run([str(a) for a in args],check=True,**kw)
+                              ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['scp', '-q', '-i', '/workspace/tmp/pixelelated-m7-migration-copy-vm06/qa-key', '-P', '10142', '-o', 'StrictHostKeyChecking=no', '-o', 'UserKnownHostsFile=/dev/null', '-o', 'BatchMode=yes', '-o', 'LogLevel=ERROR', '/workspace/tmp/pixelelated-m7-migration-copy-vm06/baseline-fr.mo', 'root@127.0.0.1:/storage/qa-copy/fr.mo']' returned non-zero exit status 255.
