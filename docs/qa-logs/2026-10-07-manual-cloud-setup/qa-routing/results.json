@@ -1,0 +1,62 @@
+{
+  "scope": "local runner routing only; no VM or cloud commands executed",
+  "cases": [
+    {
+      "case": "cloud-pair-migration refuses absent engine before fixture creation",
+      "status": "PASS",
+      "rc": 2
+    },
+    {
+      "case": "rasteratops-vm-cloud-epic refuses absent engine before fixture creation",
+      "status": "PASS",
+      "rc": 2
+    },
+    {
+      "case": "pixelelated-vm-cloud-boundaries refuses absent engine before fixture creation",
+      "status": "PASS",
+      "rc": 1
+    },
+    {
+      "case": "rasteratops-cloud-layout-test refuses absent engine before fixture creation",
+      "status": "PASS",
+      "rc": 1
+    },
+    {
+      "case": "sourced protocol refuses unavailable engine",
+      "status": "PASS",
+      "rc": 2
+    },
+    {
+      "case": "historical ref restores deleted helper exactly",
+      "status": "PASS",
+      "sha256": "0e4ccebde159006acb6313027e33b363b177eff2b62db2bacc93fea05396b2c1"
+    },
+    {
+      "case": "source-root stages actual setup and archive-tool bytes without removed engine",
+      "status": "PASS"
+    },
+    {
+      "case": "archive-only selection preserves thirteen ordinary archive cases",
+      "status": "PASS",
+      "cases": [
+        "T24-production-backup-scan-restore",
+        "T24-local-legacy-recovery",
+        "T24-local-renamed-recovery",
+        "T24-current-legacy-os",
+        "T24-current-renamed",
+        "T24-legacy-legacy-os",
+        "T24-legacy-renamed",
+        "T24-healed-legacy-os",
+        "T24-healed-renamed",
+        "T24-flat-legacy-os",
+        "T24-flat-renamed",
+        "T24-foreign-legacy-os",
+        "T24-foreign-renamed"
+      ]
+    },
+    {
+      "case": "mixed T24 selector still refuses migration cases before fixture creation",
+      "status": "PASS"
+    }
+  ]
+}

@@ -32,12 +32,19 @@ verified at 16:52:09. Raw/update payload equality, GPT/ABL, 187 ARM handoff file
 for original failed owners and terminal evidence. Physical Nova boot/smoke and
 release publication remain separate; no new transfer or reboot was performed.
 
-Immediate P5 priority is #508: replace automatic cloud-folder migration and
-the optional tidier with normal linking, folder creation and explicit selection
-(D-CLOUD-175). Preserve existing credentials and paths; fresh setups default to
-`/pixelelated`. Coordinated script/UI source and synthetic VM proof are in
-progress. The accepted firmware above still contains the old migration flow.
-Its replacement needs qualified inclusion in the selected release artifacts.
+Immediate P5 priority is #510's agreed category-validator flow
+(D-CLOUD-177/178), before #508 integration, #507 independent review or any new
+device build. Reconcile read-only checks, explicit progress-file fixes and
+manual ROM/BIOS instructions with the retained draft. #511 is a parallel
+site/wiki planning track with GitHub Pages as a candidate; the firmware does not wait for live guides.
+Public ROCKNIX20261001 and clean installs define adoption; unpublished fork
+layouts do not add compatibility requirements. The owner's cloud cleanup is
+separate. See [the review](../pixelelated/cloud-folder-flow-review.md).
+
+The #508 source/UI draft and its synthetic proof are retained locally.
+Completed checks do not approve its flow. Accepted firmware above still
+contains the old migration flow and stays frozen. Final agreed behavior needs
+qualification and explicit inclusion in selected release artifacts.
 
 Remaining P5 work under #344/#265/#359 is explicit:
 
@@ -57,7 +64,7 @@ Remaining P5 work under #344/#265/#359 is explicit:
   qualified; public publication remains separate.
 - Complete the queued scoped Milestone independent P5 delta audit under #507.
   Candidate16's completed audit remains accepted; #507 completion is not claimed.
-- Complete #508, then freeze the resulting P5 delta for #507. The maintainer
+- Settle #510, reconcile and qualify #508, then freeze the P5 delta for #507. The maintainer
   approved #505's diagnostics patch, then replaced the migration approach.
   #505 is closed not planned; its isolated draft is unintegrated and must not
   be resumed. Accepted firmware checkouts remain frozen. Owner Dropbox

@@ -1,0 +1,653 @@
+diff --git a/tools/last-good-scripts-test b/tools/last-good-scripts-test
+index c05d6c828b..d726f38ff1 100755
+--- a/tools/last-good-scripts-test
++++ b/tools/last-good-scripts-test
+@@ -245,6 +245,8 @@ Run the host script regression suite with the image's busybox.
+ Run in the foreground; the full suite requires a usable SIGINT handler.
+ QA_SYSTEM_ROOT names the candidate's image/system directory for BusyBox and
+ rclone. An unusable explicit input is an error, never a fallback to another build.
++LAST_GOOD_SOURCE_ROOT selects a separate source checkout without replacing this
++harness. Historical --old still reads BASE_REF from that checkout.
+ USAGE
+     exit 0 ;;
+   --cloud-layout) shift; exec "$(dirname "$(readlink -f "$0")")/rasteratops-cloud-layout-test" "$@" ;;
+@@ -267,7 +269,9 @@ fi
+ 
+ set -u
+ 
+-ROOT="$(cd "$(dirname "$(readlink -f "$0")")/.." && pwd)"
++HARNESS_ROOT="$(cd "$(dirname "$(readlink -f "$0")")/.." && pwd)"
++ROOT="$(cd "${LAST_GOOD_SOURCE_ROOT:-${HARNESS_ROOT}}" && pwd)" || exit 2
++[ -f "${ROOT}/projects/ROCKNIX/packages/network/rclone/package.mk" ] || { echo "last-good-scripts-test: source checkout has no rclone recipe" >&2; exit 2; }
+ BASE_REF="${BASE_REF:-1d1503180d}"
+ OLD=0
+ [ "${1:-}" = "--old" ] && OLD=1
+@@ -285,6 +289,7 @@ command -v setsid >/dev/null || { echo "needs setsid" >&2; exit 2; }
+ TMP="$(mktemp -d)"; trap 'rm -rf "${TMP}"' EXIT
+ FAIL=0
+ SKIPPED=0
++NOT_APPLICABLE=0
+ # skip <text>: a check that did not run is counted, never folded into PASSED
+ # (audit of the fix round PL-023): the verdict says how many, and exits 3
+ # when nothing failed but something was skipped -- vm-qa reads 3 as SKIP.
+@@ -4465,9 +4470,25 @@ src_of "${F1RA:-projects/ROCKNIX/packages/emulators/libretro/retroarch/sources/G
+ #       keyboard's reach (#308).
+ echo "  C. the cloud sign-in broker and setup (audit #307 stream C)"
+ CS="${TMP}/C"; mkdir -p "${CS}/src"
+-for rel in cloud_setup cloud_oauth cloud_remote cloud_device_id cloud_migrate_layout; do
++for rel in cloud_setup cloud_oauth cloud_remote cloud_device_id cloud_sync.conf; do
+     src_of "${RCLONE_REL}/${rel}" "${CS}/src/${rel}"
+ done
++# #508 retires migration; historical sources retain their actual engine tests.
++# An accidentally missing installed script remains a setup failure.
++MIGRATION_AVAILABLE=0
++if { [ "${OLD}" -eq 1 ] && git -C "${ROOT}" cat-file -e "${BASE_REF}:${RCLONE_REL}/cloud_migrate_layout" 2>/dev/null; } \
++    || { [ "${OLD}" -eq 0 ] && [ -e "${ROOT}/${RCLONE_REL}/cloud_migrate_layout" ]; }; then
++    src_of "${RCLONE_REL}/cloud_migrate_layout" "${CS}/src/cloud_migrate_layout"
++    MIGRATION_AVAILABLE=1
++else
++    src_of projects/ROCKNIX/packages/network/rclone/package.mk "${CS}/src/rclone-package.mk"
++    if grep -qE '^[[:space:]]*cp[[:space:]]+cloud_migrate_layout([[:space:]]|$)' "${CS}/src/rclone-package.mk"; then
++        echo "cannot test selected source: recipe installs missing cloud_migrate_layout" >&2
++        exit 2
++    fi
++    NOT_APPLICABLE=$((NOT_APPLICABLE + 1))
++    echo "    NOT APPLICABLE  historical migration cases: selected source has no engine and its recipe does not install one (#508); no migration checks counted as PASS"
++fi
+ # busybox for the applets the device has, where this machine has the image's.
+ CSBB=(); CSPATH="/shim:/usr/bin:/bin"
+ if [ -n "${BB}" ]; then CSBB=(--ro-bind "${TMP}/bbin" /bbin --ro-bind "${BB_HOST}" "${BB}"); CSPATH="/shim:/bbin:/usr/bin:/bin"; fi
+@@ -4479,8 +4500,10 @@ C1="${CS}/c1"; mkdir -p "${C1}/shim" "${C1}/repo" "${C1}/storage/.config"
+ cp "${CS}/src/cloud_setup" "${C1}/repo/cloud_setup"
+ cp "${CS}/src/cloud_content_restore" "${C1}/repo/cloud_content_restore"
+ chmod +x "${C1}/repo/cloud_content_restore"
+-# The layout tool beside it, as on the device: --seed-folders joins a fleet's earlier folder first.
+-cp "${CS}/src/cloud_migrate_layout" "${C1}/repo/cloud_migrate_layout" && chmod +x "${C1}/repo/cloud_migrate_layout" || { echo "cannot place cloud_migrate_layout beside cloud_setup" >&2; exit 2; }
++# Historical setup depended on the engine; current setup is independent.
++if [ "${MIGRATION_AVAILABLE}" -eq 1 ]; then
++    cp "${CS}/src/cloud_migrate_layout" "${C1}/repo/cloud_migrate_layout" && chmod +x "${C1}/repo/cloud_migrate_layout" || { echo "cannot place cloud_migrate_layout beside cloud_setup" >&2; exit 2; }
++fi
+ printf 'export PATH=%s\n' "${CSPATH}" > "${C1}/profile"
+ printf '#!/bin/sh\nexit 0\n' > "${C1}/shim/logger"
+ cat > "${C1}/shim/rclone" <<'EOR'
+@@ -4503,7 +4526,7 @@ c1() { # <args...>: cloud_setup in the sandbox; output to C1/out, rc in RC
+         bash /repo/cloud_setup "$@" > "${C1}/out" 2>&1; echo $? ) 2>/dev/null )
+ }
+ conf1() { grep -E '^(SAVES|SETTINGS|CONTENT)_REMOTE=' "${CONF1}" | tr '\n' ' '; }
+-cp "${ROOT}/${RCLONE_REL}/cloud_sync.conf" "${CONF1}"; cp "${CONF1}" "${C1}/conf.before"
++src_of "${RCLONE_REL}/cloud_sync.conf" "${CONF1}"; cp "${CONF1}" "${C1}/conf.before"
+ c1 --set-saves-remote /GAMES
+ [ "${RC}" -ne 0 ] && cmp -s "${CONF1}" "${C1}/conf.before"; check $? "a one-level saves folder (/GAMES) is refused and the config is left as it was (rc ${RC})" "rc ${RC}; the config now reads: $(conf1)-- the settings and content folders nested inside the saves folder a mirror deletes in (PL-015)"
+ grep -q '/GAMES/Saves' "${C1}/out" && ! grep -qi 'error' "${C1}/out"; check $? "and says why, in words, with the folder to use instead (/GAMES/Saves): $(head -1 "${C1}/out")" "said: '$(tr '\n' ' ' < "${C1}/out" | cut -c1-160)'"
+@@ -4518,7 +4541,7 @@ c1 --set-saves-remote /a/b/Saves
+ # /Mine/Content -- derives that sibling onto itself, so two tiers alias one
+ # folder. Refused where it is typed, case-folded (Dropbox and OneDrive fold
+ # case), with the folder to use instead; /Mine/Saves still derives its two.
+-cp "${ROOT}/${RCLONE_REL}/cloud_sync.conf" "${CONF1}"; cp "${CONF1}" "${C1}/conf.before"
++src_of "${RCLONE_REL}/cloud_sync.conf" "${CONF1}"; cp "${CONF1}" "${C1}/conf.before"
+ for alias in /Mine/Backups /Mine/Content /Mine/backups; do
+     cp "${C1}/conf.before" "${CONF1}"
+     c1 --set-saves-remote "${alias}"
+@@ -4532,7 +4555,7 @@ c1 --set-saves-remote /Mine/Saves
+ # --set-content-remote (the chooser, fork #352): the content root alone
+ # moves, the other two stay; a top-level folder is fine here; the root,
+ # traversal components, unsafe syntax and controls are refused unchanged.
+-cp "${ROOT}/${RCLONE_REL}/cloud_sync.conf" "${CONF1}"
++src_of "${RCLONE_REL}/cloud_sync.conf" "${CONF1}"
+ c1 --set-saves-remote /Mine/Saves
+ c1 --set-content-remote Games/
+ [ "${RC}" -eq 0 ] && [ "$(conf1)" = 'SAVES_REMOTE="/Mine/Saves" SETTINGS_REMOTE="/Mine/Backups" CONTENT_REMOTE="/Games" ' ] && grep -qx 'OK /Games' "${C1}/out"; check $? "--set-content-remote Games/ stores /Games as the content root and leaves the saves and settings folders alone (rc ${RC})" "rc ${RC}; config: $(conf1); said '$(tr '\n' ' ' < "${C1}/out" | cut -c1-120)'"
+@@ -4549,10 +4572,10 @@ done
+ # PL-051: the config is written as text. & and | used to reach sed's
+ # replacement: & pasted the matched line into the value, | ended the
+ # expression and the write failed while OK was printed.
+-cp "${ROOT}/${RCLONE_REL}/cloud_sync.conf" "${CONF1}"
++src_of "${RCLONE_REL}/cloud_sync.conf" "${CONF1}"
+ c1 --set-saves-remote '/R&D/Saves'
+ [ "${RC}" -eq 0 ] && [ "$(conf1)" = 'SAVES_REMOTE="/R&D/Saves" SETTINGS_REMOTE="/R&D/Backups" CONTENT_REMOTE="/R&D/Content" ' ]; check $? "a folder with & (/R&D/Saves) round-trips into the config" "rc ${RC}; config: $(conf1)-- & in a sed replacement is the matched text (PL-051)"
+-diff <(grep -vE '^(SAVES|SETTINGS|CONTENT)_REMOTE=' "${ROOT}/${RCLONE_REL}/cloud_sync.conf") <(grep -vE '^(SAVES|SETTINGS|CONTENT)_REMOTE=' "${CONF1}") >/dev/null; check $? "and every other line of the config, the multi-line RCLONEOPTS included, is byte for byte as it was" "the write changed other lines: $(diff <(grep -vE '^(SAVES|SETTINGS|CONTENT)_REMOTE=' "${ROOT}/${RCLONE_REL}/cloud_sync.conf") <(grep -vE '^(SAVES|SETTINGS|CONTENT)_REMOTE=' "${CONF1}") | head -3 | tr '\n' ' ')"
++diff <(grep -vE '^(SAVES|SETTINGS|CONTENT)_REMOTE=' "${CS}/src/cloud_sync.conf") <(grep -vE '^(SAVES|SETTINGS|CONTENT)_REMOTE=' "${CONF1}") >/dev/null; check $? "and every other line of the config, the multi-line RCLONEOPTS included, is byte for byte as it was" "the write changed other lines: $(diff <(grep -vE '^(SAVES|SETTINGS|CONTENT)_REMOTE=' "${CS}/src/cloud_sync.conf") <(grep -vE '^(SAVES|SETTINGS|CONTENT)_REMOTE=' "${CONF1}") | head -3 | tr '\n' ' ')"
+ c1 --info
+ grep -qx 'SAVES_REMOTE=/R&D/Saves' "${C1}/out"; check $? "and --info reads it back as typed" "--info said: $(grep '^SAVES_REMOTE=' "${C1}/out")"
+ c1 --set-saves-remote '/a|b/Saves'
+@@ -4580,7 +4603,7 @@ for sub in --content-location --check-syncpath --use-content-root; do
+     [ ! -e "${C1}/storage/ran" ]; check $? "and ${sub} runs nothing an already-written value holds" "${sub} ran a command held in the config (G-C-05)"
+ done
+ rm -f "${C1}/storage/ran"
+-cp "${ROOT}/${RCLONE_REL}/cloud_sync.conf" "${CONF1}"; cp "${CONF1}" "${C1}/conf.before"
++src_of "${RCLONE_REL}/cloud_sync.conf" "${CONF1}"; cp "${CONF1}" "${C1}/conf.before"
+ C1RO=1 c1 --set-saves-remote /Other/Saves
+ [ "${RC}" -ne 0 ] && ! grep -q '^OK' "${C1}/out" && cmp -s "${CONF1}" "${C1}/conf.before"; check $? "a config that cannot be written is a failure, not OK (rc ${RC})" "read-only /storage: rc ${RC}; said '$(tr '\n' ' ' < "${C1}/out" | cut -c1-120)' -- the write failed and OK was printed (PL-051)"
+ C1RO=1 c1 --use-content-root
+@@ -4598,7 +4621,7 @@ C1RO=1 c1 --set-saves-remote /Other/Saves
+ # wins: that is what the duplicate cleanup keeps under every --yes run and
+ # what the content scripts read; this check said the last until the audit
+ # of the fix round reversed it (PL-021, CF2 below).
+-cp "${ROOT}/${RCLONE_REL}/cloud_sync.conf" "${CONF1}"
++src_of "${RCLONE_REL}/cloud_sync.conf" "${CONF1}"
+ printf 'SAVES_REMOTE="/Mine/Saves"\n' >> "${CONF1}"
+ c1 --info
+ grep -qx 'SAVES_REMOTE=/pixelelated/Saves' "${C1}/out"; check $? "a key assigned twice reads as its first assignment, the one the scripts run with after the duplicate cleanup (PL-021)" "SAVES_REMOTE assigned twice, --info said: $(grep '^SAVES_REMOTE=' "${C1}/out") (PL-021)"
+@@ -4611,7 +4634,7 @@ grep -qx 'SAVES_REMOTE=/B/Saves' "${C1}/out"; check $? "a bare value with a trai
+ sed -i "s|^CONTENT_REMOTE=.*|CONTENT_REMOTE='/Mine/Content'|" "${CONF1}"
+ c1 --content-location
+ grep -qx 'CONTENT_REMOTE=/Mine/Content' "${C1}/out"; check $? "--content-location reads the config the same way" "CONTENT_REMOTE='/Mine/Content', --content-location said: $(grep '^CONTENT_REMOTE=' "${C1}/out") (G-C-03)"
+-cp "${ROOT}/${RCLONE_REL}/cloud_sync.conf" "${CONF1}"
++src_of "${RCLONE_REL}/cloud_sync.conf" "${CONF1}"
+ # G-C-03 (claude): one name for one folder. The interface's row and its
+ # refusal dialog call it the CLOUD FOLDER; the refusals said "saves folder"
+ # in two of their four sentences.
+@@ -4625,7 +4648,7 @@ done
+ rm -f "${CONF1}"; mkdir "${CONF1}"
+ c1 --set-saves-remote /Other/Saves
+ [ "${RC}" -ne 0 ] && ! grep -q '^OK' "${C1}/out" && [ -d "${CONF1}" ] && [ -z "$(ls -A "${CONF1}")" ]; check $? "a config path that is a directory is a failure, not OK, and nothing is left inside it (rc ${RC})" "config path a directory: rc ${RC}; said '$(tr '\n' ' ' < "${C1}/out" | cut -c1-100)'; inside it: $(ls -A "${CONF1}" | tr '\n' ' ') (G-C-04)"
+-rm -rf "${CONF1}"; cp "${ROOT}/${RCLONE_REL}/cloud_sync.conf" "${CONF1}"
++rm -rf "${CONF1}"; src_of "${RCLONE_REL}/cloud_sync.conf" "${CONF1}"
+ c1 --use-content-root
+ [ "${RC}" -eq 0 ] && grep -qx 'CONTENT_REMOTE=""' "${CONF1}" && [ "$(grep -c '^CONTENT_REMOTE=' "${CONF1}")" -eq 1 ]; check $? "--use-content-root writes CONTENT_REMOTE=\"\" once" "rc ${RC}; $(grep '^CONTENT_REMOTE=' "${CONF1}" | tr '\n' ' ')"
+ 
+@@ -4659,13 +4682,21 @@ case "$1" in
+   mkdir)
+     if [ "${mode}" = bucket ] && [ "${markers}" -eq 0 ]; then exit 0; fi
+     mkdir -p "${target}" ;;
++  lsd) exit 0 ;;
++  backend) [ "${2:-}" = features ] || exit 1; printf '{"Features":{"CaseInsensitive":false},"Hashes":["MD5"]}\n' ;;
+   lsf)
++    if [ -e /run/fail-readback ] && [ -e /rec/seeded ] && [ "${target}" = /cloud/pixelelated/Saves ]; then
++        : > /rec/readback-failed
++        printf 'README.txt\n'
++        exit 5
++    fi
+     [ -n "${fail}" ] && { echo 'ERROR : Failed to lsf: connection reset' >&2; exit 1; }
+     if [ -f "${target}" ]; then basename "${target}"; exit 0; fi
+     if [ -d "${target}" ] && [ "${rec}" -eq 1 ] && [ "${files}" -eq 1 ]; then
+         (cd "${target}" && find . -type f | sed 's|^\./||'); exit 0
+     fi
+     if [ -d "${target}" ]; then
++        shopt -s dotglob nullglob
+         for e in "${target}"/*; do
+             [ -e "$e" ] || continue
+             if [ -d "$e" ]; then [ "${files}" -eq 1 ] || echo "$(basename "$e")/"
+@@ -4677,8 +4708,9 @@ case "$1" in
+     echo 'ERROR : directory not found' >&2; exit 3 ;;
+   copyto)
+     [ "${ignore}" -eq 1 ] && [ -e "${target}" ] && exit 0
+-    mkdir -p "$(dirname "${target}")" && cp "${src}" "${target}" ;;
+-  *) exit 0 ;;
++    mkdir -p "$(dirname "${target}")" && cp "${src}" "${target}" || exit $?
++    : > /rec/seeded ;;
++  *) echo "unsupported synthetic rclone command" >&2; exit 1 ;;
+ esac
+ EOR
+ chmod +x "${C2}/shim"/*
+@@ -4694,9 +4726,11 @@ c2() { # <args...>: cloud_setup against the cloud in C2/cloud; output to C2/out,
+         bash /repo/cloud_setup "$@" > "${C2}/out" 2>&1; echo $? ) 2>/dev/null )
+ }
+ c2reset() { # <path|bucket> [fail]: an empty cloud, the shipped config
+-    rm -rf "${C2}/cloud"/* "${C2}/rec/argv"; echo "$1" > "${C2}/run/mode"
++    rm -rf "${C2}/cloud"/* "${C2}/rec/argv" "${C2}/rec/seeded" "${C2}/rec/readback-failed"
++    rm -f "${C2}/run/fail-readback"
++    echo "$1" > "${C2}/run/mode"
+     if [ -n "${2:-}" ]; then echo 1 > "${C2}/run/fail-lsf"; else rm -f "${C2}/run/fail-lsf"; fi
+-    cp "${ROOT}/${RCLONE_REL}/cloud_sync.conf" "${CONF2}"
++    src_of "${RCLONE_REL}/cloud_sync.conf" "${CONF2}"
+ }
+ readmes() { (cd "${C2}/cloud" && find . -name README.txt | sort | tr '\n' ' '); }
+ c2reset path
+@@ -4704,24 +4738,26 @@ c2 --seed-folders
+ [ "${RC}" -eq 0 ] && [ "$(readmes)" = "./pixelelated/Backups/README.txt ./pixelelated/Content/BIOS/README.txt ./pixelelated/Content/README.txt ./pixelelated/Content/ROMs/README.txt ./pixelelated/Saves/README.txt " ] && [ "$(grep -c '^OK ' "${C2}/out")" -eq 4 ]; check $? "a fresh path-based cloud is seeded: five READMEs, four folders reported OK" "rc ${RC}; READMEs: $(readmes); said: $(tr '\n' ' ' < "${C2}/out")"
+ echo "mine" > "${C2}/cloud/pixelelated/Saves/README.txt"
+ c2 --seed-folders
+-[ "$(cat "${C2}/cloud/pixelelated/Saves/README.txt")" = "mine" ]; check $? "an owner's README is left alone when the folder lists" "the owner's README now reads: $(head -1 "${C2}/cloud/pixelelated/Saves/README.txt")"
++[ "${RC}" -eq 0 ] && [ "$(cat "${C2}/cloud/pixelelated/Saves/README.txt")" = "mine" ]; check $? "an owner's README is left alone when the folder lists" "the owner's README now reads: $(head -1 "${C2}/cloud/pixelelated/Saves/README.txt")"
+ # PL-047: the listing fails, the upload would work.
+ echo 1 > "${C2}/run/fail-lsf"
+ c2 --seed-folders
+-[ "$(cat "${C2}/cloud/pixelelated/Saves/README.txt")" = "mine" ]; check $? "a listing that fails does not overwrite the owner's README" "the owner's README now reads: $(head -1 "${C2}/cloud/pixelelated/Saves/README.txt") -- a failed probe was taken as 'absent' and the note was replaced (PL-047)"
++[ "${RC}" -ne 0 ] && [ "$(cat "${C2}/cloud/pixelelated/Saves/README.txt")" = "mine" ]; check $? "a listing that fails does not overwrite the owner's README" "the owner's README now reads: $(head -1 "${C2}/cloud/pixelelated/Saves/README.txt") -- a failed probe was taken as 'absent' and the note was replaced (PL-047)"
+ c2reset path fail
+ c2 --seed-folders
+ [ -z "$(readmes)" ]; check $? "and on a fresh cloud whose listings fail, nothing is written" "READMEs written with every listing failing: $(readmes)(PL-047)"
+-[ "${RC}" -ne 0 ] && grep -q "no folders were made" "${C2}/out" && ! grep -q '^OK ' "${C2}/out"; check $? "and failed settlement reports that no folders were made" "said: $(tr '\n' ' ' < "${C2}/out")"
++[ "${RC}" -ne 0 ] && grep -q '^>>> why ' "${C2}/out" && ! grep -q '^OK ' "${C2}/out" \
++    && ! grep -qE '^(mkdir|copyto|rcat) ' "${C2}/rec/argv"; check $? "failed folder reads report failure before any cloud write" "rc ${RC}; said: $(tr '\n' ' ' < "${C2}/out"); writes: $(grep -E '^(mkdir|copyto|rcat) ' "${C2}/rec/argv" | head -2 | tr '\n' '|')"
+ # claude F-RS-09: on a bucket the old probe (lsf of the README by name)
+ # exits 0 with nothing for a key that is not there.
+ c2reset bucket
+ c2 --seed-folders
+-[ "$(readmes)" = "./pixelelated/Backups/README.txt ./pixelelated/Content/BIOS/README.txt ./pixelelated/Content/README.txt ./pixelelated/Content/ROMs/README.txt ./pixelelated/Saves/README.txt " ]; check $? "a fresh bucket cloud gets its five READMEs too" "bucket READMEs: '$(readmes)' -- a missing key lists as nothing with exit 0, which the probe took as 'there' (#308 claude F-RS-09)"
++[ "${RC}" -eq 0 ] && [ "$(readmes)" = "./pixelelated/Backups/README.txt ./pixelelated/Content/BIOS/README.txt ./pixelelated/Content/README.txt ./pixelelated/Content/ROMs/README.txt ./pixelelated/Saves/README.txt " ]; check $? "a fresh bucket cloud gets its five READMEs too" "bucket READMEs: '$(readmes)' -- a missing key lists as nothing with exit 0, which the probe took as 'there' (#308 claude F-RS-09)"
+ echo "mine" > "${C2}/cloud/pixelelated/Saves/README.txt"
+ c2 --seed-folders
+-[ "$(cat "${C2}/cloud/pixelelated/Saves/README.txt")" = "mine" ]; check $? "and an owner's README in a bucket is left alone" "bucket: the owner's README now reads: $(head -1 "${C2}/cloud/pixelelated/Saves/README.txt")"
++[ "${RC}" -eq 0 ] && [ "$(cat "${C2}/cloud/pixelelated/Saves/README.txt")" = "mine" ]; check $? "and an owner's README in a bucket is left alone" "bucket: the owner's README now reads: $(head -1 "${C2}/cloud/pixelelated/Saves/README.txt")"
+ 
++if [ "${MIGRATION_AVAILABLE}" -eq 1 ]; then
+ # The mixed-installation test's fresh device (D-CLOUD-158): seeding a cloud whose saves are in the
+ # fork's earlier /ROCKNIX joins that folder -- the conf points there, nothing is made at /pixelelated,
+ # and no layout marker is written under /ROCKNIX. The control first: a fresh cloud is seeded at
+@@ -4750,6 +4786,40 @@ c2 --seed-folders
+ [ "${RC}" -eq 0 ] && grep -q '^SAVES_REMOTE="/pixelelated/Saves"' "${CONF2}" && grep -q '^SETTINGS_REMOTE="/pixelelated/Backups"' "${CONF2}" && grep -q '^CONTENT_REMOTE="/pixelelated/Content"' "${CONF2}" \
+     && [ ! -e "${C2}/cloud/GAMES" ] && [ -f "${C2}/cloud/pixelelated/Saves/README.txt" ] && grep -q '^rcat qa:/pixelelated/.layout' "${C2}/rec/argv"; check $? "seeding a carried /GAMES on an empty cloud makes the current folders, with the marker, and no /GAMES (D-CLOUD-161)" "rc ${RC}; conf: $(grep -E '^(SAVES|SETTINGS|CONTENT)_REMOTE=' "${CONF2}" | tr '\n' ' '); cloud: $(cd "${C2}/cloud" && find . -maxdepth 2 | sort | tr '\n' ' ' | cut -c1-200)"
+ 
++else
++# Current setup preserves explicitly selected paths, even beside an older tree.
++c2reset path
++mkdir -p "${C2}/cloud/ROCKNIX/Saves/snes"; echo save > "${C2}/cloud/ROCKNIX/Saves/snes/a.srm"
++cp "${CONF2}" "${C2}/before.conf"
++c2 --seed-folders
++[ "${RC}" -eq 0 ] && cmp -s "${CONF2}" "${C2}/before.conf" \
++    && [ "$(cat "${C2}/cloud/ROCKNIX/Saves/snes/a.srm")" = save ] \
++    && [ -f "${C2}/cloud/pixelelated/Saves/README.txt" ] \
++    && grep -qx 'layout=2' "${C2}/cloud/pixelelated/.layout"
++check $? "#508: fresh defaults seed /pixelelated beside legacy files without adopting or changing them" "rc ${RC}; configuration or original save changed, or fresh layout was not seeded"
++for chosen in /ROCKNIX /GAMES /Chosen; do
++    c2reset path
++    printf 'SAVES_REMOTE="%s/Saves"\nSETTINGS_REMOTE="%s/Backups"\nCONTENT_REMOTE="%s/Content"\n' "${chosen}" "${chosen}" "${chosen}" > "${CONF2}"
++    cp "${CONF2}" "${C2}/before.conf"
++    c2 --seed-folders
++    [ "${RC}" -eq 0 ] && cmp -s "${CONF2}" "${C2}/before.conf" \
++        && [ -f "${C2}/cloud${chosen}/Saves/README.txt" ] \
++        && [ -f "${C2}/cloud${chosen}/Backups/README.txt" ] \
++        && [ -f "${C2}/cloud${chosen}/Content/ROMs/README.txt" ] \
++        && [ ! -e "${C2}/cloud/pixelelated" ]
++    check $? "#508: seeding preserves selected ${chosen} paths and creates their folders" "rc ${RC}; selected paths changed, selected folders missing, or default namespace unexpectedly created"
++done
++
++# A provider can print names before its listing fails. Final seeding readback
++# must inspect that status as well as stdout before announcing a folder OK.
++c2reset path; touch "${C2}/run/fail-readback"
++c2 --seed-folders
++[ -e "${C2}/rec/readback-failed" ] && [ "${RC}" -ne 0 ] \
++    && ! grep -qx 'OK /pixelelated/Saves' "${C2}/out" && grep -q '^>>> why ' "${C2}/out"
++check $? "#508: final folder readback rejects provider failure despite partial listing output" "rc ${RC}; said: $(tr '\n' '|' < "${C2}/out")"
++
++fi
++
+ # #308 claude F-RS-13, gpt F-RS-19: one run, three low-level retries, on every
+ # call these two make -- not rclone's three runs of ten under the wizard's
+ # spinner (the bound --check already carries, #273).
+@@ -4766,11 +4836,11 @@ rm -f "${C2}/rec/argv"; c2 --content-location
+ c2reset path
+ sed -i 's|^CONTENT_REMOTE=.*|CONTENT_REMOTE=""|' "${CONF2}"
+ c2 --seed-folders
+-[ -f "${C2}/cloud/ROMs/README.txt" ] && [ -f "${C2}/cloud/BIOS/README.txt" ] && [ ! -e "${C2}/cloud/pixelelated/Content" ] && [ ! -e "${C2}/cloud/README.txt" ] && grep -qx 'OK /ROMs' "${C2}/out" && grep -qx 'OK /BIOS' "${C2}/out"; check $? "an empty CONTENT_REMOTE seeds ROMs/ and BIOS/ at the cloud's root, with no README at the top" "READMEs: $(readmes); ROCKNIX/Content: $([ -e "${C2}/cloud/pixelelated/Content" ] && echo made || echo absent); said: $(grep -E '^(OK|MISSING) ' "${C2}/out" | tr '\n' ' ') (#308 gpt F-RS-20)"
++[ "${RC}" -eq 0 ] && [ -f "${C2}/cloud/ROMs/README.txt" ] && [ -f "${C2}/cloud/BIOS/README.txt" ] && [ ! -e "${C2}/cloud/pixelelated/Content" ] && [ ! -e "${C2}/cloud/README.txt" ] && grep -qx 'OK /ROMs' "${C2}/out" && grep -qx 'OK /BIOS' "${C2}/out"; check $? "an empty CONTENT_REMOTE seeds ROMs/ and BIOS/ at the cloud's root, with no README at the top" "READMEs: $(readmes); ROCKNIX/Content: $([ -e "${C2}/cloud/pixelelated/Content" ] && echo made || echo absent); said: $(grep -E '^(OK|MISSING) ' "${C2}/out" | tr '\n' ' ') (#308 gpt F-RS-20)"
+ c2reset path
+ sed -i '/^CONTENT_REMOTE=/d' "${CONF2}"
+ c2 --seed-folders
+-[ -f "${C2}/cloud/pixelelated/Content/ROMs/README.txt" ]; check $? "while a config with no CONTENT_REMOTE line at all still gets the default /pixelelated/Content" "READMEs: $(readmes)"
++[ "${RC}" -eq 0 ] && [ -f "${C2}/cloud/pixelelated/Content/ROMs/README.txt" ]; check $? "while a config with no CONTENT_REMOTE line at all still gets the default /pixelelated/Content" "READMEs: $(readmes)"
+ 
+ # C3. cloud_oauth, in-process and as processes. A Python file of test groups,
+ # each printing P or F lines, runs in a sandbox with its own pid and network
+@@ -9016,6 +9086,54 @@ sa_run "${PR}" cloud_restore --yes --saves-only
+ kept=$(grep -rlx "the copy on this device" "${PR}/storage/.cache/cloud_sync/replaced" 2>/dev/null | head -1)
+ [ -n "${kept}" ] && grep -qx "the cloud's newer copy" "${PR}/storage/roms/gb/A.srm" && [ "${RC}" -eq 0 ]; check $? "cloud_restore keeps the local copy it replaced though a future-dated folder sorts after its own (rc ${RC})" "rc ${RC}; replaced holds: $(cd "${PR}/storage/.cache/cloud_sync/replaced" 2>/dev/null && find . -type f | tr '\n' ' ') (F-CS-06 gpt, prune_replaced_local)"
+ 
++# And the fixtures that stand in for a cloud take the folder names from the
++# shipped defaults (cloud-test-backend shipped-default), never from a literal
++# that goes stale when the default moves (blindspot 71): a superseded default
++# name may appear in these tools only in a comment or a quoted history.
++stale=$(python3 - "${HARNESS_ROOT}" "${CS}/src/cloud_migrate_layout" <<'PYQA'
++import pathlib, re, subprocess, sys
++root = pathlib.Path(sys.argv[1])
++script = pathlib.Path(sys.argv[2])
++if script.is_file():
++    r = subprocess.run(['bash', str(script), '--superseded'], capture_output=True, text=True, check=True)
++    old = [x.lstrip('/') for x in r.stdout.splitlines() if x.startswith('/')]
++else:
++    # Stored historical interfaces remain excluded from ordinary QA defaults.
++    old = ['GAMES', 'ROCKNIX/Saves']
++if not old:
++    raise SystemExit('no superseded defaults read')
++patterns = [re.compile(r'(?<![\w-])/?' + re.escape(x) + r'(?=/|[\s\"\']|$)') for x in old]
++for name in ['vm-qa','cloud-test-backend','cloud-round-trip','vm-upgrade-rehearsal','time-to-play','cloud-pair-migration']:
++    for line_no, line in enumerate((root/'tools'/name).read_text().splitlines(), 1):
++        if line.lstrip().startswith('#'):
++            continue
++        if any(p.search(line) for p in patterns):
++            print(f'{name}:{line_no}: superseded folder literal')
++# An inline comment must not hide the live path before it.
++assert any(p.search('path="/' + old[0] + '" # history') for p in patterns)
++# #366: verify every advertised backend's actual derived path, without starting it.
++backend_tool = str(root / 'tools/cloud-test-backend')
++def backend_query(*args):
++    return subprocess.check_output([backend_tool, *args], text=True).strip()
++backends = backend_query('backends').split()
++assert backends and len(backends) == len(set(backends)), 'empty/duplicate backend list'
++default = backend_query('shipped-default', 'SAVES_REMOTE')
++assert default.startswith('/') and not any(p.search(default) for p in patterns)
++for backend in backends:
++    prefix = backend_query('--backend', backend, 'endpoint-prefix')
++    remote = backend_query('--backend', backend, 'saves-remote')
++    assert remote == prefix + default, f'{backend}: prefix/default mismatch'
++    assert not any(p.search(remote) for p in patterns), f'{backend}: superseded path'
++    if backend == 's3':
++        bucket = prefix.removeprefix('/')
++        assert re.fullmatch(r'[a-z0-9][a-z0-9.-]{1,61}[a-z0-9]', bucket), 'illegal S3 bucket'
++        assert '..' not in bucket and not re.fullmatch(r'[0-9]+(?:\.[0-9]+){3}', bucket)
++PYQA
++) || stale="superseded-default guard could not run"
++[ -z "${stale}" ]; check $? "QA tools derive ordinary fixtures from shipped defaults; inline comments do not hide live old paths" "${stale}"
++[ "$("${HARNESS_ROOT}/tools/cloud-test-backend" shipped-default SAVES_REMOTE 2>/dev/null)" = "/pixelelated/Saves" ] && [ "$("${HARNESS_ROOT}/tools/cloud-test-backend" shipped-default CONTENT_REMOTE 2>/dev/null)" = "/pixelelated/Content" ] && ! "${HARNESS_ROOT}/tools/cloud-test-backend" shipped-default NO_SUCH_KEY >/dev/null 2>&1; check $? "cloud-test-backend shipped-default reads the saves and content folders out of cloud_sync.conf.defaults, and exits non-zero for a key with no default" "SAVES '$("${HARNESS_ROOT}/tools/cloud-test-backend" shipped-default SAVES_REMOTE 2>&1)', CONTENT '$("${HARNESS_ROOT}/tools/cloud-test-backend" shipped-default CONTENT_REMOTE 2>&1)'"
++
++if [ "${MIGRATION_AVAILABLE}" -eq 1 ]; then
+ # A5. The layout migration (cloud_migrate_layout): #307 PL-025, PL-026,
+ #     PL-027, PL-053 and PL-071, and #308 claude F-CS-23. The original
+ #     layout: saves at /GAMES with the settings backups nested in it at
+@@ -9070,49 +9188,6 @@ rm -rf "${MG}/cloud/GAMES/Content"; mkdir -p "${MG}/cloud/GAMES/Content"
+ sa_run "${MG}" cloud_migrate_layout --check
+ grep -qx '>>> plan none /pixelelated' "${MG}/out" && [ "${RC}" -eq 0 ]; check $? "and with nothing stored there the plan is none: a setting alone would change, and the row stays away (rc ${RC})" "rc ${RC}; out: $(sa_tail "${MG}" 8)"
+ 
+-# And the fixtures that stand in for a cloud take the folder names from the
+-# shipped defaults (cloud-test-backend shipped-default), never from a literal
+-# that goes stale when the default moves (blindspot 71): a superseded default
+-# name may appear in these tools only in a comment or a quoted history.
+-stale=$(python3 - "${ROOT}" <<'PYQA'
+-import pathlib, re, subprocess, sys
+-root = pathlib.Path(sys.argv[1])
+-script = root / 'projects/ROCKNIX/packages/network/rclone/sources/cloud_migrate_layout'
+-r = subprocess.run(['bash', str(script), '--superseded'], capture_output=True, text=True, check=True)
+-old = [x.lstrip('/') for x in r.stdout.splitlines() if x.startswith('/')]
+-if not old:
+-    raise SystemExit('no superseded defaults read')
+-patterns = [re.compile(r'(?<![\w-])/?' + re.escape(x) + r'(?=/|[\s\"\']|$)') for x in old]
+-for name in ['vm-qa','cloud-test-backend','cloud-round-trip','vm-upgrade-rehearsal','time-to-play','cloud-pair-migration']:
+-    for line_no, line in enumerate((root/'tools'/name).read_text().splitlines(), 1):
+-        if line.lstrip().startswith('#'):
+-            continue
+-        if any(p.search(line) for p in patterns):
+-            print(f'{name}:{line_no}: superseded folder literal')
+-# An inline comment must not hide the live path before it.
+-assert any(p.search('path="/' + old[0] + '" # history') for p in patterns)
+-# #366: verify every advertised backend's actual derived path, without starting it.
+-backend_tool = str(root / 'tools/cloud-test-backend')
+-def backend_query(*args):
+-    return subprocess.check_output([backend_tool, *args], text=True).strip()
+-backends = backend_query('backends').split()
+-assert backends and len(backends) == len(set(backends)), 'empty/duplicate backend list'
+-default = backend_query('shipped-default', 'SAVES_REMOTE')
+-assert default.startswith('/') and not any(p.search(default) for p in patterns)
+-for backend in backends:
+-    prefix = backend_query('--backend', backend, 'endpoint-prefix')
+-    remote = backend_query('--backend', backend, 'saves-remote')
+-    assert remote == prefix + default, f'{backend}: prefix/default mismatch'
+-    assert not any(p.search(remote) for p in patterns), f'{backend}: superseded path'
+-    if backend == 's3':
+-        bucket = prefix.removeprefix('/')
+-        assert re.fullmatch(r'[a-z0-9][a-z0-9.-]{1,61}[a-z0-9]', bucket), 'illegal S3 bucket'
+-        assert '..' not in bucket and not re.fullmatch(r'[0-9]+(?:\.[0-9]+){3}', bucket)
+-PYQA
+-) || stale="superseded-default guard could not run"
+-[ -z "${stale}" ]; check $? "QA tools derive ordinary fixtures from shipped defaults; inline comments do not hide live old paths" "${stale}"
+-[ "$(tools/cloud-test-backend shipped-default SAVES_REMOTE 2>/dev/null)" = "/pixelelated/Saves" ] && [ "$(tools/cloud-test-backend shipped-default CONTENT_REMOTE 2>/dev/null)" = "/pixelelated/Content" ] && ! tools/cloud-test-backend shipped-default NO_SUCH_KEY >/dev/null 2>&1; check $? "cloud-test-backend shipped-default reads the saves and content folders out of cloud_sync.conf.defaults, and exits non-zero for a key with no default" "SAVES '$(tools/cloud-test-backend shipped-default SAVES_REMOTE 2>&1)', CONTENT '$(tools/cloud-test-backend shipped-default CONTENT_REMOTE 2>&1)'"
+-
+ # PL-026 (F-CS-09 gpt): killed between the two moves, the next run finishes.
+ mg_seed
+ printf '%s\t%s\n' '^copy ' 2 > "${MG}/ctl/kill"
+@@ -9171,6 +9246,10 @@ mkdir -p "${MG}/storage/cwd/saves"; : > "${MG}/storage/cwd/saves/x"
+ SA_CWD=/storage/cwd sa_run "${MG}" cloud_migrate_layout --apply
+ [ -f "${MG}/cloud/pixelelated/Saves/savefiles/gb/A.srm" ] && [ ! -e "${MG}/cloud/pixelelated/Saves/saves" ]; check $? "F-CS-23: with a saves/ folder in the working directory the saves subfolder is still found and moved as the saves (rc ${RC})" "under Saves: $(cd "${MG}/cloud" && find ROCKNIX/Saves -type f 2>/dev/null | tr '\n' ' ') -- an unquoted --exclude saves/** was expanded by the shell"
+ 
++else
++    echo "    A5. NOT APPLICABLE: historical engine absent; normal setup and shipped-default checks ran independently"
++fi
++
+ # A6. PL-028 (#307, F-CS-12 gpt) with #308 claude F-CS-16: rclone's 9 (with
+ #     --error-on-no-transfer, "nothing needed moving") is a completion, and
+ #     a saves phase that returns it does not hide a settings phase that
+@@ -10083,6 +10162,7 @@ RC=$( ( bwrap --die-with-parent --tmpfs / --ro-bind /usr /usr "${DABB[@]}" \
+ DLEFT="$(ls "${DAI}" | /usr/bin/grep -c '^secrets\.ini\.tmp' || true)"
+ [ "${DLEFT}" -eq 0 ] && cmp -s "${DA}/before" "${DAI}/secrets.ini" && /usr/bin/grep -q "could not be rewritten" "${DA}/storage/cheevos.log" 2>/dev/null; check $? "gpt G-F2-07 cheevos_armsx2.sh: a rename that fails leaves no temp file, secrets.ini as it was, and says so in the log" "gpt G-F2-07: rc ${RC}; temp files left: ${DLEFT}; secrets.ini: $(tr '\n' '|' < "${DAI}/secrets.ini"); log: $(tr '\n' '|' < "${DA}/storage/cheevos.log" 2>/dev/null | cut -c1-160) -- the failed rename was not handled"
+ rm -f "${DAI}"/secrets.ini.tmp.* "${DA}/storage/cheevos.log"
++if [ "${MIGRATION_AVAILABLE}" -eq 1 ]; then
+ # A31. The audit of the fixes (#307 follow-up 2; seats/A-gpt.md G-A-01,
+ #      High): a verification is the check's exit status and an exact count.
+ #      Both `relocate` and `resumable` grepped the output for "0 differences
+@@ -10130,6 +10210,10 @@ else
+     grep -qx '>>> why YOUR CLOUD SYNC SETTINGS COULDN.T BE SAVED' "${MG}/out"; check $? "G-A-02: and the run says why, in the player's words" "no why line; out: $(sa_tail "${MG}" 6)"
+ fi
+ 
++else
++    echo "    A31-A32. NOT APPLICABLE: historical migration engine retired (#508)"
++fi
++
+ # A33. The audit of the fixes (#307 follow-up 2; seats/A-gpt.md G-A-05,
+ #      High): conf_valid is a grammar a command cannot pass. It refused $(
+ #      and a backtick, and let a backslash-continued line through without
+@@ -10301,6 +10385,7 @@ mkdir -p "${RX}/cloud/pixelelated/Saves/gb"; echo "older" > "${RX}/cloud/pixelel
+ sa_run "${RX}" cloud_backup --yes --saves-only
+ [ "${RC}" -eq 0 ] && [ "$(sa_outcome "${RX}")" = "Completed." ] && ! grep -qF "top folder" "${RX}/out"; check $? "a saves folder with a sibling keeps its record and says nothing of the kind (rc ${RC})" "rc ${RC}; outcome '$(sa_outcome "${RX}")'"
+ 
++if [ "${MIGRATION_AVAILABLE}" -eq 1 ]; then
+ # A37. The audit of the fixes (#307 follow-up 2; seats/A-gpt.md G-A-12,
+ #      Low; seats/A-claude.md G-A-11, Low): what the tidy page says. A copy
+ #      that stopped part-way, or a check that failed, left files in the new
+@@ -10334,6 +10419,10 @@ sa_run "${MG}" cloud_migrate_layout --apply
+ ga11=$(grep '^backend features' "${MG}/ctl/argv" | head -1)
+ [ -n "${ga11}" ] && printf '%s' "${ga11}" | grep -q -- '--contimeout' && printf '%s' "${ga11}" | grep -q -- '--low-level-retries'; check $? "the migration's backend features call carries a connect timeout and a retry bound (rc ${RC})" "the call: '${ga11:-none made}' -- rclone's 60 s connect and ten retries"
+ 
++else
++    echo "    A37-A38. NOT APPLICABLE: historical migration engine retired (#508)"
++fi
++
+ # A39. The audit of the fixes (#307 follow-up 2; seats/A-gpt.md G-A-06 and
+ #      seats/A-claude.md G-A-02, Medium): the content scripts read the conf
+ #      as text since PL-051, and their reader took only KEY=value or
+@@ -12595,6 +12684,7 @@ for s in cloud_backup cloud_restore; do
+ done
+ SA_EXTRA=()
+ 
++if [ "${MIGRATION_AVAILABLE}" -eq 1 ]; then
+ # A55. PL-001 (seats/A-claude.md G2-A-01, High): TIDY UP YOUR CLOUD FOLDERS
+ #      compared the conf's raw pointers with /pixelelated/Saves and friends, so a
+ #      pointer that already named the new folder in another spelling -- a
+@@ -12717,6 +12807,10 @@ sa2_run "${TL}" cloud_migrate_layout --apply
+     && [ -f "${TL}/cloud/pixelelated/Saves/gb/A.srm" ] && [ ! -e "${TL}/cloud/ROCKNIX/Saves/gb/A.srm" ] && [ "$(sed -n 's/^SAVES_REMOTE="\(.*\)"$/\1/p' "${TLC}")" = "/pixelelated/Saves" ] \
+     && [ "$(cat "${TL}/cloud/pixelelated/.layout" 2>/dev/null)" = "layout=2" ]; check $? "D-CLOUD-165: the move from /ROCKNIX carries the set-aside to /pixelelated/Saves-replaced, leaves nothing of ours under /ROCKNIX, and writes the marker (rc ${RC})" "rc ${RC}; tree: $(tl_tree); out: $(tr '\n' '|' < "${TL}/out" | cut -c1-200)"
+ 
++else
++    echo "    A55. NOT APPLICABLE: historical migration engine retired (#508)"
++fi
++
+ # A56. Lead G2-A-04 (seats/A-gpt.md, Medium): --match --apply read the
+ #      preview's plan and removed it without looking whether it went. A
+ #      cache that would not let it go kept the plan, the apply ran on it,
+@@ -12745,6 +12839,7 @@ sa2_run "${MP}" cloud_content_restore --match
+ sa2_run "${MP}" cloud_content_restore --match --apply
+ [ ! -e "${MP}/storage/roms/gb/B.gb" ] && [ -f "${MP}/storage/roms/gb/A.gb" ] && [ "${RC}" -eq 0 ] && [ ! -e "${MPP}" ]; check $? "G2-A-04 (gpt): and once the plan can be spent, the preview and the apply go through as before (rc ${RC})" "G2-A-04 (gpt): B.gb $([ -e "${MP}/storage/roms/gb/B.gb" ] && echo kept || echo removed); plan $([ -e "${MPP}" ] && echo left || echo spent); rc ${RC}; out: $(sa_tail "${MP}")"
+ 
++if [ "${MIGRATION_AVAILABLE}" -eq 1 ]; then
+ # A57. Lead G2-A-02 (seats/A-claude.md, Medium): a migration cut after the
+ #      saves pointer landed and before the content moved was said to
+ #      orphan the content for good, the next run comparing CONTENT_REMOTE
+@@ -12770,6 +12865,10 @@ sa2_run "${MC}" cloud_migrate_layout --apply
+     && [ "$(sed -n 's/^CONTENT_REMOTE="\(.*\)"$/\1/p' "${MCC}")" = "/pixelelated/Content" ] \
+     && [ -f "${MC}/cloud/pixelelated/Content/ROMs/gb/A.gb" ] && [ -f "${MC}/cloud/pixelelated/Content/BIOS/bios.bin" ]; check $? "G2-A-02 (claude): killed at the content's copy (rc ${mc_killed}, pointers then: ${mc_mid}), the next run moves the content and repoints it (rc ${RC})" "G2-A-02 (claude): killed rc ${mc_killed}, pointers after the kill '${mc_mid}'; second run rc ${RC}; CONTENT_REMOTE '$(sed -n 's/^CONTENT_REMOTE="\(.*\)"$/\1/p' "${MCC}")'; cloud: $(cd "${MC}/cloud" && find . -type f | sort | tr '\n' ' '); out: $(sa_tail "${MC}" 3)"
+ 
++else
++    echo "    A57. NOT APPLICABLE: historical migration engine retired (#508)"
++fi
++
+ # A58. Lead G2-A-06 (seats/A-claude.md, Medium): the capture's commit lock
+ #      -- which an exit capture waits five seconds for, twice -- was held
+ #      through the stage's collection, and that walk ran one stat per seal:
+@@ -13340,7 +13439,7 @@ RCLONE_CONFIG="${SZ}/c1.conf" bash -c ". '${SZ}/fn-b.sh'; remote_compares_by_siz
+ # input that showed it. Seen to FAIL first: against the scripts at 286759eb6d
+ # (`BASE_REF=286759eb6d tools/last-good-scripts-test --old`), the log names
+ # the run.
+-echo "  S3F. the audit of the fixes: shell-owned names and NUL bytes refused by the grammar; the sorter's pipeline gates its rename; the ZIP listing's CRC column asserted; the restore gate's mount state; the migration's reader; the scrubber's truncated line; the ack's rename"
++echo "  S3F. the audit of the fixes: shell-owned names and NUL bytes refused by the grammar; the sorter's pipeline gates its rename; the ZIP listing's CRC column asserted; the restore gate's mount state; the pointer reader; the scrubber's truncated line; the ack's rename"
+ SF="${TMP}/s3f"; mkdir -p "${SF}"
+ # The grammar (cloud_backup's conf_valid), on canaries the seats wrote (gpt G3-D-01, claude G3-D-02).
+ awk '/^conf_valid\(\) *\{/{p=1} p{print} p&&/^\}/{p=0}' "${TMP}/src/cloud_backup" > "${SF}/cv.sh" 2>/dev/null || src_of "${RCLONE_REL}/cloud_backup" "${SF}/cb"; [ -s "${SF}/cv.sh" ] || awk '/^conf_valid\(\) *\{/{p=1} p{print} p&&/^\}/{p=0}' "${SF}/cb" > "${SF}/cv.sh"
+@@ -13372,10 +13471,12 @@ grep -q "grep -q 'CRC-32'" "${SF}/bt"; check $? "zip_stored_ok refuses a listing
+ # chksysconfig: roms-mounted=no proceeds only while the folder is still not a mount (gpt G3-D-07).
+ src_of "${ROCKNIX_REL:-projects/ROCKNIX/packages/rocknix}/sources/scripts/chksysconfig" "${SF}/ck" 2>/dev/null || cp "${CHK}" "${SF}/ck"
+ grep -q '\[ "${mounted}" = "0" \] && return 1' "${SF}/ck" && grep -q 'it is mounted now' "${SF}/ck"; check $? "finish_restore: a restore that ran with no roms mount waits when a mount is there now, or the table cannot be read" "the was=no branch still proceeds unconditionally"
+-# cloud_migrate_layout reads a single-quoted or bare pointer through the shared grammar (claude G3-D-05).
+-src_of "${RCLONE_REL}/cloud_migrate_layout" "${SF}/ml"
++# The setup reader (historically the migration reader) uses the shared pointer grammar (claude G3-D-05).
++sf_reader=cloud_setup; sf_getter=conf_get
++if [ "${MIGRATION_AVAILABLE}" -eq 1 ]; then sf_reader=cloud_migrate_layout; sf_getter=conf_value; fi
++src_of "${RCLONE_REL}/${sf_reader}" "${SF}/ml"
+ printf 'SAVESPATH="/storage/roms"\nSAVES_REMOTE=%s/Mine/Saves%s\nSETTINGS_REMOTE=/Mine/Backups\nCONTENT_REMOTE="/Mine/Content"\n' "'" "'" > "${SF}/ml.conf"
+-v=$(bash -c "SYNC_CONF='${SF}/ml.conf'; $(awk '/^conf_get\(\) *\{/{p=1} p{print} p&&/^\}/{p=0}; /^conf_value\(\) *\{/{q=1} q{print} q&&/^\}/{q=0}' "${SF}/ml"); conf_value SAVES_REMOTE; conf_value SETTINGS_REMOTE" 2>/dev/null | tr '\n' '|')
++v=$(bash -c "SYNC_CONF='${SF}/ml.conf'; $(awk '/^conf_get\(\) *\{/{p=1} p{print} p&&/^\}/{p=0}; /^conf_value\(\) *\{/{q=1} q{print} q&&/^\}/{q=0}' "${SF}/ml"); ${sf_getter} SAVES_REMOTE; ${sf_getter} SETTINGS_REMOTE" 2>/dev/null | tr '\n' '|')
+ [ "${v}" = "/Mine/Saves|/Mine/Backups|" ]; check $? "a single-quoted and a bare pointer read as their values, not as the whole line" "read as '${v}'"
+ # cloud_log_scrub: a config line cut before its suffix keeps nothing after the verb (gpt G3-D-09).
+ src_of "${RCLONE_REL}/cloud_log_scrub" "${SF}/ls"
+@@ -13394,6 +13495,8 @@ bash -c "INDEX_PENDING='${SF}/pd/index-pending'; pending_lock() { return 0; }; p
+ grep -q 'rc=0' "${SF}/o" && [ ! -e "${SF}/pd/index-pending" ]; check $? "an ack for token A over a marker holding A removes it" "$(cat "${SF}/o" | tr '\n' '|')"
+ 
+ 
++LY="${TMP}/ly"; mkdir -p "${LY}"
++if [ "${MIGRATION_AVAILABLE}" -eq 1 ]; then
+ echo "  aa. cloud_migrate_layout --state, --keep and --follow (#353, D-CLOUD-160/161): the layout as facts, a kept folder, the fleet followed"
+ # The whole tool under bwrap against a shim rclone that answers by path and
+ # by flag files: /GAMES or /ROCKNIX/Saves hold a save when the flag says so,
+@@ -13569,6 +13672,10 @@ printf '[qa]\ntype = webdav\n' > "${LYRCONF}"
+ ly_run 'SAVES_REMOTE="/ROCKNIX/Saves' --needs-step; [ "${LYRC}" = 2 ]; check $? "--needs-step: a conf it cannot read answers 2, which the interface takes as no step (rc ${LYRC})" "$(ly_out)"
+ ly_run "$(ly_conf /rocknix/saves /rocknix/backups /rocknix/content)" --needs-step; [ "${LYRC}" = 1 ]; check $? "--needs-step: names compared as written: a hand-typed /rocknix/saves is not asked about at every boot, whatever the cloud folds (rc ${LYRC})" "$(ly_out)"
+ rm -f "${LYRCONF}" "${LY}"/rec/*
++else
++    echo "    aa. NOT APPLICABLE: historical layout facts/join/follow engine retired (#508)"
++fi
++
+ # And no sync pays for the folder question any more: the check before every backup and restore
+ # (D-CLOUD-160's follow, 147 ms on the current folder and 419 ms in transition) is the step's.
+ for lyf in cloud_backup cloud_restore; do
+@@ -13580,7 +13687,7 @@ for lyf in cloud_backup cloud_restore; do
+ done
+ 
+ 
+-echo "  ab. cloud_scan (#350, D-CLOUD-156): the opening scan's three items, the content scan's one, the quiet follow, the facts written, the failures said"
++echo "  ab. cloud_scan (#350, D-CLOUD-156): the opening scan's three items, the content scan's one, the selected folder facts and the failures said"
+ # The script whole under bwrap, its three sibling reads shimmed beside it (the
+ # scripts find siblings next to themselves first), rclone answering an
+ # archive listing, ip answering a route unless told not to.
+@@ -13604,7 +13711,23 @@ case "$1" in
+ esac
+ exit 1
+ EOR
+-printf '#!/bin/sh\nprintf "%%s\\n" "$*" >> /rec/argv\ncase "$1" in --content-location) printf "CONTENT_REMOTE=/pixelelated/Content\\nSTATE=ok\\n"; exit 0;; esac\nexit 1\n' > "${SC}/repo/cloud_setup"
++cat > "${SC}/repo/cloud_setup" <<'EOR'
++#!/bin/sh
++printf '%s\n' "$*" >> /rec/argv
++case "$1" in
++  --content-location) printf 'CONTENT_REMOTE=/pixelelated/Content\nSTATE=ok\n'; exit 0 ;;
++  --folder-state)
++    [ ! -e /rec/folder-fail ] || { echo '>>> why YOUR CLOUD STOPPED ANSWERING'; exit 5; }
++    [ ! -e /rec/folder-format-fail ] || { echo " >>> why YOUR CLOUD FOLDER COULDN'T BE READ" | sed 's/^ //'; exit 4; }
++    [ ! -e /rec/folder-timeout ] || exit 124
++    if [ -e /rec/superseded ]; then printf 'SAVES=/ROCKNIX/Saves\nSTATE=missing\nSAVES_EXISTS=0\n'
++    else printf 'SAVES=/pixelelated/Saves\nSTATE=ready\nSAVES_EXISTS=1\n'; fi
++    exit 0 ;;
++esac
++exit 1
++EOR
++SC_READY=current
++[ "${MIGRATION_AVAILABLE}" -eq 1 ] || SC_READY=ready
+ cat > "${SC}/repo/cloud_content_restore" <<'EOR'
+ #!/bin/sh
+ printf '%s\n' "$*" >> /rec/argv
+@@ -13633,7 +13756,7 @@ sc_out() { tr '\n' '|' < "${SC}/out" | cut -c1-200; }
+ SCO="${SC}/storage/.cache/cloud_sync/scan"
+ rm -f "${SC}"/rec/*; sc_run
+ [ "${SCRC}" = 0 ] && [ "$(grep '^>>> unit' "${SC}/out" | tr '\n' ' ')" = ">>> unit CLOUD FOLDER|| >>> unit SETTINGS BACKUPS|| >>> unit GAME CONTENT|| " ] && [ "$(grep -c '^>>> doing scan' "${SC}/out")" = 3 ]; check $? "the opening scan announces CLOUD FOLDER, SETTINGS BACKUPS, GAME CONTENT in that order, each with its doing line, and exits 0 (rc ${SCRC})" "$(sc_out)"
+-[ -f "${SCO}/done" ] && [ "$(sed -n 's/^STATE=//p' "${SCO}/state")" = current ] && [ "$(tr '\n' ' ' < "${SCO}/root-dirs")" = "pixelelated Photos " ] && [ ! -f "${SCO}/scan" ] && ! grep -q -- '--follow' "${SC}/rec/argv"; check $? "its files hold the state, the root folders and the done stamp; no content listing yet, no follow on a current folder" "$(ls "${SCO}" 2>/dev/null | tr '\n' ' ')"
++[ -f "${SCO}/done" ] && [ "$(sed -n 's/^STATE=//p' "${SCO}/state")" = "${SC_READY}" ] && [ "$(tr '\n' ' ' < "${SCO}/root-dirs")" = "pixelelated Photos " ] && [ ! -f "${SCO}/scan" ] && ! grep -q -- '--follow' "${SC}/rec/argv"; check $? "its files hold the state, the root folders and the done stamp; no content listing yet, no follow on a current folder" "$(ls "${SCO}" 2>/dev/null | tr '\n' ' ')"
+ [ "$(sed -n 's/^MINE=//p' "${SCO}/settings")" = "2026_09_10-000000-QA-ROCKNIX_SETTINGS.tar.gz" ] && [ "$(sed -n 's/^NEWEST=//p' "${SCO}/settings")" = "2026_09_20-000000-Other-ROCKNIX_SETTINGS.tar.gz" ] && [ "$(sed -n 's/^COUNT=//p' "${SCO}/settings")" = 4 ] && [ "$(sed -n 's/^LABEL=//p' "${SCO}/settings")" = QA ]; check $? "the settings facts: this device's newest by label, the newest overall, the count, the label (D-CLOUD-162)" "$(cat "${SCO}/settings" 2>/dev/null | tr '\n' ' ')"
+ grep -q 'lsf --files-only --include /\*.{zip,tar.gz} qa:/pixelelated/Backups/ --contimeout 15s' "${SC}/rec/argv"; check $? "the archive listing is bounded and reads the Backups folder" "$(grep '^lsf' "${SC}/rec/argv" | head -1)"
+ rm -f "${SC}"/rec/*; touch "${SC}/rec/noroute"; sc_run
+@@ -13649,6 +13772,7 @@ rm -f "${SC}"/rec/*; sc_run --content --media-only
+ [ "${SCRC}" = 0 ] && grep -q '^>>> unit GAME CONTENT||' "${SC}/out" && grep -qx -- '--scan --media-only' "${SC}/rec/argv"; check $? "--content --media-only is the GAME CONTENT item with --scan --media-only (rc ${SCRC})" "$(sc_out)"
+ rm -f "${SC}"/rec/*; touch "${SC}/rec/scan-fail"; sc_run --content
+ [ "${SCRC}" = 5 ] && grep -q '^>>> why YOUR CLOUD STOPPED ANSWERING' "${SC}/out" && [ ! -f "${SCO}/content-done" ] && grep -q '^>>> unit ROMS AND BIOS||' "${SC}/out"; check $? "a content listing the cloud refused (5): the ROMS AND BIOS item, the why, no content stamp (rc ${SCRC})" "$(sc_out)"
++if [ "${MIGRATION_AVAILABLE}" -eq 1 ]; then
+ rm -f "${SC}"/rec/*; touch "${SC}/rec/superseded"; sc_run
+ [ "${SCRC}" = 0 ] && grep -qx -- '--follow' "${SC}/rec/argv" && [ "$(sed -n 's/^STATE=//p' "${SCO}/state")" = current ] && [ "$(grep -cx -- '--state' "${SC}/rec/argv")" = 2 ]; check $? "a superseded, empty folder beside a current one that exists is followed in the scan, and the state re-read (rc ${SCRC})" "$(sc_out) $(tr '\n' ' ' < "${SC}/rec/argv")"
+ 
+@@ -13664,6 +13788,22 @@ rm -f "${SC}"/rec/*; touch "${SC}/rec/join-layout-fail"; sc_run
+ rm -f "${SC}"/rec/*; touch "${SC}/rec/join-timeout"; sc_run
+ [ "${SCRC}" = 124 ] && grep -q '^>>> why YOUR CLOUD STOPPED ANSWERING' "${SC}/out" && [ ! -f "${SCO}/done" ]; check $? "and one that ran out its time says the cloud stopped answering (rc ${SCRC})" "$(sc_out)"
+ rm -f "${SC}"/rec/*
++else
++rm -f "${SC}"/rec/*; touch "${SC}/rec/superseded"; sc_run
++[ "${SCRC}" = 0 ] && grep -qx 'STATE=missing' "${SCO}/state" \
++    && grep -qx 'SAVES=/ROCKNIX/Saves' "${SCO}/state" \
++    && ! grep -qE '^--(join|follow|settle|apply|state)$' "${SC}/rec/argv"
++check $? "#508: scan retains selected legacy folder facts without joining or following" "$(sc_out) $(tr '\n' ' ' < "${SC}/rec/argv")"
++for failure in folder-fail folder-format-fail folder-timeout; do
++    rm -f "${SC}"/rec/*; touch "${SC}/rec/${failure}"; sc_run
++    case "${failure}" in folder-fail) want=5; why="YOUR CLOUD STOPPED ANSWERING";; folder-format-fail) want=4; why="YOUR CLOUD FOLDER COULDN'T BE READ";; folder-timeout) want=124; why="YOUR CLOUD STOPPED ANSWERING";; esac
++    [ "${SCRC}" = "${want}" ] && grep -qFx ">>> why ${why}" "${SC}/out" && [ ! -f "${SCO}/done" ]
++    check $? "#508: ${failure} preserves its status/reason and writes no done stamp" "rc ${SCRC}; $(sc_out)"
++done
++rm -f "${SC}"/rec/*
++fi
++
++if [ "${MIGRATION_AVAILABLE}" -eq 1 ]; then
+ # --folder, the cloud folder step's scan (D-CLOUD-170, #363): the folder item alone -- the join, the state, the
+ # quiet follow -- with nothing listed for the options page and the opening scan's files left as they were.
+ rm -f "${SC}"/rec/*; sc_run
+@@ -13675,6 +13815,20 @@ rm -f "${SC}"/rec/*; touch "${SC}/rec/superseded"; sc_run --folder
+ [ "${SCRC}" = 0 ] && grep -qx -- '--follow' "${SC}/rec/argv" && [ "$(sed -n 's/^STATE=//p' "${SCO}/state")" = current ]; check $? "--folder follows a superseded, empty folder beside a current one -- the one place it does, since no sync asks (rc ${SCRC})" "$(sc_out) $(tr '\n' ' ' < "${SC}/rec/argv")"
+ rm -f "${SC}"/rec/*; touch "${SC}/rec/join-fail"; sc_run --folder
+ [ "${SCRC}" = 5 ] && grep -q '^>>> why YOUR CLOUD STOPPED ANSWERING' "${SC}/out" && [ ! -f "${SCO}/state" ]; check $? "--folder with a join the cloud refused ends with its why and no state, so the step offers nothing from a guess (rc ${SCRC})" "$(sc_out)"
++else
++# Current folder-only scan preserves the normal scan's unrelated results.
++rm -f "${SC}"/rec/*; sc_run
++SCDONE=1700000000; echo "${SCDONE}" > "${SCO}/done"
++rm -f "${SC}"/rec/*; touch "${SC}/rec/superseded"; sc_run --folder
++[ "${SCRC}" = 0 ] && grep -qx '>>> unit CLOUD FOLDER||' "${SC}/out" \
++    && grep -qx 'STATE=missing' "${SCO}/state" && grep -qx -- '--folder-state' "${SC}/rec/argv" \
++    && [ "$(cat "${SCO}/done")" = "${SCDONE}" ] && [ -s "${SCO}/settings" ] \
++    && ! grep -qE '^(lsf |--(join|follow|settle|apply)$)' "${SC}/rec/argv"
++check $? "#508: folder-only scan reads selected folder facts and preserves archive/done results" "rc ${SCRC}; $(sc_out)"
++rm -f "${SC}"/rec/*; touch "${SC}/rec/folder-fail"; sc_run --folder
++[ "${SCRC}" = 5 ] && grep -qx '>>> why YOUR CLOUD STOPPED ANSWERING' "${SC}/out" && ! grep -q '^STATE=' "${SCO}/state"
++check $? "#508: failed folder-only read has its reason and no usable state" "rc ${SCRC}; $(sc_out)"
++fi
+ rm -f "${SC}"/rec/*; touch "${SC}/rec/noroute"; sc_run --folder
+ [ "${SCRC}" = 69 ] && [ ! -f "${SCO}/state" ]; check $? "--folder with no route exits 69, the page's SKIPPED - YOU'RE NOT ONLINE (rc ${SCRC})" "$(sc_out)"
+ rm -f "${SC}"/rec/*; sc_run --bogus
+@@ -13707,7 +13861,8 @@ echo "  ad. a backup does not make a missing earlier-default saves folder (D-CLO
+ # stock /GAMES. The cloud has no /GAMES: the run makes nothing, sends nothing, prints the offer and ends 0, so the
+ # startup card's SKIPPED - YOUR CLOUD FOLDER ISN'T SET UP YET is true (run 100's case E found the backup half had
+ # written nine saves under it). With /GAMES there it backs up as before; the current folder, absent, is still made.
+-SV=$(sa_new d172); sa_script "${SV}" cloud_backup cloud_saves_root cloud_migrate_layout
++SV=$(sa_new d172); sa_script "${SV}" cloud_backup cloud_saves_root
++[ "${MIGRATION_AVAILABLE}" -eq 0 ] || sa_script "${SV}" cloud_migrate_layout
+ sv_conf() { cat > "${SV}/storage/.config/cloud_sync.conf" <<EOS
+ SAVESPATH="/storage/roms"
+ SAVES_REMOTE="$1"
+@@ -13738,10 +13893,16 @@ sa_run "${SV}" cloud_backup --yes --saves-only
+ 
+ echo "  ae. cloud folder state table and archive writer/reader contracts (#365, #383)"
+ layout_args=()
+-[ "${OLD}" -eq 1 ] && layout_args+=(--ref "${BASE_REF}")
++if [ "${OLD}" -eq 1 ]; then layout_args+=(--ref "${BASE_REF}")
++else layout_args+=(--source-root "${ROOT}"); fi
+ [ -n "${SA_RCLONE_SRC:-}" ] && layout_args+=(--rclone "${SA_RCLONE_SRC}")
+-"${ROOT}/tools/rasteratops-cloud-layout-test" "${layout_args[@]}"
+-check $? "cloud folder state-table regressions" "cloud folder state-table regressions failed"
++if [ "${MIGRATION_AVAILABLE}" -eq 0 ]; then
++    # Archive selection/writer/reader coverage survives engine retirement.
++    layout_args+=(--archives-only)
++    echo "    ae. historical migration matrix NOT APPLICABLE; ordinary T24 archive contracts still run"
++fi
++"${HARNESS_ROOT}/tools/rasteratops-cloud-layout-test" "${layout_args[@]}"
++check $? "applicable cloud folder/archive contract regressions" "cloud folder/archive contract regressions failed"
+ 
+ echo "  af. content inactivity across provider retries (#401)"
+ # Run both complete scripts with the candidate tools. A silent copy lasts
+@@ -13778,6 +13939,7 @@ echo "  ag. settings writers retain private file permissions"
+   --busybox "${BB_HOST}" --output "${TMP}/settings-modes.json"
+ check $? "#421: private modes and refused publications" "#421: settings mode regression (details above)"
+ 
++if [ "${NOT_APPLICABLE}" -ne 0 ]; then echo "${NOT_APPLICABLE} HISTORICAL FEATURE GROUP(S) NOT APPLICABLE -- no checks counted as PASS"; fi
+ if [ "${FAIL}" -eq 0 ] && [ "${SKIPPED}" -eq 0 ]; then echo "PASSED"; exit 0
+ elif [ "${FAIL}" -eq 0 ]; then echo "PASSED, ${SKIPPED} SKIPPED -- a check that did not run has not passed"; exit 3
+ else echo "${FAIL} CHECK(S) FAILED, ${SKIPPED} SKIPPED"; exit 1; fi

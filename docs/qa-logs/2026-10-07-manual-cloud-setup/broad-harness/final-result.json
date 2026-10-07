@@ -1,0 +1,46 @@
+{
+  "sealed_utc": "2026-10-07T18:48:18.364890+00:00",
+  "owner": "/root/handoff_review",
+  "harness_sha256": "2981cc8b8ab7a94c762b0560a29c8bf680136cb9abff9ede2c4fdf6d678c5bd9",
+  "final_cloud_setup_sha256": "a7eea3879848ec4879f279f3b7e2a2c08f3531c970ec4dd9858b09290975265c",
+  "broad_pre_delta": {
+    "source_ref": "e484380a3426626d84afa0c5109abeff4512dd0c",
+    "main_pass_checks": 1303,
+    "returncode": 0,
+    "failures": 0,
+    "skips": 0,
+    "archive_pass_lines": [
+      "PASS T24-production-backup-scan-restore ",
+      "PASS T24-local-legacy-recovery ",
+      "PASS T24-local-renamed-recovery ",
+      "PASS T24-current-legacy-os ",
+      "PASS T24-current-renamed ",
+      "PASS T24-legacy-legacy-os ",
+      "PASS T24-legacy-renamed ",
+      "PASS T24-healed-legacy-os ",
+      "PASS T24-healed-renamed ",
+      "PASS T24-flat-legacy-os ",
+      "PASS T24-flat-renamed ",
+      "PASS T24-foreign-legacy-os ",
+      "PASS T24-foreign-renamed "
+    ]
+  },
+  "targeted_delta": {
+    "extract": "focused04.sh",
+    "before": "focused04-pre/result.json",
+    "after": "focused04-post/result.json",
+    "after_pass_checks": 81,
+    "after_returncode": 0
+  },
+  "historical_coverage": "Historical migration branches retained; focused pre-retirement C1/C2/SC83PASS; --cloud-layout --ref forwarding retained",
+  "limits": [
+    "Full broad run qualifies pre-delta e484/67c6 only; final a7ee folder delta has affected focused evidence",
+    "Product draft remains unintegrated pending flow review; no firmware or release acceptance claimed",
+    "No personal device/cloud/credential actions",
+    "Broad01 direct exec lifecycle limitation retained; final focused runs use durable submit"
+  ],
+  "owned_changes": [
+    "tools/last-good-scripts-test",
+    "docs/qa-logs/2026-10-07-manual-cloud-setup/broad-harness/"
+  ]
+}

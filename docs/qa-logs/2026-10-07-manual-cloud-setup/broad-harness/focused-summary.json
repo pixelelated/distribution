@@ -1,0 +1,31 @@
+{
+  "runs": [
+    {
+      "file": "focused01.log",
+      "pass": 79,
+      "fail": 1,
+      "terminal": "focused: failures=1 not_applicable=1"
+    },
+    {
+      "file": "focused02.log",
+      "pass": 80,
+      "fail": 0,
+      "terminal": "focused: failures=0 not_applicable=1"
+    },
+    {
+      "file": "focused02-historical.log",
+      "pass": 82,
+      "fail": 1,
+      "terminal": "focused: failures=1 not_applicable=0"
+    },
+    {
+      "file": "focused03-historical.log",
+      "pass": 83,
+      "fail": 0,
+      "terminal": "focused: failures=0 not_applicable=0"
+    }
+  ],
+  "historical_ref": "7cfdf9f73ae2a064ee4f281461e661301cb2dd65",
+  "current_source_head": "e484380a3426626d84afa0c5109abeff4512dd0c",
+  "historical_ref_dispatch_cases": 22
+}

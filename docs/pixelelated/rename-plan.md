@@ -57,12 +57,17 @@ engineering evidence, never relabel its bytes as pixelelated.
 | Backup readers/writers | preserve ROCKNIX archive writer suffix and legacy readers; product name is not stored-data format |
 | Git remotes, package URLs, Makefile, workflows | new organization and registry; unchanged pinned container digest verified by registry readback |
 | `README.md`, `NAMING.md`, `LICENSE.md`, `TRADEMARK.md`, active rules/skills | new project hierarchy and lowercase standard, unchanged bot |
-| Helpers, watcher variables, source directories and old docs paths | compatibility/internal identifiers, not player branding; retain for this release to avoid unnecessary interface churn |
+| Helpers, watcher variables, source directories and old docs paths | temporary compatibility/internal identifiers; #509/D-WORKFLOW-151 inventories consumers and retires active Rasteratops names in reviewed batches after live jobs finish; keep historical evidence and required upstream interfaces |
 | Historical logs, closed issues, frozen builds, immutable candidates | retain original name/bytes/timestamps/hashes |
 | Public site, update instructions, open milestone criteria | new destination/name, preserve prior evidence; site deployment remains separately tracked |
 
 No brand-wide completion claim is made from source grep. Candidate image
 frames, installed-byte readbacks and the release criteria supply that proof.
+
+The maintainer reaffirmed eventual removal of active Rasteratops project-name
+remnants on 2026-10-07. #509 is the explicit follow-up; earlier temporary
+retention is not a permanent exemption. The canonical spelling remains
+`pixelelated`, as established in the owner's earlier spelling clarification.
 
 Prepared player documentation: `docs/pixelelated/cloud-folders.md`. The
 upstream proxy contribution draft under

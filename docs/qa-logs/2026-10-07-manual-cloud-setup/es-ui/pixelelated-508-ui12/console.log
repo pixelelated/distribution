@@ -1,0 +1,21 @@
+watch-build: recording in /tmp/pixelelated-508-ui12/.build-runs/20261007T185023Z-ff2dec2c
+/tmp/pixelelated-508-ui12/run.py:4: SyntaxWarning: "\;" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\;"? A raw string is also an option.
+  before=remote('sha256sum /storage/.config/rclone/rclone.conf /storage/.config/cloud_sync.conf; find /storage/qa-manual-ui/provider -type f -exec sha256sum {} \; | sort')
+/tmp/pixelelated-508-ui12/run.py:11: SyntaxWarning: "\;" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\;"? A raw string is also an option.
+  after=remote('sha256sum /storage/.config/rclone/rclone.conf /storage/.config/cloud_sync.conf; find /storage/qa-manual-ui/provider -type f -exec sha256sum {} \; | sort')
+PASS 10 focused shell controls plus credentials/config/provider preservation and ordinary seed
+changed after 0.1s (`key ret`, line 12)
+settle: still after 1.4s
+changed after 0.1s (`key x`, line 15)
+settle: still after 1.4s
+changed after 0.1s (`key up`, line 18)
+changed after 0.1s (`key up`, line 20)
+changed after 0.1s (`key up`, line 22)
+settle: still after 1.4s
+changed after 0.1s (`key x`, line 25)
+settle: still after 1.4s
+captured /tmp/pixelelated-508-ui01/artifacts/1280x800-final-chooser-hub/01-cloud-hub.png
+changed after 0.1s (`key down`, line 1)
+changed after 0.1s (`key x`, line 3)
+settle: still after 1.4s
+captured /tmp/pixelelated-508-ui01/artifacts/1280x800-final-chooser-options/01-options.png

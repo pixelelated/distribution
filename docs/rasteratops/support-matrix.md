@@ -2,6 +2,11 @@
 
 ## Current accepted evidence and held assets — 2026-10-07
 
+D-CLOUD-177/178 and #510 hold new device builds and product integration until
+the agreed validator flow is reconciled and qualified. Public ROCKNIX and clean installs define cloud adoption;
+the maintainer's experimental layouts remain historical receipts, not a
+separate product requirement. Accepted artifacts below are unchanged.
+
 The approved targets remain GENERIC_X64 for QA, H700 for the two named boards,
 and SM8550 for Nova (D-WORKFLOW-114/124). RG35XX SP is the mandatory adoption
 device. RK3566 remains deferred. M7's ordered body controls execution; each

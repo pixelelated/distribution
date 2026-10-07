@@ -1,0 +1,29 @@
+using emulationstation-72494bc72e3d64d4dcfeb4e6478052bbdf166c5b
+  OK      /home/max/Development/emulationstation-next.worktrees/m7-manual-cloud-setup/es-app/src/CloudText.cpp
+  OK      /home/max/Development/emulationstation-next.worktrees/m7-manual-cloud-setup/es-app/src/CloudTransferJob.cpp
+  OK      /home/max/Development/emulationstation-next.worktrees/m7-manual-cloud-setup/es-app/src/ThreadedCloudSync.cpp
+  OK      /home/max/Development/emulationstation-next.worktrees/m7-manual-cloud-setup/es-app/src/guis/GuiCloudTransfer.cpp
+  OK      /home/max/Development/emulationstation-next.worktrees/m7-manual-cloud-setup/es-app/src/guis/GuiMenu.cpp
+  OK      /home/max/Development/emulationstation-next.worktrees/m7-manual-cloud-setup/es-app/src/main.cpp
+PASS
+  allowed  es-app/src/guis/GuiBackupStart.cpp: BACKUP USER DATA  -- upstream batocera GuiBackupStart, hidden on ROCKNIX (no ApiSystem::BACKUP); its msgid keys translations
+vocabulary-check: 155 string(s) with back up / backup, save state or Wi-Fi judged, 0 wrong
+PASS phone
+PASS keyboard
+PASS no-browser
+PASS failed-start
+2026-10-07T18:08:28Z es-app/src/CloudText.cpp
+es-app/src/CloudText.cpp PASS
+2026-10-07T18:08:30Z es-app/src/CloudTransferJob.cpp
+es-app/src/CloudTransferJob.cpp PASS
+2026-10-07T18:08:32Z es-app/src/ThreadedCloudSync.cpp
+es-app/src/ThreadedCloudSync.cpp PASS
+2026-10-07T18:08:34Z es-app/src/guis/GuiCloudTransfer.cpp
+es-app/src/guis/GuiCloudTransfer.cpp PASS
+2026-10-07T18:08:36Z es-app/src/guis/GuiMenu.cpp
+es-app/src/guis/GuiMenu.cpp PASS
+2026-10-07T18:09:08Z es-app/src/main.cpp
+es-app/src/main.cpp PASS
+2026-10-07T18:09:10Z link
+link PASS
+PASS compile/link and unchanged accepted inputs

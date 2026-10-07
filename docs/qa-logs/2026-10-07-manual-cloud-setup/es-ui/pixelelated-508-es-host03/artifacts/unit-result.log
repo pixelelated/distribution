@@ -1,0 +1,14 @@
+[doctest] doctest version is "2.4.12"
+[doctest] run with "--help" for options
+===============================================================================
+/home/max/Development/emulationstation-next.worktrees/m7-manual-cloud-setup/es-app/tests/unit/CloudTextTests.cpp:743:
+TEST CASE:  the stamp's offline why reads as COULDN'T FINISH with its own sentence
+
+/home/max/Development/emulationstation-next.worktrees/m7-manual-cloud-setup/es-app/tests/unit/CloudTextTests.cpp:758: ERROR: CHECK( isKnownWhy(why) ) is NOT correct!
+  values: CHECK( false )
+  logged: 0x5ea8ae0621a8
+
+===============================================================================
+[doctest] test cases:  178 |  177 passed | 1 failed | 0 skipped
+[doctest] assertions: 1887 | 1886 passed | 1 failed |
+[doctest] Status: FAILURE!

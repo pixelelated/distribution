@@ -1,0 +1,49 @@
+{
+  "base": "5d2fcb9b71f363cfa4813d5356f02c48ab58e139",
+  "committed": true,
+  "source_only_delta_since_host08": "GuiMenu.h removed five orphaned comment lines; final French catalog separately validated by catalog09. No C++ declaration or functional code changed.",
+  "files": [
+    {
+      "path": "es-app/src/CloudText.cpp",
+      "sha256": "bb44a142298021e42f6dafe7871c7a211b0db8e146aaa399a70c82885f501c38"
+    },
+    {
+      "path": "es-app/src/CloudText.h",
+      "sha256": "cee8ff4a59122625c9b9bd6446759d7a6d10dd0935a2e61cae7a33dc41b9e5aa"
+    },
+    {
+      "path": "es-app/src/CloudTransferJob.cpp",
+      "sha256": "1de9cf1952ff0f15a1d2872ce2b04aee38219d72e8c635199873160c4613a8d6"
+    },
+    {
+      "path": "es-app/src/ThreadedCloudSync.cpp",
+      "sha256": "02c577891caafacd1eeb5837beff684806d970cc746c64c8167e9bef46d7a562"
+    },
+    {
+      "path": "es-app/src/guis/GuiCloudTransfer.cpp",
+      "sha256": "375cff66a6f98c800c0530693c2b7bf7d0f426e26286c740e49c71f211571589"
+    },
+    {
+      "path": "es-app/src/guis/GuiMenu.cpp",
+      "sha256": "4a16374983097a4781c6095066e2a3855cf516114926529d32b2633425a3dafa"
+    },
+    {
+      "path": "es-app/src/guis/GuiMenu.h",
+      "sha256": "583a6ddf49adfc9df4cfd5d9682061d0ab0ea660e717d0d9825f28a1de734a1f"
+    },
+    {
+      "path": "es-app/src/main.cpp",
+      "sha256": "93fc68f82617286d7c891b19237203a5cd20cf4a3c1b22e22e043b30346968dd"
+    },
+    {
+      "path": "es-app/tests/unit/CloudTextTests.cpp",
+      "sha256": "0287bd497fdd9310ae483d6725f96d57234ff8970b02dab10dfb6f33f962d7fd"
+    },
+    {
+      "path": "locale/lang/fr/LC_MESSAGES/emulationstation2.po",
+      "sha256": "4f7f8c33439405846c8c2b1e69074a822d90d327e0baa968a6c18aee84ccdab6"
+    }
+  ],
+  "commit": "300f97d28a072b916c54dcbf108f1440e7253761",
+  "custody_only": true
+}

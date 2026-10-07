@@ -1,0 +1,11 @@
+key down x5
+wait-for-change
+key x
+wait-for-change
+settle
+shot confirm
+key x
+wait-for-change 30 0
+wait 5
+settle
+shot failure
