@@ -1,6 +1,6 @@
 # pixelelated 0.0.1 release readiness
 
-## Current execution — 2026-10-07 01:40 UTC
+## Current execution — 2026-10-07 01:51 UTC
 
 Both approved Fable audit calls and grading are complete. Phase 7 remains open:
 PL-002/006/007/008 are resolved; PL-001/003/004/005 await candidate 16 installed
@@ -64,12 +64,20 @@ rclone config/E edit instruction now fit640px. Primary01:39:37 verified allfour0
 9seals and actual guest/backend/port cleanup. Q16/recovery-640x480-acceptance
 independently binds raw outcomes, hashes and each reviewed frame.
 
-English/French1280x800 recovery UI is active under launcher503414/watcher503416,
-run`20261007T013954Z-b22dbb20`, owner
-`/workspace/tmp/pixelelated-m7-p4-build16-recovery-1280x800-01`.
-Can this be done on the VM? Yes: the same owned local fixtures, actual timeout,
-terminal repair and controls, with virgl at1280x800. After its verified completion
-and frame review: clean/actual RC2-upgrade QA20, then WebDAV/SFTP/S3 cloud02.
+Recovery1280 PASSED all eight English/French cases and46 directly reviewed
+frames. Full French original-connection reason and terminal edit instructions
+fit. Both stock timeouts measured30.01seconds; original files, pointers and
+record binding survived refusals, and real terminal repair/UI retry completed.
+Primary01:51:10 verified allfour0/9seals and actual guest/backend/port cleanup.
+The third timeout frame in each language captures normal dismissal; full-text
+fit is proved by the first two. Q16/recovery-1280x800-acceptance retains that limit.
+
+Full clean-install/actual ROCKNIX RC2-upgrade QA20 is active under
+launcher562143/watcher562145, run`20261007T015124Z-b7ddd471`, owner`/workspace/tmp/pixelelated-m7-qa-20`.
+Can this be done on the VM? Yes: all15 default suites,78walk frames, the actual
+retained RC2 image updated in place, and installed identity/renderer readback
+at1280x800 virgl and640x480 software. After verified cleanup: WebDAV/SFTP/S3
+cloud02, then command-backed final audit resolutions. No device action is needed.
 #482/#486 are CLOSED completed with published evidence and exact body/state
 readbacks in Q16/interruption-issue-resolution. #478/#479 and four original
 audit findings await their complete remaining acceptance.
@@ -83,7 +91,7 @@ The exact approved two-disk retirement is complete: 10,713,485,312 bytes recover
 all other evidence and protected sources preserved. No broader cleanup or reserve
 change was made or is authorized. The fixed swap helper passed before the build.
 
-**Next:** English/French recovery frames at640×480 and1280×800 → full clean/actual RC2-upgrade QA20 and the standing WebDAV/SFTP/S3 baseline →
+**Next:** active clean/actual RC2-upgrade QA20 → WebDAV/SFTP/S3 cloud02 →
 #471/P4 closure → #461 device capacity review → H700 DDR4 RG35XX SP arm, then
 aarch64 → named physical/P5 gates. #478/#479 remain open until acceptance;#482 is complete.
 No new RA reset or Dropbox credential is needed. Ten #168 upstream drafts remain

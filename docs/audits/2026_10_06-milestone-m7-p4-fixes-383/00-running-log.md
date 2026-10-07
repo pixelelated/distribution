@@ -1350,3 +1350,32 @@ in full. Q16/recovery-640x480-acceptance re-derives all gates and frame hashes.
 The prepared1280 owner is live under launcher503414/watcher503416,
 run20261007T013954Z-b22dbb20. After its8cases/46frames, QA20 clean/actualRC2upgrade
 and cloud02 protocol baseline remain. No product change or premature closure.
+
+## 01:43 UTC — #471 recovery evidence published; timeout dismissal frame classified
+
+Publication05 completed01:41:58, feature3af6d5192bc4905f4b814faa7de142f795e387c0
+and next7ce442d53aea3d7998b9e939443ecc9f771b240c,240changed paths equal and exact
+remote refs. Primary01:42:31 confirms allfour0/242seals/exits; normal hooks pass.
+This publishes accepted640recovery and command-backed source integration.
+
+Live1280 English timeout: first2direct frames show full reason and recovery text.
+Third captures normal upward/fade dismissal after the5second failure hold; it
+is retained as transition evidence, not full-text proof. Actual stamp01:41:20,
+frame writes01:41:22.236/24.116/25.990; source ThreadedCloudSync.cpp733 specifies
+5000ms before close, with AsyncNotificationComponent fade. No product defect or
+rerun is inferred from an expected animation frame. Original-connection UI runs.
+
+## 01:51 UTC — #468/#471 recovery UI accepted at both sizes; full QA20 active
+
+Recovery1280 passed8cases/46directly reviewed frames. Primary01:51:10 verified
+allfour0/9seals and actual guest/backend/port cleanup. Both stock timeouts30.01s,
+original-connection refusal and actual terminal repair/UI retry preserve the
+required state, missing-folder and network controls remain distinct. Full French
+reason and rclone config/E instruction fit. Two fully displayed timeout captures
+per language prove fit; third records normal dismissal, not a text-fitting frame.
+
+Can this be done on the VM? Yes: QA20 now runs all15 defaults/78walk frames,
+actual retained ROCKNIX RC2 upgrade and exact clean/upgraded identity/renderer
+proofs. Live launcher562143/watcher562145, run20261007T015124Z-b7ddd471. After its verified
+cleanup, cloud02 renews WebDAV/SFTP/S3. Four findings and#471 remain open until
+complete acceptance; no source edits, new external calls or device action.
