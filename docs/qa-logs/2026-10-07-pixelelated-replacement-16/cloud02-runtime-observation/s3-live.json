@@ -1,0 +1,45 @@
+{
+  "observed_utc": "2026-10-07T02:36:53.861536+00:00",
+  "backend": "s3",
+  "owner": "/workspace/tmp/pixelelated-m7-cloud-02",
+  "result": "LIVE",
+  "secret_values_recorded": false,
+  "port_accepting": 9012,
+  "container": {
+    "id": "a94a9080adad272c0b10e07e8238759e4577b0e42237da6c2d08ebbcbb226f61",
+    "image_id": "sha256:14cea493d9a34af32f524e538b8346cf79f3321eff8e708c1e2960462bd8936e",
+    "image_reference": "quay.io/minio/minio:latest",
+    "running": true,
+    "pid": 1189455,
+    "started_at": "2026-10-07T02:36:30.224117726Z",
+    "ports": {
+      "9000/tcp": [
+        {
+          "HostIp": "127.0.0.1",
+          "HostPort": "9012"
+        }
+      ]
+    }
+  },
+  "process": {
+    "pid": 1189455,
+    "start_ticks": "43227426",
+    "executable": null,
+    "executable_read_error": {
+      "errno": 13,
+      "reason": "Permission denied"
+    },
+    "cmdline_sha256": "6adb09e0bf362910c91071d66f531b5695b1e8dbd0850964099b51bc1a6a4798",
+    "owned_path_in_arguments": false,
+    "identity_method": "direct_argv"
+  },
+  "image": {
+    "id": "sha256:14cea493d9a34af32f524e538b8346cf79f3321eff8e708c1e2960462bd8936e",
+    "repo_digests": [
+      "quay.io/minio/minio@sha256:14cea493d9a34af32f524e538b8346cf79f3321eff8e708c1e2960462bd8936e"
+    ],
+    "created": "2025-09-07T18:42:37.017942402Z",
+    "architecture": "amd64",
+    "os": "linux"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "verified_utc": "2026-10-07T02:48:18.215820+00:00",
+  "result": "PASS",
+  "build_id": "ee014909137e03706e0b3020b8396be589aaa705",
+  "cases": 4,
+  "direct_frames": 30,
+  "details": {
+    "en_US-automatic-fallback": {
+      "selected": "/pixelelated/Content",
+      "selection_log": [
+        "[2026-10-06 22:42:21] [INFO] [cloud_setup] Content path set to /pixelelated/Content by request"
+      ],
+      "journal_sha256": "78b1140a65e400b9b69917d1b53246e621d254156a97e5d3c04fb852d5bcb6c8"
+    },
+    "en_US-manual-chooser": {
+      "selected": "/My Games",
+      "selection_log": [
+        "[2026-10-06 22:44:14] [INFO] [cloud_setup] Content path set to /My Games by request"
+      ],
+      "journal_sha256": "36313e33054bea3683bad6ecbcc3c84715bfcb20797c14531835c64f715ce802"
+    },
+    "fr_FR-automatic-fallback": {
+      "selected": "/pixelelated/Content",
+      "selection_log": [
+        "[2026-10-06 22:45:43] [INFO] [cloud_setup] Content path set to /pixelelated/Content by request"
+      ],
+      "journal_sha256": "38e8ce06d58b6486850e8aabe0947e5601b38ec7df454355ece40ea8d2f03106"
+    },
+    "fr_FR-manual-chooser": {
+      "selected": "/My Games",
+      "selection_log": [
+        "[2026-10-06 22:47:35] [INFO] [cloud_setup] Content path set to /My Games by request"
+      ],
+      "journal_sha256": "425c5071abd49ee76b544d1e1f2ce8d6958ad62895ed59c99f654df97a416361"
+    }
+  },
+  "lifecycle": {
+    "channels": {
+      "inner.rc": "0",
+      "outer.rc": "0",
+      "tool-wrapper.rc": "0",
+      "build.rc": "0"
+    },
+    "sealed_inputs": 9,
+    "actual_cleanup": true
+  },
+  "scope": "Installed EN/FR640 automatic default-content fallback and actual manual chooser; exact stored paths, new setting logs/journals, unchanged cloud bytes and direct frames."
+}

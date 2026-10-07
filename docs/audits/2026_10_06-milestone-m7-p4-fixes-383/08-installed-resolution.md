@@ -142,3 +142,154 @@ Coverage05 interrupts a real258048/8391392byte settings copy and preserves all o
 Historical no-join02 completed23:18:40; primary23:18:52 verified allfour0/21seals and owner exits,23:18:55 verified both guests/backend/ports stopped. Actual RC2→retained1ac update preserves populated ROCKNIX pointers/cloud bytes. Fresh historical1ac directly reads the earlier save with its own installed client, then its supported full scan reports current/SOURCE=-, seeding does not join any of the three earlier pointers, and successful default restore transfers0bytes without the witness. All original bytes survive. Every runtime cloud hash is independently rechecked in nojoin02-acceptance-01. This supplies the exact historical negative for I354-L66; no new Rasteratops adoption gate. Failed01 remains a fixture error under#481.
 
 Original forward-audit counts remain the frozen audit baseline; this later disposition supplies its missing evidence without rewriting history.
+
+
+## Final candidate16 qualification — 2026-10-07 02:48 UTC
+
+Distribution `ee014909137e03706e0b3020b8396be589aaa705`, ES
+`72494bc72e3d64d4dcfeb4e6478052bbdf166c5b`, immutable bundle
+`7f98f2d22985d11fe9c150015457894caf460104c9ce44abd16074167f23815a`.
+The new [source readback](../../qa-logs/2026-10-07-pixelelated-replacement-16/phase7-source-readback/commands.json)
+re-runs18 integration/path-commit commands, verifies `next`/ES integration
+contain the fixes and compares source bytes with the installed-input record.
+No product files changed during the final qualification.
+
+[QA20](../../qa-logs/2026-10-07-pixelelated-replacement-16/qa20-acceptance/acceptance.json)
+passes all15 default suites,78walk frames with no unclaimed/missing/stale
+differences,26actual retained-ROCKNIX-RC2 upgrade assertions,15direct identity
+frames,4identical installed payload/proxy profiles and actual clean/upgraded
+virgl plus upgraded software rendering. Saves, save states, settings, cloud
+selection and archive survive the update. The exact emitted upgrade artifacts
+are retained beside the acceptance receipt. Single timing samples measure
+0.726s to first emulated frame,1.328s to completed exit sync and1.012s to the
+next frame; these are not physical-device measurements or time to gameplay.
+
+[Cloud02](../../qa-logs/2026-10-07-pixelelated-replacement-16/cloud02-acceptance/acceptance.json)
+passes318 installed assertions:106each on actual owned WebDAV, SFTP and MinIO
+S3, zero failures/skips. The installed rclone1.75.1 hash matches image16.
+All three live backend identities and exact container/image identity were
+observed; terminal process/container absence was independently verified.
+This is not an authenticated hosted-provider or Dropbox test.
+
+All final owners have four zero result channels, unchanged input seals and
+verified actual process/guest/backend/port cleanup. Earlier failed fixtures
+and product controls remain failed. The original installed matrix stays
+84PASS/1FAIL; separate collision01 qualifies the corrected T23 with two
+write-free refusals and a rejecting actual-old-script control. The completed
+observer corrections #487/#488 change no product behavior or runtime verdict.
+
+## PL-001 — Resolved on candidate16
+
+Source repairs: `ed5a6a51f5974deec8748fbf0dbd2f4984b690f5` (discovery),
+`ec2283f20f10e692f15bdb417917adb0e320155f` (legacy capability), with the
+current ES pin above. [Independent matrix reconciliation](../../qa-logs/2026-10-07-pixelelated-replacement-16/matrix-primary-reconciliation/verification.json)
+re-derives nine exact classifications, including unrelated/empty, actual
+default fallback, explicit tiered/legacy root, stranded root and refused
+listing. Supplemental02 proves supported membership on empty local libraries,
+BIOS and unrelated-empty-directory controls without changing installed files.
+The original unchanged14 content-probe/refutation failures and the actual15
+false cannot-run frame remain the negative controls; legacy-support-host01
+also executes the original wrong support label and corrected restore behavior.
+
+Root/reasons640 and1280 retain20 EN/FR cases and88directly reviewed frames;
+the real selected root shows supported Game Boy content. [Selected-content01](../../qa-logs/2026-10-07-pixelelated-replacement-16/selected-content01-acceptance/acceptance.json)
+adds actual installed legacy/tiered/BIOS downloads with exact source/destination
+hashes, unchanged source/config/pointers and a known unsupported-system flag0.
+[Content-routing01](../../qa-logs/2026-10-07-pixelelated-replacement-16/content-routing01-acceptance/acceptance.json)
+proves actual EN/FR640 automatic default fallback and successful manual
+selection, with30direct frames, exact stored paths, fresh selection logs and
+journals. Earlier UI04 ordinary-name flows retain their explicit source
+continuity. QA20/cloud02 supply final clean/upgrade/protocol qualification.
+
+Already written: existing content, unrelated folders and explicit/custom
+selections are preserved. Discovery does not move cloud files. Only the normal
+discovered-folder or manual-selection flow changes this device's content
+pointer; actual restore downloads the selected original bytes. No fielded
+Rasteratops migration gate is introduced.
+
+## PL-003 — Resolved on candidate16
+
+Final migration repair: `4b312e784f425947defd906a15650b5e0ec0f8ea`, including
+the preceding historical-tier fix `ec2283f20f10e692f15bdb417917adb0e320155f`.
+The installed two-guest matrix and independent readback retain the earlier
+sibling's active saves/discarded-save shelf in all root/custom/current-content
+cases while the current guest stays settled. Supplemental02 explicitly
+refuses unreadable active-sibling listings, preserves all state and passes
+repeated current scans after the fault is removed.
+
+Inherited-shelf01 executes the actual RC2 writer and completes all four owned
+tiers for complete/record-copy/record-delete histories, removes the record
+and leaves repeated apply unchanged. Partial640-02 and1280-02 execute four
+real EN/FR copies killed at258048/8391392bytes. Original bytes/pointers/record
+survive, actual UI TRY AGAIN completes all originals, and the next backup
+keeps displaced saves in current Saves-replaced. All32frames were directly
+reviewed. The old failed UI retry and historical shelf omission remain
+negative evidence; source controls retain22focused/398full passes, four
+old-source expected failures and five old refusal controls. Final QA20 and
+cloud02 pass without changing product files.
+
+Already written: an earlier device deliberately keeping its layout retains
+its active shelf. Actual interrupted RC2-owned history is recovered. A verified
+partial destination is resumed only with its validated original recovery
+record and exact source-prefix agreement; foreign, changed, extra, unreadable
+or unrecorded data stays refused. No original data is discarded to clear a
+failed move. The existing old parent may remain empty; it is compared directly,
+not falsely required absent.
+
+## PL-004 — Resolved on candidate16
+
+Binding repair landed in `ed5a6a51f5974deec8748fbf0dbd2f4984b690f5`;
+recovery presentation is retained in ES `8beab9090c73ccc47da49f29f31fa73584fc0877`
+and `72494bc72e3d64d4dcfeb4e6478052bbdf166c5b`.
+The installed matrix and raw-log reconciliation prove comment/format/token
+rewrites, genuine changed-endpoint/root refusal and legacy-record recovery.
+Both original witnesses recover exactly; the unrelated endpoint is unchanged.
+Three actual state/scan/apply refusals name the original connection.
+
+Recovery640/1280 executes the supported terminal configuration repair and real
+UI retry in EN/FR, preserving original data, completing both tiers and removing
+the record. Across all16 recovery/control cases,92frames were directly viewed.
+The full French original-connection reason and complete `rclone config` / `E`
+instruction fit both profiles. Real missing-folder/network controls remain
+distinct. The prior installed comment-only refusal remains the negative
+control. Full QA20/cloud02 now satisfy the remaining qualification boundary.
+
+Already written: existing validated records retain their original cloud
+binding and data. Harmless configuration formatting and token refresh do not
+strand the move. A genuinely changed connection is not silently rebound;
+restoring the original connection enables explicit, verified retry. No
+partial source copy is deleted to manufacture a successful state.
+
+## PL-005 — Resolved on candidate16
+
+Typed scan reasons landed in `ed5a6a51f5974deec8748fbf0dbd2f4984b690f5`,
+ES `bab4df649f48847cc43d21c77c058107ad902754`; full recovery text fits via
+`8beab9090c73ccc47da49f29f31fa73584fc0877` and current72494.
+Installed future/malformed layout, configuration-read and record-read
+refusals emit the true reason and preserve cloud bytes and pointers.
+Supplemental02 proves initial record-write and marker-write refusal/retry and
+a real closed endpoint. Application failures do not enter the rclone-only
+status mapper. Old missing-folder and generic-timeout outputs remain retained.
+
+Root/reasons640/1280 and recovery640/1280 bind the actual English/French pages,
+cards and terminal instruction to their runtime outcomes. Four stock outer
+timeouts measure30.01seconds each, retain original state and retire the
+provider/sleep children. The first two1280timeout captures in each language
+show full text; the third records normal dismissal, not text-fit proof.
+Missing-folder and network controls keep distinct reasons. All final default,
+upgrade and protocol qualification is now accepted.
+
+Already written: invalid/future markers, unreadable settings/records and
+partial cloud state remain intact and safely refused. The repair changes the
+reason and supported recovery guidance, not refusal into destructive fallback
+or automatic folder creation.
+
+## Final outcome boundary
+
+All eight original punch items have command-backed resolved outcomes. None is
+deferred or withdrawn. The frozen forward-audit grades remain historical;
+09 maps later completion and the existing public-docs/account/licence/device
+gates. This completes the software fixes audit. It does not designate an RC,
+publish a release, prove physical hardware behavior or authorize broader
+cleanup. Source/library custody carries unchanged earlier proofs explicitly;
+no new RA award/reset or upstream-freshness query is claimed.

@@ -1,0 +1,166 @@
+{
+  "verified_utc": "2026-10-07T02:32:57.017542+00:00",
+  "result": "PASS",
+  "owner": "/workspace/tmp/pixelelated-m7-qa-20",
+  "build_id": "ee014909137e03706e0b3020b8396be589aaa705",
+  "bundle": "7f98f2d22985d11fe9c150015457894caf460104c9ce44abd16074167f23815a",
+  "report": "docs/qa-logs/2026-10-07-pixelelated-replacement-16/qa-20/artifacts/rocknix-images/qa-ee01490913-webdav-a-20261007-0152/report.md",
+  "suites": [
+    [
+      "scripts",
+      "PASS",
+      "903",
+      "scripts.log"
+    ],
+    [
+      "lifetime",
+      "PASS",
+      "1",
+      "lifetime.log"
+    ],
+    [
+      "wrapper",
+      "PASS",
+      "0",
+      "wrapper.log"
+    ],
+    [
+      "vocabulary",
+      "PASS",
+      "0",
+      "vocabulary.log"
+    ],
+    [
+      "french",
+      "PASS",
+      "0",
+      "french.log"
+    ],
+    [
+      "quoting",
+      "PASS",
+      "0",
+      "quoting.log"
+    ],
+    [
+      "menumap",
+      "PASS",
+      "0",
+      "menumap.log"
+    ],
+    [
+      "register",
+      "PASS",
+      "2",
+      "register.log"
+    ],
+    [
+      "pair-identity",
+      "PASS",
+      "1",
+      "pair-identity.log"
+    ],
+    [
+      "fresh",
+      "PASS",
+      "0",
+      "fresh.log"
+    ],
+    [
+      "round-trip",
+      "PASS",
+      "85",
+      "round-trip.log"
+    ],
+    [
+      "exit",
+      "PASS",
+      "27",
+      "exit.log"
+    ],
+    [
+      "time-to-play",
+      "PASS",
+      "69",
+      "time-to-play.log"
+    ],
+    [
+      "walks",
+      "PASS",
+      "1010",
+      "walks.log"
+    ],
+    [
+      "frame-diff",
+      "PASS",
+      "1",
+      "frame-diff.log"
+    ]
+  ],
+  "walk_frames": 78,
+  "visual_differences": "0 unclaimed; 0 missing; 0 stale claims",
+  "identity_direct_frames": 15,
+  "payload_profiles": [
+    "initial-clean",
+    "clean",
+    "upgrade",
+    "upgrade-software"
+  ],
+  "renderer_profiles": {
+    "initial-clean": "virgl",
+    "upgrade-virgl": "virgl",
+    "upgrade-software": "software"
+  },
+  "installed_payload_unchanged": true,
+  "installed_proxy_identity_profiles": [
+    "initial-clean",
+    "clean",
+    "upgrade",
+    "upgrade-software"
+  ],
+  "actual_upgrade_source": "/workspace/artifacts/rocknix-images/qa-ee01490913-upgrade-from-69e6039f8f-20261007-0228",
+  "upgrade_assertions": [
+    "old build id read",
+    "four seeded files exist",
+    "set_setting is a function on the guest",
+    "setting reads back before the update",
+    "backend gave an rclone.conf",
+    "guest sees one remote",
+    "saves remote set before the update",
+    "rclone (previous) lists the remote",
+    "retired quirk files seeded before the update",
+    "RetroArch cfg seeded before the update",
+    "new build id is ee01490913",
+    "saves and save states byte-identical",
+    "marker file kept",
+    "setting kept",
+    "rclone remote kept",
+    "rclone (new) lists the remote",
+    "saves remote kept",
+    "cloud conf gained the new defaults, kept the old values",
+    "backup archive kept",
+    "update queue empty",
+    "autostart finished before the take-back is read (rocknix-autostart.service active in the new boot)",
+    "retired quirk files taken back after the update (#307 PL-019)",
+    "and the owner's file beside them kept",
+    "RetroArch fullscreen size set by hand kept, driver moved to gl (#307 PL-034, #308 claude F-VM-11)",
+    "release check #226: one libcairo.so.2.* (pango's fetched cairo is gone)",
+    "release check #226: libcairo.so.2 is a link to that one file (#226 box 1; the seat's G-10 under #258)"
+  ],
+  "timings_seconds": {
+    "launch": 0.726,
+    "exit": 1.328,
+    "g2g": 1.012
+  },
+  "lifecycle": {
+    "channels": {
+      "inner.rc": "0",
+      "outer.rc": "0",
+      "tool-wrapper.rc": "0",
+      "build.rc": "0"
+    },
+    "sealed_inputs": 10,
+    "actual_cleanup": true
+  },
+  "scope": "Full default clean-install qualification and actual RC2 upgrade; local three-protocol renewal is separate."
+}

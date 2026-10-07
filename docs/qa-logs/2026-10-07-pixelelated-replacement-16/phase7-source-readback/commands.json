@@ -1,0 +1,220 @@
+{
+  "verified_utc": "2026-10-07T02:37:36.175796+00:00",
+  "result": "PASS",
+  "distribution": "ee014909137e03706e0b3020b8396be589aaa705",
+  "emulationstation": "72494bc72e3d64d4dcfeb4e6478052bbdf166c5b",
+  "commands": [
+    {
+      "repository": "/workspace/repos/rocknix",
+      "args": [
+        "branch",
+        "--contains",
+        "ee014909137e03706e0b3020b8396be589aaa705"
+      ],
+      "returncode": 0,
+      "stdout": "+ build/m7-pixelelated-replacement16\n* next\n"
+    },
+    {
+      "repository": "/home/max/Development/emulationstation-next.worktrees/qa-integration",
+      "args": [
+        "branch",
+        "--contains",
+        "72494bc72e3d64d4dcfeb4e6478052bbdf166c5b"
+      ],
+      "returncode": 0,
+      "stdout": "+ feature/m7-audit-remediation\n* test/qa-integration\n"
+    },
+    {
+      "repository": "/home/max/Development/emulationstation-next.worktrees/qa-integration",
+      "args": [
+        "rev-parse",
+        "HEAD"
+      ],
+      "returncode": 0,
+      "stdout": "72494bc72e3d64d4dcfeb4e6478052bbdf166c5b\n"
+    },
+    {
+      "repository": "/workspace/repos/rocknix",
+      "args": [
+        "show",
+        "next:projects/ROCKNIX/packages/network/rclone/sources/cloud_migrate_layout"
+      ],
+      "returncode": 0,
+      "stdout_sha256": "0e4ccebde159006acb6313027e33b363b177eff2b62db2bacc93fea05396b2c1"
+    },
+    {
+      "repository": "/workspace/repos/rocknix",
+      "args": [
+        "log",
+        "-1",
+        "--format=%H %s",
+        "next",
+        "--",
+        "projects/ROCKNIX/packages/network/rclone/sources/cloud_migrate_layout"
+      ],
+      "returncode": 0,
+      "stdout": "4b312e784f425947defd906a15650b5e0ec0f8ea cloud - safely retry interrupted partial files and fit recovery guidance\n"
+    },
+    {
+      "repository": "/workspace/repos/rocknix",
+      "args": [
+        "show",
+        "next:projects/ROCKNIX/packages/network/rclone/sources/cloud_content_restore"
+      ],
+      "returncode": 0,
+      "stdout_sha256": "3b28fd1403657d713f92f216840a52ff7e692bf09746a7ccb8c2519c6940d2f8"
+    },
+    {
+      "repository": "/workspace/repos/rocknix",
+      "args": [
+        "log",
+        "-1",
+        "--format=%H %s",
+        "next",
+        "--",
+        "projects/ROCKNIX/packages/network/rclone/sources/cloud_content_restore"
+      ],
+      "returncode": 0,
+      "stdout": "ec2283f20f10e692f15bdb417917adb0e320155f rclone - finish earlier history recovery and correct legacy support labels\n"
+    },
+    {
+      "repository": "/workspace/repos/rocknix",
+      "args": [
+        "show",
+        "next:projects/ROCKNIX/packages/network/rclone/sources/cloud_setup"
+      ],
+      "returncode": 0,
+      "stdout_sha256": "44f0c93b5eb1380fd237fe9a3fbbd604bb8b60181923a6f3e78c0dffa501fc3f"
+    },
+    {
+      "repository": "/workspace/repos/rocknix",
+      "args": [
+        "log",
+        "-1",
+        "--format=%H %s",
+        "next",
+        "--",
+        "projects/ROCKNIX/packages/network/rclone/sources/cloud_setup"
+      ],
+      "returncode": 0,
+      "stdout": "ed5a6a51f5974deec8748fbf0dbd2f4984b690f5 cloud: repair the M7 independent audit findings\n"
+    },
+    {
+      "repository": "/workspace/repos/rocknix",
+      "args": [
+        "show",
+        "next:projects/ROCKNIX/packages/network/rclone/sources/cloud_scan"
+      ],
+      "returncode": 0,
+      "stdout_sha256": "a4830b23e7d3df7d86cba7867ccaaca583ea8881e90a4c5d3988671d79b20aa1"
+    },
+    {
+      "repository": "/workspace/repos/rocknix",
+      "args": [
+        "log",
+        "-1",
+        "--format=%H %s",
+        "next",
+        "--",
+        "projects/ROCKNIX/packages/network/rclone/sources/cloud_scan"
+      ],
+      "returncode": 0,
+      "stdout": "ed5a6a51f5974deec8748fbf0dbd2f4984b690f5 cloud: repair the M7 independent audit findings\n"
+    },
+    {
+      "repository": "/workspace/repos/rocknix",
+      "args": [
+        "show",
+        "next:projects/ROCKNIX/packages/ui/emulationstation/package.mk"
+      ],
+      "returncode": 0,
+      "stdout_sha256": "57563a99360f8d1c3af77ec0ce79be65e0538194f42e73f1696a2eda1471c4e1"
+    },
+    {
+      "repository": "/workspace/repos/rocknix",
+      "args": [
+        "log",
+        "-1",
+        "--format=%H %s",
+        "next",
+        "--",
+        "projects/ROCKNIX/packages/ui/emulationstation/package.mk"
+      ],
+      "returncode": 0,
+      "stdout": "180b9153420b021cef1af7053774d9b877baf630 emulationstation - clarify interrupted cloud move guidance\n"
+    },
+    {
+      "repository": "/home/max/Development/emulationstation-next.worktrees/qa-integration",
+      "args": [
+        "log",
+        "-1",
+        "--format=%H %s",
+        "72494bc72e3d64d4dcfeb4e6478052bbdf166c5b",
+        "--",
+        "es-app/src/guis/GuiMenu.cpp"
+      ],
+      "returncode": 0,
+      "stdout": "72494bc72e3d64d4dcfeb4e6478052bbdf166c5b cloud: clarify interrupted-move recovery text\n"
+    },
+    {
+      "repository": "/home/max/Development/emulationstation-next.worktrees/qa-integration",
+      "args": [
+        "log",
+        "-1",
+        "--format=%H %s",
+        "72494bc72e3d64d4dcfeb4e6478052bbdf166c5b",
+        "--",
+        "es-app/src/guis/GuiCloudTransfer.cpp"
+      ],
+      "returncode": 0,
+      "stdout": "8beab9090c73ccc47da49f29f31fa73584fc0877 cloud: fit recovery reasons and French edit guidance\n"
+    },
+    {
+      "repository": "/home/max/Development/emulationstation-next.worktrees/qa-integration",
+      "args": [
+        "log",
+        "-1",
+        "--format=%H %s",
+        "72494bc72e3d64d4dcfeb4e6478052bbdf166c5b",
+        "--",
+        "es-app/src/main.cpp"
+      ],
+      "returncode": 0,
+      "stdout": "bab4df649f48847cc43d21c77c058107ad902754 cloud: handle root content and preserve migration failure reasons\n"
+    },
+    {
+      "repository": "/home/max/Development/emulationstation-next.worktrees/qa-integration",
+      "args": [
+        "log",
+        "-1",
+        "--format=%H %s",
+        "72494bc72e3d64d4dcfeb4e6478052bbdf166c5b",
+        "--",
+        "es-app/src/ThreadedCloudSync.cpp"
+      ],
+      "returncode": 0,
+      "stdout": "bab4df649f48847cc43d21c77c058107ad902754 cloud: handle root content and preserve migration failure reasons\n"
+    },
+    {
+      "repository": "/home/max/Development/emulationstation-next.worktrees/qa-integration",
+      "args": [
+        "log",
+        "-1",
+        "--format=%H %s",
+        "72494bc72e3d64d4dcfeb4e6478052bbdf166c5b",
+        "--",
+        "locale/lang/fr/LC_MESSAGES/emulationstation2.po"
+      ],
+      "returncode": 0,
+      "stdout": "72494bc72e3d64d4dcfeb4e6478052bbdf166c5b cloud: clarify interrupted-move recovery text\n"
+    }
+  ],
+  "source_matches_installed": {
+    "cloud_migrate_layout": "0e4ccebde159006acb6313027e33b363b177eff2b62db2bacc93fea05396b2c1",
+    "cloud_content_restore": "3b28fd1403657d713f92f216840a52ff7e692bf09746a7ccb8c2519c6940d2f8",
+    "cloud_setup": "44f0c93b5eb1380fd237fe9a3fbbd604bb8b60181923a6f3e78c0dffa501fc3f",
+    "cloud_scan": "a4830b23e7d3df7d86cba7867ccaaca583ea8881e90a4c5d3988671d79b20aa1"
+  },
+  "prior_receipt_sha256": "931453b36259cdc6056bd9f3fa786fd25bfa8fcb8ac1d9faf7d76ca4f1dfcfe7",
+  "scope": "Fresh command-backed integration and path-commit readback; final behavioral acceptance is separate."
+}

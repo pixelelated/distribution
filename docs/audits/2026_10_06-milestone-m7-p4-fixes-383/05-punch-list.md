@@ -1,11 +1,11 @@
 # Punch List — M7 P4 fixes audit (#383)
 
-**Audit tracker:** [M7.P4 #471](https://github.com/pixelelated/distribution/issues/471) — open; remediation required.
+**Audit tracker:** [M7.P4 #471](https://github.com/pixelelated/distribution/issues/471) — all eight outcomes resolved; tracker closure follows evidence publication.
 
 **Generated:** 2026-10-06
 **Source audit:** [04-analysis.md](04-analysis.md)
 **Total items:**8 (Critical:0, High:1, Medium:6, Low:1)
-**State:** Phase7 remediation and installed qualification on rebuilt candidate16. PL-002/006/007/008 are resolved; four installed acceptance outcomes remain open. No complete-audit or RC claim.
+**State:** Phase7 complete: all eight findings resolved on qualified candidate16. Evidence publication and exact tracker readback follow; no RC or publication claim.
 
 The two Fable calls are verified and their leads have been checked against
 primary source and fourteen installed experiments. These eight items are
@@ -34,7 +34,7 @@ changed candidate before P4 closure; all known bugs must be resolved before RC.
 - **Evidence:** evidence/refutation-03: seven unchanged14 cases, three controls pass/four challenges fail; expected unrelated→empty and explicit valid root→ok, actual ok/empty respectively. reviewer-coverage-01 R01 finds root content but the actual scan reports cloud_bytes0.
 - **Acceptance:** A rebuilt candidate passes all seven original controls/challenges plus stranded legacy-root selection/scan, failed-listing refusal and supported-system/empty-local cases; retain cloud hashes/pointers and EN/FR640px chooser/options frames. A deliberately old-source control must reproduce the misses.
 - **Frame finding (21:27 UTC):** Installed15 discovers and scans legacy-root `gb`, but the screen falsely says `THIS DEVICE CANNOT RUN IT`. The pre-tier scan row hardcodes supported=0; the ES switch itself remains usable. Preserve this frame and prove the corrected capability label in EN/FR on the rebuilt image. `cloud-ui04-progress-review` retains the actual frame.
-- **Existing audit-discovery tracker:** #467 (open).
+- **Existing audit-discovery tracker:** #467 (acceptance complete; tracker closure follows publication).
 
 ## PL-002: Pointer-only transition failure can persist after successful retry
 
@@ -84,7 +84,7 @@ changed candidate before P4 closure; all known bugs must be resolved before RC.
 - **Why:** Preserve usable cloud content, consistent stored selections and truthful recoverable outcomes under the cited contract.
 - **Evidence:** Retained UI26 reports a missing folder for a present unsupported marker; full marker/pointer manifests are unchanged. reviewer-coverage-01 R03 returns124 after30.229s without a why line, reaching ES generic fallback.
 - **Acceptance:** Installed future/malformed marker, config-read, record/write and outer-timeout challenges each stop safely, preserve state and emit the correct player reason. EN/FR640px page/card frames show those reasons; network refusal and genuine missing-folder controls remain distinct.
-- **Existing audit-discovery tracker:** #468 (open).
+- **Existing audit-discovery tracker:** #468 (acceptance complete; tracker closure follows publication).
 
 ## PL-006: Content chooser offers ordinary folder names that its setter rejects
 
@@ -138,18 +138,17 @@ scope is not silently waived or duplicated into PL IDs.
 
 ## Phase 7 resolution gate
 
-PL-002/006/007/008 are resolved from landed source and installed acceptance evidence.
-The remaining open rows await their named acceptance evidence; they are not
-deferrals or passing gates. The audit tracker stays open. Detailed command and
-state-preservation evidence is in [08-installed-resolution.md](08-installed-resolution.md).
+All eight findings are resolved from landed source and independently accepted
+installed proofs. Detailed command, state-preservation and final-qualification
+evidence is in [08-installed-resolution.md](08-installed-resolution.md).
 
 | Item | Outcome | Evidence |
 | --- | --- | --- |
-| PL-001 | Open | Acceptance unproved on repaired bytes. |
+| PL-001 | Resolved | Candidate16 `ee01490913`, final clean/actual RC2 upgrade and cloud318; [command-backed resolution](08-installed-resolution.md). |
 | PL-002 | Resolved | Candidate15 `ed5a6a51f5` / ES `bab4df649f4`; installed boundary cases and direct EN/FR UI04 proof; [resolution](08-installed-resolution.md). |
-| PL-003 | Open | Acceptance unproved on repaired bytes. |
-| PL-004 | Open | Acceptance unproved on repaired bytes. |
-| PL-005 | Open | Acceptance unproved on repaired bytes. |
+| PL-003 | Resolved | Candidate16 `ee01490913`, final clean/actual RC2 upgrade and cloud318; [command-backed resolution](08-installed-resolution.md). |
+| PL-004 | Resolved | Candidate16 `ee01490913`, final clean/actual RC2 upgrade and cloud318; [command-backed resolution](08-installed-resolution.md). |
+| PL-005 | Resolved | Candidate16 `ee01490913`, final clean/actual RC2 upgrade and cloud318; [command-backed resolution](08-installed-resolution.md). |
 | PL-006 | Resolved | Candidate15 `ed5a6a51f5` / ES `bab4df649f4`; installed boundary cases and direct EN/FR UI04 proof; [resolution](08-installed-resolution.md). |
 | PL-007 | Resolved | `ed5a6a51f5974deec8748fbf0dbd2f4984b690f5` / ES `bab4df649f48847cc43d21c77c058107ad902754`; presentation01: installed EN/FR phone/native and reconnect assertions,29 directly reviewed frames, full owner/guest/browser cleanup; [resolution](08-installed-resolution.md). |
 | PL-008 | Resolved | `ed5a6a51f5974deec8748fbf0dbd2f4984b690f5`; reader-values04:8 installed cases, exact values/archive selection and old-source failure control; [resolution](08-installed-resolution.md). |
@@ -166,7 +165,9 @@ punch_index:
   owner_area: "cloud content discovery and ES chooser"
   where: "projects/ROCKNIX/packages/network/rclone/sources/cloud_setup:490; cloud_content_restore:1235; ES es-app/src/guis/GuiMenu.cpp:5228"
   acceptance: "A rebuilt candidate passes all seven original controls/challenges plus stranded legacy-root selection/scan, failed-listing refusal and supported-system/empty-local cases; retain cloud hashes/pointers and EN/FR640px chooser/options frames. A deliberately old-source control must reproduce the misses."
-  outcome: open
+  outcome: resolved
+  resolution_commit: "ec2283f20f10e692f15bdb417917adb0e320155f"
+  resolution_evidence: "08-installed-resolution.md; ../../qa-logs/2026-10-07-pixelelated-replacement-16/phase7-source-readback/final-acceptance-receipts.json"
 
 - id: PL-002
   severity: "Medium"
@@ -186,7 +187,9 @@ punch_index:
   owner_area: "cloud layout/configuration and setup"
   where: "projects/ROCKNIX/packages/network/rclone/sources/cloud_migrate_layout:819,1239"
   acceptance: "Two installed guests, one current and one KEEP on an earlier layout, leave the active earlier shelf in place and current state settled. The genuine recorded/inherited RC2 partial-migration recovery still completes all owned tiers without loss. Include unreadable-listing refusal and repeated scans."
-  outcome: open
+  outcome: resolved
+  resolution_commit: "4b312e784f425947defd906a15650b5e0ec0f8ea"
+  resolution_evidence: "08-installed-resolution.md; ../../qa-logs/2026-10-07-pixelelated-replacement-16/phase7-source-readback/final-acceptance-receipts.json"
 
 - id: PL-004
   severity: "Medium"
@@ -195,7 +198,9 @@ punch_index:
   owner_area: "cloud layout/configuration and setup"
   where: "projects/ROCKNIX/packages/network/rclone/sources/cloud_migrate_layout:1015,1056,1185; cloud_setup:744; ES cloud-folder error/recovery flow"
   acceptance: "An installed interrupted migration survives harmless provider-config rewrites and ordinary token refresh; genuinely changed endpoint/root remains safely refused with a truthful reason and a supported recovery route. No record is silently rebound to another cloud and all partial copies/source data are retained. Old-record compatibility is explicitly proved."
-  outcome: open
+  outcome: resolved
+  resolution_commit: "ed5a6a51f5974deec8748fbf0dbd2f4984b690f5"
+  resolution_evidence: "08-installed-resolution.md; ../../qa-logs/2026-10-07-pixelelated-replacement-16/phase7-source-readback/final-acceptance-receipts.json"
 
 - id: PL-005
   severity: "Medium"
@@ -204,7 +209,9 @@ punch_index:
   owner_area: "cloud scan/application outcomes and ES startup card"
   where: "projects/ROCKNIX/packages/network/rclone/sources/cloud_scan:93,163; cloud_migrate_layout:991; ES main.cpp:686; ThreadedCloudSync.cpp:80"
   acceptance: "Installed future/malformed marker, config-read, record/write and outer-timeout challenges each stop safely, preserve state and emit the correct player reason. EN/FR640px page/card frames show those reasons; network refusal and genuine missing-folder controls remain distinct."
-  outcome: open
+  outcome: resolved
+  resolution_commit: "ed5a6a51f5974deec8748fbf0dbd2f4984b690f5"
+  resolution_evidence: "08-installed-resolution.md; ../../qa-logs/2026-10-07-pixelelated-replacement-16/phase7-source-readback/final-acceptance-receipts.json"
 
 - id: PL-006
   severity: "Medium"
