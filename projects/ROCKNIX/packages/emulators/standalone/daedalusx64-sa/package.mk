@@ -29,7 +29,7 @@ post_unpack() {
 makeinstall_target() {
   if [ "${ARCH}" = "aarch64" ]; then
     mkdir -p ${INSTALL}
-      cp -a ${ROOT}/build.${DISTRO}-${DEVICE}.arm/install_pkg/daedalusx64-sa-${PKG_VERSION}/usr ${INSTALL}
+      cp -a ${ROOT}/build.${DISTRONAME}-${DEVICE}.arm/install_pkg/daedalusx64-sa-${PKG_VERSION}/usr ${INSTALL}
   else
     mkdir -p ${INSTALL}/usr/bin
       cp -a ${PKG_DIR}/scripts/* ${INSTALL}/usr/bin

@@ -69,21 +69,21 @@ makeinstall_target() {
       ;;
     aarch64)
       mkdir -p ${INSTALL}/usr/share/box86/lib
-        cp -vP ${ROOT}/build.${DISTRO}-${DEVICE}.arm/install_pkg/${PKG_NAME}-*/usr/share/box86/lib/* ${INSTALL}/usr/share/box86/lib
+        cp -vP ${ROOT}/build.${DISTRONAME}-${DEVICE}.arm/install_pkg/${PKG_NAME}-*/usr/share/box86/lib/* ${INSTALL}/usr/share/box86/lib
 
       mkdir -p ${INSTALL}/usr/bin
-        cp -vP ${ROOT}/build.${DISTRO}-${DEVICE}.arm/install_pkg/${PKG_NAME}-*/usr/bin/* ${INSTALL}/usr/bin
+        cp -vP ${ROOT}/build.${DISTRONAME}-${DEVICE}.arm/install_pkg/${PKG_NAME}-*/usr/bin/* ${INSTALL}/usr/bin
 
       mkdir -p ${INSTALL}/usr/config
-        cp -vP ${ROOT}/build.${DISTRO}-${DEVICE}.arm/install_pkg/${PKG_NAME}-*/usr/config/box86.box86rc ${INSTALL}/usr/config/box86.box86rc
+        cp -vP ${ROOT}/build.${DISTRONAME}-${DEVICE}.arm/install_pkg/${PKG_NAME}-*/usr/config/box86.box86rc ${INSTALL}/usr/config/box86.box86rc
 
       mkdir -p ${INSTALL}/etc/binfmt.d
-        cp -vP ${ROOT}/build.${DISTRO}-${DEVICE}.arm/install_pkg/${PKG_NAME}-*/etc/binfmt.d/box86.conf ${INSTALL}/etc/binfmt.d
+        cp -vP ${ROOT}/build.${DISTRONAME}-${DEVICE}.arm/install_pkg/${PKG_NAME}-*/etc/binfmt.d/box86.conf ${INSTALL}/etc/binfmt.d
       ;;
   esac
 
   mkdir -p ${INSTALL}/usr/config
-    cp ${ROOT}/build.${DISTRO}-${DEVICE}.arm/build/${PKG_NAME}-*/system/box86.box86rc ${INSTALL}/usr/config/box86.box86rc
+    cp ${ROOT}/build.${DISTRONAME}-${DEVICE}.arm/build/${PKG_NAME}-*/system/box86.box86rc ${INSTALL}/usr/config/box86.box86rc
 
   mkdir -p ${INSTALL}/etc
     ln -sf /storage/.config/box86.box86rc ${INSTALL}/etc/box86.box86rc
