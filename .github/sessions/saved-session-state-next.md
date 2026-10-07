@@ -46,8 +46,8 @@ audit grades remain historical; later dispositions are mapped in audit09/10.
 Acceptance is published on next `7f293a22d97317d1632952a5cf2e9d4a45bd2cb2`.
 #471, #467, #468, #478, #479, #361, #386, #327, #409, #383 and observer repairs
 #487/#488 are closed completed, with exact body/state readbacks. Live audit lint
-confirms all eight checked findings and resolved outcomes. Current: M7.P5 #461
-capacity/retention review, then H700 DDR4 RG35XX SP arm, aarch64, and the
+confirms all eight checked findings and resolved outcomes. Current: M7.P5 #491
+exact cleanup approval/execution, then H700 DDR4 RG35XX SP arm, aarch64, and the
 separately gated physical/P5 work.
 
 This is software qualification, not RC designation or release publication.
@@ -94,10 +94,22 @@ H700 arm builds compatibility prerequisites; aarch64 creates the firmware.
 The latter's combined forecast is353.72GiB, so reassess after arm and prepare
 further capacity work before that stage. This batch only establishes arm fit.
 
-Publish the retained reports, #489 closure readback, #490 classifier and exact
-proposal with normal hooks. Close #461/#490 on published evidence and retain
-#491's first verification criterion; its execution criteria stay open pending
-authorization and the actual action. Keep the milestone ordered around #491,
+Publication09 verified featuref73f84f4 / next510196b0, all four results zero,
+156 unchanged seals and equal bytes across all154 changed paths. The reports,
+#489 closure readback, #490 classifier and exact proposal are published with
+normal hooks. Tracker01 closes #461/#490 completed, verifies #491's first
+criterion, and leaves its two execution criteria open. Actual bodies and
+milestone readbacks are retained in Q16/retention-tracker-01; primary verified
+its four zero results, three seals and process exits at03:30:58 UTC.
+Both GitHub workflows for next510196b0 completed successfully. The watched
+terminal receipt, exact head readbacks and primary process/seal verification
+are retained in Q16/retention09-ci-01. Final documentation-only publication
+uses /workspace/tmp/pixelelated-m7-retention-closure-publication-10; its
+publication.json and owner-verification.json identify the subsequent heads.
+
+The exact22-file approval question has been sent and has no response yet.
+Do not repeat it or infer approval from the earlier two-file message. On an
+explicit response, follow the approved scope. The milestone orders #491,
 H700 arm, aarch64 capacity/build, then named physical/P5 gates.
 
 No VM or device build is active. Final content-routing01, selected-content01,
@@ -106,8 +118,8 @@ QA20 and cloud02 are accepted and must not be replayed. #487/#488 are closed.
 ## Frozen inputs and published heads
 
 - Coordination: /workspace/repos/rocknix.worktrees/conflict-resolution,
-  feature/conflict-resolution at 06e66dd1d6788f85c99fae0b53ad790b500c81f9.
-- Primary: /workspace/repos/rocknix, next at 96c877f617d82a35cb09e93f6408b8fea76142ea.
+  feature/conflict-resolution at f73f84f4a8fb55211e9b6e96e3f9bf83bc547773.
+- Primary: /workspace/repos/rocknix, next at 510196b072f3bec9c108ef2ad4709e30aaa40bde.
 - Frozen16: /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement16,
   build/m7-pixelelated-replacement16 at ee014909137e03706e0b3020b8396be589aaa705.
   Never edit/reset/sync it; its generated emulator-table diff is expected.

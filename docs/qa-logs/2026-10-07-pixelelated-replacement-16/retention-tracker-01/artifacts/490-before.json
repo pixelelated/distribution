@@ -1,0 +1,9 @@
+{
+  "number": 490,
+  "title": "M7.P5: Classify source disk samples in retention reports",
+  "body": "The first production #461 report completed without deleting anything and\ncorrectly held all 24 candidates on unclassified dependencies. All 64 reported\nerrors are four `shared-mime-info-2.4/tests/mime-detection/disk.*` samples in\n16 source trees. They are small MIME-detection test fixtures, not QA guests.\nThe report also correctly identified two real QCOW backing dependencies.\n\nClassify the source samples only after exact comparison with the pinned\nshared-mime-info archive: full archive digest, exact member and target digest,\nfile identity, and protected source location. Do not skip source directories\nor general extensions. Unknown or altered files still prevent a proposal.\nUse directory-entry metadata to retain complete traversal coverage without\nrepeated filesystem metadata calls; the first scan took about 14 minutes.\n\nCan this be done on the VM? No: these are host storage/source-archive facts.\nUse isolated host controls and a fresh read-only production report.\n\n- [ ] The report records each exact archive-verified source fixture while\n  preserving all real disk, backing-chain and cross-store checks.\n- [ ] Controls reject a changed fixture, changed archive, unprotected fixture\n  or unclassified disk; the existing active/use/preservation controls pass.\n- [ ] A fresh full-root report records actual eligible/held candidates and\n  H700 capacity, with original refusals and all source/evidence hashes retained.\n\nAlready written: no player data or production storage was changed. Report01\nremains an intact held-removal result. No deletion is authorized by this fix.\n",
+  "state": "open",
+  "state_reason": null,
+  "updated_at": "2026-10-07T03:13:23Z",
+  "html_url": "https://github.com/pixelelated/distribution/issues/490"
+}

@@ -1,15 +1,18 @@
 # pixelelated 0.0.1 release readiness
 
-## Current device-build prerequisite — 2026-10-07 03:26 UTC
+## Current device-build prerequisite — 2026-10-07 03:31 UTC
 
 The full software audit, VM qualification and hosted record checks pass.
-Retention review #461/#490 is complete; #491 proposes only22 superseded QA
+Retention review #461/#490 is published and closed; #491 proposes only22 superseded QA
 disks (42.05GiB), with all source/evidence hashes checked and two referenced
 bases excluded. This would establish capacity for the H700 arm compatibility
 stage. Aarch64 firmware needs a subsequent capacity review. The exact readable
 list and guarded verification/execution helper are in
 `docs/qa-logs/2026-10-07-pixelelated-replacement-16/h700-retirement-proposal/`.
-Separate approval is required; no removal or device build has started.
+Separate approval has been requested; no removal or device build has started.
+The published proposal is at next510196b0. The milestone and #491's actual
+body reflect the order: exact cleanup, H700 arm compatibility, renewed
+aarch64 capacity review and firmware build, then physical/P5 gates.
 
 ## Software qualification complete — 2026-10-07 02:48 UTC
 
@@ -42,8 +45,8 @@ audit grades remain historical; later dispositions are mapped in audit09/10.
 Acceptance is published on next `7f293a22d97317d1632952a5cf2e9d4a45bd2cb2`.
 #471, #467, #468, #478, #479, #361, #386, #327, #409, #383 and observer repairs
 #487/#488 are closed completed, with exact body/state readbacks. Live audit lint
-confirms all eight checked findings and resolved outcomes. Current: M7.P5 #461
-capacity/retention review, then H700 DDR4 RG35XX SP arm, aarch64, and the
+confirms all eight checked findings and resolved outcomes. Current: M7.P5 #491
+exact cleanup approval/execution, then H700 DDR4 RG35XX SP arm, aarch64, and the
 separately gated physical/P5 work.
 
 This is software qualification, not RC designation or release publication.
