@@ -1,0 +1,98 @@
+{
+  "pass": true,
+  "checks": [
+    {
+      "case": "missing-defaults",
+      "pass": true,
+      "rc": 0,
+      "stderr": ""
+    },
+    {
+      "case": "missing-config",
+      "pass": true,
+      "rc": 0,
+      "stderr": ""
+    },
+    {
+      "case": "empty-defaults",
+      "pass": true,
+      "rc": 0,
+      "stderr": ""
+    },
+    {
+      "case": "add-missing",
+      "pass": true,
+      "rc": 0,
+      "stderr": ""
+    },
+    {
+      "case": "already-current",
+      "pass": true,
+      "rc": 0,
+      "stderr": ""
+    },
+    {
+      "case": "no-final-newline",
+      "pass": true,
+      "rc": 0,
+      "stderr": ""
+    },
+    {
+      "case": "empty-config",
+      "pass": true,
+      "rc": 0,
+      "stderr": ""
+    },
+    {
+      "case": "file-link",
+      "pass": true,
+      "rc": 0,
+      "stderr": ""
+    },
+    {
+      "case": "directory-link",
+      "pass": true,
+      "rc": 0,
+      "stderr": ""
+    },
+    {
+      "case": "whitespace-key",
+      "pass": true,
+      "rc": 0,
+      "stderr": ""
+    },
+    {
+      "case": "non-hotkey-defaults",
+      "pass": true,
+      "rc": 0,
+      "stderr": ""
+    },
+    {
+      "case": "copy-failure",
+      "pass": true,
+      "rc": 1,
+      "stderr": ""
+    },
+    {
+      "case": "producer-failure",
+      "pass": true,
+      "rc": 1,
+      "stderr": ""
+    },
+    {
+      "case": "rename-failure",
+      "pass": true,
+      "rc": 1,
+      "stderr": ""
+    },
+    {
+      "case": "temp-failure",
+      "pass": true,
+      "rc": 1,
+      "stderr": ""
+    }
+  ],
+  "legacy_negative_control": false,
+  "post_update_sha256": "1e53fe8ca04f84265eaf43fe40c5cc1f2ec45c2bc1fdd13ea835ffb39d2ecdae",
+  "busybox_sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346"
+}

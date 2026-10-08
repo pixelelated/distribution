@@ -1,0 +1,76 @@
+{
+  "case": "public-default",
+  "seed_sha256": "e43cae4589b3c00b38fac1ae44b11759d8285e020c31dba429a28f97e24527b3",
+  "action": "/usr/share/post-update",
+  "context": {
+    "schema_version": 1,
+    "config_id": "3c764bcc52155fe3711531dbe3bcebf585c53880349c23f4070cf9a6d9438720",
+    "remote": "qa-cloud:",
+    "paths": {
+      "saves": "/GAMES",
+      "settings": "/GAMES/backup",
+      "content": "/pixelelated/Content",
+      "roms": "/pixelelated/Content/ROMs",
+      "bios": "/pixelelated/Content/BIOS",
+      "media": "/pixelelated/Content/ROMs"
+    }
+  },
+  "validation": {
+    "schema_version": 1,
+    "run_id": "cf10-public-default",
+    "config_id": "3c764bcc52155fe3711531dbe3bcebf585c53880349c23f4070cf9a6d9438720",
+    "categories": [
+      {
+        "category": "saves",
+        "state": "present",
+        "path": "/GAMES",
+        "detail": "progress-paths-found-not-verified"
+      },
+      {
+        "category": "settings",
+        "state": "present",
+        "path": "/GAMES/backup",
+        "detail": "archive-names-found-not-verified"
+      },
+      {
+        "category": "roms",
+        "state": "missing",
+        "path": "/pixelelated/Content/ROMs",
+        "detail": "expected-folder-not-found"
+      },
+      {
+        "category": "bios",
+        "state": "missing",
+        "path": "/pixelelated/Content/BIOS",
+        "detail": "expected-folder-not-found"
+      },
+      {
+        "category": "media",
+        "state": "missing",
+        "path": "/pixelelated/Content/ROMs",
+        "detail": "expected-folder-not-found"
+      }
+    ],
+    "complete": true,
+    "scope": {
+      "max_depth": 3,
+      "save_subtree_depths": {
+        "psp/PSP/SAVEDATA": 2,
+        "psx/duckstation/memcards": 1
+      },
+      "max_entries_per_listing": 4096,
+      "max_bytes_per_listing": 2097152,
+      "max_seconds": 25
+    },
+    "paths": {
+      "saves": "/GAMES",
+      "settings": "/GAMES/backup",
+      "content": "/pixelelated/Content",
+      "roms": "/pixelelated/Content/ROMs",
+      "bios": "/pixelelated/Content/BIOS",
+      "media": "/pixelelated/Content/ROMs"
+    }
+  },
+  "cloud_local_payload_credentials_and_auto_choices_preserved": true,
+  "repeat_idempotent": true
+}

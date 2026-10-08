@@ -1,0 +1,22 @@
+watch-build: recording in /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/.build-runs/20261008T193754Z-d2b8842e
+/workspace/tmp/pixelelated-m7-image-18/extract.py: OK
+/workspace/tmp/pixelelated-m7-image-18/outer.sh: OK
+/workspace/tmp/pixelelated-m7-image-18/run.sh: OK
+/workspace/tmp/pixelelated-m7-image-18/verify-inputs.py: OK
+PASS frozen source inputs, ES pin and candidate input custody
+START raw image decompression
+PASS raw GPT system partition starts at sector8192
+PASS raw image SYSTEM equals update tar SYSTEM 52742f2565fb21844cb825e069fb1bb2950dd14c7d1361b29fa0b6aa63b9c3d7
+Parallel unsquashfs: Using 2 processors
+58644 inodes (61597 blocks) to write
+
+
+created 57041 files
+created 2663 directories
+created 1345 symlinks
+created 0 devices
+created 0 fifos
+created 0 sockets
+created 258 hardlinks
+PASS immutable candidate filesystem extracted without executing it
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/f557176651026f59bb5931993b12491a6019c0383321fb89fa1a05a596514fe6

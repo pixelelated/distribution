@@ -1,171 +1,128 @@
 # Saved Session State
 
-> Saved: 2026-10-08T18:58:00Z
+> Saved: 2026-10-08T19:52:00Z
 > Coordinator: feature/conflict-resolution
 > Repository: pixelelated/distribution
 
-## Start here
+## Start here — full VM qualification ACTIVE
 
-Read AGENTS.md and canonical rules from next. Full prior background is in
-[the archived checkpoint](archived/saved-session-state-next-20261008T185800Z.md),
-which in turn references earlier full resumes. This checkpoint supersedes its
-active process, audit, CF10 and next-action statements. Continue authorized M7
-work across this save; it is not a pause or a request for renewed permission.
+Read AGENTS/canonical next rules and the complete [prior checkpoint](archived/saved-session-state-next-20261008T195200Z.md).
+Its pending copy/build/CF10/upgrade states are superseded below. Authorization
+persists for scoped fixes, commits/pushes, builds, synthetic VM/provider QA and
+completed test-payload retirement. No new physical-device/personal-cloud action.
+#519 controlled owner alignment precedes the next handheld transfer/reboot.
+User continued with credits restored; do not repeat completed #507 Fable calls
+or #524. Both audits/transfers and their closure readbacks are COMPLETE.
 
-Primary /workspace/repos/rocknix stays on next. Coordinator
-/workspace/repos/rocknix.worktrees/conflict-resolution is historically divergent:
-NEVER merge it wholesale. Commit only owned paths and cherry-pick the explicit
-full source hash. Its pre-publication HEAD is5ca4144b87f3ad10326cdd0c6a59f0aa1507dc2d;
-primary pre-publication HEAD is5c115ccda92f5573beef8f85d5f7a4dc38b63eb1.
-Read actual HEAD/origin before acting. Current source correction/evidence may
-already have been published after this checkpoint was written.
+Primary /workspace/repos/rocknix stays on next; published product HEAD
+7f58b7b1c592908dcd0ba5987955e59aaa79fe66. Coordinator source is
+f15dce3152747c1edec87898435a17f61d4f5daf. Coordinator has historical divergence:
+NEVER merge it wholesale. Commit owned paths and cherry-pick explicit full hashes.
+Current compact evidence/docs edits may be pending publication; inspect git.
+Both hosted checks on7f58 succeeded. No compiler or external audit is active.
 
-Authorization persists for scoped source fixes, commits/pushes, builds, synthetic
-host/VM/provider tests and cleanup of completed disposable test payloads. No new
-physical-device or personal-cloud mutation is authorized. #519 controlled owner
-alignment remains mandatory BEFORE the next handheld update transfer/reboot.
+## ACTIVE qa-21 — take over watch, never duplicate
 
-## Audit is COMPLETE — do not repeat transfers
+Owner /workspace/tmp/pixelelated-m7-qa-21; frozen worktree
+/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18,
+branch build/m7-pixelelated-replacement18, HEAD7f58b7b1c592908dcd0ba5987955e59aaa79fe66.
+Run .build-runs/20261008T195008Z-fcbfffb3; owner/run.path also records it.
+Started19:50:08UTC. Launcher252590, runner252591, watcher252592; read command.pid
+for current actual command. QEMU a253390/SSH10022, b253416/10023, pair disks/key
+under owner/pair. Actual exact BUILD_ID and payload/proxy identity passed. At
+19:51:14 scripts suite was progressing under owner/artifacts/rocknix-images/
+qa-7f58b7b1c5-webdav-a-20261008-1950/. Check current status now.
 
-#507 and all four #524 resolutions are closed completed. Both explicitly
-approved Fable5.1/xhigh Facilitator calls finished with zero retries and verified
-source/output/result/PID receipts. Sole auditor ownership has ended. Audit
-source81603bd288 is published as next12c599a557; corrected final delivery3756fde50e
-has both exact-head hosted successes and complete issue/M7 readbacks. See
-`docs/qa-logs/2026-10-08-m7-audit-delivery/` and the archived checkpoint.
-Never re-ask those approvals or dispatch the completed review again.
+Run.sh executes15 default vm-qa suites, then separate SFTP/S3 round-trip reports,
+then pair/backend teardown. Logs under owner/artifacts are recursive watcher
+activity; interval5/stall5. No off-session alert exists (#395). Root must consume
+status at most60s apart and announce failures/completion. Keep original failures;
+submission is not success. /tmp/m7-consume18.py <owner> accepts only original
+four0+launcher0 and actual owner PIDs absent, in HOST context. Do not call it
+as though a nonzero run were accepted; retain failed channels if any.
 
-The coordinator branch can show an overdue-audit warning because it lacks some
-canonical audit history. Run final ceremony checks on integrated next; that
-warning does not establish a new review requirement. No new independent review
-has run for #526; its bounded implementation review is explicitly local.
+## #527 — source-proven standard walk mismatch, pending actual proof
 
-## Current critical path — #526 correction, then corrected image
+Issue527 https://github.com/pixelelated/distribution/issues/527 tracks old
+`to-change-cloud-folder`/`confirm-cloud-folder` steps that expect CHANGE CLOUD
+FOLDER to open the saves keyboard directly. Current ES1d76 opens CLOUD FOLDERS
+with three independent path rows first; canonical menu/flow already reflects
+that. Source comparison and archaeology recorded; actual frame/control still
+owed. No product defect claimed. The standard old walk is expected to expose
+this mismatch; do not relabel wrong-screen captures a pass or blanket-mask them.
 
-1. #510 settled contract and #515/#520/#521/#522/#523 source qualification are
-   complete. Link/retain remote → selected-category checks → separately confirmed
-   selected folder creation → independent paths/local instructions. No automatic
-   library move/follow, no generic repair API, no dead website QR requirement.
-2. Replacement17 is built/sealed and actual CF10 cloud-specific proof passes.
-   Complete installed post-update exposes inherited upstream melonDS defect#526.
-   Publish the qualified source correction and all retained proof; preserve the
-   original failure. New engineering image inclusion is REQUIRED.
-3. Freeze a new replacement18 from published corrected next. Reuse only verified
-   independent cached inputs from replacement17; do not advance that frozen tree.
-   Run assembled/source/catalog checks, immutable artifact store and disk/update
-   equality, fresh installed CF10/post-update and actual retained-storage upgrade,
-   final standard VM suites and local WebDAV/SFTP/MinIO-S3 qualification.
-4. Then matched H700, followed by SM8550. Source/licences#344 (14 known recipe
-   metadata gaps), branding#359, version/publication#265 and named physical gates
-   remain. No current engineering artifact is designated an RC.
-5. #519 remains mandatory before owner device deployment. Its full private and
-   public-synthetic plan/13 controls are in the archive; no personal cleanup ran.
+New QA-only worktree /workspace/repos/rocknix.worktrees/m7-p5-cloud-folder-walks,
+branch feature/m7-p5-cloud-folder-walks, starts at7f58; no edits at save. Repair
+there, never edit frozen18 tracked files or a running tool. Freeze/publish the
+corrected QA harness separately and bind it to unchanged firmware for affected
+walk/frame reruns. A test-only correction need not rebuild product. Preserve
+unaffected suite receipts. Record reviewed happy/branch frames and canonical
+screenshot references. All pipeline requirements remain before H700→SM8550.
 
-#508 and M7's COMPLETE bodies have been reconciled to this order and read back;
-see `docs/qa-logs/2026-10-08-pixelelated-replacement-17/tracking/526-priority/`.
-Website#511 remains a separate Herdr lane waiting for the explicit trust answer;
-it does not block local instructions or firmware work.
+## Replacement18 COMPLETE engineering firmware, not an RC
 
-## Frozen replacement17 and artifact identities
-
-Build tree: /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement17
-branch build/m7-pixelelated-replacement17
-HEAD3756fde50e52b71b101a892a5b2862b708ad7b32
-ES1d76b3da7da75794066df1c089931b890304da7a
-Private build owner: /workspace/tmp/pixelelated-m7-replacement-17
-Input manifest000ceedbef677873c081ae7db4e2b3a7b31d57687ff7deb10a15c959ad9044aa
-6552source files /180symlinks /219QA inputs. Container/concurrency unchanged.
-Never edit its tracked files or advance its branch.
-
-Independent cache copy:2,527,791regular files, all channels0 and actual owners
-exited18:04UTC. Build completed643/643 image tasks; ORIGINAL aggregate1 at18:07:40
-was a host verifier following the guest locale symlink. #525 is closed completed:
-fresh corrected verification01 all assertions/11translations pass with unchanged
-firmware, and actual runtime catalogue proof passes. Preserve original rc1;
-derived completion.json records both lineages. No live container inspect was
-captured; logged pinned digest and pre/post image-ID checks are evidence, not an
-invented container ID.
+Build owner /workspace/tmp/pixelelated-m7-replacement-18; manifest
+56328e1756d3269b6d9b348344cebbdf00b8c0f3f4a11d246bca18938b259deb.
+6552 product files/180links/220QA tools; only product delta from17 is post-update.
+Independent cache copy passed checksums and2,532,291regular-file inode checks;
+all channels0 and actual owners exited. Build643/643 completed19:34:22UTC,
+all original channels0, exact corrected post-update and retained binaries verified.
+Observer caught real pinned container a62863d76b47af1e9a6562c4d66aaf718fa9ad3c15261d5105c91991f9274774;
+observer exited and container removed. Host preflights/guarded reclaim receipts kept.
 
 Immutable bundle:
-/workspace/artifacts/pixelelated-candidates/sha256/5f7b86dcd8ab4b54c2a97b6c7217eadc55031050a0e4c5e407b374627ba0c160
-IMG SHA86c8c35d18b11f85a6c443acafde59f0b58c714c7854ed84558c8f4d9f393a5f
-TAR SHA88ff5e130e8940cd5f41d039d632a8d26fc17321a716938a05d08f3a65ad3a90
-Disk/update SYSTEM SHA7cb35c1a7ccf96c941a72f07201f370f1e2b645c9bebc2937720755243f4197f
-Store/image owners completed with all channels0 and actual exits. Extracted
-/workspace/tmp/pixelelated-m7-image-17/root remains for immediately queued scans;
-retire it once no active/queued test requires it. The prior accepted16 bundle
-7f98f2d22985d11fe9c150015457894caf460104c9ce44abd16074167f23815a remains available
-for an in-place update fixture. Historical RC2 path x64-all-20260929-69e6039f8f
-has been retired; don't try that deleted path or recreate historical disk state.
+/workspace/artifacts/pixelelated-candidates/sha256/f557176651026f59bb5931993b12491a6019c0383321fb89fa1a05a596514fe6
+IMG SHA2d71337a27ca11da57eb4ce912b79f8677d0a72c13749cd973915442e6a52a42
+TAR SHAd5f92948794b1a4ae72478e615b25d4d0a5ee3de03c3d1a5429e4cc1a9135b68
+Image18 owner /workspace/tmp/pixelelated-m7-image-18 has verified equal disk/tar
+SYSTEM (read artifacts/payload-equality.json for hash), extracted root for queued
+QA. Store18 owner accepted all0. Compact110-file build/store/extraction packet
+is in docs/qa-logs/2026-10-08-pixelelated-replacement-18/ with build-packet-seal.json.
 
-## Completed actual CF10 evidence — runtime RETIRED
+## #526 correction fully installed/proved; reconcile closure/publication
 
-Portable packet: docs/qa-logs/2026-10-08-pixelelated-replacement-17/cf10/
-659file seals reverified. root-review.json maps28 directly reviewed frames:
-clean entry4, decline/confirmation4, created/repeat4, clean matrix8 and public
-matrix8. EN/FR640x480 and1280x800. Source overlays were not used for these
-installed-image screens/helpers. Boot was8f36ac2b-f178-4e94-85f0-e01db2371214.
+Actual replacement18 clean connection/check preserves all bytes/defaults;
+three public release20261001 config/filter cases retain /GAMES, /GAMES/backup,
+explicit content root/custom library, credentials and automatic choices.
+Whole INSTALLED post-update passes; owner melonDS INI/extra file/mode survive
+both complete runs;15 actual VM BusyBox controls pass on each. No source hook
+overlay. Prior17 old deletion and15negative controls remain intact. ES1d76 and
+all cloud/native/catalog inputs match17; its28 reviewed frames rehash and are
+retained as unchanged-source references, not newly captured18 screenshots.
+321-file packet cf10/ is sealed. CF10 runtime entirely RETIRED19:44:12UTC:
+/workspace/tmp/pixelelated-m7-cf10-18, QEMU206244, ports10230/5950/19085,
+private key/provider/disk removed;2,245,292,032allocated bytes reclaimed.
+Do not run the old CF10 scripts against that deleted scope.
 
-Clean connection/check writes nothing. Declined creation writes nothing.
-Saves-only creation writes only Saves children/notes and the required parent
-.layout=2 guard; settings/content and unrelated files stay unchanged. Repeat
-creation is idempotent. Public release20261001/c445081a59518f37d9776e5412dd7b14910696f7
-config/filter seeds preserve /GAMES and /GAMES/backup, absent new content default,
-explicit empty content root and Separate/Library. Credentials, auto choices and
-local/cloud payload hashes stay. Presence does not mean integrity/compatibility.
-Public config on fork-only GENERIC_X64 is NOT an upstream GENERIC_X64 image.
+Actual candidate16→18 update passed31checks (new build, save bytes/settings/
+cloud/backup/melonDS/private mode/startup/queue/quirk cleanup). All channels0,
+actual owners exited; guest/provider teardown verified. Compact33-file upgrade/
+packet retained. Runtime /workspace/tmp/pixelelated-m7-upgrade-18 RETIRED after
+acceptance (10,720,669,696bytes); its after-completion SSH read naturally refused
+because teardown already succeeded, not a boot failure. Do not rerun its deleted
+launcher. Public configuration proof is distinct from this fork-image update;
+no upstream GENERIC_X64 image is claimed.
 
-Original failed UI owners stay failed: ui-create01 used unsupported sleep after
-actual confirmation; ui-create02 oracle omitted source-required .layout;
-ui-clean-matrix01 pressed A on result prose without selecting an action. Fresh
-ui-create03 and ui-clean-matrix02 pass. Public-adoption01 failed at full hook
-melonDS tail; explicit-root/custom cases and fresh public-adoption-readback01
-prove cloud conversion separately, not a successful whole hook.
+Issue526 still needed closure/full #508/M7 body reconciliation and evidence
+publication at save. All its functional criteria are now proved; source fix is
+already published. New records are pending in coordinator. Run required gates,
+scoped commit/cherry-pick/push, hosted exact-head checks and full tracker readback.
+Do not close527 or claim final standard QA before its actual qualified results.
 
-All watchers/launchers ended and actual host PIDs were checked. Exact QEMU3897920
-and local WebDAV stopped; ports10230/5950/19085 closed. The ENTIRE
-/workspace/tmp/pixelelated-m7-cf10-17 scope was removed18:55:04UTC after acceptance,
-including disk and private QA key:2,251,255,808allocated bytes reclaimed.
-`cf10-retirement/receipt.json` retains proof. No CF10 guest, provider or test job
-is live. Do not run /tmp/m7_cf10_owner.py or other old CF10 scripts against it.
+## Remaining work and retention
 
-## #526 source fix — qualified, image inclusion still open
+Finish current full QA; fix/reprove527 and any real failures. Then matched H700,
+followed by SM8550. #344 source/licences, #359branding, #265publication/version
+and physical gates remain; no engineering artifact is designated an RC.
+#519 before owner device deployment; website511 separate Herdr trust pending.
+Candidate16 firmware supported the now-complete upgrade; replacement17 cache
+supported copy/binary equality. Review dependencies and retire superseded large
+payloads after the running timed VM QA permits heavy cleanup. This scheduling
+hold is not historical retention. Keep compact evidence and required source/
+licence inputs. No personal data cleanup has run.
 
-Actual old hook removes /storage/.config/melonDS then copies misspelled
-/usr/config/melondDS; GENERIC_X64 ships neither optional directory. Upstream
-62c343921d introduced it2026-09-06; #258 had recorded the observation.
-Current corrected source in coordinator post-update adds only missing HKKey_/
-HKJoy_ defaults atomically, keeps owner's values/unknown keys/extra files/modes,
-skips linked destinations and absent optional package/config. Launcher/first-boot
-seeding remains unchanged. Failed preparation/rename preserves original bytes.
-Already-deleted unknown values cannot be reconstructed.
-
-New tools/melonds-upgrade-test passes15 host controls using image BusyBox and15
-inside actual VM; old source fails all15. Actual old full hook deletes synthetic
-INI/extra file and returns1; corrected source full hook passes twice, with all
-cloud/payload/credential/choice/immutable-byte witnesses unchanged. That corrected
-hook ran from /storage, NOT installed /usr; replacement17 still has old code.
-See cf10/melonds526-vm01/ and cf10-local-review-526.md. Standard
-last-good-scripts-test invokes the regression; all three tool inventories are
-updated. Rules/register/index/gate checks must pass on integrated next before push.
-No package.mk or ES source changes are part of #526.
-
-Current scoped edits also reconcile canonical flow CF10 references, changelog,
-work/friction logs, checkpoint, #525 closure and #508/M7 priority receipts.
-Do not sweep unrelated coordinator history into publication.
-
-## Immediate continuation
-
-Consume any currently pending publication/check command, read actual git status,
-finish scoped commit/cherry-pick/push and verify remote plus hosted checks. Prepare
-replacement18 from the resulting full published hash. Prior
-/tmp/prepare-m7-replacement17.py is HISTORICAL, not safe to rerun: it expects16,
-old product diff and includes the host catalogue path bug. Adapt carefully to17→18,
-exact one product path post-update, and staged usr/config/locale. Rebuild/install
-rocknix and image; verify exact corrected installed post-update as well as all
-retained cloud/ES/native inputs. Add live container observation before fast build
-exit. Each long step uses fresh watch-build-submit ownership; submission is not
-completion. Root consumes all channels and actual exits, then moves straight on.
-
-Off-session alerts#395 are not configured. Status files do not notify chat.
-Keep active commentary/result consumption; a save checkpoint does not pause work.
+Useful helpers: /tmp/m7-consume18.py (cache/build/generic owner),
+/tmp/m7-archive18.py, /tmp/m7-archive-cf18.py, /tmp/m7-retire-cf18.py,
+/tmp/m7-retain-upgrade18.py have ALREADY executed; don't rerun fresh-owner
+preparations or retirement scripts. /tmp/m7-record18.py build-start already
+updated complete M7/#508/#526 bodies; use fresh updates for completion.

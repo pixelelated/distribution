@@ -11,10 +11,12 @@ next `bc4ae05d30`; ES `4e410dc9a8` is published and pinned. #515's finite case
 review and fixes #520/#521/#522/#523 are qualified and closed. Valid layouts
 stay in place; ambiguous locations keep instructions. #507's independent
 frozen delta audit and all four #524 findings are complete and published.
-Engineering firmware3756fde50e/ES1d76b3da7 now has actual installed CF10
-cloud-specific proof and 28 reviewed frames. Complete post-update exposed the
-inherited melonDS reset defect #526; its corrected source passes VM proof and
-still needs a new engineering image and final qualification. #511 owns the parallel website; guide
+Engineering replacement18 (7f58b7b1c5/ES1d76b3da7) now includes the inherited
+melonDS correction #526. Its actual installed clean/public CF10 checks and
+retained-storage update pass. Replacement17's 28 reviewed frames have identical
+ES/cloud-helper/catalog inputs; the nonvisual correction has separate installed
+proof. Standard VM/protocol qualification is running, including #527's alignment
+of older folder walks with the current path selector. #511 owns the parallel website; guide
 publication does not hold useful local instructions or add a firmware gate.
 
 ## Who is upgrading
@@ -59,7 +61,7 @@ The manual-setup draft removed that engine and its UI action but retained a
 `cloud_backup` warning directing nested-folder users to the removed TIDY
 action. Public ROCKNIX's nested backup default could trigger it. Commit
 `2cffff3f38` replaces that instruction with the independent folder settings;
-final firmware inclusion is still pending.
+replacement18 installed inclusion is verified; final release gates remain.
 
 ## Historical draft capabilities and gaps
 
@@ -132,7 +134,7 @@ establish the contract or qualify it with synthetic fixtures.
 
 ## Implemented flow and visual proof
 
-This is the #508/#510 source draft, not the accepted firmware. Category
+This is the implemented #508/#510 engineering flow; final release gates remain. Category
 switches select the scope of the next check/create action; they do not enable
 automatic sync or change its separate settings. Saves/settings start selected;
 ROMs, BIOS and game content start unselected. Linking alone moves no files
@@ -195,8 +197,9 @@ flowchart TD
 ```
 
 **Coverage record (D-WORKFLOW-155/156).** The completed disposable-VM packet
-contains 99 index entries: 89 reviewed frames, nine rejected frames, and CF10
-explicitly pending final firmware/public adoption. English and French at
+contains 99 historical index entries: 89 reviewed frames, nine rejected frames,
+and CF10 pending at that checkpoint. The installed CF10 supplements below
+provide its later firmware/public-configuration evidence. English and French at
 640×480 and 1280×800 are represented; this is the affected-flow inventory,
 not every possible locale/panel permutation or a new whole-app baseline.
 The [evidence index](../qa-logs/2026-10-07-cloud-validator/ui/evidence-index.json)
@@ -220,8 +223,16 @@ validates references, dimensions and digests, not semantic coverage. Source
 overlays do not replace the accepted firmware benchmark. The later
 [replacement17 CF10 packet](../qa-logs/2026-10-08-pixelelated-replacement-17/cf10/README.md)
 adds 28 reviewed installed-image frames and clean/public cloud preservation.
-It retains the complete update-hook failure #526 separately from cloud-specific
-acceptance; corrected hook inclusion and final qualification remain open.
+It retains the original complete update-hook failure #526 separately from cloud
+acceptance. The [replacement18 installed packet](../qa-logs/2026-10-08-pixelelated-replacement-18/cf10/README.md)
+proves the corrected whole hook, three public configuration cases, clean checks
+and owner-file preservation. Its [unchanged UI reference](../qa-logs/2026-10-08-pixelelated-replacement-18/cf10/unchanged-ui-reference.json)
+rehashes the 28 prior frames and identical installed UI/helper/catalog inputs;
+no new screenshot claim is made for this nonvisual correction. The
+[actual retained-storage rehearsal](../qa-logs/2026-10-08-pixelelated-replacement-18/upgrade/artifacts/rehearsal/rehearsal.log)
+passes 31 checks on the real16→18 update. #527 tracks old standard walk steps
+that omit the current intermediate path selector; final suite acceptance is
+separate from these completed proofs.
 
 The [standalone-save supplement](../qa-logs/2026-10-08-save-repair-cases/ui/evidence-index.json)
 adds ten reviewed frames for CF02/CF07/CF14 at distribution `1ee8e5199d`,
@@ -244,7 +255,7 @@ remains explicitly rejected. No UI wording changed for this coverage fix.
 | CF07 — cannot read/retry | Synthetic endpoint refuses or returns partial output; no false empty/success; retry uses the current config. | Failure/partial-output controls and [unreadable result](../qa-logs/2026-10-07-cloud-validator/ui/frames/en640-unreadable-result/01-unreadable-result.png); paused endpoint restored for subsequent successful retry. |
 | CF08 — no selection | Turn off every category; Check/Create asks for at least one item without contacting the cloud. | [Create refusal](../qa-logs/2026-10-07-cloud-validator/ui/frames/en640-no-selection/02-create-needs-selection.png) and [check refusal](../qa-logs/2026-10-07-cloud-validator/ui/frames/en640-no-selection/03-check-needs-selection.png); French equivalents indexed. |
 | CF09 — creation interrupted | Cancel/fail during creation; outcome explains retained folders and permits retry without moving user files. | [Cancellation](../qa-logs/2026-10-07-cloud-validator/ui/frames/en640-final-cancelled/01-cancelled-outcome.png) and [retry](../qa-logs/2026-10-07-cloud-validator/ui/frames/en640-final-retry/01-retry-result.png) with endpoint still paused/no child/unchanged inventory; [localized creation failure](../qa-logs/2026-10-07-cloud-validator/ui/supplemental/frames/walk-fr640-create-settings-failure-01-create-settings-failure.png) and [fresh check after retry](../qa-logs/2026-10-07-cloud-validator/ui/supplemental/frames/walk-fr640-create-retry-01-create-retry-current-check.png). Original failures remain rejected. |
-| CF10 — clean/public adoption | Fresh defaults and public ROCKNIX /GAMES plus /GAMES/backup remain distinct cases; preserve existing pointers/credentials/data. | [28 reviewed actual-image frames](../qa-logs/2026-10-08-pixelelated-replacement-17/cf10/root-review.json), clean link/decline/selected creation/idempotence and three public-config cases pass. Full installed post-update fails at inherited #526; corrected source VM proof passes, with new-image inclusion/final qualification pending. |
+| CF10 — clean/public adoption | Fresh defaults and public ROCKNIX /GAMES plus /GAMES/backup remain distinct cases; preserve existing pointers/credentials/data. | [28 reviewed actual-image frames](../qa-logs/2026-10-08-pixelelated-replacement-17/cf10/root-review.json), clean link/decline/selected creation/idempotence and three public-config cases pass. Replacement18 installed full post-update, all15 preservation controls and three public-config cases pass; actual16→18 retained-storage update has31PASS checks. The linked replacement18 supplement binds unchanged visual inputs. Final standard/protocol qualification remains. |
 | CF11 — nested-folder backup outcome | Back up with a settings/content path inside the saves path; review the actual transfer outcome and trace the script diagnostic separately. | [Small-panel backup result](../qa-logs/2026-10-07-cloud-validator/ui/supplemental/frames/walk-en640-nested-backup-02-backup-nested-outcome.png) and [large-panel result](../qa-logs/2026-10-07-cloud-validator/ui/supplemental/frames/walk-en1280-nested-backup-01-backup-nested-outcome.png). [Consumer trace](../qa-logs/2026-10-07-cloud-validator/ui/supplemental/receipts/nested-warning-completed-trace.json) proves the plain stdout warning is discarded; actual logs show both warnings fired. Payload hashes/nested sentinels verified; no visible warning is invented. |
 | CF12 — invalid folder-check response | Valid context but the check cannot supply a usable result; show the generic check-failed dialog, preserve selection, and allow another check. | [English refusal](../qa-logs/2026-10-07-cloud-validator/ui/supplemental/frames/walk-en640-invalid-01-invalid-result.png) and [French refusal](../qa-logs/2026-10-07-cloud-validator/ui/supplemental/frames/walk-fr1280-invalid-result-01-invalid-result.png) from actual execution fault; helper permissions/hash restored. This is distinct from valid unreadable-category findings. |
 | CF13 — scan interruption or failure | Cancel a scan, or change its config/encounter its lock; explain the actual outcome without claiming files moved or advancing with stale data. | [Cancel question](../qa-logs/2026-10-07-cloud-validator/ui/supplemental/frames/walk-en640-scan-cancel-01-scan-cancel-question.png), [cancelled outcome](../qa-logs/2026-10-07-cloud-validator/ui/supplemental/frames/walk-en640-scan-cancel-02-scan-cancelled.png), [changed settings](../qa-logs/2026-10-07-cloud-validator/ui/supplemental/frames/fault-settings-changed03-settings-changed-fixed.png), [retry](../qa-logs/2026-10-07-cloud-validator/ui/supplemental/frames/fault-settings-changed03-settings-changed-retry.png) and [busy check](../qa-logs/2026-10-07-cloud-validator/ui/supplemental/frames/walk-en640-scan-busy-01-scan-busy-fixed.png). Actual lock/config/cancellation controls and French frames indexed; no stale continuation or file movement. |
@@ -455,11 +466,11 @@ UI/runtime proof pass, including standalone progress coverage and actual native
 DuckStation capture/backup/restore. #515 and source fixes #520/#521/#522/#523 are
 closed with exact receipts. No generic relocation action was implemented.
 
-#507's independent audit and #524 resolutions are complete. Replacement17
-supplies installed cloud-specific CF10 proof; #526 corrects an inherited
-post-update defect before the next engineering image and final qualification
-under #508. Affected H700 followed by SM8550
-builds, source/licences and named physical/release gates follow. Source-overlay
+#507's independent audit and #524 resolutions are complete. Replacement18
+includes #526 and passes installed cloud/whole-hook and actual retained-storage
+update checks. Final standard/protocol qualification under #508, including #527's
+standard walk alignment, is current. Affected H700 followed by SM8550 builds,
+source/licences and named physical/release gates follow. Source-overlay
 proof does not establish those installed-image or physical results.
 
 ## Owner-managed alignment and private review
