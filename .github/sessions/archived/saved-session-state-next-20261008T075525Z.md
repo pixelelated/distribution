@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Saved: 2026-10-08T07:55:25.038312+00:00
+> Saved: 2026-10-08T07:40:46.701069+00:00
 > Coordinator: feature/conflict-resolution
 > Repository: pixelelated/distribution
 
@@ -10,9 +10,8 @@ pixelelated is an immutable handheld Linux distribution. Read AGENTS.md and
 canonical rules from `next`, this checkpoint and M7's live ordered body before
 working. Primary `/workspace/repos/rocknix` stays on `next`. Source integration
 `e6645cb5ea5ae3c7f699390a74b22d098fbeb7fb` and qualification evidence are published on next
-`bc4ae05d30531516ebd19b6b167fc994f368c4c3`; remote head was verified. Fresh-reader reconciliation is published on next
-`ac64c80628ad6d5a69b803d82f186472529f7cd7`, the frozen audit source. This
-follow-up records the actual active audit owner; product inputs are unchanged. Read actual HEAD/origin. ES remote test/qa-integration is verified at4e410dc9a8.
+`bc4ae05d30531516ebd19b6b167fc994f368c4c3`; remote head was verified. This
+follow-up records source closures and current audit handoff. Read actual HEAD/origin. ES remote test/qa-integration is verified at4e410dc9a8.
 
 Coordination `/workspace/repos/rocknix.worktrees/conflict-resolution` has
 divergent historical work: NEVER merge it wholesale into next. Commit only
@@ -52,18 +51,10 @@ new external dispatch. Do not restart completed audits.
 3. #508 coordinated product integration is e6645cb5ea: exact tested rclone and
    DuckStation paths from052771f05d plus matched ES4e410dc9 pin. Package lints and
    complete source/mode/alias equality pass. Coordination publication and
-   exact tracker/source readback and repository-only fresh-reader review are complete.
-   The fresh reader found stale M7 tails and a stale phase-rule sentence; both
-   were corrected and verified before audit freeze.
-4. #507 ACTIVE: fresh, independent scoped Milestone-delta code-auditor run under
-   sole serial owner `/root/m7_fresh_audit_owner`, started2026-10-08T07:53:05Z.
-   Worktree `/workspace/repos/rocknix.worktrees/m7-p5-audit-507`, branch
-   `feature/m7-p5-audit-507`. Audit folder
-   `docs/audits/2026_10_08-milestone-m7-p5-delta-507/` contains
-   `00-running-log.md` and `inputs/source-manifest.json`. Phase0 source freeze
-   isac64c80628ad6d5a69b803d82f186472529f7cd7/ES4e410dc9; Phase1 research
-   started. Read the actual log/agent status for newer progression; never
-   infer that this snapshot itself keeps the audit alive. Use primary plus verified
+   exact tracker/source readback are complete; fresh-reader review follows.
+4. #507 next: fresh, independent scoped Milestone-delta code-auditor run under
+   one serial owner. NOT STARTED at this checkpoint. Freeze the published input
+   commit and safe issue/source/evidence inventory. Use primary plus verified
    cross-lab reviewer through Facilitator, required blind/refutation passes,
    with continuous authorized execution. A status file is not an audit owner.
 5. Engineering GENERIC_X64 firmware supplies CF10 clean/public ROCKNIX adoption
@@ -156,13 +147,9 @@ Source overlays never replace accepted firmware/public-adoption proof.
 
 ## Runtime retirement and current workers
 
-All three implementation workers have completed. No compiler, guest, transfer
-or native emulator remains in their ownership. The separate audit owner above
-is active; root coordinates its tracker/checkpoint and result delivery without
-running parallel audit phases or changing frozen product source. Agent updates
-arrive through the collaboration mailbox while this session is active; no
-disconnected-alert claim is made. No provider call/runtime check had started
-at the07:53:05 setup observation. Follow the running log for current state.
+All three implementation workers have completed. No compiler, guest, transfer,
+native emulator or audit process remains in their ownership. Root owns current
+publication/tracker/checkpoint and the next fresh serial audit handoff.
 
 /root/rc_cloud_ui completed scoped retirement: provider stopped, QEMU815121
 exited through vm-stop, pidfile absent and SSH10220/VNC5940 refused. Exact scratch
@@ -242,13 +229,9 @@ tools/ceremony-check --gate; hooks-test passed after enumerations. Ceremony gate
 warned19closures before the five newly completed source tasks; read the current count. Audit owed,
 not waived, and warning does not prohibit qualified fix publication.
 
-For507, check the actual named agent and its running log first. It already
-read the complete canonical skill/references and owns serial continuation. Do
-not create a second orchestrator or restart Phase0. If the owner has stopped,
-resume that owner from its exact log under existing authorization; document
-the actual stop reason. Confirm concrete safe external payload/disclosure scope
-before provider dispatch. Root publishes handoff/evidence outside the frozen
-product inputs and does not mutate source in parallel. The successful fresh
-reader and corrected whole-body milestone/rule findings are recorded in
-`docs/qa-logs/2026-10-08-save-repair-cases/tracker/fresh-reader-priority-reconciliation.json`.
-Continue authorized work across checkpoints; a saved research file is not a pause.
+For507, read complete code-auditor skill and phase references fromnext, create
+fresh dated audit artifacts and exact immutable inputmanifest, confirm safe
+external payload scope before provider calls. One fresh serial auditor owns
+allphases; root does not mutate the frozen source from another lane. Supply the
+repository-only freshreader resume check per session-stash, correct any actual
+continuity gap, then continue authorized work rather than pausing at research.
