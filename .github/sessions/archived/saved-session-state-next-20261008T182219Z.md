@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Saved: 2026-10-08T18:22:19.897128+00:00
+> Saved: 2026-10-08T18:05:22.820319+00:00
 > Coordinator: feature/conflict-resolution
 > Repository: pixelelated/distribution
 
@@ -119,41 +119,24 @@ that concrete approval persists for this same blind/refutation scope. Do not res
    watcher3596017 and command3596046 absent. Root accepted18:04:06UTC;
    copy-verification.json and retained cache-completion/ bind the evidence.
    Fresh preflight READY:34,439MiB available RAM,8,189MiB free swap,1.7TiB disk.
-   Compilation/image generation COMPLETE643/643, but original aggregate ended1
-   at18:07:40 because its host verifier followed guest /usr/share/locale into
-   host /storage. All original rc1/logs/harness remain unchanged. Issue#525
-   owns this fixture defect. Fresh corrected read-only verification01 passed
-   every assembled assertion and11French messages with identical firmware
-   hashes, all four0 and actual owner exits accepted. Staged locale lives in
-   usr/config/locale; guest runtime alias is separately verified. No live
-   container inspect was captured before exit; Docker events rotated. Actual
-   logged pinned-digest command and pre/post image-ID checks are retained;
-   no observed container ID is claimed. No product source changed.
-   Derived owner/completion.json explicitly records both result lineages.
-   Immutable bundle accepted at
-   /workspace/artifacts/pixelelated-candidates/sha256/5f7b86dcd8ab4b54c2a97b6c7217eadc55031050a0e4c5e407b374627ba0c160.
-   IMG SHA86c8c35d18b11f85a6c443acafde59f0b58c714c7854ed84558c8f4d9f393a5f;
-   TAR SHA88ff5e130e8940cd5f41d039d632a8d26fc17321a716938a05d08f3a65ad3a90.
-   Store17 and image17 acceptance: four channels0 and actual host owners gone;
-   disk/update SYSTEM identical SHA7cb35c1a7ccf96c941a72f07201f370f1e2b645c9bebc2937720755243f4197f.
-   Extracted root /workspace/tmp/pixelelated-m7-image-17/root supports scans.
-   Guarded swap reclaim passed after compilation; no compile process remains.
-   CF10 fresh guest03 is LIVE: /workspace/tmp/pixelelated-m7-cf10-17/guest03,
-   QEMU3897920, owned vm.qcow2 and vm.pid; SSH10230, VNC5950,
-   monitor /tmp/pix508-cf10-17-mon.sock, serial /tmp/pix508-cf10-17-ser.sock.
-   Private key guest03/qa-key must never be archived. Raw guest.json has a stale
-   descriptive guest01 key label; exact launcher argv and owner-verification
-   bind guest03 correctly. Guest01 was unexecuted; guest02 failed before a
-   disk/key/VM existed due to artifact-name/socket loop-variable collision.
-   Its original four1 outcomes are preserved; guest03 scopes artifact_name.
-   Guest03 launch four0 and actual launcher exits accepted18:19UTC. Exact
-   BUILD_ID,22helper/default mappings, ES/native helpers/libcom_err and catalog
-   bytes pass; all11French messages pass via actual runtime alias. Initial
-   640x480 frame is reviewed; fresh cloud paths exactly/pixelelated defaults.
-   Boot ID8f36ac2b-f178-4e94-85f0-e01db2371214, ES PID1639 at last read.
-   No source overlays, personal cloud or device actions. Root continues CF10
-   synthetic clean linking/explicit creation and public configuration adoption;
-   those actions have NOT run yet, and no local provider has started.
+   Compilation STARTED18:04:25UTC under root owner, launcher3687796;
+   watcher run .build-runs/20261008T180419Z-7f560044. Read its actual
+   build.pid/watcher.pid/command.pid and owner/console.log; compilation is
+   active, not complete. Source/container/24-global/4-WebKit inputs pass.
+   Required terminal channels are owner/inner.rc,outer.rc,tool-wrapper.rc,
+   launcher-result.json and actual watcher build.rc plus host PID exits.
+   Do not edit scripts in flight or advance this frozen build checkout.
+   Prepared but NOT RUN: /workspace/tmp/pixelelated-m7-store-17/run.py;
+   /workspace/tmp/pixelelated-m7-image-17/outer.sh <bundle>;
+   /workspace/tmp/pixelelated-m7-cf10-17/guest01/outer.sh <bundle>.
+   Preparation copies and the affected qualification plan are retained in
+   docs/qa-logs/2026-10-08-pixelelated-replacement-17/. No VM is active.
+   Scripts rebuild rclone, ES and DuckStation, and verify installed helper/default
+   bytes, old migration absence, DuckStation0755/libcom_err, exact ES source and
+  11French translations. CMake regenerates POT/PO; do not compare generated
+   catalogue source bytes to Git. Candidate storage expects accepted build
+   completion.json and copy-verification.json; create genuine completion
+   evidence only after terminal results and actual exits are verified.
    Firmware supplies CF10 clean/public ROCKNIX adoption and final inclusion,
    then affected H700 followed by SM8550; source/licence/physical/release gates
    remain. This engineering run is not an RC designation or publication.
@@ -327,19 +310,22 @@ off-sessiondelivery395 and independent redundancy518 remain separate laterwork.
 
 ## Next commands and handoff checks
 
-The engineering artifacts and disk/update payload comparison are accepted;
-no compiler/store/extraction watcher remains. Preserve original build rc1 and
-corrected#525 verification rather than relabeling the first attempt. Audit
-#507/#524 is complete; do not repeat it. Current next publication iscee716b939
-from source410c09e236; later catalogue/guest receipts may still be uncommitted.
-Root now owns the LIVE guest03 above. Check actual pidfile/SSH/artifacts and
-continue CF10 actions using actual installed bytes. No local provider is up yet.
-Need clean-link no-write, selected creation, public-config adoption, EN/FR
-640x480/1280x800 frames and affected VM/protocol/preservation qualification.
-#525 has qualified host and runtime correction evidence; publish and close with
-its Already written line/complete criterion readback. No product fix or repeated
-external audit is implied. Archive/publish compact receipts while continuing
-work; a checkpoint is not a pause. Use fresh watcher owners for long actions.
+Consume the active replacement17 build console and actual watcher
+20261008T180419Z-7f560044. Cache copy is accepted complete; do not repeat it.
+All audit work, #507/#524 closures and hosted delivery checks are complete;
+do not restart them. Audit closure/build freeze is published on next2f2ec5af52
+from coordination76fc43966f; both hosted checks passed. #508's complete body
+has been reconciled with completed source/audit work; its image criteria stay open.
+
+For build completion read inner/outer/tool-wrapper/build.rc and launcher result,
+then actual host PID exits and assembled-source assertions. Preserve original
+failures and use a new owner for retries. Root actively supervises this job.
+After acceptance write actual completion.json, submit the prepared store17
+run.py under its fresh owner, then image17 extraction/equality, then CF10
+fresh guest/installed inclusion and clean/public configuration adoption tests.
+Run preparations from the frozen build worktree. Keep tests source-bound;
+never substitute the coordinator's historical package tree. Store/image/CF10
+owners are only prepared; no success or VM startup is implied.
 
 Before promoting a firmware claim: assembled-source checks, actual clean install
 and public ROCKNIX adoption (CF10), affected VM/protocol/UI/preservation checks.

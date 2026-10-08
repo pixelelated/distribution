@@ -1,0 +1,19 @@
+{
+  "at": "2026-10-08T18:17:52.322816+00:00",
+  "result": "FAIL prelaunch harness",
+  "issue": 525,
+  "channels": {
+    "inner.rc": "1",
+    "outer.rc": "1",
+    "tool-wrapper.rc": "1",
+    "build.rc": "1"
+  },
+  "pids_absent": [
+    3892028,
+    3892029,
+    3892030,
+    3892067
+  ],
+  "no_vm_created": true,
+  "cause": "loop reused artifact-name variable for socket preflight; manifest lookup refused before guest preparation"
+}

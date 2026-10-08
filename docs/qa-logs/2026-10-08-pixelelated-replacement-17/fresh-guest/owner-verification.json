@@ -1,0 +1,28 @@
+{
+  "at": "2026-10-08T18:19:48.287905+00:00",
+  "result": "PASS",
+  "channels": {
+    "inner.rc": "0",
+    "outer.rc": "0",
+    "tool-wrapper.rc": "0",
+    "build.rc": "0"
+  },
+  "launcher_pids_absent": [
+    3897488,
+    3897489,
+    3897490,
+    3897521
+  ],
+  "qemu_pid_live": 3897920,
+  "exact_owned_disk": "/workspace/tmp/pixelelated-m7-cf10-17/guest03/vm.qcow2",
+  "runtime_catalog": {
+    "passed": true,
+    "message_count": 11,
+    "staged_runtime_equal": true,
+    "runtime_sha256": "e08f41862a8f77391651ef0b3f513ccbee1cdf20a6e1e5d5f19b02dcc33ab01f",
+    "runtime_resolved_path": "/storage/.config/locale/fr/LC_MESSAGES/emulationstation2.mo",
+    "boot_id": "8f36ac2b-f178-4e94-85f0-e01db2371214"
+  },
+  "private_qa_key_custody": "guest03/qa-key; original guest.json qa_key label retained as stale descriptive field, actual SSH argv and current receipt bind correct file",
+  "scope": "fresh image boot and installed-byte/catalog inclusion only; CF10 actions and other VM suites pending"
+}

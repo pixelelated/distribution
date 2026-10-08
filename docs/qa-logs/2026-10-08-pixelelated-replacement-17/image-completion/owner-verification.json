@@ -1,0 +1,25 @@
+{
+  "verified_at": "2026-10-08T18:15:46.954116+00:00",
+  "result": "PASS",
+  "channels": {
+    "inner.rc": "0",
+    "outer.rc": "0",
+    "tool-wrapper.rc": "0",
+    "build.rc": "0"
+  },
+  "pids_absent": [
+    3884105,
+    3884106,
+    3884329,
+    3884472
+  ],
+  "payload": {
+    "candidate_bundle": "5f7b86dcd8ab4b54c2a97b6c7217eadc55031050a0e4c5e407b374627ba0c160",
+    "image_SYSTEM_sha256": "7cb35c1a7ccf96c941a72f07201f370f1e2b645c9bebc2937720755243f4197f",
+    "update_SYSTEM_sha256": "7cb35c1a7ccf96c941a72f07201f370f1e2b645c9bebc2937720755243f4197f",
+    "system_partition_start_sector": 8192,
+    "system_partition_end_sector": 8396799,
+    "same_bytes": true
+  },
+  "scope": "disk/update equality and extraction; VM acceptance pending"
+}

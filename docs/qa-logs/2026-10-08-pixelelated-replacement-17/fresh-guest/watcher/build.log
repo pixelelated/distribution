@@ -1,0 +1,9 @@
+/workspace/tmp/pixelelated-m7-cf10-17/guest03/create.py: OK
+/workspace/tmp/pixelelated-m7-cf10-17/guest03/run.sh: OK
+/workspace/tmp/pixelelated-m7-cf10-17/guest03/outer.sh: OK
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/5f7b86dcd8ab4b54c2a97b6c7217eadc55031050a0e4c5e407b374627ba0c160
+Image resized.
+[W][18:17:57.778673] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][18:17:57.778708] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+ready after ~31s
+PASS {"image": "/workspace/artifacts/pixelelated-candidates/sha256/5f7b86dcd8ab4b54c2a97b6c7217eadc55031050a0e4c5e407b374627ba0c160/pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz", "image_sha256": "86c8c35d18b11f85a6c443acafde59f0b58c714c7854ed84558c8f4d9f393a5f", "qemu_pid": 3897920, "ssh_port": 10230, "vnc_display": 50, "monitor": "/tmp/pix508-cf10-17-mon.sock", "serial": "/tmp/pix508-cf10-17-ser.sock", "resolution": "640x480", "command": ["/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement17/projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm", "run", "--headless", "--daemonize", "--gl", "none", "--res", "640x480", "--ssh-port", "10230", "--vnc", "50", "--monitor", "/tmp/pix508-cf10-17-mon.sock", "--serial", "/tmp/pix508-cf10-17-ser.sock", "--pidfile", "/workspace/tmp/pixelelated-m7-cf10-17/guest03/vm.pid", "--mac", "52:54:00:52:05:17", "/workspace/tmp/pixelelated-m7-cf10-17/guest03/vm.qcow2"], "elapsed_seconds": 38.952, "disk_logical_bytes": 2240413696, "disk_allocated_bytes": 2240356352, "owner": "root CF10 exclusive", "purpose": "#508 assembled-image clean/public configuration adoption; no source overlays", "build_readback": "BUILD_ID=\"3756fde50e52b71b101a892a5b2862b708ad7b32\"", "qa_key": "guest01/qa-key; private key never archived"}

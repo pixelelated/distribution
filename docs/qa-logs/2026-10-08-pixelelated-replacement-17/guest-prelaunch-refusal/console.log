@@ -1,0 +1,10 @@
+watch-build: recording in /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement17/.build-runs/20261008T181638Z-8a9ba317
+/workspace/tmp/pixelelated-m7-cf10-17/guest02/create.py: OK
+/workspace/tmp/pixelelated-m7-cf10-17/guest02/run.sh: OK
+/workspace/tmp/pixelelated-m7-cf10-17/guest02/outer.sh: OK
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/5f7b86dcd8ab4b54c2a97b6c7217eadc55031050a0e4c5e407b374627ba0c160
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-cf10-17/guest02/create.py", line 17, in <module>
+    assert digest==manifest['files'][name]['sha256']
+                   ~~~~~~~~~~~~~~~~~^^^^^^
+KeyError: '/tmp/pix508-cf10-17-ser.sock'

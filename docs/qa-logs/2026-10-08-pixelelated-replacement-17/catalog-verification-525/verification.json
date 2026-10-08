@@ -1,0 +1,45 @@
+{
+  "result": "PASS",
+  "at": "2026-10-08T18:12:23.156302+00:00",
+  "original_attempt": {
+    "channels": {
+      "inner.rc": "1",
+      "outer.rc": "1",
+      "tool-wrapper.rc": "1",
+      "build.rc": "1"
+    },
+    "pids_absent": [
+      3687796,
+      3687797,
+      3687798,
+      3687829
+    ],
+    "original_result": "FAILED post-build fixture; unchanged",
+    "cause": "host opened guest-runtime absolute symlink instead of staged catalog",
+    "build_tasks": "643/643",
+    "container_observation": "live inspect missed; pinned digest bound by actual logged invocation and pre/post image-ID checks; no observed container ID claimed"
+  },
+  "all_assembled_assertions": true,
+  "firmware_unchanged": true,
+  "artifacts": {
+    "pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz": {
+      "sha256": "86c8c35d18b11f85a6c443acafde59f0b58c714c7854ed84558c8f4d9f393a5f",
+      "bytes": 2073504996
+    },
+    "pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz.sha256": {
+      "sha256": "28c66f88526f02b2cbb11a108e14fe750313999193025206b91180b2e7df613b",
+      "bytes": 123
+    },
+    "pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.tar": {
+      "sha256": "88ff5e130e8940cd5f41d039d632a8d26fc17321a716938a05d08f3a65ad3a90",
+      "bytes": 2074357760
+    },
+    "pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.tar.sha256": {
+      "sha256": "2100d70d456cad0c85b2cd2619a59c915df5f1880231c23cea4cb847ccc7fab7",
+      "bytes": 120
+    }
+  },
+  "containers_mounting_frozen_tree": [],
+  "frozen_source_unchanged": true,
+  "correction": "host catalog path only; runtime link assertions added"
+}
