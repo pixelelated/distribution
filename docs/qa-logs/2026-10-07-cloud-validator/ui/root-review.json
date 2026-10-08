@@ -1,0 +1,31 @@
+{
+  "utc": "2026-10-08T02:05:41.283273+00:00",
+  "reviewer": "root",
+  "schema_and_frame_validation": "PASS",
+  "entry_counts": {
+    "reviewed": 39,
+    "rejected": 2,
+    "pending": 1
+  },
+  "reviewed_branches": [
+    "CF01",
+    "CF02",
+    "CF03",
+    "CF04",
+    "CF05",
+    "CF06",
+    "CF07",
+    "CF08",
+    "CF09"
+  ],
+  "explicit_carryforward_entries": 19,
+  "independently_viewed": [
+    "fr640-sealed-results/02-populated-findings.png",
+    "fr640-sealed-help/02-rom-instructions.png",
+    "en1280-sealed-check/01-folder-scope.png",
+    "fr1280-sealed-help/04-bios-instructions.png",
+    "en640-final-cancelled/01-cancelled-outcome.png"
+  ],
+  "observations": "Inspected final small French results and ROM help, large English scope and French BIOS help, and corrected cancellation outcome. Expected copy and paths readable; long results continue through reviewed scrolling states. Other frames retain the named UI reviewer and exact provenance.",
+  "limits": "Source-overlay proof only. CF10 final firmware/public adoption pending. Existing accepted firmware baseline unchanged."
+}

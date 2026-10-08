@@ -1,0 +1,248 @@
+{
+  "schema_version": 1,
+  "started_utc": "2026-10-08T02:16:14.140936+00:00",
+  "state": "complete",
+  "authorization": "Root delegated exact prepared plan execution under user retention policy; no guest actions.",
+  "plan_sha256": "fe4d0b11f19662e52d87518509b0227d0675b509b1879bbbac19478bac4d4577",
+  "packet_seal_before_sha256": "78ff148cd43d641921f42d786e718babf89704d4fbb46c5158600df3c7792041",
+  "packet_files_verified_before": 154,
+  "pid_namespace": "pid:[4026531836]",
+  "removed": [
+    {
+      "scope": "/workspace/tmp/pixelelated-510-es-ui/build01",
+      "files": 9,
+      "logical_bytes": 30964,
+      "allocated_bytes": 57344,
+      "directories": 3,
+      "ordered_path_and_content_sha256_digest": "265949071edb473b7de1dda6b72deea76fed6e6714f5c5d74c9510a6661eca9c"
+    },
+    {
+      "scope": "/workspace/tmp/pixelelated-510-es-ui/build02",
+      "files": 67,
+      "logical_bytes": 1595568,
+      "allocated_bytes": 1703936,
+      "directories": 5,
+      "ordered_path_and_content_sha256_digest": "31851b059f86ee2b247a7b3b0eb7d82f235d078cce551a34409018da32a75e9f"
+    },
+    {
+      "scope": "/workspace/tmp/pixelelated-510-es-ui/build03",
+      "files": 121,
+      "logical_bytes": 226347604,
+      "allocated_bytes": 226570240,
+      "directories": 7,
+      "ordered_path_and_content_sha256_digest": "8c94bd04acaa8e7a3bee03d3a4d5a854f899c7bd8f438af659cb5dd134c56ca5"
+    },
+    {
+      "scope": "/workspace/tmp/pixelelated-510-es-ui/build04",
+      "files": 38,
+      "logical_bytes": 39806139,
+      "allocated_bytes": 39915520,
+      "directories": 6,
+      "ordered_path_and_content_sha256_digest": "4c9d3c5079a977992fc54e7bf889b2800e622ffd6536bf6bacb30ce3138d38c0"
+    },
+    {
+      "scope": "/workspace/tmp/pixelelated-510-es-ui/build05",
+      "files": 34,
+      "logical_bytes": 37112347,
+      "allocated_bytes": 37212160,
+      "directories": 6,
+      "ordered_path_and_content_sha256_digest": "2d07823a480884bb441358e915ce606f6bbda65401d4f80641174116bb283f50"
+    },
+    {
+      "scope": "/workspace/tmp/pixelelated-510-es-ui/build06",
+      "files": 34,
+      "logical_bytes": 37113171,
+      "allocated_bytes": 37212160,
+      "directories": 6,
+      "ordered_path_and_content_sha256_digest": "a02814c38405ea3a7813f59ffb2762b0569391cb47574a6556357000d11c24e7"
+    },
+    {
+      "scope": "/workspace/tmp/pixelelated-510-es-ui/build07",
+      "files": 34,
+      "logical_bytes": 37113931,
+      "allocated_bytes": 37212160,
+      "directories": 6,
+      "ordered_path_and_content_sha256_digest": "5db4603a1c31d522440957673911a271635c975b79425189111333c4c0542d16"
+    },
+    {
+      "scope": "/workspace/tmp/pixelelated-510-es-ui/build08",
+      "files": 157,
+      "logical_bytes": 51149209,
+      "allocated_bytes": 51560448,
+      "directories": 50,
+      "ordered_path_and_content_sha256_digest": "7fcff0291b09690e9f8c4b6cd98f86b2c3a1e14b4f164f94646509d67639f54a"
+    },
+    {
+      "scope": "/workspace/tmp/pixelelated-510-es-ui/guest01",
+      "files": 25,
+      "logical_bytes": 41281,
+      "allocated_bytes": 106496,
+      "directories": 5,
+      "ordered_path_and_content_sha256_digest": "4b7d62a41ba04b45ee40b511e4649667e5380dba3893f8e74aba8a6d1fd71845"
+    },
+    {
+      "scope": "/workspace/tmp/pixelelated-510-es-ui/host01",
+      "files": 150,
+      "logical_bytes": 13512764,
+      "allocated_bytes": 13910016,
+      "directories": 51,
+      "ordered_path_and_content_sha256_digest": "110204800b3c202af31d00a764e2c0bfb1f00ec17e19030a519f8a458efa4afd"
+    },
+    {
+      "scope": "/workspace/tmp/pixelelated-510-es-ui/ui01",
+      "files": 179,
+      "logical_bytes": 5578014,
+      "allocated_bytes": 6115328,
+      "directories": 50,
+      "ordered_path_and_content_sha256_digest": "5e762f1b0fa028c0f0ebe3e13fa49f024e75c033a7868928144a1d77e1851b8c"
+    },
+    {
+      "scope": "/workspace/tmp/pixelelated-510-es-ui/ui02",
+      "files": 26,
+      "logical_bytes": 42262,
+      "allocated_bytes": 131072,
+      "directories": 5,
+      "ordered_path_and_content_sha256_digest": "eb72ab9ae884313494d7905e0f0607d18426e1e8d690d77b6cfacb75e361be1b"
+    },
+    {
+      "scope": "/workspace/tmp/pixelelated-510-es-ui/ui03",
+      "files": 25,
+      "logical_bytes": 41690,
+      "allocated_bytes": 126976,
+      "directories": 5,
+      "ordered_path_and_content_sha256_digest": "5d342c36daf244b2a4757ce13ba0dba37bc08df9adb054b46696af5cc5dbda95"
+    },
+    {
+      "scope": "/workspace/tmp/pixelelated-510-es-ui/ui04",
+      "files": 25,
+      "logical_bytes": 42195,
+      "allocated_bytes": 126976,
+      "directories": 5,
+      "ordered_path_and_content_sha256_digest": "71d86b84b2da261f3484d9ac5259ac70ee29fa2e31d77aec1723cba863dbd9c5"
+    },
+    {
+      "scope": "/workspace/tmp/pixelelated-510-es-ui/ui05",
+      "files": 24,
+      "logical_bytes": 43393,
+      "allocated_bytes": 122880,
+      "directories": 5,
+      "ordered_path_and_content_sha256_digest": "68816d87eaa75ba5a7072a210a705f7d6bf05735deff94f7f1e2ca8270ec9371"
+    },
+    {
+      "scope": "/workspace/tmp/pixelelated-510-es-ui/ui06",
+      "files": 25,
+      "logical_bytes": 42223,
+      "allocated_bytes": 126976,
+      "directories": 5,
+      "ordered_path_and_content_sha256_digest": "cc9b350ba694857006cc9c3ca9628f8daf43e6a28cde278b850fb049a632e688"
+    },
+    {
+      "scope": "/workspace/tmp/pixelelated-510-es-ui/ui07",
+      "files": 26,
+      "logical_bytes": 45848,
+      "allocated_bytes": 131072,
+      "directories": 5,
+      "ordered_path_and_content_sha256_digest": "bccdccb94fc8c12b1039a3a26247b09d49162af00d213cee9b7158af7088380a"
+    },
+    {
+      "scope": "/workspace/tmp/pixelelated-510-es-ui/ui08",
+      "files": 24,
+      "logical_bytes": 44112,
+      "allocated_bytes": 122880,
+      "directories": 5,
+      "ordered_path_and_content_sha256_digest": "8a02f1a67236c354cf9543df7f18d734c4c6737aee2556854fb4b216bccd68cd"
+    },
+    {
+      "scope": "/workspace/tmp/pixelelated-510-es-ui/ui09",
+      "files": 25,
+      "logical_bytes": 43149,
+      "allocated_bytes": 126976,
+      "directories": 5,
+      "ordered_path_and_content_sha256_digest": "629b6741340eb797989808dbcac11153cd989441cd7d8455011ab1365e66d2bc"
+    },
+    {
+      "scope": "/workspace/tmp/pixelelated-510-es-ui/ui10",
+      "files": 24,
+      "logical_bytes": 50542,
+      "allocated_bytes": 131072,
+      "directories": 5,
+      "ordered_path_and_content_sha256_digest": "112fe6ef40f9c7bfc518e360eb948e63c00b5328fddc6632dfdf24cb4291dc59"
+    }
+  ],
+  "protected_before": {
+    "artifact_hashes": {
+      "/workspace/tmp/pixelelated-510-es-ui/build08/emulationstation": "4926f10e128807d480dc080ea58488bb618aa75e866f99cae33ee55ce6d14e00",
+      "/workspace/tmp/pixelelated-510-es-ui/build08/artifacts/fr.mo": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125"
+    },
+    "guest_identities": {}
+  },
+  "root_guest_retirement": {
+    "receipt": "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-07-cloud-validator/roundtrip/guest-retirement.json",
+    "sha256": "e99b65a65984b8115c2b7e4f91b8c3e7fbc7487296c750d28ba9d9c7dbabf089",
+    "note": "Root completed both ordinary suites and retired guest before this cleanup began."
+  },
+  "process_check": {
+    "utc": "2026-10-08T02:16:14.367823+00:00",
+    "processes_examined": 578,
+    "matching_processes": [],
+    "same_uid_unreadable_dependencies": [
+      2325,
+      2342,
+      564119,
+      2880345
+    ],
+    "guest_pid_preserved": null,
+    "classified_unreadable_session_services": [
+      {
+        "pid": 2325,
+        "role": "systemd",
+        "reason": "Privileged user/session service; no command scope match. All readable descendants checked."
+      },
+      {
+        "pid": 2342,
+        "role": "(sd-pam)",
+        "reason": "Privileged user/session service; no command scope match. All readable descendants checked."
+      },
+      {
+        "pid": 564119,
+        "role": "ssh-agent",
+        "reason": "Privileged user/session service; no command scope match. All readable descendants checked."
+      },
+      {
+        "pid": 2880345,
+        "role": "sshd-session",
+        "reason": "Privileged user/session service; no command scope match. All readable descendants checked."
+      }
+    ],
+    "unclassified_unreadable_dependencies": []
+  },
+  "container_mount_check": {
+    "running_containers": 16,
+    "matching_mounts": []
+  },
+  "filesystem_available_bytes_before": 1952044929024,
+  "finished_utc": "2026-10-08T02:16:14.553976+00:00",
+  "protected_after": {
+    "artifact_hashes": {
+      "/workspace/tmp/pixelelated-510-es-ui/build08/emulationstation": "4926f10e128807d480dc080ea58488bb618aa75e866f99cae33ee55ce6d14e00",
+      "/workspace/tmp/pixelelated-510-es-ui/build08/artifacts/fr.mo": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125"
+    },
+    "guest_identities": {},
+    "guest_pid_alive": null
+  },
+  "removed_files": 1072,
+  "removed_directories": 240,
+  "retired_logical_bytes": 449796406,
+  "retired_allocated_bytes": 452722688,
+  "filesystem_available_bytes_after": 1952498614272,
+  "filesystem_available_delta_bytes": 453685248,
+  "free_space_caveat": "Concurrent ordinary QA is active; filesystem delta is observational, not a solely attributed cleanup measure.",
+  "original_packet_verified_after": true,
+  "untouched": [
+    "guest input, guest disk contents, guest key, guest processes",
+    "source checkouts",
+    "accepted build roots",
+    "shared rclone",
+    "original failure logs in canonical packet"
+  ]
+}

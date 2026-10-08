@@ -1,0 +1,18 @@
+key z
+wait-for-change
+key down
+wait-for-change
+shot rom-missing
+key x
+wait-for-change
+settle
+shot rom-instructions
+key z
+wait-for-change
+key down
+wait-for-change
+shot bios-missing
+key x
+wait-for-change
+settle
+shot bios-instructions

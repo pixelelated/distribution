@@ -1,0 +1,21 @@
+key down x3
+wait-for-change
+shot misplaced-roms
+key x
+wait-for-change
+settle
+shot rom-instructions
+key z
+wait-for-change
+key down
+wait-for-change
+shot missing-bios
+key x
+wait-for-change
+settle
+shot bios-instructions
+key z
+wait-for-change
+key down
+wait-for-change
+shot game-content-found

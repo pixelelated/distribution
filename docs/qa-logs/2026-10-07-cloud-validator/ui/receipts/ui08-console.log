@@ -1,0 +1,15 @@
+watch-build: recording in /workspace/tmp/pixelelated-510-es-ui/ui08/.build-runs/20261008T015451Z-fe872a06
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-510-es-ui/ui08/walk.py", line 4, in <module>
+    remote('. /etc/profile >/dev/null 2>&1; systemctl stop essway; swaymsg output Virtual-1 mode --custom 1280x800@60Hz')
+    ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tmp/pixelelated-510-es-ui/ui01/control.py", line 6, in remote
+    def remote(cmd):return run(['ssh','-i',KEY,'-p',PORT,*OPT,'root@127.0.0.1',cmd],capture_output=True,text=True,timeout=120).stdout
+                           ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tmp/pixelelated-510-es-ui/ui01/control.py", line 5, in run
+    def run(a,**kw):return subprocess.run([str(x) for x in a],check=True,**kw)
+                           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['ssh', '-i', '/workspace/tmp/pixelelated-510-es-ui/guest02/qa-key', '-p', '10210', '-o', 'StrictHostKeyChecking=no', '-o', 'UserKnownHostsFile=/dev/null', '-o', 'BatchMode=yes', '-o', 'LogLevel=ERROR', '-o', 'ConnectTimeout=8', 'root@127.0.0.1', '. /etc/profile >/dev/null 2>&1; systemctl stop essway; swaymsg output Virtual-1 mode --custom 1280x800@60Hz']' returned non-zero exit status 1.

@@ -1,0 +1,143 @@
+{
+  "utc": "2026-10-08T02:07:20.230406+00:00",
+  "state": "prepared, not executed",
+  "owner": "root coordinator after packet seal review",
+  "root": "/workspace/tmp/pixelelated-510-es-ui",
+  "candidates": [
+    {
+      "scope": "/workspace/tmp/pixelelated-510-es-ui/build01",
+      "files": 9,
+      "bytes": 30964,
+      "exclusions": []
+    },
+    {
+      "scope": "/workspace/tmp/pixelelated-510-es-ui/build02",
+      "files": 67,
+      "bytes": 1595568,
+      "exclusions": []
+    },
+    {
+      "scope": "/workspace/tmp/pixelelated-510-es-ui/build03",
+      "files": 121,
+      "bytes": 226347604,
+      "exclusions": []
+    },
+    {
+      "scope": "/workspace/tmp/pixelelated-510-es-ui/build04",
+      "files": 38,
+      "bytes": 39806139,
+      "exclusions": []
+    },
+    {
+      "scope": "/workspace/tmp/pixelelated-510-es-ui/build05",
+      "files": 34,
+      "bytes": 37112347,
+      "exclusions": []
+    },
+    {
+      "scope": "/workspace/tmp/pixelelated-510-es-ui/build06",
+      "files": 34,
+      "bytes": 37113171,
+      "exclusions": []
+    },
+    {
+      "scope": "/workspace/tmp/pixelelated-510-es-ui/build07",
+      "files": 34,
+      "bytes": 37113931,
+      "exclusions": []
+    },
+    {
+      "scope": "/workspace/tmp/pixelelated-510-es-ui/build08",
+      "files": 157,
+      "bytes": 51149209,
+      "exclusions": [
+        "/workspace/tmp/pixelelated-510-es-ui/build08/artifacts/fr.mo",
+        "/workspace/tmp/pixelelated-510-es-ui/build08/emulationstation"
+      ]
+    },
+    {
+      "scope": "/workspace/tmp/pixelelated-510-es-ui/guest01",
+      "files": 25,
+      "bytes": 41281,
+      "exclusions": []
+    },
+    {
+      "scope": "/workspace/tmp/pixelelated-510-es-ui/host01",
+      "files": 150,
+      "bytes": 13512764,
+      "exclusions": []
+    },
+    {
+      "scope": "/workspace/tmp/pixelelated-510-es-ui/ui01",
+      "files": 179,
+      "bytes": 5578014,
+      "exclusions": []
+    },
+    {
+      "scope": "/workspace/tmp/pixelelated-510-es-ui/ui02",
+      "files": 26,
+      "bytes": 42262,
+      "exclusions": []
+    },
+    {
+      "scope": "/workspace/tmp/pixelelated-510-es-ui/ui03",
+      "files": 25,
+      "bytes": 41690,
+      "exclusions": []
+    },
+    {
+      "scope": "/workspace/tmp/pixelelated-510-es-ui/ui04",
+      "files": 25,
+      "bytes": 42195,
+      "exclusions": []
+    },
+    {
+      "scope": "/workspace/tmp/pixelelated-510-es-ui/ui05",
+      "files": 24,
+      "bytes": 43393,
+      "exclusions": []
+    },
+    {
+      "scope": "/workspace/tmp/pixelelated-510-es-ui/ui06",
+      "files": 25,
+      "bytes": 42223,
+      "exclusions": []
+    },
+    {
+      "scope": "/workspace/tmp/pixelelated-510-es-ui/ui07",
+      "files": 26,
+      "bytes": 45848,
+      "exclusions": []
+    },
+    {
+      "scope": "/workspace/tmp/pixelelated-510-es-ui/ui08",
+      "files": 24,
+      "bytes": 44112,
+      "exclusions": []
+    },
+    {
+      "scope": "/workspace/tmp/pixelelated-510-es-ui/ui09",
+      "files": 25,
+      "bytes": 43149,
+      "exclusions": []
+    },
+    {
+      "scope": "/workspace/tmp/pixelelated-510-es-ui/ui10",
+      "files": 24,
+      "bytes": 50542,
+      "exclusions": []
+    }
+  ],
+  "preserve": [
+    "/workspace/tmp/pixelelated-510-es-ui/guest02",
+    "/workspace/tmp/pixelelated-510-es-ui/build08/emulationstation",
+    "/workspace/tmp/pixelelated-510-es-ui/build08/artifacts/fr.mo"
+  ],
+  "preconditions": [
+    "No UI worker or compiler remains active.",
+    "Keep the root-owned guest, key, QEMU files, and final binary/catalog until immediate tests finish.",
+    "Do not touch source checkouts, accepted build roots, shared rclone, or any path outside this task root.",
+    "Verify canonical packet SHA256SUMS before retiring raw duplicate frames, logs, and object caches."
+  ],
+  "bytes_excluding_preserved": 449796406
+}

@@ -1,0 +1,3 @@
+  70144   69551   69452 sh -c -- setsid sh -c 'echo ">>> pid $$"; { trap '\'''\'' PIPE; /usr/bin/cloud_setup --seed-folders '\''saves,settings'\'' ; }' 2>&1
+  70145   70144   70145 sh -c echo ">>> pid $$"; { trap '' PIPE; /usr/bin/cloud_setup --seed-folders 'saves,settings' ; }
+  70146   70145   70145 /bin/bash /usr/bin/cloud_setup --seed-folders saves,settings
