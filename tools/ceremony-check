@@ -90,13 +90,19 @@ def completed_audit_marker(marker, root, now):
     if not audit.is_relative_to(root / 'docs/audits') or marker.is_symlink():
         raise ValueError('completion marker outside audit directory')
     data = json.loads(marker.read_text())
+    if not isinstance(data, dict):
+        raise ValueError('completion marker must be a JSON object')
     if data.get('schema') != 1 or type(data.get('issue')) is not int:
         raise ValueError('invalid completed-audit schema')
+    if not isinstance(data['completed_at'], str):
+        raise ValueError('completion time must be a string')
     ended = dt.datetime.fromisoformat(data['completed_at'].replace('Z', '+00:00'))
     if ended.tzinfo is None or ended > now:
         raise ValueError('completion time is unzoned or in the future')
     required = {str((audit / name).relative_to(root)) for name in ['04-analysis.md', '05-punch-list.md']}
     required.update([data['tracker_readback'], data['tracker_completion']])
+    if not isinstance(data['evidence'], dict):
+        raise ValueError('completion evidence must be a JSON object')
     if not required.issubset(data['evidence']):
         raise ValueError('completion receipt omits required evidence')
     for name, expected in data['evidence'].items():
@@ -107,12 +113,16 @@ def completed_audit_marker(marker, root, now):
             if hashlib.file_digest(stream, 'sha256').hexdigest() != expected:
                 raise ValueError('completion evidence changed: ' + name)
     issue = json.loads((root / data['tracker_readback']).read_text())
+    if not isinstance(issue, dict):
+        raise ValueError('audit tracker readback must be a JSON object')
     if (issue.get('number') != data['issue'] or issue.get('state') != 'closed'
             or issue.get('state_reason') != 'completed'
             or not re.search(r'^\s*- \[x\]', issue.get('body', ''), re.M)
             or re.search(r'^\s*- \[ \]', issue.get('body', ''), re.M)):
         raise ValueError('audit issue is not checked and completed')
     receipt = json.loads((root / data['tracker_completion']).read_text())
+    if not isinstance(receipt, dict):
+        raise ValueError('tracker completion receipt must be a JSON object')
     if (receipt.get('result') != 'PASS' or not receipt.get('exact_bodies_and_states')
             or data['issue'] not in receipt.get('closed_completed', [])
             or receipt.get('verified_utc') != data['completed_at']):
