@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "utc": "2026-10-08T02:16:55.564297+00:00",
+  "state": "complete",
+  "authorization": "Root separately authorized final build08 binary/catalog retirement after both ordinary VM suites finished and guest was retired.",
+  "guest_retirement_receipt": "../../roundtrip/guest-retirement.json",
+  "guest_retirement_sha256": "e99b65a65984b8115c2b7e4f91b8c3e7fbc7487296c750d28ba9d9c7dbabf089",
+  "process_check": {
+    "pid_namespace": "pid:[4026531836]",
+    "processes_examined": 572,
+    "matching_processes": [],
+    "former_guest_pid_absent": 3331538
+  },
+  "retired": [
+    {
+      "path": "/workspace/tmp/pixelelated-510-es-ui/build08/artifacts/fr.mo",
+      "sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+      "logical_bytes": 177639,
+      "allocated_bytes": 180224,
+      "inode": 87349115,
+      "device": 66304
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-510-es-ui/build08/emulationstation",
+      "sha256": "4926f10e128807d480dc080ea58488bb618aa75e866f99cae33ee55ce6d14e00",
+      "logical_bytes": 237194008,
+      "allocated_bytes": 237195264,
+      "inode": 87349128,
+      "device": 66304
+    }
+  ],
+  "retired_files": 2,
+  "retired_logical_bytes": 237371647,
+  "retired_allocated_bytes": 237375488,
+  "filesystem_available_delta_bytes": 237379584,
+  "scratch_root_absent": "/workspace/tmp/pixelelated-510-es-ui",
+  "source_checkouts_accepted_build_roots_shared_rclone": "untouched",
+  "failed_logs": "unchanged in canonical packet"
+}

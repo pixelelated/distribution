@@ -1,0 +1,36 @@
+key down x3
+wait-for-change
+shot misplaced-roms
+key x
+wait-for-change
+settle
+shot rom-instructions
+key z
+wait-for-change
+key down
+wait-for-change
+shot missing-bios
+key x
+wait-for-change
+settle
+shot bios-instructions
+key z
+wait-for-change
+key z
+wait-for-change
+key down x2
+wait-for-change
+key x
+wait-for-change
+settle
+shot independent-paths
+key z
+wait-for-change
+key up x3
+wait-for-change
+key x
+wait-for-change
+settle
+shot create-confirmation
+key z
+wait-for-change

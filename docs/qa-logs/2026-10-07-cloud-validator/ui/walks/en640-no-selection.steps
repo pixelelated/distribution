@@ -1,0 +1,25 @@
+key x
+wait-for-change
+key down x2
+wait-for-change
+key x
+wait-for-change
+key z
+wait-for-change
+key x
+wait-for-change
+shot none-selected
+key up x3
+wait-for-change
+key x
+wait-for-change
+settle
+shot create-needs-selection
+key x
+wait-for-change
+key up
+wait-for-change
+key x
+wait-for-change
+settle
+shot check-needs-selection

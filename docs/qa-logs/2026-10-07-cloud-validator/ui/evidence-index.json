@@ -1,0 +1,2751 @@
+{
+  "schema_version": 1,
+  "entries": [
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF01",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Confirm normal synthetic WebDAV link",
+      "expected_state": "Category scope; no provider files or folders created by linking",
+      "source": {
+        "es_commit": "df68b7e60b654743ea6a4caf4392d006b87ab3b3",
+        "es_binary_sha256": "917c2f236fa35cf9da50286679e760fc11644e7e2f335d47f63393e737cabed7",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "75d44aea8e21cada689a47159e2ad361bb45067b",
+        "overlay_hashes": {
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_folder_validate": "114ccf19842f8b10bae449672a3d0ca6221c013e94a32fd8ccb408e4ab9d4e4e",
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "dfb2785ff207d64504e580724d03d3a030770bc35026597cbccf258eb931e3d9",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "source overlay on retained candidate; not assembled firmware or public ROCKNIX adoption"
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "frame": "frames/en640-link-complete/01-folder-scope.png",
+      "sha256": "20575ab05cad6014594072f89c533bbf5eecf4be3708e1a7a68173aab2cdc3f5",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:02:34.906049+00:00",
+        "observed": "Observed expected state; copy, paths, navigation, and visible layout reviewed."
+      },
+      "carried_forward_from": {
+        "es_commit": "df68b7e60b654743ea6a4caf4392d006b87ab3b3",
+        "distribution_commit": "75d44aea8e21cada689a47159e2ad361bb45067b",
+        "frame": "frames/en640-link-complete/01-folder-scope.png",
+        "justification": "Later changes preserve these screen strings, layout, selection callbacks, and provider/path setters. The creation process-group fix is superseded where noted; byte-preserving JSON transport changes only chunk handling; final helper changes only flat-ROM classification and restore-root handling. This frame proves only its named branch and original tested bytes."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF02",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Check all five absent selected folders",
+      "expected_state": "Completed metadata check with missing findings",
+      "source": {
+        "es_commit": "df68b7e60b654743ea6a4caf4392d006b87ab3b3",
+        "es_binary_sha256": "917c2f236fa35cf9da50286679e760fc11644e7e2f335d47f63393e737cabed7",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "75d44aea8e21cada689a47159e2ad361bb45067b",
+        "overlay_hashes": {
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_folder_validate": "114ccf19842f8b10bae449672a3d0ca6221c013e94a32fd8ccb408e4ab9d4e4e",
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "dfb2785ff207d64504e580724d03d3a030770bc35026597cbccf258eb931e3d9",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "source overlay on retained candidate; not assembled firmware or public ROCKNIX adoption"
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "frame": "frames/en640-check-missing/02-missing-results.png",
+      "sha256": "a23cbfe8457556ae7fbbcdab737aaba1eac5ea87704c31586ef00b9719adc3e2",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:02:34.906467+00:00",
+        "observed": "Observed expected state; copy, paths, navigation, and visible layout reviewed."
+      },
+      "carried_forward_from": {
+        "es_commit": "df68b7e60b654743ea6a4caf4392d006b87ab3b3",
+        "distribution_commit": "75d44aea8e21cada689a47159e2ad361bb45067b",
+        "frame": "frames/en640-check-missing/02-missing-results.png",
+        "justification": "Later changes preserve these screen strings, layout, selection callbacks, and provider/path setters. The creation process-group fix is superseded where noted; byte-preserving JSON transport changes only chunk handling; final helper changes only flat-ROM classification and restore-root handling. This frame proves only its named branch and original tested bytes."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF03",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Create with saves selected alone",
+      "expected_state": "Confirmation names folders/notes and promises no moving",
+      "source": {
+        "es_commit": "df68b7e60b654743ea6a4caf4392d006b87ab3b3",
+        "es_binary_sha256": "917c2f236fa35cf9da50286679e760fc11644e7e2f335d47f63393e737cabed7",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "75d44aea8e21cada689a47159e2ad361bb45067b",
+        "overlay_hashes": {
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_folder_validate": "114ccf19842f8b10bae449672a3d0ca6221c013e94a32fd8ccb408e4ab9d4e4e",
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "dfb2785ff207d64504e580724d03d3a030770bc35026597cbccf258eb931e3d9",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "source overlay on retained candidate; not assembled firmware or public ROCKNIX adoption"
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "frame": "frames/en640-create-saves/01-create-confirmation.png",
+      "sha256": "cfebda3954ac6d094a76ae69077876ad9575e624272512f1594266ecd4a4da8f",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:02:34.906880+00:00",
+        "observed": "Observed expected state; copy, paths, navigation, and visible layout reviewed."
+      },
+      "carried_forward_from": {
+        "es_commit": "df68b7e60b654743ea6a4caf4392d006b87ab3b3",
+        "distribution_commit": "75d44aea8e21cada689a47159e2ad361bb45067b",
+        "frame": "frames/en640-create-saves/01-create-confirmation.png",
+        "justification": "Later changes preserve these screen strings, layout, selection callbacks, and provider/path setters. The creation process-group fix is superseded where noted; byte-preserving JSON transport changes only chunk handling; final helper changes only flat-ROM classification and restore-root handling. This frame proves only its named branch and original tested bytes."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF03",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Confirm saves-only creation",
+      "expected_state": "Fresh check reports no files; unselected roots remain absent",
+      "source": {
+        "es_commit": "df68b7e60b654743ea6a4caf4392d006b87ab3b3",
+        "es_binary_sha256": "917c2f236fa35cf9da50286679e760fc11644e7e2f335d47f63393e737cabed7",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "75d44aea8e21cada689a47159e2ad361bb45067b",
+        "overlay_hashes": {
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_folder_validate": "114ccf19842f8b10bae449672a3d0ca6221c013e94a32fd8ccb408e4ab9d4e4e",
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "dfb2785ff207d64504e580724d03d3a030770bc35026597cbccf258eb931e3d9",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "source overlay on retained candidate; not assembled firmware or public ROCKNIX adoption"
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "frame": "frames/en640-create-saves/02-creation-result.png",
+      "sha256": "7d6c65407f785753f341fde742586f074b289d1ce1cdb9ec88ea9839efcf0791",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:02:34.907200+00:00",
+        "observed": "Observed expected state; copy, paths, navigation, and visible layout reviewed."
+      },
+      "carried_forward_from": {
+        "es_commit": "df68b7e60b654743ea6a4caf4392d006b87ab3b3",
+        "distribution_commit": "75d44aea8e21cada689a47159e2ad361bb45067b",
+        "frame": "frames/en640-create-saves/02-creation-result.png",
+        "justification": "Later changes preserve these screen strings, layout, selection callbacks, and provider/path setters. The creation process-group fix is superseded where noted; byte-preserving JSON transport changes only chunk handling; final helper changes only flat-ROM classification and restore-root handling. This frame proves only its named branch and original tested bytes."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF04",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Open ROMs See instructions",
+      "expected_state": "Local expected path and manual guidance; no URL, QR, or Fix",
+      "source": {
+        "es_commit": "df68b7e60b654743ea6a4caf4392d006b87ab3b3",
+        "es_binary_sha256": "917c2f236fa35cf9da50286679e760fc11644e7e2f335d47f63393e737cabed7",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "75d44aea8e21cada689a47159e2ad361bb45067b",
+        "overlay_hashes": {
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_folder_validate": "114ccf19842f8b10bae449672a3d0ca6221c013e94a32fd8ccb408e4ab9d4e4e",
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "dfb2785ff207d64504e580724d03d3a030770bc35026597cbccf258eb931e3d9",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "source overlay on retained candidate; not assembled firmware or public ROCKNIX adoption"
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "frame": "frames/en640-rom-bios-help/02-rom-instructions.png",
+      "sha256": "ba5ce0dc7fce42ee1c0b1bb7bbd8acdc6753d936ba823ac7b791c76c0349dd99",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:02:34.907479+00:00",
+        "observed": "Observed expected state; copy, paths, navigation, and visible layout reviewed."
+      },
+      "carried_forward_from": {
+        "es_commit": "df68b7e60b654743ea6a4caf4392d006b87ab3b3",
+        "distribution_commit": "75d44aea8e21cada689a47159e2ad361bb45067b",
+        "frame": "frames/en640-rom-bios-help/02-rom-instructions.png",
+        "justification": "Later changes preserve these screen strings, layout, selection callbacks, and provider/path setters. The creation process-group fix is superseded where noted; byte-preserving JSON transport changes only chunk handling; final helper changes only flat-ROM classification and restore-root handling. This frame proves only its named branch and original tested bytes."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF04",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Open BIOS See instructions",
+      "expected_state": "Local expected path and manual guidance; no URL, QR, or Fix",
+      "source": {
+        "es_commit": "df68b7e60b654743ea6a4caf4392d006b87ab3b3",
+        "es_binary_sha256": "917c2f236fa35cf9da50286679e760fc11644e7e2f335d47f63393e737cabed7",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "75d44aea8e21cada689a47159e2ad361bb45067b",
+        "overlay_hashes": {
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_folder_validate": "114ccf19842f8b10bae449672a3d0ca6221c013e94a32fd8ccb408e4ab9d4e4e",
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "dfb2785ff207d64504e580724d03d3a030770bc35026597cbccf258eb931e3d9",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "source overlay on retained candidate; not assembled firmware or public ROCKNIX adoption"
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "frame": "frames/en640-rom-bios-help/04-bios-instructions.png",
+      "sha256": "9df3f6cc050bc3d81b8d37acc6f6de617ec682adaedd837ded0aa431d70b2d45",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:02:34.907767+00:00",
+        "observed": "Observed expected state; copy, paths, navigation, and visible layout reviewed."
+      },
+      "carried_forward_from": {
+        "es_commit": "df68b7e60b654743ea6a4caf4392d006b87ab3b3",
+        "distribution_commit": "75d44aea8e21cada689a47159e2ad361bb45067b",
+        "frame": "frames/en640-rom-bios-help/04-bios-instructions.png",
+        "justification": "Later changes preserve these screen strings, layout, selection callbacks, and provider/path setters. The creation process-group fix is superseded where noted; byte-preserving JSON transport changes only chunk handling; final helper changes only flat-ROM classification and restore-root handling. This frame proves only its named branch and original tested bytes."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF05",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Change only settings path",
+      "expected_state": "New settings pointer; saves and content unchanged",
+      "source": {
+        "es_commit": "df68b7e60b654743ea6a4caf4392d006b87ab3b3",
+        "es_binary_sha256": "917c2f236fa35cf9da50286679e760fc11644e7e2f335d47f63393e737cabed7",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "75d44aea8e21cada689a47159e2ad361bb45067b",
+        "overlay_hashes": {
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_folder_validate": "114ccf19842f8b10bae449672a3d0ca6221c013e94a32fd8ccb408e4ab9d4e4e",
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "dfb2785ff207d64504e580724d03d3a030770bc35026597cbccf258eb931e3d9",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "source overlay on retained candidate; not assembled firmware or public ROCKNIX adoption"
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "frame": "frames/en640-path-return/01-changed-settings.png",
+      "sha256": "9869d32fdee24d0f16e2776792cb2d32e78c868c7b1453fe56ad61d2f51f45d1",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:02:34.907948+00:00",
+        "observed": "Observed expected state; copy, paths, navigation, and visible layout reviewed."
+      },
+      "carried_forward_from": {
+        "es_commit": "df68b7e60b654743ea6a4caf4392d006b87ab3b3",
+        "distribution_commit": "75d44aea8e21cada689a47159e2ad361bb45067b",
+        "frame": "frames/en640-path-return/01-changed-settings.png",
+        "justification": "Later changes preserve these screen strings, layout, selection callbacks, and provider/path setters. The creation process-group fix is superseded where noted; byte-preserving JSON transport changes only chunk handling; final helper changes only flat-ROM classification and restore-root handling. This frame proves only its named branch and original tested bytes."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF05",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Back from folder settings",
+      "expected_state": "Refreshed path descriptions and saves-only choice retained",
+      "source": {
+        "es_commit": "df68b7e60b654743ea6a4caf4392d006b87ab3b3",
+        "es_binary_sha256": "917c2f236fa35cf9da50286679e760fc11644e7e2f335d47f63393e737cabed7",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "75d44aea8e21cada689a47159e2ad361bb45067b",
+        "overlay_hashes": {
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_folder_validate": "114ccf19842f8b10bae449672a3d0ca6221c013e94a32fd8ccb408e4ab9d4e4e",
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "dfb2785ff207d64504e580724d03d3a030770bc35026597cbccf258eb931e3d9",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "source overlay on retained candidate; not assembled firmware or public ROCKNIX adoption"
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "frame": "frames/en640-path-return/02-returned-selection.png",
+      "sha256": "744a5d519ff365df13850e42699aa4880866475985b956c1140054eeb16d5c6d",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:02:34.908239+00:00",
+        "observed": "Observed expected state; copy, paths, navigation, and visible layout reviewed."
+      },
+      "carried_forward_from": {
+        "es_commit": "df68b7e60b654743ea6a4caf4392d006b87ab3b3",
+        "distribution_commit": "75d44aea8e21cada689a47159e2ad361bb45067b",
+        "frame": "frames/en640-path-return/02-returned-selection.png",
+        "justification": "Later changes preserve these screen strings, layout, selection callbacks, and provider/path setters. The creation process-group fix is superseded where noted; byte-preserving JSON transport changes only chunk handling; final helper changes only flat-ROM classification and restore-root handling. This frame proves only its named branch and original tested bytes."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF06",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Change settings externally before checking old page",
+      "expected_state": "Stale page rejected; refresh required",
+      "source": {
+        "es_commit": "df68b7e60b654743ea6a4caf4392d006b87ab3b3",
+        "es_binary_sha256": "917c2f236fa35cf9da50286679e760fc11644e7e2f335d47f63393e737cabed7",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "75d44aea8e21cada689a47159e2ad361bb45067b",
+        "overlay_hashes": {
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_folder_validate": "114ccf19842f8b10bae449672a3d0ca6221c013e94a32fd8ccb408e4ab9d4e4e",
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "dfb2785ff207d64504e580724d03d3a030770bc35026597cbccf258eb931e3d9",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "source overlay on retained candidate; not assembled firmware or public ROCKNIX adoption"
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "frame": "frames/en640-stale-rejection/01-stale-rejected.png",
+      "sha256": "ea4d9e70176a37269ab0925641ad74292fbb205c77b64bcef54f481410a5073f",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:02:34.908571+00:00",
+        "observed": "Observed expected state; copy, paths, navigation, and visible layout reviewed."
+      },
+      "carried_forward_from": {
+        "es_commit": "df68b7e60b654743ea6a4caf4392d006b87ab3b3",
+        "distribution_commit": "75d44aea8e21cada689a47159e2ad361bb45067b",
+        "frame": "frames/en640-stale-rejection/01-stale-rejected.png",
+        "justification": "Later changes preserve these screen strings, layout, selection callbacks, and provider/path setters. The creation process-group fix is superseded where noted; byte-preserving JSON transport changes only chunk handling; final helper changes only flat-ROM classification and restore-root handling. This frame proves only its named branch and original tested bytes."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF07",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Pause synthetic endpoint during saves check",
+      "expected_state": "Could not finish; unreadable distinct from empty",
+      "source": {
+        "es_commit": "df68b7e60b654743ea6a4caf4392d006b87ab3b3",
+        "es_binary_sha256": "917c2f236fa35cf9da50286679e760fc11644e7e2f335d47f63393e737cabed7",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "75d44aea8e21cada689a47159e2ad361bb45067b",
+        "overlay_hashes": {
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_folder_validate": "114ccf19842f8b10bae449672a3d0ca6221c013e94a32fd8ccb408e4ab9d4e4e",
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "dfb2785ff207d64504e580724d03d3a030770bc35026597cbccf258eb931e3d9",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "source overlay on retained candidate; not assembled firmware or public ROCKNIX adoption"
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "frame": "frames/en640-unreadable-result/01-unreadable-result.png",
+      "sha256": "2aec27df7203f64f217cb2e2d70bb91fb016a26156250a47231c81a2b4b700a9",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:02:34.908858+00:00",
+        "observed": "Observed expected state; copy, paths, navigation, and visible layout reviewed."
+      },
+      "carried_forward_from": {
+        "es_commit": "df68b7e60b654743ea6a4caf4392d006b87ab3b3",
+        "distribution_commit": "75d44aea8e21cada689a47159e2ad361bb45067b",
+        "frame": "frames/en640-unreadable-result/01-unreadable-result.png",
+        "justification": "Later changes preserve these screen strings, layout, selection callbacks, and provider/path setters. The creation process-group fix is superseded where noted; byte-preserving JSON transport changes only chunk handling; final helper changes only flat-ROM classification and restore-root handling. This frame proves only its named branch and original tested bytes."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF08",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "create with no category selected",
+      "expected_state": "Choose at least one item",
+      "source": {
+        "es_commit": "df68b7e60b654743ea6a4caf4392d006b87ab3b3",
+        "es_binary_sha256": "917c2f236fa35cf9da50286679e760fc11644e7e2f335d47f63393e737cabed7",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "75d44aea8e21cada689a47159e2ad361bb45067b",
+        "overlay_hashes": {
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_folder_validate": "114ccf19842f8b10bae449672a3d0ca6221c013e94a32fd8ccb408e4ab9d4e4e",
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "dfb2785ff207d64504e580724d03d3a030770bc35026597cbccf258eb931e3d9",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "source overlay on retained candidate; not assembled firmware or public ROCKNIX adoption"
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "frame": "frames/en640-no-selection/02-create-needs-selection.png",
+      "sha256": "0d7236dafc05cfed27a2f738c232ad690001323b6ec7f2fe23c9015c137ea9bb",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:02:34.909229+00:00",
+        "observed": "Observed expected state; copy, paths, navigation, and visible layout reviewed."
+      },
+      "carried_forward_from": {
+        "es_commit": "df68b7e60b654743ea6a4caf4392d006b87ab3b3",
+        "distribution_commit": "75d44aea8e21cada689a47159e2ad361bb45067b",
+        "frame": "frames/en640-no-selection/02-create-needs-selection.png",
+        "justification": "Later changes preserve these screen strings, layout, selection callbacks, and provider/path setters. The creation process-group fix is superseded where noted; byte-preserving JSON transport changes only chunk handling; final helper changes only flat-ROM classification and restore-root handling. This frame proves only its named branch and original tested bytes."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF08",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "check with no category selected",
+      "expected_state": "Choose at least one item",
+      "source": {
+        "es_commit": "df68b7e60b654743ea6a4caf4392d006b87ab3b3",
+        "es_binary_sha256": "917c2f236fa35cf9da50286679e760fc11644e7e2f335d47f63393e737cabed7",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "75d44aea8e21cada689a47159e2ad361bb45067b",
+        "overlay_hashes": {
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_folder_validate": "114ccf19842f8b10bae449672a3d0ca6221c013e94a32fd8ccb408e4ab9d4e4e",
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "dfb2785ff207d64504e580724d03d3a030770bc35026597cbccf258eb931e3d9",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "source overlay on retained candidate; not assembled firmware or public ROCKNIX adoption"
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "frame": "frames/en640-no-selection/03-check-needs-selection.png",
+      "sha256": "c9d140ad8e5a3f5f88cdd993d9a89cd3323fdc126114fe48dc47575e33d634a1",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:02:34.909586+00:00",
+        "observed": "Observed expected state; copy, paths, navigation, and visible layout reviewed."
+      },
+      "carried_forward_from": {
+        "es_commit": "df68b7e60b654743ea6a4caf4392d006b87ab3b3",
+        "distribution_commit": "75d44aea8e21cada689a47159e2ad361bb45067b",
+        "frame": "frames/en640-no-selection/03-check-needs-selection.png",
+        "justification": "Later changes preserve these screen strings, layout, selection callbacks, and provider/path setters. The creation process-group fix is superseded where noted; byte-preserving JSON transport changes only chunk handling; final helper changes only flat-ROM classification and restore-root handling. This frame proves only its named branch and original tested bytes."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF09",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Cancel creation with old timeout wrapper while endpoint paused",
+      "expected_state": "Cancellation should promptly stop owned children",
+      "source": {
+        "es_commit": "df68b7e60b654743ea6a4caf4392d006b87ab3b3",
+        "es_binary_sha256": "917c2f236fa35cf9da50286679e760fc11644e7e2f335d47f63393e737cabed7",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "75d44aea8e21cada689a47159e2ad361bb45067b",
+        "overlay_hashes": {
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_folder_validate": "114ccf19842f8b10bae449672a3d0ca6221c013e94a32fd8ccb408e4ab9d4e4e",
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "dfb2785ff207d64504e580724d03d3a030770bc35026597cbccf258eb931e3d9",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "source overlay on retained candidate; not assembled firmware or public ROCKNIX adoption"
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "frame": "frames/en640-create-cancel/02-cancelled-outcome.png",
+      "sha256": "d8e0f32a523e62d965d177dd1d7359e67384ed2e2a586c8722ff5a07652109c2",
+      "status": "rejected",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:02:34.909871+00:00",
+        "observed": "Rejected: creation remained running after cancellation because timeout changed process groups; fixed in c9fab1db1."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF03",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Decline folder creation",
+      "expected_state": "Return without provider changes",
+      "source": {
+        "es_commit": "c9fab1db1e8cb76be840053d338e75c1d33caf30",
+        "es_binary_sha256": "93d9b305c80155cdcf84eb7e31e5429ddefeddfe0938ff656412dbf63c89dffc",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "75d44aea8e21cada689a47159e2ad361bb45067b",
+        "overlay_hashes": {
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_folder_validate": "114ccf19842f8b10bae449672a3d0ca6221c013e94a32fd8ccb408e4ab9d4e4e",
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "dfb2785ff207d64504e580724d03d3a030770bc35026597cbccf258eb931e3d9",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "source overlay on retained candidate; not assembled firmware or public ROCKNIX adoption"
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "frame": "frames/en640-final-create-decline/02-declined.png",
+      "sha256": "ab52cea067b73712646bb59ccec7f6adb1eff6f273b9f37403358439054f3015",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:02:34.910106+00:00",
+        "observed": "Observed expected state; copy, paths, navigation, and visible layout reviewed."
+      },
+      "carried_forward_from": {
+        "es_commit": "c9fab1db1e8cb76be840053d338e75c1d33caf30",
+        "distribution_commit": "75d44aea8e21cada689a47159e2ad361bb45067b",
+        "frame": "frames/en640-final-create-decline/02-declined.png",
+        "justification": "Later changes preserve these screen strings, layout, selection callbacks, and provider/path setters. The creation process-group fix is superseded where noted; byte-preserving JSON transport changes only chunk handling; final helper changes only flat-ROM classification and restore-root handling. This frame proves only its named branch and original tested bytes."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF09",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Cancel final owned-group creation",
+      "expected_state": "Explain that existing folders stay and retry is possible",
+      "source": {
+        "es_commit": "c9fab1db1e8cb76be840053d338e75c1d33caf30",
+        "es_binary_sha256": "93d9b305c80155cdcf84eb7e31e5429ddefeddfe0938ff656412dbf63c89dffc",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "75d44aea8e21cada689a47159e2ad361bb45067b",
+        "overlay_hashes": {
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_folder_validate": "114ccf19842f8b10bae449672a3d0ca6221c013e94a32fd8ccb408e4ab9d4e4e",
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "dfb2785ff207d64504e580724d03d3a030770bc35026597cbccf258eb931e3d9",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "source overlay on retained candidate; not assembled firmware or public ROCKNIX adoption"
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "frame": "frames/en640-final-cancel-question/01-cancel-question.png",
+      "sha256": "6921b00f9ce0abd8231070a3d586af33c561d1e7ecb6c8685f43364719ec2c15",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:02:34.910477+00:00",
+        "observed": "Observed expected state; copy, paths, navigation, and visible layout reviewed."
+      },
+      "carried_forward_from": {
+        "es_commit": "c9fab1db1e8cb76be840053d338e75c1d33caf30",
+        "distribution_commit": "75d44aea8e21cada689a47159e2ad361bb45067b",
+        "frame": "frames/en640-final-cancel-question/01-cancel-question.png",
+        "justification": "Later changes preserve these screen strings, layout, selection callbacks, and provider/path setters. The creation process-group fix is superseded where noted; byte-preserving JSON transport changes only chunk handling; final helper changes only flat-ROM classification and restore-root handling. This frame proves only its named branch and original tested bytes."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF09",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Confirm cancel while endpoint remains paused",
+      "expected_state": "Cancelled with no children and no later provider changes",
+      "source": {
+        "es_commit": "c9fab1db1e8cb76be840053d338e75c1d33caf30",
+        "es_binary_sha256": "93d9b305c80155cdcf84eb7e31e5429ddefeddfe0938ff656412dbf63c89dffc",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "75d44aea8e21cada689a47159e2ad361bb45067b",
+        "overlay_hashes": {
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_folder_validate": "114ccf19842f8b10bae449672a3d0ca6221c013e94a32fd8ccb408e4ab9d4e4e",
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "dfb2785ff207d64504e580724d03d3a030770bc35026597cbccf258eb931e3d9",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "source overlay on retained candidate; not assembled firmware or public ROCKNIX adoption"
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "frame": "frames/en640-final-cancelled/01-cancelled-outcome.png",
+      "sha256": "23d540e0ea3e8176e71b0a3c502bf354b74669165f8e0858dfc43c494330f320",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:02:34.910796+00:00",
+        "observed": "PASS: 4.20 seconds including frame settle, provider still Tl, children absent, four inventories identical. See final-cancel-proof.json."
+      },
+      "carried_forward_from": {
+        "es_commit": "c9fab1db1e8cb76be840053d338e75c1d33caf30",
+        "distribution_commit": "75d44aea8e21cada689a47159e2ad361bb45067b",
+        "frame": "frames/en640-final-cancelled/01-cancelled-outcome.png",
+        "justification": "Later changes preserve these screen strings, layout, selection callbacks, and provider/path setters. The creation process-group fix is superseded where noted; byte-preserving JSON transport changes only chunk handling; final helper changes only flat-ROM classification and restore-root handling. This frame proves only its named branch and original tested bytes."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF09",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Retry after provider resumes",
+      "expected_state": "Selected creation completes and fresh check follows",
+      "source": {
+        "es_commit": "c9fab1db1e8cb76be840053d338e75c1d33caf30",
+        "es_binary_sha256": "93d9b305c80155cdcf84eb7e31e5429ddefeddfe0938ff656412dbf63c89dffc",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "75d44aea8e21cada689a47159e2ad361bb45067b",
+        "overlay_hashes": {
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_folder_validate": "114ccf19842f8b10bae449672a3d0ca6221c013e94a32fd8ccb408e4ab9d4e4e",
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "dfb2785ff207d64504e580724d03d3a030770bc35026597cbccf258eb931e3d9",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "source overlay on retained candidate; not assembled firmware or public ROCKNIX adoption"
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "frame": "frames/en640-final-retry/01-retry-result.png",
+      "sha256": "4f561f573a579db10b96f60bd9cfe4914794ccd53b08acb91e98f2c3074ed208",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:02:34.911022+00:00",
+        "observed": "Observed expected state; copy, paths, navigation, and visible layout reviewed."
+      },
+      "carried_forward_from": {
+        "es_commit": "c9fab1db1e8cb76be840053d338e75c1d33caf30",
+        "distribution_commit": "75d44aea8e21cada689a47159e2ad361bb45067b",
+        "frame": "frames/en640-final-retry/01-retry-result.png",
+        "justification": "Later changes preserve these screen strings, layout, selection callbacks, and provider/path setters. The creation process-group fix is superseded where noted; byte-preserving JSON transport changes only chunk handling; final helper changes only flat-ROM classification and restore-root handling. This frame proves only its named branch and original tested bytes."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF02",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Check populated five-category result using legacy line reader",
+      "expected_state": "Valid long response should produce findings",
+      "source": {
+        "es_commit": "c9fab1db1e8cb76be840053d338e75c1d33caf30",
+        "es_binary_sha256": "93d9b305c80155cdcf84eb7e31e5429ddefeddfe0938ff656412dbf63c89dffc",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "75d44aea8e21cada689a47159e2ad361bb45067b",
+        "overlay_hashes": {
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_folder_validate": "114ccf19842f8b10bae449672a3d0ca6221c013e94a32fd8ccb408e4ab9d4e4e",
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "dfb2785ff207d64504e580724d03d3a030770bc35026597cbccf258eb931e3d9",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "source overlay on retained candidate; not assembled firmware or public ROCKNIX adoption"
+      },
+      "locale": "fr_FR",
+      "width": 640,
+      "height": 480,
+      "frame": "frames/fr640-final-check/02-findings.png",
+      "sha256": "47a132157b67463979db965314d72a5b804c0c738497aad6cea930cd3e1a520e",
+      "status": "rejected",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:02:34.911396+00:00",
+        "observed": "Rejected: legacy reader dropped chunks over 1023 bytes. Fixed by bounded byte reader in baeea2a8c."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF08",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "create with no category selected",
+      "expected_state": "French choose-at-least-one guard",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": "4926f10e128807d480dc080ea58488bb618aa75e866f99cae33ee55ce6d14e00",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "75d44aea8e21cada689a47159e2ad361bb45067b",
+        "overlay_hashes": {
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_folder_validate": "114ccf19842f8b10bae449672a3d0ca6221c013e94a32fd8ccb408e4ab9d4e4e",
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "dfb2785ff207d64504e580724d03d3a030770bc35026597cbccf258eb931e3d9",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "source overlay on retained candidate; not assembled firmware or public ROCKNIX adoption"
+      },
+      "locale": "fr_FR",
+      "width": 640,
+      "height": 480,
+      "frame": "frames/fr640-jsonfixed-no-selection/01-create-needs-selection.png",
+      "sha256": "96f71d10007f6fd8b7d161b139d8366164a82ccb54d28f0e02abe28f854271da",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:02:34.911771+00:00",
+        "observed": "Observed expected state; copy, paths, navigation, and visible layout reviewed."
+      },
+      "carried_forward_from": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "distribution_commit": "75d44aea8e21cada689a47159e2ad361bb45067b",
+        "frame": "frames/fr640-jsonfixed-no-selection/01-create-needs-selection.png",
+        "justification": "Later changes preserve these screen strings, layout, selection callbacks, and provider/path setters. The creation process-group fix is superseded where noted; byte-preserving JSON transport changes only chunk handling; final helper changes only flat-ROM classification and restore-root handling. This frame proves only its named branch and original tested bytes."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF08",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "check with no category selected",
+      "expected_state": "French choose-at-least-one guard",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": "4926f10e128807d480dc080ea58488bb618aa75e866f99cae33ee55ce6d14e00",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "75d44aea8e21cada689a47159e2ad361bb45067b",
+        "overlay_hashes": {
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_folder_validate": "114ccf19842f8b10bae449672a3d0ca6221c013e94a32fd8ccb408e4ab9d4e4e",
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "dfb2785ff207d64504e580724d03d3a030770bc35026597cbccf258eb931e3d9",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "source overlay on retained candidate; not assembled firmware or public ROCKNIX adoption"
+      },
+      "locale": "fr_FR",
+      "width": 640,
+      "height": 480,
+      "frame": "frames/fr640-jsonfixed-no-selection/02-check-needs-selection.png",
+      "sha256": "6074d6bd8629956a083b000b95d48057d0bbacc7c9918b429c84276ffce6073a",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:02:34.912031+00:00",
+        "observed": "Observed expected state; copy, paths, navigation, and visible layout reviewed."
+      },
+      "carried_forward_from": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "distribution_commit": "75d44aea8e21cada689a47159e2ad361bb45067b",
+        "frame": "frames/fr640-jsonfixed-no-selection/02-check-needs-selection.png",
+        "justification": "Later changes preserve these screen strings, layout, selection callbacks, and provider/path setters. The creation process-group fix is superseded where noted; byte-preserving JSON transport changes only chunk handling; final helper changes only flat-ROM classification and restore-root handling. This frame proves only its named branch and original tested bytes."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF05",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Open independent folder settings",
+      "expected_state": "French paths and no-move explanation",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": "4926f10e128807d480dc080ea58488bb618aa75e866f99cae33ee55ce6d14e00",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "75d44aea8e21cada689a47159e2ad361bb45067b",
+        "overlay_hashes": {
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_folder_validate": "114ccf19842f8b10bae449672a3d0ca6221c013e94a32fd8ccb408e4ab9d4e4e",
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "dfb2785ff207d64504e580724d03d3a030770bc35026597cbccf258eb931e3d9",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "source overlay on retained candidate; not assembled firmware or public ROCKNIX adoption"
+      },
+      "locale": "fr_FR",
+      "width": 640,
+      "height": 480,
+      "frame": "frames/fr640-jsonfixed-no-selection/03-independent-paths.png",
+      "sha256": "0f54556d1273316ec091440e04cc67afa0e4f9633b3de724904483ed82f5a134",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:02:34.912278+00:00",
+        "observed": "Observed expected state; copy, paths, navigation, and visible layout reviewed."
+      },
+      "carried_forward_from": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "distribution_commit": "75d44aea8e21cada689a47159e2ad361bb45067b",
+        "frame": "frames/fr640-jsonfixed-no-selection/03-independent-paths.png",
+        "justification": "Later changes preserve these screen strings, layout, selection callbacks, and provider/path setters. The creation process-group fix is superseded where noted; byte-preserving JSON transport changes only chunk handling; final helper changes only flat-ROM classification and restore-root handling. This frame proves only its named branch and original tested bytes."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF02",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Check populated final synthetic fixture",
+      "expected_state": "Present saves, empty settings, misplaced flat ROMs, missing BIOS, present media",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": "4926f10e128807d480dc080ea58488bb618aa75e866f99cae33ee55ce6d14e00",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "source overlay on retained candidate; not assembled firmware or public ROCKNIX adoption"
+      },
+      "locale": "fr_FR",
+      "width": 640,
+      "height": 480,
+      "frame": "frames/fr640-sealed-results/02-populated-findings.png",
+      "sha256": "37dc326551552c98b001fc42628b50862dc39f64eb18d19ae8cf1418b8ec520c",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:02:34.912539+00:00",
+        "observed": "Observed expected state; copy, paths, navigation, and visible layout reviewed."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF02",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Navigate final findings/help with controller",
+      "expected_state": "Misplaced ROMs distinguished from missing BIOS and found media",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": "4926f10e128807d480dc080ea58488bb618aa75e866f99cae33ee55ce6d14e00",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "source overlay on retained candidate; not assembled firmware or public ROCKNIX adoption"
+      },
+      "locale": "fr_FR",
+      "width": 640,
+      "height": 480,
+      "frame": "frames/fr640-sealed-help/01-misplaced-roms.png",
+      "sha256": "b7f741cf310e67a715490b479ffe45aab795a665b72fcbd0ed93d383b6b5d8c7",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:02:34.912842+00:00",
+        "observed": "Observed expected state; copy, paths, navigation, and visible layout reviewed."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF04",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Navigate final findings/help with controller",
+      "expected_state": "French local ROM guidance and expected path",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": "4926f10e128807d480dc080ea58488bb618aa75e866f99cae33ee55ce6d14e00",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "source overlay on retained candidate; not assembled firmware or public ROCKNIX adoption"
+      },
+      "locale": "fr_FR",
+      "width": 640,
+      "height": 480,
+      "frame": "frames/fr640-sealed-help/02-rom-instructions.png",
+      "sha256": "7e04b4d6b1210062f3957f4d79bf4cf07941495c778f5e2f3c9bef5b73ca9d97",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:02:34.913130+00:00",
+        "observed": "Observed expected state; copy, paths, navigation, and visible layout reviewed."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF02",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Navigate final findings/help with controller",
+      "expected_state": "BIOS folder missing at selected path",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": "4926f10e128807d480dc080ea58488bb618aa75e866f99cae33ee55ce6d14e00",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "source overlay on retained candidate; not assembled firmware or public ROCKNIX adoption"
+      },
+      "locale": "fr_FR",
+      "width": 640,
+      "height": 480,
+      "frame": "frames/fr640-sealed-help/03-missing-bios.png",
+      "sha256": "bcfad18101e8e4cf4e5a5b569e2d0690c91b1ab2a783f3bdf7b27f784640fdd2",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:02:34.913377+00:00",
+        "observed": "Observed expected state; copy, paths, navigation, and visible layout reviewed."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF04",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Navigate final findings/help with controller",
+      "expected_state": "French local BIOS guidance and expected path",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": "4926f10e128807d480dc080ea58488bb618aa75e866f99cae33ee55ce6d14e00",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "source overlay on retained candidate; not assembled firmware or public ROCKNIX adoption"
+      },
+      "locale": "fr_FR",
+      "width": 640,
+      "height": 480,
+      "frame": "frames/fr640-sealed-help/04-bios-instructions.png",
+      "sha256": "f31ba2cf84d49bfb4fc06d05186668574a7a21c92bf15904f56e54ea935f1c2e",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:02:34.913616+00:00",
+        "observed": "Observed expected state; copy, paths, navigation, and visible layout reviewed."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF02",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Navigate final findings/help with controller",
+      "expected_state": "Game content found at selected path",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": "4926f10e128807d480dc080ea58488bb618aa75e866f99cae33ee55ce6d14e00",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "source overlay on retained candidate; not assembled firmware or public ROCKNIX adoption"
+      },
+      "locale": "fr_FR",
+      "width": 640,
+      "height": 480,
+      "frame": "frames/fr640-sealed-help/05-game-content-found.png",
+      "sha256": "8dd019a3ffc0e4d8d88a3a2a7e5ba0b392693b713e66b22be9e86183c1b6e177",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:02:34.913865+00:00",
+        "observed": "Observed expected state; copy, paths, navigation, and visible layout reviewed."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF01",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Open chosen-category page",
+      "expected_state": "Check/create-only scope and chosen paths fit 1280x800",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": "4926f10e128807d480dc080ea58488bb618aa75e866f99cae33ee55ce6d14e00",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "source overlay on retained candidate; not assembled firmware or public ROCKNIX adoption"
+      },
+      "locale": "en_US",
+      "width": 1280,
+      "height": 800,
+      "frame": "frames/en1280-sealed-check/01-folder-scope.png",
+      "sha256": "8de06c685a9947c0f0aa7cb2331fb536a610b9a2996f478f404654fb63cea0eb",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:02:34.914118+00:00",
+        "observed": "Observed expected state; copy, paths, navigation, and visible layout reviewed."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF02",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Navigate final cloud folder flow with controller",
+      "expected_state": "Misplaced ROMs and missing BIOS at chosen paths",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": "4926f10e128807d480dc080ea58488bb618aa75e866f99cae33ee55ce6d14e00",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "source overlay on retained candidate; not assembled firmware or public ROCKNIX adoption"
+      },
+      "locale": "en_US",
+      "width": 1280,
+      "height": 800,
+      "frame": "frames/en1280-sealed-help/01-misplaced-roms.png",
+      "sha256": "f531b598694d881ccbd0af511e46f5b1a6701a377bf1f18d0f05a99b398376e0",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:02:34.914363+00:00",
+        "observed": "Observed expected state; copy, paths, navigation, and visible layout reviewed."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF04",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Navigate final cloud folder flow with controller",
+      "expected_state": "Local ROM instructions at 1280x800",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": "4926f10e128807d480dc080ea58488bb618aa75e866f99cae33ee55ce6d14e00",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "source overlay on retained candidate; not assembled firmware or public ROCKNIX adoption"
+      },
+      "locale": "en_US",
+      "width": 1280,
+      "height": 800,
+      "frame": "frames/en1280-sealed-help/02-rom-instructions.png",
+      "sha256": "7f14fe2c119294366d0fdc56b935f98d4b8413bde2da62019cff7067c2a5b124",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:02:34.914601+00:00",
+        "observed": "Observed expected state; copy, paths, navigation, and visible layout reviewed."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF02",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Navigate final cloud folder flow with controller",
+      "expected_state": "Missing BIOS finding",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": "4926f10e128807d480dc080ea58488bb618aa75e866f99cae33ee55ce6d14e00",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "source overlay on retained candidate; not assembled firmware or public ROCKNIX adoption"
+      },
+      "locale": "en_US",
+      "width": 1280,
+      "height": 800,
+      "frame": "frames/en1280-sealed-help/03-missing-bios.png",
+      "sha256": "353509b10adf96238fda9627218a4706429652b96b8aa6c7c8c5e5a4ba2e4b6e",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:02:34.914833+00:00",
+        "observed": "Observed expected state; copy, paths, navigation, and visible layout reviewed."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF04",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Navigate final cloud folder flow with controller",
+      "expected_state": "Local BIOS instructions at 1280x800",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": "4926f10e128807d480dc080ea58488bb618aa75e866f99cae33ee55ce6d14e00",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "source overlay on retained candidate; not assembled firmware or public ROCKNIX adoption"
+      },
+      "locale": "en_US",
+      "width": 1280,
+      "height": 800,
+      "frame": "frames/en1280-sealed-help/04-bios-instructions.png",
+      "sha256": "c17e04eedb003379e6bc1dc90360546e98af795f9a2c5b5d503ea3b73ed5717f",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:02:34.915094+00:00",
+        "observed": "Observed expected state; copy, paths, navigation, and visible layout reviewed."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF05",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Navigate final cloud folder flow with controller",
+      "expected_state": "Independent path controls at 1280x800",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": "4926f10e128807d480dc080ea58488bb618aa75e866f99cae33ee55ce6d14e00",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "source overlay on retained candidate; not assembled firmware or public ROCKNIX adoption"
+      },
+      "locale": "en_US",
+      "width": 1280,
+      "height": 800,
+      "frame": "frames/en1280-sealed-help/05-independent-paths.png",
+      "sha256": "861f2e200c2c8b16f0e9e3f537147e7757b7288ccc1e002236ae917e3e0b1157",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:02:34.915349+00:00",
+        "observed": "Observed expected state; copy, paths, navigation, and visible layout reviewed."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF03",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Navigate final cloud folder flow with controller",
+      "expected_state": "Selected creation confirmation fits 1280x800",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": "4926f10e128807d480dc080ea58488bb618aa75e866f99cae33ee55ce6d14e00",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "source overlay on retained candidate; not assembled firmware or public ROCKNIX adoption"
+      },
+      "locale": "en_US",
+      "width": 1280,
+      "height": 800,
+      "frame": "frames/en1280-sealed-help/06-create-confirmation.png",
+      "sha256": "269a41cd50b461668d8a6992bafd3a6edf5877b0aa58650ebaba4d184087875e",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:02:34.915605+00:00",
+        "observed": "Observed expected state; copy, paths, navigation, and visible layout reviewed."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF01",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Open chosen-category page",
+      "expected_state": "Check/create-only scope and chosen paths fit 1280x800",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": "4926f10e128807d480dc080ea58488bb618aa75e866f99cae33ee55ce6d14e00",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "source overlay on retained candidate; not assembled firmware or public ROCKNIX adoption"
+      },
+      "locale": "fr_FR",
+      "width": 1280,
+      "height": 800,
+      "frame": "frames/fr1280-sealed-check/01-folder-scope.png",
+      "sha256": "849cf4df6e190b836d8b658c3e55875eeaf633c8c9089a0e76337690953ac86d",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:02:34.915863+00:00",
+        "observed": "Observed expected state; copy, paths, navigation, and visible layout reviewed."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF02",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Navigate final cloud folder flow with controller",
+      "expected_state": "Misplaced ROMs and missing BIOS at chosen paths",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": "4926f10e128807d480dc080ea58488bb618aa75e866f99cae33ee55ce6d14e00",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "source overlay on retained candidate; not assembled firmware or public ROCKNIX adoption"
+      },
+      "locale": "fr_FR",
+      "width": 1280,
+      "height": 800,
+      "frame": "frames/fr1280-sealed-help/01-misplaced-roms.png",
+      "sha256": "1f91116c6fa73c884b6f4395929fba0dcee522fa0c9bf61681349bb0cad347ca",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:02:34.916097+00:00",
+        "observed": "Observed expected state; copy, paths, navigation, and visible layout reviewed."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF04",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Navigate final cloud folder flow with controller",
+      "expected_state": "Local ROM instructions at 1280x800",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": "4926f10e128807d480dc080ea58488bb618aa75e866f99cae33ee55ce6d14e00",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "source overlay on retained candidate; not assembled firmware or public ROCKNIX adoption"
+      },
+      "locale": "fr_FR",
+      "width": 1280,
+      "height": 800,
+      "frame": "frames/fr1280-sealed-help/02-rom-instructions.png",
+      "sha256": "11d81c11e81786f9d118a94c66caa7653a56aad90f0fee9427c8587b23524790",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:02:34.916336+00:00",
+        "observed": "Observed expected state; copy, paths, navigation, and visible layout reviewed."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF02",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Navigate final cloud folder flow with controller",
+      "expected_state": "Missing BIOS finding",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": "4926f10e128807d480dc080ea58488bb618aa75e866f99cae33ee55ce6d14e00",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "source overlay on retained candidate; not assembled firmware or public ROCKNIX adoption"
+      },
+      "locale": "fr_FR",
+      "width": 1280,
+      "height": 800,
+      "frame": "frames/fr1280-sealed-help/03-missing-bios.png",
+      "sha256": "7027e8f38925919abec437b37f69251b7c03fe0a53f9509e06cef294fd268ae8",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:02:34.916575+00:00",
+        "observed": "Observed expected state; copy, paths, navigation, and visible layout reviewed."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF04",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Navigate final cloud folder flow with controller",
+      "expected_state": "Local BIOS instructions at 1280x800",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": "4926f10e128807d480dc080ea58488bb618aa75e866f99cae33ee55ce6d14e00",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "source overlay on retained candidate; not assembled firmware or public ROCKNIX adoption"
+      },
+      "locale": "fr_FR",
+      "width": 1280,
+      "height": 800,
+      "frame": "frames/fr1280-sealed-help/04-bios-instructions.png",
+      "sha256": "208ba878b0c0ea219c3e3fcfcf6038eced8777f2bb6bdf07dc03e7cb9d9f97a0",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:02:34.916827+00:00",
+        "observed": "Observed expected state; copy, paths, navigation, and visible layout reviewed."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF05",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Navigate final cloud folder flow with controller",
+      "expected_state": "Independent path controls at 1280x800",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": "4926f10e128807d480dc080ea58488bb618aa75e866f99cae33ee55ce6d14e00",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "source overlay on retained candidate; not assembled firmware or public ROCKNIX adoption"
+      },
+      "locale": "fr_FR",
+      "width": 1280,
+      "height": 800,
+      "frame": "frames/fr1280-sealed-help/05-independent-paths.png",
+      "sha256": "263d66e0d752483ec7a5579a76eb27cb6da5646bad61b74f9a16b68b791e3fbb",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:02:34.917080+00:00",
+        "observed": "Observed expected state; copy, paths, navigation, and visible layout reviewed."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF03",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Navigate final cloud folder flow with controller",
+      "expected_state": "Selected creation confirmation fits 1280x800",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": "4926f10e128807d480dc080ea58488bb618aa75e866f99cae33ee55ce6d14e00",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "source overlay on retained candidate; not assembled firmware or public ROCKNIX adoption"
+      },
+      "locale": "fr_FR",
+      "width": 1280,
+      "height": 800,
+      "frame": "frames/fr1280-sealed-help/06-create-confirmation.png",
+      "sha256": "45da380562a897d76975fa133240b38a329b276f6df4cf5e0abace1cdee4136e",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:02:34.917329+00:00",
+        "observed": "Observed expected state; copy, paths, navigation, and visible layout reviewed."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF10",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Fresh public installation and public ROCKNIX adoption in final assembled candidate",
+      "expected_state": "Default new root and preserved existing public pointers/credentials/data",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": "4926f10e128807d480dc080ea58488bb618aa75e866f99cae33ee55ce6d14e00",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "source overlay on retained candidate; not assembled firmware or public ROCKNIX adoption"
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "status": "pending",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "observed": "Outside this source-overlay UI proof. Public config host controls are separate evidence; this guest is not a new firmware or public-upgrade rehearsal."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF04",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Open saves See instructions",
+      "expected_state": "Exact selected path and readable manual saves guidance; no repair, URL, or QR",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": null,
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "pending reconstructed source overlay; same frozen commits, new binary identity to be measured"
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "frame": null,
+      "sha256": null,
+      "status": "pending",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:23:00.985186+00:00",
+        "observed": "Independent review found missing branch coverage. Focused source-overlay reconstruction pending; no existing frame relabelled."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF04",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Open settings See instructions",
+      "expected_state": "Exact selected path and readable manual settings guidance; no repair, URL, or QR",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": null,
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "pending reconstructed source overlay; same frozen commits, new binary identity to be measured"
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "frame": null,
+      "sha256": null,
+      "status": "pending",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:23:00.985215+00:00",
+        "observed": "Independent review found missing branch coverage. Focused source-overlay reconstruction pending; no existing frame relabelled."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF04",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Open media See instructions",
+      "expected_state": "Exact selected path and readable manual media guidance; no repair, URL, or QR",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": null,
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "pending reconstructed source overlay; same frozen commits, new binary identity to be measured"
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "frame": null,
+      "sha256": null,
+      "status": "pending",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:23:00.985223+00:00",
+        "observed": "Independent review found missing branch coverage. Focused source-overlay reconstruction pending; no existing frame relabelled."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF05",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Submit rejected folder path",
+      "expected_state": "Folder remains unchanged; readable refusal; retry available",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": null,
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "pending reconstructed source overlay; same frozen commits, new binary identity to be measured"
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "frame": null,
+      "sha256": null,
+      "status": "pending",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:23:00.985228+00:00",
+        "observed": "Independent review found missing branch coverage. Focused source-overlay reconstruction pending; no existing frame relabelled."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF11",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Run manual saves backup with settings/content nested under saves",
+      "expected_state": "Actual transfer outcome; nested-folder diagnostic is traced through consumers rather than assumed visible",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": null,
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "pending reconstructed source overlay; same frozen commits, new binary identity to be measured"
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "frame": null,
+      "sha256": null,
+      "status": "pending",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:23:00.985231+00:00",
+        "observed": "Independent review found missing branch coverage. Focused source-overlay reconstruction pending; no existing frame relabelled."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF04",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Open saves See instructions",
+      "expected_state": "Exact selected path and readable manual saves guidance; no repair, URL, or QR",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": null,
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "pending reconstructed source overlay; same frozen commits, new binary identity to be measured"
+      },
+      "locale": "en_US",
+      "width": 1280,
+      "height": 800,
+      "frame": null,
+      "sha256": null,
+      "status": "pending",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:23:00.985237+00:00",
+        "observed": "Independent review found missing branch coverage. Focused source-overlay reconstruction pending; no existing frame relabelled."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF04",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Open settings See instructions",
+      "expected_state": "Exact selected path and readable manual settings guidance; no repair, URL, or QR",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": null,
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "pending reconstructed source overlay; same frozen commits, new binary identity to be measured"
+      },
+      "locale": "en_US",
+      "width": 1280,
+      "height": 800,
+      "frame": null,
+      "sha256": null,
+      "status": "pending",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:23:00.985241+00:00",
+        "observed": "Independent review found missing branch coverage. Focused source-overlay reconstruction pending; no existing frame relabelled."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF04",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Open media See instructions",
+      "expected_state": "Exact selected path and readable manual media guidance; no repair, URL, or QR",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": null,
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "pending reconstructed source overlay; same frozen commits, new binary identity to be measured"
+      },
+      "locale": "en_US",
+      "width": 1280,
+      "height": 800,
+      "frame": null,
+      "sha256": null,
+      "status": "pending",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:23:00.985244+00:00",
+        "observed": "Independent review found missing branch coverage. Focused source-overlay reconstruction pending; no existing frame relabelled."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF05",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Submit folder change while synthetic endpoint is unreachable",
+      "expected_state": "Folder remains unchanged; readable refusal; retry available",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": null,
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "pending reconstructed source overlay; same frozen commits, new binary identity to be measured"
+      },
+      "locale": "en_US",
+      "width": 1280,
+      "height": 800,
+      "frame": null,
+      "sha256": null,
+      "status": "pending",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:23:00.985247+00:00",
+        "observed": "Independent review found missing branch coverage. Focused source-overlay reconstruction pending; no existing frame relabelled."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF11",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Run manual saves backup with settings/content nested under saves",
+      "expected_state": "Actual transfer outcome; nested-folder diagnostic is traced through consumers rather than assumed visible",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": null,
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "pending reconstructed source overlay; same frozen commits, new binary identity to be measured"
+      },
+      "locale": "en_US",
+      "width": 1280,
+      "height": 800,
+      "frame": null,
+      "sha256": null,
+      "status": "pending",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:23:00.985250+00:00",
+        "observed": "Independent review found missing branch coverage. Focused source-overlay reconstruction pending; no existing frame relabelled."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF04",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Open saves See instructions",
+      "expected_state": "Exact selected path and readable manual saves guidance; no repair, URL, or QR",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": null,
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "pending reconstructed source overlay; same frozen commits, new binary identity to be measured"
+      },
+      "locale": "fr_FR",
+      "width": 640,
+      "height": 480,
+      "frame": null,
+      "sha256": null,
+      "status": "pending",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:23:00.985255+00:00",
+        "observed": "Independent review found missing branch coverage. Focused source-overlay reconstruction pending; no existing frame relabelled."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF04",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Open settings See instructions",
+      "expected_state": "Exact selected path and readable manual settings guidance; no repair, URL, or QR",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": null,
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "pending reconstructed source overlay; same frozen commits, new binary identity to be measured"
+      },
+      "locale": "fr_FR",
+      "width": 640,
+      "height": 480,
+      "frame": null,
+      "sha256": null,
+      "status": "pending",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:23:00.985259+00:00",
+        "observed": "Independent review found missing branch coverage. Focused source-overlay reconstruction pending; no existing frame relabelled."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF04",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Open media See instructions",
+      "expected_state": "Exact selected path and readable manual media guidance; no repair, URL, or QR",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": null,
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "pending reconstructed source overlay; same frozen commits, new binary identity to be measured"
+      },
+      "locale": "fr_FR",
+      "width": 640,
+      "height": 480,
+      "frame": null,
+      "sha256": null,
+      "status": "pending",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:23:00.985263+00:00",
+        "observed": "Independent review found missing branch coverage. Focused source-overlay reconstruction pending; no existing frame relabelled."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF05",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Submit rejected folder path",
+      "expected_state": "Folder remains unchanged; readable refusal; retry available",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": null,
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "pending reconstructed source overlay; same frozen commits, new binary identity to be measured"
+      },
+      "locale": "fr_FR",
+      "width": 640,
+      "height": 480,
+      "frame": null,
+      "sha256": null,
+      "status": "pending",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:23:00.985266+00:00",
+        "observed": "Independent review found missing branch coverage. Focused source-overlay reconstruction pending; no existing frame relabelled."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF04",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Open saves See instructions",
+      "expected_state": "Exact selected path and readable manual saves guidance; no repair, URL, or QR",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": null,
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "pending reconstructed source overlay; same frozen commits, new binary identity to be measured"
+      },
+      "locale": "fr_FR",
+      "width": 1280,
+      "height": 800,
+      "frame": null,
+      "sha256": null,
+      "status": "pending",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:23:00.985271+00:00",
+        "observed": "Independent review found missing branch coverage. Focused source-overlay reconstruction pending; no existing frame relabelled."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF04",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Open settings See instructions",
+      "expected_state": "Exact selected path and readable manual settings guidance; no repair, URL, or QR",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": null,
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "pending reconstructed source overlay; same frozen commits, new binary identity to be measured"
+      },
+      "locale": "fr_FR",
+      "width": 1280,
+      "height": 800,
+      "frame": null,
+      "sha256": null,
+      "status": "pending",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:23:00.985274+00:00",
+        "observed": "Independent review found missing branch coverage. Focused source-overlay reconstruction pending; no existing frame relabelled."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF04",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Open media See instructions",
+      "expected_state": "Exact selected path and readable manual media guidance; no repair, URL, or QR",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": null,
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "pending reconstructed source overlay; same frozen commits, new binary identity to be measured"
+      },
+      "locale": "fr_FR",
+      "width": 1280,
+      "height": 800,
+      "frame": null,
+      "sha256": null,
+      "status": "pending",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:23:00.985278+00:00",
+        "observed": "Independent review found missing branch coverage. Focused source-overlay reconstruction pending; no existing frame relabelled."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF05",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Submit folder change while synthetic endpoint is unreachable",
+      "expected_state": "Folder remains unchanged; readable refusal; retry available",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": null,
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "pending reconstructed source overlay; same frozen commits, new binary identity to be measured"
+      },
+      "locale": "fr_FR",
+      "width": 1280,
+      "height": 800,
+      "frame": null,
+      "sha256": null,
+      "status": "pending",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:23:00.985282+00:00",
+        "observed": "Independent review found missing branch coverage. Focused source-overlay reconstruction pending; no existing frame relabelled."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF05",
+      "state_id": "CF05.empty-path",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Submit blank cloud folder path",
+      "expected_state": "Enter a cloud folder path guard; configuration unchanged",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": "b1b777683e6ac06271d33de3ed557e4836d136a8ecd5cc54c3ccfb4a295d4e0b",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "reconstructed unchanged-source overlay; not firmware"
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "frame": null,
+      "sha256": null,
+      "status": "pending",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:35:59.064030+00:00",
+        "observed": "Additional distinct changed copy branch identified before pre-teardown source inventory review; focused proof pending."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF12",
+      "state_id": "CF12.invalid-result",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Remove helper execute permission, then check categories",
+      "expected_state": "Generic could not check folders dialog; no readiness claim",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": "b1b777683e6ac06271d33de3ed557e4836d136a8ecd5cc54c3ccfb4a295d4e0b",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "reconstructed unchanged-source overlay; not firmware"
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "frame": null,
+      "sha256": null,
+      "status": "pending",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:35:59.064067+00:00",
+        "observed": "Additional distinct changed copy branch identified before pre-teardown source inventory review; focused proof pending."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF13",
+      "state_id": "CF13.scan-cancel-question",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Pause synthetic WebDAV, start actual scan, press Cancel",
+      "expected_state": "Cancel this check confirmation; no files have been moved",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": "b1b777683e6ac06271d33de3ed557e4836d136a8ecd5cc54c3ccfb4a295d4e0b",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "reconstructed unchanged-source overlay; not firmware"
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "frame": null,
+      "sha256": null,
+      "status": "pending",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:35:59.064075+00:00",
+        "observed": "Additional distinct changed copy branch identified before pre-teardown source inventory review; focused proof pending."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF13",
+      "state_id": "CF13.scan-cancelled",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Confirm cancellation of paused actual scan",
+      "expected_state": "Scan-specific cancelled outcome and retry guidance; child process group reaped",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": "b1b777683e6ac06271d33de3ed557e4836d136a8ecd5cc54c3ccfb4a295d4e0b",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "reconstructed unchanged-source overlay; not firmware"
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "frame": null,
+      "sha256": null,
+      "status": "pending",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:35:59.064081+00:00",
+        "observed": "Additional distinct changed copy branch identified before pre-teardown source inventory review; focused proof pending."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF05",
+      "state_id": "CF05.empty-path",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Submit blank cloud folder path",
+      "expected_state": "Enter a cloud folder path guard; configuration unchanged",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": "b1b777683e6ac06271d33de3ed557e4836d136a8ecd5cc54c3ccfb4a295d4e0b",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "reconstructed unchanged-source overlay; not firmware"
+      },
+      "locale": "fr_FR",
+      "width": 1280,
+      "height": 800,
+      "frame": null,
+      "sha256": null,
+      "status": "pending",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:35:59.064090+00:00",
+        "observed": "Additional distinct changed copy branch identified before pre-teardown source inventory review; focused proof pending."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF12",
+      "state_id": "CF12.invalid-result",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Remove helper execute permission, then check categories",
+      "expected_state": "Generic could not check folders dialog; no readiness claim",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": "b1b777683e6ac06271d33de3ed557e4836d136a8ecd5cc54c3ccfb4a295d4e0b",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "reconstructed unchanged-source overlay; not firmware"
+      },
+      "locale": "fr_FR",
+      "width": 1280,
+      "height": 800,
+      "frame": null,
+      "sha256": null,
+      "status": "pending",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:35:59.064095+00:00",
+        "observed": "Additional distinct changed copy branch identified before pre-teardown source inventory review; focused proof pending."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF13",
+      "state_id": "CF13.scan-cancel-question",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Pause synthetic WebDAV, start actual scan, press Cancel",
+      "expected_state": "Cancel this check confirmation; no files have been moved",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": "b1b777683e6ac06271d33de3ed557e4836d136a8ecd5cc54c3ccfb4a295d4e0b",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "reconstructed unchanged-source overlay; not firmware"
+      },
+      "locale": "fr_FR",
+      "width": 1280,
+      "height": 800,
+      "frame": null,
+      "sha256": null,
+      "status": "pending",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:35:59.064099+00:00",
+        "observed": "Additional distinct changed copy branch identified before pre-teardown source inventory review; focused proof pending."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF13",
+      "state_id": "CF13.scan-cancelled",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Confirm cancellation of paused actual scan",
+      "expected_state": "Scan-specific cancelled outcome and retry guidance; child process group reaped",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": "b1b777683e6ac06271d33de3ed557e4836d136a8ecd5cc54c3ccfb4a295d4e0b",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "reconstructed unchanged-source overlay; not firmware"
+      },
+      "locale": "fr_FR",
+      "width": 1280,
+      "height": 800,
+      "frame": null,
+      "sha256": null,
+      "status": "pending",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:35:59.064104+00:00",
+        "observed": "Additional distinct changed copy branch identified before pre-teardown source inventory review; focused proof pending."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF01",
+      "state_id": "CF01.hub-and-return",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Open cloud hub, Check cloud folders, then Finish",
+      "expected_state": "Current hub entry and return",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": "b1b777683e6ac06271d33de3ed557e4836d136a8ecd5cc54c3ccfb4a295d4e0b",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "reconstructed unchanged-source overlay; not firmware"
+      },
+      "locale": "fr_FR",
+      "width": 640,
+      "height": 480,
+      "frame": null,
+      "sha256": null,
+      "status": "pending",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:50:42.690059+00:00",
+        "observed": "Consolidated pre-teardown inventory; focused proof pending."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF01",
+      "state_id": "CF01.oauth-connected-continue",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Synthetic helper reports signed-in; choose Continue",
+      "expected_state": "Connected page Continue opens category selection; no authentication claim",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": "b1b777683e6ac06271d33de3ed557e4836d136a8ecd5cc54c3ccfb4a295d4e0b",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "reconstructed unchanged-source overlay; not firmware"
+      },
+      "locale": "fr_FR",
+      "width": 640,
+      "height": 480,
+      "frame": null,
+      "sha256": null,
+      "status": "pending",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:50:42.690059+00:00",
+        "observed": "Consolidated pre-teardown inventory; focused proof pending."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF03",
+      "state_id": "CF03.offer-saves-only",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Missing save folder restore offer Create it",
+      "expected_state": "Only selected save folder created; independent paths unchanged",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": "b1b777683e6ac06271d33de3ed557e4836d136a8ecd5cc54c3ccfb4a295d4e0b",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "reconstructed unchanged-source overlay; not firmware"
+      },
+      "locale": "fr_FR",
+      "width": 640,
+      "height": 480,
+      "frame": null,
+      "sha256": null,
+      "status": "pending",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:50:42.690059+00:00",
+        "observed": "Consolidated pre-teardown inventory; focused proof pending."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF05",
+      "state_id": "CF05.content-path-title",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Open game content folder editor",
+      "expected_state": "ROMS, BIOS, AND GAME CONTENT FOLDER title",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": "b1b777683e6ac06271d33de3ed557e4836d136a8ecd5cc54c3ccfb4a295d4e0b",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "reconstructed unchanged-source overlay; not firmware"
+      },
+      "locale": "fr_FR",
+      "width": 640,
+      "height": 480,
+      "frame": null,
+      "sha256": null,
+      "status": "pending",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:50:42.690059+00:00",
+        "observed": "Consolidated pre-teardown inventory; focused proof pending."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF09",
+      "state_id": "CF09.create-failure-retry",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Synthetic endpoint unavailable during explicit creation, then restored",
+      "expected_state": "Failed create, Try again, successful current check",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": "b1b777683e6ac06271d33de3ed557e4836d136a8ecd5cc54c3ccfb4a295d4e0b",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "reconstructed unchanged-source overlay; not firmware"
+      },
+      "locale": "fr_FR",
+      "width": 640,
+      "height": 480,
+      "frame": null,
+      "sha256": null,
+      "status": "pending",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:50:42.690059+00:00",
+        "observed": "Consolidated pre-teardown inventory; focused proof pending."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF13",
+      "state_id": "CF13.settings-changed",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Change synthetic config during actual metadata scan",
+      "expected_state": "Translated failure and current retry",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": "b1b777683e6ac06271d33de3ed557e4836d136a8ecd5cc54c3ccfb4a295d4e0b",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "reconstructed unchanged-source overlay; not firmware"
+      },
+      "locale": "fr_FR",
+      "width": 640,
+      "height": 480,
+      "frame": null,
+      "sha256": null,
+      "status": "pending",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:50:42.690059+00:00",
+        "observed": "Consolidated pre-teardown inventory; focused proof pending."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF13",
+      "state_id": "CF13.check-busy",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Hold exact synthetic scan lock",
+      "expected_state": "Skipped check headline names check, not sync",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": "b1b777683e6ac06271d33de3ed557e4836d136a8ecd5cc54c3ccfb4a295d4e0b",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "reconstructed unchanged-source overlay; not firmware"
+      },
+      "locale": "fr_FR",
+      "width": 640,
+      "height": 480,
+      "frame": null,
+      "sha256": null,
+      "status": "pending",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:50:42.690059+00:00",
+        "observed": "Consolidated pre-teardown inventory; focused proof pending."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF14",
+      "state_id": "CF14.selected-empty-library",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Selected root empty; populated library outside it",
+      "expected_state": "General scan, restore options and empty systems; no chooser or pointer change",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": "b1b777683e6ac06271d33de3ed557e4836d136a8ecd5cc54c3ccfb4a295d4e0b",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "reconstructed unchanged-source overlay; not firmware"
+      },
+      "locale": "fr_FR",
+      "width": 640,
+      "height": 480,
+      "frame": null,
+      "sha256": null,
+      "status": "pending",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:50:42.690059+00:00",
+        "observed": "Consolidated pre-teardown inventory; focused proof pending."
+      }
+    },
+    {
+      "flow_id": "cloud-folder-setup",
+      "branch_id": "CF15",
+      "state_id": "CF15.restore-finish-return",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "implemented-flow-and-visual-proof",
+      "trigger": "Synthetic pending marker; choose Finish",
+      "expected_state": "Marker removed and caller restored with no migration page",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": "b1b777683e6ac06271d33de3ed557e4836d136a8ecd5cc54c3ccfb4a295d4e0b",
+        "french_catalog_sha256": "48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "reconstructed unchanged-source overlay; not firmware"
+      },
+      "locale": "fr_FR",
+      "width": 640,
+      "height": 480,
+      "frame": null,
+      "sha256": null,
+      "status": "pending",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T02:50:42.690059+00:00",
+        "observed": "Consolidated pre-teardown inventory; focused proof pending."
+      }
+    }
+  ]
+}
