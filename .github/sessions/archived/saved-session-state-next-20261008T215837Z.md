@@ -1,10 +1,10 @@
 # Saved Session State
 
-> Saved: 2026-10-08T21:58:37.574523+00:00
+> Saved: 2026-10-08T21:52:10.019585+00:00
 > Coordinator: feature/conflict-resolution
 > Repository: pixelelated/distribution
 
-## Start here — H700 and SM8550 accepted; source/licence inventory next
+## Start here — H700 accepted; SM8550 BUILD ACTIVE
 
 This is an immutable Linux build system, not a runnable application. Primary
 `/workspace/repos/rocknix` stays on `next`; read its AGENTS.md and canonical
@@ -16,10 +16,8 @@ Authorization persists for scoped fixes, commits/pushes, builds, synthetic VM/
 local provider QA and dependency-checked disposable payload retirement. No new
 physical-device/personal-cloud action. #519 controlled owner alignment must
 precede the next owner handheld update transfer/reboot. Website #511 is separate.
-No goal exists. H70002 and SM855003 engineering firmware are ACCEPTED.
-No compiler, VM QA, provider or external audit job is active. No RC designation.
-Helper recovery/active-build record published at376675809c; query its exact-head CI.
-Never repeat completed H700/SM8550 builds, audits or VM QA merely to resume. Published H700 acceptance/checkpoint
+No goal exists. H70002 is accepted; SM8550 compilation is ACTIVE below.
+No external audit is active. Published H700 acceptance/checkpoint
 796c850c768a3c24a10798045dbf2555960ee9c7 has both checks SUCCESS37846448087/37846448336.
 Fresh-agent continuation check caught a stale lower M7.P5 paragraph; both lower
 queue paragraphs are now corrected and live-read back. H700 is not active.
@@ -114,71 +112,45 @@ exists in either. Proof in docs/qa-logs/2026-10-08-device-refresh/h70002/.
 Scratch raw disks/extractedSYSTEM retired; engineering artifact acceptance,
 not a physical boot or RC/publication claim.
 
-## SM855003 complete — do not repeat
-
-Source8b5113fa164ada7d002ab138b1e3a9bf795e9de5, manifest
-d23c6a914afabadd0cee025f843d80457143224ef18e761825c033715b0aae62.
-Tree /workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02 remains branch
-build/m7-pixelelated-sm8550-02. Successful build OWNER ends refresh-03, not02.
-Original02 cache completed all five0channels:789537ARM+3412198aarch64+19922Nix
-independent files; all checksums equal, actual owner exits21:48:15. Its later
-compiler attempt stopped BEFORE compilation on Python3.10 missing file_digest.
-All original five rc2channels and actual exits/container removal are retained.
-Fresh03 fixes only the helper, with actual pinned-runtime failing/passing proof.
-Product source and cache are unchanged. Preflight --reclaim-swap wasREADY and
-did NOT reclaim healthy swap (45%free); never describe that as a recycle.
-
-Build owner /workspace/tmp/pixelelated-m7-sm8550-refresh-03,
-run20261008T215107Z-cf03478e, all five0channels; ARM245/aarch64737complete;
-finished21:55:10, consumed21:55:25; actual owners/observer/container gone.
-Acceptance owner /workspace/tmp/pixelelated-m7-sm8550-refresh-acceptance-03,
-run20261008T215525Z-07ce5a9a, all five0channels; finished21:55:45,
-consumed21:56:24, actual owners gone. Immutable bundle
-/workspace/artifacts/pixelelated-candidates/sha256/afcb966f246118798c87e59cd5bc6ce7c2c21167a5d712faea56393409d9d79d.
-IMG SHAa751b77589ce2332fa296ebf2da54e7a7de198d14c24ca6569d1e3b37c766a14;
-TAR SHAb3f1a8190e04abbf64d35486601ee19fce35d2d25bc7239b1be7cccd9fb43730.
-SYSTEM40b62db72ecb503117a72e788ceb4a941485fe6d78ec3c5865bb5a7ddb7172d1;
-kernel d5afbda7f46de11141f6d2e6cc31be81ec8c597cd5fac3a87b8a6bed280a8ccc.
-Raw/update equality, GPT/system+storage, all5ABLfiles,187ARMhandoff,14FEXoutputs,
-installed helper/default/native/ES/French catalogue/post-update/identity pass.
-Only box86/pcsx32 ARM output changes: bounded metadata substitutions make full
-bytes equal, no GNUbuild-IDsection. Exact unnormalized new bytes passed handoff.
-Scratch disks/extractedSYSTEM removed. Source/helper/acceptance seals unchanged.
-Evidence: docs/qa-logs/2026-10-08-device-refresh/sm855003/.
-
 ## Current work and next commands
 
-1. No build/QA owner remains running. Start final component/source/licence
-   inventory for qualified VM18, H70002 and SM855003 under #344. #492 remains
-   open ONLY for final per-image inventory linkage; all firmware criteria ticked.
-   Current H700/SM share source8b5113fa16 and exact qualified ES1d76b3da7.
-   VM18 source7f58b7b1c5 has zero product delta; metadata/history is explicit.
-2. Read prior inventory12 harness and component/source records under
-   docs/qa-logs/2026-10-07-pixelelated-replacement-16/inventory-12/; do not treat
-   that old inventory as final. source-inventory.py and qualify-inventory.py
-   hardcode amd64 rclone and old owners/archives; adapt per actual target,
-   retain original hash/provenance failures, and qualify device-specific extras
-   (including ARM and Nix/FEX). Fourteen historical missing recipe-licence fields
-   remain an evidenced inventory task, not permission to invent licence labels.
-   source-notice-preparation.json locates top-level notice candidates for VM18/
-   H700 only; it is neither a full licence review nor source-custody clearance.
-3. Keep exact source/archive/patch/build-script inputs until final inventory
-   verifies their replacement custody. Retire superseded large outputs/caches
-   after that immediate dependency clears (#493/#494, D-INFRA-022); history alone
-   is not a hold. Never delete source/licence inputs or an active path. Worktree
-   removal only tools/fork-worktree. No personal cloud/device cleanup is inferred.
-4. #265 owns release/version/publication tooling; #359 remaining release-note
-   linkage follows final selection. #344 source/licence inventory and named
-   physical/boot-chain gates remain. No new external audit is required.
-5. #519 controlled owner alignment remains before the next RG35XXSP transfer/
-   reboot. Its13old-helper controls are complete, but live recovery/startup-hook
-   classification, exact reversible transaction/failure/restart rehearsal and
-   named state-bound action approval/readback are still required. Read issue519
-   and private proposal before preparing those actions. No device or cloud
-   action ran in this build continuation. Website511 stays separate.
-6. Publish scoped evidence/docs only from historically divergent root to next,
-   run required gates and consume exact-head hosted checks. Keep full M7/#492/
-   #344 bodies and canonical checkpoint aligned. Do not repeat accepted work.
+1. TAKE OVER active SM8550 BUILD; never duplicate. Owner /workspace/tmp/pixelelated-m7-sm8550-refresh-03,
+   tree /workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02, branch build/m7-pixelelated-sm8550-02.
+   Source8b5113fa164ada7d002ab138b1e3a9bf795e9de5; zero product delta vs qualified VM18.
+   Manifestd23c6a914afabadd0cee025f843d80457143224ef18e761825c033715b0aae62.
+   run.path names /workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02/.build-runs/20261008T215107Z-cf03478e. Actual host PIDs {"build.pid": 1142358, "watcher.pid": 1142359, "command.pid": 1142394, "launcher": 1142357}.
+   Observed actual pinned container 03e12cfef64853cd67b7384a3c75d80fda6c390ebc790022a7f7f0f2aba95167, same24/4concurrency.
+   Stable container path is old SM855001, but source mount is new SM855002.
+   Independent Nix store RW at /nix and exact pinned snapshot RO are verified
+   by the startup barrier. Read owner/console.log and run/build.status actively;
+   inspect actual HOST processes, not sandbox /proc. Never edit running tools.
+2. Original02 failed before compilation: all five rc2channels and exits are
+   preserved in /workspace/tmp/pixelelated-m7-sm8550-refresh-02/failure-consumption.json.
+   Retry03 fixes only the helper, with actual Python3.10 positive/negative proof.
+   Cache is COMPLETE; do not rerun launchers or consumer. Original02/cache-consumption.json
+   binds three checksum-equal/inode-separated roots, all original five0channels,
+   unchanged seals and actual owner exits in the original02 cache owner. Precompiler guarded preflight ran after copy watcher exit; healthy swap
+   remained unchanged (reclaim condition did not fire). Never recycle swap during this active build.
+   Compact proof: docs/qa-logs/2026-10-08-device-refresh/sm855003/cache-and-build/.
+3. At terminal build0, verify all inner/outer/wrapper/build/launcher results,
+   source and build-seal, actual owner/observer exits and actual container removal:
+   `python3 /tmp/m7-consume-sm8550-retry03.py build` in HOST context. Failures keep
+   original results and archived thread logs; no guessed restart or overwritten rc.
+4. Prepared independent acceptance, NOT STARTED:
+   /workspace/tmp/pixelelated-m7-sm8550-refresh-acceptance-03. Review its run.py,
+   verify-firmware.py and seal.json. From SM855002 tree, submit
+   tools/watch-build-submit --owner <acceptance-owner> -- --interval 5 --stall-min 5
+   -- python3 -I -u <acceptance-owner>/run.py . It requires accepted build receipt.
+   It compares actual SYSTEM/install mappings, raw/update SYSTEM/kernel, GPT and
+   ABL files, new ARM manifest and14FEX outputs, then independent immutable bundle.
+   Consume terminal acceptance with /tmp/m7-consume-sm8550-retry03.py acceptance
+   in HOST context. No old artifact or migration-copy proof qualifies these bytes.
+5. Record completion in full M7/#492/#344 bodies, work log and archived checkpoint.
+   Publish only scoped docs/evidence commits from root into next. Check exact-head
+   hosted record/wordlist results. #344 corresponding source/licence inventory,
+   #359release-note linkage, #265version/publication tooling and named physical
+   gates remain. #519 precedes owner-device transfer/reboot. No new personal/cloud
+   operation or RC designation. Website511 stays separate.
 
 ## Build references and cautions
 

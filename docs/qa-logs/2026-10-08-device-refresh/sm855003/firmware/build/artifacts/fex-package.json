@@ -1,0 +1,110 @@
+{
+  "utc": "2026-10-08T21:55:06.084550+00:00",
+  "result": "PASS",
+  "nix_version": "nix (Nix) 2.35.2",
+  "nixpkgs_url": "https://releases.nixos.org/nixpkgs/nixpkgs-26.11pre1086972.7dd199b0e299/nixexprs.tar.xz",
+  "rootfs": "/nix/store/hymgd36hiy3g3pj7pyj6a53q7rbaip3i-fex-dev-rootfs",
+  "toolchain32": "/nix/store/a6b0pssdzris6023aqdgxvpvp3vqp8aw-toolchain_nix_x86_32.txt",
+  "toolchain64": "/nix/store/0y77jl567k50s0mpaz6878rpqdbynfqc-toolchain_nix_x86_64.txt",
+  "files": [
+    {
+      "path": "usr/bin/FEX",
+      "sha256": "8db7af7da12410e129ee894cdd60c1cf678733da6c1824c3792a41f8fae2eb92",
+      "bytes": 4184112,
+      "bits": 64,
+      "machine": 183
+    },
+    {
+      "path": "usr/share/fex-emu/GuestThunks_32/libEGL-guest.so",
+      "sha256": "59756cd9600378896b8430941e324d2d627f2e2ead5480fe1f7deb740cf6fdb3",
+      "bytes": 8780,
+      "bits": 32,
+      "machine": 3
+    },
+    {
+      "path": "usr/share/fex-emu/GuestThunks_32/libGL-guest.so",
+      "sha256": "eb307799ca60941c88bc4e844775fef126ecbb6c1013ca63e3419363f9284a06",
+      "bytes": 1627360,
+      "bits": 32,
+      "machine": 3
+    },
+    {
+      "path": "usr/share/fex-emu/GuestThunks_32/libVDSO-guest.so",
+      "sha256": "48c9e9c20066a5543bb3bc801413942e67b2091c5d6315d84dde62d7be027d49",
+      "bytes": 3352,
+      "bits": 32,
+      "machine": 3
+    },
+    {
+      "path": "usr/share/fex-emu/GuestThunks_32/libcuda-guest.so",
+      "sha256": "274b05493b160f3bd1580de1c020c4f0b7baf29eef8685ff9e9459b580be1f4f",
+      "bytes": 213464,
+      "bits": 32,
+      "machine": 3
+    },
+    {
+      "path": "usr/share/fex-emu/GuestThunks_32/libwayland-client-guest.so",
+      "sha256": "de618860e289cda192c27be4276d3f9b8f45b6ece4e957886fef9ff3bc65ebe5",
+      "bytes": 49644,
+      "bits": 32,
+      "machine": 3
+    },
+    {
+      "path": "usr/share/fex-emu/GuestThunks/libEGL-guest.so",
+      "sha256": "75db32dbb1c036203acca5b80877713be95da41ad63db39da32a1748f9f769ab",
+      "bytes": 10128,
+      "bits": 64,
+      "machine": 62
+    },
+    {
+      "path": "usr/share/fex-emu/GuestThunks/libGL-guest.so",
+      "sha256": "c61aacff9738b6841f080b61ae87106abeb053ce20cd8519808c660a24633655",
+      "bytes": 1700208,
+      "bits": 64,
+      "machine": 62
+    },
+    {
+      "path": "usr/share/fex-emu/GuestThunks/libVDSO-guest.so",
+      "sha256": "8b43adf177e0df3cfe48e434b5e716d0c6e08a5aa747a40cc24927f24c5ab2a9",
+      "bytes": 3584,
+      "bits": 64,
+      "machine": 62
+    },
+    {
+      "path": "usr/share/fex-emu/GuestThunks/libasound-guest.so",
+      "sha256": "9acd7ab6c9d65ce6c8a33ba277a4cca3001d46cba3947c962f3948019446b75a",
+      "bytes": 513376,
+      "bits": 64,
+      "machine": 62
+    },
+    {
+      "path": "usr/share/fex-emu/GuestThunks/libcuda-guest.so",
+      "sha256": "8c65c1e48803b2b522053f2ee660a546322d9b6ba61457487778dbc1a1fe4cf5",
+      "bytes": 332584,
+      "bits": 64,
+      "machine": 62
+    },
+    {
+      "path": "usr/share/fex-emu/GuestThunks/libdrm-guest.so",
+      "sha256": "64ab6ca8cadc765447c150a9674cb3326145a5900103d82b40932cc570486a0d",
+      "bytes": 50896,
+      "bits": 64,
+      "machine": 62
+    },
+    {
+      "path": "usr/share/fex-emu/GuestThunks/libvulkan-guest.so",
+      "sha256": "4e470e11c58a44ccd64626a3b6281aea074e7c6b29e76e6dba3b8beead98da05",
+      "bytes": 549616,
+      "bits": 64,
+      "machine": 62
+    },
+    {
+      "path": "usr/share/fex-emu/GuestThunks/libwayland-client-guest.so",
+      "sha256": "5c2625fa110235d4a46d8d7fdd7be5495ec2a408b7096ec847ada2d7c8a553c4",
+      "bytes": 45224,
+      "bits": 64,
+      "machine": 62
+    }
+  ],
+  "scope": "Complete FEX package: native AArch64 runtime and all installed x86 guest thunks; no native execution claim"
+}

@@ -1,0 +1,22 @@
+{
+  "command": [
+    "make",
+    "docker-SM8550",
+    "COMMAND=bash /workspace/tmp/pixelelated-m7-sm8550-refresh-03/inside-build.sh"
+  ],
+  "inside_command": [
+    "make",
+    "SM8550"
+  ],
+  "cwd": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02",
+  "container_worktree": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01",
+  "device": "SM8550",
+  "arches": [
+    "arm",
+    "aarch64"
+  ],
+  "container": "ghcr.io/pixelelated/build@sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39",
+  "global_jobs": 24,
+  "webkit_jobs": 4,
+  "scope": "canonical target, independent verified warm roots and affected-package clean"
+}
