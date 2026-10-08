@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Saved: 2026-10-08T16:29:30.054787+00:00
+> Saved: 2026-10-08T15:56:20.915790+00:00
 > Coordinator: feature/conflict-resolution
 > Repository: pixelelated/distribution
 
@@ -64,41 +64,20 @@ that concrete approval persists for this same blind/refutation scope. Do not res
    resume-checkpoint.json for actual progress. #524 is the mandatory punch issue:
    threeMedium,oneLow,no confirmedHigh/Critical. All130criteria independently
    examined; private/future gates are not passes.
-   - PL-001 RESOLVED: auditor independently verified complete #497/#510 tracker
-     bodies and primary source receipts. Published next fca20f6b8b.
-   - PL-002 RESOLVED: retired two obsolete QA entrypoints with run refusal/help
-     guidance, corrected recipe comment and canonical instruction-index rows.
-     Tool source44c87473 is next2cc6ce30; instruction58a8d660 is next95a03b2e.
-     Auditor independently verified published containment and controls.
-   - PL-003 ROOT ACTIVE: ES feature/m7-cloud-path-reasons at
-     1d76b3da7da75794066df1c089931b890304da7a, in
-     /home/max/Development/emulationstation-next.worktrees/m7-cloud-path-reasons.
-     Safe exact-line reason mapping plus localized actionable guidance; backend
-     unchanged. 184 cases/4775 assertions, syntax, catalog, actual11-message
-     extraction and vocabulary/menu-map pass;511 input hashes unchanged.
-     Reconstructed28-unit target binary e80b09fdee07043468154a4c9f9ec0a4fb7bdc9ba82f7c9d806b048d5cd3b010,
-     French catalog f056223d0fa947a7c9790c914b7696586b168e33135c627ebbc4d1d6d530dfb4;
-     all648 reconstruction input hashes unchanged, fourzerochannels/process exits.
-     Scratch owner /workspace/tmp/pixelelated-524-path-refusal: host01/build01/
-     guest01/stage01 complete. guest01 owns the single synthetic QEMU VM on
-     SSH10220/VNC5940,/tmp/pix524-mon.sock and /tmp/pix524-ser.sock, vm.pid and
-     ephemeral qa-key under guest01. IPv4/IPv6 blackhole half-routes exclude
-     external connections; synthetic WebDAV on guest127.0.0.1:9038 and owned
-     host MinIO pixelelated-524-path-refusal:9039 support actual refusal cases.
-     Test fixture failures (keyboard preference absent, an unsupported nounset
-     profile call, and preferences outside fresh config root) are retained;
-     fixture-correct03 uses the actual <config> wrapper. Successful individual
-     invalid-components03 frame and unchanged pointers/config/payload verified.
-     matrix01 is now submitted to watch-build/watch-job for44 EN/FR640x480/
-     1280x800 rendering cases, with actual backend cases distinguished from
-     explicitly injected status-only copy cases. Read its current result/status
-     and consume termination; submission alone is not a completed proof.
-     Source/canonical CF05 frames/integration pending. ES pin remains4e410.
-     Retire guest, MinIO and reconstruction scratch after acceptance; auditor
-     withdrew the optional inert-token L-03 probe as insufficient evidence of
-     actual OAuth behavior. No guest retention solely for that unverified lead.
-   - PL-004 auditor WAITING on PL-003: reject malformed receipt JSON object
-     shapes normally, retaining valid and negative controls.
+   - PL-001 root: #497/#510full bodies corrected, exact before/after receipts in
+     docs/qa-logs/2026-10-08-m7-audit-resolutions/PL-001/. #497closedcompleted
+     against accepted H700185/SM8550187ARM handoff evidence. #510fivecriteria
+     checked; assembled-image/adoption criterion stays open. M7/#507exact
+     current-order readbacks also retained. Auditor verification comes beforePL-002.
+   - PL-002 auditor next: retire obsolete host/VM folder-test contracts with
+     truthful fail-closed stubs/current replacement guidance; correct package
+     comment. Root applies the specific canonical instruction table recommendation.
+   - PL-003 root afterPL-002: safe localized actionable path-refusal reasons;
+     current callback discards backend explanations. Separate ES source fix,
+     host controls/syntax/catalog, actual EN/FR640and1280VM frames, unchanged
+     path proof and CF05canonical references precede pin promotion.
+   - PL-004 auditor afterPL-003: reject malformed receipt JSON object shapes
+     normally, retaining valid and negative controls.
    Preserve frozen review input and original findings. Implementation uses
    separate remediation state. No completion marker until all outcomes verify.
    Both newly approved Fable transfers are COMPLETE; do not ask again or repeat:
