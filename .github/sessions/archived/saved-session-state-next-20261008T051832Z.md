@@ -391,12 +391,10 @@ criterion is complete; repair and actual integration/image criteria stay open.
 
 #516 read-only clock/path/activity, scoped category metadata and tiny orientation
 records have been observed and retained privately; no read job remains active.
-The owner has supplied timezone context and accepts relying on the provider
-restore with the observed checks. Do not reopen the timestamp/scope questions
-as a prerequisite: no further forensic reset investigation is queued. Exact
-reset-event scope and full content equality remain independently unproved.
-Local counterpart/reupload checks, exhaustive residue classification and the
-one-time cleanup proposal remain separate open work. No delete/move/sync,
+The owner still needs to clarify the reset's calendar date/timezone (seconds if
+available) and whether it applied to the whole cloud root or only its content
+subfolder. Full content integrity, local counterpart/reupload checks, exhaustive
+residue classification and cleanup remain unclaimed. No delete/move/sync,
 credential export, device update, build or code audit ran. Keep exact personal
 findings in `/tmp/pixelelated-personal-cloud-review-20261008/`; current public
 tracking is redacted. These questions do not block #515's product work.
