@@ -1,0 +1,47 @@
+[
+  {
+    "name": "installed-settings-writer-refuses-unwritable-temp",
+    "pass": true,
+    "detail": {
+      "rc": 1,
+      "all_original_hashes_and_modes_equal": true
+    }
+  },
+  {
+    "name": "installed-last-good-writer-refuses-unwritable-temp",
+    "pass": true,
+    "detail": {
+      "rc": 1,
+      "all_original_hashes_and_modes_equal": true
+    }
+  },
+  {
+    "name": "atomic-publication-real-ENOSPC-preserves-original",
+    "pass": true,
+    "detail": true
+  },
+  {
+    "name": "actual-systemd-process-killmode-leaves-detectable-lease-owner",
+    "pass": true,
+    "detail": {
+      "worker_pid": 5387,
+      "proc_identity": "5387 (sleep) S 5386 5387 5387 0 -1 4194304 545 172 0 0 0 0 0 0 20 0 1 0 46815 7114752 826 18446744073709551615 4218880 4658405 140727368214272 0 0 0 0 4102 0 1 0 0 17 0 0 0 0 0 0 4767208 4770955 822628352 140727368219905 140727368219915 140727368219915 140727368220649 0\n",
+      "unit": "[Unit]\nDescription=QA519 synthetic detached worker\n[Service]\nExecStart=/storage/qa519/followup/parent.sh\nKillMode=process\nTimeoutStopSec=3\nRestart=always\nRestartSec=2\n",
+      "config_unchanged": true
+    }
+  },
+  {
+    "name": "installed-cloud-fallback-restores-aligned-guards-before-no-remote-refusal",
+    "pass": true,
+    "detail": {
+      "rc": 1,
+      "no_remote_configured_during_control": true,
+      "all_config_hashes_and_modes_equal": true
+    }
+  },
+  {
+    "name": "durable-masked-recovery-checkpoint-ready",
+    "pass": true,
+    "detail": true
+  }
+]

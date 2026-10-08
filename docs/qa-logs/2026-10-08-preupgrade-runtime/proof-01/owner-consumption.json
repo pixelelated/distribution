@@ -1,0 +1,17 @@
+{
+  "utc": "2026-10-08T23:19:12.593303+00:00",
+  "original_results": {
+    "inner.rc": 0,
+    "outer.rc": 0,
+    "tool-wrapper.rc": 0,
+    "guest-command.rc": 0,
+    "build.rc": 0
+  },
+  "status": "state:       finished\nwritten:     2026-10-08 23:16:49 UTC   <- terminal result; heartbeat stops here\nwatcher_pid: 1749536\njob_pid:     1749535  alive=yes\nstarted:     2026-10-08 23:16:34 UTC\nprogress:    none matched\nlog:         /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261008T231634Z-a411eb0b/build.log  (last written 15s ago)\nactivity:    /workspace/tmp/pixelelated-m7-alignment-proof-01/artifacts/guest-proof.log  (last written 2s ago)\nactivity_dir: /workspace/tmp/pixelelated-m7-alignment-proof-01/artifacts\noutcome:     rc=0\nactivity_progress: \ntail:\n  PASS aligned-settings-fallback-recovers-auto0\n  PASS actual-ES-guarded-restart-no-automatic-transfer-or-folder-scan\n",
+  "actual_host_owners_exited": [
+    1749534,
+    1749535,
+    1749536,
+    1749567
+  ]
+}

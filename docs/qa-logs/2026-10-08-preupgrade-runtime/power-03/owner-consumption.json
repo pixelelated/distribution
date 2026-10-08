@@ -1,0 +1,19 @@
+{
+  "utc": "2026-10-08T23:30:41.751734+00:00",
+  "original_results": {
+    "inner.rc": 0,
+    "outer.rc": 0,
+    "tool-wrapper.rc": 0,
+    "guest-command.rc": 0,
+    "build.rc": 0
+  },
+  "status": "state:       finished\nwritten:     2026-10-08 23:27:48 UTC   <- terminal result; heartbeat stops here\nwatcher_pid: 1795003\njob_pid:     1795002  alive=yes\nstarted:     2026-10-08 23:27:37 UTC\nprogress:    none matched\nlog:         /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261008T232737Z-b5b1a5a9/build.log  (last written 10s ago)\nactivity:    /workspace/tmp/pixelelated-m7-alignment-power-03/artifacts/guest-proof.log  (last written 3s ago)\nactivity_dir: /workspace/tmp/pixelelated-m7-alignment-power-03/artifacts\noutcome:     rc=0\nactivity_progress: \ntail:\n  PASS actual reboot unmasks essway but persistent condition prevents frontend/automatic startup with auto1\n  PASS interrupted alignment recovered; exact transaction and ES restart preserve data and remove temporary startup gate\n",
+  "actual_host_owners_exited": [
+    1795001,
+    1795002,
+    1795003,
+    1795032
+  ],
+  "composed_power_event_owner": "pixelelated-m7-alignment-power-02",
+  "original02_result_remains_failed": true
+}

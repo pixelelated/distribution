@@ -1,0 +1,36 @@
+{
+  "boot": "a1ff25e1-d7ca-4722-842d-3c16d4b9308d",
+  "files": {
+    "/storage/.config/cloud_sync.conf": {
+      "sha256": "f497d572046bc179b5dfb16528d201958ae6665d2cad1f95419c02076d2b2145",
+      "mode": 384
+    },
+    "/storage/.config/cloud-layout-migration.json": {
+      "sha256": "8dd81513165ea6a1ec3594cd38733b4459fd0381eab6af62d16afdfee96c0e25",
+      "mode": 384
+    },
+    "/storage/.config/rclone/rclone.conf": {
+      "sha256": "a52c1513afd3a80dc22659c03ea5ba1ab5fc2f00a57b5c7a6f9c1b4d3ba52074",
+      "mode": 384
+    },
+    "/storage/roms/savefiles/qa519.srm": {
+      "sha256": "4072a0139f558ddb038885e3254a4c72fe770d3a45b87fc6b8a07ac7bc87eace",
+      "mode": 420
+    },
+    "/storage/.cache/cloud_sync/replaced/qa519.srm": {
+      "sha256": "b80dbd1a733782f5370cac3799ce602cc8ff574893f5503bc5d2211f357a916b",
+      "mode": 420
+    }
+  },
+  "dropins": {
+    "/storage/.config/system.d/emustation.service.d/90-qa519-maintenance.conf": "0479a41d8a82e1752ef2324fe51eccdf354a8b688c5d6cfd47dff35fe87131b5",
+    "/storage/.config/system.d/essway.service.d/90-qa519-maintenance.conf": "0479a41d8a82e1752ef2324fe51eccdf354a8b688c5d6cfd47dff35fe87131b5"
+  },
+  "settings_mode": 384,
+  "states": {
+    "emustation.service": "ActiveState=inactive\nUnitFileState=disabled\nConditionResult=no\n",
+    "essway.service": "ActiveState=inactive\nUnitFileState=disabled\nConditionResult=no\n"
+  },
+  "auto_before": "1",
+  "guard": "persistent negative ConditionPathExists + private marker; independent of masks"
+}

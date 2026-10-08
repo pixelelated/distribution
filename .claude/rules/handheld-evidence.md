@@ -92,6 +92,20 @@ are for, and a userspace watchdog is an open question (D-SYS-006).
 
 ## Testing it on the VM
 
+### A maintenance mask is not necessarily a boot barrier
+
+#519's old-source rehearsal found that `111-sway-init` explicitly unmasks
+`essway.service` during kiosk boot. Before relying on a stopped or masked
+service across interruption, trace its boot-time writers and prove the actual
+reboot behavior. Temporary operational isolation may need a narrowly owned
+systemd condition and marker that those writers do not remove. Qualify it with
+automation still enabled, retain exact prior unit state, and remove the owned
+condition/marker before successful completion; do not leave a handheld's
+frontend inhibited across an upgrade by accident. A reboot invalidates the
+operation's state-bound receipt even if only expected sorting changed a config.
+See `docs/qa-logs/2026-10-08-preupgrade-runtime/`; this is an operational guard,
+not a new product maintenance feature or standing device authorization.
+
 The GENERIC_X64 profile carries QEMU's `i6300esb` watchdog with
 `-action watchdog=reset`, and its kernel has pstore over UEFI variables, so
 every part of this except H700 DRAM retention is provable on the VM

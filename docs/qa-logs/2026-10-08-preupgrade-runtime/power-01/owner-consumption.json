@@ -1,0 +1,18 @@
+{
+  "utc": "2026-10-08T23:25:26.801281+00:00",
+  "original_results": {
+    "inner.rc": 1,
+    "outer.rc": 1,
+    "tool-wrapper.rc": 1,
+    "guest-command.rc": 1,
+    "build.rc": 1
+  },
+  "status": "state:       finished\nwritten:     2026-10-08 23:21:03 UTC   <- terminal result; heartbeat stops here\nwatcher_pid: 1766617\njob_pid:     1766616  alive=yes\nstarted:     2026-10-08 23:20:43 UTC\nprogress:    none matched\nlog:         /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261008T232043Z-0543e0ff/build.log  (last written 2s ago)\nactivity:    /workspace/tmp/pixelelated-m7-alignment-power-01/artifacts/guest-proof.log  (last written 1s ago)\nactivity_dir: /workspace/tmp/pixelelated-m7-alignment-power-01/artifacts\noutcome:     rc=1\nactivity_progress: \ntail:\n    File \"<stdin>\", line 12, in <module>\n  AssertionError\n",
+  "actual_host_owners_exited": [
+    1766614,
+    1766616,
+    1766617,
+    1766648
+  ],
+  "failure_preserved": "boot changed system.cfg and 111-sway-init unmasked essway; masks alone insufficient"
+}

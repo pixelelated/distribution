@@ -1,0 +1,17 @@
+{
+  "utc": "2026-10-08T23:20:42.983186+00:00",
+  "original_results": {
+    "inner.rc": 0,
+    "outer.rc": 0,
+    "tool-wrapper.rc": 0,
+    "guest-command.rc": 0,
+    "build.rc": 0
+  },
+  "status": "state:       finished\nwritten:     2026-10-08 23:19:17 UTC   <- terminal result; heartbeat stops here\nwatcher_pid: 1760422\njob_pid:     1760421  alive=yes\nstarted:     2026-10-08 23:19:12 UTC\nprogress:    none matched\nlog:         /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261008T231912Z-8ce75076/build.log  (last written 5s ago)\nactivity:    /workspace/tmp/pixelelated-m7-alignment-proof-02/artifacts/guest-proof.log  (last written 4s ago)\nactivity_dir: /workspace/tmp/pixelelated-m7-alignment-proof-02/artifacts\noutcome:     rc=0\nactivity_progress: \ntail:\n  PASS installed-cloud-fallback-restores-aligned-guards-before-no-remote-refusal\n  PASS durable-masked-recovery-checkpoint-ready\n",
+  "actual_host_owners_exited": [
+    1760420,
+    1760421,
+    1760422,
+    1760451
+  ]
+}

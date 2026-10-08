@@ -1,0 +1,29 @@
+{
+  "boot_id": "99e1242f-cf7a-4970-b9a9-11f399369d07",
+  "configs": {
+    "/storage/.config/system/configs/system.cfg": {
+      "sha256": "d431b72f7666654e442a1904d6a292a45091d7a960e1af8fce71994b3d619f9b",
+      "mode": 384
+    },
+    "/storage/.config/system/configs/system.cfg.backup": {
+      "sha256": "d431b72f7666654e442a1904d6a292a45091d7a960e1af8fce71994b3d619f9b",
+      "mode": 384
+    },
+    "/storage/.config/cloud_sync.conf": {
+      "sha256": "247faf3c390d5c6109ee981e109b49037ffc3439a88a92095ccba636a65662c6",
+      "mode": 384
+    },
+    "/storage/.config/cloud_sync.conf.bak": {
+      "sha256": "247faf3c390d5c6109ee981e109b49037ffc3439a88a92095ccba636a65662c6",
+      "mode": 384
+    }
+  },
+  "rclone_sha256": "a52c1513afd3a80dc22659c03ea5ba1ab5fc2f00a57b5c7a6f9c1b4d3ba52074",
+  "save_sha256": "4072a0139f558ddb038885e3254a4c72fe770d3a45b87fc6b8a07ac7bc87eace",
+  "recovery_sha256": "b80dbd1a733782f5370cac3799ce602cc8ff574893f5503bc5d2211f357a916b",
+  "units": {
+    "emustation.service": "ActiveState=inactive\nUnitFileState=masked\n",
+    "essway.service": "ActiveState=inactive\nUnitFileState=masked\n"
+  },
+  "scope": "deliberate power cut after fully guarded state and persistent masks; not every low-level filesystem timing"
+}

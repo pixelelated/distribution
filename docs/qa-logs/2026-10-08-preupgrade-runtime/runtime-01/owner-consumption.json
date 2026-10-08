@@ -1,0 +1,18 @@
+{
+  "utc": "2026-10-08T23:16:34.225659+00:00",
+  "results": {
+    "inner.rc": 0,
+    "outer.rc": 0,
+    "tool-wrapper.rc": 0,
+    "build.rc": 0
+  },
+  "status": "state:       finished\nwritten:     2026-10-08 23:11:42 UTC   <- terminal result; heartbeat stops here\nwatcher_pid: 1726871\njob_pid:     1726867  alive=yes\nstarted:     2026-10-08 23:11:02 UTC\nprogress:    none matched\nlog:         /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261008T231102Z-7a526742/build.log  (last written 1s ago)\nactivity:    /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261008T231102Z-7a526742/build.log  (last written 1s ago)\nactivity_dir: /workspace/tmp/pixelelated-m7-alignment-runtime-01/artifacts\noutcome:     rc=0\ntail:\n  ready after ~31s\n  PASS fresh old-source guest ready; no personal credentials or data imported\n",
+  "original_host_owners_exited": [
+    1726866,
+    1726867,
+    1726871,
+    1726900
+  ],
+  "guest_qemu_is_deliberately_active": 1727602,
+  "receipt_parser_preexecution_failure": "first parser expected exit instead of outcome; no result altered"
+}

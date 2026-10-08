@@ -1,0 +1,29 @@
+{
+  "old_pid": 1766663,
+  "new_pid": 1785974,
+  "old_exited_before_restart": true,
+  "command": [
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm",
+    "run",
+    "--headless",
+    "--daemonize",
+    "--gl",
+    "auto",
+    "--res",
+    "640x480",
+    "--ssh-port",
+    "10251",
+    "--vnc",
+    "71",
+    "--monitor",
+    "/tmp/pix519-01-mon.sock",
+    "--serial",
+    "/tmp/pix519-01-ser.sock",
+    "--pidfile",
+    "/workspace/tmp/pixelelated-m7-alignment-runtime-01/vm.pid",
+    "--mac",
+    "52:54:00:52:05:19",
+    "/workspace/tmp/pixelelated-m7-alignment-runtime-01/vm.qcow2"
+  ],
+  "no_guest_shutdown_requested": true
+}
