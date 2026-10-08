@@ -1,5 +1,3 @@
-# Feature worktree checkpoint
+# Session pointer
 
-Read [the canonical checkpoint](saved-session-state-next.md) on `next`.
-The current P5 state and next gated commands are there; older states
-are archived. Saving the checkpoint does not pause authorized M7 work.
+Read [the canonical next checkpoint](saved-session-state-next.md). This historically divergent coordinator must not be merged wholesale; publish scoped commits by explicit hash.
