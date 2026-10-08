@@ -1,0 +1,63 @@
+{
+  "utc": "2026-10-08T21:56:24.512404+00:00",
+  "result": "PASS",
+  "scope": "The only two changed ARM outputs differ solely by embedded distribution revision/build date/time (no build-ID section is present); actual unnormalized new bytes are separately verified in firmware handoff",
+  "entries": [
+    {
+      "path": "usr/bin/box86",
+      "old_sha256": "90447cf733e9e1f5ee117374dd6e2b268d79a0042415bb1ae5c9dd3c98392d96",
+      "new_sha256": "57e05c5a9c2a8920ab3066d2a987c75b5584baf0dd4f5ae9b486e0928016e707",
+      "bytes": 12749244,
+      "changed_sections": [
+        ".rodata"
+      ],
+      "normalized_exact_byte_equality": true,
+      "substitutions": [
+        {
+          "old": "40f80c5151",
+          "new": "8b5113fa16",
+          "occurrences": 1
+        },
+        {
+          "old": "Oct  7 2026",
+          "new": "Oct  8 2026",
+          "occurrences": 1
+        },
+        {
+          "old": "09:27:05",
+          "new": "21:51:19",
+          "occurrences": 1
+        }
+      ],
+      "build_id_section_ignored": false
+    },
+    {
+      "path": "usr/lib/libretro/pcsx_rearmed32_libretro.so",
+      "old_sha256": "35fa4c6a0f66ec9294ceab0bd2bb862847a3121ddf65d3f3d381d14ba96ba30d",
+      "new_sha256": "da2a2725e6ebaf5722bb4fb8cbd6e673ffd8bd7d91efd7bcbcfc3121eb7d8fca",
+      "bytes": 1438684,
+      "changed_sections": [
+        ".rodata"
+      ],
+      "normalized_exact_byte_equality": true,
+      "substitutions": [
+        {
+          "old": "40f80c5151",
+          "new": "8b5113fa16",
+          "occurrences": 2
+        },
+        {
+          "old": "Oct  7 2026",
+          "new": "Oct  8 2026",
+          "occurrences": 1
+        },
+        {
+          "old": "09:21:19",
+          "new": "21:51:16",
+          "occurrences": 1
+        }
+      ],
+      "build_id_section_ignored": false
+    }
+  ]
+}

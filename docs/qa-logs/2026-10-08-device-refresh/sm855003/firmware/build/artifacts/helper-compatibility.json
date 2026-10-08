@@ -1,0 +1,17 @@
+{
+  "utc": "2026-10-08T21:50:49.185480+00:00",
+  "result": "PASS",
+  "container": "ghcr.io/pixelelated/build@sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39",
+  "source": "8b5113fa164ada7d002ab138b1e3a9bf795e9de5",
+  "input_manifest_sha256": "d23c6a914afabadd0cee025f843d80457143224ef18e761825c033715b0aae62",
+  "original_failing_control": {
+    "rc": 1,
+    "stderr": "Traceback (most recent call last):\n  File \"/workspace/tmp/pixelelated-m7-sm8550-refresh-02/verify-fex-cache.py\", line 7, in <module>\n    with p.open('rb') as s:assert hashlib.file_digest(s,'sha256').hexdigest()==h,name\nAttributeError: module 'hashlib' has no attribute 'file_digest'\n"
+  },
+  "corrected_actual_accepted_FEX_hashes": {
+    "rc": 0,
+    "stdout": "PASS unchanged accepted FEX build stamps, generated guest toolchains and package payload before rebuild\n"
+  },
+  "actual_interpreter": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]\nPASS actual pinned Python compiles all in-container scripts\n",
+  "scope": "Read-only actual pinned-container compatibility proof before retry; no compiler or product change"
+}
