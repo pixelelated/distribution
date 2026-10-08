@@ -29,6 +29,42 @@ The project name **pixelelated** always stays lowercase, including labels and
 headings otherwise written in capitals (D-WORKFLOW-144). Do not uppercase the
 brand through a component formatter.
 
+## Keep the flow and its visual evidence together
+
+**Required for every EmulationStation change, and for any navigation,
+information-architecture, behavior or screen-content change regardless of
+which repository or script supplies it** (D-UI-039, D-WORKFLOW-155/156):
+
+1. Review the affected canonical menu map and flow/IA diagram. Update the
+   steps, labels, branch triggers and destinations with the implementation.
+   A text-only change still updates its screen/flow reference. Inventory
+   distinct content variants (including each category's help and displayed
+   script warnings) plus rejected/error states before declaring coverage
+   complete. One shared page/component does not prove all of its copy variants.
+2. Capture the accompanying screenshots from the changed source on the VM;
+   review the happy path and relevant branches, including cancellation,
+   failure/retry and stale state where applicable. For a change with no
+   intended visible effect, name the exercised flow and retain the screenshot
+   proving its unchanged presentation; do not invent diagram changes.
+3. Link each reviewed frame to its flow step/branch and exact source or build,
+   language, panel size and expected state. Record any reused evidence with
+   its original source and an explicit unchanged-input justification. A
+   missing or rejected proof remains open; it cannot satisfy completion.
+4. Land source, canonical references and evidence together before calling the
+   UI change complete or promoting its product pin. Keep a machine-readable
+   evidence index beside the reviewed frames, following the format in the
+   menu map. This applies during fixes as well as initial implementation.
+
+A directory of unnamed screenshots is not a flow reference. The current
+`es-menu-map-check` detects missing screen titles, not stale copy or screenshot
+coverage; passing it alone does not satisfy these required steps.
+
+Use the existing `vm-walks`, `vm-visual-qa` and `frame-diff` mechanisms.
+Draft source-overlay frames do not replace the accepted device baseline.
+Retain the previous evidence as historical and record intentional differences
+with their owning issue; never silently bless a changed screen by replacing
+its reference. The menu map's visual-evidence section is the entrypoint.
+
 ## Rows
 
 Seven builders. Pick by what the row *is*, not by how it looks.

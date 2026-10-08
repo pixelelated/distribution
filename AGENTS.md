@@ -226,6 +226,12 @@ They are not style; each one exists because its absence cost somebody an evening
   `tools/vm-upgrade-rehearsal` runs the upgrade half on the VM.
 - **Never edit a shell tool while a run of it is in flight**, and never `pkill -f` a
   pattern the shell's own argv carries; long-lived processes get a pidfile.
+- **Keep each ES change with its flow and screenshot evidence.** Update the
+  canonical menu/IA/flow reference and accompanying reviewed happy-path and
+  branch frames for navigation, behavior or screen-content changes, including
+  copy-only edits. A nonvisual change records the exercised flow and unchanged
+  presentation. Source, references and the exact-source frame index precede
+  completion or pin promotion (`es-ui-style-guide.md`, D-WORKFLOW-155/156).
 - **Clarity, then brevity, then sized to the space** for every string a player reads, and
   surprise them as little as possible; time to play (interface → first frame, exit → next
   first frame) is measured on every image (D-UI-045, D-UI-042, D-CLOUD-098).
