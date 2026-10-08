@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Saved: 2026-10-08T05:51:47.599120+00:00
+> Saved: 2026-10-08T05:45:49.240784+00:00
 > Coordination branch: feature/conflict-resolution
 > Repository: pixelelated/distribution
 
@@ -17,7 +17,7 @@ Coordination checkout:
 `/workspace/repos/rocknix.worktrees/conflict-resolution`, branch
 `feature/conflict-resolution`. It has divergent historical work:
 **never merge it wholesale into next**. Use scoped commits/cherry-picks.
-Prior checkpoint: `archived/saved-session-state-next-20261008T055147Z.md`.
+Prior checkpoint: `archived/saved-session-state-next-20261008T054549Z.md`.
 
 Authorization persists for scoped implementation, parallel agents, local
 commits/pushes and synthetic host/VM proof. Device/personal-cloud actions keep
@@ -147,8 +147,8 @@ controls now preserve complete inputs and derive sanitized output separately.
 
 #515 and #508 carry the relevant synthetic fixture/adoption assertions in their
 live bodies; M7's order is unchanged. Do not interpret the host verifier as a new
-ES flow or a mandate for full-library hashing during setup. #517 is closed completed with published commit1bd4554dc8 and exact
-acceptance/body/state readback. #516 remains open for later alignment/cleanup.
+ES flow or a mandate for full-library hashing during setup. #517's acceptance
+work is complete; close it with the publication commit after exact readback.
 No product branch was integrated, no pin changed and #507 was not run.
 
 ## Current source and ownership
@@ -450,18 +450,3 @@ do not establish full ROM/content-library equality. No delete/move/sync,
 credential export, device update, build or code audit ran. Keep exact personal
 findings in `/tmp/pixelelated-personal-cloud-review-20261008/`; current public
 tracking is redacted. These questions do not block #515's product work.
-
-## Integrity tools publication readback
-
-The scoped host verifier, 24 synthetic controls, protocol and D-CLOUD-181 rules
-are published as next `1bd4554dc8e90a3211787c5986ca581aeaaa82a6`
-(coordination3453c53266). GitHub's next ref matched that commit. #517 is closed
-completed with its evidence comment and exact body/state readback. #516's
-completed timeline/reported-type classification is separated from its remaining
-cleanup/alignment scope; #518 remains deferred. #515/#508/M7 bodies retain the
-new generic verification lessons without a priority or product-source change.
-
-Pre-push gates passed. The independent M7 audit under #507 remains owed; the
-known cadence warning is not waived. This follow-up publishes only the status
-receipt/handoff. No job is left running. Continue with #515's source-derived
-repair case table; personal alignment execution still needs its named scope.
