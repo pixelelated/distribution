@@ -1,0 +1,25 @@
+PASS valid scoped packet including filename containing key
+PASS changed payload rejected
+PASS truncated payload rejected
+PASS missing payload rejected
+PASS wrong hash rejected
+PASS missing hash rejected
+PASS duplicate path rejected
+PASS unsafe path rejected
+PASS size bound rejected
+PASS remote change rejected
+PASS nonzero collector read rejected
+PASS missing read receipt rejected
+PASS valid provider hash does not hide corrupt PNG
+PASS PNG truncation rejected
+PASS RZIP truncation rejected
+PASS RZIP declared length rejected
+PASS RZIP checksum rejected
+PASS RASTATE truncated block rejected
+PASS raw save semantics stay unverified
+PASS Dropbox oracle 0
+PASS Dropbox oracle 4194303
+PASS Dropbox oracle 4194304
+PASS Dropbox oracle 4194305
+PASS Dropbox oracle 8388625
+PASS total=24

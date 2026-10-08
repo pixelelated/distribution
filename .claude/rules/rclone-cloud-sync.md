@@ -55,6 +55,18 @@ guides exist, **See instructions** opens a QR modal for the relevant guide
 guidance usable before publication and offline. Do not ship a speculative URL
 or put account details or personal folder paths in a documentation QR.
 
+## Reuse operational integrity lessons in synthetic QA
+
+D-CLOUD-181 (#517): use the scoped verification protocol in
+`docs/cloud-save-integrity.md` when a claim depends on file integrity. #515
+repair fixtures cover complete manifests, stale inputs, failure/cancellation,
+source retention and differing versions; #508 adoption checks local pointers
+and automatic-sync state independently of cloud state. Use synthetic inputs,
+not personal inventories. The post-connection category validator remains a
+bounded readiness check: do not add full-library downloads or structural
+parsing to ordinary setup. Explicit integrity work states its byte/time limits
+and treats raw/core-specific saves as semantically unverified.
+
 ## What gets synced (scope)
 
 `cloud_sync-rules.txt` is an rclone `--filter-from` **allowlist**, with patterns relative to

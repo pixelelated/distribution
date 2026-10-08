@@ -1,0 +1,114 @@
+#!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-2.0-or-later
+# Copyright (C) 2026-present pixelelated
+"""Synthetic corruption controls for cloud-save-integrity (#517); no personal input."""
+import argparse
+import copy
+import json
+from pathlib import Path
+import runpy
+import struct
+import subprocess
+import tempfile
+import zlib
+
+api = runpy.run_path(str(Path(__file__).with_name('cloud-save-integrity')))
+verify, digest, structure = api['verify'], api['dropbox_hash'], api['structure']
+p = argparse.ArgumentParser(description=__doc__)
+p.add_argument('--rclone', type=Path, required=True, help='Independent local Dropbox hash oracle')
+a = p.parse_args()
+count = 0
+
+
+def check(name, value):
+    global count
+    if not value:
+        raise SystemExit('FAIL ' + name)
+    count += 1
+    print('PASS ' + name)
+
+
+def rejects(fn):
+    try:
+        value = fn()
+        return isinstance(value, dict) and value['summary']['errors'] > 0
+    except (ValueError, KeyError, OSError, zlib.error):
+        return True
+
+
+def chunk(tag, data):
+    return struct.pack('>I', len(data)) + tag + data + struct.pack('>I', zlib.crc32(tag + data) & 0xffffffff)
+
+
+png = api['PNG'] + chunk(b'IHDR', struct.pack('>IIBBBBB', 1, 1, 8, 2, 0, 0, 0)) + chunk(b'IDAT', zlib.compress(b'\0\xff\0\0')) + chunk(b'IEND', b'')
+state = b'RASTATE\x01MEM ' + struct.pack('<I', 3) + b'abc' + b'\0' * 5 + b'END ' + b'\0' * 4
+compressed = zlib.compress(state)
+rzip = b'#RZIPv\x01#' + struct.pack('<IQI', 131072, len(state), len(compressed)) + compressed
+with tempfile.TemporaryDirectory(prefix='pix-save-integrity-control-') as temp:
+    root = Path(temp)
+    (root/'payloads').mkdir()
+    payloads = [png, rzip, b'raw save bytes']
+    entries = [{'Path': n, 'Size': len(d), 'ID': str(i + 1), 'IsDir': False,
+                'ModTime': '2026-01-01T00:00:00Z', 'Hashes': {'dropbox': digest(d)}}
+               for i, (n, d) in enumerate(zip(['screenshots/key.png', 'savestates/a.state', 'gba/a.srm'], payloads))]
+    # Sort exactly as the collector contract specifies.
+    pairs = sorted(zip(entries, payloads), key=lambda x: x[0]['Path'])
+    entries, payloads = map(list, zip(*pairs))
+    reads = [{'index': i, 'rc': 0, 'bytes': len(d)} for i, d in enumerate(payloads)]
+    def write(name, obj):
+        (root/name).write_text(json.dumps(obj))
+    def reset():
+        for name in ['before.json', 'after.json', 'ordered.json']:
+            write(name, entries)
+        write('reads.json', reads)
+        for i, data in enumerate(payloads):
+            (root/'payloads'/f'{i:04d}').write_bytes(data)
+    reset()
+    check('valid scoped packet including filename containing key', verify(root)['summary']['errors'] == 0)
+    for label, data in [('changed', b'X' + payloads[0][1:]), ('truncated', payloads[0][:-1])]:
+        (root/'payloads/0000').write_bytes(data)
+        check(label + ' payload rejected', rejects(lambda: verify(root)))
+        reset()
+    (root/'payloads/0000').unlink()
+    check('missing payload rejected', rejects(lambda: verify(root)))
+    reset()
+    for label, change in [
+        ('wrong hash', lambda x: x[0]['Hashes'].update(dropbox='0' * 64)),
+        ('missing hash', lambda x: x[0].update(Hashes={})),
+        ('duplicate path', lambda x: x.append(copy.deepcopy(x[0]))),
+        ('unsafe path', lambda x: x[0].update(Path='../escape')),
+        ('size bound', lambda x: x[0].update(Size=api['LIMIT']+1)),
+    ]:
+        changed = copy.deepcopy(entries);change(changed)
+        for name in ['before.json', 'after.json', 'ordered.json']: write(name, changed)
+        check(label + ' rejected', rejects(lambda: verify(root)))
+        reset()
+    changed=copy.deepcopy(entries);changed[0]['ModTime']='2026-02-01T00:00:00Z'
+    write('after.json',changed)
+    check('remote change rejected', rejects(lambda: verify(root)))
+    reset()
+    changed=copy.deepcopy(reads);changed[0]['rc']=1;write('reads.json',changed)
+    check('nonzero collector read rejected', rejects(lambda: verify(root)))
+    reset();write('reads.json',reads[:-1])
+    check('missing read receipt rejected', rejects(lambda: verify(root)))
+    reset()
+    # Provider can accurately hash already-corrupt data: structure must still fail.
+    i=next(i for i,e in enumerate(entries) if e['Path'].endswith('.png'))
+    bad=png[:-1]+bytes([png[-1]^1]);changed=copy.deepcopy(entries)
+    changed[i]['Hashes']['dropbox']=digest(bad)
+    for name in ['before.json','after.json','ordered.json']:write(name,changed)
+    (root/'payloads'/f'{i:04d}').write_bytes(bad)
+    r=verify(root)
+    check('valid provider hash does not hide corrupt PNG', r['files'][i].get('byte_integrity')=='ok' and r['summary']['errors']==1)
+    for name, data, path in [('PNG truncation',png[:-5],'x.png'),('RZIP truncation',rzip[:-1],'x.state'),
+                             ('RZIP declared length',rzip[:12]+struct.pack('<Q',len(state)+1)+rzip[20:],'x.state'),
+                             ('RZIP checksum',rzip[:-1]+bytes([rzip[-1]^1]),'x.state'),
+                             ('RASTATE truncated block',state[:-4],'x.state')]:
+        check(name+' rejected',rejects(lambda:structure(data,path)))
+    check('raw save semantics stay unverified','unverified' in structure(b'raw save','x.srm'))
+    # Four block-boundary cases plus empty input use a separately implemented oracle.
+    for size in [0, api['BLOCK']-1, api['BLOCK'], api['BLOCK']+1, 2*api['BLOCK']+17]:
+        data=(b'0123456789abcdef' * ((size+15)//16))[:size]
+        oracle=subprocess.run([str(a.rclone),'hashsum','Dropbox','-'],input=data,capture_output=True,timeout=15)
+        check('Dropbox oracle '+str(size),oracle.returncode==0 and oracle.stdout.decode().split()[0]==digest(data))
+print('PASS total='+str(count))

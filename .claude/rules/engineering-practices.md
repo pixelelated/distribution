@@ -84,6 +84,24 @@ alive before re-driving the input.
 An end-to-end test that passes tells you the pipeline ran. It does not tell
 you the pipeline was correct.
 
+## Integrity inputs and published evidence are separate
+
+D-CLOUD-181 (#517): an authoritative manifest must retain every in-scope
+entry. A credential-oriented line filter can remove an innocent filename;
+never infer completeness, absence or integrity from that filtered output.
+Keep authorized object metadata/bytes restricted locally, select only needed
+noncredential fields, and derive sanitized aggregate output separately. Never
+collect credentials into an integrity packet. Logs/config displays still use
+the credential filter required by the device policy.
+
+Bind before/after identity, size and hashes, and retain listing/read exit
+codes. Byte equality, container structure, folder readiness and game/core
+compatibility are different claims; state which one was checked. Exercise
+failures with disposable synthetic files, including a corrupt container whose
+provider hash is correct. Remote rollback does not roll back client settings.
+`tools/cloud-save-integrity` and its companion controls implement the offline
+checks; their input manifest still needs a successful, scoped collector.
+
 ## A failure you find is yours to fix
 
 Finding a defect creates an obligation to deal with it, not merely to record
