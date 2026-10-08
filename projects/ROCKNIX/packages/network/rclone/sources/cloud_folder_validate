@@ -22,10 +22,14 @@ CATEGORIES = ('saves', 'settings', 'roms', 'bios', 'media')
 MAX_BYTES = 2 * 1024 * 1024
 MAX_ENTRIES = 4096
 TOTAL_SECONDS = 25
+# Only observed standard save subtrees get deeper reads; never widen the
+# whole selected root or infer progress from an uninspected directory.
+SAVE_SUBTREES = {'psp/PSP/SAVEDATA': 2, 'psx/duckstation/memcards': 1}
 MEDIA = {'images', 'videos', 'manuals', 'screenshots', 'fanart', 'boxart', 'wheel', 'mix', 'maps', 'media'}
 # Match the shipped progress allowlist and content transfer exclusions. These
 # are case-sensitive like rclone's filters; test controls compare actual bytes.
 PROGRESS = re.compile(r'\.(srm|sav|fs|state[^/]*|auto|dsv[^/]*|eep|mpk|sra|fla)$')
+N64_STATE = re.compile(r'\.(st[0-9]|pj[0-9](\.zip)?)$')
 CONTENT_SAVE = re.compile(r'\.(srm|sav|fs|state[^/]*|auto|dsv[^/]*|eep|mpk|sra|fla|mcd|mcr)$')
 DATABASE = re.compile(r'\.(db|db-wal|db-shm|db-journal|sqlite|sqlite3)$')
 PARTIAL = re.compile(r'\.[^/]{8}\.partial$')
@@ -109,6 +113,28 @@ def listing(remote, path, depth, deadline):
     return entries
 
 
+def save_entries(remote, path, entries, deadline):
+    """Inspect named save writers beyond the root's ordinary depth-three cut."""
+    combined = list(entries)
+    unchecked = {e['Path'] for e in entries if e['IsDir'] and len(e['Path'].split('/')) == 3}
+    for subtree, depth in SAVE_SUBTREES.items():
+        if subtree not in unchecked:
+            continue
+        child = path + ('' if not path or path.endswith('/') else '/') + subtree
+        extra = listing(remote, child, depth, deadline)
+        if extra is None:
+            raise Unreadable('folder-changed-during-check')
+        unchecked.remove(subtree)
+        for entry in extra:
+            full = subtree + '/' + entry['Path']
+            combined.append(dict(entry, Path=full))
+            if entry['IsDir'] and len(entry['Path'].split('/')) == depth:
+                unchecked.add(full)
+        if len(combined) > MAX_ENTRIES:
+            raise Unreadable('listing-limit')
+    return combined, unchecked
+
+
 def files(entries):
     return [e['Path'] for e in entries if not e['IsDir'] and e['Path'] not in ('README.txt', '.layout')]
 
@@ -119,24 +145,27 @@ def progress(path):
     if DATABASE.search(parts[-1]):
         return False
     return (parts[0] in ('savefiles', 'savestates', 'screenshots') or bool(PROGRESS.search(parts[-1]))
+            or (parts[0] == 'n64' and len(parts) == 2 and bool(N64_STATE.search(parts[-1])))
             or (path.startswith('psx/memcards/') and len(parts) == 3 and parts[-1].endswith(('.mcd', '.mcr')))
-            or path.startswith(('dc/shared/savefiles/', 'psp/PPSSPP/')))
+            or (path.startswith('psx/duckstation/memcards/') and len(parts) == 4 and parts[-1].endswith(('.mcd', '.mcr')))
+            or path.startswith(('dc/shared/savefiles/', 'psp/PPSSPP/', 'psp/PSP/SAVEDATA/')))
 
 
-def content_excluded(path):
+def content_excluded(path, system=None):
     """SAVE_EXCLUDES/CONFLICT_EXCLUDES, relative to one ROM system or BIOS."""
     parts = path.split('/')
-    return (bool(CONTENT_SAVE.search(parts[-1])) or 'conflicted copy' in path
+    return ((system == 'n64' and len(parts) == 1 and bool(N64_STATE.search(parts[-1])))
+            or bool(CONTENT_SAVE.search(parts[-1])) or 'conflicted copy' in path
             or '.sync-conflict-' in path or bool(PARTIAL.search(parts[-1]))
             or any(p in ('save', 'memcards', 'PPSSPP') for p in parts[:-1])
-            or any(parts[i:i+2] == ['shared', 'savefiles'] for i in range(len(parts)-2))
+            or any(parts[i:i+2] in (['shared', 'savefiles'], ['PSP', 'SAVEDATA']) for i in range(len(parts)-2))
             or path == 'README.txt')
 
 
 def unchecked_directory(category, path, known):
     if category in ('roms', 'media'):
         parts = path.split('/')
-        return parts[0] in known and not content_excluded('/'.join(parts[1:]) + '/probe')
+        return parts[0] in known and not content_excluded('/'.join(parts[1:]) + '/probe', parts[0])
     if category == 'bios':
         return not content_excluded(path + '/probe')
     return True
@@ -163,7 +192,7 @@ def classify(category, entries, known):
     good = []
     for path in payload:
         parts = path.split('/')
-        if len(parts) < 2 or parts[0] not in known or content_excluded('/'.join(parts[1:])):
+        if len(parts) < 2 or parts[0] not in known or content_excluded('/'.join(parts[1:]), parts[0]):
             continue
         media = parts[1] in MEDIA or parts[-1] == 'gamelist.xml'
         if (category == 'media') == media:
@@ -182,7 +211,7 @@ def main():
         return 2
     deadline = time.monotonic() + TOTAL_SECONDS
     result = {'schema_version': 1, 'run_id': run_id, 'config_id': '', 'categories': [], 'complete': False,
-              'scope': {'max_depth': 3, 'max_entries_per_listing': MAX_ENTRIES, 'max_bytes_per_listing': MAX_BYTES, 'max_seconds': TOTAL_SECONDS}}
+              'scope': {'max_depth': 3, 'save_subtree_depths': SAVE_SUBTREES, 'max_entries_per_listing': MAX_ENTRIES, 'max_bytes_per_listing': MAX_BYTES, 'max_seconds': TOTAL_SECONDS}}
     try:
         current = context(deadline)
         result.update(config_id=current['config_id'], paths=current['paths'])
@@ -223,8 +252,11 @@ def main():
                         rc, raw = command(['rclone', 'backend', 'features', current['remote'] + path], deadline)
                         if rc or json.loads(raw).get('Features', {}).get('BucketBased') is not False:
                             raise Unreadable('folder-presence-unconfirmed')
+                    unchecked = {e['Path'] for e in entries if e['IsDir'] and len(e['Path'].split('/')) == 3}
+                    if category == 'saves':
+                        entries, unchecked = save_entries(current['remote'], path, entries, deadline)
                     state, detail = classify(category, entries, known)
-                    if state == 'empty' and any(e['IsDir'] and len(e['Path'].split('/')) == 3 and unchecked_directory(category, e['Path'], known) for e in entries):
+                    if state == 'empty' and any(unchecked_directory(category, p, known) for p in unchecked):
                         raise Unreadable('deeper-folders-not-checked')
                     row.update(state=state, detail=detail)
             except (Unreadable, ValueError, OSError) as error:

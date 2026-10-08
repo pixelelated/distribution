@@ -568,7 +568,19 @@ SAVE_EXCLUDES=(
     --exclude "*.mcd" --exclude "*.mcr"
     --exclude "save/**" --exclude "memcards/**"
     --exclude "shared/savefiles/**" --exclude "PPSSPP/**"
+    --exclude "PSP/SAVEDATA/**"
 )
+
+# These state names belong to the N64 writer at its system root, not to
+# similarly named content in other systems or nested library directories.
+SYSTEM_SAVE_EXCLUDES=()
+set_system_save_excludes() {
+    SYSTEM_SAVE_EXCLUDES=()
+    if [ "$1" = n64 ]; then
+        SYSTEM_SAVE_EXCLUDES=(--exclude "/*.st[0-9]" --exclude "/*.pj[0-9]" --exclude "/*.pj[0-9].zip")
+    fi
+}
+
 
 # Another sync client's unresolved dispute is not our content.
 #
@@ -624,7 +636,14 @@ CONFLICT_EXCLUDES=(
 # a scrape overwrite. A file-level sync cannot make that distinction, so those
 # are last-writer-wins across devices. Everything else in the file is authored
 # or scraped, and favorite is explicitly not a statistic in ES's model.
-GAMELIST_ONLY=( --include "gamelist.xml" --include "**/gamelist.xml" )
+# A save directory can contain arbitrary filenames, including gamelist.xml.
+# Ordered filters keep that progress out of this separate media pass too.
+GAMELIST_ONLY=(
+    --filter "- save/**" --filter "- memcards/**"
+    --filter "- shared/savefiles/**" --filter "- PPSSPP/**"
+    --filter "- PSP/SAVEDATA/**"
+    --filter "+ gamelist.xml" --filter "+ **/gamelist.xml" --filter "- **"
+)
 
 # What EmulationStation owns, which a content match must never delete.
 #
@@ -693,6 +712,7 @@ cloud_root_populated() {
 # local count are read the same way: a count that failed is not a zero.
 match_plan_one() {
     local sys="$1" src local_dir n b out listing lrc
+    set_system_save_excludes "${sys}"
     src="$(remote_for "${sys}")"
     local_dir="${DEST}/${sys}"
 
@@ -715,7 +735,7 @@ match_plan_one() {
     if [ "${lrc}" -eq 0 ] && [ -n "${listing}" ]; then
         # Present in the cloud: sync reconciles both directions of difference.
         out=$(bounded_content_rclone sync "${src}" "${local_dir}" "${RCLONE_NET_OPTS_ARRAY[@]}" \
-                "${SAVE_EXCLUDES[@]}" "${CONFLICT_EXCLUDES[@]}" "${METADATA_EXCLUDES[@]}" \
+                "${SAVE_EXCLUDES[@]}" "${SYSTEM_SAVE_EXCLUDES[@]}" "${CONFLICT_EXCLUDES[@]}" "${METADATA_EXCLUDES[@]}" \
                 --dry-run --stats 0 2>&1)
         lrc=$?
         if [ "${lrc}" -ne 0 ]; then
@@ -734,7 +754,7 @@ match_plan_one() {
     else
         # Absent from the cloud entirely: its content goes, its saves stay.
         out=$(rclone size "${local_dir}" \
-                "${SAVE_EXCLUDES[@]}" "${CONFLICT_EXCLUDES[@]}" "${METADATA_EXCLUDES[@]}" 2>/dev/null)
+                "${SAVE_EXCLUDES[@]}" "${SYSTEM_SAVE_EXCLUDES[@]}" "${CONFLICT_EXCLUDES[@]}" "${METADATA_EXCLUDES[@]}" 2>/dev/null)
         lrc=$?
         n=$(printf '%s\n' "${out}" | sed -n 's/^Total objects: *\([0-9]*\).*/\1/p' | head -1)
         b=$(printf '%s\n' "${out}" | sed -n 's/^Total size: .*(\([0-9]*\) Byte).*/\1/p' | head -1)
@@ -800,7 +820,7 @@ match_before() { # <sys>
     MATCH_BEFORE=$(mktemp /tmp/cloud-match-before.XXXXXX 2>/dev/null) || MATCH_BEFORE="/tmp/cloud-match-before.$$"
     : > "${MATCH_LOG}"
     rclone lsf -R --files-only --format "sp" --separator "|" "${DEST}/$1" \
-        "${SAVE_EXCLUDES[@]}" "${CONFLICT_EXCLUDES[@]}" "${METADATA_EXCLUDES[@]}" > "${MATCH_BEFORE}" 2>/dev/null
+        "${SAVE_EXCLUDES[@]}" "${SYSTEM_SAVE_EXCLUDES[@]}" "${CONFLICT_EXCLUDES[@]}" "${METADATA_EXCLUDES[@]}" > "${MATCH_BEFORE}" 2>/dev/null
 }
 match_count() { # <sys>: adds what the log says went to the totals
     local counted cfiles cbytes
@@ -907,6 +927,7 @@ match_run() {
     # answers the first one.
     local total_bytes=0 removed_detail="" unit_i=0 unit_n=${#SYS[@]} planned
     for sys in "${SYS[@]}"; do
+        set_system_save_excludes "${sys}"
         unit_i=$((unit_i + 1))
         # Every chosen system is an item on the page, announced before its
         # own dry run -- so the page names what is being checked while the
@@ -974,7 +995,7 @@ match_run() {
                     echo "Removing ${files} files from ${sys} that aren't in your cloud..."
                     match_before "${sys}"
                     rclone delete "${DEST}/${sys}" \
-                        "${SAVE_EXCLUDES[@]}" "${CONFLICT_EXCLUDES[@]}" "${METADATA_EXCLUDES[@]}" \
+                        "${SAVE_EXCLUDES[@]}" "${SYSTEM_SAVE_EXCLUDES[@]}" "${CONFLICT_EXCLUDES[@]}" "${METADATA_EXCLUDES[@]}" \
                         --max-delete "${files}" \
                         --log-file "${MATCH_LOG}" --log-level INFO
                     del_rc=$?
@@ -1005,7 +1026,7 @@ match_run() {
                     # count above the preview's is refused before this runs.
                     match_before "${sys}"
                     bounded_content_rclone sync "$(remote_for "${sys}")" "${DEST}/${sys}" "${RCLONE_NET_OPTS_ARRAY[@]}" \
-                        "${SAVE_EXCLUDES[@]}" "${CONFLICT_EXCLUDES[@]}" "${METADATA_EXCLUDES[@]}" \
+                        "${SAVE_EXCLUDES[@]}" "${SYSTEM_SAVE_EXCLUDES[@]}" "${CONFLICT_EXCLUDES[@]}" "${METADATA_EXCLUDES[@]}" \
                         --max-delete "${files}" \
                         --progress --stats 1s \
                         --log-file "${MATCH_LOG}" --log-level INFO
@@ -1101,16 +1122,21 @@ content_files() {
               for d in ${MEDIA_DIRS:-images videos manuals screenshots fanart boxart wheel mix maps media}; do media+=( -o -path "${dir%/}/${d}/*" ); done
               media+=( ")" ) ;;
     esac
+    local -a native_states=()
+    if [ "${dir%/}" = "${DEST}/n64" ]; then
+        native_states=( "(" -path "${dir%/}/*/*" -o "(" ! -name '*.st[0-9]' ! -name '*.pj[0-9]' ! -name '*.pj[0-9].zip' ")" ")" )
+    fi
     find "${dir}" -type f \
         ! -name '*.srm' ! -name '*.sav' ! -name '*.fs' ! -name '*.state*' \
         ! -name '*.auto' ! -name '*.dsv*' ! -name '*.eep' ! -name '*.mpk' \
         ! -name '*.sra' ! -name '*.fla' ! -name '*.mcd' ! -name '*.mcr' \
         ! -path '*/save/*' ! -path '*/memcards/*' \
         ! -path '*/shared/savefiles/*' ! -path '*/PPSSPP/*' \
+        ! -path '*/PSP/SAVEDATA/*' \
         ! -path '*conflicted copy*' ! -name '*.sync-conflict-*' \
         ! -name '*.????????.partial' \
         ! -path "${dir%/}/README.txt" \
-        "${media[@]}" "$@" 2>/dev/null
+        "${native_states[@]}" "${media[@]}" "$@" 2>/dev/null
 }
 # Local systems that hold content, for the union scan.
 local_content_dirs() {
@@ -1164,6 +1190,7 @@ cloud_content_filter() {
     awk -F'|' -v dirs="${dirs}" -v mode="${MEDIA_MODE}" '
         { n = split($2, seg, "/"); if (n < 2) next
           f = seg[n]
+          if (seg[1] == "n64" && n == 2 && f ~ /\.(st[0-9]|pj[0-9](\.zip)?)$/) next
           game = (n > 2 && seg[2] ~ dirs) || f == "gamelist.xml"
           if (mode == "roms" && game) next
           if (mode == "only" && !game) next
@@ -1174,6 +1201,7 @@ cloud_content_filter() {
           for (i = 2; i < n; i++) {
               if (seg[i] == "save" || seg[i] == "memcards" || seg[i] == "PPSSPP") next
               if (seg[i] == "shared" && i + 1 < n && seg[i + 1] == "savefiles") next
+              if (seg[i] == "PSP" && i + 1 < n && seg[i + 1] == "SAVEDATA") next
           }
           print }'
 }
@@ -1451,6 +1479,7 @@ take_cloud_lock
 UNIT_N=${#DIRS[@]}; UNIT_I=0
 tree_record_take
 for DIR in "${DIRS[@]}"; do
+    set_system_save_excludes "${DIR}"
     SRC="$(resolve_src "${DIR}")"
     TARGET="${DEST}/${DIR}"
     UNIT_I=$((UNIT_I + 1))
@@ -1482,7 +1511,7 @@ for DIR in "${DIRS[@]}"; do
     # file this device has and the cloud does not.
     UNIT_LOG0=$(log_offset)
     bounded_content_rclone copy "${SRC}" "${TARGET}" "${RCLONE_NET_OPTS_ARRAY[@]}" \
-        "${SAVE_EXCLUDES[@]}" "${CONFLICT_EXCLUDES[@]}" "${MEDIA_EXCLUDES[@]}" \
+        "${SAVE_EXCLUDES[@]}" "${SYSTEM_SAVE_EXCLUDES[@]}" "${CONFLICT_EXCLUDES[@]}" "${MEDIA_EXCLUDES[@]}" \
         --exclude "gamelist.xml" --exclude "**/gamelist.xml" --exclude "/README.txt" \
         --progress --stats 1s \
         --log-file "${LOG_FILE}" --log-level INFO
