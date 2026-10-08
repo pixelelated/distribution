@@ -1,0 +1,46 @@
+[
+  {
+    "command": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "exit_code": 0,
+    "log": "check-00.log",
+    "at": "2026-10-08T04:38:59.960191+00:00"
+  },
+  {
+    "command": [
+      "tools/rules-check"
+    ],
+    "exit_code": 0,
+    "log": "check-01.log",
+    "at": "2026-10-08T04:38:59.978648+00:00"
+  },
+  {
+    "command": [
+      "tools/register-check"
+    ],
+    "exit_code": 0,
+    "log": "check-02.log",
+    "at": "2026-10-08T04:39:01.422431+00:00"
+  },
+  {
+    "command": [
+      "tools/work-log-index",
+      "--check"
+    ],
+    "exit_code": 0,
+    "log": "check-03.log",
+    "at": "2026-10-08T04:39:01.443866+00:00"
+  },
+  {
+    "command": [
+      "tools/ceremony-check",
+      "--gate"
+    ],
+    "exit_code": 0,
+    "log": "check-04.log",
+    "at": "2026-10-08T04:39:08.534746+00:00"
+  }
+]

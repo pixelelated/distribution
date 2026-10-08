@@ -32,8 +32,11 @@ source, destination, data size and transport before an explicit library move;
 never silently fall back to transferring or verifying a large cloud library
 through the handheld. A folder-name pattern is not evidence of user intent.
 
-D-CLOUD-177/178 and #510 hold new device builds and product integration until
-the validator flow is reconciled and qualified. Cloud adoption tests start from published ROCKNIX and
+D-CLOUD-177/178/179 settle the post-connection validator direction. #510
+owns the contract, #515 the concrete-case repair investigation/qualification,
+and #508 final integration before #507 audits the frozen delta. Read the live
+M7 body for execution order; do not turn an undefined repair mapping into an
+unanswered owner design question. Cloud adoption tests start from published ROCKNIX and
 clean installs; unpublished fork/PR layouts are historical experiments, not
 fielded compatibility requirements. Do not add product branches solely to
 recover the maintainer's experimental cloud. Keep that recovery separate.

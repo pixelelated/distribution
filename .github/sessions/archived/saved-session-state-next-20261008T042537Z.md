@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Saved: 2026-10-08T04:25:37.485120+00:00
+> Saved: 2026-10-08T03:51:04.961741+00:00
 > Coordination branch: feature/conflict-resolution
 > Repository: pixelelated/distribution
 
@@ -9,15 +9,14 @@
 pixelelated is an immutable handheld Linux distribution, not an app. Read
 AGENTS.md and canonical `.claude/rules/` from `next`, then this checkpoint,
 M7's live ordered body and issues #510/#508. Primary checkout:
-`/workspace/repos/rocknix`, branch `next`; publication baseline before this
-planning reconciliation is `30a388a6156b64a1ef8be899db95326c3e0b67cf`.
-Read actual HEAD before working; this session changes documentation/tracking,
-not product inputs.
+`/workspace/repos/rocknix`, branch `next`; the previously published checkpoint
+is `0f073485fffa9071ccb66f0d3c54a6b67a9797aa`. This final evidence/checkpoint
+change is prepared from that clean baseline; read actual HEAD before working.
 Coordination checkout:
 `/workspace/repos/rocknix.worktrees/conflict-resolution`, branch
 `feature/conflict-resolution`. It has divergent historical work:
 **never merge it wholesale into next**. Use scoped commits/cherry-picks.
-Prior checkpoint: `archived/saved-session-state-next-20261008T042537Z.md`.
+Prior checkpoint: `archived/saved-session-state-next-20261008T035104Z.md`.
 
 Authorization persists for scoped implementation, parallel agents, local
 commits/pushes and synthetic host/VM proof. Device/personal-cloud actions keep
@@ -64,46 +63,27 @@ Completed qualification:
   no full locale/panel permutation claim. Final index SHA256
   `9428ccff1267bc255807f4aa1dd0971054ced4e1360569461046c26df9e99768`.
 
-Current order (D-CLOUD-179; the owner reaffirmed the solution):
-1. **#510:** post-rclone setup contract and project-management reconciliation.
-   The overall validator/create/manual-guidance direction is settled. The live
-   issues, M7, rules and canonical flow now agree; no owner scope-choice answer
-   is needed to proceed with the next implementation task.
-2. **#515 — next:** source-derived targeted game-save/save-state/screenshot
-   repair cases. Read public ROCKNIX filters/config and actual emulator writers;
-   distinguish valid standalone layouts from demonstrably misplaced files.
-   Record exact detection/destination and supported/unsupported dispositions.
-   For supported cases, implement a separately previewed/confirmed, bounded
-   plan and prove collisions, source retention, stale plans, interruption,
-   verification cost and affected UI. If none is safe, retain the evidence and
-   explicit instructions-only disposition; never invent a repair or silently
-   defer a demonstrated requested case. Canonical flow contains the prospective
-   branch separately from the implemented CF01–CF15 proof.
-3. **#508:** integrate the qualified foundation and #515's result with full
-   coordinated source/pins and references. No pin has changed. Actual public
-   ROCKNIX/clean adoption and installed firmware inclusion remain separate gates.
-4. **#507:** freeze and independently audit the resulting post-candidate16 P5
-   delta. No audit/external transfer has started. Use code-auditor's serial
-   stages and Facilitator. Old Fable approval is not a blanket new transfer;
+Current order:
+1. **#510:** resolve the still-unanswered release-scope question: ship current
+   checks/create/manual instructions and defer automatic save organization,
+   or include a specifically defined small-file repair. The validator direction
+   is settled; no generic safe relocation API exists and no such fix is claimed.
+   Do not silently mark this criterion complete or resurrect migration.
+2. **#508:** after that scope decision, integrate the qualified product source
+   and full pins, keeping canonical references/evidence with it. Current
+   source-overlay proof is done; actual public ROCKNIX/clean adoption and
+   assembled firmware inclusion remain separate gates. No new device build yet.
+3. **#507:** freeze and independently audit the post-candidate16 P5 delta.
+   No audit/external transfer has started. Use code-auditor's serial stages
+   and the Facilitator. Old Fable approval is not a blanket new transfer;
    accepted candidate16/#471 review must not be replayed.
-5. Assemble engineering firmware, prove CF10 public ROCKNIX/clean adoption and
-   exact inclusion, then source/licence/release staging and named physical smoke.
-   No RC designation/publication yet. Image-only proof requires the engineering
-   image; it does not prohibit building that image after the source/audit steps.
+4. Bind qualified inputs into selected firmware, then source/licence/release
+   staging and named physical smoke. No RC designation/publication yet.
 
-M7/#510/#515/#508/#507 were updated and exactly read back in this session;
-see `docs/qa-logs/2026-10-08-cloud-plan/readback.json`. Their prior bodies are
-retained there as historical snapshots, not another current queue. Website
-#511 remains separate and adds no firmware gate. Do not rerun passing full
-host/ordinary VM suites without changed inputs, a failure or a specific concern.
-
-The owner reports manually resetting experimental cloud state and now requests
-read-only verification plus a later one-time residue review (#516, no milestone).
-Exact timestamps, paths and inventories remain private under
-`/tmp/pixelelated-personal-cloud-review-20261008/`; public records are redacted.
-A remote reset does not establish reset local pointers. No move/delete/sync or
-credential export is authorized by this review. It is not a product cleanup
-feature or a blocker for synthetic public/clean adoption.
+M7 and #508/#510 hold this order. Their final evidence/owner state and the
+three issue closures were written and read back exactly after publication. The separate website lane #511 adds
+no firmware gate. Do not rerun the completed full host/ordinary VM suites
+without a changed input, failure or concrete unresolved concern.
 
 ## Current source and ownership
 
@@ -244,11 +224,10 @@ Already published scoped coordination commits on next:
 `083f4fad86` QA tools, `f6037a9133` required process, `2ab5ebbc86` non-UI
 proof, `85dfe87b8a` visual checkpoint, `0f073485f` prior handoff/references.
 Their coordination equivalents are5f21df7756/d07a197ea9/6ae69d761f/
-907e333d70/ae6f1e347d. The final UI packet/reference follow-up was published
-asd5e2f786, with readback handoff30a388a6. This new planning-only change
-contains the D-CLOUD-179/180 contract/order and private-review boundary.
-Integrate only its scoped commit; never merge this divergent coordination
-branch wholesale. The ES/distro product branches remain separate.
+907e333d70/ae6f1e347d. This final follow-up contains the completed UI packet,
+canonical links, localization-rule clarification, work/friction logs and
+checkpoint. Integrate only its scoped commit; never merge this divergent
+coordination branch wholesale. The ES/distro product branches remain separate.
 
 The overdue closure-based audit cadence belongs to #507; ceremony-check permits
 ordinary evidence/fix pushes while the audit remains owed. Do not bypass the
@@ -326,41 +305,37 @@ under #492/#344/#265/#359. Inventory12 has 583 components, 14 missing recipe
 licence metadata entries and `publication_bundle_complete=false`.
 
 Personal Dropbox preflight at `/tmp/pixelelated-dropbox-preflight-9oje01ie`
-is historical preparation only. The owner now requests a separate read-only review under #516. Its private
-notes/receipts live under `/tmp/pixelelated-personal-cloud-review-20261008/`.
-Do not revive the prior secret-copy route without specific authority; use
-redacted read-only observations. No rename, deletion, sync or migration ran. #505
-is closed not planned; its diagnostic draft stays isolated.
+remains preparation only. The specific question to privately copy the SP's
+authorization for host inventory is unanswered. No authorization copy,
+personal remote request, rename or deletion occurred. This does not hold the
+RC. #505 is closed not planned; its diagnostic draft stays isolated.
 #509 name cleanup, #395 alerts, #432 FOSS observability and #464 RA reset
 automation remain later work. No Dropbox check or fresh RA reset is required.
 
 ## Next commands and handoff
 
-1. Read #515 and the canonical flow's Small-file fixes section. Use
-   `git show c445081a59518f37d9776e5412dd7b14910696f7:projects/ROCKNIX/packages/network/rclone/sources/cloud_sync-rules.txt`
-   and the actual save writers/configs to build the case/disposition table.
-   Inspect current validator classifiers in the clean distribution worktree;
-   do not assume every save outside `savefiles` is wrong. No personal inventory
-   is necessary. Record the VM approach in the owning issue before tests.
-2. Implement/qualify supported bounded cases under #515, keeping the diagram
-   and affected indexed screenshots with the source. Existing foundation proof
-   remains accepted for unchanged inputs. Then #508 integrates the final source
-   and #507 audits the frozen delta before assembled firmware qualification.
-3. Website startup trust remains its own unanswered question. #516 private
-   reset/residue review is separate; its timestamp clarification does not block
-   synthetic firmware work. Do not publish personal readbacks or raw inventories.
+1. Read the actual answer/status of the pending #510 repair-scope question.
+   No implementation, pin or build is authorized by mere elapsed time on that
+   unresolved choice. Independent proof is finished and safely retained.
+2. M7/#508/#510 already name the final packet, source and released owners;
+   #512/#513/#514 are closed after artifact-based verification. No new audit
+   has run; #507 follows the scope/integration step, then actual firmware and
+   public adoption proof.
+3. Preserve the separate website startup question and private Dropbox question
+   as unanswered unless a later explicit reply changes them. They are not RC
+   blockers; do not operate a personal device/cloud or another lane by inference.
 4. Before a push: tools/rules-check, tools/register-check,
-   tools/work-log-index --check, tools/ceremony-check --gate. The new delta audit
-   remains owed under #507; do not waive its warning or claim it ran.
-5. Retained screenshots and source hashes supply unchanged proof; never
-   recreate deleted disks merely for history. Current planning-only edits do
-   not change ES content, code or the accepted screenshot baseline.
+   tools/work-log-index --check, tools/ceremony-check --gate. Run
+   `python3 docs/qa-logs/2026-10-07-cloud-validator/verify-ui-index.py "$PWD"`
+   for packet integrity, and inspect its explicitly limited coverage claims.
+5. Read the archived checkpoint for historical failed owners if needed; use
+   retained logs/frames/source hashes rather than recreating removed disks.
 
 Session-stash and herdr-project-coordination skills were applied. The initial
 fresh-context resume review and bounded final supplemental review are complete;
 root independently reconciled the final source, coverage and retirement.
 
-## Earlier evidence publication readback
+## Publication readback
 
 At 2026-10-08T03:58:32.213681+00:00, final proof/references/handoff are published on
 next `d5e2f78618624cad919afaba6784bef3f7eaf8c7` (coordination commit
@@ -369,13 +344,3 @@ matching. Required local gates passed; the new scoped audit remains owed
 under #507 and its CI warning was not waived. M7/#508/#510 and all three
 fix closures were independently read back. This bookkeeping follow-up changes
 no product source, pin, test result, accepted baseline or user authorization.
-
-## Current planning handoff
-
-D-CLOUD-179 and the canonical flow/order, menu reference, cloud/upgrade rules,
-changelog and this checkpoint record the owner’s reaffirmed solution and
-reported reset. #515 is created in M7.P5; #510/#508/#507/M7 now name its next
-implementation work and observable exit evidence. No release-scope choice is
-pending from the owner. Tracker snapshots/readback, work log and friction entry
-retain the correction. Fresh-reader and final check results are retained in the cloud-plan packet;
-publication status is recorded after push. Read actual `next` HEAD when resuming.
