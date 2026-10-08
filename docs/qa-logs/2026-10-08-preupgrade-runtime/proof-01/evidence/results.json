@@ -1,0 +1,142 @@
+[
+  {
+    "name": "actual-frontend-stopped-and-persistently-masked",
+    "pass": true,
+    "detail": {
+      "emustation.service": "Restart=no\nMainPID=0\nKillMode=control-group\nActiveState=inactive\nSubState=dead\nUnitFileState=masked\n",
+      "essway.service": "Restart=no\nMainPID=0\nKillMode=control-group\nActiveState=inactive\nSubState=dead\nUnitFileState=masked\n"
+    }
+  },
+  {
+    "name": "masked-frontend-refuses-start",
+    "pass": true,
+    "detail": "actual installed essway.service"
+  },
+  {
+    "name": "real-rclone-positive-observation",
+    "pass": true,
+    "detail": "rclone cat qa519:/ROCKNIX/Saves/savefiles/qa519.srm\n"
+  },
+  {
+    "name": "actual-ES-cached1-survives-external-disk0",
+    "pass": true,
+    "detail": "disk-now-auto0\ncloud_migrate_layout --needs-step\ncloud_net_ready --wait 60\n"
+  },
+  {
+    "name": "interruption-and-exact-rollback-before-archive",
+    "pass": true,
+    "detail": {
+      "protected_equal": true,
+      "config_records_and_modes_restored": true,
+      "frontend_remained_masked": true
+    }
+  },
+  {
+    "name": "interruption-and-exact-rollback-archived",
+    "pass": true,
+    "detail": {
+      "protected_equal": true,
+      "config_records_and_modes_restored": true,
+      "frontend_remained_masked": true
+    }
+  },
+  {
+    "name": "interruption-and-exact-rollback-settings-live",
+    "pass": true,
+    "detail": {
+      "protected_equal": true,
+      "config_records_and_modes_restored": true,
+      "frontend_remained_masked": true
+    }
+  },
+  {
+    "name": "interruption-and-exact-rollback-settings-fallback",
+    "pass": true,
+    "detail": {
+      "protected_equal": true,
+      "config_records_and_modes_restored": true,
+      "frontend_remained_masked": true
+    }
+  },
+  {
+    "name": "interruption-and-exact-rollback-cloud-live",
+    "pass": true,
+    "detail": {
+      "protected_equal": true,
+      "config_records_and_modes_restored": true,
+      "frontend_remained_masked": true
+    }
+  },
+  {
+    "name": "interruption-and-exact-rollback-cloud-fallback",
+    "pass": true,
+    "detail": {
+      "protected_equal": true,
+      "config_records_and_modes_restored": true,
+      "frontend_remained_masked": true
+    }
+  },
+  {
+    "name": "interruption-and-exact-rollback-migration-archived",
+    "pass": true,
+    "detail": {
+      "protected_equal": true,
+      "config_records_and_modes_restored": true,
+      "frontend_remained_masked": true
+    }
+  },
+  {
+    "name": "interruption-and-exact-rollback-scan-archived",
+    "pass": true,
+    "detail": {
+      "protected_equal": true,
+      "config_records_and_modes_restored": true,
+      "frontend_remained_masked": true
+    }
+  },
+  {
+    "name": "active-lease-refuses-before-change",
+    "pass": true,
+    "detail": true
+  },
+  {
+    "name": "active-recovery-refuses-preserved",
+    "pass": true,
+    "detail": true
+  },
+  {
+    "name": "configuration-drift-invalidates-plan",
+    "pass": true,
+    "detail": true
+  },
+  {
+    "name": "atomic-symlink-target-refuses",
+    "pass": true,
+    "detail": true
+  },
+  {
+    "name": "complete-reversible-transaction",
+    "pass": true,
+    "detail": {
+      "archive": "/storage/qa519/archive-success",
+      "protected_equal": true
+    }
+  },
+  {
+    "name": "aligned-settings-fallback-recovers-auto0",
+    "pass": true,
+    "detail": true
+  },
+  {
+    "name": "actual-ES-guarded-restart-no-automatic-transfer-or-folder-scan",
+    "pass": true,
+    "detail": {
+      "calls": "cloud_migrate_layout --needs-step\n",
+      "services": {
+        "emustation.service": "Restart=always\nMainPID=0\nKillMode=process\nActiveState=inactive\nSubState=dead\nUnitFileState=disabled\n",
+        "essway.service": "Restart=always\nMainPID=4406\nKillMode=control-group\nActiveState=active\nSubState=running\nUnitFileState=disabled\n"
+      },
+      "protected_equal": true
+    }
+  }
+]

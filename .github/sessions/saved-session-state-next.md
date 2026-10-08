@@ -1,10 +1,10 @@
 # Saved Session State
 
-> Saved: 2026-10-08T22:57:21.814799+00:00
+> Saved: 2026-10-08T23:35:29.663515+00:00
 > Coordinator: feature/conflict-resolution
 > Repository: pixelelated/distribution
 
-## Start here — #528 source snapshots complete; finish publication inputs
+## Start here — #519 runtime rehearsal qualifies; finish device action packet and #528 publication inputs
 
 This is an immutable Linux build system, not a runnable application. Primary
 `/workspace/repos/rocknix` stays on `next`; read its AGENTS.md and canonical
@@ -18,7 +18,7 @@ physical-device/personal-cloud action. #519 controlled owner alignment must
 precede the next owner handheld update transfer/reboot. Website #511 is separate.
 No goal exists. H70002 and SM855003 engineering firmware are ACCEPTED.
 No source, compiler, VM QA, provider or external audit job is active. Git snapshot03 completed and was consumed below. No RC designation.
-Published source progress8b413914d93a5af3b96ccdd6642769cce7c0ab1a has both hosted checks SUCCESS37854410932/37854410880.
+Published source/member-index delivery fab6fd5b916c97a31c3b8edfaa923194d1aec460 has both hosted checks SUCCESS37856726819/37856726976, consumed this continuation. Earlier source progress8b413914d93a5af3b96ccdd6642769cce7c0ab1a also passed37854410932/37854410880.
 Latest device acceptance fcac270c3880521b6296a17943cb4fb2011e887b has both hosted checks SUCCESS37850652223/37850652345.
 Helper recovery376675809c578c6fd4ccb9261a65af3f26ec2ece has both SUCCESS37850012367/37850012329.
 Never repeat completed H700/SM8550 builds, audits or VM QA merely to resume. Published H700 acceptance/checkpoint
@@ -230,6 +230,62 @@ subject to the owner's price comparison; D-WORKFLOW-121/125 govern custody.
 Do not claim a second independent backup from another directory on this drive.
 The corresponding-source obligations and final retrieval/backup proof remain #528.
 
+## #519 runtime rehearsal completed — do not rerun
+
+Packet `docs/qa-logs/2026-10-08-preupgrade-runtime/` holds19 actual-old-source
+runtime controls, six follow-ups and the composed successful conditional
+power/recovery proof. Guest replacement16 imageSHA74e57ad8957b1c719c18db098d5713577a952af8802524658d0ada7dee1b6b12,
+distroee014909137e03706e0b3020b8396be589aaa705, ES72494bc72e3d64d4dcfeb4e6478052bbdf166c5b.
+All34original distribution inputs match device source43d0bc3b; three added
+boot consumers also match both source refs and installed guest bytes.
+
+Critical correction: pinned111-sway-init explicitly unmasks essway at boot.
+Power01 remains originalrc1; persistent service masks alone cannot protect
+an interrupted alignment. The corrected private plan installs narrowly owned
+negative ConditionPathExists drop-ins and a private marker before alignment
+writes. Actual power02 boot kept both frontends stopped with automatic-sync1.
+Its post-boot verifier failed because an unsynchronized last QA source upload
+was missing, so its original results remain1. Fresh power03 only restored and
+hash-verified that helper, then continued the same boot: exact transaction,
+protected bytes and real guarded ES restart pass; original service state is
+restored and all temporary conditions/marker removed. No new power03 reboot
+is claimed. All successful proof owners have original zero channels and actual
+host exits. Do not relaunch any of their scripts.
+
+The real ES cached1 control still launched startup after the on-disk setting
+changed to0: stop/restart is required. Eight phase interruptions roll back
+exact config/record/mode snapshots. Installed settings/fallback refusal,
+realENOSPC, detached synthetic KillMode=process worker/lease refusal and actual
+cloud fallback loading qualify. The latter temporarily empties only an
+invented alias so the real consumer refuses before remote work. This is not a
+credential edit in the owner operation. Power coverage is a durable boundary,
+not exhaustive flash corruption timing.
+
+Guest runtime owner `/workspace/tmp/pixelelated-m7-alignment-runtime-01` is
+RETIRED: finalQEMU1785974 exited; disk,vars and QAkey removed23:32:23UTC;
+2,333,687,808 allocated disk bytes released, ports10251/5971free. No active
+compiler/source/VM/audit job. Compact owners proof01/02 and power01/02/03 remain.
+The source firmware is retained; creating a replacement guest took about40s.
+
+Private read-only preparation is under
+`/tmp/pixelelated-personal-cloud-review-20261008/preupgrade-read{02,03,04}/`.
+Actual handheld remains on43d0/ES72494, reachable, unchanged. Read04 confirms
+targets occur once; the unrelated duplicated setting is preserved. Known
+restore/journey markers are absent; scan contains only the old join/state
+family. One prior local config backup has no reader in traced installed
+source and is kept for#516. Defaults remain active support. No private values
+or inventories are in this public packet.
+
+**Next for #519:** read private `preupgrade-plan01/proposal02.md` and the
+appended consumer-evidence correction. The original proposal.md mask-only
+protection is superseded. Prepare the exact apply/recovery command packet and
+fresh source/config/boot/payload/recovery binding. Qualify any new executable
+behavior before presenting named device actions. Then obtain still-required
+per-action authorization and use tools/device-act. The VM proof is NOT device
+acceptance. No configuration/service/cloud mutation, update staging or reboot
+has occurred on the handheld. #519 remains a hard prerequisite before its next
+update; first sync/automation reenable remain separate authority.
+
 ## Current work and next commands
 
 1. #528 (real child of #344, M7.P5) is current. Source snapshot03 is consumed; no job to poll. Read its acceptance criteria
@@ -253,10 +309,11 @@ The corresponding-source obligations and final retrieval/backup proof remain #52
    only tools/fork-worktree. Current firmware is held for queued device work.
 5. #265 owns release/version/publication tooling; #359 release-note linkage.
    Named physical/boot-chain gates remain. #519 controlled owner alignment
-   precedes next RG35XXSP transfer/reboot. Its13old-helper controls pass, but
-   live startup/recovery classification, reversible transaction/failure/restart
-   rehearsal and named state-bound approval/readback remain. Read its private
-   proposal; no device or personal-cloud action is authorized by this inventory.
+   precedes next RG35XXSP transfer/reboot. Its13old-helper controls and the new runtime/power rehearsal qualify.
+   Read-only startup/recovery/residue classification is retained privately.
+   Exact apply/recovery packet, fresh binding, named approval and device
+   readback remain. Read proposal02, never the superseded mask-only procedure.
+   No device or personal-cloud action is authorized by this evidence.
 6. Update/read back full M7/#344/#528 bodies and checkpoint as priorities change.
    #344's binding phase paragraph now defers to liveM7, not staleM7.P3. Website511
    remains separate. Publish only explicit scoped commits from divergent root

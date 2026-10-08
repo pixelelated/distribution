@@ -811,6 +811,13 @@ conversion or key generation; do not rely on a former owner having them.
 When rebinding a chain, verify directory contracts as well as source hashes
 and dependency paths. Preserve executed failures and prepare new owners.
 
+**Power-cut fixtures are durable only after their last write (#519).** Upload
+all required source and fixture files, verify their hashes, and synchronize the
+guest after the final upload before terminating QEMU. A sync earlier in setup
+does not cover a later helper upload. If a verifier loses such an input, retain
+the original failed result and bind a separate continuation to the actual
+surviving boot/checkpoint; do not manufacture a successful power-test result.
+
 **Reboot invalidates volatile fault fixtures (#446).** Arm `/tmp` shims and
 triggers after the final preparation reboot. Before driving the interface,
 verify the consumed executable, the intended failing operation and an actual

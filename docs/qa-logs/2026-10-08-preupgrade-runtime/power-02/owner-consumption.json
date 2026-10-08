@@ -1,0 +1,18 @@
+{
+  "utc": "2026-10-08T23:27:37.831902+00:00",
+  "original_results": {
+    "inner.rc": 1,
+    "outer.rc": 1,
+    "tool-wrapper.rc": 1,
+    "guest-command.rc": 1,
+    "build.rc": 1
+  },
+  "status": "state:       finished\nwritten:     2026-10-08 23:25:47 UTC   <- terminal result; heartbeat stops here\nwatcher_pid: 1785885\njob_pid:     1785884  alive=yes\nstarted:     2026-10-08 23:25:26 UTC\nprogress:    none matched\nlog:         /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261008T232526Z-dee36f5f/build.log  (last written 2s ago)\nactivity:    /workspace/tmp/pixelelated-m7-alignment-power-02/artifacts/guest-proof.log  (last written 1s ago)\nactivity_dir: /workspace/tmp/pixelelated-m7-alignment-power-02/artifacts\noutcome:     rc=1\nactivity_progress: \ntail:\n    File \"/usr/lib/python3.14/pathlib/__init__.py\", line 771, in open\n  FileNotFoundError: [Errno 2] No such file or directory: '/storage/qa519/power2/transaction-source.py'\n",
+  "actual_host_owners_exited": [
+    1785883,
+    1785884,
+    1785885,
+    1785914
+  ],
+  "failure_preserved": "QA transaction source upload was not synchronized after preparation sync and disappeared across power cut; condition guard actually blocked both frontends with auto1"
+}

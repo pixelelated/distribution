@@ -1,0 +1,6 @@
+PASS installed-settings-writer-refuses-unwritable-temp
+PASS installed-last-good-writer-refuses-unwritable-temp
+PASS atomic-publication-real-ENOSPC-preserves-original
+PASS actual-systemd-process-killmode-leaves-detectable-lease-owner
+PASS installed-cloud-fallback-restores-aligned-guards-before-no-remote-refusal
+PASS durable-masked-recovery-checkpoint-ready

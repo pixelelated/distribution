@@ -1,0 +1,14 @@
+state:       finished
+written:     2026-10-08 23:27:48 UTC   <- terminal result; heartbeat stops here
+watcher_pid: 1795003
+job_pid:     1795002  alive=yes
+started:     2026-10-08 23:27:37 UTC
+progress:    none matched
+log:         /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261008T232737Z-b5b1a5a9/build.log  (last written 10s ago)
+activity:    /workspace/tmp/pixelelated-m7-alignment-power-03/artifacts/guest-proof.log  (last written 3s ago)
+activity_dir: /workspace/tmp/pixelelated-m7-alignment-power-03/artifacts
+outcome:     rc=0
+activity_progress: 
+tail:
+  PASS actual reboot unmasks essway but persistent condition prevents frontend/automatic startup with auto1
+  PASS interrupted alignment recovered; exact transaction and ES restart preserve data and remove temporary startup gate

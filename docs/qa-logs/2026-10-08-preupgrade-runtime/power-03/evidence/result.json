@@ -1,0 +1,45 @@
+{
+  "pass": true,
+  "actual_boot_changed": true,
+  "auto1_blocked_before_alignment": true,
+  "boot_unmask_observed": true,
+  "condition_result_before": {
+    "emustation.service": "ActiveState=inactive\nUnitFileState=disabled\nConditionResult=no\n",
+    "essway.service": "ActiveState=inactive\nUnitFileState=disabled\nConditionResult=no\n"
+  },
+  "new_state_binding_required": true,
+  "settings_assignment_multiset_and_effective_values_preserved_across_boot": true,
+  "protected_equal": true,
+  "qualified_transaction_source_sha256": "333b2131a74c794fc19fbf6365f2b72f72132e00fcac710b4d582ad718ec7c3b",
+  "after": {
+    "/storage/.config/system/configs/system.cfg": {
+      "sha256": "cedd3f5b87a0382752d02b2615e2e107a0287b30f8755e9a742a5f2e480db22b",
+      "mode": 384,
+      "bytes": 5133
+    },
+    "/storage/.config/system/configs/system.cfg.backup": {
+      "sha256": "cedd3f5b87a0382752d02b2615e2e107a0287b30f8755e9a742a5f2e480db22b",
+      "mode": 384,
+      "bytes": 5133
+    },
+    "/storage/.config/cloud_sync.conf": {
+      "sha256": "247faf3c390d5c6109ee981e109b49037ffc3439a88a92095ccba636a65662c6",
+      "mode": 384,
+      "bytes": 8447
+    },
+    "/storage/.config/cloud_sync.conf.bak": {
+      "sha256": "247faf3c390d5c6109ee981e109b49037ffc3439a88a92095ccba636a65662c6",
+      "mode": 384,
+      "bytes": 8447
+    },
+    "/storage/.config/cloud-layout-migration.json": null,
+    "/storage/.cache/cloud_sync/scan": null
+  },
+  "calls": "cloud_migrate_layout --needs-step\n",
+  "restored_original_service_states": {
+    "emustation.service": "Restart=always\nMainPID=0\nKillMode=process\nActiveState=inactive\nSubState=dead\nUnitFileState=disabled\n",
+    "essway.service": "Restart=always\nMainPID=2500\nKillMode=control-group\nActiveState=active\nSubState=running\nUnitFileState=disabled\n"
+  },
+  "temporary_dropins_marker_removed": true,
+  "scope": "power loss at durable pre-alignment guard, then explicit rebind/transaction/guarded restart; not exhaustive flash fault timings"
+}
