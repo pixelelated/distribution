@@ -1,0 +1,278 @@
+#!/usr/bin/python3
+# SPDX-License-Identifier: GPL-2.0
+# Copyright (C) 2026-present ROCKNIX (https://github.com/ROCKNIX)
+"""Bounded folder readiness metadata, never a transfer or integrity check.
+
+Private stdout contract for cloud_setup/ES. Missing means the selected endpoint
+returned not-found, or the selected content root listed without the child.
+Empty means a successful bounded listing found no recognized content; it is not
+an account-wide absence claim. No ancestor outside the selected root is read.
+"""
+import json
+import os
+from pathlib import Path
+import re
+import selectors
+import signal
+import subprocess
+import sys
+import time
+
+CATEGORIES = ('saves', 'settings', 'roms', 'bios', 'media')
+MAX_BYTES = 2 * 1024 * 1024
+MAX_ENTRIES = 4096
+TOTAL_SECONDS = 25
+# Only observed standard save subtrees get deeper reads; never widen the
+# whole selected root or infer progress from an uninspected directory.
+SAVE_SUBTREES = {'psp/PSP/SAVEDATA': 2, 'psx/duckstation/memcards': 1}
+MEDIA = {'images', 'videos', 'manuals', 'screenshots', 'fanart', 'boxart', 'wheel', 'mix', 'maps', 'media'}
+# Match the shipped progress allowlist and content transfer exclusions. These
+# are case-sensitive like rclone's filters; test controls compare actual bytes.
+PROGRESS = re.compile(r'\.(srm|sav|fs|state[^/]*|auto|dsv[^/]*|eep|mpk|sra|fla)$')
+N64_STATE = re.compile(r'\.(st[0-9]|pj[0-9](\.zip)?)$')
+CONTENT_SAVE = re.compile(r'\.(srm|sav|fs|state[^/]*|auto|dsv[^/]*|eep|mpk|sra|fla|mcd|mcr)$')
+DATABASE = re.compile(r'\.(db|db-wal|db-shm|db-journal|sqlite|sqlite3)$')
+PARTIAL = re.compile(r'\.[^/]{8}\.partial$')
+HERE = Path(__file__).resolve().parent
+
+
+class Unreadable(Exception):
+    pass
+
+
+def command(args, deadline, seconds=6, limit=MAX_BYTES):
+    """Drain only bounded stdout; diagnostics can contain provider credentials."""
+    remaining = min(seconds, deadline - time.monotonic())
+    if remaining <= 0:
+        raise Unreadable('time-limit')
+    end = time.monotonic() + remaining
+    proc = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL,
+                            start_new_session=True)
+    output = bytearray()
+    try:
+        with selectors.DefaultSelector() as ready:
+            ready.register(proc.stdout, selectors.EVENT_READ)
+            while ready.get_map():
+                wait = end - time.monotonic()
+                if wait <= 0:
+                    raise Unreadable('time-limit')
+                if not ready.select(wait):
+                    raise Unreadable('time-limit')
+                chunk = os.read(proc.stdout.fileno(), 65536)
+                if not chunk:
+                    ready.unregister(proc.stdout)
+                    break
+                output.extend(chunk)
+                if len(output) > limit:
+                    raise Unreadable('listing-limit')
+        rc = proc.wait(timeout=max(0.01, end - time.monotonic()))
+        return rc, bytes(output)
+    except (subprocess.TimeoutExpired, Unreadable):
+        raise Unreadable('time-or-listing-limit')
+    finally:
+        if proc.poll() is None:
+            os.killpg(proc.pid, signal.SIGKILL)
+        proc.wait()
+        proc.stdout.close()
+
+
+def context(deadline):
+    rc, raw = command([str(HERE / 'cloud_setup'), '--validation-context'], deadline)
+    if rc:
+        raise Unreadable('unreadable-config')
+    value = json.loads(raw)
+    if not re.fullmatch('[0-9a-f]{64}', value.get('config_id', '')):
+        raise Unreadable('unreadable-config')
+    return value
+
+
+def listing(remote, path, depth, deadline):
+    rc, raw = command(['rclone', 'lsjson', remote + path, '--recursive',
+                       '--max-depth', str(depth), '--no-mimetype', '--no-modtime',
+                       '--retries', '1', '--low-level-retries', '1',
+                       '--contimeout', '3s', '--timeout', '5s', '--max-duration', '6s'], deadline)
+    if rc:
+        # Entries on ANY error are not a valid observation. rclone lsjson
+        # emits its opening bracket before a directory-not-found response.
+        if rc in (3, 4) and (raw.strip() in (b'', b'[') or json.loads(raw) == []):
+            return None
+        raise Unreadable('listing-failed')
+    entries = json.loads(raw)
+    if not isinstance(entries, list) or len(entries) > MAX_ENTRIES:
+        raise Unreadable('listing-limit')
+    seen = set()
+    for entry in entries:
+        if not isinstance(entry, dict) or not isinstance(entry.get('Path'), str) or type(entry.get('IsDir')) is not bool:
+            raise Unreadable('invalid-listing')
+        p = entry['Path']
+        if not p or len(p.split('/')) > depth or p.startswith('/') or any(x in ('', '.', '..') for x in p.split('/')) or any(ord(c) < 32 for c in p):
+            raise Unreadable('invalid-listing')
+        if p in seen:
+            raise Unreadable('invalid-listing')
+        seen.add(p)
+    return entries
+
+
+def save_entries(remote, path, entries, deadline):
+    """Inspect named save writers beyond the root's ordinary depth-three cut."""
+    combined = list(entries)
+    unchecked = {e['Path'] for e in entries if e['IsDir'] and len(e['Path'].split('/')) == 3}
+    for subtree, depth in SAVE_SUBTREES.items():
+        if subtree not in unchecked:
+            continue
+        child = path + ('' if not path or path.endswith('/') else '/') + subtree
+        extra = listing(remote, child, depth, deadline)
+        if extra is None:
+            raise Unreadable('folder-changed-during-check')
+        unchecked.remove(subtree)
+        for entry in extra:
+            full = subtree + '/' + entry['Path']
+            combined.append(dict(entry, Path=full))
+            if entry['IsDir'] and len(entry['Path'].split('/')) == depth:
+                unchecked.add(full)
+        if len(combined) > MAX_ENTRIES:
+            raise Unreadable('listing-limit')
+    return combined, unchecked
+
+
+def files(entries):
+    return [e['Path'] for e in entries if not e['IsDir'] and e['Path'] not in ('README.txt', '.layout')]
+
+
+def progress(path):
+    """The ordinary progress allowlist, excluding its separate archive tier."""
+    parts = path.split('/')
+    if DATABASE.search(parts[-1]):
+        return False
+    return (parts[0] in ('savefiles', 'savestates', 'screenshots') or bool(PROGRESS.search(parts[-1]))
+            or (parts[0] == 'n64' and len(parts) == 2 and bool(N64_STATE.search(parts[-1])))
+            or (path.startswith('psx/memcards/') and len(parts) == 3 and parts[-1].endswith(('.mcd', '.mcr')))
+            or (path.startswith('psx/duckstation/memcards/') and len(parts) == 4 and parts[-1].endswith(('.mcd', '.mcr')))
+            or path.startswith(('dc/shared/savefiles/', 'psp/PPSSPP/', 'psp/PSP/SAVEDATA/')))
+
+
+def content_excluded(path, system=None):
+    """SAVE_EXCLUDES/CONFLICT_EXCLUDES, relative to one ROM system or BIOS."""
+    parts = path.split('/')
+    return ((system == 'n64' and len(parts) == 1 and bool(N64_STATE.search(parts[-1])))
+            or bool(CONTENT_SAVE.search(parts[-1])) or 'conflicted copy' in path
+            or '.sync-conflict-' in path or bool(PARTIAL.search(parts[-1]))
+            or any(p in ('save', 'memcards', 'PPSSPP') for p in parts[:-1])
+            or any(parts[i:i+2] in (['shared', 'savefiles'], ['PSP', 'SAVEDATA']) for i in range(len(parts)-2))
+            or path == 'README.txt')
+
+
+def unchecked_directory(category, path, known):
+    if category in ('roms', 'media'):
+        parts = path.split('/')
+        return parts[0] in known and not content_excluded('/'.join(parts[1:]) + '/probe', parts[0])
+    if category == 'bios':
+        return not content_excluded(path + '/probe')
+    return True
+
+
+def classify(category, entries, known):
+    payload = files(entries)
+    if not payload:
+        return 'empty', 'no-recognized-content-in-checked-depth'
+    if category == 'settings':
+        good = [p for p in payload if p.lower().endswith(('.zip', '.tar.gz')) and len(p.split('/')) <= 2]
+        return ('present', 'archive-names-found-not-verified') if good else ('empty', 'no-recognized-settings-archives-in-checked-depth')
+    if category == 'bios':
+        return ('present', 'files-found-not-compatibility-checked') if any(not content_excluded(p) for p in payload) else ('empty', 'no-recognized-content-in-checked-depth')
+    if category == 'saves':
+        # The progress allowlist permits recognized saves at any depth. A
+        # repeated folder name alone is not evidence of a wrong location.
+        return ('present', 'progress-paths-found-not-verified') if any(progress(p) for p in payload) else ('empty', 'no-recognized-progress-in-checked-depth')
+    # ROM transfer expects one supported system folder beneath ROMs. A
+    # direct payload is a location finding even when other ROMs are valid;
+    # do not guess its system, move it, or describe that folder as empty.
+    if category == 'roms' and any('/' not in p and p != 'gamelist.xml' and not content_excluded(p) for p in payload):
+        return 'misplaced', 'files-outside-system-folders'
+    good = []
+    for path in payload:
+        parts = path.split('/')
+        if len(parts) < 2 or parts[0] not in known or content_excluded('/'.join(parts[1:]), parts[0]):
+            continue
+        media = parts[1] in MEDIA or parts[-1] == 'gamelist.xml'
+        if (category == 'media') == media:
+            good.append(path)
+    if good:
+        return 'present', 'supported-system-paths-found-not-verified'
+    return 'empty', 'no-recognized-content-in-checked-depth'
+
+
+def main():
+    if len(sys.argv) != 3:
+        return 2
+    selected = sys.argv[1].split(',')
+    run_id = sys.argv[2]
+    if not selected or len(selected) != len(set(selected)) or any(c not in CATEGORIES for c in selected) or not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9_-]{0,63}', run_id):
+        return 2
+    deadline = time.monotonic() + TOTAL_SECONDS
+    result = {'schema_version': 1, 'run_id': run_id, 'config_id': '', 'categories': [], 'complete': False,
+              'scope': {'max_depth': 3, 'save_subtree_depths': SAVE_SUBTREES, 'max_entries_per_listing': MAX_ENTRIES, 'max_bytes_per_listing': MAX_BYTES, 'max_seconds': TOTAL_SECONDS}}
+    try:
+        current = context(deadline)
+        result.update(config_id=current['config_id'], paths=current['paths'])
+        known = set()
+        if 'roms' in selected or 'media' in selected:
+            rc, raw = command([str(HERE / 'cloud_content_restore'), '--known-directories'], deadline)
+            if rc:
+                raise Unreadable('system-list-unavailable')
+            known = set(raw.decode().splitlines())
+        cache = {}
+        for category in selected:
+            path = current['paths'][category]
+            row = {'category': category, 'state': 'unreadable', 'path': path, 'detail': 'check-not-completed'}
+            try:
+                # The content root is selected, so its direct children are in
+                # scope. No account/ancestor fallback if that root is absent.
+                if category in ('roms', 'bios', 'media'):
+                    root = current['paths']['content']
+                    if (root, 1) not in cache:
+                        cache[root, 1] = listing(current['remote'], root, 1, deadline)
+                    parent = cache[root, 1]
+                    child = 'BIOS' if category == 'bios' else 'ROMs'
+                    if parent is None or not any(e['IsDir'] and e['Path'] == child for e in parent):
+                        misplaced = parent and any(e['IsDir'] and (e['Path'].lower() == child.lower() or (category == 'roms' and e['Path'] in known)) for e in parent)
+                        row.update(state='misplaced' if misplaced else 'missing', detail='recognized-folders-outside-expected-path' if misplaced else 'expected-folder-not-found')
+                        result['categories'].append(row)
+                        continue
+                if (path, 3) not in cache:
+                    cache[path, 3] = listing(current['remote'], path, 3, deadline)
+                entries = cache[path, 3]
+                if entries is None:
+                    row.update(state='missing', detail='selected-folder-not-found')
+                else:
+                    if not entries and category in ('saves', 'settings'):
+                        # Bucket prefixes do not exist as empty directories.
+                        # Without entries or an in-scope parent witness an
+                        # empty answer cannot prove this selected root exists.
+                        rc, raw = command(['rclone', 'backend', 'features', current['remote'] + path], deadline)
+                        if rc or json.loads(raw).get('Features', {}).get('BucketBased') is not False:
+                            raise Unreadable('folder-presence-unconfirmed')
+                    unchecked = {e['Path'] for e in entries if e['IsDir'] and len(e['Path'].split('/')) == 3}
+                    if category == 'saves':
+                        entries, unchecked = save_entries(current['remote'], path, entries, deadline)
+                    state, detail = classify(category, entries, known)
+                    if state == 'empty' and any(unchecked_directory(category, p, known) for p in unchecked):
+                        raise Unreadable('deeper-folders-not-checked')
+                    row.update(state=state, detail=detail)
+            except (Unreadable, ValueError, OSError) as error:
+                row['detail'] = str(error) if isinstance(error, Unreadable) else 'invalid-or-unreadable-listing'
+            result['categories'].append(row)
+        # A result belongs to the config actually inspected, even if another
+        # screen edits the selected remote or paths while listing is running.
+        after = context(deadline)
+        if after['config_id'] != current['config_id']:
+            raise Unreadable('configuration-changed')
+        result['complete'] = all(row['state'] != 'unreadable' for row in result['categories'])
+    except (Unreadable, ValueError, OSError) as error:
+        result['error'] = str(error) if isinstance(error, Unreadable) else 'unreadable-config'
+    print(json.dumps(result, separators=(',', ':')))
+    return 0 if result['complete'] else 5
+
+
+if __name__ == '__main__':
+    sys.exit(main())

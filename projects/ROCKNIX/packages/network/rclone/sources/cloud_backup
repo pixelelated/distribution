@@ -820,18 +820,11 @@ bucket_dir_listed() {
     printf '%s\n' "${listing}" | grep -qxF -- "${name}/"
 }
 
-# Whether the saves setting is a default this project once shipped
-# (/GAMES, /ROCKNIX/Saves), from cloud_migrate_layout's own list: a string
-# test, no network. Names compared as written.
+# Do not silently recreate an absent legacy root after the owner moved it
+# from a computer. An explicit folder choice settles where future saves go.
+# This is a local stored-interface check, never an automatic migration.
 superseded_saves_setting() {
-    local tool s want="${SAVES_REMOTE%/}"
-    tool="$(dirname "$(readlink -f "$0")")/cloud_migrate_layout"
-    [ -x "${tool}" ] || tool=/usr/bin/cloud_migrate_layout
-    [ -x "${tool}" ] || return 1
-    while IFS= read -r s; do
-        [ -n "${s}" ] && [ "${s%/}" = "${want}" ] && return 0
-    done < <("${tool}" --superseded 2>/dev/null)
-    return 1
+    case "${SAVES_REMOTE%/}" in /GAMES|/ROCKNIX/Saves) return 0 ;; *) return 1 ;; esac
 }
 
 outcome_word() {
@@ -1433,23 +1426,9 @@ load_config() {
         log_message "Added --update from command line" "false"
     fi
 
-    # A settings or ROMs and BIOS folder inside SAVES_REMOTE. Each tier belongs
-    # beside the saves folder, not in it: a folder nested there rides with
-    # every tool that moves the saves folder whole (the layout migration moved
-    # the settings archives into Saves/backup/ that way, audit #307 PL-025),
-    # and the setup page no longer writes such a layout (PL-015, stream C). An
-    # earlier build derived /GAMES/Content inside a top-level /GAMES, and a
-    # config that says so is read as it stands and warned about, never
-    # rewritten -- the layout is the owner's, and TIDY UP YOUR CLOUD FOLDERS
-    # is what moves it. The warning used to cover the settings folder alone,
-    # and only while RCLONEOPTS carried --delete-excluded, which load_config
-    # strips above -- so it could never fire (#308 claude F-CS-17). Logged on
-    # every run; on the screen for a run somebody pressed, not the automatic
-    # syncs, where it would sit on every game-exit card. Not for a saves
-    # folder at the root ("" or "/", one root as F-CS-25 reads it): every
-    # folder is inside that one, the tidy cannot move a folder out of it, and
-    # the backup says what such a folder costs instead (the audit of the
-    # fixes, claude G-A-08: "/" was warned about on every run, "" never).
+    # Public ROCKNIX keeps settings backups inside /GAMES. Preserve that
+    # selected layout and explain it without offering the retired tidier.
+    # No warning or folder selection grants permission to relocate files.
     local nested_key nested_val nested_what
     for nested_key in SETTINGS_REMOTE CONTENT_REMOTE; do
         nested_val="${!nested_key}"
@@ -1458,7 +1437,7 @@ load_config() {
             "${SAVES_REMOTE%/}/"?*)
                 log_message "${nested_key}=${nested_val} is inside SAVES_REMOTE=${SAVES_REMOTE}" "false" "WARN"
                 if [ "${nested_key}" = "SETTINGS_REMOTE" ]; then nested_what="settings folder"; else nested_what="ROMs and BIOS folder"; fi
-                [ "${AUTOMATIC}" -eq 1 ] || log_message "Your ${nested_what} in the cloud sits inside your saves folder. TIDY UP YOUR CLOUD FOLDERS in MANAGE CLOUD STORAGE moves it out." "true" "WARN"
+                [ "${AUTOMATIC}" -eq 1 ] || log_message "Your ${nested_what} in the cloud sits inside your saves folder. Linking cloud storage does not move these files. You can choose separate folders in MANAGE CLOUD STORAGE." "true" "WARN"
                 ;;
         esac
     done
@@ -1662,9 +1641,8 @@ backup_game_saves() {
     # nine saves into /GAMES (guest d, run 100). So it says what the
     # restore says -- the offer line, which an automatic sync's card reads
     # as that SKIPPED and a deliberate run as the offer to create the
-    # folder, whose seeding settles the setting on the current folders
-    # (cloud_migrate_layout --settle) -- and the cloud folder step asks at
-    # the next boot (D-CLOUD-170). Asked only for such a setting; a listing
+    # folder. The owner selects its replacement explicitly; no scan or boot
+    # changes these pointers. Asked only for such a setting; a listing
     # that cannot answer leaves the backup as it was, since skipping it on
     # a guess would leave the saves only on the device.
     if superseded_saves_setting; then

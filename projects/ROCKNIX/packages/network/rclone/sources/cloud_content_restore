@@ -19,8 +19,8 @@
 #   cloud_content_restore --match --apply  do what the preview planned, no
 #                                          more (the only mode that deletes)
 #
-# The remote content root defaults to the remote's root; set CONTENT_REMOTE in
-# /storage/.config/cloud_sync.conf to point somewhere else (e.g. "GAMES").
+# CONTENT_REMOTE selects the only cloud library this script reads. ROMs live
+# under ROMs/<system>, and BIOS under BIOS. Choosing a path moves no files.
 
 . /etc/profile
 
@@ -238,8 +238,15 @@ if [ -z "${REMOTENAME}" ]; then
     exit 1
 fi
 
-ROOT="${REMOTENAME}${CONTENT_REMOTE:+${CONTENT_REMOTE}/}"
-LEGACY_ROOT="${REMOTENAME}"
+CHECK_CONTENT="${CONTENT_REMOTE%/}"
+if [ -n "${CHECK_CONTENT}" ]; then
+    case "/${CHECK_CONTENT#/}/" in
+        *//*|*/./*|*/../*)
+            echo ">>> why YOUR CLOUD SYNC SETTINGS COULDN'T BE READ"
+            exit 1 ;;
+    esac
+fi
+ROOT="${REMOTENAME}${CONTENT_REMOTE:+${CONTENT_REMOTE%/}/}"
 
 # The bound on every rclone command below that opens a socket: RCLONE_NET_OPTS
 # from cloud_sync.conf, or the same shipped values when the config has no
@@ -377,21 +384,9 @@ stop_no_network() {
     exit "${EXIT_NO_NETWORK}"
 }
 
-# Read the old shape, write the new one.
-#
-# CONTENT_REMOTE is newer than content sync itself. Before it existed, content
-# sat at the remote root, and an upgraded device would look in the new place,
-# find nothing, and simply show an empty list - the player never chose a
-# layout, so there is nothing for them to reason about, and nobody reads
-# release notes on a handheld.
-#
-# So restore looks in the configured location and falls back to the old one.
-# Backups always write to the configured location, so a library migrates by
-# itself the next time it is backed up, with no prompt and no migration step.
-# The legacy root on a path-based remote is the whole account, which holds the
-# owner's own folders too. Only directories this device actually has locally
-# are offered from there - listing somebody's holiday photos as restorable ROMs
-# would be worse than the empty list this fixes.
+# D-CLOUD-177/178: public ROCKNIX did not ship this content layout.
+# Only the selected structured library is read or written. A missing folder
+# must never select another folder, inside or outside that library.
 
 # Where a local directory lives in the current cloud layout.
 #
@@ -408,38 +403,9 @@ remote_for() {
     esac
 }
 
-# Returns the full remote path that actually holds this directory.
-#
-# Three shapes are in the field and all of them have to keep working:
-#
-#   1. ROMs/<system> and BIOS      -- current
-#   2. <system> and bios, flat under CONTENT_REMOTE  -- what shipped before this
-#   3. <system> at the remote root -- before CONTENT_REMOTE existed at all
-#
-# Read all three, write only the first (cloud_content_backup). A library then
-# migrates itself the next time it is backed up: nothing to prompt about,
-# nothing to explain, and a device that has not updated yet still finds its
-# content where it left it.
-#
-# The legacy root on a path-based remote is the whole account, which holds the
-# owner's own folders too. Only directories this device actually has locally
-# are offered from there - listing somebody's holiday photos as restorable ROMs
-# would be worse than the empty list this fixes.
+# Backup and restore share exactly the same selected-root mapping.
 resolve_src() {
-    local dir="$1" new
-    new="$(remote_for "${dir}")"
-    if exists_remote "${new}"; then
-        echo "${new}"
-    elif rclone lsf --dirs-only "${ROOT}" "${RCLONE_LIST_OPTS[@]}" 2>/dev/null | sed 's:/$::' | grep -qx "${dir}"; then
-        log_message "Content \"${dir}\" found in the flat pre-ROMs layout"
-        echo "${ROOT}${dir}"
-    elif [ -n "${CONTENT_REMOTE}" ] && legacy_dirs | grep -qx "${dir}" \
-         && rclone lsf --dirs-only "${LEGACY_ROOT}" "${RCLONE_LIST_OPTS[@]}" 2>/dev/null | sed 's:/$::' | grep -qx "${dir}"; then
-        log_message "Content \"${dir}\" found at the pre-CONTENT_REMOTE location"
-        echo "${LEGACY_ROOT}${dir}"
-    else
-        echo "${new}"
-    fi
+    remote_for "$1"
 }
 
 # Does a remote path exist?
@@ -475,19 +441,40 @@ exists_remote() {
 # (D-CLOUD-120). Called only after a listing has already failed with a code
 # other than 3, so the everyday path costs nothing extra.
 absent_not_broken() {
-    local path="${1%/}" remote rel name parent listing
-    remote="${path%%:*}:"; rel="${path#*:}"; rel="${rel#/}"
-    while [ -n "${rel}" ]; do
-        name="${rel##*/}"; parent="${rel%/*}"
-        [ "${parent}" = "${rel}" ] && parent=""
-        if listing=$(rclone lsf --dirs-only "${remote}/${parent:+${parent}/}" "${RCLONE_LIST_OPTS[@]}" 2>/dev/null); then
+    local path="$1" boundary="${ROOT}" remote rel parent name listing
+    # Keep remote:/ (absolute root) distinct from remote: (relative home).
+    case "${path}" in *:/) ;; *) path="${path%/}" ;; esac
+    case "${boundary}" in *:/) ;; *) boundary="${boundary%/}" ;; esac
+    # Ancestors beyond the selected library do not establish that an
+    # unreadable library is missing. Each failed probe must shorten the path.
+    while [ "${path}" != "${boundary}" ]; do
+        case "${path}" in "${ROOT}"*) ;; *) return 1 ;; esac
+        remote="${path%%:*}:"; rel="${path#*:}"
+        name="${rel##*/}"
+        case "${rel}" in
+            */*) parent="${rel%/*}"; [ -n "${parent}" ] || parent=/ ;;
+            *) parent="" ;;
+        esac
+        parent="${remote}${parent}"
+        [ "${parent}" != "${path}" ] || return 1
+        if listing=$(rclone lsf --dirs-only "${parent}" "${RCLONE_LIST_OPTS[@]}" 2>/dev/null); then
             printf '%s\n' "${listing}" | grep -qFx -- "${name}/" && return 1
             return 0
         fi
-        [ -n "${parent}" ] || return 1
-        rel="${parent}"
+        path="${parent}"
     done
     return 1
+}
+
+# An entire successful metadata result or no result. Partial provider output
+# is never evidence of an empty library, even with a final not-found code.
+list_content_dirs() {
+    local path="$1" rc
+    LISTED=$(rclone lsf --dirs-only "${path}" "${RCLONE_LIST_OPTS[@]}" 2>/dev/null); rc=$?
+    [ "${rc}" -ne 0 ] || return 0
+    [ -z "${LISTED}" ] || { LISTED=""; return 5; }
+    { [ "${rc}" -eq 3 ] || absent_not_broken "${path}"; } && return 0
+    return "${rc}"
 }
 
 # Which systems this device syncs.
@@ -515,21 +502,6 @@ selected_systems() {
     [ -r "${SELECTION}" ] || return 0
     grep -E '^[A-Za-z0-9_][A-Za-z0-9._-]*$' "${SELECTION}" 2>/dev/null
 }
-
-# Total bytes per top-level directory, from ONE recursive listing.
-#
-# rclone size per system would be one API round trip each, which on a library
-# of thirty systems is thirty waits before the player sees anything. lsf
-# --format sp returns size and path for every file in a single call; summing
-# them here costs nothing.
-sizes_under() {
-    rclone lsf -R --files-only --format "sp" --separator "|" "$1" "${RCLONE_LIST_OPTS[@]}" 2>/dev/null \
-        | grep -v '|README\.txt$' \
-        | awk -F'|' '{ i = index($2, "/"); if (i == 0) next;
-                       d = substr($2, 1, i - 1); sz[d] += $1 }
-                     END { for (d in sz) print d "|" sz[d] }'
-}
-
 
 # --- make this device match the cloud ------------------------------------
 #
@@ -596,7 +568,19 @@ SAVE_EXCLUDES=(
     --exclude "*.mcd" --exclude "*.mcr"
     --exclude "save/**" --exclude "memcards/**"
     --exclude "shared/savefiles/**" --exclude "PPSSPP/**"
+    --exclude "PSP/SAVEDATA/**"
 )
+
+# These state names belong to the N64 writer at its system root, not to
+# similarly named content in other systems or nested library directories.
+SYSTEM_SAVE_EXCLUDES=()
+set_system_save_excludes() {
+    SYSTEM_SAVE_EXCLUDES=()
+    if [ "$1" = n64 ]; then
+        SYSTEM_SAVE_EXCLUDES=(--exclude "/*.st[0-9]" --exclude "/*.pj[0-9]" --exclude "/*.pj[0-9].zip")
+    fi
+}
+
 
 # Another sync client's unresolved dispute is not our content.
 #
@@ -652,7 +636,14 @@ CONFLICT_EXCLUDES=(
 # a scrape overwrite. A file-level sync cannot make that distinction, so those
 # are last-writer-wins across devices. Everything else in the file is authored
 # or scraped, and favorite is explicitly not a statistic in ES's model.
-GAMELIST_ONLY=( --include "gamelist.xml" --include "**/gamelist.xml" )
+# A save directory can contain arbitrary filenames, including gamelist.xml.
+# Ordered filters keep that progress out of this separate media pass too.
+GAMELIST_ONLY=(
+    --filter "- save/**" --filter "- memcards/**"
+    --filter "- shared/savefiles/**" --filter "- PPSSPP/**"
+    --filter "- PSP/SAVEDATA/**"
+    --filter "+ gamelist.xml" --filter "+ **/gamelist.xml" --filter "- **"
+)
 
 # What EmulationStation owns, which a content match must never delete.
 #
@@ -721,6 +712,7 @@ cloud_root_populated() {
 # local count are read the same way: a count that failed is not a zero.
 match_plan_one() {
     local sys="$1" src local_dir n b out listing lrc
+    set_system_save_excludes "${sys}"
     src="$(remote_for "${sys}")"
     local_dir="${DEST}/${sys}"
 
@@ -743,7 +735,7 @@ match_plan_one() {
     if [ "${lrc}" -eq 0 ] && [ -n "${listing}" ]; then
         # Present in the cloud: sync reconciles both directions of difference.
         out=$(bounded_content_rclone sync "${src}" "${local_dir}" "${RCLONE_NET_OPTS_ARRAY[@]}" \
-                "${SAVE_EXCLUDES[@]}" "${CONFLICT_EXCLUDES[@]}" "${METADATA_EXCLUDES[@]}" \
+                "${SAVE_EXCLUDES[@]}" "${SYSTEM_SAVE_EXCLUDES[@]}" "${CONFLICT_EXCLUDES[@]}" "${METADATA_EXCLUDES[@]}" \
                 --dry-run --stats 0 2>&1)
         lrc=$?
         if [ "${lrc}" -ne 0 ]; then
@@ -762,7 +754,7 @@ match_plan_one() {
     else
         # Absent from the cloud entirely: its content goes, its saves stay.
         out=$(rclone size "${local_dir}" \
-                "${SAVE_EXCLUDES[@]}" "${CONFLICT_EXCLUDES[@]}" "${METADATA_EXCLUDES[@]}" 2>/dev/null)
+                "${SAVE_EXCLUDES[@]}" "${SYSTEM_SAVE_EXCLUDES[@]}" "${CONFLICT_EXCLUDES[@]}" "${METADATA_EXCLUDES[@]}" 2>/dev/null)
         lrc=$?
         n=$(printf '%s\n' "${out}" | sed -n 's/^Total objects: *\([0-9]*\).*/\1/p' | head -1)
         b=$(printf '%s\n' "${out}" | sed -n 's/^Total size: .*(\([0-9]*\) Byte).*/\1/p' | head -1)
@@ -828,7 +820,7 @@ match_before() { # <sys>
     MATCH_BEFORE=$(mktemp /tmp/cloud-match-before.XXXXXX 2>/dev/null) || MATCH_BEFORE="/tmp/cloud-match-before.$$"
     : > "${MATCH_LOG}"
     rclone lsf -R --files-only --format "sp" --separator "|" "${DEST}/$1" \
-        "${SAVE_EXCLUDES[@]}" "${CONFLICT_EXCLUDES[@]}" "${METADATA_EXCLUDES[@]}" > "${MATCH_BEFORE}" 2>/dev/null
+        "${SAVE_EXCLUDES[@]}" "${SYSTEM_SAVE_EXCLUDES[@]}" "${CONFLICT_EXCLUDES[@]}" "${METADATA_EXCLUDES[@]}" > "${MATCH_BEFORE}" 2>/dev/null
 }
 match_count() { # <sys>: adds what the log says went to the totals
     local counted cfiles cbytes
@@ -935,6 +927,7 @@ match_run() {
     # answers the first one.
     local total_bytes=0 removed_detail="" unit_i=0 unit_n=${#SYS[@]} planned
     for sys in "${SYS[@]}"; do
+        set_system_save_excludes "${sys}"
         unit_i=$((unit_i + 1))
         # Every chosen system is an item on the page, announced before its
         # own dry run -- so the page names what is being checked while the
@@ -1002,7 +995,7 @@ match_run() {
                     echo "Removing ${files} files from ${sys} that aren't in your cloud..."
                     match_before "${sys}"
                     rclone delete "${DEST}/${sys}" \
-                        "${SAVE_EXCLUDES[@]}" "${CONFLICT_EXCLUDES[@]}" "${METADATA_EXCLUDES[@]}" \
+                        "${SAVE_EXCLUDES[@]}" "${SYSTEM_SAVE_EXCLUDES[@]}" "${CONFLICT_EXCLUDES[@]}" "${METADATA_EXCLUDES[@]}" \
                         --max-delete "${files}" \
                         --log-file "${MATCH_LOG}" --log-level INFO
                     del_rc=$?
@@ -1033,7 +1026,7 @@ match_run() {
                     # count above the preview's is refused before this runs.
                     match_before "${sys}"
                     bounded_content_rclone sync "$(remote_for "${sys}")" "${DEST}/${sys}" "${RCLONE_NET_OPTS_ARRAY[@]}" \
-                        "${SAVE_EXCLUDES[@]}" "${CONFLICT_EXCLUDES[@]}" "${METADATA_EXCLUDES[@]}" \
+                        "${SAVE_EXCLUDES[@]}" "${SYSTEM_SAVE_EXCLUDES[@]}" "${CONFLICT_EXCLUDES[@]}" "${METADATA_EXCLUDES[@]}" \
                         --max-delete "${files}" \
                         --progress --stats 1s \
                         --log-file "${MATCH_LOG}" --log-level INFO
@@ -1129,16 +1122,21 @@ content_files() {
               for d in ${MEDIA_DIRS:-images videos manuals screenshots fanart boxart wheel mix maps media}; do media+=( -o -path "${dir%/}/${d}/*" ); done
               media+=( ")" ) ;;
     esac
+    local -a native_states=()
+    if [ "${dir%/}" = "${DEST}/n64" ]; then
+        native_states=( "(" -path "${dir%/}/*/*" -o "(" ! -name '*.st[0-9]' ! -name '*.pj[0-9]' ! -name '*.pj[0-9].zip' ")" ")" )
+    fi
     find "${dir}" -type f \
         ! -name '*.srm' ! -name '*.sav' ! -name '*.fs' ! -name '*.state*' \
         ! -name '*.auto' ! -name '*.dsv*' ! -name '*.eep' ! -name '*.mpk' \
         ! -name '*.sra' ! -name '*.fla' ! -name '*.mcd' ! -name '*.mcr' \
         ! -path '*/save/*' ! -path '*/memcards/*' \
         ! -path '*/shared/savefiles/*' ! -path '*/PPSSPP/*' \
+        ! -path '*/PSP/SAVEDATA/*' \
         ! -path '*conflicted copy*' ! -name '*.sync-conflict-*' \
         ! -name '*.????????.partial' \
         ! -path "${dir%/}/README.txt" \
-        "${media[@]}" "$@" 2>/dev/null
+        "${native_states[@]}" "${media[@]}" "$@" 2>/dev/null
 }
 # Local systems that hold content, for the union scan.
 local_content_dirs() {
@@ -1192,6 +1190,7 @@ cloud_content_filter() {
     awk -F'|' -v dirs="${dirs}" -v mode="${MEDIA_MODE}" '
         { n = split($2, seg, "/"); if (n < 2) next
           f = seg[n]
+          if (seg[1] == "n64" && n == 2 && f ~ /\.(st[0-9]|pj[0-9](\.zip)?)$/) next
           game = (n > 2 && seg[2] ~ dirs) || f == "gamelist.xml"
           if (mode == "roms" && game) next
           if (mode == "only" && !game) next
@@ -1202,6 +1201,7 @@ cloud_content_filter() {
           for (i = 2; i < n; i++) {
               if (seg[i] == "save" || seg[i] == "memcards" || seg[i] == "PPSSPP") next
               if (seg[i] == "shared" && i + 1 < n && seg[i + 1] == "savefiles") next
+              if (seg[i] == "PSP" && i + 1 < n && seg[i + 1] == "SAVEDATA") next
           }
           print }'
 }
@@ -1251,9 +1251,13 @@ case "${1}" in
         # and type, so a page built against six still reads this line.
         SUP=$(supported_systems)
         TMP=$(mktemp -d /tmp/cloud-scan.XXXXXX); trap 'rm -rf "${TMP}"' EXIT
-        rclone lsf -R --files-only --format "sp" --separator "|" "${ROOT}ROMs/" "${RCLONE_LIST_OPTS[@]}" 2>/dev/null \
-            | cloud_content_filter > "${TMP}/cloud"
-        scan_rc=${PIPESTATUS[0]}
+        rclone lsf -R --files-only --format "sp" --separator "|" "${ROOT}ROMs/" "${RCLONE_LIST_OPTS[@]}" > "${TMP}/cloud.raw" 2>/dev/null
+        scan_rc=$?
+        if [ "${scan_rc}" -ne 0 ] && [ -s "${TMP}/cloud.raw" ]; then
+            echo "Couldn't finish reading your cloud. Try again." >&2
+            exit 5
+        fi
+        cloud_content_filter < "${TMP}/cloud.raw" > "${TMP}/cloud"
         # A code other than 3 from a folder that is simply not there yet
         # (a server whose "missing" rclone does not map to "not found",
         # #142) is an empty cloud, not one that could not be read.
@@ -1266,9 +1270,13 @@ case "${1}" in
         # skip and the log would puzzle over (3608 cloud BIOS files "not on
         # this device" under game content alone, RG35XX SP, 2026-09-06).
         if [ "${MEDIA_MODE}" != only ]; then
-            rclone lsf -R --files-only --format "sp" --separator "|" "${ROOT}BIOS/" "${RCLONE_LIST_OPTS[@]}" 2>/dev/null \
-                | grep -v '^[0-9]*|README\.txt$' | sed 's/|/|bios\//' >> "${TMP}/cloud"
-            bios_rc=${PIPESTATUS[0]}
+            rclone lsf -R --files-only --format "sp" --separator "|" "${ROOT}BIOS/" "${RCLONE_LIST_OPTS[@]}" > "${TMP}/bios.raw" 2>/dev/null
+            bios_rc=$?
+            if [ "${bios_rc}" -ne 0 ] && [ -s "${TMP}/bios.raw" ]; then
+                echo "Couldn't finish reading your cloud. Try again." >&2
+                exit 5
+            fi
+            grep -v '^[0-9]*|README\.txt$' "${TMP}/bios.raw" | sed 's/|/|bios\//' >> "${TMP}/cloud"
             if [ "${bios_rc}" -ne 0 ] && [ "${bios_rc}" -ne 3 ] && absent_not_broken "${ROOT}BIOS/"; then
                 log_message "scan: BIOS is not there yet (rclone exit ${bios_rc}; its nearest listable parent lacks it)"
                 bios_rc=3
@@ -1307,16 +1315,6 @@ case "${1}" in
             echo "Couldn't finish reading your cloud. Try again." >&2
             exit "${scan_rc}"
         fi
-        # The pre-tier rows (a system straight under the content root) are
-        # offered only for a folder this device has or a system it supports
-        # -- the rule resolve_src applies, which this listing never did (fork
-        # #352: on a device whose content root was the Dropbox root, every
-        # folder in the account -- "my Hello sign directory, documents,
-        # videos" -- was listed as a system to restore).
-        sizes_under "${ROOT}" | grep -vE '^(ROMs|BIOS)\|' \
-            | awk -F'|' -v loc=" $(legacy_dirs | tr '\n' ' ') " -v sup="${SUP}" \
-                  'BEGIN { sup = "\n" sup "\n" }
-                   { if (index(loc, " " $1 " ") || index(sup, "\n" $1 "\n")) print }' > "${TMP}/legacy"
         {
             cut -d'|' -f2 "${TMP}/cloud" | cut -d/ -f1
             local_content_dirs
@@ -1353,18 +1351,6 @@ case "${1}" in
             if [ "${name}" = "bios" ] || printf '%s\n' "${SUP}" | grep -qxF "${name}"; then sup=1; else sup=0; fi
             echo "${name}|${cbytes}|${sup}|${lbytes}|${cnl}|${lnc}|${cnl_bytes}|${lnc_bytes}"
         done
-        # The pre-tier layout (a system straight under the content root) is
-        # listed for size alone and never compared: device_bytes and every
-        # comparison field are 0 without looking. The page reads an empty
-        # far side as "all of it moves", which is the only true reading of
-        # a line like this.
-        while IFS='|' read -r name bytes; do
-            [ -n "${name}" ] || continue
-            # Compatibility describes the system, not the cloud layout.
-            # Legacy folders use the same capability text as tiered folders.
-            if [ "${name}" = "bios" ] || printf '%s\n' "${SUP}" | grep -qxF "${name}"; then sup=1; else sup=0; fi
-            echo "${name}|${bytes}|${sup}|0|0|0|0|0"
-        done < "${TMP}/legacy"
         exit 0
     ;;
     --systems)
@@ -1423,51 +1409,17 @@ case "${1}" in
         fi
     ;;
     --list)
-        # Top-level directories only; one per line, no trailing slash.
-        # Lists both locations so an upgraded device still sees content that
-        # predates CONTENT_REMOTE, rather than presenting an unexplained empty
-        # list to somebody who changed nothing.
-        {
-            # current layout, reported under the local names the rest of the
-            # script uses -- BIOS in the cloud is /storage/roms/bios here
-            rclone lsf --dirs-only "${ROOT}ROMs/" "${RCLONE_LIST_OPTS[@]}" 2>/dev/null | sed 's:/$::'
-            # the flat layout that shipped before it, minus its own containers
-            rclone lsf --dirs-only "${ROOT}" "${RCLONE_LIST_OPTS[@]}" 2>/dev/null | sed 's:/$::' \
-                | grep -vxE 'ROMs|BIOS'
-            if [ -n "${CONTENT_REMOTE}" ]; then
-                rclone lsf --dirs-only "${LEGACY_ROOT}" "${RCLONE_LIST_OPTS[@]}" 2>/dev/null | sed 's:/$::' \
-                    | grep -Fxf <(legacy_dirs) 2>/dev/null
-            fi
-        } | sort -u | sed '/^$/d'
+        list_content_dirs "${ROOT}ROMs/" || exit $?
+        printf '%s\n' "${LISTED}" | sed 's:/$::; /^$/d' | sort -u
         exit 0
     ;;
     --all)
-        # Every system the cloud holds, and BIOS, each a unit of its own --
-        # the journey's first restore (main.cpp, the first-device prompt).
-        # It used to be one unit, DIRS=(""), which remote_for resolved to
-        # the ROMs container: BIOS never came down though the page said
-        # everything had, and the scraper-folder excludes, anchored at a
-        # system's root ("/images/**"), matched nothing under ROMs/ (audit
-        # #307 PL-012). Now the systems are enumerated as the picker lists
-        # them and each resolves as --selected resolves it (resolve_src:
-        # ROMs/<system>, then the flat layout, then the remote root), so
-        # every anchor sits where it does for --selected.
-        #
-        # Every listing this stands on is read fail-closed: a listing that
-        # failed is not an empty cloud. The ROMs listing was; the two older
-        # layouts' and BIOS's were not, so a cloud still on an older layout
-        # whose one listing failed restored nothing and said "Nothing to
-        # restore" (the audit of the fixes, G-A-07/G-A-03). The two older
-        # layouts are consulted only for names this device knows as
-        # systems -- ES declares them, or it holds the folder -- because an
-        # older layout's root is somebody's account, and a folder there is
-        # not a system because it is a folder.
+        # Only the selected structured library; every listing must succeed
+        # before any transfer. Missing folders never select another library.
         all_listing() { # <path>: LISTED=its folders; the run stops when it cannot be read
             local path="$1" lrc
-            LISTED=$(rclone lsf --dirs-only "${path}" "${RCLONE_LIST_OPTS[@]}" 2>/dev/null); lrc=$?
+            list_content_dirs "${path}"; lrc=$?
             [ "${lrc}" -eq 0 ] && return 0
-            LISTED=""
-            { [ "${lrc}" -eq 3 ] || [ "${lrc}" -eq 4 ] || absent_not_broken "${path}"; } && return 0
             log_message "restore --all: ${path} could not be listed (rclone exit ${lrc})"
             if network_gone; then
                 echo "Skipped: there's no network connection. Try again when you're online."
@@ -1480,19 +1432,12 @@ case "${1}" in
         }
         all_listing "${ROOT}ROMs/"
         ALL_ROMS=$(printf '%s\n' "${LISTED}" | sed 's:/$::')
-        ALL_KNOWN=$( { supported_systems; legacy_dirs; echo bios; } | sort -u )
         all_listing "${ROOT}"
         # BIOS is there when the content root lists it (a folder with files,
         # or a directory marker) -- what exists_remote asked, from the same
         # listing, read fail-closed.
         ALL_BIOS=0; printf '%s\n' "${LISTED}" | grep -qx 'BIOS/' && ALL_BIOS=1
-        ALL_FLAT=$(printf '%s\n' "${LISTED}" | sed 's:/$::' | grep -vxE 'ROMs|BIOS' | grep -Fxf <(printf '%s\n' "${ALL_KNOWN}"))
-        ALL_LEGACY=""
-        if [ -n "${CONTENT_REMOTE}" ]; then
-            all_listing "${LEGACY_ROOT}"
-            ALL_LEGACY=$(printf '%s\n' "${LISTED}" | sed 's:/$::' | grep -Fxf <(legacy_dirs))
-        fi
-        mapfile -t DIRS < <(printf '%s\n' "${ALL_ROMS}" "${ALL_FLAT}" "${ALL_LEGACY}" | grep -v '^$' | sort -u)
+        mapfile -t DIRS < <(printf '%s\n' "${ALL_ROMS}" | grep -v '^$' | sort -u)
         # BIOS as --selected brings it: whenever the cloud has it, and not
         # with game content alone.
         if [ "${MEDIA_MODE}" != only ] && [ "${ALL_BIOS}" -eq 1 ] && ! printf '%s\n' "${DIRS[@]}" | grep -qx bios; then
@@ -1516,6 +1461,13 @@ esac
 
 
 
+for DIR in "${DIRS[@]}"; do
+    if ! [[ "${DIR}" =~ ^[A-Za-z0-9_][A-Za-z0-9._-]*$ ]]; then
+        echo "That system folder name can't be used. Nothing was restored."
+        exit 1
+    fi
+done
+
 STATUS=0
 take_cloud_lock
 # Everything from here to the end of the script runs with the lock
@@ -1527,6 +1479,7 @@ take_cloud_lock
 UNIT_N=${#DIRS[@]}; UNIT_I=0
 tree_record_take
 for DIR in "${DIRS[@]}"; do
+    set_system_save_excludes "${DIR}"
     SRC="$(resolve_src "${DIR}")"
     TARGET="${DEST}/${DIR}"
     UNIT_I=$((UNIT_I + 1))
@@ -1558,7 +1511,7 @@ for DIR in "${DIRS[@]}"; do
     # file this device has and the cloud does not.
     UNIT_LOG0=$(log_offset)
     bounded_content_rclone copy "${SRC}" "${TARGET}" "${RCLONE_NET_OPTS_ARRAY[@]}" \
-        "${SAVE_EXCLUDES[@]}" "${CONFLICT_EXCLUDES[@]}" "${MEDIA_EXCLUDES[@]}" \
+        "${SAVE_EXCLUDES[@]}" "${SYSTEM_SAVE_EXCLUDES[@]}" "${CONFLICT_EXCLUDES[@]}" "${MEDIA_EXCLUDES[@]}" \
         --exclude "gamelist.xml" --exclude "**/gamelist.xml" --exclude "/README.txt" \
         --progress --stats 1s \
         --log-file "${LOG_FILE}" --log-level INFO

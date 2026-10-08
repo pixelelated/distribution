@@ -460,39 +460,10 @@ update_cloud_sync_config() {
         
         # Check if this variable exists in the user config - FIX the grep pattern to avoid space issues
         if ! grep -qF "${var_name}=" "${work}"; then
-          # A new key inherits the shape of the config it is joining, not the
-          # shipped default, where the two would disagree.
-          #
-          # CONTENT_REMOTE is the case that matters. The saves folder already
-          # exists in every config (carried across from SYNCPATH above), so
-          # an upgrading device keeps whatever it had - "/GAMES" for anyone set
-          # up before the /ROCKNIX layout. Adding the literal default would put
-          # their saves in one namespace and their ROMs in another, which is
-          # worse than either layout alone. Derive it from their saves folder.
-          #
-          # A saves folder at the top level (/GAMES) has no parent to put a
-          # sibling in, and the folder's own Content -- what this derived
-          # until PL-015 -- sits inside the saves folder, the nesting the
-          # setup page now refuses where the folder is typed (stream C's
-          # half of PL-015). So nothing is derived for one: CONTENT_REMOTE is
-          # written empty -- the remote's root, where content lived before
-          # CONTENT_REMOTE existed, so an upgraded device finds its ROMs where
-          # they were -- for the owner to set, and the log says so. A value
-          # an earlier build already derived is a key that exists, and this
-          # never reaches it.
-          if [ "${var_name}" = "CONTENT_REMOTE" ]; then
-            user_sync=$(grep -m1 '^SAVES_REMOTE=' "${work}" | cut -d'"' -f2)
-            if [ -n "${user_sync}" ]; then
-              parent=$(dirname "${user_sync}")
-              if [ "${parent}" = "/" ]; then
-                value='""'
-                log_to_file "${log_file}" "SAVES_REMOTE ${user_sync} is at the top level, with no parent to put a content folder beside it; none is derived inside it -- CONTENT_REMOTE is left empty (the remote's root) for the owner to set" "WARN"
-              else
-                value="\"${parent}/Content\""
-                log_to_file "${log_file}" "Derived CONTENT_REMOTE from SAVES_REMOTE ${user_sync}"
-              fi
-            fi
-          fi
+          # Public ROCKNIX has no content-library selection to inherit.
+          # A missing key takes the fresh default; never infer a library or
+          # the account root from SAVES_REMOTE. An existing CONTENT_REMOTE,
+          # including an explicit empty root, was preserved by the check above.
           echo "${var_name}=${value}" >> "${work}"
           log_to_file "${log_file}" "Added new configuration option: ${var_name}"
         fi

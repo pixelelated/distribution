@@ -5,7 +5,7 @@ PKG_NAME="duckstation-sa"
 PKG_VERSION="0.1-10998"
 PKG_LICENSE="CC-BY-NC-ND-4.0"
 PKG_SITE="https://github.com/stenzek/duckstation"
-PKG_DEPENDS_TARGET="toolchain"
+PKG_DEPENDS_TARGET="toolchain Python3 libcom-err"
 PKG_LONGDESC="Fast PlayStation 1 emulator for x86-64/AArch32/AArch64 "
 PKG_TOOLCHAIN="manual"
 
@@ -25,7 +25,7 @@ makeinstall_target() {
   export STRIP=true
 
   mkdir -p ${INSTALL}/usr/bin
-    cp -a ${PKG_BUILD}/${PKG_NAME}-${PKG_VERSION}.AppImage ${INSTALL}/usr/bin/duckstation-sa
+    install -m 0755 ${PKG_BUILD}/${PKG_NAME}-${PKG_VERSION}.AppImage ${INSTALL}/usr/bin/duckstation-sa
     cp -a ${PKG_DIR}/scripts/* ${INSTALL}/usr/bin
 
   mkdir -p ${INSTALL}/usr/config/duckstation

@@ -41,14 +41,23 @@
 + /**/*.fla
 
 # Include system-specific save directories
+# Mupen64Plus writes slots 0-9 beside N64 ROMs (native or Project64).
++ /n64/*.st[0-9]
++ /n64/*.pj[0-9]
++ /n64/*.pj[0-9].zip
 + /n64/save/*.eep
 + /n64/save/*.mpk
 + /n64/save/*.sra
 + /n64/save/*.srm
 + /psx/memcards/*.mcd
 + /psx/memcards/*.mcr
+# DuckStation redirects its native memory-card directory here.
++ /psx/duckstation/memcards/*.mcd
++ /psx/duckstation/memcards/*.mcr
 + /dc/shared/savefiles/**
 + /psp/PPSSPP/**
+# PPSSPP mounts ms0 at psp; ordinary saves use PSP/SAVEDATA/<id>/.
++ /psp/PSP/SAVEDATA/**
 
 # Backup files
 + /backup/*.zip

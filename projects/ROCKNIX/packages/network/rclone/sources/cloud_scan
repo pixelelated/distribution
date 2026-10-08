@@ -17,27 +17,20 @@
 #   cloud_scan --content [--with-media|--media-only]
 #                                the content listing for the systems page,
 #                                in the classes ticked (one item)
-#   cloud_scan --folder          the folder alone, for the cloud folder step
-#                                at the end of cloud setup and at boot
-#                                (D-CLOUD-170, fork #363; one item)
+#   cloud_scan --folder          configured folder availability (one item)
 #
-# Reads, with two exceptions, both settings: a fresh install beside a fleet
-# still on an earlier folder joins it (cloud_migrate_layout --join), and a
-# device on a superseded folder whose current folder another device has
-# already made is re-pointed to it (cloud_migrate_layout --follow;
-# D-CLOUD-160's "your other devices will follow"). Nothing in the cloud
-# changes, so no lock is taken and a sync may run beside it.
+# Read-only: scans never adopt another device's folders, rewrite settings,
+# move files, or offer migration. Folder changes use explicit setup choices.
 #
 # Results, under /storage/.cache/cloud_sync/scan/:
-#   state             cloud_migrate_layout --state, one fact per line
+#   state             cloud_setup --folder-state, one fact per line
 #   archives          every settings archive in the Backups folder, one per line
 #   settings          LABEL= (this device's), MINE= (its newest), NEWEST= (overall), COUNT=
 #   content-location  cloud_setup --content-location, key=value
-#   root-dirs         the folders at the cloud's root, one per line (the chooser's)
-#   done              the epoch the opening scan completed; absent while it runs or failed
+#   done              JSON binding the opening result to its run/configuration
 #   scan              cloud_content_restore --scan's rows        (--content)
 #   systems           the systems this device syncs (--systems)  (--content)
-#   content-done      the epoch the content scan completed       (--content)
+#   content-done      equivalent binding for the selected content mode
 #
 # Exit: 0 all read; 69 no network (the page says SKIPPED - YOU'RE NOT
 # ONLINE); 1 no cloud storage set up; otherwise the failing read's code,
@@ -128,7 +121,7 @@ os_name() {
 why_for_rc() {
     case "$1" in
         3|4) why "COULDN'T FIND YOUR CLOUD FOLDER" ;;
-        5|124) why "YOUR CLOUD STOPPED ANSWERING" ;;   # 124: a bounded step's timeout (the join)
+        5|124) why "YOUR CLOUD STOPPED ANSWERING" ;;   # 124: a bounded read timed out
         7|8) why "YOUR CLOUD WOULDN'T TAKE THE FILES" ;;
         *)   why "SOMETHING WENT WRONG" ;;
     esac
@@ -173,6 +166,96 @@ stop_on() { # <rc> <what> [application output file]
     exit "$1"
 }
 
+# Local-only identity: no rclone invocation and no configuration merge. A
+# changed endpoint, folder, rule or selection invalidates every old result.
+context_id() {
+    local file fingerprint="" value
+    for file in /storage/.config/cloud_sync.conf \
+                /storage/.config/rclone/rclone.conf \
+                /storage/.config/cloud_sync-rules.txt \
+                /storage/.cache/cloud_sync/content-systems \
+                /storage/.config/emulationstation/es_systems.cfg \
+                /usr/config/emulationstation/es_systems.cfg; do
+        if [ -f "${file}" ]; then
+            value=$(sha256sum "${file}") || return 1
+        elif [ -e "${file}" ]; then
+            return 1
+        else
+            value="absent ${file}"
+        fi
+        fingerprint+="${value}"$'\n'
+    done
+    printf '%s' "${fingerprint}" | sha256sum | cut -d' ' -f1
+}
+result_id() {
+    local file value fingerprint=""; local -a names
+    case "$1" in
+        done) names=(state archives settings content-location) ;;
+        content-done) names=(scan systems) ;;
+        *) return 1 ;;
+    esac
+    for file in "${names[@]}"; do
+        [ -f "${OUT}/${file}" ] || return 1
+        value=$(sha256sum "${OUT}/${file}") || return 1
+        fingerprint+="${value}"$'\n'
+    done
+    printf '%s' "${fingerprint}" | sha256sum | cut -d' ' -f1
+}
+content_mode() {
+    local flag
+    for flag in "$@"; do
+        case "${flag}" in --with-media|--media-only) ;; *) return 1 ;; esac
+    done
+    case " $* " in
+        *" --with-media "*" --media-only "*|*" --media-only "*" --with-media "*) return 1 ;;
+        *" --with-media "*) echo content:all ;;
+        *" --media-only "*) echo content:media ;;
+        *) echo content:roms ;;
+    esac
+}
+write_completion() {
+    local stamp="$1" mode="$2" current digest tmp
+    current=$(context_id) && [ "${current}" = "${CONFIG_ID}" ] || {
+        why "YOUR CLOUD SETTINGS CHANGED. CHECK AGAIN"; return 1;
+    }
+    digest=$(result_id "${stamp}") || return 1
+    tmp="${OUT}/${stamp}.tmp.$$"
+    jq -n --arg run "${RUN_ID}" --arg config "${CONFIG_ID}" \
+        --arg mode "${mode}" --arg result "${digest}" \
+        '{schema_version:1,run_id:$run,config_id:$config,mode:$mode,result_id:$result}' > "${tmp}" \
+        && mv -f "${tmp}" "${OUT}/${stamp}"
+}
+if [ "$1" = --context ]; then
+    [ $# -eq 1 ] || exit 2
+    context_id; exit $?
+elif [ "$1" = --stamp-valid ]; then
+    STAMP="$2"; EXPECTED_RUN="$3"; shift 3 || exit 2
+    [[ "${EXPECTED_RUN}" =~ ^[A-Za-z0-9_.-]{1,96}$ ]] || exit 2
+    case "${STAMP}" in
+        done) [ $# -eq 0 ] || exit 2; MODE=opening ;;
+        content-done) MODE=$(content_mode "$@") || exit 2 ;;
+        *) exit 2 ;;
+    esac
+    CURRENT=$(context_id) && DIGEST=$(result_id "${STAMP}") || exit 1
+    jq -e --arg run "${EXPECTED_RUN}" --arg config "${CURRENT}" \
+        --arg mode "${MODE}" --arg result "${DIGEST}" \
+        '.schema_version == 1 and .run_id == $run and .config_id == $config and .mode == $mode and .result_id == $result' \
+        "${OUT}/${STAMP}" >/dev/null 2>&1
+    exit $?
+fi
+RUN_ID=""; ARGS=()
+while [ $# -gt 0 ]; do
+    case "$1" in
+        --run-id) [ -z "${RUN_ID}" ] && [ $# -ge 2 ] || exit 2; RUN_ID="$2"; shift 2 ;;
+        --content|--folder|--with-media|--media-only) ARGS+=("$1"); shift ;;
+        *) echo "Unknown scan option" >&2; exit 2 ;;
+    esac
+done
+RUN_ID="${RUN_ID:-$(date +%s)-$$}"
+[[ "${RUN_ID}" =~ ^[A-Za-z0-9_.-]{1,96}$ ]] || exit 2
+set -- "${ARGS[@]}"
+CONFIG_ID=$(context_id) || exit 1
+
 # --content: the listing the systems page is built from, in the classes
 # the player ticked (cloud_content_restore --scan's own flags), and the
 # systems this device syncs. One item; the page's row 3 says it is
@@ -183,63 +266,40 @@ scan_content() {
         *" --with-media "*) label="ROMS, BIOS, AND GAME CONTENT" ;;
         *" --media-only "*) label="GAME CONTENT" ;;
     esac
-    rm -f "${OUT}"/scan "${OUT}"/scan.err "${OUT}"/systems "${OUT}"/content-done
     prepare
+    rm -f "${OUT}"/scan "${OUT}"/scan.err "${OUT}"/systems "${OUT}"/content-done
     echo ">>> unit ${label}||"
     echo ">>> doing compare"
     "$(sibling cloud_content_restore)" --scan "$@" > "${OUT}/scan" 2> "${OUT}/scan.err"; rc=$?
     [ "${rc}" -eq 0 ] || log "scan: --scan $* exited ${rc}: $(head -1 "${OUT}/scan.err" 2>/dev/null)"
     stop_on "${rc}" "--scan"
-    "$(sibling cloud_content_restore)" --systems > "${OUT}/systems" 2>/dev/null || : > "${OUT}/systems"
-    date +%s > "${OUT}/content-done"
+    "$(sibling cloud_content_restore)" --systems > "${OUT}/systems" 2>/dev/null; rc=$?
+    stop_on "${rc}" "--systems"
+    mode=$(content_mode "$@") || exit 2
+    write_completion content-done "${mode}" || exit 1
     log "scan: content done ($(grep -c . "${OUT}/scan") rows, ${label})"
     exit 0
 }
 
-# 1. The folder: current, kept, superseded or the player's own; the current
-#    folder's presence; the marker (cloud_migrate_layout --state, fork #353).
-#    The opening scan's first item, and the whole of --folder.
+# 1. Availability of the configured saves folder. It is not a reason to
+# reselect paths: other selected tiers may still hold their own files.
 read_folder() {
-    local layout rc
+    local setup
     echo ">>> unit CLOUD FOLDER||"
     echo ">>> doing scan"
-    layout=$(sibling cloud_migrate_layout)
-    # A fresh install beside a fleet still on the earlier folder joins it first
-    # (cloud_migrate_layout --join, a setting): the state below then reads the
-    # folder the player's saves are in, and the move is offered from there
-    # rather than CREATE IT beside them. 3 is "nothing to join"; anything else
-    # that is not 0 is the cloud not answering, and stops the scan with its why.
-    timeout 20 "${layout}" --join > "${OUT}/join" 2>&1; rc=$?
-    case "${rc}" in
-        0) log "scan: joined the fleet's earlier folder" ;;
-        3) ;;
-        *) stop_on "${rc}" "--join" "${OUT}/join" ;;
-    esac
-    "${layout}" --state > "${OUT}/state" 2>/dev/null; stop_on $? "--state" "${OUT}/state"
-    # A device left on a superseded folder with nothing in it, whose current
-    # folder another device has already made, follows the fleet here -- the
-    # one place it does since no sync asks any more (D-CLOUD-170): the dialogs
-    # then never ask about a folder the player has already answered for
-    # elsewhere.
-    if [ "$(sed -n 's/^STATE=//p' "${OUT}/state")" = superseded-empty ] \
-       && [ "$(sed -n 's/^CURRENT_EXISTS=//p' "${OUT}/state")" = 1 ]; then
-        timeout 20 "${layout}" --follow > "${OUT}/follow" 2>&1; rc=$?
-        case "${rc}" in
-            0) log "scan: followed the fleet to the current layout" ;;
-            3) ;; # The remote may have changed since the state read; read it again.
-            *) stop_on "${rc}" "--follow" "${OUT}/follow" ;;
-        esac
-        "${layout}" --state > "${OUT}/state" 2>/dev/null; stop_on $? "--state" "${OUT}/state"
-    fi
+    setup=$(sibling cloud_setup)
+    "${setup}" --folder-state > "${OUT}/state" 2>/dev/null
+    stop_on $? "--folder-state" "${OUT}/state"
 }
 
+scan_main() {
 case "$1" in
     --content) shift; scan_content "$@" ;;
     --folder)
         # The step reads state alone; the opening scan's other files are
         # left as they were, and are rewritten by the next opening scan.
-        rm -f "${OUT}"/state
         prepare
+        rm -f "${OUT}"/state "${OUT}"/done
         read_folder
         log "scan: folder done ($(sed -n 's/^STATE=//p' "${OUT}/state"))"
         exit 0 ;;
@@ -247,8 +307,8 @@ case "$1" in
     *) echo "usage: cloud_scan [--content [--with-media|--media-only] | --folder]" >&2; exit 2 ;;
 esac
 
-rm -f "${OUT}"/state "${OUT}"/archives "${OUT}"/settings "${OUT}"/content-location "${OUT}"/root-dirs "${OUT}"/done
 prepare
+rm -f "${OUT}"/state "${OUT}"/archives "${OUT}"/settings "${OUT}"/content-location "${OUT}"/root-dirs "${OUT}"/done
 date +%s > "${OUT}/started"
 read_folder
 
@@ -280,18 +340,20 @@ newest=$(grep -E '^[0-9]{4}_[0-9]{2}_[0-9]{2}-[0-9]{6}-' "${OUT}/archives" | sor
     echo "COUNT=$(grep -c . "${OUT}/archives")"
 } > "${OUT}/settings"
 
-# 3. Where the content is: the configured root, the cloud root's
-#    /Rasteratops/Content, or nowhere yet (cloud_setup --content-location,
-#    fork #352) -- and the folders at the cloud's root, for the chooser the
-#    page offers when nothing of ours is found. The listing itself waits for
-#    --content, once the player has said which classes to compare.
+# 3. Availability at the explicitly selected library. Account-root browsing
+# and discovery of another library are not part of a transfer preview.
 echo ">>> unit GAME CONTENT||"
 echo ">>> doing scan"
 "$(sibling cloud_setup)" --content-location > "${OUT}/content-location" 2>/dev/null; rc=$?
 stop_on "${rc}" "--content-location" "${OUT}/content-location"
-rclone lsf --dirs-only "${REMOTE}" "${RCLONE_LIST_OPTS[@]}" 2>/dev/null | sed 's:/$::; /^$/d' > "${OUT}/root-dirs"; rc=${PIPESTATUS[0]}
-stop_on "${rc}" "root listing"
 
-date +%s > "${OUT}/done"
+write_completion done opening || exit 1
 log "scan: done ($(grep -c . "${OUT}/archives") archives, $(sed -n 's/^STATE=//p' "${OUT}/state"), content $(sed -n 's/^STATE=//p' "${OUT}/content-location"))"
 exit 0
+
+}
+# The lock protects shared cache files. The function runs with the descriptor
+# closed; children cannot retain a stale lock after this owner exits.
+exec 8>/var/run/cloud_scan.lock || exit 1
+flock -n 8 || { why "ANOTHER CLOUD CHECK IS RUNNING"; exit 75; }
+scan_main "$@" 8>&-
