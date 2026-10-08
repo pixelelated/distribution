@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Saved: 2026-10-08T17:38:30.733727+00:00
+> Saved: 2026-10-08T17:34:51.338560+00:00
 > Coordinator: feature/conflict-resolution
 > Repository: pixelelated/distribution
 
@@ -8,21 +8,19 @@
 
 pixelelated is an immutable handheld Linux distribution. Read AGENTS.md and
 canonical rules from `next`, this checkpoint and M7's live ordered body before
-working. Primary `/workspace/repos/rocknix` stays on `next`. Its latest verified
-publication is3cb0472973ccb0174188c3a94bc80ad6d023c1e8: completed source fixes,
-independent audit evidence and delivery records. Read actual HEAD/origin before
-continuing. ES test/qa-integration is verified at1d76b3da7da75794066df1c089931b890304da7a.
-The earlier e6645cb5ea product integration and ac64c80628 audit freeze remain
-historical inputs; product source changed during the resolved audit fixes.
+working. Primary `/workspace/repos/rocknix` stays on `next`. Source integration
+`e6645cb5ea5ae3c7f699390a74b22d098fbeb7fb` and qualification evidence are published on next
+`bc4ae05d30531516ebd19b6b167fc994f368c4c3`; remote head was verified. Fresh-reader reconciliation is published on next
+`ac64c80628ad6d5a69b803d82f186472529f7cd7`, the frozen audit source. This
+follow-up records the same audit owner after both approved external calls and host preparation; product inputs are unchanged. Previous checkpoint publication is next4cb0d0227b. Read actual HEAD/origin. ES remote test/qa-integration is now verified at1d76b3da7;4e410dc9a8 remains the frozen audit input.
 
 Coordination `/workspace/repos/rocknix.worktrees/conflict-resolution` has
 divergent historical work: NEVER merge it wholesale into next. Commit only
-owned paths and cherry-pick explicit source hashes. Resolve a source hash before
-changing repo context; target `HEAD` is not the source commit.
+owned paths and cherry-pick explicit source hashes. A source hash must be
+resolved before changing repo context; target `HEAD` is not the source commit.
 Integration worktree `/workspace/repos/rocknix.worktrees/m7-p5-integration`,
-feature/m7-p5-integration, is clean atcb075bb4c74eed6a265718b70f86f7bfe81fbd8d.
-That single pin change above9de2c2b71b is published on next as59a3a321d1.
-Its earlier27-product-path integration was e6645cb5ea; preserve it as history.
+feature/m7-p5-integration, is clean at e6645cb5ea. It contains only27 product
+paths above oldnext22571b47d2, not the historical feature support tree.
 
 Prior complete background is in archived/saved-session-state-next-20261008T062743Z.md;
 previous active state is archived/saved-session-state-next-20261008T073215Z.md. Its pending proof/build/job states are
@@ -108,9 +106,9 @@ that concrete approval persists for this same blind/refutation scope. Do not res
    and actual final input inclusion. Then affected H700 followed by SM8550 builds,
    source/licences, named physical smoke and release gates. No new firmware build,
    RC designation or release publication has started. Root's read-only preparation
-   is docs/qa-logs/2026-10-08-m7-build-readiness/. After completed UI QA
-   scratch retired, the approved guarded helper reclaimed swap successfully:
-   8191MiB free,34675MiB RAM available,1.8T disk free, preflight rc0. Its exact
+   is docs/qa-logs/2026-10-08-m7-build-readiness/. After audit provider jobs exited,
+   the previously approved installed guarded helper reclaimed swap successfully:
+   all8191MiBfree,34935MiBRAMavailable,1.8Tdiskfree, preflightrc0. Its exact
    installed hash/root ownership and command results are retained. Run a fresh
    preflight at build start; this is not a source freeze or cache-ready claim.
 
@@ -135,13 +133,12 @@ feature052771f05d is published and exactly read back, retaining proof references
 Pre-audit ES source: /home/max/Development/emulationstation-next.worktrees/m7-manual-cloud-setup,
 4e410dc9a816cc947f16235ad2b24824b29dd84e. Its18-path change was fast-forwarded
 and pushed to /home/max/Development/emulationstation-next.worktrees/qa-integration,
-test/qa-integration at that time; remote hash verified. PL-003 subsequently
-changed six ES files and promoted the current pin recorded above.
+test/qa-integration; remote hash verified. No source conflict or new ES edit.
 Earlier syntax/unit/compiler/catalog receipts bind this exact source; later
 #520 reconstructed binary6099af15 and FR cataloga5fafc02 have separate hashes.
 
 Integration manifest: docs/qa-logs/2026-10-08-save-repair-cases/integration/.
-At e6645cb5ea, both full package subtrees matched45 tracked entries including seven aliases,
+Both full package subtrees match45 tracked entries including seven aliases,
 executable modes and migration-script deletion. No active distro runtime
 migration/tidy caller remains outside those packages. Legacy test tools retain
 explicit retired-engine skip/refusal guards; ordinary archive controls remain.
@@ -208,8 +205,7 @@ arrive through the collaboration mailbox while this session is active; no
 disconnected-alert claim is made. Finite watched checks completed during local review, with terminal receipts
 and host-context owner exits retained. No check or provider job was active at
 the09:28:41 stop. Both subsequently approved provider calls finished and were
-verified; all four Phase7 resolutions are complete. Only final delivery checks
-remain with the auditor. Verify actual owner/check logs before
+verified; Phase7resolution is now active. Verify actual owner/check logs before
 reporting an active executable job.
 
 /root/rc_cloud_ui completed scoped retirement: provider stopped, QEMU815121
@@ -304,7 +300,6 @@ absence, DuckStation0755 and genuine libcom_err. CF10 clean/public ROCKNIX
 adoption remains image-only work. Then H700 followed by SM8550.
 
 Required checks remain rules-check, register-check, work-log-index --check and
-ceremony-check --gate. The completed marker has been consumed by the normal
-local gate and the hosted12c599a557 record check, both passing. The final
-delivery head still needs its own hosted result; do not substitute the older run.
+ceremony-check --gate. The previous overdue audit warning is historical until
+the final completed marker is actually consumed. Do not waive or guess it.
 Continue authorized work across checkpoints; a saved file is not a pause.
