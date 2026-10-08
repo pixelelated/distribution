@@ -3,11 +3,13 @@
 ## Category-based cloud setup (2026-10-08, in qualification)
 
 #508/D-CLOUD-175 replaces the cloud-folder migration flow. Independent review
-and #524 fixes are complete. Engineering replacement17 (3756fde50e/ES1d76b3da7)
-has installed clean/public cloud-configuration proof and 28 reviewed frames.
-Its full update hook exposed inherited defect #526, whose source correction
-still needs new-image inclusion and final qualification. These are engineering
-results, not a published release.
+and #524 fixes are complete. Engineering replacement18 (7f58b7b1c5/ES1d76b3da7)
+includes the inherited melonDS update fix #526. Actual installed clean/public
+cloud-configuration checks and the retained-storage update pass. Replacement17's
+28 reviewed CF10 frames retain their exact unchanged ES/helper inputs. Final
+standard VM/protocol checks are running; #527 aligns the older standard folder
+walks with the current path selector. These are engineering results, not a
+published release.
 
 - **Connecting cloud storage opens folder choices.** Check the categories
   you select, or explicitly create their folders and setup notes. Linking
@@ -45,7 +47,7 @@ results, not a published release.
   the two known deeper save subtrees within the existing time and listing limits.
   The source passes 39 focused controls, 21 content and 30 validator regressions,
   plus nine controls executing the image's BusyBox tools. Ten affected VM
-  frames are reviewed; assembled firmware inclusion remains pending.
+  frames are reviewed; replacement18 installed-byte inclusion is verified.
 - **New default DuckStation captures enter screenshot backup coverage.** #521
   directs clean and retained shipped-default settings to the local screenshots
   folder. Custom paths and old captures stay unchanged. Historical captures
@@ -55,19 +57,20 @@ results, not a published release.
   also survives ordinary saves backup and restore byte-for-byte.
 
 No generic save-file relocation action or unpublished documentation QR ships
-in this draft. The finite #515 case review preserves valid layouts and uses
+in this engineering build. The finite #515 case review preserves valid layouts and uses
 instructions for ambiguous placement; a repeated folder name is not enough
 to infer a move. Foundation source-overlay visual proof and host controls pass;
 #520/#521 affected source-overlay proof passes and their package bytes are
-present in replacement17. Final corrected-image qualification remains open.
+present in replacement18. Final standard VM/protocol qualification remains open.
 
 ## Preserve melonDS settings during updates (2026-10-08, in qualification)
 
 - **Updates preserve existing melonDS settings and extra files** while adding
   missing shipped hotkey defaults (#526). Devices without the optional package
-  are left alone. Host and actual VM source-script checks pass, including
-  failed-write preservation and repeat runs; replacement17 still contains the
-  old hook, so a corrected engineering image is required before release.
+  are left alone. Host and actual VM checks pass, including failed-write
+  preservation, repeated full installed-hook runs on replacement18, and owner
+  file/permission preservation through the actual16→18 update. The original
+  replacement17 failure remains recorded; final release gates are separate.
 
 Earlier migration entries below are historical; their descriptions do not
 override this replacement's scope or establish its final firmware inclusion.

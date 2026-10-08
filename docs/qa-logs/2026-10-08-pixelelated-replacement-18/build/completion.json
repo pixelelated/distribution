@@ -1,0 +1,41 @@
+{
+  "verified_at": "2026-10-08T19:37:10.273048+00:00",
+  "result": "PASS",
+  "channels": {
+    "/workspace/tmp/pixelelated-m7-replacement-18/inner.rc": 0,
+    "/workspace/tmp/pixelelated-m7-replacement-18/outer.rc": 0,
+    "/workspace/tmp/pixelelated-m7-replacement-18/tool-wrapper.rc": 0,
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/.build-runs/20261008T193137Z-ed569779/build.rc": 0,
+    "launcher_returncode": 0
+  },
+  "actual_owner_pids_absent": [
+    54736,
+    54737,
+    54738,
+    54771
+  ],
+  "run": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/.build-runs/20261008T193137Z-ed569779",
+  "scope": "engineering firmware assembled and exact installed inputs verified; VM qualification remains",
+  "manifest_sha256": "56328e1756d3269b6d9b348344cebbdf00b8c0f3f4a11d246bca18938b259deb",
+  "container_observer_exited": 55761,
+  "container_removed": "a62863d76b47af1e9a6562c4d66aaf718fa9ad3c15261d5105c91991f9274774",
+  "source_unchanged": true,
+  "artifacts": {
+    "pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz": {
+      "sha256": "2d71337a27ca11da57eb4ce912b79f8677d0a72c13749cd973915442e6a52a42",
+      "bytes": 2073505237
+    },
+    "pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz.sha256": {
+      "sha256": "6a59813c2f7e6e9bbf34b61c753df527d1cc4b5311b5d384ae669d3ad9d644ec",
+      "bytes": 123
+    },
+    "pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.tar": {
+      "sha256": "d5f92948794b1a4ae72478e615b25d4d0a5ee3de03c3d1a5429e4cc1a9135b68",
+      "bytes": 2074357760
+    },
+    "pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.tar.sha256": {
+      "sha256": "74dfcb1b606fee6f54356dd5e9c9317f3a43edee91e6f6f2d43093fabb713be3",
+      "bytes": 120
+    }
+  }
+}

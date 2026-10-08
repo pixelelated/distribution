@@ -1,0 +1,10 @@
+watch-build: recording in /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/.build-runs/20261008T193930Z-11063313
+/workspace/tmp/pixelelated-m7-cf10-18/guest01/create.py: OK
+/workspace/tmp/pixelelated-m7-cf10-18/guest01/outer.sh: OK
+/workspace/tmp/pixelelated-m7-cf10-18/guest01/run.sh: OK
+PASS candidate bundle /workspace/artifacts/pixelelated-candidates/sha256/f557176651026f59bb5931993b12491a6019c0383321fb89fa1a05a596514fe6
+Image resized.
+[W][19:39:36.586551] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][19:39:36.586577] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+ready after ~32s
+PASS {"image": "/workspace/artifacts/pixelelated-candidates/sha256/f557176651026f59bb5931993b12491a6019c0383321fb89fa1a05a596514fe6/pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz", "image_sha256": "2d71337a27ca11da57eb4ce912b79f8677d0a72c13749cd973915442e6a52a42", "qemu_pid": 206244, "ssh_port": 10230, "vnc_display": 50, "monitor": "/tmp/pix508-cf10-18-mon.sock", "serial": "/tmp/pix508-cf10-18-ser.sock", "resolution": "640x480", "command": ["/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm", "run", "--headless", "--daemonize", "--gl", "none", "--res", "640x480", "--ssh-port", "10230", "--vnc", "50", "--monitor", "/tmp/pix508-cf10-18-mon.sock", "--serial", "/tmp/pix508-cf10-18-ser.sock", "--pidfile", "/workspace/tmp/pixelelated-m7-cf10-18/guest01/vm.pid", "--mac", "52:54:00:52:05:18", "/workspace/tmp/pixelelated-m7-cf10-18/guest01/vm.qcow2"], "elapsed_seconds": 40.219, "disk_logical_bytes": 2240544768, "disk_allocated_bytes": 2240491520, "owner": "root CF10 exclusive", "purpose": "#508 assembled-image clean/public configuration adoption; no source overlays", "build_readback": "BUILD_ID=\"7f58b7b1c592908dcd0ba5987955e59aaa79fe66\"", "qa_key": "guest01/qa-key; private key never archived"}

@@ -1,0 +1,67 @@
+=== 19:44:53 backend: not running
+up: webdav serving /workspace/tmp/pixelelated-m7-upgrade-18/cloud/data at http://127.0.0.1:9010 (guest: http://10.0.2.2:9010)
+=== 19:44:54 pair up from pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz
+up: a (pid 230354, ssh :10022, serial /tmp/rocknix-qemu-serial.sock, mac 52:54:00:52:4E:58)
+up: b (pid 230381, ssh :10023, serial /tmp/rocknix-qemu-serial-b.sock, mac 52:54:00:52:4E:59)
+ready: a on ee01490913 over ssh :10022 (answered after 0s)
+ready: b on ee01490913 over ssh :10023 (answered after 0s)
+old build id: ee014909137e03706e0b3020b8396be589aaa705
+PASS old build id read
+=== 19:45:42 seed state on guest a
+875f2eaea4399b8ba22f1a071d89755da30ece8984c7e2274859cda1a828f8df  savestates/nes/Rehearsal.state.auto
+44fc9af0a71217174e29302c0c90f57026485b6523a7ec7fc250d18b1a8c8f53  savestates/nes/Rehearsal.state1
+92ec961324c68a94ff67c726b3131e71a9cf6ce584742249b16d227959dbf4a5  savestates/nes/Rehearsal.state2
+903e94b73041ec6f1a29a040bd8a43fa7584cd09f651aea28ca1a047c8a266d5  nes/Rehearsal.srm
+PASS four seeded files exist
+PASS set_setting is a function on the guest
+PASS setting reads back before the update
+=== 19:45:42 link the local WebDAV backend
+PASS backend gave an rclone.conf
+remote: qa-cloud:
+PASS guest sees one remote
+OK /Rehearsal/Saves
+saves remote before: SAVES_REMOTE="/Rehearsal/Saves" (/storage/.config/cloud_sync.conf)
+PASS saves remote set before the update
+PASS rclone (previous) lists the remote
+=== 19:45:44 a settings backup
+2026_10_08-154542-GENERIC-X64-ROCKNIX_SETTINGS.tar.gz
+backups before: 1
+=== 19:45:44 seed what the retired GENERIC_X64 quirks left in /storage (#307 PL-019)
+PASS retired quirk files seeded before the update
+=== 19:45:44 seed a RetroArch cfg an owner changed, on a vulkan-era cfg (#307 PL-034, #308 claude F-VM-11)
+PASS RetroArch cfg seeded before the update
+=== 19:45:45 seed retained melonDS configuration (#526)
+PASS two melonDS files seeded before update
+PASS owner INI seeded with private mode
+=== 19:45:45 stage pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.tar and reboot guest a
+total 2025752
+drwxr-xr-x    2 root     root          4096 Oct  8 15:45 .
+drwxr-xr-x   20 root     root          4096 Oct  8 15:45 ..
+-r--r--r--    1 root     root     2074357760 Oct  8 15:45 pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.tar
+kex_exchange_identification: read: Connection reset by peer
+=== 19:47:16 guest a back after 3 polls
+PASS new build id is 7f58b7b1c592908dcd0ba5987955e59aaa79fe66
+PASS melonDS settings and extra file retained through real update (#526)
+PASS melonDS private mode retained
+PASS installed corrected post-update hash
+PASS saves and save states byte-identical
+PASS marker file kept
+PASS setting kept
+PASS rclone remote kept
+PASS rclone (new) lists the remote
+PASS saves remote kept
+PASS cloud conf gained the new defaults, kept the old values
+PASS backup archive kept
+PASS update queue empty
+autostart after 1 poll(s): yes
+PASS autostart finished before the take-back is read (rocknix-autostart.service active in the new boot)
+PASS retired quirk files taken back after the update (#307 PL-019)
+PASS and the owner's file beside them kept
+PASS RetroArch fullscreen size set by hand kept, driver moved to gl (#307 PL-034, #308 claude F-VM-11)
+PASS release check #226: one libcairo.so.2.* (pango's fetched cairo is gone)
+PASS release check #226: libcairo.so.2 is a link to that one file (#226 box 1; the seat's G-10 under #258)
+rclone after: rclone v1.75.1
+=== 19:47:19 pair down
+down: owned QEMU exited (pid 230354)
+down: owned QEMU exited (pid 230381)
+=== 19:47:19 RESULT PASS
