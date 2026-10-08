@@ -1,0 +1,137 @@
+#!/usr/bin/python3
+# SPDX-License-Identifier: GPL-2.0-or-later
+# Copyright (C) 2026-present ROCKNIX (https://github.com/ROCKNIX)
+"""Keep the shipped screenshot default in the saves tree; never move captures."""
+import os
+from pathlib import Path
+import re
+import stat
+import sys
+import tempfile
+
+TARGET = Path('/storage/roms/screenshots')
+MAX_CONFIG_BYTES = 1024 * 1024
+
+
+def read_config(path):
+    info = path.lstat()
+    if not stat.S_ISREG(info.st_mode):
+        raise ValueError('nonregular configuration')
+    with path.open('rb') as stream:
+        raw = stream.read(MAX_CONFIG_BYTES + 1)
+    if len(raw) > MAX_CONFIG_BYTES or b'\0' in raw:
+        raise ValueError('unreadable configuration')
+    return info, raw
+
+
+def updated_config(raw):
+    text = raw.decode('utf-8')
+    lines = text.splitlines(keepends=True)
+    section = ''
+    folders = []
+    keys = []
+    for index, line in enumerate(lines):
+        content = line.strip().lstrip('\ufeff')
+        if not content or content.startswith(('#', ';')):
+            continue
+        if content.startswith('['):
+            match = re.fullmatch(r'\[([^\]\r\n]+)\]', content)
+            if not match:
+                raise ValueError('ambiguous section')
+            section = match[1].strip().casefold()
+            if section == 'folders':
+                folders.append(index)
+        elif section == 'folders' and '=' in content:
+            name, value = content.split('=', 1)
+            if name.strip().casefold() == 'screenshots':
+                keys.append((index, value.strip()))
+    if len(folders) > 1 or len(keys) > 1:
+        raise ValueError('ambiguous screenshot configuration')
+    value = keys[0][1] if keys else ''
+    if value == str(TARGET):
+        return raw
+    # Only absent, empty, or the exact shipped default is ours to change.
+    # Quoted, alternate, absolute and other custom values remain untouched.
+    if value not in ('', 'screenshots'):
+        return None
+    newline = '\r\n' if '\r\n' in text else '\n'
+    setting = 'Screenshots = ' + str(TARGET) + newline
+    if keys:
+        lines[keys[0][0]] = setting
+    elif folders:
+        index = folders[0]
+        if not lines[index].endswith(('\n', '\r')):
+            lines[index] += newline
+        lines.insert(index + 1, setting)
+    else:
+        if lines and not lines[-1].endswith(('\n', '\r')):
+            lines[-1] += newline
+        lines.extend([newline, '[Folders]' + newline, setting])
+    return ''.join(lines).encode('utf-8')
+
+
+def prepare(path):
+    original, raw = read_config(path)
+    replacement = updated_config(raw)
+    if replacement is None:
+        return
+    # An owner may have redirected the old default with a directory symlink.
+    # Keep that choice as well as explicit custom configuration values.
+    if replacement != raw and (path.parent / 'screenshots').is_symlink():
+        return
+    created = False
+    staged = None
+    try:
+        if TARGET.is_symlink():
+            raise ValueError('screenshot target is a symlink')
+        if not TARGET.exists():
+            TARGET.mkdir()
+            created = True
+        if not TARGET.is_dir():
+            raise ValueError('screenshot target is not a directory')
+        # Verify actual writes before changing the setting, including read-only
+        # mounts and full storage. The temporary byte is always removed.
+        with tempfile.TemporaryFile(dir=TARGET) as probe:
+            probe.write(b'\0')
+            probe.flush()
+            os.fsync(probe.fileno())
+        if replacement == raw:
+            return
+        descriptor, staged = tempfile.mkstemp(prefix='.screenshots-', dir=path.parent)
+        with os.fdopen(descriptor, 'wb') as output:
+            os.fchmod(output.fileno(), stat.S_IMODE(original.st_mode))
+            os.fchown(output.fileno(), original.st_uid, original.st_gid)
+            output.write(replacement)
+            output.flush()
+            os.fsync(output.fileno())
+        current, observed = read_config(path)
+        identity = lambda info: (info.st_dev, info.st_ino, info.st_size, info.st_mtime_ns, info.st_ctime_ns)
+        if identity(current) != identity(original) or observed != raw:
+            raise ValueError('configuration changed during preparation')
+        os.replace(staged, path)
+        staged = None
+    except Exception:
+        if created:
+            try:
+                TARGET.rmdir()
+            except OSError:
+                pass
+        raise
+    finally:
+        if staged is not None:
+            os.unlink(staged)
+
+
+def main():
+    if len(sys.argv) != 2:
+        return 2
+    try:
+        prepare(Path(sys.argv[1]))
+    except (OSError, UnicodeError, ValueError):
+        print("Couldn't prepare the screenshot folder. Screenshot preparation moved no existing captures.", file=sys.stderr)
+        return 1
+    return 0
+
+
+if __name__ == '__main__':
+    sys.exit(main())

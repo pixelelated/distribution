@@ -3,6 +3,8 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # Copyright (C) 2024-present ROCKNIX (https://github.com/ROCKNIX)
 
+# Copyright (C) 2026-present ROCKNIX (https://github.com/ROCKNIX)
+
 . /etc/profile
 set_kill set "-9 AppRun.wrapped"
 
@@ -23,6 +25,10 @@ ln -sfv "${CONF_DIR}" "${APPIMAGE_CONF_DIR}"
 
 #Init config file if required
 [ ! -f "${CONF_FILE}" ] && cp ${IMMUTABLE_CONF_FILE} ${CONF_FILE}
+
+# Keep default captures in the backed-up screenshots tree (#521). Explicit
+# custom paths and historical captures stay where the player left them.
+/usr/bin/duckstation_screenshot_path "${CONF_FILE}" || :
 
 #Link gamecontrollerdb.txt
 ln -sf /usr/config/SDL-GameControllerDB/gamecontrollerdb.txt "${CONF_DIR}/gamecontrollerdb.txt"

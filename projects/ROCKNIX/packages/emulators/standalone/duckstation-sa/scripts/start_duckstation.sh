@@ -3,6 +3,8 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # Copyright (C) 2022-present JELOS (https://github.com/JustEnoughLinuxOS)
 
+# Copyright (C) 2026-present ROCKNIX (https://github.com/ROCKNIX)
+
 . /etc/profile
 set_kill set "-9 AppRun.wrapped"
 
@@ -43,6 +45,10 @@ fi
 
 [ -d "${CONF_DIR}/memcards" ] && rm -rf ${CONF_DIR}/memcards
 ln -sfv ${MEMCARDS_DIR} ${CONF_DIR}/memcards
+
+# Keep default captures in the backed-up screenshots tree (#521). Explicit
+# custom paths and historical captures stay where the player left them.
+/usr/bin/duckstation_screenshot_path "${CONF_FILE}" || :
 
 #Link gamecontrollerdb.txt
 ln -sf /usr/config/SDL-GameControllerDB/gamecontrollerdb.txt "${CONF_DIR}/gamecontrollerdb.txt"
