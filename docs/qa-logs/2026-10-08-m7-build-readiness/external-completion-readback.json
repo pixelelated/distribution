@@ -1,0 +1,39 @@
+{
+  "recorded_at": "2026-10-08T15:44:19.692474+00:00",
+  "audit_path": "/workspace/repos/rocknix.worktrees/m7-p5-audit-507/docs/audits/2026_10_08-milestone-m7-p5-delta-507",
+  "receipts": [
+    {
+      "owner": "fable-blind01",
+      "output": "claude-blind.md",
+      "bytes": 17829,
+      "sha256": "3fc6ce05bca865c1f8be448e29d1634ba894bab15e620f6d3bf0a0ce6d149770",
+      "prompt_sha256": "18ac3ac302b4dc6a1a8ecf2b45ae6bd15c9cb3c92a52e888c1b4b67a61a2273c",
+      "served_model": "anthropic/claude-fable-5.1",
+      "effort_verification": {
+        "result": "PASS",
+        "declared": "xhigh",
+        "evidence": "reasoning_tokens",
+        "observed_reasoning_tokens": 59507
+      },
+      "completion_receipt_sha256": "5eac3cf58fa23e0cb89f70f4a4a85825c897aee4a2d24bd5b460c2f1127dbb85",
+      "completion_receipt": "checks/fable-blind01/verified-completion.json"
+    },
+    {
+      "owner": "fable-refutation01",
+      "output": "claude-audit.md",
+      "bytes": 19752,
+      "sha256": "c9d2fe15aae6e7397afe76df19e5f8851e93532e315292d6a45a1a305b12d428",
+      "prompt_sha256": "b117c9a21d29c34c21c29762e04cb66fc337e2737e2cd6d70b81755f9bff37cc",
+      "served_model": "anthropic/claude-fable-5.1",
+      "effort_verification": {
+        "result": "PASS",
+        "declared": "xhigh",
+        "evidence": "reasoning_tokens",
+        "observed_reasoning_tokens": 16851
+      },
+      "completion_receipt_sha256": "f37c5d395a69a92620192e52ee0fa94f5fb1be9d362ba8228ea46a9a8eaf06ab",
+      "completion_receipt": "checks/fable-refutation01/verified-completion.json"
+    }
+  ],
+  "boundary": "Root independently checked exact output bytes/provenance and read owner completion receipts; sole primary auditor retains responsibility for source-based lead grading and resolution. No audit completion claimed."
+}
