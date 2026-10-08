@@ -1,0 +1,119 @@
+{
+  "utc": "2026-10-08T15:37:59.815180+00:00",
+  "channels": {
+    "docs/audits/2026_10_08-milestone-m7-p5-delta-507/checks/fable-refutation01/inner.rc": 0,
+    "docs/audits/2026_10_08-milestone-m7-p5-delta-507/checks/fable-refutation01/outer.rc": 0,
+    "docs/audits/2026_10_08-milestone-m7-p5-delta-507/checks/fable-refutation01/tool-wrapper.rc": 0,
+    ".build-runs/20261008T153018Z-668f639c/build.rc": 0
+  },
+  "checks": {
+    "four_zero_channels": true,
+    "input_before": true,
+    "input_after": true,
+    "sealed_inputs_still_match": true,
+    "success": true,
+    "no_retries": true,
+    "prompt_digest": true,
+    "output_digest": true,
+    "identity": true,
+    "effort": true,
+    "recorded_processes_terminal": true
+  },
+  "passed": true,
+  "input_count": 31,
+  "output_bytes": 19752,
+  "output_sha256": "c9d2fe15aae6e7397afe76df19e5f8851e93532e315292d6a45a1a305b12d428",
+  "prompt_sha256": "b117c9a21d29c34c21c29762e04cb66fc337e2737e2cd6d70b81755f9bff37cc",
+  "processes": {
+    "2940174": {
+      "terminal": true,
+      "state": "absent"
+    },
+    "2940175": {
+      "terminal": true,
+      "state": "absent"
+    },
+    "2940176": {
+      "terminal": true,
+      "state": "absent"
+    },
+    "2940204": {
+      "terminal": true,
+      "state": "absent"
+    },
+    "2940206": {
+      "terminal": true,
+      "state": "absent"
+    },
+    "2940207": {
+      "terminal": true,
+      "state": "absent"
+    },
+    "2940222": {
+      "terminal": true,
+      "state": "absent"
+    },
+    "2942740": {
+      "terminal": true,
+      "state": "absent"
+    }
+  },
+  "final": {
+    "outcome": "success",
+    "assurance_tier": "local_capture_provider_attested",
+    "total_duration_ms": 338591,
+    "retries_used": 0,
+    "file_artifact_sha256": "c9d2fe15aae6e7397afe76df19e5f8851e93532e315292d6a45a1a305b12d428",
+    "usage": {
+      "prompt_tokens": 470902,
+      "completion_tokens": 24818,
+      "total_tokens": 495720,
+      "cost": 5.94992,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 5.94992,
+        "upstream_inference_prompt_cost": 4.70902,
+        "upstream_inference_completions_cost": 1.2409
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 16851,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "tokens": {
+      "prompt": 470902,
+      "completion": 24818,
+      "total": 495720,
+      "reasoning": 16851
+    },
+    "verification": {
+      "result": "PASS",
+      "match_kind": "semantic",
+      "declared": "anthropic/claude-fable-5.1 (OpenRouter, effort=xhigh)",
+      "observed": "anthropic/claude-fable-5.1",
+      "model_identity_source": "provider_response"
+    },
+    "effort_verification": {
+      "result": "PASS",
+      "declared": "xhigh",
+      "evidence": "reasoning_tokens",
+      "observed_reasoning_tokens": 16851
+    },
+    "provider_verification": {
+      "result": "NOT_PINNED",
+      "declared": null,
+      "evidence": "response_provider_field",
+      "observed": "Anthropic",
+      "observed_providers": [
+        "Anthropic"
+      ]
+    }
+  }
+}

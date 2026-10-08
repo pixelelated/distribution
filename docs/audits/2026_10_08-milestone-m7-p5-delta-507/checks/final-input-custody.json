@@ -1,0 +1,30 @@
+{
+  "verified_utc": "2026-10-08T17:27:42.572456+00:00",
+  "result": "PASS",
+  "frozen_distribution": "ac64c80628ad6d5a69b803d82f186472529f7cd7",
+  "frozen_source_diff_empty": true,
+  "sealed_payload_files": [
+    "claude-blind-brief.md",
+    "claude-refutation-base.md",
+    "refutation-suffix-template.md",
+    "review-plan.json"
+  ],
+  "historical_prefixes_and_explicit_corrections": [
+    {
+      "path": "02-forward-audit.md",
+      "original_prefix_bytes": 144706,
+      "original_prefix_sha256": "4319fdc2346efabd4e2d915918841cb37ff92e8250bdd4a8f2144cd0b481a493",
+      "appended_bytes": 736,
+      "appended_sha256": "038c6aaaa97b0defd24a6bd754d219d591afba6c5d3f565ab38a48038884eea1",
+      "appendix": "Explicit Phase 4.5 #504 custody-premise correction; original provisional observations retained."
+    },
+    {
+      "path": "03-retrospective.md",
+      "original_prefix_bytes": 23797,
+      "original_prefix_sha256": "f55beaafe2671e9812ff93df763897c51b61180a62a53d1c377915bf71a91113",
+      "appended_bytes": 619,
+      "appended_sha256": "f29ff4c235b5db8dd6d0c87116c0d1a6067691e3c1d16fcec7b7039d830961a9",
+      "appendix": "Explicit Phase 4.5 #504 custody-premise correction; original provisional observations retained."
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "depth": "independent",
+  "primary": {
+    "harness": "Codex",
+    "model": "unknown",
+    "lab": "openai",
+    "identity_source": "Session developer identifies Codex/OpenAI GPT-6 family; exact served variant not exposed."
+  },
+  "reviewers": [
+    {
+      "member": "claude",
+      "model": "anthropic/claude-fable-5.1",
+      "lab": "anthropic",
+      "effort": "xhigh",
+      "calls": [
+        {
+          "phase": "blind",
+          "output": "claude-blind.md"
+        },
+        {
+          "phase": "refutation",
+          "output": "claude-audit.md"
+        }
+      ]
+    }
+  ]
+}

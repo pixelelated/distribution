@@ -1,0 +1,177 @@
+[
+  {
+    "name": "cadence",
+    "command": [
+      "python3",
+      "-I",
+      "-B",
+      "docs/qa-logs/2026-10-07-audit-cadence/test-cadence.py",
+      "tools/ceremony-check"
+    ],
+    "rc": 0,
+    "started": "2026-10-08T08:11:23.827445+00:00",
+    "ended": "2026-10-08T08:11:23.858220+00:00"
+  },
+  {
+    "name": "retention",
+    "command": [
+      "python3",
+      "-I",
+      "-B",
+      "tools/host-maintenance/test-retention-report"
+    ],
+    "rc": 0,
+    "started": "2026-10-08T08:11:23.858322+00:00",
+    "ended": "2026-10-08T08:11:29.313965+00:00"
+  },
+  {
+    "name": "cleanup-guards",
+    "command": [
+      "python3",
+      "-I",
+      "-B",
+      "docs/qa-logs/2026-10-07-storage-retention/test-cleanup-guards.py"
+    ],
+    "rc": 0,
+    "started": "2026-10-08T08:11:29.314151+00:00",
+    "ended": "2026-10-08T08:11:29.353729+00:00"
+  },
+  {
+    "name": "rules",
+    "command": [
+      "tools/rules-check"
+    ],
+    "rc": 0,
+    "started": "2026-10-08T08:11:29.353850+00:00",
+    "ended": "2026-10-08T08:11:29.371095+00:00"
+  },
+  {
+    "name": "register",
+    "command": [
+      "tools/register-check"
+    ],
+    "rc": 0,
+    "started": "2026-10-08T08:11:29.371241+00:00",
+    "ended": "2026-10-08T08:11:30.702257+00:00"
+  },
+  {
+    "name": "work-log-index",
+    "command": [
+      "tools/work-log-index",
+      "--check"
+    ],
+    "rc": 0,
+    "started": "2026-10-08T08:11:30.702483+00:00",
+    "ended": "2026-10-08T08:11:30.721467+00:00"
+  },
+  {
+    "name": "pkgcheck-spirv-tools",
+    "command": [
+      "tools/pkgcheck",
+      "spirv-tools"
+    ],
+    "rc": 0,
+    "started": "2026-10-08T08:11:30.721672+00:00",
+    "ended": "2026-10-08T08:11:30.821738+00:00"
+  },
+  {
+    "name": "pkgcheck-fex-emu",
+    "command": [
+      "tools/pkgcheck",
+      "fex-emu"
+    ],
+    "rc": 0,
+    "started": "2026-10-08T08:11:30.821957+00:00",
+    "ended": "2026-10-08T08:11:30.945589+00:00"
+  },
+  {
+    "name": "pkgcheck-duckstation-sa",
+    "command": [
+      "tools/pkgcheck",
+      "duckstation-sa"
+    ],
+    "rc": 0,
+    "started": "2026-10-08T08:11:30.945810+00:00",
+    "ended": "2026-10-08T08:11:31.024756+00:00"
+  },
+  {
+    "name": "pkgcheck-rclone",
+    "command": [
+      "tools/pkgcheck",
+      "rclone"
+    ],
+    "rc": 0,
+    "started": "2026-10-08T08:11:31.024961+00:00",
+    "ended": "2026-10-08T08:11:31.100484+00:00"
+  },
+  {
+    "name": "pkgcheck-emulationstation",
+    "command": [
+      "tools/pkgcheck",
+      "emulationstation"
+    ],
+    "rc": 0,
+    "started": "2026-10-08T08:11:31.100691+00:00",
+    "ended": "2026-10-08T08:11:31.195480+00:00"
+  },
+  {
+    "name": "pkgcheck-lib32",
+    "command": [
+      "tools/pkgcheck",
+      "lib32"
+    ],
+    "rc": 0,
+    "started": "2026-10-08T08:11:31.195649+00:00",
+    "ended": "2026-10-08T08:11:31.249345+00:00"
+  },
+  {
+    "name": "pkgcheck-box86",
+    "command": [
+      "tools/pkgcheck",
+      "box86"
+    ],
+    "rc": 0,
+    "started": "2026-10-08T08:11:31.249503+00:00",
+    "ended": "2026-10-08T08:11:31.385827+00:00"
+  },
+  {
+    "name": "pkgcheck-desmume-lr",
+    "command": [
+      "tools/pkgcheck",
+      "desmume-lr"
+    ],
+    "rc": 0,
+    "started": "2026-10-08T08:11:31.385999+00:00",
+    "ended": "2026-10-08T08:11:31.459269+00:00"
+  },
+  {
+    "name": "pkgcheck-gpsp-lr",
+    "command": [
+      "tools/pkgcheck",
+      "gpsp-lr"
+    ],
+    "rc": 0,
+    "started": "2026-10-08T08:11:31.459427+00:00",
+    "ended": "2026-10-08T08:11:31.512072+00:00"
+  },
+  {
+    "name": "pkgcheck-retroarch",
+    "command": [
+      "tools/pkgcheck",
+      "retroarch"
+    ],
+    "rc": 0,
+    "started": "2026-10-08T08:11:31.512260+00:00",
+    "ended": "2026-10-08T08:11:31.694596+00:00"
+  },
+  {
+    "name": "pkgcheck-daedalusx64-sa",
+    "command": [
+      "tools/pkgcheck",
+      "daedalusx64-sa"
+    ],
+    "rc": 0,
+    "started": "2026-10-08T08:11:31.694933+00:00",
+    "ended": "2026-10-08T08:11:31.775675+00:00"
+  }
+]

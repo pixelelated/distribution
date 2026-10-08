@@ -1,0 +1,17 @@
+{
+  "utc": "2026-10-08T17:20:32.395021+00:00",
+  "scope": "Untracked candidate audit files after PL-003 acceptance and PL-004 controls, before final stage",
+  "files": 1639,
+  "bytes": 10786543,
+  "patterns": {
+    "private_key": "-----BEGIN (?:RSA |EC |OPENSSH |DSA )?PRIVATE KEY-----",
+    "github_token": "(?<![A-Za-z0-9_])(?:gh[pousr]_[A-Za-z0-9]{30,}|github_pat_[A-Za-z0-9_]{40,})",
+    "openai_key": "(?<![A-Za-z0-9_])sk-(?:proj-|or-v1-)?[A-Za-z0-9_-]{35,}",
+    "aws_access": "(?<![A-Z0-9])(?:AKIA|ASIA)[A-Z0-9]{16}(?![A-Z0-9])"
+  },
+  "matches": [],
+  "binary_files": [],
+  "symlinks": [],
+  "ordered_rows_sha256": "aa2ff868512baa798e786946e8a391dd1d0aeb281eb858016f5c795026d1194c",
+  "limit": "Pattern triage supplements prior payload review; no claim of exhaustive secret detection."
+}

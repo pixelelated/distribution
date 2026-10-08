@@ -1,0 +1,76 @@
+{
+  "frozen_head": "ac64c80628ad6d5a69b803d82f186472529f7cd7",
+  "commands": [
+    [
+      "validator",
+      [
+        "python3",
+        "-I",
+        "-B",
+        "tools/pixelelated-cloud-validator-test",
+        "--rclone",
+        "/tmp/pixelelated-rc-rclone/rclone",
+        "--output",
+        "/workspace/repos/rocknix.worktrees/m7-p5-audit-507/docs/audits/2026_10_08-milestone-m7-p5-delta-507/checks/cloud-controls01/validator"
+      ]
+    ],
+    [
+      "save-layout",
+      [
+        "python3",
+        "-I",
+        "-B",
+        "tools/pixelelated-save-layout-test",
+        "--rclone",
+        "/tmp/pixelelated-rc-rclone/rclone",
+        "--output",
+        "/workspace/repos/rocknix.worktrees/m7-p5-audit-507/docs/audits/2026_10_08-milestone-m7-p5-delta-507/checks/cloud-controls01/save-layout",
+        "--source-root",
+        "/workspace/repos/rocknix.worktrees/m7-p5-audit-507"
+      ]
+    ],
+    [
+      "content-scope",
+      [
+        "python3",
+        "-I",
+        "-B",
+        "tools/pixelelated-content-scope-test",
+        "--rclone",
+        "/tmp/pixelelated-rc-rclone/rclone",
+        "--output",
+        "/workspace/repos/rocknix.worktrees/m7-p5-audit-507/docs/audits/2026_10_08-milestone-m7-p5-delta-507/checks/cloud-controls01/content-scope",
+        "--source-root",
+        "/workspace/repos/rocknix.worktrees/m7-p5-audit-507"
+      ]
+    ],
+    [
+      "duckstation",
+      [
+        "python3",
+        "-I",
+        "-B",
+        "tools/pixelelated-duckstation-capture-test",
+        "--rclone",
+        "/tmp/pixelelated-rc-rclone/rclone",
+        "--output",
+        "/workspace/repos/rocknix.worktrees/m7-p5-audit-507/docs/audits/2026_10_08-milestone-m7-p5-delta-507/checks/cloud-controls01/duckstation",
+        "--source-root",
+        "/workspace/repos/rocknix.worktrees/m7-p5-audit-507"
+      ]
+    ],
+    [
+      "save-integrity",
+      [
+        "python3",
+        "-I",
+        "-B",
+        "tools/cloud-save-integrity-test",
+        "--rclone",
+        "/tmp/pixelelated-rc-rclone/rclone"
+      ]
+    ]
+  ],
+  "rclone_sha256": "f66d8c1d552ad90296a11bc8b46d56a7fa5da1a7fa05e7ca522d95df92c4a4c0",
+  "scope": "Finite synthetic host fixtures; local backend only; no new provider/device/VM/build action"
+}

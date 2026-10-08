@@ -1,0 +1,132 @@
+{
+  "utc": "2026-10-08T15:59:48.756903+00:00",
+  "result": "PASS",
+  "controls": 10,
+  "rows": [
+    {
+      "tool": "pixelelated-cloud-folder-test",
+      "args": [
+        "--help"
+      ],
+      "expected_rc": 0,
+      "rc": 0,
+      "passed": true,
+      "owner_unchanged": true,
+      "output": "Retired historical folder-contract control (#524 PL-002).\n\nThis entrypoint tested implicit all-category seeding and derived sibling paths.\nThose contracts were removed by #508. It cannot qualify current source, even\nwith --ref. No fixture or cloud operation starts from this retired entrypoint.\n\nCurrent host coverage: tools/pixelelated-cloud-validator-test with a fresh\n--output directory and package-pinned rclone 1.75.1 via --rclone.\nCurrent target qualification also uses tools/vm-qa, tools/cloud-round-trip and\nthe cloud-folder flow in docs/pixelelated/cloud-folder-flow-review.md.\n\nHistorical receipts stay unchanged. To reproduce one, use its exact recorded\ntool/source checkout; git history retains this entrypoint's original body.\n--help exits 0; every attempted run exits 2 before starting any work.\n"
+    },
+    {
+      "tool": "pixelelated-cloud-folder-test",
+      "args": [],
+      "expected_rc": 2,
+      "rc": 2,
+      "passed": true,
+      "owner_unchanged": true,
+      "output": "Retired historical folder-contract control (#524 PL-002).\n\nThis entrypoint tested implicit all-category seeding and derived sibling paths.\nThose contracts were removed by #508. It cannot qualify current source, even\nwith --ref. No fixture or cloud operation starts from this retired entrypoint.\n\nCurrent host coverage: tools/pixelelated-cloud-validator-test with a fresh\n--output directory and package-pinned rclone 1.75.1 via --rclone.\nCurrent target qualification also uses tools/vm-qa, tools/cloud-round-trip and\nthe cloud-folder flow in docs/pixelelated/cloud-folder-flow-review.md.\n\nHistorical receipts stay unchanged. To reproduce one, use its exact recorded\ntool/source checkout; git history retains this entrypoint's original body.\n--help exits 0; every attempted run exits 2 before starting any work.\n"
+    },
+    {
+      "tool": "pixelelated-cloud-folder-test",
+      "args": [
+        "--ref",
+        "HEAD",
+        "--output",
+        "/workspace/repos/rocknix.worktrees/m7-p5-audit-507/docs/audits/2026_10_08-milestone-m7-p5-delta-507/resolution/PL-002/controls01/untouched",
+        "--rclone",
+        "/missing/rclone",
+        "--case",
+        "fresh-empty-seed-beside-legacy"
+      ],
+      "expected_rc": 2,
+      "rc": 2,
+      "passed": true,
+      "owner_unchanged": true,
+      "output": "Retired historical folder-contract control (#524 PL-002).\n\nThis entrypoint tested implicit all-category seeding and derived sibling paths.\nThose contracts were removed by #508. It cannot qualify current source, even\nwith --ref. No fixture or cloud operation starts from this retired entrypoint.\n\nCurrent host coverage: tools/pixelelated-cloud-validator-test with a fresh\n--output directory and package-pinned rclone 1.75.1 via --rclone.\nCurrent target qualification also uses tools/vm-qa, tools/cloud-round-trip and\nthe cloud-folder flow in docs/pixelelated/cloud-folder-flow-review.md.\n\nHistorical receipts stay unchanged. To reproduce one, use its exact recorded\ntool/source checkout; git history retains this entrypoint's original body.\n--help exits 0; every attempted run exits 2 before starting any work.\n"
+    },
+    {
+      "tool": "pixelelated-cloud-folder-test",
+      "args": [
+        "--owner",
+        "/workspace/repos/rocknix.worktrees/m7-p5-audit-507/docs/audits/2026_10_08-milestone-m7-p5-delta-507/resolution/PL-002/controls01/untouched",
+        "--image",
+        "/missing/image.img.gz",
+        "--image-sha256",
+        "0000000000000000000000000000000000000000000000000000000000000000",
+        "--reuse-guest",
+        "--keep-guest"
+      ],
+      "expected_rc": 2,
+      "rc": 2,
+      "passed": true,
+      "owner_unchanged": true,
+      "output": "Retired historical folder-contract control (#524 PL-002).\n\nThis entrypoint tested implicit all-category seeding and derived sibling paths.\nThose contracts were removed by #508. It cannot qualify current source, even\nwith --ref. No fixture or cloud operation starts from this retired entrypoint.\n\nCurrent host coverage: tools/pixelelated-cloud-validator-test with a fresh\n--output directory and package-pinned rclone 1.75.1 via --rclone.\nCurrent target qualification also uses tools/vm-qa, tools/cloud-round-trip and\nthe cloud-folder flow in docs/pixelelated/cloud-folder-flow-review.md.\n\nHistorical receipts stay unchanged. To reproduce one, use its exact recorded\ntool/source checkout; git history retains this entrypoint's original body.\n--help exits 0; every attempted run exits 2 before starting any work.\n"
+    },
+    {
+      "tool": "pixelelated-cloud-folder-test",
+      "control": "frozen original fails current retirement assertion",
+      "rc": 0,
+      "passed": true
+    },
+    {
+      "tool": "pixelelated-cloud-folder-vm-test",
+      "args": [
+        "--help"
+      ],
+      "expected_rc": 0,
+      "rc": 0,
+      "passed": true,
+      "owner_unchanged": true,
+      "output": "Retired historical folder-overlay control (#524 PL-002).\n\nThis entrypoint overlaid the implicit-seeding/derived-pointer contract and\nomitted dependencies needed by current category validation. It cannot qualify\ncurrent source. It never starts or reuses a guest, resets a backend, writes an\nowner directory, or treats an argument refusal as a passing negative case.\n\nCurrent target qualification uses tools/vm-qa and tools/cloud-round-trip with\nan owned current image, plus the source-bound cloud-folder cases documented in\ndocs/pixelelated/cloud-folder-flow-review.md. The host category controls are in\ntools/pixelelated-cloud-validator-test; they do not claim VM qualification.\n\nHistorical receipts stay unchanged. To reproduce one, use its exact recorded\ntool/source checkout; git history retains this entrypoint's original body.\n--help exits 0; every attempted run exits 2 before starting any work.\n"
+    },
+    {
+      "tool": "pixelelated-cloud-folder-vm-test",
+      "args": [],
+      "expected_rc": 2,
+      "rc": 2,
+      "passed": true,
+      "owner_unchanged": true,
+      "output": "Retired historical folder-overlay control (#524 PL-002).\n\nThis entrypoint overlaid the implicit-seeding/derived-pointer contract and\nomitted dependencies needed by current category validation. It cannot qualify\ncurrent source. It never starts or reuses a guest, resets a backend, writes an\nowner directory, or treats an argument refusal as a passing negative case.\n\nCurrent target qualification uses tools/vm-qa and tools/cloud-round-trip with\nan owned current image, plus the source-bound cloud-folder cases documented in\ndocs/pixelelated/cloud-folder-flow-review.md. The host category controls are in\ntools/pixelelated-cloud-validator-test; they do not claim VM qualification.\n\nHistorical receipts stay unchanged. To reproduce one, use its exact recorded\ntool/source checkout; git history retains this entrypoint's original body.\n--help exits 0; every attempted run exits 2 before starting any work.\n"
+    },
+    {
+      "tool": "pixelelated-cloud-folder-vm-test",
+      "args": [
+        "--ref",
+        "HEAD",
+        "--output",
+        "/workspace/repos/rocknix.worktrees/m7-p5-audit-507/docs/audits/2026_10_08-milestone-m7-p5-delta-507/resolution/PL-002/controls01/untouched",
+        "--rclone",
+        "/missing/rclone",
+        "--case",
+        "fresh-empty-seed-beside-legacy"
+      ],
+      "expected_rc": 2,
+      "rc": 2,
+      "passed": true,
+      "owner_unchanged": true,
+      "output": "Retired historical folder-overlay control (#524 PL-002).\n\nThis entrypoint overlaid the implicit-seeding/derived-pointer contract and\nomitted dependencies needed by current category validation. It cannot qualify\ncurrent source. It never starts or reuses a guest, resets a backend, writes an\nowner directory, or treats an argument refusal as a passing negative case.\n\nCurrent target qualification uses tools/vm-qa and tools/cloud-round-trip with\nan owned current image, plus the source-bound cloud-folder cases documented in\ndocs/pixelelated/cloud-folder-flow-review.md. The host category controls are in\ntools/pixelelated-cloud-validator-test; they do not claim VM qualification.\n\nHistorical receipts stay unchanged. To reproduce one, use its exact recorded\ntool/source checkout; git history retains this entrypoint's original body.\n--help exits 0; every attempted run exits 2 before starting any work.\n"
+    },
+    {
+      "tool": "pixelelated-cloud-folder-vm-test",
+      "args": [
+        "--owner",
+        "/workspace/repos/rocknix.worktrees/m7-p5-audit-507/docs/audits/2026_10_08-milestone-m7-p5-delta-507/resolution/PL-002/controls01/untouched",
+        "--image",
+        "/missing/image.img.gz",
+        "--image-sha256",
+        "0000000000000000000000000000000000000000000000000000000000000000",
+        "--reuse-guest",
+        "--keep-guest"
+      ],
+      "expected_rc": 2,
+      "rc": 2,
+      "passed": true,
+      "owner_unchanged": true,
+      "output": "Retired historical folder-overlay control (#524 PL-002).\n\nThis entrypoint overlaid the implicit-seeding/derived-pointer contract and\nomitted dependencies needed by current category validation. It cannot qualify\ncurrent source. It never starts or reuses a guest, resets a backend, writes an\nowner directory, or treats an argument refusal as a passing negative case.\n\nCurrent target qualification uses tools/vm-qa and tools/cloud-round-trip with\nan owned current image, plus the source-bound cloud-folder cases documented in\ndocs/pixelelated/cloud-folder-flow-review.md. The host category controls are in\ntools/pixelelated-cloud-validator-test; they do not claim VM qualification.\n\nHistorical receipts stay unchanged. To reproduce one, use its exact recorded\ntool/source checkout; git history retains this entrypoint's original body.\n--help exits 0; every attempted run exits 2 before starting any work.\n"
+    },
+    {
+      "tool": "pixelelated-cloud-folder-vm-test",
+      "control": "frozen original fails current retirement assertion",
+      "rc": 0,
+      "passed": true
+    }
+  ],
+  "scope": "Host CLI boundary only; original actual stale-contract failure remains checks/retrospective-controls01"
+}

@@ -1,0 +1,82 @@
+[1/29] Building CXX object CMakeFiles/es-unit-tests.dir/CloudFolderValidationTests.cpp.o
+In file included from /home/max/Development/emulationstation-next.worktrees/qa-integration/es-app/tests/unit/CloudFolderValidationTests.cpp:3:
+/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement16/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/include/rapidjson/document.h:102:19: warning: ‘template<class _Category, class _Tp, class _Distance, class _Pointer, class _Reference> struct std::iterator’ is deprecated [-Wdeprecated-declarations]
+  102 |     : public std::iterator<std::random_access_iterator_tag
+      |                   ^~~~~~~~
+In file included from /usr/include/c++/15/bits/stl_algobase.h:65,
+                 from /usr/include/c++/15/bits/stl_tree.h:65,
+                 from /usr/include/c++/15/map:64,
+                 from /home/max/Development/emulationstation-next.worktrees/qa-integration/es-app/src/CloudFolderValidation.h:4,
+                 from /home/max/Development/emulationstation-next.worktrees/qa-integration/es-app/tests/unit/CloudFolderValidationTests.cpp:2:
+/usr/include/c++/15/bits/stl_iterator_base_types.h:129:34: note: declared here
+  129 |     struct _GLIBCXX17_DEPRECATED iterator
+      |                                  ^~~~~~~~
+/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement16/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/include/rapidjson/document.h:110:18: warning: ‘template<class _Category, class _Tp, class _Distance, class _Pointer, class _Reference> struct std::iterator’ is deprecated [-Wdeprecated-declarations]
+  110 |     typedef std::iterator<std::random_access_iterator_tag,ValueType> BaseType;
+      |                  ^~~~~~~~
+/usr/include/c++/15/bits/stl_iterator_base_types.h:129:34: note: declared here
+  129 |     struct _GLIBCXX17_DEPRECATED iterator
+      |                                  ^~~~~~~~
+[2/29] Building CXX object CMakeFiles/es-unit-tests.dir/CheevosRetryTests.cpp.o
+[3/29] Building CXX object CMakeFiles/es-unit-tests.dir/OfflineAchievementsTextTests.cpp.o
+[4/29] Building CXX object CMakeFiles/es-unit-tests.dir/CheevosIndexTests.cpp.o
+[5/29] Building CXX object CMakeFiles/es-unit-tests.dir/TimeTextTests.cpp.o
+[6/29] Building CXX object CMakeFiles/es-unit-tests.dir/MaskSecretsTests.cpp.o
+[7/29] Building CXX object CMakeFiles/es-unit-tests.dir/LogPolicyTests.cpp.o
+[8/29] Building CXX object CMakeFiles/es-unit-tests.dir/WifiTextTests.cpp.o
+[9/29] Building CXX object CMakeFiles/es-unit-tests.dir/CloudTextTests.cpp.o
+[10/29] Building CXX object CMakeFiles/es-unit-tests.dir/OfflineProxyUrlTests.cpp.o
+[11/29] Building CXX object CMakeFiles/es-unit-tests.dir/SaveStateJobQueueTests.cpp.o
+[12/29] Building CXX object CMakeFiles/es-unit-tests.dir/CaptureRotationTextTests.cpp.o
+[13/29] Building CXX object CMakeFiles/es-unit-tests.dir/DisplayAspectTextTests.cpp.o
+[14/29] Building CXX object CMakeFiles/es-unit-tests.dir/CommandLineTests.cpp.o
+[15/29] Building CXX object CMakeFiles/es-unit-tests.dir/TabStopsTests.cpp.o
+[16/29] Building CXX object CMakeFiles/es-unit-tests.dir/LaunchCommandTests.cpp.o
+[17/29] Building CXX object CMakeFiles/es-unit-tests.dir/home/max/Development/emulationstation-next.worktrees/qa-integration/es-app/src/CloudText.cpp.o
+[18/29] Building CXX object CMakeFiles/es-unit-tests.dir/home/max/Development/emulationstation-next.worktrees/qa-integration/es-app/src/CloudFolderValidation.cpp.o
+In file included from /home/max/Development/emulationstation-next.worktrees/qa-integration/es-app/src/CloudFolderValidation.cpp:2:
+/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement16/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/include/rapidjson/document.h:102:19: warning: ‘template<class _Category, class _Tp, class _Distance, class _Pointer, class _Reference> struct std::iterator’ is deprecated [-Wdeprecated-declarations]
+  102 |     : public std::iterator<std::random_access_iterator_tag
+      |                   ^~~~~~~~
+In file included from /usr/include/c++/15/bits/stl_algobase.h:65,
+                 from /usr/include/c++/15/bits/stl_tree.h:65,
+                 from /usr/include/c++/15/map:64,
+                 from /home/max/Development/emulationstation-next.worktrees/qa-integration/es-app/src/CloudFolderValidation.h:4,
+                 from /home/max/Development/emulationstation-next.worktrees/qa-integration/es-app/src/CloudFolderValidation.cpp:1:
+/usr/include/c++/15/bits/stl_iterator_base_types.h:129:34: note: declared here
+  129 |     struct _GLIBCXX17_DEPRECATED iterator
+      |                                  ^~~~~~~~
+/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement16/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/include/rapidjson/document.h:110:18: warning: ‘template<class _Category, class _Tp, class _Distance, class _Pointer, class _Reference> struct std::iterator’ is deprecated [-Wdeprecated-declarations]
+  110 |     typedef std::iterator<std::random_access_iterator_tag,ValueType> BaseType;
+      |                  ^~~~~~~~
+/usr/include/c++/15/bits/stl_iterator_base_types.h:129:34: note: declared here
+  129 |     struct _GLIBCXX17_DEPRECATED iterator
+      |                                  ^~~~~~~~
+[19/29] Building CXX object CMakeFiles/es-unit-tests.dir/home/max/Development/emulationstation-next.worktrees/qa-integration/es-app/src/CheevosRetry.cpp.o
+[20/29] Building CXX object CMakeFiles/es-unit-tests.dir/home/max/Development/emulationstation-next.worktrees/qa-integration/es-app/src/CheevosIndex.cpp.o
+[21/29] Building CXX object CMakeFiles/es-unit-tests.dir/home/max/Development/emulationstation-next.worktrees/qa-integration/es-app/src/WifiText.cpp.o
+[22/29] Building CXX object CMakeFiles/es-unit-tests.dir/home/max/Development/emulationstation-next.worktrees/qa-integration/es-app/src/OfflineAchievementsText.cpp.o
+In file included from /home/max/Development/emulationstation-next.worktrees/qa-integration/es-app/src/OfflineAchievementsText.cpp:5:
+/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement16/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/include/rapidjson/document.h:102:19: warning: ‘template<class _Category, class _Tp, class _Distance, class _Pointer, class _Reference> struct std::iterator’ is deprecated [-Wdeprecated-declarations]
+  102 |     : public std::iterator<std::random_access_iterator_tag
+      |                   ^~~~~~~~
+In file included from /usr/include/c++/15/bits/stl_iterator_base_funcs.h:68,
+                 from /usr/include/c++/15/string:49,
+                 from /home/max/Development/emulationstation-next.worktrees/qa-integration/es-app/src/OfflineAchievementsText.h:31,
+                 from /home/max/Development/emulationstation-next.worktrees/qa-integration/es-app/src/OfflineAchievementsText.cpp:1:
+/usr/include/c++/15/bits/stl_iterator_base_types.h:129:34: note: declared here
+  129 |     struct _GLIBCXX17_DEPRECATED iterator
+      |                                  ^~~~~~~~
+/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement16/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/include/rapidjson/document.h:110:18: warning: ‘template<class _Category, class _Tp, class _Distance, class _Pointer, class _Reference> struct std::iterator’ is deprecated [-Wdeprecated-declarations]
+  110 |     typedef std::iterator<std::random_access_iterator_tag,ValueType> BaseType;
+      |                  ^~~~~~~~
+/usr/include/c++/15/bits/stl_iterator_base_types.h:129:34: note: declared here
+  129 |     struct _GLIBCXX17_DEPRECATED iterator
+      |                                  ^~~~~~~~
+[23/29] Building CXX object CMakeFiles/es-unit-tests.dir/home/max/Development/emulationstation-next.worktrees/qa-integration/es-app/src/CaptureRotationText.cpp.o
+[24/29] Building CXX object CMakeFiles/es-unit-tests.dir/home/max/Development/emulationstation-next.worktrees/qa-integration/es-app/src/SaveStateJobQueue.cpp.o
+[25/29] Building CXX object CMakeFiles/es-unit-tests.dir/home/max/Development/emulationstation-next.worktrees/qa-integration/es-app/src/DisplayAspectText.cpp.o
+[26/29] Building CXX object CMakeFiles/es-unit-tests.dir/home/max/Development/emulationstation-next.worktrees/qa-integration/es-core/src/utils/TimeText.cpp.o
+[27/29] Building CXX object CMakeFiles/es-unit-tests.dir/home/max/Development/emulationstation-next.worktrees/qa-integration/es-core/src/utils/OfflineProxyUrl.cpp.o
+[28/29] Building CXX object CMakeFiles/es-unit-tests.dir/home/max/Development/emulationstation-next.worktrees/qa-integration/es-core/src/utils/StringUtil.cpp.o
+[29/29] Linking CXX executable es-unit-tests

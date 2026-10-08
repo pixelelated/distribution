@@ -1,0 +1,154 @@
+{
+  "result": "PASS",
+  "controls": [
+    {
+      "name": "valid receipt keeps exact cadence cutoff",
+      "passed": true,
+      "detail": "Exact completion time and issue retained."
+    },
+    {
+      "name": "marker: null",
+      "passed": true,
+      "detail": "completion marker must be a JSON object"
+    },
+    {
+      "name": "marker: boolean",
+      "passed": true,
+      "detail": "completion marker must be a JSON object"
+    },
+    {
+      "name": "marker: number",
+      "passed": true,
+      "detail": "completion marker must be a JSON object"
+    },
+    {
+      "name": "marker: string",
+      "passed": true,
+      "detail": "completion marker must be a JSON object"
+    },
+    {
+      "name": "marker: list",
+      "passed": true,
+      "detail": "completion marker must be a JSON object"
+    },
+    {
+      "name": "evidence: null",
+      "passed": true,
+      "detail": "completion evidence must be a JSON object"
+    },
+    {
+      "name": "evidence: boolean",
+      "passed": true,
+      "detail": "completion evidence must be a JSON object"
+    },
+    {
+      "name": "evidence: number",
+      "passed": true,
+      "detail": "completion evidence must be a JSON object"
+    },
+    {
+      "name": "evidence: string",
+      "passed": true,
+      "detail": "completion evidence must be a JSON object"
+    },
+    {
+      "name": "evidence: list",
+      "passed": true,
+      "detail": "completion evidence must be a JSON object"
+    },
+    {
+      "name": "tracker: null",
+      "passed": true,
+      "detail": "audit tracker readback must be a JSON object"
+    },
+    {
+      "name": "tracker: boolean",
+      "passed": true,
+      "detail": "audit tracker readback must be a JSON object"
+    },
+    {
+      "name": "tracker: number",
+      "passed": true,
+      "detail": "audit tracker readback must be a JSON object"
+    },
+    {
+      "name": "tracker: string",
+      "passed": true,
+      "detail": "audit tracker readback must be a JSON object"
+    },
+    {
+      "name": "tracker: list",
+      "passed": true,
+      "detail": "audit tracker readback must be a JSON object"
+    },
+    {
+      "name": "completion: null",
+      "passed": true,
+      "detail": "tracker completion receipt must be a JSON object"
+    },
+    {
+      "name": "completion: boolean",
+      "passed": true,
+      "detail": "tracker completion receipt must be a JSON object"
+    },
+    {
+      "name": "completion: number",
+      "passed": true,
+      "detail": "tracker completion receipt must be a JSON object"
+    },
+    {
+      "name": "completion: string",
+      "passed": true,
+      "detail": "tracker completion receipt must be a JSON object"
+    },
+    {
+      "name": "completion: list",
+      "passed": true,
+      "detail": "tracker completion receipt must be a JSON object"
+    },
+    {
+      "name": "completed_at: null",
+      "passed": true,
+      "detail": "completion time must be a string"
+    },
+    {
+      "name": "completed_at: boolean",
+      "passed": true,
+      "detail": "completion time must be a string"
+    },
+    {
+      "name": "completed_at: number",
+      "passed": true,
+      "detail": "completion time must be a string"
+    },
+    {
+      "name": "completed_at: object",
+      "passed": true,
+      "detail": "completion time must be a string"
+    },
+    {
+      "name": "completed_at: list",
+      "passed": true,
+      "detail": "completion time must be a string"
+    },
+    {
+      "name": "full report: valid receipt resets cadence",
+      "passed": true,
+      "detail": {
+        "exit_code": 0,
+        "closure_query": "gh issue list --repo pixelelated/distribution --state closed --limit 200 --search closed:>=2026-10-07 reason:completed --json number,closedAt",
+        "report": "ceremony-check (clock since 2026-09-21, today 2026-10-08)\n  ok    issues    fixture history\n  ok    retro     last none since the clock started; 0 of 5 active days\n  ok    friction  every entry since 2026-09-21 has an issue or a guard within 3 days\n  ok    weekly    2026-W40 summary present\n  ok    monthly   2026-09 summary present\n  ok    index     local deterministic control\n  ok    register  local deterministic control\n  ok    rules     every rule file front-mattered and indexed\n  ok    checkboxes local deterministic control\n  ok    audit     last 2026-10-07T02:53:02.029760+00:00 via #524 docs/audits/2026_10_07-shape-control/audit-completion.json; 0 of 12 closed issues, 1 of 14 days\n  ok    futro     last none; no epic since 2026-09-21 without one\n  ok    hygiene   no issue closed completed since 2026-09-21 carries an open checkbox\n\nnothing overdue.\n"
+      }
+    },
+    {
+      "name": "full report: malformed receipt diagnosed without resetting cadence",
+      "passed": true,
+      "detail": {
+        "exit_code": 1,
+        "closure_query": "gh issue list --repo pixelelated/distribution --state closed --limit 200 --search closed:>=2026-09-21 reason:completed --json number,closedAt",
+        "report": "ceremony-check (clock since 2026-09-21, today 2026-10-08)\n  ok    issues    fixture history\n  ok    retro     last none since the clock started; 0 of 5 active days\n  ok    friction  every entry since 2026-09-21 has an issue or a guard within 3 days\n  ok    weekly    2026-W40 summary present\n  ok    monthly   2026-09 summary present\n  ok    index     local deterministic control\n  ok    register  local deterministic control\n  ok    rules     every rule file front-mattered and indexed\n  ok    checkboxes local deterministic control\n  DUE   audit     OVERDUE: 0 closed, 17 days since 2026-09-21\n  ok    futro     last none; no epic since 2026-09-21 without one\n  ok    hygiene   no issue closed completed since 2026-09-21 carries an open checkbox\n\n2 overdue. 0 refuse a push of next; every one keeps the fork CI red until its artifact exists:\n  - [CI] audit: invalid completion marker /tmp/audit-receipt-shapes-d8lu1em6/docs/audits/2026_10_07-shape-control/audit-completion.json: completion marker must be a JSON object\n  - [CI] audit: 0 issues closed and 17 days since 2026-09-21 (cadence 12 issues or 14 days) -- run the code-auditor skill\n"
+      }
+    }
+  ],
+  "tool_sha256": "30d997190473a9b75447673dffd2ac5a9133555944e6b443b9163345b78303c0"
+}

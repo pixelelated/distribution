@@ -1,0 +1,13 @@
+{
+  "command": [
+    "timeout",
+    "600",
+    "python3",
+    "-I",
+    "-B",
+    "/workspace/repos/rocknix.worktrees/m7-p5-audit-507/docs/audits/2026_10_08-milestone-m7-p5-delta-507/resolution/PL-002/controls01/checks.py"
+  ],
+  "cwd": "/workspace/repos/rocknix.worktrees/m7-audit507-tools",
+  "frozen_head": "ac64c80628ad6d5a69b803d82f186472529f7cd7",
+  "scope": "PL-002remediation; exact modified file hashes sealed independently of base commit"
+}

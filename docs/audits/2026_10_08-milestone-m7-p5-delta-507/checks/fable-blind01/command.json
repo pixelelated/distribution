@@ -1,0 +1,22 @@
+{
+  "command": [
+    "timeout",
+    "2400",
+    "tools/council/run",
+    "invoke",
+    "--member",
+    "claude",
+    "--provider",
+    "openrouter",
+    "--prompt-file",
+    "/workspace/repos/rocknix.worktrees/m7-p5-audit-507/docs/audits/2026_10_08-milestone-m7-p5-delta-507/second-opinions/claude-blind-brief.md",
+    "--output",
+    "/workspace/repos/rocknix.worktrees/m7-p5-audit-507/docs/audits/2026_10_08-milestone-m7-p5-delta-507/second-opinions/claude-blind.md",
+    "--no-retry"
+  ],
+  "cwd": "/workspace/repos/rocknix.worktrees/m7-p5-audit-507",
+  "frozen_head": "ac64c80628ad6d5a69b803d82f186472529f7cd7",
+  "timeout_seconds": 2400,
+  "retry": "disabled; any failed call is retained and diagnosed, no automatic retry",
+  "approval": "second-opinions/transfer-approval.json"
+}

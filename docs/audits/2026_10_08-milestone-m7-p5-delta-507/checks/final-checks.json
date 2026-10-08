@@ -1,0 +1,43 @@
+{
+  "mode": "finite foreground commands, each timeout 45 seconds; exec caller actively consumes completion",
+  "results": [
+    {
+      "name": "rules",
+      "command": [
+        "tools/rules-check"
+      ],
+      "start_utc": "2026-10-08T17:24:52.510991+00:00",
+      "end_utc": "2026-10-08T17:24:52.544019+00:00",
+      "returncode": 0
+    },
+    {
+      "name": "register",
+      "command": [
+        "tools/register-check"
+      ],
+      "start_utc": "2026-10-08T17:24:52.544033+00:00",
+      "end_utc": "2026-10-08T17:24:53.915299+00:00",
+      "returncode": 0
+    },
+    {
+      "name": "work-log-index",
+      "command": [
+        "tools/work-log-index",
+        "--check"
+      ],
+      "start_utc": "2026-10-08T17:24:53.915322+00:00",
+      "end_utc": "2026-10-08T17:24:53.947575+00:00",
+      "returncode": 0
+    },
+    {
+      "name": "ceremony-gate",
+      "command": [
+        "tools/ceremony-check",
+        "--gate"
+      ],
+      "start_utc": "2026-10-08T17:24:53.947590+00:00",
+      "end_utc": "2026-10-08T17:25:02.242610+00:00",
+      "returncode": 0
+    }
+  ]
+}

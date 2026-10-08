@@ -1,0 +1,43 @@
+{
+  "utc": "2026-10-08T15:35:16.003142+00:00",
+  "source_sha256": "eda69f089b4ee544b62e6ed2f4f7e02b8d7dedcc5800a548f96c5fb073e0acc6",
+  "scope": "Host-only checker; no VM/runtime/provider claims. Native host is the correct target for this Python host guard.",
+  "checks": [
+    {
+      "shape": "valid",
+      "observed": "accepted",
+      "detail": "(datetime.datetime(2026, 10, 7, 2, 53, 2, 29760, tzinfo=datetime.timezone.utc), 471)",
+      "expected": "accepted",
+      "matches_bug_control": true
+    },
+    {
+      "shape": "marker-list",
+      "observed": "AttributeError",
+      "detail": "'list' object has no attribute 'get'",
+      "expected": "handled invalid marker (ValueError/KeyError/TypeError/OSError)",
+      "matches_bug_control": true
+    },
+    {
+      "shape": "evidence-list",
+      "observed": "AttributeError",
+      "detail": "'list' object has no attribute 'items'",
+      "expected": "handled invalid marker (ValueError/KeyError/TypeError/OSError)",
+      "matches_bug_control": true
+    },
+    {
+      "shape": "tracker-list",
+      "observed": "AttributeError",
+      "detail": "'list' object has no attribute 'get'",
+      "expected": "handled invalid marker (ValueError/KeyError/TypeError/OSError)",
+      "matches_bug_control": true
+    },
+    {
+      "shape": "completion-list",
+      "observed": "AttributeError",
+      "detail": "'list' object has no attribute 'get'",
+      "expected": "handled invalid marker (ValueError/KeyError/TypeError/OSError)",
+      "matches_bug_control": true
+    }
+  ],
+  "confirmed": true
+}

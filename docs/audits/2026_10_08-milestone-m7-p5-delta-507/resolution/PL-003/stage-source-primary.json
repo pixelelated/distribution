@@ -1,0 +1,42 @@
+{
+  "utc": "2026-10-08T16:50:09.973067+00:00",
+  "result": "PASS initial target overlay binding; reused first5 source-lifecycle chronology pending raw boot-list custody requested from root",
+  "frozen_distribution": "ac64c80628ad6d5a69b803d82f186472529f7cd7",
+  "staged_distribution_record": "95a03b2eb1b0ec1ab501a752be4f40d5f425bb43",
+  "installed_files_match_frozen_sources_and_actual_readback": [
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_backup",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_restore",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_sync_helper",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_setup",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_folder_validate",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_remote",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_device_id",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_oauth",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_content_restore",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_content_backup",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_content_transfer",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_sync_cleanup_duplicates.sh",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_saves_root",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_capture",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_log_scrub",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_net_ready",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_scan",
+    "projects/ROCKNIX/packages/network/rclone/sources/rasteratops-settings-archive",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_sync-rules.txt",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_sync.conf",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_sync.conf.defaults",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_sync-rules.txt.defaults"
+  ],
+  "running_es_hash": "e80b09fdee07043468154a4c9f9ec0a4fb7bdc9ba82f7c9d806b048d5cd3b010",
+  "running_pid": 4457,
+  "catalog_hash": "f056223d0fa947a7c9790c914b7696586b168e33135c627ebbc4d1d6d530dfb4",
+  "evidence": {
+    "install-manifest.json": "5d14c1e051421c88ad48125e62733aac856220e1eb363cfbdf85633e5c20bba9",
+    "installed-readback.json": "959dbacf51262f985a55244773bdbf3944d3ff569a8791d79860a1557421e219",
+    "installed-readback.txt": "37be4d65c12e6852b3f97dbfc9f551390d1d5d273232b87101489f2f6b9afae3",
+    "running-artifact.txt": "c713416573feec7383ccc66d03faa22fe49093739341a048389ed09ab94eed76",
+    "stage.sh": "f0ee867b3329dd6e5497b943aa42cfddd49ecb3b0392e32cff094b12e1abd0a3",
+    "guest-setup.sh": "3dd44e5fb7a8d55ee68ce325baee5879c8420bdeb8cc489c7411c61c220cf175"
+  },
+  "limit": "Source overlay, not new firmware; initial actual running hash and bind-mount lifecycle are distinct from later per-case guards."
+}

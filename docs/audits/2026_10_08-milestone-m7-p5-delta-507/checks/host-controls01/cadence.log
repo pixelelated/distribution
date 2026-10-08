@@ -1,0 +1,66 @@
+{
+  "result": "PASS",
+  "controls": [
+    {
+      "name": "valid underscore-date phased audit",
+      "passed": true
+    },
+    {
+      "name": "missing required evidence",
+      "passed": true
+    },
+    {
+      "name": "tampered evidence",
+      "passed": true
+    },
+    {
+      "name": "future completion",
+      "passed": true
+    },
+    {
+      "name": "unbound completion timestamp",
+      "passed": true
+    },
+    {
+      "name": "naive timestamp",
+      "passed": true
+    },
+    {
+      "name": "wrong issue identity",
+      "passed": true
+    },
+    {
+      "name": "unchecked closed audit",
+      "passed": true
+    },
+    {
+      "name": "open audit",
+      "passed": true
+    },
+    {
+      "name": "unverified tracker completion",
+      "passed": true
+    },
+    {
+      "name": "malformed schema",
+      "passed": true
+    },
+    {
+      "name": "unsafe absolute evidence",
+      "passed": true
+    },
+    {
+      "name": "malformed JSON",
+      "passed": true
+    },
+    {
+      "name": "only later closures count, same-day and exact-time boundary",
+      "passed": true
+    },
+    {
+      "name": "existing 12-closure/14-day policy unchanged",
+      "passed": true
+    }
+  ],
+  "tool_sha256": "eda69f089b4ee544b62e6ed2f4f7e02b8d7dedcc5800a548f96c5fb073e0acc6"
+}

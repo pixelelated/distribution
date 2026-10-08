@@ -1,0 +1,26 @@
+{
+  "rc": 0,
+  "public_ref": "c445081a59518f37d9776e5412dd7b14910696f7",
+  "public_conf_sha256": "e43cae4589b3c00b38fac1ae44b11759d8285e020c31dba429a28f97e24527b3",
+  "pointers": {
+    "BACKUPPATH": "/storage/roms",
+    "RESTOREPATH": "/storage/roms",
+    "BACKUPFOLDER": "/storage/roms/backup",
+    "SYNCPATH": "/GAMES",
+    "SYNCPATH_BACKUP": "/GAMES/backup",
+    "LOG_LEVEL": "INFO",
+    "BACKUPMETHOD": "copy",
+    "BACKUPFILE_BACKUP_OPTION": "yes",
+    "RESTOREMETHOD": "copy",
+    "BACKUPFILE_RESTORE_OPTION": "no",
+    "RSYNCRMDIR": "yes",
+    "CONTENT_REMOTE": "Separate/Library",
+    "SAVESPATH": "/storage/roms",
+    "SETTINGS_BACKUPS": "/storage/roms/backup",
+    "SAVES_REMOTE": "/GAMES",
+    "SETTINGS_REMOTE": "/GAMES/backup",
+    "RCLONE_NET_OPTS": "--contimeout 15s --timeout 30s --low-level-retries 10 --retries 1",
+    "RCLONE_SYNC_NET_OPTS": "--contimeout 5s --timeout 5s --retries 1 --max-duration 90s --low-level-retries 5 --transfers 1",
+    "CLOUD_BACKUP_KEEP": "3"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "gh",
+    "issue",
+    "list",
+    "--repo",
+    "pixelelated/distribution",
+    "--state",
+    "closed",
+    "--limit",
+    "200",
+    "--search",
+    "closed:>=2026-10-07 reason:completed",
+    "--json",
+    "number,closedAt"
+  ],
+  "utc": "2026-10-08T15:14:48.775063+00:00",
+  "rc": 0
+}

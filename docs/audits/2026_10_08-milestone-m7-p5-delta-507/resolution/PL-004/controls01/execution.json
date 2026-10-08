@@ -1,0 +1,86 @@
+{
+  "inputs_before": {
+    "/workspace/repos/rocknix.worktrees/m7-audit507-tools/tools/ceremony-check": "30d997190473a9b75447673dffd2ac5a9133555944e6b443b9163345b78303c0",
+    "/workspace/repos/rocknix.worktrees/m7-p5-audit-507/tools/ceremony-check": "eda69f089b4ee544b62e6ed2f4f7e02b8d7dedcc5800a548f96c5fb073e0acc6",
+    "/workspace/repos/rocknix.worktrees/m7-audit507-tools/docs/qa-logs/2026-10-08-audit-receipt-shapes/test-receipt-shapes.py": "849ce349121ba0348535bb86c4a0390822439fafa9cc3849933636318eee979d",
+    "/workspace/repos/rocknix.worktrees/m7-audit507-tools/docs/qa-logs/2026-10-07-audit-cadence/test-cadence.py": "91e20c97b4c7be1306bbce2e692335ef0bad2e58871968695be5303fcc1e0248"
+  },
+  "inputs_after": {
+    "/workspace/repos/rocknix.worktrees/m7-audit507-tools/tools/ceremony-check": "30d997190473a9b75447673dffd2ac5a9133555944e6b443b9163345b78303c0",
+    "/workspace/repos/rocknix.worktrees/m7-p5-audit-507/tools/ceremony-check": "eda69f089b4ee544b62e6ed2f4f7e02b8d7dedcc5800a548f96c5fb073e0acc6",
+    "/workspace/repos/rocknix.worktrees/m7-audit507-tools/docs/qa-logs/2026-10-08-audit-receipt-shapes/test-receipt-shapes.py": "849ce349121ba0348535bb86c4a0390822439fafa9cc3849933636318eee979d",
+    "/workspace/repos/rocknix.worktrees/m7-audit507-tools/docs/qa-logs/2026-10-07-audit-cadence/test-cadence.py": "91e20c97b4c7be1306bbce2e692335ef0bad2e58871968695be5303fcc1e0248"
+  },
+  "mode": "finite foreground subprocesses, 20-second bound each, completion consumed directly; no watcher claimed",
+  "results": [
+    {
+      "name": "frozen-shapes",
+      "command": [
+        "python3",
+        "-I",
+        "-B",
+        "/workspace/repos/rocknix.worktrees/m7-audit507-tools/docs/qa-logs/2026-10-08-audit-receipt-shapes/test-receipt-shapes.py",
+        "/workspace/repos/rocknix.worktrees/m7-p5-audit-507/tools/ceremony-check"
+      ],
+      "timeout_seconds": 20,
+      "start_utc": "2026-10-08T17:19:17.072189+00:00",
+      "duration_seconds": 0.07870323793031275,
+      "returncode": 1,
+      "expected_returncode": 1
+    },
+    {
+      "name": "fixed-shapes",
+      "command": [
+        "python3",
+        "-I",
+        "-B",
+        "/workspace/repos/rocknix.worktrees/m7-audit507-tools/docs/qa-logs/2026-10-08-audit-receipt-shapes/test-receipt-shapes.py",
+        "/workspace/repos/rocknix.worktrees/m7-audit507-tools/tools/ceremony-check"
+      ],
+      "timeout_seconds": 20,
+      "start_utc": "2026-10-08T17:19:17.150912+00:00",
+      "duration_seconds": 0.058003610000014305,
+      "returncode": 0,
+      "expected_returncode": 0
+    },
+    {
+      "name": "existing-cadence",
+      "command": [
+        "python3",
+        "-I",
+        "-B",
+        "/workspace/repos/rocknix.worktrees/m7-audit507-tools/docs/qa-logs/2026-10-07-audit-cadence/test-cadence.py",
+        "/workspace/repos/rocknix.worktrees/m7-audit507-tools/tools/ceremony-check"
+      ],
+      "timeout_seconds": 20,
+      "start_utc": "2026-10-08T17:19:17.208933+00:00",
+      "duration_seconds": 0.03236320009455085,
+      "returncode": 0,
+      "expected_returncode": 0
+    },
+    {
+      "name": "rules",
+      "command": [
+        "/workspace/repos/rocknix.worktrees/m7-audit507-tools/tools/rules-check"
+      ],
+      "timeout_seconds": 20,
+      "start_utc": "2026-10-08T17:19:17.241306+00:00",
+      "duration_seconds": 0.0238183350302279,
+      "returncode": 0,
+      "expected_returncode": 0
+    },
+    {
+      "name": "diff",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "timeout_seconds": 20,
+      "start_utc": "2026-10-08T17:19:17.265134+00:00",
+      "duration_seconds": 0.16691662895027548,
+      "returncode": 0,
+      "expected_returncode": 0
+    }
+  ]
+}

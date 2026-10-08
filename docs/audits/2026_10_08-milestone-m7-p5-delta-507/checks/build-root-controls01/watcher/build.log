@@ -1,0 +1,42 @@
+PASS box86-original-pixelelated-aarch64-present payload=False
+PASS box86-fixed-pixelelated-aarch64-present payload=True
+PASS box86-original-ROCKNIX-aarch64-present payload=True
+PASS box86-fixed-ROCKNIX-aarch64-present payload=True
+PASS lib32-original-pixelelated-aarch64-present payload=False
+PASS lib32-fixed-pixelelated-aarch64-present payload=True
+PASS lib32-original-ROCKNIX-aarch64-present payload=True
+PASS lib32-fixed-ROCKNIX-aarch64-present payload=True
+PASS gpsp-lr-original-pixelelated-aarch64-present payload=False
+PASS gpsp-lr-fixed-pixelelated-aarch64-present payload=True
+PASS gpsp-lr-original-ROCKNIX-aarch64-present payload=True
+PASS gpsp-lr-fixed-ROCKNIX-aarch64-present payload=True
+PASS desmume-lr-original-pixelelated-aarch64-present payload=False
+PASS desmume-lr-fixed-pixelelated-aarch64-present payload=True
+PASS desmume-lr-original-ROCKNIX-aarch64-present payload=True
+PASS desmume-lr-fixed-ROCKNIX-aarch64-present payload=True
+PASS daedalusx64-sa-original-pixelelated-aarch64-present payload=False
+PASS daedalusx64-sa-fixed-pixelelated-aarch64-present payload=True
+PASS daedalusx64-sa-original-ROCKNIX-aarch64-present payload=True
+PASS daedalusx64-sa-fixed-ROCKNIX-aarch64-present payload=True
+PASS retroarch-original-pixelelated-aarch64-present payload=False
+PASS retroarch-fixed-pixelelated-aarch64-present payload=True
+PASS retroarch-original-ROCKNIX-aarch64-present payload=True
+PASS retroarch-fixed-ROCKNIX-aarch64-present payload=True
+PASS box86-original-ROCKNIX-arm-present payload=True
+PASS box86-original-pixelelated-arm-present payload=False
+PASS box86-fixed-ROCKNIX-arm-present payload=True
+PASS box86-fixed-pixelelated-arm-present payload=True
+PASS box86-fixed-pixelelated-aarch64-missing payload=False
+PASS lib32-fixed-pixelelated-aarch64-missing payload=False
+PASS gpsp-lr-fixed-pixelelated-aarch64-missing payload=False
+PASS desmume-lr-fixed-pixelelated-aarch64-missing payload=False
+PASS daedalusx64-sa-fixed-pixelelated-aarch64-missing payload=False
+PASS retroarch-fixed-pixelelated-aarch64-missing payload=False
+PASS lifecycle-original-ROCKNIX-same-device
+PASS lifecycle-original-ROCKNIX-alias
+PASS lifecycle-original-pixelelated-same-device
+PASS lifecycle-original-pixelelated-alias
+PASS lifecycle-fixed-ROCKNIX-same-device
+PASS lifecycle-fixed-ROCKNIX-alias
+PASS lifecycle-fixed-pixelelated-same-device
+PASS lifecycle-fixed-pixelelated-alias

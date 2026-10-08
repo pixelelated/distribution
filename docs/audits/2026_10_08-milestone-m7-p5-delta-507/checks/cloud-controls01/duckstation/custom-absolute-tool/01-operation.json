@@ -1,0 +1,171 @@
+{
+  "argv": [
+    "bwrap",
+    "--die-with-parent",
+    "--unshare-all",
+    "--new-session",
+    "--tmpfs",
+    "/",
+    "--dir",
+    "/usr/bin",
+    "--symlink",
+    "usr/bin",
+    "/bin",
+    "--symlink",
+    "usr/lib",
+    "/lib",
+    "--ro-bind",
+    "/usr/lib",
+    "/usr/lib",
+    "--ro-bind",
+    "/usr/lib64",
+    "/usr/lib64",
+    "--ro-bind",
+    "/usr/share",
+    "/usr/share",
+    "--symlink",
+    "usr/lib64",
+    "/lib64",
+    "--ro-bind",
+    "/usr/bin/bash",
+    "/usr/bin/bash",
+    "--ro-bind",
+    "/usr/lib/cargo/bin/coreutils/env",
+    "/usr/bin/env",
+    "--ro-bind",
+    "/usr/lib/cargo/bin/coreutils/mkdir",
+    "/usr/bin/mkdir",
+    "--ro-bind",
+    "/usr/bin/gnucp",
+    "/usr/bin/cp",
+    "--ro-bind",
+    "/usr/bin/gnurm",
+    "/usr/bin/rm",
+    "--ro-bind",
+    "/usr/lib/cargo/bin/coreutils/ln",
+    "/usr/bin/ln",
+    "--ro-bind",
+    "/usr/bin/sed",
+    "/usr/bin/sed",
+    "--ro-bind",
+    "/usr/lib/cargo/bin/coreutils/cat",
+    "/usr/bin/cat",
+    "--ro-bind",
+    "/usr/lib/cargo/bin/coreutils/install",
+    "/usr/bin/install",
+    "--ro-bind",
+    "/usr/bin/python3.14",
+    "/usr/bin/python3",
+    "--ro-bind",
+    "/workspace/repos/rocknix.worktrees/m7-p5-audit-507/docs/audits/2026_10_08-milestone-m7-p5-delta-507/checks/cloud-controls01/duckstation/custom-absolute-tool/source/probe",
+    "/usr/bin/duckstation-sa",
+    "--ro-bind",
+    "/workspace/repos/rocknix.worktrees/m7-p5-audit-507/docs/audits/2026_10_08-milestone-m7-p5-delta-507/checks/cloud-controls01/duckstation/custom-absolute-tool/source/entry",
+    "/entry",
+    "--ro-bind",
+    "/workspace/repos/rocknix.worktrees/m7-p5-audit-507/docs/audits/2026_10_08-milestone-m7-p5-delta-507/checks/cloud-controls01/duckstation/custom-absolute-tool/source/profile",
+    "/etc/profile",
+    "--ro-bind",
+    "/workspace/repos/rocknix.worktrees/m7-p5-audit-507/docs/audits/2026_10_08-milestone-m7-p5-delta-507/checks/cloud-controls01/duckstation/custom-absolute-tool/source/seed",
+    "/usr/config/duckstation/settings.ini",
+    "--ro-bind",
+    "/workspace/repos/rocknix.worktrees/m7-p5-audit-507/docs/audits/2026_10_08-milestone-m7-p5-delta-507/checks/cloud-controls01/duckstation/custom-absolute-tool/source/gamecontrollerdb.txt",
+    "/usr/config/SDL-GameControllerDB/gamecontrollerdb.txt",
+    "--ro-bind",
+    "/workspace/repos/rocknix.worktrees/m7-p5-audit-507/docs/audits/2026_10_08-milestone-m7-p5-delta-507/checks/cloud-controls01/duckstation/custom-absolute-tool/source/rules",
+    "/rules",
+    "--ro-bind",
+    "/tmp/pixelelated-rc-rclone/rclone",
+    "/rclone.real",
+    "--ro-bind",
+    "/workspace/repos/rocknix.worktrees/m7-p5-audit-507/docs/audits/2026_10_08-milestone-m7-p5-delta-507/checks/cloud-controls01/duckstation/custom-absolute-tool/source/helper",
+    "/usr/bin/duckstation_screenshot_path",
+    "--bind",
+    "/workspace/repos/rocknix.worktrees/m7-p5-audit-507/docs/audits/2026_10_08-milestone-m7-p5-delta-507/checks/cloud-controls01/duckstation/custom-absolute-tool/storage",
+    "/storage",
+    "--bind",
+    "/workspace/repos/rocknix.worktrees/m7-p5-audit-507/docs/audits/2026_10_08-milestone-m7-p5-delta-507/checks/cloud-controls01/duckstation/custom-absolute-tool/ctl",
+    "/ctl",
+    "--bind",
+    "/workspace/repos/rocknix.worktrees/m7-p5-audit-507/docs/audits/2026_10_08-milestone-m7-p5-delta-507/checks/cloud-controls01/duckstation/custom-absolute-tool/cloud",
+    "/cloud",
+    "--dev",
+    "/dev",
+    "--proc",
+    "/proc",
+    "--tmpfs",
+    "/tmp",
+    "--chdir",
+    "/storage",
+    "--setenv",
+    "HOME",
+    "/storage",
+    "--setenv",
+    "PATH",
+    "/usr/bin:/bin",
+    "--setenv",
+    "CAPTURE_PROBE",
+    "no",
+    "/bin/bash",
+    "/entry",
+    "/storage/roms/psx/fixture.chd",
+    "psx"
+  ],
+  "rc": 0,
+  "stdout": "'/storage/.local/share/duckstation' -> '/storage/.config/duckstation'\n",
+  "stderr": "",
+  "before": {
+    ".config/duckstation/memcards": {
+      "link": "/storage/roms/psx/duckstation/memcards"
+    },
+    ".config/duckstation/savestates": {
+      "link": "/storage/roms/savestates/psx"
+    },
+    ".config/duckstation/settings.ini": {
+      "bytes": 62,
+      "sha256": "5bde28ba0dc93ddc7256a0d7e86fd5a9be1f262ddbaacf8210c598e0c2dfe037"
+    },
+    "custom-captures/historical.png": {
+      "bytes": 15,
+      "sha256": "f8b507b27d5333686bc5fa34c68280b142294efdff2c9abe867e8aa8867d57ea"
+    },
+    "roms/psx/duckstation/memcards/existing.bin": {
+      "bytes": 20,
+      "sha256": "2cf6f9502af930012f0da2474a1079432cf96a5fe18b264999c4295f9a7efe37"
+    },
+    "roms/savestates/psx/existing.bin": {
+      "bytes": 20,
+      "sha256": "2cf6f9502af930012f0da2474a1079432cf96a5fe18b264999c4295f9a7efe37"
+    }
+  },
+  "after": {
+    ".config/duckstation/gamecontrollerdb.txt": {
+      "link": "/usr/config/SDL-GameControllerDB/gamecontrollerdb.txt"
+    },
+    ".config/duckstation/memcards": {
+      "link": "/storage/roms/psx/duckstation/memcards"
+    },
+    ".config/duckstation/savestates": {
+      "link": "/storage/roms/savestates/psx"
+    },
+    ".config/duckstation/settings.ini": {
+      "bytes": 62,
+      "sha256": "5bde28ba0dc93ddc7256a0d7e86fd5a9be1f262ddbaacf8210c598e0c2dfe037"
+    },
+    ".local/share/duckstation": {
+      "link": "/storage/.config/duckstation"
+    },
+    "custom-captures/historical.png": {
+      "bytes": 15,
+      "sha256": "f8b507b27d5333686bc5fa34c68280b142294efdff2c9abe867e8aa8867d57ea"
+    },
+    "roms/psx/duckstation/memcards/existing.bin": {
+      "bytes": 20,
+      "sha256": "2cf6f9502af930012f0da2474a1079432cf96a5fe18b264999c4295f9a7efe37"
+    },
+    "roms/savestates/psx/existing.bin": {
+      "bytes": 20,
+      "sha256": "2cf6f9502af930012f0da2474a1079432cf96a5fe18b264999c4295f9a7efe37"
+    }
+  }
+}

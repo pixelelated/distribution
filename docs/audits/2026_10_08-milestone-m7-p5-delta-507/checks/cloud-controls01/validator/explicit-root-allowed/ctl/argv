@@ -1,0 +1,18 @@
+listremotes
+mkdir --s3-directory-markers qa:ROMs --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+mkdir --s3-directory-markers qa:BIOS --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf --files-only qa:ROMs/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+copyto --ignore-existing /tmp/tmp.DCFxJmkUVi qa:ROMs/README.txt --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf --files-only qa:BIOS/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+copyto --ignore-existing /tmp/tmp.D4TBOxRpk7 qa:BIOS/README.txt --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:ROMs --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:BIOS --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+listremotes
+config file
+listremotes
+config file
+lsjson qa: --recursive --max-depth 1 --no-mimetype --no-modtime --retries 1 --low-level-retries 1 --contimeout 3s --timeout 5s --max-duration 6s
+lsjson qa:ROMs --recursive --max-depth 3 --no-mimetype --no-modtime --retries 1 --low-level-retries 1 --contimeout 3s --timeout 5s --max-duration 6s
+lsjson qa:BIOS --recursive --max-depth 3 --no-mimetype --no-modtime --retries 1 --low-level-retries 1 --contimeout 3s --timeout 5s --max-duration 6s
+listremotes
+config file

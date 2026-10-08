@@ -1,0 +1,26 @@
+[
+  [
+    "timeout",
+    "30",
+    "python3",
+    "-I",
+    "-B",
+    "/workspace/repos/rocknix.worktrees/m7-p5-audit-507/docs/audits/2026_10_08-milestone-m7-p5-delta-507/resolution/PL-002/controls01/probe.py"
+  ],
+  [
+    "timeout",
+    "480",
+    "tools/pixelelated-cloud-validator-test",
+    "--output",
+    "/workspace/repos/rocknix.worktrees/m7-p5-audit-507/docs/audits/2026_10_08-milestone-m7-p5-delta-507/resolution/PL-002/controls01/validator",
+    "--rclone",
+    "/tmp/pixelelated-rc-rclone/rclone"
+  ],
+  [
+    "tools/pkgcheck",
+    "projects/ROCKNIX/packages/network/rclone"
+  ],
+  [
+    "tools/rules-check"
+  ]
+]

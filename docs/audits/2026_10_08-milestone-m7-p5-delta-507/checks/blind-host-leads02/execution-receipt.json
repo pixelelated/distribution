@@ -1,0 +1,18 @@
+{
+  "start_utc": "2026-10-08T15:35:15.972256+00:00",
+  "end_utc": "2026-10-08T15:35:16.007368+00:00",
+  "command": [
+    "timeout",
+    "15",
+    "python3",
+    "-I",
+    "-B",
+    "/workspace/repos/rocknix.worktrees/m7-p5-audit-507/docs/audits/2026_10_08-milestone-m7-p5-delta-507/checks/blind-host-leads02/probe.py"
+  ],
+  "returncode": 0,
+  "source_before": "eda69f089b4ee544b62e6ed2f4f7e02b8d7dedcc5800a548f96c5fb073e0acc6",
+  "source_after": "eda69f089b4ee544b62e6ed2f4f7e02b8d7dedcc5800a548f96c5fb073e0acc6",
+  "source_unchanged": true,
+  "mode": "short finite foreground host check, 15s hard bound; exec caller consumes completion directly; no watcher claimed",
+  "preceding_attempt": "blind-host-leads01 watcher refused second monitored owner rc2 before executing probe; retained unchanged"
+}

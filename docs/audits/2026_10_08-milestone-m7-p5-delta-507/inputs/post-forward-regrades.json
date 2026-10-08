@@ -1,0 +1,12 @@
+[
+  {
+    "id": "AC-504-04",
+    "original_verdict": "PARTIAL",
+    "effective_verdict": "UNTESTABLE",
+    "phase": "4.5",
+    "utc": "2026-10-08T09:21:24.754830+00:00",
+    "evidence": "inputs/issues/504.json body sections Acceptance criteria and Evidence and limits",
+    "reason": "Full #504 body explicitly identifies retained local evidence, not an already-published commit. The criterion says retained under a path, not publicly committed. A public publication requirement was inferred incorrectly. Private source-reading commands/outputs remain unopened, so the criterion is UNTESTABLE within this audit boundary, not a documentation defect.",
+    "finding": "F-02 withdrawn by primary self-refutation"
+  }
+]

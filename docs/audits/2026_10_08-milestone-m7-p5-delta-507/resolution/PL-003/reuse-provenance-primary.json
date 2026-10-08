@@ -1,0 +1,45 @@
+{
+  "utc": "2026-10-08T16:53:46.162715+00:00",
+  "result": "PASS reuse provenance for first5matrix02 and2matrix04; remaining37matrix05 pending",
+  "accepted_sources": {
+    "matrix02": 5,
+    "matrix04": 2
+  },
+  "matrix02_identity_chain": [
+    "stage01 actual /proc/4457/exe and FR catalog hashes match verified build outputs",
+    "22 installed backend bytes match frozen audit source",
+    "stage01 bind-mount setup persists across ES service restart; reviewed matrix01/02 scripts do not replace ES/catalog",
+    "first5matrix02 timestamps16:33\u201316:34UTC precede prior boot end12:37:34EDT; actual new-copy frames corroborate identity",
+    "retained raw journal boot list confirms prior boot12:18:18\u201312:37:34EDT and next boot12:37:51EDT"
+  ],
+  "prior_boot_journal_command_reported_by_owner": "journalctl -b -1 --since '2026-10-08 12:37:25' --until '2026-10-08 12:37:40' --no-pager | tail -95; credential filter",
+  "matrix04_limit": "Two real-provider cases have6identical per-case guards; later fixture self-recursion does not invalidate them. Busy case rejected, exact signal termination retained by root.",
+  "fixture_cause": "Direct mountinfo shared:3 aliases show injected wrapper reached frozen delegate. Root made owned guest mounts private and restored exact independent delegate/current helper. No product change or asserted reboot cause.",
+  "classification_correction": "Reused matrix02 blank frame is frontend empty-field refusal; original row generic backend-attempt label is overly broad and must be narrowed in final index.",
+  "hashes": {
+    "matrix04/bind-mount-diagnostic.txt": "a77d9431a5e9bbee15f3d77954cdc043b8f3c0b07b9bb30140424abbec0d3c11",
+    "matrix04/private-helper-correction.log": "4736a93667d3b0dc96dc33b67635823f04bb25be199bb205e36ec480ad570939",
+    "matrix04/busy-diagnostic.txt": "42e418de121dd1c21e71a88ab80fd35ce2cbeab759dab9125912c09a536d931f",
+    "matrix03/prior-boot-end.log": "71519badab8c91393edd7adbced08316d41b0d98b240e295978b11aa0bbec231"
+  },
+  "active_owner": "/workspace/tmp/pixelelated-524-path-refusal/matrix05",
+  "actual_watcher": "/workspace/tmp/pixelelated-524-path-refusal/matrix05/.build-runs/20261008T165127Z-f330a2d1",
+  "observed_host_states": {
+    "build.pid": {
+      "pid": 3304446,
+      "exists": true
+    },
+    "command.pid": {
+      "pid": 3304475,
+      "exists": true
+    },
+    "watcher.pid": {
+      "pid": 3304447,
+      "exists": true
+    },
+    "launcher": {
+      "pid": 3304445,
+      "exists": true
+    }
+  }
+}

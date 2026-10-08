@@ -1,0 +1,33 @@
+{
+  "utc": "2026-10-08T16:04:26.447614+00:00",
+  "result": "PASS",
+  "source_commit": "44c87473bd0eed1acab1ae657d66d0def464f6d0",
+  "integrated_source_commit": "2cc6ce30e3181d4dd570d42651d3f6492582feb7",
+  "published_next": "95a03b2eb1b0ec1ab501a752be4f40d5f425bb43",
+  "remote_equal": true,
+  "branches_containing_integrated_source": [
+    "next"
+  ],
+  "source_blobs": [
+    {
+      "path": "tools/pixelelated-cloud-folder-test",
+      "sha256": "33adc3915844f0b8dd3e4fe76d621639305a6b2a9ef24a6d75415f92d81be65c",
+      "published_equals_tested": true
+    },
+    {
+      "path": "tools/pixelelated-cloud-folder-vm-test",
+      "sha256": "2f994ff80115fabbb1c1c04796d52fad4fcdb47f1e6e3a4f50c351ba9ba28316",
+      "published_equals_tested": true
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/rclone/package.mk",
+      "sha256": "898ba776df56460af6fae1b0c55d2d0d609dafee05bad4bb28260a8d6466cd05",
+      "published_equals_tested": true
+    }
+  ],
+  "canonical_rows": [
+    "| `pixelelated-cloud-folder-test` | retired implicit-seeding/derived-pointer contract; refuses execution; current host coverage is `pixelelated-cloud-validator-test` | `rclone-cloud-sync.md` |",
+    "| `pixelelated-cloud-folder-vm-test` | retired historical overlay contract; refuses execution; current target coverage uses `vm-qa`, `cloud-round-trip` and canonical cloud-folder flows | `generic-x64-vm-testing.md` |"
+  ],
+  "tests": "controls01/verified-completion.json"
+}

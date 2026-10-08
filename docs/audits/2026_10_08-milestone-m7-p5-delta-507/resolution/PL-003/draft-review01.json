@@ -1,0 +1,26 @@
+{
+  "utc": "2026-10-08T16:15:38.570294+00:00",
+  "status": "PRELIMINARY read-only draft source review, not acceptance",
+  "owner": "root",
+  "base": "4e410dc9a816cc947f16235ad2b24824b29dd84e",
+  "files": {
+    "es-app/src/CloudText.cpp": "5ae935a769e1c46e30c706e695cddfa625097905d41fdec546e38fb11137e248",
+    "es-app/src/CloudText.h": "7b5fa974084e54e8a863fbb6e6ef24e85e1858a8a8c5268cdfa64cccce45163a",
+    "es-app/src/guis/GuiMenu.cpp": "fa68556d176a956d3bcee63a5d45b63c029f65798986dab3c7df15e458d51292",
+    "es-app/tests/unit/CloudTextTests.cpp": "d167c8237540b98c84597fc2acdc77b930b790b6dd3a07452bed9711a76994b9",
+    "locale/emulationstation2.pot": "65b7118208e5c57ac1eaea8282d63320ed45eff874de13c9099e118c26c29f19",
+    "locale/lang/fr/LC_MESSAGES/emulationstation2.po": "b3337a87b22577b60e9677d4ca48a5ff09caec2e614b368a19b39580d57b9366"
+  },
+  "observations": [
+    "Exact fixed backend lines map to bounded enum; arbitrary provider text and suggested paths are not passed to UI.",
+    "executeScriptLegacy removes newline before callback; actual adapter matching is consistent.",
+    "Reason remains worker-local and crosses callback boundary as enum/int pair; localized copy produced in completion callback."
+  ],
+  "required": [
+    "final committed source",
+    "host controls and required syntax/catalog checks",
+    "exact-source EN/FR 640x480 and 1280x800 affected target frames",
+    "unchanged pointer evidence",
+    "canonical CF05 reference and integration verification"
+  ]
+}

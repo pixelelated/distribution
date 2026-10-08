@@ -1,0 +1,96 @@
+{
+  "utc": "2026-10-08T16:21:33.769505+00:00",
+  "result": "PASS reconstructed overlay source/output binding; target presentation and image inclusion not implied",
+  "source": "1d76b3da7da75794066df1c089931b890304da7a",
+  "reuse_baseline": "72494bc72e3d64d4dcfeb4e6478052bbdf166c5b",
+  "input_hashes_recomputed": 648,
+  "all_changed_production_cpp_recompiled": [
+    "es-app/src/CloudFolderValidation.cpp",
+    "es-app/src/CloudOffer.cpp",
+    "es-app/src/CloudText.cpp",
+    "es-app/src/CloudTransferJob.cpp",
+    "es-app/src/ThreadedCloudSync.cpp",
+    "es-app/src/guis/GuiCloudTransfer.cpp",
+    "es-app/src/guis/GuiMenu.cpp",
+    "es-app/src/main.cpp"
+  ],
+  "compiled_objects": {
+    "es-app/src/CloudFolderValidation.cpp": "352bce7b18120328545abd6f8e526d32590ec3cf8c0176c18533446410296c32",
+    "es-app/src/CloudOffer.cpp": "b2193f45f3a789cdce3264504f6b65a30f6aff1babec7c680e270025c7ef46e2",
+    "es-app/src/CloudText.cpp": "95bd0066e40564b8556e21bb02cb615b2abe0a5ab263cf0f5619acd20a6ae827",
+    "es-app/src/CloudTransferJob.cpp": "8a8a2b6ba230dc5b8806657cdd329308b176933044fb7f62736d9159613a4646",
+    "es-app/src/FileData.cpp": "c3ac207a80c09ad930bf2d85f8c519910c03ecff6de679d78eeb7235c5d3bc3a",
+    "es-app/src/NetworkThread.cpp": "99f76af2c5965f8255f23153aea0711d4ab9df2e883c19b734be23a0c401db77",
+    "es-app/src/OfflineAchievements.cpp": "d931035b52f11bfbab45838b2d805e2e920d2dee6efa98758bf16f247e19a162",
+    "es-app/src/OfflineScanJob.cpp": "abc6482a836348ecb4e4f63b6bb87b5e4c230a8d7c05dc25fc69607436da89b8",
+    "es-app/src/ProxyCards.cpp": "ce455dcc62d2e46242d63e05f03e38ad6e2e0519f4de6b4e487ffe6da0f1d274",
+    "es-app/src/RetroAchievements.cpp": "b2a1de0e88beedc80e6f5fbc95f88000c2a0a9efb0bc1b26d3395ff25a94a002",
+    "es-app/src/SystemScreenSaver.cpp": "d959a9f0484ae073c2ac0cfac50904e2090fc72a9e69a7e635d9ca6367d55240",
+    "es-app/src/ThreadedCloudSync.cpp": "ed9c030db11f2d45793e8ae717ef6e1c1628fa06fb458a8294ef1355a22f08cd",
+    "es-app/src/ThreadedHasher.cpp": "ede6e762184774b768ef853ea3ac77b34e4beb4e2e0ec42084d31bd6e9a6b696",
+    "es-app/src/guis/GuiCloudTransfer.cpp": "2d1e01e5cfe82f278c6c341722db4f732b4ceb8b3eb50a080d1ca359f0c588c3",
+    "es-app/src/guis/GuiCollectionSystemsOptions.cpp": "f95dcd13e7257998ea426dacd9ba563d33d2b8c1db803c04fdca12b44103b1a2",
+    "es-app/src/guis/GuiGameOptions.cpp": "103c9dfd723aec978f2a171dd1ade2cf7b6e4026bdc7d5076970b8455b00c2c3",
+    "es-app/src/guis/GuiGamelistOptions.cpp": "db3c60b207be53b958a380e4260079a4894b6649c3cfcc6ed9db14551a58c9c0",
+    "es-app/src/guis/GuiMenu.cpp": "b7f5df7a7a979e4e142087f0147566ba64b9987d0c9d06e3235a14202897a9af",
+    "es-app/src/guis/GuiOfflineScan.cpp": "c8a97fd25605d19a01950a0c0f5b7475215f19b814f9cc3b162de20b1d77acd7",
+    "es-app/src/guis/GuiRetroAchievementsSettings.cpp": "fd71f580ee21f3645babd0cfdfdf5f9304f6d2265d99010cae3231089f7d4e9b",
+    "es-app/src/guis/GuiSaveState.cpp": "4ee9273900a3a90af4e7b6773938c7d1d43fa4ea502bb143e0448c4c0119853b",
+    "es-app/src/guis/GuiScraperRun.cpp": "581dad21eeb40f6db8a49b7d6cbc68b6038f7214fdc67d2a42048459cf530e00",
+    "es-app/src/guis/GuiWifi.cpp": "cf612c108b0b7376c8374a471b4c0c88a8a8d72cd0d003666f4507226c499e60",
+    "es-app/src/main.cpp": "7708943ee3e8e7bf387ebbc33f59d7b262ce6e5fb2aab37772e7a8fec2d24c4a",
+    "es-app/src/services/HttpServerThread.cpp": "70febe1c013b052de60abfd765bf8501c4c15a2bd802cf6c6517ead4313fc23a",
+    "es-app/src/views/SystemView.cpp": "891bacb935e0037b14e562295d2276f98486235973039d1575e6c1901c6531c4",
+    "es-app/src/views/ViewController.cpp": "4dc78b160b430fb063c59efc8609424b8f8a840413b3d3853483ab412392a2fd",
+    "es-core/src/components/AsyncNotificationComponent.cpp": "0976f02cfd378dff6f635021fda59b0d27447f2a01f69ab9c49938bd2868c1f7"
+  },
+  "all_27_app_objects_in_actual_link_trace": true,
+  "core_archive_member_matches_rebuilt_object": true,
+  "fr_catalog_matches_host_checked_catalog": true,
+  "outputs": [
+    {
+      "path": "/workspace/tmp/pixelelated-524-path-refusal/build01/emulationstation",
+      "sha256": "e80b09fdee07043468154a4c9f9ec0a4fb7bdc9ba82f7c9d806b048d5cd3b010",
+      "bytes": 237287744
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-524-path-refusal/build01/artifacts/fr.mo",
+      "sha256": "f056223d0fa947a7c9790c914b7696586b168e33135c627ebbc4d1d6d530dfb4",
+      "bytes": 180601
+    }
+  ],
+  "evidence": {
+    "build.py": {
+      "bytes": 3857,
+      "sha256": "a80f6fc9247f3185f0970be1f0985887b87f5555278cdafe033d119adcdfeccf"
+    },
+    "commands.json": {
+      "bytes": 95598,
+      "sha256": "48f389c089f5b8cb065e13199f7ce3d77cfdda8bf5b4f7f5580cfea587ba77a9"
+    },
+    "reference-inputs.json": {
+      "bytes": 57910,
+      "sha256": "3d9d5e485f21e36dfbbf16f7470464a68e066758213379167cebd0947ca3a7cc"
+    },
+    "inputs-before.json": {
+      "bytes": 170100,
+      "sha256": "5bd7b04f03344765ae95824642bd310763e6c166f588ebb90215ab1992784d20"
+    },
+    "inputs-after.json": {
+      "bytes": 170100,
+      "sha256": "5bd7b04f03344765ae95824642bd310763e6c166f588ebb90215ab1992784d20"
+    },
+    "artifacts/link.log": {
+      "bytes": 16992,
+      "sha256": "cd086775e38ad526bb93323d136c93d177e85980d464642e7006e65fe453dab8"
+    },
+    "artifacts/outputs.json": {
+      "bytes": 708,
+      "sha256": "a86cafa385f7cc70bb41db336c906260b685c0e76b8f67fb8af71f75adfb3d2e"
+    },
+    "verified-completion.json": {
+      "bytes": 1160,
+      "sha256": "435e3e1478ba840259d79038c1fd2f34f9bd1ee8eb0e3ca981a6ad42e2ce8c9c"
+    }
+  }
+}

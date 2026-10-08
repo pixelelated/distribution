@@ -1,0 +1,27 @@
+{
+  "body": "The cleanup-completion publication passed both hosted checks on next 9e8cfeff855be64fa85ee84a0a9225e260462f1d, but the exact feature head c1bd20406a0c54e3959f10fcf5ba2c85a241195d failed its whole-tree wordlist check. It found two lines in September session archives that exist only on feature/conflict-resolution. The checker correctly prints paths and line numbers without the words. Do not repeat the protected wording in this issue or evidence.\n\nCan this be done on the VM? This is a text/CI check and can run on isolated host fixtures or a VM. It changes no product or physical device. H700 compilation continues independently.\n\nAcceptance criteria:\n- [x] Redact exactly the two identified archive lines under D-WORKFLOW-061 without adding those feature-only archives to next.\n- [x] The full feature-tree wordlist check and normal commit/push hooks pass; retain the exact-head hosted check result.\n- [x] Preserve the failed CI result and record why checking only next did not cover both pushed branches.\n\nFailed run: https://github.com/pixelelated/distribution/actions/runs/37584510495 . Evidence paths and line numbers are in /workspace/tmp/pixelelated-m7-cleanup16-ci-01/artifacts/feature-failed-ci.log. The completed cleanup and the passing next checks remain valid; no firmware build is restarted.\n\nAccepted feature commit `fe471bde1ca154f7147a2d9f2468ac03bb4c83f2`: full local feature-tree scan passed, normal hooks/push passed, publication owner four zero exits/five seals/processes gone, and exact-head hosted run37586286848 succeeded. Its CI watcher also has four zero exits/one seal/processes gone. Next remains `9e8cfeff855be64fa85ee84a0a9225e260462f1d`, whose two checks passed independently. Failed combined CI owner remains FAILED. No history rewrite or product change.\n",
+  "closedAt": "2026-10-07T07:24:31Z",
+  "comments": [
+    {
+      "id": "IC_kwDOMM7sFc8AAAABZ5mIYQ",
+      "author": {
+        "login": "blitterbot"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "Completed in feature fe471bde1ca154f7147a2d9f2468ac03bb4c83f2. Whole-tree local and exact-head hosted policy checks pass; normal hooks and verified owner exits retained. The two historical lines were redacted only on feature. Next and the running H700 product inputs are unchanged.",
+      "createdAt": "2026-10-07T07:24:33Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/pixelelated/distribution/issues/499#issuecomment-6033082465",
+      "viewerDidAuthor": true
+    }
+  ],
+  "labels": [],
+  "number": 499,
+  "state": "CLOSED",
+  "title": "Ops: Correct archived wording on the feature branch",
+  "updatedAt": "2026-10-07T07:24:33Z",
+  "url": "https://github.com/pixelelated/distribution/issues/499"
+}

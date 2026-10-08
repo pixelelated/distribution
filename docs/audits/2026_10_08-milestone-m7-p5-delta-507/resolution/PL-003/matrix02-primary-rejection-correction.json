@@ -1,0 +1,35 @@
+{
+  "utc": "2026-10-08T16:37:56.582384+00:00",
+  "status": "REJECTED fixture; corrected cause",
+  "before_paths": {
+    "saves": "/QA/Saves",
+    "settings": "/QA/Backups",
+    "content": "/QA/Content",
+    "roms": "/QA/Content/ROMs",
+    "bios": "/QA/Content/BIOS",
+    "media": "/QA/Content/ROMs"
+  },
+  "after_paths": {
+    "saves": "/QA/Saves",
+    "settings": "/bad_bucket/b",
+    "content": "/QA/Content",
+    "roms": "/QA/Content/ROMs",
+    "bios": "/QA/Content/BIOS",
+    "media": "/QA/Content/ROMs"
+  },
+  "cause": "UI row1 routes to --set-settings-remote, whose frozen implementation validates local syntax and writes conf_set without provider probe. Accepted /a/b and /bad_bucket/b are expected on that setter. NoSuchBucket/provider acceptance causation for matrix01/02 UI attempts is withdrawn.",
+  "source_anchors": [
+    "frozen cloud_setup660-685",
+    "ES1d76b3da GuiMenu6555-6570"
+  ],
+  "correction": "Provider/unreachable tests must use SAVES row0 --set-syncpath. Root preparing matrix03; preserve first5 independently accepted matrix02 EN640 outcomes and all original failed attempts.",
+  "product_defect": false,
+  "hashes": {
+    "run.py": "a1bd5f7b336b059d36d4806645b6603d387dcdd11f9c693270002d38f69a7a41",
+    "cases.json": "6e49fa9cb54b48fdcea92d95165994b0c04a50a07d08da42587222781c6ebc56",
+    "console.log": "a748df2d025d3e2a36eb714fb5b55d894fd0d37fd29f804911236eb4bb089c9c",
+    "results.json": "009acc5cd9065de47c839afa75b931b124816324a4f12744a03c7be9965a0672",
+    "en_US-640x480/bucket/before.txt": "2763593d61c16a444c4e66c89dfa72f1d615345fef83516735da7590ff32aabe",
+    "en_US-640x480/bucket/after.txt": "05ad0cf9ae53042dd84bc960f72e007c360454c9d300b7c73d5f81c7d5f30996"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "body": "## Qualified and published \u2014 2026-10-08\n\nAll121 bundled ELF/plugin closures resolve with the required project-target libcom-err. Normal isolated target build/install passed; x64 architecture, SONAME, six installed outputs and protected-input hashes are verified. Actual native rendering/capture succeeds; no host library or accepted build-root mutation was used.\n\nProduct integration `e6645cb5ea5ae3c7f699390a74b22d098fbeb7fb` and [retained proof](https://github.com/pixelelated/distribution/tree/bc4ae05d30531516ebd19b6b167fc994f368c4c3/docs/qa-logs/2026-10-08-save-repair-cases) are published on next `bc4ae05d30531516ebd19b6b167fc994f368c4c3`; ES integration is `4e410dc9a816cc947f16235ad2b24824b29dd84e`. The independent delta audit (#507), assembled firmware inclusion/public adoption (#508), affected device builds and release gates remain separate. #519 must pass before the owner's next handheld update transfer/reboot. No personal cloud or physical action was part of this qualification.\n\nThe sections below retain the problem, requirement and investigation history; this status supersedes their earlier in-progress observations.\n\n## Problem and placement\n\nActual #521/#522 GENERIC_X64 proof now reaches the pinned DuckStation loader with correct executable mode, then fails because a required shared library is absent. Track the complete required runtime dependency closure here before retrying screenshot proof, rather than recording permission repair as successful application startup.\n\n## Code trace\n\n- Qualified guest overlay keeps the exact pinned x64 AppImage SHA256 `b204886bb498ede1a290215fc2efb521c0c2f26b964788df697b4fc2cb3f7f7b`, mode0755. Direct entrypoint reports `error while loading shared libraries: libcom_err.so.2` and exits127. No emulator session/capture started.\n- DuckStation's recipe declares toolchain (plus the new screenshot helper's Python3 dependency) but not the required `libcom-err` package. Existing `projects/ROCKNIX/packages/devel/libcom-err/package.mk:40\u201344` installs that library; another standalone recipe already declares it.\n- Verify the actual AppImage runtime/ELF closure, add required existing packages explicitly and prove the package/image installs their real target artifacts. No host-library copying or bundled-byte modification is a product fix.\n- Already written: images can contain an intact application that fails loader startup; persistent progress and screenshots need no repair because of this loader failure. Keep packaged artifact identity and existing configuration; new assembled firmware must include the qualified dependency closure.\n\n## Acceptance criteria\n\n- [x] Original actual-guest failure, exact artifact and loader dependency/source trace are retained, separating executable permission from loader readiness.\n- [x] Recipe declares the required runtime closure using project packages; pkgcheck and target package/install evidence prove library bytes/architecture/SONAME and placement. Existing frozen build owners and global source caches are unchanged.\n- [x] Actual owned GENERIC_X64 proof starts the real AppImage with the qualified target libraries and no missing required dependencies; #521's screenshot writer proof resumes on that exact overlay. Any unrelated runtime restriction is named, not silently passed.\n- [x] #508 integration/#507 audit/final firmware inclusion manifest name the dependency inputs and preserve separate source-overlay versus assembled-image qualification.\n\nCan this be done on the VM? Yes. Inspect the real pinned artifact and target loader, build/install any required package in a named isolated source owner if necessary, and use the existing disposable guest. No private data, device action, second guest or host-system library installation is required. Long work uses the watcher and active result delivery.\n",
+  "closedAt": "2026-10-08T07:37:02Z",
+  "comments": [
+    {
+      "id": "IC_kwDOMM7sFc8AAAABaOjUHQ",
+      "author": {
+        "login": "blitterbot"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "Completed source qualification and published it in `e6645cb5ea5ae3c7f699390a74b22d098fbeb7fb` / evidence `bc4ae05d30531516ebd19b6b167fc994f368c4c3`. All121 bundled ELF/plugin closures resolve with the required project-target libcom-err. Normal isolated target build/install passed; x64 architecture, SONAME, six installed outputs and protected-input hashes are verified. Actual native rendering/capture succeeds; no host library or accepted build-root mutation was used.\n\n[Exact proof packet](https://github.com/pixelelated/distribution/tree/bc4ae05d30531516ebd19b6b167fc994f368c4c3/docs/qa-logs/2026-10-08-save-repair-cases). Source-overlay proof is complete; independent audit, assembled-image inclusion and device/release gates remain assigned to #507/#508 and are not implied by this closure.\n",
+      "createdAt": "2026-10-08T07:37:01Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/pixelelated/distribution/issues/523#issuecomment-6055056413",
+      "viewerDidAuthor": true
+    }
+  ],
+  "labels": [
+    {
+      "id": "LA_kwDOMM7sFc8AAAABqBxM2A",
+      "name": "bug",
+      "description": "Something isn't working",
+      "color": "d73a4a"
+    }
+  ],
+  "number": 523,
+  "state": "CLOSED",
+  "title": "M7.P5: Include DuckStation required runtime libraries",
+  "updatedAt": "2026-10-08T07:37:02Z",
+  "url": "https://github.com/pixelelated/distribution/issues/523"
+}

@@ -1,0 +1,27 @@
+{
+  "body": "The completed #493/#494 cleanup exposed an administrator-scope coverage gap while retirement markers were being written. The inventory can group a loose firmware file as its own top-level entry. The administrator helper used direct child directories and therefore omitted 14 loose files directly under /workspace/artifacts/rocknix-images. These files were explicitly in the authorized removal plan and passed full hash, ordinary-user live reference, container and external-reference checks, but the administrator snapshot did not cover them. The sealed historical execution and acceptance are preserved; this limitation is recorded separately and must not be described as complete root-only coverage.\n\nThe record-writing step also assumed every inventory group was a directory. Its first attempt failed before writing any markers; the corrected step writes loose-file markers to the containing artifact directory. All 415 retirement markers now exist.\n\nCan this be done on the VM? The coverage and deletion-boundary controls use disposable host fixtures; they could run in a VM. Actual /proc ownership and storage allocation are host facts. No physical device action or external cloud is involved.\n\nAcceptance criteria:\n- [x] The published cleanup record distinguishes the 14 omitted files from targets covered by the administrator snapshot; original receipts are retained.\n- [x] The corrected executor refuses any target not equal to or below an administrator scan root, before any mutation.\n- [x] Eight isolated controls pass, including a loose-file omission failure and a covering-parent success, plus changed-file, digest, symlink, extra-entry and directory-permission boundaries.\n- [x] The correction, historical limitation and control receipt are committed to next through normal checks.\n\nEvidence: docs/qa-logs/2026-10-07-storage-retention/execute-cleanup.py and test-cleanup-guards.py; original owner /workspace/tmp/pixelelated-m7-broad-cleanup-01/administrator-scope-gap.json. This is a tooling defect, not evidence of an unintended removal or a reason to rerun completed cleanup. No further deletion is authorized by this issue. H700 firmware continues independently under #492.\n\n## Accepted publication \u2014 2026-10-07 07:02 UTC\n\nNormal-hook publication completed on next `9e8cfeff855be64fa85ee84a0a9225e260462f1d` (feature `c1bd20406a0c54e3959f10fcf5ba2c85a241195d`). All four owner results are zero, 514 sealed inputs match, and the actual publication processes exited. Both exact-next-head hosted checks passed: fork record checks and fork wordlist check. Eight isolated controls and the historical limitation are in `docs/qa-logs/2026-10-07-storage-retention/`. The executed cleanup owner retains its original uncorrected script and receipts; the source correction is prospective. No additional removal occurred.\n",
+  "closedAt": "2026-10-07T07:03:10Z",
+  "comments": [
+    {
+      "id": "IC_kwDOMM7sFc8AAAABZ5mJfw",
+      "author": {
+        "login": "blitterbot"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "Completed in next 9e8cfeff855be64fa85ee84a0a9225e260462f1d. Eight isolated boundary controls and both exact-next-head hosted checks pass. The original cleanup receipts remain unchanged; the limitation for 14 administrator-uncovered but authorized loose files is retained alongside the prospective guard correction.",
+      "createdAt": "2026-10-07T07:24:34Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/pixelelated/distribution/issues/498#issuecomment-6033082751",
+      "viewerDidAuthor": true
+    }
+  ],
+  "labels": [],
+  "number": 498,
+  "state": "CLOSED",
+  "title": "Ops: Require administrator scope to cover every cleanup target",
+  "updatedAt": "2026-10-07T07:24:34Z",
+  "url": "https://github.com/pixelelated/distribution/issues/498"
+}

@@ -1,0 +1,34 @@
+{
+  "body": "## Qualified and published \u2014 2026-10-08\n\nThe original exact AppImage at mode0644 refuses with126. Actual old/fixed package-function controls preserve bytes and install0755; the real target AppImage executes and renders. The separately exposed library dependency is qualified under #523.\n\nProduct integration `e6645cb5ea5ae3c7f699390a74b22d098fbeb7fb` and [retained proof](https://github.com/pixelelated/distribution/tree/bc4ae05d30531516ebd19b6b167fc994f368c4c3/docs/qa-logs/2026-10-08-save-repair-cases) are published on next `bc4ae05d30531516ebd19b6b167fc994f368c4c3`; ES integration is `4e410dc9a816cc947f16235ad2b24824b29dd84e`. The independent delta audit (#507), assembled firmware inclusion/public adoption (#508), affected device builds and release gates remain separate. #519 must pass before the owner's next handheld update transfer/reboot. No personal cloud or physical action was part of this qualification.\n\nThe sections below retain the problem, requirement and investigation history; this status supersedes their earlier in-progress observations.\n\n## Problem and placement\n\nFound while preparing #521's actual GENERIC_X64 DuckStation screenshot proof. The accepted image contains the exact package-pinned AppImage without executable permission, so both shipped launchers cannot start it. This is an existing packaging defect, not a failure of the new screenshot helper.\n\n## Code trace and reproduction\n\n- `projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/package.mk` installs the downloaded AppImage with `cp -a`, preserving download-cache permissions. Both game and Tools launchers execute `/usr/bin/duckstation-sa` directly.\n- The owned candidate16-based guest readback at 2026-10-08 06:41 UTC reports mode0644, size90788128 and SHA256 `b204886bb498ede1a290215fc2efb521c0c2f26b964788df697b4fc2cb3f7f7b`, exactly the pinned x64 recipe artifact. `test -x` returns1; direct `--help` returns126/Permission denied. No chmod was applied before this reproduction.\n- Required fix: set the installed executable mode explicitly in the recipe, independently of source/cache mode. Preserve exact AppImage bytes and the recipe's strip protection. Do not change the global download cache or treat a temporary guest chmod as the product fix.\n- Already written: affected images contain the intact but non-executable application; no save/capture payload repair is implied. A newly assembled fixed image must replace its mode correctly while keeping persistent state unchanged.\n\n## Acceptance criteria\n\n- [x] Retained actual-image readback proves the original pinned bytes/mode and direct execution refusal; source trace identifies the mode-preserving package operation.\n- [x] A package install fixture starts with mode0644 and proves final mode0755 plus byte identity, with an unfixed recipe control that fails the same assertion. Package lint passes.\n- [x] The actual guest receives the qualified packaged file/mode and can execute the real AppImage entrypoint. Record any distinct downstream runtime prerequisite honestly; permission repair alone is not screenshot/gameplay proof.\n- [x] #521 proof and #508/#507 scope include the fixed package input; final firmware inclusion remains separately gated.\n\nCan this be done on the VM? Yes. Package install controls run in disposable host staging, and the existing owned GENERIC_X64 guest proves actual target execution. No physical device, personal saves, cloud credentials or extra guest is needed.\n",
+  "closedAt": "2026-10-08T07:36:58Z",
+  "comments": [
+    {
+      "id": "IC_kwDOMM7sFc8AAAABaOjQJA",
+      "author": {
+        "login": "blitterbot"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "Completed source qualification and published it in `e6645cb5ea5ae3c7f699390a74b22d098fbeb7fb` / evidence `bc4ae05d30531516ebd19b6b167fc994f368c4c3`. The original exact AppImage at mode0644 refuses with126. Actual old/fixed package-function controls preserve bytes and install0755; the real target AppImage executes and renders. The separately exposed library dependency is qualified under #523.\n\n[Exact proof packet](https://github.com/pixelelated/distribution/tree/bc4ae05d30531516ebd19b6b167fc994f368c4c3/docs/qa-logs/2026-10-08-save-repair-cases). Source-overlay proof is complete; independent audit, assembled-image inclusion and device/release gates remain assigned to #507/#508 and are not implied by this closure.\n",
+      "createdAt": "2026-10-08T07:36:58Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/pixelelated/distribution/issues/522#issuecomment-6055055396",
+      "viewerDidAuthor": true
+    }
+  ],
+  "labels": [
+    {
+      "id": "LA_kwDOMM7sFc8AAAABqBxM2A",
+      "name": "bug",
+      "description": "Something isn't working",
+      "color": "d73a4a"
+    }
+  ],
+  "number": 522,
+  "state": "CLOSED",
+  "title": "M7.P5: Install DuckStation AppImage with executable permissions",
+  "updatedAt": "2026-10-08T07:36:58Z",
+  "url": "https://github.com/pixelelated/distribution/issues/522"
+}

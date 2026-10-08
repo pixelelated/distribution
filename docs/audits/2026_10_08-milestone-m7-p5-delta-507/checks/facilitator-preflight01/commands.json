@@ -1,0 +1,31 @@
+{
+  "frozen_head": "ac64c80628ad6d5a69b803d82f186472529f7cd7",
+  "commands": [
+    [
+      "pins",
+      [
+        "/workspace/repos/rocknix/tools/council/node_modules/.bin/tsx",
+        "scripts/verify-pins.ts"
+      ]
+    ],
+    [
+      "efforts",
+      [
+        "/workspace/repos/rocknix/tools/council/node_modules/.bin/tsx",
+        "scripts/lint-council-seat-efforts.ts",
+        "--strict"
+      ]
+    ],
+    [
+      "drift",
+      [
+        "/workspace/repos/rocknix/tools/council/node_modules/.bin/tsx",
+        "scripts/check-stale-blob-drift.ts",
+        "scripts/council-invoke.ts",
+        "scripts/lib/council-verification.ts",
+        ".claude/agents/council-member-claude.agent.md"
+      ]
+    ]
+  ],
+  "scope": "Offline pins/recipe/drift checks only. Direct installed tsx dependency; no provider call, no refresh, no credentials loaded."
+}

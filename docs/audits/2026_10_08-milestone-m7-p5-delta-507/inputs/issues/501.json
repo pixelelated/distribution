@@ -1,0 +1,27 @@
+{
+  "body": "## Maintainer request\n\n> The cloud transfer directory process is occurring now. with that first screen that alerts you that there is already a Rocknex folder present and asks if you\u2019d like to migrate. Can you let me know all of the copy that appears on that first page? I want to review the text again. Also, it currently says transferring in all caps, and then what\u2019s being transferred next to it? Is that consistent with what we have on all other transfer screens? We don\u2019t need to make any changes immediately, but I want to just compare it to what\u2019s happening elsewhere and get a sense of what the copy is.\n\n## Scope\n\nRead-only wording comparison for the H700 build43d0bc3bf4, pinned ES72494bc72e3d64d4dcfeb4e6478052bbdf166c5b. Initial source lookup preceded issue creation; this issue retains the request and evidence. No UI edit, device input/screenshot, migration retry or personal-cloud operation.\n\nCan this be done on the VM? Yes: these strings and renderer paths are shared. Exact pinned source suffices for this requested copy inventory; no new VM/device test is needed. Physical frame/wrapping is not being claimed.\n\n## Acceptance criteria\n\n- [x] Record the complete initial legacy-folder dialog text and buttons from the shipped ES pin.\n- [x] Trace the dynamic text after TRANSFERRING and compare full-screen backup/restore with automatic-sync cards.\n- [x] Compare capitalization and vocabulary against canonical rules; keep this a review without changing player-facing strings.\n\n## Findings\n\nFor /ROCKNIX to the default /pixelelated, the dialog has no separate heading:\n\n```\nYOUR CLOUD HAS A /ROCKNIX FOLDER FROM AN EARLIER VERSION.\n\nMOVE IT TO /pixelelated? YOUR OTHER DEVICES WILL FOLLOW.\n```\n\nButtons in order: MOVE; KEEP USING /ROCKNIX; NOT NOW. Source: es-app/src/guis/GuiMenu.cpp:5370\u20135412 at the pinned commit.\n\nMOVE opens MOVING YOUR CLOUD FOLDER through GuiCloudTransfer, exactly the component used by BACKING UP TO THE CLOUD and RESTORING FROM THE CLOUD (GuiMenu.cpp:5133,5380). Its activity line is TRANSFERRING followed by the basename of the current file; the filename retains its case (CloudTransferJob.cpp:555, GuiCloudTransfer.cpp:952). Available width determines whether per-file percentage/size/speed/remaining time and AND N MORE FILES also fit. The item/tier label and ITEM i OF n appear separately above it; item totals, bar, elapsed time and THIS CAN TAKE A WHILE. appear below. Migration also has COPYING..., CHECKING THE COPY..., REMOVING THE OLD FOLDER... phase text.\n\nAutomatic-sync cards instead use SENDING FILE n OF m (x OF y), RECEIVING FILE n OF m (x OF y), or TRANSFERRING FILE n OF m (x OF y), with shorter size/count variants selected to fit (ThreadedCloudSync.cpp:397\u2013424). They do not show the same filename row.\n\nUppercase labels/statuses are the fork convention; lowercase pixelelated is the brand exception. This agrees with es-player-text.md, es-ui-style-guide.md, D-UI-026 and D-UI-108. The filename/status case mixture is deliberate data-plus-label rendering. Consistency is exact across full-screen cloud pages, not a claim that every compact card or unrelated download screen has identical copy.\n\nFor an optional later wording review, YOUR OTHER DEVICES WILL FOLLOW. is the broadest promise in the first dialog; its wording communicates no prerequisite. This observation does not assert a new functional defect or authorize a rewrite. No changes requested or made.\n",
+  "closedAt": "2026-10-07T11:46:17Z",
+  "comments": [
+    {
+      "id": "IC_kwDOMM7sFc8AAAABZ9jRuw",
+      "author": {
+        "login": "blitterbot"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "Read-only comparison complete against shipped ES72494bc72e3d64d4dcfeb4e6478052bbdf166c5b; relevant source paths are byte-identical to that pin. Full prompt/buttons, filename parser, shared transfer renderer, compact-card variations and canonical copy rules are recorded in the body. No player-facing change or device/cloud action performed.",
+      "createdAt": "2026-10-07T11:46:17Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/pixelelated/distribution/issues/501#issuecomment-6037230011",
+      "viewerDidAuthor": true
+    }
+  ],
+  "labels": [],
+  "number": 501,
+  "state": "CLOSED",
+  "title": "M7.P5: Compare migration prompt and transfer status copy",
+  "updatedAt": "2026-10-07T11:46:17Z",
+  "url": "https://github.com/pixelelated/distribution/issues/501"
+}

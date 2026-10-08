@@ -1,0 +1,17 @@
+{
+  "utc": "2026-10-08T16:15:38.570294+00:00",
+  "status": "preliminary text-pattern triage; recheck exact staged files before publication",
+  "scope": "git ls-files --others --exclude-standard scoped to audit directory",
+  "files": 1593,
+  "bytes": 10563439,
+  "ordered_path_size_sha256_rows_digest": "a50c452b892ef933057a3172325985899e47bee90228c850f10529a969fe5b1c",
+  "patterns": {
+    "private_key": "-----BEGIN (?:RSA |EC |OPENSSH |DSA )?PRIVATE KEY-----",
+    "github_token": "(?<![A-Za-z0-9_])(?:gh[pousr]_[A-Za-z0-9]{30,}|github_pat_[A-Za-z0-9_]{40,})",
+    "openai_key": "(?<![A-Za-z0-9_])sk-(?:proj-|or-v1-)?[A-Za-z0-9_-]{35,}",
+    "aws_access": "(?<![A-Z0-9])(?:AKIA|ASIA)[A-Z0-9]{16}(?![A-Z0-9])"
+  },
+  "matches": [],
+  "binary_files": [],
+  "limit": "Pattern triage is not exhaustive secret detection. Publication authorization covers public source and sanitized audit evidence only; exact final staged content still requires inspection."
+}

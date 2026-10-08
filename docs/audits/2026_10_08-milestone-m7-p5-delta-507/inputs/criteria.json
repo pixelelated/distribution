@@ -1,0 +1,1172 @@
+[
+  {
+    "id": "AC-461-01",
+    "issue": 461,
+    "criterion": "Canonical worktree/build instructions describe the qualification trigger, protected set and capacity review; a decision row and M7 link make the follow-up findable.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/461.json",
+    "body_line": 19,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-461-02",
+    "issue": 461,
+    "criterion": "A repeatable read-only retention report binds proposed removals and retained dependencies to exact paths/identities and states whether the next scheduled build fits.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/461.json",
+    "body_line": 20,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-461-03",
+    "issue": 461,
+    "criterion": "Planner controls reject active, unreadable, unclassified or referenced candidates, including qcow2 backing chains and cross-store objects; logs retain each rejection.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/461.json",
+    "body_line": 21,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-461-04",
+    "issue": 461,
+    "criterion": "The first later authorized batch records preservation checks, watcher completion, actual path/registration removal, measured recovery and unchanged protected inputs. Until then, no automatic deletion is claimed.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/461.json",
+    "body_line": 22,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-489-01",
+    "issue": 489,
+    "criterion": "A complete validated receipt advances the audit clock to its actual\n  completion time, with the qualifying artifacts and issue named in output.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/489.json",
+    "body_line": 20,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-489-02",
+    "issue": 489,
+    "criterion": "Controls reject incomplete, stale/tampered, future-dated and malformed\n  receipts, and count only closures after completion without changing cadence.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/489.json",
+    "body_line": 22,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-489-03",
+    "issue": 489,
+    "criterion": "The live checker recognizes the completed #471 audit, with its output\n  retained; normal rules/register/index checks remain green.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/489.json",
+    "body_line": 24,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-490-01",
+    "issue": 490,
+    "criterion": "The report records each exact archive-verified source fixture while\n  preserving all real disk, backing-chain and cross-store checks.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/490.json",
+    "body_line": 17,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-490-02",
+    "issue": 490,
+    "criterion": "Controls reject a changed fixture, changed archive, unprotected fixture\n  or unclassified disk; the existing active/use/preservation controls pass.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/490.json",
+    "body_line": 19,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-490-03",
+    "issue": 490,
+    "criterion": "A fresh full-root report records actual eligible/held candidates and\n  H700 capacity, with original refusals and all source/evidence hashes retained.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/490.json",
+    "body_line": 21,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-491-01",
+    "issue": 491,
+    "criterion": "The fixed-scope helper's verification-only result matches all 22 exact\n  identities/hashes, independent evidence and retained base disks; no mutation.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/491.json",
+    "body_line": 20,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-491-02",
+    "issue": 491,
+    "criterion": "After separate authorization, a fresh full-root dependency report has\n  no unresolved observations and still accepts every named file; four result\n  channels and exact source/input seals are retained for execution.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/491.json",
+    "body_line": 22,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-491-03",
+    "issue": 491,
+    "criterion": "Only the named files are absent, all preserved evidence hashes and\n  protected identities remain unchanged, and actual free space meets the\n  H700 arm budget; retain the execution and recovery receipt.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/491.json",
+    "body_line": 25,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-492-01",
+    "issue": 492,
+    "criterion": "Frozen input manifests show the qualified product-source comparison, distribution/ES pins, actual pinned container digest, source cache and concurrency for each target.",
+    "tracker_checked": false,
+    "source_snapshot": "inputs/issues/492.json",
+    "body_line": 19,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-492-02",
+    "issue": 492,
+    "criterion": "H700 arm compatibility build has matching terminal result channels, unchanged input seals and verified builder exit; retain its output/stamp manifest.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/492.json",
+    "body_line": 20,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-492-03",
+    "issue": 492,
+    "criterion": "H700 aarch64 firmware build follows a measured capacity pass and has verified terminal results, raw/update identity and hashed DDR3/DDR4 artifacts.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/492.json",
+    "body_line": 21,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-492-04",
+    "issue": 492,
+    "criterion": "SM8550 compilation follows completed H700 artifact verification and a measured capacity pass; retain verified terminal results and hashed image/update artifacts.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/492.json",
+    "body_line": 22,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-492-05",
+    "issue": 492,
+    "criterion": "Artifact inspection records lowercase pixelelated identity, expected qualified source pins and source/licence inventory; release/publication and separately authorized hardware facts remain explicit in the milestone.",
+    "tracker_checked": false,
+    "source_snapshot": "inputs/issues/492.json",
+    "body_line": 23,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-494-01",
+    "issue": 494,
+    "criterion": "Exact tree/branch/head, dirty diff, allocation, source and historical references are recorded in the accepted review and current prepared plan.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/494.json",
+    "body_line": 26,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-494-02",
+    "issue": 494,
+    "criterion": "Independent verification accepts all 14,489 preservation objects and required source inventories; preservation cost is charged against potential recovery.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/494.json",
+    "body_line": 27,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-494-03",
+    "issue": 494,
+    "criterion": "Completed QA16/QA17 source links are mapped to exact retained source and terminal evidence under the revised policy.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/494.json",
+    "body_line": 28,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-494-04",
+    "issue": 494,
+    "criterion": "The four worktrees are covered by the administrator snapshot and current host/container checks; their receipts resolve active-use dependencies before removal.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/494.json",
+    "body_line": 29,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-494-05",
+    "issue": 494,
+    "criterion": "The standard helper removed all four exact worktrees; watched terminal results and post-action verification establish absence, actual recovery and preserved inputs.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/494.json",
+    "body_line": 30,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-495-01",
+    "issue": 495,
+    "criterion": "Retained original failing compiler control, source history and diagnostics establish the cause and show the repaired compile passes without weakening unrelated warnings or changing coupled source pins without evidence.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/495.json",
+    "body_line": 11,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-495-02",
+    "issue": 495,
+    "criterion": "The selected package builds under the pinned container, its installed host executables pass representative SPIR-V assembly/validation/disassembly, and package lint passes; retain logs and hashes.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/495.json",
+    "body_line": 12,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-495-03",
+    "issue": 495,
+    "criterion": "All interrupted build scopes are enumerated and preserved before recovery; a fresh watched H700 arm run passes the formerly failing package using sealed, committed inputs. Full device-image completion remains #492.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/495.json",
+    "body_line": 13,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-496-01",
+    "issue": 496,
+    "criterion": "Preserve arm03 original traceback, shader logs, sealed script, terminal channels and exited owner evidence.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/496.json",
+    "body_line": 7,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-496-02",
+    "issue": 496,
+    "criterion": "A fresh owner uses a streaming SHA256 implementation available in the pinned Python and passes the identical positive and negative shader controls, producing independently verified executable/stamp hashes.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/496.json",
+    "body_line": 8,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-496-03",
+    "issue": 496,
+    "criterion": "The H700 compatibility build resumes only after that successful result; retain the new watched owner in #492.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/496.json",
+    "body_line": 9,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-497-01",
+    "issue": 497,
+    "criterion": "Isolated install/lifecycle controls fail against the recorded original recipes where applicable, pass with the repair, preserve the ROCKNIX configuration namespace and do not alter unrelated paths; package lint passes for each affected recipe.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/497.json",
+    "body_line": 11,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-497-02",
+    "issue": 497,
+    "criterion": "Preserve failed arm04 logs, stamps and every interrupted package scope before resuming from committed repaired inputs with a new watched owner.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/497.json",
+    "body_line": 12,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-497-03",
+    "issue": 497,
+    "criterion": "The repaired H700 arm stage has verified terminal results and actual ARM compatibility artifacts; the aarch64 handoff retains required32-bit programs/cores/libraries rather than silently omitting them.",
+    "tracker_checked": false,
+    "source_snapshot": "inputs/issues/497.json",
+    "body_line": 13,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-497-04",
+    "issue": 497,
+    "criterion": "Reconcile H700/SM8550 input manifests, live M7 order, work/friction logs and retained evidence. Capacity, device smoke and release publication retain their existing separate gates.",
+    "tracker_checked": false,
+    "source_snapshot": "inputs/issues/497.json",
+    "body_line": 14,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-498-01",
+    "issue": 498,
+    "criterion": "The published cleanup record distinguishes the 14 omitted files from targets covered by the administrator snapshot; original receipts are retained.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/498.json",
+    "body_line": 8,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-498-02",
+    "issue": 498,
+    "criterion": "The corrected executor refuses any target not equal to or below an administrator scan root, before any mutation.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/498.json",
+    "body_line": 9,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-498-03",
+    "issue": 498,
+    "criterion": "Eight isolated controls pass, including a loose-file omission failure and a covering-parent success, plus changed-file, digest, symlink, extra-entry and directory-permission boundaries.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/498.json",
+    "body_line": 10,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-498-04",
+    "issue": 498,
+    "criterion": "The correction, historical limitation and control receipt are committed to next through normal checks.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/498.json",
+    "body_line": 11,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-499-01",
+    "issue": 499,
+    "criterion": "Redact exactly the two identified archive lines under D-WORKFLOW-061 without adding those feature-only archives to next.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/499.json",
+    "body_line": 6,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-499-02",
+    "issue": 499,
+    "criterion": "The full feature-tree wordlist check and normal commit/push hooks pass; retain the exact-head hosted check result.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/499.json",
+    "body_line": 7,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-499-03",
+    "issue": 499,
+    "criterion": "Preserve the failed CI result and record why checking only next did not cover both pushed branches.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/499.json",
+    "body_line": 8,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-500-01",
+    "issue": 500,
+    "criterion": "Credential-filtered preflight records the physical model/DTB, RAM voltage, predecessor BUILD_ID, boot ID, power, idle state, mounted storage and empty queue.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/500.json",
+    "body_line": 15,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-500-02",
+    "issue": 500,
+    "criterion": "Host and device SHA256 values match the accepted update `a419dc33e1f3be2c422cac4b89d85cf104f363c3da6ed7059e0a8aa531bfd014`; device-act records transfer and checksum-gated queueing.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/500.json",
+    "body_line": 16,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-500-03",
+    "issue": 500,
+    "criterion": "The authorized device-act reboot has a subsequent changed boot ID and readback of pixelelated 0.0.1 / BUILD_ID `43d0bc3bf47fd858ba8d5c55fbdf52535a0db2aa`, expected model/DTB, LPDDR4 voltage, storage mounts, exact installed binary hashes and empty update queue.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/500.json",
+    "body_line": 17,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-500-04",
+    "issue": 500,
+    "criterion": "Compact evidence, standing hardware fact and work log record the actual outcome; broader device smoke and release gates remain separately identified.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/500.json",
+    "body_line": 18,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-501-01",
+    "issue": 501,
+    "criterion": "Record the complete initial legacy-folder dialog text and buttons from the shipped ES pin.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/501.json",
+    "body_line": 13,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-501-02",
+    "issue": 501,
+    "criterion": "Trace the dynamic text after TRANSFERRING and compare full-screen backup/restore with automatic-sync cards.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/501.json",
+    "body_line": 14,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-501-03",
+    "issue": 501,
+    "criterion": "Compare capitalization and vocabulary against canonical rules; keep this a review without changing player-facing strings.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/501.json",
+    "body_line": 15,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-502-01",
+    "issue": 502,
+    "criterion": "Source trace distinguishes the move, upgrade prerequisite, automatic following, and residual-file merge: cloud_migrate_layout relocate(), layout_follow(), and merge_into().",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/502.json",
+    "body_line": 57,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-502-02",
+    "issue": 502,
+    "criterion": "Renderer/font evidence answers the clarified styling question: Markdown is unsupported in this dialog; literal quotation marks have font coverage.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/502.json",
+    "body_line": 58,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-502-03",
+    "issue": 502,
+    "criterion": "Capture PREVIOUS OS / MOVE THE FOLDER, automatic switching once running pixelelated and online, and the residual-file confirmation exception (D-UI-122, D-UI-123).",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/502.json",
+    "body_line": 59,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-502-04",
+    "issue": 502,
+    "criterion": "Revised English/French source uses PREVIOUS OS / MOVE THE FOLDER and explains automatic cloud-folder switching once running pixelelated and online, with the residual-file confirmation exception; /pixelelated, existing behavior, and all choices stay unchanged. Syntax/localization checks pass. Sweep the old prompt in GuiMenu.cpp and the French catalog; no Markdown parser is introduced.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/502.json",
+    "body_line": 60,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-502-05",
+    "issue": 502,
+    "criterion": "VM frames at640x480 show complete English/French prompts and buttons without clipping; changed-image qualification is scoped separately from already accepted candidate16 evidence.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/502.json",
+    "body_line": 61,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-503-01",
+    "issue": 503,
+    "criterion": "Preserve the original failure/thread logs and enumerate interrupted packages before any cleanup or retry; compact evidence identifies the frozen input and failed owners.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/503.json",
+    "body_line": 21,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-503-02",
+    "issue": 503,
+    "criterion": "A compiler/header control reproduces the failure and distinguishes ARM64-header contamination from an intrinsic i686 compiler/library incompatibility, recording exact versions and include provenance.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/503.json",
+    "body_line": 22,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-503-03",
+    "issue": 503,
+    "criterion": "A scoped fix passes its unfixed/fixed controls and package/patch checks, preserves all FEX features, and yields both32-bit and64-bit guest libraries plus the target package.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/503.json",
+    "body_line": 23,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-503-04",
+    "issue": 503,
+    "criterion": "Resume under fresh watched build/acceptance owners; terminal results and actual artifacts pass #492's SM8550 verification. Preserve source custody and any still-open physical/publication gates.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/503.json",
+    "body_line": 24,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-504-01",
+    "issue": 504,
+    "criterion": "A compact, credential-filtered local readback records boot identity, service state, migration process presence/absence, migration status and relevant local pointer fields, with capture time.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/504.json",
+    "body_line": 13,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-504-02",
+    "issue": 504,
+    "criterion": "Retained local migration/scan/sync logs establish success, ongoing work, or a named uncertainty; an absent process alone never counts as success, and provider contents are not asserted without evidence.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/504.json",
+    "body_line": 14,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-504-03",
+    "issue": 504,
+    "criterion": "Existing upgrade warnings are compared against #500/predecessor evidence; findings and limitations identify any actionable issue and durable learning.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/504.json",
+    "body_line": 15,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-504-04",
+    "issue": 504,
+    "criterion": "Sanitized evidence and its source-reading commands are retained under `docs/qa-logs/2026-10-07-device-builds/rg35xxsp-migration-review01/`; the issue records the outcome and links any required follow-up.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/504.json",
+    "body_line": 16,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-504-05",
+    "issue": 504,
+    "criterion": "`power-readback.txt` and `power-counters-readback.txt` correlate the migration with existing suspend/resume/network evidence and state explicitly what cannot be inferred.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/504.json",
+    "body_line": 32,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-506-01",
+    "issue": 506,
+    "criterion": "Preserve the failed verifier and terminal receipts, reproduce its wrong-path failure, and prove the corrected helper against the actual completed FEX package.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/506.json",
+    "body_line": 13,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-506-02",
+    "issue": 506,
+    "criterion": "Both actual guest build files exclude the rebased ARM64 standard include; the exact Nix version/rootfs/toolchains and all14 installed ELF identities pass.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/506.json",
+    "body_line": 14,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-506-03",
+    "issue": 506,
+    "criterion": "A fresh watched build/acceptance owner reuses the complete FEX package and unchanged ARM output, continues firmware assembly, and records terminal results without relabeling failed02.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/506.json",
+    "body_line": 15,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-507-01",
+    "issue": 507,
+    "criterion": "The dated running log and input manifest bind the exact baseline, changed source, selected issue criteria and terminal build/proof receipts; coverage explicitly separates preserved candidate16 evidence from newly verified delta behavior.",
+    "tracker_checked": false,
+    "source_snapshot": "inputs/issues/507.json",
+    "body_line": 20,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-507-02",
+    "issue": 507,
+    "criterion": "Primary forward/retrospective findings cite code and executed evidence for the changed behaviors and interactions; every finding has a disposition and unresolved claims are not counted as passes.",
+    "tracker_checked": false,
+    "source_snapshot": "inputs/issues/507.json",
+    "body_line": 21,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-507-03",
+    "issue": 507,
+    "criterion": "Facilitator receipts verify the required cross-lab reviewer identity and both Milestone passes against the frozen safe payload; the final analysis independently verifies proposed findings.",
+    "tracker_checked": false,
+    "source_snapshot": "inputs/issues/507.json",
+    "body_line": 22,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-507-04",
+    "issue": 507,
+    "criterion": "The punch-list index, audit artifact lint and completed marker agree; fixes have affected installed/source verification and no completion is inferred from reviewer prose alone.",
+    "tracker_checked": false,
+    "source_snapshot": "inputs/issues/507.json",
+    "body_line": 23,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-507-05",
+    "issue": 507,
+    "criterion": "M7, affected issue bodies and the canonical checkpoint record the resulting readiness and remaining publication/device gates; a fresh exact-head hosted record check consumes the completed audit honestly.",
+    "tracker_checked": false,
+    "source_snapshot": "inputs/issues/507.json",
+    "body_line": 24,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-508-01",
+    "issue": 508,
+    "criterion": "Final source/install/ES call-site sweep proves there is no installed automatic migration engine, legacy autojoin/follow, startup migration prompt or TIDY move action; syntax/package/catalog checks pass. Local draft evidence exists; integrated source/install inclusion is still required.",
+    "tracker_checked": false,
+    "source_snapshot": "inputs/issues/508.json",
+    "body_line": 34,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-508-02",
+    "issue": 508,
+    "criterion": "Synthetic clean linking creates nothing; separately confirmed selected-category CREATE FOLDERS creates only the chosen folders/notes and preserves other trees. Source-overlay before/after hashes/pointer receipts pass; assembled-image CF10 proves the final firmware.",
+    "tracker_checked": false,
+    "source_snapshot": "inputs/issues/508.json",
+    "body_line": 35,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-508-03",
+    "issue": 508,
+    "criterion": "Public ROCKNIX configurations retain credentials, independent pointers and cloud bytes through adoption/scans/setup unless explicit selection changes a pointer. Clean installs are proved separately. Unpublished experimental states do not add compatibility requirements.",
+    "tracker_checked": false,
+    "source_snapshot": "inputs/issues/508.json",
+    "body_line": 36,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-508-04",
+    "issue": 508,
+    "criterion": "Final firmware's validation and restore discovery stay within selected roots; ordinary save/settings/content, partial-library restore and missing/unreadable/supported-format handling retain their applicable controls. Unchanged tests keep their exact input identity; changed inputs receive affected proof.",
+    "tracker_checked": false,
+    "source_snapshot": "inputs/issues/508.json",
+    "body_line": 37,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-508-05",
+    "issue": 508,
+    "criterion": "#515's supported case/action or evidence-backed instructions-only disposition is explicitly mapped to the integrated source and #507 scope. Each implemented repair has consent, bounded transport, collision/stale/interruption/refusal proof and leaves ROMs/BIOS/unknown files untouched.",
+    "tracker_checked": false,
+    "source_snapshot": "inputs/issues/508.json",
+    "body_line": 38,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-508-06",
+    "issue": 508,
+    "criterion": "Canonical menu/IA/flow and reviewed EN/FR640\u00d7480/1280\u00d7800 affected frames match final source; current source-overlay proof is complete above. Any added repair screen requires its own frames. No dead QR destination ships.",
+    "tracker_checked": false,
+    "source_snapshot": "inputs/issues/508.json",
+    "body_line": 39,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-508-07",
+    "issue": 508,
+    "criterion": "New full pins/package installation and final artifact inclusion are mapped; source-overlay results are never called installed release firmware. CF10 and final inclusion remain open until an engineering image supplies proof.",
+    "tracker_checked": false,
+    "source_snapshot": "inputs/issues/508.json",
+    "body_line": 40,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-510-01",
+    "issue": 510,
+    "criterion": "The canonical review records the public release/tag and actual config/filter/package references, separated from unpublished experiments; see Who is upgrading in the linked flow review.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/510.json",
+    "body_line": 33,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-510-02",
+    "issue": 510,
+    "criterion": "D-CLOUD-178/179 and the implemented diagram define selected-category checks/creation, independent paths and manual content guidance; prospective repairs are separately identified with #515 ownership.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/510.json",
+    "body_line": 34,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-510-03",
+    "issue": 510,
+    "criterion": "Required flow/screenshot maintenance is published in both agent entrypoints, the canonical UI rule and evidence-index schema (D-WORKFLOW-155/156; f6037a9133). The final source-overlay CF01\u2013CF15 table links reviewed happy/branch frames and explicitly pending CF10.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/510.json",
+    "body_line": 35,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-510-04",
+    "issue": 510,
+    "criterion": "#515 records source-proven repair cases, exact preview/consent/count/bytes/collision/source-retention/stale-plan/interruption/verification contracts and qualified supported actions, or an evidence-backed unsupported disposition. No unsupported repair is counted as delivered.",
+    "tracker_checked": false,
+    "source_snapshot": "inputs/issues/510.json",
+    "body_line": 36,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-510-05",
+    "issue": 510,
+    "criterion": "#508 final integration/adoption criteria are met on coordinated source and then actual assembled firmware; missing/unreadable and unrelated-file preservation remain proved. Foundation proof is complete above, final pin/image proof is not.",
+    "tracker_checked": false,
+    "source_snapshot": "inputs/issues/510.json",
+    "body_line": 37,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-510-06",
+    "issue": 510,
+    "criterion": "Live M7, #508/#507/#515 and the canonical checkpoint agree on this implementation order and remaining gates; published in next `b115af8d4cebbb8845edf32f519b3d00580c9ff1` with exact GitHub/readback receipts under docs/qa-logs/2026-10-08-cloud-plan. Personal review remains separate #516.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/510.json",
+    "body_line": 38,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-512-01",
+    "issue": 512,
+    "criterion": "Exact source trace and actual failing French frames retain the observed behavior: check-busy mislabeled as sync, plus actual changed-config/create rendering; do not infer raw-English display solely from table omission.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/512.json",
+    "body_line": 15,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-512-02",
+    "issue": 512,
+    "criterion": "All three reasons use the established localized reason table and complete French catalog; Scan+75 describes another check while ordinary sync75 behavior is preserved; focused catalog/unit checks cite exact committed source and result.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/512.json",
+    "body_line": 16,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-512-03",
+    "issue": 512,
+    "criterion": "Actual affected French failure frames pass review with source/binary/locale/panel hashes in the #510 evidence index; canonical flow rows link them. Existing unaffected evidence keeps explicit provenance.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/512.json",
+    "body_line": 17,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-512-04",
+    "issue": 512,
+    "criterion": "The final qualified ES source is included in #508 integration/pin tracking; close only with that commit/evidence readback.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/512.json",
+    "body_line": 18,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-513-01",
+    "issue": 513,
+    "criterion": "Rejected original frames and exact tested identities remain in the #510 packet.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/513.json",
+    "body_line": 19,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-513-02",
+    "issue": 513,
+    "criterion": "English/French source and catalog checks pass on the committed correction, with no loss of category meaning or folder-selection behavior.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/513.json",
+    "body_line": 20,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-513-03",
+    "issue": 513,
+    "criterion": "Actual corrected small-panel frames show both full category scope and readable editor title without ellipsis; affected large-panel coverage or explicit unchanged-input justification is indexed.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/513.json",
+    "body_line": 21,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-513-04",
+    "issue": 513,
+    "criterion": "Canonical flow/reference and exact-source screenshot index are updated together before completion/pin promotion, under D-WORKFLOW-156.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/513.json",
+    "body_line": 22,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-513-05",
+    "issue": 513,
+    "criterion": "Qualified final source is included in #508 integration tracking; existing unaffected #512 diagnostic proof keeps precise provenance.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/513.json",
+    "body_line": 23,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-514-01",
+    "issue": 514,
+    "criterion": "The empty restore headline explicitly scopes its finding to the selected cloud folder, in English and French; it does not claim an account-wide search or absence.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/514.json",
+    "body_line": 15,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-514-02",
+    "issue": 514,
+    "criterion": "Adjacent setup guidance is accurate for the categories that reach this branch, including BIOS/game-content boundaries; it does not direct unrelated file types into the wrong folder or silently change selection.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/514.json",
+    "body_line": 16,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-514-03",
+    "issue": 514,
+    "criterion": "Source/catalog checks and actual corrected frame review pass with exact committed source identity. The empty-selected/populated-unselected fixture retains all original file hashes and independent pointers.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/514.json",
+    "body_line": 17,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-514-04",
+    "issue": 514,
+    "criterion": "CF14 canonical flow and screenshot index link the corrected evidence and preserve the rejected original before completion/pin promotion.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/514.json",
+    "body_line": 18,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-515-01",
+    "issue": 515,
+    "criterion": "A source-cited case table separates supported repairs, valid layouts and unsupported/ambiguous findings; synthetic fixtures reproduce each classification, including legitimate standalone-emulator saves.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/515.json",
+    "body_line": 36,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-515-02",
+    "issue": 515,
+    "criterion": "Every supported repair has an exact plan/consent/size/transport/source-retention/collision contract and fixture; if none is supportable, the evidence-backed disposition is explicit in #510, the flow reference and M7, with no claimed repair completion.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/515.json",
+    "body_line": 37,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-515-03",
+    "issue": 515,
+    "criterion": "For every implemented repair, failing controls prove stale-plan refusal, preservation of conflicting versions/originals, bounded transfer/verification costs, cancellation/retry safety and exclusion of ROMs, BIOS, settings archives, game content and unknown files. Before/after inventories and hashes show unselected files unchanged.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/515.json",
+    "body_line": 38,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-515-04",
+    "issue": 515,
+    "criterion": "For every implemented repair, actual VM frames and operation receipts prove separate preview/confirmation, decline/no-op, interruption/failure, retry, result and recheck; canonical IA/diagram/evidence index match the source, with EN/FR and both panel layouts reviewed for affected content. If no repair case is supportable, record the evidence-backed no-action disposition and reuse unchanged instruction-flow proof explicitly; do not require or fabricate repair screens.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/515.json",
+    "body_line": 39,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-515-05",
+    "issue": 515,
+    "criterion": "#508's integration manifest and #507's frozen scope name the final supported implementation or evidence-backed instructions-only disposition; no new build or release claim relies on an unproved repair.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/515.json",
+    "body_line": 40,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-517-01",
+    "issue": 517,
+    "criterion": "A scoped inventory binds current cloud size/hash/identity before and after reads; bounds, unsupported hashes, changed files, download failures and exclusions cannot be reported as passes. Raw records remain private.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/517.json",
+    "body_line": 17,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-517-02",
+    "issue": 517,
+    "criterion": "Downloaded save-tree bytes match provider hashes; compare local counterparts read-only and distinguish equal, differing, absent and unreadable. No direction/winner is inferred from timestamps alone.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/517.json",
+    "body_line": 18,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-517-03",
+    "issue": 517,
+    "criterion": "Recognized file types receive structural checks with explicit limits. Raw/core-specific saves without a parser remain unverified for game semantics; per-file outcomes separate byte integrity, structural integrity and playability.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/517.json",
+    "body_line": 19,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-517-04",
+    "issue": 517,
+    "criterion": "Disposable synthetic controls prove the verifier accepts valid data and rejects changed/truncated/missing files, incorrect hashes and invalid supported containers. No corruption is injected into personal originals.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/517.json",
+    "body_line": 20,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-517-05",
+    "issue": 517,
+    "criterion": "Exact installed-source tracing lists local config/recovery state written by the migration and any local payload effects. A concrete proposed alignment names files/keys and old/new behavior; no device mutation, reboot or sync occurs without separately named approval.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/517.json",
+    "body_line": 21,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-517-06",
+    "issue": 517,
+    "criterion": "A redacted report and private per-file evidence explain findings and remaining limits, retaining the earlier log checks. Large-library verification remains outside this small-save scope and requires separate explicit planning; independent backup redundancy is tracked in #518; no product validator readiness result is mislabeled a full-content check.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/517.json",
+    "body_line": 22,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-517-07",
+    "issue": 517,
+    "criterion": "Useful manual findings become host synthetic controls and a documented protocol; #515/#508 explicitly carry the relevant repair/adoption cases without personal fixtures or expanding setup into full-library verification.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/517.json",
+    "body_line": 28,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-519-01",
+    "issue": 519,
+    "criterion": "A source-cited private state/residue manifest and concrete per-key/per-path plan distinguishes keep/archive/remove and preserves personal saves, credentials, active metadata and recovery copies. #516's relevant classification is incorporated; unknown residue is not silently deleted.",
+    "tracker_checked": false,
+    "source_snapshot": "inputs/issues/519.json",
+    "body_line": 21,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-519-02",
+    "issue": 519,
+    "criterion": "A synthetic rehearsal proves the pre-upgrade order, automatic-consumer isolation, no unintended transfer/migration reactivation, interruption/failure behavior, rollback and unchanged save payload hashes. Commands and terminal receipts identify what was actually exercised.",
+    "tracker_checked": false,
+    "source_snapshot": "inputs/issues/519.json",
+    "body_line": 22,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-519-03",
+    "issue": 519,
+    "criterion": "Named authorized device actions complete before the next update transfer/reboot. Exact readback proves aligned selected roots and intended auto-sync state, obsolete records handled as planned, no unintended writer active and preserved payload/recovery hashes. No claim of completion rests on intent alone.",
+    "tracker_checked": false,
+    "source_snapshot": "inputs/issues/519.json",
+    "body_line": 23,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-519-04",
+    "issue": 519,
+    "criterion": "A sealed private acceptance receipt and redacted tracker/handoff status block upgrade until completion and invalidate on relevant state drift. Subsequent upgrade and first deliberate sync retain separate action authority and post-upgrade readback.",
+    "tracker_checked": false,
+    "source_snapshot": "inputs/issues/519.json",
+    "body_line": 24,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-520-01",
+    "issue": 520,
+    "criterion": "A full writer/launcher/config source chain and synthetic path table confirm actual current paths/extensions; historical and currently supported layouts are distinguished. A helper name alone does not establish runtime behavior.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/520.json",
+    "body_line": 24,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-520-02",
+    "issue": 520,
+    "criterion": "Real-rclone unfixed controls demonstrate each confirmed omission/misclassification. Fault/input witnesses prevent a sandbox/startup failure from counting as the expected failure.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/520.json",
+    "body_line": 25,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-520-03",
+    "issue": 520,
+    "criterion": "Both rules/defaults and upgrade merge preserve existing custom rules while admitting the supported save paths; intended ROM/BIOS/database exclusions remain intact and compatibility paths still work.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/520.json",
+    "body_line": 26,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-520-04",
+    "issue": 520,
+    "criterion": "Save backup/restore preserve synthetic payload bytes at the correct paths; content backup/restore/list/count/match do not copy, overwrite or remove those progress files. Colliding/stale remote content copies cannot replace local progress.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/520.json",
+    "body_line": 27,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-520-05",
+    "issue": 520,
+    "criterion": "Validator classification uses the same supported layout, honors bounded depth without claiming unseen bytes were verified, and remains read-only. Applicable canonical flow/reference and unchanged/affected UI evidence accompany the final source.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/520.json",
+    "body_line": 28,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-520-06",
+    "issue": 520,
+    "criterion": "#515's case table and #508/#507 scope reference the qualified fix, with compact source-bound receipts and explicitly remaining firmware inclusion/adoption gates.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/520.json",
+    "body_line": 29,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-521-01",
+    "issue": 521,
+    "criterion": "Exact pinned action/writer/config/launcher evidence identifies the default path on GENERIC_X64 and H700; a synthetic old-launcher control demonstrates exclusion from the normal screenshot/save scope.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/521.json",
+    "body_line": 23,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-521-02",
+    "issue": 521,
+    "criterion": "A bounded, reviewed implementation directs new default screenshots into the covered tree on clean and retained default configurations, preserves explicit custom paths and all existing screenshot bytes, and remains safe on repeated launch, conflicting/unwritable paths and failure.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/521.json",
+    "body_line": 24,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-521-03",
+    "issue": 521,
+    "criterion": "Source-derived fixtures prove actual launcher/config behavior and old-capture retention, rather than only testing a mirrored helper; backup/restore coverage is shown with real rclone.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/521.json",
+    "body_line": 25,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-521-04",
+    "issue": 521,
+    "criterion": "Applicable target-runtime screenshot/flow proof and canonical reference/changelog disposition accompany the source, with exact inputs and limits. No whole-library operation or private-device/cloud action is needed.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/521.json",
+    "body_line": 26,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-521-05",
+    "issue": 521,
+    "criterion": "#515 case disposition and #508/#507 final scope include the qualified change and explicitly remaining firmware inclusion gates.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/521.json",
+    "body_line": 27,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-522-01",
+    "issue": 522,
+    "criterion": "Retained actual-image readback proves the original pinned bytes/mode and direct execution refusal; source trace identifies the mode-preserving package operation.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/522.json",
+    "body_line": 22,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-522-02",
+    "issue": 522,
+    "criterion": "A package install fixture starts with mode0644 and proves final mode0755 plus byte identity, with an unfixed recipe control that fails the same assertion. Package lint passes.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/522.json",
+    "body_line": 23,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-522-03",
+    "issue": 522,
+    "criterion": "The actual guest receives the qualified packaged file/mode and can execute the real AppImage entrypoint. Record any distinct downstream runtime prerequisite honestly; permission repair alone is not screenshot/gameplay proof.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/522.json",
+    "body_line": 24,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-522-04",
+    "issue": 522,
+    "criterion": "#521 proof and #508/#507 scope include the fixed package input; final firmware inclusion remains separately gated.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/522.json",
+    "body_line": 25,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-523-01",
+    "issue": 523,
+    "criterion": "Original actual-guest failure, exact artifact and loader dependency/source trace are retained, separating executable permission from loader readiness.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/523.json",
+    "body_line": 22,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-523-02",
+    "issue": 523,
+    "criterion": "Recipe declares the required runtime closure using project packages; pkgcheck and target package/install evidence prove library bytes/architecture/SONAME and placement. Existing frozen build owners and global source caches are unchanged.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/523.json",
+    "body_line": 23,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-523-03",
+    "issue": 523,
+    "criterion": "Actual owned GENERIC_X64 proof starts the real AppImage with the qualified target libraries and no missing required dependencies; #521's screenshot writer proof resumes on that exact overlay. Any unrelated runtime restriction is named, not silently passed.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/523.json",
+    "body_line": 24,
+    "review_status": "not evaluated"
+  },
+  {
+    "id": "AC-523-04",
+    "issue": 523,
+    "criterion": "#508 integration/#507 audit/final firmware inclusion manifest name the dependency inputs and preserve separate source-overlay versus assembled-image qualification.",
+    "tracker_checked": true,
+    "source_snapshot": "inputs/issues/523.json",
+    "body_line": 25,
+    "review_status": "not evaluated"
+  }
+]

@@ -1,0 +1,13 @@
+{
+  "command": [
+    "timeout",
+    "30",
+    "python3",
+    "-I",
+    "-B",
+    "/workspace/repos/rocknix.worktrees/m7-p5-audit-507/docs/audits/2026_10_08-milestone-m7-p5-delta-507/checks/blind-host-leads01/probe.py"
+  ],
+  "cwd": "/workspace/repos/rocknix.worktrees/m7-p5-audit-507",
+  "frozen_head": "ac64c80628ad6d5a69b803d82f186472529f7cd7",
+  "scope": "Finite host guard reproduction for blind F-8; no source edit/network/device action."
+}

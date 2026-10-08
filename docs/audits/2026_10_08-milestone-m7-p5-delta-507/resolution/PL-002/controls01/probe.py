@@ -1,0 +1,9 @@
+import datetime,hashlib,json,subprocess,sys
+from pathlib import Path
+root=Path.cwd();owner=Path(__file__).resolve().parent;sentinel=owner/'untouched';sentinel.mkdir();(sentinel/'owner.txt').write_text('preserve\n');before={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in sentinel.iterdir()};rows=[]
+for name in ['pixelelated-cloud-folder-test','pixelelated-cloud-folder-vm-test']:
+ tool=root/'tools'/name
+ for args,wanted in [(['--help'],0),([],2),(['--ref','HEAD','--output',str(sentinel),'--rclone','/missing/rclone','--case','fresh-empty-seed-beside-legacy'],2),(['--owner',str(sentinel),'--image','/missing/image.img.gz','--image-sha256','0'*64,'--reuse-guest','--keep-guest'],2)]:
+  run=subprocess.run([str(tool),*args],text=True,capture_output=True,timeout=5);message=run.stdout+run.stderr;unchanged=before=={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in sentinel.iterdir()};ok=run.returncode==wanted and 'Retired historical' in message and 'pixelelated-cloud-validator-test' in message and unchanged;rows.append(dict(tool=name,args=args,expected_rc=wanted,rc=run.returncode,passed=ok,owner_unchanged=unchanged,output=message));assert ok,rows[-1]
+ old=root/'../m7-p5-audit-507/tools'/name;run=subprocess.run([str(old),'--help'],text=True,capture_output=True,timeout=5);rejected='Retired historical' not in run.stdout;rows.append(dict(tool=name,control='frozen original fails current retirement assertion',rc=run.returncode,passed=run.returncode==0 and rejected));assert rows[-1]['passed']
+result=dict(utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),result='PASS',controls=len(rows),rows=rows,scope='Host CLI boundary only; original actual stale-contract failure remains checks/retrospective-controls01');(owner/'retirement-results.json').write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result,indent=2))

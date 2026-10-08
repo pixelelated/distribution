@@ -1,0 +1,27 @@
+{
+  "body": "## Origin\n\nContinuation of the authorized #503/#492 build repair. The maintainer asked: \"can't we do some of this in parallel, like making the changes while we troubleshoot the SM8550 build?\"\n\nBuild02 compiled and installed the complete FEX package at15:50:49UTC, including native AArch64 FEX and5i386+8x86_64 guest libraries. Its fresh verifier then opened guest-libs/build.ninja, but CMake's actual build directories are Guest and Guest_32; guest-libs names the external-project scaffolding. This is a proof-path defect, not recurrence of the original compiler failure. No firmware assembly began. Original failed build02/acceptance02/controller receipts are retained.\n\nAlready written: no new SM8550 firmware was produced or deployed; the complete target package is on the host only. Preserve it and the accepted ARM output.\n\nCan this be done on the VM? This is a host acceptance-helper defect; inspect actual generated Ninja paths and ELF files in the pinned build container. No physical device or cloud access is needed.\n\n## Acceptance criteria\n\n- [x] Preserve the failed verifier and terminal receipts, reproduce its wrong-path failure, and prove the corrected helper against the actual completed FEX package.\n- [x] Both actual guest build files exclude the rebased ARM64 standard include; the exact Nix version/rootfs/toolchains and all14 installed ELF identities pass.\n- [x] A fresh watched build/acceptance owner reuses the complete FEX package and unchanged ARM output, continues firmware assembly, and records terminal results without relabeling failed02.\n\n## Firmware acceptance \u2014 2026-10-07 16:52 UTC\n\nSM8550 firmware artifacts are ACCEPTED from frozen0553c0193ace3aebbefaae5b7b6d49253c2811d9. All737 packages completed; build04 returned0 at16:51:14UTC and its fourzero channels/13seals/exits were verified16:51:39. Independent firmware acceptance passed16:52:00; fourzero channels/3seals/exits and controllerPASS were consumed16:52:09. Raw/update equality, GPT/ABL, lowercase identity,187ARM handoff files,14FEX files, and installed qualified English/French migration copy passed. Independent bundle97367c3235fab7cc6d1ec2b54c390fe7ceff786612f29c9f177aaa288a33fb18 is retained; scratch was removed. Original01 product and02/03 helper failures remain preserved. Source/licence inventory, per-image qualification mapping, named physical smoke and publication remain separate; no Nova deployment or RC designation. Evidence: docs/qa-logs/2026-10-07-device-builds/sm8550-resume04/.\n\nEvidence: docs/qa-logs/2026-10-07-device-builds/sm8550-resume04/. Failed03 exposed a read-only Nix mount incompatible with canonical checkdeps; its terminal results are preserved. Fresh04 mounts the active cache writable and verifies runtime identity before any proof/build work. No successfully completed package was recleaned.\n",
+  "closedAt": "2026-10-07T17:02:08Z",
+  "comments": [
+    {
+      "id": "IC_kwDOMM7sFc8AAAABaCw28w",
+      "author": {
+        "login": "blitterbot"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "Completed on 0553c019: original/fixed controls, full FEX package and SM8550 firmware artifact verification pass. Build04 and acceptance04 have zero result channels, intact seals and verified exits. Bundle: 97367c3235fab7cc6d1ec2b54c390fe7ceff786612f29c9f177aaa288a33fb18. Failed owners remain preserved. Physical and publication gates stay with #492/#344.",
+      "createdAt": "2026-10-07T17:02:07Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/pixelelated/distribution/issues/506#issuecomment-6042695411",
+      "viewerDidAuthor": true
+    }
+  ],
+  "labels": [],
+  "number": 506,
+  "state": "CLOSED",
+  "title": "M7.P5: Correct FEX acceptance paths and continue SM8550",
+  "updatedAt": "2026-10-07T17:02:08Z",
+  "url": "https://github.com/pixelelated/distribution/issues/506"
+}

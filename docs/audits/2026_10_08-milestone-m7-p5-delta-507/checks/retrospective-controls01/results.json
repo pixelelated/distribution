@@ -1,0 +1,21 @@
+[
+  {
+    "name": "folder-regression-tool",
+    "command": [
+      "python3",
+      "-I",
+      "-B",
+      "tools/pixelelated-cloud-folder-test",
+      "--rclone",
+      "/tmp/pixelelated-rc-rclone/rclone",
+      "--output",
+      "/workspace/repos/rocknix.worktrees/m7-p5-audit-507/docs/audits/2026_10_08-milestone-m7-p5-delta-507/checks/retrospective-controls01/folder-tool",
+      "--case",
+      "fresh-empty-seed-beside-legacy",
+      "--retire"
+    ],
+    "rc": 1,
+    "started": "2026-10-08T09:06:59.649399+00:00",
+    "ended": "2026-10-08T09:06:59.709441+00:00"
+  }
+]

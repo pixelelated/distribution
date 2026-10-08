@@ -1,0 +1,27 @@
+{
+  "utc": "2026-10-08T16:02:09.774630+00:00",
+  "result": "PASS",
+  "channels": {
+    "inner.rc": 0,
+    "outer.rc": 0,
+    "tool-wrapper.rc": 0,
+    "build.rc": 0
+  },
+  "sealed_inputs": 31,
+  "inputs_unchanged": true,
+  "host_pids_absent": [
+    3071641,
+    3071642,
+    3071643,
+    3071671
+  ],
+  "retirement_controls": 10,
+  "current_validator_controls": 30,
+  "package_lint": 0,
+  "rules_check": 0,
+  "source_commit": "44c87473bd0eed1acab1ae657d66d0def464f6d0",
+  "committed_blobs_equal_tested_bytes": true,
+  "scope": "Retired entrypoints only; no new VM/physical/provider operation. Run finished before first host process observation; no live-process claim. Original counter error retained separately.",
+  "source_worktree": "/workspace/repos/rocknix.worktrees/m7-audit507-tools",
+  "source_base": "ac64c80628ad6d5a69b803d82f186472529f7cd7"
+}

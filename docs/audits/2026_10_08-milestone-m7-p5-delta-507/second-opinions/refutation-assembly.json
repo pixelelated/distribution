@@ -1,0 +1,29 @@
+{
+  "utc": "2026-10-08T15:30:18.373604+00:00",
+  "approval": "transfer-approval.json",
+  "assembly": "exact base bytes + exact unchanged suffix bytes + exact verified blind output bytes",
+  "components": [
+    {
+      "path": "claude-refutation-base.md",
+      "bytes": 1046058,
+      "sha256": "f42f7ec8e7082a8756d3c8c0b1083c96c25803fdf9ae3d227b4332de8c63a7e4"
+    },
+    {
+      "path": "refutation-suffix-template.md",
+      "bytes": 157,
+      "sha256": "d5ddf3d155d020dd702b81ac4801f2e45d233ea4614e65125ac302ee84cc94d0"
+    },
+    {
+      "path": "claude-blind.md",
+      "bytes": 17829,
+      "sha256": "3fc6ce05bca865c1f8be448e29d1634ba894bab15e620f6d3bf0a0ce6d149770"
+    }
+  ],
+  "output": {
+    "path": "claude-brief.md",
+    "bytes": 1064044,
+    "sha256": "b117c9a21d29c34c21c29762e04cb66fc337e2737e2cd6d70b81755f9bff37cc"
+  },
+  "no_extra_content": true,
+  "blind_verification": "../checks/fable-blind01/verified-completion.json"
+}

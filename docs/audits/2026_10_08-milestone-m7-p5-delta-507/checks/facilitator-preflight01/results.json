@@ -1,0 +1,36 @@
+[
+  {
+    "name": "pins",
+    "command": [
+      "/workspace/repos/rocknix/tools/council/node_modules/.bin/tsx",
+      "scripts/verify-pins.ts"
+    ],
+    "rc": 0,
+    "started": "2026-10-08T09:24:16.173342+00:00",
+    "ended": "2026-10-08T09:24:16.381452+00:00"
+  },
+  {
+    "name": "efforts",
+    "command": [
+      "/workspace/repos/rocknix/tools/council/node_modules/.bin/tsx",
+      "scripts/lint-council-seat-efforts.ts",
+      "--strict"
+    ],
+    "rc": 0,
+    "started": "2026-10-08T09:24:16.381673+00:00",
+    "ended": "2026-10-08T09:24:16.562965+00:00"
+  },
+  {
+    "name": "drift",
+    "command": [
+      "/workspace/repos/rocknix/tools/council/node_modules/.bin/tsx",
+      "scripts/check-stale-blob-drift.ts",
+      "scripts/council-invoke.ts",
+      "scripts/lib/council-verification.ts",
+      ".claude/agents/council-member-claude.agent.md"
+    ],
+    "rc": 0,
+    "started": "2026-10-08T09:24:16.563174+00:00",
+    "ended": "2026-10-08T09:24:16.696153+00:00"
+  }
+]

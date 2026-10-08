@@ -1,0 +1,90 @@
+{
+  "verified_utc": "2026-10-08T16:18:25.150956+00:00",
+  "result": "PASS host controls and committed source only; PL-003 target acceptance still pending",
+  "source": "1d76b3da7da75794066df1c089931b890304da7a",
+  "six_committed_blobs_match_tested_inputs": true,
+  "input_hashes_recomputed": 511,
+  "command_results": 8,
+  "unit_cases": 184,
+  "unit_assertions": 4775,
+  "new_extracted_translated_messages": 11,
+  "channels": {
+    "inner.rc": 0,
+    "outer.rc": 0,
+    "tool-wrapper.rc": 0,
+    "build.rc": 0
+  },
+  "actual_host_pids_absent": [
+    3125164,
+    3125194,
+    3125165,
+    3125163
+  ],
+  "owner": "/workspace/tmp/pixelelated-524-path-refusal/host01",
+  "evidence": {
+    "/workspace/tmp/pixelelated-524-path-refusal/host01/commands.json": {
+      "bytes": 63414,
+      "sha256": "d2d027f51411c515b5de8b1d9e57be7c9c541aa72da55dd21494f7b9212103fb"
+    },
+    "/workspace/tmp/pixelelated-524-path-refusal/host01/run.py": {
+      "bytes": 1248,
+      "sha256": "802c03d55c33d2ede7e6b5ee6cf978b47dcc6cacec9bf2917810482e9b657b3e"
+    },
+    "/workspace/tmp/pixelelated-524-path-refusal/host01/extract.py": {
+      "bytes": 1457,
+      "sha256": "581033eb98411152ff286ddd218f72f5f34ee70f64abf092ff4a7f4fd83371fc"
+    },
+    "/workspace/tmp/pixelelated-524-path-refusal/host01/inputs-before.json": {
+      "bytes": 94056,
+      "sha256": "7d54c8a125c2dcbb40bacac90009f7eb0f394d963c25bd94c19e1c0f0565e39d"
+    },
+    "/workspace/tmp/pixelelated-524-path-refusal/host01/inputs-after.json": {
+      "bytes": 94056,
+      "sha256": "7d54c8a125c2dcbb40bacac90009f7eb0f394d963c25bd94c19e1c0f0565e39d"
+    },
+    "/workspace/tmp/pixelelated-524-path-refusal/host01/results.json": {
+      "bytes": 3911,
+      "sha256": "a28a9aebeeb232039eb1c43bb0ed61afd13c2c44eb18b3a7c90648fc73f9c21f"
+    },
+    "/workspace/tmp/pixelelated-524-path-refusal/host01/source.patch": {
+      "bytes": 13247,
+      "sha256": "21cc89b971924ab0443303219537e95924a417d0c91ddcc9db74d168a7a234ed"
+    },
+    "/workspace/tmp/pixelelated-524-path-refusal/host01/unit-run.log": {
+      "bytes": 303,
+      "sha256": "f837b3711f44c42b585a6259e523ff60f9550bc9090db232f8d1dc493f940a13"
+    },
+    "/workspace/tmp/pixelelated-524-path-refusal/host01/syntax.log": {
+      "bytes": 453,
+      "sha256": "790c5dc9d55e8b2497a60ce3836ceb9914234130928e2d79c7338e83c252b8ac"
+    },
+    "/workspace/tmp/pixelelated-524-path-refusal/host01/catalog.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/workspace/tmp/pixelelated-524-path-refusal/host01/vocabulary.log": {
+      "bytes": 263,
+      "sha256": "41f9782dbd71e5143e20ca53a0fc551c4ac48e0fff5b5e3ff2b739726a8b29ff"
+    },
+    "/workspace/tmp/pixelelated-524-path-refusal/host01/menu-map.log": {
+      "bytes": 74,
+      "sha256": "63ca889babcf503bc61f8b4abe408f86947ea68d443af8ebeb63c87ca7192c56"
+    },
+    "/workspace/tmp/pixelelated-524-path-refusal/host01/extraction.log": {
+      "bytes": 372,
+      "sha256": "e3a71a06baa595ed3340d9967ea2d6e610a03daf1b929478b135979a9b7fe5c2"
+    },
+    "/workspace/tmp/pixelelated-524-path-refusal/host01/new-messages.json": {
+      "bytes": 1673,
+      "sha256": "709b694ba9eedbe6d37b2f8da91a915223f5d26022eafa4364009e6504948c4f"
+    },
+    "/workspace/tmp/pixelelated-524-path-refusal/host01/fr.mo": {
+      "bytes": 180601,
+      "sha256": "f056223d0fa947a7c9790c914b7696586b168e33135c627ebbc4d1d6d530dfb4"
+    },
+    "/workspace/tmp/pixelelated-524-path-refusal/host01/verified-completion.json": {
+      "bytes": 4896,
+      "sha256": "93d5767fec2f168e6647528faf67f6ed7665fa58257cdfbe59cbb4553668886c"
+    }
+  }
+}

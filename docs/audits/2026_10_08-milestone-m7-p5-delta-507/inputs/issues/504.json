@@ -1,0 +1,57 @@
+{
+  "body": "## Request\n\n> also, I left my RG35XX SP plugged in and doing the directory migration. you should check how that migration went, study the logs for any learnings about how the upgrade went, and more.\n\n## Current scope\n\n#500 records the completed, authorized H700 transfer and one reboot into pixelelated 0.0.1 (`43d0bc3bf47fd858ba8d5c55fbdf52535a0db2aa`). The owner subsequently initiated the cloud-directory migration. #502 owns the migration prompt wording. This issue reviews existing local evidence of that particular upgrade and migration, read-only. No cloud listing, rclone/script invocation, settings change, screenshot, input, reboot, or replay is authorized by this review.\n\nCan this be done on the VM? The migration behavior can and has been qualified in VM tests. This task observes the historical result of the owner's already-performed physical SP upgrade and migration; a VM cannot supply this device's actual retained event record. No new behavior test is performed on the handheld. The physical adoption fact and acceptance are recorded in #500 and `docs/releases/device-facts.md`.\n\n## Acceptance criteria\n\n- [x] A compact, credential-filtered local readback records boot identity, service state, migration process presence/absence, migration status and relevant local pointer fields, with capture time.\n- [x] Retained local migration/scan/sync logs establish success, ongoing work, or a named uncertainty; an absent process alone never counts as success, and provider contents are not asserted without evidence.\n- [x] Existing upgrade warnings are compared against #500/predecessor evidence; findings and limitations identify any actionable issue and durable learning.\n- [x] Sanitized evidence and its source-reading commands are retained under `docs/qa-logs/2026-10-07-device-builds/rg35xxsp-migration-review01/`; the issue records the outcome and links any required follow-up.\n\n## Read-only review complete, 2026-10-07 15:33 UTC\n\nThe migration did **not** finish. Its local numbered journal records begin11:37:28UTC, backups11:37:55, saves11:44:33, discarded11:44:52, with no content/complete stage. At15:12\u201315:16 there was no cloud/rclone process and the retained recovery record still named `stage=discarded`. Saves/backups point at `/pixelelated`; content remains `/ROCKNIX/Content`. The exact transfer failure, exit code and current GUI outcome were not retained. No provider bytes or complete data migration are independently asserted.\n\nThe same accepted build/boot is active; ES and audio services have0restarts,0failedunits. Known scheduler/audio errors match#500/predecessor evidence. The old scan and sync stamps predate migration and are not counted as current/completion evidence.\n\n**Durable learning:** migration errors are parsed by the UI, while terminal summaries use LogInfo, suppressed by shipped warning verbosity. This device has no ES verbosity override and system logging is `none`. The relevant existing log timestamps precede the run. #505 now owns bounded privacy-safe terminal diagnostics and VM proof. We cannot reconstruct this historical cause merely by changing logging now.\n\n## Additional maintainer request: power state\n\n> is there any information in the power states? for example, could it have gone to sleep?\n\nCan this be done on the VM? Suspend behavior can be tested separately in VM; this read-only extension inspected the actual historical event's device counters/journal, without a new power/cloud test.\n\n- [x] `power-readback.txt` and `power-counters-readback.txt` correlate the migration with existing suspend/resume/network evidence and state explicitly what cannot be inferred.\n\nAt15:33UTC kernel suspend success=0, fail=0, selected suspend failure counters=0. No kernel/systemd suspend/resume event and no NetworkManager disconnect/state transition after11:37 were found. Current mode is mem/deep and the config predates migration(11:24:06UTC). Thus a real device suspend is not supported as the cause; no real suspend is recorded this boot. Screen dim/screensaver history is unavailable and distinct from machine sleep. A process marked S(sleeping) is normal waiting, not evidence of hardware sleep. No power flags are present; current charging/inhibitors do not prove their past states.\n\n## Evidence and limits\n\n`docs/qa-logs/2026-10-07-device-builds/rg35xxsp-migration-review01/` contains README, machine-readable review, exact successful read scripts and sanitized outputs; SHA256SUMS verifies every retained file. Publication is owned by the root session; these paths currently identify retained local evidence, not an already-published commit.\n\nNo migration retry, provider listing, cloud command, screenshot, controller input, setting write, game launch, reboot or service action was performed. This completes the observation/review scope; the personal migration remains incomplete and #505 remains a follow-up, not a claimed fix. A named cloud retry still needs its own authorization.\n\n\n## Screenshot follow-up\n\nThe owner authorized screenshots for troubleshooting. The capture did not expose readable migration error text. Screenshot bytes, detailed display readbacks and device identifiers remain local; none is attached here. This initial capture was followed by the separately authorized wake action below. The migration cause remains undetermined; #505 owns durable terminal diagnostics.\n\n\n### Authorized wake follow-up\n\nThe separately authorized wake input and follow-up capture completed. The readable result confirms an incomplete transfer without identifying the underlying cause. No confirmation or migration retry was performed. Detailed evidence remains local. Exact-pin source tracing is complete: discarded denotes the completed discarded-save tier before content, not an abort marker or finish time. Copy and verification failures share the generic content result; no specific historical cause is established. #505 owns durable diagnostics. This completes the review scope.\n",
+  "closedAt": "2026-10-07T16:33:22Z",
+  "comments": [
+    {
+      "id": "IC_kwDOMM7sFc8AAAABaBTG3Q",
+      "author": {
+        "login": "blitterbot"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "Additional maintainer request:\n\n> is there any information in the power states? for example, could it have gone to sleep?\n\nRead-only extension: inspect retained suspend/resume, lid, idle and network event timestamps around the owner-initiated migration, plus current power-policy configuration. The earlier same-boot and current charging readings do not exclude a historical suspend. Can this be done on the VM? Suspend behavior can be tested on VM separately; this inspection asks what this actual already-running handheld recorded during the historical event and performs no new power or cloud action. Evidence will distinguish an observed suspend from missing records.\n",
+      "createdAt": "2026-10-07T15:31:39Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/pixelelated/distribution/issues/504#issuecomment-6041159389",
+      "viewerDidAuthor": true
+    },
+    {
+      "id": "IC_kwDOMM7sFc8AAAABaBxb0g",
+      "author": {
+        "login": "blitterbot"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "Additional explicit authorization:\n\n> you may capture whatever screenshots you need on the RG 35XX SP in order to troubleshoot this issue.\n\nCan this be done on the VM? UI behavior can be reproduced on a VM, but the currently displayed outcome of this already-performed personal migration exists on this physical panel/session. This action captures that existing screen for diagnosis; it does not replay the migration or inject input. The screenshot will run through `tools/device-act`, preferably streaming PNG bytes directly to a host evidence file, with no persistent device file. No cloud operation, retry, reboot, service/setting change or controller input is included. This screenshot authorization persists for this investigation.\n",
+      "createdAt": "2026-10-07T15:58:01Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/pixelelated/distribution/issues/504#issuecomment-6041656274",
+      "viewerDidAuthor": true
+    },
+    {
+      "id": "IC_kwDOMM7sFc8AAAABaCYKkQ",
+      "author": {
+        "login": "blitterbot"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "Review complete: retained local logs, separately authorized wake/frame, and exact installed-pin source tracing establish an incomplete migration with an undetermined copy/check cause. No retry or confirmation was performed. Detailed evidence remains local; the tracked PUBLIC-SUMMARY.md records the bounded conclusion. #505 owns future terminal diagnostics.",
+      "createdAt": "2026-10-07T16:33:21Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/pixelelated/distribution/issues/504#issuecomment-6042290833",
+      "viewerDidAuthor": true
+    }
+  ],
+  "labels": [],
+  "number": 504,
+  "state": "CLOSED",
+  "title": "M7.P5: Review RG35XX SP cloud migration and upgrade logs",
+  "updatedAt": "2026-10-07T16:33:22Z",
+  "url": "https://github.com/pixelelated/distribution/issues/504"
+}

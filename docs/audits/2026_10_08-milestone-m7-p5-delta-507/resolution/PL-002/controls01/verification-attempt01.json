@@ -1,0 +1,11 @@
+{
+  "retained_at": "2026-10-08T16:02:09.764000+00:00",
+  "result": "failed assertion in receipt counter",
+  "expected": 30,
+  "observed_raw_PASS_lines": 31,
+  "cause": "PASS 30 controls aggregate was incorrectly included as a case",
+  "test_commands": "all four actual command results and channels were0",
+  "no_tests_rerun": true,
+  "correction": "Count named cases separately from aggregate; require both30named cases and PASS30controls",
+  "commit_custody": "44c87473bd was committed after the failed counter because the shell continued; no resolution had been reported. All actual source tests had passed; this corrected acceptance verifies their exact source bytes."
+}

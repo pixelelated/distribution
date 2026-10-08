@@ -1,0 +1,46 @@
+{
+  "utc": "2026-10-08T15:55:53.060003+00:00",
+  "result": "PASS",
+  "issues": [
+    {
+      "number": 497,
+      "state": "closed",
+      "state_reason": "completed",
+      "body_sha256": "490d70d15d1c026c75ccf8f0791955ccafa391ab8ebac3bd3459708d2c8c38f8"
+    },
+    {
+      "number": 510,
+      "state": "open",
+      "state_reason": null,
+      "body_sha256": "7ea066590d60ef7c4dc610b8a2c1d16fb74386be6531771fa6b9c20acecece3c"
+    }
+  ],
+  "primary_artifacts_re_read": [
+    {
+      "path": "docs/qa-logs/2026-10-07-device-builds/h700-arm05-acceptance/artifacts/acceptance.json",
+      "sha256": "0075548a94519f85ddb23fcdaee215d8a2ad87543a57ecab048a49b7c2d58a86"
+    },
+    {
+      "path": "docs/qa-logs/2026-10-07-device-builds/rg35xxsp-adoption01/h700-artifact-acceptance.json",
+      "sha256": "f120698a30e6144e2aa2fddc42eacc550fa668d9980a57fd5c0c519b8dfe7b95"
+    },
+    {
+      "path": "docs/qa-logs/2026-10-07-device-builds/rg35xxsp-adoption01/h700-acceptance-owner.json",
+      "sha256": "16357115761ea4c81cd4826cab987407f5467d8a085ae4b85c0bba1f9d38867e"
+    },
+    {
+      "path": "docs/qa-logs/2026-10-07-device-builds/sm8550-resume04/terminal/acceptance/artifacts/arm-handoff.json",
+      "sha256": "fcb734711bd1309028db3b60ca2f9e1647f2a907f2f9989ace253ba25e0286a9"
+    },
+    {
+      "path": "docs/qa-logs/2026-10-07-device-builds/sm8550-resume04/terminal/acceptance/artifacts/acceptance.json",
+      "sha256": "abe75f96ced54da64d589e558939c154af3a3989eaee13bd3e5239ce00ad584e"
+    }
+  ],
+  "integration_contains": [
+    "feature/m7-p5-audit-507",
+    "feature/m7-p5-integration",
+    "next"
+  ],
+  "scope": "Whole bodies read directly; live exact hashes/states independently checked; original frozen verdicts retained. Historical sections remain labeled; image and owner update gates remain open."
+}

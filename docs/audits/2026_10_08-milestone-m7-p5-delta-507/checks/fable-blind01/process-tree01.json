@@ -1,0 +1,68 @@
+{
+  "utc": "2026-10-08T15:16:16.604273+00:00",
+  "processes": [
+    {
+      "pid": 2870146,
+      "ppid": 1,
+      "elapsed_s": 86,
+      "state": "Ss",
+      "comm": "python3"
+    },
+    {
+      "pid": 2870147,
+      "ppid": 2870146,
+      "elapsed_s": 86,
+      "state": "S",
+      "comm": "python3"
+    },
+    {
+      "pid": 2870148,
+      "ppid": 2870147,
+      "elapsed_s": 86,
+      "state": "Ss",
+      "comm": "watch-job"
+    },
+    {
+      "pid": 2870176,
+      "ppid": 2870147,
+      "elapsed_s": 86,
+      "state": "Ss",
+      "comm": "python3"
+    },
+    {
+      "pid": 2870178,
+      "ppid": 2870176,
+      "elapsed_s": 86,
+      "state": "S",
+      "comm": "timeout"
+    },
+    {
+      "pid": 2870179,
+      "ppid": 2870178,
+      "elapsed_s": 86,
+      "state": "Sl",
+      "comm": "MainThread"
+    },
+    {
+      "pid": 2870194,
+      "ppid": 2870179,
+      "elapsed_s": 86,
+      "state": "Sl",
+      "comm": "MainThread"
+    },
+    {
+      "pid": 2870206,
+      "ppid": 2870194,
+      "elapsed_s": 86,
+      "state": "Sl",
+      "comm": "esbuild"
+    },
+    {
+      "pid": 2878407,
+      "ppid": 2870148,
+      "elapsed_s": 1,
+      "state": "S",
+      "comm": "sleep"
+    }
+  ]
+}

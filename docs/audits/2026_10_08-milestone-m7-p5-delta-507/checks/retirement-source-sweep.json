@@ -1,0 +1,34 @@
+{
+  "utc": "2026-10-08T08:53:47.255258+00:00",
+  "patterns": "cloud_migrate_layout|cloud_layout_repair|TIDY CLOUD|MOVING YOUR CLOUD FOLDER",
+  "distro": {
+    "rc": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  "es": {
+    "rc": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  "public_predecessor": {
+    "cloud_sync.conf": {
+      "sha256": "e43cae4589b3c00b38fac1ae44b11759d8285e020c31dba429a28f97e24527b3",
+      "relevant_lines": [
+        "SYNCPATH=\"/GAMES\"",
+        "SYNCPATH_BACKUP=\"/GAMES/backup\""
+      ]
+    },
+    "cloud_sync-rules.txt": {
+      "sha256": "c4301df34672b61531f47c3ff8e5065d63ba2858828ce11cf0b3adec34aeb0b6",
+      "relevant_lines": [
+        "+ /savefiles/**",
+        "+ /savestates/**",
+        "+ /screenshots/**",
+        "+ /backup/*.zip",
+        "- /roms/**",
+        "- /bios/**"
+      ]
+    }
+  }
+}

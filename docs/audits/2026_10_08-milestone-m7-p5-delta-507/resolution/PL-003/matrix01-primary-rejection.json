@@ -1,0 +1,32 @@
+{
+  "utc": "2026-10-08T16:34:01.935240+00:00",
+  "status": "REJECTED matrix fixture, no product finding inferred",
+  "completed_prior_rows": 5,
+  "reason": "Attempted bucket-refusal case instead accepted /a/b; selected settings changed. Local provider refusal was not established.",
+  "before_paths": {
+    "saves": "/QA/Saves",
+    "settings": "/QA/Backups",
+    "content": "/QA/Content",
+    "roms": "/QA/Content/ROMs",
+    "bios": "/QA/Content/BIOS",
+    "media": "/QA/Content/ROMs"
+  },
+  "after_paths": {
+    "saves": "/QA/Saves",
+    "settings": "/a/b",
+    "content": "/QA/Content",
+    "roms": "/QA/Content/ROMs",
+    "bios": "/QA/Content/BIOS",
+    "media": "/QA/Content/ROMs"
+  },
+  "rclone_and_payload_hash_lines_equal": true,
+  "hashes": {
+    "run.py": "bfcddd67ff63ebd7330d49f86d6fbe9fa65163514c6a8201fda77302e1743b9f",
+    "cases.json": "262d4f547cdf42a1d8a2db00862549448fca3344454f054223a7fbe1da6afd53",
+    "console.log": "1dfa9a912e81883c466c608fbbe752bfc2487b99d5ed0a1d9d6ed89c0c625bd7",
+    "results.json": "38f39e7f22164cdc7981ff4175f396e943cb6fd8e5aaa90e6659f1e6d2eb4c3e",
+    "en_US-640x480/bucket/before.txt": "2763593d61c16a444c4e66c89dfa72f1d615345fef83516735da7590ff32aabe",
+    "en_US-640x480/bucket/after.txt": "9ff695572bb98a8f99c3d4dc0255367335127fa4db8012120282e906798e31de"
+  },
+  "next_action": "Root corrects refusing fixture in a fresh owner, preserves original attempt; no PL-003 acceptance until complete source-bound matrix."
+}

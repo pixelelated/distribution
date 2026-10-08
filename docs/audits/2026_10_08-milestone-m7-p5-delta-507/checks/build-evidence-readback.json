@@ -1,0 +1,45 @@
+{
+  "utc": "2026-10-08T08:24:36.555688+00:00",
+  "packet_seals": [
+    {
+      "directory": "docs/qa-logs/2026-10-07-device-builds/sm8550-fex-controls01",
+      "files_verified": 21,
+      "result": "PASS"
+    },
+    {
+      "directory": "docs/qa-logs/2026-10-07-device-builds/sm8550-resume02",
+      "files_verified": 33,
+      "result": "PASS"
+    },
+    {
+      "directory": "docs/qa-logs/2026-10-07-device-builds/sm8550-resume04",
+      "files_verified": 64,
+      "result": "PASS"
+    },
+    {
+      "directory": "docs/qa-logs/2026-10-07-migration-copy",
+      "files_verified": 193,
+      "result": "PASS"
+    }
+  ],
+  "feature_redaction_identity": "fe471bde1ca154f7147a2d9f2468ac03bb4c83f2",
+  "redactions": [
+    {
+      "path": ".github/sessions/archived/saved-session-state-feature-conflict-resolution-20260925T023111Z.md",
+      "changed_lines": [
+        52
+      ],
+      "hashes_match": true,
+      "absent_from_frozen_next": true
+    },
+    {
+      "path": ".github/sessions/archived/saved-session-state-feature-conflict-resolution-20260925T195426Z.md",
+      "changed_lines": [
+        57
+      ],
+      "hashes_match": true,
+      "absent_from_frozen_next": true
+    }
+  ],
+  "scope": "Public compact packet bytes and redaction path/line/hash metadata only. Protected text is neither emitted nor retained."
+}

@@ -1,0 +1,33 @@
+{
+  "verified_utc": "2026-10-08T17:29:26.577539+00:00",
+  "raw_check_exit": 2,
+  "raw_log_sha256": "4d73c54152b47eb92822c3152ba5c2f7ade33b054a62aa9c66fbeea7377f3bb3",
+  "raw_warning_count": 3454,
+  "raw_evidence_paths_preserved": [
+    "docs/audits/2026_10_08-milestone-m7-p5-delta-507/checks/cloud-controls01/content-scope/selected-rom-bios-bytes/log/cloud_sync.log",
+    "docs/audits/2026_10_08-milestone-m7-p5-delta-507/checks/cloud-controls01/validator/info-independent-paths/01-cloud_setup.log",
+    "docs/audits/2026_10_08-milestone-m7-p5-delta-507/checks/host-controls01/pkgcheck-box86.log",
+    "docs/audits/2026_10_08-milestone-m7-p5-delta-507/checks/host-controls01/pkgcheck-daedalusx64-sa.log",
+    "docs/audits/2026_10_08-milestone-m7-p5-delta-507/checks/host-controls01/pkgcheck-desmume-lr.log",
+    "docs/audits/2026_10_08-milestone-m7-p5-delta-507/checks/host-controls01/pkgcheck-duckstation-sa.log",
+    "docs/audits/2026_10_08-milestone-m7-p5-delta-507/checks/host-controls01/pkgcheck-emulationstation.log",
+    "docs/audits/2026_10_08-milestone-m7-p5-delta-507/checks/host-controls01/pkgcheck-fex-emu.log",
+    "docs/audits/2026_10_08-milestone-m7-p5-delta-507/checks/host-controls01/pkgcheck-gpsp-lr.log",
+    "docs/audits/2026_10_08-milestone-m7-p5-delta-507/checks/host-controls01/pkgcheck-lib32.log",
+    "docs/audits/2026_10_08-milestone-m7-p5-delta-507/checks/host-controls01/pkgcheck-rclone.log",
+    "docs/audits/2026_10_08-milestone-m7-p5-delta-507/checks/host-controls01/pkgcheck-retroarch.log",
+    "docs/audits/2026_10_08-milestone-m7-p5-delta-507/checks/host-controls01/pkgcheck-spirv-tools.log",
+    "docs/audits/2026_10_08-milestone-m7-p5-delta-507/checks/retrospective-controls01/folder-regression-tool.log",
+    "docs/audits/2026_10_08-milestone-m7-p5-delta-507/inputs/distribution-product-diff.patch",
+    "docs/audits/2026_10_08-milestone-m7-p5-delta-507/inputs/distribution-tools-diff.patch",
+    "docs/audits/2026_10_08-milestone-m7-p5-delta-507/inputs/es-diff.patch",
+    "docs/audits/2026_10_08-milestone-m7-p5-delta-507/resolution/PL-002/controls01/validator/info-independent-paths/01-cloud_setup.log",
+    "docs/audits/2026_10_08-milestone-m7-p5-delta-507/second-opinions/claude-blind-brief.md",
+    "docs/audits/2026_10_08-milestone-m7-p5-delta-507/second-opinions/claude-brief.md",
+    "docs/audits/2026_10_08-milestone-m7-p5-delta-507/second-opinions/claude-refutation-base.md",
+    "docs/audits/2026_10_08-milestone-m7-p5-delta-507/second-opinions/superseded-untransmitted01/claude-blind-brief.md",
+    "docs/audits/2026_10_08-milestone-m7-p5-delta-507/second-opinions/superseded-untransmitted01/claude-refutation-base.md"
+  ],
+  "authored_and_other_artifact_check_exit": 0,
+  "scope": "Original logs/patches/sealed payloads retain intentional byte identity; no formatting rewrite or global check suppression."
+}

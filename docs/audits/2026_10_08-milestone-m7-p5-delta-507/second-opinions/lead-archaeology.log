@@ -1,0 +1,40 @@
+archaeology: refusal.*(reason|guidance)|token.*refresh|refresh.*token
+
+== The decision register (2)
+  2026-08-28  register decided D-CLOUD-001  ROCKNIX registers no OAuth client credentials of any kind. Players supply their own; we make the flow around them painless. An unverified Google app caps at 100 users an…
+  2026-09-30  register decided D-WORKFLOW-090  Scaffold's export is reworded on the way in: every line that named the source estate says "the source estate", "scaffold's forge" or "estate-local", or names this fork w…
+
+== The blindspot register (0)
+
+== Work logs (8)
+  2026-08-28  work-log 20:40                Cloud setup: the SSH flow is the wrong shape; native setup designed and started
+  2026-09-14  work-log 16:10                Audit #186's fixes: the distribution side merged, the interface side on its branch
+  2026-09-17  work-log 16:40                Build 14 on guest d: the French pages framed, one row too tall, the transfer page's word aligned; #115 closed
+  2026-10-06  work-log                      2026-10-06T21:52:47.112468+00:00 — Recovery03 navigation fixture failed; reason-fit gap retained
+  2026-10-06  work-log                      2026-10-06 21:30 UTC — historical repair full source regression passes
+  2026-10-06  work-log 15:54                #383 independent audit continues despite approval-service authentication failure
+  2026-10-06  work-log 19:22                #471 Phase7 repairs and discriminating host regressions
+  2026-10-08  work-log 02:39                #510/#512 full affected-flow inventory exposes untranslated failure reasons
+
+== Rules (2)
+              rule generic-x64-vm-testing.md  Fixtures for the cloud tier
+              rule rclone-cloud-sync.md     Testing it without a cloud account
+
+== Git history (-G, on this checkout) (15)
+  2026-10-07  git 0ae8c83a4f                docs: record approved cleanup and H700 to SM8550 build order
+  2026-10-07  git 32fb5a613d                qa: verify bilingual cloud recovery at both resolutions
+  2026-10-07  git 63ef759ad5                M7.P5: retain repaired H700 build and storage assessment
+  2026-10-07  git 70e41ca350                M7 - retain storage evidence and post-build cleanup order
+  2026-10-07  git 7ce442d53a                qa: verify small-screen cloud recovery and timeout guidance
+  2026-10-07  git 7f293a22d9                qa: complete candidate16 software qualification and audit
+  2026-10-07  git 90f9e0eafd                cloud: record validator contract and parallel website plan
+  2026-10-07  git 96c877f617                workflow: recognize completed audits and report build retention
+  2026-10-07  git a738a7dbf2                M7 - accept H700 arm and record the firmware capacity gate
+  2026-10-07  git c7e3bcd6b5                docs: retain M7 retention closure and pending build prerequisite
+  2026-10-08  git 0f073485ff                cloud: align canonical flows and preserve qualification handoff
+  2026-10-08  git 2ab5ebbc86                qa: retain cloud validator and round-trip qualification
+  2026-10-08  git b115af8d4c                cloud: document post-connection implementation order
+  2026-10-08  git d5e2f78618                cloud: complete flow evidence and preserve final QA handoff
+  2026-10-08  git e6645cb5ea                cloud: integrate explicit folder setup and save coverage
+
+27 line(s). A decision listed as pending without a register OPEN row above is a claim to check.

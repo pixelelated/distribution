@@ -1,0 +1,42 @@
+{
+  "body": "## Maintainer request\n\n> The rg35xx sp is now online. You have permission to transfer the build and reboot.\n\n## Current state and scope\n\nM7.P5 follows #492. H700 firmware from `43d0bc3bf47fd858ba8d5c55fbdf52535a0db2aa` passed artifact acceptance, including both DDR variants and 185 ARM handoff files. The online RG35XX SP currently runs ROCKNIX `69e6039f8fdbf971d3e6b694537f250036fdcd98`; its update queue is empty, LPDDR4 is confirmed at 1100000 microvolts, and external power is connected. Battery starts at 3%; recheck power after staging before reboot.\n\nThe explicit authorization covers transferring this accepted H700 update and rebooting to apply it. Stage the tar outside `.update`, verify its SHA256 on the device, then queue it. The update preserves `/storage` and uses the normal updater; normal configured shutdown/startup automation may run. Further gameplay, injected input, screenshots and deliberate personal-cloud actions are outside this authorization.\n\nCan this be done on the VM? Common migration/software qualification already passed there. No: this observation is the actual H700 DDR4 bootloader, RG35XX SP device tree, physical storage and Wi-Fi reconnection after applying the update. See `docs/releases/device-facts.md`, row \u201cH700 boot on the RG35XX SP (LPDDR4 unit)\u201d.\n\n## Acceptance criteria\n\n- [x] Credential-filtered preflight records the physical model/DTB, RAM voltage, predecessor BUILD_ID, boot ID, power, idle state, mounted storage and empty queue.\n- [x] Host and device SHA256 values match the accepted update `a419dc33e1f3be2c422cac4b89d85cf104f363c3da6ed7059e0a8aa531bfd014`; device-act records transfer and checksum-gated queueing.\n- [x] The authorized device-act reboot has a subsequent changed boot ID and readback of pixelelated 0.0.1 / BUILD_ID `43d0bc3bf47fd858ba8d5c55fbdf52535a0db2aa`, expected model/DTB, LPDDR4 voltage, storage mounts, exact installed binary hashes and empty update queue.\n- [x] Compact evidence, standing hardware fact and work log record the actual outcome; broader device smoke and release gates remain separately identified.\n\nEvidence owner: `/workspace/tmp/pixelelated-m7-rg35xxsp-adoption-01`; compact repository evidence: `docs/qa-logs/2026-10-07-device-builds/rg35xxsp-adoption01/`. Preserve the applicable recovery firmware until this immediate adoption check completes; no unrelated cleanup is inferred.\n\n## Staged \u2014 2026-10-07 11:15 UTC\n\nThe device checksum matches the accepted archive. Transfer and checksum-gated queueing succeeded; four zero result channels, the sealed script and all owner process exits independently verified at11:16UTC. The device boot ID is unchanged. Separate reboot owner `/workspace/tmp/pixelelated-m7-rg35xxsp-reboot-01` is active; battery reached10% on connected external power at11:17UTC. The single authorized reboot follows a repeated idle/power/queue/hash check. Do not mistake staged firmware for an installed update.\n\n## Installed acceptance \u2014 2026-10-07 11:25 UTC\n\nPASS: pixelelated0.0.1 /43d0bc3bf47fd858ba8d5c55fbdf52535a0db2aa; changed boot IDbf8756cd-06f7-4192-bedb-7d02c5afb6a8; exact SYSTEM/kernel/SP DTB/DDR4 bootloader/ES/RetroArch/RetroArch32 hashes; empty update queue; original storage mounts; active interface with zero restarts. Both stage and reboot owners independently verified all four zero result channels, sealed script and actual exits. The reboot owner was verified11:26:33UTC. Known scheduler/audio-policy log messages match the predecessor; no failed units. Compact evidence and standing hardware fact are ready for checked fork publication. No gameplay/screenshot/deliberate cloud test or RC designation.\n",
+  "closedAt": "2026-10-07T11:32:17Z",
+  "comments": [
+    {
+      "id": "IC_kwDOMM7sFc8AAAABZ9WLzA",
+      "author": {
+        "login": "blitterbot"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "Completed the explicitly authorized transfer and one reboot. RG35XX SP now runs pixelelated0.0.1 /43d0bc3bf47fd858ba8d5c55fbdf52535a0db2aa. Installed SYSTEM/kernel/DTB/bootloader/ES/RetroArch/RetroArch32 hashes match, boot ID changed, queue is empty, original storage mounts remain and interface is active with zero restarts. Both action owners have independently verified terminal/seal/process receipts. Evidence and hardware fact published with normal hooks on next19d3f728b67ffefbc9d95f12663ec2758a4063d5: https://github.com/pixelelated/distribution/tree/19d3f728b67ffefbc9d95f12663ec2758a4063d5/docs/qa-logs/2026-10-07-device-builds/rg35xxsp-adoption01 . M7 body read back with adoption complete. Broader smoke and release gates remain separate. Hosted documentation checks are watched under /workspace/tmp/pixelelated-m7-rg35xxsp-ci-01; their status is separate from physical acceptance.",
+      "createdAt": "2026-10-07T11:32:15Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/pixelelated/distribution/issues/500#issuecomment-6037015500",
+      "viewerDidAuthor": true
+    },
+    {
+      "id": "IC_kwDOMM7sFc8AAAABZ9YfmA",
+      "author": {
+        "login": "blitterbot"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "Post-publication verification also passed: exact-next19d3f728b6 record and wordlist checks, plus exact-feature8e2f6f7874 wordlist check, all completed successfully. The separate CI owner has verified terminal channels, unchanged seal and actual exits. No device action repeated.",
+      "createdAt": "2026-10-07T11:34:46Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/pixelelated/distribution/issues/500#issuecomment-6037053336",
+      "viewerDidAuthor": true
+    }
+  ],
+  "labels": [],
+  "number": 500,
+  "state": "CLOSED",
+  "title": "M7.P5: Verify RG35XX SP adoption of pixelelated 0.0.1",
+  "updatedAt": "2026-10-07T11:34:46Z",
+  "url": "https://github.com/pixelelated/distribution/issues/500"
+}

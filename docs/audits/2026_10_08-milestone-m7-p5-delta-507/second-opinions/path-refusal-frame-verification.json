@@ -1,0 +1,48 @@
+{
+  "utc": "2026-10-08T15:42:28.786997+00:00",
+  "frozen_es": "4e410dc9a816cc947f16235ad2b24824b29dd84e",
+  "frames": [
+    {
+      "frame": "supplemental/frames/walk-en640-rejected-path-01-rejected-path.png",
+      "sha256": "98bf8ae170e5e9ebf614c5a7cf30eb73f7b0a100bf3ba0d9fe09d7665ab459b6",
+      "index_sha256": "98bf8ae170e5e9ebf614c5a7cf30eb73f7b0a100bf3ba0d9fe09d7665ab459b6",
+      "bytes_match": true,
+      "captured_es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+      "path_editor_unchanged_to_frozen": true,
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T03:10:37.921306+00:00",
+        "observed": "Actual rejected dot-dot path leaves selected roots unchanged; refusal dialog readable.",
+        "carry_forward": "Exact recorded source and catalog; changed diagnostic/help branches do not alter this named surface or callback."
+      }
+    },
+    {
+      "frame": "supplemental/frames/walk-en1280-unreachable-01-unreachable-folder.png",
+      "sha256": "be4f1b0059607ad60b6f3f2342400275cf4254d1fc5ed5368139458430122cbe",
+      "index_sha256": "be4f1b0059607ad60b6f3f2342400275cf4254d1fc5ed5368139458430122cbe",
+      "bytes_match": true,
+      "captured_es_commit": "4e410dc9a816cc947f16235ad2b24824b29dd84e",
+      "path_editor_unchanged_to_frozen": true,
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T03:36:07.769379+00:00",
+        "observed": "Unreachable synthetic endpoint causes refusal, with retry guidance. Before/after configuration hash and selected paths unchanged; endpoint restarted after proof."
+      }
+    },
+    {
+      "frame": "supplemental/frames/walk-fr640-path-errors-02-rejected-path.png",
+      "sha256": "a0bc1c78488b8aa73d035403f35a2f09be28bf344293a186175bb49e185fbe4c",
+      "index_sha256": "a0bc1c78488b8aa73d035403f35a2f09be28bf344293a186175bb49e185fbe4c",
+      "bytes_match": true,
+      "captured_es_commit": "1d5397fda9d7c5c2a4c7f9390ef49b9bb4b879ce",
+      "path_editor_unchanged_to_frozen": true,
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T03:10:37.922147+00:00",
+        "observed": "French backend refusal readable at640; selected roots unchanged.",
+        "carry_forward": "Exact recorded source and catalog; changed diagnostic/help branches do not alter this named surface or callback."
+      }
+    }
+  ],
+  "scope": "Primary viewed all three actual retained target frames; source callback identity independently compared. No new device action."
+}

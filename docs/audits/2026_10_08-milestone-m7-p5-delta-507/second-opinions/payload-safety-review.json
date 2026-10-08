@@ -1,0 +1,29 @@
+{
+  "utc": "2026-10-08T09:22:37.433238+00:00",
+  "scope": "Public code/diffs, exact public criteria and body state, sanitized audit analysis and synthetic command summaries only",
+  "excluded": [
+    "private operational inventory",
+    "ignored personal device/cloud evidence",
+    "credentials and provider keys",
+    "raw private cleanup plan member set"
+  ],
+  "zero_matches": {
+    "claude-blind-brief.md": {
+      "private_path": 0,
+      "home_names": 0,
+      "private_key": 0,
+      "provider_secret": 0,
+      "literal_token": 0
+    },
+    "claude-refutation-base.md": {
+      "private_path": 0,
+      "home_names": 0,
+      "private_key": 0,
+      "provider_secret": 0,
+      "literal_token": 0
+    }
+  },
+  "blind_primary_grade_headers": 0,
+  "blind_primary_finding_headers": 0,
+  "human_readback": "Primary re-read #504full body and removed erroneous custody finding before preparing corrected packet; public #497/#510body snapshots already read in full in Phase1/2."
+}

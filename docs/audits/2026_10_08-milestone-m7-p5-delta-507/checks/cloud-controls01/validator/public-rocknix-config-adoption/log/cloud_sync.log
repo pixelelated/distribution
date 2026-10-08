@@ -1,0 +1,16 @@
+[2026-10-08 08:20:55] [INFO] [cloud_sync_helper] Checking cloud sync rules file...
+[2026-10-08 08:20:55] [INFO] [cloud_sync_helper] Merging custom rules with defaults
+[2026-10-08 08:20:55] [INFO] [cloud_sync_helper] Updated cloud_sync-rules.txt with new defaults while preserving custom rules
+[2026-10-08 08:20:55] [INFO] [cloud_sync_helper] Checking cloud sync configuration...
+[2026-10-08 08:20:55] [INFO] [cloud_sync_helper] Updating configuration with new defaults
+[2026-10-08 08:20:55] [INFO] [cloud_sync_helper] Carried BACKUPPATH across to SAVESPATH ("/storage/roms")
+[2026-10-08 08:20:55] [INFO] [cloud_sync_helper] Carried BACKUPFOLDER across to SETTINGS_BACKUPS ("/storage/roms/backup")
+[2026-10-08 08:20:55] [INFO] [cloud_sync_helper] Carried SYNCPATH across to SAVES_REMOTE ("/GAMES")
+[2026-10-08 08:20:55] [INFO] [cloud_sync_helper] Carried SYNCPATH_BACKUP across to SETTINGS_REMOTE ("/GAMES/backup")
+[2026-10-08 08:20:55] [INFO] [cloud_sync_helper] Added new configuration option: CONTENT_REMOTE
+[2026-10-08 08:20:55] [INFO] [cloud_sync_helper] Added new configuration option: RCLONE_NET_OPTS
+[2026-10-08 08:20:55] [INFO] [cloud_sync_helper] Added new configuration option: RCLONE_SYNC_NET_OPTS
+[2026-10-08 08:20:55] [INFO] [cloud_sync_helper] Added new configuration option: SYNC_CEILING_SECONDS
+[2026-10-08 08:20:55] [INFO] [cloud_sync_helper] Added new configuration option: CLOUD_BACKUP_KEEP
+[2026-10-08 08:20:55] [INFO] [cloud_sync_helper] Configuration file updated while preserving customizations
+[2026-10-08 08:20:55] [INFO] [cloud_sync_helper] BACKUPMETHOD was 'sync', which deletes other devices' saves from the shared folder; set to 'copy'. Previous config kept as cloud_sync.conf.pre-copy-default until the next run that completes (D-CLOUD-079). This is done once; setting it back to sync will be respected.

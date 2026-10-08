@@ -1,0 +1,12 @@
+{
+  "utc": "2026-10-08T15:40:46.319444+00:00",
+  "command": [
+    "timeout",
+    "45",
+    "tools/archaeology",
+    "--no-gh",
+    "refusal.*(reason|guidance)|token.*refresh|refresh.*token"
+  ],
+  "rc": 0,
+  "output_bytes": 3451
+}

@@ -1,0 +1,170 @@
+{
+  "utc": "2026-10-08T09:22:37.433238+00:00",
+  "status": "prepared corrected packets; no provider call; awaiting disclosure authority",
+  "source_freeze": "ac64c80628ad6d5a69b803d82f186472529f7cd7",
+  "files": {
+    "claude-blind-brief.md": {
+      "bytes": 844998,
+      "sha256": "18ac3ac302b4dc6a1a8ecf2b45ae6bd15c9cb3c92a52e888c1b4b67a61a2273c"
+    },
+    "claude-refutation-base.md": {
+      "bytes": 1046058,
+      "sha256": "f42f7ec8e7082a8756d3c8c0b1083c96c25803fdf9ae3d227b4332de8c63a7e4"
+    },
+    "refutation-suffix-template.md": {
+      "bytes": 157,
+      "sha256": "d5ddf3d155d020dd702b81ac4801f2e45d233ea4614e65125ac302ee84cc94d0"
+    },
+    "review-plan.json": {
+      "bytes": 615,
+      "sha256": "bc3365c289581ad3400cab60dbeae706e9161bcda63afff7b7c0ef0521bcc218"
+    }
+  },
+  "sources": [
+    {
+      "name": "inputs/distribution-product-diff.patch",
+      "original_sha256": "c394bb0aff2c2b16ad7c568987926a6d7cc865831420f78b2fec831975c6ec4c",
+      "disclosed_sha256": "c394bb0aff2c2b16ad7c568987926a6d7cc865831420f78b2fec831975c6ec4c",
+      "bytes": 226831
+    },
+    {
+      "name": "inputs/distribution-tools-diff.patch",
+      "original_sha256": "573b3b05c990ee9a02469b6243651f4d1d4a832ec10b57fffbe3f8f8f3a8cf51",
+      "disclosed_sha256": "87aab6d389332ccdff95f475086972e8e4a0c4527fdbcefbd77fc76aa18980e6",
+      "bytes": 292729
+    },
+    {
+      "name": "inputs/es-diff.patch",
+      "original_sha256": "51e9d8fb0e53b74b096edb8b1c3861253e49bff4c29d935781c9760d4f440ac0",
+      "disclosed_sha256": "51e9d8fb0e53b74b096edb8b1c3861253e49bff4c29d935781c9760d4f440ac0",
+      "bytes": 118110
+    },
+    {
+      "name": "projects/ROCKNIX/packages/network/rclone/sources/cloud_setup",
+      "original_sha256": "7974526c5ea8fc670157929623ec4ac282499ec80bc4414c04067d887ad5d863",
+      "disclosed_sha256": "7974526c5ea8fc670157929623ec4ac282499ec80bc4414c04067d887ad5d863",
+      "bytes": 50909
+    },
+    {
+      "name": "projects/ROCKNIX/packages/network/rclone/sources/cloud_folder_validate",
+      "original_sha256": "ccd216c6be8690e1f73ec54996aa4cbfcfbb02de0319325f2b14704c78211e4a",
+      "disclosed_sha256": "ccd216c6be8690e1f73ec54996aa4cbfcfbb02de0319325f2b14704c78211e4a",
+      "bytes": 15466
+    },
+    {
+      "name": "projects/ROCKNIX/packages/network/rclone/sources/cloud_scan",
+      "original_sha256": "9a91747779d983d99632e76aabd4caf5d2969dde24c91be9504736c6aec15a96",
+      "disclosed_sha256": "9a91747779d983d99632e76aabd4caf5d2969dde24c91be9504736c6aec15a96",
+      "bytes": 17665
+    },
+    {
+      "name": "projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/scripts/duckstation_screenshot_path",
+      "original_sha256": "1f6f95dc1748891676c49905e8c3494ecbb8ffbeea9286b48f5c4691b12df642",
+      "disclosed_sha256": "1f6f95dc1748891676c49905e8c3494ecbb8ffbeea9286b48f5c4691b12df642",
+      "bytes": 5451
+    },
+    {
+      "name": "docs/cloud-save-integrity.md",
+      "original_sha256": "b54f78d0f25e6a93b2b932142c52dead4d8ad6086061dbc817d24367a57bbca9",
+      "disclosed_sha256": "b54f78d0f25e6a93b2b932142c52dead4d8ad6086061dbc817d24367a57bbca9",
+      "bytes": 6817
+    },
+    {
+      "name": "docs/qa-logs/2026-10-08-save-repair-cases/README.md",
+      "original_sha256": "f238f31c897425e033917b19a4b35c7501c4b2cb9cc8b781461c28bb844029ce",
+      "disclosed_sha256": "f238f31c897425e033917b19a4b35c7501c4b2cb9cc8b781461c28bb844029ce",
+      "bytes": 5528
+    },
+    {
+      "name": "docs/qa-logs/2026-10-07-cloud-validator/README.md",
+      "original_sha256": "4d2c80f3905d5c857f7747ed7536412114d74dbd64ff62b11a6677046a7f9ad7",
+      "disclosed_sha256": "4d2c80f3905d5c857f7747ed7536412114d74dbd64ff62b11a6677046a7f9ad7",
+      "bytes": 3041
+    },
+    {
+      "name": "ES/es-app/src/guis/GuiMenu.cpp",
+      "original_sha256": "497cca2547ec7d93030baa2ee818e20abfb674e40027de7d8822fc7a7bbebd26",
+      "disclosed_sha256": "497cca2547ec7d93030baa2ee818e20abfb674e40027de7d8822fc7a7bbebd26",
+      "bytes": 11119
+    },
+    {
+      "name": "ES/es-app/src/CloudTransferJob.cpp",
+      "original_sha256": "0c1fb6258113793e178f7be03b2481e0ddd343497a467f71e0a1eba12e358ecc",
+      "disclosed_sha256": "0c1fb6258113793e178f7be03b2481e0ddd343497a467f71e0a1eba12e358ecc",
+      "bytes": 2224
+    },
+    {
+      "name": "ES/es-app/src/CloudOffer.cpp",
+      "original_sha256": "3911c50055ae40e551f6096bf746ccd58ddc51056a509a741496b17d96ec7e70",
+      "disclosed_sha256": "3911c50055ae40e551f6096bf746ccd58ddc51056a509a741496b17d96ec7e70",
+      "bytes": 3532
+    },
+    {
+      "name": "checks/host-controls01/results.json",
+      "original_sha256": "4cc6e2a9ee8061dc36c802aec268ce69bda4af7f2de18df7806a060d2665e54f",
+      "disclosed_sha256": "4cc6e2a9ee8061dc36c802aec268ce69bda4af7f2de18df7806a060d2665e54f",
+      "bytes": 3909
+    },
+    {
+      "name": "checks/cloud-controls01/results.json",
+      "original_sha256": "aa8e10b96c71604751e5d1141558b812d7ecfdc46553006654974986b61cd05d",
+      "disclosed_sha256": "8da3c1701f3273f112e754aa639afc7a8c2341949fd41e08eeed0faa15a46620",
+      "bytes": 1919
+    },
+    {
+      "name": "checks/es-controls01/results.json",
+      "original_sha256": "38638c66fbccaaa97ab6c44db8730eacebd5a13669bebb49475c4d466671d648",
+      "disclosed_sha256": "94a4755869c70b16acf9ebfe662148655be11434e4a40754e04149490bff5fc0",
+      "bytes": 2502
+    },
+    {
+      "name": "checks/retrospective-controls01/results.json",
+      "original_sha256": "6d0b4cc6efab54448e474f36217cca027835be4feefe34ef72248844cdf21bcf",
+      "disclosed_sha256": "ecbdb100a835eb0c3602f09887878c556baf1ee96b2d63e07c7893c6591e1b60",
+      "bytes": 446
+    },
+    {
+      "name": "checks/retrospective-controls01/folder-regression-tool.log",
+      "original_sha256": "27233978ee62660fd8123b185274d20599601e97b4185767377653a1259fb757",
+      "disclosed_sha256": "27233978ee62660fd8123b185274d20599601e97b4185767377653a1259fb757",
+      "bytes": 114
+    },
+    {
+      "name": "02-forward-audit.md",
+      "original_sha256": "4319fdc2346efabd4e2d915918841cb37ff92e8250bdd4a8f2144cd0b481a493",
+      "disclosed_sha256": "4319fdc2346efabd4e2d915918841cb37ff92e8250bdd4a8f2144cd0b481a493",
+      "bytes": 144706
+    },
+    {
+      "name": "03-retrospective.md",
+      "original_sha256": "f55beaafe2671e9812ff93df763897c51b61180a62a53d1c377915bf71a91113",
+      "disclosed_sha256": "f55beaafe2671e9812ff93df763897c51b61180a62a53d1c377915bf71a91113",
+      "bytes": 23797
+    },
+    {
+      "name": "04-analysis.md",
+      "original_sha256": "bf7c7b402c636ab10d1b784056e988928e529e9fd8211afe2b92c77e92417911",
+      "disclosed_sha256": "bf7c7b402c636ab10d1b784056e988928e529e9fd8211afe2b92c77e92417911",
+      "bytes": 30189
+    }
+  ],
+  "excluded": [
+    "private operational inventory",
+    "ignored personal device/cloud evidence",
+    "credentials and provider keys",
+    "raw private cleanup plan member set"
+  ],
+  "normalizations": [
+    "host user home names",
+    "local workspace and temporary owner paths"
+  ],
+  "refutation_assembly": "exact base + exact suffix template + verified blind response only; seal complete final prompt before call",
+  "prior_authority": "2026-10-06 audit running log18:22:51 approved two earlier Fable transfers and exact old packet; not a standing new-payload grant",
+  "supersedes": "superseded-untransmitted01 retained locally, never authorized or sent",
+  "added_public_contracts": [
+    497,
+    510,
+    "504 contract/custody only, operational observations omitted"
+  ],
+  "local_preflight": "checks/facilitator-preflight01/owner-readback.json: pins, strict efforts, drift all0; no network"
+}

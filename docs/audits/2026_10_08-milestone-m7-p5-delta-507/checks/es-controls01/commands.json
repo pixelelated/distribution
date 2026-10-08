@@ -1,0 +1,110 @@
+{
+  "frozen_head": "ac64c80628ad6d5a69b803d82f186472529f7cd7",
+  "es_commit": "4e410dc9a816cc947f16235ad2b24824b29dd84e",
+  "scope": "Finite host unit/syntax/catalog/map checks only; no package/image/guest operation",
+  "commands": [
+    [
+      "configure",
+      [
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement16/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/cmake",
+        "-G",
+        "Ninja",
+        "-S",
+        "/home/max/Development/emulationstation-next.worktrees/qa-integration/es-app/tests/unit",
+        "-B",
+        "/workspace/repos/rocknix.worktrees/m7-p5-audit-507/docs/audits/2026_10_08-milestone-m7-p5-delta-507/checks/es-controls01/unit",
+        "-DCMAKE_MAKE_PROGRAM=/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement16/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/ninja",
+        "-DCMAKE_CXX_COMPILER=/usr/bin/g++",
+        "-DRAPIDJSON_INCLUDE_DIR=/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement16/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/include"
+      ]
+    ],
+    [
+      "unit-build",
+      [
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement16/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/cmake",
+        "--build",
+        "/workspace/repos/rocknix.worktrees/m7-p5-audit-507/docs/audits/2026_10_08-milestone-m7-p5-delta-507/checks/es-controls01/unit",
+        "--target",
+        "es-unit-tests",
+        "-j2"
+      ]
+    ],
+    [
+      "unit-run",
+      [
+        "/workspace/repos/rocknix.worktrees/m7-p5-audit-507/docs/audits/2026_10_08-milestone-m7-p5-delta-507/checks/es-controls01/unit/es-unit-tests"
+      ]
+    ],
+    [
+      "syntax",
+      [
+        "/workspace/repos/rocknix.worktrees/m7-p5-audit-507/tools/es-syntax-check",
+        "--root",
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement16/build.pixelelated-GENERIC_X64.x86_64",
+        "--tree",
+        "/home/max/Development/emulationstation-next.worktrees/qa-integration",
+        "/home/max/Development/emulationstation-next.worktrees/qa-integration/es-app/src/CloudText.cpp",
+        "/home/max/Development/emulationstation-next.worktrees/qa-integration/es-app/src/CloudTransferJob.cpp",
+        "/home/max/Development/emulationstation-next.worktrees/qa-integration/es-app/src/ThreadedCloudSync.cpp",
+        "/home/max/Development/emulationstation-next.worktrees/qa-integration/es-app/src/CloudOffer.cpp",
+        "/home/max/Development/emulationstation-next.worktrees/qa-integration/es-app/src/guis/GuiCloudTransfer.cpp",
+        "/home/max/Development/emulationstation-next.worktrees/qa-integration/es-app/src/guis/GuiMenu.cpp"
+      ]
+    ],
+    [
+      "catalog",
+      [
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement16/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/msgfmt",
+        "--check",
+        "--check-format",
+        "-o",
+        "/workspace/repos/rocknix.worktrees/m7-p5-audit-507/docs/audits/2026_10_08-milestone-m7-p5-delta-507/checks/es-controls01/emulationstation2.mo",
+        "/home/max/Development/emulationstation-next.worktrees/qa-integration/locale/lang/fr/LC_MESSAGES/emulationstation2.po"
+      ]
+    ],
+    [
+      "vocabulary",
+      [
+        "/workspace/repos/rocknix.worktrees/m7-p5-audit-507/tools/vocabulary-check",
+        "--es",
+        "/home/max/Development/emulationstation-next.worktrees/qa-integration"
+      ]
+    ],
+    [
+      "menu-map",
+      [
+        "/workspace/repos/rocknix.worktrees/m7-p5-audit-507/tools/es-menu-map-check",
+        "--es-src",
+        "/home/max/Development/emulationstation-next.worktrees/qa-integration",
+        "--ref",
+        "4e410dc9a816cc947f16235ad2b24824b29dd84e"
+      ]
+    ]
+  ],
+  "es_inputs": {
+    "es-app/tests/unit/OfflineProxyUrlTests.cpp": "18f399c338644f0ebb540585706954cb73a5833eb01dd097b14dc5e69d0a5c38",
+    "es-app/tests/unit/LogPolicyTests.cpp": "f6893312679f3339a1a1a4f11c77e3de2c575938d7aa3d5e8a47087db655f48b",
+    "es-app/tests/unit/AtomicFileWin32Tests.cpp": "d96308d868e635f7151ad9571373a4518973440e2b73d24ae88dd43e8fcbf844",
+    "es-app/tests/unit/CheevosIndexTests.cpp": "b60431f9540336158b084cf0521911f6d48cb8ea51e85c69e7dae614f1a1cdba",
+    "es-app/tests/unit/DisplayAspectTextTests.cpp": "900480a60a9aaf86d72d8bb0c97dfbcb31435086d861a0e8041716c9a9dabc3b",
+    "es-app/tests/unit/CloudTextTests.cpp": "70c4a26b65654da473314cf8003f9032a7ce093854ed8bb538aa3e2ea3f398c2",
+    "es-app/tests/unit/CommandLineTests.cpp": "479b2bf8833da304ee1a036b2b0da4e64d97fb35115c7cce96a119e83901e9ce",
+    "es-app/tests/unit/CMakeLists.txt": "e70f21817fb7cb34986fb43449ef4efa383b2c435ce1bab5479fc578f5258035",
+    "es-app/tests/unit/OfflineAchievementsTextTests.cpp": "6d11c702a41a72c1c20d3040bf96a3126ac55168658d77b62acc2a0434beabfc",
+    "es-app/tests/unit/CaptureRotationTextTests.cpp": "766d75fbdcb6e4dbd250ccdaad2cd5492416a71dc87558f526729578a579f967",
+    "es-app/tests/unit/WifiTextTests.cpp": "7810f0438cb7c0c75db55e86566d2952326b8bb0801c34e6e52972632f1aa08a",
+    "es-app/tests/unit/CloudFolderValidationTests.cpp": "4ec3481556d6c2ba82212328cc839a23ca2baabe4a9876960549b13166cfa635",
+    "es-app/tests/unit/CheevosRetryTests.cpp": "cf09edfa9c7f79f9b3fa7c61c80effaa3a63dcdce2665f3df457112560e978fb",
+    "es-app/tests/unit/TabStopsTests.cpp": "74fb16914084f61975cb98c0f4ba653c31db81d87736774a190f5bd9bf6b5772",
+    "es-app/tests/unit/SaveStateJobQueueTests.cpp": "1b5c798a5296255d247c5970f04b45e933a1f94e06795c5e8c190f8e548fee5b",
+    "es-app/tests/unit/SystemConfTests.cpp": "c09c7e43ccce7818fb7f199a8d8c36ade51e4fe0c2dd4ab14840329b6c03b3fa",
+    "es-app/tests/unit/LaunchCommandTests.cpp": "9093a167e0e39578bc4b967ccfd5ff05d7158e0078bd4beeabf237e340c09db7",
+    "es-app/tests/unit/MaskSecretsTests.cpp": "9e200948d5ad741af647b089c3987aee7fd90df703e7792501e2c73b02588a4c",
+    "es-app/tests/unit/AtomicFileTests.cpp": "8035be357f7e724ec214dc57766e99f342350f62320e068851b489206635aa96",
+    "es-app/tests/unit/TimeTextTests.cpp": "c70a31b26cc6de66ffeb74587183036710e2c990d404341465bf2a8a1c47158a",
+    "es-app/tests/unit/README.md": "12d10985ba104ff5a27fb55fc5ba6395499e2dd4021c39ab801b5dd22c1dac1f",
+    "es-app/src/CloudFolderValidation.cpp": "9aca81c662c8ae5503048c9d042f380473aaf6c57b29e8e17688a79bcf59548f",
+    "es-app/src/CloudText.cpp": "7d483ef2a04f1dc7a8c25042ecc339bcbcf133f033df4e4e925a0cdef2160b19",
+    "es-app/src/guis/GuiMenu.cpp": "abe23fa6aba24fc3f0fdf63e05bcb0417257dc60c7884a55822c757fc1e0d99f"
+  }
+}

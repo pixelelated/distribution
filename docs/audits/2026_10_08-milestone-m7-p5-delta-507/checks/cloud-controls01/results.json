@@ -1,0 +1,86 @@
+[
+  {
+    "name": "validator",
+    "command": [
+      "python3",
+      "-I",
+      "-B",
+      "tools/pixelelated-cloud-validator-test",
+      "--rclone",
+      "/tmp/pixelelated-rc-rclone/rclone",
+      "--output",
+      "/workspace/repos/rocknix.worktrees/m7-p5-audit-507/docs/audits/2026_10_08-milestone-m7-p5-delta-507/checks/cloud-controls01/validator"
+    ],
+    "rc": 0,
+    "started": "2026-10-08T08:20:47.891267+00:00",
+    "ended": "2026-10-08T08:21:03.099207+00:00"
+  },
+  {
+    "name": "save-layout",
+    "command": [
+      "python3",
+      "-I",
+      "-B",
+      "tools/pixelelated-save-layout-test",
+      "--rclone",
+      "/tmp/pixelelated-rc-rclone/rclone",
+      "--output",
+      "/workspace/repos/rocknix.worktrees/m7-p5-audit-507/docs/audits/2026_10_08-milestone-m7-p5-delta-507/checks/cloud-controls01/save-layout",
+      "--source-root",
+      "/workspace/repos/rocknix.worktrees/m7-p5-audit-507"
+    ],
+    "rc": 0,
+    "started": "2026-10-08T08:21:03.099357+00:00",
+    "ended": "2026-10-08T08:21:31.329052+00:00"
+  },
+  {
+    "name": "content-scope",
+    "command": [
+      "python3",
+      "-I",
+      "-B",
+      "tools/pixelelated-content-scope-test",
+      "--rclone",
+      "/tmp/pixelelated-rc-rclone/rclone",
+      "--output",
+      "/workspace/repos/rocknix.worktrees/m7-p5-audit-507/docs/audits/2026_10_08-milestone-m7-p5-delta-507/checks/cloud-controls01/content-scope",
+      "--source-root",
+      "/workspace/repos/rocknix.worktrees/m7-p5-audit-507"
+    ],
+    "rc": 0,
+    "started": "2026-10-08T08:21:31.329237+00:00",
+    "ended": "2026-10-08T08:21:34.276801+00:00"
+  },
+  {
+    "name": "duckstation",
+    "command": [
+      "python3",
+      "-I",
+      "-B",
+      "tools/pixelelated-duckstation-capture-test",
+      "--rclone",
+      "/tmp/pixelelated-rc-rclone/rclone",
+      "--output",
+      "/workspace/repos/rocknix.worktrees/m7-p5-audit-507/docs/audits/2026_10_08-milestone-m7-p5-delta-507/checks/cloud-controls01/duckstation",
+      "--source-root",
+      "/workspace/repos/rocknix.worktrees/m7-p5-audit-507"
+    ],
+    "rc": 0,
+    "started": "2026-10-08T08:21:34.277001+00:00",
+    "ended": "2026-10-08T08:21:39.061835+00:00"
+  },
+  {
+    "name": "save-integrity",
+    "command": [
+      "python3",
+      "-I",
+      "-B",
+      "tools/cloud-save-integrity-test",
+      "--rclone",
+      "/tmp/pixelelated-rc-rclone/rclone"
+    ],
+    "rc": 0,
+    "started": "2026-10-08T08:21:39.062019+00:00",
+    "ended": "2026-10-08T08:21:39.258920+00:00"
+  }
+]
