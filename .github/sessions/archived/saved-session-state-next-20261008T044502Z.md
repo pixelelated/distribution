@@ -379,22 +379,3 @@ implementation work and observable exit evidence. No release-scope choice is
 pending from the owner. Tracker snapshots/readback, work log and friction entry
 retain the correction. Fresh-reader and final check results are retained in the cloud-plan packet;
 publication status is recorded after push. Read actual `next` HEAD when resuming.
-
-## Planning publication and private-review handoff
-
-The scoped plan was published as next
-`b115af8d4cebbb8845edf32f519b3d00580c9ff1` (coordination008104d214), with
-GitHub ref equality verified in `docs/qa-logs/2026-10-08-cloud-plan/publication.json`.
-Local rules/register/work-log/whitespace gates pass; #507 still owns the owed
-18-closure audit and its warning was not waived. #510's planning/readback
-criterion is complete; repair and actual integration/image criteria stay open.
-
-#516 read-only clock/path/activity, scoped category metadata and tiny orientation
-records have been observed and retained privately; no read job remains active.
-The owner still needs to clarify the reset's calendar date/timezone (seconds if
-available) and whether it applied to the whole cloud root or only its content
-subfolder. Full content integrity, local counterpart/reupload checks, exhaustive
-residue classification and cleanup remain unclaimed. No delete/move/sync,
-credential export, device update, build or code audit ran. Keep exact personal
-findings in `/tmp/pixelelated-personal-cloud-review-20261008/`; current public
-tracking is redacted. These questions do not block #515's product work.
