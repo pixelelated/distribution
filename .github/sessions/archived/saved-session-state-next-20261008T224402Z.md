@@ -1,10 +1,10 @@
 # Saved Session State
 
-> Saved: 2026-10-08T22:57:21.814799+00:00
+> Saved: 2026-10-08T22:34:05.991082+00:00
 > Coordinator: feature/conflict-resolution
 > Repository: pixelelated/distribution
 
-## Start here — #528 source snapshots complete; finish publication inputs
+## Start here — #528 Git source snapshots ACTIVE; firmware/inventory complete
 
 This is an immutable Linux build system, not a runnable application. Primary
 `/workspace/repos/rocknix` stays on `next`; read its AGENTS.md and canonical
@@ -17,8 +17,7 @@ local provider QA and dependency-checked disposable payload retirement. No new
 physical-device/personal-cloud action. #519 controlled owner alignment must
 precede the next owner handheld update transfer/reboot. Website #511 is separate.
 No goal exists. H70002 and SM855003 engineering firmware are ACCEPTED.
-No source, compiler, VM QA, provider or external audit job is active. Git snapshot03 completed and was consumed below. No RC designation.
-Published source progress8b413914d93a5af3b96ccdd6642769cce7c0ab1a has both hosted checks SUCCESS37854410932/37854410880.
+No compiler, VM QA, provider or external audit job is active. Git source snapshot03 is ACTIVE below. No RC designation.
 Latest device acceptance fcac270c3880521b6296a17943cb4fb2011e887b has both hosted checks SUCCESS37850652223/37850652345.
 Helper recovery376675809c578c6fd4ccb9261a65af3f26ec2ece has both SUCCESS37850012367/37850012329.
 Never repeat completed H700/SM8550 builds, audits or VM QA merely to resume. Published H700 acceptance/checkpoint
@@ -156,7 +155,7 @@ VM18x86_64 584; H700ARM224/aarch64615; SM8550ARM228/aarch64676.
 Original inventory01–04 aggregate rc1 results remain unchanged. Accepted profile
 reports compose02(VM/ARM),03(H700aarch64),05(SM8550aarch64 with04 successful
 source report). Inventory05 and source-supplement01 have all five original rc0
-channels and actual host exits. Git source snapshot03 is complete below; no source/compiler/QA/audit job.
+channels and actual host exits. Git source snapshot03 is now ACTIVE below; no compiler/QA/audit job.
 
 Custom archive names, local/shared/generated inputs and ARM handoff are mapped.
 SM8550 LLVM's unpacked root is absent; recipe-pinned source archive and three
@@ -175,73 +174,34 @@ Independent read-only recovered input custody:
 `/workspace/artifacts/pixelelated-build-inputs/m7-final-supplement/d61541b1d2aa7cac7b3f5dfc0197e846c0da359d2f60d48770ff0f8156758051`.
 This is not a full corresponding-source bundle or verified backup.
 
-## Current source custody — complete, do not rerun
+## Current source custody — resume the existing owner
 
-#528 archive and tracked Git source custody is complete locally. #492 is closed completed with published inventory `5264a647a1ff541302e6b0070a73f268a87a4247` and both hosted checks successful. The 605 exact archive inputs (9,044,760,878 bytes) and both frozen distribution snapshots (6,552 files/180 raw symlinks each) are retained at `/workspace/artifacts/pixelelated-release-sources/m7-archives-a7022b76da76a9f6771bb7693d6f6e25854c6731db0750bb46dde29f14d49fce`. Git snapshot03 finished 22:37:06 UTC with all five original rc0 channels; actual host owners 1542320/1542321/1542322/1542352 exited, consumed at22:41:07. It preserves 372 exact tracked Git snapshots,43 root inputs,439 submodule edges and six separately archived extra-cache groups at `/workspace/artifacts/pixelelated-release-sources/m7-git-266c8393884189dec9419628b3e7e527b965598d7b9b31e4ea31fd9af2204dc9`. Every tracked blob/mode/symlink was checked. The sole LFS pointer is Teakra's 357,257,824-byte accuracy-test fixture: actual SM8550 flags disable tools/tests, the payload is absent, and no generated build edge or installed file uses it; preserve its pointer, with no unused download. Original archive01/Git01/Git02 failures remain unchanged. No source, compiler, VM or audit job is active. Next: finish licence and special-input dispositions and independently verified retrieval/backup custody. The inventoried component-to-source map is complete locally; final source/licence clearance is not. No RC or publication clearance; #519 still precedes the owner handheld update.
+#528 source custody has begun. #492 is closed completed after inventory publication `5264a647a1ff541302e6b0070a73f268a87a4247`; hosted record37852763656 and wordlist37852763594 both succeeded.605 exact archive inputs (9,044,760,878 bytes) are independently copied and rehashed; both frozen distribution snapshots round-trip6552files/180raw symlinks. Custody `/workspace/artifacts/pixelelated-release-sources/m7-archives-a7022b76da76a9f6771bb7693d6f6e25854c6731db0750bb46dde29f14d49fce`, manifest `a7022b76da76a9f6771bb7693d6f6e25854c6731db0750bb46dde29f14d49fce`. Original archive01 rc1 remains a helper failure: pathlib normalized trailing slashes, while raw symlink bytes matched all inputs; corrected02 has five original rc0 results and actual exits. Git snapshot03 is ACTIVE: owner `/workspace/tmp/pixelelated-m7-source-git-03`, run `20261008T223239Z-58e643f8`, actual host owners1542320,1542321,1542322,1542352. Original Git01 untracked-submodule guard and02 CRLF-conversion failure remain preserved.03 retains extra cache content separately and verifies every archived tracked blob/mode/link against Git, with conversion/export attributes disabled. Active session supervision consumes its result; #395 still has no disconnected delivery. No compiler/VM/audit is active. Licence/notice, prebuilt/Nix/shareware dispositions, complete source-member mapping and retrieval/backup custody remain; no RC/publication clearance.
 
-Read `docs/qa-logs/2026-10-08-source-custody/git-complete/`.
-Owner `/workspace/tmp/pixelelated-m7-source-git-03`, run20261008T223239Z-58e643f8,
-all five original results0; actual host exits recorded in owner-consumption.json.
-The terminal status snapshot captured runner alive before it exited; the later
-host receipt is the exit proof. Do not relaunch any source preparation script.
-The custody manifest is unchanged, with separate lfs-disposition.json clarifying
-its original pending LFS line. Extra groups: wxWidgets PCRE/sljit; Vita3K substitute;
-PPSSPP standalone/libretro frame tests; apitrace zstd; Amiberry nativefiledialog,
-libco and libretro-common. All are retained; inclusion/licence still needs review.
-
-
-## Component mapping and notice follow-up
-
-`component-member-index.json` maps all2,327 inventoried profile/component rows
-(701 distinct names) to the retained archive/Git/local inputs. Shared sources,
-ARM compatibility profiles, frozen recipe directories and patches are explicit.
-The index is derived from the sealed inventories; it does not certify hidden
-runtime downloads, complete vendored notices or release/backup clearance.
-
-`licence-basis.json` retains source-cited root/scoped terms for13 of17 missing
-recipe declarations. Four collections still have no aggregate basis: common,
-RetroPie and slang shaders, and rocknix-abl. Per-file, dependency and output-use
-dispositions remain even where a root licence is known. No recipe or image changed.
-
-Prebuilt source owner `/workspace/tmp/pixelelated-m7-prebuilt-source-01` finished
-22:50:33UTC; all five original rc0 channels and actual host exits consumed22:51:00.
-Exact rclone687d264b689b8c49a67e2e52a8a5e0caa01c04ce (2,617 blobs),
-Tailscale05a91829316e055517a1e84f7b00016846ef4107 (2,536 blobs) and ABL packaging
-0e755e154874f7e874919ab7e080935c1444df68 (3 blobs) archives have no missing or
-transformed tracked blobs. Read-only custody:
-`/workspace/artifacts/pixelelated-release-sources/m7-prebuilt-aeef83ae3a4de7ebaca3816508e804bf935e87285efdcff6226cb52bd2fc4827`.
-Exact notices and dependency evidence remain referenced by hash.
-
-rclone's embedded revision matches but `vcs.modified=true`; release modifications
-are not reconstructed. Tailscale has no embedded VCS revision, so matching the
-version tag is not a reproducible-binary claim. Retained Go metadata names244
-rclone,58 Tailscale CLI and72 daemon module entries. Only metadata was read;
-none of these target programs or upstream scripts was executed.
-
-ABL release v1.1.9 names LinuxLoader4588733123554b1f7bf935b04e494e4284894546.
-Its public workflow obtains the implementation from ROCKNIX/LinuxLoader;
-blitterbot's exact source ref read returned404. ABL packaging has no implementation
-source or licence notice. This is a publication hold for that component; it is
-not proof of a defective firmware build or grounds to repeat a build. An owner
-source/contact question is pending; no upstream message was sent.
-
-The backup destination is not a new decision: D-WORKFLOW-107 records intendedB2
-subject to the owner's price comparison; D-WORKFLOW-121/125 govern custody.
-Do not claim a second independent backup from another directory on this drive.
-The corresponding-source obligations and final retrieval/backup proof remain #528.
+Read `docs/qa-logs/2026-10-08-source-custody/` and the active owner.
+Poll console.log, run.path, original inner.rc/outer.rc/tool-wrapper.rc,
+launcher-result.json and watcher build.rc/status. Check actual host PIDs with
+host-context permissions; sandbox absence is not an exit. Do not edit its
+executing script or launch a duplicate. Git snapshots stage at
+`/workspace/artifacts/pixelelated-release-sources/.staging-m7-git-01`;
+successful run renames to m7-git-<manifest hash>. Helpers prepare01/02/03
+already ran; do not rerun preparations. Original failures remain unchanged.
+Source caches are read-only. Original Git02 rejected wxWidgets archive CRLF
+conversion; raw-blob negative/positive control is in its consumption receipt.
+No new physical-device/personal-cloud or release-publication authority.
 
 ## Current work and next commands
 
-1. #528 (real child of #344, M7.P5) is current. Source snapshot03 is consumed; no job to poll. Read its acceptance criteria
+1. Consume active Git snapshot03 above before new jobs. #528 (real child of #344, M7.P5) is current. Read its acceptance criteria
    and final-inventory README. Resolve17 missing recipe declarations using
    exact upstream/source notices, including common/glsl shaders and rocknix-abl
    beyond the older VM14-gap list.47 component/profile notice-candidate rows
    are retained; several have no top-level notice. Do not invent licence labels
    from package recipe headers. Prebuilt archives are not corresponding source.
-2. Exact archives/Git/submodules/fork source and all inventoried component-member
-   mappings are retained. Finish remaining licence/vendor/special-input dispositions,
-   then independently retrieve/hash-verify and evidence off-host backup. Existing custody names605 hashed archive inputs (9.04GB),372 Git snapshots
-   from43 roots and three prebuilt source/packaging supplements. Evaluate ARM/FEX/Nix/static/vendored,
+2. Package exact source archives/git/submodules, fork patches and build scripts
+   in fork-owned custody; independently retrieve/hash-verify and evidence its
+   backup. Existing inventory names605 unique hashed archive inputs, about9.04GB,
+   and43 git inputs before supplements. Evaluate ARM/FEX/Nix/static/vendored,
    prebuiltABL/rclone and install-time shareware dispositions explicitly.
 3. #492 is CLOSED completed with published5264a647a1 inventory and both hosted
    checks successful. Fresh-context review rehashed173packet files and all

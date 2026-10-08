@@ -1,0 +1,554 @@
+{
+  "utc": "2026-10-08T22:52:03.614101+00:00",
+  "scope": "Source-cited licence basis for17 missing recipe metadata fields; no package recipe or firmware mutation. Presence of a root licence does not settle all vendored or data-file terms.",
+  "components": [
+    {
+      "component": "common-shaders",
+      "profiles": [
+        "h70002-aarch64"
+      ],
+      "observed_licence_basis": null,
+      "scope_and_remaining_work": "No top-level notice candidate. Review exact included shader headers and collection provenance.",
+      "notice_evidence": [],
+      "release_disposition": "OPEN: integrate scoped licence and exact notices into final release materials; this basis review is not full component/vendor/source/backup clearance."
+    },
+    {
+      "component": "enet",
+      "profiles": [
+        "h70002-aarch64",
+        "sm855003-aarch64",
+        "vm18-x86_64"
+      ],
+      "observed_licence_basis": "MIT",
+      "scope_and_remaining_work": "Root LICENSE carries the permission and notice terms.",
+      "notice_evidence": [
+        {
+          "observed_source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02/build.pixelelated-SM8550.aarch64/build/enet-v1.3.18/AUTHORS",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "retained_in_existing_packet": "docs/qa-logs/2026-10-08-final-inventory/supplement/artifacts/notices/e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "observed_source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02/build.pixelelated-SM8550.aarch64/build/enet-v1.3.18/LICENSE",
+          "sha256": "a29cd246638974da7c6edf423a0a69d4a6f7d759940b7cfa9a2bc3442ac3834c",
+          "retained_in_existing_packet": "docs/qa-logs/2026-10-08-final-inventory/supplement/artifacts/notices/a29cd246638974da7c6edf423a0a69d4a6f7d759940b7cfa9a2bc3442ac3834c"
+        },
+        {
+          "observed_source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02/build.pixelelated-SM8550.aarch64/build/enet-v1.3.18/docs/license.dox",
+          "sha256": "5d54b300b7cdd64b99df61ad290567a73799873c3e7dd8e80db1089ed559a570",
+          "retained_in_existing_packet": "docs/qa-logs/2026-10-08-final-inventory/supplement/artifacts/notices/5d54b300b7cdd64b99df61ad290567a73799873c3e7dd8e80db1089ed559a570"
+        }
+      ],
+      "release_disposition": "OPEN: integrate scoped licence and exact notices into final release materials; this basis review is not full component/vendor/source/backup clearance."
+    },
+    {
+      "component": "freej2me-lr",
+      "profiles": [
+        "h70002-aarch64",
+        "sm855003-aarch64",
+        "vm18-x86_64"
+      ],
+      "observed_licence_basis": "GPL-3.0-or-later; bundled works require separate terms",
+      "scope_and_remaining_work": "Source Java headers explicitly allow version3 or later. README identifies JLayer, libsdl4j, ASM and libretro; retain their individual notices and confirm included outputs.",
+      "notice_evidence": [
+        {
+          "observed_source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02/build.pixelelated-SM8550.aarch64/build/freej2me-lr-1.52/LICENSE",
+          "sha256": "a58fa0122b525f1d9ae531781bfeead1977e9ac88d10fb570e8821d6e4232e85",
+          "retained_in_existing_packet": "docs/qa-logs/2026-10-08-final-inventory/supplement/artifacts/notices/a58fa0122b525f1d9ae531781bfeead1977e9ac88d10fb570e8821d6e4232e85"
+        },
+        {
+          "observed_source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/freej2me-lr-1.52/README.md",
+          "sha256": "c648aad30013101404344c19d02cc3c6db96a533992d3a0a4d22d31c14f013ac",
+          "retained_in_completion_packet": "docs/qa-logs/2026-10-08-source-custody/git-complete/notice-basis/c648aad30013101404344c19d02cc3c6db96a533992d3a0a4d22d31c14f013ac"
+        },
+        {
+          "observed_source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/freej2me-lr-1.52/src/mmpp/media/Vibration.java",
+          "sha256": "4a2ebceebc55bdfbdc9df918b68168f4daa815dabf9ca69bc68ccf6ca63c7f53",
+          "retained_in_completion_packet": "docs/qa-logs/2026-10-08-source-custody/git-complete/notice-basis/4a2ebceebc55bdfbdc9df918b68168f4daa815dabf9ca69bc68ccf6ca63c7f53"
+        }
+      ],
+      "release_disposition": "OPEN: integrate scoped licence and exact notices into final release materials; this basis review is not full component/vendor/source/backup clearance."
+    },
+    {
+      "component": "glsl-shaders",
+      "profiles": [
+        "h70002-aarch64"
+      ],
+      "observed_licence_basis": "LGPL-3.0 root licence text; per-shader review open",
+      "scope_and_remaining_work": "The root file supplies LGPLv3 text. Do not flatten per-shader copyright/exception headers into one aggregate label.",
+      "notice_evidence": [
+        {
+          "observed_source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02/build.pixelelated-H700.aarch64/build/glsl-shaders-4f4eb801b2dbcaed0a9669a9deec1a098f3623d8/nnedi3/LICENSE",
+          "sha256": "da7eabb7bafdf7d3ae5e9f223aa5bdc1eece45ac569dc21b3b037520b4464768",
+          "retained_in_existing_packet": "docs/qa-logs/2026-10-08-final-inventory/supplement/artifacts/notices/da7eabb7bafdf7d3ae5e9f223aa5bdc1eece45ac569dc21b3b037520b4464768"
+        }
+      ],
+      "release_disposition": "OPEN: integrate scoped licence and exact notices into final release materials; this basis review is not full component/vendor/source/backup clearance."
+    },
+    {
+      "component": "harfbuzz-icu",
+      "profiles": [
+        "h70002-aarch64",
+        "sm855003-aarch64",
+        "vm18-x86_64"
+      ],
+      "observed_licence_basis": "MIT-old; per-directory exceptions",
+      "scope_and_remaining_work": "Root COPYING names Old MIT and directs readers to per-directory COPYING. test/COPYING applies OFL1.1 to many test fonts, not a blanket licence for the library. Source is shared with harfbuzz.",
+      "notice_evidence": [
+        {
+          "observed_source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02/build.pixelelated-SM8550.aarch64/build/harfbuzz-icu-14.3.0/COPYING",
+          "sha256": "ba8f810f2455c2f08e2d56bb49b72f37fcf68f1f4fade38977cfd7372050ad64",
+          "retained_in_existing_packet": "docs/qa-logs/2026-10-08-final-inventory/supplement/artifacts/notices/ba8f810f2455c2f08e2d56bb49b72f37fcf68f1f4fade38977cfd7372050ad64"
+        },
+        {
+          "observed_source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02/build.pixelelated-SM8550.aarch64/build/harfbuzz-icu-14.3.0/AUTHORS",
+          "sha256": "19bfe8f5ed100636cd24ab0c90a3f71c21d8b02d9ba00719447a0faab364d49f",
+          "retained_in_existing_packet": "docs/qa-logs/2026-10-08-final-inventory/supplement/artifacts/notices/19bfe8f5ed100636cd24ab0c90a3f71c21d8b02d9ba00719447a0faab364d49f"
+        },
+        {
+          "observed_source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02/build.pixelelated-SM8550.aarch64/build/harfbuzz-icu-14.3.0/test/COPYING",
+          "sha256": "9b35b8485f69cd298fccbb3c40a827dc06cf1185553bef827903497d2944a8d7",
+          "retained_in_existing_packet": "docs/qa-logs/2026-10-08-final-inventory/supplement/artifacts/notices/9b35b8485f69cd298fccbb3c40a827dc06cf1185553bef827903497d2944a8d7"
+        }
+      ],
+      "release_disposition": "OPEN: integrate scoped licence and exact notices into final release materials; this basis review is not full component/vendor/source/backup clearance."
+    },
+    {
+      "component": "libretro-database",
+      "profiles": [
+        "h70002-aarch64",
+        "sm855003-aarch64",
+        "vm18-x86_64"
+      ],
+      "observed_licence_basis": "CC-BY-SA-4.0",
+      "scope_and_remaining_work": "Root LICENSE carries Creative Commons Attribution ShareAlike4.0. Attribute the included databases and preserve notices.",
+      "notice_evidence": [
+        {
+          "observed_source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02/build.pixelelated-SM8550.aarch64/build/libretro-database-4de37d2c8042d9d0f608c43006c9b35438c536ce/LICENSE",
+          "sha256": "23ee78c8bae49cf08ea2f0c84945c66b987ebe4520881fb51b3dad4fb43d07c2",
+          "retained_in_existing_packet": "docs/qa-logs/2026-10-08-final-inventory/supplement/artifacts/notices/23ee78c8bae49cf08ea2f0c84945c66b987ebe4520881fb51b3dad4fb43d07c2"
+        }
+      ],
+      "release_disposition": "OPEN: integrate scoped licence and exact notices into final release materials; this basis review is not full component/vendor/source/backup clearance."
+    },
+    {
+      "component": "libspeexdsp",
+      "profiles": [
+        "h70002-aarch64",
+        "sm855003-aarch64",
+        "vm18-x86_64"
+      ],
+      "observed_licence_basis": "BSD-3-Clause",
+      "scope_and_remaining_work": "COPYING supplies source/binary notice conditions and non-endorsement clause.",
+      "notice_evidence": [
+        {
+          "observed_source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02/build.pixelelated-SM8550.aarch64/build/libspeexdsp-738e17905e1ca2a1fa932ddd9c2a85d089f4e845/COPYING",
+          "sha256": "2654a4264b2bfe298dedc508748d140111840c315cc8eb646a3a68c13fa75b01",
+          "retained_in_existing_packet": "docs/qa-logs/2026-10-08-final-inventory/supplement/artifacts/notices/2654a4264b2bfe298dedc508748d140111840c315cc8eb646a3a68c13fa75b01"
+        },
+        {
+          "observed_source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02/build.pixelelated-SM8550.aarch64/build/libspeexdsp-738e17905e1ca2a1fa932ddd9c2a85d089f4e845/AUTHORS",
+          "sha256": "6e5a9d92c5f9ccd28fe0b15ad59443fbf435bfc6ab2221f532006d3717ddf642",
+          "retained_in_existing_packet": "docs/qa-logs/2026-10-08-final-inventory/supplement/artifacts/notices/6e5a9d92c5f9ccd28fe0b15ad59443fbf435bfc6ab2221f532006d3717ddf642"
+        }
+      ],
+      "release_disposition": "OPEN: integrate scoped licence and exact notices into final release materials; this basis review is not full component/vendor/source/backup clearance."
+    },
+    {
+      "component": "libxmp-lite",
+      "profiles": [
+        "h70002-aarch64",
+        "sm855003-aarch64",
+        "vm18-x86_64"
+      ],
+      "observed_licence_basis": "MIT",
+      "scope_and_remaining_work": "Full permission and notice text is in README, missed by the earlier two-level filename collector.",
+      "notice_evidence": [
+        {
+          "observed_source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/libxmp-lite-4.5.0/README",
+          "sha256": "9f8859c83ff7b40c3e69743dce4f29f0eea60a76e44751c736eea518c0eb632e",
+          "retained_in_completion_packet": "docs/qa-logs/2026-10-08-source-custody/git-complete/notice-basis/9f8859c83ff7b40c3e69743dce4f29f0eea60a76e44751c736eea518c0eb632e"
+        }
+      ],
+      "release_disposition": "OPEN: integrate scoped licence and exact notices into final release materials; this basis review is not full component/vendor/source/backup clearance."
+    },
+    {
+      "component": "openbor",
+      "profiles": [
+        "h70002-aarch64",
+        "sm855003-aarch64",
+        "vm18-x86_64"
+      ],
+      "observed_licence_basis": "BSD-3-Clause for recorded root/engine/tools notices",
+      "scope_and_remaining_work": "Root, engine and tools LICENSE files have different copyright holders; preserve each rather than only a generic template.",
+      "notice_evidence": [
+        {
+          "observed_source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02/build.pixelelated-SM8550.aarch64/build/openbor-b8303cce992a0db93c3a465df3c943942fe322f8/LICENSE",
+          "sha256": "b8f3916944f0b5aee216ef7a494820d17ae658336a4680992dc244ebedecf3ea",
+          "retained_in_existing_packet": "docs/qa-logs/2026-10-08-final-inventory/supplement/artifacts/notices/b8f3916944f0b5aee216ef7a494820d17ae658336a4680992dc244ebedecf3ea"
+        },
+        {
+          "observed_source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02/build.pixelelated-SM8550.aarch64/build/openbor-b8303cce992a0db93c3a465df3c943942fe322f8/engine/LICENSE",
+          "sha256": "adfc28feba4d32bb3933b29fe55fd0a6aa746084704c3ee71fc3f732706b9aa4",
+          "retained_in_existing_packet": "docs/qa-logs/2026-10-08-final-inventory/supplement/artifacts/notices/adfc28feba4d32bb3933b29fe55fd0a6aa746084704c3ee71fc3f732706b9aa4"
+        },
+        {
+          "observed_source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02/build.pixelelated-SM8550.aarch64/build/openbor-b8303cce992a0db93c3a465df3c943942fe322f8/tools/LICENSE",
+          "sha256": "36a6fc65207577c2b1b8094f777ea68c8e0038eae451381ee2455a788516d565",
+          "retained_in_existing_packet": "docs/qa-logs/2026-10-08-final-inventory/supplement/artifacts/notices/36a6fc65207577c2b1b8094f777ea68c8e0038eae451381ee2455a788516d565"
+        }
+      ],
+      "release_disposition": "OPEN: integrate scoped licence and exact notices into final release materials; this basis review is not full component/vendor/source/backup clearance."
+    },
+    {
+      "component": "opusfile",
+      "profiles": [
+        "h70002-aarch64",
+        "h70002-arm",
+        "sm855003-aarch64",
+        "sm855003-arm",
+        "vm18-x86_64"
+      ],
+      "observed_licence_basis": "BSD-3-Clause",
+      "scope_and_remaining_work": "COPYING supplies Xiph notices and three conditions; applies also to ARM profiles.",
+      "notice_evidence": [
+        {
+          "observed_source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02/build.pixelelated-SM8550.aarch64/build/opusfile-9d718345ce03b2fad5d7d28e0bcd1cc69ab2b166/COPYING",
+          "sha256": "0267ae795ab744c4e0f9c45e249440fdf2e75dac8c804f36066b28649bf74aaf",
+          "retained_in_existing_packet": "docs/qa-logs/2026-10-08-final-inventory/supplement/artifacts/notices/0267ae795ab744c4e0f9c45e249440fdf2e75dac8c804f36066b28649bf74aaf"
+        },
+        {
+          "observed_source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02/build.pixelelated-SM8550.aarch64/build/opusfile-9d718345ce03b2fad5d7d28e0bcd1cc69ab2b166/AUTHORS",
+          "sha256": "7bafd4ec8a8f284cce7a8c9dab476f141ed0de91f38947c145e49929d0922071",
+          "retained_in_existing_packet": "docs/qa-logs/2026-10-08-final-inventory/supplement/artifacts/notices/7bafd4ec8a8f284cce7a8c9dab476f141ed0de91f38947c145e49929d0922071"
+        }
+      ],
+      "release_disposition": "OPEN: integrate scoped licence and exact notices into final release materials; this basis review is not full component/vendor/source/backup clearance."
+    },
+    {
+      "component": "rclone",
+      "profiles": [
+        "h70002-aarch64",
+        "sm855003-aarch64",
+        "vm18-x86_64"
+      ],
+      "observed_licence_basis": "MIT root; dependency terms separate",
+      "scope_and_remaining_work": "Exact upstream COPYING retained with pinned source. Binary names same commit, with vcs.modified=true.244 embedded module entries are retained; full dependency notices/release modification disposition remain.",
+      "notice_evidence": [
+        {
+          "upstream_path": "COPYING",
+          "commit": "687d264b689b8c49a67e2e52a8a5e0caa01c04ce",
+          "repository": "rclone/rclone",
+          "custody_manifest": "aeef83ae3a4de7ebaca3816508e804bf935e87285efdcff6226cb52bd2fc4827",
+          "member": "notices/8cd2e9e750b90a04b7d82dbbca3930c696ae0309d7c10464f90a44f45754cd04",
+          "sha256": "8cd2e9e750b90a04b7d82dbbca3930c696ae0309d7c10464f90a44f45754cd04"
+        },
+        {
+          "upstream_path": "README.md",
+          "commit": "687d264b689b8c49a67e2e52a8a5e0caa01c04ce",
+          "repository": "rclone/rclone",
+          "custody_manifest": "aeef83ae3a4de7ebaca3816508e804bf935e87285efdcff6226cb52bd2fc4827",
+          "member": "notices/635cd9b26984cf48b088afc160dd45d73060efa6826058aa7ec6214831586a2d",
+          "sha256": "635cd9b26984cf48b088afc160dd45d73060efa6826058aa7ec6214831586a2d"
+        },
+        {
+          "upstream_path": "cmd/bisync/LICENSE.cjnaz",
+          "commit": "687d264b689b8c49a67e2e52a8a5e0caa01c04ce",
+          "repository": "rclone/rclone",
+          "custody_manifest": "aeef83ae3a4de7ebaca3816508e804bf935e87285efdcff6226cb52bd2fc4827",
+          "member": "notices/f3329cd6c4dcb098ddbbd8671f2457bbb7c82b3bd8129c73190d3468db77c4e6",
+          "sha256": "f3329cd6c4dcb098ddbbd8671f2457bbb7c82b3bd8129c73190d3468db77c4e6"
+        },
+        {
+          "upstream_path": "cmd/serve/dlna/LICENSE.anacrolix",
+          "commit": "687d264b689b8c49a67e2e52a8a5e0caa01c04ce",
+          "repository": "rclone/rclone",
+          "custody_manifest": "aeef83ae3a4de7ebaca3816508e804bf935e87285efdcff6226cb52bd2fc4827",
+          "member": "notices/d51c00bad765eba320d6f2f9c955a48f060835a3cd0b9803e06bbc345efffd4b",
+          "sha256": "d51c00bad765eba320d6f2f9c955a48f060835a3cd0b9803e06bbc345efffd4b"
+        },
+        {
+          "upstream_path": "fs/rc/js/LICENSE.wasmexec",
+          "commit": "687d264b689b8c49a67e2e52a8a5e0caa01c04ce",
+          "repository": "rclone/rclone",
+          "custody_manifest": "aeef83ae3a4de7ebaca3816508e804bf935e87285efdcff6226cb52bd2fc4827",
+          "member": "notices/4835612df0098ca95f8e7d9e3bffcb02358d435dbb38057c844c99d7f725eb20",
+          "sha256": "4835612df0098ca95f8e7d9e3bffcb02358d435dbb38057c844c99d7f725eb20"
+        },
+        {
+          "upstream_path": "go.mod",
+          "commit": "687d264b689b8c49a67e2e52a8a5e0caa01c04ce",
+          "repository": "rclone/rclone",
+          "custody_manifest": "aeef83ae3a4de7ebaca3816508e804bf935e87285efdcff6226cb52bd2fc4827",
+          "member": "notices/3bc26d0be116da2c4edac7bb37599b14f6c41de51ea147fd3c281ec588441837",
+          "sha256": "3bc26d0be116da2c4edac7bb37599b14f6c41de51ea147fd3c281ec588441837"
+        },
+        {
+          "upstream_path": "go.sum",
+          "commit": "687d264b689b8c49a67e2e52a8a5e0caa01c04ce",
+          "repository": "rclone/rclone",
+          "custody_manifest": "aeef83ae3a4de7ebaca3816508e804bf935e87285efdcff6226cb52bd2fc4827",
+          "member": "notices/af9fc4d4a90e4006bdcf1e3376171bc48571de36cd68194e55dbaca87fb08f49",
+          "sha256": "af9fc4d4a90e4006bdcf1e3376171bc48571de36cd68194e55dbaca87fb08f49"
+        }
+      ],
+      "release_disposition": "OPEN: integrate scoped licence and exact notices into final release materials; this basis review is not full component/vendor/source/backup clearance."
+    },
+    {
+      "component": "retropie-shaders",
+      "profiles": [
+        "h70002-aarch64",
+        "sm855003-aarch64",
+        "vm18-x86_64"
+      ],
+      "observed_licence_basis": null,
+      "scope_and_remaining_work": "No top-level notice candidate. Review exact included shader headers and collection provenance.",
+      "notice_evidence": [],
+      "release_disposition": "OPEN: integrate scoped licence and exact notices into final release materials; this basis review is not full component/vendor/source/backup clearance."
+    },
+    {
+      "component": "rocknix-abl",
+      "profiles": [
+        "sm855003-aarch64"
+      ],
+      "observed_licence_basis": null,
+      "scope_and_remaining_work": "HOLD: release identifies LinuxLoader4588733123554b1f7bf935b04e494e4284894546, but bot source read returned404. Public abl tag contains packaging/docs only. No implementation licence/source disposition inferred from recipe GPL header.",
+      "notice_evidence": [
+        {
+          "upstream_path": ".github/workflows/release-abl.yaml",
+          "commit": "0e755e154874f7e874919ab7e080935c1444df68",
+          "repository": "ROCKNIX/abl",
+          "custody_manifest": "aeef83ae3a4de7ebaca3816508e804bf935e87285efdcff6226cb52bd2fc4827",
+          "member": "notices/d089d494af964f1db0c9b50914852245390458f6d0d6019d238259c292a03904",
+          "sha256": "d089d494af964f1db0c9b50914852245390458f6d0d6019d238259c292a03904"
+        },
+        {
+          "upstream_path": "README.md",
+          "commit": "0e755e154874f7e874919ab7e080935c1444df68",
+          "repository": "ROCKNIX/abl",
+          "custody_manifest": "aeef83ae3a4de7ebaca3816508e804bf935e87285efdcff6226cb52bd2fc4827",
+          "member": "notices/c6be12e625ef53a9d49122c4aed3a680575da286eb8b1b7b16f520ebb70289d0",
+          "sha256": "c6be12e625ef53a9d49122c4aed3a680575da286eb8b1b7b16f520ebb70289d0"
+        }
+      ],
+      "release_disposition": "OPEN: integrate scoped licence and exact notices into final release materials; this basis review is not full component/vendor/source/backup clearance."
+    },
+    {
+      "component": "slang-shaders",
+      "profiles": [
+        "h70002-aarch64",
+        "sm855003-aarch64",
+        "vm18-x86_64"
+      ],
+      "observed_licence_basis": null,
+      "scope_and_remaining_work": "No top-level notice candidate. Review exact included shader headers and collection provenance.",
+      "notice_evidence": [],
+      "release_disposition": "OPEN: integrate scoped licence and exact notices into final release materials; this basis review is not full component/vendor/source/backup clearance."
+    },
+    {
+      "component": "tailscale",
+      "profiles": [
+        "h70002-aarch64",
+        "sm855003-aarch64",
+        "vm18-x86_64"
+      ],
+      "observed_licence_basis": "BSD-3-Clause root; dependency terms separate",
+      "scope_and_remaining_work": "Exact version LICENSE and licenses/tailscale.md retained. Embedded module inventories contain58 CLI and72 daemon entries; no embedded vcs.revision. Verify bundled dependency notice coverage before publication.",
+      "notice_evidence": [
+        {
+          "upstream_path": ".github/licenses.tmpl",
+          "commit": "05a91829316e055517a1e84f7b00016846ef4107",
+          "repository": "tailscale/tailscale",
+          "custody_manifest": "aeef83ae3a4de7ebaca3816508e804bf935e87285efdcff6226cb52bd2fc4827",
+          "member": "notices/d449925239921c1f51ad832efc4a43d4fe85c4b9df1b1702b5e6f509b004249d",
+          "sha256": "d449925239921c1f51ad832efc4a43d4fe85c4b9df1b1702b5e6f509b004249d"
+        },
+        {
+          "upstream_path": "LICENSE",
+          "commit": "05a91829316e055517a1e84f7b00016846ef4107",
+          "repository": "tailscale/tailscale",
+          "custody_manifest": "aeef83ae3a4de7ebaca3816508e804bf935e87285efdcff6226cb52bd2fc4827",
+          "member": "notices/a7ca6186a7963a0a60740f6047760eecd7a0234e8c38bd7e1e0bbcb324bda45b",
+          "sha256": "a7ca6186a7963a0a60740f6047760eecd7a0234e8c38bd7e1e0bbcb324bda45b"
+        },
+        {
+          "upstream_path": "PATENTS",
+          "commit": "05a91829316e055517a1e84f7b00016846ef4107",
+          "repository": "tailscale/tailscale",
+          "custody_manifest": "aeef83ae3a4de7ebaca3816508e804bf935e87285efdcff6226cb52bd2fc4827",
+          "member": "notices/debc5ca73d082a6c7de743fecdba6f75deafdf9200acfbddeb8ca32d66e6e128",
+          "sha256": "debc5ca73d082a6c7de743fecdba6f75deafdf9200acfbddeb8ca32d66e6e128"
+        },
+        {
+          "upstream_path": "README.md",
+          "commit": "05a91829316e055517a1e84f7b00016846ef4107",
+          "repository": "tailscale/tailscale",
+          "custody_manifest": "aeef83ae3a4de7ebaca3816508e804bf935e87285efdcff6226cb52bd2fc4827",
+          "member": "notices/b61e8e03c928ba415f813b5c7301b10d9aba7468975688f345af560807d07c21",
+          "sha256": "b61e8e03c928ba415f813b5c7301b10d9aba7468975688f345af560807d07c21"
+        },
+        {
+          "upstream_path": "cmd/tailscale/cli/licenses.go",
+          "commit": "05a91829316e055517a1e84f7b00016846ef4107",
+          "repository": "tailscale/tailscale",
+          "custody_manifest": "aeef83ae3a4de7ebaca3816508e804bf935e87285efdcff6226cb52bd2fc4827",
+          "member": "notices/273ce9ce95cbb24fc410b8da8717ede9e1e834f31f2cdbe6cf8f0dd2b49931f0",
+          "sha256": "273ce9ce95cbb24fc410b8da8717ede9e1e834f31f2cdbe6cf8f0dd2b49931f0"
+        },
+        {
+          "upstream_path": "derp/xdp/headers/LICENSE.BSD-2-Clause",
+          "commit": "05a91829316e055517a1e84f7b00016846ef4107",
+          "repository": "tailscale/tailscale",
+          "custody_manifest": "aeef83ae3a4de7ebaca3816508e804bf935e87285efdcff6226cb52bd2fc4827",
+          "member": "notices/e1638b9a0c68ca90fad3df1d6b4e430804d2fbdc15e58d02cffddfae38953bbf",
+          "sha256": "e1638b9a0c68ca90fad3df1d6b4e430804d2fbdc15e58d02cffddfae38953bbf"
+        },
+        {
+          "upstream_path": "go.mod",
+          "commit": "05a91829316e055517a1e84f7b00016846ef4107",
+          "repository": "tailscale/tailscale",
+          "custody_manifest": "aeef83ae3a4de7ebaca3816508e804bf935e87285efdcff6226cb52bd2fc4827",
+          "member": "notices/49e603cbb1608d2358ade7c698dd73617d0d754825be5a57322e10a150c3db8b",
+          "sha256": "49e603cbb1608d2358ade7c698dd73617d0d754825be5a57322e10a150c3db8b"
+        },
+        {
+          "upstream_path": "go.sum",
+          "commit": "05a91829316e055517a1e84f7b00016846ef4107",
+          "repository": "tailscale/tailscale",
+          "custody_manifest": "aeef83ae3a4de7ebaca3816508e804bf935e87285efdcff6226cb52bd2fc4827",
+          "member": "notices/540d42e084737633f485c52f57dafef26dd6afa6f0a8b04729695bfd624f2b17",
+          "sha256": "540d42e084737633f485c52f57dafef26dd6afa6f0a8b04729695bfd624f2b17"
+        },
+        {
+          "upstream_path": "license_test.go",
+          "commit": "05a91829316e055517a1e84f7b00016846ef4107",
+          "repository": "tailscale/tailscale",
+          "custody_manifest": "aeef83ae3a4de7ebaca3816508e804bf935e87285efdcff6226cb52bd2fc4827",
+          "member": "notices/375975145ef64a22c9ce6310333ef920f43cdaa39feb23dc7609dfdcfe008eb6",
+          "sha256": "375975145ef64a22c9ce6310333ef920f43cdaa39feb23dc7609dfdcfe008eb6"
+        },
+        {
+          "upstream_path": "licenses/licenses.go",
+          "commit": "05a91829316e055517a1e84f7b00016846ef4107",
+          "repository": "tailscale/tailscale",
+          "custody_manifest": "aeef83ae3a4de7ebaca3816508e804bf935e87285efdcff6226cb52bd2fc4827",
+          "member": "notices/7c3b3ec700df78e56eb955df2c5c9140ed79e2b736e03d272d27d585f3d40339",
+          "sha256": "7c3b3ec700df78e56eb955df2c5c9140ed79e2b736e03d272d27d585f3d40339"
+        },
+        {
+          "upstream_path": "licenses/tailscale.md",
+          "commit": "05a91829316e055517a1e84f7b00016846ef4107",
+          "repository": "tailscale/tailscale",
+          "custody_manifest": "aeef83ae3a4de7ebaca3816508e804bf935e87285efdcff6226cb52bd2fc4827",
+          "member": "notices/4c3169a37669042b80a52b811c9bd95c56b4f9188351266142faafaf3eeef8e3",
+          "sha256": "4c3169a37669042b80a52b811c9bd95c56b4f9188351266142faafaf3eeef8e3"
+        },
+        {
+          "upstream_path": "tempfork/spf13/cobra/LICENSE.txt",
+          "commit": "05a91829316e055517a1e84f7b00016846ef4107",
+          "repository": "tailscale/tailscale",
+          "custody_manifest": "aeef83ae3a4de7ebaca3816508e804bf935e87285efdcff6226cb52bd2fc4827",
+          "member": "notices/5e3400b93bbb099e83e52bab885e7441750673c21f97988ca3f1240639b63283",
+          "sha256": "5e3400b93bbb099e83e52bab885e7441750673c21f97988ca3f1240639b63283"
+        },
+        {
+          "upstream_path": "tstest/tailmac/LICENSE/LICENSE.txt",
+          "commit": "05a91829316e055517a1e84f7b00016846ef4107",
+          "repository": "tailscale/tailscale",
+          "custody_manifest": "aeef83ae3a4de7ebaca3816508e804bf935e87285efdcff6226cb52bd2fc4827",
+          "member": "notices/39f3ea9e9fc438419ed8c132f2a6a5f45f6f2d6ba47df100513f2b65d751aecd",
+          "sha256": "39f3ea9e9fc438419ed8c132f2a6a5f45f6f2d6ba47df100513f2b65d751aecd"
+        }
+      ],
+      "release_disposition": "OPEN: integrate scoped licence and exact notices into final release materials; this basis review is not full component/vendor/source/backup clearance."
+    },
+    {
+      "component": "wildmidi",
+      "profiles": [
+        "h70002-aarch64",
+        "sm855003-aarch64",
+        "vm18-x86_64"
+      ],
+      "observed_licence_basis": "LGPL-3.0-or-later library; GPL-3.0-or-later player",
+      "scope_and_remaining_work": "COPYING splits library/player; source header explicitly permits later versions. Map installed output before applying the relevant branch.",
+      "notice_evidence": [
+        {
+          "observed_source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/wildmidi-405ca73/COPYING",
+          "sha256": "17701a4d4cbe5fc36ada953d75c5bd979e4c9f0672c867b6840f5fb36739979b",
+          "retained_in_completion_packet": "docs/qa-logs/2026-10-08-source-custody/git-complete/notice-basis/17701a4d4cbe5fc36ada953d75c5bd979e4c9f0672c867b6840f5fb36739979b"
+        },
+        {
+          "observed_source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/wildmidi-405ca73/src/wildmidi_lib.c",
+          "sha256": "5ba82eb319eafaf87756864662fd0bd95c34a7e6aad07747c95bb26ba5a6a3c9",
+          "retained_in_completion_packet": "docs/qa-logs/2026-10-08-source-custody/git-complete/notice-basis/5ba82eb319eafaf87756864662fd0bd95c34a7e6aad07747c95bb26ba5a6a3c9"
+        },
+        {
+          "observed_source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/wildmidi-405ca73/docs/license/GPLv3.txt",
+          "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+          "retained_in_completion_packet": "docs/qa-logs/2026-10-08-source-custody/git-complete/notice-basis/8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903"
+        },
+        {
+          "observed_source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/wildmidi-405ca73/docs/license/LGPLv3.txt",
+          "sha256": "a853c2ffec17057872340eee242ae4d96cbf2b520ae27d903e1b2fef1a5f9d1c",
+          "retained_in_completion_packet": "docs/qa-logs/2026-10-08-source-custody/git-complete/notice-basis/a853c2ffec17057872340eee242ae4d96cbf2b520ae27d903e1b2fef1a5f9d1c"
+        }
+      ],
+      "release_disposition": "OPEN: integrate scoped licence and exact notices into final release materials; this basis review is not full component/vendor/source/backup clearance."
+    },
+    {
+      "component": "zerotier-one",
+      "profiles": [
+        "h70002-aarch64",
+        "sm855003-aarch64",
+        "vm18-x86_64"
+      ],
+      "observed_licence_basis": "MPL-2.0 core; ext/ and nonfree/ separate",
+      "scope_and_remaining_work": "LICENSE.txt excludes ext/ and nonfree/ from its blanket MPL statement. make-linux.mk includes nonfree controller objects only under ZT_NONFREE=1 (also set by ZT_CONTROLLER=1). Directory presence alone does not show they shipped; actual build/output disposition remains.",
+      "notice_evidence": [
+        {
+          "observed_source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02/build.pixelelated-SM8550.aarch64/build/zerotier-one-1.16.0/LICENSE-MPL.txt",
+          "sha256": "1f256ecad192880510e84ad60474eab7589218784b9a50bc7ceee34c2b91f1d5",
+          "retained_in_existing_packet": "docs/qa-logs/2026-10-08-final-inventory/supplement/artifacts/notices/1f256ecad192880510e84ad60474eab7589218784b9a50bc7ceee34c2b91f1d5"
+        },
+        {
+          "observed_source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02/build.pixelelated-SM8550.aarch64/build/zerotier-one-1.16.0/LICENSE.txt",
+          "sha256": "18797d9ced049ddab9a4685e89acbe95de08efdf5eedaf82e870d63f6a3ccc7f",
+          "retained_in_existing_packet": "docs/qa-logs/2026-10-08-final-inventory/supplement/artifacts/notices/18797d9ced049ddab9a4685e89acbe95de08efdf5eedaf82e870d63f6a3ccc7f"
+        },
+        {
+          "observed_source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02/build.pixelelated-SM8550.aarch64/build/zerotier-one-1.16.0/nonfree/LICENSE.md",
+          "sha256": "fc81b5fefa99aa10a73a8c4ba73b4779a0363134040259efa1966e0ca0b01037",
+          "retained_in_existing_packet": "docs/qa-logs/2026-10-08-final-inventory/supplement/artifacts/notices/fc81b5fefa99aa10a73a8c4ba73b4779a0363134040259efa1966e0ca0b01037"
+        },
+        {
+          "observed_source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02/build.pixelelated-SM8550.aarch64/build/zerotier-one-1.16.0/debian/copyright",
+          "sha256": "e9627e36b976459bd06f8db83f412b0888c082c572350afbe789391f6f6a017d",
+          "retained_in_existing_packet": "docs/qa-logs/2026-10-08-final-inventory/supplement/artifacts/notices/e9627e36b976459bd06f8db83f412b0888c082c572350afbe789391f6f6a017d"
+        },
+        {
+          "observed_source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/zerotier-one-1.16.0/make-linux.mk",
+          "sha256": "360a77dc3e197fbfcda36bc1174bfa36f1938b5f29f737e7ed31d1dab2b8a5d9",
+          "retained_in_completion_packet": "docs/qa-logs/2026-10-08-source-custody/git-complete/notice-basis/360a77dc3e197fbfcda36bc1174bfa36f1938b5f29f737e7ed31d1dab2b8a5d9"
+        },
+        {
+          "observed_source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/zerotier-one-1.16.0/objects.mk",
+          "sha256": "204ae861b0e862124c06f413749da2cd888a554d423b44dbf1bd4413eafb9181",
+          "retained_in_completion_packet": "docs/qa-logs/2026-10-08-source-custody/git-complete/notice-basis/204ae861b0e862124c06f413749da2cd888a554d423b44dbf1bd4413eafb9181"
+        },
+        {
+          "observed_source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/zerotier-one-1.16.0/objects-nonfree.mk",
+          "sha256": "a0701c51587cc1518d452a7e705e421b9b04f7bc1e31d17932416b89363e46ec",
+          "retained_in_completion_packet": "docs/qa-logs/2026-10-08-source-custody/git-complete/notice-basis/a0701c51587cc1518d452a7e705e421b9b04f7bc1e31d17932416b89363e46ec"
+        }
+      ],
+      "release_disposition": "OPEN: integrate scoped licence and exact notices into final release materials; this basis review is not full component/vendor/source/backup clearance."
+    }
+  ],
+  "components_with_identified_root_or_scoped_basis": 13,
+  "components_without_aggregate_basis": [
+    "common-shaders",
+    "retropie-shaders",
+    "rocknix-abl",
+    "slang-shaders"
+  ],
+  "publication_bundle_complete": false
+}
