@@ -1,0 +1,13 @@
+state:       finished
+written:     2026-10-08 18:41:24 UTC   <- terminal result; heartbeat stops here
+watcher_pid: 4010328
+job_pid:     4010326  alive=yes
+started:     2026-10-08 18:41:14 UTC
+progress:    none matched
+log:         /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement17/.build-runs/20261008T184114Z-04b73269/build.log  (last written 5s ago)
+activity:    /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement17/.build-runs/20261008T184114Z-04b73269/build.log  (last written 5s ago)
+activity_root: /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement17
+outcome:     rc=1
+tail:
+                               self.stderr)
+  subprocess.CalledProcessError: Command '['ssh', '-i', '/workspace/tmp/pixelelated-m7-cf10-17/guest03/qa-key', '-p', '10230', '-o',

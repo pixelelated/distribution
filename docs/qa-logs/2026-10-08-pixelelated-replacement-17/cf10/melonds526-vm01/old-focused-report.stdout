@@ -1,0 +1,98 @@
+{
+  "pass": false,
+  "checks": [
+    {
+      "case": "missing-defaults",
+      "pass": false,
+      "rc": 1,
+      "stderr": "cp: can't stat '/tmp/pixelelated-melonds-j3bey82f/missing-defaults with spaces/usr/config/melondDS': No such file or directory\n"
+    },
+    {
+      "case": "missing-config",
+      "pass": false,
+      "rc": 1,
+      "stderr": "cp: can't stat '/tmp/pixelelated-melonds-j3bey82f/missing-config with spaces/usr/config/melondDS': No such file or directory\n"
+    },
+    {
+      "case": "empty-defaults",
+      "pass": false,
+      "rc": 1,
+      "stderr": "cp: can't stat '/tmp/pixelelated-melonds-j3bey82f/empty-defaults with spaces/usr/config/melondDS': No such file or directory\n"
+    },
+    {
+      "case": "add-missing",
+      "pass": false,
+      "rc": 1,
+      "stderr": "cp: can't stat '/tmp/pixelelated-melonds-j3bey82f/add-missing with spaces/usr/config/melondDS': No such file or directory\n"
+    },
+    {
+      "case": "already-current",
+      "pass": false,
+      "rc": 1,
+      "stderr": "cp: can't stat '/tmp/pixelelated-melonds-j3bey82f/already-current with spaces/usr/config/melondDS': No such file or directory\n"
+    },
+    {
+      "case": "no-final-newline",
+      "pass": false,
+      "rc": 1,
+      "stderr": "cp: can't stat '/tmp/pixelelated-melonds-j3bey82f/no-final-newline with spaces/usr/config/melondDS': No such file or directory\n"
+    },
+    {
+      "case": "empty-config",
+      "pass": false,
+      "rc": 1,
+      "stderr": "cp: can't stat '/tmp/pixelelated-melonds-j3bey82f/empty-config with spaces/usr/config/melondDS': No such file or directory\n"
+    },
+    {
+      "case": "file-link",
+      "pass": false,
+      "rc": 1,
+      "stderr": "cp: can't stat '/tmp/pixelelated-melonds-j3bey82f/file-link with spaces/usr/config/melondDS': No such file or directory\n"
+    },
+    {
+      "case": "directory-link",
+      "pass": false,
+      "rc": 1,
+      "stderr": "cp: can't stat '/tmp/pixelelated-melonds-j3bey82f/directory-link with spaces/usr/config/melondDS': No such file or directory\n"
+    },
+    {
+      "case": "whitespace-key",
+      "pass": false,
+      "rc": 1,
+      "stderr": "cp: can't stat '/tmp/pixelelated-melonds-j3bey82f/whitespace-key with spaces/usr/config/melondDS': No such file or directory\n"
+    },
+    {
+      "case": "non-hotkey-defaults",
+      "pass": false,
+      "rc": 1,
+      "stderr": "cp: can't stat '/tmp/pixelelated-melonds-j3bey82f/non-hotkey-defaults with spaces/usr/config/melondDS': No such file or directory\n"
+    },
+    {
+      "case": "copy-failure",
+      "pass": false,
+      "rc": 1,
+      "stderr": "cp: can't stat '/tmp/pixelelated-melonds-j3bey82f/copy-failure with spaces/usr/config/melondDS': No such file or directory\n"
+    },
+    {
+      "case": "producer-failure",
+      "pass": false,
+      "rc": 1,
+      "stderr": "cp: can't stat '/tmp/pixelelated-melonds-j3bey82f/producer-failure with spaces/usr/config/melondDS': No such file or directory\n"
+    },
+    {
+      "case": "rename-failure",
+      "pass": false,
+      "rc": 1,
+      "stderr": "cp: can't stat '/tmp/pixelelated-melonds-j3bey82f/rename-failure with spaces/usr/config/melondDS': No such file or directory\n"
+    },
+    {
+      "case": "temp-failure",
+      "pass": false,
+      "rc": 1,
+      "stderr": "cp: can't stat '/tmp/pixelelated-melonds-j3bey82f/temp-failure with spaces/usr/config/melondDS': No such file or directory\n"
+    }
+  ],
+  "legacy_negative_control": true,
+  "post_update_sha256": "30b71153987d25cc6fb6482e129fc5cf163d44cd5063a0d6d4a1599ae2a5c9ec",
+  "busybox_sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346"
+}

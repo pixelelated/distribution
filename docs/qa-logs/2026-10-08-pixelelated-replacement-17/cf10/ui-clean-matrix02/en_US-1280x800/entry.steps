@@ -1,0 +1,18 @@
+settle
+key ret
+wait-for-change 12 0
+key x
+wait-for-change 12 0
+key up x3
+key x
+wait-for-change 12 0
+key up x3
+key x
+wait-for-change 12 0
+settle
+shot category-selection
+key down x5
+key x
+wait 4
+settle
+shot check-result

@@ -1,0 +1,125 @@
+#!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-2.0-or-later
+"""#526: preserve melonDS configuration while adding missing hotkey defaults.
+
+Runs the actual post-update function with owned paths and candidate BusyBox
+applets. An older post-update runs its exact legacy tail with those paths
+relocated into the fixture; its failures are discriminating negative controls.
+"""
+import argparse
+import hashlib
+import json
+import os
+from pathlib import Path
+import re
+import shlex
+import shutil
+import subprocess
+import tempfile
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--post-update', required=True, type=Path)
+    parser.add_argument('--busybox', required=True, type=Path)
+    parser.add_argument('--output', required=True, type=Path)
+    args = parser.parse_args()
+    source = args.post_update.read_text()
+    function = re.search(r'^update_melonds_hotkeys\(\) \{.*?^\}', source, re.M | re.S)
+    legacy = re.search(r'^rm -rf /storage/\.config/melonDS\ncp -r /usr/config/melondDS /storage/\.config/\s*$', source, re.M)
+    if not function and not legacy:
+        parser.error('no recognized current function or historical update block')
+    rows = []
+    cases = ['missing-defaults', 'missing-config', 'empty-defaults', 'add-missing',
+             'already-current', 'no-final-newline', 'empty-config', 'file-link',
+             'directory-link', 'whitespace-key', 'non-hotkey-defaults',
+             'copy-failure', 'producer-failure', 'rename-failure', 'temp-failure']
+    with tempfile.TemporaryDirectory(prefix='pixelelated-melonds-') as temporary:
+        root = Path(temporary)
+        busybox = root / 'busybox'
+        shutil.copy2(args.busybox, busybox)
+        binary = root / 'bin'
+        binary.mkdir()
+        for applet in ['mktemp', 'cp', 'awk', 'mv', 'rm']:
+            wrapper = binary / applet
+            wrapper.write_text('#!/bin/sh\nexec ' + shlex.quote(str(busybox)) + ' ' + applet + ' "$@"\n')
+            wrapper.chmod(0o700)
+        for name in cases:
+            case = root / (name + ' with spaces')
+            defaults = case / 'usr/config/melonDS/melonDS.ini'
+            config = case / 'storage/.config/melonDS/melonDS.ini'
+            defaults.parent.mkdir(parents=True)
+            config.parent.mkdir(parents=True)
+            defaults.write_text('HKKey_New=-1\nHKJoy_Custom=5\nHKJoy_New=4\nScreenLayout=2\n')
+            original = '# owner settings\nHKJoy_Custom=99\nScreenLayout=7\nOwnerUnknown=yes\n'
+            config.write_text(original)
+            config.chmod(0o600)
+            sentinel = config.parent / 'owner-extra.txt'
+            sentinel.write_text('keep extra file\n')
+            expected = original + 'HKKey_New=-1\nHKJoy_New=4\n'
+            injected = ''
+            expected_rc = 0
+            if name == 'missing-defaults':
+                defaults.unlink(); expected = original
+            elif name == 'missing-config':
+                config.unlink(); expected = None
+            elif name == 'empty-defaults':
+                defaults.write_text(''); expected = original
+            elif name == 'already-current':
+                config.write_text(expected); original = expected
+            elif name == 'no-final-newline':
+                config.write_text(original.rstrip('\n'))
+            elif name == 'empty-config':
+                config.write_text(''); expected = 'HKKey_New=-1\nHKJoy_Custom=5\nHKJoy_New=4\n'
+            elif name == 'file-link':
+                target = case / 'owner-target.ini'; config.rename(target); config.symlink_to(target); expected = original
+            elif name == 'directory-link':
+                target = case / 'owner-directory'; config.parent.rename(target); config.parent.symlink_to(target); expected = original
+            elif name == 'whitespace-key':
+                original = original.replace('HKJoy_Custom=99', ' HKJoy_Custom = 99')
+                config.write_text(original); expected = original + 'HKKey_New=-1\nHKJoy_New=4\n'
+            elif name == 'non-hotkey-defaults':
+                defaults.write_text('ScreenLayout=2\n'); config.write_text(original.rstrip('\n')); expected = original.rstrip('\n')
+            elif name.endswith('-failure'):
+                injected = {'copy-failure': 'cp() { return 1; }',
+                            'producer-failure': 'awk() { printf "partial output\\n"; return 1; }',
+                            'rename-failure': 'mv() { return 1; }',
+                            'temp-failure': 'mktemp() { return 1; }'}[name]
+                expected = original; expected_rc = 1
+            inode = config.stat().st_ino if config.exists() else None
+            if function:
+                command = function.group() + '\n' + injected + '\nupdate_melonds_hotkeys ' + shlex.quote(str(defaults)) + ' ' + shlex.quote(str(config))
+            else:
+                command = legacy.group().replace('/storage/', shlex.quote(str(case / 'storage')) + '/').replace('/usr/config/', shlex.quote(str(case / 'usr/config')) + '/')
+            result = subprocess.run(['bash', '-c', command], capture_output=True, text=True,
+                                    timeout=15, env={**os.environ, 'PATH': str(binary) + ':/usr/bin:/bin'})
+            actual = config.read_text() if config.exists() else None
+            okay = result.returncode == expected_rc and actual == expected
+            okay = okay and sentinel.exists() and sentinel.read_text() == 'keep extra file\n'
+            okay = okay and not list(config.parent.glob('melonDS.ini.??????'))
+            if config.exists():
+                okay = okay and config.stat().st_mode & 0o777 == 0o600
+            if name == 'file-link':
+                okay = okay and config.is_symlink()
+            if name == 'directory-link':
+                okay = okay and config.parent.is_symlink()
+            if name in ['already-current', 'non-hotkey-defaults'] and config.exists():
+                okay = okay and config.stat().st_ino == inode
+            if okay and name == 'add-missing':
+                after = config.stat().st_ino
+                repeat = subprocess.run(['bash', '-c', command], capture_output=True, text=True,
+                                        timeout=15, env={**os.environ, 'PATH': str(binary) + ':/usr/bin:/bin'})
+                okay = repeat.returncode == 0 and config.read_text() == expected and config.stat().st_ino == after
+            rows.append({'case': name, 'pass': okay, 'rc': result.returncode, 'stderr': result.stderr})
+            print(('PASS ' if okay else 'FAIL ') + name, flush=True)
+    report = {'pass': all(row['pass'] for row in rows), 'checks': rows,
+              'legacy_negative_control': not bool(function),
+              'post_update_sha256': hashlib.sha256(args.post_update.read_bytes()).hexdigest(),
+              'busybox_sha256': hashlib.sha256(args.busybox.read_bytes()).hexdigest()}
+    args.output.parent.mkdir(parents=True, exist_ok=True)
+    args.output.write_text(json.dumps(report, indent=2) + '\n')
+    return 0 if report['pass'] else 1
+
+
+if __name__ == '__main__':
+    raise SystemExit(main())

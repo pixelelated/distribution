@@ -1,0 +1,20 @@
+watch-build: recording in /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement17/.build-runs/20261008T184114Z-04b73269
+/workspace/tmp/pixelelated-m7-cf10-17/public-adoption01/outer.sh: OK
+/workspace/tmp/pixelelated-m7-cf10-17/public-adoption01/run.py: OK
+/workspace/tmp/pixelelated-m7-cf10-17/public-adoption01/run.sh: OK
+START explicit-root
+PASS explicit-root installed conversion, read-only checks and preservation
+START custom-library
+PASS custom-library installed conversion, read-only checks and preservation
+START public-default
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-cf10-17/public-adoption01/run.py", line 31, in <module>
+    guest('set -e\ntimeout 120 '+action+'\n',d,'installed-conversion',150)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tmp/pixelelated-m7-cf10-17/public-adoption01/run.py", line 7, in guest
+    q=subprocess.run(ssh+['bash -s'],input=code,capture_output=True,text=True,timeout=timeout);(d/(n+'.stdout')).write_text(q.stdout);(d/(n+'.stderr')).write_text(q.stderr);(d/(n+'.rc')).write_text(str(q.returncode)+'\n');q.check_returncode();return q.stdout
+                                                                                                                                                                                                                              ~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.14/subprocess.py", line 509, in check_returncode
+    raise CalledProcessError(self.returncode, self.args, self.stdout,
+                             self.stderr)
+subprocess.CalledProcessError: Command '['ssh', '-i', '/workspace/tmp/pixelelated-m7-cf10-17/guest03/qa-key', '-p', '10230', '-o', 'LogLevel=ERROR', '-o', 'StrictHostKeyChecking=no', '-o', 'UserKnownHostsFile=/dev/null', '-o', 'BatchMode=yes', '-o', 'ConnectTimeout=5', 'root@127.0.0.1', 'bash -s']' returned non-zero exit status 1.

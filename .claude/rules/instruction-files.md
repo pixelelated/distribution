@@ -167,6 +167,7 @@ both lists and to this table, or it is invisible.**
 | `cloud-round-trip`, `cloud-test-backend`, `cloud-census`, `cloud-capture-stamp-test` | the cloud-sync suites and their backends | `rclone-cloud-sync.md` |
 | `cloud-save-integrity`, `cloud-save-integrity-test` | bounded offline save-byte/container verification and synthetic corruption controls | `rclone-cloud-sync.md`, `docs/cloud-save-integrity.md` |
 | `settings-modes-test` | do shell settings and recovery writers preserve private modes and refuse failed staging with the image applets (#421) | `generic-x64-vm-testing.md` |
+| `melonds-upgrade-test` | does post-update preserve melonDS settings while adding missing hotkeys, including absent-package and failed-write controls (#526) | `upgrade-and-install.md` |
 | `emulator-exit-test`, `wait-lock-test`, `last-good-scripts-test` | the exit hotkey, the lock's patience, the scripts under busybox | `generic-x64-vm-testing.md` |
 | `time-to-play` | interface to a game's first frame, and game to game | `time-to-play.md` |
 | `ra-offline-test` | an achievement earned offline survives to the server | `generic-x64-vm-testing.md` |

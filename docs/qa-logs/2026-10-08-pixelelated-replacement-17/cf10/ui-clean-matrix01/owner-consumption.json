@@ -1,0 +1,18 @@
+{
+  "utc": "2026-10-08T18:38:48.741506+00:00",
+  "result": "FAIL",
+  "channels": {
+    "inner.rc": 1,
+    "outer.rc": 1,
+    "tool-wrapper.rc": 1,
+    "build.rc": 1,
+    "launcher": 1
+  },
+  "owner_pids_absent": [
+    3989151,
+    3989152,
+    3989153,
+    3989184
+  ],
+  "cause": "Walk pressed A before selecting an actionable result row. Selection and result screens are correct; instructions proof already exists separately. Fresh matrix scopes intended category/result screens."
+}

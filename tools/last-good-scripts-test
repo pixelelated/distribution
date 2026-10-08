@@ -14202,6 +14202,13 @@ echo "  ag. settings writers retain private file permissions"
   --busybox "${BB_HOST}" --output "${TMP}/settings-modes.json"
 check $? "#421: private modes and refused publications" "#421: settings mode regression (details above)"
 
+# #526: optional melonDS defaults never erase an owner's configuration.
+echo "  ah. melonDS update preserves settings and adds missing hotkeys"
+src_of projects/ROCKNIX/packages/rocknix/sources/post-update "${TMP}/post-update"
+python3 "${HARNESS_ROOT}/tools/melonds-upgrade-test" --post-update "${TMP}/post-update" \
+  --busybox "${BB_HOST}" --output "${TMP}/melonds-upgrade.json"
+check $? "#526: preserved configuration and atomic hotkey additions" "#526: melonDS update regression (details above)"
+
 if [ "${NOT_APPLICABLE}" -ne 0 ]; then echo "${NOT_APPLICABLE} HISTORICAL FEATURE GROUP(S) NOT APPLICABLE -- no checks counted as PASS"; fi
 if [ "${FAIL}" -eq 0 ] && [ "${SKIPPED}" -eq 0 ]; then echo "PASSED"; exit 0
 elif [ "${FAIL}" -eq 0 ]; then echo "PASSED, ${SKIPPED} SKIPPED -- a check that did not run has not passed"; exit 3

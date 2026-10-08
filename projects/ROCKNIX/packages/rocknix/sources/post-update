@@ -201,6 +201,51 @@ rm -f "${DOLPHIN_CFG}/GamecubeControllerProfiles/GCPadNew.ini.east" \
 # be used on an opt-in basis
 sed -i "/system.suspend.dpms/d" /storage/.config/system/configs/system.cfg
 
-# MelonDS has added some new hotkey variables to the ini. Eventually swithing to toml and dropping ini.
-rm -rf /storage/.config/melonDS
-cp -r /usr/config/melondDS /storage/.config/
+# Add newly shipped melonDS hotkeys without resetting the owner's configuration.
+# The old reset (62c343921d) deleted the directory before copying a misspelled
+# source, including on devices without this optional package (#526). Missing
+# files are already seeded by userconfig-setup and the melonDS launcher.
+update_melonds_hotkeys() {
+  local defaults="$1" conf="$2" temporary result
+  [ -s "${defaults}" ] && [ -f "${conf}" ] || return 0
+  # A linked configuration is the owner's chosen location, not ours to replace.
+  [ ! -L "${conf%/*}" ] && [ ! -L "${conf}" ] || return 0
+  temporary=$(mktemp "${conf}.XXXXXX") || return 1
+  if ! cp -p "${conf}" "${temporary}"; then
+    rm -f "${temporary}"
+    return 1
+  fi
+  awk -F= '
+    FILENAME == ARGV[1] {
+      key=$1; gsub(/^[ \t]+|[ \t]+$/, "", key)
+      if (key ~ /^HK(Key|Joy)_[A-Za-z0-9_]+$/ && !(key in defaults)) {
+        order[++count]=key; defaults[key]=$0
+      }
+      next
+    }
+    {
+      existing[++lines]=$0
+      key=$1; gsub(/^[ \t]+|[ \t]+$/, "", key)
+      seen[key]=1
+    }
+    END {
+      for (i=1; i<=count; i++)
+        if (!(order[i] in seen)) missing[++added]=defaults[order[i]]
+      if (added) {
+        for (i=1; i<=lines; i++) print existing[i]
+        for (i=1; i<=added; i++) print missing[i]
+      }
+    }
+  ' "${defaults}" "${conf}" > "${temporary}"
+  result=$?
+  case "${result}" in
+    0) if [ ! -s "${temporary}" ]; then rm -f "${temporary}"; return 0; fi
+       if mv -f "${temporary}" "${conf}"; then return 0; fi ;;
+  esac
+  rm -f "${temporary}"
+  return 1
+}
+if ! update_melonds_hotkeys /usr/config/melonDS/melonDS.ini /storage/.config/melonDS/melonDS.ini; then
+  echo "Could not add melonDS hotkeys; existing configuration retained" >>"${LOG}"
+  exit 1
+fi

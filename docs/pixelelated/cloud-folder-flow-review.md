@@ -11,8 +11,10 @@ next `bc4ae05d30`; ES `4e410dc9a8` is published and pinned. #515's finite case
 review and fixes #520/#521/#522/#523 are qualified and closed. Valid layouts
 stay in place; ambiguous locations keep instructions. #507's independent
 frozen delta audit and all four #524 findings are complete and published.
-Engineering firmware is frozen at3756fde50e with ES1d76b3da7; assembled-image
-clean/public adoption and device qualification remain next. #511 owns the parallel website; guide
+Engineering firmware3756fde50e/ES1d76b3da7 now has actual installed CF10
+cloud-specific proof and 28 reviewed frames. Complete post-update exposed the
+inherited melonDS reset defect #526; its corrected source passes VM proof and
+still needs a new engineering image and final qualification. #511 owns the parallel website; guide
 publication does not hold useful local instructions or add a firmware gate.
 
 ## Who is upgrading
@@ -215,7 +217,11 @@ rejected cancellation, truncated-JSON, clipped or misleading-copy frames
 remain rejected. The retained
 [index checker](../qa-logs/2026-10-07-cloud-validator/verify-ui-index.py)
 validates references, dimensions and digests, not semantic coverage. Source
-overlays do not replace the accepted firmware benchmark or close CF10.
+overlays do not replace the accepted firmware benchmark. The later
+[replacement17 CF10 packet](../qa-logs/2026-10-08-pixelelated-replacement-17/cf10/README.md)
+adds 28 reviewed installed-image frames and clean/public cloud preservation.
+It retains the complete update-hook failure #526 separately from cloud-specific
+acceptance; corrected hook inclusion and final qualification remain open.
 
 The [standalone-save supplement](../qa-logs/2026-10-08-save-repair-cases/ui/evidence-index.json)
 adds ten reviewed frames for CF02/CF07/CF14 at distribution `1ee8e5199d`,
@@ -238,7 +244,7 @@ remains explicitly rejected. No UI wording changed for this coverage fix.
 | CF07 — cannot read/retry | Synthetic endpoint refuses or returns partial output; no false empty/success; retry uses the current config. | Failure/partial-output controls and [unreadable result](../qa-logs/2026-10-07-cloud-validator/ui/frames/en640-unreadable-result/01-unreadable-result.png); paused endpoint restored for subsequent successful retry. |
 | CF08 — no selection | Turn off every category; Check/Create asks for at least one item without contacting the cloud. | [Create refusal](../qa-logs/2026-10-07-cloud-validator/ui/frames/en640-no-selection/02-create-needs-selection.png) and [check refusal](../qa-logs/2026-10-07-cloud-validator/ui/frames/en640-no-selection/03-check-needs-selection.png); French equivalents indexed. |
 | CF09 — creation interrupted | Cancel/fail during creation; outcome explains retained folders and permits retry without moving user files. | [Cancellation](../qa-logs/2026-10-07-cloud-validator/ui/frames/en640-final-cancelled/01-cancelled-outcome.png) and [retry](../qa-logs/2026-10-07-cloud-validator/ui/frames/en640-final-retry/01-retry-result.png) with endpoint still paused/no child/unchanged inventory; [localized creation failure](../qa-logs/2026-10-07-cloud-validator/ui/supplemental/frames/walk-fr640-create-settings-failure-01-create-settings-failure.png) and [fresh check after retry](../qa-logs/2026-10-07-cloud-validator/ui/supplemental/frames/walk-fr640-create-retry-01-create-retry-current-check.png). Original failures remain rejected. |
-| CF10 — clean/public adoption | Fresh defaults and public ROCKNIX /GAMES plus /GAMES/backup remain distinct cases; preserve existing pointers/credentials/data. | Three public-config host controls pass. **Pending:** assembled firmware clean/public adoption; source overlays cannot close it. |
+| CF10 — clean/public adoption | Fresh defaults and public ROCKNIX /GAMES plus /GAMES/backup remain distinct cases; preserve existing pointers/credentials/data. | [28 reviewed actual-image frames](../qa-logs/2026-10-08-pixelelated-replacement-17/cf10/root-review.json), clean link/decline/selected creation/idempotence and three public-config cases pass. Full installed post-update fails at inherited #526; corrected source VM proof passes, with new-image inclusion/final qualification pending. |
 | CF11 — nested-folder backup outcome | Back up with a settings/content path inside the saves path; review the actual transfer outcome and trace the script diagnostic separately. | [Small-panel backup result](../qa-logs/2026-10-07-cloud-validator/ui/supplemental/frames/walk-en640-nested-backup-02-backup-nested-outcome.png) and [large-panel result](../qa-logs/2026-10-07-cloud-validator/ui/supplemental/frames/walk-en1280-nested-backup-01-backup-nested-outcome.png). [Consumer trace](../qa-logs/2026-10-07-cloud-validator/ui/supplemental/receipts/nested-warning-completed-trace.json) proves the plain stdout warning is discarded; actual logs show both warnings fired. Payload hashes/nested sentinels verified; no visible warning is invented. |
 | CF12 — invalid folder-check response | Valid context but the check cannot supply a usable result; show the generic check-failed dialog, preserve selection, and allow another check. | [English refusal](../qa-logs/2026-10-07-cloud-validator/ui/supplemental/frames/walk-en640-invalid-01-invalid-result.png) and [French refusal](../qa-logs/2026-10-07-cloud-validator/ui/supplemental/frames/walk-fr1280-invalid-result-01-invalid-result.png) from actual execution fault; helper permissions/hash restored. This is distinct from valid unreadable-category findings. |
 | CF13 — scan interruption or failure | Cancel a scan, or change its config/encounter its lock; explain the actual outcome without claiming files moved or advancing with stale data. | [Cancel question](../qa-logs/2026-10-07-cloud-validator/ui/supplemental/frames/walk-en640-scan-cancel-01-scan-cancel-question.png), [cancelled outcome](../qa-logs/2026-10-07-cloud-validator/ui/supplemental/frames/walk-en640-scan-cancel-02-scan-cancelled.png), [changed settings](../qa-logs/2026-10-07-cloud-validator/ui/supplemental/frames/fault-settings-changed03-settings-changed-fixed.png), [retry](../qa-logs/2026-10-07-cloud-validator/ui/supplemental/frames/fault-settings-changed03-settings-changed-retry.png) and [busy check](../qa-logs/2026-10-07-cloud-validator/ui/supplemental/frames/walk-en640-scan-busy-01-scan-busy-fixed.png). Actual lock/config/cancellation controls and French frames indexed; no stale continuation or file movement. |
@@ -449,9 +455,10 @@ UI/runtime proof pass, including standalone progress coverage and actual native
 DuckStation capture/backup/restore. #515 and source fixes #520/#521/#522/#523 are
 closed with exact receipts. No generic relocation action was implemented.
 
-Next is #507's independent audit of the published frozen delta. Then an
-engineering GENERIC_X64 image supplies CF10 clean/public ROCKNIX adoption and
-final input/inclusion mapping under #508. Affected H700 followed by SM8550
+#507's independent audit and #524 resolutions are complete. Replacement17
+supplies installed cloud-specific CF10 proof; #526 corrects an inherited
+post-update defect before the next engineering image and final qualification
+under #508. Affected H700 followed by SM8550
 builds, source/licences and named physical/release gates follow. Source-overlay
 proof does not establish those installed-image or physical results.
 
