@@ -1,0 +1,69 @@
+{
+  "utc": "2026-10-08T21:51:10.654196+00:00",
+  "id": "03e12cfef64853cd67b7384a3c75d80fda6c390ebc790022a7f7f0f2aba95167",
+  "image": "sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39",
+  "reference": "ghcr.io/pixelelated/build@sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39",
+  "user": "1000:1000",
+  "workdir": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01",
+  "command": [
+    "bash",
+    "/workspace/tmp/pixelelated-m7-sm8550-refresh-03/inside-build.sh"
+  ],
+  "state": {
+    "Status": "running",
+    "Running": true,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 1143698,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-10-08T21:51:09.717445501Z",
+    "FinishedAt": "0001-01-01T00:00:00Z"
+  },
+  "mounts": [
+    {
+      "Type": "bind",
+      "Source": "/workspace/tmp/pixelelated-m7-sm8550-refresh-02/nix",
+      "Destination": "/nix",
+      "RW": true
+    },
+    {
+      "Type": "bind",
+      "Source": "/workspace/tmp/pixelelated-m7-sm8550-refresh-03",
+      "Destination": "/workspace/tmp/pixelelated-m7-sm8550-refresh-03",
+      "RW": true
+    },
+    {
+      "Type": "bind",
+      "Source": "/home/max/.ROCKNIX/options",
+      "Destination": "/home/max/.ROCKNIX/options",
+      "RW": true
+    },
+    {
+      "Type": "bind",
+      "Source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02",
+      "Destination": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01",
+      "RW": true
+    },
+    {
+      "Type": "bind",
+      "Source": "/workspace/repos/rocknix/.git",
+      "Destination": "/workspace/repos/rocknix/.git",
+      "RW": true
+    },
+    {
+      "Type": "bind",
+      "Source": "/workspace/cache/rocknix-sources",
+      "Destination": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/sources",
+      "RW": true
+    },
+    {
+      "Type": "bind",
+      "Source": "/workspace/tmp/pixelelated-m7-fex-header-control-01/runtime/nixpkgs",
+      "Destination": "/workspace/tmp/pixelelated-m7-fex-header-control-01/runtime/nixpkgs",
+      "RW": false
+    }
+  ]
+}

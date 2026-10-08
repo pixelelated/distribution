@@ -1,0 +1,23 @@
+{
+  "utc": "2026-10-08T21:47:49.777304+00:00",
+  "result": "PASS",
+  "roots": [
+    {
+      "root": "build.pixelelated-SM8550.arm",
+      "checksum_equal": true,
+      "independent_regular_files": 789537
+    },
+    {
+      "root": "build.pixelelated-SM8550.aarch64",
+      "checksum_equal": true,
+      "independent_regular_files": 3412198
+    },
+    {
+      "root": "nix",
+      "checksum_equal": true,
+      "independent_regular_files": 19922
+    }
+  ],
+  "unchanged_tracked_timestamps_preserved": 105537,
+  "mode": "independent rsync files, internal hardlinks retained; no cross-root hardlinks"
+}
