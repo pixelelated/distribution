@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Saved: 2026-10-08T21:32:38.414943+00:00
+> Saved: 2026-10-08T21:21:08.902299+00:00
 > Coordinator: feature/conflict-resolution
 > Repository: pixelelated/distribution
 
@@ -17,10 +17,8 @@ local provider QA and dependency-checked disposable payload retirement. No new
 physical-device/personal-cloud action. #519 controlled owner alignment must
 precede the next owner handheld update transfer/reboot. Website #511 is separate.
 No goal exists. H70002 is accepted; SM8550 cache preparation is ACTIVE below.
-No compiler or external audit is active. Published H700 acceptance/checkpoint
-796c850c768a3c24a10798045dbf2555960ee9c7 has both checks SUCCESS37846448087/37846448336.
-Fresh-agent continuation check caught a stale lower M7.P5 paragraph; both lower
-queue paragraphs are now corrected and live-read back. H700 is not active.
+No compiler or external audit is active. Published checkpoint a503224d34daa1a05b8ee1a9ec372be104ca113b
+has both checks SUCCESS37844805854/37844806088.
 Canonical rule/checkpoint5e0e0cb6a456c2a3928ad3a51211525b4c75f732 has both hosted
 checks SUCCESS37842048191/37842048387; fresh-agent retest found resume unambiguous.
 Primary checkpoint/closure publication a573e0625d5aec2a42aff83f74eccb52552ccee6
@@ -134,18 +132,12 @@ not a physical boot or RC/publication claim.
 3. Consume all original copy.rc/copy.outer.rc/cache-launch/tool-wrapper.rc,
    launcher-result.json and run/build.rc; require0, three cache roots PASS,
    unchanged copy seals and actual host launcher/build.pid/watcher.pid/command.pid
-   exits. Do NOT look for runner.pid (runner is build.pid). Prepared consumer:
-   `python3 /tmp/m7-consume-sm8550-refresh.py cache` in actual HOST context; it
-   checks this owner, all original channels, three roots, seals and process exits.
+   exits. Do NOT look for runner.pid (runner is build.pid). Adapt the completed
+   /tmp/m7-consume-h700-refresh.py cache consumer to this owner and3roots.
 4. AFTER copy watcher exit, recheck tools/build-preflight; if needed use
    tools/build-preflight --reclaim-swap while idle before starting compilerwatcher.
    Large copies can refill swap. No swap recycling during active watcher/build/VM.
-5. SM8550 driver is PREPARED, NOT STARTED: owner/build.py and build-seal.json;
-   actual startup barrier wait-runtime.py, observe-container.py, inside-build.sh,
-   verify-fex-cache.py (accepted hashes), verify-fex.py (pre/post receipts),
-   verify-installed.py. Reviewed syntax/seals, no runtime proof yet. After step4,
-   from SM855002 tree: tools/watch-build-submit --owner <owner> -- --interval 5
-   --stall-min 5 -- python3 -I -u <owner>/build.py . Use
+5. Prepare/review SM8550 driver; it is not started at this checkpoint. Use
    canonical make docker-SM8550 and an inside-build wrapper that waits for actual
    container identity/mount proof, then canonical make SM8550 (ARM→aarch64).
    Preserve old stable container worktree path, independent new Nix store RW at
@@ -161,13 +153,8 @@ not a physical boot or RC/publication claim.
    historical cache_parent_provenance. Never use it as new output acceptance.
 6. Verify original build channels/seals/actualexits, actual installed mappings,
    exact ES/French catalog/native capture/defaults, new ARM/FEX handoff. Then
-   prepared /workspace/tmp/pixelelated-m7-sm8550-refresh-acceptance-02/run.py
-   and seal.json independently accept raw/update SYSTEM/kernel, SM8550 GPT/ABL and firmware
-   custody into immutable content-addressed bundle. Consume build first with
-   /tmp/m7-consume-sm8550-refresh.py build; submit acceptance owner under same
-   watch-build-submit command pattern, then consume script acceptance.
-   No old artifact is new proof. Both prepared harnesses copied/sealed in
-   docs/qa-logs/2026-10-08-device-refresh/sm855002/prepared/.
+   independently accept raw/update SYSTEM/kernel, SM8550 GPT/ABL and firmware
+   custody into immutable content-addressed bundle. No old artifact is new proof.
 7. Record completion in full M7/#492/#344 bodies and checkpoint; publish scoped
    evidence commits only. Required source/licence #344, #359release-note linkage,
    #265version/publication-tool reconciliation and named physical gates remain.

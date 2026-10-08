@@ -1,0 +1,488 @@
+{
+  "utc": "2026-10-08T21:30:10.747936+00:00",
+  "scope": "Read-only preparation for #344; actual completed VM18/H70002 roots. Top-level notice discovery only, not a full licence review, corresponding-source qualification or publication clearance. SM8550 omitted while cache/build is unfinished.",
+  "historical_missing_recipe_license": [
+    "enet",
+    "freej2me-lr",
+    "harfbuzz-icu",
+    "libretro-database",
+    "libspeexdsp",
+    "libxmp-lite",
+    "openbor",
+    "opusfile",
+    "rclone",
+    "retropie-shaders",
+    "slang-shaders",
+    "tailscale",
+    "wildmidi",
+    "zerotier-one"
+  ],
+  "records": [
+    {
+      "target": "GENERIC_X64",
+      "source": "7f58b7b1c592908dcd0ba5987955e59aaa79fe66",
+      "component": "enet",
+      "recipe": "projects/ROCKNIX/packages/network/enet/package.mk",
+      "image_install_stamp": true,
+      "unpacked_roots": [
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/enet-v1.3.18"
+      ],
+      "top_level_notice_candidates": [
+        {
+          "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/enet-v1.3.18/AUTHORS",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/enet-v1.3.18/LICENSE",
+          "sha256": "a29cd246638974da7c6edf423a0a69d4a6f7d759940b7cfa9a2bc3442ac3834c",
+          "bytes": 1060
+        }
+      ]
+    },
+    {
+      "target": "GENERIC_X64",
+      "source": "7f58b7b1c592908dcd0ba5987955e59aaa79fe66",
+      "component": "freej2me-lr",
+      "recipe": "projects/ROCKNIX/packages/emulators/libretro/freej2me-lr/package.mk",
+      "image_install_stamp": true,
+      "unpacked_roots": [
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/freej2me-lr-1.52"
+      ],
+      "top_level_notice_candidates": [
+        {
+          "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/freej2me-lr-1.52/LICENSE",
+          "sha256": "a58fa0122b525f1d9ae531781bfeead1977e9ac88d10fb570e8821d6e4232e85",
+          "bytes": 35388
+        }
+      ]
+    },
+    {
+      "target": "GENERIC_X64",
+      "source": "7f58b7b1c592908dcd0ba5987955e59aaa79fe66",
+      "component": "harfbuzz-icu",
+      "recipe": "projects/ROCKNIX/packages/graphics/harfbuzz-icu/package.mk",
+      "image_install_stamp": true,
+      "unpacked_roots": [
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/harfbuzz-icu-14.3.0"
+      ],
+      "top_level_notice_candidates": [
+        {
+          "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/harfbuzz-icu-14.3.0/COPYING",
+          "sha256": "ba8f810f2455c2f08e2d56bb49b72f37fcf68f1f4fade38977cfd7372050ad64",
+          "bytes": 1971
+        },
+        {
+          "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/harfbuzz-icu-14.3.0/AUTHORS",
+          "sha256": "19bfe8f5ed100636cd24ab0c90a3f71c21d8b02d9ba00719447a0faab364d49f",
+          "bytes": 201
+        }
+      ]
+    },
+    {
+      "target": "GENERIC_X64",
+      "source": "7f58b7b1c592908dcd0ba5987955e59aaa79fe66",
+      "component": "libretro-database",
+      "recipe": "projects/ROCKNIX/packages/emulators/libretro/libretro-database/package.mk",
+      "image_install_stamp": true,
+      "unpacked_roots": [
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/libretro-database-4de37d2c8042d9d0f608c43006c9b35438c536ce"
+      ],
+      "top_level_notice_candidates": [
+        {
+          "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/libretro-database-4de37d2c8042d9d0f608c43006c9b35438c536ce/LICENSE",
+          "sha256": "23ee78c8bae49cf08ea2f0c84945c66b987ebe4520881fb51b3dad4fb43d07c2",
+          "bytes": 20137
+        }
+      ]
+    },
+    {
+      "target": "GENERIC_X64",
+      "source": "7f58b7b1c592908dcd0ba5987955e59aaa79fe66",
+      "component": "libspeexdsp",
+      "recipe": "projects/ROCKNIX/packages/emulators/libretro/easyrpg-lr/libspeexdsp/package.mk",
+      "image_install_stamp": true,
+      "unpacked_roots": [
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/libspeexdsp-738e17905e1ca2a1fa932ddd9c2a85d089f4e845"
+      ],
+      "top_level_notice_candidates": [
+        {
+          "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/libspeexdsp-738e17905e1ca2a1fa932ddd9c2a85d089f4e845/COPYING",
+          "sha256": "2654a4264b2bfe298dedc508748d140111840c315cc8eb646a3a68c13fa75b01",
+          "bytes": 1773
+        },
+        {
+          "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/libspeexdsp-738e17905e1ca2a1fa932ddd9c2a85d089f4e845/AUTHORS",
+          "sha256": "6e5a9d92c5f9ccd28fe0b15ad59443fbf435bfc6ab2221f532006d3717ddf642",
+          "bytes": 502
+        }
+      ]
+    },
+    {
+      "target": "GENERIC_X64",
+      "source": "7f58b7b1c592908dcd0ba5987955e59aaa79fe66",
+      "component": "libxmp-lite",
+      "recipe": "projects/ROCKNIX/packages/emulators/libretro/easyrpg-lr/libxmp-lite/package.mk",
+      "image_install_stamp": true,
+      "unpacked_roots": [
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/libxmp-lite-4.5.0"
+      ],
+      "top_level_notice_candidates": []
+    },
+    {
+      "target": "GENERIC_X64",
+      "source": "7f58b7b1c592908dcd0ba5987955e59aaa79fe66",
+      "component": "openbor",
+      "recipe": "projects/ROCKNIX/packages/emulators/standalone/openbor/package.mk",
+      "image_install_stamp": true,
+      "unpacked_roots": [
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/openbor-b8303cce992a0db93c3a465df3c943942fe322f8"
+      ],
+      "top_level_notice_candidates": [
+        {
+          "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/openbor-b8303cce992a0db93c3a465df3c943942fe322f8/LICENSE",
+          "sha256": "b8f3916944f0b5aee216ef7a494820d17ae658336a4680992dc244ebedecf3ea",
+          "bytes": 1537
+        }
+      ]
+    },
+    {
+      "target": "GENERIC_X64",
+      "source": "7f58b7b1c592908dcd0ba5987955e59aaa79fe66",
+      "component": "opusfile",
+      "recipe": "projects/ROCKNIX/packages/multimedia/opusfile/package.mk",
+      "image_install_stamp": true,
+      "unpacked_roots": [
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/opusfile-9d718345ce03b2fad5d7d28e0bcd1cc69ab2b166"
+      ],
+      "top_level_notice_candidates": [
+        {
+          "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/opusfile-9d718345ce03b2fad5d7d28e0bcd1cc69ab2b166/COPYING",
+          "sha256": "0267ae795ab744c4e0f9c45e249440fdf2e75dac8c804f36066b28649bf74aaf",
+          "bytes": 1487
+        },
+        {
+          "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/opusfile-9d718345ce03b2fad5d7d28e0bcd1cc69ab2b166/AUTHORS",
+          "sha256": "7bafd4ec8a8f284cce7a8c9dab476f141ed0de91f38947c145e49929d0922071",
+          "bytes": 262
+        }
+      ]
+    },
+    {
+      "target": "GENERIC_X64",
+      "source": "7f58b7b1c592908dcd0ba5987955e59aaa79fe66",
+      "component": "rclone",
+      "recipe": "projects/ROCKNIX/packages/network/rclone/package.mk",
+      "image_install_stamp": true,
+      "unpacked_roots": [
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/rclone-1.75.1"
+      ],
+      "top_level_notice_candidates": []
+    },
+    {
+      "target": "GENERIC_X64",
+      "source": "7f58b7b1c592908dcd0ba5987955e59aaa79fe66",
+      "component": "retropie-shaders",
+      "recipe": "projects/ROCKNIX/packages/emulators/libretro/retropie-shaders/package.mk",
+      "image_install_stamp": true,
+      "unpacked_roots": [
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/retropie-shaders-43eaf9b91857eb8515310c74ae750895d77b20f8"
+      ],
+      "top_level_notice_candidates": []
+    },
+    {
+      "target": "GENERIC_X64",
+      "source": "7f58b7b1c592908dcd0ba5987955e59aaa79fe66",
+      "component": "slang-shaders",
+      "recipe": "projects/ROCKNIX/packages/emulators/libretro/slang-shaders/package.mk",
+      "image_install_stamp": true,
+      "unpacked_roots": [
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/slang-shaders-4812a82f6c9a11cc8b5a7447040a98c9fc80c00e"
+      ],
+      "top_level_notice_candidates": []
+    },
+    {
+      "target": "GENERIC_X64",
+      "source": "7f58b7b1c592908dcd0ba5987955e59aaa79fe66",
+      "component": "tailscale",
+      "recipe": "projects/ROCKNIX/packages/network/tailscale/package.mk",
+      "image_install_stamp": true,
+      "unpacked_roots": [
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/tailscale-1.98.8"
+      ],
+      "top_level_notice_candidates": []
+    },
+    {
+      "target": "GENERIC_X64",
+      "source": "7f58b7b1c592908dcd0ba5987955e59aaa79fe66",
+      "component": "wildmidi",
+      "recipe": "projects/ROCKNIX/packages/emulators/libretro/easyrpg-lr/wildmidi/package.mk",
+      "image_install_stamp": true,
+      "unpacked_roots": [
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/wildmidi-405ca73"
+      ],
+      "top_level_notice_candidates": [
+        {
+          "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/wildmidi-405ca73/COPYING",
+          "sha256": "17701a4d4cbe5fc36ada953d75c5bd979e4c9f0672c867b6840f5fb36739979b",
+          "bytes": 92
+        }
+      ]
+    },
+    {
+      "target": "GENERIC_X64",
+      "source": "7f58b7b1c592908dcd0ba5987955e59aaa79fe66",
+      "component": "zerotier-one",
+      "recipe": "projects/ROCKNIX/packages/network/zerotier-one/package.mk",
+      "image_install_stamp": true,
+      "unpacked_roots": [
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/zerotier-one-1.16.0"
+      ],
+      "top_level_notice_candidates": [
+        {
+          "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/zerotier-one-1.16.0/LICENSE-MPL.txt",
+          "sha256": "1f256ecad192880510e84ad60474eab7589218784b9a50bc7ceee34c2b91f1d5",
+          "bytes": 16725
+        },
+        {
+          "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/zerotier-one-1.16.0/LICENSE.txt",
+          "sha256": "18797d9ced049ddab9a4685e89acbe95de08efdf5eedaf82e870d63f6a3ccc7f",
+          "bytes": 320
+        }
+      ]
+    },
+    {
+      "target": "H700",
+      "source": "8b5113fa164ada7d002ab138b1e3a9bf795e9de5",
+      "component": "enet",
+      "recipe": "projects/ROCKNIX/packages/network/enet/package.mk",
+      "image_install_stamp": true,
+      "unpacked_roots": [
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02/build.pixelelated-H700.aarch64/build/enet-v1.3.18"
+      ],
+      "top_level_notice_candidates": [
+        {
+          "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02/build.pixelelated-H700.aarch64/build/enet-v1.3.18/AUTHORS",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02/build.pixelelated-H700.aarch64/build/enet-v1.3.18/LICENSE",
+          "sha256": "a29cd246638974da7c6edf423a0a69d4a6f7d759940b7cfa9a2bc3442ac3834c",
+          "bytes": 1060
+        }
+      ]
+    },
+    {
+      "target": "H700",
+      "source": "8b5113fa164ada7d002ab138b1e3a9bf795e9de5",
+      "component": "freej2me-lr",
+      "recipe": "projects/ROCKNIX/packages/emulators/libretro/freej2me-lr/package.mk",
+      "image_install_stamp": true,
+      "unpacked_roots": [
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02/build.pixelelated-H700.aarch64/build/freej2me-lr-1.52"
+      ],
+      "top_level_notice_candidates": [
+        {
+          "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02/build.pixelelated-H700.aarch64/build/freej2me-lr-1.52/LICENSE",
+          "sha256": "a58fa0122b525f1d9ae531781bfeead1977e9ac88d10fb570e8821d6e4232e85",
+          "bytes": 35388
+        }
+      ]
+    },
+    {
+      "target": "H700",
+      "source": "8b5113fa164ada7d002ab138b1e3a9bf795e9de5",
+      "component": "harfbuzz-icu",
+      "recipe": "projects/ROCKNIX/packages/graphics/harfbuzz-icu/package.mk",
+      "image_install_stamp": true,
+      "unpacked_roots": [
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02/build.pixelelated-H700.aarch64/build/harfbuzz-icu-14.3.0"
+      ],
+      "top_level_notice_candidates": [
+        {
+          "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02/build.pixelelated-H700.aarch64/build/harfbuzz-icu-14.3.0/COPYING",
+          "sha256": "ba8f810f2455c2f08e2d56bb49b72f37fcf68f1f4fade38977cfd7372050ad64",
+          "bytes": 1971
+        },
+        {
+          "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02/build.pixelelated-H700.aarch64/build/harfbuzz-icu-14.3.0/AUTHORS",
+          "sha256": "19bfe8f5ed100636cd24ab0c90a3f71c21d8b02d9ba00719447a0faab364d49f",
+          "bytes": 201
+        }
+      ]
+    },
+    {
+      "target": "H700",
+      "source": "8b5113fa164ada7d002ab138b1e3a9bf795e9de5",
+      "component": "libretro-database",
+      "recipe": "projects/ROCKNIX/packages/emulators/libretro/libretro-database/package.mk",
+      "image_install_stamp": true,
+      "unpacked_roots": [
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02/build.pixelelated-H700.aarch64/build/libretro-database-4de37d2c8042d9d0f608c43006c9b35438c536ce"
+      ],
+      "top_level_notice_candidates": [
+        {
+          "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02/build.pixelelated-H700.aarch64/build/libretro-database-4de37d2c8042d9d0f608c43006c9b35438c536ce/LICENSE",
+          "sha256": "23ee78c8bae49cf08ea2f0c84945c66b987ebe4520881fb51b3dad4fb43d07c2",
+          "bytes": 20137
+        }
+      ]
+    },
+    {
+      "target": "H700",
+      "source": "8b5113fa164ada7d002ab138b1e3a9bf795e9de5",
+      "component": "libspeexdsp",
+      "recipe": "projects/ROCKNIX/packages/emulators/libretro/easyrpg-lr/libspeexdsp/package.mk",
+      "image_install_stamp": true,
+      "unpacked_roots": [
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02/build.pixelelated-H700.aarch64/build/libspeexdsp-738e17905e1ca2a1fa932ddd9c2a85d089f4e845"
+      ],
+      "top_level_notice_candidates": [
+        {
+          "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02/build.pixelelated-H700.aarch64/build/libspeexdsp-738e17905e1ca2a1fa932ddd9c2a85d089f4e845/COPYING",
+          "sha256": "2654a4264b2bfe298dedc508748d140111840c315cc8eb646a3a68c13fa75b01",
+          "bytes": 1773
+        },
+        {
+          "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02/build.pixelelated-H700.aarch64/build/libspeexdsp-738e17905e1ca2a1fa932ddd9c2a85d089f4e845/AUTHORS",
+          "sha256": "6e5a9d92c5f9ccd28fe0b15ad59443fbf435bfc6ab2221f532006d3717ddf642",
+          "bytes": 502
+        }
+      ]
+    },
+    {
+      "target": "H700",
+      "source": "8b5113fa164ada7d002ab138b1e3a9bf795e9de5",
+      "component": "libxmp-lite",
+      "recipe": "projects/ROCKNIX/packages/emulators/libretro/easyrpg-lr/libxmp-lite/package.mk",
+      "image_install_stamp": true,
+      "unpacked_roots": [
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02/build.pixelelated-H700.aarch64/build/libxmp-lite-4.5.0"
+      ],
+      "top_level_notice_candidates": []
+    },
+    {
+      "target": "H700",
+      "source": "8b5113fa164ada7d002ab138b1e3a9bf795e9de5",
+      "component": "openbor",
+      "recipe": "projects/ROCKNIX/packages/emulators/standalone/openbor/package.mk",
+      "image_install_stamp": true,
+      "unpacked_roots": [
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02/build.pixelelated-H700.aarch64/build/openbor-b8303cce992a0db93c3a465df3c943942fe322f8"
+      ],
+      "top_level_notice_candidates": [
+        {
+          "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02/build.pixelelated-H700.aarch64/build/openbor-b8303cce992a0db93c3a465df3c943942fe322f8/LICENSE",
+          "sha256": "b8f3916944f0b5aee216ef7a494820d17ae658336a4680992dc244ebedecf3ea",
+          "bytes": 1537
+        }
+      ]
+    },
+    {
+      "target": "H700",
+      "source": "8b5113fa164ada7d002ab138b1e3a9bf795e9de5",
+      "component": "opusfile",
+      "recipe": "projects/ROCKNIX/packages/multimedia/opusfile/package.mk",
+      "image_install_stamp": true,
+      "unpacked_roots": [
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02/build.pixelelated-H700.aarch64/build/opusfile-9d718345ce03b2fad5d7d28e0bcd1cc69ab2b166"
+      ],
+      "top_level_notice_candidates": [
+        {
+          "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02/build.pixelelated-H700.aarch64/build/opusfile-9d718345ce03b2fad5d7d28e0bcd1cc69ab2b166/COPYING",
+          "sha256": "0267ae795ab744c4e0f9c45e249440fdf2e75dac8c804f36066b28649bf74aaf",
+          "bytes": 1487
+        },
+        {
+          "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02/build.pixelelated-H700.aarch64/build/opusfile-9d718345ce03b2fad5d7d28e0bcd1cc69ab2b166/AUTHORS",
+          "sha256": "7bafd4ec8a8f284cce7a8c9dab476f141ed0de91f38947c145e49929d0922071",
+          "bytes": 262
+        }
+      ]
+    },
+    {
+      "target": "H700",
+      "source": "8b5113fa164ada7d002ab138b1e3a9bf795e9de5",
+      "component": "rclone",
+      "recipe": "projects/ROCKNIX/packages/network/rclone/package.mk",
+      "image_install_stamp": true,
+      "unpacked_roots": [
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02/build.pixelelated-H700.aarch64/build/rclone-1.75.1"
+      ],
+      "top_level_notice_candidates": []
+    },
+    {
+      "target": "H700",
+      "source": "8b5113fa164ada7d002ab138b1e3a9bf795e9de5",
+      "component": "retropie-shaders",
+      "recipe": "projects/ROCKNIX/packages/emulators/libretro/retropie-shaders/package.mk",
+      "image_install_stamp": true,
+      "unpacked_roots": [
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02/build.pixelelated-H700.aarch64/build/retropie-shaders-43eaf9b91857eb8515310c74ae750895d77b20f8"
+      ],
+      "top_level_notice_candidates": []
+    },
+    {
+      "target": "H700",
+      "source": "8b5113fa164ada7d002ab138b1e3a9bf795e9de5",
+      "component": "slang-shaders",
+      "recipe": "projects/ROCKNIX/packages/emulators/libretro/slang-shaders/package.mk",
+      "image_install_stamp": true,
+      "unpacked_roots": [
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02/build.pixelelated-H700.aarch64/build/slang-shaders-4812a82f6c9a11cc8b5a7447040a98c9fc80c00e"
+      ],
+      "top_level_notice_candidates": []
+    },
+    {
+      "target": "H700",
+      "source": "8b5113fa164ada7d002ab138b1e3a9bf795e9de5",
+      "component": "tailscale",
+      "recipe": "projects/ROCKNIX/packages/network/tailscale/package.mk",
+      "image_install_stamp": true,
+      "unpacked_roots": [
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02/build.pixelelated-H700.aarch64/build/tailscale-1.98.8"
+      ],
+      "top_level_notice_candidates": []
+    },
+    {
+      "target": "H700",
+      "source": "8b5113fa164ada7d002ab138b1e3a9bf795e9de5",
+      "component": "wildmidi",
+      "recipe": "projects/ROCKNIX/packages/emulators/libretro/easyrpg-lr/wildmidi/package.mk",
+      "image_install_stamp": true,
+      "unpacked_roots": [
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02/build.pixelelated-H700.aarch64/build/wildmidi-405ca73"
+      ],
+      "top_level_notice_candidates": [
+        {
+          "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02/build.pixelelated-H700.aarch64/build/wildmidi-405ca73/COPYING",
+          "sha256": "17701a4d4cbe5fc36ada953d75c5bd979e4c9f0672c867b6840f5fb36739979b",
+          "bytes": 92
+        }
+      ]
+    },
+    {
+      "target": "H700",
+      "source": "8b5113fa164ada7d002ab138b1e3a9bf795e9de5",
+      "component": "zerotier-one",
+      "recipe": "projects/ROCKNIX/packages/network/zerotier-one/package.mk",
+      "image_install_stamp": true,
+      "unpacked_roots": [
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02/build.pixelelated-H700.aarch64/build/zerotier-one-1.16.0"
+      ],
+      "top_level_notice_candidates": [
+        {
+          "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02/build.pixelelated-H700.aarch64/build/zerotier-one-1.16.0/LICENSE-MPL.txt",
+          "sha256": "1f256ecad192880510e84ad60474eab7589218784b9a50bc7ceee34c2b91f1d5",
+          "bytes": 16725
+        },
+        {
+          "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02/build.pixelelated-H700.aarch64/build/zerotier-one-1.16.0/LICENSE.txt",
+          "sha256": "18797d9ced049ddab9a4685e89acbe95de08efdf5eedaf82e870d63f6a3ccc7f",
+          "bytes": 320
+        }
+      ]
+    }
+  ]
+}
