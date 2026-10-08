@@ -1,0 +1,36 @@
+{
+  "verified_at": "2026-10-08T21:02:47.052746+00:00",
+  "result": "PASS",
+  "channels": {
+    "/workspace/tmp/pixelelated-m7-h700-refresh-02/copy.rc": 0,
+    "/workspace/tmp/pixelelated-m7-h700-refresh-02/copy.outer.rc": 0,
+    "/workspace/tmp/pixelelated-m7-h700-refresh-02/cache-launch/tool-wrapper.rc": 0,
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02/.build-runs/20261008T203802Z-e3e87b34/build.rc": 0,
+    "launcher_returncode": 0
+  },
+  "actual_owner_pids_absent": [
+    625682,
+    625683,
+    625684,
+    625713
+  ],
+  "run": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02/.build-runs/20261008T203802Z-e3e87b34",
+  "cache_ready": {
+    "utc": "2026-10-08T21:02:25.385616+00:00",
+    "result": "PASS",
+    "roots": [
+      {
+        "root": "build.pixelelated-H700.arm",
+        "checksum_equal": true,
+        "independent_regular_files": 1141131
+      },
+      {
+        "root": "build.pixelelated-H700.aarch64",
+        "checksum_equal": true,
+        "independent_regular_files": 2801976
+      }
+    ],
+    "unchanged_tracked_timestamps_preserved": 105020,
+    "mode": "independent rsync files, internal hardlinks retained; no cross-root hardlinks"
+  }
+}

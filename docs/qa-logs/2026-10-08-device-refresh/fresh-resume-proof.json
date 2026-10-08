@@ -28,5 +28,12 @@
     "agent milestone API unavailable; committed exact live readback plus live #492 used",
     "sandbox Docker denied and /proc cannot establish host process exits"
   ],
-  "root_disposition": "Rule corrected in this change. Current owner added to checkpoint. Root separately verified live host runner/watcher/command through approved host-context exec."
+  "root_disposition": "Rule corrected in this change. Current owner added to checkpoint. Root separately verified live host runner/watcher/command through approved host-context exec.",
+  "retest": {
+    "utc": "2026-10-08T20:48:45.587156+00:00",
+    "agent": "/root/m7_device_resume_proof",
+    "canonical_head": "5e0e0cb6a456c2a3928ad3a51211525b4c75f732",
+    "result": "PASS",
+    "scope": "active H70002 owner/result gates and revised frozen-build/cache rules make resume path unambiguous; no large rehash repeated"
+  }
 }

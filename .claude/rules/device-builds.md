@@ -416,6 +416,13 @@ for reviewed installation, isolated tests, limitations and recovery. A
 missing/refused helper is a failed preflight, not permission to bypass it.
 Stop guests separately and wait for exit before requesting reclamation.
 
+Recheck preflight after large cache preparation and before the compiler's
+watcher starts. A file-copy workload can refill swap even when available RAM
+is ample, so a passing check before that copy does not qualify the later
+build. If reclamation is needed, first consume the cache job's terminal
+results and verify its actual owner/watcher exits; then use the same guarded
+helper while idle. Never recycle swap while the copy's watcher is active.
+
 The two constraints are easy to confuse because one of them is never a problem:
 `/workspace` has terabytes free while the box runs out of RAM. On 2026-09-19 a
 cold GENERIC_X64 build reached `webkitgtk`, compiled WebCore at
