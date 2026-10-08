@@ -1,5 +1,5 @@
 # Start: the CLOUD hub, focus on BACK UP TO THE CLOUD. End: the CLOUD
-# FOLDER editor, holding the current folder.
+# FOLDERS selector, then the SAVES FOLDER editor with its current value.
 #
 # Seven downs reach CHANGE CLOUD FOLDER: RESTORE, MATCH, the two SAVE
 # MANAGEMENT switches, CONNECTED TO, CHECK CONNECTION, then it. It was six
@@ -27,6 +27,12 @@ key down
 wait-for-change
 settle
 shot hub-change-folder-row
+key x
+wait-for-change
+settle
+# CHANGE CLOUD FOLDER now opens three independent path rows (#508/#527).
+# SAVES FOLDER is focused initially; A opens its editor. Without this
+# press the old walk mislabelled the selector as a keyboard.
 key x
 wait-for-change
 settle
