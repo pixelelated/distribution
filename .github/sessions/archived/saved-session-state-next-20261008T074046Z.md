@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Saved: 2026-10-08T07:40:46.701069+00:00
+> Saved: 2026-10-08T07:32:15.856407+00:00
 > Coordinator: feature/conflict-resolution
 > Repository: pixelelated/distribution
 
@@ -9,9 +9,9 @@
 pixelelated is an immutable handheld Linux distribution. Read AGENTS.md and
 canonical rules from `next`, this checkpoint and M7's live ordered body before
 working. Primary `/workspace/repos/rocknix` stays on `next`. Source integration
-`e6645cb5ea5ae3c7f699390a74b22d098fbeb7fb` and qualification evidence are published on next
-`bc4ae05d30531516ebd19b6b167fc994f368c4c3`; remote head was verified. This
-follow-up records source closures and current audit handoff. Read actual HEAD/origin. ES remote test/qa-integration is verified at4e410dc9a8.
+`e6645cb5ea5ae3c7f699390a74b22d098fbeb7fb` is now on local next; this checkpoint
+and its coordination proof accompany publication. Read actual HEAD/origin before
+claiming publication. ES remote test/qa-integration is verified at4e410dc9a8.
 
 Coordination `/workspace/repos/rocknix.worktrees/conflict-resolution` has
 divergent historical work: NEVER merge it wholesale into next. Commit only
@@ -46,12 +46,12 @@ new external dispatch. Do not restart completed audits.
    API/screens were implemented or falsely marked proved.
    Children #520 save/content coverage and #521 screenshot coverage with runtime
    prerequisites #522/#523 have completed source/host/affected VM qualification.
-   #515/#520/#521/#522/#523 are now CLOSED completed with exact evidence/body/state
-   readbacks. Image inclusion stays #508; these are not pending implementation jobs.
+   Reconcile closure after publication with exact receipts; image inclusion stays
+   #508. Their live state may still be open during publication, not new work.
 3. #508 coordinated product integration is e6645cb5ea: exact tested rclone and
    DuckStation paths from052771f05d plus matched ES4e410dc9 pin. Package lints and
-   complete source/mode/alias equality pass. Coordination publication and
-   exact tracker/source readback are complete; fresh-reader review follows.
+   complete source/mode/alias equality pass. Finish coordination publication,
+   exact tracker/source readback and fresh-reader review.
 4. #507 next: fresh, independent scoped Milestone-delta code-auditor run under
    one serial owner. NOT STARTED at this checkpoint. Freeze the published input
    commit and safe issue/source/evidence inventory. Use primary plus verified
@@ -223,10 +223,10 @@ off-sessiondelivery395 and independent redundancy518 remain separate laterwork.
 ## Next commands and handoff checks
 
 Inspect actual workers/retirement receipts, git status and live507/M7 first.
-Source publication/issue readback are complete; never broadly merge coordination.
+Complete authorized publication/issue readback; never broadly merge coordination.
 Required gates: tools/rules-check,tools/register-check,tools/work-log-index --check,
 tools/ceremony-check --gate; hooks-test passed after enumerations. Ceremony gate
-warned19closures before the five newly completed source tasks; read the current count. Audit owed,
+warns19closures at prior read; later source closures increase it. Audit owed,
 not waived, and warning does not prohibit qualified fix publication.
 
 For507, read complete code-auditor skill and phase references fromnext, create

@@ -6,11 +6,12 @@ implement category checks, explicit creation, independent paths and local
 instructions. Full host regression and both ordinary VM backends pass. The
 completed UI inventory includes the #512 localized failure/check-busy fix,
 #513 small-panel help/editor fit, and #514 selected-folder empty guidance.
-Source and product pins remain unintegrated. #515 owns concrete-case
-investigation and qualification of targeted progress-file repairs; the overall
-setup direction is settled, not awaiting another owner choice. Assembled
-firmware, clean/public adoption and device
-qualification remain separate gates. #511 owns the parallel website; guide
+Coordinated product integration `e6645cb5ea` and its proof are published on
+next `bc4ae05d30`; ES `4e410dc9a8` is published and pinned. #515's finite case
+review and fixes #520/#521/#522/#523 are qualified and closed. Valid layouts
+stay in place; ambiguous locations keep instructions. #507's independent
+frozen delta audit is next, followed by assembled firmware, clean/public
+adoption and device qualification. #511 owns the parallel website; guide
 publication does not hold useful local instructions or add a firmware gate.
 
 ## Who is upgrading
@@ -434,18 +435,17 @@ and its new navigation remain future proof after the guides are published.
 
 ## Remaining implementation work
 
-The local drafts implement category checks, independent pointers, explicit
-category seeding, scans/restores limited to the selected root, nested-folder
-guidance and scan/result/help UI. Focused controls, the full host suite,
-ordinary VM WebDAV/SFTP round trips and the complete affected-flow UI proof
-pass. Preserve the reviewed screenshots and rejected predecessors. The
-targeted case work is #515, with #520's confirmed coverage corrections and
-the ambiguous-layout no-action disposition in qualification. Do not ask the
-owner to choose the settled approach again or call repairs delivered.
-Source integration/pins, clean/public ROCKNIX adoption on assembled firmware
-and final input/inclusion mapping remain separate gates.
-#507 independently audits the frozen resulting delta. New device firmware
-and physical smoke follow that sequence.
+The category-check/creation foundation, bounded selected-root transfers and
+finite case disposition are integrated. Host controls and affected source-overlay
+UI/runtime proof pass, including standalone progress coverage and actual native
+DuckStation capture/backup/restore. #515 and source fixes #520/#521/#522/#523 are
+closed with exact receipts. No generic relocation action was implemented.
+
+Next is #507's independent audit of the published frozen delta. Then an
+engineering GENERIC_X64 image supplies CF10 clean/public ROCKNIX adoption and
+final input/inclusion mapping under #508. Affected H700 followed by SM8550
+builds, source/licences and named physical/release gates follow. Source-overlay
+proof does not establish those installed-image or physical results.
 
 ## Owner-managed alignment and private review
 
