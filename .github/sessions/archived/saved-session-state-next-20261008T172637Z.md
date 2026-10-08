@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Saved: 2026-10-08T17:34:51.338560+00:00
+> Saved: 2026-10-08T17:14:14.009567+00:00
 > Coordinator: feature/conflict-resolution
 > Repository: pixelelated/distribution
 
@@ -12,7 +12,7 @@ working. Primary `/workspace/repos/rocknix` stays on `next`. Source integration
 `e6645cb5ea5ae3c7f699390a74b22d098fbeb7fb` and qualification evidence are published on next
 `bc4ae05d30531516ebd19b6b167fc994f368c4c3`; remote head was verified. Fresh-reader reconciliation is published on next
 `ac64c80628ad6d5a69b803d82f186472529f7cd7`, the frozen audit source. This
-follow-up records the same audit owner after both approved external calls and host preparation; product inputs are unchanged. Previous checkpoint publication is next4cb0d0227b. Read actual HEAD/origin. ES remote test/qa-integration is now verified at1d76b3da7;4e410dc9a8 remains the frozen audit input.
+follow-up records the same audit owner after both approved external calls and host preparation; product inputs are unchanged. Previous checkpoint publication is next4cb0d0227b. Read actual HEAD/origin. ES remote test/qa-integration is verified at4e410dc9a8.
 
 Coordination `/workspace/repos/rocknix.worktrees/conflict-resolution` has
 divergent historical work: NEVER merge it wholesale into next. Commit only
@@ -55,53 +55,86 @@ that concrete approval persists for this same blind/refutation scope. Do not res
    exact tracker/source readback and repository-only fresh-reader review are complete.
    The fresh reader found stale M7 tails and a stale phase-rule sentence; both
    were corrected and verified before audit freeze.
-4. #507 final delivery verification ACTIVE; #524 all four findings RESOLVED and closed
-   completed at 2026-10-08T17:24:01.871076Z. Sole auditor remains
-   `/root/m7_fresh_audit_owner`, with immutable review input at distro
-   ac64c80628ad6d5a69b803d82f186472529f7cd7 / ES4e410dc9. Audit worktree is
-   /workspace/repos/rocknix.worktrees/m7-p5-audit-507; compact packet is
-   docs/audits/2026_10_08-milestone-m7-p5-delta-507/. Do not repeat this audit.
-   - PL-001 resolved: complete #497/#510 bodies reconciled and read back;
-     accepted historical ARM builds stay distinct from new firmware inclusion.
-   - PL-002 resolved: obsolete folder QA entrypoints truthfully retired;
-     10 retirement and 30 validator controls, package/rule checks pass.
-     Tool source44c87473 is next2cc6ce30; rule58a8d660 is next95a03b2e.
-   - PL-003 resolved: exact ES1d76b3da7da75794066df1c089931b890304da7a
-     published on test/qa-integration. Current recipe pin is next59a3a321d1;
-     canonical flow/packet publication is next6caa839c8741585efe480dc99d63183d6982996c.
-     Host184 cases / 4775 assertions pass. All44 EN/FR outcomes at640x480
-     and1280x800 were visually reviewed by root and auditor:28 actual/frontend
-     refusals and16 explicitly injected status-rendering cases. Selected paths,
-     configuration and payload bytes remain unchanged. Complete packet in
-     docs/qa-logs/2026-10-08-m7-audit-resolutions/PL-003/ has1269 sealed files;
-     evidence-index.json and root-ui-review.json map canonical CF05 frames.
-     Original failed fixtures and unknown reboot cause remain documented.
-     matrix05 completed at17:10UTC; all four channels0 and actual host owner
-     exits verified. QEMU3159108, named MinIO and the disposable scratch root
-     were retired at17:19:42UTC after acceptance, reclaiming2,994,364,416 bytes.
-     Nothing is running under /workspace/tmp/pixelelated-524-path-refusal;
-     that root no longer exists. Use the retained packet, not deleted paths.
-   - PL-004 resolved: sourcecbf6e9151ca54a4cef88d743af1f453a7b45a872 is
-     published next8e8ad7c4060824ad5b43b3a471b79dfa385e28e5. Explicit JSON
-     shape guards preserve normal diagnostics and cadence.28 focused controls
-     and15 prior controls pass on source and integrated copy; frozen source
-     fails25 added controls. Only ceremony-check and its focused fixture change.
-   Audit source81603bd28851480c4568e94e563f4345b67e8299 is published as
-   next12c599a557bcef544994fc8960a9cc3366aa4eb0. Root and auditor verified
-   exact remote equality and all1658 source tree entries;1657 manifest entries
-   rehash correctly. Resolution lint and the normal ceremony gate pass without
-   the previous overdue warning. Full #507body now has4/5criteria checked;
-   criterion5 awaits these canonical delivery records and the exact-head hosted
-   check. M7's complete body has been reconciled and exactly read back. The
-   hosted record check on12c599a557 already succeeded (run37817241774);
-   final delivery head still needs its own result. The auditor owns that readback.
-   Original130-criterion grades remain historical, not a release pass rate.
-   Unverified OAuth/config-window/timing leads remain unverified, not new bugs
-   or implicit passes. No product or personal-data migration is inferred.
-   Both approved Fable5.1/xhigh Facilitator passes completed with zero retries,
-   four zero channels, sealed input/output hashes and actual host exits. See
-   docs/qa-logs/2026-10-08-m7-build-readiness/external-completion-readback.json.
-   Never re-ask approval or dispatch those completed transfers again.
+4. #507/#524 ACTIVE: independent review completed phases0–6; four confirmed
+   findings are in serial Phase7 resolution. Sole auditor remains
+   `/root/m7_fresh_audit_owner`, frozen audit worktree
+   `/workspace/repos/rocknix.worktrees/m7-p5-audit-507`, source
+   ac64c80628ad6d5a69b803d82f186472529f7cd7/ES4e410dc9. Audit folder is
+   docs/audits/2026_10_08-milestone-m7-p5-delta-507/; read00,05and
+   resume-checkpoint.json for actual progress. #524 is the mandatory punch issue:
+   threeMedium,oneLow,no confirmedHigh/Critical. All130criteria independently
+   examined; private/future gates are not passes.
+   - PL-001 RESOLVED: auditor independently verified complete #497/#510 tracker
+     bodies and primary source receipts. Published next fca20f6b8b.
+   - PL-002 RESOLVED: retired two obsolete QA entrypoints with run refusal/help
+     guidance, corrected recipe comment and canonical instruction-index rows.
+     Tool source44c87473 is next2cc6ce30; instruction58a8d660 is next95a03b2e.
+     Auditor independently verified published containment and controls.
+   - PL-003 ROOT ACTIVE: ES feature/m7-cloud-path-reasons at
+     1d76b3da7da75794066df1c089931b890304da7a, in
+     /home/max/Development/emulationstation-next.worktrees/m7-cloud-path-reasons.
+     Safe exact-line reason mapping plus localized actionable guidance; backend
+     unchanged. 184 cases/4775 assertions, syntax, catalog, actual11-message
+     extraction and vocabulary/menu-map pass;511 input hashes unchanged.
+     Reconstructed28-unit target binary e80b09fdee07043468154a4c9f9ec0a4fb7bdc9ba82f7c9d806b048d5cd3b010,
+     French catalog f056223d0fa947a7c9790c914b7696586b168e33135c627ebbc4d1d6d530dfb4;
+     all648 reconstruction input hashes unchanged, fourzerochannels/process exits.
+     Scratch owner /workspace/tmp/pixelelated-524-path-refusal: host01/build01/
+     guest01/stage01 complete. guest01 owns the single synthetic QEMU VM on
+     SSH10220/VNC5940,/tmp/pix524-mon.sock and /tmp/pix524-ser.sock, vm.pid and
+     ephemeral qa-key under guest01. IPv4/IPv6 blackhole half-routes exclude
+     external connections; synthetic WebDAV on guest127.0.0.1:9038 and owned
+     host MinIO pixelelated-524-path-refusal:9039 support actual refusal cases.
+     Test fixture failures (keyboard preference absent, an unsupported nounset
+     profile call, and preferences outside fresh config root) are retained;
+     fixture-correct03 uses the actual <config> wrapper. Successful individual
+     invalid-components03 frame and unchanged pointers/config/payload verified.
+     Earlier matrix01/02 attempts failed on a settings-row fixture: settings/
+     content setters do local syntax only; provider checks belong to saves.
+     The claim that NoSuchBucket caused those UI outcomes is withdrawn. Five
+     EN640 matrix02 cases are visually/byte-preservation verified. matrix03
+     lost the temporary overlay when guest boot b120c3cd9fca4aa7976bf6b60aff203c
+     reset to5eb19e4800f1415b88051bc86423e77c at12:37:51EDT. Cause remains
+     undetermined; prior kernel/journal/pstore records are retained, watchdog
+     remains enabled. restage01 restored the exact artifacts. matrix04 verifies
+     real bucket and unreachable EN640 refusals with per-phase boot/PID/ES,
+     helper/catalog hash and data-preservation guards. Its busy fixture then
+     exposed shared bind-mount propagation aliasing its delegate to itself;
+     exact guest5707 was terminated, failure retained. Owned helper bind stacks
+     removed after making the synthetic guest mounts private; independent
+     production delegate restored to /storage/qa524/delegate/cloud_setup.
+     matrix05 COMPLETED37remaining cases at17:10UTC; combined with five
+     accepted matrix02 and two accepted matrix04 cases, all44EN/FR640x480and
+     1280x800outcomes passed. Root and sole auditor visually reviewed all44.
+     Actual host3304445/46/47/75exited, four terminal channels0 verified
+     17:10:57UTC. Corrected atomic helper copies, bounded witnesses and all
+     per-phase identity/data guards pass. Original failed owners remain failed.
+     Compact1269-file17.15MBpacket is under docs/qa-logs/2026-10-08-m7-audit-
+     resolutions/PL-003/, with evidence-index.json,root-ui-review.json and
+     sha256.json.28actual/frontend outcomes;16injected status rendering only.
+     CF05row/diagram,es-menu-map and changelog updated locally. Auditor accepted
+     all1269 seals,44 frames and canonical references for promotion. ES
+     test/qa-integration is published and remotely verified at1d76b3da7.
+     Distribution pin commit cb075bb4c74eed6a265718b70f86f7bfe81fbd8d is
+     ready for integration from m7-p5-integration, based on currentnext9de2c2b71b;
+     pkgcheck passes. Final hosted receipt precedes PL-003closure. Never copy
+     the historical root recipe. Publication state must be read from actualnext.
+     Synthetic guest and owned MinIO remain alive only until acceptance,
+     then retire with reconstruction scratch. Optional inert-token probe was
+     withdrawn; no guest retained for an unverified OAuth claim.
+   - PL-004 auditor WAITING on PL-003: reject malformed receipt JSON object
+     shapes normally, retaining valid and negative controls.
+   Preserve frozen review input and original findings. Implementation uses
+   separate remediation state. No completion marker until all outcomes verify.
+   Both newly approved Fable transfers are COMPLETE; do not ask again or repeat:
+   blind844998B promptSHA18ac3ac302b4dc6a1a8ecf2b45ae6bd15c9cb3c92a52e888c1b4b67a61a2273c;
+   assembled refutation1064044B promptSHAb117c9a21d29c34c21c29762e04cb66fc337e2737e2cd6d70b81755f9bff37cc.
+   Verified blind17829B outputSHA3fc6ce05bca865c1f8be448e29d1634ba894bab15e620f6d3bf0a0ce6d149770;
+   refutation19752B outputSHAc9d2fe15aae6e7397afe76df19e5f8851e93532e315292d6a45a1a305b12d428.
+   Both served anthropic/claude-fable-5.1/xhigh, zero retries, fourzerochannels,
+   unchangedsealedinputs and hostprocess exits. Root independently checked
+   bytes/provenance; no provider command remains. Collaborating auditor/root
+   are actively consuming stages; a checkpoint/status file is not an alert.
 5. Engineering GENERIC_X64 firmware supplies CF10 clean/public ROCKNIX adoption
    and actual final input inclusion. Then affected H700 followed by SM8550 builds,
    source/licences, named physical smoke and release gates. No new firmware build,
@@ -130,7 +163,7 @@ files:319distro receipts,95edge receipts,three tools. These were copied exactly
 into coordination; three canonical tool enumerations were reconciled. Source
 feature052771f05d is published and exactly read back, retaining proof references.
 
-Pre-audit ES source: /home/max/Development/emulationstation-next.worktrees/m7-manual-cloud-setup,
+ES source: /home/max/Development/emulationstation-next.worktrees/m7-manual-cloud-setup,
 4e410dc9a816cc947f16235ad2b24824b29dd84e. Its18-path change was fast-forwarded
 and pushed to /home/max/Development/emulationstation-next.worktrees/qa-integration,
 test/qa-integration; remote hash verified. No source conflict or new ES edit.
@@ -279,27 +312,20 @@ off-sessiondelivery395 and independent redundancy518 remain separate laterwork.
 
 ## Next commands and handoff checks
 
-Read actual next/origin, the sole auditor's mailbox and final resolution log.
-All four source findings and the complete audit evidence are published. Full
-#507/M7 body reconciliation is verified; this checkpoint and delivery receipts
-are being published, followed by exact-head hosted check consumption. Root owns the canonical work log and delivery records;
-the auditor owns the scoped audit directory. Integrate only explicit full commit
-hashes, never this divergent coordination branch wholesale.
+Inspect actual workers/retirement receipts, git status and live507/M7 first.
+Source publication/issue readback are complete; never broadly merge coordination.
+Required gates: tools/rules-check,tools/register-check,tools/work-log-index --check,
+tools/ceremony-check --gate; hooks-test passed after enumerations. Ceremony gate
+warned19closures before the five newly completed source tasks; read the current count. Audit owed,
+not waived, and warning does not prohibit qualified fix publication.
 
-Host readiness passed after accepted UI scratch retirement: guarded helper
-reclaimed swap, 8191MiB free, 34675MiB RAM available,1.8T disk free. Receipt:
-docs/qa-logs/2026-10-08-m7-build-readiness/post-remediation-preflight.json.
-Refresh at actual build start. No engineering firmware build or cache copy has
-started. Draft /tmp/prepare-m7-replacement17.py is syntax-parsed only; it takes
-the exact final published next commit, verifies audit completion and source
-preservation, then creates a named build worktree and adapts candidate16
-copy/build scripts. It has not executed; inspect it before using it. After audit closure publication/checks, freeze final distro/ES inputs,
-copy the accepted candidate16 cache independently (no cross-root hardlinks),
-rebuild changed packages/image and verify validator inclusion, retired migration
-absence, DuckStation0755 and genuine libcom_err. CF10 clean/public ROCKNIX
-adoption remains image-only work. Then H700 followed by SM8550.
-
-Required checks remain rules-check, register-check, work-log-index --check and
-ceremony-check --gate. The previous overdue audit warning is historical until
-the final completed marker is actually consumed. Do not waive or guess it.
-Continue authorized work across checkpoints; a saved file is not a pause.
+For507, check the actual named agent and its running log first. It already
+read the complete canonical skill/references and owns serial continuation. Do
+not create a second orchestrator or restart Phase0. If the owner has stopped,
+resume that owner from its exact log under existing authorization; document
+the actual stop reason. Confirm concrete safe external payload/disclosure scope
+before provider dispatch. Root publishes handoff/evidence outside the frozen
+product inputs and does not mutate source in parallel. The successful fresh
+reader and corrected whole-body milestone/rule findings are recorded in
+`docs/qa-logs/2026-10-08-save-repair-cases/tracker/fresh-reader-priority-reconciliation.json`.
+Continue authorized work across checkpoints; a saved research file is not a pause.
