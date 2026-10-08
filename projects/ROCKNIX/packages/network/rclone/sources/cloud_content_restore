@@ -441,14 +441,23 @@ exists_remote() {
 # (D-CLOUD-120). Called only after a listing has already failed with a code
 # other than 3, so the everyday path costs nothing extra.
 absent_not_broken() {
-    local path="${1%/}" parent name listing
-    local boundary="${ROOT%/}"
-    # Preserve relative/absolute namespaces. Ancestors beyond the selected
-    # library do not establish that an unreadable library is missing.
+    local path="$1" boundary="${ROOT}" remote rel parent name listing
+    # Keep remote:/ (absolute root) distinct from remote: (relative home).
+    case "${path}" in *:/) ;; *) path="${path%/}" ;; esac
+    case "${boundary}" in *:/) ;; *) boundary="${boundary%/}" ;; esac
+    # Ancestors beyond the selected library do not establish that an
+    # unreadable library is missing. Each failed probe must shorten the path.
     while [ "${path}" != "${boundary}" ]; do
         case "${path}" in "${ROOT}"*) ;; *) return 1 ;; esac
-        name="${path##*/}"; parent="${path%/*}"
-        if listing=$(rclone lsf --dirs-only "${parent}/" "${RCLONE_LIST_OPTS[@]}" 2>/dev/null); then
+        remote="${path%%:*}:"; rel="${path#*:}"
+        name="${rel##*/}"
+        case "${rel}" in
+            */*) parent="${rel%/*}"; [ -n "${parent}" ] || parent=/ ;;
+            *) parent="" ;;
+        esac
+        parent="${remote}${parent}"
+        [ "${parent}" != "${path}" ] || return 1
+        if listing=$(rclone lsf --dirs-only "${parent}" "${RCLONE_LIST_OPTS[@]}" 2>/dev/null); then
             printf '%s\n' "${listing}" | grep -qFx -- "${name}/" && return 1
             return 0
         fi
