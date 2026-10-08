@@ -1088,18 +1088,19 @@ echo "${saw:-0}/${all:-0}"
                           f"the stamp moved from {stamp_before!r} to {stamp_after!r} for a run that sent nothing")
     dev.run(f"mv {shlex.quote(stash)}/* {shlex.quote(bk_dir)}/ 2>/dev/null; rmdir {shlex.quote(stash)} 2>/dev/null; true", check=False)
 
-    step("changing the cloud folder moves the settings folder beside it, and the layout counts as current")
-    # #74: CHANGE CLOUD FOLDER used to write the settings folder INSIDE the
-    # saves folder -- the nesting cloud_migrate_layout exists to undo and the
-    # data-loss trap cloud_backup warns about. Now the siblings derive from
-    # the new folder, the warning is gone, the next settings backup lands
-    # under the new Backups, and the migration check leaves a chosen layout
-    # alone rather than offering to move it back to /ROCKNIX.
+    step("folder choices are independent; discovery preserves those choices")
+    # #508/#510: selecting saves must preserve a separately chosen archive
+    # or library path. Each pointer changes only through its own action.
+    before_choice_conf = dev.run(f"cat {CONF}")
     prev = {k: dev.run(f"grep -m1 '^{k}=' {CONF} | cut -d'\"' -f2").strip() for k in ("SAVES_REMOTE", "SETTINGS_REMOTE", "CONTENT_REMOTE")}
     rc, out = run_rc(dev, f"cloud_setup --set-saves-remote {rpath('QA-Custom/Saves')}")
     now = {k: dev.run(f"grep -m1 '^{k}=' {CONF} | cut -d'\"' -f2").strip() for k in ("SAVES_REMOTE", "SETTINGS_REMOTE", "CONTENT_REMOTE")}
-    failures += not check(now == {"SAVES_REMOTE": rpath("QA-Custom/Saves"), "SETTINGS_REMOTE": rpath("QA-Custom/Backups"), "CONTENT_REMOTE": rpath("QA-Custom/Content")},
-                          "the three folders are siblings under the new root", f"conf reads {now}")
+    failures += not check(rc == 0 and now == dict(prev, SAVES_REMOTE=rpath("QA-Custom/Saves")),
+                          "selecting saves preserves the settings and library paths", f"exit {rc}; conf reads {now}")
+    rc, out = run_rc(dev, f"cloud_setup --set-settings-remote {shlex.quote(rpath('QA-Custom/Backups'))}")
+    now = {k: dev.run(f"grep -m1 '^{k}=' {CONF} | cut -d'\"' -f2").strip() for k in prev}
+    failures += not check(rc == 0 and now == dict(prev, SAVES_REMOTE=rpath("QA-Custom/Saves"), SETTINGS_REMOTE=rpath("QA-Custom/Backups")),
+                          "selecting settings preserves saves and the library path", f"exit {rc}; conf reads {now}")
     # The upload wants a local archive to send; the settings steps above may
     # have pointed SETTINGS_BACKUPS back at the device default, so plant one
     # where it points now and take it away afterwards.
@@ -1114,16 +1115,19 @@ echo "${saw:-0}/${all:-0}"
     landed = dev.run(f"rclone lsf -R --files-only {shlex.quote(remote_name + rpath('QA-Custom/Backups'))} 2>/dev/null || true")
     failures += not check(".tar.gz" in landed and (not label or label in landed),
                           f"the archive landed under {rpath('QA-Custom/Backups')}/{label or '<device>'}/", f"listing: {landed.strip()[:200]!r}")
-    rc, out = run_rc(dev, "cloud_migrate_layout --check")
-    failures += not check(rc == 3 and "nothing to move" in out,
-                          "the migration check calls the chosen sibling layout current",
+    conf_before = dev.run(f"sha256sum {CONF}").strip()
+    rc, out = run_rc(dev, "cloud_setup --folder-state")
+    facts = dict(line.split("=", 1) for line in out.splitlines() if "=" in line)
+    expected = {"SAVES": now["SAVES_REMOTE"], "BACKUPS": now["SETTINGS_REMOTE"],
+                "CONTENT": now["CONTENT_REMOTE"]}
+    failures += not check(rc == 0 and facts.get("STATE") in ("ready", "missing")
+                          and all(facts.get(k) == v for k, v in expected.items())
+                          and dev.run(f"sha256sum {CONF}").strip() == conf_before,
+                          "folder discovery reports the selected paths without changing settings",
                           f"exit {rc}: {out.strip()[-200:]!r}")
     dev.run(f"rm -f {shlex.quote(f'{bk_dir}/{bk_name}')}; "
-            f"cloud_setup --set-saves-remote {shlex.quote(prev['SAVES_REMOTE'] or rpath(backend("shipped-default", "SAVES_REMOTE").strip()))} >/dev/null 2>&1; "
             f"rclone purge {shlex.quote(remote_name + rpath('QA-Custom'))} >/dev/null 2>&1 || true", check=False)
-    for k, v in prev.items():
-        if v:
-            dev.run(f"sed -i 's|^{k}=.*|{k}=\"{v}\"|' {CONF}")
+    dev.write(CONF, before_choice_conf.encode())
 
     step("a cloud with no saves folder yet is empty, not broken; a wrong root still fails")
     # #100: the parent decides. Root present and only Saves missing is the
@@ -1195,9 +1199,8 @@ echo "${saw:-0}/${all:-0}"
         f = os.path.join(stage, CONTENT_DIR, rel)
         os.makedirs(os.path.dirname(f), exist_ok=True)
         open(f, "wb").write(data)
-    # The current layout: ROMs/<system> under CONTENT_REMOTE (D-CLOUD-018);
-    # the restorer reads the flat pre-ROMs layout too, but the fixture is the
-    # shape a backup writes today.
+    # The selected layout: ROMs/<system> under CONTENT_REMOTE. Backup and
+    # restore use this same shape; there is no account-root or flat fallback.
     cpath = epath(backend("content-remote"))
     backend("put", os.path.join(stage, CONTENT_DIR), f"{cpath}/ROMs/{CONTENT_DIR}")
     dev.run(f"rm -rf {shlex.quote(croot)}")
@@ -1660,17 +1663,20 @@ echo "${saw:-0}/${all:-0}"
 
     # --- folder seeding -----------------------------------------------------
     step("seeding is idempotent and never clobbers an existing note")
-    dev.run("cloud_setup --seed-folders >/dev/null 2>&1 || true", check=False)
-    dev.run("true")
+    seed_command = "cloud_setup --seed-folders saves,settings,roms,bios,media"
+    seed_rc, seed_out = run_rc(dev, seed_command)
+    failures += not check(seed_rc == 0,
+                          "explicit selected-category seeding completed",
+                          f"seeding exited {seed_rc}: {seed_out.strip()[-120:]}")
     marker = b"OWNER WROTE THIS"
     stage3 = subprocess.run(["mktemp", "-d"], capture_output=True, text=True).stdout.strip()
     open(f"{stage3}/README.txt", "wb").write(marker)
     spath = epath(backend("saves-remote"))
     subprocess.run([BACKEND, "put", stage3, spath], capture_output=True, text=True)
-    second = dev.run("cloud_setup --seed-folders 2>/dev/null || true")
-    failures += not check(second.count("OK ") >= 2,
+    second_rc, second = run_rc(dev, seed_command)
+    failures += not check(second_rc == 0 and second.count("OK ") >= 2,
                           "a second seeding run reports the folders present",
-                          f"second run did not report folders: {second.strip()[:80]}")
+                          f"second run exited {second_rc}: {second.strip()[:80]}")
     note = subprocess.run([BACKEND, "cat", f"{spath}/README.txt"], capture_output=True).stdout
     failures += not check(note == marker,
                           "the owner's note survived a second seeding",

@@ -17,6 +17,12 @@ while [ $# -gt 0 ]; do
   *) echo "unknown argument: $1" >&2; exit 2;;
  esac
 done
+# Historical migration proof only (D-CLOUD-175/#508). Refuse before
+# creating guests, changing their state or resetting a synthetic backend.
+if [ "$injected" != 1 ] && [ ! -f "${R}/projects/ROCKNIX/packages/network/rclone/sources/cloud_migrate_layout" ]; then
+  echo 'This migration suite is retired. Use a historical source checkout for historical firmware; #508 qualifies manual cloud setup.' >&2
+  exit 2
+fi
 [ -n "$P" ] || { echo '--output DIR is required' >&2; exit 2; }
 mkdir -p "$P/logs" "$P/frames"; P=$(cd "$P" && pwd)
 PASSES=0; FAILS=0; ITEM=cloud-epic; LOG="$P/logs/run.log"; FR="$P/frames"

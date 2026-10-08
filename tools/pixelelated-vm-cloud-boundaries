@@ -706,6 +706,8 @@ def main():
     if args.inject_failure:
         require(False, 'constructed failing assertion: expected exit1')
     require(all([args.tree, args.image, args.build_id, args.output]), 'tree, image, build-id and output required')
+    require((args.tree / SOURCES / 'cloud_migrate_layout').is_file(),
+            'migration suite retired by #508; use a historical source checkout and firmware')
     proof = Proof(args)
     try:
         proof.start()
