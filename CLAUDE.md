@@ -165,6 +165,12 @@ No Conventional Commits. Scope by package or device, matching history:
 - A network/download failure during a build often surfaces as a **misleading, unrelated-looking build error** — check for failed downloads first.
 - Before "fixing" apparently wrong code, verify design intent via `git log -S`/`git blame` — several dangerous-looking patterns are intentional (`engineering-practices.md`).
 - `emulationstation` source lives in a separate git repo; see `projects/ROCKNIX/packages/ui/emulationstation/package.mk` for the extra build steps.
+- **Keep each ES change with its flow and screenshot evidence.** Update the
+  canonical menu/IA/flow reference and accompanying reviewed happy-path and
+  branch frames for navigation, behavior or screen-content changes, including
+  copy-only edits. A nonvisual change records the exercised flow and unchanged
+  presentation. Source, references and the exact-source frame index precede
+  completion or pin promotion (`es-ui-style-guide.md`, D-WORKFLOW-155/156).
 - **Clarity, then brevity, then sized to the space** for every string a player reads, and surprise them as little as possible — `player-language.md` (D-UI-045) and `least-surprise.md` (D-UI-042), beside `time-to-play.md` (D-CLOUD-098): interface → first frame and exit → next first frame are measured on every image, and nothing goes on the launch path unless it must.
 - **Vocabulary is not decoration.** Four tiers (settings; saves; ROMs and BIOS; game content), two verbs (*back up*, *restore*), *sync* reserved for the automatic behaviour, "Wi-Fi" hyphenated, the serial comma, *game save* vs *save state* — `es-player-text.md` § Conventions, D-UI-022. Only "back up" vs "backup" is checked mechanically (`tools/vocabulary-check`, the `vocabulary` suite of `tools/vm-qa`).
 - **Every build ships onto devices that already have state.** Before publishing, check both the upgrade path (a device keeping its `/storage`) and a clean install — see `upgrade-and-install.md`. A fix that changes what we *write* does nothing for what is already written.
