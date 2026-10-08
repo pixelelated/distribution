@@ -6,6 +6,11 @@ protocol_cleanup() {
  [ "$PROTOCOL_ARMED" = 0 ] || G_ 'if [ -f /tmp/cloud-epic-protocol/remote.saved ]; then mv /tmp/cloud-epic-protocol/remote.saved /storage/.config/rclone/rclone.conf; fi; rm -f /storage/.config/profile.d/999-cloud-epic-qa.sh /storage/roms/gb/QAUnlinkedLocal.srm /storage/roms/gb/QAUnlinkedRemote.srm; rm -rf /tmp/cloud-epic-protocol /storage/qa-not-a-cloud' >/dev/null 2>&1
 }
 protocol_init() {
+ # Even an explicitly sourced historical suite refuses before its first write.
+ G_ 'test -x /usr/bin/cloud_migrate_layout' || {
+  echo 'Migration protocol retired or unavailable; no fixture was changed.' >&2
+  return 2
+ }
  G_ 'test ! -e /storage/.config/profile.d/999-cloud-epic-qa.sh && test ! -e /tmp/cloud-epic-protocol' || return 1
  G_ 'mkdir -p /tmp/cloud-epic-protocol /storage/.config/profile.d' || return 1
  PROTOCOL_ARMED=1
