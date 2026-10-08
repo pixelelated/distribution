@@ -1,13 +1,15 @@
 # Cloud folder flow review
 
-Status: source-overlay UI qualification complete, 2026-10-08 (D-CLOUD-178).
+Status: post-rclone setup contract reaffirmed, 2026-10-08 (D-CLOUD-178/179).
 #510 owns this contract. Distribution `6f89bc7cec` and ES `4e410dc9a8`
 implement category checks, explicit creation, independent paths and local
 instructions. Full host regression and both ordinary VM backends pass. The
 completed UI inventory includes the #512 localized failure/check-busy fix,
 #513 small-panel help/editor fit, and #514 selected-folder empty guidance.
-Source and product pins remain unintegrated; the #510 small-file repair scope
-is still unresolved. Assembled firmware, clean/public adoption and device
+Source and product pins remain unintegrated. #515 owns concrete-case
+investigation and qualification of targeted progress-file repairs; the overall
+setup direction is settled, not awaiting another owner choice. Assembled
+firmware, clean/public adoption and device
 qualification remain separate gates. #511 owns the parallel website; guide
 publication does not hold useful local instructions or add a firmware gate.
 
@@ -16,7 +18,7 @@ publication does not hold useful local instructions or add a firmware gate.
 The maintainer confirms that nobody else used the fork or the changes in the
 unmerged ROCKNIX PRs. Product adoption is from publicly released ROCKNIX, plus
 a clean install. The maintainer's experimental `/ROCKNIX` to `/pixelelated`
-cloud move is a separate recovery task, not a compatibility requirement for
+cloud move is a separate owner-managed task, not a compatibility requirement for
 the product. Existing experimental-state receipts remain historical evidence.
 
 The official latest release checked on 2026-10-07 is
@@ -82,7 +84,9 @@ not an approved future flow or an assembled firmware image.
 
 1. Link cloud storage, or retain the working connection and selected paths
    from public ROCKNIX. Linking does not authorize a move or a restore.
-2. Create the supported structure for enabled features after the setup action.
+2. After connection, show category checks, explicit folder creation and useful
+   instructions together. Create the supported structure only after the player
+   confirms the selected categories; linking alone creates nothing.
    Fresh defaults remain `/pixelelated/Saves`, `/pixelelated/Backups` and
    `/pixelelated/Content`. ROMs use `<content>/ROMs/<system>` and BIOS uses
    `<content>/BIOS`. Existing pointers remain until deliberately changed;
@@ -101,6 +105,26 @@ not an approved future flow or an assembled firmware image.
 The implemented diagram and screenshot coverage are below. The prospective
 progress-file repair is described under **Small-file fixes**; it is not an
 implemented branch or a qualified screen.
+
+## M7 implementation order and ownership
+
+The milestone body is the execution queue; this table maps its M7.P5 work to
+contract and evidence. Issue numbers identify work, not its priority.
+
+| Order / issue | Work and present state | Exit evidence |
+| --- | --- | --- |
+| 1 — [#510](https://github.com/pixelelated/distribution/issues/510) | Reconcile the settled post-connection contract, canonical flows, issues and rules. The validator/create/instructions foundation has completed source-overlay proof. | This reference, D-CLOUD-179 and live issue/milestone readback agree; no pending request to choose the overall approach. |
+| 2 — [#515](https://github.com/pixelelated/distribution/issues/515) | Investigate exact supported progress-file repair cases from public ROCKNIX and actual emulator writers, then implement and qualify any justified bounded action. This is the next implementation task. | Source-cited case/disposition table; concrete plans and failing safety controls for supported repairs; reviewed affected VM frames. If none is safe, record the evidenced instructions-only disposition, not a fictional repair pass. |
+| 3 — [#508](https://github.com/pixelelated/distribution/issues/508) | Integrate the qualified foundation and #515's result, retire the automatic cloud migration and promote coordinated distribution/ES pins. | Exact source/install/call-site sweep and integration manifest; preserved public credentials and independent pointers; canonical diagrams and source-bound proof travel with the changes. |
+| 4 — [#507](https://github.com/pixelelated/distribution/issues/507) | Freeze and independently audit the resulting P5 delta. | Required primary/cross-lab review receipts and resolved findings for those frozen inputs; no replay of the completed candidate16 audit. |
+| 5 — #508 / #492 / #344 / #265 / #359 | Assemble engineering firmware, prove clean install and public ROCKNIX adoption, then complete source/licence, named physical and release gates. | CF10 installed-image evidence, final input/inclusion mapping and each applicable release artifact. Engineering builds supply this evidence; source-overlay proof alone does not designate an RC. |
+| Parallel — [#511](https://github.com/pixelelated/distribution/issues/511) | Publish the setup, ROM and BIOS guides; activate QR destinations only after the pages work. | Published guide/link proof and actual QR/navigation proof when enabled. Useful local instructions do not wait for the website. |
+
+There is no blanket organizer and no owner-specific migration compatibility
+branch in this plan. #515 does not silently defer a demonstrated, requested
+repair: each case has an explicit disposition, and changes to delivery scope
+must be reflected in #510 and M7. No personal-cloud action is needed to
+establish the contract or qualify it with synthetic fixtures.
 
 ## Implemented flow and visual proof
 
@@ -281,9 +305,31 @@ mapping: its progress allowlist deliberately accepts standalone emulator
 layouts and save extensions outside `savefiles`. Moving every such file into
 that folder would break supported saves. A repeated-folder name alone is not
 proof either. Therefore this implementation exposes no blanket **Fix** action.
-The smaller-file repair requirement remains open until a concrete recognized
-case has source evidence and the bounded preview/collision/verification
-contract above is proved. No repair API or completed repair proof is claimed.
+The smaller-file repair requirement is actionable work in #515. Its first
+step is a source-cited case table: correct existing layouts, genuinely
+misplaced files with a proven destination, and ambiguous/unsupported cases.
+For each supported case, implement and prove the bounded plan, consent,
+collision, source-retention, interruption and verification contract above.
+No repair API or completed repair proof is claimed today. Unsupported cases
+keep useful instructions; they do not justify a guessed relocation.
+
+This prospective branch is deliberately separate from the implemented diagram
+and CF01–CF15 screenshots. Add its stable flow IDs and reviewed evidence when
+source exists; an existing help frame cannot prove a new repair action.
+
+```mermaid
+flowchart TD
+    F[Post-connection category finding] --> K{Recognized supported repair case?}
+    K -->|No or uncertain| I[Expected path and manual instructions]
+    K -->|Yes, within proven size and transport limits| P[Read-only exact repair plan]
+    P --> C{Separate confirmation}
+    C -->|Decline| R[Return without changes]
+    C -->|Confirm| V{Plan still matches files and configuration?}
+    V -->|No| S[Refuse stale plan; check again]
+    V -->|Yes| A[Apply only the confirmed bounded repair]
+    A --> O[Report actual outcome and retained files]
+    O --> Q[Read-only recheck or safe retry]
+```
 
 ## Instructions now, QR guides when the site is live
 
@@ -317,13 +363,26 @@ category seeding, scans/restores limited to the selected root, nested-folder
 guidance and scan/result/help UI. Focused controls, the full host suite,
 ordinary VM WebDAV/SFTP round trips and the complete affected-flow UI proof
 pass. Preserve the reviewed screenshots and rejected predecessors. The
-small-file repair scope question remains pending; do not call it delivered.
+targeted repair work is #515, with concrete-case investigation next; do not
+ask the owner to choose the settled approach again or call repairs delivered.
 Source integration/pins, clean/public ROCKNIX adoption on assembled firmware
 and final input/inclusion mapping remain separate gates.
 #507 independently audits the frozen resulting delta. New device firmware
 and physical smoke follow that sequence.
 
-The maintainer's Dropbox cleanup is separate: private inventory, then an exact
-reconciliation plan under its own authorization. Do not infer a whole-folder
-rename when both namespaces contain files, discard differing saves, or add a
-product compatibility branch solely for that experimental state.
+## Owner-managed alignment and private review
+
+The maintainer reports manually resetting experimental cloud state and requests
+read-only verification plus a later one-time review of test residue. #516 owns
+that private operational work, outside M7. Exact account history, timestamps,
+paths, inventories and credentials stay in restricted local records; GitHub
+receives redacted conclusions. A report is not verified transfer integrity.
+
+The owner may align/rename their library manually. A later test uses the new
+post-connection flow, not the retired automatic move/follow engine. A remote
+reset does not establish reset local pointers or setup state. #516 reads the
+actual state and compares the recorded timeline; no move/delete/sync or secret
+export is inferred. The later cleanup needs a concrete per-path disposition
+and named action scope. No generic cleanup feature or owner-specific product
+compatibility branch is added, and synthetic public/clean adoption does not
+wait for this personal task.

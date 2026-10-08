@@ -31,6 +31,7 @@ PNG, determines the baseline. This RC work has not replaced it.
 | Reference | Scope and evidence entrypoint |
 | --- | --- |
 | [Cloud folder flow](pixelelated/cloud-folder-flow-review.md#implemented-flow-and-visual-proof) | Current #508/#510 draft: link, selected-category check/create, independent paths, findings, local help, and failure/return branches. Source-overlay proof is distinguished from firmware qualification. |
+| [Cloud implementation order](pixelelated/cloud-folder-flow-review.md#m7-implementation-order-and-ownership) | #510 contract, #515 targeted repair cases, #508 integration, #507 audit and final firmware proof. Prospective repair diagrams are not implemented or screenshot-qualified surfaces. |
 | [Conflict wizard](conflict-wizard-ia.md) | Conflict decisions and their branch structure. Current cloud setup changes do not change the conflict algorithm or promote its historical wireframes as new screenshots. |
 | [VM QA ledger](vm-qa-log.md) | Recorded image qualifications, walk results and accepted baseline changes. |
 | [Walk definitions](../tools/vm-walks/) | Repeatable navigation and state fixtures; evidence is the corresponding reviewed run, not the step file alone. |

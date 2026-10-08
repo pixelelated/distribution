@@ -4,7 +4,9 @@
 
 #508/D-CLOUD-175 replaces the cloud-folder migration flow. The accepted
 firmware built on 2026-10-07 still has the previous behavior; this section
-describes the replacement undergoing script and UI proof.
+describes the replacement with completed source-overlay script/UI proof,
+awaiting final integration and installed-image qualification. Targeted
+progress-file repairs remain separate #515 work, not shipped behavior.
 
 - **Connecting cloud storage opens folder choices.** Check the categories
   you select, or explicitly create their folders and setup notes. Linking

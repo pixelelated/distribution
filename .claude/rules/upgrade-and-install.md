@@ -124,12 +124,18 @@ be made to just work, that is the answer, and everything else is a fallback.
 
 ## Current cloud setup policy
 
-D-CLOUD-175 (#508) retires automatic cloud-folder migration for 0.0.1.
-Normal backend linking creates the selected folders and README files; fresh
-configurations default to `/pixelelated`. Existing credentials and configured
+D-CLOUD-175/178/179 (#508/#510) retire automatic cloud-folder migration for
+0.0.1. Backend linking opens post-connection category choices; linking alone
+creates nothing. A separately confirmed CREATE FOLDERS action creates only
+the selected structure and setup notes. Fresh configurations default to
+`/pixelelated`. Existing credentials and configured
 paths stay unchanged until an explicit folder selection. Scans do not join,
 follow or move an older cloud library, and content discovery never silently
-replaces the selected path. Users populate or rearrange cloud files themselves.
+replaces the selected path. Users populate or rearrange ROM/BIOS libraries
+themselves. Any supported progress-file repair is a separately planned,
+confirmed and qualified action (#515), never an implicit upgrade or connection
+step. Public ROCKNIX and clean installs are the adoption baseline; owner-managed
+experimental cloud resets do not establish a reset local device configuration.
 This does not remove ordinary sync, selective restore or OS upgrade testing.
 The retired migration's history and proofs remain historical evidence. The
 general safeguards below apply if a future migration is actually required.
