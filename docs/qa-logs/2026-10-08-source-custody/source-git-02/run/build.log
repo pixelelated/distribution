@@ -1,0 +1,9 @@
+SNAPSHOT 1 a40dace1ae0af3ebd45848549fdf396f40e3930f blobs=2137 queued=44
+SNAPSHOT 2 c34a9130bc585b288703bd9716d7efae194974e2 blobs=1391 queued=43
+SNAPSHOT 3 56bfc8b301a1501b68c6e12c411985887ca655cd blobs=1323 queued=42
+SNAPSHOT 4 39535a6abcad5abf9f71c8b2a7975f005ee12ed6 blobs=1987 queued=42
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-source-git-02/run.py", line 95, in <module>
+    assert blob==expected['git_blob'],member.name;witnessed.add(member.name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: build/msw/config.gcc

@@ -1,0 +1,19 @@
+{
+  "utc": "2026-10-08T22:28:57.211845+00:00",
+  "result": "FAILED_TRACKED_CACHE_DIFFERENCES",
+  "original_results": {
+    "inner.rc": 1,
+    "outer.rc": 1,
+    "tool-wrapper.rc": 1,
+    "build.rc": 1,
+    "launcher": 1
+  },
+  "actual_host_exited_pids": [
+    1517723,
+    1517724,
+    1517725,
+    1517760
+  ],
+  "at": "wxwidgets cached checkout; inspect actual differences before recovery",
+  "completed_snapshots": 4
+}

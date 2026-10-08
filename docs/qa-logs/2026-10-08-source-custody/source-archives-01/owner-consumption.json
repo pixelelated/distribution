@@ -1,0 +1,109 @@
+{
+  "utc": "2026-10-08T22:25:28.246486+00:00",
+  "result": "FAILED_HELPER_PATHLIB_NORMALIZATION",
+  "original_results": {
+    "inner.rc": 1,
+    "outer.rc": 1,
+    "tool-wrapper.rc": 1,
+    "build.rc": 1,
+    "launcher": 1
+  },
+  "actual_host_exited_pids": [
+    1501178,
+    1501179,
+    1501180,
+    1501283
+  ],
+  "symlink_controls": [
+    {
+      "owner": "pixelelated-m7-replacement-18",
+      "all_raw_links_match": true,
+      "pathlib_normalizations": [
+        {
+          "path": "projects/Generic/devices/Generic-legacy/patches",
+          "manifest_and_raw_readlink": "../x11/patches/",
+          "normalized_pathlib_string": "../x11/patches"
+        },
+        {
+          "path": "projects/ROCKNIX/packages/devel/cmake/patches",
+          "manifest_and_raw_readlink": "../../../../../packages/devel/cmake/patches/",
+          "normalized_pathlib_string": "../../../../../packages/devel/cmake/patches"
+        },
+        {
+          "path": "projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/patches/SM6115",
+          "manifest_and_raw_readlink": "SM8250/",
+          "normalized_pathlib_string": "SM8250"
+        },
+        {
+          "path": "projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/patches/SM8550",
+          "manifest_and_raw_readlink": "SM8250/",
+          "normalized_pathlib_string": "SM8250"
+        },
+        {
+          "path": "projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/patches/SM8650",
+          "manifest_and_raw_readlink": "SM8250/",
+          "normalized_pathlib_string": "SM8250"
+        },
+        {
+          "path": "projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/patches/SM8750",
+          "manifest_and_raw_readlink": "SM8250/",
+          "normalized_pathlib_string": "SM8250"
+        },
+        {
+          "path": "projects/ROCKNIX/packages/lang/gcc/patches",
+          "manifest_and_raw_readlink": "../../../../../packages/lang/gcc/patches/",
+          "normalized_pathlib_string": "../../../../../packages/lang/gcc/patches"
+        }
+      ]
+    },
+    {
+      "owner": "pixelelated-m7-h700-refresh-02",
+      "all_raw_links_match": true,
+      "pathlib_normalizations": [
+        {
+          "path": "projects/Generic/devices/Generic-legacy/patches",
+          "manifest_and_raw_readlink": "../x11/patches/",
+          "normalized_pathlib_string": "../x11/patches"
+        },
+        {
+          "path": "projects/ROCKNIX/packages/devel/cmake/patches",
+          "manifest_and_raw_readlink": "../../../../../packages/devel/cmake/patches/",
+          "normalized_pathlib_string": "../../../../../packages/devel/cmake/patches"
+        },
+        {
+          "path": "projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/patches/SM6115",
+          "manifest_and_raw_readlink": "SM8250/",
+          "normalized_pathlib_string": "SM8250"
+        },
+        {
+          "path": "projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/patches/SM8550",
+          "manifest_and_raw_readlink": "SM8250/",
+          "normalized_pathlib_string": "SM8250"
+        },
+        {
+          "path": "projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/patches/SM8650",
+          "manifest_and_raw_readlink": "SM8250/",
+          "normalized_pathlib_string": "SM8250"
+        },
+        {
+          "path": "projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/patches/SM8750",
+          "manifest_and_raw_readlink": "SM8250/",
+          "normalized_pathlib_string": "SM8250"
+        },
+        {
+          "path": "projects/ROCKNIX/packages/lang/gcc/patches",
+          "manifest_and_raw_readlink": "../../../../../packages/lang/gcc/patches/",
+          "normalized_pathlib_string": "../../../../../packages/lang/gcc/patches"
+        }
+      ]
+    }
+  ],
+  "retired_partial_outputs": [
+    {
+      "path": "/workspace/artifacts/pixelelated-release-sources/.staging-m7-archives-01/distribution/7f58b7b1c592908dcd0ba5987955e59aaa79fe66.tar.gz",
+      "bytes": 25261551,
+      "sha256": "35423c6059746376ef538957af03c5ca52a25eec0f8adc3abb6f59f4546d6749",
+      "disposition": "incomplete generated archive retired after failed receipt; rebuild from unchanged inputs"
+    }
+  ]
+}
