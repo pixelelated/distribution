@@ -5,7 +5,7 @@ PKG_NAME="duckstation-sa"
 PKG_VERSION="0.1-10998"
 PKG_LICENSE="CC-BY-NC-ND-4.0"
 PKG_SITE="https://github.com/stenzek/duckstation"
-PKG_DEPENDS_TARGET="toolchain Python3"
+PKG_DEPENDS_TARGET="toolchain Python3 libcom-err"
 PKG_LONGDESC="Fast PlayStation 1 emulator for x86-64/AArch32/AArch64 "
 PKG_TOOLCHAIN="manual"
 
