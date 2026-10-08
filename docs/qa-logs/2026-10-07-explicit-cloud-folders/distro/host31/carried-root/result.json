@@ -1,0 +1,27 @@
+{
+  "case": "carried-root",
+  "status": "PASS",
+  "detail": "",
+  "cloud_sha256": {
+    "Games/BIOS/README.txt": "12345b222d272bcccee06cac35e9b0d4ac10a76617a32b72cefa8542a90d1f67",
+    "Games/README.txt": "cb0db1a29003ebedb5a5f92d17c49e7eadebedcc10e883e9d9af052fd4a57456",
+    "Games/ROMs/README.txt": "cdbf34d6dc27ad558261bd99b99bbc91850ba28a1150ef2488b18dbe87637bcd",
+    "README.txt": "81283a71c8db19f49232b395e3527170b14ae38add60d5180071196f24c283bf",
+    "owner.txt": "1a5f7f54b65cda84efa49a560e213477feff5ad3808d96eac3bc83dbe4d19267"
+  },
+  "pointers": {
+    "SAVESPATH": "/storage/roms",
+    "SAVES_REMOTE": "/",
+    "SETTINGS_BACKUPS": "/storage/roms/backup",
+    "SETTINGS_REMOTE": "/",
+    "BACKUPMETHOD": "copy",
+    "RESTOREMETHOD": "copy",
+    "BACKUPFILE_BACKUP_OPTION": "no",
+    "BACKUPFILE_RESTORE_OPTION": "no",
+    "LOG_LEVEL": "INFO",
+    "LAYOUT_KEEP": "",
+    "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+    "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+    "CONTENT_REMOTE": "/Games"
+  }
+}

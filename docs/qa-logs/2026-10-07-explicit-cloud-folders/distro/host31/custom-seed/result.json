@@ -1,0 +1,29 @@
+{
+  "case": "custom-seed",
+  "status": "PASS",
+  "detail": "",
+  "cloud_sha256": {
+    "Mine/Backups/README.txt": "a2e91a3dddf28269cbf704b1b7e2540608e9851a88f09679701e0c6629fd7f5c",
+    "Mine/Content/BIOS/README.txt": "12345b222d272bcccee06cac35e9b0d4ac10a76617a32b72cefa8542a90d1f67",
+    "Mine/Content/README.txt": "cb0db1a29003ebedb5a5f92d17c49e7eadebedcc10e883e9d9af052fd4a57456",
+    "Mine/Content/ROMs/README.txt": "cdbf34d6dc27ad558261bd99b99bbc91850ba28a1150ef2488b18dbe87637bcd",
+    "Mine/Saves/README.txt": "6c07312abbcb35b19244ee27603e40a408759d719428862851bfcc8441fac085",
+    "ROCKNIX/Content/ROMs/psx/cloud-only.chd": "6d0b85824df68a68f6032be6cb12040148e4eaf59329132d832f0c0ab78351ae",
+    "ROCKNIX/Saves/gb/old.srm": "c84a320447a88b71ce0d3731c63567e31a124965365ee0fb17dfe1952b73287a"
+  },
+  "pointers": {
+    "SAVESPATH": "/storage/roms",
+    "SAVES_REMOTE": "/Mine/Saves",
+    "SETTINGS_BACKUPS": "/storage/roms/backup",
+    "SETTINGS_REMOTE": "/Mine/Backups",
+    "BACKUPMETHOD": "copy",
+    "RESTOREMETHOD": "copy",
+    "BACKUPFILE_BACKUP_OPTION": "no",
+    "BACKUPFILE_RESTORE_OPTION": "no",
+    "LOG_LEVEL": "INFO",
+    "LAYOUT_KEEP": "",
+    "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+    "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+    "CONTENT_REMOTE": "/Mine/Content"
+  }
+}

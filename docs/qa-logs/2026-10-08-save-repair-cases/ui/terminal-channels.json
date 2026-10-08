@@ -1,0 +1,53 @@
+{
+  "utc": "2026-10-08T06:49:40.838265+00:00",
+  "channels": {
+    "backend01": {
+      "launcher_returncode": 0,
+      "inner_rc": 0,
+      "wrapper_rc": 0,
+      "watch_build_rc": 0
+    },
+    "walk-en640-psp": {
+      "launcher_returncode": 0,
+      "inner_rc": 0,
+      "wrapper_rc": 0,
+      "watch_build_rc": 0
+    },
+    "cases02": {
+      "launcher_returncode": 0,
+      "inner_rc": 0,
+      "wrapper_rc": 0,
+      "watch_build_rc": 0
+    },
+    "read01": {
+      "launcher_returncode": 1,
+      "inner_rc": 1,
+      "wrapper_rc": 1,
+      "watch_build_rc": 1
+    },
+    "read02": {
+      "launcher_returncode": 0,
+      "inner_rc": 0,
+      "wrapper_rc": 0,
+      "watch_build_rc": 0
+    },
+    "content01": {
+      "launcher_returncode": 0,
+      "inner_rc": 0,
+      "wrapper_rc": 0,
+      "watch_build_rc": 0
+    },
+    "content02": {
+      "launcher_returncode": 0,
+      "inner_rc": 0,
+      "wrapper_rc": 0,
+      "watch_build_rc": 0
+    }
+  },
+  "qualifications": {
+    "cases01": "Preparation-only SyntaxError, no submitted job or guest actions.",
+    "read01": "Embedded NUL in host SSH argument before guest subprocess; retained failure, read02 corrects fixture escaping.",
+    "content01": "Runner terminal0, but rejected semantic proof because cached synthetic endpoint listed new root as absent; terminal0 alone is not acceptance.",
+    "content02": "Only affected CF14 fixture repeated with restarted no-directory-cache endpoint and present/empty precondition."
+  }
+}

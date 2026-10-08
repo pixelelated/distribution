@@ -1,0 +1,34 @@
+{
+  "duckstation": {
+    "tag": "v0.1-10998",
+    "files": {
+      "memory_card_image.cpp": {
+        "url": "https://raw.githubusercontent.com/stenzek/duckstation/v0.1-10998/src/core/memory_card_image.cpp",
+        "sha256": "eaf120bcfb3242ec09388037d268755c79fdedb7152a239e71aeff3ec40cfc35"
+      },
+      "system.cpp": {
+        "url": "https://raw.githubusercontent.com/stenzek/duckstation/v0.1-10998/src/core/system.cpp",
+        "sha256": "1bc06258c6f9c4e820ba1ee4a78099a70256a5a01db6900f883f0baffb514d86"
+      },
+      "settings.cpp": {
+        "url": "https://raw.githubusercontent.com/stenzek/duckstation/v0.1-10998/src/core/settings.cpp",
+        "sha256": "870302a52b84fc2b176094a2aff468aaa2682b16c1e6644133922c2775240a1a"
+      }
+    },
+    "native_card_names": "settings.cpp:2489-2510; default shared_card_<slot>.mcd and per-game <serial/title>_<slot>.mcd",
+    "configured_root": "settings.cpp:2730; MemoryCards/Directory relative to DataRoot, default memcards; distro start_duckstation.sh links config memcards to /storage/roms/psx/duckstation/memcards",
+    "compatibility": ".mcr is retained compatibility, not the default native extension"
+  },
+  "ppsspp": {
+    "pin": "afbc66a318b86432642b532c575241f3716642ef",
+    "writer": "Core/Dialog/SavedataParam.cpp:49 ms0:/PSP/SAVEDATA/",
+    "mount": "Core/HLE/sceIo.cpp:667-670 mounts memStickDirectory as ms0; distro 004-set-paths.patch sets /storage/roms/psp in NativeApp.cpp",
+    "scope": "Arbitrary files below psp/PSP/SAVEDATA except default database exclusions; psp/PPSSPP compatibility remains"
+  },
+  "n64": {
+    "pin_prefix": "5340daf",
+    "writer": "src/main/savestates.c:94-107 appends stN or pjN[.zip]; slots bounded to0-9 at118-124/141-145",
+    "configuration": "SaveStatePath=/storage/roms/n64, retained by launcher temporary configuration with no override",
+    "scope": "Only direct n64 files with slots0-9; arbitrary explicit filenames and PJ ROM headers containing separators are outside supported default naming. Never relocate them."
+  }
+}

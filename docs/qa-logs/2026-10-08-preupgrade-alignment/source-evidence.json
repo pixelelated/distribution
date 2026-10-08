@@ -1,0 +1,189 @@
+{
+  "classification": "Pinned source evidence, not ES runtime execution",
+  "sources": [
+    {
+      "ref": "43d0bc3bf47fd858ba8d5c55fbdf52535a0db2aa",
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_migrate_layout",
+      "sha256": "0e4ccebde159006acb6313027e33b363b177eff2b62db2bacc93fea05396b2c1",
+      "claim": "Only --apply takes the transfer lock. A matching keep guard protects supported historical selected paths; the current-default join branch is distinct.",
+      "excerpts": [
+        {
+          "first_line": 56,
+          "last_line": 73,
+          "text": "56: SYNC_CONF=\"/storage/.config/cloud_sync.conf\"\n57: NEW_SAVES=\"/pixelelated/Saves\"\n58: NEW_BACKUPS=\"/pixelelated/Backups\"\n59: NEW_CONTENT=\"/pixelelated/Content\"\n60: NEW_ROOT=\"${NEW_SAVES%/*}\"   # the folder the tiers move into; named by the plan line below\n61: # Every saves folder this project ever shipped as its default. A device whose\n62: # saves folder is one of these is on a layout it never chose, so the move is\n63: # offered (D-CLOUD-160); any other folder is the player's own and stays\n64: # (the sibling-layout branch below). Oldest first; the current default is\n65: # NEW_SAVES and is not listed.\n66: SUPERSEDED_DEFAULT_SAVES=(\"/GAMES\" \"/ROCKNIX/Saves\")\n67: # The marker a cloud carries once it is on the current layout (#356): one\n68: # line, layout=<n>, at the parent of the saves folder. Read before anything\n69: # is offered; written after a move or a seeding.\n70: LAYOUT_VERSION=2\n71: LAYOUT_MARKER=\".layout\"\n72: REMOTE_LAYOUT=0\n73: MIGRATION_RECORD=\"/storage/.config/cloud-layout-migration.json\""
+        },
+        {
+          "first_line": 295,
+          "last_line": 315,
+          "text": "295: # One cloud transfer at a time (F-CS-23): the lock every other cloud script\n296: # takes, for --apply only -- the check reads and writes nothing, as the\n297: # match preview does. Without it a startup or game-exit sync could write\n298: # into the folder this was moving. The same descriptor discipline as the\n299: # others: the body runs with fd 9 closed, so nothing it starts holds the\n300: # lock. Exit 75 is the skip EmulationStation names.\n301: CLOUD_SYNC_LOCK=/var/run/cloud_sync.lock\n302: take_cloud_lock() {\n303:     local tries=0\n304:     exec 9>\"${CLOUD_SYNC_LOCK}\"\n305:     while ! flock -n 9; do\n306:         if [ \"${tries}\" -ge 4 ]; then\n307:             echo \"Skipped: another cloud sync is already running. Try again when it's done.\"\n308:             exit 75\n309:         fi\n310:         tries=$((tries + 1))\n311:         sleep 0.25\n312:     done\n313: }\n314: \n315: # A cloud that did not answer is not an empty cloud (audit #307 PL-027)."
+        },
+        {
+          "first_line": 943,
+          "last_line": 978,
+          "text": "943: # current-default folder already exists in the cloud -- another device made\n944: # the move -- is re-pointed with no question and one line in the journal.\n945: # Nothing is copied or removed here; the folders are already where they\n946: # belong. 0 when the device now points at the current layout, 3 when there\n947: # was nothing to follow, 1 when the conf could not be written.\n948: layout_follow() { # <remote> <saves> <backups> <content>\n949:     local remote=\"$1\" saves=\"$2\" backups=\"$3\" content=\"$4\" keep\n950:     same_folder \"${saves}\" \"${NEW_SAVES}\" && return 3\n951:     superseded_default \"${saves}\" || return 3\n952:     keep=$(conf_value LAYOUT_KEEP) || return 2\n953:     [ -n \"${keep}\" ] && same_folder \"${saves}\" \"${keep}\" && return 3\n954:     # One listing for the usual answer, \"no device has moved yet\": the\n955:     # current folder's parent, which names Saves/ once it exists (exists()\n956:     # would list the folder and then its parent, two rclone starts).\n957:     list_or_stop \"${remote}${NEW_SAVES%/*}/\" --dirs-only\n958:     printf '%s\\n' \"${LISTING}\" | grep -qxF -- \"${NEW_SAVES##*/}/\" || return 3\n959:     # A device whose old folder still holds files is not followed: they\n960:     # would be stranded in a folder nothing reads once the pointer moves\n961:     # (the futro's pre-mortem, 2026-10-01). The move is offered instead,\n962:     # which copies, verifies and only then removes.\n963:     has_files \"${remote}${saves}/\" && return 3\n964:     backup_pointer_for \"${remote}\" \"${backups}\" \"${NEW_BACKUPS}\"\n965:     local -a pointers=(SAVES_REMOTE \"${NEW_SAVES}\" SETTINGS_REMOTE \"${NEXT_BACKUPS}\")\n966:     # Content follows only where it was derived from the old folder or\n967:     # never set; a folder the player chose for ROMs stays theirs.\n968:     if content_unset || same_folder \"${content}\" \"$(derived_content \"$(folder_abs \"${saves}\")\")\" \\\n969:        || same_folder \"${content}\" \"${saves%/}/Content\"; then\n970:         pointers+=(CONTENT_REMOTE \"${NEW_CONTENT}\")\n971:     fi\n972:     set_pointers \"${pointers[@]}\" || return 1\n973:     say \"Followed: this device now uses ${remote}${NEW_SAVES}, which another device already made.\"\n974:     logger -t cloud_migrate_layout \"followed the fleet from ${saves} to ${NEW_SAVES}\" 2>/dev/null\n975:     return 0\n976: }\n977: \n978: # A fresh install beside a fleet still on the earlier folder: this device"
+        },
+        {
+          "first_line": 989,
+          "last_line": 1012,
+          "text": "989: layout_join() { # <remote> <saves> <content>\n990:     local remote=\"$1\" saves=\"$2\" content=\"$3\" keep\n991:     if same_folder \"${saves}\" \"${NEW_SAVES}\"; then\n992:         has_files \"${remote}${NEW_SAVES}/\" --exclude '/README.txt' && return 3\n993:     elif superseded_default \"${saves}\"; then\n994:         # The Nova's shape (2026-09-30): a carried /GAMES with nothing in it,\n995:         # the saves in /ROCKNIX/Saves beside it. Joined, the move is offered\n996:         # from the folder that holds them and KEEP USING keeps that folder;\n997:         # left on /GAMES, KEEP USING /ROCKNIX recorded /GAMES.\n998:         keep=$(conf_value LAYOUT_KEEP) || return 2\n999:         [ -n \"${keep}\" ] && same_folder \"${saves}\" \"${keep}\" && return 3\n1000:         has_files \"${remote}${saves}/\" && return 3\n1001:     else\n1002:         return 3\n1003:     fi\n1004:     earlier_source \"${remote}\" \"${saves}\" || return 3\n1005:     earlier_layout \"${SOURCE_FOUND}\" \"${content}\"\n1006:     local backups\n1007:     backups=$(conf_value SETTINGS_REMOTE) || return 2\n1008:     backup_pointer_for \"${remote}\" \"${backups}\" \"${E_BACKUPS}\"\n1009:     set_pointers SAVES_REMOTE \"${E_SAVES}\" SETTINGS_REMOTE \"${NEXT_BACKUPS}\" \\\n1010:         CONTENT_REMOTE \"${E_CONTENT}\" || return 1\n1011:     say \"Joined: this device now uses ${remote}${E_SAVES}, where your saves already are.\"\n1012:     logger -t cloud_migrate_layout \"joined the fleet at ${E_SAVES}: no saves in ${NEW_SAVES}\" 2>/dev/null"
+        },
+        {
+          "first_line": 1024,
+          "last_line": 1044,
+          "text": "1024: # 3 when its folder stands.\n1025: layout_settle() { # <remote> <saves> <backups> <content>\n1026:     local remote=\"$1\" saves=\"$2\" backups=\"$3\" content=\"$4\" rc keep\n1027:     layout_join \"${remote}\" \"${saves}\" \"${content}\"; rc=$?\n1028:     [ \"${rc}\" -ne 3 ] && return \"${rc}\"\n1029:     superseded_default \"${saves}\" || return 3\n1030:     keep=$(conf_value LAYOUT_KEEP) || return 2\n1031:     [ -n \"${keep}\" ] && same_folder \"${saves}\" \"${keep}\" && return 3\n1032:     has_files \"${remote}${saves}/\" && return 3\n1033:     backup_pointer_for \"${remote}\" \"${backups}\" \"${NEW_BACKUPS}\"\n1034:     local -a pointers=(SAVES_REMOTE \"${NEW_SAVES}\" SETTINGS_REMOTE \"${NEXT_BACKUPS}\")\n1035:     if content_unset || same_folder \"${content}\" \"$(derived_content \"$(folder_abs \"${saves}\")\")\" \\\n1036:        || same_folder \"${content}\" \"${saves%/}/Content\"; then\n1037:         pointers+=(CONTENT_REMOTE \"${NEW_CONTENT}\")\n1038:     fi\n1039:     set_pointers \"${pointers[@]}\" || return 1\n1040:     say \"Your cloud had nothing in ${remote}${saves}; this device now uses ${remote}${NEW_SAVES}.\"\n1041:     logger -t cloud_migrate_layout \"settled a carried ${saves} with nothing in it on ${NEW_SAVES}\" 2>/dev/null\n1042:     return 0\n1043: }\n1044: "
+        },
+        {
+          "first_line": 1300,
+          "last_line": 1318,
+          "text": "1300:     # as current, so this check offered to move a deliberately chosen layout\n1301:     # back to the default one (#74). The nested first layout, backups INSIDE\n1302:     # the saves folder, is the only shape this tool exists to move.\n1303:     if [ -e \"${MIGRATION_RECORD}\" ]; then\n1304:         case \"${mode}\" in\n1305:             --join|--follow) return 3 ;; # The explicit retry owns the remaining move.\n1306:             --settle|--keep|--write-marker)\n1307:                 migration_record_load \"${remote}\" || return $?\n1308:                 say \"The cloud folder move hasn't finished. Try the move again to finish it.\"\n1309:                 echo \">>> why YOUR CLOUD FOLDER MOVE DIDN'T FINISH\"\n1310:                 return 5 ;;\n1311:         esac\n1312:     fi\n1313:     case \"${mode}\" in\n1314:         --state)  layout_state \"${remote}\" \"${saves}\" \"${backups}\" \"${content}\"; return $? ;;\n1315:         --keep)   layout_keep \"${saves}\"; return $? ;;\n1316:         --follow) layout_follow \"${remote}\" \"${saves}\" \"${backups}\" \"${content}\"; return $? ;;\n1317:         --join)   layout_join \"${remote}\" \"${saves}\" \"${content}\"; return $? ;;\n1318:         --settle) layout_settle \"${remote}\" \"${saves}\" \"${backups}\" \"${content}\"; return $? ;;"
+        },
+        {
+          "first_line": 1662,
+          "last_line": 1694,
+          "text": "1662: # --needs-step: whether the cloud folder step has something to settle\n1663: # (D-CLOUD-170), asked at every boot, so no network and no rclone start: the\n1664: # saves folder is a default this project once shipped, the player has not\n1665: # kept it, and a remote is set up. 0 when it has, 1 when not, 2 when the\n1666: # conf cannot be read -- which settles nothing, so the step stays away.\n1667: # Names compared as written, case included: with no network there is no\n1668: # asking the cloud whether it folds case, and a hand-typed /games that a\n1669: # case-sensitive cloud calls the player's own would put the scan up at\n1670: # every boot for nothing. The scripts write the defaults in their own case.\n1671: if [ \"${1:-}\" = \"--needs-step\" ]; then\n1672:     CASE_INSENSITIVE=0\n1673:     if [ -e \"${MIGRATION_RECORD}\" ]; then\n1674:         grep -q '^\\[' /storage/.config/rclone/rclone.conf 2>/dev/null || exit 1\n1675:         exit 0\n1676:     fi\n1677:     _saves=$(conf_value SAVES_REMOTE) || exit 2\n1678:     _keep=$(conf_value LAYOUT_KEEP) || exit 2\n1679:     if same_folder \"${_saves}\" \"${NEW_SAVES}\"; then\n1680:         _backups=$(conf_value SETTINGS_REMOTE) || exit 2\n1681:         _content=$(conf_value CONTENT_REMOTE) || exit 2\n1682:         if same_folder \"${_backups}\" \"${NEW_BACKUPS}\" && historical_content \"${_content}\"; then\n1683:             grep -q '^\\[' /storage/.config/rclone/rclone.conf 2>/dev/null || exit 1\n1684:             exit 0\n1685:         fi\n1686:     fi\n1687:     superseded_default \"${_saves}\" || exit 1\n1688:     [ -n \"${_keep}\" ] && same_folder \"${_saves}\" \"${_keep}\" && exit 1\n1689:     grep -q '^\\[' /storage/.config/rclone/rclone.conf 2>/dev/null || exit 1\n1690:     exit 0\n1691: fi\n1692: [ \"${1:-}\" = \"--apply\" ] && take_cloud_lock\n1693: main \"$@\" 9>&-"
+        }
+      ]
+    },
+    {
+      "ref": "43d0bc3bf47fd858ba8d5c55fbdf52535a0db2aa",
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_scan",
+      "sha256": "a4830b23e7d3df7d86cba7867ccaaca583ea8881e90a4c5d3988671d79b20aa1",
+      "claim": "Folder scan performs join/follow without transfer lock.",
+      "excerpts": [
+        {
+          "first_line": 25,
+          "last_line": 29,
+          "text": "25: # still on an earlier folder joins it (cloud_migrate_layout --join), and a\n26: # device on a superseded folder whose current folder another device has\n27: # already made is re-pointed to it (cloud_migrate_layout --follow;\n28: # D-CLOUD-160's \"your other devices will follow\"). Nothing in the cloud\n29: # changes, so no lock is taken and a sync may run beside it."
+        },
+        {
+          "first_line": 202,
+          "last_line": 233,
+          "text": "202: read_folder() {\n203:     local layout rc\n204:     echo \">>> unit CLOUD FOLDER||\"\n205:     echo \">>> doing scan\"\n206:     layout=$(sibling cloud_migrate_layout)\n207:     # A fresh install beside a fleet still on the earlier folder joins it first\n208:     # (cloud_migrate_layout --join, a setting): the state below then reads the\n209:     # folder the player's saves are in, and the move is offered from there\n210:     # rather than CREATE IT beside them. 3 is \"nothing to join\"; anything else\n211:     # that is not 0 is the cloud not answering, and stops the scan with its why.\n212:     timeout 20 \"${layout}\" --join > \"${OUT}/join\" 2>&1; rc=$?\n213:     case \"${rc}\" in\n214:         0) log \"scan: joined the fleet's earlier folder\" ;;\n215:         3) ;;\n216:         *) stop_on \"${rc}\" \"--join\" \"${OUT}/join\" ;;\n217:     esac\n218:     \"${layout}\" --state > \"${OUT}/state\" 2>/dev/null; stop_on $? \"--state\" \"${OUT}/state\"\n219:     # A device left on a superseded folder with nothing in it, whose current\n220:     # folder another device has already made, follows the fleet here -- the\n221:     # one place it does since no sync asks any more (D-CLOUD-170): the dialogs\n222:     # then never ask about a folder the player has already answered for\n223:     # elsewhere.\n224:     if [ \"$(sed -n 's/^STATE=//p' \"${OUT}/state\")\" = superseded-empty ] \\\n225:        && [ \"$(sed -n 's/^CURRENT_EXISTS=//p' \"${OUT}/state\")\" = 1 ]; then\n226:         timeout 20 \"${layout}\" --follow > \"${OUT}/follow\" 2>&1; rc=$?\n227:         case \"${rc}\" in\n228:             0) log \"scan: followed the fleet to the current layout\" ;;\n229:             3) ;; # The remote may have changed since the state read; read it again.\n230:             *) stop_on \"${rc}\" \"--follow\" \"${OUT}/follow\" ;;\n231:         esac\n232:         \"${layout}\" --state > \"${OUT}/state\" 2>/dev/null; stop_on $? \"--state\" \"${OUT}/state\"\n233:     fi"
+        }
+      ]
+    },
+    {
+      "ref": "72494bc72e3d64d4dcfeb4e6478052bbdf166c5b",
+      "path": "es-core/src/SystemConf.cpp",
+      "sha256": "2da1969fb921f421a5cb064214e2b0d32b14dac75d08315290f4fa547cbc4b2d",
+      "claim": "SOURCE ONLY: constructor loads settings; singleton get reads cached confMap, so an external edit alone is not a proven in-memory refresh.",
+      "excerpts": [
+        {
+          "first_line": 60,
+          "last_line": 88,
+          "text": "60: \t\treturn;\n61: \n62: \tloadSystemConf();\t\n63: }\n64: \n65: SystemConf *SystemConf::getInstance() \n66: {\n67:     if (sInstance == NULL)\n68:         sInstance = new SystemConf();\n69: \n70:     return sInstance;\n71: }\n72: \n73: void SystemConf::parseSystemConf(const std::string& text)\n74: {\n75: \t// The same reading as ever (Utils::AtomicFile::parseKeyValues), kept\n76: \t// alone as well for a reload's comparison (G-E1-03).\n77: \tmOnDisk = Utils::AtomicFile::parseKeyValues(text);\n78: \tfor (const auto& kv : mOnDisk)\n79: \t\tconfMap[kv.first] = kv.second;\n80: }\n81: \n82: // One record at rest, under the name the boot scripts already use\n83: // (system.cfg.backup, D-CLOUD-079). Written whole through a temporary and a\n84: // rename, like the live file, and only when it would change -- this runs at\n85: // every start and after every save, and most of those change nothing.\n86: void SystemConf::recordLastGood(const std::string& text, int recoveredMode)\n87: {\n88: \t// The load/save released its lock before reaching this publication."
+        },
+        {
+          "first_line": 423,
+          "last_line": 437,
+          "text": "423: std::string SystemConf::get(const std::string &name) \n424: {\n425: \tif (mSystemConfFile.empty())\n426: \t\treturn Settings::getInstance()->getString(mapSettingsName(name));\n427: \t\n428: \tauto it = confMap.find(name);\n429: \tif (it != confMap.cend())\n430: \t\treturn it->second;\n431: \n432: \tauto dit = defaults.find(name);\n433: \tif (dit != defaults.cend())\n434: \t\treturn dit->second;\n435: \n436:     return \"\";\n437: }"
+        }
+      ]
+    },
+    {
+      "ref": "72494bc72e3d64d4dcfeb4e6478052bbdf166c5b",
+      "path": "es-app/src/main.cpp",
+      "sha256": "8f76411428f9645705b54a516d11c38f77eb80c15014d579393c7c5ac0b102c1",
+      "claim": "SOURCE ONLY: cached startup toggle gates the sync; the separate boot folder flow is armed independently.",
+      "excerpts": [
+        {
+          "first_line": 620,
+          "last_line": 627,
+          "text": "620: static void startStartupSavesSync(Window* window)\n621: {\n622: \tif (SystemConf::getInstance()->get(\"cloudsaves.startup\") != \"1\")\n623: \t\treturn;\n624: \tif (!Utils::FileSystem::exists(\"/storage/.config/rclone/rclone.conf\", false)\n625: \t\t|| !Utils::FileSystem::exists(\"/usr/bin/cloud_restore\")\n626: \t\t|| !Utils::FileSystem::exists(\"/usr/bin/cloud_backup\"))\n627: \t\treturn;"
+        },
+        {
+          "first_line": 679,
+          "last_line": 695,
+          "text": "679: \t\t// folder page. It must precede writes: a startup backup into an empty\n680: \t\t// old folder could otherwise make it win over the fleet's real saves\n681: \t\t// (#365, T08/T11/T12). This does not show or apply the move; its page\n682: \t\t// still waits for this worker and its outcome card to finish.\n683: \t\t\" if [ -x /usr/bin/cloud_migrate_layout ] && [ -x /usr/bin/cloud_scan ]; then\"\n684: \t\t\" /usr/bin/cloud_migrate_layout --needs-step >/dev/null 2>&1; _s=$?;\"\n685: \t\t\" if [ \\\"$_s\\\" = 0 ]; then\"\n686: \t\t\" timeout 30 /usr/bin/cloud_scan --folder; _s=$?;\"\n687: \t\t\" if [ \\\"$_s\\\" = 124 ]; then echo \\\">>> why THE CLOUD TOOK TOO LONG - IT'LL TRY AGAIN NEXT TIME\\\"; fi;\"\n688: \t\t\" [ \\\"$_s\\\" = 0 ] || exit \\\"$_s\\\";\"\n689: \t\t\" elif [ \\\"$_s\\\" != 1 ]; then exit \\\"$_s\\\"; fi; fi;\"\n690: \t\t\" echo \\\">>> doing receive\\\";\"\n691: \t\t\" /usr/bin/cloud_restore --yes --method=copy --update --saves-only --automatic; _r=$?;\"\n692: \t\t\" echo \\\">>> tier RESTORING SAVES|$_r\\\";\"\n693: \t\t\" echo \\\">>> doing send\\\";\"\n694: \t\t\" /usr/bin/cloud_backup --yes --method=copy --update --saves-only --automatic; _b=$?;\"\n695: \t\t\" echo \\\">>> tier BACKING UP SAVES|$_b\\\";\""
+        },
+        {
+          "first_line": 1127,
+          "last_line": 1136,
+          "text": "1127: \tif (!journeyPending)\n1128: \t\tstartStartupSavesSync(&window);\n1129: \n1130: \t// The cloud folder step at boot (D-CLOUD-170, fork #363): a device\n1131: \t// linked to a folder an earlier version made its default is asked about\n1132: \t// it once the startup sync has ended, at every boot until it is settled.\n1133: \t// Not beside the restore's own page, whose FINISH goes on to it (one\n1134: \t// setup page at a time), and not on the one-touch restore's boot.\n1135: \tif (!journeyPending && !Utils::FileSystem::exists(\"/storage/.config/.restore-finish-pending\", false))\n1136: \t\tGuiMenu::armCloudFolderStep(&window);"
+        }
+      ]
+    },
+    {
+      "ref": "72494bc72e3d64d4dcfeb4e6478052bbdf166c5b",
+      "path": "es-app/src/FileData.cpp",
+      "sha256": "8a677bd0eaf7d6172bef388b8f38da91a132e4adf1f9cdfdce98fd6e84ada33d",
+      "claim": "SOURCE ONLY: cached gameexit toggle decides the automatic backup command.",
+      "excerpts": [
+        {
+          "first_line": 1257,
+          "last_line": 1268,
+          "text": "1257: \t// that runs posted tasks does not turn while a game runs, so this task\n1258: \t// runs only after that game's exit, when that exit's own task is the\n1259: \t// one to act -- its --recent run carries this session's saves as well.\n1260: \tconst bool exitSync = SystemConf::getInstance()->get(\"cloudsaves.gameexit\") == \"1\"\n1261: \t\t&& Utils::FileSystem::exists(\"/usr/bin/cloud_backup\");\n1262: \tconst unsigned generation = ++sExitGeneration;\n1263: \tif (!capture.empty())\n1264: \t{\n1265: \t\tsCaptureStartedMs = steadyMs();\n1266: \t\tsCaptureInFlight = generation;   // before the thread, so a launch on the next frame sees it\n1267: \t}\n1268: \tstd::thread([window, capture, exitSync, generation]"
+        },
+        {
+          "first_line": 1304,
+          "last_line": 1315,
+          "text": "1304: \t\t\t{\n1305: \t\t\t\tLOG(LogInfo) << \"exit: a launch waited for this capture; its game's exit syncs\";\n1306: \t\t\t\treturn;\n1307: \t\t\t}\n1308: \t\t\tif (exitSync && !ThreadedCloudSync::isRunning())\n1309: \t\t\t{\n1310: \t\t\t\tThreadedCloudSync::start(window, \"/usr/bin/cloud_backup --yes --saves-only --recent --automatic\",\n1311: \t\t\t\t\t_(\"SYNC SAVES\"), _(\"SYNCING SAVES TO THE CLOUD\"), ThreadedCloudSync::Origin::Exit);\n1312: \t\t\t}\n1313: \t\t\t// Nothing else is said at exit (fork #292, D-RA-030): the offline\n1314: \t\t\t// achievements go up when RetroAchievements answers, with a card\n1315: \t\t\t// of their own on the link's return (ProxyCards)."
+        }
+      ]
+    },
+    {
+      "ref": "72494bc72e3d64d4dcfeb4e6478052bbdf166c5b",
+      "path": "es-app/src/guis/GuiMenu.cpp",
+      "sha256": "f37e239656b25dbb3ebaacbb74c37a4d4e97d1198c1072a9cafe42d3d03a2586",
+      "claim": "SOURCE ONLY: independent boot predicate consults --needs-step, without an auto-toggle guard, then may launch cloud_scan --folder.",
+      "excerpts": [
+        {
+          "first_line": 5497,
+          "last_line": 5525,
+          "text": "5497: \n5498: static void cloudFolderStepAgain(Window* window);\n5499: \n5500: static void cloudFolderStep(Window* window, CloudFolderPlace place, const std::function<void()>& done)\n5501: {\n5502: \tconst std::function<void()> finish = done ? done : [] {};\n5503: \tif (!Utils::FileSystem::exists(\"/usr/bin/cloud_scan\"))\n5504: \t{\n5505: \t\tfinish();\n5506: \t\treturn;\n5507: \t}\n5508: \tCloudFolderAsk ask;\n5509: \task.then = finish;\n5510: \tif (place == CloudFolderPlace::Setup)\n5511: \t{\n5512: \t\t// The seeding that follows makes the folders on a cloud that has\n5513: \t\t// none, and points a carried, empty /GAMES at them (D-CLOUD-169):\n5514: \t\t// only the move is asked here, and every way out goes on to it.\n5515: \t\task.createEmpty = false;\n5516: \t\task.rescan = finish;\n5517: \t\task.abandon = finish;\n5518: \t}\n5519: \telse\n5520: \t\task.rescan = [window] { cloudFolderStepAgain(window); };\n5521: \tLOG(LogInfo) << \"cloud folder step: checking the folder (\" << (place == CloudFolderPlace::Setup ? \"end of cloud setup\" : \"boot\") << \")\";\n5522: \tauto page = new GuiCloudTransfer(window, \"/usr/bin/cloud_scan --folder\", _(\"CHECKING YOUR CLOUD\"), 1);\n5523: \tpage->setAutoContinue([window, ask] { cloudOfferFolder(window, ask); });\n5524: \tif (ask.abandon)\n5525: \t\tpage->setDismissedAction(ask.abandon);"
+        },
+        {
+          "first_line": 5530,
+          "last_line": 5541,
+          "text": "5530: // default, not kept, with a remote set up. No network (--needs-step reads\n5531: // the conf), so it may be asked on the interface thread after a press.\n5532: static bool cloudFolderStepNeeded()\n5533: {\n5534: \tif (!Utils::FileSystem::exists(\"/usr/bin/cloud_migrate_layout\")\n5535: \t\t|| !Utils::FileSystem::exists(\"/usr/bin/cloud_scan\")\n5536: \t\t|| !Utils::FileSystem::exists(\"/storage/.config/rclone/rclone.conf\", false))\n5537: \t\treturn false;\n5538: \treturn ApiSystem::executeScriptLegacy(\"timeout 10 /usr/bin/cloud_migrate_layout --needs-step\",\n5539: \t\t[](const std::string&) {}).second == 0;\n5540: }\n5541: "
+        },
+        {
+          "first_line": 5607,
+          "last_line": 5641,
+          "text": "5607: void GuiMenu::armCloudFolderStep(Window* window)\n5608: {\n5609: \tif (sCloudFolderStepOffered || !UIModeController::getInstance()->isUIModeFull()\n5610: \t\t|| !Utils::FileSystem::exists(\"/usr/bin/cloud_migrate_layout\")\n5611: \t\t|| !Utils::FileSystem::exists(\"/usr/bin/cloud_scan\")\n5612: \t\t|| !Utils::FileSystem::exists(\"/storage/.config/rclone/rclone.conf\", false))\n5613: \t\treturn;\n5614: \tstd::thread([window]\n5615: \t{\n5616: \t\t// The question first, off the interface thread: a bash and two awks,\n5617: \t\t// tens of milliseconds on an A53, kept off the boot. Almost every\n5618: \t\t// device answers no here, and nothing else runs.\n5619: \t\tconst int rc = ApiSystem::executeScriptLegacy(\"timeout 10 /usr/bin/cloud_migrate_layout --needs-step\",\n5620: \t\t\t[](const std::string&) {}).second;\n5621: \t\tif (rc != 0)\n5622: \t\t{\n5623: \t\t\tLOG(LogInfo) << \"cloud folder step: nothing to settle (--needs-step \" << rc << \")\";\n5624: \t\t\treturn;\n5625: \t\t}\n5626: \t\t// The startup sync first: its card is the screen's until it ends,\n5627: \t\t// and a move takes the lock it holds -- a move asked for beside it\n5628: \t\t// was refused as A SYNC IS ALREADY RUNNING.\n5629: \t\twhile (ThreadedCloudSync::isRunning() && !sCloudFolderStepOffered)\n5630: \t\t\tstd::this_thread::sleep_for(std::chrono::milliseconds(500));\n5631: \t\t// A link still coming up is given its time (bounded; no route and\n5632: \t\t// nothing coming up answers at once), so a device whose Wi-Fi joins\n5633: \t\t// a few seconds after the interface is not told it is offline.\n5634: \t\tApiSystem::executeScriptLegacy(\"[ -x /usr/bin/cloud_net_ready ] && timeout 40 /usr/bin/cloud_net_ready --wait 30\",\n5635: \t\t\t[](const std::string&) {});\n5636: \t\t// Then once a second until the screen is free, one post at a time;\n5637: \t\t// the window going away (AppWindow::closing) ends it.\n5638: \t\tauto state = std::make_shared<std::atomic<int>>(0);   // 0 waiting, 1 asked, 2 shown\n5639: \t\tfor (;;)\n5640: \t\t{\n5641: \t\t\tconst int now = state->load();"
+        }
+      ]
+    },
+    {
+      "ref": "43d0bc3bf47fd858ba8d5c55fbdf52535a0db2aa",
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_content_backup",
+      "sha256": "c6789f9476d1c13cc00050fe2478d26629da05ef6af89222eb0ef72f3bf594ae",
+      "claim": "Old content discovery precedes transfer lock; read-only rclone calls are expected before rc75.",
+      "excerpts": [
+        {
+          "first_line": 192,
+          "last_line": 200,
+          "text": "192:         echo \">>> why YOUR CLOUD SYNC SETTINGS COULDN'T BE READ\"\n193:         echo \"Your cloud sync settings couldn't be read. Set up cloud storage again under GAME SETTINGS > MANAGE CLOUD STORAGE.\"\n194:         exit 1 ;;\n195: esac\n196: \n197: REMOTENAME=$(rclone listremotes | head -1)\n198: if [ -z \"${REMOTENAME}\" ]; then\n199:     echo \">>> why YOUR CLOUD STORAGE ISN'T SET UP YET\"\n200:     echo \"Your cloud storage isn't set up yet. Set it up under GAME SETTINGS > MANAGE CLOUD STORAGE first.\""
+        },
+        {
+          "first_line": 647,
+          "last_line": 659,
+          "text": "647:     --exclude \"*.eep\" --exclude \"*.mpk\" --exclude \"*.sra\" --exclude \"*.fla\"\n648:     --exclude \"*.mcd\" --exclude \"*.mcr\"\n649:     --exclude \"save/**\" --exclude \"memcards/**\"\n650:     --exclude \"shared/savefiles/**\" --exclude \"PPSSPP/**\"\n651: )\n652: \n653: STATUS=0\n654: take_cloud_lock\n655: # Everything from here to the end of the script runs with the lock\n656: # descriptor closed, so no child of this run can hold the lock once this\n657: # shell is gone -- see take_cloud_lock. The brace group is the whole of\n658: # the change: it adds no subshell, so exits, traps and variables behave\n659: # exactly as they did."
+        }
+      ]
+    },
+    {
+      "ref": "43d0bc3bf47fd858ba8d5c55fbdf52535a0db2aa",
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_content_restore",
+      "sha256": "3b28fd1403657d713f92f216840a52ff7e692bf09746a7ccb8c2519c6940d2f8",
+      "claim": "Old content discovery precedes transfer lock; read-only rclone calls are expected before rc75.",
+      "excerpts": [
+        {
+          "first_line": 229,
+          "last_line": 240,
+          "text": "229:         echo \">>> why YOUR CLOUD SYNC SETTINGS COULDN'T BE READ\"\n230:         echo \"Your cloud sync settings couldn't be read. Set up cloud storage again under GAME SETTINGS > MANAGE CLOUD STORAGE.\"\n231:         exit 1 ;;\n232: esac\n233: \n234: REMOTENAME=$(rclone listremotes | head -1)\n235: if [ -z \"${REMOTENAME}\" ]; then\n236:     echo \">>> why YOUR CLOUD STORAGE ISN'T SET UP YET\"\n237:     echo \"Your cloud storage isn't set up yet. Set it up under GAME SETTINGS > MANAGE CLOUD STORAGE first.\"\n238:     exit 1\n239: fi\n240: "
+        },
+        {
+          "first_line": 1425,
+          "last_line": 1443,
+          "text": "1425:     --list)\n1426:         # Top-level directories only; one per line, no trailing slash.\n1427:         # Lists both locations so an upgraded device still sees content that\n1428:         # predates CONTENT_REMOTE, rather than presenting an unexplained empty\n1429:         # list to somebody who changed nothing.\n1430:         {\n1431:             # current layout, reported under the local names the rest of the\n1432:             # script uses -- BIOS in the cloud is /storage/roms/bios here\n1433:             rclone lsf --dirs-only \"${ROOT}ROMs/\" \"${RCLONE_LIST_OPTS[@]}\" 2>/dev/null | sed 's:/$::'\n1434:             # the flat layout that shipped before it, minus its own containers\n1435:             rclone lsf --dirs-only \"${ROOT}\" \"${RCLONE_LIST_OPTS[@]}\" 2>/dev/null | sed 's:/$::' \\\n1436:                 | grep -vxE 'ROMs|BIOS'\n1437:             if [ -n \"${CONTENT_REMOTE}\" ]; then\n1438:                 rclone lsf --dirs-only \"${LEGACY_ROOT}\" \"${RCLONE_LIST_OPTS[@]}\" 2>/dev/null | sed 's:/$::' \\\n1439:                     | grep -Fxf <(legacy_dirs) 2>/dev/null\n1440:             fi\n1441:         } | sort -u | sed '/^$/d'\n1442:         exit 0\n1443:     ;;"
+        },
+        {
+          "first_line": 1513,
+          "last_line": 1525,
+          "text": "1513:         DIRS=(\"$@\")\n1514:     ;;\n1515: esac\n1516: \n1517: \n1518: \n1519: STATUS=0\n1520: take_cloud_lock\n1521: # Everything from here to the end of the script runs with the lock\n1522: # descriptor closed, so no child of this run can hold the lock once this\n1523: # shell is gone -- see take_cloud_lock. The brace group is the whole of\n1524: # the change: it adds no subshell, so exits, traps and variables behave\n1525: # exactly as they did."
+        }
+      ]
+    }
+  ]
+}

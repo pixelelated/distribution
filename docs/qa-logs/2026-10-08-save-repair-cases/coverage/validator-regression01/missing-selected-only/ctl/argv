@@ -1,0 +1,7 @@
+listremotes
+config file
+lsjson qa:/pixelelated/Saves --recursive --max-depth 3 --no-mimetype --no-modtime --retries 1 --low-level-retries 1 --contimeout 3s --timeout 5s --max-duration 6s
+lsjson qa:/pixelelated/Backups --recursive --max-depth 3 --no-mimetype --no-modtime --retries 1 --low-level-retries 1 --contimeout 3s --timeout 5s --max-duration 6s
+lsjson qa:/pixelelated/Content --recursive --max-depth 1 --no-mimetype --no-modtime --retries 1 --low-level-retries 1 --contimeout 3s --timeout 5s --max-duration 6s
+listremotes
+config file

@@ -6,7 +6,7 @@
 firmware built on 2026-10-07 still has the previous behavior; this section
 describes the replacement with completed source-overlay script/UI proof,
 awaiting final integration and installed-image qualification. Targeted
-progress-file repairs remain separate #515 work, not shipped behavior.
+progress-file case qualification remains #515 work, not shipped behavior.
 
 - **Connecting cloud storage opens folder choices.** Check the categories
   you select, or explicitly create their folders and setup notes. Linking
@@ -33,10 +33,28 @@ progress-file repairs remain separate #515 work, not shipped behavior.
   as a check, and the new check/create failure reasons have French translations
   (#512). Saves help retains the complete category list in wrapping text, and
   the content-path editor uses a title that fits small panels (#513).
+- **Standalone saves keep their emulator paths.** #520 corrects coverage for
+  PPSSPP savedata, DuckStation memory cards and Mupen64Plus slot states. Save
+  backup/restore includes those supported paths, while ROM/content transfers,
+  media passes and matching leave their progress alone. Folder checks inspect
+  the two known deeper save subtrees within the existing time and listing limits.
+  The source passes 39 focused controls, 21 content and 30 validator regressions,
+  plus nine controls executing the image's BusyBox tools. Ten affected VM
+  frames are reviewed; assembled firmware inclusion remains pending.
+- **New default DuckStation captures enter screenshot backup coverage.** #521
+  directs clean and retained shipped-default settings to the local screenshots
+  folder. Custom paths and old captures stay unchanged. Historical captures
+  outside the saves root require deliberate manual placement before backup;
+  this change does not move them. Host and native default/custom capture
+  qualification pass with runtime package fixes #522/#523; the generated PNG
+  also survives ordinary saves backup and restore byte-for-byte.
 
 No generic save-file relocation action or unpublished documentation QR ships
-in this draft. Source-overlay visual proof and host controls pass; adoption
-and final firmware inclusion remain separate gates.
+in this draft. The finite #515 case review preserves valid layouts and uses
+instructions for ambiguous placement; a repeated folder name is not enough
+to infer a move. Foundation source-overlay visual proof and host controls pass;
+#520/#521 affected source-overlay proof passes; independent audit, adoption
+and final firmware inclusion remain open.
 
 Earlier migration entries below are historical; their descriptions do not
 override this replacement's scope or establish its final firmware inclusion.

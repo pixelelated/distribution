@@ -1,0 +1,16 @@
+{
+  "utc": "2026-10-08T07:16:33.213433+00:00",
+  "reviewer": "root",
+  "host_sealed_files": 469,
+  "host_seal_sha256": "0c4c0d1b06df0df175f8dcf3f7011163d6afed0f50033a2df564c985642a6379",
+  "verified_target_artifacts": 6,
+  "target_sha256": "043101a87e5eaa57b786b88dfbd227be2d7768445d53b69346b547fef2e938a3",
+  "target_architecture": "x86_64",
+  "soname": "libcom_err.so.2",
+  "build_install_terminal": [
+    0,
+    0
+  ],
+  "scope": "Actual target package output and normal install; guest native application/capture separately reviewed.",
+  "reviewer_correction": "Initial root comparison treated metadata objects as digest strings and falsely reported mismatch. Correct schema-aware byte/hash comparison passes; sealed files unchanged."
+}

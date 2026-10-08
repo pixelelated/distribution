@@ -1,0 +1,32 @@
+{
+  "recipe_sha256": "40402043c12b8f3cb0e3a474a43f296393d4a323841441c234d0ea7d8228c853",
+  "rc": 0,
+  "migration_engine_absent": true,
+  "installed": {
+    "cloud_setup": {
+      "sha256": "67c6f9be8b2c30ad903139ee34be3ccfb64dcf7b462e1abbf0c0ec648d3860b6",
+      "mode": "0o755",
+      "source_equal": true
+    },
+    "cloud_scan": {
+      "sha256": "32f7b5410e6ec2c6ed91fd9ee4745cd0986b48c7ac0cc187df40bd7a375df892",
+      "mode": "0o755",
+      "source_equal": true
+    },
+    "cloud_backup": {
+      "sha256": "b3d3d7b2d37f62e9ec02a446ba809645666a533e7e08e87b3fe6d97e048ef48e",
+      "mode": "0o755",
+      "source_equal": true
+    },
+    "cloud_sync.conf": {
+      "sha256": "a121977066ce805e791108258fe12d1ecbce5e71ce2f61f096394a9fca982305",
+      "mode": "0o664",
+      "source_equal": true
+    },
+    "cloud_sync.conf.defaults": {
+      "sha256": "77ce914421b47ef7f0a33e6085a5793cb8be55a5c239788adf8575a57d3ad1c4",
+      "mode": "0o664",
+      "source_equal": true
+    }
+  }
+}

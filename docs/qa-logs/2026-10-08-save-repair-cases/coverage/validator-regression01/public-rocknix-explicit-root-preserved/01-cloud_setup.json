@@ -1,0 +1,30 @@
+{
+  "argv": [
+    "cloud_setup",
+    "--validate-folders",
+    "saves,settings",
+    "proof01"
+  ],
+  "rc": 0,
+  "pointers": {
+    "BACKUPPATH": "/storage/roms",
+    "RESTOREPATH": "/storage/roms",
+    "BACKUPFOLDER": "/storage/roms/backup",
+    "SYNCPATH": "/GAMES",
+    "SYNCPATH_BACKUP": "/GAMES/backup",
+    "LOG_LEVEL": "INFO",
+    "BACKUPMETHOD": "copy",
+    "BACKUPFILE_BACKUP_OPTION": "yes",
+    "RESTOREMETHOD": "copy",
+    "BACKUPFILE_RESTORE_OPTION": "no",
+    "RSYNCRMDIR": "yes",
+    "CONTENT_REMOTE": "",
+    "SAVESPATH": "/storage/roms",
+    "SETTINGS_BACKUPS": "/storage/roms/backup",
+    "SAVES_REMOTE": "/GAMES",
+    "SETTINGS_REMOTE": "/GAMES/backup",
+    "RCLONE_NET_OPTS": "--contimeout 15s --timeout 30s --low-level-retries 10 --retries 1",
+    "RCLONE_SYNC_NET_OPTS": "--contimeout 5s --timeout 5s --retries 1 --max-duration 90s --low-level-retries 5 --transfers 1",
+    "CLOUD_BACKUP_KEEP": "3"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "rc": 75,
+  "elapsed_seconds": 1.1533506939886138,
+  "discovery_before_lock_refusal": [
+    "listremotes",
+    "lsf --dirs-only qa:/ROCKNIX/Content/ROMs/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1",
+    "lsf --dirs-only qa:/ROCKNIX/Content/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1",
+    "lsf --dirs-only qa: --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1"
+  ],
+  "transfer_operations": 0
+}

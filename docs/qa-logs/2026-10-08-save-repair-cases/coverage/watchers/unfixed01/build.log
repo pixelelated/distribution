@@ -1,0 +1,17 @@
+FAIL filter-psp fixture-check rc=1: bwrap: Can't mkdir /usr/config: Read-only file system
+
+FAIL filter-duckstation fixture-check rc=1: bwrap: Can't mkdir /usr/config: Read-only file system
+
+FAIL content-list-count-scan fixture-check rc=1: bwrap: Can't mkdir /usr/config: Read-only file system
+
+FAIL content-upload fixture-check rc=1: bwrap: Can't mkdir /usr/config: Read-only file system
+
+FAIL content-restore fixture-check rc=1: bwrap: Can't mkdir /usr/config: Read-only file system
+
+FAIL content-match fixture-check rc=1: bwrap: Can't mkdir /usr/config: Read-only file system
+
+FAIL validator-psp-depth5 fixture-check rc=1: bwrap: Can't mkdir /usr/config: Read-only file system
+
+FAIL validator-duck-depth4 fixture-check rc=1: bwrap: Can't mkdir /usr/config: Read-only file system
+
+save-layout: 0 PASS, 8 FAIL

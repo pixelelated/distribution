@@ -1,0 +1,23 @@
+{
+  "case": "explicit-selection",
+  "status": "PASS",
+  "detail": "",
+  "cloud_sha256": {
+    "ROCKNIX/Saves/gb/old.srm": "01d09d19c2139a46aebfb577780d123d7396e97201bc7ead210a2ebff8239dee"
+  },
+  "pointers": {
+    "SAVESPATH": "/storage/roms",
+    "SAVES_REMOTE": "/Selected/Saves",
+    "SETTINGS_BACKUPS": "/storage/roms/backup",
+    "SETTINGS_REMOTE": "/Selected/Backups",
+    "BACKUPMETHOD": "copy",
+    "RESTOREMETHOD": "copy",
+    "BACKUPFILE_BACKUP_OPTION": "no",
+    "BACKUPFILE_RESTORE_OPTION": "no",
+    "LOG_LEVEL": "INFO",
+    "LAYOUT_KEEP": "",
+    "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+    "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+    "CONTENT_REMOTE": "/Other"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "case": "read-legacy-missing",
+  "status": "PASS",
+  "detail": "",
+  "cloud_sha256": {
+    "ROCKNIX/Content/ROMs/psx/cloud-only.chd": "993f7c0b93b31924a6050564d866fc23709663741481b003ebf805cadeebe97b",
+    "pixelelated/Content/ROMs/gb/current.gb": "b1d70f00e9d3da2e7335cf9f8e340897ace9bb118d0530d404f515fda06c23e2"
+  },
+  "pointers": {
+    "SAVESPATH": "/storage/roms",
+    "SAVES_REMOTE": "/ROCKNIX/Saves",
+    "SETTINGS_BACKUPS": "/storage/roms/backup",
+    "SETTINGS_REMOTE": "/ROCKNIX/Backups",
+    "BACKUPMETHOD": "copy",
+    "RESTOREMETHOD": "copy",
+    "BACKUPFILE_BACKUP_OPTION": "no",
+    "BACKUPFILE_RESTORE_OPTION": "no",
+    "LOG_LEVEL": "INFO",
+    "LAYOUT_KEEP": "",
+    "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+    "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+    "CONTENT_REMOTE": "/ROCKNIX/Content"
+  }
+}

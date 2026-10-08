@@ -1,0 +1,31 @@
+{
+  "utc": "2026-10-08T07:07:20.157224+00:00",
+  "reviewer": "root",
+  "scope": "#520 source-overlay affected-flow proof; not firmware inclusion or gameplay",
+  "verified_sealed_files": 196,
+  "seal_manifest_sha256": "78ba169f0a83d8e06db0e9fb5ab68673cba14bc1cc99982d69c292327604410d",
+  "evidence_index_sha256": "a793f9bc3600198670b00b978ad934409e31c7502f5fa8cf9edb929affe4ebcb",
+  "statuses": {
+    "reviewed": 10,
+    "rejected": 1
+  },
+  "visually_inspected_reviewed_frames": [
+    "frames/psp-en640.png",
+    "frames/duck-en640.png",
+    "frames/n64-en640.png",
+    "frames/depth-bound-en640.png",
+    "frames/duck-fr1280.png",
+    "frames/read-failure-en640.png",
+    "frames/selected-progress-empty-en640.png",
+    "frames/read-retry-en640.png",
+    "frames/selected-progress-options-en640.png",
+    "frames/selected-progress-selection-en640.png"
+  ],
+  "visual_result": "All ten inspected frames show readable expected paths, scoped findings and caveat; no fit/copy defect found.",
+  "content02_before_after_equal": true,
+  "content02_witness_sha256": "5c1423da12cef42ad872a5a30e871a323653dbd80b69a1413bf5b395868011af",
+  "opening_and_content_stamps": "Both actual final-readback exits0",
+  "terminal_evidence": "ui/terminal-channels.json preserves failed read01 and semantically rejected content01 separately; accepted cases all four channels0.",
+  "decision": "Accepted #520 affected-flow UI proof. Guest retained only for queued #521/#523 runtime proof.",
+  "branch_mapping_correction": "Four ordinary findings corrected from CF07 to CF02; unreadable/depth/retry CF07 and selection CF14 unchanged. Prior index/194 seals retained in ui/history; all frame bytes unchanged."
+}

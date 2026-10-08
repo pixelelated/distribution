@@ -1,0 +1,39 @@
+{
+  "storage": {
+    ".config/duckstation/gamecontrollerdb.txt": {
+      "link": "/usr/config/SDL-GameControllerDB/gamecontrollerdb.txt"
+    },
+    ".config/duckstation/memcards": {
+      "link": "/storage/roms/psx/duckstation/memcards"
+    },
+    ".config/duckstation/savestates": {
+      "link": "/storage/roms/savestates/psx"
+    },
+    ".config/duckstation/settings.ini": {
+      "bytes": 62,
+      "sha256": "5bde28ba0dc93ddc7256a0d7e86fd5a9be1f262ddbaacf8210c598e0c2dfe037"
+    },
+    ".local/share/duckstation": {
+      "link": "/storage/.config/duckstation"
+    },
+    "custom-captures/historical.png": {
+      "bytes": 15,
+      "sha256": "f8b507b27d5333686bc5fa34c68280b142294efdff2c9abe867e8aa8867d57ea"
+    },
+    "roms/psx/duckstation/memcards/existing.bin": {
+      "bytes": 20,
+      "sha256": "2cf6f9502af930012f0da2474a1079432cf96a5fe18b264999c4295f9a7efe37"
+    },
+    "roms/savestates/psx/existing.bin": {
+      "bytes": 20,
+      "sha256": "2cf6f9502af930012f0da2474a1079432cf96a5fe18b264999c4295f9a7efe37"
+    }
+  },
+  "cloud": {},
+  "source_sha256": {
+    "projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/sources/Start Duckstation.sh": "a0a2a11cf370f318f917c660b6d605f5cb6681aad0488a209d6db5d675f25efc",
+    "projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/scripts/duckstation_screenshot_path": "f53ea578937610a693daecdc04bb7cd0c876ca6aca640f8dd17306edc0b6c6fd",
+    "projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/config/InputPlumber/settings.ini": "3e600960f709382ac6e14cea375e3c4cf5cf3a29f6ade3faf1c25f040d5bd889",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_sync-rules.txt": "2528550d5b45f8ab8264b55f21afa8098a88d1a99572bcfd87a4b9e3d3506208"
+  }
+}

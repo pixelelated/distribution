@@ -1,0 +1,13 @@
+>>> unit psp|1|2
+Matching psp to the cloud...
+Transferred:   	        173 B / 173 B, 100%, 0 B/s, ETA -
+Checks:                 5 / 5, 100%, Listed 17
+Deleted:                1 (files), 0 (dirs), 13 B (freed)
+Transferred:            3 / 3, 100%
+Elapsed time:         0.0s
+>>> unit psx|2|2
+Matching psx to the cloud...
+Transferred:   	          0 B / 0 B, -, 0 B/s, ETA -
+Checks:                 1 / 1, 100%, Listed 8
+Elapsed time:         0.0s
+>>> removed 1|13|psp:1:13,psx:0:0

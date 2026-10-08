@@ -1,0 +1,30 @@
+[
+  {
+    "check": "bash syntax projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/scripts/start_duckstation.sh",
+    "rc": 0,
+    "output": ""
+  },
+  {
+    "check": "bash syntax projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/sources/Start Duckstation.sh",
+    "rc": 0,
+    "output": ""
+  },
+  {
+    "check": "helper Python syntax",
+    "rc": 0
+  },
+  {
+    "check": "pkgcheck duckstation-sa",
+    "rc": 0,
+    "output": "\u001b[Kprojects/ROCKNIX/packages/emulators/standalone/duckstation-sa/package.mk...\n\u001b[K"
+  },
+  {
+    "check": "git diff --check scoped package",
+    "rc": 0,
+    "output": ""
+  },
+  {
+    "check": "frozen manifest equality",
+    "rc": 0
+  }
+]

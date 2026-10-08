@@ -1,0 +1,137 @@
+{
+  "passed": 29,
+  "failed": 0,
+  "results": [
+    {
+      "case": "clean-game-InputPlumber",
+      "result": "PASS"
+    },
+    {
+      "case": "clean-game-H700",
+      "result": "PASS"
+    },
+    {
+      "case": "clean-game-AMD64",
+      "result": "PASS"
+    },
+    {
+      "case": "retained-game-missing",
+      "result": "PASS"
+    },
+    {
+      "case": "retained-game-empty",
+      "result": "PASS"
+    },
+    {
+      "case": "retained-game-default",
+      "result": "PASS"
+    },
+    {
+      "case": "retained-game-case-crlf",
+      "result": "PASS"
+    },
+    {
+      "case": "clean-tool-InputPlumber",
+      "result": "PASS"
+    },
+    {
+      "case": "clean-tool-H700",
+      "result": "PASS"
+    },
+    {
+      "case": "clean-tool-AMD64",
+      "result": "PASS"
+    },
+    {
+      "case": "retained-tool-missing",
+      "result": "PASS"
+    },
+    {
+      "case": "retained-tool-empty",
+      "result": "PASS"
+    },
+    {
+      "case": "retained-tool-default",
+      "result": "PASS"
+    },
+    {
+      "case": "retained-tool-case-crlf",
+      "result": "PASS"
+    },
+    {
+      "case": "custom-absolute-game",
+      "result": "PASS"
+    },
+    {
+      "case": "custom-relative-game",
+      "result": "PASS"
+    },
+    {
+      "case": "custom-absolute-tool",
+      "result": "PASS"
+    },
+    {
+      "case": "custom-relative-tool",
+      "result": "PASS"
+    },
+    {
+      "case": "custom-old-screenshot-symlink",
+      "result": "PASS"
+    },
+    {
+      "case": "refused-duplicate",
+      "result": "PASS"
+    },
+    {
+      "case": "refused-duplicate-section",
+      "result": "PASS"
+    },
+    {
+      "case": "refused-oversize",
+      "result": "PASS"
+    },
+    {
+      "case": "refused-file-target",
+      "result": "PASS"
+    },
+    {
+      "case": "refused-symlink-target",
+      "result": "PASS"
+    },
+    {
+      "case": "refused-readonly-target",
+      "result": "PASS"
+    },
+    {
+      "case": "refused-readonly-config",
+      "result": "PASS"
+    },
+    {
+      "case": "refused-replace-failed",
+      "result": "PASS"
+    },
+    {
+      "case": "refused-nonregular-config",
+      "result": "PASS"
+    },
+    {
+      "case": "package-executable-mode",
+      "result": "PASS"
+    }
+  ],
+  "source_ref": null,
+  "source_root": "/workspace/repos/rocknix.worktrees/m7-manual-cloud-folders",
+  "source_sha256": {
+    "projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/scripts/start_duckstation.sh": "557ffd173e61c9e98063644aa7af25784b0991d55c85fd6c924c12f550069aa9",
+    "projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/scripts/duckstation_screenshot_path": "f53ea578937610a693daecdc04bb7cd0c876ca6aca640f8dd17306edc0b6c6fd",
+    "projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/config/InputPlumber/settings.ini": "3e600960f709382ac6e14cea375e3c4cf5cf3a29f6ade3faf1c25f040d5bd889",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_sync-rules.txt": "2528550d5b45f8ab8264b55f21afa8098a88d1a99572bcfd87a4b9e3d3506208",
+    "projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/config/H700/settings.ini": "8c58b3b8c1e4ff1897ab147e01d8d77d046ad048c6b8181fbd495b8f56490c04",
+    "projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/config/AMD64/settings.ini": "fadbd7bdf73e59f647c5027b20c6c43a958ab835742c598449de53a885a6b0b3",
+    "projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/sources/Start Duckstation.sh": "a0a2a11cf370f318f917c660b6d605f5cb6681aad0488a209d6db5d675f25efc",
+    "projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/package.mk": "a12a7ddde5e7e4357eadbae650e9a6535641e8d550551548ce2b9de89fd42241"
+  },
+  "rclone_sha256": "f66d8c1d552ad90296a11bc8b46d56a7fa5da1a7fa05e7ca522d95df92c4a4c0",
+  "rclone_version": "rclone v1.75.1",
+  "scope": "actual shell entrypoints; synthetic emulator-boundary probe; no runtime screenshot claim"
+}

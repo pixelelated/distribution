@@ -1,0 +1,369 @@
+#!/usr/bin/env python3
+"""Explicit cloud folders against isolated real rclone filesystems (#508).
+
+This is a fast regression control, not VM/image qualification. Every case
+gets independent synthetic config and cloud bytes. The old implementation
+can be exercised with --ref, including its retired migration helper.
+"""
+import argparse
+import hashlib
+import importlib.machinery
+import importlib.util
+import json
+from pathlib import Path
+import shutil
+import subprocess
+import sys
+
+ROOT = Path(__file__).resolve().parent.parent
+loader = importlib.machinery.SourceFileLoader('layout_fixture', str(ROOT/'tools/rasteratops-cloud-layout-test'))
+spec = importlib.util.spec_from_loader(loader.name, loader)
+legacy = importlib.util.module_from_spec(spec)
+loader.exec_module(legacy)
+require, put = legacy.require, legacy.put
+
+
+def digest_tree(path):
+    return {str(p.relative_to(path)): hashlib.sha256(p.read_bytes()).hexdigest()
+            for p in sorted(path.rglob('*')) if p.is_file()}
+
+
+def snapshot(f):
+    return (f.path.joinpath('storage/.config/cloud_sync.conf').read_bytes(), digest_tree(f.path/'cloud'))
+
+
+def facts(result):
+    return dict(line.split('=', 1) for line in result.stdout.splitlines() if '=' in line and not line.startswith('>>>'))
+
+
+def good(f, script, *args):
+    r = f.run(script, *args)
+    require(r.returncode == 0, f'{script} {args}: rc={r.returncode}: {r.stdout[-800:]}')
+    return r
+
+
+def read_only(f, root, populated=True):
+    if root != '/pixelelated':
+        f.conf(root+'/Saves', root+'/Backups', root+'/Content')
+    if populated:
+        f.file(root+'/Saves/gb/progress.srm', 'configured save\n')
+    f.file('/ROCKNIX/Content/ROMs/psx/cloud-only.chd', 'cloud-only game sentinel\n')
+    f.file('/pixelelated/Content/ROMs/gb/current.gb', 'current game sentinel\n')
+    before = snapshot(f)
+    r = good(f, 'cloud_setup', '--folder-state')
+    require(facts(r).get('STATE') == ('ready' if populated else 'missing'), r.stdout)
+    require(facts(r).get('SAVES') == root+'/Saves', r.stdout)
+    good(f, 'cloud_scan', '--folder')
+    good(f, 'cloud_setup', '--content-location')
+    require(snapshot(f) == before, 'read-only folder/content discovery changed cloud/config bytes')
+
+
+def seed(f, root, content=None):
+    f.conf(root+'/Saves', root+'/Backups', root+'/Content' if content is None else content)
+    f.file('/ROCKNIX/Saves/gb/old.srm', 'legacy save\n')
+    f.file('/ROCKNIX/Content/ROMs/psx/cloud-only.chd', 'unrepresented library\n')
+    f.file(root+'/Saves/README.txt', 'owner note retained\n')
+    before_conf, before_cloud = snapshot(f)
+    good(f, 'cloud_setup', '--seed-folders')
+    after_conf, after_cloud = snapshot(f)
+    require(after_conf == before_conf, 'seeding rewrote selected paths')
+    require(all(after_cloud.get(k) == v for k, v in before_cloud.items()), 'seeding changed existing cloud bytes')
+    require((f.path/'cloud'/root.lstrip('/')/'Backups/README.txt').exists(), 'no selected backup stub')
+    c = (root+'/Content') if content is None else content.rstrip('/')
+    require((f.path/'cloud'/c.lstrip('/')/'ROMs/README.txt').exists(), 'no selected ROM stub')
+    require((f.path/'cloud'/c.lstrip('/')/'BIOS/README.txt').exists(), 'no selected BIOS stub')
+    if content in ('', '/'):
+        require(not (f.path/'cloud/README.txt').exists(), 'content-root seeding wrote a cloud-root README')
+    if root != '/pixelelated':
+        require(not (f.path/'cloud/pixelelated').exists(), 'custom/legacy choice created the default namespace')
+    before = snapshot(f)
+    good(f, 'cloud_setup', '--seed-folders')
+    require(snapshot(f) == before, 'repeat seeding changed existing bytes/config')
+
+
+def fresh_beside_legacy(f):
+    f.file('/ROCKNIX/Saves/gb/progress.srm','old save\n')
+    f.file('/ROCKNIX/Content/ROMs/psx/CloudOnly.chd','cloud-only game\n')
+    before_conf, before_cloud=snapshot(f)
+    good(f,'cloud_setup','--seed-folders')
+    after_conf, after_cloud=snapshot(f)
+    require(before_conf==after_conf,'fresh seeding silently joined legacy paths')
+    require(all(after_cloud.get(k)==v for k,v in before_cloud.items()),'fresh seeding changed legacy data')
+    require((f.path/'cloud/pixelelated/Saves/README.txt').exists(),'fresh setup did not seed pixelelated')
+
+
+def scan_never_follows(f):
+    f.conf('/ROCKNIX/Saves','/ROCKNIX/Backups','/ROCKNIX/Content')
+    f.file('/pixelelated/Saves/gb/progress.srm','current save\n')
+    f.file('/pixelelated/.layout','layout=2\n')
+    before=snapshot(f)
+    good(f,'cloud_scan','--folder')
+    require(snapshot(f)==before,'scan silently followed another device to current paths')
+    state=legacy.read_facts(f.path/'storage/.cache/cloud_sync/scan/state')
+    require(state.get('STATE')=='missing' and state.get('SAVES')=='/ROCKNIX/Saves',str(state))
+
+
+def guard(f, kind):
+    f.file('/pixelelated/Saves/gb/progress.srm', 'keep\n')
+    if kind=='relative-future':
+        f.conf('pixelelated/Saves','pixelelated/Backups','pixelelated/Content')
+    if kind in ('future', 'relative-future', 'malformed', 'marker-denied'):
+        f.file('/pixelelated/.layout', 'layout=999\n' if kind in ('future','relative-future') else 'layout=2\nextra\n' if kind == 'malformed' else 'layout=2\n')
+    if kind == 'marker-denied': f.fault(r'^cat qa:/pixelelated/\.layout ', 5)
+    if kind == 'list-denied': f.fault(r'^lsf ', 5)
+    if kind == 'config':
+        with (f.path/'storage/.config/cloud_sync.conf').open('a') as fp: fp.write('CONTENT_REMOTE="$(touch /storage/should-not-exist)"\n')
+        # The first assignment is canonical; corrupt that one, not a shadow duplicate.
+        p=f.path/'storage/.config/cloud_sync.conf';p.write_text(p.read_text().replace('CONTENT_REMOTE="/pixelelated/Content"','CONTENT_REMOTE="$(touch /storage/should-not-exist)"'))
+    before = snapshot(f)
+    for script, flag in [('cloud_setup', '--folder-state'), ('cloud_scan', '--folder'), ('cloud_setup', '--seed-folders')]:
+        r=f.run(script, flag)
+        require(r.returncode != 0 and '>>> why ' in r.stdout, f'{kind} incorrectly succeeded: {r.stdout}')
+        require(snapshot(f) == before, f'{kind} refusal changed config/cloud bytes')
+    require(not (f.path/'storage/should-not-exist').exists(), 'config was evaluated')
+
+
+def write_refused(f, kind):
+    f.file('/pixelelated/Saves/gb/progress.srm','keep\n')
+    f.fault(r'^mkdir ' if kind=='mkdir' else r'^copyto --ignore-existing ', 5)
+    before_conf, before_cloud=snapshot(f)
+    r=f.run('cloud_setup','--seed-folders')
+    require(r.returncode != 0 and "COULDN'T BE CREATED" in r.stdout, 'write failure reported success')
+    after_conf, after_cloud=snapshot(f)
+    require(before_conf == after_conf and all(after_cloud.get(k)==v for k,v in before_cloud.items()), 'write failure damaged prior data/settings')
+    require((f.path/'ctl/fault-fired').exists(), 'fault was not exercised')
+
+
+def explicit(f):
+    f.conf('/ROCKNIX/Saves','/ROCKNIX/Backups','/ROCKNIX/Content')
+    f.file('/ROCKNIX/Saves/gb/old.srm','old\n')
+    before=digest_tree(f.path/'cloud')
+    good(f,'cloud_setup','--set-saves-remote','/Selected/Saves')
+    p=f.pointers()
+    require((p['SAVES_REMOTE'],p['SETTINGS_REMOTE'],p['CONTENT_REMOTE']) == ('/Selected/Saves','/Selected/Backups','/Selected/Content'), 'explicit sibling selection incorrect')
+    good(f,'cloud_setup','--set-content-remote','/Other')
+    p=f.pointers()
+    require((p['SAVES_REMOTE'],p['SETTINGS_REMOTE'],p['CONTENT_REMOTE']) == ('/Selected/Saves','/Selected/Backups','/Other'), 'content-only choice changed sibling paths')
+    require(digest_tree(f.path/'cloud') == before, 'selecting a path moved/created cloud data')
+
+
+def partial(f):
+    f.file('/pixelelated/Content/ROMs/gb/Remote.gb','remote game\n')
+    f.file('/pixelelated/Content/ROMs/psx/CloudOnly.chd','cloud-only content\n')
+    put(f.path/'storage/roms/gb/Local.gb','local game\n')
+    put(f.path/'storage/.config/emulationstation/es_systems.cfg','<systemList>\n<path>/storage/roms/gb</path>\n<path>/storage/roms/psx</path>\n</systemList>\n')
+    before_conf,before_cloud=snapshot(f)
+    good(f,'cloud_content_backup','gb')
+    after=digest_tree(f.path/'cloud')
+    require(all(after.get(k)==v for k,v in before_cloud.items()), 'partial local library deleted/changed cloud-only content')
+    require((f.path/'cloud/pixelelated/Content/ROMs/gb/Local.gb').read_text()=='local game\n','selected content not backed up')
+    good(f,'cloud_content_restore','gb')
+    require((f.path/'storage/roms/gb/Remote.gb').read_text()=='remote game\n','selected content not restored')
+    require(not (f.path/'storage/roms/psx/CloudOnly.chd').exists(),'unselected system was restored')
+    require(f.path.joinpath('storage/.config/cloud_sync.conf').read_bytes()==before_conf,'transfer rewrote folder selection')
+
+
+def case_alias(f, mode):
+    f.conf('/Pixelelated/Saves','/Pixelelated/Backups','/Pixelelated/Content')
+    f.file('/Pixelelated/.layout','layout=999\n')
+    shim=f.path/'shim/rclone'
+    original=shim.read_text()
+    value={'folding':'true','sensitive':'false','unknown':'null'}[mode]
+    response=json.dumps({'Features':{'CaseInsensitive':{'folding':True,'sensitive':False,'unknown':None}[mode]}})
+    shim.write_text(original.replace('exec /rclone.real', 'if [ "$1 $2" = "backend features" ]; then echo '+repr(response)+'; exit 0; fi\nexec /rclone.real'))
+    before_conf,before_cloud=snapshot(f)
+    r=f.run('cloud_setup','--seed-folders')
+    after_conf,after_cloud=snapshot(f)
+    require(before_conf==after_conf and all(after_cloud.get(k)==v for k,v in before_cloud.items()),'case alias changed existing data')
+    if mode=='sensitive':
+        require(r.returncode==0 and 'Pixelelated/Saves/README.txt' in after_cloud,'case-sensitive custom namespace was treated as default')
+        require(not (f.path/'cloud/pixelelated').exists(),'case-sensitive spelling was rewritten')
+    else:
+        require(r.returncode!=0 and before_cloud==after_cloud,'case folding or unknown provider bypassed format guard')
+
+
+def dot_root(f, tier):
+    values={'saves':'/Mine/Saves','backups':'/Mine/Backups','content':'/Mine/Content'}
+    values[tier]='./'
+    f.conf(**values)
+    f.file('/owner.txt','root sentinel\n')
+    before=snapshot(f)
+    for script,flag in [('cloud_setup','--folder-state'),('cloud_setup','--seed-folders')]:
+        r=f.run(script,flag)
+        require(r.returncode!=0 and '>>> why ' in r.stdout,'dot-only '+tier+' path was silently treated as a fresh default')
+        require(snapshot(f)==before,'dot-only path refusal changed prior data/config')
+
+
+def relative_empty(f, path):
+    f.conf(path,'/Mine/Backups','/Mine/Content')
+    f.directory(path)
+    before=snapshot(f)
+    result=good(f,'cloud_setup','--folder-state')
+    require(facts(result).get('STATE')=='ready',result.stdout)
+    require(snapshot(f)==before,'empty-folder read changed cloud/config')
+
+
+def relative_home(f, absolute):
+    # A controlled mapping models SFTP's home-relative vs absolute namespaces.
+    # Real rclone reads two different local trees; this is not a live SFTP proof.
+    path='/GAMES' if absolute else 'GAMES'
+    f.conf(path,'/Other/Backups','/Other/Content')
+    f.directory('/GAMES' if absolute else '/home/GAMES')
+    shim=f.path/'shim/rclone'
+    mapping='''mapped=()
+for arg in "$@"; do
+ case "$arg" in qa:) arg=qa:/home;; qa:/*) ;; qa:*) arg="qa:/home/${arg#qa:}";; esac
+ mapped+=("$arg")
+done
+exec /rclone.real "${mapped[@]}"
+'''
+    shim.write_text(shim.read_text().replace('exec /rclone.real "$@"',mapping))
+    before=snapshot(f)
+    result=good(f,'cloud_setup','--folder-state')
+    require(facts(result).get('STATE')=='ready',result.stdout)
+    expected='lsf --dirs-only qa:/ --' if absolute else 'lsf --dirs-only qa: --'
+    require(expected in (f.path/'ctl/argv').read_text(),'parent lookup changed absolute/home-relative meaning')
+    require(snapshot(f)==before,'namespace read changed cloud/config')
+
+
+def partial_readback(f, mode, code):
+    f.conf('/Mine/Saves','/Mine/Backups','/Mine/Content')
+    f.file('/Mine/Saves/gb/progress.srm','existing progress\n')
+    before_conf,before_cloud=snapshot(f)
+    if mode=='direct':
+        injection='''if [ "$1 $2" = "lsf qa:/Mine/Saves" ]; then
+ printf 'direct partial listing\n' >> /ctl/fault-fired
+ printf 'README.txt\n'; exit CODE
+fi
+'''
+    else:
+        injection='''if [ "$1 $2" = "lsf qa:/Mine/Saves" ]; then
+ printf 'direct empty failed listing\n' >> /ctl/fault-fired
+ exit 5
+fi
+if [ "$1 $2 $3" = "lsf --dirs-only qa:/Mine/" ]; then
+ printf 'parent partial listing\n' >> /ctl/fault-fired
+ printf 'Saves/\n'; exit CODE
+fi
+'''
+    shim=f.path/'shim/rclone';shim.write_text(shim.read_text().replace('exec /rclone.real',injection.replace('CODE',str(code))+'exec /rclone.real'))
+    result=f.run('cloud_setup','--seed-folders')
+    after_conf,after_cloud=snapshot(f)
+    require(result.returncode!=0 and 'OK /Mine/Saves' not in result.stdout,'failed final listing was reported as successful presence')
+    require((f.path/'ctl/fault-fired').exists(),'final readback control never fired')
+    require(before_conf==after_conf and all(after_cloud.get(k)==v for k,v in before_cloud.items()),'late failure damaged existing data/config')
+
+
+def carried_root(f):
+    f.conf('/','/','/Games')
+    f.file('/owner.txt','root sentinel\n')
+    before_conf,before_cloud=snapshot(f)
+    state=good(f,'cloud_setup','--folder-state')
+    require(facts(state).get('SAVES')=='/' and facts(state).get('BACKUPS')=='/',state.stdout)
+    good(f,'cloud_setup','--seed-folders')
+    after_conf,after_cloud=snapshot(f)
+    require(before_conf==after_conf,'carried root was rewritten')
+    require(all(after_cloud.get(k)==v for k,v in before_cloud.items()),'carried root bytes changed')
+    require('README.txt' in after_cloud and not any(k.startswith('pixelelated/') for k in after_cloud),'carried root was silently defaulted')
+
+
+def interrupted_state(f):
+    f.conf('/pixelelated/Saves','/pixelelated/Backups','/ROCKNIX/Content')
+    record=f.path/'storage/.config/cloud-layout-migration.json'
+    put(record,json.dumps({'schema':1,'step':1,'from':1,'to':2,'remote':'qa:','fingerprint':'synthetic-fingerprint','fingerprint_format':'rclone-json-v1','source':{'saves':'/ROCKNIX/Saves','backups':'/ROCKNIX/Backups','content':'/ROCKNIX/Content','discarded':'/ROCKNIX/Saves-replaced'},'configured':{'saves':'/ROCKNIX/Saves','backups':'/ROCKNIX/Backups','content':'/ROCKNIX/Content'},'stage':'discarded'})+'\n')
+    f.file('/pixelelated/Saves/gb/progress.srm','already migrated save\n')
+    f.file('/ROCKNIX/Content/ROMs/psx/CloudOnly.chd','remaining cloud-only game\n')
+    credential=(f.path/'storage/.config/rclone/rclone.conf').read_bytes()
+    recovery=record.read_bytes()
+    before_conf,before_cloud=snapshot(f)
+    good(f,'cloud_scan','--folder')
+    good(f,'cloud_setup','--seed-folders')
+    after_conf,after_cloud=snapshot(f)
+    require(after_conf==before_conf,'interrupted-state pointers changed')
+    require(record.read_bytes()==recovery,'legacy recovery record was changed')
+    require((f.path/'storage/.config/rclone/rclone.conf').read_bytes()==credential,'credentials were changed')
+    require(all(after_cloud.get(k)==v for k,v in before_cloud.items()),'interrupted cloud bytes changed')
+    require(not (f.path/'cloud/pixelelated/Content').exists(),'remaining content was automatically adopted')
+
+
+def no_remote(f):
+    put(f.path/'storage/.config/rclone/rclone.conf','')
+    before=snapshot(f)
+    r=f.run('cloud_setup','--folder-state')
+    require(r.returncode==1 and facts(r).get('STATE')=='no-remote',r.stdout)
+    require(snapshot(f)==before,'no-remote read changed state')
+
+
+def main():
+    p=argparse.ArgumentParser(description=__doc__)
+    p.add_argument('--output',required=True,type=Path)
+    p.add_argument('--rclone',required=True)
+    p.add_argument('--ref')
+    p.add_argument('--case')
+    p.add_argument('--retire',action='store_true',help='retire disposable fixture data after sealing compact receipts')
+    a=p.parse_args()
+    a.output.mkdir(parents=True,exist_ok=True)
+    cases={
+      'fresh-empty-seed-beside-legacy':fresh_beside_legacy,
+      'scan-never-follows':scan_never_follows,
+      'read-current':lambda f:read_only(f,'/pixelelated'),
+      'read-legacy':lambda f:read_only(f,'/ROCKNIX'),
+      'read-legacy-missing':lambda f:read_only(f,'/ROCKNIX',False),
+      'read-custom':lambda f:read_only(f,'/Mine'),
+      'fresh-seed-beside-legacy':lambda f:seed(f,'/pixelelated'),
+      'legacy-seed':lambda f:seed(f,'/ROCKNIX'),
+      'custom-seed':lambda f:seed(f,'/Mine'),
+      'empty-content-root':lambda f:seed(f,'/Mine',''),
+      'slash-content-root':lambda f:seed(f,'/Mine','/'),
+      'guard-future':lambda f:guard(f,'future'),
+      'guard-relative-future':lambda f:guard(f,'relative-future'),
+      'carried-root':carried_root,
+      'empty-relative-games':lambda f:relative_empty(f,'GAMES'),
+      'empty-relative-saves':lambda f:relative_empty(f,'Saves'),
+      'empty-absolute-games':lambda f:relative_empty(f,'/GAMES'),
+      'empty-relative-nested':lambda f:relative_empty(f,'Mine/Saves'),
+      'home-relative-namespace':lambda f:relative_home(f,False),
+      'absolute-namespace':lambda f:relative_home(f,True),
+      **{f'partial-{mode}-rc{code}':(lambda f,m=mode,c=code:partial_readback(f,m,c)) for mode in ['direct','parent'] for code in [3,4,5]},
+      'dot-saves-refused':lambda f:dot_root(f,'saves'),
+      'dot-backups-refused':lambda f:dot_root(f,'backups'),
+      'dot-content-refused':lambda f:dot_root(f,'content'),
+      'case-folding-guard':lambda f:case_alias(f,'folding'),
+      'case-sensitive-custom':lambda f:case_alias(f,'sensitive'),
+      'case-unknown-refused':lambda f:case_alias(f,'unknown'),
+      'guard-malformed':lambda f:guard(f,'malformed'),
+      'guard-marker-denied':lambda f:guard(f,'marker-denied'),
+      'guard-list-denied':lambda f:guard(f,'list-denied'),
+      'guard-config':lambda f:guard(f,'config'),
+      'mkdir-denied':lambda f:write_refused(f,'mkdir'),
+      'readme-denied':lambda f:write_refused(f,'readme'),
+      'explicit-selection':explicit,'partial-library':partial,'no-remote':no_remote,
+      'archive-roundtrip':legacy.archive_roundtrip,'interrupted-state':interrupted_state,
+    }
+    if a.case:
+        require(a.case in cases,'unknown case');cases={a.case:cases[a.case]}
+    results=[]
+    for name, fn in cases.items():
+        f=legacy.Fixture(a.output/name,a)
+        if a.ref:
+            old=subprocess.run(['git','-C',str(ROOT),'show',a.ref+':'+str(legacy.SOURCES/'cloud_migrate_layout')],capture_output=True)
+            if old.returncode==0:
+                (f.path/'repo/cloud_migrate_layout').write_bytes(old.stdout);(f.path/'repo/cloud_migrate_layout').chmod(0o755)
+        try:
+            fn(f);status='PASS';detail=''
+        except Exception as exc:
+            status='FAIL';detail=str(exc)
+        result={'case':name,'status':status,'detail':detail,'cloud_sha256':digest_tree(f.path/'cloud'),'pointers':f.pointers()}
+        (f.path/'result.json').write_text(json.dumps(result,indent=2)+'\n')
+        results.append(result);print(status,name,detail,flush=True)
+        if a.retire:
+            traces=f.path/'traces';traces.mkdir()
+            for src in (f.path/'ctl').iterdir():
+                if src.is_file(): shutil.copyfile(src,traces/src.name)
+            for name in ('repo','shim','storage','cloud','ctl','log','run'):
+                shutil.rmtree(f.path/name)
+            (f.path/'retired.json').write_text(json.dumps({'synthetic_payloads_removed':True,'cloud_hashes_in':'result.json'})+'\n')
+    (a.output/'result.json').write_text(json.dumps({'ref':a.ref,'results':results},indent=2)+'\n')
+    return int(any(r['status']!='PASS' for r in results))
+
+if __name__=='__main__':sys.exit(main())

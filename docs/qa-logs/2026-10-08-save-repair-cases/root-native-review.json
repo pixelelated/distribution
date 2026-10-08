@@ -1,0 +1,25 @@
+{
+  "utc": "2026-10-08T07:32:38.818031+00:00",
+  "reviewer": "root",
+  "sealed_files": 191,
+  "seal_sha256": "d1836b0d59abdcd8db4eb4551ee8a35f12a8c7e134fae9ac67d7e37ec64f3c3a",
+  "index_sha256": "82f0d75ade409ac8e946945e0a5904880669611d1b85ed0fd2beb6f228c4f760",
+  "visual_review": "DS01/DS02 inspected: readable saved-screenshot OSD over original synthetic display, correct distinct timestamp peraction; no fit defect.",
+  "verified_native_captures": 2,
+  "native_png_sha256": "0f2f266e6d301ce00107589499f841d6cbe37ea64a0dc7f033dbfc6a1d6b46b3",
+  "capture_dimensions": [
+    640,
+    480
+  ],
+  "scope": "Native target renderer and unchanged screenshot hotkey, default/custom output, normal generated-PNG saves backup/restore; no commercial BIOS/game compatibility or final firmware claim.",
+  "decision": "Native/default/custom, ordinary roundtrip and full independent manifest binding accepted. Release runtime scratch. Independent audit and assembled-image inclusion remain separate.",
+  "preservation_supplement_sha256": "5376795e4b1d92b1dddade35fe0e555ef66ce7645c67c9075cd7380badca422c",
+  "independently_recomputed_provider_comparison": {
+    "baseline_files": 38,
+    "final_files": 39,
+    "all_baseline_hashes_unchanged": true,
+    "only_addition": "/storage/qa520/provider/QA-Captures/Saves/screenshots/2026-10-08-03-13-20.png"
+  },
+  "lifecycle": "Original189seal/README retained; updated191files verified. Owned runtime path absent after scoped retirement; no native frame/hash changed.",
+  "runtime_retirement_sha256": "c2f7b12777b4f82b000e123ca88d16e3389908f63d0aba6a9698d654ef166755"
+}

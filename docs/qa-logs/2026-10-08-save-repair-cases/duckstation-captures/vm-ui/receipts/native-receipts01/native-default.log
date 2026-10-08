@@ -1,0 +1,375 @@
+Detected locale "C" with character encoding "ANSI_X3.4-1968", which is not UTF-8.
+Qt depends on a UTF-8 locale, but has failed to switch to one.
+If this causes problems, reconfigure your locale. See the locale(1) manual
+for more information.
+Wayland with non-KDE desktop detected, applying Wayland workarounds.
+Don't complain when things break.
+[    0.0489] [37m[1mI/Host: Loaded translation file for language en[0m
+[    0.0550] [32m[1mV/MemMap: Base address: 0x56331cbaf000[0m
+[    0.0550] [32m[1mV/MemMap: Acceptable address range: 0x56329fbaf000 - 0x563399baf000[0m
+[    0.0550] [32m[1mV/MemMap: Trying 0x563320baf000 (displacement 0x4000000)[0m
+[    0.0550] [37m[1mI/MemMap: Allocated JIT buffer of size 50331648 at 0x563320baf000 (0x4000000 bytes / 64 MB away)[0m
+[    0.4131] [37m[1mI/Bus: Allocating shared memory map.[0m
+[    0.4175] [32m[1mV/Bus: RAM is mapped at 0x7f35d8a00000.[0m
+[    0.4175] [32m[1mV/Bus: BIOS is mapped at 0x7f35d8180000.[0m
+[    0.4175] [32m[1mV/Bus: LUTs are mapped at 0x7f35c2880000.[0m
+[    0.6970] [37m[1mI/Bus: Fastmem base: 0x7f34c2800000[0m
+[    0.6980] [32m[1mV/System: Memory allocation took 642.794105 ms.[0m
+[    0.6980] [37m[1mI/System: Missing XDG_CURRENT_DESKTOP (null) or running under gamescope, disabling screensaver inhibit.[0m
+[    0.7574] [31m[1mE(ReloadMemcardTimestampCache): Failed to open memory card cache for read: errno 2: No such file or directory[0m
+[    0.7965] [37m[1mI/SDL: Using Controller DB from resources.[0m
+[    0.7990] [37m[1mI/SDL: Enhanced controller reports are disabled.[0m
+[    0.7990] [37m[1mI/SDL: XBox HIDAPI is enabled.[0m
+[    1.0630] [37m[1mI/SDL: 777 controller mappings are loaded.[0m
+[    1.0662] [37m[1mI/System: DuckStation for Linux (x64)[0m
+[    1.0662] [37m[1mI/System: Version: 0.1-10998-g9b0a4ec55 [dev][0m
+[    1.0662] [37m[1mI/System: SCM Timestamp: 2026-04-03T15:56:27+10:00[0m
+[    1.0662] [37m[1mI/System: Host CPU: Intel Core[0m
+[    1.0662] [37m[1mI/System: CPU has 4 logical processor(s) and 4 core(s) across 1 cluster(s).[0m
+[    1.0669] [37mD/Host: Starting background controller polling timer with interval 1000 ms[0m
+[    1.0670] [37m[1mI/System: Boot Path: <BIOS/Shell>[0m
+[    1.0670] [37mD/System: Applying settings...[0m
+[    1.0679] [33m[1mD/VideoThread: Setting run idle reason 'OSDMessagesActive' to true[0m
+[    1.0689] [37m[1mI/System: Console Region: NTSC-U/C (US, Canada)[0m
+[    1.1201] [33m[1mW(GetInfoForHash): Unknown BIOS hash: 75b6a1684dd4e277d1258314a8a8fba8[0m
+[    1.1201] [37mD/BIOS: Hash for BIOS 'synthetic-display.bin': 75b6a1684dd4e277d1258314a8a8fba8[0m
+[    1.1201] [33m[1mW(GetBIOSImage): BIOS region UNKNOWN does not match requested region NTSC-U. This may cause issues.[0m
+[    1.1201] [33m[1mW(LoadBIOS): Using an unknown BIOS: 75b6a1684dd4e277d1258314a8a8fba8[0m
+[    1.1327] [37m[1mI/CDROMAsyncReader: Read thread started with readahead of 8 sectors[0m
+[    1.1330] [38;5;202mV/System: Video frame rate changed from 60.00 to 59.82 fps[0m
+[    1.1335] [37mD/CPU: GTE aspect ratio correction is disabled.[0m
+[    1.1335] [37m[1mI/VideoThread: Reconfiguring video thread.[0m
+[    1.1335] [37mD/VideoThread: Updating game info on GPU thread: /[0m
+[    1.1385] [37m[1mI/GPUDevice: Creating new Vulkan instance (debug false, wtype 4)...[0m
+[    1.1398] [31m[1mE(operator()): Vulkan: Missing required extension VK_KHR_surface.[0m
+[    1.1398] [37m[1mI/VideoThread: Trying to create a OpenGL GPU device...[0m
+[    1.1399] [37mD/Host: acquireRenderWindow() fullscreen=true exclusive_fullscreen=false, render_to_main=false[0m
+[    1.1407] [37m[1mI/Host: Window size: 640x480 (Qt 640x480), scale: 1, refresh rate 74.998 hz[0m
+[    1.1408] [37m[1mI/GPUDevice: Main render window is 640x480.[0m
+[    1.1408] [37m[1mI/GPUDevice: Loading EGL from libEGL.so...[0m
+[    1.1728] [37mD/GPUDevice: GLAD EGL Version: 1.0[0m
+[    1.1728] [37mD/GPUDevice: Using EGL platform EGL_EXT_platform_wayland.[0m
+[    1.1770] [37mD/GPUDevice: eglInitialize() version: 1.5[0m
+[    1.1771] [37mD/GPUDevice: GLAD EGL Version: 1.5[0m
+[    1.1771] [37mD/GPUDevice: Trying version 4.6 (Core)[0m
+[    1.1772] [33m[1mW(Initialize): Failed to create 4.6 (Core) context: eglCreateContext() failed: 0x3009[0m
+[    1.1772] [37mD/GPUDevice: Trying version 4.5 (Core)[0m
+[    1.1772] [33m[1mW(Initialize): Failed to create 4.5 (Core) context: eglCreateContext() failed: 0x3009[0m
+[    1.1772] [37mD/GPUDevice: Trying version 4.4 (Core)[0m
+[    1.1773] [33m[1mW(Initialize): Failed to create 4.4 (Core) context: eglCreateContext() failed: 0x3009[0m
+[    1.1773] [37mD/GPUDevice: Trying version 4.3 (Core)[0m
+[    1.1916] [37m[1mI/GPUDevice: Got version 4.3 (Core)[0m
+[    1.1916] [32m[1mV/GPUDevice: EGL_MIN_SWAP_INTERVAL = 0[0m
+[    1.1916] [32m[1mV/GPUDevice: EGL_MAX_SWAP_INTERVAL = 1[0m
+[    1.1916] [37m[1mI/GPUDevice: Negative swap interval/tear-control is NOT supported[0m
+[    1.1929] [37m[1mI/GPUDevice: Created an OpenGL context[0m
+[    1.1949] [37m[1mI/GPUDevice: GL_VENDOR: Mesa[0m
+[    1.1949] [37m[1mI/GPUDevice: GL_RENDERER: virgl (Mesa Intel(R) Graphics (ARL))[0m
+[    1.1949] [37m[1mI/GPUDevice: GL_VERSION: 4.3 (Core Profile) Mesa 26.2.2[0m
+[    1.1949] [37m[1mI/GPUDevice: GL_SHADING_LANGUAGE_VERSION: 4.30[0m
+[    1.1955] [33m[1mW(GuessDriverType): Unknown GPU vendor with PCI ID 0x0000, adapter='virgl (Mesa Intel(R) Graphics (ARL))', vendor='Mesa'[0m
+[    1.1955] [37m[1mI/GPUDevice: Driver type set to Unknown.[0m
+[    1.1955] [33m[1mW(CheckFeatures): Not using PBOs for texture uploads because buffer_storage is unavailable.[0m
+[    1.1955] [37mD/GPUDevice: GL_MAX_TEXTURE_SIZE: 16384[0m
+[    1.1955] [37mD/GPUDevice: GL_MAX_SAMPLES: 16[0m
+[    1.1955] [37mD/GPUDevice: GL_MAX_TEXTURE_BUFFER_SIZE: 134217728[0m
+[    1.1955] [37mD/GPUDevice: 1 program binary formats supported by driver[0m
+[    1.1988] [37mD/GPUDevice: Using MapAndSyncStreamBuffer for 8388608 byte 0x8892 buffer.[0m
+[    1.2008] [37mD/GPUDevice: Using MapAndSyncStreamBuffer for 4194304 byte 0x8893 buffer.[0m
+[    1.2028] [37mD/GPUDevice: Using MapAndSyncStreamBuffer for 2097152 byte 0x8A11 buffer.[0m
+[    1.2033] [37mD/GPUDevice: Using MapAndSyncStreamBuffer for 1048576 byte 0x8A11 buffer.[0m
+[    1.2033] [37m[1mI/GPUDevice: Render API: OpenGL Version 430[0m
+[    1.2033] [37m[1mI/GPUDevice: Graphics Driver Info:[0m
+[    1.2033] [37m[1mI/GPUDevice: OpenGL Context:[0m
+[    1.2033] [37m[1mI/GPUDevice: 4.3 (Core Profile) Mesa 26.2.2[0m
+[    1.2033] [37m[1mI/GPUDevice: Mesa virgl (Mesa Intel(R) Graphics (ARL))[0m
+[    1.2033] [37m[1mI/GPUDevice: GLSL: 4.30[0m
+[    1.5914] [37mD/ImGuiManager: Loading font data took 387.98504 ms[0m
+[    1.6010] [37mD/ImGuiManager: Creating font atlas took 8.375996 ms[0m
+[    1.6230] [37mD/GPUDevice: Program binary retrieved and compressed, 8209 -> 1213 bytes, format 34655[0m
+[    1.6291] [37mD/FullscreenUI: Uploaded texture resource 'images/placeholder.png' (487x354)[0m
+[    1.6300] [37mD/GPUDevice: Program binary retrieved and compressed, 6181 -> 942 bytes, format 34655[0m
+[    1.6304] [37mD/GPUDevice: Program binary retrieved and compressed, 5125 -> 674 bytes, format 34655[0m
+[    1.6360] [37mD/GPUDevice: Program binary retrieved and compressed, 19441 -> 2229 bytes, format 34655[0m
+[    1.6371] [37mD/GPUDevice: Program binary retrieved and compressed, 10269 -> 1618 bytes, format 34655[0m
+[    1.6373] [33m[1mD/VideoThread: GPU thread now running idle[0m
+[    1.6373] [37m[1mI/VideoThread: GPU device created in 497.56ms[0m
+[    1.6374] [32m[1mV/GPU: Presentation format is RGBA8[0m
+[    1.6514] [37mD/GPUDevice: Program binary retrieved and compressed, 6165 -> 954 bytes, format 34655[0m
+[    1.6515] [37m[1mI/GPU_SW: Using SIMD software rasterizer implementation.[0m
+[    1.6515] [37m[1mI/GPU: Using A1BGR5 format for 16-bit display[0m
+[    1.6525] [33m[1mD/VideoThread: Setting run idle reason 'NoGPUBackend' to false[0m
+[    1.6525] [38;5;202mD/VideoThread: GPU thread now NOT running idle[0m
+[    1.6525] [37m[1mI/VideoThread: GPU backend created in 15.19ms[0m
+[    1.6527] [37m[1mI/SPU: Creating 'SDL' audio stream, sample rate = 44100, buffer = 100, latency = 20, stretching = TimeStretch[0m
+[    1.6527] [37mD/AudioStream: Allocated buffer of 70592 frames for buffer of 100 ms [stretch TimeStretch, target size 4416].[0m
+[    1.6608] [37mD/CPU: GTE aspect ratio correction is disabled.[0m
+[    1.6608] [37m[1mI/ImGuiManager: OSD [MemoryCard0SharedWarning]: Memory Card Slot 1[0m
+[    1.6608] [37m[1mI/ImGuiManager: Cannot use per-game memory card without a disc.[0m
+[    1.6608] [37m[1mI/ImGuiManager: Using shared card instead.[0m
+[    1.6608] [37m[1mI/System: Memory Card 1: /storage/roms/psx/shared_card_1.mcd[0m
+[    1.6608] [37m[1mI/Pad: Memory card slot 0: /storage/roms/psx/shared_card_1.mcd[0m
+[    1.6608] [37m[1mI/Pad: Memory card slot 1: <unplugged>[0m
+[    1.6608] [37m[1mI/Pad: Memory card slot 2: <unplugged>[0m
+[    1.6608] [37m[1mI/Pad: Memory card slot 3: <unplugged>[0m
+[    1.6608] [37m[1mI/Pad: Memory card slot 4: <unplugged>[0m
+[    1.6608] [37m[1mI/Pad: Memory card slot 5: <unplugged>[0m
+[    1.6608] [37m[1mI/Pad: Memory card slot 6: <unplugged>[0m
+[    1.6608] [37m[1mI/Pad: Memory card slot 7: <unplugged>[0m
+[    1.7056] [37mD/Host: Stopping background controller polling timer[0m
+[    1.7057] [32m[1mV/System: Target speed: 100%[0m
+[    1.7057] [32m[1mV/System: Preset timing: consistent[0m
+[    1.7057] [32m[1mV/System: VSync: Mailbox[0m
+[    1.7057] [32m[1mV/System: Present Skip: Disabled[0m
+[    1.7058] [37m[1mI/System: System booted in 638.76ms[0m
+[    1.7060] [37mD/Host: updateCursor(): Cursor is now hidden[0m
+[    1.7069] [32m[1mV/AudioStream: ___ Stretcher is being reset.[0m
+[    1.7076] [37mD/ImGuiManager: Create 512x128 ImGui texture[0m
+[    1.7235] [37m[1mI/SDL: Controller 1 inserted[0m
+[    1.7241] [32m[1mV/SDL: Opened game controller 1 (instance id 1, player id 0, guid 030080a15e0400008e02000014010000): Xbox 360 Controller[0m
+[    1.7241] [32m[1mV/SDL: Controller 0 is a SDL_GAMEPAD_TYPE_XBOX360 with 6 axes, 11 buttons and 1 hats[0m
+[    1.7241] [37mD/SDL: Controller 0 button 0 is mapped to gamepad A[0m
+[    1.7241] [37mD/SDL: Controller 0 button 1 is mapped to gamepad B[0m
+[    1.7241] [37mD/SDL: Controller 0 button 6 is mapped to gamepad Back[0m
+[    1.7241] [37mD/SDL: Controller 0 hat 0 is mapped to gamepad DPadDown[0m
+[    1.7241] [37mD/SDL: Controller 0 button 8 is mapped to gamepad Guide[0m
+[    1.7241] [37mD/SDL: Controller 0 button 4 is mapped to gamepad LeftShoulder[0m
+[    1.7241] [37mD/SDL: Controller 0 button 9 is mapped to gamepad LeftStick[0m
+[    1.7241] [37mD/SDL: Controller 0 axis 4 is mapped to gamepad LeftTrigger[0m
+[    1.7241] [37mD/SDL: Controller 0 axis 0 is mapped to gamepad LeftX[0m
+[    1.7241] [37mD/SDL: Controller 0 axis 1 is mapped to gamepad LeftY[0m
+[    1.7241] [37mD/SDL: Controller 0 button 5 is mapped to gamepad RightShoulder[0m
+[    1.7241] [37mD/SDL: Controller 0 button 10 is mapped to gamepad RightStick[0m
+[    1.7241] [37mD/SDL: Controller 0 axis 5 is mapped to gamepad RightTrigger[0m
+[    1.7242] [37mD/SDL: Controller 0 axis 2 is mapped to gamepad RightX[0m
+[    1.7242] [37mD/SDL: Controller 0 axis 3 is mapped to gamepad RightY[0m
+[    1.7242] [37mD/SDL: Controller 0 button 7 is mapped to gamepad Start[0m
+[    1.7242] [37mD/SDL: Controller 0 button 2 is mapped to gamepad X[0m
+[    1.7242] [37mD/SDL: Controller 0 button 3 is mapped to gamepad Y[0m
+[    1.7242] [32m[1mV/SDL: Rumble is not supported on 'Xbox 360 Controller'[0m
+[    1.7242] [37m[1mI/InputManager: Device 'SDL-0' connected: 'Xbox 360 Controller'[0m
+[    1.7242] [37m[1mI/InputManager: Gamepad button type set to Xbox[0m
+[    1.7242] [38;5;202mD/InputManager: Sending vibration update to device 0: mask 0x03, intensities {0, 0}[0m
+[    1.7395] [37mD/GPU: <-- 3 queued frames, 2 max, blocking core thread[0m
+[    1.7480] [37mD/GPU: --> Unblocking core thread[0m
+[    1.7702] [32m[1mV/AudioStream: Underrun compensation done (192 frames buffered)[0m
+[    2.7090] [32m[1mV/PerfMon: FPS: 1.00 VPS: 59.81 CPU: 1.55 RNDR: 8.31 GPU: 0.00 Avg: 16.72ms Min: 1.07ms Max: 42.25ms[0m
+[    2.8260] [32m[1mV/AudioStream: === Stretcher is now inactive.[0m
+[    3.1773] [32m[1mV/AudioStream: ~~~ Stretcher is now active @ tempo 0.8329137.[0m
+[    3.5283] [32m[1mV/AudioStream: === Stretcher is now inactive.[0m
+[    3.7120] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.52 RNDR: 9.24 GPU: 0.00 Avg: 16.72ms Min: 16.22ms Max: 17.22ms[0m
+[    4.7152] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.46 RNDR: 10.77 GPU: 0.00 Avg: 16.72ms Min: 16.49ms Max: 16.95ms[0m
+[    5.7182] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.43 RNDR: 8.61 GPU: 0.00 Avg: 16.72ms Min: 16.05ms Max: 17.30ms[0m
+[    6.7213] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.63 RNDR: 8.36 GPU: 0.00 Avg: 16.72ms Min: 16.54ms Max: 16.95ms[0m
+[    6.7214] [33m[1mD/VideoThread: Setting run idle reason 'OSDMessagesActive' to false[0m
+[    7.7242] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.59 RNDR: 4.97 GPU: 0.00 Avg: 16.72ms Min: 16.35ms Max: 17.05ms[0m
+[    8.7274] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.61 RNDR: 5.78 GPU: 0.00 Avg: 16.72ms Min: 16.51ms Max: 16.96ms[0m
+[    9.7305] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.61 RNDR: 6.21 GPU: 0.00 Avg: 16.72ms Min: 16.55ms Max: 16.91ms[0m
+[   10.7335] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.61 RNDR: 9.01 GPU: 0.00 Avg: 16.72ms Min: 16.37ms Max: 16.99ms[0m
+[   11.7366] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.63 RNDR: 5.42 GPU: 0.00 Avg: 16.72ms Min: 16.51ms Max: 16.93ms[0m
+[   12.7396] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.89 RNDR: 5.61 GPU: 0.00 Avg: 16.72ms Min: 16.55ms Max: 16.85ms[0m
+[   13.7429] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.80 CPU: 1.93 RNDR: 5.47 GPU: 0.00 Avg: 16.72ms Min: 16.35ms Max: 16.99ms[0m
+[   14.7456] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.84 CPU: 1.70 RNDR: 10.66 GPU: 0.00 Avg: 16.71ms Min: 16.53ms Max: 16.94ms[0m
+[   15.7487] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.49 RNDR: 8.19 GPU: 0.00 Avg: 16.72ms Min: 16.56ms Max: 16.90ms[0m
+[   16.7519] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.62 RNDR: 4.39 GPU: 0.00 Avg: 16.72ms Min: 16.56ms Max: 16.89ms[0m
+[   17.7550] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.60 RNDR: 5.17 GPU: 0.00 Avg: 16.72ms Min: 16.50ms Max: 17.09ms[0m
+[   18.7580] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.58 RNDR: 8.80 GPU: 0.00 Avg: 16.72ms Min: 16.46ms Max: 16.97ms[0m
+[   19.7611] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.64 RNDR: 6.21 GPU: 0.00 Avg: 16.72ms Min: 16.55ms Max: 16.91ms[0m
+[   20.7640] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.83 CPU: 1.56 RNDR: 5.80 GPU: 0.00 Avg: 16.71ms Min: 16.42ms Max: 16.91ms[0m
+[   21.7671] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.59 RNDR: 7.82 GPU: 0.00 Avg: 16.72ms Min: 16.57ms Max: 16.94ms[0m
+[   22.7700] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.83 CPU: 1.57 RNDR: 5.57 GPU: 0.00 Avg: 16.72ms Min: 16.49ms Max: 16.96ms[0m
+[   23.7732] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.59 RNDR: 2.38 GPU: 0.00 Avg: 16.72ms Min: 16.48ms Max: 17.07ms[0m
+[   24.7762] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.83 CPU: 1.53 RNDR: 8.48 GPU: 0.00 Avg: 16.72ms Min: 16.47ms Max: 16.97ms[0m
+[   25.7792] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.46 RNDR: 6.65 GPU: 0.00 Avg: 16.72ms Min: 16.53ms Max: 16.93ms[0m
+[   26.7824] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.54 RNDR: 7.29 GPU: 0.00 Avg: 16.72ms Min: 16.55ms Max: 16.88ms[0m
+[   27.7853] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.83 CPU: 1.51 RNDR: 8.31 GPU: 0.00 Avg: 16.72ms Min: 16.48ms Max: 16.94ms[0m
+[   28.7885] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.48 RNDR: 4.24 GPU: 0.00 Avg: 16.72ms Min: 16.58ms Max: 16.89ms[0m
+[   29.7914] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.47 RNDR: 9.30 GPU: 0.00 Avg: 16.72ms Min: 16.41ms Max: 17.07ms[0m
+[   30.7945] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.60 RNDR: 3.89 GPU: 0.00 Avg: 16.72ms Min: 16.46ms Max: 17.12ms[0m
+[   31.7976] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.57 RNDR: 6.71 GPU: 0.00 Avg: 16.72ms Min: 16.40ms Max: 17.02ms[0m
+[   32.8006] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.69 RNDR: 6.47 GPU: 0.00 Avg: 16.72ms Min: 16.50ms Max: 16.92ms[0m
+[   33.8037] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.68 RNDR: 5.14 GPU: 0.00 Avg: 16.72ms Min: 16.57ms Max: 16.90ms[0m
+[   34.8069] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.70 RNDR: 4.51 GPU: 0.00 Avg: 16.72ms Min: 16.47ms Max: 17.13ms[0m
+[   35.8099] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.57 RNDR: 10.19 GPU: 0.00 Avg: 16.72ms Min: 15.75ms Max: 17.65ms[0m
+[   36.8128] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.83 CPU: 1.63 RNDR: 6.02 GPU: 0.00 Avg: 16.72ms Min: 16.48ms Max: 16.92ms[0m
+[   37.8159] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.52 RNDR: 7.83 GPU: 0.00 Avg: 16.72ms Min: 16.47ms Max: 16.91ms[0m
+[   38.8192] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.80 CPU: 1.22 RNDR: 5.89 GPU: 0.00 Avg: 16.72ms Min: 16.52ms Max: 17.01ms[0m
+[   39.8221] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.83 CPU: 1.13 RNDR: 9.80 GPU: 0.00 Avg: 16.71ms Min: 16.34ms Max: 17.07ms[0m
+[   40.8251] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.37 RNDR: 6.81 GPU: 0.00 Avg: 16.72ms Min: 16.40ms Max: 16.89ms[0m
+[   41.8282] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.67 RNDR: 8.34 GPU: 0.00 Avg: 16.72ms Min: 16.55ms Max: 16.89ms[0m
+[   42.8311] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.83 CPU: 1.11 RNDR: 4.40 GPU: 0.00 Avg: 16.72ms Min: 16.49ms Max: 16.88ms[0m
+[   43.8342] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 0.97 RNDR: 1.33 GPU: 0.00 Avg: 16.72ms Min: 16.53ms Max: 16.91ms[0m
+[   44.8373] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 0.91 RNDR: 3.58 GPU: 0.00 Avg: 16.72ms Min: 16.55ms Max: 16.93ms[0m
+[   45.8404] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 0.94 RNDR: 7.18 GPU: 0.00 Avg: 16.72ms Min: 16.53ms Max: 16.87ms[0m
+[   46.8433] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.83 CPU: 1.44 RNDR: 4.48 GPU: 0.00 Avg: 16.72ms Min: 16.51ms Max: 16.90ms[0m
+[   47.8466] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.80 CPU: 1.64 RNDR: 9.97 GPU: 0.00 Avg: 16.72ms Min: 16.55ms Max: 16.88ms[0m
+[   48.8496] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.58 RNDR: 3.34 GPU: 0.00 Avg: 16.72ms Min: 16.35ms Max: 16.92ms[0m
+[   49.8526] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.83 CPU: 1.69 RNDR: 6.61 GPU: 0.00 Avg: 16.72ms Min: 16.51ms Max: 16.93ms[0m
+[   50.8557] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.78 RNDR: 9.27 GPU: 0.00 Avg: 16.72ms Min: 16.36ms Max: 16.92ms[0m
+[   51.8588] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.76 RNDR: 9.00 GPU: 0.00 Avg: 16.72ms Min: 16.54ms Max: 16.86ms[0m
+[   52.8617] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.74 RNDR: 10.78 GPU: 0.00 Avg: 16.72ms Min: 16.47ms Max: 16.87ms[0m
+[   53.8648] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.67 RNDR: 8.45 GPU: 0.00 Avg: 16.72ms Min: 16.51ms Max: 16.90ms[0m
+[   54.8679] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.70 RNDR: 9.37 GPU: 0.00 Avg: 16.72ms Min: 16.56ms Max: 16.92ms[0m
+[   55.8710] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.57 RNDR: 12.07 GPU: 0.00 Avg: 16.72ms Min: 16.16ms Max: 17.30ms[0m
+[   56.8741] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.42 RNDR: 8.63 GPU: 0.00 Avg: 16.72ms Min: 16.48ms Max: 17.01ms[0m
+[   57.8771] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.59 RNDR: 5.41 GPU: 0.00 Avg: 16.72ms Min: 16.48ms Max: 16.96ms[0m
+[   58.8801] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.55 RNDR: 11.68 GPU: 0.00 Avg: 16.72ms Min: 16.46ms Max: 17.03ms[0m
+[   59.8832] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.58 RNDR: 3.34 GPU: 0.00 Avg: 16.72ms Min: 16.52ms Max: 16.95ms[0m
+[   60.8861] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.83 CPU: 1.62 RNDR: 2.60 GPU: 0.00 Avg: 16.71ms Min: 16.51ms Max: 16.94ms[0m
+[   61.8893] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.78 RNDR: 6.25 GPU: 0.00 Avg: 16.72ms Min: 16.36ms Max: 17.00ms[0m
+[   62.8924] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.08 RNDR: 9.93 GPU: 0.00 Avg: 16.72ms Min: 16.53ms Max: 16.97ms[0m
+[   63.8953] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.66 RNDR: 9.84 GPU: 0.00 Avg: 16.72ms Min: 16.59ms Max: 16.94ms[0m
+[   64.8986] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.63 RNDR: 9.96 GPU: 0.00 Avg: 16.72ms Min: 16.54ms Max: 16.95ms[0m
+[   65.9014] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.83 CPU: 1.55 RNDR: 10.96 GPU: 0.00 Avg: 16.71ms Min: 16.12ms Max: 17.22ms[0m
+[   66.9045] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.69 RNDR: 3.89 GPU: 0.00 Avg: 16.72ms Min: 16.53ms Max: 16.91ms[0m
+[   67.9076] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.67 RNDR: 5.50 GPU: 0.00 Avg: 16.72ms Min: 16.54ms Max: 16.89ms[0m
+[   68.9106] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.64 RNDR: 3.62 GPU: 0.00 Avg: 16.72ms Min: 16.58ms Max: 16.86ms[0m
+[   69.9136] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.63 RNDR: 6.38 GPU: 0.00 Avg: 16.72ms Min: 16.50ms Max: 16.93ms[0m
+[   70.9167] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.62 RNDR: 4.86 GPU: 0.00 Avg: 16.72ms Min: 16.49ms Max: 17.10ms[0m
+[   71.9197] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.68 RNDR: 6.80 GPU: 0.00 Avg: 16.72ms Min: 16.45ms Max: 16.90ms[0m
+[   72.9229] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.78 RNDR: 5.95 GPU: 0.00 Avg: 16.72ms Min: 16.56ms Max: 16.87ms[0m
+[   73.9261] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.80 CPU: 1.71 RNDR: 9.05 GPU: 0.00 Avg: 16.72ms Min: 16.45ms Max: 17.09ms[0m
+[   74.9289] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.83 CPU: 1.63 RNDR: 13.40 GPU: 0.00 Avg: 16.71ms Min: 16.56ms Max: 16.90ms[0m
+[   75.9321] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.48 RNDR: 10.15 GPU: 0.00 Avg: 16.72ms Min: 16.37ms Max: 16.96ms[0m
+[   76.9351] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.69 RNDR: 11.48 GPU: 0.00 Avg: 16.72ms Min: 16.52ms Max: 17.01ms[0m
+[   77.9382] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.69 RNDR: 11.57 GPU: 0.00 Avg: 16.72ms Min: 16.55ms Max: 16.90ms[0m
+[   78.9412] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.59 RNDR: 7.46 GPU: 0.00 Avg: 16.72ms Min: 16.56ms Max: 16.88ms[0m
+[   79.9443] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.57 RNDR: 9.75 GPU: 0.00 Avg: 16.72ms Min: 16.54ms Max: 16.95ms[0m
+[   80.9471] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.83 CPU: 1.35 RNDR: 8.99 GPU: 0.00 Avg: 16.71ms Min: 16.55ms Max: 16.88ms[0m
+[   81.2850] [37m[1mI/ImGuiManager: OSD [ScreenshotSaver_/storage/roms/screenshots/2026-10-08-03-13-20.png]: Saving screenshot to '2026-10-08-03-13-20.png'.[0m
+[   81.2850] [33m[1mD/VideoThread: Setting run idle reason 'OSDMessagesActive' to true[0m
+[   81.2903] [37m[1mI/ImGuiManager: OSD [ScreenshotSaver_/storage/roms/screenshots/2026-10-08-03-13-20.png]: Saved screenshot to '2026-10-08-03-13-20.png'.[0m
+[   81.9503] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.52 RNDR: 10.97 GPU: 0.00 Avg: 16.72ms Min: 10.13ms Max: 23.36ms[0m
+[   82.9533] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.71 RNDR: 7.14 GPU: 0.00 Avg: 16.72ms Min: 16.56ms Max: 16.89ms[0m
+[   83.9565] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.78 RNDR: 10.04 GPU: 0.00 Avg: 16.72ms Min: 16.58ms Max: 16.90ms[0m
+[   84.9594] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.80 RNDR: 14.28 GPU: 0.00 Avg: 16.72ms Min: 16.56ms Max: 16.94ms[0m
+[   85.9627] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.80 CPU: 1.68 RNDR: 11.55 GPU: 0.00 Avg: 16.72ms Min: 16.54ms Max: 17.00ms[0m
+[   86.2972] [33m[1mD/VideoThread: Setting run idle reason 'OSDMessagesActive' to false[0m
+[   86.9655] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.83 CPU: 1.55 RNDR: 7.33 GPU: 0.00 Avg: 16.71ms Min: 16.10ms Max: 17.28ms[0m
+[   87.9688] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.80 CPU: 1.62 RNDR: 5.20 GPU: 0.00 Avg: 16.72ms Min: 16.51ms Max: 16.93ms[0m
+[   88.9718] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.75 RNDR: 8.24 GPU: 0.00 Avg: 16.72ms Min: 16.44ms Max: 17.02ms[0m
+[   89.9746] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.83 CPU: 1.69 RNDR: 6.63 GPU: 0.00 Avg: 16.71ms Min: 16.42ms Max: 17.05ms[0m
+[   90.9778] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.65 RNDR: 6.61 GPU: 0.00 Avg: 16.72ms Min: 16.36ms Max: 17.13ms[0m
+[   91.9808] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.57 RNDR: 5.66 GPU: 0.00 Avg: 16.72ms Min: 16.54ms Max: 16.89ms[0m
+[   92.9839] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.76 RNDR: 9.38 GPU: 0.00 Avg: 16.72ms Min: 16.42ms Max: 17.18ms[0m
+[   93.9872] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.80 CPU: 1.71 RNDR: 8.12 GPU: 0.00 Avg: 16.72ms Min: 16.46ms Max: 17.24ms[0m
+[   94.9900] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.83 CPU: 1.49 RNDR: 12.03 GPU: 0.00 Avg: 16.71ms Min: 16.17ms Max: 17.33ms[0m
+[   95.9932] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.48 RNDR: 9.67 GPU: 0.00 Avg: 16.72ms Min: 16.30ms Max: 17.09ms[0m
+[   96.9963] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.71 RNDR: 11.36 GPU: 0.00 Avg: 16.72ms Min: 16.28ms Max: 17.01ms[0m
+[   97.9992] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.83 CPU: 1.56 RNDR: 5.92 GPU: 0.00 Avg: 16.72ms Min: 16.42ms Max: 17.08ms[0m
+[   99.0021] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.58 RNDR: 2.94 GPU: 0.00 Avg: 16.72ms Min: 16.52ms Max: 17.03ms[0m
+[  100.0052] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.52 RNDR: 5.76 GPU: 0.00 Avg: 16.72ms Min: 16.45ms Max: 16.95ms[0m
+[  101.0084] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.50 RNDR: 11.78 GPU: 0.00 Avg: 16.72ms Min: 16.48ms Max: 16.94ms[0m
+[  102.0115] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.59 RNDR: 12.28 GPU: 0.00 Avg: 16.72ms Min: 16.42ms Max: 16.85ms[0m
+[  103.0144] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.83 CPU: 1.59 RNDR: 6.26 GPU: 0.00 Avg: 16.71ms Min: 16.54ms Max: 16.90ms[0m
+[  104.0175] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.55 RNDR: 8.27 GPU: 0.00 Avg: 16.72ms Min: 16.55ms Max: 16.88ms[0m
+[  105.0208] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.55 RNDR: 8.92 GPU: 0.00 Avg: 16.72ms Min: 16.52ms Max: 16.91ms[0m
+[  106.0235] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.84 CPU: 1.55 RNDR: 8.12 GPU: 0.00 Avg: 16.71ms Min: 16.50ms Max: 16.90ms[0m
+[  107.0267] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.66 RNDR: 7.51 GPU: 0.00 Avg: 16.72ms Min: 16.54ms Max: 16.88ms[0m
+[  108.0297] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.67 RNDR: 6.24 GPU: 0.00 Avg: 16.72ms Min: 16.40ms Max: 17.07ms[0m
+[  109.0328] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.68 RNDR: 5.40 GPU: 0.00 Avg: 16.72ms Min: 16.56ms Max: 16.97ms[0m
+[  110.0358] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.58 RNDR: 5.58 GPU: 0.00 Avg: 16.72ms Min: 16.47ms Max: 16.96ms[0m
+[  111.0387] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.83 CPU: 1.36 RNDR: 4.82 GPU: 0.00 Avg: 16.72ms Min: 10.70ms Max: 22.72ms[0m
+[  112.0418] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.55 RNDR: 3.00 GPU: 0.00 Avg: 16.72ms Min: 16.57ms Max: 16.92ms[0m
+[  113.0449] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.66 RNDR: 3.59 GPU: 0.00 Avg: 16.72ms Min: 16.57ms Max: 16.87ms[0m
+[  114.0479] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.65 RNDR: 6.23 GPU: 0.00 Avg: 16.72ms Min: 16.58ms Max: 16.87ms[0m
+[  115.0510] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.61 RNDR: 7.68 GPU: 0.00 Avg: 16.72ms Min: 16.54ms Max: 16.91ms[0m
+[  116.0540] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.60 RNDR: 5.04 GPU: 0.00 Avg: 16.72ms Min: 16.55ms Max: 16.90ms[0m
+[  117.0572] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.73 RNDR: 6.87 GPU: 0.00 Avg: 16.72ms Min: 16.42ms Max: 16.88ms[0m
+[  118.0602] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.77 RNDR: 7.94 GPU: 0.00 Avg: 16.72ms Min: 16.50ms Max: 16.95ms[0m
+[  119.0633] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.67 RNDR: 6.82 GPU: 0.00 Avg: 16.72ms Min: 16.55ms Max: 16.89ms[0m
+[  120.0663] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.58 RNDR: 7.87 GPU: 0.00 Avg: 16.72ms Min: 16.16ms Max: 17.23ms[0m
+[  121.0694] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.75 RNDR: 5.95 GPU: 0.00 Avg: 16.72ms Min: 16.54ms Max: 16.89ms[0m
+[  122.0724] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.61 RNDR: 6.37 GPU: 0.00 Avg: 16.72ms Min: 16.54ms Max: 16.89ms[0m
+[  123.0754] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.34 RNDR: 3.35 GPU: 0.00 Avg: 16.72ms Min: 16.54ms Max: 16.90ms[0m
+[  124.0786] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.08 RNDR: 7.45 GPU: 0.00 Avg: 16.72ms Min: 16.43ms Max: 16.98ms[0m
+[  125.0818] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.33 RNDR: 9.97 GPU: 0.00 Avg: 16.72ms Min: 16.57ms Max: 16.87ms[0m
+[  126.0847] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.83 CPU: 1.61 RNDR: 8.12 GPU: 0.00 Avg: 16.72ms Min: 16.46ms Max: 16.90ms[0m
+[  127.0878] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.40 RNDR: 9.04 GPU: 0.00 Avg: 16.72ms Min: 16.48ms Max: 16.94ms[0m
+[  128.0907] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.83 CPU: 1.54 RNDR: 5.09 GPU: 0.00 Avg: 16.71ms Min: 16.58ms Max: 16.91ms[0m
+[  129.0939] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.61 RNDR: 5.07 GPU: 0.00 Avg: 16.72ms Min: 16.55ms Max: 16.88ms[0m
+[  130.0968] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.83 CPU: 1.75 RNDR: 3.25 GPU: 0.00 Avg: 16.72ms Min: 16.57ms Max: 16.89ms[0m
+[  131.0998] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.68 RNDR: 3.08 GPU: 0.00 Avg: 16.72ms Min: 16.57ms Max: 16.88ms[0m
+[  132.1030] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.51 RNDR: 3.18 GPU: 0.00 Avg: 16.72ms Min: 16.42ms Max: 17.14ms[0m
+[  133.1062] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.68 RNDR: 6.90 GPU: 0.00 Avg: 16.72ms Min: 16.55ms Max: 17.04ms[0m
+[  134.1092] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.77 RNDR: 14.06 GPU: 0.00 Avg: 16.72ms Min: 16.52ms Max: 16.99ms[0m
+[  135.1123] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.68 RNDR: 13.30 GPU: 0.00 Avg: 16.72ms Min: 16.52ms Max: 16.98ms[0m
+[  136.1154] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.72 RNDR: 13.10 GPU: 0.00 Avg: 16.72ms Min: 16.22ms Max: 17.14ms[0m
+[  137.1185] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.51 RNDR: 12.51 GPU: 0.00 Avg: 16.72ms Min: 16.46ms Max: 16.91ms[0m
+[  138.1214] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.83 CPU: 1.44 RNDR: 12.08 GPU: 0.00 Avg: 16.71ms Min: 16.49ms Max: 17.02ms[0m
+[  139.1247] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.80 CPU: 1.56 RNDR: 12.44 GPU: 0.00 Avg: 16.72ms Min: 16.53ms Max: 16.91ms[0m
+[  140.1275] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.83 CPU: 1.50 RNDR: 14.09 GPU: 0.00 Avg: 16.71ms Min: 16.53ms Max: 16.89ms[0m
+[  141.1306] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.45 RNDR: 11.39 GPU: 0.00 Avg: 16.72ms Min: 16.37ms Max: 17.03ms[0m
+[  142.1337] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.62 RNDR: 7.91 GPU: 0.00 Avg: 16.72ms Min: 16.49ms Max: 16.95ms[0m
+[  143.1366] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.65 RNDR: 6.27 GPU: 0.00 Avg: 16.72ms Min: 16.52ms Max: 16.96ms[0m
+[  144.1396] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.83 CPU: 1.62 RNDR: 7.06 GPU: 0.00 Avg: 16.72ms Min: 16.51ms Max: 16.90ms[0m
+[  145.1427] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.66 RNDR: 1.58 GPU: 0.00 Avg: 16.72ms Min: 16.57ms Max: 16.90ms[0m
+[  146.1458] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.67 RNDR: 7.00 GPU: 0.00 Avg: 16.72ms Min: 16.49ms Max: 16.91ms[0m
+[  147.1489] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.50 RNDR: 8.75 GPU: 0.00 Avg: 16.72ms Min: 15.61ms Max: 17.64ms[0m
+[  148.1518] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.83 CPU: 1.54 RNDR: 8.07 GPU: 0.00 Avg: 16.71ms Min: 16.34ms Max: 16.99ms[0m
+[  149.1549] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.60 RNDR: 4.90 GPU: 0.00 Avg: 16.72ms Min: 16.55ms Max: 16.92ms[0m
+[  150.1579] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.60 RNDR: 6.18 GPU: 0.00 Avg: 16.72ms Min: 16.50ms Max: 17.02ms[0m
+[  151.1609] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.53 RNDR: 7.78 GPU: 0.00 Avg: 16.72ms Min: 16.42ms Max: 17.05ms[0m
+[  152.1641] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.50 RNDR: 6.29 GPU: 0.00 Avg: 16.72ms Min: 16.47ms Max: 17.07ms[0m
+[  153.1672] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.62 RNDR: 3.64 GPU: 0.00 Avg: 16.72ms Min: 16.50ms Max: 17.05ms[0m
+[  154.1701] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.56 RNDR: 7.38 GPU: 0.00 Avg: 16.72ms Min: 16.28ms Max: 17.16ms[0m
+[  155.1733] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.61 RNDR: 8.25 GPU: 0.00 Avg: 16.72ms Min: 16.52ms Max: 16.87ms[0m
+[  156.1763] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.64 RNDR: 7.01 GPU: 0.00 Avg: 16.72ms Min: 16.52ms Max: 16.91ms[0m
+[  157.1794] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.52 RNDR: 10.05 GPU: 0.00 Avg: 16.72ms Min: 16.29ms Max: 17.07ms[0m
+[  158.1823] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.51 RNDR: 6.88 GPU: 0.00 Avg: 16.72ms Min: 16.52ms Max: 16.95ms[0m
+[  159.1855] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.66 RNDR: 5.24 GPU: 0.00 Avg: 16.72ms Min: 16.49ms Max: 17.03ms[0m
+[  160.1884] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.83 CPU: 1.51 RNDR: 6.32 GPU: 0.00 Avg: 16.72ms Min: 16.50ms Max: 16.91ms[0m
+[  161.1915] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.39 RNDR: 4.53 GPU: 0.00 Avg: 16.72ms Min: 16.27ms Max: 17.14ms[0m
+[  162.1945] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.53 RNDR: 7.56 GPU: 0.00 Avg: 16.72ms Min: 10.71ms Max: 22.68ms[0m
+[  163.1977] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.59 RNDR: 7.40 GPU: 0.00 Avg: 16.72ms Min: 16.53ms Max: 17.01ms[0m
+[  164.2008] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.70 RNDR: 7.03 GPU: 0.00 Avg: 16.72ms Min: 16.46ms Max: 16.90ms[0m
+[  165.2037] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.73 RNDR: 5.25 GPU: 0.00 Avg: 16.72ms Min: 16.53ms Max: 16.91ms[0m
+[  166.2067] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.34 RNDR: 9.82 GPU: 0.00 Avg: 16.72ms Min: 16.55ms Max: 16.93ms[0m
+[  167.2099] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.57 RNDR: 5.81 GPU: 0.00 Avg: 16.72ms Min: 16.59ms Max: 16.88ms[0m
+[  168.2130] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.60 RNDR: 3.72 GPU: 0.00 Avg: 16.72ms Min: 16.32ms Max: 17.08ms[0m
+[  169.2160] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.66 RNDR: 3.43 GPU: 0.00 Avg: 16.72ms Min: 16.57ms Max: 16.87ms[0m
+[  170.2189] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.83 CPU: 1.57 RNDR: 2.25 GPU: 0.00 Avg: 16.72ms Min: 16.55ms Max: 16.90ms[0m
+[  171.2224] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.79 CPU: 1.65 RNDR: 12.49 GPU: 0.00 Avg: 16.72ms Min: 16.49ms Max: 16.91ms[0m
+[  172.2253] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.83 CPU: 1.68 RNDR: 13.06 GPU: 0.00 Avg: 16.71ms Min: 16.41ms Max: 17.06ms[0m
+[  173.2282] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.70 RNDR: 5.05 GPU: 0.00 Avg: 16.72ms Min: 15.81ms Max: 17.49ms[0m
+[  174.2312] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 0.93 RNDR: 4.15 GPU: 0.00 Avg: 16.72ms Min: 16.57ms Max: 16.92ms[0m
+[  175.2343] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.19 RNDR: 5.64 GPU: 0.00 Avg: 16.72ms Min: 16.57ms Max: 16.96ms[0m
+[  176.2374] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.63 RNDR: 7.13 GPU: 0.00 Avg: 16.72ms Min: 16.61ms Max: 16.87ms[0m
+[  177.2404] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.83 CPU: 1.37 RNDR: 8.23 GPU: 0.00 Avg: 16.72ms Min: 15.64ms Max: 17.58ms[0m
+[  178.2435] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.63 RNDR: 5.16 GPU: 0.00 Avg: 16.72ms Min: 16.54ms Max: 16.98ms[0m
+[  179.2464] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.83 CPU: 1.63 RNDR: 9.49 GPU: 0.00 Avg: 16.71ms Min: 16.46ms Max: 16.95ms[0m
+[  180.2495] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.64 RNDR: 7.36 GPU: 0.00 Avg: 16.72ms Min: 16.52ms Max: 16.92ms[0m
+[  181.2527] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.66 RNDR: 10.76 GPU: 0.00 Avg: 16.72ms Min: 16.45ms Max: 16.96ms[0m
+[  182.2559] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.67 RNDR: 8.85 GPU: 0.00 Avg: 16.72ms Min: 16.50ms Max: 17.11ms[0m
+[  183.2587] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.83 CPU: 1.63 RNDR: 5.74 GPU: 0.00 Avg: 16.71ms Min: 16.35ms Max: 16.99ms[0m
+[  184.2617] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.57 RNDR: 1.66 GPU: 0.00 Avg: 16.72ms Min: 16.44ms Max: 16.88ms[0m
+[  185.2649] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.67 RNDR: 4.20 GPU: 0.00 Avg: 16.72ms Min: 16.57ms Max: 16.85ms[0m
+[  186.2679] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.52 RNDR: 2.94 GPU: 0.00 Avg: 16.72ms Min: 16.59ms Max: 16.92ms[0m
+[  187.2710] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.58 RNDR: 4.96 GPU: 0.00 Avg: 16.72ms Min: 16.46ms Max: 16.94ms[0m
+[  188.2740] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.69 RNDR: 3.36 GPU: 0.00 Avg: 16.72ms Min: 16.54ms Max: 16.86ms[0m
+[  189.2773] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.80 CPU: 1.72 RNDR: 10.17 GPU: 0.00 Avg: 16.72ms Min: 16.44ms Max: 17.03ms[0m
+[  190.2802] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.83 CPU: 1.16 RNDR: 11.81 GPU: 0.00 Avg: 16.71ms Min: 16.50ms Max: 16.88ms[0m
+[  191.2832] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.65 RNDR: 7.63 GPU: 0.00 Avg: 16.72ms Min: 16.47ms Max: 16.93ms[0m
+[  192.2863] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.58 RNDR: 7.97 GPU: 0.00 Avg: 16.72ms Min: 16.28ms Max: 17.00ms[0m
+[  193.2894] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.57 RNDR: 8.46 GPU: 0.00 Avg: 16.72ms Min: 16.49ms Max: 16.85ms[0m
+[  194.2924] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.62 RNDR: 4.49 GPU: 0.00 Avg: 16.72ms Min: 16.50ms Max: 16.88ms[0m
+[  195.2953] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.83 CPU: 1.60 RNDR: 5.31 GPU: 0.00 Avg: 16.72ms Min: 16.57ms Max: 16.89ms[0m
+[  196.2984] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.58 RNDR: 5.03 GPU: 0.00 Avg: 16.72ms Min: 16.50ms Max: 17.10ms[0m
+[  197.3014] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.59 RNDR: 4.38 GPU: 0.00 Avg: 16.72ms Min: 16.49ms Max: 16.87ms[0m
+[  198.3046] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.83 RNDR: 3.40 GPU: 0.00 Avg: 16.72ms Min: 16.53ms Max: 16.91ms[0m
+[  199.3077] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.51 RNDR: 5.56 GPU: 0.00 Avg: 16.72ms Min: 16.23ms Max: 17.30ms[0m
+[  200.3107] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.58 RNDR: 12.87 GPU: 0.00 Avg: 16.72ms Min: 16.47ms Max: 16.91ms[0m
+[  201.3137] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.62 RNDR: 5.68 GPU: 0.00 Avg: 16.72ms Min: 16.51ms Max: 17.01ms[0m
+Received CTRL+C, attempting graceful shutdown. Press CTRL+C again to force.
+[  201.5584] [37m[1mI/Host: Setting pending main window close flag.[0m
+[  201.5646] [37m[1mI/VideoThread: Reconfiguring video thread.[0m
+[  201.5646] [32m[1mV/VideoThread: Shutting down GPU backend...[0m
+[  201.5647] [33m[1mD/VideoThread: Setting run idle reason 'NoGPUBackend' to true[0m
+[  201.5647] [32m[1mV/VideoThread: Shutting down GPU presenter...[0m
+[  201.5666] [37m[1mI/VideoThread: Destroying OpenGL GPU device...[0m
+[  201.5708] [37m[1mI/GPUDevice: Unloading EGL.[0m
+[  201.5708] [37mD/VideoThread: Clearing game info on GPU thread.[0m
+[  201.6231] [37mD/Host: Starting background controller polling timer with interval 100 ms[0m
+[  201.6231] [37mD/System: Applying settings...[0m
+[  201.6234] [37m[1mI/VideoThread: Shutting down video thread...[0m
+[  201.6517] [37m[1mI/InputManager: Device 'SDL-0' disconnected[0m

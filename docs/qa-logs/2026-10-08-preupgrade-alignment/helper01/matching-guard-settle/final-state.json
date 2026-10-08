@@ -1,0 +1,70 @@
+{
+  "protected_before": {
+    "local": {
+      "gb/QA_LOCAL.srm": "41224296718367468c10b98fcadd17e2708e042490e91aafe45c6c2b3369364c"
+    },
+    "recovery": {
+      "QA/QA_RECOVERY.srm": "7ff8331931b0e82b48c978324040a1798f37c2057d881d63acc92e85e7787a31"
+    },
+    "credential": "7603c17bce0056aae641bee817b6f9875863b4158f34d526914bfba008485eb5",
+    "system_config": "26983179f51efa43d44254e98820610e167b64be13105de7fe4af0fa866d095e",
+    "remote": {
+      "QA_SENTINEL/remote.bin": "8c82ae2e2f61f12a7ce836c9f8fddf62dc2b0cfbad1a724d669c35a8ded6698b"
+    }
+  },
+  "protected_after": {
+    "local": {
+      "gb/QA_LOCAL.srm": "41224296718367468c10b98fcadd17e2708e042490e91aafe45c6c2b3369364c"
+    },
+    "recovery": {
+      "QA/QA_RECOVERY.srm": "7ff8331931b0e82b48c978324040a1798f37c2057d881d63acc92e85e7787a31"
+    },
+    "credential": "7603c17bce0056aae641bee817b6f9875863b4158f34d526914bfba008485eb5",
+    "system_config": "26983179f51efa43d44254e98820610e167b64be13105de7fe4af0fa866d095e",
+    "remote": {
+      "QA_SENTINEL/remote.bin": "8c82ae2e2f61f12a7ce836c9f8fddf62dc2b0cfbad1a724d669c35a8ded6698b"
+    }
+  },
+  "pointers": {
+    "SAVESPATH": "/storage/roms",
+    "SAVES_REMOTE": "/ROCKNIX/Saves",
+    "SETTINGS_BACKUPS": "/storage/roms/backup",
+    "SETTINGS_REMOTE": "/ROCKNIX/Backups",
+    "BACKUPMETHOD": "copy",
+    "RESTOREMETHOD": "copy",
+    "BACKUPFILE_BACKUP_OPTION": "no",
+    "BACKUPFILE_RESTORE_OPTION": "no",
+    "LOG_LEVEL": "INFO",
+    "LAYOUT_KEEP": "/ROCKNIX/Saves",
+    "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+    "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+    "CONTENT_REMOTE": "/ROCKNIX/Content"
+  },
+  "source_sha256": {
+    "backuptool": "02557ca500c9706bac1c1062e70a1abfff46f8a445e96cde2f1b407ff64fe254",
+    "cloud_backup": "12a231698b70a8b83eb9d1fd1bc593f4507313030635a6750392f5fd19130a03",
+    "cloud_capture": "6853272e6eb29b2c61908dbfe135a5cb14cab7e86f833dea69a4cc6ac66a8929",
+    "cloud_content_backup": "c6789f9476d1c13cc00050fe2478d26629da05ef6af89222eb0ef72f3bf594ae",
+    "cloud_content_restore": "3b28fd1403657d713f92f216840a52ff7e692bf09746a7ccb8c2519c6940d2f8",
+    "cloud_content_transfer": "fe292268d9029c2b950a093f6902b5cbe8afb3d57cb47187251cf90c3d85a1a3",
+    "cloud_device_id": "3230633caf65ad9e115dffc1bf3e1dede38746f808d4177fc0c37b9defbeee62",
+    "cloud_log_scrub": "5c156d8d43b39172fa71b80a3e47156f46bca0965dcae890ec70f02596f8f126",
+    "cloud_migrate_layout": "0e4ccebde159006acb6313027e33b363b177eff2b62db2bacc93fea05396b2c1",
+    "cloud_net_ready": "19afce254bc5c55f119b9681463b8103da5f564f3235b64f100ba9c35e62df89",
+    "cloud_oauth": "fec8240db342eb9432f9423f5ee3f5bd53df499012dffd1e4ac9ae81c316cbf5",
+    "cloud_remote": "1b4df1b5394647e52df8584e75529ef113be8ccde3ea31b8b7dd1dfd5bb2e99e",
+    "cloud_restore": "ec63c21ad782703c6679ce5e1a7b8c5e8f610daeec8cdda224d166df945d0544",
+    "cloud_saves_root": "d0b0c5b850a7b51257797dcc9bfdac2e6f3e0abf2c3be4584ca65583748bfe43",
+    "cloud_scan": "a4830b23e7d3df7d86cba7867ccaaca583ea8881e90a4c5d3988671d79b20aa1",
+    "cloud_setup": "44f0c93b5eb1380fd237fe9a3fbbd604bb8b60181923a6f3e78c0dffa501fc3f",
+    "cloud_sync-rules.txt": "bdb7e18128ce4a604c9b02cfe5b0f10f4e3e4dfd3aa7e2d69ea018b8c9d5484d",
+    "cloud_sync-rules.txt.defaults": "951a7d65d83dc2f2a041868cf2ab1e231a8b09873a0656311b1f947fd106df75",
+    "cloud_sync.conf": "5bdcfed4cdfe506e1be1cbb0161ea244ef4d9bb5617168d206eb3fc8b3568be2",
+    "cloud_sync.conf.defaults": "0ff36d8e0e0988e59a0e6655c251c5050d2891481c587724e59d6813f33550e6",
+    "cloud_sync_cleanup_duplicates.sh": "b62ee55ace6e9d776a89686ed6ecdfa17c90ac0e9a6f16d2e260cb2a7617eac1",
+    "cloud_sync_helper": "3c7738648fe946c74d2c8e9d38fc5e7529f6f41a831a6c546c84765891f26385",
+    "lease-probe": "1edf4c383ba09663a26ebf8a59d6ea6d80ff420dea4b6edf408179464028bef2",
+    "rasteratops-settings-archive": "58977f0e8aec6adfe673037c1a926bb2cbee94269ad6306ec02206250bceb50c",
+    "startup-witness": "277550312abb85d9aadb2048f079106706340da068cffb3c78968ba908fd79cd"
+  }
+}

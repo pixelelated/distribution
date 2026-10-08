@@ -1,0 +1,35 @@
+{
+  "at": "2026-10-08T06:48:00.467951+00:00",
+  "commit": "1ee8e5199da0bc02e6aa4ebff94b951f5e8b4804",
+  "checks": {
+    "content-regression01/result.json": true,
+    "content-regression01/result.json_source": true,
+    "validator-regression01/result.json": true,
+    "validator-regression01/result.json_source": true,
+    "image-applets02/summary.json": true,
+    "image-applets02/summary.json_source": true,
+    "n64-system-root-scope_startup": true,
+    "n64-system-root-scope_wrapper": true,
+    "content-upload_startup": true,
+    "content-upload_wrapper": true,
+    "content-upload-with-media_startup": true,
+    "content-upload-with-media_wrapper": true,
+    "content-list-count-scan_startup": true,
+    "content-list-count-scan_wrapper": true,
+    "media-only-progress-boundary_startup": true,
+    "media-only-progress-boundary_wrapper": true,
+    "content-restore-with-media_startup": true,
+    "content-restore-with-media_wrapper": true,
+    "content-restore_startup": true,
+    "content-restore_wrapper": true,
+    "content-match_startup": true,
+    "content-match_wrapper": true,
+    "content-match-removed-system_startup": true,
+    "content-match-removed-system_wrapper": true
+  },
+  "actual_applet_invocations": {
+    "find": 31,
+    "awk": 94
+  },
+  "scope": "Host scripts with actual accepted image find/awk; guest/UI separate."
+}

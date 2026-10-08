@@ -1,0 +1,30 @@
+{
+  "case": "fresh-empty-seed-beside-legacy",
+  "status": "PASS",
+  "detail": "",
+  "cloud_sha256": {
+    "ROCKNIX/Content/ROMs/psx/CloudOnly.chd": "f35927ad637c776f21f9db8875c65523f043ca60fcc8575f7db4d2e1b5a2c852",
+    "ROCKNIX/Saves/gb/progress.srm": "35ca65761feb88f286a161f12449970eee8dc654847fa76791c134ea4bbe8903",
+    "pixelelated/.layout": "be68d69fa1fe3ddbcaa9295b8e3e732fd0113d909e38cf643d95aab41c9b1a22",
+    "pixelelated/Backups/README.txt": "a2e91a3dddf28269cbf704b1b7e2540608e9851a88f09679701e0c6629fd7f5c",
+    "pixelelated/Content/BIOS/README.txt": "12345b222d272bcccee06cac35e9b0d4ac10a76617a32b72cefa8542a90d1f67",
+    "pixelelated/Content/README.txt": "cb0db1a29003ebedb5a5f92d17c49e7eadebedcc10e883e9d9af052fd4a57456",
+    "pixelelated/Content/ROMs/README.txt": "cdbf34d6dc27ad558261bd99b99bbc91850ba28a1150ef2488b18dbe87637bcd",
+    "pixelelated/Saves/README.txt": "81283a71c8db19f49232b395e3527170b14ae38add60d5180071196f24c283bf"
+  },
+  "pointers": {
+    "SAVESPATH": "/storage/roms",
+    "SAVES_REMOTE": "/pixelelated/Saves",
+    "SETTINGS_BACKUPS": "/storage/roms/backup",
+    "SETTINGS_REMOTE": "/pixelelated/Backups",
+    "BACKUPMETHOD": "copy",
+    "RESTOREMETHOD": "copy",
+    "BACKUPFILE_BACKUP_OPTION": "no",
+    "BACKUPFILE_RESTORE_OPTION": "no",
+    "LOG_LEVEL": "INFO",
+    "LAYOUT_KEEP": "",
+    "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+    "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+    "CONTENT_REMOTE": "/pixelelated/Content"
+  }
+}

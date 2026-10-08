@@ -193,6 +193,11 @@ both lists and to this table, or it is invisible.**
 | `raofflineproxy-consent-test` | exercise installed reporting consent with synthetic state, actual loopback HTTP and restart controls | `generic-x64-vm-testing.md` |
 | `rasteratops-cloud-layout-test` | prove numbered layout transitions, partial-state recovery and missing-remote refusal | `rclone-cloud-sync.md` |
 | `pixelelated-content-scope-test` | prove selected-library boundaries, bounded root refusal and scan-result binding with synthetic real-rclone controls | `rclone-cloud-sync.md` |
+| `pixelelated-cloud-folder-test` | qualify explicit selected-folder setup and preservation with real rclone and disposable synthetic data | `rclone-cloud-sync.md` |
+| `pixelelated-cloud-folder-vm-test` | prove hash-bound explicit-folder scripts on an owned guest and synthetic WebDAV | `generic-x64-vm-testing.md` |
+| `pixelelated-cloud-validator-test` | qualify bounded selected-category metadata checks and explicit folder creation | `rclone-cloud-sync.md` |
+| `pixelelated-save-layout-test` | prove source-derived standalone save coverage and exclusion from library transfers with synthetic real-rclone controls | `rclone-cloud-sync.md` |
+| `pixelelated-duckstation-capture-test` | prove actual launcher screenshot defaults, custom/history preservation and AppImage install mode with synthetic fixtures | `packaging-and-patches.md`, `rclone-cloud-sync.md` |
 | `rasteratops-vm-cloud-epic` | run promoted cloud and settings cases against actual guest scripts | `generic-x64-vm-testing.md` |
 | `pixelelated-vm-cloud-boundaries` | prove explicit layout1 migration, recovered-cloud followers on a separate guest, and independent settings/content/provider boundaries | `generic-x64-vm-testing.md` |
 | `rasteratops-identity-check` | check distribution identity contracts in source and an image | `release-candidates.md` |

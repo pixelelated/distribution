@@ -109,6 +109,18 @@ an older one from another device. Default to **non-destructive** resolution (kee
 never auto-delete the conflict loser) and prefer prompting/merging over silent overwrite; lean
 toward progress (e.g. playtime/size/state heuristics), not timestamps.
 
+## Save layout changes follow actual writers
+
+#515/#520: trace the packaged emulator writer through its launcher, mounts and
+configuration before classifying a save path. A directory getter alone does
+not establish the path used by an actual save operation. Valid standalone
+layouts remain in place. For a coverage fix, exercise both default allowlists,
+upgrade merging and all content upload/restore/list/count/match exclusions;
+old content backups must not overwrite newer local progress. A readiness
+classifier must keep its metadata bounds and cannot imply unseen files passed.
+Use source-derived synthetic paths in `tools/pixelelated-save-layout-test`,
+including successful fixture-start witnesses for old-source failing controls.
+
 ## Layout & packaging
 
 - `package.mk` installs a **prebuilt rclone binary** (`PKG_TOOLCHAIN="manual"`); there is

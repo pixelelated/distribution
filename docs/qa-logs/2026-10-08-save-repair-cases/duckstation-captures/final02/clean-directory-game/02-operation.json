@@ -1,0 +1,177 @@
+{
+  "argv": [
+    "bwrap",
+    "--die-with-parent",
+    "--unshare-all",
+    "--new-session",
+    "--tmpfs",
+    "/",
+    "--dir",
+    "/usr/bin",
+    "--symlink",
+    "usr/bin",
+    "/bin",
+    "--symlink",
+    "usr/lib",
+    "/lib",
+    "--ro-bind",
+    "/usr/lib",
+    "/usr/lib",
+    "--ro-bind",
+    "/usr/lib64",
+    "/usr/lib64",
+    "--ro-bind",
+    "/usr/share",
+    "/usr/share",
+    "--symlink",
+    "usr/lib64",
+    "/lib64",
+    "--ro-bind",
+    "/usr/bin/bash",
+    "/usr/bin/bash",
+    "--ro-bind",
+    "/usr/lib/cargo/bin/coreutils/env",
+    "/usr/bin/env",
+    "--ro-bind",
+    "/usr/lib/cargo/bin/coreutils/mkdir",
+    "/usr/bin/mkdir",
+    "--ro-bind",
+    "/usr/bin/gnucp",
+    "/usr/bin/cp",
+    "--ro-bind",
+    "/usr/bin/gnurm",
+    "/usr/bin/rm",
+    "--ro-bind",
+    "/usr/lib/cargo/bin/coreutils/ln",
+    "/usr/bin/ln",
+    "--ro-bind",
+    "/usr/bin/sed",
+    "/usr/bin/sed",
+    "--ro-bind",
+    "/usr/lib/cargo/bin/coreutils/cat",
+    "/usr/bin/cat",
+    "--ro-bind",
+    "/usr/lib/cargo/bin/coreutils/install",
+    "/usr/bin/install",
+    "--ro-bind",
+    "/usr/bin/python3.14",
+    "/usr/bin/python3",
+    "--ro-bind",
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-08-save-repair-cases/duckstation-captures/final02/clean-directory-game/source/probe",
+    "/usr/bin/duckstation-sa",
+    "--ro-bind",
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-08-save-repair-cases/duckstation-captures/final02/clean-directory-game/source/entry",
+    "/entry",
+    "--ro-bind",
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-08-save-repair-cases/duckstation-captures/final02/clean-directory-game/source/profile",
+    "/etc/profile",
+    "--ro-bind",
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-08-save-repair-cases/duckstation-captures/final02/clean-directory-game/source/seed",
+    "/usr/config/duckstation/settings.ini",
+    "--ro-bind",
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-08-save-repair-cases/duckstation-captures/final02/clean-directory-game/source/gamecontrollerdb.txt",
+    "/usr/config/SDL-GameControllerDB/gamecontrollerdb.txt",
+    "--ro-bind",
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-08-save-repair-cases/duckstation-captures/final02/clean-directory-game/source/rules",
+    "/rules",
+    "--ro-bind",
+    "/tmp/pixelelated-rc-rclone/rclone",
+    "/rclone.real",
+    "--ro-bind",
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-08-save-repair-cases/duckstation-captures/final02/clean-directory-game/source/helper",
+    "/usr/bin/duckstation_screenshot_path",
+    "--bind",
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-08-save-repair-cases/duckstation-captures/final02/clean-directory-game/storage",
+    "/storage",
+    "--bind",
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-08-save-repair-cases/duckstation-captures/final02/clean-directory-game/ctl",
+    "/ctl",
+    "--bind",
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-08-save-repair-cases/duckstation-captures/final02/clean-directory-game/cloud",
+    "/cloud",
+    "--dev",
+    "/dev",
+    "--proc",
+    "/proc",
+    "--tmpfs",
+    "/tmp",
+    "--chdir",
+    "/storage",
+    "--setenv",
+    "HOME",
+    "/storage",
+    "--setenv",
+    "PATH",
+    "/usr/bin:/bin",
+    "--setenv",
+    "CAPTURE_PROBE",
+    "no",
+    "/bin/bash",
+    "/entry",
+    "/storage/roms/psx/fixture.chd",
+    "psx"
+  ],
+  "rc": 0,
+  "stdout": "'/storage/.local/share/duckstation' -> '/storage/.config/duckstation'\n'/storage/.config/duckstation/savestates' -> '/storage/roms/savestates/psx'\n'/storage/.config/duckstation/memcards' -> '/storage/roms/psx/duckstation/memcards'\n",
+  "stderr": "",
+  "before": {
+    ".config/duckstation/gamecontrollerdb.txt": {
+      "link": "/usr/config/SDL-GameControllerDB/gamecontrollerdb.txt"
+    },
+    ".config/duckstation/memcards": {
+      "link": "/storage/roms/psx/duckstation/memcards"
+    },
+    ".config/duckstation/savestates": {
+      "link": "/storage/roms/savestates/psx"
+    },
+    ".config/duckstation/settings.ini": {
+      "bytes": 5068,
+      "sha256": "3e600960f709382ac6e14cea375e3c4cf5cf3a29f6ade3faf1c25f040d5bd889"
+    },
+    ".local/share/duckstation": {
+      "link": "/storage/.config/duckstation"
+    },
+    "roms/psx/duckstation/memcards/existing.bin": {
+      "bytes": 20,
+      "sha256": "2cf6f9502af930012f0da2474a1079432cf96a5fe18b264999c4295f9a7efe37"
+    },
+    "roms/savestates/psx/existing.bin": {
+      "bytes": 20,
+      "sha256": "2cf6f9502af930012f0da2474a1079432cf96a5fe18b264999c4295f9a7efe37"
+    },
+    "roms/screenshots/synthetic-capture.png": {
+      "bytes": 44,
+      "sha256": "2155f40baf67eab067b307d562f3f8c1c39a0c725312bddcbab9ed36c04a82d1"
+    }
+  },
+  "after": {
+    ".config/duckstation/gamecontrollerdb.txt": {
+      "link": "/usr/config/SDL-GameControllerDB/gamecontrollerdb.txt"
+    },
+    ".config/duckstation/memcards": {
+      "link": "/storage/roms/psx/duckstation/memcards"
+    },
+    ".config/duckstation/savestates": {
+      "link": "/storage/roms/savestates/psx"
+    },
+    ".config/duckstation/settings.ini": {
+      "bytes": 5068,
+      "sha256": "3e600960f709382ac6e14cea375e3c4cf5cf3a29f6ade3faf1c25f040d5bd889"
+    },
+    ".local/share/duckstation": {
+      "link": "/storage/.config/duckstation"
+    },
+    "roms/psx/duckstation/memcards/existing.bin": {
+      "bytes": 20,
+      "sha256": "2cf6f9502af930012f0da2474a1079432cf96a5fe18b264999c4295f9a7efe37"
+    },
+    "roms/savestates/psx/existing.bin": {
+      "bytes": 20,
+      "sha256": "2cf6f9502af930012f0da2474a1079432cf96a5fe18b264999c4295f9a7efe37"
+    },
+    "roms/screenshots/synthetic-capture.png": {
+      "bytes": 44,
+      "sha256": "2155f40baf67eab067b307d562f3f8c1c39a0c725312bddcbab9ed36c04a82d1"
+    }
+  }
+}

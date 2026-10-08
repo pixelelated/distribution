@@ -1,0 +1,7 @@
+{
+  "source": "https://github.com/stenzek/duckstation/blob/v0.1-10998/src/duckstation-qt/qthost.cpp",
+  "source_sha256": "3ab30e43f0183460df093749c93e72ad11a0713a4d1278662b78678e2d605cf1",
+  "help_handler_lines": "3414\u20133417",
+  "main_lines": "3638\u20133639",
+  "finding": "The help handler prints usage and returns false; main translates that false parse result into EXIT_FAILURE. Therefore actual help output with exit 1 is intended for this exact tag, not a missing-library startup failure. A native session/capture is still a separate requirement."
+}

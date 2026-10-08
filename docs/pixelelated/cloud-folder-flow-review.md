@@ -114,7 +114,7 @@ contract and evidence. Issue numbers identify work, not its priority.
 | Order / issue | Work and present state | Exit evidence |
 | --- | --- | --- |
 | 1 — [#510](https://github.com/pixelelated/distribution/issues/510) | Reconcile the settled post-connection contract, canonical flows, issues and rules. The validator/create/instructions foundation has completed source-overlay proof. | This reference, D-CLOUD-179 and live issue/milestone readback agree; no pending request to choose the overall approach. |
-| 2 — [#515](https://github.com/pixelelated/distribution/issues/515) | Investigate exact supported progress-file repair cases from public ROCKNIX and actual emulator writers, then implement and qualify any justified bounded action. This is the next implementation task. | Source-cited case/disposition table; concrete plans and failing safety controls for supported repairs; reviewed affected VM frames. If none is safe, record the evidenced instructions-only disposition, not a fictional repair pass. |
+| 2 — [#515](https://github.com/pixelelated/distribution/issues/515), children [#520](https://github.com/pixelelated/distribution/issues/520) and [#521](https://github.com/pixelelated/distribution/issues/521), with runtime prerequisites #522/#523 | Qualify source-derived layout preservation and the confirmed standalone save-coverage fixes. The finite case review supports instructions for ambiguous placement, with no demonstrated generic relocation. | Source-cited case/disposition table; real-rclone coverage and no-action controls; reviewed affected VM frames. No repair action or repair-screen completion is implied. |
 | 3 — [#508](https://github.com/pixelelated/distribution/issues/508) | Integrate the qualified foundation and #515's result, retire the automatic cloud migration and promote coordinated distribution/ES pins. | Exact source/install/call-site sweep and integration manifest; preserved public credentials and independent pointers; canonical diagrams and source-bound proof travel with the changes. |
 | 4 — [#507](https://github.com/pixelelated/distribution/issues/507) | Freeze and independently audit the resulting P5 delta. | Required primary/cross-lab review receipts and resolved findings for those frozen inputs; no replay of the completed candidate16 audit. |
 | 5 — #508 / #492 / #344 / #265 / #359 | Assemble engineering firmware, prove clean install and public ROCKNIX adoption, then complete source/licence, named physical and release gates. | CF10 installed-image evidence, final input/inclusion mapping and each applicable release artifact. Engineering builds supply this evidence; source-overlay proof alone does not designate an RC. |
@@ -208,6 +208,16 @@ remain rejected. The retained
 validates references, dimensions and digests, not semantic coverage. Source
 overlays do not replace the accepted firmware benchmark or close CF10.
 
+The [standalone-save supplement](../qa-logs/2026-10-08-save-repair-cases/ui/evidence-index.json)
+adds ten reviewed frames for CF02/CF07/CF14 at distribution `1ee8e5199d`,
+with unchanged ES source `4e410dc9a8`. It shows ordinary PSP/DuckStation/N64
+saves recognized, deeper/unreadable results and retry, and the selected restore
+flow reporting progress-only content as empty. EN640 and representative FR1280
+are retained; this does not claim every locale/panel combination was rerun.
+The [root review](../qa-logs/2026-10-08-save-repair-cases/root-ui-review.json)
+binds file/config preservation and actual scan stamps. A cached-fixture result
+remains explicitly rejected. No UI wording changed for this coverage fix.
+
 | Flow/branch | Trigger and expected outcome | Reviewed evidence and remaining gate |
 | --- | --- | --- |
 | CF01 — connected setup | Enter from the cloud hub or complete a connection; category choices appear without creating or relocating files, including OAuth CONTINUE. | [Connected categories](../qa-logs/2026-10-07-cloud-validator/ui/frames/en640-link-complete/01-folder-scope.png); [hub return](../qa-logs/2026-10-07-cloud-validator/ui/supplemental/frames/walk-fr640-hub-return-01-category-finish-hub.png); [OAuth CONTINUE callback](../qa-logs/2026-10-07-cloud-validator/ui/supplemental/frames/walk-fr640-oauth-callback02-02-oauth-continue-categories.png). Exact no-network helper/setup and restoration receipts retained; this proves the callback, not provider authentication. |
@@ -231,6 +241,42 @@ Source controls are retained under
 Menu placement is in [the canonical map](../es-menu-map.md#cloud-our-subtree).
 Folder findings establish presence within bounded metadata, not transfer
 integrity or BIOS compatibility. Backup/restore remains a separate action.
+
+## DuckStation screenshot coverage
+
+This is the local screenshot writer's relationship to saves backup, not a new
+cloud menu or relocation action. #521 directs new screenshots from shipped
+or retained default settings to `/storage/roms/screenshots`. Explicit custom
+paths and a custom symlink for the historical default remain as chosen.
+The shared helper runs from both the game and Tools launchers. It changes
+only the default setting after a successful bounded preparation; a refusal
+keeps the setting and permits the ordinary launch. It moves no existing capture.
+
+```mermaid
+flowchart TD
+    L[Launch DuckStation] --> C{Screenshot setting}
+    C -->|Shipped or absent default| P[Prepare the local screenshots folder]
+    P -->|Ready| D[Use the covered screenshots path]
+    P -->|Cannot prepare| U[Keep the setting and continue launch]
+    C -->|Explicit custom path or old-directory symlink| K[Keep the chosen destination]
+    D --> H[Player invokes the existing screenshot hotkey]
+    K --> H
+    U --> H
+    H --> W[DuckStation writes at its configured destination]
+    W --> B[An independently requested saves backup includes only its allowlisted source tree]
+```
+
+| State | Trigger and expected result | Proof boundary |
+| --- | --- | --- |
+| DS01 — default capture | The existing screenshot hotkey creates a rendered PNG in the covered screenshots folder; historical captures stay unchanged. | [Native default frame](../qa-logs/2026-10-08-save-repair-cases/duckstation-captures/vm-ui/frames/default-hotkey.png) and actual generated-PNG ordinary saves backup/restore pass in the [capture packet](../qa-logs/2026-10-08-save-repair-cases/duckstation-captures/vm-ui/README.md). Synthetic reset-ROM output is not commercial game/save compatibility. |
+| DS02 — custom destination | The same hotkey uses the explicit custom destination; it is not silently redirected or claimed backed up outside the configured saves source. | [Native custom frame](../qa-logs/2026-10-08-save-repair-cases/duckstation-captures/vm-ui/frames/custom-hotkey.png) and exact output/config/history receipts pass;31 host controls cover defaults, custom paths, refusals and actual launcher/package functions. |
+
+Existing captures under the application-data screenshots directory remain
+outside saves backup until deliberately copied into the covered source.
+Review filename collisions and verify copied bytes plus backup before choosing
+whether to remove any original. This release does not automate that cleanup.
+#522 executable installation and #523 target library closure are runtime
+prerequisites. Final firmware inclusion remains #508's separate gate.
 
 ## Findings and boundaries
 
@@ -305,17 +351,47 @@ mapping: its progress allowlist deliberately accepts standalone emulator
 layouts and save extensions outside `savefiles`. Moving every such file into
 that folder would break supported saves. A repeated-folder name alone is not
 proof either. Therefore this implementation exposes no blanket **Fix** action.
-The smaller-file repair requirement is actionable work in #515. Its first
-step is a source-cited case table: correct existing layouts, genuinely
-misplaced files with a proven destination, and ambiguous/unsupported cases.
-For each supported case, implement and prove the bounded plan, consent,
-collision, source-retention, interruption and verification contract above.
-No repair API or completed repair proof is claimed today. Unsupported cases
-keep useful instructions; they do not justify a guessed relocation.
+The [#515 source case table](../qa-logs/2026-10-08-save-repair-cases/source-cases.md)
+traces ten bounded cases through public ROCKNIX and the packaged writers.
+Ordinary layouts remain in place. #520 corrects confirmed PPSSPP, DuckStation
+and Mupen64Plus coverage omissions across save and content consumers; it does
+not reorganize files. Source/host controls and ten affected VM frames are
+qualified in the [coverage packet](../qa-logs/2026-10-08-save-repair-cases/README.md).
+Source-overlay proof does not establish installed firmware inclusion.
 
-This prospective branch is deliberately separate from the implemented diagram
-and CF01–CF15 screenshots. Add its stable flow IDs and reviewed evidence when
-source exists; an existing help frame cannot prove a new repair action.
+#521 separately corrects future DuckStation default screenshots to the covered
+local screenshots tree, preserving custom paths and all historical captures.
+The31 host controls and actual default/custom rendered capture proof pass
+with runtime package fixes #522/#523. Existing captures outside the saves root remain outside
+backup coverage until deliberately placed there; no automatic move occurs.
+
+The historical extra `saves/` wrapper came from an unpublished fork defect.
+Current paths do not identify that provenance or distinguish intentional
+nesting; public ROCKNIX backup/restore preserved relative paths. Flat saves,
+states and PNGs likewise lack a unique system/core or media identity. For this
+finite case set, keep explicit folder selection and manual instructions; no
+automatic relocation is supported by the available evidence. This does not
+rule out a later repair backed by a distinct, verifiable mapping. Such a case
+must implement and prove the plan, consent, collision, source-retention,
+interruption and verification contract above before adding its action.
+No repair API or completed repair-action proof is claimed.
+
+The current disposition is:
+
+```mermaid
+flowchart TD
+    F[Check the selected cloud categories] --> K{What does the bounded check establish?}
+    K -->|Recognized ordinary save layout| P[Report files found; preserve their paths]
+    K -->|Missing or empty structure| C[Offer separately confirmed folder creation]
+    K -->|Unexpected or ambiguous placement| I[Show expected paths and manual instructions]
+    K -->|Unreadable or beyond the check bounds| R[Explain the incomplete check; offer retry]
+    I --> E[Explicitly select the intended root if needed, then recheck]
+```
+
+The following branch is a future repair contract, deliberately separate from
+the implemented diagram and CF01–CF15 screenshots. Add its stable flow IDs and
+reviewed evidence only when a supported case and source exist; an existing
+help frame cannot prove a new repair action.
 
 ```mermaid
 flowchart TD
@@ -363,8 +439,9 @@ category seeding, scans/restores limited to the selected root, nested-folder
 guidance and scan/result/help UI. Focused controls, the full host suite,
 ordinary VM WebDAV/SFTP round trips and the complete affected-flow UI proof
 pass. Preserve the reviewed screenshots and rejected predecessors. The
-targeted repair work is #515, with concrete-case investigation next; do not
-ask the owner to choose the settled approach again or call repairs delivered.
+targeted case work is #515, with #520's confirmed coverage corrections and
+the ambiguous-layout no-action disposition in qualification. Do not ask the
+owner to choose the settled approach again or call repairs delivered.
 Source integration/pins, clean/public ROCKNIX adoption on assembled firmware
 and final input/inclusion mapping remain separate gates.
 #507 independently audits the frozen resulting delta. New device firmware

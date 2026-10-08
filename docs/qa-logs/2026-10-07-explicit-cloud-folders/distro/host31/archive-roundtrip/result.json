@@ -1,0 +1,24 @@
+{
+  "case": "archive-roundtrip",
+  "status": "PASS",
+  "detail": "",
+  "cloud_sha256": {
+    "pixelelated/Backups/QA-deadbeef01/2026_10_01-120000-QA-ROCKNIX_SETTINGS.tar.gz": "8ee0af5a614a1af85c1868237b4ab63d483791a574e98d58bf012ff5dbf8bba2",
+    "pixelelated/Backups/QA-deadbeef01/device.json": "6512f8d2eea4cd3e7b43bd0168e39a32a9de20e8fb0fcf43ef100e0cc129a950"
+  },
+  "pointers": {
+    "SAVESPATH": "/storage/roms",
+    "SAVES_REMOTE": "/pixelelated/Saves",
+    "SETTINGS_BACKUPS": "/storage/roms/backup",
+    "SETTINGS_REMOTE": "/pixelelated/Backups",
+    "BACKUPMETHOD": "copy",
+    "RESTOREMETHOD": "copy",
+    "BACKUPFILE_BACKUP_OPTION": "no",
+    "BACKUPFILE_RESTORE_OPTION": "no",
+    "LOG_LEVEL": "INFO",
+    "LAYOUT_KEEP": "",
+    "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+    "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+    "CONTENT_REMOTE": "/pixelelated/Content"
+  }
+}

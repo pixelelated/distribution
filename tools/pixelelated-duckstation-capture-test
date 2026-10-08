@@ -1,0 +1,361 @@
+#!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-2.0-or-later
+# Copyright (C) 2026-present pixelelated
+"""Exercise actual DuckStation launchers/configs in isolated host fixtures (#521).
+
+The AppImage boundary is a source-derived path/capture probe, not an emulator.
+Target-runtime screenshot proof is separate. Transfers use real package rclone.
+"""
+import argparse
+import configparser
+import hashlib
+import json
+import os
+from pathlib import Path
+import shutil
+import subprocess
+import sys
+
+PACKAGE = Path('projects/ROCKNIX/packages/emulators/standalone/duckstation-sa')
+RULES = Path('projects/ROCKNIX/packages/network/rclone/sources/cloud_sync-rules.txt')
+DEFAULT = '/storage/roms/screenshots'
+LEGACY = '/storage/.config/duckstation/screenshots'
+
+
+def digest(data):
+    return hashlib.sha256(data).hexdigest()
+
+
+def require(value, why):
+    if not value:
+        raise AssertionError(why)
+
+
+def put(path, data, mode=0o644):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_bytes(data.encode() if isinstance(data, str) else data)
+    path.chmod(mode)
+
+
+def inventory(root):
+    result = {}
+    for path in sorted(root.rglob('*')):
+        if path.is_symlink():
+            result[str(path.relative_to(root))] = {'link': os.readlink(path)}
+        elif path.is_file():
+            result[str(path.relative_to(root))] = {'bytes': path.stat().st_size,
+                                                   'sha256': digest(path.read_bytes())}
+    return result
+
+
+PROBE = '''#!/usr/bin/python3
+import configparser, json, os
+from pathlib import Path
+p=Path('/storage/.config/duckstation/settings.ini')
+c=configparser.ConfigParser(interpolation=None,strict=False)
+try:
+ c.read(p)
+ value=next((c[s].get('Screenshots','screenshots') for s in c.sections() if s.lower()=='folders'),'screenshots') or 'screenshots'
+except configparser.Error:
+ value='screenshots'
+target=Path(value)
+if not target.is_absolute():target=p.parent/target
+receipt={'configured':value,'resolved':str(target.resolve()),'argv':__import__('sys').argv[1:]}
+Path('/ctl/probe.json').write_text(json.dumps(receipt))
+if os.environ.get('CAPTURE_PROBE')=='yes':
+ target.mkdir(parents=True,exist_ok=True)
+ (target/'synthetic-capture.png').write_bytes(b'fixture capture bytes, not a rendered image\\n')
+'''
+
+
+class Fixture:
+    def __init__(self, args, name, entry='game', seed='InputPlumber'):
+        self.args, self.path, self.seq = args, args.output/name, 0
+        self.path.mkdir()
+        for directory in ['source', 'storage/roms', 'storage/.config/duckstation', 'ctl', 'cloud']:
+            (self.path/directory).mkdir(parents=True, exist_ok=True)
+        self.entry = 'scripts/start_duckstation.sh' if entry == 'game' else 'sources/Start Duckstation.sh'
+        self.source = {}
+        for relative, target in [(self.entry, 'entry'), ('scripts/duckstation_screenshot_path', 'helper'),
+                                 ('config/'+seed+'/settings.ini', 'seed')]:
+            data = self.read_source(PACKAGE/relative, optional=target=='helper')
+            if data is not None:
+                put(self.path/'source'/target, data, 0o755 if target != 'seed' else 0o644)
+                self.source[str(PACKAGE/relative)] = digest(data)
+        rules = self.read_source(RULES)
+        put(self.path/'source/rules', rules)
+        self.source[str(RULES)] = digest(rules)
+        put(self.path/'source/probe', PROBE, 0o755)
+        put(self.path/'source/profile', '''export HOME=/storage PATH=/usr/bin:/bin
+set_kill() { :; }
+get_setting() { :; }
+fbwidth() { echo 640; }
+fbheight() { echo 480; }
+''')
+        put(self.path/'source/gamecontrollerdb.txt', 'synthetic controller database\n')
+        # Existing launcher progress links are prepopulated so their unrelated
+        # behavior cannot masquerade as screenshot migration preservation.
+        for name, target in [('savestates','/storage/roms/savestates/psx'),
+                             ('memcards','/storage/roms/psx/duckstation/memcards')]:
+            put(self.guest(target)/'existing.bin', b'unselected progress\n')
+            (self.path/'storage/.config/duckstation'/name).symlink_to(target)
+        self.config = self.path/'storage/.config/duckstation/settings.ini'
+        self.readonly = []
+
+    def read_source(self, path, optional=False):
+        if self.args.ref:
+            result = subprocess.run(['git','-C',str(self.args.source_root),'show',self.args.ref+':'+str(path)],
+                                    capture_output=True)
+            if result.returncode and optional:
+                return None
+            require(result.returncode == 0, 'missing source '+str(path))
+            return result.stdout
+        path = self.args.source_root/path
+        if optional and not path.exists():
+            return None
+        return path.read_bytes()
+
+    def guest(self, path):
+        require(path.startswith('/storage/'), 'fixture path outside storage')
+        return self.path/path.lstrip('/')
+
+    def run(self, command=None, capture=False):
+        cmd=['bwrap','--die-with-parent','--unshare-all','--new-session','--tmpfs','/',
+             '--dir','/usr/bin','--symlink','usr/bin','/bin','--symlink','usr/lib','/lib']
+        for directory in ['/usr/lib','/usr/lib64','/usr/share']:
+            if Path(directory).exists():
+                cmd += ['--ro-bind',directory,directory]
+        if Path('/usr/lib64').exists():
+            cmd += ['--symlink','usr/lib64','/lib64']
+        for binary in ['bash','env','mkdir','cp','rm','ln','sed','cat','install','python3']:
+            source=Path(shutil.which(binary)).resolve()
+            cmd += ['--ro-bind',str(source),'/usr/bin/'+binary]
+        cmd += ['--ro-bind',str(self.path/'source/probe'),'/usr/bin/duckstation-sa',
+                '--ro-bind',str(self.path/'source/entry'),'/entry',
+                '--ro-bind',str(self.path/'source/profile'),'/etc/profile',
+                '--ro-bind',str(self.path/'source/seed'),'/usr/config/duckstation/settings.ini',
+                '--ro-bind',str(self.path/'source/gamecontrollerdb.txt'),'/usr/config/SDL-GameControllerDB/gamecontrollerdb.txt',
+                '--ro-bind',str(self.path/'source/rules'),'/rules',
+                '--ro-bind',str(self.args.rclone),'/rclone.real']
+        if (self.path/'source/helper').exists():
+            cmd += ['--ro-bind',str(self.path/'source/helper'),'/usr/bin/duckstation_screenshot_path']
+        for directory in ['storage','ctl','cloud']:
+            cmd += ['--bind',str(self.path/directory),'/'+directory]
+        for directory in ['packagework','package-input']:
+            if (self.path/directory).exists():
+                cmd += ['--bind',str(self.path/directory),'/'+directory]
+        for path in self.readonly:
+            cmd += ['--ro-bind',str(self.guest(path)),path]
+        cmd += ['--dev','/dev','--proc','/proc','--tmpfs','/tmp','--chdir','/storage',
+                '--setenv','HOME','/storage','--setenv','PATH','/usr/bin:/bin',
+                '--setenv','CAPTURE_PROBE','yes' if capture else 'no']
+        cmd += command or ['/bin/bash','/entry','/storage/roms/psx/fixture.chd','psx']
+        before = inventory(self.path/'storage')
+        result=subprocess.run(cmd,capture_output=True,text=True,timeout=30)
+        self.seq += 1
+        receipt={'argv':cmd,'rc':result.returncode,'stdout':result.stdout,'stderr':result.stderr,
+                 'before':before,'after':inventory(self.path/'storage')}
+        put(self.path/(str(self.seq).zfill(2)+'-operation.json'),json.dumps(receipt,indent=2)+'\n')
+        require(result.returncode == 0, 'operation failed: '+result.stderr[-600:])
+        return result
+
+    def probe(self):
+        return json.loads((self.path/'ctl/probe.json').read_text())
+
+
+def main():
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--source-root',type=Path,required=True)
+    parser.add_argument('--ref')
+    parser.add_argument('--rclone',type=Path,required=True)
+    parser.add_argument('--output',type=Path,required=True)
+    parser.add_argument('--cases')
+    parser.add_argument('--keep-fixtures',action='store_true')
+    args=parser.parse_args()
+    args.source_root=args.source_root.resolve();args.rclone=args.rclone.resolve();args.output=args.output.resolve()
+    args.output.mkdir(parents=True,exist_ok=False)
+    version=subprocess.check_output([str(args.rclone),'version'],text=True).splitlines()[0]
+    require(version == 'rclone v1.75.1','use package-pinned rclone: '+version)
+    results=[];sources={}
+
+    def case(name,test,entry='game',seed='InputPlumber'):
+        if args.cases and name not in args.cases.split(','):
+            return
+        f=Fixture(args,name,entry,seed);sources.update(f.source)
+        try:
+            test(f)
+            require(not list((f.path/'storage').rglob('.screenshots-*')),'partial config stage remained')
+            results.append({'case':name,'result':'PASS'})
+            print('PASS '+name,flush=True)
+        except Exception as error:
+            results.append({'case':name,'result':'FAIL','error':str(error)})
+            print('FAIL '+name+': '+str(error),flush=True)
+        finally:
+            sources.update(f.source)
+            put(f.path/'final.json',json.dumps({'storage':inventory(f.path/'storage'),
+                'cloud':inventory(f.path/'cloud'),'source_sha256':f.source},indent=2)+'\n')
+            if not args.keep_fixtures:
+                retired=[]
+                for directory in ['storage','cloud','source','packagework','package-input']:
+                    if (f.path/directory).exists():
+                        shutil.rmtree(f.path/directory)
+                        retired.append(directory)
+                put(f.path/'retired.json',json.dumps({'removed':retired})+'\n')
+
+    def defaults(f, retained=None):
+        if retained is not None:
+            put(f.config,retained)
+        put(f.guest(LEGACY)/'historical.png',b'old capture remains here\n')
+        prior=inventory(f.path/'storage')
+        f.run(capture=True)
+        if f.probe()['resolved'] != DEFAULT:
+            # The old-source control still reaches the actual allowlist copy:
+            # retain evidence that its ordinary output is outside backup scope.
+            f.run(['/rclone.real','copy','/storage/roms','/cloud','--filter-from','/rules'])
+        require(f.probe()['resolved']==DEFAULT,'default capture remains outside save scope: '+str(f.probe()))
+        after=inventory(f.path/'storage')
+        for path, value in prior.items():
+            if path != '.config/duckstation/settings.ini':
+                require(after.get(path)==value,'unselected file changed: '+path)
+        config=f.config.read_bytes()
+        f.run()
+        require(f.config.read_bytes()==config,'second launch changed prepared configuration')
+        f.run(['/rclone.real','copy','/storage/roms','/cloud','--filter-from','/rules'])
+        captured=f.guest(DEFAULT)/'synthetic-capture.png'
+        cloud=f.path/'cloud/screenshots/synthetic-capture.png'
+        require(cloud.read_bytes()==captured.read_bytes(),'real rclone missed new default capture')
+        require(not list((f.path/'cloud').rglob('historical.png')),'claimed historical captures automatically backed up')
+        captured.unlink()
+        f.run(['/rclone.real','copy','/cloud','/storage/roms','--filter-from','/rules'])
+        require(captured.read_bytes()==cloud.read_bytes(),'capture restore changed bytes')
+
+    for entry in ['game','tool']:
+        for seed in ['InputPlumber','H700','AMD64']:
+            case('clean-'+entry+'-'+seed,defaults,entry,seed)
+        for label, conf in [('missing','[Main]\nPreserve = yes\n'),
+                            ('empty','[Folders]\nScreenshots =\n'),
+                            ('default','[Folders]\nScreenshots = screenshots\n'),
+                            ('case-crlf','[folders]\r\nsCrEeNsHoTs = screenshots\r\nOther = keep\r\n')]:
+            case('retained-'+entry+'-'+label,lambda f,c=conf:defaults(f,c),entry)
+
+    def first_directory(f):
+        shutil.rmtree(f.config.parent)
+        f.run(capture=True)
+        require(f.config.is_file() and f.probe()['resolved']==DEFAULT,'first configuration directory did not use covered default')
+        config=f.config.read_bytes();f.run()
+        require(f.config.read_bytes()==config,'repeated clean launch changed settings')
+        f.run(['/rclone.real','copy','/storage/roms','/cloud','--filter-from','/rules'])
+        require((f.path/'cloud/screenshots/synthetic-capture.png').read_bytes()==f.guest(DEFAULT).joinpath('synthetic-capture.png').read_bytes(),'first-directory capture missed backup')
+    for entry in ['game','tool']:
+        case('clean-directory-'+entry,first_directory,entry)
+
+    def custom(f,value):
+        content='[Folders]\nScreenshots = '+value+'\nOther = keep\n'
+        put(f.config,content)
+        target=value if value.startswith('/') else '/storage/.config/duckstation/'+value
+        put(f.guest(target)/'historical.png','custom capture\n')
+        before=inventory(f.path/'storage')
+        f.run()
+        require(f.config.read_text()==content,'custom setting rewritten')
+        require(f.probe()['resolved']==target,'custom destination changed')
+        after=inventory(f.path/'storage')
+        require(all(after.get(k)==v for k,v in before.items()),'custom bytes changed')
+    for entry in ['game','tool']:
+        case('custom-absolute-'+entry,lambda f:custom(f,'/storage/custom-captures'),entry)
+        case('custom-relative-'+entry,lambda f:custom(f,'other-captures'),entry)
+
+    def old_link(f):
+        put(f.config,'[Folders]\nScreenshots = screenshots\n')
+        put(f.guest('/storage/custom-captures')/'old.png','custom symlink bytes\n')
+        f.guest(LEGACY).symlink_to('/storage/custom-captures')
+        before=f.config.read_bytes();f.run()
+        require(f.config.read_bytes()==before and f.probe()['resolved']=='/storage/custom-captures','custom symlink overridden')
+    case('custom-old-screenshot-symlink',old_link)
+
+    def refused(f,kind):
+        content='[Folders]\nScreenshots = screenshots\n'
+        if kind=='duplicate':content+='Screenshots = /storage/custom\n'
+        if kind=='duplicate-section':content+='[folders]\nScreenshots = screenshots\n'
+        if kind=='oversize':content+=';'+'x'*(1024*1024)+'\n'
+        put(f.config,content)
+        put(f.guest(LEGACY)/'historical.png','retained capture\n')
+        if kind=='file-target':put(f.guest(DEFAULT),'conflicting ordinary file\n')
+        if kind=='symlink-target':
+            f.guest('/storage/custom-captures').mkdir();f.guest(DEFAULT).symlink_to('/storage/custom-captures')
+        if kind=='readonly-target':
+            f.guest(DEFAULT).mkdir();f.readonly.append(DEFAULT)
+        if kind=='readonly-config':f.readonly.append('/storage/.config/duckstation')
+        if kind=='replace-failed':f.readonly.append('/storage/.config/duckstation/settings.ini')
+        before=f.config.read_bytes()
+        result=f.run()
+        require(f.config.read_bytes()==before,'refused configuration changed')
+        require("Couldn't prepare the screenshot folder" in result.stderr,'missing truthful refusal')
+        require(f.guest(LEGACY).joinpath('historical.png').read_text()=='retained capture\n','old capture changed')
+        # The emulator remains reachable; no coverage success is inferred.
+        require((f.path/'ctl/probe.json').exists(),'failure blocked ordinary launch')
+        f.run()
+        require(f.config.read_bytes()==before,'repeated refusal changed configuration')
+        if kind in ('readonly-config','replace-failed'):
+            require(not f.guest(DEFAULT).exists(),'failed preparation left a new empty target')
+    for kind in ['duplicate','duplicate-section','oversize','file-target','symlink-target','readonly-target','readonly-config','replace-failed']:
+        case('refused-'+kind,lambda f,k=kind:refused(f,k))
+
+    def nonregular(f):
+        put(f.guest('/storage/custom-settings.ini'),'[Folders]\nScreenshots = screenshots\n')
+        f.config.symlink_to('/storage/custom-settings.ini')
+        before=f.guest('/storage/custom-settings.ini').read_bytes()
+        # Tool entrypoint does not independently sed-edit config, isolating
+        # the helper's refusal from existing game-launcher settings behavior.
+        result=f.run()
+        require(f.config.is_symlink() and f.guest('/storage/custom-settings.ini').read_bytes()==before,'nonregular config replaced')
+        require("Couldn't prepare the screenshot folder" in result.stderr,'nonregular config not refused')
+    case('refused-nonregular-config',nonregular,'tool')
+
+    def package_install(f):
+        package=f.path/'package-input'
+        paths=['package.mk','scripts/start_duckstation.sh','sources/Start Duckstation.sh',
+               'config/InputPlumber/settings.ini','scripts/duckstation_screenshot_path']
+        for relative in paths:
+            data=f.read_source(PACKAGE/relative,optional=relative.endswith('duckstation_screenshot_path'))
+            if data is not None:
+                put(package/relative,data,0o755 if relative.startswith('scripts/') else 0o644)
+                f.source[str(PACKAGE/relative)]=digest(data)
+        (package/'config/GENERIC_X64').symlink_to('InputPlumber')
+        app=f.path/'packagework/build/duckstation-sa-0.1-10998.AppImage'
+        payload=b'#!/bin/sh\nprintf "%s\\n" synthetic-executable-permission-witness\n'
+        put(app,payload,0o644)
+        f.run(['/bin/bash','-c',
+               'export TARGET_ARCH=x86_64 DEVICE=GENERIC_X64 INSTALL=/packagework/install PKG_BUILD=/packagework/build PKG_DIR=/package-input; '
+               '. /package-input/package.mk; makeinstall_target'])
+        installed=f.path/'packagework/install/usr/bin/duckstation-sa'
+        require(app.stat().st_mode & 0o777 == 0o644,'source/cache mode changed')
+        require(installed.read_bytes()==payload,'install altered AppImage bytes')
+        try:
+            execution=subprocess.run([str(installed)],capture_output=True,text=True,timeout=10)
+            result={'rc':execution.returncode,'stdout':execution.stdout,'stderr':execution.stderr}
+        except OSError as error:
+            result={'errno':error.errno,'error':str(error)}
+        put(f.path/'installed-execution.json',json.dumps({'source_mode':oct(app.stat().st_mode & 0o777),
+            'installed_mode':oct(installed.stat().st_mode & 0o777),'sha256':digest(payload),'execution':result,
+            'scope':'synthetic permission witness, not the AppImage runtime'},indent=2)+'\n')
+        require(installed.stat().st_mode & 0o777 == 0o755,'installed AppImage is not executable0755')
+        require(result.get('rc')==0 and 'synthetic-executable-permission-witness' in result.get('stdout',''),'installed direct execution failed')
+        helper=f.path/'packagework/install/usr/bin/duckstation_screenshot_path'
+        require(helper.is_file() and os.access(helper,os.X_OK),'screenshot helper not installed executable')
+        require('Python3' in (package/'package.mk').read_text(),'runtime dependency absent')
+    case('package-executable-mode',package_install)
+
+    require(results,'no matching cases')
+    summary={'passed':sum(r['result']=='PASS' for r in results),'failed':sum(r['result']=='FAIL' for r in results),
+             'results':results,'source_ref':args.ref,'source_root':str(args.source_root),'source_sha256':sources,
+             'harness_sha256':digest(Path(__file__).read_bytes()),
+             'watcher_run':os.environ.get('RASTERATOPS_BUILD_RUN'),
+             'rclone_sha256':digest(args.rclone.read_bytes()),'rclone_version':version,
+             'scope':'actual shell entrypoints; synthetic emulator-boundary probe; no runtime screenshot claim'}
+    put(args.output/'summary.json',json.dumps(summary,indent=2)+'\n')
+    print(f"DuckStation captures: {summary['passed']} PASS, {summary['failed']} FAIL",flush=True)
+    return bool(summary['failed'])
+
+
+if __name__=='__main__':
+    sys.exit(main())

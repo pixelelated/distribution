@@ -1,0 +1,6 @@
+version
+listremotes
+listremotes
+lsf -R --files-only --format sp --separator | qa:/Chosen/Library/ROMs/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf -R --files-only --format sp --separator | qa:/Chosen/Library/BIOS/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+listremotes

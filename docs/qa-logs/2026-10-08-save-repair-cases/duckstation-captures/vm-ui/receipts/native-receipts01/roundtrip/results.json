@@ -1,0 +1,53 @@
+{
+  "native_png": "/storage/roms/screenshots/2026-10-08-03-13-20.png",
+  "sha256": "0f2f266e6d301ce00107589499f841d6cbe37ea64a0dc7f033dbfc6a1d6b46b3",
+  "cloud_png": "/storage/qa520/provider/QA-Captures/Saves/screenshots/2026-10-08-03-13-20.png",
+  "backup_exit": 0,
+  "restore_exit": 0,
+  "original_preserved": "/storage/qa521/roundtrip/original.png",
+  "only_new_cloud_file": [
+    "QA-Captures/Saves/screenshots/2026-10-08-03-13-20.png"
+  ],
+  "preexisting_cloud_files_unchanged": 38,
+  "custom_and_history_unchanged": {
+    "/storage/qa521/custom-captures/owner-history.marker": "72518daa756a2b9e85c1dda816c259da1d84a336f3246899242204382a7879e0",
+    "/storage/qa521/custom-captures/2026-10-08-03-16-08.png": "0f2f266e6d301ce00107589499f841d6cbe37ea64a0dc7f033dbfc6a1d6b46b3",
+    "/storage/.config/duckstation/screenshots/historical-capture.marker": "0c6942c8b77536ebec5cb824f2bc6c256a5419cc99140cb6f8e44bed2c89a681"
+  },
+  "selected_settings_content_preserved": true,
+  "restored_generated_png_exact": true,
+  "saves_validation": {
+    "schema_version": 1,
+    "run_id": "qa521-native-capture",
+    "config_id": "977ede9c158e43ed87025b305aad09a506c1ae43aa63b2858804cea0d034aee1",
+    "categories": [
+      {
+        "category": "saves",
+        "state": "present",
+        "path": "/QA-Captures/Saves",
+        "detail": "progress-paths-found-not-verified"
+      }
+    ],
+    "complete": true,
+    "scope": {
+      "max_depth": 3,
+      "save_subtree_depths": {
+        "psp/PSP/SAVEDATA": 2,
+        "psx/duckstation/memcards": 1
+      },
+      "max_entries_per_listing": 4096,
+      "max_bytes_per_listing": 2097152,
+      "max_seconds": 25
+    },
+    "paths": {
+      "saves": "/QA-Captures/Saves",
+      "settings": "/QA-All/Backups",
+      "content": "/QA-All/Content",
+      "roms": "/QA-All/Content/ROMs",
+      "bios": "/QA-All/Content/BIOS",
+      "media": "/QA-All/Content/ROMs"
+    }
+  },
+  "runtime_stopped": 4482,
+  "virtualpad_destroy_requested": true
+}

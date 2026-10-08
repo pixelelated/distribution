@@ -1,0 +1,18 @@
+{
+  "tier": "saves",
+  "old_sha256": "7b3e080a5bbf233c512ee061f1c0ffc1a41cc8bd65a2e23fd69432b436be8e8d",
+  "expected_old_behavior_observed": "wrong fresh-default namespace seeded while selected dot-root remained unchanged",
+  "rc": 0,
+  "before_cloud": {
+    "owner.txt": "1a5f7f54b65cda84efa49a560e213477feff5ad3808d96eac3bc83dbe4d19267"
+  },
+  "after_cloud": {
+    "Mine/Backups/README.txt": "a2e91a3dddf28269cbf704b1b7e2540608e9851a88f09679701e0c6629fd7f5c",
+    "Mine/Content/BIOS/README.txt": "12345b222d272bcccee06cac35e9b0d4ac10a76617a32b72cefa8542a90d1f67",
+    "Mine/Content/README.txt": "cb0db1a29003ebedb5a5f92d17c49e7eadebedcc10e883e9d9af052fd4a57456",
+    "Mine/Content/ROMs/README.txt": "cdbf34d6dc27ad558261bd99b99bbc91850ba28a1150ef2488b18dbe87637bcd",
+    "owner.txt": "1a5f7f54b65cda84efa49a560e213477feff5ad3808d96eac3bc83dbe4d19267",
+    "pixelelated/.layout": "be68d69fa1fe3ddbcaa9295b8e3e732fd0113d909e38cf643d95aab41c9b1a22",
+    "pixelelated/Saves/README.txt": "81283a71c8db19f49232b395e3527170b14ae38add60d5180071196f24c283bf"
+  }
+}

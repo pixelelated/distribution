@@ -1,0 +1,24 @@
+{
+  "case": "guard-future",
+  "status": "PASS",
+  "detail": "",
+  "cloud_sha256": {
+    "pixelelated/.layout": "d81e804343334d81e07a8c88ed0712190b2de667acc711b851851757fc452aeb",
+    "pixelelated/Saves/gb/progress.srm": "f660a7996deacfbc7560e4240054a8ad82eb02fe25a95064257e07084bcacb85"
+  },
+  "pointers": {
+    "SAVESPATH": "/storage/roms",
+    "SAVES_REMOTE": "/pixelelated/Saves",
+    "SETTINGS_BACKUPS": "/storage/roms/backup",
+    "SETTINGS_REMOTE": "/pixelelated/Backups",
+    "BACKUPMETHOD": "copy",
+    "RESTOREMETHOD": "copy",
+    "BACKUPFILE_BACKUP_OPTION": "no",
+    "BACKUPFILE_RESTORE_OPTION": "no",
+    "LOG_LEVEL": "INFO",
+    "LAYOUT_KEEP": "",
+    "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+    "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+    "CONTENT_REMOTE": "/pixelelated/Content"
+  }
+}

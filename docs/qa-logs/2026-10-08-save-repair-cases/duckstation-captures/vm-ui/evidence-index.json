@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "entries": [
+    {
+      "flow_id": "duckstation-capture",
+      "branch_id": "DS01",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "duckstation-screenshot-coverage",
+      "trigger": "Default screenshot hotkey with synthetic rendering active",
+      "expected_state": "Actual PNG under /storage/roms/screenshots; historical captures stay unchanged",
+      "source": {
+        "distribution_commit": "052771f05d841fb91fa818198f8f4e0ad83affb8",
+        "helper_mode_commit": "dda2a04aaf411b8bc13aedf5ce44ff33ce4b3d3a",
+        "duckstation_version": "0.1-10998",
+        "appimage_sha256": "b204886bb498ede1a290215fc2efb521c0c2f26b964788df697b4fc2cb3f7f7b",
+        "target_libcom_err_sha256": "043101a87e5eaa57b786b88dfbd227be2d7768445d53b69346b547fef2e938a3",
+        "synthetic_reset_rom_sha256": "ae3bdac99323c00157111d2bbf6d0c9e46e83c9eb4efdbbec8065f07f833fa8d",
+        "kind": "source overlay, native screenshot writer, synthetic rendering only",
+        "helper_sha256": "f53ea578937610a693daecdc04bb7cd0c876ca6aca640f8dd17306edc0b6c6fd",
+        "launcher_sha256": "557ffd173e61c9e98063644aa7af25784b0991d55c85fd6c924c12f550069aa9",
+        "generic_seed_sha256": "3e600960f709382ac6e14cea375e3c4cf5cf3a29f6ade3faf1c25f040d5bd889",
+        "inner_executable_sha256": "0d74066c6cc07aed43f1b87d735477e1530ec49a55ef08a3d3d282164e8141e6",
+        "base_image_sha256": "74e57ad8957b1c719c18db098d5713577a952af8802524658d0ada7dee1b6b12"
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "status": "reviewed",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T07:21:19.693333+00:00",
+        "observed": "Actual shipped Guide+B binding renders a readable saved-screenshot OSD over the original synthetic orange display; actual native PNG metadata and unchanged historical files verified."
+      },
+      "frame": "frames/default-hotkey.png",
+      "sha256": "8746459806bf0ccd84d144aa465f17dd38de9a50c1126d037e3ea4cd287ec835",
+      "native_capture": {
+        "artifact": "captures/native-default.png",
+        "case": "DS01",
+        "native_png": "/storage/roms/screenshots/2026-10-08-03-13-20.png",
+        "sha256": "0f2f266e6d301ce00107589499f841d6cbe37ea64a0dc7f033dbfc6a1d6b46b3",
+        "bytes": 2306,
+        "png_dimensions": [
+          640,
+          480
+        ],
+        "old_capture_inventory_unchanged": {
+          "/storage/.config/duckstation/screenshots/historical-capture.marker": "0c6942c8b77536ebec5cb824f2bc6c256a5419cc99140cb6f8e44bed2c89a681"
+        },
+        "actual_binding": "SDL-0/Guide & SDL-0/B",
+        "native_process_pid": 3380,
+        "elapsed_to_file_seconds": 0.5011521039999707
+      },
+      "receipts": [
+        "receipts/capture-default01/capture.json",
+        "receipts/native-receipts01/pad.events.jsonl",
+        "receipts/native-receipts01/final-readback.txt"
+      ]
+    },
+    {
+      "flow_id": "duckstation-capture",
+      "branch_id": "DS02",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "duckstation-screenshot-coverage",
+      "trigger": "Same hotkey with explicit custom screenshot folder",
+      "expected_state": "Actual PNG at custom location; custom setting and earlier captures preserved",
+      "source": {
+        "distribution_commit": "052771f05d841fb91fa818198f8f4e0ad83affb8",
+        "helper_mode_commit": "dda2a04aaf411b8bc13aedf5ce44ff33ce4b3d3a",
+        "duckstation_version": "0.1-10998",
+        "appimage_sha256": "b204886bb498ede1a290215fc2efb521c0c2f26b964788df697b4fc2cb3f7f7b",
+        "target_libcom_err_sha256": "043101a87e5eaa57b786b88dfbd227be2d7768445d53b69346b547fef2e938a3",
+        "synthetic_reset_rom_sha256": "ae3bdac99323c00157111d2bbf6d0c9e46e83c9eb4efdbbec8065f07f833fa8d",
+        "kind": "source overlay, native screenshot writer, synthetic rendering only",
+        "helper_sha256": "f53ea578937610a693daecdc04bb7cd0c876ca6aca640f8dd17306edc0b6c6fd",
+        "launcher_sha256": "557ffd173e61c9e98063644aa7af25784b0991d55c85fd6c924c12f550069aa9",
+        "generic_seed_sha256": "3e600960f709382ac6e14cea375e3c4cf5cf3a29f6ade3faf1c25f040d5bd889",
+        "inner_executable_sha256": "0d74066c6cc07aed43f1b87d735477e1530ec49a55ef08a3d3d282164e8141e6",
+        "base_image_sha256": "74e57ad8957b1c719c18db098d5713577a952af8802524658d0ada7dee1b6b12"
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "status": "reviewed",
+      "review": {
+        "reviewer": "rc_cloud_ui",
+        "utc": "2026-10-08T07:21:19.693333+00:00",
+        "observed": "Actual shipped Guide+B binding renders a readable saved-screenshot OSD over the original synthetic orange display; actual native PNG metadata and unchanged historical files verified."
+      },
+      "frame": "frames/custom-hotkey.png",
+      "sha256": "96c689c1a068de8bbebe8bb510e0cffcca1019a16b9b56fcadf003430d19f02a",
+      "native_capture": {
+        "artifact": "captures/native-custom.png",
+        "case": "DS02",
+        "native_png": "/storage/qa521/custom-captures/2026-10-08-03-16-08.png",
+        "sha256": "0f2f266e6d301ce00107589499f841d6cbe37ea64a0dc7f033dbfc6a1d6b46b3",
+        "bytes": 2306,
+        "png_dimensions": [
+          640,
+          480
+        ],
+        "old_capture_inventory_unchanged": {
+          "/storage/roms/screenshots/2026-10-08-03-13-20.png": "0f2f266e6d301ce00107589499f841d6cbe37ea64a0dc7f033dbfc6a1d6b46b3",
+          "/storage/.config/duckstation/screenshots/historical-capture.marker": "0c6942c8b77536ebec5cb824f2bc6c256a5419cc99140cb6f8e44bed2c89a681",
+          "/storage/qa521/custom-captures/owner-history.marker": "72518daa756a2b9e85c1dda816c259da1d84a336f3246899242204382a7879e0"
+        },
+        "actual_binding": "SDL-0/Guide & SDL-0/B",
+        "native_process_pid": 4482,
+        "elapsed_to_file_seconds": 0.5014702500000112
+      },
+      "receipts": [
+        "receipts/capture-custom01/capture.json",
+        "receipts/native-receipts01/pad.events.jsonl",
+        "receipts/native-receipts01/final-readback.txt"
+      ]
+    }
+  ]
+}

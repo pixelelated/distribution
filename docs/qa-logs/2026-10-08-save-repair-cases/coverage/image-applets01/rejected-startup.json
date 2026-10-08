@@ -1,0 +1,6 @@
+{
+  "accepted_behavioral_evidence": false,
+  "returncode": 1,
+  "cases_reached": 0,
+  "reason": "BusyBox dispatch uses argv[0]; initial mount basename qa-busybox selected a nonexistent applet. Per-case startup failed before controls. Corrected only harness mount to /qa-tools/busybox and repeated as image-applets02."
+}

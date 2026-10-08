@@ -1,0 +1,6 @@
+/usr/bin/ldd
+	not a dynamic executable
+lrwxrwxrwx    1 root     root            16 Oct  4 00:35 /usr/lib/libfuse.so -> libfuse.so.2.9.9
+lrwxrwxrwx    1 root     root            16 Oct  4 00:35 /usr/lib/libfuse.so.2 -> libfuse.so.2.9.9
+-rwxr-xr-x    1 root     root        249880 Oct  4 00:35 /usr/lib/libfuse.so.2.9.9
+/usr/bin/duckstation-sa: error while loading shared libraries: /usr/bin/duckstation-sa: ELF file ABI version invalid

@@ -1,0 +1,43 @@
+{
+  "result": "PASS",
+  "cases": [
+    "populated-read-only",
+    "content-transfer-exclusions",
+    "flat-rom-payload-location",
+    "ordinary-progress-allowlist",
+    "missing-selected-only",
+    "empty-and-notes",
+    "empty-path-based",
+    "bucket-empty-prefix-uncertainty",
+    "content-misplaced-progress-preserved",
+    "provider-failure-not-empty",
+    "partial-failed-listing",
+    "entry-limit",
+    "byte-limit",
+    "malformed-listing",
+    "context-binding-local-only",
+    "info-independent-paths",
+    "stale-configuration-refused",
+    "invalid-input-refused",
+    "invalid-paths-refused",
+    "deeper-than-bound-not-empty",
+    "content-location-selected-only",
+    "independent-pointer-selection",
+    "explicit-category-seeding",
+    "relative-namespace-preserved",
+    "absolute-relative-root-distinction",
+    "explicit-root-allowed",
+    "public-rocknix-config-adoption",
+    "public-rocknix-explicit-root-preserved",
+    "public-rocknix-custom-library-preserved",
+    "request-timeout"
+  ],
+  "rclone_version": "rclone v1.75.1",
+  "rclone_sha256": "f66d8c1d552ad90296a11bc8b46d56a7fa5da1a7fa05e7ca522d95df92c4a4c0",
+  "source_sha256": {
+    "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+    "cloud_folder_validate": "c6eb5c3efc8c62df1c3f4f321ccff1bf9033305c83b53e6667a846d9305fd173",
+    "cloud_content_restore": "e06d5d78cef36cbb3677dc38fc22fa10a2272be8c0a37830ac6bbb6f9d5155af",
+    "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+  }
+}

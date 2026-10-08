@@ -1,0 +1,20 @@
+key ret
+settle
+key x
+settle
+key up x3
+key x
+settle
+key up x3
+key x
+settle
+key down
+key x
+key down
+key x
+key down x3
+key x
+wait-for-change
+wait 28
+settle
+shot unreadable-result

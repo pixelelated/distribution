@@ -1,0 +1,136 @@
+{
+  "results": [
+    {
+      "case": "filter-psp",
+      "result": "PASS"
+    },
+    {
+      "case": "filter-duckstation",
+      "result": "PASS"
+    },
+    {
+      "case": "filter-n64-st0",
+      "result": "PASS"
+    },
+    {
+      "case": "filter-n64-st9",
+      "result": "PASS"
+    },
+    {
+      "case": "filter-n64-pj0",
+      "result": "PASS"
+    },
+    {
+      "case": "filter-n64-zip",
+      "result": "PASS"
+    },
+    {
+      "case": "save-backup-restore",
+      "result": "PASS"
+    },
+    {
+      "case": "upgrade-custom-rules",
+      "result": "PASS"
+    },
+    {
+      "case": "content-list-count-scan",
+      "result": "PASS"
+    },
+    {
+      "case": "content-upload",
+      "result": "PASS"
+    },
+    {
+      "case": "content-upload-with-media",
+      "result": "PASS"
+    },
+    {
+      "case": "content-restore",
+      "result": "PASS"
+    },
+    {
+      "case": "content-restore-with-media",
+      "result": "PASS"
+    },
+    {
+      "case": "content-match",
+      "result": "PASS"
+    },
+    {
+      "case": "n64-system-root-scope",
+      "result": "PASS"
+    },
+    {
+      "case": "content-match-removed-system",
+      "result": "PASS"
+    },
+    {
+      "case": "validator-n64-state",
+      "result": "PASS"
+    },
+    {
+      "case": "validator-psp-depth5",
+      "result": "PASS"
+    },
+    {
+      "case": "validator-duck-depth4",
+      "result": "PASS"
+    },
+    {
+      "case": "validator-unseen-deeper",
+      "result": "PASS"
+    },
+    {
+      "case": "validator-unrelated-depth",
+      "result": "PASS"
+    },
+    {
+      "case": "validator-database",
+      "result": "PASS"
+    },
+    {
+      "case": "validator-subtree-failure",
+      "result": "PASS"
+    },
+    {
+      "case": "validator-bound-entries",
+      "result": "PASS"
+    },
+    {
+      "case": "validator-bound-bytes",
+      "result": "PASS"
+    },
+    {
+      "case": "validator-bound-timeout",
+      "result": "PASS"
+    }
+  ],
+  "passed": 26,
+  "failed": 0,
+  "source_root": "/workspace/repos/rocknix.worktrees/m7-manual-cloud-folders",
+  "source_ref": null,
+  "source_sha256": {
+    "cloud_sync_cleanup_duplicates.sh": "b62ee55ace6e9d776a89686ed6ecdfa17c90ac0e9a6f16d2e260cb2a7617eac1",
+    "cloud_saves_root": "d0b0c5b850a7b51257797dcc9bfdac2e6f3e0abf2c3be4584ca65583748bfe43",
+    "cloud_device_id": "3230633caf65ad9e115dffc1bf3e1dede38746f808d4177fc0c37b9defbeee62",
+    "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+    "cloud_restore": "ec63c21ad782703c6679ce5e1a7b8c5e8f610daeec8cdda224d166df945d0544",
+    "cloud_sync.conf.defaults": "77ce914421b47ef7f0a33e6085a5793cb8be55a5c239788adf8575a57d3ad1c4",
+    "cloud_folder_validate": "c6eb5c3efc8c62df1c3f4f321ccff1bf9033305c83b53e6667a846d9305fd173",
+    "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050",
+    "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+    "cloud_content_transfer": "fe292268d9029c2b950a093f6902b5cbe8afb3d57cb47187251cf90c3d85a1a3",
+    "cloud_sync.conf": "a121977066ce805e791108258fe12d1ecbce5e71ce2f61f096394a9fca982305",
+    "cloud_net_ready": "19afce254bc5c55f119b9681463b8103da5f564f3235b64f100ba9c35e62df89",
+    "cloud_sync-rules.txt": "2528550d5b45f8ab8264b55f21afa8098a88d1a99572bcfd87a4b9e3d3506208",
+    "cloud_log_scrub": "5c156d8d43b39172fa71b80a3e47156f46bca0965dcae890ec70f02596f8f126",
+    "cloud_content_backup": "8fac50344c03de5ccbba51f9d167b764cb9dddf80b5ef2bc2cc646b20f640df7",
+    "cloud_sync-rules.txt.defaults": "a5243acb3b3b4381b8b8cdd42b7071a242c283f93c2668f1ea5dfc2991b90cf9",
+    "cloud_content_restore": "e06d5d78cef36cbb3677dc38fc22fa10a2272be8c0a37830ac6bbb6f9d5155af",
+    "cloud_oauth": "fec8240db342eb9432f9423f5ee3f5bd53df499012dffd1e4ac9ae81c316cbf5",
+    "cloud_capture": "6853272e6eb29b2c61908dbfe135a5cb14cab7e86f833dea69a4cc6ac66a8929",
+    "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+    "cloud_remote": "1b4df1b5394647e52df8584e75529ef113be8ccde3ea31b8b7dd1dfd5bb2e99e"
+  },
+  "rclone_sha256": "f66d8c1d552ad90296a11bc8b46d56a7fa5da1a7fa05e7ca522d95df92c4a4c0"
+}

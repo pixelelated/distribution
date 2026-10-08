@@ -40,9 +40,21 @@ Anything that changes what the device is doing or what it holds, or what the clo
 ## What is not
 
 Reading: `journalctl`, `/var/log`, a config line, a stamp, `ls`, `rclone lsf`/`lsl`, a
-checksum of a file already there. Staging a tarball under `~/.update` is inert and
-allowed (D-QA-011); the reboot that applies it is the question. Every read is still
-named in the report, and credentials are filtered out of anything read back.
+checksum of a file already there. Staging a tarball under `~/.update` writes to
+the device and requires named authorization (D-QA-011), as does the reboot that
+applies it. Every read is still named in the report, and credentials are filtered
+out of anything read back.
+
+## Named prerequisites before deployment
+
+Before staging an update or rebooting into it, check the live milestone and
+that device's open operational prerequisites. Source/VM qualification does
+not close those tasks. D-CLOUD-182: #519 must have state-bound acceptance
+before the owner's test handheld receives its next upgrade; #516 supplies
+its relevant residue dispositions. Do not postpone alignment until after the
+upgrade or delete a pending record while its old automatic consumers can
+reactivate. Host builds and synthetic qualification may proceed independently.
+The gate's completion does not replace named transfer/reboot authorization.
 
 ## How to ask
 
@@ -58,8 +70,8 @@ is a yes to be asked again for each member of it.
 `engineering-practices.md` § "If the VM can test it, the VM tests it first" (D-QA-007).
 The GENERIC_X64 pair, the QA WebDAV endpoint (`tools/cloud-test-backend`) and the runner
 (`tools/vm-qa`) exist so that no proof needs a person's device or data. A device run is a
-confirmation of something the VM cannot reach -- a real panel, a real board, a real
-provider -- and is scoped to exactly that.
+confirmation of something the VM cannot reach -- a real panel, a real board, or a
+battery -- and is scoped to exactly that.
 
 ## Reading a device's output
 
@@ -73,11 +85,14 @@ a filter, and the filter is wider than the word *password*: rclone writes
 grep -v -i -E 'key|pass|token|user|psk'
 ```
 
-A line the filter drops is a line nobody needed to see; a line it lets
-through with a secret in it is a transcript to scrub. The same filter applies
-to the QA guests, whose endpoint credentials are throwaway but whose config
-files have the same shape (2026-09-12: `pass =` slipped a filter written as
-`password`).
+Use this filter for displayed configuration and log text. For authoritative
+structured manifests or payload verification, preserve the complete input in
+the protected evidence packet and derive a sanitized display separately
+(D-CLOUD-181, `docs/cloud-save-integrity.md`). Benign filenames can contain
+these substrings; dropping their rows invalidates inventory counts and byte
+comparisons. A secret that reaches a transcript must be scrubbed. The display
+filter also applies to QA guests, whose throwaway credentials use the same
+configuration format (2026-09-12: `pass =` slipped a filter written as `password`).
 
 ## When it went wrong
 

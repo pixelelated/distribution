@@ -1,0 +1,46 @@
+{
+  "utc": "2026-10-08T07:02:54Z",
+  "reason": "Root-coordinated swap maintenance and523target dependency build; immediate same-disk runtime continuation queued",
+  "stopped_pid": 553090,
+  "process_exited": true,
+  "pidfile_exists": false,
+  "port_connect_results": {
+    "10220": 111,
+    "5940": 111
+  },
+  "disk_preserved": "/workspace/tmp/pixelelated-520-ui-20261008/guest01/vm.qcow2",
+  "disk_logical_bytes": 2817392640,
+  "disk_allocated_bytes": 2817343488,
+  "private_key_preserved": true,
+  "restart_command": [
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm",
+    "run",
+    "--headless",
+    "--daemonize",
+    "--res",
+    "640x480",
+    "--ssh-port",
+    "10220",
+    "--vnc",
+    "40",
+    "--monitor",
+    "/tmp/pix520-mon.sock",
+    "--serial",
+    "/tmp/pix520-ser.sock",
+    "--pidfile",
+    "/workspace/tmp/pixelelated-520-ui-20261008/guest01/vm.pid",
+    "--mac",
+    "52:54:00:52:52:20",
+    "/workspace/tmp/pixelelated-520-ui-20261008/guest01/vm.qcow2"
+  ],
+  "restart_hold": "Do not restart until root confirms dependency build finished and host ready",
+  "volatile_state_to_reapply": [
+    "/usr/bin overlay upper/work at /storage/qa520",
+    "ES and fr.mo binds",
+    "22frozen cloud scripts/config binds",
+    "DuckStation executable/script/config/module binds",
+    "IPv4/IPv6blackhole routes",
+    "loopback WebDAV dir-cache-time0",
+    "native640x480 andlocale; verify hashes before next app launch"
+  ]
+}

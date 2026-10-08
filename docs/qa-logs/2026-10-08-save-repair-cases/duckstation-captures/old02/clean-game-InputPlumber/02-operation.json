@@ -1,0 +1,184 @@
+{
+  "argv": [
+    "bwrap",
+    "--die-with-parent",
+    "--unshare-all",
+    "--new-session",
+    "--tmpfs",
+    "/",
+    "--dir",
+    "/usr/bin",
+    "--symlink",
+    "usr/bin",
+    "/bin",
+    "--symlink",
+    "usr/lib",
+    "/lib",
+    "--ro-bind",
+    "/usr/lib",
+    "/usr/lib",
+    "--ro-bind",
+    "/usr/lib64",
+    "/usr/lib64",
+    "--ro-bind",
+    "/usr/share",
+    "/usr/share",
+    "--symlink",
+    "usr/lib64",
+    "/lib64",
+    "--ro-bind",
+    "/usr/bin/bash",
+    "/usr/bin/bash",
+    "--ro-bind",
+    "/usr/lib/cargo/bin/coreutils/env",
+    "/usr/bin/env",
+    "--ro-bind",
+    "/usr/lib/cargo/bin/coreutils/mkdir",
+    "/usr/bin/mkdir",
+    "--ro-bind",
+    "/usr/bin/gnucp",
+    "/usr/bin/cp",
+    "--ro-bind",
+    "/usr/bin/gnurm",
+    "/usr/bin/rm",
+    "--ro-bind",
+    "/usr/lib/cargo/bin/coreutils/ln",
+    "/usr/bin/ln",
+    "--ro-bind",
+    "/usr/bin/sed",
+    "/usr/bin/sed",
+    "--ro-bind",
+    "/usr/lib/cargo/bin/coreutils/cat",
+    "/usr/bin/cat",
+    "--ro-bind",
+    "/usr/lib/cargo/bin/coreutils/install",
+    "/usr/bin/install",
+    "--ro-bind",
+    "/usr/bin/python3.14",
+    "/usr/bin/python3",
+    "--ro-bind",
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-08-save-repair-cases/duckstation-captures/old02/clean-game-InputPlumber/source/probe",
+    "/usr/bin/duckstation-sa",
+    "--ro-bind",
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-08-save-repair-cases/duckstation-captures/old02/clean-game-InputPlumber/source/entry",
+    "/entry",
+    "--ro-bind",
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-08-save-repair-cases/duckstation-captures/old02/clean-game-InputPlumber/source/profile",
+    "/etc/profile",
+    "--ro-bind",
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-08-save-repair-cases/duckstation-captures/old02/clean-game-InputPlumber/source/seed",
+    "/usr/config/duckstation/settings.ini",
+    "--ro-bind",
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-08-save-repair-cases/duckstation-captures/old02/clean-game-InputPlumber/source/gamecontrollerdb.txt",
+    "/usr/config/SDL-GameControllerDB/gamecontrollerdb.txt",
+    "--ro-bind",
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-08-save-repair-cases/duckstation-captures/old02/clean-game-InputPlumber/source/rules",
+    "/rules",
+    "--ro-bind",
+    "/tmp/pixelelated-rc-rclone/rclone",
+    "/rclone.real",
+    "--bind",
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-08-save-repair-cases/duckstation-captures/old02/clean-game-InputPlumber/storage",
+    "/storage",
+    "--bind",
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-08-save-repair-cases/duckstation-captures/old02/clean-game-InputPlumber/ctl",
+    "/ctl",
+    "--bind",
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-08-save-repair-cases/duckstation-captures/old02/clean-game-InputPlumber/cloud",
+    "/cloud",
+    "--dev",
+    "/dev",
+    "--proc",
+    "/proc",
+    "--tmpfs",
+    "/tmp",
+    "--chdir",
+    "/storage",
+    "--setenv",
+    "HOME",
+    "/storage",
+    "--setenv",
+    "PATH",
+    "/usr/bin:/bin",
+    "--setenv",
+    "CAPTURE_PROBE",
+    "no",
+    "/rclone.real",
+    "copy",
+    "/storage/roms",
+    "/cloud",
+    "--filter-from",
+    "/rules"
+  ],
+  "rc": 0,
+  "stdout": "",
+  "stderr": "2026/10/08 06:53:22 NOTICE: Config file \"/storage/.config/rclone/rclone.conf\" not found - using defaults\n",
+  "before": {
+    ".config/duckstation/gamecontrollerdb.txt": {
+      "link": "/usr/config/SDL-GameControllerDB/gamecontrollerdb.txt"
+    },
+    ".config/duckstation/memcards": {
+      "link": "/storage/roms/psx/duckstation/memcards"
+    },
+    ".config/duckstation/savestates": {
+      "link": "/storage/roms/savestates/psx"
+    },
+    ".config/duckstation/screenshots/historical.png": {
+      "bytes": 25,
+      "sha256": "94b7a83783527975b67c0b82fc75cd8805641ab8e6dc3a1aac163b6fada8a3b3"
+    },
+    ".config/duckstation/screenshots/synthetic-capture.png": {
+      "bytes": 44,
+      "sha256": "2155f40baf67eab067b307d562f3f8c1c39a0c725312bddcbab9ed36c04a82d1"
+    },
+    ".config/duckstation/settings.ini": {
+      "bytes": 5016,
+      "sha256": "4fcff97ddf1263ccde242b0f0cb0c7d00f3efc29f6ccb4a443d887ececbfbbba"
+    },
+    ".local/share/duckstation": {
+      "link": "/storage/.config/duckstation"
+    },
+    "roms/psx/duckstation/memcards/existing.bin": {
+      "bytes": 20,
+      "sha256": "2cf6f9502af930012f0da2474a1079432cf96a5fe18b264999c4295f9a7efe37"
+    },
+    "roms/savestates/psx/existing.bin": {
+      "bytes": 20,
+      "sha256": "2cf6f9502af930012f0da2474a1079432cf96a5fe18b264999c4295f9a7efe37"
+    }
+  },
+  "after": {
+    ".config/duckstation/gamecontrollerdb.txt": {
+      "link": "/usr/config/SDL-GameControllerDB/gamecontrollerdb.txt"
+    },
+    ".config/duckstation/memcards": {
+      "link": "/storage/roms/psx/duckstation/memcards"
+    },
+    ".config/duckstation/savestates": {
+      "link": "/storage/roms/savestates/psx"
+    },
+    ".config/duckstation/screenshots/historical.png": {
+      "bytes": 25,
+      "sha256": "94b7a83783527975b67c0b82fc75cd8805641ab8e6dc3a1aac163b6fada8a3b3"
+    },
+    ".config/duckstation/screenshots/synthetic-capture.png": {
+      "bytes": 44,
+      "sha256": "2155f40baf67eab067b307d562f3f8c1c39a0c725312bddcbab9ed36c04a82d1"
+    },
+    ".config/duckstation/settings.ini": {
+      "bytes": 5016,
+      "sha256": "4fcff97ddf1263ccde242b0f0cb0c7d00f3efc29f6ccb4a443d887ececbfbbba"
+    },
+    ".local/share/duckstation": {
+      "link": "/storage/.config/duckstation"
+    },
+    "roms/psx/duckstation/memcards/existing.bin": {
+      "bytes": 20,
+      "sha256": "2cf6f9502af930012f0da2474a1079432cf96a5fe18b264999c4295f9a7efe37"
+    },
+    "roms/savestates/psx/existing.bin": {
+      "bytes": 20,
+      "sha256": "2cf6f9502af930012f0da2474a1079432cf96a5fe18b264999c4295f9a7efe37"
+    }
+  }
+}
