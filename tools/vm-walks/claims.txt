@@ -48,3 +48,21 @@ d72084ccad manager-gb/05-4-manager-next-tile.png 260 415 535 735 #455  # same Ga
 # two fixture-composition changes. Main logos and bottom controls stay checked.
 d72084ccad manager-nes/01-0-carousel.png 737 0 1280 708 #455  # restored GB neighbor and shifted next panel
 d72084ccad manager-fbn/01-0-carousel.png 1249 418 1280 708 #455  # narrow restored GB panel at the right edge
+
+# #527: reviewed replacement18 independent-folder navigation. Original wrong
+# selector/carousel/list captures remain rejected; unchanged values return to
+# CLOUD FOLDERS, then B returns to the hub. Eight640 and eight1280 frames,
+# before/after payload witnesses and initial unclaimed diffs are retained in
+# docs/qa-logs/2026-10-08-cloud-folder-walks/. No baseline or mask changes.
+d72084ccad to-change-cloud-folder/02-hub-change-folder-row.png 240 187 1040 608 #527  # CHECK CLOUD FOLDERS adds a row; focused hub scrolls one row upward (#508)
+d72084ccad to-change-cloud-folder/03-folder-editor.png 552 146 729 192 #527  # SAVES FOLDER title and underlying CLOUD FOLDERS title replace CLOUD FOLDER/CLOUD
+d72084ccad to-change-cloud-folder/03-folder-editor.png 236 644 1044 719 #527  # shorter selector behind the keyboard replaces the old hub and its exposed BACK strip
+d72084ccad to-change-cloud-folder/*.png 1249 418 1280 708 #527  # scoped walk retains the GB fixture; old full run had removed it in MATCH, the same FBNeo neighbor edge documented by #455
+d72084ccad confirm-cloud-folder/02-hub-change-folder-row.png 240 187 1040 608 #527  # CHECK CLOUD FOLDERS adds a row; focused hub scrolls one row upward (#508)
+d72084ccad confirm-cloud-folder/03-folder-editor.png 552 146 729 192 #527  # SAVES FOLDER title and underlying CLOUD FOLDERS title replace CLOUD FOLDER/CLOUD
+d72084ccad confirm-cloud-folder/03-folder-editor.png 236 644 1044 719 #527  # shorter selector behind the keyboard replaces the old hub and its exposed BACK strip
+d72084ccad confirm-cloud-folder/*.png 1249 418 1280 708 #527  # scoped walk retains the GB fixture; old full run had removed it in MATCH, the same FBNeo neighbor edge documented by #455
+d72084ccad confirm-cloud-folder/04-folder-result.png 552 146 729 163 #527  # CLOUD FOLDERS after unchanged submission, rather than old CLOUD hub
+d72084ccad confirm-cloud-folder/04-folder-result.png 236 199 1044 719 #527  # three independent path rows and selector height replace the former hub return
+d72084ccad confirm-cloud-folder/05-after-dismiss.png 137 116 1143 719 #527  # B now returns to the hub instead of old A reopening the keyboard; exact surfaces reviewed
+d72084ccad confirm-cloud-folder/05-after-dismiss.png 274 743 1006 766 #527  # hub CLOSE/BACK/CHOOSE help replaces keyboard editing prompts
