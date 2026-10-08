@@ -34,6 +34,9 @@ changes, a retro/audit changes the route, an issue moves phases, or a session
 hands off unfinished work. State the next unblocked action and retain the
 reason/decision for a changed order. Re-read the live milestone and affected
 issues after writes; do not claim an update from a prepared local file alone.
+Review the complete body, including appended updates, for conflicting current
+priorities. Remove superseded active-work directions or label them historical;
+updating only the opening queue can leave instructions to repeat completed work.
 
 For releases, distinguish **source/build readiness**, **candidate image
 qualification**, **RC designation**, and **publication**. Image-verification
@@ -97,8 +100,9 @@ Once scheduled, replace the kind-tag with the M/P prefix; keep its labels
 - New/moved planned work follows this rule. The initial retrofit covers all
   open M7 issues; other existing milestones are reconciled when adopted for
   active work, not bulk-renamed without reviewing their phase plans.
-- M7.P1–P4 are the current remaining RC path; M7.P5 is later release staging.
-  The older council contract's P0–P6 headings in #344 retain their original
+- Read M7's current phase and remaining work from its live milestone body;
+  instruction files do not carry a second execution queue. The older council
+  contract's P0–P6 headings in #344 retain their original
   meaning. Cite those as `#344 contract P2`, for example. The milestone body
   maps the contract to execution phases; do not silently equate their numbers.
 
