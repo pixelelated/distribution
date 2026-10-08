@@ -351,12 +351,14 @@ folder_listing() { # <remote path> [lsf flags]; missing is distinct from unreada
     return "${rc}"
 }
 folder_exists() { # return 0 present, 1 absent, or >1 unreadable
-    local path="${1%/}" remote relative parent name rc
+    local path="$1" remote relative parent name rc
+    # An absolute remote root and its relative home are different on SFTP.
+    case "${path#*:}" in /) ;; *) path="${path%/}" ;; esac
     folder_listing "${path}"; rc=$?
     [ "${rc}" -eq 0 ] || return 5
     [ -z "${FOLDER_LISTING}" ] || return 0
     # A successfully listed remote root exists even when it is empty.
-    [ -n "${path#*:}" ] || return 0
+    case "${path#*:}" in ""|/) return 0 ;; esac
     remote="${path%%:*}:"; relative="${path#*:}"
     name="${relative##*/}"
     [ -n "${name}" ] || return 1

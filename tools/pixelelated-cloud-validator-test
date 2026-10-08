@@ -52,7 +52,8 @@ def main():
     p.add_argument('--output', type=Path, required=True)
     p.add_argument('--rclone', default=shutil.which('rclone'))
     p.add_argument('--case', action='append')
-    a=p.parse_args();a.ref=None
+    p.add_argument('--ref', help='Read historical product sources from this commit')
+    a=p.parse_args()
     version=subprocess.check_output([a.rclone,'version'],text=True).splitlines()[0]
     require(version == 'rclone v1.75.1', 'Use the package-pinned rclone1.75.1, not the host fallback: '+version)
     require(not a.output.exists(), 'use a new output directory')
@@ -259,6 +260,35 @@ def main():
         require('lsjson qa: ' not in argv,'unselected root scanned')
     case('relative-namespace-preserved',namespace)
 
+    def distinct_roots(f):
+        # The real alias backend normalizes leading slash. Map the two rclone
+        # namespaces to separate real local trees instead, as SFTP does.
+        inject(f,'''mapped=()
+for arg in "$@"; do
+ case "$arg" in
+  qa:/*) mapped+=(":local:/cloud/absolute/${arg#qa:/}") ;;
+  qa:*) mapped+=(":local:/cloud/relative/${arg#qa:}") ;;
+  *) mapped+=("$arg") ;;
+ esac
+done
+if [ "$1" = lsf ] && [ "$2" = qa:/ ] && { [ -e /ctl/absolute-unreadable ] || [ -e /ctl/root-seeded ]; }; then exit 5; fi
+/rclone.real "${mapped[@]}"; rc=$?
+if [ "$1" = copyto ] && [ "$rc" = 0 ] && [ -e /ctl/fail-seed-readback ]; then touch /ctl/root-seeded; fi
+exit "$rc"''')
+        f.directory('absolute');f.file('relative/owner-note.txt','home namespace sentinel')
+        f.conf('/','/','/Library')
+        put(f.path/'ctl/absolute-unreadable','yes')
+        r=f.run('cloud_setup','--folder-state')
+        require(r.returncode!=0,'unreadable absolute root was reported ready by reading relative home: '+r.stdout)
+        (f.path/'ctl/absolute-unreadable').unlink()
+        r=f.run('cloud_setup','--folder-state');require(r.returncode==0 and 'STATE=ready' in r.stdout,r.stdout)
+        put(f.path/'ctl/fail-seed-readback','yes')
+        r=f.run('cloud_setup','--seed-folders','settings')
+        require(r.returncode!=0 and (f.path/'ctl/root-seeded').exists(),'absolute-root readback used relative home: '+r.stdout)
+        require((f.path/'cloud/absolute/README.txt').exists(),'absolute note was not created')
+        require((f.path/'cloud/relative/owner-note.txt').read_text()=='home namespace sentinel','relative home was changed')
+    case('absolute-relative-root-distinction',distinct_roots)
+
     def root(f):
         f.conf('/Saves','/Backups','')
         r=f.run('cloud_setup','--seed-folders','roms,bios');require(r.returncode==0,r.stdout)
@@ -306,7 +336,7 @@ def main():
     case('request-timeout',timeout)
 
     sources=ROOT/'projects/ROCKNIX/packages/network/rclone/sources'
-    (a.output/'result.json').write_text(json.dumps({'result':'PASS','cases':results,'rclone_version':version,'rclone_sha256':hashlib.sha256(Path(a.rclone).read_bytes()).hexdigest(),'source_sha256':{n:hashlib.sha256((sources/n).read_bytes()).hexdigest() for n in ['cloud_setup','cloud_folder_validate','cloud_content_restore','cloud_sync_helper']}},indent=2)+'\n')
+    (a.output/'result.json').write_text(json.dumps({'result':'PASS','cases':results,'rclone_version':version,'rclone_sha256':hashlib.sha256(Path(a.rclone).read_bytes()).hexdigest(),'source_sha256':{n:hashlib.sha256(subprocess.check_output(['git','-C',str(ROOT),'show',a.ref+':projects/ROCKNIX/packages/network/rclone/sources/'+n]) if a.ref else (sources/n).read_bytes()).hexdigest() for n in ['cloud_setup','cloud_folder_validate','cloud_content_restore','cloud_sync_helper']}},indent=2)+'\n')
     print(f'PASS {len(results)} controls')
 
 if __name__=='__main__':main()
