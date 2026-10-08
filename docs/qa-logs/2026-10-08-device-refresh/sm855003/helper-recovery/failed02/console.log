@@ -1,0 +1,66 @@
+watch-build: recording in /workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02/.build-runs/20261008T214837Z-1918fa97
+PASS frozen inputs, host options, container and 24/4 concurrency
+rc-preflight: /workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02 at 8b5113fa16 (build/m7-pixelelated-sm8550-02)
+PASS      proxy schema note        review note matches 879b158995d412af434301ebdae581f66b8b6d57; runtime schema proof remains separate
+RAM    62347MB total, 22941MB used, 39405MB available
+Swap   8191MB total, 4502MB used, 3689MB free
+Disk   1.3T free of 3.6T  (not the usual limit)
+
+
+READY
+rm -f .env && [ ! -e .env ] || { echo "an older .env cannot be removed: no container started" >&2; exit 1; }; \
+trap 'rm -f .env' EXIT; trap 'exit 130' INT TERM HUP; \
+( umask 077 && set -C && ./scripts/get_env > .env ) || { echo "scripts/get_env failed: no container started" >&2; exit 1; }; \
+BUILD_DIR=/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01  docker run   --init --env-file .env -e RASTERATOPS_BUILD_RUN -e BUILDER_NAME=pixelelated-build -e BUILDER_VERSION=sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39 --rm --user 1000:1000 -v "/home/max/.ROCKNIX/options:/home/max/.ROCKNIX/options"   -v /workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02:/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01 -w /workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01 -v /workspace/repos/rocknix/.git:/workspace/repos/rocknix/.git -v /workspace/cache/rocknix-sources:/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/sources ghcr.io/pixelelated/build@sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39 make package-clean
+make[1]: Entering directory '/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01'
+./scripts/clean rclone
+[1;31mCLEAN[0m      rclone
+    [1;31m*[0m      [0;31mRemoving /workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/build.pixelelated-SM8550.aarch64/build/rclone-1.75.1 ...[0m
+    [1;31m*[0m      [0;31mRemoving /workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/build.pixelelated-SM8550.aarch64/install_pkg/rclone-1.75.1 ...[0m
+    [1;31m*[0m      [0;31mRemoving /workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/build.pixelelated-SM8550.aarch64/qa_checks/rclone-* ...[0m
+make[1]: Leaving directory '/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01'
+rm -f .env && [ ! -e .env ] || { echo "an older .env cannot be removed: no container started" >&2; exit 1; }; \
+trap 'rm -f .env' EXIT; trap 'exit 130' INT TERM HUP; \
+( umask 077 && set -C && ./scripts/get_env > .env ) || { echo "scripts/get_env failed: no container started" >&2; exit 1; }; \
+BUILD_DIR=/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01  docker run   --init --env-file .env -e RASTERATOPS_BUILD_RUN -e BUILDER_NAME=pixelelated-build -e BUILDER_VERSION=sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39 --rm --user 1000:1000 -v "/home/max/.ROCKNIX/options:/home/max/.ROCKNIX/options"   -v /workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02:/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01 -w /workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01 -v /workspace/repos/rocknix/.git:/workspace/repos/rocknix/.git -v /workspace/cache/rocknix-sources:/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/sources ghcr.io/pixelelated/build@sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39 make package-clean
+make[1]: Entering directory '/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01'
+./scripts/clean emulationstation
+[1;31mCLEAN[0m      emulationstation
+    [1;31m*[0m      [0;31mRemoving /workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/build.pixelelated-SM8550.aarch64/build/emulationstation-5d2fcb9b71f363cfa4813d5356f02c48ab58e139 ...[0m
+    [1;31m*[0m      [0;31mRemoving /workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/build.pixelelated-SM8550.aarch64/install_pkg/emulationstation-5d2fcb9b71f363cfa4813d5356f02c48ab58e139 ...[0m
+    [1;31m*[0m      [0;31mRemoving /workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/build.pixelelated-SM8550.aarch64/qa_checks/emulationstation-* ...[0m
+make[1]: Leaving directory '/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01'
+rm -f .env && [ ! -e .env ] || { echo "an older .env cannot be removed: no container started" >&2; exit 1; }; \
+trap 'rm -f .env' EXIT; trap 'exit 130' INT TERM HUP; \
+( umask 077 && set -C && ./scripts/get_env > .env ) || { echo "scripts/get_env failed: no container started" >&2; exit 1; }; \
+BUILD_DIR=/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01  docker run   --init --env-file .env -e RASTERATOPS_BUILD_RUN -e BUILDER_NAME=pixelelated-build -e BUILDER_VERSION=sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39 --rm --user 1000:1000 -v "/home/max/.ROCKNIX/options:/home/max/.ROCKNIX/options"   -v /workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02:/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01 -w /workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01 -v /workspace/repos/rocknix/.git:/workspace/repos/rocknix/.git -v /workspace/cache/rocknix-sources:/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/sources ghcr.io/pixelelated/build@sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39 make package-clean
+make[1]: Entering directory '/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01'
+./scripts/clean duckstation-sa
+[1;31mCLEAN[0m      duckstation-sa
+    [1;31m*[0m      [0;31mRemoving /workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/build.pixelelated-SM8550.aarch64/build/duckstation-sa-0.1-10998 ...[0m
+    [1;31m*[0m      [0;31mRemoving /workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/build.pixelelated-SM8550.aarch64/install_pkg/duckstation-sa-0.1-10998 ...[0m
+    [1;31m*[0m      [0;31mRemoving /workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/build.pixelelated-SM8550.aarch64/qa_checks/duckstation-sa-* ...[0m
+make[1]: Leaving directory '/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01'
+rm -f .env && [ ! -e .env ] || { echo "an older .env cannot be removed: no container started" >&2; exit 1; }; \
+trap 'rm -f .env' EXIT; trap 'exit 130' INT TERM HUP; \
+( umask 077 && set -C && ./scripts/get_env > .env ) || { echo "scripts/get_env failed: no container started" >&2; exit 1; }; \
+BUILD_DIR=/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01  docker run   --init --env-file .env -e RASTERATOPS_BUILD_RUN -e BUILDER_NAME=pixelelated-build -e BUILDER_VERSION=sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39 --rm --user 1000:1000 -v "/home/max/.ROCKNIX/options:/home/max/.ROCKNIX/options"   -v /workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02:/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01 -w /workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01 -v /workspace/repos/rocknix/.git:/workspace/repos/rocknix/.git -v /workspace/cache/rocknix-sources:/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/sources ghcr.io/pixelelated/build@sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39 make package-clean
+make[1]: Entering directory '/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01'
+./scripts/clean rocknix
+[1;31mCLEAN[0m      rocknix
+    [1;31m*[0m      [0;31mRemoving /workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/build.pixelelated-SM8550.aarch64/build/rocknix- ...[0m
+    [1;31m*[0m      [0;31mRemoving /workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/build.pixelelated-SM8550.aarch64/install_pkg/rocknix- ...[0m
+    [1;31m*[0m      [0;31mRemoving /workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/build.pixelelated-SM8550.aarch64/qa_checks/rocknix-* ...[0m
+make[1]: Leaving directory '/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01'
+rm -f .env && [ ! -e .env ] || { echo "an older .env cannot be removed: no container started" >&2; exit 1; }; \
+trap 'rm -f .env' EXIT; trap 'exit 130' INT TERM HUP; \
+( umask 077 && set -C && ./scripts/get_env > .env ) || { echo "scripts/get_env failed: no container started" >&2; exit 1; }; \
+BUILD_DIR=/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01 ./tools/watch-build --docker -- docker run   --init --env-file .env -e RASTERATOPS_BUILD_RUN -e BUILDER_NAME=pixelelated-build -e BUILDER_VERSION=sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39 --rm --user 1000:1000 -v "/home/max/.ROCKNIX/options:/home/max/.ROCKNIX/options"   -v /workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02:/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01 -w /workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01 -v /workspace/repos/rocknix/.git:/workspace/repos/rocknix/.git -v /workspace/cache/rocknix-sources:/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01/sources -v /workspace/tmp/pixelelated-m7-sm8550-refresh-02:/workspace/tmp/pixelelated-m7-sm8550-refresh-02 -v /workspace/tmp/pixelelated-m7-sm8550-refresh-02/nix:/nix -v /workspace/tmp/pixelelated-m7-fex-header-control-01/runtime/nixpkgs:/workspace/tmp/pixelelated-m7-fex-header-control-01/runtime/nixpkgs:ro --name pixelelated-m7-sm8550-refresh02 --label pixelelated.m7.owner=sm8550-refresh02 --cidfile /workspace/tmp/pixelelated-m7-sm8550-refresh-02/build.cid ghcr.io/pixelelated/build@sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39 bash /workspace/tmp/pixelelated-m7-sm8550-refresh-02/inside-build.sh
+PASS observed actual pinned SM8550 container and isolated stable-path mounts
+PASS actual container and Nix gate before build
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-sm8550-refresh-02/verify-fex-cache.py", line 7, in <module>
+    with p.open('rb') as s:assert hashlib.file_digest(s,'sha256').hexdigest()==h,name
+AttributeError: module 'hashlib' has no attribute 'file_digest'
+make: *** [Makefile:196: docker-SM8550] Error 1
+FAILED command rc 2

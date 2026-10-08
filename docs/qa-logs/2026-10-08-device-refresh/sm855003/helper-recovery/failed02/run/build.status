@@ -1,0 +1,13 @@
+state:       finished
+written:     2026-10-08 21:48:53 UTC   <- terminal result; heartbeat stops here
+watcher_pid: 1130928
+job_pid:     1130921  alive=yes
+started:     2026-10-08 21:48:37 UTC
+progress:    none matched
+log:         /workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02/.build-runs/20261008T214837Z-1918fa97/build.log  (last written 4s ago)
+activity:    /workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02/.build-runs/20261008T214837Z-1918fa97/build.log  (last written 4s ago)
+activity_root: /workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02
+outcome:     rc=2
+tail:
+  make: *** [Makefile:196: docker-SM8550] Error 1
+  FAILED command rc 2

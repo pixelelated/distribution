@@ -354,6 +354,18 @@ The rebuild with the cache bypassed (x64 run 47) linked, and its
 JavaScriptCore exported the method the cached one had not: 24 of the
 dispatcher's methods against 23 (D-WORKFLOW-048).
 
+## Verify helpers with the interpreter that will run them
+
+A host Python syntax check does not qualify an in-container proof helper.
+Before launching a long build, exercise new helper code in the exact pinned
+container, including the file-reading or hashing operation it will perform.
+On 2026-10-08, host Python3.14 accepted a helper using `hashlib.file_digest`,
+but the build container's Python3.10 lacked it. The startup gate stopped before
+compilation; streamed hashing passed against the actual accepted FEX files,
+while the original helper remained a failing control (#492).
+Keep host-only and container-executed helpers explicit, and retain the actual
+interpreter version and runtime proof alongside the source seal.
+
 ## A two-minute build can be a real one
 
 ccache sits under every compile, so a warm root that rebuilds one package

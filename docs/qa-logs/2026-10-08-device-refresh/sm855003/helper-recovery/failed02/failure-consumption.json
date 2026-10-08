@@ -1,0 +1,23 @@
+{
+  "utc": "2026-10-08T21:49:45.659124+00:00",
+  "result": "FAILED_PRESERVED",
+  "channels": {
+    "inner.rc": 2,
+    "outer.rc": 2,
+    "tool-wrapper.rc": 2,
+    "build.rc": 2,
+    "launcher": 2
+  },
+  "actual_owner_pids_absent": [
+    1130920,
+    1130921,
+    1130928,
+    1130965,
+    1132568
+  ],
+  "container_removed": "7a842e7f6f1a5ebc4ac2c98c8ae71b6cb61f6f031de43270aa5402a5a8705644",
+  "source_and_harness_seals_unchanged": true,
+  "failure": "verify-fex-cache.py uses hashlib.file_digest absent in pinned container Python; actual container/Nix barrier passed, canonical ARM/aarch64 compiler not invoked",
+  "affected_package_clean": "rclone, emulationstation, duckstation-sa, rocknix cleanup completed; no package compilation began",
+  "retry_scope": "new owner; change only verification helper/runtime-compatibility proof; reuse verified three-root cache and unchanged product source"
+}

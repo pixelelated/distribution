@@ -1,10 +1,10 @@
 # Saved Session State
 
-> Saved: 2026-10-08T21:52:10.019585+00:00
+> Saved: 2026-10-08T21:32:38.414943+00:00
 > Coordinator: feature/conflict-resolution
 > Repository: pixelelated/distribution
 
-## Start here — H700 accepted; SM8550 BUILD ACTIVE
+## Start here — H700 accepted; SM8550 cache copy ACTIVE
 
 This is an immutable Linux build system, not a runnable application. Primary
 `/workspace/repos/rocknix` stays on `next`; read its AGENTS.md and canonical
@@ -16,8 +16,8 @@ Authorization persists for scoped fixes, commits/pushes, builds, synthetic VM/
 local provider QA and dependency-checked disposable payload retirement. No new
 physical-device/personal-cloud action. #519 controlled owner alignment must
 precede the next owner handheld update transfer/reboot. Website #511 is separate.
-No goal exists. H70002 is accepted; SM8550 compilation is ACTIVE below.
-No external audit is active. Published H700 acceptance/checkpoint
+No goal exists. H70002 is accepted; SM8550 cache preparation is ACTIVE below.
+No compiler or external audit is active. Published H700 acceptance/checkpoint
 796c850c768a3c24a10798045dbf2555960ee9c7 has both checks SUCCESS37846448087/37846448336.
 Fresh-agent continuation check caught a stale lower M7.P5 paragraph; both lower
 queue paragraphs are now corrected and live-read back. H700 is not active.
@@ -114,43 +114,64 @@ not a physical boot or RC/publication claim.
 
 ## Current work and next commands
 
-1. TAKE OVER active SM8550 BUILD; never duplicate. Owner /workspace/tmp/pixelelated-m7-sm8550-refresh-03,
-   tree /workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02, branch build/m7-pixelelated-sm8550-02.
-   Source8b5113fa164ada7d002ab138b1e3a9bf795e9de5; zero product delta vs qualified VM18.
-   Manifestd23c6a914afabadd0cee025f843d80457143224ef18e761825c033715b0aae62.
-   run.path names /workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02/.build-runs/20261008T215107Z-cf03478e. Actual host PIDs {"build.pid": 1142358, "watcher.pid": 1142359, "command.pid": 1142394, "launcher": 1142357}.
-   Observed actual pinned container 03e12cfef64853cd67b7384a3c75d80fda6c390ebc790022a7f7f0f2aba95167, same24/4concurrency.
-   Stable container path is old SM855001, but source mount is new SM855002.
-   Independent Nix store RW at /nix and exact pinned snapshot RO are verified
-   by the startup barrier. Read owner/console.log and run/build.status actively;
-   inspect actual HOST processes, not sandbox /proc. Never edit running tools.
-2. Original02 failed before compilation: all five rc2channels and exits are
-   preserved in /workspace/tmp/pixelelated-m7-sm8550-refresh-02/failure-consumption.json.
-   Retry03 fixes only the helper, with actual Python3.10 positive/negative proof.
-   Cache is COMPLETE; do not rerun launchers or consumer. Original02/cache-consumption.json
-   binds three checksum-equal/inode-separated roots, all original five0channels,
-   unchanged seals and actual owner exits in the original02 cache owner. Precompiler guarded preflight ran after copy watcher exit; healthy swap
-   remained unchanged (reclaim condition did not fire). Never recycle swap during this active build.
-   Compact proof: docs/qa-logs/2026-10-08-device-refresh/sm855003/cache-and-build/.
-3. At terminal build0, verify all inner/outer/wrapper/build/launcher results,
-   source and build-seal, actual owner/observer exits and actual container removal:
-   `python3 /tmp/m7-consume-sm8550-retry03.py build` in HOST context. Failures keep
-   original results and archived thread logs; no guessed restart or overwritten rc.
-4. Prepared independent acceptance, NOT STARTED:
-   /workspace/tmp/pixelelated-m7-sm8550-refresh-acceptance-03. Review its run.py,
-   verify-firmware.py and seal.json. From SM855002 tree, submit
-   tools/watch-build-submit --owner <acceptance-owner> -- --interval 5 --stall-min 5
-   -- python3 -I -u <acceptance-owner>/run.py . It requires accepted build receipt.
-   It compares actual SYSTEM/install mappings, raw/update SYSTEM/kernel, GPT and
-   ABL files, new ARM manifest and14FEX outputs, then independent immutable bundle.
-   Consume terminal acceptance with /tmp/m7-consume-sm8550-retry03.py acceptance
-   in HOST context. No old artifact or migration-copy proof qualifies these bytes.
-5. Record completion in full M7/#492/#344 bodies, work log and archived checkpoint.
-   Publish only scoped docs/evidence commits from root into next. Check exact-head
-   hosted record/wordlist results. #344 corresponding source/licence inventory,
-   #359release-note linkage, #265version/publication tooling and named physical
-   gates remain. #519 precedes owner-device transfer/reboot. No new personal/cloud
-   operation or RC designation. Website511 stays separate.
+1. TAKE OVER the active SM8550 cache job; never duplicate it. Owner
+   /workspace/tmp/pixelelated-m7-sm8550-refresh-02; tree
+   /workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02;
+   branch build/m7-pixelelated-sm8550-02, source8b5113fa164ada7d002ab138b1e3a9bf795e9de5,
+   zero product delta vs qualified VM18. Manifest
+   fcfb09a24b091661448d9baa8f364b0e8f7fa3216de1293df20bb6c090b62f6a.
+   copy.run names .build-runs/20261008T211906Z-8e7f3c37. Actual host
+   launcher988454/runner988455/watcher988460/command988493 are alive.
+   Read cache-launch/console.log and run/build.status actively. No off-session
+   notification exists. Never modify running scripts or frozen inputs.
+2. It copies old SM8550 ARM/aarch64 caches and Nix independently, then checks
+   full checksum equality and cross-root inode separation. Old tree
+   m7-pixelelated-sm8550-01 at0553c0193ace3aebbefaae5b7b6d49253c2811d9 is182.7GB;
+   old Nix store /workspace/tmp/pixelelated-m7-sm8550-build-02/nix is2.68GB.
+   Capacity before copy1,522,079,993,856B; required600GiB. Quiet checksums can
+   trigger suspected-stall: inspect host rsync I/O and actual process before
+   diagnosing failure. H700's identical procedure passed3,943,107files.
+3. Consume all original copy.rc/copy.outer.rc/cache-launch/tool-wrapper.rc,
+   launcher-result.json and run/build.rc; require0, three cache roots PASS,
+   unchanged copy seals and actual host launcher/build.pid/watcher.pid/command.pid
+   exits. Do NOT look for runner.pid (runner is build.pid). Prepared consumer:
+   `python3 /tmp/m7-consume-sm8550-refresh.py cache` in actual HOST context; it
+   checks this owner, all original channels, three roots, seals and process exits.
+4. AFTER copy watcher exit, recheck tools/build-preflight; if needed use
+   tools/build-preflight --reclaim-swap while idle before starting compilerwatcher.
+   Large copies can refill swap. No swap recycling during active watcher/build/VM.
+5. SM8550 driver is PREPARED, NOT STARTED: owner/build.py and build-seal.json;
+   actual startup barrier wait-runtime.py, observe-container.py, inside-build.sh,
+   verify-fex-cache.py (accepted hashes), verify-fex.py (pre/post receipts),
+   verify-installed.py. Reviewed syntax/seals, no runtime proof yet. After step4,
+   from SM855002 tree: tools/watch-build-submit --owner <owner> -- --interval 5
+   --stall-min 5 -- python3 -I -u <owner>/build.py . Use
+   canonical make docker-SM8550 and an inside-build wrapper that waits for actual
+   container identity/mount proof, then canonical make SM8550 (ARM→aarch64).
+   Preserve old stable container worktree path, independent new Nix store RW at
+   /nix, exact pinned snapshot RO at its recorded path. Carry the old accepted
+   Nix version/config/expectedrootfs/toolchains from inputs. Read old
+   /workspace/tmp/pixelelated-m7-sm8550-build-04/{run.py,inside-build.sh,wait-runtime.py,
+   verify-fex.py,proof-controls.py} and old acceptance04/verify-firmware.py.
+   Host and container paths DIFFER: FEX verifier must use verified cwd, not the
+   old host path. Current H700 observer schema differs from old wait-runtime;
+   adapt both consistently. Clean only affected aarch64 rclone/ES/DuckStation/
+   rocknix packages; no FEX recipe delta vs accepted SM. New ARM output manifest
+   is generated after canonical ARM stage; old manifest lives in explicitly
+   historical cache_parent_provenance. Never use it as new output acceptance.
+6. Verify original build channels/seals/actualexits, actual installed mappings,
+   exact ES/French catalog/native capture/defaults, new ARM/FEX handoff. Then
+   prepared /workspace/tmp/pixelelated-m7-sm8550-refresh-acceptance-02/run.py
+   and seal.json independently accept raw/update SYSTEM/kernel, SM8550 GPT/ABL and firmware
+   custody into immutable content-addressed bundle. Consume build first with
+   /tmp/m7-consume-sm8550-refresh.py build; submit acceptance owner under same
+   watch-build-submit command pattern, then consume script acceptance.
+   No old artifact is new proof. Both prepared harnesses copied/sealed in
+   docs/qa-logs/2026-10-08-device-refresh/sm855002/prepared/.
+7. Record completion in full M7/#492/#344 bodies and checkpoint; publish scoped
+   evidence commits only. Required source/licence #344, #359release-note linkage,
+   #265version/publication-tool reconciliation and named physical gates remain.
+   #519 before owner-device deployment. No new personal/cloud action or RC claim.
 
 ## Build references and cautions
 
