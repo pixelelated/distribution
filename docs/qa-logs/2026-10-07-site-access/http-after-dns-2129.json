@@ -1,0 +1,173 @@
+{
+  "checked_at": "2026-10-07T21:29:43.549212+00:00",
+  "results": [
+    {
+      "url": "http://pixelelated.com/",
+      "dns_mode": "system resolver",
+      "command": [
+        "curl",
+        "--silent",
+        "--show-error",
+        "--head",
+        "--connect-timeout",
+        "8",
+        "--max-time",
+        "15",
+        "--write-out",
+        "\nHTTP_CODE=%{http_code} REMOTE_IP=%{remote_ip} SSL_VERIFY_RESULT=%{ssl_verify_result}\n",
+        "http://pixelelated.com/"
+      ],
+      "rc": 6,
+      "stdout": "\nHTTP_CODE=000 REMOTE_IP= SSL_VERIFY_RESULT=0\n",
+      "stderr": "curl: (6) Could not resolve host: pixelelated.com\n"
+    },
+    {
+      "url": "http://pixelelated.com/",
+      "dns_mode": "explicit GitHub Pages IP; original hostname and TLS verification retained",
+      "command": [
+        "curl",
+        "--silent",
+        "--show-error",
+        "--head",
+        "--connect-timeout",
+        "8",
+        "--max-time",
+        "15",
+        "--write-out",
+        "\nHTTP_CODE=%{http_code} REMOTE_IP=%{remote_ip} SSL_VERIFY_RESULT=%{ssl_verify_result}\n",
+        "--resolve",
+        "pixelelated.com:80:185.199.108.153",
+        "http://pixelelated.com/"
+      ],
+      "rc": 0,
+      "stdout": "HTTP/1.1 404 Not Found\nConnection: keep-alive\nContent-Length: 9115\nServer: GitHub.com\nContent-Type: text/html; charset=utf-8\nETag: \"6abcf5c5-239b\"\nContent-Security-Policy: default-src 'none'; style-src 'unsafe-inline'; img-src data:; connect-src 'self'\nX-GitHub-Request-Id: 32BC:A66AD:1F7F9C:221A19:6AC6B9C7\nx-github-edge-region: iad\nAccept-Ranges: bytes\nDate: Wed, 07 Oct 2026 21:29:43 GMT\nVia: 1.1 varnish\nAge: 0\nX-Served-By: cache-bos-kbos510053-BOS\nX-Cache: MISS\nX-Cache-Hits: 0\nX-Timer: S1791408583.482996,VS0,VE18\nVary: Accept-Encoding\nX-Fastly-Request-ID: c80b90d7fb255a18f443c07910a64ec6e705e90e\n\n\nHTTP_CODE=404 REMOTE_IP=185.199.108.153 SSL_VERIFY_RESULT=0\n",
+      "stderr": ""
+    },
+    {
+      "url": "https://pixelelated.com/",
+      "dns_mode": "system resolver",
+      "command": [
+        "curl",
+        "--silent",
+        "--show-error",
+        "--head",
+        "--connect-timeout",
+        "8",
+        "--max-time",
+        "15",
+        "--write-out",
+        "\nHTTP_CODE=%{http_code} REMOTE_IP=%{remote_ip} SSL_VERIFY_RESULT=%{ssl_verify_result}\n",
+        "https://pixelelated.com/"
+      ],
+      "rc": 6,
+      "stdout": "\nHTTP_CODE=000 REMOTE_IP= SSL_VERIFY_RESULT=0\n",
+      "stderr": "curl: (6) Could not resolve host: pixelelated.com\n"
+    },
+    {
+      "url": "https://pixelelated.com/",
+      "dns_mode": "explicit GitHub Pages IP; original hostname and TLS verification retained",
+      "command": [
+        "curl",
+        "--silent",
+        "--show-error",
+        "--head",
+        "--connect-timeout",
+        "8",
+        "--max-time",
+        "15",
+        "--write-out",
+        "\nHTTP_CODE=%{http_code} REMOTE_IP=%{remote_ip} SSL_VERIFY_RESULT=%{ssl_verify_result}\n",
+        "--resolve",
+        "pixelelated.com:443:185.199.108.153",
+        "https://pixelelated.com/"
+      ],
+      "rc": 60,
+      "stdout": "\nHTTP_CODE=000 REMOTE_IP= SSL_VERIFY_RESULT=1\n",
+      "stderr": "curl: (60) SSL: no alternative certificate subject name matches target hostname 'pixelelated.com'\nMore details here: https://curl.se/docs/sslcerts.html\n\ncurl failed to verify the legitimacy of the server and therefore could not\nestablish a secure connection to it. To learn more about this situation and\nhow to fix it, please visit the webpage mentioned above.\n"
+    },
+    {
+      "url": "http://www.pixelelated.com/",
+      "dns_mode": "system resolver",
+      "command": [
+        "curl",
+        "--silent",
+        "--show-error",
+        "--head",
+        "--connect-timeout",
+        "8",
+        "--max-time",
+        "15",
+        "--write-out",
+        "\nHTTP_CODE=%{http_code} REMOTE_IP=%{remote_ip} SSL_VERIFY_RESULT=%{ssl_verify_result}\n",
+        "http://www.pixelelated.com/"
+      ],
+      "rc": 6,
+      "stdout": "\nHTTP_CODE=000 REMOTE_IP= SSL_VERIFY_RESULT=0\n",
+      "stderr": "curl: (6) Could not resolve host: www.pixelelated.com\n"
+    },
+    {
+      "url": "http://www.pixelelated.com/",
+      "dns_mode": "explicit GitHub Pages IP; original hostname and TLS verification retained",
+      "command": [
+        "curl",
+        "--silent",
+        "--show-error",
+        "--head",
+        "--connect-timeout",
+        "8",
+        "--max-time",
+        "15",
+        "--write-out",
+        "\nHTTP_CODE=%{http_code} REMOTE_IP=%{remote_ip} SSL_VERIFY_RESULT=%{ssl_verify_result}\n",
+        "--resolve",
+        "www.pixelelated.com:80:185.199.108.153",
+        "http://www.pixelelated.com/"
+      ],
+      "rc": 0,
+      "stdout": "HTTP/1.1 404 Not Found\nConnection: keep-alive\nContent-Length: 9115\nServer: GitHub.com\nContent-Type: text/html; charset=utf-8\nETag: \"6abcf5c5-239b\"\nContent-Security-Policy: default-src 'none'; style-src 'unsafe-inline'; img-src data:; connect-src 'self'\nX-GitHub-Request-Id: 32BC:A66AD:1F7FA3:221A22:6AC6B9C7\nx-github-edge-region: iad\nAccept-Ranges: bytes\nAge: 0\nDate: Wed, 07 Oct 2026 21:29:43 GMT\nVia: 1.1 varnish\nX-Served-By: cache-bos-kbos510020-BOS\nX-Cache: MISS\nX-Cache-Hits: 0\nX-Timer: S1791408584.503938,VS0,VE29\nVary: Accept-Encoding\nX-Fastly-Request-ID: a84add1895daaa00a9d561b557c4022b04b70a56\n\n\nHTTP_CODE=404 REMOTE_IP=185.199.108.153 SSL_VERIFY_RESULT=0\n",
+      "stderr": ""
+    },
+    {
+      "url": "https://www.pixelelated.com/",
+      "dns_mode": "system resolver",
+      "command": [
+        "curl",
+        "--silent",
+        "--show-error",
+        "--head",
+        "--connect-timeout",
+        "8",
+        "--max-time",
+        "15",
+        "--write-out",
+        "\nHTTP_CODE=%{http_code} REMOTE_IP=%{remote_ip} SSL_VERIFY_RESULT=%{ssl_verify_result}\n",
+        "https://www.pixelelated.com/"
+      ],
+      "rc": 6,
+      "stdout": "\nHTTP_CODE=000 REMOTE_IP= SSL_VERIFY_RESULT=0\n",
+      "stderr": "curl: (6) Could not resolve host: www.pixelelated.com\n"
+    },
+    {
+      "url": "https://www.pixelelated.com/",
+      "dns_mode": "explicit GitHub Pages IP; original hostname and TLS verification retained",
+      "command": [
+        "curl",
+        "--silent",
+        "--show-error",
+        "--head",
+        "--connect-timeout",
+        "8",
+        "--max-time",
+        "15",
+        "--write-out",
+        "\nHTTP_CODE=%{http_code} REMOTE_IP=%{remote_ip} SSL_VERIFY_RESULT=%{ssl_verify_result}\n",
+        "--resolve",
+        "www.pixelelated.com:443:185.199.108.153",
+        "https://www.pixelelated.com/"
+      ],
+      "rc": 60,
+      "stdout": "\nHTTP_CODE=000 REMOTE_IP= SSL_VERIFY_RESULT=1\n",
+      "stderr": "curl: (60) SSL: no alternative certificate subject name matches target hostname 'www.pixelelated.com'\nMore details here: https://curl.se/docs/sslcerts.html\n\ncurl failed to verify the legitimacy of the server and therefore could not\nestablish a secure connection to it. To learn more about this situation and\nhow to fix it, please visit the webpage mentioned above.\n"
+    }
+  ]
+}

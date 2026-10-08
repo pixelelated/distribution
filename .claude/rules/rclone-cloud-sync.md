@@ -23,8 +23,10 @@ and settings backups. User-facing docs:
 ## Folder selection and organization
 
 D-CLOUD-175/176 (#508/#510): linking a backend or choosing a folder does not
-authorize moving its contents. Current setup creates the selected folders and
-preserves existing choices. Any future optional saves/settings organization
+authorize moving its contents. Linking opens category choices and creates no
+folders. CREATE FOLDERS confirms the selected categories before creating their
+folders and setup notes. The category switches scope checks/creation; they do
+not enable automatic sync. Existing paths remain until explicitly changed. Any future optional saves/settings organization
 must have a separate scope from ROM/BIOS/game-content relocation. Explain the
 source, destination, data size and transport before an explicit library move;
 never silently fall back to transferring or verifying a large cloud library

@@ -3,6 +3,16 @@
 Prepared 2026-10-07 for #511. These records apply if GitHub Pages hosts the
 site. No DNS changes have been made by this work.
 
+Verified 2026-10-07 at 21:30 UTC after the owner's update: all three
+authoritative nameservers, Cloudflare and Google return the four A records
+and the www CNAME below. The GitHub verification TXT is present, and Proton
+Mail MX records remain. No further registrar change is needed for IPv4.
+The host resolver still has an earlier negative answer. Direct requests to
+GitHub Pages with the domain preserved return HTTP 404 and a certificate
+hostname mismatch for both names. Website deployment and HTTPS are not yet
+verified; the Pages API still returns 403 with the bot token. This does not
+establish whether the owner has saved the repository custom domain.
+
 First add `pixelelated.com` under the website repository's **Settings → Pages →
 Custom domain**. GitHub recommends configuring that association before pointing
 DNS at its servers. The current bot token cannot read or manage Pages settings

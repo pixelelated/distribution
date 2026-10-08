@@ -10,6 +10,12 @@ Companion to [es-menu-map.md](es-menu-map.md), which places this subtree in the
 wider menu. Rendered low-fidelity wireframes of these screens, with the reasoning
 in the margins: <https://claude.ai/code/artifact/5da9ce12-b088-4db0-8557-4b34fe454dd6>
 
+For reviewed screenshots and baseline status, start at the menu map's
+[visual evidence index](es-menu-map.md#visual-evidence-and-flow-coverage)
+(D-WORKFLOW-155). These wireframes are historical design material, not current
+firmware screenshots. The #508/#510 cloud setup change does not change this
+conflict flow; its new branch evidence belongs to the linked setup flow.
+
 > **Rev 6 (2026-09-12).** Four maintainer decisions after the save-history council
 > run (#134): one console at a time -- sync never runs on two consoles at once, and
 > the wizard assumes the two versions were made in serial by one player
