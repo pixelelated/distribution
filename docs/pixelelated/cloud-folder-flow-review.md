@@ -10,8 +10,9 @@ Coordinated product integration `e6645cb5ea` and its proof are published on
 next `bc4ae05d30`; ES `4e410dc9a8` is published and pinned. #515's finite case
 review and fixes #520/#521/#522/#523 are qualified and closed. Valid layouts
 stay in place; ambiguous locations keep instructions. #507's independent
-frozen delta audit is next, followed by assembled firmware, clean/public
-adoption and device qualification. #511 owns the parallel website; guide
+frozen delta audit and all four #524 findings are complete and published.
+Engineering firmware is frozen at3756fde50e with ES1d76b3da7; assembled-image
+clean/public adoption and device qualification remain next. #511 owns the parallel website; guide
 publication does not hold useful local instructions or add a firmware gate.
 
 ## Who is upgrading
