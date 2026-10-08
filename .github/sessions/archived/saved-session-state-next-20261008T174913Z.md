@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Saved: 2026-10-08T17:49:13.267684+00:00
+> Saved: 2026-10-08T17:38:30.733727+00:00
 > Coordinator: feature/conflict-resolution
 > Repository: pixelelated/distribution
 
@@ -8,10 +8,10 @@
 
 pixelelated is an immutable handheld Linux distribution. Read AGENTS.md and
 canonical rules from `next`, this checkpoint and M7's live ordered body before
-working. Primary `/workspace/repos/rocknix` stays on `next`. The engineering build is frozen
-at3756fde50e52b71b101a892a5b2862b708ad7b32, with all audit/delivery checks
-accepted. Primary next may carry later coordination records; read actual
-HEAD/origin before continuing and never advance the frozen build branch. ES test/qa-integration is verified at1d76b3da7da75794066df1c089931b890304da7a.
+working. Primary `/workspace/repos/rocknix` stays on `next`. Its latest verified
+publication is3cb0472973ccb0174188c3a94bc80ad6d023c1e8: completed source fixes,
+independent audit evidence and delivery records. Read actual HEAD/origin before
+continuing. ES test/qa-integration is verified at1d76b3da7da75794066df1c089931b890304da7a.
 The earlier e6645cb5ea product integration and ac64c80628 audit freeze remain
 historical inputs; product source changed during the resolved audit fixes.
 
@@ -57,8 +57,8 @@ that concrete approval persists for this same blind/refutation scope. Do not res
    exact tracker/source readback and repository-only fresh-reader review are complete.
    The fresh reader found stale M7 tails and a stale phase-rule sentence; both
    were corrected and verified before audit freeze.
-4. #507 COMPLETE, closed completed with5/5criteria; #524 all four findings RESOLVED and closed
-   completed at 2026-10-08T17:24:01.871076Z. Sole auditor was
+4. #507 final delivery verification ACTIVE; #524 all four findings RESOLVED and closed
+   completed at 2026-10-08T17:24:01.871076Z. Sole auditor remains
    `/root/m7_fresh_audit_owner`, with immutable review input at distro
    ac64c80628ad6d5a69b803d82f186472529f7cd7 / ES4e410dc9. Audit worktree is
    /workspace/repos/rocknix.worktrees/m7-p5-audit-507; compact packet is
@@ -92,12 +92,11 @@ that concrete approval persists for this same blind/refutation scope. Do not res
    next12c599a557bcef544994fc8960a9cc3366aa4eb0. Root and auditor verified
    exact remote equality and all1658 source tree entries;1657 manifest entries
    rehash correctly. Resolution lint and the normal ceremony gate pass without
-   the previous overdue warning. Exact3756 delivery checks both succeeded:
-   record run37818327523/job113452601408; wordlist37818327696/job113452602463.
-   Auditor consumed their terminal results17:43:55UTC, then independently
-   verified #507closed completed (API17:45:07Z),5/5criteria and complete M7body.
-   docs/qa-logs/2026-10-08-m7-audit-delivery/ retains final hosted, full-body and
-   closure readbacks. Auditor ownership is concluded; no audit job remains.
+   the previous overdue warning. Full #507body now has4/5criteria checked;
+   criterion5 awaits these canonical delivery records and the exact-head hosted
+   check. M7's complete body has been reconciled and exactly read back. The
+   hosted record check on12c599a557 already succeeded (run37817241774);
+   final delivery head still needs its own result. The auditor owns that readback.
    Original130-criterion grades remain historical, not a release pass rate.
    Unverified OAuth/config-window/timing leads remain unverified, not new bugs
    or implicit passes. No product or personal-data migration is inferred.
@@ -105,31 +104,15 @@ that concrete approval persists for this same blind/refutation scope. Do not res
    four zero channels, sealed input/output hashes and actual host exits. See
    docs/qa-logs/2026-10-08-m7-build-readiness/external-completion-readback.json.
    Never re-ask approval or dispatch those completed transfers again.
-5. Engineering GENERIC_X64 ACTIVE: replacement17 is frozen from accepted
-  3756fde50e52b71b101a892a5b2862b708ad7b32 / ES1d76b3da7. Build worktree:
-   /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement17,
-   branch build/m7-pixelelated-replacement17; private owner:
-   /workspace/tmp/pixelelated-m7-replacement-17. Input manifest SHA
-  000ceedbef677873c081ae7db4e2b3a7b31d57687ff7deb10a15c959ad9044aa;
-  6552source files,180symlinks,219QA inputs; container and host options unchanged.
-   Prepared scripts/receipt are retained under
-   docs/qa-logs/2026-10-08-pixelelated-replacement-17/freeze/.
-   Cache copy STARTED17:47:07UTC under cache-copy owner, launcher3596015,
-   runner3596016, watcher3596017; worktree .build-runs/20261008T174707Z-de6745a0.
-   Source cache is111,795,896,320 allocated bytes; pre-copy available disk
-  1,944,046,882,816 bytes. Independent rsync-aH copy (no cross-root hardlinks)
-   then checksum/inode proof; old candidate16 remains read-only. Read actual
-   console/status and terminal channels, not incremental-rsync percentage.
-   Root actively consumes this watcher; no disconnected-alert claim.
-   Compilation has NOT started. After accepted cache completion, submit
-   owner/outer.sh with tools/watch-build-submit from the frozen worktree,
-   using the root owner (copy uses owner/cache-copy). Scripts rebuild rclone,
-   ES and DuckStation, and verify assembled helper/default bytes, old migration
-   absence, DuckStation0755/libcom_err, exact ES source and11 French translations.
-   CMake regenerates POT/PO; do not require their generated bytes to equal Git.
-   Firmware supplies CF10 clean/public ROCKNIX adoption and final inclusion,
-   then affected H700 followed by SM8550; source/licence/physical/release gates
-   remain. This engineering run is not an RC designation or publication.
+5. Engineering GENERIC_X64 firmware supplies CF10 clean/public ROCKNIX adoption
+   and actual final input inclusion. Then affected H700 followed by SM8550 builds,
+   source/licences, named physical smoke and release gates. No new firmware build,
+   RC designation or release publication has started. Root's read-only preparation
+   is docs/qa-logs/2026-10-08-m7-build-readiness/. After completed UI QA
+   scratch retired, the approved guarded helper reclaimed swap successfully:
+   8191MiB free,34675MiB RAM available,1.8T disk free, preflight rc0. Its exact
+   installed hash/root ownership and command results are retained. Run a fresh
+   preflight at build start; this is not a source freeze or cache-ready claim.
 
 #519/D-CLOUD-182 is mandatory BEFORE the owner's next handheld update transfer
 or reboot. It does not block common source/build/VM work. #516 supplies private
@@ -219,14 +202,14 @@ Source overlays never replace accepted firmware/public-adoption proof.
 
 All three implementation workers have completed. No compiler, guest, transfer
 or native emulator remains in their ownership. The separate audit owner above
-has completed; root now owns engineering build/result delivery without
+is active; root coordinates its tracker/checkpoint and result delivery without
 running parallel audit phases or changing frozen product source. Agent updates
 arrive through the collaboration mailbox while this session is active; no
 disconnected-alert claim is made. Finite watched checks completed during local review, with terminal receipts
 and host-context owner exits retained. No check or provider job was active at
 the09:28:41 stop. Both subsequently approved provider calls finished and were
 verified; all four Phase7 resolutions are complete. Only final delivery checks
-are completed as recorded above. Verify actual owner/check logs before
+remain with the auditor. Verify actual owner/check logs before
 reporting an active executable job.
 
 /root/rc_cloud_ui completed scoped retirement: provider stopped, QEMU815121
@@ -244,7 +227,7 @@ filesystem free-space counters are not an exclusive recovery-byte claim.
 
 /root/m7_active_qa_resume completed private519 planning and public-synthetic
 13control proof; no ongoing process. Do not recreate retired scratch except for
-a newly specified test. The completed audit and active build owner are recorded
+a newly specified test. The separate live audit owner and phase are recorded
 above. A disconnected status file still does not deliver chat alerts (#395).
 
 ## #519 private alignment and bounded public proof
@@ -300,26 +283,28 @@ off-sessiondelivery395 and independent redundancy518 remain separate laterwork.
 
 ## Next commands and handoff checks
 
-First consume replacement17 cache-copy console and the actual watcher run above.
-All audit work, parent #507/#524 closures and hosted delivery checks are complete;
-do not restart them. Preserve immutable review inputs and original failed logs.
-Current work is the watched engineering cache copy, then image compilation.
+Read actual next/origin, the sole auditor's mailbox and final resolution log.
+All four source findings and the complete audit evidence are published. Full
+#507/M7 body reconciliation is verified; this checkpoint and delivery receipts
+are being published, followed by exact-head hosted check consumption. Root owns the canonical work log and delivery records;
+the auditor owns the scoped audit directory. Integrate only explicit full commit
+hashes, never this divergent coordination branch wholesale.
 
-For copy completion consume owner/copy.rc,copy.outer.rc,cache-ready.rc;
-owner/cache-copy/tool-wrapper.rc and launcher-result.json; actual watcher
-build.rc, plus real host PID exits. Accept checksum equality and independent
-inodes from cache-ready.json before build. Never edit in-flight scripts.
-Then refresh tools/build-preflight and verify-source.py, and submit outer.sh
-from the frozen worktree under the root owner. Continue active supervision,
-announce failures/completion promptly and retain each original attempt.
+Host readiness passed after accepted UI scratch retirement: guarded helper
+reclaimed swap, 8191MiB free, 34675MiB RAM available,1.8T disk free. Receipt:
+docs/qa-logs/2026-10-08-m7-build-readiness/post-remediation-preflight.json.
+Refresh at actual build start. No engineering firmware build or cache copy has
+started. Draft /tmp/prepare-m7-replacement17.py is syntax-parsed only; it takes
+the exact final published next commit, verifies audit completion and source
+preservation, then creates a named build worktree and adapts candidate16
+copy/build scripts. It has not executed; inspect it before using it. After audit closure publication/checks, freeze final distro/ES inputs,
+copy the accepted candidate16 cache independently (no cross-root hardlinks),
+rebuild changed packages/image and verify validator inclusion, retired migration
+absence, DuckStation0755 and genuine libcom_err. CF10 clean/public ROCKNIX
+adoption remains image-only work. Then H700 followed by SM8550.
 
-Before promoting a firmware claim: assembled-source checks, actual clean install
-and public ROCKNIX adoption (CF10), affected VM/protocol/UI/preservation checks.
-Then H700 followed by SM8550. #519 remains mandatory before owner device update.
-No current device/cloud mutation is authorized by the common engineering run.
-
-Coordination changes stay separate: explicit full commit cherry-picks only,
-never merge this historical branch wholesale. Run rules-check, register-check,
-work-log-index --check and ceremony-check --gate before publication. The
-completed audit marker is accepted by local and exact-head hosted checks.
+Required checks remain rules-check, register-check, work-log-index --check and
+ceremony-check --gate. The completed marker has been consumed by the normal
+local gate and the hosted12c599a557 record check, both passing. The final
+delivery head still needs its own hosted result; do not substitute the older run.
 Continue authorized work across checkpoints; a saved file is not a pause.

@@ -1,0 +1,28 @@
+{
+  "verified_utc": "2026-10-08T17:40:48.497053+00:00",
+  "result": "PASS",
+  "head": "3cb0472973ccb0174188c3a94bc80ad6d023c1e8",
+  "checks": [
+    {
+      "id": 113450885389,
+      "name": "wordlist",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "3cb0472973ccb0174188c3a94bc80ad6d023c1e8",
+      "details_url": "https://github.com/pixelelated/distribution/actions/runs/37817829638/job/113450885389",
+      "started_at": "2026-10-08T17:36:08Z",
+      "completed_at": "2026-10-08T17:40:07Z"
+    },
+    {
+      "id": 113450884892,
+      "name": "record",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "3cb0472973ccb0174188c3a94bc80ad6d023c1e8",
+      "details_url": "https://github.com/pixelelated/distribution/actions/runs/37817829619/job/113450884892",
+      "started_at": "2026-10-08T17:36:08Z",
+      "completed_at": "2026-10-08T17:38:10Z"
+    }
+  ],
+  "scope": "Exact first delivery head; later lifecycle correction head still requires its own hosted checks."
+}
