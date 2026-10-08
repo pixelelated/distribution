@@ -1,0 +1,76 @@
+{
+  "case": "explicit-root",
+  "seed_sha256": "57f835ff4585d0b5f7875e485bb3d88b0d4fd7b2ef7d16cd3b4b8ad832d7c170",
+  "action": "/usr/bin/cloud_sync_helper /var/log/cloud_sync.log",
+  "context": {
+    "schema_version": 1,
+    "config_id": "f61ca998b41419a08a944db38d9d92336ead664abd88b6beb109f0b429f0a337",
+    "remote": "qa-cloud:",
+    "paths": {
+      "saves": "/GAMES",
+      "settings": "/GAMES/backup",
+      "content": "",
+      "roms": "ROMs",
+      "bios": "BIOS",
+      "media": "ROMs"
+    }
+  },
+  "validation": {
+    "schema_version": 1,
+    "run_id": "cf10-explicit-root",
+    "config_id": "f61ca998b41419a08a944db38d9d92336ead664abd88b6beb109f0b429f0a337",
+    "categories": [
+      {
+        "category": "saves",
+        "state": "present",
+        "path": "/GAMES",
+        "detail": "progress-paths-found-not-verified"
+      },
+      {
+        "category": "settings",
+        "state": "present",
+        "path": "/GAMES/backup",
+        "detail": "archive-names-found-not-verified"
+      },
+      {
+        "category": "roms",
+        "state": "present",
+        "path": "ROMs",
+        "detail": "supported-system-paths-found-not-verified"
+      },
+      {
+        "category": "bios",
+        "state": "present",
+        "path": "BIOS",
+        "detail": "files-found-not-compatibility-checked"
+      },
+      {
+        "category": "media",
+        "state": "empty",
+        "path": "ROMs",
+        "detail": "no-recognized-content-in-checked-depth"
+      }
+    ],
+    "complete": true,
+    "scope": {
+      "max_depth": 3,
+      "save_subtree_depths": {
+        "psp/PSP/SAVEDATA": 2,
+        "psx/duckstation/memcards": 1
+      },
+      "max_entries_per_listing": 4096,
+      "max_bytes_per_listing": 2097152,
+      "max_seconds": 25
+    },
+    "paths": {
+      "saves": "/GAMES",
+      "settings": "/GAMES/backup",
+      "content": "",
+      "roms": "ROMs",
+      "bios": "BIOS",
+      "media": "ROMs"
+    }
+  },
+  "cloud_local_payload_credentials_and_auto_choices_preserved": true,
+  "repeat_idempotent": true
+}

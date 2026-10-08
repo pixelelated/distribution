@@ -1,0 +1,13 @@
+watch-build: recording in /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement17/.build-runs/20261008T183639Z-4a4eac25
+/workspace/tmp/pixelelated-m7-cf10-17/ui-clean-matrix01/outer.sh: OK
+/workspace/tmp/pixelelated-m7-cf10-17/ui-clean-matrix01/run.py: OK
+/workspace/tmp/pixelelated-m7-cf10-17/ui-clean-matrix01/run.sh: OK
+START en_US-640x480
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-cf10-17/ui-clean-matrix01/run.py", line 35, in <module>
+    q=subprocess.run(['python3',str(R/'tools/vm-visual-qa'),'--monitor','/tmp/pix508-cf10-17-mon.sock','run',str(d/'entry.steps'),'--outdir',str(d/'frames')],capture_output=True,text=True,timeout=150);(d/'walk.log').write_text(q.stdout+q.stderr);q.check_returncode()
+                                                                                                                                                                                                                                                      ~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.14/subprocess.py", line 509, in check_returncode
+    raise CalledProcessError(self.returncode, self.args, self.stdout,
+                             self.stderr)
+subprocess.CalledProcessError: Command '['python3', '/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement17/tools/vm-visual-qa', '--monitor', '/tmp/pix508-cf10-17-mon.sock', 'run', '/workspace/tmp/pixelelated-m7-cf10-17/ui-clean-matrix01/en_US-640x480/entry.steps', '--outdir', '/workspace/tmp/pixelelated-m7-cf10-17/ui-clean-matrix01/en_US-640x480/frames']' returned non-zero exit status 3.

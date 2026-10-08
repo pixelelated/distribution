@@ -1,0 +1,80 @@
+{
+  "passed": true,
+  "proof": "actual installed clean defaults, synthetic rclone link/check and five-category missing result write nothing to cloud",
+  "context": {
+    "schema_version": 1,
+    "config_id": "05ae16a41acfca15b0ce362f8c60d17224738224aa371b05bf89c5e77c5a660a",
+    "remote": "qa-cloud:",
+    "paths": {
+      "saves": "/pixelelated/Saves",
+      "settings": "/pixelelated/Backups",
+      "content": "/pixelelated/Content",
+      "roms": "/pixelelated/Content/ROMs",
+      "bios": "/pixelelated/Content/BIOS",
+      "media": "/pixelelated/Content/ROMs"
+    }
+  },
+  "validation": {
+    "schema_version": 1,
+    "run_id": "cf10-clean",
+    "config_id": "05ae16a41acfca15b0ce362f8c60d17224738224aa371b05bf89c5e77c5a660a",
+    "categories": [
+      {
+        "category": "saves",
+        "state": "missing",
+        "path": "/pixelelated/Saves",
+        "detail": "selected-folder-not-found"
+      },
+      {
+        "category": "settings",
+        "state": "missing",
+        "path": "/pixelelated/Backups",
+        "detail": "selected-folder-not-found"
+      },
+      {
+        "category": "roms",
+        "state": "missing",
+        "path": "/pixelelated/Content/ROMs",
+        "detail": "expected-folder-not-found"
+      },
+      {
+        "category": "bios",
+        "state": "missing",
+        "path": "/pixelelated/Content/BIOS",
+        "detail": "expected-folder-not-found"
+      },
+      {
+        "category": "media",
+        "state": "missing",
+        "path": "/pixelelated/Content/ROMs",
+        "detail": "expected-folder-not-found"
+      }
+    ],
+    "complete": true,
+    "scope": {
+      "max_depth": 3,
+      "save_subtree_depths": {
+        "psp/PSP/SAVEDATA": 2,
+        "psx/duckstation/memcards": 1
+      },
+      "max_entries_per_listing": 4096,
+      "max_bytes_per_listing": 2097152,
+      "max_seconds": 25
+    },
+    "paths": {
+      "saves": "/pixelelated/Saves",
+      "settings": "/pixelelated/Backups",
+      "content": "/pixelelated/Content",
+      "roms": "/pixelelated/Content/ROMs",
+      "bios": "/pixelelated/Content/BIOS",
+      "media": "/pixelelated/Content/ROMs"
+    }
+  },
+  "credential_sha256": "8d962eb91385fa6e64395d56ace96858f1d1b0286258aa6da9e4b8dacd71935e",
+  "sync_config_sha256": "a121977066ce805e791108258fe12d1ecbce5e71ce2f61f096394a9fca982305",
+  "cloud_unchanged": true,
+  "boot_id": "8f36ac2b-f178-4e94-85f0-e01db2371214",
+  "backend_retained_for_immediate_ui_proof": "/workspace/tmp/pixelelated-m7-cf10-17/backend",
+  "port": 19085,
+  "source_overlays": false
+}

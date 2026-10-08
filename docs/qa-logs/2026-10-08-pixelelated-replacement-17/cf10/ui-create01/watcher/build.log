@@ -1,0 +1,14 @@
+/workspace/tmp/pixelelated-m7-cf10-17/ui-create01/outer.sh: OK
+/workspace/tmp/pixelelated-m7-cf10-17/ui-create01/run.py: OK
+/workspace/tmp/pixelelated-m7-cf10-17/ui-create01/run.sh: OK
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-cf10-17/ui-create01/run.py", line 18, in <module>
+    walk('create','key x\nsettle\nshot confirmed-scope\nkey x\nsleep 4\nsettle\nshot saves-only-result\n')
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tmp/pixelelated-m7-cf10-17/ui-create01/run.py", line 11, in walk
+    q=subprocess.run(['python3',str(R/'tools/vm-visual-qa'),'--monitor','/tmp/pix508-cf10-17-mon.sock','run',str(p),'--outdir',str(O/n)],capture_output=True,text=True,timeout=90);(O/(n+'.log')).write_text(q.stdout+q.stderr);q.check_returncode()
+                                                                                                                                                                                                                                ~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.14/subprocess.py", line 509, in check_returncode
+    raise CalledProcessError(self.returncode, self.args, self.stdout,
+                             self.stderr)
+subprocess.CalledProcessError: Command '['python3', '/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement17/tools/vm-visual-qa', '--monitor', '/tmp/pix508-cf10-17-mon.sock', 'run', '/workspace/tmp/pixelelated-m7-cf10-17/ui-create01/create.steps', '--outdir', '/workspace/tmp/pixelelated-m7-cf10-17/ui-create01/create']' returned non-zero exit status 1.

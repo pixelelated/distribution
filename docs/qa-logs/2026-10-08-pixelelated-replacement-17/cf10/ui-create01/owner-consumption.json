@@ -1,0 +1,18 @@
+{
+  "utc": "2026-10-08T18:34:33.688302+00:00",
+  "result": "FAIL",
+  "channels": {
+    "inner.rc": 1,
+    "outer.rc": 1,
+    "tool-wrapper.rc": 1,
+    "build.rc": 1,
+    "launcher": 1
+  },
+  "owner_pids_absent": [
+    3974089,
+    3974090,
+    3974091,
+    3974122
+  ],
+  "cause": "Harness used sleep instead of supported wait after actual confirmation. Original failure retained; no product defect inferred."
+}

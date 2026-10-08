@@ -1,0 +1,8 @@
+/workspace/tmp/pixelelated-m7-cf10-17/ui-create02/outer.sh: OK
+/workspace/tmp/pixelelated-m7-cf10-17/ui-create02/run.py: OK
+/workspace/tmp/pixelelated-m7-cf10-17/ui-create02/run.sh: OK
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-cf10-17/ui-create02/run.py", line 25, in <module>
+    assert all(k in initial or k=='pixelelated' or k.startswith('pixelelated/Saves') for k in after),after
+           ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'Unrelated': {'kind': 'directory'}, 'Unrelated/keep.txt': {'kind': 'file', 'sha256': 'c4eec136012afef934a88632a28e5051100d7cf2569701b10e0fcd33a2cb4439', 'bytes': 36}, 'pixelelated': {'kind': 'directory'}, 'pixelelated/.layout': {'kind': 'file', 'sha256': 'be68d69fa1fe3ddbcaa9295b8e3e732fd0113d909e38cf643d95aab41c9b1a22', 'bytes': 9}, 'pixelelated/Saves': {'kind': 'directory'}, 'pixelelated/Saves/README.txt': {'kind': 'file', 'sha256': '2fa918df6e277c8f4a3a444e2553f0ead7640398eea52abced1f6be981e4c731', 'bytes': 177}, 'pixelelated/Saves/savefiles': {'kind': 'directory'}, 'pixelelated/Saves/savestates': {'kind': 'directory'}, 'pixelelated/Saves/screenshots': {'kind': 'directory'}}
