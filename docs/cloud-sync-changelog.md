@@ -1,5 +1,38 @@
 # Cloud sync, backup and restore — change summary
 
+## Category-based cloud setup (2026-10-08, in qualification)
+
+#508/D-CLOUD-175 replaces the cloud-folder migration flow. The accepted
+firmware built on 2026-10-07 still has the previous behavior; this section
+describes the replacement undergoing script and UI proof.
+
+- **Connecting cloud storage opens folder choices.** Check the categories
+  you select, or explicitly create their folders and setup notes. Linking
+  alone does not create or move files. Fresh setups use `/pixelelated`;
+  existing sign-ins and folder choices remain until deliberately changed.
+- **Folder checks read bounded metadata.** Results distinguish files found,
+  missing or empty folders, unexpected content locations, and folders that
+  could not be read. They do not verify file integrity or BIOS compatibility.
+- **Folder choices are independent.** Changing the saves folder preserves
+  settings and ROM-library choices. These category switches scope check/create
+  actions; automatic sync remains a separate setting.
+- **You arrange existing cloud files yourself.** After moving a cloud folder,
+  use CHANGE CLOUD FOLDER on each device that uses it. The optional tidier,
+  startup migration prompt and automatic folder switching are removed.
+- **ROMs and BIOS use the selected library only.** There is no fallback search
+  through the account root. Local instructions show expected paths; you place
+  files from a computer. Restoring selected systems remains a separate action.
+- **Folder-creation failures offer a retry.** Setup reports readiness only
+  after successful creation and a fresh check. Cancellation keeps folders
+  already created and offers another attempt.
+
+No generic save-file relocation action or unpublished documentation QR ships
+in this draft. Its final visual, adoption and firmware inclusion proofs remain
+separate from the host controls already completed.
+
+Earlier migration entries below are historical; their descriptions do not
+override this replacement's scope or establish its final firmware inclusion.
+
 ## Explain the cloud-folder move across devices (2026-10-07)
 
 The updated English and French prompt passes compiler/gettext checks and actual

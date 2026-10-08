@@ -1,0 +1,197 @@
+{
+  "checked_at": "2026-10-07T21:30:04.379893+00:00",
+  "results": [
+    {
+      "command": [
+        "dig",
+        "@dns1.iwantmyname.com",
+        "pixelelated.com",
+        "A",
+        "+time=4",
+        "+tries=1",
+        "+noall",
+        "+answer",
+        "+comments"
+      ],
+      "rc": 0,
+      "stdout": ";; Got answer:\n;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 42986\n;; flags: qr aa rd; QUERY: 1, ANSWER: 4, AUTHORITY: 0, ADDITIONAL: 1\n;; WARNING: recursion requested but not available\n\n;; OPT PSEUDOSECTION:\n; EDNS: version: 0, flags:; udp: 1400\n;; ANSWER SECTION:\npixelelated.com.\t3600\tIN\tA\t185.199.110.153\npixelelated.com.\t3600\tIN\tA\t185.199.108.153\npixelelated.com.\t3600\tIN\tA\t185.199.111.153\npixelelated.com.\t3600\tIN\tA\t185.199.109.153\n\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "dig",
+        "@dns1.iwantmyname.com",
+        "www.pixelelated.com",
+        "CNAME",
+        "+time=4",
+        "+tries=1",
+        "+noall",
+        "+answer",
+        "+comments"
+      ],
+      "rc": 0,
+      "stdout": ";; Got answer:\n;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 11364\n;; flags: qr aa rd; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1\n;; WARNING: recursion requested but not available\n\n;; OPT PSEUDOSECTION:\n; EDNS: version: 0, flags:; udp: 1400\n;; ANSWER SECTION:\nwww.pixelelated.com.\t3600\tIN\tCNAME\tpixelelated.github.io.\n\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "dig",
+        "@dns2.iwantmyname.com",
+        "pixelelated.com",
+        "A",
+        "+time=4",
+        "+tries=1",
+        "+noall",
+        "+answer",
+        "+comments"
+      ],
+      "rc": 0,
+      "stdout": ";; Got answer:\n;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 141\n;; flags: qr aa rd; QUERY: 1, ANSWER: 4, AUTHORITY: 0, ADDITIONAL: 1\n;; WARNING: recursion requested but not available\n\n;; OPT PSEUDOSECTION:\n; EDNS: version: 0, flags:; udp: 1400\n;; ANSWER SECTION:\npixelelated.com.\t3600\tIN\tA\t185.199.108.153\npixelelated.com.\t3600\tIN\tA\t185.199.111.153\npixelelated.com.\t3600\tIN\tA\t185.199.109.153\npixelelated.com.\t3600\tIN\tA\t185.199.110.153\n\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "dig",
+        "@dns2.iwantmyname.com",
+        "www.pixelelated.com",
+        "CNAME",
+        "+time=4",
+        "+tries=1",
+        "+noall",
+        "+answer",
+        "+comments"
+      ],
+      "rc": 0,
+      "stdout": ";; Got answer:\n;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 35436\n;; flags: qr aa rd; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1\n;; WARNING: recursion requested but not available\n\n;; OPT PSEUDOSECTION:\n; EDNS: version: 0, flags:; udp: 1400\n;; ANSWER SECTION:\nwww.pixelelated.com.\t3600\tIN\tCNAME\tpixelelated.github.io.\n\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "dig",
+        "@dns3.iwantmyname.com",
+        "pixelelated.com",
+        "A",
+        "+time=4",
+        "+tries=1",
+        "+noall",
+        "+answer",
+        "+comments"
+      ],
+      "rc": 0,
+      "stdout": ";; Got answer:\n;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 47111\n;; flags: qr aa rd; QUERY: 1, ANSWER: 4, AUTHORITY: 0, ADDITIONAL: 1\n;; WARNING: recursion requested but not available\n\n;; OPT PSEUDOSECTION:\n; EDNS: version: 0, flags:; udp: 1400\n;; ANSWER SECTION:\npixelelated.com.\t3600\tIN\tA\t185.199.108.153\npixelelated.com.\t3600\tIN\tA\t185.199.111.153\npixelelated.com.\t3600\tIN\tA\t185.199.109.153\npixelelated.com.\t3600\tIN\tA\t185.199.110.153\n\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "dig",
+        "@dns3.iwantmyname.com",
+        "www.pixelelated.com",
+        "CNAME",
+        "+time=4",
+        "+tries=1",
+        "+noall",
+        "+answer",
+        "+comments"
+      ],
+      "rc": 0,
+      "stdout": ";; Got answer:\n;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 48955\n;; flags: qr aa rd; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1\n;; WARNING: recursion requested but not available\n\n;; OPT PSEUDOSECTION:\n; EDNS: version: 0, flags:; udp: 1400\n;; ANSWER SECTION:\nwww.pixelelated.com.\t3600\tIN\tCNAME\tpixelelated.github.io.\n\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "dig",
+        "@1.1.1.1",
+        "pixelelated.com",
+        "A",
+        "+time=4",
+        "+tries=1",
+        "+noall",
+        "+answer",
+        "+comments"
+      ],
+      "rc": 0,
+      "stdout": ";; Got answer:\n;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 41060\n;; flags: qr rd ra; QUERY: 1, ANSWER: 4, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version: 0, flags:; udp: 1232\n;; ANSWER SECTION:\npixelelated.com.\t3600\tIN\tA\t185.199.110.153\npixelelated.com.\t3600\tIN\tA\t185.199.108.153\npixelelated.com.\t3600\tIN\tA\t185.199.109.153\npixelelated.com.\t3600\tIN\tA\t185.199.111.153\n\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "dig",
+        "@1.1.1.1",
+        "www.pixelelated.com",
+        "CNAME",
+        "+time=4",
+        "+tries=1",
+        "+noall",
+        "+answer",
+        "+comments"
+      ],
+      "rc": 0,
+      "stdout": ";; Got answer:\n;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 11467\n;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version: 0, flags:; udp: 1232\n;; ANSWER SECTION:\nwww.pixelelated.com.\t3600\tIN\tCNAME\tpixelelated.github.io.\n\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "dig",
+        "@8.8.8.8",
+        "pixelelated.com",
+        "A",
+        "+time=4",
+        "+tries=1",
+        "+noall",
+        "+answer",
+        "+comments"
+      ],
+      "rc": 0,
+      "stdout": ";; Got answer:\n;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 53433\n;; flags: qr rd ra; QUERY: 1, ANSWER: 4, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version: 0, flags:; udp: 512\n;; ANSWER SECTION:\npixelelated.com.\t3600\tIN\tA\t185.199.111.153\npixelelated.com.\t3600\tIN\tA\t185.199.108.153\npixelelated.com.\t3600\tIN\tA\t185.199.109.153\npixelelated.com.\t3600\tIN\tA\t185.199.110.153\n\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "dig",
+        "@8.8.8.8",
+        "www.pixelelated.com",
+        "CNAME",
+        "+time=4",
+        "+tries=1",
+        "+noall",
+        "+answer",
+        "+comments"
+      ],
+      "rc": 0,
+      "stdout": ";; Got answer:\n;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 32006\n;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version: 0, flags:; udp: 512\n;; ANSWER SECTION:\nwww.pixelelated.com.\t3600\tIN\tCNAME\tpixelelated.github.io.\n\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "dig",
+        "@dns1.iwantmyname.com",
+        "_github-pages-challenge-pixelelated.pixelelated.com",
+        "TXT",
+        "+time=4",
+        "+tries=1",
+        "+noall",
+        "+answer",
+        "+comments"
+      ],
+      "rc": 0,
+      "stdout": ";; Got answer:\n;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 40371\n;; flags: qr aa rd; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1\n;; WARNING: recursion requested but not available\n\n;; OPT PSEUDOSECTION:\n; EDNS: version: 0, flags:; udp: 1400\n;; ANSWER SECTION:\n_github-pages-challenge-pixelelated.pixelelated.com. 3600 IN TXT \"63f5b8fbf2f9af59e46ad80ecc947a\"\n\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "dig",
+        "@dns1.iwantmyname.com",
+        "pixelelated.com",
+        "MX",
+        "+time=4",
+        "+tries=1",
+        "+noall",
+        "+answer",
+        "+comments"
+      ],
+      "rc": 0,
+      "stdout": ";; Got answer:\n;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 28364\n;; flags: qr aa rd; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1\n;; WARNING: recursion requested but not available\n\n;; OPT PSEUDOSECTION:\n; EDNS: version: 0, flags:; udp: 1400\n;; ANSWER SECTION:\npixelelated.com.\t3600\tIN\tMX\t20 mailsec.protonmail.ch.\npixelelated.com.\t3600\tIN\tMX\t10 mail.protonmail.ch.\n\n",
+      "stderr": ""
+    }
+  ]
+}

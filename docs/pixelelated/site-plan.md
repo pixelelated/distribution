@@ -70,10 +70,14 @@ is necessary merely because a future service might exist.
 ## Domain and launch sequence
 
 The maintainer confirmed **`pixelelated.com`** (D-WORKFLOW-154). The earlier
-`pixelated.com` spelling is resolved. The last public DNS read shows no A/AAAA
-record, `www` NXDOMAIN, iwantmyname nameservers and Proton Mail MX. Historical
-Cloudflare/Hostinger notes are not current authority. Recheck before preparing
-web DNS changes and preserve mail records.
+`pixelated.com` spelling is resolved. At 21:30 UTC on 2026-10-07, after the
+owner's DNS update, all three iwantmyname nameservers and Cloudflare/Google
+return the four GitHub Pages A records and www CNAME. The GitHub verification
+TXT is present; Proton Mail MX remains. Direct GitHub Pages requests return
+HTTP 404 and HTTPS certificate hostname mismatch for both names. Deployment,
+repository custom-domain association and HTTPS remain to be verified; the
+bot's Pages read is still 403. Historical Cloudflare/Hostinger notes are not
+current DNS authority. Preserve mail records.
 
 1. Repository/access is complete: starter README and agent instructions are
    published on the private site repository. No deployment workflow is present.
@@ -85,8 +89,9 @@ web DNS changes and preserve mail records.
 4. Configure the chosen host from the reviewed artifact. For Pages, use the
    documented artifact workflow and deployment environment rather than
    inheriting the old fork's force-push workflow without review.
-5. Prepare the confirmed domain's exact web DNS changes, establish
-   HTTPS, and retain public content/redirect readback. Do not modify mail DNS.
+5. Web DNS is verified after the owner's update. Confirm the repository
+   custom-domain association, establish HTTPS, and retain public content and
+   redirect readback. Do not modify mail DNS.
 6. Only then enable the handheld's per-guide QR destinations. ROM and BIOS
    findings say See instructions, opening a controller-dismissable modal.
    Decode actual VM frame QR images to verify destinations. Local instructions

@@ -8,7 +8,62 @@ Derived from `es-app/src/guis/` in `ROCKNIX/emulationstation-next` (surveyed
 Companion documents: [es-ui-style-guide.md](../.claude/rules/es-ui-style-guide.md) — how a screen
 should look and behave once you know where it goes; and
 [conflict-wizard-ia.md](conflict-wizard-ia.md) — the flow and screen structure
-for the cloud-save conflict wizard (#23), now entering implementation — milestone "Cloud Saves: Visual Conflict Resolution".
+for the cloud-save conflict wizard (#23).
+
+## Visual evidence and flow coverage
+
+This map is the navigation/IA reference; flow diagrams describe transitions,
+and reviewed screenshots show their actual presentation (D-WORKFLOW-155).
+An entry needs its happy path and relevant branches, with trigger, result,
+source/build, language, panel size and evidence status. A named screenshot
+alone is not proof that the expected screen was reached. Uncovered branches
+remain explicit; this map does not claim screenshot coverage of every
+upstream screen declared under **Not mapped**.
+
+The existing visual regression benchmark is
+`$ROCKNIX_ARTIFACTS/rocknix-images/walk-baseline/BASELINE.txt`.
+Read back on 2026-10-08, it identifies build `d72084ccad`, accepted on
+2026-09-26, and 78 walk frames. `tools/vm-qa` compares through
+`tools/frame-diff`, using `tools/vm-walks/claims.txt` for intended changes
+and `masks.txt` for measured exclusions. The acceptance record, not the latest
+PNG, determines the baseline. This RC work has not replaced it.
+
+| Reference | Scope and evidence entrypoint |
+| --- | --- |
+| [Cloud folder flow](pixelelated/cloud-folder-flow-review.md#implemented-flow-and-visual-proof) | Current #508/#510 draft: link, selected-category check/create, independent paths, findings, local help, and failure/return branches. Source-overlay proof is distinguished from firmware qualification. |
+| [Conflict wizard](conflict-wizard-ia.md) | Conflict decisions and their branch structure. Current cloud setup changes do not change the conflict algorithm or promote its historical wireframes as new screenshots. |
+| [VM QA ledger](vm-qa-log.md) | Recorded image qualifications, walk results and accepted baseline changes. |
+| [Walk definitions](../tools/vm-walks/) | Repeatable navigation and state fixtures; evidence is the corresponding reviewed run, not the step file alone. |
+
+Keep this index and the affected flow's evidence table current in the same
+change. Screens from a superseded flow remain historical references.
+
+**Required change protocol (D-WORKFLOW-156).** Every ES change reviews its
+affected flow; every change to navigation, IA, behavior or displayed content
+updates the canonical reference and accompanying reviewed screenshot before
+completion or pin promotion. A nonvisual change records the exercised flow
+and evidence that its presentation is unchanged. Diagram, code and frame must
+describe the same source; the title-coverage check alone cannot establish this.
+
+Each proof packet keeps an `evidence-index.json` alongside its readable flow
+table. Its `schema_version` is 1 and its `entries` array records:
+
+| Field | Meaning |
+| --- | --- |
+| `flow_id`, `branch_id` | Stable flow and state/branch identifiers used in the canonical diagram or table. |
+| `document`, `anchor` | Repository-relative canonical reference and its section anchor. |
+| `trigger`, `expected_state` | What reaches the frame and what it must show. |
+| `source` | Exact ES/distribution commits and tested overlay hashes, or an assembled image identity. |
+| `locale`, `width`, `height` | Actual language and captured panel dimensions. |
+| `frame`, `sha256` | Packet-relative screenshot path and its digest. |
+| `status`, `review` | `reviewed`, `rejected` or `pending`, with the observed outcome and reviewer; pending entries may omit frame/digest. |
+| `carried_forward_from` | Optional exact earlier evidence plus an unchanged-input justification; never relabel an old frame as newly captured. |
+
+Store the index in the same commit as the proof and validate its JSON and file
+references during review. It is a machine-readable input for future flow
+automation, not a claim that all semantic or visual coverage is already
+checked automatically. Rejected evidence remains traceable and is never the
+accepted reference merely because it is the newest file.
 
 ## Two ways in
 
@@ -106,7 +161,20 @@ current slot, never the next free one.
 
 ## Cloud (our subtree)
 
-As built on 2026-09-12 (ES `51639dd09`; the tree since `af2db4ab09`). One door:
+**Version boundary.** The accepted firmware and current package pin still use
+ES `5d2fcb9b71f363cfa4813d5356f02c48ab58e139`. That source has
+**CHOOSE A CLOUD FOLDER** after a content scan finds no selected library: it
+offers discovered/root-level folders before continuing. It also has
+**CLOUD SETUP COMPLETE** after setup seeding, with FINISH returning to the
+calling page. Those are the current firmware's screens, slated for removal
+in #508; the detailed earlier map is retained at
+[published source 240e2b0c](https://github.com/pixelelated/distribution/blob/240e2b0caa1edf7061f633a13d3696ea46c50370/docs/es-menu-map.md).
+
+The diagram below describes the replacement under qualification at local
+ES `baeea2a8c9bf508949104abcf04583a2338e054f`. It is not yet installed release
+firmware. Its flow/branch proof is tracked in the linked evidence table.
+
+The entrypoint mapped since 2026-09-12 (ES `51639dd09`) remains one door:
 `GAME SETTINGS > CLOUD SETTINGS`. The three save actions sit at that level
 because saves move constantly; everything occasional is one row further in,
 behind MANAGE CLOUD STORAGE (D-UI-021 lineage; the vocabulary is D-UI-022 and
@@ -132,10 +200,7 @@ flowchart TD
     BR --> BU[BACK UP TO THE CLOUD] --> SCAN[CHECKING YOUR CLOUD<br/>GuiCloudTransfer running cloud_scan: CLOUD FOLDER · SETTINGS BACKUPS · GAME CONTENT<br/>goes on by itself when complete; TRY AGAIN · CLOSE when not, D-CLOUD-167]
     BR --> RE[RESTORE FROM THE CLOUD] --> SCAN
     SCAN --> TICK[tick: SAVES · ROMS AND BIOS · GAME CONTENT · SETTINGS<br/>restore: SETTINGS offered as DEVICE, DATE, or dimmed NO SETTINGS BACKUP FROM THIS DEVICE YET, D-CLOUD-162<br/>CONTINUE]
-    TICK -->|ROMS AND BIOS or GAME CONTENT ticked, restore| CFQ{{configured content folder used when populated;<br/>empty or content found elsewhere asks CHOOSE THE FOLDER WHERE YOUR GAMES ARE?<br/>no automatic adoption, D-CLOUD-175}}
-    CFQ -->|CHOOSE A FOLDER| CHOOSER[CHOOSE A CLOUD FOLDER<br/>the folders at the cloud's root and / for the root itself; the one found first]
-    CFQ --> CSCAN[CHECKING YOUR CLOUD<br/>cloud_scan --content in the classes ticked; goes on by itself]
-    CHOOSER --> CSCAN
+    TICK -->|ROMS AND BIOS or GAME CONTENT ticked, restore| CSCAN[CHECKING YOUR CLOUD<br/>cloud_scan --content inside the selected library, in the classes ticked; goes on by itself]
     TICK -->|ROMS AND BIOS or GAME CONTENT ticked, backup| CSCAN
     CSCAN --> PICK[systems page, from the scan's files<br/>select all · badge per system<br/>BIOS alone: SYSTEMS reads NONE · a BIOS FILES group · no SELECT ALL · the verb still waits, D-UI-116]
     TICK --> XFER[GuiCloudTransfer<br/>full-screen; live line, elapsed, outcome; stays until dismissed]
@@ -150,7 +215,18 @@ flowchart TD
     HUB --> CSS[CLOUD STORAGE SETUP]
     CSS --> CT[CONNECTED TO … <i>provider label</i>]
     CSS --> CHK[CHECK CONNECTION] --> CHKD[dialog: answers / does not]
-    CSS --> FOLDER[CHANGE CLOUD FOLDER] --> KB[CLOUD FOLDER keyboard]
+    CSS --> FOLDER[CHANGE CLOUD FOLDER] --> PATHS[CLOUD FOLDERS<br/>SAVES FOLDER · SETTINGS FOLDER · ROMS, BIOS, AND GAME CONTENT FOLDER]
+    PATHS --> KB[keyboard for the selected path<br/>changes only that pointer; moves no files]
+    CSS --> CHECK[CHECK CLOUD FOLDERS] --> CATEGORIES[CLOUD FOLDERS<br/>SAVES · SETTINGS · ROMS · BIOS · GAME CONTENT]
+    CATEGORIES --> VALIDATE[CHECK FOLDERS] --> FINDINGS[CLOUD FOLDER CHECK<br/>category state and expected path]
+    FINDINGS --> HELP[SEE INSTRUCTIONS] --> LOCAL[CLOUD FOLDER INSTRUCTIONS<br/>local guidance; no unpublished QR link]
+    CATEGORIES --> CREATE[CREATE FOLDERS] --> CONFIRM[confirm selected categories<br/>creates folders and setup notes only]
+    CONFIRM --> SEED[CREATING CLOUD FOLDERS<br/>cancellable progress and outcome]
+    SEED -->|completed| VALIDATE
+    SEED -->|failure or cancellation; dismiss/retry| CATEGORIES
+    CONFIRM -->|decline| CATEGORIES
+    CATEGORIES -->|change independent paths and return| PATHS
+    PATHS -->|return with refreshed paths and retained category selection| CATEGORIES
     CSS --> CONN[CONNECT OR REPAIR CLOUD STORAGE] --> LIST[CONNECT CLOUD STORAGE<br/>RECOMMENDED list · MORE]
     LIST --> FORM[provider form<br/>NAME · REQUIRED · OPTIONAL · FINISH: CONNECT<br/><i>labels in the player's words, D-UI-038</i>]
     LIST -->|S3| SUB[compatible service] --> FORM
@@ -159,23 +235,28 @@ flowchart TD
 
     CONN --> WHICH{{WHICH CONNECTION?<br/><i>openCloudSetup, the wizard's first step</i>}}
     WHICH --> PWPAGE[SSH PASSWORD<br/><i>cloudSetupOpenPasswordPage; device access for the setup route</i>]
-    OAUTH --> SEED[SETTING UP YOUR CLOUD FOLDERS<br/><i>creates the selected folders; no library moves</i>]
-    FORM --> SEED
-    SEED -->|success| DONE[CLOUD SETUP COMPLETE<br/><i>YOUR CLOUD STORAGE IS READY</i>]
-    SEED -->|failure| SEEDFAIL[CLOUD SETUP<br/><i>YOUR CLOUD FOLDERS COULD NOT BE CREATED</i><br/>TRY AGAIN or change the selected folder]
-    SEEDFAIL -->|TRY AGAIN| SEED
+    OAUTH --> CATEGORIES
+    FORM --> CATEGORIES
 ```
 
-**Manual cloud setup (#508, D-CLOUD-175).** This map describes the replacement
+**Category-based cloud setup (#508/#510, D-CLOUD-175/178).** This map describes the replacement
 being qualified, not the accepted firmware built earlier on 2026-10-07.
 Fresh setups use `/pixelelated`; existing sign-ins and selected paths stay as
 they are. Scans read folder availability without joining or following another
 device's selection. There is no move/retry page, optional TIDY row or startup
-migration step. Settings-restore completion closes its own page. Setup creates
-the selected folders; failures offer TRY AGAIN without claiming the cloud is
-ready. Successful setup tells the player to use CHANGE CLOUD FOLDER on each
-device after moving cloud folders themselves. Earlier migration rules and
-frames remain historical evidence under #356/#363/#502.
+migration step. Settings-restore completion closes its own page. Linking opens
+the category choices; it does not create every tier automatically. CHECK
+FOLDERS reads only the chosen categories, and CREATE FOLDERS has its own
+confirmation. Results distinguish missing, empty, present, misplaced, and
+unreadable. They establish folder readiness, not file integrity or BIOS
+compatibility. Changes to the saves, settings, and shared content paths are
+independent. Transfer previews bind their results to the run, configuration,
+category mode, and output bytes; a changed selection requires a new check.
+Category switches scope these actions; they do not enable automatic sync.
+The [flow evidence table](pixelelated/cloud-folder-flow-review.md#implemented-flow-and-visual-proof)
+tracks the happy path and branching cases with their screenshot status.
+Earlier migration rules and frames remain historical evidence under
+#356/#363/#502. Website guide publication remains separate under #511.
 
 **Dialogs the cloud raises on its own.** A restore against a cloud whose saves
 folder is missing ends COMPLETED and offers to create it (D-CLOUD-085); when a
