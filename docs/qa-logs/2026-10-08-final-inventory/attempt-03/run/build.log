@@ -1,0 +1,55 @@
+BEGIN h70002-aarch64
+PASS frozen commit and 6552 source hashes
+inventory: 50 unpacked packages recorded
+inventory: 100 unpacked packages recorded
+inventory: 150 unpacked packages recorded
+inventory: 200 unpacked packages recorded
+inventory: 250 unpacked packages recorded
+inventory: 300 unpacked packages recorded
+inventory: 350 unpacked packages recorded
+inventory: 400 unpacked packages recorded
+inventory: 450 unpacked packages recorded
+inventory: 500 unpacked packages recorded
+inventory: 550 unpacked packages recorded
+inventory: 600 unpacked packages recorded
+inventory: 600 source roots; 574 cache inputs; 26 without a default-name cache match; 0 errors
+emulationstation: emulationstation-1d76b3da7da75794066df1c089931b890304da7a
+raofflineproxy: raofflineproxy-879b158995d412af434301ebdae581f66b8b6d57
+webkitgtk: webkitgtk-2.54.1
+libsoup: libsoup-3.8.0
+glslang: glslang-16.6.0
+spirv-headers: spirv-headers-496543121ce6419f23d6fa5d7194ba66c36212d2
+cbindgen: 
+tllist: tllist-1.1.0
+{"counts": {"mapped_components": 615, "unpacked_roots": 600, "image_install_stamps": 553, "local_meta_packages": 15}, "missing_recipe_license": ["common-shaders", "enet", "freej2me-lr", "glsl-shaders", "harfbuzz-icu", "libretro-database", "libspeexdsp", "libxmp-lite", "openbor", "opusfile", "rclone", "retropie-shaders", "slang-shaders", "tailscale", "wildmidi", "zerotier-one"], "publication_bundle_complete": false}
+END h70002-aarch64 {"profile": "h70002-aarch64", "source_inventory_rc": 0, "component_map_rc": 0}
+BEGIN sm855003-aarch64
+PASS frozen commit and 6552 source hashes
+inventory: 50 unpacked packages recorded
+inventory: 100 unpacked packages recorded
+inventory: 150 unpacked packages recorded
+inventory: 200 unpacked packages recorded
+inventory: 250 unpacked packages recorded
+inventory: 300 unpacked packages recorded
+inventory: 350 unpacked packages recorded
+inventory: 400 unpacked packages recorded
+inventory: 450 unpacked packages recorded
+inventory: 500 unpacked packages recorded
+inventory: 550 unpacked packages recorded
+inventory: 600 unpacked packages recorded
+inventory: 650 unpacked packages recorded
+inventory: 659 source roots; 635 cache inputs; 24 without a default-name cache match; 0 errors
+emulationstation: emulationstation-1d76b3da7da75794066df1c089931b890304da7a
+raofflineproxy: raofflineproxy-879b158995d412af434301ebdae581f66b8b6d57
+webkitgtk: webkitgtk-2.54.1
+libsoup: libsoup-3.8.0
+glslang: glslang-16.6.0
+spirv-headers: spirv-headers-496543121ce6419f23d6fa5d7194ba66c36212d2
+cbindgen: 
+tllist: tllist-1.1.0
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-final-inventory-03/component-map.py", line 43, in <module>
+    assert values.get('PKG_SECTION')=='virtual' or name=='debug',name
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: llvm
+END sm855003-aarch64 {"profile": "sm855003-aarch64", "source_inventory_rc": 0, "component_map_rc": 1}

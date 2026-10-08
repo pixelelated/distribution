@@ -1,0 +1,3823 @@
+{
+  "distribution_commit": "8b5113fa164ada7d002ab138b1e3a9bf795e9de5",
+  "errors": [],
+  "input_manifest_sha256": "37b8d2fcef43f326fc6f0548ebe13daa492b89c9c92ecb1eb3f65f39bac0dbc7",
+  "records": [
+    {
+      "build_stamps": {
+        "build_host": "b86cb4cb4a8d4d0b9bd6345a15844243de6fc3b053f0564e35d0d668193f70b7"
+      },
+      "cache": [
+        {
+          "bytes": 1543480,
+          "checksum_stamp_matches": true,
+          "name": "7-zip-26.02.tar.xz",
+          "sha256": "cf967c98bca02a4b8b16375f441825a8e141362f14be1969bbec8e1ca0bff9dd"
+        }
+      ],
+      "package": "7-zip",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "426574f6c15455b4b5dbd6524d5d466409b7fda54565b35bccceec97c032b1e8",
+      "unpacked": "7-zip-26.02"
+    },
+    {
+      "build_stamps": {
+        "build_host": "823718c008f3f80737c2cd746178675aaea0f94efc484a6dced6466fcabb0c16"
+      },
+      "cache": [
+        {
+          "bytes": 245115,
+          "checksum_stamp_matches": true,
+          "name": "Jinja2-3.1.6.tar.gz",
+          "sha256": "0137fb05990d35f1275a587e9aee6d56da821fc83491a0fb838183be43f66d6d"
+        }
+      ],
+      "package": "Jinja2",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "3d99c6acaa5f61c73ef9e3072abe204185fe64e112bc653fa86e2fe72ada268c",
+      "unpacked": "Jinja2-3.1.6"
+    },
+    {
+      "build_stamps": {
+        "build_host": "6b9dd8928ce71916d6d9de910cec91bbd05b1c20b62bee529f9fb9eca92795d0"
+      },
+      "cache": [
+        {
+          "bytes": 410165,
+          "checksum_stamp_matches": true,
+          "name": "Mako-1.4.1.tar.gz",
+          "sha256": "d7904710b662996425a21627710c4777c45053146942cf8a7aebf757c92b8c27"
+        }
+      ],
+      "package": "Mako",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "6e1760afda696c522b3be219d9d671e72f8237e32a77045546cfc4cf9e5617ae",
+      "unpacked": "Mako-1.4.1"
+    },
+    {
+      "build_stamps": {
+        "build_host": "f39aeb3a658b27b8a70bbeaad7ffc98863b2cb596c4176ab1a5670cd8cc0fe8a"
+      },
+      "cache": [
+        {
+          "bytes": 80313,
+          "checksum_stamp_matches": true,
+          "name": "MarkupSafe-3.0.3.tar.gz",
+          "sha256": "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
+        }
+      ],
+      "package": "MarkupSafe",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "870fbe5919a809b92c51d0da74125bd05d4daba9563e1150ef367964ce3f77ee",
+      "unpacked": "MarkupSafe-3.0.3"
+    },
+    {
+      "build_stamps": {
+        "build_host": "d58e755e55ac2786f7dd94fcf2cbd557fefe50eb3e2b5e58d96573bbddfa949b"
+      },
+      "cache": [
+        {
+          "bytes": 24053924,
+          "checksum_stamp_matches": true,
+          "name": "Python3-3.14.7.tar.xz",
+          "sha256": "3b48dac8fb59f62eaa67ac83c1eb12bda1b7a08406dd286e252c11a66be27f81"
+        }
+      ],
+      "package": "Python3",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "e88df0282b8f5db93e0bbaaabe1dbf453ba403c636d3f6fd10ad04b6c58ff579",
+      "unpacked": "Python3-3.14.7"
+    },
+    {
+      "build_stamps": {
+        "build_target": "944174efb67a3bd496c8dc2debf3f39867ca763647106eeea78d7e7b06d9a23b"
+      },
+      "cache": [
+        {
+          "bytes": 7630262,
+          "checksum_stamp_matches": true,
+          "name": "SDL2-2.32.10.tar.gz",
+          "sha256": "5f5993c530f084535c65a6879e9b26ad441169b3e25d789d83287040a9ca5165"
+        }
+      ],
+      "package": "SDL2",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "97a369011f9f04f25880ead71abe3c0eeb2a88092a4e313fab3e4287bdc97d00",
+      "unpacked": "SDL2-2.32.10"
+    },
+    {
+      "build_stamps": {
+        "build_target": "65bf53173f2c10886bbc8faf5b8daf311313ab846579cbf8f7c5fc09e0092865"
+      },
+      "cache": [
+        {
+          "bytes": 1347195,
+          "checksum_stamp_matches": true,
+          "name": "SDL2_gfx-29927b3.tar.gz",
+          "sha256": "812fe76eec07c2b0b9f2cc3a9393d6b3ddb2a243d8f2c45a227da2adef532b63"
+        }
+      ],
+      "package": "SDL2_gfx",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "c839feb31235a6000b52ed9a38bdbc9559b2e9e671c957715d827a3f59934aa1",
+      "unpacked": "SDL2_gfx-29927b3"
+    },
+    {
+      "build_stamps": {
+        "build_target": "a6c804629f0b183918fe469f2a56a148e08e9be6845cc4d2e310f8a47a285ba8"
+      },
+      "cache": [
+        {
+          "bytes": 11362515,
+          "checksum_stamp_matches": true,
+          "name": "SDL2_image-2.8.2.tar.gz",
+          "sha256": "8f486bbfbcf8464dd58c9e5d93394ab0255ce68b51c5a966a918244820a76ddc"
+        }
+      ],
+      "package": "SDL2_image",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "638765b38e3ca8aa55a631dd3a90c510c4d8869b29778eaa3da951d65ed991d0",
+      "unpacked": "SDL2_image-2.8.2"
+    },
+    {
+      "build_stamps": {
+        "build_target": "79c19d935a6f5b28997db5d6b54f8f4e31e14a7a5b0f65c06306d9f0e97f5ad5"
+      },
+      "cache": [
+        {
+          "bytes": 10874471,
+          "checksum_stamp_matches": true,
+          "name": "SDL2_mixer-2.8.0.tar.gz",
+          "sha256": "1cfb34c87b26dbdbc7afd68c4f545c0116ab5f90bbfecc5aebe2a9cb4bb31549"
+        }
+      ],
+      "package": "SDL2_mixer",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "93382ca1ea42b2ff0429d4fe826623a1dc7f060e166fba570a865563adc87f02",
+      "unpacked": "SDL2_mixer-2.8.0"
+    },
+    {
+      "build_stamps": {
+        "build_target": "54461350b3d5bf82f663ef138997e60794760114a1f2e1423cfc2c44a0463c2d"
+      },
+      "cache": [
+        {
+          "bytes": 8707169,
+          "checksum_stamp_matches": true,
+          "name": "SDL2_net-2.2.0.tar.gz",
+          "sha256": "4e4a891988316271974ff4e9585ed1ef729a123d22c08bd473129179dc857feb"
+        }
+      ],
+      "package": "SDL2_net",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "c064026e3ffa95bded153c0495f85e1ba247d54d1fcaed2473378ee30042ec03",
+      "unpacked": "SDL2_net-2.2.0"
+    },
+    {
+      "build_stamps": {
+        "build_target": "4f3c4c5eef441da720cbe09ea520fad35cd726528bd51ac6c714fe9c5c43848f"
+      },
+      "cache": [
+        {
+          "bytes": 13161592,
+          "checksum_stamp_matches": true,
+          "name": "SDL2_ttf-2.20.2.tar.gz",
+          "sha256": "9dc71ed93487521b107a2c4a9ca6bf43fb62f6bddd5c26b055e6b91418a22053"
+        }
+      ],
+      "package": "SDL2_ttf",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "2fefcf217597a2deb276dd86e9b4321c373341004332307988a685ade397505c",
+      "unpacked": "SDL2_ttf-2.20.2"
+    },
+    {
+      "build_stamps": {
+        "build_target": "b9efcf9231b086762c8482e66622e6f3d99d70ebfea98a82012bffe6928e4253"
+      },
+      "cache": [
+        {
+          "bytes": 1115517,
+          "checksum_stamp_matches": true,
+          "name": "alsa-lib-1.2.14.tar.bz2",
+          "sha256": "be9c88a0b3604367dd74167a2b754a35e142f670292ae47a2fdef27a2ee97a32"
+        }
+      ],
+      "package": "alsa-lib",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "ef45327524637d5be9909d0e293f23e3fd43743af44a6656afc331fd9ab29f30",
+      "unpacked": "alsa-lib-1.2.14"
+    },
+    {
+      "build_stamps": {
+        "build_target": "decb34b10111e69b4315fc91419546235e8ee337447bc55928ee7bafee178dfd"
+      },
+      "cache": [
+        {
+          "bytes": 11697,
+          "checksum_stamp_matches": true,
+          "name": "alsa-topology-conf-1.2.5.1.tar.bz2",
+          "sha256": "f7c5bae1545abcd73824bc97f4e72c340e11abea188ba0f1c06f5e0ad776b179"
+        }
+      ],
+      "package": "alsa-topology-conf",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "5793f6af31cae2b8ec822c68dfe7222442634792b47e364502198ea45b665b99",
+      "unpacked": "alsa-topology-conf-1.2.5.1"
+    },
+    {
+      "build_stamps": {
+        "build_target": "dba8f18edcf84abe7091388aa01964d7687db352b213306567ae80979f681092"
+      },
+      "cache": [
+        {
+          "bytes": 58408,
+          "checksum_stamp_matches": true,
+          "name": "alsa-ucm-conf-1.2.13.tar.bz2",
+          "sha256": "4483b6e3983cca08fd326a73fbae449b5036e444fb1a07c0dee74b504b7ab5af"
+        }
+      ],
+      "package": "alsa-ucm-conf",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "981337ae70f18bfa5866f9717e8b9f54d9644b640a80c590bb6fb01dc199189e",
+      "unpacked": "alsa-ucm-conf-1.2.13"
+    },
+    {
+      "build_stamps": {
+        "build_target": "3524934ffe4b571d35c61a148e8955c780373dda91d682ed8c30bbe204f1e65c"
+      },
+      "cache": [
+        {
+          "bytes": 15723,
+          "checksum_stamp_matches": true,
+          "name": "arm-mem-ee8ac1d56adb7ceef4d39a5cc21a502e41982685.tar.gz",
+          "sha256": "d1986f705abbe2b2e00912dbdc5e6b36e80cca2cc26a52e2489db7e7ff7873bc"
+        }
+      ],
+      "package": "arm-mem",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "e5f788a2faf098c01ca9a8d8ffd5229e791cb30eae2817eec71a1ab20ab2ee32",
+      "unpacked": "arm-mem-ee8ac1d56adb7ceef4d39a5cc21a502e41982685"
+    },
+    {
+      "build_stamps": {
+        "build_host": "d3bc3434723df7131cc3024366aff1d84c310a79a5efcd3e8e749171d81724b1"
+      },
+      "cache": [
+        {
+          "bytes": 1417428,
+          "checksum_stamp_matches": true,
+          "name": "autoconf-2.73.tar.xz",
+          "sha256": "9fd672b1c8425fac2fa67fa0477b990987268b90ff36d5f016dae57be0d6b52e"
+        }
+      ],
+      "package": "autoconf",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "ec8da6680aab4e78ff70119961cfffdec0e55395a2e66567d78e236eda23ae50",
+      "unpacked": "autoconf-2.73"
+    },
+    {
+      "build_stamps": {
+        "build_host": "42d44b1d2541161ca63be82b2891226c89c00f37eca0281888b093641405e377"
+      },
+      "cache": [
+        {
+          "bytes": 677768,
+          "checksum_stamp_matches": true,
+          "name": "autoconf-archive-2024.10.16.tar.xz",
+          "sha256": "7bcd5d001916f3a50ed7436f4f700e3d2b1bade3ed803219c592d62502a57363"
+        }
+      ],
+      "package": "autoconf-archive",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "185eea8513db71cf6cbc037a11e9fb7d33f2695efd1de97828e5b35751223374",
+      "unpacked": "autoconf-archive-2024.10.16"
+    },
+    {
+      "build_stamps": {
+        "build_host": "b97a5af37d05efff2f3575b4c0860eebe2f82479a6c39504333074719d17633d"
+      },
+      "cache": [
+        {
+          "bytes": 1652392,
+          "checksum_stamp_matches": true,
+          "name": "automake-1.18.1.tar.xz",
+          "sha256": "168aa363278351b89af56684448f525a5bce5079d0b6842bd910fdd3f1646887"
+        }
+      ],
+      "package": "automake",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "263a1e3029b62996433b05a219234bf4e3d1a98589e0ae86fea599328a6efaf0",
+      "unpacked": "automake-1.18.1"
+    },
+    {
+      "build_stamps": {
+        "build_target": "574f1a0b624b2cb61fa72c83c51127a67d79d7c6fc19aa67b10b7dc205020295"
+      },
+      "cache": [
+        {
+          "bytes": 953319,
+          "checksum_stamp_matches": true,
+          "name": "avahi-0.8.tar.gz",
+          "sha256": "c15e750ef7c6df595fb5f2ce10cac0fee2353649600e6919ad08ae8871e4945f"
+        }
+      ],
+      "package": "avahi",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "df7faf3964002fc6f57c213f935420e926425909022d4a767fbbaebdff07c7d8",
+      "unpacked": "avahi-0.8"
+    },
+    {
+      "build_stamps": {
+        "build_target": "142bb5315cc0a3cbd7409fab2c820baefc891dc602ebff5a13e9cb07246c6df3"
+      },
+      "cache": [
+        {
+          "bytes": 134318,
+          "checksum_stamp_matches": true,
+          "name": "bemenu-0.6.15.tar.gz",
+          "sha256": "abad9656b194ac511fd87d3d3ab4b155957fc4e402e76082c7fbefa6e84dad75"
+        }
+      ],
+      "package": "bemenu",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "97258327a79fa83738159f2cdead1da4fa3c35b680a8b62156d9d3ec59248d80",
+      "unpacked": "bemenu-0.6.15"
+    },
+    {
+      "build_stamps": {
+        "build_host": "5b0749836255ff517eedac090f9845a307e1362d7a8f39f0d5d8371703ec1e66"
+      },
+      "cache": [
+        {
+          "bytes": 29034716,
+          "checksum_stamp_matches": true,
+          "name": "binutils-2.47.tar.xz",
+          "sha256": "154ab23b60070e8f27013c22977f1129425d67d1e8acd6e13010e617811e4cff"
+        }
+      ],
+      "package": "binutils",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "922a93a758c1823d5165036d20e185443f2316438bca12de649136f039f3e4cd",
+      "unpacked": "binutils-2.47"
+    },
+    {
+      "build_stamps": {},
+      "cache": [
+        {
+          "bytes": 29899132,
+          "checksum_stamp_matches": true,
+          "name": "binutils-gold-2.46.1.tar.xz",
+          "sha256": "55c10d88ec98a692576ff570178d7bb5377121594b73fecc9354a51ed93ad2d2"
+        }
+      ],
+      "package": "binutils-gold",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "36f7ee5caaa4cd09781dbd3e307558f429ae2fe99d5ebccaffbed3a16730d5a1",
+      "unpacked": "binutils-gold-2.46.1"
+    },
+    {
+      "build_stamps": {
+        "build_host": "6f1f2cd39a38544b0dc83af4b38e2d7e0184bd75d0e0e7edca464d7401e9389f"
+      },
+      "cache": [
+        {
+          "bytes": 2817324,
+          "checksum_stamp_matches": true,
+          "name": "bison-3.8.2.tar.xz",
+          "sha256": "9bba0214ccf7f1079c5d59210045227bcf619519840ebfa80cd3849cff5a5bf2"
+        }
+      ],
+      "package": "bison",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "160b1f543d33b8f45509da077719693c5c20de0fec9617cb66b78cf7525b1df6",
+      "unpacked": "bison-3.8.2"
+    },
+    {
+      "build_stamps": {
+        "build_target": "7e3387b6c7efe2a2806275260bf2a73c5ac76208dfe64023ece3cdf03105e969"
+      },
+      "cache": [
+        {
+          "bytes": 2492776,
+          "checksum_stamp_matches": true,
+          "name": "bluez-5.83.tar.xz",
+          "sha256": "108522d909d220581399bfec93daab62035539ceef3dda3e79970785c63bd24c"
+        }
+      ],
+      "package": "bluez",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "77416487c69d6274cfca6f50f28a32283442ddd20c0ff076cb1eccae1b76db54",
+      "unpacked": "bluez-5.83"
+    },
+    {
+      "build_stamps": {
+        "build_target": "3dc4bb1ef69985488f2b7da73e8a55f9b7f31d09e570a5e9ae0ad1cedc3e8093"
+      },
+      "cache": [
+        {
+          "bytes": 3523041,
+          "checksum_stamp_matches": true,
+          "name": "box86-39d3ed203323000c11f47b780f7468fa24a7185d.tar.gz",
+          "sha256": "0b01cfe0c7e1af14f52d8ebcc36fe8b47ff2d8d6a06cb423f3e4069ac4466f56"
+        }
+      ],
+      "package": "box86",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "c98b8df16e7fc3983e09c611064c0266915259cea7132acfae3aebf865c0d082",
+      "unpacked": "box86-39d3ed203323000c11f47b780f7468fa24a7185d"
+    },
+    {
+      "build_stamps": {
+        "build_host": "03dfeea71115856ff3bdd8cdd34835ad156ba0e646b77a953dee0ad4f03cfea0",
+        "build_target": "03dfeea71115856ff3bdd8cdd34835ad156ba0e646b77a953dee0ad4f03cfea0"
+      },
+      "cache": [
+        {
+          "bytes": 810029,
+          "checksum_stamp_matches": true,
+          "name": "bzip2-1.0.8.tar.gz",
+          "sha256": "ab5a03176ee106d3f0fa90e381da478ddae405918153cca248e682cd0c4a2269"
+        }
+      ],
+      "package": "bzip2",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "bd7ffdb907ab872276cd3e96d50c374e97b20914218ca0bbc3b15e7f9ffe3927",
+      "unpacked": "bzip2-1.0.8"
+    },
+    {
+      "build_stamps": {
+        "build_target": "b932bc6af9f1fbbac685fcc0489a94fc168952d85fe82840802520ebf8fbe820"
+      },
+      "cache": [
+        {
+          "bytes": 32578804,
+          "checksum_stamp_matches": true,
+          "name": "cairo-1.18.4.tar.xz",
+          "sha256": "445ed8208a6e4823de1226a74ca319d3600e83f6369f99b14265006599c32ccb"
+        }
+      ],
+      "package": "cairo",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "f25eaae0f3f35cb34aea1b4fe360785de1671fda95b7eb7ddf4c8a0d0a8e120b",
+      "unpacked": "cairo-1.18.4"
+    },
+    {
+      "build_stamps": {
+        "build_host": "c1feb900965c00e9bb9b43f12d4e6604526a10258d5b23852202422b90fc6587"
+      },
+      "cache": [
+        {
+          "bytes": 538628,
+          "checksum_stamp_matches": true,
+          "name": "ccache-4.13.6.tar.xz",
+          "sha256": "a7de667ca08cf67c3c8af9f213f6aa701a1188a2b3163fb74483858ce5e79fbb"
+        }
+      ],
+      "package": "ccache",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "7726f5cf800382411ebdd544dacbe12ccd9c7bd398425bc6009c67b242dbf9b2",
+      "unpacked": "ccache-4.13.6"
+    },
+    {
+      "build_stamps": {
+        "build_host": "2a9388061dd9a66de8932dd621cd1230de9a612db38087d491f06ad62fd1d6e8"
+      },
+      "cache": [
+        {
+          "bytes": 13283673,
+          "checksum_stamp_matches": true,
+          "name": "cmake-4.4.2.tar.gz",
+          "sha256": "1db9e61e60b6e0874c86386340b910382f3c5e75b9fbfb44d122063129a2789d"
+        }
+      ],
+      "package": "cmake",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "a702a5abbb5a58e3f1515d612c8b54554a34a62c6af043f1979e06d7d2733d23",
+      "unpacked": "cmake-4.4.2"
+    },
+    {
+      "build_stamps": {
+        "build_host": "4874d864d1c4f95f292767965a4cef42ca13f2a5ac28474c21260a66a2de2397"
+      },
+      "cache": [
+        {
+          "bytes": 78895,
+          "checksum_stamp_matches": true,
+          "name": "configtools-28ea239c53a2d5d8800c472bc2452eaa16e37af2.tar.gz",
+          "sha256": "6e4ebaa2a60114cf8b72d478b30e559f0c8e025d290ae3303773095104bf7bcc"
+        }
+      ],
+      "package": "configtools",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "a0ea380e35f96247e53701afe254e661355ec88df475e55daefb72089696c3c9",
+      "unpacked": "configtools-28ea239c53a2d5d8800c472bc2452eaa16e37af2"
+    },
+    {
+      "build_stamps": {
+        "build_target": "8a4bf1d5071a42da76a8fc652d90737d750ceb03b5b265418a5379de7e275b87"
+      },
+      "cache": [
+        {
+          "bytes": 106235,
+          "checksum_stamp_matches": true,
+          "name": "core-info-b03bfc451381e1a5eb92fda9e56a1e81bfeb92c9.tar.gz",
+          "sha256": "c6aa4a90b041a57037ec8ebf3caef304062523fbc2fd1e4733b7aa4668ed9a27"
+        }
+      ],
+      "package": "core-info",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "237eff36919975279f874c625035ac61efe29f2cee53137b58ef025c9c3c398d",
+      "unpacked": "core-info-b03bfc451381e1a5eb92fda9e56a1e81bfeb92c9"
+    },
+    {
+      "build_stamps": {
+        "build_target": "be5368cffe0849c813fcaf5db8306981f1be101d72127972a5cb1bf5a6d0837b"
+      },
+      "cache": [
+        {
+          "bytes": 8214275,
+          "checksum_stamp_matches": true,
+          "name": "cups-2.4.19.tar.gz",
+          "sha256": "89fa632529d3e6a7cb9787ef29e39c4997be0323cc936e05cdb4c79387a35e8e"
+        }
+      ],
+      "package": "cups",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "aa0245ae073a720d4366e45583ada195f5433759cebdce4a4758a3e2c8f50f79",
+      "unpacked": "cups-2.4.19"
+    },
+    {
+      "build_stamps": {
+        "build_target": "8ea39bea75cbcc71ad99f8d201f9705ba096ef365c81b494114a9b627436b27e"
+      },
+      "cache": [
+        {
+          "bytes": 1634368,
+          "checksum_stamp_matches": true,
+          "name": "daedalusx64-sa-f17e9ed86f3806fadeb69abd29c9526ab2d4bd1b.tar.gz",
+          "sha256": "6a2fd0ac8cb17678ca1f1fd58a8e6cab536c76552e711fb4a1d8fe3941e82b19"
+        }
+      ],
+      "package": "daedalusx64-sa",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "f9d14ab539380e4fe45a3729bad0c13c9fa708d6d2bf26c79df67f0aa3b2f3fe",
+      "unpacked": "daedalusx64-sa-f17e9ed86f3806fadeb69abd29c9526ab2d4bd1b"
+    },
+    {
+      "build_stamps": {
+        "build_target": "4468e71daaeb7c010e48df5fa92c0e16d745d792985892cca23da75649047398"
+      },
+      "cache": [
+        {
+          "bytes": 1038852,
+          "checksum_stamp_matches": true,
+          "name": "dav1d-1.5.4.tar.xz",
+          "sha256": "686616b7c69eb88d44459391ab25cac13b6647a3b288835c5784e71c1514a5c5"
+        }
+      ],
+      "package": "dav1d",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "686b364862665da2beb76b6ea0346f01f46c404d95ec27bd93bb9fc447d97564",
+      "unpacked": "dav1d-1.5.4"
+    },
+    {
+      "build_stamps": {
+        "build_target": "3cb59f22da1abed5feadbca8dd6c65f056656bbf6fbcf6602f3d7f5af8745477"
+      },
+      "cache": [
+        {
+          "bytes": 1115644,
+          "checksum_stamp_matches": true,
+          "name": "dbus-1.16.2.tar.xz",
+          "sha256": "0ba2a1a4b16afe7bceb2c07e9ce99a8c2c3508e5dec290dbb643384bd6beb7e2"
+        }
+      ],
+      "package": "dbus",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "7669c44df9dfc5a804aeb5d1b09f932f05916c145a059f7282c95fc919951e26",
+      "unpacked": "dbus-1.16.2"
+    },
+    {
+      "build_stamps": {
+        "build_target": "9216f62e23697fb55dee75a27f3be0ebe8896c9fd0defc1a7ec26d3e12bc413a"
+      },
+      "cache": [
+        {
+          "bytes": 2389092,
+          "checksum_stamp_matches": true,
+          "name": "desmume-lr-8f6b32cb9a5e310bd38520e7087ce7fa14765f15.tar.gz",
+          "sha256": "8e6291e9c25b3c677644b101d8919ee3b64532be035a456cc4be2f2e7919484e"
+        }
+      ],
+      "package": "desmume-lr",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "0cc274e697d79d115653e4e6a571dc0b820023246846d9ed53e40a5538e3d31a",
+      "unpacked": "desmume-lr-8f6b32cb9a5e310bd38520e7087ce7fa14765f15"
+    },
+    {
+      "build_stamps": {
+        "build_host": "e8112acd1cbf2e00f260d4044dead83562d04d41497d16c54249628378140129",
+        "build_target": "e8112acd1cbf2e00f260d4044dead83562d04d41497d16c54249628378140129"
+      },
+      "cache": [
+        {
+          "bytes": 515504,
+          "checksum_stamp_matches": true,
+          "name": "expat-2.8.2.tar.xz",
+          "sha256": "3ad89b8588e6644bd4e49981480d48b21289eebbcd4f0a1a4afb1c29f99b6ab4"
+        }
+      ],
+      "package": "expat",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "1e9434394271fb6f1ee30199bf26c50bf67b1561dbc544a68c2b39d5b37e854f",
+      "unpacked": "expat-2.8.2"
+    },
+    {
+      "build_stamps": {
+        "build_target": "156fdebcc0b51910c4b9ebf8aa9fafd983859e5dc8ad0b9995e6697ef48b0040"
+      },
+      "cache": [
+        {
+          "bytes": 704077,
+          "checksum_stamp_matches": true,
+          "name": "fcft-3.1.9.tar.gz",
+          "sha256": "ae6872d42c96e6ca4fa35e4e6ef86e2458e4119fc7393dadd06a36c86bb3def2"
+        }
+      ],
+      "package": "fcft",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "86dd24dd7ffa6cdcc694dd54c790b7d1fcfccd4b40f55c56995f94969a76735d",
+      "unpacked": "fcft-3.1.9"
+    },
+    {
+      "build_stamps": {
+        "build_target": "3dd8221254bb2a80d3e74e840bfd01662cb5f3cdbb493891ccf08e1401f101e0"
+      },
+      "cache": [
+        {
+          "bytes": 2518649,
+          "checksum_stamp_matches": true,
+          "name": "fdk-aac-2.0.3.tar.gz",
+          "sha256": "e25671cd96b10bad896aa42ab91a695a9e573395262baed4e4a2ff178d6a3a78"
+        }
+      ],
+      "package": "fdk-aac",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "3107346b8049606d94cba02ff98c9369f30540db39aebe9c886f60477b57e5ed",
+      "unpacked": "fdk-aac-2.0.3"
+    },
+    {
+      "build_stamps": {
+        "build_target": "1a859c602549668ae6ef3face8ee934afa968e398644b6864625497f9c150da1"
+      },
+      "cache": [
+        {
+          "bytes": 11019500,
+          "checksum_stamp_matches": true,
+          "name": "ffmpeg-7.1.1.tar.xz",
+          "sha256": "733984395e0dbbe5c046abda2dc49a5544e7e0e1e2366bba849222ae9e3a03b1"
+        }
+      ],
+      "package": "ffmpeg",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "e02489419e99d45e1da0b76c0cc67fcdb36d2b0804358adceaae98313ef257d9",
+      "unpacked": "ffmpeg-7.1.1"
+    },
+    {
+      "build_stamps": {
+        "build_target": "904b7c446470d77a8bff933e4c558c781e2b21895ad457609e448af29d847aef"
+      },
+      "cache": [
+        {
+          "bytes": 1078872,
+          "checksum_stamp_matches": true,
+          "name": "flac-1.5.0.tar.xz",
+          "sha256": "f2c1c76592a82ffff8413ba3c4a1299b6c7ab06c734dee03fd88630485c2b920"
+        }
+      ],
+      "package": "flac",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "87b3d937cb6e1cd0f36b9b4595ee138dea338520fe84647541a511e50d7518f7",
+      "unpacked": "flac-1.5.0"
+    },
+    {
+      "build_stamps": {
+        "build_host": "f9a8b494de4f0bfc38c678a3b965c62e7b34a50f6ebed2eb0389cdad227730f6"
+      },
+      "cache": [
+        {
+          "bytes": 1419096,
+          "checksum_stamp_matches": true,
+          "name": "flex-2.6.4.tar.gz",
+          "sha256": "e87aae032bf07c26f85ac0ed3250998c37621d95f8bd748b31f15b33c45ee995"
+        }
+      ],
+      "package": "flex",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "44ee46aa935a78a28d6d23e6713a59ec2d2231bd22744082566cb48de65ff1ee",
+      "unpacked": "flex-2.6.4"
+    },
+    {
+      "build_stamps": {
+        "build_host": "b0054769f477531ec2ece021b6e5b0b1fb63caa0313ceb1bfacffb97b7fee287"
+      },
+      "cache": [
+        {
+          "bytes": 53083,
+          "checksum_stamp_matches": true,
+          "name": "flit-4.0.2.tar.gz",
+          "sha256": "b6929defd93884b584d7c87829e0e7b5c26ed6be17b0b873979019314aa841c8"
+        }
+      ],
+      "package": "flit",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "eeb70e071cc1a0731fd455041db69b873a9bbcea9e064ffdaf51f2bb5d7de078",
+      "unpacked": "flit-4.0.2"
+    },
+    {
+      "build_stamps": {
+        "build_target": "1a7619e478a55f736a44a02c1eb2ddd9d90f9841225c0c1eae94cefe9a4cdf6e"
+      },
+      "cache": [
+        {
+          "bytes": 2116769,
+          "checksum_stamp_matches": true,
+          "name": "fluidsynth-2.5.7.tar.gz",
+          "sha256": "ce27840221ab00dd59bf27e85ecbba480c6c2a7c9fbec4243658f68f59c07f4a"
+        }
+      ],
+      "package": "fluidsynth",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "f30aa205b65a3aa942aed175bf6786790a4f6669af3bef247f46fc3ba53cf574",
+      "unpacked": "fluidsynth-2.5.7"
+    },
+    {
+      "build_stamps": {
+        "build_target": "b538ee850923b6732b349aacfa8a8343dba7b6d2b5bebe24089f8b2e9e2b5940"
+      },
+      "cache": [
+        {
+          "bytes": 152764,
+          "checksum_stamp_matches": true,
+          "name": "font-util-1.4.2.tar.xz",
+          "sha256": "02e4f8afdcf03cc8372ca9c37aa104b1e36b47722dbc79531be08f0a4c622999"
+        }
+      ],
+      "package": "font-util",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "b4ba75bd0e980d2b299a002ec70652bb4db649aa64373c4d3343d2af7be94a6e",
+      "unpacked": "font-util-1.4.2"
+    },
+    {
+      "build_stamps": {
+        "build_target": "efca82e0ed8e0e002f01d5f4cfcbf6d1aed53c214247a31dab7c2c54495d0f48"
+      },
+      "cache": [
+        {
+          "bytes": 1172016,
+          "checksum_stamp_matches": true,
+          "name": "fontconfig-2.18.3.tar.xz",
+          "sha256": "4f7b554a38cdf78c033f666c8871f3749e14a094f65a07f630c91ed0b43d35e3"
+        }
+      ],
+      "package": "fontconfig",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "f992ccbcc89643c04addf09d1614a8663b7b85d2ecc8328738a7e1e9036d3cab",
+      "unpacked": "fontconfig-2.18.3"
+    },
+    {
+      "build_stamps": {
+        "build_target": "b8fa6c3f76d58c73a2702ac0408373add97e7a23c417cfb3ce47c9b97072f377"
+      },
+      "cache": [
+        {
+          "bytes": 585277,
+          "checksum_stamp_matches": true,
+          "name": "foot-1.19.0.tar.gz",
+          "sha256": "aa537908dff8a573adb68137974f8b317eed3b779d3e6954da84e0baff7b13a0"
+        }
+      ],
+      "package": "foot",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "978a84ddfe7e7ff3f626f65fda3443fe2a8159d4a50576798875d148496d225f",
+      "unpacked": "foot-1.19.0"
+    },
+    {
+      "build_stamps": {
+        "build_target": "793842041a4850bef8f5dcca6b5f9d889e42203c823f3cab58d2d87ff52e4f85"
+      },
+      "cache": [
+        {
+          "bytes": 2670220,
+          "checksum_stamp_matches": true,
+          "name": "freetype-2.14.3.tar.xz",
+          "sha256": "36bc4f1cc413335368ee656c42afca65c5a3987e8768cc28cf11ba775e785a5f"
+        }
+      ],
+      "package": "freetype",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "87879225b284374410332612f0dd47e104c119dae00c902c028a819107a26abb",
+      "unpacked": "freetype-2.14.3"
+    },
+    {
+      "build_stamps": {
+        "build_target": "b9901ea21b2b47b0b8f85056296dd3219814c48f2e925ddbdd0922fd104e1a7f"
+      },
+      "cache": [
+        {
+          "bytes": 1098260,
+          "checksum_stamp_matches": true,
+          "name": "fribidi-1.0.16.tar.xz",
+          "sha256": "1b1cde5b235d40479e91be2f0e88a309e3214c8ab470ec8a2744d82a5a9ea05c"
+        }
+      ],
+      "package": "fribidi",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "fa41810d0c4a632c78772b730967a48ae4591912851dbd196a94e8e0927c50cc",
+      "unpacked": "fribidi-1.0.16"
+    },
+    {
+      "build_stamps": {
+        "build_bootstrap": "05822115ce4459a61c1665d222a4de689cf52a4af2928347fe54d26707bace38",
+        "build_host": "05822115ce4459a61c1665d222a4de689cf52a4af2928347fe54d26707bace38",
+        "build_target": "05822115ce4459a61c1665d222a4de689cf52a4af2928347fe54d26707bace38"
+      },
+      "cache": [
+        {
+          "bytes": 101056276,
+          "checksum_stamp_matches": true,
+          "name": "gcc-15.2.0.tar.xz",
+          "sha256": "438fd996826b0c82485a29da03a72d71d6e3541a83ec702df4271f6fe025d24e"
+        }
+      ],
+      "package": "gcc",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "41cc1d2b9f8dd2d1c08bd17401760a4b05e952c2d44cf5a7051f064c834c222f",
+      "unpacked": "gcc-15.2.0"
+    },
+    {
+      "build_stamps": {
+        "build_target": "9adb94657ba2fdd4660a5823685ec07747f1dfe6301ade0f201feea56e49f604"
+      },
+      "cache": [
+        {
+          "bytes": 57834,
+          "checksum_stamp_matches": true,
+          "name": "gcem-1.18.0.tar.gz",
+          "sha256": "8e71a9f5b62956da6c409dda44b483f98c4a98ae72184f3aa4659ae5b3462e61"
+        }
+      ],
+      "package": "gcem",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "c2f77f9e534622cc6a29c850ee3dfec1c94d6710778cd5c2adc0aa65262e13e8",
+      "unpacked": "gcem-1.18.0"
+    },
+    {
+      "build_stamps": {
+        "build_target": "337d7119ac0f3e9a40b527f54b57bd8c3c7fc843d6286ca0531fe254b75ccafb"
+      },
+      "cache": [
+        {
+          "bytes": 6519776,
+          "checksum_stamp_matches": true,
+          "name": "gdk-pixbuf-2.42.10.tar.xz",
+          "sha256": "ee9b6c75d13ba096907a2e3c6b27b61bcd17f5c7ebeab5a5b439d2f2e39fe44b"
+        }
+      ],
+      "package": "gdk-pixbuf",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "f69aa8b223b813e7bca985aa1067b7013a57575e1ff4a6d48c3db03142ab0c34",
+      "unpacked": "gdk-pixbuf-2.42.10"
+    },
+    {
+      "build_stamps": {
+        "build_host": "a73f795227d5adba1aba86eaa05fdca3ac3730e4766393316cc63c3652c0d586",
+        "build_target": "a73f795227d5adba1aba86eaa05fdca3ac3730e4766393316cc63c3652c0d586"
+      },
+      "cache": [
+        {
+          "bytes": 10721600,
+          "checksum_stamp_matches": true,
+          "name": "gettext-1.0.tar.xz",
+          "sha256": "71132a3fb71e68245b8f2ac4e9e97137d3e5c02f415636eb508ae607bc01add7"
+        }
+      ],
+      "package": "gettext",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "dc743a8a923f945c6d1808af66c5f702d9514af017a7640551d16533a7e5cbdc",
+      "unpacked": "gettext-1.0"
+    },
+    {
+      "build_stamps": {
+        "build_target": "ae73a5ed6fa7d25d5904091237719507a57b3d82901c1b178276fab1603a44c2"
+      },
+      "cache": [
+        {
+          "bytes": 835861,
+          "checksum_stamp_matches": true,
+          "name": "glew-2.2.0.tgz",
+          "sha256": "d4fc82893cfb00109578d0a1a2337fb8ca335b3ceccf97b97e5cc7f08e4353e1"
+        }
+      ],
+      "package": "glew",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "2893c883c8e7e5f7e98c566198529ec42483a123b6357bdefa4426827b51bc6a",
+      "unpacked": "glew-2.2.0"
+    },
+    {
+      "build_stamps": {
+        "build_target": "e7e118cf742c8b94935971f44135386f097e510c80736c93d21cfbd22a63b086"
+      },
+      "cache": [
+        {
+          "bytes": 820392,
+          "checksum_stamp_matches": true,
+          "name": "glfw-e2c9264.tar.gz",
+          "sha256": "56d2700d72ac1e6bd093a46d2e95d0423dd6ba54e56b72c776dba5dcb40c39b7"
+        }
+      ],
+      "package": "glfw",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "9b7dfbc90be6d3dd5df4eed58f05dceff23926bca72fe5c6ef93b6766207e5db",
+      "unpacked": "glfw-e2c9264"
+    },
+    {
+      "build_stamps": {
+        "build_host": "3985dade5a1c91131b02f89b1c2a7a38132174430a24dc86c24b68d8c5671c7a",
+        "build_target": "3985dade5a1c91131b02f89b1c2a7a38132174430a24dc86c24b68d8c5671c7a"
+      },
+      "cache": [
+        {
+          "bytes": 5812420,
+          "checksum_stamp_matches": true,
+          "name": "glib-2.89.3.tar.xz",
+          "sha256": "09fd1e99f991067749ad66090e482ec4bd6514ad53abb4e9fbbdc2a4d2753532"
+        }
+      ],
+      "package": "glib",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "10934726dfe403d85ae01d550b7e0a41f332f66a8555c66fa2a5833570ac1ae8",
+      "unpacked": "glib-2.89.3"
+    },
+    {
+      "build_stamps": {
+        "build_target": "df02b41e6cf45cd8b63f961ab39c745e28c90c10721086979624a0852519225f"
+      },
+      "cache": [
+        {
+          "bytes": 19344868,
+          "checksum_stamp_matches": true,
+          "name": "glibc-2.41.tar.xz",
+          "sha256": "a5a26b22f545d6b7d7b3dd828e11e428f24f4fac43c934fb071b6a7d0828e901"
+        }
+      ],
+      "package": "glibc",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "922697486141a117e160e1e847c2165ea30bd912a9fa3a9c476bf226b75e2787",
+      "unpacked": "glibc-2.41"
+    },
+    {
+      "build_stamps": {
+        "build_target": "6ca6e4032053db0eca565a7b265621ffaceaed12747a2f980a61a5369995a575"
+      },
+      "cache": [
+        {
+          "bytes": 4597748,
+          "checksum_stamp_matches": true,
+          "name": "glm-1.0.3.tar.gz",
+          "sha256": "6775e47231a446fd086d660ecc18bcd076531cfedd912fbd66e576b118607001"
+        }
+      ],
+      "package": "glm",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "c69a0810668653e5416b840cb2a1a244314a305783100244d26ab33ce5a29fa7",
+      "unpacked": "glm-1.0.3"
+    },
+    {
+      "build_stamps": {
+        "build_host": "96e9a32bd6ab7ef617627082257c143321c5eb35cc36ed770309b54bdf1b7563"
+      },
+      "cache": [
+        {
+          "bytes": 4632787,
+          "checksum_stamp_matches": true,
+          "name": "glslang-16.6.0.tar.gz",
+          "sha256": "9c09b901149c729df745057dafa815278aaa101b84d2b6e14f16a42de52f97f2"
+        }
+      ],
+      "package": "glslang",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "387782a507bb1604aad5d38f85d89089040fcb48768f497457673b59cb69d2bb",
+      "unpacked": "glslang-16.6.0"
+    },
+    {
+      "build_stamps": {
+        "build_target": "ca8742bd9d53f9ede33ea1369925f4130d3118587d2d428e93215f8a69f12625"
+      },
+      "cache": [
+        {
+          "bytes": 218968,
+          "checksum_stamp_matches": true,
+          "name": "glu-9.0.3.tar.xz",
+          "sha256": "bd43fe12f374b1192eb15fe20e45ff456b9bc26ab57f0eee919f96ca0f8a330f"
+        }
+      ],
+      "package": "glu",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "0879970e324f0598e3dfe40e3c1e9c1ba042c00fa877ec4c7c7c89a4a767c6e5",
+      "unpacked": "glu-9.0.3"
+    },
+    {
+      "build_stamps": {
+        "build_host": "16f7aeb63299592019801cc5679dfe6886ba333b3a10d6563ed5869c796ee0ba",
+        "build_target": "16f7aeb63299592019801cc5679dfe6886ba333b3a10d6563ed5869c796ee0ba"
+      },
+      "cache": [
+        {
+          "bytes": 2094196,
+          "checksum_stamp_matches": true,
+          "name": "gmp-6.3.0.tar.xz",
+          "sha256": "a3c2b80201b89e68616f4ad30bc66aee4927c3ce50e33929ca819d5c43538898"
+        }
+      ],
+      "package": "gmp",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "b4d990482574e5e3f75d68dfe2742faf410377f8e30a157b4e9e7869cbbc77b2",
+      "unpacked": "gmp-6.3.0"
+    },
+    {
+      "build_stamps": {
+        "build_target": "7ef2577a997e5e490a292dd342862b8e52a1d4225d21b04b037bcbe7d3ed11a8"
+      },
+      "cache": [
+        {
+          "bytes": 7275324,
+          "checksum_stamp_matches": true,
+          "name": "gnutls-3.8.13.tar.xz",
+          "sha256": "ffed8ec1bf09c2426d4f14aae377de4753b53e537d685e604e99a8b16ca9c97e"
+        }
+      ],
+      "package": "gnutls",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "a8158799a475a5b71250202ab64b8e3406d0e43c6b8ab64db7fa2d44d05ae317",
+      "unpacked": "gnutls-3.8.13"
+    },
+    {
+      "build_stamps": {
+        "build_target": "4008ae25e4b0810e1d900e568e3a3d7cf09fe4fa5d48858c34c5394e71071579"
+      },
+      "cache": [
+        {
+          "bytes": 467228,
+          "checksum_stamp_matches": true,
+          "name": "gpsp-lr-8d268a6bb2cd799f8f2791ebb544a7ef550cfc6f.tar.gz",
+          "sha256": "0b7833468c5fee9da7dcb433de0c11701fbb0734dba2c8b3630bd054d607e004"
+        }
+      ],
+      "package": "gpsp-lr",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "bc163eaa5f161be969f96d55b03a3a144a6ceac73e938814d0e16b8c3ff5e4b0",
+      "unpacked": "gpsp-lr-8d268a6bb2cd799f8f2791ebb544a7ef550cfc6f"
+    },
+    {
+      "build_stamps": {
+        "build_target": "28ac457c154466ad843b21dfceb6e7b856042378ff622e3d73c484e750446a2c"
+      },
+      "cache": [
+        {
+          "bytes": 18372,
+          "checksum_stamp_matches": true,
+          "name": "grim-1.4.1.tar.gz",
+          "sha256": "5ed8e70fcd83a7e203e92d34dbb82a1342d3f13ad98a6b0310cc97e1a9342ded"
+        }
+      ],
+      "package": "grim",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "464812c46bfcaa22df0afbe791945fc8c7c418bd0ae42a1c70c221d7eabe9f1b",
+      "unpacked": "grim-1.4.1"
+    },
+    {
+      "build_stamps": {
+        "build_target": "a26af27128df72080e2575f7de2cbb4b50f516e49676b9cf5566926ecdc6aa99"
+      },
+      "cache": [
+        {
+          "bytes": 19819024,
+          "checksum_stamp_matches": true,
+          "name": "harfbuzz-14.3.0.tar.xz",
+          "sha256": "16070d77cfc4ba1f1e7327e83bf9b3f55898081cabdb94e56a33e04fc8874eae"
+        }
+      ],
+      "package": "harfbuzz",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "64554a95dff299496045ff24a5c47b92abdce85e742fced05e8320ffc7564285",
+      "unpacked": "harfbuzz-14.3.0"
+    },
+    {
+      "build_stamps": {
+        "build_host": "ce658d264ea02128ddffd559efefed856535cb4d0845d7fef590ee04a66c531b"
+      },
+      "cache": [
+        {
+          "bytes": 2641544,
+          "checksum_stamp_matches": true,
+          "name": "hwdata-0.410.tar.gz",
+          "sha256": "2864b061b179b8ad8cb6a7339ca07678240a183d9cedce8677a4950acaf798e0"
+        }
+      ],
+      "package": "hwdata",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "44713bb8432ec9cdeb9ee5370957a87e44eb36626bb8c68e24cf1c8d36efab11",
+      "unpacked": "hwdata-0.410"
+    },
+    {
+      "build_stamps": {
+        "build_host": "10062f7dede0c1e1ad81cacb6035f80546a1a06685e39742a1e9b9bf25643b48"
+      },
+      "cache": [
+        {
+          "bytes": 162286,
+          "checksum_stamp_matches": true,
+          "name": "intltool-0.51.0.tar.gz",
+          "sha256": "67c74d94196b153b774ab9f89b2fa6c6ba79352407037c8c14d5aeb334e959cd"
+        }
+      ],
+      "package": "intltool",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "a35aa071276fe3701584e9315b2cb17dd7ac33cb6f48d97195e59f8c3691dda5",
+      "unpacked": "intltool-0.51.0"
+    },
+    {
+      "build_stamps": {
+        "build_host": "cccc8c0bdcb790b8a4b7ba2f9364186df52e96ede8aab314552a470ccd69d1b6"
+      },
+      "cache": [
+        {
+          "bytes": 104648,
+          "checksum_stamp_matches": true,
+          "name": "itstool-2.0.7.tar.bz2",
+          "sha256": "6b9a7cd29a12bb95598f5750e8763cee78836a1a207f85b74d8b3275b27e87ca"
+        }
+      ],
+      "package": "itstool",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "c263b541592341ead09141cf27e7e375eca68266644d00b2fca8c4fd5c2689b0",
+      "unpacked": "itstool-2.0.7"
+    },
+    {
+      "build_stamps": {
+        "build_target": "c492ababe035cbb97b105ee35709090b4004ebd3d5ad8a74b41d7c8633409167"
+      },
+      "cache": [
+        {
+          "bytes": 2004456,
+          "checksum_stamp_matches": true,
+          "name": "jasper-4.2.9.tar.gz",
+          "sha256": "b0e5af6b54c274b9670c7e32ddbf6c802d88c896062d760267695dd0aa7014ff"
+        }
+      ],
+      "package": "jasper",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "cdb302d02c831708c5487141b20acedef4e054bb2be6b6da919fd6983ca50cbf",
+      "unpacked": "jasper-4.2.9"
+    },
+    {
+      "build_stamps": {
+        "build_target": "867b9e86ff5c87e1b23389385789145117c426cc6f621cc810883b014ca99f6d"
+      },
+      "cache": [
+        {
+          "bytes": 87969,
+          "checksum_stamp_matches": true,
+          "name": "joyutils-b6703ebf04c839fc47f9e490b68c4d5d885f32f9.tar.gz",
+          "sha256": "73914d760d44542fa5b88ab42f914713e07e184c299415fdbe8abd83e68dc200"
+        }
+      ],
+      "package": "joyutils",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "b2bdd175952494133a68dd59706e1172af8d67dc3ca00556682723f07cb29c82",
+      "unpacked": "joyutils-b6703ebf04c839fc47f9e490b68c4d5d885f32f9"
+    },
+    {
+      "build_stamps": {
+        "build_target": "d39741895c6cd81aaa85715e7b565a22422a54e16f3d722a3cee441f4b879aa4"
+      },
+      "cache": [
+        {
+          "bytes": 1959950,
+          "checksum_stamp_matches": true,
+          "name": "jq-1.8.2.tar.gz",
+          "sha256": "71b8d6e8f5fe81f6c6d0d110e3892251f6ce76ed095abd315e26e6e1193af3af"
+        }
+      ],
+      "package": "jq",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "ab6f2e606547d5a1c17c69b33a52f5c183b150daf002965f7fea8c9be011aa6f",
+      "unpacked": "jq-1.8.2"
+    },
+    {
+      "build_stamps": {
+        "build_target": "0be55f5d1765f1cbfc3d4b2e18a749e2c1b71223a3421967fd774971e65a3d8b"
+      },
+      "cache": [
+        {
+          "bytes": 462232,
+          "checksum_stamp_matches": true,
+          "name": "json-c-0.19.tar.gz",
+          "sha256": "37ad0249902e301bd9052bf712e511fcc6acff4ecaad4b5900aad9ce564e26de"
+        }
+      ],
+      "package": "json-c",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "7d241ff347b02a1b2ee732f9471b87e3945d3c94a24fd5fabd81488b553ed208",
+      "unpacked": "json-c-0.19"
+    },
+    {
+      "build_stamps": {
+        "build_target": "6b9027993b0ed0babab304f42ee513d368aab2331d120a0a0d05268adb080cf8"
+      },
+      "cache": [
+        {
+          "bytes": 232373,
+          "checksum_stamp_matches": true,
+          "name": "json-glib-1.10.0.tar.gz",
+          "sha256": "447890f9de2a04c312871768208f6c8aeec4069392af7605bc77e61165dcb374"
+        }
+      ],
+      "package": "json-glib",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "55f00a4b9765d2c36a09f619f26c8215f734baded697ec5fb46523282fa643c6",
+      "unpacked": "json-glib-1.10.0"
+    },
+    {
+      "build_stamps": {
+        "build_target": "2c2f4e5d583f76910b50a1ae00130d263eda26a44f8f38438d164528891d1f23"
+      },
+      "cache": [
+        {
+          "bytes": 220066,
+          "checksum_stamp_matches": true,
+          "name": "jsoncpp-1.9.8.tar.gz",
+          "sha256": "51828cf3574281d2b79ec2a1c56a9e4c20cc1103711321ea96384cffb8d2d904"
+        }
+      ],
+      "package": "jsoncpp",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "bee61280588750d59da15582774febd64ed0d3e725f3ebd969c33e07edbc8359",
+      "unpacked": "jsoncpp-1.9.8"
+    },
+    {
+      "build_stamps": {
+        "build_target": "f69e94c138729e2a3cf74e5e03d2eae452c46111be25f9cd946bca0b40b4c21a"
+      },
+      "cache": [
+        {
+          "bytes": 443748,
+          "checksum_stamp_matches": true,
+          "name": "kmod-34.2.tar.xz",
+          "sha256": "5a5d5073070cc7e0c7a7a3c6ec2a0e1780850c8b47b3e3892226b93ffcb9cb54"
+        }
+      ],
+      "package": "kmod",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "7dc34520da94f6834fa93885b4da3d9d2b461525f95b666ecdc7eab33884f71f",
+      "unpacked": "kmod-34.2"
+    },
+    {
+      "build_stamps": {
+        "build_target": "a554032f907ce89a3861dfc523d26a658864cabd3a7080943a17da816b7c6cad"
+      },
+      "cache": [
+        {
+          "bytes": 77368,
+          "checksum_stamp_matches": true,
+          "name": "ldacBT-2.0.2.6.tar.gz",
+          "sha256": "fee05740e86ee66f4540486d92683ee8e8071119907b57ca762c7e5d943ecef0"
+        }
+      ],
+      "package": "ldacBT",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "ca2f04b78fc08fe398dd984f917fbf95cf21c14a451b86fe3be165c305063358",
+      "unpacked": "ldacBT-2.0.2.6"
+    },
+    {
+      "build_stamps": {
+        "build_target": "4ec98678e726b3fb2f0ffe3b8e0b7ead6de2ba089ed98d8eb1f8b2d137bc3481"
+      },
+      "cache": [
+        {
+          "bytes": 342900,
+          "checksum_stamp_matches": true,
+          "name": "libICE-1.1.2.tar.xz",
+          "sha256": "974e4ed414225eb3c716985df9709f4da8d22a67a2890066bc6dfc89ad298625"
+        }
+      ],
+      "package": "libICE",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "4abb3bf31dd730d63ddf44bc71678b3f7c3cdb7aa447439b019650255412bf7a",
+      "unpacked": "libICE-1.1.2"
+    },
+    {
+      "build_stamps": {
+        "build_target": "6bdf274446f51d37d746b2953178908d25c68e8f9d1f11405d641236f87e7485"
+      },
+      "cache": [
+        {
+          "bytes": 314040,
+          "checksum_stamp_matches": true,
+          "name": "libSM-1.2.6.tar.xz",
+          "sha256": "be7c0abdb15cbfd29ac62573c1c82e877f9d4047ad15321e7ea97d1e43d835be"
+        }
+      ],
+      "package": "libSM",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "acc9da88e7fecf92dd865057c633f06e79fac8cfd1d467d3392dc8764835d307",
+      "unpacked": "libSM-1.2.6"
+    },
+    {
+      "build_stamps": {
+        "build_target": "18eae613917f4c3985c8eaef37bc5182f9fb891c39bc197d484bb0d12365e611"
+      },
+      "cache": [
+        {
+          "bytes": 1803464,
+          "checksum_stamp_matches": true,
+          "name": "libX11-1.8.13.tar.xz",
+          "sha256": "69606f485c2c07c14ef64f75b7bb326d48587af33795d9ab3e607c0b5f94f11c"
+        }
+      ],
+      "package": "libX11",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "3beb2eb38c07c55782decb87a247caa811ef4b5bafb9eaa38909b7388123ed14",
+      "unpacked": "libX11-1.8.13"
+    },
+    {
+      "build_stamps": {
+        "build_target": "a132d46b74fdf2c679841376abf2251fe0d0dc417a61b7004743c2d823feb773"
+      },
+      "cache": [
+        {
+          "bytes": 282624,
+          "checksum_stamp_matches": true,
+          "name": "libXau-1.0.12.tar.xz",
+          "sha256": "74d0e4dfa3d39ad8939e99bda37f5967aba528211076828464d2777d477fc0fb"
+        }
+      ],
+      "package": "libXau",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "4a5a4f6a814201ee5ca0f75553fd7437ad403c754ea2e5d61ad72429430556d6",
+      "unpacked": "libXau-1.0.12"
+    },
+    {
+      "build_stamps": {
+        "build_target": "290a37d9546595ee9fbc9f98c3f0efcbf86ee4c7302b0301fd7d24d8b3d65269"
+      },
+      "cache": [
+        {
+          "bytes": 602848,
+          "checksum_stamp_matches": true,
+          "name": "libXaw-1.0.16.tar.xz",
+          "sha256": "731d572b54c708f81e197a6afa8016918e2e06dfd3025e066ca642a5b8c39c8f"
+        }
+      ],
+      "package": "libXaw",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "49b0b2ac87b1d083b688e4b7414c82c9f550ecd270475710910eec2de41d4630",
+      "unpacked": "libXaw-1.0.16"
+    },
+    {
+      "build_stamps": {
+        "build_target": "1b2d268b514fc76f2ebb4a2e0d63b86508848e3c6c62d286608ef3764f5fb072"
+      },
+      "cache": [
+        {
+          "bytes": 272620,
+          "checksum_stamp_matches": true,
+          "name": "libXcomposite-0.4.7.tar.xz",
+          "sha256": "8bdf310967f484503fa51714cf97bff0723d9b673e0eecbf92b3f97c060c8ccb"
+        }
+      ],
+      "package": "libXcomposite",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "70964b7e2d7525c75341ad89eecba900fd51ea2d5ac80f933d0167c741f72285",
+      "unpacked": "libXcomposite-0.4.7"
+    },
+    {
+      "build_stamps": {
+        "build_target": "41725111846b7cfbda5ae98dee17dfb72fb273f01e0575154d045aa37338c742"
+      },
+      "cache": [
+        {
+          "bytes": 292764,
+          "checksum_stamp_matches": true,
+          "name": "libXcursor-1.2.3.tar.xz",
+          "sha256": "fde9402dd4cfe79da71e2d96bb980afc5e6ff4f8a7d74c159e1966afb2b2c2c0"
+        }
+      ],
+      "package": "libXcursor",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "d8564260987d019ef2b94f40a6e7244a03afb91169fe70b80852000f7f1630c5",
+      "unpacked": "libXcursor-1.2.3"
+    },
+    {
+      "build_stamps": {
+        "build_target": "d7690281eb773bb5cd5cfd1d96a1649b2ae7a5c12eca4ae99fbe16902d6f56a1"
+      },
+      "cache": [
+        {
+          "bytes": 265336,
+          "checksum_stamp_matches": true,
+          "name": "libXdamage-1.1.7.tar.xz",
+          "sha256": "127067f521d3ee467b97bcb145aeba1078e2454d448e8748eb984d5b397bde24"
+        }
+      ],
+      "package": "libXdamage",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "cdef521abbec1e9c15a99a912d92ea2a37d8a23b0fe1d3d2e17da48a6a4feb8a",
+      "unpacked": "libXdamage-1.1.7"
+    },
+    {
+      "build_stamps": {
+        "build_target": "9c474771a579e11b5403a4ac5b751c1acefcdcabd0f36d85aaf9e3cc4b6dfd49"
+      },
+      "cache": [
+        {
+          "bytes": 297596,
+          "checksum_stamp_matches": true,
+          "name": "libXdmcp-1.1.5.tar.xz",
+          "sha256": "d8a5222828c3adab70adf69a5583f1d32eb5ece04304f7f8392b6a353aa2228c"
+        }
+      ],
+      "package": "libXdmcp",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "199539dfd924a06a7052045d8c510b71d72e5741ef8e09ff1e5be562e97a1957",
+      "unpacked": "libXdmcp-1.1.5"
+    },
+    {
+      "build_stamps": {
+        "build_target": "220a566cd2dda4896f463e6d22e995e4ab25442bd53afa7269107d05e51a95cf"
+      },
+      "cache": [
+        {
+          "bytes": 347068,
+          "checksum_stamp_matches": true,
+          "name": "libXext-1.3.7.tar.xz",
+          "sha256": "6c643c7035cdacf67afd68f25d01b90ef889d546c9fcd7c0adf7c2cf91e3a32d"
+        }
+      ],
+      "package": "libXext",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "4b42a723b9fdb8e2b6e35046a0a08b427f6b809fe6fc3267f3ca43d23d3527fd",
+      "unpacked": "libXext-1.3.7"
+    },
+    {
+      "build_stamps": {
+        "build_target": "526c061233c407e1224149e5d050a279eb2d5c3af947248f161a8fda5f445dc7"
+      },
+      "cache": [
+        {
+          "bytes": 270896,
+          "checksum_stamp_matches": true,
+          "name": "libXfixes-6.0.2.tar.xz",
+          "sha256": "39f115d72d9c5f8111e4684164d3d68cc1fd21f9b27ff2401b08fddfc0f409ba"
+        }
+      ],
+      "package": "libXfixes",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "1cb7dd60346e81904583acb5da3398746ba7cffe38fd758bcb6d8830a3a2dbf5",
+      "unpacked": "libXfixes-6.0.2"
+    },
+    {
+      "build_stamps": {
+        "build_target": "a7cff2017bdccbbfa41a8c93f062bc47811fa7f920a1acfd06acf747819824d9"
+      },
+      "cache": [
+        {
+          "bytes": 478844,
+          "checksum_stamp_matches": true,
+          "name": "libXfont2-2.0.9.tar.xz",
+          "sha256": "f042a370666815e7b941e9b7019024755bd1c6c2954afbfa515af378251799e2"
+        }
+      ],
+      "package": "libXfont2",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "5cd6d005e6dca25f5968bc311620b5381c7b5e9a414adace3c83cd3ed123fde5",
+      "unpacked": "libXfont2-2.0.9"
+    },
+    {
+      "build_stamps": {
+        "build_target": "99b2b71424b9c382a2ba206d4b9aceae06d8077521e3256ee0d41f12e00fa50f"
+      },
+      "cache": [
+        {
+          "bytes": 313852,
+          "checksum_stamp_matches": true,
+          "name": "libXft-2.3.9.tar.xz",
+          "sha256": "60a25b78945ed6932635b3bb1899a517d31df7456e69867ffba27f89ff3976f5"
+        }
+      ],
+      "package": "libXft",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "77569d28c88de137104a8e964024e7d788bb61479cb4494796d4f50a54636bc5",
+      "unpacked": "libXft-2.3.9"
+    },
+    {
+      "build_stamps": {
+        "build_target": "2f7960d77e9957d2880c32d6100da42698a5bab401a97763d05604865c52b589"
+      },
+      "cache": [
+        {
+          "bytes": 411684,
+          "checksum_stamp_matches": true,
+          "name": "libXi-1.8.3.tar.xz",
+          "sha256": "7ad60056f01af4f786cfe93b3a7707447711626fc8da2637bec71a90409babe5"
+        }
+      ],
+      "package": "libXi",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "c02f82c850cae0022f3b1ede0645d8f91039b24b242b08eb8ad1c1a64862819a",
+      "unpacked": "libXi-1.8.3"
+    },
+    {
+      "build_stamps": {
+        "build_target": "6e32ebe0804422b3063c100f7c7168f3a5269e34f879184c5a8213f140145886"
+      },
+      "cache": [
+        {
+          "bytes": 268440,
+          "checksum_stamp_matches": true,
+          "name": "libXinerama-1.1.6.tar.xz",
+          "sha256": "d00fc1599c303dc5cbc122b8068bdc7405d6fcb19060f4597fc51bd3a8be51d7"
+        }
+      ],
+      "package": "libXinerama",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "1721be4c15e89355638e674cd64a2f37b18d999fe9889835029b517b7f4423fc",
+      "unpacked": "libXinerama-1.1.6"
+    },
+    {
+      "build_stamps": {
+        "build_target": "688c38b05b7a8c7359f3fc6b952fb394bd113284b53da40c08fc77273a9dede0"
+      },
+      "cache": [
+        {
+          "bytes": 374032,
+          "checksum_stamp_matches": true,
+          "name": "libXmu-1.3.1.tar.xz",
+          "sha256": "81a99e94c4501e81c427cbaa4a11748b584933e94b7a156830c3621256857bc4"
+        }
+      ],
+      "package": "libXmu",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "7a28bbbcdf1f3865d2909d5093b7303de6dea854f7f88fbf2f08ea428e859f6d",
+      "unpacked": "libXmu-1.3.1"
+    },
+    {
+      "build_stamps": {
+        "build_target": "31a5dd95063b30ad00da8d9c76b0557b42af36816805c478017bccce81abbd3b"
+      },
+      "cache": [
+        {
+          "bytes": 468388,
+          "checksum_stamp_matches": true,
+          "name": "libXpm-3.5.19.tar.xz",
+          "sha256": "ad3576d689221a39dc728f0e0dc02ca7bb6a0d724c9a77fd1bfa1e9af83be900"
+        }
+      ],
+      "package": "libXpm",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "fb7dfc13b6cebf0484f09cc64474f7251d6bbd6949d4252e0a999ee6b1fe578f",
+      "unpacked": "libXpm-3.5.19"
+    },
+    {
+      "build_stamps": {
+        "build_target": "e54c51109a3fc38b1931464446889492a11643d9719acae4644aae4e7a596075"
+      },
+      "cache": [
+        {
+          "bytes": 288912,
+          "checksum_stamp_matches": true,
+          "name": "libXrandr-1.5.5.tar.xz",
+          "sha256": "72b922c2e765434e9e9f0960148070bd4504b288263e2868a4ccce1b7cf2767a"
+        }
+      ],
+      "package": "libXrandr",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "f92640b8580ea341e84b9882737aeaad55920273516e984eb29c60a588224033",
+      "unpacked": "libXrandr-1.5.5"
+    },
+    {
+      "build_stamps": {
+        "build_target": "2919648036896bd711222b2b8d0ab6825eacd487eda3842ad6d27a43a0efc487"
+      },
+      "cache": [
+        {
+          "bytes": 310432,
+          "checksum_stamp_matches": true,
+          "name": "libXrender-0.9.12.tar.xz",
+          "sha256": "b832128da48b39c8d608224481743403ad1691bf4e554e4be9c174df171d1b97"
+        }
+      ],
+      "package": "libXrender",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "e5ba3e96e0a031aefc20d6abf6c6a430c1b56af12e0a9c5dbdfbc8173dfc50e7",
+      "unpacked": "libXrender-0.9.12"
+    },
+    {
+      "build_stamps": {
+        "build_target": "68db91281688fc9d76bc247eb8e6de5f2295668234401cb2e1289118534fbad8"
+      },
+      "cache": [
+        {
+          "bytes": 691200,
+          "checksum_stamp_matches": true,
+          "name": "libXt-1.3.1.tar.xz",
+          "sha256": "e0a774b33324f4d4c05b199ea45050f87206586d81655f8bef4dba434d931288"
+        }
+      ],
+      "package": "libXt",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "7d38076f9f04ad69519fbfe8390535164b67d01658c55a27d68c6b01f336b665",
+      "unpacked": "libXt-1.3.1"
+    },
+    {
+      "build_stamps": {
+        "build_target": "479180a59687b8dc16678655880ef96e9b16d475d84672ae74c8456a921cd6f8"
+      },
+      "cache": [
+        {
+          "bytes": 291748,
+          "checksum_stamp_matches": true,
+          "name": "libXtst-1.2.5.tar.xz",
+          "sha256": "b50d4c25b97009a744706c1039c598f4d8e64910c9fde381994e1cae235d9242"
+        }
+      ],
+      "package": "libXtst",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "d598cbd0c23f79b6b696825b0d0d5e454fe9c15bb24cbc276cb18f1577afd784",
+      "unpacked": "libXtst-1.2.5"
+    },
+    {
+      "build_stamps": {
+        "build_target": "8d66d4f8d231a93c3d0afd1628ad9177dd869de85bf199d3adb3e59a60fdcb2b"
+      },
+      "cache": [
+        {
+          "bytes": 272632,
+          "checksum_stamp_matches": true,
+          "name": "libXxf86vm-1.1.7.tar.xz",
+          "sha256": "ae50c0f669e0af5a67cc4cd0f54f21d64a64d2660af883e80e95d3fe51b945d8"
+        }
+      ],
+      "package": "libXxf86vm",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "4208fe8de234a1925efb68167e0e493e78116c679f197a073a21e9f37e8231d2",
+      "unpacked": "libXxf86vm-1.1.7"
+    },
+    {
+      "build_stamps": {
+        "build_target": "a1fb92807f52e19e1718c8ae7446de38e0a2a51492ed0a3891bccaa7ecab1470"
+      },
+      "cache": [
+        {
+          "bytes": 460148,
+          "checksum_stamp_matches": true,
+          "name": "libass-0.17.5.tar.xz",
+          "sha256": "2dca25c0e0c837ddf00b52011b3f82cac1e4ddd3ad018227806b0c2288864acc"
+        }
+      ],
+      "package": "libass",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "c6a8b336a0083451af286c61925a4ebb5ac14dce9c245c2e025ceaadc55da43b",
+      "unpacked": "libass-0.17.5"
+    },
+    {
+      "build_stamps": {
+        "build_target": "c016332d2932b26e7e2169bde0c55a4cc9989047d6a27eb38aa4a36268af85e4"
+      },
+      "cache": [
+        {
+          "bytes": 201040,
+          "checksum_stamp_matches": true,
+          "name": "libcap-2.78.tar.xz",
+          "sha256": "0d621e562fd932ccf67b9660fb018e468a683d7b827541df27813228c996bb11"
+        }
+      ],
+      "package": "libcap",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "19dcd60a5ff5e54cb1b084483a3b91ecb011af36a242f1a01e18c609539cdb2c",
+      "unpacked": "libcap-2.78"
+    },
+    {
+      "build_stamps": {
+        "build_target": "db6803ab8f3fa3e7515cd395fba9b3142ec234e94d45f9d2a1037d827d4e382f"
+      },
+      "cache": [
+        {
+          "bytes": 340474,
+          "checksum_stamp_matches": true,
+          "name": "libdaemon-0.14.tar.gz",
+          "sha256": "fd23eb5f6f986dcc7e708307355ba3289abe03cc381fc47a80bca4a50aa6b834"
+        }
+      ],
+      "package": "libdaemon",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "7f56398d51167de3949ad4d2a7b402973421d803083883d37aabea37cfb30fef",
+      "unpacked": "libdaemon-0.14"
+    },
+    {
+      "build_stamps": {
+        "build_target": "7fa2cf0097be97912dcdcff4574038cebb5c61791a0404d31caa2818673a2552"
+      },
+      "cache": [
+        {
+          "bytes": 314072,
+          "checksum_stamp_matches": true,
+          "name": "libdatrie-0.2.13.tar.xz",
+          "sha256": "12231bb2be2581a7f0fb9904092d24b0ed2a271a16835071ed97bed65267f4be"
+        }
+      ],
+      "package": "libdatrie",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "184f2545d2e729409e78265bcd4a8cbab139e81c405430d2669ed2679d014b0d",
+      "unpacked": "libdatrie-0.2.13"
+    },
+    {
+      "build_stamps": {
+        "build_target": "b27c89b47341ac03e58fc2389cd4dc2755188ee72d87dbfcb0b095571d7a1255"
+      },
+      "cache": [
+        {
+          "bytes": 118736,
+          "checksum_stamp_matches": true,
+          "name": "libdisplay-info-0.4.0.tar.xz",
+          "sha256": "43b180baa143e2035654759d84e2b2f5ee77d5fe817c423838c7fe59c0d68459"
+        }
+      ],
+      "package": "libdisplay-info",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "2f71a0daac34d286439a7eb05d986b03421566feb2fe0800a1de867311c48fe3",
+      "unpacked": "libdisplay-info-0.4.0"
+    },
+    {
+      "build_stamps": {
+        "build_target": "d9db701e32e8d2d5788a400cfc3edd70dc0626dd4669cf6cf9ef68f735fbf968"
+      },
+      "cache": [
+        {
+          "bytes": 436912,
+          "checksum_stamp_matches": true,
+          "name": "libdrm-2.4.133.tar.xz",
+          "sha256": "fc68f9d0ba2ea63c9432a299e14fea09fad7a8a66e8039fcd7802ca59f77b4f5"
+        }
+      ],
+      "package": "libdrm",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "cf2e002eda4c8201a8980edfbd9f70a1daeb32540ffe23eea8fd6fa13072a957",
+      "unpacked": "libdrm-2.4.133"
+    },
+    {
+      "build_stamps": {
+        "build_target": "9520a8ad3861b18a01f3c44e2c092f858a1d9e6448711b6fa7a3128f71c13c13"
+      },
+      "cache": [
+        {
+          "bytes": 332078,
+          "checksum_stamp_matches": true,
+          "name": "libepoxy-1.5.10.tar.gz",
+          "sha256": "a7ced37f4102b745ac86d6a70a9da399cc139ff168ba6b8002b4d8d43c900c15"
+        }
+      ],
+      "package": "libepoxy",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "36cfcb381da41c79b3110ccf58bf4bf4b16a912454fce1b989936885726f8e82",
+      "unpacked": "libepoxy-1.5.10"
+    },
+    {
+      "build_stamps": {
+        "build_target": "fc27ed3c781d39896335aa73606c328b97df2b67129559861f9538a0dd26614b"
+      },
+      "cache": [
+        {
+          "bytes": 472152,
+          "checksum_stamp_matches": true,
+          "name": "libevdev-1.13.6.tar.xz",
+          "sha256": "73f215eccbd8233f414737ac06bca2687e67c44b97d2d7576091aa9718551110"
+        }
+      ],
+      "package": "libevdev",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "1bbe9b27f593dd87fa950637dff415d2eae41100e4a8a44c39bbccd98d84b57b",
+      "unpacked": "libevdev-1.13.6"
+    },
+    {
+      "build_stamps": {
+        "build_host": "529813a28eb2558c1309f7299c8a890fb6ef6fa73939dfed06aa546d4134870c",
+        "build_target": "529813a28eb2558c1309f7299c8a890fb6ef6fa73939dfed06aa546d4134870c"
+      },
+      "cache": [
+        {
+          "bytes": 1581626,
+          "checksum_stamp_matches": true,
+          "name": "libffi-3.8.0.tar.gz",
+          "sha256": "7da3e2d9a171eb0a038f592ecad3ff2bb2550f3496d87b3b29ad0cf4430c0db4"
+        }
+      ],
+      "package": "libffi",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "f41a6a464ff94b3f83b735368777de19bfe679397fccbddd743c66f41d76d415",
+      "unpacked": "libffi-3.8.0"
+    },
+    {
+      "build_stamps": {
+        "build_host": "a7f4ab7bdd20cfc930def9d234e47c290f97e747a6413d3d42466c43a847d806",
+        "build_target": "a7f4ab7bdd20cfc930def9d234e47c290f97e747a6413d3d42466c43a847d806"
+      },
+      "cache": [
+        {
+          "bytes": 738355,
+          "checksum_stamp_matches": true,
+          "name": "libfmt-12.2.0.tar.gz",
+          "sha256": "8b852bb5aa6e7d8564f9e81394055395dd1d1936d38dfd3a17792a02bebd7af0"
+        }
+      ],
+      "package": "libfmt",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "188b219dc3475df939f74a18e7244a156614ceab1fab6aff1ec9536ca95f0b46",
+      "unpacked": "libfmt-12.2.0"
+    },
+    {
+      "build_stamps": {
+        "build_target": "8ed744ad908792e0036ba85d2ab3a9704e28a7585b69c2007bd0c6ad91c8a357"
+      },
+      "cache": [
+        {
+          "bytes": 280828,
+          "checksum_stamp_matches": true,
+          "name": "libfontenc-1.1.9.tar.xz",
+          "sha256": "9d8392705cb10803d5fe1d27d236cbab3f664e26841ce01916bbbe430cf273e2"
+        }
+      ],
+      "package": "libfontenc",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "757d748649a829e959db47ea41f4d55fe92d572cf521da2115b3112db870f71b",
+      "unpacked": "libfontenc-1.1.9"
+    },
+    {
+      "build_stamps": {
+        "build_target": "cef71db87d0502b281dea0cb995010e5441bf3d904a18c9dfad179710c7e25d7"
+      },
+      "cache": [
+        {
+          "bytes": 27871,
+          "checksum_stamp_matches": true,
+          "name": "libfreeaptx-0.2.2.tar.gz",
+          "sha256": "5ab5ebddf3f2eb7ce47a505b87460b00fc1ede99c70010796d3575ab31ea80bf"
+        }
+      ],
+      "package": "libfreeaptx",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "f8ffbd70196591f55a223b775af2757b3056a0973cb76cd9b35224dd08640324",
+      "unpacked": "libfreeaptx-0.2.2"
+    },
+    {
+      "build_stamps": {
+        "build_target": "123138f67c2671be48a4050600cc31122588a8f7b7e2654b1633d3ba51426da2"
+      },
+      "cache": [
+        {
+          "bytes": 4441855,
+          "checksum_stamp_matches": true,
+          "name": "libgcrypt-1.12.2.tar.bz2",
+          "sha256": "7ce33c2492221a0436f96a8500215e9f3e3dcb5fd26a757cd415e7a843babd5e"
+        }
+      ],
+      "package": "libgcrypt",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "43395981774b023000cff82b167e045af0bfa5a631ca2c6fa57ab895f63118b4",
+      "unpacked": "libgcrypt-1.12.2"
+    },
+    {
+      "build_stamps": {
+        "build_target": "d4eeface7cca40c70dfbead45bf1331e4bfd4a3ff2163e4175a54b72af681e58"
+      },
+      "cache": [
+        {
+          "bytes": 839809,
+          "checksum_stamp_matches": true,
+          "name": "libglvnd-1.7.0.tar.gz",
+          "sha256": "073e7292788d4d3eeb45ea6c7bdcce9bfdb3b3eef8d7dbd47f2f30dce046ef98"
+        }
+      ],
+      "package": "libglvnd",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "79f710927763957bbd84f18eb6ef08d1a5da1c035d19eaddd8d18022152e55d3",
+      "unpacked": "libglvnd-1.7.0"
+    },
+    {
+      "build_stamps": {
+        "build_target": "349f1cbce3ffb07d691b75f5c2c46e002763822fd8769b0db5b1f31ab40ddd46"
+      },
+      "cache": [
+        {
+          "bytes": 1124751,
+          "checksum_stamp_matches": true,
+          "name": "libgpg-error-1.61.tar.bz2",
+          "sha256": "7a85413f2bc354f4f8aa832b718af122e48965e9e0eb9012ee659c13c6385c93"
+        }
+      ],
+      "package": "libgpg-error",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "852bae9f16b3a5f7e1621f892d5898b8d07aa1ad176ca46ecc1900b3e801bc8a",
+      "unpacked": "libgpg-error-1.61"
+    },
+    {
+      "build_stamps": {
+        "build_target": "154f0605ca88a02a42b04eb533c4d2405308d6a48730082019d71702e7ec3ac0"
+      },
+      "cache": [
+        {
+          "bytes": 5921103,
+          "checksum_stamp_matches": true,
+          "name": "libiconv-1.19.tar.gz",
+          "sha256": "88dd96a8c0464eca144fc791ae60cd31cd8ee78321e67397e25fc095c4a19aa6"
+        }
+      ],
+      "package": "libiconv",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "690f98494ecf2c719d41625d05512f61f5f3f4dca7911bec8a20efa7072c28b4",
+      "unpacked": "libiconv-1.19"
+    },
+    {
+      "build_stamps": {
+        "build_target": "f14557be1c7df239256965148e6f23a8e42e4e5ffd972aad9bb05bd8a10a02f2"
+      },
+      "cache": [
+        {
+          "bytes": 2234804,
+          "checksum_stamp_matches": true,
+          "name": "libidn2-2.3.8.tar.gz",
+          "sha256": "f557911bf6171621e1f72ff35f5b1825bb35b52ed45325dcdee931e5d3c0787a"
+        }
+      ],
+      "package": "libidn2",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "6b37a276d1dcd13330908d8d33307261d741e0ce3c23370236193bfbcfeebaf9",
+      "unpacked": "libidn2-2.3.8"
+    },
+    {
+      "build_stamps": {
+        "build_target": "f7731e230de09e9856594f6c113bbf2d3beb911afc47a26d4b3e13087f14e570"
+      },
+      "cache": [
+        {
+          "bytes": 824312,
+          "checksum_stamp_matches": true,
+          "name": "libinput-1.26.2.tar.bz2",
+          "sha256": "e2dbbf515905086dc3f8c8536d326e04012f5716b8b047bb3392a17b13ca78ec"
+        }
+      ],
+      "package": "libinput",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "30877536581c3727d95cbbb628737de448d3862e61cf9e0ca6ac263169df3b9d",
+      "unpacked": "libinput-1.26.2"
+    },
+    {
+      "build_stamps": {
+        "build_target": "db332fd58e455759a4c1c12a2b2736daa5e5ac03b27f6cbc6822dea720aaafb9"
+      },
+      "cache": [
+        {
+          "bytes": 2537858,
+          "checksum_stamp_matches": true,
+          "name": "libjpeg-turbo-3.2.0.tar.gz",
+          "sha256": "6f30092cef9fb839779646608f4ee14ae3cbac989c47fa05e841b0841f09878e"
+        }
+      ],
+      "package": "libjpeg-turbo",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "07368fa8390e8a34f59d00a74f7d2d1e77715319a18c72c2009b6bb1cfc31eae",
+      "unpacked": "libjpeg-turbo-3.2.0"
+    },
+    {
+      "build_stamps": {
+        "build_target": "c77f1ec4abdb4bd671cc3a6f9729a5a4a5c03ffb79cc24a09c90ad484feaeb45"
+      },
+      "cache": [
+        {
+          "bytes": 576566,
+          "checksum_stamp_matches": true,
+          "name": "libmodplug-0.8.9.0.tar.gz",
+          "sha256": "457ca5a6c179656d66c01505c0d95fafaead4329b9dbaa0f997d00a3508ad9de"
+        }
+      ],
+      "package": "libmodplug",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "a83e7b3feffb690ada3302eb899fb8264db9ce6ab63d7cb192d9afb66aa21680",
+      "unpacked": "libmodplug-0.8.9.0"
+    },
+    {
+      "build_stamps": {
+        "build_target": "07c7f8dec76d20c14242d5de74135569bc7b939420eebdb0e66784cc5568f4dc"
+      },
+      "cache": [
+        {
+          "bytes": 439952,
+          "checksum_stamp_matches": true,
+          "name": "libogg-1.3.6.tar.xz",
+          "sha256": "5c8253428e181840cd20d41f3ca16557a9cc04bad4a3d04cce84808677fa1061"
+        }
+      ],
+      "package": "libogg",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "c324e90dbc3e63714d13ab4a8bd2afd4f6421c56d9f8d696eb59a5b92ae78b59",
+      "unpacked": "libogg-1.3.6"
+    },
+    {
+      "build_stamps": {
+        "build_target": "36cd4d09361bd5404b95f1076f5a3cca9cfa2649a8a3225f6a93e95316a2994a"
+      },
+      "cache": [
+        {
+          "bytes": 952153,
+          "checksum_stamp_matches": true,
+          "name": "libpcap-1.10.4.tar.gz",
+          "sha256": "ed19a0383fad72e3ad435fd239d7cd80d64916b87269550159d20e47160ebe5f"
+        }
+      ],
+      "package": "libpcap",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "817346a371c155722674b73896fd32991c0933ad14757e5f216759d369b00ec1",
+      "unpacked": "libpcap-1.10.4"
+    },
+    {
+      "build_stamps": {
+        "build_target": "d46f70e26fbbdb3b2814a939f4a5f4b4bb59e1ae3b42f83cb62bfc4307e8feea"
+      },
+      "cache": [
+        {
+          "bytes": 64732,
+          "checksum_stamp_matches": true,
+          "name": "libpciaccess-0.19.tar.xz",
+          "sha256": "3c55aa86c82e54a4e3109786f0463530d53b36b6d1cfd14616454f985dd2aa43"
+        }
+      ],
+      "package": "libpciaccess",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "f84c8d966ecb853b93ab0e804e6217f1f5318cad17ce4f8f53e71f45faa209bb",
+      "unpacked": "libpciaccess-0.19"
+    },
+    {
+      "build_stamps": {
+        "build_target": "d1fdc94a67aaddf91e5cddef424a97bd0ccc203a83772ac69725c49c36191b90"
+      },
+      "cache": [
+        {
+          "bytes": 1021332,
+          "checksum_stamp_matches": true,
+          "name": "libpng-1.6.40.tar.xz",
+          "sha256": "535b479b2467ff231a3ec6d92a525906fb8ef27978be4f66dbe05d3f3a01b3a1"
+        }
+      ],
+      "package": "libpng",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "1320b5e57448fc66b932345a0124a71f44eaf6f4feae87736b05b8e36a9c5468",
+      "unpacked": "libpng-1.6.40"
+    },
+    {
+      "build_stamps": {
+        "build_target": "0ac400fddcbe808ccf31e0d45aab61890378c776c90077ddcb5efcfb728c6ebb"
+      },
+      "cache": [
+        {
+          "bytes": 74938,
+          "checksum_stamp_matches": true,
+          "name": "libpthread-stubs-0.5.tar.gz",
+          "sha256": "593196cc746173d1e25cb54a93a87fd749952df68699aab7e02c085530e87747"
+        }
+      ],
+      "package": "libpthread-stubs",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "6291a925cfca748138256a6f005a0a1396cc76f1d78c2916dda9ed06a8ed63bb",
+      "unpacked": "libpthread-stubs-0.5"
+    },
+    {
+      "build_stamps": {
+        "build_target": "3219f2c2bb11e1431986ed5b85acb23d4ce6d20a0be62c6f765a469d560064bf"
+      },
+      "cache": [
+        {
+          "bytes": 683814,
+          "checksum_stamp_matches": true,
+          "name": "libsndfile-e486f20.tar.gz",
+          "sha256": "1227bc78df8eece089e6b984ba7c32e74e210f146d2bac1b76bd218baaf35ce5"
+        }
+      ],
+      "package": "libsndfile",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "f10ec45a574dd0654e04625faf9f1dea1bf04e3ec4c42cd463a397fb453a4ca8",
+      "unpacked": "libsndfile-e486f20"
+    },
+    {
+      "build_stamps": {
+        "build_target": "5a961661266edb0b048ead0b5b2b02977566c4640b5a887a58ae8c026f48d640"
+      },
+      "cache": [
+        {
+          "bytes": 417728,
+          "checksum_stamp_matches": true,
+          "name": "libthai-0.1.29.tar.xz",
+          "sha256": "fc80cc7dcb50e11302b417cebd24f2d30a8b987292e77e003267b9100d0f4bcd"
+        }
+      ],
+      "package": "libthai",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "476ffc5c017011853033d9a7c46bf6a14e991dfa25092a7bd335b6ba67523788",
+      "unpacked": "libthai-0.1.29"
+    },
+    {
+      "build_stamps": {
+        "build_host": "57f332d79f3c62a49824be6af0ee8e2919b0f6e5d33730bc42c6c849b21d6962",
+        "build_target": "57f332d79f3c62a49824be6af0ee8e2919b0f6e5d33730bc42c6c849b21d6962"
+      },
+      "cache": [
+        {
+          "bytes": 1093564,
+          "checksum_stamp_matches": true,
+          "name": "libtool-2.6.2.tar.xz",
+          "sha256": "2ef1067c16c97db930fd740cc9bc3d3ba9a583804ae5ac42cc3e8719e49e191e"
+        }
+      ],
+      "package": "libtool",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "1a5e1f7c40f984cd1bb037312fcde8ecc31d3a08bfb805906884813f717cc63b",
+      "unpacked": "libtool-2.6.2"
+    },
+    {
+      "build_stamps": {
+        "build_target": "ae232fd53036d49705ec41586757c88e7ca0adcae766097bddeebfb7d6ba02e0"
+      },
+      "cache": [
+        {
+          "bytes": 656112,
+          "checksum_stamp_matches": true,
+          "name": "libusb-1.0.30.tar.bz2",
+          "sha256": "fea36f34f9156400209595e300840767ab1a385ede1dc7ee893015aea9c6dbaf"
+        }
+      ],
+      "package": "libusb",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "53b469559548b075f5712e90816f52ae4f98fef7e89e8370aa7ba578e6f18e21",
+      "unpacked": "libusb-1.0.30"
+    },
+    {
+      "build_stamps": {
+        "build_target": "4186304f8cec30f9eeb937071a16a2677beebbedc900bd6925d37a8fe584d23a"
+      },
+      "cache": [
+        {
+          "bytes": 1203792,
+          "checksum_stamp_matches": true,
+          "name": "libvorbis-1.3.7.tar.xz",
+          "sha256": "b33cc4934322bcbf6efcbacf49e3ca01aadbea4114ec9589d1b1e9d20f72954b"
+        }
+      ],
+      "package": "libvorbis",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "0269bc857af39fa196a3c8bdef8c4cb2fd6c2f7a1c3d1aa40bac2bee84fabb3a",
+      "unpacked": "libvorbis-1.3.7"
+    },
+    {
+      "build_stamps": {
+        "build_target": "ec7768b92b46df04748a727bc329fd46b4e74e52ff5c8199b08599511d1e975f"
+      },
+      "cache": [
+        {
+          "bytes": 151659,
+          "checksum_stamp_matches": true,
+          "name": "libvorbisidec-a76e41f6ece93d10deac5f9ef3a84dce5b9c2a84.tar.gz",
+          "sha256": "54c4cfaf442885575261d7b310b2dfa79e4fbf095aaf34de07875b024e499991"
+        }
+      ],
+      "package": "libvorbisidec",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "ff7555a2a6ebf9e4f18a662aad46c4fd4d88386e5e8be4c5c7757244c72aa639",
+      "unpacked": "libvorbisidec-a76e41f6ece93d10deac5f9ef3a84dce5b9c2a84"
+    },
+    {
+      "build_stamps": {
+        "build_target": "ccc1854e87eace0d67f059d98db6241a31906cf3aa9ee11cbc1c0b78978995e7"
+      },
+      "cache": [
+        {
+          "bytes": 5616209,
+          "checksum_stamp_matches": true,
+          "name": "libvpx-df655cf4fb6c2a23b964544acd015cc715752830.tar.gz",
+          "sha256": "1d1094ad5a8058b3015ee40bfb1bfa8e0bd68d655f76ac852315b98e365218bd"
+        }
+      ],
+      "package": "libvpx",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "d84a1424c412a956e21251f97b1751c4fda94f85135243d6569b56b7974cb7e7",
+      "unpacked": "libvpx-df655cf4fb6c2a23b964544acd015cc715752830"
+    },
+    {
+      "build_stamps": {
+        "build_target": "ac8422298f13f31e04a0fce6d25ed20031a6ad66e7d662c504eb4e98ea9222a1"
+      },
+      "cache": [
+        {
+          "bytes": 3833512,
+          "checksum_stamp_matches": true,
+          "name": "libwebp-1.6.0.tar.gz",
+          "sha256": "93a852c2b3efafee3723efd4636de855b46f9fe1efddd607e1f42f60fc8f2136"
+        }
+      ],
+      "package": "libwebp",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "3423b12e3e53b29fe2ff2f58d77e37d46fdee14ed68fdf82db6833ccad45b283",
+      "unpacked": "libwebp-1.6.0"
+    },
+    {
+      "build_stamps": {
+        "build_target": "4aa6e1211df0efdba3a02a95bd2720b2d92143d085576402273965e72a9c3524"
+      },
+      "cache": [
+        {
+          "bytes": 455208,
+          "checksum_stamp_matches": true,
+          "name": "libxcb-1.17.0.tar.xz",
+          "sha256": "599ebf9996710fea71622e6e184f3a8ad5b43d0e5fa8c4e407123c88a59a6d55"
+        }
+      ],
+      "package": "libxcb",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "4a3084047b7e8458ddaa0d457fca694a836146e0c78d4b46a7fc2b5245456bf3",
+      "unpacked": "libxcb-1.17.0"
+    },
+    {
+      "build_stamps": {
+        "build_target": "54f54085f4b6c61c13c0d3e1eb50f99f805dd87f74f5533f8b23ddf6a21158d8"
+      },
+      "cache": [
+        {
+          "bytes": 669820,
+          "checksum_stamp_matches": true,
+          "name": "libxcrypt-4.5.2.tar.xz",
+          "sha256": "71513a31c01a428bccd5367a32fd95f115d6dac50fb5b60c779d5c7942aec071"
+        }
+      ],
+      "package": "libxcrypt",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "aad17cc316dd8a8eff9c276ef6d500a05b1181557c2257ba8edd7595187a19cb",
+      "unpacked": "libxcrypt-4.5.2"
+    },
+    {
+      "build_stamps": {
+        "build_target": "dad50622fe717030ffd5b159a16c79e071d184dd5fe98f5f60b2cb28553156fe"
+      },
+      "cache": [
+        {
+          "bytes": 9680,
+          "checksum_stamp_matches": true,
+          "name": "libxcvt-0.1.3.tar.xz",
+          "sha256": "a929998a8767de7dfa36d6da4751cdbeef34ed630714f2f4a767b351f2442e01"
+        }
+      ],
+      "package": "libxcvt",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "113eae2a1fca7bb85c4bf9c6b56f5b702ee0228d6cf4272e635785fed998fe64",
+      "unpacked": "libxcvt-0.1.3"
+    },
+    {
+      "build_stamps": {
+        "build_target": "6e11804d8edee1579a69eca4c41436b9cdcfb835e9d3244f5f1dd82fec8d5387"
+      },
+      "cache": [
+        {
+          "bytes": 995648,
+          "checksum_stamp_matches": true,
+          "name": "libxkbcommon-1.8.0.tar.gz",
+          "sha256": "025c53032776ed850fbfb92683a703048cd70256df4ac1a1ec41ed3455d5d39c"
+        }
+      ],
+      "package": "libxkbcommon",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "86a97977041e467bf771f5fc666b1a6e1109358e3ae1fc2132b96b94d8b2de22",
+      "unpacked": "libxkbcommon-1.8.0"
+    },
+    {
+      "build_stamps": {
+        "build_target": "191173f4ec5a494eaec450054aed00fd7d727203e859dd65791a575c9efecf52"
+      },
+      "cache": [
+        {
+          "bytes": 57856,
+          "checksum_stamp_matches": true,
+          "name": "libxkbfile-1.2.0.tar.xz",
+          "sha256": "7f71884e5faf56fb0e823f3848599cf9b5a9afce51c90982baeb64f635233ebf"
+        }
+      ],
+      "package": "libxkbfile",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "56d8563c65ca261155830cc06369d7bdb750cb64fe3490f5efe693734a395b63",
+      "unpacked": "libxkbfile-1.2.0"
+    },
+    {
+      "build_stamps": {
+        "build_host": "8ee67fbbaee2cf61891e665e664fdc44b32956102d5dcb4c540acda4eac341f2",
+        "build_target": "8ee67fbbaee2cf61891e665e664fdc44b32956102d5dcb4c540acda4eac341f2"
+      },
+      "cache": [
+        {
+          "bytes": 2316081,
+          "checksum_stamp_matches": true,
+          "name": "libxml2-2.15.3.tar.bz2",
+          "sha256": "635685ed77c202daf4d20e1427f70ba75c15b8ed8093afec581c8a8022763202"
+        }
+      ],
+      "package": "libxml2",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "8e70a02d057207af09c61af5b3d4d2676f8b8ae15635295469913c4a1acfc0fd",
+      "unpacked": "libxml2-2.15.3"
+    },
+    {
+      "build_stamps": {
+        "build_target": "7998a2c6e22d11002b4b7e9db02d2f54ad7bafb63ea49a185122cf89b7d3237f"
+      },
+      "cache": [
+        {
+          "bytes": 17994296,
+          "checksum_stamp_matches": true,
+          "name": "libxmp-8201d26cf933688a8be64292457c429fd8e654ab.tar.gz",
+          "sha256": "979af3e3495d0941434af1fe6197a22dd61f0214633aad62846606d4fb7c4480"
+        }
+      ],
+      "package": "libxmp",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "51ad4914b63943a2ae3f6de72bf04c1fc6cd6ff6b316e6ac40856b0e38cebbdf",
+      "unpacked": "libxmp-8201d26cf933688a8be64292457c429fd8e654ab"
+    },
+    {
+      "build_stamps": {
+        "build_target": "430ec5dd6682ba7d96c915ed002c257814abecc999c1d08188210ad613af25f0"
+      },
+      "cache": [
+        {
+          "bytes": 264860,
+          "checksum_stamp_matches": true,
+          "name": "libxshmfence-1.3.3.tar.xz",
+          "sha256": "d4a4df096aba96fea02c029ee3a44e11a47eb7f7213c1a729be83e85ec3fde10"
+        }
+      ],
+      "package": "libxshmfence",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "65584d3446dd1a0e5f5a620442f49d73a2e3d15f80cfc75eb748dd41d931c48e",
+      "unpacked": "libxshmfence-1.3.3"
+    },
+    {
+      "build_stamps": {
+        "build_host": "41affd328f9ff3a8ca31a52b7a1f2c33d43681c14ae60ccc127ce03fd4f05941"
+      },
+      "cache": [
+        {
+          "bytes": 1519992,
+          "checksum_stamp_matches": true,
+          "name": "libxslt-1.1.45.tar.xz",
+          "sha256": "9acfe68419c4d06a45c550321b3212762d92f41465062ca4ea19e632ee5d216e"
+        }
+      ],
+      "package": "libxslt",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "d3f5e144a2b8e0b75a73a325dbbad740beed28537f52cd4f6f29d859997c1a62",
+      "unpacked": "libxslt-1.1.45"
+    },
+    {
+      "build_stamps": {
+        "build_host": "b67d4e053b6a3abf7c98371c281f9056cffffa0116b5c86a9542471a5771c123"
+      },
+      "cache": [
+        {
+          "bytes": 160068116,
+          "checksum_stamp_matches": true,
+          "name": "linux-7.2.tar.xz",
+          "sha256": "f9fef3d14c0df53819026f4be74459835c2a0b0dcbf5b5bbd9ea19f0829402b3"
+        }
+      ],
+      "package": "linux",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "470d355c84d077f650bbeaec1b6ba1021fc027101e1e94da830e3cbead006a4b",
+      "unpacked": "linux-7.2"
+    },
+    {
+      "build_stamps": {
+        "build_host": "2e35f2da9f80a439b9406fa63d3f3105b486c75f4a77624ede0eda32b0a1a72c"
+      },
+      "cache": [
+        {
+          "bytes": 4197430,
+          "checksum_stamp_matches": true,
+          "name": "lxml-6.1.1.tar.gz",
+          "sha256": "ba96ae44888e0185281e937633a743ea90d5a196c6000f82565ebb0580012d40"
+        }
+      ],
+      "package": "lxml",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "2536861b80f72901bd8d47caad2a3a85a23399bdd10cd104ba9d47853638bbe0",
+      "unpacked": "lxml-6.1.1"
+    },
+    {
+      "build_stamps": {
+        "build_host": "a2a7807e77018da7b326cfc2a896a42738feb74be3e74fa0cbc463bfd5aa5003"
+      },
+      "cache": [
+        {
+          "bytes": 2608929,
+          "checksum_stamp_matches": true,
+          "name": "m4-1.4.21.tar.bz2",
+          "sha256": "dc487e11d2f0c9e01555bb1af26be4eae983ec8f0726746505b4327186eb21fc"
+        }
+      ],
+      "package": "m4",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "539850ee173b8643fe3a06e9770a79964b4a83cfd1ee52d544583b3664627d16",
+      "unpacked": "m4-1.4.21"
+    },
+    {
+      "build_stamps": {
+        "build_host": "593ee1a4a26120dd51604b54741f5272285ae8823e7a1106b106eba1c5ae258b"
+      },
+      "cache": [
+        {
+          "bytes": 2348200,
+          "checksum_stamp_matches": true,
+          "name": "make-4.4.1.tar.gz",
+          "sha256": "dd16fb1d67bfab79a72f5e8390735c49e3e8e70b4945a15ab1f81ddb78658fb3"
+        }
+      ],
+      "package": "make",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "e5e86972b59c4b38424c0872b604527fd91a0f44acca31ed2b8053cec7c7f7fa",
+      "unpacked": "make-4.4.1"
+    },
+    {
+      "build_stamps": {
+        "build_target": "52584c30af463d2147249f55d9a939c74d490d447eac2bfb832a25789b6aab59"
+      },
+      "cache": [
+        {
+          "bytes": 111148707,
+          "checksum_stamp_matches": true,
+          "name": "mesa-26.2.2.tar.gz",
+          "sha256": "9b6850189d4b4a595b1718d57d462412090fab820d3e235e2c1d122c1cf9e9bc"
+        }
+      ],
+      "package": "mesa",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "8af49b7505684d5103ec0fb878d51df0804a89734d52a2e7d07f81a42fd886f6",
+      "unpacked": "mesa-26.2.2"
+    },
+    {
+      "build_stamps": {
+        "build_host": "1b117b94083eae5b1d1b54260786674b5bf829ed25733ed4f748783629b5bfe2"
+      },
+      "cache": [
+        {
+          "bytes": 2463316,
+          "checksum_stamp_matches": true,
+          "name": "meson-1.11.2.tar.gz",
+          "sha256": "698feae069cef3ecd4d7aaf281d7df359bdfcf555a9a1564383d3b913fa8a736"
+        }
+      ],
+      "package": "meson",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "f94e1286572c0c3b22932b97ebb028f24e5bdaeb4c79bdbf984a6381574c4200",
+      "unpacked": "meson-1.11.2"
+    },
+    {
+      "build_stamps": {
+        "build_target": "2c9736955060fbd1e40930a4f7fe553b4112d80f6abd3501415043575c521572"
+      },
+      "cache": [
+        {
+          "bytes": 141281,
+          "checksum_stamp_matches": true,
+          "name": "miniupnpc-2.3.3.tar.gz",
+          "sha256": "d52a0afa614ad6c088cc9ddff1ae7d29c8c595ac5fdd321170a05f41e634bd1a"
+        }
+      ],
+      "package": "miniupnpc",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "158f5feab54576f51a6d6a54eaa38c4b2ad353116f709ee8e82b94abd7384f6f",
+      "unpacked": "miniupnpc-2.3.3"
+    },
+    {
+      "build_stamps": {
+        "build_host": "49744d0f8dde9187fd0f677bad559848980a885a816ef4fa4b154a6a8bbc4ad3"
+      },
+      "cache": [
+        {
+          "bytes": 531992,
+          "checksum_stamp_matches": true,
+          "name": "mpc-1.4.1.tar.xz",
+          "sha256": "91204cd32f164bd3b7c992d4a6a8ce6519511aadab30f78b6982d0bf8d73e931"
+        }
+      ],
+      "package": "mpc",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "b9dc9277e5eac229c0178a2f842926967d43f2da3266c0e62490ef10b3a2fd12",
+      "unpacked": "mpc-1.4.1"
+    },
+    {
+      "build_stamps": {
+        "build_host": "e864f0840de96d5a4a5b471dc05c5a9fc1bf74006b8932b3de9bedf2b4d69da5"
+      },
+      "cache": [
+        {
+          "bytes": 316268,
+          "checksum_stamp_matches": true,
+          "name": "mpdecimal-4.0.1.tar.gz",
+          "sha256": "96d33abb4bb0070c7be0fed4246cd38416188325f820468214471938545b1ac8"
+        }
+      ],
+      "package": "mpdecimal",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "5d629e6fb325ada2a10ee9ee8e375f87879732fa4fd9c593e503a5d5f7e0fb1e",
+      "unpacked": "mpdecimal-4.0.1"
+    },
+    {
+      "build_stamps": {
+        "build_host": "d7c2792e95d92013a423b6c32bd432aa5aed2aa6a2d733ad7fcddb0dc62870a6"
+      },
+      "cache": [
+        {
+          "bytes": 1505596,
+          "checksum_stamp_matches": true,
+          "name": "mpfr-4.2.2.tar.xz",
+          "sha256": "b67ba0383ef7e8a8563734e2e889ef5ec3c3b898a01d00fa0a6869ad81c6ce01"
+        }
+      ],
+      "package": "mpfr",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "f9b4603606a78f2ca310fa6724651a3e10f3c880d81f288eb9fe638bc7f55eb5",
+      "unpacked": "mpfr-4.2.2"
+    },
+    {
+      "build_stamps": {
+        "build_target": "7e46000e9ae38499f109070a7d763a6d51f716117ac15733bfee9dd4dc835c8b"
+      },
+      "cache": [
+        {
+          "bytes": 1126376,
+          "checksum_stamp_matches": true,
+          "name": "mpg123-1.33.7.tar.bz2",
+          "sha256": "31d0e35a4ca567ec9b5ebda6c3062bb4435d6d3eacd6ef0d95cadd7854dc03ee"
+        }
+      ],
+      "package": "mpg123",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "a8d87c4282ed7429c8aaffbe060360572e12f016393c14f568ef3f0863e712f5",
+      "unpacked": "mpg123-1.33.7"
+    },
+    {
+      "build_stamps": {
+        "build_target": "020bf3f6278e38c84c003eedc2ee75739851223fbe2c467a0e463b4a7b376857"
+      },
+      "cache": [
+        {
+          "bytes": 295965,
+          "checksum_stamp_matches": true,
+          "name": "mtdev-1.1.6.tar.bz2",
+          "sha256": "15d7b28da8ac71d8bc8c9287c2045fd174267bc740bec10cfda332dc1204e0e0"
+        }
+      ],
+      "package": "mtdev",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "e961f4199a3550a53722531cfa2c1a3b6755ec527755b365fc9dd9102ae1def6",
+      "unpacked": "mtdev-1.1.6"
+    },
+    {
+      "build_stamps": {
+        "build_host": "b5e6da51941c30593c8253e366967c4b0529a2ae7da760ea4998f47bb5efc693",
+        "build_target": "b5e6da51941c30593c8253e366967c4b0529a2ae7da760ea4998f47bb5efc693"
+      },
+      "cache": [
+        {
+          "bytes": 3688489,
+          "checksum_stamp_matches": true,
+          "name": "ncurses-6.5.tar.gz",
+          "sha256": "136d91bc269a9a5785e5f9e980bc76ab57428f604ce3e5a5a90cebc767971cc6"
+        }
+      ],
+      "package": "ncurses",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "4292b719c4420c35b66a03dd3acc68a73f3b20be67b0d38855c5adbeb9b1daa2",
+      "unpacked": "ncurses-6.5"
+    },
+    {
+      "build_stamps": {
+        "build_target": "bdff15d34ba5951d2948255be96470037ee86d379d548ef0ba27673349bbd786"
+      },
+      "cache": [
+        {
+          "bytes": 2630735,
+          "checksum_stamp_matches": true,
+          "name": "nettle-4.0.tar.gz",
+          "sha256": "3addbc00da01846b232fb3bc453538ea5468da43033f21bb345cb1e9073f5094"
+        }
+      ],
+      "package": "nettle",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "dd86359cbc458003cb87588ec5947627cf6ec55d013c09dc0703c892df5b55d0",
+      "unpacked": "nettle-4.0"
+    },
+    {
+      "build_stamps": {
+        "build_host": "ce8a709a703163ecd03590145cc55779b0251299e777f69a8e085482e0fe201b"
+      },
+      "cache": [
+        {
+          "bytes": 292385,
+          "checksum_stamp_matches": true,
+          "name": "ninja-1.13.2.tar.gz",
+          "sha256": "974d6b2f4eeefa25625d34da3cb36bdcebe7fbce40f4c16ac0835fd1c0cbae17"
+        }
+      ],
+      "package": "ninja",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "d1f549aa4dbc3ba7cd740074f845f8bd4d1585bdb5e7af6275065a1d3a2792c1",
+      "unpacked": "ninja-1.13.2"
+    },
+    {
+      "build_stamps": {
+        "build_target": "c8776ee471cacc9d12473638817f0909f94706b3383925189e8889584fee35ae"
+      },
+      "cache": [
+        {
+          "bytes": 30421,
+          "checksum_stamp_matches": true,
+          "name": "nss-mdns-0.15.1.tar.gz",
+          "sha256": "2d1b8de2e9ed5526f51c8bb627b719c07668465b5315787e7cfeed776ab90b9a"
+        }
+      ],
+      "package": "nss-mdns",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "82d4425ba9d762220b33251203a5063235a45945ba1dc4382af198b2faa1fc0d",
+      "unpacked": "nss-mdns-0.15.1"
+    },
+    {
+      "build_stamps": {
+        "build_target": "0c34e0e0bd325639dfe3a1dec1aa365954e0f43ebaa56231b4acadc004e15422"
+      },
+      "cache": [
+        {
+          "bytes": 979159,
+          "checksum_stamp_matches": true,
+          "name": "oniguruma-6.9.10.tar.gz",
+          "sha256": "2a5cfc5ae259e4e97f86b68dfffc152cdaffe94e2060b770cb827238d769fc05"
+        }
+      ],
+      "package": "oniguruma",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "6739dda7d4ecfb880ae5f277275812cb7a5628e547ce6119caa0bd92222a430d",
+      "unpacked": "oniguruma-6.9.10"
+    },
+    {
+      "build_stamps": {
+        "build_target": "623c7426eedb10cb0b4f238ffd6948ff1a2717f5e0b1a06067582891d456fac3"
+      },
+      "cache": [
+        {
+          "bytes": 1407972,
+          "checksum_stamp_matches": true,
+          "name": "openal-soft-1.25.2.tar.gz",
+          "sha256": "fb27e5839aa11f0e5b9d33756965291fad5d6909ab928ea1f796f4a1a6877894"
+        }
+      ],
+      "package": "openal-soft",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "3a3b7bf0f784ccb7eb63763d2017b685fa9555de05ab824556b458b9273702f7",
+      "unpacked": "openal-soft-1.25.2"
+    },
+    {
+      "build_stamps": {
+        "build_host": "81e77a8a3393f9a30aac98de2e0ea0331b0ead82023269712abd16587532c3cf",
+        "build_target": "81e77a8a3393f9a30aac98de2e0ea0331b0ead82023269712abd16587532c3cf"
+      },
+      "cache": [
+        {
+          "bytes": 54953005,
+          "checksum_stamp_matches": true,
+          "name": "openssl-3.6.3.tar.gz",
+          "sha256": "243a86649cf6f23eeb6a2ff2456e09e5d77dd9018a54d3d96b0c6bdd6ba6c7f1"
+        }
+      ],
+      "package": "openssl",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "5182aceeff69089f19f61fed1a3301e365cbe196932ea3733e96a42dc7406723",
+      "unpacked": "openssl-3.6.3"
+    },
+    {
+      "build_stamps": {
+        "build_target": "b37b5595ed7fce2f01608ae8981fe0ee0fa538659e7edb5ecf05376b359c862d"
+      },
+      "cache": [
+        {
+          "bytes": 7839412,
+          "checksum_stamp_matches": true,
+          "name": "opus-1.5.2.tar.gz",
+          "sha256": "65c1d2f78b9f2fb20082c38cbe47c951ad5839345876e46941612ee87f9a7ce1"
+        }
+      ],
+      "package": "opus",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "90a81b9354e796e0e93b04f5eba4a3b79060e52485f7f3d9c6a1361fbf68cfa9",
+      "unpacked": "opus-1.5.2"
+    },
+    {
+      "build_stamps": {
+        "build_target": "01b8d8fbc00c9fea0c7d3d35ecd8d023446005a39a6046cb5b1cdc72f782a7c9"
+      },
+      "cache": [
+        {
+          "bytes": 174834,
+          "checksum_stamp_matches": true,
+          "name": "opusfile-9d718345ce03b2fad5d7d28e0bcd1cc69ab2b166.zip",
+          "sha256": "7ccef70b05119a6842634eaddb8932400ad16b808c13b6dc78ab56c4cbbf5cf6"
+        }
+      ],
+      "package": "opusfile",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "7fd931447b31c62c1fbf20731e5b3683cdd90ff1fe4d5d5b897ad33d4e2ce5c0",
+      "unpacked": "opusfile-9d718345ce03b2fad5d7d28e0bcd1cc69ab2b166"
+    },
+    {
+      "build_stamps": {
+        "build_target": "96595e2b834b2572f779f937aa3eda575dd98943b6c56728b45f4e0eadfc022c"
+      },
+      "cache": [
+        {
+          "bytes": 1918112,
+          "checksum_stamp_matches": true,
+          "name": "pango-1.58.2.tar.xz",
+          "sha256": "342385b6ca3b7c73455d7c80a13b7dbe4489e00bc3bd4c5bd6ed4dce421e374a"
+        }
+      ],
+      "package": "pango",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "0bf144693f498f419053e2d88de1fb9c05ec9598f6d167a04c6e399936880049",
+      "unpacked": "pango-1.58.2"
+    },
+    {
+      "build_stamps": {
+        "build_host": "26bde2c45a73abf9fb2f7d4f5e47ae4e2e87ac82be6686c9868a98f3b3eee1fb"
+      },
+      "cache": [
+        {
+          "bytes": 423290,
+          "checksum_stamp_matches": true,
+          "name": "patchelf-0.18.0.tar.bz2",
+          "sha256": "1952b2a782ba576279c211ee942e341748fdb44997f704dd53def46cd055470b"
+        }
+      ],
+      "package": "patchelf",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "bd56a3e9eefc2206b9dc2d0109a1f2df533822cf28b2b64144a3f637e7c0f004",
+      "unpacked": "patchelf-0.18.0"
+    },
+    {
+      "build_stamps": {
+        "build_host": "f780cd6c151761dd8fa7e146178952b6c9f2683f70d74f2a867273acb5a8db56"
+      },
+      "cache": [
+        {
+          "bytes": 128737,
+          "checksum_stamp_matches": true,
+          "name": "pax-utils-1.3.11.tar.bz2",
+          "sha256": "68dad469c2f780ed85ee490179131e57400532e18ddd6193d3d13dadb122d3c1"
+        }
+      ],
+      "package": "pax-utils",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "1df0c10902bb0fe5bc4f0a07426c9f77450606555f9b13e5f955f31bbdbb5f64",
+      "unpacked": "pax-utils-1.3.11"
+    },
+    {
+      "build_stamps": {
+        "build_host": "4a693d2c22388147cfbcdf9d46edb43db76f86fae7daebc23aca427cb5ed6aad",
+        "build_target": "4a693d2c22388147cfbcdf9d46edb43db76f86fae7daebc23aca427cb5ed6aad"
+      },
+      "cache": [
+        {
+          "bytes": 2145789,
+          "checksum_stamp_matches": true,
+          "name": "pcre2-10.47.tar.bz2",
+          "sha256": "47fe8c99461250d42f89e6e8fdaeba9da057855d06eb7fc08d9ca03fd08d7bc7"
+        }
+      ],
+      "package": "pcre2",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "44d7b12d12df749c7b10c71c90cec32ef4fcfad55df069f58aed5a30b7e921bf",
+      "unpacked": "pcre2-10.47"
+    },
+    {
+      "build_stamps": {
+        "build_target": "51016f389ea6701589dcc676940e5e97abf5240cb55d2df05d0755aa4534d56a"
+      },
+      "cache": [
+        {
+          "bytes": 5107382,
+          "checksum_stamp_matches": true,
+          "name": "pcsx_rearmed-lr-da2cb8ecd17fd0932ab6d94774c0522beebce6e3.tar.gz",
+          "sha256": "ff191a349aa88b7156f2c40ae32b7144884eec921542f07508d88715105d175e"
+        }
+      ],
+      "package": "pcsx_rearmed-lr",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "98587c9d027a1d16320e804e8c8b221d8ef8d1007b35afa9f90e926f0bdfae65",
+      "unpacked": "pcsx_rearmed-lr-da2cb8ecd17fd0932ab6d94774c0522beebce6e3"
+    },
+    {
+      "build_stamps": {
+        "build_host": "4b16ccd89352ebafb55e7d4effdbe452c69590a601d7ed6ef503e6b3dd7f0910"
+      },
+      "cache": [
+        {
+          "bytes": 121304,
+          "checksum_stamp_matches": true,
+          "name": "pigz-2.8.tar.gz",
+          "sha256": "eb872b4f0e1f0ebe59c9f7bd8c506c4204893ba6a8492de31df416f0d5170fd0"
+        }
+      ],
+      "package": "pigz",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "305b23fd83a2b7ff2d972e7e2db4bdb729675c45391457fd7443fcbb30d24ffb",
+      "unpacked": "pigz-2.8"
+    },
+    {
+      "build_stamps": {
+        "build_target": "509d0504707fa959cef7fbe48573ff35ac9a2f4d8155f42373d03626dc94d626"
+      },
+      "cache": [
+        {
+          "bytes": 2419504,
+          "checksum_stamp_matches": true,
+          "name": "pipewire-1.2.6.tar.gz",
+          "sha256": "8d9b4e95dba33d218c760fecbb71672c86a56917f803e96fe6c3af62fa783a95"
+        }
+      ],
+      "package": "pipewire",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "82bc366fc2f804b9c993298527852ba7201069a09ee9d3221ef34dc185a20afc",
+      "unpacked": "pipewire-1.2.6"
+    },
+    {
+      "build_stamps": {
+        "build_target": "d42fbd20646a4bf6c959793c13ba7ecef2c55fe26e6b645bfde7375dc15afb3f"
+      },
+      "cache": [
+        {
+          "bytes": 660536,
+          "checksum_stamp_matches": true,
+          "name": "pixman-0.46.4.tar.xz",
+          "sha256": "a098c33924754ad43f981b740f6d576c70f9ed1006e12221b1845431ebce1239"
+        }
+      ],
+      "package": "pixman",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "826428ca1878ae013934b25327feaa0df913c762eebb427cd5c76a6962177814",
+      "unpacked": "pixman-0.46.4"
+    },
+    {
+      "build_stamps": {
+        "build_host": "95b1cca94198f6186ab258e8414c9f8fc9cdd3763fb73fc08b76762737d0ea36"
+      },
+      "cache": [
+        {
+          "bytes": 2016830,
+          "checksum_stamp_matches": true,
+          "name": "pkg-config-0.29.2.tar.gz",
+          "sha256": "6fc69c01688c9458a57eb9a1664c9aba372ccda420a02bf4429fe610e7e7d591"
+        }
+      ],
+      "package": "pkg-config",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "2be7560a2bea2b546009b5ff852219197bb3d0093835ab2ec573aec04677dfc8",
+      "unpacked": "pkg-config-0.29.2"
+    },
+    {
+      "build_stamps": {
+        "build_target": "220d1087316d4ad6384e9c33f52e5a1ef2963e2c2dbef71e70a43453b93aecd0"
+      },
+      "cache": [
+        {
+          "bytes": 1566556,
+          "checksum_stamp_matches": true,
+          "name": "pulseaudio-17.0.tar.xz",
+          "sha256": "053794d6671a3e397d849e478a80b82a63cb9d8ca296bd35b73317bb5ceb87b5"
+        }
+      ],
+      "package": "pulseaudio",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "6ff3d57bbc7483895c0657daa18bbb4a4d6c595992c81ac899f597ed5e2a68c2",
+      "unpacked": "pulseaudio-17.0"
+    },
+    {
+      "build_stamps": {
+        "build_host": "c8c962d5966a81350aadf306ca64db9e1e1c36697634d9a9ea9bb62147e613c1"
+      },
+      "cache": [
+        {
+          "bytes": 112439,
+          "checksum_stamp_matches": true,
+          "name": "pybuild-1.5.1.tar.gz",
+          "sha256": "94e17f1db803ab22f46049376c44c8437c52090f0dfdf1adc43df56542d644fb"
+        }
+      ],
+      "package": "pybuild",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "fe1aa5f197e46e6d06ae09ff40f96b562c379d43ff2187df399906b32586bd63",
+      "unpacked": "pybuild-1.5.1"
+    },
+    {
+      "build_stamps": {
+        "build_host": "bcd9c08030a31e5d5938e0273a7eed9d960ca133067f8b57089a30c50699cad7"
+      },
+      "cache": [
+        {
+          "bytes": 481132,
+          "checksum_stamp_matches": true,
+          "name": "pyinstaller-1.0.1.tar.gz",
+          "sha256": "052c7fc3721d54c696e2dea019be67539d7b144e924f559f54beb3121831c364"
+        }
+      ],
+      "package": "pyinstaller",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "8bf0908032bbbcaac08841718775b0075157f01388e88fafeddaf1a8a00201fa",
+      "unpacked": "pyinstaller-1.0.1"
+    },
+    {
+      "build_stamps": {
+        "build_host": "e69394dd31b192a4cbd17fb306fdd1529ac480289f57aa1775cc2b2f50db2084"
+      },
+      "cache": [
+        {
+          "bytes": 313412,
+          "checksum_stamp_matches": true,
+          "name": "pypackaging-26.3.tar.gz",
+          "sha256": "94edc256424af38762eb31306eed28beb9f0efc50a8837492c9d6fd6004aed79"
+        }
+      ],
+      "package": "pypackaging",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "c73e4a28033dfa72e0287304e7aa238a208da2025139d8f6d6ac5be9762ee4f5",
+      "unpacked": "pypackaging-26.3"
+    },
+    {
+      "build_stamps": {
+        "build_host": "aa0fcdc70b5a98d08486a407ffe6ae6eccc4b026ba8cf4d7ce6035f5f4232a47"
+      },
+      "cache": [
+        {
+          "bytes": 19228,
+          "checksum_stamp_matches": true,
+          "name": "pyproject-hooks-1.2.0.tar.gz",
+          "sha256": "1e859bd5c40fae9448642dd871adf459e5e2084186e8d2c2a79a824c970da1f8"
+        }
+      ],
+      "package": "pyproject-hooks",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "e5fed0deab0dd53570f75d5e7286a046e18dacc5162c0d140659a25234ddfb3c",
+      "unpacked": "pyproject-hooks-1.2.0"
+    },
+    {
+      "build_stamps": {
+        "build_host": "59101b3e294aedc3121fe0d3a767bebcbed1d2de504698f9de0d9b9370bd86fb"
+      },
+      "cache": [
+        {
+          "bytes": 130960,
+          "checksum_stamp_matches": true,
+          "name": "pyyaml-6.0.3.tar.gz",
+          "sha256": "d76623373421df22fb4cf8817020cbb7ef15c725b9d5e45f17e189bfc384190f"
+        }
+      ],
+      "package": "pyyaml",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "b46b5ae2725b256e91d5a40c8cf2dc56a31a7d22297db898e8414b0c5dd79615",
+      "unpacked": "pyyaml-6.0.3"
+    },
+    {
+      "build_stamps": {
+        "build_target": "0399a07ae024b717afee7b96081eb637a8b2f6ac24a19d5a720a6f3eca4a7c6f"
+      },
+      "cache": [
+        {
+          "bytes": 3419642,
+          "checksum_stamp_matches": true,
+          "name": "readline-8.3.tar.gz",
+          "sha256": "fe5383204467828cd495ee8d1d3c037a7eba1389c22bc6a041f627976f9061cc"
+        }
+      ],
+      "package": "readline",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "0f944812add0a8bfee25cf8e8cf4665a47544ec146d82ba612212f8cab1fdaea",
+      "unpacked": "readline-8.3"
+    },
+    {
+      "build_stamps": {
+        "build_target": "5265663cc52f11dc89027ae6dd7d6fa03cb6e5fc0d30b3b4ad8b2f53af338362"
+      },
+      "cache": [
+        {
+          "bytes": 219275090,
+          "checksum_stamp_matches": true,
+          "name": "retroarch-assets-76cc6cf03507429c5a136cb50d83a14e05430fcd.tar.gz",
+          "sha256": "f32626950ebd6ab4e709431e8ed7e9124d8c46ddb034fba53b6f760e7f2ea5f6"
+        }
+      ],
+      "package": "retroarch-assets",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "0b43343afdf175b6f05fa1a1e82624ca286a74dba108947ab8e04e667879ebe2",
+      "unpacked": "retroarch-assets-76cc6cf03507429c5a136cb50d83a14e05430fcd"
+    },
+    {
+      "build_stamps": {
+        "build_target": "99087b8d424a4580a332f658a2c20fd5bc5d788480f66b57b7aa1b2cd9fa8bab"
+      },
+      "cache": [
+        {
+          "bytes": 76414843,
+          "checksum_stamp_matches": true,
+          "name": "retroarch-bdba046fa6766380bc2457532f38e589df769aaf.tar.gz",
+          "sha256": "ba14ddf6fd6712185334cce15d1fa7d36f3419195a34ae6fd6f1ade42095e94f"
+        }
+      ],
+      "package": "retroarch",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "37411a17a41ec84337b42a642ebb82e4a61ca507bc779897c2f0ebe2b1adc3a8",
+      "unpacked": "retroarch-bdba046fa6766380bc2457532f38e589df769aaf"
+    },
+    {
+      "build_stamps": {
+        "build_target": "d7e0d38acf2dbfc2884e80d8cc7ad4cccc635eed3c5fa179c525b2851ec267a2"
+      },
+      "cache": [],
+      "package": "rocknix-screenshot",
+      "provenance": "local/generated package; source inputs covered by frozen manifest",
+      "unpack_stamp_sha256": "71e9f5374d22cf9eb3eb473add8dd9f9c30a4d5b94402aeed3db4e789275e815",
+      "unpacked": "rocknix-screenshot-1.0"
+    },
+    {
+      "build_stamps": {
+        "build_target": "e611c3e6f5f36186f21dae445328813007d0b87d712befcc7ff10736fa0bdde5"
+      },
+      "cache": [
+        {
+          "bytes": 277348,
+          "checksum_stamp_matches": true,
+          "name": "sbc-2.2.tar.xz",
+          "sha256": "a1ada76ef35e5af9c2fbd063754dc9e37a8d989417c6eb1ecebb089b1383ae9e"
+        }
+      ],
+      "package": "sbc",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "6a87812028349e143ab02b7ad564022f3b14587594ca060447014817b9017a9c",
+      "unpacked": "sbc-2.2"
+    },
+    {
+      "build_stamps": {
+        "build_target": "c9eec06c5492a571072e2376b051f5d9aaf2d86a2aa7a21f0f654f80b688d835"
+      },
+      "cache": [
+        {
+          "bytes": 41606,
+          "checksum_stamp_matches": true,
+          "name": "seatd-0.9.0.tar.gz",
+          "sha256": "4276d1380c67e30a63c289b35f7bf955e126e6daf3596cd5aa6080670aa1214c"
+        }
+      ],
+      "package": "seatd",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "07c092b09c117e957cb2dd3b70217bb19e4286f19fb58d7a0660afd005db8645",
+      "unpacked": "seatd-0.9.0"
+    },
+    {
+      "build_stamps": {
+        "build_host": "cf29e0043700e5d25a9791a6dd645d6da2112d30bd2d380a5f2458fb81982217"
+      },
+      "cache": [
+        {
+          "bytes": 1732800,
+          "checksum_stamp_matches": true,
+          "name": "sed-4.10.tar.xz",
+          "sha256": "b8e72182b2ec96a3574e2998c47b7aaa64cc20ce000d8e9ac313cc07cecf28c7"
+        }
+      ],
+      "package": "sed",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "b0a666c1602796272fb39147bd43c051bf19a71f68343062c9f86665ec8035ce",
+      "unpacked": "sed-4.10"
+    },
+    {
+      "build_stamps": {
+        "build_host": "1e9cd0080ddf13481bdadcd56e1c0101ae6fc61d2de21f2bd1a11a0fa0afb6ba"
+      },
+      "cache": [
+        {
+          "bytes": 1168449,
+          "checksum_stamp_matches": true,
+          "name": "setuptools-84.0.0.tar.gz",
+          "sha256": "f4695c21257f0d9b537ec2692c941d02ee143b7cc1276941349a546573b2ef73"
+        }
+      ],
+      "package": "setuptools",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "1fa3d69b4f2fd142c27e377594c7f96c7793e8ef06d9c960c3832b87ba94d1cd",
+      "unpacked": "setuptools-84.0.0"
+    },
+    {
+      "build_stamps": {
+        "build_host": "7e8b1598e404badb449be0b1d84c96a2dc1cc7a2a913969b2dfd68b67a23534a",
+        "build_target": "7e8b1598e404badb449be0b1d84c96a2dc1cc7a2a913969b2dfd68b67a23534a"
+      },
+      "cache": [
+        {
+          "bytes": 7096347,
+          "checksum_stamp_matches": true,
+          "name": "shared-mime-info-2.4.tar.bz2",
+          "sha256": "32dc32ae39ff1c1bf8434dd3b36770b48538a1772bc0298509d034f057005992"
+        }
+      ],
+      "package": "shared-mime-info",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "03e69b57f41fc78f14e30aba0b83a5603b41690d23274ec0f4a89e5fc7e3b197",
+      "unpacked": "shared-mime-info-2.4"
+    },
+    {
+      "build_stamps": {
+        "build_target": "0ba693a2daaf10bd259ea1dded6aa1714e173f2912c0be112a4a2b2220af3be0"
+      },
+      "cache": [
+        {
+          "bytes": 94384,
+          "checksum_stamp_matches": true,
+          "name": "soxr-0.1.3.tar.xz",
+          "sha256": "b111c15fdc8c029989330ff559184198c161100a59312f5dc19ddeb9b5a15889"
+        }
+      ],
+      "package": "soxr",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "f8f2a43871bcfc8350aa637aa41ea3be7f68dafe43272136fe16f6c36f68db91",
+      "unpacked": "soxr-0.1.3"
+    },
+    {
+      "build_stamps": {
+        "build_target": "4e9d838f16682d8a886355c0cd68d871ca0c627b2dad40be119a7f42d431aae3"
+      },
+      "cache": [
+        {
+          "bytes": 988498,
+          "checksum_stamp_matches": true,
+          "name": "speex-1.2.1.tar.bz2",
+          "sha256": "cc55cce69d8753940d56936f7a1fe6db4b302df144aec93a92de1c65b1a87681"
+        }
+      ],
+      "package": "speex",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "58923114fd9f96cac260476b6d92e56924f1efbdc4169b115b06ec946f336ff0",
+      "unpacked": "speex-1.2.1"
+    },
+    {
+      "build_stamps": {
+        "build_target": "7e77e75d65373d9821a38786688c45139469b48c3ae773bc0ecc468f219748a4"
+      },
+      "cache": [
+        {
+          "bytes": 864047,
+          "checksum_stamp_matches": true,
+          "name": "speexdsp-1.2.1.tar.bz2",
+          "sha256": "b36d4f16e42b7103b7fc3e4a8f98b6bf889dd1f70f65c2365af07be82844db29"
+        }
+      ],
+      "package": "speexdsp",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "dd7f2bd8ab87bf8b6ef93754195fcfa5776368471ee8c4ff44bc57e54ecb408b",
+      "unpacked": "speexdsp-1.2.1"
+    },
+    {
+      "build_stamps": {},
+      "cache": [
+        {
+          "bytes": 594379,
+          "checksum_stamp_matches": true,
+          "name": "spirv-headers-496543121ce6419f23d6fa5d7194ba66c36212d2.tar.gz",
+          "sha256": "a9bb9c48713245eacf97cc539b6f1d45405a92d8813f8b82e635f0a085ee9898"
+        }
+      ],
+      "package": "spirv-headers",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "94e21d76b97145300d64a2f7b36a9ecff4302f9571f366dbdee138c1bca1452c",
+      "unpacked": "spirv-headers-496543121ce6419f23d6fa5d7194ba66c36212d2"
+    },
+    {
+      "build_stamps": {},
+      "cache": [
+        {
+          "bytes": 3559528,
+          "checksum_stamp_matches": true,
+          "name": "spirv-tools-ef96ed763b43b59b33b31b362f09a02b729fa1c9.tar.gz",
+          "sha256": "82c62146083fd558735a3171cf97cfc47903ca7d368482e87f94bd44883c0f00"
+        }
+      ],
+      "package": "spirv-tools",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "718793675b2315c43895b01b36cdabb08e2f2cf4072ea86530bdcc5ee8cc99fe",
+      "unpacked": "spirv-tools-ef96ed763b43b59b33b31b362f09a02b729fa1c9"
+    },
+    {
+      "build_stamps": {
+        "build_target": "aadc0f9e3a2dbcccddf8a67c5efd4b497c316f0945db39c63eceeb452cc72fd8"
+      },
+      "cache": [
+        {
+          "bytes": 5630956,
+          "checksum_stamp_matches": true,
+          "name": "sway-1.11.tar.gz",
+          "sha256": "0e37a55b7c3379230e97e1ad982542b75016a0c7d6676198604e557f9b373dae"
+        }
+      ],
+      "package": "sway",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "d369a40f665abcfa5be7a5acbc1a7fbe67de3ddc965525491cabfd25f52da4a4",
+      "unpacked": "sway-1.11"
+    },
+    {
+      "build_stamps": {
+        "build_target": "9d897643e10bf9793b2b3e0fd05438e6e97b2bef3126afc4f3c7cd8c2975de82"
+      },
+      "cache": [
+        {
+          "bytes": 16600,
+          "checksum_stamp_matches": true,
+          "name": "swaybg-1.2.1.tar.gz",
+          "sha256": "45c4a1a3b83c86ddc321a6136402b708f195a022d0ccee4641b23d14c3a3c25e"
+        }
+      ],
+      "package": "swaybg",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "566553834d25300388f634298a52537a6eba2386c876abf8570fb453ebc6118c",
+      "unpacked": "swaybg-1.2.1"
+    },
+    {
+      "build_stamps": {
+        "build_target": "4d2458e8427eee52efffe371241f66900187c0689434124b56f5fa3ee958da10"
+      },
+      "cache": [
+        {
+          "bytes": 407561,
+          "checksum_stamp_matches": true,
+          "name": "swayimg-v2.1.tar.gz",
+          "sha256": "d82fb8e75cdabf470677797444ec19b00c83e0e06d80be774727194404624e7e"
+        }
+      ],
+      "package": "swayimg",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "c64e1e3b0c4e61865030b162e6b64a6a25ed8f314c02a3891d87636d705bb1d0",
+      "unpacked": "swayimg-v2.1"
+    },
+    {
+      "build_stamps": {
+        "build_target": "cf3faedf235086a74422ec462f9b1b00c6e890d66e9a3b8b9006df099589d389"
+      },
+      "cache": [
+        {
+          "bytes": 15070471,
+          "checksum_stamp_matches": true,
+          "name": "systemd-255.8.tar.gz",
+          "sha256": "e770b9c4b5e36c1badf94444a27c9cd427931251009e4363f3239ad45ff75f3d"
+        }
+      ],
+      "package": "systemd",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "0527239e75f325a8171ce3202d0ecd5b697655109acbaee0a81e2918c3a35a8e",
+      "unpacked": "systemd-255.8"
+    },
+    {
+      "build_stamps": {
+        "build_target": "97c44e46dc25ec725df04fdeb2765d841b2466d7a7e2a0757b4e108ebdc29567"
+      },
+      "cache": [
+        {
+          "bytes": 4083368,
+          "checksum_stamp_matches": true,
+          "name": "tiff-4.7.2.tar.gz",
+          "sha256": "672bd7d10aee4606171afb864f3570b83340f6a33e2c186dc0512f7145ffdf6a"
+        }
+      ],
+      "package": "tiff",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "1e7be041a2be88a3872043320f1c35d6e296d347309b06a2a4161662919a5409",
+      "unpacked": "tiff-4.7.2"
+    },
+    {
+      "build_stamps": {
+        "build_target": "31d449c8451d1e6e1293cd0500c3041f819cf2d07ec3f2aabec99632948845b0"
+      },
+      "cache": [
+        {
+          "bytes": 7639,
+          "checksum_stamp_matches": true,
+          "name": "tllist-1.1.0.tar.gz",
+          "sha256": "0e7b7094a02550dd80b7243bcffc3671550b0f1d8ba625e4dff52517827d5d23"
+        }
+      ],
+      "package": "tllist",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "36c195a079f8108fff22f98dee87f1d35c43ae2776c6f09c17a3df127cb44d3c",
+      "unpacked": "tllist-1.1.0"
+    },
+    {
+      "build_stamps": {
+        "build_target": "e56655952391969f5032364ecc4a7e3d76b7c04c3cf2a2f6c7b9d7e59700f3b0"
+      },
+      "cache": [
+        {
+          "bytes": 648834,
+          "checksum_stamp_matches": true,
+          "name": "tz-2026c.tar.gz",
+          "sha256": "99fcce3d468fbb94b9395db2d4a83777ffdf7740a1890ba2e52e8ae089cc8e3b"
+        }
+      ],
+      "package": "tz",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "aabe6660cba0b1938a3b9b0e4b2a69b803ade0147545d9bd128b7a287d17eda6",
+      "unpacked": "tz-2026c"
+    },
+    {
+      "build_stamps": {
+        "build_host": "92781f14873b7f695b42bda9908a90ceeb370bcb4f4866b14bc87824c98a3363",
+        "build_target": "92781f14873b7f695b42bda9908a90ceeb370bcb4f4866b14bc87824c98a3363"
+      },
+      "cache": [
+        {
+          "bytes": 8362220,
+          "checksum_stamp_matches": true,
+          "name": "util-linux-2.39.2.tar.xz",
+          "sha256": "87abdfaa8e490f8be6dde976f7c80b9b5ff9f301e1b67e3899e1f05a59a1531f"
+        }
+      ],
+      "package": "util-linux",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "2fd5e92dc83fc1bc760bfc4bf2ee854f7346be6c342b39929b694b120c721d19",
+      "unpacked": "util-linux-2.39.2"
+    },
+    {
+      "build_stamps": {
+        "build_target": "3cf572907bf13da765999b086da0edce78a7cacd4817ca9f2ef42f9e47757112"
+      },
+      "cache": [
+        {
+          "bytes": 83592,
+          "checksum_stamp_matches": true,
+          "name": "util-macros-1.20.2.tar.xz",
+          "sha256": "9ac269eba24f672d7d7b3574e4be5f333d13f04a7712303b1821b2a51ac82e8e"
+        }
+      ],
+      "package": "util-macros",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "6c000244915c049dbe743021d45365075e5ab19b8955c22790ad5ca495ad68b4",
+      "unpacked": "util-macros-1.20.2"
+    },
+    {
+      "build_stamps": {
+        "build_target": "1fadcfca697a5dfe82f7e5eda269162eb5a439af1eddb2b02f011635f8e8c1b3"
+      },
+      "cache": [
+        {
+          "bytes": 84542,
+          "checksum_stamp_matches": true,
+          "name": "volk-1.4.350.tar.gz",
+          "sha256": "e47c6efe5294bb03729a976b385864bba5daf46ec60f0bdea11e1d1446345f9a"
+        }
+      ],
+      "package": "volk",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "eaa47395f87d2d1f9f60eb4c5b1fd2f3d0e5d3490dcf44c6a94786b574f7a51e",
+      "unpacked": "volk-1.4.350"
+    },
+    {
+      "build_stamps": {
+        "build_target": "46d945ab0f90d44d233c8d6b2912f9fc3a234fb78fb6bb98807f82c2ee8d4f40"
+      },
+      "cache": [
+        {
+          "bytes": 3239414,
+          "checksum_stamp_matches": true,
+          "name": "vulkan-headers-1.4.347.tar.gz",
+          "sha256": "6611f09ed95aaf2c47ad76df9fb3e5455ce52d1ed3d0ef5dbc0d63e3208d3faa"
+        }
+      ],
+      "package": "vulkan-headers",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "1602b6877dfe27bb7beba76198d856eb13a6d2ec7affa1fef41d09fb7cfccd03",
+      "unpacked": "vulkan-headers-1.4.347"
+    },
+    {
+      "build_stamps": {
+        "build_target": "ce23946fc11a4337ced773a1e917a35edb93e1cdf5307333e9c8b39332e836f2"
+      },
+      "cache": [
+        {
+          "bytes": 1798196,
+          "checksum_stamp_matches": true,
+          "name": "vulkan-loader-1.4.347.tar.gz",
+          "sha256": "4b6002e4200d59d76bad1058b677fdbfab9abdb2ef3b3856a31026bc445341f0"
+        }
+      ],
+      "package": "vulkan-loader",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "3edc39a08067c17ef0bce590f521e9b1a084c057c10ef93cd19712a21de7cd86",
+      "unpacked": "vulkan-loader-1.4.347"
+    },
+    {
+      "build_stamps": {
+        "build_target": "97bfb860229f10171089f82e04db3720336f66e14741d70a37ffe3a00af3bac9"
+      },
+      "cache": [
+        {
+          "bytes": 808735,
+          "checksum_stamp_matches": true,
+          "name": "vulkan-tools-1.4.347.tar.gz",
+          "sha256": "4ed73bd973069633ef2b830c7b9f3ebcb7bc8aaac5783b9e5aa36c888e687a78"
+        }
+      ],
+      "package": "vulkan-tools",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "520496a2ab598e5abfb34235c3e406bd41e2df01eb2cd19ba85714e50288bcaa",
+      "unpacked": "vulkan-tools-1.4.347"
+    },
+    {
+      "build_stamps": {
+        "build_target": "62d08c8cbad377b9ceff143a49a0a09d38eead3de2364ac31bcd48a895c9be7e"
+      },
+      "cache": [
+        {
+          "bytes": 812996,
+          "checksum_stamp_matches": true,
+          "name": "wavpack-5.9.0.tar.xz",
+          "sha256": "b5291bc4e6d69ebbd3da3800c5bf4a70f19bb92679b23e09b3b612c1e648d1ff"
+        }
+      ],
+      "package": "wavpack",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "d43394e36ae90bbd382fcdc11e1dc67ecc6cda0ada95ca073f5dcec12bc7e279",
+      "unpacked": "wavpack-5.9.0"
+    },
+    {
+      "build_stamps": {
+        "build_host": "5e6481423f6ae41184485233c80298ffbb083b714a28f17d9c232590973d63d4",
+        "build_target": "5e6481423f6ae41184485233c80298ffbb083b714a28f17d9c232590973d63d4"
+      },
+      "cache": [
+        {
+          "bytes": 612384,
+          "checksum_stamp_matches": true,
+          "name": "wayland-1.26.0.tar.xz",
+          "sha256": "64176eaa46e4969903e286f8e5ef8331affc17fdf03ac9b58381d2b23162b7a3"
+        }
+      ],
+      "package": "wayland",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "0b8fa3ce2cf938076f61a7f31940875d55451c2573605864822a5c562079c03c",
+      "unpacked": "wayland-1.26.0"
+    },
+    {
+      "build_stamps": {
+        "build_target": "6093a043a9a4ab23dfaaa108895b545d1d74a62baa02c185adfef2e13343a564"
+      },
+      "cache": [
+        {
+          "bytes": 150612,
+          "checksum_stamp_matches": true,
+          "name": "wayland-protocols-1.49.tar.xz",
+          "sha256": "ec4c8f74942d6dff7ace8b4ce4764f0ef9ff618a935d974ea77edee2ad240b14"
+        }
+      ],
+      "package": "wayland-protocols",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "3eeefcd72cc7f80bc17f7769ed793678ae9eeaae7cf4e3a4843296fa48e80757",
+      "unpacked": "wayland-protocols-1.49"
+    },
+    {
+      "build_stamps": {},
+      "cache": [
+        {
+          "bytes": 32044,
+          "checksum_stamp_matches": true,
+          "name": "wireless-regdb-2026.05.30.tar.xz",
+          "sha256": "8a27bfc081bafed8c24dd70fab0d96f098e5a0bfcd08d3da672595f225ab8993"
+        }
+      ],
+      "package": "wireless-regdb",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "f7521b0bcfa922b59bdccc8dd1e1dd6fbd0afa17a74841f47e7a3b9c56b76a69",
+      "unpacked": "wireless-regdb-2026.05.30"
+    },
+    {
+      "build_stamps": {
+        "build_target": "424011e3d91792a6631d7d4a98092af8538a77b00536d5db8cbf36cf832502d3"
+      },
+      "cache": [
+        {
+          "bytes": 13482,
+          "checksum_stamp_matches": true,
+          "name": "wlr-randr-0.4.1.tar.gz",
+          "sha256": "8af085aeed3132f7442a05bafeadfd0ea30e9a4818af1a91e161f7d560f2cd93"
+        }
+      ],
+      "package": "wlr-randr",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "3a2472e80765152050a1e09dd5fe41b7bfd08c7b8a11b5810163a69c649715bc",
+      "unpacked": "wlr-randr-0.4.1"
+    },
+    {
+      "build_stamps": {
+        "build_target": "a7872a5284d222b352d59bfe97d2a884e21c67b437ada430dc3d57e8139ea665"
+      },
+      "cache": [
+        {
+          "bytes": 671209,
+          "checksum_stamp_matches": true,
+          "name": "wlroots-0.19.3.tar.gz",
+          "sha256": "a6ff89b64ea15e424d1b0db4a22145fccf5ec2ff2e7b8af0fa35e2ac8975986f"
+        }
+      ],
+      "package": "wlroots",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "6f821cd079da004d8df70a5aceaa4b0981828cb5921efe665eb7ad6d9bc323b1",
+      "unpacked": "wlroots-0.19.3"
+    },
+    {
+      "build_stamps": {
+        "build_target": "5412b20d73d6a58c3fb620974b275d014f099710ff1e2322cf9107c38f6290dc"
+      },
+      "cache": [
+        {
+          "bytes": 151748,
+          "checksum_stamp_matches": true,
+          "name": "xcb-proto-1.17.0.tar.xz",
+          "sha256": "2c1bacd2110f4799f74de6ebb714b94cf6f80fb112316b1219480fd22562148c"
+        }
+      ],
+      "package": "xcb-proto",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "727e66c07ded02ab781613c6e36aaeb85244b0bd2d65358068eeeb3e3125e26e",
+      "unpacked": "xcb-proto-1.17.0"
+    },
+    {
+      "build_stamps": {
+        "build_target": "2f38c8351ba414e694935c7bf6ca5f79f1536e606d423442bcd653cdf836aa5c"
+      },
+      "cache": [
+        {
+          "bytes": 285152,
+          "checksum_stamp_matches": true,
+          "name": "xcb-util-wm-0.4.2.tar.xz",
+          "sha256": "62c34e21d06264687faea7edbf63632c9f04d55e72114aa4a57bb95e4f888a0b"
+        }
+      ],
+      "package": "xcb-util-wm",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "52203741983f286238c728d91e800c17a64fcb45364288dfecad8fd5c10d7a68",
+      "unpacked": "xcb-util-wm-0.4.2"
+    },
+    {
+      "build_stamps": {
+        "build_target": "97f4dcbfc72d07b36bf682623b16080ac369e3966eca480653fe86329ec24c04"
+      },
+      "cache": [
+        {
+          "bytes": 247996,
+          "checksum_stamp_matches": true,
+          "name": "xkbcomp-1.5.0.tar.xz",
+          "sha256": "2ac31f26600776db6d9cd79b3fcd272263faebac7eb85fb2f33c7141b8486060"
+        }
+      ],
+      "package": "xkbcomp",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "d8f983e25354d70f36538c22c6708c1442e538fde7fb663b8ee1cb55063e8f89",
+      "unpacked": "xkbcomp-1.5.0"
+    },
+    {
+      "build_stamps": {
+        "build_target": "af7f39002a664c931a9d24dab0fb81b494faabc0ad6bb37884d93f9d2e9714b0"
+      },
+      "cache": [
+        {
+          "bytes": 953316,
+          "checksum_stamp_matches": true,
+          "name": "xkeyboard-config-2.48.tar.xz",
+          "sha256": "b77041324f0109f77161ee43743fe04baa485866af8460d31e476ad3f7648fd5"
+        }
+      ],
+      "package": "xkeyboard-config",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "431a9d8b15ea44fc660e64eee112a9c02d3f2f35f2b46bd0072d843793a3e361",
+      "unpacked": "xkeyboard-config-2.48"
+    },
+    {
+      "build_stamps": {
+        "build_host": "626f1046dc862e211d0b25d6e43935cc046b5521ca517b58ec34687cd7f85d54"
+      },
+      "cache": [
+        {
+          "bytes": 420923,
+          "checksum_stamp_matches": true,
+          "name": "xmlstarlet-1.6.1.tar.gz",
+          "sha256": "15d838c4f3375332fd95554619179b69e4ec91418a3a5296e7c631b7ed19e7ca"
+        }
+      ],
+      "package": "xmlstarlet",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "f0a592dd8cc9180ebecd2af95efb3ced552dcdaaf09c88e4ec0bd5529936e165",
+      "unpacked": "xmlstarlet-1.6.1"
+    },
+    {
+      "build_stamps": {
+        "build_target": "e9ea5d206c31eafc7eeacfc9eae3f87a1cb2b11b246198fe435c45944b49bf27"
+      },
+      "cache": [
+        {
+          "bytes": 95443,
+          "checksum_stamp_matches": true,
+          "name": "xorg-launch-helper-4.tar.gz",
+          "sha256": "a7f8809a1810212506893ac5c62d8d17fee7a980fb10d59d1bef36f694767be5"
+        }
+      ],
+      "package": "xorg-launch-helper",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "0fa4fd57dce503189d9bb302264c5b3f253655c136e4d7e43ae694ad1debe270",
+      "unpacked": "xorg-launch-helper-4"
+    },
+    {
+      "build_stamps": {
+        "build_target": "68b8d57ae6ec5e86b37c5d71771ca19280ec7d89c13e8f91d75dd31086ce71a7"
+      },
+      "cache": [
+        {
+          "bytes": 766932,
+          "checksum_stamp_matches": true,
+          "name": "xorgproto-2025.1.tar.xz",
+          "sha256": "56898c716c0578df8a2d828c9c3e5c528277705c0484381a81960fe1a67668e8"
+        }
+      ],
+      "package": "xorgproto",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "7e927873c9e67e1589847f8150e824e5e3c0c63b16286e59fad7b860fbedd061",
+      "unpacked": "xorgproto-2025.1"
+    },
+    {
+      "build_stamps": {
+        "build_target": "7ec2b466f2b1cff59de40c201163c2f5ae0376b2a349d0ed1199540d8228c182"
+      },
+      "cache": [
+        {
+          "bytes": 182784,
+          "checksum_stamp_matches": true,
+          "name": "xrandr-1.5.4.tar.xz",
+          "sha256": "2cafccb2aaf2491a4068676117a0d4f90ab307724b96fffc54cd1da953779400"
+        }
+      ],
+      "package": "xrandr",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "025ba01f7bd735be0dfb885c6cc9439ed543ca996127f9ea7aba185d59496483",
+      "unpacked": "xrandr-1.5.4"
+    },
+    {
+      "build_stamps": {
+        "build_target": "eb796778a7e68e9138b98b3aa83d560d58315cea372da9295569c800659d2b16"
+      },
+      "cache": [
+        {
+          "bytes": 1627227,
+          "checksum_stamp_matches": true,
+          "name": "xterm-410.tgz",
+          "sha256": "7ba9fbb303dd3d95d06ca24360d019048d84e5822dc6fe722cd77369bdbf231f"
+        }
+      ],
+      "package": "xterm",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "5166da3aaad9e4294070240ba84bbb538699ca43fcebfa288f428ad7faecbcaf",
+      "unpacked": "xterm-410"
+    },
+    {
+      "build_stamps": {
+        "build_target": "3e26246cff43e89e9e2795f4a4a91255d92c7c9aeb3444396e851cefc2fba0d0"
+      },
+      "cache": [
+        {
+          "bytes": 177156,
+          "checksum_stamp_matches": true,
+          "name": "xtrans-1.6.0.tar.xz",
+          "sha256": "faafea166bf2451a173d9d593352940ec6404145c5d1da5c213423ce4d359e92"
+        }
+      ],
+      "package": "xtrans",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "78e7aa680c4b7f13f8a03bb2aa91b7a5feaded1d2252706e086783fe53e990d4",
+      "unpacked": "xtrans-1.6.0"
+    },
+    {
+      "build_stamps": {
+        "build_target": "b561b4736bad3d89e7a1ed352d34bccd8209af172dca37ad570f207d0e8eac8f"
+      },
+      "cache": [
+        {
+          "bytes": 1306456,
+          "checksum_stamp_matches": true,
+          "name": "xwayland-24.1.13.tar.xz",
+          "sha256": "173aea3d6f79609164c04528e1c8e4c9b60fcd59391c3c9dad4667297d727fb6"
+        }
+      ],
+      "package": "xwayland",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "914cf5e3f083a220412da44cf611bf609f180e01b2baac0fe92712ce10a03b06",
+      "unpacked": "xwayland-24.1.13"
+    },
+    {
+      "build_stamps": {
+        "build_host": "1fd3ada7bcdbb1caa186c808975ee396335505442b579221396899a71568c924"
+      },
+      "cache": [
+        {
+          "bytes": 1147630,
+          "checksum_stamp_matches": true,
+          "name": "xxHash-0.8.3.tar.gz",
+          "sha256": "aae608dfe8213dfd05d909a57718ef82f30722c392344583d3f39050c7f29a80"
+        }
+      ],
+      "package": "xxHash",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "293ec7f0acf939ac4c65fc4b0dd508ac647234169ca38038bafd2413e7c08a9c",
+      "unpacked": "xxHash-0.8.3"
+    },
+    {
+      "build_stamps": {
+        "build_target": "ba66f2d7bae3f996e48e55f1def0179d8635496ca545932977f56c6896cd43c1"
+      },
+      "cache": [
+        {
+          "bytes": 1461872,
+          "checksum_stamp_matches": true,
+          "name": "xz-5.8.1.tar.xz",
+          "sha256": "0b54f79df85912504de0b14aec7971e3f964491af1812d83447005807513cd9e"
+        }
+      ],
+      "package": "xz",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "ee603b1064c54e317276c4c10ffca3d7b8ec7825530c956988b5efc9ffc033b5",
+      "unpacked": "xz-5.8.1"
+    },
+    {
+      "build_stamps": {
+        "build_host": "26df3f148dace6497815089c288db51f8ea7fbc0adc55ec85dc8a751eb4b4ce0",
+        "build_target": "26df3f148dace6497815089c288db51f8ea7fbc0adc55ec85dc8a751eb4b4ce0"
+      },
+      "cache": [
+        {
+          "bytes": 1502830,
+          "checksum_stamp_matches": true,
+          "name": "zlib-1.3.2.tar.gz",
+          "sha256": "bb329a0a2cd0274d05519d61c667c062e06990d72e125ee2dfa8de64f0119d16"
+        }
+      ],
+      "package": "zlib",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "eb217e82c00b7143de637635c5544094ea4033e7b23e0329c2341d16fc3ce9bb",
+      "unpacked": "zlib-1.3.2"
+    },
+    {
+      "build_stamps": {
+        "build_host": "d694761dc810e8a44367df7d0bfc955ee8381580604afcae21ced888f1da3d21",
+        "build_target": "d694761dc810e8a44367df7d0bfc955ee8381580604afcae21ced888f1da3d21"
+      },
+      "cache": [
+        {
+          "bytes": 1862563,
+          "checksum_stamp_matches": true,
+          "name": "zstd-1.5.7.tar.zst",
+          "sha256": "5b331d961d6989dc21bb03397fc7a2a4d86bc65a14adc5ffbbce050354e30fd2"
+        }
+      ],
+      "package": "zstd",
+      "provenance": "matching source-cache input; checksums/git identity verified",
+      "unpack_stamp_sha256": "3cae2a16311244701b17e11c7b3db2a3774136d87bcc0605b0ef40ae38bf7307",
+      "unpacked": "zstd-1.5.7"
+    }
+  ],
+  "schema": 1,
+  "unmatched_cache_packages": [
+    "rocknix-screenshot"
+  ]
+}

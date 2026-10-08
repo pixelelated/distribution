@@ -1,0 +1,37 @@
+{
+  "name": "vm18-x86_64",
+  "tree": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18",
+  "original_inputs": "/workspace/tmp/pixelelated-m7-replacement-18/inputs.json",
+  "original_inputs_sha256": "56328e1756d3269b6d9b348344cebbdf00b8c0f3f4a11d246bca18938b259deb",
+  "bundle": "/workspace/artifacts/pixelelated-candidates/sha256/f557176651026f59bb5931993b12491a6019c0383321fb89fa1a05a596514fe6",
+  "arch": "x86_64",
+  "inventory_owner": "/workspace/tmp/pixelelated-m7-final-inventory-02",
+  "components_path": "/workspace/tmp/pixelelated-m7-final-inventory-02/artifacts/vm18-x86_64/components.json",
+  "components_sha256": "1e61f8cff666b1062bb52d3911c0bd08ff4e2b5201894cfa6fb5428e78a7f221",
+  "source_inventory_path": "/workspace/tmp/pixelelated-m7-final-inventory-02/artifacts/vm18-x86_64/source-inventory.json",
+  "source_inventory_sha256": "9df4c8720d982cac4b506034970c98b7d46cacfd74db8f2379c0d9a95b3fea21",
+  "counts": {
+    "mapped_components": 584,
+    "unpacked_roots": 569,
+    "image_install_stamps": 526,
+    "local_meta_packages": 15
+  },
+  "missing_recipe_license": [
+    "enet",
+    "freej2me-lr",
+    "harfbuzz-icu",
+    "libretro-database",
+    "libspeexdsp",
+    "libxmp-lite",
+    "openbor",
+    "opusfile",
+    "rclone",
+    "retropie-shaders",
+    "slang-shaders",
+    "tailscale",
+    "wildmidi",
+    "zerotier-one"
+  ],
+  "derived_inventory_inputs_sha256": "21d8372b07aa9fc5c08c089843d7f18b371eaf90a9d288c5b87b5eee0acdcc39",
+  "derived_inventory_inputs_retained": "/workspace/tmp/pixelelated-m7-final-inventory-02/artifacts/vm18-x86_64/inventory-inputs.json"
+}

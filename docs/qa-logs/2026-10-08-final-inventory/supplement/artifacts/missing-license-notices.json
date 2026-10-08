@@ -1,0 +1,668 @@
+[
+  {
+    "profile": "vm18-x86_64",
+    "component": "enet",
+    "recipe": "projects/ROCKNIX/packages/network/enet/package.mk",
+    "recipe_sha256": "2177a18156af65060d03b4717d788737b71a93ca41d04867704be721f0e2ed8f",
+    "notice_candidates": {
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/enet-v1.3.18/AUTHORS": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "retained_notice": "notices/e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/enet-v1.3.18/LICENSE": {
+        "sha256": "a29cd246638974da7c6edf423a0a69d4a6f7d759940b7cfa9a2bc3442ac3834c",
+        "retained_notice": "notices/a29cd246638974da7c6edf423a0a69d4a6f7d759940b7cfa9a2bc3442ac3834c"
+      },
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/enet-v1.3.18/docs/license.dox": {
+        "sha256": "5d54b300b7cdd64b99df61ad290567a73799873c3e7dd8e80db1089ed559a570",
+        "retained_notice": "notices/5d54b300b7cdd64b99df61ad290567a73799873c3e7dd8e80db1089ed559a570"
+      }
+    },
+    "disposition": "HOLD for source review; candidate notice presence is not a licence conclusion. Empty candidates require upstream source/notice retrieval."
+  },
+  {
+    "profile": "vm18-x86_64",
+    "component": "freej2me-lr",
+    "recipe": "projects/ROCKNIX/packages/emulators/libretro/freej2me-lr/package.mk",
+    "recipe_sha256": "520fc37465fdbdf27b66d93c7d7eadabeda6be7ff3f2398a51f66cfba4dd696b",
+    "notice_candidates": {
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/freej2me-lr-1.52/LICENSE": {
+        "sha256": "a58fa0122b525f1d9ae531781bfeead1977e9ac88d10fb570e8821d6e4232e85",
+        "retained_notice": "notices/a58fa0122b525f1d9ae531781bfeead1977e9ac88d10fb570e8821d6e4232e85"
+      }
+    },
+    "disposition": "HOLD for source review; candidate notice presence is not a licence conclusion. Empty candidates require upstream source/notice retrieval."
+  },
+  {
+    "profile": "vm18-x86_64",
+    "component": "harfbuzz-icu",
+    "recipe": "projects/ROCKNIX/packages/graphics/harfbuzz-icu/package.mk",
+    "recipe_sha256": "e4408a750ef3afb3a27ab02bbcf243e844df80af5effa832b552c301a58641da",
+    "notice_candidates": {
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/harfbuzz-icu-14.3.0/COPYING": {
+        "sha256": "ba8f810f2455c2f08e2d56bb49b72f37fcf68f1f4fade38977cfd7372050ad64",
+        "retained_notice": "notices/ba8f810f2455c2f08e2d56bb49b72f37fcf68f1f4fade38977cfd7372050ad64"
+      },
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/harfbuzz-icu-14.3.0/AUTHORS": {
+        "sha256": "19bfe8f5ed100636cd24ab0c90a3f71c21d8b02d9ba00719447a0faab364d49f",
+        "retained_notice": "notices/19bfe8f5ed100636cd24ab0c90a3f71c21d8b02d9ba00719447a0faab364d49f"
+      },
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/harfbuzz-icu-14.3.0/test/COPYING": {
+        "sha256": "9b35b8485f69cd298fccbb3c40a827dc06cf1185553bef827903497d2944a8d7",
+        "retained_notice": "notices/9b35b8485f69cd298fccbb3c40a827dc06cf1185553bef827903497d2944a8d7"
+      }
+    },
+    "disposition": "HOLD for source review; candidate notice presence is not a licence conclusion. Empty candidates require upstream source/notice retrieval."
+  },
+  {
+    "profile": "vm18-x86_64",
+    "component": "libretro-database",
+    "recipe": "projects/ROCKNIX/packages/emulators/libretro/libretro-database/package.mk",
+    "recipe_sha256": "70758593870df159adb980a19ac0514ddedc94a3106ce0389b4551a235dac9c6",
+    "notice_candidates": {
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/libretro-database-4de37d2c8042d9d0f608c43006c9b35438c536ce/LICENSE": {
+        "sha256": "23ee78c8bae49cf08ea2f0c84945c66b987ebe4520881fb51b3dad4fb43d07c2",
+        "retained_notice": "notices/23ee78c8bae49cf08ea2f0c84945c66b987ebe4520881fb51b3dad4fb43d07c2"
+      }
+    },
+    "disposition": "HOLD for source review; candidate notice presence is not a licence conclusion. Empty candidates require upstream source/notice retrieval."
+  },
+  {
+    "profile": "vm18-x86_64",
+    "component": "libspeexdsp",
+    "recipe": "projects/ROCKNIX/packages/emulators/libretro/easyrpg-lr/libspeexdsp/package.mk",
+    "recipe_sha256": "7b63a7c647fec0e248ccc388eee4b0a5a90c0dcbdaf083d826dbc31ceb6e3744",
+    "notice_candidates": {
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/libspeexdsp-738e17905e1ca2a1fa932ddd9c2a85d089f4e845/COPYING": {
+        "sha256": "2654a4264b2bfe298dedc508748d140111840c315cc8eb646a3a68c13fa75b01",
+        "retained_notice": "notices/2654a4264b2bfe298dedc508748d140111840c315cc8eb646a3a68c13fa75b01"
+      },
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/libspeexdsp-738e17905e1ca2a1fa932ddd9c2a85d089f4e845/AUTHORS": {
+        "sha256": "6e5a9d92c5f9ccd28fe0b15ad59443fbf435bfc6ab2221f532006d3717ddf642",
+        "retained_notice": "notices/6e5a9d92c5f9ccd28fe0b15ad59443fbf435bfc6ab2221f532006d3717ddf642"
+      }
+    },
+    "disposition": "HOLD for source review; candidate notice presence is not a licence conclusion. Empty candidates require upstream source/notice retrieval."
+  },
+  {
+    "profile": "vm18-x86_64",
+    "component": "libxmp-lite",
+    "recipe": "projects/ROCKNIX/packages/emulators/libretro/easyrpg-lr/libxmp-lite/package.mk",
+    "recipe_sha256": "f146fa955a5afde283d218885d76a0cafff755ddf7c20b483456c8274f3597c7",
+    "notice_candidates": {},
+    "disposition": "HOLD for source review; candidate notice presence is not a licence conclusion. Empty candidates require upstream source/notice retrieval."
+  },
+  {
+    "profile": "vm18-x86_64",
+    "component": "openbor",
+    "recipe": "projects/ROCKNIX/packages/emulators/standalone/openbor/package.mk",
+    "recipe_sha256": "57f31b3d6c2209abd7f247f59b03761bac14a574e50f901c81244848254a1405",
+    "notice_candidates": {
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/openbor-b8303cce992a0db93c3a465df3c943942fe322f8/LICENSE": {
+        "sha256": "b8f3916944f0b5aee216ef7a494820d17ae658336a4680992dc244ebedecf3ea",
+        "retained_notice": "notices/b8f3916944f0b5aee216ef7a494820d17ae658336a4680992dc244ebedecf3ea"
+      },
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/openbor-b8303cce992a0db93c3a465df3c943942fe322f8/engine/LICENSE": {
+        "sha256": "adfc28feba4d32bb3933b29fe55fd0a6aa746084704c3ee71fc3f732706b9aa4",
+        "retained_notice": "notices/adfc28feba4d32bb3933b29fe55fd0a6aa746084704c3ee71fc3f732706b9aa4"
+      },
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/openbor-b8303cce992a0db93c3a465df3c943942fe322f8/tools/LICENSE": {
+        "sha256": "36a6fc65207577c2b1b8094f777ea68c8e0038eae451381ee2455a788516d565",
+        "retained_notice": "notices/36a6fc65207577c2b1b8094f777ea68c8e0038eae451381ee2455a788516d565"
+      }
+    },
+    "disposition": "HOLD for source review; candidate notice presence is not a licence conclusion. Empty candidates require upstream source/notice retrieval."
+  },
+  {
+    "profile": "vm18-x86_64",
+    "component": "opusfile",
+    "recipe": "projects/ROCKNIX/packages/multimedia/opusfile/package.mk",
+    "recipe_sha256": "9006b022bc3b0a91aebe75635b6929ed7c2e105853428e1ab8d55f3c15da7152",
+    "notice_candidates": {
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/opusfile-9d718345ce03b2fad5d7d28e0bcd1cc69ab2b166/COPYING": {
+        "sha256": "0267ae795ab744c4e0f9c45e249440fdf2e75dac8c804f36066b28649bf74aaf",
+        "retained_notice": "notices/0267ae795ab744c4e0f9c45e249440fdf2e75dac8c804f36066b28649bf74aaf"
+      },
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/opusfile-9d718345ce03b2fad5d7d28e0bcd1cc69ab2b166/AUTHORS": {
+        "sha256": "7bafd4ec8a8f284cce7a8c9dab476f141ed0de91f38947c145e49929d0922071",
+        "retained_notice": "notices/7bafd4ec8a8f284cce7a8c9dab476f141ed0de91f38947c145e49929d0922071"
+      }
+    },
+    "disposition": "HOLD for source review; candidate notice presence is not a licence conclusion. Empty candidates require upstream source/notice retrieval."
+  },
+  {
+    "profile": "vm18-x86_64",
+    "component": "rclone",
+    "recipe": "projects/ROCKNIX/packages/network/rclone/package.mk",
+    "recipe_sha256": "898ba776df56460af6fae1b0c55d2d0d609dafee05bad4bb28260a8d6466cd05",
+    "notice_candidates": {},
+    "disposition": "HOLD for source review; candidate notice presence is not a licence conclusion. Empty candidates require upstream source/notice retrieval."
+  },
+  {
+    "profile": "vm18-x86_64",
+    "component": "retropie-shaders",
+    "recipe": "projects/ROCKNIX/packages/emulators/libretro/retropie-shaders/package.mk",
+    "recipe_sha256": "fc57d78e331918853f72046d4238303615a23bb3bddde8326ba5c3fd0fd1ff5a",
+    "notice_candidates": {},
+    "disposition": "HOLD for source review; candidate notice presence is not a licence conclusion. Empty candidates require upstream source/notice retrieval."
+  },
+  {
+    "profile": "vm18-x86_64",
+    "component": "slang-shaders",
+    "recipe": "projects/ROCKNIX/packages/emulators/libretro/slang-shaders/package.mk",
+    "recipe_sha256": "c337d01fcbb9703ca10102438fa5901f8a7f07c60fec7da829e79bf2d4e164f4",
+    "notice_candidates": {},
+    "disposition": "HOLD for source review; candidate notice presence is not a licence conclusion. Empty candidates require upstream source/notice retrieval."
+  },
+  {
+    "profile": "vm18-x86_64",
+    "component": "tailscale",
+    "recipe": "projects/ROCKNIX/packages/network/tailscale/package.mk",
+    "recipe_sha256": "e5b634e444b92102f1e579351cdedc096264144100ffe00e7e5960407341af08",
+    "notice_candidates": {},
+    "disposition": "HOLD for source review; candidate notice presence is not a licence conclusion. Empty candidates require upstream source/notice retrieval."
+  },
+  {
+    "profile": "vm18-x86_64",
+    "component": "wildmidi",
+    "recipe": "projects/ROCKNIX/packages/emulators/libretro/easyrpg-lr/wildmidi/package.mk",
+    "recipe_sha256": "2b685dfc1aa283b5c9da0b40984a2a2a0390ac3b97de2f350f95247a9f759a5e",
+    "notice_candidates": {
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/wildmidi-405ca73/COPYING": {
+        "sha256": "17701a4d4cbe5fc36ada953d75c5bd979e4c9f0672c867b6840f5fb36739979b",
+        "retained_notice": "notices/17701a4d4cbe5fc36ada953d75c5bd979e4c9f0672c867b6840f5fb36739979b"
+      }
+    },
+    "disposition": "HOLD for source review; candidate notice presence is not a licence conclusion. Empty candidates require upstream source/notice retrieval."
+  },
+  {
+    "profile": "vm18-x86_64",
+    "component": "zerotier-one",
+    "recipe": "projects/ROCKNIX/packages/network/zerotier-one/package.mk",
+    "recipe_sha256": "317a9542f4c7d470fa22b220b721cd57fc1dd4067cf1da0d506693e9238877c5",
+    "notice_candidates": {
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/zerotier-one-1.16.0/LICENSE-MPL.txt": {
+        "sha256": "1f256ecad192880510e84ad60474eab7589218784b9a50bc7ceee34c2b91f1d5",
+        "retained_notice": "notices/1f256ecad192880510e84ad60474eab7589218784b9a50bc7ceee34c2b91f1d5"
+      },
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/zerotier-one-1.16.0/LICENSE.txt": {
+        "sha256": "18797d9ced049ddab9a4685e89acbe95de08efdf5eedaf82e870d63f6a3ccc7f",
+        "retained_notice": "notices/18797d9ced049ddab9a4685e89acbe95de08efdf5eedaf82e870d63f6a3ccc7f"
+      },
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/zerotier-one-1.16.0/nonfree/LICENSE.md": {
+        "sha256": "fc81b5fefa99aa10a73a8c4ba73b4779a0363134040259efa1966e0ca0b01037",
+        "retained_notice": "notices/fc81b5fefa99aa10a73a8c4ba73b4779a0363134040259efa1966e0ca0b01037"
+      },
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/zerotier-one-1.16.0/debian/copyright": {
+        "sha256": "e9627e36b976459bd06f8db83f412b0888c082c572350afbe789391f6f6a017d",
+        "retained_notice": "notices/e9627e36b976459bd06f8db83f412b0888c082c572350afbe789391f6f6a017d"
+      }
+    },
+    "disposition": "HOLD for source review; candidate notice presence is not a licence conclusion. Empty candidates require upstream source/notice retrieval."
+  },
+  {
+    "profile": "h70002-arm",
+    "component": "opusfile",
+    "recipe": "projects/ROCKNIX/packages/multimedia/opusfile/package.mk",
+    "recipe_sha256": "9006b022bc3b0a91aebe75635b6929ed7c2e105853428e1ab8d55f3c15da7152",
+    "notice_candidates": {
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02/build.pixelelated-H700.arm/build/opusfile-9d718345ce03b2fad5d7d28e0bcd1cc69ab2b166/COPYING": {
+        "sha256": "0267ae795ab744c4e0f9c45e249440fdf2e75dac8c804f36066b28649bf74aaf",
+        "retained_notice": "notices/0267ae795ab744c4e0f9c45e249440fdf2e75dac8c804f36066b28649bf74aaf"
+      },
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02/build.pixelelated-H700.arm/build/opusfile-9d718345ce03b2fad5d7d28e0bcd1cc69ab2b166/AUTHORS": {
+        "sha256": "7bafd4ec8a8f284cce7a8c9dab476f141ed0de91f38947c145e49929d0922071",
+        "retained_notice": "notices/7bafd4ec8a8f284cce7a8c9dab476f141ed0de91f38947c145e49929d0922071"
+      }
+    },
+    "disposition": "HOLD for source review; candidate notice presence is not a licence conclusion. Empty candidates require upstream source/notice retrieval."
+  },
+  {
+    "profile": "sm855003-arm",
+    "component": "opusfile",
+    "recipe": "projects/ROCKNIX/packages/multimedia/opusfile/package.mk",
+    "recipe_sha256": "9006b022bc3b0a91aebe75635b6929ed7c2e105853428e1ab8d55f3c15da7152",
+    "notice_candidates": {
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02/build.pixelelated-SM8550.arm/build/opusfile-9d718345ce03b2fad5d7d28e0bcd1cc69ab2b166/COPYING": {
+        "sha256": "0267ae795ab744c4e0f9c45e249440fdf2e75dac8c804f36066b28649bf74aaf",
+        "retained_notice": "notices/0267ae795ab744c4e0f9c45e249440fdf2e75dac8c804f36066b28649bf74aaf"
+      },
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02/build.pixelelated-SM8550.arm/build/opusfile-9d718345ce03b2fad5d7d28e0bcd1cc69ab2b166/AUTHORS": {
+        "sha256": "7bafd4ec8a8f284cce7a8c9dab476f141ed0de91f38947c145e49929d0922071",
+        "retained_notice": "notices/7bafd4ec8a8f284cce7a8c9dab476f141ed0de91f38947c145e49929d0922071"
+      }
+    },
+    "disposition": "HOLD for source review; candidate notice presence is not a licence conclusion. Empty candidates require upstream source/notice retrieval."
+  },
+  {
+    "profile": "h70002-aarch64",
+    "component": "common-shaders",
+    "recipe": "projects/ROCKNIX/packages/emulators/libretro/common-shaders/package.mk",
+    "recipe_sha256": "5703f0570716b74aac4b3c4df1bb92b3cfc7346cdbc62f99d22cae57ef5ffa06",
+    "notice_candidates": {},
+    "disposition": "HOLD for source review; candidate notice presence is not a licence conclusion. Empty candidates require upstream source/notice retrieval."
+  },
+  {
+    "profile": "h70002-aarch64",
+    "component": "enet",
+    "recipe": "projects/ROCKNIX/packages/network/enet/package.mk",
+    "recipe_sha256": "2177a18156af65060d03b4717d788737b71a93ca41d04867704be721f0e2ed8f",
+    "notice_candidates": {
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02/build.pixelelated-H700.aarch64/build/enet-v1.3.18/AUTHORS": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "retained_notice": "notices/e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02/build.pixelelated-H700.aarch64/build/enet-v1.3.18/LICENSE": {
+        "sha256": "a29cd246638974da7c6edf423a0a69d4a6f7d759940b7cfa9a2bc3442ac3834c",
+        "retained_notice": "notices/a29cd246638974da7c6edf423a0a69d4a6f7d759940b7cfa9a2bc3442ac3834c"
+      },
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02/build.pixelelated-H700.aarch64/build/enet-v1.3.18/docs/license.dox": {
+        "sha256": "5d54b300b7cdd64b99df61ad290567a73799873c3e7dd8e80db1089ed559a570",
+        "retained_notice": "notices/5d54b300b7cdd64b99df61ad290567a73799873c3e7dd8e80db1089ed559a570"
+      }
+    },
+    "disposition": "HOLD for source review; candidate notice presence is not a licence conclusion. Empty candidates require upstream source/notice retrieval."
+  },
+  {
+    "profile": "h70002-aarch64",
+    "component": "freej2me-lr",
+    "recipe": "projects/ROCKNIX/packages/emulators/libretro/freej2me-lr/package.mk",
+    "recipe_sha256": "520fc37465fdbdf27b66d93c7d7eadabeda6be7ff3f2398a51f66cfba4dd696b",
+    "notice_candidates": {
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02/build.pixelelated-H700.aarch64/build/freej2me-lr-1.52/LICENSE": {
+        "sha256": "a58fa0122b525f1d9ae531781bfeead1977e9ac88d10fb570e8821d6e4232e85",
+        "retained_notice": "notices/a58fa0122b525f1d9ae531781bfeead1977e9ac88d10fb570e8821d6e4232e85"
+      }
+    },
+    "disposition": "HOLD for source review; candidate notice presence is not a licence conclusion. Empty candidates require upstream source/notice retrieval."
+  },
+  {
+    "profile": "h70002-aarch64",
+    "component": "glsl-shaders",
+    "recipe": "projects/ROCKNIX/packages/emulators/libretro/glsl-shaders/package.mk",
+    "recipe_sha256": "d663befa5076a85a66988207ae9be1a0df025d931c942b2dac4a4afc6f17a82f",
+    "notice_candidates": {
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02/build.pixelelated-H700.aarch64/build/glsl-shaders-4f4eb801b2dbcaed0a9669a9deec1a098f3623d8/nnedi3/LICENSE": {
+        "sha256": "da7eabb7bafdf7d3ae5e9f223aa5bdc1eece45ac569dc21b3b037520b4464768",
+        "retained_notice": "notices/da7eabb7bafdf7d3ae5e9f223aa5bdc1eece45ac569dc21b3b037520b4464768"
+      }
+    },
+    "disposition": "HOLD for source review; candidate notice presence is not a licence conclusion. Empty candidates require upstream source/notice retrieval."
+  },
+  {
+    "profile": "h70002-aarch64",
+    "component": "harfbuzz-icu",
+    "recipe": "projects/ROCKNIX/packages/graphics/harfbuzz-icu/package.mk",
+    "recipe_sha256": "e4408a750ef3afb3a27ab02bbcf243e844df80af5effa832b552c301a58641da",
+    "notice_candidates": {
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02/build.pixelelated-H700.aarch64/build/harfbuzz-icu-14.3.0/COPYING": {
+        "sha256": "ba8f810f2455c2f08e2d56bb49b72f37fcf68f1f4fade38977cfd7372050ad64",
+        "retained_notice": "notices/ba8f810f2455c2f08e2d56bb49b72f37fcf68f1f4fade38977cfd7372050ad64"
+      },
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02/build.pixelelated-H700.aarch64/build/harfbuzz-icu-14.3.0/AUTHORS": {
+        "sha256": "19bfe8f5ed100636cd24ab0c90a3f71c21d8b02d9ba00719447a0faab364d49f",
+        "retained_notice": "notices/19bfe8f5ed100636cd24ab0c90a3f71c21d8b02d9ba00719447a0faab364d49f"
+      },
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02/build.pixelelated-H700.aarch64/build/harfbuzz-icu-14.3.0/test/COPYING": {
+        "sha256": "9b35b8485f69cd298fccbb3c40a827dc06cf1185553bef827903497d2944a8d7",
+        "retained_notice": "notices/9b35b8485f69cd298fccbb3c40a827dc06cf1185553bef827903497d2944a8d7"
+      }
+    },
+    "disposition": "HOLD for source review; candidate notice presence is not a licence conclusion. Empty candidates require upstream source/notice retrieval."
+  },
+  {
+    "profile": "h70002-aarch64",
+    "component": "libretro-database",
+    "recipe": "projects/ROCKNIX/packages/emulators/libretro/libretro-database/package.mk",
+    "recipe_sha256": "70758593870df159adb980a19ac0514ddedc94a3106ce0389b4551a235dac9c6",
+    "notice_candidates": {
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02/build.pixelelated-H700.aarch64/build/libretro-database-4de37d2c8042d9d0f608c43006c9b35438c536ce/LICENSE": {
+        "sha256": "23ee78c8bae49cf08ea2f0c84945c66b987ebe4520881fb51b3dad4fb43d07c2",
+        "retained_notice": "notices/23ee78c8bae49cf08ea2f0c84945c66b987ebe4520881fb51b3dad4fb43d07c2"
+      }
+    },
+    "disposition": "HOLD for source review; candidate notice presence is not a licence conclusion. Empty candidates require upstream source/notice retrieval."
+  },
+  {
+    "profile": "h70002-aarch64",
+    "component": "libspeexdsp",
+    "recipe": "projects/ROCKNIX/packages/emulators/libretro/easyrpg-lr/libspeexdsp/package.mk",
+    "recipe_sha256": "7b63a7c647fec0e248ccc388eee4b0a5a90c0dcbdaf083d826dbc31ceb6e3744",
+    "notice_candidates": {
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02/build.pixelelated-H700.aarch64/build/libspeexdsp-738e17905e1ca2a1fa932ddd9c2a85d089f4e845/COPYING": {
+        "sha256": "2654a4264b2bfe298dedc508748d140111840c315cc8eb646a3a68c13fa75b01",
+        "retained_notice": "notices/2654a4264b2bfe298dedc508748d140111840c315cc8eb646a3a68c13fa75b01"
+      },
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02/build.pixelelated-H700.aarch64/build/libspeexdsp-738e17905e1ca2a1fa932ddd9c2a85d089f4e845/AUTHORS": {
+        "sha256": "6e5a9d92c5f9ccd28fe0b15ad59443fbf435bfc6ab2221f532006d3717ddf642",
+        "retained_notice": "notices/6e5a9d92c5f9ccd28fe0b15ad59443fbf435bfc6ab2221f532006d3717ddf642"
+      }
+    },
+    "disposition": "HOLD for source review; candidate notice presence is not a licence conclusion. Empty candidates require upstream source/notice retrieval."
+  },
+  {
+    "profile": "h70002-aarch64",
+    "component": "libxmp-lite",
+    "recipe": "projects/ROCKNIX/packages/emulators/libretro/easyrpg-lr/libxmp-lite/package.mk",
+    "recipe_sha256": "f146fa955a5afde283d218885d76a0cafff755ddf7c20b483456c8274f3597c7",
+    "notice_candidates": {},
+    "disposition": "HOLD for source review; candidate notice presence is not a licence conclusion. Empty candidates require upstream source/notice retrieval."
+  },
+  {
+    "profile": "h70002-aarch64",
+    "component": "openbor",
+    "recipe": "projects/ROCKNIX/packages/emulators/standalone/openbor/package.mk",
+    "recipe_sha256": "57f31b3d6c2209abd7f247f59b03761bac14a574e50f901c81244848254a1405",
+    "notice_candidates": {
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02/build.pixelelated-H700.aarch64/build/openbor-b8303cce992a0db93c3a465df3c943942fe322f8/LICENSE": {
+        "sha256": "b8f3916944f0b5aee216ef7a494820d17ae658336a4680992dc244ebedecf3ea",
+        "retained_notice": "notices/b8f3916944f0b5aee216ef7a494820d17ae658336a4680992dc244ebedecf3ea"
+      },
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02/build.pixelelated-H700.aarch64/build/openbor-b8303cce992a0db93c3a465df3c943942fe322f8/engine/LICENSE": {
+        "sha256": "adfc28feba4d32bb3933b29fe55fd0a6aa746084704c3ee71fc3f732706b9aa4",
+        "retained_notice": "notices/adfc28feba4d32bb3933b29fe55fd0a6aa746084704c3ee71fc3f732706b9aa4"
+      },
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02/build.pixelelated-H700.aarch64/build/openbor-b8303cce992a0db93c3a465df3c943942fe322f8/tools/LICENSE": {
+        "sha256": "36a6fc65207577c2b1b8094f777ea68c8e0038eae451381ee2455a788516d565",
+        "retained_notice": "notices/36a6fc65207577c2b1b8094f777ea68c8e0038eae451381ee2455a788516d565"
+      }
+    },
+    "disposition": "HOLD for source review; candidate notice presence is not a licence conclusion. Empty candidates require upstream source/notice retrieval."
+  },
+  {
+    "profile": "h70002-aarch64",
+    "component": "opusfile",
+    "recipe": "projects/ROCKNIX/packages/multimedia/opusfile/package.mk",
+    "recipe_sha256": "9006b022bc3b0a91aebe75635b6929ed7c2e105853428e1ab8d55f3c15da7152",
+    "notice_candidates": {
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02/build.pixelelated-H700.aarch64/build/opusfile-9d718345ce03b2fad5d7d28e0bcd1cc69ab2b166/COPYING": {
+        "sha256": "0267ae795ab744c4e0f9c45e249440fdf2e75dac8c804f36066b28649bf74aaf",
+        "retained_notice": "notices/0267ae795ab744c4e0f9c45e249440fdf2e75dac8c804f36066b28649bf74aaf"
+      },
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02/build.pixelelated-H700.aarch64/build/opusfile-9d718345ce03b2fad5d7d28e0bcd1cc69ab2b166/AUTHORS": {
+        "sha256": "7bafd4ec8a8f284cce7a8c9dab476f141ed0de91f38947c145e49929d0922071",
+        "retained_notice": "notices/7bafd4ec8a8f284cce7a8c9dab476f141ed0de91f38947c145e49929d0922071"
+      }
+    },
+    "disposition": "HOLD for source review; candidate notice presence is not a licence conclusion. Empty candidates require upstream source/notice retrieval."
+  },
+  {
+    "profile": "h70002-aarch64",
+    "component": "rclone",
+    "recipe": "projects/ROCKNIX/packages/network/rclone/package.mk",
+    "recipe_sha256": "898ba776df56460af6fae1b0c55d2d0d609dafee05bad4bb28260a8d6466cd05",
+    "notice_candidates": {},
+    "disposition": "HOLD for source review; candidate notice presence is not a licence conclusion. Empty candidates require upstream source/notice retrieval."
+  },
+  {
+    "profile": "h70002-aarch64",
+    "component": "retropie-shaders",
+    "recipe": "projects/ROCKNIX/packages/emulators/libretro/retropie-shaders/package.mk",
+    "recipe_sha256": "fc57d78e331918853f72046d4238303615a23bb3bddde8326ba5c3fd0fd1ff5a",
+    "notice_candidates": {},
+    "disposition": "HOLD for source review; candidate notice presence is not a licence conclusion. Empty candidates require upstream source/notice retrieval."
+  },
+  {
+    "profile": "h70002-aarch64",
+    "component": "slang-shaders",
+    "recipe": "projects/ROCKNIX/packages/emulators/libretro/slang-shaders/package.mk",
+    "recipe_sha256": "c337d01fcbb9703ca10102438fa5901f8a7f07c60fec7da829e79bf2d4e164f4",
+    "notice_candidates": {},
+    "disposition": "HOLD for source review; candidate notice presence is not a licence conclusion. Empty candidates require upstream source/notice retrieval."
+  },
+  {
+    "profile": "h70002-aarch64",
+    "component": "tailscale",
+    "recipe": "projects/ROCKNIX/packages/network/tailscale/package.mk",
+    "recipe_sha256": "e5b634e444b92102f1e579351cdedc096264144100ffe00e7e5960407341af08",
+    "notice_candidates": {},
+    "disposition": "HOLD for source review; candidate notice presence is not a licence conclusion. Empty candidates require upstream source/notice retrieval."
+  },
+  {
+    "profile": "h70002-aarch64",
+    "component": "wildmidi",
+    "recipe": "projects/ROCKNIX/packages/emulators/libretro/easyrpg-lr/wildmidi/package.mk",
+    "recipe_sha256": "2b685dfc1aa283b5c9da0b40984a2a2a0390ac3b97de2f350f95247a9f759a5e",
+    "notice_candidates": {
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02/build.pixelelated-H700.aarch64/build/wildmidi-405ca73/COPYING": {
+        "sha256": "17701a4d4cbe5fc36ada953d75c5bd979e4c9f0672c867b6840f5fb36739979b",
+        "retained_notice": "notices/17701a4d4cbe5fc36ada953d75c5bd979e4c9f0672c867b6840f5fb36739979b"
+      }
+    },
+    "disposition": "HOLD for source review; candidate notice presence is not a licence conclusion. Empty candidates require upstream source/notice retrieval."
+  },
+  {
+    "profile": "h70002-aarch64",
+    "component": "zerotier-one",
+    "recipe": "projects/ROCKNIX/packages/network/zerotier-one/package.mk",
+    "recipe_sha256": "317a9542f4c7d470fa22b220b721cd57fc1dd4067cf1da0d506693e9238877c5",
+    "notice_candidates": {
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02/build.pixelelated-H700.aarch64/build/zerotier-one-1.16.0/LICENSE-MPL.txt": {
+        "sha256": "1f256ecad192880510e84ad60474eab7589218784b9a50bc7ceee34c2b91f1d5",
+        "retained_notice": "notices/1f256ecad192880510e84ad60474eab7589218784b9a50bc7ceee34c2b91f1d5"
+      },
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02/build.pixelelated-H700.aarch64/build/zerotier-one-1.16.0/LICENSE.txt": {
+        "sha256": "18797d9ced049ddab9a4685e89acbe95de08efdf5eedaf82e870d63f6a3ccc7f",
+        "retained_notice": "notices/18797d9ced049ddab9a4685e89acbe95de08efdf5eedaf82e870d63f6a3ccc7f"
+      },
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02/build.pixelelated-H700.aarch64/build/zerotier-one-1.16.0/nonfree/LICENSE.md": {
+        "sha256": "fc81b5fefa99aa10a73a8c4ba73b4779a0363134040259efa1966e0ca0b01037",
+        "retained_notice": "notices/fc81b5fefa99aa10a73a8c4ba73b4779a0363134040259efa1966e0ca0b01037"
+      },
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02/build.pixelelated-H700.aarch64/build/zerotier-one-1.16.0/debian/copyright": {
+        "sha256": "e9627e36b976459bd06f8db83f412b0888c082c572350afbe789391f6f6a017d",
+        "retained_notice": "notices/e9627e36b976459bd06f8db83f412b0888c082c572350afbe789391f6f6a017d"
+      }
+    },
+    "disposition": "HOLD for source review; candidate notice presence is not a licence conclusion. Empty candidates require upstream source/notice retrieval."
+  },
+  {
+    "profile": "sm855003-aarch64",
+    "component": "enet",
+    "recipe": "projects/ROCKNIX/packages/network/enet/package.mk",
+    "recipe_sha256": "2177a18156af65060d03b4717d788737b71a93ca41d04867704be721f0e2ed8f",
+    "notice_candidates": {
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02/build.pixelelated-SM8550.aarch64/build/enet-v1.3.18/AUTHORS": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "retained_notice": "notices/e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02/build.pixelelated-SM8550.aarch64/build/enet-v1.3.18/LICENSE": {
+        "sha256": "a29cd246638974da7c6edf423a0a69d4a6f7d759940b7cfa9a2bc3442ac3834c",
+        "retained_notice": "notices/a29cd246638974da7c6edf423a0a69d4a6f7d759940b7cfa9a2bc3442ac3834c"
+      },
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02/build.pixelelated-SM8550.aarch64/build/enet-v1.3.18/docs/license.dox": {
+        "sha256": "5d54b300b7cdd64b99df61ad290567a73799873c3e7dd8e80db1089ed559a570",
+        "retained_notice": "notices/5d54b300b7cdd64b99df61ad290567a73799873c3e7dd8e80db1089ed559a570"
+      }
+    },
+    "disposition": "HOLD for source review; candidate notice presence is not a licence conclusion. Empty candidates require upstream source/notice retrieval."
+  },
+  {
+    "profile": "sm855003-aarch64",
+    "component": "freej2me-lr",
+    "recipe": "projects/ROCKNIX/packages/emulators/libretro/freej2me-lr/package.mk",
+    "recipe_sha256": "520fc37465fdbdf27b66d93c7d7eadabeda6be7ff3f2398a51f66cfba4dd696b",
+    "notice_candidates": {
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02/build.pixelelated-SM8550.aarch64/build/freej2me-lr-1.52/LICENSE": {
+        "sha256": "a58fa0122b525f1d9ae531781bfeead1977e9ac88d10fb570e8821d6e4232e85",
+        "retained_notice": "notices/a58fa0122b525f1d9ae531781bfeead1977e9ac88d10fb570e8821d6e4232e85"
+      }
+    },
+    "disposition": "HOLD for source review; candidate notice presence is not a licence conclusion. Empty candidates require upstream source/notice retrieval."
+  },
+  {
+    "profile": "sm855003-aarch64",
+    "component": "harfbuzz-icu",
+    "recipe": "projects/ROCKNIX/packages/graphics/harfbuzz-icu/package.mk",
+    "recipe_sha256": "e4408a750ef3afb3a27ab02bbcf243e844df80af5effa832b552c301a58641da",
+    "notice_candidates": {
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02/build.pixelelated-SM8550.aarch64/build/harfbuzz-icu-14.3.0/COPYING": {
+        "sha256": "ba8f810f2455c2f08e2d56bb49b72f37fcf68f1f4fade38977cfd7372050ad64",
+        "retained_notice": "notices/ba8f810f2455c2f08e2d56bb49b72f37fcf68f1f4fade38977cfd7372050ad64"
+      },
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02/build.pixelelated-SM8550.aarch64/build/harfbuzz-icu-14.3.0/AUTHORS": {
+        "sha256": "19bfe8f5ed100636cd24ab0c90a3f71c21d8b02d9ba00719447a0faab364d49f",
+        "retained_notice": "notices/19bfe8f5ed100636cd24ab0c90a3f71c21d8b02d9ba00719447a0faab364d49f"
+      },
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02/build.pixelelated-SM8550.aarch64/build/harfbuzz-icu-14.3.0/test/COPYING": {
+        "sha256": "9b35b8485f69cd298fccbb3c40a827dc06cf1185553bef827903497d2944a8d7",
+        "retained_notice": "notices/9b35b8485f69cd298fccbb3c40a827dc06cf1185553bef827903497d2944a8d7"
+      }
+    },
+    "disposition": "HOLD for source review; candidate notice presence is not a licence conclusion. Empty candidates require upstream source/notice retrieval."
+  },
+  {
+    "profile": "sm855003-aarch64",
+    "component": "libretro-database",
+    "recipe": "projects/ROCKNIX/packages/emulators/libretro/libretro-database/package.mk",
+    "recipe_sha256": "70758593870df159adb980a19ac0514ddedc94a3106ce0389b4551a235dac9c6",
+    "notice_candidates": {
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02/build.pixelelated-SM8550.aarch64/build/libretro-database-4de37d2c8042d9d0f608c43006c9b35438c536ce/LICENSE": {
+        "sha256": "23ee78c8bae49cf08ea2f0c84945c66b987ebe4520881fb51b3dad4fb43d07c2",
+        "retained_notice": "notices/23ee78c8bae49cf08ea2f0c84945c66b987ebe4520881fb51b3dad4fb43d07c2"
+      }
+    },
+    "disposition": "HOLD for source review; candidate notice presence is not a licence conclusion. Empty candidates require upstream source/notice retrieval."
+  },
+  {
+    "profile": "sm855003-aarch64",
+    "component": "libspeexdsp",
+    "recipe": "projects/ROCKNIX/packages/emulators/libretro/easyrpg-lr/libspeexdsp/package.mk",
+    "recipe_sha256": "7b63a7c647fec0e248ccc388eee4b0a5a90c0dcbdaf083d826dbc31ceb6e3744",
+    "notice_candidates": {
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02/build.pixelelated-SM8550.aarch64/build/libspeexdsp-738e17905e1ca2a1fa932ddd9c2a85d089f4e845/COPYING": {
+        "sha256": "2654a4264b2bfe298dedc508748d140111840c315cc8eb646a3a68c13fa75b01",
+        "retained_notice": "notices/2654a4264b2bfe298dedc508748d140111840c315cc8eb646a3a68c13fa75b01"
+      },
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02/build.pixelelated-SM8550.aarch64/build/libspeexdsp-738e17905e1ca2a1fa932ddd9c2a85d089f4e845/AUTHORS": {
+        "sha256": "6e5a9d92c5f9ccd28fe0b15ad59443fbf435bfc6ab2221f532006d3717ddf642",
+        "retained_notice": "notices/6e5a9d92c5f9ccd28fe0b15ad59443fbf435bfc6ab2221f532006d3717ddf642"
+      }
+    },
+    "disposition": "HOLD for source review; candidate notice presence is not a licence conclusion. Empty candidates require upstream source/notice retrieval."
+  },
+  {
+    "profile": "sm855003-aarch64",
+    "component": "libxmp-lite",
+    "recipe": "projects/ROCKNIX/packages/emulators/libretro/easyrpg-lr/libxmp-lite/package.mk",
+    "recipe_sha256": "f146fa955a5afde283d218885d76a0cafff755ddf7c20b483456c8274f3597c7",
+    "notice_candidates": {},
+    "disposition": "HOLD for source review; candidate notice presence is not a licence conclusion. Empty candidates require upstream source/notice retrieval."
+  },
+  {
+    "profile": "sm855003-aarch64",
+    "component": "openbor",
+    "recipe": "projects/ROCKNIX/packages/emulators/standalone/openbor/package.mk",
+    "recipe_sha256": "57f31b3d6c2209abd7f247f59b03761bac14a574e50f901c81244848254a1405",
+    "notice_candidates": {
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02/build.pixelelated-SM8550.aarch64/build/openbor-b8303cce992a0db93c3a465df3c943942fe322f8/LICENSE": {
+        "sha256": "b8f3916944f0b5aee216ef7a494820d17ae658336a4680992dc244ebedecf3ea",
+        "retained_notice": "notices/b8f3916944f0b5aee216ef7a494820d17ae658336a4680992dc244ebedecf3ea"
+      },
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02/build.pixelelated-SM8550.aarch64/build/openbor-b8303cce992a0db93c3a465df3c943942fe322f8/engine/LICENSE": {
+        "sha256": "adfc28feba4d32bb3933b29fe55fd0a6aa746084704c3ee71fc3f732706b9aa4",
+        "retained_notice": "notices/adfc28feba4d32bb3933b29fe55fd0a6aa746084704c3ee71fc3f732706b9aa4"
+      },
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02/build.pixelelated-SM8550.aarch64/build/openbor-b8303cce992a0db93c3a465df3c943942fe322f8/tools/LICENSE": {
+        "sha256": "36a6fc65207577c2b1b8094f777ea68c8e0038eae451381ee2455a788516d565",
+        "retained_notice": "notices/36a6fc65207577c2b1b8094f777ea68c8e0038eae451381ee2455a788516d565"
+      }
+    },
+    "disposition": "HOLD for source review; candidate notice presence is not a licence conclusion. Empty candidates require upstream source/notice retrieval."
+  },
+  {
+    "profile": "sm855003-aarch64",
+    "component": "opusfile",
+    "recipe": "projects/ROCKNIX/packages/multimedia/opusfile/package.mk",
+    "recipe_sha256": "9006b022bc3b0a91aebe75635b6929ed7c2e105853428e1ab8d55f3c15da7152",
+    "notice_candidates": {
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02/build.pixelelated-SM8550.aarch64/build/opusfile-9d718345ce03b2fad5d7d28e0bcd1cc69ab2b166/COPYING": {
+        "sha256": "0267ae795ab744c4e0f9c45e249440fdf2e75dac8c804f36066b28649bf74aaf",
+        "retained_notice": "notices/0267ae795ab744c4e0f9c45e249440fdf2e75dac8c804f36066b28649bf74aaf"
+      },
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02/build.pixelelated-SM8550.aarch64/build/opusfile-9d718345ce03b2fad5d7d28e0bcd1cc69ab2b166/AUTHORS": {
+        "sha256": "7bafd4ec8a8f284cce7a8c9dab476f141ed0de91f38947c145e49929d0922071",
+        "retained_notice": "notices/7bafd4ec8a8f284cce7a8c9dab476f141ed0de91f38947c145e49929d0922071"
+      }
+    },
+    "disposition": "HOLD for source review; candidate notice presence is not a licence conclusion. Empty candidates require upstream source/notice retrieval."
+  },
+  {
+    "profile": "sm855003-aarch64",
+    "component": "rclone",
+    "recipe": "projects/ROCKNIX/packages/network/rclone/package.mk",
+    "recipe_sha256": "898ba776df56460af6fae1b0c55d2d0d609dafee05bad4bb28260a8d6466cd05",
+    "notice_candidates": {},
+    "disposition": "HOLD for source review; candidate notice presence is not a licence conclusion. Empty candidates require upstream source/notice retrieval."
+  },
+  {
+    "profile": "sm855003-aarch64",
+    "component": "retropie-shaders",
+    "recipe": "projects/ROCKNIX/packages/emulators/libretro/retropie-shaders/package.mk",
+    "recipe_sha256": "fc57d78e331918853f72046d4238303615a23bb3bddde8326ba5c3fd0fd1ff5a",
+    "notice_candidates": {},
+    "disposition": "HOLD for source review; candidate notice presence is not a licence conclusion. Empty candidates require upstream source/notice retrieval."
+  },
+  {
+    "profile": "sm855003-aarch64",
+    "component": "rocknix-abl",
+    "recipe": "projects/ROCKNIX/packages/tools/rocknix-abl/package.mk",
+    "recipe_sha256": "de789f38a8a9067cf5f30b0aa2b6af6cdf722756527a60848275d3e582da61dd",
+    "notice_candidates": {},
+    "disposition": "HOLD for source review; candidate notice presence is not a licence conclusion. Empty candidates require upstream source/notice retrieval."
+  },
+  {
+    "profile": "sm855003-aarch64",
+    "component": "slang-shaders",
+    "recipe": "projects/ROCKNIX/packages/emulators/libretro/slang-shaders/package.mk",
+    "recipe_sha256": "c337d01fcbb9703ca10102438fa5901f8a7f07c60fec7da829e79bf2d4e164f4",
+    "notice_candidates": {},
+    "disposition": "HOLD for source review; candidate notice presence is not a licence conclusion. Empty candidates require upstream source/notice retrieval."
+  },
+  {
+    "profile": "sm855003-aarch64",
+    "component": "tailscale",
+    "recipe": "projects/ROCKNIX/packages/network/tailscale/package.mk",
+    "recipe_sha256": "e5b634e444b92102f1e579351cdedc096264144100ffe00e7e5960407341af08",
+    "notice_candidates": {},
+    "disposition": "HOLD for source review; candidate notice presence is not a licence conclusion. Empty candidates require upstream source/notice retrieval."
+  },
+  {
+    "profile": "sm855003-aarch64",
+    "component": "wildmidi",
+    "recipe": "projects/ROCKNIX/packages/emulators/libretro/easyrpg-lr/wildmidi/package.mk",
+    "recipe_sha256": "2b685dfc1aa283b5c9da0b40984a2a2a0390ac3b97de2f350f95247a9f759a5e",
+    "notice_candidates": {
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02/build.pixelelated-SM8550.aarch64/build/wildmidi-405ca73/COPYING": {
+        "sha256": "17701a4d4cbe5fc36ada953d75c5bd979e4c9f0672c867b6840f5fb36739979b",
+        "retained_notice": "notices/17701a4d4cbe5fc36ada953d75c5bd979e4c9f0672c867b6840f5fb36739979b"
+      }
+    },
+    "disposition": "HOLD for source review; candidate notice presence is not a licence conclusion. Empty candidates require upstream source/notice retrieval."
+  },
+  {
+    "profile": "sm855003-aarch64",
+    "component": "zerotier-one",
+    "recipe": "projects/ROCKNIX/packages/network/zerotier-one/package.mk",
+    "recipe_sha256": "317a9542f4c7d470fa22b220b721cd57fc1dd4067cf1da0d506693e9238877c5",
+    "notice_candidates": {
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02/build.pixelelated-SM8550.aarch64/build/zerotier-one-1.16.0/LICENSE-MPL.txt": {
+        "sha256": "1f256ecad192880510e84ad60474eab7589218784b9a50bc7ceee34c2b91f1d5",
+        "retained_notice": "notices/1f256ecad192880510e84ad60474eab7589218784b9a50bc7ceee34c2b91f1d5"
+      },
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02/build.pixelelated-SM8550.aarch64/build/zerotier-one-1.16.0/LICENSE.txt": {
+        "sha256": "18797d9ced049ddab9a4685e89acbe95de08efdf5eedaf82e870d63f6a3ccc7f",
+        "retained_notice": "notices/18797d9ced049ddab9a4685e89acbe95de08efdf5eedaf82e870d63f6a3ccc7f"
+      },
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02/build.pixelelated-SM8550.aarch64/build/zerotier-one-1.16.0/nonfree/LICENSE.md": {
+        "sha256": "fc81b5fefa99aa10a73a8c4ba73b4779a0363134040259efa1966e0ca0b01037",
+        "retained_notice": "notices/fc81b5fefa99aa10a73a8c4ba73b4779a0363134040259efa1966e0ca0b01037"
+      },
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02/build.pixelelated-SM8550.aarch64/build/zerotier-one-1.16.0/debian/copyright": {
+        "sha256": "e9627e36b976459bd06f8db83f412b0888c082c572350afbe789391f6f6a017d",
+        "retained_notice": "notices/e9627e36b976459bd06f8db83f412b0888c082c572350afbe789391f6f6a017d"
+      }
+    },
+    "disposition": "HOLD for source review; candidate notice presence is not a licence conclusion. Empty candidates require upstream source/notice retrieval."
+  }
+]

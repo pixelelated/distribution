@@ -1,0 +1,1199 @@
+{
+  "nix_version": "2.35.2",
+  "snapshot_url": "https://releases.nixos.org/nixpkgs/nixpkgs-26.11pre1086972.7dd199b0e299/nixexprs.tar.xz",
+  "archives": [
+    {
+      "path": "/workspace/tmp/pixelelated-m7-fex-header-control-01/runtime/nix.tar.xz",
+      "sha256": "0c3960a9792331a22081c3c7a5d8465db9b17c50b3acdf18587fa4c6f2cb1158",
+      "bytes": 27131728
+    },
+    {
+      "path": "/workspace/tmp/pixelelated-m7-fex-header-control-01/runtime/nixpkgs.tar.xz",
+      "sha256": "8471eba6ecec36941d6b125ed0ddb59f0ed493d2c335ebb7d559c07d36cd4746",
+      "bytes": 38656860
+    }
+  ],
+  "store": "/workspace/tmp/pixelelated-m7-sm8550-refresh-02/nix",
+  "toolchains": [
+    {
+      "store_path": "/nix/store/0y77jl567k50s0mpaz6878rpqdbynfqc-toolchain_nix_x86_64.txt",
+      "sha256": "cdc2fe30144cd01857116d27b4b181e6012a3f4b815ea9682dcedc24174851ec",
+      "referenced_roots": [
+        "/nix/store/2msw5nclhpsm80z65dqmjiv8kkras989-clang-wrapper-21.1.8",
+        "/nix/store/hymgd36hiy3g3pj7pyj6a53q7rbaip3i-fex-dev-rootfs"
+      ]
+    },
+    {
+      "store_path": "/nix/store/a6b0pssdzris6023aqdgxvpvp3vqp8aw-toolchain_nix_x86_32.txt",
+      "sha256": "f48c29dc6e35b80bed8db2820866a841c97f609f39ddab1d7611e195fb8a3a53",
+      "referenced_roots": [
+        "/nix/store/5b9dfyhkw2amg1m02vg6ph7a93xc554r-i686-unknown-linux-gnu-clang-wrapper-21.1.8",
+        "/nix/store/hymgd36hiy3g3pj7pyj6a53q7rbaip3i-fex-dev-rootfs"
+      ]
+    }
+  ],
+  "roots": [
+    "/nix/store/0y77jl567k50s0mpaz6878rpqdbynfqc-toolchain_nix_x86_64.txt",
+    "/nix/store/2msw5nclhpsm80z65dqmjiv8kkras989-clang-wrapper-21.1.8",
+    "/nix/store/5b9dfyhkw2amg1m02vg6ph7a93xc554r-i686-unknown-linux-gnu-clang-wrapper-21.1.8",
+    "/nix/store/a6b0pssdzris6023aqdgxvpvp3vqp8aw-toolchain_nix_x86_32.txt",
+    "/nix/store/hymgd36hiy3g3pj7pyj6a53q7rbaip3i-fex-dev-rootfs"
+  ],
+  "referenced_store_paths": [
+    {
+      "id": 1831,
+      "path": "/nix/store/g60m3aky9f59wgy1gi0y06xwmbw19d6m-xgcc-16.2.0-libgcc",
+      "hash": "sha256:2f9b292e61f1a38cf0581f0b43964c809ab37e78e9b7f183559d279e86d59909",
+      "deriver": "/nix/store/8xikahr8dncb033rwcgswj0ckhn7dmzr-xgcc-16.2.0.drv",
+      "narSize": 202272,
+      "references": [],
+      "deriver_retained": true,
+      "deriver_sha256": "a9f619f137d19bf8954f7ba7facb92e1bdf213aa57260ebb563147150fe16bc3"
+    },
+    {
+      "id": 1832,
+      "path": "/nix/store/zhqvgsbq8ridrhr67qbxnq8rrbx6hvfj-xorgproto-2025.1",
+      "hash": "sha256:69ca9ccdc51df521f61a0a4c7f33d8abbe64d4f507ae11a86ced792735d27e2e",
+      "deriver": "/nix/store/zl4xlxc6il5v5645b166m4jwd0hgywzk-xorgproto-2025.1.drv",
+      "narSize": 1715192,
+      "references": [
+        "/nix/store/zhqvgsbq8ridrhr67qbxnq8rrbx6hvfj-xorgproto-2025.1"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "be91d935888c3d6e38731b4a28f099a0dc69412ad57ff8748134cd4398856c26"
+    },
+    {
+      "id": 1834,
+      "path": "/nix/store/z9rkc8ymlg1ddpsp5zk34chqwcghd51l-alsa-topology-conf-1.2.5.1",
+      "hash": "sha256:3e6f64236fc857ffa331d7f569cb0e20f8120d7488cd63e2a38815161fa7565e",
+      "deriver": "/nix/store/29ws4vh8hh5dac6zvsvjvfmskq1adpf3-alsa-topology-conf-1.2.5.1.drv",
+      "narSize": 344168,
+      "references": [],
+      "deriver_retained": true,
+      "deriver_sha256": "1d2c8bbf8c208cd54bfb43d610686e30254794103fdeb252ee9c556b42e9bc6e"
+    },
+    {
+      "id": 1835,
+      "path": "/nix/store/q2mkz6ca1alqfqf750dygvakmq8kjrwz-gcc-16.2.0-libgcc",
+      "hash": "sha256:c41d60f947b26a7059dd2d3955e12f1bdd8801d91da37a6a8d363b699b12e6e2",
+      "deriver": "/nix/store/rr1j9pyykfsi6rpvg29g41w4gg1j0k48-gcc-16.2.0.drv",
+      "narSize": 202344,
+      "references": [],
+      "deriver_retained": true,
+      "deriver_sha256": "f59f1f26559390377f1bf1dda9b3f6b74429482759cfd16843d23cf45905b8ad"
+    },
+    {
+      "id": 1836,
+      "path": "/nix/store/phhjbm5g1inb11slm0sbwcr8ac080q4g-libgcc-i686-unknown-linux-gnu-16.2.0",
+      "hash": "sha256:d9ca2a6fd3159ae8e1c7aad9ca94b3a06fe80ec107fcb594918d8c43059783ee",
+      "deriver": "/nix/store/s03ixg5pjbaajp0idims05ia6lz6pyzs-libgcc-i686-unknown-linux-gnu-16.2.0.drv",
+      "narSize": 659720,
+      "references": [],
+      "deriver_retained": true,
+      "deriver_sha256": "0648c52990c4b6a367508678d73bebcbe7724dc17c0b726e15350549b8714d10"
+    },
+    {
+      "id": 1839,
+      "path": "/nix/store/jp8ql2fnd61xhvb4vsfp0bqwrzf16qrp-libunistring-1.4.2",
+      "hash": "sha256:9acd43eed2aadb56bbc74417722a4b1ea0904a58c0faacfdb356a172775096dd",
+      "deriver": "/nix/store/xiisjjrcykg2j5pn6p2n2af3gcxx0bkx-libunistring-1.4.2.drv",
+      "narSize": 2083096,
+      "references": [
+        "/nix/store/jp8ql2fnd61xhvb4vsfp0bqwrzf16qrp-libunistring-1.4.2"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "823ced639e6825291ff032b37ac37016733c225e385bb1a15dbaf78d67916df7"
+    },
+    {
+      "id": 1840,
+      "path": "/nix/store/q0lbdx5yv93a3md74kjhm0v2kljjii89-libidn2-2.3.8",
+      "hash": "sha256:1f1f9a95d396b8cd76f445d1ebd3da80817bac28d6b68e1c764e72aef8aa2d45",
+      "deriver": "/nix/store/40kffzpx2ykvb3wxsih6nd9mbi9blyq4-libidn2-2.3.8.drv",
+      "narSize": 372320,
+      "references": [
+        "/nix/store/jp8ql2fnd61xhvb4vsfp0bqwrzf16qrp-libunistring-1.4.2",
+        "/nix/store/q0lbdx5yv93a3md74kjhm0v2kljjii89-libidn2-2.3.8"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "0ea62941ffd7d0a55e482ff7a790d6538a1a3778da02019a90b809a8d7446a66"
+    },
+    {
+      "id": 1841,
+      "path": "/nix/store/ggggdaqvaxkimbzx5p6knxr2nlqlqqnl-linux-headers-7.2",
+      "hash": "sha256:47994c4d4c44070e94ade0fd3e39988aed8f6db3f868baf82ea6b02001f00945",
+      "deriver": "/nix/store/nhv33r5qqc0nhy07zhy3f3mxc5sk64mw-linux-headers-7.2.drv",
+      "narSize": 7546056,
+      "references": [],
+      "deriver_retained": true,
+      "deriver_sha256": "8cf595f5786d5a9c9f1b460d0f85948b3b1904276267abe1555d31d0595c10e7"
+    },
+    {
+      "id": 1842,
+      "path": "/nix/store/26pg71aizp09l020ll4clr9nk0x8d7gh-linux-headers-7.2",
+      "hash": "sha256:47994c4d4c44070e94ade0fd3e39988aed8f6db3f868baf82ea6b02001f00945",
+      "deriver": "/nix/store/cal2zsfc0wc3zwvy5cil5aah6hiz6z9q-linux-headers-7.2.drv",
+      "narSize": 7546056,
+      "references": [],
+      "deriver_retained": true,
+      "deriver_sha256": "f73d01c52542eb10fe3ce78535efb2a896aac77576f005efedddbd1c24047a2f"
+    },
+    {
+      "id": 1843,
+      "path": "/nix/store/9w0bsaii24j9vshw79sjx1qvbffgs9wy-hwdata-0.411",
+      "hash": "sha256:ca4ea3b2b031f856d06e4c19917807ab5464ec8988ce4c937b3866213491e6ea",
+      "deriver": "/nix/store/hgsngyw076zxa5q3kymifr4njmnpdh5j-hwdata-0.411.drv",
+      "narSize": 10558816,
+      "references": [
+        "/nix/store/9w0bsaii24j9vshw79sjx1qvbffgs9wy-hwdata-0.411"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "f2d5f0fdaef9451d122a3266cc6d924792fd05295221e2b5dff6bab77d4c2021"
+    },
+    {
+      "id": 1844,
+      "path": "/nix/store/xf9as3246qqnfkcy697qhbl60jxfn29p-glibc-i686-unknown-linux-gnu-2.44-25",
+      "hash": "sha256:832c9a4245964bf6caa4694fa001a9033e8e8595c26bf77d49b90d42b05dc2c6",
+      "deriver": "/nix/store/vld034sscsl7ybzh10jm9ir2pj8dklmq-glibc-i686-unknown-linux-gnu-2.44-25.drv",
+      "narSize": 34622720,
+      "references": [
+        "/nix/store/phhjbm5g1inb11slm0sbwcr8ac080q4g-libgcc-i686-unknown-linux-gnu-16.2.0",
+        "/nix/store/xf9as3246qqnfkcy697qhbl60jxfn29p-glibc-i686-unknown-linux-gnu-2.44-25"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "baf1f37534cb644436d3e34f36f1a0296afa049e58789383633f89dda9d445e5"
+    },
+    {
+      "id": 1845,
+      "path": "/nix/store/h4wfwic161kxrr74jlzla5lsm28hgary-glibc-2.44-25",
+      "hash": "sha256:c32ca3cd9407fd12a9c1e2c65fc0c44d81cc517d90ba50ad82ce36f197b6223b",
+      "deriver": "/nix/store/09d60qm2zsaynsl70arr35zj055zdzl3-glibc-2.44-25.drv",
+      "narSize": 35578272,
+      "references": [
+        "/nix/store/g60m3aky9f59wgy1gi0y06xwmbw19d6m-xgcc-16.2.0-libgcc",
+        "/nix/store/h4wfwic161kxrr74jlzla5lsm28hgary-glibc-2.44-25",
+        "/nix/store/q0lbdx5yv93a3md74kjhm0v2kljjii89-libidn2-2.3.8"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "af320733edfd58f8e8efe9c57630444ce4e9ac30a6602c8974613359bc5f787a"
+    },
+    {
+      "id": 1846,
+      "path": "/nix/store/9074l1whzhvk68kj5va99ipj412rk5q2-acl-2.4.0",
+      "hash": "sha256:f01366d3130419f7fe00a91a2b3b483df8b7c45724e2d7e7a4108cfcbf2b9ea2",
+      "deriver": "/nix/store/cnslxrczaw12dir4n4rrp84aykxw1by3-acl-2.4.0.drv",
+      "narSize": 137568,
+      "references": [
+        "/nix/store/9074l1whzhvk68kj5va99ipj412rk5q2-acl-2.4.0",
+        "/nix/store/h4wfwic161kxrr74jlzla5lsm28hgary-glibc-2.44-25"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "82ce86df827aad675189bc076f7f422630dfacd8911e3597dfe2b74bf93f4b44"
+    },
+    {
+      "id": 1847,
+      "path": "/nix/store/p6cir20v12fjj5390b8xr9kdynm8bd9h-attr-2.6.0",
+      "hash": "sha256:c33085aac72a6d723b4af323f390f72463c915041a532acecf3cab52b68d0d9c",
+      "deriver": "/nix/store/mdgmmyqhyrcckn3qhs7nq7fq047r32s8-attr-2.6.0.drv",
+      "narSize": 90936,
+      "references": [
+        "/nix/store/h4wfwic161kxrr74jlzla5lsm28hgary-glibc-2.44-25",
+        "/nix/store/p6cir20v12fjj5390b8xr9kdynm8bd9h-attr-2.6.0"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "5b5cb1651ce25eb1eea5a8e083e10d45dd9fc24cda2045c737b59c75db29079b"
+    },
+    {
+      "id": 1848,
+      "path": "/nix/store/i4a125l0m5bv4xg1zm6rv9mnqggycwq7-expand-response-params",
+      "hash": "sha256:2bb05e9fba257b9707b7c5753e4c7d0b590f4a91014644125cb732a1893703f1",
+      "deriver": "/nix/store/pqqay35gnnjdc0z626bv6kjbq09p76v5-expand-response-params.drv",
+      "narSize": 16976,
+      "references": [
+        "/nix/store/h4wfwic161kxrr74jlzla5lsm28hgary-glibc-2.44-25"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "8721877bfa6995175b3cd92ec9f861d4466a620cf05359af470039d773e42376"
+    },
+    {
+      "id": 1854,
+      "path": "/nix/store/qwybnlp70s17h7zvmb8kz45fz91011my-libxdmcp-1.1.5",
+      "hash": "sha256:87f23e54b3e8dd14877e07a8b22e40979674da214bf8418826e8d74b22c954ed",
+      "deriver": "/nix/store/cy5sx9w5pmmg7j5pkvs25jnaf32imb8b-libxdmcp-1.1.5.drv",
+      "narSize": 31912,
+      "references": [
+        "/nix/store/h4wfwic161kxrr74jlzla5lsm28hgary-glibc-2.44-25",
+        "/nix/store/qwybnlp70s17h7zvmb8kz45fz91011my-libxdmcp-1.1.5"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "27c73ffbfccf7a3f0bd49357008d50b282e0f9c7c267c5e15ffc88d174f9ee45"
+    },
+    {
+      "id": 1857,
+      "path": "/nix/store/wgw25d181h0qks7qsfp1bh7c5nd3f0s7-zlib-1.3.2",
+      "hash": "sha256:80a49f236b4500b20cd65a333e6160196631b1f9dc479bdb93097c21f6051562",
+      "deriver": "/nix/store/77nsy4z6qjm0ij4z7cgzk1cdr73wicvd-zlib-1.3.2.drv",
+      "narSize": 136672,
+      "references": [
+        "/nix/store/h4wfwic161kxrr74jlzla5lsm28hgary-glibc-2.44-25"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "f44b58b3656fda7de352aaa514160de536d14f5d19dfc950633e0ccbe209ea99"
+    },
+    {
+      "id": 1858,
+      "path": "/nix/store/85lj8x78s9z5v8z8b5ik5phdcwri22ac-gmp-6.3.0",
+      "hash": "sha256:f467daa9741c9cc114b7d2f24c2137fdd0677394380a25b28a44bdfd04e1b660",
+      "deriver": "/nix/store/vjyfc8imd6290g72hmpv5ipp65lgw9yi-gmp-6.3.0.drv",
+      "narSize": 743968,
+      "references": [
+        "/nix/store/85lj8x78s9z5v8z8b5ik5phdcwri22ac-gmp-6.3.0",
+        "/nix/store/h4wfwic161kxrr74jlzla5lsm28hgary-glibc-2.44-25"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "c585da595804ab7cdd7edbf20d7e3a10d147474d3ff0877e0ca47bc8fbfa9c6e"
+    },
+    {
+      "id": 1859,
+      "path": "/nix/store/2a4dzjm774pgqs3d9v4637b26167zj94-libpciaccess-0.19",
+      "hash": "sha256:5be8c21ac0333c1431a024aa4d3b22eee435e894ec6f7d7b56fbf8c1656b0b2f",
+      "deriver": "/nix/store/19iafsq37726jl2piwvfjx5r2pgby3hm-libpciaccess-0.19.drv",
+      "narSize": 176080,
+      "references": [
+        "/nix/store/2a4dzjm774pgqs3d9v4637b26167zj94-libpciaccess-0.19",
+        "/nix/store/9w0bsaii24j9vshw79sjx1qvbffgs9wy-hwdata-0.411",
+        "/nix/store/h4wfwic161kxrr74jlzla5lsm28hgary-glibc-2.44-25"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "1d284fb3983eb872039bb7e50f5a165171d8b26893566a5fe8a2d36d8757b407"
+    },
+    {
+      "id": 1860,
+      "path": "/nix/store/rb8a67j94vxyb0ly722kkl89j4mh04lw-glibc-i686-unknown-linux-gnu-2.44-25-bin",
+      "hash": "sha256:376eaf8001072250cdffb35100b4f76bc88a466c7b076edafd01345918caae2b",
+      "deriver": "/nix/store/vld034sscsl7ybzh10jm9ir2pj8dklmq-glibc-i686-unknown-linux-gnu-2.44-25.drv",
+      "narSize": 2986632,
+      "references": [
+        "/nix/store/phhjbm5g1inb11slm0sbwcr8ac080q4g-libgcc-i686-unknown-linux-gnu-16.2.0",
+        "/nix/store/rb8a67j94vxyb0ly722kkl89j4mh04lw-glibc-i686-unknown-linux-gnu-2.44-25-bin",
+        "/nix/store/xf9as3246qqnfkcy697qhbl60jxfn29p-glibc-i686-unknown-linux-gnu-2.44-25"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "baf1f37534cb644436d3e34f36f1a0296afa049e58789383633f89dda9d445e5"
+    },
+    {
+      "id": 1863,
+      "path": "/nix/store/xjynyjk0vin5nvqw24050yfyb3czgrdm-libxau-1.0.12",
+      "hash": "sha256:d771353edf675aeaa31e636ec1506765d8087e3fcd70d8d2a098df0dcc74e80a",
+      "deriver": "/nix/store/fn7f7sr6db6d61p61p2brq8al9r8pcx0-libxau-1.0.12.drv",
+      "narSize": 27792,
+      "references": [
+        "/nix/store/h4wfwic161kxrr74jlzla5lsm28hgary-glibc-2.44-25",
+        "/nix/store/xjynyjk0vin5nvqw24050yfyb3czgrdm-libxau-1.0.12"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "27cc524f19e689ad7e640a122b8a1ebc787a008df32289e353083ccd9e8a3df0"
+    },
+    {
+      "id": 1864,
+      "path": "/nix/store/pi2b23y3gv6zgcziwbgnihf8gam1cmlp-libffi-3.8.0",
+      "hash": "sha256:a665bf0f26b995e6bc9202ce1c3e46e7aa8bd751967f7480ce06968f2703c93b",
+      "deriver": "/nix/store/lz0kkmp5nkrhyvymqqsmanbzwmkm1bwb-libffi-3.8.0.drv",
+      "narSize": 99896,
+      "references": [
+        "/nix/store/h4wfwic161kxrr74jlzla5lsm28hgary-glibc-2.44-25",
+        "/nix/store/pi2b23y3gv6zgcziwbgnihf8gam1cmlp-libffi-3.8.0"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "f49309c4bd63612ccf040e61e8ea23e684be5c1df66e1931ad927c18383813cd"
+    },
+    {
+      "id": 1865,
+      "path": "/nix/store/10dxp0qxqxxsyiljrh2kp0xqhz6arhcx-bash-5.3p15",
+      "hash": "sha256:0a101c4a517b34ccb85e6de3fec5a736d8d2a790633e1ea80875c174867da05d",
+      "deriver": "/nix/store/svra7wnq5jbh36a4p1myr1if3ss7qh2g-bash-5.3p15.drv",
+      "narSize": 1885600,
+      "references": [
+        "/nix/store/10dxp0qxqxxsyiljrh2kp0xqhz6arhcx-bash-5.3p15",
+        "/nix/store/h4wfwic161kxrr74jlzla5lsm28hgary-glibc-2.44-25"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "92929cb63b6fe421e88c29a8d7bf66c6ee799ff5d7e7386d532bdcf06ad79696"
+    },
+    {
+      "id": 1866,
+      "path": "/nix/store/vkwq2iap75p0srizppc3jl2j5b1lxpln-xz-5.8.4",
+      "hash": "sha256:35c77311c923707f61513c72636935fa4a475440e04bcfdd04a288feab195804",
+      "deriver": "/nix/store/b13qvb8ppxs8l1zs4ikaqbvwp32iasp8-xz-5.8.4.drv",
+      "narSize": 881400,
+      "references": [
+        "/nix/store/h4wfwic161kxrr74jlzla5lsm28hgary-glibc-2.44-25",
+        "/nix/store/vkwq2iap75p0srizppc3jl2j5b1lxpln-xz-5.8.4"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "2ecf1669745cd4a3dd93b99b1cade61fe71ba6c5589e0917c54e4e85510ab26f"
+    },
+    {
+      "id": 1867,
+      "path": "/nix/store/0yvm79dfl53xg4vi2mg01cljfpnxkcnc-libdrm-2.4.134",
+      "hash": "sha256:4b9de9bd9caf25adb5e08104f9673bb8e86626a14aeb2c4b74fef3c10b87f1f2",
+      "deriver": "/nix/store/wc923jpbg6whs0a4m5blmdqzyg06zaqh-libdrm-2.4.134.drv",
+      "narSize": 641976,
+      "references": [
+        "/nix/store/0yvm79dfl53xg4vi2mg01cljfpnxkcnc-libdrm-2.4.134",
+        "/nix/store/2a4dzjm774pgqs3d9v4637b26167zj94-libpciaccess-0.19",
+        "/nix/store/h4wfwic161kxrr74jlzla5lsm28hgary-glibc-2.44-25"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "e5d04ec08b338a197d4716b07b7474653c16540ea6874af7aedd0796cd18a88b"
+    },
+    {
+      "id": 1868,
+      "path": "/nix/store/li1008zymvj7sz8jkdk9brkslfq9jy8w-wayland-1.26.0",
+      "hash": "sha256:e944603310deb82807470c7e752da9094d9f17a8168fc23baacdeb57dfa67e02",
+      "deriver": "/nix/store/9bdrmmpn4w8hsdczpmwyzdyd5i3b09az-wayland-1.26.0.drv",
+      "narSize": 274824,
+      "references": [
+        "/nix/store/h4wfwic161kxrr74jlzla5lsm28hgary-glibc-2.44-25",
+        "/nix/store/li1008zymvj7sz8jkdk9brkslfq9jy8w-wayland-1.26.0",
+        "/nix/store/pi2b23y3gv6zgcziwbgnihf8gam1cmlp-libffi-3.8.0"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "6b5d8fb104b4e2d85ea5d5879c123e64cc297acc0eff62472b79a17346ad7407"
+    },
+    {
+      "id": 1870,
+      "path": "/nix/store/cvr8yyrrqnjxgd7bs6lwgra4qma7kwl9-libxcb-1.17.0",
+      "hash": "sha256:3f1be0aa17d3846937d1e2b3da9b7653f0642d4108aca35bb3a1937a66a7b1f6",
+      "deriver": "/nix/store/a9n6blq83hjm4iymlsml52s7n5c2ixc7-libxcb-1.17.0.drv",
+      "narSize": 1449264,
+      "references": [
+        "/nix/store/cvr8yyrrqnjxgd7bs6lwgra4qma7kwl9-libxcb-1.17.0",
+        "/nix/store/h4wfwic161kxrr74jlzla5lsm28hgary-glibc-2.44-25",
+        "/nix/store/qwybnlp70s17h7zvmb8kz45fz91011my-libxdmcp-1.1.5",
+        "/nix/store/xjynyjk0vin5nvqw24050yfyb3czgrdm-libxau-1.0.12"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "57fbafd12b6c18bb544baceddb2526f3a99c6489107af03c03fd300e4e350444"
+    },
+    {
+      "id": 1871,
+      "path": "/nix/store/7v8b5idfzwfl06hx6n0cvd5ikd5p0sbg-pcre2-10.48",
+      "hash": "sha256:46674f2912ab780b724e3e9a49297dd61aa0347789ed200c8612070b4437edbe",
+      "deriver": "/nix/store/bh7jyq3fdij951vyi9abhrwnvii42rpj-pcre2-10.48.drv",
+      "narSize": 2117896,
+      "references": [
+        "/nix/store/7v8b5idfzwfl06hx6n0cvd5ikd5p0sbg-pcre2-10.48",
+        "/nix/store/h4wfwic161kxrr74jlzla5lsm28hgary-glibc-2.44-25"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "14a137df2ac9f84d44b0402b1429a9fdaae10f537bab2d898314461c605b6fce"
+    },
+    {
+      "id": 1873,
+      "path": "/nix/store/qa8pjnpxm0nkpci88dbig628hc7xxf67-mpfr-4.2.2",
+      "hash": "sha256:11e6f579f66bddb9605e953e54e66ef70d6ff94671ca7eb7804f8bb34a88afea",
+      "deriver": "/nix/store/72xyyxqcli677nyn2496pd4mcxd6r174-mpfr-4.2.2.drv",
+      "narSize": 830992,
+      "references": [
+        "/nix/store/85lj8x78s9z5v8z8b5ik5phdcwri22ac-gmp-6.3.0",
+        "/nix/store/h4wfwic161kxrr74jlzla5lsm28hgary-glibc-2.44-25",
+        "/nix/store/qa8pjnpxm0nkpci88dbig628hc7xxf67-mpfr-4.2.2"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "ac2730601fe5d5fe478ac3aa32ba614dc81d0fcb561d699847024670f128242b"
+    },
+    {
+      "id": 1876,
+      "path": "/nix/store/qg6h94nnixji9qnm5znp0aa2isfdyl2b-libdrm-2.4.134-bin",
+      "hash": "sha256:4ab147df0f94d9daa10070af2585214a1a62ddb08f7730bc866ae07fb42f1b17",
+      "deriver": "/nix/store/wc923jpbg6whs0a4m5blmdqzyg06zaqh-libdrm-2.4.134.drv",
+      "narSize": 546848,
+      "references": [
+        "/nix/store/0yvm79dfl53xg4vi2mg01cljfpnxkcnc-libdrm-2.4.134",
+        "/nix/store/h4wfwic161kxrr74jlzla5lsm28hgary-glibc-2.44-25"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "e5d04ec08b338a197d4716b07b7474653c16540ea6874af7aedd0796cd18a88b"
+    },
+    {
+      "id": 1877,
+      "path": "/nix/store/4bhmanj4k3y9vfhbfcbdkbiyd4rv5ccz-glibc-i686-unknown-linux-gnu-2.44-25-dev",
+      "hash": "sha256:a3569cadb745c750ffc07f4d7762a05c208a2410c0070f68337a0ce1e9cfaedc",
+      "deriver": "/nix/store/vld034sscsl7ybzh10jm9ir2pj8dklmq-glibc-i686-unknown-linux-gnu-2.44-25.drv",
+      "narSize": 2489016,
+      "references": [
+        "/nix/store/26pg71aizp09l020ll4clr9nk0x8d7gh-linux-headers-7.2",
+        "/nix/store/rb8a67j94vxyb0ly722kkl89j4mh04lw-glibc-i686-unknown-linux-gnu-2.44-25-bin",
+        "/nix/store/xf9as3246qqnfkcy697qhbl60jxfn29p-glibc-i686-unknown-linux-gnu-2.44-25"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "baf1f37534cb644436d3e34f36f1a0296afa049e58789383633f89dda9d445e5"
+    },
+    {
+      "id": 1878,
+      "path": "/nix/store/srvyqaf88njyqsrs1ajz3hznvdqq8hlw-glibc-2.44-25-bin",
+      "hash": "sha256:f60f629821ccbcaf86384d07b90f0e066302a0d47051cbf30c31ca11f971c365",
+      "deriver": "/nix/store/09d60qm2zsaynsl70arr35zj055zdzl3-glibc-2.44-25.drv",
+      "narSize": 3073648,
+      "references": [
+        "/nix/store/g60m3aky9f59wgy1gi0y06xwmbw19d6m-xgcc-16.2.0-libgcc",
+        "/nix/store/h4wfwic161kxrr74jlzla5lsm28hgary-glibc-2.44-25",
+        "/nix/store/srvyqaf88njyqsrs1ajz3hznvdqq8hlw-glibc-2.44-25-bin"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "af320733edfd58f8e8efe9c57630444ce4e9ac30a6602c8974613359bc5f787a"
+    },
+    {
+      "id": 1879,
+      "path": "/nix/store/6bvizw9qcnw5qz273y2qyix2wnb3r6ns-wayland-1.26.0-dev",
+      "hash": "sha256:ab79eb7720e0af47ad1dc52444eb06529bf56dc2fc400a6f189a547ac14c1529",
+      "deriver": "/nix/store/9bdrmmpn4w8hsdczpmwyzdyd5i3b09az-wayland-1.26.0.drv",
+      "narSize": 487992,
+      "references": [
+        "/nix/store/6bvizw9qcnw5qz273y2qyix2wnb3r6ns-wayland-1.26.0-dev",
+        "/nix/store/li1008zymvj7sz8jkdk9brkslfq9jy8w-wayland-1.26.0"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "6b5d8fb104b4e2d85ea5d5879c123e64cc297acc0eff62472b79a17346ad7407"
+    },
+    {
+      "id": 1880,
+      "path": "/nix/store/vfj3fn7rp56w7f3xy6vz5s41nziv4jgm-libxml2-2.15.4",
+      "hash": "sha256:8e787a7c7e5a37c5bad54ac4faa5aaaf4f797017a40741dfe34673dc3467e667",
+      "deriver": "/nix/store/0pvw8qlial04n2r2gw2d6h31q0gkc84j-libxml2-2.15.4.drv",
+      "narSize": 1526744,
+      "references": [
+        "/nix/store/h4wfwic161kxrr74jlzla5lsm28hgary-glibc-2.44-25",
+        "/nix/store/vfj3fn7rp56w7f3xy6vz5s41nziv4jgm-libxml2-2.15.4"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "feaacfa303c7c5a2c7e9efc40c3ad83dee402a0d06b0c5cbaef083a9f75201fa"
+    },
+    {
+      "id": 1881,
+      "path": "/nix/store/s4mrmq9aciz9r5kb37jzfc7cvgk3lnxb-libmpc-1.4.1",
+      "hash": "sha256:669adf3ff9293c1f49c0cb35eb5096bd8cfe07da69e2a48c235fee841173b27e",
+      "deriver": "/nix/store/xrx5z37p6gxb3k2llg1ja5jhjsl38yc2-libmpc-1.4.1.drv",
+      "narSize": 308776,
+      "references": [
+        "/nix/store/85lj8x78s9z5v8z8b5ik5phdcwri22ac-gmp-6.3.0",
+        "/nix/store/h4wfwic161kxrr74jlzla5lsm28hgary-glibc-2.44-25",
+        "/nix/store/qa8pjnpxm0nkpci88dbig628hc7xxf67-mpfr-4.2.2",
+        "/nix/store/s4mrmq9aciz9r5kb37jzfc7cvgk3lnxb-libmpc-1.4.1"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "e1c0bedc597f60b74b8e08d119e58e0357ea101a16eb171f2be42efebd2df042"
+    },
+    {
+      "id": 1882,
+      "path": "/nix/store/wv0waflchr84an8wrm5v0jhbhz3kp6gs-libxcb-1.17.0-dev",
+      "hash": "sha256:d21f4ae918def30618c34651b8afe4020d7bf0c27c0801ef413b678379e2302a",
+      "deriver": "/nix/store/a9n6blq83hjm4iymlsml52s7n5c2ixc7-libxcb-1.17.0.drv",
+      "narSize": 2154664,
+      "references": [
+        "/nix/store/cvr8yyrrqnjxgd7bs6lwgra4qma7kwl9-libxcb-1.17.0",
+        "/nix/store/wv0waflchr84an8wrm5v0jhbhz3kp6gs-libxcb-1.17.0-dev"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "57fbafd12b6c18bb544baceddb2526f3a99c6489107af03c03fd300e4e350444"
+    },
+    {
+      "id": 1883,
+      "path": "/nix/store/3668q0d9zhc5n9l2pnyvpd44kz9bjsjm-gnugrep-3.12",
+      "hash": "sha256:979f99f9443bf63fb3d0a9f4a21ff299725c8de133daaed48dcf6a0172433423",
+      "deriver": "/nix/store/8n4cx55r4r6ch0cbj70lpnmspgi33dh8-gnugrep-3.12.drv",
+      "narSize": 954920,
+      "references": [
+        "/nix/store/3668q0d9zhc5n9l2pnyvpd44kz9bjsjm-gnugrep-3.12",
+        "/nix/store/7v8b5idfzwfl06hx6n0cvd5ikd5p0sbg-pcre2-10.48",
+        "/nix/store/h4wfwic161kxrr74jlzla5lsm28hgary-glibc-2.44-25"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "8b123fadc1418c3dac3bbdfa0dc5ee1ca4e72d2e6bcbb2128e8ad189fb009eac"
+    },
+    {
+      "id": 1884,
+      "path": "/nix/store/8wb7zk48s2iq3kix06vflp4dl5rpfsfs-binutils-2.46-lib",
+      "hash": "sha256:b19509104ee2e0f827b99bf27db2df0226cb3ebdc1739b4f83a271e43098c2d3",
+      "deriver": "/nix/store/fy0f3kyync5dszy5vbp05ixlg4gxzr03-binutils-2.46.drv",
+      "narSize": 3088552,
+      "references": [
+        "/nix/store/8wb7zk48s2iq3kix06vflp4dl5rpfsfs-binutils-2.46-lib",
+        "/nix/store/h4wfwic161kxrr74jlzla5lsm28hgary-glibc-2.44-25",
+        "/nix/store/wgw25d181h0qks7qsfp1bh7c5nd3f0s7-zlib-1.3.2"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "6856a21ea9b698674d16199647bcc2c0f93db46457f2d0fbd1d7fcbb334808f1"
+    },
+    {
+      "id": 1885,
+      "path": "/nix/store/i78gq1wwiirwckasx47s17jkr4b5l7qn-libdrm-2.4.134-dev",
+      "hash": "sha256:7b563bc86f5b8bb25ae644e9e44f0aef285b1c426be94f16e002ab204f423fc0",
+      "deriver": "/nix/store/wc923jpbg6whs0a4m5blmdqzyg06zaqh-libdrm-2.4.134.drv",
+      "narSize": 838008,
+      "references": [
+        "/nix/store/0yvm79dfl53xg4vi2mg01cljfpnxkcnc-libdrm-2.4.134",
+        "/nix/store/i78gq1wwiirwckasx47s17jkr4b5l7qn-libdrm-2.4.134-dev",
+        "/nix/store/qg6h94nnixji9qnm5znp0aa2isfdyl2b-libdrm-2.4.134-bin"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "e5d04ec08b338a197d4716b07b7474653c16540ea6874af7aedd0796cd18a88b"
+    },
+    {
+      "id": 1886,
+      "path": "/nix/store/afhh51h1qz7f7jqhs4qs3ggxjipvn0i3-isl-0.20",
+      "hash": "sha256:d89c2a5e4c53782784f33622297237e316973d10e94dc9af8b2c9ae0f3171e3b",
+      "deriver": "/nix/store/r99lkji5f7rg3l70kh8ai2k7vvdxv2dm-isl-0.20.drv",
+      "narSize": 2736608,
+      "references": [
+        "/nix/store/85lj8x78s9z5v8z8b5ik5phdcwri22ac-gmp-6.3.0",
+        "/nix/store/afhh51h1qz7f7jqhs4qs3ggxjipvn0i3-isl-0.20",
+        "/nix/store/h4wfwic161kxrr74jlzla5lsm28hgary-glibc-2.44-25"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "48399b8a42b92bc067ba0f966eb8a5631e2429f4a4cf07c2c377cb2e41de2442"
+    },
+    {
+      "id": 1887,
+      "path": "/nix/store/m38wglsqnh1mrmj2cmqa3pjb6w4yjxdi-glibc-2.44-25-dev",
+      "hash": "sha256:d54b1be66ad6c4f0779a1feb24eaaf939f0d506203365bfc2e96ae88476abddb",
+      "deriver": "/nix/store/09d60qm2zsaynsl70arr35zj055zdzl3-glibc-2.44-25.drv",
+      "narSize": 2489016,
+      "references": [
+        "/nix/store/ggggdaqvaxkimbzx5p6knxr2nlqlqqnl-linux-headers-7.2",
+        "/nix/store/h4wfwic161kxrr74jlzla5lsm28hgary-glibc-2.44-25",
+        "/nix/store/srvyqaf88njyqsrs1ajz3hznvdqq8hlw-glibc-2.44-25-bin"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "af320733edfd58f8e8efe9c57630444ce4e9ac30a6602c8974613359bc5f787a"
+    },
+    {
+      "id": 1888,
+      "path": "/nix/store/xhmhqqq06lkp64syslb6njlyaydj9675-i686-unknown-linux-gnu-gcc-16.2.0-lib",
+      "hash": "sha256:c6d748f28d841cf7666a6afb1de296800ce4fdf61241056fb1fbcae329c08fd8",
+      "deriver": "/nix/store/4r5gq627vj0wz259i34d2659blij52xi-i686-unknown-linux-gnu-gcc-16.2.0.drv",
+      "narSize": 7832328,
+      "references": [
+        "/nix/store/xf9as3246qqnfkcy697qhbl60jxfn29p-glibc-i686-unknown-linux-gnu-2.44-25",
+        "/nix/store/xhmhqqq06lkp64syslb6njlyaydj9675-i686-unknown-linux-gnu-gcc-16.2.0-lib"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "3d15ae36d665516d989582ae8260ef3624869d73610e9eedd058cba51ad4382a"
+    },
+    {
+      "id": 1889,
+      "path": "/nix/store/znrm90algr0fvnnnp130am1qfg59nl1f-libx11-1.8.13",
+      "hash": "sha256:44e1737eb7c86d3416d5ce68a6c0d61ed5de5902b5f414391b8137f48fe65585",
+      "deriver": "/nix/store/z8zssf60vbflnwq2zd0rjnn88zg5gbl0-libx11-1.8.13.drv",
+      "narSize": 2729168,
+      "references": [
+        "/nix/store/cvr8yyrrqnjxgd7bs6lwgra4qma7kwl9-libxcb-1.17.0",
+        "/nix/store/h4wfwic161kxrr74jlzla5lsm28hgary-glibc-2.44-25",
+        "/nix/store/znrm90algr0fvnnnp130am1qfg59nl1f-libx11-1.8.13"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "725a506cb236f7b4856365bc206635a310f502f275d031db1125a090297db84c"
+    },
+    {
+      "id": 1890,
+      "path": "/nix/store/j7qx4s4mr17j1wqgvqdzj33lmrnzb387-gcc-16.2.0-lib",
+      "hash": "sha256:44e759d3722d04cd1641d50138369554d456f762f54a37a5930914179e6660d6",
+      "deriver": "/nix/store/rr1j9pyykfsi6rpvg29g41w4gg1j0k48-gcc-16.2.0.drv",
+      "narSize": 10813624,
+      "references": [
+        "/nix/store/h4wfwic161kxrr74jlzla5lsm28hgary-glibc-2.44-25",
+        "/nix/store/j7qx4s4mr17j1wqgvqdzj33lmrnzb387-gcc-16.2.0-lib",
+        "/nix/store/q2mkz6ca1alqfqf750dygvakmq8kjrwz-gcc-16.2.0-libgcc"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "f59f1f26559390377f1bf1dda9b3f6b74429482759cfd16843d23cf45905b8ad"
+    },
+    {
+      "id": 1891,
+      "path": "/nix/store/f6z2258liq5vbiah6jrkvy4iymdq2c5a-libxrender-0.9.12",
+      "hash": "sha256:507d490cefdb8fa7652177e67a51fd3f40aafd0845ffc101977221ef40c414fa",
+      "deriver": "/nix/store/xcrmql8wd0dvxc46dckx8irsnwjniwy2-libxrender-0.9.12.drv",
+      "narSize": 54456,
+      "references": [
+        "/nix/store/f6z2258liq5vbiah6jrkvy4iymdq2c5a-libxrender-0.9.12",
+        "/nix/store/h4wfwic161kxrr74jlzla5lsm28hgary-glibc-2.44-25",
+        "/nix/store/znrm90algr0fvnnnp130am1qfg59nl1f-libx11-1.8.13"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "805687deccd44d0376fa7d9684c8e8f2c376dd12522f9b3ed87cfa7025e0646e"
+    },
+    {
+      "id": 1892,
+      "path": "/nix/store/firki6qp8l2y6jgpwvix2wd95bi572mi-libxext-1.3.7",
+      "hash": "sha256:240d57ff505680d46b2975dcf79daf7ca058e1b984bd11f135af690f87fb056c",
+      "deriver": "/nix/store/asd6ijk3amai0b4qilhlfbzy7k6n9a4y-libxext-1.3.7.drv",
+      "narSize": 100056,
+      "references": [
+        "/nix/store/firki6qp8l2y6jgpwvix2wd95bi572mi-libxext-1.3.7",
+        "/nix/store/h4wfwic161kxrr74jlzla5lsm28hgary-glibc-2.44-25",
+        "/nix/store/znrm90algr0fvnnnp130am1qfg59nl1f-libx11-1.8.13"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "3c873173e3f3e320f43ccca1fc913e0212afd3a824b53cd892f3d560cb2bdf52"
+    },
+    {
+      "id": 1893,
+      "path": "/nix/store/2mcjx364ls9id3ngdjxd707j2az2aid2-libx11-1.8.13-dev",
+      "hash": "sha256:769b9c633f64bda676abdd8df995fd86441e639caa0182c31ec7989dd419cd79",
+      "deriver": "/nix/store/z8zssf60vbflnwq2zd0rjnn88zg5gbl0-libx11-1.8.13.drv",
+      "narSize": 256488,
+      "references": [
+        "/nix/store/2mcjx364ls9id3ngdjxd707j2az2aid2-libx11-1.8.13-dev",
+        "/nix/store/zhqvgsbq8ridrhr67qbxnq8rrbx6hvfj-xorgproto-2025.1",
+        "/nix/store/znrm90algr0fvnnnp130am1qfg59nl1f-libx11-1.8.13"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "725a506cb236f7b4856365bc206635a310f502f275d031db1125a090297db84c"
+    },
+    {
+      "id": 1894,
+      "path": "/nix/store/jrh7qrz5570y72zlhcmb29i3p351351d-libxrender-0.9.12-dev",
+      "hash": "sha256:9c16defca3b0a784be3523e08167ce0d3df64bcdd850ec15e336fd76fc15d95e",
+      "deriver": "/nix/store/xcrmql8wd0dvxc46dckx8irsnwjniwy2-libxrender-0.9.12.drv",
+      "narSize": 36160,
+      "references": [
+        "/nix/store/2mcjx364ls9id3ngdjxd707j2az2aid2-libx11-1.8.13-dev",
+        "/nix/store/f6z2258liq5vbiah6jrkvy4iymdq2c5a-libxrender-0.9.12",
+        "/nix/store/jrh7qrz5570y72zlhcmb29i3p351351d-libxrender-0.9.12-dev",
+        "/nix/store/zhqvgsbq8ridrhr67qbxnq8rrbx6hvfj-xorgproto-2025.1"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "805687deccd44d0376fa7d9684c8e8f2c376dd12522f9b3ed87cfa7025e0646e"
+    },
+    {
+      "id": 1895,
+      "path": "/nix/store/w8szff2i3dyf21v08j9yvpznfr7518wi-libxrandr-1.5.5",
+      "hash": "sha256:03b01869b6203a22f86b0982448960f062ac0a64968b49d7adfa3f390988139b",
+      "deriver": "/nix/store/ih9n0mq06mhdmymn61vymznmbzhbhsc0-libxrandr-1.5.5.drv",
+      "narSize": 64112,
+      "references": [
+        "/nix/store/f6z2258liq5vbiah6jrkvy4iymdq2c5a-libxrender-0.9.12",
+        "/nix/store/firki6qp8l2y6jgpwvix2wd95bi572mi-libxext-1.3.7",
+        "/nix/store/h4wfwic161kxrr74jlzla5lsm28hgary-glibc-2.44-25",
+        "/nix/store/w8szff2i3dyf21v08j9yvpznfr7518wi-libxrandr-1.5.5",
+        "/nix/store/znrm90algr0fvnnnp130am1qfg59nl1f-libx11-1.8.13"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "b53567e673b81f1bcc0e273f05b4dd0b590c01f86380a113db63d6b0711996b9"
+    },
+    {
+      "id": 1897,
+      "path": "/nix/store/s76zlinrq94xk2y0b4vfjypr9qlcqppf-libxrandr-1.5.5-dev",
+      "hash": "sha256:114ca7f7f9a227a8729c2405da27d8e85cf825411b7e38b77d6ac73112967fd9",
+      "deriver": "/nix/store/ih9n0mq06mhdmymn61vymznmbzhbhsc0-libxrandr-1.5.5.drv",
+      "narSize": 19376,
+      "references": [
+        "/nix/store/jrh7qrz5570y72zlhcmb29i3p351351d-libxrender-0.9.12-dev",
+        "/nix/store/s76zlinrq94xk2y0b4vfjypr9qlcqppf-libxrandr-1.5.5-dev",
+        "/nix/store/w8szff2i3dyf21v08j9yvpznfr7518wi-libxrandr-1.5.5"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "b53567e673b81f1bcc0e273f05b4dd0b590c01f86380a113db63d6b0711996b9"
+    },
+    {
+      "id": 1898,
+      "path": "/nix/store/chwiiz63ngbsgr2qi82c4g40vn756ky2-gmp-with-cxx-6.3.0",
+      "hash": "sha256:b5cdeac0c98fff7f0b525f5f84f8d3cceb69dfa195fdd511b4e2781ec5b79399",
+      "deriver": "/nix/store/i9x8np0m1gaz91x2v6ychi4lc6afaqvn-gmp-with-cxx-6.3.0.drv",
+      "narSize": 787528,
+      "references": [
+        "/nix/store/chwiiz63ngbsgr2qi82c4g40vn756ky2-gmp-with-cxx-6.3.0",
+        "/nix/store/h4wfwic161kxrr74jlzla5lsm28hgary-glibc-2.44-25",
+        "/nix/store/j7qx4s4mr17j1wqgvqdzj33lmrnzb387-gcc-16.2.0-lib"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "22b05ad68945668d7c2784384a8c3a164647f042c9359b5e0225ea13d88a23b3"
+    },
+    {
+      "id": 1899,
+      "path": "/nix/store/z7j20jl3wdi418wbajrbximy6j472y2j-gmp-with-cxx-6.3.0",
+      "hash": "sha256:361da856eaf590f9294c2a1cbb7da0b83859f405e17a2a687fad6bbadba065c1",
+      "deriver": "/nix/store/07hk1s9v6aqrbj6bam40kj6d1d0xq8jk-gmp-with-cxx-6.3.0.drv",
+      "narSize": 787528,
+      "references": [
+        "/nix/store/h4wfwic161kxrr74jlzla5lsm28hgary-glibc-2.44-25",
+        "/nix/store/j7qx4s4mr17j1wqgvqdzj33lmrnzb387-gcc-16.2.0-lib",
+        "/nix/store/z7j20jl3wdi418wbajrbximy6j472y2j-gmp-with-cxx-6.3.0"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "d81c7e341fdb715778498f0c67f9c506afa528cc8635114a2a8e5390f38ce4cf"
+    },
+    {
+      "id": 1900,
+      "path": "/nix/store/ph4ib8mxy5yrw40k7a1l03bfd58hq6wj-zstd-1.5.7",
+      "hash": "sha256:d57f7a2f91ed8f30a0a0279fabc009454a4549ad7bbfeb7889f6ca0f5388297d",
+      "deriver": "/nix/store/4kzkzll12a78qzsjyppppzigkw3rpsmv-zstd-1.5.7.drv",
+      "narSize": 1209248,
+      "references": [
+        "/nix/store/h4wfwic161kxrr74jlzla5lsm28hgary-glibc-2.44-25",
+        "/nix/store/j7qx4s4mr17j1wqgvqdzj33lmrnzb387-gcc-16.2.0-lib",
+        "/nix/store/ph4ib8mxy5yrw40k7a1l03bfd58hq6wj-zstd-1.5.7"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "7be22a89770c36eae60abe52c7ec71b6a243a4b1b521a83775a349de25b458cf"
+    },
+    {
+      "id": 1901,
+      "path": "/nix/store/mj9klbkhzal0vc1aazsajrydkimhc0h2-libglvnd-1.7.0",
+      "hash": "sha256:d661cbaa0cb9c35c4626136ac68f73e2fe703eb79064ec78965e95be289fd5c9",
+      "deriver": "/nix/store/sphsvdx6x9kdabh50ma53cvwyhczxgsq-libglvnd-1.7.0.drv",
+      "narSize": 2628720,
+      "references": [
+        "/nix/store/firki6qp8l2y6jgpwvix2wd95bi572mi-libxext-1.3.7",
+        "/nix/store/h4wfwic161kxrr74jlzla5lsm28hgary-glibc-2.44-25",
+        "/nix/store/mj9klbkhzal0vc1aazsajrydkimhc0h2-libglvnd-1.7.0",
+        "/nix/store/znrm90algr0fvnnnp130am1qfg59nl1f-libx11-1.8.13"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "66aefe7a01a24ff16d5b5947036ef01b8436efca54170f89a15f5c7417215818"
+    },
+    {
+      "id": 1902,
+      "path": "/nix/store/vd8b7jqgpcjy092rvbjnarwzbhlfylr6-kmod-31",
+      "hash": "sha256:d0139cc069801a67dced62b210e7033938c4b6822af28e3445bc9a279cea5ab3",
+      "deriver": "/nix/store/k8297ra5xxm3cgr7qaj07mh021ai79jv-kmod-31.drv",
+      "narSize": 213064,
+      "references": [
+        "/nix/store/h4wfwic161kxrr74jlzla5lsm28hgary-glibc-2.44-25",
+        "/nix/store/ph4ib8mxy5yrw40k7a1l03bfd58hq6wj-zstd-1.5.7",
+        "/nix/store/vkwq2iap75p0srizppc3jl2j5b1lxpln-xz-5.8.4"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "d46dd92e3827c040fd487ac3deb0c299144984aebdef9c219e2cdccdb131c4c0"
+    },
+    {
+      "id": 1903,
+      "path": "/nix/store/chkrwwlgil4abf7dvyv70df3kvb0d7d3-mpfr-4.2.2",
+      "hash": "sha256:9c3b050db285f139890e94cf3a69d2821093c6ef37ba15672c6a0349a3bd3c8a",
+      "deriver": "/nix/store/wczvna2an9aj8qrh56swsc8zkim4prsw-mpfr-4.2.2.drv",
+      "narSize": 830992,
+      "references": [
+        "/nix/store/chkrwwlgil4abf7dvyv70df3kvb0d7d3-mpfr-4.2.2",
+        "/nix/store/h4wfwic161kxrr74jlzla5lsm28hgary-glibc-2.44-25",
+        "/nix/store/z7j20jl3wdi418wbajrbximy6j472y2j-gmp-with-cxx-6.3.0"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "ec64bff87212e5dc52ae8df789acb51c8dc22f191e864ffb02a6d6d325b675ea"
+    },
+    {
+      "id": 1904,
+      "path": "/nix/store/pdcwbw6z36grx39dfhb4y0g9p00i2ajf-libglvnd-1.7.0-dev",
+      "hash": "sha256:bbb532ab84693e63c85fa06c49a198be0e1437aa2b131b68514a8d794c2fba90",
+      "deriver": "/nix/store/sphsvdx6x9kdabh50ma53cvwyhczxgsq-libglvnd-1.7.0.drv",
+      "narSize": 2268088,
+      "references": [
+        "/nix/store/mj9klbkhzal0vc1aazsajrydkimhc0h2-libglvnd-1.7.0",
+        "/nix/store/pdcwbw6z36grx39dfhb4y0g9p00i2ajf-libglvnd-1.7.0-dev"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "66aefe7a01a24ff16d5b5947036ef01b8436efca54170f89a15f5c7417215818"
+    },
+    {
+      "id": 1905,
+      "path": "/nix/store/j8ag84iy60dmdz43jvwm0kh504hjdmnc-compiler-rt-libc-i686-unknown-linux-gnu-21.1.8",
+      "hash": "sha256:f1ce1511246e092ad7b04543d8f72d10c489e13f2dfc1d8d2f83594c51934eee",
+      "deriver": "/nix/store/adywnf9552vnhsh39v5fvpyi6q1781h0-compiler-rt-libc-i686-unknown-linux-gnu-21.1.8.drv",
+      "narSize": 12150952,
+      "references": [
+        "/nix/store/xf9as3246qqnfkcy697qhbl60jxfn29p-glibc-i686-unknown-linux-gnu-2.44-25",
+        "/nix/store/xhmhqqq06lkp64syslb6njlyaydj9675-i686-unknown-linux-gnu-gcc-16.2.0-lib"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "2bfa1b8051e604b20a47480c72ba02dc432184c63a6cd66627bc2bee7884fc9a"
+    },
+    {
+      "id": 1906,
+      "path": "/nix/store/9b7xq5hvj9fbz9clyd2xx18ghpva80qz-libmpc-1.4.1",
+      "hash": "sha256:250d6ff51a63b24e565d79a0d7d9d0f622f33f6492e33c0d89cc82b73bf661a0",
+      "deriver": "/nix/store/60vpkyc6k14dfhsq9d1www1ryck3kzny-libmpc-1.4.1.drv",
+      "narSize": 308776,
+      "references": [
+        "/nix/store/9b7xq5hvj9fbz9clyd2xx18ghpva80qz-libmpc-1.4.1",
+        "/nix/store/chkrwwlgil4abf7dvyv70df3kvb0d7d3-mpfr-4.2.2",
+        "/nix/store/h4wfwic161kxrr74jlzla5lsm28hgary-glibc-2.44-25",
+        "/nix/store/z7j20jl3wdi418wbajrbximy6j472y2j-gmp-with-cxx-6.3.0"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "666d87f6a4f6f9c12195db12260d02796481e3670385a88ad9164e75d60dcd58"
+    },
+    {
+      "id": 1907,
+      "path": "/nix/store/2gfxiwls9hbgwdwcy43mprchwsq36mg6-coreutils-9.11",
+      "hash": "sha256:35ab4d5051355fbf80452d645688d923d810d0d21062301a297a0ba2a7e1fbab",
+      "deriver": "/nix/store/sk7ccmm8710phwmpsfy062phismgs20j-coreutils-9.11.drv",
+      "narSize": 1754128,
+      "references": [
+        "/nix/store/2gfxiwls9hbgwdwcy43mprchwsq36mg6-coreutils-9.11",
+        "/nix/store/9074l1whzhvk68kj5va99ipj412rk5q2-acl-2.4.0",
+        "/nix/store/chwiiz63ngbsgr2qi82c4g40vn756ky2-gmp-with-cxx-6.3.0",
+        "/nix/store/h4wfwic161kxrr74jlzla5lsm28hgary-glibc-2.44-25",
+        "/nix/store/p6cir20v12fjj5390b8xr9kdynm8bd9h-attr-2.6.0"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "6f43df4c03c3af822318fde32c634345815a762ea53ddad6c82f4733634fd035"
+    },
+    {
+      "id": 1908,
+      "path": "/nix/store/dnwcqgbzrfwyf6vchv0760d9x2fc40ny-compiler-rt-libc-i686-unknown-linux-gnu-21.1.8-dev",
+      "hash": "sha256:e532a939e124879ed4b424b37c7b03d6d699a0c15ec10a437223e98722a47611",
+      "deriver": "/nix/store/adywnf9552vnhsh39v5fvpyi6q1781h0-compiler-rt-libc-i686-unknown-linux-gnu-21.1.8.drv",
+      "narSize": 774232,
+      "references": [
+        "/nix/store/j8ag84iy60dmdz43jvwm0kh504hjdmnc-compiler-rt-libc-i686-unknown-linux-gnu-21.1.8"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "2bfa1b8051e604b20a47480c72ba02dc432184c63a6cd66627bc2bee7884fc9a"
+    },
+    {
+      "id": 1909,
+      "path": "/nix/store/7nmnmanynvbsawhpw8mrx4xdfyi3jsyh-isl-0.20",
+      "hash": "sha256:832280eb4a42d7eb3b919fd4d058c17176e00959fa7f084ece99fd4306c9e428",
+      "deriver": "/nix/store/f35736n3y0y1j4099dq1qs1nxb8xw2d2-isl-0.20.drv",
+      "narSize": 2736608,
+      "references": [
+        "/nix/store/7nmnmanynvbsawhpw8mrx4xdfyi3jsyh-isl-0.20",
+        "/nix/store/h4wfwic161kxrr74jlzla5lsm28hgary-glibc-2.44-25",
+        "/nix/store/z7j20jl3wdi418wbajrbximy6j472y2j-gmp-with-cxx-6.3.0"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "b4bf685eab8e86d9881f15cead9255788c29b3e6de7baaf1cb87e4cf0d7d3e43"
+    },
+    {
+      "id": 1910,
+      "path": "/nix/store/w58917dqbdfl7g7fdwgmlw9wbqyc5ldq-alsa-ucm-conf-1.2.16.1",
+      "hash": "sha256:fe388a4066e37e19ad0bf39cfab2830e8f94701fbbfe8f97f8f6e2b53fdfbe72",
+      "deriver": "/nix/store/hqwqmibbwvzi7jmh7shnqqqgvzw67c0b-alsa-ucm-conf-1.2.16.1.drv",
+      "narSize": 936792,
+      "references": [
+        "/nix/store/2gfxiwls9hbgwdwcy43mprchwsq36mg6-coreutils-9.11",
+        "/nix/store/vd8b7jqgpcjy092rvbjnarwzbhlfylr6-kmod-31"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "e657a8006d890268c538651a5320c5a8cf905897509ed22d42e13660e0adc514"
+    },
+    {
+      "id": 1915,
+      "path": "/nix/store/xlqm12gx3s3f7dc1a5pnfk4p2niw2lri-alsa-lib-1.2.16.1",
+      "hash": "sha256:d10598f212983cd9ca26a3c3ebb522c0bbfba21b720d545500c9522785fa15b7",
+      "deriver": "/nix/store/qzi10bq4n6igdnyanzx82gkhlm1c940h-alsa-lib-1.2.16.1.drv",
+      "narSize": 1913920,
+      "references": [
+        "/nix/store/h4wfwic161kxrr74jlzla5lsm28hgary-glibc-2.44-25",
+        "/nix/store/w58917dqbdfl7g7fdwgmlw9wbqyc5ldq-alsa-ucm-conf-1.2.16.1",
+        "/nix/store/xlqm12gx3s3f7dc1a5pnfk4p2niw2lri-alsa-lib-1.2.16.1",
+        "/nix/store/z9rkc8ymlg1ddpsp5zk34chqwcghd51l-alsa-topology-conf-1.2.5.1"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "4ff5c11a6be7836962b19f018ab18fbc22c07e8559ef766427ac90cb4d95d797"
+    },
+    {
+      "id": 1916,
+      "path": "/nix/store/xsr31a55xsfdvzdd846lwljmi3dxgjg7-alsa-lib-1.2.16.1-dev",
+      "hash": "sha256:780a5a89815cd3670e9cb192e5a63c3684b85adef94a49fd8976eb2ae01056b6",
+      "deriver": "/nix/store/qzi10bq4n6igdnyanzx82gkhlm1c940h-alsa-lib-1.2.16.1.drv",
+      "narSize": 519152,
+      "references": [
+        "/nix/store/xlqm12gx3s3f7dc1a5pnfk4p2niw2lri-alsa-lib-1.2.16.1",
+        "/nix/store/xsr31a55xsfdvzdd846lwljmi3dxgjg7-alsa-lib-1.2.16.1-dev"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "4ff5c11a6be7836962b19f018ab18fbc22c07e8559ef766427ac90cb4d95d797"
+    },
+    {
+      "id": 1917,
+      "path": "/nix/store/0h88sx6awx7mbb7aaq8sh42nq31r52sf-compiler-rt-libc-21.1.8",
+      "hash": "sha256:33e243ef3550e2f40117e620303f69205909724758c94e101fdb27ff3c1a4355",
+      "deriver": "/nix/store/z407hjlhhakvbxpq03p1g1v7p5iair3w-compiler-rt-libc-21.1.8.drv",
+      "narSize": 37940072,
+      "references": [
+        "/nix/store/h4wfwic161kxrr74jlzla5lsm28hgary-glibc-2.44-25",
+        "/nix/store/j7qx4s4mr17j1wqgvqdzj33lmrnzb387-gcc-16.2.0-lib"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "860838cc85e65be6b689bec792ea35a18b344ea35ad7ec5071ab4452e7e26d02"
+    },
+    {
+      "id": 1918,
+      "path": "/nix/store/ihdb5iqrwkz8ki15pw16fzhf5bn7pgim-compiler-rt-libc-21.1.8-dev",
+      "hash": "sha256:a4d7ea97d31123b725e874ea0d7e650265f78192e62b01e5801f07ab077272a7",
+      "deriver": "/nix/store/z407hjlhhakvbxpq03p1g1v7p5iair3w-compiler-rt-libc-21.1.8.drv",
+      "narSize": 774208,
+      "references": [
+        "/nix/store/0h88sx6awx7mbb7aaq8sh42nq31r52sf-compiler-rt-libc-21.1.8"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "860838cc85e65be6b689bec792ea35a18b344ea35ad7ec5071ab4452e7e26d02"
+    },
+    {
+      "id": 1919,
+      "path": "/nix/store/y5sgl0vvrpbcwgjwpjs60r1hg0gi7i0n-binutils-2.46",
+      "hash": "sha256:768090f631dce49019964eaa8bc11c659d3f6e867f2f3437de781b41a1a116c6",
+      "deriver": "/nix/store/fy0f3kyync5dszy5vbp05ixlg4gxzr03-binutils-2.46.drv",
+      "narSize": 34834384,
+      "references": [
+        "/nix/store/8wb7zk48s2iq3kix06vflp4dl5rpfsfs-binutils-2.46-lib",
+        "/nix/store/h4wfwic161kxrr74jlzla5lsm28hgary-glibc-2.44-25",
+        "/nix/store/j7qx4s4mr17j1wqgvqdzj33lmrnzb387-gcc-16.2.0-lib",
+        "/nix/store/wgw25d181h0qks7qsfp1bh7c5nd3f0s7-zlib-1.3.2",
+        "/nix/store/y5sgl0vvrpbcwgjwpjs60r1hg0gi7i0n-binutils-2.46"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "6856a21ea9b698674d16199647bcc2c0f93db46457f2d0fbd1d7fcbb334808f1"
+    },
+    {
+      "id": 1921,
+      "path": "/nix/store/30axrdkfr53iadyx4445b91x4qnmmc75-binutils-wrapper-2.46",
+      "hash": "sha256:0bfc3729032fb2d81de8bb98b004864caffa1d43ff361ce6ccd0cc0f8f55f9b6",
+      "deriver": "/nix/store/w8az512dyc8cwyfxkyg6hmhzn5hsjszk-binutils-wrapper-2.46.drv",
+      "narSize": 56672,
+      "references": [
+        "/nix/store/10dxp0qxqxxsyiljrh2kp0xqhz6arhcx-bash-5.3p15",
+        "/nix/store/2gfxiwls9hbgwdwcy43mprchwsq36mg6-coreutils-9.11",
+        "/nix/store/30axrdkfr53iadyx4445b91x4qnmmc75-binutils-wrapper-2.46",
+        "/nix/store/h4wfwic161kxrr74jlzla5lsm28hgary-glibc-2.44-25",
+        "/nix/store/i4a125l0m5bv4xg1zm6rv9mnqggycwq7-expand-response-params",
+        "/nix/store/m38wglsqnh1mrmj2cmqa3pjb6w4yjxdi-glibc-2.44-25-dev",
+        "/nix/store/srvyqaf88njyqsrs1ajz3hznvdqq8hlw-glibc-2.44-25-bin",
+        "/nix/store/y5sgl0vvrpbcwgjwpjs60r1hg0gi7i0n-binutils-2.46"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "455238068b5a580aecac9d3319e984b1dadc931b0a975d75794804c5edec4229"
+    },
+    {
+      "id": 1922,
+      "path": "/nix/store/fqwjc5j071xpavnn90w1jlg0mbb2fim7-i686-unknown-linux-gnu-binutils-2.46",
+      "hash": "sha256:61d7c74b0b18a01d0b2a08c627298befdc3e05d16e1125dc162178d13008dd72",
+      "deriver": "/nix/store/2mdwaijhxvzvkmizir3afgr01a9k6frq-i686-unknown-linux-gnu-binutils-2.46.drv",
+      "narSize": 38279080,
+      "references": [
+        "/nix/store/fqwjc5j071xpavnn90w1jlg0mbb2fim7-i686-unknown-linux-gnu-binutils-2.46",
+        "/nix/store/h4wfwic161kxrr74jlzla5lsm28hgary-glibc-2.44-25",
+        "/nix/store/j7qx4s4mr17j1wqgvqdzj33lmrnzb387-gcc-16.2.0-lib",
+        "/nix/store/wgw25d181h0qks7qsfp1bh7c5nd3f0s7-zlib-1.3.2"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "c1f5cf57e4cc80cd35360ff1eaa8d1c11ebdb0ba40fc3471fae3d67f2607536e"
+    },
+    {
+      "id": 1923,
+      "path": "/nix/store/yfyrjigaj8mxpn9xyg9mchgsv9a7m1pv-i686-unknown-linux-gnu-binutils-wrapper-2.46",
+      "hash": "sha256:f75ef3d73fe1d963f28a256918a2a174d16e373bdb435d670eb5ea23c18c9e7f",
+      "deriver": "/nix/store/s888x6hpn0mbg8qr3smlxn1hbh3iss84-i686-unknown-linux-gnu-binutils-wrapper-2.46.drv",
+      "narSize": 59912,
+      "references": [
+        "/nix/store/10dxp0qxqxxsyiljrh2kp0xqhz6arhcx-bash-5.3p15",
+        "/nix/store/2gfxiwls9hbgwdwcy43mprchwsq36mg6-coreutils-9.11",
+        "/nix/store/4bhmanj4k3y9vfhbfcbdkbiyd4rv5ccz-glibc-i686-unknown-linux-gnu-2.44-25-dev",
+        "/nix/store/fqwjc5j071xpavnn90w1jlg0mbb2fim7-i686-unknown-linux-gnu-binutils-2.46",
+        "/nix/store/i4a125l0m5bv4xg1zm6rv9mnqggycwq7-expand-response-params",
+        "/nix/store/rb8a67j94vxyb0ly722kkl89j4mh04lw-glibc-i686-unknown-linux-gnu-2.44-25-bin",
+        "/nix/store/xf9as3246qqnfkcy697qhbl60jxfn29p-glibc-i686-unknown-linux-gnu-2.44-25",
+        "/nix/store/yfyrjigaj8mxpn9xyg9mchgsv9a7m1pv-i686-unknown-linux-gnu-binutils-wrapper-2.46"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "e76e77d92e87e453e3aa29d1175a6272d572a28e4e6cfeca28119151e833b051"
+    },
+    {
+      "id": 1925,
+      "path": "/nix/store/5q6bdxkp7lc70gn9mnf4yiybrx8ry5xq-gcc-16.2.0",
+      "hash": "sha256:ba36820ec4b34446fe3d103cfcd2082f230dd60b1664e53f622c8049cb5f827c",
+      "deriver": "/nix/store/rr1j9pyykfsi6rpvg29g41w4gg1j0k48-gcc-16.2.0.drv",
+      "narSize": 293826720,
+      "references": [
+        "/nix/store/5q6bdxkp7lc70gn9mnf4yiybrx8ry5xq-gcc-16.2.0",
+        "/nix/store/85lj8x78s9z5v8z8b5ik5phdcwri22ac-gmp-6.3.0",
+        "/nix/store/afhh51h1qz7f7jqhs4qs3ggxjipvn0i3-isl-0.20",
+        "/nix/store/h4wfwic161kxrr74jlzla5lsm28hgary-glibc-2.44-25",
+        "/nix/store/j7qx4s4mr17j1wqgvqdzj33lmrnzb387-gcc-16.2.0-lib",
+        "/nix/store/m38wglsqnh1mrmj2cmqa3pjb6w4yjxdi-glibc-2.44-25-dev",
+        "/nix/store/qa8pjnpxm0nkpci88dbig628hc7xxf67-mpfr-4.2.2",
+        "/nix/store/s4mrmq9aciz9r5kb37jzfc7cvgk3lnxb-libmpc-1.4.1",
+        "/nix/store/wgw25d181h0qks7qsfp1bh7c5nd3f0s7-zlib-1.3.2"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "f59f1f26559390377f1bf1dda9b3f6b74429482759cfd16843d23cf45905b8ad"
+    },
+    {
+      "id": 1928,
+      "path": "/nix/store/c75a6mvm8bpkqbjlabwr1da715fdwyk4-i686-unknown-linux-gnu-gcc-16.2.0",
+      "hash": "sha256:46c580334e00d44d3edf0bcb64a02b06496cdddf24ba774eed01007711134161",
+      "deriver": "/nix/store/4r5gq627vj0wz259i34d2659blij52xi-i686-unknown-linux-gnu-gcc-16.2.0.drv",
+      "narSize": 291002136,
+      "references": [
+        "/nix/store/26pg71aizp09l020ll4clr9nk0x8d7gh-linux-headers-7.2",
+        "/nix/store/4bhmanj4k3y9vfhbfcbdkbiyd4rv5ccz-glibc-i686-unknown-linux-gnu-2.44-25-dev",
+        "/nix/store/7nmnmanynvbsawhpw8mrx4xdfyi3jsyh-isl-0.20",
+        "/nix/store/9b7xq5hvj9fbz9clyd2xx18ghpva80qz-libmpc-1.4.1",
+        "/nix/store/c75a6mvm8bpkqbjlabwr1da715fdwyk4-i686-unknown-linux-gnu-gcc-16.2.0",
+        "/nix/store/chkrwwlgil4abf7dvyv70df3kvb0d7d3-mpfr-4.2.2",
+        "/nix/store/h4wfwic161kxrr74jlzla5lsm28hgary-glibc-2.44-25",
+        "/nix/store/j7qx4s4mr17j1wqgvqdzj33lmrnzb387-gcc-16.2.0-lib",
+        "/nix/store/wgw25d181h0qks7qsfp1bh7c5nd3f0s7-zlib-1.3.2",
+        "/nix/store/xf9as3246qqnfkcy697qhbl60jxfn29p-glibc-i686-unknown-linux-gnu-2.44-25",
+        "/nix/store/xhmhqqq06lkp64syslb6njlyaydj9675-i686-unknown-linux-gnu-gcc-16.2.0-lib",
+        "/nix/store/yfyrjigaj8mxpn9xyg9mchgsv9a7m1pv-i686-unknown-linux-gnu-binutils-wrapper-2.46",
+        "/nix/store/z7j20jl3wdi418wbajrbximy6j472y2j-gmp-with-cxx-6.3.0"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "3d15ae36d665516d989582ae8260ef3624869d73610e9eedd058cba51ad4382a"
+    },
+    {
+      "id": 1929,
+      "path": "/nix/store/hymgd36hiy3g3pj7pyj6a53q7rbaip3i-fex-dev-rootfs",
+      "hash": "sha256:9c70b0365cb63b0b1de3f40ee246236996e2b1327d112d1fb4fee61559c4ecd3",
+      "deriver": "/nix/store/008385rsdpb7l7zvdlqsic206xbmy5vz-fex-dev-rootfs.drv",
+      "narSize": 772096,
+      "references": [
+        "/nix/store/2mcjx364ls9id3ngdjxd707j2az2aid2-libx11-1.8.13-dev",
+        "/nix/store/4bhmanj4k3y9vfhbfcbdkbiyd4rv5ccz-glibc-i686-unknown-linux-gnu-2.44-25-dev",
+        "/nix/store/5q6bdxkp7lc70gn9mnf4yiybrx8ry5xq-gcc-16.2.0",
+        "/nix/store/6bvizw9qcnw5qz273y2qyix2wnb3r6ns-wayland-1.26.0-dev",
+        "/nix/store/c75a6mvm8bpkqbjlabwr1da715fdwyk4-i686-unknown-linux-gnu-gcc-16.2.0",
+        "/nix/store/hymgd36hiy3g3pj7pyj6a53q7rbaip3i-fex-dev-rootfs",
+        "/nix/store/i78gq1wwiirwckasx47s17jkr4b5l7qn-libdrm-2.4.134-dev",
+        "/nix/store/jrh7qrz5570y72zlhcmb29i3p351351d-libxrender-0.9.12-dev",
+        "/nix/store/m38wglsqnh1mrmj2cmqa3pjb6w4yjxdi-glibc-2.44-25-dev",
+        "/nix/store/pdcwbw6z36grx39dfhb4y0g9p00i2ajf-libglvnd-1.7.0-dev",
+        "/nix/store/s76zlinrq94xk2y0b4vfjypr9qlcqppf-libxrandr-1.5.5-dev",
+        "/nix/store/wv0waflchr84an8wrm5v0jhbhz3kp6gs-libxcb-1.17.0-dev",
+        "/nix/store/xsr31a55xsfdvzdd846lwljmi3dxgjg7-alsa-lib-1.2.16.1-dev",
+        "/nix/store/zhqvgsbq8ridrhr67qbxnq8rrbx6hvfj-xorgproto-2025.1"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "c7cf5e86bda3d642a7414cc77e91a59c44d613c24a16197a80b0d20115c995f6"
+    },
+    {
+      "id": 1930,
+      "path": "/nix/store/kwbs82a1v1hy20plq2pjchaa0z85zy8w-llvm-21.1.8-lib",
+      "hash": "sha256:1b4d7ff5f534cb3cd8eb65cb512455f585775f00c012b39f9cfd6ef0f69cf5f2",
+      "deriver": "/nix/store/7cvd57gwaj4nqahivgnjl3s3g45z5qrv-llvm-21.1.8.drv",
+      "narSize": 577087064,
+      "references": [
+        "/nix/store/h4wfwic161kxrr74jlzla5lsm28hgary-glibc-2.44-25",
+        "/nix/store/j7qx4s4mr17j1wqgvqdzj33lmrnzb387-gcc-16.2.0-lib",
+        "/nix/store/kwbs82a1v1hy20plq2pjchaa0z85zy8w-llvm-21.1.8-lib",
+        "/nix/store/pi2b23y3gv6zgcziwbgnihf8gam1cmlp-libffi-3.8.0",
+        "/nix/store/vfj3fn7rp56w7f3xy6vz5s41nziv4jgm-libxml2-2.15.4",
+        "/nix/store/wgw25d181h0qks7qsfp1bh7c5nd3f0s7-zlib-1.3.2"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "6ac5380d4fa48fc0c7abd4df96c4446b0874c42386a3e7d91b29dd6a0f4b485d"
+    },
+    {
+      "id": 1931,
+      "path": "/nix/store/adr7l6vazpqqjy2wab0v27pzp17c4sq6-clang-21.1.8-lib",
+      "hash": "sha256:bd86accd34d58e3f5c8efd6247c8d489a3d07ed567f257f3f5cb957c40eae45a",
+      "deriver": "/nix/store/48krwqdbyni46f1sbd681n1qbj7rk0ds-clang-21.1.8.drv",
+      "narSize": 872315768,
+      "references": [
+        "/nix/store/adr7l6vazpqqjy2wab0v27pzp17c4sq6-clang-21.1.8-lib",
+        "/nix/store/h4wfwic161kxrr74jlzla5lsm28hgary-glibc-2.44-25",
+        "/nix/store/j7qx4s4mr17j1wqgvqdzj33lmrnzb387-gcc-16.2.0-lib",
+        "/nix/store/kwbs82a1v1hy20plq2pjchaa0z85zy8w-llvm-21.1.8-lib"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "26af63597033c6e9db65415e7b005a35179c21e622ac59d3babbc0b98e3d7e0a"
+    },
+    {
+      "id": 1932,
+      "path": "/nix/store/jmgw1yz3xm3bpgrk9r84jkcynskdbd40-clang-21.1.8",
+      "hash": "sha256:e42471df8df59f62fb0c676acb1685f2896604736166cf97d32ee9b97676ba90",
+      "deriver": "/nix/store/48krwqdbyni46f1sbd681n1qbj7rk0ds-clang-21.1.8.drv",
+      "narSize": 53107864,
+      "references": [
+        "/nix/store/adr7l6vazpqqjy2wab0v27pzp17c4sq6-clang-21.1.8-lib",
+        "/nix/store/h4wfwic161kxrr74jlzla5lsm28hgary-glibc-2.44-25",
+        "/nix/store/j7qx4s4mr17j1wqgvqdzj33lmrnzb387-gcc-16.2.0-lib",
+        "/nix/store/kwbs82a1v1hy20plq2pjchaa0z85zy8w-llvm-21.1.8-lib"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "26af63597033c6e9db65415e7b005a35179c21e622ac59d3babbc0b98e3d7e0a"
+    },
+    {
+      "id": 1933,
+      "path": "/nix/store/2msw5nclhpsm80z65dqmjiv8kkras989-clang-wrapper-21.1.8",
+      "hash": "sha256:4baf95b669e0ad8a98fc1a528c96bebc9e6f1a31233f1bdab7edd6ee53b29dd3",
+      "deriver": "/nix/store/hny6ydylzz5h1flpcjrr50xk35q7hakn-clang-wrapper-21.1.8.drv",
+      "narSize": 75544,
+      "references": [
+        "/nix/store/0h88sx6awx7mbb7aaq8sh42nq31r52sf-compiler-rt-libc-21.1.8",
+        "/nix/store/10dxp0qxqxxsyiljrh2kp0xqhz6arhcx-bash-5.3p15",
+        "/nix/store/2gfxiwls9hbgwdwcy43mprchwsq36mg6-coreutils-9.11",
+        "/nix/store/2msw5nclhpsm80z65dqmjiv8kkras989-clang-wrapper-21.1.8",
+        "/nix/store/30axrdkfr53iadyx4445b91x4qnmmc75-binutils-wrapper-2.46",
+        "/nix/store/3668q0d9zhc5n9l2pnyvpd44kz9bjsjm-gnugrep-3.12",
+        "/nix/store/5q6bdxkp7lc70gn9mnf4yiybrx8ry5xq-gcc-16.2.0",
+        "/nix/store/adr7l6vazpqqjy2wab0v27pzp17c4sq6-clang-21.1.8-lib",
+        "/nix/store/h4wfwic161kxrr74jlzla5lsm28hgary-glibc-2.44-25",
+        "/nix/store/i4a125l0m5bv4xg1zm6rv9mnqggycwq7-expand-response-params",
+        "/nix/store/ihdb5iqrwkz8ki15pw16fzhf5bn7pgim-compiler-rt-libc-21.1.8-dev",
+        "/nix/store/j7qx4s4mr17j1wqgvqdzj33lmrnzb387-gcc-16.2.0-lib",
+        "/nix/store/jmgw1yz3xm3bpgrk9r84jkcynskdbd40-clang-21.1.8",
+        "/nix/store/m38wglsqnh1mrmj2cmqa3pjb6w4yjxdi-glibc-2.44-25-dev",
+        "/nix/store/q2mkz6ca1alqfqf750dygvakmq8kjrwz-gcc-16.2.0-libgcc",
+        "/nix/store/srvyqaf88njyqsrs1ajz3hznvdqq8hlw-glibc-2.44-25-bin"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "b19d00a00cde2fa36eb0d3d97c37874d5a8c5a2a40c29828aa5db5771f355724"
+    },
+    {
+      "id": 1934,
+      "path": "/nix/store/0y77jl567k50s0mpaz6878rpqdbynfqc-toolchain_nix_x86_64.txt",
+      "hash": "sha256:3dc4107b81dd942ee66b4239403363ea48a4af7fee4f785728cdfa668dadfa9c",
+      "deriver": "/nix/store/6gjk9cwk6vdmnzb00drknqcq0axv3maw-toolchain_nix_x86_64.txt.drv",
+      "narSize": 848,
+      "references": [
+        "/nix/store/2msw5nclhpsm80z65dqmjiv8kkras989-clang-wrapper-21.1.8",
+        "/nix/store/hymgd36hiy3g3pj7pyj6a53q7rbaip3i-fex-dev-rootfs"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "9a0c05b03b1fb073660fe97ea61404015583732b683b5e94ae95513538f1f8dc"
+    },
+    {
+      "id": 1935,
+      "path": "/nix/store/5b9dfyhkw2amg1m02vg6ph7a93xc554r-i686-unknown-linux-gnu-clang-wrapper-21.1.8",
+      "hash": "sha256:d87ff41a5e2ed407e1d8f143f4529c505258823a11e09b957ae9051ba413ac8d",
+      "deriver": "/nix/store/f1qvn0wxywf4bnibbj4z70gcfya86v4f-i686-unknown-linux-gnu-clang-wrapper-21.1.8.drv",
+      "narSize": 78408,
+      "references": [
+        "/nix/store/10dxp0qxqxxsyiljrh2kp0xqhz6arhcx-bash-5.3p15",
+        "/nix/store/2gfxiwls9hbgwdwcy43mprchwsq36mg6-coreutils-9.11",
+        "/nix/store/3668q0d9zhc5n9l2pnyvpd44kz9bjsjm-gnugrep-3.12",
+        "/nix/store/4bhmanj4k3y9vfhbfcbdkbiyd4rv5ccz-glibc-i686-unknown-linux-gnu-2.44-25-dev",
+        "/nix/store/5b9dfyhkw2amg1m02vg6ph7a93xc554r-i686-unknown-linux-gnu-clang-wrapper-21.1.8",
+        "/nix/store/adr7l6vazpqqjy2wab0v27pzp17c4sq6-clang-21.1.8-lib",
+        "/nix/store/c75a6mvm8bpkqbjlabwr1da715fdwyk4-i686-unknown-linux-gnu-gcc-16.2.0",
+        "/nix/store/dnwcqgbzrfwyf6vchv0760d9x2fc40ny-compiler-rt-libc-i686-unknown-linux-gnu-21.1.8-dev",
+        "/nix/store/i4a125l0m5bv4xg1zm6rv9mnqggycwq7-expand-response-params",
+        "/nix/store/j8ag84iy60dmdz43jvwm0kh504hjdmnc-compiler-rt-libc-i686-unknown-linux-gnu-21.1.8",
+        "/nix/store/jmgw1yz3xm3bpgrk9r84jkcynskdbd40-clang-21.1.8",
+        "/nix/store/phhjbm5g1inb11slm0sbwcr8ac080q4g-libgcc-i686-unknown-linux-gnu-16.2.0",
+        "/nix/store/rb8a67j94vxyb0ly722kkl89j4mh04lw-glibc-i686-unknown-linux-gnu-2.44-25-bin",
+        "/nix/store/xf9as3246qqnfkcy697qhbl60jxfn29p-glibc-i686-unknown-linux-gnu-2.44-25",
+        "/nix/store/xhmhqqq06lkp64syslb6njlyaydj9675-i686-unknown-linux-gnu-gcc-16.2.0-lib",
+        "/nix/store/yfyrjigaj8mxpn9xyg9mchgsv9a7m1pv-i686-unknown-linux-gnu-binutils-wrapper-2.46"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "e4aa44e01f1c2207c810d1e9dc22d8d53147d7a2cfeda3d3fcbb6c0941ccc569"
+    },
+    {
+      "id": 1936,
+      "path": "/nix/store/a6b0pssdzris6023aqdgxvpvp3vqp8aw-toolchain_nix_x86_32.txt",
+      "hash": "sha256:67f76e842b931a851afe991aff37e0bbd4e588027e2c9a127b863b72237ea8ff",
+      "deriver": "/nix/store/rx3m5vklsqkpqa9nw802akz9jzf4w18p-toolchain_nix_x86_32.txt.drv",
+      "narSize": 952,
+      "references": [
+        "/nix/store/5b9dfyhkw2amg1m02vg6ph7a93xc554r-i686-unknown-linux-gnu-clang-wrapper-21.1.8",
+        "/nix/store/hymgd36hiy3g3pj7pyj6a53q7rbaip3i-fex-dev-rootfs"
+      ],
+      "deriver_retained": true,
+      "deriver_sha256": "802b781ff36f842d5d21e5a4b777735921a78f4f2138280ce4490095bf7bed33"
+    }
+  ],
+  "scope": "Read-only Nix database reference closure with exact toolchain/archive hashes and retained derivations. Registered NAR hashes are metadata, not independently rehashed NARs. This is build-input custody evidence, not corresponding-source or licence clearance."
+}

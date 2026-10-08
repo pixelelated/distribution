@@ -1,0 +1,161 @@
+[
+  {
+    "name": "vm18-x86_64",
+    "tree": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18",
+    "inputs": "/workspace/tmp/pixelelated-m7-final-inventory-02/artifacts/vm18-x86_64/inventory-inputs.json",
+    "original_inputs": "/workspace/tmp/pixelelated-m7-replacement-18/inputs.json",
+    "original_inputs_sha256": "56328e1756d3269b6d9b348344cebbdf00b8c0f3f4a11d246bca18938b259deb",
+    "bundle": "/workspace/artifacts/pixelelated-candidates/sha256/f557176651026f59bb5931993b12491a6019c0383321fb89fa1a05a596514fe6",
+    "arch": "x86_64",
+    "inventory_owner": "/workspace/tmp/pixelelated-m7-final-inventory-02",
+    "components_path": "/workspace/tmp/pixelelated-m7-final-inventory-02/artifacts/vm18-x86_64/components.json",
+    "components_sha256": "1e61f8cff666b1062bb52d3911c0bd08ff4e2b5201894cfa6fb5428e78a7f221",
+    "source_inventory_path": "/workspace/tmp/pixelelated-m7-final-inventory-02/artifacts/vm18-x86_64/source-inventory.json",
+    "source_inventory_sha256": "9df4c8720d982cac4b506034970c98b7d46cacfd74db8f2379c0d9a95b3fea21",
+    "counts": {
+      "mapped_components": 584,
+      "unpacked_roots": 569,
+      "image_install_stamps": 526,
+      "local_meta_packages": 15
+    },
+    "missing_recipe_license": [
+      "enet",
+      "freej2me-lr",
+      "harfbuzz-icu",
+      "libretro-database",
+      "libspeexdsp",
+      "libxmp-lite",
+      "openbor",
+      "opusfile",
+      "rclone",
+      "retropie-shaders",
+      "slang-shaders",
+      "tailscale",
+      "wildmidi",
+      "zerotier-one"
+    ]
+  },
+  {
+    "name": "h70002-arm",
+    "tree": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02",
+    "inputs": "/workspace/tmp/pixelelated-m7-final-inventory-02/artifacts/h70002-arm/inventory-inputs.json",
+    "original_inputs": "/workspace/tmp/pixelelated-m7-h700-refresh-02/inputs.json",
+    "original_inputs_sha256": "2918052ed6aaa4709bdff0513bcfdd098327f44c8238a2c24ae5c8e16fe4ff26",
+    "bundle": "/workspace/artifacts/pixelelated-candidates/sha256/1b93642b24901b5c3a96b0a079d6fb4486ca30d213b4b2db890c6e3630404175",
+    "arch": "arm",
+    "inventory_owner": "/workspace/tmp/pixelelated-m7-final-inventory-02",
+    "components_path": "/workspace/tmp/pixelelated-m7-final-inventory-02/artifacts/h70002-arm/components.json",
+    "components_sha256": "2e56da58063bcf568566ae86a80e7be365aac9b4eb67c8a9a220b455624b9d99",
+    "source_inventory_path": "/workspace/tmp/pixelelated-m7-final-inventory-02/artifacts/h70002-arm/source-inventory.json",
+    "source_inventory_sha256": "e9a033f4ae7d956d63fd7c4d9149cc8a40da5d02a7bc0af832c3f3e13cc58f07",
+    "counts": {
+      "mapped_components": 224,
+      "unpacked_roots": 220,
+      "image_install_stamps": 175,
+      "local_meta_packages": 4
+    },
+    "missing_recipe_license": [
+      "opusfile"
+    ]
+  },
+  {
+    "name": "sm855003-arm",
+    "tree": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02",
+    "inputs": "/workspace/tmp/pixelelated-m7-final-inventory-02/artifacts/sm855003-arm/inventory-inputs.json",
+    "original_inputs": "/workspace/tmp/pixelelated-m7-sm8550-refresh-03/inputs.json",
+    "original_inputs_sha256": "d23c6a914afabadd0cee025f843d80457143224ef18e761825c033715b0aae62",
+    "bundle": "/workspace/artifacts/pixelelated-candidates/sha256/afcb966f246118798c87e59cd5bc6ce7c2c21167a5d712faea56393409d9d79d",
+    "arch": "arm",
+    "inventory_owner": "/workspace/tmp/pixelelated-m7-final-inventory-02",
+    "components_path": "/workspace/tmp/pixelelated-m7-final-inventory-02/artifacts/sm855003-arm/components.json",
+    "components_sha256": "08ad1fe0e44e8e27321fcc50352cbf08473abdfdb7c89b68283c3578fa769257",
+    "source_inventory_path": "/workspace/tmp/pixelelated-m7-final-inventory-02/artifacts/sm855003-arm/source-inventory.json",
+    "source_inventory_sha256": "4c9d7a3535b357e7766e84f0eab735a4a458c32ee38698fa5e9e76693bd80455",
+    "counts": {
+      "mapped_components": 228,
+      "unpacked_roots": 224,
+      "image_install_stamps": 182,
+      "local_meta_packages": 4
+    },
+    "missing_recipe_license": [
+      "opusfile"
+    ]
+  },
+  {
+    "name": "h70002-aarch64",
+    "tree": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02",
+    "inputs": "/workspace/tmp/pixelelated-m7-final-inventory-03/artifacts/h70002-aarch64/inventory-inputs.json",
+    "original_inputs": "/workspace/tmp/pixelelated-m7-h700-refresh-02/inputs.json",
+    "original_inputs_sha256": "2918052ed6aaa4709bdff0513bcfdd098327f44c8238a2c24ae5c8e16fe4ff26",
+    "bundle": "/workspace/artifacts/pixelelated-candidates/sha256/1b93642b24901b5c3a96b0a079d6fb4486ca30d213b4b2db890c6e3630404175",
+    "arch": "aarch64",
+    "inventory_owner": "/workspace/tmp/pixelelated-m7-final-inventory-03",
+    "components_path": "/workspace/tmp/pixelelated-m7-final-inventory-03/artifacts/h70002-aarch64/components.json",
+    "components_sha256": "5da86f31ea22919913c7360056e1f907e2d74672771b0f91d0b9e6e5220685ca",
+    "source_inventory_path": "/workspace/tmp/pixelelated-m7-final-inventory-03/artifacts/h70002-aarch64/source-inventory.json",
+    "source_inventory_sha256": "42bbc5370882bb3002c6a758858d26569ca48684f8e21a7a911985cf7ab7f421",
+    "counts": {
+      "mapped_components": 615,
+      "unpacked_roots": 600,
+      "image_install_stamps": 553,
+      "local_meta_packages": 15
+    },
+    "missing_recipe_license": [
+      "common-shaders",
+      "enet",
+      "freej2me-lr",
+      "glsl-shaders",
+      "harfbuzz-icu",
+      "libretro-database",
+      "libspeexdsp",
+      "libxmp-lite",
+      "openbor",
+      "opusfile",
+      "rclone",
+      "retropie-shaders",
+      "slang-shaders",
+      "tailscale",
+      "wildmidi",
+      "zerotier-one"
+    ]
+  },
+  {
+    "name": "sm855003-aarch64",
+    "tree": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02",
+    "inputs": "/workspace/tmp/pixelelated-m7-final-inventory-05/artifacts/sm855003-aarch64/inventory-inputs.json",
+    "original_inputs": "/workspace/tmp/pixelelated-m7-sm8550-refresh-03/inputs.json",
+    "original_inputs_sha256": "d23c6a914afabadd0cee025f843d80457143224ef18e761825c033715b0aae62",
+    "bundle": "/workspace/artifacts/pixelelated-candidates/sha256/afcb966f246118798c87e59cd5bc6ce7c2c21167a5d712faea56393409d9d79d",
+    "arch": "aarch64",
+    "inventory_owner": "/workspace/tmp/pixelelated-m7-final-inventory-05",
+    "components_path": "/workspace/tmp/pixelelated-m7-final-inventory-05/artifacts/sm855003-aarch64/components.json",
+    "components_sha256": "1b4f21c1e7959baff4085fc0d2e4334783797a7ee6e786b2ad7e20b1ed76e889",
+    "source_inventory_path": "/workspace/tmp/pixelelated-m7-final-inventory-05/artifacts/sm855003-aarch64/source-inventory.json",
+    "source_inventory_sha256": "93e28a064b644b3e1fa7d1adeeb3f3a199f9c2bf78de6cdd10974f22b99df6f1",
+    "counts": {
+      "mapped_components": 676,
+      "unpacked_roots": 659,
+      "image_install_stamps": 619,
+      "installed_without_unpacked_root": 17,
+      "local_meta_packages": 16,
+      "archive_reconstructed_packages": 1
+    },
+    "missing_recipe_license": [
+      "enet",
+      "freej2me-lr",
+      "harfbuzz-icu",
+      "libretro-database",
+      "libspeexdsp",
+      "libxmp-lite",
+      "openbor",
+      "opusfile",
+      "rclone",
+      "retropie-shaders",
+      "rocknix-abl",
+      "slang-shaders",
+      "tailscale",
+      "wildmidi",
+      "zerotier-one"
+    ]
+  }
+]
