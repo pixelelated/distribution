@@ -1,0 +1,24 @@
+{
+  "name": "sm855003-arm",
+  "tree": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02",
+  "original_inputs": "/workspace/tmp/pixelelated-m7-sm8550-refresh-03/inputs.json",
+  "original_inputs_sha256": "d23c6a914afabadd0cee025f843d80457143224ef18e761825c033715b0aae62",
+  "bundle": "/workspace/artifacts/pixelelated-candidates/sha256/afcb966f246118798c87e59cd5bc6ce7c2c21167a5d712faea56393409d9d79d",
+  "arch": "arm",
+  "inventory_owner": "/workspace/tmp/pixelelated-m7-final-inventory-02",
+  "components_path": "/workspace/tmp/pixelelated-m7-final-inventory-02/artifacts/sm855003-arm/components.json",
+  "components_sha256": "08ad1fe0e44e8e27321fcc50352cbf08473abdfdb7c89b68283c3578fa769257",
+  "source_inventory_path": "/workspace/tmp/pixelelated-m7-final-inventory-02/artifacts/sm855003-arm/source-inventory.json",
+  "source_inventory_sha256": "4c9d7a3535b357e7766e84f0eab735a4a458c32ee38698fa5e9e76693bd80455",
+  "counts": {
+    "mapped_components": 228,
+    "unpacked_roots": 224,
+    "image_install_stamps": 182,
+    "local_meta_packages": 4
+  },
+  "missing_recipe_license": [
+    "opusfile"
+  ],
+  "derived_inventory_inputs_sha256": "37b8d2fcef43f326fc6f0548ebe13daa492b89c9c92ecb1eb3f65f39bac0dbc7",
+  "derived_inventory_inputs_retained": "/workspace/tmp/pixelelated-m7-final-inventory-02/artifacts/sm855003-arm/inventory-inputs.json"
+}

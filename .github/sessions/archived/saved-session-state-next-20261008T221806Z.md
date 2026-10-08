@@ -1,10 +1,10 @@
 # Saved Session State
 
-> Saved: 2026-10-08T22:18:06.735460+00:00
+> Saved: 2026-10-08T21:58:37.574523+00:00
 > Coordinator: feature/conflict-resolution
 > Repository: pixelelated/distribution
 
-## Start here — device firmware and inventory complete; #528 source publication next
+## Start here — H700 and SM8550 accepted; source/licence inventory next
 
 This is an immutable Linux build system, not a runnable application. Primary
 `/workspace/repos/rocknix` stays on `next`; read its AGENTS.md and canonical
@@ -18,8 +18,7 @@ physical-device/personal-cloud action. #519 controlled owner alignment must
 precede the next owner handheld update transfer/reboot. Website #511 is separate.
 No goal exists. H70002 and SM855003 engineering firmware are ACCEPTED.
 No compiler, VM QA, provider or external audit job is active. No RC designation.
-Latest device acceptance fcac270c3880521b6296a17943cb4fb2011e887b has both hosted checks SUCCESS37850652223/37850652345.
-Helper recovery376675809c578c6fd4ccb9261a65af3f26ec2ece has both SUCCESS37850012367/37850012329.
+Helper recovery/active-build record published at376675809c; query its exact-head CI.
 Never repeat completed H700/SM8550 builds, audits or VM QA merely to resume. Published H700 acceptance/checkpoint
 796c850c768a3c24a10798045dbf2555960ee9c7 has both checks SUCCESS37846448087/37846448336.
 Fresh-agent continuation check caught a stale lower M7.P5 paragraph; both lower
@@ -147,64 +146,39 @@ bytes equal, no GNUbuild-IDsection. Exact unnormalized new bytes passed handoff.
 Scratch disks/extractedSYSTEM removed. Source/helper/acceptance seals unchanged.
 Evidence: docs/qa-logs/2026-10-08-device-refresh/sm855003/.
 
-## Final inventories complete — do not repeat
-
-Packet `docs/qa-logs/2026-10-08-final-inventory/` binds all three exact immutable
-firmware bundles and five architecture profiles. Per-profile component counts:
-VM18x86_64 584; H700ARM224/aarch64615; SM8550ARM228/aarch64676.
-Original inventory01–04 aggregate rc1 results remain unchanged. Accepted profile
-reports compose02(VM/ARM),03(H700aarch64),05(SM8550aarch64 with04 successful
-source report). Inventory05 and source-supplement01 have all five original rc0
-channels and actual host exits; no inventory/build/QA/audit job is active.
-
-Custom archive names, local/shared/generated inputs and ARM handoff are mapped.
-SM8550 LLVM's unpacked root is absent; recipe-pinned source archive and three
-installed libraries match retained bytes. Do not claim an original unpacked
-readback or invent the cause of absence. Recipe metadata is not a licence
-assessment; missing install stamps do not prove build-only dependency use.
-Original components and conservative derived publication worklists both remain.
-
-Supplement owner `/workspace/tmp/pixelelated-m7-source-supplement-01`:
-run20261008T221344Z-16f34d23 finished22:13:49; actual owner exits verified.
-Both rclone1.75.1 ZIPs match pinned checksums and actual unpacked binaries.
-Exact Doom shareware install bytes retained; unpinned upstream download/notice
-disposition remains. Nix archives/toolchains verify,81 database reference paths
-recorded; registered NAR hashes are not independent content rehashes.
-Independent read-only recovered input custody:
-`/workspace/artifacts/pixelelated-build-inputs/m7-final-supplement/d61541b1d2aa7cac7b3f5dfc0197e846c0da359d2f60d48770ff0f8156758051`.
-This is not a full corresponding-source bundle or verified backup.
-
 ## Current work and next commands
 
-1. #528 (real child of #344, M7.P5) is current. Read its acceptance criteria
-   and final-inventory README. Resolve17 missing recipe declarations using
-   exact upstream/source notices, including common/glsl shaders and rocknix-abl
-   beyond the older VM14-gap list.47 component/profile notice-candidate rows
-   are retained; several have no top-level notice. Do not invent licence labels
-   from package recipe headers. Prebuilt archives are not corresponding source.
-2. Package exact source archives/git/submodules, fork patches and build scripts
-   in fork-owned custody; independently retrieve/hash-verify and evidence its
-   backup. Existing inventory names605 unique hashed archive inputs, about9.04GB,
-   and43 git inputs before supplements. Evaluate ARM/FEX/Nix/static/vendored,
-   prebuiltABL/rclone and install-time shareware dispositions explicitly.
-3. #492 build/artifact and final-inventory criteria are complete. Publish the
-   scoped packet/checkpoint to next and close with exact commit evidence if
-   not already closed; read live state before acting. No repeated compilation,
-   audit or VM qualification. #528 retains publication/source/licence holds.
-4. Retire superseded large caches only after source/input custody dependencies
-   are preserved (#493/#494,D-INFRA-022). History alone is not a hold; source
-   inputs are. No broad cleanup occurred during inventory. Worktree removal
-   only tools/fork-worktree. Current firmware is held for queued device work.
-5. #265 owns release/version/publication tooling; #359 release-note linkage.
-   Named physical/boot-chain gates remain. #519 controlled owner alignment
-   precedes next RG35XXSP transfer/reboot. Its13old-helper controls pass, but
-   live startup/recovery classification, reversible transaction/failure/restart
-   rehearsal and named state-bound approval/readback remain. Read its private
-   proposal; no device or personal-cloud action is authorized by this inventory.
-6. Update/read back full M7/#344/#528 bodies and checkpoint as priorities change.
-   #344's binding phase paragraph now defers to liveM7, not staleM7.P3. Website511
-   remains separate. Publish only explicit scoped commits from divergent root
-   to next, run required gates and consume exact-head hosted checks.
+1. No build/QA owner remains running. Start final component/source/licence
+   inventory for qualified VM18, H70002 and SM855003 under #344. #492 remains
+   open ONLY for final per-image inventory linkage; all firmware criteria ticked.
+   Current H700/SM share source8b5113fa16 and exact qualified ES1d76b3da7.
+   VM18 source7f58b7b1c5 has zero product delta; metadata/history is explicit.
+2. Read prior inventory12 harness and component/source records under
+   docs/qa-logs/2026-10-07-pixelelated-replacement-16/inventory-12/; do not treat
+   that old inventory as final. source-inventory.py and qualify-inventory.py
+   hardcode amd64 rclone and old owners/archives; adapt per actual target,
+   retain original hash/provenance failures, and qualify device-specific extras
+   (including ARM and Nix/FEX). Fourteen historical missing recipe-licence fields
+   remain an evidenced inventory task, not permission to invent licence labels.
+   source-notice-preparation.json locates top-level notice candidates for VM18/
+   H700 only; it is neither a full licence review nor source-custody clearance.
+3. Keep exact source/archive/patch/build-script inputs until final inventory
+   verifies their replacement custody. Retire superseded large outputs/caches
+   after that immediate dependency clears (#493/#494, D-INFRA-022); history alone
+   is not a hold. Never delete source/licence inputs or an active path. Worktree
+   removal only tools/fork-worktree. No personal cloud/device cleanup is inferred.
+4. #265 owns release/version/publication tooling; #359 remaining release-note
+   linkage follows final selection. #344 source/licence inventory and named
+   physical/boot-chain gates remain. No new external audit is required.
+5. #519 controlled owner alignment remains before the next RG35XXSP transfer/
+   reboot. Its13old-helper controls are complete, but live recovery/startup-hook
+   classification, exact reversible transaction/failure/restart rehearsal and
+   named state-bound action approval/readback are still required. Read issue519
+   and private proposal before preparing those actions. No device or cloud
+   action ran in this build continuation. Website511 stays separate.
+6. Publish scoped evidence/docs only from historically divergent root to next,
+   run required gates and consume exact-head hosted checks. Keep full M7/#492/
+   #344 bodies and canonical checkpoint aligned. Do not repeat accepted work.
 
 ## Build references and cautions
 

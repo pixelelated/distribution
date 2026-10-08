@@ -1,0 +1,25 @@
+[
+  {
+    "arch": "amd64",
+    "archive_path": "/workspace/tmp/pixelelated-m7-source-supplement-01/retained-inputs/rclone-v1.75.1-linux-amd64.zip",
+    "archive_sha256": "982b5aa772841168f8e380f139e9e787b2a105403e32b94da8676a0e1c0a13ab",
+    "url": "https://downloads.rclone.org/v1.75.1/rclone-v1.75.1-linux-amd64.zip",
+    "unpacked_binary_sha256": "f66d8c1d552ad90296a11bc8b46d56a7fa5da1a7fa05e7ca522d95df92c4a4c0",
+    "matching_profiles": [
+      "vm18-x86_64"
+    ],
+    "claim": "Exact versioned prebuilt archive recovered and matches unpacked binary; source/licence publication remains separate"
+  },
+  {
+    "arch": "arm64",
+    "archive_path": "/workspace/tmp/pixelelated-m7-source-supplement-01/retained-inputs/rclone-v1.75.1-linux-arm64.zip",
+    "archive_sha256": "03f2504174034b6d004152ed7369251c9a9ec1f7e0836eda420f5c7a5ec0dff9",
+    "url": "https://downloads.rclone.org/v1.75.1/rclone-v1.75.1-linux-arm64.zip",
+    "unpacked_binary_sha256": "d7ecfc17726b34f95c5f7ea9470862c2aef53dce1bb0677b83142ca38503f489",
+    "matching_profiles": [
+      "h70002-aarch64",
+      "sm855003-aarch64"
+    ],
+    "claim": "Exact versioned prebuilt archive recovered and matches unpacked binary; source/licence publication remains separate"
+  }
+]

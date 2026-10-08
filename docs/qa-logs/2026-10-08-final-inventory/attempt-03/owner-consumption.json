@@ -1,0 +1,18 @@
+{
+  "utc": "2026-10-08T22:09:22.370446+00:00",
+  "result": "INVENTORY_INCOMPLETE_ORIGINAL_RC1_PRESERVED",
+  "original_results": {
+    "inner.rc": 1,
+    "outer.rc": 1,
+    "tool-wrapper.rc": 1,
+    "build.rc": 1,
+    "launcher": 1
+  },
+  "actual_host_exited_pids": [
+    1421373,
+    1421374,
+    1421379,
+    1421415
+  ],
+  "cause": "Both source inventory profiles pass; SM8550 component map rejects installed LLVM absent from .rocknix-package source-root enumeration. H700 component map passes."
+}

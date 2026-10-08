@@ -1,0 +1,17 @@
+{
+  "utc": "2026-10-08T22:08:43.341876+00:00",
+  "result": "INVENTORY_INCOMPLETE",
+  "profiles": [
+    {
+      "profile": "h70002-aarch64",
+      "source_inventory_rc": 0,
+      "component_map_rc": 0
+    },
+    {
+      "profile": "sm855003-aarch64",
+      "source_inventory_rc": 0,
+      "component_map_rc": 1
+    }
+  ],
+  "scope": "Post-build source/component mapping only; recovered prebuilt archives, Nix/FEX closure, notices and publication-source custody require separate qualification; no RC/publication clearance"
+}

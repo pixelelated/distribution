@@ -1,0 +1,39 @@
+BEGIN sm855003-aarch64
+PASS frozen commit and 6552 source hashes
+inventory: 50 unpacked packages recorded
+inventory: 100 unpacked packages recorded
+inventory: 150 unpacked packages recorded
+inventory: 200 unpacked packages recorded
+inventory: 250 unpacked packages recorded
+inventory: 300 unpacked packages recorded
+inventory: 350 unpacked packages recorded
+inventory: 400 unpacked packages recorded
+inventory: 450 unpacked packages recorded
+inventory: 500 unpacked packages recorded
+inventory: 550 unpacked packages recorded
+inventory: 600 unpacked packages recorded
+inventory: 650 unpacked packages recorded
+inventory: 659 source roots; 635 cache inputs; 24 without a default-name cache match; 0 errors
+emulationstation: emulationstation-1d76b3da7da75794066df1c089931b890304da7a
+raofflineproxy: raofflineproxy-879b158995d412af434301ebdae581f66b8b6d57
+webkitgtk: webkitgtk-2.54.1
+libsoup: libsoup-3.8.0
+glslang: glslang-16.6.0
+spirv-headers: spirv-headers-496543121ce6419f23d6fa5d7194ba66c36212d2
+cbindgen: 
+tllist: tllist-1.1.0
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-final-inventory-04/component-map.py", line 53, in <module>
+    for rel,h in payload.items():assert sha(b/'image/system'/rel)==h,rel
+                                        ~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tmp/pixelelated-m7-final-inventory-04/component-map.py", line 13, in sha
+    def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
+                                        ~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.14/pathlib/__init__.py", line 778, in read_bytes
+    with self.open(mode='rb', buffering=0) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/pathlib/__init__.py", line 772, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02/build.pixelelated-SM8550.aarch64/image/system/.rocknix-package'
+END sm855003-aarch64 {"profile": "sm855003-aarch64", "source_inventory_rc": 0, "component_map_rc": 1}

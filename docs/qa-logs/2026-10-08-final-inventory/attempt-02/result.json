@@ -1,0 +1,32 @@
+{
+  "utc": "2026-10-08T22:07:55.868380+00:00",
+  "result": "INVENTORY_INCOMPLETE",
+  "profiles": [
+    {
+      "profile": "vm18-x86_64",
+      "source_inventory_rc": 0,
+      "component_map_rc": 0
+    },
+    {
+      "profile": "h70002-arm",
+      "source_inventory_rc": 0,
+      "component_map_rc": 0
+    },
+    {
+      "profile": "h70002-aarch64",
+      "source_inventory_rc": 1,
+      "component_map_rc": null
+    },
+    {
+      "profile": "sm855003-arm",
+      "source_inventory_rc": 0,
+      "component_map_rc": 0
+    },
+    {
+      "profile": "sm855003-aarch64",
+      "source_inventory_rc": 1,
+      "component_map_rc": null
+    }
+  ],
+  "scope": "Post-build source/component mapping only; recovered prebuilt archives, Nix/FEX closure, notices and publication-source custody require separate qualification; no RC/publication clearance"
+}
