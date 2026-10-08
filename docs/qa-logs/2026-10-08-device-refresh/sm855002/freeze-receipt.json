@@ -1,0 +1,43 @@
+{
+  "manifest_sha256": "fcfb09a24b091661448d9baa8f364b0e8f7fa3216de1293df20bb6c090b62f6a",
+  "source_files": 6552,
+  "source_symlinks": 180,
+  "qa_source_files": 220,
+  "product_delta_from_qualified18": [],
+  "product_delta_from_old_sm8550": [
+    "projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/config/AMD64/settings.ini",
+    "projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/config/H700/settings.ini",
+    "projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/config/InputPlumber/settings.ini",
+    "projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/config/RK3326/settings.ini",
+    "projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/config/RK3399/settings.ini",
+    "projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/config/RK3566/settings.ini",
+    "projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/config/RK3588/settings.ini",
+    "projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/config/S922X/settings.ini",
+    "projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/config/SM4450/settings.ini",
+    "projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/package.mk",
+    "projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/scripts/duckstation_screenshot_path",
+    "projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/scripts/start_duckstation.sh",
+    "projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/sources/Start Duckstation.sh",
+    "projects/ROCKNIX/packages/network/rclone/package.mk",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_backup",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_content_backup",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_content_restore",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_folder_validate",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_migrate_layout",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_scan",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_setup",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_sync-rules.txt",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_sync-rules.txt.defaults",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_sync.conf",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_sync.conf.defaults",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_sync_helper",
+    "projects/ROCKNIX/packages/rocknix/sources/post-update",
+    "projects/ROCKNIX/packages/ui/emulationstation/package.mk"
+  ],
+  "stable_container_path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01",
+  "source": "8b5113fa164ada7d002ab138b1e3a9bf795e9de5",
+  "prelaunch_manifest_correction": {
+    "previous_manifest_sha256": "063adb0a41dfa2d33ff1303c67d97d21b85482980f193afeae8b89f26cac1886",
+    "reason": "Previous retry and output claims moved under cache_parent_provenance before any copy/build launch; qualified product delta is empty and new ARM manifest path is explicit."
+  }
+}

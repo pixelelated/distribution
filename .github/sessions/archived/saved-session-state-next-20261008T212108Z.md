@@ -1,10 +1,10 @@
 # Saved Session State
 
-> Saved: 2026-10-08T21:21:08.902299+00:00
+> Saved: 2026-10-08T21:06:16.042396+00:00
 > Coordinator: feature/conflict-resolution
 > Repository: pixelelated/distribution
 
-## Start here — H700 accepted; SM8550 cache copy ACTIVE
+## Start here — H70002 BUILD ACTIVE; accept H700 before SM8550
 
 This is an immutable Linux build system, not a runnable application. Primary
 `/workspace/repos/rocknix` stays on `next`; read its AGENTS.md and canonical
@@ -16,9 +16,7 @@ Authorization persists for scoped fixes, commits/pushes, builds, synthetic VM/
 local provider QA and dependency-checked disposable payload retirement. No new
 physical-device/personal-cloud action. #519 controlled owner alignment must
 precede the next owner handheld update transfer/reboot. Website #511 is separate.
-No goal exists. H70002 is accepted; SM8550 cache preparation is ACTIVE below.
-No compiler or external audit is active. Published checkpoint a503224d34daa1a05b8ee1a9ec372be104ca113b
-has both checks SUCCESS37844805854/37844806088.
+No goal exists. H70002 compiler is ACTIVE as below; no external audit.
 Canonical rule/checkpoint5e0e0cb6a456c2a3928ad3a51211525b4c75f732 has both hosted
 checks SUCCESS37842048191/37842048387; fresh-agent retest found resume unambiguous.
 Primary checkpoint/closure publication a573e0625d5aec2a42aff83f74eccb52552ccee6
@@ -89,76 +87,70 @@ actual guest/backend gone. Two preexecution rc2 submissions remain failures.
 CF10/update18 already retired,2,245,292,032+10,720,669,696B reclaimed.
 No credentials, QA keys, provider payload or guest disks are committed.
 
-## H70002 complete — do not repeat
-
-Source8b5113fa164ada7d002ab138b1e3a9bf795e9de5, manifest2918052ed6aaa4709bdff0513bcfdd098327f44c8238a2c24ae5c8e16fe4ff26.
-Build20261008T210330Z-b52629f1 completed21:07:35, ARM244/aarch64671 tasks.
-All five original channels0, actual owners and observed container gone.
-Acceptance20261008T210833Z-fd867dc9 completed21:08:58, consumed21:09:23;
-all five original channels0 and actual owner exits. Bundle
-/workspace/artifacts/pixelelated-candidates/sha256/1b93642b24901b5c3a96b0a079d6fb4486ca30d213b4b2db890c6e3630404175.
-DDR3SHA6035cf364b3a32d70efa79b9b942a743f4bc308968a4154f2aad87289651b607;
-DDR4SHA45484d5f18dc9b0ba444faa518909a2bce7863d37d2360b7a08c5aa46d191c5f;
-TAR SHAb49cca4ca0b8996fa994181508c887d9df5afe155c9502919bab7bf7e153e39d.
-Both raw/update SYSTEM4c902ce5842228e98f84ec5b47a751d1bb12749657bdb0a843fb16437e7fa2e7;
-kernel07a06330474a1e72fa6b6c844ceee8d5d6b3bbf6d6be9e4a6395b87e0592dc60.
-Correct distinct DDR bootloaders,22 installed helper/default mappings, exact ES/catalog/
-post-update/identity and185ARMhandoff files pass. Only box86 and pcsx_rearmed32
-change vs prior ARM; exact ELF comparison confines differences to .rodata,
-normalizing revision/date/time makes the entire files equal. No build-ID section
-exists in either. Proof in docs/qa-logs/2026-10-08-device-refresh/h70002/.
-Scratch raw disks/extractedSYSTEM retired; engineering artifact acceptance,
-not a physical boot or RC/publication claim.
-
 ## Current work and next commands
 
-1. TAKE OVER the active SM8550 cache job; never duplicate it. Owner
-   /workspace/tmp/pixelelated-m7-sm8550-refresh-02; tree
-   /workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02;
-   branch build/m7-pixelelated-sm8550-02, source8b5113fa164ada7d002ab138b1e3a9bf795e9de5,
-   zero product delta vs qualified VM18. Manifest
-   fcfb09a24b091661448d9baa8f364b0e8f7fa3216de1293df20bb6c090b62f6a.
-   copy.run names .build-runs/20261008T211906Z-8e7f3c37. Actual host
-   launcher988454/runner988455/watcher988460/command988493 are alive.
-   Read cache-launch/console.log and run/build.status actively. No off-session
-   notification exists. Never modify running scripts or frozen inputs.
-2. It copies old SM8550 ARM/aarch64 caches and Nix independently, then checks
-   full checksum equality and cross-root inode separation. Old tree
-   m7-pixelelated-sm8550-01 at0553c0193ace3aebbefaae5b7b6d49253c2811d9 is182.7GB;
-   old Nix store /workspace/tmp/pixelelated-m7-sm8550-build-02/nix is2.68GB.
-   Capacity before copy1,522,079,993,856B; required600GiB. Quiet checksums can
-   trigger suspected-stall: inspect host rsync I/O and actual process before
-   diagnosing failure. H700's identical procedure passed3,943,107files.
-3. Consume all original copy.rc/copy.outer.rc/cache-launch/tool-wrapper.rc,
-   launcher-result.json and run/build.rc; require0, three cache roots PASS,
-   unchanged copy seals and actual host launcher/build.pid/watcher.pid/command.pid
-   exits. Do NOT look for runner.pid (runner is build.pid). Adapt the completed
-   /tmp/m7-consume-h700-refresh.py cache consumer to this owner and3roots.
-4. AFTER copy watcher exit, recheck tools/build-preflight; if needed use
-   tools/build-preflight --reclaim-swap while idle before starting compilerwatcher.
-   Large copies can refill swap. No swap recycling during active watcher/build/VM.
-5. Prepare/review SM8550 driver; it is not started at this checkpoint. Use
-   canonical make docker-SM8550 and an inside-build wrapper that waits for actual
-   container identity/mount proof, then canonical make SM8550 (ARM→aarch64).
-   Preserve old stable container worktree path, independent new Nix store RW at
-   /nix, exact pinned snapshot RO at its recorded path. Carry the old accepted
-   Nix version/config/expectedrootfs/toolchains from inputs. Read old
-   /workspace/tmp/pixelelated-m7-sm8550-build-04/{run.py,inside-build.sh,wait-runtime.py,
-   verify-fex.py,proof-controls.py} and old acceptance04/verify-firmware.py.
-   Host and container paths DIFFER: FEX verifier must use verified cwd, not the
-   old host path. Current H700 observer schema differs from old wait-runtime;
-   adapt both consistently. Clean only affected aarch64 rclone/ES/DuckStation/
-   rocknix packages; no FEX recipe delta vs accepted SM. New ARM output manifest
-   is generated after canonical ARM stage; old manifest lives in explicitly
-   historical cache_parent_provenance. Never use it as new output acceptance.
-6. Verify original build channels/seals/actualexits, actual installed mappings,
-   exact ES/French catalog/native capture/defaults, new ARM/FEX handoff. Then
-   independently accept raw/update SYSTEM/kernel, SM8550 GPT/ABL and firmware
-   custody into immutable content-addressed bundle. No old artifact is new proof.
-7. Record completion in full M7/#492/#344 bodies and checkpoint; publish scoped
-   evidence commits only. Required source/licence #344, #359release-note linkage,
-   #265version/publication-tool reconciliation and named physical gates remain.
-   #519 before owner-device deployment. No new personal/cloud action or RC claim.
+1. TAKE OVER active H70002 BUILD, never duplicate. Owner
+   /workspace/tmp/pixelelated-m7-h700-refresh-02; frozen worktree
+   /workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02, branch
+   build/m7-pixelelated-h700-02, source8b5113fa164ada7d002ab138b1e3a9bf795e9de5.
+   Manifest2918052ed6aaa4709bdff0513bcfdd098327f44c8238a2c24ae5c8e16fe4ff26.
+   run.path names .build-runs/20261008T210330Z-b52629f1. Launcher743440,
+   runner743441,watcher743442,command743476 verified alive in actual HOST context.
+   Actual pinned container3e000fc4756cf20e83b76056caf37161ac1b039dcb7cf8e5c9c13f38005bce73
+   observed with the new source mounted at the old cache's stable container path.
+   Standard canonical make docker-H700 completed244ARM tasks; aarch64671-task
+   stage is active. Read build.status, owner/console.log and actual processes
+   at most60s apart. No off-session alert exists; do not call recording delivery.
+   Never edit in-flight scripts or frozen inputs. Container source/data isolated.
+2. Cache is COMPLETE, do not rerun: checksum-equal ARM/aarch64 copies with
+   1,141,131+2,801,976 independent regular files,105,020 unchanged tracked-file
+   timestamps preserved. All five original channels0 and actual owners absent
+   consumed21:02:47 in owner/cache-consumption.json. Quiet checksum warning was
+   inspected against rising host I/O, not restarted. Precompiler guarded reclaim
+   passed after copy watcher exit, restoring8GiBswap. No further reclaim during
+   this active compiler/watcher. Fresh-agent proof/retest receipts and compact
+   cache/start packet: docs/qa-logs/2026-10-08-device-refresh/.
+3. Old H700 cache `/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01`, frozen
+  43d0bc3bf47fd858ba8d5c55fbdf52535a0db2aa. Its build.pixelelated-H700.arm is
+  26,440,212,480allocatedB; aarch64111,179,927,552B. 29product paths changed since
+   then: rclone, ES, rocknix post-update, DuckStation, plus SM8550 FEX patch.
+   No core library/rebase change. Check exact ARM affected applicability; preserve
+   the accepted output manifest and verify real handoff. Use independent rsync
+   copies with checksum/inode isolation, never hardlink mutable caches. A stable
+   container path matching old cache avoids embedded absolute-path breakage.
+4. At20:30UTC available1,672,180,260,864B; enough for verified copy and build reserve.
+   Swap reclamation completed under exec51013 with rc0: installed helper verified
+   /swap.img active priority-1, all8GiB free,34.7GB RAM available, preflightREADY.
+   Receipt `/workspace/tmp/pixelelated-m7-device-refresh-preflight/prebuild-reclaim.log`.
+   No watcher/VM/compiler ran during reclamation. Never broad swapoff or invoke
+   reclamation during active work. Recheck read-only preflight before compilation.
+5. On actual build completion, preserve its original inner.rc,outer.rc,
+   tool-wrapper.rc,run/build.rc and launcher-result.json. If any nonzero, inspect
+   archived thread logs and actual command/container before any recovery; don't
+   relabel failure. For all0 plus actual owner exits, run IN HOST context:
+   `python3 /tmp/m7-consume-h700-refresh.py build`.
+   It verifies frozen seals/source, observed container removal and installed
+   inclusion, then writes owner/build-consumption.json. It does not accept raw
+   firmware artifacts. Prepared, NOT STARTED acceptance owner:
+   /workspace/tmp/pixelelated-m7-h700-refresh-acceptance-02. From the H70002 tree,
+   submit tools/watch-build-submit --owner <acceptance-owner> -- --interval 5
+   --stall-min 5 -- python3 -I -u <acceptance-owner>/run.py . Read/review its
+   frozen scripts first. Actual SYSTEM checks include22helpers, native defaults,
+   corrected post-update/ES identity and retired helper absence (incl symlinks).
+   Raw DDR3/DDR4 SYSTEM/kernel/bootloader equality and new ARM manifest handoff
+   produce the immutable bundle. Consume terminal acceptance with
+   `python3 /tmp/m7-consume-h700-refresh.py acceptance` in HOST context.
+
+6. Accept new H700 DDR3/DDR4/update artifact with installed source/cloud/native/
+   ES/post-update identity and ARM handoff; then repeat measured preparation/build
+   for SM8550. Old SM8550 tree m7-pixelelated-sm8550-01 frozen0553c0193a is182.7GB.
+   Old device artifacts are historical inputs, not new firmware acceptance.
+   SM8550 has extra Nix/FEX custody: inspect old build04 inputs/inside-build.sh,
+   wait-runtime.py,verify-arm.py and proof-controls.py before preparing it. Its
+   writable private Nix store and pinned snapshot/toolchain paths are declared
+   there; do not substitute the simpler H700 driver or silently omit those mounts.
+7. Source/licence #344 (14recipe metadata gaps), branding359, release265 and named
+   physical gates remain. #519 before owner-device deployment; no RC designation.
 
 ## Build references and cautions
 
