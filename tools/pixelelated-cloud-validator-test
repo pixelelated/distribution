@@ -1,0 +1,312 @@
+#!/usr/bin/env python3
+"""Real local-rclone controls for bounded category validation (#508/#510).
+
+Synthetic host fixtures only; image/VM qualification remains a separate gate.
+Retains raw command results, literal rclone argv and immutable source hashes.
+"""
+import argparse
+import hashlib
+import importlib.machinery
+import importlib.util
+import json
+from pathlib import Path
+import shutil
+import subprocess
+import time
+import sys
+
+ROOT = Path(__file__).resolve().parent.parent
+loader = importlib.machinery.SourceFileLoader('layout_fixture', str(ROOT/'tools/rasteratops-cloud-layout-test'))
+spec = importlib.util.spec_from_loader(loader.name, loader)
+legacy = importlib.util.module_from_spec(spec)
+loader.exec_module(legacy)
+require, put = legacy.require, legacy.put
+
+
+def snapshot(f):
+    return {str(p.relative_to(f.path)): hashlib.sha256(p.read_bytes()).hexdigest()
+            for area in ('storage', 'cloud') for p in sorted((f.path/area).rglob('*')) if p.is_file()}
+
+
+def request(f, categories='saves,settings,roms,bios,media', run='proof01', rc=0):
+    before = snapshot(f)
+    r = f.run('cloud_setup', '--validate-folders', categories, run)
+    require(r.returncode == rc, f'rc={r.returncode}, expected {rc}: {r.stdout}')
+    value = json.loads(r.stdout)
+    require(snapshot(f) == before, 'validation changed local/cloud bytes')
+    require(value['run_id'] == run, 'run identity absent')
+    return value
+
+
+def rows(value):
+    return {r['category']:r for r in value['categories']}
+
+
+def initial(f):
+    put(f.path/'storage/roms/gb/.fixture', 'local known system\n')
+    put(f.path/'storage/roms/snes/.fixture', 'local known system\n')
+
+
+def main():
+    p=argparse.ArgumentParser()
+    p.add_argument('--output', type=Path, required=True)
+    p.add_argument('--rclone', default=shutil.which('rclone'))
+    p.add_argument('--case', action='append')
+    a=p.parse_args();a.ref=None
+    version=subprocess.check_output([a.rclone,'version'],text=True).splitlines()[0]
+    require(version == 'rclone v1.75.1', 'Use the package-pinned rclone1.75.1, not the host fallback: '+version)
+    require(not a.output.exists(), 'use a new output directory')
+    a.output.mkdir(parents=True)
+    results=[]
+    def case(name, work):
+        if a.case and name not in a.case:return
+        f=legacy.Fixture(a.output/name,a);initial(f)
+        work(f)
+        results.append(name);print('PASS '+name,flush=True)
+
+    def complete(f):
+        f.file('pixelelated/Saves/gb/progress.srm')
+        f.file('pixelelated/Backups/QA-id/2026_10_01-QA-ROCKNIX_SETTINGS.tar.gz')
+        f.file('pixelelated/Content/ROMs/gb/Game.gb')
+        f.file('pixelelated/Content/ROMs/gb/images/Game.png')
+        f.file('pixelelated/Content/BIOS/firmware.bin')
+        result=request(f)
+        require(result['complete'] and all(x['state']=='present' for x in result['categories']),str(result))
+        argv=(f.path/'ctl/argv').read_text()
+        require(not any(line.startswith(('copy','move','sync','cat ','mkdir','rcat','delete')) for line in argv.splitlines()),argv)
+        require(not any(line.startswith('lsjson qa: ') or line.startswith('lsjson qa:/ ') for line in argv.splitlines()),argv)
+    case('populated-read-only',complete)
+
+    def filtered_content(f):
+        excluded=['only.'+ext for ext in ['srm','sav','fs','state1','auto','dsv','eep','mpk','sra','fla','mcd','mcr']]
+        excluded+=['only (a conflicted copy).gb','only.sync-conflict-01.gb','only.12345678.partial','save/game.bin','memcards/game.bin','PPSSPP/game.bin','shared/savefiles/game.bin','README.txt']
+        for base in ('pixelelated/Content/ROMs/gb','pixelelated/Content/BIOS'):
+            for name in excluded:f.file(base+'/'+name)
+        result=request(f,'roms,bios')
+        require(all(row['state']=='empty' for row in result['categories']),str(result))
+        f.file('pixelelated/Content/ROMs/gb/Game.gb');f.file('pixelelated/Content/BIOS/firmware.bin')
+        require(all(row['state']=='present' for row in request(f,'roms,bios')['categories']),'real ROM/BIOS not recognized')
+    case('content-transfer-exclusions',filtered_content)
+
+    def progress_allowlist(f):
+        for name in ['savefiles/history.db','savestates/history.sqlite3','screenshots/history.db-wal','gb/UPPER.SAV','psx/not-memcards/card.mcd','n64/save/wrong.bin','backup/settings.zip']:
+            f.file('pixelelated/Saves/'+name)
+        require(rows(request(f,'saves'))['saves']['state']=='empty','excluded/database/archive counted as progress')
+        for ext in ('eep','mpk','sra','fla'):
+            f.file('pixelelated/Saves/n64/Game.'+ext)
+        f.file('pixelelated/Saves/psx/memcards/card.mcr')
+        require(rows(request(f,'saves'))['saves']['state']=='present','standalone progress not recognized')
+    case('ordinary-progress-allowlist',progress_allowlist)
+
+    def missing(f):
+        f.file('Elsewhere/ROMs/gb/Game.gb')
+        value=request(f);r=rows(value)
+        require(all(x['state']=='missing' for x in r.values()),str(value))
+        require('Elsewhere' not in (f.path/'ctl/argv').read_text(),'account traversal')
+    case('missing-selected-only',missing)
+
+    def empty(f):
+        for path in ('Saves','Backups','Content/ROMs/gb','Content/BIOS'):f.directory('pixelelated/'+path)
+        for path in ('Saves','Backups','Content/ROMs','Content/BIOS'):f.file('pixelelated/'+path+'/README.txt')
+        require(all(x['state']=='empty' for x in request(f)['categories']),'README or empty system counted as payload')
+    case('empty-and-notes',empty)
+
+    def empty_physical(f):
+        f.directory('pixelelated/Saves')
+        require(rows(request(f,'saves'))['saves']['state']=='empty','path-based empty failed')
+    case('empty-path-based',empty_physical)
+
+    def empty_bucket(f):
+        f.directory('pixelelated/Saves');put(f.path/'ctl/bucket','yes')
+        r=rows(request(f,'saves',rc=5))['saves']
+        require(r['state']=='unreadable' and r['detail']=='folder-presence-unconfirmed',str(r))
+        f.file('pixelelated/Saves/README.txt')
+        require(rows(request(f,'saves'))['saves']['state']=='empty','README prefix witness ignored')
+        require('lsjson qa: ' not in (f.path/'ctl/argv').read_text(),'bucket parent outside scope listed')
+    case('bucket-empty-prefix-uncertainty',empty_bucket)
+
+
+    def misplaced(f):
+        f.file('pixelelated/Content/gb/Game.gb');f.file('pixelelated/Content/bios/firmware.bin')
+        f.file('pixelelated/Saves/Saves/gb/progress.srm')
+        r=rows(request(f,'saves,roms,bios'))
+        require(r['saves']['state']=='present' and r['roms']['state']=='misplaced' and r['bios']['state']=='misplaced',str(r))
+    case('content-misplaced-progress-preserved',misplaced)
+
+    def failures(f):
+        f.directory('pixelelated/Saves');f.fault('^lsjson qa:/pixelelated/Saves ',5)
+        result=request(f,'saves',rc=5)
+        require(not result['complete'] and rows(result)['saves']['state']=='unreadable',str(result))
+    case('provider-failure-not-empty',failures)
+
+    def inject(f, body):
+        original=(f.path/'shim/rclone').read_text()
+        put(f.path/'shim/rclone',original.replace('exec /rclone.real "$@"',body+'\nexec /rclone.real "$@"'),True)
+
+    def partial(f):
+        inject(f,'''if [ "$1" = lsjson ]; then printf '[{"Path":"gb/progress.srm","IsDir":false}]'; exit 3; fi''')
+        result=request(f,'saves',rc=5)
+        require(rows(result)['saves']['state']=='unreadable',str(result))
+    case('partial-failed-listing',partial)
+
+    def overlimit(f):
+        inject(f,'''if [ "$1" = lsjson ]; then python3 -c 'import json;print(json.dumps([dict(Path="f"+str(n),IsDir=False) for n in range(4097)]))'; exit 0; fi''')
+        require(rows(request(f,'saves',rc=5))['saves']['state']=='unreadable','oversize entries accepted')
+    case('entry-limit',overlimit)
+
+    def byte_limit(f):
+        inject(f,'''if [ "$1" = lsjson ]; then python3 -c 'print("x"*2200000)'; exit 0; fi''')
+        require(rows(request(f,'saves',rc=5))['saves']['state']=='unreadable','oversize bytes accepted')
+    case('byte-limit',byte_limit)
+
+    def malformed(f):
+        inject(f,'''if [ "$1" = lsjson ]; then printf '[{"Path":"../escape.srm","IsDir":false}]'; exit 0; fi''')
+        require(rows(request(f,'saves',rc=5))['saves']['state']=='unreadable','unsafe listing accepted')
+    case('malformed-listing',malformed)
+
+    def context(f):
+        one=json.loads(f.run('cloud_setup','--validation-context').stdout)
+        f.conf('/Other/Saves','/Keep/Backups','Rel/Content')
+        two=json.loads(f.run('cloud_setup','--validation-context').stdout)
+        require(one['config_id']!=two['config_id'],'path change same ID')
+        c=f.path/'storage/.config/rclone/rclone.conf';c.write_text(c.read_text()+'# reconfigured\n')
+        three=json.loads(f.run('cloud_setup','--validation-context').stdout)
+        require(two['config_id']!=three['config_id'],'remote config change same ID')
+        require(three['paths']['roms']=='Rel/Content/ROMs',str(three))
+        require(not any(l.startswith('ls') and not l.startswith('listremotes') for l in (f.path/'ctl/argv').read_text().splitlines()),'context made network calls')
+    case('context-binding-local-only',context)
+
+    def info_paths(f):
+        f.conf('Chosen/Saves','Separate/Archives','/Library')
+        put(f.path/'shim/get_setting','#!/bin/sh\nexit 0\n',True)
+        r=f.run('cloud_setup','--info');require(r.returncode==0,r.stdout)
+        require('SETTINGS_REMOTE=Separate/Archives\n' in r.stdout and 'CONTENT_REMOTE=/Library\n' in r.stdout,r.stdout)
+    case('info-independent-paths',info_paths)
+
+
+    def stale(f):
+        inject(f,'''if [ "$1" = lsjson ]; then printf '\\n# concurrent configuration edit\\n' >> /storage/.config/cloud_sync.conf; fi''')
+        r=f.run('cloud_setup','--validate-folders','saves','stale01');v=json.loads(r.stdout)
+        require(r.returncode==5 and v['error']=='configuration-changed' and not v['complete'],str(v))
+    case('stale-configuration-refused',stale)
+
+    def invalid(f):
+        before=snapshot(f)
+        for categories,run in [('','a'),('saves,','a'),('saves,saves','a'),('invalid','a'),('saves','../a'),('saves','x'*65)]:
+            r=f.run('cloud_setup','--validate-folders',categories,run)
+            require(r.returncode==2,'invalid args accepted')
+        require(snapshot(f)==before,'invalid args mutated state')
+        for categories in ('settings\nroms','saves,saves','saves,','unknown',' saves'):
+            r=f.run('cloud_setup','--seed-folders',categories)
+            require(r.returncode==2,'invalid seed category accepted')
+        require(snapshot(f)==before,'invalid seed mutated bytes')
+        require(not (f.path/'ctl/argv').exists(),'invalid args invoked rclone')
+    case('invalid-input-refused',invalid)
+
+    def invalid_setters(f):
+        before=snapshot(f)
+        for setter in ('--set-saves-remote','--set-settings-remote','--set-content-remote'):
+            for bad in ('.','..','./x','../x','x/../y','x//y','x\n','x$HOME'):
+                r=f.run('cloud_setup',setter,bad)
+                require(r.returncode!=0, 'unsafe setter accepted '+repr((setter,bad)))
+        require(snapshot(f)==before, 'refused setter changed bytes')
+    case('invalid-paths-refused',invalid_setters)
+
+    def deep(f):
+        f.file('pixelelated/Saves/nested/a/b/c/progress.srm')
+        result=request(f,'saves',rc=5)
+        require(rows(result)['saves']['detail']=='deeper-folders-not-checked',str(result))
+    case('deeper-than-bound-not-empty',deep)
+
+    def content_location(f):
+        f.file('ROMs/gb/root-game.gb');f.file('pixelelated/Content/ROMs/gb/chosen.gb')
+        before=snapshot(f)
+        r=f.run('cloud_setup','--content-location');require(r.returncode==0 and 'STATE=ok' in r.stdout,r.stdout)
+        require(snapshot(f)==before,'location mutated bytes')
+        require('lsjson qa: ' not in (f.path/'ctl/argv').read_text(),'account-root discovery')
+    case('content-location-selected-only',content_location)
+
+
+    def independent(f):
+        f.conf('/GAMES','/GAMES/backup','Different/Content')
+        before=snapshot(f)
+        r=f.run('cloud_setup','--set-saves-remote','New/Saves');require(r.returncode==0,r.stdout)
+        q=f.pointers();require(q['SAVES_REMOTE']=='New/Saves' and q['SETTINGS_REMOTE']=='/GAMES/backup' and q['CONTENT_REMOTE']=='Different/Content',str(q))
+        r=f.run('cloud_setup','--set-settings-remote','Settings');require(r.returncode==0,r.stdout)
+        q=f.pointers();require(q['SETTINGS_REMOTE']=='Settings' and q['SAVES_REMOTE']=='New/Saves' and q['CONTENT_REMOTE']=='Different/Content',str(q))
+        require(not any(k.startswith('cloud/') for k in snapshot(f)),'selection mutated cloud')
+    case('independent-pointer-selection',independent)
+
+    def seeds(f):
+        f.file('pixelelated/Saves/gb/progress.srm','retained')
+        before=snapshot(f)
+        require(f.run('cloud_setup','--seed-folders').returncode==2,'implicit seeding allowed')
+        r=f.run('cloud_setup','--seed-folders','settings');require(r.returncode==0,r.stdout)
+        after=snapshot(f);require(all(after.get(k)==v for k,v in before.items()),'seed replaced bytes')
+        require((f.path/'cloud/pixelelated/Backups/README.txt').exists(),'missing selected seed')
+        require(not (f.path/'cloud/pixelelated/Content').exists(),'disabled content created')
+        require(not (f.path/'cloud/pixelelated/Saves/savefiles').exists(),'disabled saves folders created')
+        r=f.run('cloud_setup','--seed-folders','roms');require(r.returncode==0,r.stdout)
+        require(not (f.path/'cloud/pixelelated/Content/BIOS').exists(),'disabled BIOS created')
+    case('explicit-category-seeding',seeds)
+
+    def namespace(f):
+        f.conf('Mine/Saves','Mine/Settings','Mine/Content')
+        r=f.run('cloud_setup','--seed-folders','saves,settings,roms,bios');require(r.returncode==0,r.stdout)
+        result=request(f);require(result['complete'],str(result))
+        argv=(f.path/'ctl/argv').read_text()
+        require('qa:/Mine' not in argv,'relative namespace changed to absolute')
+        require('lsjson qa: ' not in argv,'unselected root scanned')
+    case('relative-namespace-preserved',namespace)
+
+    def root(f):
+        f.conf('/Saves','/Backups','')
+        r=f.run('cloud_setup','--seed-folders','roms,bios');require(r.returncode==0,r.stdout)
+        c=json.loads(f.run('cloud_setup','--validation-context').stdout)
+        require(c['paths']['roms']=='ROMs',str(c))
+        request(f,'roms,bios')
+        argv=(f.path/'ctl/argv').read_text();require('lsjson qa: ' in argv,'explicit root not inspected')
+        require('qa:/ROMs' not in argv,'relative root changed to absolute')
+    case('explicit-root-allowed',root)
+
+    def public_adoption(f, content=None):
+        ref='c445081a59518f37d9776e5412dd7b14910696f7'
+        public=subprocess.check_output(['git','-C',str(ROOT),'show',ref+':projects/ROCKNIX/packages/network/rclone/sources/cloud_sync.conf'])
+        (f.path/'storage/.config/cloud_sync.conf').write_bytes(public + (('\nCONTENT_REMOTE="'+content+'"\n').encode() if content is not None else b''))
+        before_credential=(f.path/'storage/.config/rclone/rclone.conf').read_bytes()
+        f.file('GAMES/gb/progress.srm');f.file('GAMES/backup/existing.zip')
+        before_cloud={k:v for k,v in snapshot(f).items() if k.startswith('cloud/')}
+        cmd=['bwrap','--die-with-parent','--unshare-pid','--tmpfs','/',
+             '--dir','/usr',
+             '--ro-bind','/usr/bin','/usr/bin','--ro-bind','/usr/lib','/usr/lib','--ro-bind','/usr/lib64','/usr/lib64','--ro-bind','/usr/share','/usr/share',
+             '--symlink','usr/bin','/bin','--symlink','usr/lib','/lib','--symlink','usr/lib64','/lib64',
+             '--ro-bind','/etc','/etc','--ro-bind',str(f.path/'profile'),'/etc/profile',
+             '--ro-bind',str(f.path/'repo'),'/usr/config',
+             '--ro-bind',a.rclone,'/rclone.real','--dev','/dev','--proc','/proc','--tmpfs','/tmp']
+        for folder,guest in [('repo','/repo'),('shim','/shim'),('storage','/storage'),('cloud','/cloud'),('ctl','/ctl'),('log','/var/log'),('run','/var/run')]:
+            cmd+=['--bind',str(f.path/folder),guest]
+        cmd+=['--setenv','HOME','/storage','--setenv','PATH','/shim:/repo:/usr/bin:/bin','bash','/repo/cloud_sync_helper']
+        r=subprocess.run(cmd,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True,timeout=15)
+        (f.path/'adoption.log').write_text(r.stdout)
+        (f.path/'adoption-result.json').write_text(json.dumps({'rc':r.returncode,'public_ref':ref,'public_conf_sha256':hashlib.sha256(public).hexdigest(),'pointers':f.pointers()},indent=2))
+        require(r.returncode==0,r.stdout)
+        q=f.pointers();require(q.get('SAVES_REMOTE')=='/GAMES' and q.get('SETTINGS_REMOTE')=='/GAMES/backup',str(q))
+        require(q.get('CONTENT_REMOTE')==('/pixelelated/Content' if content is None else content),'content choice not preserved/defaulted: '+str(q.get('CONTENT_REMOTE')))
+        require((f.path/'storage/.config/rclone/rclone.conf').read_bytes()==before_credential,'credentials changed')
+        require({k:v for k,v in snapshot(f).items() if k.startswith('cloud/')}==before_cloud,'adoption relocated cloud bytes')
+        result=request(f,'saves,settings')
+        require(rows(result)['saves']['path']=='/GAMES' and rows(result)['settings']['path']=='/GAMES/backup',str(result))
+    case('public-rocknix-config-adoption',public_adoption)
+    case('public-rocknix-explicit-root-preserved',lambda f:public_adoption(f,''))
+    case('public-rocknix-custom-library-preserved',lambda f:public_adoption(f,'Separate/Library'))
+
+    def timeout(f):
+        inject(f,'''if [ "$1" = lsjson ]; then sleep 12; fi''')
+        require(rows(request(f,'saves',rc=5))['saves']['state']=='unreadable','unbounded request')
+    case('request-timeout',timeout)
+
+    sources=ROOT/'projects/ROCKNIX/packages/network/rclone/sources'
+    (a.output/'result.json').write_text(json.dumps({'result':'PASS','cases':results,'rclone_version':version,'rclone_sha256':hashlib.sha256(Path(a.rclone).read_bytes()).hexdigest(),'source_sha256':{n:hashlib.sha256((sources/n).read_bytes()).hexdigest() for n in ['cloud_setup','cloud_folder_validate','cloud_content_restore','cloud_sync_helper']}},indent=2)+'\n')
+    print(f'PASS {len(results)} controls')
+
+if __name__=='__main__':main()

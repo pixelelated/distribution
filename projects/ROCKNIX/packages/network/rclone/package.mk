@@ -63,6 +63,7 @@ makeinstall_target() {
   cp cloud_restore ${INSTALL}/usr/bin/
   cp cloud_sync_helper ${INSTALL}/usr/bin/
   cp cloud_setup ${INSTALL}/usr/bin/
+  cp cloud_folder_validate ${INSTALL}/usr/bin/
   cp cloud_remote ${INSTALL}/usr/bin/
   cp cloud_device_id ${INSTALL}/usr/bin/
   cp cloud_oauth ${INSTALL}/usr/bin/
