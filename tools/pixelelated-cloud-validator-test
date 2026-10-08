@@ -89,6 +89,23 @@ def main():
         require(all(row['state']=='present' for row in request(f,'roms,bios')['categories']),'real ROM/BIOS not recognized')
     case('content-transfer-exclusions',filtered_content)
 
+    def flat_roms(f):
+        base='pixelelated/Content/ROMs/'
+        for name in ['README.txt','.layout','gamelist.xml','only.srm','only.eep','only.mcr','only (a conflicted copy).gb','only.sync-conflict-01.gb','only.12345678.partial']:
+            f.file(base+name)
+        f.file(base+'gb/images/Game.png')
+        initial_rows=rows(request(f,'roms,media'))
+        require(initial_rows['roms']['state']=='empty' and initial_rows['media']['state']=='present',str(initial_rows))
+        f.file(base+'qa.gb')
+        misplaced=rows(request(f,'roms,media'))
+        require(misplaced['roms']['state']=='misplaced' and misplaced['roms']['detail']=='files-outside-system-folders',str(misplaced))
+        require(misplaced['media']['state']=='present','flat ROM obscured valid media')
+        f.file(base+'gb/Game.gb')
+        require(rows(request(f,'roms'))['roms']['state']=='misplaced','valid ROM hid out-of-folder payload')
+        (f.path/'cloud'/base/'qa.gb').unlink()
+        require(rows(request(f,'roms'))['roms']['state']=='present','proper system ROM not recognized')
+    case('flat-rom-payload-location',flat_roms)
+
     def progress_allowlist(f):
         for name in ['savefiles/history.db','savestates/history.sqlite3','screenshots/history.db-wal','gb/UPPER.SAV','psx/not-memcards/card.mcd','n64/save/wrong.bin','backup/settings.zip']:
             f.file('pixelelated/Saves/'+name)

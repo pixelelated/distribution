@@ -155,6 +155,11 @@ def classify(category, entries, known):
         # The progress allowlist permits recognized saves at any depth. A
         # repeated folder name alone is not evidence of a wrong location.
         return ('present', 'progress-paths-found-not-verified') if any(progress(p) for p in payload) else ('empty', 'no-recognized-progress-in-checked-depth')
+    # ROM transfer expects one supported system folder beneath ROMs. A
+    # direct payload is a location finding even when other ROMs are valid;
+    # do not guess its system, move it, or describe that folder as empty.
+    if category == 'roms' and any('/' not in p and p != 'gamelist.xml' and not content_excluded(p) for p in payload):
+        return 'misplaced', 'files-outside-system-folders'
     good = []
     for path in payload:
         parts = path.split('/')
