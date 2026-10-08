@@ -22,7 +22,7 @@ They land in **`target/`** — `config/path` sets `TARGET_IMG=$ROOT/target`, and
 | Anbernic RG35XX SP | `H700` | aarch64 | cortex-a53, crypto-neon-fp-armv8; maintainer's unit is LPDDR4 and uses the DDR4 image (`vdd-dram` = 1.1 V, verified 2026-09-05) |
 | Anbernic RG SP | `H700` | aarch64 | cortex-a53, crypto-neon-fp-armv8; maintainer's unit is LPDDR3 and uses the DDR3 image (stock boot0 `dram_type = 7`, then ROCKNIX `vdd-dram` = 1.2 V, verified 2026-09-05) |
 | Anbernic RG351M | `RK3326` | aarch64 | |
-| Retroid Pocket Nova | `SM8550` | aarch64 | cortex-a710 / cortex-x3 (`projects/ROCKNIX/devices/SM8550/options`), crypto-neon-fp-armv8; upstream release 20260901 lists it under SM8550; no build root in the devices worktree yet, so its first build is cold (hours, ~90 GB) -- #150, D-QA-023 |
+| Retroid Pocket Nova | `SM8550` | aarch64 | cortex-a710 / cortex-x3 (`projects/ROCKNIX/devices/SM8550/options`), crypto-neon-fp-armv8; upstream release 20260901 lists it under SM8550 -- #150, D-QA-023. Check the current build inventory before deciding whether a cold build is needed. |
 | VM / QA | `GENERIC_X64` | x86_64 | fork-only device; see `generic-x64-vm-testing` |
 
 The RG353M, RG35XX SP, and RG351M are *different build families* — separate
@@ -49,16 +49,28 @@ four device build roots plus the cache had filled to 36 GB free.
 
 ## Where to build
 
-Device builds run from a worktree on **`test/qa-integration`**, not
-`test/qa-generic-x64` — the latter carries the GENERIC_X64 VM concessions
-(software GL, VM quirks) that have no business in a handheld image.
+Freeze each engineering build in its own **`build/*` branch and worktree**,
+from the published `next` commit named by its input manifest. Compare product
+paths with the qualified GENERIC_X64 source and explain every difference before
+building. VM-specific behavior must remain scoped to GENERIC_X64; never import
+an old VM-only branch's shared concessions into a handheld image.
 
 ```bash
-git worktree add ../rocknix.worktrees/devices test/qa-integration
+git worktree add -b build/<run-name> ../rocknix.worktrees/<run-name> <verified-commit>
 ```
 
-One worktree builds all three devices: build roots are per-device
-(`build.ROCKNIX-RK3566.aarch64`, …) and do not collide.
+The earlier shared `devices` / `test/qa-integration` distribution-build recipe
+is historical. EmulationStation's separate repository still uses its own
+integration branch; do not confuse it with this distribution build source.
+Keep a running build's tracked inputs frozen. Build roots are per-device and
+architecture (`build.pixelelated-H700.arm`, `build.pixelelated-H700.aarch64`, …).
+
+A warm cache is reusable after its accepted source/output provenance and the
+changed package/dependency scope are checked. Make independent copies, verify
+their contents and inode separation, and preserve the container path expected
+by generated files. Never hardlink a mutable cache to its accepted predecessor.
+Retire superseded payloads after their immediate verification dependency ends;
+keep compact receipts and required corresponding-source inputs (D-INFRA-022).
 
 ## The build command
 
@@ -70,7 +82,7 @@ Two mounts must be added by hand for our layout, both through
 `DOCKER_EXTRA_OPTS`:
 
 ```bash
-D=/workspace/repos/rocknix.worktrees/devices
+D=/workspace/repos/rocknix.worktrees/<run-name>
 S=/workspace/cache/rocknix-sources          # shared download cache
 
 cd "$D"
@@ -439,8 +451,10 @@ So, before a cold build:
 
 ## Budget
 
-- **Disk:** ~90 GB per device build root, plus the shared ~15 GB sources cache.
-  Three devices is roughly 270 GB — check `df -h` before starting.
+- **Disk:** measure the actual target's roots, source cache, temporary copy and
+  artifact reserve before starting. The accepted October 2026 H700 roots used
+  about138 GB together and SM8550 about183 GB; a generic90 GB estimate is not
+  a capacity gate. Recheck available space between sequential target builds.
 - **Time:** hours for a first build of a device; minutes once its root is warm.
 - Build sequentially. Parallel device builds contend for CPU and the sources
   cache, and a failure part-way is harder to attribute.
