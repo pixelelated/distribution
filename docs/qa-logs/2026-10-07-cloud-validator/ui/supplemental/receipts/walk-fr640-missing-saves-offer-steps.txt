@@ -1,0 +1,14 @@
+key ret
+wait-for-change
+key x
+wait-for-change
+key up x2
+key up x2
+key x
+wait-for-change
+settle
+shot restore-question
+key x
+wait-for-change
+settle
+shot missing-saves-state

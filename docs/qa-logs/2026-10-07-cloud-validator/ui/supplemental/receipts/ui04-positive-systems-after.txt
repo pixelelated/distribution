@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "config_id": "212efd5ff8fc90c1c0d3e817ade9137b6d1b2e15610a99d85956fb53442f1e88",
+  "remote": "webdav:",
+  "paths": {
+    "saves": "/QA-Empty/Saves",
+    "settings": "/QA-Empty/Saves/Backups",
+    "content": "/QA-Empty/Saves/Content",
+    "roms": "/QA-Empty/Saves/Content/ROMs",
+    "bios": "/QA-Empty/Saves/Content/BIOS",
+    "media": "/QA-Empty/Saves/Content/ROMs"
+  }
+}
+bcd920dbab2b4395f9c204bcb2394616b9426fb11ed963f1fd9f24d5b36ff845  /storage/qa512/provider/OtherLibrary/ROMs/gb/qa.gb
+af4d56ef1684f53498f86901474224fd756353277b56b0b1dcdf54ab69886eda  /storage/qa512/provider/pixelelated/Backups-change/README.txt
+f046b3195a4453c147853a0f56f05ac0ed4221985d3fa33e980975ee5e01fade  /storage/qa512/provider/QA-Empty/Saves/Content/ROMs/gb/qa.gb
+befb68e36adcdb96e5a51757570efdad6c537a933383cb655b8dc09e2d3035e4  /storage/qa512/provider/QA-Empty/Saves/Content/.qa-keep
+2fa918df6e277c8f4a3a444e2553f0ead7640398eea52abced1f6be981e4c731  /storage/qa512/provider/QA-Empty/Saves/README.txt
+1250813f70fddd1e3d39e0cf65ea57c40a0a7188b6a842da7e4d09850a779a52  /storage/qa512/provider/QA-Empty/Saves/Backups/.qa-keep
+36625c04ba1e208c783a10045533ceb05f8718e779c7a75c055b07f0fa6a06c1  /storage/qa512/provider/QA-Empty/Saves/savefiles/qa512-nested.srm
+85596900ef6f839525971186fa079e9f4cceffc97cbee80864901dd774f227e4  /storage/qa512/provider/QA-Empty/Saves-replaced/2026_10_07-233754/savefiles/qa512-nested.srm
+f660a7996deacfbc7560e4240054a8ad82eb02fe25a95064257e07084bcacb85  /storage/qa512/provider/QA-Empty/Backups/.keep
+{
+  "schema_version": 1,
+  "run_id": "es-4518450856277-2",
+  "config_id": "6aafbd3ae1bdff53ce17bc7152986280da65269b803b17d95b5fc303d92ea950",
+  "mode": "content:roms",
+  "result_id": "77a0f5a4301a4e6dde5949071fe33147f42ff08ecbb4c121c63e12c2f9f2410d"
+}
+NO_ROM_RESTORED
+  38798 Sl   rclone serve webdav /storage/qa512/provider --addr 127.0.0.1:9868

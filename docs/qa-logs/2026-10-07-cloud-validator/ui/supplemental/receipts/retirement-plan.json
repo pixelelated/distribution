@@ -1,0 +1,27 @@
+{
+  "utc": "2026-10-08T03:45:34.304634+00:00",
+  "status": "prepared only; held for independent coverage review",
+  "owner": "rc_cloud_ui",
+  "scope": "/workspace/tmp/pixelelated-510-coverage02",
+  "preconditions": [
+    "coordinator confirms consolidated source-overlay coverage review complete and no immediate queued guest use",
+    "verify packet SHA256SUMS,95+ accepted/rejected frame identities,final ES commit and tested hashes",
+    "confirm no recorded launcher or descendant remains active",
+    "read back guest provider pid/command and installed source; stop only its guest-local synthetic provider",
+    "use tools/vm-stop with exact guest01/vm.pid and guest01/vm.qcow2; verify QEMU3691349 exited",
+    "audit current scope paths/logical+allocated bytes, then remove exact owned scratch scope only"
+  ],
+  "preserve": [
+    "all source checkouts",
+    "all accepted build roots and firmware",
+    "shared rclone",
+    "root canonical QA packet and source receipts",
+    "all earlier rejected/failed evidence"
+  ],
+  "retire": [
+    "reconstructed QA disk, OVMF vars, private QA key after guest stops",
+    "superseded and final source-overlay binaries/catalogs after tested bytes sealed",
+    "temporary compiler objects and copied watcher/navigation scratch"
+  ],
+  "completion": "append execution receipt to UI packet, update README lifecycle, reseal; do not rewrite original failed logs"
+}

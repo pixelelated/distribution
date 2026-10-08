@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "config_id": "212efd5ff8fc90c1c0d3e817ade9137b6d1b2e15610a99d85956fb53442f1e88",
+  "remote": "webdav:",
+  "paths": {
+    "saves": "/QA-Empty/Saves",
+    "settings": "/QA-Empty/Saves/Backups",
+    "content": "/QA-Empty/Saves/Content",
+    "roms": "/QA-Empty/Saves/Content/ROMs",
+    "bios": "/QA-Empty/Saves/Content/BIOS",
+    "media": "/QA-Empty/Saves/Content/ROMs"
+  }
+}
+bcd920dbab2b4395f9c204bcb2394616b9426fb11ed963f1fd9f24d5b36ff845  /storage/qa512/provider/OtherLibrary/ROMs/gb/qa.gb
+af4d56ef1684f53498f86901474224fd756353277b56b0b1dcdf54ab69886eda  /storage/qa512/provider/pixelelated/Backups-change/README.txt
+befb68e36adcdb96e5a51757570efdad6c537a933383cb655b8dc09e2d3035e4  /storage/qa512/provider/QA-Empty/Saves/Content/.qa-keep
+2fa918df6e277c8f4a3a444e2553f0ead7640398eea52abced1f6be981e4c731  /storage/qa512/provider/QA-Empty/Saves/README.txt
+1250813f70fddd1e3d39e0cf65ea57c40a0a7188b6a842da7e4d09850a779a52  /storage/qa512/provider/QA-Empty/Saves/Backups/.qa-keep
+85596900ef6f839525971186fa079e9f4cceffc97cbee80864901dd774f227e4  /storage/qa512/provider/QA-Empty/Saves/savefiles/qa512-nested.srm
+f660a7996deacfbc7560e4240054a8ad82eb02fe25a95064257e07084bcacb85  /storage/qa512/provider/QA-Empty/Backups/.keep
+[2026-10-07 23:37:10] [INFO] [cloud_setup] Using connection override: ssh -L 53682:localhost:53682 -p 10212 root@127.0.0.1
+[2026-10-07 23:37:17] [INFO] [cloud_backup] Controller config loaded: SOUTH=, DPAD_UP=
+[2026-10-07 23:37:17] [INFO] [cloud_backup] Updating cloud sync rules and config
+[2026-10-07 23:37:17] [INFO] [cloud_sync_helper] Checking cloud sync rules file...
+[2026-10-07 23:37:17] [INFO] [cloud_sync_helper] Merging custom rules with defaults
+[2026-10-07 23:37:17] [INFO] [cloud_sync_helper] Checking cloud sync configuration...
+[2026-10-07 23:37:17] [INFO] [cloud_sync_helper] Updating configuration with new defaults
+[2026-10-07 23:37:17] [INFO] [cloud_backup] Loading configuration from cloud_sync.conf
+[2026-10-07 23:37:17] [INFO] [cloud_backup] Original RCLONEOPTS: --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt
+[2026-10-07 23:37:17] [INFO] [cloud_backup] After newline cleanup: --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt 
+[2026-10-07 23:37:17] [INFO] [cloud_backup] After removing verbose flags: --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt 
+[2026-10-07 23:37:17] [INFO] [cloud_backup] After spacing fix: --progress  --log-file /var/log/cloud_sync.log  --filter-from /storage/.config/cloud_sync-rules.txt 
+[2026-10-07 23:37:17] [INFO] [cloud_backup] After final cleanup: --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt 
+[2026-10-07 23:37:17] [INFO] [cloud_backup] Options array has 5 elements
+[2026-10-07 23:37:17] [INFO] [cloud_backup] rclone network bound: --contimeout 15s --timeout 30s --low-level-retries 10 --retries 1
+[2026-10-07 23:37:17] [INFO] [cloud_backup] deliberate run: stall ceiling 36s (rclone idle timeout 30s + 6s grace)
+[2026-10-07 23:37:17] [WARN] [cloud_backup] SETTINGS_REMOTE=/QA-Empty/Saves/Backups is inside SAVES_REMOTE=/QA-Empty/Saves
+[2026-10-07 23:37:17] [WARN] [cloud_backup] Your settings folder in the cloud sits inside your saves folder. Linking cloud storage does not move these files. You can choose separate folders in MANAGE CLOUD STORAGE.
+[2026-10-07 23:37:17] [WARN] [cloud_backup] CONTENT_REMOTE=/QA-Empty/Saves/Content is inside SAVES_REMOTE=/QA-Empty/Saves
+[2026-10-07 23:37:17] [WARN] [cloud_backup] Your ROMs and BIOS folder in the cloud sits inside your saves folder. Linking cloud storage does not move these files. You can choose separate folders in MANAGE CLOUD STORAGE.
+[2026-10-07 23:37:17] [INFO] [cloud_backup] Configuration loaded successfully
+[2026-10-07 23:37:17] [INFO] [cloud_backup] => pixelelated CLOUD BACKUP\n
+[2026-10-07 23:37:17] [INFO] [cloud_backup] ====================================
+[2026-10-07 23:37:17] [INFO] [cloud_backup] BACKING UP YOUR GAME SAVES
+[2026-10-07 23:37:17] [INFO] [cloud_backup] ====================================
+[2026-10-07 23:37:17] [INFO] [cloud_backup] Starting backup from /storage/roms to webdav:/QA-Empty/Saves
+[2026-10-07 23:37:17] [INFO] [cloud_backup] Backup started at Wed Oct  7 23:37:17 EDT 2026
+[2026-10-07 23:37:17] [INFO] [cloud_backup] Ensuring remote sync path exists: webdav:/QA-Empty/Saves
+[2026-10-07 23:37:18] [INFO] [cloud_backup] the remote compares by size alone (#315): the local mtime is compared with the cloud's upload time (--update)
+[2026-10-07 23:37:18] [INFO] [cloud_backup] anything replaced (or, in sync mode, removed) in the cloud goes to /QA-Empty/Saves-replaced
+[2026-10-07 23:37:18] [INFO] [cloud_backup] About to execute: rclone copy --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt --log-level INFO --stats 1s --exclude=bios/** --update --exclude=backup/** --backup-dir=webdav:/QA-Empty/Saves-replaced/2026_10_07-233718 /storage/roms/ webdav:/QA-Empty/Saves/
+2026/10/07 23:37:18 INFO  : savefiles/qa512-nested.srm: Copied (new)
+2026/10/07 23:37:18 INFO  : 
+Transferred:   	         33 B / 33 B, 100%, 0 B/s, ETA -
+Checks:                 0 / 0, -, Listed 134
+Transferred:            1 / 1, 100%
+Elapsed time:         0.0s
+
+[2026-10-07 23:37:18] [INFO] [cloud_backup] Backing up your saves: completed.
+[2026-10-07 23:37:18] [INFO] [cloud_backup] Removing orphaned empty directories on remote: webdav:/QA-Empty/Saves
+[2026-10-07 23:37:19] [INFO] [cloud_backup] Skipped settings this time - saves only.
+[2026-10-07 23:37:19] [INFO] [cloud_backup] ====================================
+[2026-10-07 23:37:19] [INFO] [cloud_backup] BACKUP SUMMARY:
+[2026-10-07 23:37:19] [INFO] [cloud_backup] Game saves: COMPLETED
+[2026-10-07 23:37:19] [INFO] [cloud_backup] Settings backup: SKIPPED - SAVES ONLY
+[2026-10-07 23:37:19] [INFO] [cloud_backup] Completed.
+[2026-10-07 23:37:19] [INFO] [cloud_backup] Log file: /var/log/cloud_sync.log
+[2026-10-07 23:37:19] [INFO] [cloud_backup] ====================================
+[2026-10-07 23:37:19] [INFO] [cloud_backup] Script completed in 2 seconds with exit code 0
+85596900ef6f839525971186fa079e9f4cceffc97cbee80864901dd774f227e4  /storage/roms/savefiles/qa512-nested.srm
+85596900ef6f839525971186fa079e9f4cceffc97cbee80864901dd774f227e4  /storage/qa512/provider/QA-Empty/Saves/savefiles/qa512-nested.srm
+[
+  {
+    "success": true
+  }
+]
+121 /var/log/cloud_sync.log

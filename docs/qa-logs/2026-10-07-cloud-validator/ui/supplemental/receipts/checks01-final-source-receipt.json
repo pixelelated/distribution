@@ -1,0 +1,23 @@
+{
+  "es_commit": "1d5397fda9d7c5c2a4c7f9390ef49b9bb4b879ce",
+  "source_clean": true,
+  "es_binary_sha256": "a1d2843960c1f1a42b6e687cb806190fc9d4641f8a3793456d88beed967a4b75",
+  "french_catalog_sha256": "661c0954d10c09532684ab36819d76c8b4f936e127993effffbdceddd3bee6da",
+  "cpp_build_inputs_unchanged": true,
+  "catalog_only_adjustments": [
+    "/home/max/Development/emulationstation-next.worktrees/m7-manual-cloud-setup/locale/lang/fr/LC_MESSAGES/emulationstation2.po"
+  ],
+  "final_patch_sha256": "ddde2c73f44ff1509df1a1040860f67a1cbba733b40cfa2f3eef95b597736f56",
+  "unit_cases": 183,
+  "unit_assertions": 4752,
+  "syntax": "PASS both changed cpp",
+  "vocabulary": "PASS 0 wrong",
+  "localization": {
+    "YOUR CLOUD SETTINGS CHANGED. CHECK AGAIN": "PARAMÈTRES MODIFIÉS. RÉESSAYEZ",
+    "ANOTHER CLOUD CHECK IS RUNNING": "UNE VÉRIFICATION DU CLOUD EST DÉJÀ EN COURS",
+    "YOUR CLOUD FOLDERS COULDN'T BE CREATED": "IMPOSSIBLE DE CRÉER VOS DOSSIERS CLOUD",
+    "SKIPPED - ANOTHER CLOUD CHECK IS RUNNING": "IGNORÉ - UNE VÉRIFICATION EST EN COURS"
+  },
+  "aggregate_build04": "127: host PATH cmake absent after compile/link/msgfmt passed; retained",
+  "checks01": "0: explicit pinned CMake/Ninja unit + syntax passed"
+}

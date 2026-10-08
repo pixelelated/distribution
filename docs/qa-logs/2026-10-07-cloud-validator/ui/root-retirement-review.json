@@ -1,0 +1,19 @@
+{
+  "utc": "2026-10-08T03:49:01.300487+00:00",
+  "reviewer": "root",
+  "scope": "/workspace/tmp/pixelelated-510-coverage02",
+  "scope_absent": true,
+  "qemu_pid_absent": 3691349,
+  "launcher_pids_absent": 63,
+  "ports_closed": {
+    "10212": 111,
+    "5932": 111
+  },
+  "sockets_absent": [
+    "/tmp/pix512-mon.sock",
+    "/tmp/pix512-ser.sock"
+  ],
+  "verified_manifest_entries": 528,
+  "manifest_sha256_at_review": "d978e3ba430b3699162c960ed4f7bc05bea037acffb50da4d9ed066eef33b56c",
+  "limits": "Independent readback only; worker executed the separately retained guarded retirement."
+}

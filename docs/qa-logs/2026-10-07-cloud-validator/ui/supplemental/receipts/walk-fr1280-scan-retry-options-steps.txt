@@ -1,0 +1,19 @@
+key x
+wait-for-change
+settle
+shot successful-scan-backup-options
+key z
+key down
+key x
+wait-for-change
+settle
+shot successful-scan-restore-options
+key x
+key down
+key x
+key down x2
+key right
+key x
+wait-for-change
+settle
+shot selected-empty-systems

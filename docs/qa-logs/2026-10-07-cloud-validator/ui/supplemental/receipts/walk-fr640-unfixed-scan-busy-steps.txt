@@ -1,0 +1,16 @@
+key ret
+wait-for-change
+key x
+wait-for-change
+key up x2
+wait-for-change
+key up
+wait-for-change
+key x
+wait-for-change
+settle
+shot cloud-hub
+key x
+wait-for-change
+settle
+shot scan-busy-untranslated

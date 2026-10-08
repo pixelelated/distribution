@@ -1,0 +1,54 @@
+diff --git a/es-app/src/guis/GuiMenu.cpp b/es-app/src/guis/GuiMenu.cpp
+index b3a83e78c..383c6df51 100644
+--- a/es-app/src/guis/GuiMenu.cpp
++++ b/es-app/src/guis/GuiMenu.cpp
+@@ -6558,7 +6558,9 @@ static void cloudOpenFolderSettings(Window* window, const std::function<void()>&
+ 		const auto title = std::get<0>(item), path = info[std::get<1>(item)], command = std::get<2>(item);
+ 		s->addWithDescription(title, path, nullptr, [window, s, title, path, command, onDone]
+ 		{
+-			cloudSetupOpenPathEditor(window, title, command, path, [window, s, onDone]
++			const auto editorTitle = command == "--set-content-remote"
++				? _("ROMS, BIOS, AND GAME CONTENT") : title;
++			cloudSetupOpenPathEditor(window, editorTitle, command, path, [window, s, onDone]
+ 			{
+ 				cloudOpenFolderSettings(window, onDone);
+ 				s->onFinalize(nullptr);
+@@ -6879,8 +6881,8 @@ static void cloudFolderInstructions(Window* window, const CloudFolderValidation:
+ 		cloudSetupAddProse(s, window, _("ADD GAME CONTENT FROM A COMPUTER"),
+ 			_("PUT EACH SYSTEM'S ARTWORK, VIDEOS, MANUALS, AND GAME LIST HERE IN ITS SYSTEM FOLDER."));
+ 	else if (item.category == "saves")
+-		cloudSetupAddProse(s, window, _("GAME SAVES, SAVE STATES, AND SCREENSHOTS"),
+-			_("BACK UP SAVES TO POPULATE THIS FOLDER, OR COPY YOUR SAVES HERE FROM A COMPUTER."));
++		cloudSetupAddProse(s, window, _("ADD SAVES"),
++			_("BACK UP GAME SAVES, SAVE STATES, AND SCREENSHOTS TO THIS FOLDER, OR COPY THEM HERE FROM A COMPUTER."));
+ 	else
+ 		cloudSetupAddProse(s, window, _("SETTINGS BACKUPS"),
+ 			_("BACK UP SETTINGS TO POPULATE THIS FOLDER, OR COPY A SETTINGS BACKUP HERE FROM A COMPUTER."));
+diff --git a/locale/emulationstation2.pot b/locale/emulationstation2.pot
+index 88160229f..8711f1282 100644
+--- a/locale/emulationstation2.pot
++++ b/locale/emulationstation2.pot
+@@ -3977,3 +3977,9 @@ msgstr ""
+ 
+ msgid "SKIPPED - ANOTHER CLOUD CHECK IS RUNNING"
+ msgstr ""
++
++msgid "ADD SAVES"
++msgstr ""
++
++msgid "BACK UP GAME SAVES, SAVE STATES, AND SCREENSHOTS TO THIS FOLDER, OR COPY THEM HERE FROM A COMPUTER."
++msgstr ""
+diff --git a/locale/lang/fr/LC_MESSAGES/emulationstation2.po b/locale/lang/fr/LC_MESSAGES/emulationstation2.po
+index 35770bafd..ab7604e97 100644
+--- a/locale/lang/fr/LC_MESSAGES/emulationstation2.po
++++ b/locale/lang/fr/LC_MESSAGES/emulationstation2.po
+@@ -6705,3 +6705,9 @@ msgstr "IMPOSSIBLE DE CRÉER VOS DOSSIERS CLOUD"
+ 
+ msgid "SKIPPED - ANOTHER CLOUD CHECK IS RUNNING"
+ msgstr "IGNORÉ - UNE VÉRIFICATION EST EN COURS"
++
++msgid "ADD SAVES"
++msgstr "AJOUTER DES SAUVEGARDES"
++
++msgid "BACK UP GAME SAVES, SAVE STATES, AND SCREENSHOTS TO THIS FOLDER, OR COPY THEM HERE FROM A COMPUTER."
++msgstr "SAUVEGARDEZ LES SAUVEGARDES DE JEU, SAUVEGARDES D’ÉTAT ET CAPTURES D’ÉCRAN DANS CE DOSSIER, OU COPIEZ-LES ICI DEPUIS UN ORDINATEUR."

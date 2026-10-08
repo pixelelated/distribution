@@ -1,0 +1,33 @@
+{
+  "utc": "2026-10-08T03:39:18.966729+00:00",
+  "source": {
+    "es_commit": "4e410dc9a816cc947f16235ad2b24824b29dd84e",
+    "es_binary_sha256": "94962c93775709dd3e2e7c0eefd470184c3defc41cd5c89cf917f4bcee2dd8b0",
+    "french_catalog_sha256": "a5fafc02b1a243dc63c9d9842efcce040ac72ae076279c77c79c8a0477180ea4",
+    "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+    "overlay_hashes": {
+      "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+      "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+      "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+      "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+      "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+      "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+    },
+    "kind": "reconstructed source overlay; not firmware"
+  },
+  "source_sha256": {
+    "es-app/src/guis/GuiMenu.cpp": "abe23fa6aba24fc3f0fdf63e05bcb0417257dc60c7884a55822c757fc1e0d99f",
+    "es-app/src/guis/GuiCloudTransfer.cpp": "bcc4bc0b52654cdbb9d9cdc8bd3fd1c71306043f34ff082294a42a888cfd3283",
+    "es-app/src/CloudText.cpp": "7d483ef2a04f1dc7a8c25042ecc339bcbcf133f033df4e4e925a0cdef2160b19",
+    "locale/emulationstation2.pot": "4bc4276dcc177fc0f28a85b488849d9cd3e4830cc299b310f60bd5ed088aea48",
+    "locale/lang/fr/LC_MESSAGES/emulationstation2.po": "2fdb97baca3257c6b36640218ec4c448a6991d223531132ee7b5377e6d90162a"
+  },
+  "build": "build07: one GuiMenu compile unit, full link, msgfmt;198 reused inputs unchanged; terminal0",
+  "syntax": "checks03: GuiMenu syntax terminal0",
+  "localization": "checks03-localization.json: exact English/French mapping, extraction0,vocabulary0",
+  "unit_carry_forward": "checks01:183cases/4752assertions on #512; subsequent #513/#514 changes only GuiMenu literal text/catalog, no tested CloudText logic changes",
+  "nonpassing_aggregates": "build04 compile/link/msgfmt succeeded but aggregate127 because hostPATH cmake absent; separate checks01 completed unit verification. build01 launcher125 and build02 msgfmtPATH1 retained. build06 completed0 but superseded before installation, no accepted frame binds it.",
+  "guest": "reconstructed-guest.json; PID3691349 remains alive, provider38798; no source build or UI walk running after final readback",
+  "retention": "Hold guest and compiler for coordinator/fresh-review coverage review. Prior retirement receipts remain historical; no current teardown yet.",
+  "terminal_retirement": "Completed after root consolidated review; retirement-process-preflight.json and retirement-executed.json record stopped guest, absent scope, and retained source/evidence."
+}

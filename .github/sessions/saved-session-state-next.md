@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Saved: 2026-10-08T02:50:54.941719+00:00
+> Saved: 2026-10-08T03:51:04.961741+00:00
 > Coordination branch: feature/conflict-resolution
 > Repository: pixelelated/distribution
 
@@ -8,105 +8,83 @@
 
 pixelelated is an immutable handheld Linux distribution, not an app. Read
 AGENTS.md and canonical `.claude/rules/` from `next`, then this checkpoint,
-M7's live ordered body and issues #510/#508. The primary checkout is
-`/workspace/repos/rocknix`, on `next` at `85dfe87b8a2b8732771e26e55ccbc7baea6380d6` before this checkpoint. Scoped QA tools, policy and non-UI evidence are integrated locally; publication is pending.
-Current coordination checkout is
+M7's live ordered body and issues #510/#508. Primary checkout:
+`/workspace/repos/rocknix`, branch `next`; the previously published checkpoint
+is `0f073485fffa9071ccb66f0d3c54a6b67a9797aa`. This final evidence/checkpoint
+change is prepared from that clean baseline; read actual HEAD before working.
+Coordination checkout:
 `/workspace/repos/rocknix.worktrees/conflict-resolution`, branch
-feature/conflict-resolution, QA-tool commit 5f21df775614bd22e56eb1d02e1b39e17069cd7b, followed by required-process commit d07a197ea9, non-UI evidence6ae69d761f and visual checkpoint907e333d70. Subsequent records and active supplemental UI changes are separate.
-This branch has divergent historical work: **never merge it wholesale to next**.
-Commit/cherry-pick scoped coordination records separately from held QA/source
-changes. Prior checkpoint: `archived/saved-session-state-next-20261008T013336Z.md`.
+`feature/conflict-resolution`. It has divergent historical work:
+**never merge it wholesale into next**. Use scoped commits/cherry-picks.
+Prior checkpoint: `archived/saved-session-state-next-20261008T035104Z.md`.
 
 Authorization persists for scoped implementation, parallel agents, local
 commits/pushes and synthetic host/VM proof. Device/personal-cloud actions keep
-their named scope. The prior SP update/reboot and single wake completed;
+their named scope. Prior SP transfer/reboot, screenshots and wake completed;
 do not repeat them. No public release or new physical action is inferred.
-A general “continue” does not answer a specific unresolved credential or
-Herdr startup approval. Never print credentials or inventory personal clouds.
+A general continue does not answer a specific pending scope, credential or
+Herdr startup question. Never print credentials or inventory personal clouds.
 
 ## Current focus and order
 
-**Live update at 2026-10-08 02:50 UTC:** distribution is clean at
-`6f89bc7cecee5972909828103689e2c7c0711c30`. ES HEAD remains
-`baeea2a8c9bf508949104abcf04583a2338e054f`, with the authorized #512 fix
-in progress across CloudText.cpp/.h, GuiCloudTransfer.cpp, CloudTextTests.cpp
-and the POT/French catalog. These product changes remain local/unintegrated.
-Root's 21 real-rclone controls and the validator's 30 controls pass. ES passes
-182 unit cases / 4727 assertions and its changed-source link. Main-flow UI proof has 39 reviewed frames, two rejected, and CF10 explicitly
-pending final firmware/public adoption. EN/FR 640×480 and 1280×800 are covered;
-canonical flow rows link the frames and machine-readable index. Root verified
-all frame hashes/dimensions/references and independently viewed five key states.
+**Source-overlay UI qualification is complete. No build, VM, audit or UI job
+is running in this lane.** Distribution is clean at
+`6f89bc7cecee5972909828103689e2c7c0711c30`; ES is clean at
+`4e410dc9a816cc947f16235ad2b24824b29dd84e`. Both product branches remain
+local/unpushed/unintegrated; no pin changed. Source fixes #512/#513/#514
+are qualified; reconcile their tracker dispositions against the published
+packet rather than rerunning completed tests. Product integration remains #508.
 
-Ordinary VM round trips each pass **108 checks on local WebDAV and SFTP**;
-inner, runner, wrapper and launcher channels are zero. The original synthetic
-configuration was restored and read back. Exact QEMU3331538 was stopped and
-its guest02 disk/private QA key removed at 02:13 UTC after retaining compact
-receipts (3.20 GB allocated reclaimed). That original guest is retired. UI worker
-completed compiler/raw retirement, including the final binary/catalog, after
-those tests. A fresh independent coverage review then identified missing
-help/error/warning variants. rc_cloud_ui reconstructed one disposable
-source-overlay test and is running focused proof for those specific gaps only; do not repeat the passing
-ordinary suites. Source and original evidence are preserved.
-No accepted firmware baseline, product pin or installed handheld changed.
+The owner's required ES/IA/screen-content process is already published on
+next: D-WORKFLOW-155/156, both agent entrypoints, es-ui-style-guide.md, and the
+menu-map evidence-index schema. Every affected flow/reference and reviewed
+happy/error/cancel/retry screenshot accompanies the source before completion
+or pin promotion. Copy-only and script-supplied text count. Nonvisual changes
+name the exercised flow and unchanged-presentation evidence. A title-map check
+is not semantic screenshot coverage. ES's AGENTS.md points to these canonical
+next rules, so separate ES sessions receive the same requirement.
 
-First broad owner `pixelelated-last-good-validator-broad-Myx2uHnX` ended143
-after an inherited host TMPDIR broke private fixture filesystems. Corrected
-actual-image focused controls pass: 48 backup, 105 current setup/scanner,
-99 historical; selected-root walkers pass23 current/19 historical. Earlier
-focused image-BusyBox labels are withdrawn because those extracts used host
-utilities; their raw evidence and correction remain explicit.
-Second broad owner `pixelelated-last-good-validator-broad-57RROkDX` completed
-with 11 failures, zero skips: all mapped to retired account-root/flat-layout
-fallback, coupled pointers, or an obsolete lsf-only fault injection. Corrected
-A0/A14/A40 focused controls pass14 current and18 historical, with actual image
-utilities and fault-fired witnesses. No additional product fix was needed.
+Completed qualification:
+- 21 real-rclone restore/cache controls and 30 validator controls.
+- Final broad host run `20261008T021032Z-6981bf69`: 1,311 top-level PASS,
+  zero failures/skips, three actual zero channels. It was a direct invocation,
+  so there is no inner.rc. All owned processes exited and nine input hashes
+  stayed unchanged. Harness SHA256
+  `5bb88aabeb833965c9611efb6d7ccb62c3c2567b25235ac2050bf329a3e1039b`.
+- Ordinary VM WebDAV and SFTP round trips: 108 PASS each, four zero channels
+  each, synthetic configuration restored before retiring the original guest.
+- ES #512 logic: 183 unit cases / 4,752 assertions, syntax/catalog/vocabulary.
+  Later #513/#514 change only GuiMenu literal text/catalogs, with separate
+  compile/link/syntax/gettext/vocabulary proof and explicit unit carry-forward.
+- Final affected-flow UI index: 99 entries, 89 reviewed screenshots, nine
+  rejected screenshots retained, one pending item: CF10 assembled firmware
+  clean/public ROCKNIX adoption. EN/FR at640×480 and1280×800 are represented;
+  no full locale/panel permutation claim. Final index SHA256
+  `9428ccff1267bc255807f4aa1dd0971054ced4e1360569461046c26df9e99768`.
 
-**Final full host rerun PASSED at 02:18:59 UTC:** owner
-`/workspace/tmp/pixelelated-last-good-validator-broad-KgVbKvOq`, run
-`20261008T021032Z-6981bf69`. All 1,311 top-level checks pass, zero failures or
-skips; one retired historical group is explicitly inapplicable, not counted.
-Build/wrapper/launcher are zero; direct invocation has no inner.rc. All four
-recorded processes are absent and all nine recorded input hashes unchanged.
-Frozen harness SHA256 `5bb88aabeb833965c9611efb6d7ccb62c3c2567b25235ac2050bf329a3e1039b`.
-Evidence is `broad/run03/`; no broader rerun is owed without a new concern.
+Current order:
+1. **#510:** resolve the still-unanswered release-scope question: ship current
+   checks/create/manual instructions and defer automatic save organization,
+   or include a specifically defined small-file repair. The validator direction
+   is settled; no generic safe relocation API exists and no such fix is claimed.
+   Do not silently mark this criterion complete or resurrect migration.
+2. **#508:** after that scope decision, integrate the qualified product source
+   and full pins, keeping canonical references/evidence with it. Current
+   source-overlay proof is done; actual public ROCKNIX/clean adoption and
+   assembled firmware inclusion remain separate gates. No new device build yet.
+3. **#507:** freeze and independently audit the post-candidate16 P5 delta.
+   No audit/external transfer has started. Use code-auditor's serial stages
+   and the Facilitator. Old Fable approval is not a blanket new transfer;
+   accepted candidate16/#471 review must not be replayed.
+4. Bind qualified inputs into selected firmware, then source/licence/release
+   staging and named physical smoke. No RC designation/publication yet.
 
-**Current independent work:** #512 now owns a confirmed introduced translation defect: the new settings-changed, check-busy and creation-failed reasons lack ES reason-table/French entries. Actual busy-scan proof shows a separate outcome-routing issue: a sync-specific skipped headline masks that reason and mislabels another check as sync. The authorized fix includes Scan+75 wording; retain actual changed-config/create failure evidence before asserting fallback display. rc_cloud_ui is authorized to fix all three together, retain failing evidence and requalify affected UI only. Distribution stays6f89. The final ES identity will change; baee remains the earlier tested source. Also close the newly identified visual gaps before
-claiming complete UI coverage: saves/settings/game-content help variants,
-rejected/unreadable path-change state, and the changed nested-folder warning
-(exact consumer tracing and actual surface proof if displayed). rc_cloud_ui
-owns reconstruction/proof; root owns references/tracking. Previous 39 reviewed
-frames remain valid; append the missing cases. The full diff-derived inventory is now consolidated in `docs/qa-logs/2026-10-07-cloud-validator/reference-review02.md`: it includes changed scan cancellation/failure/continuation, empty-path/invalid-response states, non-cancel creation failure, hub/path titles and connection/restore callbacks. Review these dispositions before retiring the new guest; do not expand to unrelated application screens.
+M7 and #508/#510 hold this order. Reconcile their final evidence/owner state
+with this checkpoint after publication. The separate website lane #511 adds
+no firmware gate. Do not rerun the completed full host/ordinary VM suites
+without a changed input, failure or concrete unresolved concern.
 
-D-WORKFLOW-156 now requires updated flow and screenshot evidence for every ES,
-IA or screen-content change before completion/pin promotion. The menu map
-specifies the evidence-index.json fields; the UI packet supplies them with
-remaining supplemental coverage explicitly pending.
-
-The owner asked to keep this lane on the RC's simpler rclone connection,
-folder check/create and manual library setup; website work belongs in a
-separate Herdr lane. On 2026-10-08 the owner reaffirmed canonical IA/flow
-references with screenshots for happy paths and branches (D-WORKFLOW-155).
-
-1. **#510:** settle exact category/action contract. Check/create/instructions
-   are implemented locally. Generic progress-file relocation is not: a valid
-   public progress layout cannot be reorganized safely from a folder-name
-   guess. The small-file repair criterion remains explicitly open; do not
-   silently call it delivered or add the retired migration engine back.
-2. **#508:** finish #512 and the supplemental UI proof. Full host and ordinary
-   VM suites pass; public ROCKNIX/clean adoption and firmware inclusion remain
-   later gates. Resolve #510, then
-   integrate qualified source/pins. No new device firmware build yet.
-3. **#507:** freeze and independently audit the resulting post-candidate16
-   P5 delta. No audit/external transfer has started. Use code-auditor serial
-   stages and the Facilitator; old Fable approval is not a blanket transfer.
-4. Bind qualified source to selected firmware, then source/licence/release
-   staging and named physical smoke. No RC designation or publication yet.
-
-M7 and #508/#510 current qualification updates were written and read back
-exactly at 02:42 UTC, including #512’s observed busy-check wording correction. Update their final result/source/owner status after
-current workers return; #511 remains the separate site lane.
-
-## Current source, ownership and active resources
+## Current source and ownership
 
 ### Distribution — #508/#510
 
@@ -158,101 +136,101 @@ corrected actual-image harness controls under the packet's validator/broad
 folders. Verify the returned manifests. Bash/Python/package checks passed.
 These are source controls, not complete new firmware qualification.
 
-### ES UI — main proof complete; supplemental variants active
+### ES UI — qualification complete; owned runtime retired
 
 `/home/max/Development/emulationstation-next.worktrees/m7-manual-cloud-setup`,
-branch feature/m7-manual-cloud-setup. Local baseline 300f97d2, followed by
-1272b3405, df68b7e60, c9fab1db and final
-`baeea2a8c9bf508949104abcf04583a2338e054f`. No push or pin change.
-182 unit cases / 4727 assertions, production syntax/catalog/French checks and
-changed-source link pass. Final binary SHA256:
-`4926f10e128807d480dc080ea58488bb618aa75e866f99cae33ee55ce6d14e00`.
-French MO remains
-`48a183b04ad3be28dc97d6a335eee61730bb36a195d1246f1bdf5c2178b81125`.
-The six-script source04 overlay at distribution6f89 and final ES bytes were
-installed and rehashed in the guest. Earlier overlay-583c1b4d/source03 files
-are historical inputs and must not overwrite these final scripts.
+branch `feature/m7-manual-cloud-setup`, clean final source
+`4e410dc9a816cc947f16235ad2b24824b29dd84e`. Local/unpushed/unintegrated.
+Earlier1272b/df68 preserve refreshed selections; c9fab fixes creation
+cancellation grouping; baee adds the bounded byte-preserving JSON reader.
+#512: `1d5397fda9d7c5c2a4c7f9390ef49b9bb4b879ce` localizes three new
+failure reasons and names Scan75 contention as another check, preserving sync
+wording for ordinary sync. #513: `6b473c26e8cc03cbd509b3056c60aaf84cb8dbc0`
+fits saves help and content-editor titles without losing category meaning.
+#514: final4e410 scopes empty-library findings to selected folder/content and
+uses category-neutral manual guidance through CLOUD > CHECK CLOUD FOLDERS.
 
-The UI worker handed guest ownership to root after its terminal proof.
-Root ran ordinary `tools/cloud-round-trip` against distinct local WebDAV and
-SFTP endpoints, then stopped QEMU3331538 via `tools/vm-stop` and retired
-`/workspace/tmp/pixelelated-510-es-ui/guest02`, including its QA key. Do not
-reuse its old SSH10210/VNC31 or socket paths: that original guest no longer exists. Evidence:
-`docs/qa-logs/2026-10-07-cloud-validator/roundtrip/` (108 PASS each, terminal
-readback, installed hashes, restored synthetic configuration, retirement).
-The first round-trip launcher was refused by the coordination worktree's
-watcher lock before any command ran. Independent QA then used a private
-runtime directory and verified copies of the same watch tools; no guard was
-bypassed and no concurrent job edited shared source.
+Final tested ES binary:
+`94962c93775709dd3e2e7c0eefd470184c3defc41cd5c89cf917f4bcee2dd8b0`.
+French catalog:
+`a5fafc02b1a243dc63c9d9842efcce040ac72ae076279c77c79c8a0477180ea4`.
+The final-source receipt binds five ES/catalog source hashes and six installed
+scripts to their clean commits. Build07 compiled GuiMenu and linked with198
+reused inputs unchanged; checks03 passed syntax/extraction/catalog/vocabulary.
+The final binary/catalog were removed only after qualification and review;
+retain source and hashes, not temporary compiled payloads.
 
-UI packet:
-`docs/qa-logs/2026-10-07-cloud-validator/ui/README.md`, `evidence-index.json`,
-`coverage.csv`, 41 frames, exact-source manifests, walk steps, failed receipts
-and original root review. The checkpoint has77 entries:39 reviewed, two
-rejected and36 pending (35 supplemental plusCF10). Earlier frames are explicitly carried forward from their actual
-source with unchanged-input reasoning; they were not relabelled as recaptured.
-The accepted historical baseline remains untouched.
+UI packet: `docs/qa-logs/2026-10-07-cloud-validator/ui/README.md` and
+`evidence-index.json`, `coverage.csv`, controller steps, compact source/build
+receipts, original failed logs and reviewed/rejected frames. Root verified
+all514 pre-retirement seals and independently viewed16 supplemental frames;
+`root-supplement-review.json` binds this review to the final99-entry index.
+The original `root-review.json` covers only its original42 entries.
+`reference-review02.md` holds the complete affected-source inventory;
+`reference-review03.md` holds the independent completed-state checkpoint and
+final root disposition. `verify-ui-index.py` checks reference roots, anchors,
+dimensions and hashes, not semantic coverage. Earlier frames retain their
+actual source/catalog plus explicit unchanged-input reasoning.
 
-Supplemental UI owner is rc_cloud_ui under
-`/workspace/tmp/pixelelated-510-coverage02`. QEMU3691349 was verified alive;
-SSH10212/VNC32 use `/tmp/pix512-mon.sock` and `/tmp/pix512-ser.sock`.
-Build02 reconstructed the unchanged28-unit source; build03 finalized the
-catalog with pinned msgfmt after the host PATH miss. Its ES binary SHA256 is
-`b1b777683e6ac06271d33de3ed557e4836d136a8ecd5cc54c3ccfb4a295d4e0b`;
-the French hash and six source04 scripts are unchanged. This differs from
-the retired original4926f1 binary because the reconstruction uses a new path.
-No inference of byte identity is made from matching source. Initial build01
-failed at a relative copy path before any compiler ran. The #512 build04 compiled/linked/catalogued successfully but its aggregate
-launcher returned127 because cmake was absent from the host PATH. Separate
-checks01 used pinned absolute CMake/Ninja and returned0:183 cases/4752
-assertions plus changed-source syntax. These stage results do not turn
-build04 into an aggregate PASS. Worker installed the corrected binary/catalog
-and is proving its actual failure surfaces; read final identities from the
-subsequent committed source and UI receipts.
-The worker keeps guest/compiler until complete variant review. Shared rclone
-is still an active input. Nested-folder plain stdout is not displayed by ES;
-CF11 records its consumer trace and actual transfer result separately.
+The last positive CF14 control reached restore options → selected supported
+GB system → Back. Selected configuration and nine cloud file hashes remained
+equal; NO_ROM_RESTORED is retained. Four corrected empty-folder frames prove
+scope/fit with an out-of-scope populated library. No alternate-folder discovery
+or ROM transfer is inferred. OAuth's exact synthetic helper/setup is retained;
+it proves Connected → Continue, not real provider authentication. CloudOffer
+creates saves only; restore FINISH consumes its synthetic marker and returns.
+CF11's nested warnings actually fire in backup logs but the plain stdout
+sentences are discarded by the UI parser; actual completed-result frames and
+consumer trace are separate evidence. Do not invent a visible warning.
 
-Original UI heavy scratch retirement completed under rc_cloud_ui’s exact
-`receipts/retirement-plan.json` and executed02/final-build receipts; root separately retired the guest. The
-final compiled ES binary/catalog are no longer required after both VM suites;
-retain hashes and build results, not completed compiled payloads. Do not touch
-source checkouts, accepted build roots or other projects. Shared rclone at
-`/tmp/pixelelated-rc-rclone/rclone` remains until the supplemental UI test finishes.
+Failed aggregates remain failed: reconstructed build01 launcher125;
+build02 compile/link succeeded but msgfmt host-PATH failure ended1;
+build04 compile/link/catalog succeeded but cmake host-PATH failure ended127.
+Separate pinned-tool checks01 provided the actual183-case unit PASS. Build06
+passed but was superseded before installation and qualifies no frame.
+Mis-navigation walks stay harness-rejected despite some runner0 results.
 
+Both disposable scopes are gone:
+- Original `/workspace/tmp/pixelelated-510-es-ui`, QEMU3331538,
+  SSH10210/VNC31: retired after both108-check VM suites and original UI proof.
+- Supplemental `/workspace/tmp/pixelelated-510-coverage02`, QEMU3691349,
+  SSH10212/VNC32: retired after complete inventory/root review at03:47UTC.
+  All63 launcher PIDs exited; provider stopped; monitor/serial sockets and
+  ports10212/5932 absent. Removed1,861 regular files,5,217,521,664 allocated
+  bytes (4.86GiB), including guest disk/private key/compiler/binary/catalog.
+  Compact retirement plan/preflight/execution/reproduction records remain.
+  Root independently read back absent processes/ports/scope and all528 worker
+  seals; `root-retirement-review.json` raises the final sealed file count529.
 
-## Canonical UI references and pending root changes
+The UI and validator agents have completed and released ownership. No guest
+remains to reconnect to; old port/socket/pidfile paths are historical only.
+Source checkouts, accepted firmware/build roots and shared development rclone
+at `/tmp/pixelelated-rc-rclone/rclone` were preserved outside that owned scope.
+Do not recreate scratch merely to repeat passing tests.
 
-`docs/es-menu-map.md` places the new CLOUD FOLDERS, CLOUD FOLDER CHECK and
-CLOUD FOLDER INSTRUCTIONS screens. Check against final draft ES baeea2a8c9: 53 screens,
-29 mapped/24 declared upstream-unmapped, 0 missing. The map explicitly retains the currently pinned firmware
-branch as well as the proposed replacement: the default check also passes
-for 52 screens at published pin 5d2fcb9b7, with 0 missing. Use --es-src and
---ref to verify the draft independently; no product pin was moved.
+## Canonical references and integration strategy
 
-`docs/pixelelated/cloud-folder-flow-review.md` separates pre-validator history,
-implemented Mermaid flow and CF01–CF15 branch/evidence table. Main frame
-links and the exact-source evidence index cover CF01–CF09, with supplemental
-help/error variants and CF11 actual nested-folder outcome still being completed.
-CF10 final firmware/public adoption remains explicitly pending. `docs/conflict-wizard-ia.md`
-keeps its unchanged conflict structure and links evidence status. D-WORKFLOW-155/156 require source/build/locale/panel/status and a machine-readable
-frame index for every ES/IA/screen-content change before completion/pin promotion.
-The accepted visual baseline read 2026-10-08 still names d72084ccad,
-78 frames, accepted 2026-09-26. Do not replace it with source-overlay frames.
+`docs/es-menu-map.md` places the cloud pages and distinguishes groups from
+pages. Both pinned ES5d2fcb9b and draft ES4e410 pass the title check (52/53
+screens respectively,0 missing); that is not screenshot coverage. The
+replacement flow is mapped in `docs/pixelelated/cloud-folder-flow-review.md`
+with CF01–CF15 screenshots/receipts; `docs/conflict-wizard-ia.md` preserves
+unchanged conflict architecture and links the evidence system. The draft
+change log remains explicitly in qualification. Accepted visual baseline is
+still d72084ccad/78 frames, accepted2026-09-26; source overlays do not replace it.
 
-Scoped QA-tool commit `5f21df7756` now records the reconciled earlier held changes:
-cloud-pair-migration, cloud-round-trip, last-good-scripts-test,
-pixelelated-vm-cloud-boundaries, rasteratops-cloud-layout-test,
-rasteratops-vm-cloud-epic, vm-walks/cloud-epic/migration-protocol.sh.
-The old held patch is in `docs/qa-logs/2026-10-07-manual-cloud-setup/held-qa-tools.patch`.
-That commit also adds tools/pixelelated-content-scope-test and updates the three tool inventories. It is cherry-picked onto next as `083f4fad86fcadda7b0867fc6fcc7c5b2ae17245`; publication remains pending. Current cloud-round-trip has
-explicit-category seeding/real exit checks and passed108checks on each of
-WebDAV andSFTP. The final broad harness has corrected historical-contract
-branches and passed its final full rerun. Do not erase pre-existing deltas or copy
-historical migration expectations into the retired current flow.
-Draft cloud-sync-changelog remains marked in qualification, not shipped.
-Rules/register/work-log-index checks passed 01:31 UTC. Push gate still requires
-ceremony check; known 15-closure independent audit cadence belongs to #507.
+Already published scoped coordination commits on next:
+`083f4fad86` QA tools, `f6037a9133` required process, `2ab5ebbc86` non-UI
+proof, `85dfe87b8a` visual checkpoint, `0f073485f` prior handoff/references.
+Their coordination equivalents are5f21df7756/d07a197ea9/6ae69d761f/
+907e333d70/ae6f1e347d. This final follow-up contains the completed UI packet,
+canonical links, localization-rule clarification, work/friction logs and
+checkpoint. Integrate only its scoped commit; never merge this divergent
+coordination branch wholesale. The ES/distro product branches remain separate.
+
+The known15-closure audit cadence belongs to #507; ceremony-check permits
+ordinary evidence/fix pushes while the audit remains owed. Do not bypass the
+cheap gates or replay accepted #471 to make that warning disappear.
 
 ## Separate Herdr website lane — #511
 
@@ -335,28 +313,22 @@ automation remain later work. No Dropbox check or fresh RA reset is required.
 
 ## Next commands and handoff
 
-1. Consume rc_cloud_ui's supplemental help/error/warning proof. Only this
-   newly identified coverage is open; the main frames, broad host suite and
-   both ordinary VM suites passed. No old guest remains; follow the new
-   worker's owned job paths and verify actual lifecycle before reuse.
-2. Root/fresh reviewer checks the complete affected content-variant inventory
-   before the supplemental guest is retired. Reconcile final packet indices,
-   seals, checkpoint and M7. Do not repeat unaffected passing suites.
-3. Resolve the still-open #510 repair contract. Main flow evidence links
-   are present; supplemental variants and firmware/public adoption remain open. A new
-   asynchronous question asks whether this RC should ship checks/create/manual
-   instructions and defer save-file organization, or include a narrow repair.
-   It is pending, not a decision. Do not silently close that criterion.
-   Actual clean/public adoption and final firmware inclusion remain separate.
-4. Update M7, current issues, checkpoint, work log and index. Run rules,
-   register and ceremony checks. Source/QA changes and coordination records
-   need scoped commits; never merge the entire coordination branch.
-5. Fresh reader `m7_final_resume_review` verified final source, terminal host/VM channels and packet identities, and found the supplemental branch gaps now being addressed. Recheck final records and variant inventory before teardown/publication. Earlier fresh reader `rc_resume_reference_review` verified source heads, build05
-   hashes and terminal receipts, 121 earlier content-proof checksums, validator/source
-   hashes and the accepted visual baseline. Its historical/current wording and
-   cramped-text findings were corrected and rechecked: no material resume
-   hazard remained in that reviewed version. The later root/JSON/classifier fixes
-   and fresh broad lifecycle above postdate that review. This checkpoint and its evidence are committed through scoped coordination
-   records and cherry-picked onto next; verify the actual remote readback
-   before claiming publication. The supplemental UI worker keeps its active
-   guest/compiler and monitoring duty until final coverage review.
+1. Read the actual answer/status of the pending #510 repair-scope question.
+   No implementation, pin or build is authorized by mere elapsed time on that
+   unresolved choice. Independent proof is finished and safely retained.
+2. Reconcile M7/#508/#510 and the source-fix #512/#513/#514 dispositions with
+   the final packet. No new source audit has run; #507 follows the scope/integration
+   step, then actual firmware and public adoption proof.
+3. Preserve the separate website startup question and private Dropbox question
+   as unanswered unless a later explicit reply changes them. They are not RC
+   blockers; do not operate a personal device/cloud or another lane by inference.
+4. Before a push: tools/rules-check, tools/register-check,
+   tools/work-log-index --check, tools/ceremony-check --gate. Run
+   `python3 docs/qa-logs/2026-10-07-cloud-validator/verify-ui-index.py "$PWD"`
+   for packet integrity, and inspect its explicitly limited coverage claims.
+5. Read the archived checkpoint for historical failed owners if needed; use
+   retained logs/frames/source hashes rather than recreating removed disks.
+
+Session-stash and herdr-project-coordination skills were applied. The initial
+fresh-context resume review and bounded final supplemental review are complete;
+root independently reconciled the final source, coverage and retirement.

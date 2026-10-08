@@ -156,9 +156,16 @@ and `:`, and the tabs and pages by the names the file already gives them
 (SCRAPEUR / OPTIONS / COMPTES, PARAMÈTRES RETROACHIEVEMENTS). The msgid must
 match the source string byte for byte, `\n` included; the first thirteen
 were written by a script that read the msgids out of the sources rather
-than retyping them. The cloud pages and the rest of the fork's strings
-since 2026-08 have no French yet and are a follow-up. Other languages are
-whoever reads them.
+than retyping them. Verify current coverage against the exact source,
+catalog and reviewed frames; the initial untranslated backlog is historical.
+Other languages are whoever reads them.
+
+Script-supplied player text follows the same rule. A new or changed `>>> why`
+sentence updates `CloudText::whySentences` and the French catalog alongside
+its emitter. Exercise the actual failure surface: outcome routing can replace
+the reason with a headline, so a table entry alone does not establish what the
+player sees. Review both headline and body, including the named operation
+(#512; D-WORKFLOW-156).
 
 ## A row that leads somewhere is a label, not a paragraph
 

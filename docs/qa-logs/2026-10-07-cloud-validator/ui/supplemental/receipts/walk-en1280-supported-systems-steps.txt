@@ -1,0 +1,23 @@
+key ret
+wait-for-change
+key x
+wait-for-change
+key up x2
+key up
+key x
+wait-for-change
+key down
+key x
+wait-for-change
+settle
+shot restore-options
+key up
+key right
+key x
+wait-for-change
+settle
+shot selected-supported-systems
+key z
+wait-for-change
+settle
+shot return-without-transfer

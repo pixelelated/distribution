@@ -171,8 +171,8 @@ in #508; the detailed earlier map is retained at
 [published source 240e2b0c](https://github.com/pixelelated/distribution/blob/240e2b0caa1edf7061f633a13d3696ea46c50370/docs/es-menu-map.md).
 
 The diagram below describes the replacement under qualification at local
-ES `baeea2a8c9bf508949104abcf04583a2338e054f`. It is not yet installed release
-firmware. Its flow/branch proof is tracked in the linked evidence table.
+ES `4e410dc9a816cc947f16235ad2b24824b29dd84e`, including the #514 empty-library
+copy correction. It is not yet installed release firmware. Its flow/branch proof is tracked in the linked evidence table.
 
 The entrypoint mapped since 2026-09-12 (ES `51639dd09`) remains one door:
 `GAME SETTINGS > CLOUD SETTINGS`. The three save actions sit at that level
@@ -202,7 +202,8 @@ flowchart TD
     SCAN --> TICK[tick: SAVES · ROMS AND BIOS · GAME CONTENT · SETTINGS<br/>restore: SETTINGS offered as DEVICE, DATE, or dimmed NO SETTINGS BACKUP FROM THIS DEVICE YET, D-CLOUD-162<br/>CONTINUE]
     TICK -->|ROMS AND BIOS or GAME CONTENT ticked, restore| CSCAN[CHECKING YOUR CLOUD<br/>cloud_scan --content inside the selected library, in the classes ticked; goes on by itself]
     TICK -->|ROMS AND BIOS or GAME CONTENT ticked, backup| CSCAN
-    CSCAN --> PICK[systems page, from the scan's files<br/>select all · badge per system<br/>BIOS alone: SYSTEMS reads NONE · a BIOS FILES group · no SELECT ALL · the verb still waits, D-UI-116]
+    CSCAN -->|nothing matches the chosen categories in the selected folder| EMPTY[scoped empty result<br/>choose another folder or add files from a computer<br/>CLOUD > CHECK CLOUD FOLDERS gives expected locations]
+    CSCAN -->|matching content| PICK[systems page, from the scan's files<br/>select all · badge per system<br/>BIOS alone: SYSTEMS reads NONE · a BIOS FILES group · no SELECT ALL · the verb still waits, D-UI-116]
     TICK --> XFER[GuiCloudTransfer<br/>full-screen; live line, elapsed, outcome; stays until dismissed]
     PICK --> XFER
     XFER -.->|saves folder absent| OFFER[create-folder offer<br/><i>on dismissal</i>]
@@ -253,6 +254,11 @@ compatibility. Changes to the saves, settings, and shared content paths are
 independent. Transfer previews bind their results to the run, configuration,
 category mode, and output bytes; a changed selection requires a new check.
 Category switches scope these actions; they do not enable automatic sync.
+MANAGE CLOUD STORAGE is the entry row; the page it opens is titled CLOUD.
+BACKUP AND RESTORE, SAVE MANAGEMENT and CLOUD STORAGE SETUP are groups on
+that page, not separate screens. The empty-library finding names the selected
+folder and content rather than implying that the whole cloud was searched
+(#514); shared ROM/BIOS/game-content guidance stays category-neutral.
 The [flow evidence table](pixelelated/cloud-folder-flow-review.md#implemented-flow-and-visual-proof)
 tracks the happy path and branching cases with their screenshot status.
 Earlier migration rules and frames remain historical evidence under

@@ -1,0 +1,26 @@
+cancel
+serve dropbox --name dropbox --label Dropbox --timeout 900
+info
+cancel
+cancel
+info
+serve dropbox --name dropbox --label Dropbox --timeout 900
+status
+fec8240db342eb9432f9423f5ee3f5bd53df499012dffd1e4ac9ae81c316cbf5  /usr/bin/cloud_oauth
+af5e059cc43888bd11ada779a9fbe39a20967eb7e4bdae2574b55a2596c397b7  /storage/.config/rclone/rclone.conf
+webdav:
+OK /QA-Empty/Saves
+{
+  "schema_version": 1,
+  "config_id": "4c930d40551bed899acbe06813f91d3e62dd07627db11b57a9ad6c6cb2541c3f",
+  "remote": "webdav:",
+  "paths": {
+    "saves": "/QA-Empty/Saves",
+    "settings": "/pixelelated/Backups-final",
+    "content": "/pixelelated/Content",
+    "roms": "/pixelelated/Content/ROMs",
+    "bios": "/pixelelated/Content/BIOS",
+    "media": "/pixelelated/Content/ROMs"
+  }
+}
+f660a7996deacfbc7560e4240054a8ad82eb02fe25a95064257e07084bcacb85  /storage/qa512/provider/QA-Empty/Backups/.keep
