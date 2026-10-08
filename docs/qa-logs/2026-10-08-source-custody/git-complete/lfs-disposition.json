@@ -1,0 +1,60 @@
+{
+  "utc": "2026-10-08T22:42:57.756073+00:00",
+  "result": "PASS_UNUSED_TEST_FIXTURE_DISPOSITION",
+  "profile": "sm855003-aarch64",
+  "azahar_commit": "fbd3fb02f71e5f9ed5134037fd59bad96c7d2b8a",
+  "teakra_commit": "3d697a18df504f4677b65129d9ab14c7c597e3eb",
+  "pointer_path": "externals/teakra/src/test_verifier/data/teaklite2_tests_result.bin",
+  "pointer_sha256": "995bbf5eee68c1d14e338bd445292db1e47533b0c0eb5060257bc8acb567b93d",
+  "lfs_payload_sha256": "baffcd4f805a7480d969401792443a34aa39f813b4f0ae49c6365f1d1f3ce120",
+  "lfs_payload_bytes": 357257824,
+  "cache_pointer_bytes": 134,
+  "actual_build_flags": {
+    "BUILD_TESTING": "OFF",
+    "ENABLE_TESTS": "OFF",
+    "TEAKRA_BUILD_TOOLS": "OFF",
+    "TEAKRA_RUN_TESTS": "OFF"
+  },
+  "cmake_cache_path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02/build.pixelelated-SM8550.aarch64/build/azahar-sa-fbd3fb02f71e5f9ed5134037fd59bad96c7d2b8a/.aarch64-rocknix-linux-gnu/CMakeCache.txt",
+  "cmake_cache_sha256": "7e9d5038bd9beaa68084088cc8c4be8f60bee0beaeef88bf5bcfceb9d9a30915",
+  "build_ninja_path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02/build.pixelelated-SM8550.aarch64/build/azahar-sa-fbd3fb02f71e5f9ed5134037fd59bad96c7d2b8a/.aarch64-rocknix-linux-gnu/build.ninja",
+  "build_ninja_sha256": "19142aa8319332c31b61368ac0cf62f92109dc041de60475cd306f5e173f5d70",
+  "no_test_verifier_or_fixture_build_edge": true,
+  "package_stage": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02/build.pixelelated-SM8550.aarch64/install_pkg/azahar-sa-fbd3fb02f71e5f9ed5134037fd59bad96c7d2b8a",
+  "package_stage_files": [
+    ".rocknix-package",
+    "usr/bin/azahar",
+    "usr/bin/start_azahar.sh",
+    "usr/config/azahar/azahar.gptk",
+    "usr/config/azahar/azahar_mouse_addon.gptk",
+    "usr/config/azahar/qt-config.ini"
+  ],
+  "source_files": [
+    {
+      "path": "CMakeLists.txt",
+      "sha256": "50ea84f1b677bfdaa7c13f6e226a8859390897cb447b8131702fa771eee602d4"
+    },
+    {
+      "path": "externals/CMakeLists.txt",
+      "sha256": "a9c7825f67db9e71cabef2fee0c3f960a6404543f149bb570f7075d0e27fac8c"
+    },
+    {
+      "path": "externals/teakra/CMakeLists.txt",
+      "sha256": "497e1ca75c6d175e6abf08490c1036c30a91940c0dbd9d570dc294f989f44470"
+    },
+    {
+      "path": "externals/teakra/src/CMakeLists.txt",
+      "sha256": "7b38eb49dc096d0d0055c18baa2ae547edcecb18e16bcfd34ac0cea64c7d5959"
+    },
+    {
+      "path": "externals/teakra/src/test_verifier/CMakeLists.txt",
+      "sha256": "bff6fd5f459be1599796ce0554d4516c943ce3a54bf4ab40154e4b5fe54d06b5"
+    },
+    {
+      "path": "externals/teakra/src/test_verifier/data/teaklite2_tests_result.bin",
+      "sha256": "995bbf5eee68c1d14e338bd445292db1e47533b0c0eb5060257bc8acb567b93d"
+    }
+  ],
+  "recipe_sha256": "52df4bbce8456c27b864970520a911b3363102a58c666e2f99c0bbca6c274c70",
+  "disposition": "Pointer retained with exact source. Payload was not present in the accepted build tree, referenced by its generated build graph or installed by this package. Accuracy tests and tools were disabled. No payload download needed to preserve this build; enabling that upstream test later requires its fixture. No general licence/publication conclusion."
+}

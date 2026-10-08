@@ -1,0 +1,36 @@
+[
+  {
+    "component": "rclone",
+    "binary": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/rclone-1.75.1/rclone-v1.75.1-linux-amd64/rclone",
+    "binary_sha256": "f66d8c1d552ad90296a11bc8b46d56a7fa5da1a7fa05e7ca522d95df92c4a4c0",
+    "go_tool": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/toolchain/lib/golang/bin/go",
+    "go_tool_sha256": "80c134189f98ac17459f402f6f743897071e9b3c9a83563eb7ff56da2a406041",
+    "metadata_sha256": "49f669d6cdeb380b4402006ab9ef7bcf3693fd1be2731b4717265fe83db2050c",
+    "modules": 244,
+    "vcs": [
+      "build\tvcs.revision=687d264b689b8c49a67e2e52a8a5e0caa01c04ce",
+      "build\tvcs.time=2026-09-04T16:03:20Z",
+      "build\tvcs.modified=true"
+    ]
+  },
+  {
+    "component": "tailscale",
+    "binary": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/tailscale-1.98.8/tailscale",
+    "binary_sha256": "e9154fca81c775407cc40df421d0f5cffc34c56d385d587710dc077e9f83010a",
+    "go_tool": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/toolchain/lib/golang/bin/go",
+    "go_tool_sha256": "80c134189f98ac17459f402f6f743897071e9b3c9a83563eb7ff56da2a406041",
+    "metadata_sha256": "4be86b7a997ce6311294e2efa65710762030552168b2f9e4be12d94a6f2fc83b",
+    "modules": 58,
+    "vcs": []
+  },
+  {
+    "component": "tailscaled",
+    "binary": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/tailscale-1.98.8/tailscaled",
+    "binary_sha256": "17375e2750e694e659a05509773440d588d038d55062e2ed65f6ce619f032ec5",
+    "go_tool": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/toolchain/lib/golang/bin/go",
+    "go_tool_sha256": "80c134189f98ac17459f402f6f743897071e9b3c9a83563eb7ff56da2a406041",
+    "metadata_sha256": "a521544a1f35ca1402cf81acd3e52168d8fec773d0b984fa083c6777fda5a201",
+    "modules": 72,
+    "vcs": []
+  }
+]

@@ -1,0 +1,23 @@
+{
+  "utc": "2026-10-08T22:41:07.049505+00:00",
+  "result": "PASS_CONSUMED_ORIGINAL_COMPLETION",
+  "owner": "/workspace/tmp/pixelelated-m7-source-git-03",
+  "run": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/.build-runs/20261008T223239Z-58e643f8",
+  "original_result_codes": {
+    "inner.rc": 0,
+    "outer.rc": 0,
+    "tool-wrapper.rc": 0,
+    "launcher_runner_returncode": 0,
+    "watcher_build_rc": 0
+  },
+  "terminal_status": "state:       finished\nwritten:     2026-10-08 22:37:06 UTC   <- terminal result; heartbeat stops here\nwatcher_pid: 1542322\njob_pid:     1542321  alive=yes\nstarted:     2026-10-08 22:32:39 UTC\nprogress:    none matched\nlog:         /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/.build-runs/20261008T223239Z-58e643f8/build.log  (last written 3s ago)\nactivity:    /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/.build-runs/20261008T223239Z-58e643f8/build.log  (last written 3s ago)\nactivity_dir: /workspace/tmp/pixelelated-m7-source-git-03/artifacts\noutcome:     rc=0\ntail:\n  SNAPSHOT 372 bbe0d96ddc2986e6851afd71a197fa2d3d711996 blobs=118 queued=0\n  {\"utc\": \"2026-10-08T22:37:03.980017+00:00\", \"result\": \"PASS_TRACKED_GIT_SNAPSHOT_CUSTODY\", \"path\": \"/workspace/artifacts/pixelelat\n",
+  "actual_host_pids_exited": [
+    1542320,
+    1542321,
+    1542322,
+    1542352
+  ],
+  "host_context": "unsandboxed host observation; not inferred from sandbox absence",
+  "custody_manifest_sha256": "266c8393884189dec9419628b3e7e527b965598d7b9b31e4ea31fd9af2204dc9",
+  "limits": "Tracked-source custody only. No complete corresponding-source, licence, backup, hardware or publication clearance."
+}
