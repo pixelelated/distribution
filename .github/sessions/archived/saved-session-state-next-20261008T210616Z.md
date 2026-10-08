@@ -1,10 +1,10 @@
 # Saved Session State
 
-> Saved: 2026-10-08T21:06:16.042396+00:00
+> Saved: 2026-10-08T20:43:28.672886+00:00
 > Coordinator: feature/conflict-resolution
 > Repository: pixelelated/distribution
 
-## Start here — H70002 BUILD ACTIVE; accept H700 before SM8550
+## Start here — H70002 verified cache copy ACTIVE; no compiler yet
 
 This is an immutable Linux build system, not a runnable application. Primary
 `/workspace/repos/rocknix` stays on `next`; read its AGENTS.md and canonical
@@ -16,9 +16,7 @@ Authorization persists for scoped fixes, commits/pushes, builds, synthetic VM/
 local provider QA and dependency-checked disposable payload retirement. No new
 physical-device/personal-cloud action. #519 controlled owner alignment must
 precede the next owner handheld update transfer/reboot. Website #511 is separate.
-No goal exists. H70002 compiler is ACTIVE as below; no external audit.
-Canonical rule/checkpoint5e0e0cb6a456c2a3928ad3a51211525b4c75f732 has both hosted
-checks SUCCESS37842048191/37842048387; fresh-agent retest found resume unambiguous.
+No goal exists. H70002 cache copy is active as below; no compiler or external audit.
 Primary checkpoint/closure publication a573e0625d5aec2a42aff83f74eccb52552ccee6
 has both hosted checks SUCCESS (37840861645 and37840861637).
 
@@ -89,27 +87,23 @@ No credentials, QA keys, provider payload or guest disks are committed.
 
 ## Current work and next commands
 
-1. TAKE OVER active H70002 BUILD, never duplicate. Owner
-   /workspace/tmp/pixelelated-m7-h700-refresh-02; frozen worktree
+1. TAKE OVER active H70002 cache verification, never duplicate: owner
+   /workspace/tmp/pixelelated-m7-h700-refresh-02; fresh frozen worktree
    /workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02, branch
    build/m7-pixelelated-h700-02, source8b5113fa164ada7d002ab138b1e3a9bf795e9de5.
    Manifest2918052ed6aaa4709bdff0513bcfdd098327f44c8238a2c24ae5c8e16fe4ff26.
-   run.path names .build-runs/20261008T210330Z-b52629f1. Launcher743440,
-   runner743441,watcher743442,command743476 verified alive in actual HOST context.
-   Actual pinned container3e000fc4756cf20e83b76056caf37161ac1b039dcb7cf8e5c9c13f38005bce73
-   observed with the new source mounted at the old cache's stable container path.
-   Standard canonical make docker-H700 completed244ARM tasks; aarch64671-task
-   stage is active. Read build.status, owner/console.log and actual processes
-   at most60s apart. No off-session alert exists; do not call recording delivery.
-   Never edit in-flight scripts or frozen inputs. Container source/data isolated.
-2. Cache is COMPLETE, do not rerun: checksum-equal ARM/aarch64 copies with
-   1,141,131+2,801,976 independent regular files,105,020 unchanged tracked-file
-   timestamps preserved. All five original channels0 and actual owners absent
-   consumed21:02:47 in owner/cache-consumption.json. Quiet checksum warning was
-   inspected against rising host I/O, not restarted. Precompiler guarded reclaim
-   passed after copy watcher exit, restoring8GiBswap. No further reclaim during
-   this active compiler/watcher. Fresh-agent proof/retest receipts and compact
-   cache/start packet: docs/qa-logs/2026-10-08-device-refresh/.
+   copy.run names .build-runs/20261008T203802Z-e3e87b34. Launcher625682,
+   runner625683,watcher625684,command625713 were alive in actual HOST context.
+   Read build.status, cache-launch/console.log, copy.rc,copy.outer.rc,
+   cache-launch/tool-wrapper.rc and launcher-result.json, plus run/build.rc.
+   At20:42 the ARM copy was complete and checksum comparison running. Both
+   ARM/aarch64 must pass contents and inode separation before compilation.
+   A checksum pass may be quiet; inspect actual child CPU/I/O before stall claims.
+2. Fresh-agent resume proof rehashed15 bundle+180qa21+70/82walk files and78frames
+   with no mismatch; seven retired scratch paths absent. Its two obsolete build
+   rule statements are corrected with this checkpoint. See
+   docs/qa-logs/2026-10-08-device-refresh/fresh-resume-proof.json. Host /proc and
+   Docker require HOST context; sandbox absence does not prove process exit.
 3. Old H700 cache `/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01`, frozen
   43d0bc3bf47fd858ba8d5c55fbdf52535a0db2aa. Its build.pixelelated-H700.arm is
   26,440,212,480allocatedB; aarch64111,179,927,552B. 29product paths changed since
@@ -124,31 +118,24 @@ No credentials, QA keys, provider payload or guest disks are committed.
    Receipt `/workspace/tmp/pixelelated-m7-device-refresh-preflight/prebuild-reclaim.log`.
    No watcher/VM/compiler ran during reclamation. Never broad swapoff or invoke
    reclamation during active work. Recheck read-only preflight before compilation.
-5. On actual build completion, preserve its original inner.rc,outer.rc,
-   tool-wrapper.rc,run/build.rc and launcher-result.json. If any nonzero, inspect
-   archived thread logs and actual command/container before any recovery; don't
-   relabel failure. For all0 plus actual owner exits, run IN HOST context:
-   `python3 /tmp/m7-consume-h700-refresh.py build`.
-   It verifies frozen seals/source, observed container removal and installed
-   inclusion, then writes owner/build-consumption.json. It does not accept raw
-   firmware artifacts. Prepared, NOT STARTED acceptance owner:
-   /workspace/tmp/pixelelated-m7-h700-refresh-acceptance-02. From the H70002 tree,
-   submit tools/watch-build-submit --owner <acceptance-owner> -- --interval 5
-   --stall-min 5 -- python3 -I -u <acceptance-owner>/run.py . Read/review its
-   frozen scripts first. Actual SYSTEM checks include22helpers, native defaults,
-   corrected post-update/ES identity and retired helper absence (incl symlinks).
-   Raw DDR3/DDR4 SYSTEM/kernel/bootloader equality and new ARM manifest handoff
-   produce the immutable bundle. Consume terminal acceptance with
-   `python3 /tmp/m7-consume-h700-refresh.py acceptance` in HOST context.
+5. Build driver is prepared, not submitted: owner/build.py,observe-container.py,
+   verify-installed.py and build-seal.json. Once original copy channels are0,
+   launcher-result0 and all actual owner processes exited, write a checked
+   cache-consumption.json. Never infer completion from copy submission or set a
+   failed result to0. Run read-only preflight; then from the NEW worktree submit
+   tools/watch-build-submit with --owner <owner> -- --interval5 --stall-min5 --
+   python3 -I -u <owner>/build.py (actual CLI uses spaces between options/values).
+   Driver cleans only affected aarch64 packages, runs canonical make docker-H700
+   (ARM thenaarch64), observes actual pinned container with new source mounted at
+   the old cache's stable container path, verifies installed scripts/ES/catalog/
+   architecture and emits fresh ARM/output manifests. Inspect/review before use.
+   No compiler submitted at save. Active watch/status consumption ≤60s; #395 has
+   no off-session alert. Never duplicate a running build or edit its shell tool.
 
 6. Accept new H700 DDR3/DDR4/update artifact with installed source/cloud/native/
    ES/post-update identity and ARM handoff; then repeat measured preparation/build
    for SM8550. Old SM8550 tree m7-pixelelated-sm8550-01 frozen0553c0193a is182.7GB.
    Old device artifacts are historical inputs, not new firmware acceptance.
-   SM8550 has extra Nix/FEX custody: inspect old build04 inputs/inside-build.sh,
-   wait-runtime.py,verify-arm.py and proof-controls.py before preparing it. Its
-   writable private Nix store and pinned snapshot/toolchain paths are declared
-   there; do not substitute the simpler H700 driver or silently omit those mounts.
 7. Source/licence #344 (14recipe metadata gaps), branding359, release265 and named
    physical gates remain. #519 before owner-device deployment; no RC designation.
 

@@ -1,0 +1,51 @@
+{
+  "utc": "2026-10-08T21:03:40.764348+00:00",
+  "id": "3e000fc4756cf20e83b76056caf37161ac1b039dcb7cf8e5c9c13f38005bce73",
+  "image": "sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39",
+  "reference": "ghcr.io/pixelelated/build@sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39",
+  "user": "1000:1000",
+  "workdir": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01",
+  "command": [
+    "make",
+    "H700"
+  ],
+  "state": {
+    "Status": "running",
+    "Running": true,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 745180,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-10-08T21:03:39.828195809Z",
+    "FinishedAt": "0001-01-01T00:00:00Z"
+  },
+  "mounts": [
+    {
+      "Type": "bind",
+      "Source": "/home/max/.ROCKNIX/options",
+      "Destination": "/home/max/.ROCKNIX/options",
+      "RW": true
+    },
+    {
+      "Type": "bind",
+      "Source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02",
+      "Destination": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01",
+      "RW": true
+    },
+    {
+      "Type": "bind",
+      "Source": "/workspace/repos/rocknix/.git",
+      "Destination": "/workspace/repos/rocknix/.git",
+      "RW": true
+    },
+    {
+      "Type": "bind",
+      "Source": "/workspace/cache/rocknix-sources",
+      "Destination": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/sources",
+      "RW": true
+    }
+  ]
+}
