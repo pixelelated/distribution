@@ -1,0 +1,96 @@
+● essway.service - EmulationStation-with-Sway
+     Loaded: loaded (/usr/lib/systemd/system/essway.service; disabled; preset: disabled)
+     Active: active (running) since Thu 2026-10-08 12:37:53 EDT; 1min 3s ago
+   Main PID: 1383 (start_es.sh)
+      Tasks: 14 (limit: 9000)
+     CGroup: /system.slice/essway.service
+             ├─1383 /bin/bash /usr/bin/start_es.sh
+             └─1492 emulationstation --log-path /var/log --no-splash
+
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1508]        WARNING        System "zxspectrum" has no games! Ignoring it.
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1507]        WARNING        Unknown element of type "notification"!
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1505]        WARNING        Unknown element of type "notification"!
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1512]        WARNING        Unknown element of type "notification"!
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1510]        WARNING        Unknown element of type "notification"!
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1505]        WARNING        Unknown element of type "notification"!
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1504]        ERROR        HttpReq::onError (3) : Could not connect to server
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: ApiSystem::executeScriptLegacy -> timeout 10 /usr/bin/cloud_migrate_layout --needs-step
+Oct 08 12:38:10 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:38:10        [1492]        WARNING        ...launch terminated with nonzero exit code 1!
+Oct 08 12:38:10 GENERIC-X64-7f90 start_es.sh[1492]: ApiSystem::executeScriptLegacy -> /usr/bin/cloud_capture --system 'music' --rom '/storage/.config/gmu/playlists/Start Music Player.sh' --emulator 'gmu' --core 'gmu' --started 1791477490 --exit 1
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1512]        WARNING          Unknown platform for system "tools" (platform "tools" from list "tools")
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1508]        WARNING        System "tg16" has no games! Ignoring it.
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1508]        WARNING        System "uzebox" has no games! Ignoring it.
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1512]        WARNING        File "/storage/.config/modules/Start FEXConfig.sh" does not exist or is arcade asset ! Ignoring.
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1512]        WARNING        File "/storage/.config/modules/cloud_backup.sh" does not exist or is arcade asset ! Ignoring.
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1512]        WARNING        File "/storage/.config/modules/cloud_restore.sh" does not exist or is arcade asset ! Ignoring.
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1512]        WARNING        File "/storage/.config/modules/qterminal.sh" does not exist or is arcade asset ! Ignoring.
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1512]        WARNING        File "/storage/.config/modules/Install Steam.sh" does not exist or is arcade asset ! Ignoring.
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1512]        WARNING        File "/storage/.config/modules/Uninstall Steam.sh" does not exist or is arcade asset ! Ignoring.
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1512]        WARNING        File "/storage/.config/modules/Install Heroic Games Launcher.sh" does not exist or is arcade asset ! Ignoring.
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1512]        WARNING        File "/storage/.config/modules/Uninstall Heroic Games Launcher.sh" does not exist or is arcade asset ! Ignoring.
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1512]        WARNING        File "/storage/.config/modules/Scan Heroic Games.sh" does not exist or is arcade asset ! Ignoring.
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1512]        WARNING        File "/storage/.config/modules/Start AetherSX2.sh" does not exist or is arcade asset ! Ignoring.
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1512]        WARNING        File "/storage/.config/modules/Start Azahar.sh" does not exist or is arcade asset ! Ignoring.
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1512]        WARNING        File "/storage/.config/modules/Start BigPEmu.sh" does not exist or is arcade asset ! Ignoring.
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1512]        WARNING        File "/storage/.config/modules/Start CEMU.sh" does not exist or is arcade asset ! Ignoring.
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1512]        WARNING        File "/storage/.config/modules/Start DaedalusX64.sh" does not exist or is arcade asset ! Ignoring.
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1512]        WARNING        File "/storage/.config/modules/Start Dolphin.sh" does not exist or is arcade asset ! Ignoring.
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1512]        WARNING        File "/storage/.config/modules/Start MelonDS.sh" does not exist or is arcade asset ! Ignoring.
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1512]        WARNING        File "/storage/.config/modules/Start Moonlight.sh" does not exist or is arcade asset ! Ignoring.
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1512]        WARNING        File "/storage/.config/modules/Start ARMSX2.sh" does not exist or is arcade asset ! Ignoring.
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1512]        WARNING        File "/storage/.config/modules/Start SkyEmu.sh" does not exist or is arcade asset ! Ignoring.
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1506]        WARNING        System "supervision" has no games! Ignoring it.
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1512]        WARNING        File "/storage/.config/modules/Start RPCS3.sh" does not exist or is arcade asset ! Ignoring.
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1512]        WARNING        File "/storage/.config/modules/Start Vita3K.sh" does not exist or is arcade asset ! Ignoring.
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1512]        WARNING        File "/storage/.config/modules/Start Xemu.sh" does not exist or is arcade asset ! Ignoring.
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1512]        WARNING        File "/storage/.config/modules/Test Gamepad.sh" does not exist or is arcade asset ! Ignoring.
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1512]        WARNING        File "/storage/.config/modules/Test Touchscreen.sh" does not exist or is arcade asset ! Ignoring.
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1512]        WARNING        File "/storage/.config/modules/GPcal.sh" does not exist or is arcade asset ! Ignoring.
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1506]        WARNING        System "vic20" has no games! Ignoring it.
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1511]        WARNING        System "sufami" has no games! Ignoring it.
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1511]        WARNING        System "vircon32" has no games! Ignoring it.
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1509]        WARNING        System "tic-80" has no games! Ignoring it.
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1508]        WARNING        System "vectrex" has no games! Ignoring it.
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1506]        WARNING        System "videopac" has no games! Ignoring it.
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1508]        WARNING        System "windows" has no games! Ignoring it.
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1509]        WARNING        System "wasm4" has no games! Ignoring it.
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1511]        WARNING        System "virtualboy" has no games! Ignoring it.
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1506]        WARNING        System "wonderswan" has no games! Ignoring it.
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1506]        WARNING          Unknown platform for system "zmachine" (platform "z-machine" from list "z-machine")
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1506]        WARNING        System "zmachine" has no games! Ignoring it.
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1508]        WARNING        System "wonderswancolor" has no games! Ignoring it.
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1511]        WARNING        System "x68000" has no games! Ignoring it.
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1509]        WARNING        System "x1" has no games! Ignoring it.
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1506]        WARNING        System "zx81" has no games! Ignoring it.
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1508]        WARNING        System "zxspectrum" has no games! Ignoring it.
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1507]        WARNING        Unknown element of type "notification"!
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1505]        WARNING        Unknown element of type "notification"!
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1512]        WARNING        Unknown element of type "notification"!
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1510]        WARNING        Unknown element of type "notification"!
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1505]        WARNING        Unknown element of type "notification"!
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:37:54        [1504]        ERROR        HttpReq::onError (3) : Could not connect to server
+Oct 08 12:37:54 GENERIC-X64-7f90 start_es.sh[1492]: ApiSystem::executeScriptLegacy -> timeout 10 /usr/bin/cloud_migrate_layout --needs-step
+Oct 08 12:38:10 GENERIC-X64-7f90 start_es.sh[1492]: 2026-10-08 12:38:10        [1492]        WARNING        ...launch terminated with nonzero exit code 1!
+Oct 08 12:38:10 GENERIC-X64-7f90 start_es.sh[1492]: ApiSystem::executeScriptLegacy -> /usr/bin/cloud_capture --system 'music' --rom '/storage/.config/gmu/playlists/Start Music Player.sh' --emulator 'gmu' --core 'gmu' --started 1791477490 --exit 1
+-rw-r--r--    1 root     root          8205 Oct  8 12:37 /storage/.config/cloud_sync.conf
+-rw-------    1 root     root             0 Oct  8 12:37 /storage/.config/rclone/rclone.conf
+44f0c93b5eb1380fd237fe9a3fbbd604bb8b60181923a6f3e78c0dffa501fc3f  /usr/bin/cloud_setup
+1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86  /storage/qa524/frozen/usr/bin/cloud_setup
+[H[J[32m=> pixelelated CLOUD SETUP[0m
+
+Connect from a computer on your network and follow rclone's
+step-by-step setup. It signs in to your cloud provider and picks
+the account/folder to use.
+
+  1. On your computer, connect:  [1;36mssh -L 53682:localhost:53682 -p 10220 root@127.0.0.1[0m
+  2. Run:                        [1;36mrclone config[0m
+     Choose 'n' for a new remote, pick your provider, and follow
+     the prompts. Defaults are fine if you are unsure.
+     When asked 'Use auto config?', answer Y, then open the
+     sign-in link it prints in your computer's browser.
+  3. Quit with 'q' when the remote is listed, then come back here.
+
+Press any button here when you are done (or to cancel).
+
+[33mNo cloud remote configured yet.[0m
+Run this again once you have completed 'rclone config'.

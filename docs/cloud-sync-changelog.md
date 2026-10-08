@@ -19,6 +19,10 @@ qualified; they are not yet installed release behavior.
 - **Folder choices are independent.** Changing the saves folder preserves
   settings and ROM-library choices. These category switches scope check/create
   actions; automatic sync remains a separate setting.
+- **Rejected folder paths explain what to check.** Recognized path, provider,
+  and settings-save failures show translated guidance while retaining the
+  existing folder selections. Unrecognized errors keep general guidance;
+  raw provider output is not displayed (#524).
 - **You arrange existing cloud files yourself.** After moving a cloud folder,
   use CHANGE CLOUD FOLDER on each device that uses it. The optional tidier,
   startup migration prompt and automatic folder switching are removed.

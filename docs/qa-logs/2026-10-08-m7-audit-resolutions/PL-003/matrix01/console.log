@@ -1,0 +1,18 @@
+watch-build: recording in /workspace/tmp/pixelelated-524-path-refusal/matrix01/.build-runs/20261008T162817Z-bbbaf860
+START en_US-640x480
+START en_US-640x480 invalid-components
+PASS en_US-640x480 invalid-components
+START en_US-640x480 blank
+PASS en_US-640x480 blank
+START en_US-640x480 root
+PASS en_US-640x480 root
+START en_US-640x480 invalid-name
+PASS en_US-640x480 invalid-name
+START en_US-640x480 invalid-characters
+PASS en_US-640x480 invalid-characters
+START en_US-640x480 bucket
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-524-path-refusal/matrix01/run.py", line 87, in <module>
+    walk(c,steps);after=call(witness,c/'after.txt');assert before==after,(d.name,name,'changed paths or payload')
+                                                           ^^^^^^^^^^^^^
+AssertionError: ('en_US-640x480', 'bucket', 'changed paths or payload')

@@ -1,0 +1,36 @@
+CANDIDATE /QA-Custom/Saves
+Your provider wouldn't accept "QA-Custom".
+
+This provider keeps things in buckets, so the first part of the
+folder is a bucket name, not a folder - and bucket names have
+rules that folders do not. They are also shared with everyone
+else using the provider, not private to your account.
+
+  2026/10/08 12:32:17 ERROR : error listing: operation error S3: ListObjectsV2, https response error StatusCode: 400, RequestID: 18DC9AF72BE72483, HostID: dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8, api error InvalidBucketName: The specified bucket is not valid.
+
+Try something like /pixelelated-saves-yourname/Saves instead.
+RC 1
+CANDIDATE /bad bucket/Saves
+Your provider wouldn't accept "bad bucket".
+
+This provider keeps things in buckets, so the first part of the
+folder is a bucket name, not a folder - and bucket names have
+rules that folders do not. They are also shared with everyone
+else using the provider, not private to your account.
+
+  2026/10/08 12:32:17 ERROR : error listing: operation error S3: ListObjectsV2, https response error StatusCode: 400, RequestID: 18DC9AF72FEDFA7C, HostID: dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8, api error InvalidBucketName: The specified bucket is not valid.
+
+Try something like /pixelelated-saves-yourname/Saves instead.
+RC 1
+CANDIDATE /bad_bucket/Saves
+Your provider wouldn't accept "bad_bucket".
+
+This provider keeps things in buckets, so the first part of the
+folder is a bucket name, not a folder - and bucket names have
+rules that folders do not. They are also shared with everyone
+else using the provider, not private to your account.
+
+  2026/10/08 12:32:17 ERROR : error listing: operation error S3: ListObjectsV2, https response error StatusCode: 400, RequestID: 18DC9AF7341AD458, HostID: dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8, api error InvalidBucketName: The specified bucket is not valid.
+
+Try something like /pixelelated-saves-yourname/Saves instead.
+RC 1

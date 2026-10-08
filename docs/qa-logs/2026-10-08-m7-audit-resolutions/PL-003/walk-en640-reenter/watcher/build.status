@@ -1,0 +1,13 @@
+state:       finished
+written:     2026-10-08 16:23:06 UTC   <- terminal result; heartbeat stops here
+watcher_pid: 3178845
+job_pid:     3178844  alive=yes
+started:     2026-10-08 16:22:35 UTC
+progress:    none matched
+log:         /workspace/tmp/pixelelated-524-path-refusal/walk-en640-reenter/.build-runs/20261008T162235Z-6bb1e5d2/build.log  (last written 3s ago)
+activity:    /workspace/tmp/pixelelated-524-path-refusal/walk-en640-reenter/.build-runs/20261008T162235Z-6bb1e5d2/build.log  (last written 3s ago)
+activity_root: /workspace/tmp/pixelelated-524-path-refusal/walk-en640-reenter
+outcome:     rc=3
+tail:
+  WALK FAILED: wait-for-change (line 2): the screen did not change within 12s of `key ret` on line 1, even after 1 re-send(s). The p
+  captured /workspace/tmp/pixelelated-524-path-refusal/walk-en640-reenter/frames/01-stuck-after-ret.png
