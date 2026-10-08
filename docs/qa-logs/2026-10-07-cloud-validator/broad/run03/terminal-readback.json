@@ -1,0 +1,48 @@
+{
+  "utc": "2026-10-08T02:20:54.653453+00:00",
+  "verdict": "PASS",
+  "summary": [
+    "1 HISTORICAL FEATURE GROUP(S) NOT APPLICABLE -- no checks counted as PASS",
+    "PASSED"
+  ],
+  "top_level_pass_lines": 1311,
+  "failure_lines": [],
+  "skip_lines": [],
+  "build_rc": 0,
+  "tool_wrapper_rc": 0,
+  "launcher_result": {
+    "utc": "2026-10-08T02:18:59.881095+00:00",
+    "pid": 3507483,
+    "runner_returncode": 0,
+    "submission_is_not_completion": true
+  },
+  "inner_rc_exists": false,
+  "tracked_processes": {
+    "3507483": {
+      "absent": true
+    },
+    "3507484": {
+      "absent": true
+    },
+    "3507485": {
+      "absent": true
+    },
+    "3507514": {
+      "absent": true
+    }
+  },
+  "job_path_remnants_excluding_readback_ancestors": [],
+  "source_input_bytes_unchanged": {
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/tools/last-good-scripts-test": true,
+    "/workspace/repos/rocknix.worktrees/m7-manual-cloud-folders/projects/ROCKNIX/packages/network/rclone/sources/cloud_setup": true,
+    "/workspace/repos/rocknix.worktrees/m7-manual-cloud-folders/projects/ROCKNIX/packages/network/rclone/sources/cloud_folder_validate": true,
+    "/workspace/repos/rocknix.worktrees/m7-manual-cloud-folders/projects/ROCKNIX/packages/network/rclone/sources/cloud_content_restore": true,
+    "/workspace/repos/rocknix.worktrees/m7-manual-cloud-folders/projects/ROCKNIX/packages/network/rclone/sources/cloud_scan": true,
+    "/workspace/repos/rocknix.worktrees/m7-manual-cloud-folders/projects/ROCKNIX/packages/network/rclone/sources/cloud_backup": true,
+    "/workspace/repos/rocknix.worktrees/m7-manual-cloud-folders/projects/ROCKNIX/packages/network/rclone/sources/cloud_sync_helper": true,
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement16/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/bin/busybox": true,
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement16/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/bin/rclone": true
+  },
+  "source_commit_at_completion": "6f89bc7cecee5972909828103689e2c7c0711c30",
+  "source_status_at_completion": ""
+}

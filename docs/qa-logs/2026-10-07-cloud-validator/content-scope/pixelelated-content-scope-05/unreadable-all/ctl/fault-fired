@@ -1,0 +1,2 @@
+lsf --dirs-only qa:/Chosen/Library/ROMs/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf --dirs-only qa:/Chosen/Library/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1

@@ -1,0 +1,24 @@
+{
+  "utc": "2026-10-08T01:44:03.670868+00:00",
+  "reason": "Root requested cancellation after confirmed inherited TMPDIR invalidated bwrap fixtures. No product conclusion.",
+  "signal": "SIGTERM",
+  "target_verified_pgid": 3054722,
+  "owned_processes": [
+    {
+      "pid": 3054722,
+      "ppid": 3054691,
+      "pgid": 3054722,
+      "state": "S",
+      "start_ticks": "51540998",
+      "argv": "/bin/bash tools/last-good-scripts-test "
+    },
+    {
+      "pid": 3059632,
+      "ppid": 3054722,
+      "pgid": 3054722,
+      "state": "S",
+      "start_ticks": "51543496",
+      "argv": "bash -c . '/workspace/tmp/pixelelated-last-good-validator-broad-Myx2uHnX/tmp/tmp.QSqNb4PwEo/l/fn.sh'; RCLONE_LIST_OPTS=(--retries 1); absent_not_broken 'qa:/QA/Content/ROMs/' "
+    }
+  ]
+}

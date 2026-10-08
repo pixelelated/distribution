@@ -1,0 +1,37 @@
+{
+  "sealed_utc": "2026-10-08T01:38:31.913987+00:00",
+  "source_commit": "75d44aea8e21cada689a47159e2ad361bb45067b",
+  "source_status": "",
+  "harness_sha256": "4dc2fda637acf224eee0fa0dd2f0eb52ecf79d05e4a672c9f18c0fa8be7a7d4f",
+  "harness_before_adjustment_sha256": "2981cc8b8ab7a94c762b0560a29c8bf680136cb9abff9ede2c4fdf6d678c5bd9",
+  "image_tools": {
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement16/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/bin/busybox": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346",
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement16/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/bin/rclone": "361c27d953f822969afc25a73e0cc2122fd8e161545f9c0e5f63c5baad92724c"
+  },
+  "focused_results": {
+    "harness-focus01": {
+      "pass": 105,
+      "fail": 0,
+      "terminal": "RESULT failures=0 skipped=0 not_applicable=1",
+      "returncode": 0,
+      "actual_runtime": "host utilities; the image-setup extraction was empty"
+    },
+    "harness-image01": {
+      "pass": 105,
+      "fail": 0,
+      "terminal": "RESULT failures=0 skipped=0 not_applicable=1",
+      "returncode": 0,
+      "actual_runtime": "host utilities; the image-setup extraction was empty"
+    },
+    "harness-historical01": {
+      "pass": 99,
+      "fail": 0,
+      "terminal": "RESULT failures=0 skipped=0 not_applicable=1",
+      "returncode": 0,
+      "actual_runtime": "host utilities; the image-setup extraction was empty"
+    }
+  },
+  "historical_ref": "3268015c",
+  "full_broad_suite_launched": false,
+  "scope": "Corrected: these three initial focused extracts all used host utilities. Image binary hashes were verified, but the image-setup extraction matched an earlier marker and copied no BusyBox. Actual image-runtime replacement receipts are recorded separately. No VM/device qualification claim."
+}

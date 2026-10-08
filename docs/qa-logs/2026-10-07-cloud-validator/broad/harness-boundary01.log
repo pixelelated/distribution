@@ -1,0 +1,21 @@
+  l. a missing cloud folder reads as not there yet whatever the server's words (#142)
+PASS absent_not_broken is lifted from cloud_content_restore
+PASS a folder its listable parent lacks is absent (QA/Content/BIOS)
+PASS a folder its parent lists is present, so the failure was something else (QA/Content/ROMs)
+FAIL QA-Custom/Saves did not read as absent
+FAIL Nope/A/B did not read as absent
+PASS a folder its selected root lists is present (QA)
+PASS a selected root that will not list is unreadable, not absent
+PASS the root itself is never absent
+PASS a hyphenated folder name is present rather than read as grep options
+PASS syncpath_problem is lifted from cloud_setup with the walk
+PASS on a path-based remote a folder its parent lacks is accepted as not there yet (QA/New)
+PASS on a bucket remote the provider's refusal stands, and the message names buckets (Bad-Bucket)
+PASS when rclone cannot say which kind the remote is, the provider's refusal is taken rather than the walk's 'not there yet' (QA/New)
+PASS and the provider's own 'not found' is accepted whatever the kind (QA/New)
+FAIL historical absent_not_broken functions differ or are missing
+PASS cloud_content_backup makes the folder before it copies into it
+PASS the scan checks both selected category paths before treating missing content as empty
+PASS cloud_setup --check verifies the one remote the shim lists (rc 0)
+PASS its probe is bounded to one run and three low-level retries (RCLONE_LIST_OPTS), not rclone's three runs of ten
+RESULT failures=3

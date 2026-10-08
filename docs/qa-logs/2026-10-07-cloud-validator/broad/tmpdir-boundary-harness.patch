@@ -1,0 +1,98 @@
+--- harness-before-tmpdir-boundary
++++ tools/last-good-scripts-test
+@@ -286,7 +286,12 @@
+ command -v bwrap >/dev/null || { echo "needs bubblewrap (bwrap)" >&2; exit 2; }
+ command -v setsid >/dev/null || { echo "needs setsid" >&2; exit 2; }
+ 
+-TMP="$(mktemp -d)"; trap 'rm -rf "${TMP}"' EXIT
++# Honor the caller's build-drive TMPDIR for the owned host fixture tree only.
++# Bubblewrap descendants get a private /tmp, so an inherited host-only path
++# makes otherwise valid mktemp calls fail inside the device fixture.
++TMP="$(mktemp -d)" || { echo "cannot create host fixture directory" >&2; exit 2; }
++trap 'rm -rf "${TMP}"' EXIT
++unset TMPDIR
+ FAIL=0
+ SKIPPED=0
+ NOT_APPLICABLE=0
+@@ -1099,6 +1104,7 @@
+ # folder is an FTP-style plain error (exit 1, not rclone's 3). lsd answers the
+ # same way, or "not found" (exit 3) under LSD_NOTFOUND. backend features says
+ # what FEATURES says -- bucket, path -- or fails outright (anything else).
++[ -z "${LQ_CALLS:-}" ] || printf '%s\n' "$*" >> "${LQ_CALLS}"
+ p=""; for a in "$@"; do case "$a" in *:*) p="$a";; esac; done
+ rel="${p#*:}"; rel="${rel#/}"; rel="${rel%/}"
+ case "$1" in
+@@ -1126,20 +1132,47 @@
+ chmod +x "${LL}/shim/rclone"
+ sed -n '/^absent_not_broken() {/,/^}/p' "${LL}/src/cloud_content_restore" > "${LL}/fn.sh"
+ grep -q 'rclone lsf --dirs-only' "${LL}/fn.sh"; check $? "absent_not_broken is lifted from cloud_content_restore" "no absent_not_broken() in cloud_content_restore"
+-lq() { # <path> <expected rc> ; ROOT_DOWN passes through
+-    PATH="${LL}/shim:${PATH}" bash -c ". '${LL}/fn.sh'; RCLONE_LIST_OPTS=(--retries 1); absent_not_broken '$1'" 2>/dev/null; [ $? -eq "$2" ]
++LL_SCOPED=0
++# This source generation confines missing-folder probes to the selected root.
++grep -qE 'local .*boundary=.*\$\{ROOT' "${LL}/fn.sh" && LL_SCOPED=1
++lq() { # <path> <expected rc> [selected root]; ROOT_DOWN passes through
++    PATH="${LL}/shim:${PATH}" LQ_CALLS="${LL}/calls" timeout 5s bash -c         '. "$1"; ROOT="$3"; RCLONE_LIST_OPTS=(--retries 1); absent_not_broken "$2"'         _ "${LL}/fn.sh" "$1" "${3:-qa:/QA/Content/}" 2>/dev/null
++    local actual=$?
++    [ "${actual}" -ne 124 ] || echo "      metadata fixture timed out for $1" >&2
++    [ "${actual}" -eq "$2" ]
+ }
+ lq qa:/QA/Content/BIOS/ 0; check $? "a folder its listable parent lacks is absent (QA/Content/BIOS)" "QA/Content/BIOS did not read as absent"
+ lq qa:/QA/Content/ROMs/ 1; check $? "a folder its parent lists is present, so the failure was something else (QA/Content/ROMs)" "QA/Content/ROMs read as absent"
+-lq qa:/QA-Custom/Saves 0; check $? "absent two levels up, no leading slash (QA-Custom/Saves: the root lists and lacks QA-Custom)" "QA-Custom/Saves did not read as absent"
+-lq qa:/Nope/A/B/ 0; check $? "absent three deep (Nope/A/B)" "Nope/A/B did not read as absent"
+-lq qa:/QA/ 1; check $? "a folder the root lists is present (QA)" "QA read as absent"
+-ROOT_DOWN=1 lq qa:/QA/Content/ROMs/ 1; check $? "a root that will not list is broken, not absent" "an unlistable root read as absent"
+-lq qa:/ 1; check $? "the root itself is never absent" "the root read as absent"
+-# A folder whose name starts with a hyphen: grep -qFx "-Dash/" took it as
+-# options, errored, and the failed match read as "the parent lacks it" --
+-# a present folder called absent (#151 PL-14). The name goes after --.
+-lq 'qa:/QA/-Dash/' 1; check $? "a folder whose name starts with a hyphen (QA/-Dash) is present, not read as options and called absent" "QA/-Dash read as absent: grep took '-Dash/' as its options and the error read as 'not listed' (#151 PL-14)"
++if [ "${LL_SCOPED}" -eq 0 ]; then
++    lq qa:/QA-Custom/Saves 0; check $? "historical walker reaches account root for an absent custom parent" "QA-Custom/Saves did not read as absent"
++    lq qa:/Nope/A/B/ 0; check $? "historical walker reaches account root for an absent deep parent" "Nope/A/B did not read as absent"
++else
++    : > "${LL}/calls"
++    lq qa:/QA-Custom/Saves 1 qa:/QA-Custom/ && ! grep -qE '^lsf --dirs-only qa:/ ' "${LL}/calls"
++    check $? "unreadable selected parent stays unreadable without account-root discovery" "custom parent escaped its selected boundary or was guessed missing"
++    : > "${LL}/calls"
++    lq qa:/Nope/A/B/ 1 qa:/Nope/ && ! grep -qE '^lsf --dirs-only qa:/ ' "${LL}/calls"
++    check $? "nested failed reads stop at their selected root" "nested probe escaped its root or was guessed missing"
++    : > "${LL}/calls"
++    lq qa:/QA/Content2/ROMs/ 1 qa:/QA/Content/ && [ ! -s "${LL}/calls" ]
++    check $? "a sibling prefix outside the selected library causes no remote read" "out-of-scope sibling was probed"
++    lq qa:/Nope/A/B/ 0 qa:/; check $? "explicit absolute account-root selection permits its own descendants" "explicit root did not establish missing descendant"
++    : > "${LL}/calls"
++    lq qa:ROMs/ 0 qa: && grep -q '^lsf --dirs-only qa: ' "${LL}/calls" && ! grep -q '^lsf --dirs-only qa:/ ' "${LL}/calls"
++    check $? "explicit relative root stays qa: and completes without a parent loop" "relative root was rewritten or did not complete"
++    : > "${LL}/calls"
++    ROOT_DOWN=1 lq qa:ROMs/ 1 qa: && [ "$(wc -l < "${LL}/calls")" -eq 1 ]
++    check $? "failed relative-root listing stops after its one selected-root probe" "relative-root error retried an ancestor or did not complete"
++fi
++lq qa:/QA/ 1 qa:/; check $? "a folder its selected root lists is present (QA)" "QA read as absent"
++: > "${LL}/calls"
++ROOT_DOWN=1 lq qa:/QA/Content/ROMs/ 1; check $? "a selected root that will not list is unreadable, not absent" "an unlistable selected root read as absent"
++if [ "${LL_SCOPED}" -eq 1 ]; then
++    [ "$(wc -l < "${LL}/calls")" -eq 1 ] && grep -qE '^lsf --dirs-only qa:/QA/Content/? ' "${LL}/calls"
++    check $? "failed selected content-root read does not inspect its ancestors" "ancestor reads: $(cat "${LL}/calls")"
++fi
++lq qa:/ 1 qa:/; check $? "the root itself is never absent" "the root read as absent"
++lq 'qa:/QA/-Dash/' 1 qa:/QA/; check $? "a hyphenated folder name is present rather than read as grep options" "QA/-Dash read as absent"
+ # cloud_setup's folder setter, lifted with the walk and its bound. The
+ # parent walk runs only on a remote rclone says is path-based; a bucket's
+ # refusal stands with the bucket message; and when `backend features`
+@@ -1154,9 +1187,12 @@
+ FEATURES=bucket sp /Bad-Bucket/x 1 && grep -q 'buckets' "${LL}/sp.out"; check $? "on a bucket remote the provider's refusal stands, and the message names buckets (Bad-Bucket)" "bucket refusal: $(head -1 "${LL}/sp.out")"
+ FEATURES=fail sp /QA/New 1; check $? "when rclone cannot say which kind the remote is, the provider's refusal is taken rather than the walk's 'not there yet' (QA/New)" "QA/New was accepted with the remote's kind unknown -- a failed backend features read as path-based and the walk ran (#151 PL-14)"
+ FEATURES=fail LSD_NOTFOUND=1 sp /QA/New 0; check $? "and the provider's own 'not found' is accepted whatever the kind (QA/New)" "a not-found folder was refused: $(head -1 "${LL}/sp.out")"
+-[ -s "${LL}/fn.sh" ] && diff -q <(sed -n '/^absent_not_broken() {/,/^}/p' "${LL}/src/cloud_setup") "${LL}/fn.sh" >/dev/null; check $? "cloud_setup carries the identical function" "cloud_setup's absent_not_broken differs from cloud_content_restore's (or is missing)"
++if [ "${LL_SCOPED}" -eq 0 ]; then
++    [ -s "${LL}/fn.sh" ] && diff -q <(sed -n '/^absent_not_broken() {/,/^}/p' "${LL}/src/cloud_setup") "${LL}/fn.sh" >/dev/null
++    check $? "historical setup and content walkers are identical" "historical absent_not_broken functions differ or are missing"
++fi
+ awk '/^    rclone mkdir "\$\{TARGET\}"/{m=NR} /^    (bounded_content_rclone|rclone) copy "\$\{SRC\}" "\$\{TARGET\}"/{c=NR} END{exit !(m && c && m < c)}' "${LL}/src/cloud_content_backup"; check $? "cloud_content_backup makes the folder before it copies into it" "no rclone mkdir of the target ahead of the copy in cloud_content_backup"
+-grep -q 'absent_not_broken "${ROOT}ROMs/"' "${LL}/src/cloud_content_restore" && grep -q 'absent_not_broken "${ROOT}BIOS/"' "${LL}/src/cloud_content_restore"; check $? "the scan asks it about ROMs and BIOS before calling the cloud unreadable" "the scan does not consult absent_not_broken for both folders"
++grep -q 'absent_not_broken "${ROOT}ROMs/"' "${LL}/src/cloud_content_restore" && grep -q 'absent_not_broken "${ROOT}BIOS/"' "${LL}/src/cloud_content_restore"; check $? "the scan checks both selected category paths before treating missing content as empty" "missing-category handling is absent for ROMs or BIOS"
+ # cloud_setup --check WHOLE, inside bwrap, against a shim rclone that answers
+ # listremotes with one remote, lsd with 0, and records every argv it was given:
+ # the probe must carry the listing bound (one run, three low-level retries).

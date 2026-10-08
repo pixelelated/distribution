@@ -1,0 +1,55 @@
+host_fixture=/workspace/tmp/pixelelated-last-good-tmpdir-proof02/tmp/tmp.FbwDL5CkSt inherited_TMPDIR=unset
+actual_BB_HOST=/workspace/tmp/pixelelated-last-good-tmpdir-proof02/tmp/tmp.FbwDL5CkSt/busybox
+BusyBox v1.36.1 (2026-10-05 03:37:19 UTC) multi-call binary.
+  b. backuptool: a kill mid-tar leaves the previous archive; a failed restore puts the snapshot back
+PASS a first backup writes one archive at the root (rc 0)
+PASS and it lists back whole
+PASS with the wifi key stripped
+PASS a second backup rotates the first into archive/ and leaves one at the root
+PASS the run died (rc 137)
+PASS the previous archive is still the only *.tar.gz at the root
+PASS a .partial sits beside it (2026_10_08-014839-ROCKNIX_SETTINGS.tar.gz.partial)
+PASS archive/ is unchanged (still one archive)
+PASS a restore whose extraction fails exits non-zero
+PASS and the pre-restore state was put back (f1 'changed', f2 'file2')
+PASS the snapshot is in archive/ as *PRE_RESTORE*
+PASS and the screen says the settings are unchanged
+PASS with no path, log or tool name on it
+PASS a good restore --then-cloud restores f1 and leaves .cloud-journey-pending
+  f. backuptool: rclone.conf never enters an archive, and the scanner knows rclone's key names (#52)
+PASS a backup with rclone.conf in LOCATIONS completes (rc 0)
+PASS rclone.conf is not in the archive
+PASS and no token travelled in any member
+PASS files that are not held back are archived as before
+PASS the log says rclone.conf was held back
+PASS the scanner sees the pass= and password2= lines in a file it does not hold back (2 lines), and the backup ends there with the last archive unchanged (#307 PL-005)
+PASS a clean backup is silent: input_enable_hotkey, core_info_savestate_bypass and default_open_gui_key are not credentials (#221)
+PASS es_settings.cfg is archived without the ScreenScraper passwords or the IGDB client secret (#64, #274)
+PASS and its other settings travel (the user names, the client id, the theme)
+  k. backuptool: what the image ships does not travel, and an older archive's copy of it is not put back (#45); a RetroAchievements token travels in no shape (#169)
+PASS a backup writes (rc 0)
+PASS the edited ini and the player's own file travel
+PASS shipped seeds identical to /usr/config do not (cheat.db, test/seed)
+PASS assets and the shader cache never do, edited or not
+PASS and the log says two were left out as the image's own
+PASS the five files that hold only a RetroAchievements token are held back (PPSSPP's .dat, Dolphin's, SkyEmu's, ARMSX2's; #169)
+PASS the four settings files with a token line travel with the value blanked and every other line kept (DuckStation, melonDS, flycast, AetherSX2)
+PASS and the planted token appears in no member of the archive
+PASS and the log counts five held back and four blanked
+PASS the offline RetroAchievements proxy's folder travels in no shape: none of its five files is in the archive (#165)
+PASS and the log counts the five held back under it
+PASS the scanner sees a Token = line in a file the strip does not know (test/unknown.ini), and only that one: the backup ends there (#307 PL-005)
+PASS a pre-#45 archive restores (rc 0)
+PASS the ini and the player's file come back from it
+PASS its assets and cache are left where they were
+PASS its token file is not put back over the device's own (tar, #169)
+PASS the proxy's queue from the archive is not put over this device's own (tar, #165)
+PASS while the copy kept before the restore still carries the device's own token (STRIP=0: it never leaves the device, and 'as they were' means exactly that)
+PASS a pre-#45 zip archive restores (rc 0)
+PASS the ini and the player's file come back from the zip
+PASS its assets and cache are left where they were (zip)
+PASS its token file is not put back from a zip either (#169; the image's unzip -x on an exact member name)
+PASS nor is the proxy's queue (zip, #165)
+PASS and the symlink the OS provides is still a symlink, said on the screen (KEEPING 1 FILE(S))
+PASS a backup whose list filter dies part-way (grep exit 2) writes nothing and says why in the log
+RESULT failures=0

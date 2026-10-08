@@ -1,0 +1,87 @@
+{
+  "utc": "2026-10-08T02:05:00.961828+00:00",
+  "verdict": "FAIL",
+  "summary": [
+    "1 HISTORICAL FEATURE GROUP(S) NOT APPLICABLE -- no checks counted as PASS",
+    "11 CHECK(S) FAILED, 0 SKIPPED"
+  ],
+  "top_level_pass_lines": 1304,
+  "failures": [
+    {
+      "case": "A0. #352: the pre-tier rows list only folders this device has or systems it supports; --content-location names the folder that holds the games",
+      "line": "    FAIL  rc 0; out: "
+    },
+    {
+      "case": "A0. #352: the pre-tier rows list only folders this device has or systems it supports; --content-location names the folder that holds the games",
+      "line": "    FAIL  rc 0; out: AT_ROOT=0|ROOT_DIRS=|FOUND=|STATE=empty|"
+    },
+    {
+      "case": "A0. #352: the pre-tier rows list only folders this device has or systems it supports; --content-location names the folder that holds the games",
+      "line": "    FAIL  rc 0; AT_ROOT=0|ROOT_DIRS=|FOUND=|STATE=empty|"
+    },
+    {
+      "case": "A0. #352: the pre-tier rows list only folders this device has or systems it supports; --content-location names the folder that holds the games",
+      "line": "    FAIL  rc 0; AT_ROOT=0|ROOT_DIRS=|FOUND=|STATE=empty|"
+    },
+    {
+      "case": "A0. #352: the pre-tier rows list only folders this device has or systems it supports; --content-location names the folder that holds the games",
+      "line": "    FAIL  rc 0; AT_ROOT=0|ROOT_DIRS=|FOUND=|STATE=empty|"
+    },
+    {
+      "case": "A0. #352: the pre-tier rows list only folders this device has or systems it supports; --content-location names the folder that holds the games",
+      "line": "    FAIL  rc 0; "
+    },
+    {
+      "case": "A0. #352: the pre-tier rows list only folders this device has or systems it supports; --content-location names the folder that holds the games",
+      "line": "    FAIL  rc 0; AT_ROOT=0|ROOT_DIRS=|FOUND=|STATE=empty|"
+    },
+    {
+      "case": "A14. PL-015 (script half): no content folder derived inside a top-level saves folder",
+      "line": "    FAIL  CONTENT_REMOTE=\"/pixelelated/Content\"; log: [2026-10-08 01:59:48] [INFO] [cloud_sync_helper] Added new configuration option: CONTENT_REMOTE| -- dirname /GAMES is /, and the helper then derived the folder's own Content"
+    },
+    {
+      "case": "A14. PL-015 (script half): no content folder derived inside a top-level saves folder",
+      "line": "    FAIL  CONTENT_REMOTE=\"/pixelelated/Content\""
+    },
+    {
+      "case": "A40. G-A-07 (gpt) / G-A-03 (claude): every listing --all stands on is read fail-closed",
+      "line": "    FAIL  rc 0, stamp 0; out: Nothing to restore: your cloud has no ROMs or BIOS files yet.|"
+    },
+    {
+      "case": "A40. G-A-07 (gpt) / G-A-03 (claude): every listing --all stands on is read fail-closed",
+      "line": "    FAIL  rc 0; out: Nothing to restore: your cloud has no ROMs or BIOS files yet.|"
+    }
+  ],
+  "build_rc": 1,
+  "tool_wrapper_rc": 1,
+  "launcher_result": {
+    "utc": "2026-10-08T02:03:53.356961+00:00",
+    "pid": 3318567,
+    "runner_returncode": 1,
+    "submission_is_not_completion": true
+  },
+  "inner_rc_exists": false,
+  "tracked_processes": {
+    "3318567": {
+      "absent": true
+    },
+    "3318568": {
+      "absent": true
+    },
+    "3318569": {
+      "absent": true
+    },
+    "3318598": {
+      "absent": true
+    }
+  },
+  "source_input_bytes_unchanged": {
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/tools/last-good-scripts-test": true,
+    "/workspace/repos/rocknix.worktrees/m7-manual-cloud-folders/projects/ROCKNIX/packages/network/rclone/sources/cloud_setup": true,
+    "/workspace/repos/rocknix.worktrees/m7-manual-cloud-folders/projects/ROCKNIX/packages/network/rclone/sources/cloud_folder_validate": true,
+    "/workspace/repos/rocknix.worktrees/m7-manual-cloud-folders/projects/ROCKNIX/packages/network/rclone/sources/cloud_content_restore": true,
+    "/workspace/repos/rocknix.worktrees/m7-manual-cloud-folders/projects/ROCKNIX/packages/network/rclone/sources/cloud_scan": true,
+    "/workspace/repos/rocknix.worktrees/m7-manual-cloud-folders/projects/ROCKNIX/packages/network/rclone/sources/cloud_backup": true,
+    "/workspace/repos/rocknix.worktrees/m7-manual-cloud-folders/projects/ROCKNIX/packages/network/rclone/sources/cloud_sync_helper": true
+  }
+}

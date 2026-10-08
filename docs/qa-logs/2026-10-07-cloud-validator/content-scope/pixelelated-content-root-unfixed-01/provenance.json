@@ -1,0 +1,6 @@
+{
+  "distribution_commit": "75d44aea8e21cada689a47159e2ad361bb45067b",
+  "qualification": "synthetic host controls; not assembled firmware",
+  "source_input": "exact fixture repo copied after completed run",
+  "command": "python3 tools/pixelelated-content-scope-test --source-root /workspace/repos/rocknix.worktrees/m7-manual-cloud-folders --rclone /tmp/pixelelated-rc-rclone/rclone --output /tmp/pixelelated-content-root-unfixed-01 --cases relative-root-unreadable-bounded,absolute-root-unreadable-bounded"
+}

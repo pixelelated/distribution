@@ -1,0 +1,54 @@
+{
+  "source_root": "/workspace/repos/rocknix.worktrees/m7-manual-cloud-folders",
+  "source_sha256": {
+    "cloud_content_restore": "2790b3794febe953d1386bc427e0fa537343434a03fa67329781ca9f80c00180",
+    "cloud_content_transfer": "fe292268d9029c2b950a093f6902b5cbe8afb3d57cb47187251cf90c3d85a1a3"
+  },
+  "rclone_sha256": "f66d8c1d552ad90296a11bc8b46d56a7fa5da1a7fa05e7ca522d95df92c4a4c0",
+  "results": [
+    {
+      "case": "missing-list",
+      "result": "PASS"
+    },
+    {
+      "case": "missing-scan",
+      "result": "PASS"
+    },
+    {
+      "case": "missing-all",
+      "result": "PASS"
+    },
+    {
+      "case": "selected-rom-bios-bytes",
+      "result": "PASS"
+    },
+    {
+      "case": "unreadable-list",
+      "result": "PASS"
+    },
+    {
+      "case": "partial-list",
+      "result": "PASS"
+    },
+    {
+      "case": "unreadable-scan",
+      "result": "PASS"
+    },
+    {
+      "case": "partial-scan",
+      "result": "PASS"
+    },
+    {
+      "case": "unreadable-all",
+      "result": "PASS"
+    },
+    {
+      "case": "partial-all",
+      "result": "PASS"
+    },
+    {
+      "case": "system-traversal-refused",
+      "result": "PASS"
+    }
+  ]
+}

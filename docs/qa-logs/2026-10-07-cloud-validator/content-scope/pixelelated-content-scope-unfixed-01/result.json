@@ -1,0 +1,26 @@
+{
+  "source_root": "/tmp/pixelelated-content-scope-unfixed-source",
+  "source_sha256": {
+    "cloud_content_restore": "3b28fd1403657d713f92f216840a52ff7e692bf09746a7ccb8c2519c6940d2f8",
+    "cloud_content_transfer": "fe292268d9029c2b950a093f6902b5cbe8afb3d57cb47187251cf90c3d85a1a3",
+    "cloud_scan": "32f7b5410e6ec2c6ed91fd9ee4745cd0986b48c7ac0cc187df40bd7a375df892"
+  },
+  "rclone_sha256": "f66d8c1d552ad90296a11bc8b46d56a7fa5da1a7fa05e7ca522d95df92c4a4c0",
+  "results": [
+    {
+      "case": "missing-list",
+      "result": "FAIL",
+      "error": "unselected folders were offered"
+    },
+    {
+      "case": "missing-scan",
+      "result": "FAIL",
+      "error": "unselected cloud bytes counted"
+    },
+    {
+      "case": "scan-run-mode-output-binding",
+      "result": "FAIL",
+      "error": "'int' object is not subscriptable"
+    }
+  ]
+}

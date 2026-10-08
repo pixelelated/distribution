@@ -1,0 +1,25 @@
+# Broad attempt and bounded harness corrections
+
+**Latest result: the final full run passed.** See [run03/README.md](run03/README.md) and its terminal readback: 1,311 top-level PASS lines, no failures/skips, all terminal channels 0, all owned job processes gone, and all frozen input hashes unchanged. Earlier attempts below remain as diagnosis history.
+
+The first watched broad run was **canceled as invalid**, not passed. Owner: `/workspace/tmp/pixelelated-last-good-validator-broad-Myx2uHnX`; watcher run: `20261008T014205Z-9b1771bb`.
+
+The host build-drive `TMPDIR` reached bubblewrap descendants, but that absolute host path is absent inside their private filesystem. Real backuptool staging therefore failed, producing 29 dependent FAIL lines across sections b, f, and k. Root requested stopping this exact owned process group after the environmental fault was confirmed. The recorded stop targeted verified harness PGID 3054722, not a name pattern. `build.rc`, `tool-wrapper.rc`, and the launcher all report **143**. There is no `inner.rc` and no complete suite summary; neither has been invented. All five recorded job processes were absent after completion. The watcher's terminal `alive=yes` was written just before its parent exited; process readback separately proves final absence.
+
+Raw console/build logs, watcher status, submission/start/result records, monitoring observations, stop-request process identities, failure index, and terminal readback are retained here. Failed synthetic b/f/f3/k fixture trees remain under the original owner's `failure-fixtures/`, with their hashes in `terminal-readback.json`. The harness's own EXIT cleanup removed its active fixture tree normally.
+
+## Corrections and focused proof
+
+The harness now honors inherited `TMPDIR` only when creating its owned host fixture tree, then unsets it so sandbox commands use their private `/tmp`. No product code changed for this correction. The extracted real backup controls preserve the exact creation/unset block. `tmpdir-proof02/result.log` records a fixture under the build drive, `inherited_TMPDIR=unset`, the actual copied candidate BusyBox, and **48 PASS / zero failures / rc 0**. Earlier `tmpdir-proof01` passed 23 controls then stopped on a missing BB variable in the extraction; that attempt is retained and is not a complete pass.
+
+Section l also lifted a selected-root-dependent helper without initializing ROOT. Its old fixture assumptions walked up to the provider root and required content/setup implementations to be identical. The new fixture supplies the production selected boundary, caps each call at five seconds, and checks relative `qa:` separately from absolute `qa:/`, out-of-scope sibling refusal, and no ancestor reads outside the selected root. Current source passes **23 controls**; historical ref `3268015c` passes its **19 original-contract controls**. The first adjusted fixture used an obsolete capability marker and reported three failures; its raw result remains in `harness-boundary01.*`. `harness-boundary02.*` supersedes it with a marker matching both bounded-helper generations.
+
+Root separately fixed a real explicit-relative-root parent-walk issue in product commit `90df1172a1cdc98865e6efc0422ed3845e5631e9`. The final combined source is `6f89bc7cecee5972909828103689e2c7c0711c30`; its restore hash is `12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147`. These product and fixture issues are distinct. The validator's final 30 real-rclone controls and its corrected actual-image-runtime receipts live in `../validator/`.
+
+`tmpdir-boundary-harness.patch` is the exact additional harness diff from the canceled attempt; previous held edits remain. `fresh-broad-command.sh` prepares one fresh watched run with a new owner and build-drive fixture directory. At that handoff it had not been launched. The subsequent second and final runs below supersede that queue state; the complete final suite passed under active supervision.
+
+## Completed second run and final harness handoff
+
+The fresh root-launched run `20261008T015520Z-63b626c4` finished at 02:03:53 UTC with build/launcher/tool-wrapper rc **1** and exact summary **11 CHECK(S) FAILED, 0 SKIPPED**. It recorded 1,304 top-level PASS lines plus separately printed subtool outcomes. The 11 failures were confined to A0, A14, and A40. All tracked processes exited and all seven source/harness input hashes stayed unchanged. Terminal receipts and compact failed fixtures are under `run02/`; no missing inner result was manufactured.
+
+`selected-contract03/` contains the remaining scoped assertion corrections and current/historical proof. The final frozen harness SHA-256 is `5bb88aabeb833965c9611efb6d7ccb62c3c2567b25235ac2050bf329a3e1039b`. Its 14 current and 18 historical focused controls passed with actual image BusyBox and rclone. The final full watched rerun is still required; root launches it using `fresh-broad-command.sh` after review. Duplicate completed focused trees, including two 85 MB rclone copies, were removed only after their inventories were sealed and verified.

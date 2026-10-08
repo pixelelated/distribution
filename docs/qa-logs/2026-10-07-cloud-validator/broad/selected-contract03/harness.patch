@@ -1,0 +1,125 @@
+--- harness-before-scope-assertions
++++ tools/last-good-scripts-test
+@@ -8864,6 +8864,7 @@
+     while IFS=$'\t' read -r pat code; do
+         [ -n "${pat}" ] || continue
+         if printf '%s' "$*" | grep -qE -- "${pat}"; then
++            printf '%s\n' "$*" >> /ctl/fault-fired
+             echo "ERROR : injected failure ${code}" >&2
+             exit "${code}"
+         fi
+@@ -8969,6 +8970,10 @@
+ #     --max-delete is the preview's count.
+ echo "    A0. #352: the pre-tier rows list only folders this device has or systems it supports; --content-location names the folder that holds the games"
+ M0=$(sa_new pl352); sa_script "${M0}" cloud_content_restore; sa_script "${M0}" cloud_setup
++# The selected source contract, not the --old switch, chooses the assertions.
++SA_SCOPED=0
++grep -q -- '--validate-folders)' "${M0}/repo/cloud_setup" && SA_SCOPED=1
++if [ "${SA_SCOPED}" -eq 0 ]; then
+ printf 'SAVESPATH="/storage/roms"\nSAVES_REMOTE="/pixelelated/Saves"\nSETTINGS_REMOTE="/pixelelated/Backups"\nCONTENT_REMOTE=""\n' > "${M0}/storage/.config/cloud_sync.conf"
+ rm -rf "${M0}/cloud" "${M0}/storage/roms"/*; mkdir -p "${M0}/cloud/Photos" "${M0}/cloud/Documents" "${M0}/cloud/gb" "${M0}/storage/roms/gb"
+ echo jpg > "${M0}/cloud/Photos/holiday.jpg"; echo txt > "${M0}/cloud/Documents/notes.txt"; echo a > "${M0}/cloud/gb/A.gb"
+@@ -9012,6 +9017,49 @@
+ sa_run "${M0}" cloud_setup --content-location
+ [ "${RC}" -ne 0 ] && grep -qx STATE=unreadable "${M0}/out" && cmp -s "${M0}/conf-before" "${M0}/storage/.config/cloud_sync.conf"; check $? "#467: a refused listing stays unreadable and preserves the selection" "rc ${RC}; $(sa_tail "${M0}")"
+ : > "${M0}/ctl/fail"
++else
++    printf 'SAVESPATH="/storage/roms"\nSAVES_REMOTE="/pixelelated/Saves"\nSETTINGS_REMOTE="/pixelelated/Backups"\nCONTENT_REMOTE=""\n' > "${M0}/storage/.config/cloud_sync.conf"
++    mkdir -p "${M0}/cloud/Photos" "${M0}/cloud/gb" "${M0}/storage/roms/gb"
++    echo photo > "${M0}/cloud/Photos/x.jpg"; echo game > "${M0}/cloud/gb/A.gb"
++    printf 'gb\n' > "${M0}/storage/.cache/cloud_sync/content-systems"
++    sa_run "${M0}" cloud_content_restore --scan
++    [ "${RC}" -eq 0 ] && ! grep -qE '^(gb|Photos)\|' "${M0}/out" && [ ! -f "${M0}/storage/roms/gb/A.gb" ]
++    check $? "flat folders are not scanned or restored as a selected structured library" "rc ${RC}; $(sa_tail "${M0}")"
++    sed -i 's|^CONTENT_REMOTE=.*|CONTENT_REMOTE="/Mine"|' "${M0}/storage/.config/cloud_sync.conf"
++    mkdir -p "${M0}/cloud/Mine/Photos" "${M0}/cloud/pixelelated/Content/ROMs/gb"
++    echo game > "${M0}/cloud/pixelelated/Content/ROMs/gb/A.gb"
++    cp "${M0}/storage/.config/cloud_sync.conf" "${M0}/conf-before"; : > "${M0}/ctl/argv"
++    sa_run "${M0}" cloud_setup --content-location
++    [ "${RC}" -eq 0 ] && grep -qx STATE=empty "${M0}/out" && grep -qx FOUND= "${M0}/out" \
++        && cmp -s "${M0}/conf-before" "${M0}/storage/.config/cloud_sync.conf" \
++        && ! grep -qE '^lsjson qa:(/)? |^lsjson qa:/pixelelated/' "${M0}/ctl/argv"
++    check $? "selected empty library neither discovers another library nor changes the choice" "rc ${RC}; $(sa_tail "${M0}"); calls $(cat "${M0}/ctl/argv")"
++    sed -i 's|^CONTENT_REMOTE=.*|CONTENT_REMOTE="/pixelelated/Content"|' "${M0}/storage/.config/cloud_sync.conf"
++    sa_run "${M0}" cloud_setup --content-location
++    [ "${RC}" -eq 0 ] && grep -qx STATE=ok "${M0}/out" && grep -qx FOUND= "${M0}/out"
++    check $? "explicitly choosing the populated structured library recognizes its games" "rc ${RC}; $(sa_tail "${M0}")"
++    mkdir -p "${M0}/storage/.config/emulationstation"
++    printf '<systemList><system><name>Game Boy</name><path>/storage/roms/gb</path></system></systemList>\n' > "${M0}/storage/.config/emulationstation/es_systems.cfg"
++    rm -rf "${M0}/storage/roms"/* "${M0}/cloud"/*
++    mkdir -p "${M0}/cloud/ROMs/gb"; echo game > "${M0}/cloud/ROMs/gb/A.gb"
++    sa_run "${M0}" cloud_setup --use-content-root
++    [ "${RC}" -eq 0 ] && grep -qx 'CONTENT_REMOTE=""' "${M0}/storage/.config/cloud_sync.conf"
++    check $? "explicit relative-root selection persists as an empty content pointer" "rc ${RC}; $(sa_tail "${M0}")"
++    sa_run "${M0}" cloud_setup --content-location
++    [ "${RC}" -eq 0 ] && grep -qx STATE=ok "${M0}/out"
++    check $? "selected account root recognizes ROMs/system with installed ES membership" "rc ${RC}; $(sa_tail "${M0}")"
++    sa_run "${M0}" cloud_content_restore --scan
++    [ "${RC}" -eq 0 ] && grep -q '^gb|5|' "${M0}/out"
++    check $? "the scan counts actual ROM bytes beneath the explicitly selected structured root" "rc ${RC}; $(sa_tail "${M0}")"
++    cp "${M0}/storage/.config/cloud_sync.conf" "${M0}/conf-before"
++    printf '%s\t%s\n' '^lsjson ' 5 > "${M0}/ctl/fail"; : > "${M0}/ctl/fault-fired"
++    sa_run "${M0}" cloud_setup --content-location
++    [ "${RC}" -ne 0 ] && grep -qx STATE=unreadable "${M0}/out" && ! grep -qx STATE=empty "${M0}/out" \
++        && grep -q '^lsjson ' "${M0}/ctl/fault-fired" \
++        && cmp -s "${M0}/conf-before" "${M0}/storage/.config/cloud_sync.conf"
++    check $? "an actual failed metadata listing stays unreadable and preserves the selected root" "fault $(cat "${M0}/ctl/fault-fired"); rc ${RC}; $(sa_tail "${M0}")"
++    : > "${M0}/ctl/fail"
++fi
+ echo "    A1. PL-001: --match --apply enforces the preview, and a failed listing plans nothing"
+ M=$(sa_new pl001); sa_script "${M}" cloud_content_restore
+ printf 'SAVESPATH="/storage/roms"\nCONTENT_REMOTE="/pixelelated/Content"\n' > "${M}/storage/.config/cloud_sync.conf"
+@@ -9637,6 +9685,7 @@
+ #      earlier build derived to /GAMES/Content is read as it stands and
+ #      warned about, never rewritten.
+ echo "    A14. PL-015 (script half): no content folder derived inside a top-level saves folder"
++if [ "${SA_SCOPED}" -eq 0 ]; then
+ printf 'SAVESPATH="/storage/roms"\nSAVES_REMOTE="/GAMES"\nBACKUPMETHOD="copy"\n' > "${RH}/storage/.config/cloud_sync.conf"
+ rh_run
+ ccr=$(sed -n 's/^CONTENT_REMOTE=//p' "${RH}/storage/.config/cloud_sync.conf" | head -1)
+@@ -9644,6 +9693,16 @@
+ printf 'SAVESPATH="/storage/roms"\nSAVES_REMOTE="/Custom/Saves"\nBACKUPMETHOD="copy"\n' > "${RH}/storage/.config/cloud_sync.conf"
+ rh_run
+ [ "$(sed -n 's/^CONTENT_REMOTE=//p' "${RH}/storage/.config/cloud_sync.conf" | head -1)" = '"/Custom/Content"' ]; check $? "a deeper saves folder still gets its sibling (/Custom/Saves -> /Custom/Content)" "CONTENT_REMOTE=$(sed -n 's/^CONTENT_REMOTE=//p' "${RH}/storage/.config/cloud_sync.conf")"
++else
++    for chosen in /GAMES /Custom/Saves; do
++        printf 'SAVESPATH="/storage/roms"\nSAVES_REMOTE="%s"\nSETTINGS_REMOTE="/Chosen/Backups"\nBACKUPMETHOD="copy"\n' "${chosen}" > "${RH}/storage/.config/cloud_sync.conf"
++        rh_run
++        [ "${RC}" -eq 0 ] && grep -qx 'CONTENT_REMOTE="/pixelelated/Content"' "${RH}/storage/.config/cloud_sync.conf" \
++            && grep -qxF "SAVES_REMOTE=\"${chosen}\"" "${RH}/storage/.config/cloud_sync.conf" \
++            && grep -qx 'SETTINGS_REMOTE="/Chosen/Backups"' "${RH}/storage/.config/cloud_sync.conf"
++        check $? "missing content choice uses the shipped default and preserves ${chosen} plus independent settings" "rc ${RC}; CONTENT_REMOTE=$(sed -n 's/^CONTENT_REMOTE=//p' "${RH}/storage/.config/cloud_sync.conf")"
++    done
++fi
+ printf 'SAVESPATH="/storage/roms"\nSAVES_REMOTE="/GAMES"\nCONTENT_REMOTE="/GAMES/Content"\nBACKUPMETHOD="copy"\n' > "${RH}/storage/.config/cloud_sync.conf"
+ rh_run
+ [ "$(sed -n 's/^CONTENT_REMOTE=//p' "${RH}/storage/.config/cloud_sync.conf" | head -1)" = '"/GAMES/Content"' ]; check $? "a /GAMES/Content an earlier build derived is left as it stands" "CONTENT_REMOTE was rewritten to $(sed -n 's/^CONTENT_REMOTE=//p' "${RH}/storage/.config/cloud_sync.conf")"
+@@ -10593,6 +10652,7 @@
+     printf '%s\t%s\n' "$3" 5 > "${AF}/ctl/fail"
+     sa_run "${AF}" cloud_content_restore --all
+ }
++if [ "${SA_SCOPED}" -eq 0 ]; then
+ af_run /pixelelated/Content /pixelelated/Content/nes '^lsf --dirs-only qa:/pixelelated/Content/ '
+ af_stamp=$(awk '{print $2}' "${AF}/storage/.cache/cloud_sync/last-content-restore" 2>/dev/null)
+ [ "${RC}" -ne 0 ] && [ "${af_stamp:-none}" != 0 ] && ! grep -q '^Nothing to restore' "${AF}/out" && grep -q '^>>> why ' "${AF}/out"; check $? "--all on the flat layout whose root listing fails (5) ends Couldn't finish, not Nothing to restore (rc ${RC}, stamp ${af_stamp:-none})" "rc ${RC}, stamp ${af_stamp:-none}; out: $(sa_tail "${AF}")"
+@@ -10601,6 +10661,20 @@
+ [ "${RC}" -ne 0 ] && [ "${af_stamp:-none}" != 0 ] && ! grep -q '^Nothing to restore' "${AF}/out"; check $? "--all whose legacy root listing fails (5) ends Couldn't finish too (rc ${RC}, stamp ${af_stamp:-none})" "rc ${RC}, stamp ${af_stamp:-none}; out: $(sa_tail "${AF}")"
+ af_run /pixelelated/Content /pixelelated/Content/nes '^never$'
+ [ "${RC}" -eq 0 ] && [ -f "${AF}/storage/roms/nes/N.nes" ]; check $? "and with nothing failing the flat layout's nes comes down (rc ${RC})" "rc ${RC}; out: $(sa_tail "${AF}")"
++else
++    for target in ROMs/ ''; do
++        : > "${AF}/ctl/fault-fired"
++        af_run /pixelelated/Content /pixelelated/Content/ROMs/nes "^lsf --dirs-only qa:/pixelelated/Content/${target} "
++        af_stamp=$(awk '{print $2}' "${AF}/storage/.cache/cloud_sync/last-content-restore" 2>/dev/null)
++        [ "${RC}" -ne 0 ] && [ "${af_stamp:-none}" != 0 ] && [ -s "${AF}/ctl/fault-fired" ] \
++            && ! grep -q '^Nothing to restore' "${AF}/out" && grep -q '^>>> why ' "${AF}/out" \
++            && [ ! -f "${AF}/storage/roms/nes/N.nes" ]
++        check $? "failed selected ${target:-content-root} metadata stops before restoration and never stamps success" "fault $(cat "${AF}/ctl/fault-fired"); rc ${RC}, stamp ${af_stamp:-none}; $(sa_tail "${AF}")"
++    done
++    af_run /pixelelated/Content /pixelelated/Content/ROMs/nes '^never$'
++    [ "${RC}" -eq 0 ] && [ -f "${AF}/storage/roms/nes/N.nes" ]
++    check $? "with successful metadata the selected structured ROM is restored" "rc ${RC}; $(sa_tail "${AF}")"
++fi
+ 
+ # A41. The audit of the fixes (#307 follow-up 2; seats/A-gpt.md G-A-10,
+ #      Medium): a game list below a system's own folder travels as game

@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/workspace/repos/rocknix.worktrees/m7-manual-cloud-folders/tools/pixelelated-cloud-validator-test", line 359, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/workspace/repos/rocknix.worktrees/m7-manual-cloud-folders/tools/pixelelated-cloud-validator-test", line 107, in main
+    case('flat-rom-payload-location',flat_roms)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/repos/rocknix.worktrees/m7-manual-cloud-folders/tools/pixelelated-cloud-validator-test", line 65, in case
+    work(f)
+    ~~~~^^^
+  File "/workspace/repos/rocknix.worktrees/m7-manual-cloud-folders/tools/pixelelated-cloud-validator-test", line 101, in flat_roms
+    require(misplaced['roms']['state']=='misplaced' and misplaced['roms']['detail']=='files-outside-system-folders',str(misplaced))
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/repos/rocknix.worktrees/m7-manual-cloud-folders/tools/rasteratops-cloud-layout-test", line 147, in require
+    raise AssertionError(message)
+AssertionError: {'roms': {'category': 'roms', 'state': 'empty', 'path': '/pixelelated/Content/ROMs', 'detail': 'no-recognized-content-in-checked-depth'}, 'media': {'category': 'media', 'state': 'present', 'path': '/pixelelated/Content/ROMs', 'detail': 'supported-system-paths-found-not-verified'}}

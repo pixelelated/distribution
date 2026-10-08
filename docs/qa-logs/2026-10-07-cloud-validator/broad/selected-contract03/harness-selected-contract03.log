@@ -1,0 +1,22 @@
+actual_BB_HOST=/workspace/tmp/pixelelated-validator-20261007/harness-selected-contract03/busybox
+BusyBox v1.36.1 (2026-10-05 03:37:19 UTC) multi-call binary.
+  A. audit #307/#308, stream A: the cloud scripts against the image's rclone
+    rclone: rclone v1.75.1 -- a copy of /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement16/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/bin/rclone
+    A0. #352: the pre-tier rows list only folders this device has or systems it supports; --content-location names the folder that holds the games
+PASS flat folders are not scanned or restored as a selected structured library
+PASS selected empty library neither discovers another library nor changes the choice
+PASS explicitly choosing the populated structured library recognizes its games
+PASS explicit relative-root selection persists as an empty content pointer
+PASS selected account root recognizes ROMs/system with installed ES membership
+PASS the scan counts actual ROM bytes beneath the explicitly selected structured root
+PASS an actual failed metadata listing stays unreadable and preserves the selected root
+    A14. PL-015 (script half): no content folder derived inside a top-level saves folder
+PASS missing content choice uses the shipped default and preserves /GAMES plus independent settings
+PASS missing content choice uses the shipped default and preserves /Custom/Saves plus independent settings
+PASS a /GAMES/Content an earlier build derived is left as it stands
+PASS cloud_backup warns about a ROMs and BIOS folder nested in the saves folder, in the log and on a deliberate run's screen (rc 0)
+    A40. G-A-07 (gpt) / G-A-03 (claude): every listing --all stands on is read fail-closed
+PASS failed selected ROMs/ metadata stops before restoration and never stamps success
+PASS failed selected content-root metadata stops before restoration and never stamps success
+PASS with successful metadata the selected structured ROM is restored
+RESULT failures=0

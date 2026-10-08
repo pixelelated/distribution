@@ -1,0 +1,597 @@
+{
+  "bbin/awk": {
+    "sha256": "41ab2cc7aaadcf858aadf0da55a360bc7708f0482d069a501b4c1e96da534cfd",
+    "bytes": 160,
+    "text": "#!/bin/sh\n[ -x /lgst/busybox ] && exec /lgst/busybox awk \"$@\"\nexec /workspace/tmp/pixelelated-validator-20261007/harness-selected-historical03/busybox awk \"$@\"\n"
+  },
+  "bbin/cat": {
+    "sha256": "19e30d07efa7a9d01da49ec63bcf6db59b39392ec642fa2ea1cf72efeac5665f",
+    "bytes": 160,
+    "text": "#!/bin/sh\n[ -x /lgst/busybox ] && exec /lgst/busybox cat \"$@\"\nexec /workspace/tmp/pixelelated-validator-20261007/harness-selected-historical03/busybox cat \"$@\"\n"
+  },
+  "bbin/chmod": {
+    "sha256": "ddd9e63f51f23613f5dad1f136ddf7fa27f8f3052bc0c1de2286b432a435d23f",
+    "bytes": 164,
+    "text": "#!/bin/sh\n[ -x /lgst/busybox ] && exec /lgst/busybox chmod \"$@\"\nexec /workspace/tmp/pixelelated-validator-20261007/harness-selected-historical03/busybox chmod \"$@\"\n"
+  },
+  "bbin/cp": {
+    "sha256": "6a2ece71c6bfcceca8198e645dd7174229ab846e116708cbaa40771de6f544a7",
+    "bytes": 158,
+    "text": "#!/bin/sh\n[ -x /lgst/busybox ] && exec /lgst/busybox cp \"$@\"\nexec /workspace/tmp/pixelelated-validator-20261007/harness-selected-historical03/busybox cp \"$@\"\n"
+  },
+  "bbin/cut": {
+    "sha256": "3935263aadaf303cd11c3e39b52d34097efc52b916b30c90f149b6c611b8d52f",
+    "bytes": 160,
+    "text": "#!/bin/sh\n[ -x /lgst/busybox ] && exec /lgst/busybox cut \"$@\"\nexec /workspace/tmp/pixelelated-validator-20261007/harness-selected-historical03/busybox cut \"$@\"\n"
+  },
+  "bbin/head": {
+    "sha256": "9e7a28543c04102516c5595aa4c4dbe3d50b51b14344621bf267014eb067e0f8",
+    "bytes": 162,
+    "text": "#!/bin/sh\n[ -x /lgst/busybox ] && exec /lgst/busybox head \"$@\"\nexec /workspace/tmp/pixelelated-validator-20261007/harness-selected-historical03/busybox head \"$@\"\n"
+  },
+  "bbin/mv": {
+    "sha256": "7a9b9b917bd9c0ecbdb599ce0389dd850a16f5ca715cf628fc2610b5eb7e1225",
+    "bytes": 158,
+    "text": "#!/bin/sh\n[ -x /lgst/busybox ] && exec /lgst/busybox mv \"$@\"\nexec /workspace/tmp/pixelelated-validator-20261007/harness-selected-historical03/busybox mv \"$@\"\n"
+  },
+  "bbin/sed": {
+    "sha256": "135c9a21a56f6cb8f3f4982c72d1f1bff549ccf343630463a7bb5afbd5d851fe",
+    "bytes": 160,
+    "text": "#!/bin/sh\n[ -x /lgst/busybox ] && exec /lgst/busybox sed \"$@\"\nexec /workspace/tmp/pixelelated-validator-20261007/harness-selected-historical03/busybox sed \"$@\"\n"
+  },
+  "bbin/stat": {
+    "sha256": "1d6b489f78ed173e705db7a27aa0378dc352347065381bb4ca3c79bebf529635",
+    "bytes": 162,
+    "text": "#!/bin/sh\n[ -x /lgst/busybox ] && exec /lgst/busybox stat \"$@\"\nexec /workspace/tmp/pixelelated-validator-20261007/harness-selected-historical03/busybox stat \"$@\"\n"
+  },
+  "bbin/tr": {
+    "sha256": "97fe61dd93f869fdc685d367f85cf30fce5934e552e51c971f30f31a94927dfc",
+    "bytes": 158,
+    "text": "#!/bin/sh\n[ -x /lgst/busybox ] && exec /lgst/busybox tr \"$@\"\nexec /workspace/tmp/pixelelated-validator-20261007/harness-selected-historical03/busybox tr \"$@\"\n"
+  },
+  "bbin/wc": {
+    "sha256": "b4b89e7a479bb509c2c3572d470b3fcd2096815fff17b7f474c0e8944f69ea74",
+    "bytes": 158,
+    "text": "#!/bin/sh\n[ -x /lgst/busybox ] && exec /lgst/busybox wc \"$@\"\nexec /workspace/tmp/pixelelated-validator-20261007/harness-selected-historical03/busybox wc \"$@\"\n"
+  },
+  "busybox": {
+    "sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346",
+    "bytes": 574456
+  },
+  "sa/f-ga07/cloud/pixelelated/Content/nes/N.nes": {
+    "sha256": "a4fb621495a0122493b2203591c448903c472e306a1ede54fabad829e01075c0",
+    "bytes": 2,
+    "text": "n\n"
+  },
+  "sa/f-ga07/ctl/argv": {
+    "sha256": "dff0d4ca004b981651fed35d693b391e0ebb78c774fe3b960b95ef9716e9b162",
+    "bytes": 2266,
+    "text": "listremotes\nlsf --dirs-only qa:/pixelelated/Content/ROMs/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\nlsf --dirs-only qa:/pixelelated/Content/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\nlsf --dirs-only qa:/pixelelated/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\nlsd qa: --contimeout 10s --timeout 20s --low-level-retries 1 --retries 1\nlistremotes\nlsf --dirs-only qa:/pixelelated/Content/ROMs/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\nlsf --dirs-only qa:/pixelelated/Content/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\nlsf --dirs-only qa: --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\nlsd qa: --contimeout 10s --timeout 20s --low-level-retries 1 --retries 1\nlistremotes\nlsf --dirs-only qa:/pixelelated/Content/ROMs/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\nlsf --dirs-only qa:/pixelelated/Content/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\nlsf --dirs-only qa: --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\nlsf qa:/pixelelated/Content/ROMs/nes --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\nlsf --dirs-only qa:/pixelelated/Content/ROMs/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\nlsf --dirs-only qa:/pixelelated/Content/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\ncopy qa:/pixelelated/Content/nes /storage/roms/nes --contimeout 15s --timeout 30s --low-level-retries 10 --retries 1 --exclude *.srm --exclude *.sav --exclude *.fs --exclude *.state* --exclude *.auto --exclude *.dsv* --exclude *.eep --exclude *.mpk --exclude *.sra --exclude *.fla --exclude *.mcd --exclude *.mcr --exclude save/** --exclude memcards/** --exclude shared/savefiles/** --exclude PPSSPP/** --exclude **conflicted copy** --exclude **.sync-conflict-** --exclude *.????????.partial --exclude /images/** --exclude /videos/** --exclude /manuals/** --exclude /screenshots/** --exclude /fanart/** --exclude /boxart/** --exclude /wheel/** --exclude /mix/** --exclude /maps/** --exclude /media/** --exclude gamelist.xml --exclude **/gamelist.xml --exclude /README.txt --progress --stats 1s --log-file /var/log/cloud_sync.log --log-level INFO\n"
+  },
+  "sa/f-ga07/ctl/fail": {
+    "sha256": "ffa045028d83b5a4a1e72e4e1bda9545a06b5598d42c87fdaf706c89054b49da",
+    "bytes": 10,
+    "text": "^never$\t5\n"
+  },
+  "sa/f-ga07/ctl/fault-fired": {
+    "sha256": "35d945017e902f6bb2821a4488197d2b26b97c7ef8e2fe1cb1251e0248e30001",
+    "bytes": 191,
+    "text": "lsf --dirs-only qa:/pixelelated/Content/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\nlsf --dirs-only qa: --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\n"
+  },
+  "sa/f-ga07/ctl/hang": {
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0,
+    "text": ""
+  },
+  "sa/f-ga07/ctl/kill": {
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0,
+    "text": ""
+  },
+  "sa/f-ga07/ctl/post": {
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0,
+    "text": ""
+  },
+  "sa/f-ga07/log/cloud_sync.log": {
+    "sha256": "2c7527af6ab27f336dbfe42b794518aaad83aeddb8c8a9394e18c39df79ec956",
+    "bytes": 871,
+    "text": "[2026-10-08 02:09:02] [INFO] [cloud_content_restore] restore --all: qa:/pixelelated/Content/ could not be listed (rclone exit 5)\n[2026-10-08 02:09:02] [INFO] [cloud_content_restore] why: YOUR CLOUD STOPPED ANSWERING\n[2026-10-08 02:09:02] [INFO] [cloud_content_restore] restore --all: qa: could not be listed (rclone exit 5)\n[2026-10-08 02:09:02] [INFO] [cloud_content_restore] why: YOUR CLOUD STOPPED ANSWERING\n[2026-10-08 02:09:02] [INFO] [cloud_content_restore] Content \"nes\" found in the flat pre-ROMs layout\n[2026-10-08 02:09:02] [INFO] [cloud_content_restore] Content restore: qa:/pixelelated/Content/nes -> /storage/roms/nes\n2026/10/08 02:09:02 INFO  : N.nes: Copied (new)\n2026/10/08 02:09:02 INFO  : \nTransferred:   \t          2 B / 2 B, 100%, 0 B/s, ETA -\nChecks:                 0 / 0, -, Listed 1\nTransferred:            1 / 1, 100%\nElapsed time:         0.0s\n\n"
+  },
+  "sa/f-ga07/out": {
+    "sha256": "fab2b2b588db7256b49dd66e226a0f91333442feb69f1283f09bb2d307895404",
+    "bytes": 225,
+    "text": ">>> unit nes|1|1\nRestoring nes from the cloud...\nTransferred:   \t          2 B / 2 B, 100%, 0 B/s, ETA -\nChecks:                 0 / 0, -, Listed 1\nTransferred:            1 / 1, 100%\nElapsed time:         0.0s\nRestored nes.\n"
+  },
+  "sa/f-ga07/repo/cloud_content_restore": {
+    "sha256": "3b28fd1403657d713f92f216840a52ff7e692bf09746a7ccb8c2519c6940d2f8",
+    "bytes": 85192
+  },
+  "sa/f-ga07/repo/cloud_content_transfer": {
+    "sha256": "fe292268d9029c2b950a093f6902b5cbe8afb3d57cb47187251cf90c3d85a1a3",
+    "bytes": 6351
+  },
+  "sa/f-ga07/repo/cloud_device_id": {
+    "sha256": "8ea49607f27a9b7cabb45e856bff4b07a4d056140a1aa8ab21f35fb988b120d5",
+    "bytes": 97
+  },
+  "sa/f-ga07/storage/.cache/cloud_sync/last-content-restore": {
+    "sha256": "2b6b49af5d52e40dec5d041ce3f49552ddab1f0ef200337690fc991de180cc1f",
+    "bytes": 13,
+    "text": "1791425342 0\n"
+  },
+  "sa/f-ga07/storage/.config/cloud_sync.conf": {
+    "sha256": "2a18a9ae5a1e2506009dc0369adf29954dddd569ed5a856fe73319776f943e53",
+    "bytes": 64,
+    "text": "SAVESPATH=\"/storage/roms\"\nCONTENT_REMOTE=\"/pixelelated/Content\"\n"
+  },
+  "sa/f-ga07/storage/.config/emulationstation/es_systems.cfg": {
+    "sha256": "5855d38b1fdd67a35ba98dced9a54e39c7be23f6065cc9c6db54ac2145aa6815",
+    "bytes": 48,
+    "text": "<system><path>/storage/roms/nes</path></system>\n"
+  },
+  "sa/f-ga07/storage/.config/rclone/rclone.conf": {
+    "sha256": "7603c17bce0056aae641bee817b6f9875863b4158f34d526914bfba008485eb5",
+    "bytes": 34,
+    "text": "[qa]\ntype = alias\nremote = /cloud\n"
+  },
+  "sa/f-ga07/storage/roms/nes/N.nes": {
+    "sha256": "a4fb621495a0122493b2203591c448903c472e306a1ede54fabad829e01075c0",
+    "bytes": 2,
+    "text": "n\n"
+  },
+  "sa/f-ga07/varrun/cloud_sync.lock": {
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0,
+    "text": ""
+  },
+  "sa/f-pl015w/cloud/GAMES/gb/A.srm": {
+    "sha256": "cbc80bb5c0c0f8944bf73b3a429505ac5cde16644978bc9a1e74c5755f8ca556",
+    "bytes": 2,
+    "text": "s\n"
+  },
+  "sa/f-pl015w/ctl/argv": {
+    "sha256": "4815e7bc0aa10c9d63f9f92eb9885a3e49ccb493f1b10aa6e25345d67de29b2a",
+    "bytes": 577,
+    "text": "lsf --dirs-only qa:/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\nmkdir qa:/GAMES --contimeout 10s --timeout 20s --low-level-retries 1 --retries 1\ncopy --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt --log-level INFO --stats 1s --exclude=bios/** --exclude=backup/** --backup-dir=qa:/GAMES-replaced/2026_10_08-020901 --contimeout 5s --timeout 10s --low-level-retries 2 --retries 1 /storage/roms/ qa:/GAMES/\nlsf --dirs-only qa:/GAMES-replaced/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\n"
+  },
+  "sa/f-pl015w/ctl/fail": {
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0,
+    "text": ""
+  },
+  "sa/f-pl015w/ctl/hang": {
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0,
+    "text": ""
+  },
+  "sa/f-pl015w/ctl/kill": {
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0,
+    "text": ""
+  },
+  "sa/f-pl015w/ctl/post": {
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0,
+    "text": ""
+  },
+  "sa/f-pl015w/log/cloud_sync.log": {
+    "sha256": "ae045751b8ab83d2d45eb01b4da43cc96bb3973b02bcc78473a7505daa25838a",
+    "bytes": 3713,
+    "text": "[2026-10-08 02:09:00] [INFO] [cloud_backup] Loading configuration from cloud_sync.conf\n[2026-10-08 02:09:00] [INFO] [cloud_backup] Original RCLONEOPTS: --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt\n[2026-10-08 02:09:00] [INFO] [cloud_backup] After newline cleanup: --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt \n[2026-10-08 02:09:00] [INFO] [cloud_backup] After removing verbose flags: --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt \n[2026-10-08 02:09:00] [INFO] [cloud_backup] After spacing fix: --progress  --log-file /var/log/cloud_sync.log  --filter-from /storage/.config/cloud_sync-rules.txt \n[2026-10-08 02:09:00] [INFO] [cloud_backup] After final cleanup: --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt \n[2026-10-08 02:09:00] [INFO] [cloud_backup] Options array has 5 elements\n[2026-10-08 02:09:00] [INFO] [cloud_backup] rclone network bound: --contimeout 5s --timeout 10s --low-level-retries 2 --retries 1\n[2026-10-08 02:09:00] [INFO] [cloud_backup] deliberate run: stall ceiling 16s (rclone idle timeout 10s + 6s grace)\n[2026-10-08 02:09:00] [WARN] [cloud_backup] CONTENT_REMOTE=/GAMES/Content is inside SAVES_REMOTE=/GAMES\n[2026-10-08 02:09:00] [WARN] [cloud_backup] Your ROMs and BIOS folder in the cloud sits inside your saves folder. TIDY UP YOUR CLOUD FOLDERS in MANAGE CLOUD STORAGE moves it out.\n[2026-10-08 02:09:00] [INFO] [cloud_backup] Configuration loaded successfully\n[2026-10-08 02:09:00] [INFO] [cloud_backup] =>  CLOUD BACKUP\\n\n[2026-10-08 02:09:00] [INFO] [cloud_backup] ====================================\n[2026-10-08 02:09:00] [INFO] [cloud_backup] BACKING UP YOUR GAME SAVES\n[2026-10-08 02:09:00] [INFO] [cloud_backup] ====================================\n[2026-10-08 02:09:00] [INFO] [cloud_backup] Starting backup from /storage/roms to qa:/GAMES\n[2026-10-08 02:09:00] [INFO] [cloud_backup] Backup started at Thu Oct  8 02:09:00 UTC 2026\n[2026-10-08 02:09:01] [INFO] [cloud_backup] Ensuring remote sync path exists: qa:/GAMES\n[2026-10-08 02:09:01] [INFO] [cloud_backup] the remote keeps modtimes or hashes: rclone's own comparison\n[2026-10-08 02:09:01] [INFO] [cloud_backup] anything replaced (or, in sync mode, removed) in the cloud goes to /GAMES-replaced\n[2026-10-08 02:09:01] [INFO] [cloud_backup] About to execute: rclone copy --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt --log-level INFO --stats 1s --exclude=bios/** --exclude=backup/** --backup-dir=qa:/GAMES-replaced/2026_10_08-020901 /storage/roms/ qa:/GAMES/\n2026/10/08 02:09:01 INFO  : gb/A.srm: Copied (new)\n2026/10/08 02:09:01 INFO  : gb: Set directory modification time (using DirSetModTime)\n2026/10/08 02:09:01 INFO  : \nTransferred:   \t          2 B / 2 B, 100%, 0 B/s, ETA -\nChecks:                 0 / 0, -, Listed 2\nTransferred:            1 / 1, 100%\nElapsed time:         0.0s\n\n[2026-10-08 02:09:01] [INFO] [cloud_backup] Backing up your saves: completed.\n[2026-10-08 02:09:01] [INFO] [cloud_backup] Skipped settings this time - saves only.\n[2026-10-08 02:09:01] [INFO] [cloud_backup] ====================================\n[2026-10-08 02:09:01] [INFO] [cloud_backup] BACKUP SUMMARY:\n[2026-10-08 02:09:01] [INFO] [cloud_backup] Game saves: COMPLETED\n[2026-10-08 02:09:01] [INFO] [cloud_backup] Completed.\n[2026-10-08 02:09:01] [INFO] [cloud_backup] Log file: /var/log/cloud_sync.log\n[2026-10-08 02:09:01] [INFO] [cloud_backup] ====================================\n[2026-10-08 02:09:01] [INFO] [cloud_backup] Script completed in 1 seconds with exit code 0\n"
+  },
+  "sa/f-pl015w/out": {
+    "sha256": "32d3358b5fa5dda3c62a2a5e822c448290d75ab15cc71e0499b394a762aeb585",
+    "bytes": 641,
+    "text": "\u001b[33mYour ROMs and BIOS folder in the cloud sits inside your saves folder. TIDY UP YOUR CLOUD FOLDERS in MANAGE CLOUD STORAGE moves it out.\u001b[0m\n=>  CLOUD BACKUP\n\n====================================\nBACKING UP YOUR GAME SAVES\n>>> unit SAVES||\n====================================\nTransferred:   \t          2 B / 2 B, 100%, 0 B/s, ETA -\nChecks:                 0 / 0, -, Listed 2\nTransferred:            1 / 1, 100%\nElapsed time:         0.0s\nBacking up your saves: completed.\nSkipped settings this time - saves only.\n\n====================================\nBACKUP SUMMARY:\nGame saves: COMPLETED\nCompleted.\n====================================\n"
+  },
+  "sa/f-pl015w/repo/cloud_backup": {
+    "sha256": "b3d3d7b2d37f62e9ec02a446ba809645666a533e7e08e87b3fe6d97e048ef48e",
+    "bytes": 130810
+  },
+  "sa/f-pl015w/repo/cloud_device_id": {
+    "sha256": "8ea49607f27a9b7cabb45e856bff4b07a4d056140a1aa8ab21f35fb988b120d5",
+    "bytes": 97
+  },
+  "sa/f-pl015w/repo/cloud_saves_root": {
+    "sha256": "d0b0c5b850a7b51257797dcc9bfdac2e6f3e0abf2c3be4584ca65583748bfe43",
+    "bytes": 9236
+  },
+  "sa/f-pl015w/storage/.cache/cloud_sync/last-backup": {
+    "sha256": "b4f251f70af006b259798b4c60e11a120a4b129fb51724291971680429e1853d",
+    "bytes": 13,
+    "text": "1791425341 0\n"
+  },
+  "sa/f-pl015w/storage/.cache/cloud_sync/saves-root": {
+    "sha256": "5496557b674bd03b54e667809a3ac1897cc0969a12b4d101c464c238697385ef",
+    "bytes": 10,
+    "text": "dev:66304\n"
+  },
+  "sa/f-pl015w/storage/.config/cloud_sync-rules.txt": {
+    "sha256": "bc4f15f38e740763d19255aace0a90edd851e5deb159fc3bb38a3a12dfab38e8",
+    "bytes": 18,
+    "text": "+ /**/*.srm\n- /**\n"
+  },
+  "sa/f-pl015w/storage/.config/cloud_sync.conf": {
+    "sha256": "6abeded3ad47f67056450c2cad51d679955c36264bcac4af0f5bad3fd1200cf7",
+    "bytes": 407,
+    "text": "SAVESPATH=\"/storage/roms\"\nSAVES_REMOTE=\"/GAMES\"\nSETTINGS_BACKUPS=\"/storage/roms/backup\"\nSETTINGS_REMOTE=\"/Backups\"\nCONTENT_REMOTE=\"/GAMES/Content\"\nBACKUPMETHOD=\"copy\"\nBACKUPFILE_BACKUP_OPTION=\"no\"\nRCLONEOPTS=\"--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt\"\nRCLONE_NET_OPTS=\"--contimeout 5s --timeout 10s --low-level-retries 2 --retries 1\"\nLOG_LEVEL=\"INFO\"\n"
+  },
+  "sa/f-pl015w/storage/.config/rclone/rclone.conf": {
+    "sha256": "7603c17bce0056aae641bee817b6f9875863b4158f34d526914bfba008485eb5",
+    "bytes": 34,
+    "text": "[qa]\ntype = alias\nremote = /cloud\n"
+  },
+  "sa/f-pl015w/storage/roms/gb/A.srm": {
+    "sha256": "cbc80bb5c0c0f8944bf73b3a429505ac5cde16644978bc9a1e74c5755f8ca556",
+    "bytes": 2,
+    "text": "s\n"
+  },
+  "sa/f-pl015w/varrun/cloud_sync.lock": {
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0,
+    "text": ""
+  },
+  "sa/f-pl020h/ctl/argv": {
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0,
+    "text": ""
+  },
+  "sa/f-pl020h/ctl/fail": {
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0,
+    "text": ""
+  },
+  "sa/f-pl020h/ctl/hang": {
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0,
+    "text": ""
+  },
+  "sa/f-pl020h/ctl/kill": {
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0,
+    "text": ""
+  },
+  "sa/f-pl020h/ctl/post": {
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0,
+    "text": ""
+  },
+  "sa/f-pl020h/out": {
+    "sha256": "bc8a037e13ea2ed053129165079832f6e00461ced90f0262e77d35b07639435d",
+    "bytes": 1629,
+    "text": "[2026-10-08 02:09:00] [INFO] [cloud_sync_helper] Checking cloud sync rules file...\n[2026-10-08 02:09:00] [INFO] [cloud_sync_helper] Merging custom rules with defaults\n[2026-10-08 02:09:00] [INFO] [cloud_sync_helper] Checking cloud sync configuration...\n[2026-10-08 02:09:00] [INFO] [cloud_sync_helper] Updating configuration with new defaults\n[2026-10-08 02:09:00] [INFO] [cloud_sync_helper] Added new configuration option: SETTINGS_BACKUPS\n[2026-10-08 02:09:00] [INFO] [cloud_sync_helper] Added new configuration option: SETTINGS_REMOTE\n[2026-10-08 02:09:00] [INFO] [cloud_sync_helper] Added new configuration option: LOG_LEVEL\n[2026-10-08 02:09:00] [INFO] [cloud_sync_helper] Added new configuration option: RCLONEOPTS\n[2026-10-08 02:09:00] [INFO] [cloud_sync_helper] Added new configuration option: RCLONE_NET_OPTS\n[2026-10-08 02:09:00] [INFO] [cloud_sync_helper] Added new configuration option: RCLONE_SYNC_NET_OPTS\n[2026-10-08 02:09:00] [INFO] [cloud_sync_helper] Added new configuration option: SYNC_CEILING_SECONDS\n[2026-10-08 02:09:00] [INFO] [cloud_sync_helper] Added new configuration option: CLOUD_BACKUP_KEEP\n[2026-10-08 02:09:00] [INFO] [cloud_sync_helper] Added new configuration option: BACKUPFILE_BACKUP_OPTION\n[2026-10-08 02:09:00] [INFO] [cloud_sync_helper] Added new configuration option: RESTOREMETHOD\n[2026-10-08 02:09:00] [INFO] [cloud_sync_helper] Added new configuration option: BACKUPFILE_RESTORE_OPTION\n[2026-10-08 02:09:00] [INFO] [cloud_sync_helper] Added new configuration option: RSYNCRMDIR\n[2026-10-08 02:09:00] [INFO] [cloud_sync_helper] Configuration file updated while preserving customizations\n"
+  },
+  "sa/f-pl020h/repo/cat": {
+    "sha256": "bffe241ba9633df91570f44c2801b67b081ed4f50378160036a7e05d30ae3459",
+    "bytes": 221
+  },
+  "sa/f-pl020h/repo/cloud_device_id": {
+    "sha256": "8ea49607f27a9b7cabb45e856bff4b07a4d056140a1aa8ab21f35fb988b120d5",
+    "bytes": 97
+  },
+  "sa/f-pl020h/repo/cloud_sync_helper": {
+    "sha256": "3c7738648fe946c74d2c8e9d38fc5e7529f6f41a831a6c546c84765891f26385",
+    "bytes": 34704
+  },
+  "sa/f-pl020h/storage/.config/.cloud_sync-rules-user-first-applied": {
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0,
+    "text": ""
+  },
+  "sa/f-pl020h/storage/.config/cloud_sync-rules.txt": {
+    "sha256": "951a7d65d83dc2f2a041868cf2ab1e231a8b09873a0656311b1f947fd106df75",
+    "bytes": 2776,
+    "text": "# Cloud Sync Rules - Default Configuration\n#\n# These rules determine which files are included/excluded during cloud sync operations.\n# The syntax follows the same pattern as .gitignore, where:\n#   + pattern = explicitly include matching files/directories\n#   - pattern = explicitly exclude matching files/directories\n#\n# Rules are processed in order and THE FIRST MATCH WINS - a later rule cannot\n# override an earlier one. This is why the catch-all \"- /**\" sits at the very\n# bottom, and why an exclusion must appear ABOVE any include that would\n# otherwise match the same file.\n# Using /** matches files recursively through all subdirectories.\n\n# Databases and their sidecars, before anything else can include them.\n# A database is the one file a player cannot resolve by hand if two devices\n# both write it, and rclone replaces files wholesale rather than merging, so a\n# synced database loses one side's history outright. Copying one mid-write also\n# yields a torn file, and a .db separated from its -wal can lose recent writes\n# or refuse to open. Ours lives in /storage/.cache and is never synced; this\n# guards against one an emulator drops into a save directory.\n- /**/*.db\n- /**/*.db-wal\n- /**/*.db-shm\n- /**/*.db-journal\n- /**/*.sqlite\n- /**/*.sqlite3\n\n# Start by explicitly including directories we want to fully backup\n+ /savefiles/**\n+ /savestates/**\n+ /screenshots/**\n\n# Include specific save file types across all directories\n+ /**/*.srm\n+ /**/*.sav\n+ /**/*.fs\n+ /**/*.state*\n+ /**/*.auto\n+ /**/*.dsv*\n\n# Standalone N64 saves sit BESIDE THE ROM, not in a save directory: every\n# shipped mupen64plus.cfg sets SaveSRAMPath = \"/storage/roms/n64\", so the\n# emulator writes n64/<Game>.eep, .mpk, .sra and .fla there. The\n# /n64/save/*.eep lines below match the libretro layout and have never\n# matched these, so a standalone N64 player's saves have never been backed\n# up on any device (#89, D-CLOUD-086). Widened here rather than in the\n# per-system block because the four extensions belong to no other system\n# and the same file can appear at either depth.\n+ /**/*.eep\n+ /**/*.mpk\n+ /**/*.sra\n+ /**/*.fla\n\n# Include system-specific save directories\n+ /n64/save/*.eep\n+ /n64/save/*.mpk\n+ /n64/save/*.sra\n+ /n64/save/*.srm\n+ /psx/memcards/*.mcd\n+ /psx/memcards/*.mcr\n+ /dc/shared/savefiles/**\n+ /psp/PPSSPP/**\n\n# Backup files\n+ /backup/*.zip\n+ /backup/*.tar.gz\n\n# Specifically exclude directories that should never be backed up\n- /roms/**\n- /bios/**\n- /downloads/**\n- /.cache/**\n- /images/**\n- /manuals/**\n- /videos/**\n- /themes/**\n- /**/*.bin\n- /**/*.iso\n- /**/*.img\n- /**/*.rom\n- /**/*.zip\n- /**/*.7z\n- /**/*.chd\n- /**/*.dol\n- /**/*.elf\n\n# Exclude XML files (like gamelist.xml) by default\n- /**/*.xml\n\n# Exclude everything else not explicitly included above\n- /**\n"
+  },
+  "sa/f-pl020h/storage/.config/cloud_sync.conf": {
+    "sha256": "40d8d76a54b81bfc7bb4be5c69fd120e15fa1d8940cdd6dc018097814aa7bf27",
+    "bytes": 660,
+    "text": "SAVESPATH=\"/storage/roms\"\nSAVES_REMOTE=\"/GAMES\"\nCONTENT_REMOTE=\"/GAMES/Content\"\nBACKUPMETHOD=\"copy\"\nSETTINGS_BACKUPS=\"/storage/roms/backup\"\nSETTINGS_REMOTE=\"/pixelelated/Backups\"\nLOG_LEVEL=\"INFO\"\nRCLONEOPTS=\"--progress \\\n--log-file /var/log/cloud_sync.log \\\n--filter-from /storage/.config/cloud_sync-rules.txt\"\nRCLONE_NET_OPTS=\"--contimeout 15s --timeout 30s --low-level-retries 10 --retries 1\"\nRCLONE_SYNC_NET_OPTS=\"--contimeout 5s --timeout 5s --retries 1 --max-duration 90s --low-level-retries 5 --transfers 1\"\nSYNC_CEILING_SECONDS=90\nCLOUD_BACKUP_KEEP=\"3\"\nBACKUPFILE_BACKUP_OPTION=\"yes\"\nRESTOREMETHOD=\"copy\"\nBACKUPFILE_RESTORE_OPTION=\"no\"\nRSYNCRMDIR=\"yes\"\n"
+  },
+  "sa/f-pl020h/storage/.config/cloud_sync.conf.bak": {
+    "sha256": "a56335c072ad748f24bb3bc0f80b581e846be59dedb08587c8c664b6be3c5487",
+    "bytes": 100,
+    "text": "SAVESPATH=\"/storage/roms\"\nSAVES_REMOTE=\"/GAMES\"\nCONTENT_REMOTE=\"/GAMES/Content\"\nBACKUPMETHOD=\"copy\"\n"
+  },
+  "sa/f-pl020h/storage/.config/rclone/rclone.conf": {
+    "sha256": "7603c17bce0056aae641bee817b6f9875863b4158f34d526914bfba008485eb5",
+    "bytes": 34,
+    "text": "[qa]\ntype = alias\nremote = /cloud\n"
+  },
+  "sa/f-pl020h/usrconfig/cloud_sync-rules.txt.defaults": {
+    "sha256": "951a7d65d83dc2f2a041868cf2ab1e231a8b09873a0656311b1f947fd106df75",
+    "bytes": 2776,
+    "text": "# Cloud Sync Rules - Default Configuration\n#\n# These rules determine which files are included/excluded during cloud sync operations.\n# The syntax follows the same pattern as .gitignore, where:\n#   + pattern = explicitly include matching files/directories\n#   - pattern = explicitly exclude matching files/directories\n#\n# Rules are processed in order and THE FIRST MATCH WINS - a later rule cannot\n# override an earlier one. This is why the catch-all \"- /**\" sits at the very\n# bottom, and why an exclusion must appear ABOVE any include that would\n# otherwise match the same file.\n# Using /** matches files recursively through all subdirectories.\n\n# Databases and their sidecars, before anything else can include them.\n# A database is the one file a player cannot resolve by hand if two devices\n# both write it, and rclone replaces files wholesale rather than merging, so a\n# synced database loses one side's history outright. Copying one mid-write also\n# yields a torn file, and a .db separated from its -wal can lose recent writes\n# or refuse to open. Ours lives in /storage/.cache and is never synced; this\n# guards against one an emulator drops into a save directory.\n- /**/*.db\n- /**/*.db-wal\n- /**/*.db-shm\n- /**/*.db-journal\n- /**/*.sqlite\n- /**/*.sqlite3\n\n# Start by explicitly including directories we want to fully backup\n+ /savefiles/**\n+ /savestates/**\n+ /screenshots/**\n\n# Include specific save file types across all directories\n+ /**/*.srm\n+ /**/*.sav\n+ /**/*.fs\n+ /**/*.state*\n+ /**/*.auto\n+ /**/*.dsv*\n\n# Standalone N64 saves sit BESIDE THE ROM, not in a save directory: every\n# shipped mupen64plus.cfg sets SaveSRAMPath = \"/storage/roms/n64\", so the\n# emulator writes n64/<Game>.eep, .mpk, .sra and .fla there. The\n# /n64/save/*.eep lines below match the libretro layout and have never\n# matched these, so a standalone N64 player's saves have never been backed\n# up on any device (#89, D-CLOUD-086). Widened here rather than in the\n# per-system block because the four extensions belong to no other system\n# and the same file can appear at either depth.\n+ /**/*.eep\n+ /**/*.mpk\n+ /**/*.sra\n+ /**/*.fla\n\n# Include system-specific save directories\n+ /n64/save/*.eep\n+ /n64/save/*.mpk\n+ /n64/save/*.sra\n+ /n64/save/*.srm\n+ /psx/memcards/*.mcd\n+ /psx/memcards/*.mcr\n+ /dc/shared/savefiles/**\n+ /psp/PPSSPP/**\n\n# Backup files\n+ /backup/*.zip\n+ /backup/*.tar.gz\n\n# Specifically exclude directories that should never be backed up\n- /roms/**\n- /bios/**\n- /downloads/**\n- /.cache/**\n- /images/**\n- /manuals/**\n- /videos/**\n- /themes/**\n- /**/*.bin\n- /**/*.iso\n- /**/*.img\n- /**/*.rom\n- /**/*.zip\n- /**/*.7z\n- /**/*.chd\n- /**/*.dol\n- /**/*.elf\n\n# Exclude XML files (like gamelist.xml) by default\n- /**/*.xml\n\n# Exclude everything else not explicitly included above\n- /**\n"
+  },
+  "sa/f-pl020h/usrconfig/cloud_sync.conf.defaults": {
+    "sha256": "77ce914421b47ef7f0a33e6085a5793cb8be55a5c239788adf8575a57d3ad1c4",
+    "bytes": 7039,
+    "text": "# Cloud Sync Default Configuration\n# This file defines the default values used when creating a new configuration\n\n# Where things live\n# ----------------\n# Three kinds of thing move through cloud sync, and each key below says which:\n#\n#   settings  the configuration archive `backuptool` writes: emulator and\n#             interface settings, input mapping, themes, collections, bezels.\n#             No saves, no ROMs, no operating system.\n#   saves     game saves, save states, and screenshots -- files copied in\n#             place, matched by cloud_sync-rules.txt\n#   content   ROMs and BIOS files\n#\n# Keys ending in _REMOTE are folders on the cloud remote; the others are on\n# this device. Older configs used BACKUPPATH, RESTOREPATH, BACKUPFOLDER,\n# SYNCPATH, SYNCPATH_BACKUP and CONTENTPATH; cloud_sync_helper carries a\n# customised value across to the new name once, and the old keys are then\n# ignored. RESTOREPATH is gone: saves have one local folder, and a config\n# that still points it somewhere else makes every saves transfer refuse.\n\n# Saves on this device. Game saves, save states, and screenshots are found\n# under here by the rules file.\nDEFAULT_SAVESPATH=\"/storage/roms\"\n\n# Settings backups on this device (written by backuptool)\nDEFAULT_SETTINGS_BACKUPS=\"/storage/roms/backup\"\n\n# Saves on the cloud remote\nDEFAULT_SAVES_REMOTE=\"/pixelelated/Saves\"\n\n# Settings backups on the cloud remote. Must be a sibling of SAVES_REMOTE,\n# never inside it -- a mirror of the saves folder would delete the archives.\nDEFAULT_SETTINGS_REMOTE=\"/pixelelated/Backups\"\n\n# ROMs and BIOS files on the cloud remote, one folder per system plus \"bios\".\n# Previously unset, which put them at the remote root and scattered system\n# folders among whatever else lived there.\n#\n# Unlike the saves folder this key is derived for an upgrading config rather\n# than defaulted, so a device set up under an older layout keeps its ROMs\n# beside its saves -- except a saves folder at the top level (/GAMES), which\n# has no parent to put them beside: that config gets \"\" (the remote root,\n# where its ROMs already were) for its owner to set. Clear it back to \"\" to\n# use the remote root.\nDEFAULT_CONTENT_REMOTE=\"/pixelelated/Content\"\n\n# Logging Options\n# --------------\n# Set the minimum level of messages to log (INFO, WARN, ERROR)\nDEFAULT_LOG_LEVEL=\"INFO\"\n\n# Transfer Settings\n# ---------------\n# rclone sync rules - modify these options to change transfer behavior\n# IMPORTANT: Each option must be preceded by a backslash (\\) except the first one\n# The saves allowlist (--filter-from /storage/.config/cloud_sync-rules.txt) is\n# applied whether or not it appears here: dropping it from this line does not\n# drop it from the transfer (#71). To change what syncs, edit the rules file.\nDEFAULT_RCLONEOPTS=\"--progress \\\n--log-file /var/log/cloud_sync.log \\\n--filter-from /storage/.config/cloud_sync-rules.txt\"\n\n# Network bounds\n# --------------\n# Timeouts and retry limits for every rclone command the cloud scripts run\n# against the cloud -- transfers, listings, probes, the settings archive's\n# upload and its size check. Without them rclone's own defaults apply: a\n# 60 s connect timeout, a 5 minute idle timeout, 10 low-level retries and\n# 3 whole-run retries, so a Wi-Fi link that drops in the middle of a run\n# holds the process for well over ten minutes. On the RG SP that left the\n# startup sync's card frozen at 113/113 with the launch gate held (#101,\n# #102).\n#\n# --timeout is rclone's IDLE timeout: it fires when no byte has moved for\n# that long, so a large transfer that is making progress is unaffected.\n# Size it for a stalled link, not a slow one. That is what bounds a dead\n# link, and it is the part that matters for #101/#102.\n#\n# The two retry counts are different things and only one of them may be cut.\n# --retries is whole-run: a failed run is repeated by the exit sync, the next\n# boot, or the player, so one attempt is right and the run is not repeated\n# here. --low-level-retries is per HTTP operation, and it is what every\n# rclone user relies on to ride out a provider's transient errors. Cutting it\n# to 2 broke Dropbox outright: Dropbox serialises writes per folder and\n# answers concurrent ones with a lock error, so a saves backup that replaced\n# more than one file failed every time -- the exit sync after a game, for a\n# save already in the cloud, which is the ordinary case. Measured on the\n# maintainer's RG SP (2026-09-10): replacing 12 files, 6 moves failed at 2\n# low-level retries and 0 failed at 10. It is back at rclone's default.\n#\n# One line, split on spaces by the scripts. An empty value gives these same\n# numbers, never rclone's defaults: the scripts fall back to them.\nDEFAULT_RCLONE_NET_OPTS=\"--contimeout 15s --timeout 30s --low-level-retries 10 --retries 1\"\nDEFAULT_RCLONE_SYNC_NET_OPTS=\"--contimeout 5s --timeout 5s --retries 1 --max-duration 90s --low-level-retries 5 --transfers 1\"\nDEFAULT_SYNC_CEILING_SECONDS=90\n\n# Backup Options\n# -------------\n## Backup method\n### The default is \"copy\", which sends each save that differs and never deletes\n### anything in the cloud; whatever it replaces is kept for one cycle in the\n### folder beside the saves folder named <saves folder>-replaced.\n### \"sync\" also deletes from the cloud whatever this device does not have --\n### every other device's saves, in a folder they share. It is honoured if set\n### here; no menu offers it.\n### --delete-excluded is removed from RCLONEOPTS before every run, whatever\n### this file says, so a mirror never reaches past the rules file.\nDEFAULT_BACKUPMETHOD=\"copy\"\n\n## How many dated settings backups to keep in the cloud, per device\n### Each is a full archive (~17MB). Older ones beyond this are removed\n### after a successful upload. Set to a larger number to keep more\n### history, at the cost of cloud storage.\n### Only archives carrying this device's name, between the date and\n### ROCKNIX (<date>-<device>-ROCKNIX_SETTINGS.tar.gz), are counted and\n### removed; one carrying another device's name, or none, is left alone.\nDEFAULT_CLOUD_BACKUP_KEEP=\"3\"\n\n## Enable backing-up the settings backup file\n### The default is \"yes\", which will include the settings backup file in the backup\n### Switching to \"no\" will exclude the settings backup file from the backup\nDEFAULT_BACKUPFILE_BACKUP_OPTION=\"yes\"\n\n# Restore Options\n# --------------\n## Restore method\n### The default is \"copy\", which will preserve any existing files and folders\n### Switching to \"sync\" will replace all local files in the restore path with what is on the remote\nDEFAULT_RESTOREMETHOD=\"copy\"\n\n## Enable restoring the settings backup file\n### The default is \"no\", which will exclude the settings backup file from the restore\n### Switching to \"yes\" will include the settings backup file in the restore\nDEFAULT_BACKUPFILE_RESTORE_OPTION=\"no\"\n\n# Maintenance Options\n# -----------------\n# Option to enable/disable removing orphaned empty directories on the remote that are also empty locally. Enabled by default. Comment out to disable.\nDEFAULT_RSYNCRMDIR=\"yes\"\n"
+  },
+  "sa/f-pl352/cloud/gb/A.gb": {
+    "sha256": "ab01b207e55ad6c51346fb786a707ee947c58e4723b4a8e3c99135c0e759f7e1",
+    "bytes": 5,
+    "text": "game\n"
+  },
+  "sa/f-pl352/conf-before": {
+    "sha256": "f3c3f75a5727a5f0b8b1189a19e850472acee01c8ddbdd9c3dd03d9767ec8ccd",
+    "bytes": 52,
+    "text": "SAVES_REMOTE=\"/pixelelated/Saves\"\nCONTENT_REMOTE=\"\"\n"
+  },
+  "sa/f-pl352/ctl/argv": {
+    "sha256": "fc445541708febe62eaac181bcb4e97d74af8353a95437c88135b92b5c8fa0b4",
+    "bytes": 2257,
+    "text": "listremotes\nlsf -R --files-only --format sp --separator | qa:ROMs/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\nlsf -R --files-only --format sp --separator | qa:BIOS/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\nlsd qa: --contimeout 10s --timeout 20s --low-level-retries 1 --retries 1\nlsf -R --files-only --format sp --separator | qa: --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\nlistremotes\nlsf --dirs-only qa: --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\nlsf --dirs-only qa:pixelelated/Content/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\nlistremotes\nlsf --dirs-only qa:pixelelated/Content --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\nlistremotes\nlsf --dirs-only qa:Mine --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\nlsf --dirs-only qa: --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\nlsf --dirs-only qa:pixelelated/Content/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\nlistremotes\nlsf --dirs-only qa:Mine --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\nlsf --dirs-only qa: --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\nlsf --dirs-only qa:pixelelated/Content/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\nlistremotes\nlsf --dirs-only qa: --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\nlistremotes\nlsf --dirs-only qa: --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\nlistremotes\nlsf --dirs-only qa:Mine --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\nlsf --dirs-only qa: --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\nlistremotes\nlsf -R --files-only --format sp --separator | qa:ROMs/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\nlsf -R --files-only --format sp --separator | qa:BIOS/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\nlsd qa: --contimeout 10s --timeout 20s --low-level-retries 1 --retries 1\nlsf -R --files-only --format sp --separator | qa: --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\nlistremotes\nlsf --dirs-only qa: --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\n"
+  },
+  "sa/f-pl352/ctl/fail": {
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0,
+    "text": ""
+  },
+  "sa/f-pl352/ctl/fault-fired": {
+    "sha256": "3c69d6fd7eef2a8e815e36fc74454066476485ed61535bb46b2bd3f8ce319f45",
+    "bytes": 85,
+    "text": "lsf --dirs-only qa: --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\n"
+  },
+  "sa/f-pl352/ctl/hang": {
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0,
+    "text": ""
+  },
+  "sa/f-pl352/ctl/kill": {
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0,
+    "text": ""
+  },
+  "sa/f-pl352/ctl/post": {
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0,
+    "text": ""
+  },
+  "sa/f-pl352/log/cloud_sync.log": {
+    "sha256": "2ce50147350254fedf1185c9bad3ccdfbad93d3ca12d7b314f79897a2490fe60",
+    "bytes": 90,
+    "text": "[2026-10-08 02:09:00] [INFO] [cloud_setup] Content path set to the remote root by request\n"
+  },
+  "sa/f-pl352/out": {
+    "sha256": "a8e8255dc038ce70f8bc3afa8810d7e6c5f31216b5f350cf1c9f53ded5954149",
+    "bytes": 54,
+    "text": ">>> why YOUR CLOUD STOPPED ANSWERING\nSTATE=unreadable\n"
+  },
+  "sa/f-pl352/repo/cloud_content_restore": {
+    "sha256": "3b28fd1403657d713f92f216840a52ff7e692bf09746a7ccb8c2519c6940d2f8",
+    "bytes": 85192
+  },
+  "sa/f-pl352/repo/cloud_content_transfer": {
+    "sha256": "fe292268d9029c2b950a093f6902b5cbe8afb3d57cb47187251cf90c3d85a1a3",
+    "bytes": 6351
+  },
+  "sa/f-pl352/repo/cloud_device_id": {
+    "sha256": "8ea49607f27a9b7cabb45e856bff4b07a4d056140a1aa8ab21f35fb988b120d5",
+    "bytes": 97
+  },
+  "sa/f-pl352/repo/cloud_setup": {
+    "sha256": "a7eea3879848ec4879f279f3b7e2a2c08f3531c970ec4dd9858b09290975265c",
+    "bytes": 53440
+  },
+  "sa/f-pl352/storage/.cache/cloud_sync/content-systems": {
+    "sha256": "b076024029dc538c05cf06e5ff1f54cc64da9510eb742e4f6b117afccef83666",
+    "bytes": 3,
+    "text": "gb\n"
+  },
+  "sa/f-pl352/storage/.config/cloud_sync.conf": {
+    "sha256": "f3c3f75a5727a5f0b8b1189a19e850472acee01c8ddbdd9c3dd03d9767ec8ccd",
+    "bytes": 52,
+    "text": "SAVES_REMOTE=\"/pixelelated/Saves\"\nCONTENT_REMOTE=\"\"\n"
+  },
+  "sa/f-pl352/storage/.config/emulationstation/es_systems.cfg": {
+    "sha256": "8121d88d59cde1aa1439fb7953e2370135fc406a7410f69148d4642039a78629",
+    "bytes": 93,
+    "text": "<systemList><system><name>Game Boy</name><path>/storage/roms/gb</path></system></systemList>\n"
+  },
+  "sa/f-pl352/storage/.config/rclone/rclone.conf": {
+    "sha256": "7603c17bce0056aae641bee817b6f9875863b4158f34d526914bfba008485eb5",
+    "bytes": 34,
+    "text": "[qa]\ntype = alias\nremote = /cloud\n"
+  },
+  "sa/nbin/awk": {
+    "sha256": "41ab2cc7aaadcf858aadf0da55a360bc7708f0482d069a501b4c1e96da534cfd",
+    "bytes": 160,
+    "text": "#!/bin/sh\n[ -x /lgst/busybox ] && exec /lgst/busybox awk \"$@\"\nexec /workspace/tmp/pixelelated-validator-20261007/harness-selected-historical03/busybox awk \"$@\"\n"
+  },
+  "sa/nbin/basename": {
+    "sha256": "c6265bb78b7dce3f24671905b3226919ca32312952fe18f36fcbb144f854c44d",
+    "bytes": 170,
+    "text": "#!/bin/sh\n[ -x /lgst/busybox ] && exec /lgst/busybox basename \"$@\"\nexec /workspace/tmp/pixelelated-validator-20261007/harness-selected-historical03/busybox basename \"$@\"\n"
+  },
+  "sa/nbin/cat": {
+    "sha256": "19e30d07efa7a9d01da49ec63bcf6db59b39392ec642fa2ea1cf72efeac5665f",
+    "bytes": 160,
+    "text": "#!/bin/sh\n[ -x /lgst/busybox ] && exec /lgst/busybox cat \"$@\"\nexec /workspace/tmp/pixelelated-validator-20261007/harness-selected-historical03/busybox cat \"$@\"\n"
+  },
+  "sa/nbin/chmod": {
+    "sha256": "ddd9e63f51f23613f5dad1f136ddf7fa27f8f3052bc0c1de2286b432a435d23f",
+    "bytes": 164,
+    "text": "#!/bin/sh\n[ -x /lgst/busybox ] && exec /lgst/busybox chmod \"$@\"\nexec /workspace/tmp/pixelelated-validator-20261007/harness-selected-historical03/busybox chmod \"$@\"\n"
+  },
+  "sa/nbin/cmp": {
+    "sha256": "209c56318d848d23d2be0b55b2b3ca8987252b23cd021c921cb1515ea2d845cd",
+    "bytes": 160,
+    "text": "#!/bin/sh\n[ -x /lgst/busybox ] && exec /lgst/busybox cmp \"$@\"\nexec /workspace/tmp/pixelelated-validator-20261007/harness-selected-historical03/busybox cmp \"$@\"\n"
+  },
+  "sa/nbin/cp": {
+    "sha256": "6a2ece71c6bfcceca8198e645dd7174229ab846e116708cbaa40771de6f544a7",
+    "bytes": 158,
+    "text": "#!/bin/sh\n[ -x /lgst/busybox ] && exec /lgst/busybox cp \"$@\"\nexec /workspace/tmp/pixelelated-validator-20261007/harness-selected-historical03/busybox cp \"$@\"\n"
+  },
+  "sa/nbin/cut": {
+    "sha256": "3935263aadaf303cd11c3e39b52d34097efc52b916b30c90f149b6c611b8d52f",
+    "bytes": 160,
+    "text": "#!/bin/sh\n[ -x /lgst/busybox ] && exec /lgst/busybox cut \"$@\"\nexec /workspace/tmp/pixelelated-validator-20261007/harness-selected-historical03/busybox cut \"$@\"\n"
+  },
+  "sa/nbin/date": {
+    "sha256": "225b3756b905153a3fd19d165c8319ea9b0fa80b154c92df4a2f0e7a56b178ba",
+    "bytes": 162,
+    "text": "#!/bin/sh\n[ -x /lgst/busybox ] && exec /lgst/busybox date \"$@\"\nexec /workspace/tmp/pixelelated-validator-20261007/harness-selected-historical03/busybox date \"$@\"\n"
+  },
+  "sa/nbin/dirname": {
+    "sha256": "82ababf4db0491e6d31f9afb30a1404c722595616d01f0b6978e40390ebd73f8",
+    "bytes": 168,
+    "text": "#!/bin/sh\n[ -x /lgst/busybox ] && exec /lgst/busybox dirname \"$@\"\nexec /workspace/tmp/pixelelated-validator-20261007/harness-selected-historical03/busybox dirname \"$@\"\n"
+  },
+  "sa/nbin/find": {
+    "sha256": "830ab726ccfb0c6ede8723725ca1abae44512e1da00055b8be1ea663ba42f7f6",
+    "bytes": 162,
+    "text": "#!/bin/sh\n[ -x /lgst/busybox ] && exec /lgst/busybox find \"$@\"\nexec /workspace/tmp/pixelelated-validator-20261007/harness-selected-historical03/busybox find \"$@\"\n"
+  },
+  "sa/nbin/flock": {
+    "sha256": "c44f286cf28aea9e1a19672f444018da481c4e56bac691762ced716e3c09a9ea",
+    "bytes": 164,
+    "text": "#!/bin/sh\n[ -x /lgst/busybox ] && exec /lgst/busybox flock \"$@\"\nexec /workspace/tmp/pixelelated-validator-20261007/harness-selected-historical03/busybox flock \"$@\"\n"
+  },
+  "sa/nbin/head": {
+    "sha256": "9e7a28543c04102516c5595aa4c4dbe3d50b51b14344621bf267014eb067e0f8",
+    "bytes": 162,
+    "text": "#!/bin/sh\n[ -x /lgst/busybox ] && exec /lgst/busybox head \"$@\"\nexec /workspace/tmp/pixelelated-validator-20261007/harness-selected-historical03/busybox head \"$@\"\n"
+  },
+  "sa/nbin/ln": {
+    "sha256": "da2abcc6aab847ab3daa830d147ecc1ceef943c4f226c54f90d43a373c1e24fe",
+    "bytes": 158,
+    "text": "#!/bin/sh\n[ -x /lgst/busybox ] && exec /lgst/busybox ln \"$@\"\nexec /workspace/tmp/pixelelated-validator-20261007/harness-selected-historical03/busybox ln \"$@\"\n"
+  },
+  "sa/nbin/ls": {
+    "sha256": "722e0f740b6453880e7f0dee6c88c6b1c35cd1580f0e2783ed57a3be47c9939e",
+    "bytes": 158,
+    "text": "#!/bin/sh\n[ -x /lgst/busybox ] && exec /lgst/busybox ls \"$@\"\nexec /workspace/tmp/pixelelated-validator-20261007/harness-selected-historical03/busybox ls \"$@\"\n"
+  },
+  "sa/nbin/md5sum": {
+    "sha256": "4c0763c2326bf4f57efe3811fc7542c8adb7083bbaa037465bc80331b88c4318",
+    "bytes": 166,
+    "text": "#!/bin/sh\n[ -x /lgst/busybox ] && exec /lgst/busybox md5sum \"$@\"\nexec /workspace/tmp/pixelelated-validator-20261007/harness-selected-historical03/busybox md5sum \"$@\"\n"
+  },
+  "sa/nbin/mkdir": {
+    "sha256": "ee5e8b85c8043c84f1078aae4bba93154dea68df4fc29974fd3f6a64140aa2d6",
+    "bytes": 164,
+    "text": "#!/bin/sh\n[ -x /lgst/busybox ] && exec /lgst/busybox mkdir \"$@\"\nexec /workspace/tmp/pixelelated-validator-20261007/harness-selected-historical03/busybox mkdir \"$@\"\n"
+  },
+  "sa/nbin/mkfifo": {
+    "sha256": "2dc119a0e8b8320bd70e9c4adae0781e05aff3b47ae71f6c05d4a0280bb3159a",
+    "bytes": 166,
+    "text": "#!/bin/sh\n[ -x /lgst/busybox ] && exec /lgst/busybox mkfifo \"$@\"\nexec /workspace/tmp/pixelelated-validator-20261007/harness-selected-historical03/busybox mkfifo \"$@\"\n"
+  },
+  "sa/nbin/mktemp": {
+    "sha256": "1293a45d5700c1316125aae488684b2ee52be3e91fd06fc6eb29674ae0a4c72e",
+    "bytes": 166,
+    "text": "#!/bin/sh\n[ -x /lgst/busybox ] && exec /lgst/busybox mktemp \"$@\"\nexec /workspace/tmp/pixelelated-validator-20261007/harness-selected-historical03/busybox mktemp \"$@\"\n"
+  },
+  "sa/nbin/mv": {
+    "sha256": "7a9b9b917bd9c0ecbdb599ce0389dd850a16f5ca715cf628fc2610b5eb7e1225",
+    "bytes": 158,
+    "text": "#!/bin/sh\n[ -x /lgst/busybox ] && exec /lgst/busybox mv \"$@\"\nexec /workspace/tmp/pixelelated-validator-20261007/harness-selected-historical03/busybox mv \"$@\"\n"
+  },
+  "sa/nbin/readlink": {
+    "sha256": "fc99871e5e362266fe43e888d2ef0a1b062db8b45a74f7e3866bc61485a6d98b",
+    "bytes": 170,
+    "text": "#!/bin/sh\n[ -x /lgst/busybox ] && exec /lgst/busybox readlink \"$@\"\nexec /workspace/tmp/pixelelated-validator-20261007/harness-selected-historical03/busybox readlink \"$@\"\n"
+  },
+  "sa/nbin/rm": {
+    "sha256": "bbba985ebab72edb770bdc1623291dc22a79afe8536a35392a8dad0c7add4b44",
+    "bytes": 158,
+    "text": "#!/bin/sh\n[ -x /lgst/busybox ] && exec /lgst/busybox rm \"$@\"\nexec /workspace/tmp/pixelelated-validator-20261007/harness-selected-historical03/busybox rm \"$@\"\n"
+  },
+  "sa/nbin/sed": {
+    "sha256": "135c9a21a56f6cb8f3f4982c72d1f1bff549ccf343630463a7bb5afbd5d851fe",
+    "bytes": 160,
+    "text": "#!/bin/sh\n[ -x /lgst/busybox ] && exec /lgst/busybox sed \"$@\"\nexec /workspace/tmp/pixelelated-validator-20261007/harness-selected-historical03/busybox sed \"$@\"\n"
+  },
+  "sa/nbin/sleep": {
+    "sha256": "4ac617378123bd5e349b0568a533af0799d0248c6326dda83463e54b824850eb",
+    "bytes": 164,
+    "text": "#!/bin/sh\n[ -x /lgst/busybox ] && exec /lgst/busybox sleep \"$@\"\nexec /workspace/tmp/pixelelated-validator-20261007/harness-selected-historical03/busybox sleep \"$@\"\n"
+  },
+  "sa/nbin/stat": {
+    "sha256": "1d6b489f78ed173e705db7a27aa0378dc352347065381bb4ca3c79bebf529635",
+    "bytes": 162,
+    "text": "#!/bin/sh\n[ -x /lgst/busybox ] && exec /lgst/busybox stat \"$@\"\nexec /workspace/tmp/pixelelated-validator-20261007/harness-selected-historical03/busybox stat \"$@\"\n"
+  },
+  "sa/nbin/tail": {
+    "sha256": "5049b3b8189782ff6328a91f9ce1beebecc6d3f8e2befbb2bcc99b1b6460e14f",
+    "bytes": 162,
+    "text": "#!/bin/sh\n[ -x /lgst/busybox ] && exec /lgst/busybox tail \"$@\"\nexec /workspace/tmp/pixelelated-validator-20261007/harness-selected-historical03/busybox tail \"$@\"\n"
+  },
+  "sa/nbin/tar": {
+    "sha256": "5a079ca80a13ebbd50ce2b329728858a8f22524978268d3fd4887de4a97b2764",
+    "bytes": 160,
+    "text": "#!/bin/sh\n[ -x /lgst/busybox ] && exec /lgst/busybox tar \"$@\"\nexec /workspace/tmp/pixelelated-validator-20261007/harness-selected-historical03/busybox tar \"$@\"\n"
+  },
+  "sa/nbin/tee": {
+    "sha256": "40541d9f3f00202c277e7a6099f09c7fee7a777973ab0cb9cd3da1fab596fc4f",
+    "bytes": 160,
+    "text": "#!/bin/sh\n[ -x /lgst/busybox ] && exec /lgst/busybox tee \"$@\"\nexec /workspace/tmp/pixelelated-validator-20261007/harness-selected-historical03/busybox tee \"$@\"\n"
+  },
+  "sa/nbin/touch": {
+    "sha256": "4abda12410bcfee8b840dd5cb713a409986f9d8fe1854b24f40abcdfc76196d7",
+    "bytes": 164,
+    "text": "#!/bin/sh\n[ -x /lgst/busybox ] && exec /lgst/busybox touch \"$@\"\nexec /workspace/tmp/pixelelated-validator-20261007/harness-selected-historical03/busybox touch \"$@\"\n"
+  },
+  "sa/nbin/tr": {
+    "sha256": "97fe61dd93f869fdc685d367f85cf30fce5934e552e51c971f30f31a94927dfc",
+    "bytes": 158,
+    "text": "#!/bin/sh\n[ -x /lgst/busybox ] && exec /lgst/busybox tr \"$@\"\nexec /workspace/tmp/pixelelated-validator-20261007/harness-selected-historical03/busybox tr \"$@\"\n"
+  },
+  "sa/nbin/uniq": {
+    "sha256": "5b2c94be9db7fafa761531dcd5df54c61d28396d8bc3dc27d081715cf2deaf30",
+    "bytes": 162,
+    "text": "#!/bin/sh\n[ -x /lgst/busybox ] && exec /lgst/busybox uniq \"$@\"\nexec /workspace/tmp/pixelelated-validator-20261007/harness-selected-historical03/busybox uniq \"$@\"\n"
+  },
+  "sa/nbin/unzip": {
+    "sha256": "7184aca5a32da688f17d9ac22739645d18420040b87349eded86f57ca078097d",
+    "bytes": 164,
+    "text": "#!/bin/sh\n[ -x /lgst/busybox ] && exec /lgst/busybox unzip \"$@\"\nexec /workspace/tmp/pixelelated-validator-20261007/harness-selected-historical03/busybox unzip \"$@\"\n"
+  },
+  "sa/nbin/wc": {
+    "sha256": "b4b89e7a479bb509c2c3572d470b3fcd2096815fff17b7f474c0e8944f69ea74",
+    "bytes": 158,
+    "text": "#!/bin/sh\n[ -x /lgst/busybox ] && exec /lgst/busybox wc \"$@\"\nexec /workspace/tmp/pixelelated-validator-20261007/harness-selected-historical03/busybox wc \"$@\"\n"
+  },
+  "sa/nbin/xargs": {
+    "sha256": "8ff5fa33a96d0fee9f50e1176024619927b3c6763392db188c735a2c27ef0766",
+    "bytes": 164,
+    "text": "#!/bin/sh\n[ -x /lgst/busybox ] && exec /lgst/busybox xargs \"$@\"\nexec /workspace/tmp/pixelelated-validator-20261007/harness-selected-historical03/busybox xargs \"$@\"\n"
+  },
+  "sa/profile": {
+    "sha256": "8a5071e54dea8ced98eb29d98f64510e062723e0e17561006f72e53e3afe6b86",
+    "bytes": 59,
+    "text": "export PATH=/shim:/nbin:/usr/bin:/bin\nexport HOME=/storage\n"
+  },
+  "sa/rclone.real": {
+    "sha256": "361c27d953f822969afc25a73e0cc2122fd8e161545f9c0e5f63c5baad92724c",
+    "bytes": 85358256
+  },
+  "sa/shim/ip": {
+    "sha256": "32136536acef04b4712b1533e523d33fd573ad7e3e74e17993c78ac77486cbcd",
+    "bytes": 115,
+    "text": "#!/bin/sh\ncase \"$*\" in *\"route show default\"*) [ -e /ctl/noroute ] || echo \"default via 10.0.2.2 dev eth0\" ;; esac\n"
+  },
+  "sa/shim/logger": {
+    "sha256": "306c6ca7407560340797866e077e053627ad409277d1b9da58106fce4cf717cb",
+    "bytes": 17,
+    "text": "#!/bin/sh\nexit 0\n"
+  },
+  "sa/shim/ping": {
+    "sha256": "349d7ca69ed3b58a49d990499b8e185c79b26055f92db93eda805463ab2ed11f",
+    "bytes": 46,
+    "text": "#!/bin/sh\n[ -e /ctl/noping ] && exit 1\nexit 0\n"
+  },
+  "sa/shim/rclone": {
+    "sha256": "84cd35f6b26fe0b31e7ac8c783851f27fc27eecd41f002efb6f857f52d51d8a3",
+    "bytes": 2224,
+    "text": "#!/bin/bash\n# The image's rclone, with the calls /ctl/fail names (\"<ERE><tab><exit>\")\n# failed instead; /ctl/kill (\"<ERE><tab><n>\") kills the caller's whole\n# process group at the n-th matching call, before it runs -- a kill, not a\n# failure; /ctl/post (\"<ERE><tab><command>\") runs a command after a\n# matching call -- another\n# writer landing between two steps; /ctl/nohash makes `backend features`\n# describe a remote with no hashes (WebDAV, SFTP, SMB, FTP).\nprintf '%s\\n' \"$*\" >> /ctl/argv\n# A successful provider-features fixture must contain a valid answer.\nif [ \"$1\" = backend ] && [ \"$2\" = features ] && [ -s /ctl/provider-features ]; then\n    cat /ctl/provider-features; exit 0\nfi\nif [ -s /ctl/fail ]; then\n    while IFS=$'\\t' read -r pat code; do\n        [ -n \"${pat}\" ] || continue\n        if printf '%s' \"$*\" | grep -qE -- \"${pat}\"; then\n            printf '%s\\n' \"$*\" >> /ctl/fault-fired\n            echo \"ERROR : injected failure ${code}\" >&2\n            exit \"${code}\"\n        fi\n    done < /ctl/fail\nfi\nif [ -s /ctl/kill ]; then\n    while IFS=$'\\t' read -r pat nth; do\n        [ -n \"${pat}\" ] || continue\n        printf '%s' \"$*\" | grep -qE -- \"${pat}\" || continue\n        n=$(( $(cat /ctl/kill.count 2>/dev/null || echo 0) + 1 )); echo \"${n}\" > /ctl/kill.count\n        [ \"${n}\" -eq \"${nth}\" ] && kill -9 -- \"-$(cut -d' ' -f5 /proc/self/stat)\"\n    done < /ctl/kill\nfi\nif [ -s /ctl/hang ]; then\n    # /ctl/hang (\"<ERE><tab><seconds>\"): a call that sits silent, as a cloud\n    # that accepts and never answers leaves it -- one process, so whatever\n    # bound ends the call ends it.\n    while IFS=$'\\t' read -r pat secs; do\n        [ -n \"${pat}\" ] || continue\n        printf '%s' \"$*\" | grep -qE -- \"${pat}\" && exec sleep \"${secs}\"\n    done < /ctl/hang\nfi\nif [ -e /ctl/nohash ] && [ \"$1\" = backend ] && [ \"$2\" = features ]; then\n    printf '{\\n\\t\"Name\": \"qa\",\\n\\t\"Hashes\": [],\\n\\t\"Features\": {\\n\\t\\t\"BucketBased\": false\\n\\t}\\n}\\n'\n    exit 0\nfi\nif [ -s /ctl/post ]; then\n    /sa/rclone.real \"$@\"; rc=$?\n    while IFS=$'\\t' read -r pat cmd; do\n        [ -n \"${pat}\" ] || continue\n        printf '%s' \"$*\" | grep -qE -- \"${pat}\" && eval \"${cmd}\"\n    done < /ctl/post\n    exit \"${rc}\"\nfi\nexec /sa/rclone.real \"$@\"\n"
+  },
+  "sa/shim/systemd-tmpfiles": {
+    "sha256": "306c6ca7407560340797866e077e053627ad409277d1b9da58106fce4cf717cb",
+    "bytes": 17,
+    "text": "#!/bin/sh\nexit 0\n"
+  }
+}
