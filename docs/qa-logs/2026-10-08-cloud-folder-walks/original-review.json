@@ -1,0 +1,59 @@
+{
+  "utc": "2026-10-08T20:08:58.220071+00:00",
+  "source": "7f58b7b1c592908dcd0ba5987955e59aaa79fe66",
+  "ES": "1d76b3da7da75794066df1c089931b890304da7a",
+  "original_job": "qa-21 remains active",
+  "directly_reviewed": [
+    "original-control/to-change-cloud-folder/03-folder-editor.png",
+    "original-control/confirm-cloud-folder/04-folder-result.png",
+    "original-control/confirm-cloud-folder/05-after-dismiss.png"
+  ],
+  "findings": [
+    "03 is the three-row CLOUD FOLDERS selector, not the keyboard",
+    "04 is the game-system carousel after START closes menus",
+    "05 is the FBNeo game list after A opens it; no folder confirmation was tested"
+  ],
+  "control": "Original walk produced frames without a command error; its intended screen contract fails. Original frame-diff result still pending. No product navigation failure claimed.",
+  "files": [
+    {
+      "path": "original-control/to-change-cloud-folder/03-folder-editor.png",
+      "sha256": "4320a61467deff46a810b115767d38702d8174bd6d7b2bcdb579bc006d0e5f7e",
+      "status": "rejected old navigation"
+    },
+    {
+      "path": "original-control/to-change-cloud-folder/02-hub-change-folder-row.png",
+      "sha256": "d95b638feee421b9b84856808f472bc36623c69ca0be56240e0570846a196e9c",
+      "status": "rejected old navigation"
+    },
+    {
+      "path": "original-control/to-change-cloud-folder/01-cloud-hub.png",
+      "sha256": "926fc66634d24564a4fef7e2a3696facc7a7b9adde9487d70af3dc52a4f3185e",
+      "status": "rejected old navigation"
+    },
+    {
+      "path": "original-control/confirm-cloud-folder/04-folder-result.png",
+      "sha256": "73814bfc6b909b8c6662b8f2004660b0613d2b5d1a6353e7491350889e480599",
+      "status": "rejected old navigation"
+    },
+    {
+      "path": "original-control/confirm-cloud-folder/05-after-dismiss.png",
+      "sha256": "529343d266979c63f0b607b7ce1b060ed7b980797de5fdaedf0d90d2d2c85046",
+      "status": "rejected old navigation"
+    },
+    {
+      "path": "original-control/confirm-cloud-folder/03-folder-editor.png",
+      "sha256": "d49cdae4f47c7e3f88172efc9b8fa3323dc3008c26406ed206b02d0aef0a54a7",
+      "status": "rejected old navigation"
+    },
+    {
+      "path": "original-control/confirm-cloud-folder/02-hub-change-folder-row.png",
+      "sha256": "78581114ed2d158a2f77f1f70729243061c4d218d141b0c37883425e0d203061",
+      "status": "rejected old navigation"
+    },
+    {
+      "path": "original-control/confirm-cloud-folder/01-cloud-hub.png",
+      "sha256": "7adfc6b991fab9a14970c2f5fd4fc6634807ae5ea9add73e8b13b20332557b47",
+      "status": "rejected old navigation"
+    }
+  ]
+}
