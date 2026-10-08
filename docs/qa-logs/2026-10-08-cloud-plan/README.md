@@ -20,3 +20,9 @@ per-path outcome is included in this packet. No product
 source, pin, UI string, accepted frame or firmware artifact changed; the existing
 source-overlay proof remains tied to its original inputs. Fresh-reader review and local/push checks are recorded here as completed;
 publication readback is retained after the push.
+
+Publication: next `b115af8d4cebbb8845edf32f519b3d00580c9ff1`, independently
+matched to the GitHub ref in publication.json. Required checks pass; the overdue
+new delta audit remains #507 and is not claimed complete. The planning/readback
+criterion and completed private-read criterion were updated and read back;
+remaining implementation/adoption and personal review criteria remain open.
