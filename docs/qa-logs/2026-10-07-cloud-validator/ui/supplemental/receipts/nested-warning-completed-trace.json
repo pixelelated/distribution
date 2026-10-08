@@ -1,0 +1,117 @@
+{
+  "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+  "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+  "finding": "Nested-folder warning is diagnostic log/stdout. It has no protocol prefix and matches no progress-line form, so current ES transfer/card consumers do not display its sentence. Actual backup result frame is separately pending.",
+  "sources": [
+    {
+      "file": "projects/ROCKNIX/packages/network/rclone/sources/cloud_backup",
+      "sha256": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+      "excerpts": [
+        {
+          "first_line": 402,
+          "last_line": 418,
+          "text": "log_message() {\n    local message=\"$1\"\n    local echo_to_screen=\"${2:-true}\"  # Default to true\n    local level=\"${3:-${LOG_LEVEL:-INFO}}\"  # Use configured LOG_LEVEL as default\n    local timestamp=$(date \"+%Y-%m-%d %H:%M:%S\")\n    \n    echo \"[${timestamp}] [${level}] [${SCRIPT_NAME}] ${message}\" >> ${LOG_FILE}\n    \n    if [[ \"${echo_to_screen}\" == \"true\" ]]; then\n        # Color output based on level\n        case \"${level}\" in\n            ERROR) echo -e \"\\e[31m${message}\\e[0m\" ;;\n            WARN)  echo -e \"\\e[33m${message}\\e[0m\" ;;\n            *)     echo -e \"${message}\" ;;\n        esac\n    fi\n}"
+        },
+        {
+          "first_line": 1432,
+          "last_line": 1443,
+          "text": "    local nested_key nested_val nested_what\n    for nested_key in SETTINGS_REMOTE CONTENT_REMOTE; do\n        nested_val=\"${!nested_key}\"\n        [ -n \"${nested_val}\" ] && [ -n \"${SAVES_REMOTE%/}\" ] || continue\n        case \"${nested_val%/}/\" in\n            \"${SAVES_REMOTE%/}/\"?*)\n                log_message \"${nested_key}=${nested_val} is inside SAVES_REMOTE=${SAVES_REMOTE}\" \"false\" \"WARN\"\n                if [ \"${nested_key}\" = \"SETTINGS_REMOTE\" ]; then nested_what=\"settings folder\"; else nested_what=\"ROMs and BIOS folder\"; fi\n                [ \"${AUTOMATIC}\" -eq 1 ] || log_message \"Your ${nested_what} in the cloud sits inside your saves folder. Linking cloud storage does not move these files. You can choose separate folders in MANAGE CLOUD STORAGE.\" \"true\" \"WARN\"\n                ;;\n        esac\n    done"
+        }
+      ]
+    },
+    {
+      "file": "es-app/src/CloudTransferJob.cpp",
+      "sha256": "1de9cf1952ff0f15a1d2872ce2b04aee38219d72e8c635199873160c4613a8d6",
+      "excerpts": [
+        {
+          "first_line": 202,
+          "last_line": 206,
+          "text": "\tstd::unique_lock<std::mutex> lock(mMutex);\n\n\t// \"Transferred:   \\t 1.4 GiB / 2.0 GiB, 70%, 2.5 MiB/s, ETA 3m2s\"\n\t//\n\t// It appears twice per block: once for bytes, once for the file count"
+        },
+        {
+          "first_line": 263,
+          "last_line": 271,
+          "text": "\t// Nothing carrying \">>> \" is rclone's, so nothing carrying \">>> \"\n\t// reaches the rclone parsers below -- a marker newer than this build\n\t// included. It is dropped deliberately here rather than left to fall\n\t// through to matchers that were never asked about it.\n\tconst CloudText::ProtocolLine protocol = CloudText::classifyProtocolLine(line);\n\tif (protocol.kind != CloudText::ProtocolKind::NotProtocol)\n\t{\n\t\tswitch (protocol.kind)\n\t\t{"
+        },
+        {
+          "first_line": 401,
+          "last_line": 418,
+          "text": "\t\t\t// signal; a run of this kind is not cancelled for a launch (D-CLOUD-113).\n\t\t\t// Unknown is a marker newer than this build.\n\t\t\tbreak;\n\t\t}\n\t\treturn;\n\t}\n\n\t// From here on the line is rclone's, so whatever the item was busy with\n\t// before rclone ran is over.\n\tif (line.rfind(\"Transferred:\", 0) == 0)\n\t{\n\t\tstd::string body = Utils::String::trim(line.substr(12));\n\t\tif (body.find('/') == std::string::npos)\n\t\t\treturn;\n\t\tmDoing.clear();\n\t\tif (body.find(\"iB\") == std::string::npos && body.find(\" B\") == std::string::npos)\n\t\t{\n\t\t\tmFilesTotals = body;   // the count line of the block: \"12 / 45, 27%\""
+        },
+        {
+          "first_line": 549,
+          "last_line": 560,
+          "text": "\t\t\t\t\tbreak;\n\t\t\t\t}\n\t\t\t}\n\t\t\tstd::string name = sep == std::string::npos ? body : body.substr(0, sep);\n\t\t\tmFileProgress = sep == std::string::npos ? \"\" : Utils::String::trim(body.substr(sep + 1));\n\t\t\tmCurrent = Utils::FileSystem::getFileName(Utils::String::trim(name));\n\t\t}\n\t\tmFilesThisBlock++;\n\t\treturn;\n\t}\n}\n"
+        },
+        {
+          "first_line": 637,
+          "last_line": 682,
+          "text": "\t\t+ Utils::String::shellQuote(\"echo \\\">>> pid $$\\\"; { trap '' PIPE; \" + mCommand + \" ; }\") + \" 2>&1\";\n\tFILE* pipe = popen(wrapped.c_str(), \"r\");\n\tif (pipe != nullptr)\n\t{\n\t\t// Read a character at a time, and treat three things as ending a line:\n\t\t// \\n, \\r, and the string \"Transferred:\" appearing mid-line.\n\t\t//\n\t\t// The third is not defensive programming, it is the observed format.\n\t\t// Piped (there is no terminal here), rclone ends each redraw after the\n\t\t// last \" * file\" line WITHOUT a newline, so the next block's\n\t\t// \"Transferred:\" is glued onto it:\n\t\t//\n\t\t//   * f4.bin: 26% / 3.8 MiB, 507 KiB/sTransferred: 6.1 MiB / 22.8 MiB...\n\t\t//\n\t\t// Splitting on newlines alone yields one line that is neither a file\n\t\t// line nor a totals line, and both halves are lost -- every block after\n\t\t// the first. \\r is handled because a terminal-attached run does use it.\n\t\tstd::string buf;\n\t\tint c;\n\t\twhile ((c = fgetc(pipe)) != EOF)\n\t\t{\n\t\t\tif (c != '\\n' && c != '\\r')\n\t\t\t{\n\t\t\t\tif (buf.size() < 1024)\n\t\t\t\t\tbuf += (char) c;\n\n\t\t\t\tstatic const std::string MARK = \"Transferred:\";\n\t\t\t\tif (buf.size() > MARK.size()\n\t\t\t\t\t&& buf.compare(buf.size() - MARK.size(), MARK.size(), MARK) == 0)\n\t\t\t\t{\n\t\t\t\t\thandleLine(cleanLine(buf.substr(0, buf.size() - MARK.size())));\n\t\t\t\t\tbuf = MARK;\n\t\t\t\t}\n\t\t\t\tcontinue;\n\t\t\t}\n\n\t\t\thandleLine(cleanLine(buf));\n\t\t\tbuf.clear();\n\t\t}\n\t\tif (!buf.empty())\n\t\t\thandleLine(cleanLine(buf));\n\n\t\tint status = pclose(pipe);\n\t\tif (WIFEXITED(status))\n\t\t\tret = WEXITSTATUS(status);\n\t}"
+        }
+      ]
+    },
+    {
+      "file": "es-app/src/ThreadedCloudSync.cpp",
+      "sha256": "02c577891caafacd1eeb5837beff684806d970cc746c64c8167e9bef46d7a562",
+      "excerpts": [
+        {
+          "first_line": 229,
+          "last_line": 243,
+          "text": "\t\t\t// bound otherwise, then the run goes on or ends SKIPPED as it\n\t\t\t// always did; \">>> doing receive\" and\n\t\t\t// \">>> doing send\" are a composed sync announcing each of its\n\t\t\t// halves before it starts, which is what gives the bar its two\n\t\t\t// halves (D-UI-052). \">>> why <sentence>\" is\n\t\t\t// the scripts saying, at the point of failure and in the\n\t\t\t// player's words, what went wrong -- the last one is the outcome\n\t\t\t// line's why (D-UI-028; it replaced a filter that showed any line\n\t\t\t// containing ERROR, FAILED or WARN, which passed rclone's prose\n\t\t\t// and dropped the scripts' own diagnoses). \">>> tier <label>|<rc>\"\n\t\t\t// is a composed command reporting each of its parts as it ends,\n\t\t\t// so a run where one part finished and another did not is\n\t\t\t// reported as a failure with that part's why, rather than as the last\n\t\t\t// part's code. \">>> unit\" and anything newer is for the transfer\n\t\t\t// page and never reaches the card -- but each one says the wait"
+        },
+        {
+          "first_line": 343,
+          "last_line": 363,
+          "text": "\t\t\t// and \"CLOUD BACKUP UTILITY\" underneath a title reading SYNCING\n\t\t\t// SAVES. Those are written for a log read afterwards, not for\n\t\t\t// somebody watching a handheld.\n\t\t\t//\n\t\t\t// So: transfer progress, and nothing else, in the player's words.\n\t\t\t// What the line carries is CloudText::liveLine's to read (#140;\n\t\t\t// it is what found \"Elapsed time: 2.0sTransferred: 0 B / 0 B\" on\n\t\t\t// the card -- rclone glues one block's last line to the next\n\t\t\t// block's first when it writes to a pipe). What went wrong\n\t\t\t// arrives on the protocol line above, in the scripts' own words,\n\t\t\t// and is said once at the end.\n\t\t\t//\n\t\t\t// Which words a stats line gets is CloudText::liveWords (#208), so\n\t\t\t// the rule is checked without a pipe: a byte line with a total or\n\t\t\t// bytes sent is the fact of the moment and reads X OF Y; a still one\n\t\t\t// (\"0 B / 0 B\") is the listing and the compare and reads COMPARING\n\t\t\t// SAVES -- it used to read NOTHING SENT YET / NOTHING RECEIVED YET,\n\t\t\t// an outcome so far said where the player watches for progress, once\n\t\t\t// per half of every startup and exit sync; the count line holds the\n\t\t\t// words with its number until the bytes move, and the still byte\n\t\t\t// line leaves it there rather than flicker the number. The check"
+        }
+      ]
+    },
+    {
+      "file": "es-app/src/guis/GuiCloudTransfer.cpp",
+      "sha256": "e325863fd03b9fb9bc030401788676151a34ef6403d9b02b81fb1a4350dfeaa4",
+      "excerpts": [
+        {
+          "first_line": 695,
+          "last_line": 705,
+          "text": "\tCloudTransferJob& job = *mJob;\n\tstd::unique_lock<std::mutex> lock(job.mMutex);\n\t// One snapshot per frame for the bar (render() draws from it) and the\n\t// rows below, so they cannot show two different stats blocks. The help\n\t// bar changes with the page -- TRY AGAIN and CLOSE once it is done --\n\t// and is refreshed after the lock: getHelpPrompts takes it too.\n\tconst bool justFinished = job.mFinished && !mShownFinished;\n\tmShownFinished = job.mFinished;\n\tmShownPercent  = job.mPercent;\n\t// A completed run with a step of its own goes on by itself\n\t// (setAutoContinue), from a posted function rather than from inside"
+        },
+        {
+          "first_line": 788,
+          "last_line": 812,
+          "text": "\t\t\tstd::string summary;\n\t\t\tconst bool sized = o.completed && job.mRunBytes > 0;\n\t\t\tif (job.mRunSized && (job.mRunFiles > 0 || sized))\n\t\t\t{\n\t\t\t\tif (job.mRunFiles > 0)\n\t\t\t\t\tsummary = std::to_string(job.mRunFiles) + \" \" + std::string(job.mRunFiles == 1 ? _(\"FILE\") : _(\"FILES\"));\n\t\t\t\tif (sized)\n\t\t\t\t\tsummary += (summary.empty() ? \"\" : \" · \") + sizeLabel((unsigned long) job.mRunBytes);\n\t\t\t\tsummary += \" \" + std::string(restore ? _(\"RESTORED\") : _(\"BACKED UP\"));\n\t\t\t}\n\t\t\telse if (job.mRunSized && o.completed)\n\t\t\t{\n\t\t\t\t// Nothing moved and the run succeeded: everything was there\n\t\t\t\t// already. On a failure the same zero means something else,\n\t\t\t\t// so the sentence is not offered. The clause after the dash\n\t\t\t\t// is dropped whole on a panel too narrow for it, rather than\n\t\t\t\t// ending in an ellipsis -- measured in the font it is set in.\n\t\t\t\tsummary = restore ? _(\"NOTHING NEW - YOU ALREADY HAD IT ALL\")\n\t\t\t\t                  : _(\"NOTHING NEW - YOUR CLOUD ALREADY HAD IT ALL\");\n\t\t\t\tif (mTextFont && mTextFont->sizeText(summary).x() > mLineWidth)\n\t\t\t\t\tsummary = restore ? _(\"NOTHING NEW TO BRING DOWN\") : _(\"NOTHING NEW TO SEND UP\");\n\t\t\t}\n\t\t\tmActivity->setText(fitOneLine(mTextFont, summary, mLineWidth));\n\t\t\tmDetail  ->setText(\"\");\n\t\t}"
+        }
+      ]
+    }
+  ],
+  "supplemental_result": {
+    "source": {
+      "es_commit": "4e410dc9a816cc947f16235ad2b24824b29dd84e",
+      "es_binary_sha256": "94962c93775709dd3e2e7c0eefd470184c3defc41cd5c89cf917f4bcee2dd8b0",
+      "french_catalog_sha256": "a5fafc02b1a243dc63c9d9842efcce040ac72ae076279c77c79c8a0477180ea4",
+      "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+      "overlay_hashes": {
+        "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+        "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+        "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+        "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+        "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+        "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+      },
+      "kind": "reconstructed source overlay; not firmware"
+    },
+    "finding": "Both nested warnings actually fired in the retained synthetic backup log. ES displayed normal COMPLETED outcome; diagnostic sentence was not displayed. Plain log lines are dropped by the unchanged CloudTransferJob parser.",
+    "frames": [
+      "supplemental/frames/walk-en640-nested-backup-02-backup-nested-outcome.png",
+      "supplemental/frames/walk-en1280-nested-backup-01-backup-nested-outcome.png"
+    ],
+    "readbacks": [
+      "supplemental/receipts/ui04-nested-after640-before1280.txt",
+      "supplemental/receipts/ui04-final-readback.txt"
+    ],
+    "consumer_sha256": {
+      "es-app/src/CloudTransferJob.cpp": "1de9cf1952ff0f15a1d2872ce2b04aee38219d72e8c635199873160c4613a8d6",
+      "es-app/src/ThreadedCloudSync.cpp": "02c577891caafacd1eeb5837beff684806d970cc746c64c8167e9bef46d7a562",
+      "es-app/src/guis/GuiCloudTransfer.cpp": "bcc4bc0b52654cdbb9d9cdc8bd3fd1c71306043f34ff082294a42a888cfd3283"
+    }
+  }
+}

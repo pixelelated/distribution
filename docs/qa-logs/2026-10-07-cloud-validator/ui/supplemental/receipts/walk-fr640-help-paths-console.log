@@ -1,0 +1,19 @@
+watch-build: recording in /workspace/tmp/pixelelated-510-coverage02/walk-fr640-help-paths/.build-runs/20261008T025817Z-e81fa3e4
+wait-for-change: `key x` (line 37) was eaten after 12.2s; re-sending (1)
+WALK FAILED: wait-for-change (line 38): the screen did not change within 12s of `key x` on line 37, even after 1 re-send(s). The press was eaten, so every step after this one would run against the wrong screen. The frame is the last one in /workspace/tmp/pixelelated-510-coverage02/walk-fr640-help-paths/frames.
+changed after 0.1s (`key z`, line 1)
+changed after 0.1s (`key z`, line 3)
+changed after 0.0s (`key x`, line 10)
+settle: still after 2.2s
+changed after 0.0s (`key x`, line 14)
+settle: still after 1.3s
+captured /workspace/tmp/pixelelated-510-coverage02/walk-fr640-help-paths/frames/01-saves-instructions.png
+changed after 0.1s (`key z`, line 18)
+changed after 0.1s (`key x`, line 21)
+settle: still after 1.3s
+captured /workspace/tmp/pixelelated-510-coverage02/walk-fr640-help-paths/frames/02-media-instructions.png
+changed after 0.1s (`key x`, line 28)
+changed after 0.1s (`key x`, line 31)
+settle: still after 1.3s
+captured /workspace/tmp/pixelelated-510-coverage02/walk-fr640-help-paths/frames/03-content-path-editor.png
+captured /workspace/tmp/pixelelated-510-coverage02/walk-fr640-help-paths/frames/04-stuck-after-x.png

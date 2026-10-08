@@ -1,0 +1,52 @@
+watch-build: recording in /workspace/tmp/pixelelated-510-coverage02/fault-settings-changed01/.build-runs/20261008T024740Z-96ec56fd
+{
+  "schema_version": 1,
+  "config_id": "14ca78f8bacfcb117a15dfa704796fd4ae2e44b828a50f903e1756ff62bc348f",
+  "remote": "webdav:",
+  "paths": {
+    "saves": "/pixelelated/Saves",
+    "settings": "/pixelelated/Backups",
+    "content": "/pixelelated/Content",
+    "roms": "/pixelelated/Content/ROMs",
+    "bios": "/pixelelated/Content/BIOS",
+    "media": "/pixelelated/Content/ROMs"
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-510-coverage02/fault-settings-changed01/control.py", line 14, in <module>
+    else:raise RuntimeError('network phase not reached')
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: network phase not reached

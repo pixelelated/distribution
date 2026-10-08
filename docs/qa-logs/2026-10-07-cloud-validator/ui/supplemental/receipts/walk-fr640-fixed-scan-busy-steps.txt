@@ -1,0 +1,14 @@
+key ret
+wait-for-change
+key x
+wait-for-change
+key up x2
+key up
+key x
+wait-for-change
+settle
+shot cloud-hub
+key x
+wait-for-change
+settle
+shot scan-busy-fixed

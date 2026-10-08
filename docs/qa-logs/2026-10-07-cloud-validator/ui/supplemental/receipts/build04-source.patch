@@ -1,0 +1,126 @@
+diff --git a/es-app/src/CloudText.cpp b/es-app/src/CloudText.cpp
+index 287896847..fac4406d0 100644
+--- a/es-app/src/CloudText.cpp
++++ b/es-app/src/CloudText.cpp
+@@ -404,6 +404,13 @@ std::vector<std::string> outcomeCandidates(const std::string& outcome)
+ 	return candidates;
+ }
+ 
++std::string lockHeldOutcome(TransferKind kind)
++{
++	return kind == TransferKind::Scan
++		? _("SKIPPED - ANOTHER CLOUD CHECK IS RUNNING")
++		: _("SKIPPED - A SYNC IS ALREADY RUNNING");
++}
++
+ std::vector<std::pair<std::string, std::string>> whySentences()
+ {
+ 	// Each sentence twice: as the script prints it, to match, and inside
+@@ -420,6 +427,9 @@ std::vector<std::pair<std::string, std::string>> whySentences()
+ 		{ "YOUR CLOUD SYNC SETTINGS COULDN'T BE READ", _("YOUR CLOUD SYNC SETTINGS COULDN'T BE READ") },
+ 		{ "YOUR CLOUD SYNC SETTINGS COULDN'T BE SAVED", _("YOUR CLOUD SYNC SETTINGS COULDN'T BE SAVED") },
+ 		{ "YOUR CLOUD FOLDER COULDN'T BE READ", _("YOUR CLOUD FOLDER COULDN'T BE READ") },
++		{ "YOUR CLOUD SETTINGS CHANGED. CHECK AGAIN", _("YOUR CLOUD SETTINGS CHANGED. CHECK AGAIN") },
++		{ "ANOTHER CLOUD CHECK IS RUNNING", _("ANOTHER CLOUD CHECK IS RUNNING") },
++		{ "YOUR CLOUD FOLDERS COULDN'T BE CREATED", _("YOUR CLOUD FOLDERS COULDN'T BE CREATED") },
+ 		{ "CHECK WHAT WOULD CHANGE FIRST", _("CHECK WHAT WOULD CHANGE FIRST") },
+ 		{ "AN OLD FOLDER SETTING IS IN THE WAY", _("AN OLD FOLDER SETTING IS IN THE WAY") },
+ 		{ "YOUR SAVES FOLDER ISN'T ON THIS DEVICE", _("YOUR SAVES FOLDER ISN'T ON THIS DEVICE") },
+diff --git a/es-app/src/CloudText.h b/es-app/src/CloudText.h
+index b94c858f3..d277111fd 100644
+--- a/es-app/src/CloudText.h
++++ b/es-app/src/CloudText.h
+@@ -281,6 +281,10 @@ namespace CloudText
+ 	enum class TransferKind { Backup, Restore, Match, Scan, Create, Other };
+ 	TransferKind transferKind(const std::string& cmd);
+ 
++	// A refused check names its scan lock; transfer/sync lock wording stays
++	// unchanged. Called only when the job was skipped without moving files.
++	std::string lockHeldOutcome(TransferKind kind);
++
+ 	// The first candidate that fits the width, else the last one offered.
+ 	// measure is the row's own font, handed in because a font is a GL
+ 	// resource and this has to stay free of one; an empty measure or a
+diff --git a/es-app/src/guis/GuiCloudTransfer.cpp b/es-app/src/guis/GuiCloudTransfer.cpp
+index 0e3d387c5..afa584657 100644
+--- a/es-app/src/guis/GuiCloudTransfer.cpp
++++ b/es-app/src/guis/GuiCloudTransfer.cpp
+@@ -458,7 +458,7 @@ GuiCloudTransfer::Outcome GuiCloudTransfer::outcome(const CloudTransferJob& job)
+ 	else if (o.partial)
+ 		o.word = _("COULDN'T FINISH");
+ 	else if (o.skipped && code == CloudExit::LockHeld)
+-		o.word = _("SKIPPED - A SYNC IS ALREADY RUNNING");
++		o.word = CloudText::lockHeldOutcome(CloudText::transferKind(job.mCommand));
+ 	else if (o.skipped && code == CloudExit::NoFolder)
+ 		o.word = _("SKIPPED - YOUR CLOUD FOLDER ISN'T SET UP YET");
+ 	else if (o.skipped)
+diff --git a/es-app/tests/unit/CloudTextTests.cpp b/es-app/tests/unit/CloudTextTests.cpp
+index 74a3a42b6..f0ceadf2a 100644
+--- a/es-app/tests/unit/CloudTextTests.cpp
++++ b/es-app/tests/unit/CloudTextTests.cpp
+@@ -636,6 +636,10 @@ TEST_CASE("every protocol shape an emitter prints classifies to a known kind")
+ 	// projects/ROCKNIX/packages/network/rclone/sources/ and
+ 	// projects/ROCKNIX/packages/rocknix/sources/scripts/, on next.
+ 	static const Shape shapes[] = {
++		// New cloud setup/check emitters at distribution 6f89bc7cec (#512).
++		{ ">>> why YOUR CLOUD SETTINGS CHANGED. CHECK AGAIN", ProtocolKind::Why, "cloud_scan:219" },
++		{ ">>> why ANOTHER CLOUD CHECK IS RUNNING", ProtocolKind::Why, "cloud_scan:358" },
++		{ ">>> why YOUR CLOUD FOLDERS COULDN'T BE CREATED", ProtocolKind::Why, "cloud_setup:804,867" },
+ 		// Every ">>> why" a script prints, from the scripts at next 4476f90394
+ 		// (regenerated, #308 follow-up: the table was f0f263b8cc's, and since
+ 		// then stream A's scripts print four sentences and backuptool five
+@@ -1735,3 +1739,14 @@ TEST_CASE("parseSettingsArchive reads the device label and the time out of an ar
+ 	CHECK(deviceNameFromLabel("Anbernic-RG35XX-SP") == "ANBERNIC RG35XX SP");
+ 	CHECK(deviceNameFromLabel("") == "");
+ }
++
++TEST_CASE("a busy cloud check names a check and ordinary sync keeps its headline")
++{
++	CHECK(lockHeldOutcome(transferKind("/usr/bin/cloud_scan --run-id qa")) ==
++		"SKIPPED - ANOTHER CLOUD CHECK IS RUNNING");
++	CHECK(lockHeldOutcome(transferKind("/usr/bin/cloud_scan --content --run-id qa")) ==
++		"SKIPPED - ANOTHER CLOUD CHECK IS RUNNING");
++	for (const auto kind : { TransferKind::Backup, TransferKind::Restore,
++		TransferKind::Match, TransferKind::Create, TransferKind::Other })
++		CHECK(lockHeldOutcome(kind) == "SKIPPED - A SYNC IS ALREADY RUNNING");
++}
+diff --git a/locale/emulationstation2.pot b/locale/emulationstation2.pot
+index 3a6f27d97..88160229f 100644
+--- a/locale/emulationstation2.pot
++++ b/locale/emulationstation2.pot
+@@ -3965,3 +3965,15 @@ msgid "%d second ago"
+ msgid_plural "%d seconds ago"
+ msgstr[0] ""
+ msgstr[1] ""
++
++msgid "YOUR CLOUD SETTINGS CHANGED. CHECK AGAIN"
++msgstr ""
++
++msgid "ANOTHER CLOUD CHECK IS RUNNING"
++msgstr ""
++
++msgid "YOUR CLOUD FOLDERS COULDN'T BE CREATED"
++msgstr ""
++
++msgid "SKIPPED - ANOTHER CLOUD CHECK IS RUNNING"
++msgstr ""
+diff --git a/locale/lang/fr/LC_MESSAGES/emulationstation2.po b/locale/lang/fr/LC_MESSAGES/emulationstation2.po
+index f465fa921..775d918da 100644
+--- a/locale/lang/fr/LC_MESSAGES/emulationstation2.po
++++ b/locale/lang/fr/LC_MESSAGES/emulationstation2.po
+@@ -6693,3 +6693,15 @@ msgstr "ARRÊTER LA CRÉATION DES DOSSIERS ?\n\nLES DOSSIERS DÉJÀ CRÉÉS REST
+ 
+ msgid "COULDN'T CHECK YOUR FOLDERS. CHECK YOUR CONNECTION, THEN TRY AGAIN."
+ msgstr "IMPOSSIBLE DE VÉRIFIER VOS DOSSIERS. VÉRIFIEZ LA CONNEXION, PUIS RÉESSAYEZ."
++
++msgid "YOUR CLOUD SETTINGS CHANGED. CHECK AGAIN"
++msgstr "LES PARAMÈTRES DU CLOUD ONT CHANGÉ. VÉRIFIEZ À NOUVEAU"
++
++msgid "ANOTHER CLOUD CHECK IS RUNNING"
++msgstr "UNE VÉRIFICATION DU CLOUD EST DÉJÀ EN COURS"
++
++msgid "YOUR CLOUD FOLDERS COULDN'T BE CREATED"
++msgstr "IMPOSSIBLE DE CRÉER VOS DOSSIERS CLOUD"
++
++msgid "SKIPPED - ANOTHER CLOUD CHECK IS RUNNING"
++msgstr "IGNORÉ - UNE VÉRIFICATION DU CLOUD EST DÉJÀ EN COURS"

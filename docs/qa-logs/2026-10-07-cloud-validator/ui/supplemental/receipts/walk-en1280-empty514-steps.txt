@@ -1,0 +1,47 @@
+key ret
+wait-for-change
+key x
+wait-for-change
+key up x2
+key up
+key x
+wait-for-change
+key down
+key x
+wait-for-change
+settle
+key up
+key right
+key x
+wait-for-change
+settle
+shot selected-folder-empty-fixed
+key x
+key z
+key up x4
+key x
+wait-for-change
+key down x4
+key x
+key down
+key x
+wait-for-change
+settle
+shot selected-results
+key down
+key x
+wait-for-change
+settle
+shot saves-instructions
+key z
+key down
+key x
+wait-for-change
+settle
+shot settings-instructions
+key z
+key down
+key x
+wait-for-change
+settle
+shot media-instructions

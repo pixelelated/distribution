@@ -1,0 +1,9 @@
+{
+  "fixture": "guest-local helper fixture for callback rendering, not OAuth authentication",
+  "helper_path": "/storage/qa512/oauth-fixture.sh",
+  "installed_with": "mount --bind /storage/qa512/oauth-fixture.sh /usr/bin/cloud_oauth",
+  "restore": "umount /usr/bin/cloud_oauth",
+  "fixture_sha256": "9147de31be9e59a4e9d85a24ac65f31ef4560c21b9e5b9b8365ba9026d39e118",
+  "readbacks": "ui03-oauth-before.txt and ui03-offer-before.txt",
+  "effect": "serve/cancel append argv only; info returns loopback unused URL and ON_DEVICE=no; status returns signed-in. No provider request or browser launched."
+}

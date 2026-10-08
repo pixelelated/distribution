@@ -1,0 +1,35 @@
+diff --git a/es-app/src/guis/GuiMenu.cpp b/es-app/src/guis/GuiMenu.cpp
+index 383c6df51..a8e603525 100644
+--- a/es-app/src/guis/GuiMenu.cpp
++++ b/es-app/src/guis/GuiMenu.cpp
+@@ -4477,7 +4477,7 @@ static void cloudContentSystemPicker(Window* window, const std::function<void()>
+ 			{
+ 				window->pushGui(new GuiMsgBox(window, backup
+ 					? _("NO SYSTEM ON THIS DEVICE HOLDS WHAT YOU TICKED.")
+-					: _("NO SYSTEM IN YOUR CLOUD HOLDS WHAT YOU TICKED.\n\nPUT FILES INTO THE ROMS FOLDER FROM A COMPUTER, THEN SCAN AGAIN.")));
++					: _("NOTHING MATCHES YOUR SELECTION IN THE CLOUD FOLDER YOU CHOSE.\n\nCHOOSE A DIFFERENT FOLDER, OR ADD FILES FROM A COMPUTER. USE CLOUD > CHECK CLOUD FOLDERS FOR THE EXPECTED LOCATIONS.")));
+ 				return;
+ 			}
+ 			// CONTENT TO ..., not SYSTEMS TO ...: settings cover the whole device
+diff --git a/locale/emulationstation2.pot b/locale/emulationstation2.pot
+index 8711f1282..72fd30f5e 100644
+--- a/locale/emulationstation2.pot
++++ b/locale/emulationstation2.pot
+@@ -3983,3 +3983,6 @@ msgstr ""
+ 
+ msgid "BACK UP GAME SAVES, SAVE STATES, AND SCREENSHOTS TO THIS FOLDER, OR COPY THEM HERE FROM A COMPUTER."
+ msgstr ""
++
++msgid "NOTHING MATCHES YOUR SELECTION IN THE CLOUD FOLDER YOU CHOSE.\n\nCHOOSE A DIFFERENT FOLDER, OR ADD FILES FROM A COMPUTER. USE CLOUD > CHECK CLOUD FOLDERS FOR THE EXPECTED LOCATIONS."
++msgstr ""
+diff --git a/locale/lang/fr/LC_MESSAGES/emulationstation2.po b/locale/lang/fr/LC_MESSAGES/emulationstation2.po
+index ab7604e97..9fc2cfe43 100644
+--- a/locale/lang/fr/LC_MESSAGES/emulationstation2.po
++++ b/locale/lang/fr/LC_MESSAGES/emulationstation2.po
+@@ -6711,3 +6711,6 @@ msgstr "AJOUTER DES SAUVEGARDES"
+ 
+ msgid "BACK UP GAME SAVES, SAVE STATES, AND SCREENSHOTS TO THIS FOLDER, OR COPY THEM HERE FROM A COMPUTER."
+ msgstr "SAUVEGARDEZ LES SAUVEGARDES DE JEU, SAUVEGARDES D’ÉTAT ET CAPTURES D’ÉCRAN DANS CE DOSSIER, OU COPIEZ-LES ICI DEPUIS UN ORDINATEUR."
++
++msgid "NOTHING MATCHES YOUR SELECTION IN THE CLOUD FOLDER YOU CHOSE.\n\nCHOOSE A DIFFERENT FOLDER, OR ADD FILES FROM A COMPUTER. USE CLOUD > CHECK CLOUD FOLDERS FOR THE EXPECTED LOCATIONS."
++msgstr "RIEN NE CORRESPOND À VOTRE SÉLECTION DANS LE DOSSIER CLOUD CHOISI.\n\nCHOISISSEZ UN AUTRE DOSSIER OU AJOUTEZ DES FICHIERS DEPUIS UN ORDINATEUR. UTILISEZ CLOUD > VÉRIFIER LES DOSSIERS CLOUD POUR VOIR OÙ LES PLACER."

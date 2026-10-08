@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "config_id": "4c930d40551bed899acbe06813f91d3e62dd07627db11b57a9ad6c6cb2541c3f",
+  "remote": "webdav:",
+  "paths": {
+    "saves": "/QA-Empty/Saves",
+    "settings": "/pixelelated/Backups-final",
+    "content": "/pixelelated/Content",
+    "roms": "/pixelelated/Content/ROMs",
+    "bios": "/pixelelated/Content/BIOS",
+    "media": "/pixelelated/Content/ROMs"
+  }
+}
+84892acbcc059260859e550cac4f148ba952a34dcc475ec5aea867cea7aaac6b  /storage/.config/cloud_sync.conf
+  38748 Ss   sh -c cloud_setup --validation-context; sha256sum /storage/.config/cloud_sync.conf; ps -o pid,stat,args | grep "rclone serve"; nohup rclone serve webdav /storage/qa512/provider --addr 127.0.0.1:9868 > /storage/qa512/provider.log 2>&1 < /dev/null & echo $! > /storage/qa512/provider.pid
+  38797 S    grep rclone serve

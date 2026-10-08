@@ -1,0 +1,4 @@
+STOP_PROVIDER_PID=38798 CMD=rclone serve webdav /storage/qa512/provider --addr 127.0.0.1:9868 
+94962c93775709dd3e2e7c0eefd470184c3defc41cd5c89cf917f4bcee2dd8b0  /usr/bin/emulationstation
+a5fafc02b1a243dc63c9d9842efcce040ac72ae076279c77c79c8a0477180ea4  /usr/share/locale/fr/LC_MESSAGES/emulationstation2.mo
+  49156 Ss   sh -c set -eu pid=$(cat /storage/qa512/provider.pid) actual=$(tr '\000' ' ' < /proc/"$pid"/cmdline) [ "$actual" = "rclone serve webdav /storage/qa512/provider --addr 127.0.0.1:9868 " ] printf 'STOP_PROVIDER_PID=%s CMD=%s\n' "$pid" "$actual" kill "$pid" sha256sum /usr/bin/emulationstation /usr/share/locale/fr/LC_MESSAGES/emulationstation2.mo ps -o pid,stat,args | grep '[r]clone serve' || true 

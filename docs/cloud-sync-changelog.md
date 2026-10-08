@@ -22,13 +22,19 @@ describes the replacement undergoing script and UI proof.
 - **ROMs and BIOS use the selected library only.** There is no fallback search
   through the account root. Local instructions show expected paths; you place
   files from a computer. Restoring selected systems remains a separate action.
+  Empty-library guidance names the selected folder and content; it does not
+  imply the whole cloud was searched (#514).
 - **Folder-creation failures offer a retry.** Setup reports readiness only
   after successful creation and a fresh check. Cancellation keeps folders
   already created and offers another attempt.
+- **Cloud-check failures name the actual operation.** A busy check is described
+  as a check, and the new check/create failure reasons have French translations
+  (#512). Saves help retains the complete category list in wrapping text, and
+  the content-path editor uses a title that fits small panels (#513).
 
 No generic save-file relocation action or unpublished documentation QR ships
-in this draft. Its final visual, adoption and firmware inclusion proofs remain
-separate from the host controls already completed.
+in this draft. Source-overlay visual proof and host controls pass; adoption
+and final firmware inclusion remain separate gates.
 
 Earlier migration entries below are historical; their descriptions do not
 override this replacement's scope or establish its final firmware inclusion.

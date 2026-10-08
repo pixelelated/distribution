@@ -1,0 +1,54 @@
+key z
+wait-for-change
+key z
+wait-for-change
+key up x6
+key x
+key down x4
+key x
+key down
+key x
+wait-for-change
+settle
+key down
+key x
+wait-for-change
+settle
+shot saves-instructions
+key z
+wait-for-change
+key down x2
+key x
+wait-for-change
+settle
+shot media-instructions
+key z
+key z
+key down x2
+key x
+wait-for-change
+key down x2
+key x
+wait-for-change
+settle
+shot content-path-editor
+key z
+key up x2
+key x
+wait-for-change
+key backspace x30
+key down
+key x
+wait-for-change
+settle
+shot empty-path
+key x
+key x
+wait-for-change
+key backspace x30
+key dot x2
+key down
+key x
+wait-for-change
+settle
+shot rejected-path

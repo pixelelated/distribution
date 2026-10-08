@@ -1,0 +1,403 @@
+{
+  "utc": "2026-10-08T03:44:40.727775+00:00",
+  "reviewer": "root",
+  "index_sha256": "9428ccff1267bc255807f4aa1dd0971054ced4e1360569461046c26df9e99768",
+  "mechanical_validation": {
+    "result": "PASS",
+    "index_sha256": "9428ccff1267bc255807f4aa1dd0971054ced4e1360569461046c26df9e99768",
+    "entries": 99,
+    "statuses": {
+      "reviewed": 89,
+      "rejected": 9,
+      "pending": 1
+    },
+    "unique_frames": 98,
+    "limits": "Schema, reference and PNG identity only; human/agent semantic review and source binding remain separate."
+  },
+  "verified_manifest_entries": 514,
+  "manifest_sha256_at_review": "91d3de5355a7f25aed5f93c149918137a921b5fa5f9d34f275ce97676519a56d",
+  "exact_source_verified": {
+    "es_commit": "4e410dc9a816cc947f16235ad2b24824b29dd84e",
+    "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+    "result": "clean trees; five ES source/catalog and six distribution overlay hashes match final-source-receipt.json"
+  },
+  "independently_viewed": [
+    {
+      "frame": "supplemental/frames/walk-fr640-fixed-scan-busy-fit-01-scan-busy-fixed-fit.png",
+      "sha256": "556c7e89481135d9a55464f94219b9fe666f49766921ad35127d4703ab125d63",
+      "branch_id": "CF13",
+      "status": "reviewed",
+      "source": {
+        "es_commit": "baeea2a8c9bf508949104abcf04583a2338e054f",
+        "es_binary_sha256": "a1d2843960c1f1a42b6e687cb806190fc9d4641f8a3793456d88beed967a4b75",
+        "french_catalog_sha256": "08f62414e409da50747593821ffca2843602a9544977068d9f2c20f004df43df",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "baee plus sealed working patch; source overlay not firmware",
+        "es_patch_sha256": "1364ebef77fcd00b179bfec2bd72d27226dca72362f2427a43f5b0671bb37eaf"
+      },
+      "observed": "French640 busy headline identifies a verification, not synchronization; full headline fits without ellipsis. Footer says no files moved; retry and close controls visible.",
+      "utc": "2026-10-08T02:57:41.460720+00:00"
+    },
+    {
+      "frame": "supplemental/frames/walk-fr640-create-settings-failure-01-create-settings-failure.png",
+      "sha256": "ff2420cf02ccc1364e5eabd08bef4495cd19a7c0dc13c5035eacd4191743df2b",
+      "branch_id": "CF09",
+      "status": "reviewed",
+      "source": {
+        "es_commit": "1d5397fda9d7c5c2a4c7f9390ef49b9bb4b879ce",
+        "es_binary_sha256": "a1d2843960c1f1a42b6e687cb806190fc9d4641f8a3793456d88beed967a4b75",
+        "french_catalog_sha256": "661c0954d10c09532684ab36819d76c8b4f936e127993effffbdceddd3bee6da",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "source overlay, not firmware"
+      },
+      "observed": "French640 creation failure explains inability to create cloud folders and retention of already created folders; text fits, retry and close visible.",
+      "utc": "2026-10-08T02:57:41.460796+00:00"
+    },
+    {
+      "frame": "supplemental/frames/walk-fr640-fit-final-02-saves-help-fixed.png",
+      "sha256": "2c27b075351f6f8045624f61db87f0b7a8e0fa8855c78624581650042352d871",
+      "branch_id": "CF04",
+      "status": "reviewed",
+      "source": {
+        "es_commit": "6b473c26e8cc03cbd509b3056c60aaf84cb8dbc0",
+        "es_binary_sha256": "8795c6d89aa6b0c00df2dddc860ab2e332b2c1b23dc1c2701f65a7869ab826fc",
+        "french_catalog_sha256": "ded2d0e154410776a45de1f9b3a0849987d09d206d9daf04a2c9437978253daf",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "source overlay, not firmware"
+      },
+      "observed": "French640 saves heading fits; wrapping body explicitly includes game saves, save states and screenshots; path and check limitations readable.",
+      "utc": "2026-10-08T03:24:17.847531+00:00"
+    },
+    {
+      "frame": "supplemental/frames/walk-fr640-fit-final-03-content-title-fixed.png",
+      "sha256": "80d398bc96dc82663daeada4b9deda7ae40d4308edf409fa4879d10abf9eaedc",
+      "branch_id": "CF05",
+      "status": "reviewed",
+      "source": {
+        "es_commit": "6b473c26e8cc03cbd509b3056c60aaf84cb8dbc0",
+        "es_binary_sha256": "8795c6d89aa6b0c00df2dddc860ab2e332b2c1b23dc1c2701f65a7869ab826fc",
+        "french_catalog_sha256": "ded2d0e154410776a45de1f9b3a0849987d09d206d9daf04a2c9437978253daf",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "source overlay, not firmware"
+      },
+      "observed": "French640 content editor title fully fits; all three content classes remain named, current path and OK/reset/cancel visible.",
+      "utc": "2026-10-08T03:24:17.847593+00:00"
+    },
+    {
+      "frame": "supplemental/frames/walk-fr1280-scan-retry-options-03-selected-empty-systems.png",
+      "sha256": "425ba994169f2b79af55d40f38034a7c33725799c375f5c16ff9f73730f52e8d",
+      "branch_id": "CF14",
+      "status": "rejected",
+      "source": {
+        "es_commit": "6b473c26e8cc03cbd509b3056c60aaf84cb8dbc0",
+        "es_binary_sha256": "8795c6d89aa6b0c00df2dddc860ab2e332b2c1b23dc1c2701f65a7869ab826fc",
+        "french_catalog_sha256": "ded2d0e154410776a45de1f9b3a0849987d09d206d9daf04a2c9437978253daf",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "source overlay, not firmware"
+      },
+      "observed": "REJECTED for CF14 copy scope (#514): message claims no matching systems in the cloud despite only selected folder being checked; ROMs-only guidance also mismatches shared BIOS/media branch. Backend fixture boundary remains separately verified.",
+      "utc": "2026-10-08T03:24:17.847654+00:00"
+    },
+    {
+      "frame": "supplemental/frames/walk-fr640-empty514-final-01-selected-folder-empty-fixed.png",
+      "sha256": "18ebac11939082e3faa4aafd240648633b4aa571a284c32edbaef728eec4642f",
+      "branch_id": "CF14",
+      "status": "reviewed",
+      "source": {
+        "es_commit": "4e410dc9a816cc947f16235ad2b24824b29dd84e",
+        "es_binary_sha256": "94962c93775709dd3e2e7c0eefd470184c3defc41cd5c89cf917f4bcee2dd8b0",
+        "french_catalog_sha256": "a5fafc02b1a243dc63c9d9842efcce040ac72ae076279c77c79c8a0477180ea4",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "reconstructed source overlay; not firmware"
+      },
+      "observed": "Corrected French empty-library finding explicitly names selected content and selected cloud folder. Category-neutral guidance offers another folder or manual file placement and points to CLOUD > CHECK CLOUD FOLDERS. Full text and OK control fit. No cloud-wide absence claim.",
+      "utc": "2026-10-08T03:32:19.036813+00:00"
+    },
+    {
+      "frame": "supplemental/frames/walk-fr1280-empty514-01-selected-folder-empty-fixed.png",
+      "sha256": "902861e407a92f9bd214b13308bef68029606b81410656558b861ee500ca9563",
+      "branch_id": "CF14",
+      "status": "reviewed",
+      "source": {
+        "es_commit": "4e410dc9a816cc947f16235ad2b24824b29dd84e",
+        "es_binary_sha256": "94962c93775709dd3e2e7c0eefd470184c3defc41cd5c89cf917f4bcee2dd8b0",
+        "french_catalog_sha256": "a5fafc02b1a243dc63c9d9842efcce040ac72ae076279c77c79c8a0477180ea4",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "reconstructed source overlay; not firmware"
+      },
+      "observed": "Corrected French empty-library finding explicitly names selected content and selected cloud folder. Category-neutral guidance offers another folder or manual file placement and points to CLOUD > CHECK CLOUD FOLDERS. Full text and OK control fit. No cloud-wide absence claim.",
+      "utc": "2026-10-08T03:32:19.036907+00:00"
+    },
+    {
+      "frame": "supplemental/frames/walk-en640-empty-help514-01-selected-folder-empty-fixed.png",
+      "sha256": "659b5505a1336d6aa4168bac96b44d1a412c47ba25be50461c730f21c2b6586c",
+      "branch_id": "CF14",
+      "status": "reviewed",
+      "source": {
+        "es_commit": "4e410dc9a816cc947f16235ad2b24824b29dd84e",
+        "es_binary_sha256": "94962c93775709dd3e2e7c0eefd470184c3defc41cd5c89cf917f4bcee2dd8b0",
+        "french_catalog_sha256": "a5fafc02b1a243dc63c9d9842efcce040ac72ae076279c77c79c8a0477180ea4",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "reconstructed source overlay; not firmware"
+      },
+      "observed": "English640 empty-library message accurately names selected categories and folder, with category-neutral manual guidance and actual CLOUD route; all text and OK fit.",
+      "utc": "2026-10-08T03:36:36.620902+00:00"
+    },
+    {
+      "frame": "supplemental/frames/walk-en640-empty-help514-02-saves-instructions.png",
+      "sha256": "bcdc606f846720d98bdf811eb0444950b348c6fc6859f2fcc718f2086862409a",
+      "branch_id": "CF04",
+      "status": "reviewed",
+      "source": {
+        "es_commit": "4e410dc9a816cc947f16235ad2b24824b29dd84e",
+        "es_binary_sha256": "94962c93775709dd3e2e7c0eefd470184c3defc41cd5c89cf917f4bcee2dd8b0",
+        "french_catalog_sha256": "a5fafc02b1a243dc63c9d9842efcce040ac72ae076279c77c79c8a0477180ea4",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "reconstructed source overlay; not firmware"
+      },
+      "observed": "English640 ADD SAVES help names game saves, save states and screenshots in wrapping prose; selected path, manual option and check limitations fit.",
+      "utc": "2026-10-08T03:36:36.620992+00:00"
+    },
+    {
+      "frame": "supplemental/frames/walk-en640-invalid-01-invalid-result.png",
+      "sha256": "1516db6e22062f73a92e357a1990d86700a315478d3dec6b10ebc4625675eaae",
+      "branch_id": "CF12",
+      "status": "reviewed",
+      "source": {
+        "es_commit": "4e410dc9a816cc947f16235ad2b24824b29dd84e",
+        "es_binary_sha256": "94962c93775709dd3e2e7c0eefd470184c3defc41cd5c89cf917f4bcee2dd8b0",
+        "french_catalog_sha256": "a5fafc02b1a243dc63c9d9842efcce040ac72ae076279c77c79c8a0477180ea4",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "reconstructed source overlay; not firmware"
+      },
+      "observed": "English640 unusable validator response shows a readable check-failed dialog with retry guidance and OK, without false empty/success.",
+      "utc": "2026-10-08T03:36:36.621020+00:00"
+    },
+    {
+      "frame": "supplemental/frames/walk-en640-scan-busy-01-scan-busy-fixed.png",
+      "sha256": "50e6d163d648861cd3d823f8a9b2f07c6c5fa1a2c1fd58281ba5f10aae873f88",
+      "branch_id": "CF13",
+      "status": "reviewed",
+      "source": {
+        "es_commit": "4e410dc9a816cc947f16235ad2b24824b29dd84e",
+        "es_binary_sha256": "94962c93775709dd3e2e7c0eefd470184c3defc41cd5c89cf917f4bcee2dd8b0",
+        "french_catalog_sha256": "a5fafc02b1a243dc63c9d9842efcce040ac72ae076279c77c79c8a0477180ea4",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "reconstructed source overlay; not firmware"
+      },
+      "observed": "English640 check-busy outcome names another cloud check; full headline, no-files-moved message, elapsed and retry/close fit.",
+      "utc": "2026-10-08T03:38:35.459714+00:00"
+    },
+    {
+      "frame": "supplemental/frames/walk-en640-nested-backup-02-backup-nested-outcome.png",
+      "sha256": "c47883d57d14f1de5eb67ca33b9a54dc1802c1bbf6712915947a36a16c2375c8",
+      "branch_id": "CF11",
+      "status": "reviewed",
+      "source": {
+        "es_commit": "4e410dc9a816cc947f16235ad2b24824b29dd84e",
+        "es_binary_sha256": "94962c93775709dd3e2e7c0eefd470184c3defc41cd5c89cf917f4bcee2dd8b0",
+        "french_catalog_sha256": "a5fafc02b1a243dc63c9d9842efcce040ac72ae076279c77c79c8a0477180ea4",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "reconstructed source overlay; not firmware"
+      },
+      "observed": "English640 actual nested-folder saves backup shows completed, one file/1KB backed up, elapsed and close instruction; no obsolete TIDY warning appears.",
+      "utc": "2026-10-08T03:38:35.459782+00:00"
+    },
+    {
+      "frame": "supplemental/frames/walk-en1280-nested-backup-01-backup-nested-outcome.png",
+      "sha256": "ef43f6d3bdcf883d3d8a4e33ab648814aab683ddfcb211f337d5b95b5b6c0282",
+      "branch_id": "CF11",
+      "status": "reviewed",
+      "source": {
+        "es_commit": "4e410dc9a816cc947f16235ad2b24824b29dd84e",
+        "es_binary_sha256": "94962c93775709dd3e2e7c0eefd470184c3defc41cd5c89cf917f4bcee2dd8b0",
+        "french_catalog_sha256": "a5fafc02b1a243dc63c9d9842efcce040ac72ae076279c77c79c8a0477180ea4",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "reconstructed source overlay; not firmware"
+      },
+      "observed": "English1280 actual nested-folder saves backup retains readable completed outcome and one-file/1KB count; stdout diagnostic is not presented as a visible warning.",
+      "utc": "2026-10-08T03:38:35.459816+00:00"
+    },
+    {
+      "frame": "supplemental/frames/walk-en1280-supported-systems-01-restore-options.png",
+      "sha256": "ac98cd58d023ac0e888b1f17e4e0a2ba1681baf3f7056fa675b0ccf1da980a8b",
+      "branch_id": "CF14",
+      "status": "reviewed",
+      "source": {
+        "es_commit": "4e410dc9a816cc947f16235ad2b24824b29dd84e",
+        "es_binary_sha256": "94962c93775709dd3e2e7c0eefd470184c3defc41cd5c89cf917f4bcee2dd8b0",
+        "french_catalog_sha256": "a5fafc02b1a243dc63c9d9842efcce040ac72ae076279c77c79c8a0477180ea4",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "reconstructed source overlay; not firmware"
+      },
+      "observed": "General scan reaches restore options with the selected ROM/BIOS category retained; no transfer starts.",
+      "utc": "2026-10-08T03:44:40.727258+00:00"
+    },
+    {
+      "frame": "supplemental/frames/walk-en1280-supported-systems-02-selected-supported-systems.png",
+      "sha256": "ea0111c81c6d6e15846920dbdab723be4525e3136beb163f33c78b11127e5812",
+      "branch_id": "CF14",
+      "status": "reviewed",
+      "source": {
+        "es_commit": "4e410dc9a816cc947f16235ad2b24824b29dd84e",
+        "es_binary_sha256": "94962c93775709dd3e2e7c0eefd470184c3defc41cd5c89cf917f4bcee2dd8b0",
+        "french_catalog_sha256": "a5fafc02b1a243dc63c9d9842efcce040ac72ae076279c77c79c8a0477180ea4",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "reconstructed source overlay; not firmware"
+      },
+      "observed": "Selected content scan reaches supported GB selector and shows one file; no discovery chooser, readable actions.",
+      "utc": "2026-10-08T03:44:40.727353+00:00"
+    },
+    {
+      "frame": "supplemental/frames/walk-en1280-supported-systems-03-return-without-transfer.png",
+      "sha256": "d05ec9c25796808a1b841f21f90dc1385f8270641412429eb68ac108ec7b18d0",
+      "branch_id": "CF14",
+      "status": "reviewed",
+      "source": {
+        "es_commit": "4e410dc9a816cc947f16235ad2b24824b29dd84e",
+        "es_binary_sha256": "94962c93775709dd3e2e7c0eefd470184c3defc41cd5c89cf917f4bcee2dd8b0",
+        "french_catalog_sha256": "a5fafc02b1a243dc63c9d9842efcce040ac72ae076279c77c79c8a0477180ea4",
+        "distribution_commit": "6f89bc7cecee5972909828103689e2c7c0711c30",
+        "overlay_hashes": {
+          "cloud_backup": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+          "cloud_content_restore": "12ce28a6695a54b0d25e767242efdd5c6e271f9c80af4d1337904f6d3ca5e147",
+          "cloud_folder_validate": "4da3f75d5d114c85979020e93af21ddaadd55c59ccfc382d240ef1a92f3e7865",
+          "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+          "cloud_setup": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+          "cloud_sync_helper": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050"
+        },
+        "kind": "reconstructed source overlay; not firmware"
+      },
+      "observed": "Back returns to restore options with the category selection retained; fixture readback confirms no local ROM restored.",
+      "utc": "2026-10-08T03:44:40.727439+00:00"
+    }
+  ],
+  "behavioral_readbacks": [
+    "OAuth helper exact bytes/setup retained and hash verified; no network invocation in shim. Callback proof does not establish real provider authentication.",
+    "Positive CF14 before/after selected configuration and all nine provider file hashes equal; NO_ROM_RESTORED witness retained.",
+    "Nested backup final readback matches local/remote save hashes and installed binary/catalog/six overlays; warning consumer trace distinguishes nonvisible stdout from actual completed frames."
+  ],
+  "independent_checkpoint_review": "../reference-review03.md covers its earlier92-entry snapshot, not these final additions.",
+  "coverage_disposition": "Established CF01-CF15 inventory reconciled; CF14 positive scan/options/systems/back added before retirement. Only CF10 final assembled firmware/public ROCKNIX adoption remains pending in this source-overlay packet.",
+  "limits": "Source-overlay qualification; no product integration, pin change, accepted-baseline promotion, physical test or public release."
+}

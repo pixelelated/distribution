@@ -1,14 +1,15 @@
 # Cloud folder flow review
 
-Status: validator source and VM proof in progress, 2026-10-08 (D-CLOUD-178).
-#510 owns this contract. Distribution `6f89bc7cec` and ES `baeea2a8c9`
+Status: source-overlay UI qualification complete, 2026-10-08 (D-CLOUD-178).
+#510 owns this contract. Distribution `6f89bc7cec` and ES `4e410dc9a8`
 implement category checks, explicit creation, independent paths and local
-instructions. The main source-overlay UI paths and broader regressions pass;
-additional help/error variants found by the independent coverage review are
-being proved before UI completion. Firmware qualification remains separate;
-integration and new device builds remain held. Generic smaller-file repair
-is still an open contract item below. #511 is a separate parallel site
-planning track, with GitHub Pages as the initial hosting candidate; publishing the guides is not a firmware RC prerequisite.
+instructions. Full host regression and both ordinary VM backends pass. The
+completed UI inventory includes the #512 localized failure/check-busy fix,
+#513 small-panel help/editor fit, and #514 selected-folder empty guidance.
+Source and product pins remain unintegrated; the #510 small-file repair scope
+is still unresolved. Assembled firmware, clean/public adoption and device
+qualification remain separate gates. #511 owns the parallel website; guide
+publication does not hold useful local instructions or add a firmware gate.
 
 ## Who is upgrading
 
@@ -146,7 +147,8 @@ flowchart TD
     S -->|Valid result for this run and configuration| O[Choose transfer categories]
     O -->|ROMS AND BIOS or GAME CONTENT| C[Check only the selected library]
     C -->|Valid current result| P[Choose supported systems/content]
-    C -->|Empty selected library| E[No selected content available; no alternate-folder chooser]
+    C -->|Empty selected library| E[Nothing matches the selected categories in the selected folder; no alternate-folder chooser]
+    E --> G[Choose another folder or add files from a computer; CLOUD > CHECK CLOUD FOLDERS shows expected locations]
     S -->|Cancel| Q{Confirm cancelling this check}
     C -->|Cancel| Q
     Q -->|Continue checking| K[Return to the same active check]
@@ -157,42 +159,48 @@ flowchart TD
     X -->|Dismiss| A
 ```
 
-**Coverage record (D-WORKFLOW-155/156).** The disposable-VM source-overlay
-checkpoint contains 41 screenshots: 39 reviewed and two rejected. Its77
-index entries include36 explicitly pending states (35 supplemental states
-and final-firmware CF10). EN/FR at 640×480 and 1280×800 are represented. The
-[evidence index](../qa-logs/2026-10-07-cloud-validator/ui/evidence-index.json) records exact source, installed
-hashes, trigger/outcome and review for each frame; the [root review](../qa-logs/2026-10-07-cloud-validator/ui/root-review.json)
-checks the original42 entries’ references, dimensions, digests and branch
-status. The later [independent inventory](../qa-logs/2026-10-07-cloud-validator/reference-review02.md)
-identifies supplemental states; they are not covered by that initial review. Earlier frames
-retain their source plus explicit unchanged-input justification. Failed
-cancellation and truncated-JSON frames remain rejected evidence. This packet
-does not replace the historical firmware benchmark or qualify a new image.
-Independent review found missing variants despite these passing frames:
-saves/settings/game-content instructions, rejected or unreadable path editing,
-the changed nested-folder backup warning's actual display behavior, invalid
-check responses, and the changed scan/selected-library continuation. These
-are explicitly pending supplemental proof; CF01–CF09 are not blanket coverage
-of every category-specific string. Existing passing frames remain valid.
+**Coverage record (D-WORKFLOW-155/156).** The completed disposable-VM packet
+contains 99 index entries: 89 reviewed frames, nine rejected frames, and CF10
+explicitly pending final firmware/public adoption. English and French at
+640×480 and 1280×800 are represented; this is the affected-flow inventory,
+not every possible locale/panel permutation or a new whole-app baseline.
+The [evidence index](../qa-logs/2026-10-07-cloud-validator/ui/evidence-index.json)
+binds each state to source, installed hashes, trigger/outcome, locale, panel
+and review. The [final root review](../qa-logs/2026-10-07-cloud-validator/ui/root-supplement-review.json)
+verifies all 99 entries, 514 pre-retirement file seals and exact source hashes,
+and records independent visual review of 16 supplemental frames. The original
+[root review](../qa-logs/2026-10-07-cloud-validator/ui/root-review.json) remains
+limited to its original 42 entries. The
+[completed-state independent review](../qa-logs/2026-10-07-cloud-validator/reference-review03.md)
+is likewise bound to its earlier checkpoint; later additions received root
+review before teardown.
+
+The [diff-derived inventory](../qa-logs/2026-10-07-cloud-validator/reference-review02.md)
+now has a disposition for each affected help/error/callback state. Earlier
+frames retain their source and explicit unchanged-input justification;
+rejected cancellation, truncated-JSON, clipped or misleading-copy frames
+remain rejected. The retained
+[index checker](../qa-logs/2026-10-07-cloud-validator/verify-ui-index.py)
+validates references, dimensions and digests, not semantic coverage. Source
+overlays do not replace the accepted firmware benchmark or close CF10.
 
 | Flow/branch | Trigger and expected outcome | Reviewed evidence and remaining gate |
 | --- | --- | --- |
-| CF01 — connected setup | Enter from the cloud hub or complete a connection; category choices appear without creating or relocating files, including OAuth CONTINUE. | [Connected categories](../qa-logs/2026-10-07-cloud-validator/ui/frames/en640-link-complete/01-folder-scope.png); provider inventory unchanged. **Pending:** new hub row/return and OAuth CONTINUE callback proof or explicit supported evidence reuse. |
+| CF01 — connected setup | Enter from the cloud hub or complete a connection; category choices appear without creating or relocating files, including OAuth CONTINUE. | [Connected categories](../qa-logs/2026-10-07-cloud-validator/ui/frames/en640-link-complete/01-folder-scope.png); [hub return](../qa-logs/2026-10-07-cloud-validator/ui/supplemental/frames/walk-fr640-hub-return-01-category-finish-hub.png); [OAuth CONTINUE callback](../qa-logs/2026-10-07-cloud-validator/ui/supplemental/frames/walk-fr640-oauth-callback02-02-oauth-continue-categories.png). Exact no-network helper/setup and restoration receipts retained; this proves the callback, not provider authentication. |
 | CF02 — check selected folders | Choose categories; read-only results show only those paths and distinguish files found, missing, empty, unexpected location and unreadable. | 30 host controls; [populated results](../qa-logs/2026-10-07-cloud-validator/ui/frames/fr640-sealed-results/02-populated-findings.png) and [misplaced ROMs](../qa-logs/2026-10-07-cloud-validator/ui/frames/fr640-sealed-help/01-misplaced-roms.png). All category states are indexed. |
-| CF03 — create selected folders | Confirm; only chosen folders/notes are created; completion starts a fresh check. Decline changes nothing. | [Confirmation](../qa-logs/2026-10-07-cloud-validator/ui/frames/en640-create-saves/01-create-confirmation.png), [completion](../qa-logs/2026-10-07-cloud-validator/ui/frames/en640-create-saves/02-creation-result.png), and [decline](../qa-logs/2026-10-07-cloud-validator/ui/frames/en640-final-create-decline/02-declined.png); inventory receipts retained. **Pending:** existing CloudOffer saves-only callback proof or explicit unchanged-surface reuse with final selective-seeding controls. |
-| CF04 — manual instructions | Open help from a finding; expected path and category guidance appear; Back returns without changing configuration or files. | [ROM instructions](../qa-logs/2026-10-07-cloud-validator/ui/frames/fr640-sealed-help/02-rom-instructions.png) and [BIOS instructions](../qa-logs/2026-10-07-cloud-validator/ui/frames/fr1280-sealed-help/04-bios-instructions.png); EN/FR at both sizes indexed. QR awaits guide publication. **Pending:** saves/settings/game-content help variants. |
-| CF05 — change a path | Edit one pointer; others survive; return shows the new paths and retains the category choices. | [Changed path](../qa-logs/2026-10-07-cloud-validator/ui/frames/en640-path-return/01-changed-settings.png) and [returned selection](../qa-logs/2026-10-07-cloud-validator/ui/frames/en640-path-return/02-returned-selection.png), with independent-pointer receipts. **Pending:** blank-path and rejected/unreadable path-change screens. |
+| CF03 — create selected folders | Confirm; only chosen folders/notes are created; completion starts a fresh check. Decline changes nothing. | [Confirmation](../qa-logs/2026-10-07-cloud-validator/ui/frames/en640-create-saves/01-create-confirmation.png), [completion](../qa-logs/2026-10-07-cloud-validator/ui/frames/en640-create-saves/02-creation-result.png), and [decline](../qa-logs/2026-10-07-cloud-validator/ui/frames/en640-final-create-decline/02-declined.png). [CloudOffer CREATE IT](../qa-logs/2026-10-07-cloud-validator/ui/supplemental/frames/walk-fr640-offer-create-01-offer-create-done.png) also proves saves-only creation; other pointers/files are preserved. |
+| CF04 — manual instructions | Open help from a finding; expected path and category guidance appear; Back returns without changing configuration or files. | [ROM instructions](../qa-logs/2026-10-07-cloud-validator/ui/frames/fr640-sealed-help/02-rom-instructions.png), [BIOS instructions](../qa-logs/2026-10-07-cloud-validator/ui/frames/fr1280-sealed-help/04-bios-instructions.png), [saves help](../qa-logs/2026-10-07-cloud-validator/ui/supplemental/frames/walk-fr640-fit-final-02-saves-help-fixed.png), [settings help](../qa-logs/2026-10-07-cloud-validator/ui/supplemental/frames/walk-en1280-empty514-04-settings-instructions.png), and [game-content help](../qa-logs/2026-10-07-cloud-validator/ui/supplemental/frames/walk-en1280-empty514-05-media-instructions.png). Indexed EN/FR small/large variants reviewed; #513 retains full category names in wrapping prose. QR awaits published guides. |
+| CF05 — change a path | Edit one pointer; others survive; return shows the new paths and retains the category choices. | [Changed path](../qa-logs/2026-10-07-cloud-validator/ui/frames/en640-path-return/01-changed-settings.png) and [retained choices](../qa-logs/2026-10-07-cloud-validator/ui/frames/en640-path-return/02-returned-selection.png); [blank refusal](../qa-logs/2026-10-07-cloud-validator/ui/supplemental/frames/walk-en640-empty-submit-01-empty-path-refusal.png), [unreachable refusal](../qa-logs/2026-10-07-cloud-validator/ui/supplemental/frames/walk-en1280-unreachable-01-unreachable-folder.png) and [fitted editor title](../qa-logs/2026-10-07-cloud-validator/ui/supplemental/frames/walk-fr640-fit-final-03-content-title-fixed.png). Independent-pointer and refusal receipts retained. |
 | CF06 — stale configuration | Change the config/endpoint between display/check/confirmation and use; reject stale results/actions and require a refreshed view. | Bound-context controls and [stale-action refusal](../qa-logs/2026-10-07-cloud-validator/ui/frames/en640-stale-rejection/01-stale-rejected.png). |
 | CF07 — cannot read/retry | Synthetic endpoint refuses or returns partial output; no false empty/success; retry uses the current config. | Failure/partial-output controls and [unreadable result](../qa-logs/2026-10-07-cloud-validator/ui/frames/en640-unreadable-result/01-unreadable-result.png); paused endpoint restored for subsequent successful retry. |
 | CF08 — no selection | Turn off every category; Check/Create asks for at least one item without contacting the cloud. | [Create refusal](../qa-logs/2026-10-07-cloud-validator/ui/frames/en640-no-selection/02-create-needs-selection.png) and [check refusal](../qa-logs/2026-10-07-cloud-validator/ui/frames/en640-no-selection/03-check-needs-selection.png); French equivalents indexed. |
-| CF09 — creation interrupted | Cancel/fail during creation; outcome explains retained folders and permits retry without moving user files. | [Corrected cancellation](../qa-logs/2026-10-07-cloud-validator/ui/frames/en640-final-cancelled/01-cancelled-outcome.png) and [retry](../qa-logs/2026-10-07-cloud-validator/ui/frames/en640-final-retry/01-retry-result.png). Cancellation completes while endpoint stays paused, with no child and unchanged inventory. Earlier delayed cancellation is rejected. **Pending:** non-cancel creation failure and retry; #512 translates the three newly surfaced failure reasons. |
+| CF09 — creation interrupted | Cancel/fail during creation; outcome explains retained folders and permits retry without moving user files. | [Cancellation](../qa-logs/2026-10-07-cloud-validator/ui/frames/en640-final-cancelled/01-cancelled-outcome.png) and [retry](../qa-logs/2026-10-07-cloud-validator/ui/frames/en640-final-retry/01-retry-result.png) with endpoint still paused/no child/unchanged inventory; [localized creation failure](../qa-logs/2026-10-07-cloud-validator/ui/supplemental/frames/walk-fr640-create-settings-failure-01-create-settings-failure.png) and [fresh check after retry](../qa-logs/2026-10-07-cloud-validator/ui/supplemental/frames/walk-fr640-create-retry-01-create-retry-current-check.png). Original failures remain rejected. |
 | CF10 — clean/public adoption | Fresh defaults and public ROCKNIX /GAMES plus /GAMES/backup remain distinct cases; preserve existing pointers/credentials/data. | Three public-config host controls pass. **Pending:** assembled firmware clean/public adoption; source overlays cannot close it. |
-| CF11 — nested-folder backup outcome | Back up with a settings/content path inside the saves path; review the actual transfer outcome and trace the script diagnostic separately. | **Pending:** focused screenshots and consumer-trace receipt. The plain stdout warning is discarded by the ES transfer parser; no visible warning is claimed. |
-| CF12 — invalid folder-check response | Valid context but the check cannot supply a usable result; show the generic check-failed dialog, preserve selection, and allow another check. | **Pending:** actual helper execution fault, restored permissions/hash, and reviewed dialog. This is distinct from a valid unreadable-category finding. |
-| CF13 — scan interruption or failure | Cancel a scan, or change its config/encounter its lock; explain the actual outcome without claiming files moved or advancing with stale data. | **Pending:** scan-specific cancellation confirmation/outcome, changed-settings and check-busy diagnostic surfaces, and successful retry. Creation cancellation is different copy. |
-| CF14 — selected-library restore | Continue through scan, categories and supported systems using only the configured content root; an empty root must not discover a populated unselected library. | **Pending:** actual final-source navigation and scoped empty/populated controls. The historical removed-chooser screenshots cannot establish this behavior. |
-| CF15 — restore relink finish | Finish relinking after settings restore; return to the caller without scheduling a folder migration. | **Pending:** narrow synthetic callback proof or explicit unchanged-surface/removal evidence reuse. No real OAuth or personal cloud is required. |
+| CF11 — nested-folder backup outcome | Back up with a settings/content path inside the saves path; review the actual transfer outcome and trace the script diagnostic separately. | [Small-panel backup result](../qa-logs/2026-10-07-cloud-validator/ui/supplemental/frames/walk-en640-nested-backup-02-backup-nested-outcome.png) and [large-panel result](../qa-logs/2026-10-07-cloud-validator/ui/supplemental/frames/walk-en1280-nested-backup-01-backup-nested-outcome.png). [Consumer trace](../qa-logs/2026-10-07-cloud-validator/ui/supplemental/receipts/nested-warning-completed-trace.json) proves the plain stdout warning is discarded; actual logs show both warnings fired. Payload hashes/nested sentinels verified; no visible warning is invented. |
+| CF12 — invalid folder-check response | Valid context but the check cannot supply a usable result; show the generic check-failed dialog, preserve selection, and allow another check. | [English refusal](../qa-logs/2026-10-07-cloud-validator/ui/supplemental/frames/walk-en640-invalid-01-invalid-result.png) and [French refusal](../qa-logs/2026-10-07-cloud-validator/ui/supplemental/frames/walk-fr1280-invalid-result-01-invalid-result.png) from actual execution fault; helper permissions/hash restored. This is distinct from valid unreadable-category findings. |
+| CF13 — scan interruption or failure | Cancel a scan, or change its config/encounter its lock; explain the actual outcome without claiming files moved or advancing with stale data. | [Cancel question](../qa-logs/2026-10-07-cloud-validator/ui/supplemental/frames/walk-en640-scan-cancel-01-scan-cancel-question.png), [cancelled outcome](../qa-logs/2026-10-07-cloud-validator/ui/supplemental/frames/walk-en640-scan-cancel-02-scan-cancelled.png), [changed settings](../qa-logs/2026-10-07-cloud-validator/ui/supplemental/frames/fault-settings-changed03-settings-changed-fixed.png), [retry](../qa-logs/2026-10-07-cloud-validator/ui/supplemental/frames/fault-settings-changed03-settings-changed-retry.png) and [busy check](../qa-logs/2026-10-07-cloud-validator/ui/supplemental/frames/walk-en640-scan-busy-01-scan-busy-fixed.png). Actual lock/config/cancellation controls and French frames indexed; no stale continuation or file movement. |
+| CF14 — selected-library restore | Continue through scan, categories and supported systems using only the configured content root; an empty root must not discover a populated unselected library. | [Supported-system selector](../qa-logs/2026-10-07-cloud-validator/ui/supplemental/frames/walk-en1280-supported-systems-02-selected-supported-systems.png) and [Back without restore](../qa-logs/2026-10-07-cloud-validator/ui/supplemental/frames/walk-en1280-supported-systems-03-return-without-transfer.png) follow actual general/content scans. [Corrected empty selected folder](../qa-logs/2026-10-07-cloud-validator/ui/supplemental/frames/walk-en640-empty-help514-01-selected-folder-empty-fixed.png) excludes the populated other library. EN/FR small/large empty frames fit; pointers/inventories unchanged. #514 old overbroad message remains rejected. |
+| CF15 — restore relink finish | Finish relinking after settings restore; return to the caller without scheduling a folder migration. | [Restore completion page](../qa-logs/2026-10-07-cloud-validator/ui/supplemental/frames/walk-fr640-relink-finish-01-restore-finish-page.png) and [FINISH return](../qa-logs/2026-10-07-cloud-validator/ui/supplemental/frames/walk-fr640-relink-finish-02-restore-finish-return.png). Synthetic marker is consumed, no migration follows; no real settings restore/OAuth is claimed. |
 
 Source controls are retained under
 [`2026-10-07-cloud-validator`](../qa-logs/2026-10-07-cloud-validator/).
@@ -305,13 +313,13 @@ and its new navigation remain future proof after the guides are published.
 ## Remaining implementation work
 
 The local drafts implement category checks, independent pointers, explicit
-category seeding, selected-root-only discovery, updated TIDY guidance and
-scan/result/help UI. Focused controls, the full host suite and ordinary VM
-WebDAV/SFTP round trips pass. Finish the specifically named help/error/warning
-visual gaps above; preserve the existing passing main-flow frames. Clean and
-actual public ROCKNIX firmware adoption and final input/inclusion mapping
-remain separate gates. The
+category seeding, scans/restores limited to the selected root, nested-folder
+guidance and scan/result/help UI. Focused controls, the full host suite,
+ordinary VM WebDAV/SFTP round trips and the complete affected-flow UI proof
+pass. Preserve the reviewed screenshots and rejected predecessors. The
 small-file repair scope question remains pending; do not call it delivered.
+Source integration/pins, clean/public ROCKNIX adoption on assembled firmware
+and final input/inclusion mapping remain separate gates.
 #507 independently audits the frozen resulting delta. New device firmware
 and physical smoke follow that sequence.
 
