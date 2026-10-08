@@ -1,0 +1,27 @@
+{
+  "utc": "2026-10-08T22:32:39.682570+00:00",
+  "result": "FAILED_GIT_ARCHIVE_EOL_TRANSFORMATION",
+  "original_results": {
+    "inner.rc": 1,
+    "outer.rc": 1,
+    "tool-wrapper.rc": 1,
+    "build.rc": 1,
+    "launcher": 1
+  },
+  "actual_host_exited_pids": [
+    1533336,
+    1533337,
+    1533338,
+    1533367
+  ],
+  "control": {
+    "file": "build/msw/config.gcc",
+    "git_blob_bytes": 3828,
+    "original_archive_bytes": 3978,
+    "original_crlf": 150,
+    "corrected_archive_blob_exact": true,
+    "rejected_archive_sha256": "9dfe6d5202e1096a9eb076dc0cee83242dc03b2393ea088043240959cc80a001",
+    "rejected_archive_bytes": 21342858,
+    "rejected_archive_retired": true
+  }
+}

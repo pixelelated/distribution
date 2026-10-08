@@ -1,10 +1,10 @@
 # Saved Session State
 
-> Saved: 2026-10-08T22:34:05.991082+00:00
+> Saved: 2026-10-08T22:18:06.735460+00:00
 > Coordinator: feature/conflict-resolution
 > Repository: pixelelated/distribution
 
-## Start here — #528 Git source snapshots ACTIVE; firmware/inventory complete
+## Start here — device firmware and inventory complete; #528 source publication next
 
 This is an immutable Linux build system, not a runnable application. Primary
 `/workspace/repos/rocknix` stays on `next`; read its AGENTS.md and canonical
@@ -17,7 +17,7 @@ local provider QA and dependency-checked disposable payload retirement. No new
 physical-device/personal-cloud action. #519 controlled owner alignment must
 precede the next owner handheld update transfer/reboot. Website #511 is separate.
 No goal exists. H70002 and SM855003 engineering firmware are ACCEPTED.
-No compiler, VM QA, provider or external audit job is active. Git source snapshot03 is ACTIVE below. No RC designation.
+No compiler, VM QA, provider or external audit job is active. No RC designation.
 Latest device acceptance fcac270c3880521b6296a17943cb4fb2011e887b has both hosted checks SUCCESS37850652223/37850652345.
 Helper recovery376675809c578c6fd4ccb9261a65af3f26ec2ece has both SUCCESS37850012367/37850012329.
 Never repeat completed H700/SM8550 builds, audits or VM QA merely to resume. Published H700 acceptance/checkpoint
@@ -155,7 +155,7 @@ VM18x86_64 584; H700ARM224/aarch64615; SM8550ARM228/aarch64676.
 Original inventory01–04 aggregate rc1 results remain unchanged. Accepted profile
 reports compose02(VM/ARM),03(H700aarch64),05(SM8550aarch64 with04 successful
 source report). Inventory05 and source-supplement01 have all five original rc0
-channels and actual host exits. Git source snapshot03 is now ACTIVE below; no compiler/QA/audit job.
+channels and actual host exits; no inventory/build/QA/audit job is active.
 
 Custom archive names, local/shared/generated inputs and ARM handoff are mapped.
 SM8550 LLVM's unpacked root is absent; recipe-pinned source archive and three
@@ -174,25 +174,9 @@ Independent read-only recovered input custody:
 `/workspace/artifacts/pixelelated-build-inputs/m7-final-supplement/d61541b1d2aa7cac7b3f5dfc0197e846c0da359d2f60d48770ff0f8156758051`.
 This is not a full corresponding-source bundle or verified backup.
 
-## Current source custody — resume the existing owner
-
-#528 source custody has begun. #492 is closed completed after inventory publication `5264a647a1ff541302e6b0070a73f268a87a4247`; hosted record37852763656 and wordlist37852763594 both succeeded.605 exact archive inputs (9,044,760,878 bytes) are independently copied and rehashed; both frozen distribution snapshots round-trip6552files/180raw symlinks. Custody `/workspace/artifacts/pixelelated-release-sources/m7-archives-a7022b76da76a9f6771bb7693d6f6e25854c6731db0750bb46dde29f14d49fce`, manifest `a7022b76da76a9f6771bb7693d6f6e25854c6731db0750bb46dde29f14d49fce`. Original archive01 rc1 remains a helper failure: pathlib normalized trailing slashes, while raw symlink bytes matched all inputs; corrected02 has five original rc0 results and actual exits. Git snapshot03 is ACTIVE: owner `/workspace/tmp/pixelelated-m7-source-git-03`, run `20261008T223239Z-58e643f8`, actual host owners1542320,1542321,1542322,1542352. Original Git01 untracked-submodule guard and02 CRLF-conversion failure remain preserved.03 retains extra cache content separately and verifies every archived tracked blob/mode/link against Git, with conversion/export attributes disabled. Active session supervision consumes its result; #395 still has no disconnected delivery. No compiler/VM/audit is active. Licence/notice, prebuilt/Nix/shareware dispositions, complete source-member mapping and retrieval/backup custody remain; no RC/publication clearance.
-
-Read `docs/qa-logs/2026-10-08-source-custody/` and the active owner.
-Poll console.log, run.path, original inner.rc/outer.rc/tool-wrapper.rc,
-launcher-result.json and watcher build.rc/status. Check actual host PIDs with
-host-context permissions; sandbox absence is not an exit. Do not edit its
-executing script or launch a duplicate. Git snapshots stage at
-`/workspace/artifacts/pixelelated-release-sources/.staging-m7-git-01`;
-successful run renames to m7-git-<manifest hash>. Helpers prepare01/02/03
-already ran; do not rerun preparations. Original failures remain unchanged.
-Source caches are read-only. Original Git02 rejected wxWidgets archive CRLF
-conversion; raw-blob negative/positive control is in its consumption receipt.
-No new physical-device/personal-cloud or release-publication authority.
-
 ## Current work and next commands
 
-1. Consume active Git snapshot03 above before new jobs. #528 (real child of #344, M7.P5) is current. Read its acceptance criteria
+1. #528 (real child of #344, M7.P5) is current. Read its acceptance criteria
    and final-inventory README. Resolve17 missing recipe declarations using
    exact upstream/source notices, including common/glsl shaders and rocknix-abl
    beyond the older VM14-gap list.47 component/profile notice-candidate rows
@@ -203,9 +187,9 @@ No new physical-device/personal-cloud or release-publication authority.
    backup. Existing inventory names605 unique hashed archive inputs, about9.04GB,
    and43 git inputs before supplements. Evaluate ARM/FEX/Nix/static/vendored,
    prebuiltABL/rclone and install-time shareware dispositions explicitly.
-3. #492 is CLOSED completed with published5264a647a1 inventory and both hosted
-   checks successful. Fresh-context review rehashed173packet files and all
-   profile/input bindings; stale M7 lower14gap count corrected to17. No repeated compilation,
+3. #492 build/artifact and final-inventory criteria are complete. Publish the
+   scoped packet/checkpoint to next and close with exact commit evidence if
+   not already closed; read live state before acting. No repeated compilation,
    audit or VM qualification. #528 retains publication/source/licence holds.
 4. Retire superseded large caches only after source/input custody dependencies
    are preserved (#493/#494,D-INFRA-022). History alone is not a hold; source

@@ -1,0 +1,31 @@
+BEGIN 605 hashed archive inputs; 9044760878 bytes
+ARCHIVE 25/605 copied and rehashed
+ARCHIVE 50/605 copied and rehashed
+ARCHIVE 75/605 copied and rehashed
+ARCHIVE 100/605 copied and rehashed
+ARCHIVE 125/605 copied and rehashed
+ARCHIVE 150/605 copied and rehashed
+ARCHIVE 175/605 copied and rehashed
+ARCHIVE 200/605 copied and rehashed
+ARCHIVE 225/605 copied and rehashed
+ARCHIVE 250/605 copied and rehashed
+ARCHIVE 275/605 copied and rehashed
+ARCHIVE 300/605 copied and rehashed
+ARCHIVE 325/605 copied and rehashed
+ARCHIVE 350/605 copied and rehashed
+ARCHIVE 375/605 copied and rehashed
+ARCHIVE 400/605 copied and rehashed
+ARCHIVE 425/605 copied and rehashed
+ARCHIVE 450/605 copied and rehashed
+ARCHIVE 475/605 copied and rehashed
+ARCHIVE 500/605 copied and rehashed
+ARCHIVE 525/605 copied and rehashed
+ARCHIVE 550/605 copied and rehashed
+ARCHIVE 575/605 copied and rehashed
+ARCHIVE 600/605 copied and rehashed
+PASS all archive copies independent and hash-equal
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-source-archives-01/run.py", line 43, in <module>
+    p=root/name;assert p.is_symlink() and str(p.readlink())==link,name;tar.add(p,arcname=name,recursive=False)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: projects/Generic/devices/Generic-legacy/patches

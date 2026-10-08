@@ -1,0 +1,10 @@
+watch-build: recording in /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/.build-runs/20261008T222809Z-7dd9378f
+SNAPSHOT 1 a40dace1ae0af3ebd45848549fdf396f40e3930f blobs=2137 queued=44
+SNAPSHOT 2 c34a9130bc585b288703bd9716d7efae194974e2 blobs=1391 queued=43
+SNAPSHOT 3 56bfc8b301a1501b68c6e12c411985887ca655cd blobs=1323 queued=42
+SNAPSHOT 4 39535a6abcad5abf9f71c8b2a7975f005ee12ed6 blobs=1987 queued=42
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-source-git-01/run.py", line 28, in <module>
+    assert git(path,'diff','--name-only','HEAD','--ignore-submodules=none').strip()==b'',str(path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: /workspace/cache/rocknix-sources/wxwidgets/wxwidgets-db1005db3dea2c37a46fb455a9a02e37aa360751
