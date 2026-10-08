@@ -32,9 +32,8 @@ is running in this lane.** Distribution is clean at
 `6f89bc7cecee5972909828103689e2c7c0711c30`; ES is clean at
 `4e410dc9a816cc947f16235ad2b24824b29dd84e`. Both product branches remain
 local/unpushed/unintegrated; no pin changed. Source fixes #512/#513/#514
-are qualified and closed with exact acceptance/evidence readback. #508 now
-explicitly tracks final ES4e410dc9 for integration/pin promotion; do not reopen
-these completed fixes or rerun their tests. Product integration remains #508.
+are qualified; reconcile their tracker dispositions against the published
+packet rather than rerunning completed tests. Product integration remains #508.
 
 The owner's required ES/IA/screen-content process is already published on
 next: D-WORKFLOW-155/156, both agent entrypoints, es-ui-style-guide.md, and the
@@ -80,8 +79,8 @@ Current order:
 4. Bind qualified inputs into selected firmware, then source/licence/release
    staging and named physical smoke. No RC designation/publication yet.
 
-M7 and #508/#510 hold this order. Their final evidence/owner state and the
-three issue closures were written and read back exactly after publication. The separate website lane #511 adds
+M7 and #508/#510 hold this order. Reconcile their final evidence/owner state
+with this checkpoint after publication. The separate website lane #511 adds
 no firmware gate. Do not rerun the completed full host/ordinary VM suites
 without a changed input, failure or concrete unresolved concern.
 
@@ -229,7 +228,7 @@ canonical links, localization-rule clarification, work/friction logs and
 checkpoint. Integrate only its scoped commit; never merge this divergent
 coordination branch wholesale. The ES/distro product branches remain separate.
 
-The overdue closure-based audit cadence belongs to #507; ceremony-check permits
+The known15-closure audit cadence belongs to #507; ceremony-check permits
 ordinary evidence/fix pushes while the audit remains owed. Do not bypass the
 cheap gates or replay accepted #471 to make that warning disappear.
 
@@ -317,10 +316,9 @@ automation remain later work. No Dropbox check or fresh RA reset is required.
 1. Read the actual answer/status of the pending #510 repair-scope question.
    No implementation, pin or build is authorized by mere elapsed time on that
    unresolved choice. Independent proof is finished and safely retained.
-2. M7/#508/#510 already name the final packet, source and released owners;
-   #512/#513/#514 are closed after artifact-based verification. No new audit
-   has run; #507 follows the scope/integration step, then actual firmware and
-   public adoption proof.
+2. Reconcile M7/#508/#510 and the source-fix #512/#513/#514 dispositions with
+   the final packet. No new source audit has run; #507 follows the scope/integration
+   step, then actual firmware and public adoption proof.
 3. Preserve the separate website startup question and private Dropbox question
    as unanswered unless a later explicit reply changes them. They are not RC
    blockers; do not operate a personal device/cloud or another lane by inference.
@@ -334,13 +332,3 @@ automation remain later work. No Dropbox check or fresh RA reset is required.
 Session-stash and herdr-project-coordination skills were applied. The initial
 fresh-context resume review and bounded final supplemental review are complete;
 root independently reconciled the final source, coverage and retirement.
-
-## Publication readback
-
-At 2026-10-08T03:58:32.213681+00:00, final proof/references/handoff are published on
-next `d5e2f78618624cad919afaba6784bef3f7eaf8c7` (coordination commit
-`a896cfa2da54a9dc5cf31a289dc30d87f9981997`), with GitHub ref readback
-matching. Required local gates passed; the new scoped audit remains owed
-under #507 and its CI warning was not waived. M7/#508/#510 and all three
-fix closures were independently read back. This bookkeeping follow-up changes
-no product source, pin, test result, accepted baseline or user authorization.
