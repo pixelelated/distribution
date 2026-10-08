@@ -663,6 +663,8 @@ This is the index of decisions; `docs/work-logs/` is the narrative,
 
 | D-CLOUD-180 | 2026-10-08 | **The requested personal reset verification and later residue cleanup are a one-time private operational task, not a product cleanup feature or release dependency.** Read-only timeline, selected-path and scoped inventory checks are requested now; exact account history, object paths and credentials remain local, with redacted tracker conclusions. Trace metadata and recovery-copy consumers before treating them as test residue. Any later mutation needs its own exact per-path scope and named authorization; checking state is not permission to sync, move or delete. Refines the owner-managed portion of D-CLOUD-179 without reopening product migration. | #516; #510; maintainer's personal-cleanup and read-only verification requests; `docs/pixelelated/cloud-folder-flow-review.md` |
 
+| D-CLOUD-181 | 2026-10-08 | **Turn useful manual integrity findings into reusable synthetic verification, while preserving the distinction between folder readiness, byte equality, container structure and game/core compatibility.** Bind scoped complete manifests before and after reads; missing hashes, partial listings, changed inputs and failed reads cannot pass. Keep private verification inputs intact and publish a separately sanitized view; a lossy credential filter is not an authoritative inventory. Check client configuration independently after remote rollback. Reuse synthetic failure cases for targeted repairs and adoption without turning category setup into an unbounded library download. | #517; #515; #508; maintainer request to carry manual learnings into automation; `docs/cloud-save-integrity.md` |
+
 ## Open decisions
 
 

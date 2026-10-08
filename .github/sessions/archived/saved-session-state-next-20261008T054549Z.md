@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Saved: 2026-10-08T05:45:49.240784+00:00
+> Saved: 2026-10-08T04:25:37.485120+00:00
 > Coordination branch: feature/conflict-resolution
 > Repository: pixelelated/distribution
 
@@ -10,14 +10,14 @@ pixelelated is an immutable handheld Linux distribution, not an app. Read
 AGENTS.md and canonical `.claude/rules/` from `next`, then this checkpoint,
 M7's live ordered body and issues #510/#508. Primary checkout:
 `/workspace/repos/rocknix`, branch `next`; publication baseline before this
-verification handoff is `5b2fa2ed77` (read actual HEAD).
-Read actual HEAD before working; this session adds host verification tools and documentation/tracking,
+planning reconciliation is `30a388a6156b64a1ef8be899db95326c3e0b67cf`.
+Read actual HEAD before working; this session changes documentation/tracking,
 not product inputs.
 Coordination checkout:
 `/workspace/repos/rocknix.worktrees/conflict-resolution`, branch
 `feature/conflict-resolution`. It has divergent historical work:
 **never merge it wholesale into next**. Use scoped commits/cherry-picks.
-Prior checkpoint: `archived/saved-session-state-next-20261008T054549Z.md`.
+Prior checkpoint: `archived/saved-session-state-next-20261008T042537Z.md`.
 
 Authorization persists for scoped implementation, parallel agents, local
 commits/pushes and synthetic host/VM proof. Device/personal-cloud actions keep
@@ -104,52 +104,6 @@ Exact timestamps, paths and inventories remain private under
 A remote reset does not establish reset local pointers. No move/delete/sync or
 credential export is authorized by this review. It is not a product cleanup
 feature or a blocker for synthetic public/clean adoption.
-
-## Completed private integrity review and reusable QA — #517/#518
-
-The authorized read-only save verification is complete. Successful bounded
-reads were bound to stable provider metadata before/after; local counterparts
-and the actual local save allowlist were compared. Supported structural checks
-passed. The per-file report separates byte integrity, container structure and
-unverified raw/core semantics/playability. No historical rewind equality claim
-is added. Prior stage/timing logs were retained separately; they have no complete
-per-file transfer manifest. No local game-save replacement is indicated by the
-observed comparisons. Exact findings remain private, not in tracker uploads.
-
-Private record: `/tmp/pixelelated-personal-cloud-review-20261008/`, child
-`save-integrity-01/`: manifests, read receipts, final verification/local comparison,
-selected state, local inventory and `alignment-proposal.md`. The collector and
-watcher completed rc0; no private read/build/VM/audit/transfer job remains active.
-Downloaded payload scratch is retired after proof; preserve compact receipts
-and do not treat this as independent redundancy. Credentials were not exported.
-
-The old migration changed local pointers/pending state; remote rollback did
-not reset them. Exact installed-source inspection distinguishes remote-to-remote
-migration payload movement from ordinary startup restore, which can write local
-saves. A pending migration record is not a universal sync blocker. The proposed
-alignment requires named action authority: prevent automatic transfers, prefer
-the qualified paired replacement with old consumers removed, align only agreed
-pointers to freshly verified cloud roots, archive obsolete state after consumers
-are gone, then separately authorize an actual sync. Never delete the pending
-record in isolation or overwrite saves to make paths match. No mutation occurred.
-#516 continues to own later personal cleanup/alignment. #518 independent save
-redundancy is recorded for later and not started.
-
-D-CLOUD-181 captures the owner's automation request. `tools/cloud-save-integrity`
-and its companion control runner implement reusable offline checks; all24
-synthetic controls pass, including a valid hash of corrupt content and independent
-Dropbox block-boundary checks. `docs/cloud-save-integrity.md` states the packet
-contract and limits. Public evidence: `docs/qa-logs/2026-10-08-save-integrity/`.
-A lossy privacy filter had omitted benign filenames from the earlier listing;
-that partial view is not authoritative. The full private inventory supersedes
-it for counts/comparison, without publishing account details. Rules and synthetic
-controls now preserve complete inputs and derive sanitized output separately.
-
-#515 and #508 carry the relevant synthetic fixture/adoption assertions in their
-live bodies; M7's order is unchanged. Do not interpret the host verifier as a new
-ES flow or a mandate for full-library hashing during setup. #517's acceptance
-work is complete; close it with the publication commit after exact readback.
-No product branch was integrated, no pin changed and #507 was not run.
 
 ## Current source and ownership
 
@@ -291,10 +245,9 @@ Already published scoped coordination commits on next:
 proof, `85dfe87b8a` visual checkpoint, `0f073485f` prior handoff/references.
 Their coordination equivalents are5f21df7756/d07a197ea9/6ae69d761f/
 907e333d70/ae6f1e347d. The final UI packet/reference follow-up was published
-as d5e2f786, with readback handoff30a388a6. The later D-CLOUD-179/180
-plan/private-review boundary is published through5b2fa2ed77. The current
-D-CLOUD-181 change adds host integrity tools, synthetic controls, rules and
-a redacted handoff. Integrate only its scoped commit; never merge this divergent coordination
+asd5e2f786, with readback handoff30a388a6. This new planning-only change
+contains the D-CLOUD-179/180 contract/order and private-review boundary.
+Integrate only its scoped commit; never merge this divergent coordination
 branch wholesale. The ES/distro product branches remain separate.
 
 The overdue closure-based audit cadence belongs to #507; ceremony-check permits
@@ -400,8 +353,8 @@ automation remain later work. No Dropbox check or fresh RA reset is required.
    tools/work-log-index --check, tools/ceremony-check --gate. The new delta audit
    remains owed under #507; do not waive its warning or claim it ran.
 5. Retained screenshots and source hashes supply unchanged proof; never
-   recreate deleted disks merely for history. Current host verifier, synthetic controls and documentation edits do
-   not change product ES content/code or the accepted screenshot baseline.
+   recreate deleted disks merely for history. Current planning-only edits do
+   not change ES content, code or the accepted screenshot baseline.
 
 Session-stash and herdr-project-coordination skills were applied. The initial
 fresh-context resume review and bounded final supplemental review are complete;
@@ -442,11 +395,8 @@ The owner has supplied timezone context and accepts relying on the provider
 restore with the observed checks. Do not reopen the timestamp/scope questions
 as a prerequisite: no further forensic reset investigation is queued. Exact
 reset-event scope and full content equality remain independently unproved.
-The subsequent #517 check completed local counterpart/allowlist comparison
-and a concrete per-key alignment proposal; see its current section above.
-Only cleanup execution, exhaustive residue classification and any separately
-authorized future sync/reupload proof remain open. Save-tree integrity checks
-do not establish full ROM/content-library equality. No delete/move/sync,
+Local counterpart/reupload checks, exhaustive residue classification and the
+one-time cleanup proposal remain separate open work. No delete/move/sync,
 credential export, device update, build or code audit ran. Keep exact personal
 findings in `/tmp/pixelelated-personal-cloud-review-20261008/`; current public
 tracking is redacted. These questions do not block #515's product work.

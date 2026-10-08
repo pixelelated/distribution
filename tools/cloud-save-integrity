@@ -1,0 +1,219 @@
+#!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-2.0-or-later
+# Copyright (C) 2026-present pixelelated
+"""Offline save-byte verification; no network, device actions or repair (#517).
+
+Input: before.json/after.json (successful full rclone lsjson --hash-type Dropbox),
+ordered.json (before sorted by Path), reads.json (index/rc/bytes), payloads/0000...
+from a bounded, separately authorized collector. Keep this directory private.
+This verifier cannot prove the collector's scope or honest success receipts.
+Exit 0 means byte checks passed and no supported-container defect was found;
+raw/core-specific semantics and emulator compatibility are ALWAYS unverified.
+
+Dropbox: https://docs.dropboxapi.com/dropbox-api/docs/technical-reference/content-hash
+RZIP v1: libretro-common/streams/rzip_stream.c; RASTATE v1: RetroArch/tasks/task_save.c
+PNG: chunk CRC, IHDR, IDAT zlib and non-interlaced scanline checks only, not rendering.
+"""
+import argparse
+import collections
+import hashlib
+import json
+import os
+from pathlib import Path
+import re
+import struct
+import sys
+import zlib
+
+LIMIT = 64 * 1024 * 1024
+BLOCK = 4 * 1024 * 1024
+PNG = b'\x89PNG\r\n\x1a\n'
+
+
+def require(condition, reason):
+    if not condition:
+        raise ValueError(reason)
+
+
+def dropbox_hash(data):
+    h = hashlib.sha256()
+    for i in range(0, len(data), BLOCK):
+        h.update(hashlib.sha256(data[i:i + BLOCK]).digest())
+    return h.hexdigest()
+
+
+def inflate(data, limit):
+    require(0 <= limit <= LIMIT, 'decompression-bound')
+    d = zlib.decompressobj()
+    result = d.decompress(data, limit + 1)
+    require(len(result) <= limit and d.eof and not d.unused_data and not d.unconsumed_tail,
+            'incomplete-or-excess-zlib-stream')
+    return result
+
+
+def rastate(data):
+    if not data.startswith(b'RASTATE'):
+        return 'core-payload-unverified'
+    require(data[:8] == b'RASTATE\x01', 'unsupported-rastate-version')
+    p, mem = 8, False
+    while p + 8 <= len(data):
+        tag, size = data[p:p + 4], struct.unpack_from('<I', data, p + 4)[0]
+        p += 8
+        require(size <= len(data) - p, 'truncated-rastate-block')
+        if tag == b'END ':
+            require(size == 0 and mem, 'invalid-rastate-end')
+            # Some writers allocate trailing zero padding; it is not game state.
+            require(not any(data[p:]), 'nonzero-rastate-tail')
+            return 'rastate-envelope-ok-core-unverified'
+        if tag == b'MEM ':
+            require(size > 0 and not mem, 'invalid-rastate-mem')
+            mem = True
+        p += (size + 7) & ~7
+        require(p <= len(data), 'truncated-rastate-padding')
+    raise ValueError('missing-rastate-end')
+
+
+def rzip(data):
+    require(len(data) >= 20 and data[:8] == b'#RZIPv\x01#', 'unsupported-or-truncated-rzip')
+    chunk, total = struct.unpack_from('<IQ', data, 8)
+    require(0 < chunk <= LIMIT and 0 < total <= LIMIT, 'rzip-size-bound')
+    p, output = 20, bytearray()
+    while len(output) < total:
+        require(p + 4 <= len(data), 'missing-rzip-chunk')
+        size = struct.unpack_from('<I', data, p)[0]
+        p += 4
+        require(0 < size <= len(data) - p, 'truncated-rzip-chunk')
+        block = inflate(data[p:p + size], min(chunk, total - len(output)))
+        require(len(block) == min(chunk, total - len(output)), 'rzip-chunk-length')
+        output.extend(block)
+        p += size
+    require(p == len(data), 'rzip-trailing-data')
+    return 'rzip-stream-ok/' + rastate(bytes(output))
+
+
+def png(data):
+    require(data.startswith(PNG), 'invalid-png-signature')
+    p, chunks, image = 8, [], bytearray()
+    header = None
+    while p + 12 <= len(data):
+        size = struct.unpack_from('>I', data, p)[0]
+        tag = data[p + 4:p + 8]
+        require(size <= len(data) - p - 12, 'truncated-png-chunk')
+        value = data[p + 8:p + 8 + size]
+        crc = struct.unpack_from('>I', data, p + 8 + size)[0]
+        require(zlib.crc32(tag + value) & 0xffffffff == crc, 'png-crc')
+        p += size + 12
+        if not chunks:
+            require(tag == b'IHDR' and size == 13, 'missing-png-header')
+            header = struct.unpack('>IIBBBBB', value)
+        elif tag == b'IHDR':
+            raise ValueError('duplicate-png-header')
+        if tag == b'IDAT':
+            require(b'IDAT' not in chunks or chunks[-1] == b'IDAT',
+                    'nonconsecutive-png-data')
+            image.extend(value)
+        chunks.append(tag)
+        if tag == b'IEND':
+            require(size == 0 and p == len(data) and b'IDAT' in chunks, 'invalid-png-end')
+            break
+    require(chunks and chunks[-1] == b'IEND', 'missing-png-end')
+    w, h, depth, color, compression, filtering, interlace = header
+    depths = {0: (1, 2, 4, 8, 16), 2: (8, 16), 3: (1, 2, 4, 8), 4: (8, 16), 6: (8, 16)}
+    require(w > 0 and h > 0 and color in depths and depth in depths[color]
+            and compression == 0 and filtering == 0 and interlace in (0, 1), 'invalid-png-header')
+    if color == 3:
+        require(b'PLTE' in chunks and chunks.index(b'PLTE') < chunks.index(b'IDAT'), 'missing-png-palette')
+    pixels = inflate(bytes(image), LIMIT)
+    if interlace:
+        return 'png-crc-zlib-ok-interlaced-layout-unverified'
+    channels = {0: 1, 2: 3, 3: 1, 4: 2, 6: 4}[color]
+    row = 1 + (w * channels * depth + 7) // 8
+    require(row * h <= LIMIT and len(pixels) == row * h, 'png-scanline-length')
+    require(all(pixels[n] <= 4 for n in range(0, len(pixels), row)), 'png-row-filter')
+    return 'png-crc-zlib-scanlines-ok-rendering-unverified'
+
+
+def structure(data, path):
+    if data.startswith(PNG) or path.lower().endswith('.png'):
+        return png(data)
+    if data.startswith(b'#RZIP'):
+        return rzip(data)
+    if data.startswith(b'RASTATE'):
+        return rastate(data)
+    return 'raw-or-unsupported-structure-unverified'
+
+
+def inventory(rows):
+    require(isinstance(rows, list) and 0 < len(rows) <= 4096, 'inventory-count')
+    seen, size = {}, 0
+    for f in rows:
+        path = f['Path']
+        require(isinstance(path, str) and not path.startswith('/')
+                and all(part not in ('', '.', '..') for part in path.split('/'))
+                and not any(ord(c) < 32 for c in path), 'unsafe-inventory-path')
+        require(path not in seen and f['IsDir'] is False, 'duplicate-or-directory')
+        require(type(f['Size']) is int and 0 <= f['Size'] <= LIMIT, 'file-size-bound')
+        digest = f.get('Hashes', {}).get('dropbox', '')
+        require(isinstance(digest, str) and re.fullmatch('[0-9a-f]{64}', digest), 'missing-provider-hash')
+        require(isinstance(f.get('ID'), str) and f['ID'] and isinstance(f.get('ModTime'), str)
+                and f['ModTime'], 'missing-identity')
+        seen[path] = (f['Size'], f['ModTime'], f['ID'], digest)
+        size += f['Size']
+    require(size <= 128 * 1024 * 1024, 'total-size-bound')
+    return seen
+
+
+def verify(root):
+    def read(name):
+        p = root / name
+        require(p.stat().st_size <= 8 * 1024 * 1024, 'metadata-size-bound')
+        return json.loads(p.read_text())
+    before, after, ordered, reads = [read(x) for x in ('before.json', 'after.json', 'ordered.json', 'reads.json')]
+    original = inventory(before)
+    require(original == inventory(after), 'cloud-changed-during-read')
+    require(original == inventory(ordered) and ordered == sorted(before, key=lambda x: x['Path']),
+            'ordered-manifest-mismatch')
+    require(isinstance(reads, list) and len(reads) == len(ordered), 'incomplete-read-receipts')
+    outcomes = []
+    for i, (entry, receipt) in enumerate(zip(ordered, reads)):
+        row = {'index': i, 'bytes': entry['Size'], 'playability': 'unverified'}
+        try:
+            require(receipt['index'] == i and receipt['rc'] == 0, 'read-failed')
+            p = root / 'payloads' / f'{i:04d}'
+            require(not p.is_symlink() and p.is_file() and p.stat().st_size <= LIMIT, 'missing-or-invalid-payload')
+            data = p.read_bytes()
+            require(len(data) == entry['Size'] == receipt['bytes'], 'size-mismatch')
+            require(dropbox_hash(data) == entry['Hashes']['dropbox'], 'provider-hash-mismatch')
+            row.update(byte_integrity='ok', sha256=hashlib.sha256(data).hexdigest())
+            row['structure'] = structure(data, entry['Path'])
+        except (ValueError, OSError, zlib.error, KeyError) as e:
+            row['error'] = str(e) if isinstance(e, ValueError) else type(e).__name__
+        outcomes.append(row)
+    summary = {'files': len(outcomes), 'bytes_ok': sum(x.get('byte_integrity') == 'ok' for x in outcomes),
+               'errors': sum('error' in x for x in outcomes),
+               'structure': dict(collections.Counter(x.get('structure', 'not-verified') for x in outcomes)),
+               'cloud_inventory_stable': True, 'playability': 'unverified'}
+    return {'summary': summary, 'files': outcomes}
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('packet', type=Path)
+    parser.add_argument('--report', type=Path, required=True, help='New private JSON file; never overwrites')
+    args = parser.parse_args()
+    os.umask(0o077)
+    try:
+        result = verify(args.packet)
+        with args.report.open('x') as f:
+            json.dump(result, f, indent=2)
+            f.write('\n')
+        print(json.dumps(result['summary']))
+        return int(result['summary']['errors'] > 0)
+    except (OSError, ValueError, KeyError, TypeError) as e:
+        # Paths and provider identities stay out of stdout/stderr.
+        print('Verification refused: ' + (str(e) if type(e) is ValueError else type(e).__name__), file=sys.stderr)
+        return 2
+
+
+if __name__ == '__main__':
+    sys.exit(main())
