@@ -1,0 +1,96 @@
+Oct 08 12:18:18 ROCKNIX systemd[1]: Listening on systemd-udevd-control.socket.
+Oct 08 12:18:18 ROCKNIX systemd[1]: Listening on systemd-udevd-kernel.socket.
+Oct 08 12:18:18 ROCKNIX systemd[1]: Mounting dev-mqueue.mount...
+Oct 08 12:18:18 ROCKNIX systemd[1]: Mounting proc-sys-fs-binfmt_misc.mount...
+Oct 08 12:18:18 ROCKNIX systemd[1]: Mounting sys-kernel-debug.mount...
+Oct 08 12:18:18 ROCKNIX systemd[1]: Mounting sys-kernel-tracing.mount...
+Oct 08 12:18:18 ROCKNIX systemd[1]: Mounting tmp.mount...
+Oct 08 12:18:18 ROCKNIX systemd[1]: Mounting var.mount...
+Oct 08 12:18:18 ROCKNIX systemd[1]: Started debug-shell.service.
+Oct 08 12:18:18 ROCKNIX systemd[1]: Starting kmod-static-nodes.service...
+Oct 08 12:18:18 ROCKNIX systemd[1]: Starting machine-id.service...
+Oct 08 12:18:18 ROCKNIX systemd[1]: Starting modprobe@configfs.service...
+Oct 08 12:18:18 ROCKNIX systemd[1]: Starting modprobe@drm.service...
+Oct 08 12:18:18 ROCKNIX systemd[1]: Starting modprobe@fuse.service...
+Oct 08 12:18:18 ROCKNIX systemd[1]: Starting show-version.service...
+Oct 08 12:18:18 ROCKNIX systemd[1]: Starting storage-log.service...
+Oct 08 12:18:18 ROCKNIX systemd[1]: Starting systemd-hwdb-update.service...
+Oct 08 12:18:18 ROCKNIX systemd[1]: Starting systemd-modules-load.service...
+Oct 08 12:18:18 ROCKNIX systemd[1]: Starting systemd-timesyncd-setup.service...
+Oct 08 12:18:18 ROCKNIX systemd[1]: Starting systemd-udev-trigger.service...
+Oct 08 12:18:18 ROCKNIX systemd[1]: Mounted dev-mqueue.mount.
+Oct 08 12:18:18 ROCKNIX systemd[1]: Mounted proc-sys-fs-binfmt_misc.mount.
+Oct 08 12:18:18 ROCKNIX systemd[1]: Mounted sys-kernel-debug.mount.
+Oct 08 12:18:18 ROCKNIX systemd[1]: Mounted sys-kernel-tracing.mount.
+Oct 08 12:18:18 ROCKNIX systemd[1]: Mounted tmp.mount.
+Oct 08 12:18:18 ROCKNIX systemd[1]: Mounted var.mount.
+Oct 08 12:18:18 ROCKNIX systemd[1]: Finished kmod-static-nodes.service.
+Oct 08 12:18:18 ROCKNIX systemd[1]: modprobe@configfs.service: Deactivated successfully.
+Oct 08 12:18:18 ROCKNIX systemd[1]: Finished modprobe@configfs.service.
+Oct 08 12:18:18 ROCKNIX systemd[1]: modprobe@drm.service: Deactivated successfully.
+Oct 08 12:18:18 ROCKNIX systemd[1]: Finished modprobe@drm.service.
+Oct 08 12:18:18 ROCKNIX systemd[1]: Finished show-version.service.
+Oct 08 12:18:18 ROCKNIX systemd[1]: Finished storage-log.service.
+Oct 08 12:18:18 ROCKNIX systemd[1]: Mounting sys-kernel-config.mount...
+Oct 08 12:18:18 ROCKNIX systemd[1]: Starting systemd-tmpfiles-setup-dev-early.service...
+Oct 08 12:18:18 ROCKNIX kernel: fuse: init (API version 7.45)
+Oct 08 12:18:18 ROCKNIX systemd[1]: modprobe@fuse.service: Deactivated successfully.
+Oct 08 12:18:18 ROCKNIX systemd[1]: Finished modprobe@fuse.service.
+Oct 08 12:18:18 ROCKNIX systemd[1]: Mounting sys-fs-fuse-connections.mount...
+Oct 08 12:18:18 ROCKNIX systemd[1]: Mounted sys-kernel-config.mount.
+Oct 08 12:18:18 ROCKNIX systemd[1]: Finished systemd-timesyncd-setup.service.
+Oct 08 12:18:18 ROCKNIX systemd[1]: Mounted sys-fs-fuse-connections.mount.
+Oct 08 12:18:18 ROCKNIX systemd[1]: Finished systemd-modules-load.service.
+Oct 08 12:18:18 ROCKNIX systemd[1]: Starting systemd-sysctl.service...
+Oct 08 12:18:18 ROCKNIX systemd[1]: Finished machine-id.service.
+Oct 08 12:18:18 ROCKNIX systemd[1]: Starting systemd-journald.service...
+Oct 08 12:18:18 ROCKNIX systemd[1]: Finished systemd-tmpfiles-setup-dev-early.service.
+Oct 08 12:18:18 ROCKNIX systemd[1]: Starting systemd-tmpfiles-setup-dev.service...
+Oct 08 12:18:18 ROCKNIX systemd[1]: Finished systemd-sysctl.service.
+Oct 08 12:18:18 ROCKNIX systemd[1]: Starting systemd-resolved.service...
+Oct 08 12:18:18 ROCKNIX systemd-journald[258]: Collecting audit messages is disabled.
+Oct 08 12:18:18 ROCKNIX systemd[1]: Started systemd-journald.service.
+Oct 08 12:18:18 ROCKNIX systemd-journald[258]: Received client request to flush runtime journal.
+Oct 08 12:18:18 ROCKNIX kernel: khugepaged: raising min_free_kbytes from 16384 to 67584 to help transparent hugepage allocations
+Oct 08 12:18:19 ROCKNIX kernel: snd_hda_codec_generic hdaudioC1D0: autoconfig for Generic: line_outs=1 (0x3/0x0/0x0/0x0/0x0) type:line
+Oct 08 12:18:19 ROCKNIX kernel: snd_hda_codec_generic hdaudioC1D0:    speaker_outs=0 (0x0/0x0/0x0/0x0/0x0)
+Oct 08 12:18:19 ROCKNIX kernel: snd_hda_codec_generic hdaudioC1D0:    hp_outs=0 (0x0/0x0/0x0/0x0/0x0)
+Oct 08 12:18:19 ROCKNIX kernel: snd_hda_codec_generic hdaudioC1D0:    mono: mono_out=0x0
+Oct 08 12:18:19 ROCKNIX kernel: snd_hda_codec_generic hdaudioC1D0:    inputs:
+Oct 08 12:18:19 ROCKNIX kernel: snd_hda_codec_generic hdaudioC1D0:      Line=0x5
+Oct 08 12:18:19 ROCKNIX kernel: cfg80211: Loading compiled-in X.509 certificates for regulatory database
+Oct 08 12:18:19 ROCKNIX kernel: Loaded X.509 cert 'sforshee: 00b28ddf47aef9cea7'
+Oct 08 12:18:19 ROCKNIX kernel: Loaded X.509 cert 'wens: 61c038651aabdcf94bd0ac7ff06c7248db18c600'
+Oct 08 12:18:20 ROCKNIX kernel: clocksource: Watchdog remote CPU 2 read timed out
+total 0
+drwxr-x---    2 root     root             0 Oct  8 12:37 .
+drwxr-xr-x   11 root     root             0 Oct  8 12:37 ..
+Oct 08 12:18:18 ROCKNIX kernel: ACPI: button: Power Button [PWRF]
+Oct 08 12:18:18 ROCKNIX kernel: PM: genpd: Disabling unused power domains
+Oct 08 12:18:18 ROCKNIX systemd[1]: Using hardware watchdog 'i6300ESB timer', version 0, device /dev/watchdog0
+Oct 08 12:18:18 ROCKNIX systemd[1]: Watchdog running with a hardware timeout of 15s.
+Oct 08 12:18:19 ROCKNIX (udev-worker)[345]: 0000:00:04.0: Process '/usr/bin/sh -c 'echo disabled > /sys/devices/pci0000:00/0000:00:04.0/power/wakeup'' failed with exit code 1.
+Oct 08 12:18:19 ROCKNIX systemd-logind[370]: Watching system buttons on /dev/input/event0 (Power Button)
+Oct 08 12:18:20 ROCKNIX kernel: clocksource: Watchdog remote CPU 2 read timed out
+Oct 08 12:18:22 ROCKNIX systemd[1]: Started powerstate.service.
+Oct 08 12:18:23 GENERIC-X64-7f90 systemd[1]: Starting led-poweroff.service...
+Oct 08 12:18:23 GENERIC-X64-7f90 systemd[1]: Finished led-poweroff.service.
+Oct 08 12:18:24 GENERIC-X64-7f90 systemd-logind[1041]: Watching system buttons on /dev/input/event0 (Power Button)
+Oct 08 12:18:26 GENERIC-X64-7f90 start_es.sh[1643]: 2026-10-08 12:18:26        [1695]        WARNING          Unknown platform for system "doom" (platform "doom" from list "doom")
+Oct 08 12:18:26 GENERIC-X64-7f90 start_es.sh[1643]: 2026-10-08 12:18:26        [1695]        WARNING        System "doom" has no games! Ignoring it.
+Oct 08 12:19:25 GENERIC-X64-7f90 start_es.sh[2572]: 2026-10-08 12:19:25        [2596]        WARNING          Unknown platform for system "doom" (platform "doom" from list "doom")
+Oct 08 12:19:25 GENERIC-X64-7f90 start_es.sh[2572]: 2026-10-08 12:19:25        [2596]        WARNING        System "doom" has no games! Ignoring it.
+Oct 08 12:23:35 GENERIC-X64-7f90 start_es.sh[4457]: 2026-10-08 12:23:35        [4526]        WARNING          Unknown platform for system "doom" (platform "doom" from list "doom")
+Oct 08 12:23:35 GENERIC-X64-7f90 start_es.sh[4457]: 2026-10-08 12:23:35        [4526]        WARNING        System "doom" has no games! Ignoring it.
+Oct 08 12:25:37 GENERIC-X64-7f90 start_es.sh[5965]: 2026-10-08 12:25:37        [6037]        WARNING          Unknown platform for system "doom" (platform "doom" from list "doom")
+Oct 08 12:25:37 GENERIC-X64-7f90 start_es.sh[5965]: 2026-10-08 12:25:37        [6037]        WARNING        System "doom" has no games! Ignoring it.
+Oct 08 12:28:18 GENERIC-X64-7f90 start_es.sh[7260]: 2026-10-08 12:28:18        [7272]        WARNING          Unknown platform for system "doom" (platform "doom" from list "doom")
+Oct 08 12:28:18 GENERIC-X64-7f90 start_es.sh[7260]: 2026-10-08 12:28:18        [7272]        WARNING        System "doom" has no games! Ignoring it.
+Oct 08 12:33:02 GENERIC-X64-7f90 start_es.sh[9995]: 2026-10-08 12:33:02        [10012]        WARNING          Unknown platform for system "doom" (platform "doom" from list "doom")
+Oct 08 12:33:02 GENERIC-X64-7f90 start_es.sh[9995]: 2026-10-08 12:33:02        [10012]        WARNING        System "doom" has no games! Ignoring it.
+Oct 08 12:37:16 GENERIC-X64-7f90 start_es.sh[12465]: 2026-10-08 12:37:16        [12481]        WARNING          Unknown platform for system "doom" (platform "doom" from list "doom")
+Oct 08 12:37:16 GENERIC-X64-7f90 start_es.sh[12465]: 2026-10-08 12:37:16        [12481]        WARNING        System "doom" has no games! Ignoring it.
+Thu 2026-10-08 12:43:52 EDT 2min 33s Thu 2026-10-08 12:38:52 EDT 2min 26s ago rocknix-evidence.timer       rocknix-evidence.service
+Thu 2026-10-08 12:52:51 EDT    11min -                                      - systemd-tmpfiles-clean.timer systemd-tmpfiles-clean.service
+
+2 timers listed.

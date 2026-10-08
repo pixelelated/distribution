@@ -1,0 +1,4 @@
+watch-build: recording in /workspace/tmp/pixelelated-524-path-refusal/walk-en640-invalid02/.build-runs/20261008T162416Z-af4be80e
+wait-for-change: `key x` (line 8) was eaten after 12.2s; re-sending (1)
+WALK FAILED: wait-for-change (line 9): the screen did not change within 12s of `key x` on line 8, even after 1 re-send(s). The press was eaten, so every step after this one would run against the wrong screen. The frame is the last one in /workspace/tmp/pixelelated-524-path-refusal/walk-en640-invalid02/frames.
+captured /workspace/tmp/pixelelated-524-path-refusal/walk-en640-invalid02/frames/01-stuck-after-x.png

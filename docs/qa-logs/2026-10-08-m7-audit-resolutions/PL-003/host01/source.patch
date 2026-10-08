@@ -1,0 +1,264 @@
+diff --git a/es-app/src/CloudText.cpp b/es-app/src/CloudText.cpp
+index fac4406d0..3d31b16ed 100644
+--- a/es-app/src/CloudText.cpp
++++ b/es-app/src/CloudText.cpp
+@@ -1353,3 +1353,56 @@ CloudText::NextTime CloudText::nextTime(bool awardsPending, bool savesPending)
+ 		return NextTime::Saves;
+ 	return NextTime::None;
+ }
++
++
++CloudText::FolderPathRefusal CloudText::folderPathRefusal(const std::string& line)
++{
++	// Exact fixed lines only: a provider's arbitrary output is not UI copy.
++	if (line.size() > 512)
++		return FolderPathRefusal::Unknown;
++	if (line == "ERROR empty path" || line == "ERROR root path not allowed" ||
++		line == "Your cloud folder can't be empty.")
++		return FolderPathRefusal::Empty;
++	if (line == "That folder name can't be used.")
++		return FolderPathRefusal::InvalidName;
++	if (line == "That folder name has characters your cloud sync settings can't hold." ||
++		line == "Your cloud folder's name can't contain \", $, `, or \\.")
++		return FolderPathRefusal::InvalidCharacters;
++	if (line == "Your cloud folder can't have an empty part, or a part called . or .., in its path.")
++		return FolderPathRefusal::InvalidComponents;
++	if (line == "This provider keeps things in buckets, so the first part of the")
++		return FolderPathRefusal::Bucket;
++	if (line == "Your provider wouldn't accept this folder:")
++		return FolderPathRefusal::Provider;
++	if (line == "Your cloud sync settings couldn't be saved." ||
++		line == "ERROR the cloud sync settings could not be saved")
++		return FolderPathRefusal::SettingsWrite;
++	return FolderPathRefusal::Unknown;
++}
++
++std::string CloudText::folderPathRefusalMessage(FolderPathRefusal reason, int exitCode)
++{
++	if (exitCode == 75)
++		return _("WAIT FOR THE CURRENT CLOUD TASK TO FINISH, THEN TRY AGAIN.");
++	if (exitCode == 124)
++		return _("THE FOLDER CHECK TOOK TOO LONG. CHECK YOUR CONNECTION, THEN TRY AGAIN.");
++	switch (reason)
++	{
++	case FolderPathRefusal::Empty:
++		return _("CHOOSE A FOLDER INSIDE YOUR CLOUD STORAGE.");
++	case FolderPathRefusal::InvalidName:
++		return _("THIS FOLDER NAME CAN'T BE USED. CHOOSE A DIFFERENT FOLDER NAME.");
++	case FolderPathRefusal::InvalidCharacters:
++		return _("DON'T USE DOUBLE QUOTES, $, `, \\, OR LINE BREAKS IN THE FOLDER NAME.");
++	case FolderPathRefusal::InvalidComponents:
++		return _("USE ONE SLASH BETWEEN FOLDERS. DON'T USE '.' OR '..' AS FOLDER NAMES.");
++	case FolderPathRefusal::Bucket:
++		return _("THE FIRST PART OF THIS PATH MUST BE A BUCKET NAME. CHECK THAT NAME AND YOUR ACCESS TO THE BUCKET.");
++	case FolderPathRefusal::Provider:
++		return _("YOUR PROVIDER COULDN'T CHECK THIS FOLDER. CHECK YOUR CONNECTION AND ACCESS TO THE FOLDER, THEN TRY AGAIN.");
++	case FolderPathRefusal::SettingsWrite:
++		return _("YOUR CLOUD SETTINGS COULDN'T BE SAVED. TRY AGAIN.");
++	default:
++		return _("CHECK THE PATH AND YOUR CONNECTION, THEN TRY AGAIN.");
++	}
++}
+diff --git a/es-app/src/CloudText.h b/es-app/src/CloudText.h
+index d277111fd..8420042c1 100644
+--- a/es-app/src/CloudText.h
++++ b/es-app/src/CloudText.h
+@@ -530,6 +530,16 @@ namespace CloudText
+ 	std::string unitLabel(const std::string& label);
+ 	bool isKnownUnitLabel(const std::string& label);
+ 
++	// Recognize only fixed cloud_setup explanations, never provider details or
++	// player paths. The worker carries an enum; the UI supplies localized copy.
++	enum class FolderPathRefusal
++	{
++		Unknown, Empty, InvalidName, InvalidCharacters, InvalidComponents,
++		Bucket, Provider, SettingsWrite
++	};
++	FolderPathRefusal folderPathRefusal(const std::string& line);
++	std::string folderPathRefusalMessage(FolderPathRefusal reason, int exitCode);
++
+ 	// The scan's facts (cloud_scan writes "KEY=value" lines; so do
+ 	// cloud_setup --folder-state and --content-location): one
+ 	// map, the last value for a repeated key, lines without = ignored.
+diff --git a/es-app/src/guis/GuiMenu.cpp b/es-app/src/guis/GuiMenu.cpp
+index a8e603525..8dd10b122 100644
+--- a/es-app/src/guis/GuiMenu.cpp
++++ b/es-app/src/guis/GuiMenu.cpp
+@@ -6513,18 +6513,27 @@ static void cloudSetupOpenPathEditor(Window* window, const std::string& title, c
+ 			window->pushGui(new GuiMsgBox(window, _("ENTER A CLOUD FOLDER PATH."), _("OK")));
+ 			return;
+ 		}
+-		window->pushGui(new GuiLoading<int>(window, _("CHECKING..."),
++		using PathResult = std::pair<CloudText::FolderPathRefusal, int>;
++		window->pushGui(new GuiLoading<PathResult>(window, _("CHECKING..."),
+ 			[path, command](IGuiLoadingHandler*)
+ 			{
+-				return ApiSystem::executeScriptLegacy("timeout 30 /usr/bin/cloud_setup " + command
+-					+ " " + Utils::String::shellQuote(path), [](const std::string&) {}).second;
++				auto reason = CloudText::FolderPathRefusal::Unknown;
++				const auto result = ApiSystem::executeScriptLegacy("timeout 30 /usr/bin/cloud_setup " + command
++					+ " " + Utils::String::shellQuote(path), [&reason](const std::string& line)
++					{
++						const auto known = CloudText::folderPathRefusal(line);
++						if (reason == CloudText::FolderPathRefusal::Unknown)
++							reason = known;
++					});
++				return PathResult(reason, result.second);
+ 			},
+-			[window, onDone](int rc)
++			[window, onDone](PathResult result)
+ 			{
+-				if (rc != 0)
++				if (result.second != 0)
+ 				{
+ 					window->pushGui(new GuiMsgBox(window,
+-						_("THE CLOUD FOLDER WAS NOT CHANGED. CHECK THE PATH AND YOUR CONNECTION, THEN TRY AGAIN."), _("OK")));
++						_("THE CLOUD FOLDER WAS NOT CHANGED.") + "\n\n" +
++						CloudText::folderPathRefusalMessage(result.first, result.second), _("OK")));
+ 					return;
+ 				}
+ 				sCloudScanRun.clear();
+diff --git a/es-app/tests/unit/CloudTextTests.cpp b/es-app/tests/unit/CloudTextTests.cpp
+index f0ceadf2a..d9af2a925 100644
+--- a/es-app/tests/unit/CloudTextTests.cpp
++++ b/es-app/tests/unit/CloudTextTests.cpp
+@@ -1750,3 +1750,35 @@ TEST_CASE("a busy cloud check names a check and ordinary sync keeps its headline
+ 		TransferKind::Match, TransferKind::Create, TransferKind::Other })
+ 		CHECK(lockHeldOutcome(kind) == "SKIPPED - A SYNC IS ALREADY RUNNING");
+ }
++
++
++TEST_CASE("cloud folder refusal carries only recognized bounded reasons (#524 PL-003)")
++{
++	using R = CloudText::FolderPathRefusal;
++	CHECK(folderPathRefusal("Your cloud folder can't be empty.") == R::Empty);
++	CHECK(folderPathRefusal("ERROR empty path") == R::Empty);
++	CHECK(folderPathRefusal("ERROR root path not allowed") == R::Empty);
++	CHECK(folderPathRefusal("That folder name can't be used.") == R::InvalidName);
++	CHECK(folderPathRefusal("That folder name has characters your cloud sync settings can't hold.") == R::InvalidCharacters);
++	CHECK(folderPathRefusal("Your cloud folder's name can't contain \", $, `, or \\.") == R::InvalidCharacters);
++	CHECK(folderPathRefusal("Your cloud folder can't have an empty part, or a part called . or .., in its path.") == R::InvalidComponents);
++	CHECK(folderPathRefusal("This provider keeps things in buckets, so the first part of the") == R::Bucket);
++	CHECK(folderPathRefusal("Your provider wouldn't accept this folder:") == R::Provider);
++	CHECK(folderPathRefusal("Your cloud sync settings couldn't be saved.") == R::SettingsWrite);
++	CHECK(folderPathRefusal("ERROR the cloud sync settings could not be saved") == R::SettingsWrite);
++	for (const auto& line : { std::string(), std::string("provider: private details"),
++		std::string("Try /private/folder."), std::string("OK /private/folder"),
++		std::string("prefix Your cloud folder can't be empty."), std::string(4096, 'x') })
++		CHECK(folderPathRefusal(line) == R::Unknown);
++	CHECK(folderPathRefusalMessage(R::InvalidComponents, 1) ==
++		"USE ONE SLASH BETWEEN FOLDERS. DON'T USE '.' OR '..' AS FOLDER NAMES.");
++	CHECK(folderPathRefusalMessage(R::Bucket, 1) ==
++		"THE FIRST PART OF THIS PATH MUST BE A BUCKET NAME. CHECK THAT NAME AND YOUR ACCESS TO THE BUCKET.");
++	CHECK(folderPathRefusalMessage(R::Provider, 1) ==
++		"YOUR PROVIDER COULDN'T CHECK THIS FOLDER. CHECK YOUR CONNECTION AND ACCESS TO THE FOLDER, THEN TRY AGAIN.");
++	CHECK(folderPathRefusalMessage(R::Unknown, 1) == "CHECK THE PATH AND YOUR CONNECTION, THEN TRY AGAIN.");
++	CHECK(folderPathRefusalMessage(R::Unknown, 124) ==
++		"THE FOLDER CHECK TOOK TOO LONG. CHECK YOUR CONNECTION, THEN TRY AGAIN.");
++	CHECK(folderPathRefusalMessage(R::Unknown, 75) ==
++		"WAIT FOR THE CURRENT CLOUD TASK TO FINISH, THEN TRY AGAIN.");
++}
+diff --git a/locale/emulationstation2.pot b/locale/emulationstation2.pot
+index 72fd30f5e..59a51f460 100644
+--- a/locale/emulationstation2.pot
++++ b/locale/emulationstation2.pot
+@@ -3986,3 +3986,47 @@ msgstr ""
+ 
+ msgid "NOTHING MATCHES YOUR SELECTION IN THE CLOUD FOLDER YOU CHOSE.\n\nCHOOSE A DIFFERENT FOLDER, OR ADD FILES FROM A COMPUTER. USE CLOUD > CHECK CLOUD FOLDERS FOR THE EXPECTED LOCATIONS."
+ msgstr ""
++
++#. cloud folder path refusal (#524 PL-003)
++msgid "THE CLOUD FOLDER WAS NOT CHANGED."
++msgstr ""
++
++#. cloud folder path refusal (#524 PL-003)
++msgid "WAIT FOR THE CURRENT CLOUD TASK TO FINISH, THEN TRY AGAIN."
++msgstr ""
++
++#. cloud folder path refusal (#524 PL-003)
++msgid "THE FOLDER CHECK TOOK TOO LONG. CHECK YOUR CONNECTION, THEN TRY AGAIN."
++msgstr ""
++
++#. cloud folder path refusal (#524 PL-003)
++msgid "CHOOSE A FOLDER INSIDE YOUR CLOUD STORAGE."
++msgstr ""
++
++#. cloud folder path refusal (#524 PL-003)
++msgid "THIS FOLDER NAME CAN'T BE USED. CHOOSE A DIFFERENT FOLDER NAME."
++msgstr ""
++
++#. cloud folder path refusal (#524 PL-003)
++msgid "DON'T USE DOUBLE QUOTES, $, `, \\, OR LINE BREAKS IN THE FOLDER NAME."
++msgstr ""
++
++#. cloud folder path refusal (#524 PL-003)
++msgid "USE ONE SLASH BETWEEN FOLDERS. DON'T USE '.' OR '..' AS FOLDER NAMES."
++msgstr ""
++
++#. cloud folder path refusal (#524 PL-003)
++msgid "THE FIRST PART OF THIS PATH MUST BE A BUCKET NAME. CHECK THAT NAME AND YOUR ACCESS TO THE BUCKET."
++msgstr ""
++
++#. cloud folder path refusal (#524 PL-003)
++msgid "YOUR PROVIDER COULDN'T CHECK THIS FOLDER. CHECK YOUR CONNECTION AND ACCESS TO THE FOLDER, THEN TRY AGAIN."
++msgstr ""
++
++#. cloud folder path refusal (#524 PL-003)
++msgid "YOUR CLOUD SETTINGS COULDN'T BE SAVED. TRY AGAIN."
++msgstr ""
++
++#. cloud folder path refusal (#524 PL-003)
++msgid "CHECK THE PATH AND YOUR CONNECTION, THEN TRY AGAIN."
++msgstr ""
+diff --git a/locale/lang/fr/LC_MESSAGES/emulationstation2.po b/locale/lang/fr/LC_MESSAGES/emulationstation2.po
+index 9fc2cfe43..f6adeac4d 100644
+--- a/locale/lang/fr/LC_MESSAGES/emulationstation2.po
++++ b/locale/lang/fr/LC_MESSAGES/emulationstation2.po
+@@ -6714,3 +6714,47 @@ msgstr "SAUVEGARDEZ LES SAUVEGARDES DE JEU, SAUVEGARDES D’ÉTAT ET CAPTURES D
+ 
+ msgid "NOTHING MATCHES YOUR SELECTION IN THE CLOUD FOLDER YOU CHOSE.\n\nCHOOSE A DIFFERENT FOLDER, OR ADD FILES FROM A COMPUTER. USE CLOUD > CHECK CLOUD FOLDERS FOR THE EXPECTED LOCATIONS."
+ msgstr "RIEN NE CORRESPOND À VOTRE SÉLECTION DANS LE DOSSIER CLOUD CHOISI.\n\nCHOISISSEZ UN AUTRE DOSSIER OU AJOUTEZ DES FICHIERS DEPUIS UN ORDINATEUR. UTILISEZ CLOUD > VÉRIFIER LES DOSSIERS CLOUD POUR VOIR OÙ LES PLACER."
++
++#. cloud folder path refusal (#524 PL-003)
++msgid "THE CLOUD FOLDER WAS NOT CHANGED."
++msgstr "LE DOSSIER CLOUD N’A PAS CHANGÉ."
++
++#. cloud folder path refusal (#524 PL-003)
++msgid "WAIT FOR THE CURRENT CLOUD TASK TO FINISH, THEN TRY AGAIN."
++msgstr "ATTENDEZ LA FIN DE L’OPÉRATION CLOUD EN COURS, PUIS RÉESSAYEZ."
++
++#. cloud folder path refusal (#524 PL-003)
++msgid "THE FOLDER CHECK TOOK TOO LONG. CHECK YOUR CONNECTION, THEN TRY AGAIN."
++msgstr "LA VÉRIFICATION DU DOSSIER A PRIS TROP DE TEMPS. VÉRIFIEZ LA CONNEXION, PUIS RÉESSAYEZ."
++
++#. cloud folder path refusal (#524 PL-003)
++msgid "CHOOSE A FOLDER INSIDE YOUR CLOUD STORAGE."
++msgstr "CHOISISSEZ UN DOSSIER DANS VOTRE STOCKAGE CLOUD."
++
++#. cloud folder path refusal (#524 PL-003)
++msgid "THIS FOLDER NAME CAN'T BE USED. CHOOSE A DIFFERENT FOLDER NAME."
++msgstr "CE NOM DE DOSSIER NE PEUT PAS ÊTRE UTILISÉ. CHOISISSEZ UN AUTRE NOM."
++
++#. cloud folder path refusal (#524 PL-003)
++msgid "DON'T USE DOUBLE QUOTES, $, `, \\, OR LINE BREAKS IN THE FOLDER NAME."
++msgstr "N’UTILISEZ PAS DE GUILLEMETS DOUBLES, $, `, \\, NI DE SAUTS DE LIGNE DANS LE NOM DU DOSSIER."
++
++#. cloud folder path refusal (#524 PL-003)
++msgid "USE ONE SLASH BETWEEN FOLDERS. DON'T USE '.' OR '..' AS FOLDER NAMES."
++msgstr "UTILISEZ UNE SEULE BARRE OBLIQUE ENTRE LES DOSSIERS. N’UTILISEZ PAS « . » OU « .. » COMME NOM DE DOSSIER."
++
++#. cloud folder path refusal (#524 PL-003)
++msgid "THE FIRST PART OF THIS PATH MUST BE A BUCKET NAME. CHECK THAT NAME AND YOUR ACCESS TO THE BUCKET."
++msgstr "LA PREMIÈRE PARTIE DU CHEMIN DOIT ÊTRE UN NOM DE BUCKET. VÉRIFIEZ CE NOM ET VOTRE ACCÈS AU BUCKET."
++
++#. cloud folder path refusal (#524 PL-003)
++msgid "YOUR PROVIDER COULDN'T CHECK THIS FOLDER. CHECK YOUR CONNECTION AND ACCESS TO THE FOLDER, THEN TRY AGAIN."
++msgstr "LE FOURNISSEUR N’A PAS PU VÉRIFIER CE DOSSIER. VÉRIFIEZ LA CONNEXION ET VOTRE ACCÈS AU DOSSIER, PUIS RÉESSAYEZ."
++
++#. cloud folder path refusal (#524 PL-003)
++msgid "YOUR CLOUD SETTINGS COULDN'T BE SAVED. TRY AGAIN."
++msgstr "VOS PARAMÈTRES CLOUD N’ONT PAS PU ÊTRE ENREGISTRÉS. RÉESSAYEZ."
++
++#. cloud folder path refusal (#524 PL-003)
++msgid "CHECK THE PATH AND YOUR CONNECTION, THEN TRY AGAIN."
++msgstr "VÉRIFIEZ LE CHEMIN ET LA CONNEXION, PUIS RÉESSAYEZ."

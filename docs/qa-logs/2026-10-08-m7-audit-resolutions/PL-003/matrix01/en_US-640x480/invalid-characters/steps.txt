@@ -1,0 +1,13 @@
+key x
+wait-for-change 12 0
+key backspace x20
+key q
+key shift-4
+key d
+key down
+key x
+wait-for-change 12 0
+settle
+shot invalid-characters
+key x
+wait-for-change 12 0

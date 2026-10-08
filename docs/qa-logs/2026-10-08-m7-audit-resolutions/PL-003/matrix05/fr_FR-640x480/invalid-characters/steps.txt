@@ -1,0 +1,17 @@
+key down x1
+key x
+wait-for-change 12 0
+key backspace x20
+key q
+key shift-4
+key d
+settle
+shot typed-path
+key down
+key x
+wait-for-change 12 0
+settle
+shot invalid-characters
+key x
+wait-for-change 12 0
+key up x1

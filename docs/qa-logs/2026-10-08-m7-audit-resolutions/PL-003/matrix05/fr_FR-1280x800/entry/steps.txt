@@ -1,0 +1,16 @@
+key ret
+wait-for-change 12 0
+settle
+shot main-menu
+key x
+wait-for-change 12 0
+key up x3
+key x
+wait-for-change 12 0
+settle
+shot cloud-hub
+key up x4
+key x
+wait-for-change 12 0
+settle
+shot cloud-folders

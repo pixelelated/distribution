@@ -1,0 +1,17 @@
+key x
+wait-for-change 12 0
+key backspace x20
+key slash
+key q
+key a
+key slash
+key b
+settle
+shot typed-path
+key down
+key x
+wait-for-change 12 0
+settle
+shot settings-write
+key x
+wait-for-change 12 0

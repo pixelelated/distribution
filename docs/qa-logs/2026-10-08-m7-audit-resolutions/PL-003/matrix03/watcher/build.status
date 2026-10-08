@@ -1,0 +1,13 @@
+state:       finished
+written:     2026-10-08 16:38:15 UTC   <- terminal result; heartbeat stops here
+watcher_pid: 3244154
+job_pid:     3244153  alive=yes
+started:     2026-10-08 16:37:05 UTC
+progress:    none matched
+log:         /workspace/tmp/pixelelated-524-path-refusal/matrix03/.build-runs/20261008T163705Z-6dfeb63b/build.log  (last written 4s ago)
+activity:    /workspace/tmp/pixelelated-524-path-refusal/matrix03/.build-runs/20261008T163705Z-6dfeb63b/build.log  (last written 4s ago)
+activity_root: /workspace/tmp/pixelelated-524-path-refusal/matrix03
+outcome:     rc=1
+tail:
+                               self.stderr)
+  subprocess.CalledProcessError: Command '['ssh', '-i', '/workspace/tmp/pixelelated-524-path-refusal/guest01/qa-key', '-p', '10220',

@@ -1,0 +1,14 @@
+watch-build: recording in /workspace/tmp/pixelelated-524-path-refusal/matrix03/.build-runs/20261008T163705Z-6dfeb63b
+START en_US-640x480
+START en_US-640x480 bucket
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-524-path-refusal/matrix03/run.py", line 90, in <module>
+    walk(c,steps);after=call(witness,c/'after.txt');assert before==after,(d.name,name,'changed paths or payload')
+                        ~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tmp/pixelelated-524-path-refusal/matrix03/run.py", line 6, in call
+    q=subprocess.run(ssh+[cmd],stdout=subprocess.PIPE,stderr=subprocess.STDOUT);p.write_bytes(q.stdout);q.check_returncode();return q.stdout
+                                                                                                        ~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.14/subprocess.py", line 509, in check_returncode
+    raise CalledProcessError(self.returncode, self.args, self.stdout,
+                             self.stderr)
+subprocess.CalledProcessError: Command '['ssh', '-i', '/workspace/tmp/pixelelated-524-path-refusal/guest01/qa-key', '-p', '10220', '-o', 'LogLevel=ERROR', '-o', 'StrictHostKeyChecking=no', '-o', 'UserKnownHostsFile=/dev/null', '-o', 'BatchMode=yes', '-o', 'ConnectTimeout=5', 'root@127.0.0.1', "set -e; ! pgrep -f '^/usr/bin/retroarch'; /storage/qa524/frozen/usr/bin/cloud_setup --validation-context; sha256sum /storage/.config/cloud_sync.conf /storage/.config/rclone/rclone.conf; find /storage/qa524/provider /storage/qa524/local-witness -type f -exec sha256sum '{}' ';' | sort"]' returned non-zero exit status 2.

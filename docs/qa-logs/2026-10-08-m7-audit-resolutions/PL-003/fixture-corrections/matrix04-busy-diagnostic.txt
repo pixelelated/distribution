@@ -1,0 +1,11 @@
+0f846d4e8f1ce8ee5fc55e1cb6341235960e9c3f6d3a84e744ace8efd6466d8c  /usr/bin/cloud_setup
+0f846d4e8f1ce8ee5fc55e1cb6341235960e9c3f6d3a84e744ace8efd6466d8c  /storage/qa524/frozen/usr/bin/cloud_setup
+0f846d4e8f1ce8ee5fc55e1cb6341235960e9c3f6d3a84e744ace8efd6466d8c  /storage/qa524/refusal-fixture.sh
+   5705    5704 sh -c set -e; ! pgrep -f '^/usr/bin/retroarch'; /storage/qa524/frozen/usr/bin/cloud_setup --validation-context; sha256sum /storage/.config/cloud_sync.conf /storage/.config/rclone/rclone.conf; find /storage/qa524/provider /storage/qa524/local-witness -type f -exec sha256sum '{}' ';' | sort
+   5707    5705 /bin/bash /storage/qa524/frozen/usr/bin/cloud_setup --validation-context
+   6307    6306 sh -c sha256sum /usr/bin/cloud_setup /storage/qa524/frozen/usr/bin/cloud_setup /storage/qa524/refusal-fixture.sh; ps -o pid,ppid,args | grep -E "cloud_setup|refusal-fixture|validation-context"; cat /proc/sys/kernel/random/boot_id; journalctl --list-boots
+   6310    6307 grep -E cloud_setup|refusal-fixture|validation-context
+5eb19e48-00f1-415b-8805-1bc86423e77c
+IDX BOOT ID                          FIRST ENTRY                 LAST ENTRY
+ -1 b120c3cd9fca4aa7976bf6b60aff203c Thu 2026-10-08 12:18:18 EDT Thu 2026-10-08 12:37:34 EDT
+  0 5eb19e4800f1415b88051bc86423e77c Thu 2026-10-08 12:37:51 EDT Thu 2026-10-08 12:48:45 EDT

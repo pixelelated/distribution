@@ -1,0 +1,107 @@
+[
+  {
+    "name": "configure",
+    "argv": [
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement16/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/cmake",
+      "-G",
+      "Ninja",
+      "-S",
+      "/home/max/Development/emulationstation-next.worktrees/m7-cloud-path-reasons/es-app/tests/unit",
+      "-B",
+      "/workspace/tmp/pixelelated-524-path-refusal/host01/unit",
+      "-DCMAKE_MAKE_PROGRAM=/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement16/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/ninja",
+      "-DCMAKE_CXX_COMPILER=/usr/bin/g++",
+      "-DRAPIDJSON_INCLUDE_DIR=/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement16/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/include"
+    ],
+    "returncode": 0,
+    "started_at": "2026-10-08T16:10:15.491255+00:00",
+    "finished_at": "2026-10-08T16:10:15.639670+00:00"
+  },
+  {
+    "name": "unit-build",
+    "argv": [
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement16/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/cmake",
+      "--build",
+      "/workspace/tmp/pixelelated-524-path-refusal/host01/unit",
+      "--target",
+      "es-unit-tests",
+      "-j2"
+    ],
+    "returncode": 0,
+    "started_at": "2026-10-08T16:10:15.639841+00:00",
+    "finished_at": "2026-10-08T16:10:19.312944+00:00"
+  },
+  {
+    "name": "unit-run",
+    "argv": [
+      "/workspace/tmp/pixelelated-524-path-refusal/host01/unit/es-unit-tests"
+    ],
+    "returncode": 0,
+    "started_at": "2026-10-08T16:10:19.313171+00:00",
+    "finished_at": "2026-10-08T16:10:19.322452+00:00"
+  },
+  {
+    "name": "syntax",
+    "argv": [
+      "/workspace/repos/rocknix/tools/es-syntax-check",
+      "--root",
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement16/build.pixelelated-GENERIC_X64.x86_64",
+      "--tree",
+      "/home/max/Development/emulationstation-next.worktrees/m7-cloud-path-reasons",
+      "/home/max/Development/emulationstation-next.worktrees/m7-cloud-path-reasons/es-app/src/CloudText.cpp",
+      "/home/max/Development/emulationstation-next.worktrees/m7-cloud-path-reasons/es-app/src/guis/GuiMenu.cpp"
+    ],
+    "returncode": 0,
+    "started_at": "2026-10-08T16:10:19.324934+00:00",
+    "finished_at": "2026-10-08T16:10:23.208006+00:00"
+  },
+  {
+    "name": "catalog",
+    "argv": [
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement16/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/msgfmt",
+      "--check",
+      "--check-format",
+      "-o",
+      "/workspace/tmp/pixelelated-524-path-refusal/host01/fr.mo",
+      "/home/max/Development/emulationstation-next.worktrees/m7-cloud-path-reasons/locale/lang/fr/LC_MESSAGES/emulationstation2.po"
+    ],
+    "returncode": 0,
+    "started_at": "2026-10-08T16:10:23.208275+00:00",
+    "finished_at": "2026-10-08T16:10:23.218165+00:00"
+  },
+  {
+    "name": "vocabulary",
+    "argv": [
+      "/workspace/repos/rocknix/tools/vocabulary-check",
+      "--es",
+      "/home/max/Development/emulationstation-next.worktrees/m7-cloud-path-reasons"
+    ],
+    "returncode": 0,
+    "started_at": "2026-10-08T16:10:23.219960+00:00",
+    "finished_at": "2026-10-08T16:10:23.267426+00:00"
+  },
+  {
+    "name": "menu-map",
+    "argv": [
+      "/workspace/repos/rocknix/tools/es-menu-map-check",
+      "--es-src",
+      "/home/max/Development/emulationstation-next.worktrees/m7-cloud-path-reasons",
+      "--ref",
+      "4e410dc9a816cc947f16235ad2b24824b29dd84e"
+    ],
+    "returncode": 0,
+    "started_at": "2026-10-08T16:10:23.267543+00:00",
+    "finished_at": "2026-10-08T16:10:23.387370+00:00"
+  },
+  {
+    "name": "extraction",
+    "argv": [
+      "python3",
+      "-I",
+      "/workspace/tmp/pixelelated-524-path-refusal/host01/extract.py"
+    ],
+    "returncode": 0,
+    "started_at": "2026-10-08T16:10:23.387558+00:00",
+    "finished_at": "2026-10-08T16:10:23.541766+00:00"
+  }
+]

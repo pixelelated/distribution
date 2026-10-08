@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Saved: 2026-10-08T16:29:30.054787+00:00
+> Saved: 2026-10-08T17:14:14.009567+00:00
 > Coordinator: feature/conflict-resolution
 > Repository: pixelelated/distribution
 
@@ -89,14 +89,39 @@ that concrete approval persists for this same blind/refutation scope. Do not res
      profile call, and preferences outside fresh config root) are retained;
      fixture-correct03 uses the actual <config> wrapper. Successful individual
      invalid-components03 frame and unchanged pointers/config/payload verified.
-     matrix01 is now submitted to watch-build/watch-job for44 EN/FR640x480/
-     1280x800 rendering cases, with actual backend cases distinguished from
-     explicitly injected status-only copy cases. Read its current result/status
-     and consume termination; submission alone is not a completed proof.
-     Source/canonical CF05 frames/integration pending. ES pin remains4e410.
-     Retire guest, MinIO and reconstruction scratch after acceptance; auditor
-     withdrew the optional inert-token L-03 probe as insufficient evidence of
-     actual OAuth behavior. No guest retention solely for that unverified lead.
+     Earlier matrix01/02 attempts failed on a settings-row fixture: settings/
+     content setters do local syntax only; provider checks belong to saves.
+     The claim that NoSuchBucket caused those UI outcomes is withdrawn. Five
+     EN640 matrix02 cases are visually/byte-preservation verified. matrix03
+     lost the temporary overlay when guest boot b120c3cd9fca4aa7976bf6b60aff203c
+     reset to5eb19e4800f1415b88051bc86423e77c at12:37:51EDT. Cause remains
+     undetermined; prior kernel/journal/pstore records are retained, watchdog
+     remains enabled. restage01 restored the exact artifacts. matrix04 verifies
+     real bucket and unreachable EN640 refusals with per-phase boot/PID/ES,
+     helper/catalog hash and data-preservation guards. Its busy fixture then
+     exposed shared bind-mount propagation aliasing its delegate to itself;
+     exact guest5707 was terminated, failure retained. Owned helper bind stacks
+     removed after making the synthetic guest mounts private; independent
+     production delegate restored to /storage/qa524/delegate/cloud_setup.
+     matrix05 COMPLETED37remaining cases at17:10UTC; combined with five
+     accepted matrix02 and two accepted matrix04 cases, all44EN/FR640x480and
+     1280x800outcomes passed. Root and sole auditor visually reviewed all44.
+     Actual host3304445/46/47/75exited, four terminal channels0 verified
+     17:10:57UTC. Corrected atomic helper copies, bounded witnesses and all
+     per-phase identity/data guards pass. Original failed owners remain failed.
+     Compact1269-file17.15MBpacket is under docs/qa-logs/2026-10-08-m7-audit-
+     resolutions/PL-003/, with evidence-index.json,root-ui-review.json and
+     sha256.json.28actual/frontend outcomes;16injected status rendering only.
+     CF05row/diagram,es-menu-map and changelog updated locally. Auditor accepted
+     all1269 seals,44 frames and canonical references for promotion. ES
+     test/qa-integration is published and remotely verified at1d76b3da7.
+     Distribution pin commit cb075bb4c74eed6a265718b70f86f7bfe81fbd8d is
+     ready for integration from m7-p5-integration, based on currentnext9de2c2b71b;
+     pkgcheck passes. Final hosted receipt precedes PL-003closure. Never copy
+     the historical root recipe. Publication state must be read from actualnext.
+     Synthetic guest and owned MinIO remain alive only until acceptance,
+     then retire with reconstruction scratch. Optional inert-token probe was
+     withdrawn; no guest retained for an unverified OAuth claim.
    - PL-004 auditor WAITING on PL-003: reject malformed receipt JSON object
      shapes normally, retaining valid and negative controls.
    Preserve frozen review input and original findings. Implementation uses

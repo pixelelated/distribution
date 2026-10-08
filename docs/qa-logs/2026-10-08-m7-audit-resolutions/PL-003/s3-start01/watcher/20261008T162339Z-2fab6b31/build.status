@@ -1,0 +1,13 @@
+state:       finished
+written:     2026-10-08 16:23:44 UTC   <- terminal result; heartbeat stops here
+watcher_pid: 3183129
+job_pid:     3183128  alive=yes
+started:     2026-10-08 16:23:39 UTC
+progress:    none matched
+log:         /workspace/tmp/pixelelated-524-path-refusal/s3-start01/.build-runs/20261008T162339Z-2fab6b31/build.log  (last written 4s ago)
+activity:    /workspace/tmp/pixelelated-524-path-refusal/s3-start01/.build-runs/20261008T162339Z-2fab6b31/build.log  (last written 4s ago)
+activity_root: /workspace/tmp/pixelelated-524-path-refusal/s3-start01
+outcome:     rc=0
+tail:
+  up: s3 bucket pixelelated-qa524 on port 9039
+  note: SAVES_REMOTE must start with the bucket, e.g. /pixelelated/Saves
