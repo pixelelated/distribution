@@ -1,0 +1,42 @@
+{
+  "utc": "2026-10-08T20:23:28.351734+00:00",
+  "original_result": "FAIL retained: original folder navigation/frame comparison; #527 supplies separate accepted replacement",
+  "original_channels": {
+    "/workspace/tmp/pixelelated-m7-qa-21/inner.rc": 1,
+    "/workspace/tmp/pixelelated-m7-qa-21/outer.rc": 1,
+    "/workspace/tmp/pixelelated-m7-qa-21/tool-wrapper.rc": 1,
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/.build-runs/20261008T195008Z-fcbfffb3/build.rc": 1,
+    "/workspace/tmp/pixelelated-m7-qa-21/default-suite.rc": 1
+  },
+  "launcher_rc": 1,
+  "actual_owner_pids_absent": [
+    252590,
+    252591,
+    252592,
+    252621
+  ],
+  "ports_closed": [
+    10022,
+    10023,
+    5909,
+    5910,
+    9010,
+    9012,
+    9013
+  ],
+  "protocols": {
+    "webdav": {
+      "assertions": 108,
+      "report": "/workspace/tmp/pixelelated-m7-qa-21/artifacts/rocknix-images/qa-7f58b7b1c5-webdav-a-20261008-1950/report.md"
+    },
+    "sftp": {
+      "assertions": 108,
+      "report": "/workspace/tmp/pixelelated-m7-qa-21/artifacts/rocknix-images/qa-7f58b7b1c5-sftp-a-20261008-2019/report.md"
+    },
+    "s3": {
+      "assertions": 108,
+      "report": "/workspace/tmp/pixelelated-m7-qa-21/artifacts/rocknix-images/qa-7f58b7b1c5-s3-a-20261008-2020/report.md"
+    }
+  },
+  "source_custody_final_pass": true
+}

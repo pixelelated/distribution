@@ -159,15 +159,25 @@ flowchart TD
     P -->|Failure or cancellation| F[Outcome: created folders remain]
     F -->|Dismiss and retry| B
     B -->|CHANGE CLOUD FOLDER| S[Independent saves, settings, content paths]
-    S -->|Successful change and return| B
-    S -->|Blank or unsafe path, saves-provider refusal, or save failure| PE[Explain the recognized reason and next action; preserve the current path]
+    S --> K[Editor for the selected path]
+    K -->|Unchanged value: no provider probe or write| S
+    K -->|Accepted changed value| S
+    S -->|Back: refresh paths and retain category choices| B
+    K -->|Blank or unsafe path, saves-provider refusal, or save failure| PE[Explain the recognized reason and next action; preserve the current path]
     PE --> S
     B -->|No category chosen| N[Choose at least one item]
     N --> B
     B -->|FINISH| X[Return to cloud settings]
 ```
 
-The saves editor also checks the provider before accepting its path. The
+Submitting an unchanged value closes the editor without a provider probe or
+configuration write. The caller determines the return: Back from the selector
+returns to the cloud hub when opened there, or to category setup with choices
+retained when opened from setup. The [standard-walk proof](../qa-logs/2026-10-08-cloud-folder-walks/README.md)
+records this unchanged-value route at 640×480 and 1280×800, with file/pointer
+witnesses and the rejected old navigation control (#527).
+
+The saves editor also checks the provider before accepting a changed path. The
 settings and content editors check local path syntax; their later category
 check establishes whether the chosen cloud folder can be read. A refusal keeps
 all selected paths and file contents unchanged. Its dialog translates recognized

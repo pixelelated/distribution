@@ -220,8 +220,11 @@ flowchart TD
     CSS --> CHK[CHECK CONNECTION] --> CHKD[dialog: answers / does not]
     CSS --> FOLDER[CHANGE CLOUD FOLDER] --> PATHS[CLOUD FOLDERS<br/>SAVES FOLDER · SETTINGS FOLDER · ROMS, BIOS, AND GAME CONTENT FOLDER]
     PATHS --> KB[keyboard for the selected path<br/>changes only that pointer; moves no files]
+    KB -->|unchanged value: no probe or write| PATHS
+    KB -->|accepted changed value| PATHS
     KB -->|refused| PATHERROR[recognized reason and next action<br/>selected paths and files unchanged]
     PATHERROR --> PATHS
+    PATHS -->|Back when opened from the hub| HUB
     CSS --> CHECK[CHECK CLOUD FOLDERS] --> CATEGORIES[CLOUD FOLDERS<br/>SAVES · SETTINGS · ROMS · BIOS · GAME CONTENT]
     CATEGORIES --> VALIDATE[CHECK FOLDERS] --> FINDINGS[CLOUD FOLDER CHECK<br/>category state and expected path]
     FINDINGS --> HELP[SEE INSTRUCTIONS] --> LOCAL[CLOUD FOLDER INSTRUCTIONS<br/>local guidance; no unpublished QR link]

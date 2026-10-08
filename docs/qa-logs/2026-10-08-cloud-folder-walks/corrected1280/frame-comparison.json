@@ -1,0 +1,34 @@
+{
+  "corrected": {
+    "returncode": 0,
+    "command": [
+      "/workspace/repos/rocknix.worktrees/m7-p5-cloud-folder-walks/tools/frame-diff",
+      "compare",
+      "/workspace/tmp/pixelelated-m7-walk527-04/baseline-subset",
+      "/workspace/tmp/pixelelated-m7-walk527-04/artifacts/rocknix-images/qa-7f58b7b1c5-webdav-d-20261008-2012/walks",
+      "--masks",
+      "/workspace/repos/rocknix.worktrees/m7-p5-cloud-folder-walks/tools/vm-walks/masks.txt",
+      "--claims",
+      "/workspace/repos/rocknix.worktrees/m7-p5-cloud-folder-walks/tools/vm-walks/claims.txt",
+      "--report",
+      "/workspace/tmp/pixelelated-m7-walk527-04/corrected-frame-diff.md"
+    ]
+  },
+  "old-control": {
+    "returncode": 1,
+    "command": [
+      "/workspace/repos/rocknix.worktrees/m7-p5-cloud-folder-walks/tools/frame-diff",
+      "compare",
+      "/workspace/tmp/pixelelated-m7-walk527-04/baseline-subset",
+      "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-08-cloud-folder-walks/original-control",
+      "--masks",
+      "/workspace/repos/rocknix.worktrees/m7-p5-cloud-folder-walks/tools/vm-walks/masks.txt",
+      "--claims",
+      "/workspace/repos/rocknix.worktrees/m7-p5-cloud-folder-walks/tools/vm-walks/claims.txt",
+      "--report",
+      "/workspace/tmp/pixelelated-m7-walk527-04/old-control-frame-diff.md"
+    ]
+  },
+  "claims_sha256": "91c2e771c3fc6a7afbb05adb2439259d709345a22a1fe8f6d7cf584ac6d1e6fa",
+  "baseline_unchanged": true
+}

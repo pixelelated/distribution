@@ -1,0 +1,26 @@
+watch-build: recording in /workspace/repos/rocknix.worktrees/m7-p5-cloud-folder-walks/.build-runs/20261008T201228Z-d4f50aa3
+/workspace/tmp/pixelelated-m7-walk527-04/run.sh: OK
+/workspace/tmp/pixelelated-m7-walk527-04/outer.sh: OK
+/workspace/tmp/pixelelated-m7-walk527-04/resize.py: OK
+/workspace/tmp/pixelelated-m7-walk527-04/binding.json: OK
+down: owned QEMU exited (pid 460119)
+[W][20:12:29.814835] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][20:12:29.814868] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+ready after ~18s
+walks: PASS in 133s
+
+# vm-qa on 7f58b7b1c5
+
+started 2026-10-08 20:12 UTC, guest d at :10026, cloud webdav (port 19087, hash=none modtime=no commit=partial bucket=no), image /workspace/artifacts/pixelelated-candidates/sha256/f557176651026f59bb5931993b12491a6019c0383321fb89fa1a05a596514fe6/pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz, display: GL through virgl on /dev/dri/renderD128
+
+| suite | result | time | log |
+| --- | --- | --- | --- |
+| walks | PASS | 133s | `walks.log` |
+
+**PASSED** -- every suite that ran passed.
+
+finished 2026-10-08 20:15 UTC
+
+renderer: (no RetroArch launch log on the guest) -- the guest's Mesa, from the launch log; display: GL through virgl on /dev/dri/renderD128
+
+report: /workspace/tmp/pixelelated-m7-walk527-04/artifacts/rocknix-images/qa-7f58b7b1c5-webdav-d-20261008-2012/report.md
