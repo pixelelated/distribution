@@ -1,0 +1,184 @@
+{
+  "source_directory": "/workspace/tmp/pixelelated-validator-20261007/root-old01",
+  "retained_non_source_files": {
+    "absolute-relative-root-distinction/01-cloud_setup.json": {
+      "sha256": "9b25477c5f6e689fa6dba9ac263a4d721f48cd78bf0e92fd8e521e5977a9e317",
+      "bytes": 649,
+      "text": "{\n  \"argv\": [\n    \"cloud_setup\",\n    \"--folder-state\"\n  ],\n  \"rc\": 0,\n  \"pointers\": {\n    \"SAVESPATH\": \"/storage/roms\",\n    \"SAVES_REMOTE\": \"/\",\n    \"SETTINGS_BACKUPS\": \"/storage/roms/backup\",\n    \"SETTINGS_REMOTE\": \"/\",\n    \"BACKUPMETHOD\": \"copy\",\n    \"RESTOREMETHOD\": \"copy\",\n    \"BACKUPFILE_BACKUP_OPTION\": \"no\",\n    \"BACKUPFILE_RESTORE_OPTION\": \"no\",\n    \"LOG_LEVEL\": \"INFO\",\n    \"LAYOUT_KEEP\": \"\",\n    \"RCLONEOPTS\": \"--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt\",\n    \"RCLONE_NET_OPTS\": \"--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1\",\n    \"CONTENT_REMOTE\": \"/Library\"\n  }\n}"
+    },
+    "absolute-relative-root-distinction/01-cloud_setup.log": {
+      "sha256": "e5774d19274ebf1c1d1552b353a8bac2093303926f2fd64ca85ec7c4aaab034f",
+      "bytes": 62,
+      "text": "STATE=ready\nSAVES=/\nBACKUPS=/\nCONTENT=/Library\nSAVES_EXISTS=1\n"
+    },
+    "absolute-relative-root-distinction/cloud/relative/owner-note.txt": {
+      "sha256": "22325efa5febbffabbe105a3ee959ead3d574fc08d3e15dae6f7331b55338ffc",
+      "bytes": 23,
+      "text": "home namespace sentinel"
+    },
+    "absolute-relative-root-distinction/ctl/absolute-unreadable": {
+      "sha256": "8a798890fe93817163b10b5f7bd2ca4d25d84c52739a645a889c173eee7d9d3d",
+      "bytes": 3,
+      "text": "yes"
+    },
+    "absolute-relative-root-distinction/ctl/argv": {
+      "sha256": "7be75060b43956a4466d815e45ae5ffd7eb5ed830aa6ad58dec3b4cda8ea73ae",
+      "bytes": 85,
+      "text": "listremotes\nlsf qa: --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\n"
+    },
+    "absolute-relative-root-distinction/profile": {
+      "sha256": "c53499f1fe23f18126fa3f158e891f940ea7fe9894cfaabb521f6ec75c6e95e5",
+      "bytes": 82,
+      "text": "export PATH=/shim:/repo:/usr/bin:/bin\nexport HOME=/storage\nexport OS_NAME=ROCKNIX\n"
+    },
+    "absolute-relative-root-distinction/shim/ip": {
+      "sha256": "ed7833938db4abd915c4a87c20a87b5081e535ca8bcaadce3636bbbce842d61c",
+      "bytes": 70,
+      "text": "#!/bin/sh\n[ -e /ctl/offline ] || echo \"default via 10.0.2.2 dev eth0\"\n"
+    },
+    "absolute-relative-root-distinction/shim/logger": {
+      "sha256": "3874e47b219daaa98d73429732121b2639080ca64e5769982a78093c4f036cc7",
+      "bytes": 45,
+      "text": "#!/bin/sh\nprintf \"%s\\n\" \"$*\" >> /ctl/journal\n"
+    },
+    "absolute-relative-root-distinction/shim/ping": {
+      "sha256": "a0cfd66789b27fed708dda43875c9e9ff38823623233621b6bf816df8440dac9",
+      "bytes": 32,
+      "text": "#!/bin/sh\n[ ! -e /ctl/offline ]\n"
+    },
+    "absolute-relative-root-distinction/shim/rclone": {
+      "sha256": "dda1f1aa99822733d44830b251d64e4d64fbacfdf30d78033d97cfb4d1102095",
+      "bytes": 1013,
+      "text": "#!/bin/bash\nprintf '%s\\n' \"$*\" >> /ctl/argv\nif [ -f /ctl/faults ]; then\n while IFS=$'\\t' read -r pattern code; do\n  [[ \"$*\" =~ $pattern ]] && { printf '%s\\n' \"$*\" >> /ctl/fault-fired; echo 'injected provider failure' >&2; exit \"$code\"; }\n done < /ctl/faults\nfi\nif [ -e /ctl/bucket ]; then\n if [ \"$1 $2\" = 'backend features' ]; then\n  printf '{\"Hashes\":[\"md5\"],\"Features\":{\"BucketBased\":true}}\\n'; exit 0\n fi\n # Bucket prefixes can return successful empty lsd for a missing prefix.\n if [ \"$1\" = lsd ]; then exit 0; fi\nfi\nmapped=()\nfor arg in \"$@\"; do\n case \"$arg\" in\n  qa:/*) mapped+=(\":local:/cloud/absolute/${arg#qa:/}\") ;;\n  qa:*) mapped+=(\":local:/cloud/relative/${arg#qa:}\") ;;\n  *) mapped+=(\"$arg\") ;;\n esac\ndone\nif [ \"$1\" = lsf ] && [ \"$2\" = qa:/ ] && { [ -e /ctl/absolute-unreadable ] || [ -e /ctl/root-seeded ]; }; then exit 5; fi\n/rclone.real \"${mapped[@]}\"; rc=$?\nif [ \"$1\" = copyto ] && [ \"$rc\" = 0 ] && [ -e /ctl/fail-seed-readback ]; then touch /ctl/root-seeded; fi\nexit \"$rc\"\nexec /rclone.real \"$@\"\n"
+    },
+    "absolute-relative-root-distinction/shim/systemctl": {
+      "sha256": "306c6ca7407560340797866e077e053627ad409277d1b9da58106fce4cf717cb",
+      "bytes": 17,
+      "text": "#!/bin/sh\nexit 0\n"
+    },
+    "absolute-relative-root-distinction/shim/systemd-tmpfiles": {
+      "sha256": "306c6ca7407560340797866e077e053627ad409277d1b9da58106fce4cf717cb",
+      "bytes": 17,
+      "text": "#!/bin/sh\nexit 0\n"
+    },
+    "absolute-relative-root-distinction/storage/.config/cloud_sync-rules.txt": {
+      "sha256": "bc4f15f38e740763d19255aace0a90edd851e5deb159fc3bb38a3a12dfab38e8",
+      "bytes": 18,
+      "text": "+ /**/*.srm\n- /**\n"
+    },
+    "absolute-relative-root-distinction/storage/.config/cloud_sync.conf": {
+      "sha256": "2a3650e124f46e942acf3b8c627452073cb860e18a28dd96ae0144ab0476eec1",
+      "bytes": 455,
+      "text": "SAVESPATH=\"/storage/roms\"\nSAVES_REMOTE=\"/\"\nSETTINGS_BACKUPS=\"/storage/roms/backup\"\nSETTINGS_REMOTE=\"/\"\nBACKUPMETHOD=\"copy\"\nRESTOREMETHOD=\"copy\"\nBACKUPFILE_BACKUP_OPTION=\"no\"\nBACKUPFILE_RESTORE_OPTION=\"no\"\nLOG_LEVEL=\"INFO\"\nLAYOUT_KEEP=\"\"\nRCLONEOPTS=\"--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt\"\nRCLONE_NET_OPTS=\"--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1\"\nCONTENT_REMOTE=\"/Library\"\n"
+    },
+    "absolute-relative-root-distinction/storage/.config/rclone/rclone.conf": {
+      "sha256": "7603c17bce0056aae641bee817b6f9875863b4158f34d526914bfba008485eb5",
+      "bytes": 34,
+      "text": "[qa]\ntype = alias\nremote = /cloud\n"
+    },
+    "absolute-relative-root-distinction/storage/roms/gb/.fixture": {
+      "sha256": "7d9f18b135168edd868a20d626bf0469a86d20f650fe620af06458d4f3335ce8",
+      "bytes": 19,
+      "text": "local known system\n"
+    },
+    "absolute-relative-root-distinction/storage/roms/snes/.fixture": {
+      "sha256": "7d9f18b135168edd868a20d626bf0469a86d20f650fe620af06458d4f3335ce8",
+      "bytes": 19,
+      "text": "local known system\n"
+    }
+  },
+  "duplicate_source_file_hashes": {
+    "absolute-relative-root-distinction/repo/backuptool": {
+      "sha256": "02557ca500c9706bac1c1062e70a1abfff46f8a445e96cde2f1b407ff64fe254",
+      "bytes": 102103
+    },
+    "absolute-relative-root-distinction/repo/cloud_backup": {
+      "sha256": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+      "bytes": 129777
+    },
+    "absolute-relative-root-distinction/repo/cloud_capture": {
+      "sha256": "6853272e6eb29b2c61908dbfe135a5cb14cab7e86f833dea69a4cc6ac66a8929",
+      "bytes": 82552
+    },
+    "absolute-relative-root-distinction/repo/cloud_content_backup": {
+      "sha256": "c6789f9476d1c13cc00050fe2478d26629da05ef6af89222eb0ef72f3bf594ae",
+      "bytes": 37761
+    },
+    "absolute-relative-root-distinction/repo/cloud_content_restore": {
+      "sha256": "dfb2785ff207d64504e580724d03d3a030770bc35026597cbccf258eb931e3d9",
+      "bytes": 79433
+    },
+    "absolute-relative-root-distinction/repo/cloud_content_transfer": {
+      "sha256": "fe292268d9029c2b950a093f6902b5cbe8afb3d57cb47187251cf90c3d85a1a3",
+      "bytes": 6351
+    },
+    "absolute-relative-root-distinction/repo/cloud_device_id": {
+      "sha256": "3230633caf65ad9e115dffc1bf3e1dede38746f808d4177fc0c37b9defbeee62",
+      "bytes": 157
+    },
+    "absolute-relative-root-distinction/repo/cloud_folder_validate": {
+      "sha256": "114ccf19842f8b10bae449672a3d0ca6221c013e94a32fd8ccb408e4ab9d4e4e",
+      "bytes": 11918
+    },
+    "absolute-relative-root-distinction/repo/cloud_log_scrub": {
+      "sha256": "5c156d8d43b39172fa71b80a3e47156f46bca0965dcae890ec70f02596f8f126",
+      "bytes": 9623
+    },
+    "absolute-relative-root-distinction/repo/cloud_net_ready": {
+      "sha256": "19afce254bc5c55f119b9681463b8103da5f564f3235b64f100ba9c35e62df89",
+      "bytes": 9512
+    },
+    "absolute-relative-root-distinction/repo/cloud_oauth": {
+      "sha256": "fec8240db342eb9432f9423f5ee3f5bd53df499012dffd1e4ac9ae81c316cbf5",
+      "bytes": 120232
+    },
+    "absolute-relative-root-distinction/repo/cloud_remote": {
+      "sha256": "1b4df1b5394647e52df8584e75529ef113be8ccde3ea31b8b7dd1dfd5bb2e99e",
+      "bytes": 17215
+    },
+    "absolute-relative-root-distinction/repo/cloud_restore": {
+      "sha256": "ec63c21ad782703c6679ce5e1a7b8c5e8f610daeec8cdda224d166df945d0544",
+      "bytes": 115850
+    },
+    "absolute-relative-root-distinction/repo/cloud_saves_root": {
+      "sha256": "d0b0c5b850a7b51257797dcc9bfdac2e6f3e0abf2c3be4584ca65583748bfe43",
+      "bytes": 9236
+    },
+    "absolute-relative-root-distinction/repo/cloud_scan": {
+      "sha256": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+      "bytes": 15979
+    },
+    "absolute-relative-root-distinction/repo/cloud_setup": {
+      "sha256": "0664e79ec27837ce2661f06a21955d382db0fff15e182b4424929aafaf16debb",
+      "bytes": 46071
+    },
+    "absolute-relative-root-distinction/repo/cloud_sync-rules.txt": {
+      "sha256": "bdb7e18128ce4a604c9b02cfe5b0f10f4e3e4dfd3aa7e2d69ea018b8c9d5484d",
+      "bytes": 2086
+    },
+    "absolute-relative-root-distinction/repo/cloud_sync-rules.txt.defaults": {
+      "sha256": "951a7d65d83dc2f2a041868cf2ab1e231a8b09873a0656311b1f947fd106df75",
+      "bytes": 2776
+    },
+    "absolute-relative-root-distinction/repo/cloud_sync.conf": {
+      "sha256": "a121977066ce805e791108258fe12d1ecbce5e71ce2f61f096394a9fca982305",
+      "bytes": 8232
+    },
+    "absolute-relative-root-distinction/repo/cloud_sync.conf.defaults": {
+      "sha256": "77ce914421b47ef7f0a33e6085a5793cb8be55a5c239788adf8575a57d3ad1c4",
+      "bytes": 7039
+    },
+    "absolute-relative-root-distinction/repo/cloud_sync_cleanup_duplicates.sh": {
+      "sha256": "b62ee55ace6e9d776a89686ed6ecdfa17c90ac0e9a6f16d2e260cb2a7617eac1",
+      "bytes": 1193
+    },
+    "absolute-relative-root-distinction/repo/cloud_sync_helper": {
+      "sha256": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050",
+      "bytes": 32916
+    },
+    "absolute-relative-root-distinction/repo/rasteratops-settings-archive": {
+      "sha256": "58977f0e8aec6adfe673037c1a926bb2cbee94269ad6306ec02206250bceb50c",
+      "bytes": 2063
+    }
+  }
+}

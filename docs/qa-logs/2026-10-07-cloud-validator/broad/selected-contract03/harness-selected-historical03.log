@@ -1,0 +1,26 @@
+actual_BB_HOST=/workspace/tmp/pixelelated-validator-20261007/harness-selected-historical03/busybox
+BusyBox v1.36.1 (2026-10-05 03:37:19 UTC) multi-call binary.
+  A. audit #307/#308, stream A: the cloud scripts against the image's rclone
+    rclone: rclone v1.75.1 -- a copy of /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement16/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/bin/rclone
+    A0. #352: the pre-tier rows list only folders this device has or systems it supports; --content-location names the folder that holds the games
+PASS #352: with the content root at the cloud's root, the scan lists gb (a folder this device has) and neither Photos nor Documents (rc 0)
+PASS #352: with nothing of ours at the configured root, --content-location names /pixelelated/Content, where the ROMs folder is, and reads found-elsewhere
+PASS and with the root configured where the games are, FOUND is empty and the state ok
+PASS #467: unrelated configured folders do not count as games
+PASS #467: unrelated configured folders do not hide the usable fallback
+PASS #467: explicit account root recognizes tiered games on an empty device
+PASS #467: installed ES paths recognize flat games without a local directory
+PASS #467: legacy root discovery supplies the reachable root selection
+PASS #467: the root selection persists
+PASS #467: the next content scan actually sees the legacy-root game's bytes
+PASS #467: a refused listing stays unreadable and preserves the selection
+    A14. PL-015 (script half): no content folder derived inside a top-level saves folder
+PASS an upgraded /GAMES config gains no CONTENT_REMOTE inside the saves folder (""), and the log says why
+PASS a deeper saves folder still gets its sibling (/Custom/Saves -> /Custom/Content)
+PASS a /GAMES/Content an earlier build derived is left as it stands
+PASS cloud_backup warns about a ROMs and BIOS folder nested in the saves folder, in the log and on a deliberate run's screen (rc 0)
+    A40. G-A-07 (gpt) / G-A-03 (claude): every listing --all stands on is read fail-closed
+PASS --all on the flat layout whose root listing fails (5) ends Couldn't finish, not Nothing to restore (rc 5, stamp 5)
+PASS --all whose legacy root listing fails (5) ends Couldn't finish too (rc 5, stamp 5)
+PASS and with nothing failing the flat layout's nes comes down (rc 0)
+RESULT failures=0

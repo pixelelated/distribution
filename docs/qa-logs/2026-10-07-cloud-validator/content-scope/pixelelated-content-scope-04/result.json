@@ -1,0 +1,100 @@
+{
+  "source_root": "/workspace/repos/rocknix.worktrees/m7-manual-cloud-folders",
+  "source_sha256": {
+    "cloud_content_restore": "dfb2785ff207d64504e580724d03d3a030770bc35026597cbccf258eb931e3d9",
+    "cloud_content_transfer": "fe292268d9029c2b950a093f6902b5cbe8afb3d57cb47187251cf90c3d85a1a3",
+    "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b"
+  },
+  "rclone_sha256": "f66d8c1d552ad90296a11bc8b46d56a7fa5da1a7fa05e7ca522d95df92c4a4c0",
+  "results": [
+    {
+      "case": "missing-list",
+      "result": "FAIL",
+      "error": "bwrap: No permissions to create a new namespace, likely because the kernel does not allow non-privileged user namespaces. See <https://deb.li/bubblewrap> or <file:///usr/share/doc/bubblewrap/README.Debian.gz>.\n"
+    },
+    {
+      "case": "missing-scan",
+      "result": "FAIL",
+      "error": "bwrap: No permissions to create a new namespace, likely because the kernel does not allow non-privileged user namespaces. See <https://deb.li/bubblewrap> or <file:///usr/share/doc/bubblewrap/README.Debian.gz>.\n"
+    },
+    {
+      "case": "missing-all",
+      "result": "FAIL",
+      "error": "bwrap: No permissions to create a new namespace, likely because the kernel does not allow non-privileged user namespaces. See <https://deb.li/bubblewrap> or <file:///usr/share/doc/bubblewrap/README.Debian.gz>.\n"
+    },
+    {
+      "case": "selected-rom-bios-bytes",
+      "result": "FAIL",
+      "error": "bwrap: No permissions to create a new namespace, likely because the kernel does not allow non-privileged user namespaces. See <https://deb.li/bubblewrap> or <file:///usr/share/doc/bubblewrap/README.Debian.gz>.\n"
+    },
+    {
+      "case": "unreadable-list",
+      "result": "FAIL",
+      "error": "[Errno 2] No such file or directory: '/tmp/pixelelated-content-scope-04/unreadable-list/ctl/argv'"
+    },
+    {
+      "case": "partial-list",
+      "result": "FAIL",
+      "error": "[Errno 2] No such file or directory: '/tmp/pixelelated-content-scope-04/partial-list/ctl/argv'"
+    },
+    {
+      "case": "unreadable-scan",
+      "result": "FAIL",
+      "error": "[Errno 2] No such file or directory: '/tmp/pixelelated-content-scope-04/unreadable-scan/ctl/argv'"
+    },
+    {
+      "case": "partial-scan",
+      "result": "FAIL",
+      "error": "[Errno 2] No such file or directory: '/tmp/pixelelated-content-scope-04/partial-scan/ctl/argv'"
+    },
+    {
+      "case": "unreadable-all",
+      "result": "FAIL",
+      "error": "[Errno 2] No such file or directory: '/tmp/pixelelated-content-scope-04/unreadable-all/ctl/argv'"
+    },
+    {
+      "case": "partial-all",
+      "result": "FAIL",
+      "error": "[Errno 2] No such file or directory: '/tmp/pixelelated-content-scope-04/partial-all/ctl/argv'"
+    },
+    {
+      "case": "system-traversal-refused",
+      "result": "FAIL",
+      "error": "[Errno 2] No such file or directory: '/tmp/pixelelated-content-scope-04/system-traversal-refused/ctl/argv'"
+    },
+    {
+      "case": "scan-run-mode-output-binding",
+      "result": "FAIL",
+      "error": "bwrap: No permissions to create a new namespace, likely because the kernel does not allow non-privileged user namespaces. See <https://deb.li/bubblewrap> or <file:///usr/share/doc/bubblewrap/README.Debian.gz>.\n"
+    },
+    {
+      "case": "scan-folder-change-invalidates",
+      "result": "FAIL",
+      "error": "bwrap: No permissions to create a new namespace, likely because the kernel does not allow non-privileged user namespaces. See <https://deb.li/bubblewrap> or <file:///usr/share/doc/bubblewrap/README.Debian.gz>.\n"
+    },
+    {
+      "case": "scan-endpoint-change-invalidates",
+      "result": "FAIL",
+      "error": "bwrap: No permissions to create a new namespace, likely because the kernel does not allow non-privileged user namespaces. See <https://deb.li/bubblewrap> or <file:///usr/share/doc/bubblewrap/README.Debian.gz>.\n"
+    },
+    {
+      "case": "scan-context-local-read-only",
+      "result": "FAIL",
+      "error": "invalid local context"
+    },
+    {
+      "case": "scan-config-changes-during-run",
+      "result": "PASS"
+    },
+    {
+      "case": "selected-trailing-slash",
+      "result": "FAIL",
+      "error": "bwrap: No permissions to create a new namespace, likely because the kernel does not allow non-privileged user namespaces. See <https://deb.li/bubblewrap> or <file:///usr/share/doc/bubblewrap/README.Debian.gz>.\n"
+    },
+    {
+      "case": "content-pointer-traversal-refused",
+      "result": "FAIL",
+      "error": "[Errno 2] No such file or directory: '/tmp/pixelelated-content-scope-04/content-pointer-traversal-refused/ctl/argv'"
+    }
+  ]
+}

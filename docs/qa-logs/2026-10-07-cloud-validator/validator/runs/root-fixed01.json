@@ -1,0 +1,1264 @@
+{
+  "source_directory": "/workspace/tmp/pixelelated-validator-20261007/root-fixed01",
+  "retained_non_source_files": {
+    "absolute-relative-root-distinction/01-cloud_setup.json": {
+      "sha256": "cf65e532e40bb7986835575d33841a976a9518f55aa87dc1d51f15d773822119",
+      "bytes": 649,
+      "text": "{\n  \"argv\": [\n    \"cloud_setup\",\n    \"--folder-state\"\n  ],\n  \"rc\": 5,\n  \"pointers\": {\n    \"SAVESPATH\": \"/storage/roms\",\n    \"SAVES_REMOTE\": \"/\",\n    \"SETTINGS_BACKUPS\": \"/storage/roms/backup\",\n    \"SETTINGS_REMOTE\": \"/\",\n    \"BACKUPMETHOD\": \"copy\",\n    \"RESTOREMETHOD\": \"copy\",\n    \"BACKUPFILE_BACKUP_OPTION\": \"no\",\n    \"BACKUPFILE_RESTORE_OPTION\": \"no\",\n    \"LOG_LEVEL\": \"INFO\",\n    \"LAYOUT_KEEP\": \"\",\n    \"RCLONEOPTS\": \"--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt\",\n    \"RCLONE_NET_OPTS\": \"--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1\",\n    \"CONTENT_REMOTE\": \"/Library\"\n  }\n}"
+    },
+    "absolute-relative-root-distinction/01-cloud_setup.log": {
+      "sha256": "16b6fecc35b01387e9fac8c19daf4cc2d0b32751179c74b6a061afbb30274ddb",
+      "bytes": 37,
+      "text": ">>> why YOUR CLOUD STOPPED ANSWERING\n"
+    },
+    "absolute-relative-root-distinction/02-cloud_setup.json": {
+      "sha256": "9b25477c5f6e689fa6dba9ac263a4d721f48cd78bf0e92fd8e521e5977a9e317",
+      "bytes": 649,
+      "text": "{\n  \"argv\": [\n    \"cloud_setup\",\n    \"--folder-state\"\n  ],\n  \"rc\": 0,\n  \"pointers\": {\n    \"SAVESPATH\": \"/storage/roms\",\n    \"SAVES_REMOTE\": \"/\",\n    \"SETTINGS_BACKUPS\": \"/storage/roms/backup\",\n    \"SETTINGS_REMOTE\": \"/\",\n    \"BACKUPMETHOD\": \"copy\",\n    \"RESTOREMETHOD\": \"copy\",\n    \"BACKUPFILE_BACKUP_OPTION\": \"no\",\n    \"BACKUPFILE_RESTORE_OPTION\": \"no\",\n    \"LOG_LEVEL\": \"INFO\",\n    \"LAYOUT_KEEP\": \"\",\n    \"RCLONEOPTS\": \"--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt\",\n    \"RCLONE_NET_OPTS\": \"--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1\",\n    \"CONTENT_REMOTE\": \"/Library\"\n  }\n}"
+    },
+    "absolute-relative-root-distinction/02-cloud_setup.log": {
+      "sha256": "e5774d19274ebf1c1d1552b353a8bac2093303926f2fd64ca85ec7c4aaab034f",
+      "bytes": 62,
+      "text": "STATE=ready\nSAVES=/\nBACKUPS=/\nCONTENT=/Library\nSAVES_EXISTS=1\n"
+    },
+    "absolute-relative-root-distinction/03-cloud_setup.json": {
+      "sha256": "fc8560592ca3b0728151da44cab8589b09a0868cb3d8341a2293ef1eb7b109f0",
+      "bytes": 665,
+      "text": "{\n  \"argv\": [\n    \"cloud_setup\",\n    \"--seed-folders\",\n    \"settings\"\n  ],\n  \"rc\": 5,\n  \"pointers\": {\n    \"SAVESPATH\": \"/storage/roms\",\n    \"SAVES_REMOTE\": \"/\",\n    \"SETTINGS_BACKUPS\": \"/storage/roms/backup\",\n    \"SETTINGS_REMOTE\": \"/\",\n    \"BACKUPMETHOD\": \"copy\",\n    \"RESTOREMETHOD\": \"copy\",\n    \"BACKUPFILE_BACKUP_OPTION\": \"no\",\n    \"BACKUPFILE_RESTORE_OPTION\": \"no\",\n    \"LOG_LEVEL\": \"INFO\",\n    \"LAYOUT_KEEP\": \"\",\n    \"RCLONEOPTS\": \"--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt\",\n    \"RCLONE_NET_OPTS\": \"--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1\",\n    \"CONTENT_REMOTE\": \"/Library\"\n  }\n}"
+    },
+    "absolute-relative-root-distinction/03-cloud_setup.log": {
+      "sha256": "2efa3b2c1e9744624ef9d626910b3449cb755b890df5c8704aab8ec82c4be1b6",
+      "bytes": 84,
+      "text": ">>> why YOUR CLOUD STOPPED ANSWERING\n>>> why YOUR CLOUD FOLDERS COULDN'T BE CREATED\n"
+    },
+    "absolute-relative-root-distinction/cloud/absolute/README.txt": {
+      "sha256": "af4d56ef1684f53498f86901474224fd756353277b56b0b1dcdf54ab69886eda",
+      "bytes": 97,
+      "text": "Settings backups, one folder per handheld.\nWritten by the device when you back up your settings.\n"
+    },
+    "absolute-relative-root-distinction/cloud/relative/owner-note.txt": {
+      "sha256": "22325efa5febbffabbe105a3ee959ead3d574fc08d3e15dae6f7331b55338ffc",
+      "bytes": 23,
+      "text": "home namespace sentinel"
+    },
+    "absolute-relative-root-distinction/ctl/argv": {
+      "sha256": "429869490789109a45542a1d0dab9db68a4c97735298834625a92eef72a7a8c7",
+      "bytes": 571,
+      "text": "listremotes\nlsf qa:/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\nlistremotes\nlsf qa:/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\nlistremotes\nmkdir --s3-directory-markers qa:/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\nlsf --files-only qa:// --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\ncopyto --ignore-existing /tmp/tmp.qc64fX7M2N qa://README.txt --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\nlsf qa:/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\n"
+    },
+    "absolute-relative-root-distinction/ctl/fail-seed-readback": {
+      "sha256": "8a798890fe93817163b10b5f7bd2ca4d25d84c52739a645a889c173eee7d9d3d",
+      "bytes": 3,
+      "text": "yes"
+    },
+    "absolute-relative-root-distinction/ctl/root-seeded": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "text": ""
+    },
+    "absolute-relative-root-distinction/profile": {
+      "sha256": "c53499f1fe23f18126fa3f158e891f940ea7fe9894cfaabb521f6ec75c6e95e5",
+      "bytes": 82,
+      "text": "export PATH=/shim:/repo:/usr/bin:/bin\nexport HOME=/storage\nexport OS_NAME=ROCKNIX\n"
+    },
+    "absolute-relative-root-distinction/shim/ip": {
+      "sha256": "ed7833938db4abd915c4a87c20a87b5081e535ca8bcaadce3636bbbce842d61c",
+      "bytes": 70,
+      "text": "#!/bin/sh\n[ -e /ctl/offline ] || echo \"default via 10.0.2.2 dev eth0\"\n"
+    },
+    "absolute-relative-root-distinction/shim/logger": {
+      "sha256": "3874e47b219daaa98d73429732121b2639080ca64e5769982a78093c4f036cc7",
+      "bytes": 45,
+      "text": "#!/bin/sh\nprintf \"%s\\n\" \"$*\" >> /ctl/journal\n"
+    },
+    "absolute-relative-root-distinction/shim/ping": {
+      "sha256": "a0cfd66789b27fed708dda43875c9e9ff38823623233621b6bf816df8440dac9",
+      "bytes": 32,
+      "text": "#!/bin/sh\n[ ! -e /ctl/offline ]\n"
+    },
+    "absolute-relative-root-distinction/shim/rclone": {
+      "sha256": "dda1f1aa99822733d44830b251d64e4d64fbacfdf30d78033d97cfb4d1102095",
+      "bytes": 1013,
+      "text": "#!/bin/bash\nprintf '%s\\n' \"$*\" >> /ctl/argv\nif [ -f /ctl/faults ]; then\n while IFS=$'\\t' read -r pattern code; do\n  [[ \"$*\" =~ $pattern ]] && { printf '%s\\n' \"$*\" >> /ctl/fault-fired; echo 'injected provider failure' >&2; exit \"$code\"; }\n done < /ctl/faults\nfi\nif [ -e /ctl/bucket ]; then\n if [ \"$1 $2\" = 'backend features' ]; then\n  printf '{\"Hashes\":[\"md5\"],\"Features\":{\"BucketBased\":true}}\\n'; exit 0\n fi\n # Bucket prefixes can return successful empty lsd for a missing prefix.\n if [ \"$1\" = lsd ]; then exit 0; fi\nfi\nmapped=()\nfor arg in \"$@\"; do\n case \"$arg\" in\n  qa:/*) mapped+=(\":local:/cloud/absolute/${arg#qa:/}\") ;;\n  qa:*) mapped+=(\":local:/cloud/relative/${arg#qa:}\") ;;\n  *) mapped+=(\"$arg\") ;;\n esac\ndone\nif [ \"$1\" = lsf ] && [ \"$2\" = qa:/ ] && { [ -e /ctl/absolute-unreadable ] || [ -e /ctl/root-seeded ]; }; then exit 5; fi\n/rclone.real \"${mapped[@]}\"; rc=$?\nif [ \"$1\" = copyto ] && [ \"$rc\" = 0 ] && [ -e /ctl/fail-seed-readback ]; then touch /ctl/root-seeded; fi\nexit \"$rc\"\nexec /rclone.real \"$@\"\n"
+    },
+    "absolute-relative-root-distinction/shim/systemctl": {
+      "sha256": "306c6ca7407560340797866e077e053627ad409277d1b9da58106fce4cf717cb",
+      "bytes": 17,
+      "text": "#!/bin/sh\nexit 0\n"
+    },
+    "absolute-relative-root-distinction/shim/systemd-tmpfiles": {
+      "sha256": "306c6ca7407560340797866e077e053627ad409277d1b9da58106fce4cf717cb",
+      "bytes": 17,
+      "text": "#!/bin/sh\nexit 0\n"
+    },
+    "absolute-relative-root-distinction/storage/.config/cloud_sync-rules.txt": {
+      "sha256": "bc4f15f38e740763d19255aace0a90edd851e5deb159fc3bb38a3a12dfab38e8",
+      "bytes": 18,
+      "text": "+ /**/*.srm\n- /**\n"
+    },
+    "absolute-relative-root-distinction/storage/.config/cloud_sync.conf": {
+      "sha256": "2a3650e124f46e942acf3b8c627452073cb860e18a28dd96ae0144ab0476eec1",
+      "bytes": 455,
+      "text": "SAVESPATH=\"/storage/roms\"\nSAVES_REMOTE=\"/\"\nSETTINGS_BACKUPS=\"/storage/roms/backup\"\nSETTINGS_REMOTE=\"/\"\nBACKUPMETHOD=\"copy\"\nRESTOREMETHOD=\"copy\"\nBACKUPFILE_BACKUP_OPTION=\"no\"\nBACKUPFILE_RESTORE_OPTION=\"no\"\nLOG_LEVEL=\"INFO\"\nLAYOUT_KEEP=\"\"\nRCLONEOPTS=\"--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt\"\nRCLONE_NET_OPTS=\"--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1\"\nCONTENT_REMOTE=\"/Library\"\n"
+    },
+    "absolute-relative-root-distinction/storage/.config/rclone/rclone.conf": {
+      "sha256": "7603c17bce0056aae641bee817b6f9875863b4158f34d526914bfba008485eb5",
+      "bytes": 34,
+      "text": "[qa]\ntype = alias\nremote = /cloud\n"
+    },
+    "absolute-relative-root-distinction/storage/roms/gb/.fixture": {
+      "sha256": "7d9f18b135168edd868a20d626bf0469a86d20f650fe620af06458d4f3335ce8",
+      "bytes": 19,
+      "text": "local known system\n"
+    },
+    "absolute-relative-root-distinction/storage/roms/snes/.fixture": {
+      "sha256": "7d9f18b135168edd868a20d626bf0469a86d20f650fe620af06458d4f3335ce8",
+      "bytes": 19,
+      "text": "local known system\n"
+    },
+    "explicit-root-allowed/01-cloud_setup.json": {
+      "sha256": "8e7a3b19c1737f2982d2bb6cc081c96ba9c6c85cf47d65a5e45116ef2800b807",
+      "bytes": 670,
+      "text": "{\n  \"argv\": [\n    \"cloud_setup\",\n    \"--seed-folders\",\n    \"roms,bios\"\n  ],\n  \"rc\": 0,\n  \"pointers\": {\n    \"SAVESPATH\": \"/storage/roms\",\n    \"SAVES_REMOTE\": \"/Saves\",\n    \"SETTINGS_BACKUPS\": \"/storage/roms/backup\",\n    \"SETTINGS_REMOTE\": \"/Backups\",\n    \"BACKUPMETHOD\": \"copy\",\n    \"RESTOREMETHOD\": \"copy\",\n    \"BACKUPFILE_BACKUP_OPTION\": \"no\",\n    \"BACKUPFILE_RESTORE_OPTION\": \"no\",\n    \"LOG_LEVEL\": \"INFO\",\n    \"LAYOUT_KEEP\": \"\",\n    \"RCLONEOPTS\": \"--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt\",\n    \"RCLONE_NET_OPTS\": \"--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1\",\n    \"CONTENT_REMOTE\": \"\"\n  }\n}"
+    },
+    "explicit-root-allowed/01-cloud_setup.log": {
+      "sha256": "52833879441075a778e68008b4cb9a844569933d42f01712e64e8ca02553f73b",
+      "bytes": 16,
+      "text": "OK ROMs\nOK BIOS\n"
+    },
+    "explicit-root-allowed/02-cloud_setup.json": {
+      "sha256": "2af447ebabfa378f7c3016e35276c22d04bb242ca07ab3438b3d22b9f626c116",
+      "bytes": 659,
+      "text": "{\n  \"argv\": [\n    \"cloud_setup\",\n    \"--validation-context\"\n  ],\n  \"rc\": 0,\n  \"pointers\": {\n    \"SAVESPATH\": \"/storage/roms\",\n    \"SAVES_REMOTE\": \"/Saves\",\n    \"SETTINGS_BACKUPS\": \"/storage/roms/backup\",\n    \"SETTINGS_REMOTE\": \"/Backups\",\n    \"BACKUPMETHOD\": \"copy\",\n    \"RESTOREMETHOD\": \"copy\",\n    \"BACKUPFILE_BACKUP_OPTION\": \"no\",\n    \"BACKUPFILE_RESTORE_OPTION\": \"no\",\n    \"LOG_LEVEL\": \"INFO\",\n    \"LAYOUT_KEEP\": \"\",\n    \"RCLONEOPTS\": \"--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt\",\n    \"RCLONE_NET_OPTS\": \"--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1\",\n    \"CONTENT_REMOTE\": \"\"\n  }\n}"
+    },
+    "explicit-root-allowed/02-cloud_setup.log": {
+      "sha256": "34799bf6fdcfd49817ac84e41cb22c347d08235fc844f7c1b31de8ab40258406",
+      "bytes": 276,
+      "text": "{\n  \"schema_version\": 1,\n  \"config_id\": \"7ccb8cd39ecb4a612e03b8d834f196b232ca5d48a58381244866c7b940d3916a\",\n  \"remote\": \"qa:\",\n  \"paths\": {\n    \"saves\": \"/Saves\",\n    \"settings\": \"/Backups\",\n    \"content\": \"\",\n    \"roms\": \"ROMs\",\n    \"bios\": \"BIOS\",\n    \"media\": \"ROMs\"\n  }\n}\n"
+    },
+    "explicit-root-allowed/03-cloud_setup.json": {
+      "sha256": "d809163d5adc3f55e4d5eaa90213079e36966e70d577e7f684d1d528691e0285",
+      "bytes": 689,
+      "text": "{\n  \"argv\": [\n    \"cloud_setup\",\n    \"--validate-folders\",\n    \"roms,bios\",\n    \"proof01\"\n  ],\n  \"rc\": 0,\n  \"pointers\": {\n    \"SAVESPATH\": \"/storage/roms\",\n    \"SAVES_REMOTE\": \"/Saves\",\n    \"SETTINGS_BACKUPS\": \"/storage/roms/backup\",\n    \"SETTINGS_REMOTE\": \"/Backups\",\n    \"BACKUPMETHOD\": \"copy\",\n    \"RESTOREMETHOD\": \"copy\",\n    \"BACKUPFILE_BACKUP_OPTION\": \"no\",\n    \"BACKUPFILE_RESTORE_OPTION\": \"no\",\n    \"LOG_LEVEL\": \"INFO\",\n    \"LAYOUT_KEEP\": \"\",\n    \"RCLONEOPTS\": \"--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt\",\n    \"RCLONE_NET_OPTS\": \"--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1\",\n    \"CONTENT_REMOTE\": \"\"\n  }\n}"
+    },
+    "explicit-root-allowed/03-cloud_setup.log": {
+      "sha256": "87b59994e622d4ba5c5b1f3cd07337c09612ca2af83543c69a6fba6b8cae3e53",
+      "bytes": 559,
+      "text": "{\"schema_version\":1,\"run_id\":\"proof01\",\"config_id\":\"7ccb8cd39ecb4a612e03b8d834f196b232ca5d48a58381244866c7b940d3916a\",\"categories\":[{\"category\":\"roms\",\"state\":\"empty\",\"path\":\"ROMs\",\"detail\":\"no-recognized-content-in-checked-depth\"},{\"category\":\"bios\",\"state\":\"empty\",\"path\":\"BIOS\",\"detail\":\"no-recognized-content-in-checked-depth\"}],\"complete\":true,\"scope\":{\"max_depth\":3,\"max_entries_per_listing\":4096,\"max_bytes_per_listing\":2097152,\"max_seconds\":25},\"paths\":{\"saves\":\"/Saves\",\"settings\":\"/Backups\",\"content\":\"\",\"roms\":\"ROMs\",\"bios\":\"BIOS\",\"media\":\"ROMs\"}}\n"
+    },
+    "explicit-root-allowed/cloud/BIOS/README.txt": {
+      "sha256": "930816da8d913c817a2cdfb625f8b1dfd11f350baeed2b8f824c0153c02c269b",
+      "bytes": 79,
+      "text": "BIOS and firmware files.\nKeep the subfolders required by the emulator you use.\n"
+    },
+    "explicit-root-allowed/cloud/ROMs/README.txt": {
+      "sha256": "4bb407b70160d9a5807161ff0920af9beb90badaf4c27fa996701f0ded8ce4f9",
+      "bytes": 150,
+      "text": "Your games, one folder per system.\n\nUse system folder names such as snes, psx, n64, or gba.\nGame content stays in its system folder beside the games.\n"
+    },
+    "explicit-root-allowed/ctl/argv": {
+      "sha256": "0bf81fc72f6b058688413ee056363f791ad1cf6830d50ea8704e7e688bea7025",
+      "bytes": 1325,
+      "text": "listremotes\nmkdir --s3-directory-markers qa:ROMs --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\nmkdir --s3-directory-markers qa:BIOS --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\nlsf --files-only qa:ROMs/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\ncopyto --ignore-existing /tmp/tmp.f2VTDZxHtL qa:ROMs/README.txt --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\nlsf --files-only qa:BIOS/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\ncopyto --ignore-existing /tmp/tmp.527zG3janH qa:BIOS/README.txt --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\nlsf qa:ROMs --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\nlsf qa:BIOS --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\nlistremotes\nconfig file\nlistremotes\nconfig file\nlsjson qa: --recursive --max-depth 1 --no-mimetype --no-modtime --retries 1 --low-level-retries 1 --contimeout 3s --timeout 5s --max-duration 6s\nlsjson qa:ROMs --recursive --max-depth 3 --no-mimetype --no-modtime --retries 1 --low-level-retries 1 --contimeout 3s --timeout 5s --max-duration 6s\nlsjson qa:BIOS --recursive --max-depth 3 --no-mimetype --no-modtime --retries 1 --low-level-retries 1 --contimeout 3s --timeout 5s --max-duration 6s\nlistremotes\nconfig file\n"
+    },
+    "explicit-root-allowed/profile": {
+      "sha256": "c53499f1fe23f18126fa3f158e891f940ea7fe9894cfaabb521f6ec75c6e95e5",
+      "bytes": 82,
+      "text": "export PATH=/shim:/repo:/usr/bin:/bin\nexport HOME=/storage\nexport OS_NAME=ROCKNIX\n"
+    },
+    "explicit-root-allowed/shim/ip": {
+      "sha256": "ed7833938db4abd915c4a87c20a87b5081e535ca8bcaadce3636bbbce842d61c",
+      "bytes": 70,
+      "text": "#!/bin/sh\n[ -e /ctl/offline ] || echo \"default via 10.0.2.2 dev eth0\"\n"
+    },
+    "explicit-root-allowed/shim/logger": {
+      "sha256": "3874e47b219daaa98d73429732121b2639080ca64e5769982a78093c4f036cc7",
+      "bytes": 45,
+      "text": "#!/bin/sh\nprintf \"%s\\n\" \"$*\" >> /ctl/journal\n"
+    },
+    "explicit-root-allowed/shim/ping": {
+      "sha256": "a0cfd66789b27fed708dda43875c9e9ff38823623233621b6bf816df8440dac9",
+      "bytes": 32,
+      "text": "#!/bin/sh\n[ ! -e /ctl/offline ]\n"
+    },
+    "explicit-root-allowed/shim/rclone": {
+      "sha256": "02e1a1c6a82385cd1c5a510a764b0ca83c722e7c5812b0bb391f7d31c397a517",
+      "bytes": 543,
+      "text": "#!/bin/bash\nprintf '%s\\n' \"$*\" >> /ctl/argv\nif [ -f /ctl/faults ]; then\n while IFS=$'\\t' read -r pattern code; do\n  [[ \"$*\" =~ $pattern ]] && { printf '%s\\n' \"$*\" >> /ctl/fault-fired; echo 'injected provider failure' >&2; exit \"$code\"; }\n done < /ctl/faults\nfi\nif [ -e /ctl/bucket ]; then\n if [ \"$1 $2\" = 'backend features' ]; then\n  printf '{\"Hashes\":[\"md5\"],\"Features\":{\"BucketBased\":true}}\\n'; exit 0\n fi\n # Bucket prefixes can return successful empty lsd for a missing prefix.\n if [ \"$1\" = lsd ]; then exit 0; fi\nfi\nexec /rclone.real \"$@\"\n"
+    },
+    "explicit-root-allowed/shim/systemctl": {
+      "sha256": "306c6ca7407560340797866e077e053627ad409277d1b9da58106fce4cf717cb",
+      "bytes": 17,
+      "text": "#!/bin/sh\nexit 0\n"
+    },
+    "explicit-root-allowed/shim/systemd-tmpfiles": {
+      "sha256": "306c6ca7407560340797866e077e053627ad409277d1b9da58106fce4cf717cb",
+      "bytes": 17,
+      "text": "#!/bin/sh\nexit 0\n"
+    },
+    "explicit-root-allowed/storage/.config/cloud_sync-rules.txt": {
+      "sha256": "bc4f15f38e740763d19255aace0a90edd851e5deb159fc3bb38a3a12dfab38e8",
+      "bytes": 18,
+      "text": "+ /**/*.srm\n- /**\n"
+    },
+    "explicit-root-allowed/storage/.config/cloud_sync.conf": {
+      "sha256": "079d132588167ab6a980012f9c30c4f8055ec669e56fdcddb7cd698f1805374b",
+      "bytes": 459,
+      "text": "SAVESPATH=\"/storage/roms\"\nSAVES_REMOTE=\"/Saves\"\nSETTINGS_BACKUPS=\"/storage/roms/backup\"\nSETTINGS_REMOTE=\"/Backups\"\nBACKUPMETHOD=\"copy\"\nRESTOREMETHOD=\"copy\"\nBACKUPFILE_BACKUP_OPTION=\"no\"\nBACKUPFILE_RESTORE_OPTION=\"no\"\nLOG_LEVEL=\"INFO\"\nLAYOUT_KEEP=\"\"\nRCLONEOPTS=\"--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt\"\nRCLONE_NET_OPTS=\"--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1\"\nCONTENT_REMOTE=\"\"\n"
+    },
+    "explicit-root-allowed/storage/.config/rclone/rclone.conf": {
+      "sha256": "7603c17bce0056aae641bee817b6f9875863b4158f34d526914bfba008485eb5",
+      "bytes": 34,
+      "text": "[qa]\ntype = alias\nremote = /cloud\n"
+    },
+    "explicit-root-allowed/storage/roms/gb/.fixture": {
+      "sha256": "7d9f18b135168edd868a20d626bf0469a86d20f650fe620af06458d4f3335ce8",
+      "bytes": 19,
+      "text": "local known system\n"
+    },
+    "explicit-root-allowed/storage/roms/snes/.fixture": {
+      "sha256": "7d9f18b135168edd868a20d626bf0469a86d20f650fe620af06458d4f3335ce8",
+      "bytes": 19,
+      "text": "local known system\n"
+    },
+    "public-rocknix-config-adoption/01-cloud_setup.json": {
+      "sha256": "e5b5d92956cd71fba4e40f9b8376627234ced03f1423221450806761d2b55007",
+      "bytes": 944,
+      "text": "{\n  \"argv\": [\n    \"cloud_setup\",\n    \"--validate-folders\",\n    \"saves,settings\",\n    \"proof01\"\n  ],\n  \"rc\": 0,\n  \"pointers\": {\n    \"BACKUPPATH\": \"/storage/roms\",\n    \"RESTOREPATH\": \"/storage/roms\",\n    \"BACKUPFOLDER\": \"/storage/roms/backup\",\n    \"SYNCPATH\": \"/GAMES\",\n    \"SYNCPATH_BACKUP\": \"/GAMES/backup\",\n    \"LOG_LEVEL\": \"INFO\",\n    \"BACKUPMETHOD\": \"copy\",\n    \"BACKUPFILE_BACKUP_OPTION\": \"yes\",\n    \"RESTOREMETHOD\": \"copy\",\n    \"BACKUPFILE_RESTORE_OPTION\": \"no\",\n    \"RSYNCRMDIR\": \"yes\",\n    \"SAVESPATH\": \"/storage/roms\",\n    \"SETTINGS_BACKUPS\": \"/storage/roms/backup\",\n    \"SAVES_REMOTE\": \"/GAMES\",\n    \"SETTINGS_REMOTE\": \"/GAMES/backup\",\n    \"CONTENT_REMOTE\": \"/pixelelated/Content\",\n    \"RCLONE_NET_OPTS\": \"--contimeout 15s --timeout 30s --low-level-retries 10 --retries 1\",\n    \"RCLONE_SYNC_NET_OPTS\": \"--contimeout 5s --timeout 5s --retries 1 --max-duration 90s --low-level-retries 5 --transfers 1\",\n    \"CLOUD_BACKUP_KEEP\": \"3\"\n  }\n}"
+    },
+    "public-rocknix-config-adoption/01-cloud_setup.log": {
+      "sha256": "d1f77c3b5feb60a8865878f46f16e0448550bbeb1c8fc5c966d2f8f112acd7ed",
+      "bytes": 656,
+      "text": "{\"schema_version\":1,\"run_id\":\"proof01\",\"config_id\":\"af7138b73ed1ba1bdccb002daea5ce524b2b89be356f8301e5cd3786f2d0f33d\",\"categories\":[{\"category\":\"saves\",\"state\":\"present\",\"path\":\"/GAMES\",\"detail\":\"progress-paths-found-not-verified\"},{\"category\":\"settings\",\"state\":\"present\",\"path\":\"/GAMES/backup\",\"detail\":\"archive-names-found-not-verified\"}],\"complete\":true,\"scope\":{\"max_depth\":3,\"max_entries_per_listing\":4096,\"max_bytes_per_listing\":2097152,\"max_seconds\":25},\"paths\":{\"saves\":\"/GAMES\",\"settings\":\"/GAMES/backup\",\"content\":\"/pixelelated/Content\",\"roms\":\"/pixelelated/Content/ROMs\",\"bios\":\"/pixelelated/Content/BIOS\",\"media\":\"/pixelelated/Content/ROMs\"}}\n"
+    },
+    "public-rocknix-config-adoption/adoption-result.json": {
+      "sha256": "8ec8f6d49130816bc02075adcbaa632caa2a8adf8cca1bb5c60c86b30df4dd50",
+      "bytes": 998,
+      "text": "{\n  \"rc\": 0,\n  \"public_ref\": \"c445081a59518f37d9776e5412dd7b14910696f7\",\n  \"public_conf_sha256\": \"e43cae4589b3c00b38fac1ae44b11759d8285e020c31dba429a28f97e24527b3\",\n  \"pointers\": {\n    \"BACKUPPATH\": \"/storage/roms\",\n    \"RESTOREPATH\": \"/storage/roms\",\n    \"BACKUPFOLDER\": \"/storage/roms/backup\",\n    \"SYNCPATH\": \"/GAMES\",\n    \"SYNCPATH_BACKUP\": \"/GAMES/backup\",\n    \"LOG_LEVEL\": \"INFO\",\n    \"BACKUPMETHOD\": \"copy\",\n    \"BACKUPFILE_BACKUP_OPTION\": \"yes\",\n    \"RESTOREMETHOD\": \"copy\",\n    \"BACKUPFILE_RESTORE_OPTION\": \"no\",\n    \"RSYNCRMDIR\": \"yes\",\n    \"SAVESPATH\": \"/storage/roms\",\n    \"SETTINGS_BACKUPS\": \"/storage/roms/backup\",\n    \"SAVES_REMOTE\": \"/GAMES\",\n    \"SETTINGS_REMOTE\": \"/GAMES/backup\",\n    \"CONTENT_REMOTE\": \"/pixelelated/Content\",\n    \"RCLONE_NET_OPTS\": \"--contimeout 15s --timeout 30s --low-level-retries 10 --retries 1\",\n    \"RCLONE_SYNC_NET_OPTS\": \"--contimeout 5s --timeout 5s --retries 1 --max-duration 90s --low-level-retries 5 --transfers 1\",\n    \"CLOUD_BACKUP_KEEP\": \"3\"\n  }\n}"
+    },
+    "public-rocknix-config-adoption/adoption.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "text": ""
+    },
+    "public-rocknix-config-adoption/cloud/GAMES/backup/existing.zip": {
+      "sha256": "b5f7e7d285029324d9b3acae19cc05099271454ac98bfc059a92b0581625cd51",
+      "bytes": 9,
+      "text": "sentinel\n"
+    },
+    "public-rocknix-config-adoption/cloud/GAMES/gb/progress.srm": {
+      "sha256": "b5f7e7d285029324d9b3acae19cc05099271454ac98bfc059a92b0581625cd51",
+      "bytes": 9,
+      "text": "sentinel\n"
+    },
+    "public-rocknix-config-adoption/ctl/argv": {
+      "sha256": "242bfa06bfd7653f96f5a7959b8113c47c95dbd60e2b693ce62647d9bcda0d8c",
+      "bytes": 357,
+      "text": "listremotes\nconfig file\nlsjson qa:/GAMES --recursive --max-depth 3 --no-mimetype --no-modtime --retries 1 --low-level-retries 1 --contimeout 3s --timeout 5s --max-duration 6s\nlsjson qa:/GAMES/backup --recursive --max-depth 3 --no-mimetype --no-modtime --retries 1 --low-level-retries 1 --contimeout 3s --timeout 5s --max-duration 6s\nlistremotes\nconfig file\n"
+    },
+    "public-rocknix-config-adoption/log/cloud_sync.log": {
+      "sha256": "36b26a4a73cf5c274e42b7b1aa648cba07d6c03f308f5d82fbdf9143036b2d04",
+      "bytes": 1834,
+      "text": "[2026-10-08 01:27:22] [INFO] [cloud_sync_helper] Checking cloud sync rules file...\n[2026-10-08 01:27:22] [INFO] [cloud_sync_helper] Merging custom rules with defaults\n[2026-10-08 01:27:22] [INFO] [cloud_sync_helper] Updated cloud_sync-rules.txt with new defaults while preserving custom rules\n[2026-10-08 01:27:22] [INFO] [cloud_sync_helper] Checking cloud sync configuration...\n[2026-10-08 01:27:22] [INFO] [cloud_sync_helper] Updating configuration with new defaults\n[2026-10-08 01:27:22] [INFO] [cloud_sync_helper] Carried BACKUPPATH across to SAVESPATH (\"/storage/roms\")\n[2026-10-08 01:27:22] [INFO] [cloud_sync_helper] Carried BACKUPFOLDER across to SETTINGS_BACKUPS (\"/storage/roms/backup\")\n[2026-10-08 01:27:22] [INFO] [cloud_sync_helper] Carried SYNCPATH across to SAVES_REMOTE (\"/GAMES\")\n[2026-10-08 01:27:22] [INFO] [cloud_sync_helper] Carried SYNCPATH_BACKUP across to SETTINGS_REMOTE (\"/GAMES/backup\")\n[2026-10-08 01:27:22] [INFO] [cloud_sync_helper] Added new configuration option: CONTENT_REMOTE\n[2026-10-08 01:27:22] [INFO] [cloud_sync_helper] Added new configuration option: RCLONE_NET_OPTS\n[2026-10-08 01:27:22] [INFO] [cloud_sync_helper] Added new configuration option: RCLONE_SYNC_NET_OPTS\n[2026-10-08 01:27:22] [INFO] [cloud_sync_helper] Added new configuration option: SYNC_CEILING_SECONDS\n[2026-10-08 01:27:22] [INFO] [cloud_sync_helper] Added new configuration option: CLOUD_BACKUP_KEEP\n[2026-10-08 01:27:22] [INFO] [cloud_sync_helper] Configuration file updated while preserving customizations\n[2026-10-08 01:27:22] [INFO] [cloud_sync_helper] BACKUPMETHOD was 'sync', which deletes other devices' saves from the shared folder; set to 'copy'. Previous config kept as cloud_sync.conf.pre-copy-default until the next run that completes (D-CLOUD-079). This is done once; setting it back to sync will be respected.\n"
+    },
+    "public-rocknix-config-adoption/profile": {
+      "sha256": "c53499f1fe23f18126fa3f158e891f940ea7fe9894cfaabb521f6ec75c6e95e5",
+      "bytes": 82,
+      "text": "export PATH=/shim:/repo:/usr/bin:/bin\nexport HOME=/storage\nexport OS_NAME=ROCKNIX\n"
+    },
+    "public-rocknix-config-adoption/shim/ip": {
+      "sha256": "ed7833938db4abd915c4a87c20a87b5081e535ca8bcaadce3636bbbce842d61c",
+      "bytes": 70,
+      "text": "#!/bin/sh\n[ -e /ctl/offline ] || echo \"default via 10.0.2.2 dev eth0\"\n"
+    },
+    "public-rocknix-config-adoption/shim/logger": {
+      "sha256": "3874e47b219daaa98d73429732121b2639080ca64e5769982a78093c4f036cc7",
+      "bytes": 45,
+      "text": "#!/bin/sh\nprintf \"%s\\n\" \"$*\" >> /ctl/journal\n"
+    },
+    "public-rocknix-config-adoption/shim/ping": {
+      "sha256": "a0cfd66789b27fed708dda43875c9e9ff38823623233621b6bf816df8440dac9",
+      "bytes": 32,
+      "text": "#!/bin/sh\n[ ! -e /ctl/offline ]\n"
+    },
+    "public-rocknix-config-adoption/shim/rclone": {
+      "sha256": "02e1a1c6a82385cd1c5a510a764b0ca83c722e7c5812b0bb391f7d31c397a517",
+      "bytes": 543,
+      "text": "#!/bin/bash\nprintf '%s\\n' \"$*\" >> /ctl/argv\nif [ -f /ctl/faults ]; then\n while IFS=$'\\t' read -r pattern code; do\n  [[ \"$*\" =~ $pattern ]] && { printf '%s\\n' \"$*\" >> /ctl/fault-fired; echo 'injected provider failure' >&2; exit \"$code\"; }\n done < /ctl/faults\nfi\nif [ -e /ctl/bucket ]; then\n if [ \"$1 $2\" = 'backend features' ]; then\n  printf '{\"Hashes\":[\"md5\"],\"Features\":{\"BucketBased\":true}}\\n'; exit 0\n fi\n # Bucket prefixes can return successful empty lsd for a missing prefix.\n if [ \"$1\" = lsd ]; then exit 0; fi\nfi\nexec /rclone.real \"$@\"\n"
+    },
+    "public-rocknix-config-adoption/shim/systemctl": {
+      "sha256": "306c6ca7407560340797866e077e053627ad409277d1b9da58106fce4cf717cb",
+      "bytes": 17,
+      "text": "#!/bin/sh\nexit 0\n"
+    },
+    "public-rocknix-config-adoption/shim/systemd-tmpfiles": {
+      "sha256": "306c6ca7407560340797866e077e053627ad409277d1b9da58106fce4cf717cb",
+      "bytes": 17,
+      "text": "#!/bin/sh\nexit 0\n"
+    },
+    "public-rocknix-config-adoption/storage/.config/.cloud_sync-copy-default-applied": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "text": ""
+    },
+    "public-rocknix-config-adoption/storage/.config/.cloud_sync-rules-user-first-applied": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "text": ""
+    },
+    "public-rocknix-config-adoption/storage/.config/cloud_sync-rules.txt": {
+      "sha256": "951a7d65d83dc2f2a041868cf2ab1e231a8b09873a0656311b1f947fd106df75",
+      "bytes": 2776,
+      "text": "# Cloud Sync Rules - Default Configuration\n#\n# These rules determine which files are included/excluded during cloud sync operations.\n# The syntax follows the same pattern as .gitignore, where:\n#   + pattern = explicitly include matching files/directories\n#   - pattern = explicitly exclude matching files/directories\n#\n# Rules are processed in order and THE FIRST MATCH WINS - a later rule cannot\n# override an earlier one. This is why the catch-all \"- /**\" sits at the very\n# bottom, and why an exclusion must appear ABOVE any include that would\n# otherwise match the same file.\n# Using /** matches files recursively through all subdirectories.\n\n# Databases and their sidecars, before anything else can include them.\n# A database is the one file a player cannot resolve by hand if two devices\n# both write it, and rclone replaces files wholesale rather than merging, so a\n# synced database loses one side's history outright. Copying one mid-write also\n# yields a torn file, and a .db separated from its -wal can lose recent writes\n# or refuse to open. Ours lives in /storage/.cache and is never synced; this\n# guards against one an emulator drops into a save directory.\n- /**/*.db\n- /**/*.db-wal\n- /**/*.db-shm\n- /**/*.db-journal\n- /**/*.sqlite\n- /**/*.sqlite3\n\n# Start by explicitly including directories we want to fully backup\n+ /savefiles/**\n+ /savestates/**\n+ /screenshots/**\n\n# Include specific save file types across all directories\n+ /**/*.srm\n+ /**/*.sav\n+ /**/*.fs\n+ /**/*.state*\n+ /**/*.auto\n+ /**/*.dsv*\n\n# Standalone N64 saves sit BESIDE THE ROM, not in a save directory: every\n# shipped mupen64plus.cfg sets SaveSRAMPath = \"/storage/roms/n64\", so the\n# emulator writes n64/<Game>.eep, .mpk, .sra and .fla there. The\n# /n64/save/*.eep lines below match the libretro layout and have never\n# matched these, so a standalone N64 player's saves have never been backed\n# up on any device (#89, D-CLOUD-086). Widened here rather than in the\n# per-system block because the four extensions belong to no other system\n# and the same file can appear at either depth.\n+ /**/*.eep\n+ /**/*.mpk\n+ /**/*.sra\n+ /**/*.fla\n\n# Include system-specific save directories\n+ /n64/save/*.eep\n+ /n64/save/*.mpk\n+ /n64/save/*.sra\n+ /n64/save/*.srm\n+ /psx/memcards/*.mcd\n+ /psx/memcards/*.mcr\n+ /dc/shared/savefiles/**\n+ /psp/PPSSPP/**\n\n# Backup files\n+ /backup/*.zip\n+ /backup/*.tar.gz\n\n# Specifically exclude directories that should never be backed up\n- /roms/**\n- /bios/**\n- /downloads/**\n- /.cache/**\n- /images/**\n- /manuals/**\n- /videos/**\n- /themes/**\n- /**/*.bin\n- /**/*.iso\n- /**/*.img\n- /**/*.rom\n- /**/*.zip\n- /**/*.7z\n- /**/*.chd\n- /**/*.dol\n- /**/*.elf\n\n# Exclude XML files (like gamelist.xml) by default\n- /**/*.xml\n\n# Exclude everything else not explicitly included above\n- /**\n"
+    },
+    "public-rocknix-config-adoption/storage/.config/cloud_sync-rules.txt.bak": {
+      "sha256": "bc4f15f38e740763d19255aace0a90edd851e5deb159fc3bb38a3a12dfab38e8",
+      "bytes": 18,
+      "text": "+ /**/*.srm\n- /**\n"
+    },
+    "public-rocknix-config-adoption/storage/.config/cloud_sync.conf": {
+      "sha256": "8b70d5d2d4c83b734d2473c77d2c87e3d77d20740ded2294376927fbe6a4db36",
+      "bytes": 2731,
+      "text": "# Cloud Sync Configuration\n# This file defines paths and settings for cloud sync operations\n\n# Base Directory Paths\n# -------------------\n# Directory where Retroarch saves, savestates, and screenshots are located\nBACKUPPATH=\"/storage/roms\"\n\n# Changing the below to be different from BACKUPPATH will prevent data from being replaced on restore\nRESTOREPATH=\"/storage/roms\"\n\n# Local path where backups are stored (defined in backuptool)\nBACKUPFOLDER=\"/storage/roms/backup\"\n\n# Cloud Storage Paths\n# ------------------\n# Directory on the remote where save data should be stored\nSYNCPATH=\"/GAMES\"\n\n# Remote path where backups are stored\nSYNCPATH_BACKUP=\"/GAMES/backup\"\n\n# Logging Options\n# --------------\n# Set the minimum level of messages to log (INFO, WARN, ERROR)\nLOG_LEVEL=\"INFO\"\n\n# Transfer Settings\n# ---------------\n# rclone sync rules - modify these options to change transfer behavior\n# IMPORTANT: Each option must be preceded by a backslash (\\) except the first one\nRCLONEOPTS=\"--progress \\\n--log-file /var/log/cloud_sync.log \\\n--filter-from /storage/.config/cloud_sync-rules.txt \\\n--delete-excluded\"\n\n# Backup Options\n# -------------\n## Backup method\n### The default is \"sync\", which creates a 1:1 match between the local path and remote\n### Switching to \"copy\" will overwrite newer files at the remote with the local version, but leave other files and folders in place\nBACKUPMETHOD=\"copy\"\n\n## Enable backing-up the system backup file\n### The default is \"yes\", which will include the system backup file in the backup\n### Switching to \"no\" will exclude the system backup file from the backup\nBACKUPFILE_BACKUP_OPTION=\"yes\"\n\n# Restore Options\n# --------------\n## Restore method\n### The default is \"copy\", which will preserve any existing files and folders\n### Switching to \"sync\" will replace all local files in the restore path with what is on the remote\nRESTOREMETHOD=\"copy\"\n\n## Enable restoring the system backup file\n### The default is \"no\", which will exclude the system backup file from the restore\n### Switching to \"yes\" will include the system backup file in the restore\nBACKUPFILE_RESTORE_OPTION=\"no\"\n\n# Maintenance Options\n# -----------------\n# Option to enable/disable removing orphaned empty directories on the remote that are also empty locally. Enabled by default. Comment out to disable.\nRSYNCRMDIR=\"yes\"\nSAVESPATH=\"/storage/roms\"\nSETTINGS_BACKUPS=\"/storage/roms/backup\"\nSAVES_REMOTE=\"/GAMES\"\nSETTINGS_REMOTE=\"/GAMES/backup\"\nCONTENT_REMOTE=\"/pixelelated/Content\"\nRCLONE_NET_OPTS=\"--contimeout 15s --timeout 30s --low-level-retries 10 --retries 1\"\nRCLONE_SYNC_NET_OPTS=\"--contimeout 5s --timeout 5s --retries 1 --max-duration 90s --low-level-retries 5 --transfers 1\"\nSYNC_CEILING_SECONDS=90\nCLOUD_BACKUP_KEEP=\"3\"\n"
+    },
+    "public-rocknix-config-adoption/storage/.config/cloud_sync.conf.bak": {
+      "sha256": "e43cae4589b3c00b38fac1ae44b11759d8285e020c31dba429a28f97e24527b3",
+      "bytes": 2324,
+      "text": "# Cloud Sync Configuration\n# This file defines paths and settings for cloud sync operations\n\n# Base Directory Paths\n# -------------------\n# Directory where Retroarch saves, savestates, and screenshots are located\nBACKUPPATH=\"/storage/roms\"\n\n# Changing the below to be different from BACKUPPATH will prevent data from being replaced on restore\nRESTOREPATH=\"/storage/roms\"\n\n# Local path where backups are stored (defined in backuptool)\nBACKUPFOLDER=\"/storage/roms/backup\"\n\n# Cloud Storage Paths\n# ------------------\n# Directory on the remote where save data should be stored\nSYNCPATH=\"/GAMES\"\n\n# Remote path where backups are stored\nSYNCPATH_BACKUP=\"/GAMES/backup\"\n\n# Logging Options\n# --------------\n# Set the minimum level of messages to log (INFO, WARN, ERROR)\nLOG_LEVEL=\"INFO\"\n\n# Transfer Settings\n# ---------------\n# rclone sync rules - modify these options to change transfer behavior\n# IMPORTANT: Each option must be preceded by a backslash (\\) except the first one\nRCLONEOPTS=\"--progress \\\n--log-file /var/log/cloud_sync.log \\\n--filter-from /storage/.config/cloud_sync-rules.txt \\\n--delete-excluded\"\n\n# Backup Options\n# -------------\n## Backup method\n### The default is \"sync\", which creates a 1:1 match between the local path and remote\n### Switching to \"copy\" will overwrite newer files at the remote with the local version, but leave other files and folders in place\nBACKUPMETHOD=\"sync\"\n\n## Enable backing-up the system backup file\n### The default is \"yes\", which will include the system backup file in the backup\n### Switching to \"no\" will exclude the system backup file from the backup\nBACKUPFILE_BACKUP_OPTION=\"yes\"\n\n# Restore Options\n# --------------\n## Restore method\n### The default is \"copy\", which will preserve any existing files and folders\n### Switching to \"sync\" will replace all local files in the restore path with what is on the remote\nRESTOREMETHOD=\"copy\"\n\n## Enable restoring the system backup file\n### The default is \"no\", which will exclude the system backup file from the restore\n### Switching to \"yes\" will include the system backup file in the restore\nBACKUPFILE_RESTORE_OPTION=\"no\"\n\n# Maintenance Options\n# -----------------\n# Option to enable/disable removing orphaned empty directories on the remote that are also empty locally. Enabled by default. Comment out to disable.\nRSYNCRMDIR=\"yes\"\n"
+    },
+    "public-rocknix-config-adoption/storage/.config/cloud_sync.conf.pre-copy-default": {
+      "sha256": "99255039ac733d2e01f2014a1ef89f528cb612b356dde4508854581477dd7c25",
+      "bytes": 2731,
+      "text": "# Cloud Sync Configuration\n# This file defines paths and settings for cloud sync operations\n\n# Base Directory Paths\n# -------------------\n# Directory where Retroarch saves, savestates, and screenshots are located\nBACKUPPATH=\"/storage/roms\"\n\n# Changing the below to be different from BACKUPPATH will prevent data from being replaced on restore\nRESTOREPATH=\"/storage/roms\"\n\n# Local path where backups are stored (defined in backuptool)\nBACKUPFOLDER=\"/storage/roms/backup\"\n\n# Cloud Storage Paths\n# ------------------\n# Directory on the remote where save data should be stored\nSYNCPATH=\"/GAMES\"\n\n# Remote path where backups are stored\nSYNCPATH_BACKUP=\"/GAMES/backup\"\n\n# Logging Options\n# --------------\n# Set the minimum level of messages to log (INFO, WARN, ERROR)\nLOG_LEVEL=\"INFO\"\n\n# Transfer Settings\n# ---------------\n# rclone sync rules - modify these options to change transfer behavior\n# IMPORTANT: Each option must be preceded by a backslash (\\) except the first one\nRCLONEOPTS=\"--progress \\\n--log-file /var/log/cloud_sync.log \\\n--filter-from /storage/.config/cloud_sync-rules.txt \\\n--delete-excluded\"\n\n# Backup Options\n# -------------\n## Backup method\n### The default is \"sync\", which creates a 1:1 match between the local path and remote\n### Switching to \"copy\" will overwrite newer files at the remote with the local version, but leave other files and folders in place\nBACKUPMETHOD=\"sync\"\n\n## Enable backing-up the system backup file\n### The default is \"yes\", which will include the system backup file in the backup\n### Switching to \"no\" will exclude the system backup file from the backup\nBACKUPFILE_BACKUP_OPTION=\"yes\"\n\n# Restore Options\n# --------------\n## Restore method\n### The default is \"copy\", which will preserve any existing files and folders\n### Switching to \"sync\" will replace all local files in the restore path with what is on the remote\nRESTOREMETHOD=\"copy\"\n\n## Enable restoring the system backup file\n### The default is \"no\", which will exclude the system backup file from the restore\n### Switching to \"yes\" will include the system backup file in the restore\nBACKUPFILE_RESTORE_OPTION=\"no\"\n\n# Maintenance Options\n# -----------------\n# Option to enable/disable removing orphaned empty directories on the remote that are also empty locally. Enabled by default. Comment out to disable.\nRSYNCRMDIR=\"yes\"\nSAVESPATH=\"/storage/roms\"\nSETTINGS_BACKUPS=\"/storage/roms/backup\"\nSAVES_REMOTE=\"/GAMES\"\nSETTINGS_REMOTE=\"/GAMES/backup\"\nCONTENT_REMOTE=\"/pixelelated/Content\"\nRCLONE_NET_OPTS=\"--contimeout 15s --timeout 30s --low-level-retries 10 --retries 1\"\nRCLONE_SYNC_NET_OPTS=\"--contimeout 5s --timeout 5s --retries 1 --max-duration 90s --low-level-retries 5 --transfers 1\"\nSYNC_CEILING_SECONDS=90\nCLOUD_BACKUP_KEEP=\"3\"\n"
+    },
+    "public-rocknix-config-adoption/storage/.config/rclone/rclone.conf": {
+      "sha256": "7603c17bce0056aae641bee817b6f9875863b4158f34d526914bfba008485eb5",
+      "bytes": 34,
+      "text": "[qa]\ntype = alias\nremote = /cloud\n"
+    },
+    "public-rocknix-config-adoption/storage/roms/gb/.fixture": {
+      "sha256": "7d9f18b135168edd868a20d626bf0469a86d20f650fe620af06458d4f3335ce8",
+      "bytes": 19,
+      "text": "local known system\n"
+    },
+    "public-rocknix-config-adoption/storage/roms/snes/.fixture": {
+      "sha256": "7d9f18b135168edd868a20d626bf0469a86d20f650fe620af06458d4f3335ce8",
+      "bytes": 19,
+      "text": "local known system\n"
+    },
+    "public-rocknix-custom-library-preserved/01-cloud_setup.json": {
+      "sha256": "87cdc311abc2a06d360c505329682149c12316ceecf74b771eb4cbd858a03753",
+      "bytes": 940,
+      "text": "{\n  \"argv\": [\n    \"cloud_setup\",\n    \"--validate-folders\",\n    \"saves,settings\",\n    \"proof01\"\n  ],\n  \"rc\": 0,\n  \"pointers\": {\n    \"BACKUPPATH\": \"/storage/roms\",\n    \"RESTOREPATH\": \"/storage/roms\",\n    \"BACKUPFOLDER\": \"/storage/roms/backup\",\n    \"SYNCPATH\": \"/GAMES\",\n    \"SYNCPATH_BACKUP\": \"/GAMES/backup\",\n    \"LOG_LEVEL\": \"INFO\",\n    \"BACKUPMETHOD\": \"copy\",\n    \"BACKUPFILE_BACKUP_OPTION\": \"yes\",\n    \"RESTOREMETHOD\": \"copy\",\n    \"BACKUPFILE_RESTORE_OPTION\": \"no\",\n    \"RSYNCRMDIR\": \"yes\",\n    \"CONTENT_REMOTE\": \"Separate/Library\",\n    \"SAVESPATH\": \"/storage/roms\",\n    \"SETTINGS_BACKUPS\": \"/storage/roms/backup\",\n    \"SAVES_REMOTE\": \"/GAMES\",\n    \"SETTINGS_REMOTE\": \"/GAMES/backup\",\n    \"RCLONE_NET_OPTS\": \"--contimeout 15s --timeout 30s --low-level-retries 10 --retries 1\",\n    \"RCLONE_SYNC_NET_OPTS\": \"--contimeout 5s --timeout 5s --retries 1 --max-duration 90s --low-level-retries 5 --transfers 1\",\n    \"CLOUD_BACKUP_KEEP\": \"3\"\n  }\n}"
+    },
+    "public-rocknix-custom-library-preserved/01-cloud_setup.log": {
+      "sha256": "4a5440aec3ab3c3c755235ee86f165df9011740e169038d3437e81db69765ec5",
+      "bytes": 640,
+      "text": "{\"schema_version\":1,\"run_id\":\"proof01\",\"config_id\":\"f55e83829d0c5f436443ab014043c2a4826a871244fb00b2396ffd7518f14e23\",\"categories\":[{\"category\":\"saves\",\"state\":\"present\",\"path\":\"/GAMES\",\"detail\":\"progress-paths-found-not-verified\"},{\"category\":\"settings\",\"state\":\"present\",\"path\":\"/GAMES/backup\",\"detail\":\"archive-names-found-not-verified\"}],\"complete\":true,\"scope\":{\"max_depth\":3,\"max_entries_per_listing\":4096,\"max_bytes_per_listing\":2097152,\"max_seconds\":25},\"paths\":{\"saves\":\"/GAMES\",\"settings\":\"/GAMES/backup\",\"content\":\"Separate/Library\",\"roms\":\"Separate/Library/ROMs\",\"bios\":\"Separate/Library/BIOS\",\"media\":\"Separate/Library/ROMs\"}}\n"
+    },
+    "public-rocknix-custom-library-preserved/adoption-result.json": {
+      "sha256": "efd85489d1399edd84c69c98377083d5b3118ef19e92e2799fb91787660974bb",
+      "bytes": 994,
+      "text": "{\n  \"rc\": 0,\n  \"public_ref\": \"c445081a59518f37d9776e5412dd7b14910696f7\",\n  \"public_conf_sha256\": \"e43cae4589b3c00b38fac1ae44b11759d8285e020c31dba429a28f97e24527b3\",\n  \"pointers\": {\n    \"BACKUPPATH\": \"/storage/roms\",\n    \"RESTOREPATH\": \"/storage/roms\",\n    \"BACKUPFOLDER\": \"/storage/roms/backup\",\n    \"SYNCPATH\": \"/GAMES\",\n    \"SYNCPATH_BACKUP\": \"/GAMES/backup\",\n    \"LOG_LEVEL\": \"INFO\",\n    \"BACKUPMETHOD\": \"copy\",\n    \"BACKUPFILE_BACKUP_OPTION\": \"yes\",\n    \"RESTOREMETHOD\": \"copy\",\n    \"BACKUPFILE_RESTORE_OPTION\": \"no\",\n    \"RSYNCRMDIR\": \"yes\",\n    \"CONTENT_REMOTE\": \"Separate/Library\",\n    \"SAVESPATH\": \"/storage/roms\",\n    \"SETTINGS_BACKUPS\": \"/storage/roms/backup\",\n    \"SAVES_REMOTE\": \"/GAMES\",\n    \"SETTINGS_REMOTE\": \"/GAMES/backup\",\n    \"RCLONE_NET_OPTS\": \"--contimeout 15s --timeout 30s --low-level-retries 10 --retries 1\",\n    \"RCLONE_SYNC_NET_OPTS\": \"--contimeout 5s --timeout 5s --retries 1 --max-duration 90s --low-level-retries 5 --transfers 1\",\n    \"CLOUD_BACKUP_KEEP\": \"3\"\n  }\n}"
+    },
+    "public-rocknix-custom-library-preserved/adoption.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "text": ""
+    },
+    "public-rocknix-custom-library-preserved/cloud/GAMES/backup/existing.zip": {
+      "sha256": "b5f7e7d285029324d9b3acae19cc05099271454ac98bfc059a92b0581625cd51",
+      "bytes": 9,
+      "text": "sentinel\n"
+    },
+    "public-rocknix-custom-library-preserved/cloud/GAMES/gb/progress.srm": {
+      "sha256": "b5f7e7d285029324d9b3acae19cc05099271454ac98bfc059a92b0581625cd51",
+      "bytes": 9,
+      "text": "sentinel\n"
+    },
+    "public-rocknix-custom-library-preserved/ctl/argv": {
+      "sha256": "242bfa06bfd7653f96f5a7959b8113c47c95dbd60e2b693ce62647d9bcda0d8c",
+      "bytes": 357,
+      "text": "listremotes\nconfig file\nlsjson qa:/GAMES --recursive --max-depth 3 --no-mimetype --no-modtime --retries 1 --low-level-retries 1 --contimeout 3s --timeout 5s --max-duration 6s\nlsjson qa:/GAMES/backup --recursive --max-depth 3 --no-mimetype --no-modtime --retries 1 --low-level-retries 1 --contimeout 3s --timeout 5s --max-duration 6s\nlistremotes\nconfig file\n"
+    },
+    "public-rocknix-custom-library-preserved/log/cloud_sync.log": {
+      "sha256": "6d4e596992f2c1fd0edd6059ce5b18afceea8f5c92fc042c15828b224a74ab15",
+      "bytes": 1738,
+      "text": "[2026-10-08 01:27:23] [INFO] [cloud_sync_helper] Checking cloud sync rules file...\n[2026-10-08 01:27:23] [INFO] [cloud_sync_helper] Merging custom rules with defaults\n[2026-10-08 01:27:23] [INFO] [cloud_sync_helper] Updated cloud_sync-rules.txt with new defaults while preserving custom rules\n[2026-10-08 01:27:23] [INFO] [cloud_sync_helper] Checking cloud sync configuration...\n[2026-10-08 01:27:23] [INFO] [cloud_sync_helper] Updating configuration with new defaults\n[2026-10-08 01:27:23] [INFO] [cloud_sync_helper] Carried BACKUPPATH across to SAVESPATH (\"/storage/roms\")\n[2026-10-08 01:27:23] [INFO] [cloud_sync_helper] Carried BACKUPFOLDER across to SETTINGS_BACKUPS (\"/storage/roms/backup\")\n[2026-10-08 01:27:23] [INFO] [cloud_sync_helper] Carried SYNCPATH across to SAVES_REMOTE (\"/GAMES\")\n[2026-10-08 01:27:23] [INFO] [cloud_sync_helper] Carried SYNCPATH_BACKUP across to SETTINGS_REMOTE (\"/GAMES/backup\")\n[2026-10-08 01:27:23] [INFO] [cloud_sync_helper] Added new configuration option: RCLONE_NET_OPTS\n[2026-10-08 01:27:23] [INFO] [cloud_sync_helper] Added new configuration option: RCLONE_SYNC_NET_OPTS\n[2026-10-08 01:27:23] [INFO] [cloud_sync_helper] Added new configuration option: SYNC_CEILING_SECONDS\n[2026-10-08 01:27:23] [INFO] [cloud_sync_helper] Added new configuration option: CLOUD_BACKUP_KEEP\n[2026-10-08 01:27:23] [INFO] [cloud_sync_helper] Configuration file updated while preserving customizations\n[2026-10-08 01:27:23] [INFO] [cloud_sync_helper] BACKUPMETHOD was 'sync', which deletes other devices' saves from the shared folder; set to 'copy'. Previous config kept as cloud_sync.conf.pre-copy-default until the next run that completes (D-CLOUD-079). This is done once; setting it back to sync will be respected.\n"
+    },
+    "public-rocknix-custom-library-preserved/profile": {
+      "sha256": "c53499f1fe23f18126fa3f158e891f940ea7fe9894cfaabb521f6ec75c6e95e5",
+      "bytes": 82,
+      "text": "export PATH=/shim:/repo:/usr/bin:/bin\nexport HOME=/storage\nexport OS_NAME=ROCKNIX\n"
+    },
+    "public-rocknix-custom-library-preserved/shim/ip": {
+      "sha256": "ed7833938db4abd915c4a87c20a87b5081e535ca8bcaadce3636bbbce842d61c",
+      "bytes": 70,
+      "text": "#!/bin/sh\n[ -e /ctl/offline ] || echo \"default via 10.0.2.2 dev eth0\"\n"
+    },
+    "public-rocknix-custom-library-preserved/shim/logger": {
+      "sha256": "3874e47b219daaa98d73429732121b2639080ca64e5769982a78093c4f036cc7",
+      "bytes": 45,
+      "text": "#!/bin/sh\nprintf \"%s\\n\" \"$*\" >> /ctl/journal\n"
+    },
+    "public-rocknix-custom-library-preserved/shim/ping": {
+      "sha256": "a0cfd66789b27fed708dda43875c9e9ff38823623233621b6bf816df8440dac9",
+      "bytes": 32,
+      "text": "#!/bin/sh\n[ ! -e /ctl/offline ]\n"
+    },
+    "public-rocknix-custom-library-preserved/shim/rclone": {
+      "sha256": "02e1a1c6a82385cd1c5a510a764b0ca83c722e7c5812b0bb391f7d31c397a517",
+      "bytes": 543,
+      "text": "#!/bin/bash\nprintf '%s\\n' \"$*\" >> /ctl/argv\nif [ -f /ctl/faults ]; then\n while IFS=$'\\t' read -r pattern code; do\n  [[ \"$*\" =~ $pattern ]] && { printf '%s\\n' \"$*\" >> /ctl/fault-fired; echo 'injected provider failure' >&2; exit \"$code\"; }\n done < /ctl/faults\nfi\nif [ -e /ctl/bucket ]; then\n if [ \"$1 $2\" = 'backend features' ]; then\n  printf '{\"Hashes\":[\"md5\"],\"Features\":{\"BucketBased\":true}}\\n'; exit 0\n fi\n # Bucket prefixes can return successful empty lsd for a missing prefix.\n if [ \"$1\" = lsd ]; then exit 0; fi\nfi\nexec /rclone.real \"$@\"\n"
+    },
+    "public-rocknix-custom-library-preserved/shim/systemctl": {
+      "sha256": "306c6ca7407560340797866e077e053627ad409277d1b9da58106fce4cf717cb",
+      "bytes": 17,
+      "text": "#!/bin/sh\nexit 0\n"
+    },
+    "public-rocknix-custom-library-preserved/shim/systemd-tmpfiles": {
+      "sha256": "306c6ca7407560340797866e077e053627ad409277d1b9da58106fce4cf717cb",
+      "bytes": 17,
+      "text": "#!/bin/sh\nexit 0\n"
+    },
+    "public-rocknix-custom-library-preserved/storage/.config/.cloud_sync-copy-default-applied": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "text": ""
+    },
+    "public-rocknix-custom-library-preserved/storage/.config/.cloud_sync-rules-user-first-applied": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "text": ""
+    },
+    "public-rocknix-custom-library-preserved/storage/.config/cloud_sync-rules.txt": {
+      "sha256": "951a7d65d83dc2f2a041868cf2ab1e231a8b09873a0656311b1f947fd106df75",
+      "bytes": 2776,
+      "text": "# Cloud Sync Rules - Default Configuration\n#\n# These rules determine which files are included/excluded during cloud sync operations.\n# The syntax follows the same pattern as .gitignore, where:\n#   + pattern = explicitly include matching files/directories\n#   - pattern = explicitly exclude matching files/directories\n#\n# Rules are processed in order and THE FIRST MATCH WINS - a later rule cannot\n# override an earlier one. This is why the catch-all \"- /**\" sits at the very\n# bottom, and why an exclusion must appear ABOVE any include that would\n# otherwise match the same file.\n# Using /** matches files recursively through all subdirectories.\n\n# Databases and their sidecars, before anything else can include them.\n# A database is the one file a player cannot resolve by hand if two devices\n# both write it, and rclone replaces files wholesale rather than merging, so a\n# synced database loses one side's history outright. Copying one mid-write also\n# yields a torn file, and a .db separated from its -wal can lose recent writes\n# or refuse to open. Ours lives in /storage/.cache and is never synced; this\n# guards against one an emulator drops into a save directory.\n- /**/*.db\n- /**/*.db-wal\n- /**/*.db-shm\n- /**/*.db-journal\n- /**/*.sqlite\n- /**/*.sqlite3\n\n# Start by explicitly including directories we want to fully backup\n+ /savefiles/**\n+ /savestates/**\n+ /screenshots/**\n\n# Include specific save file types across all directories\n+ /**/*.srm\n+ /**/*.sav\n+ /**/*.fs\n+ /**/*.state*\n+ /**/*.auto\n+ /**/*.dsv*\n\n# Standalone N64 saves sit BESIDE THE ROM, not in a save directory: every\n# shipped mupen64plus.cfg sets SaveSRAMPath = \"/storage/roms/n64\", so the\n# emulator writes n64/<Game>.eep, .mpk, .sra and .fla there. The\n# /n64/save/*.eep lines below match the libretro layout and have never\n# matched these, so a standalone N64 player's saves have never been backed\n# up on any device (#89, D-CLOUD-086). Widened here rather than in the\n# per-system block because the four extensions belong to no other system\n# and the same file can appear at either depth.\n+ /**/*.eep\n+ /**/*.mpk\n+ /**/*.sra\n+ /**/*.fla\n\n# Include system-specific save directories\n+ /n64/save/*.eep\n+ /n64/save/*.mpk\n+ /n64/save/*.sra\n+ /n64/save/*.srm\n+ /psx/memcards/*.mcd\n+ /psx/memcards/*.mcr\n+ /dc/shared/savefiles/**\n+ /psp/PPSSPP/**\n\n# Backup files\n+ /backup/*.zip\n+ /backup/*.tar.gz\n\n# Specifically exclude directories that should never be backed up\n- /roms/**\n- /bios/**\n- /downloads/**\n- /.cache/**\n- /images/**\n- /manuals/**\n- /videos/**\n- /themes/**\n- /**/*.bin\n- /**/*.iso\n- /**/*.img\n- /**/*.rom\n- /**/*.zip\n- /**/*.7z\n- /**/*.chd\n- /**/*.dol\n- /**/*.elf\n\n# Exclude XML files (like gamelist.xml) by default\n- /**/*.xml\n\n# Exclude everything else not explicitly included above\n- /**\n"
+    },
+    "public-rocknix-custom-library-preserved/storage/.config/cloud_sync-rules.txt.bak": {
+      "sha256": "bc4f15f38e740763d19255aace0a90edd851e5deb159fc3bb38a3a12dfab38e8",
+      "bytes": 18,
+      "text": "+ /**/*.srm\n- /**\n"
+    },
+    "public-rocknix-custom-library-preserved/storage/.config/cloud_sync.conf": {
+      "sha256": "5e33831aaf279443f378582ba3d915e62b1a9ed1ce2d575cda32d24a5b056957",
+      "bytes": 2728,
+      "text": "# Cloud Sync Configuration\n# This file defines paths and settings for cloud sync operations\n\n# Base Directory Paths\n# -------------------\n# Directory where Retroarch saves, savestates, and screenshots are located\nBACKUPPATH=\"/storage/roms\"\n\n# Changing the below to be different from BACKUPPATH will prevent data from being replaced on restore\nRESTOREPATH=\"/storage/roms\"\n\n# Local path where backups are stored (defined in backuptool)\nBACKUPFOLDER=\"/storage/roms/backup\"\n\n# Cloud Storage Paths\n# ------------------\n# Directory on the remote where save data should be stored\nSYNCPATH=\"/GAMES\"\n\n# Remote path where backups are stored\nSYNCPATH_BACKUP=\"/GAMES/backup\"\n\n# Logging Options\n# --------------\n# Set the minimum level of messages to log (INFO, WARN, ERROR)\nLOG_LEVEL=\"INFO\"\n\n# Transfer Settings\n# ---------------\n# rclone sync rules - modify these options to change transfer behavior\n# IMPORTANT: Each option must be preceded by a backslash (\\) except the first one\nRCLONEOPTS=\"--progress \\\n--log-file /var/log/cloud_sync.log \\\n--filter-from /storage/.config/cloud_sync-rules.txt \\\n--delete-excluded\"\n\n# Backup Options\n# -------------\n## Backup method\n### The default is \"sync\", which creates a 1:1 match between the local path and remote\n### Switching to \"copy\" will overwrite newer files at the remote with the local version, but leave other files and folders in place\nBACKUPMETHOD=\"copy\"\n\n## Enable backing-up the system backup file\n### The default is \"yes\", which will include the system backup file in the backup\n### Switching to \"no\" will exclude the system backup file from the backup\nBACKUPFILE_BACKUP_OPTION=\"yes\"\n\n# Restore Options\n# --------------\n## Restore method\n### The default is \"copy\", which will preserve any existing files and folders\n### Switching to \"sync\" will replace all local files in the restore path with what is on the remote\nRESTOREMETHOD=\"copy\"\n\n## Enable restoring the system backup file\n### The default is \"no\", which will exclude the system backup file from the restore\n### Switching to \"yes\" will include the system backup file in the restore\nBACKUPFILE_RESTORE_OPTION=\"no\"\n\n# Maintenance Options\n# -----------------\n# Option to enable/disable removing orphaned empty directories on the remote that are also empty locally. Enabled by default. Comment out to disable.\nRSYNCRMDIR=\"yes\"\n\nCONTENT_REMOTE=\"Separate/Library\"\nSAVESPATH=\"/storage/roms\"\nSETTINGS_BACKUPS=\"/storage/roms/backup\"\nSAVES_REMOTE=\"/GAMES\"\nSETTINGS_REMOTE=\"/GAMES/backup\"\nRCLONE_NET_OPTS=\"--contimeout 15s --timeout 30s --low-level-retries 10 --retries 1\"\nRCLONE_SYNC_NET_OPTS=\"--contimeout 5s --timeout 5s --retries 1 --max-duration 90s --low-level-retries 5 --transfers 1\"\nSYNC_CEILING_SECONDS=90\nCLOUD_BACKUP_KEEP=\"3\"\n"
+    },
+    "public-rocknix-custom-library-preserved/storage/.config/cloud_sync.conf.bak": {
+      "sha256": "9d03013cb63a2339ce2a6c6931b30153609aead53fa9450aa7733f9c01fdf444",
+      "bytes": 2359,
+      "text": "# Cloud Sync Configuration\n# This file defines paths and settings for cloud sync operations\n\n# Base Directory Paths\n# -------------------\n# Directory where Retroarch saves, savestates, and screenshots are located\nBACKUPPATH=\"/storage/roms\"\n\n# Changing the below to be different from BACKUPPATH will prevent data from being replaced on restore\nRESTOREPATH=\"/storage/roms\"\n\n# Local path where backups are stored (defined in backuptool)\nBACKUPFOLDER=\"/storage/roms/backup\"\n\n# Cloud Storage Paths\n# ------------------\n# Directory on the remote where save data should be stored\nSYNCPATH=\"/GAMES\"\n\n# Remote path where backups are stored\nSYNCPATH_BACKUP=\"/GAMES/backup\"\n\n# Logging Options\n# --------------\n# Set the minimum level of messages to log (INFO, WARN, ERROR)\nLOG_LEVEL=\"INFO\"\n\n# Transfer Settings\n# ---------------\n# rclone sync rules - modify these options to change transfer behavior\n# IMPORTANT: Each option must be preceded by a backslash (\\) except the first one\nRCLONEOPTS=\"--progress \\\n--log-file /var/log/cloud_sync.log \\\n--filter-from /storage/.config/cloud_sync-rules.txt \\\n--delete-excluded\"\n\n# Backup Options\n# -------------\n## Backup method\n### The default is \"sync\", which creates a 1:1 match between the local path and remote\n### Switching to \"copy\" will overwrite newer files at the remote with the local version, but leave other files and folders in place\nBACKUPMETHOD=\"sync\"\n\n## Enable backing-up the system backup file\n### The default is \"yes\", which will include the system backup file in the backup\n### Switching to \"no\" will exclude the system backup file from the backup\nBACKUPFILE_BACKUP_OPTION=\"yes\"\n\n# Restore Options\n# --------------\n## Restore method\n### The default is \"copy\", which will preserve any existing files and folders\n### Switching to \"sync\" will replace all local files in the restore path with what is on the remote\nRESTOREMETHOD=\"copy\"\n\n## Enable restoring the system backup file\n### The default is \"no\", which will exclude the system backup file from the restore\n### Switching to \"yes\" will include the system backup file in the restore\nBACKUPFILE_RESTORE_OPTION=\"no\"\n\n# Maintenance Options\n# -----------------\n# Option to enable/disable removing orphaned empty directories on the remote that are also empty locally. Enabled by default. Comment out to disable.\nRSYNCRMDIR=\"yes\"\n\nCONTENT_REMOTE=\"Separate/Library\"\n"
+    },
+    "public-rocknix-custom-library-preserved/storage/.config/cloud_sync.conf.pre-copy-default": {
+      "sha256": "a909f3f17ba2402adc31312dc57f9099be5fdf8925f853c01e874b08aba4ea14",
+      "bytes": 2728,
+      "text": "# Cloud Sync Configuration\n# This file defines paths and settings for cloud sync operations\n\n# Base Directory Paths\n# -------------------\n# Directory where Retroarch saves, savestates, and screenshots are located\nBACKUPPATH=\"/storage/roms\"\n\n# Changing the below to be different from BACKUPPATH will prevent data from being replaced on restore\nRESTOREPATH=\"/storage/roms\"\n\n# Local path where backups are stored (defined in backuptool)\nBACKUPFOLDER=\"/storage/roms/backup\"\n\n# Cloud Storage Paths\n# ------------------\n# Directory on the remote where save data should be stored\nSYNCPATH=\"/GAMES\"\n\n# Remote path where backups are stored\nSYNCPATH_BACKUP=\"/GAMES/backup\"\n\n# Logging Options\n# --------------\n# Set the minimum level of messages to log (INFO, WARN, ERROR)\nLOG_LEVEL=\"INFO\"\n\n# Transfer Settings\n# ---------------\n# rclone sync rules - modify these options to change transfer behavior\n# IMPORTANT: Each option must be preceded by a backslash (\\) except the first one\nRCLONEOPTS=\"--progress \\\n--log-file /var/log/cloud_sync.log \\\n--filter-from /storage/.config/cloud_sync-rules.txt \\\n--delete-excluded\"\n\n# Backup Options\n# -------------\n## Backup method\n### The default is \"sync\", which creates a 1:1 match between the local path and remote\n### Switching to \"copy\" will overwrite newer files at the remote with the local version, but leave other files and folders in place\nBACKUPMETHOD=\"sync\"\n\n## Enable backing-up the system backup file\n### The default is \"yes\", which will include the system backup file in the backup\n### Switching to \"no\" will exclude the system backup file from the backup\nBACKUPFILE_BACKUP_OPTION=\"yes\"\n\n# Restore Options\n# --------------\n## Restore method\n### The default is \"copy\", which will preserve any existing files and folders\n### Switching to \"sync\" will replace all local files in the restore path with what is on the remote\nRESTOREMETHOD=\"copy\"\n\n## Enable restoring the system backup file\n### The default is \"no\", which will exclude the system backup file from the restore\n### Switching to \"yes\" will include the system backup file in the restore\nBACKUPFILE_RESTORE_OPTION=\"no\"\n\n# Maintenance Options\n# -----------------\n# Option to enable/disable removing orphaned empty directories on the remote that are also empty locally. Enabled by default. Comment out to disable.\nRSYNCRMDIR=\"yes\"\n\nCONTENT_REMOTE=\"Separate/Library\"\nSAVESPATH=\"/storage/roms\"\nSETTINGS_BACKUPS=\"/storage/roms/backup\"\nSAVES_REMOTE=\"/GAMES\"\nSETTINGS_REMOTE=\"/GAMES/backup\"\nRCLONE_NET_OPTS=\"--contimeout 15s --timeout 30s --low-level-retries 10 --retries 1\"\nRCLONE_SYNC_NET_OPTS=\"--contimeout 5s --timeout 5s --retries 1 --max-duration 90s --low-level-retries 5 --transfers 1\"\nSYNC_CEILING_SECONDS=90\nCLOUD_BACKUP_KEEP=\"3\"\n"
+    },
+    "public-rocknix-custom-library-preserved/storage/.config/rclone/rclone.conf": {
+      "sha256": "7603c17bce0056aae641bee817b6f9875863b4158f34d526914bfba008485eb5",
+      "bytes": 34,
+      "text": "[qa]\ntype = alias\nremote = /cloud\n"
+    },
+    "public-rocknix-custom-library-preserved/storage/roms/gb/.fixture": {
+      "sha256": "7d9f18b135168edd868a20d626bf0469a86d20f650fe620af06458d4f3335ce8",
+      "bytes": 19,
+      "text": "local known system\n"
+    },
+    "public-rocknix-custom-library-preserved/storage/roms/snes/.fixture": {
+      "sha256": "7d9f18b135168edd868a20d626bf0469a86d20f650fe620af06458d4f3335ce8",
+      "bytes": 19,
+      "text": "local known system\n"
+    },
+    "public-rocknix-explicit-root-preserved/01-cloud_setup.json": {
+      "sha256": "ebd87622c676ea6a2ff55f4ad94600dd5853aad242fa703064ff73f9f37f4da7",
+      "bytes": 924,
+      "text": "{\n  \"argv\": [\n    \"cloud_setup\",\n    \"--validate-folders\",\n    \"saves,settings\",\n    \"proof01\"\n  ],\n  \"rc\": 0,\n  \"pointers\": {\n    \"BACKUPPATH\": \"/storage/roms\",\n    \"RESTOREPATH\": \"/storage/roms\",\n    \"BACKUPFOLDER\": \"/storage/roms/backup\",\n    \"SYNCPATH\": \"/GAMES\",\n    \"SYNCPATH_BACKUP\": \"/GAMES/backup\",\n    \"LOG_LEVEL\": \"INFO\",\n    \"BACKUPMETHOD\": \"copy\",\n    \"BACKUPFILE_BACKUP_OPTION\": \"yes\",\n    \"RESTOREMETHOD\": \"copy\",\n    \"BACKUPFILE_RESTORE_OPTION\": \"no\",\n    \"RSYNCRMDIR\": \"yes\",\n    \"CONTENT_REMOTE\": \"\",\n    \"SAVESPATH\": \"/storage/roms\",\n    \"SETTINGS_BACKUPS\": \"/storage/roms/backup\",\n    \"SAVES_REMOTE\": \"/GAMES\",\n    \"SETTINGS_REMOTE\": \"/GAMES/backup\",\n    \"RCLONE_NET_OPTS\": \"--contimeout 15s --timeout 30s --low-level-retries 10 --retries 1\",\n    \"RCLONE_SYNC_NET_OPTS\": \"--contimeout 5s --timeout 5s --retries 1 --max-duration 90s --low-level-retries 5 --transfers 1\",\n    \"CLOUD_BACKUP_KEEP\": \"3\"\n  }\n}"
+    },
+    "public-rocknix-explicit-root-preserved/01-cloud_setup.log": {
+      "sha256": "cdc300f3b9e1daabbe8fc9df740e4504e215e9d45bfd0a9bdf71b8060ae7e859",
+      "bytes": 573,
+      "text": "{\"schema_version\":1,\"run_id\":\"proof01\",\"config_id\":\"a05028c11f60d9b7b8f8058cf088706b110ae1e792914c7d8f24e3a6bb7733ee\",\"categories\":[{\"category\":\"saves\",\"state\":\"present\",\"path\":\"/GAMES\",\"detail\":\"progress-paths-found-not-verified\"},{\"category\":\"settings\",\"state\":\"present\",\"path\":\"/GAMES/backup\",\"detail\":\"archive-names-found-not-verified\"}],\"complete\":true,\"scope\":{\"max_depth\":3,\"max_entries_per_listing\":4096,\"max_bytes_per_listing\":2097152,\"max_seconds\":25},\"paths\":{\"saves\":\"/GAMES\",\"settings\":\"/GAMES/backup\",\"content\":\"\",\"roms\":\"ROMs\",\"bios\":\"BIOS\",\"media\":\"ROMs\"}}\n"
+    },
+    "public-rocknix-explicit-root-preserved/adoption-result.json": {
+      "sha256": "69e42d591a5157118f92c6a439681603e972bdc6797ea1280f9f5befea871350",
+      "bytes": 978,
+      "text": "{\n  \"rc\": 0,\n  \"public_ref\": \"c445081a59518f37d9776e5412dd7b14910696f7\",\n  \"public_conf_sha256\": \"e43cae4589b3c00b38fac1ae44b11759d8285e020c31dba429a28f97e24527b3\",\n  \"pointers\": {\n    \"BACKUPPATH\": \"/storage/roms\",\n    \"RESTOREPATH\": \"/storage/roms\",\n    \"BACKUPFOLDER\": \"/storage/roms/backup\",\n    \"SYNCPATH\": \"/GAMES\",\n    \"SYNCPATH_BACKUP\": \"/GAMES/backup\",\n    \"LOG_LEVEL\": \"INFO\",\n    \"BACKUPMETHOD\": \"copy\",\n    \"BACKUPFILE_BACKUP_OPTION\": \"yes\",\n    \"RESTOREMETHOD\": \"copy\",\n    \"BACKUPFILE_RESTORE_OPTION\": \"no\",\n    \"RSYNCRMDIR\": \"yes\",\n    \"CONTENT_REMOTE\": \"\",\n    \"SAVESPATH\": \"/storage/roms\",\n    \"SETTINGS_BACKUPS\": \"/storage/roms/backup\",\n    \"SAVES_REMOTE\": \"/GAMES\",\n    \"SETTINGS_REMOTE\": \"/GAMES/backup\",\n    \"RCLONE_NET_OPTS\": \"--contimeout 15s --timeout 30s --low-level-retries 10 --retries 1\",\n    \"RCLONE_SYNC_NET_OPTS\": \"--contimeout 5s --timeout 5s --retries 1 --max-duration 90s --low-level-retries 5 --transfers 1\",\n    \"CLOUD_BACKUP_KEEP\": \"3\"\n  }\n}"
+    },
+    "public-rocknix-explicit-root-preserved/adoption.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "text": ""
+    },
+    "public-rocknix-explicit-root-preserved/cloud/GAMES/backup/existing.zip": {
+      "sha256": "b5f7e7d285029324d9b3acae19cc05099271454ac98bfc059a92b0581625cd51",
+      "bytes": 9,
+      "text": "sentinel\n"
+    },
+    "public-rocknix-explicit-root-preserved/cloud/GAMES/gb/progress.srm": {
+      "sha256": "b5f7e7d285029324d9b3acae19cc05099271454ac98bfc059a92b0581625cd51",
+      "bytes": 9,
+      "text": "sentinel\n"
+    },
+    "public-rocknix-explicit-root-preserved/ctl/argv": {
+      "sha256": "242bfa06bfd7653f96f5a7959b8113c47c95dbd60e2b693ce62647d9bcda0d8c",
+      "bytes": 357,
+      "text": "listremotes\nconfig file\nlsjson qa:/GAMES --recursive --max-depth 3 --no-mimetype --no-modtime --retries 1 --low-level-retries 1 --contimeout 3s --timeout 5s --max-duration 6s\nlsjson qa:/GAMES/backup --recursive --max-depth 3 --no-mimetype --no-modtime --retries 1 --low-level-retries 1 --contimeout 3s --timeout 5s --max-duration 6s\nlistremotes\nconfig file\n"
+    },
+    "public-rocknix-explicit-root-preserved/log/cloud_sync.log": {
+      "sha256": "fd9102bb015bd229b490c595a76e296b2398f570db5fe25118cf28a65d44f725",
+      "bytes": 1738,
+      "text": "[2026-10-08 01:27:22] [INFO] [cloud_sync_helper] Checking cloud sync rules file...\n[2026-10-08 01:27:22] [INFO] [cloud_sync_helper] Merging custom rules with defaults\n[2026-10-08 01:27:22] [INFO] [cloud_sync_helper] Updated cloud_sync-rules.txt with new defaults while preserving custom rules\n[2026-10-08 01:27:22] [INFO] [cloud_sync_helper] Checking cloud sync configuration...\n[2026-10-08 01:27:22] [INFO] [cloud_sync_helper] Updating configuration with new defaults\n[2026-10-08 01:27:22] [INFO] [cloud_sync_helper] Carried BACKUPPATH across to SAVESPATH (\"/storage/roms\")\n[2026-10-08 01:27:22] [INFO] [cloud_sync_helper] Carried BACKUPFOLDER across to SETTINGS_BACKUPS (\"/storage/roms/backup\")\n[2026-10-08 01:27:22] [INFO] [cloud_sync_helper] Carried SYNCPATH across to SAVES_REMOTE (\"/GAMES\")\n[2026-10-08 01:27:22] [INFO] [cloud_sync_helper] Carried SYNCPATH_BACKUP across to SETTINGS_REMOTE (\"/GAMES/backup\")\n[2026-10-08 01:27:22] [INFO] [cloud_sync_helper] Added new configuration option: RCLONE_NET_OPTS\n[2026-10-08 01:27:22] [INFO] [cloud_sync_helper] Added new configuration option: RCLONE_SYNC_NET_OPTS\n[2026-10-08 01:27:22] [INFO] [cloud_sync_helper] Added new configuration option: SYNC_CEILING_SECONDS\n[2026-10-08 01:27:22] [INFO] [cloud_sync_helper] Added new configuration option: CLOUD_BACKUP_KEEP\n[2026-10-08 01:27:22] [INFO] [cloud_sync_helper] Configuration file updated while preserving customizations\n[2026-10-08 01:27:22] [INFO] [cloud_sync_helper] BACKUPMETHOD was 'sync', which deletes other devices' saves from the shared folder; set to 'copy'. Previous config kept as cloud_sync.conf.pre-copy-default until the next run that completes (D-CLOUD-079). This is done once; setting it back to sync will be respected.\n"
+    },
+    "public-rocknix-explicit-root-preserved/profile": {
+      "sha256": "c53499f1fe23f18126fa3f158e891f940ea7fe9894cfaabb521f6ec75c6e95e5",
+      "bytes": 82,
+      "text": "export PATH=/shim:/repo:/usr/bin:/bin\nexport HOME=/storage\nexport OS_NAME=ROCKNIX\n"
+    },
+    "public-rocknix-explicit-root-preserved/shim/ip": {
+      "sha256": "ed7833938db4abd915c4a87c20a87b5081e535ca8bcaadce3636bbbce842d61c",
+      "bytes": 70,
+      "text": "#!/bin/sh\n[ -e /ctl/offline ] || echo \"default via 10.0.2.2 dev eth0\"\n"
+    },
+    "public-rocknix-explicit-root-preserved/shim/logger": {
+      "sha256": "3874e47b219daaa98d73429732121b2639080ca64e5769982a78093c4f036cc7",
+      "bytes": 45,
+      "text": "#!/bin/sh\nprintf \"%s\\n\" \"$*\" >> /ctl/journal\n"
+    },
+    "public-rocknix-explicit-root-preserved/shim/ping": {
+      "sha256": "a0cfd66789b27fed708dda43875c9e9ff38823623233621b6bf816df8440dac9",
+      "bytes": 32,
+      "text": "#!/bin/sh\n[ ! -e /ctl/offline ]\n"
+    },
+    "public-rocknix-explicit-root-preserved/shim/rclone": {
+      "sha256": "02e1a1c6a82385cd1c5a510a764b0ca83c722e7c5812b0bb391f7d31c397a517",
+      "bytes": 543,
+      "text": "#!/bin/bash\nprintf '%s\\n' \"$*\" >> /ctl/argv\nif [ -f /ctl/faults ]; then\n while IFS=$'\\t' read -r pattern code; do\n  [[ \"$*\" =~ $pattern ]] && { printf '%s\\n' \"$*\" >> /ctl/fault-fired; echo 'injected provider failure' >&2; exit \"$code\"; }\n done < /ctl/faults\nfi\nif [ -e /ctl/bucket ]; then\n if [ \"$1 $2\" = 'backend features' ]; then\n  printf '{\"Hashes\":[\"md5\"],\"Features\":{\"BucketBased\":true}}\\n'; exit 0\n fi\n # Bucket prefixes can return successful empty lsd for a missing prefix.\n if [ \"$1\" = lsd ]; then exit 0; fi\nfi\nexec /rclone.real \"$@\"\n"
+    },
+    "public-rocknix-explicit-root-preserved/shim/systemctl": {
+      "sha256": "306c6ca7407560340797866e077e053627ad409277d1b9da58106fce4cf717cb",
+      "bytes": 17,
+      "text": "#!/bin/sh\nexit 0\n"
+    },
+    "public-rocknix-explicit-root-preserved/shim/systemd-tmpfiles": {
+      "sha256": "306c6ca7407560340797866e077e053627ad409277d1b9da58106fce4cf717cb",
+      "bytes": 17,
+      "text": "#!/bin/sh\nexit 0\n"
+    },
+    "public-rocknix-explicit-root-preserved/storage/.config/.cloud_sync-copy-default-applied": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "text": ""
+    },
+    "public-rocknix-explicit-root-preserved/storage/.config/.cloud_sync-rules-user-first-applied": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "text": ""
+    },
+    "public-rocknix-explicit-root-preserved/storage/.config/cloud_sync-rules.txt": {
+      "sha256": "951a7d65d83dc2f2a041868cf2ab1e231a8b09873a0656311b1f947fd106df75",
+      "bytes": 2776,
+      "text": "# Cloud Sync Rules - Default Configuration\n#\n# These rules determine which files are included/excluded during cloud sync operations.\n# The syntax follows the same pattern as .gitignore, where:\n#   + pattern = explicitly include matching files/directories\n#   - pattern = explicitly exclude matching files/directories\n#\n# Rules are processed in order and THE FIRST MATCH WINS - a later rule cannot\n# override an earlier one. This is why the catch-all \"- /**\" sits at the very\n# bottom, and why an exclusion must appear ABOVE any include that would\n# otherwise match the same file.\n# Using /** matches files recursively through all subdirectories.\n\n# Databases and their sidecars, before anything else can include them.\n# A database is the one file a player cannot resolve by hand if two devices\n# both write it, and rclone replaces files wholesale rather than merging, so a\n# synced database loses one side's history outright. Copying one mid-write also\n# yields a torn file, and a .db separated from its -wal can lose recent writes\n# or refuse to open. Ours lives in /storage/.cache and is never synced; this\n# guards against one an emulator drops into a save directory.\n- /**/*.db\n- /**/*.db-wal\n- /**/*.db-shm\n- /**/*.db-journal\n- /**/*.sqlite\n- /**/*.sqlite3\n\n# Start by explicitly including directories we want to fully backup\n+ /savefiles/**\n+ /savestates/**\n+ /screenshots/**\n\n# Include specific save file types across all directories\n+ /**/*.srm\n+ /**/*.sav\n+ /**/*.fs\n+ /**/*.state*\n+ /**/*.auto\n+ /**/*.dsv*\n\n# Standalone N64 saves sit BESIDE THE ROM, not in a save directory: every\n# shipped mupen64plus.cfg sets SaveSRAMPath = \"/storage/roms/n64\", so the\n# emulator writes n64/<Game>.eep, .mpk, .sra and .fla there. The\n# /n64/save/*.eep lines below match the libretro layout and have never\n# matched these, so a standalone N64 player's saves have never been backed\n# up on any device (#89, D-CLOUD-086). Widened here rather than in the\n# per-system block because the four extensions belong to no other system\n# and the same file can appear at either depth.\n+ /**/*.eep\n+ /**/*.mpk\n+ /**/*.sra\n+ /**/*.fla\n\n# Include system-specific save directories\n+ /n64/save/*.eep\n+ /n64/save/*.mpk\n+ /n64/save/*.sra\n+ /n64/save/*.srm\n+ /psx/memcards/*.mcd\n+ /psx/memcards/*.mcr\n+ /dc/shared/savefiles/**\n+ /psp/PPSSPP/**\n\n# Backup files\n+ /backup/*.zip\n+ /backup/*.tar.gz\n\n# Specifically exclude directories that should never be backed up\n- /roms/**\n- /bios/**\n- /downloads/**\n- /.cache/**\n- /images/**\n- /manuals/**\n- /videos/**\n- /themes/**\n- /**/*.bin\n- /**/*.iso\n- /**/*.img\n- /**/*.rom\n- /**/*.zip\n- /**/*.7z\n- /**/*.chd\n- /**/*.dol\n- /**/*.elf\n\n# Exclude XML files (like gamelist.xml) by default\n- /**/*.xml\n\n# Exclude everything else not explicitly included above\n- /**\n"
+    },
+    "public-rocknix-explicit-root-preserved/storage/.config/cloud_sync-rules.txt.bak": {
+      "sha256": "bc4f15f38e740763d19255aace0a90edd851e5deb159fc3bb38a3a12dfab38e8",
+      "bytes": 18,
+      "text": "+ /**/*.srm\n- /**\n"
+    },
+    "public-rocknix-explicit-root-preserved/storage/.config/cloud_sync.conf": {
+      "sha256": "7b820eef45142c508ca616b9cf52eb7c62937f269d44fa6889693efb1b2aa5f6",
+      "bytes": 2712,
+      "text": "# Cloud Sync Configuration\n# This file defines paths and settings for cloud sync operations\n\n# Base Directory Paths\n# -------------------\n# Directory where Retroarch saves, savestates, and screenshots are located\nBACKUPPATH=\"/storage/roms\"\n\n# Changing the below to be different from BACKUPPATH will prevent data from being replaced on restore\nRESTOREPATH=\"/storage/roms\"\n\n# Local path where backups are stored (defined in backuptool)\nBACKUPFOLDER=\"/storage/roms/backup\"\n\n# Cloud Storage Paths\n# ------------------\n# Directory on the remote where save data should be stored\nSYNCPATH=\"/GAMES\"\n\n# Remote path where backups are stored\nSYNCPATH_BACKUP=\"/GAMES/backup\"\n\n# Logging Options\n# --------------\n# Set the minimum level of messages to log (INFO, WARN, ERROR)\nLOG_LEVEL=\"INFO\"\n\n# Transfer Settings\n# ---------------\n# rclone sync rules - modify these options to change transfer behavior\n# IMPORTANT: Each option must be preceded by a backslash (\\) except the first one\nRCLONEOPTS=\"--progress \\\n--log-file /var/log/cloud_sync.log \\\n--filter-from /storage/.config/cloud_sync-rules.txt \\\n--delete-excluded\"\n\n# Backup Options\n# -------------\n## Backup method\n### The default is \"sync\", which creates a 1:1 match between the local path and remote\n### Switching to \"copy\" will overwrite newer files at the remote with the local version, but leave other files and folders in place\nBACKUPMETHOD=\"copy\"\n\n## Enable backing-up the system backup file\n### The default is \"yes\", which will include the system backup file in the backup\n### Switching to \"no\" will exclude the system backup file from the backup\nBACKUPFILE_BACKUP_OPTION=\"yes\"\n\n# Restore Options\n# --------------\n## Restore method\n### The default is \"copy\", which will preserve any existing files and folders\n### Switching to \"sync\" will replace all local files in the restore path with what is on the remote\nRESTOREMETHOD=\"copy\"\n\n## Enable restoring the system backup file\n### The default is \"no\", which will exclude the system backup file from the restore\n### Switching to \"yes\" will include the system backup file in the restore\nBACKUPFILE_RESTORE_OPTION=\"no\"\n\n# Maintenance Options\n# -----------------\n# Option to enable/disable removing orphaned empty directories on the remote that are also empty locally. Enabled by default. Comment out to disable.\nRSYNCRMDIR=\"yes\"\n\nCONTENT_REMOTE=\"\"\nSAVESPATH=\"/storage/roms\"\nSETTINGS_BACKUPS=\"/storage/roms/backup\"\nSAVES_REMOTE=\"/GAMES\"\nSETTINGS_REMOTE=\"/GAMES/backup\"\nRCLONE_NET_OPTS=\"--contimeout 15s --timeout 30s --low-level-retries 10 --retries 1\"\nRCLONE_SYNC_NET_OPTS=\"--contimeout 5s --timeout 5s --retries 1 --max-duration 90s --low-level-retries 5 --transfers 1\"\nSYNC_CEILING_SECONDS=90\nCLOUD_BACKUP_KEEP=\"3\"\n"
+    },
+    "public-rocknix-explicit-root-preserved/storage/.config/cloud_sync.conf.bak": {
+      "sha256": "57f835ff4585d0b5f7875e485bb3d88b0d4fd7b2ef7d16cd3b4b8ad832d7c170",
+      "bytes": 2343,
+      "text": "# Cloud Sync Configuration\n# This file defines paths and settings for cloud sync operations\n\n# Base Directory Paths\n# -------------------\n# Directory where Retroarch saves, savestates, and screenshots are located\nBACKUPPATH=\"/storage/roms\"\n\n# Changing the below to be different from BACKUPPATH will prevent data from being replaced on restore\nRESTOREPATH=\"/storage/roms\"\n\n# Local path where backups are stored (defined in backuptool)\nBACKUPFOLDER=\"/storage/roms/backup\"\n\n# Cloud Storage Paths\n# ------------------\n# Directory on the remote where save data should be stored\nSYNCPATH=\"/GAMES\"\n\n# Remote path where backups are stored\nSYNCPATH_BACKUP=\"/GAMES/backup\"\n\n# Logging Options\n# --------------\n# Set the minimum level of messages to log (INFO, WARN, ERROR)\nLOG_LEVEL=\"INFO\"\n\n# Transfer Settings\n# ---------------\n# rclone sync rules - modify these options to change transfer behavior\n# IMPORTANT: Each option must be preceded by a backslash (\\) except the first one\nRCLONEOPTS=\"--progress \\\n--log-file /var/log/cloud_sync.log \\\n--filter-from /storage/.config/cloud_sync-rules.txt \\\n--delete-excluded\"\n\n# Backup Options\n# -------------\n## Backup method\n### The default is \"sync\", which creates a 1:1 match between the local path and remote\n### Switching to \"copy\" will overwrite newer files at the remote with the local version, but leave other files and folders in place\nBACKUPMETHOD=\"sync\"\n\n## Enable backing-up the system backup file\n### The default is \"yes\", which will include the system backup file in the backup\n### Switching to \"no\" will exclude the system backup file from the backup\nBACKUPFILE_BACKUP_OPTION=\"yes\"\n\n# Restore Options\n# --------------\n## Restore method\n### The default is \"copy\", which will preserve any existing files and folders\n### Switching to \"sync\" will replace all local files in the restore path with what is on the remote\nRESTOREMETHOD=\"copy\"\n\n## Enable restoring the system backup file\n### The default is \"no\", which will exclude the system backup file from the restore\n### Switching to \"yes\" will include the system backup file in the restore\nBACKUPFILE_RESTORE_OPTION=\"no\"\n\n# Maintenance Options\n# -----------------\n# Option to enable/disable removing orphaned empty directories on the remote that are also empty locally. Enabled by default. Comment out to disable.\nRSYNCRMDIR=\"yes\"\n\nCONTENT_REMOTE=\"\"\n"
+    },
+    "public-rocknix-explicit-root-preserved/storage/.config/cloud_sync.conf.pre-copy-default": {
+      "sha256": "25def6f1413e933c7b344a6ba6c0f5a2f9b45a12ab2b279b2056446df0fdd185",
+      "bytes": 2712,
+      "text": "# Cloud Sync Configuration\n# This file defines paths and settings for cloud sync operations\n\n# Base Directory Paths\n# -------------------\n# Directory where Retroarch saves, savestates, and screenshots are located\nBACKUPPATH=\"/storage/roms\"\n\n# Changing the below to be different from BACKUPPATH will prevent data from being replaced on restore\nRESTOREPATH=\"/storage/roms\"\n\n# Local path where backups are stored (defined in backuptool)\nBACKUPFOLDER=\"/storage/roms/backup\"\n\n# Cloud Storage Paths\n# ------------------\n# Directory on the remote where save data should be stored\nSYNCPATH=\"/GAMES\"\n\n# Remote path where backups are stored\nSYNCPATH_BACKUP=\"/GAMES/backup\"\n\n# Logging Options\n# --------------\n# Set the minimum level of messages to log (INFO, WARN, ERROR)\nLOG_LEVEL=\"INFO\"\n\n# Transfer Settings\n# ---------------\n# rclone sync rules - modify these options to change transfer behavior\n# IMPORTANT: Each option must be preceded by a backslash (\\) except the first one\nRCLONEOPTS=\"--progress \\\n--log-file /var/log/cloud_sync.log \\\n--filter-from /storage/.config/cloud_sync-rules.txt \\\n--delete-excluded\"\n\n# Backup Options\n# -------------\n## Backup method\n### The default is \"sync\", which creates a 1:1 match between the local path and remote\n### Switching to \"copy\" will overwrite newer files at the remote with the local version, but leave other files and folders in place\nBACKUPMETHOD=\"sync\"\n\n## Enable backing-up the system backup file\n### The default is \"yes\", which will include the system backup file in the backup\n### Switching to \"no\" will exclude the system backup file from the backup\nBACKUPFILE_BACKUP_OPTION=\"yes\"\n\n# Restore Options\n# --------------\n## Restore method\n### The default is \"copy\", which will preserve any existing files and folders\n### Switching to \"sync\" will replace all local files in the restore path with what is on the remote\nRESTOREMETHOD=\"copy\"\n\n## Enable restoring the system backup file\n### The default is \"no\", which will exclude the system backup file from the restore\n### Switching to \"yes\" will include the system backup file in the restore\nBACKUPFILE_RESTORE_OPTION=\"no\"\n\n# Maintenance Options\n# -----------------\n# Option to enable/disable removing orphaned empty directories on the remote that are also empty locally. Enabled by default. Comment out to disable.\nRSYNCRMDIR=\"yes\"\n\nCONTENT_REMOTE=\"\"\nSAVESPATH=\"/storage/roms\"\nSETTINGS_BACKUPS=\"/storage/roms/backup\"\nSAVES_REMOTE=\"/GAMES\"\nSETTINGS_REMOTE=\"/GAMES/backup\"\nRCLONE_NET_OPTS=\"--contimeout 15s --timeout 30s --low-level-retries 10 --retries 1\"\nRCLONE_SYNC_NET_OPTS=\"--contimeout 5s --timeout 5s --retries 1 --max-duration 90s --low-level-retries 5 --transfers 1\"\nSYNC_CEILING_SECONDS=90\nCLOUD_BACKUP_KEEP=\"3\"\n"
+    },
+    "public-rocknix-explicit-root-preserved/storage/.config/rclone/rclone.conf": {
+      "sha256": "7603c17bce0056aae641bee817b6f9875863b4158f34d526914bfba008485eb5",
+      "bytes": 34,
+      "text": "[qa]\ntype = alias\nremote = /cloud\n"
+    },
+    "public-rocknix-explicit-root-preserved/storage/roms/gb/.fixture": {
+      "sha256": "7d9f18b135168edd868a20d626bf0469a86d20f650fe620af06458d4f3335ce8",
+      "bytes": 19,
+      "text": "local known system\n"
+    },
+    "public-rocknix-explicit-root-preserved/storage/roms/snes/.fixture": {
+      "sha256": "7d9f18b135168edd868a20d626bf0469a86d20f650fe620af06458d4f3335ce8",
+      "bytes": 19,
+      "text": "local known system\n"
+    },
+    "relative-namespace-preserved/01-cloud_setup.json": {
+      "sha256": "9344c1be3be9f7949e6c584046d99aa40aea8a3e19a284be001bc616e8781ad1",
+      "bytes": 706,
+      "text": "{\n  \"argv\": [\n    \"cloud_setup\",\n    \"--seed-folders\",\n    \"saves,settings,roms,bios\"\n  ],\n  \"rc\": 0,\n  \"pointers\": {\n    \"SAVESPATH\": \"/storage/roms\",\n    \"SAVES_REMOTE\": \"Mine/Saves\",\n    \"SETTINGS_BACKUPS\": \"/storage/roms/backup\",\n    \"SETTINGS_REMOTE\": \"Mine/Settings\",\n    \"BACKUPMETHOD\": \"copy\",\n    \"RESTOREMETHOD\": \"copy\",\n    \"BACKUPFILE_BACKUP_OPTION\": \"no\",\n    \"BACKUPFILE_RESTORE_OPTION\": \"no\",\n    \"LOG_LEVEL\": \"INFO\",\n    \"LAYOUT_KEEP\": \"\",\n    \"RCLONEOPTS\": \"--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt\",\n    \"RCLONE_NET_OPTS\": \"--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1\",\n    \"CONTENT_REMOTE\": \"Mine/Content\"\n  }\n}"
+    },
+    "relative-namespace-preserved/01-cloud_setup.log": {
+      "sha256": "ec96a042027d40ea31be932c3162bdd6f5bf208f15d827254404419c6caa9299",
+      "bytes": 73,
+      "text": "OK Mine/Saves\nOK Mine/Settings\nOK Mine/Content/ROMs\nOK Mine/Content/BIOS\n"
+    },
+    "relative-namespace-preserved/02-cloud_setup.json": {
+      "sha256": "a85957700505414fda2fa696a083054c169cb8c6a2ca495080a34478fda5eebe",
+      "bytes": 731,
+      "text": "{\n  \"argv\": [\n    \"cloud_setup\",\n    \"--validate-folders\",\n    \"saves,settings,roms,bios,media\",\n    \"proof01\"\n  ],\n  \"rc\": 0,\n  \"pointers\": {\n    \"SAVESPATH\": \"/storage/roms\",\n    \"SAVES_REMOTE\": \"Mine/Saves\",\n    \"SETTINGS_BACKUPS\": \"/storage/roms/backup\",\n    \"SETTINGS_REMOTE\": \"Mine/Settings\",\n    \"BACKUPMETHOD\": \"copy\",\n    \"RESTOREMETHOD\": \"copy\",\n    \"BACKUPFILE_BACKUP_OPTION\": \"no\",\n    \"BACKUPFILE_RESTORE_OPTION\": \"no\",\n    \"LOG_LEVEL\": \"INFO\",\n    \"LAYOUT_KEEP\": \"\",\n    \"RCLONEOPTS\": \"--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt\",\n    \"RCLONE_NET_OPTS\": \"--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1\",\n    \"CONTENT_REMOTE\": \"Mine/Content\"\n  }\n}"
+    },
+    "relative-namespace-preserved/02-cloud_setup.log": {
+      "sha256": "6087ec2f721eaa935d9384a39e7b2317a537e829fab24d4125d9abd28ea0d0f3",
+      "bytes": 979,
+      "text": "{\"schema_version\":1,\"run_id\":\"proof01\",\"config_id\":\"597f37ae0d34c0b7c508c863f66ee5519f84aa3cd0d68c937f32d9dbb4d9a46e\",\"categories\":[{\"category\":\"saves\",\"state\":\"empty\",\"path\":\"Mine/Saves\",\"detail\":\"no-recognized-content-in-checked-depth\"},{\"category\":\"settings\",\"state\":\"empty\",\"path\":\"Mine/Settings\",\"detail\":\"no-recognized-content-in-checked-depth\"},{\"category\":\"roms\",\"state\":\"empty\",\"path\":\"Mine/Content/ROMs\",\"detail\":\"no-recognized-content-in-checked-depth\"},{\"category\":\"bios\",\"state\":\"empty\",\"path\":\"Mine/Content/BIOS\",\"detail\":\"no-recognized-content-in-checked-depth\"},{\"category\":\"media\",\"state\":\"empty\",\"path\":\"Mine/Content/ROMs\",\"detail\":\"no-recognized-content-in-checked-depth\"}],\"complete\":true,\"scope\":{\"max_depth\":3,\"max_entries_per_listing\":4096,\"max_bytes_per_listing\":2097152,\"max_seconds\":25},\"paths\":{\"saves\":\"Mine/Saves\",\"settings\":\"Mine/Settings\",\"content\":\"Mine/Content\",\"roms\":\"Mine/Content/ROMs\",\"bios\":\"Mine/Content/BIOS\",\"media\":\"Mine/Content/ROMs\"}}\n"
+    },
+    "relative-namespace-preserved/cloud/Mine/Content/BIOS/README.txt": {
+      "sha256": "930816da8d913c817a2cdfb625f8b1dfd11f350baeed2b8f824c0153c02c269b",
+      "bytes": 79,
+      "text": "BIOS and firmware files.\nKeep the subfolders required by the emulator you use.\n"
+    },
+    "relative-namespace-preserved/cloud/Mine/Content/ROMs/README.txt": {
+      "sha256": "4bb407b70160d9a5807161ff0920af9beb90badaf4c27fa996701f0ded8ce4f9",
+      "bytes": 150,
+      "text": "Your games, one folder per system.\n\nUse system folder names such as snes, psx, n64, or gba.\nGame content stays in its system folder beside the games.\n"
+    },
+    "relative-namespace-preserved/cloud/Mine/Saves/README.txt": {
+      "sha256": "2fa918df6e277c8f4a3a444e2553f0ead7640398eea52abced1f6be981e4c731",
+      "bytes": 177,
+      "text": "Game saves, save states, and screenshots.\n\nUse savefiles/, savestates/, and screenshots/ for emulator progress.\nGame saves in supported system folders keep their normal layout.\n"
+    },
+    "relative-namespace-preserved/cloud/Mine/Settings/README.txt": {
+      "sha256": "af4d56ef1684f53498f86901474224fd756353277b56b0b1dcdf54ab69886eda",
+      "bytes": 97,
+      "text": "Settings backups, one folder per handheld.\nWritten by the device when you back up your settings.\n"
+    },
+    "relative-namespace-preserved/ctl/argv": {
+      "sha256": "eab70ac794dd8913fcbf5bacab306c58ee71eff74c66b8f9375cce5963fb9741",
+      "bytes": 2971,
+      "text": "listremotes\nmkdir --s3-directory-markers qa:Mine/Saves --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\nmkdir --s3-directory-markers qa:Mine/Saves/savefiles --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\nmkdir --s3-directory-markers qa:Mine/Saves/savestates --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\nmkdir --s3-directory-markers qa:Mine/Saves/screenshots --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\nmkdir --s3-directory-markers qa:Mine/Settings --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\nmkdir --s3-directory-markers qa:Mine/Content/ROMs --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\nmkdir --s3-directory-markers qa:Mine/Content/BIOS --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\nlsf --files-only qa:Mine/Saves/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\ncopyto --ignore-existing /tmp/tmp.CbPxUmrhR3 qa:Mine/Saves/README.txt --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\nlsf --files-only qa:Mine/Settings/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\ncopyto --ignore-existing /tmp/tmp.0bb8B6eOHD qa:Mine/Settings/README.txt --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\nlsf --files-only qa:Mine/Content/ROMs/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\ncopyto --ignore-existing /tmp/tmp.GmaobgFKY9 qa:Mine/Content/ROMs/README.txt --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\nlsf --files-only qa:Mine/Content/BIOS/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\ncopyto --ignore-existing /tmp/tmp.tPXVyhOQ6y qa:Mine/Content/BIOS/README.txt --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\nlsf qa:Mine/Saves --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\nlsf qa:Mine/Settings --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\nlsf qa:Mine/Content/ROMs --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\nlsf qa:Mine/Content/BIOS --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\nlistremotes\nconfig file\nlsjson qa:Mine/Saves --recursive --max-depth 3 --no-mimetype --no-modtime --retries 1 --low-level-retries 1 --contimeout 3s --timeout 5s --max-duration 6s\nlsjson qa:Mine/Settings --recursive --max-depth 3 --no-mimetype --no-modtime --retries 1 --low-level-retries 1 --contimeout 3s --timeout 5s --max-duration 6s\nlsjson qa:Mine/Content --recursive --max-depth 1 --no-mimetype --no-modtime --retries 1 --low-level-retries 1 --contimeout 3s --timeout 5s --max-duration 6s\nlsjson qa:Mine/Content/ROMs --recursive --max-depth 3 --no-mimetype --no-modtime --retries 1 --low-level-retries 1 --contimeout 3s --timeout 5s --max-duration 6s\nlsjson qa:Mine/Content/BIOS --recursive --max-depth 3 --no-mimetype --no-modtime --retries 1 --low-level-retries 1 --contimeout 3s --timeout 5s --max-duration 6s\nlistremotes\nconfig file\n"
+    },
+    "relative-namespace-preserved/profile": {
+      "sha256": "c53499f1fe23f18126fa3f158e891f940ea7fe9894cfaabb521f6ec75c6e95e5",
+      "bytes": 82,
+      "text": "export PATH=/shim:/repo:/usr/bin:/bin\nexport HOME=/storage\nexport OS_NAME=ROCKNIX\n"
+    },
+    "relative-namespace-preserved/shim/ip": {
+      "sha256": "ed7833938db4abd915c4a87c20a87b5081e535ca8bcaadce3636bbbce842d61c",
+      "bytes": 70,
+      "text": "#!/bin/sh\n[ -e /ctl/offline ] || echo \"default via 10.0.2.2 dev eth0\"\n"
+    },
+    "relative-namespace-preserved/shim/logger": {
+      "sha256": "3874e47b219daaa98d73429732121b2639080ca64e5769982a78093c4f036cc7",
+      "bytes": 45,
+      "text": "#!/bin/sh\nprintf \"%s\\n\" \"$*\" >> /ctl/journal\n"
+    },
+    "relative-namespace-preserved/shim/ping": {
+      "sha256": "a0cfd66789b27fed708dda43875c9e9ff38823623233621b6bf816df8440dac9",
+      "bytes": 32,
+      "text": "#!/bin/sh\n[ ! -e /ctl/offline ]\n"
+    },
+    "relative-namespace-preserved/shim/rclone": {
+      "sha256": "02e1a1c6a82385cd1c5a510a764b0ca83c722e7c5812b0bb391f7d31c397a517",
+      "bytes": 543,
+      "text": "#!/bin/bash\nprintf '%s\\n' \"$*\" >> /ctl/argv\nif [ -f /ctl/faults ]; then\n while IFS=$'\\t' read -r pattern code; do\n  [[ \"$*\" =~ $pattern ]] && { printf '%s\\n' \"$*\" >> /ctl/fault-fired; echo 'injected provider failure' >&2; exit \"$code\"; }\n done < /ctl/faults\nfi\nif [ -e /ctl/bucket ]; then\n if [ \"$1 $2\" = 'backend features' ]; then\n  printf '{\"Hashes\":[\"md5\"],\"Features\":{\"BucketBased\":true}}\\n'; exit 0\n fi\n # Bucket prefixes can return successful empty lsd for a missing prefix.\n if [ \"$1\" = lsd ]; then exit 0; fi\nfi\nexec /rclone.real \"$@\"\n"
+    },
+    "relative-namespace-preserved/shim/systemctl": {
+      "sha256": "306c6ca7407560340797866e077e053627ad409277d1b9da58106fce4cf717cb",
+      "bytes": 17,
+      "text": "#!/bin/sh\nexit 0\n"
+    },
+    "relative-namespace-preserved/shim/systemd-tmpfiles": {
+      "sha256": "306c6ca7407560340797866e077e053627ad409277d1b9da58106fce4cf717cb",
+      "bytes": 17,
+      "text": "#!/bin/sh\nexit 0\n"
+    },
+    "relative-namespace-preserved/storage/.config/cloud_sync-rules.txt": {
+      "sha256": "bc4f15f38e740763d19255aace0a90edd851e5deb159fc3bb38a3a12dfab38e8",
+      "bytes": 18,
+      "text": "+ /**/*.srm\n- /**\n"
+    },
+    "relative-namespace-preserved/storage/.config/cloud_sync.conf": {
+      "sha256": "efd65c1acb1092b9f8c7d8e74ddab6eb7d84782b9a18bd97bd92a30a0f986eb1",
+      "bytes": 480,
+      "text": "SAVESPATH=\"/storage/roms\"\nSAVES_REMOTE=\"Mine/Saves\"\nSETTINGS_BACKUPS=\"/storage/roms/backup\"\nSETTINGS_REMOTE=\"Mine/Settings\"\nBACKUPMETHOD=\"copy\"\nRESTOREMETHOD=\"copy\"\nBACKUPFILE_BACKUP_OPTION=\"no\"\nBACKUPFILE_RESTORE_OPTION=\"no\"\nLOG_LEVEL=\"INFO\"\nLAYOUT_KEEP=\"\"\nRCLONEOPTS=\"--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt\"\nRCLONE_NET_OPTS=\"--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1\"\nCONTENT_REMOTE=\"Mine/Content\"\n"
+    },
+    "relative-namespace-preserved/storage/.config/rclone/rclone.conf": {
+      "sha256": "7603c17bce0056aae641bee817b6f9875863b4158f34d526914bfba008485eb5",
+      "bytes": 34,
+      "text": "[qa]\ntype = alias\nremote = /cloud\n"
+    },
+    "relative-namespace-preserved/storage/roms/gb/.fixture": {
+      "sha256": "7d9f18b135168edd868a20d626bf0469a86d20f650fe620af06458d4f3335ce8",
+      "bytes": 19,
+      "text": "local known system\n"
+    },
+    "relative-namespace-preserved/storage/roms/snes/.fixture": {
+      "sha256": "7d9f18b135168edd868a20d626bf0469a86d20f650fe620af06458d4f3335ce8",
+      "bytes": 19,
+      "text": "local known system\n"
+    },
+    "result.json": {
+      "sha256": "025e069356fbe1e87ef0c78a36fe612a90cd1f7f2ab2c0734842cd988f225bfe",
+      "bytes": 802,
+      "text": "{\n  \"result\": \"PASS\",\n  \"cases\": [\n    \"relative-namespace-preserved\",\n    \"absolute-relative-root-distinction\",\n    \"explicit-root-allowed\",\n    \"public-rocknix-config-adoption\",\n    \"public-rocknix-explicit-root-preserved\",\n    \"public-rocknix-custom-library-preserved\"\n  ],\n  \"rclone_version\": \"rclone v1.75.1\",\n  \"rclone_sha256\": \"f66d8c1d552ad90296a11bc8b46d56a7fa5da1a7fa05e7ca522d95df92c4a4c0\",\n  \"source_sha256\": {\n    \"cloud_setup\": \"1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86\",\n    \"cloud_folder_validate\": \"114ccf19842f8b10bae449672a3d0ca6221c013e94a32fd8ccb408e4ab9d4e4e\",\n    \"cloud_content_restore\": \"dfb2785ff207d64504e580724d03d3a030770bc35026597cbccf258eb931e3d9\",\n    \"cloud_sync_helper\": \"9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050\"\n  }\n}\n"
+    }
+  },
+  "duplicate_source_file_hashes": {
+    "absolute-relative-root-distinction/repo/backuptool": {
+      "sha256": "02557ca500c9706bac1c1062e70a1abfff46f8a445e96cde2f1b407ff64fe254",
+      "bytes": 102103
+    },
+    "absolute-relative-root-distinction/repo/cloud_backup": {
+      "sha256": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+      "bytes": 129777
+    },
+    "absolute-relative-root-distinction/repo/cloud_capture": {
+      "sha256": "6853272e6eb29b2c61908dbfe135a5cb14cab7e86f833dea69a4cc6ac66a8929",
+      "bytes": 82552
+    },
+    "absolute-relative-root-distinction/repo/cloud_content_backup": {
+      "sha256": "c6789f9476d1c13cc00050fe2478d26629da05ef6af89222eb0ef72f3bf594ae",
+      "bytes": 37761
+    },
+    "absolute-relative-root-distinction/repo/cloud_content_restore": {
+      "sha256": "dfb2785ff207d64504e580724d03d3a030770bc35026597cbccf258eb931e3d9",
+      "bytes": 79433
+    },
+    "absolute-relative-root-distinction/repo/cloud_content_transfer": {
+      "sha256": "fe292268d9029c2b950a093f6902b5cbe8afb3d57cb47187251cf90c3d85a1a3",
+      "bytes": 6351
+    },
+    "absolute-relative-root-distinction/repo/cloud_device_id": {
+      "sha256": "3230633caf65ad9e115dffc1bf3e1dede38746f808d4177fc0c37b9defbeee62",
+      "bytes": 157
+    },
+    "absolute-relative-root-distinction/repo/cloud_folder_validate": {
+      "sha256": "114ccf19842f8b10bae449672a3d0ca6221c013e94a32fd8ccb408e4ab9d4e4e",
+      "bytes": 11918
+    },
+    "absolute-relative-root-distinction/repo/cloud_log_scrub": {
+      "sha256": "5c156d8d43b39172fa71b80a3e47156f46bca0965dcae890ec70f02596f8f126",
+      "bytes": 9623
+    },
+    "absolute-relative-root-distinction/repo/cloud_net_ready": {
+      "sha256": "19afce254bc5c55f119b9681463b8103da5f564f3235b64f100ba9c35e62df89",
+      "bytes": 9512
+    },
+    "absolute-relative-root-distinction/repo/cloud_oauth": {
+      "sha256": "fec8240db342eb9432f9423f5ee3f5bd53df499012dffd1e4ac9ae81c316cbf5",
+      "bytes": 120232
+    },
+    "absolute-relative-root-distinction/repo/cloud_remote": {
+      "sha256": "1b4df1b5394647e52df8584e75529ef113be8ccde3ea31b8b7dd1dfd5bb2e99e",
+      "bytes": 17215
+    },
+    "absolute-relative-root-distinction/repo/cloud_restore": {
+      "sha256": "ec63c21ad782703c6679ce5e1a7b8c5e8f610daeec8cdda224d166df945d0544",
+      "bytes": 115850
+    },
+    "absolute-relative-root-distinction/repo/cloud_saves_root": {
+      "sha256": "d0b0c5b850a7b51257797dcc9bfdac2e6f3e0abf2c3be4584ca65583748bfe43",
+      "bytes": 9236
+    },
+    "absolute-relative-root-distinction/repo/cloud_scan": {
+      "sha256": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+      "bytes": 15979
+    },
+    "absolute-relative-root-distinction/repo/cloud_setup": {
+      "sha256": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+      "bytes": 46213
+    },
+    "absolute-relative-root-distinction/repo/cloud_sync-rules.txt": {
+      "sha256": "bdb7e18128ce4a604c9b02cfe5b0f10f4e3e4dfd3aa7e2d69ea018b8c9d5484d",
+      "bytes": 2086
+    },
+    "absolute-relative-root-distinction/repo/cloud_sync-rules.txt.defaults": {
+      "sha256": "951a7d65d83dc2f2a041868cf2ab1e231a8b09873a0656311b1f947fd106df75",
+      "bytes": 2776
+    },
+    "absolute-relative-root-distinction/repo/cloud_sync.conf": {
+      "sha256": "a121977066ce805e791108258fe12d1ecbce5e71ce2f61f096394a9fca982305",
+      "bytes": 8232
+    },
+    "absolute-relative-root-distinction/repo/cloud_sync.conf.defaults": {
+      "sha256": "77ce914421b47ef7f0a33e6085a5793cb8be55a5c239788adf8575a57d3ad1c4",
+      "bytes": 7039
+    },
+    "absolute-relative-root-distinction/repo/cloud_sync_cleanup_duplicates.sh": {
+      "sha256": "b62ee55ace6e9d776a89686ed6ecdfa17c90ac0e9a6f16d2e260cb2a7617eac1",
+      "bytes": 1193
+    },
+    "absolute-relative-root-distinction/repo/cloud_sync_helper": {
+      "sha256": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050",
+      "bytes": 32916
+    },
+    "absolute-relative-root-distinction/repo/rasteratops-settings-archive": {
+      "sha256": "58977f0e8aec6adfe673037c1a926bb2cbee94269ad6306ec02206250bceb50c",
+      "bytes": 2063
+    },
+    "explicit-root-allowed/repo/backuptool": {
+      "sha256": "02557ca500c9706bac1c1062e70a1abfff46f8a445e96cde2f1b407ff64fe254",
+      "bytes": 102103
+    },
+    "explicit-root-allowed/repo/cloud_backup": {
+      "sha256": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+      "bytes": 129777
+    },
+    "explicit-root-allowed/repo/cloud_capture": {
+      "sha256": "6853272e6eb29b2c61908dbfe135a5cb14cab7e86f833dea69a4cc6ac66a8929",
+      "bytes": 82552
+    },
+    "explicit-root-allowed/repo/cloud_content_backup": {
+      "sha256": "c6789f9476d1c13cc00050fe2478d26629da05ef6af89222eb0ef72f3bf594ae",
+      "bytes": 37761
+    },
+    "explicit-root-allowed/repo/cloud_content_restore": {
+      "sha256": "dfb2785ff207d64504e580724d03d3a030770bc35026597cbccf258eb931e3d9",
+      "bytes": 79433
+    },
+    "explicit-root-allowed/repo/cloud_content_transfer": {
+      "sha256": "fe292268d9029c2b950a093f6902b5cbe8afb3d57cb47187251cf90c3d85a1a3",
+      "bytes": 6351
+    },
+    "explicit-root-allowed/repo/cloud_device_id": {
+      "sha256": "3230633caf65ad9e115dffc1bf3e1dede38746f808d4177fc0c37b9defbeee62",
+      "bytes": 157
+    },
+    "explicit-root-allowed/repo/cloud_folder_validate": {
+      "sha256": "114ccf19842f8b10bae449672a3d0ca6221c013e94a32fd8ccb408e4ab9d4e4e",
+      "bytes": 11918
+    },
+    "explicit-root-allowed/repo/cloud_log_scrub": {
+      "sha256": "5c156d8d43b39172fa71b80a3e47156f46bca0965dcae890ec70f02596f8f126",
+      "bytes": 9623
+    },
+    "explicit-root-allowed/repo/cloud_net_ready": {
+      "sha256": "19afce254bc5c55f119b9681463b8103da5f564f3235b64f100ba9c35e62df89",
+      "bytes": 9512
+    },
+    "explicit-root-allowed/repo/cloud_oauth": {
+      "sha256": "fec8240db342eb9432f9423f5ee3f5bd53df499012dffd1e4ac9ae81c316cbf5",
+      "bytes": 120232
+    },
+    "explicit-root-allowed/repo/cloud_remote": {
+      "sha256": "1b4df1b5394647e52df8584e75529ef113be8ccde3ea31b8b7dd1dfd5bb2e99e",
+      "bytes": 17215
+    },
+    "explicit-root-allowed/repo/cloud_restore": {
+      "sha256": "ec63c21ad782703c6679ce5e1a7b8c5e8f610daeec8cdda224d166df945d0544",
+      "bytes": 115850
+    },
+    "explicit-root-allowed/repo/cloud_saves_root": {
+      "sha256": "d0b0c5b850a7b51257797dcc9bfdac2e6f3e0abf2c3be4584ca65583748bfe43",
+      "bytes": 9236
+    },
+    "explicit-root-allowed/repo/cloud_scan": {
+      "sha256": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+      "bytes": 15979
+    },
+    "explicit-root-allowed/repo/cloud_setup": {
+      "sha256": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+      "bytes": 46213
+    },
+    "explicit-root-allowed/repo/cloud_sync-rules.txt": {
+      "sha256": "bdb7e18128ce4a604c9b02cfe5b0f10f4e3e4dfd3aa7e2d69ea018b8c9d5484d",
+      "bytes": 2086
+    },
+    "explicit-root-allowed/repo/cloud_sync-rules.txt.defaults": {
+      "sha256": "951a7d65d83dc2f2a041868cf2ab1e231a8b09873a0656311b1f947fd106df75",
+      "bytes": 2776
+    },
+    "explicit-root-allowed/repo/cloud_sync.conf": {
+      "sha256": "a121977066ce805e791108258fe12d1ecbce5e71ce2f61f096394a9fca982305",
+      "bytes": 8232
+    },
+    "explicit-root-allowed/repo/cloud_sync.conf.defaults": {
+      "sha256": "77ce914421b47ef7f0a33e6085a5793cb8be55a5c239788adf8575a57d3ad1c4",
+      "bytes": 7039
+    },
+    "explicit-root-allowed/repo/cloud_sync_cleanup_duplicates.sh": {
+      "sha256": "b62ee55ace6e9d776a89686ed6ecdfa17c90ac0e9a6f16d2e260cb2a7617eac1",
+      "bytes": 1193
+    },
+    "explicit-root-allowed/repo/cloud_sync_helper": {
+      "sha256": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050",
+      "bytes": 32916
+    },
+    "explicit-root-allowed/repo/rasteratops-settings-archive": {
+      "sha256": "58977f0e8aec6adfe673037c1a926bb2cbee94269ad6306ec02206250bceb50c",
+      "bytes": 2063
+    },
+    "public-rocknix-config-adoption/repo/backuptool": {
+      "sha256": "02557ca500c9706bac1c1062e70a1abfff46f8a445e96cde2f1b407ff64fe254",
+      "bytes": 102103
+    },
+    "public-rocknix-config-adoption/repo/cloud_backup": {
+      "sha256": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+      "bytes": 129777
+    },
+    "public-rocknix-config-adoption/repo/cloud_capture": {
+      "sha256": "6853272e6eb29b2c61908dbfe135a5cb14cab7e86f833dea69a4cc6ac66a8929",
+      "bytes": 82552
+    },
+    "public-rocknix-config-adoption/repo/cloud_content_backup": {
+      "sha256": "c6789f9476d1c13cc00050fe2478d26629da05ef6af89222eb0ef72f3bf594ae",
+      "bytes": 37761
+    },
+    "public-rocknix-config-adoption/repo/cloud_content_restore": {
+      "sha256": "dfb2785ff207d64504e580724d03d3a030770bc35026597cbccf258eb931e3d9",
+      "bytes": 79433
+    },
+    "public-rocknix-config-adoption/repo/cloud_content_transfer": {
+      "sha256": "fe292268d9029c2b950a093f6902b5cbe8afb3d57cb47187251cf90c3d85a1a3",
+      "bytes": 6351
+    },
+    "public-rocknix-config-adoption/repo/cloud_device_id": {
+      "sha256": "3230633caf65ad9e115dffc1bf3e1dede38746f808d4177fc0c37b9defbeee62",
+      "bytes": 157
+    },
+    "public-rocknix-config-adoption/repo/cloud_folder_validate": {
+      "sha256": "114ccf19842f8b10bae449672a3d0ca6221c013e94a32fd8ccb408e4ab9d4e4e",
+      "bytes": 11918
+    },
+    "public-rocknix-config-adoption/repo/cloud_log_scrub": {
+      "sha256": "5c156d8d43b39172fa71b80a3e47156f46bca0965dcae890ec70f02596f8f126",
+      "bytes": 9623
+    },
+    "public-rocknix-config-adoption/repo/cloud_net_ready": {
+      "sha256": "19afce254bc5c55f119b9681463b8103da5f564f3235b64f100ba9c35e62df89",
+      "bytes": 9512
+    },
+    "public-rocknix-config-adoption/repo/cloud_oauth": {
+      "sha256": "fec8240db342eb9432f9423f5ee3f5bd53df499012dffd1e4ac9ae81c316cbf5",
+      "bytes": 120232
+    },
+    "public-rocknix-config-adoption/repo/cloud_remote": {
+      "sha256": "1b4df1b5394647e52df8584e75529ef113be8ccde3ea31b8b7dd1dfd5bb2e99e",
+      "bytes": 17215
+    },
+    "public-rocknix-config-adoption/repo/cloud_restore": {
+      "sha256": "ec63c21ad782703c6679ce5e1a7b8c5e8f610daeec8cdda224d166df945d0544",
+      "bytes": 115850
+    },
+    "public-rocknix-config-adoption/repo/cloud_saves_root": {
+      "sha256": "d0b0c5b850a7b51257797dcc9bfdac2e6f3e0abf2c3be4584ca65583748bfe43",
+      "bytes": 9236
+    },
+    "public-rocknix-config-adoption/repo/cloud_scan": {
+      "sha256": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+      "bytes": 15979
+    },
+    "public-rocknix-config-adoption/repo/cloud_setup": {
+      "sha256": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+      "bytes": 46213
+    },
+    "public-rocknix-config-adoption/repo/cloud_sync-rules.txt": {
+      "sha256": "bdb7e18128ce4a604c9b02cfe5b0f10f4e3e4dfd3aa7e2d69ea018b8c9d5484d",
+      "bytes": 2086
+    },
+    "public-rocknix-config-adoption/repo/cloud_sync-rules.txt.defaults": {
+      "sha256": "951a7d65d83dc2f2a041868cf2ab1e231a8b09873a0656311b1f947fd106df75",
+      "bytes": 2776
+    },
+    "public-rocknix-config-adoption/repo/cloud_sync.conf": {
+      "sha256": "a121977066ce805e791108258fe12d1ecbce5e71ce2f61f096394a9fca982305",
+      "bytes": 8232
+    },
+    "public-rocknix-config-adoption/repo/cloud_sync.conf.defaults": {
+      "sha256": "77ce914421b47ef7f0a33e6085a5793cb8be55a5c239788adf8575a57d3ad1c4",
+      "bytes": 7039
+    },
+    "public-rocknix-config-adoption/repo/cloud_sync_cleanup_duplicates.sh": {
+      "sha256": "b62ee55ace6e9d776a89686ed6ecdfa17c90ac0e9a6f16d2e260cb2a7617eac1",
+      "bytes": 1193
+    },
+    "public-rocknix-config-adoption/repo/cloud_sync_helper": {
+      "sha256": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050",
+      "bytes": 32916
+    },
+    "public-rocknix-config-adoption/repo/rasteratops-settings-archive": {
+      "sha256": "58977f0e8aec6adfe673037c1a926bb2cbee94269ad6306ec02206250bceb50c",
+      "bytes": 2063
+    },
+    "public-rocknix-custom-library-preserved/repo/backuptool": {
+      "sha256": "02557ca500c9706bac1c1062e70a1abfff46f8a445e96cde2f1b407ff64fe254",
+      "bytes": 102103
+    },
+    "public-rocknix-custom-library-preserved/repo/cloud_backup": {
+      "sha256": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+      "bytes": 129777
+    },
+    "public-rocknix-custom-library-preserved/repo/cloud_capture": {
+      "sha256": "6853272e6eb29b2c61908dbfe135a5cb14cab7e86f833dea69a4cc6ac66a8929",
+      "bytes": 82552
+    },
+    "public-rocknix-custom-library-preserved/repo/cloud_content_backup": {
+      "sha256": "c6789f9476d1c13cc00050fe2478d26629da05ef6af89222eb0ef72f3bf594ae",
+      "bytes": 37761
+    },
+    "public-rocknix-custom-library-preserved/repo/cloud_content_restore": {
+      "sha256": "dfb2785ff207d64504e580724d03d3a030770bc35026597cbccf258eb931e3d9",
+      "bytes": 79433
+    },
+    "public-rocknix-custom-library-preserved/repo/cloud_content_transfer": {
+      "sha256": "fe292268d9029c2b950a093f6902b5cbe8afb3d57cb47187251cf90c3d85a1a3",
+      "bytes": 6351
+    },
+    "public-rocknix-custom-library-preserved/repo/cloud_device_id": {
+      "sha256": "3230633caf65ad9e115dffc1bf3e1dede38746f808d4177fc0c37b9defbeee62",
+      "bytes": 157
+    },
+    "public-rocknix-custom-library-preserved/repo/cloud_folder_validate": {
+      "sha256": "114ccf19842f8b10bae449672a3d0ca6221c013e94a32fd8ccb408e4ab9d4e4e",
+      "bytes": 11918
+    },
+    "public-rocknix-custom-library-preserved/repo/cloud_log_scrub": {
+      "sha256": "5c156d8d43b39172fa71b80a3e47156f46bca0965dcae890ec70f02596f8f126",
+      "bytes": 9623
+    },
+    "public-rocknix-custom-library-preserved/repo/cloud_net_ready": {
+      "sha256": "19afce254bc5c55f119b9681463b8103da5f564f3235b64f100ba9c35e62df89",
+      "bytes": 9512
+    },
+    "public-rocknix-custom-library-preserved/repo/cloud_oauth": {
+      "sha256": "fec8240db342eb9432f9423f5ee3f5bd53df499012dffd1e4ac9ae81c316cbf5",
+      "bytes": 120232
+    },
+    "public-rocknix-custom-library-preserved/repo/cloud_remote": {
+      "sha256": "1b4df1b5394647e52df8584e75529ef113be8ccde3ea31b8b7dd1dfd5bb2e99e",
+      "bytes": 17215
+    },
+    "public-rocknix-custom-library-preserved/repo/cloud_restore": {
+      "sha256": "ec63c21ad782703c6679ce5e1a7b8c5e8f610daeec8cdda224d166df945d0544",
+      "bytes": 115850
+    },
+    "public-rocknix-custom-library-preserved/repo/cloud_saves_root": {
+      "sha256": "d0b0c5b850a7b51257797dcc9bfdac2e6f3e0abf2c3be4584ca65583748bfe43",
+      "bytes": 9236
+    },
+    "public-rocknix-custom-library-preserved/repo/cloud_scan": {
+      "sha256": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+      "bytes": 15979
+    },
+    "public-rocknix-custom-library-preserved/repo/cloud_setup": {
+      "sha256": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+      "bytes": 46213
+    },
+    "public-rocknix-custom-library-preserved/repo/cloud_sync-rules.txt": {
+      "sha256": "bdb7e18128ce4a604c9b02cfe5b0f10f4e3e4dfd3aa7e2d69ea018b8c9d5484d",
+      "bytes": 2086
+    },
+    "public-rocknix-custom-library-preserved/repo/cloud_sync-rules.txt.defaults": {
+      "sha256": "951a7d65d83dc2f2a041868cf2ab1e231a8b09873a0656311b1f947fd106df75",
+      "bytes": 2776
+    },
+    "public-rocknix-custom-library-preserved/repo/cloud_sync.conf": {
+      "sha256": "a121977066ce805e791108258fe12d1ecbce5e71ce2f61f096394a9fca982305",
+      "bytes": 8232
+    },
+    "public-rocknix-custom-library-preserved/repo/cloud_sync.conf.defaults": {
+      "sha256": "77ce914421b47ef7f0a33e6085a5793cb8be55a5c239788adf8575a57d3ad1c4",
+      "bytes": 7039
+    },
+    "public-rocknix-custom-library-preserved/repo/cloud_sync_cleanup_duplicates.sh": {
+      "sha256": "b62ee55ace6e9d776a89686ed6ecdfa17c90ac0e9a6f16d2e260cb2a7617eac1",
+      "bytes": 1193
+    },
+    "public-rocknix-custom-library-preserved/repo/cloud_sync_helper": {
+      "sha256": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050",
+      "bytes": 32916
+    },
+    "public-rocknix-custom-library-preserved/repo/rasteratops-settings-archive": {
+      "sha256": "58977f0e8aec6adfe673037c1a926bb2cbee94269ad6306ec02206250bceb50c",
+      "bytes": 2063
+    },
+    "public-rocknix-explicit-root-preserved/repo/backuptool": {
+      "sha256": "02557ca500c9706bac1c1062e70a1abfff46f8a445e96cde2f1b407ff64fe254",
+      "bytes": 102103
+    },
+    "public-rocknix-explicit-root-preserved/repo/cloud_backup": {
+      "sha256": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+      "bytes": 129777
+    },
+    "public-rocknix-explicit-root-preserved/repo/cloud_capture": {
+      "sha256": "6853272e6eb29b2c61908dbfe135a5cb14cab7e86f833dea69a4cc6ac66a8929",
+      "bytes": 82552
+    },
+    "public-rocknix-explicit-root-preserved/repo/cloud_content_backup": {
+      "sha256": "c6789f9476d1c13cc00050fe2478d26629da05ef6af89222eb0ef72f3bf594ae",
+      "bytes": 37761
+    },
+    "public-rocknix-explicit-root-preserved/repo/cloud_content_restore": {
+      "sha256": "dfb2785ff207d64504e580724d03d3a030770bc35026597cbccf258eb931e3d9",
+      "bytes": 79433
+    },
+    "public-rocknix-explicit-root-preserved/repo/cloud_content_transfer": {
+      "sha256": "fe292268d9029c2b950a093f6902b5cbe8afb3d57cb47187251cf90c3d85a1a3",
+      "bytes": 6351
+    },
+    "public-rocknix-explicit-root-preserved/repo/cloud_device_id": {
+      "sha256": "3230633caf65ad9e115dffc1bf3e1dede38746f808d4177fc0c37b9defbeee62",
+      "bytes": 157
+    },
+    "public-rocknix-explicit-root-preserved/repo/cloud_folder_validate": {
+      "sha256": "114ccf19842f8b10bae449672a3d0ca6221c013e94a32fd8ccb408e4ab9d4e4e",
+      "bytes": 11918
+    },
+    "public-rocknix-explicit-root-preserved/repo/cloud_log_scrub": {
+      "sha256": "5c156d8d43b39172fa71b80a3e47156f46bca0965dcae890ec70f02596f8f126",
+      "bytes": 9623
+    },
+    "public-rocknix-explicit-root-preserved/repo/cloud_net_ready": {
+      "sha256": "19afce254bc5c55f119b9681463b8103da5f564f3235b64f100ba9c35e62df89",
+      "bytes": 9512
+    },
+    "public-rocknix-explicit-root-preserved/repo/cloud_oauth": {
+      "sha256": "fec8240db342eb9432f9423f5ee3f5bd53df499012dffd1e4ac9ae81c316cbf5",
+      "bytes": 120232
+    },
+    "public-rocknix-explicit-root-preserved/repo/cloud_remote": {
+      "sha256": "1b4df1b5394647e52df8584e75529ef113be8ccde3ea31b8b7dd1dfd5bb2e99e",
+      "bytes": 17215
+    },
+    "public-rocknix-explicit-root-preserved/repo/cloud_restore": {
+      "sha256": "ec63c21ad782703c6679ce5e1a7b8c5e8f610daeec8cdda224d166df945d0544",
+      "bytes": 115850
+    },
+    "public-rocknix-explicit-root-preserved/repo/cloud_saves_root": {
+      "sha256": "d0b0c5b850a7b51257797dcc9bfdac2e6f3e0abf2c3be4584ca65583748bfe43",
+      "bytes": 9236
+    },
+    "public-rocknix-explicit-root-preserved/repo/cloud_scan": {
+      "sha256": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+      "bytes": 15979
+    },
+    "public-rocknix-explicit-root-preserved/repo/cloud_setup": {
+      "sha256": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+      "bytes": 46213
+    },
+    "public-rocknix-explicit-root-preserved/repo/cloud_sync-rules.txt": {
+      "sha256": "bdb7e18128ce4a604c9b02cfe5b0f10f4e3e4dfd3aa7e2d69ea018b8c9d5484d",
+      "bytes": 2086
+    },
+    "public-rocknix-explicit-root-preserved/repo/cloud_sync-rules.txt.defaults": {
+      "sha256": "951a7d65d83dc2f2a041868cf2ab1e231a8b09873a0656311b1f947fd106df75",
+      "bytes": 2776
+    },
+    "public-rocknix-explicit-root-preserved/repo/cloud_sync.conf": {
+      "sha256": "a121977066ce805e791108258fe12d1ecbce5e71ce2f61f096394a9fca982305",
+      "bytes": 8232
+    },
+    "public-rocknix-explicit-root-preserved/repo/cloud_sync.conf.defaults": {
+      "sha256": "77ce914421b47ef7f0a33e6085a5793cb8be55a5c239788adf8575a57d3ad1c4",
+      "bytes": 7039
+    },
+    "public-rocknix-explicit-root-preserved/repo/cloud_sync_cleanup_duplicates.sh": {
+      "sha256": "b62ee55ace6e9d776a89686ed6ecdfa17c90ac0e9a6f16d2e260cb2a7617eac1",
+      "bytes": 1193
+    },
+    "public-rocknix-explicit-root-preserved/repo/cloud_sync_helper": {
+      "sha256": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050",
+      "bytes": 32916
+    },
+    "public-rocknix-explicit-root-preserved/repo/rasteratops-settings-archive": {
+      "sha256": "58977f0e8aec6adfe673037c1a926bb2cbee94269ad6306ec02206250bceb50c",
+      "bytes": 2063
+    },
+    "relative-namespace-preserved/repo/backuptool": {
+      "sha256": "02557ca500c9706bac1c1062e70a1abfff46f8a445e96cde2f1b407ff64fe254",
+      "bytes": 102103
+    },
+    "relative-namespace-preserved/repo/cloud_backup": {
+      "sha256": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+      "bytes": 129777
+    },
+    "relative-namespace-preserved/repo/cloud_capture": {
+      "sha256": "6853272e6eb29b2c61908dbfe135a5cb14cab7e86f833dea69a4cc6ac66a8929",
+      "bytes": 82552
+    },
+    "relative-namespace-preserved/repo/cloud_content_backup": {
+      "sha256": "c6789f9476d1c13cc00050fe2478d26629da05ef6af89222eb0ef72f3bf594ae",
+      "bytes": 37761
+    },
+    "relative-namespace-preserved/repo/cloud_content_restore": {
+      "sha256": "dfb2785ff207d64504e580724d03d3a030770bc35026597cbccf258eb931e3d9",
+      "bytes": 79433
+    },
+    "relative-namespace-preserved/repo/cloud_content_transfer": {
+      "sha256": "fe292268d9029c2b950a093f6902b5cbe8afb3d57cb47187251cf90c3d85a1a3",
+      "bytes": 6351
+    },
+    "relative-namespace-preserved/repo/cloud_device_id": {
+      "sha256": "3230633caf65ad9e115dffc1bf3e1dede38746f808d4177fc0c37b9defbeee62",
+      "bytes": 157
+    },
+    "relative-namespace-preserved/repo/cloud_folder_validate": {
+      "sha256": "114ccf19842f8b10bae449672a3d0ca6221c013e94a32fd8ccb408e4ab9d4e4e",
+      "bytes": 11918
+    },
+    "relative-namespace-preserved/repo/cloud_log_scrub": {
+      "sha256": "5c156d8d43b39172fa71b80a3e47156f46bca0965dcae890ec70f02596f8f126",
+      "bytes": 9623
+    },
+    "relative-namespace-preserved/repo/cloud_net_ready": {
+      "sha256": "19afce254bc5c55f119b9681463b8103da5f564f3235b64f100ba9c35e62df89",
+      "bytes": 9512
+    },
+    "relative-namespace-preserved/repo/cloud_oauth": {
+      "sha256": "fec8240db342eb9432f9423f5ee3f5bd53df499012dffd1e4ac9ae81c316cbf5",
+      "bytes": 120232
+    },
+    "relative-namespace-preserved/repo/cloud_remote": {
+      "sha256": "1b4df1b5394647e52df8584e75529ef113be8ccde3ea31b8b7dd1dfd5bb2e99e",
+      "bytes": 17215
+    },
+    "relative-namespace-preserved/repo/cloud_restore": {
+      "sha256": "ec63c21ad782703c6679ce5e1a7b8c5e8f610daeec8cdda224d166df945d0544",
+      "bytes": 115850
+    },
+    "relative-namespace-preserved/repo/cloud_saves_root": {
+      "sha256": "d0b0c5b850a7b51257797dcc9bfdac2e6f3e0abf2c3be4584ca65583748bfe43",
+      "bytes": 9236
+    },
+    "relative-namespace-preserved/repo/cloud_scan": {
+      "sha256": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+      "bytes": 15979
+    },
+    "relative-namespace-preserved/repo/cloud_setup": {
+      "sha256": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+      "bytes": 46213
+    },
+    "relative-namespace-preserved/repo/cloud_sync-rules.txt": {
+      "sha256": "bdb7e18128ce4a604c9b02cfe5b0f10f4e3e4dfd3aa7e2d69ea018b8c9d5484d",
+      "bytes": 2086
+    },
+    "relative-namespace-preserved/repo/cloud_sync-rules.txt.defaults": {
+      "sha256": "951a7d65d83dc2f2a041868cf2ab1e231a8b09873a0656311b1f947fd106df75",
+      "bytes": 2776
+    },
+    "relative-namespace-preserved/repo/cloud_sync.conf": {
+      "sha256": "a121977066ce805e791108258fe12d1ecbce5e71ce2f61f096394a9fca982305",
+      "bytes": 8232
+    },
+    "relative-namespace-preserved/repo/cloud_sync.conf.defaults": {
+      "sha256": "77ce914421b47ef7f0a33e6085a5793cb8be55a5c239788adf8575a57d3ad1c4",
+      "bytes": 7039
+    },
+    "relative-namespace-preserved/repo/cloud_sync_cleanup_duplicates.sh": {
+      "sha256": "b62ee55ace6e9d776a89686ed6ecdfa17c90ac0e9a6f16d2e260cb2a7617eac1",
+      "bytes": 1193
+    },
+    "relative-namespace-preserved/repo/cloud_sync_helper": {
+      "sha256": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050",
+      "bytes": 32916
+    },
+    "relative-namespace-preserved/repo/rasteratops-settings-archive": {
+      "sha256": "58977f0e8aec6adfe673037c1a926bb2cbee94269ad6306ec02206250bceb50c",
+      "bytes": 2063
+    }
+  }
+}

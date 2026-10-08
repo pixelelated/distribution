@@ -1,0 +1,140 @@
+watch-build: recording in /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261008T014205Z-9b1771bb
+signals: SigIgn=0000000000000004 SIGINT ignored=0 SIGPIPE ignored=0
+last-good-scripts-test: scripts in /workspace/repos/rocknix.worktrees/m7-manual-cloud-folders
+  sed/mv/cp/tr/head/wc/cut/awk: BusyBox v1.36.1 (2026-10-05 03:37:19 UTC) multi-call binary. -- a copy of /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement16/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/bin/busybox
+  a. chksysconfig keeps and restores the last good system.cfg
+    PASS  empty system.cfg + valid .backup: verify restored the backup (hostname MINE)
+    PASS  and the player's retroarch.cfg was left alone
+    PASS  one syslog line names the recovery
+    PASS  truncated system.cfg (no hostname): verify restored the backup
+    PASS  binary system.cfg: verify restored the backup
+    PASS  both empty: verify fell back to the image's system.cfg
+    PASS  backup with an empty current file left .backup unchanged
+    PASS  backup with a valid current file replaced .backup, no temp left
+    PASS  the image's own system.cfg (221 lines) is valid and became the record
+    PASS  a UTF-8 value (an accented Wi-Fi name) is text
+    PASS  a cut-off restore is undone at boot: the copy is back, the marker gone, 'reverted' left for the screen
+    PASS  a copy whose folder is not mounted yet is left for the later verify, marker kept, nothing said
+    PASS  with the copy missing the marker is cleared and 'failed' is said instead
+  b. backuptool: a kill mid-tar leaves the previous archive; a failed restore puts the snapshot back
+    FAIL  rc 1; root holds: ; out: >>> why THE BACKUP COULDN'T FINISH WHILE GATHERING YOUR SETTINGS|[31mTHE BACKUP COULDN'T FINISH WHILE GATHERING YOUR SETTINGS. NOTHING WAS WRITTEN, AND YOUR LAST BACKUP IS UNCHANGED. TRY AGAIN.[0m|logger -t backuptool THE BACKUP COULDN'T FINISH WHILE GATHERING YOUR SETTINGS. NOTHING WAS WRITTEN, AND YOUR LAST BACKUP IS UNCHANGED. TRY AGAIN. -- collecting into staging failed|
+    FAIL  archive does not list
+    PASS  with the wifi key stripped
+    FAIL  rc 1; root: ; archive: 
+    PASS  the run died (rc 1)
+    PASS  the previous archive is still the only *.tar.gz at the root
+    FAIL  partials at the root: ' ' -- the truncated archive was written under the final name
+    FAIL  archive/ holds 0 file(s): rotation ran before the new archive existed
+    PASS  a restore whose extraction fails exits non-zero
+    PASS  and the pre-restore state was put back (f1 'changed', f2 'file2')
+    FAIL  no PRE_RESTORE snapshot in archive/: 
+    FAIL  screen: >>> why THERE'S NO SETTINGS BACKUP ON THIS DEVICE YET|[31mTHERE'S NO SETTINGS BACKUP ON THIS DEVICE YET. NOTHING WAS CHANGED. BACK UP SETTINGS FIRST, OR RESTORE THEM FROM THE CLOUD.[0m|
+    PASS  with no path, log or tool name on it
+    FAIL  rc 1; f1='changed'; marker: no
+  c. set_setting is one rename; sort_settings refuses an empty result
+    PASS  values with /, & and spaces land; 'default' deletes; the hostname stays
+    PASS  set_setting writes a temporary and renames it (no separate append)
+    PASS  a key on the file's last line is replaced, not lost
+    PASS  a one-line file keeps its one key
+    PASS  the key is matched literally (a.b does not take aXb)
+    PASS  clean_hostname: RG SP -> RG-SP, GENERIC_X64 -> GENERIC-X64, punctuation and edges trimmed, 63 at most, empty stays empty
+    PASS  an empty system.cfg gets its one line
+    PASS  sort_settings leaves a file with no hostname line alone
+    PASS  and sorts one that has it
+  d. cloud_sync_helper and the saves scripts keep the config's last good copy; stamps survive a kill
+    PASS  the helper keeps a .bak of a whole rules file before merging
+    PASS  and the merged file carries the user's rule first and the catch-all
+    PASS  no .new left beside either file
+    PASS  the conf gained the missing defaults whole (RCLONEOPTS spans lines) and parses
+    PASS  a truncated rules file does not replace the good .bak
+    PASS  a conf that does not parse does not replace the good .bak
+    PASS  and the helper left the torn conf as it was rather than appending to it
+    PASS  load_config on a torn conf falls back to the .bak and goes on
+    PASS  with no .bak it refuses (rc 1) instead of running with half a config
+    PASS  and says why on the protocol line
+    PASS  the last-backup stamp carries rc 1 and the why token as its third field
+    PASS  a stamp writer killed before its rename leaves the previous stamp (rc 137)
+    PASS  and its temp file beside it, not an empty stamp
+  e. nothing a screen can show carries an exit code, a log path, a tool's name or a flag
+    PASS  no screen line matches FORBIDDEN across the six scripts
+  f. backuptool: rclone.conf never enters an archive, and the scanner knows rclone's key names (#52)
+    FAIL  rc 1, archive: ''
+    PASS  rclone.conf is not in the archive
+    PASS  and no token travelled in any member
+    FAIL  plain.txt missing
+    FAIL  no held-back line: logger -t backuptool a temporary file could not be made (mktemp failed or gave no file) logger -t backuptool THE BACKUP COULDN'T FINISH WHILE GATHERING YOUR SETTINGS. NOTHING WAS WRITTEN, AND YOUR LAST BACKUP IS UNCHANGED. TRY AGAIN. -- collecting into staging failed 
+    FAIL  rc 1; said: >>> why THE BACKUP COULDN'T FINISH WHILE GATHERING YOUR SETTINGS ; archives: 0
+    FAIL  rc 1: 
+    FAIL  archived es_settings.cfg: 0 secret value(s) present, 1 lines
+    FAIL  archived es_settings.cfg lost a harmless line: 0 of 4 kept
+  g. the in-script RCLONE_NET_OPTS fallback is the shipped value (#146)
+    PASS  cloud_sync.conf.defaults ships RCLONE_NET_OPTS (--contimeout 15s --timeout 30s --low-level-retries 10 --retries 1)
+    PASS  cloud_sync.conf carries the same value
+    PASS  cloud_backup: RCLONE_NET_OPTS_FALLBACK is the shipped value
+    PASS  cloud_restore: RCLONE_NET_OPTS_FALLBACK is the shipped value
+    PASS  cloud_content_backup: RCLONE_NET_OPTS_FALLBACK is the shipped value
+    PASS  cloud_content_restore: RCLONE_NET_OPTS_FALLBACK is the shipped value
+  h. the rclone wrapper: an automatic run's stalled call ends at the ceiling, a deliberate run's at the stall ceiling (D-CLOUD-118, D-CLOUD-126)
+    PASS  the wrapper is lifted from cloud_backup
+    PASS  an automatic run's stalled rclone returns 124 (timeout)
+    PASS  and within the ceiling (3s)
+    PASS  a deliberate run's rclone that finishes returns its own status
+    PASS  a deliberate run's rclone that shows no progress is ended at the stall ceiling and returns 124 (3s)
+    PASS  cloud_backup: why_for 124 on an automatic run says the cloud took too long
+    PASS  cloud_backup: and on a deliberate run that the cloud stopped answering (TRY AGAIN is in reach)
+    PASS  cloud_restore: why_for 124 on an automatic run says the cloud took too long
+    PASS  cloud_restore: and on a deliberate run that the cloud stopped answering (TRY AGAIN is in reach)
+    PASS  cloud_backup: RCLONE_SYNC_NET_OPTS_FALLBACK is the shipped value
+    PASS  cloud_restore: RCLONE_SYNC_NET_OPTS_FALLBACK is the shipped value
+  i. cloud_net_ready settles on a held default route however NetworkManager judges connectivity
+    PASS  connected (site only) + limited settles (rc 0, 3s)
+    PASS  and before the deadline
+    PASS  still connecting at the deadline exits 69
+    PASS  no route while NetworkManager says connecting: announced, waited the bound, then 69 (rc 69, 3s)
+    PASS  no route and disconnected (the radio off): 69 at once, nothing announced (rc 69, 0s)
+    PASS  a route that arrives while the link comes up: announced, then settled after the grace, before the deadline (rc 0, 6s)
+  j. cloud_sync_helper migrates the shipped retry bound once, and leaves a hand-tuned value alone (#107)
+    PASS  the pre-#107 bound is rewritten to ten low-level retries (rc 0)
+    PASS  and the once-only marker is set
+    PASS  a hand-tuned bound (four retries) is left alone
+  j2. cloud_sync_helper moves the automatic ceiling off the superseded default, and leaves a changed value alone (#282, D-CLOUD-137)
+    PASS  the 20 s ceiling of an earlier image becomes 90
+    PASS  and the old option string follows to --max-duration 90s
+    PASS  a ceiling somebody set (45) is left alone, and so is its option string
+  k. backuptool: what the image ships does not travel, and an older archive's copy of it is not put back (#45); a RetroAchievements token travels in no shape (#169)
+    FAIL  rc 1: >>> why THE BACKUP COULDN'T FINISH WHILE GATHERING YOUR SETTINGS|[31mTHE BACKUP COULDN'T FINISH WHILE GATHERING YOUR SETTINGS. NOTHING WAS WRITTEN, AND YOUR LAST BACKUP IS UNCHANGED. TRY AGAIN.[0m|logger -t backuptool THE BACKUP COULDN'T FINISH WHILE GATHERING YOUR SETTINGS. NOTHING WAS WRITTEN, AND YOUR LAST BACKUP IS UNCHANGED. TRY AGAIN. -- collecting into staging failed|
+    FAIL  archive lists:  
+    PASS  shipped seeds identical to /usr/config do not (cheat.db, test/seed)
+    PASS  assets and the shader cache never do, edited or not
+    FAIL  log: 
+    PASS  the five files that hold only a RetroAchievements token are held back (PPSSPP's .dat, Dolphin's, SkyEmu's, ARMSX2's; #169)
+tools/last-good-scripts-test: line 1014: /workspace/tmp/pixelelated-last-good-validator-broad-Myx2uHnX/tmp/tmp.QSqNb4PwEo/k/extract/storage/.config/duckstation/settings.ini: No such file or directory
+tools/last-good-scripts-test: line 1014: /workspace/tmp/pixelelated-last-good-validator-broad-Myx2uHnX/tmp/tmp.QSqNb4PwEo/k/extract/storage/.config/melonDS/melonDS.ini: No such file or directory
+tools/last-good-scripts-test: line 1014: /workspace/tmp/pixelelated-last-good-validator-broad-Myx2uHnX/tmp/tmp.QSqNb4PwEo/k/extract/storage/.config/flycast/emu.cfg: No such file or directory
+tools/last-good-scripts-test: line 1014: /workspace/tmp/pixelelated-last-good-validator-broad-Myx2uHnX/tmp/tmp.QSqNb4PwEo/k/extract/storage/.config/aethersx2/inis/PCSX2.ini: No such file or directory
+    FAIL  duckstation:  melonDS:  flycast:  aethersx2: 
+    PASS  and the planted token appears in no member of the archive
+    FAIL  log: 
+    PASS  the offline RetroAchievements proxy's folder travels in no shape: none of its five files is in the archive (#165)
+    FAIL  log: silent
+    FAIL  rc 1; scanner: silent; archives: 0 -- until #169 its anchor was lower-case only, and the emulators' keys are capitalised
+    FAIL  rc 1: [32mCHECKING YOUR SETTINGS BACKUP...[0m|>>> why COULDN'T KEEP A COPY OF YOUR CURRENT SETTINGS|[31mCOULDN'T KEEP A COPY OF YOUR CURRENT SETTINGS, SO NOTHING WAS CHANGED. TRY AGAIN.[0m|
+    FAIL  ini='the player's ini' own='the player's own'
+    PASS  its assets and cache are left where they were
+    PASS  its token file is not put back over the device's own (tar, #169)
+    PASS  the proxy's queue from the archive is not put over this device's own (tar, #165)
+    FAIL  snapshot: none; .dat in it: absent
+    FAIL  rc 1: [32mCHECKING YOUR SETTINGS BACKUP...[0m|>>> why THIS DEVICE'S SETTINGS BACKUP IS DAMAGED|[31mTHIS DEVICE'S SETTINGS BACKUP IS DAMAGED. NOTHING WAS CHANGED. RESTORE SETTINGS FROM THE CLOUD AGAIN, OR BACK UP SETTINGS TO REPLACE IT.[0m|
+    FAIL  ini='the player's ini' own='the player's own'
+    PASS  its assets and cache are left where they were (zip)
+    PASS  its token file is not put back from a zip either (#169; the image's unzip -x on an exact member name)
+    PASS  nor is the proxy's queue (zip, #165)
+    FAIL  link: symlink; screen: 0 KEEPING line(s)
+    FAIL  rc 1; archives written: 0; log:  -- one line of the list became a backup announced as a success (#151 PL-14)
+  l. a missing cloud folder reads as not there yet whatever the server's words (#142)
+    PASS  absent_not_broken is lifted from cloud_content_restore
+    PASS  a folder its listable parent lacks is absent (QA/Content/BIOS)
+    PASS  a folder its parent lists is present, so the failure was something else (QA/Content/ROMs)
+    PASS  absent two levels up, no leading slash (QA-Custom/Saves: the root lists and lacks QA-Custom)
+    PASS  absent three deep (Nope/A/B)
+    PASS  a folder the root lists is present (QA)

@@ -1,0 +1,87 @@
+{
+  "source_root": "/workspace/repos/rocknix.worktrees/m7-manual-cloud-folders",
+  "source_sha256": {
+    "cloud_content_restore": "dfb2785ff207d64504e580724d03d3a030770bc35026597cbccf258eb931e3d9",
+    "cloud_content_transfer": "fe292268d9029c2b950a093f6902b5cbe8afb3d57cb47187251cf90c3d85a1a3",
+    "cloud_scan": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b"
+  },
+  "rclone_sha256": "f66d8c1d552ad90296a11bc8b46d56a7fa5da1a7fa05e7ca522d95df92c4a4c0",
+  "results": [
+    {
+      "case": "missing-list",
+      "result": "PASS"
+    },
+    {
+      "case": "missing-scan",
+      "result": "PASS"
+    },
+    {
+      "case": "missing-all",
+      "result": "PASS"
+    },
+    {
+      "case": "selected-rom-bios-bytes",
+      "result": "PASS"
+    },
+    {
+      "case": "unreadable-list",
+      "result": "PASS"
+    },
+    {
+      "case": "partial-list",
+      "result": "PASS"
+    },
+    {
+      "case": "unreadable-scan",
+      "result": "PASS"
+    },
+    {
+      "case": "partial-scan",
+      "result": "PASS"
+    },
+    {
+      "case": "unreadable-all",
+      "result": "PASS"
+    },
+    {
+      "case": "partial-all",
+      "result": "PASS"
+    },
+    {
+      "case": "system-traversal-refused",
+      "result": "PASS"
+    },
+    {
+      "case": "scan-run-mode-output-binding",
+      "result": "PASS"
+    },
+    {
+      "case": "scan-folder-change-invalidates",
+      "result": "PASS"
+    },
+    {
+      "case": "scan-endpoint-change-invalidates",
+      "result": "PASS"
+    },
+    {
+      "case": "scan-context-local-read-only",
+      "result": "PASS"
+    },
+    {
+      "case": "scan-concurrent-owner-refused",
+      "result": "PASS"
+    },
+    {
+      "case": "scan-config-changes-during-run",
+      "result": "PASS"
+    },
+    {
+      "case": "selected-trailing-slash",
+      "result": "PASS"
+    },
+    {
+      "case": "content-pointer-traversal-refused",
+      "result": "PASS"
+    }
+  ]
+}

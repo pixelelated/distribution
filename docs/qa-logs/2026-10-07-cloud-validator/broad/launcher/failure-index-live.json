@@ -1,0 +1,118 @@
+[
+  {
+    "section": "b. backuptool: a kill mid-tar leaves the previous archive; a failed restore puts the snapshot back",
+    "line": "    FAIL  rc 1; root holds: ; out: >>> why THE BACKUP COULDN'T FINISH WHILE GATHERING YOUR SETTINGS|\u001b[31mTHE BACKUP COULDN'T FINISH WHILE GATHERING YOUR SETTINGS. NOTHING WAS WRITTEN, AND YOUR LAST BACKUP IS UNCHANGED. TRY AGAIN.\u001b[0m|logger -t backuptool THE BACKUP COULDN'T FINISH WHILE GATHERING YOUR SETTINGS. NOTHING WAS WRITTEN, AND YOUR LAST BACKUP IS UNCHANGED. TRY AGAIN. -- collecting into staging failed|"
+  },
+  {
+    "section": "b. backuptool: a kill mid-tar leaves the previous archive; a failed restore puts the snapshot back",
+    "line": "    FAIL  archive does not list"
+  },
+  {
+    "section": "b. backuptool: a kill mid-tar leaves the previous archive; a failed restore puts the snapshot back",
+    "line": "    FAIL  rc 1; root: ; archive: "
+  },
+  {
+    "section": "b. backuptool: a kill mid-tar leaves the previous archive; a failed restore puts the snapshot back",
+    "line": "    FAIL  partials at the root: ' ' -- the truncated archive was written under the final name"
+  },
+  {
+    "section": "b. backuptool: a kill mid-tar leaves the previous archive; a failed restore puts the snapshot back",
+    "line": "    FAIL  archive/ holds 0 file(s): rotation ran before the new archive existed"
+  },
+  {
+    "section": "b. backuptool: a kill mid-tar leaves the previous archive; a failed restore puts the snapshot back",
+    "line": "    FAIL  no PRE_RESTORE snapshot in archive/: "
+  },
+  {
+    "section": "b. backuptool: a kill mid-tar leaves the previous archive; a failed restore puts the snapshot back",
+    "line": "    FAIL  screen: >>> why THERE'S NO SETTINGS BACKUP ON THIS DEVICE YET|\u001b[31mTHERE'S NO SETTINGS BACKUP ON THIS DEVICE YET. NOTHING WAS CHANGED. BACK UP SETTINGS FIRST, OR RESTORE THEM FROM THE CLOUD.\u001b[0m|"
+  },
+  {
+    "section": "b. backuptool: a kill mid-tar leaves the previous archive; a failed restore puts the snapshot back",
+    "line": "    FAIL  rc 1; f1='changed'; marker: no"
+  },
+  {
+    "section": "f. backuptool: rclone.conf never enters an archive, and the scanner knows rclone's key names (#52)",
+    "line": "    FAIL  rc 1, archive: ''"
+  },
+  {
+    "section": "f. backuptool: rclone.conf never enters an archive, and the scanner knows rclone's key names (#52)",
+    "line": "    FAIL  plain.txt missing"
+  },
+  {
+    "section": "f. backuptool: rclone.conf never enters an archive, and the scanner knows rclone's key names (#52)",
+    "line": "    FAIL  no held-back line: logger -t backuptool a temporary file could not be made (mktemp failed or gave no file) logger -t backuptool THE BACKUP COULDN'T FINISH WHILE GATHERING YOUR SETTINGS. NOTHING WAS WRITTEN, AND YOUR LAST BACKUP IS UNCHANGED. TRY AGAIN. -- collecting into staging failed "
+  },
+  {
+    "section": "f. backuptool: rclone.conf never enters an archive, and the scanner knows rclone's key names (#52)",
+    "line": "    FAIL  rc 1; said: >>> why THE BACKUP COULDN'T FINISH WHILE GATHERING YOUR SETTINGS ; archives: 0"
+  },
+  {
+    "section": "f. backuptool: rclone.conf never enters an archive, and the scanner knows rclone's key names (#52)",
+    "line": "    FAIL  rc 1: "
+  },
+  {
+    "section": "f. backuptool: rclone.conf never enters an archive, and the scanner knows rclone's key names (#52)",
+    "line": "    FAIL  archived es_settings.cfg: 0 secret value(s) present, 1 lines"
+  },
+  {
+    "section": "f. backuptool: rclone.conf never enters an archive, and the scanner knows rclone's key names (#52)",
+    "line": "    FAIL  archived es_settings.cfg lost a harmless line: 0 of 4 kept"
+  },
+  {
+    "section": "k. backuptool: what the image ships does not travel, and an older archive's copy of it is not put back (#45); a RetroAchievements token travels in no shape (#169)",
+    "line": "    FAIL  rc 1: >>> why THE BACKUP COULDN'T FINISH WHILE GATHERING YOUR SETTINGS|\u001b[31mTHE BACKUP COULDN'T FINISH WHILE GATHERING YOUR SETTINGS. NOTHING WAS WRITTEN, AND YOUR LAST BACKUP IS UNCHANGED. TRY AGAIN.\u001b[0m|logger -t backuptool THE BACKUP COULDN'T FINISH WHILE GATHERING YOUR SETTINGS. NOTHING WAS WRITTEN, AND YOUR LAST BACKUP IS UNCHANGED. TRY AGAIN. -- collecting into staging failed|"
+  },
+  {
+    "section": "k. backuptool: what the image ships does not travel, and an older archive's copy of it is not put back (#45); a RetroAchievements token travels in no shape (#169)",
+    "line": "    FAIL  archive lists:  "
+  },
+  {
+    "section": "k. backuptool: what the image ships does not travel, and an older archive's copy of it is not put back (#45); a RetroAchievements token travels in no shape (#169)",
+    "line": "    FAIL  log: "
+  },
+  {
+    "section": "k. backuptool: what the image ships does not travel, and an older archive's copy of it is not put back (#45); a RetroAchievements token travels in no shape (#169)",
+    "line": "    FAIL  duckstation:  melonDS:  flycast:  aethersx2: "
+  },
+  {
+    "section": "k. backuptool: what the image ships does not travel, and an older archive's copy of it is not put back (#45); a RetroAchievements token travels in no shape (#169)",
+    "line": "    FAIL  log: "
+  },
+  {
+    "section": "k. backuptool: what the image ships does not travel, and an older archive's copy of it is not put back (#45); a RetroAchievements token travels in no shape (#169)",
+    "line": "    FAIL  log: silent"
+  },
+  {
+    "section": "k. backuptool: what the image ships does not travel, and an older archive's copy of it is not put back (#45); a RetroAchievements token travels in no shape (#169)",
+    "line": "    FAIL  rc 1; scanner: silent; archives: 0 -- until #169 its anchor was lower-case only, and the emulators' keys are capitalised"
+  },
+  {
+    "section": "k. backuptool: what the image ships does not travel, and an older archive's copy of it is not put back (#45); a RetroAchievements token travels in no shape (#169)",
+    "line": "    FAIL  rc 1: \u001b[32mCHECKING YOUR SETTINGS BACKUP...\u001b[0m|>>> why COULDN'T KEEP A COPY OF YOUR CURRENT SETTINGS|\u001b[31mCOULDN'T KEEP A COPY OF YOUR CURRENT SETTINGS, SO NOTHING WAS CHANGED. TRY AGAIN.\u001b[0m|"
+  },
+  {
+    "section": "k. backuptool: what the image ships does not travel, and an older archive's copy of it is not put back (#45); a RetroAchievements token travels in no shape (#169)",
+    "line": "    FAIL  ini='the player's ini' own='the player's own'"
+  },
+  {
+    "section": "k. backuptool: what the image ships does not travel, and an older archive's copy of it is not put back (#45); a RetroAchievements token travels in no shape (#169)",
+    "line": "    FAIL  snapshot: none; .dat in it: absent"
+  },
+  {
+    "section": "k. backuptool: what the image ships does not travel, and an older archive's copy of it is not put back (#45); a RetroAchievements token travels in no shape (#169)",
+    "line": "    FAIL  rc 1: \u001b[32mCHECKING YOUR SETTINGS BACKUP...\u001b[0m|>>> why THIS DEVICE'S SETTINGS BACKUP IS DAMAGED|\u001b[31mTHIS DEVICE'S SETTINGS BACKUP IS DAMAGED. NOTHING WAS CHANGED. RESTORE SETTINGS FROM THE CLOUD AGAIN, OR BACK UP SETTINGS TO REPLACE IT.\u001b[0m|"
+  },
+  {
+    "section": "k. backuptool: what the image ships does not travel, and an older archive's copy of it is not put back (#45); a RetroAchievements token travels in no shape (#169)",
+    "line": "    FAIL  ini='the player's ini' own='the player's own'"
+  },
+  {
+    "section": "k. backuptool: what the image ships does not travel, and an older archive's copy of it is not put back (#45); a RetroAchievements token travels in no shape (#169)",
+    "line": "    FAIL  link: symlink; screen: 0 KEEPING line(s)"
+  },
+  {
+    "section": "k. backuptool: what the image ships does not travel, and an older archive's copy of it is not put back (#45); a RetroAchievements token travels in no shape (#169)",
+    "line": "    FAIL  rc 1; archives written: 0; log:  -- one line of the list became a backup announced as a success (#151 PL-14)"
+  }
+]

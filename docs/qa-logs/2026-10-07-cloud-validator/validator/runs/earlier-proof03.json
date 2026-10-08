@@ -1,0 +1,1296 @@
+{
+  "source_directory": "/tmp/pixelelated-validator-proof03",
+  "retained_non_source_files": {
+    "byte-limit/01-cloud_setup.json": {
+      "sha256": "4e1a4d9ea25da60dd2a7ec88870bf8da75dae27d68983209425a4af39fa605da",
+      "bytes": 729,
+      "text": "{\n  \"argv\": [\n    \"cloud_setup\",\n    \"--validate-folders\",\n    \"saves\",\n    \"proof01\"\n  ],\n  \"rc\": 5,\n  \"pointers\": {\n    \"SAVESPATH\": \"/storage/roms\",\n    \"SAVES_REMOTE\": \"/pixelelated/Saves\",\n    \"SETTINGS_BACKUPS\": \"/storage/roms/backup\",\n    \"SETTINGS_REMOTE\": \"/pixelelated/Backups\",\n    \"BACKUPMETHOD\": \"copy\",\n    \"RESTOREMETHOD\": \"copy\",\n    \"BACKUPFILE_BACKUP_OPTION\": \"no\",\n    \"BACKUPFILE_RESTORE_OPTION\": \"no\",\n    \"LOG_LEVEL\": \"INFO\",\n    \"LAYOUT_KEEP\": \"\",\n    \"RCLONEOPTS\": \"--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt\",\n    \"RCLONE_NET_OPTS\": \"--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1\",\n    \"CONTENT_REMOTE\": \"/pixelelated/Content\"\n  }\n}"
+    },
+    "byte-limit/01-cloud_setup.log": {
+      "sha256": "ab8b3695cc9687cf2fb09f5c6d1e905f121478653dbc2c74a8d3fcac0cde399b",
+      "bytes": 570,
+      "text": "{\"schema_version\":1,\"run_id\":\"proof01\",\"config_id\":\"286ea3302d51d237557465b685ab09c4203cd032c5afb4ea446d4c06afde18d1\",\"categories\":[{\"category\":\"saves\",\"state\":\"unreadable\",\"path\":\"/pixelelated/Saves\",\"detail\":\"time-or-listing-limit\"}],\"complete\":false,\"scope\":{\"max_depth\":3,\"max_entries_per_listing\":4096,\"max_bytes_per_listing\":2097152,\"max_seconds\":25},\"paths\":{\"saves\":\"/pixelelated/Saves\",\"settings\":\"/pixelelated/Backups\",\"content\":\"/pixelelated/Content\",\"roms\":\"/pixelelated/Content/ROMs\",\"bios\":\"/pixelelated/Content/BIOS\",\"media\":\"/pixelelated/Content/ROMs\"}}\n"
+    },
+    "byte-limit/ctl/argv": {
+      "sha256": "07407bb75fcfc47b2df831a4a27a42759d6b4eb5e885446f6eb83c35bfd0ebec",
+      "bytes": 211,
+      "text": "listremotes\nconfig file\nlsjson qa:/pixelelated/Saves --recursive --max-depth 3 --no-mimetype --no-modtime --retries 1 --low-level-retries 1 --contimeout 3s --timeout 5s --max-duration 6s\nlistremotes\nconfig file\n"
+    },
+    "byte-limit/profile": {
+      "sha256": "c53499f1fe23f18126fa3f158e891f940ea7fe9894cfaabb521f6ec75c6e95e5",
+      "bytes": 82,
+      "text": "export PATH=/shim:/repo:/usr/bin:/bin\nexport HOME=/storage\nexport OS_NAME=ROCKNIX\n"
+    },
+    "byte-limit/shim/ip": {
+      "sha256": "ed7833938db4abd915c4a87c20a87b5081e535ca8bcaadce3636bbbce842d61c",
+      "bytes": 70,
+      "text": "#!/bin/sh\n[ -e /ctl/offline ] || echo \"default via 10.0.2.2 dev eth0\"\n"
+    },
+    "byte-limit/shim/logger": {
+      "sha256": "3874e47b219daaa98d73429732121b2639080ca64e5769982a78093c4f036cc7",
+      "bytes": 45,
+      "text": "#!/bin/sh\nprintf \"%s\\n\" \"$*\" >> /ctl/journal\n"
+    },
+    "byte-limit/shim/ping": {
+      "sha256": "a0cfd66789b27fed708dda43875c9e9ff38823623233621b6bf816df8440dac9",
+      "bytes": 32,
+      "text": "#!/bin/sh\n[ ! -e /ctl/offline ]\n"
+    },
+    "byte-limit/shim/rclone": {
+      "sha256": "b760e5bab6abdd5ee3da3cec15b2b92fb74343aab273d242f0c0fca13c451540",
+      "bytes": 614,
+      "text": "#!/bin/bash\nprintf '%s\\n' \"$*\" >> /ctl/argv\nif [ -f /ctl/faults ]; then\n while IFS=$'\\t' read -r pattern code; do\n  [[ \"$*\" =~ $pattern ]] && { printf '%s\\n' \"$*\" >> /ctl/fault-fired; echo 'injected provider failure' >&2; exit \"$code\"; }\n done < /ctl/faults\nfi\nif [ -e /ctl/bucket ]; then\n if [ \"$1 $2\" = 'backend features' ]; then\n  printf '{\"Hashes\":[\"md5\"],\"Features\":{\"BucketBased\":true}}\\n'; exit 0\n fi\n # Bucket prefixes can return successful empty lsd for a missing prefix.\n if [ \"$1\" = lsd ]; then exit 0; fi\nfi\nif [ \"$1\" = lsjson ]; then python3 -c 'print(\"x\"*2200000)'; exit 0; fi\nexec /rclone.real \"$@\"\n"
+    },
+    "byte-limit/shim/systemctl": {
+      "sha256": "306c6ca7407560340797866e077e053627ad409277d1b9da58106fce4cf717cb",
+      "bytes": 17,
+      "text": "#!/bin/sh\nexit 0\n"
+    },
+    "byte-limit/shim/systemd-tmpfiles": {
+      "sha256": "306c6ca7407560340797866e077e053627ad409277d1b9da58106fce4cf717cb",
+      "bytes": 17,
+      "text": "#!/bin/sh\nexit 0\n"
+    },
+    "byte-limit/source-sha256.json": {
+      "sha256": "b6c485beb15269f8a2b1fb616751fb2288da27605bef5bdfaab6f49da18b5650",
+      "bytes": 2107,
+      "text": "{\n  \"backuptool\": \"02557ca500c9706bac1c1062e70a1abfff46f8a445e96cde2f1b407ff64fe254\",\n  \"cloud_backup\": \"deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76\",\n  \"cloud_capture\": \"6853272e6eb29b2c61908dbfe135a5cb14cab7e86f833dea69a4cc6ac66a8929\",\n  \"cloud_content_backup\": \"c6789f9476d1c13cc00050fe2478d26629da05ef6af89222eb0ef72f3bf594ae\",\n  \"cloud_content_restore\": \"2790b3794febe953d1386bc427e0fa537343434a03fa67329781ca9f80c00180\",\n  \"cloud_content_transfer\": \"fe292268d9029c2b950a093f6902b5cbe8afb3d57cb47187251cf90c3d85a1a3\",\n  \"cloud_device_id\": \"3230633caf65ad9e115dffc1bf3e1dede38746f808d4177fc0c37b9defbeee62\",\n  \"cloud_folder_validate\": \"2c9c31a6b1c020669e9dff3228a12bd1eebf2b25a53a67be8260272f2784b982\",\n  \"cloud_log_scrub\": \"5c156d8d43b39172fa71b80a3e47156f46bca0965dcae890ec70f02596f8f126\",\n  \"cloud_net_ready\": \"19afce254bc5c55f119b9681463b8103da5f564f3235b64f100ba9c35e62df89\",\n  \"cloud_oauth\": \"fec8240db342eb9432f9423f5ee3f5bd53df499012dffd1e4ac9ae81c316cbf5\",\n  \"cloud_remote\": \"1b4df1b5394647e52df8584e75529ef113be8ccde3ea31b8b7dd1dfd5bb2e99e\",\n  \"cloud_restore\": \"ec63c21ad782703c6679ce5e1a7b8c5e8f610daeec8cdda224d166df945d0544\",\n  \"cloud_saves_root\": \"d0b0c5b850a7b51257797dcc9bfdac2e6f3e0abf2c3be4584ca65583748bfe43\",\n  \"cloud_scan\": \"a82548feb2aa14d7586582eade9ddbc223f4f713c543c7ce064fc1942e876351\",\n  \"cloud_setup\": \"9e825a8cd970488bb91e99814d6bfbee395fff87bff018658be3192dad684fa5\",\n  \"cloud_sync-rules.txt\": \"bdb7e18128ce4a604c9b02cfe5b0f10f4e3e4dfd3aa7e2d69ea018b8c9d5484d\",\n  \"cloud_sync-rules.txt.defaults\": \"951a7d65d83dc2f2a041868cf2ab1e231a8b09873a0656311b1f947fd106df75\",\n  \"cloud_sync.conf\": \"a121977066ce805e791108258fe12d1ecbce5e71ce2f61f096394a9fca982305\",\n  \"cloud_sync.conf.defaults\": \"77ce914421b47ef7f0a33e6085a5793cb8be55a5c239788adf8575a57d3ad1c4\",\n  \"cloud_sync_cleanup_duplicates.sh\": \"b62ee55ace6e9d776a89686ed6ecdfa17c90ac0e9a6f16d2e260cb2a7617eac1\",\n  \"cloud_sync_helper\": \"3c7738648fe946c74d2c8e9d38fc5e7529f6f41a831a6c546c84765891f26385\",\n  \"rasteratops-settings-archive\": \"58977f0e8aec6adfe673037c1a926bb2cbee94269ad6306ec02206250bceb50c\"\n}\n"
+    },
+    "byte-limit/storage/.config/cloud_sync-rules.txt": {
+      "sha256": "bc4f15f38e740763d19255aace0a90edd851e5deb159fc3bb38a3a12dfab38e8",
+      "bytes": 18,
+      "text": "+ /**/*.srm\n- /**\n"
+    },
+    "byte-limit/storage/.config/cloud_sync.conf": {
+      "sha256": "7e2d82392b0c84043f4233f41eaeda715a5f6c922d20a7fce8cf15e14251e620",
+      "bytes": 503,
+      "text": "SAVESPATH=\"/storage/roms\"\nSAVES_REMOTE=\"/pixelelated/Saves\"\nSETTINGS_BACKUPS=\"/storage/roms/backup\"\nSETTINGS_REMOTE=\"/pixelelated/Backups\"\nBACKUPMETHOD=\"copy\"\nRESTOREMETHOD=\"copy\"\nBACKUPFILE_BACKUP_OPTION=\"no\"\nBACKUPFILE_RESTORE_OPTION=\"no\"\nLOG_LEVEL=\"INFO\"\nLAYOUT_KEEP=\"\"\nRCLONEOPTS=\"--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt\"\nRCLONE_NET_OPTS=\"--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1\"\nCONTENT_REMOTE=\"/pixelelated/Content\"\n"
+    },
+    "byte-limit/storage/.config/rclone/rclone.conf": {
+      "sha256": "7603c17bce0056aae641bee817b6f9875863b4158f34d526914bfba008485eb5",
+      "bytes": 34,
+      "text": "[qa]\ntype = alias\nremote = /cloud\n"
+    },
+    "byte-limit/storage/roms/gb/.fixture": {
+      "sha256": "7d9f18b135168edd868a20d626bf0469a86d20f650fe620af06458d4f3335ce8",
+      "bytes": 19,
+      "text": "local known system\n"
+    },
+    "byte-limit/storage/roms/snes/.fixture": {
+      "sha256": "7d9f18b135168edd868a20d626bf0469a86d20f650fe620af06458d4f3335ce8",
+      "bytes": 19,
+      "text": "local known system\n"
+    },
+    "context-binding-local-only/01-cloud_setup.json": {
+      "sha256": "e7ddd079a6e630602cf8da8f8c7f116da1e32eeb469a29a33351e21fbb477251",
+      "bytes": 703,
+      "text": "{\n  \"argv\": [\n    \"cloud_setup\",\n    \"--validation-context\"\n  ],\n  \"rc\": 0,\n  \"pointers\": {\n    \"SAVESPATH\": \"/storage/roms\",\n    \"SAVES_REMOTE\": \"/pixelelated/Saves\",\n    \"SETTINGS_BACKUPS\": \"/storage/roms/backup\",\n    \"SETTINGS_REMOTE\": \"/pixelelated/Backups\",\n    \"BACKUPMETHOD\": \"copy\",\n    \"RESTOREMETHOD\": \"copy\",\n    \"BACKUPFILE_BACKUP_OPTION\": \"no\",\n    \"BACKUPFILE_RESTORE_OPTION\": \"no\",\n    \"LOG_LEVEL\": \"INFO\",\n    \"LAYOUT_KEEP\": \"\",\n    \"RCLONEOPTS\": \"--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt\",\n    \"RCLONE_NET_OPTS\": \"--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1\",\n    \"CONTENT_REMOTE\": \"/pixelelated/Content\"\n  }\n}"
+    },
+    "context-binding-local-only/01-cloud_setup.log": {
+      "sha256": "6c37a0a563245cc7be1cf372262e05e004a9d4d7ba61370502e80b68c37eb893",
+      "bytes": 383,
+      "text": "{\n  \"schema_version\": 1,\n  \"config_id\": \"286ea3302d51d237557465b685ab09c4203cd032c5afb4ea446d4c06afde18d1\",\n  \"remote\": \"qa:\",\n  \"paths\": {\n    \"saves\": \"/pixelelated/Saves\",\n    \"settings\": \"/pixelelated/Backups\",\n    \"content\": \"/pixelelated/Content\",\n    \"roms\": \"/pixelelated/Content/ROMs\",\n    \"bios\": \"/pixelelated/Content/BIOS\",\n    \"media\": \"/pixelelated/Content/ROMs\"\n  }\n}\n"
+    },
+    "context-binding-local-only/02-cloud_setup.json": {
+      "sha256": "faebe3ffc9fa348f4cde0cfc47f8c71da2e42f246ee17aaee2e5a39172fefd86",
+      "bytes": 681,
+      "text": "{\n  \"argv\": [\n    \"cloud_setup\",\n    \"--validation-context\"\n  ],\n  \"rc\": 0,\n  \"pointers\": {\n    \"SAVESPATH\": \"/storage/roms\",\n    \"SAVES_REMOTE\": \"/Other/Saves\",\n    \"SETTINGS_BACKUPS\": \"/storage/roms/backup\",\n    \"SETTINGS_REMOTE\": \"/Keep/Backups\",\n    \"BACKUPMETHOD\": \"copy\",\n    \"RESTOREMETHOD\": \"copy\",\n    \"BACKUPFILE_BACKUP_OPTION\": \"no\",\n    \"BACKUPFILE_RESTORE_OPTION\": \"no\",\n    \"LOG_LEVEL\": \"INFO\",\n    \"LAYOUT_KEEP\": \"\",\n    \"RCLONEOPTS\": \"--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt\",\n    \"RCLONE_NET_OPTS\": \"--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1\",\n    \"CONTENT_REMOTE\": \"Rel/Content\"\n  }\n}"
+    },
+    "context-binding-local-only/02-cloud_setup.log": {
+      "sha256": "2d72063b91d3c387a259d559221f3e3086192d80e8d101e98e0739d8cef146cd",
+      "bytes": 334,
+      "text": "{\n  \"schema_version\": 1,\n  \"config_id\": \"38c24a74491dd47ef3ce219f24c635f3bf0ef2798a24c5ad564281afef69a470\",\n  \"remote\": \"qa:\",\n  \"paths\": {\n    \"saves\": \"/Other/Saves\",\n    \"settings\": \"/Keep/Backups\",\n    \"content\": \"Rel/Content\",\n    \"roms\": \"Rel/Content/ROMs\",\n    \"bios\": \"Rel/Content/BIOS\",\n    \"media\": \"Rel/Content/ROMs\"\n  }\n}\n"
+    },
+    "context-binding-local-only/03-cloud_setup.json": {
+      "sha256": "faebe3ffc9fa348f4cde0cfc47f8c71da2e42f246ee17aaee2e5a39172fefd86",
+      "bytes": 681,
+      "text": "{\n  \"argv\": [\n    \"cloud_setup\",\n    \"--validation-context\"\n  ],\n  \"rc\": 0,\n  \"pointers\": {\n    \"SAVESPATH\": \"/storage/roms\",\n    \"SAVES_REMOTE\": \"/Other/Saves\",\n    \"SETTINGS_BACKUPS\": \"/storage/roms/backup\",\n    \"SETTINGS_REMOTE\": \"/Keep/Backups\",\n    \"BACKUPMETHOD\": \"copy\",\n    \"RESTOREMETHOD\": \"copy\",\n    \"BACKUPFILE_BACKUP_OPTION\": \"no\",\n    \"BACKUPFILE_RESTORE_OPTION\": \"no\",\n    \"LOG_LEVEL\": \"INFO\",\n    \"LAYOUT_KEEP\": \"\",\n    \"RCLONEOPTS\": \"--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt\",\n    \"RCLONE_NET_OPTS\": \"--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1\",\n    \"CONTENT_REMOTE\": \"Rel/Content\"\n  }\n}"
+    },
+    "context-binding-local-only/03-cloud_setup.log": {
+      "sha256": "c596506e38412eb35e85a589d8e01ba573750e556c6fdbe8158428303a3fa197",
+      "bytes": 334,
+      "text": "{\n  \"schema_version\": 1,\n  \"config_id\": \"49c132f4a48253d47aba83bc4a1c6490bb15515bff6faa0dfc02c1cb616f8ed9\",\n  \"remote\": \"qa:\",\n  \"paths\": {\n    \"saves\": \"/Other/Saves\",\n    \"settings\": \"/Keep/Backups\",\n    \"content\": \"Rel/Content\",\n    \"roms\": \"Rel/Content/ROMs\",\n    \"bios\": \"Rel/Content/BIOS\",\n    \"media\": \"Rel/Content/ROMs\"\n  }\n}\n"
+    },
+    "context-binding-local-only/ctl/argv": {
+      "sha256": "307139c6b9364d5619aab512370ad31452b3990d854ba475acebd34a84c76c29",
+      "bytes": 72,
+      "text": "listremotes\nconfig file\nlistremotes\nconfig file\nlistremotes\nconfig file\n"
+    },
+    "context-binding-local-only/profile": {
+      "sha256": "c53499f1fe23f18126fa3f158e891f940ea7fe9894cfaabb521f6ec75c6e95e5",
+      "bytes": 82,
+      "text": "export PATH=/shim:/repo:/usr/bin:/bin\nexport HOME=/storage\nexport OS_NAME=ROCKNIX\n"
+    },
+    "context-binding-local-only/shim/ip": {
+      "sha256": "ed7833938db4abd915c4a87c20a87b5081e535ca8bcaadce3636bbbce842d61c",
+      "bytes": 70,
+      "text": "#!/bin/sh\n[ -e /ctl/offline ] || echo \"default via 10.0.2.2 dev eth0\"\n"
+    },
+    "context-binding-local-only/shim/logger": {
+      "sha256": "3874e47b219daaa98d73429732121b2639080ca64e5769982a78093c4f036cc7",
+      "bytes": 45,
+      "text": "#!/bin/sh\nprintf \"%s\\n\" \"$*\" >> /ctl/journal\n"
+    },
+    "context-binding-local-only/shim/ping": {
+      "sha256": "a0cfd66789b27fed708dda43875c9e9ff38823623233621b6bf816df8440dac9",
+      "bytes": 32,
+      "text": "#!/bin/sh\n[ ! -e /ctl/offline ]\n"
+    },
+    "context-binding-local-only/shim/rclone": {
+      "sha256": "02e1a1c6a82385cd1c5a510a764b0ca83c722e7c5812b0bb391f7d31c397a517",
+      "bytes": 543,
+      "text": "#!/bin/bash\nprintf '%s\\n' \"$*\" >> /ctl/argv\nif [ -f /ctl/faults ]; then\n while IFS=$'\\t' read -r pattern code; do\n  [[ \"$*\" =~ $pattern ]] && { printf '%s\\n' \"$*\" >> /ctl/fault-fired; echo 'injected provider failure' >&2; exit \"$code\"; }\n done < /ctl/faults\nfi\nif [ -e /ctl/bucket ]; then\n if [ \"$1 $2\" = 'backend features' ]; then\n  printf '{\"Hashes\":[\"md5\"],\"Features\":{\"BucketBased\":true}}\\n'; exit 0\n fi\n # Bucket prefixes can return successful empty lsd for a missing prefix.\n if [ \"$1\" = lsd ]; then exit 0; fi\nfi\nexec /rclone.real \"$@\"\n"
+    },
+    "context-binding-local-only/shim/systemctl": {
+      "sha256": "306c6ca7407560340797866e077e053627ad409277d1b9da58106fce4cf717cb",
+      "bytes": 17,
+      "text": "#!/bin/sh\nexit 0\n"
+    },
+    "context-binding-local-only/shim/systemd-tmpfiles": {
+      "sha256": "306c6ca7407560340797866e077e053627ad409277d1b9da58106fce4cf717cb",
+      "bytes": 17,
+      "text": "#!/bin/sh\nexit 0\n"
+    },
+    "context-binding-local-only/source-sha256.json": {
+      "sha256": "b6c485beb15269f8a2b1fb616751fb2288da27605bef5bdfaab6f49da18b5650",
+      "bytes": 2107,
+      "text": "{\n  \"backuptool\": \"02557ca500c9706bac1c1062e70a1abfff46f8a445e96cde2f1b407ff64fe254\",\n  \"cloud_backup\": \"deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76\",\n  \"cloud_capture\": \"6853272e6eb29b2c61908dbfe135a5cb14cab7e86f833dea69a4cc6ac66a8929\",\n  \"cloud_content_backup\": \"c6789f9476d1c13cc00050fe2478d26629da05ef6af89222eb0ef72f3bf594ae\",\n  \"cloud_content_restore\": \"2790b3794febe953d1386bc427e0fa537343434a03fa67329781ca9f80c00180\",\n  \"cloud_content_transfer\": \"fe292268d9029c2b950a093f6902b5cbe8afb3d57cb47187251cf90c3d85a1a3\",\n  \"cloud_device_id\": \"3230633caf65ad9e115dffc1bf3e1dede38746f808d4177fc0c37b9defbeee62\",\n  \"cloud_folder_validate\": \"2c9c31a6b1c020669e9dff3228a12bd1eebf2b25a53a67be8260272f2784b982\",\n  \"cloud_log_scrub\": \"5c156d8d43b39172fa71b80a3e47156f46bca0965dcae890ec70f02596f8f126\",\n  \"cloud_net_ready\": \"19afce254bc5c55f119b9681463b8103da5f564f3235b64f100ba9c35e62df89\",\n  \"cloud_oauth\": \"fec8240db342eb9432f9423f5ee3f5bd53df499012dffd1e4ac9ae81c316cbf5\",\n  \"cloud_remote\": \"1b4df1b5394647e52df8584e75529ef113be8ccde3ea31b8b7dd1dfd5bb2e99e\",\n  \"cloud_restore\": \"ec63c21ad782703c6679ce5e1a7b8c5e8f610daeec8cdda224d166df945d0544\",\n  \"cloud_saves_root\": \"d0b0c5b850a7b51257797dcc9bfdac2e6f3e0abf2c3be4584ca65583748bfe43\",\n  \"cloud_scan\": \"a82548feb2aa14d7586582eade9ddbc223f4f713c543c7ce064fc1942e876351\",\n  \"cloud_setup\": \"9e825a8cd970488bb91e99814d6bfbee395fff87bff018658be3192dad684fa5\",\n  \"cloud_sync-rules.txt\": \"bdb7e18128ce4a604c9b02cfe5b0f10f4e3e4dfd3aa7e2d69ea018b8c9d5484d\",\n  \"cloud_sync-rules.txt.defaults\": \"951a7d65d83dc2f2a041868cf2ab1e231a8b09873a0656311b1f947fd106df75\",\n  \"cloud_sync.conf\": \"a121977066ce805e791108258fe12d1ecbce5e71ce2f61f096394a9fca982305\",\n  \"cloud_sync.conf.defaults\": \"77ce914421b47ef7f0a33e6085a5793cb8be55a5c239788adf8575a57d3ad1c4\",\n  \"cloud_sync_cleanup_duplicates.sh\": \"b62ee55ace6e9d776a89686ed6ecdfa17c90ac0e9a6f16d2e260cb2a7617eac1\",\n  \"cloud_sync_helper\": \"3c7738648fe946c74d2c8e9d38fc5e7529f6f41a831a6c546c84765891f26385\",\n  \"rasteratops-settings-archive\": \"58977f0e8aec6adfe673037c1a926bb2cbee94269ad6306ec02206250bceb50c\"\n}\n"
+    },
+    "context-binding-local-only/storage/.config/cloud_sync-rules.txt": {
+      "sha256": "bc4f15f38e740763d19255aace0a90edd851e5deb159fc3bb38a3a12dfab38e8",
+      "bytes": 18,
+      "text": "+ /**/*.srm\n- /**\n"
+    },
+    "context-binding-local-only/storage/.config/cloud_sync.conf": {
+      "sha256": "274463581d37ce123efade583f8f106be0609f604bc9617f01b29b10b574727b",
+      "bytes": 481,
+      "text": "SAVESPATH=\"/storage/roms\"\nSAVES_REMOTE=\"/Other/Saves\"\nSETTINGS_BACKUPS=\"/storage/roms/backup\"\nSETTINGS_REMOTE=\"/Keep/Backups\"\nBACKUPMETHOD=\"copy\"\nRESTOREMETHOD=\"copy\"\nBACKUPFILE_BACKUP_OPTION=\"no\"\nBACKUPFILE_RESTORE_OPTION=\"no\"\nLOG_LEVEL=\"INFO\"\nLAYOUT_KEEP=\"\"\nRCLONEOPTS=\"--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt\"\nRCLONE_NET_OPTS=\"--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1\"\nCONTENT_REMOTE=\"Rel/Content\"\n"
+    },
+    "context-binding-local-only/storage/.config/rclone/rclone.conf": {
+      "sha256": "829b8c5f55aa12a574886c075caefa3a88a05c807cb188e81ce0fcb9a0a90ad5",
+      "bytes": 49,
+      "text": "[qa]\ntype = alias\nremote = /cloud\n# reconfigured\n"
+    },
+    "context-binding-local-only/storage/roms/gb/.fixture": {
+      "sha256": "7d9f18b135168edd868a20d626bf0469a86d20f650fe620af06458d4f3335ce8",
+      "bytes": 19,
+      "text": "local known system\n"
+    },
+    "context-binding-local-only/storage/roms/snes/.fixture": {
+      "sha256": "7d9f18b135168edd868a20d626bf0469a86d20f650fe620af06458d4f3335ce8",
+      "bytes": 19,
+      "text": "local known system\n"
+    },
+    "empty-and-notes/01-cloud_setup.json": {
+      "sha256": "0dc172f73962038bc92c271b7c7ecb3a8176774bdd027569f8f81aae40ac645b",
+      "bytes": 754,
+      "text": "{\n  \"argv\": [\n    \"cloud_setup\",\n    \"--validate-folders\",\n    \"saves,settings,roms,bios,media\",\n    \"proof01\"\n  ],\n  \"rc\": 0,\n  \"pointers\": {\n    \"SAVESPATH\": \"/storage/roms\",\n    \"SAVES_REMOTE\": \"/pixelelated/Saves\",\n    \"SETTINGS_BACKUPS\": \"/storage/roms/backup\",\n    \"SETTINGS_REMOTE\": \"/pixelelated/Backups\",\n    \"BACKUPMETHOD\": \"copy\",\n    \"RESTOREMETHOD\": \"copy\",\n    \"BACKUPFILE_BACKUP_OPTION\": \"no\",\n    \"BACKUPFILE_RESTORE_OPTION\": \"no\",\n    \"LOG_LEVEL\": \"INFO\",\n    \"LAYOUT_KEEP\": \"\",\n    \"RCLONEOPTS\": \"--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt\",\n    \"RCLONE_NET_OPTS\": \"--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1\",\n    \"CONTENT_REMOTE\": \"/pixelelated/Content\"\n  }\n}"
+    },
+    "empty-and-notes/01-cloud_setup.log": {
+      "sha256": "a7b66643a15d2b67cdc20a80aa78b726a7a861dfd5d06f9b8810fc0041c44120",
+      "bytes": 1065,
+      "text": "{\"schema_version\":1,\"run_id\":\"proof01\",\"config_id\":\"286ea3302d51d237557465b685ab09c4203cd032c5afb4ea446d4c06afde18d1\",\"categories\":[{\"category\":\"saves\",\"state\":\"empty\",\"path\":\"/pixelelated/Saves\",\"detail\":\"no-recognized-content-in-checked-depth\"},{\"category\":\"settings\",\"state\":\"empty\",\"path\":\"/pixelelated/Backups\",\"detail\":\"no-recognized-content-in-checked-depth\"},{\"category\":\"roms\",\"state\":\"empty\",\"path\":\"/pixelelated/Content/ROMs\",\"detail\":\"no-recognized-content-in-checked-depth\"},{\"category\":\"bios\",\"state\":\"empty\",\"path\":\"/pixelelated/Content/BIOS\",\"detail\":\"no-recognized-content-in-checked-depth\"},{\"category\":\"media\",\"state\":\"empty\",\"path\":\"/pixelelated/Content/ROMs\",\"detail\":\"no-recognized-content-in-checked-depth\"}],\"complete\":true,\"scope\":{\"max_depth\":3,\"max_entries_per_listing\":4096,\"max_bytes_per_listing\":2097152,\"max_seconds\":25},\"paths\":{\"saves\":\"/pixelelated/Saves\",\"settings\":\"/pixelelated/Backups\",\"content\":\"/pixelelated/Content\",\"roms\":\"/pixelelated/Content/ROMs\",\"bios\":\"/pixelelated/Content/BIOS\",\"media\":\"/pixelelated/Content/ROMs\"}}\n"
+    },
+    "empty-and-notes/cloud/pixelelated/Backups/README.txt": {
+      "sha256": "b5f7e7d285029324d9b3acae19cc05099271454ac98bfc059a92b0581625cd51",
+      "bytes": 9,
+      "text": "sentinel\n"
+    },
+    "empty-and-notes/cloud/pixelelated/Content/BIOS/README.txt": {
+      "sha256": "b5f7e7d285029324d9b3acae19cc05099271454ac98bfc059a92b0581625cd51",
+      "bytes": 9,
+      "text": "sentinel\n"
+    },
+    "empty-and-notes/cloud/pixelelated/Content/ROMs/README.txt": {
+      "sha256": "b5f7e7d285029324d9b3acae19cc05099271454ac98bfc059a92b0581625cd51",
+      "bytes": 9,
+      "text": "sentinel\n"
+    },
+    "empty-and-notes/cloud/pixelelated/Saves/README.txt": {
+      "sha256": "b5f7e7d285029324d9b3acae19cc05099271454ac98bfc059a92b0581625cd51",
+      "bytes": 9,
+      "text": "sentinel\n"
+    },
+    "empty-and-notes/ctl/argv": {
+      "sha256": "f668bd66ca4277154f3ff649d58737a405ed2b0467a9c18c15094964db39f438",
+      "bytes": 881,
+      "text": "listremotes\nconfig file\nlsjson qa:/pixelelated/Saves --recursive --max-depth 3 --no-mimetype --no-modtime --retries 1 --low-level-retries 1 --contimeout 3s --timeout 5s --max-duration 6s\nlsjson qa:/pixelelated/Backups --recursive --max-depth 3 --no-mimetype --no-modtime --retries 1 --low-level-retries 1 --contimeout 3s --timeout 5s --max-duration 6s\nlsjson qa:/pixelelated/Content --recursive --max-depth 1 --no-mimetype --no-modtime --retries 1 --low-level-retries 1 --contimeout 3s --timeout 5s --max-duration 6s\nlsjson qa:/pixelelated/Content/ROMs --recursive --max-depth 3 --no-mimetype --no-modtime --retries 1 --low-level-retries 1 --contimeout 3s --timeout 5s --max-duration 6s\nlsjson qa:/pixelelated/Content/BIOS --recursive --max-depth 3 --no-mimetype --no-modtime --retries 1 --low-level-retries 1 --contimeout 3s --timeout 5s --max-duration 6s\nlistremotes\nconfig file\n"
+    },
+    "empty-and-notes/profile": {
+      "sha256": "c53499f1fe23f18126fa3f158e891f940ea7fe9894cfaabb521f6ec75c6e95e5",
+      "bytes": 82,
+      "text": "export PATH=/shim:/repo:/usr/bin:/bin\nexport HOME=/storage\nexport OS_NAME=ROCKNIX\n"
+    },
+    "empty-and-notes/shim/ip": {
+      "sha256": "ed7833938db4abd915c4a87c20a87b5081e535ca8bcaadce3636bbbce842d61c",
+      "bytes": 70,
+      "text": "#!/bin/sh\n[ -e /ctl/offline ] || echo \"default via 10.0.2.2 dev eth0\"\n"
+    },
+    "empty-and-notes/shim/logger": {
+      "sha256": "3874e47b219daaa98d73429732121b2639080ca64e5769982a78093c4f036cc7",
+      "bytes": 45,
+      "text": "#!/bin/sh\nprintf \"%s\\n\" \"$*\" >> /ctl/journal\n"
+    },
+    "empty-and-notes/shim/ping": {
+      "sha256": "a0cfd66789b27fed708dda43875c9e9ff38823623233621b6bf816df8440dac9",
+      "bytes": 32,
+      "text": "#!/bin/sh\n[ ! -e /ctl/offline ]\n"
+    },
+    "empty-and-notes/shim/rclone": {
+      "sha256": "02e1a1c6a82385cd1c5a510a764b0ca83c722e7c5812b0bb391f7d31c397a517",
+      "bytes": 543,
+      "text": "#!/bin/bash\nprintf '%s\\n' \"$*\" >> /ctl/argv\nif [ -f /ctl/faults ]; then\n while IFS=$'\\t' read -r pattern code; do\n  [[ \"$*\" =~ $pattern ]] && { printf '%s\\n' \"$*\" >> /ctl/fault-fired; echo 'injected provider failure' >&2; exit \"$code\"; }\n done < /ctl/faults\nfi\nif [ -e /ctl/bucket ]; then\n if [ \"$1 $2\" = 'backend features' ]; then\n  printf '{\"Hashes\":[\"md5\"],\"Features\":{\"BucketBased\":true}}\\n'; exit 0\n fi\n # Bucket prefixes can return successful empty lsd for a missing prefix.\n if [ \"$1\" = lsd ]; then exit 0; fi\nfi\nexec /rclone.real \"$@\"\n"
+    },
+    "empty-and-notes/shim/systemctl": {
+      "sha256": "306c6ca7407560340797866e077e053627ad409277d1b9da58106fce4cf717cb",
+      "bytes": 17,
+      "text": "#!/bin/sh\nexit 0\n"
+    },
+    "empty-and-notes/shim/systemd-tmpfiles": {
+      "sha256": "306c6ca7407560340797866e077e053627ad409277d1b9da58106fce4cf717cb",
+      "bytes": 17,
+      "text": "#!/bin/sh\nexit 0\n"
+    },
+    "empty-and-notes/source-sha256.json": {
+      "sha256": "b6c485beb15269f8a2b1fb616751fb2288da27605bef5bdfaab6f49da18b5650",
+      "bytes": 2107,
+      "text": "{\n  \"backuptool\": \"02557ca500c9706bac1c1062e70a1abfff46f8a445e96cde2f1b407ff64fe254\",\n  \"cloud_backup\": \"deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76\",\n  \"cloud_capture\": \"6853272e6eb29b2c61908dbfe135a5cb14cab7e86f833dea69a4cc6ac66a8929\",\n  \"cloud_content_backup\": \"c6789f9476d1c13cc00050fe2478d26629da05ef6af89222eb0ef72f3bf594ae\",\n  \"cloud_content_restore\": \"2790b3794febe953d1386bc427e0fa537343434a03fa67329781ca9f80c00180\",\n  \"cloud_content_transfer\": \"fe292268d9029c2b950a093f6902b5cbe8afb3d57cb47187251cf90c3d85a1a3\",\n  \"cloud_device_id\": \"3230633caf65ad9e115dffc1bf3e1dede38746f808d4177fc0c37b9defbeee62\",\n  \"cloud_folder_validate\": \"2c9c31a6b1c020669e9dff3228a12bd1eebf2b25a53a67be8260272f2784b982\",\n  \"cloud_log_scrub\": \"5c156d8d43b39172fa71b80a3e47156f46bca0965dcae890ec70f02596f8f126\",\n  \"cloud_net_ready\": \"19afce254bc5c55f119b9681463b8103da5f564f3235b64f100ba9c35e62df89\",\n  \"cloud_oauth\": \"fec8240db342eb9432f9423f5ee3f5bd53df499012dffd1e4ac9ae81c316cbf5\",\n  \"cloud_remote\": \"1b4df1b5394647e52df8584e75529ef113be8ccde3ea31b8b7dd1dfd5bb2e99e\",\n  \"cloud_restore\": \"ec63c21ad782703c6679ce5e1a7b8c5e8f610daeec8cdda224d166df945d0544\",\n  \"cloud_saves_root\": \"d0b0c5b850a7b51257797dcc9bfdac2e6f3e0abf2c3be4584ca65583748bfe43\",\n  \"cloud_scan\": \"a82548feb2aa14d7586582eade9ddbc223f4f713c543c7ce064fc1942e876351\",\n  \"cloud_setup\": \"9e825a8cd970488bb91e99814d6bfbee395fff87bff018658be3192dad684fa5\",\n  \"cloud_sync-rules.txt\": \"bdb7e18128ce4a604c9b02cfe5b0f10f4e3e4dfd3aa7e2d69ea018b8c9d5484d\",\n  \"cloud_sync-rules.txt.defaults\": \"951a7d65d83dc2f2a041868cf2ab1e231a8b09873a0656311b1f947fd106df75\",\n  \"cloud_sync.conf\": \"a121977066ce805e791108258fe12d1ecbce5e71ce2f61f096394a9fca982305\",\n  \"cloud_sync.conf.defaults\": \"77ce914421b47ef7f0a33e6085a5793cb8be55a5c239788adf8575a57d3ad1c4\",\n  \"cloud_sync_cleanup_duplicates.sh\": \"b62ee55ace6e9d776a89686ed6ecdfa17c90ac0e9a6f16d2e260cb2a7617eac1\",\n  \"cloud_sync_helper\": \"3c7738648fe946c74d2c8e9d38fc5e7529f6f41a831a6c546c84765891f26385\",\n  \"rasteratops-settings-archive\": \"58977f0e8aec6adfe673037c1a926bb2cbee94269ad6306ec02206250bceb50c\"\n}\n"
+    },
+    "empty-and-notes/storage/.config/cloud_sync-rules.txt": {
+      "sha256": "bc4f15f38e740763d19255aace0a90edd851e5deb159fc3bb38a3a12dfab38e8",
+      "bytes": 18,
+      "text": "+ /**/*.srm\n- /**\n"
+    },
+    "empty-and-notes/storage/.config/cloud_sync.conf": {
+      "sha256": "7e2d82392b0c84043f4233f41eaeda715a5f6c922d20a7fce8cf15e14251e620",
+      "bytes": 503,
+      "text": "SAVESPATH=\"/storage/roms\"\nSAVES_REMOTE=\"/pixelelated/Saves\"\nSETTINGS_BACKUPS=\"/storage/roms/backup\"\nSETTINGS_REMOTE=\"/pixelelated/Backups\"\nBACKUPMETHOD=\"copy\"\nRESTOREMETHOD=\"copy\"\nBACKUPFILE_BACKUP_OPTION=\"no\"\nBACKUPFILE_RESTORE_OPTION=\"no\"\nLOG_LEVEL=\"INFO\"\nLAYOUT_KEEP=\"\"\nRCLONEOPTS=\"--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt\"\nRCLONE_NET_OPTS=\"--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1\"\nCONTENT_REMOTE=\"/pixelelated/Content\"\n"
+    },
+    "empty-and-notes/storage/.config/rclone/rclone.conf": {
+      "sha256": "7603c17bce0056aae641bee817b6f9875863b4158f34d526914bfba008485eb5",
+      "bytes": 34,
+      "text": "[qa]\ntype = alias\nremote = /cloud\n"
+    },
+    "empty-and-notes/storage/roms/gb/.fixture": {
+      "sha256": "7d9f18b135168edd868a20d626bf0469a86d20f650fe620af06458d4f3335ce8",
+      "bytes": 19,
+      "text": "local known system\n"
+    },
+    "empty-and-notes/storage/roms/snes/.fixture": {
+      "sha256": "7d9f18b135168edd868a20d626bf0469a86d20f650fe620af06458d4f3335ce8",
+      "bytes": 19,
+      "text": "local known system\n"
+    },
+    "entry-limit/01-cloud_setup.json": {
+      "sha256": "4e1a4d9ea25da60dd2a7ec88870bf8da75dae27d68983209425a4af39fa605da",
+      "bytes": 729,
+      "text": "{\n  \"argv\": [\n    \"cloud_setup\",\n    \"--validate-folders\",\n    \"saves\",\n    \"proof01\"\n  ],\n  \"rc\": 5,\n  \"pointers\": {\n    \"SAVESPATH\": \"/storage/roms\",\n    \"SAVES_REMOTE\": \"/pixelelated/Saves\",\n    \"SETTINGS_BACKUPS\": \"/storage/roms/backup\",\n    \"SETTINGS_REMOTE\": \"/pixelelated/Backups\",\n    \"BACKUPMETHOD\": \"copy\",\n    \"RESTOREMETHOD\": \"copy\",\n    \"BACKUPFILE_BACKUP_OPTION\": \"no\",\n    \"BACKUPFILE_RESTORE_OPTION\": \"no\",\n    \"LOG_LEVEL\": \"INFO\",\n    \"LAYOUT_KEEP\": \"\",\n    \"RCLONEOPTS\": \"--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt\",\n    \"RCLONE_NET_OPTS\": \"--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1\",\n    \"CONTENT_REMOTE\": \"/pixelelated/Content\"\n  }\n}"
+    },
+    "entry-limit/01-cloud_setup.log": {
+      "sha256": "14308febe1cd5a38abfb37b9b1dacf75c78ed05155fa5954aabac6c33a6bb705",
+      "bytes": 562,
+      "text": "{\"schema_version\":1,\"run_id\":\"proof01\",\"config_id\":\"286ea3302d51d237557465b685ab09c4203cd032c5afb4ea446d4c06afde18d1\",\"categories\":[{\"category\":\"saves\",\"state\":\"unreadable\",\"path\":\"/pixelelated/Saves\",\"detail\":\"listing-limit\"}],\"complete\":false,\"scope\":{\"max_depth\":3,\"max_entries_per_listing\":4096,\"max_bytes_per_listing\":2097152,\"max_seconds\":25},\"paths\":{\"saves\":\"/pixelelated/Saves\",\"settings\":\"/pixelelated/Backups\",\"content\":\"/pixelelated/Content\",\"roms\":\"/pixelelated/Content/ROMs\",\"bios\":\"/pixelelated/Content/BIOS\",\"media\":\"/pixelelated/Content/ROMs\"}}\n"
+    },
+    "entry-limit/ctl/argv": {
+      "sha256": "07407bb75fcfc47b2df831a4a27a42759d6b4eb5e885446f6eb83c35bfd0ebec",
+      "bytes": 211,
+      "text": "listremotes\nconfig file\nlsjson qa:/pixelelated/Saves --recursive --max-depth 3 --no-mimetype --no-modtime --retries 1 --low-level-retries 1 --contimeout 3s --timeout 5s --max-duration 6s\nlistremotes\nconfig file\n"
+    },
+    "entry-limit/profile": {
+      "sha256": "c53499f1fe23f18126fa3f158e891f940ea7fe9894cfaabb521f6ec75c6e95e5",
+      "bytes": 82,
+      "text": "export PATH=/shim:/repo:/usr/bin:/bin\nexport HOME=/storage\nexport OS_NAME=ROCKNIX\n"
+    },
+    "entry-limit/shim/ip": {
+      "sha256": "ed7833938db4abd915c4a87c20a87b5081e535ca8bcaadce3636bbbce842d61c",
+      "bytes": 70,
+      "text": "#!/bin/sh\n[ -e /ctl/offline ] || echo \"default via 10.0.2.2 dev eth0\"\n"
+    },
+    "entry-limit/shim/logger": {
+      "sha256": "3874e47b219daaa98d73429732121b2639080ca64e5769982a78093c4f036cc7",
+      "bytes": 45,
+      "text": "#!/bin/sh\nprintf \"%s\\n\" \"$*\" >> /ctl/journal\n"
+    },
+    "entry-limit/shim/ping": {
+      "sha256": "a0cfd66789b27fed708dda43875c9e9ff38823623233621b6bf816df8440dac9",
+      "bytes": 32,
+      "text": "#!/bin/sh\n[ ! -e /ctl/offline ]\n"
+    },
+    "entry-limit/shim/rclone": {
+      "sha256": "faa7197716019b4d93273dcb7f9415178ad78fe190513b1a55b9f78ce1639e91",
+      "bytes": 683,
+      "text": "#!/bin/bash\nprintf '%s\\n' \"$*\" >> /ctl/argv\nif [ -f /ctl/faults ]; then\n while IFS=$'\\t' read -r pattern code; do\n  [[ \"$*\" =~ $pattern ]] && { printf '%s\\n' \"$*\" >> /ctl/fault-fired; echo 'injected provider failure' >&2; exit \"$code\"; }\n done < /ctl/faults\nfi\nif [ -e /ctl/bucket ]; then\n if [ \"$1 $2\" = 'backend features' ]; then\n  printf '{\"Hashes\":[\"md5\"],\"Features\":{\"BucketBased\":true}}\\n'; exit 0\n fi\n # Bucket prefixes can return successful empty lsd for a missing prefix.\n if [ \"$1\" = lsd ]; then exit 0; fi\nfi\nif [ \"$1\" = lsjson ]; then python3 -c 'import json;print(json.dumps([dict(Path=\"f\"+str(n),IsDir=False) for n in range(4097)]))'; exit 0; fi\nexec /rclone.real \"$@\"\n"
+    },
+    "entry-limit/shim/systemctl": {
+      "sha256": "306c6ca7407560340797866e077e053627ad409277d1b9da58106fce4cf717cb",
+      "bytes": 17,
+      "text": "#!/bin/sh\nexit 0\n"
+    },
+    "entry-limit/shim/systemd-tmpfiles": {
+      "sha256": "306c6ca7407560340797866e077e053627ad409277d1b9da58106fce4cf717cb",
+      "bytes": 17,
+      "text": "#!/bin/sh\nexit 0\n"
+    },
+    "entry-limit/source-sha256.json": {
+      "sha256": "b6c485beb15269f8a2b1fb616751fb2288da27605bef5bdfaab6f49da18b5650",
+      "bytes": 2107,
+      "text": "{\n  \"backuptool\": \"02557ca500c9706bac1c1062e70a1abfff46f8a445e96cde2f1b407ff64fe254\",\n  \"cloud_backup\": \"deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76\",\n  \"cloud_capture\": \"6853272e6eb29b2c61908dbfe135a5cb14cab7e86f833dea69a4cc6ac66a8929\",\n  \"cloud_content_backup\": \"c6789f9476d1c13cc00050fe2478d26629da05ef6af89222eb0ef72f3bf594ae\",\n  \"cloud_content_restore\": \"2790b3794febe953d1386bc427e0fa537343434a03fa67329781ca9f80c00180\",\n  \"cloud_content_transfer\": \"fe292268d9029c2b950a093f6902b5cbe8afb3d57cb47187251cf90c3d85a1a3\",\n  \"cloud_device_id\": \"3230633caf65ad9e115dffc1bf3e1dede38746f808d4177fc0c37b9defbeee62\",\n  \"cloud_folder_validate\": \"2c9c31a6b1c020669e9dff3228a12bd1eebf2b25a53a67be8260272f2784b982\",\n  \"cloud_log_scrub\": \"5c156d8d43b39172fa71b80a3e47156f46bca0965dcae890ec70f02596f8f126\",\n  \"cloud_net_ready\": \"19afce254bc5c55f119b9681463b8103da5f564f3235b64f100ba9c35e62df89\",\n  \"cloud_oauth\": \"fec8240db342eb9432f9423f5ee3f5bd53df499012dffd1e4ac9ae81c316cbf5\",\n  \"cloud_remote\": \"1b4df1b5394647e52df8584e75529ef113be8ccde3ea31b8b7dd1dfd5bb2e99e\",\n  \"cloud_restore\": \"ec63c21ad782703c6679ce5e1a7b8c5e8f610daeec8cdda224d166df945d0544\",\n  \"cloud_saves_root\": \"d0b0c5b850a7b51257797dcc9bfdac2e6f3e0abf2c3be4584ca65583748bfe43\",\n  \"cloud_scan\": \"a82548feb2aa14d7586582eade9ddbc223f4f713c543c7ce064fc1942e876351\",\n  \"cloud_setup\": \"9e825a8cd970488bb91e99814d6bfbee395fff87bff018658be3192dad684fa5\",\n  \"cloud_sync-rules.txt\": \"bdb7e18128ce4a604c9b02cfe5b0f10f4e3e4dfd3aa7e2d69ea018b8c9d5484d\",\n  \"cloud_sync-rules.txt.defaults\": \"951a7d65d83dc2f2a041868cf2ab1e231a8b09873a0656311b1f947fd106df75\",\n  \"cloud_sync.conf\": \"a121977066ce805e791108258fe12d1ecbce5e71ce2f61f096394a9fca982305\",\n  \"cloud_sync.conf.defaults\": \"77ce914421b47ef7f0a33e6085a5793cb8be55a5c239788adf8575a57d3ad1c4\",\n  \"cloud_sync_cleanup_duplicates.sh\": \"b62ee55ace6e9d776a89686ed6ecdfa17c90ac0e9a6f16d2e260cb2a7617eac1\",\n  \"cloud_sync_helper\": \"3c7738648fe946c74d2c8e9d38fc5e7529f6f41a831a6c546c84765891f26385\",\n  \"rasteratops-settings-archive\": \"58977f0e8aec6adfe673037c1a926bb2cbee94269ad6306ec02206250bceb50c\"\n}\n"
+    },
+    "entry-limit/storage/.config/cloud_sync-rules.txt": {
+      "sha256": "bc4f15f38e740763d19255aace0a90edd851e5deb159fc3bb38a3a12dfab38e8",
+      "bytes": 18,
+      "text": "+ /**/*.srm\n- /**\n"
+    },
+    "entry-limit/storage/.config/cloud_sync.conf": {
+      "sha256": "7e2d82392b0c84043f4233f41eaeda715a5f6c922d20a7fce8cf15e14251e620",
+      "bytes": 503,
+      "text": "SAVESPATH=\"/storage/roms\"\nSAVES_REMOTE=\"/pixelelated/Saves\"\nSETTINGS_BACKUPS=\"/storage/roms/backup\"\nSETTINGS_REMOTE=\"/pixelelated/Backups\"\nBACKUPMETHOD=\"copy\"\nRESTOREMETHOD=\"copy\"\nBACKUPFILE_BACKUP_OPTION=\"no\"\nBACKUPFILE_RESTORE_OPTION=\"no\"\nLOG_LEVEL=\"INFO\"\nLAYOUT_KEEP=\"\"\nRCLONEOPTS=\"--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt\"\nRCLONE_NET_OPTS=\"--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1\"\nCONTENT_REMOTE=\"/pixelelated/Content\"\n"
+    },
+    "entry-limit/storage/.config/rclone/rclone.conf": {
+      "sha256": "7603c17bce0056aae641bee817b6f9875863b4158f34d526914bfba008485eb5",
+      "bytes": 34,
+      "text": "[qa]\ntype = alias\nremote = /cloud\n"
+    },
+    "entry-limit/storage/roms/gb/.fixture": {
+      "sha256": "7d9f18b135168edd868a20d626bf0469a86d20f650fe620af06458d4f3335ce8",
+      "bytes": 19,
+      "text": "local known system\n"
+    },
+    "entry-limit/storage/roms/snes/.fixture": {
+      "sha256": "7d9f18b135168edd868a20d626bf0469a86d20f650fe620af06458d4f3335ce8",
+      "bytes": 19,
+      "text": "local known system\n"
+    },
+    "explicit-category-seeding/01-cloud_setup.json": {
+      "sha256": "947bd8244e4bfafe653aeab772684906747c2a32e02107c763c3728d684716fd",
+      "bytes": 697,
+      "text": "{\n  \"argv\": [\n    \"cloud_setup\",\n    \"--seed-folders\"\n  ],\n  \"rc\": 2,\n  \"pointers\": {\n    \"SAVESPATH\": \"/storage/roms\",\n    \"SAVES_REMOTE\": \"/pixelelated/Saves\",\n    \"SETTINGS_BACKUPS\": \"/storage/roms/backup\",\n    \"SETTINGS_REMOTE\": \"/pixelelated/Backups\",\n    \"BACKUPMETHOD\": \"copy\",\n    \"RESTOREMETHOD\": \"copy\",\n    \"BACKUPFILE_BACKUP_OPTION\": \"no\",\n    \"BACKUPFILE_RESTORE_OPTION\": \"no\",\n    \"LOG_LEVEL\": \"INFO\",\n    \"LAYOUT_KEEP\": \"\",\n    \"RCLONEOPTS\": \"--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt\",\n    \"RCLONE_NET_OPTS\": \"--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1\",\n    \"CONTENT_REMOTE\": \"/pixelelated/Content\"\n  }\n}"
+    },
+    "explicit-category-seeding/01-cloud_setup.log": {
+      "sha256": "1887b0c968d82394761176d134c85e3efdcddeb8a5b4a872f2eee4032a0f2b38",
+      "bytes": 38,
+      "text": "Choose which cloud folders to create.\n"
+    },
+    "explicit-category-seeding/02-cloud_setup.json": {
+      "sha256": "a991083ccb47e4be1d3e9dbc617a942e00a48fb0d8bd6aca68bf4893aac36e0c",
+      "bytes": 713,
+      "text": "{\n  \"argv\": [\n    \"cloud_setup\",\n    \"--seed-folders\",\n    \"settings\"\n  ],\n  \"rc\": 5,\n  \"pointers\": {\n    \"SAVESPATH\": \"/storage/roms\",\n    \"SAVES_REMOTE\": \"/pixelelated/Saves\",\n    \"SETTINGS_BACKUPS\": \"/storage/roms/backup\",\n    \"SETTINGS_REMOTE\": \"/pixelelated/Backups\",\n    \"BACKUPMETHOD\": \"copy\",\n    \"RESTOREMETHOD\": \"copy\",\n    \"BACKUPFILE_BACKUP_OPTION\": \"no\",\n    \"BACKUPFILE_RESTORE_OPTION\": \"no\",\n    \"LOG_LEVEL\": \"INFO\",\n    \"LAYOUT_KEEP\": \"\",\n    \"RCLONEOPTS\": \"--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt\",\n    \"RCLONE_NET_OPTS\": \"--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1\",\n    \"CONTENT_REMOTE\": \"/pixelelated/Content\"\n  }\n}"
+    },
+    "explicit-category-seeding/02-cloud_setup.log": {
+      "sha256": "03400581ef49739c8b7c08a09bbbf4400c3afe2ed5db785b2aa5eacc05272403",
+      "bytes": 47,
+      "text": ">>> why YOUR CLOUD FOLDERS COULDN'T BE CREATED\n"
+    },
+    "explicit-category-seeding/cloud/pixelelated/Saves/gb/progress.srm": {
+      "sha256": "ca67bd59cc4116ac80db5f64cbf4747f26ba929c85e8cc689a6123368d08719b",
+      "bytes": 8,
+      "text": "retained"
+    },
+    "explicit-category-seeding/ctl/argv": {
+      "sha256": "56aed6757dc01b603e2472a6f05f099fc302cb6d79358329ae8c4138f67fcd0a",
+      "bytes": 130,
+      "text": "listremotes\nmkdir --s3-directory-markers qa:/pixelelated/Backups --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1\n"
+    },
+    "explicit-category-seeding/profile": {
+      "sha256": "c53499f1fe23f18126fa3f158e891f940ea7fe9894cfaabb521f6ec75c6e95e5",
+      "bytes": 82,
+      "text": "export PATH=/shim:/repo:/usr/bin:/bin\nexport HOME=/storage\nexport OS_NAME=ROCKNIX\n"
+    },
+    "explicit-category-seeding/shim/ip": {
+      "sha256": "ed7833938db4abd915c4a87c20a87b5081e535ca8bcaadce3636bbbce842d61c",
+      "bytes": 70,
+      "text": "#!/bin/sh\n[ -e /ctl/offline ] || echo \"default via 10.0.2.2 dev eth0\"\n"
+    },
+    "explicit-category-seeding/shim/logger": {
+      "sha256": "3874e47b219daaa98d73429732121b2639080ca64e5769982a78093c4f036cc7",
+      "bytes": 45,
+      "text": "#!/bin/sh\nprintf \"%s\\n\" \"$*\" >> /ctl/journal\n"
+    },
+    "explicit-category-seeding/shim/ping": {
+      "sha256": "a0cfd66789b27fed708dda43875c9e9ff38823623233621b6bf816df8440dac9",
+      "bytes": 32,
+      "text": "#!/bin/sh\n[ ! -e /ctl/offline ]\n"
+    },
+    "explicit-category-seeding/shim/rclone": {
+      "sha256": "02e1a1c6a82385cd1c5a510a764b0ca83c722e7c5812b0bb391f7d31c397a517",
+      "bytes": 543,
+      "text": "#!/bin/bash\nprintf '%s\\n' \"$*\" >> /ctl/argv\nif [ -f /ctl/faults ]; then\n while IFS=$'\\t' read -r pattern code; do\n  [[ \"$*\" =~ $pattern ]] && { printf '%s\\n' \"$*\" >> /ctl/fault-fired; echo 'injected provider failure' >&2; exit \"$code\"; }\n done < /ctl/faults\nfi\nif [ -e /ctl/bucket ]; then\n if [ \"$1 $2\" = 'backend features' ]; then\n  printf '{\"Hashes\":[\"md5\"],\"Features\":{\"BucketBased\":true}}\\n'; exit 0\n fi\n # Bucket prefixes can return successful empty lsd for a missing prefix.\n if [ \"$1\" = lsd ]; then exit 0; fi\nfi\nexec /rclone.real \"$@\"\n"
+    },
+    "explicit-category-seeding/shim/systemctl": {
+      "sha256": "306c6ca7407560340797866e077e053627ad409277d1b9da58106fce4cf717cb",
+      "bytes": 17,
+      "text": "#!/bin/sh\nexit 0\n"
+    },
+    "explicit-category-seeding/shim/systemd-tmpfiles": {
+      "sha256": "306c6ca7407560340797866e077e053627ad409277d1b9da58106fce4cf717cb",
+      "bytes": 17,
+      "text": "#!/bin/sh\nexit 0\n"
+    },
+    "explicit-category-seeding/source-sha256.json": {
+      "sha256": "b6c485beb15269f8a2b1fb616751fb2288da27605bef5bdfaab6f49da18b5650",
+      "bytes": 2107,
+      "text": "{\n  \"backuptool\": \"02557ca500c9706bac1c1062e70a1abfff46f8a445e96cde2f1b407ff64fe254\",\n  \"cloud_backup\": \"deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76\",\n  \"cloud_capture\": \"6853272e6eb29b2c61908dbfe135a5cb14cab7e86f833dea69a4cc6ac66a8929\",\n  \"cloud_content_backup\": \"c6789f9476d1c13cc00050fe2478d26629da05ef6af89222eb0ef72f3bf594ae\",\n  \"cloud_content_restore\": \"2790b3794febe953d1386bc427e0fa537343434a03fa67329781ca9f80c00180\",\n  \"cloud_content_transfer\": \"fe292268d9029c2b950a093f6902b5cbe8afb3d57cb47187251cf90c3d85a1a3\",\n  \"cloud_device_id\": \"3230633caf65ad9e115dffc1bf3e1dede38746f808d4177fc0c37b9defbeee62\",\n  \"cloud_folder_validate\": \"2c9c31a6b1c020669e9dff3228a12bd1eebf2b25a53a67be8260272f2784b982\",\n  \"cloud_log_scrub\": \"5c156d8d43b39172fa71b80a3e47156f46bca0965dcae890ec70f02596f8f126\",\n  \"cloud_net_ready\": \"19afce254bc5c55f119b9681463b8103da5f564f3235b64f100ba9c35e62df89\",\n  \"cloud_oauth\": \"fec8240db342eb9432f9423f5ee3f5bd53df499012dffd1e4ac9ae81c316cbf5\",\n  \"cloud_remote\": \"1b4df1b5394647e52df8584e75529ef113be8ccde3ea31b8b7dd1dfd5bb2e99e\",\n  \"cloud_restore\": \"ec63c21ad782703c6679ce5e1a7b8c5e8f610daeec8cdda224d166df945d0544\",\n  \"cloud_saves_root\": \"d0b0c5b850a7b51257797dcc9bfdac2e6f3e0abf2c3be4584ca65583748bfe43\",\n  \"cloud_scan\": \"a82548feb2aa14d7586582eade9ddbc223f4f713c543c7ce064fc1942e876351\",\n  \"cloud_setup\": \"9e825a8cd970488bb91e99814d6bfbee395fff87bff018658be3192dad684fa5\",\n  \"cloud_sync-rules.txt\": \"bdb7e18128ce4a604c9b02cfe5b0f10f4e3e4dfd3aa7e2d69ea018b8c9d5484d\",\n  \"cloud_sync-rules.txt.defaults\": \"951a7d65d83dc2f2a041868cf2ab1e231a8b09873a0656311b1f947fd106df75\",\n  \"cloud_sync.conf\": \"a121977066ce805e791108258fe12d1ecbce5e71ce2f61f096394a9fca982305\",\n  \"cloud_sync.conf.defaults\": \"77ce914421b47ef7f0a33e6085a5793cb8be55a5c239788adf8575a57d3ad1c4\",\n  \"cloud_sync_cleanup_duplicates.sh\": \"b62ee55ace6e9d776a89686ed6ecdfa17c90ac0e9a6f16d2e260cb2a7617eac1\",\n  \"cloud_sync_helper\": \"3c7738648fe946c74d2c8e9d38fc5e7529f6f41a831a6c546c84765891f26385\",\n  \"rasteratops-settings-archive\": \"58977f0e8aec6adfe673037c1a926bb2cbee94269ad6306ec02206250bceb50c\"\n}\n"
+    },
+    "explicit-category-seeding/storage/.config/cloud_sync-rules.txt": {
+      "sha256": "bc4f15f38e740763d19255aace0a90edd851e5deb159fc3bb38a3a12dfab38e8",
+      "bytes": 18,
+      "text": "+ /**/*.srm\n- /**\n"
+    },
+    "explicit-category-seeding/storage/.config/cloud_sync.conf": {
+      "sha256": "7e2d82392b0c84043f4233f41eaeda715a5f6c922d20a7fce8cf15e14251e620",
+      "bytes": 503,
+      "text": "SAVESPATH=\"/storage/roms\"\nSAVES_REMOTE=\"/pixelelated/Saves\"\nSETTINGS_BACKUPS=\"/storage/roms/backup\"\nSETTINGS_REMOTE=\"/pixelelated/Backups\"\nBACKUPMETHOD=\"copy\"\nRESTOREMETHOD=\"copy\"\nBACKUPFILE_BACKUP_OPTION=\"no\"\nBACKUPFILE_RESTORE_OPTION=\"no\"\nLOG_LEVEL=\"INFO\"\nLAYOUT_KEEP=\"\"\nRCLONEOPTS=\"--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt\"\nRCLONE_NET_OPTS=\"--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1\"\nCONTENT_REMOTE=\"/pixelelated/Content\"\n"
+    },
+    "explicit-category-seeding/storage/.config/rclone/rclone.conf": {
+      "sha256": "7603c17bce0056aae641bee817b6f9875863b4158f34d526914bfba008485eb5",
+      "bytes": 34,
+      "text": "[qa]\ntype = alias\nremote = /cloud\n"
+    },
+    "explicit-category-seeding/storage/roms/gb/.fixture": {
+      "sha256": "7d9f18b135168edd868a20d626bf0469a86d20f650fe620af06458d4f3335ce8",
+      "bytes": 19,
+      "text": "local known system\n"
+    },
+    "explicit-category-seeding/storage/roms/snes/.fixture": {
+      "sha256": "7d9f18b135168edd868a20d626bf0469a86d20f650fe620af06458d4f3335ce8",
+      "bytes": 19,
+      "text": "local known system\n"
+    },
+    "independent-pointer-selection/01-cloud_setup.json": {
+      "sha256": "72fbfcfa361e4d611172da66c31d7377a4b38b00156aef8f7a0c10d942a70e04",
+      "bytes": 699,
+      "text": "{\n  \"argv\": [\n    \"cloud_setup\",\n    \"--set-saves-remote\",\n    \"New/Saves\"\n  ],\n  \"rc\": 0,\n  \"pointers\": {\n    \"SAVESPATH\": \"/storage/roms\",\n    \"SAVES_REMOTE\": \"New/Saves\",\n    \"SETTINGS_BACKUPS\": \"/storage/roms/backup\",\n    \"SETTINGS_REMOTE\": \"/GAMES/backup\",\n    \"BACKUPMETHOD\": \"copy\",\n    \"RESTOREMETHOD\": \"copy\",\n    \"BACKUPFILE_BACKUP_OPTION\": \"no\",\n    \"BACKUPFILE_RESTORE_OPTION\": \"no\",\n    \"LOG_LEVEL\": \"INFO\",\n    \"LAYOUT_KEEP\": \"\",\n    \"RCLONEOPTS\": \"--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt\",\n    \"RCLONE_NET_OPTS\": \"--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1\",\n    \"CONTENT_REMOTE\": \"Different/Content\"\n  }\n}"
+    },
+    "independent-pointer-selection/01-cloud_setup.log": {
+      "sha256": "b3a3ccc80de31b0fdf0d616a73955e5ccf244a1944aafed46cd5d6429a9ca20b",
+      "bytes": 13,
+      "text": "OK New/Saves\n"
+    },
+    "independent-pointer-selection/02-cloud_setup.json": {
+      "sha256": "0e4b604828e01a13d7f81199d5342069e48154839e2147770fae37f93af82e38",
+      "bytes": 696,
+      "text": "{\n  \"argv\": [\n    \"cloud_setup\",\n    \"--set-settings-remote\",\n    \"Settings\"\n  ],\n  \"rc\": 0,\n  \"pointers\": {\n    \"SAVESPATH\": \"/storage/roms\",\n    \"SAVES_REMOTE\": \"New/Saves\",\n    \"SETTINGS_BACKUPS\": \"/storage/roms/backup\",\n    \"SETTINGS_REMOTE\": \"Settings\",\n    \"BACKUPMETHOD\": \"copy\",\n    \"RESTOREMETHOD\": \"copy\",\n    \"BACKUPFILE_BACKUP_OPTION\": \"no\",\n    \"BACKUPFILE_RESTORE_OPTION\": \"no\",\n    \"LOG_LEVEL\": \"INFO\",\n    \"LAYOUT_KEEP\": \"\",\n    \"RCLONEOPTS\": \"--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt\",\n    \"RCLONE_NET_OPTS\": \"--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1\",\n    \"CONTENT_REMOTE\": \"Different/Content\"\n  }\n}"
+    },
+    "independent-pointer-selection/02-cloud_setup.log": {
+      "sha256": "71a1ff512e162d911669076df58cd9a71ab2c004a6722b7c23a844e432704766",
+      "bytes": 12,
+      "text": "OK Settings\n"
+    },
+    "independent-pointer-selection/ctl/argv": {
+      "sha256": "b4c04e6e68cc2c34e7a9e45981c78993a0a14cdfb3148b40b1b844032a3cee30",
+      "bytes": 112,
+      "text": "listremotes\nlsd qa:New/Saves --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1 --log-level ERROR\n"
+    },
+    "independent-pointer-selection/log/cloud_sync.log": {
+      "sha256": "78fd2c62ec76f1cfc05b913969c14fa848c52fabd815b4abdf5b63344bd317de",
+      "bytes": 160,
+      "text": "[2026-10-07 21:41:21] [INFO] [cloud_setup] Sync path changed to New/Saves\n[2026-10-07 21:41:21] [INFO] [cloud_setup] SETTINGS_REMOTE set to Settings by request\n"
+    },
+    "independent-pointer-selection/profile": {
+      "sha256": "c53499f1fe23f18126fa3f158e891f940ea7fe9894cfaabb521f6ec75c6e95e5",
+      "bytes": 82,
+      "text": "export PATH=/shim:/repo:/usr/bin:/bin\nexport HOME=/storage\nexport OS_NAME=ROCKNIX\n"
+    },
+    "independent-pointer-selection/shim/ip": {
+      "sha256": "ed7833938db4abd915c4a87c20a87b5081e535ca8bcaadce3636bbbce842d61c",
+      "bytes": 70,
+      "text": "#!/bin/sh\n[ -e /ctl/offline ] || echo \"default via 10.0.2.2 dev eth0\"\n"
+    },
+    "independent-pointer-selection/shim/logger": {
+      "sha256": "3874e47b219daaa98d73429732121b2639080ca64e5769982a78093c4f036cc7",
+      "bytes": 45,
+      "text": "#!/bin/sh\nprintf \"%s\\n\" \"$*\" >> /ctl/journal\n"
+    },
+    "independent-pointer-selection/shim/ping": {
+      "sha256": "a0cfd66789b27fed708dda43875c9e9ff38823623233621b6bf816df8440dac9",
+      "bytes": 32,
+      "text": "#!/bin/sh\n[ ! -e /ctl/offline ]\n"
+    },
+    "independent-pointer-selection/shim/rclone": {
+      "sha256": "02e1a1c6a82385cd1c5a510a764b0ca83c722e7c5812b0bb391f7d31c397a517",
+      "bytes": 543,
+      "text": "#!/bin/bash\nprintf '%s\\n' \"$*\" >> /ctl/argv\nif [ -f /ctl/faults ]; then\n while IFS=$'\\t' read -r pattern code; do\n  [[ \"$*\" =~ $pattern ]] && { printf '%s\\n' \"$*\" >> /ctl/fault-fired; echo 'injected provider failure' >&2; exit \"$code\"; }\n done < /ctl/faults\nfi\nif [ -e /ctl/bucket ]; then\n if [ \"$1 $2\" = 'backend features' ]; then\n  printf '{\"Hashes\":[\"md5\"],\"Features\":{\"BucketBased\":true}}\\n'; exit 0\n fi\n # Bucket prefixes can return successful empty lsd for a missing prefix.\n if [ \"$1\" = lsd ]; then exit 0; fi\nfi\nexec /rclone.real \"$@\"\n"
+    },
+    "independent-pointer-selection/shim/systemctl": {
+      "sha256": "306c6ca7407560340797866e077e053627ad409277d1b9da58106fce4cf717cb",
+      "bytes": 17,
+      "text": "#!/bin/sh\nexit 0\n"
+    },
+    "independent-pointer-selection/shim/systemd-tmpfiles": {
+      "sha256": "306c6ca7407560340797866e077e053627ad409277d1b9da58106fce4cf717cb",
+      "bytes": 17,
+      "text": "#!/bin/sh\nexit 0\n"
+    },
+    "independent-pointer-selection/source-sha256.json": {
+      "sha256": "b6c485beb15269f8a2b1fb616751fb2288da27605bef5bdfaab6f49da18b5650",
+      "bytes": 2107,
+      "text": "{\n  \"backuptool\": \"02557ca500c9706bac1c1062e70a1abfff46f8a445e96cde2f1b407ff64fe254\",\n  \"cloud_backup\": \"deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76\",\n  \"cloud_capture\": \"6853272e6eb29b2c61908dbfe135a5cb14cab7e86f833dea69a4cc6ac66a8929\",\n  \"cloud_content_backup\": \"c6789f9476d1c13cc00050fe2478d26629da05ef6af89222eb0ef72f3bf594ae\",\n  \"cloud_content_restore\": \"2790b3794febe953d1386bc427e0fa537343434a03fa67329781ca9f80c00180\",\n  \"cloud_content_transfer\": \"fe292268d9029c2b950a093f6902b5cbe8afb3d57cb47187251cf90c3d85a1a3\",\n  \"cloud_device_id\": \"3230633caf65ad9e115dffc1bf3e1dede38746f808d4177fc0c37b9defbeee62\",\n  \"cloud_folder_validate\": \"2c9c31a6b1c020669e9dff3228a12bd1eebf2b25a53a67be8260272f2784b982\",\n  \"cloud_log_scrub\": \"5c156d8d43b39172fa71b80a3e47156f46bca0965dcae890ec70f02596f8f126\",\n  \"cloud_net_ready\": \"19afce254bc5c55f119b9681463b8103da5f564f3235b64f100ba9c35e62df89\",\n  \"cloud_oauth\": \"fec8240db342eb9432f9423f5ee3f5bd53df499012dffd1e4ac9ae81c316cbf5\",\n  \"cloud_remote\": \"1b4df1b5394647e52df8584e75529ef113be8ccde3ea31b8b7dd1dfd5bb2e99e\",\n  \"cloud_restore\": \"ec63c21ad782703c6679ce5e1a7b8c5e8f610daeec8cdda224d166df945d0544\",\n  \"cloud_saves_root\": \"d0b0c5b850a7b51257797dcc9bfdac2e6f3e0abf2c3be4584ca65583748bfe43\",\n  \"cloud_scan\": \"a82548feb2aa14d7586582eade9ddbc223f4f713c543c7ce064fc1942e876351\",\n  \"cloud_setup\": \"9e825a8cd970488bb91e99814d6bfbee395fff87bff018658be3192dad684fa5\",\n  \"cloud_sync-rules.txt\": \"bdb7e18128ce4a604c9b02cfe5b0f10f4e3e4dfd3aa7e2d69ea018b8c9d5484d\",\n  \"cloud_sync-rules.txt.defaults\": \"951a7d65d83dc2f2a041868cf2ab1e231a8b09873a0656311b1f947fd106df75\",\n  \"cloud_sync.conf\": \"a121977066ce805e791108258fe12d1ecbce5e71ce2f61f096394a9fca982305\",\n  \"cloud_sync.conf.defaults\": \"77ce914421b47ef7f0a33e6085a5793cb8be55a5c239788adf8575a57d3ad1c4\",\n  \"cloud_sync_cleanup_duplicates.sh\": \"b62ee55ace6e9d776a89686ed6ecdfa17c90ac0e9a6f16d2e260cb2a7617eac1\",\n  \"cloud_sync_helper\": \"3c7738648fe946c74d2c8e9d38fc5e7529f6f41a831a6c546c84765891f26385\",\n  \"rasteratops-settings-archive\": \"58977f0e8aec6adfe673037c1a926bb2cbee94269ad6306ec02206250bceb50c\"\n}\n"
+    },
+    "independent-pointer-selection/storage/.config/cloud_sync-rules.txt": {
+      "sha256": "bc4f15f38e740763d19255aace0a90edd851e5deb159fc3bb38a3a12dfab38e8",
+      "bytes": 18,
+      "text": "+ /**/*.srm\n- /**\n"
+    },
+    "independent-pointer-selection/storage/.config/cloud_sync.conf": {
+      "sha256": "3362460197f63a0d3dc4c8121f28a5650fc98a4cc4ffe541ef373c2e2857de1a",
+      "bytes": 479,
+      "text": "SAVESPATH=\"/storage/roms\"\nSAVES_REMOTE=\"New/Saves\"\nSETTINGS_BACKUPS=\"/storage/roms/backup\"\nSETTINGS_REMOTE=\"Settings\"\nBACKUPMETHOD=\"copy\"\nRESTOREMETHOD=\"copy\"\nBACKUPFILE_BACKUP_OPTION=\"no\"\nBACKUPFILE_RESTORE_OPTION=\"no\"\nLOG_LEVEL=\"INFO\"\nLAYOUT_KEEP=\"\"\nRCLONEOPTS=\"--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt\"\nRCLONE_NET_OPTS=\"--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1\"\nCONTENT_REMOTE=\"Different/Content\"\n"
+    },
+    "independent-pointer-selection/storage/.config/rclone/rclone.conf": {
+      "sha256": "7603c17bce0056aae641bee817b6f9875863b4158f34d526914bfba008485eb5",
+      "bytes": 34,
+      "text": "[qa]\ntype = alias\nremote = /cloud\n"
+    },
+    "independent-pointer-selection/storage/roms/gb/.fixture": {
+      "sha256": "7d9f18b135168edd868a20d626bf0469a86d20f650fe620af06458d4f3335ce8",
+      "bytes": 19,
+      "text": "local known system\n"
+    },
+    "independent-pointer-selection/storage/roms/snes/.fixture": {
+      "sha256": "7d9f18b135168edd868a20d626bf0469a86d20f650fe620af06458d4f3335ce8",
+      "bytes": 19,
+      "text": "local known system\n"
+    },
+    "invalid-input-refused/01-cloud_setup.json": {
+      "sha256": "b4491d720651c58019c81bb6891b64af49c000473e5341495b59aba259f84780",
+      "bytes": 718,
+      "text": "{\n  \"argv\": [\n    \"cloud_setup\",\n    \"--validate-folders\",\n    \"\",\n    \"a\"\n  ],\n  \"rc\": 2,\n  \"pointers\": {\n    \"SAVESPATH\": \"/storage/roms\",\n    \"SAVES_REMOTE\": \"/pixelelated/Saves\",\n    \"SETTINGS_BACKUPS\": \"/storage/roms/backup\",\n    \"SETTINGS_REMOTE\": \"/pixelelated/Backups\",\n    \"BACKUPMETHOD\": \"copy\",\n    \"RESTOREMETHOD\": \"copy\",\n    \"BACKUPFILE_BACKUP_OPTION\": \"no\",\n    \"BACKUPFILE_RESTORE_OPTION\": \"no\",\n    \"LOG_LEVEL\": \"INFO\",\n    \"LAYOUT_KEEP\": \"\",\n    \"RCLONEOPTS\": \"--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt\",\n    \"RCLONE_NET_OPTS\": \"--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1\",\n    \"CONTENT_REMOTE\": \"/pixelelated/Content\"\n  }\n}"
+    },
+    "invalid-input-refused/01-cloud_setup.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "text": ""
+    },
+    "invalid-input-refused/02-cloud_setup.json": {
+      "sha256": "350b438162ab32baa97f9b444f769f38799767dd12b89a4a17769199379687c0",
+      "bytes": 724,
+      "text": "{\n  \"argv\": [\n    \"cloud_setup\",\n    \"--validate-folders\",\n    \"saves,\",\n    \"a\"\n  ],\n  \"rc\": 2,\n  \"pointers\": {\n    \"SAVESPATH\": \"/storage/roms\",\n    \"SAVES_REMOTE\": \"/pixelelated/Saves\",\n    \"SETTINGS_BACKUPS\": \"/storage/roms/backup\",\n    \"SETTINGS_REMOTE\": \"/pixelelated/Backups\",\n    \"BACKUPMETHOD\": \"copy\",\n    \"RESTOREMETHOD\": \"copy\",\n    \"BACKUPFILE_BACKUP_OPTION\": \"no\",\n    \"BACKUPFILE_RESTORE_OPTION\": \"no\",\n    \"LOG_LEVEL\": \"INFO\",\n    \"LAYOUT_KEEP\": \"\",\n    \"RCLONEOPTS\": \"--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt\",\n    \"RCLONE_NET_OPTS\": \"--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1\",\n    \"CONTENT_REMOTE\": \"/pixelelated/Content\"\n  }\n}"
+    },
+    "invalid-input-refused/02-cloud_setup.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "text": ""
+    },
+    "invalid-input-refused/03-cloud_setup.json": {
+      "sha256": "4f677c033a414cd632514c6e33da5364a3a466935652c9de265f705cc3bfa633",
+      "bytes": 729,
+      "text": "{\n  \"argv\": [\n    \"cloud_setup\",\n    \"--validate-folders\",\n    \"saves,saves\",\n    \"a\"\n  ],\n  \"rc\": 2,\n  \"pointers\": {\n    \"SAVESPATH\": \"/storage/roms\",\n    \"SAVES_REMOTE\": \"/pixelelated/Saves\",\n    \"SETTINGS_BACKUPS\": \"/storage/roms/backup\",\n    \"SETTINGS_REMOTE\": \"/pixelelated/Backups\",\n    \"BACKUPMETHOD\": \"copy\",\n    \"RESTOREMETHOD\": \"copy\",\n    \"BACKUPFILE_BACKUP_OPTION\": \"no\",\n    \"BACKUPFILE_RESTORE_OPTION\": \"no\",\n    \"LOG_LEVEL\": \"INFO\",\n    \"LAYOUT_KEEP\": \"\",\n    \"RCLONEOPTS\": \"--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt\",\n    \"RCLONE_NET_OPTS\": \"--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1\",\n    \"CONTENT_REMOTE\": \"/pixelelated/Content\"\n  }\n}"
+    },
+    "invalid-input-refused/03-cloud_setup.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "text": ""
+    },
+    "invalid-input-refused/04-cloud_setup.json": {
+      "sha256": "ade2f109519bacabbb5a6bec5e5e8ba12fdd904a516a108887ab2fad858e732f",
+      "bytes": 725,
+      "text": "{\n  \"argv\": [\n    \"cloud_setup\",\n    \"--validate-folders\",\n    \"invalid\",\n    \"a\"\n  ],\n  \"rc\": 2,\n  \"pointers\": {\n    \"SAVESPATH\": \"/storage/roms\",\n    \"SAVES_REMOTE\": \"/pixelelated/Saves\",\n    \"SETTINGS_BACKUPS\": \"/storage/roms/backup\",\n    \"SETTINGS_REMOTE\": \"/pixelelated/Backups\",\n    \"BACKUPMETHOD\": \"copy\",\n    \"RESTOREMETHOD\": \"copy\",\n    \"BACKUPFILE_BACKUP_OPTION\": \"no\",\n    \"BACKUPFILE_RESTORE_OPTION\": \"no\",\n    \"LOG_LEVEL\": \"INFO\",\n    \"LAYOUT_KEEP\": \"\",\n    \"RCLONEOPTS\": \"--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt\",\n    \"RCLONE_NET_OPTS\": \"--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1\",\n    \"CONTENT_REMOTE\": \"/pixelelated/Content\"\n  }\n}"
+    },
+    "invalid-input-refused/04-cloud_setup.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "text": ""
+    },
+    "invalid-input-refused/05-cloud_setup.json": {
+      "sha256": "8bb238423a057b00af235b823f5dc864b5b2b10cc64435e3d713e84ccc04bf0f",
+      "bytes": 726,
+      "text": "{\n  \"argv\": [\n    \"cloud_setup\",\n    \"--validate-folders\",\n    \"saves\",\n    \"../a\"\n  ],\n  \"rc\": 2,\n  \"pointers\": {\n    \"SAVESPATH\": \"/storage/roms\",\n    \"SAVES_REMOTE\": \"/pixelelated/Saves\",\n    \"SETTINGS_BACKUPS\": \"/storage/roms/backup\",\n    \"SETTINGS_REMOTE\": \"/pixelelated/Backups\",\n    \"BACKUPMETHOD\": \"copy\",\n    \"RESTOREMETHOD\": \"copy\",\n    \"BACKUPFILE_BACKUP_OPTION\": \"no\",\n    \"BACKUPFILE_RESTORE_OPTION\": \"no\",\n    \"LOG_LEVEL\": \"INFO\",\n    \"LAYOUT_KEEP\": \"\",\n    \"RCLONEOPTS\": \"--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt\",\n    \"RCLONE_NET_OPTS\": \"--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1\",\n    \"CONTENT_REMOTE\": \"/pixelelated/Content\"\n  }\n}"
+    },
+    "invalid-input-refused/05-cloud_setup.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "text": ""
+    },
+    "invalid-input-refused/06-cloud_setup.json": {
+      "sha256": "5b89e004f3eb42fd265367df364c2d08a7bd5a895c6b6bd65f1264abefbaae6d",
+      "bytes": 787,
+      "text": "{\n  \"argv\": [\n    \"cloud_setup\",\n    \"--validate-folders\",\n    \"saves\",\n    \"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\"\n  ],\n  \"rc\": 2,\n  \"pointers\": {\n    \"SAVESPATH\": \"/storage/roms\",\n    \"SAVES_REMOTE\": \"/pixelelated/Saves\",\n    \"SETTINGS_BACKUPS\": \"/storage/roms/backup\",\n    \"SETTINGS_REMOTE\": \"/pixelelated/Backups\",\n    \"BACKUPMETHOD\": \"copy\",\n    \"RESTOREMETHOD\": \"copy\",\n    \"BACKUPFILE_BACKUP_OPTION\": \"no\",\n    \"BACKUPFILE_RESTORE_OPTION\": \"no\",\n    \"LOG_LEVEL\": \"INFO\",\n    \"LAYOUT_KEEP\": \"\",\n    \"RCLONEOPTS\": \"--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt\",\n    \"RCLONE_NET_OPTS\": \"--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1\",\n    \"CONTENT_REMOTE\": \"/pixelelated/Content\"\n  }\n}"
+    },
+    "invalid-input-refused/06-cloud_setup.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "text": ""
+    },
+    "invalid-input-refused/profile": {
+      "sha256": "c53499f1fe23f18126fa3f158e891f940ea7fe9894cfaabb521f6ec75c6e95e5",
+      "bytes": 82,
+      "text": "export PATH=/shim:/repo:/usr/bin:/bin\nexport HOME=/storage\nexport OS_NAME=ROCKNIX\n"
+    },
+    "invalid-input-refused/shim/ip": {
+      "sha256": "ed7833938db4abd915c4a87c20a87b5081e535ca8bcaadce3636bbbce842d61c",
+      "bytes": 70,
+      "text": "#!/bin/sh\n[ -e /ctl/offline ] || echo \"default via 10.0.2.2 dev eth0\"\n"
+    },
+    "invalid-input-refused/shim/logger": {
+      "sha256": "3874e47b219daaa98d73429732121b2639080ca64e5769982a78093c4f036cc7",
+      "bytes": 45,
+      "text": "#!/bin/sh\nprintf \"%s\\n\" \"$*\" >> /ctl/journal\n"
+    },
+    "invalid-input-refused/shim/ping": {
+      "sha256": "a0cfd66789b27fed708dda43875c9e9ff38823623233621b6bf816df8440dac9",
+      "bytes": 32,
+      "text": "#!/bin/sh\n[ ! -e /ctl/offline ]\n"
+    },
+    "invalid-input-refused/shim/rclone": {
+      "sha256": "02e1a1c6a82385cd1c5a510a764b0ca83c722e7c5812b0bb391f7d31c397a517",
+      "bytes": 543,
+      "text": "#!/bin/bash\nprintf '%s\\n' \"$*\" >> /ctl/argv\nif [ -f /ctl/faults ]; then\n while IFS=$'\\t' read -r pattern code; do\n  [[ \"$*\" =~ $pattern ]] && { printf '%s\\n' \"$*\" >> /ctl/fault-fired; echo 'injected provider failure' >&2; exit \"$code\"; }\n done < /ctl/faults\nfi\nif [ -e /ctl/bucket ]; then\n if [ \"$1 $2\" = 'backend features' ]; then\n  printf '{\"Hashes\":[\"md5\"],\"Features\":{\"BucketBased\":true}}\\n'; exit 0\n fi\n # Bucket prefixes can return successful empty lsd for a missing prefix.\n if [ \"$1\" = lsd ]; then exit 0; fi\nfi\nexec /rclone.real \"$@\"\n"
+    },
+    "invalid-input-refused/shim/systemctl": {
+      "sha256": "306c6ca7407560340797866e077e053627ad409277d1b9da58106fce4cf717cb",
+      "bytes": 17,
+      "text": "#!/bin/sh\nexit 0\n"
+    },
+    "invalid-input-refused/shim/systemd-tmpfiles": {
+      "sha256": "306c6ca7407560340797866e077e053627ad409277d1b9da58106fce4cf717cb",
+      "bytes": 17,
+      "text": "#!/bin/sh\nexit 0\n"
+    },
+    "invalid-input-refused/source-sha256.json": {
+      "sha256": "b6c485beb15269f8a2b1fb616751fb2288da27605bef5bdfaab6f49da18b5650",
+      "bytes": 2107,
+      "text": "{\n  \"backuptool\": \"02557ca500c9706bac1c1062e70a1abfff46f8a445e96cde2f1b407ff64fe254\",\n  \"cloud_backup\": \"deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76\",\n  \"cloud_capture\": \"6853272e6eb29b2c61908dbfe135a5cb14cab7e86f833dea69a4cc6ac66a8929\",\n  \"cloud_content_backup\": \"c6789f9476d1c13cc00050fe2478d26629da05ef6af89222eb0ef72f3bf594ae\",\n  \"cloud_content_restore\": \"2790b3794febe953d1386bc427e0fa537343434a03fa67329781ca9f80c00180\",\n  \"cloud_content_transfer\": \"fe292268d9029c2b950a093f6902b5cbe8afb3d57cb47187251cf90c3d85a1a3\",\n  \"cloud_device_id\": \"3230633caf65ad9e115dffc1bf3e1dede38746f808d4177fc0c37b9defbeee62\",\n  \"cloud_folder_validate\": \"2c9c31a6b1c020669e9dff3228a12bd1eebf2b25a53a67be8260272f2784b982\",\n  \"cloud_log_scrub\": \"5c156d8d43b39172fa71b80a3e47156f46bca0965dcae890ec70f02596f8f126\",\n  \"cloud_net_ready\": \"19afce254bc5c55f119b9681463b8103da5f564f3235b64f100ba9c35e62df89\",\n  \"cloud_oauth\": \"fec8240db342eb9432f9423f5ee3f5bd53df499012dffd1e4ac9ae81c316cbf5\",\n  \"cloud_remote\": \"1b4df1b5394647e52df8584e75529ef113be8ccde3ea31b8b7dd1dfd5bb2e99e\",\n  \"cloud_restore\": \"ec63c21ad782703c6679ce5e1a7b8c5e8f610daeec8cdda224d166df945d0544\",\n  \"cloud_saves_root\": \"d0b0c5b850a7b51257797dcc9bfdac2e6f3e0abf2c3be4584ca65583748bfe43\",\n  \"cloud_scan\": \"a82548feb2aa14d7586582eade9ddbc223f4f713c543c7ce064fc1942e876351\",\n  \"cloud_setup\": \"9e825a8cd970488bb91e99814d6bfbee395fff87bff018658be3192dad684fa5\",\n  \"cloud_sync-rules.txt\": \"bdb7e18128ce4a604c9b02cfe5b0f10f4e3e4dfd3aa7e2d69ea018b8c9d5484d\",\n  \"cloud_sync-rules.txt.defaults\": \"951a7d65d83dc2f2a041868cf2ab1e231a8b09873a0656311b1f947fd106df75\",\n  \"cloud_sync.conf\": \"a121977066ce805e791108258fe12d1ecbce5e71ce2f61f096394a9fca982305\",\n  \"cloud_sync.conf.defaults\": \"77ce914421b47ef7f0a33e6085a5793cb8be55a5c239788adf8575a57d3ad1c4\",\n  \"cloud_sync_cleanup_duplicates.sh\": \"b62ee55ace6e9d776a89686ed6ecdfa17c90ac0e9a6f16d2e260cb2a7617eac1\",\n  \"cloud_sync_helper\": \"3c7738648fe946c74d2c8e9d38fc5e7529f6f41a831a6c546c84765891f26385\",\n  \"rasteratops-settings-archive\": \"58977f0e8aec6adfe673037c1a926bb2cbee94269ad6306ec02206250bceb50c\"\n}\n"
+    },
+    "invalid-input-refused/storage/.config/cloud_sync-rules.txt": {
+      "sha256": "bc4f15f38e740763d19255aace0a90edd851e5deb159fc3bb38a3a12dfab38e8",
+      "bytes": 18,
+      "text": "+ /**/*.srm\n- /**\n"
+    },
+    "invalid-input-refused/storage/.config/cloud_sync.conf": {
+      "sha256": "7e2d82392b0c84043f4233f41eaeda715a5f6c922d20a7fce8cf15e14251e620",
+      "bytes": 503,
+      "text": "SAVESPATH=\"/storage/roms\"\nSAVES_REMOTE=\"/pixelelated/Saves\"\nSETTINGS_BACKUPS=\"/storage/roms/backup\"\nSETTINGS_REMOTE=\"/pixelelated/Backups\"\nBACKUPMETHOD=\"copy\"\nRESTOREMETHOD=\"copy\"\nBACKUPFILE_BACKUP_OPTION=\"no\"\nBACKUPFILE_RESTORE_OPTION=\"no\"\nLOG_LEVEL=\"INFO\"\nLAYOUT_KEEP=\"\"\nRCLONEOPTS=\"--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt\"\nRCLONE_NET_OPTS=\"--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1\"\nCONTENT_REMOTE=\"/pixelelated/Content\"\n"
+    },
+    "invalid-input-refused/storage/.config/rclone/rclone.conf": {
+      "sha256": "7603c17bce0056aae641bee817b6f9875863b4158f34d526914bfba008485eb5",
+      "bytes": 34,
+      "text": "[qa]\ntype = alias\nremote = /cloud\n"
+    },
+    "invalid-input-refused/storage/roms/gb/.fixture": {
+      "sha256": "7d9f18b135168edd868a20d626bf0469a86d20f650fe620af06458d4f3335ce8",
+      "bytes": 19,
+      "text": "local known system\n"
+    },
+    "invalid-input-refused/storage/roms/snes/.fixture": {
+      "sha256": "7d9f18b135168edd868a20d626bf0469a86d20f650fe620af06458d4f3335ce8",
+      "bytes": 19,
+      "text": "local known system\n"
+    },
+    "malformed-listing/01-cloud_setup.json": {
+      "sha256": "4e1a4d9ea25da60dd2a7ec88870bf8da75dae27d68983209425a4af39fa605da",
+      "bytes": 729,
+      "text": "{\n  \"argv\": [\n    \"cloud_setup\",\n    \"--validate-folders\",\n    \"saves\",\n    \"proof01\"\n  ],\n  \"rc\": 5,\n  \"pointers\": {\n    \"SAVESPATH\": \"/storage/roms\",\n    \"SAVES_REMOTE\": \"/pixelelated/Saves\",\n    \"SETTINGS_BACKUPS\": \"/storage/roms/backup\",\n    \"SETTINGS_REMOTE\": \"/pixelelated/Backups\",\n    \"BACKUPMETHOD\": \"copy\",\n    \"RESTOREMETHOD\": \"copy\",\n    \"BACKUPFILE_BACKUP_OPTION\": \"no\",\n    \"BACKUPFILE_RESTORE_OPTION\": \"no\",\n    \"LOG_LEVEL\": \"INFO\",\n    \"LAYOUT_KEEP\": \"\",\n    \"RCLONEOPTS\": \"--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt\",\n    \"RCLONE_NET_OPTS\": \"--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1\",\n    \"CONTENT_REMOTE\": \"/pixelelated/Content\"\n  }\n}"
+    },
+    "malformed-listing/01-cloud_setup.log": {
+      "sha256": "20633e3493c38c62c6d5087538075f61fe92284fd0c7f350a4c8ef4feef032c4",
+      "bytes": 564,
+      "text": "{\"schema_version\":1,\"run_id\":\"proof01\",\"config_id\":\"286ea3302d51d237557465b685ab09c4203cd032c5afb4ea446d4c06afde18d1\",\"categories\":[{\"category\":\"saves\",\"state\":\"unreadable\",\"path\":\"/pixelelated/Saves\",\"detail\":\"invalid-listing\"}],\"complete\":false,\"scope\":{\"max_depth\":3,\"max_entries_per_listing\":4096,\"max_bytes_per_listing\":2097152,\"max_seconds\":25},\"paths\":{\"saves\":\"/pixelelated/Saves\",\"settings\":\"/pixelelated/Backups\",\"content\":\"/pixelelated/Content\",\"roms\":\"/pixelelated/Content/ROMs\",\"bios\":\"/pixelelated/Content/BIOS\",\"media\":\"/pixelelated/Content/ROMs\"}}\n"
+    },
+    "malformed-listing/ctl/argv": {
+      "sha256": "07407bb75fcfc47b2df831a4a27a42759d6b4eb5e885446f6eb83c35bfd0ebec",
+      "bytes": 211,
+      "text": "listremotes\nconfig file\nlsjson qa:/pixelelated/Saves --recursive --max-depth 3 --no-mimetype --no-modtime --retries 1 --low-level-retries 1 --contimeout 3s --timeout 5s --max-duration 6s\nlistremotes\nconfig file\n"
+    },
+    "malformed-listing/profile": {
+      "sha256": "c53499f1fe23f18126fa3f158e891f940ea7fe9894cfaabb521f6ec75c6e95e5",
+      "bytes": 82,
+      "text": "export PATH=/shim:/repo:/usr/bin:/bin\nexport HOME=/storage\nexport OS_NAME=ROCKNIX\n"
+    },
+    "malformed-listing/shim/ip": {
+      "sha256": "ed7833938db4abd915c4a87c20a87b5081e535ca8bcaadce3636bbbce842d61c",
+      "bytes": 70,
+      "text": "#!/bin/sh\n[ -e /ctl/offline ] || echo \"default via 10.0.2.2 dev eth0\"\n"
+    },
+    "malformed-listing/shim/logger": {
+      "sha256": "3874e47b219daaa98d73429732121b2639080ca64e5769982a78093c4f036cc7",
+      "bytes": 45,
+      "text": "#!/bin/sh\nprintf \"%s\\n\" \"$*\" >> /ctl/journal\n"
+    },
+    "malformed-listing/shim/ping": {
+      "sha256": "a0cfd66789b27fed708dda43875c9e9ff38823623233621b6bf816df8440dac9",
+      "bytes": 32,
+      "text": "#!/bin/sh\n[ ! -e /ctl/offline ]\n"
+    },
+    "malformed-listing/shim/rclone": {
+      "sha256": "289bf78c456e1c76db168778bcf561865d065514d6a832a3146049551f8968dc",
+      "bytes": 632,
+      "text": "#!/bin/bash\nprintf '%s\\n' \"$*\" >> /ctl/argv\nif [ -f /ctl/faults ]; then\n while IFS=$'\\t' read -r pattern code; do\n  [[ \"$*\" =~ $pattern ]] && { printf '%s\\n' \"$*\" >> /ctl/fault-fired; echo 'injected provider failure' >&2; exit \"$code\"; }\n done < /ctl/faults\nfi\nif [ -e /ctl/bucket ]; then\n if [ \"$1 $2\" = 'backend features' ]; then\n  printf '{\"Hashes\":[\"md5\"],\"Features\":{\"BucketBased\":true}}\\n'; exit 0\n fi\n # Bucket prefixes can return successful empty lsd for a missing prefix.\n if [ \"$1\" = lsd ]; then exit 0; fi\nfi\nif [ \"$1\" = lsjson ]; then printf '[{\"Path\":\"../escape.srm\",\"IsDir\":false}]'; exit 0; fi\nexec /rclone.real \"$@\"\n"
+    },
+    "malformed-listing/shim/systemctl": {
+      "sha256": "306c6ca7407560340797866e077e053627ad409277d1b9da58106fce4cf717cb",
+      "bytes": 17,
+      "text": "#!/bin/sh\nexit 0\n"
+    },
+    "malformed-listing/shim/systemd-tmpfiles": {
+      "sha256": "306c6ca7407560340797866e077e053627ad409277d1b9da58106fce4cf717cb",
+      "bytes": 17,
+      "text": "#!/bin/sh\nexit 0\n"
+    },
+    "malformed-listing/source-sha256.json": {
+      "sha256": "b6c485beb15269f8a2b1fb616751fb2288da27605bef5bdfaab6f49da18b5650",
+      "bytes": 2107,
+      "text": "{\n  \"backuptool\": \"02557ca500c9706bac1c1062e70a1abfff46f8a445e96cde2f1b407ff64fe254\",\n  \"cloud_backup\": \"deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76\",\n  \"cloud_capture\": \"6853272e6eb29b2c61908dbfe135a5cb14cab7e86f833dea69a4cc6ac66a8929\",\n  \"cloud_content_backup\": \"c6789f9476d1c13cc00050fe2478d26629da05ef6af89222eb0ef72f3bf594ae\",\n  \"cloud_content_restore\": \"2790b3794febe953d1386bc427e0fa537343434a03fa67329781ca9f80c00180\",\n  \"cloud_content_transfer\": \"fe292268d9029c2b950a093f6902b5cbe8afb3d57cb47187251cf90c3d85a1a3\",\n  \"cloud_device_id\": \"3230633caf65ad9e115dffc1bf3e1dede38746f808d4177fc0c37b9defbeee62\",\n  \"cloud_folder_validate\": \"2c9c31a6b1c020669e9dff3228a12bd1eebf2b25a53a67be8260272f2784b982\",\n  \"cloud_log_scrub\": \"5c156d8d43b39172fa71b80a3e47156f46bca0965dcae890ec70f02596f8f126\",\n  \"cloud_net_ready\": \"19afce254bc5c55f119b9681463b8103da5f564f3235b64f100ba9c35e62df89\",\n  \"cloud_oauth\": \"fec8240db342eb9432f9423f5ee3f5bd53df499012dffd1e4ac9ae81c316cbf5\",\n  \"cloud_remote\": \"1b4df1b5394647e52df8584e75529ef113be8ccde3ea31b8b7dd1dfd5bb2e99e\",\n  \"cloud_restore\": \"ec63c21ad782703c6679ce5e1a7b8c5e8f610daeec8cdda224d166df945d0544\",\n  \"cloud_saves_root\": \"d0b0c5b850a7b51257797dcc9bfdac2e6f3e0abf2c3be4584ca65583748bfe43\",\n  \"cloud_scan\": \"a82548feb2aa14d7586582eade9ddbc223f4f713c543c7ce064fc1942e876351\",\n  \"cloud_setup\": \"9e825a8cd970488bb91e99814d6bfbee395fff87bff018658be3192dad684fa5\",\n  \"cloud_sync-rules.txt\": \"bdb7e18128ce4a604c9b02cfe5b0f10f4e3e4dfd3aa7e2d69ea018b8c9d5484d\",\n  \"cloud_sync-rules.txt.defaults\": \"951a7d65d83dc2f2a041868cf2ab1e231a8b09873a0656311b1f947fd106df75\",\n  \"cloud_sync.conf\": \"a121977066ce805e791108258fe12d1ecbce5e71ce2f61f096394a9fca982305\",\n  \"cloud_sync.conf.defaults\": \"77ce914421b47ef7f0a33e6085a5793cb8be55a5c239788adf8575a57d3ad1c4\",\n  \"cloud_sync_cleanup_duplicates.sh\": \"b62ee55ace6e9d776a89686ed6ecdfa17c90ac0e9a6f16d2e260cb2a7617eac1\",\n  \"cloud_sync_helper\": \"3c7738648fe946c74d2c8e9d38fc5e7529f6f41a831a6c546c84765891f26385\",\n  \"rasteratops-settings-archive\": \"58977f0e8aec6adfe673037c1a926bb2cbee94269ad6306ec02206250bceb50c\"\n}\n"
+    },
+    "malformed-listing/storage/.config/cloud_sync-rules.txt": {
+      "sha256": "bc4f15f38e740763d19255aace0a90edd851e5deb159fc3bb38a3a12dfab38e8",
+      "bytes": 18,
+      "text": "+ /**/*.srm\n- /**\n"
+    },
+    "malformed-listing/storage/.config/cloud_sync.conf": {
+      "sha256": "7e2d82392b0c84043f4233f41eaeda715a5f6c922d20a7fce8cf15e14251e620",
+      "bytes": 503,
+      "text": "SAVESPATH=\"/storage/roms\"\nSAVES_REMOTE=\"/pixelelated/Saves\"\nSETTINGS_BACKUPS=\"/storage/roms/backup\"\nSETTINGS_REMOTE=\"/pixelelated/Backups\"\nBACKUPMETHOD=\"copy\"\nRESTOREMETHOD=\"copy\"\nBACKUPFILE_BACKUP_OPTION=\"no\"\nBACKUPFILE_RESTORE_OPTION=\"no\"\nLOG_LEVEL=\"INFO\"\nLAYOUT_KEEP=\"\"\nRCLONEOPTS=\"--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt\"\nRCLONE_NET_OPTS=\"--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1\"\nCONTENT_REMOTE=\"/pixelelated/Content\"\n"
+    },
+    "malformed-listing/storage/.config/rclone/rclone.conf": {
+      "sha256": "7603c17bce0056aae641bee817b6f9875863b4158f34d526914bfba008485eb5",
+      "bytes": 34,
+      "text": "[qa]\ntype = alias\nremote = /cloud\n"
+    },
+    "malformed-listing/storage/roms/gb/.fixture": {
+      "sha256": "7d9f18b135168edd868a20d626bf0469a86d20f650fe620af06458d4f3335ce8",
+      "bytes": 19,
+      "text": "local known system\n"
+    },
+    "malformed-listing/storage/roms/snes/.fixture": {
+      "sha256": "7d9f18b135168edd868a20d626bf0469a86d20f650fe620af06458d4f3335ce8",
+      "bytes": 19,
+      "text": "local known system\n"
+    },
+    "missing-selected-only/01-cloud_setup.json": {
+      "sha256": "0dc172f73962038bc92c271b7c7ecb3a8176774bdd027569f8f81aae40ac645b",
+      "bytes": 754,
+      "text": "{\n  \"argv\": [\n    \"cloud_setup\",\n    \"--validate-folders\",\n    \"saves,settings,roms,bios,media\",\n    \"proof01\"\n  ],\n  \"rc\": 0,\n  \"pointers\": {\n    \"SAVESPATH\": \"/storage/roms\",\n    \"SAVES_REMOTE\": \"/pixelelated/Saves\",\n    \"SETTINGS_BACKUPS\": \"/storage/roms/backup\",\n    \"SETTINGS_REMOTE\": \"/pixelelated/Backups\",\n    \"BACKUPMETHOD\": \"copy\",\n    \"RESTOREMETHOD\": \"copy\",\n    \"BACKUPFILE_BACKUP_OPTION\": \"no\",\n    \"BACKUPFILE_RESTORE_OPTION\": \"no\",\n    \"LOG_LEVEL\": \"INFO\",\n    \"LAYOUT_KEEP\": \"\",\n    \"RCLONEOPTS\": \"--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt\",\n    \"RCLONE_NET_OPTS\": \"--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1\",\n    \"CONTENT_REMOTE\": \"/pixelelated/Content\"\n  }\n}"
+    },
+    "missing-selected-only/01-cloud_setup.log": {
+      "sha256": "76fc886512c19de3a977e1917ea932ec6d0b97806cf3745dd8528da8e97ea602",
+      "bytes": 1010,
+      "text": "{\"schema_version\":1,\"run_id\":\"proof01\",\"config_id\":\"286ea3302d51d237557465b685ab09c4203cd032c5afb4ea446d4c06afde18d1\",\"categories\":[{\"category\":\"saves\",\"state\":\"missing\",\"path\":\"/pixelelated/Saves\",\"detail\":\"selected-folder-not-found\"},{\"category\":\"settings\",\"state\":\"missing\",\"path\":\"/pixelelated/Backups\",\"detail\":\"selected-folder-not-found\"},{\"category\":\"roms\",\"state\":\"missing\",\"path\":\"/pixelelated/Content/ROMs\",\"detail\":\"expected-folder-not-found\"},{\"category\":\"bios\",\"state\":\"missing\",\"path\":\"/pixelelated/Content/BIOS\",\"detail\":\"expected-folder-not-found\"},{\"category\":\"media\",\"state\":\"missing\",\"path\":\"/pixelelated/Content/ROMs\",\"detail\":\"expected-folder-not-found\"}],\"complete\":true,\"scope\":{\"max_depth\":3,\"max_entries_per_listing\":4096,\"max_bytes_per_listing\":2097152,\"max_seconds\":25},\"paths\":{\"saves\":\"/pixelelated/Saves\",\"settings\":\"/pixelelated/Backups\",\"content\":\"/pixelelated/Content\",\"roms\":\"/pixelelated/Content/ROMs\",\"bios\":\"/pixelelated/Content/BIOS\",\"media\":\"/pixelelated/Content/ROMs\"}}\n"
+    },
+    "missing-selected-only/cloud/Elsewhere/ROMs/gb/Game.gb": {
+      "sha256": "b5f7e7d285029324d9b3acae19cc05099271454ac98bfc059a92b0581625cd51",
+      "bytes": 9,
+      "text": "sentinel\n"
+    },
+    "missing-selected-only/ctl/argv": {
+      "sha256": "eca5df517dfbada307ed00774b095a0604371bbc65fda2a63ee7724cf274969b",
+      "bytes": 541,
+      "text": "listremotes\nconfig file\nlsjson qa:/pixelelated/Saves --recursive --max-depth 3 --no-mimetype --no-modtime --retries 1 --low-level-retries 1 --contimeout 3s --timeout 5s --max-duration 6s\nlsjson qa:/pixelelated/Backups --recursive --max-depth 3 --no-mimetype --no-modtime --retries 1 --low-level-retries 1 --contimeout 3s --timeout 5s --max-duration 6s\nlsjson qa:/pixelelated/Content --recursive --max-depth 1 --no-mimetype --no-modtime --retries 1 --low-level-retries 1 --contimeout 3s --timeout 5s --max-duration 6s\nlistremotes\nconfig file\n"
+    },
+    "missing-selected-only/profile": {
+      "sha256": "c53499f1fe23f18126fa3f158e891f940ea7fe9894cfaabb521f6ec75c6e95e5",
+      "bytes": 82,
+      "text": "export PATH=/shim:/repo:/usr/bin:/bin\nexport HOME=/storage\nexport OS_NAME=ROCKNIX\n"
+    },
+    "missing-selected-only/shim/ip": {
+      "sha256": "ed7833938db4abd915c4a87c20a87b5081e535ca8bcaadce3636bbbce842d61c",
+      "bytes": 70,
+      "text": "#!/bin/sh\n[ -e /ctl/offline ] || echo \"default via 10.0.2.2 dev eth0\"\n"
+    },
+    "missing-selected-only/shim/logger": {
+      "sha256": "3874e47b219daaa98d73429732121b2639080ca64e5769982a78093c4f036cc7",
+      "bytes": 45,
+      "text": "#!/bin/sh\nprintf \"%s\\n\" \"$*\" >> /ctl/journal\n"
+    },
+    "missing-selected-only/shim/ping": {
+      "sha256": "a0cfd66789b27fed708dda43875c9e9ff38823623233621b6bf816df8440dac9",
+      "bytes": 32,
+      "text": "#!/bin/sh\n[ ! -e /ctl/offline ]\n"
+    },
+    "missing-selected-only/shim/rclone": {
+      "sha256": "02e1a1c6a82385cd1c5a510a764b0ca83c722e7c5812b0bb391f7d31c397a517",
+      "bytes": 543,
+      "text": "#!/bin/bash\nprintf '%s\\n' \"$*\" >> /ctl/argv\nif [ -f /ctl/faults ]; then\n while IFS=$'\\t' read -r pattern code; do\n  [[ \"$*\" =~ $pattern ]] && { printf '%s\\n' \"$*\" >> /ctl/fault-fired; echo 'injected provider failure' >&2; exit \"$code\"; }\n done < /ctl/faults\nfi\nif [ -e /ctl/bucket ]; then\n if [ \"$1 $2\" = 'backend features' ]; then\n  printf '{\"Hashes\":[\"md5\"],\"Features\":{\"BucketBased\":true}}\\n'; exit 0\n fi\n # Bucket prefixes can return successful empty lsd for a missing prefix.\n if [ \"$1\" = lsd ]; then exit 0; fi\nfi\nexec /rclone.real \"$@\"\n"
+    },
+    "missing-selected-only/shim/systemctl": {
+      "sha256": "306c6ca7407560340797866e077e053627ad409277d1b9da58106fce4cf717cb",
+      "bytes": 17,
+      "text": "#!/bin/sh\nexit 0\n"
+    },
+    "missing-selected-only/shim/systemd-tmpfiles": {
+      "sha256": "306c6ca7407560340797866e077e053627ad409277d1b9da58106fce4cf717cb",
+      "bytes": 17,
+      "text": "#!/bin/sh\nexit 0\n"
+    },
+    "missing-selected-only/source-sha256.json": {
+      "sha256": "b6c485beb15269f8a2b1fb616751fb2288da27605bef5bdfaab6f49da18b5650",
+      "bytes": 2107,
+      "text": "{\n  \"backuptool\": \"02557ca500c9706bac1c1062e70a1abfff46f8a445e96cde2f1b407ff64fe254\",\n  \"cloud_backup\": \"deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76\",\n  \"cloud_capture\": \"6853272e6eb29b2c61908dbfe135a5cb14cab7e86f833dea69a4cc6ac66a8929\",\n  \"cloud_content_backup\": \"c6789f9476d1c13cc00050fe2478d26629da05ef6af89222eb0ef72f3bf594ae\",\n  \"cloud_content_restore\": \"2790b3794febe953d1386bc427e0fa537343434a03fa67329781ca9f80c00180\",\n  \"cloud_content_transfer\": \"fe292268d9029c2b950a093f6902b5cbe8afb3d57cb47187251cf90c3d85a1a3\",\n  \"cloud_device_id\": \"3230633caf65ad9e115dffc1bf3e1dede38746f808d4177fc0c37b9defbeee62\",\n  \"cloud_folder_validate\": \"2c9c31a6b1c020669e9dff3228a12bd1eebf2b25a53a67be8260272f2784b982\",\n  \"cloud_log_scrub\": \"5c156d8d43b39172fa71b80a3e47156f46bca0965dcae890ec70f02596f8f126\",\n  \"cloud_net_ready\": \"19afce254bc5c55f119b9681463b8103da5f564f3235b64f100ba9c35e62df89\",\n  \"cloud_oauth\": \"fec8240db342eb9432f9423f5ee3f5bd53df499012dffd1e4ac9ae81c316cbf5\",\n  \"cloud_remote\": \"1b4df1b5394647e52df8584e75529ef113be8ccde3ea31b8b7dd1dfd5bb2e99e\",\n  \"cloud_restore\": \"ec63c21ad782703c6679ce5e1a7b8c5e8f610daeec8cdda224d166df945d0544\",\n  \"cloud_saves_root\": \"d0b0c5b850a7b51257797dcc9bfdac2e6f3e0abf2c3be4584ca65583748bfe43\",\n  \"cloud_scan\": \"a82548feb2aa14d7586582eade9ddbc223f4f713c543c7ce064fc1942e876351\",\n  \"cloud_setup\": \"9e825a8cd970488bb91e99814d6bfbee395fff87bff018658be3192dad684fa5\",\n  \"cloud_sync-rules.txt\": \"bdb7e18128ce4a604c9b02cfe5b0f10f4e3e4dfd3aa7e2d69ea018b8c9d5484d\",\n  \"cloud_sync-rules.txt.defaults\": \"951a7d65d83dc2f2a041868cf2ab1e231a8b09873a0656311b1f947fd106df75\",\n  \"cloud_sync.conf\": \"a121977066ce805e791108258fe12d1ecbce5e71ce2f61f096394a9fca982305\",\n  \"cloud_sync.conf.defaults\": \"77ce914421b47ef7f0a33e6085a5793cb8be55a5c239788adf8575a57d3ad1c4\",\n  \"cloud_sync_cleanup_duplicates.sh\": \"b62ee55ace6e9d776a89686ed6ecdfa17c90ac0e9a6f16d2e260cb2a7617eac1\",\n  \"cloud_sync_helper\": \"3c7738648fe946c74d2c8e9d38fc5e7529f6f41a831a6c546c84765891f26385\",\n  \"rasteratops-settings-archive\": \"58977f0e8aec6adfe673037c1a926bb2cbee94269ad6306ec02206250bceb50c\"\n}\n"
+    },
+    "missing-selected-only/storage/.config/cloud_sync-rules.txt": {
+      "sha256": "bc4f15f38e740763d19255aace0a90edd851e5deb159fc3bb38a3a12dfab38e8",
+      "bytes": 18,
+      "text": "+ /**/*.srm\n- /**\n"
+    },
+    "missing-selected-only/storage/.config/cloud_sync.conf": {
+      "sha256": "7e2d82392b0c84043f4233f41eaeda715a5f6c922d20a7fce8cf15e14251e620",
+      "bytes": 503,
+      "text": "SAVESPATH=\"/storage/roms\"\nSAVES_REMOTE=\"/pixelelated/Saves\"\nSETTINGS_BACKUPS=\"/storage/roms/backup\"\nSETTINGS_REMOTE=\"/pixelelated/Backups\"\nBACKUPMETHOD=\"copy\"\nRESTOREMETHOD=\"copy\"\nBACKUPFILE_BACKUP_OPTION=\"no\"\nBACKUPFILE_RESTORE_OPTION=\"no\"\nLOG_LEVEL=\"INFO\"\nLAYOUT_KEEP=\"\"\nRCLONEOPTS=\"--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt\"\nRCLONE_NET_OPTS=\"--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1\"\nCONTENT_REMOTE=\"/pixelelated/Content\"\n"
+    },
+    "missing-selected-only/storage/.config/rclone/rclone.conf": {
+      "sha256": "7603c17bce0056aae641bee817b6f9875863b4158f34d526914bfba008485eb5",
+      "bytes": 34,
+      "text": "[qa]\ntype = alias\nremote = /cloud\n"
+    },
+    "missing-selected-only/storage/roms/gb/.fixture": {
+      "sha256": "7d9f18b135168edd868a20d626bf0469a86d20f650fe620af06458d4f3335ce8",
+      "bytes": 19,
+      "text": "local known system\n"
+    },
+    "missing-selected-only/storage/roms/snes/.fixture": {
+      "sha256": "7d9f18b135168edd868a20d626bf0469a86d20f650fe620af06458d4f3335ce8",
+      "bytes": 19,
+      "text": "local known system\n"
+    },
+    "partial-failed-listing/01-cloud_setup.json": {
+      "sha256": "4e1a4d9ea25da60dd2a7ec88870bf8da75dae27d68983209425a4af39fa605da",
+      "bytes": 729,
+      "text": "{\n  \"argv\": [\n    \"cloud_setup\",\n    \"--validate-folders\",\n    \"saves\",\n    \"proof01\"\n  ],\n  \"rc\": 5,\n  \"pointers\": {\n    \"SAVESPATH\": \"/storage/roms\",\n    \"SAVES_REMOTE\": \"/pixelelated/Saves\",\n    \"SETTINGS_BACKUPS\": \"/storage/roms/backup\",\n    \"SETTINGS_REMOTE\": \"/pixelelated/Backups\",\n    \"BACKUPMETHOD\": \"copy\",\n    \"RESTOREMETHOD\": \"copy\",\n    \"BACKUPFILE_BACKUP_OPTION\": \"no\",\n    \"BACKUPFILE_RESTORE_OPTION\": \"no\",\n    \"LOG_LEVEL\": \"INFO\",\n    \"LAYOUT_KEEP\": \"\",\n    \"RCLONEOPTS\": \"--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt\",\n    \"RCLONE_NET_OPTS\": \"--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1\",\n    \"CONTENT_REMOTE\": \"/pixelelated/Content\"\n  }\n}"
+    },
+    "partial-failed-listing/01-cloud_setup.log": {
+      "sha256": "ceef51d938d2bf128a23941936d8d4d9c92735f90b64dfa649ff595d8e8fa3b9",
+      "bytes": 563,
+      "text": "{\"schema_version\":1,\"run_id\":\"proof01\",\"config_id\":\"286ea3302d51d237557465b685ab09c4203cd032c5afb4ea446d4c06afde18d1\",\"categories\":[{\"category\":\"saves\",\"state\":\"unreadable\",\"path\":\"/pixelelated/Saves\",\"detail\":\"listing-failed\"}],\"complete\":false,\"scope\":{\"max_depth\":3,\"max_entries_per_listing\":4096,\"max_bytes_per_listing\":2097152,\"max_seconds\":25},\"paths\":{\"saves\":\"/pixelelated/Saves\",\"settings\":\"/pixelelated/Backups\",\"content\":\"/pixelelated/Content\",\"roms\":\"/pixelelated/Content/ROMs\",\"bios\":\"/pixelelated/Content/BIOS\",\"media\":\"/pixelelated/Content/ROMs\"}}\n"
+    },
+    "partial-failed-listing/ctl/argv": {
+      "sha256": "07407bb75fcfc47b2df831a4a27a42759d6b4eb5e885446f6eb83c35bfd0ebec",
+      "bytes": 211,
+      "text": "listremotes\nconfig file\nlsjson qa:/pixelelated/Saves --recursive --max-depth 3 --no-mimetype --no-modtime --retries 1 --low-level-retries 1 --contimeout 3s --timeout 5s --max-duration 6s\nlistremotes\nconfig file\n"
+    },
+    "partial-failed-listing/profile": {
+      "sha256": "c53499f1fe23f18126fa3f158e891f940ea7fe9894cfaabb521f6ec75c6e95e5",
+      "bytes": 82,
+      "text": "export PATH=/shim:/repo:/usr/bin:/bin\nexport HOME=/storage\nexport OS_NAME=ROCKNIX\n"
+    },
+    "partial-failed-listing/shim/ip": {
+      "sha256": "ed7833938db4abd915c4a87c20a87b5081e535ca8bcaadce3636bbbce842d61c",
+      "bytes": 70,
+      "text": "#!/bin/sh\n[ -e /ctl/offline ] || echo \"default via 10.0.2.2 dev eth0\"\n"
+    },
+    "partial-failed-listing/shim/logger": {
+      "sha256": "3874e47b219daaa98d73429732121b2639080ca64e5769982a78093c4f036cc7",
+      "bytes": 45,
+      "text": "#!/bin/sh\nprintf \"%s\\n\" \"$*\" >> /ctl/journal\n"
+    },
+    "partial-failed-listing/shim/ping": {
+      "sha256": "a0cfd66789b27fed708dda43875c9e9ff38823623233621b6bf816df8440dac9",
+      "bytes": 32,
+      "text": "#!/bin/sh\n[ ! -e /ctl/offline ]\n"
+    },
+    "partial-failed-listing/shim/rclone": {
+      "sha256": "6caf952e96d6e56a7b5da1bfc25860da079eb4ba8c5878d997137e5a716dff56",
+      "bytes": 634,
+      "text": "#!/bin/bash\nprintf '%s\\n' \"$*\" >> /ctl/argv\nif [ -f /ctl/faults ]; then\n while IFS=$'\\t' read -r pattern code; do\n  [[ \"$*\" =~ $pattern ]] && { printf '%s\\n' \"$*\" >> /ctl/fault-fired; echo 'injected provider failure' >&2; exit \"$code\"; }\n done < /ctl/faults\nfi\nif [ -e /ctl/bucket ]; then\n if [ \"$1 $2\" = 'backend features' ]; then\n  printf '{\"Hashes\":[\"md5\"],\"Features\":{\"BucketBased\":true}}\\n'; exit 0\n fi\n # Bucket prefixes can return successful empty lsd for a missing prefix.\n if [ \"$1\" = lsd ]; then exit 0; fi\nfi\nif [ \"$1\" = lsjson ]; then printf '[{\"Path\":\"gb/progress.srm\",\"IsDir\":false}]'; exit 3; fi\nexec /rclone.real \"$@\"\n"
+    },
+    "partial-failed-listing/shim/systemctl": {
+      "sha256": "306c6ca7407560340797866e077e053627ad409277d1b9da58106fce4cf717cb",
+      "bytes": 17,
+      "text": "#!/bin/sh\nexit 0\n"
+    },
+    "partial-failed-listing/shim/systemd-tmpfiles": {
+      "sha256": "306c6ca7407560340797866e077e053627ad409277d1b9da58106fce4cf717cb",
+      "bytes": 17,
+      "text": "#!/bin/sh\nexit 0\n"
+    },
+    "partial-failed-listing/source-sha256.json": {
+      "sha256": "b6c485beb15269f8a2b1fb616751fb2288da27605bef5bdfaab6f49da18b5650",
+      "bytes": 2107,
+      "text": "{\n  \"backuptool\": \"02557ca500c9706bac1c1062e70a1abfff46f8a445e96cde2f1b407ff64fe254\",\n  \"cloud_backup\": \"deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76\",\n  \"cloud_capture\": \"6853272e6eb29b2c61908dbfe135a5cb14cab7e86f833dea69a4cc6ac66a8929\",\n  \"cloud_content_backup\": \"c6789f9476d1c13cc00050fe2478d26629da05ef6af89222eb0ef72f3bf594ae\",\n  \"cloud_content_restore\": \"2790b3794febe953d1386bc427e0fa537343434a03fa67329781ca9f80c00180\",\n  \"cloud_content_transfer\": \"fe292268d9029c2b950a093f6902b5cbe8afb3d57cb47187251cf90c3d85a1a3\",\n  \"cloud_device_id\": \"3230633caf65ad9e115dffc1bf3e1dede38746f808d4177fc0c37b9defbeee62\",\n  \"cloud_folder_validate\": \"2c9c31a6b1c020669e9dff3228a12bd1eebf2b25a53a67be8260272f2784b982\",\n  \"cloud_log_scrub\": \"5c156d8d43b39172fa71b80a3e47156f46bca0965dcae890ec70f02596f8f126\",\n  \"cloud_net_ready\": \"19afce254bc5c55f119b9681463b8103da5f564f3235b64f100ba9c35e62df89\",\n  \"cloud_oauth\": \"fec8240db342eb9432f9423f5ee3f5bd53df499012dffd1e4ac9ae81c316cbf5\",\n  \"cloud_remote\": \"1b4df1b5394647e52df8584e75529ef113be8ccde3ea31b8b7dd1dfd5bb2e99e\",\n  \"cloud_restore\": \"ec63c21ad782703c6679ce5e1a7b8c5e8f610daeec8cdda224d166df945d0544\",\n  \"cloud_saves_root\": \"d0b0c5b850a7b51257797dcc9bfdac2e6f3e0abf2c3be4584ca65583748bfe43\",\n  \"cloud_scan\": \"a82548feb2aa14d7586582eade9ddbc223f4f713c543c7ce064fc1942e876351\",\n  \"cloud_setup\": \"9e825a8cd970488bb91e99814d6bfbee395fff87bff018658be3192dad684fa5\",\n  \"cloud_sync-rules.txt\": \"bdb7e18128ce4a604c9b02cfe5b0f10f4e3e4dfd3aa7e2d69ea018b8c9d5484d\",\n  \"cloud_sync-rules.txt.defaults\": \"951a7d65d83dc2f2a041868cf2ab1e231a8b09873a0656311b1f947fd106df75\",\n  \"cloud_sync.conf\": \"a121977066ce805e791108258fe12d1ecbce5e71ce2f61f096394a9fca982305\",\n  \"cloud_sync.conf.defaults\": \"77ce914421b47ef7f0a33e6085a5793cb8be55a5c239788adf8575a57d3ad1c4\",\n  \"cloud_sync_cleanup_duplicates.sh\": \"b62ee55ace6e9d776a89686ed6ecdfa17c90ac0e9a6f16d2e260cb2a7617eac1\",\n  \"cloud_sync_helper\": \"3c7738648fe946c74d2c8e9d38fc5e7529f6f41a831a6c546c84765891f26385\",\n  \"rasteratops-settings-archive\": \"58977f0e8aec6adfe673037c1a926bb2cbee94269ad6306ec02206250bceb50c\"\n}\n"
+    },
+    "partial-failed-listing/storage/.config/cloud_sync-rules.txt": {
+      "sha256": "bc4f15f38e740763d19255aace0a90edd851e5deb159fc3bb38a3a12dfab38e8",
+      "bytes": 18,
+      "text": "+ /**/*.srm\n- /**\n"
+    },
+    "partial-failed-listing/storage/.config/cloud_sync.conf": {
+      "sha256": "7e2d82392b0c84043f4233f41eaeda715a5f6c922d20a7fce8cf15e14251e620",
+      "bytes": 503,
+      "text": "SAVESPATH=\"/storage/roms\"\nSAVES_REMOTE=\"/pixelelated/Saves\"\nSETTINGS_BACKUPS=\"/storage/roms/backup\"\nSETTINGS_REMOTE=\"/pixelelated/Backups\"\nBACKUPMETHOD=\"copy\"\nRESTOREMETHOD=\"copy\"\nBACKUPFILE_BACKUP_OPTION=\"no\"\nBACKUPFILE_RESTORE_OPTION=\"no\"\nLOG_LEVEL=\"INFO\"\nLAYOUT_KEEP=\"\"\nRCLONEOPTS=\"--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt\"\nRCLONE_NET_OPTS=\"--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1\"\nCONTENT_REMOTE=\"/pixelelated/Content\"\n"
+    },
+    "partial-failed-listing/storage/.config/rclone/rclone.conf": {
+      "sha256": "7603c17bce0056aae641bee817b6f9875863b4158f34d526914bfba008485eb5",
+      "bytes": 34,
+      "text": "[qa]\ntype = alias\nremote = /cloud\n"
+    },
+    "partial-failed-listing/storage/roms/gb/.fixture": {
+      "sha256": "7d9f18b135168edd868a20d626bf0469a86d20f650fe620af06458d4f3335ce8",
+      "bytes": 19,
+      "text": "local known system\n"
+    },
+    "partial-failed-listing/storage/roms/snes/.fixture": {
+      "sha256": "7d9f18b135168edd868a20d626bf0469a86d20f650fe620af06458d4f3335ce8",
+      "bytes": 19,
+      "text": "local known system\n"
+    },
+    "populated-read-only/01-cloud_setup.json": {
+      "sha256": "0dc172f73962038bc92c271b7c7ecb3a8176774bdd027569f8f81aae40ac645b",
+      "bytes": 754,
+      "text": "{\n  \"argv\": [\n    \"cloud_setup\",\n    \"--validate-folders\",\n    \"saves,settings,roms,bios,media\",\n    \"proof01\"\n  ],\n  \"rc\": 0,\n  \"pointers\": {\n    \"SAVESPATH\": \"/storage/roms\",\n    \"SAVES_REMOTE\": \"/pixelelated/Saves\",\n    \"SETTINGS_BACKUPS\": \"/storage/roms/backup\",\n    \"SETTINGS_REMOTE\": \"/pixelelated/Backups\",\n    \"BACKUPMETHOD\": \"copy\",\n    \"RESTOREMETHOD\": \"copy\",\n    \"BACKUPFILE_BACKUP_OPTION\": \"no\",\n    \"BACKUPFILE_RESTORE_OPTION\": \"no\",\n    \"LOG_LEVEL\": \"INFO\",\n    \"LAYOUT_KEEP\": \"\",\n    \"RCLONEOPTS\": \"--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt\",\n    \"RCLONE_NET_OPTS\": \"--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1\",\n    \"CONTENT_REMOTE\": \"/pixelelated/Content\"\n  }\n}"
+    },
+    "populated-read-only/01-cloud_setup.log": {
+      "sha256": "d9499259b706d9b4fae804035c8848174f5fa61bd585dd673eacac4d3e8e4368",
+      "bytes": 1069,
+      "text": "{\"schema_version\":1,\"run_id\":\"proof01\",\"config_id\":\"286ea3302d51d237557465b685ab09c4203cd032c5afb4ea446d4c06afde18d1\",\"categories\":[{\"category\":\"saves\",\"state\":\"present\",\"path\":\"/pixelelated/Saves\",\"detail\":\"progress-paths-found-not-verified\"},{\"category\":\"settings\",\"state\":\"present\",\"path\":\"/pixelelated/Backups\",\"detail\":\"archive-names-found-not-verified\"},{\"category\":\"roms\",\"state\":\"present\",\"path\":\"/pixelelated/Content/ROMs\",\"detail\":\"supported-system-paths-found-not-verified\"},{\"category\":\"bios\",\"state\":\"present\",\"path\":\"/pixelelated/Content/BIOS\",\"detail\":\"files-found-not-compatibility-checked\"},{\"category\":\"media\",\"state\":\"present\",\"path\":\"/pixelelated/Content/ROMs\",\"detail\":\"supported-system-paths-found-not-verified\"}],\"complete\":true,\"scope\":{\"max_depth\":3,\"max_entries_per_listing\":4096,\"max_bytes_per_listing\":2097152,\"max_seconds\":25},\"paths\":{\"saves\":\"/pixelelated/Saves\",\"settings\":\"/pixelelated/Backups\",\"content\":\"/pixelelated/Content\",\"roms\":\"/pixelelated/Content/ROMs\",\"bios\":\"/pixelelated/Content/BIOS\",\"media\":\"/pixelelated/Content/ROMs\"}}\n"
+    },
+    "populated-read-only/cloud/pixelelated/Backups/QA-id/2026_10_01-QA-ROCKNIX_SETTINGS.tar.gz": {
+      "sha256": "b5f7e7d285029324d9b3acae19cc05099271454ac98bfc059a92b0581625cd51",
+      "bytes": 9,
+      "text": "sentinel\n"
+    },
+    "populated-read-only/cloud/pixelelated/Content/BIOS/firmware.bin": {
+      "sha256": "b5f7e7d285029324d9b3acae19cc05099271454ac98bfc059a92b0581625cd51",
+      "bytes": 9,
+      "text": "sentinel\n"
+    },
+    "populated-read-only/cloud/pixelelated/Content/ROMs/gb/Game.gb": {
+      "sha256": "b5f7e7d285029324d9b3acae19cc05099271454ac98bfc059a92b0581625cd51",
+      "bytes": 9,
+      "text": "sentinel\n"
+    },
+    "populated-read-only/cloud/pixelelated/Content/ROMs/gb/images/Game.png": {
+      "sha256": "b5f7e7d285029324d9b3acae19cc05099271454ac98bfc059a92b0581625cd51",
+      "bytes": 9,
+      "text": "sentinel\n"
+    },
+    "populated-read-only/cloud/pixelelated/Saves/gb/progress.srm": {
+      "sha256": "b5f7e7d285029324d9b3acae19cc05099271454ac98bfc059a92b0581625cd51",
+      "bytes": 9,
+      "text": "sentinel\n"
+    },
+    "populated-read-only/ctl/argv": {
+      "sha256": "f668bd66ca4277154f3ff649d58737a405ed2b0467a9c18c15094964db39f438",
+      "bytes": 881,
+      "text": "listremotes\nconfig file\nlsjson qa:/pixelelated/Saves --recursive --max-depth 3 --no-mimetype --no-modtime --retries 1 --low-level-retries 1 --contimeout 3s --timeout 5s --max-duration 6s\nlsjson qa:/pixelelated/Backups --recursive --max-depth 3 --no-mimetype --no-modtime --retries 1 --low-level-retries 1 --contimeout 3s --timeout 5s --max-duration 6s\nlsjson qa:/pixelelated/Content --recursive --max-depth 1 --no-mimetype --no-modtime --retries 1 --low-level-retries 1 --contimeout 3s --timeout 5s --max-duration 6s\nlsjson qa:/pixelelated/Content/ROMs --recursive --max-depth 3 --no-mimetype --no-modtime --retries 1 --low-level-retries 1 --contimeout 3s --timeout 5s --max-duration 6s\nlsjson qa:/pixelelated/Content/BIOS --recursive --max-depth 3 --no-mimetype --no-modtime --retries 1 --low-level-retries 1 --contimeout 3s --timeout 5s --max-duration 6s\nlistremotes\nconfig file\n"
+    },
+    "populated-read-only/profile": {
+      "sha256": "c53499f1fe23f18126fa3f158e891f940ea7fe9894cfaabb521f6ec75c6e95e5",
+      "bytes": 82,
+      "text": "export PATH=/shim:/repo:/usr/bin:/bin\nexport HOME=/storage\nexport OS_NAME=ROCKNIX\n"
+    },
+    "populated-read-only/shim/ip": {
+      "sha256": "ed7833938db4abd915c4a87c20a87b5081e535ca8bcaadce3636bbbce842d61c",
+      "bytes": 70,
+      "text": "#!/bin/sh\n[ -e /ctl/offline ] || echo \"default via 10.0.2.2 dev eth0\"\n"
+    },
+    "populated-read-only/shim/logger": {
+      "sha256": "3874e47b219daaa98d73429732121b2639080ca64e5769982a78093c4f036cc7",
+      "bytes": 45,
+      "text": "#!/bin/sh\nprintf \"%s\\n\" \"$*\" >> /ctl/journal\n"
+    },
+    "populated-read-only/shim/ping": {
+      "sha256": "a0cfd66789b27fed708dda43875c9e9ff38823623233621b6bf816df8440dac9",
+      "bytes": 32,
+      "text": "#!/bin/sh\n[ ! -e /ctl/offline ]\n"
+    },
+    "populated-read-only/shim/rclone": {
+      "sha256": "02e1a1c6a82385cd1c5a510a764b0ca83c722e7c5812b0bb391f7d31c397a517",
+      "bytes": 543,
+      "text": "#!/bin/bash\nprintf '%s\\n' \"$*\" >> /ctl/argv\nif [ -f /ctl/faults ]; then\n while IFS=$'\\t' read -r pattern code; do\n  [[ \"$*\" =~ $pattern ]] && { printf '%s\\n' \"$*\" >> /ctl/fault-fired; echo 'injected provider failure' >&2; exit \"$code\"; }\n done < /ctl/faults\nfi\nif [ -e /ctl/bucket ]; then\n if [ \"$1 $2\" = 'backend features' ]; then\n  printf '{\"Hashes\":[\"md5\"],\"Features\":{\"BucketBased\":true}}\\n'; exit 0\n fi\n # Bucket prefixes can return successful empty lsd for a missing prefix.\n if [ \"$1\" = lsd ]; then exit 0; fi\nfi\nexec /rclone.real \"$@\"\n"
+    },
+    "populated-read-only/shim/systemctl": {
+      "sha256": "306c6ca7407560340797866e077e053627ad409277d1b9da58106fce4cf717cb",
+      "bytes": 17,
+      "text": "#!/bin/sh\nexit 0\n"
+    },
+    "populated-read-only/shim/systemd-tmpfiles": {
+      "sha256": "306c6ca7407560340797866e077e053627ad409277d1b9da58106fce4cf717cb",
+      "bytes": 17,
+      "text": "#!/bin/sh\nexit 0\n"
+    },
+    "populated-read-only/source-sha256.json": {
+      "sha256": "b6c485beb15269f8a2b1fb616751fb2288da27605bef5bdfaab6f49da18b5650",
+      "bytes": 2107,
+      "text": "{\n  \"backuptool\": \"02557ca500c9706bac1c1062e70a1abfff46f8a445e96cde2f1b407ff64fe254\",\n  \"cloud_backup\": \"deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76\",\n  \"cloud_capture\": \"6853272e6eb29b2c61908dbfe135a5cb14cab7e86f833dea69a4cc6ac66a8929\",\n  \"cloud_content_backup\": \"c6789f9476d1c13cc00050fe2478d26629da05ef6af89222eb0ef72f3bf594ae\",\n  \"cloud_content_restore\": \"2790b3794febe953d1386bc427e0fa537343434a03fa67329781ca9f80c00180\",\n  \"cloud_content_transfer\": \"fe292268d9029c2b950a093f6902b5cbe8afb3d57cb47187251cf90c3d85a1a3\",\n  \"cloud_device_id\": \"3230633caf65ad9e115dffc1bf3e1dede38746f808d4177fc0c37b9defbeee62\",\n  \"cloud_folder_validate\": \"2c9c31a6b1c020669e9dff3228a12bd1eebf2b25a53a67be8260272f2784b982\",\n  \"cloud_log_scrub\": \"5c156d8d43b39172fa71b80a3e47156f46bca0965dcae890ec70f02596f8f126\",\n  \"cloud_net_ready\": \"19afce254bc5c55f119b9681463b8103da5f564f3235b64f100ba9c35e62df89\",\n  \"cloud_oauth\": \"fec8240db342eb9432f9423f5ee3f5bd53df499012dffd1e4ac9ae81c316cbf5\",\n  \"cloud_remote\": \"1b4df1b5394647e52df8584e75529ef113be8ccde3ea31b8b7dd1dfd5bb2e99e\",\n  \"cloud_restore\": \"ec63c21ad782703c6679ce5e1a7b8c5e8f610daeec8cdda224d166df945d0544\",\n  \"cloud_saves_root\": \"d0b0c5b850a7b51257797dcc9bfdac2e6f3e0abf2c3be4584ca65583748bfe43\",\n  \"cloud_scan\": \"a82548feb2aa14d7586582eade9ddbc223f4f713c543c7ce064fc1942e876351\",\n  \"cloud_setup\": \"9e825a8cd970488bb91e99814d6bfbee395fff87bff018658be3192dad684fa5\",\n  \"cloud_sync-rules.txt\": \"bdb7e18128ce4a604c9b02cfe5b0f10f4e3e4dfd3aa7e2d69ea018b8c9d5484d\",\n  \"cloud_sync-rules.txt.defaults\": \"951a7d65d83dc2f2a041868cf2ab1e231a8b09873a0656311b1f947fd106df75\",\n  \"cloud_sync.conf\": \"a121977066ce805e791108258fe12d1ecbce5e71ce2f61f096394a9fca982305\",\n  \"cloud_sync.conf.defaults\": \"77ce914421b47ef7f0a33e6085a5793cb8be55a5c239788adf8575a57d3ad1c4\",\n  \"cloud_sync_cleanup_duplicates.sh\": \"b62ee55ace6e9d776a89686ed6ecdfa17c90ac0e9a6f16d2e260cb2a7617eac1\",\n  \"cloud_sync_helper\": \"3c7738648fe946c74d2c8e9d38fc5e7529f6f41a831a6c546c84765891f26385\",\n  \"rasteratops-settings-archive\": \"58977f0e8aec6adfe673037c1a926bb2cbee94269ad6306ec02206250bceb50c\"\n}\n"
+    },
+    "populated-read-only/storage/.config/cloud_sync-rules.txt": {
+      "sha256": "bc4f15f38e740763d19255aace0a90edd851e5deb159fc3bb38a3a12dfab38e8",
+      "bytes": 18,
+      "text": "+ /**/*.srm\n- /**\n"
+    },
+    "populated-read-only/storage/.config/cloud_sync.conf": {
+      "sha256": "7e2d82392b0c84043f4233f41eaeda715a5f6c922d20a7fce8cf15e14251e620",
+      "bytes": 503,
+      "text": "SAVESPATH=\"/storage/roms\"\nSAVES_REMOTE=\"/pixelelated/Saves\"\nSETTINGS_BACKUPS=\"/storage/roms/backup\"\nSETTINGS_REMOTE=\"/pixelelated/Backups\"\nBACKUPMETHOD=\"copy\"\nRESTOREMETHOD=\"copy\"\nBACKUPFILE_BACKUP_OPTION=\"no\"\nBACKUPFILE_RESTORE_OPTION=\"no\"\nLOG_LEVEL=\"INFO\"\nLAYOUT_KEEP=\"\"\nRCLONEOPTS=\"--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt\"\nRCLONE_NET_OPTS=\"--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1\"\nCONTENT_REMOTE=\"/pixelelated/Content\"\n"
+    },
+    "populated-read-only/storage/.config/rclone/rclone.conf": {
+      "sha256": "7603c17bce0056aae641bee817b6f9875863b4158f34d526914bfba008485eb5",
+      "bytes": 34,
+      "text": "[qa]\ntype = alias\nremote = /cloud\n"
+    },
+    "populated-read-only/storage/roms/gb/.fixture": {
+      "sha256": "7d9f18b135168edd868a20d626bf0469a86d20f650fe620af06458d4f3335ce8",
+      "bytes": 19,
+      "text": "local known system\n"
+    },
+    "populated-read-only/storage/roms/snes/.fixture": {
+      "sha256": "7d9f18b135168edd868a20d626bf0469a86d20f650fe620af06458d4f3335ce8",
+      "bytes": 19,
+      "text": "local known system\n"
+    },
+    "provider-failure-not-empty/01-cloud_setup.json": {
+      "sha256": "4e1a4d9ea25da60dd2a7ec88870bf8da75dae27d68983209425a4af39fa605da",
+      "bytes": 729,
+      "text": "{\n  \"argv\": [\n    \"cloud_setup\",\n    \"--validate-folders\",\n    \"saves\",\n    \"proof01\"\n  ],\n  \"rc\": 5,\n  \"pointers\": {\n    \"SAVESPATH\": \"/storage/roms\",\n    \"SAVES_REMOTE\": \"/pixelelated/Saves\",\n    \"SETTINGS_BACKUPS\": \"/storage/roms/backup\",\n    \"SETTINGS_REMOTE\": \"/pixelelated/Backups\",\n    \"BACKUPMETHOD\": \"copy\",\n    \"RESTOREMETHOD\": \"copy\",\n    \"BACKUPFILE_BACKUP_OPTION\": \"no\",\n    \"BACKUPFILE_RESTORE_OPTION\": \"no\",\n    \"LOG_LEVEL\": \"INFO\",\n    \"LAYOUT_KEEP\": \"\",\n    \"RCLONEOPTS\": \"--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt\",\n    \"RCLONE_NET_OPTS\": \"--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1\",\n    \"CONTENT_REMOTE\": \"/pixelelated/Content\"\n  }\n}"
+    },
+    "provider-failure-not-empty/01-cloud_setup.log": {
+      "sha256": "ceef51d938d2bf128a23941936d8d4d9c92735f90b64dfa649ff595d8e8fa3b9",
+      "bytes": 563,
+      "text": "{\"schema_version\":1,\"run_id\":\"proof01\",\"config_id\":\"286ea3302d51d237557465b685ab09c4203cd032c5afb4ea446d4c06afde18d1\",\"categories\":[{\"category\":\"saves\",\"state\":\"unreadable\",\"path\":\"/pixelelated/Saves\",\"detail\":\"listing-failed\"}],\"complete\":false,\"scope\":{\"max_depth\":3,\"max_entries_per_listing\":4096,\"max_bytes_per_listing\":2097152,\"max_seconds\":25},\"paths\":{\"saves\":\"/pixelelated/Saves\",\"settings\":\"/pixelelated/Backups\",\"content\":\"/pixelelated/Content\",\"roms\":\"/pixelelated/Content/ROMs\",\"bios\":\"/pixelelated/Content/BIOS\",\"media\":\"/pixelelated/Content/ROMs\"}}\n"
+    },
+    "provider-failure-not-empty/ctl/argv": {
+      "sha256": "07407bb75fcfc47b2df831a4a27a42759d6b4eb5e885446f6eb83c35bfd0ebec",
+      "bytes": 211,
+      "text": "listremotes\nconfig file\nlsjson qa:/pixelelated/Saves --recursive --max-depth 3 --no-mimetype --no-modtime --retries 1 --low-level-retries 1 --contimeout 3s --timeout 5s --max-duration 6s\nlistremotes\nconfig file\n"
+    },
+    "provider-failure-not-empty/ctl/fault-fired": {
+      "sha256": "bc28f69eb16cabb8a7b85e89befe79cdf858a875a53ce42cdf554e6b5c0b3a5f",
+      "bytes": 163,
+      "text": "lsjson qa:/pixelelated/Saves --recursive --max-depth 3 --no-mimetype --no-modtime --retries 1 --low-level-retries 1 --contimeout 3s --timeout 5s --max-duration 6s\n"
+    },
+    "provider-failure-not-empty/ctl/faults": {
+      "sha256": "bdc895e265b521334861aee87dca4b8d7d22ae6adaffcc17d112c9850f27c0c4",
+      "bytes": 33,
+      "text": "^lsjson qa:/pixelelated/Saves \t5\n"
+    },
+    "provider-failure-not-empty/profile": {
+      "sha256": "c53499f1fe23f18126fa3f158e891f940ea7fe9894cfaabb521f6ec75c6e95e5",
+      "bytes": 82,
+      "text": "export PATH=/shim:/repo:/usr/bin:/bin\nexport HOME=/storage\nexport OS_NAME=ROCKNIX\n"
+    },
+    "provider-failure-not-empty/shim/ip": {
+      "sha256": "ed7833938db4abd915c4a87c20a87b5081e535ca8bcaadce3636bbbce842d61c",
+      "bytes": 70,
+      "text": "#!/bin/sh\n[ -e /ctl/offline ] || echo \"default via 10.0.2.2 dev eth0\"\n"
+    },
+    "provider-failure-not-empty/shim/logger": {
+      "sha256": "3874e47b219daaa98d73429732121b2639080ca64e5769982a78093c4f036cc7",
+      "bytes": 45,
+      "text": "#!/bin/sh\nprintf \"%s\\n\" \"$*\" >> /ctl/journal\n"
+    },
+    "provider-failure-not-empty/shim/ping": {
+      "sha256": "a0cfd66789b27fed708dda43875c9e9ff38823623233621b6bf816df8440dac9",
+      "bytes": 32,
+      "text": "#!/bin/sh\n[ ! -e /ctl/offline ]\n"
+    },
+    "provider-failure-not-empty/shim/rclone": {
+      "sha256": "02e1a1c6a82385cd1c5a510a764b0ca83c722e7c5812b0bb391f7d31c397a517",
+      "bytes": 543,
+      "text": "#!/bin/bash\nprintf '%s\\n' \"$*\" >> /ctl/argv\nif [ -f /ctl/faults ]; then\n while IFS=$'\\t' read -r pattern code; do\n  [[ \"$*\" =~ $pattern ]] && { printf '%s\\n' \"$*\" >> /ctl/fault-fired; echo 'injected provider failure' >&2; exit \"$code\"; }\n done < /ctl/faults\nfi\nif [ -e /ctl/bucket ]; then\n if [ \"$1 $2\" = 'backend features' ]; then\n  printf '{\"Hashes\":[\"md5\"],\"Features\":{\"BucketBased\":true}}\\n'; exit 0\n fi\n # Bucket prefixes can return successful empty lsd for a missing prefix.\n if [ \"$1\" = lsd ]; then exit 0; fi\nfi\nexec /rclone.real \"$@\"\n"
+    },
+    "provider-failure-not-empty/shim/systemctl": {
+      "sha256": "306c6ca7407560340797866e077e053627ad409277d1b9da58106fce4cf717cb",
+      "bytes": 17,
+      "text": "#!/bin/sh\nexit 0\n"
+    },
+    "provider-failure-not-empty/shim/systemd-tmpfiles": {
+      "sha256": "306c6ca7407560340797866e077e053627ad409277d1b9da58106fce4cf717cb",
+      "bytes": 17,
+      "text": "#!/bin/sh\nexit 0\n"
+    },
+    "provider-failure-not-empty/source-sha256.json": {
+      "sha256": "b6c485beb15269f8a2b1fb616751fb2288da27605bef5bdfaab6f49da18b5650",
+      "bytes": 2107,
+      "text": "{\n  \"backuptool\": \"02557ca500c9706bac1c1062e70a1abfff46f8a445e96cde2f1b407ff64fe254\",\n  \"cloud_backup\": \"deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76\",\n  \"cloud_capture\": \"6853272e6eb29b2c61908dbfe135a5cb14cab7e86f833dea69a4cc6ac66a8929\",\n  \"cloud_content_backup\": \"c6789f9476d1c13cc00050fe2478d26629da05ef6af89222eb0ef72f3bf594ae\",\n  \"cloud_content_restore\": \"2790b3794febe953d1386bc427e0fa537343434a03fa67329781ca9f80c00180\",\n  \"cloud_content_transfer\": \"fe292268d9029c2b950a093f6902b5cbe8afb3d57cb47187251cf90c3d85a1a3\",\n  \"cloud_device_id\": \"3230633caf65ad9e115dffc1bf3e1dede38746f808d4177fc0c37b9defbeee62\",\n  \"cloud_folder_validate\": \"2c9c31a6b1c020669e9dff3228a12bd1eebf2b25a53a67be8260272f2784b982\",\n  \"cloud_log_scrub\": \"5c156d8d43b39172fa71b80a3e47156f46bca0965dcae890ec70f02596f8f126\",\n  \"cloud_net_ready\": \"19afce254bc5c55f119b9681463b8103da5f564f3235b64f100ba9c35e62df89\",\n  \"cloud_oauth\": \"fec8240db342eb9432f9423f5ee3f5bd53df499012dffd1e4ac9ae81c316cbf5\",\n  \"cloud_remote\": \"1b4df1b5394647e52df8584e75529ef113be8ccde3ea31b8b7dd1dfd5bb2e99e\",\n  \"cloud_restore\": \"ec63c21ad782703c6679ce5e1a7b8c5e8f610daeec8cdda224d166df945d0544\",\n  \"cloud_saves_root\": \"d0b0c5b850a7b51257797dcc9bfdac2e6f3e0abf2c3be4584ca65583748bfe43\",\n  \"cloud_scan\": \"a82548feb2aa14d7586582eade9ddbc223f4f713c543c7ce064fc1942e876351\",\n  \"cloud_setup\": \"9e825a8cd970488bb91e99814d6bfbee395fff87bff018658be3192dad684fa5\",\n  \"cloud_sync-rules.txt\": \"bdb7e18128ce4a604c9b02cfe5b0f10f4e3e4dfd3aa7e2d69ea018b8c9d5484d\",\n  \"cloud_sync-rules.txt.defaults\": \"951a7d65d83dc2f2a041868cf2ab1e231a8b09873a0656311b1f947fd106df75\",\n  \"cloud_sync.conf\": \"a121977066ce805e791108258fe12d1ecbce5e71ce2f61f096394a9fca982305\",\n  \"cloud_sync.conf.defaults\": \"77ce914421b47ef7f0a33e6085a5793cb8be55a5c239788adf8575a57d3ad1c4\",\n  \"cloud_sync_cleanup_duplicates.sh\": \"b62ee55ace6e9d776a89686ed6ecdfa17c90ac0e9a6f16d2e260cb2a7617eac1\",\n  \"cloud_sync_helper\": \"3c7738648fe946c74d2c8e9d38fc5e7529f6f41a831a6c546c84765891f26385\",\n  \"rasteratops-settings-archive\": \"58977f0e8aec6adfe673037c1a926bb2cbee94269ad6306ec02206250bceb50c\"\n}\n"
+    },
+    "provider-failure-not-empty/storage/.config/cloud_sync-rules.txt": {
+      "sha256": "bc4f15f38e740763d19255aace0a90edd851e5deb159fc3bb38a3a12dfab38e8",
+      "bytes": 18,
+      "text": "+ /**/*.srm\n- /**\n"
+    },
+    "provider-failure-not-empty/storage/.config/cloud_sync.conf": {
+      "sha256": "7e2d82392b0c84043f4233f41eaeda715a5f6c922d20a7fce8cf15e14251e620",
+      "bytes": 503,
+      "text": "SAVESPATH=\"/storage/roms\"\nSAVES_REMOTE=\"/pixelelated/Saves\"\nSETTINGS_BACKUPS=\"/storage/roms/backup\"\nSETTINGS_REMOTE=\"/pixelelated/Backups\"\nBACKUPMETHOD=\"copy\"\nRESTOREMETHOD=\"copy\"\nBACKUPFILE_BACKUP_OPTION=\"no\"\nBACKUPFILE_RESTORE_OPTION=\"no\"\nLOG_LEVEL=\"INFO\"\nLAYOUT_KEEP=\"\"\nRCLONEOPTS=\"--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt\"\nRCLONE_NET_OPTS=\"--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1\"\nCONTENT_REMOTE=\"/pixelelated/Content\"\n"
+    },
+    "provider-failure-not-empty/storage/.config/rclone/rclone.conf": {
+      "sha256": "7603c17bce0056aae641bee817b6f9875863b4158f34d526914bfba008485eb5",
+      "bytes": 34,
+      "text": "[qa]\ntype = alias\nremote = /cloud\n"
+    },
+    "provider-failure-not-empty/storage/roms/gb/.fixture": {
+      "sha256": "7d9f18b135168edd868a20d626bf0469a86d20f650fe620af06458d4f3335ce8",
+      "bytes": 19,
+      "text": "local known system\n"
+    },
+    "provider-failure-not-empty/storage/roms/snes/.fixture": {
+      "sha256": "7d9f18b135168edd868a20d626bf0469a86d20f650fe620af06458d4f3335ce8",
+      "bytes": 19,
+      "text": "local known system\n"
+    },
+    "recognized-misplaced/01-cloud_setup.json": {
+      "sha256": "441672ac74ac57a90cf5039e2f2d884f2f5f03461b0125a1d74c2a5772884524",
+      "bytes": 739,
+      "text": "{\n  \"argv\": [\n    \"cloud_setup\",\n    \"--validate-folders\",\n    \"saves,roms,bios\",\n    \"proof01\"\n  ],\n  \"rc\": 0,\n  \"pointers\": {\n    \"SAVESPATH\": \"/storage/roms\",\n    \"SAVES_REMOTE\": \"/pixelelated/Saves\",\n    \"SETTINGS_BACKUPS\": \"/storage/roms/backup\",\n    \"SETTINGS_REMOTE\": \"/pixelelated/Backups\",\n    \"BACKUPMETHOD\": \"copy\",\n    \"RESTOREMETHOD\": \"copy\",\n    \"BACKUPFILE_BACKUP_OPTION\": \"no\",\n    \"BACKUPFILE_RESTORE_OPTION\": \"no\",\n    \"LOG_LEVEL\": \"INFO\",\n    \"LAYOUT_KEEP\": \"\",\n    \"RCLONEOPTS\": \"--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt\",\n    \"RCLONE_NET_OPTS\": \"--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1\",\n    \"CONTENT_REMOTE\": \"/pixelelated/Content\"\n  }\n}"
+    },
+    "recognized-misplaced/01-cloud_setup.log": {
+      "sha256": "c28622ece2da4659e73a154702426cbd412ce148405c2e90733adebd6bee6968",
+      "bytes": 841,
+      "text": "{\"schema_version\":1,\"run_id\":\"proof01\",\"config_id\":\"286ea3302d51d237557465b685ab09c4203cd032c5afb4ea446d4c06afde18d1\",\"categories\":[{\"category\":\"saves\",\"state\":\"misplaced\",\"path\":\"/pixelelated/Saves\",\"detail\":\"progress-found-inside-extra-saves-folder\"},{\"category\":\"roms\",\"state\":\"misplaced\",\"path\":\"/pixelelated/Content/ROMs\",\"detail\":\"recognized-folders-outside-expected-path\"},{\"category\":\"bios\",\"state\":\"misplaced\",\"path\":\"/pixelelated/Content/BIOS\",\"detail\":\"recognized-folders-outside-expected-path\"}],\"complete\":true,\"scope\":{\"max_depth\":3,\"max_entries_per_listing\":4096,\"max_bytes_per_listing\":2097152,\"max_seconds\":25},\"paths\":{\"saves\":\"/pixelelated/Saves\",\"settings\":\"/pixelelated/Backups\",\"content\":\"/pixelelated/Content\",\"roms\":\"/pixelelated/Content/ROMs\",\"bios\":\"/pixelelated/Content/BIOS\",\"media\":\"/pixelelated/Content/ROMs\"}}\n"
+    },
+    "recognized-misplaced/cloud/pixelelated/Content/bios/firmware.bin": {
+      "sha256": "b5f7e7d285029324d9b3acae19cc05099271454ac98bfc059a92b0581625cd51",
+      "bytes": 9,
+      "text": "sentinel\n"
+    },
+    "recognized-misplaced/cloud/pixelelated/Content/gb/Game.gb": {
+      "sha256": "b5f7e7d285029324d9b3acae19cc05099271454ac98bfc059a92b0581625cd51",
+      "bytes": 9,
+      "text": "sentinel\n"
+    },
+    "recognized-misplaced/cloud/pixelelated/Saves/Saves/gb/progress.srm": {
+      "sha256": "b5f7e7d285029324d9b3acae19cc05099271454ac98bfc059a92b0581625cd51",
+      "bytes": 9,
+      "text": "sentinel\n"
+    },
+    "recognized-misplaced/ctl/argv": {
+      "sha256": "30120ab6cde9b3116153db6aa9f6278f81c44cd025c74fb2295811dd65df23ac",
+      "bytes": 376,
+      "text": "listremotes\nconfig file\nlsjson qa:/pixelelated/Saves --recursive --max-depth 3 --no-mimetype --no-modtime --retries 1 --low-level-retries 1 --contimeout 3s --timeout 5s --max-duration 6s\nlsjson qa:/pixelelated/Content --recursive --max-depth 1 --no-mimetype --no-modtime --retries 1 --low-level-retries 1 --contimeout 3s --timeout 5s --max-duration 6s\nlistremotes\nconfig file\n"
+    },
+    "recognized-misplaced/profile": {
+      "sha256": "c53499f1fe23f18126fa3f158e891f940ea7fe9894cfaabb521f6ec75c6e95e5",
+      "bytes": 82,
+      "text": "export PATH=/shim:/repo:/usr/bin:/bin\nexport HOME=/storage\nexport OS_NAME=ROCKNIX\n"
+    },
+    "recognized-misplaced/shim/ip": {
+      "sha256": "ed7833938db4abd915c4a87c20a87b5081e535ca8bcaadce3636bbbce842d61c",
+      "bytes": 70,
+      "text": "#!/bin/sh\n[ -e /ctl/offline ] || echo \"default via 10.0.2.2 dev eth0\"\n"
+    },
+    "recognized-misplaced/shim/logger": {
+      "sha256": "3874e47b219daaa98d73429732121b2639080ca64e5769982a78093c4f036cc7",
+      "bytes": 45,
+      "text": "#!/bin/sh\nprintf \"%s\\n\" \"$*\" >> /ctl/journal\n"
+    },
+    "recognized-misplaced/shim/ping": {
+      "sha256": "a0cfd66789b27fed708dda43875c9e9ff38823623233621b6bf816df8440dac9",
+      "bytes": 32,
+      "text": "#!/bin/sh\n[ ! -e /ctl/offline ]\n"
+    },
+    "recognized-misplaced/shim/rclone": {
+      "sha256": "02e1a1c6a82385cd1c5a510a764b0ca83c722e7c5812b0bb391f7d31c397a517",
+      "bytes": 543,
+      "text": "#!/bin/bash\nprintf '%s\\n' \"$*\" >> /ctl/argv\nif [ -f /ctl/faults ]; then\n while IFS=$'\\t' read -r pattern code; do\n  [[ \"$*\" =~ $pattern ]] && { printf '%s\\n' \"$*\" >> /ctl/fault-fired; echo 'injected provider failure' >&2; exit \"$code\"; }\n done < /ctl/faults\nfi\nif [ -e /ctl/bucket ]; then\n if [ \"$1 $2\" = 'backend features' ]; then\n  printf '{\"Hashes\":[\"md5\"],\"Features\":{\"BucketBased\":true}}\\n'; exit 0\n fi\n # Bucket prefixes can return successful empty lsd for a missing prefix.\n if [ \"$1\" = lsd ]; then exit 0; fi\nfi\nexec /rclone.real \"$@\"\n"
+    },
+    "recognized-misplaced/shim/systemctl": {
+      "sha256": "306c6ca7407560340797866e077e053627ad409277d1b9da58106fce4cf717cb",
+      "bytes": 17,
+      "text": "#!/bin/sh\nexit 0\n"
+    },
+    "recognized-misplaced/shim/systemd-tmpfiles": {
+      "sha256": "306c6ca7407560340797866e077e053627ad409277d1b9da58106fce4cf717cb",
+      "bytes": 17,
+      "text": "#!/bin/sh\nexit 0\n"
+    },
+    "recognized-misplaced/source-sha256.json": {
+      "sha256": "b6c485beb15269f8a2b1fb616751fb2288da27605bef5bdfaab6f49da18b5650",
+      "bytes": 2107,
+      "text": "{\n  \"backuptool\": \"02557ca500c9706bac1c1062e70a1abfff46f8a445e96cde2f1b407ff64fe254\",\n  \"cloud_backup\": \"deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76\",\n  \"cloud_capture\": \"6853272e6eb29b2c61908dbfe135a5cb14cab7e86f833dea69a4cc6ac66a8929\",\n  \"cloud_content_backup\": \"c6789f9476d1c13cc00050fe2478d26629da05ef6af89222eb0ef72f3bf594ae\",\n  \"cloud_content_restore\": \"2790b3794febe953d1386bc427e0fa537343434a03fa67329781ca9f80c00180\",\n  \"cloud_content_transfer\": \"fe292268d9029c2b950a093f6902b5cbe8afb3d57cb47187251cf90c3d85a1a3\",\n  \"cloud_device_id\": \"3230633caf65ad9e115dffc1bf3e1dede38746f808d4177fc0c37b9defbeee62\",\n  \"cloud_folder_validate\": \"2c9c31a6b1c020669e9dff3228a12bd1eebf2b25a53a67be8260272f2784b982\",\n  \"cloud_log_scrub\": \"5c156d8d43b39172fa71b80a3e47156f46bca0965dcae890ec70f02596f8f126\",\n  \"cloud_net_ready\": \"19afce254bc5c55f119b9681463b8103da5f564f3235b64f100ba9c35e62df89\",\n  \"cloud_oauth\": \"fec8240db342eb9432f9423f5ee3f5bd53df499012dffd1e4ac9ae81c316cbf5\",\n  \"cloud_remote\": \"1b4df1b5394647e52df8584e75529ef113be8ccde3ea31b8b7dd1dfd5bb2e99e\",\n  \"cloud_restore\": \"ec63c21ad782703c6679ce5e1a7b8c5e8f610daeec8cdda224d166df945d0544\",\n  \"cloud_saves_root\": \"d0b0c5b850a7b51257797dcc9bfdac2e6f3e0abf2c3be4584ca65583748bfe43\",\n  \"cloud_scan\": \"a82548feb2aa14d7586582eade9ddbc223f4f713c543c7ce064fc1942e876351\",\n  \"cloud_setup\": \"9e825a8cd970488bb91e99814d6bfbee395fff87bff018658be3192dad684fa5\",\n  \"cloud_sync-rules.txt\": \"bdb7e18128ce4a604c9b02cfe5b0f10f4e3e4dfd3aa7e2d69ea018b8c9d5484d\",\n  \"cloud_sync-rules.txt.defaults\": \"951a7d65d83dc2f2a041868cf2ab1e231a8b09873a0656311b1f947fd106df75\",\n  \"cloud_sync.conf\": \"a121977066ce805e791108258fe12d1ecbce5e71ce2f61f096394a9fca982305\",\n  \"cloud_sync.conf.defaults\": \"77ce914421b47ef7f0a33e6085a5793cb8be55a5c239788adf8575a57d3ad1c4\",\n  \"cloud_sync_cleanup_duplicates.sh\": \"b62ee55ace6e9d776a89686ed6ecdfa17c90ac0e9a6f16d2e260cb2a7617eac1\",\n  \"cloud_sync_helper\": \"3c7738648fe946c74d2c8e9d38fc5e7529f6f41a831a6c546c84765891f26385\",\n  \"rasteratops-settings-archive\": \"58977f0e8aec6adfe673037c1a926bb2cbee94269ad6306ec02206250bceb50c\"\n}\n"
+    },
+    "recognized-misplaced/storage/.config/cloud_sync-rules.txt": {
+      "sha256": "bc4f15f38e740763d19255aace0a90edd851e5deb159fc3bb38a3a12dfab38e8",
+      "bytes": 18,
+      "text": "+ /**/*.srm\n- /**\n"
+    },
+    "recognized-misplaced/storage/.config/cloud_sync.conf": {
+      "sha256": "7e2d82392b0c84043f4233f41eaeda715a5f6c922d20a7fce8cf15e14251e620",
+      "bytes": 503,
+      "text": "SAVESPATH=\"/storage/roms\"\nSAVES_REMOTE=\"/pixelelated/Saves\"\nSETTINGS_BACKUPS=\"/storage/roms/backup\"\nSETTINGS_REMOTE=\"/pixelelated/Backups\"\nBACKUPMETHOD=\"copy\"\nRESTOREMETHOD=\"copy\"\nBACKUPFILE_BACKUP_OPTION=\"no\"\nBACKUPFILE_RESTORE_OPTION=\"no\"\nLOG_LEVEL=\"INFO\"\nLAYOUT_KEEP=\"\"\nRCLONEOPTS=\"--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt\"\nRCLONE_NET_OPTS=\"--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1\"\nCONTENT_REMOTE=\"/pixelelated/Content\"\n"
+    },
+    "recognized-misplaced/storage/.config/rclone/rclone.conf": {
+      "sha256": "7603c17bce0056aae641bee817b6f9875863b4158f34d526914bfba008485eb5",
+      "bytes": 34,
+      "text": "[qa]\ntype = alias\nremote = /cloud\n"
+    },
+    "recognized-misplaced/storage/roms/gb/.fixture": {
+      "sha256": "7d9f18b135168edd868a20d626bf0469a86d20f650fe620af06458d4f3335ce8",
+      "bytes": 19,
+      "text": "local known system\n"
+    },
+    "recognized-misplaced/storage/roms/snes/.fixture": {
+      "sha256": "7d9f18b135168edd868a20d626bf0469a86d20f650fe620af06458d4f3335ce8",
+      "bytes": 19,
+      "text": "local known system\n"
+    },
+    "stale-configuration-refused/01-cloud_setup.json": {
+      "sha256": "fb855f5520f052a8768433c2178c73e4b3e64456041eb4d9b462218940d94315",
+      "bytes": 729,
+      "text": "{\n  \"argv\": [\n    \"cloud_setup\",\n    \"--validate-folders\",\n    \"saves\",\n    \"stale01\"\n  ],\n  \"rc\": 5,\n  \"pointers\": {\n    \"SAVESPATH\": \"/storage/roms\",\n    \"SAVES_REMOTE\": \"/pixelelated/Saves\",\n    \"SETTINGS_BACKUPS\": \"/storage/roms/backup\",\n    \"SETTINGS_REMOTE\": \"/pixelelated/Backups\",\n    \"BACKUPMETHOD\": \"copy\",\n    \"RESTOREMETHOD\": \"copy\",\n    \"BACKUPFILE_BACKUP_OPTION\": \"no\",\n    \"BACKUPFILE_RESTORE_OPTION\": \"no\",\n    \"LOG_LEVEL\": \"INFO\",\n    \"LAYOUT_KEEP\": \"\",\n    \"RCLONEOPTS\": \"--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt\",\n    \"RCLONE_NET_OPTS\": \"--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1\",\n    \"CONTENT_REMOTE\": \"/pixelelated/Content\"\n  }\n}"
+    },
+    "stale-configuration-refused/01-cloud_setup.log": {
+      "sha256": "e765f661b419779c4bcca147ea18be74ae20fba1a24e9370a186605f63820a34",
+      "bytes": 603,
+      "text": "{\"schema_version\":1,\"run_id\":\"stale01\",\"config_id\":\"286ea3302d51d237557465b685ab09c4203cd032c5afb4ea446d4c06afde18d1\",\"categories\":[{\"category\":\"saves\",\"state\":\"missing\",\"path\":\"/pixelelated/Saves\",\"detail\":\"selected-folder-not-found\"}],\"complete\":false,\"scope\":{\"max_depth\":3,\"max_entries_per_listing\":4096,\"max_bytes_per_listing\":2097152,\"max_seconds\":25},\"paths\":{\"saves\":\"/pixelelated/Saves\",\"settings\":\"/pixelelated/Backups\",\"content\":\"/pixelelated/Content\",\"roms\":\"/pixelelated/Content/ROMs\",\"bios\":\"/pixelelated/Content/BIOS\",\"media\":\"/pixelelated/Content/ROMs\"},\"error\":\"configuration-changed\"}\n"
+    },
+    "stale-configuration-refused/ctl/argv": {
+      "sha256": "07407bb75fcfc47b2df831a4a27a42759d6b4eb5e885446f6eb83c35bfd0ebec",
+      "bytes": 211,
+      "text": "listremotes\nconfig file\nlsjson qa:/pixelelated/Saves --recursive --max-depth 3 --no-mimetype --no-modtime --retries 1 --low-level-retries 1 --contimeout 3s --timeout 5s --max-duration 6s\nlistremotes\nconfig file\n"
+    },
+    "stale-configuration-refused/profile": {
+      "sha256": "c53499f1fe23f18126fa3f158e891f940ea7fe9894cfaabb521f6ec75c6e95e5",
+      "bytes": 82,
+      "text": "export PATH=/shim:/repo:/usr/bin:/bin\nexport HOME=/storage\nexport OS_NAME=ROCKNIX\n"
+    },
+    "stale-configuration-refused/shim/ip": {
+      "sha256": "ed7833938db4abd915c4a87c20a87b5081e535ca8bcaadce3636bbbce842d61c",
+      "bytes": 70,
+      "text": "#!/bin/sh\n[ -e /ctl/offline ] || echo \"default via 10.0.2.2 dev eth0\"\n"
+    },
+    "stale-configuration-refused/shim/logger": {
+      "sha256": "3874e47b219daaa98d73429732121b2639080ca64e5769982a78093c4f036cc7",
+      "bytes": 45,
+      "text": "#!/bin/sh\nprintf \"%s\\n\" \"$*\" >> /ctl/journal\n"
+    },
+    "stale-configuration-refused/shim/ping": {
+      "sha256": "a0cfd66789b27fed708dda43875c9e9ff38823623233621b6bf816df8440dac9",
+      "bytes": 32,
+      "text": "#!/bin/sh\n[ ! -e /ctl/offline ]\n"
+    },
+    "stale-configuration-refused/shim/rclone": {
+      "sha256": "e46f2e8ccc8c87a9f266dc619f33ebc98ffb7a2fd84815c4036bb10fd04826f4",
+      "bytes": 655,
+      "text": "#!/bin/bash\nprintf '%s\\n' \"$*\" >> /ctl/argv\nif [ -f /ctl/faults ]; then\n while IFS=$'\\t' read -r pattern code; do\n  [[ \"$*\" =~ $pattern ]] && { printf '%s\\n' \"$*\" >> /ctl/fault-fired; echo 'injected provider failure' >&2; exit \"$code\"; }\n done < /ctl/faults\nfi\nif [ -e /ctl/bucket ]; then\n if [ \"$1 $2\" = 'backend features' ]; then\n  printf '{\"Hashes\":[\"md5\"],\"Features\":{\"BucketBased\":true}}\\n'; exit 0\n fi\n # Bucket prefixes can return successful empty lsd for a missing prefix.\n if [ \"$1\" = lsd ]; then exit 0; fi\nfi\nif [ \"$1\" = lsjson ]; then printf '\\n# concurrent configuration edit\\n' >> /storage/.config/cloud_sync.conf; fi\nexec /rclone.real \"$@\"\n"
+    },
+    "stale-configuration-refused/shim/systemctl": {
+      "sha256": "306c6ca7407560340797866e077e053627ad409277d1b9da58106fce4cf717cb",
+      "bytes": 17,
+      "text": "#!/bin/sh\nexit 0\n"
+    },
+    "stale-configuration-refused/shim/systemd-tmpfiles": {
+      "sha256": "306c6ca7407560340797866e077e053627ad409277d1b9da58106fce4cf717cb",
+      "bytes": 17,
+      "text": "#!/bin/sh\nexit 0\n"
+    },
+    "stale-configuration-refused/source-sha256.json": {
+      "sha256": "b6c485beb15269f8a2b1fb616751fb2288da27605bef5bdfaab6f49da18b5650",
+      "bytes": 2107,
+      "text": "{\n  \"backuptool\": \"02557ca500c9706bac1c1062e70a1abfff46f8a445e96cde2f1b407ff64fe254\",\n  \"cloud_backup\": \"deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76\",\n  \"cloud_capture\": \"6853272e6eb29b2c61908dbfe135a5cb14cab7e86f833dea69a4cc6ac66a8929\",\n  \"cloud_content_backup\": \"c6789f9476d1c13cc00050fe2478d26629da05ef6af89222eb0ef72f3bf594ae\",\n  \"cloud_content_restore\": \"2790b3794febe953d1386bc427e0fa537343434a03fa67329781ca9f80c00180\",\n  \"cloud_content_transfer\": \"fe292268d9029c2b950a093f6902b5cbe8afb3d57cb47187251cf90c3d85a1a3\",\n  \"cloud_device_id\": \"3230633caf65ad9e115dffc1bf3e1dede38746f808d4177fc0c37b9defbeee62\",\n  \"cloud_folder_validate\": \"2c9c31a6b1c020669e9dff3228a12bd1eebf2b25a53a67be8260272f2784b982\",\n  \"cloud_log_scrub\": \"5c156d8d43b39172fa71b80a3e47156f46bca0965dcae890ec70f02596f8f126\",\n  \"cloud_net_ready\": \"19afce254bc5c55f119b9681463b8103da5f564f3235b64f100ba9c35e62df89\",\n  \"cloud_oauth\": \"fec8240db342eb9432f9423f5ee3f5bd53df499012dffd1e4ac9ae81c316cbf5\",\n  \"cloud_remote\": \"1b4df1b5394647e52df8584e75529ef113be8ccde3ea31b8b7dd1dfd5bb2e99e\",\n  \"cloud_restore\": \"ec63c21ad782703c6679ce5e1a7b8c5e8f610daeec8cdda224d166df945d0544\",\n  \"cloud_saves_root\": \"d0b0c5b850a7b51257797dcc9bfdac2e6f3e0abf2c3be4584ca65583748bfe43\",\n  \"cloud_scan\": \"a82548feb2aa14d7586582eade9ddbc223f4f713c543c7ce064fc1942e876351\",\n  \"cloud_setup\": \"9e825a8cd970488bb91e99814d6bfbee395fff87bff018658be3192dad684fa5\",\n  \"cloud_sync-rules.txt\": \"bdb7e18128ce4a604c9b02cfe5b0f10f4e3e4dfd3aa7e2d69ea018b8c9d5484d\",\n  \"cloud_sync-rules.txt.defaults\": \"951a7d65d83dc2f2a041868cf2ab1e231a8b09873a0656311b1f947fd106df75\",\n  \"cloud_sync.conf\": \"a121977066ce805e791108258fe12d1ecbce5e71ce2f61f096394a9fca982305\",\n  \"cloud_sync.conf.defaults\": \"77ce914421b47ef7f0a33e6085a5793cb8be55a5c239788adf8575a57d3ad1c4\",\n  \"cloud_sync_cleanup_duplicates.sh\": \"b62ee55ace6e9d776a89686ed6ecdfa17c90ac0e9a6f16d2e260cb2a7617eac1\",\n  \"cloud_sync_helper\": \"3c7738648fe946c74d2c8e9d38fc5e7529f6f41a831a6c546c84765891f26385\",\n  \"rasteratops-settings-archive\": \"58977f0e8aec6adfe673037c1a926bb2cbee94269ad6306ec02206250bceb50c\"\n}\n"
+    },
+    "stale-configuration-refused/storage/.config/cloud_sync-rules.txt": {
+      "sha256": "bc4f15f38e740763d19255aace0a90edd851e5deb159fc3bb38a3a12dfab38e8",
+      "bytes": 18,
+      "text": "+ /**/*.srm\n- /**\n"
+    },
+    "stale-configuration-refused/storage/.config/cloud_sync.conf": {
+      "sha256": "f51d5bfcbaf9e6f06553576bd8109d12e66c8ee2780478d0a033b1d68b93d67b",
+      "bytes": 536,
+      "text": "SAVESPATH=\"/storage/roms\"\nSAVES_REMOTE=\"/pixelelated/Saves\"\nSETTINGS_BACKUPS=\"/storage/roms/backup\"\nSETTINGS_REMOTE=\"/pixelelated/Backups\"\nBACKUPMETHOD=\"copy\"\nRESTOREMETHOD=\"copy\"\nBACKUPFILE_BACKUP_OPTION=\"no\"\nBACKUPFILE_RESTORE_OPTION=\"no\"\nLOG_LEVEL=\"INFO\"\nLAYOUT_KEEP=\"\"\nRCLONEOPTS=\"--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt\"\nRCLONE_NET_OPTS=\"--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1\"\nCONTENT_REMOTE=\"/pixelelated/Content\"\n\n# concurrent configuration edit\n"
+    },
+    "stale-configuration-refused/storage/.config/rclone/rclone.conf": {
+      "sha256": "7603c17bce0056aae641bee817b6f9875863b4158f34d526914bfba008485eb5",
+      "bytes": 34,
+      "text": "[qa]\ntype = alias\nremote = /cloud\n"
+    },
+    "stale-configuration-refused/storage/roms/gb/.fixture": {
+      "sha256": "7d9f18b135168edd868a20d626bf0469a86d20f650fe620af06458d4f3335ce8",
+      "bytes": 19,
+      "text": "local known system\n"
+    },
+    "stale-configuration-refused/storage/roms/snes/.fixture": {
+      "sha256": "7d9f18b135168edd868a20d626bf0469a86d20f650fe620af06458d4f3335ce8",
+      "bytes": 19,
+      "text": "local known system\n"
+    }
+  },
+  "duplicate_source_file_hashes": {}
+}

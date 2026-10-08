@@ -1,0 +1,91 @@
+{
+  "source_directory": "/tmp/pixelelated-validator-public01",
+  "retained_non_source_files": {
+    "public-rocknix-config-adoption/adoption-result.json": {
+      "sha256": "f8cf6ed396047bb9f2a03c19e3ea1e5bbc68bc83d7c5cad79be8e7ad12a31382",
+      "bytes": 551,
+      "text": "{\n  \"rc\": 1,\n  \"public_ref\": \"c445081a59518f37d9776e5412dd7b14910696f7\",\n  \"public_conf_sha256\": \"e43cae4589b3c00b38fac1ae44b11759d8285e020c31dba429a28f97e24527b3\",\n  \"pointers\": {\n    \"BACKUPPATH\": \"/storage/roms\",\n    \"RESTOREPATH\": \"/storage/roms\",\n    \"BACKUPFOLDER\": \"/storage/roms/backup\",\n    \"SYNCPATH\": \"/GAMES\",\n    \"SYNCPATH_BACKUP\": \"/GAMES/backup\",\n    \"LOG_LEVEL\": \"INFO\",\n    \"BACKUPMETHOD\": \"sync\",\n    \"BACKUPFILE_BACKUP_OPTION\": \"yes\",\n    \"RESTOREMETHOD\": \"copy\",\n    \"BACKUPFILE_RESTORE_OPTION\": \"no\",\n    \"RSYNCRMDIR\": \"yes\"\n  }\n}"
+    },
+    "public-rocknix-config-adoption/adoption.log": {
+      "sha256": "5751d9ed674f3206da567c37699a14d2d068835305a93bc2373046fdb9dff975",
+      "bytes": 54,
+      "text": "bwrap: Can't mkdir /usr/config: Read-only file system\n"
+    },
+    "public-rocknix-config-adoption/cloud/GAMES/backup/existing.zip": {
+      "sha256": "b5f7e7d285029324d9b3acae19cc05099271454ac98bfc059a92b0581625cd51",
+      "bytes": 9,
+      "text": "sentinel\n"
+    },
+    "public-rocknix-config-adoption/cloud/GAMES/gb/progress.srm": {
+      "sha256": "b5f7e7d285029324d9b3acae19cc05099271454ac98bfc059a92b0581625cd51",
+      "bytes": 9,
+      "text": "sentinel\n"
+    },
+    "public-rocknix-config-adoption/profile": {
+      "sha256": "c53499f1fe23f18126fa3f158e891f940ea7fe9894cfaabb521f6ec75c6e95e5",
+      "bytes": 82,
+      "text": "export PATH=/shim:/repo:/usr/bin:/bin\nexport HOME=/storage\nexport OS_NAME=ROCKNIX\n"
+    },
+    "public-rocknix-config-adoption/shim/ip": {
+      "sha256": "ed7833938db4abd915c4a87c20a87b5081e535ca8bcaadce3636bbbce842d61c",
+      "bytes": 70,
+      "text": "#!/bin/sh\n[ -e /ctl/offline ] || echo \"default via 10.0.2.2 dev eth0\"\n"
+    },
+    "public-rocknix-config-adoption/shim/logger": {
+      "sha256": "3874e47b219daaa98d73429732121b2639080ca64e5769982a78093c4f036cc7",
+      "bytes": 45,
+      "text": "#!/bin/sh\nprintf \"%s\\n\" \"$*\" >> /ctl/journal\n"
+    },
+    "public-rocknix-config-adoption/shim/ping": {
+      "sha256": "a0cfd66789b27fed708dda43875c9e9ff38823623233621b6bf816df8440dac9",
+      "bytes": 32,
+      "text": "#!/bin/sh\n[ ! -e /ctl/offline ]\n"
+    },
+    "public-rocknix-config-adoption/shim/rclone": {
+      "sha256": "02e1a1c6a82385cd1c5a510a764b0ca83c722e7c5812b0bb391f7d31c397a517",
+      "bytes": 543,
+      "text": "#!/bin/bash\nprintf '%s\\n' \"$*\" >> /ctl/argv\nif [ -f /ctl/faults ]; then\n while IFS=$'\\t' read -r pattern code; do\n  [[ \"$*\" =~ $pattern ]] && { printf '%s\\n' \"$*\" >> /ctl/fault-fired; echo 'injected provider failure' >&2; exit \"$code\"; }\n done < /ctl/faults\nfi\nif [ -e /ctl/bucket ]; then\n if [ \"$1 $2\" = 'backend features' ]; then\n  printf '{\"Hashes\":[\"md5\"],\"Features\":{\"BucketBased\":true}}\\n'; exit 0\n fi\n # Bucket prefixes can return successful empty lsd for a missing prefix.\n if [ \"$1\" = lsd ]; then exit 0; fi\nfi\nexec /rclone.real \"$@\"\n"
+    },
+    "public-rocknix-config-adoption/shim/systemctl": {
+      "sha256": "306c6ca7407560340797866e077e053627ad409277d1b9da58106fce4cf717cb",
+      "bytes": 17,
+      "text": "#!/bin/sh\nexit 0\n"
+    },
+    "public-rocknix-config-adoption/shim/systemd-tmpfiles": {
+      "sha256": "306c6ca7407560340797866e077e053627ad409277d1b9da58106fce4cf717cb",
+      "bytes": 17,
+      "text": "#!/bin/sh\nexit 0\n"
+    },
+    "public-rocknix-config-adoption/source-sha256.json": {
+      "sha256": "f034b241b0bb9c91be86ba080968a85ffa3c6206fc573597cd34a70282677841",
+      "bytes": 2107,
+      "text": "{\n  \"backuptool\": \"02557ca500c9706bac1c1062e70a1abfff46f8a445e96cde2f1b407ff64fe254\",\n  \"cloud_backup\": \"deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76\",\n  \"cloud_capture\": \"6853272e6eb29b2c61908dbfe135a5cb14cab7e86f833dea69a4cc6ac66a8929\",\n  \"cloud_content_backup\": \"c6789f9476d1c13cc00050fe2478d26629da05ef6af89222eb0ef72f3bf594ae\",\n  \"cloud_content_restore\": \"dfb2785ff207d64504e580724d03d3a030770bc35026597cbccf258eb931e3d9\",\n  \"cloud_content_transfer\": \"fe292268d9029c2b950a093f6902b5cbe8afb3d57cb47187251cf90c3d85a1a3\",\n  \"cloud_device_id\": \"3230633caf65ad9e115dffc1bf3e1dede38746f808d4177fc0c37b9defbeee62\",\n  \"cloud_folder_validate\": \"eedd5c4f758345abfc16a609f7efa2877ad3a0be2e855d852edea64649820d54\",\n  \"cloud_log_scrub\": \"5c156d8d43b39172fa71b80a3e47156f46bca0965dcae890ec70f02596f8f126\",\n  \"cloud_net_ready\": \"19afce254bc5c55f119b9681463b8103da5f564f3235b64f100ba9c35e62df89\",\n  \"cloud_oauth\": \"fec8240db342eb9432f9423f5ee3f5bd53df499012dffd1e4ac9ae81c316cbf5\",\n  \"cloud_remote\": \"1b4df1b5394647e52df8584e75529ef113be8ccde3ea31b8b7dd1dfd5bb2e99e\",\n  \"cloud_restore\": \"ec63c21ad782703c6679ce5e1a7b8c5e8f610daeec8cdda224d166df945d0544\",\n  \"cloud_saves_root\": \"d0b0c5b850a7b51257797dcc9bfdac2e6f3e0abf2c3be4584ca65583748bfe43\",\n  \"cloud_scan\": \"dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b\",\n  \"cloud_setup\": \"c453b6a5b80f0ae0675cfe1c56523a46090f9ee3027565a15acc08a3dc2519d0\",\n  \"cloud_sync-rules.txt\": \"bdb7e18128ce4a604c9b02cfe5b0f10f4e3e4dfd3aa7e2d69ea018b8c9d5484d\",\n  \"cloud_sync-rules.txt.defaults\": \"951a7d65d83dc2f2a041868cf2ab1e231a8b09873a0656311b1f947fd106df75\",\n  \"cloud_sync.conf\": \"a121977066ce805e791108258fe12d1ecbce5e71ce2f61f096394a9fca982305\",\n  \"cloud_sync.conf.defaults\": \"77ce914421b47ef7f0a33e6085a5793cb8be55a5c239788adf8575a57d3ad1c4\",\n  \"cloud_sync_cleanup_duplicates.sh\": \"b62ee55ace6e9d776a89686ed6ecdfa17c90ac0e9a6f16d2e260cb2a7617eac1\",\n  \"cloud_sync_helper\": \"9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050\",\n  \"rasteratops-settings-archive\": \"58977f0e8aec6adfe673037c1a926bb2cbee94269ad6306ec02206250bceb50c\"\n}\n"
+    },
+    "public-rocknix-config-adoption/storage/.config/cloud_sync-rules.txt": {
+      "sha256": "bc4f15f38e740763d19255aace0a90edd851e5deb159fc3bb38a3a12dfab38e8",
+      "bytes": 18,
+      "text": "+ /**/*.srm\n- /**\n"
+    },
+    "public-rocknix-config-adoption/storage/.config/cloud_sync.conf": {
+      "sha256": "e43cae4589b3c00b38fac1ae44b11759d8285e020c31dba429a28f97e24527b3",
+      "bytes": 2324,
+      "text": "# Cloud Sync Configuration\n# This file defines paths and settings for cloud sync operations\n\n# Base Directory Paths\n# -------------------\n# Directory where Retroarch saves, savestates, and screenshots are located\nBACKUPPATH=\"/storage/roms\"\n\n# Changing the below to be different from BACKUPPATH will prevent data from being replaced on restore\nRESTOREPATH=\"/storage/roms\"\n\n# Local path where backups are stored (defined in backuptool)\nBACKUPFOLDER=\"/storage/roms/backup\"\n\n# Cloud Storage Paths\n# ------------------\n# Directory on the remote where save data should be stored\nSYNCPATH=\"/GAMES\"\n\n# Remote path where backups are stored\nSYNCPATH_BACKUP=\"/GAMES/backup\"\n\n# Logging Options\n# --------------\n# Set the minimum level of messages to log (INFO, WARN, ERROR)\nLOG_LEVEL=\"INFO\"\n\n# Transfer Settings\n# ---------------\n# rclone sync rules - modify these options to change transfer behavior\n# IMPORTANT: Each option must be preceded by a backslash (\\) except the first one\nRCLONEOPTS=\"--progress \\\n--log-file /var/log/cloud_sync.log \\\n--filter-from /storage/.config/cloud_sync-rules.txt \\\n--delete-excluded\"\n\n# Backup Options\n# -------------\n## Backup method\n### The default is \"sync\", which creates a 1:1 match between the local path and remote\n### Switching to \"copy\" will overwrite newer files at the remote with the local version, but leave other files and folders in place\nBACKUPMETHOD=\"sync\"\n\n## Enable backing-up the system backup file\n### The default is \"yes\", which will include the system backup file in the backup\n### Switching to \"no\" will exclude the system backup file from the backup\nBACKUPFILE_BACKUP_OPTION=\"yes\"\n\n# Restore Options\n# --------------\n## Restore method\n### The default is \"copy\", which will preserve any existing files and folders\n### Switching to \"sync\" will replace all local files in the restore path with what is on the remote\nRESTOREMETHOD=\"copy\"\n\n## Enable restoring the system backup file\n### The default is \"no\", which will exclude the system backup file from the restore\n### Switching to \"yes\" will include the system backup file in the restore\nBACKUPFILE_RESTORE_OPTION=\"no\"\n\n# Maintenance Options\n# -----------------\n# Option to enable/disable removing orphaned empty directories on the remote that are also empty locally. Enabled by default. Comment out to disable.\nRSYNCRMDIR=\"yes\"\n"
+    },
+    "public-rocknix-config-adoption/storage/.config/rclone/rclone.conf": {
+      "sha256": "7603c17bce0056aae641bee817b6f9875863b4158f34d526914bfba008485eb5",
+      "bytes": 34,
+      "text": "[qa]\ntype = alias\nremote = /cloud\n"
+    },
+    "public-rocknix-config-adoption/storage/roms/gb/.fixture": {
+      "sha256": "7d9f18b135168edd868a20d626bf0469a86d20f650fe620af06458d4f3335ce8",
+      "bytes": 19,
+      "text": "local known system\n"
+    },
+    "public-rocknix-config-adoption/storage/roms/snes/.fixture": {
+      "sha256": "7d9f18b135168edd868a20d626bf0469a86d20f650fe620af06458d4f3335ce8",
+      "bytes": 19,
+      "text": "local known system\n"
+    }
+  },
+  "duplicate_source_file_hashes": {}
+}

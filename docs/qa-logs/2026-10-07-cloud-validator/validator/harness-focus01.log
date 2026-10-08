@@ -1,0 +1,112 @@
+  C. the cloud sign-in broker and setup (audit #307 stream C)
+    NOT APPLICABLE  historical migration cases: selected source has no engine and its recipe does not install one (#508); no migration checks counted as PASS
+PASS independent saves choice /GAMES preserves every other config line
+PASS selected saves path /GAMES is usable without deriving siblings
+PASS independent saves choice Mine/Saves/ preserves every other config line
+PASS selected saves path Mine/Saves is usable without deriving siblings
+PASS independent saves choice /a/b/Saves preserves every other config line
+PASS selected saves path /a/b/Saves is usable without deriving siblings
+PASS independent saves choice /Mine/Backups preserves every other config line
+PASS selected saves path /Mine/Backups is usable without deriving siblings
+PASS independent saves choice /Mine/Content preserves every other config line
+PASS selected saves path /Mine/Content is usable without deriving siblings
+PASS settings selection changes only its own pointer
+PASS --set-content-remote Games/ stores /Games as the content root and leaves the saves and settings folders alone (rc 0)
+PASS --set-content-remote refuses '/a/../b' and leaves the config as it was (rc 1)
+PASS --set-content-remote refuses '/a/./b' and leaves the config as it was (rc 1)
+PASS --set-content-remote refuses '/a//b' and leaves the config as it was (rc 1)
+PASS --set-content-remote refuses '/quote"' and leaves the config as it was (rc 1)
+PASS --set-content-remote refuses '/$HOME' and leaves the config as it was (rc 1)
+PASS --set-content-remote refuses '/`id`' and leaves the config as it was (rc 1)
+PASS --set-content-remote refuses '/two
+lines' and leaves the config as it was (rc 1)
+PASS --set-content-remote refuses '/trailing
+' and leaves the config as it was (rc 1)
+PASS --set-content-remote refuses '/tab	name' and leaves the config as it was (rc 1)
+PASS the content chooser accepts literal folder /MyGames
+PASS the content chooser accepts literal folder /My Games
+PASS the content chooser accepts literal folder /Games..old
+PASS the content chooser accepts literal folder /Kid's Games
+PASS a folder with & (/R&D/Saves) round-trips into the config
+PASS and every other line of the config, the multi-line RCLONEOPTS included, is byte for byte as it was
+PASS and --info reads it back as typed
+PASS a folder with | (/a|b/Saves) round-trips too
+PASS a name that would run as a command when the config is sourced is refused, config untouched: That folder name can't be used.
+PASS and nothing ran
+PASS --info runs nothing in an already-written value and names no folder for it
+PASS and so does --seed-folders, which used to eval the config's lines
+PASS and --content-location runs nothing an already-written value holds
+PASS and --check-syncpath runs nothing an already-written value holds
+PASS and --use-content-root runs nothing an already-written value holds
+PASS a config that cannot be written is a failure, not OK (rc 1)
+PASS and --use-content-root likewise (rc 1)
+PASS a write that fails prints its one sentence and no shell diagnostic
+PASS a key assigned twice reads as its first assignment, the one the scripts run with after the duplicate cleanup (PL-021)
+PASS a single-quoted value reads without its quotes
+PASS a bare value with a trailing comment reads as the word
+PASS --content-location reads the config the same way
+PASS the refusal of / calls it the cloud folder, as the interface's row does
+PASS the refusal of /Mine//Saves calls it the cloud folder, as the interface's row does
+PASS a config path that is a directory is a failure, not OK, and nothing is left inside it (rc 1)
+PASS --use-content-root writes CONTENT_REMOTE="" once
+PASS a fresh path-based cloud has exactly its expected notes and four folders reported OK
+PASS an owner's README is left alone when the folder lists
+PASS a listing that fails does not overwrite the owner's README
+PASS and on a fresh cloud whose listings fail, nothing is written
+PASS failed folder reads report failure before any cloud write
+PASS a fresh bucket cloud gets exactly its expected notes too
+PASS and an owner's README in a bucket is left alone
+PASS #508: fresh defaults seed /pixelelated beside legacy files without adopting or changing them
+PASS #508: seeding preserves selected /ROCKNIX paths and creates their folders
+PASS #508: seeding preserves selected /GAMES paths and creates their folders
+PASS #508: seeding preserves selected /Chosen paths and creates their folders
+PASS #508: final folder readback rejects provider failure despite partial listing output
+PASS every rclone call --seed-folders makes carries the listing bound (21 calls)
+PASS content-location uses the bounded metadata validator within selected roots
+PASS an empty CONTENT_REMOTE seeds ROMs/ and BIOS/ at the cloud's root, with no README at the top
+PASS while a config with no CONTENT_REMOTE line at all still gets the default /pixelelated/Content
+PASS explicit settings seeding leaves saves/library disabled and pointers unchanged
+PASS unscoped seeding is refused before any rclone action
+  CF. the audit of the fix round, stream C (D-WORKFLOW-060)
+PASS PL-009: the seat's /Mine/Backups/. is refused (a remote configured: yes), the config untouched, with the folder to use: Your cloud folder can't have an empty part, or a part called . or .., in its path.
+PASS PL-009: the seat's /Mine/Backups/. is refused (a remote configured: no), the config untouched, with the folder to use: Your cloud folder can't have an empty part, or a part called . or .., in its path.
+PASS PL-009: --check-syncpath refuses it too, where the folder is typed
+PASS PL-009: /Mine/./Saves is refused, the folder offered /Mine/Saves
+PASS PL-009: /Mine//Saves is refused, the folder offered /Mine/Saves
+PASS PL-009: /Mine/Saves/.. is refused, the folder offered /Mine
+PASS PL-009: /a/b/../Content is refused, the folder offered /a/Content
+PASS PL-009: /. names no folder at all, and is refused as empty
+PASS PL-009 (a control): /Mine/.hidden/Saves is a folder like any other, stored with its siblings beside it
+PASS PL-009 (a control): /Mine/..x/Saves is a folder like any other, stored with its siblings beside it
+PASS PL-021: with SAVES_REMOTE written twice, the hub's line (--info) names the folder the saves scripts use after the cleanup: /pixelelated/Saves
+PASS PL-021: and --content-location, the cleaned config and the content scripts agree on CONTENT_REMOTE: /pixelelated/Content
+PASS gpt G2-C-01 (a control): the scripts' own readers refuse SAVES_REMOTE=/Mine/'My Saves' (conf_valid rc 1, the content reader rc 2)
+PASS gpt G2-C-01: --info names no folder for it, rather than /Mine/'My
+PASS gpt G2-C-01: --seed-folders writes nothing to the cloud on a folder it cannot read (rc 2): >>> why YOUR CLOUD SYNC SETTINGS COULDN'T BE READ
+PASS gpt G2-C-01: --check-syncpath of the stored folder says the settings couldn't be read (rc 1)
+PASS gpt G2-C-01: cloud_setup and the content scripts read nine value forms alike, refusals included
+  ab. cloud_scan (#350, D-CLOUD-156): the opening scan's three items, the content scan's one, the selected folder facts and the failures said
+PASS the opening scan announces CLOUD FOLDER, SETTINGS BACKUPS, GAME CONTENT in that order, each with its doing line, and exits 0 (rc 0)
+PASS opening result binds run/config/data and never lists account-root children
+PASS an opening result cannot satisfy another run
+PASS changed configuration invalidates the opening result
+PASS changed result bytes invalidate the opening result
+PASS the settings facts: this device's newest by label, the newest overall, the count, the label (D-CLOUD-162)
+PASS the archive listing is bounded and reads the Backups folder
+PASS no route cannot authorize stale opening results for this run
+PASS no remote: exit 1 with its why (rc 1)
+PASS a content listing is not the opening scan's to fail: the scan-fail flag leaves the opening scan at 0 (rc 0)
+PASS --content --with-media announces one item in the ticked classes, passes the flag to --scan, writes the rows, the systems and its own stamp (rc 0)
+PASS content result binds its requested classes as well as run/config
+PASS --content --media-only is the GAME CONTENT item with --scan --media-only (rc 0)
+PASS a content listing the cloud refused (5): the ROMS AND BIOS item, the why, no content stamp (rc 5)
+PASS #508: scan retains selected legacy folder facts without joining or following
+PASS #508: folder-fail preserves its status/reason and writes no done stamp
+PASS #508: folder-format-fail preserves its status/reason and writes no done stamp
+PASS #508: folder-timeout preserves its status/reason and writes no done stamp
+PASS #508: folder-only scan reads the selected folder and preserves unrelated archive bytes
+PASS replacing folder facts invalidates the opening completion record
+PASS #508: failed folder-only read has its reason and no usable state
+PASS offline folder check exits 69 and cannot validate an earlier opening run
+PASS an unknown mode is refused before a cloud read (rc 2)
+RESULT failures=0 skipped=0 not_applicable=1

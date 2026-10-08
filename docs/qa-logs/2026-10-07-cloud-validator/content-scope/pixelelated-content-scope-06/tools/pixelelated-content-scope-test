@@ -1,0 +1,241 @@
+#!/usr/bin/env python3
+"""Exercise selected-library boundaries with production scripts and real rclone.
+
+Host source controls for #508/#510, not firmware or VM qualification. Each
+case gets independent synthetic configuration, cloud files, and result logs.
+"""
+import argparse
+import fcntl
+import hashlib
+import importlib.machinery
+import importlib.util
+import json
+from pathlib import Path
+import sys
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--source-root', type=Path, required=True)
+    parser.add_argument('--rclone', required=True)
+    parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--cases', help='Comma-separated case names; use for unfixed controls')
+    parser.add_argument('--fixture-tool', type=Path,
+                        default=Path(__file__).with_name('rasteratops-cloud-layout-test'))
+    args = parser.parse_args()
+    args.source_root = args.source_root.resolve()
+    args.rclone = str(Path(args.rclone).resolve(strict=True))
+    args.ref = None
+    args.output.mkdir(parents=True, exist_ok=False)
+    loader = importlib.machinery.SourceFileLoader('layout_fixture', str(args.fixture_tool))
+    spec = importlib.util.spec_from_loader(loader.name, loader)
+    fixture = importlib.util.module_from_spec(spec)
+    loader.exec_module(fixture)
+    results = []
+
+    def snapshot(path):
+        return {str(p.relative_to(path)): hashlib.sha256(p.read_bytes()).hexdigest()
+                for p in path.rglob('*') if p.is_file()}
+
+    def case(name, run):
+        if args.cases and name not in args.cases.split(','):
+            return
+        f = fixture.Fixture(args.output / name, args)
+        f.conf(content='/Chosen/Library')
+        fixture.put(f.path / 'storage/roms/gb/.keep', '')
+        # Independent distracting libraries, both flat and structured.
+        for path in ['gb/Outside.gb', 'Other/ROMs/gb/Other.gb',
+                     'Chosen/Library/gb/Flat.gb', 'bios/Outside.bin']:
+            f.file(path, 'unselected ' + path)
+        before = snapshot(f.path / 'cloud')
+        try:
+            fixture.put(f.path/'repo/fixture-check', "printf '%s\\n' isolated-fixture-ready\n")
+            ready = f.run('fixture-check')
+            fixture.require(ready.returncode == 0 and ready.stdout.strip() == 'isolated-fixture-ready',
+                            'isolated fixture did not start: ' + ready.stdout)
+            run(f)
+            fixture.require(snapshot(f.path / 'cloud') == before,
+                            'read/restore changed remote files')
+            results.append({'case': name, 'result': 'PASS'})
+            print('PASS', name, flush=True)
+        except Exception as error:
+            results.append({'case': name, 'result': 'FAIL', 'error': str(error)})
+            print('FAIL', name, str(error), flush=True)
+
+    def absent(f, mode):
+        r = f.run('cloud_content_restore', mode)
+        fixture.require(r.returncode == 0, r.stdout)
+        if mode == '--list':
+            fixture.require(not r.stdout.strip(), 'unselected folders were offered')
+        if mode == '--scan':
+            rows = [line.split('|') for line in r.stdout.splitlines() if '|' in line]
+            fixture.require(all(row[1] == '0' for row in rows), 'unselected cloud bytes counted')
+        fixture.require(not (f.path / 'storage/roms/gb/Flat.gb').exists(),
+                        'flat library restored without selection')
+        fixture.require(not (f.path / 'storage/roms/gb/Outside.gb').exists(),
+                        'account-root library restored')
+        calls = (f.path / 'ctl/argv').read_text().splitlines()
+        for line in calls:
+            if line.startswith(('lsf ', 'copy ', 'sync ')):
+                fixture.require('qa:/Chosen/Library' in line,
+                                'remote access escaped selected library: ' + line)
+
+    for mode in ['--list', '--scan', '--all']:
+        case('missing-' + mode[2:], lambda f, mode=mode: absent(f, mode))
+
+    def selected(f):
+        f.file('Chosen/Library/ROMs/gb/Chosen.gb', 'chosen ROM bytes')
+        f.file('Chosen/Library/BIOS/Required.bin', 'chosen BIOS bytes')
+        # Those are fixtures too; return them to the initial snapshot after
+        # checking exact local bytes, so the common read-only oracle applies.
+        before = snapshot(f.path / 'cloud')
+        r = f.run('cloud_content_restore', '--all')
+        fixture.require(r.returncode == 0, r.stdout[-1000:])
+        fixture.require((f.path / 'storage/roms/gb/Chosen.gb').read_text() == 'chosen ROM bytes',
+                        'selected ROM bytes missing')
+        fixture.require((f.path / 'storage/roms/bios/Required.bin').read_text() == 'chosen BIOS bytes',
+                        'selected BIOS bytes missing')
+        fixture.require(snapshot(f.path / 'cloud') == before, 'restore changed cloud')
+        (f.path / 'cloud/Chosen/Library/ROMs/gb/Chosen.gb').unlink()
+        (f.path / 'cloud/Chosen/Library/BIOS/Required.bin').unlink()
+        fixture.require(not (f.path / 'storage/roms/gb/Flat.gb').exists(), 'flat fallback used')
+
+    case('selected-rom-bios-bytes', selected)
+
+    def failed(f, mode, partial):
+        if partial:
+            shim = f.path / 'shim/rclone'
+            text = shim.read_text()
+            text = text.replace("printf '%s\\n' \"$*\" >> /ctl/argv",
+                                "printf '%s\\n' \"$*\" >> /ctl/argv\n"
+                                "if [ \"$1\" = lsf ]; then echo '99|gb/Partial.gb'; exit 3; fi")
+            # Verify fault installation rather than a vacuous error case.
+            fixture.require('Partial.gb' in text, 'could not install partial-list fault')
+            shim.write_text(text)
+        else:
+            f.fault('^lsf ', 5)
+        r = f.run('cloud_content_restore', mode)
+        fixture.require(r.returncode != 0, 'provider failure looked like success: ' + r.stdout)
+        fixture.require(not any(p.name.endswith('.gb') for p in (f.path/'storage/roms').rglob('*')),
+                        'failure caused an unintended restore')
+        calls = (f.path/'ctl/argv').read_text()
+        fixture.require(not any(line.startswith(('copy ', 'sync ')) for line in calls.splitlines()),
+                        'failed discovery started a transfer')
+
+    for mode in ['--list', '--scan', '--all']:
+        case('unreadable-' + mode[2:], lambda f, mode=mode: failed(f, mode, False))
+        case('partial-' + mode[2:], lambda f, mode=mode: failed(f, mode, True))
+
+    def traversal(f):
+        r = f.run('cloud_content_restore', '../gb')
+        fixture.require(r.returncode != 0, 'relative traversal accepted')
+        calls = (f.path/'ctl/argv').read_text()
+        fixture.require(not any(line.startswith(('copy ', 'sync ')) for line in calls.splitlines()),
+                        'traversal started transfer')
+    case('system-traversal-refused', traversal)
+
+    def scan_binding(f):
+        r = f.run('cloud_scan', '--content', '--run-id', 'scope-one')
+        fixture.require(r.returncode == 0, r.stdout)
+        stamp = json.loads((f.path/'storage/.cache/cloud_sync/scan/content-done').read_text())
+        fixture.require(isinstance(stamp, dict), 'completion is not bound to a run/configuration')
+        fixture.require(stamp['run_id'] == 'scope-one', 'wrong scan identity')
+        fixture.require(f.run('cloud_scan', '--stamp-valid', 'content-done', 'scope-one').returncode == 0,
+                        'current scan refused')
+        fixture.require(f.run('cloud_scan', '--stamp-valid', 'content-done', 'other-run').returncode != 0,
+                        'another scan was accepted')
+        fixture.require(f.run('cloud_scan', '--stamp-valid', 'content-done', 'scope-one', '--media-only').returncode != 0,
+                        'another category selection was accepted')
+        rows = f.path/'storage/.cache/cloud_sync/scan/scan'
+        rows.write_text(rows.read_text()+'gb|99|1|0|0|0|0|0\n')
+        fixture.require(f.run('cloud_scan', '--stamp-valid', 'content-done', 'scope-one').returncode != 0,
+                        'mutated cached output accepted')
+
+    case('scan-run-mode-output-binding', scan_binding)
+
+    def changed_configuration(f):
+        r = f.run('cloud_scan', '--content', '--run-id', 'scope-two')
+        fixture.require(r.returncode == 0, r.stdout)
+        f.conf(content='/Different/Library')
+        fixture.require(f.run('cloud_scan', '--stamp-valid', 'content-done', 'scope-two').returncode != 0,
+                        'old result accepted after folder change')
+
+    case('scan-folder-change-invalidates', changed_configuration)
+
+    def changed_endpoint(f):
+        r = f.run('cloud_scan', '--content', '--run-id', 'scope-three')
+        fixture.require(r.returncode == 0, r.stdout)
+        fixture.put(f.path/'storage/.config/rclone/rclone.conf', '[qa]\ntype = alias\nremote = /different-cloud\n')
+        fixture.require(f.run('cloud_scan', '--stamp-valid', 'content-done', 'scope-three').returncode != 0,
+                        'old result accepted after endpoint change')
+
+    case('scan-endpoint-change-invalidates', changed_endpoint)
+
+    def local_context(f):
+        before = snapshot(f.path/'storage')
+        r = f.run('cloud_scan', '--context')
+        fixture.require(r.returncode == 0 and len(r.stdout.strip()) == 64, 'invalid local context')
+        fixture.require(not (f.path/'ctl/argv').exists(), 'local context started rclone')
+        fixture.require(snapshot(f.path/'storage') == before, 'local context changed config/cache')
+        fixture.require(f.run('cloud_scan', '--stamp-valid', '../../outside', 'scope').returncode != 0,
+                        'arbitrary stamp path accepted')
+
+    case('scan-context-local-read-only', local_context)
+
+    def scan_lock(f):
+        cache = f.path/'storage/.cache/cloud_sync/scan'
+        fixture.put(cache/'done', 'another owner\n')
+        fixture.put(cache/'state', 'retained cache\n')
+        before = snapshot(cache)
+        with (f.path/'run/cloud_scan.lock').open('w') as lock:
+            fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+            r = f.run('cloud_scan', '--run-id', 'second-owner')
+        fixture.require(r.returncode == 75, 'concurrent scan was not refused')
+        fixture.require(snapshot(cache) == before, 'refused scan altered another owner cache')
+        fixture.require(not (f.path/'ctl/argv').exists(), 'refused scan contacted cloud')
+
+    case('scan-concurrent-owner-refused', scan_lock)
+
+    def unreadable_during_scan(f):
+        shim = f.path/'shim/rclone'
+        s = shim.read_text().replace('exec /rclone.real "$@"',
+                                    "printf '\\n# changed while checking\\n' >> /storage/.config/cloud_sync.conf\n"
+                                    'exec /rclone.real "$@"')
+        shim.write_text(s)
+        r = f.run('cloud_scan', '--content', '--run-id', 'changing-config')
+        fixture.require(r.returncode != 0, 'configuration changed during scan but completion succeeded')
+        fixture.require(not (f.path/'storage/.cache/cloud_sync/scan/content-done').exists(),
+                        'failed scan wrote completion')
+
+    case('scan-config-changes-during-run', unreadable_during_scan)
+
+    def trailing_slash(f):
+        f.conf(content='/Chosen/Library/')
+        absent(f, '--list')
+
+    case('selected-trailing-slash', trailing_slash)
+
+    def pointer_traversal(f):
+        f.conf(content='../Other')
+        r = f.run('cloud_content_restore', '--list')
+        fixture.require(r.returncode != 0, 'traversing content pointer accepted')
+        calls = (f.path/'ctl/argv').read_text()
+        fixture.require(not any(line.startswith(('lsf ', 'copy ', 'sync ')) for line in calls.splitlines()),
+                        'traversing pointer read a cloud folder')
+
+    case('content-pointer-traversal-refused', pointer_traversal)
+
+    sources = args.source_root / fixture.SOURCES
+    receipt = {'source_root': str(args.source_root),
+               'source_sha256': {name: hashlib.sha256((sources/name).read_bytes()).hexdigest()
+                                 for name in ['cloud_content_restore', 'cloud_content_transfer', 'cloud_scan']},
+               'rclone_sha256': hashlib.sha256(Path(args.rclone).read_bytes()).hexdigest(),
+               'results': results}
+    (args.output/'result.json').write_text(json.dumps(receipt, indent=2)+'\n')
+    if not results:
+        raise RuntimeError('No selected controls ran')
+    return int(any(row['result'] != 'PASS' for row in results))
+
+
+if __name__ == '__main__':
+    sys.exit(main())

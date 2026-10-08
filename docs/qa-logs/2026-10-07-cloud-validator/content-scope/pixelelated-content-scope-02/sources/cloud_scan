@@ -1,0 +1,354 @@
+#!/bin/bash
+# SPDX-License-Identifier: GPL-2.0
+# Copyright (C) 2026-present rasteratops (https://github.com/rasteratops)
+
+# cloud_scan - what the cloud holds for this device, before anything is offered.
+#
+# The transfer pages scan first and offer only what the scan found
+# (D-CLOUD-156, fork #350): the folder's state, the settings archives by
+# device label, where the content is, and -- once the player has ticked
+# what to move -- the content listing in those classes. This runs those
+# reads and talks to the scan page in the protocol every cloud page reads
+# (">>> unit", ">>> doing", ">>> why"), writing each result to a file the
+# options page builds from.
+#
+#   cloud_scan                   the opening scan: the folder, the settings
+#                                archives, where the content is (three items)
+#   cloud_scan --content [--with-media|--media-only]
+#                                the content listing for the systems page,
+#                                in the classes ticked (one item)
+#   cloud_scan --folder          configured folder availability (one item)
+#
+# Read-only: scans never adopt another device's folders, rewrite settings,
+# move files, or offer migration. Folder changes use explicit setup choices.
+#
+# Results, under /storage/.cache/cloud_sync/scan/:
+#   state             cloud_setup --folder-state, one fact per line
+#   archives          every settings archive in the Backups folder, one per line
+#   settings          LABEL= (this device's), MINE= (its newest), NEWEST= (overall), COUNT=
+#   content-location  cloud_setup --content-location, key=value
+#   done              JSON binding the opening result to its run/configuration
+#   scan              cloud_content_restore --scan's rows        (--content)
+#   systems           the systems this device syncs (--systems)  (--content)
+#   content-done      equivalent binding for the selected content mode
+#
+# Exit: 0 all read; 69 no network (the page says SKIPPED - YOU'RE NOT
+# ONLINE); 1 no cloud storage set up; otherwise the failing read's code,
+# with a ">>> why" in the player's words before it (D-UI-028).
+
+. /etc/profile 2>/dev/null
+
+OUT=/storage/.cache/cloud_sync/scan
+SYNC_CONF=/storage/.config/cloud_sync.conf
+readonly EXIT_NO_NETWORK=69
+# Every listing here is bounded as the other readers' are (#308 claude F-RS-13).
+readonly -a RCLONE_LIST_OPTS=(--contimeout 15s --timeout 30s --low-level-retries 3 --retries 1)
+
+say() { echo "$@"; }
+log() { logger -t cloud_scan "$*" 2>/dev/null; }
+why() { echo ">>> why $*"; }
+
+# The shared reader (cloud_setup's, the content scripts', D-CLOUD-149): a
+# value in a form the sync does not read is nothing here, never a folder.
+conf_get() { # <KEY> (the content scripts' reader, mirrored so every reader agrees, D-CLOUD-149): its value, quotes off; nothing when absent; exit 2 when unreadable, and why on stdout
+    [ -f ${SYNC_CONF} ] || return 0
+    awk -v k="$1" '
+        { t = $0; gsub(/\t/, "", t); if (t ~ /[[:cntrl:]]/ && !cntrl) cntrl = NR }
+        index($0, k "=") != 1 && !other \
+            && $0 ~ ("^[ \t]*((export|declare|typeset|readonly|local)([ \t]+-[A-Za-z]+)*[ \t]+)?" k "[ \t]*[+]?=") { other = NR }
+        index($0, k "=") == 1 {
+            s = substr($0, length(k) + 2); v = ""; r = ""; ok = 1; why = ""
+            c = substr(s, 1, 1)
+            if (c == "\"") {
+                # Inside double quotes bash reads \" \\ \$ and \` as the one
+                # character each (PL-015), and so does this; an unescaped $
+                # or backtick is an expansion this reader does not make, and
+                # any other backslash is refused as conf_valid refuses it.
+                n = length(s); i = 2; closed = 0
+                while (i <= n) {
+                    d = substr(s, i, 1)
+                    if (d == "\"") { closed = 1; break }
+                    if (d == "\\") {
+                        e = substr(s, i + 1, 1)
+                        if (e == "\"" || e == "\\" || e == "$" || e == "`") { v = v e; i += 2; continue }
+                        ok = 0
+                        why = (e == "") ? "a value continued onto the next line, which this reader does not follow" \
+                                        : "a backslash inside double quotes that is not one of the escapes bash reads there"
+                        break
+                    }
+                    if (d == "$" || d == "`") { ok = 0; why = "a $ or a backtick inside double quotes"; break }
+                    v = v d; i++
+                }
+                if (ok && !closed) { ok = 0; why = "a double-quoted value that does not close on its line" }
+                if (ok) r = substr(s, i + 1)
+            } else if (c == "'"'"'") {
+                j = index(substr(s, 2), c)
+                if (j) { v = substr(s, 2, j - 1); r = substr(s, j + 2) } else { ok = 0; why = "a single-quoted value that does not close on its line" }
+            } else {
+                match(s, /^[A-Za-z0-9_.\/:@%+,=-]*/); v = substr(s, 1, RLENGTH); r = substr(s, RLENGTH + 1)
+            }
+            if (ok && r !~ /^([ \t]+(#.*)?)?$/) { ok = 0; why = "something after the value that is not a # comment" }
+            if (!found) { found = 1; first = v; firstok = ok; firstwhy = "line " NR ": " why }
+        }
+        END {
+            if (cntrl) { print "line " cntrl ": a control character other than a tab"; exit 2 }
+            if (other) { print "line " other ": " k " set in a form this reader does not read"; exit 2 }
+            if (found && !firstok) { print firstwhy; exit 2 }
+            if (found) print first
+        }
+    ' ${SYNC_CONF}
+}
+
+sibling() { # <name>: the script beside this one, else the installed one
+    local t; t="$(dirname "$(readlink -f "$0")")/$1"
+    [ -x "${t}" ] || t="/usr/bin/$1"
+    echo "${t}"
+}
+device_label() {
+    local tool; tool=$(sibling cloud_device_id)
+    [ -x "${tool}" ] && "${tool}" --label 2>/dev/null | tr -cd 'A-Za-z0-9_-'
+}
+os_name() {
+    local name="${OS_NAME}"
+    [ -z "${name}" ] && name=$(sed -n 's/^OS_NAME="\{0,1\}\([^"]*\)"\{0,1\}$/\1/p' /etc/os-release 2>/dev/null | head -1)
+    [ -z "${name}" ] && name="ROCKNIX"
+    printf '%s\n' "${name}" | tr -cd 'A-Za-z0-9_-'
+}
+
+# What an rclone exit means to a player: the sentences the card and the
+# rows already carry for these codes (ThreadedCloudSync::whyForCode), so
+# one code is never called two things and the French reaches them.
+why_for_rc() {
+    case "$1" in
+        3|4) why "COULDN'T FIND YOUR CLOUD FOLDER" ;;
+        5|124) why "YOUR CLOUD STOPPED ANSWERING" ;;   # 124: a bounded read timed out
+        7|8) why "YOUR CLOUD WOULDN'T TAKE THE FILES" ;;
+        *)   why "SOMETHING WENT WRONG" ;;
+    esac
+}
+
+# Before any read: a place to write, a route, a remote.
+prepare() {
+    mkdir -p "${OUT}" || { log "scan: cannot make ${OUT}"; why "SOMETHING WENT WRONG"; exit 1; }
+    # No route, nothing tried: the page says SKIPPED - YOU'RE NOT ONLINE from
+    # the code alone (D-CLOUD-072, D-CLOUD-112).
+    if ! ip route show default 2>/dev/null | grep -q .; then
+        log "scan: no default route; skipped"
+        exit "${EXIT_NO_NETWORK}"
+    fi
+    REMOTE=$(rclone listremotes 2>/dev/null | head -1)
+    if [ -z "${REMOTE}" ]; then
+        why "YOUR CLOUD STORAGE ISN'T SET UP YET"
+        exit 1
+    fi
+}
+
+# A read that failed ends the run with its why; 69 is the page's own sentinel.
+stop_on() { # <rc> <what> [application output file]
+    [ "$1" -eq 0 ] && return 0
+    log "scan: $2 exited $1"
+    [ "$1" -eq "${EXIT_NO_NETWORK}" ] && exit "$1"
+    if [ -n "${3:-}" ]; then
+        local reason
+        reason=$(sed -n 's/^>>> why //p' "$3" 2>/dev/null | tail -1)
+        if [ -n "${reason}" ]; then
+            why "${reason}"
+        elif [ "$1" -eq 124 ]; then
+            why "YOUR CLOUD STOPPED ANSWERING"
+        else
+            # Application codes are not rclone's codes. A refused layout
+            # or invalid record does not mean that a folder is missing.
+            why "YOUR CLOUD FOLDER COULDN'T BE READ"
+        fi
+    else
+        why_for_rc "$1"
+    fi
+    exit "$1"
+}
+
+# Local-only identity: no rclone invocation and no configuration merge. A
+# changed endpoint, folder, rule or selection invalidates every old result.
+context_id() {
+    local file fingerprint="" value
+    for file in /storage/.config/cloud_sync.conf \
+                /storage/.config/rclone/rclone.conf \
+                /storage/.config/cloud_sync-rules.txt \
+                /storage/.cache/cloud_sync/content-systems \
+                /storage/.config/emulationstation/es_systems.cfg \
+                /usr/config/emulationstation/es_systems.cfg; do
+        if [ -f "${file}" ]; then
+            value=$(sha256sum "${file}") || return 1
+        elif [ -e "${file}" ]; then
+            return 1
+        else
+            value="absent ${file}"
+        fi
+        fingerprint+="${value}"$'\n'
+    done
+    printf '%s' "${fingerprint}" | sha256sum | cut -d' ' -f1
+}
+result_id() {
+    local file value fingerprint=""; local -a names
+    case "$1" in
+        done) names=(state archives settings content-location) ;;
+        content-done) names=(scan systems) ;;
+        *) return 1 ;;
+    esac
+    for file in "${names[@]}"; do
+        [ -f "${OUT}/${file}" ] || return 1
+        value=$(sha256sum "${OUT}/${file}") || return 1
+        fingerprint+="${value}"$'\n'
+    done
+    printf '%s' "${fingerprint}" | sha256sum | cut -d' ' -f1
+}
+content_mode() {
+    case " $* " in
+        *" --with-media "*" --media-only "*|*" --media-only "*" --with-media "*) return 1 ;;
+        *" --with-media "*) echo content:all ;;
+        *" --media-only "*) echo content:media ;;
+        *) echo content:roms ;;
+    esac
+}
+write_completion() {
+    local stamp="$1" mode="$2" current digest tmp
+    current=$(context_id) && [ "${current}" = "${CONFIG_ID}" ] || {
+        why "YOUR CLOUD SETTINGS CHANGED. CHECK AGAIN"; return 1;
+    }
+    digest=$(result_id "${stamp}") || return 1
+    tmp="${OUT}/${stamp}.tmp.$$"
+    jq -n --arg run "${RUN_ID}" --arg config "${CONFIG_ID}" \
+        --arg mode "${mode}" --arg result "${digest}" \
+        '{schema_version:1,run_id:$run,config_id:$config,mode:$mode,result_id:$result}' > "${tmp}" \
+        && mv -f "${tmp}" "${OUT}/${stamp}"
+}
+if [ "$1" = --context ]; then
+    [ $# -eq 1 ] || exit 2
+    context_id; exit $?
+elif [ "$1" = --stamp-valid ]; then
+    STAMP="$2"; EXPECTED_RUN="$3"; shift 3 || exit 2
+    [[ "${EXPECTED_RUN}" =~ ^[A-Za-z0-9_.-]{1,96}$ ]] || exit 2
+    case "${STAMP}" in
+        done) [ $# -eq 0 ] || exit 2; MODE=opening ;;
+        content-done) MODE=$(content_mode "$@") || exit 2 ;;
+        *) exit 2 ;;
+    esac
+    CURRENT=$(context_id) && DIGEST=$(result_id "${STAMP}") || exit 1
+    jq -e --arg run "${EXPECTED_RUN}" --arg config "${CURRENT}" \
+        --arg mode "${MODE}" --arg result "${DIGEST}" \
+        '.schema_version == 1 and .run_id == $run and .config_id == $config and .mode == $mode and .result_id == $result' \
+        "${OUT}/${STAMP}" >/dev/null 2>&1
+    exit $?
+fi
+RUN_ID=""; ARGS=()
+while [ $# -gt 0 ]; do
+    case "$1" in
+        --run-id) [ -z "${RUN_ID}" ] && [ $# -ge 2 ] || exit 2; RUN_ID="$2"; shift 2 ;;
+        --content|--folder|--with-media|--media-only) ARGS+=("$1"); shift ;;
+        *) echo "Unknown scan option" >&2; exit 2 ;;
+    esac
+done
+RUN_ID="${RUN_ID:-$(date +%s)-$$}"
+[[ "${RUN_ID}" =~ ^[A-Za-z0-9_.-]{1,96}$ ]] || exit 2
+set -- "${ARGS[@]}"
+CONFIG_ID=$(context_id) || exit 1
+
+# --content: the listing the systems page is built from, in the classes
+# the player ticked (cloud_content_restore --scan's own flags), and the
+# systems this device syncs. One item; the page's row 3 says it is
+# comparing.
+scan_content() {
+    local label="ROMS AND BIOS" rc
+    case " $* " in
+        *" --with-media "*) label="ROMS, BIOS, AND GAME CONTENT" ;;
+        *" --media-only "*) label="GAME CONTENT" ;;
+    esac
+    prepare
+    rm -f "${OUT}"/scan "${OUT}"/scan.err "${OUT}"/systems "${OUT}"/content-done
+    echo ">>> unit ${label}||"
+    echo ">>> doing compare"
+    "$(sibling cloud_content_restore)" --scan "$@" > "${OUT}/scan" 2> "${OUT}/scan.err"; rc=$?
+    [ "${rc}" -eq 0 ] || log "scan: --scan $* exited ${rc}: $(head -1 "${OUT}/scan.err" 2>/dev/null)"
+    stop_on "${rc}" "--scan"
+    "$(sibling cloud_content_restore)" --systems > "${OUT}/systems" 2>/dev/null || : > "${OUT}/systems"
+    mode=$(content_mode "$@") || exit 2
+    write_completion content-done "${mode}" || exit 1
+    log "scan: content done ($(grep -c . "${OUT}/scan") rows, ${label})"
+    exit 0
+}
+
+# 1. Availability of the configured saves folder. It is not a reason to
+# reselect paths: other selected tiers may still hold their own files.
+read_folder() {
+    local setup
+    echo ">>> unit CLOUD FOLDER||"
+    echo ">>> doing scan"
+    setup=$(sibling cloud_setup)
+    "${setup}" --folder-state > "${OUT}/state" 2>/dev/null
+    stop_on $? "--folder-state" "${OUT}/state"
+}
+
+scan_main() {
+case "$1" in
+    --content) shift; scan_content "$@" ;;
+    --folder)
+        # The step reads state alone; the opening scan's other files are
+        # left as they were, and are rewritten by the next opening scan.
+        prepare
+        rm -f "${OUT}"/state "${OUT}"/done
+        read_folder
+        log "scan: folder done ($(sed -n 's/^STATE=//p' "${OUT}/state"))"
+        exit 0 ;;
+    "") ;;
+    *) echo "usage: cloud_scan [--content [--with-media|--media-only] | --folder]" >&2; exit 2 ;;
+esac
+
+prepare
+rm -f "${OUT}"/state "${OUT}"/archives "${OUT}"/settings "${OUT}"/content-location "${OUT}"/root-dirs "${OUT}"/done
+date +%s > "${OUT}/started"
+read_folder
+
+# 2. The settings archives, by the device that wrote each (the label in the
+#    name, cloud_restore's rule): this device's newest first, else the newest
+#    overall, else none -- the row is offered or dimmed from this (D-CLOUD-162).
+echo ">>> unit SETTINGS BACKUPS||"
+echo ">>> doing scan"
+settings_remote=$(conf_get SETTINGS_REMOTE) || { why "YOUR CLOUD SYNC SETTINGS COULDN'T BE READ"; exit 1; }
+settings_remote="${settings_remote%/}"
+# Use the restore reader's directory priority, including inherited device IDs.
+archive_tool=$(sibling rasteratops-settings-archive)
+[ -r "${archive_tool}" ] || { why "SOMETHING WENT WRONG"; exit 1; }
+. "${archive_tool}"
+select_settings_archives "${REMOTE}${settings_remote}" "$(sibling cloud_device_id)"; rc=$?
+stop_on "${rc}" "archives listing"
+listing="${SETTINGS_ARCHIVE_LISTING}"
+printf '%s\n' "${listing}" | sed '/^$/d' > "${OUT}/archives"
+label=$(device_label); osn=$(os_name); mine=""; newest=""
+if [ -n "${label}" ]; then
+    mine=$(grep -E "^[0-9]{4}_[0-9]{2}_[0-9]{2}-[0-9]{6}-${label}-(${osn}|ROCKNIX|RASTERATOPS)_SETTINGS\.tar\.gz$" "${OUT}/archives" | sort | tail -1)
+fi
+newest=$(grep -E '^[0-9]{4}_[0-9]{2}_[0-9]{2}-[0-9]{6}-' "${OUT}/archives" | sort | tail -1)
+{
+    echo "SOURCE=${SETTINGS_ARCHIVE_SOURCE}"
+    echo "LABEL=${label}"
+    echo "MINE=${mine}"
+    echo "NEWEST=${newest}"
+    echo "COUNT=$(grep -c . "${OUT}/archives")"
+} > "${OUT}/settings"
+
+# 3. Availability at the explicitly selected library. Account-root browsing
+# and discovery of another library are not part of a transfer preview.
+echo ">>> unit GAME CONTENT||"
+echo ">>> doing scan"
+"$(sibling cloud_setup)" --content-location > "${OUT}/content-location" 2>/dev/null; rc=$?
+stop_on "${rc}" "--content-location" "${OUT}/content-location"
+
+write_completion done opening || exit 1
+log "scan: done ($(grep -c . "${OUT}/archives") archives, $(sed -n 's/^STATE=//p' "${OUT}/state"), content $(sed -n 's/^STATE=//p' "${OUT}/content-location"))"
+exit 0
+
+}
+# The lock protects shared cache files. The function runs with the descriptor
+# closed; children cannot retain a stale lock after this owner exits.
+exec 8>/var/run/cloud_scan.lock || exit 1
+flock -n 8 || { why "ANOTHER CLOUD CHECK IS RUNNING"; exit 75; }
+scan_main "$@" 8>&-
