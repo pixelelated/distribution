@@ -193,8 +193,8 @@ both lists and to this table, or it is invisible.**
 | `raofflineproxy-consent-test` | exercise installed reporting consent with synthetic state, actual loopback HTTP and restart controls | `generic-x64-vm-testing.md` |
 | `rasteratops-cloud-layout-test` | prove numbered layout transitions, partial-state recovery and missing-remote refusal | `rclone-cloud-sync.md` |
 | `pixelelated-content-scope-test` | prove selected-library boundaries, bounded root refusal and scan-result binding with synthetic real-rclone controls | `rclone-cloud-sync.md` |
-| `pixelelated-cloud-folder-test` | qualify explicit selected-folder setup and preservation with real rclone and disposable synthetic data | `rclone-cloud-sync.md` |
-| `pixelelated-cloud-folder-vm-test` | prove hash-bound explicit-folder scripts on an owned guest and synthetic WebDAV | `generic-x64-vm-testing.md` |
+| `pixelelated-cloud-folder-test` | retired implicit-seeding/derived-pointer contract; refuses execution; current host coverage is `pixelelated-cloud-validator-test` | `rclone-cloud-sync.md` |
+| `pixelelated-cloud-folder-vm-test` | retired historical overlay contract; refuses execution; current target coverage uses `vm-qa`, `cloud-round-trip` and canonical cloud-folder flows | `generic-x64-vm-testing.md` |
 | `pixelelated-cloud-validator-test` | qualify bounded selected-category metadata checks and explicit folder creation | `rclone-cloud-sync.md` |
 | `pixelelated-save-layout-test` | prove source-derived standalone save coverage and exclusion from library transfers with synthetic real-rclone controls | `rclone-cloud-sync.md` |
 | `pixelelated-duckstation-capture-test` | prove actual launcher screenshot defaults, custom/history preservation and AppImage install mode with synthetic fixtures | `packaging-and-patches.md`, `rclone-cloud-sync.md` |
