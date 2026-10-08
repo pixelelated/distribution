@@ -1,0 +1,24 @@
+listremotes
+lsf qa: --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+listremotes
+mkdir --s3-directory-markers qa:/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+mkdir --s3-directory-markers qa://savefiles --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+mkdir --s3-directory-markers qa://savestates --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+mkdir --s3-directory-markers qa://screenshots --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+mkdir --s3-directory-markers qa:/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+mkdir --s3-directory-markers qa:/Games --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+mkdir --s3-directory-markers qa:/Games/ROMs --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+mkdir --s3-directory-markers qa:/Games/BIOS --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf --files-only qa:// --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+copyto --ignore-existing /tmp/tmp.AGq3w8rTzk qa://README.txt --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf --files-only qa:// --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf --files-only qa:/Games/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+copyto --ignore-existing /tmp/tmp.fncrjzBZEt qa:/Games/README.txt --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf --files-only qa:/Games/ROMs/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+copyto --ignore-existing /tmp/tmp.Kpb79xRrZ3 qa:/Games/ROMs/README.txt --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf --files-only qa:/Games/BIOS/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+copyto --ignore-existing /tmp/tmp.7Y96m5Mdoa qa:/Games/BIOS/README.txt --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:/Games/ROMs --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:/Games/BIOS --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1

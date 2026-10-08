@@ -1,0 +1,48 @@
+watch-build: recording in /workspace/tmp/pixelelated-520-ui-20261008/duck-deps01/.build-runs/20261008T070934Z-2cdbab36
+043101a87e5eaa57b786b88dfbd227be2d7768445d53b69346b547fef2e938a3  /usr/lib/libcom_err.so
+043101a87e5eaa57b786b88dfbd227be2d7768445d53b69346b547fef2e938a3  /usr/lib/libcom_err.so.2
+043101a87e5eaa57b786b88dfbd227be2d7768445d53b69346b547fef2e938a3  /usr/lib/libcom_err.so.2.1
+Detected locale "C" with character encoding "ANSI_X3.4-1968", which is not UTF-8.
+Qt depends on a UTF-8 locale, but has failed to switch to one.
+If this causes problems, reconfigure your locale. See the locale(1) manual
+for more information.
+Wayland with non-KDE desktop detected, applying Wayland workarounds.
+Don't complain when things break.
+DuckStation Version 0.1-10998-g9b0a4ec55 (dev)
+https://github.com/stenzek/duckstation
+
+Usage: /usr/bin/duckstation-sa [parameters] [--] [boot filename]
+
+  -help: Displays this information and exits.
+  -version: Displays version information and exits.
+  -batch: Enables batch mode (exits after powering off).
+  -fastboot: Force fast boot for provided filename.
+  -slowboot: Force slow boot for provided filename.
+  -bios: Boot into the BIOS shell.
+  -resume: Load resume save state. If a boot filename is provided,
+    that game's resume state will be loaded, otherwise the most
+    recent resume save state will be loaded.
+  -state <index>: Loads specified save state by index. If a boot
+    filename is provided, a per-game state will be loaded, otherwise
+    a global state will be loaded.
+  -statefile <filename>: Loads state from the specified filename.
+    No boot filename is required with this option.
+  -exe <filename>: Boot the specified exe instead of loading from disc.
+  -fullscreen: Enters fullscreen mode immediately after starting.
+  -nofullscreen: Prevents fullscreen mode from triggering if enabled.
+  -nogui: Disables main window from being shown, exits on shutdown.
+  -bigpicture: Automatically starts big picture UI.
+  -earlyconsole: Creates console as early as possible, for logging.
+  --: Signals that no more arguments will follow and the remaining
+    parameters make up the filename. Use when the filename contains
+    spaces or starts with a dash.
+
+
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-520-ui-20261008/duck-deps01/run.py", line 12, in <module>
+    ''';(o/'stage.sh').write_text(cmd);q=subprocess.run(ssh+[cmd],stdout=subprocess.PIPE,stderr=subprocess.STDOUT);(o/'entrypoint.log').write_bytes(q.stdout);print(q.stdout.decode());q.check_returncode()
+                                                                                                                                                                                       ~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.14/subprocess.py", line 509, in check_returncode
+    raise CalledProcessError(self.returncode, self.args, self.stdout,
+                             self.stderr)
+subprocess.CalledProcessError: Command '['ssh', '-i', '/workspace/tmp/pixelelated-520-ui-20261008/guest01/qa-key', '-p', '10220', '-o', 'LogLevel=ERROR', '-o', 'StrictHostKeyChecking=no', '-o', 'UserKnownHostsFile=/dev/null', 'root@127.0.0.1', 'set -eu\nmkdir -p /storage/qa521/libupper /storage/qa521/libwork\nmount -t overlay overlay -o lowerdir=/usr/lib,upperdir=/storage/qa521/libupper,workdir=/storage/qa521/libwork /usr/lib\nfor n in libcom_err.so libcom_err.so.2 libcom_err.so.2.1; do install -m 0755 /storage/qa521/libcom_err.so.2.1 /usr/lib/$n; done\nsha256sum /usr/lib/libcom_err.so*\n. /etc/profile\ntimeout 20 /usr/bin/duckstation-sa -help\n']' returned non-zero exit status 1.

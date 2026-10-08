@@ -1,0 +1,8 @@
+{
+  "ip": "#!/bin/sh\n[ -e /ctl/offline ] || echo \"default via 10.0.2.2 dev eth0\"\n",
+  "systemctl": "#!/bin/sh\nexit 0\n",
+  "ping": "#!/bin/sh\n[ ! -e /ctl/offline ]\n",
+  "rclone": "#!/bin/bash\nprintf '%s\\n' \"$*\" >> /ctl/argv\nif [ -f /ctl/faults ]; then\n while IFS=$'\\t' read -r pattern code; do\n  [[ \"$*\" =~ $pattern ]] && { printf '%s\\n' \"$*\" >> /ctl/fault-fired; echo 'injected provider failure' >&2; exit \"$code\"; }\n done < /ctl/faults\nfi\nif [ -e /ctl/bucket ]; then\n if [ \"$1 $2\" = 'backend features' ]; then\n  printf '{\"Hashes\":[\"md5\"],\"Features\":{\"BucketBased\":true}}\\n'; exit 0\n fi\n # Bucket prefixes can return successful empty lsd for a missing prefix.\n if [ \"$1\" = lsd ]; then exit 0; fi\nfi\nprintf '\\n# changed while checking\\n' >> /storage/.config/cloud_sync.conf\nexec /rclone.real \"$@\"\n",
+  "logger": "#!/bin/sh\nprintf \"%s\\n\" \"$*\" >> /ctl/journal\n",
+  "systemd-tmpfiles": "#!/bin/sh\nexit 0\n"
+}

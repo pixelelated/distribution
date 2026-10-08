@@ -1,0 +1,165 @@
+watch-build: recording in /workspace/tmp/pixelelated-520-ui-20261008/native01/.build-runs/20261008T071158Z-41ace500
+{
+  "before_sha256": "84510671086a5d0d95c80175014d0f6d883981dfb49169c4db7a75a5145f1fff",
+  "runtime_sha256": "ab9cba20468864495f2d073eacc93056c8f723cf004e7d05672936af15417ed3",
+  "screenshot_hotkey": "SDL-0/Guide & SDL-0/B",
+  "screenshot_folder": "/storage/roms/screenshots",
+  "synthetic_bios": "synthetic-display.bin",
+  "data_root_link": "/storage/.config/duckstation",
+  "no_gameplay_claim": true
+}
+
+I: Bus=0019 Vendor=0000 Product=0001 Version=0000
+N: Name="Power Button"
+P: Phys=LNXPWRBN/button/input0
+S: Sysfs=/devices/platform/LNXPWRBN:00/input/input0
+U: Uniq=
+H: Handlers=kbd event0 
+B: PROP=0
+B: EV=3
+B: KEY=8000 10000000000000 0
+
+I: Bus=0011 Vendor=0001 Product=0001 Version=ab41
+N: Name="AT Translated Set 2 keyboard"
+P: Phys=isa0060/serio0/input0
+S: Sysfs=/devices/platform/i8042/serio0/input/input1
+U: Uniq=
+H: Handlers=sysrq kbd leds event1 
+B: PROP=0
+B: EV=120013
+B: KEY=402000007 ff803078f800d001 feffffdfffcfffff fffffffffffffffe
+B: MSC=10
+B: LED=7
+
+I: Bus=0003 Vendor=0627 Product=0001 Version=0111
+N: Name="QEMU QEMU USB Keyboard"
+P: Phys=usb-0000:00:04.0-1/input0
+S: Sysfs=/devices/pci0000:00/0000:00:04.0/usb1/1-1/1-1:1.0/0003:0627:0001.0001/input/input4
+U: Uniq=68284-0000:00:04.0-1
+H: Handlers=sysrq kbd leds event2 
+B: PROP=0
+B: EV=120013
+B: KEY=1000000000007 ff9f207ac14057ff febeffdfffefffff fffffffffffffffe
+B: MSC=10
+B: LED=1f
+
+I: Bus=0011 Vendor=0002 Product=0006 Version=0000
+N: Name="ImExPS/2 Generic Explorer Mouse"
+P: Phys=isa0060/serio1/input0
+S: Sysfs=/devices/platform/i8042/serio1/input/input3
+U: Uniq=
+H: Handlers=mouse0 event3 
+B: PROP=1
+B: EV=7
+B: KEY=1f0000 0 0 0 0
+B: REL=143
+
+I: Bus=0003 Vendor=0627 Product=0001 Version=0001
+N: Name="QEMU QEMU USB Tablet"
+P: Phys=usb-0000:00:04.0-2/input0
+S: Sysfs=/devices/pci0000:00/0000:00:04.0/usb1/1-2/1-2:1.0/0003:0627:0001.0002/input/input5
+U: Uniq=28754-0000:00:04.0-2
+H: Handlers=mouse1 js0 event4 
+B: PROP=0
+B: EV=1f
+B: KEY=1f0000 0 0 0 0
+B: REL=900
+B: ABS=3
+B: MSC=10
+
+I: Bus=0003 Vendor=045e Product=028e Version=0114
+N: Name="QA521 Synthetic Xbox 360 Controller"
+P: Phys=
+S: Sysfs=/devices/virtual/input/input6
+U: Uniq=
+H: Handlers=js1 event5 
+B: PROP=0
+B: EV=b
+B: KEY=7cdb000000000000 0 0 0 0
+B: ABS=3003f
+
+   3383 ?        00:00:00 duckstation-sa
+3380
+[    1.2033] [37m[1mI/GPUDevice: GLSL: 4.30[0m
+[    1.5914] [37mD/ImGuiManager: Loading font data took 387.98504 ms[0m
+[    1.6010] [37mD/ImGuiManager: Creating font atlas took 8.375996 ms[0m
+[    1.6230] [37mD/GPUDevice: Program binary retrieved and compressed, 8209 -> 1213 bytes, format 34655[0m
+[    1.6291] [37mD/FullscreenUI: Uploaded texture resource 'images/placeholder.png' (487x354)[0m
+[    1.6300] [37mD/GPUDevice: Program binary retrieved and compressed, 6181 -> 942 bytes, format 34655[0m
+[    1.6304] [37mD/GPUDevice: Program binary retrieved and compressed, 5125 -> 674 bytes, format 34655[0m
+[    1.6360] [37mD/GPUDevice: Program binary retrieved and compressed, 19441 -> 2229 bytes, format 34655[0m
+[    1.6371] [37mD/GPUDevice: Program binary retrieved and compressed, 10269 -> 1618 bytes, format 34655[0m
+[    1.6373] [33m[1mD/VideoThread: GPU thread now running idle[0m
+[    1.6373] [37m[1mI/VideoThread: GPU device created in 497.56ms[0m
+[    1.6374] [32m[1mV/GPU: Presentation format is RGBA8[0m
+[    1.6514] [37mD/GPUDevice: Program binary retrieved and compressed, 6165 -> 954 bytes, format 34655[0m
+[    1.6515] [37m[1mI/GPU_SW: Using SIMD software rasterizer implementation.[0m
+[    1.6515] [37m[1mI/GPU: Using A1BGR5 format for 16-bit display[0m
+[    1.6525] [33m[1mD/VideoThread: Setting run idle reason 'NoGPUBackend' to false[0m
+[    1.6525] [38;5;202mD/VideoThread: GPU thread now NOT running idle[0m
+[    1.6525] [37m[1mI/VideoThread: GPU backend created in 15.19ms[0m
+[    1.6527] [37m[1mI/SPU: Creating 'SDL' audio stream, sample rate = 44100, buffer = 100, latency = 20, stretching = TimeStretch[0m
+[    1.6527] [37mD/AudioStream: Allocated buffer of 70592 frames for buffer of 100 ms [stretch TimeStretch, target size 4416].[0m
+[    1.6608] [37mD/CPU: GTE aspect ratio correction is disabled.[0m
+[    1.6608] [37m[1mI/ImGuiManager: OSD [MemoryCard0SharedWarning]: Memory Card Slot 1[0m
+[    1.6608] [37m[1mI/ImGuiManager: Cannot use per-game memory card without a disc.[0m
+[    1.6608] [37m[1mI/ImGuiManager: Using shared card instead.[0m
+[    1.6608] [37m[1mI/System: Memory Card 1: /storage/roms/psx/shared_card_1.mcd[0m
+[    1.6608] [37m[1mI/Pad: Memory card slot 0: /storage/roms/psx/shared_card_1.mcd[0m
+[    1.6608] [37m[1mI/Pad: Memory card slot 1: <unplugged>[0m
+[    1.6608] [37m[1mI/Pad: Memory card slot 2: <unplugged>[0m
+[    1.6608] [37m[1mI/Pad: Memory card slot 3: <unplugged>[0m
+[    1.6608] [37m[1mI/Pad: Memory card slot 4: <unplugged>[0m
+[    1.6608] [37m[1mI/Pad: Memory card slot 5: <unplugged>[0m
+[    1.6608] [37m[1mI/Pad: Memory card slot 6: <unplugged>[0m
+[    1.6608] [37m[1mI/Pad: Memory card slot 7: <unplugged>[0m
+[    1.7056] [37mD/Host: Stopping background controller polling timer[0m
+[    1.7057] [32m[1mV/System: Target speed: 100%[0m
+[    1.7057] [32m[1mV/System: Preset timing: consistent[0m
+[    1.7057] [32m[1mV/System: VSync: Mailbox[0m
+[    1.7057] [32m[1mV/System: Present Skip: Disabled[0m
+[    1.7058] [37m[1mI/System: System booted in 638.76ms[0m
+[    1.7060] [37mD/Host: updateCursor(): Cursor is now hidden[0m
+[    1.7069] [32m[1mV/AudioStream: ___ Stretcher is being reset.[0m
+[    1.7076] [37mD/ImGuiManager: Create 512x128 ImGui texture[0m
+[    1.7235] [37m[1mI/SDL: Controller 1 inserted[0m
+[    1.7241] [32m[1mV/SDL: Opened game controller 1 (instance id 1, player id 0, guid 030080a15e0400008e02000014010000): Xbox 360 Controller[0m
+[    1.7241] [32m[1mV/SDL: Controller 0 is a SDL_GAMEPAD_TYPE_XBOX360 with 6 axes, 11 buttons and 1 hats[0m
+[    1.7241] [37mD/SDL: Controller 0 button 0 is mapped to gamepad A[0m
+[    1.7241] [37mD/SDL: Controller 0 button 1 is mapped to gamepad B[0m
+[    1.7241] [37mD/SDL: Controller 0 button 6 is mapped to gamepad Back[0m
+[    1.7241] [37mD/SDL: Controller 0 hat 0 is mapped to gamepad DPadDown[0m
+[    1.7241] [37mD/SDL: Controller 0 button 8 is mapped to gamepad Guide[0m
+[    1.7241] [37mD/SDL: Controller 0 button 4 is mapped to gamepad LeftShoulder[0m
+[    1.7241] [37mD/SDL: Controller 0 button 9 is mapped to gamepad LeftStick[0m
+[    1.7241] [37mD/SDL: Controller 0 axis 4 is mapped to gamepad LeftTrigger[0m
+[    1.7241] [37mD/SDL: Controller 0 axis 0 is mapped to gamepad LeftX[0m
+[    1.7241] [37mD/SDL: Controller 0 axis 1 is mapped to gamepad LeftY[0m
+[    1.7241] [37mD/SDL: Controller 0 button 5 is mapped to gamepad RightShoulder[0m
+[    1.7241] [37mD/SDL: Controller 0 button 10 is mapped to gamepad RightStick[0m
+[    1.7241] [37mD/SDL: Controller 0 axis 5 is mapped to gamepad RightTrigger[0m
+[    1.7242] [37mD/SDL: Controller 0 axis 2 is mapped to gamepad RightX[0m
+[    1.7242] [37mD/SDL: Controller 0 axis 3 is mapped to gamepad RightY[0m
+[    1.7242] [37mD/SDL: Controller 0 button 7 is mapped to gamepad Start[0m
+[    1.7242] [37mD/SDL: Controller 0 button 2 is mapped to gamepad X[0m
+[    1.7242] [37mD/SDL: Controller 0 button 3 is mapped to gamepad Y[0m
+[    1.7242] [32m[1mV/SDL: Rumble is not supported on 'Xbox 360 Controller'[0m
+[    1.7242] [37m[1mI/InputManager: Device 'SDL-0' connected: 'Xbox 360 Controller'[0m
+[    1.7242] [37m[1mI/InputManager: Gamepad button type set to Xbox[0m
+[    1.7242] [38;5;202mD/InputManager: Sending vibration update to device 0: mask 0x03, intensities {0, 0}[0m
+[    1.7395] [37mD/GPU: <-- 3 queued frames, 2 max, blocking core thread[0m
+[    1.7480] [37mD/GPU: --> Unblocking core thread[0m
+[    1.7702] [32m[1mV/AudioStream: Underrun compensation done (192 frames buffered)[0m
+[    2.7090] [32m[1mV/PerfMon: FPS: 1.00 VPS: 59.81 CPU: 1.55 RNDR: 8.31 GPU: 0.00 Avg: 16.72ms Min: 1.07ms Max: 42.25ms[0m
+[    2.8260] [32m[1mV/AudioStream: === Stretcher is now inactive.[0m
+[    3.1773] [32m[1mV/AudioStream: ~~~ Stretcher is now active @ tempo 0.8329137.[0m
+[    3.5283] [32m[1mV/AudioStream: === Stretcher is now inactive.[0m
+[    3.7120] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.52 RNDR: 9.24 GPU: 0.00 Avg: 16.72ms Min: 16.22ms Max: 17.22ms[0m
+[    4.7152] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.46 RNDR: 10.77 GPU: 0.00 Avg: 16.72ms Min: 16.49ms Max: 16.95ms[0m
+[    5.7182] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.43 RNDR: 8.61 GPU: 0.00 Avg: 16.72ms Min: 16.05ms Max: 17.30ms[0m
+[    6.7213] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.81 CPU: 1.63 RNDR: 8.36 GPU: 0.00 Avg: 16.72ms Min: 16.54ms Max: 16.95ms[0m
+[    6.7214] [33m[1mD/VideoThread: Setting run idle reason 'OSDMessagesActive' to false[0m
+[    7.7242] [32m[1mV/PerfMon: FPS: 0.00 VPS: 59.82 CPU: 1.59 RNDR: 4.97 GPU: 0.00 Avg: 16.72ms Min: 16.35ms Max: 17.05ms[0m
+
+captured /workspace/tmp/pixelelated-520-ui-20261008/native01/native-before-hotkey.png
+Native fixture process launched; screenshot/hotkey output not yet asserted

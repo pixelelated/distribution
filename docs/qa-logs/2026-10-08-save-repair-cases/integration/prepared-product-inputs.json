@@ -1,0 +1,175 @@
+{
+  "state": "Integrated on local next; coordination proof publication pending",
+  "base": "22571b47d21d6cb0736ffaa3a49b51ded36cc31f",
+  "qualified_distribution_source": "052771f05d841fb91fa818198f8f4e0ad83affb8",
+  "qualified_es_source": "4e410dc9a816cc947f16235ad2b24824b29dd84e",
+  "package_pin": "4e410dc9a816cc947f16235ad2b24824b29dd84e",
+  "paths": [
+    {
+      "status": "M",
+      "path": "projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/config/AMD64/settings.ini",
+      "sha256": "fadbd7bdf73e59f647c5027b20c6c43a958ab835742c598449de53a885a6b0b3",
+      "git_mode": "100644"
+    },
+    {
+      "status": "M",
+      "path": "projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/config/H700/settings.ini",
+      "sha256": "8c58b3b8c1e4ff1897ab147e01d8d77d046ad048c6b8181fbd495b8f56490c04",
+      "git_mode": "100644"
+    },
+    {
+      "status": "M",
+      "path": "projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/config/InputPlumber/settings.ini",
+      "sha256": "3e600960f709382ac6e14cea375e3c4cf5cf3a29f6ade3faf1c25f040d5bd889",
+      "git_mode": "100644"
+    },
+    {
+      "status": "M",
+      "path": "projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/config/RK3326/settings.ini",
+      "sha256": "ab64d3505bceadefdfdf126f776c1b0157b2919e8d2cbdb099efb8f3ab694a35",
+      "git_mode": "100644"
+    },
+    {
+      "status": "M",
+      "path": "projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/config/RK3399/settings.ini",
+      "sha256": "4eb9ad04baece83820ea957fd22ebc41163b7b88e948fa8c22c2fa8a11701a2d",
+      "git_mode": "100644"
+    },
+    {
+      "status": "M",
+      "path": "projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/config/RK3566/settings.ini",
+      "sha256": "e774a45976732cb67e20c715d10cd0c5393eb8bf0e458988f785caff7851876d",
+      "git_mode": "100644"
+    },
+    {
+      "status": "M",
+      "path": "projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/config/RK3588/settings.ini",
+      "sha256": "90d4e94055fc243efc6098cd22db531e307ab7811350e75e34be45c5e0c50218",
+      "git_mode": "100644"
+    },
+    {
+      "status": "M",
+      "path": "projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/config/S922X/settings.ini",
+      "sha256": "5662be5db7875a8ecd213ffa9dd1711a8cb0e00c92573bc1dc8e5b3943e1191b",
+      "git_mode": "100644"
+    },
+    {
+      "status": "M",
+      "path": "projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/config/SM4450/settings.ini",
+      "sha256": "3e600960f709382ac6e14cea375e3c4cf5cf3a29f6ade3faf1c25f040d5bd889",
+      "git_mode": "100644"
+    },
+    {
+      "status": "M",
+      "path": "projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/package.mk",
+      "sha256": "4569f08a2445a3926fb1a7015bce4ca41e4f4bd5ac57f62a9037a047eb1a47ea",
+      "git_mode": "100644"
+    },
+    {
+      "status": "A",
+      "path": "projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/scripts/duckstation_screenshot_path",
+      "sha256": "f53ea578937610a693daecdc04bb7cd0c876ca6aca640f8dd17306edc0b6c6fd",
+      "git_mode": "100755"
+    },
+    {
+      "status": "M",
+      "path": "projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/scripts/start_duckstation.sh",
+      "sha256": "557ffd173e61c9e98063644aa7af25784b0991d55c85fd6c924c12f550069aa9",
+      "git_mode": "100755"
+    },
+    {
+      "status": "M",
+      "path": "projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/sources/Start Duckstation.sh",
+      "sha256": "a0a2a11cf370f318f917c660b6d605f5cb6681aad0488a209d6db5d675f25efc",
+      "git_mode": "100755"
+    },
+    {
+      "status": "M",
+      "path": "projects/ROCKNIX/packages/network/rclone/package.mk",
+      "sha256": "61d63318b143efdaca9ed2b9312c7dbb7a88da60aad5a22b24510131176fc0a7",
+      "git_mode": "100644"
+    },
+    {
+      "status": "M",
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_backup",
+      "sha256": "deab2e040494349a73e85ef50df98f02013d4004716972dff9feb7a2f3e24c76",
+      "git_mode": "100755"
+    },
+    {
+      "status": "M",
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_content_backup",
+      "sha256": "8fac50344c03de5ccbba51f9d167b764cb9dddf80b5ef2bc2cc646b20f640df7",
+      "git_mode": "100755"
+    },
+    {
+      "status": "M",
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_content_restore",
+      "sha256": "e06d5d78cef36cbb3677dc38fc22fa10a2272be8c0a37830ac6bbb6f9d5155af",
+      "git_mode": "100755"
+    },
+    {
+      "status": "A",
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_folder_validate",
+      "sha256": "c6eb5c3efc8c62df1c3f4f321ccff1bf9033305c83b53e6667a846d9305fd173",
+      "git_mode": "100755"
+    },
+    {
+      "status": "D",
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_migrate_layout"
+    },
+    {
+      "status": "M",
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_scan",
+      "sha256": "dd338cf204e4c808129017fa62ee215dcb4fcbba5a4b034c748123094b55510b",
+      "git_mode": "100755"
+    },
+    {
+      "status": "M",
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_setup",
+      "sha256": "1aa57c4d6162afb8f45f7464b79213ffb808b5b99d4869e4630d11ca889ede86",
+      "git_mode": "100755"
+    },
+    {
+      "status": "M",
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_sync-rules.txt",
+      "sha256": "2528550d5b45f8ab8264b55f21afa8098a88d1a99572bcfd87a4b9e3d3506208",
+      "git_mode": "100644"
+    },
+    {
+      "status": "M",
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_sync-rules.txt.defaults",
+      "sha256": "a5243acb3b3b4381b8b8cdd42b7071a242c283f93c2668f1ea5dfc2991b90cf9",
+      "git_mode": "100644"
+    },
+    {
+      "status": "M",
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_sync.conf",
+      "sha256": "a121977066ce805e791108258fe12d1ecbce5e71ce2f61f096394a9fca982305",
+      "git_mode": "100644"
+    },
+    {
+      "status": "M",
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_sync.conf.defaults",
+      "sha256": "77ce914421b47ef7f0a33e6085a5793cb8be55a5c239788adf8575a57d3ad1c4",
+      "git_mode": "100644"
+    },
+    {
+      "status": "M",
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_sync_helper",
+      "sha256": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050",
+      "git_mode": "100644"
+    }
+  ],
+  "integration_commit": "e6645cb5ea5ae3c7f699390a74b22d098fbeb7fb",
+  "es_remote_verified": "refs/heads/test/qa-integration=4e410dc9a816cc947f16235ad2b24824b29dd84e",
+  "utc": "2026-10-08T07:19:36.185502+00:00",
+  "checks": [
+    "pkgcheck rclone PASS",
+    "pkgcheck duckstation-sa PASS",
+    "pkgcheck emulationstation PASS",
+    "scoped git diff --check PASS",
+    "26 source delta files/modes equal052771f05d; matched ES pin is27thfile"
+  ],
+  "independent_source_review": "m7_cloud_plan_resume_check verified both complete package subtrees45entries, all7devicealiases and417foundationsupportfiles; no active migration callers outside selected packages. Its old-pin observation preceded the explicit pin edit; current committed pin verified separately.",
+  "qualified_source_remote_verified": "feature/m7-manual-cloud-folders=052771f05d841fb91fa818198f8f4e0ad83affb8"
+}

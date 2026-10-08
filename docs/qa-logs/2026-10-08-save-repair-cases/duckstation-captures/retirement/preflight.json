@@ -1,0 +1,95 @@
+{
+  "utc": "2026-10-08T07:29:33.927492+00:00",
+  "owner": "/workspace/repos/rocknix.worktrees/m7-duckstation-deps01",
+  "owner_realpath": "/workspace/repos/rocknix.worktrees/m7-duckstation-deps01",
+  "owner_commit": "dda2a04aaf411b8bc13aedf5ce44ff33ce4b3d3a",
+  "owner_branch": "build/m7-duckstation-deps01",
+  "tracked_changes": "",
+  "untracked": "dependency-owner.json",
+  "retired_artifact_roots": [
+    "/workspace/repos/rocknix.worktrees/m7-duckstation-deps01/build.pixelelated-GENERIC_X64.x86_64",
+    "/workspace/repos/rocknix.worktrees/m7-duckstation-deps01/sources"
+  ],
+  "live_owner_processes": [],
+  "unreadable_process_count": 0,
+  "watchers": {
+    "20261008T070011Z-91ac1b42": {
+      "build.rc": "0",
+      "build.status": "state:       finished\nwritten:     2026-10-08 07:00:26 UTC   <- terminal result; heartbeat stops here\nwatcher_pid: 769363\njob_pid:     769348  alive=yes\nstarted:     2026-10-08 07:00:11 UTC\nprogress:    none matched\nlog:         /workspace/repos/rocknix.worktrees/m7-duckstation-deps01/.build-runs/20261008T070011Z-91ac1b42/build.log  (last written 4s ago)\nactivity:    /workspace/repos/rocknix.worktrees/m7-duckstation-deps01/.build-runs/20261008T070011Z-91ac1b42/build.log  (last written 4s ago)\nactivity_root: /workspace/repos/rocknix.worktrees/m7-duckstation-deps01\noutcome:     rc=0\ntail:\n  Seeded isolated .stamps\n  Isolated source/toolchain preparation complete."
+    },
+    "20261008T070520Z-d2e1de89": {
+      "build.rc": "0",
+      "build.status": "state:       finished\nwritten:     2026-10-08 07:05:55 UTC   <- terminal result; heartbeat stops here\nwatcher_pid: 790881\njob_pid:     790866  alive=yes\nstarted:     2026-10-08 07:05:20 UTC\nprogress:    none matched\nlog:         /workspace/repos/rocknix.worktrees/m7-duckstation-deps01/.build-runs/20261008T070520Z-d2e1de89/build.log  (last written 4s ago)\nactivity:    /workspace/repos/rocknix.worktrees/m7-duckstation-deps01/.build-runs/20261008T070520Z-d2e1de89/build.log  (last written 4s ago)\nactivity_root: /workspace/repos/rocknix.worktrees/m7-duckstation-deps01\noutcome:     rc=0\ntail:\n  make[2]: Leaving directory '/workspace/repos/rocknix.worktrees/m7-duckstation-deps01/build.pixelelated-GENERIC_X64.x86_64/build/li\n  make[1]: Leaving directory '/workspace/repos/rocknix.worktrees/m7-duckstation-deps01/build.pixelelated-GENERIC_X64.x86_64/build/li"
+    },
+    "20261008T070633Z-0e54069d": {
+      "build.rc": "0",
+      "build.status": "state:       finished\nwritten:     2026-10-08 07:06:39 UTC   <- terminal result; heartbeat stops here\nwatcher_pid: 803694\njob_pid:     803679  alive=yes\nstarted:     2026-10-08 07:06:33 UTC\nprogress:    none matched\nlog:         /workspace/repos/rocknix.worktrees/m7-duckstation-deps01/.build-runs/20261008T070633Z-0e54069d/build.log  (last written 4s ago)\nactivity:    /workspace/repos/rocknix.worktrees/m7-duckstation-deps01/.build-runs/20261008T070633Z-0e54069d/build.log  (last written 4s ago)\nactivity_root: /workspace/repos/rocknix.worktrees/m7-duckstation-deps01\noutcome:     rc=0\ntail:\n  INSTALL      gcc (host)\n  INSTALL      libcom-err (target)"
+    }
+  },
+  "protected_inputs": [
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement16/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc",
+      "sha256": "bb9cdcbaaf3f3b08bbfcad9d0b9c46cc5d7da800c74ff4efa1b170dd14b70c9b",
+      "bytes": 260,
+      "mode": "0o755"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement16/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc-15.2.0",
+      "sha256": "2afee500ca1f46ee18ef5c1997a6235e0fe1f8a58f580381c451ab221f659755",
+      "bytes": 2376992,
+      "mode": "0o755"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement16/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-ld",
+      "sha256": "b60da0d2bb1db61a2238f486d2302f0d61e69eb025a870f7f8e4072d6416ab10",
+      "bytes": 3179448,
+      "mode": "0o755"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement16/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/libc.so",
+      "sha256": "362665345c2d0149815700776a1e3e1a7fff45ab16f32352dbe224c55d12c964",
+      "bytes": 255,
+      "mode": "0o644"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement16/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/libc.so.6",
+      "sha256": "706476bbd3f1ba328f6d29ce3d0731a440fbaf1948ae5cd0fb8e0e5c1f9a2f6f",
+      "bytes": 12131504,
+      "mode": "0o755"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/ccache",
+      "sha256": "10b5a47839b8efe981eb854e4d78eb711a94bc5b809811c2ee8d3e16bf82d731",
+      "bytes": 2117648,
+      "mode": "0o755"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc-15.2.0",
+      "sha256": "2afee500ca1f46ee18ef5c1997a6235e0fe1f8a58f580381c451ab221f659755",
+      "bytes": 2376992,
+      "mode": "0o755"
+    },
+    {
+      "path": "/workspace/cache/rocknix-sources/libcom-err/libcom-err-1.47.4.tar.xz",
+      "sha256": "fd5bf388cbdbe006a3d3b318d983b2948382440acc85a87f1e7d108653e8db0b",
+      "bytes": 7337236,
+      "mode": "0o644"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-manual-cloud-folders/projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/package.mk",
+      "sha256": "4569f08a2445a3926fb1a7015bce4ca41e4f4bd5ac57f62a9037a047eb1a47ea",
+      "bytes": 1325,
+      "mode": "0o664"
+    }
+  ],
+  "target_artifact_hashes_verified": 6,
+  "product_commit": "052771f05d841fb91fa818198f8f4e0ad83affb8",
+  "owner_allocated_bytes": 8022564864,
+  "workspace_available_bytes": 1939422478336,
+  "removal_command": [
+    "tools/fork-worktree",
+    "remove",
+    "/workspace/repos/rocknix.worktrees/m7-duckstation-deps01",
+    "--force"
+  ]
+}

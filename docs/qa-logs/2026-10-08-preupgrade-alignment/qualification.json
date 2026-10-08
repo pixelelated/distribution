@@ -1,0 +1,101 @@
+{
+  "scope": "Finite synthetic host behavior of old helpers; no device, provider, VM, ES runtime, systemd, transaction or restart proof",
+  "ref": "43d0bc3bf47fd858ba8d5c55fbdf52535a0db2aa",
+  "unique_qualified_controls": 13,
+  "accepted_failures": 0,
+  "results": [
+    {
+      "case": "unguarded-join-under-lease",
+      "result": "PASS",
+      "receipt": "helper01/unguarded-join-under-lease"
+    },
+    {
+      "case": "unguarded-follow-under-lease",
+      "result": "PASS",
+      "receipt": "helper01/unguarded-follow-under-lease"
+    },
+    {
+      "case": "matching-guard-join",
+      "result": "PASS",
+      "receipt": "helper01/matching-guard-join"
+    },
+    {
+      "case": "matching-guard-follow",
+      "result": "PASS",
+      "receipt": "helper01/matching-guard-follow"
+    },
+    {
+      "case": "mismatched-guard-does-not-stop-follow",
+      "result": "PASS",
+      "receipt": "helper01/mismatched-guard-does-not-stop-follow"
+    },
+    {
+      "case": "matching-guard-settle",
+      "result": "PASS",
+      "receipt": "helper01/matching-guard-settle"
+    },
+    {
+      "case": "matching-guard-folder-scan",
+      "result": "PASS",
+      "receipt": "helper01/matching-guard-folder-scan"
+    },
+    {
+      "case": "current-default-keep-is-not-universal",
+      "result": "PASS",
+      "receipt": "helper01/current-default-keep-is-not-universal"
+    },
+    {
+      "case": "lease-refuses-cloud_backup",
+      "result": "PASS",
+      "receipt": "helper01/lease-refuses-cloud_backup"
+    },
+    {
+      "case": "lease-refuses-cloud_restore",
+      "result": "PASS",
+      "receipt": "helper01/lease-refuses-cloud_restore"
+    },
+    {
+      "case": "lease-refuses-cloud_content_backup",
+      "result": "PASS",
+      "receipt": "helper02/lease-refuses-cloud_content_backup"
+    },
+    {
+      "case": "lease-refuses-cloud_content_restore",
+      "result": "PASS",
+      "receipt": "helper02/lease-refuses-cloud_content_restore"
+    },
+    {
+      "case": "lease-refuses-cloud_migrate_layout",
+      "result": "PASS",
+      "receipt": "helper01/lease-refuses-cloud_migrate_layout"
+    }
+  ],
+  "raw_runs": {
+    "helper01": {
+      "passed": 11,
+      "failed": 2,
+      "cause": "Overstrict oracle: old content scripts perform read-only discovery before lock refusal. All protected bytes remained identical."
+    },
+    "helper02": {
+      "passed": 2,
+      "failed": 0,
+      "scope": "Only the two failed content assertions retried after oracle correction."
+    }
+  },
+  "watchers": {
+    "helper01": "20261008T070701Z-1e155a74",
+    "helper02": "20261008T070855Z-c4597519"
+  },
+  "rclone_sha256": "f66d8c1d552ad90296a11bc8b46d56a7fa5da1a7fa05e7ca522d95df92c4a4c0",
+  "harness_sha256": "9ca988d413f5a784f297e79b7bb7fd792a42d81b1614efa0cf7343f819dfeb1d",
+  "fixture_tool_sha256": "1bf79f2ae318cc87bf85ed285d60f9718ec7a1b7197d478341163765906490b7",
+  "source_evidence": "source-evidence.json",
+  "production_input_verification": "pinned-source-verification.json",
+  "known_limits": [
+    "Matching keep guard is scoped to historical selected path, not universal across current-default join.",
+    "Transfer flock permits old content discovery reads, including legacy root fallback; it is not a network barrier.",
+    "No private inventory or account-specific inputs were used.",
+    "ES behavior is source evidence only.",
+    "Actual quiescence, transaction/failure/rollback/restart and state-bound device acceptance remain separate."
+  ]
+}

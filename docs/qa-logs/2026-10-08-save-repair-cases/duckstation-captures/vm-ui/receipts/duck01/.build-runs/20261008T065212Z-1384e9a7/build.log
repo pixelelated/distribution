@@ -1,0 +1,32 @@
+ae3bdac99323c00157111d2bbf6d0c9e46e83c9eb4efdbbec8065f07f833fa8d 524288 /workspace/tmp/pixelelated-520-ui-20261008/duck01/payload/synthetic-display.bin
+b204886bb498ede1a290215fc2efb521c0c2f26b964788df697b4fc2cb3f7f7b  /usr/bin/duckstation-sa
+644 90788128 /usr/bin/duckstation-sa
+
+755 90788128 /usr/bin/duckstation-sa
+b204886bb498ede1a290215fc2efb521c0c2f26b964788df697b4fc2cb3f7f7b  /usr/bin/duckstation-sa
+f53ea578937610a693daecdc04bb7cd0c876ca6aca640f8dd17306edc0b6c6fd  /usr/bin/duckstation_screenshot_path
+557ffd173e61c9e98063644aa7af25784b0991d55c85fd6c924c12f550069aa9  /usr/bin/start_duckstation.sh
+3e600960f709382ac6e14cea375e3c4cf5cf3a29f6ade3faf1c25f040d5bd889  /usr/config/duckstation/settings.ini
+a0a2a11cf370f318f917c660b6d605f5cb6681aad0488a209d6db5d675f25efc  /usr/config/modules/Start Duckstation.sh
+ae3bdac99323c00157111d2bbf6d0c9e46e83c9eb4efdbbec8065f07f833fa8d  /storage/qa521/frozen/synthetic-display.bin
+/usr/bin/duckstation-sa: error while loading shared libraries: libcom_err.so.2: cannot open shared object file: No such file or directory
+actual_entrypoint_exit:127
+
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-520-ui-20261008/duck01/run.py", line 13, in <module>
+    call('''set -eu
+    ~~~~^^^^^^^^^^^
+    cd /storage/qa521
+    ^^^^^^^^^^^^^^^^^
+    ...<15 lines>...
+    exit "$rc"
+    ^^^^^^^^^^
+    ''','stage-and-entrypoint.log')
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tmp/pixelelated-520-ui-20261008/duck01/run.py", line 10, in call
+    q=subprocess.run(ssh+[cmd],stdout=subprocess.PIPE,stderr=subprocess.STDOUT);(o/name).write_bytes(q.stdout);print(q.stdout.decode(),flush=True);q.check_returncode()
+                                                                                                                                                   ~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.14/subprocess.py", line 509, in check_returncode
+    raise CalledProcessError(self.returncode, self.args, self.stdout,
+                             self.stderr)
+subprocess.CalledProcessError: Command '['ssh', '-i', '/workspace/tmp/pixelelated-520-ui-20261008/guest01/qa-key', '-p', '10220', '-o', 'LogLevel=ERROR', '-o', 'StrictHostKeyChecking=no', '-o', 'UserKnownHostsFile=/dev/null', 'root@127.0.0.1', 'set -eu\ncd /storage/qa521\ntar xf payload.tar\ninstall -m 0755 /usr/bin/duckstation-sa /storage/qa521/duckstation-sa\nmount --bind /storage/qa521/duckstation-sa /usr/bin/duckstation-sa\ninstall -m 0755 frozen/duckstation_screenshot_path /usr/bin/duckstation_screenshot_path\ninstall -m 0755 frozen/start_duckstation.sh /usr/bin/start_duckstation.sh\nmount --bind "$PWD/frozen/settings.ini" /usr/config/duckstation/settings.ini\nmount --bind "$PWD/frozen/Start Duckstation.sh" \'/usr/config/modules/Start Duckstation.sh\'\nstat -c \'%a %s %n\' /usr/bin/duckstation-sa\nsha256sum /usr/bin/duckstation-sa /usr/bin/duckstation_screenshot_path /usr/bin/start_duckstation.sh /usr/config/duckstation/settings.ini \'/usr/config/modules/Start Duckstation.sh\' /storage/qa521/frozen/synthetic-display.bin\n. /etc/profile\nset +e\ntimeout 20 /usr/bin/duckstation-sa -help > /storage/qa521/entrypoint-help.log 2>&1\nrc=$?\ncat /storage/qa521/entrypoint-help.log\necho actual_entrypoint_exit:$rc\nexit "$rc"\n']' returned non-zero exit status 127.

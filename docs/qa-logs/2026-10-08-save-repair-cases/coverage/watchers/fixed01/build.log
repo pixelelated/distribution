@@ -1,0 +1,20 @@
+PASS filter-psp
+PASS filter-duckstation
+PASS filter-n64-st0
+PASS filter-n64-st9
+PASS filter-n64-pj0
+PASS filter-n64-zip
+PASS save-backup-restore
+PASS upgrade-custom-rules
+PASS content-list-count-scan
+PASS content-upload
+PASS content-restore
+PASS content-match
+FAIL validator-n64-state validator transferred payload
+FAIL validator-psp-depth5 validator transferred payload
+FAIL validator-duck-depth4 validator transferred payload
+FAIL validator-unseen-deeper validator transferred payload
+FAIL validator-unrelated-depth validator transferred payload
+FAIL validator-database validator transferred payload
+FAIL validator-subtree-failure validator transferred payload
+save-layout: 12 PASS, 7 FAIL

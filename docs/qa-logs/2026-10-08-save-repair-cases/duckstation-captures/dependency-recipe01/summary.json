@@ -1,0 +1,25 @@
+{
+  "passed": 1,
+  "failed": 0,
+  "results": [
+    {
+      "case": "package-executable-mode",
+      "result": "PASS"
+    }
+  ],
+  "source_ref": null,
+  "source_root": "/workspace/repos/rocknix.worktrees/m7-manual-cloud-folders",
+  "source_sha256": {
+    "projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/scripts/start_duckstation.sh": "557ffd173e61c9e98063644aa7af25784b0991d55c85fd6c924c12f550069aa9",
+    "projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/scripts/duckstation_screenshot_path": "f53ea578937610a693daecdc04bb7cd0c876ca6aca640f8dd17306edc0b6c6fd",
+    "projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/config/InputPlumber/settings.ini": "3e600960f709382ac6e14cea375e3c4cf5cf3a29f6ade3faf1c25f040d5bd889",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_sync-rules.txt": "2528550d5b45f8ab8264b55f21afa8098a88d1a99572bcfd87a4b9e3d3506208",
+    "projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/package.mk": "4569f08a2445a3926fb1a7015bce4ca41e4f4bd5ac57f62a9037a047eb1a47ea",
+    "projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/sources/Start Duckstation.sh": "a0a2a11cf370f318f917c660b6d605f5cb6681aad0488a209d6db5d675f25efc"
+  },
+  "harness_sha256": "a4ec68da2d94c1669b4ef2b34764a0b2ea4391cbdb8cc904c7fbf7f2194b5396",
+  "watcher_run": ".build-runs/20261008T070758Z-54d116dd",
+  "rclone_sha256": "f66d8c1d552ad90296a11bc8b46d56a7fa5da1a7fa05e7ca522d95df92c4a4c0",
+  "rclone_version": "rclone v1.75.1",
+  "scope": "actual shell entrypoints; synthetic emulator-boundary probe; no runtime screenshot claim"
+}

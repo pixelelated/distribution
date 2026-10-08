@@ -1,0 +1,17 @@
+import pathlib,subprocess,json,hashlib,os,signal,time,shutil
+b=pathlib.Path('/storage/qa521');o=b/'roundtrip';o.mkdir();pid=int((b/'native.pid').read_text());args=(pathlib.Path('/proc')/str(pid)/'cmdline').read_bytes();assert b'/usr/bin/duckstation-sa\0' in args;os.kill(pid,signal.SIGTERM)
+for _ in range(100):
+ p=pathlib.Path('/proc')/str(pid)
+ if not p.exists() or not (p/'cmdline').read_bytes():break
+ time.sleep(.1)
+else:raise RuntimeError('native emulator has not exited')
+with (b/'pad.commands').open('w') as f:f.write('quit\n')
+root=pathlib.Path('/storage/roms/screenshots');items=list(root.glob('*.png'));assert len(items)==1;png=items[0];original=png.read_bytes();sha=hashlib.sha256(original).hexdigest();shutil.copy2(png,o/'original.png')
+provider=pathlib.Path('/storage/qa520/provider');before={str(p.relative_to(provider)):hashlib.sha256(p.read_bytes()).hexdigest() for p in provider.rglob('*') if p.is_file()};custom=pathlib.Path('/storage/qa521/custom-captures');history=pathlib.Path('/storage/.config/duckstation/screenshots');outside={str(p):hashlib.sha256(p.read_bytes()).hexdigest() for r in [custom,history] for p in r.rglob('*') if p.is_file()}
+def call(argv,name):
+ q=subprocess.run(argv,stdout=subprocess.PIPE,stderr=subprocess.STDOUT);(o/name).write_bytes(q.stdout);assert q.returncode==0,(name,q.returncode,q.stdout[-800:]);return q.stdout
+before_context=json.loads(call(['cloud_setup','--validation-context'],'context-before.json'));(provider/'QA-Captures/Saves').mkdir(parents=True);call(['cloud_setup','--set-saves-remote','/QA-Captures/Saves'],'set-path.log');context=json.loads(call(['cloud_setup','--validation-context'],'context-selected.json'));assert context['paths']['settings']==before_context['paths']['settings'] and context['paths']['content']==before_context['paths']['content']
+call(['cloud_backup','--yes','--saves-only'],'backup.log');remote=provider/'QA-Captures/Saves/screenshots'/png.name;assert remote.is_file() and hashlib.sha256(remote.read_bytes()).hexdigest()==sha;cloud_files={str(p.relative_to(provider)):hashlib.sha256(p.read_bytes()).hexdigest() for p in provider.rglob('*') if p.is_file()};assert all(cloud_files.get(p)==v for p,v in before.items());new=set(cloud_files)-set(before);assert new=={str(remote.relative_to(provider))},new
+png.unlink();assert not png.exists();call(['cloud_restore','--yes','--saves-only'],'restore.log');assert png.is_file() and hashlib.sha256(png.read_bytes()).hexdigest()==sha;assert all(pathlib.Path(p).is_file() and hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest()==v for p,v in outside.items());after={str(p.relative_to(provider)):hashlib.sha256(p.read_bytes()).hexdigest() for p in provider.rglob('*') if p.is_file()};assert after==cloud_files
+validation=json.loads(call(['cloud_setup','--validate-folders','saves','qa521-native-capture'],'validation.json'));assert validation['complete'] and validation['categories'][0]['state']=='present'
+record={'native_png':str(png),'sha256':sha,'cloud_png':str(remote),'backup_exit':0,'restore_exit':0,'original_preserved':str(o/'original.png'),'only_new_cloud_file':list(new),'preexisting_cloud_files_unchanged':len(before),'custom_and_history_unchanged':outside,'selected_settings_content_preserved':True,'restored_generated_png_exact':True,'saves_validation':validation,'runtime_stopped':pid,'virtualpad_destroy_requested':True};(o/'results.json').write_text(json.dumps(record,indent=2)+'\n');print(json.dumps(record,indent=2))

@@ -1,0 +1,39 @@
+{
+  "passed": 0,
+  "failed": 4,
+  "results": [
+    {
+      "case": "clean-game-InputPlumber",
+      "result": "FAIL",
+      "error": "default capture remains outside save scope: {'configured': 'screenshots', 'resolved': '/storage/.config/duckstation/screenshots', 'argv': ['-fullscreen', '-bigpicture', '-nogui', '--', '/storage/roms/psx/fixture.chd']}"
+    },
+    {
+      "case": "retained-game-default",
+      "result": "FAIL",
+      "error": "default capture remains outside save scope: {'configured': 'screenshots', 'resolved': '/storage/.config/duckstation/screenshots', 'argv': ['-fullscreen', '-bigpicture', '-nogui', '--', '/storage/roms/psx/fixture.chd']}"
+    },
+    {
+      "case": "clean-tool-AMD64",
+      "result": "FAIL",
+      "error": "default capture remains outside save scope: {'configured': 'screenshots', 'resolved': '/storage/.config/duckstation/screenshots', 'argv': ['-fullscreen', '-bigpicture']}"
+    },
+    {
+      "case": "package-executable-mode",
+      "result": "FAIL",
+      "error": "installed AppImage is not executable0755"
+    }
+  ],
+  "source_ref": "1ee8e5199da0bc02e6aa4ebff94b951f5e8b4804",
+  "source_root": "/workspace/repos/rocknix.worktrees/m7-manual-cloud-folders",
+  "source_sha256": {
+    "projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/scripts/start_duckstation.sh": "30de5157aa32a984c950761782657c05293278537e6fe9b29c50f543d3237c1e",
+    "projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/config/InputPlumber/settings.ini": "4fcff97ddf1263ccde242b0f0cb0c7d00f3efc29f6ccb4a443d887ececbfbbba",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_sync-rules.txt": "2528550d5b45f8ab8264b55f21afa8098a88d1a99572bcfd87a4b9e3d3506208",
+    "projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/sources/Start Duckstation.sh": "b24efc9bd9de0e4e020d63f883bd977f0f969eb33f8fefa1adc74202a9d6b0fb",
+    "projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/config/AMD64/settings.ini": "45ea0d8cda25df55e70a362e5875bac7b635a2b792ac79c8b91b5ea154beced4",
+    "projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/package.mk": "f83eb9431515bfe93109a9297fc6e71a0dbbf75b815d49cf1b5cb52c16fd2dcc"
+  },
+  "rclone_sha256": "f66d8c1d552ad90296a11bc8b46d56a7fa5da1a7fa05e7ca522d95df92c4a4c0",
+  "rclone_version": "rclone v1.75.1",
+  "scope": "actual shell entrypoints; synthetic emulator-boundary probe; no runtime screenshot claim"
+}

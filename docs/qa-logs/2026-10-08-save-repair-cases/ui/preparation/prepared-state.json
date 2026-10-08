@@ -1,0 +1,23 @@
+{
+  "utc": "2026-10-08T06:25:04.887638+00:00",
+  "status": "prepared; awaiting qualified frozen #520 backend before UI proof",
+  "scope": "/workspace/tmp/pixelelated-520-ui-20261008",
+  "es_commit": "4e410dc9a816cc947f16235ad2b24824b29dd84e",
+  "binary_sha256": "6099af1568b34eb7778d586065f61c28c1b5b02e52d35e5041cd8905676fdb0a",
+  "french_catalog_sha256": "a5fafc02b1a243dc63c9d9842efcce040ac72ae076279c77c79c8a0477180ea4",
+  "guest_pid": 553090,
+  "owner": "rc_cloud_ui",
+  "ports": {
+    "ssh": 10220,
+    "vnc": 5940
+  },
+  "resource_preflight": "guarded swap reclaim returnedREADY before builds; swap later refilled with41GiB RAM available; no reclaim during guest use",
+  "test_scope": [
+    "ordinary PSP savedata",
+    "DuckStation memory cards",
+    "native N64 slot states",
+    "bounded-depth/read failures",
+    "progress-only selected content stays empty"
+  ],
+  "unchanged_evidence": "prior99-entry packet not rerun; only changed-backend paths will receive new proof"
+}

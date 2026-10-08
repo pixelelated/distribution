@@ -1,0 +1,14 @@
+PASS unguarded-join-under-lease
+PASS unguarded-follow-under-lease
+PASS matching-guard-join
+PASS matching-guard-follow
+PASS mismatched-guard-does-not-stop-follow
+PASS matching-guard-settle
+PASS matching-guard-folder-scan
+PASS current-default-keep-is-not-universal
+PASS lease-refuses-cloud_backup
+PASS lease-refuses-cloud_restore
+FAIL lease-refuses-cloud_content_backup blocked writer reached rclone
+FAIL lease-refuses-cloud_content_restore blocked writer reached rclone
+PASS lease-refuses-cloud_migrate_layout
+old-helper-proof: 11 PASS, 2 FAIL

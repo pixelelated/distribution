@@ -1,0 +1,4 @@
+{
+  "find": "#!/bin/sh\nprintf \"%s\\n\" \"find\" >> /ctl/busybox-calls\nexec /qa-tools/busybox find \"$@\"\n",
+  "awk": "#!/bin/sh\nprintf \"%s\\n\" \"awk\" >> /ctl/busybox-calls\nexec /qa-tools/busybox awk \"$@\"\n"
+}

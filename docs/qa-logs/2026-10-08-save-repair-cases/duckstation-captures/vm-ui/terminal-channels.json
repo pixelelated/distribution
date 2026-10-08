@@ -1,0 +1,72 @@
+{
+  "utc": "2026-10-08T07:21:19.693333+00:00",
+  "channels": {
+    "duck01": {
+      "launcher": 1,
+      "inner": 1,
+      "wrapper": 1,
+      "watch_build": 1
+    },
+    "duck-helper01": {
+      "launcher": 0,
+      "inner": 0,
+      "wrapper": 0,
+      "watch_build": 0
+    },
+    "duck-extract01": {
+      "launcher": 1,
+      "inner": 1,
+      "wrapper": 1,
+      "watch_build": 1
+    },
+    "restart-job01": {
+      "launcher": 0,
+      "inner": 0,
+      "wrapper": 0,
+      "watch_build": 0
+    },
+    "duck-deps01": {
+      "launcher": 1,
+      "inner": 1,
+      "wrapper": 1,
+      "watch_build": 1
+    },
+    "native01": {
+      "launcher": 0,
+      "inner": 0,
+      "wrapper": 0,
+      "watch_build": 0
+    },
+    "native-custom01": {
+      "launcher": 0,
+      "inner": 0,
+      "wrapper": 0,
+      "watch_build": 0
+    },
+    "capture-default01": {
+      "launcher": 0,
+      "inner": 0,
+      "wrapper": 0,
+      "watch_build": 0
+    },
+    "capture-custom01": {
+      "launcher": 0,
+      "inner": 0,
+      "wrapper": 0,
+      "watch_build": 0
+    },
+    "capture-roundtrip01": {
+      "launcher": 0,
+      "inner": 0,
+      "wrapper": 0,
+      "watch_build": 0
+    }
+  },
+  "qualified_checks": {
+    "mode": "Original actual0644 execution exits126; exact same bytes with qualified installed0755 reach application loader.",
+    "dependency": "Original application loader exits127 missingcom_err. Final targetlibrary resolves121bundled ELF/plugins and native rendering succeeds.",
+    "help": "Pinned-help-exit.json in parentpacket shows-help intentionally returns1; duck-deps01 aggregate failed an incorrect0 expectation and remains failed. Correct usage and final121closure are separately retained.",
+    "extraction": "duck-extract01 extracts successfully; diagnostic ls of unused absent AppRun.wrapped returns1 before closure. Read-only followup closure files retained; extraction not repeated.",
+    "native": "Actual default/custom Guide+B and normal generatedPNG backup/restore all terminal0."
+  }
+}

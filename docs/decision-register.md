@@ -665,6 +665,8 @@ This is the index of decisions; `docs/work-logs/` is the narrative,
 
 | D-CLOUD-181 | 2026-10-08 | **Turn useful manual integrity findings into reusable synthetic verification, while preserving the distinction between folder readiness, byte equality, container structure and game/core compatibility.** Bind scoped complete manifests before and after reads; missing hashes, partial listings, changed inputs and failed reads cannot pass. Keep private verification inputs intact and publish a separately sanitized view; a lossy credential filter is not an authoritative inventory. Check client configuration independently after remote rollback. Reuse synthetic failure cases for targeted repairs and adoption without turning category setup into an unbounded library download. | #517; #515; #508; maintainer request to carry manual learnings into automation; `docs/cloud-save-integrity.md` |
 
+| D-CLOUD-182 | 2026-10-08 | **Complete controlled alignment and the relevant migration/mutation-residue disposition before the owner test handheld receives or attempts its next upgrade.** #519 owns a synthetic rehearsal, exact reversible per-key/per-path plan, isolation of old automatic consumers, named authorized actions and state-bound acceptance. #516 supplies the personal residue review; preserve real save/recovery data and unknown metadata. This overrides the earlier operational preference to install replacement firmware before alignment. It gates that handheld update transfer/reboot, not #515 source work, host builds or common VM qualification. | #519; #516; #508; maintainer request to align and handle leftover mutation files before an upgrade |
+
 ## Open decisions
 
 

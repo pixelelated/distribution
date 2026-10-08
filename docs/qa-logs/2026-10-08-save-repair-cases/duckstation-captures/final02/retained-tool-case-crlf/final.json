@@ -1,0 +1,52 @@
+{
+  "storage": {
+    ".config/duckstation/gamecontrollerdb.txt": {
+      "link": "/usr/config/SDL-GameControllerDB/gamecontrollerdb.txt"
+    },
+    ".config/duckstation/memcards": {
+      "link": "/storage/roms/psx/duckstation/memcards"
+    },
+    ".config/duckstation/savestates": {
+      "link": "/storage/roms/savestates/psx"
+    },
+    ".config/duckstation/screenshots/historical.png": {
+      "bytes": 25,
+      "sha256": "94b7a83783527975b67c0b82fc75cd8805641ab8e6dc3a1aac163b6fada8a3b3"
+    },
+    ".config/duckstation/settings.ini": {
+      "bytes": 66,
+      "sha256": "f83b4cd0f912e058eca17bd1ddd9fc1c6aec40c8d3a5fb4a5d75b73b1c5df76f"
+    },
+    ".local/share/duckstation": {
+      "link": "/storage/.config/duckstation"
+    },
+    "roms/psx/duckstation/memcards/existing.bin": {
+      "bytes": 20,
+      "sha256": "2cf6f9502af930012f0da2474a1079432cf96a5fe18b264999c4295f9a7efe37"
+    },
+    "roms/savestates/psx/existing.bin": {
+      "bytes": 20,
+      "sha256": "2cf6f9502af930012f0da2474a1079432cf96a5fe18b264999c4295f9a7efe37"
+    },
+    "roms/screenshots/synthetic-capture.png": {
+      "bytes": 44,
+      "sha256": "2155f40baf67eab067b307d562f3f8c1c39a0c725312bddcbab9ed36c04a82d1"
+    }
+  },
+  "cloud": {
+    "savestates/psx/existing.bin": {
+      "bytes": 20,
+      "sha256": "2cf6f9502af930012f0da2474a1079432cf96a5fe18b264999c4295f9a7efe37"
+    },
+    "screenshots/synthetic-capture.png": {
+      "bytes": 44,
+      "sha256": "2155f40baf67eab067b307d562f3f8c1c39a0c725312bddcbab9ed36c04a82d1"
+    }
+  },
+  "source_sha256": {
+    "projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/sources/Start Duckstation.sh": "a0a2a11cf370f318f917c660b6d605f5cb6681aad0488a209d6db5d675f25efc",
+    "projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/scripts/duckstation_screenshot_path": "f53ea578937610a693daecdc04bb7cd0c876ca6aca640f8dd17306edc0b6c6fd",
+    "projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/config/InputPlumber/settings.ini": "3e600960f709382ac6e14cea375e3c4cf5cf3a29f6ade3faf1c25f040d5bd889",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_sync-rules.txt": "2528550d5b45f8ab8264b55f21afa8098a88d1a99572bcfd87a4b9e3d3506208"
+  }
+}

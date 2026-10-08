@@ -1,0 +1,35 @@
+listremotes
+mkdir --s3-directory-markers qa:/Mine/Saves --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+mkdir --s3-directory-markers qa:/Mine/Saves/savefiles --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+mkdir --s3-directory-markers qa:/Mine/Saves/savestates --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+mkdir --s3-directory-markers qa:/Mine/Saves/screenshots --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+mkdir --s3-directory-markers qa:/Mine/Backups --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+mkdir --s3-directory-markers qa:/ROMs --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+mkdir --s3-directory-markers qa:/BIOS --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf --files-only qa:/Mine/Saves/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf --files-only qa:/Mine/Backups/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+copyto --ignore-existing /tmp/tmp.byxp9YInow qa:/Mine/Backups/README.txt --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf --files-only qa:/ROMs/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+copyto --ignore-existing /tmp/tmp.AyJxkhmQdJ qa:/ROMs/README.txt --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf --files-only qa:/BIOS/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+copyto --ignore-existing /tmp/tmp.RFYqqYC1Ke qa:/BIOS/README.txt --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:/Mine/Saves --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:/Mine/Backups --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:/ROMs --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:/BIOS --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+listremotes
+mkdir --s3-directory-markers qa:/Mine/Saves --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+mkdir --s3-directory-markers qa:/Mine/Saves/savefiles --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+mkdir --s3-directory-markers qa:/Mine/Saves/savestates --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+mkdir --s3-directory-markers qa:/Mine/Saves/screenshots --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+mkdir --s3-directory-markers qa:/Mine/Backups --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+mkdir --s3-directory-markers qa:/ROMs --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+mkdir --s3-directory-markers qa:/BIOS --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf --files-only qa:/Mine/Saves/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf --files-only qa:/Mine/Backups/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf --files-only qa:/ROMs/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf --files-only qa:/BIOS/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:/Mine/Saves --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:/Mine/Backups --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:/ROMs --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:/BIOS --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1

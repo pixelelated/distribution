@@ -1,0 +1,22 @@
+6099af1568b34eb7778d586065f61c28c1b5b02e52d35e5041cd8905676fdb0a  /usr/bin/emulationstation
+a5fafc02b1a243dc63c9d9842efcce040ac72ae076279c77c79c8a0477180ea4  /usr/share/locale/fr/LC_MESSAGES/emulationstation2.mo
+b204886bb498ede1a290215fc2efb521c0c2f26b964788df697b4fc2cb3f7f7b  /usr/bin/duckstation-sa
+f53ea578937610a693daecdc04bb7cd0c876ca6aca640f8dd17306edc0b6c6fd  /usr/bin/duckstation_screenshot_path
+557ffd173e61c9e98063644aa7af25784b0991d55c85fd6c924c12f550069aa9  /usr/bin/start_duckstation.sh
+3e600960f709382ac6e14cea375e3c4cf5cf3a29f6ade3faf1c25f040d5bd889  /usr/config/duckstation/settings.ini
+a0a2a11cf370f318f917c660b6d605f5cb6681aad0488a209d6db5d675f25efc  /usr/config/modules/Start Duckstation.sh
+blackhole 0.0.0.0/1 
+default via 10.0.2.2 dev eth0  src 10.0.2.15  metric 100 
+10.0.2.0/24 dev eth0 scope link  src 10.0.2.15  metric 100 
+blackhole 128.0.0.0/1 
+blackhole ::/1 dev lo  metric 1024 
+fe80::/64 dev eth0  metric 1024 
+fec0::/64 dev eth0  metric 100 
+blackhole 8000::/1 dev lo  metric 1024 
+default via fe80::2 dev eth0  metric 100 
+anycast fe80:: dev eth0  metric 0 
+anycast fec0:: dev eth0  metric 0 
+multicast ff00::/8 dev eth0  metric 256 
+755 /usr/bin/duckstation-sa
+755 /usr/bin/duckstation_screenshot_path
+755 /usr/config/modules/Start Duckstation.sh

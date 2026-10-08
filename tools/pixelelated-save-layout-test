@@ -1,0 +1,409 @@
+#!/usr/bin/env python3
+"""Source-bound real-rclone controls for standalone progress coverage (#520).
+
+Disposable host fixtures only; this does not qualify installed firmware or UI.
+Use --ref with the same cases for an unfixed control. Each fixture must first
+execute its startup witness and the supplied real rclone successfully.
+"""
+import argparse
+import hashlib
+import importlib.machinery
+import importlib.util
+import json
+import os
+import time
+from pathlib import Path
+import shutil
+import subprocess
+import sys
+import types
+
+SOURCES = Path('projects/ROCKNIX/packages/network/rclone/sources')
+PSP = 'psp/PSP/SAVEDATA/ULUS00001/DATA.BIN'
+DUCK = 'psx/duckstation/memcards/Example_1.mcd'
+N64 = ['n64/Example.st0', 'n64/Example.st9', 'n64/Example.pj0', 'n64/Example.pj9.zip']
+PROGRESS = N64 + [PSP, 'psp/PSP/SAVEDATA/ULUS00001/PARAM.SFO',
+            'psp/PSP/SAVEDATA/ULUS00001/ICON0.PNG',
+            'psp/PSP/SAVEDATA/ULUS00001/gamelist.xml', DUCK,
+            'psx/duckstation/memcards/imported.mcr',
+            'psx/memcards/legacy.mcd', 'psp/PPSSPP/legacy.bin',
+            'n64/Legacy.eep', 'savefiles/control.srm',
+            'savestates/psp/ppsspp-sa/Example.ppst', 'screenshots/Capture.png']
+
+
+def snapshot(path):
+    return {str(p.relative_to(path)): hashlib.sha256(p.read_bytes()).hexdigest()
+            for p in path.rglob('*') if p.is_file()}
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--source-root', required=True, type=Path)
+    parser.add_argument('--ref')
+    parser.add_argument('--rclone', required=True, type=Path)
+    parser.add_argument('--output', required=True, type=Path)
+    parser.add_argument('--cases', help='Comma-separated exact case names')
+    parser.add_argument('--keep-fixtures', action='store_true')
+    parser.add_argument('--busybox', type=Path,
+                        help='Use a private copy of this image BusyBox for find/awk')
+    parser.add_argument('--fixture-tool', type=Path,
+                        default=Path(__file__).with_name('rasteratops-cloud-layout-test'))
+    args = parser.parse_args()
+    args.source_root = args.source_root.resolve(strict=True)
+    args.rclone = str(args.rclone.resolve(strict=True))
+    args.output = args.output.resolve()
+    args.output.mkdir(parents=True, exist_ok=False)
+    busybox = None
+    if args.busybox:
+        args.busybox = args.busybox.resolve(strict=True)
+        busybox = args.output/'runtime/busybox'
+        busybox.parent.mkdir()
+        shutil.copy2(args.busybox, busybox)
+        # Fail before running controls if either requested image applet is absent.
+        for applet in ('find', 'awk'):
+            subprocess.run([str(busybox), applet, '--help'], check=True,
+                           stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    loader = importlib.machinery.SourceFileLoader('save_layout_fixture', str(args.fixture_tool))
+    spec = importlib.util.spec_from_loader(loader.name, loader)
+    fixture = importlib.util.module_from_spec(spec)
+    loader.exec_module(fixture)
+    fixture.ROOT = args.source_root
+
+    # Reuse the existing isolated production-script runner. Install the exact
+    # templates at their real path too: an unavailable /usr/config silently
+    # skips the upgrade merge and is not an upgrade control.
+    def isolated_run(cmd, *pos, **kw):
+        if isinstance(cmd, list) and cmd[0] == 'bwrap':
+            cmd = list(cmd)
+            index = cmd.index('/usr') - 1
+            require_mount = cmd[index:index + 3] == ['--ro-bind', '/usr', '/usr']
+            fixture.require(require_mount, 'fixture host tools mount changed')
+            mounts = ['--tmpfs', '/usr']
+            for name in ('bin', 'sbin', 'lib', 'lib64', 'share', 'local'):
+                source = '/usr/' + name
+                if Path(source).exists():
+                    mounts.extend(['--ro-bind', source, source])
+            cmd[index:index + 3] = mounts
+            repo = None
+            for index, value in enumerate(cmd):
+                if value == '--bind' and cmd[index + 2] == '/repo':
+                    repo = cmd[index + 1]
+                    break
+            fixture.require(repo is not None, 'fixture repository mount missing')
+            index = cmd.index('--chdir')
+            cmd[index:index] = ['--unshare-net', '--ro-bind', repo, '/usr/config']
+            if busybox:
+                cmd[index:index] = ['--dir', '/qa-tools', '--ro-bind', str(busybox), '/qa-tools/busybox']
+        return subprocess.run(cmd, *pos, **kw)
+    fixture.subprocess = types.SimpleNamespace(run=isolated_run, PIPE=subprocess.PIPE,
+                                               STDOUT=subprocess.STDOUT)
+    require = fixture.require
+    results = []
+    sources = {}
+
+    def good(f, script, *argv):
+        result = f.run(script, *argv)
+        require(result.returncode == 0, f'{script} rc={result.returncode}: {result.stdout[-700:]}')
+        return result.stdout
+
+    def case(name, test):
+        if args.cases and name not in args.cases.split(','):
+            return
+        f = fixture.Fixture(args.output / name, args)
+        f.conf(saves='/Chosen/Saves', content='/Chosen/Library')
+        fixture.put(f.path/'storage/.config/emulationstation/es_systems.cfg',
+                    '\n'.join('<path>/storage/roms/'+s+'</path>' for s in ('psp', 'psx', 'n64', 'gb')))
+        rules = f.path/'storage/.config/cloud_sync-rules.txt'
+        rules.write_bytes((f.path/'repo/cloud_sync-rules.txt').read_bytes())
+        for script, body in {
+            'fixture-check': "printf '%s\\n' isolated-fixture-ready\nrclone version\n",
+            'filter-probe': 'exec rclone lsf /storage/roms -R --files-only --filter-from "$1"\n',
+            'validator-call': 'exec python3 /repo/cloud_folder_validate "$@"\n',
+        }.items():
+            fixture.put(f.path/'repo'/script, body)
+        if busybox:
+            wrappers = {}
+            for applet in ('find', 'awk'):
+                body = ('#!/bin/sh\n'
+                        f'printf "%s\\n" "{applet}" >> /ctl/busybox-calls\n'
+                        f'exec /qa-tools/busybox {applet} "$@"\n')
+                fixture.put(f.path/'shim'/applet, body, True)
+                wrappers[applet] = body
+            (f.path/'busybox-wrappers.json').write_text(json.dumps(wrappers, indent=2)+'\n')
+            with (f.path/'repo/fixture-check').open('a') as check:
+                check.write('command -v find awk\nsha256sum /qa-tools/busybox\n/qa-tools/busybox 2>&1 | head -1\n')
+        original = snapshot(f.path/'repo')
+        sources.update({k: v for k, v in original.items() if k.startswith('cloud_')})
+        try:
+            ready = good(f, 'fixture-check')
+            require(ready.startswith('isolated-fixture-ready\nrclone v'), 'startup witness failed')
+            if busybox:
+                require('/shim/find\n/shim/awk\n' in ready, 'image applet wrapper resolution failed')
+                require(hashlib.sha256(busybox.read_bytes()).hexdigest()+'  /qa-tools/busybox' in ready,
+                        'mounted image applet bytes changed')
+                require('BusyBox v' in ready, 'image BusyBox did not execute')
+            test(f)
+            require(all(snapshot(f.path/'repo').get(k) == v for k, v in original.items()), 'production inputs changed during control')
+            results.append({'case': name, 'result': 'PASS'})
+            print('PASS', name, flush=True)
+        except Exception as error:
+            results.append({'case': name, 'result': 'FAIL', 'error': str(error)})
+            print('FAIL', name, str(error), flush=True)
+        finally:
+            (f.path/'final-files.json').write_text(json.dumps({
+                'cloud': snapshot(f.path/'cloud'), 'storage': snapshot(f.path/'storage'),
+                'production_inputs': original}, indent=2)+'\n')
+            if not args.keep_fixtures:
+                retired = []
+                for directory in ('repo', 'shim', 'storage', 'cloud', 'run', 'log'):
+                    target = f.path/directory
+                    retired.append({'directory': directory, 'files': sum(p.is_file() for p in target.rglob('*'))})
+                    shutil.rmtree(target)
+                (f.path/'retired-fixtures.json').write_text(json.dumps(retired, indent=2)+'\n')
+
+    def seed(f, progress=PROGRESS):
+        for path in progress:
+            fixture.put(f.path/'storage/roms'/path, 'current local progress '+path+'\n')
+
+    def filter_path(f, path):
+        seed(f, [path, 'savefiles/control.srm'])
+        for template in ('cloud_sync-rules.txt', 'cloud_sync-rules.txt.defaults'):
+            listed = good(f, 'filter-probe', '/repo/'+template).splitlines()
+            require('savefiles/control.srm' in listed, 'real-rclone include witness missing')
+            require(path in listed, f'{template} excludes valid progress: {path}')
+    case('filter-psp', lambda f: filter_path(f, PSP))
+    case('filter-duckstation', lambda f: filter_path(f, DUCK))
+    for path in N64:
+        case('filter-n64-'+path.rsplit('.', 1)[-1], lambda f, path=path: filter_path(f, path))
+
+    def roundtrip(f):
+        seed(f)
+        deny = ['psp/Example.iso', 'psx/Example.chd', 'bios/Firmware.bin',
+                'psp/PSP/SAVEDATA/ULUS00001/history.db',
+                'psp/PSP/SAVEDATA/ULUS00001/history.db-wal',
+                'psx/duckstation/memcards/history.sqlite3']
+        seed(f, deny)
+        before = snapshot(f.path/'storage/roms')
+        good(f, 'cloud_backup', '--yes', '--saves-only')
+        sent = snapshot(f.path/'cloud/Chosen/Saves')
+        require(sent == {p: before[p] for p in PROGRESS}, 'backup payload does not equal allowed progress')
+        for path in PROGRESS:
+            (f.path/'storage/roms'/path).unlink()
+        good(f, 'cloud_restore', '--yes', '--saves-only')
+        require(snapshot(f.path/'storage/roms') == before, 'restore lost progress or changed excluded payloads')
+    case('save-backup-restore', roundtrip)
+
+    def upgrade(f):
+        old = subprocess.check_output(['git', '-C', str(args.source_root), 'show',
+                                       '6f89bc7cecee5972909828103689e2c7c0711c30:'+str(SOURCES/'cloud_sync-rules.txt')], text=True)
+        rules = f.path/'storage/.config/cloud_sync-rules.txt'
+        rules.write_text('- /psp/PSP/SAVEDATA/Private/**\n+ /custom/progress.dat\n'+old+'\n+ /roms/**\n')
+        seed(f, [PSP, DUCK, 'custom/progress.dat', 'psp/PSP/SAVEDATA/Private/DATA.BIN', 'roms/No.iso'])
+        good(f, 'cloud_sync_helper')
+        merged = rules.read_text()
+        require('# inert: + /roms/**' in merged, 'old ineffective rule was activated')
+        require(merged.index('- /psp/PSP/SAVEDATA/Private/**') < merged.index('+ /psp/PSP/SAVEDATA/**'), 'custom exclude lost precedence')
+        require(rules.with_suffix('.txt.bak').read_text().startswith('- /psp/'), 'original custom rules not preserved')
+        listed = set(good(f, 'filter-probe', '/storage/.config/cloud_sync-rules.txt').splitlines())
+        require(listed == {PSP, DUCK, 'custom/progress.dat'}, 'upgrade coverage/custom precedence wrong: '+str(listed))
+        first = rules.read_bytes()
+        good(f, 'cloud_sync_helper')
+        require(rules.read_bytes() == first, 'repeated merge changed rules')
+    case('upgrade-custom-rules', upgrade)
+
+    def content_setup(f):
+        seed(f)
+        for system, extension in [('psp', 'iso'), ('psx', 'chd'), ('n64', 'z64')]:
+            fixture.put(f.path/'storage/roms'/system/('Kept.'+extension), 'ROM bytes\n')
+            f.file('Chosen/Library/ROMs/'+system+'/Kept.'+extension, 'ROM bytes\n')
+        for path in PROGRESS:
+            if path.startswith(('psp/', 'psx/', 'n64/')):
+                f.file('Chosen/Library/ROMs/'+path, 'stale cloud progress '+path+'\n')
+                os.utime(f.path/'cloud/Chosen/Library/ROMs'/path, (time.time()+3600, time.time()+3600))
+        f.directory('Chosen/Library/BIOS')
+        return snapshot(f.path/'storage/roms'), snapshot(f.path/'cloud')
+
+    def content_listing(f):
+        content_setup(f)
+        sizes = good(f, 'cloud_content_backup', '--list-sizes')
+        rows = dict(line.split('|') for line in sizes.splitlines() if '|' in line)
+        require(rows.get('psp') == '10' and rows.get('psx') == '10', 'local content counts progress: '+sizes)
+        scan = good(f, 'cloud_content_restore', '--scan')
+        rows = {line.split('|')[0]: line.split('|')[1:] for line in scan.splitlines() if '|' in line}
+        for system in ('psp', 'psx', 'n64'):
+            require(rows[system] == ['10', '1', '10', '0', '0', '0', '0'], 'content scan includes progress: '+scan)
+        (f.path/'storage/roms/psp/Kept.iso').unlink()
+        require('psp' not in good(f, 'cloud_content_backup', '--list').splitlines(), 'progress-only system offered as content')
+    case('content-list-count-scan', content_listing)
+
+    def content_backup(f, mode=None):
+        before, _ = content_setup(f)
+        shutil.rmtree(f.path/'cloud/Chosen/Library/ROMs')
+        good(f, 'cloud_content_backup', '--all', *([mode] if mode else []))
+        sent = snapshot(f.path/'cloud/Chosen/Library/ROMs')
+        require(sent == {p: before[p] for p in ('psp/Kept.iso', 'psx/Kept.chd', 'n64/Kept.z64')}, 'content upload carried progress')
+        require(snapshot(f.path/'storage/roms') == before, 'content upload changed local files')
+    case('content-upload', content_backup)
+    case('content-upload-with-media', lambda f: content_backup(f, '--with-media'))
+
+    def content_restore(f, match=False, mode=None):
+        before, cloud = content_setup(f)
+        if match:
+            fixture.put(f.path/'storage/roms/psp/Remove.iso', 'unwanted ROM\n')
+            fixture.put(f.path/'storage/.cache/cloud_sync/content-systems', 'psp\npsx\nn64\n')
+            good(f, 'cloud_content_restore', '--match')
+            good(f, 'cloud_content_restore', '--match', '--apply')
+        else:
+            (f.path/'storage/roms/psp/Kept.iso').unlink()
+            good(f, 'cloud_content_restore', '--all', *([mode] if mode else []))
+        require(snapshot(f.path/'storage/roms') == before, 'content replaced or removed local progress')
+        require(snapshot(f.path/'cloud') == cloud, 'content operation changed historical remote copies')
+    case('content-restore', content_restore)
+    case('content-restore-with-media', lambda f: content_restore(f, mode='--with-media'))
+    case('content-match', lambda f: content_restore(f, True))
+
+    def media_only(f):
+        seed(f)
+        progress_before = snapshot(f.path/'storage/roms')
+        media = {'psp/gamelist.xml': '<gameList>valid content witness</gameList>\n',
+                 'psp/images/Example.png': 'synthetic artwork bytes\n'}
+        for path, value in media.items():
+            fixture.put(f.path/'storage/roms'/path, value)
+        good(f, 'cloud_content_backup', '--all', '--media-only')
+        sent = snapshot(f.path/'cloud/Chosen/Library/ROMs')
+        require(set(sent) == set(media), 'media-only upload included saves or missed game content')
+        for path in media:
+            (f.path/'storage/roms'/path).unlink()
+        for path in (PSP, 'psp/PSP/SAVEDATA/ULUS00001/gamelist.xml'):
+            f.file('Chosen/Library/ROMs/'+path, 'stale remote progress must stay remote\n')
+            os.utime(f.path/'cloud/Chosen/Library/ROMs'/path, (time.time()+3600, time.time()+3600))
+        cloud = snapshot(f.path/'cloud')
+        good(f, 'cloud_content_restore', '--all', '--media-only')
+        for path, value in media.items():
+            require((f.path/'storage/roms'/path).read_text() == value, 'ordinary media not restored')
+        restored = snapshot(f.path/'storage/roms')
+        require({p: restored[p] for p in progress_before} == progress_before, 'media-only replaced progress')
+        require(snapshot(f.path/'cloud') == cloud, 'media-only deleted historical copies')
+        scan = good(f, 'cloud_content_restore', '--scan', '--media-only')
+        row = next(line.split('|') for line in scan.splitlines() if line.startswith('psp|'))
+        total = str(sum(len(value.encode()) for value in media.values()))
+        require(row[1] == total and row[3] == total and row[4:6] == ['0', '0'], 'media-only counted savedata: '+scan)
+    case('media-only-progress-boundary', media_only)
+
+    def n64_scope(f):
+        unrelated = ['psx/Other.st0', 'psp/Other.pj0.zip', 'n64/Other.st10',
+                     'n64/subfolder/Other.st0']
+        seed(f, unrelated + N64)
+        listed = good(f, 'filter-probe', '/repo/cloud_sync-rules.txt').splitlines()
+        require(set(listed) == set(N64), 'slot include escaped supported N64 root')
+        good(f, 'cloud_content_backup', '--all')
+        sent = snapshot(f.path/'cloud/Chosen/Library/ROMs')
+        require(set(sent) == set(unrelated), 'content exclusions swallowed unrelated paths')
+        local = snapshot(f.path/'storage/roms')
+        for path in unrelated:
+            (f.path/'storage/roms'/path).unlink()
+        good(f, 'cloud_content_restore', '--all')
+        require(snapshot(f.path/'storage/roms') == local, 'unrelated content no longer restores')
+    case('n64-system-root-scope', n64_scope)
+
+    def removed_system(f):
+        before, cloud = content_setup(f)
+        shutil.rmtree(f.path/'cloud/Chosen/Library/ROMs/n64')
+        cloud = snapshot(f.path/'cloud')
+        fixture.put(f.path/'storage/.cache/cloud_sync/content-systems', 'n64\n')
+        good(f, 'cloud_content_restore', '--match')
+        good(f, 'cloud_content_restore', '--match', '--apply')
+        before.pop('n64/Kept.z64')
+        require(snapshot(f.path/'storage/roms') == before, 'removed-system match removed progress')
+        require(snapshot(f.path/'cloud') == cloud, 'removed-system match changed remote')
+    case('content-match-removed-system', removed_system)
+
+    def validate(f, path, state, detail=None):
+        f.file('Chosen/Saves/'+path, 'synthetic save bytes\n')
+        before = {'cloud': snapshot(f.path/'cloud'), 'storage': snapshot(f.path/'storage')}
+        result = f.run('validator-call', 'saves', 'layout-proof')
+        value = json.loads(result.stdout)
+        row = value['categories'][0]
+        require(result.returncode == (5 if state == 'unreadable' else 0), 'wrong validator outcome: '+result.stdout)
+        require(row['state'] == state, 'wrong validator classification: '+result.stdout)
+        if detail:
+            require(row['detail'] == detail, 'wrong validator reason: '+result.stdout)
+        require({'cloud': snapshot(f.path/'cloud'), 'storage': snapshot(f.path/'storage')} == before, 'validator wrote files')
+        calls = (f.path/'ctl/argv').read_text().splitlines()
+        require(all(line.startswith(('version', 'listremotes', 'config file', 'lsjson', 'backend features')) for line in calls), 'validator transferred payload')
+        require(all('qa:/Chosen/Saves' in line for line in calls if line.startswith('lsjson')), 'validator escaped selected saves root')
+        require(len([c for c in calls if c.startswith('lsjson')]) <= 3, 'unbounded listing count')
+        require(value['scope']['max_seconds'] == 25 and value['scope']['max_entries_per_listing'] == 4096, 'existing bounds relaxed')
+        return value
+    case('validator-n64-state', lambda f: validate(f, N64[0], 'present'))
+    case('validator-psp-depth5', lambda f: validate(f, PSP, 'present'))
+    case('validator-duck-depth4', lambda f: validate(f, DUCK, 'present'))
+    case('validator-unseen-deeper', lambda f: validate(f, 'psp/PSP/SAVEDATA/ID/deeper/DATA.BIN', 'unreadable', 'deeper-folders-not-checked'))
+    case('validator-unrelated-depth', lambda f: validate(f, 'other/a/b/c/control.srm', 'unreadable', 'deeper-folders-not-checked'))
+    case('validator-database', lambda f: validate(f, 'psp/PSP/SAVEDATA/ID/history.db', 'empty'))
+
+    dispositions = {
+        'canonical-state': ('savestates/nes/Example.state', 'present'),
+        'canonical-auto-state': ('savestates/nes/Example.auto', 'present'),
+        'canonical-screenshot': ('screenshots/Example.png', 'present'),
+        'system-image-ambiguous': ('nes/images/Example.png', 'empty'),
+        'system-screenshot-ambiguous': ('nes/screenshots/Example.png', 'empty'),
+        'nds-dsv': ('nds/Example.dsv', 'present'),
+        'nds-sav': ('nds/Example.sav', 'present'),
+        'flat-srm': ('Example.srm', 'present'),
+        'flat-state': ('Example.state', 'present'),
+        'flat-image-ambiguous': ('Example.png', 'empty'),
+        'card-in-savefiles': ('savefiles/Example_1.mcd', 'present'),
+        'nested-state-unseen': ('saves/savestates/nes/Example.state', 'unreadable'),
+    }
+    for name, (path, state) in dispositions.items():
+        case('validator-'+name, lambda f, path=path, state=state: validate(f, path, state))
+
+    def failed_subtree(f):
+        f.fault(r'^lsjson qa:/Chosen/Saves/psp/PSP/SAVEDATA ')
+        validate(f, PSP, 'unreadable', 'listing-failed')
+        require((f.path/'ctl/fault-fired').is_file(), 'subtree fault was not reached')
+    case('validator-subtree-failure', failed_subtree)
+    def subtree_bound(f, kind):
+        shim = f.path/'shim/rclone'
+        original = shim.read_text()
+        code = {'entries': 'import json; print(json.dumps([{"Path":"ID/f"+str(i),"IsDir":False} for i in range(4097)]))',
+                'bytes': 'print("x" * (2 * 1024 * 1024 + 1))',
+                'timeout': 'import time; time.sleep(8)'}[kind]
+        fixture.put(f.path/'repo/bound-output.py', code+'\n')
+        hook = ('if [ "$1 $2" = "lsjson qa:/Chosen/Saves/psp/PSP/SAVEDATA" ]; then\n'
+                ' echo bound-fired >> /ctl/fault-fired\n'
+                ' exec python3 /repo/bound-output.py\nfi\n')
+        shim.write_text(original.replace('exec /rclone.real "$@"', hook+'exec /rclone.real "$@"'))
+        start = time.monotonic()
+        validate(f, PSP, 'unreadable', 'listing-limit' if kind == 'entries' else 'time-or-listing-limit')
+        require((f.path/'ctl/fault-fired').exists(), 'bound injection not reached')
+        require(time.monotonic()-start < 9, 'bounded subtree command ran too long')
+    for bound in ('entries', 'bytes', 'timeout'):
+        case('validator-bound-'+bound, lambda f, bound=bound: subtree_bound(f, bound))
+    if args.cases:
+        require(set(args.cases.split(',')) == {r['case'] for r in results}, 'unknown selected case')
+    require(results, 'no cases selected')
+    summary = {'results': results, 'passed': sum(r['result'] == 'PASS' for r in results),
+               'failed': sum(r['result'] == 'FAIL' for r in results),
+               'source_root': str(args.source_root), 'source_ref': args.ref,
+               'fixture_source_sha256': sources,
+               'fixture_override': ['cloud_device_id'],
+               'source_sha256': {p.name: hashlib.sha256(subprocess.check_output(['git', '-C', str(args.source_root), 'show', args.ref+':'+str(SOURCES/p.name)]) if args.ref else p.read_bytes()).hexdigest() for p in (args.source_root/SOURCES).iterdir() if p.is_file()}, 'rclone_sha256': hashlib.sha256(Path(args.rclone).read_bytes()).hexdigest()}
+    if busybox:
+        counts = {applet: 0 for applet in ('find', 'awk')}
+        for log in args.output.glob('*/ctl/busybox-calls'):
+            for applet in log.read_text().splitlines():
+                counts[applet] += 1
+        require(all(counts.values()), 'requested image applet was never invoked by the controls')
+        summary['busybox'] = {'source': str(args.busybox),
+                              'sha256': hashlib.sha256(busybox.read_bytes()).hexdigest(),
+                              'invocations': counts,
+                              'scope': 'Image find/awk applets; host bash/Python and pinned rclone fixture'}
+    (args.output/'summary.json').write_text(json.dumps(summary, indent=2)+'\n')
+    print(f"save-layout: {summary['passed']} PASS, {summary['failed']} FAIL", flush=True)
+    return bool(summary['failed'])
+
+
+if __name__ == '__main__':
+    sys.exit(main())

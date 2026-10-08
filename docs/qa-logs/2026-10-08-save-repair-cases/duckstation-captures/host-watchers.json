@@ -1,0 +1,74 @@
+[
+  {
+    "evidence": "smoke01",
+    "watcher": ".build-runs/20261008T064831Z-a4ec9623",
+    "build.start": "2026-10-08T06:48:31.620798+00:00\n",
+    "build.rc": "1\n",
+    "build.status": "state:       finished\nwritten:     2026-10-08 06:48:36 UTC   <- terminal result; heartbeat stops here\nwatcher_pid: 3\njob_pid:     2  alive=yes\nstarted:     2026-10-08 06:48:31 UTC\nprogress:    none matched\nlog:         /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261008T064831Z-a4ec9623/build.log  (last written 5s ago)\nactivity:    /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261008T064831Z-a4ec9623/build.log  (last written 5s ago)\nactivity_dir: /workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-08-save-repair-cases/duckstation-captures\noutcome:     rc=1\ntail:\n  \n  DuckStation captures: 0 PASS, 2 FAIL\n",
+    "build.log": "FAIL clean-game-InputPlumber: operation failed: bwrap: No permissions to create a new namespace, likely because the kernel does not allow non-privileged user namespaces. See <https://deb.li/bubblewrap> or <file:///usr/share/doc/bubblewrap/README.Debian.gz>.\n\nFAIL package-executable-mode: operation failed: bwrap: No permissions to create a new namespace, likely because the kernel does not allow non-privileged user namespaces. See <https://deb.li/bubblewrap> or <file:///usr/share/doc/bubblewrap/README.Debian.gz>.\n\nDuckStation captures: 0 PASS, 2 FAIL\n",
+    "watcher.err": ""
+  },
+  {
+    "evidence": "smoke02",
+    "watcher": ".build-runs/20261008T064843Z-b6f38119",
+    "build.start": "2026-10-08T06:48:43.842497+00:00\n",
+    "build.rc": "0\n",
+    "build.status": "state:       finished\nwritten:     2026-10-08 06:48:48 UTC   <- terminal result; heartbeat stops here\nwatcher_pid: 717204\njob_pid:     717203  alive=yes\nstarted:     2026-10-08 06:48:43 UTC\nprogress:    none matched\nlog:         /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261008T064843Z-b6f38119/build.log  (last written 4s ago)\nactivity:    /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261008T064843Z-b6f38119/build.log  (last written 4s ago)\nactivity_dir: /workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-08-save-repair-cases/duckstation-captures\noutcome:     rc=0\ntail:\n  PASS package-executable-mode\n  DuckStation captures: 2 PASS, 0 FAIL\n",
+    "build.log": "PASS clean-game-InputPlumber\nPASS package-executable-mode\nDuckStation captures: 2 PASS, 0 FAIL\n",
+    "watcher.err": ""
+  },
+  {
+    "evidence": "fixed01",
+    "watcher": ".build-runs/20261008T064902Z-b2b25de2",
+    "build.start": "2026-10-08T06:49:02.245531+00:00\n",
+    "build.rc": "0\n",
+    "build.status": "state:       finished\nwritten:     2026-10-08 06:49:07 UTC   <- terminal result; heartbeat stops here\nwatcher_pid: 718406\njob_pid:     718405  alive=yes\nstarted:     2026-10-08 06:49:02 UTC\nprogress:    none matched\nlog:         /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261008T064902Z-b2b25de2/build.log  (last written 1s ago)\nactivity:    /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261008T064902Z-b2b25de2/build.log  (last written 1s ago)\nactivity_dir: /workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-08-save-repair-cases/duckstation-captures\noutcome:     rc=0\ntail:\n  PASS package-executable-mode\n  DuckStation captures: 29 PASS, 0 FAIL\n",
+    "build.log": "PASS clean-game-InputPlumber\nPASS clean-game-H700\nPASS clean-game-AMD64\nPASS retained-game-missing\nPASS retained-game-empty\nPASS retained-game-default\nPASS retained-game-case-crlf\nPASS clean-tool-InputPlumber\nPASS clean-tool-H700\nPASS clean-tool-AMD64\nPASS retained-tool-missing\nPASS retained-tool-empty\nPASS retained-tool-default\nPASS retained-tool-case-crlf\nPASS custom-absolute-game\nPASS custom-relative-game\nPASS custom-absolute-tool\nPASS custom-relative-tool\nPASS custom-old-screenshot-symlink\nPASS refused-duplicate\nPASS refused-duplicate-section\nPASS refused-oversize\nPASS refused-file-target\nPASS refused-symlink-target\nPASS refused-readonly-target\nPASS refused-readonly-config\nPASS refused-replace-failed\nPASS refused-nonregular-config\nPASS package-executable-mode\nDuckStation captures: 29 PASS, 0 FAIL\n",
+    "watcher.err": ""
+  },
+  {
+    "evidence": "old01",
+    "watcher": ".build-runs/20261008T064930Z-eab5276d",
+    "build.start": "2026-10-08T06:49:30.581089+00:00\n",
+    "build.rc": "1\n",
+    "build.status": "state:       finished\nwritten:     2026-10-08 06:49:35 UTC   <- terminal result; heartbeat stops here\nwatcher_pid: 722370\njob_pid:     722369  alive=yes\nstarted:     2026-10-08 06:49:30 UTC\nprogress:    none matched\nlog:         /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261008T064930Z-eab5276d/build.log  (last written 4s ago)\nactivity:    /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261008T064930Z-eab5276d/build.log  (last written 4s ago)\nactivity_dir: /workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-08-save-repair-cases/duckstation-captures\noutcome:     rc=1\ntail:\n  FAIL package-executable-mode: installed AppImage is not executable0755\n  DuckStation captures: 0 PASS, 4 FAIL\n",
+    "build.log": "FAIL clean-game-InputPlumber: default capture remains outside save scope: {'configured': 'screenshots', 'resolved': '/storage/.config/duckstation/screenshots', 'argv': ['-fullscreen', '-bigpicture', '-nogui', '--', '/storage/roms/psx/fixture.chd']}\nFAIL retained-game-default: default capture remains outside save scope: {'configured': 'screenshots', 'resolved': '/storage/.config/duckstation/screenshots', 'argv': ['-fullscreen', '-bigpicture', '-nogui', '--', '/storage/roms/psx/fixture.chd']}\nFAIL clean-tool-AMD64: default capture remains outside save scope: {'configured': 'screenshots', 'resolved': '/storage/.config/duckstation/screenshots', 'argv': ['-fullscreen', '-bigpicture']}\nFAIL package-executable-mode: installed AppImage is not executable0755\nDuckStation captures: 0 PASS, 4 FAIL\n",
+    "watcher.err": ""
+  },
+  {
+    "evidence": "clean-directory01",
+    "watcher": ".build-runs/20261008T065229Z-ff33c8aa",
+    "build.start": "2026-10-08T06:52:29.071893+00:00\n",
+    "build.rc": "0\n",
+    "build.status": "state:       finished\nwritten:     2026-10-08 06:52:34 UTC   <- terminal result; heartbeat stops here\nwatcher_pid: 735066\njob_pid:     735065  alive=yes\nstarted:     2026-10-08 06:52:29 UTC\nprogress:    none matched\nlog:         /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261008T065229Z-ff33c8aa/build.log  (last written 5s ago)\nactivity:    /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261008T065229Z-ff33c8aa/build.log  (last written 5s ago)\nactivity_dir: /workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-08-save-repair-cases/duckstation-captures\noutcome:     rc=0\ntail:\n  PASS clean-directory-tool\n  DuckStation captures: 2 PASS, 0 FAIL\n",
+    "build.log": "PASS clean-directory-game\nPASS clean-directory-tool\nDuckStation captures: 2 PASS, 0 FAIL\n",
+    "watcher.err": ""
+  },
+  {
+    "evidence": "final02",
+    "watcher": ".build-runs/20261008T065257Z-46796a75",
+    "build.start": "2026-10-08T06:52:57.963131+00:00\n",
+    "build.rc": "0\n",
+    "build.status": "state:       finished\nwritten:     2026-10-08 06:53:03 UTC   <- terminal result; heartbeat stops here\nwatcher_pid: 737366\njob_pid:     737365  alive=yes\nstarted:     2026-10-08 06:52:57 UTC\nprogress:    none matched\nlog:         /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261008T065257Z-46796a75/build.log  (last written 1s ago)\nactivity:    /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261008T065257Z-46796a75/build.log  (last written 1s ago)\nactivity_dir: /workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-08-save-repair-cases/duckstation-captures\noutcome:     rc=0\ntail:\n  PASS package-executable-mode\n  DuckStation captures: 31 PASS, 0 FAIL\n",
+    "build.log": "PASS clean-game-InputPlumber\nPASS clean-game-H700\nPASS clean-game-AMD64\nPASS retained-game-missing\nPASS retained-game-empty\nPASS retained-game-default\nPASS retained-game-case-crlf\nPASS clean-tool-InputPlumber\nPASS clean-tool-H700\nPASS clean-tool-AMD64\nPASS retained-tool-missing\nPASS retained-tool-empty\nPASS retained-tool-default\nPASS retained-tool-case-crlf\nPASS clean-directory-game\nPASS clean-directory-tool\nPASS custom-absolute-game\nPASS custom-relative-game\nPASS custom-absolute-tool\nPASS custom-relative-tool\nPASS custom-old-screenshot-symlink\nPASS refused-duplicate\nPASS refused-duplicate-section\nPASS refused-oversize\nPASS refused-file-target\nPASS refused-symlink-target\nPASS refused-readonly-target\nPASS refused-readonly-config\nPASS refused-replace-failed\nPASS refused-nonregular-config\nPASS package-executable-mode\nDuckStation captures: 31 PASS, 0 FAIL\n",
+    "watcher.err": ""
+  },
+  {
+    "evidence": "old02",
+    "watcher": ".build-runs/20261008T065322Z-7abbb1f4",
+    "build.start": "2026-10-08T06:53:22.213691+00:00\n",
+    "build.rc": "1\n",
+    "build.status": "state:       finished\nwritten:     2026-10-08 06:53:27 UTC   <- terminal result; heartbeat stops here\nwatcher_pid: 741054\njob_pid:     741053  alive=yes\nstarted:     2026-10-08 06:53:22 UTC\nprogress:    none matched\nlog:         /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261008T065322Z-7abbb1f4/build.log  (last written 5s ago)\nactivity:    /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261008T065322Z-7abbb1f4/build.log  (last written 5s ago)\nactivity_dir: /workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-08-save-repair-cases/duckstation-captures\noutcome:     rc=1\ntail:\n  FAIL package-executable-mode: installed AppImage is not executable0755\n  DuckStation captures: 0 PASS, 4 FAIL\n",
+    "build.log": "FAIL clean-game-InputPlumber: default capture remains outside save scope: {'configured': 'screenshots', 'resolved': '/storage/.config/duckstation/screenshots', 'argv': ['-fullscreen', '-bigpicture', '-nogui', '--', '/storage/roms/psx/fixture.chd']}\nFAIL retained-game-default: default capture remains outside save scope: {'configured': 'screenshots', 'resolved': '/storage/.config/duckstation/screenshots', 'argv': ['-fullscreen', '-bigpicture', '-nogui', '--', '/storage/roms/psx/fixture.chd']}\nFAIL clean-tool-AMD64: default capture remains outside save scope: {'configured': 'screenshots', 'resolved': '/storage/.config/duckstation/screenshots', 'argv': ['-fullscreen', '-bigpicture']}\nFAIL package-executable-mode: installed AppImage is not executable0755\nDuckStation captures: 0 PASS, 4 FAIL\n",
+    "watcher.err": ""
+  },
+  {
+    "evidence": "dependency-recipe01",
+    "watcher": ".build-runs/20261008T070758Z-54d116dd",
+    "build.start": "2026-10-08T07:07:58.418865+00:00\n",
+    "build.rc": "0\n",
+    "build.status": "state:       finished\nwritten:     2026-10-08 07:08:03 UTC   <- terminal result; heartbeat stops here\nwatcher_pid: 812932\njob_pid:     812931  alive=yes\nstarted:     2026-10-08 07:07:58 UTC\nprogress:    none matched\nlog:         /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261008T070758Z-54d116dd/build.log  (last written 5s ago)\nactivity:    /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261008T070758Z-54d116dd/build.log  (last written 5s ago)\nactivity_dir: /workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-08-save-repair-cases/duckstation-captures\noutcome:     rc=0\ntail:\n  PASS package-executable-mode\n  DuckStation captures: 1 PASS, 0 FAIL\n",
+    "build.log": "PASS package-executable-mode\nDuckStation captures: 1 PASS, 0 FAIL\n",
+    "watcher.err": ""
+  }
+]

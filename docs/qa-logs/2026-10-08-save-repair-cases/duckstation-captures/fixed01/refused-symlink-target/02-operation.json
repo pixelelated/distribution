@@ -1,0 +1,183 @@
+{
+  "argv": [
+    "bwrap",
+    "--die-with-parent",
+    "--unshare-all",
+    "--new-session",
+    "--tmpfs",
+    "/",
+    "--dir",
+    "/usr/bin",
+    "--symlink",
+    "usr/bin",
+    "/bin",
+    "--symlink",
+    "usr/lib",
+    "/lib",
+    "--ro-bind",
+    "/usr/lib",
+    "/usr/lib",
+    "--ro-bind",
+    "/usr/lib64",
+    "/usr/lib64",
+    "--ro-bind",
+    "/usr/share",
+    "/usr/share",
+    "--symlink",
+    "usr/lib64",
+    "/lib64",
+    "--ro-bind",
+    "/usr/bin/bash",
+    "/usr/bin/bash",
+    "--ro-bind",
+    "/usr/lib/cargo/bin/coreutils/env",
+    "/usr/bin/env",
+    "--ro-bind",
+    "/usr/lib/cargo/bin/coreutils/mkdir",
+    "/usr/bin/mkdir",
+    "--ro-bind",
+    "/usr/bin/gnucp",
+    "/usr/bin/cp",
+    "--ro-bind",
+    "/usr/bin/gnurm",
+    "/usr/bin/rm",
+    "--ro-bind",
+    "/usr/lib/cargo/bin/coreutils/ln",
+    "/usr/bin/ln",
+    "--ro-bind",
+    "/usr/bin/sed",
+    "/usr/bin/sed",
+    "--ro-bind",
+    "/usr/lib/cargo/bin/coreutils/cat",
+    "/usr/bin/cat",
+    "--ro-bind",
+    "/usr/lib/cargo/bin/coreutils/install",
+    "/usr/bin/install",
+    "--ro-bind",
+    "/usr/bin/python3.14",
+    "/usr/bin/python3",
+    "--ro-bind",
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-08-save-repair-cases/duckstation-captures/fixed01/refused-symlink-target/source/probe",
+    "/usr/bin/duckstation-sa",
+    "--ro-bind",
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-08-save-repair-cases/duckstation-captures/fixed01/refused-symlink-target/source/entry",
+    "/entry",
+    "--ro-bind",
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-08-save-repair-cases/duckstation-captures/fixed01/refused-symlink-target/source/profile",
+    "/etc/profile",
+    "--ro-bind",
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-08-save-repair-cases/duckstation-captures/fixed01/refused-symlink-target/source/seed",
+    "/usr/config/duckstation/settings.ini",
+    "--ro-bind",
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-08-save-repair-cases/duckstation-captures/fixed01/refused-symlink-target/source/gamecontrollerdb.txt",
+    "/usr/config/SDL-GameControllerDB/gamecontrollerdb.txt",
+    "--ro-bind",
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-08-save-repair-cases/duckstation-captures/fixed01/refused-symlink-target/source/rules",
+    "/rules",
+    "--ro-bind",
+    "/tmp/pixelelated-rc-rclone/rclone",
+    "/rclone.real",
+    "--ro-bind",
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-08-save-repair-cases/duckstation-captures/fixed01/refused-symlink-target/source/helper",
+    "/usr/bin/duckstation_screenshot_path",
+    "--bind",
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-08-save-repair-cases/duckstation-captures/fixed01/refused-symlink-target/storage",
+    "/storage",
+    "--bind",
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-08-save-repair-cases/duckstation-captures/fixed01/refused-symlink-target/ctl",
+    "/ctl",
+    "--bind",
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-08-save-repair-cases/duckstation-captures/fixed01/refused-symlink-target/cloud",
+    "/cloud",
+    "--dev",
+    "/dev",
+    "--proc",
+    "/proc",
+    "--tmpfs",
+    "/tmp",
+    "--chdir",
+    "/storage",
+    "--setenv",
+    "HOME",
+    "/storage",
+    "--setenv",
+    "PATH",
+    "/usr/bin:/bin",
+    "--setenv",
+    "CAPTURE_PROBE",
+    "no",
+    "/bin/bash",
+    "/entry",
+    "/storage/roms/psx/fixture.chd",
+    "psx"
+  ],
+  "rc": 0,
+  "stdout": "'/storage/.local/share/duckstation' -> '/storage/.config/duckstation'\n'/storage/.config/duckstation/savestates' -> '/storage/roms/savestates/psx'\n'/storage/.config/duckstation/memcards' -> '/storage/roms/psx/duckstation/memcards'\n",
+  "stderr": "Couldn't prepare the screenshot folder. Screenshot preparation moved no existing captures.\n",
+  "before": {
+    ".config/duckstation/gamecontrollerdb.txt": {
+      "link": "/usr/config/SDL-GameControllerDB/gamecontrollerdb.txt"
+    },
+    ".config/duckstation/memcards": {
+      "link": "/storage/roms/psx/duckstation/memcards"
+    },
+    ".config/duckstation/savestates": {
+      "link": "/storage/roms/savestates/psx"
+    },
+    ".config/duckstation/screenshots/historical.png": {
+      "bytes": 17,
+      "sha256": "fd1da3f20dc9906d37d803a0e0ffe1f3f21782674b84cc08faa3c6a2197ceb5b"
+    },
+    ".config/duckstation/settings.ini": {
+      "bytes": 36,
+      "sha256": "13800e6a893cfd179091e0d94926420c905620887f23c61c48921b92f0ecce78"
+    },
+    ".local/share/duckstation": {
+      "link": "/storage/.config/duckstation"
+    },
+    "roms/psx/duckstation/memcards/existing.bin": {
+      "bytes": 20,
+      "sha256": "2cf6f9502af930012f0da2474a1079432cf96a5fe18b264999c4295f9a7efe37"
+    },
+    "roms/savestates/psx/existing.bin": {
+      "bytes": 20,
+      "sha256": "2cf6f9502af930012f0da2474a1079432cf96a5fe18b264999c4295f9a7efe37"
+    },
+    "roms/screenshots": {
+      "link": "/storage/custom-captures"
+    }
+  },
+  "after": {
+    ".config/duckstation/gamecontrollerdb.txt": {
+      "link": "/usr/config/SDL-GameControllerDB/gamecontrollerdb.txt"
+    },
+    ".config/duckstation/memcards": {
+      "link": "/storage/roms/psx/duckstation/memcards"
+    },
+    ".config/duckstation/savestates": {
+      "link": "/storage/roms/savestates/psx"
+    },
+    ".config/duckstation/screenshots/historical.png": {
+      "bytes": 17,
+      "sha256": "fd1da3f20dc9906d37d803a0e0ffe1f3f21782674b84cc08faa3c6a2197ceb5b"
+    },
+    ".config/duckstation/settings.ini": {
+      "bytes": 36,
+      "sha256": "13800e6a893cfd179091e0d94926420c905620887f23c61c48921b92f0ecce78"
+    },
+    ".local/share/duckstation": {
+      "link": "/storage/.config/duckstation"
+    },
+    "roms/psx/duckstation/memcards/existing.bin": {
+      "bytes": 20,
+      "sha256": "2cf6f9502af930012f0da2474a1079432cf96a5fe18b264999c4295f9a7efe37"
+    },
+    "roms/savestates/psx/existing.bin": {
+      "bytes": 20,
+      "sha256": "2cf6f9502af930012f0da2474a1079432cf96a5fe18b264999c4295f9a7efe37"
+    },
+    "roms/screenshots": {
+      "link": "/storage/custom-captures"
+    }
+  }
+}

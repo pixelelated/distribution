@@ -1,0 +1,9 @@
+listremotes
+lsf qa:/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+listremotes
+lsf qa:/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+listremotes
+mkdir --s3-directory-markers qa:/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf --files-only qa:// --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+copyto --ignore-existing /tmp/tmp.RdhkNQYYHH qa://README.txt --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1
+lsf qa:/ --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1

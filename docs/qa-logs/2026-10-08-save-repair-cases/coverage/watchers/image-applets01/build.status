@@ -1,0 +1,13 @@
+state:       finished
+written:     2026-10-08 06:37:17 UTC   <- terminal result; heartbeat stops here
+watcher_pid: 659254
+job_pid:     659253  alive=yes
+started:     2026-10-08 06:37:11 UTC
+progress:    none matched
+log:         /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261008T063711Z-a8107c80/build.log  (last written 5s ago)
+activity:    /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261008T063711Z-a8107c80/build.log  (last written 5s ago)
+activity_dir: /workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-08-save-repair-cases/coverage
+outcome:     rc=1
+tail:
+      raise AssertionError(message)
+  AssertionError: requested image applet was never invoked by the controls

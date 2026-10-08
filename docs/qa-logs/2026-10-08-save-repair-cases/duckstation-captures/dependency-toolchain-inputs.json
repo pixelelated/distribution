@@ -1,0 +1,41 @@
+{
+  "files": [
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-duckstation-deps01/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc",
+      "resolved": "/workspace/repos/rocknix.worktrees/m7-duckstation-deps01/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc",
+      "sha256": "bb9cdcbaaf3f3b08bbfcad9d0b9c46cc5d7da800c74ff4efa1b170dd14b70c9b",
+      "wrapper": "#!/bin/sh\n/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/ccache /workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc-15.2.0 \"$@\"\n"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-duckstation-deps01/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc-15.2.0",
+      "resolved": "/workspace/repos/rocknix.worktrees/m7-duckstation-deps01/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc-15.2.0",
+      "sha256": "2afee500ca1f46ee18ef5c1997a6235e0fe1f8a58f580381c451ab221f659755"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-duckstation-deps01/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-ld",
+      "resolved": "/workspace/repos/rocknix.worktrees/m7-duckstation-deps01/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-ld",
+      "sha256": "b60da0d2bb1db61a2238f486d2302f0d61e69eb025a870f7f8e4072d6416ab10"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-duckstation-deps01/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/libc.so",
+      "resolved": "/workspace/repos/rocknix.worktrees/m7-duckstation-deps01/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/libc.so",
+      "sha256": "362665345c2d0149815700776a1e3e1a7fff45ab16f32352dbe224c55d12c964"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-duckstation-deps01/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/libc.so.6",
+      "resolved": "/workspace/repos/rocknix.worktrees/m7-duckstation-deps01/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/libc.so.6",
+      "sha256": "706476bbd3f1ba328f6d29ce3d0731a440fbaf1948ae5cd0fb8e0e5c1f9a2f6f"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/ccache",
+      "role": "actual executable called by inherited wrapper",
+      "sha256": "10b5a47839b8efe981eb854e4d78eb711a94bc5b809811c2ee8d3e16bf82d731"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc-15.2.0",
+      "role": "actual executable called by inherited wrapper",
+      "sha256": "2afee500ca1f46ee18ef5c1997a6235e0fe1f8a58f580381c451ab221f659755"
+    }
+  ],
+  "isolation": "dependency-build.sh binds host root read-only and only newowner writable; absolute inherited compiler-wrapper references are readable but cannot alter accepted roots."
+}

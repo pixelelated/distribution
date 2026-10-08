@@ -1,0 +1,26 @@
+{
+  "storage": {
+    ".config/duckstation/memcards": {
+      "link": "/storage/roms/psx/duckstation/memcards"
+    },
+    ".config/duckstation/savestates": {
+      "link": "/storage/roms/savestates/psx"
+    },
+    "roms/psx/duckstation/memcards/existing.bin": {
+      "bytes": 20,
+      "sha256": "2cf6f9502af930012f0da2474a1079432cf96a5fe18b264999c4295f9a7efe37"
+    },
+    "roms/savestates/psx/existing.bin": {
+      "bytes": 20,
+      "sha256": "2cf6f9502af930012f0da2474a1079432cf96a5fe18b264999c4295f9a7efe37"
+    }
+  },
+  "cloud": {},
+  "source_sha256": {
+    "projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/scripts/start_duckstation.sh": "30de5157aa32a984c950761782657c05293278537e6fe9b29c50f543d3237c1e",
+    "projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/config/InputPlumber/settings.ini": "4fcff97ddf1263ccde242b0f0cb0c7d00f3efc29f6ccb4a443d887ececbfbbba",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_sync-rules.txt": "2528550d5b45f8ab8264b55f21afa8098a88d1a99572bcfd87a4b9e3d3506208",
+    "projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/package.mk": "f83eb9431515bfe93109a9297fc6e71a0dbbf75b815d49cf1b5cb52c16fd2dcc",
+    "projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/sources/Start Duckstation.sh": "b24efc9bd9de0e4e020d63f883bd977f0f969eb33f8fefa1adc74202a9d6b0fb"
+  }
+}

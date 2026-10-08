@@ -1,0 +1,24 @@
+key ret
+settle
+key x
+settle
+key up x3
+key x
+settle
+key down
+key x
+wait-for-change
+wait 5
+settle
+shot restore-options
+key x
+key down
+key x
+shot selected-roms-only
+key up x2
+key right
+key x
+wait-for-change
+wait 5
+settle
+shot selected-content-empty

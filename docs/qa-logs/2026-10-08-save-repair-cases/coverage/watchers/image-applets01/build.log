@@ -1,0 +1,19 @@
+FAIL content-list-count-scan image BusyBox did not execute
+FAIL content-upload image BusyBox did not execute
+FAIL content-upload-with-media image BusyBox did not execute
+FAIL content-restore image BusyBox did not execute
+FAIL content-restore-with-media image BusyBox did not execute
+FAIL content-match image BusyBox did not execute
+FAIL media-only-progress-boundary image BusyBox did not execute
+FAIL n64-system-root-scope image BusyBox did not execute
+FAIL content-match-removed-system image BusyBox did not execute
+Traceback (most recent call last):
+  File "/workspace/repos/rocknix.worktrees/conflict-resolution/tools/pixelelated-save-layout-test", line 409, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/workspace/repos/rocknix.worktrees/conflict-resolution/tools/pixelelated-save-layout-test", line 398, in main
+    require(all(counts.values()), 'requested image applet was never invoked by the controls')
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/repos/rocknix.worktrees/conflict-resolution/tools/rasteratops-cloud-layout-test", line 158, in require
+    raise AssertionError(message)
+AssertionError: requested image applet was never invoked by the controls

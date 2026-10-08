@@ -1,0 +1,171 @@
+{
+  "argv": [
+    "bwrap",
+    "--die-with-parent",
+    "--unshare-all",
+    "--new-session",
+    "--tmpfs",
+    "/",
+    "--dir",
+    "/usr/bin",
+    "--symlink",
+    "usr/bin",
+    "/bin",
+    "--symlink",
+    "usr/lib",
+    "/lib",
+    "--ro-bind",
+    "/usr/lib",
+    "/usr/lib",
+    "--ro-bind",
+    "/usr/lib64",
+    "/usr/lib64",
+    "--ro-bind",
+    "/usr/share",
+    "/usr/share",
+    "--symlink",
+    "usr/lib64",
+    "/lib64",
+    "--ro-bind",
+    "/usr/bin/bash",
+    "/usr/bin/bash",
+    "--ro-bind",
+    "/usr/lib/cargo/bin/coreutils/env",
+    "/usr/bin/env",
+    "--ro-bind",
+    "/usr/lib/cargo/bin/coreutils/mkdir",
+    "/usr/bin/mkdir",
+    "--ro-bind",
+    "/usr/bin/gnucp",
+    "/usr/bin/cp",
+    "--ro-bind",
+    "/usr/bin/gnurm",
+    "/usr/bin/rm",
+    "--ro-bind",
+    "/usr/lib/cargo/bin/coreutils/ln",
+    "/usr/bin/ln",
+    "--ro-bind",
+    "/usr/bin/sed",
+    "/usr/bin/sed",
+    "--ro-bind",
+    "/usr/lib/cargo/bin/coreutils/cat",
+    "/usr/bin/cat",
+    "--ro-bind",
+    "/usr/lib/cargo/bin/coreutils/install",
+    "/usr/bin/install",
+    "--ro-bind",
+    "/usr/bin/python3.14",
+    "/usr/bin/python3",
+    "--ro-bind",
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-08-save-repair-cases/duckstation-captures/fixed01/clean-game-H700/source/probe",
+    "/usr/bin/duckstation-sa",
+    "--ro-bind",
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-08-save-repair-cases/duckstation-captures/fixed01/clean-game-H700/source/entry",
+    "/entry",
+    "--ro-bind",
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-08-save-repair-cases/duckstation-captures/fixed01/clean-game-H700/source/profile",
+    "/etc/profile",
+    "--ro-bind",
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-08-save-repair-cases/duckstation-captures/fixed01/clean-game-H700/source/seed",
+    "/usr/config/duckstation/settings.ini",
+    "--ro-bind",
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-08-save-repair-cases/duckstation-captures/fixed01/clean-game-H700/source/gamecontrollerdb.txt",
+    "/usr/config/SDL-GameControllerDB/gamecontrollerdb.txt",
+    "--ro-bind",
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-08-save-repair-cases/duckstation-captures/fixed01/clean-game-H700/source/rules",
+    "/rules",
+    "--ro-bind",
+    "/tmp/pixelelated-rc-rclone/rclone",
+    "/rclone.real",
+    "--ro-bind",
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-08-save-repair-cases/duckstation-captures/fixed01/clean-game-H700/source/helper",
+    "/usr/bin/duckstation_screenshot_path",
+    "--bind",
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-08-save-repair-cases/duckstation-captures/fixed01/clean-game-H700/storage",
+    "/storage",
+    "--bind",
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-08-save-repair-cases/duckstation-captures/fixed01/clean-game-H700/ctl",
+    "/ctl",
+    "--bind",
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-08-save-repair-cases/duckstation-captures/fixed01/clean-game-H700/cloud",
+    "/cloud",
+    "--dev",
+    "/dev",
+    "--proc",
+    "/proc",
+    "--tmpfs",
+    "/tmp",
+    "--chdir",
+    "/storage",
+    "--setenv",
+    "HOME",
+    "/storage",
+    "--setenv",
+    "PATH",
+    "/usr/bin:/bin",
+    "--setenv",
+    "CAPTURE_PROBE",
+    "yes",
+    "/bin/bash",
+    "/entry",
+    "/storage/roms/psx/fixture.chd",
+    "psx"
+  ],
+  "rc": 0,
+  "stdout": "'/storage/.local/share/duckstation' -> '/storage/.config/duckstation'\n'/storage/.config/duckstation/savestates' -> '/storage/roms/savestates/psx'\n'/storage/.config/duckstation/memcards' -> '/storage/roms/psx/duckstation/memcards'\n",
+  "stderr": "",
+  "before": {
+    ".config/duckstation/memcards": {
+      "link": "/storage/roms/psx/duckstation/memcards"
+    },
+    ".config/duckstation/savestates": {
+      "link": "/storage/roms/savestates/psx"
+    },
+    ".config/duckstation/screenshots/historical.png": {
+      "bytes": 25,
+      "sha256": "94b7a83783527975b67c0b82fc75cd8805641ab8e6dc3a1aac163b6fada8a3b3"
+    },
+    "roms/psx/duckstation/memcards/existing.bin": {
+      "bytes": 20,
+      "sha256": "2cf6f9502af930012f0da2474a1079432cf96a5fe18b264999c4295f9a7efe37"
+    },
+    "roms/savestates/psx/existing.bin": {
+      "bytes": 20,
+      "sha256": "2cf6f9502af930012f0da2474a1079432cf96a5fe18b264999c4295f9a7efe37"
+    }
+  },
+  "after": {
+    ".config/duckstation/gamecontrollerdb.txt": {
+      "link": "/usr/config/SDL-GameControllerDB/gamecontrollerdb.txt"
+    },
+    ".config/duckstation/memcards": {
+      "link": "/storage/roms/psx/duckstation/memcards"
+    },
+    ".config/duckstation/savestates": {
+      "link": "/storage/roms/savestates/psx"
+    },
+    ".config/duckstation/screenshots/historical.png": {
+      "bytes": 25,
+      "sha256": "94b7a83783527975b67c0b82fc75cd8805641ab8e6dc3a1aac163b6fada8a3b3"
+    },
+    ".config/duckstation/settings.ini": {
+      "bytes": 3773,
+      "sha256": "13db3c33bb738001da15866e5bdf3c6977e35e95cefaed11f51122550ba9da26"
+    },
+    ".local/share/duckstation": {
+      "link": "/storage/.config/duckstation"
+    },
+    "roms/psx/duckstation/memcards/existing.bin": {
+      "bytes": 20,
+      "sha256": "2cf6f9502af930012f0da2474a1079432cf96a5fe18b264999c4295f9a7efe37"
+    },
+    "roms/savestates/psx/existing.bin": {
+      "bytes": 20,
+      "sha256": "2cf6f9502af930012f0da2474a1079432cf96a5fe18b264999c4295f9a7efe37"
+    },
+    "roms/screenshots/synthetic-capture.png": {
+      "bytes": 44,
+      "sha256": "2155f40baf67eab067b307d562f3f8c1c39a0c725312bddcbab9ed36c04a82d1"
+    }
+  }
+}

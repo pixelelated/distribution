@@ -1,0 +1,313 @@
+{
+  "scope": "read-only source review with isolated synthetic execution; source/guest untouched",
+  "results": [
+    {
+      "case": "relative-GAMES-empty",
+      "observed": "missing",
+      "actual_directory_exists": true,
+      "populated": false,
+      "command_rc": 0,
+      "output": "STATE=missing\nSAVES=GAMES\nBACKUPS=/Mine/Backups\nCONTENT=/Mine/Content\nSAVES_EXISTS=0\n",
+      "unchanged": true,
+      "config": {
+        "SAVESPATH": "/storage/roms",
+        "SAVES_REMOTE": "GAMES",
+        "SETTINGS_BACKUPS": "/storage/roms/backup",
+        "SETTINGS_REMOTE": "/Mine/Backups",
+        "BACKUPMETHOD": "copy",
+        "RESTOREMETHOD": "copy",
+        "BACKUPFILE_BACKUP_OPTION": "no",
+        "BACKUPFILE_RESTORE_OPTION": "no",
+        "LOG_LEVEL": "INFO",
+        "LAYOUT_KEEP": "",
+        "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+        "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+        "CONTENT_REMOTE": "/Mine/Content"
+      },
+      "cloud_sha256": {},
+      "source_sha256": "67c6f9be8b2c30ad903139ee34be3ccfb64dcf7b462e1abbf0c0ec648d3860b6"
+    },
+    {
+      "case": "relative-GAMES-populated",
+      "observed": "ready",
+      "actual_directory_exists": true,
+      "populated": true,
+      "command_rc": 0,
+      "output": "STATE=ready\nSAVES=GAMES\nBACKUPS=/Mine/Backups\nCONTENT=/Mine/Content\nSAVES_EXISTS=1\n",
+      "unchanged": true,
+      "config": {
+        "SAVESPATH": "/storage/roms",
+        "SAVES_REMOTE": "GAMES",
+        "SETTINGS_BACKUPS": "/storage/roms/backup",
+        "SETTINGS_REMOTE": "/Mine/Backups",
+        "BACKUPMETHOD": "copy",
+        "RESTOREMETHOD": "copy",
+        "BACKUPFILE_BACKUP_OPTION": "no",
+        "BACKUPFILE_RESTORE_OPTION": "no",
+        "LOG_LEVEL": "INFO",
+        "LAYOUT_KEEP": "",
+        "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+        "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+        "CONTENT_REMOTE": "/Mine/Content"
+      },
+      "cloud_sha256": {
+        "GAMES/QA.srm": "75e5a01a78ec6d2e137bf611c43e8137cca8aafd2af2c1faed4b0128d09cc89f"
+      },
+      "source_sha256": "67c6f9be8b2c30ad903139ee34be3ccfb64dcf7b462e1abbf0c0ec648d3860b6"
+    },
+    {
+      "case": "relative-Saves-empty",
+      "observed": "missing",
+      "actual_directory_exists": true,
+      "populated": false,
+      "command_rc": 0,
+      "output": "STATE=missing\nSAVES=Saves\nBACKUPS=/Mine/Backups\nCONTENT=/Mine/Content\nSAVES_EXISTS=0\n",
+      "unchanged": true,
+      "config": {
+        "SAVESPATH": "/storage/roms",
+        "SAVES_REMOTE": "Saves",
+        "SETTINGS_BACKUPS": "/storage/roms/backup",
+        "SETTINGS_REMOTE": "/Mine/Backups",
+        "BACKUPMETHOD": "copy",
+        "RESTOREMETHOD": "copy",
+        "BACKUPFILE_BACKUP_OPTION": "no",
+        "BACKUPFILE_RESTORE_OPTION": "no",
+        "LOG_LEVEL": "INFO",
+        "LAYOUT_KEEP": "",
+        "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+        "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+        "CONTENT_REMOTE": "/Mine/Content"
+      },
+      "cloud_sha256": {},
+      "source_sha256": "67c6f9be8b2c30ad903139ee34be3ccfb64dcf7b462e1abbf0c0ec648d3860b6"
+    },
+    {
+      "case": "relative-Saves-populated",
+      "observed": "ready",
+      "actual_directory_exists": true,
+      "populated": true,
+      "command_rc": 0,
+      "output": "STATE=ready\nSAVES=Saves\nBACKUPS=/Mine/Backups\nCONTENT=/Mine/Content\nSAVES_EXISTS=1\n",
+      "unchanged": true,
+      "config": {
+        "SAVESPATH": "/storage/roms",
+        "SAVES_REMOTE": "Saves",
+        "SETTINGS_BACKUPS": "/storage/roms/backup",
+        "SETTINGS_REMOTE": "/Mine/Backups",
+        "BACKUPMETHOD": "copy",
+        "RESTOREMETHOD": "copy",
+        "BACKUPFILE_BACKUP_OPTION": "no",
+        "BACKUPFILE_RESTORE_OPTION": "no",
+        "LOG_LEVEL": "INFO",
+        "LAYOUT_KEEP": "",
+        "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+        "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+        "CONTENT_REMOTE": "/Mine/Content"
+      },
+      "cloud_sha256": {
+        "Saves/QA.srm": "75e5a01a78ec6d2e137bf611c43e8137cca8aafd2af2c1faed4b0128d09cc89f"
+      },
+      "source_sha256": "67c6f9be8b2c30ad903139ee34be3ccfb64dcf7b462e1abbf0c0ec648d3860b6"
+    },
+    {
+      "case": "relative-_GAMES-empty",
+      "observed": "ready",
+      "actual_directory_exists": true,
+      "populated": false,
+      "command_rc": 0,
+      "output": "STATE=ready\nSAVES=/GAMES\nBACKUPS=/Mine/Backups\nCONTENT=/Mine/Content\nSAVES_EXISTS=1\n",
+      "unchanged": true,
+      "config": {
+        "SAVESPATH": "/storage/roms",
+        "SAVES_REMOTE": "/GAMES",
+        "SETTINGS_BACKUPS": "/storage/roms/backup",
+        "SETTINGS_REMOTE": "/Mine/Backups",
+        "BACKUPMETHOD": "copy",
+        "RESTOREMETHOD": "copy",
+        "BACKUPFILE_BACKUP_OPTION": "no",
+        "BACKUPFILE_RESTORE_OPTION": "no",
+        "LOG_LEVEL": "INFO",
+        "LAYOUT_KEEP": "",
+        "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+        "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+        "CONTENT_REMOTE": "/Mine/Content"
+      },
+      "cloud_sha256": {},
+      "source_sha256": "67c6f9be8b2c30ad903139ee34be3ccfb64dcf7b462e1abbf0c0ec648d3860b6"
+    },
+    {
+      "case": "relative-_GAMES-populated",
+      "observed": "ready",
+      "actual_directory_exists": true,
+      "populated": true,
+      "command_rc": 0,
+      "output": "STATE=ready\nSAVES=/GAMES\nBACKUPS=/Mine/Backups\nCONTENT=/Mine/Content\nSAVES_EXISTS=1\n",
+      "unchanged": true,
+      "config": {
+        "SAVESPATH": "/storage/roms",
+        "SAVES_REMOTE": "/GAMES",
+        "SETTINGS_BACKUPS": "/storage/roms/backup",
+        "SETTINGS_REMOTE": "/Mine/Backups",
+        "BACKUPMETHOD": "copy",
+        "RESTOREMETHOD": "copy",
+        "BACKUPFILE_BACKUP_OPTION": "no",
+        "BACKUPFILE_RESTORE_OPTION": "no",
+        "LOG_LEVEL": "INFO",
+        "LAYOUT_KEEP": "",
+        "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+        "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+        "CONTENT_REMOTE": "/Mine/Content"
+      },
+      "cloud_sha256": {
+        "GAMES/QA.srm": "75e5a01a78ec6d2e137bf611c43e8137cca8aafd2af2c1faed4b0128d09cc89f"
+      },
+      "source_sha256": "67c6f9be8b2c30ad903139ee34be3ccfb64dcf7b462e1abbf0c0ec648d3860b6"
+    },
+    {
+      "case": "relative-Mine_Saves-empty",
+      "observed": "ready",
+      "actual_directory_exists": true,
+      "populated": false,
+      "command_rc": 0,
+      "output": "STATE=ready\nSAVES=Mine/Saves\nBACKUPS=/Mine/Backups\nCONTENT=/Mine/Content\nSAVES_EXISTS=1\n",
+      "unchanged": true,
+      "config": {
+        "SAVESPATH": "/storage/roms",
+        "SAVES_REMOTE": "Mine/Saves",
+        "SETTINGS_BACKUPS": "/storage/roms/backup",
+        "SETTINGS_REMOTE": "/Mine/Backups",
+        "BACKUPMETHOD": "copy",
+        "RESTOREMETHOD": "copy",
+        "BACKUPFILE_BACKUP_OPTION": "no",
+        "BACKUPFILE_RESTORE_OPTION": "no",
+        "LOG_LEVEL": "INFO",
+        "LAYOUT_KEEP": "",
+        "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+        "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+        "CONTENT_REMOTE": "/Mine/Content"
+      },
+      "cloud_sha256": {},
+      "source_sha256": "67c6f9be8b2c30ad903139ee34be3ccfb64dcf7b462e1abbf0c0ec648d3860b6"
+    },
+    {
+      "case": "relative-Mine_Saves-populated",
+      "observed": "ready",
+      "actual_directory_exists": true,
+      "populated": true,
+      "command_rc": 0,
+      "output": "STATE=ready\nSAVES=Mine/Saves\nBACKUPS=/Mine/Backups\nCONTENT=/Mine/Content\nSAVES_EXISTS=1\n",
+      "unchanged": true,
+      "config": {
+        "SAVESPATH": "/storage/roms",
+        "SAVES_REMOTE": "Mine/Saves",
+        "SETTINGS_BACKUPS": "/storage/roms/backup",
+        "SETTINGS_REMOTE": "/Mine/Backups",
+        "BACKUPMETHOD": "copy",
+        "RESTOREMETHOD": "copy",
+        "BACKUPFILE_BACKUP_OPTION": "no",
+        "BACKUPFILE_RESTORE_OPTION": "no",
+        "LOG_LEVEL": "INFO",
+        "LAYOUT_KEEP": "",
+        "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+        "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+        "CONTENT_REMOTE": "/Mine/Content"
+      },
+      "cloud_sha256": {
+        "Mine/Saves/QA.srm": "75e5a01a78ec6d2e137bf611c43e8137cca8aafd2af2c1faed4b0128d09cc89f"
+      },
+      "source_sha256": "67c6f9be8b2c30ad903139ee34be3ccfb64dcf7b462e1abbf0c0ec648d3860b6"
+    },
+    {
+      "case": "relative-stored-backup",
+      "observed": "stored GAMES accepted by ordinary backup and exact bytes delivered",
+      "command_rc": 0,
+      "output": "=>  CLOUD BACKUP\n\n====================================\nBACKING UP YOUR GAME SAVES\n>>> unit SAVES||\n====================================\nTransferred:   \t         26 B / 26 B, 100%, 0 B/s, ETA -\nChecks:                 0 / 0, -, Listed 3\nTransferred:            1 / 1, 100%\nElapsed time:         0.0s\nBacking up your saves: completed.\nSkipped settings this time - saves only.\n\n====================================\nBACKUP SUMMARY:\nGame saves: COMPLETED\nCompleted.\n====================================\n",
+      "config": {
+        "SAVESPATH": "/storage/roms",
+        "SAVES_REMOTE": "GAMES",
+        "SETTINGS_BACKUPS": "/storage/roms/backup",
+        "SETTINGS_REMOTE": "/Mine/Backups",
+        "BACKUPMETHOD": "copy",
+        "RESTOREMETHOD": "copy",
+        "BACKUPFILE_BACKUP_OPTION": "no",
+        "BACKUPFILE_RESTORE_OPTION": "no",
+        "LOG_LEVEL": "INFO",
+        "LAYOUT_KEEP": "",
+        "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+        "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+        "CONTENT_REMOTE": "/Mine/Content"
+      },
+      "cloud_sha256": {
+        "GAMES/gb/QA.srm": "2932122573c4ec263bd3e277068d701ffb969e77fb36c3211e5e91fb7424bd4e"
+      },
+      "source_sha256": "67c6f9be8b2c30ad903139ee34be3ccfb64dcf7b462e1abbf0c0ec648d3860b6"
+    },
+    {
+      "case": "direct-partial-output",
+      "observed": "seed returns0 and OK despite final listing exit5",
+      "command_rc": 0,
+      "output": "OK /Mine/Saves\nOK /Mine/Backups\nOK /Mine/Content/ROMs\nOK /Mine/Content/BIOS\n",
+      "provider_failure_is_synthetic": true,
+      "config": {
+        "SAVESPATH": "/storage/roms",
+        "SAVES_REMOTE": "/Mine/Saves",
+        "SETTINGS_BACKUPS": "/storage/roms/backup",
+        "SETTINGS_REMOTE": "/Mine/Backups",
+        "BACKUPMETHOD": "copy",
+        "RESTOREMETHOD": "copy",
+        "BACKUPFILE_BACKUP_OPTION": "no",
+        "BACKUPFILE_RESTORE_OPTION": "no",
+        "LOG_LEVEL": "INFO",
+        "LAYOUT_KEEP": "",
+        "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+        "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+        "CONTENT_REMOTE": "/Mine/Content"
+      },
+      "cloud_sha256": {
+        "Mine/Backups/README.txt": "a2e91a3dddf28269cbf704b1b7e2540608e9851a88f09679701e0c6629fd7f5c",
+        "Mine/Content/BIOS/README.txt": "12345b222d272bcccee06cac35e9b0d4ac10a76617a32b72cefa8542a90d1f67",
+        "Mine/Content/README.txt": "cb0db1a29003ebedb5a5f92d17c49e7eadebedcc10e883e9d9af052fd4a57456",
+        "Mine/Content/ROMs/README.txt": "cdbf34d6dc27ad558261bd99b99bbc91850ba28a1150ef2488b18dbe87637bcd",
+        "Mine/Saves/README.txt": "81283a71c8db19f49232b395e3527170b14ae38add60d5180071196f24c283bf"
+      },
+      "source_sha256": "67c6f9be8b2c30ad903139ee34be3ccfb64dcf7b462e1abbf0c0ec648d3860b6",
+      "faults_fired": [
+        "direct rc5 with partial output"
+      ]
+    },
+    {
+      "case": "parent-partial-output",
+      "observed": "seed returns0 and OK despite final listing exit5",
+      "command_rc": 0,
+      "output": "OK /Mine/Saves\nOK /Mine/Backups\nOK /Mine/Content/ROMs\nOK /Mine/Content/BIOS\n",
+      "provider_failure_is_synthetic": true,
+      "config": {
+        "SAVESPATH": "/storage/roms",
+        "SAVES_REMOTE": "/Mine/Saves",
+        "SETTINGS_BACKUPS": "/storage/roms/backup",
+        "SETTINGS_REMOTE": "/Mine/Backups",
+        "BACKUPMETHOD": "copy",
+        "RESTOREMETHOD": "copy",
+        "BACKUPFILE_BACKUP_OPTION": "no",
+        "BACKUPFILE_RESTORE_OPTION": "no",
+        "LOG_LEVEL": "INFO",
+        "LAYOUT_KEEP": "",
+        "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+        "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+        "CONTENT_REMOTE": "/Mine/Content"
+      },
+      "cloud_sha256": {
+        "Mine/Backups/README.txt": "a2e91a3dddf28269cbf704b1b7e2540608e9851a88f09679701e0c6629fd7f5c",
+        "Mine/Content/BIOS/README.txt": "12345b222d272bcccee06cac35e9b0d4ac10a76617a32b72cefa8542a90d1f67",
+        "Mine/Content/README.txt": "cb0db1a29003ebedb5a5f92d17c49e7eadebedcc10e883e9d9af052fd4a57456",
+        "Mine/Content/ROMs/README.txt": "cdbf34d6dc27ad558261bd99b99bbc91850ba28a1150ef2488b18dbe87637bcd",
+        "Mine/Saves/README.txt": "81283a71c8db19f49232b395e3527170b14ae38add60d5180071196f24c283bf"
+      },
+      "source_sha256": "67c6f9be8b2c30ad903139ee34be3ccfb64dcf7b462e1abbf0c0ec648d3860b6",
+      "faults_fired": [
+        "direct rc5 with empty output",
+        "parent rc5 with partial output"
+      ]
+    }
+  ]
+}

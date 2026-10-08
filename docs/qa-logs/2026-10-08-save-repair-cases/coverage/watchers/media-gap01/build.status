@@ -1,0 +1,13 @@
+state:       finished
+written:     2026-10-08 06:25:35 UTC   <- terminal result; heartbeat stops here
+watcher_pid: 585782
+job_pid:     585780  alive=yes
+started:     2026-10-08 06:25:29 UTC
+progress:    none matched
+log:         /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261008T062529Z-749e49d8/build.log  (last written 1s ago)
+activity:    /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261008T062529Z-749e49d8/build.log  (last written 1s ago)
+activity_dir: /workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-08-save-repair-cases/coverage
+outcome:     rc=1
+tail:
+  FAIL content-restore-with-media content replaced or removed local progress
+  save-layout: 0 PASS, 2 FAIL

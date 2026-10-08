@@ -1,0 +1,13 @@
+state:       finished
+written:     2026-10-08 06:23:17 UTC   <- terminal result; heartbeat stops here
+watcher_pid: 571522
+job_pid:     571520  alive=yes
+started:     2026-10-08 06:23:02 UTC
+progress:    none matched
+log:         /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261008T062302Z-29f256ce/build.log  (last written 5s ago)
+activity:    /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261008T062302Z-29f256ce/build.log  (last written 5s ago)
+activity_dir: /workspace/repos/rocknix.worktrees/conflict-resolution/docs/qa-logs/2026-10-08-save-repair-cases/coverage
+outcome:     rc=1
+tail:
+  FAIL validator-subtree-failure validator transferred payload
+  save-layout: 12 PASS, 7 FAIL

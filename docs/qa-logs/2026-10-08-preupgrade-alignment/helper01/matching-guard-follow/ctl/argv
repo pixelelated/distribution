@@ -1,0 +1,4 @@
+version
+cat qa:/QA_SENTINEL/remote.bin
+listremotes
+cat qa:/pixelelated/.layout --contimeout 15s --timeout 30s --low-level-retries 3 --retries 1

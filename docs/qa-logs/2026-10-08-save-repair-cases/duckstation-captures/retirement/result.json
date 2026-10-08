@@ -1,0 +1,83 @@
+{
+  "utc": "2026-10-08T07:30:53.317925+00:00",
+  "removed_owner": "/workspace/repos/rocknix.worktrees/m7-duckstation-deps01",
+  "owner_exists": false,
+  "owner_registered": false,
+  "helper_exit": 0,
+  "protected_inputs": [
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement16/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc",
+      "exists": true,
+      "sha256": "bb9cdcbaaf3f3b08bbfcad9d0b9c46cc5d7da800c74ff4efa1b170dd14b70c9b",
+      "matches_before": true,
+      "mode_unchanged": true
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement16/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc-15.2.0",
+      "exists": true,
+      "sha256": "2afee500ca1f46ee18ef5c1997a6235e0fe1f8a58f580381c451ab221f659755",
+      "matches_before": true,
+      "mode_unchanged": true
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement16/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-ld",
+      "exists": true,
+      "sha256": "b60da0d2bb1db61a2238f486d2302f0d61e69eb025a870f7f8e4072d6416ab10",
+      "matches_before": true,
+      "mode_unchanged": true
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement16/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/libc.so",
+      "exists": true,
+      "sha256": "362665345c2d0149815700776a1e3e1a7fff45ab16f32352dbe224c55d12c964",
+      "matches_before": true,
+      "mode_unchanged": true
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement16/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/libc.so.6",
+      "exists": true,
+      "sha256": "706476bbd3f1ba328f6d29ce3d0731a440fbaf1948ae5cd0fb8e0e5c1f9a2f6f",
+      "matches_before": true,
+      "mode_unchanged": true
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/ccache",
+      "exists": true,
+      "sha256": "10b5a47839b8efe981eb854e4d78eb711a94bc5b809811c2ee8d3e16bf82d731",
+      "matches_before": true,
+      "mode_unchanged": true
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc-15.2.0",
+      "exists": true,
+      "sha256": "2afee500ca1f46ee18ef5c1997a6235e0fe1f8a58f580381c451ab221f659755",
+      "matches_before": true,
+      "mode_unchanged": true
+    },
+    {
+      "path": "/workspace/cache/rocknix-sources/libcom-err/libcom-err-1.47.4.tar.xz",
+      "exists": true,
+      "sha256": "fd5bf388cbdbe006a3d3b318d983b2948382440acc85a87f1e7d108653e8db0b",
+      "matches_before": true,
+      "mode_unchanged": true
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-manual-cloud-folders/projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/package.mk",
+      "exists": true,
+      "sha256": "4569f08a2445a3926fb1a7015bce4ca41e4f4bd5ac57f62a9037a047eb1a47ea",
+      "matches_before": true,
+      "mode_unchanged": true
+    }
+  ],
+  "product_commit": "052771f05d841fb91fa818198f8f4e0ad83affb8",
+  "original_host_seal_entries_verified": 469,
+  "original_external_refs_verified": 2,
+  "seal_errors": [],
+  "workspace_available_bytes_before": 1939422478336,
+  "workspace_available_bytes_after": 1950758928384,
+  "available_byte_delta": 11336450048,
+  "space_scope": "Observed filesystem delta during removal; reflink sharing and concurrent unrelated writes mean this is not an exclusive freed-byte measurement.",
+  "watcher": ".build-runs/20261008T073002Z-f5bb1bfa",
+  "integration_prepared_manifest_read": "docs/qa-logs/2026-10-08-save-repair-cases/integration/prepared-product-inputs.json: integration e6645cb5ea; matched ES4e410, publication pending as recorded.",
+  "removal_tool_sha256": "421c627ad4cb66b1bf3a4796f202f827761401a0f0f9d15dde484a5fcbbd164b"
+}

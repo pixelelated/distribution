@@ -1,0 +1,170 @@
+#!/usr/bin/env python3
+"""One disposable candidate guest + synthetic WebDAV for explicit folders (#508).
+
+This verifies a hash-bound source overlay, not assembled firmware inclusion.
+With --keep-guest, ownership is handed off in guest.json for the UI proof; the
+next owner must use vm-stop and cloud-test-backend down, then retire the disk.
+"""
+import argparse
+import gzip
+import hashlib
+import json
+import os
+from pathlib import Path
+import shlex
+import shutil
+import socket
+import subprocess
+import time
+
+ROOT=Path(__file__).resolve().parent.parent
+SOURCES=ROOT/'projects/ROCKNIX/packages/network/rclone/sources'
+
+def sha(path):
+    with path.open('rb') as fp:return hashlib.file_digest(fp,'sha256').hexdigest()
+
+def main():
+    p=argparse.ArgumentParser(description=__doc__)
+    p.add_argument('--owner',required=True,type=Path)
+    p.add_argument('--image',required=True,type=Path)
+    p.add_argument('--image-sha256',required=True)
+    p.add_argument('--ssh-port',type=int,default=10158)
+    p.add_argument('--vnc',type=int,default=58)
+    p.add_argument('--backend-port',type=int,default=9058)
+    p.add_argument('--keep-guest',action='store_true')
+    p.add_argument('--reuse-guest',action='store_true',help='reuse exactly this owned stopped-interface guest for corrected source proof')
+    p.add_argument('--evidence',type=Path,help='fresh artifact directory required when reusing a guest')
+    a=p.parse_args();o=a.owner.resolve();art=a.evidence or o/'artifacts';art.mkdir(exist_ok=True)
+    assert (a.reuse_guest and a.evidence and (o/'guest.json').exists()) or not (o/'guest.json').exists(),'owner already used; reuse needs fresh evidence'
+    assert not (art/'inputs.json').exists(),'evidence already used'
+    disk=o/'vm.qcow2';pid=o/'vm.pid';ser='/tmp/pix-508-'+str(a.ssh_port)+'-ser.sock';mon='/tmp/pix-508-'+str(a.ssh_port)+'-mon.sock'
+    backend=o/'backend';env=os.environ.copy();env.update(CLOUD_QA_STATE=str(backend),CLOUD_QA_PORT=str(a.backend_port),CLOUD_QA_BACKEND='webdav')
+    ssh=['ssh','-i',str(o/'qa-key'),'-p',str(a.ssh_port),'-o','StrictHostKeyChecking=no','-o','UserKnownHostsFile=/dev/null','-o','BatchMode=yes','-o','LogLevel=ERROR','-o','ConnectTimeout=8','root@127.0.0.1']
+    count=0;passed=[];success=False
+    def run(args,**kw):return subprocess.run([str(x) for x in args],check=True,**kw)
+    def mark(s):print(time.strftime('%FT%TZ',time.gmtime()),s,flush=True);(o/'stage').write_text(s+'\n')
+    def remote(cmd,check=True,timeout=150,input=None):
+        r=subprocess.run(ssh+[cmd],capture_output=True,text=True,timeout=timeout,input=input)
+        if check and r.returncode:raise RuntimeError(f'guest rc={r.returncode}: {r.stdout[-400:]} {r.stderr[-400:]}')
+        return r
+    def write_remote(path,data,mode='600'):
+        remote('cat > '+shlex.quote(path)+' && chmod '+mode+' '+shlex.quote(path),input=data)
+    def script(name,*args,ok=True):
+        nonlocal count
+        count+=1
+        r=remote(' '.join(map(shlex.quote,[name,*args])),check=False)
+        (art/f'{count:02d}-{name}.log').write_text(r.stdout+r.stderr)
+        (art/f'{count:02d}-{name}.json').write_text(json.dumps({'argv':[name,*args],'rc':r.returncode})+'\n')
+        assert (r.returncode==0)==ok,(name,args,r.returncode,r.stdout[-700:])
+        return r.stdout
+    def hashes():return {str(f.relative_to(backend/'data')):sha(f) for f in sorted((backend/'data').rglob('*')) if f.is_file()}
+    def fput(path,text):
+        f=backend/'data'/path.lstrip('/');f.parent.mkdir(parents=True,exist_ok=True);f.write_text(text)
+    def config(saves='/pixelelated/Saves',backups='/pixelelated/Backups',content='/pixelelated/Content'):
+        text=(SOURCES/'cloud_sync.conf').read_text()
+        import re
+        for key,value in [('SAVES_REMOTE',saves),('SETTINGS_REMOTE',backups),('CONTENT_REMOTE',content)]:
+            text=re.sub('^'+key+'=.*$',key+'="'+value+'"',text,flags=re.M)
+        write_remote('/storage/.config/cloud_sync.conf',text)
+        # First-party default logging remains unchanged.
+    def conf_hash():return remote('sha256sum /storage/.config/cloud_sync.conf /storage/.config/rclone/rclone.conf').stdout
+    def reset():
+        run([ROOT/'tools/cloud-test-backend','reset'],env=env,stdout=subprocess.DEVNULL)
+        remote('rm -rf /storage/.cache/cloud_sync; rm -f /storage/.config/cloud-layout-migration.json; mkdir -p /storage/.cache/cloud_sync')
+        config()
+    def record(name,before,initial):
+        after=hashes();final=conf_hash()
+        (art/(name+'.json')).write_text(json.dumps({'before_cloud':before,'after_cloud':after,'before_config_credentials_hash':initial,'after_config_credentials_hash':final},indent=2)+'\n')
+        return after,final
+    def accept(name):passed.append(name);mark('PASS '+name)
+    try:
+        if not a.reuse_guest:
+            for port in [a.ssh_port,5900+a.vnc,a.backend_port]:
+                with socket.socket() as s:s.bind(('127.0.0.1',port))
+            mark('hash accepted image; make fresh 16 GiB QA guest')
+            assert sha(a.image)==a.image_sha256,'candidate image checksum mismatch'
+            (art/'inputs.json').write_text(json.dumps({'image':str(a.image),'image_sha256':a.image_sha256,'mode':'candidate16 source overlay, not assembled image','scripts':{n:sha(SOURCES/n) for n in ['cloud_setup','cloud_scan','cloud_backup','cloud_sync.conf','cloud_sync.conf.defaults']},'baseline_ref':subprocess.check_output(['git','-C',str(ROOT),'rev-parse','HEAD'],text=True).strip()},indent=2)+'\n')
+            with gzip.open(a.image,'rb') as source,(o/'image.img').open('wb') as out:shutil.copyfileobj(source,out,8*1024*1024)
+            run(['qemu-img','convert','-f','raw','-O','qcow2',o/'image.img',disk]);run(['qemu-img','resize',disk,'16G']);(o/'image.img').unlink()
+            run(['ssh-keygen','-q','-t','ed25519','-N','','-f',o/'qa-key','-C','explicit-folder-qa'])
+            mark('boot fresh guest')
+            with (art/'qemu.log').open('w') as log:
+                run([ROOT/'projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm','run','--headless','--daemonize','--gl','none','--monitor',mon,'--serial',ser,'--pidfile',pid,'--vnc',str(a.vnc),'--ssh-port',str(a.ssh_port),'--mac','52:54:00:50:50:58','--res','640x480',disk],stdout=log,stderr=subprocess.STDOUT)
+            qpid=int(pid.read_text());(art/'qemu.argv').write_bytes(Path('/proc',str(qpid),'cmdline').read_bytes())
+            run([ROOT/'tools/vm-serial','--socket',ser,'wait','--up-to','300'],stdout=subprocess.DEVNULL)
+            pub=(o/'qa-key.pub').read_text().strip()
+            run([ROOT/'tools/vm-serial','--socket',ser,'sh','mkdir -p /storage/.ssh && chmod 700 /storage/.ssh && printf "%s\\n" '+shlex.quote(pub)+' > /storage/.ssh/authorized_keys && chmod 600 /storage/.ssh/authorized_keys'],stdout=subprocess.DEVNULL)
+            deadline=time.monotonic()+180
+            while time.monotonic()<deadline:
+                try:
+                    if remote('printf QA_READY',check=False,timeout=12).stdout=='QA_READY':break
+                except subprocess.SubprocessError:pass
+                time.sleep(2)
+            else:raise RuntimeError('SSH readiness timeout')
+        else:
+            prior=json.loads((o/'guest.json').read_text())
+            qpid=int(pid.read_text())
+            assert prior['qemu_pid']==qpid and prior['ssh_port']==a.ssh_port and prior['backend_port']==a.backend_port,'owned guest identity mismatch'
+            assert str(disk).encode() in Path('/proc',str(qpid),'cmdline').read_bytes(),'guest PID no longer owns disk'
+            assert sha(a.image)==a.image_sha256,'candidate checksum mismatch'
+            (art/'inputs.json').write_text(json.dumps({'image':str(a.image),'image_sha256':a.image_sha256,'mode':'same owned candidate16 source overlay, not assembled image','scripts':{n:sha(SOURCES/n) for n in ['cloud_setup','cloud_scan','cloud_backup','cloud_sync.conf','cloud_sync.conf.defaults']}},indent=2)+'\n')
+        mark('install hash-verified source overlay and synthetic backend')
+        remote('systemctl stop essway')
+        if not a.reuse_guest:
+            remote('mkdir -p /storage/qa-508/upper /storage/qa-508/work /storage/.config/rclone; mount -t overlay overlay -o lowerdir=/usr/bin,upperdir=/storage/qa-508/upper,workdir=/storage/qa-508/work /usr/bin')
+        # Overlay whiteout makes the retired engine absent in the running view.
+        # The separate package installation receipt proves assembled install omission.
+        for name in ['cloud_setup','cloud_scan','cloud_backup']:write_remote('/usr/bin/'+name,(SOURCES/name).read_text(),'755')
+        remote('rm -f /usr/bin/cloud_migrate_layout; test ! -e /usr/bin/cloud_migrate_layout')
+        for name in ['cloud_sync.conf','cloud_sync.conf.defaults']:
+            write_remote('/storage/qa-508/'+name,(SOURCES/name).read_text())
+            if not a.reuse_guest:remote('mount --bind /storage/qa-508/'+name+' /usr/config/'+name)
+        observed=remote('sha256sum /usr/bin/cloud_setup /usr/bin/cloud_scan /usr/bin/cloud_backup /usr/config/cloud_sync.conf /usr/config/cloud_sync.conf.defaults; grep -E "^(BUILD_ID|VERSION_ID)=" /etc/os-release; test ! -e /usr/bin/cloud_migrate_layout && echo MIGRATION_ENGINE_ABSENT; rclone version | head -1').stdout
+        for name in ['cloud_setup','cloud_scan','cloud_backup','cloud_sync.conf','cloud_sync.conf.defaults']:assert sha(SOURCES/name) in observed,name
+        (art/'installed-source.log').write_text(observed)
+        if not a.reuse_guest:run([ROOT/'tools/cloud-test-backend','up'],env=env,stdout=subprocess.DEVNULL)
+        stanza=subprocess.check_output([str(ROOT/'tools/cloud-test-backend'),'rclone-conf'],env=env,text=True)
+        write_remote('/storage/.config/rclone/rclone.conf',stanza)
+        remote('. /etc/profile >/dev/null 2>&1; set_setting cloud_saves.startup 0; set_setting cloud_saves.gameexit 0')
+        (o/'guest.json').write_text(json.dumps({'pidfile':str(pid),'disk':str(disk),'monitor':mon,'serial':ser,'ssh_port':a.ssh_port,'ssh_identity':str(o/'qa-key'),'backend_state':str(backend),'backend_port':a.backend_port,'qemu_pid':qpid,'owner':'sp_migration_review until explicit handoff'},indent=2)+'\n')
+        reset();fput('/ROCKNIX/Saves/gb/QA508.srm','legacy progress\n');fput('/ROCKNIX/Content/ROMs/psx/QA508.chd','cloud-only legacy game\n');time.sleep(1.6)
+        before=hashes();initial=conf_hash();script('cloud_setup','--seed-folders');after,final=record('fresh-beside-legacy',before,initial)
+        assert initial==final and all(after.get(k)==v for k,v in before.items()) and 'pixelelated/Saves/README.txt' in after
+        accept('fresh-beside-legacy')
+        for kind,root in [('legacy','/ROCKNIX'),('custom','/Mine'),('current','/pixelelated')]:
+            reset();config(root+'/Saves',root+'/Backups',root+'/Content');fput(root+'/Saves/gb/QA508.srm','configured progress\n');fput('/pixelelated/Content/ROMs/gb/QA508.gb','discovered current game\n');time.sleep(1.6)
+            before=hashes();initial=conf_hash();script('cloud_scan','--folder');script('cloud_setup','--content-location');after,final=record(kind+'-read-only',before,initial)
+            assert before==after and initial==final
+            script('cloud_setup','--seed-folders');after,final=record(kind+'-seed',before,initial)
+            assert initial==final and all(after.get(k)==v for k,v in before.items())
+            accept(kind+'-read-and-seed')
+        reset();config('/ROCKNIX/Saves','/ROCKNIX/Backups','/ROCKNIX/Content');fput('/pixelelated/Saves/gb/QA508.srm','other device progress\n');fput('/pixelelated/.layout','layout=2\n');time.sleep(1.6)
+        before=hashes();initial=conf_hash();script('cloud_scan','--folder');after,final=record('no-auto-follow',before,initial);assert before==after and initial==final
+        assert 'STATE=missing' in remote('cat /storage/.cache/cloud_sync/scan/state').stdout;accept('no-auto-follow')
+        reset();config('/pixelelated/Saves','/pixelelated/Backups','/ROCKNIX/Content');fput('/pixelelated/Saves/gb/QA508.srm','already copied progress\n');fput('/ROCKNIX/Content/ROMs/psx/QA508.chd','remaining content\n');time.sleep(1.6)
+        write_remote('/storage/.config/cloud-layout-migration.json',json.dumps({'schema':1,'step':1,'from':1,'to':2,'remote':'qa:','fingerprint':'synthetic-fingerprint','fingerprint_format':'rclone-json-v1','source':{'saves':'/ROCKNIX/Saves','backups':'/ROCKNIX/Backups','content':'/ROCKNIX/Content','discarded':'/ROCKNIX/Saves-replaced'},'configured':{'saves':'/ROCKNIX/Saves','backups':'/ROCKNIX/Backups','content':'/ROCKNIX/Content'},'stage':'discarded'})+'\n');recovery=remote('sha256sum /storage/.config/cloud-layout-migration.json').stdout
+        before=hashes();initial=conf_hash();script('cloud_scan','--folder');script('cloud_setup','--seed-folders');after,final=record('interrupted-state',before,initial)
+        assert initial==final and all(after.get(k)==v for k,v in before.items()) and recovery==remote('sha256sum /storage/.config/cloud-layout-migration.json').stdout;accept('interrupted-state-preserved')
+        reset();fput('/pixelelated/.layout','layout=999\n');time.sleep(1.6);before=hashes();initial=conf_hash();script('cloud_scan','--folder',ok=False);script('cloud_setup','--seed-folders',ok=False);after,final=record('future-marker',before,initial);assert before==after and initial==final;accept('future-marker-refused')
+        reset();config('pixelelated/Saves','pixelelated/Backups','pixelelated/Content');fput('/pixelelated/.layout','layout=999\n');time.sleep(1.6);before=hashes();initial=conf_hash();script('cloud_setup','--seed-folders',ok=False);after,final=record('relative-future-marker',before,initial);assert before==after and initial==final;accept('relative-future-marker-refused')
+        reset();config('/','/','/Games');fput('/owner.txt','carried root sentinel\n');time.sleep(1.6);before=hashes();initial=conf_hash();script('cloud_setup','--seed-folders');after,final=record('carried-root',before,initial);assert initial==final and all(after.get(k)==v for k,v in before.items()) and 'README.txt' in after and not any(k.startswith('pixelelated/') for k in after);accept('carried-root-preserved')
+        reset();config('/Mine/Saves','/Mine/Backups','');before=hashes();initial=conf_hash();script('cloud_setup','--seed-folders');after,final=record('content-root',before,initial);assert initial==final and 'ROMs/README.txt' in after and 'README.txt' not in after;accept('explicit-content-root')
+        reset();fput('/ROCKNIX/Saves/gb/QA508.srm','old\n');time.sleep(1.6);before=hashes();script('cloud_setup','--set-saves-remote','/Selected/Saves');script('cloud_setup','--set-content-remote','/Other');assert before==hashes();pointers=remote("grep -E '^(SAVES_REMOTE|SETTINGS_REMOTE|CONTENT_REMOTE)=' /storage/.config/cloud_sync.conf").stdout;(art/'explicit-selection.log').write_text(pointers);assert 'SAVES_REMOTE="/Selected/Saves"' in pointers and 'SETTINGS_REMOTE="/Selected/Backups"' in pointers and 'CONTENT_REMOTE="/Other"' in pointers;accept('explicit-selection-only')
+        reset();fput('/pixelelated/Content/ROMs/gb/QA508Remote.gb','remote game\n');fput('/pixelelated/Content/ROMs/psx/QA508CloudOnly.chd','cloud-only content\n');time.sleep(1.6);remote('mkdir -p /storage/roms/gb');write_remote('/storage/roms/gb/QA508Local.gb','local game\n');before=hashes();initial=conf_hash()
+        script('cloud_content_backup','gb');script('cloud_content_restore','gb');after,final=record('partial-library',before,initial);assert initial==final and all(after.get(k)==v for k,v in before.items())
+        assert remote('cat /storage/roms/gb/QA508Remote.gb; test ! -e /storage/roms/psx/QA508CloudOnly.chd && echo UNSELECTED_ABSENT').stdout=='remote game\nUNSELECTED_ABSENT\n';accept('partial-library-preserved')
+        write_remote('/storage/roms/gb/QA508.srm','progress roundtrip\n');script('cloud_backup','--saves-only','--yes','--method=copy');assert (backend/'data/pixelelated/Saves/gb/QA508.srm').read_text()=='progress roundtrip\n'
+        remote('rm /storage/roms/gb/QA508.srm');script('cloud_restore','--saves-only','--yes','--method=copy');assert remote('cat /storage/roms/gb/QA508.srm').stdout=='progress roundtrip\n';accept('saves-roundtrip')
+        (art/'result.json').write_text(json.dumps({'status':'PASS','cases':passed,'source_overlay':True,'assembled_image_claim':False,'guest_retained_for_ui':a.keep_guest},indent=2)+'\n')
+        success=True;mark('PASS script proof; guest ready for coordinated UI handoff')
+    finally:
+        if not(success and a.keep_guest):
+            if pid.exists():run([ROOT/'tools/vm-stop',pid,disk])
+            run([ROOT/'tools/cloud-test-backend','down'],env=env,stdout=subprocess.DEVNULL)
+            if success:
+                for path in [disk,o/'qa-key',o/'qa-key.pub']:
+                    if path.exists():path.unlink()
+                if backend.exists():shutil.rmtree(backend)
+    return 0
+
+if __name__=='__main__':raise SystemExit(main())

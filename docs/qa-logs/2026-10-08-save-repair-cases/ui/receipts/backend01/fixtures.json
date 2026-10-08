@@ -1,0 +1,73 @@
+{
+  "cases": [
+    {
+      "name": "PSP",
+      "root": "/QA-PSP",
+      "saves_paths": [
+        "psp/PSP/SAVEDATA/ULUS00001/DATA.BIN",
+        "psp/PSP/SAVEDATA/ULUS00001/PARAM.SFO",
+        "psp/PSP/SAVEDATA/ULUS00001/ICON0.PNG"
+      ],
+      "content_paths": [
+        "ROMs/psp/PSP/SAVEDATA/ULUS00001/DATA.BIN",
+        "ROMs/psp/PSP/SAVEDATA/ULUS00001/PARAM.SFO",
+        "ROMs/psp/PSP/SAVEDATA/ULUS00001/ICON0.PNG"
+      ],
+      "expected_saves": "present",
+      "expected_roms": "empty",
+      "payload_kind": "synthetic path-classification bytes; not an emulator-format or playability proof"
+    },
+    {
+      "name": "Duck",
+      "root": "/QA-Duck",
+      "saves_paths": [
+        "psx/duckstation/memcards/Example_1.mcd",
+        "psx/duckstation/memcards/Example_2.mcr"
+      ],
+      "content_paths": [
+        "ROMs/psx/duckstation/memcards/Example_1.mcd",
+        "ROMs/psx/duckstation/memcards/Example_2.mcr"
+      ],
+      "expected_saves": "present",
+      "expected_roms": "empty",
+      "payload_kind": "synthetic path-classification bytes; not an emulator-format or playability proof"
+    },
+    {
+      "name": "N64",
+      "root": "/QA-N64",
+      "saves_paths": [
+        "n64/Example.st0",
+        "n64/Example.st9",
+        "n64/Example.pj0",
+        "n64/Example.pj9.zip"
+      ],
+      "content_paths": [
+        "ROMs/n64/Example.st0",
+        "ROMs/n64/Example.st9",
+        "ROMs/n64/Example.pj0",
+        "ROMs/n64/Example.pj9.zip"
+      ],
+      "expected_saves": "present",
+      "expected_roms": "empty",
+      "payload_kind": "synthetic path-classification bytes; not an emulator-format or playability proof"
+    },
+    {
+      "name": "Deep",
+      "root": "/QA-Deep",
+      "saves_paths": [
+        "psp/PSP/SAVEDATA/ULUS00001/deeper/DATA.BIN"
+      ],
+      "content_paths": [
+        "ROMs/psp/PSP/SAVEDATA/ULUS00001/deeper/DATA.BIN"
+      ],
+      "expected_saves": "unreadable",
+      "expected_roms": "empty",
+      "payload_kind": "synthetic path-classification bytes; not an emulator-format or playability proof"
+    }
+  ],
+  "intended_flows": [
+    "CF07 saves recognition and bounded/read-failure result",
+    "CF14 selected content scan excludes standalone progress"
+  ],
+  "backend_state": "1ee8e5199da0bc02e6aa4ebff94b951f5e8b4804"
+}

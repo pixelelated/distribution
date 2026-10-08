@@ -1,0 +1,1078 @@
+{
+  "ref": null,
+  "results": [
+    {
+      "case": "fresh-empty-seed-beside-legacy",
+      "status": "PASS",
+      "detail": "",
+      "cloud_sha256": {
+        "ROCKNIX/Content/ROMs/psx/CloudOnly.chd": "f35927ad637c776f21f9db8875c65523f043ca60fcc8575f7db4d2e1b5a2c852",
+        "ROCKNIX/Saves/gb/progress.srm": "35ca65761feb88f286a161f12449970eee8dc654847fa76791c134ea4bbe8903",
+        "pixelelated/.layout": "be68d69fa1fe3ddbcaa9295b8e3e732fd0113d909e38cf643d95aab41c9b1a22",
+        "pixelelated/Backups/README.txt": "a2e91a3dddf28269cbf704b1b7e2540608e9851a88f09679701e0c6629fd7f5c",
+        "pixelelated/Content/BIOS/README.txt": "12345b222d272bcccee06cac35e9b0d4ac10a76617a32b72cefa8542a90d1f67",
+        "pixelelated/Content/README.txt": "cb0db1a29003ebedb5a5f92d17c49e7eadebedcc10e883e9d9af052fd4a57456",
+        "pixelelated/Content/ROMs/README.txt": "cdbf34d6dc27ad558261bd99b99bbc91850ba28a1150ef2488b18dbe87637bcd",
+        "pixelelated/Saves/README.txt": "81283a71c8db19f49232b395e3527170b14ae38add60d5180071196f24c283bf"
+      },
+      "pointers": {
+        "SAVESPATH": "/storage/roms",
+        "SAVES_REMOTE": "/pixelelated/Saves",
+        "SETTINGS_BACKUPS": "/storage/roms/backup",
+        "SETTINGS_REMOTE": "/pixelelated/Backups",
+        "BACKUPMETHOD": "copy",
+        "RESTOREMETHOD": "copy",
+        "BACKUPFILE_BACKUP_OPTION": "no",
+        "BACKUPFILE_RESTORE_OPTION": "no",
+        "LOG_LEVEL": "INFO",
+        "LAYOUT_KEEP": "",
+        "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+        "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+        "CONTENT_REMOTE": "/pixelelated/Content"
+      }
+    },
+    {
+      "case": "scan-never-follows",
+      "status": "PASS",
+      "detail": "",
+      "cloud_sha256": {
+        "pixelelated/.layout": "be68d69fa1fe3ddbcaa9295b8e3e732fd0113d909e38cf643d95aab41c9b1a22",
+        "pixelelated/Saves/gb/progress.srm": "1801145f200c89f7f49be05065267d026f4a6ef3cc1f00772eff6ea47eca939d"
+      },
+      "pointers": {
+        "SAVESPATH": "/storage/roms",
+        "SAVES_REMOTE": "/ROCKNIX/Saves",
+        "SETTINGS_BACKUPS": "/storage/roms/backup",
+        "SETTINGS_REMOTE": "/ROCKNIX/Backups",
+        "BACKUPMETHOD": "copy",
+        "RESTOREMETHOD": "copy",
+        "BACKUPFILE_BACKUP_OPTION": "no",
+        "BACKUPFILE_RESTORE_OPTION": "no",
+        "LOG_LEVEL": "INFO",
+        "LAYOUT_KEEP": "",
+        "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+        "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+        "CONTENT_REMOTE": "/ROCKNIX/Content"
+      }
+    },
+    {
+      "case": "read-current",
+      "status": "PASS",
+      "detail": "",
+      "cloud_sha256": {
+        "ROCKNIX/Content/ROMs/psx/cloud-only.chd": "993f7c0b93b31924a6050564d866fc23709663741481b003ebf805cadeebe97b",
+        "pixelelated/Content/ROMs/gb/current.gb": "b1d70f00e9d3da2e7335cf9f8e340897ace9bb118d0530d404f515fda06c23e2",
+        "pixelelated/Saves/gb/progress.srm": "4eeacd158151e79d526d9f18c690dcba49a59575893d32655df9f7f362f7d044"
+      },
+      "pointers": {
+        "SAVESPATH": "/storage/roms",
+        "SAVES_REMOTE": "/pixelelated/Saves",
+        "SETTINGS_BACKUPS": "/storage/roms/backup",
+        "SETTINGS_REMOTE": "/pixelelated/Backups",
+        "BACKUPMETHOD": "copy",
+        "RESTOREMETHOD": "copy",
+        "BACKUPFILE_BACKUP_OPTION": "no",
+        "BACKUPFILE_RESTORE_OPTION": "no",
+        "LOG_LEVEL": "INFO",
+        "LAYOUT_KEEP": "",
+        "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+        "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+        "CONTENT_REMOTE": "/pixelelated/Content"
+      }
+    },
+    {
+      "case": "read-legacy",
+      "status": "PASS",
+      "detail": "",
+      "cloud_sha256": {
+        "ROCKNIX/Content/ROMs/psx/cloud-only.chd": "993f7c0b93b31924a6050564d866fc23709663741481b003ebf805cadeebe97b",
+        "ROCKNIX/Saves/gb/progress.srm": "4eeacd158151e79d526d9f18c690dcba49a59575893d32655df9f7f362f7d044",
+        "pixelelated/Content/ROMs/gb/current.gb": "b1d70f00e9d3da2e7335cf9f8e340897ace9bb118d0530d404f515fda06c23e2"
+      },
+      "pointers": {
+        "SAVESPATH": "/storage/roms",
+        "SAVES_REMOTE": "/ROCKNIX/Saves",
+        "SETTINGS_BACKUPS": "/storage/roms/backup",
+        "SETTINGS_REMOTE": "/ROCKNIX/Backups",
+        "BACKUPMETHOD": "copy",
+        "RESTOREMETHOD": "copy",
+        "BACKUPFILE_BACKUP_OPTION": "no",
+        "BACKUPFILE_RESTORE_OPTION": "no",
+        "LOG_LEVEL": "INFO",
+        "LAYOUT_KEEP": "",
+        "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+        "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+        "CONTENT_REMOTE": "/ROCKNIX/Content"
+      }
+    },
+    {
+      "case": "read-legacy-missing",
+      "status": "PASS",
+      "detail": "",
+      "cloud_sha256": {
+        "ROCKNIX/Content/ROMs/psx/cloud-only.chd": "993f7c0b93b31924a6050564d866fc23709663741481b003ebf805cadeebe97b",
+        "pixelelated/Content/ROMs/gb/current.gb": "b1d70f00e9d3da2e7335cf9f8e340897ace9bb118d0530d404f515fda06c23e2"
+      },
+      "pointers": {
+        "SAVESPATH": "/storage/roms",
+        "SAVES_REMOTE": "/ROCKNIX/Saves",
+        "SETTINGS_BACKUPS": "/storage/roms/backup",
+        "SETTINGS_REMOTE": "/ROCKNIX/Backups",
+        "BACKUPMETHOD": "copy",
+        "RESTOREMETHOD": "copy",
+        "BACKUPFILE_BACKUP_OPTION": "no",
+        "BACKUPFILE_RESTORE_OPTION": "no",
+        "LOG_LEVEL": "INFO",
+        "LAYOUT_KEEP": "",
+        "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+        "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+        "CONTENT_REMOTE": "/ROCKNIX/Content"
+      }
+    },
+    {
+      "case": "read-custom",
+      "status": "PASS",
+      "detail": "",
+      "cloud_sha256": {
+        "Mine/Saves/gb/progress.srm": "4eeacd158151e79d526d9f18c690dcba49a59575893d32655df9f7f362f7d044",
+        "ROCKNIX/Content/ROMs/psx/cloud-only.chd": "993f7c0b93b31924a6050564d866fc23709663741481b003ebf805cadeebe97b",
+        "pixelelated/Content/ROMs/gb/current.gb": "b1d70f00e9d3da2e7335cf9f8e340897ace9bb118d0530d404f515fda06c23e2"
+      },
+      "pointers": {
+        "SAVESPATH": "/storage/roms",
+        "SAVES_REMOTE": "/Mine/Saves",
+        "SETTINGS_BACKUPS": "/storage/roms/backup",
+        "SETTINGS_REMOTE": "/Mine/Backups",
+        "BACKUPMETHOD": "copy",
+        "RESTOREMETHOD": "copy",
+        "BACKUPFILE_BACKUP_OPTION": "no",
+        "BACKUPFILE_RESTORE_OPTION": "no",
+        "LOG_LEVEL": "INFO",
+        "LAYOUT_KEEP": "",
+        "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+        "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+        "CONTENT_REMOTE": "/Mine/Content"
+      }
+    },
+    {
+      "case": "fresh-seed-beside-legacy",
+      "status": "PASS",
+      "detail": "",
+      "cloud_sha256": {
+        "ROCKNIX/Content/ROMs/psx/cloud-only.chd": "6d0b85824df68a68f6032be6cb12040148e4eaf59329132d832f0c0ab78351ae",
+        "ROCKNIX/Saves/gb/old.srm": "c84a320447a88b71ce0d3731c63567e31a124965365ee0fb17dfe1952b73287a",
+        "pixelelated/.layout": "be68d69fa1fe3ddbcaa9295b8e3e732fd0113d909e38cf643d95aab41c9b1a22",
+        "pixelelated/Backups/README.txt": "a2e91a3dddf28269cbf704b1b7e2540608e9851a88f09679701e0c6629fd7f5c",
+        "pixelelated/Content/BIOS/README.txt": "12345b222d272bcccee06cac35e9b0d4ac10a76617a32b72cefa8542a90d1f67",
+        "pixelelated/Content/README.txt": "cb0db1a29003ebedb5a5f92d17c49e7eadebedcc10e883e9d9af052fd4a57456",
+        "pixelelated/Content/ROMs/README.txt": "cdbf34d6dc27ad558261bd99b99bbc91850ba28a1150ef2488b18dbe87637bcd",
+        "pixelelated/Saves/README.txt": "6c07312abbcb35b19244ee27603e40a408759d719428862851bfcc8441fac085"
+      },
+      "pointers": {
+        "SAVESPATH": "/storage/roms",
+        "SAVES_REMOTE": "/pixelelated/Saves",
+        "SETTINGS_BACKUPS": "/storage/roms/backup",
+        "SETTINGS_REMOTE": "/pixelelated/Backups",
+        "BACKUPMETHOD": "copy",
+        "RESTOREMETHOD": "copy",
+        "BACKUPFILE_BACKUP_OPTION": "no",
+        "BACKUPFILE_RESTORE_OPTION": "no",
+        "LOG_LEVEL": "INFO",
+        "LAYOUT_KEEP": "",
+        "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+        "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+        "CONTENT_REMOTE": "/pixelelated/Content"
+      }
+    },
+    {
+      "case": "legacy-seed",
+      "status": "PASS",
+      "detail": "",
+      "cloud_sha256": {
+        "ROCKNIX/Backups/README.txt": "a2e91a3dddf28269cbf704b1b7e2540608e9851a88f09679701e0c6629fd7f5c",
+        "ROCKNIX/Content/BIOS/README.txt": "12345b222d272bcccee06cac35e9b0d4ac10a76617a32b72cefa8542a90d1f67",
+        "ROCKNIX/Content/README.txt": "cb0db1a29003ebedb5a5f92d17c49e7eadebedcc10e883e9d9af052fd4a57456",
+        "ROCKNIX/Content/ROMs/README.txt": "cdbf34d6dc27ad558261bd99b99bbc91850ba28a1150ef2488b18dbe87637bcd",
+        "ROCKNIX/Content/ROMs/psx/cloud-only.chd": "6d0b85824df68a68f6032be6cb12040148e4eaf59329132d832f0c0ab78351ae",
+        "ROCKNIX/Saves/README.txt": "6c07312abbcb35b19244ee27603e40a408759d719428862851bfcc8441fac085",
+        "ROCKNIX/Saves/gb/old.srm": "c84a320447a88b71ce0d3731c63567e31a124965365ee0fb17dfe1952b73287a"
+      },
+      "pointers": {
+        "SAVESPATH": "/storage/roms",
+        "SAVES_REMOTE": "/ROCKNIX/Saves",
+        "SETTINGS_BACKUPS": "/storage/roms/backup",
+        "SETTINGS_REMOTE": "/ROCKNIX/Backups",
+        "BACKUPMETHOD": "copy",
+        "RESTOREMETHOD": "copy",
+        "BACKUPFILE_BACKUP_OPTION": "no",
+        "BACKUPFILE_RESTORE_OPTION": "no",
+        "LOG_LEVEL": "INFO",
+        "LAYOUT_KEEP": "",
+        "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+        "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+        "CONTENT_REMOTE": "/ROCKNIX/Content"
+      }
+    },
+    {
+      "case": "custom-seed",
+      "status": "PASS",
+      "detail": "",
+      "cloud_sha256": {
+        "Mine/Backups/README.txt": "a2e91a3dddf28269cbf704b1b7e2540608e9851a88f09679701e0c6629fd7f5c",
+        "Mine/Content/BIOS/README.txt": "12345b222d272bcccee06cac35e9b0d4ac10a76617a32b72cefa8542a90d1f67",
+        "Mine/Content/README.txt": "cb0db1a29003ebedb5a5f92d17c49e7eadebedcc10e883e9d9af052fd4a57456",
+        "Mine/Content/ROMs/README.txt": "cdbf34d6dc27ad558261bd99b99bbc91850ba28a1150ef2488b18dbe87637bcd",
+        "Mine/Saves/README.txt": "6c07312abbcb35b19244ee27603e40a408759d719428862851bfcc8441fac085",
+        "ROCKNIX/Content/ROMs/psx/cloud-only.chd": "6d0b85824df68a68f6032be6cb12040148e4eaf59329132d832f0c0ab78351ae",
+        "ROCKNIX/Saves/gb/old.srm": "c84a320447a88b71ce0d3731c63567e31a124965365ee0fb17dfe1952b73287a"
+      },
+      "pointers": {
+        "SAVESPATH": "/storage/roms",
+        "SAVES_REMOTE": "/Mine/Saves",
+        "SETTINGS_BACKUPS": "/storage/roms/backup",
+        "SETTINGS_REMOTE": "/Mine/Backups",
+        "BACKUPMETHOD": "copy",
+        "RESTOREMETHOD": "copy",
+        "BACKUPFILE_BACKUP_OPTION": "no",
+        "BACKUPFILE_RESTORE_OPTION": "no",
+        "LOG_LEVEL": "INFO",
+        "LAYOUT_KEEP": "",
+        "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+        "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+        "CONTENT_REMOTE": "/Mine/Content"
+      }
+    },
+    {
+      "case": "empty-content-root",
+      "status": "PASS",
+      "detail": "",
+      "cloud_sha256": {
+        "BIOS/README.txt": "12345b222d272bcccee06cac35e9b0d4ac10a76617a32b72cefa8542a90d1f67",
+        "Mine/Backups/README.txt": "a2e91a3dddf28269cbf704b1b7e2540608e9851a88f09679701e0c6629fd7f5c",
+        "Mine/Saves/README.txt": "6c07312abbcb35b19244ee27603e40a408759d719428862851bfcc8441fac085",
+        "ROCKNIX/Content/ROMs/psx/cloud-only.chd": "6d0b85824df68a68f6032be6cb12040148e4eaf59329132d832f0c0ab78351ae",
+        "ROCKNIX/Saves/gb/old.srm": "c84a320447a88b71ce0d3731c63567e31a124965365ee0fb17dfe1952b73287a",
+        "ROMs/README.txt": "cdbf34d6dc27ad558261bd99b99bbc91850ba28a1150ef2488b18dbe87637bcd"
+      },
+      "pointers": {
+        "SAVESPATH": "/storage/roms",
+        "SAVES_REMOTE": "/Mine/Saves",
+        "SETTINGS_BACKUPS": "/storage/roms/backup",
+        "SETTINGS_REMOTE": "/Mine/Backups",
+        "BACKUPMETHOD": "copy",
+        "RESTOREMETHOD": "copy",
+        "BACKUPFILE_BACKUP_OPTION": "no",
+        "BACKUPFILE_RESTORE_OPTION": "no",
+        "LOG_LEVEL": "INFO",
+        "LAYOUT_KEEP": "",
+        "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+        "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+        "CONTENT_REMOTE": ""
+      }
+    },
+    {
+      "case": "slash-content-root",
+      "status": "PASS",
+      "detail": "",
+      "cloud_sha256": {
+        "BIOS/README.txt": "12345b222d272bcccee06cac35e9b0d4ac10a76617a32b72cefa8542a90d1f67",
+        "Mine/Backups/README.txt": "a2e91a3dddf28269cbf704b1b7e2540608e9851a88f09679701e0c6629fd7f5c",
+        "Mine/Saves/README.txt": "6c07312abbcb35b19244ee27603e40a408759d719428862851bfcc8441fac085",
+        "ROCKNIX/Content/ROMs/psx/cloud-only.chd": "6d0b85824df68a68f6032be6cb12040148e4eaf59329132d832f0c0ab78351ae",
+        "ROCKNIX/Saves/gb/old.srm": "c84a320447a88b71ce0d3731c63567e31a124965365ee0fb17dfe1952b73287a",
+        "ROMs/README.txt": "cdbf34d6dc27ad558261bd99b99bbc91850ba28a1150ef2488b18dbe87637bcd"
+      },
+      "pointers": {
+        "SAVESPATH": "/storage/roms",
+        "SAVES_REMOTE": "/Mine/Saves",
+        "SETTINGS_BACKUPS": "/storage/roms/backup",
+        "SETTINGS_REMOTE": "/Mine/Backups",
+        "BACKUPMETHOD": "copy",
+        "RESTOREMETHOD": "copy",
+        "BACKUPFILE_BACKUP_OPTION": "no",
+        "BACKUPFILE_RESTORE_OPTION": "no",
+        "LOG_LEVEL": "INFO",
+        "LAYOUT_KEEP": "",
+        "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+        "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+        "CONTENT_REMOTE": "/"
+      }
+    },
+    {
+      "case": "guard-future",
+      "status": "PASS",
+      "detail": "",
+      "cloud_sha256": {
+        "pixelelated/.layout": "d81e804343334d81e07a8c88ed0712190b2de667acc711b851851757fc452aeb",
+        "pixelelated/Saves/gb/progress.srm": "f660a7996deacfbc7560e4240054a8ad82eb02fe25a95064257e07084bcacb85"
+      },
+      "pointers": {
+        "SAVESPATH": "/storage/roms",
+        "SAVES_REMOTE": "/pixelelated/Saves",
+        "SETTINGS_BACKUPS": "/storage/roms/backup",
+        "SETTINGS_REMOTE": "/pixelelated/Backups",
+        "BACKUPMETHOD": "copy",
+        "RESTOREMETHOD": "copy",
+        "BACKUPFILE_BACKUP_OPTION": "no",
+        "BACKUPFILE_RESTORE_OPTION": "no",
+        "LOG_LEVEL": "INFO",
+        "LAYOUT_KEEP": "",
+        "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+        "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+        "CONTENT_REMOTE": "/pixelelated/Content"
+      }
+    },
+    {
+      "case": "guard-relative-future",
+      "status": "PASS",
+      "detail": "",
+      "cloud_sha256": {
+        "pixelelated/.layout": "d81e804343334d81e07a8c88ed0712190b2de667acc711b851851757fc452aeb",
+        "pixelelated/Saves/gb/progress.srm": "f660a7996deacfbc7560e4240054a8ad82eb02fe25a95064257e07084bcacb85"
+      },
+      "pointers": {
+        "SAVESPATH": "/storage/roms",
+        "SAVES_REMOTE": "pixelelated/Saves",
+        "SETTINGS_BACKUPS": "/storage/roms/backup",
+        "SETTINGS_REMOTE": "pixelelated/Backups",
+        "BACKUPMETHOD": "copy",
+        "RESTOREMETHOD": "copy",
+        "BACKUPFILE_BACKUP_OPTION": "no",
+        "BACKUPFILE_RESTORE_OPTION": "no",
+        "LOG_LEVEL": "INFO",
+        "LAYOUT_KEEP": "",
+        "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+        "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+        "CONTENT_REMOTE": "pixelelated/Content"
+      }
+    },
+    {
+      "case": "carried-root",
+      "status": "PASS",
+      "detail": "",
+      "cloud_sha256": {
+        "Games/BIOS/README.txt": "12345b222d272bcccee06cac35e9b0d4ac10a76617a32b72cefa8542a90d1f67",
+        "Games/README.txt": "cb0db1a29003ebedb5a5f92d17c49e7eadebedcc10e883e9d9af052fd4a57456",
+        "Games/ROMs/README.txt": "cdbf34d6dc27ad558261bd99b99bbc91850ba28a1150ef2488b18dbe87637bcd",
+        "README.txt": "81283a71c8db19f49232b395e3527170b14ae38add60d5180071196f24c283bf",
+        "owner.txt": "1a5f7f54b65cda84efa49a560e213477feff5ad3808d96eac3bc83dbe4d19267"
+      },
+      "pointers": {
+        "SAVESPATH": "/storage/roms",
+        "SAVES_REMOTE": "/",
+        "SETTINGS_BACKUPS": "/storage/roms/backup",
+        "SETTINGS_REMOTE": "/",
+        "BACKUPMETHOD": "copy",
+        "RESTOREMETHOD": "copy",
+        "BACKUPFILE_BACKUP_OPTION": "no",
+        "BACKUPFILE_RESTORE_OPTION": "no",
+        "LOG_LEVEL": "INFO",
+        "LAYOUT_KEEP": "",
+        "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+        "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+        "CONTENT_REMOTE": "/Games"
+      }
+    },
+    {
+      "case": "empty-relative-games",
+      "status": "PASS",
+      "detail": "",
+      "cloud_sha256": {},
+      "pointers": {
+        "SAVESPATH": "/storage/roms",
+        "SAVES_REMOTE": "GAMES",
+        "SETTINGS_BACKUPS": "/storage/roms/backup",
+        "SETTINGS_REMOTE": "/Mine/Backups",
+        "BACKUPMETHOD": "copy",
+        "RESTOREMETHOD": "copy",
+        "BACKUPFILE_BACKUP_OPTION": "no",
+        "BACKUPFILE_RESTORE_OPTION": "no",
+        "LOG_LEVEL": "INFO",
+        "LAYOUT_KEEP": "",
+        "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+        "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+        "CONTENT_REMOTE": "/Mine/Content"
+      }
+    },
+    {
+      "case": "empty-relative-saves",
+      "status": "PASS",
+      "detail": "",
+      "cloud_sha256": {},
+      "pointers": {
+        "SAVESPATH": "/storage/roms",
+        "SAVES_REMOTE": "Saves",
+        "SETTINGS_BACKUPS": "/storage/roms/backup",
+        "SETTINGS_REMOTE": "/Mine/Backups",
+        "BACKUPMETHOD": "copy",
+        "RESTOREMETHOD": "copy",
+        "BACKUPFILE_BACKUP_OPTION": "no",
+        "BACKUPFILE_RESTORE_OPTION": "no",
+        "LOG_LEVEL": "INFO",
+        "LAYOUT_KEEP": "",
+        "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+        "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+        "CONTENT_REMOTE": "/Mine/Content"
+      }
+    },
+    {
+      "case": "empty-absolute-games",
+      "status": "PASS",
+      "detail": "",
+      "cloud_sha256": {},
+      "pointers": {
+        "SAVESPATH": "/storage/roms",
+        "SAVES_REMOTE": "/GAMES",
+        "SETTINGS_BACKUPS": "/storage/roms/backup",
+        "SETTINGS_REMOTE": "/Mine/Backups",
+        "BACKUPMETHOD": "copy",
+        "RESTOREMETHOD": "copy",
+        "BACKUPFILE_BACKUP_OPTION": "no",
+        "BACKUPFILE_RESTORE_OPTION": "no",
+        "LOG_LEVEL": "INFO",
+        "LAYOUT_KEEP": "",
+        "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+        "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+        "CONTENT_REMOTE": "/Mine/Content"
+      }
+    },
+    {
+      "case": "empty-relative-nested",
+      "status": "PASS",
+      "detail": "",
+      "cloud_sha256": {},
+      "pointers": {
+        "SAVESPATH": "/storage/roms",
+        "SAVES_REMOTE": "Mine/Saves",
+        "SETTINGS_BACKUPS": "/storage/roms/backup",
+        "SETTINGS_REMOTE": "/Mine/Backups",
+        "BACKUPMETHOD": "copy",
+        "RESTOREMETHOD": "copy",
+        "BACKUPFILE_BACKUP_OPTION": "no",
+        "BACKUPFILE_RESTORE_OPTION": "no",
+        "LOG_LEVEL": "INFO",
+        "LAYOUT_KEEP": "",
+        "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+        "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+        "CONTENT_REMOTE": "/Mine/Content"
+      }
+    },
+    {
+      "case": "home-relative-namespace",
+      "status": "PASS",
+      "detail": "",
+      "cloud_sha256": {},
+      "pointers": {
+        "SAVESPATH": "/storage/roms",
+        "SAVES_REMOTE": "GAMES",
+        "SETTINGS_BACKUPS": "/storage/roms/backup",
+        "SETTINGS_REMOTE": "/Other/Backups",
+        "BACKUPMETHOD": "copy",
+        "RESTOREMETHOD": "copy",
+        "BACKUPFILE_BACKUP_OPTION": "no",
+        "BACKUPFILE_RESTORE_OPTION": "no",
+        "LOG_LEVEL": "INFO",
+        "LAYOUT_KEEP": "",
+        "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+        "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+        "CONTENT_REMOTE": "/Other/Content"
+      }
+    },
+    {
+      "case": "absolute-namespace",
+      "status": "PASS",
+      "detail": "",
+      "cloud_sha256": {},
+      "pointers": {
+        "SAVESPATH": "/storage/roms",
+        "SAVES_REMOTE": "/GAMES",
+        "SETTINGS_BACKUPS": "/storage/roms/backup",
+        "SETTINGS_REMOTE": "/Other/Backups",
+        "BACKUPMETHOD": "copy",
+        "RESTOREMETHOD": "copy",
+        "BACKUPFILE_BACKUP_OPTION": "no",
+        "BACKUPFILE_RESTORE_OPTION": "no",
+        "LOG_LEVEL": "INFO",
+        "LAYOUT_KEEP": "",
+        "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+        "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+        "CONTENT_REMOTE": "/Other/Content"
+      }
+    },
+    {
+      "case": "partial-direct-rc3",
+      "status": "PASS",
+      "detail": "",
+      "cloud_sha256": {
+        "Mine/Backups/README.txt": "a2e91a3dddf28269cbf704b1b7e2540608e9851a88f09679701e0c6629fd7f5c",
+        "Mine/Content/BIOS/README.txt": "12345b222d272bcccee06cac35e9b0d4ac10a76617a32b72cefa8542a90d1f67",
+        "Mine/Content/README.txt": "cb0db1a29003ebedb5a5f92d17c49e7eadebedcc10e883e9d9af052fd4a57456",
+        "Mine/Content/ROMs/README.txt": "cdbf34d6dc27ad558261bd99b99bbc91850ba28a1150ef2488b18dbe87637bcd",
+        "Mine/Saves/README.txt": "81283a71c8db19f49232b395e3527170b14ae38add60d5180071196f24c283bf",
+        "Mine/Saves/gb/progress.srm": "004f46aa463d18d1fa93eb4779ac50e5c84c8eb9219868db9a337dcdd5c07ef2"
+      },
+      "pointers": {
+        "SAVESPATH": "/storage/roms",
+        "SAVES_REMOTE": "/Mine/Saves",
+        "SETTINGS_BACKUPS": "/storage/roms/backup",
+        "SETTINGS_REMOTE": "/Mine/Backups",
+        "BACKUPMETHOD": "copy",
+        "RESTOREMETHOD": "copy",
+        "BACKUPFILE_BACKUP_OPTION": "no",
+        "BACKUPFILE_RESTORE_OPTION": "no",
+        "LOG_LEVEL": "INFO",
+        "LAYOUT_KEEP": "",
+        "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+        "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+        "CONTENT_REMOTE": "/Mine/Content"
+      }
+    },
+    {
+      "case": "partial-direct-rc4",
+      "status": "PASS",
+      "detail": "",
+      "cloud_sha256": {
+        "Mine/Backups/README.txt": "a2e91a3dddf28269cbf704b1b7e2540608e9851a88f09679701e0c6629fd7f5c",
+        "Mine/Content/BIOS/README.txt": "12345b222d272bcccee06cac35e9b0d4ac10a76617a32b72cefa8542a90d1f67",
+        "Mine/Content/README.txt": "cb0db1a29003ebedb5a5f92d17c49e7eadebedcc10e883e9d9af052fd4a57456",
+        "Mine/Content/ROMs/README.txt": "cdbf34d6dc27ad558261bd99b99bbc91850ba28a1150ef2488b18dbe87637bcd",
+        "Mine/Saves/README.txt": "81283a71c8db19f49232b395e3527170b14ae38add60d5180071196f24c283bf",
+        "Mine/Saves/gb/progress.srm": "004f46aa463d18d1fa93eb4779ac50e5c84c8eb9219868db9a337dcdd5c07ef2"
+      },
+      "pointers": {
+        "SAVESPATH": "/storage/roms",
+        "SAVES_REMOTE": "/Mine/Saves",
+        "SETTINGS_BACKUPS": "/storage/roms/backup",
+        "SETTINGS_REMOTE": "/Mine/Backups",
+        "BACKUPMETHOD": "copy",
+        "RESTOREMETHOD": "copy",
+        "BACKUPFILE_BACKUP_OPTION": "no",
+        "BACKUPFILE_RESTORE_OPTION": "no",
+        "LOG_LEVEL": "INFO",
+        "LAYOUT_KEEP": "",
+        "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+        "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+        "CONTENT_REMOTE": "/Mine/Content"
+      }
+    },
+    {
+      "case": "partial-direct-rc5",
+      "status": "PASS",
+      "detail": "",
+      "cloud_sha256": {
+        "Mine/Backups/README.txt": "a2e91a3dddf28269cbf704b1b7e2540608e9851a88f09679701e0c6629fd7f5c",
+        "Mine/Content/BIOS/README.txt": "12345b222d272bcccee06cac35e9b0d4ac10a76617a32b72cefa8542a90d1f67",
+        "Mine/Content/README.txt": "cb0db1a29003ebedb5a5f92d17c49e7eadebedcc10e883e9d9af052fd4a57456",
+        "Mine/Content/ROMs/README.txt": "cdbf34d6dc27ad558261bd99b99bbc91850ba28a1150ef2488b18dbe87637bcd",
+        "Mine/Saves/README.txt": "81283a71c8db19f49232b395e3527170b14ae38add60d5180071196f24c283bf",
+        "Mine/Saves/gb/progress.srm": "004f46aa463d18d1fa93eb4779ac50e5c84c8eb9219868db9a337dcdd5c07ef2"
+      },
+      "pointers": {
+        "SAVESPATH": "/storage/roms",
+        "SAVES_REMOTE": "/Mine/Saves",
+        "SETTINGS_BACKUPS": "/storage/roms/backup",
+        "SETTINGS_REMOTE": "/Mine/Backups",
+        "BACKUPMETHOD": "copy",
+        "RESTOREMETHOD": "copy",
+        "BACKUPFILE_BACKUP_OPTION": "no",
+        "BACKUPFILE_RESTORE_OPTION": "no",
+        "LOG_LEVEL": "INFO",
+        "LAYOUT_KEEP": "",
+        "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+        "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+        "CONTENT_REMOTE": "/Mine/Content"
+      }
+    },
+    {
+      "case": "partial-parent-rc3",
+      "status": "PASS",
+      "detail": "",
+      "cloud_sha256": {
+        "Mine/Backups/README.txt": "a2e91a3dddf28269cbf704b1b7e2540608e9851a88f09679701e0c6629fd7f5c",
+        "Mine/Content/BIOS/README.txt": "12345b222d272bcccee06cac35e9b0d4ac10a76617a32b72cefa8542a90d1f67",
+        "Mine/Content/README.txt": "cb0db1a29003ebedb5a5f92d17c49e7eadebedcc10e883e9d9af052fd4a57456",
+        "Mine/Content/ROMs/README.txt": "cdbf34d6dc27ad558261bd99b99bbc91850ba28a1150ef2488b18dbe87637bcd",
+        "Mine/Saves/README.txt": "81283a71c8db19f49232b395e3527170b14ae38add60d5180071196f24c283bf",
+        "Mine/Saves/gb/progress.srm": "004f46aa463d18d1fa93eb4779ac50e5c84c8eb9219868db9a337dcdd5c07ef2"
+      },
+      "pointers": {
+        "SAVESPATH": "/storage/roms",
+        "SAVES_REMOTE": "/Mine/Saves",
+        "SETTINGS_BACKUPS": "/storage/roms/backup",
+        "SETTINGS_REMOTE": "/Mine/Backups",
+        "BACKUPMETHOD": "copy",
+        "RESTOREMETHOD": "copy",
+        "BACKUPFILE_BACKUP_OPTION": "no",
+        "BACKUPFILE_RESTORE_OPTION": "no",
+        "LOG_LEVEL": "INFO",
+        "LAYOUT_KEEP": "",
+        "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+        "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+        "CONTENT_REMOTE": "/Mine/Content"
+      }
+    },
+    {
+      "case": "partial-parent-rc4",
+      "status": "PASS",
+      "detail": "",
+      "cloud_sha256": {
+        "Mine/Backups/README.txt": "a2e91a3dddf28269cbf704b1b7e2540608e9851a88f09679701e0c6629fd7f5c",
+        "Mine/Content/BIOS/README.txt": "12345b222d272bcccee06cac35e9b0d4ac10a76617a32b72cefa8542a90d1f67",
+        "Mine/Content/README.txt": "cb0db1a29003ebedb5a5f92d17c49e7eadebedcc10e883e9d9af052fd4a57456",
+        "Mine/Content/ROMs/README.txt": "cdbf34d6dc27ad558261bd99b99bbc91850ba28a1150ef2488b18dbe87637bcd",
+        "Mine/Saves/README.txt": "81283a71c8db19f49232b395e3527170b14ae38add60d5180071196f24c283bf",
+        "Mine/Saves/gb/progress.srm": "004f46aa463d18d1fa93eb4779ac50e5c84c8eb9219868db9a337dcdd5c07ef2"
+      },
+      "pointers": {
+        "SAVESPATH": "/storage/roms",
+        "SAVES_REMOTE": "/Mine/Saves",
+        "SETTINGS_BACKUPS": "/storage/roms/backup",
+        "SETTINGS_REMOTE": "/Mine/Backups",
+        "BACKUPMETHOD": "copy",
+        "RESTOREMETHOD": "copy",
+        "BACKUPFILE_BACKUP_OPTION": "no",
+        "BACKUPFILE_RESTORE_OPTION": "no",
+        "LOG_LEVEL": "INFO",
+        "LAYOUT_KEEP": "",
+        "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+        "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+        "CONTENT_REMOTE": "/Mine/Content"
+      }
+    },
+    {
+      "case": "partial-parent-rc5",
+      "status": "PASS",
+      "detail": "",
+      "cloud_sha256": {
+        "Mine/Backups/README.txt": "a2e91a3dddf28269cbf704b1b7e2540608e9851a88f09679701e0c6629fd7f5c",
+        "Mine/Content/BIOS/README.txt": "12345b222d272bcccee06cac35e9b0d4ac10a76617a32b72cefa8542a90d1f67",
+        "Mine/Content/README.txt": "cb0db1a29003ebedb5a5f92d17c49e7eadebedcc10e883e9d9af052fd4a57456",
+        "Mine/Content/ROMs/README.txt": "cdbf34d6dc27ad558261bd99b99bbc91850ba28a1150ef2488b18dbe87637bcd",
+        "Mine/Saves/README.txt": "81283a71c8db19f49232b395e3527170b14ae38add60d5180071196f24c283bf",
+        "Mine/Saves/gb/progress.srm": "004f46aa463d18d1fa93eb4779ac50e5c84c8eb9219868db9a337dcdd5c07ef2"
+      },
+      "pointers": {
+        "SAVESPATH": "/storage/roms",
+        "SAVES_REMOTE": "/Mine/Saves",
+        "SETTINGS_BACKUPS": "/storage/roms/backup",
+        "SETTINGS_REMOTE": "/Mine/Backups",
+        "BACKUPMETHOD": "copy",
+        "RESTOREMETHOD": "copy",
+        "BACKUPFILE_BACKUP_OPTION": "no",
+        "BACKUPFILE_RESTORE_OPTION": "no",
+        "LOG_LEVEL": "INFO",
+        "LAYOUT_KEEP": "",
+        "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+        "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+        "CONTENT_REMOTE": "/Mine/Content"
+      }
+    },
+    {
+      "case": "dot-saves-refused",
+      "status": "PASS",
+      "detail": "",
+      "cloud_sha256": {
+        "owner.txt": "1a5f7f54b65cda84efa49a560e213477feff5ad3808d96eac3bc83dbe4d19267"
+      },
+      "pointers": {
+        "SAVESPATH": "/storage/roms",
+        "SAVES_REMOTE": "./",
+        "SETTINGS_BACKUPS": "/storage/roms/backup",
+        "SETTINGS_REMOTE": "/Mine/Backups",
+        "BACKUPMETHOD": "copy",
+        "RESTOREMETHOD": "copy",
+        "BACKUPFILE_BACKUP_OPTION": "no",
+        "BACKUPFILE_RESTORE_OPTION": "no",
+        "LOG_LEVEL": "INFO",
+        "LAYOUT_KEEP": "",
+        "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+        "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+        "CONTENT_REMOTE": "/Mine/Content"
+      }
+    },
+    {
+      "case": "dot-backups-refused",
+      "status": "PASS",
+      "detail": "",
+      "cloud_sha256": {
+        "owner.txt": "1a5f7f54b65cda84efa49a560e213477feff5ad3808d96eac3bc83dbe4d19267"
+      },
+      "pointers": {
+        "SAVESPATH": "/storage/roms",
+        "SAVES_REMOTE": "/Mine/Saves",
+        "SETTINGS_BACKUPS": "/storage/roms/backup",
+        "SETTINGS_REMOTE": "./",
+        "BACKUPMETHOD": "copy",
+        "RESTOREMETHOD": "copy",
+        "BACKUPFILE_BACKUP_OPTION": "no",
+        "BACKUPFILE_RESTORE_OPTION": "no",
+        "LOG_LEVEL": "INFO",
+        "LAYOUT_KEEP": "",
+        "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+        "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+        "CONTENT_REMOTE": "/Mine/Content"
+      }
+    },
+    {
+      "case": "dot-content-refused",
+      "status": "PASS",
+      "detail": "",
+      "cloud_sha256": {
+        "owner.txt": "1a5f7f54b65cda84efa49a560e213477feff5ad3808d96eac3bc83dbe4d19267"
+      },
+      "pointers": {
+        "SAVESPATH": "/storage/roms",
+        "SAVES_REMOTE": "/Mine/Saves",
+        "SETTINGS_BACKUPS": "/storage/roms/backup",
+        "SETTINGS_REMOTE": "/Mine/Backups",
+        "BACKUPMETHOD": "copy",
+        "RESTOREMETHOD": "copy",
+        "BACKUPFILE_BACKUP_OPTION": "no",
+        "BACKUPFILE_RESTORE_OPTION": "no",
+        "LOG_LEVEL": "INFO",
+        "LAYOUT_KEEP": "",
+        "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+        "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+        "CONTENT_REMOTE": "./"
+      }
+    },
+    {
+      "case": "case-folding-guard",
+      "status": "PASS",
+      "detail": "",
+      "cloud_sha256": {
+        "Pixelelated/.layout": "d81e804343334d81e07a8c88ed0712190b2de667acc711b851851757fc452aeb"
+      },
+      "pointers": {
+        "SAVESPATH": "/storage/roms",
+        "SAVES_REMOTE": "/Pixelelated/Saves",
+        "SETTINGS_BACKUPS": "/storage/roms/backup",
+        "SETTINGS_REMOTE": "/Pixelelated/Backups",
+        "BACKUPMETHOD": "copy",
+        "RESTOREMETHOD": "copy",
+        "BACKUPFILE_BACKUP_OPTION": "no",
+        "BACKUPFILE_RESTORE_OPTION": "no",
+        "LOG_LEVEL": "INFO",
+        "LAYOUT_KEEP": "",
+        "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+        "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+        "CONTENT_REMOTE": "/Pixelelated/Content"
+      }
+    },
+    {
+      "case": "case-sensitive-custom",
+      "status": "PASS",
+      "detail": "",
+      "cloud_sha256": {
+        "Pixelelated/.layout": "d81e804343334d81e07a8c88ed0712190b2de667acc711b851851757fc452aeb",
+        "Pixelelated/Backups/README.txt": "a2e91a3dddf28269cbf704b1b7e2540608e9851a88f09679701e0c6629fd7f5c",
+        "Pixelelated/Content/BIOS/README.txt": "12345b222d272bcccee06cac35e9b0d4ac10a76617a32b72cefa8542a90d1f67",
+        "Pixelelated/Content/README.txt": "cb0db1a29003ebedb5a5f92d17c49e7eadebedcc10e883e9d9af052fd4a57456",
+        "Pixelelated/Content/ROMs/README.txt": "cdbf34d6dc27ad558261bd99b99bbc91850ba28a1150ef2488b18dbe87637bcd",
+        "Pixelelated/Saves/README.txt": "81283a71c8db19f49232b395e3527170b14ae38add60d5180071196f24c283bf"
+      },
+      "pointers": {
+        "SAVESPATH": "/storage/roms",
+        "SAVES_REMOTE": "/Pixelelated/Saves",
+        "SETTINGS_BACKUPS": "/storage/roms/backup",
+        "SETTINGS_REMOTE": "/Pixelelated/Backups",
+        "BACKUPMETHOD": "copy",
+        "RESTOREMETHOD": "copy",
+        "BACKUPFILE_BACKUP_OPTION": "no",
+        "BACKUPFILE_RESTORE_OPTION": "no",
+        "LOG_LEVEL": "INFO",
+        "LAYOUT_KEEP": "",
+        "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+        "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+        "CONTENT_REMOTE": "/Pixelelated/Content"
+      }
+    },
+    {
+      "case": "case-unknown-refused",
+      "status": "PASS",
+      "detail": "",
+      "cloud_sha256": {
+        "Pixelelated/.layout": "d81e804343334d81e07a8c88ed0712190b2de667acc711b851851757fc452aeb"
+      },
+      "pointers": {
+        "SAVESPATH": "/storage/roms",
+        "SAVES_REMOTE": "/Pixelelated/Saves",
+        "SETTINGS_BACKUPS": "/storage/roms/backup",
+        "SETTINGS_REMOTE": "/Pixelelated/Backups",
+        "BACKUPMETHOD": "copy",
+        "RESTOREMETHOD": "copy",
+        "BACKUPFILE_BACKUP_OPTION": "no",
+        "BACKUPFILE_RESTORE_OPTION": "no",
+        "LOG_LEVEL": "INFO",
+        "LAYOUT_KEEP": "",
+        "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+        "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+        "CONTENT_REMOTE": "/Pixelelated/Content"
+      }
+    },
+    {
+      "case": "guard-malformed",
+      "status": "PASS",
+      "detail": "",
+      "cloud_sha256": {
+        "pixelelated/.layout": "40b030e8af10fb894f5dba7efd180bfdb7681b3e2972da513473e6518d5ebd93",
+        "pixelelated/Saves/gb/progress.srm": "f660a7996deacfbc7560e4240054a8ad82eb02fe25a95064257e07084bcacb85"
+      },
+      "pointers": {
+        "SAVESPATH": "/storage/roms",
+        "SAVES_REMOTE": "/pixelelated/Saves",
+        "SETTINGS_BACKUPS": "/storage/roms/backup",
+        "SETTINGS_REMOTE": "/pixelelated/Backups",
+        "BACKUPMETHOD": "copy",
+        "RESTOREMETHOD": "copy",
+        "BACKUPFILE_BACKUP_OPTION": "no",
+        "BACKUPFILE_RESTORE_OPTION": "no",
+        "LOG_LEVEL": "INFO",
+        "LAYOUT_KEEP": "",
+        "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+        "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+        "CONTENT_REMOTE": "/pixelelated/Content"
+      }
+    },
+    {
+      "case": "guard-marker-denied",
+      "status": "PASS",
+      "detail": "",
+      "cloud_sha256": {
+        "pixelelated/.layout": "be68d69fa1fe3ddbcaa9295b8e3e732fd0113d909e38cf643d95aab41c9b1a22",
+        "pixelelated/Saves/gb/progress.srm": "f660a7996deacfbc7560e4240054a8ad82eb02fe25a95064257e07084bcacb85"
+      },
+      "pointers": {
+        "SAVESPATH": "/storage/roms",
+        "SAVES_REMOTE": "/pixelelated/Saves",
+        "SETTINGS_BACKUPS": "/storage/roms/backup",
+        "SETTINGS_REMOTE": "/pixelelated/Backups",
+        "BACKUPMETHOD": "copy",
+        "RESTOREMETHOD": "copy",
+        "BACKUPFILE_BACKUP_OPTION": "no",
+        "BACKUPFILE_RESTORE_OPTION": "no",
+        "LOG_LEVEL": "INFO",
+        "LAYOUT_KEEP": "",
+        "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+        "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+        "CONTENT_REMOTE": "/pixelelated/Content"
+      }
+    },
+    {
+      "case": "guard-list-denied",
+      "status": "PASS",
+      "detail": "",
+      "cloud_sha256": {
+        "pixelelated/Saves/gb/progress.srm": "f660a7996deacfbc7560e4240054a8ad82eb02fe25a95064257e07084bcacb85"
+      },
+      "pointers": {
+        "SAVESPATH": "/storage/roms",
+        "SAVES_REMOTE": "/pixelelated/Saves",
+        "SETTINGS_BACKUPS": "/storage/roms/backup",
+        "SETTINGS_REMOTE": "/pixelelated/Backups",
+        "BACKUPMETHOD": "copy",
+        "RESTOREMETHOD": "copy",
+        "BACKUPFILE_BACKUP_OPTION": "no",
+        "BACKUPFILE_RESTORE_OPTION": "no",
+        "LOG_LEVEL": "INFO",
+        "LAYOUT_KEEP": "",
+        "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+        "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+        "CONTENT_REMOTE": "/pixelelated/Content"
+      }
+    },
+    {
+      "case": "guard-config",
+      "status": "PASS",
+      "detail": "",
+      "cloud_sha256": {
+        "pixelelated/Saves/gb/progress.srm": "f660a7996deacfbc7560e4240054a8ad82eb02fe25a95064257e07084bcacb85"
+      },
+      "pointers": {
+        "SAVESPATH": "/storage/roms",
+        "SAVES_REMOTE": "/pixelelated/Saves",
+        "SETTINGS_BACKUPS": "/storage/roms/backup",
+        "SETTINGS_REMOTE": "/pixelelated/Backups",
+        "BACKUPMETHOD": "copy",
+        "RESTOREMETHOD": "copy",
+        "BACKUPFILE_BACKUP_OPTION": "no",
+        "BACKUPFILE_RESTORE_OPTION": "no",
+        "LOG_LEVEL": "INFO",
+        "LAYOUT_KEEP": "",
+        "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+        "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+        "CONTENT_REMOTE": "$(touch /storage/should-not-exist)"
+      }
+    },
+    {
+      "case": "mkdir-denied",
+      "status": "PASS",
+      "detail": "",
+      "cloud_sha256": {
+        "pixelelated/Saves/gb/progress.srm": "f660a7996deacfbc7560e4240054a8ad82eb02fe25a95064257e07084bcacb85"
+      },
+      "pointers": {
+        "SAVESPATH": "/storage/roms",
+        "SAVES_REMOTE": "/pixelelated/Saves",
+        "SETTINGS_BACKUPS": "/storage/roms/backup",
+        "SETTINGS_REMOTE": "/pixelelated/Backups",
+        "BACKUPMETHOD": "copy",
+        "RESTOREMETHOD": "copy",
+        "BACKUPFILE_BACKUP_OPTION": "no",
+        "BACKUPFILE_RESTORE_OPTION": "no",
+        "LOG_LEVEL": "INFO",
+        "LAYOUT_KEEP": "",
+        "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+        "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+        "CONTENT_REMOTE": "/pixelelated/Content"
+      }
+    },
+    {
+      "case": "readme-denied",
+      "status": "PASS",
+      "detail": "",
+      "cloud_sha256": {
+        "pixelelated/.layout": "be68d69fa1fe3ddbcaa9295b8e3e732fd0113d909e38cf643d95aab41c9b1a22",
+        "pixelelated/Saves/gb/progress.srm": "f660a7996deacfbc7560e4240054a8ad82eb02fe25a95064257e07084bcacb85"
+      },
+      "pointers": {
+        "SAVESPATH": "/storage/roms",
+        "SAVES_REMOTE": "/pixelelated/Saves",
+        "SETTINGS_BACKUPS": "/storage/roms/backup",
+        "SETTINGS_REMOTE": "/pixelelated/Backups",
+        "BACKUPMETHOD": "copy",
+        "RESTOREMETHOD": "copy",
+        "BACKUPFILE_BACKUP_OPTION": "no",
+        "BACKUPFILE_RESTORE_OPTION": "no",
+        "LOG_LEVEL": "INFO",
+        "LAYOUT_KEEP": "",
+        "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+        "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+        "CONTENT_REMOTE": "/pixelelated/Content"
+      }
+    },
+    {
+      "case": "explicit-selection",
+      "status": "PASS",
+      "detail": "",
+      "cloud_sha256": {
+        "ROCKNIX/Saves/gb/old.srm": "01d09d19c2139a46aebfb577780d123d7396e97201bc7ead210a2ebff8239dee"
+      },
+      "pointers": {
+        "SAVESPATH": "/storage/roms",
+        "SAVES_REMOTE": "/Selected/Saves",
+        "SETTINGS_BACKUPS": "/storage/roms/backup",
+        "SETTINGS_REMOTE": "/Selected/Backups",
+        "BACKUPMETHOD": "copy",
+        "RESTOREMETHOD": "copy",
+        "BACKUPFILE_BACKUP_OPTION": "no",
+        "BACKUPFILE_RESTORE_OPTION": "no",
+        "LOG_LEVEL": "INFO",
+        "LAYOUT_KEEP": "",
+        "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+        "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+        "CONTENT_REMOTE": "/Other"
+      }
+    },
+    {
+      "case": "partial-library",
+      "status": "PASS",
+      "detail": "",
+      "cloud_sha256": {
+        "pixelelated/Content/ROMs/gb/Local.gb": "17c668db43feb25840e4a7572343e371fb7dc4e9de6e296c7022a154139afdd0",
+        "pixelelated/Content/ROMs/gb/Remote.gb": "bbe739123d4beee96ca18ebf80e9973326dc9cee848ddd4935880e34f36a447d",
+        "pixelelated/Content/ROMs/psx/CloudOnly.chd": "27b840ca0732c2dc33eadddc2aaf982764492d476968319125729336318d56b0"
+      },
+      "pointers": {
+        "SAVESPATH": "/storage/roms",
+        "SAVES_REMOTE": "/pixelelated/Saves",
+        "SETTINGS_BACKUPS": "/storage/roms/backup",
+        "SETTINGS_REMOTE": "/pixelelated/Backups",
+        "BACKUPMETHOD": "copy",
+        "RESTOREMETHOD": "copy",
+        "BACKUPFILE_BACKUP_OPTION": "no",
+        "BACKUPFILE_RESTORE_OPTION": "no",
+        "LOG_LEVEL": "INFO",
+        "LAYOUT_KEEP": "",
+        "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+        "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+        "CONTENT_REMOTE": "/pixelelated/Content"
+      }
+    },
+    {
+      "case": "no-remote",
+      "status": "PASS",
+      "detail": "",
+      "cloud_sha256": {},
+      "pointers": {
+        "SAVESPATH": "/storage/roms",
+        "SAVES_REMOTE": "/pixelelated/Saves",
+        "SETTINGS_BACKUPS": "/storage/roms/backup",
+        "SETTINGS_REMOTE": "/pixelelated/Backups",
+        "BACKUPMETHOD": "copy",
+        "RESTOREMETHOD": "copy",
+        "BACKUPFILE_BACKUP_OPTION": "no",
+        "BACKUPFILE_RESTORE_OPTION": "no",
+        "LOG_LEVEL": "INFO",
+        "LAYOUT_KEEP": "",
+        "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+        "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+        "CONTENT_REMOTE": "/pixelelated/Content"
+      }
+    },
+    {
+      "case": "archive-roundtrip",
+      "status": "PASS",
+      "detail": "",
+      "cloud_sha256": {
+        "pixelelated/Backups/QA-deadbeef01/2026_10_01-120000-QA-ROCKNIX_SETTINGS.tar.gz": "d1f72b340aaa8bbc0a1c973c4b4ffe0124b89033ec3bb1e012a2a5022fb53f3a",
+        "pixelelated/Backups/QA-deadbeef01/device.json": "253a3536aadae78905a200a3687226eec44c29463372a884bd3a0bece69b9e74"
+      },
+      "pointers": {
+        "SAVESPATH": "/storage/roms",
+        "SAVES_REMOTE": "/pixelelated/Saves",
+        "SETTINGS_BACKUPS": "/storage/roms/backup",
+        "SETTINGS_REMOTE": "/pixelelated/Backups",
+        "BACKUPMETHOD": "copy",
+        "RESTOREMETHOD": "copy",
+        "BACKUPFILE_BACKUP_OPTION": "no",
+        "BACKUPFILE_RESTORE_OPTION": "no",
+        "LOG_LEVEL": "INFO",
+        "LAYOUT_KEEP": "",
+        "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+        "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+        "CONTENT_REMOTE": "/pixelelated/Content"
+      }
+    },
+    {
+      "case": "interrupted-state",
+      "status": "PASS",
+      "detail": "",
+      "cloud_sha256": {
+        "ROCKNIX/Content/BIOS/README.txt": "12345b222d272bcccee06cac35e9b0d4ac10a76617a32b72cefa8542a90d1f67",
+        "ROCKNIX/Content/README.txt": "cb0db1a29003ebedb5a5f92d17c49e7eadebedcc10e883e9d9af052fd4a57456",
+        "ROCKNIX/Content/ROMs/README.txt": "cdbf34d6dc27ad558261bd99b99bbc91850ba28a1150ef2488b18dbe87637bcd",
+        "ROCKNIX/Content/ROMs/psx/CloudOnly.chd": "79b8935dec9f725409026af671656466bc5a42bcc9967a4ef270e79aebb02d4a",
+        "pixelelated/.layout": "be68d69fa1fe3ddbcaa9295b8e3e732fd0113d909e38cf643d95aab41c9b1a22",
+        "pixelelated/Backups/README.txt": "a2e91a3dddf28269cbf704b1b7e2540608e9851a88f09679701e0c6629fd7f5c",
+        "pixelelated/Saves/README.txt": "81283a71c8db19f49232b395e3527170b14ae38add60d5180071196f24c283bf",
+        "pixelelated/Saves/gb/progress.srm": "8e804667e1a9775d3463d2845294092a4490b3d86716a1dee6410edf50857c68"
+      },
+      "pointers": {
+        "SAVESPATH": "/storage/roms",
+        "SAVES_REMOTE": "/pixelelated/Saves",
+        "SETTINGS_BACKUPS": "/storage/roms/backup",
+        "SETTINGS_REMOTE": "/pixelelated/Backups",
+        "BACKUPMETHOD": "copy",
+        "RESTOREMETHOD": "copy",
+        "BACKUPFILE_BACKUP_OPTION": "no",
+        "BACKUPFILE_RESTORE_OPTION": "no",
+        "LOG_LEVEL": "INFO",
+        "LAYOUT_KEEP": "",
+        "RCLONEOPTS": "--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt",
+        "RCLONE_NET_OPTS": "--contimeout 1s --timeout 2s --low-level-retries 1 --retries 1",
+        "CONTENT_REMOTE": "/ROCKNIX/Content"
+      }
+    }
+  ]
+}

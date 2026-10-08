@@ -1,0 +1,4 @@
+10.0.2.0/24 dev eth0 scope link  src 10.0.2.15  metric 100 
+fe80::/64 dev eth0  metric 1024 
+fec0::/64 dev eth0  metric 100 
+multicast ff00::/8 dev eth0  metric 256 

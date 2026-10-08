@@ -1,0 +1,43 @@
+{
+  "owner": "/workspace/repos/rocknix.worktrees/m7-duckstation-deps01",
+  "accepted_readonly_inputs": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement16",
+  "source_sha256": "fd5bf388cbdbe006a3d3b318d983b2948382440acc85a87f1e7d108653e8db0b",
+  "commands": [
+    [
+      "cp",
+      "-a",
+      "--reflink=auto",
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement16/build.pixelelated-GENERIC_X64.x86_64/toolchain",
+      "/workspace/repos/rocknix.worktrees/m7-duckstation-deps01/build.pixelelated-GENERIC_X64.x86_64/toolchain"
+    ],
+    [
+      "cp",
+      "-a",
+      "--reflink=auto",
+      "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement16/build.pixelelated-GENERIC_X64.x86_64/.stamps",
+      "/workspace/repos/rocknix.worktrees/m7-duckstation-deps01/build.pixelelated-GENERIC_X64.x86_64/.stamps"
+    ],
+    [
+      "cp",
+      "-a",
+      "--reflink=auto",
+      "/workspace/cache/rocknix-sources/libcom-err/libcom-err-1.47.4.tar.xz",
+      "/workspace/repos/rocknix.worktrees/m7-duckstation-deps01/sources/libcom-err/libcom-err-1.47.4.tar.xz"
+    ],
+    [
+      "cp",
+      "-a",
+      "--reflink=auto",
+      "/workspace/cache/rocknix-sources/libcom-err/libcom-err-1.47.4.tar.xz.sha256",
+      "/workspace/repos/rocknix.worktrees/m7-duckstation-deps01/sources/libcom-err/libcom-err-1.47.4.tar.xz.sha256"
+    ],
+    [
+      "cp",
+      "-a",
+      "--reflink=auto",
+      "/workspace/cache/rocknix-sources/libcom-err/libcom-err-1.47.4.tar.xz.url",
+      "/workspace/repos/rocknix.worktrees/m7-duckstation-deps01/sources/libcom-err/libcom-err-1.47.4.tar.xz.url"
+    ]
+  ],
+  "scope": "Copied toolchain/stamps and checked source only; no compilation or accepted-root mutation."
+}
