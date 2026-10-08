@@ -91,12 +91,16 @@ Every file states where it starts and where it leaves the focus, because the
 next file depends on it. Read the file; the notes below are only the ones
 that span files.
 
-- `to-change-cloud-folder.steps` and `confirm-cloud-folder.steps` reach the
-  CLOUD FOLDER editor and press OK on the current value; on MinIO, where
-  `/pixelelated/Saves` is not a legal bucket name, that is the refusal dialog
-  (#78). The walk takes **seven** downs since CHECK CONNECTION joined CLOUD
-  STORAGE SETUP above CHANGE CLOUD FOLDER; with six it ran the connection
-  check instead and sat on its dialog (2026-09-11).
+- `to-change-cloud-folder.steps` reaches CLOUD FOLDERS, then opens its
+  initially selected SAVES FOLDER row. `confirm-cloud-folder.steps` presses
+  START once on that unchanged value, returns to CLOUD FOLDERS, and uses B
+  to return to the hub. The unchanged value is a no-op on every provider,
+  including MinIO; it no longer runs the old #78 provider probe. The suite
+  compares configuration, selected paths, and local/cloud file witnesses
+  before and after these walks (#527). Actual path changes/refusals have
+  separate CF05 evidence in the canonical cloud-folder flow review.
+  The hub still takes seven downs from BACK UP TO THE CLOUD; inspect the
+  focused-row frame before trusting the count.
 - `ui-settings-toggle.steps` ends on USER INTERFACE SETTINGS with its last
   row -- SHOW RETROACHIEVEMENTS ICON, a Settings-backed switch -- toggled and
   focused; the next B closes the page and runs both settings writers
