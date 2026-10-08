@@ -1,0 +1,18 @@
+{
+  "channels": {
+    "inner.rc": "1",
+    "outer.rc": "1",
+    "tool-wrapper.rc": "1",
+    "build.rc": "1"
+  },
+  "pids_absent": [
+    3687796,
+    3687797,
+    3687798,
+    3687829
+  ],
+  "original_result": "FAILED post-build fixture; unchanged",
+  "cause": "host opened guest-runtime absolute symlink instead of staged catalog",
+  "build_tasks": "643/643",
+  "container_observation": "live inspect missed; pinned digest bound by actual logged invocation and pre/post image-ID checks; no observed container ID claimed"
+}

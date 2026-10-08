@@ -1,0 +1,64 @@
+{
+  "verified_at": "2026-10-08T18:13:33.340846+00:00",
+  "result": "PASS",
+  "scope": "existing engineering image accepted after corrected read-only assembled verification; VM qualification pending",
+  "original_build_attempt": {
+    "channels": {
+      "inner.rc": "1",
+      "outer.rc": "1",
+      "tool-wrapper.rc": "1",
+      "build.rc": "1"
+    },
+    "pids_absent": [
+      3687796,
+      3687797,
+      3687798,
+      3687829
+    ],
+    "original_result": "FAILED post-build fixture; unchanged",
+    "cause": "host opened guest-runtime absolute symlink instead of staged catalog",
+    "build_tasks": "643/643",
+    "container_observation": "live inspect missed; pinned digest bound by actual logged invocation and pre/post image-ID checks; no observed container ID claimed"
+  },
+  "corrected_verification_owner": "/workspace/tmp/pixelelated-m7-replacement17-verification01",
+  "corrected_verification_channels": {
+    "inner.rc": "0",
+    "outer.rc": "0",
+    "tool-wrapper.rc": "0",
+    "build.rc": "0"
+  },
+  "corrected_verification_launcher": {
+    "utc": "2026-10-08T18:12:25.390651+00:00",
+    "pid": 3873016,
+    "runner_returncode": 0,
+    "submission_is_not_completion": true
+  },
+  "actual_verification_pids_absent": [
+    3873016,
+    3873017,
+    3873018,
+    3873049
+  ],
+  "manifest_sha256": "000ceedbef677873c081ae7db4e2b3a7b31d57687ff7deb10a15c959ad9044aa",
+  "artifacts": {
+    "pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz": {
+      "sha256": "86c8c35d18b11f85a6c443acafde59f0b58c714c7854ed84558c8f4d9f393a5f",
+      "bytes": 2073504996
+    },
+    "pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz.sha256": {
+      "sha256": "28c66f88526f02b2cbb11a108e14fe750313999193025206b91180b2e7df613b",
+      "bytes": 123
+    },
+    "pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.tar": {
+      "sha256": "88ff5e130e8940cd5f41d039d632a8d26fc17321a716938a05d08f3a65ad3a90",
+      "bytes": 2074357760
+    },
+    "pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.tar.sha256": {
+      "sha256": "2100d70d456cad0c85b2cd2619a59c915df5f1880231c23cea4cb847ccc7fab7",
+      "bytes": 120
+    }
+  },
+  "source_unchanged": true,
+  "container_runtime_limit": "live inspect missed; pinned digest bound by actual logged invocation and pre/post image-ID checks; no observed container ID claimed",
+  "issue": 525
+}
