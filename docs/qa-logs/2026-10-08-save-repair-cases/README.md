@@ -1,7 +1,8 @@
 # Source-derived save layouts and coverage — #515/#520/#521/#522/#523
 
-This packet qualifies the active M7.P5 source work before #508 integration and
-#507's independent audit. It contains synthetic fixtures and public/package
+This packet retains qualified M7.P5 source work, integrated through #508 in
+`e6645cb5ea` and published with evidence at next `bc4ae05d30`. #515 and source
+fixes #520/#521/#522/#523 are closed; #507's independent audit is next. It contains synthetic fixtures and public/package
 source references, never a personal cloud inventory. It is not assembled-image
 adoption, gameplay compatibility, or the independent audit.
 
@@ -70,7 +71,7 @@ The guest/compiler were retired after final completeness review, with compact
 receipts; the two owned scratch paths are absent. Product integration commit
 `e6645cb5ea5ae3c7f699390a74b22d098fbeb7fb` carries the exact26 package changes
 and the matched ES pin; ES4e410dc9 is published on its integration branch.
-Distribution next publication is being completed. No firmware build, physical
+Distribution source and evidence are published on next `bc4ae05d30`. No firmware build, physical
 action, private backend, independent audit or release publication has started.
 
 ## Tracker and remaining release gates
