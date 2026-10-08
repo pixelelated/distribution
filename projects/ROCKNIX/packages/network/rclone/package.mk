@@ -81,7 +81,7 @@ makeinstall_target() {
   # the restore/backup pair -- is the network up, and has it stayed up (#103).
   cp cloud_net_ready ${INSTALL}/usr/bin/
   # cloud_scan: the restore flow's scan page runs it first and offers only
-  # what it found (D-CLOUD-156, fork #350); reads only, no lock.
+  # what it found (D-CLOUD-156, fork #350); reads under a parent-held lock.
   cp cloud_scan ${INSTALL}/usr/bin/
   cp rasteratops-settings-archive ${INSTALL}/usr/bin/
   # No game-end event hook. EmulationStation runs the save sync itself now
