@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Saved: 2026-10-09T00:17:15.535129+00:00
+> Saved: 2026-10-09T00:10:40.466967+00:00
 > Coordinator: feature/conflict-resolution
 > Repository: pixelelated/distribution
 
@@ -200,10 +200,8 @@ The index is derived from the sealed inventories; it does not certify hidden
 runtime downloads, complete vendored notices or release/backup clearance.
 
 `licence-basis.json` retains source-cited root/scoped terms for13 of17 missing
-recipe declarations. Five components have no established aggregate basis: common, GLSL,
-RetroPie and slang shaders, and rocknix-abl. The current basis is
-`docs/qa-logs/2026-10-09-notice-scope/licence-basis-corrected.json`;
-the earlier GLSL root-licence label is superseded, not source evidence. Per-file, dependency and output-use
+recipe declarations. Four collections still have no aggregate basis: common,
+RetroPie and slang shaders, and rocknix-abl. Per-file, dependency and output-use
 dispositions remain even where a root licence is known. No recipe or image changed.
 
 Prebuilt source owner `/workspace/tmp/pixelelated-m7-prebuilt-source-01` finished
@@ -346,25 +344,6 @@ VM rule now requires observed frontend readiness and isolated negative-test
 baselines. No additional external audit or firmware run is needed. The next
 publication carries these scoped preparation/retro commits; consume its hosted
 checks from the actual pushed head. Named device approval remains pending.
-
-## #528 notice scope corrected
-
-Use `docs/qa-logs/2026-10-09-notice-scope/` for the current basis. Exact archive
-2607e40d468e31ea5bb96e557db8dbbaada683afec189523a7b9d31ef57ed296 proves
-GLSL's retained LGPL text is in nnedi3/LICENSE; it is not a collection-root
-licence. Both that and crt-royale's notice are retained. Original sealed basis
-is unchanged;13 means some root/scoped evidence, not component clearance.
-Five components have no established aggregate basis (common/GLSL/RetroPie/slang
-shaders and ABL). All #528 publication criteria stay open. Live M7/#344/#528
-bodies now cite the correction. No recipe/firmware/source input changed.
-Preliminary ZeroTier object inspection found no nonfree controller objects in
-current VM/H700/SM8550 roots, but this is not final binary/dependency clearance.
-The object count alone must not close its disposition.
-
-Published preparation head aaf030462d5214422355ab1beb05651c68925710 has record
-37863492227 and wordlist37863492294 both SUCCESS, consumed. The final
-notice correction is a separate scoped delivery; consume its exact-head checks.
-Device staging/alignment approval remains pending; no dispatch command ran.
 
 ## Current work and next commands
 
