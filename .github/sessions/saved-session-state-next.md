@@ -343,9 +343,10 @@ Adding the October9 active work log triggered the scheduled mini-retro gate.
 The focused `docs/retros/2026-10-09-owner-alignment-preparation.md` and receipt
 record its completion/propagation, without claiming #519 or M7 complete. The
 VM rule now requires observed frontend readiness and isolated negative-test
-baselines. No additional external audit or firmware run is needed. The next
-publication carries these scoped preparation/retro commits; consume its hosted
-checks from the actual pushed head. Named device approval remains pending.
+baselines. No additional external audit or firmware run is needed. These
+preparation/retro commits are published at aaf030462d5214422355ab1beb05651c68925710,
+with both hosted checks successful as recorded below; do not republish them.
+Named device approval remains pending.
 
 ## #528 notice scope corrected
 
