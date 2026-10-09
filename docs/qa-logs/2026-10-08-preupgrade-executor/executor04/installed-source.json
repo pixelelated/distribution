@@ -1,0 +1,34 @@
+{
+  "/usr/bin/cloud_migrate_layout": {
+    "source": "projects/ROCKNIX/packages/network/rclone/sources/cloud_migrate_layout",
+    "sha256": "0e4ccebde159006acb6313027e33b363b177eff2b62db2bacc93fea05396b2c1"
+  },
+  "/usr/bin/cloud_scan": {
+    "source": "projects/ROCKNIX/packages/network/rclone/sources/cloud_scan",
+    "sha256": "a4830b23e7d3df7d86cba7867ccaaca583ea8881e90a4c5d3988671d79b20aa1"
+  },
+  "/usr/bin/cloud_backup": {
+    "source": "projects/ROCKNIX/packages/network/rclone/sources/cloud_backup",
+    "sha256": "12a231698b70a8b83eb9d1fd1bc593f4507313030635a6750392f5fd19130a03"
+  },
+  "/usr/bin/cloud_restore": {
+    "source": "projects/ROCKNIX/packages/network/rclone/sources/cloud_restore",
+    "sha256": "ec63c21ad782703c6679ce5e1a7b8c5e8f610daeec8cdda224d166df945d0544"
+  },
+  "/usr/bin/start_es.sh": {
+    "source": "projects/ROCKNIX/packages/ui/emulationstation/sources/start_es.sh",
+    "sha256": "463acec36231a2230f311e0281fe80693c0046c531985bd75bd4c8d83b95161e"
+  },
+  "/usr/lib/systemd/system/emustation.service": {
+    "source": "projects/ROCKNIX/packages/ui/emulationstation/system.d/emustation.service",
+    "sha256": "750aaecb3671862c49e33b2480c08d77c9279ae74072df4626d069efb271188b"
+  },
+  "/usr/lib/systemd/system/essway.service": {
+    "source": "projects/ROCKNIX/packages/ui/emulationstation/system.d/essway.service",
+    "sha256": "95b47b6b8c82b6ca18c7079a1d45cf183e91e5f7ae15969045752b629b7f9c25"
+  },
+  "/etc/profile.d/001-functions": {
+    "source": "projects/ROCKNIX/packages/rocknix/profile.d/001-functions",
+    "sha256": "2a67891c9a3090ddae78d4b729ce7b8f5c41d853e0975b4ce0203df7789e4ab5"
+  }
+}

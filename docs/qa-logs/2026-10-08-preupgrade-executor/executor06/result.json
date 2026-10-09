@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "checks": [
+    "held-transfer-lease-refuses-without-device-edits",
+    "stale-binding-refuses-before-gate",
+    "rollback-refuses-intervening-config-edit",
+    "exact-executor-interruption-and-rollback-retains-gate-and-original-modes",
+    "exact-executor-success-restores-frontend-and-removes-temporary-gates",
+    "private-archive-live-mode-preservation-and-unrelated-duplicate-retention"
+  ],
+  "operation_sha256": "4e286b7906d47ef752761442ed294960f6d7ef5b3417f8925f1249024ce676a1",
+  "collector_sha256": "3f3ebacb4034ed35ad32fd365153aa0dc1039878ecec2f6237b41429a9d9162f",
+  "scope": "same executable uses invented alias/data; no private owner binding imported"
+}

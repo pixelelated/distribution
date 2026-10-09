@@ -1,0 +1,17 @@
+{
+  "utc": "2026-10-08T23:58:40.362729+00:00",
+  "actual_host_owners_exited": [
+    1923653,
+    1923654,
+    1923655
+  ],
+  "original_results": {
+    "inner.rc": 1,
+    "outer.rc": 1,
+    "guest-command.rc": 1,
+    "tool-wrapper.rc": 1,
+    "build.rc": 1
+  },
+  "cause": "synthetic reset used fixed three-second sleep; executor refused non-idle frontend before second application",
+  "three_controls_passed": true
+}

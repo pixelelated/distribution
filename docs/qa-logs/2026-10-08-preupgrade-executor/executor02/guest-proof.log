@@ -1,0 +1,8 @@
+PASS held-transfer-lease-refuses-without-device-edits
+PASS stale-binding-refuses-before-gate
+Traceback (most recent call last):
+  File "/storage/qa519-operation/guest-proof.py", line 48, in <module>
+    p=run(cmd+['--synthetic-fail','cloud-live'],1);assert 'synthetic interruption' in p.stderr,p.stderr
+                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: REFUSED RuntimeError: fresh binding differs
+

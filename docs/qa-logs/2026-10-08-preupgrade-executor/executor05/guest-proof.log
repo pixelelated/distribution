@@ -1,0 +1,5 @@
+PASS held-transfer-lease-refuses-without-device-edits
+PASS stale-binding-refuses-before-gate
+PASS exact-executor-interruption-and-rollback-retains-gate-and-original-modes
+PASS exact-executor-success-restores-frontend-and-removes-temporary-gates
+PASS private-archive-live-mode-preservation-and-unrelated-duplicate-retention

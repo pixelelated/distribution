@@ -1,0 +1,14 @@
+watch-build: recording in /workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261009T000019Z-e70a140f
+/workspace/tmp/pixelelated-m7-alignment-executor-06/create.py: OK
+/workspace/tmp/pixelelated-m7-alignment-executor-06/guest-proof.py: OK
+/workspace/tmp/pixelelated-m7-alignment-executor-06/inspect.py: OK
+/workspace/tmp/pixelelated-m7-alignment-executor-06/operation.py: OK
+/workspace/tmp/pixelelated-m7-alignment-executor-06/outer.sh: OK
+/workspace/tmp/pixelelated-m7-alignment-executor-06/run.py: OK
+/workspace/tmp/pixelelated-m7-alignment-executor-06/run.sh: OK
+Image hash verified; converting fresh disposable disk
+Image resized.
+[W][00:00:26.131046] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][00:00:26.131081] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+ready after ~30s
+PASS fresh old-source guest ready; no personal credentials or data imported
