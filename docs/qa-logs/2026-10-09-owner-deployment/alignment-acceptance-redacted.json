@@ -1,0 +1,25 @@
+{
+  "utc": "2026-10-09T15:10:03.554243+00:00",
+  "issue": 519,
+  "device": "owner RG35XX SP",
+  "result": "PASS",
+  "operation_sha256": "4e286b7906d47ef752761442ed294960f6d7ef5b3417f8925f1249024ce676a1",
+  "intended_update_tar_sha256": "b49cca4ca0b8996fa994181508c887d9df5afe155c9502919bab7bf7e153e39d",
+  "private_receipt_sha256": "c26a362148e49f69125606c79f8064ed9566ae4ad3920b7f4191d4e12e5102ce",
+  "private_seal_sha256": "dd45f39dcf9d2e7e026316bf2c81d32aa3b99c0429c671658df0b98d7909f42e",
+  "checks": {
+    "fresh_original_binding_equal": true,
+    "actual_acceptance_independently_read_back": true,
+    "protected_file_count": 163,
+    "protected_payload_recovery_credential_hashes_unchanged": true,
+    "automatic_sync_off": true,
+    "frontend_idle": true,
+    "no_cloud_workers": true,
+    "temporary_service_gates_removed": true,
+    "original_unit_states_restored": true,
+    "firmware_not_yet_staged": true
+  },
+  "authority": "Owner explicitly approved alignment and guarded rollback; transfer/reboot/screenshot separately approved. No cloud sync or reenable authority.",
+  "private_evidence": "/tmp/pixelelated-device-deploy-20261009",
+  "invalidation": "Any relevant intervening state change requires fresh validation before upgrade."
+}

@@ -1,0 +1,46 @@
+{
+  "utc": "2026-10-09T16:07:35.513125+00:00",
+  "result": "PASS",
+  "scope": "Three authorized updates, installed artifact/preservation/normal compositor verification; no gameplay or RC/publication claim.",
+  "devices": [
+    {
+      "device": "rg35xxsp",
+      "result": "PASS",
+      "installed_build": "8b5113fa164ada7d002ab138b1e3a9bf795e9de5",
+      "reboot_acceptance_utc": "2026-10-09T15:24:29.335232+00:00",
+      "frame_dimensions": [
+        640,
+        480
+      ],
+      "frame_sha256": "588ceaab0d11ec5cb2532c92d904339d40b450fea8bb8136e62f2f5007260546",
+      "automatic_cloud_sync_off": true,
+      "owner_may_use": true
+    },
+    {
+      "device": "rgsp",
+      "result": "PASS",
+      "installed_build": "8b5113fa164ada7d002ab138b1e3a9bf795e9de5",
+      "reboot_acceptance_utc": "2026-10-09T15:54:22.080222+00:00",
+      "frame_dimensions": [
+        720,
+        480
+      ],
+      "frame_sha256": "47c53db1de62d23976697b35d24ce9222fb66960e70ca0cea1e45e43c9c2e810",
+      "automatic_cloud_sync_off": true,
+      "owner_may_use": true
+    },
+    {
+      "device": "nova",
+      "result": "PASS",
+      "installed_build": "8b5113fa164ada7d002ab138b1e3a9bf795e9de5",
+      "reboot_acceptance_utc": "2026-10-09T16:01:07.015835+00:00",
+      "frame_dimensions": [
+        1280,
+        960
+      ],
+      "frame_sha256": "fa47da65ffaa07aa2f836cb4e2b735d4bf01ea12f168803131d0f8dcc3cc970b",
+      "automatic_cloud_sync_off": true,
+      "owner_may_use": true
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "utc": "2026-10-09T16:01:54.011567+00:00",
+  "result": "PASS",
+  "original_results": {
+    "/tmp/pixelelated-nova-reboot-20261009/inner.rc": "0",
+    "/tmp/pixelelated-nova-reboot-20261009/outer.rc": "0",
+    "/tmp/pixelelated-nova-reboot-20261009/tool-wrapper.rc": "0",
+    "/workspace/repos/rocknix/.build-runs/20261009T155442Z-e4abd974/build.rc": "0"
+  },
+  "launcher_result": {
+    "utc": "2026-10-09T16:01:09.747092+00:00",
+    "pid": 1658081,
+    "runner_returncode": 0,
+    "submission_is_not_completion": true
+  },
+  "processes": [
+    {
+      "pid": 1658081,
+      "state": "absent"
+    },
+    {
+      "pid": 1658084,
+      "state": "absent"
+    },
+    {
+      "pid": 1658089,
+      "state": "absent"
+    },
+    {
+      "pid": 1658144,
+      "state": "absent"
+    }
+  ],
+  "acceptance.json": {
+    "utc": "2026-10-09T16:01:07.015835+00:00",
+    "result": "PASS",
+    "issue": 344,
+    "old_boot_id": "814b21c8-4a6d-4782-9ec6-1bb955e8403f",
+    "new_boot_id": "41d8dba4-edec-479e-9d0b-6cf859572b55",
+    "installed_build": "8b5113fa164ada7d002ab138b1e3a9bf795e9de5",
+    "hashes": {
+      "/flash/SYSTEM": "40b62db72ecb503117a72e788ceb4a941485fe6d78ec3c5865bb5a7ddb7172d1",
+      "/flash/KERNEL": "d5afbda7f46de11141f6d2e6cc31be81ec8c597cd5fac3a87b8a6bed280a8ccc",
+      "/flash/rocknix_abl/restore_backup_abl.sh": "add45f3872e645ba215c8e5b5efcd1ef45e32b8ccf7a9275d9bf8e0de6edd247",
+      "/flash/rocknix_abl/backup_abl.sh": "bb0a723734451add4e0b7294dc9b246933e9dbadf965c06234534c923ea2b037",
+      "/flash/rocknix_abl/flash_abl.sh": "ceaf2cea5b0c5597944daceb7bee0c5c7eb10641c68f07c3ac87965617838548",
+      "/flash/rocknix_abl/abl_signed-SM8550.elf": "1aad3626b7830742cacdcdcf0c8696261ec7fa277bfbcfb9402a60bf896527e9",
+      "/flash/rocknix_abl/README": "a95dc2e5611ddc7aa5c6d0a93fd21498934eca7eee6d7aefca11c376217bf77c",
+      "/usr/bin/emulationstation": "0b94ea75d5f3a8099c4267bfc9b7df73615a04c0644518ef8891d803ed9c05ee",
+      "/usr/bin/retroarch": "4e916754324aa7df6c6ceeebbd22a733688923cce6f709eba6312fd44ef493e6",
+      "/usr/bin/retroarch32": "d33587a44cb6a040fcf1da79b8a3d122053429351513b84020b00070e013b99d"
+    },
+    "abl_slot_sha256": "1aad3626b7830742cacdcdcf0c8696261ec7fa277bfbcfb9402a60bf896527e9",
+    "scope": "authorized update and physical boot/read-only installed verification; no gameplay or deliberate cloud test; screenshot follows separately"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "utc": "2026-10-09T15:55:09.249792+00:00",
+  "result": "PASS",
+  "device": "rgsp",
+  "checks": {
+    "safe_payload": true,
+    "local_recovery": true,
+    "hooks": true,
+    "unit_overrides": true,
+    "markers": true,
+    "scan": true,
+    "settings": true,
+    "/storage/.config/cloud_sync.conf": true,
+    "/storage/.config/cloud_sync.conf.bak": true,
+    "/storage/.config/cloud_sync.conf.defaults": true,
+    "/storage/.config/cloud_sync.conf.pre-contentpath-fix": true,
+    "/storage/.config/cloud_sync-rules.txt ownership_and_mode": true,
+    "/storage/.config/rclone/rclone.conf": true,
+    "/storage/.config/system/configs/system.cfg ownership_and_mode": true,
+    "/storage/.config/system/configs/system.cfg.backup ownership_and_mode": true,
+    "/storage/.config/cloud-layout-migration.json": true,
+    "auto_off": true,
+    "frontend_idle": true,
+    "no_cloud_workers": true,
+    "new_boot": true,
+    "startup_config_semantics": true
+  },
+  "protected_file_count": 163,
+  "before_sha256": "e9d78c3f7694d3c926e24c513a0165d73bc7de701170c1083559cc831f7e3031",
+  "after_sha256": "0917292b617cf207462824cbac020394620187887f0abb30bd3c6a6ea0aceec5",
+  "failures": []
+}

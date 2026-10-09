@@ -1,0 +1,41 @@
+{
+  "utc": "2026-10-09T15:15:56.740646+00:00",
+  "result": "PASS",
+  "original_results": {
+    "/tmp/pixelelated-rg35xxsp-stage-20261009/inner.rc": "0",
+    "/tmp/pixelelated-rg35xxsp-stage-20261009/outer.rc": "0",
+    "/tmp/pixelelated-rg35xxsp-stage-20261009/tool-wrapper.rc": "0",
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261009T151116Z-4f67442d/build.rc": "0"
+  },
+  "launcher_result": {
+    "utc": "2026-10-09T15:15:27.740199+00:00",
+    "pid": 1467706,
+    "runner_returncode": 0,
+    "submission_is_not_completion": true
+  },
+  "processes": [
+    {
+      "pid": 1467706,
+      "state": "absent"
+    },
+    {
+      "pid": 1467707,
+      "state": "absent"
+    },
+    {
+      "pid": 1467708,
+      "state": "absent"
+    },
+    {
+      "pid": 1467737,
+      "state": "absent"
+    }
+  ],
+  "stage_result": {
+    "utc": "2026-10-09T15:15:20.722678+00:00",
+    "result": "PASS",
+    "remote_sha256": "b49cca4ca0b8996fa994181508c887d9df5afe155c9502919bab7bf7e153e39d",
+    "queue": "/storage/.update/pixelelated-H700.aarch64-0.0.1-from-ROCKNIX.tar",
+    "rebooted": false
+  }
+}

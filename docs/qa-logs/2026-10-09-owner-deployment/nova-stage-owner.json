@@ -1,0 +1,41 @@
+{
+  "utc": "2026-10-09T15:54:31.897903+00:00",
+  "result": "PASS",
+  "original_results": {
+    "/tmp/pixelelated-nova-stage-20261009/inner.rc": "0",
+    "/tmp/pixelelated-nova-stage-20261009/outer.rc": "0",
+    "/tmp/pixelelated-nova-stage-20261009/tool-wrapper.rc": "0",
+    "/workspace/repos/rocknix/.build-runs/20261009T153521Z-a958794f/build.rc": "0"
+  },
+  "launcher_result": {
+    "utc": "2026-10-09T15:52:25.386536+00:00",
+    "pid": 1571420,
+    "runner_returncode": 0,
+    "submission_is_not_completion": true
+  },
+  "processes": [
+    {
+      "pid": 1571420,
+      "state": "absent"
+    },
+    {
+      "pid": 1571421,
+      "state": "absent"
+    },
+    {
+      "pid": 1571432,
+      "state": "absent"
+    },
+    {
+      "pid": 1571461,
+      "state": "absent"
+    }
+  ],
+  "stage-result.json": {
+    "utc": "2026-10-09T15:52:23.601226+00:00",
+    "result": "PASS",
+    "remote_sha256": "b3f1a8190e04abbf64d35486601ee19fce35d2d25bc7239b1be7cccd9fb43730",
+    "queue": "/storage/.update/pixelelated-SM8550.aarch64-0.0.1-from-ROCKNIX.tar",
+    "rebooted": false
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "utc": "2026-10-09T15:54:52.837005+00:00",
+  "result": "PASS",
+  "original_results": {
+    "/tmp/pixelelated-rgsp-reboot-20261009/inner.rc": "0",
+    "/tmp/pixelelated-rgsp-reboot-20261009/outer.rc": "0",
+    "/tmp/pixelelated-rgsp-reboot-20261009/tool-wrapper.rc": "0",
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/.build-runs/20261009T154750Z-248325fc/build.rc": "0"
+  },
+  "launcher_result": {
+    "utc": "2026-10-09T15:54:27.893858+00:00",
+    "pid": 1626734,
+    "runner_returncode": 0,
+    "submission_is_not_completion": true
+  },
+  "processes": [
+    {
+      "pid": 1626734,
+      "state": "absent"
+    },
+    {
+      "pid": 1626735,
+      "state": "absent"
+    },
+    {
+      "pid": 1626736,
+      "state": "absent"
+    },
+    {
+      "pid": 1626764,
+      "state": "absent"
+    }
+  ],
+  "acceptance.json": {
+    "utc": "2026-10-09T15:54:22.080222+00:00",
+    "result": "PASS",
+    "issue": 344,
+    "old_boot_id": "78ee6b02-f2b6-4bb7-bf20-40480a05792d",
+    "new_boot_id": "1c32f0da-dc57-4999-9bb1-3feb99872c0e",
+    "installed_build": "8b5113fa164ada7d002ab138b1e3a9bf795e9de5",
+    "hashes": {
+      "/flash/SYSTEM": "4c902ce5842228e98f84ec5b47a751d1bb12749657bdb0a843fb16437e7fa2e7",
+      "/flash/KERNEL": "07a06330474a1e72fa6b6c844ceee8d5d6b3bbf6d6be9e4a6395b87e0592dc60",
+      "/flash/dtb.img": "7fa21a5afcee48c6275a8bf7e4abd0425d5c8e9a767d6fb2e7bb9d0854d39f7f",
+      "/usr/bin/emulationstation": "545bb3990c32f1764a1a1612caee332edd8a4389f690a2da2e161158e37058fe",
+      "/usr/bin/retroarch": "3eec8cc1236e07272482ab843b3a1020e3f2231fef78a04c75b8d3c04d4efdb8",
+      "/usr/bin/retroarch32": "1492362554b463172fe8edc1c76ce44f425bdee24b9417e2557e949d5cba049e"
+    },
+    "bootloader_sha256": "174edf6e299340bd9474936e85722ef9e2a2b553f3d3316602ef63b50d21cf07",
+    "scope": "authorized update and physical boot/read-only installed verification; no gameplay or deliberate cloud test; screenshot follows separately"
+  }
+}
