@@ -1,6 +1,6 @@
 # Saved Session State
 
-> Saved: 2026-10-09T16:22:40.016769+00:00
+> Saved: 2026-10-09T16:07:35.513125+00:00
 > Coordinator: feature/conflict-resolution
 > Repository: pixelelated/distribution
 
@@ -48,19 +48,11 @@ SM855003, replacement18, #507/#524 or #519's rehearsals merely to resume.
   root6f61bcdd15bcad3c42f11b900d80ee340a8290b0 and
   next1609c19fd33d8a18ba3099d1145b95ab8148b467. Prior final hosted checks
   succeeded; `/tmp/m7-final-delivery-20261009/final-readback.json` retains them.
-- Deployment evidence is published on next at
-  739ed70338c70e8f4783a43a8a898ac95b6e67ea (scoped coordinator commit
-  9c2276777b49ef17a61e40830e24957cf6acadab). Hosted wordlist37958048538 and
-  record37958048559 both completed successfully. #519 is closed completed;
-  whole #344 closure and M7/#529 bodies and actual child relation were read back.
-  Closure receipts and those check results are retained in
-  `docs/qa-logs/2026-10-09-owner-deployment-delivery/`. The preceding checkpoint
-  is archived at `.github/sessions/archived/saved-session-state-next-20261009T162240Z.md`.
-- This final closure/checkpoint follow-up still needs its scoped commit/push and
-  terminal hosted-check consumption. Once delivered, its exact head and original
-  outcomes are at `/tmp/pixelelated-device-deploy-20261009/final-readback.json`.
-  Consult that receipt and GitHub before treating delivery as pending; do not
-  repeat accepted hardware work. No product or firmware change is part of it.
+- Current delivery/checks: this evidence/checkpoint is prepared; commit/push and exact-head hosted checks
+  are the immediate remaining host delivery steps. See public tracking packet
+  and final delivery receipt when present; do not repeat hardware work. Whole M7
+  and #344 bodies now reflect completed deployments and #529; actual #529 child
+  relation and complete bodies were read back in the public tracking packet..
 - Build/input artifacts are under `/workspace/artifacts/`; shared sources under
   `/workspace/cache/rocknix-sources`. Frozen build worktrees stay on build/*.
 - Credentials use the existing `gh`/SSH configuration. Never print values.
@@ -86,11 +78,8 @@ save/backup paths to existing /ROCKNIX folders, retained Content selection and
 all defaults, archived only stale experimental migration/scan records. Restored
 frontend/unit states and removed owned gates. No personal cloud operation.
 Redacted actual receipt and original exits in
-`docs/qa-logs/2026-10-09-owner-deployment/`. All four #519 criteria pass.
-After publication of the actual receipt, #519 was closed completed at
-2026-10-09T16:18:32Z. Its complete closed-state readback and #344's corresponding
-closure update are in the separate deployment-delivery packet. Do not reopen
-or repeat alignment merely to resume.
+`docs/qa-logs/2026-10-09-owner-deployment/`. #519 actual operational criteria pass; close completed after this redacted
+receipt is published, then read back its state..
 
 Earlier runtime/executor proofs are complete at
 `docs/qa-logs/2026-10-08-preupgrade-runtime/` and
@@ -141,7 +130,7 @@ One frontend startup retry also occurs on the prior69e603 boot; afterward it
 runs normally with no failed units. Initial GPU firmware failure subsequently
 resolves by loading the exact GPU/GMU firmware. An early SMMU fault burst is
 retained without a cause/frequency claim; extra journal-count read failed before
-producing a receipt. No audio/gameplay or warning-free-journal claim.
+producing a receipt. No audio/gameplay or warning-free-journal claim..
 
 Additional devices' preparation changed only auto0 through the qualified core
 and restarted cached frontend state. No #519 path or scan operation was called.
