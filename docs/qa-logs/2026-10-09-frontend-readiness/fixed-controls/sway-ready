@@ -1,0 +1,38 @@
+#!/bin/bash
+# SPDX-License-Identifier: GPL-2.0-or-later
+# Copyright (C) 2026-present ROCKNIX (https://github.com/ROCKNIX)
+
+# essway's After=sway.service orders process startup, not Wayland readiness.
+# Use the same session environment as start_es.sh, including local overrides.
+. /etc/profile
+
+for command in swaymsg wlr-randr jq timeout; do
+  command -v "$command" >/dev/null 2>&1 || {
+    echo "sway-ready: required command unavailable: $command" >&2
+    exit 1
+  }
+done
+
+case "${WAYLAND_DISPLAY:-wayland-1}" in
+  /*) display_socket="${WAYLAND_DISPLAY}" ;;
+  *) display_socket="${XDG_RUNTIME_DIR:-/var/run/0-runtime-dir}/${WAYLAND_DISPLAY:-wayland-1}" ;;
+esac
+ipc_socket="${SWAYSOCK:-${XDG_RUNTIME_DIR:-/var/run/0-runtime-dir}/sway-ipc.0.sock}"
+deadline=$((SECONDS + 15))
+
+# Socket existence alone can precede the compositor's event loop. Require an
+# Wayland round trip, then an active output with a mode before starting SDL.
+# Bound each round trip too: a hung compositor must not hold startup forever.
+while (( SECONDS < deadline )); do
+  if [[ -S "$display_socket" ]] &&
+     timeout -k 1 1 wlr-randr >/dev/null 2>&1 &&
+     outputs=$(timeout -k 1 1 swaymsg -s "$ipc_socket" -r -t get_outputs 2>/dev/null) &&
+     jq -e 'type == "array" and any(.[]; .active == true and
+       (.current_mode.width // 0) > 0 and (.current_mode.height // 0) > 0)'        <<<"$outputs" >/dev/null 2>&1; then
+    exit 0
+  fi
+  sleep 0.1
+done
+
+echo "sway-ready: timed out waiting for a responsive compositor and active output" >&2
+exit 1

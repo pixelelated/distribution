@@ -10,6 +10,19 @@ should look and behave once you know where it goes; and
 [conflict-wizard-ia.md](conflict-wizard-ia.md) — the flow and screen structure
 for the cloud-save conflict wizard (#23).
 
+## Frontend startup readiness
+
+#529 changes service startup timing, with no new screen, menu row or player copy.
+The Wayland frontend waits for a responsive compositor and active output; a
+bounded failure stays in the service journal and retains automatic retry.
+The successful destination remains the system carousel. The
+[source-overlay proof](qa-logs/2026-10-09-frontend-readiness/README.md) exercises
+normal, delayed and unavailable readiness plus retained-storage boot.
+Its [frame index](qa-logs/2026-10-09-frontend-readiness/evidence-index.json)
+binds the reviewed1280×960 original/fixed carousel frames, which are identical
+without masks. This is not a new firmware or device visual-baseline promotion.
+The existing cloud and conflict-wizard flows are unchanged.
+
 ## Visual evidence and flow coverage
 
 This map is the navigation/IA reference; flow diagrams describe transitions,

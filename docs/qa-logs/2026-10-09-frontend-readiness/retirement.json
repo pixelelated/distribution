@@ -1,0 +1,15 @@
+{
+  "utc": "2026-10-09T17:17:03.732200+00:00",
+  "vm_pid": 1974906,
+  "host_exit_verified": true,
+  "disk_path": "/workspace/tmp/pixelelated-m7-readiness-01/vm.qcow2",
+  "disk_sha256_before_retirement": "0bc93313fd4419175c42a3b525889f8ad5e626133c66ea0947b4223f08762fe5",
+  "allocated_disk_bytes_released": 2247180288,
+  "disk_file_size": 2247229440,
+  "synthetic_keys_retired": true,
+  "firmware_variable_copies_retired": [
+    "vm.ovmf-vars.fd"
+  ],
+  "retained": "compact logs, original results, exact harness, source bindings, reviewed frames; accepted firmware bundle unchanged",
+  "reason": "All immediate #529 source-overlay controls and retained-storage boot finished; no further guest test queued"
+}

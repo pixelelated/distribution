@@ -1,28 +1,10 @@
 # Saved Session State
 
-> Saved: 2026-10-09T17:20:50.185657+00:00
-> Coordinator: feature/m7-p5-frontend-readiness
+> Saved: 2026-10-09T16:22:40.016769+00:00
+> Coordinator: feature/conflict-resolution
 > Repository: pixelelated/distribution
 
-## Start here — #529 source fix qualified on VM; next candidate and #528 publication queue
-
-The owner asked us to investigate the startup race while using the devices.
-No handheld was contacted. #529 now has a bounded readiness fix and executable
-VM evidence in `docs/qa-logs/2026-10-09-frontend-readiness/README.md`.
-Natural unmodified VM boot reproduced `wayland not available`; the original
-+8s delay fails four times. Eleven corrected controls, retained-storage boot
-and reviewed identical1280x960 carousel frames pass. All owners exited; the
-VM disk/keys are retired. This is source-overlay proof, not new firmware.
-#529 remains open for the next assembled candidate's installed-byte/startup
-qualification and release delta review. Nova's particular cause/timing remains
-an explicitly recorded hardware observation, not a completed physical retest.
-Current devices still run8b511 and remain available for owner use.
-
-This continuation's scoped source/docs delivery is resolved by
-`/tmp/pix529-final-readback.json` (exact pushed head and original hosted results)
-after publication. Read it and live GitHub before treating delivery as pending.
-There is no build, VM, external review or background investigation still running.
-The previous checkpoint is archived at `.github/sessions/archived/saved-session-state-next-20261009T172050Z.md`.
+## Start here — owner updates complete; #529 startup follow-up and #528 publication queue
 
 This is an immutable Linux distribution build system, not a runnable app.
 Read this complete checkpoint, primary `next`'s AGENTS.md and every-session
@@ -56,13 +38,6 @@ SM855003, replacement18, #507/#524 or #519's rehearsals merely to resume.
 
 ## Workspace and integration
 
-- Active feature: `/workspace/repos/rocknix.worktrees/m7-p5-frontend-readiness`,
-  `feature/m7-p5-frontend-readiness`, branched from next3ee72d0c97. The three-file
-  product delta is essway.service, Sway's package recipe and new sway-ready
-  helper. No ES C++/pin change. Source hashes are in the readiness proof.
-  Integrate only this branch's reviewed source/docs commits onto next.
-  The old coordinator below is historical; do not merge it wholesale.
-
 - Root `/workspace/repos/rocknix.worktrees/conflict-resolution`, branch
   `feature/conflict-resolution`, historical product divergence/older ES pin.
   **Never merge this branch wholesale.** Commit owned evidence/docs, then
@@ -81,11 +56,11 @@ SM855003, replacement18, #507/#524 or #519's rehearsals merely to resume.
   Closure receipts and those check results are retained in
   `docs/qa-logs/2026-10-09-owner-deployment-delivery/`. The preceding checkpoint
   is archived at `.github/sessions/archived/saved-session-state-next-20261009T162240Z.md`.
-- Prior deployment closure delivery completed at
-  3ee72d0c97860b659a9bb5c46a61147c6b214351. Both hosted checks37958922904
-  and37958922911 succeeded, both worktrees were clean, #519 closed and #529
-  open, as `/tmp/pixelelated-device-deploy-20261009/final-readback.json` proves.
-  Do not repeat that completed delivery.
+- This final closure/checkpoint follow-up still needs its scoped commit/push and
+  terminal hosted-check consumption. Once delivered, its exact head and original
+  outcomes are at `/tmp/pixelelated-device-deploy-20261009/final-readback.json`.
+  Consult that receipt and GitHub before treating delivery as pending; do not
+  repeat accepted hardware work. No product or firmware change is part of it.
 - Build/input artifacts are under `/workspace/artifacts/`; shared sources under
   `/workspace/cache/rocknix-sources`. Frozen build worktrees stay on build/*.
 - Credentials use the existing `gh`/SSH configuration. Never print values.
@@ -249,55 +224,29 @@ All five #528 criteria remain open. Remaining:
    D-WORKFLOW-107 intends B2 subject to owner's comparison. No bucket, auth or
    purchase configured. A second local directory is not independent backup.
 
-## #529 qualified startup fix — next candidate remains
+## New owner request — #529 Nova frontend startup retry
 
-The retained Nova excerpts identify SDL_Init(SDL_INIT_VIDEO) failure but omit
-SDL_GetError()'s continuation line. Full synthetic VM journal retains it:
-`wayland not available` at monotonic10.890s, after ES started10.079s and Sway's
-service reported started10.034s. Source confirms Type=simple is process order,
-not usable Wayland. Original +8s compositor delay yields4 SDL failures and
-idle9.990s; fixed +8s yields0 failures/restarts and idle8.636s.
-
-`essway.service` runs new `/usr/bin/sway-ready` in ExecStartPre with a20s unit
-deadline. The helper reads the same profile, requires a real wlr-randr Wayland
-round trip and Sway active-mode reply, bounds probes and waits about15s before
-a visible failure. Existing2s restart policy recovers after +22s availability;
-no fixed success delay is imposed (ready check9ms on this VM). bash/busybox/jq/
-wlr-randr dependencies are explicit. The actual Sway install hook installs
-exact executable bytes. Shell syntax/pkgcheck and runtime controls pass.
-
-Eleven controls include stale sockets, absent display, hung compositor,
-no output and absolute socket paths. Retained-storage reboot has0 restarts,
-no SDL error and preserved synthetic save/helper/unit hashes. Original/fixed
-PICO-8 carousel frames at1280x960 are pixel-identical without masks; frame
-index and canonical menu map agree. No visual baseline was replaced.
-
-Four watched owners retain original five0 channels and actual exited host PIDs.
-The disposable VM was stopped by its bound pidfile; disk, UEFI vars and synthetic
-keys retired, releasing2,247,180,288 allocated disk bytes. No live job remains.
-Proofs/harnesses/results are under docs/qa-logs/2026-10-09-frontend-readiness.
-Temporary paths replace only ExecStartPre's helper path in tested overlays.
-The source code itself is exactly hash-bound; this is not an assembled image.
-
-#529 has three satisfied criteria and one open next-candidate startup/upgrade
-criterion. Nova-specific driver/panel timing is recorded separately in
-`docs/releases/device-facts.md`; no owner device access or new reboot occurred.
-Use named authorization for any later physical retest, after owner use. Full
-custom unit overrides retain precedence; this does not migrate settings/data.
-This is local implementation review, not a new independent release audit.
-Include the delta in the applicable review of the next candidate.
+User asked whether the retry warrants follow-up. #529 is created in M7.P5 under
+#344. Source/readback proof is nova-startup-source-bindings.json in the deployment
+packet: installed start_es.sh/essway/111-sway equal their exact old/new refs;
+Sway service/wrapper/es_settings unchanged. essway After=sway orders process
+start, but the scripts have no explicit usable-compositor handshake. This is a
+readiness hypothesis, not a proved diagnosis. Next: retained first-SDL-reason
+analysis and delayed-ready VM reproduction, then a bounded remedy only if
+confirmed. Preserve an original failing control and first-frame/upgrade proof.
+No live device mutation or new firmware is required to investigate. Do not
+conflate the separate early SMMU burst with the SDL retry. #528 can progress
+independently; disposition precedes RC designation.
 
 ## Next steps and boundaries
 
-1. Read `/tmp/pix529-final-readback.json` and GitHub for this source delivery's
-   actual head/hosted results. Prior3ee72d0c97 deployment delivery is complete.
-2. Plan the next candidate with the #529 source delta and verify its installed
-   executable/service bytes, clean/retained-storage startup and applicable
-   release delta review. Do not repeat the completed runtime controls simply
-   because they used a now-retired guest. No immediate device update is planned.
-   Continue unblocked #528 exact-source notice/vendor dispositions; source
-   access/off-host setup questions remain distinct. Then #344/#265/#359 release
-   selection/docs/branding and manifest-bound publication. No RC call now.
+1. Verify the current deployment delivery/hosted checks if marked pending above;
+   consume their original outcomes. Do not redo accepted device operations.
+2. Follow #529's VM-first source/readiness investigation, without interrupting
+   owner devices; no new build before qualified cause/remedy. Continue unblocked
+   #528 exact-source notice/vendor dispositions; keep source
+   access/off-host setup questions distinct. Then #344/#265/#359 release/version,
+   public docs/branding and manifest-bound publication work. No RC call now.
 3. Personal gameplay/input/first cloud test or auto-sync reenable needs named
    scope. Owner-only cleanup #516 and redundancy #518 stay separate. Keep exact
    archives/configs/recovery; never treat retained owner originals as disposable

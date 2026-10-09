@@ -1,0 +1,228 @@
+[  343.996752] GENERIC-X64-8e67 systemd[1]: Starting sway.service...
+[  344.001341] GENERIC-X64-8e67 systemd[1]: Started sway.service.
+[  344.002185] GENERIC-X64-8e67 systemd[1]: Starting essway.service...
+[  358.797681] GENERIC-X64-8e67 pix529-sway-ready[4935]: sway-ready: timed out waiting for a responsive compositor and active output
+[  358.798088] GENERIC-X64-8e67 systemd[1]: essway.service: Control process exited, code=exited, status=1/FAILURE
+[  358.798263] GENERIC-X64-8e67 systemd[1]: essway.service: Failed with result 'exit-code'.
+[  358.798903] GENERIC-X64-8e67 systemd[1]: Failed to start essway.service.
+[  360.820977] GENERIC-X64-8e67 systemd[1]: essway.service: Scheduled restart job, restart counter is at 1.
+[  360.840521] GENERIC-X64-8e67 systemd[1]: Starting essway.service...
+[  366.015706] GENERIC-X64-8e67 Sway[5494]: ### Starting Sway with -V
+[  366.226828] GENERIC-X64-8e67 systemd[1]: Started essway.service.
+[  366.263375] GENERIC-X64-8e67 systemctl[5534]: Environment variable $I18NPATH not set, ignoring.
+[  366.281318] GENERIC-X64-8e67 systemctl[5543]: Environment variable $SLOW_CORES not set, ignoring.
+[  366.284321] GENERIC-X64-8e67 systemctl[5544]: Environment variable $FAST_CORES not set, ignoring.
+[  366.287387] GENERIC-X64-8e67 systemctl[5545]: Environment variable $CPU_FREQ not set, ignoring.
+[  366.290372] GENERIC-X64-8e67 systemctl[5546]: Environment variable $DMC_FREQ not set, ignoring.
+[  366.293409] GENERIC-X64-8e67 systemctl[5547]: Environment variable $GPU_FREQ not set, ignoring.
+[  366.299401] GENERIC-X64-8e67 systemctl[5549]: Environment variable $DEVICE_ASPECT_RATIO not set, ignoring.
+[  366.302970] GENERIC-X64-8e67 systemctl[5551]: Environment variable $DEVICE_AUDIO_MIXER not set, ignoring.
+[  366.308333] GENERIC-X64-8e67 systemctl[5553]: Environment variable $DEVICE_DTB_SWITCH not set, ignoring.
+[  366.314169] GENERIC-X64-8e67 systemctl[5555]: Environment variable $DEVICE_FUNC_KEYA_MODIFIER not set, ignoring.
+[  366.317480] GENERIC-X64-8e67 systemctl[5556]: Environment variable $DEVICE_FUNC_KEYB_MODIFIER not set, ignoring.
+[  366.319971] GENERIC-X64-8e67 systemctl[5557]: Environment variable $DEVICE_HAS_FAN not set, ignoring.
+[  366.323252] GENERIC-X64-8e67 systemctl[5558]: Environment variable $DEVICE_GPU_CUR_FREQ not set, ignoring.
+[  366.326497] GENERIC-X64-8e67 systemctl[5559]: Environment variable $DEVICE_GPU_MAX_FREQ not set, ignoring.
+[  366.328991] GENERIC-X64-8e67 systemctl[5560]: Environment variable $DEVICE_GPU_OVERCLOCK not set, ignoring.
+[  366.331891] GENERIC-X64-8e67 systemctl[5561]: Environment variable $DEVICE_GPU_TEMP_SENSOR not set, ignoring.
+[  366.341100] GENERIC-X64-8e67 systemctl[5564]: Environment variable $DEVICE_HDMI_GPIO not set, ignoring.
+[  366.346878] GENERIC-X64-8e67 systemctl[5566]: Environment variable $DEVICE_HEADPHONE_DEV not set, ignoring.
+[  366.349400] GENERIC-X64-8e67 systemctl[5567]: Environment variable $DEVICE_JACK not set, ignoring.
+[  366.352614] GENERIC-X64-8e67 systemctl[5568]: Environment variable $DEVICE_KEY_VOLUMEDOWN not set, ignoring.
+[  366.355166] GENERIC-X64-8e67 systemctl[5569]: Environment variable $DEVICE_KEY_VOLUMEUP not set, ignoring.
+[  366.358425] GENERIC-X64-8e67 systemctl[5570]: Environment variable $DEVICE_LED_BRIGHTNESS not set, ignoring.
+[  366.361013] GENERIC-X64-8e67 systemctl[5571]: Environment variable $DEVICE_LED_CHARGING not set, ignoring.
+[  366.364221] GENERIC-X64-8e67 systemctl[5572]: Environment variable $DEVICE_LED_CONTROL not set, ignoring.
+[  366.366763] GENERIC-X64-8e67 systemctl[5573]: Environment variable $DEVICE_ANALOG_STICKS_LED_CONTROL not set, ignoring.
+[  366.369992] GENERIC-X64-8e67 systemctl[5574]: Environment variable $DEVICE_MANGOHUD_SUPPORT not set, ignoring.
+[  366.372463] GENERIC-X64-8e67 systemctl[5575]: Environment variable $DEVICE_MMC_EJECT not set, ignoring.
+[  366.375768] GENERIC-X64-8e67 systemctl[5576]: Environment variable $DEVICE_PIPEWIRE_PROFILE not set, ignoring.
+[  366.381797] GENERIC-X64-8e67 systemctl[5578]: Environment variable $DEVICE_PWR_LED_GPIO not set, ignoring.
+[  366.385118] GENERIC-X64-8e67 systemctl[5579]: Environment variable $DEVICE_PLAYBACK_PATH not set, ignoring.
+[  366.387834] GENERIC-X64-8e67 systemctl[5580]: Environment variable $DEVICE_PLAYBACK_PATH_HP not set, ignoring.
+[  366.391025] GENERIC-X64-8e67 systemctl[5581]: Environment variable $DEVICE_PLAYBACK_PATH_SPK not set, ignoring.
+[  366.393622] GENERIC-X64-8e67 systemctl[5582]: Environment variable $DEVICE_PWM_FAN not set, ignoring.
+[  366.396900] GENERIC-X64-8e67 systemctl[5583]: Environment variable $DEVICE_PWM_MOTOR not set, ignoring.
+[  366.399361] GENERIC-X64-8e67 systemctl[5584]: Environment variable $DEVICE_PRODUCT_SERIAL not set, ignoring.
+[  366.402606] GENERIC-X64-8e67 systemctl[5585]: Environment variable $DEVICE_RK817_FUEL_GAUGE not set, ignoring.
+[  366.405735] GENERIC-X64-8e67 systemctl[5587]: Environment variable $DEVICE_SERIAL_NUMBER_PATH not set, ignoring.
+[  366.408971] GENERIC-X64-8e67 systemctl[5588]: Environment variable $DEVICE_SW_HP_SWITCH not set, ignoring.
+[  366.414906] GENERIC-X64-8e67 systemctl[5590]: Environment variable $DEVICE_TURBO_MODE not set, ignoring.
+[  366.417578] GENERIC-X64-8e67 systemctl[5591]: Environment variable $DEVICE_VOLUME not set, ignoring.
+[  366.420101] GENERIC-X64-8e67 systemctl[5592]: Environment variable $DEVICE_WIFI not set, ignoring.
+[  366.423325] GENERIC-X64-8e67 systemctl[5593]: Environment variable $HDMI_STATE not set, ignoring.
+[  366.432302] GENERIC-X64-8e67 systemctl[5596]: Environment variable $PAN_MESA_DEBUG not set, ignoring.
+[  366.444176] GENERIC-X64-8e67 systemctl[5600]: Environment variable $MALI_WAYLAND_AFBC not set, ignoring.
+[  366.447029] GENERIC-X64-8e67 systemctl[5601]: Environment variable $MALI_DEFAULT_DISPLAY not set, ignoring.
+[  366.449492] GENERIC-X64-8e67 systemctl[5602]: Environment variable $PAN_I_WANT_A_BROKEN_VULKAN_DRIVER not set, ignoring.
+[  366.452800] GENERIC-X64-8e67 systemctl[5603]: Environment variable $DISABLE_WSI_LAYER not set, ignoring.
+[  366.455348] GENERIC-X64-8e67 systemctl[5604]: Environment variable $ALSA_PRIMARY_CARD not set, ignoring.
+[  366.457800] GENERIC-X64-8e67 systemctl[5605]: Environment variable $SDL_VIDEO_DISPLAY_PRIORITY not set, ignoring.
+[  366.461007] GENERIC-X64-8e67 systemctl[5606]: Environment variable $TU_DEBUG not set, ignoring.
+[  366.463586] GENERIC-X64-8e67 systemctl[5607]: Environment variable $MESA_LOADER_DRIVER_OVERRIDE not set, ignoring.
+[  366.595482] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5623]        WARNING        System "3do" has no games! Ignoring it.
+[  366.595482] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5624]        WARNING        System "amiga" has no games! Ignoring it.
+[  366.595482] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5625]        WARNING        System "amstradcpc" has no games! Ignoring it.
+[  366.595482] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5626]        WARNING        System "arduboy" has no games! Ignoring it.
+[  366.595482] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5625]        WARNING        System "atari2600" has no games! Ignoring it.
+[  366.595482] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5626]        WARNING        System "atari5200" has no games! Ignoring it.
+[  366.595482] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5625]        WARNING        System "atari7800" has no games! Ignoring it.
+[  366.595482] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5626]        WARNING        System "atari800" has no games! Ignoring it.
+[  366.595888] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5625]        WARNING        System "atarijaguar" has no games! Ignoring it.
+[  366.595888] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5624]        WARNING        System "arcade" has no games! Ignoring it.
+[  366.595888] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5626]        WARNING        System "atarilynx" has no games! Ignoring it.
+[  366.595888] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5626]        WARNING        System "bk" has no games! Ignoring it.
+[  366.595888] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5623]        WARNING        System "atarist" has no games! Ignoring it.
+[  366.595888] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5626]        WARNING        System "c16" has no games! Ignoring it.
+[  366.595888] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5625]        WARNING        System "bbcmicro" has no games! Ignoring it.
+[  366.595888] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5626]        WARNING        System "cdi" has no games! Ignoring it.
+[  366.595888] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5626]        WARNING          Unknown platform for system "chip-8" (platform "chip-8" from list "chip-8")
+[  366.595888] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5625]        WARNING        System "channelf" has no games! Ignoring it.
+[  366.595888] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5626]        WARNING        System "chip-8" has no games! Ignoring it.
+[  366.596291] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5626]        WARNING        System "cps1" has no games! Ignoring it.
+[  366.596291] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5625]        WARNING        System "colecovision" has no games! Ignoring it.
+[  366.596291] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5626]        WARNING        System "cps2" has no games! Ignoring it.
+[  366.596291] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5626]        WARNING        System "daphne" has no games! Ignoring it.
+[  366.596291] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5624]        WARNING        System "atomiswave" has no games! Ignoring it.
+[  366.596291] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5625]        WARNING        System "cps3" has no games! Ignoring it.
+[  366.596291] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5624]        WARNING        System "dreamcast" has no games! Ignoring it.
+[  366.596291] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5625]        WARNING        System "easyrpg" has no games! Ignoring it.
+[  366.596291] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5624]        WARNING        System "famicom" has no games! Ignoring it.
+[  366.596291] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5626]        WARNING          Unknown platform for system "doom" (platform "doom" from list "doom")
+[  366.596291] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5626]        WARNING        System "doom" has no games! Ignoring it.
+[  366.596291] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5625]        WARNING        System "fbn" has no games! Ignoring it.
+[  366.596291] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5626]        WARNING        System "gameandwatch" has no games! Ignoring it.
+[  366.596291] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5628]        WARNING        System "fds" has no games! Ignoring it.
+[  366.596291] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5621]        WARNING        System "amigacd32" has no games! Ignoring it.
+[  366.596291] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5627]        WARNING          Unknown platform for system "c128" (platform "c128" from list "c128")
+[  366.596291] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5621]        WARNING        System "gbav" has no games! Ignoring it.
+[  366.596291] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5624]        WARNING        System "gba" has no games! Ignoring it.
+[  366.596291] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5628]        WARNING        System "gbah" has no games! Ignoring it.
+[  366.596291] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5625]        WARNING        System "gamegear" has no games! Ignoring it.
+[  366.596291] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5628]        WARNING        System "gbh" has no games! Ignoring it.
+[  366.596291] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5624]        WARNING        System "gbch" has no games! Ignoring it.
+[  366.596291] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5626]        WARNING        System "gb" has no games! Ignoring it.
+[  366.596291] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5628]        WARNING        System "genh" has no games! Ignoring it.
+[  366.596291] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5624]        WARNING        System "ggh" has no games! Ignoring it.
+[  366.596515] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5624]        WARNING          Unknown platform for system "idtech" (platform "idtech" from list "idtech")
+[  366.596515] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5624]        WARNING        System "idtech" has no games! Ignoring it.
+[  366.596515] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5627]        WARNING        System "c128" has no games! Ignoring it.
+[  366.596515] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5628]        WARNING        System "gp32" has no games! Ignoring it.
+[  366.596515] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5628]        WARNING          Unknown platform for system "ios" (platform "ios" from list "ios")
+[  366.596515] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5624]        WARNING        System "imageviewer" has no games! Ignoring it.
+[  366.596515] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5627]        WARNING        System "intellivision" has no games! Ignoring it.
+[  366.596515] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5624]        WARNING        System "j2me" has no games! Ignoring it.
+[  366.596515] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5628]        WARNING        System "ios" has no games! Ignoring it.
+[  366.596515] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5625]        WARNING        System "genesis" has no games! Ignoring it.
+[  366.596515] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5624]        WARNING        System "mastersystem" has no games! Ignoring it.
+[  366.596515] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5628]        WARNING        System "megacd" has no games! Ignoring it.
+[  366.596515] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5624]        WARNING        System "megadrive" has no games! Ignoring it.
+[  366.596515] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5627]        WARNING        System "mame" has no games! Ignoring it.
+[  366.596515] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5628]        WARNING        System "megadriveh" has no games! Ignoring it.
+[  366.596515] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5628]        WARNING          Unknown platform for system "moto" (platform "moto" from list "moto")
+[  366.596515] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5624]        WARNING        System "megaduck" has no games! Ignoring it.
+[  366.596515] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5624]        WARNING          Unknown platform for system "mplayer" (platform "mplayer" from list "mplayer")
+[  366.596515] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5627]        WARNING        System "moonlight" has no games! Ignoring it.
+[  366.596515] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5628]        WARNING        System "moto" has no games! Ignoring it.
+[  366.596515] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5624]        WARNING        System "mplayer" has no games! Ignoring it.
+[  366.596515] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5624]        WARNING          Unknown platform for system "music" (platform "music" from list "music")
+[  366.596515] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5627]        WARNING        System "msx" has no games! Ignoring it.
+[  366.596515] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5628]        WARNING        System "msx2" has no games! Ignoring it.
+[  366.596742] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5627]        WARNING        System "n64" has no games! Ignoring it.
+[  366.597004] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5628]        WARNING        System "n64dd" has no games! Ignoring it.
+[  366.597004] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5627]        WARNING        System "naomi" has no games! Ignoring it.
+[  366.597004] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5623]        WARNING        System "c64" has no games! Ignoring it.
+[  366.597004] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5627]        WARNING        System "ndsiware" has no games! Ignoring it.
+[  366.597004] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5623]        WARNING        System "neocd" has no games! Ignoring it.
+[  366.597004] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5627]        WARNING        System "neogeo" has no games! Ignoring it.
+[  366.597004] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5623]        WARNING        System "nes" has no games! Ignoring it.
+[  366.597004] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5627]        WARNING        System "nesh" has no games! Ignoring it.
+[  366.597004] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5625]        WARNING        System "megadrive-japan" has no games! Ignoring it.
+[  366.597004] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5622]        WARNING        Unknown element of type "notification"!
+[  366.597004] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5625]        WARNING        System "odyssey2" has no games! Ignoring it.
+[  366.597004] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5625]        WARNING        System "openbor" has no games! Ignoring it.
+[  366.597004] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5625]        WARNING        System "palm" has no games! Ignoring it.
+[  366.597004] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5628]        WARNING        System "nds" has no games! Ignoring it.
+[  366.597004] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5625]        WARNING        System "pc-8800" has no games! Ignoring it.
+[  366.597004] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5625]        WARNING        System "pc" has no games! Ignoring it.
+[  366.597004] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5628]        WARNING        System "pc-9800" has no games! Ignoring it.
+[  366.597004] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5628]        WARNING        System "pcenginecd" has no games! Ignoring it.
+[  366.597004] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5627]        WARNING        System "ngpc" has no games! Ignoring it.
+[  366.597004] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5628]        WARNING        System "pcfx" has no games! Ignoring it.
+[  366.597004] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5627]        WARNING        System "pet" has no games! Ignoring it.
+[  366.597004] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5627]        WARNING        System "pokemini" has no games! Ignoring it.
+[  366.597004] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5627]        WARNING        System "ports" has no games! Ignoring it.
+[  366.597004] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5627]        WARNING        System "psp" has no games! Ignoring it.
+[  366.597004] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5627]        WARNING        System "pspminis" has no games! Ignoring it.
+[  366.597004] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5627]        WARNING        System "psx" has no games! Ignoring it.
+[  366.597229] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5624]        WARNING        Unknown element of type "notification"!
+[  366.597229] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5627]        WARNING        System "satellaview" has no games! Ignoring it.
+[  366.597229] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5627]        WARNING        System "saturn" has no games! Ignoring it.
+[  366.597229] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5627]        WARNING        System "scummvm" has no games! Ignoring it.
+[  366.597229] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5627]        WARNING        System "scv" has no games! Ignoring it.
+[  366.597229] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5627]        WARNING        System "sega32x" has no games! Ignoring it.
+[  366.597229] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5627]        WARNING        System "segacd" has no games! Ignoring it.
+[  366.597229] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5627]        WARNING        System "sfc" has no games! Ignoring it.
+[  366.597229] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5627]        WARNING        System "sg-1000" has no games! Ignoring it.
+[  366.597229] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5627]        WARNING        System "snes" has no games! Ignoring it.
+[  366.597229] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5623]        WARNING        System "ngp" has no games! Ignoring it.
+[  366.597229] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5623]        WARNING          Unknown platform for system "snesmsu1" (platform "snesmsu1" from list "snesmsu1 snes")
+[  366.597229] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5625]        WARNING        System "pcengine" has no games! Ignoring it.
+[  366.597229] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5625]        WARNING          Unknown platform for system "st-v" (platform "st-v" from list "st-v")
+[  366.597229] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5623]        WARNING        System "snesmsu1" has no games! Ignoring it.
+[  366.597229] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5621]        WARNING        System "gbc" has no games! Ignoring it.
+[  366.597229] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5623]        WARNING        System "sufami" has no games! Ignoring it.
+[  366.597229] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5628]        WARNING        Unknown element of type "notification"!
+[  366.597229] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5625]        WARNING        System "st-v" has no games! Ignoring it.
+[  366.597229] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5623]        WARNING        System "supervision" has no games! Ignoring it.
+[  366.597485] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5625]        WARNING        System "tg16" has no games! Ignoring it.
+[  366.597485] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5625]        WARNING          Unknown platform for system "tools" (platform "tools" from list "tools")
+[  366.597485] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5625]        WARNING        File "/storage/.config/modules/Start FEXConfig.sh" does not exist or is arcade asset ! Ignoring.
+[  366.597485] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5625]        WARNING        File "/storage/.config/modules/cloud_backup.sh" does not exist or is arcade asset ! Ignoring.
+[  366.597485] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5625]        WARNING        File "/storage/.config/modules/cloud_restore.sh" does not exist or is arcade asset ! Ignoring.
+[  366.597485] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5625]        WARNING        File "/storage/.config/modules/qterminal.sh" does not exist or is arcade asset ! Ignoring.
+[  366.597485] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5625]        WARNING        File "/storage/.config/modules/Install Steam.sh" does not exist or is arcade asset ! Ignoring.
+[  366.597485] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5625]        WARNING        File "/storage/.config/modules/Uninstall Steam.sh" does not exist or is arcade asset ! Ignoring.
+[  366.597485] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5625]        WARNING        File "/storage/.config/modules/Install Heroic Games Launcher.sh" does not exist or is arcade asset ! Ignoring.
+[  366.597485] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5625]        WARNING        File "/storage/.config/modules/Uninstall Heroic Games Launcher.sh" does not exist or is arcade asset ! Ignoring.
+[  366.597485] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5625]        WARNING        File "/storage/.config/modules/Scan Heroic Games.sh" does not exist or is arcade asset ! Ignoring.
+[  366.597485] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5625]        WARNING        File "/storage/.config/modules/Start AetherSX2.sh" does not exist or is arcade asset ! Ignoring.
+[  366.597485] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5625]        WARNING        File "/storage/.config/modules/Start Azahar.sh" does not exist or is arcade asset ! Ignoring.
+[  366.597485] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5625]        WARNING        File "/storage/.config/modules/Start BigPEmu.sh" does not exist or is arcade asset ! Ignoring.
+[  366.597485] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5625]        WARNING        File "/storage/.config/modules/Start CEMU.sh" does not exist or is arcade asset ! Ignoring.
+[  366.597485] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5625]        WARNING        File "/storage/.config/modules/Start DaedalusX64.sh" does not exist or is arcade asset ! Ignoring.
+[  366.597630] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5625]        WARNING        File "/storage/.config/modules/Start Dolphin.sh" does not exist or is arcade asset ! Ignoring.
+[  366.597630] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5625]        WARNING        File "/storage/.config/modules/Start MelonDS.sh" does not exist or is arcade asset ! Ignoring.
+[  366.597630] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5625]        WARNING        File "/storage/.config/modules/Start Moonlight.sh" does not exist or is arcade asset ! Ignoring.
+[  366.597630] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5625]        WARNING        File "/storage/.config/modules/Start ARMSX2.sh" does not exist or is arcade asset ! Ignoring.
+[  366.597630] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5625]        WARNING        File "/storage/.config/modules/Start SkyEmu.sh" does not exist or is arcade asset ! Ignoring.
+[  366.597630] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5625]        WARNING        File "/storage/.config/modules/Start RPCS3.sh" does not exist or is arcade asset ! Ignoring.
+[  366.597630] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5625]        WARNING        File "/storage/.config/modules/Start Vita3K.sh" does not exist or is arcade asset ! Ignoring.
+[  366.597630] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5625]        WARNING        File "/storage/.config/modules/Start Xemu.sh" does not exist or is arcade asset ! Ignoring.
+[  366.597630] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5625]        WARNING        File "/storage/.config/modules/Test Gamepad.sh" does not exist or is arcade asset ! Ignoring.
+[  366.597630] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5625]        WARNING        File "/storage/.config/modules/Test Touchscreen.sh" does not exist or is arcade asset ! Ignoring.
+[  366.597630] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5625]        WARNING        File "/storage/.config/modules/GPcal.sh" does not exist or is arcade asset ! Ignoring.
+[  366.597630] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5628]        WARNING        System "uzebox" has no games! Ignoring it.
+[  366.597630] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5628]        WARNING        System "vectrex" has no games! Ignoring it.
+[  366.597630] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5628]        WARNING        System "vic20" has no games! Ignoring it.
+[  366.597630] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5628]        WARNING        System "videopac" has no games! Ignoring it.
+[  366.597630] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5628]        WARNING        System "vircon32" has no games! Ignoring it.
+[  366.597792] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5628]        WARNING        System "virtualboy" has no games! Ignoring it.
+[  366.597792] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5628]        WARNING        System "wasm4" has no games! Ignoring it.
+[  366.597792] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5628]        WARNING        System "windows" has no games! Ignoring it.
+[  366.597792] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5628]        WARNING        System "wonderswan" has no games! Ignoring it.
+[  366.597792] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5628]        WARNING        System "wonderswancolor" has no games! Ignoring it.
+[  366.597792] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5628]        WARNING        System "x1" has no games! Ignoring it.
+[  366.597792] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5628]        WARNING        System "x68000" has no games! Ignoring it.
+[  366.597792] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5628]        WARNING          Unknown platform for system "zmachine" (platform "z-machine" from list "z-machine")
+[  366.597792] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5628]        WARNING        System "zmachine" has no games! Ignoring it.
+[  366.597792] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5628]        WARNING        System "zx81" has no games! Ignoring it.
+[  366.597792] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5628]        WARNING        System "zxspectrum" has no games! Ignoring it.
+[  366.597792] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5625]        WARNING        Unknown element of type "notification"!
+[  366.598239] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5627]        WARNING        System "snesh" has no games! Ignoring it.
+[  366.598253] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5626]        WARNING        System "macintosh" has no games! Ignoring it.
+[  366.598288] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5621]        WARNING        System "supergrafx" has no games! Ignoring it.
+[  366.598288] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5624]        WARNING        System "tic-80" has no games! Ignoring it.
+[  366.598288] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5623]        WARNING        System "tg16cd" has no games! Ignoring it.
+[  366.598665] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5622]        WARNING        Unknown element of type "notification"!
+[  366.614838] GENERIC-X64-8e67 start_es.sh[5609]: 2026-10-09 13:11:49        [5620]        ERROR        HttpReq::onError (3) : Could not connect to server

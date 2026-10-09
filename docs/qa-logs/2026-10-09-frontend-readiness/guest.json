@@ -1,0 +1,32 @@
+{
+  "command": [
+    "/workspace/repos/rocknix.worktrees/m7-p5-frontend-readiness/projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm",
+    "run",
+    "--headless",
+    "--daemonize",
+    "--gl",
+    "auto",
+    "--res",
+    "1280x960",
+    "--ssh-port",
+    "10291",
+    "--vnc",
+    "91",
+    "--monitor",
+    "/tmp/pix529-01-mon.sock",
+    "--serial",
+    "/tmp/pix529-01-ser.sock",
+    "--pidfile",
+    "/workspace/tmp/pixelelated-m7-readiness-01/vm.pid",
+    "--mac",
+    "52:54:00:52:05:29",
+    "/workspace/tmp/pixelelated-m7-readiness-01/vm.qcow2"
+  ],
+  "image_sha256": "2d71337a27ca11da57eb4ce912b79f8677d0a72c13749cd973915442e6a52a42",
+  "distribution": "7f58b7b1c592908dcd0ba5987955e59aaa79fe66",
+  "es_source": "1d76b3da7da75794066df1c089931b890304da7a",
+  "qemu_pid": 1974906,
+  "elapsed_seconds": 43.474,
+  "protected_by_blackhole_routes": true,
+  "credentials": "synthetic SSH key only; exclude from packet"
+}

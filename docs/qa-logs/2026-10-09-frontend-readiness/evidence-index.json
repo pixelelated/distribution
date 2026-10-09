@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "entries": [
+    {
+      "flow_id": "frontend-startup",
+      "branch_id": "original-ready",
+      "document": "docs/es-menu-map.md",
+      "anchor": "frontend-startup-readiness",
+      "trigger": "Start EmulationStation with usable compositor; original-ready",
+      "expected_state": "Unchanged PICO-8 system carousel and navigation footer",
+      "source": {
+        "distribution_image": "7f58b7b1c592908dcd0ba5987955e59aaa79fe66",
+        "es_commit": "1d76b3da7da75794066df1c089931b890304da7a",
+        "overlay": null
+      },
+      "locale": "en_US",
+      "width": 1280,
+      "height": 960,
+      "frame": "retained-boot/original-carousel.png",
+      "sha256": "ece75e70f4fcea1adb58305b75ee1083e441783a3d451647a76afd7d04ed86c7",
+      "status": "reviewed",
+      "review": "Primary agent: normal PICO-8 carousel, clock, network icon and full footer. Original/fixed pixels identical with zero masks. VM runtime-overlay evidence, not device/image baseline promotion."
+    },
+    {
+      "flow_id": "frontend-startup",
+      "branch_id": "fixed-retained-boot",
+      "document": "docs/es-menu-map.md",
+      "anchor": "frontend-startup-readiness",
+      "trigger": "Start EmulationStation with usable compositor; fixed-retained-boot",
+      "expected_state": "Unchanged PICO-8 system carousel and navigation footer",
+      "source": {
+        "distribution_image": "7f58b7b1c592908dcd0ba5987955e59aaa79fe66",
+        "es_commit": "1d76b3da7da75794066df1c089931b890304da7a",
+        "overlay": {
+          "projects/ROCKNIX/packages/ui/emulationstation/system.d/essway.service": "7e9e338de7b857d4917d005067782151dbb33142ea84928103198530bf542b69",
+          "projects/ROCKNIX/packages/wayland/compositor/sway/scripts/sway-ready": "431f75b187964a8a1bf9f266f9374025d97c3951f872d6f8fc5935fb36dc294b",
+          "projects/ROCKNIX/packages/wayland/compositor/sway/package.mk": "aff81d13319752e24ff0c77e3da8120cdd2253cf31a95a96a3f1ec4ff342792a"
+        }
+      },
+      "locale": "en_US",
+      "width": 1280,
+      "height": 960,
+      "frame": "retained-boot/fixed-retained-boot-carousel.png",
+      "sha256": "ece75e70f4fcea1adb58305b75ee1083e441783a3d451647a76afd7d04ed86c7",
+      "status": "reviewed",
+      "review": "Primary agent: normal PICO-8 carousel, clock, network icon and full footer. Original/fixed pixels identical with zero masks. VM runtime-overlay evidence, not device/image baseline promotion."
+    }
+  ]
+}

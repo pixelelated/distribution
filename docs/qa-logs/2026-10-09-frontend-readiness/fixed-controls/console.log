@@ -1,0 +1,15 @@
+watch-build: recording in /workspace/repos/rocknix.worktrees/m7-p5-frontend-readiness/.build-runs/20261009T171117Z-119e083a
+431f75b187964a8a1bf9f266f9374025d97c3951f872d6f8fc5935fb36dc294b  /tmp/pix529-sway-ready
+044be37c34ce99b8dcfaafe5233e374982f9ec0fc84a33e023dcd444cd27d569  /run/systemd/system/essway.service
+{"case": "fixed-default", "delay_seconds": 0, "idle_seconds": 0.687, "restarts": 0, "sdl_errors": 0, "timeout_diagnostic": false, "passed": true}
+{"case": "fixed-delayed", "delay_seconds": 8, "idle_seconds": 8.636, "restarts": 0, "sdl_errors": 0, "timeout_diagnostic": false, "passed": true}
+{"case": "fixed-late-recovery", "delay_seconds": 22, "idle_seconds": 22.738, "restarts": 1, "sdl_errors": 0, "timeout_diagnostic": true, "passed": true}
+{"case": "responsive", "returncode": 0, "elapsed": 0.009, "passed": true}
+{"case": "absent-wayland", "returncode": 1, "elapsed": 14.125, "passed": true}
+{"case": "stale-wayland", "returncode": 1, "elapsed": 14.97, "passed": true}
+{"case": "hung-compositor", "returncode": 1, "elapsed": 15.458, "passed": true}
+{"case": "recovered-compositor", "returncode": 0, "elapsed": 0.013, "passed": true}
+{"case": "no-active-output", "returncode": 1, "elapsed": 14.509, "passed": true}
+{"case": "restored-output", "returncode": 0, "elapsed": 0.012, "passed": true}
+{"case": "absolute-wayland-path", "returncode": 0, "elapsed": 0.009, "passed": true}
+{"case": "summary", "controls_passed": 11, "original_image_unchanged": true, "runtime_overlay": true, "terminal_idle": true, "passed": true}

@@ -176,3 +176,16 @@ Dedicated account proofs and P4 remain before device builds/RC designation.
 | 2026-10-06 | `7afa9efcfc0` pixelelated replacement14 | isolated vm-pair guest a, virgl, ra01 | Ordinary Tobu15738/100359:33 PASS/0FAIL/0SKIP. API unearned → actual offline award → pending1 after exit → reconnect flush1/pending0 → provider earned → relaunch28/28→27/28. Four rc0; credential and actual process cleanup verified. Four unique exit frames reviewed, no card-layout claim. [Evidence](qa-logs/2026-10-06-ra-award/README.md); #361/#383. |
 
 | 2026-10-06 | `7afa9efcfc0` pixelelated replacement14, unchanged | isolated software guestd, ra-ui03; EN/FR640x480+1280x960 | 109 PASS/0FAIL/0SKIP;23 full-panel frames directly reviewed,46 installed hashes invariant. Local synthetic pending/send/refusal/empty-repeat contract; separate RA33 real-provider proof preserved. Allfourrc0, terminal07:00:43, actualcleanup07:01:20. Owners01/02 superseded and retained. [Evidence](qa-logs/2026-10-06-ra-ui/README.md); #465. |
+
+## 2026-10-09 17:18 UTC — #529 frontend readiness source overlay
+
+Replacement18 / ES1d76b3d, virgl1280×960, isolated synthetic guest. Natural
+boot reproduced wayland-not-available; +8s original control fails four times.
+Eleven fixed controls and retained-storage boot pass; original result channels0,
+no new firmware claim. Exact script/unit overlay and all harnesses in
+[the proof packet](qa-logs/2026-10-09-frontend-readiness/README.md). Reviewed
+original/fixed carousel frames are identical with zero masks. Procedure is
+retained as executable create/guest/boot scripts; no new navigation walk is
+needed for unchanged carousel presentation. Guest disk/key retired; compact
+evidence retained. Next image needs real installation/upgrade qualification;
+Nova hardware timing cannot be proved by this guest.

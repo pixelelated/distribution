@@ -10,7 +10,7 @@ Type=simple
 Environment=HOME=/storage
 EnvironmentFile=/etc/profile
 # Wait for usable Wayland; keep failure/retry owned by this frontend unit.
-ExecStartPre=/usr/bin/sway-ready
+ExecStartPre=/storage/.qa529/sway-ready
 TimeoutStartSec=20
 ExecStart=/usr/bin/start_es.sh
 WorkingDirectory=/storage

@@ -4,7 +4,7 @@
 PKG_NAME="sway"
 PKG_LICENSE="MIT"
 PKG_SITE="https://swaywm.org/"
-PKG_DEPENDS_TARGET="toolchain glib wayland wayland-protocols libdrm libxkbcommon libinput cairo pango libjpeg-turbo dbus json-c wlroots gdk-pixbuf swaybg foot bemenu xcb-util-wm xwayland xkbcomp xterm libthai"
+PKG_DEPENDS_TARGET="toolchain bash busybox jq wlr-randr glib wayland wayland-protocols libdrm libxkbcommon libinput cairo pango libjpeg-turbo dbus json-c wlroots gdk-pixbuf swaybg foot bemenu xcb-util-wm xwayland xkbcomp xterm libthai"
 PKG_LONGDESC="i3-compatible Wayland compositor"
 PKG_TOOLCHAIN="meson"
 PKG_PATCH_DIRS+="${DEVICE}"
@@ -43,6 +43,7 @@ post_makeinstall_target() {
   mkdir -p ${INSTALL}/usr/lib/sway
   mkdir -p ${INSTALL}/usr/bin
     cp ${PKG_DIR}/scripts/sway.sh     ${INSTALL}/usr/bin
+    cp ${PKG_DIR}/scripts/sway-ready  ${INSTALL}/usr/bin
     cp ${PKG_DIR}/scripts/sway-config ${INSTALL}/usr/lib/sway
   mkdir -p ${INSTALL}/usr/lib/autostart/common
     cp ${PKG_DIR}/autostart/111-sway-init     ${INSTALL}/usr/lib/autostart/common

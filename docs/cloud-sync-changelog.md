@@ -1,5 +1,19 @@
 # Cloud sync, backup and restore — change summary
 
+## Frontend startup readiness (2026-10-09, VM-qualified source)
+
+A startup fix is prepared for the next candidate; current device firmware does
+not include it. The [VM proof](qa-logs/2026-10-09-frontend-readiness/README.md)
+reproduces the original failure and verifies the proposed service/helper overlay.
+
+- **The frontend waits for a usable display.** A responsive compositor and an
+  active output are checked before EmulationStation starts. Normal readiness
+  returns immediately; a bounded timeout logs the problem and preserves retry
+  recovery (#529). The delayed-start VM case avoids the original SDL failures.
+- **The system carousel stays the same.** Original and corrected1280×960 VM
+  frames are identical without masks. Installed next-image qualification and
+  Nova-specific timing remain to be verified; no physical retest is claimed.
+
 ## Category-based cloud setup (2026-10-08, in qualification)
 
 #508/D-CLOUD-175 replaces the cloud-folder migration flow. Independent review
