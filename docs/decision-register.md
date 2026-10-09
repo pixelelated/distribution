@@ -667,6 +667,8 @@ This is the index of decisions; `docs/work-logs/` is the narrative,
 
 | D-CLOUD-182 | 2026-10-08 | **Complete controlled alignment and the relevant migration/mutation-residue disposition before the owner test handheld receives or attempts its next upgrade.** #519 owns a synthetic rehearsal, exact reversible per-key/per-path plan, isolation of old automatic consumers, named authorized actions and state-bound acceptance. #516 supplies the personal residue review; preserve real save/recovery data and unknown metadata. This overrides the earlier operational preference to install replacement firmware before alignment. It gates that handheld update transfer/reboot, not #515 source work, host builds or common VM qualification. | #519; #516; #508; maintainer request to align and handle leftover mutation files before an upgrade |
 
+| D-WORKFLOW-157 | 2026-10-09 | **Remove the community/official build distinction from pixelelated. Use the release target plus UTC build timestamp and source hash for distinct rolling builds and consistent firmware/GitHub naming; keep fresh-install network/logging defaults independent.** The maintainer: "we should remove community from our build" and "include our semver number, and then add a date and potentially a time or a hash". They explicitly defer a detailed alpha/beta/RC/stable progression: rolling releases do not require that policy now. Implementation uses default `dev`, optional SemVer prerelease qualifiers, build metadata and immutable stable tags; no automatic promotion/publication follows. Refines D-WORKFLOW-043/094/116 and preserves D-WORKFLOW-123/128's stored interfaces/adoption suffix. | #530; #265; `docs/releases/versioning.md`; maintainer's scoped implementation approval |
+
 ## Open decisions
 
 

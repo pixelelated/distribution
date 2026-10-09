@@ -189,3 +189,13 @@ retained as executable create/guest/boot scripts; no new navigation walk is
 needed for unchanged carousel presentation. Guest disk/key retired; compact
 evidence retained. Next image needs real installation/upgrade qualification;
 Nova hardware timing cannot be proved by this guest.
+
+### 2026-10-09 23:20 UTC — #530 build identity runtime proof
+
+Replacement18 disposable640x480 guest; exact new rocknix-info source plus
+synthetic os-release overlay. Original, semantic identity and legacy-metadata
+INFORMATION frames reviewed; protected stored settings unchanged. Host29controls
+pass. First harness result1 retained; corrected owner02 results0 with original
+optional-quirk127 explicitly compared. Original exits and stopped/retired VM
+recorded in docs/qa-logs/2026-10-09-build-identity/. No full-suite, assembled
+firmware or handheld claim. #530 remains open for next candidate qualification.

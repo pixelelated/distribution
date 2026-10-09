@@ -1,0 +1,5 @@
+{
+  "encoding": "UTF-8; raw_text preserves original whitespace",
+  "sha256": "0b079c95ba2874fedb3755195afd0e2f1c2a61128b7364aabea3574927411254",
+  "raw_text": "blackhole 0.0.0.0/1 \ndefault via 10.0.2.2 dev eth0  src 10.0.2.15  metric 100 \n10.0.2.0/24 dev eth0 scope link  src 10.0.2.15  metric 100 \nblackhole 128.0.0.0/1 \nblackhole ::/1 dev lo  metric 1024 \nfe80::/64 dev eth0  metric 1024 \nfec0::/64 dev eth0  metric 100 \nblackhole 8000::/1 dev lo  metric 1024 \ndefault via fe80::2 dev eth0  metric 100 \nmulticast ff00::/8 dev eth0  metric 256 \n"
+}

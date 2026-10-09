@@ -3404,3 +3404,16 @@ frames of RetroArch text taken on a guest are now what a device draws, and the Q
 runner refuses a run whose RetroArch surface was smaller than the screen.
 webkitgtk stays 2.52.6 (D-WORKFLOW-041); the 2.54 bump is the next candidate's
 first work (D-WORKFLOW-042).
+
+## Rolling build identity (2026-10-09; source and VM overlay qualified)
+
+- **Builds identify pixelelated by semantic version, UTC timestamp and source
+  hash.** INFORMATION's VERSION and BUILD ID rows no longer append community;
+  filenames and image metadata carry the same build identity (#530, D-WORKFLOW-157).
+- **Fresh-install defaults stay independent of names.** Actual old/new package
+  staging preserves network/logging defaults byte-for-byte; existing stored
+  settings remain unchanged in the VM.
+- **Release naming comes from explicit recorded artifacts.** Local preparation
+  checks an immutable bundle and emits matching GitHub names and assets. It
+  does not publish. New assembled-image/upgrade qualification remains open;
+  current owner firmware has not been changed.

@@ -70,7 +70,8 @@ post_install() {
 
   # Issue banner
   cat <<EOF >> ${INSTALL}/etc/issue
-... Version: ${OS_VERSION} (${OS_BUILD})
+... Version: ${RELEASE_VERSION:-${OS_VERSION}}
+... Build: ${BUILD_VERSION:-${OS_VERSION}}
 ... Built: ${BUILD_DATE}
 
 EOF
@@ -96,8 +97,8 @@ EOF
 
   sed -i "s#@DEVICENAME@#${DEVICE}#g" ${INSTALL}/usr/config/system/configs/system.cfg
 
-  ### Defaults for community builds.
-  if [ "${OS_BUILD}" = "community" ]
+  ### Explicit fresh-install defaults, independent of the release qualifier.
+  if [ "${DEVELOPMENT_DEFAULTS}" = "yes" ]
   then
     sed -i "s#samba.enabled=0#samba.enabled=1#g" ${INSTALL}/usr/config/system/configs/system.cfg
     sed -i "s#ssh.enabled=0#ssh.enabled=1#g" ${INSTALL}/usr/config/system/configs/system.cfg

@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "source": "source-bindings.json",
+  "build": "setup/guest.json",
+  "presentation": "runtime overlay; accepted firmware baseline unchanged",
+  "frames": [
+    {
+      "path": "ui02/before/03-information.png",
+      "sha256": "a63ae1555386845e4469a4fead3205a6ef34ee81a2046edd5cf5f2c8ddf2aa43",
+      "panel": [
+        640,
+        480
+      ],
+      "language": "en_US",
+      "flow": "Main Menu > System Settings > Information",
+      "trigger": "before",
+      "review": "accepted",
+      "observation": "Historical 0.0.1 (community), old source and branch visible"
+    },
+    {
+      "path": "ui02/new-identity/03-information.png",
+      "sha256": "135763b995fcfbbebe2e6a50952413e2c8c880d131ea34e332effaaa0b603a67",
+      "panel": [
+        640,
+        480
+      ],
+      "language": "en_US",
+      "flow": "Main Menu > System Settings > Information",
+      "trigger": "new-identity",
+      "review": "accepted",
+      "observation": "0.0.1-dev and full UTC seconds plus short hash fit in existing two rows; no community label; no clipping"
+    },
+    {
+      "path": "ui02/legacy-metadata/03-information.png",
+      "sha256": "01a82665cff65808c5b505aa9a03e96cdfe39307c7cba09228b779543179718e",
+      "panel": [
+        640,
+        480
+      ],
+      "language": "en_US",
+      "flow": "Main Menu > System Settings > Information",
+      "trigger": "legacy-metadata",
+      "review": "accepted",
+      "observation": "Older os-release remains readable; semantic version and retained source/branch displayed without community"
+    }
+  ],
+  "unchanged_navigation": "before/new/legacy main-menu and system-settings frames retained; source did not alter navigation",
+  "remaining": "new assembled image clean/upgrade qualification; other resolutions/languages not separately run in this scope"
+}

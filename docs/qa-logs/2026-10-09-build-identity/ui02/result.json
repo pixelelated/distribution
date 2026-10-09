@@ -1,0 +1,15 @@
+{
+  "pass": true,
+  "script_sha256": "bbf5c15640bc535444b7b641498a5cec868508351692f5ca0eb16d9a228e8054",
+  "source_overlay_not_new_firmware": true,
+  "original_settings_hashes_equal": true,
+  "flows": [
+    "before",
+    "new-identity",
+    "legacy-metadata"
+  ],
+  "panel": "640x480",
+  "visual_review": "pending",
+  "existing_script_exit": 127,
+  "script_exit_explanation": "optional absent VM info quirk glob; original and revised scripts have the same exit while producing the full display rows"
+}

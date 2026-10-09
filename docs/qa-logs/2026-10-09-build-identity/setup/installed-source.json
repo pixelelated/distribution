@@ -1,0 +1,26 @@
+{
+  "/usr/bin/start_es.sh": {
+    "source": "projects/ROCKNIX/packages/ui/emulationstation/sources/start_es.sh",
+    "sha256": "463acec36231a2230f311e0281fe80693c0046c531985bd75bd4c8d83b95161e"
+  },
+  "/usr/bin/es_settings": {
+    "source": "projects/ROCKNIX/packages/ui/emulationstation/sources/es_settings",
+    "sha256": "d6498b7f5dc09be4bd42615c48f7b98cdeec02b2fe4e8c25020854847bbfacc6"
+  },
+  "/usr/lib/systemd/system/essway.service": {
+    "source": "projects/ROCKNIX/packages/ui/emulationstation/system.d/essway.service",
+    "sha256": "95b47b6b8c82b6ca18c7079a1d45cf183e91e5f7ae15969045752b629b7f9c25"
+  },
+  "/usr/lib/systemd/system/sway.service": {
+    "source": "projects/ROCKNIX/packages/wayland/compositor/sway/system.d/sway.service",
+    "sha256": "455608df0dff76553ad26b983bd11dc94fb8b504872833b964e3e99d1678e1a8"
+  },
+  "/usr/bin/sway.sh": {
+    "source": "projects/ROCKNIX/packages/wayland/compositor/sway/scripts/sway.sh",
+    "sha256": "1b42a41b82b189817eb91aaf818e17fc2ff466f7835b053e39452a6e88e53830"
+  },
+  "/etc/profile.d/050-sway.conf": {
+    "source": "projects/ROCKNIX/packages/wayland/compositor/sway/profile.d/050-sway.conf",
+    "sha256": "dc7dab8c116f3a3ebf092705050daf9cfd2c160f240d1c9b89da485aeb0fcead"
+  }
+}

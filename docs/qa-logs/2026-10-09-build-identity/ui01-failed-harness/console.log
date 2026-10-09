@@ -1,0 +1,25 @@
+watch-build: recording in /workspace/repos/rocknix.worktrees/m7-p5-build-identity/.build-runs/20261009T231326Z-4aa7449c
+dismiss-dialogs: 1 press(es) moved the screen, back on the carousel
+changed after 0.1s (`key ret`, line 4)
+settle: still after 1.7s
+captured /workspace/tmp/pixelelated-m7-identity-ui01/before/01-main-menu-identity.png
+changed after 0.1s (`key up`, line 8)
+changed after 0.1s (`key up`, line 10)
+changed after 0.1s (`key up`, line 12)
+changed after 0.1s (`key x`, line 14)
+settle: still after 1.3s
+captured /workspace/tmp/pixelelated-m7-identity-ui01/before/02-system-settings.png
+changed after 0.1s (`key x`, line 18)
+settle: still after 1.3s
+captured /workspace/tmp/pixelelated-m7-identity-ui01/before/03-information.png
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-identity-ui01/run.py", line 28, in <module>
+    actual=ssh('rocknix-info --full').stdout;(P/'new-information.txt').write_text(actual)
+           ~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tmp/pixelelated-m7-identity-ui01/run.py", line 7, in ssh
+    def ssh(s,timeout=40):return subprocess.run(['ssh',*opts,'-p','10292','root@127.0.0.1',s],check=True,capture_output=True,text=True,timeout=timeout)
+                                 ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['ssh', '-i', '/workspace/tmp/pixelelated-m7-identity-01/qa-key', '-o', 'LogLevel=ERROR', '-o', 'StrictHostKeyChecking=no', '-o', 'UserKnownHostsFile=/dev/null', '-o', 'BatchMode=yes', '-o', 'ConnectTimeout=3', '-p', '10292', 'root@127.0.0.1', 'rocknix-info --full']' returned non-zero exit status 127.

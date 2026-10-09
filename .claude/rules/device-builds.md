@@ -528,15 +528,18 @@ record clean, or each finding accepted by a register row. Its last line --
 `rc-preflight: <branch> at <id> -- MAY BE CUT` or the findings -- is
 quoted on the round's issue and carried in the candidate's RECORD.txt.
 
-`tools/fork-publish-release <DEVICE> prerelease` works unchanged for handhelds:
-the `case` in it adds VM artifacts only for `GENERIC_X64` and `AMD64`, so a
-handheld publishes just `.img.gz` + `.sha256` under a tag like
-`dev-rk3566-<yyyymmdd>` — which is what you want for something flashed to a
-card.
+New build identities follow `docs/releases/versioning.md` (D-WORKFLOW-157).
+Image assembly freezes semantic version, UTC timestamp and source commit;
+filenames and `.identity.json` sidecars carry that identity. Preserve a common
+BUILD_TIMESTAMP for a coordinated device set, then use a fresh timestamp for
+another set. Same-day outputs are distinct; existing identities cannot be
+replaced. Source BUILD_ID and immutable manifest/SHA256 remain the provenance.
 
-**Re-publishing the same day replaces assets under an unchanged tag**, which has
-already cost a QA cycle once (blindspot register entry 2). Post the new sha256
-when you do it, and prefer a fresh date.
+`tools/fork-publish-release --prepare <immutable-bundle>` emits a checked local
+GitHub naming/asset plan only. The old date/newest-file/clobber/undraft path is
+retired. Publication still requires #265/#344's qualified transaction and #528's
+source/custody gates; preparation creates no tag, draft or public release.
+Alpha/beta/RC/stable progression is later #265 policy, not a new rolling-build gate.
 
 ## Installing on the device
 

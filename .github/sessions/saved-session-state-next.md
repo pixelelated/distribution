@@ -1,28 +1,72 @@
 # Saved Session State
 
-> Saved: 2026-10-09T17:20:50.185657+00:00
-> Coordinator: feature/m7-p5-frontend-readiness
+> Saved: 2026-10-09T23:21:36.888786+00:00
+> Active: feature/m7-p5-build-identity
 > Repository: pixelelated/distribution
 
-## Start here — #529 source fix qualified on VM; next candidate and #528 publication queue
+## Start here — #530 source qualified; deliver, then #531 and combined candidate
 
-The owner asked us to investigate the startup race while using the devices.
-No handheld was contacted. #529 now has a bounded readiness fix and executable
-VM evidence in `docs/qa-logs/2026-10-09-frontend-readiness/README.md`.
-Natural unmodified VM boot reproduced `wayland not available`; the original
-+8s delay fails four times. Eleven corrected controls, retained-storage boot
-and reviewed identical1280x960 carousel frames pass. All owners exited; the
-VM disk/keys are retired. This is source-overlay proof, not new firmware.
-#529 remains open for the next assembled candidate's installed-byte/startup
-qualification and release delta review. Nova's particular cause/timing remains
-an explicitly recorded hardware observation, not a completed physical retest.
-Current devices still run8b511 and remain available for owner use.
+The user explicitly approved #529's named next integration/push; it completed
+at c6afa31db1c00ecd82ff615310f97debe63b519c. Original wordlist38002608076 and
+record38002608077 both succeeded. No #529 approval remains pending. Its actual
+receipt is /tmp/pix529-final-readback.json and copied into the #530 proof.
 
-This continuation's scoped source/docs delivery is resolved by
-`/tmp/pix529-final-readback.json` (exact pushed head and original hosted results)
-after publication. Read it and live GitHub before treating delivery as pending.
-There is no build, VM, external review or background investigation still running.
-The previous checkpoint is archived at `.github/sessions/archived/saved-session-state-next-20261009T172050Z.md`.
+The user then requested semantic version + date/time/hash identity instead of
+community and expressly authorized work on #530. They clarified that rolling
+releases do not need a detailed alpha/beta/RC/stable progression now. #530 is a
+real child of #265. D-WORKFLOW-157 and docs/releases/versioning.md record it.
+
+Current source removes community labels, decouples defaults, freezes semantic
+release version + UTC seconds + source hash, includes per-image identity JSON,
+refuses reused filenames, and generates matching GitHub naming/asset plans from
+an explicit verified immutable bundle. tools/fork-publish-release now PREPARES
+JSON only: no implicit newest/date/clobber/undraft path and no actual publication.
+Default qualifier dev; explicit SemVer qualifiers/empty stable are syntax only,
+not release qualification or a mandated progression. Existing0.0.1 adoption
+suffix and stored settings persist. Full source BUILD_ID stays unchanged.
+
+29 host controls pass (actual image naming/os-release/sidecar blocks, actual
+package post_install and manifest-bound plans). New and legacy information rows
+on replacement18 are reviewed at640x480 with unchanged protected settings. The
+first UI harness failed1; original script also exits127 on an absent optional VM
+quirk after emitting rows. Corrected owner02 compares that baseline and passes0.
+Do not hide/rerun the failed owner. All original channels and actual exits are
+retained; disposable disk/UEFI/key deleted. No process, build, audit, VM or device
+operation is running. Evidence: docs/qa-logs/2026-10-09-build-identity/README.md,
+SHA256SUMS, source-bindings.json and evidence-index.json. This is runtime-overlay
+proof, not assembled firmware. No full release audit has been repeated.
+
+Delivery boundary: /tmp/pix530-final-readback.json resolves the scoped commit,
+next integration/push and original hosted results after publication. Consult
+that file and live GitHub before treating delivery as done/pending. Until it
+exists, source delivery still needs commit/integration/check consumption.
+
+Next: finish that delivery, then #531 (already filed as child of #265) fixes an
+existing USB gadget consumer that turns OS_VERSION0.0.1 into invalid bcdDevice
+0x0.1. No USB change was made here. Then assemble/qualify combined #529/#530/#531
+source on clean and retained-storage VM paths. #528's17 component dispositions,
+source/custody/retrieval and off-host proof remain independently open; #265/#344
+actual publication stays unqualified. Detailed channel progression is deferred.
+#530 has three source criteria checked and one assembled-candidate criterion open.
+Do not close #529/#530 or call an RC based on the runtime overlays.
+
+The owner is using the three devices. Do not contact, update, reboot, capture,
+launch games or change their cloud/settings under completed deployment grants.
+Current firmware remains8b511, automatic cloud sync off. No handheld contacted
+in this continuation. Website #511 stays separate. No active goal exists.
+
+Active worktree: /workspace/repos/rocknix.worktrees/m7-p5-build-identity,
+feature/m7-p5-build-identity, from c6afa31db1. Integrate only its owned commits
+onto clean primary next (/workspace/repos/rocknix); never merge the root harness's
+divergent feature/conflict-resolution branch. Previous #529 feature commit15c975
+is already integrated as c6afa31; do not cherry-pick it again. All canonical rules
+are in this worktree; read every-session/scoped rules before further work.
+
+Archive of preceding checkpoint: .github/sessions/archived/saved-session-state-next-20261009T232136Z.md.
+The material below is retained context; its old current-work/push requests are
+historical wherever the Start here section supersedes them.
+
+## Retained project and deployment context
 
 This is an immutable Linux distribution build system, not a runnable app.
 Read this complete checkpoint, primary `next`'s AGENTS.md and every-session

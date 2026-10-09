@@ -1,0 +1,40 @@
+{
+  "recorded_at": "2026-10-09T23:08:39.144189+00:00",
+  "status": "delivered",
+  "feature_commit": "15c975ba2ba1323b4c738cf294b82bcd9935fb45",
+  "primary_head": "c6afa31db1c00ecd82ff615310f97debe63b519c",
+  "feature_clean": true,
+  "primary_clean": true,
+  "integration_executed": true,
+  "push_executed": true,
+  "hosted_checks_started": true,
+  "approval_review": {
+    "outcome": "rejected_before_execution",
+    "action": "cherry-pick 15c975ba2ba1323b4c738cf294b82bcd9935fb45 onto next and git push origin next",
+    "reason": "Reviewer requires named approval for this exact direct push to the shared branch.",
+    "pending_question": "Approve integration and push"
+  },
+  "issue": 529,
+  "qualification": "VM source-overlay proof; assembled-candidate qualification remains open",
+  "device_actions_this_investigation": 0,
+  "resume": "Startup change delivered. #530 build identity is active; next assembled candidate qualifies #529 and #530.",
+  "hosted_checks": [
+    {
+      "conclusion": "success",
+      "databaseId": 38002608077,
+      "headSha": "c6afa31db1c00ecd82ff615310f97debe63b519c",
+      "name": "fork record checks",
+      "status": "completed",
+      "url": "https://github.com/pixelelated/distribution/actions/runs/38002608077"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 38002608076,
+      "headSha": "c6afa31db1c00ecd82ff615310f97debe63b519c",
+      "name": "fork wordlist check",
+      "status": "completed",
+      "url": "https://github.com/pixelelated/distribution/actions/runs/38002608076"
+    }
+  ],
+  "approval": "Explicit user approval on 2026-10-09 after named request"
+}

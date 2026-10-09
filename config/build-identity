@@ -1,0 +1,53 @@
+#!/bin/bash
+# SPDX-License-Identifier: GPL-2.0-or-later
+# Copyright (C) 2026-present ROCKNIX (https://github.com/ROCKNIX)
+
+# Called once by image assembly. Export the frozen identity to package installs.
+pixelelated_build_identity() {
+  local number='(0|[1-9][0-9]*)' qualifier="${BUILD_QUALIFIER-dev}" actual_hash
+  [[ "${OS_VERSION}" =~ ^${number}\.${number}\.${number}$ ]] || {
+    echo "build identity: OS_VERSION must be MAJOR.MINOR.PATCH" >&2; return 1;
+  }
+  if [[ -n "$qualifier" ]]; then
+    [[ "$qualifier" =~ ^[0-9A-Za-z-]+(\.[0-9A-Za-z-]+)*$ ]] || {
+      echo "build identity: invalid prerelease qualifier" >&2; return 1;
+    }
+    local part
+    local -a parts
+    IFS=. read -r -a parts <<<"$qualifier"
+    for part in "${parts[@]}"; do
+      if [[ "$part" =~ ^[0-9]+$ && "$part" != 0 && "$part" == 0* ]]; then
+        echo "build identity: numeric prerelease identifiers cannot have leading zeroes" >&2
+        return 1
+      fi
+    done
+  fi
+  actual_hash=$(git rev-parse HEAD) || return 1
+  [[ "$actual_hash" =~ ^[0-9a-f]{40}$ ]] || return 1
+  if [[ -n "${CUSTOM_GIT_HASH:-}" && "$CUSTOM_GIT_HASH" != "$actual_hash" ]]; then
+    echo "build identity: CUSTOM_GIT_HASH must match the checked-out commit" >&2; return 1
+  fi
+  if [[ -n "${CUSTOM_VERSION:-}${CUSTOM_IMAGE_NAME:-}" ]]; then
+    echo "build identity: use OS_VERSION and BUILD_QUALIFIER, not custom version/image names" >&2; return 1
+  fi
+  BUILD_TIMESTAMP="${BUILD_TIMESTAMP:-$(date -u +%Y%m%dT%H%M%SZ)}"
+  [[ "$BUILD_TIMESTAMP" =~ ^[0-9]{8}T[0-9]{6}Z$ ]] || {
+    echo "build identity: timestamp must be YYYYMMDDTHHMMSSZ (UTC)" >&2; return 1;
+  }
+  local iso="${BUILD_TIMESTAMP:0:4}-${BUILD_TIMESTAMP:4:2}-${BUILD_TIMESTAMP:6:2}T${BUILD_TIMESTAMP:9:2}:${BUILD_TIMESTAMP:11:2}:${BUILD_TIMESTAMP:13:2}Z"
+  [[ "$(date -u -d "$iso" +%Y%m%dT%H%M%SZ 2>/dev/null)" == "$BUILD_TIMESTAMP" ]] || {
+    echo "build identity: invalid UTC date" >&2; return 1;
+  }
+  GIT_HASH="$actual_hash"
+  RELEASE_VERSION="${OS_VERSION}${qualifier:+-$qualifier}"
+  BUILD_VERSION="${RELEASE_VERSION}+${BUILD_TIMESTAMP}.g${GIT_HASH:0:12}"
+  # Local edits may be useful for development, but never look like a clean cut.
+  BUILD_DIRTY=no
+  if [[ -n "$(git status --porcelain=v1 --untracked-files=normal)" ]]; then
+    BUILD_DIRTY=yes
+    BUILD_VERSION+=.dirty
+  fi
+  BUILD_DATE="$iso"
+  OS_BUILD="${qualifier:-stable}"
+  export GIT_HASH RELEASE_VERSION BUILD_VERSION BUILD_TIMESTAMP BUILD_DATE BUILD_DIRTY OS_BUILD
+}

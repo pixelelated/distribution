@@ -209,7 +209,10 @@
   ENABLE_UPDATES="yes"
 
 # defines the born on date of a build
-  BUILD_DATE=$(date)
+  BUILD_DATE="${BUILD_DATE:-$(date -u +%Y-%m-%dT%H:%M:%SZ)}"
+
+# Fresh-install defaults are independent of release naming (#530).
+  DEVELOPMENT_DEFAULTS="${DEVELOPMENT_DEFAULTS:-yes}"
 
 # Define supported systems documentation path
   SYSDOCROOT="${ROOT}/documentation/PER_DEVICE_DOCUMENTATION/${DEVICE}"

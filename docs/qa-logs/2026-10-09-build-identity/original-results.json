@@ -1,0 +1,68 @@
+{
+  "setup": {
+    "run": "20261009T231053Z-1c13a76e",
+    "exits": {
+      "inner.rc": 0,
+      "outer.rc": 0,
+      "tool-wrapper.rc": 0,
+      "build.rc": 0,
+      "launcher": 0
+    },
+    "pids_absent": [
+      3463143,
+      3463144,
+      3463155,
+      3463183
+    ],
+    "run_pidfiles": {
+      "build.pid": 3463144,
+      "watcher.pid": 3463155,
+      "command.pid": 3463183,
+      "build.status.pid": 3463155
+    }
+  },
+  "ui01-failed-harness": {
+    "run": "20261009T231326Z-4aa7449c",
+    "exits": {
+      "inner.rc": 1,
+      "outer.rc": 1,
+      "tool-wrapper.rc": 1,
+      "build.rc": 1,
+      "launcher": 1
+    },
+    "pids_absent": [
+      3474241,
+      3474242,
+      3474244,
+      3474273
+    ],
+    "run_pidfiles": {
+      "build.pid": 3474242,
+      "watcher.pid": 3474244,
+      "command.pid": 3474273,
+      "build.status.pid": 3474244
+    }
+  },
+  "ui02": {
+    "run": "20261009T231438Z-4cc603c6",
+    "exits": {
+      "inner.rc": 0,
+      "outer.rc": 0,
+      "tool-wrapper.rc": 0,
+      "build.rc": 0,
+      "launcher": 0
+    },
+    "pids_absent": [
+      3479734,
+      3479735,
+      3479738,
+      3479766
+    ],
+    "run_pidfiles": {
+      "build.pid": 3479735,
+      "watcher.pid": 3479738,
+      "command.pid": 3479766,
+      "build.status.pid": 3479738
+    }
+  }
+}

@@ -56,7 +56,7 @@ naming whichever package came first (`install kernel-firmware:target has
 failed`, 2026-09-12). The shared cache is `SOURCES_DIR` for every build root
 (`device-builds.md`).
 
-Image lands at `target/ROCKNIX-GENERIC_X64.x86_64-<date>.img.gz`. To re-image after a
+Image lands at `target/pixelelated-GENERIC_X64.x86_64-<build-identity>-from-ROCKNIX.img.gz`; see `docs/releases/versioning.md` for version/timestamp/hash identity. To re-image after a
 scripts/only change (e.g. `mkimage`), remove `build.*/.stamps/image/build_target` first —
 scripts aren't in a package deephash so the image won't rebuild otherwise.
 

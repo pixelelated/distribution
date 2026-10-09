@@ -133,8 +133,12 @@ esac
 echo "SYSTEM INFORMATION:"
 echo "DEVICE: ${QUIRK_DEVICE}"
 echo "OPERATING SYSTEM: ${OS_NAME}"
-echo "VERSION: ${OS_VERSION} (${OS_BUILD})"
-echo "BUILD ID: ${BUILD_ID:0:7} (${BUILD_BRANCH})"
+echo "VERSION: ${OS_VERSION}"
+if [ -n "${BUILD_TIMESTAMP}" ]; then
+  echo "BUILD ID: ${BUILD_DATE/T/ } / ${BUILD_ID:0:12}"
+else
+  echo "BUILD ID: ${BUILD_ID:0:12} (${BUILD_BRANCH})"
+fi
 echo "KERNEL: ${V_SYSTEM} ($(uname -m))"
 if [ -n "${DEVICE_SERIAL_NUMBER_PATH}" ]; then
   SOC_SERIAL=$(cat ${DEVICE_SERIAL_NUMBER_PATH} 2>/dev/null)

@@ -556,3 +556,22 @@ The screenshot toggle in System Settings reads **ENABLE pixelelated SCREENSHOT**
 its persisted `rocknix.screenshot.enabled` setting is unchanged.
 The system menu version line and manual-update destination use lowercase
 pixelelated (D-WORKFLOW-144, #409). This is a name change within the same rows.
+
+## Build identity in INFORMATION (#530)
+
+```mermaid
+flowchart LR
+    Main[Main Menu] --> System[System Settings]
+    System --> Info[Information]
+    Info --> Version[Semantic release version]
+    Info --> Build[UTC build time and source hash]
+    Info -->|Back| System
+```
+
+The existing VERSION and BUILD ID rows show the release version and, for new
+metadata, UTC time with seconds plus12source-hash characters. No community
+classification is displayed. Old metadata without BUILD_TIMESTAMP keeps the
+source/branch fallback; navigation and labels remain unchanged.
+Reviewed640x480 original/new/legacy information frames, exact source binding
+and branch expectations: [identity evidence](qa-logs/2026-10-09-build-identity/evidence-index.json).
+These are runtime-overlay proofs, not a promoted full-firmware baseline.

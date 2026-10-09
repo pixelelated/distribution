@@ -104,7 +104,7 @@ Libretro cores are `*-lr` (`packages/emulation/libretro-*`,
 ## Where things land
 
 Build work happens in `build.ROCKNIX-<DEVICE>.<ARCH>/`, downloads in
-`sources/`, and images in `target/ROCKNIX-<DEVICE>.<ARCH>-<timestamp>.tar` —
+`sources/`, and images in `target/pixelelated-<DEVICE>.<ARCH>-<build-identity>-from-ROCKNIX.tar` —
 all gitignored. Generated per-device core/emulator support lists live in
 `documentation/PER_DEVICE_DOCUMENTATION/<DEVICE>/`.
 

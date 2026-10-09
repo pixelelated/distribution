@@ -1,7 +1,10 @@
-# VERSION: set full version, use "devel" for development version
+# Package/build-root version; image identity is derived in config/build-identity.
   DISTRO_VERSION="devel"
 
-# OS_VERSION: OS Version
+# Release target. Rolling engineering builds default to the dev qualifier.
+# BUILD_QUALIFIER may be empty for stable, or a SemVer prerelease such as rc.1.
+# Naming does not confer release qualification.
+# OS_VERSION: base semantic version
   OS_VERSION="0.0.1"
 
 # RC2 accepts an adoption tar whose name still contains ROCKNIX (D-WORKFLOW-128).

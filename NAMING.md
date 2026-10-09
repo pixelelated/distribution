@@ -50,3 +50,11 @@ Blitterbot's account and email stay unchanged. The owner confirms no systems
 use /Rasteratops: ROCKNIX → pixelelated is the required adoption path.
 Historical docs/artifacts keep their original names and paths; current art is
 in `docs/pixelelated/art/`. The wordmark contains no character artwork.
+
+## Version and build classification
+
+New images use semantic release versions plus a UTC timestamp and source hash,
+with no community/official category (D-WORKFLOW-157, #530).
+[Build identity](docs/releases/versioning.md) defines filenames, metadata,
+INFORMATION and GitHub naming. Release qualifiers are independent of fresh-install
+network/logging defaults. Historical firmware and published tags retain their names.
