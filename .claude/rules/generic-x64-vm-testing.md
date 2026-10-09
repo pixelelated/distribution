@@ -1294,3 +1294,14 @@ file; a torn copy is a strict prefix of its complete, no-older record. Assert
 that precondition and prove recovery occurred before claiming an interleaving
 (#420). Linux truncates `/proc/PID/comm` to15 bytes; identify the running ES by
 `/proc/PID/exe` when checking injected test instrumentation.
+
+### Bind a restarted frontend only after observed readiness
+
+For state-bound operational fixtures, wait for the actual ES idle endpoint and
+absence of the relevant cloud worker before capturing the apply binding. A
+fixed sleep after systemctl start is not evidence that startup has settled.
+Keep negative-test mutations separate from their expected baseline (copy it or
+save the original scalar first); a shared dictionary can corrupt the oracle
+itself. #519 executor02/04 retained their failures, and the final exact executor
+qualified after those fixture corrections. Do not loosen production refusal
+checks to accommodate an unready or self-modified fixture.
