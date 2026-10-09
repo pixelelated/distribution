@@ -1,0 +1,32 @@
+{
+  "utc": "2026-10-09T16:02:07.034314+00:00",
+  "result": "PASS",
+  "device": "nova",
+  "checks": {
+    "safe_payload": true,
+    "local_recovery": true,
+    "hooks": true,
+    "unit_overrides": true,
+    "markers": true,
+    "scan": true,
+    "settings": true,
+    "/storage/.config/cloud_sync.conf": true,
+    "/storage/.config/cloud_sync.conf.bak": true,
+    "/storage/.config/cloud_sync.conf.defaults": true,
+    "/storage/.config/cloud_sync.conf.pre-contentpath-fix": true,
+    "/storage/.config/cloud_sync-rules.txt ownership_and_mode": true,
+    "/storage/.config/rclone/rclone.conf": true,
+    "/storage/.config/system/configs/system.cfg ownership_and_mode": true,
+    "/storage/.config/system/configs/system.cfg.backup ownership_and_mode": true,
+    "/storage/.config/cloud-layout-migration.json": true,
+    "auto_off": true,
+    "frontend_idle": true,
+    "no_cloud_workers": true,
+    "new_boot": true,
+    "startup_config_semantics": true
+  },
+  "protected_file_count": 0,
+  "before_sha256": "9473bf4c80828b828ee0426d83b29997e8aa561e6baef2e64d8b436a14dea904",
+  "after_sha256": "d501b5fd90f6ae7b27eb9a2939e4ad84c469db3e6eee59dcccd51a06d66dd801",
+  "failures": []
+}

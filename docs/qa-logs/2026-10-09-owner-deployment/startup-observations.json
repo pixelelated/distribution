@@ -1,0 +1,15 @@
+{
+  "utc": "2026-10-09T16:07:35.513125+00:00",
+  "nova_frontend_restart": {
+    "previous_boot": "69e603: SDL/renderer initialization failed once; systemd restarted frontend, then it ran",
+    "updated_boot": "8b511: SDL/renderer/window initialization failed once; systemd restarted frontend, then it ran",
+    "observed_NRestarts": 1,
+    "failed_units_at_readback": 0,
+    "new_regression_established": false
+  },
+  "nova_graphics": "Initial a740 firmware load failure appears on preceding boot too; current boot later explicitly loads a740_sqe and GMU firmware v4.1.9. Reviewed1280x960 compositor frame succeeds.",
+  "nova_kernel_faults": "Early arm-smmu context-fault burst recorded on this boot. Cause and boot-to-boot frequency are not established. Optional later count read failed before producing a receipt; no complete count or zero-fault claim.",
+  "audio": "Pulse bus and qcom audio startup messages also appear on previous boot; no physical audio/game test performed.",
+  "tailnet": "Old Nova already reports connmark warning seen on updated RG35XX SP. Actual post-update SSH works on the Tailnet for RG SP and Nova.",
+  "scope": "Read-only observations under #344. No crash/reboot/gameplay experiment, claim of all hardware gates closed, or new firmware change."
+}
