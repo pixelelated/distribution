@@ -1,0 +1,51 @@
+{
+  "utc": "2026-10-09T00:16:13.970320+00:00",
+  "component": "glsl-shaders",
+  "profile": "h70002-aarch64",
+  "pinned_source": "4f4eb801b2dbcaed0a9669a9deec1a098f3623d8",
+  "archive_sha256": "2607e40d468e31ea5bb96e557db8dbbaada683afec189523a7b9d31ef57ed296",
+  "archive_bytes": 25954661,
+  "top_level_regular_files": [
+    ".gitlab-ci.yml",
+    "Makefile",
+    "bilinear.glslp",
+    "configure",
+    "nearest.glslp",
+    "slang-conversion-template.glsl",
+    "stock.glsl"
+  ],
+  "notice_filename_members": [
+    {
+      "relative_path": "crt/shaders/crt-royale/LICENSE.TXT",
+      "archive_member": "glsl-shaders-4f4eb801b2dbcaed0a9669a9deec1a098f3623d8/crt/shaders/crt-royale/LICENSE.TXT",
+      "bytes": 15220,
+      "sha256": "d8c320ffc0030d1b096ae4732b50d2b811cf95e9a9b7377c1127b2563e0a0388"
+    },
+    {
+      "relative_path": "nnedi3/LICENSE",
+      "archive_member": "glsl-shaders-4f4eb801b2dbcaed0a9669a9deec1a098f3623d8/nnedi3/LICENSE",
+      "bytes": 7651,
+      "sha256": "da7eabb7bafdf7d3ae5e9f223aa5bdc1eece45ac569dc21b3b037520b4464768"
+    }
+  ],
+  "prior_record": {
+    "component": "glsl-shaders",
+    "profiles": [
+      "h70002-aarch64"
+    ],
+    "observed_licence_basis": "LGPL-3.0 root licence text; per-shader review open",
+    "scope_and_remaining_work": "The root file supplies LGPLv3 text. Do not flatten per-shader copyright/exception headers into one aggregate label.",
+    "notice_evidence": [
+      {
+        "observed_source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02/build.pixelelated-H700.aarch64/build/glsl-shaders-4f4eb801b2dbcaed0a9669a9deec1a098f3623d8/nnedi3/LICENSE",
+        "sha256": "da7eabb7bafdf7d3ae5e9f223aa5bdc1eece45ac569dc21b3b037520b4464768",
+        "retained_in_existing_packet": "docs/qa-logs/2026-10-08-final-inventory/supplement/artifacts/notices/da7eabb7bafdf7d3ae5e9f223aa5bdc1eece45ac569dc21b3b037520b4464768"
+      }
+    ],
+    "release_disposition": "OPEN: integrate scoped licence and exact notices into final release materials; this basis review is not full component/vendor/source/backup clearance."
+  },
+  "correction": "Nested LGPL text was incorrectly described as a root licence. No collection-wide basis established. This filename census is not a complete per-file licence assessment.",
+  "component_count_note": "13 components have some root or scoped basis, not13 cleared components; five lack an established aggregate basis. All release dispositions remain open.",
+  "original_packet_changed": false,
+  "firmware_changed": false
+}
