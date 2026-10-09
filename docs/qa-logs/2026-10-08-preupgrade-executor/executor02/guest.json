@@ -1,0 +1,32 @@
+{
+  "command": [
+    "/workspace/repos/rocknix.worktrees/conflict-resolution/projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm",
+    "run",
+    "--headless",
+    "--daemonize",
+    "--gl",
+    "auto",
+    "--res",
+    "640x480",
+    "--ssh-port",
+    "10252",
+    "--vnc",
+    "72",
+    "--monitor",
+    "/tmp/pix519-ex01-mon.sock",
+    "--serial",
+    "/tmp/pix519-ex01-ser.sock",
+    "--pidfile",
+    "/workspace/tmp/pixelelated-m7-alignment-executor-02/vm.pid",
+    "--mac",
+    "52:54:00:52:15:19",
+    "/workspace/tmp/pixelelated-m7-alignment-executor-02/vm.qcow2"
+  ],
+  "image_sha256": "74e57ad8957b1c719c18db098d5713577a952af8802524658d0ada7dee1b6b12",
+  "distribution": "ee014909137e03706e0b3020b8396be589aaa705",
+  "es_source": "72494bc72e3d64d4dcfeb4e6478052bbdf166c5b",
+  "qemu_pid": 1909928,
+  "elapsed_seconds": 35.675,
+  "protected_by_blackhole_routes": true,
+  "credentials": "synthetic SSH key only; exclude from packet"
+}

@@ -1,10 +1,10 @@
 # Saved Session State
 
-> Saved: 2026-10-09T00:06:11.524391+00:00
+> Saved: 2026-10-08T23:35:29.663515+00:00
 > Coordinator: feature/conflict-resolution
 > Repository: pixelelated/distribution
 
-## Start here — #519 exact device packet qualified, approval pending; #528 remains publication work
+## Start here — #519 runtime rehearsal qualifies; finish device action packet and #528 publication inputs
 
 This is an immutable Linux build system, not a runnable application. Primary
 `/workspace/repos/rocknix` stays on `next`; read its AGENTS.md and canonical
@@ -17,8 +17,7 @@ local provider QA and dependency-checked disposable payload retirement. No new
 physical-device/personal-cloud action. #519 controlled owner alignment must
 precede the next owner handheld update transfer/reboot. Website #511 is separate.
 No goal exists. H70002 and SM855003 engineering firmware are ACCEPTED.
-No source, compiler, VM QA, provider or external audit job is active. Final executor06 and staging proof completed, all results consumed, all disposable guests/keys retired. See the exact packet section below. Git snapshot03 completed and was consumed below. No RC designation.
-Published runtime checkpoint ce30db6cb3c1373ea487a93ddacc18685da9f30a has both hosted checks SUCCESS37860806534/37860806522, consumed and retained in the executor packet.
+No source, compiler, VM QA, provider or external audit job is active. Git snapshot03 completed and was consumed below. No RC designation.
 Published source/member-index delivery fab6fd5b916c97a31c3b8edfaa923194d1aec460 has both hosted checks SUCCESS37856726819/37856726976, consumed this continuation. Earlier source progress8b413914d93a5af3b96ccdd6642769cce7c0ab1a also passed37854410932/37854410880.
 Latest device acceptance fcac270c3880521b6296a17943cb4fb2011e887b has both hosted checks SUCCESS37850652223/37850652345.
 Helper recovery376675809c578c6fd4ccb9261a65af3f26ec2ece has both SUCCESS37850012367/37850012329.
@@ -277,56 +276,15 @@ family. One prior local config backup has no reader in traced installed
 source and is kept for#516. Defaults remain active support. No private values
 or inventories are in this public packet.
 
-## #519 exact packet qualified — pending named device approval
-
-Read `docs/qa-logs/2026-10-08-preupgrade-executor/README.md` and its seal.
-Final executor06 SHA256
-4e286b7906d47ef752761442ed294960f6d7ef5b3417f8925f1249024ce676a1
-passes six controls: held lease/stale binding refusal, rollback refuses
-intervening edits, exact interruption recovery, guarded frontend restoration,
-private archives/live modes/unrelated duplicate retention. Same staging template
-passes exact hashes/private modes and occupied-destination refusal.
-Executor01 is original preexecution rc2;02–04 original aggregate rc1;05 has
-five passing controls;06 has six passing controls/all five original rc0channels.
-Actual host owners exited. All created guests/disks/vars/keys retired; final
-ports10252/5972free. Earlier runtime/power proofs unchanged, no relabelled failures.
-
-**Current private operation packet:**
-`/tmp/pixelelated-personal-cloud-review-20261008/preupgrade-execution04/`.
-Read README.md, operation.py, inspect.py, plan.json, and the three command files.
-Earlier execution01–03 are historical, not ready procedures. proposal02 remains
-source rationale; original proposal.md mask-only protection remains superseded.
-The read-only binding has unchanged firmware/source/boot/config/recovery; all162
-prior save hashes match. Broader installed filter adds a local backup archive,
-so163files/25,549,175bytes are protected. Private paths stay private.
-
-An async question requests named approval for staging, alignment and guarded
-rollback. **No reply has been received at this checkpoint. Do not execute on
-elapsed time or the generic continue instruction.** Required action scope is
-specified in the reviewed private README and docs/device-testing-policy.md.
-No owner device/cloud mutation, update transfer, reboot or sync occurred.
-After an explicit approval covering those actions:
-
-1. `python3 -I /tmp/pixelelated-personal-cloud-review-20261008/preupgrade-execution04/dispatch.py stage`
-2. `python3 -I /tmp/pixelelated-personal-cloud-review-20261008/preupgrade-execution04/dispatch.py apply`
-
-Each invokes tools/device-act with private logs and180s timeout. Capture/consume
-stage/apply output and rc; fresh binding refusal is not acceptance. Read back the
-actual acceptance.json from `/storage/.cache/pixelelated-owner-alignment-519/`,
-validate preserved payload/recovery/credentials/source and intended image binding,
-then seal privately and reconcile #519/M7. Do not expose personal inventories.
-The intended H700 update TAR SHA is
-b49cca4ca0b8996fa994181508c887d9df5afe155c9502919bab7bf7e153e39d.
-
-On failure preserve the maintenance gate. Approved rollback is the analogous
-`dispatch.py rollback`; it requires complete archive and exact failure-state,
-source/boot/payload binding, restores originals but keeps frontend stopped.
-A reboot/missing failure record/unexplained drift requires fresh inspection and
-a revised concrete action, never bypassing the guard. Successful alignment
-removes all temporary gates and restores frontend with automatic sync0.
-Update staging/reboot, first deliberate sync and automation reenable remain
-separately named authority. #519 first two criteria are checked; actual device
-operation and state-bound acceptance remain open.
+**Next for #519:** read private `preupgrade-plan01/proposal02.md` and the
+appended consumer-evidence correction. The original proposal.md mask-only
+protection is superseded. Prepare the exact apply/recovery command packet and
+fresh source/config/boot/payload/recovery binding. Qualify any new executable
+behavior before presenting named device actions. Then obtain still-required
+per-action authorization and use tools/device-act. The VM proof is NOT device
+acceptance. No configuration/service/cloud mutation, update staging or reboot
+has occurred on the handheld. #519 remains a hard prerequisite before its next
+update; first sync/automation reenable remain separate authority.
 
 ## Current work and next commands
 
@@ -353,9 +311,8 @@ operation and state-bound acceptance remain open.
    Named physical/boot-chain gates remain. #519 controlled owner alignment
    precedes next RG35XXSP transfer/reboot. Its13old-helper controls and the new runtime/power rehearsal qualify.
    Read-only startup/recovery/residue classification is retained privately.
-   The exact execution04 packet and fresh binding are qualified. Named approval
-   is pending; device action/readback and sealed acceptance remain. Read the
-   execution04 README, never the superseded mask-only procedure.
+   Exact apply/recovery packet, fresh binding, named approval and device
+   readback remain. Read proposal02, never the superseded mask-only procedure.
    No device or personal-cloud action is authorized by this evidence.
 6. Update/read back full M7/#344/#528 bodies and checkpoint as priorities change.
    #344's binding phase paragraph now defers to liveM7, not staleM7.P3. Website511

@@ -1,0 +1,16 @@
+{
+  "utc": "2026-10-08T23:56:41.543287+00:00",
+  "actual_host_owners_exited": [
+    1915926,
+    1915927,
+    1915928
+  ],
+  "original_results": {
+    "inner.rc": 1,
+    "outer.rc": 1,
+    "guest-command.rc": 1,
+    "tool-wrapper.rc": 1,
+    "build.rc": 1
+  },
+  "cause": "systemctl show renders Conditions as unprintable; exact drop-in was loaded and fail-closed gate retained"
+}

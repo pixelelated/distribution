@@ -1,0 +1,355 @@
+{
+  "accepted": true,
+  "scope": "one-time local alignment; no firmware update, cloud transfer or automatic-sync reenable",
+  "image_sha256": "b49cca4ca0b8996fa994181508c887d9df5afe155c9502919bab7bf7e153e39d",
+  "operation_sha256": "4e286b7906d47ef752761442ed294960f6d7ef5b3417f8925f1249024ce676a1",
+  "collector_sha256": "3f3ebacb4034ed35ad32fd365153aa0dc1039878ecec2f6237b41429a9d9162f",
+  "binding": {
+    "schema": 1,
+    "read_only": true,
+    "boot_id": "1d032318-7d64-40b9-8b25-33df1664e6ed",
+    "files": {
+      "/etc/os-release": {
+        "mode": 420,
+        "uid": 0,
+        "gid": 0,
+        "kind": "file",
+        "bytes": 512,
+        "sha256": "cfaf6f743bfc334371e1d0f502fa94d19b37fabab90b5fe6959ec0bd9632d611"
+      },
+      "/usr/bin/emulationstation": {
+        "mode": 493,
+        "uid": 0,
+        "gid": 0,
+        "kind": "file",
+        "bytes": 11749616,
+        "sha256": "f6bf7e0b71ce1491b59901a88af3cc49c2bb22117df6dca8bcbe651066263c94"
+      },
+      "/usr/bin/cloud_migrate_layout": {
+        "mode": 493,
+        "uid": 0,
+        "gid": 0,
+        "kind": "file",
+        "bytes": 88250,
+        "sha256": "0e4ccebde159006acb6313027e33b363b177eff2b62db2bacc93fea05396b2c1"
+      },
+      "/usr/bin/cloud_scan": {
+        "mode": 493,
+        "uid": 0,
+        "gid": 0,
+        "kind": "file",
+        "bytes": 14575,
+        "sha256": "a4830b23e7d3df7d86cba7867ccaaca583ea8881e90a4c5d3988671d79b20aa1"
+      },
+      "/usr/bin/cloud_sync_helper": {
+        "mode": 493,
+        "uid": 0,
+        "gid": 0,
+        "kind": "file",
+        "bytes": 34704,
+        "sha256": "3c7738648fe946c74d2c8e9d38fc5e7529f6f41a831a6c546c84765891f26385"
+      },
+      "/usr/bin/chksysconfig": {
+        "mode": 493,
+        "uid": 0,
+        "gid": 0,
+        "kind": "file",
+        "bytes": 16157,
+        "sha256": "e18d619783d9bbcdd23f1f8aaf2da0786ec162195cc35e1dc3a3ffc4afa04c8e"
+      },
+      "/usr/bin/start_es.sh": {
+        "mode": 493,
+        "uid": 0,
+        "gid": 0,
+        "kind": "file",
+        "bytes": 215,
+        "sha256": "463acec36231a2230f311e0281fe80693c0046c531985bd75bd4c8d83b95161e"
+      },
+      "/etc/profile.d/001-functions": {
+        "mode": 420,
+        "uid": 0,
+        "gid": 0,
+        "kind": "file",
+        "bytes": 30182,
+        "sha256": "2a67891c9a3090ddae78d4b729ce7b8f5c41d853e0975b4ce0203df7789e4ab5"
+      },
+      "/usr/lib/systemd/system/emustation.service": {
+        "mode": 420,
+        "uid": 0,
+        "gid": 0,
+        "kind": "file",
+        "bytes": 504,
+        "sha256": "750aaecb3671862c49e33b2480c08d77c9279ae74072df4626d069efb271188b"
+      },
+      "/usr/lib/systemd/system/essway.service": {
+        "mode": 420,
+        "uid": 0,
+        "gid": 0,
+        "kind": "file",
+        "bytes": 361,
+        "sha256": "95b47b6b8c82b6ca18c7079a1d45cf183e91e5f7ae15969045752b629b7f9c25"
+      },
+      "/usr/lib/autostart/common/001-setup": {
+        "mode": 493,
+        "uid": 0,
+        "gid": 0,
+        "kind": "file",
+        "bytes": 1049,
+        "sha256": "701990864b7ed02cf76e9dfbd1d3738d2ca54b769acf17c7849748e4836fe866"
+      },
+      "/usr/lib/autostart/common/111-sway-init": {
+        "mode": 493,
+        "uid": 0,
+        "gid": 0,
+        "kind": "file",
+        "bytes": 12190,
+        "sha256": "fbf70223700ffa2fbf1166417c2bb708fac292dd320191e12b0b19c28e896b01"
+      },
+      "/storage/.config/cloud_sync.conf": {
+        "mode": 420,
+        "uid": 0,
+        "gid": 0,
+        "kind": "file",
+        "bytes": 8447,
+        "sha256": "247faf3c390d5c6109ee981e109b49037ffc3439a88a92095ccba636a65662c6"
+      },
+      "/storage/.config/cloud_sync.conf.bak": {
+        "mode": 420,
+        "uid": 0,
+        "gid": 0,
+        "kind": "file",
+        "bytes": 8447,
+        "sha256": "247faf3c390d5c6109ee981e109b49037ffc3439a88a92095ccba636a65662c6"
+      },
+      "/storage/.config/cloud_sync.conf.defaults": {
+        "mode": 420,
+        "uid": 0,
+        "gid": 0,
+        "kind": "file",
+        "bytes": 7261,
+        "sha256": "0ff36d8e0e0988e59a0e6655c251c5050d2891481c587724e59d6813f33550e6"
+      },
+      "/storage/.config/cloud_sync.conf.pre-contentpath-fix": {
+        "mode": 420,
+        "uid": 0,
+        "gid": 0,
+        "kind": "file",
+        "bytes": 29,
+        "sha256": "1864d299275a3064b0b7b91f95a6caa279fb6d424320a39b0130f56558db0e7e"
+      },
+      "/storage/.config/cloud_sync-rules.txt": {
+        "mode": 420,
+        "uid": 0,
+        "gid": 0,
+        "kind": "file",
+        "bytes": 2086,
+        "sha256": "bdb7e18128ce4a604c9b02cfe5b0f10f4e3e4dfd3aa7e2d69ea018b8c9d5484d"
+      },
+      "/storage/.config/rclone/rclone.conf": {
+        "mode": 384,
+        "uid": 0,
+        "gid": 0,
+        "kind": "file",
+        "bytes": 61,
+        "sha256": "02cb8304573b1f9a60566bf11e8d1589aab84c4ec54580a4f1f7e3ebfc4d5f19"
+      },
+      "/storage/.config/system/configs/system.cfg": {
+        "mode": 420,
+        "uid": 0,
+        "gid": 0,
+        "kind": "file",
+        "bytes": 5094,
+        "sha256": "ca3969ee5103e9e182126a5fe52cec67c4d36f6acfdaf9d6eb6424ec34948827"
+      },
+      "/storage/.config/system/configs/system.cfg.backup": {
+        "mode": 420,
+        "uid": 0,
+        "gid": 0,
+        "kind": "file",
+        "bytes": 5094,
+        "sha256": "ca3969ee5103e9e182126a5fe52cec67c4d36f6acfdaf9d6eb6424ec34948827"
+      },
+      "/storage/.config/cloud-layout-migration.json": {
+        "kind": "absent"
+      }
+    },
+    "settings": {
+      "automatic_sync": {
+        "cloudsaves.startup": [
+          "0"
+        ],
+        "cloudsaves.gameexit": [
+          "0"
+        ]
+      },
+      "startup_game_configured": false
+    },
+    "safe_payload": {
+      "savefiles/qa519.srm": {
+        "mode": 420,
+        "uid": 0,
+        "gid": 0,
+        "kind": "file",
+        "bytes": 25,
+        "sha256": "c49f28ec5c8153894da344a998df146cbc32c98f70541e33da49e44c6f9b57f6"
+      }
+    },
+    "local_recovery": {
+      "root": {
+        "mode": 493,
+        "uid": 0,
+        "gid": 0,
+        "kind": "directory"
+      },
+      "entries": {
+        "qa519.srm": {
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "kind": "file",
+          "bytes": 25,
+          "sha256": "6e5b069820f719b2dd1e624eb0a5dbd140f76631b0ebe936a41157274805e2e4"
+        }
+      }
+    },
+    "hooks": {
+      "/storage/.config/autostart": {
+        "root": {
+          "kind": "absent"
+        },
+        "entries": {}
+      },
+      "/storage/.config/emulationstation/scripts": {
+        "root": {
+          "kind": "absent"
+        },
+        "entries": {}
+      },
+      "/usr/bin/scripts": {
+        "root": {
+          "kind": "absent"
+        },
+        "entries": {}
+      },
+      "/var/run/emulationstation/scripts": {
+        "root": {
+          "kind": "absent"
+        },
+        "entries": {}
+      }
+    },
+    "unit_overrides": {
+      "root": {
+        "mode": 493,
+        "uid": 0,
+        "gid": 0,
+        "kind": "directory"
+      },
+      "entries": {
+        "README": {
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "kind": "file",
+          "bytes": 28816,
+          "sha256": "e4075348972b41910230ce067651a954db357104b0b629923ce87bcd268cdce0"
+        },
+        "wireguard.service.sample": {
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "kind": "file",
+          "bytes": 421,
+          "sha256": "8d05e850a62efeb2ddbe8eda32db13dd1596534ffad8d31321c0eed1c1baa9ef"
+        }
+      }
+    },
+    "units": {
+      "emustation.service": {
+        "Restart": "always",
+        "MainPID": "0",
+        "KillMode": "process",
+        "ActiveState": "inactive",
+        "SubState": "dead",
+        "FragmentPath": "/usr/lib/systemd/system/emustation.service",
+        "DropInPaths": "",
+        "UnitFileState": "disabled"
+      },
+      "essway.service": {
+        "Restart": "always",
+        "MainPID": "3094",
+        "KillMode": "control-group",
+        "ActiveState": "active",
+        "SubState": "running",
+        "FragmentPath": "/usr/lib/systemd/system/essway.service",
+        "DropInPaths": "",
+        "UnitFileState": "disabled"
+      }
+    },
+    "busy_cloud_processes": [],
+    "frontend_idle": [
+      true
+    ],
+    "markers": {
+      "/storage/.config/.restore-in-progress": {
+        "kind": "absent"
+      },
+      "/storage/.config/.restore-reverted": {
+        "kind": "absent"
+      },
+      "/storage/.config/.restore-finish-pending": {
+        "kind": "absent"
+      },
+      "/storage/.config/.cloud-journey-pending": {
+        "kind": "absent"
+      },
+      "/storage/.cache/cloud_sync/journey-tiers": {
+        "kind": "absent"
+      },
+      "/tmp/.system.cfg.lock": {
+        "kind": "absent"
+      }
+    },
+    "temporaries": {
+      "/storage/.config/cloud_sync.conf.bak": {
+        "mode": 420,
+        "uid": 0,
+        "gid": 0,
+        "kind": "file",
+        "bytes": 8447,
+        "sha256": "247faf3c390d5c6109ee981e109b49037ffc3439a88a92095ccba636a65662c6"
+      },
+      "/storage/.config/cloud_sync.conf.pre-contentpath-fix": {
+        "mode": 420,
+        "uid": 0,
+        "gid": 0,
+        "kind": "file",
+        "bytes": 29,
+        "sha256": "1864d299275a3064b0b7b91f95a6caa279fb6d424320a39b0130f56558db0e7e"
+      },
+      "/storage/.config/cloud_sync.conf.defaults": {
+        "mode": 420,
+        "uid": 0,
+        "gid": 0,
+        "kind": "file",
+        "bytes": 7261,
+        "sha256": "0ff36d8e0e0988e59a0e6655c251c5050d2891481c587724e59d6813f33550e6"
+      },
+      "/storage/.config/system/configs/system.cfg.backup": {
+        "mode": 420,
+        "uid": 0,
+        "gid": 0,
+        "kind": "file",
+        "bytes": 5094,
+        "sha256": "ca3969ee5103e9e182126a5fe52cec67c4d36f6acfdaf9d6eb6424ec34948827"
+      }
+    },
+    "scan": {
+      "root": {
+        "kind": "absent"
+      },
+      "entries": {}
+    },
+    "elapsed_seconds": 0.068
+  }
+}
