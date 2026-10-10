@@ -4,6 +4,17 @@ The current rolling release target is **0.0.1** (M7). D-WORKFLOW-157 removes
 ROCKNIX's official/community distinction from this distribution. No behavior
 is selected by the words alpha, beta, rc, stable, or community.
 
+## Next-candidate naming review
+
+D-WORKFLOW-158 schedules #532 under #265 before the next candidate freeze.
+The proposed public states are release candidate (`0.0.1-rc.1`) and release
+(`0.0.1`), with no required alpha/beta stages. D-WORKFLOW-159 retains the exact
+counter, engineering default and promotion questions. The implementation below
+is unchanged until that task selects and qualifies the convention. An RC label
+must not imply that an unqualified engineering image passed the release gates.
+Changing an embedded version changes artifact bytes; the selected transition
+must account for that rather than merely renaming previously tested firmware.
+
 ## One identity, several readable forms
 
 | Field/surface | Example |
