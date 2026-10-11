@@ -1,0 +1,17 @@
+GuiMenu.cpp from /home/max/Development/emulationstation-next.worktrees/qa-integration at c8dc72cf9
+/workspace/tmp/pixelelated-m7-qa19/tmp/cloud-oauth-lifetime-cgo2y6wy/lifetime.cpp: In function ‘void cloudSetupPresent(Window*, GuiSettings*, GuiSettings*, bool)’:
+/workspace/tmp/pixelelated-m7-qa19/tmp/cloud-oauth-lifetime-cgo2y6wy/lifetime.cpp:95:38: error: ‘struct Menu’ has no member named ‘setPosition’
+   95 |                         s->getMenu().setPosition((Renderer::getScreenWidth() - width) / 2,
+      |                                      ^~~~~~~~~~~
+Traceback (most recent call last):
+  File "/home/max/Development/emulationstation-next.worktrees/qa-integration/tests/cloud-oauth-lifetime.py", line 169, in <module>
+    subprocess.run(['g++', '-std=c++14', '-O1', '-g', '-fsanitize=address',
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                    '-fno-omit-frame-pointer', str(folder / 'lifetime.cpp'),
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                    '-o', str(folder / 'lifetime')], check=True)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['g++', '-std=c++14', '-O1', '-g', '-fsanitize=address', '-fno-omit-frame-pointer', '/workspace/tmp/pixelelated-m7-qa19/tmp/cloud-oauth-lifetime-cgo2y6wy/lifetime.cpp', '-o', '/workspace/tmp/pixelelated-m7-qa19/tmp/cloud-oauth-lifetime-cgo2y6wy/lifetime']' returned non-zero exit status 1.

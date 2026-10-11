@@ -1,0 +1,23 @@
+commit 0ee5b28a65ada516a83d6ff10ec5ec889c3edcd7
+Author:     blitterbot <blitterbot@rasteratops.com>
+AuthorDate: Sun Oct 11 18:02:53 2026 +0000
+Commit:     blitterbot <blitterbot@rasteratops.com>
+CommitDate: Sun Oct 11 18:02:53 2026 +0000
+
+    tests: support positioned cloud pages in lifetime fixture
+    
+    Refs pixelelated/distribution#542. The rendering double now exposes the positioning call used by the unchanged c8dc72cf9 product callbacks. Four ASan routes and governor controls pass; no shipped C++ source changes.
+
+diff --git a/tests/cloud-oauth-lifetime.py b/tests/cloud-oauth-lifetime.py
+index 196abce8f..634ddbfdd 100644
+--- a/tests/cloud-oauth-lifetime.py
++++ b/tests/cloud-oauth-lifetime.py
+@@ -63,7 +63,7 @@ struct Window {
+     std::vector<GuiSettings*> stack;
+     void pushGui(GuiSettings* gui) { stack.push_back(gui); }
+ };
+-struct Menu { void setSize(float, float) {} };
++struct Menu { void setSize(float, float) {} void setPosition(float, float) {} };
+ struct GuiSettings {
+     Window* window;
+     Menu menu;

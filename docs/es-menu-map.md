@@ -277,7 +277,7 @@ flowchart TD
     OAUTH --> LINKDONE{Connection is in use?}
     FORM --> LINKDONE
     LINKDONE -->|yes| CATEGORIES
-    LINKDONE -->|saved only: choose it explicitly| SAVED
+    LINKDONE -->|saved only| CONNSAVED[CONNECTION SAVED<br/>current connection unchanged] -->|choose explicitly under CLOUD CONNECTIONS| SAVED
 ```
 
 **Category-based cloud setup (#508/#510, D-CLOUD-175/178).** This map describes the replacement
@@ -615,8 +615,15 @@ The [reviewed flow table](qa-logs/2026-10-11-network-cloud-management/frame-inde
 and [schema1 evidence index](qa-logs/2026-10-11-network-cloud-management/evidence-index.json)
 bind NC01–NC12, WF01–WF07, ED01 and BR01 to source/binary/catalog hashes. EN/FR,
 small/large happy, failure, cancellation and return states have actual VM proof.
-The independent audit, three account-boundary repairs and later integration/image
-checks remain open; these overlays do not replace the accepted firmware baseline.
+The independent audit and all seven repairs are complete (#540). Combined-image
+qualification remains under #344/#537; the original source-overlay frames do not
+replace that installed-image proof. CONNECTION SAVED is the saved-only completion
+page: it keeps the active connection unchanged and directs the player to CLOUD
+CONNECTIONS when they want to use the saved connection. Reviewed NC08 frames:
+[English 640](qa-logs/2026-10-11-network-cloud-management/connections/en640/saved/01-edited-connection-saved.png),
+[French 640](qa-logs/2026-10-11-network-cloud-management/connections/fr640/saved/01-edited-connection-saved.png),
+[English 1280](qa-logs/2026-10-11-network-cloud-management/connections/en1280/saved/01-edited-connection-saved.png),
+[French 1280](qa-logs/2026-10-11-network-cloud-management/connections/fr1280/saved/01-edited-connection-saved.png).
 The hand pointer on a browser link remains normal browser feedback. Phone motion,
 taps and typing use one ordered input stream; supported sign-in popups preserve
 their opener and return to it. User-initiated cross-host navigation keeps the provider/auth-host guard; this is
