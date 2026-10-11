@@ -1,0 +1,18 @@
+{
+  "utc": "2026-10-11T22:44:58.848635+00:00",
+  "result": "PASS",
+  "roots": [
+    {
+      "root": "build.pixelelated-H700.arm",
+      "checksum_equal": true,
+      "independent_regular_files": 1141116
+    },
+    {
+      "root": "build.pixelelated-H700.aarch64",
+      "checksum_equal": true,
+      "independent_regular_files": 2805802
+    }
+  ],
+  "unchanged_tracked_timestamps_preserved": 116258,
+  "mode": "independent rsync files, internal hardlinks retained; no cross-root hardlinks"
+}

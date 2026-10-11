@@ -16,14 +16,22 @@ shared download cache68,116,103,168bytes. About916GiB was free after worktree
 creation. Guarded swap reclaim completed while no build/QA watcher was active;
 pre-cache preflight has all8GiB swap free and about30GiB availableRAM.
 
-**Current:** independent H700 cache copy/checksums/inode separation is running
-under owner`/workspace/tmp/pixelelated-m7-h700-refresh-03/cache-launch`,
-launcher484390, watcher
-`m7-pixelelated-h700-03/.build-runs/20261011T222240Z-82eeb9f6`. Compilation has
-not started. Primary actively reads progress, actual PIDs and terminal results;
-the recorder does not send off-session chat alerts. Recheck resources after
-copy, use the guarded helper only after its owner exits if needed, then run
-the sealed H700 launcher and independent acceptance.
+**Current:** H700 compilation started22:45:38UTC under owner
+`/workspace/tmp/pixelelated-m7-h700-refresh-03`, launcher597466, watcher597471,
+run`m7-pixelelated-h700-03/.build-runs/20261011T224538Z-cae6d794`. The real
+pinned container, UID1000, isolated mounts and actual `/tmp` write/read gate
+passed before canonical ARM→aarch64. ARM is active; no finished firmware yet.
+
+Cache preparation ended0 at22:44:59UTC. All original channels0 and actual
+owner PIDs absent; ARM1,141,116 and aarch642,805,802 regular files are checksum
+equal and independent of the accepted parent. Final preflight: about31GiB
+availableRAM,8GiBswapfree,787GiBdisk. See[consumption](h70003/cache-consumption.json)
+and[preflight](h70003/pre-build-preflight.log).
+
+Primary actively consumes completion/failure/stall observations; the watcher
+does not deliver off-session notifications. Sealed build checks installed
+source/native inclusion; separate raw/update acceptance follows completion,
+then SM8550 preparation/build/acceptance. No physical action is included.
 
 Can this be done on the VM? Shared runtime behavior is already qualified by
 VM20. Cross-compilation and raw/update source/architecture inspection happen
