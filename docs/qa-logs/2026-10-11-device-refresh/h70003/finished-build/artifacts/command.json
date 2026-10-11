@@ -1,0 +1,22 @@
+{
+  "command": [
+    "make",
+    "docker-H700",
+    "COMMAND=bash /workspace/tmp/pixelelated-m7-h700-refresh-03/inside-build.sh"
+  ],
+  "inside_command": [
+    "make",
+    "H700"
+  ],
+  "cwd": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-03",
+  "container_worktree": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01",
+  "device": "H700",
+  "arches": [
+    "arm",
+    "aarch64"
+  ],
+  "container": "ghcr.io/pixelelated/build@sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39",
+  "global_jobs": 24,
+  "webkit_jobs": 4,
+  "scope": "canonical target, independent verified warm roots and affected-package clean; dev semantic identity; actual container TMPDIR gate"
+}

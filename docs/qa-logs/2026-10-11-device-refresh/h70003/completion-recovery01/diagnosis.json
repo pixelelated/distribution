@@ -1,0 +1,45 @@
+{
+  "utc": "2026-10-11T22:54:04.265094+00:00",
+  "original_command": "python3 -I /workspace/tmp/pixelelated-m7-h700-refresh-03/consume-build.py",
+  "original_returncode": 1,
+  "failure": "case-sensitive Docker absence check; actual container absent",
+  "docker_readback": {
+    "returncode": 1,
+    "stdout": "[]\n",
+    "stderr": "error: no such object: 6c5c4e3f2b36278f31615732328505d2862c2acf6a64fdddebf3c35f3430a3ad\n"
+  },
+  "original_sha256": "6eccb0c499b19354fb19cbe49e1d14792484414bfc029ee051efec6a5988b3fc",
+  "controls": [
+    {
+      "rc": 1,
+      "stderr": "No such object: abc",
+      "accepted_as_absent": true
+    },
+    {
+      "rc": 1,
+      "stderr": "error: no such object: abc",
+      "accepted_as_absent": true
+    },
+    {
+      "rc": 1,
+      "stderr": "No such container: abc",
+      "accepted_as_absent": true
+    },
+    {
+      "rc": 1,
+      "stderr": "permission denied",
+      "accepted_as_absent": false
+    },
+    {
+      "rc": 1,
+      "stderr": "Cannot connect to the Docker daemon",
+      "accepted_as_absent": false
+    },
+    {
+      "rc": 0,
+      "stderr": "",
+      "accepted_as_absent": false
+    }
+  ],
+  "acceptance03": "premature launch; blocked on missing build-consumption.json; all original channels1; no firmware inspected"
+}

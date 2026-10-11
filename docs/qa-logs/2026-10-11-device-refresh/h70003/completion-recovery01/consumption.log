@@ -1,0 +1,23 @@
+PASS frozen inputs, host options, container and 24/4 concurrency
+{
+  "result": "PASS",
+  "verified_at": "2026-10-11T22:54:04.430487+00:00",
+  "channels": {
+    "/workspace/tmp/pixelelated-m7-h700-refresh-03/inner.rc": 0,
+    "/workspace/tmp/pixelelated-m7-h700-refresh-03/outer.rc": 0,
+    "/workspace/tmp/pixelelated-m7-h700-refresh-03/tool-wrapper.rc": 0,
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-03/.build-runs/20261011T224538Z-cae6d794/build.rc": 0
+  },
+  "launcher_returncode": 0,
+  "actual_owner_pids_absent": [
+    597466,
+    597468,
+    597471,
+    597505,
+    599637
+  ],
+  "actual_container_removed": "6c5c4e3f2b36278f31615732328505d2862c2acf6a64fdddebf3c35f3430a3ad",
+  "run": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-03/.build-runs/20261011T224538Z-cae6d794",
+  "source_and_seals_unchanged": true,
+  "scope": "build/installed inclusion; raw/update acceptance still required"
+}

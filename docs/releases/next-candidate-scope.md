@@ -19,8 +19,9 @@ No confirmed product defect; #528 publication obligations remain partial.
 [#555 handheld refresh](../qa-logs/2026-10-11-device-refresh/README.md) freezes
 publishedbc9dfe8141 for H70003, then SM8550. The only product-path difference
 from VM20 is a patch header with identical applied payload. Independent warm
-cache verification passed; H700 compilation is active and acceptance follows. Physical
-deployments and public RC designation remain separate.
+cache verification and independent H700 firmware acceptance passed. SM855004
+cache/Nix preparation is active; canonical compilation and GPT/ABL/FEX/ARM
+acceptance follow. Physical deployments and public RC designation remain separate.
 
 ## Subsequent owner feedback — 2026-10-11
 

@@ -1,0 +1,46 @@
+{
+  "utc": "2026-10-11T22:54:47.471838+00:00",
+  "result": "PASS",
+  "scope": "H700 firmware artifacts; no physical boot/smoke or RC/publication claim",
+  "bundle": "/workspace/artifacts/pixelelated-candidates/sha256/66273ff16383957687af44728a9e4e2c4bf1242c0217cf681dca8abee858d9b7",
+  "bundle_manifest_sha256": "66273ff16383957687af44728a9e4e2c4bf1242c0217cf681dca8abee858d9b7",
+  "distribution_commit": "bc9dfe8141d9561dc1d8502313d00a84c4566ee8",
+  "architecture": [
+    {
+      "path": "usr/bin/emulationstation",
+      "arch": "aarch64",
+      "sha256": "ae37e14b4567464ed2bda6ab41dcc60652b473a596d135aa10954b70bdd7f5ba"
+    },
+    {
+      "path": "usr/bin/retroarch",
+      "arch": "aarch64",
+      "sha256": "3eec8cc1236e07272482ab843b3a1020e3f2231fef78a04c75b8d3c04d4efdb8"
+    }
+  ],
+  "arm_handoff_files": 186,
+  "variants": [
+    {
+      "image": "pixelelated-H700.aarch64-0.0.1-dev+20261011T222153Z.gbc9dfe8141d9-from-ROCKNIX-DDR3.img.gz",
+      "variant": "DDR3",
+      "system_sha256": "1c0d34a408cf9511a35e396f0675093aaf022a9d6afb0896c414b145dd591c7a",
+      "kernel_sha256": "07a06330474a1e72fa6b6c844ceee8d5d6b3bbf6d6be9e4a6395b87e0592dc60",
+      "bootloader_sha256": "174edf6e299340bd9474936e85722ef9e2a2b553f3d3316602ef63b50d21cf07",
+      "first_sector": 32768,
+      "raw_sha256": "baeda6584cad101f93b8acf2f9978d71eb0171cf0053da9b878d803e5243edd0",
+      "raw_bytes": 2198863872
+    },
+    {
+      "image": "pixelelated-H700.aarch64-0.0.1-dev+20261011T222153Z.gbc9dfe8141d9-from-ROCKNIX-DDR4.img.gz",
+      "variant": "DDR4",
+      "system_sha256": "1c0d34a408cf9511a35e396f0675093aaf022a9d6afb0896c414b145dd591c7a",
+      "kernel_sha256": "07a06330474a1e72fa6b6c844ceee8d5d6b3bbf6d6be9e4a6395b87e0592dc60",
+      "bootloader_sha256": "dca68e9555a6ed43342aae18f33c95c94a784b893d0614574015608bcb66b4ea",
+      "first_sector": 32768,
+      "raw_sha256": "365c7d0988b554a8dcfafdad925d05dbe3f38ca1446b93054ca42f4fe675e887",
+      "raw_bytes": 2198863872
+    }
+  ],
+  "scratch_removed": true,
+  "source_unchanged": true,
+  "independent_bundle_inodes": true
+}

@@ -1,0 +1,12 @@
+watch-build: recording in /workspace/repos/rocknix.worktrees/m7-pixelelated-h700-03/.build-runs/20261011T225313Z-1f925e98
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-h700-acceptance-03/run.py", line 7, in <module>
+    assert json.loads((B/'build-consumption.json').read_text())['result']=='PASS'
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.14/pathlib/__init__.py", line 788, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/pathlib/__init__.py", line 772, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/workspace/tmp/pixelelated-m7-h700-refresh-03/build-consumption.json'
