@@ -128,6 +128,6 @@ actively supervise every long job and announce terminal results promptly.
 Never edit an in-flight shell tool, overwrite an original failure, or retain
 disposable test disks after their immediate dependency ends.
 
-Before push: tools/rules-check, tools/register-check,
+Before push: .githooks/hooks-test when changing hooks, tools/rules-check, tools/register-check,
 tools/work-log-index --check, tools/ceremony-check --gate. No package.mk edit
-requires pkgcheck here. Fresh-context resume verification follows this stash.
+requires pkgcheck here. Fresh-context resume verification passed; its one hook-check reminder is resolved by .githooks/hooks-test PASS. Receipt: docs/qa-logs/2026-10-11-usb-revision-delivery/resume-verification.json.
