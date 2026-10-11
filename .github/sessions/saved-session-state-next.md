@@ -42,7 +42,10 @@ Prepared owner /workspace/tmp/pix553-fable01 has run.py,manifest.json,prompt.md
 andtmp. Its preflight passes and no launcher-submission/approval/dispatch file
 exists. It is NOT running. A fresh named transfer approval was requested with
 the async input tool. Do not infer approval from elapsed time, older540approval,
-a checkpoint or user silence. No auto-review rejection occurred.
+a checkpoint or user silence. The transfer has not been attempted. A fresh reader’s repeat local preflight was
+rejected by automatic approval review for uncertain launcher/provider side effects;
+it was not retried. Static checks supplied that reader’s proof. The primary’s
+earlier local preflight passed, and the transfer question comes from the skill.
 
 ## Next commands, in order
 
@@ -104,5 +107,13 @@ container is running; other projects' long-lived database containers are left
 alone. Host/tmp quota prevents sandbox bootstrap; use narrowly approved shell
 commands and owned/workspace/tmp scratch. Normal hooks honor TMPDIR; Docker
 needs its effective private TMPDIR=/tmp. No swap reclaim/history deletion here.
-A fresh-context handoff reader is still owed if capacity allows; never label
-a returning contextual reader as a fresh proof. Archive preserved above.
+Fresh-context reader m7_553_resume_proof verified the handoff,39 bound hashes,
+absent owners, exact packet and frozen firmware. Initial next/feature mismatch
+was resolved by normal integration atb20656303b; canonical files matched.
+See the audit checks/fresh-resume-proof.json. The preceding checkpoint is also
+[archived](archived/saved-session-state-next-20261011T212130Z.md).
+
+Checkpoint delivery uses the fresh owner /workspace/tmp/pix553-checkpoint-delivery01.
+Read its launcher/result/hosted-checks files and actual process state for status.
+The full hosted record check is expected to report the still-due audit; preserve
+that failure until Phase4.6 and the actual audit closeout are complete.

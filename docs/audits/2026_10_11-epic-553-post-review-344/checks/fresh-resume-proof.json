@@ -1,0 +1,179 @@
+{
+  "utc": "2026-10-11T21:21:30.260708+00:00",
+  "reader": "/root/m7_553_resume_proof",
+  "fresh_context": true,
+  "entry_files": [
+    "AGENTS.md",
+    ".github/sessions/saved-session-state-next.md"
+  ],
+  "checkpoint_commit_verified": "b20656303bff911c03400d68f5abefd35dcb06ca",
+  "initial_finding": "Canonical next still held the preceding checkpoint; resolved by normal commit and fast-forward before final readback.",
+  "verified_source_files": [
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-component-inputs/.github/workflows/fork-checks.yml",
+      "sha256": "5243b3e087e81506bee682aff3addb93a4329d43532269534e2e1fbabfaaae6b"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-component-inputs/projects/ROCKNIX/packages/emulators/libretro/easyrpg-lr/libspeexdsp/package.mk",
+      "sha256": "ea5e35fe91867ade11c7af161de397d2521ebc2e1690fd81098ef1eae3cc09f6"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-component-inputs/projects/ROCKNIX/packages/emulators/libretro/easyrpg-lr/libxmp-lite/package.mk",
+      "sha256": "c9f40e28648d68346a646833201ac067986b34ec9cbecf59b22cb11a0356f819"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-component-inputs/projects/ROCKNIX/packages/emulators/libretro/easyrpg-lr/wildmidi/package.mk",
+      "sha256": "a8d03eac38a441cea870019f8200760aa3210fbca908a7d7ac4d595658ab4744"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-component-inputs/projects/ROCKNIX/packages/emulators/libretro/freej2me-lr/package.mk",
+      "sha256": "683c6f1bd0d5b26bbea2f96a4f64d67eaa9c1a1db22f1a21201f286a0015d4cd"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-component-inputs/projects/ROCKNIX/packages/emulators/libretro/idtech-lr/package.mk",
+      "sha256": "2e0ce0d4f53ac0b357692eb8a2f8fd2f96e2377e01b5a34283ddbe5279fcf986"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-component-inputs/projects/ROCKNIX/packages/emulators/libretro/libretro-database/package.mk",
+      "sha256": "c4055eafd5fef7a148bc230d525a7d80845fdd9c0ce46a0ba7313e81cfe249c2"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-component-inputs/projects/ROCKNIX/packages/emulators/standalone/openbor/package.mk",
+      "sha256": "0c39bd459461a4dd494614adccfe408b202865fd12be5d4010ca32a5af13577d"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-component-inputs/projects/ROCKNIX/packages/multimedia/opusfile/package.mk",
+      "sha256": "2109e4e2949beabd2391e052d4ed35ffb0ffbff363bd10cad61903f465a6f5fa"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-component-inputs/projects/ROCKNIX/packages/network/enet/package.mk",
+      "sha256": "ff54e7df1bd0238757a7bc0bbc86a999538a2b2586a97c51cf758c77ab6b1499"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-component-inputs/projects/ROCKNIX/packages/network/raofflineproxy/package.mk",
+      "sha256": "e13f5bb22eae74c73ecb4141c3580f2627b9f8cfc317840656d90ed017e0f13d"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-component-inputs/projects/ROCKNIX/packages/network/raofflineproxy/patches/001-dorequest-4xx-passthrough.patch",
+      "sha256": "e322a8dd83354185fb3a774fe5d1adabebfcd199a06e18c40c255dffe9197239"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-component-inputs/projects/ROCKNIX/packages/network/raofflineproxy/patches/004-no-cap-on-cached-games.patch",
+      "sha256": "a8abc7b7475152e981d9621112ea53ea2abc2d2fd71337e6663c54a3725291af"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-component-inputs/projects/ROCKNIX/packages/network/raofflineproxy/patches/005-keep-the-refresh-thread-alive.patch",
+      "sha256": "fbbb0ed4cbec91248d496ee039e11792c4a111100400dfdc762f376c9c6bf135"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-component-inputs/projects/ROCKNIX/packages/network/raofflineproxy/patches/011-offline-login-header.patch",
+      "sha256": "09670dcaa8f7b74ffd0b0e01a4103880157955ed8e902b0918d65c02e2977154"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-component-inputs/projects/ROCKNIX/packages/network/raofflineproxy/patches/012-offline-image-miss.patch",
+      "sha256": "4ef3b0259af88953ea5652207f474e83b4ef551996eeffc6dd7a9d7d3d5fab33"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-component-inputs/projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-cache-indexed",
+      "sha256": "4c6d5a8d509661e2951acba968c248187590684f4fcac3388bd7ed69e1c30042"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-component-inputs/projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl",
+      "sha256": "dc4a69f986249e8ef8b1da799dd8b47376699a5609e5b35617d1965e61b198cc"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-component-inputs/projects/ROCKNIX/packages/network/rclone/package.mk",
+      "sha256": "030b2429b9c61fd55431fd5e9ac3f58ff7bb6214256a05e0bef132381347a254"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-component-inputs/projects/ROCKNIX/packages/network/tailscale/package.mk",
+      "sha256": "e0893bd5328e6c14b964e1e7a8b1d6c64bd991139f85a238e208a7e986fb0165"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-component-inputs/projects/ROCKNIX/packages/network/zerotier-one/package.mk",
+      "sha256": "8ff699da5820673e17264a160ac4a84c734ce3496a38022fbb8248b0d513b431"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-component-inputs/projects/ROCKNIX/packages/rocknix/sources/scripts/rocknix-info",
+      "sha256": "ed9e244bc664097154a1592890974b15d6c2a5e57f1d6e32b3edbdbe018bcae6"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-component-inputs/tools/fork-package-freshness",
+      "sha256": "dfeaded4bee578bb527f28ca17b3cda4de0f58f1632644852301f90800491e77"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-component-inputs/tools/last-good-scripts-test",
+      "sha256": "ebd9a4669d8e96d6a18a874f95058911ed2a7b38329a5236891ef3bdd6894d20"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-component-inputs/tools/raofflineproxy-installed-native-test",
+      "sha256": "c051ede84d4a50e9a68ed1c8c78f436f36f647343c2a229ca1b9b3e00cac9cc8"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-component-inputs/tools/raofflineproxy-integration-test",
+      "sha256": "73bb2e31a93c0ff56b58619a860cbb261a2cef6f0adf48203aa03b3557c823e9"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-component-inputs/tools/rocknix-info-test",
+      "sha256": "216939fddff1e0e8e040d64a1c35eb4da6ec5823a0018a0917077a72e3362eb7"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-component-inputs/tools/vm-pair",
+      "sha256": "b686406d409e02b88ab678341e1667d9db4fc0de60717ddcb371e7d2436fe11a"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-component-inputs/tools/vm-pair-test",
+      "sha256": "a3b530f947ed0f0fdb97a8f399b7589bb17bf7e598e40c37905eb5419ab978af"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-component-inputs/tools/vm-qa",
+      "sha256": "17b3f693377e8b67b0a4fb4e50b980b65cf0a8f2c5ec81920ee19930ae210d15"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-component-inputs/tools/vm-upgrade-readiness-test",
+      "sha256": "ad2ad626a12d1e5cb023430cdfbad958207419fe9ea6c1bb06eb81d352fd761b"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-component-inputs/tools/vm-upgrade-rehearsal",
+      "sha256": "894021ab048b6306a32ab89fc97155712cf35272fddf6517062ae486c20dd25c"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-component-inputs/tools/vm-walks/claims.txt",
+      "sha256": "4ba6d6e2db4ab00974e09921217c6b5d29fe88ed705355fec39f97570c9d44f8"
+    },
+    {
+      "path": "/home/max/Development/emulationstation-next.worktrees/qa-integration/tests/cloud-oauth-lifetime.py",
+      "sha256": "fcd3910911710dce78dea492b19534e6d924960e1cd42b27886f33ebede55e3d"
+    },
+    {
+      "path": "/home/max/Development/emulationstation-next.worktrees/qa-integration/es-app/src/guis/GuiMenu.cpp",
+      "sha256": "4b2004ac9a75fcdd25832862da0bb39fb221d1ff8be3e4b8e0666b8d6b8ce50d"
+    },
+    {
+      "path": "/workspace/repos/rocknix/tools/council/run",
+      "sha256": "6a8c7ac7a5908792f39daf9a1a4b03c91ab1c3f94b2c7f1db59a12f845b26167"
+    },
+    {
+      "path": "/workspace/repos/rocknix/scripts/council-invoke.ts",
+      "sha256": "15275395949e8e29a244b1cf487bbd292c8360bb0e5aaaadbcbe0fa52ec4dc94"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-component-inputs/tools/watch-build",
+      "sha256": "9c15e068af07a3ab16e8b719027420855def7a2da5ca8da1481ab6837d25d891"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-component-inputs/tools/watch-job",
+      "sha256": "052cdea2b449eb4a61f33ed41f4079a36d82605fa08c99a4006f3112d57926a2"
+    }
+  ],
+  "external_owner_started": false,
+  "external_transfer_approved": false,
+  "next_action": "Consume named approval for the exact #553 packet; otherwise local work only.",
+  "build_order": [
+    "H700",
+    "SM8550"
+  ],
+  "frozen_firmware": "1a026648442321609b2288c2c9c06803817f9df2",
+  "operational_limit": "Automatic approval review rejected the fresh reader attempt to execute run.py --preflight because launcher/provider side effects were uncertain. No retry or provider call followed. The reader used static inspection and digest comparison; primary had independently executed --preflight successfully before the approval question.",
+  "primary_reverification": "All39 bound source/ES/tool digests rehashed while recording this evidence."
+}
