@@ -1,6 +1,24 @@
 # pixelelated 0.0.1 release readiness
 
-## Current P5 disposition — 2026-10-07
+## Current readiness — 2026-10-11 (#533)
+
+Read [M7](https://github.com/pixelelated/distribution/milestone/7) for order and
+[the reconciled scope](../releases/next-candidate-scope.md) for every open issue,
+carried proof, missing assertion and the proposed source/build budget.
+#529/#530/#531 source is delivered; #532 selects the thin rc.N/release policy.
+#508/#510 cloud contract, #507/#524 audits, replacement18 composed qualification
+and the three authorized engineering deployments are complete for their bytes.
+No build, VM test, cloud operation or audit is running.
+
+Next: #528 firmware-affecting component choices, final input freeze and the
+combined engineering image; installed fixes, exact-image QA and #349/#350
+coverage precede RC designation. Retrieval/custody/runner-readback, release
+notes, channel separation and per-asset publication gates remain under #344.
+The full website and disconnected notifications remain separate. Nothing in
+an older dated section below is authority to replay migration, audits, builds
+or owner-device operations. Automatic cloud move/follow is retired.
+
+## Historical P5 disposition — 2026-10-07
 
 Read [M7's ordered body](https://github.com/pixelelated/distribution/milestone/7)
 for the current execution plan. A version's contents are its milestone's linked

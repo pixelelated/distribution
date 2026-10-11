@@ -1,0 +1,23 @@
+{
+  "utc": "2026-10-11T03:02:16.245797+00:00",
+  "filesystem": "/workspace",
+  "bytes_total": 3936820731904,
+  "bytes_available": 1312484401152,
+  "measured_allocated_roots": {
+    "replacement18": 118307713024,
+    "h70002": 143922823168,
+    "sm8550_02": 182459289600
+  },
+  "measurement": "df/statvfs available; du -sx -B1 allocated bytes, symlinks not followed; no storage deletion",
+  "new_generic_budget_gib": {
+    "fresh_root": 150,
+    "temporary_root_copy": 150,
+    "source_growth": 50,
+    "firmware_and_extraction": 40,
+    "disposable_qa_guests": 64,
+    "free_reserve": 100
+  },
+  "total_required_available_gib": 554,
+  "root_process_reference_clearance": false,
+  "note": "Read-only planning; no permission to remove historical roots. Remeasure before each actual build; #493 owns remaining-store classification."
+}

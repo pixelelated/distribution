@@ -112,19 +112,18 @@ The implemented diagram and screenshot coverage are below. The prospective
 progress-file repair is described under **Small-file fixes**; it is not an
 implemented branch or a qualified screen.
 
-## M7 implementation order and ownership
+## M7 implementation ownership — reconciled 2026-10-11 (#533)
 
-The milestone body is the execution queue; this table maps its M7.P5 work to
-contract and evidence. Issue numbers identify work, not its priority.
+The milestone body is the execution queue. The following foundation is complete
+for replacement18; its source-bound flows and frames below remain canonical.
 
-| Order / issue | Work and present state | Exit evidence |
-| --- | --- | --- |
-| 1 — [#510](https://github.com/pixelelated/distribution/issues/510) | Reconcile the settled post-connection contract, canonical flows, issues and rules. The validator/create/instructions foundation has completed source-overlay proof. | This reference, D-CLOUD-179 and live issue/milestone readback agree; no pending request to choose the overall approach. |
-| 2 — [#515](https://github.com/pixelelated/distribution/issues/515), children [#520](https://github.com/pixelelated/distribution/issues/520) and [#521](https://github.com/pixelelated/distribution/issues/521), with runtime prerequisites #522/#523 | Qualify source-derived layout preservation and the confirmed standalone save-coverage fixes. The finite case review supports instructions for ambiguous placement, with no demonstrated generic relocation. | Source-cited case/disposition table; real-rclone coverage and no-action controls; reviewed affected VM frames. No repair action or repair-screen completion is implied. |
-| 3 — [#508](https://github.com/pixelelated/distribution/issues/508) | Integrate the qualified foundation and #515's result, retire the automatic cloud migration and promote coordinated distribution/ES pins. | Exact source/install/call-site sweep and integration manifest; preserved public credentials and independent pointers; canonical diagrams and source-bound proof travel with the changes. |
-| 4 — [#507](https://github.com/pixelelated/distribution/issues/507) | Freeze and independently audit the resulting P5 delta. | Required primary/cross-lab review receipts and resolved findings for those frozen inputs; no replay of the completed candidate16 audit. |
-| 5 — #508 / #492 / #344 / #265 / #359 | Assemble engineering firmware, prove clean install and public ROCKNIX adoption, then complete source/licence, named physical and release gates. | CF10 installed-image evidence, final input/inclusion mapping and each applicable release artifact. Engineering builds supply this evidence; source-overlay proof alone does not designate an RC. |
-| Parallel — [#511](https://github.com/pixelelated/distribution/issues/511) | Publish the setup, ROM and BIOS guides; activate QR destinations only after the pages work. | Published guide/link proof and actual QR/navigation proof when enabled. Useful local instructions do not wait for the website. |
+| Owner | Qualified scope / current boundary |
+| --- | --- |
+| #510 / #515 / #520–#523 | Settled post-link contract, finite layout dispositions and standalone save-coverage fixes. No generic organizer or repair screen. |
+| #508 / #526 / #527 | Installed inclusion/CF10/public-configuration and retained-storage proof; corrected folder walks and composed standard frame qualification. |
+| #507 / #524 | Independent review and four resolved findings complete; do not replay the transfers. |
+| #344 / #349 / #350 | Next exact-image regression and specifically remaining settings/scan-frame evidence in [the reconciled scope](../releases/next-candidate-scope.md). |
+| #511 | Separate public setup/ROM/BIOS guides; QR destinations activate only with working pages and navigation proof. Local instructions remain available. |
 
 There is no blanket organizer and no owner-specific migration compatibility
 branch in this plan. #515 does not silently defer a demonstrated, requested
