@@ -1,0 +1,16 @@
+#!/usr/bin/python3
+import os,sys,threading,time,http.server
+from pathlib import Path
+if len(sys.argv)<2 or sys.argv[1]!='authorize':
+ os.execv('/storage/qa537/rclone-real',['rclone']+sys.argv[1:])
+class Handler(http.server.BaseHTTPRequestHandler):
+ def do_GET(self):
+  self.send_response(302);self.send_header('Location','http://dropbox.com:9967/provider');self.end_headers()
+ def log_message(self,*args):pass
+server=http.server.HTTPServer(('127.0.0.1',53682),Handler)
+threading.Thread(target=server.serve_forever,daemon=True).start()
+print('Please go to http://127.0.0.1:53682/auth?state=synthetic-local',flush=True)
+end=time.monotonic()+120
+while time.monotonic()<end and not Path('/storage/qa537/oauth-fail').exists():time.sleep(.1)
+print('Error: authorization could not be completed',flush=True)
+sys.exit(1)

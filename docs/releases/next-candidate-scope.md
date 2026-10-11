@@ -14,9 +14,9 @@ and #537 owns clear configured-connection management (D-CLOUD-183). Both need
 source/flow decisions and applicable VM/frame proof. #528 component/source
 choices remain independently actionable. Do not freeze while these firmware
 changes remain undefined. #534 is a diagnosed preserved fixed red LED setting;
-#535/D-UI-125 open-network password behavior is backlog. Evidence:
+#535/D-UI-125 open-network password behavior is now in M7.P5. Evidence:
 [owner feedback](../qa-logs/2026-10-11-cloud-owner-feedback/README.md).
-No new build or owner-device mutation is running.
+The #535–#539 source work and isolated VM proof are in progress. No new combined image or owner-device mutation is running.
 
 ## Issue disposition
 
@@ -157,3 +157,15 @@ Website #511, disconnected alerts #395, telemetry #432, personal cleanup/
 redundancy #516/#518 and name cleanup #509 remain separate. Owner devices are
 in use; the owner may re-link RG SP Dropbox with automatic sync off. That is
 not permission for an agent cloud transfer or device operation.
+
+## 2026-10-11 audit delta
+
+The approved Fable 5.1/xhigh refutation completed and its identity/provenance
+verified. #540 owns seven findings: three High, one Medium, three Low. All seven
+repairs pass focused guest controls, 1,373 full-regression PASS controls,
+108 WebDAV + 108 SFTP checks, 26 connection transactions and 15 whole-script
+refusals. Final54 builds; matrix55 supplies 16 reviewed affected EN/FR small/large
+frames. Earlier rejected fixtures/layouts remain recorded with their own source.
+Integration and published pin readback come next, followed by #528 and the
+combined-image clean/retained qualification gates. No new RC designation or
+owner-device action follows from source-overlay qualification.

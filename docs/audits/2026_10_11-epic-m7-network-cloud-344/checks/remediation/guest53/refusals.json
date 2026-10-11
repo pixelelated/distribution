@@ -1,0 +1,159 @@
+{
+  "result": "PASS",
+  "controls": [
+    {
+      "state": "unselected",
+      "command": [
+        "cloud_scan"
+      ],
+      "rc": 1,
+      "reason": "CHOOSE A CONNECTION BEFORE USING CLOUD TOOLS.",
+      "configuration_selection_payload_unchanged": true
+    },
+    {
+      "state": "unselected",
+      "command": [
+        "cloud_backup",
+        "--yes",
+        "--saves-only"
+      ],
+      "rc": 1,
+      "reason": "CHOOSE A CONNECTION BEFORE USING CLOUD TOOLS.",
+      "configuration_selection_payload_unchanged": true
+    },
+    {
+      "state": "unselected",
+      "command": [
+        "cloud_restore",
+        "--yes",
+        "--saves-only"
+      ],
+      "rc": 1,
+      "reason": "CHOOSE A CONNECTION BEFORE USING CLOUD TOOLS.",
+      "configuration_selection_payload_unchanged": true
+    },
+    {
+      "state": "unselected",
+      "command": [
+        "cloud_content_backup",
+        "--selected"
+      ],
+      "rc": 1,
+      "reason": "CHOOSE A CONNECTION BEFORE USING CLOUD TOOLS.",
+      "configuration_selection_payload_unchanged": true
+    },
+    {
+      "state": "unselected",
+      "command": [
+        "cloud_content_restore",
+        "--selected"
+      ],
+      "rc": 1,
+      "reason": "CHOOSE A CONNECTION BEFORE USING CLOUD TOOLS.",
+      "configuration_selection_payload_unchanged": true
+    },
+    {
+      "state": "missing",
+      "command": [
+        "cloud_scan"
+      ],
+      "rc": 1,
+      "reason": "CHOOSE A CONNECTION BEFORE USING CLOUD TOOLS.",
+      "configuration_selection_payload_unchanged": true
+    },
+    {
+      "state": "missing",
+      "command": [
+        "cloud_backup",
+        "--yes",
+        "--saves-only"
+      ],
+      "rc": 1,
+      "reason": "CHOOSE A CONNECTION BEFORE USING CLOUD TOOLS.",
+      "configuration_selection_payload_unchanged": true
+    },
+    {
+      "state": "missing",
+      "command": [
+        "cloud_restore",
+        "--yes",
+        "--saves-only"
+      ],
+      "rc": 1,
+      "reason": "CHOOSE A CONNECTION BEFORE USING CLOUD TOOLS.",
+      "configuration_selection_payload_unchanged": true
+    },
+    {
+      "state": "missing",
+      "command": [
+        "cloud_content_backup",
+        "--selected"
+      ],
+      "rc": 1,
+      "reason": "CHOOSE A CONNECTION BEFORE USING CLOUD TOOLS.",
+      "configuration_selection_payload_unchanged": true
+    },
+    {
+      "state": "missing",
+      "command": [
+        "cloud_content_restore",
+        "--selected"
+      ],
+      "rc": 1,
+      "reason": "CHOOSE A CONNECTION BEFORE USING CLOUD TOOLS.",
+      "configuration_selection_payload_unchanged": true
+    },
+    {
+      "state": "unconfigured",
+      "command": [
+        "cloud_scan"
+      ],
+      "rc": 1,
+      "reason": "YOUR CLOUD STORAGE ISN'T SET UP YET",
+      "configuration_selection_payload_unchanged": true
+    },
+    {
+      "state": "unconfigured",
+      "command": [
+        "cloud_backup",
+        "--yes",
+        "--saves-only"
+      ],
+      "rc": 1,
+      "reason": "YOUR CLOUD STORAGE ISN'T SET UP YET",
+      "configuration_selection_payload_unchanged": true
+    },
+    {
+      "state": "unconfigured",
+      "command": [
+        "cloud_restore",
+        "--yes",
+        "--saves-only"
+      ],
+      "rc": 1,
+      "reason": "YOUR CLOUD STORAGE ISN'T SET UP YET",
+      "configuration_selection_payload_unchanged": true
+    },
+    {
+      "state": "unconfigured",
+      "command": [
+        "cloud_content_backup",
+        "--selected"
+      ],
+      "rc": 1,
+      "reason": "YOUR CLOUD STORAGE ISN'T SET UP YET",
+      "configuration_selection_payload_unchanged": true
+    },
+    {
+      "state": "unconfigured",
+      "command": [
+        "cloud_content_restore",
+        "--selected"
+      ],
+      "rc": 1,
+      "reason": "YOUR CLOUD STORAGE ISN'T SET UP YET",
+      "configuration_selection_payload_unchanged": true
+    }
+  ],
+  "restored": true
+}

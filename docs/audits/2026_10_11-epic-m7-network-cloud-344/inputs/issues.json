@@ -1,0 +1,134 @@
+[
+  {
+    "url": "https://github.com/pixelelated/distribution/issues/535",
+    "title": "M7.P5: Skip the Wi-Fi password prompt for open networks",
+    "issue_number": 535,
+    "body": "## Maintainer request — 2026-10-11\n\n> An improvement issue would be not asking for a WiFi password on public networks that don’t ask for one\n\n## Current behavior and scope\n\nThe settled #318/D-UI-118 design asks for a key when an unsaved network row is chosen; saved networks use NetworkManager's stored profile. Retain those saved/connected/forget behaviors, but branch on the selected access point's advertised security for a new connection.\n\nAn open network that requires no Wi-Fi credential should connect without a Wi-Fi password modal. Protected networks still prompt appropriately; unknown/unsupported security must not be treated as open. A captive portal is a separate login after network association, not a Wi-Fi password; this request does not silently add a browser/portal feature.\n\nCan this be done on the VM? Yes. Synthetic scan/NetworkManager fixtures and actual ES flow captures cover the branch and credential-preservation rules. No personal network/credential, physical radio action or owner-device test is necessary for implementation.\n\n## Acceptance criteria\n\n- [ ] Source-bound security classification distinguishes open, protected and unknown/unsupported scan records, including escaped SSIDs, with controls proving unknown security never bypasses the protected flow.\n- [ ] Choosing an unsaved open network reaches connection/progress/outcome without a Wi-Fi password prompt; backend argv contains no invented or stale password. A VM fixture and reviewed frame sequence prove the path.\n- [ ] Protected networks retain the password prompt and success/failure behavior; saved/connected/forget paths remain intact, verified with fixture assertions and affected branch frames. No existing stored credential is overwritten by a failed/open join.\n- [ ] docs/es-menu-map.md and canonical Wi-Fi IA/flow references include the open/protected/unknown branches, with exact-source EN/FR screenshots at640×480 and the larger supported QA size; current copy/translations and syntax/pin checks accompany the ES change.\n\nPlacement: M7.P5 under the maintainer's instruction “Let’s get all of the fixes and changes made, if we’ve tracked everything down”. Implement with #536/#537; preserve #318's saved/connected/forget contract. D-UI-125 remains binding.\n",
+    "state": "open",
+    "user": {
+      "login": "blitterbot",
+      "name": "blitterbot",
+      "email": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/335883270?v=4",
+      "id": 335883270
+    },
+    "assignees": null,
+    "labels": null,
+    "milestone": 7,
+    "state_reason": null,
+    "comments": 0,
+    "created_at": "2026-10-11T03:21:31Z",
+    "updated_at": "2026-10-11T04:04:01Z",
+    "closed_at": null,
+    "display_url": "https://github.com/pixelelated/distribution/issues/535",
+    "display_title": "M7.P5: Skip the Wi-Fi password prompt for open networks"
+  },
+  {
+    "url": "https://github.com/pixelelated/distribution/issues/536",
+    "title": "M7.P5: Investigate phone-controlled browser links that will not click",
+    "issue_number": 536,
+    "body": "## Maintainer report — 2026-10-11\n\n> Something odd is going on with the browser remote control from the phone. When the cursor is over a clickable element, it turns into a hand and isn’t clickable instead of it remaining a cursor and clicking the element. This may have to do with our user agent being a tablet (iirc), which could create issues, but the cause could be something else.\n\n## Current investigation scope\n\nThe owner identifies Dropbox’s first screen and authorized one screenshot. The reviewed720×480 frame shows the handheld pointer as a hand over Continue with Google. Whether failure affects every control or only identity-provider buttons, and separate-tap behavior, are still being clarified. A hand cursor alone is a normal link affordance; the reported failure to activate the element is the issue. The tablet user agent is an owner hypothesis, not an established cause. Do not change it without comparing actual input/event behavior.\n\nThe existing phone control is implemented in `projects/ROCKNIX/packages/network/rclone/sources/cloud_oauth`: touch/mouse pad handlers, click endpoint and a real uinput pointer. The browser is `projects/ROCKNIX/packages/network/cloud-signin-window/sources/cloud-signin-window.c`. Trace pointer motion, button down/up, focus and provider event/UA handling together; retain keyboard/scroll/Back/Cancel behavior. Current deployed firmware is8b5113fa16 with ES1d76b3da7d unless the actual readback proves otherwise.\n\nCan this be done on the VM? Yes. Use an isolated installed guest and credential-free local page containing links, buttons and text inputs; exercise the actual phone-control HTTP/event path and browser, recording received events and navigation. Compare a provider-specific route only after the page is identified and with an authorized QA fixture. Actual phone-browser touch dispatch is a named physical/client fact if it cannot be reproduced synthetically. The later explicit screenshot permission was consumed once through tools/device-act (rc0, unchanged boot id). No input, browser restart or sign-in submission is authorized.\n\n## Read-only evidence and source trace\n\nThe installed cloud_oauth hash matches current source. The browser log contains three refused navigations to login.microsoftonline.com; only aggregate counts/public hostnames were retained. The browser's user-gesture/cross-host guard is therefore a concrete blocker for this identity transition. It does not establish a universal click failure. Preserve navigation confinement while supporting intended authentication transitions; do not simply allow arbitrary external hosts.\n\nNo explicit tablet user-agent override exists in the current browser source; tablet_pad refers to controller classification. Actual runtime UA is unmeasured. Phone taps use a motion threshold and a60ms delay with separate movement/command queues; ordering under latency remains a separate unproved hypothesis. No product change or VM reproduction has occurred.\n\nEvidence: docs/qa-logs/2026-10-11-cloud-owner-feedback/. Owner image stays local, with reviewed description/hash only in the committed packet. Already written: current firmware's sign-in window can silently refuse user-initiated external authentication navigation; no credentials, cloud files or device configuration were changed by this investigation. Any fix must preserve working configurations and cancel/exit behavior.\n\n## Acceptance criteria\n\n- [ ] The exact page, client/control surface and interaction that fails are recorded; source trace identifies actual user-agent configuration and pointer/click routing without assuming either caused the failure.\n- [ ] A credential-free VM reproduction records pointer hover plus down/up/click events and actual link/button activation, distinguishing the normal hand cursor from lost input/focus. Original failure and backend/browser logs are retained with exact source/image binding.\n- [ ] A confirmed fix has an old-source negative control and passing link/button/input/drag/scroll/keyboard/back/cancel cases; otherwise retain the precise unresolved assertion rather than declaring a cause or changing the UA speculatively.\n- [ ] Any player-facing or input-flow change updates canonical flow/menu references and reviewed exact-source happy/branch screenshots, EN/FR where text changes, with syntax/package checks before pin promotion. Physical verification requires its named action and device-facts row if needed.\n\nParent #344; triage before the next candidate freeze. This new report follows completed #532/#533 reconciliation; #528 still owns source/component decisions. No new firmware or device operation is launched by filing it.\n",
+    "state": "open",
+    "user": {
+      "login": "blitterbot",
+      "name": "blitterbot",
+      "email": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/335883270?v=4",
+      "id": 335883270
+    },
+    "assignees": null,
+    "labels": [
+      {
+        "name": "bug",
+        "color": "d73a4a",
+        "description": "Something isn't working"
+      }
+    ],
+    "milestone": 7,
+    "state_reason": null,
+    "comments": 1,
+    "created_at": "2026-10-11T03:29:51Z",
+    "updated_at": "2026-10-11T03:39:57Z",
+    "closed_at": null,
+    "display_url": "https://github.com/pixelelated/distribution/issues/536",
+    "display_title": "M7.P5: Investigate phone-controlled browser links that will not click"
+  },
+  {
+    "url": "https://github.com/pixelelated/distribution/issues/537",
+    "title": "M7.P5: Clarify and manage existing cloud connections",
+    "issue_number": 537,
+    "body": "## Maintainer request — 2026-10-11\n\n> Also, there isn’t a way to see your connected rclone backends and remove or modify them. For example, I already linked Dropbox, but I want to connect Dropbox again. If I go through rclone setup again it isn’t clear if I’d be adding a second Dropbox remote or replacing the existing one. We need to streamline and clarify the flow, including aging management screens in EmulationStation, potentially.\n\n## Current behavior and scope\n\nThe existing Cloud page provides provider setup and category-folder selection, but no clear lifecycle surface for existing connections. `cloud_oauth.Session._create_remote_locked` checks configured names and refuses to overwrite an existing name. ES1d76b3da7 openCloudAddRemote and provider search call cloudOAuthStart with backend.name; Dropbox always requests dropbox. If that exact name exists, OAuth completion refuses it. There is no automatic dropbox2 allocation or reauthorization. If the previous Dropbox connection has a different name, this can create a separate dropbox remote. A YOUR CONNECTIONS list and REPAIR A CONNECTION do exist, but behind USE A COMPUTER INSTEAD and SSH instructions; no native remove action is exposed. This is distinct from #536's pointer/click failure on Dropbox's first sign-in screen.\n\nBuild on #51's native setup and #508's qualified selected-folder contract. Preserve independently selected saves, settings-backup and content paths. Linking alone must not create folders, move files, or silently change which remote automatic sync uses. Retain single-active-remote sync policy unless explicitly reconsidered; multiple stored connections are not multi-remote sync.\n\nD-CLOUD-183 records the requested lifecycle clarity. Exact-source trace and sanitized browser observation are retained in docs/qa-logs/2026-10-11-cloud-owner-feedback/. The proposal below is not an implemented or qualified screen. The canonical menu map has stale historical version-boundary prose; reconcile it when updating the source-bound flow/frame reference.\n\n## Proposed flow to define and implement\n\nA Cloud connections management surface lists configured connections with provider/name and usage. Selecting one exposes clear connection details and deliberate actions to sign in again, change supported settings, or remove the connection from this device. Adding another connection is a separately named action; it must say that it adds rather than replaces. Signing in again targets the existing connection and preserves its identity and selected folders. Removal explains that it removes local access, not cloud files, and handles any selected category or automatic-sync dependency before committing. Do not silently enable sync or switch accounts/paths. Exact menu placement and copy must follow the canonical ES references.\n\nCan this be done on the VM? Yes. Synthetic configured remotes and credential-free local backends can prove existing/add/reauthorize/edit/remove, cancellation, rollback, active-reference handling, busy-operation refusal and byte preservation. OAuth lifecycle tests use stubbed disposable credentials; real provider sign-in requires a separately authorized QA account. No change to the owner's existing remote or sign-in is authorized by filing/planning this work.\n\n## Acceptance criteria\n\n- [ ] Exact-source trace and current UI frames establish what a second setup does, how names are allocated, which paths are selected, and what management actions exist today; distinguish stored from authenticated/reachable connections.\n- [ ] Canonical menu/IA/flow contract clearly separates add, use existing, sign in again, edit and remove; reviewed happy/branch frames show existing provider/account ambiguity, cancellation and actionable failures, at target sizes and supported locales where changed.\n- [ ] VM fixtures prove reauthorization preserves the selected remote and folders, new connection creation never overwrites another, failed/cancelled authentication leaves the prior working configuration intact, and edited identity/account changes require an explicit path/usage decision.\n- [ ] VM before/after manifests prove local removal leaves cloud bytes and unrelated connections intact, handles selected saves/settings/content references and automatic-sync state explicitly, and cannot race an active cloud job into an invalid configuration.\n- [ ] Installed-image clean and retained-configuration tests cover this flow alongside normal backup/restore and manual folder creation; source/pin, syntax, applicable audit and exact-source screenshot evidence are recorded before completion.\n\nParent #344; related #51, #508, #535 and #536. Resolve the design and source changes before the next source freeze; no firmware build is started by this tracking task.\n\n\n## Additional maintainer report — failed code pairing\n\n> When the code pairing fails, the screen says that the choices are OK or exit, but while it is clear what exit would do, if OK would do something different, it isn’t clear what OK would do. Do they do the same thing? ￼\n\n> To clarify, I mean pairing a remote via the code. Hopefully this helps specify which screen I’m talking about. ￼\n\nExact ES1d76b3da7 trace: cloudOAuthShowSignIn checks `status == \"failed\"` and creates the `THE SIGN-IN DID NOT COMPLETE... START AGAIN TO GET A NEW ONE.` dialog. OK has a null callback; GuiMsgBox::deleteMeAndCall dismisses only the dialog. EXIT closes the owning setup page, whose cloudOAuthOwnSession finalizer invokes cloud_oauth cancel. Neither action retries. Continuing from the retained failed page reaches the same failure again. These are different actions, inadequately labeled. The generic failure branch also blames expired/single-use codes without distinguishing the actual cause.\n\nInclude this in #537's lifecycle/failure design. Proposed actions: TRY AGAIN starts a fresh owned attempt and obtains fresh sign-in/code state; CANCEL SIGN-IN closes/cancels. Detect a same-name existing connection before new authentication or route it deliberately to sign-in-again, rather than looping a duplicate-name failure through retries. Use stable, sanitized cause-aware wording; never promise that a code expired when only a generic failed state is known.\n\nCan this be done on the VM? Yes: synthetic failed/expired/duplicate-name/cancelled/superseded attempts, actual dialog callbacks and process/state receipts. No further owner screenshot or input is needed for the source explanation.\n\n- [ ] The installed failure flow has explicitly named outcomes; VM evidence proves retry starts a fresh owned attempt/code, cancellation closes and releases only its own session, old callbacks cannot overwrite the new state, and failed/duplicate-name cases preserve existing credentials/paths. EN/FR reviewed failure/retry/cancel frames and the canonical flow reflect the actual actions.\n",
+    "state": "open",
+    "user": {
+      "login": "blitterbot",
+      "name": "blitterbot",
+      "email": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/335883270?v=4",
+      "id": 335883270
+    },
+    "assignees": null,
+    "labels": [
+      {
+        "name": "cloud-saves",
+        "color": "1D76DB",
+        "description": "Cloud saves program (sync, backup/restore, native ES experience)"
+      }
+    ],
+    "milestone": 7,
+    "state_reason": null,
+    "comments": 1,
+    "created_at": "2026-10-11T03:35:10Z",
+    "updated_at": "2026-10-11T05:37:24Z",
+    "closed_at": null,
+    "display_url": "https://github.com/pixelelated/distribution/issues/537",
+    "display_title": "M7.P5: Clarify and manage existing cloud connections"
+  },
+  {
+    "url": "https://github.com/pixelelated/distribution/issues/538",
+    "title": "M7.P5: Fit and clarify the text-editor clear action",
+    "issue_number": 538,
+    "body": "## Found during M7.P5 UI qualification\n\nParent #344; discovered while checking #535/#537 against the maintainer request:\n\n> Let’s get all of the fixes and changes made, if we’ve tracked everything down\n\nThe inherited French on-screen keyboard shows RÉINITIALISER overlapping ANNULER at1280×800. The same RESET action in both ES text editors actually commits an empty string, so CLEAR / EFFACER describes its behavior more precisely and fits. This is a caption-only fix to the shared text-editor clear action; unrelated RESET actions and callbacks stay as they are.\n\nCan this be done on the VM? Yes. Retain the original French frame, compile the two edited ES units, and exercise clear/cancel in an owned synthetic VM at640×480 and1280×800. No owner device or cloud data is involved.\n\nAlready written: the inherited keyboard has a long French reset label; selecting it empties the edited setting. No saved data is changed by the caption fix.\n\n## Acceptance criteria\n\n- [ ] The two text editors label their existing empty-string action CLEAR / EFFACER; other RESET actions and action callbacks are unchanged, verified by source diff and syntax checks.\n- [ ] Reviewed EN/FR640/1280 VM frames show clear and cancel labels separately; actual clear and cancel callbacks preserve the established behavior.\n- [ ] Canonical flow/frame references, changelog and source-bound receipts accompany the next ES pin. Original rejected overlap frame stays recorded.\n",
+    "state": "open",
+    "user": {
+      "login": "blitterbot",
+      "name": "blitterbot",
+      "email": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/335883270?v=4",
+      "id": 335883270
+    },
+    "assignees": null,
+    "labels": null,
+    "milestone": 7,
+    "state_reason": null,
+    "comments": 0,
+    "created_at": "2026-10-11T06:30:25Z",
+    "updated_at": "2026-10-11T06:31:38Z",
+    "closed_at": null,
+    "display_url": "https://github.com/pixelelated/distribution/issues/538",
+    "display_title": "M7.P5: Fit and clarify the text-editor clear action"
+  },
+  {
+    "url": "https://github.com/pixelelated/distribution/issues/539",
+    "title": "M7.P5: Restore Back navigation in the sign-in browser",
+    "issue_number": 539,
+    "body": "## Found during #536 browser qualification\n\nThe actual VM phone-control HTTP/uinput/browser path passes pointer hover/down/up/click, button activation, typing/deletion, wheel scrolling, the intended authentication host and Close. Backspace on the noneditable next page does not go back despite the window hint saying B back. The original actual-browser receipt records browser_back=false; no tablet user-agent change is justified.\n\nCan this be done on the VM? Yes: the owned credential-free local provider has two pages and a text field. Test Back on the second page, preserve Backspace editing in a field, and verify Close still exits. No owner device or real provider account is needed.\n\nAlready written: the existing browser has no explicit Back behavior outside its on-screen keyboard; WebKitGTK does not provide the expected navigation in this tested path. No credentials or cloud files were changed.\n\n## Acceptance criteria\n\n- [ ] Actual local-provider navigation goes back on B/Backspace when no editable control owns the key; the original failure and corrected result are retained.\n- [ ] Text fields retain ordinary character deletion, provider-handled keys and modified shortcuts are not repurposed, and Close/popup return continue to work.\n- [ ] Source/binary binding, runtime events and reviewed flow frames update #536's canonical evidence before the next pin.\n\nM7.P5 under #344, coupled to #536. The maintainer authorized completing all diagnosed fixes. This adds the missing behavior advertised by the existing hint, without changing its copy.\n",
+    "state": "open",
+    "user": {
+      "login": "blitterbot",
+      "name": "blitterbot",
+      "email": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/335883270?v=4",
+      "id": 335883270
+    },
+    "assignees": null,
+    "labels": null,
+    "milestone": 7,
+    "state_reason": null,
+    "comments": 0,
+    "created_at": "2026-10-11T06:34:04Z",
+    "updated_at": "2026-10-11T06:34:04Z",
+    "closed_at": null,
+    "display_url": "https://github.com/pixelelated/distribution/issues/539",
+    "display_title": "M7.P5: Restore Back navigation in the sign-in browser"
+  }
+]

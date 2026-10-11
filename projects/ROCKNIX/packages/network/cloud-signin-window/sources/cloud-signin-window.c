@@ -41,6 +41,14 @@ static gboolean host_permitted(const char *host)
         return TRUE;
     if (!allowed_host)
         return TRUE;
+    /* Dropbox offers these identity providers on its sign-in page. They
+     * are exact authentication hosts, not a general browsing exception. */
+    if (g_ascii_strcasecmp(allowed_host, "dropbox.com") == 0 &&
+        (g_ascii_strcasecmp(host, "accounts.google.com") == 0 ||
+         g_ascii_strcasecmp(host, "appleid.apple.com") == 0 ||
+         g_ascii_strcasecmp(host, "login.microsoftonline.com") == 0 ||
+         g_ascii_strcasecmp(host, "login.live.com") == 0))
+        return TRUE;
     /* the host itself, or any subdomain of it: providers bounce sign-ins
      * through their own auth and CDN subdomains constantly. */
     size_t hl = strlen(host), al = strlen(allowed_host);
@@ -379,6 +387,11 @@ static void on_probe(GObject *source, GAsyncResult *result, gpointer data)
         return;
     }
 
+    /* A reply from the covered parent must not change the popup's caret. */
+    if (osk && source != G_OBJECT(osk->view)) {
+        g_object_unref(value);
+        return;
+    }
     char *text = jsc_value_to_string(value);
     if (g_getenv("CLOUD_SIGNIN_DEBUG"))
         g_message("probe %s", text);
@@ -665,12 +678,24 @@ static int page_worth_recording(const char *uri)
 static void on_load_changed(WebKitWebView *view, WebKitLoadEvent event,
                             gpointer data)
 {
-    if (event != WEBKIT_LOAD_FINISHED)
+    Osk *osk = data;
+    if (event != WEBKIT_LOAD_FINISHED || (osk && osk->view != view))
         return;
 
     GtkWidget *stack = g_object_get_data(G_OBJECT(view), "stack");
     if (stack)
-        gtk_stack_set_visible_child_name(GTK_STACK(stack), "page");
+        gtk_stack_set_visible_child(GTK_STACK(stack), GTK_WIDGET(view));
+
+    /* WebKitGTK does not map Backspace to history navigation. Handle the
+     * bubbled DOM event, respecting editable fields, already-handled keys and
+     * modified shortcuts. Window listeners see provider document handlers first. */
+    webkit_web_view_evaluate_javascript(view,
+        "if(!window.__pixelelatedBackKey){window.__pixelelatedBackKey=true;"
+        "window.addEventListener('keydown',function(e){"
+        "if(e.key!=='Backspace'||e.defaultPrevented||e.altKey||e.ctrlKey||e.metaKey||e.shiftKey)return;"
+        "var t=e.target;if(t&&(t.isContentEditable||(t.closest&&t.closest('input,textarea,select'))))return;"
+        "e.preventDefault();history.back();});}",
+        -1, NULL, NULL, NULL, NULL, NULL);
 
     /* Every page starts at the top. A provider's sign-in runs several steps
      * through one window, and arriving at the next one already scrolled --
@@ -826,12 +851,68 @@ static gboolean on_decide_policy(WebKitWebView *view,
     if (!webkit_navigation_action_is_user_gesture(action))
         return FALSE;
 
-    if (!host_permitted(g_uri_get_host(parsed))) {
-        g_message("refused navigation to %s", uri);
+    const char *host = g_uri_get_host(parsed);
+    if (!host_permitted(host)) {
+        g_message("refused navigation to host %s", host ? host : "(none)");
         webkit_policy_decision_ignore(decision);
         return TRUE;
     }
     return FALSE;
+}
+
+/* OAuth providers can open a related window and send a result to opener.
+ * Keep that relationship, but show only one authentication surface at a time
+ * in the existing window. No extra tabs, address bar, or general browsing. */
+static void on_auth_close(WebKitWebView *view, gpointer data)
+{
+    Osk *osk = data;
+    GtkWidget *stack = g_object_get_data(G_OBJECT(view), "stack");
+    WebKitWebView *parent = g_object_get_data(G_OBJECT(view), "auth-parent");
+    if (!parent || !stack)
+        return;
+    osk->view = parent;
+    g_object_set_data(G_OBJECT(stack), "auth-popup", NULL);
+    gtk_stack_set_visible_child(GTK_STACK(stack), GTK_WIDGET(parent));
+    gtk_widget_grab_focus(GTK_WIDGET(parent));
+    on_load_changed(parent, WEBKIT_LOAD_FINISHED, osk);
+    gtk_widget_destroy(GTK_WIDGET(view));
+}
+
+static void on_auth_ready(WebKitWebView *view, gpointer data)
+{
+    Osk *osk = data;
+    GtkWidget *stack = g_object_get_data(G_OBJECT(view), "stack");
+    osk->view = view;
+    gtk_widget_show(GTK_WIDGET(view));
+    gtk_stack_set_visible_child(GTK_STACK(stack), GTK_WIDGET(view));
+    gtk_revealer_set_reveal_child(GTK_REVEALER(osk->revealer), FALSE);
+    gtk_widget_grab_focus(GTK_WIDGET(view));
+}
+
+static GtkWidget *on_auth_create(WebKitWebView *view,
+                                 WebKitNavigationAction *action, gpointer data)
+{
+    GtkWidget *stack = g_object_get_data(G_OBJECT(view), "stack");
+    const char *uri = webkit_uri_request_get_uri(webkit_navigation_action_get_request(action));
+    g_autoptr(GUri) parsed = g_uri_parse(uri, G_URI_FLAGS_NONE, NULL);
+    if (!stack || g_object_get_data(G_OBJECT(stack), "auth-popup") || !parsed)
+        return NULL;
+    const char *scheme = g_uri_get_scheme(parsed);
+    gboolean network = g_strcmp0(scheme, "https") == 0 || g_strcmp0(scheme, "http") == 0;
+    gboolean blank = g_strcmp0(uri, "about:blank") == 0 && webkit_navigation_action_is_user_gesture(action);
+    if ((!network || !host_permitted(g_uri_get_host(parsed))) && !blank)
+        return NULL;
+    GtkWidget *popup = webkit_web_view_new_with_related_view(view);
+    webkit_web_view_set_settings(WEBKIT_WEB_VIEW(popup), webkit_web_view_get_settings(view));
+    g_object_set_data(G_OBJECT(popup), "stack", stack);
+    g_object_set_data(G_OBJECT(popup), "auth-parent", view);
+    g_object_set_data(G_OBJECT(stack), "auth-popup", popup);
+    g_signal_connect(popup, "decide-policy", G_CALLBACK(on_decide_policy), NULL);
+    g_signal_connect(popup, "load-changed", G_CALLBACK(on_load_changed), data);
+    g_signal_connect(popup, "ready-to-show", G_CALLBACK(on_auth_ready), data);
+    g_signal_connect(popup, "close", G_CALLBACK(on_auth_close), data);
+    gtk_stack_add_named(GTK_STACK(stack), popup, "auth-popup");
+    return popup;
 }
 
 int main(int argc, char **argv)
@@ -894,6 +975,7 @@ int main(int argc, char **argv)
 
     g_signal_connect(view, "decide-policy", G_CALLBACK(on_decide_policy), NULL);
     g_signal_connect(view, "load-changed", G_CALLBACK(on_load_changed), &osk);
+    g_signal_connect(view, "create", G_CALLBACK(on_auth_create), &osk);
     g_signal_connect(window, "key-press-event", G_CALLBACK(on_key), &osk);
 
     /* Something to look at while the provider's page loads. Six seconds of

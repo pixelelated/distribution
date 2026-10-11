@@ -1,0 +1,22 @@
+{
+  "preview": {
+    "rc": 0,
+    "stdout": "qa537audit|sync|1|14\n",
+    "stderr": ""
+  },
+  "plan": "plan 1791702063\nqa537audit|sync|1|14\n",
+  "switch": {
+    "rc": 0,
+    "stdout": "OK=beta\n",
+    "stderr": ""
+  },
+  "apply": {
+    "rc": 0,
+    "stdout": ">>> unit qa537audit|1|1\nMatching qa537audit to the cloud...\nTransferred:   \t         13 B / 13 B, 100%, 0 B/s, ETA -\nChecks:                 1 / 1, 100%, Listed 2\nDeleted:                1 (files), 0 (dirs), 14 B (freed)\nTransferred:            1 / 1, 100%\nElapsed time:         0.0s\n>>> removed 1|14|qa537audit:1:14\n",
+    "stderr": ""
+  },
+  "local_after": {
+    "beta.rom": "89b75aa55ddd01c162e0ea98dc6bb4cd78574d2d7adc3f3972880efae7333b21",
+    "save.srm": "bdd8009076dc7a2810afb14550ea599fff610ba5a52f58871892acd9edc129d0"
+  }
+}

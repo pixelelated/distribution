@@ -242,3 +242,13 @@ Hash failed`). Two things follow:
 
 The tell in a log: a `LogError` from `HttpReq::onError` stamped the second
 the link returned, with nothing from that request in the minutes before.
+
+### A taller GuiSettings menu keeps its old top offset (#540)
+
+`getMenu().setSize()` resizes the menu but does not move it. On non-fullscreen
+panels, `GuiSettings` starts at15% of screen height; making an instruction page
+90–95% tall without repositioning puts its buttons below the panel. Set the
+position with the final size and leave room for the help bar. Non-selectable
+instruction rows cannot be reached by cursor scrolling: verify the last line
+and both bottom buttons in actual640×480 and1280×800 frames, in each changed locale.
+A successful walk or syntax check cannot establish that those rows are visible.

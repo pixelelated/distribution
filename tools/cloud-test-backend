@@ -65,6 +65,9 @@ case "${BACKEND}" in
   webdav|s3|sftp|smb|ftp) ;;
   *) echo "error: unknown backend '${BACKEND}' (webdav, s3, sftp, smb, ftp)" >&2; exit 2 ;;
 esac
+# Nested helper calls (seed-device, status and endpoint notes) must keep the
+# explicit CLI selection, even when the incoming environment named another.
+export CLOUD_QA_BACKEND="${BACKEND}"
 
 # One port each, so more than one backend can be up at a time: a matrix run
 # that had to take the previous endpoint down between rows would test the
@@ -102,10 +105,9 @@ else
 fi
 CONFDIR="$(dirname "${PIDFILE}")"
 
-# The remote name the device will use. Every cloud_* script selects its
-# remote with `rclone listremotes | head -1` - first alphabetically - so this
-# name decides whether the tests act on the test endpoint or on whatever else
-# the device has configured. The driver asserts it rather than trusting it.
+# The QA connection name. The driver explicitly selects it, verifies the
+# active reader and restores prior selection with credentials after testing.
+# Historical images use their first-remote rule, asserted at the same boundary.
 REMOTE="${CLOUD_QA_REMOTE:-qa-cloud}"
 
 GUEST_HOST="${CLOUD_QA_GUEST_HOST:-10.0.2.2}"
@@ -727,7 +729,7 @@ user = ${SFTP_USER}
 key_pem = $(awk '{printf "%s\\n", $0}' "${SFTP_KEY}")
 shell_type = none
 disable_hashcheck = true
-known_hosts_file = none
+known_hosts_file =
 EOF
         ;;
       smb)
@@ -884,6 +886,8 @@ mkdir -p /storage/.config/rclone
 cat > /storage/.config/rclone/rclone.conf <<'RC'
 $("$0" --backend "${BACKEND}" rclone-conf)
 RC
+printf '%s\n' '${REMOTE}' > /storage/.config/rclone/active-connection
+chmod 600 /storage/.config/rclone/rclone.conf /storage/.config/rclone/active-connection
 /usr/bin/cloud_sync_helper >/dev/null 2>&1
 grep -q '^CONTENT_REMOTE="${cr}"' /storage/.config/cloud_sync.conf || sed -i 's|^CONTENT_REMOTE=.*|CONTENT_REMOTE="${cr}"|' /storage/.config/cloud_sync.conf
 /usr/bin/cloud_setup --check

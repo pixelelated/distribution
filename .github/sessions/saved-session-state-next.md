@@ -1,5 +1,166 @@
 # Saved Session State
 
+## Current override — 2026-10-11T16:15:46.446963+00:00
+
+The user's approved OpenRouter/Fable audit transfer is COMPLETE; do not resend.
+Facilitator1.14.0 served anthropic/claude-fable-5.1/xhigh, attempt1 rc0 at14:53:22.
+The exact893307-byte packet and output/provenance digests are in the #540 audit.
+
+All seven #540 repairs are implemented and qualified. Final54 ES binary SHA256
+c3e6ae523baaf64497c394b71edd784a5aa66201b60bf5c7c97283fe2176f2ca; FR catalog
+edf1bf6090812b8a993a1734851c7da4c6f2ace42511676ef9faad236e1159bd.
+Matrix55 ended0 at16:09:09:12 walks,16 reviewed EN/FR640/1280 NC13–NC16 frames.
+Original83 frames keep original bindings; schema1 index now111 entries.
+Regression52:1373PASS,0FAIL,0SKIP,1 retired historical group. Protocol49:108 WebDAV+
+108 SFTP, absent/empty/named prior selections restored. Guest53:26 transactions+
+15 whole-script refusals. Focused scan34/content35/seed37/shutdown39 allPASS.
+Curated evidence: docs/audits/2026_10_11-epic-m7-network-cloud-344/checks/remediation
+and docs/qa-logs/2026-10-11-network-cloud-management. No firmware/RC claim.
+
+ES feature merged fast-forward into test/qa-integration and pushed; remote readback
+confirmed c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78. The distribution full pin now names it.
+All current manifest bytes match the published ES source and repaired distro source.
+Distribution feature/m7-cloud-connections is still uncommitted. NEXT: required
+cheap checks, commit fixes/proof, integrate next; verify branch/path commit readback;
+record Phase7 outcomes with actual landed hashes, update/readback #540 checkboxes,
+lint resolution, commit/push final docs and consume hosted checks. Existing authority
+covers those actions. No new external transfer or owner-device operation is pending.
+
+No audit/build/UI job remains active. Owned disposable VM /workspace/tmp/pix535-537-vm01
+(SSH22537) and local QA endpoints may still be live; verify processes before use.
+No independent VM mutator should run concurrently. /tmp has a user quota; keep large
+fixtures/owners on /workspace/tmp. Retire only verified unused owned payloads through
+the guarded process; no old VM disks were removed in this audit continuation.
+
+After source integration: #528 dispositions, then one frozen combined image and
+clean/retained installed-image gates. Open delivery checkboxes on #535–539 retain
+their scope. Primary distro base was a1b0c651654bbe550fec522c591fbfdb73c220a0.
+Active distro /workspace/repos/rocknix.worktrees/m7-cloud-connections; stale harness
+conflict-resolution must not be edited/merged. Historical sections below preserve
+earlier states and are superseded by this override.
+
+## Active worktrees and scope
+
+Distro `/workspace/repos/rocknix.worktrees/m7-cloud-connections`, feature/m7-cloud-connections,
+basea1b0c651654bbe550fec522c591fbfdb73c220a0. ES
+`/home/max/Development/emulationstation-next.worktrees/m7-cloud-connections`, same branch,
+base1d76b3da7da75794066df1c089931b890304da7a. Both uncommitted; primary next unchanged.
+Harness conflict-resolution is stale/divergent: do not merge it. Read next rules.
+
+M7.P5 #535–539 source implemented: open Wi-Fi/password-preserving saved profiles;
+ordered phone input/exact Dropbox auth hosts/related popups; explicit selected
+connection manager with add/use/renew/edit/remove and real retry/cancel; CLEAR/
+EFFACER shared editor caption; browser Back. QA also fixed profile callback UAF,
+config+selection rollback, and add-name editor reopening its stale original draft.
+No new owner-device/cloud action or firmware assembly.
+
+## Formal audit — active, product source frozen
+
+Code-auditor skill is invoked and announced. Epic chain under #344; independent
+two-model depth, not a full council or whole-M7 audit. One serial primary owner.
+Directory `docs/audits/2026_10_11-epic-m7-network-cloud-344/`.
+Phases0–4.5 recorded;35 frozen source/test files. 12PASS/7PARTIAL/1FAIL across20AC.
+Partials include existing final-index/installed-image delivery scope.
+
+Three High defects confirmed on actual VM with real rclone aliases:
+F-01 cloud_scan fingerprint omits active-connection; completed stamp remains valid
+after alpha→beta. F-02 cloud_setup --seed-folders has no cloud_sync.lock and allows
+select during a blocked mkdir. F-03 content-match preview alpha then select beta
+then apply succeeds, replaces synthetic local.rom with beta.rom; save.srm preserved.
+`checks/target-original/` has driver, guest script, hashes/results and terminal0.
+Owner `/tmp/pix537-audit-probe18` ended0. No personal data involved.
+Fixes NOT yet applied; freeze persists for external review. Adjacent content
+copy preflight's name-only recheck also needs full context binding.
+
+Phase4.6 packet `second-opinions/claude-brief.md`:893307bytes,
+SHA2566eac2eff0bcf7e4a968570d8b0e59ec560c4d3de8666db8b45dfbcd204634229.
+Payload manifest verifies all35 frozen sources and excludes private/credential data.
+Fable5.1/xhigh refutation via installed primary `tools/council/run` only.
+Primary next has node_modules; active feature does not. Local verify-pins/efforts PASS.
+NO external call yet. Pending async question asks approval for this exact893KB
+transfer; prior #507 approval does not name this packet. Skill Phase4.6 says external
+provider permission is separate. No auto-review rejection. No phase5/audit issue yet.
+After approval: fresh durable watched Facilitator call, verify served identity,
+effort/provenance/output hashes, grade leads, lint/create punch-list issue, then
+remediate on a recorded new source revision and run target negative/pass controls.
+
+## Completed final UI proof; no audit/build/QA command running
+
+Final whole-flow owner `/tmp/pix537-final-matrix21` ended0 at07:35:48UTC.
+Original launcher, wrapper and inner build rc are0; launcher3456903,
+watch-build3456904, watcher3456906 and driver3456934 are absent on the actual host.
+All16 serial EN/FR640/1280 lifecycle/forms/Wi-Fi/OAuth jobs passed on ES11.
+83 final-matrix frames reviewed. Canonical menu/flow references now link the
+frame table and95 schema1 entries (76 core flow frames+16editor+3browser),
+with source/binary/catalog hashes and dimensions validated. Product source
+still matches all35 frozen audit manifest entries; no F-01–03 repair yet.
+Final evidence in docs/qa-logs/2026-10-11-network-cloud-management/.
+Curator `/tmp/pix537-final-evidence24.py` completed; do not rerun old proof.
+
+Prepared dormant review owner `/tmp/pix537-fable-review25` has no live process,
+no approval.json and no provider call. After actual named user approval, write
+approval.json with authorized:true and the exact packet_sha256, then submit
+from that owner using active distro tools/watch-build-submit --owner <owner>
+-- python3 <owner>/run.py under host escalation. It invokes only the installed
+primary Facilitator, verifies the frozen packet/source first, and preserves
+provider exit3. Actively supervise then inspect provenance/served identity and
+output digest before grading leads. Do not infer approval from this preparation.
+
+Final shared-editor matrix17 ended0; all8 OSK/plain EN/FR640/1280 flows reviewed
+across matrix16 en640osk plus matrix17 remaining7. Curated editor frames/hash
+bindings/review.json in docs/qa-logs/2026-10-11-network-cloud-management/editor.
+Actual Clear then cancelled edit then reopen remains empty; labels fit separately.
+Final WebKit browser15 has16 passing controls;3 reviewed frames and actual events
+in same QA folder/browser, browser04 binary408480959f05132e7fb5cdf5013bb0f4ea4b98cfb178cb85f6dfb712519e1170.
+Original Back failure browser12 preserved. Rejected RESET overlap, stale name and
+long form help frames retained, not promoted.
+
+ES11 binaryeb49472bf412118e49fd24ef8ca268c9c314b1193da896bd112036368b0a13b3,
+build `/tmp/pix537-es11`, terminal0; GuiMenu source2d200fdf3ec930ef93b446bc08b009de8113f454e958b68bb4e6e1215e16aa27.
+Core09 and final FR cataloge0161e5a5d469c2786df40b2647a8adcd78b5f66abfd8431614922b6333803c1.
+Old es07/es08 screenshots remain bound to their actual sources, not relabeled.
+Syntax final GuiWifi/GuiMenu/core PASS;185ESunit/4793assertions,9input controls,
+21host+21actualguest connection tests,4OAuth lifetime routes PASS. Original UAF
+and rollback failures retained. Regression05 earlier1373PASS plus1inapplicable
+historical group; targeted final changes have their own controls.
+
+## Owned disposable VM and protocol checks
+
+Owner `/workspace/tmp/pix535-537-vm01`,16GBqcow2,SSH22537,VNC37,monitor.sock,
+serial.sock,qemu.pid. Private key never publish/print. Import helper
+`/tmp/pix537-vm.py` remote/scp/install ONLY; its main would stage OLD ES04.
+Current overlay/source install is source-delta proof, not new image qualification.
+Real rclone `/storage/qa537/rclone-real`; UI authorize shim delegates non-auth to it.
+Only tiny synthetic alias data; no owner credentials. Runtime FR bind target
+`/storage/.config/locale/fr/LC_MESSAGES/emulationstation2.mo` must be hashed after
+any rebind; replacing source alone leaves old mounted inode. Matrix mode uses@60Hz.
+
+Private endpoint state `/tmp/pix537-qa-backends`: final host readback found WebDAV9010
+down (stale PID3089364; startup-only log, exit reason unknown), SFTP9013 live.
+Restart WebDAV durably and prove login before the deferred protocol proof. `/tmp/pix537-roundtrip12.py` prepared NOTRUN; run after audit repairs
+and UI completion. It tests WebDAV selected and SFTP explicit-empty prior selection,
+then absence shape through real QA prepare/restore, preserves path/config/payload.
+Do not expose private seed file or credentials. Stop services/VM and retire disks/
+superseded outputs after immediate tests; keep compact proof and source custody.
+
+## Next steps and tracking
+
+1. Final matrix21 and canonical frame/index delivery are complete. Do not replay them.
+   Source remains frozen for the still-pending external review.
+2. Pending named Fable transfer approval; independent UI evidence/docs work is complete.
+   Then Phase4.6→punch list→confirmed fixes→target/protocol checks→final gates.
+3. Canonical docs, #511 public-guide follow-up, work log and #535–539 current status
+   are recorded; M7 live body readback names completed UI proof and remaining audit.
+   Reconcile issue acceptance again after fixes/integration.
+   #536/#537 live bodies now distinguish initial observation/current implementation;
+   #537 comment6106537442 records all3 unresolved audit findings. Do not close them.
+4. ES integration/commit/push and fullhashpin only after required review/proof;
+   distro integration/push after matching canonical flow/frame evidence and gates.
+5. #528 source/licence/component decisions and installed next-image gates remain.
+   No RC designation, firmware build or new physical action is implied.
+
+# Historical checkpoint before #535–#537 implementation
+
 > Updated: 2026-10-11T03:46:10.609983+00:00
 
 > Previous checkpoint: 2026-10-11T03:38:29.104777+00:00
@@ -139,3 +300,5 @@ Prior replacement18 composed qualification (#527),324 local protocol assertions,
 their exact source. Original qa21 failure stays failed. No replay to resume.
 Large disks/firmware are immediate-test-only; retire after accepted proof using
 guarded tooling, retain compact evidence and required source custody.
+
+Current infrastructure: owned QA VM PID2302445 remains live for immediate pending repair tests; SFTP fixture live; WebDAV stopped. No background audit or firmware job. No commit, push, pin promotion, owner device/cloud action or RC claim in this checkpoint.

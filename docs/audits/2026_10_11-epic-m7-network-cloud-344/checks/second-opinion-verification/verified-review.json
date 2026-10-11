@@ -1,0 +1,34 @@
+{
+  "utc": "2026-10-11T14:54:24.506270+00:00",
+  "checks": [
+    "review plan: independent, 2 model perspectives, 1 verified external calls"
+  ],
+  "facilitator_version": "council-facilitator@1.14.0",
+  "member": "claude",
+  "declared_model": "anthropic/claude-fable-5.1 (OpenRouter, effort=xhigh)",
+  "verification": {
+    "result": "PASS",
+    "match_kind": "semantic",
+    "declared": "anthropic/claude-fable-5.1 (OpenRouter, effort=xhigh)",
+    "observed": "anthropic/claude-fable-5.1",
+    "model_identity_source": "provider_response"
+  },
+  "effort_verification": {
+    "result": "PASS",
+    "declared": "xhigh",
+    "evidence": "reasoning_tokens",
+    "observed_reasoning_tokens": 43830
+  },
+  "provider_verification": {
+    "result": "NOT_PINNED",
+    "declared": null,
+    "evidence": "response_provider_field",
+    "observed": "Anthropic",
+    "observed_providers": [
+      "Anthropic"
+    ]
+  },
+  "outcome": "success",
+  "output_sha256": "b2391801ba09d94bc18d6c7a9b859617ad0a412580bb945032b313d4cb8b0edb",
+  "provenance_sha256": "449cf68307f222df1106d9651a493ae8ed3a404c43883a0edfc88983b26dfb1b"
+}

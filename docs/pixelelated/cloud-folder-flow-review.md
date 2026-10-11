@@ -498,3 +498,116 @@ export is inferred. The later cleanup needs a concrete per-path disposition
 and named action scope. No generic cleanup feature or owner-specific product
 compatibility branch is added, and synthetic public/clean adoption does not
 wait for this personal task.
+
+## Saved connections and sign-in recovery
+
+#537 / D-CLOUD-183/184 adds CLOUD CONNECTIONS to the cloud hub. Each saved
+connection shows its name, provider and whether it is in use. ADD CONNECTION
+creates a distinct named connection; a repeated provider does not imply replacement.
+SIGN IN AGAIN renews the selected connection. EDIT CONNECTION keeps blank fields
+unchanged and retains the provider variant. Both verify private staged settings
+before replacing existing credentials. Failure, cancellation and superseded sign-in
+attempts preserve the prior connection. A pairing failure offers TRY AGAIN (a new
+sign-in attempt) and CANCEL SIGN-IN (end the attempt and return).
+
+USE THIS CONNECTION confirms that existing folder paths remain unchanged and
+asks the player to check them before backup or restore. REMOVE CONNECTION confirms
+that only this device's connection settings are removed; cloud files remain in place.
+Removing the active connection leaves none in use, even if others remain saved.
+Adding another connection never silently switches the current selection. The
+connection list and cloud hub refresh when returning from a changed child page.
+
+Selection, removal and replacement refuse while a cloud operation holds the shared
+lock or either automatic save-sync option is enabled. The player turns those options
+off explicitly. Linking, checking or switching does not create folders or relocate
+content. The existing explicit category selection, validation, creation and local
+instructions below the connection layer remain the post-link contract.
+
+```mermaid
+flowchart TD
+    Hub[CLOUD] --> Manager[CLOUD CONNECTIONS]
+    Manager --> Add[ADD CONNECTION: choose provider and distinct name]
+    Manager --> Existing[Choose saved connection]
+    Existing --> Check[CHECK CONNECTION: bounded read]
+    Existing --> Switch[USE THIS CONNECTION: confirm, preserve paths]
+    Existing --> Renew[SIGN IN AGAIN / EDIT CONNECTION]
+    Existing --> Remove[REMOVE CONNECTION: confirm local removal]
+    Add --> Stage[Private staged settings]
+    Renew --> Stage
+    Stage --> Verify{Connection answers?}
+    Verify -->|yes, attempt still current| Save[Save and refresh list]
+    Verify -->|no or cancelled| Preserve[Keep previous settings]
+    Preserve --> Retry[TRY AGAIN: new attempt]
+    Preserve --> Cancel[CANCEL SIGN-IN: return]
+    Remove -->|active removed| None[NO CONNECTION IN USE]
+    Switch --> Folders[Check selected folders before transferring]
+```
+
+The isolated-VM [flow index](../qa-logs/2026-10-11-network-cloud-management/frame-index.md)
+records NC01–NC12 (connections and sign-in recovery), WF01–WF07 (Wi-Fi), ED01
+(shared editor) and BR01 (browser). Reviewed English/French frames cover 640×480
+and 1280×800, with [schema1 source bindings](../qa-logs/2026-10-11-network-cloud-management/evidence-index.json)
+and all16 whole-flow driver jobs passing. Runtime receipts prove retained folder/
+payload bytes, explicit selection and fresh retry/cancel ownership. Editor/browser
+controls have their own exact-source receipts. No owner device or cloud is involved.
+
+This is source-overlay UI proof, not integration or firmware qualification.
+The approved independent review is complete. #540 owns seven repairs, implemented
+and verified by focused guest controls, full regression and local protocols.
+Final54/matrix55 supplies 16 reviewed affected frames; earlier frames retain their
+original source bindings.
+The audit repair matrix adds NC13–NC16 for connection checks with spaces in the
+name, a missing selected connection during edit, explicit unselected guidance,
+and the SSH setup instruction to choose a connection deliberately.
+
+Checks preserve the complete saved name when passing it to the helper. A missing
+selected connection refuses an edit with a recovery direction to CLOUD CONNECTIONS;
+existing credentials and payload remain intact. Stored connections with no active
+selection ask the player to choose one; only an empty configuration says setup is
+needed. The SSH guide never promises an alphabetical selection. Its final instruction page uses extra width and a taller, repositioned menu on larger panels so the final guidance and both action buttons remain visible.
+
+```mermaid
+flowchart TD
+    Detail[CLOUD CONNECTION: exact saved name] --> Check[CHECK CONNECTION]
+    Check --> Answer[Connection answered or bounded failure]
+    Edit[EDIT CONNECTION: confirm replacement] --> Selected{Selected reference still valid?}
+    Selected -->|missing| Recover[Choose another under CLOUD CONNECTIONS; credentials kept]
+    Selected -->|valid| Verify[Verify staged settings before publishing]
+    Manager[CLOUD CONNECTIONS] -->|saved but none selected| Choose[CHOOSE A CONNECTION BEFORE USING CLOUD TOOLS]
+    Manager --> Computer[USE A COMPUTER INSTEAD]
+    Computer --> SSH[SSH step 3: choose which connection to use under CLOUD CONNECTIONS]
+```
+
+Nonvisual account guards bind scan stamps and destructive previews to the full
+configuration, including selected-account presence/bytes. Changed or old previews
+are spent and refused. Folder creation owns the shared transfer lock. Normal
+sign-in shutdown waits for private staging cleanup before the worker can exit.
+The focused original failure/repair controls are preserved in the #540 audit;
+completed integration and combined-image qualification remain separate gates.
+
+### Editable connection names and browser recovery
+
+The proposed unique name is a draft. Editing it twice reads the latest draft;
+CLEAR / EFFACER commits an empty draft, and CANCEL discards only the current edit.
+An empty/duplicate name cannot start authentication. This fixes a stale captured
+initial value found during the Clear/Cancel proof (#537/#538).
+
+```mermaid
+flowchart LR
+    Name[Draft connection name] --> Editor[Edit current draft]
+    Editor -->|Save| Name
+    Editor -->|Clear: empty draft| Name
+    Editor -->|Cancel: keep draft| Name
+    Name -->|empty or duplicate| Refuse[Choose a different connection name]
+    Name -->|valid distinct name| Auth[Start sign-in]
+    Auth --> Provider[Provider page / supported related popup]
+    Provider -->|Back outside editing| Previous[Previous page]
+    Provider -->|Popup finishes| Opener[Return to provider]
+    Provider -->|Close| Return[Return to sign-in setup]
+```
+
+The actual local-provider checks cover pointer hover/down/up/click, text deletion,
+scrolling, permitted authentication hosts, a blocked unrelated host, Back, provider
+key handling, modified keys, popup/opener return and Close (#536/#539). They use
+synthetic content and prove these input/navigation mechanisms, not live account
+sign-in or every provider's policy.

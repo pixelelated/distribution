@@ -1,5 +1,40 @@
 # Cloud sync, backup and restore — change summary
 
+## Connection management and network input (2026-10-11, source qualification)
+
+These changes are being qualified for the next build; they are not installed on
+the owner's handhelds yet. Installed clean and retained-configuration image gates
+remain open.
+
+- **Manage saved cloud connections from the Cloud page.** CLOUD CONNECTIONS
+  separates ADD CONNECTION from SIGN IN AGAIN, EDIT CONNECTION, USE THIS
+  CONNECTION and REMOVE CONNECTION. Stored connections show which one is in use;
+  saved credentials are not presented as proof that an account is reachable (#537).
+- **Failed sign-in offers real choices.** TRY AGAIN starts a fresh attempt;
+  CANCEL SIGN-IN ends it. Failed or cancelled changes keep the previous settings.
+  Adding a second connection keeps the existing selection; removing the active
+  connection leaves none selected. Switching preserves folder choices and asks
+  the player to check them. Removal affects this device's connection settings,
+  not cloud files. Automatic sync and busy-operation guards prevent unsafe changes.
+- **Phone input is ordered.** Pointer movement, taps, keys and typing share one
+  queue. Supported authentication-host transitions and related popups work without
+  opening arbitrary user-initiated external navigation (#536). Browser Back now
+  navigates outside text editing, while text deletion and handled/modified keys
+  retain their behavior (#539).
+- **Open Wi-Fi networks skip the password prompt.** Protected and unknown-security
+  networks retain it. Saved profiles, connection failures and forgetting a network
+  keep their established flow; an ambiguous saved profile is chosen explicitly
+  (#535). Captive-portal sign-in is a separate feature.
+- **CLEAR says what the text-editor action does.** Its French label EFFACER fits
+  beside ANNULER. Cancelling keeps the prior draft, and reopening a connection name
+  reads the current value instead of the original suggestion (#538/#537).
+
+- **Checks and previews belong to the selected account.** Changing the connection,
+  its settings or folder choices invalidates old results and destructive previews.
+  Folder creation shares the transfer lock. Missing selections explain how to
+  choose another connection, and ending sign-in finishes private staging cleanup
+  before exit (#540).
+
 ## USB device revision (2026-10-11, source-qualified)
 
 - **USB setup uses a valid device revision with semantic OS versions.** The

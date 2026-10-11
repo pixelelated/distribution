@@ -1,0 +1,96 @@
+=================================================================
+==3066636==ERROR: AddressSanitizer: heap-use-after-free on address 0x73a9f65e0100 at pc 0x60dd3cfe45cc bp 0x7ffd25720b00 sp 0x7ffd25720af0
+READ of size 8 at 0x73a9f65e0100 thread T0
+    #0 0x60dd3cfe45cb in operator() /tmp/tmp73pnzd44/test.cpp:32
+    #1 0x60dd3cfe5d7f in __invoke_impl<void, GuiWifi::chooseProfile(const std::string&)::<lambda()>&> /usr/include/c++/15/bits/invoke.h:63
+    #2 0x60dd3cfe5c2d in __invoke_r<void, GuiWifi::chooseProfile(const std::string&)::<lambda()>&> /usr/include/c++/15/bits/invoke.h:113
+    #3 0x60dd3cfe5932 in _M_invoke /usr/include/c++/15/bits/std_function.h:292
+    #4 0x60dd3cfe77e3 in std::function<void ()>::operator()() const /usr/include/c++/15/bits/std_function.h:593
+    #5 0x60dd3cfe5456 in main /tmp/tmp73pnzd44/test.cpp:38
+    #6 0x76e9f722a600  (/usr/lib/x86_64-linux-gnu/libc.so.6+0x2a600) (BuildId: 066527e430a32768d82741e00b81eebb1a872294)
+    #7 0x76e9f722a717 in __libc_start_main (/usr/lib/x86_64-linux-gnu/libc.so.6+0x2a717) (BuildId: 066527e430a32768d82741e00b81eebb1a872294)
+    #8 0x60dd3cfe44a4 in _start (/tmp/tmp73pnzd44/test+0x44a4) (BuildId: f499a49faf07e8038f13d444b19999372dcfb8a3)
+
+0x73a9f65e0100 is located 0 bytes inside of 120-byte region [0x73a9f65e0100,0x73a9f65e0178)
+freed by thread T0 here:
+    #0 0x76e9f7b2d89f in operator delete(void*, unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:190
+    #1 0x60dd3cfe5e06 in _M_destroy /usr/include/c++/15/bits/std_function.h:177
+    #2 0x60dd3cfe5d38 in _M_manager /usr/include/c++/15/bits/std_function.h:205
+    #3 0x60dd3cfe59e9 in _M_manager /usr/include/c++/15/bits/std_function.h:284
+    #4 0x60dd3cfe6335 in std::_Function_base::~_Function_base() /usr/include/c++/15/bits/std_function.h:246
+    #5 0x60dd3cfe66fb in std::function<void ()>::~function() /usr/include/c++/15/bits/std_function.h:336
+    #6 0x60dd3cfea561 in void std::_Destroy<std::function<void ()> >(std::function<void ()>*) /usr/include/c++/15/bits/stl_construct.h:166
+    #7 0x60dd3cfe9814 in void std::_Destroy<std::function<void ()>*>(std::function<void ()>*, std::function<void ()>*) /usr/include/c++/15/bits/stl_construct.h:226
+    #8 0x60dd3cfe6c5a in void std::_Destroy<std::function<void ()>*, std::function<void ()> >(std::function<void ()>*, std::function<void ()>*, std::allocator<std::function<void ()> >&) /usr/include/c++/15/bits/alloc_traits.h:1045
+    #9 0x60dd3cfe6c5a in std::vector<std::function<void ()>, std::allocator<std::function<void ()> > >::~vector() /usr/include/c++/15/bits/stl_vector.h:802
+    #10 0x60dd3cfe6517 in GuiSettings::~GuiSettings() /tmp/tmp73pnzd44/test.cpp:10
+    #11 0x60dd3cfe653d in GuiSettings::close() /tmp/tmp73pnzd44/test.cpp:14
+    #12 0x60dd3cfe45aa in operator() /tmp/tmp73pnzd44/test.cpp:31
+    #13 0x60dd3cfe5d7f in __invoke_impl<void, GuiWifi::chooseProfile(const std::string&)::<lambda()>&> /usr/include/c++/15/bits/invoke.h:63
+    #14 0x60dd3cfe5c2d in __invoke_r<void, GuiWifi::chooseProfile(const std::string&)::<lambda()>&> /usr/include/c++/15/bits/invoke.h:113
+    #15 0x60dd3cfe5932 in _M_invoke /usr/include/c++/15/bits/std_function.h:292
+    #16 0x60dd3cfe77e3 in std::function<void ()>::operator()() const /usr/include/c++/15/bits/std_function.h:593
+    #17 0x60dd3cfe5456 in main /tmp/tmp73pnzd44/test.cpp:38
+    #18 0x76e9f722a600  (/usr/lib/x86_64-linux-gnu/libc.so.6+0x2a600) (BuildId: 066527e430a32768d82741e00b81eebb1a872294)
+    #19 0x76e9f722a717 in __libc_start_main (/usr/lib/x86_64-linux-gnu/libc.so.6+0x2a717) (BuildId: 066527e430a32768d82741e00b81eebb1a872294)
+    #20 0x60dd3cfe44a4 in _start (/tmp/tmp73pnzd44/test+0x44a4) (BuildId: f499a49faf07e8038f13d444b19999372dcfb8a3)
+
+previously allocated by thread T0 here:
+    #0 0x76e9f7b2c73f in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:109
+    #1 0x60dd3cfe5f49 in _M_create<const GuiWifi::chooseProfile(const std::string&)::<lambda()>&> /usr/include/c++/15/bits/std_function.h:163
+    #2 0x60dd3cfe5dad in _M_init_functor<const GuiWifi::chooseProfile(const std::string&)::<lambda()>&> /usr/include/c++/15/bits/std_function.h:217
+    #3 0x60dd3cfe5d2a in _M_manager /usr/include/c++/15/bits/std_function.h:200
+    #4 0x60dd3cfe59e9 in _M_manager /usr/include/c++/15/bits/std_function.h:284
+    #5 0x60dd3cfea682 in std::function<void ()>::function(std::function<void ()> const&) /usr/include/c++/15/bits/std_function.h:393
+    #6 0x60dd3cfe863a in void std::__new_allocator<std::function<void ()> >::construct<std::function<void ()>, std::function<void ()> const&>(std::function<void ()>*, std::function<void ()> const&) /usr/include/c++/15/bits/new_allocator.h:191
+    #7 0x60dd3cfe863a in void std::allocator_traits<std::allocator<std::function<void ()> > >::construct<std::function<void ()>, std::function<void ()> const&>(std::allocator<std::function<void ()> >&, std::function<void ()>*, std::function<void ()> const&) /usr/include/c++/15/bits/alloc_traits.h:674
+    #8 0x60dd3cfe863a in void std::vector<std::function<void ()>, std::allocator<std::function<void ()> > >::_M_realloc_append<std::function<void ()> const&>(std::function<void ()> const&) /usr/include/c++/15/bits/vector.tcc:586
+    #9 0x60dd3cfe6de3 in std::vector<std::function<void ()>, std::allocator<std::function<void ()> > >::push_back(std::function<void ()> const&) /usr/include/c++/15/bits/stl_vector.h:1427
+    #10 0x60dd3cfe64f7 in GuiSettings::addEntry(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, bool, std::function<void ()>) /tmp/tmp73pnzd44/test.cpp:13
+    #11 0x60dd3cfe4a76 in GuiWifi::chooseProfile(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /tmp/tmp73pnzd44/test.cpp:29
+    #12 0x60dd3cfe5369 in main /tmp/tmp73pnzd44/test.cpp:38
+    #13 0x76e9f722a600  (/usr/lib/x86_64-linux-gnu/libc.so.6+0x2a600) (BuildId: 066527e430a32768d82741e00b81eebb1a872294)
+    #14 0x76e9f722a717 in __libc_start_main (/usr/lib/x86_64-linux-gnu/libc.so.6+0x2a717) (BuildId: 066527e430a32768d82741e00b81eebb1a872294)
+    #15 0x60dd3cfe44a4 in _start (/tmp/tmp73pnzd44/test+0x44a4) (BuildId: f499a49faf07e8038f13d444b19999372dcfb8a3)
+
+SUMMARY: AddressSanitizer: heap-use-after-free /tmp/tmp73pnzd44/test.cpp:32 in operator()
+Shadow bytes around the buggy address:
+  0x73a9f65dfe80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x73a9f65dff00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x73a9f65dff80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x73a9f65e0000: fa fa fa fa fa fa fa fa fd fd fd fd fd fd fd fd
+  0x73a9f65e0080: fd fd fd fd fd fd fd fa fa fa fa fa fa fa fa fa
+=>0x73a9f65e0100:[fd]fd fd fd fd fd fd fd fd fd fd fd fd fd fd fa
+  0x73a9f65e0180: fa fa fa fa fa fa fa fa fd fd fd fd fd fd fd fd
+  0x73a9f65e0200: fd fd fd fd fd fd fd fa fa fa fa fa fa fa fa fa
+  0x73a9f65e0280: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fa
+  0x73a9f65e0300: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x73a9f65e0380: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==3066636==ABORTING
+Traceback (most recent call last):
+  File "/home/max/Development/emulationstation-next.worktrees/m7-cloud-connections/tests/wifi-profile-lifetime.py", line 40, in <module>
+    subprocess.run([str(p/'test')],check=True)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['/tmp/tmp73pnzd44/test']' returned non-zero exit status 1.

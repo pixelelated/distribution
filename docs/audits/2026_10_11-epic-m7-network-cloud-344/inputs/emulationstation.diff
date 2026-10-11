@@ -1,0 +1,1138 @@
+diff --git a/es-app/src/ApiSystem.cpp b/es-app/src/ApiSystem.cpp
+index 323267a82..9abd29fca 100644
+--- a/es-app/src/ApiSystem.cpp
++++ b/es-app/src/ApiSystem.cpp
+@@ -637,6 +637,22 @@ bool ApiSystem::enableWifi(std::string ssid, std::string key)
+ }
+ #endif
+ 
++// Only the exact positive protocol answer authorizes the open-network path.
++std::string ApiSystem::getWifiSecurity(const std::string& ssid)
++{
++	std::vector<std::string> lines;
++	auto answer = executeScript("timeout 15 wifictl security " + Utils::String::shellQuote(ssid),
++		[&lines](const std::string line) { lines.push_back(line); });
++	if (answer.second == 0 && lines.size() == 1 && (lines[0] == "open" || lines[0] == "protected"))
++		return lines[0];
++	return "unknown";
++}
++
++bool ApiSystem::connectOpenWifi(const std::string& ssid)
++{
++	return executeScript("timeout 120 wifictl connect-open " + Utils::String::shellQuote(ssid));
++}
++
+ bool ApiSystem::disableWifi() 
+ {
+ 	return executeScript("timeout 30 wifictl disable");
+@@ -664,8 +680,15 @@ bool ApiSystem::getCurrentWifiSsid(std::string& ssid)
+ bool ApiSystem::getSavedWifiNetworks(std::vector<WifiText::SavedNetwork>& networks)
+ {
+ 	std::vector<std::string> lines;
+-	auto result = executeScript("timeout 15 wifictl saved", [&lines](const std::string line) { lines.push_back(line); });
+-	networks = WifiText::parseSaved(lines);
++	auto result = executeScript("timeout 15 wifictl saved --ssid", [&lines](const std::string line) { lines.push_back(line); });
++	networks.clear();
++	for (const auto& line : lines)
++	{
++		if (line.empty()) continue;
++		WifiText::SavedNetwork network;
++		if (!WifiText::parseSavedDetailsLine(line, network)) { networks.clear(); return false; }
++		networks.push_back(network);
++	}
+ 	if (result.second != 0)
+ 	{
+ 		networks.clear();
+diff --git a/es-app/src/ApiSystem.h b/es-app/src/ApiSystem.h
+index d1833bb9c..9881e7bea 100644
+--- a/es-app/src/ApiSystem.h
++++ b/es-app/src/ApiSystem.h
+@@ -251,6 +251,8 @@ public:
+ 	bool enableWifi(std::string ssid, std::string key);
+ #endif
+     bool disableWifi();
++	std::string getWifiSecurity(const std::string& ssid);
++	bool connectOpenWifi(const std::string& ssid);
+ 
+ 	// The network the device is joined to now, from NetworkManager (wifictl
+ 	// current) -- not wifi.ssid, which is the one configured last and, once
+diff --git a/es-app/src/WifiText.cpp b/es-app/src/WifiText.cpp
+index db5d061be..0f83797f2 100644
+--- a/es-app/src/WifiText.cpp
++++ b/es-app/src/WifiText.cpp
+@@ -31,6 +31,55 @@ bool WifiText::parseSavedLine(const std::string& rawLine, SavedNetwork& network)
+ 	return true;
+ }
+ 
++static std::string savedField(const std::string& field)
++{
++	std::string result;
++	for (size_t i = 0; i < field.size(); ++i)
++		if (field[i] == '\\' && i + 1 < field.size() && (field[i + 1] == '\\' || field[i + 1] == 't'))
++			result += field[++i] == 't' ? '\t' : '\\';
++		else result += field[i];
++	return result;
++}
++
++bool WifiText::parseSavedDetailsLine(const std::string& rawLine, SavedNetwork& network)
++{
++	const std::string line = withoutCR(rawLine);
++	const size_t first = line.find('\t'), last = line.rfind('\t');
++	if (first == std::string::npos || first == last || line.find('\t', first + 1) != last)
++		return false;
++	const auto flag = line.substr(last + 1);
++	if (flag != "active" && flag != "saved") return false;
++	network.name = savedField(line.substr(0, first));
++	network.ssid = savedField(line.substr(first + 1, last - first - 1));
++	network.inUse = flag == "active";
++	return !network.name.empty() && !network.ssid.empty();
++}
++
++std::vector<WifiText::SavedNetwork> WifiText::profilesForSsid(const std::string& ssid, const std::vector<SavedNetwork>& saved)
++{
++	std::vector<SavedNetwork> result;
++	for (const auto& profile : saved)
++		if ((profile.ssid.empty() ? profile.name : profile.ssid) == ssid)
++			result.push_back(profile);
++	return result;
++}
++
++std::string WifiText::preferredProfile(const std::string& ssid, const std::vector<SavedNetwork>& saved)
++{
++	const auto matching = profilesForSsid(ssid, saved);
++	if (matching.size() == 1) return matching.front().name;
++	int active = 0;
++	std::string name, namesake;
++	for (const auto& profile : matching)
++	{
++		if (profile.name == ssid) namesake = profile.name;
++		if (profile.inUse) { ++active; name = profile.name; }
++		if (profile.inUse && profile.name == ssid) return profile.name;
++	}
++	if (active == 1) return name;
++	return active == 0 ? namesake : "";
++}
++
+ std::vector<WifiText::SavedNetwork> WifiText::parseSaved(const std::vector<std::string>& lines)
+ {
+ 	std::vector<SavedNetwork> networks;
+@@ -64,17 +113,15 @@ std::vector<WifiText::PickerRow> WifiText::pickerRows(const std::vector<std::str
+ 		for (const auto& network : saved)
+ 			if (network.inUse)
+ 			{
+-				joinedNow = network.name;
++				joinedNow = network.ssid.empty() ? network.name : network.ssid;
+ 				break;
+ 			}
+ 
+-	auto isSaved = [&saved](const std::string& name)
+-	{
+-		for (const auto& network : saved)
+-			if (network.name == name)
+-				return true;
++	const bool detailed = [&saved] {
++		for (const auto& profile : saved) if (!profile.ssid.empty()) return true;
+ 		return false;
+-	};
++	}();
++	auto isSaved = [&saved](const std::string& name) { return !profilesForSsid(name, saved).empty(); };
+ 
+ 	std::vector<PickerRow> rows;
+ 	auto listed = [&rows](const std::string& name)
+@@ -102,7 +149,7 @@ std::vector<WifiText::PickerRow> WifiText::pickerRows(const std::vector<std::str
+ 	// profile known not to be this connection -- and the row joins by its
+ 	// name, as before.
+ 	std::string joinedProfile;
+-	if (!joinedNow.empty() && savedKnown)
++	if (!joinedNow.empty() && savedKnown && !detailed)
+ 	{
+ 		int up = 0;
+ 		bool namedUp = false;
+@@ -123,6 +170,8 @@ std::vector<WifiText::PickerRow> WifiText::pickerRows(const std::vector<std::str
+ 			joinedProfile = joinedNow;
+ 	}
+ 
++	if (detailed && savedKnown) joinedProfile = preferredProfile(joinedNow, saved);
++
+ 	if (!joinedNow.empty())
+ 	{
+ 		PickerRow row{ joinedNow, !joinedProfile.empty(), true, savedKnown };
+@@ -137,7 +186,7 @@ std::vector<WifiText::PickerRow> WifiText::pickerRows(const std::vector<std::str
+ 			continue;
+ 		PickerRow row{ name, savedKnown && isSaved(name), false, savedKnown };
+ 		if (row.saved)
+-			row.profile = name;
++			row.profile = preferredProfile(name, saved);
+ 		rows.push_back(row);
+ 	}
+ 	return rows;
+@@ -186,7 +235,7 @@ WifiText::PressAction WifiText::manualAction(const std::string& name, const std:
+ 	if (!name.empty() && name == current)
+ 		return PressAction::Join;
+ 	for (const auto& network : saved)
+-		if (network.name == name)
++		if ((network.ssid.empty() ? network.name : network.ssid) == name)
+ 			return PressAction::Join;
+ 	if (!savedKnown)
+ 		return PressAction::CheckAgain;
+diff --git a/es-app/src/WifiText.h b/es-app/src/WifiText.h
+index b7f5bb0ae..330382168 100644
+--- a/es-app/src/WifiText.h
++++ b/es-app/src/WifiText.h
+@@ -25,6 +25,7 @@ namespace WifiText
+ 	{
+ 		std::string name;
+ 		bool inUse = false;
++		std::string ssid; // optional for legacy two-column readers
+ 	};
+ 
+ 	// One line of `wifictl saved`. False for a line that is not a network:
+@@ -34,6 +35,11 @@ namespace WifiText
+ 	// the flag is read after the last tab, so a tab inside a name still
+ 	// leaves the flag whole.
+ 	bool parseSavedLine(const std::string& line, SavedNetwork& network);
++	// Current wifictl saved --ssid: escaped profile, escaped SSID, state.
++	bool parseSavedDetailsLine(const std::string& line, SavedNetwork& network);
++	std::vector<SavedNetwork> profilesForSsid(const std::string& ssid, const std::vector<SavedNetwork>& saved);
++	std::string preferredProfile(const std::string& ssid, const std::vector<SavedNetwork>& saved);
++
+ 
+ 	// Every network in the lines, in the order given (nmcli puts the one in
+ 	// use first); lines that are not networks are passed over.
+diff --git a/es-app/src/guis/GuiMenu.cpp b/es-app/src/guis/GuiMenu.cpp
+index 8dd10b122..622d60ee4 100644
+--- a/es-app/src/guis/GuiMenu.cpp
++++ b/es-app/src/guis/GuiMenu.cpp
+@@ -5569,10 +5569,40 @@ static void cloudAddTransferRow(GuiSettings* s, Window* window, bool configured,
+ // meant knowing which half of the split you wanted before you could start.
+ // Direction first, then what moves -- the split the system actually keeps is
+ // the one the player is shown.
++// A connection can change on a child page. Refresh its parent on return,
++// after the input callback has unwound; never rebuild a live button bar.
++class CloudConnectionsPage : public GuiSettings
++{
++public:
++	CloudConnectionsPage(Window* window, const std::string& title, const std::function<void()>& refresh)
++		: GuiSettings(window, title), mRefresh(refresh), mAlive(std::make_shared<bool>(true)),
++		  mSnapshot(Utils::Platform::GetShOutput("/usr/bin/cloud_remote list")) { }
++	~CloudConnectionsPage() override { *mAlive = false; }
++	void topWindow(bool isTop) override
++	{
++		GuiSettings::topWindow(isTop);
++		if (!isTop) return;
++		auto alive = mAlive;
++		mWindow->postToUiThread([this, alive]
++		{
++			if (!*alive || mWindow->peekGui() != this) return;
++			const auto current = Utils::Platform::GetShOutput("/usr/bin/cloud_remote list");
++			if (current == mSnapshot) return;
++			mSnapshot = current;
++			mRefresh();
++			close();
++		});
++	}
++private:
++	std::function<void()> mRefresh;
++	std::shared_ptr<bool> mAlive;
++	std::string mSnapshot;
++};
++
+ void GuiMenu::openCloud(Window* window, bool onFolderRow)
+ {
+ 	const bool configured = Utils::FileSystem::exists("/storage/.config/rclone/rclone.conf", false);
+-	auto s = new GuiSettings(window, _("CLOUD"));
++	auto s = new CloudConnectionsPage(window, _("CLOUD"), [window] { GuiMenu::openCloud(window); });
+ 
+ 	// The three rows follow the current transfer's outcome (D-UI-070; the
+ 	// page is sat in since D-UI-078): see cloudAddTransferRow and the
+@@ -5673,7 +5703,7 @@ void GuiMenu::openCloud(Window* window, bool onFolderRow)
+ 							text = _("NO CLOUD STORAGE IS SET UP ON THIS DEVICE YET.");
+ 						else
+ 							text = _("COULDN'T REACH") + " " + who + ".\n\n"
+-								+ _("CHECK WI-FI, THEN TRY AGAIN. IF IT KEEPS FAILING, SIGN IN AGAIN UNDER CONNECT OR REPAIR CLOUD STORAGE.");
++								+ _("CHECK WI-FI, THEN TRY AGAIN. IF IT KEEPS FAILING, SIGN IN AGAIN UNDER CLOUD CONNECTIONS.");
+ 						window->pushGui(new GuiMsgBox(window, text, _("OK")));
+ 					}));
+ 			}, "", false, true);
+@@ -5689,10 +5719,9 @@ void GuiMenu::openCloud(Window* window, bool onFolderRow)
+ 		s->addWithDescription(_("CHECK CLOUD FOLDERS"), _("CHECK THE FOLDERS YOU CHOOSE."), nullptr,
+ 			[window] { cloudSetupShowDoneStep(window, "", nullptr); }, "", false, true);
+ 	}
+-	s->addWithDescription(_("CONNECT OR REPAIR CLOUD STORAGE"),
+-		configured ? _("CHANGE THE FOLDER, ADD A PROVIDER, OR RENEW A SIGN-IN.")
+-		           : _("SET UP A PROVIDER WITH RCLONE, FROM THE HANDHELD. NO COMPUTER NEEDED."),
+-		nullptr, [window] { GuiMenu::openCloudAddRemote(window); }, "", false, true);
++	s->addWithDescription(_("CLOUD CONNECTIONS"),
++		_("ADD, CHOOSE, OR MANAGE YOUR CONNECTIONS."),
++		nullptr, [window] { GuiMenu::openCloudConnections(window); }, "", false, true);
+ 
+ 	// Only while there is a restore to finish.
+ 	// Read uncached: exists() remembers its answer for the session, and this
+@@ -7014,6 +7043,15 @@ static void cloudShowFolderSelection(Window* window, GuiSettings* prev, const st
+ }
+ static void cloudSetupShowDoneStep(Window* window, const std::string& remote, GuiSettings* prev)
+ {
++	const auto active = Utils::String::trim(Utils::Platform::GetShOutput("/usr/bin/cloud_remote active"));
++	if (!remote.empty() && remote + (remote.back() == ':' ? "" : ":") != active)
++	{
++		auto s = new GuiSettings(window, _("CONNECTION SAVED"));
++		cloudSetupAddProse(s, window, remote,
++			_("YOUR CURRENT CONNECTION HAS NOT CHANGED. CHOOSE THIS CONNECTION UNDER CLOUD CONNECTIONS WHEN YOU WANT TO USE IT."));
++		cloudSetupPresent(window, s, prev);
++		return;
++	}
+ 	cloudShowFolderSelection(window, prev, {"saves", "settings"});
+ }
+ 
+@@ -7041,6 +7079,7 @@ struct CloudBackend
+ 	std::string name;         // rclone's backend id, e.g. "sftp"
+ 	std::string label;        // human name, e.g. "SSH/SFTP Connection"
+ 	std::string subprovider;  // vendor within the backend, where it has one
++	bool reauthorize = false;
+ };
+ 
+ struct CloudBackendField
+@@ -7083,6 +7122,23 @@ static std::vector<std::string> cloudRemoteLines(const std::string& args)
+ 	return lines;
+ }
+ 
++static std::string cloudConnectionError(const std::string& output)
++{
++	if (output.find("A cloud operation is running.") != std::string::npos)
++		return _("A CLOUD OPERATION IS RUNNING. WAIT FOR IT TO FINISH, THEN TRY AGAIN.");
++	if (output.find("Turn off both automatic") != std::string::npos)
++		return _("TURN OFF BOTH AUTOMATIC SAVE SYNC OPTIONS UNDER MANAGE CLOUD STORAGE BEFORE CHANGING THIS CONNECTION.");
++	if (output.find("different connection name") != std::string::npos)
++		return _("CHOOSE A DIFFERENT CONNECTION NAME.");
++	if (output.find("Another connection uses") != std::string::npos)
++		return _("ANOTHER CONNECTION USES THIS ONE. CHANGE THAT CONNECTION FIRST.");
++	if (output.find("additional setup") != std::string::npos)
++		return _("THIS PROVIDER NEEDS ADDITIONAL SETUP. USE A COMPUTER TO FINISH CONNECTING IT.");
++	if (output.find("could not be verified") != std::string::npos || output.find("stopped answering") != std::string::npos)
++		return _("THE CONNECTION DIDN'T ANSWER. CHECK ITS DETAILS AND YOUR NETWORK, THEN TRY AGAIN. YOUR SETTINGS HAVE NOT CHANGED.");
++	return _("YOUR CLOUD SETTINGS COULD NOT BE READ OR SAVED. TRY AGAIN.");
++}
++
+ // Split a TSV record, keeping empty fields. removeEmptyEntries would drop
+ // them, and most rows have an empty column somewhere -- a backend option with
+ // no default, or no help text -- which shifts every later field left and
+@@ -7179,7 +7235,13 @@ static void cloudRemoteShowForm(Window* window, const CloudBackend& backend,
+ 		(*values)["__name__"] = backend.name;
+ 
+ 	s->addGroup(_("NAME"));
+-	s->addInputTextRow(_("CONNECTION NAME"), (*values)["__name__"], false,
++	if (values->count("__edit__"))
++	{
++		cloudSetupAddFact(s, window, _("CONNECTION NAME"), (*values)["__name__"]);
++		cloudSetupAddProse(s, window, _("EDIT CONNECTION"),
++			_("BLANK FIELDS KEEP THEIR CURRENT VALUES."));
++	}
++	else s->addInputTextRow(_("CONNECTION NAME"), (*values)["__name__"], false,
+ 		cloudRemoteEditor(values, "__name__"),
+ 		[values](const std::string& newVal) { (*values)["__name__"] = newVal; });
+ 
+@@ -7205,7 +7267,7 @@ static void cloudRemoteShowForm(Window* window, const CloudBackend& backend,
+ 			// only rule that never leaves a key on screen. Opening the row
+ 			// still shows the value, which is the reveal.
+ 			bool mask = f.password || f.sensitive;
+-			if (!values->count(f.name) && !f.deflt.empty())
++			if (!values->count("__edit__") && !values->count(f.name) && !f.deflt.empty())
+ 				(*values)[f.name] = f.deflt;
+ 			std::string current = values->count(f.name) ? (*values)[f.name] : "";
+ 			// The rclone name is the key the value is stored under; the row
+@@ -7215,7 +7277,7 @@ static void cloudRemoteShowForm(Window* window, const CloudBackend& backend,
+ 			// Match the widget to the option. Everything was a text box before,
+ 			// which meant typing "true" for a switch, and guessing that the
+ 			// answer for a generic WebDAV server is the literal string "other".
+-			if (f.type == "bool")
++			if (f.type == "bool" && !values->count("__edit__"))
+ 			{
+ 				auto sw = std::make_shared<SwitchComponent>(window);
+ 				sw->setState(current == "true");
+@@ -7230,7 +7292,7 @@ static void cloudRemoteShowForm(Window* window, const CloudBackend& backend,
+ 			// Only offer a list when it is short enough to scroll on a handheld.
+ 			// s3's endpoint carries 351 suggestions and its region 150; those are
+ 			// effectively free-form and stay as text.
+-			if (f.choices > 0 && f.choices <= 12)
++			if (f.choices > 0 && f.choices <= 12 && !values->count("__edit__"))
+ 			{
+ 				std::string choicesArgs = "choices " + cloudShellQuote(backend.name)
+ 					+ " " + cloudShellQuote(fieldName);
+@@ -7290,7 +7352,7 @@ static void cloudRemoteShowForm(Window* window, const CloudBackend& backend,
+ 	}
+ 
+ 	s->addGroup(_("FINISH"));
+-	s->addEntry(_("CONNECT"), true, [window, backend, values, s]
++	s->addEntry(values->count("__edit__") ? _("SAVE CONNECTION") : _("CONNECT"), true, [window, backend, values, s]
+ 	{
+ 		std::string name = Utils::String::trim((*values)["__name__"]);
+ 		if (name.empty())
+@@ -7300,33 +7362,34 @@ static void cloudRemoteShowForm(Window* window, const CloudBackend& backend,
+ 			return;
+ 		}
+ 
+-		std::string cmd = "create " + cloudShellQuote(name) + " "
++		std::string cmd = std::string(values->count("__edit__") ? "update " : "create ") + cloudShellQuote(name) + " "
+ 			+ cloudShellQuote(backend.name);
+ 		// The sub-provider is a real config value, not just a filter.
+ 		if (!backend.subprovider.empty())
+ 			cmd += " " + cloudShellQuote("provider=" + backend.subprovider);
+ 		for (auto& kv : *values)
+ 		{
+-			if (kv.first == "__name__" || Utils::String::trim(kv.second).empty())
++			if (Utils::String::startsWith(kv.first, "__") || Utils::String::trim(kv.second).empty())
+ 				continue;
+ 			cmd += " " + cloudShellQuote(kv.first + "=" + kv.second);
+ 		}
+ 
+ 		window->pushGui(new GuiMsgBox(window,
+-			_("CONNECT TO THIS PROVIDER NOW?\n\nTHE CONNECTION IS ONLY SAVED IF IT ANSWERS."),
+-			_("YES"), [window, cmd, s]
++			values->count("__edit__")
++				? _("UPDATE THIS CONNECTION AND KEEP YOUR SELECTED FOLDERS?\n\nYOUR CURRENT SETTINGS ARE KEPT UNTIL THE NEW ONES WORK.")
++				: _("CONNECT TO THIS PROVIDER NOW?\n\nTHE CONNECTION IS ONLY SAVED IF IT ANSWERS."),
++			values->count("__edit__") ? _("UPDATE CONNECTION") : _("CONNECT"), [window, cmd, s]
+ 			{
+-				// cloud_remote verifies the remote -- an rclone listing it
+-				// bounds at 10 s to connect and 20 s to answer -- and removes
+-				// it again if it cannot be reached, so a failure here leaves
+-				// nothing behind. Behind GuiLoading, because that round trip
++				// cloud_remote verifies private staged settings before publication;
++				// failure keeps the existing connection. Its two subprocesses
++				// are each bounded to 40 seconds, below this outer deadline. Behind GuiLoading, because that round trip
+ 				// ran in this callback on the interface thread (fork #103);
+ 				// the outer box is for an rclone that outlives its own flags.
+ 				window->pushGui(new GuiLoading<std::string>(window, _("CONNECTING..."),
+ 					[cmd](IGuiLoadingHandler*)
+ 					{
+ 						std::string out = Utils::Platform::GetShOutput(
+-							"timeout 60 /usr/bin/cloud_remote " + cmd + " 2>&1");
++							"timeout 100 /usr/bin/cloud_remote " + cmd + " 2>&1");
+ 						// Masked: the command carries the form's pass=, key= and
+ 						// token= values, and a script that echoes its arguments
+ 						// in a usage or an error would put them in es_log.txt
+@@ -7349,7 +7412,7 @@ static void cloudRemoteShowForm(Window* window, const CloudBackend& backend,
+ 						// "it failed".
+ 						window->pushGui(new GuiMsgBox(window,
+ 							_("THE CONNECTION COULDN'T BE SAVED.") + std::string("\n\n") +
+-								Utils::String::trim(out),
++								cloudConnectionError(out),
+ 							_("OK"), nullptr));
+ 					}));
+ 			},
+@@ -7421,7 +7484,7 @@ static void cloudOAuthPresentChoice(Window* window, const CloudBackend& backend,
+ 	const std::string& remoteName, GuiSettings* prev,
+ 	const CloudOAuthReady& ready);
+ static void cloudOAuthShowConnected(Window* window, const CloudBackend& backend,
+-	GuiSettings* prev);
++	const std::string& remoteName, GuiSettings* prev);
+ static void cloudOAuthChooseInput(Window* window, const CloudBackend& backend,
+ 	const std::string& remoteName, GuiSettings* prev);
+ 
+@@ -7447,6 +7510,7 @@ static void cloudOAuthStart(Window* window, const CloudBackend& backend,
+ 		"/usr/bin/cloud_oauth serve " + cloudShellQuote(backend.name)
+ 		+ " --name " + cloudShellQuote(remoteName)
+ 		+ " --label " + cloudShellQuote(backend.label)
++		+ (backend.reauthorize ? " --replace" : "")
+ 		+ " --timeout 900 >/dev/null 2>&1") + " </dev/null >/dev/null 2>&1 &";
+ 	Utils::Platform::runSystemCommand(cmd, "", nullptr);
+ 
+@@ -7707,15 +7771,15 @@ static void cloudOAuthShowSignIn(Window* window, const CloudBackend& backend,
+ 
+ 		if (status == "signed-in")
+ 		{
+-			cloudOAuthShowConnected(window, backend, s);
++			cloudOAuthShowConnected(window, backend, remoteName, s);
+ 			return;
+ 		}
+ 		if (status == "failed")
+ 		{
+ 			window->pushGui(new GuiMsgBox(window,
+-				_("THE SIGN-IN DID NOT COMPLETE.\n\nCODES ARE SINGLE-USE AND EXPIRE QUICKLY - START AGAIN TO GET A NEW ONE."),
+-				_("OK"), nullptr,
+-				_("EXIT"), [s] { s->close(); }));
++				_("THE SIGN-IN DID NOT COMPLETE. TRY AGAIN TO START A NEW SIGN-IN."),
++				_("TRY AGAIN"), [window, backend, remoteName, s] { cloudOAuthStart(window, backend, remoteName, s); },
++				_("CANCEL SIGN-IN"), [s] { s->close(); }));
+ 			return;
+ 		}
+ 		window->pushGui(new GuiMsgBox(window,
+@@ -7746,54 +7810,46 @@ static void cloudOAuthShowSignIn(Window* window, const CloudBackend& backend,
+ // the player could go and do. Somebody who has just finished a sign-in on a
+ // handheld deserves to be told what they now have.
+ static void cloudOAuthShowConnected(Window* window, const CloudBackend& backend,
+-	GuiSettings* prev)
++	const std::string& remoteName, GuiSettings* prev)
+ {
+-	auto s = new GuiSettings(window, _("CONNECTED"));
+-	s->setSubTitle(CloudText::providerSubtitle(backend.name, backend.label));
+-
+-	cloudSetupAddProse(s, window,
+-		Utils::String::format(_("%s IS CONNECTED").c_str(),
+-		                      Utils::String::toUpper(backend.label).c_str()),
+-		_("YOUR GAME SAVES, SAVE STATES, AND SCREENSHOTS CAN NOW BE KEPT IN THE CLOUD AND PICKED UP ON ANOTHER DEVICE."));
+-
+-	// A named menu rather than a vague "it is all available now" -- and one
+-	// name, because there is one page. This said two, which was accurate when
+-	// cloud was split across two menus and became a way to send somebody to
+-	// the wrong half of a page that no longer exists.
+-	//
+-	// The rows are numbered and named exactly as that page names them, under
+-	// an "in" line, so the list reads as what you can do once you are there
+-	// rather than as three unrelated facts (maintainer, 2026-09-06).
+-	s->addGroup(_("WHAT YOU CAN DO NOW"));
+-	cloudSetupAddInfoRow(s, window, _("IN GAME SETTINGS:"), true);
+-	cloudSetupAddInfoRow(s, window, "1.  " + _("SYNC SAVES WITH THE CLOUD"));
+-	cloudSetupAddInfoRow(s, window, "2.  " + _("BACK UP SAVES TO THE CLOUD, OR RESTORE THEM"));
+-	cloudSetupAddInfoRow(s, window, "3.  " + _("MANAGE CLOUD STORAGE"));
+-
+-	// Which is true of this device: what syncs on its own is two switches
+-	// under MANAGE CLOUD STORAGE (SYNC SAVES DURING STARTUP, WHEN EXITING A
+-	// GAME), not systems, and a device whose settings were restored may have
+-	// them on already -- its next exit syncs to the cloud just connected. The
+-	// page said NOTHING SYNCS YET whatever the switches said, told the player
+-	// to turn on systems, and said ROMs and BIOS are never included, which
+-	// the ROMS AND BIOS tier has not been true of since D-UI-022 (#308 8a gpt
+-	// F-ES-19).
+-	const bool syncsOnItsOwn = SystemConf::getInstance()->get("cloudsaves.startup") == "1"
+-		|| SystemConf::getInstance()->get("cloudsaves.gameexit") == "1";
+-	if (syncsOnItsOwn)
+-		cloudSetupAddProse(s, window, _("YOUR SAVES ALREADY SYNC"),
+-			_("THIS DEVICE WAS SET TO SYNC THEM, SO FROM NOW ON THEY GO TO THIS CLOUD."));
+-	else
+-		cloudSetupAddProse(s, window, _("NOTHING SYNCS YET"),
+-			_("CONNECTING ONLY GIVES THIS DEVICE SOMEWHERE TO PUT THINGS. TO SYNC SAVES ON THEIR OWN, TURN IT ON UNDER MANAGE CLOUD STORAGE."));
++	cloudSetupShowDoneStep(window, remoteName, prev);
++}
+ 
+-	// Continue to folder setup using the same selected paths as normal transfers.
+-	s->getMenu().clearButtons();
+-	s->getMenu().addButton(_("CONTINUE"), _("continue"), [window, s, backend]
++// Adding and renewing are distinct before a sign-in begins. A new name is
++// editable and never overwrites an existing connection at the backend.
++static void cloudOAuthAdd(Window* window, const CloudBackend& backend, GuiSettings* prev)
++{
++	auto s = new GuiSettings(window, _("ADD CONNECTION"));
++	auto name = std::make_shared<std::string>(backend.name);
++	std::set<std::string> existing;
++	for (const auto& line : cloudRemoteLines("list"))
+ 	{
+-		cloudSetupShowDoneStep(window, backend.name, s);
++		auto cols = Utils::String::splitAny(line, "\t", false);
++		if (cols.size() >= 2) existing.insert(cols[0]);
++	}
++	for (int suffix = 2; existing.count(*name); ++suffix)
++		*name = backend.name + std::to_string(suffix);
++	s->addInputTextRow(_("CONNECTION NAME"), *name, false,
++		[name](Window* w, std::string title, std::string /*initial*/,
++			const std::function<void(std::string)>& save)
++		{
++			if (Settings::getInstance()->getBool("UseOSK"))
++				w->pushGui(new GuiTextEditPopupKeyboard(w, title, *name, save, false));
++			else
++				w->pushGui(new GuiTextEditPopup(w, title, *name, save, false));
++		},
++		[name](const std::string& value) { *name = Utils::String::trim(value); });
++	cloudSetupAddProse(s, window, _("ADD A SEPARATE CONNECTION"),
++		_("THIS KEEPS YOUR EXISTING CONNECTIONS. TO RENEW A SIGN-IN, CHOOSE THAT CONNECTION UNDER CLOUD CONNECTIONS."));
++	s->addEntry(_("SIGN IN"), true, [window, backend, name, existing, s]
++	{
++		if (name->empty() || existing.count(*name))
++		{
++			window->pushGui(new GuiMsgBox(window, _("CHOOSE A DIFFERENT CONNECTION NAME."), _("OK")));
++			return;
++		}
++		cloudOAuthStart(window, backend, *name, s);
+ 	});
+-
+ 	cloudSetupPresent(window, s, prev);
+ }
+ 
+@@ -7838,7 +7894,7 @@ static void cloudRemoteShowList(Window* window, const std::string& title,
+ 			// says what kind of sign-in it is and nothing about where.
+ 			s->addWithDescription(Utils::String::toUpper(b.label),
+ 				_("OPENS THE PROVIDER'S SIGN-IN PAGE."), nullptr,
+-				[window, backend, s] { cloudOAuthStart(window, backend, backend.name, s); },
++				[window, backend, s] { cloudOAuthAdd(window, backend, s); },
+ 				"", false, true);
+ 		}
+ 		else
+@@ -7856,6 +7912,110 @@ static void cloudRemoteShowList(Window* window, const std::string& title,
+ 	cloudSetupPresent(window, s, nullptr);
+ }
+ 
++static bool cloudConnectionManual(Window* window)
++{
++	if (SystemConf::getInstance()->get("cloudsaves.startup") != "1" &&
++		SystemConf::getInstance()->get("cloudsaves.gameexit") != "1") return true;
++	window->pushGui(new GuiMsgBox(window,
++		_("TURN OFF BOTH AUTOMATIC SAVE SYNC OPTIONS UNDER MANAGE CLOUD STORAGE BEFORE CHANGING THIS CONNECTION."), _("OK")));
++	return false;
++}
++
++static void cloudConnectionChange(Window* window, const std::string& command, GuiSettings* page)
++{
++	window->pushGui(new GuiLoading<std::string>(window, _("SAVING CONNECTION"),
++		[command](IGuiLoadingHandler*) { return Utils::Platform::GetShOutput("timeout 60 /usr/bin/cloud_remote " + command + " 2>&1"); },
++		[window, page](const std::string& result)
++		{
++			if (!Utils::String::startsWith(result, "OK="))
++			{
++				window->pushGui(new GuiMsgBox(window,
++					_("THE CONNECTION COULDN'T BE CHANGED.") + std::string("\n\n") + cloudConnectionError(result), _("OK")));
++				return;
++			}
++			page->close();
++		}));
++}
++
++static void cloudConnectionDetails(Window* window, const std::string& name, const std::string& type, const std::string& subprovider)
++{
++	auto s = new GuiSettings(window, _("CLOUD CONNECTION"));
++	cloudSetupAddFact(s, window, _("CONNECTION NAME"), name);
++	cloudSetupAddFact(s, window, _("PROVIDER"), CloudText::providerLabel(type));
++	s->addEntry(_("CHECK CONNECTION"), true, [window, name]
++	{
++		cloudSetupRunCheck(window, name + ":", [window](int rc, const std::string&)
++		{
++			window->pushGui(new GuiMsgBox(window, rc == 0 ? _("THE CONNECTION ANSWERED.") : _("COULDN'T REACH THIS CONNECTION. CHECK WI-FI OR SIGN IN AGAIN."), _("OK")));
++		});
++	});
++	s->addEntry(_("USE THIS CONNECTION"), true, [window, name, s]
++	{
++		if (!cloudConnectionManual(window)) return;
++		window->pushGui(new GuiMsgBox(window,
++			_("USE THIS CONNECTION FOR CLOUD TOOLS? YOUR SELECTED FOLDER PATHS WILL STAY THE SAME. CHECK THEM BEFORE YOUR NEXT BACKUP OR RESTORE."),
++			_("USE CONNECTION"), [window, name, s] { cloudConnectionChange(window, "select " + cloudShellQuote(name), s); }, _("CANCEL"), nullptr));
++	});
++	for (auto backend : cloudRemoteBackends())
++	{
++		if (backend.name != type) continue;
++		backend.subprovider = subprovider;
++		if (backend.tier == "oauth")
++		{
++			backend.reauthorize = true;
++			s->addEntry(_("SIGN IN AGAIN"), true, [window, backend, name, s]
++			{
++				if (!cloudConnectionManual(window)) return;
++				window->pushGui(new GuiMsgBox(window,
++					_("SIGN IN TO THE SAME CLOUD ACCOUNT AGAIN. YOUR CURRENT SIGN-IN IS KEPT UNTIL THE NEW ONE WORKS. YOUR SELECTED FOLDERS WILL STAY THE SAME."),
++					_("SIGN IN"), [window, backend, name, s] { cloudOAuthStart(window, backend, name, s); }, _("CANCEL"), nullptr));
++			});
++		}
++		else
++			s->addEntry(_("EDIT CONNECTION"), true, [window, backend, name, s]
++			{
++				if (!cloudConnectionManual(window)) return;
++				auto values = std::make_shared<std::map<std::string, std::string>>();
++				(*values)["__name__"] = name;
++				(*values)["__edit__"] = "1";
++				cloudRemoteShowForm(window, backend, values, s);
++			});
++		break;
++	}
++	s->addEntry(_("REMOVE CONNECTION"), true, [window, name, s]
++	{
++		if (!cloudConnectionManual(window)) return;
++		window->pushGui(new GuiMsgBox(window,
++			_("REMOVE THIS CONNECTION FROM THIS DEVICE? YOUR CLOUD FILES STAY WHERE THEY ARE. IF THIS IS YOUR ACTIVE CONNECTION, CHOOSE ANOTHER BEFORE USING CLOUD TOOLS."),
++			_("REMOVE CONNECTION"), [window, name, s] { cloudConnectionChange(window, "remove " + cloudShellQuote(name), s); }, _("CANCEL"), nullptr));
++	});
++	cloudSetupPresent(window, s, nullptr);
++}
++
++void GuiMenu::openCloudConnections(Window* window)
++{
++	auto s = new CloudConnectionsPage(window, _("CLOUD CONNECTIONS"), [window] { GuiMenu::openCloudConnections(window); });
++	const auto rows = cloudRemoteLines("list");
++	const bool readable = !rows.empty() && Utils::String::startsWith(rows.front(), "STATE=");
++	if (!readable)
++		cloudSetupAddProse(s, window, _("CONNECTIONS UNAVAILABLE"), _("YOUR CLOUD CONNECTIONS COULDN'T BE READ. TRY AGAIN."));
++	else if (rows.front() != "STATE=active")
++		cloudSetupAddProse(s, window, _("NO CONNECTION IN USE"), _("CHOOSE A CONNECTION BEFORE USING CLOUD TOOLS."));
++	for (const auto& line : rows)
++	{
++		auto cols = Utils::String::splitAny(line, "\t", false);
++		if (cols.size() < 3) continue;
++		const auto name = cols[0], type = cols[1];
++		const std::string subprovider = cols.size() > 3 ? cols[3] : "";
++		const auto detail = CloudText::providerLabel(type) + (cols[2] == "active" ? " - " + _("IN USE") : "");
++		s->addWithDescription(name, detail, nullptr,
++			[window, name, type, subprovider] { cloudConnectionDetails(window, name, type, subprovider); }, "", false, true);
++	}
++	if (readable) s->addEntry(_("ADD CONNECTION"), true, [window] { GuiMenu::openCloudAddRemote(window); });
++	s->addEntry(_("USE A COMPUTER INSTEAD"), true, [window] { GuiMenu::openCloudSetup(window); });
++	cloudSetupPresent(window, s, nullptr);
++}
++
+ void GuiMenu::openCloudAddRemote(Window* window)
+ {
+ 	auto s = new GuiSettings(window, _("CONNECT CLOUD STORAGE"));
+@@ -7888,7 +8048,7 @@ void GuiMenu::openCloudAddRemote(Window* window)
+ 			s->addEntry(_(want.second.c_str()), true, [window, backend, s]
+ 			{
+ 				if (backend.tier == "oauth")
+-					cloudOAuthStart(window, backend, backend.name, s);
++					cloudOAuthAdd(window, backend, s);
+ 				else
+ 					cloudRemoteChooseBackend(window, backend);
+ 			});
+diff --git a/es-app/src/guis/GuiMenu.h b/es-app/src/guis/GuiMenu.h
+index d3c97ae9d..557cc76db 100644
+--- a/es-app/src/guis/GuiMenu.h
++++ b/es-app/src/guis/GuiMenu.h
+@@ -47,6 +47,7 @@ public:
+ 	// found the configured folder missing beside one with a near name (#127).
+ 	static void openCloudFolderEditor(Window* window, const std::string& current);
+         static void openCloudAddRemote(Window* window);
++	static void openCloudConnections(Window* window);
+         // MANAGE NETWORKS: the networks NetworkManager remembers, the one in
+         // use marked, A to forget one (fork #191). Fetches the list behind a
+         // spinner, then pushes the page.
+diff --git a/es-app/src/guis/GuiWifi.cpp b/es-app/src/guis/GuiWifi.cpp
+index 9c53623c1..819eec475 100644
+--- a/es-app/src/guis/GuiWifi.cpp
++++ b/es-app/src/guis/GuiWifi.cpp
+@@ -1,6 +1,7 @@
+ #include "guis/GuiWifi.h"
+ #include "guis/GuiMenu.h"
+ #include "guis/GuiMsgBox.h"
++#include "guis/GuiSettings.h"
+ #include "guis/GuiTextEditPopup.h"
+ #include "guis/GuiTextEditPopupKeyboard.h"
+ #include "components/TextComponent.h"
+@@ -94,16 +95,41 @@ void GuiWifi::addRow(const WifiText::PickerRow& network)
+ // NetworkManager holds -- it answers at once, or comes back if it had
+ // dropped (#308 F-WF-05: this used to close on the list's snapshot); a
+ // saved one is offered CONNECT / FORGET / CANCEL (#318, D-UI-118); any
+-// other is asked for its key; one whose profile could not be asked about
++// unsaved open network connects without a key; protected or unknown ones ask
++// for their key. One whose profile could not be asked about
+ // is asked about again first (F-WF-03/06). WifiText::pressAction decides.
+ void GuiWifi::onSelect(const WifiText::PickerRow& row)
+ {
+ 	if (mWaitingLoad)
+ 		return;
+ 
++	if (row.savedKnown && WifiText::profilesForSsid(row.name, mSaved).size() > 1 && row.profile.empty())
++	{
++		chooseProfile(row.name);
++		return;
++	}
+ 	act(WifiText::pressAction(row), row.name, WifiText::joinName(row));
+ }
+ 
++// Several profiles can name one SSID. The player chooses a profile before
++// CONNECT or FORGET; neither operation guesses which stored key they meant.
++void GuiWifi::chooseProfile(const std::string& name)
++{
++	auto page = new GuiSettings(mWindow, _("SAVED NETWORKS"));
++	for (const auto& profile : WifiText::profilesForSsid(name, mSaved))
++		page->addEntry(profile.name, true, [this, name, profile, page]
++		{
++			// Closing page destroys this row's callback and its captures.
++			// Keep the values on the stack before opening the next dialog.
++			GuiWifi* picker = this;
++			const std::string networkName = name;
++			const std::string profileName = profile.name;
++			page->close();
++			picker->act(WifiText::PressAction::ChooseSaved, networkName, profileName);
++		});
++	mWindow->pushGui(page);
++}
++
+ // A join goes by the profile's name, which need not be the SSID the row
+ // shows (#308 claude F-WF-12, gpt F-WF-03): the connected row joined by its
+ // SSID, which is no profile's name for a renamed one, and the player read
+@@ -136,7 +162,7 @@ void GuiWifi::act(WifiText::PressAction action, const std::string& name, const s
+ 		break;
+ 	}
+ 	case WifiText::PressAction::AskKey:
+-		askKeyAndConnect(name);
++		checkSecurityAndConnect(name);
+ 		break;
+ 	case WifiText::PressAction::CheckAgain:
+ 		// Never taken for a network with no profile: the key path rebuilds a
+@@ -159,8 +185,14 @@ void GuiWifi::onManualInput()
+ 	{
+ 		if (name.empty())
+ 			return;
++		const auto profile = WifiText::preferredProfile(name, mSaved);
++		if (mSavedKnown && WifiText::profilesForSsid(name, mSaved).size() > 1 && profile.empty())
++		{
++			chooseProfile(name);
++			return;
++		}
+ 		act(WifiText::manualAction(name, mCurrent, mSaved, mSavedKnown), name,
+-			WifiText::manualJoinName(name, mCurrent, mCurrentProfile));
++			profile.empty() ? WifiText::manualJoinName(name, mCurrent, mCurrentProfile) : profile);
+ 	};
+ 
+ 	if (Settings::getInstance()->getBool("UseOSK"))
+@@ -214,6 +246,21 @@ void GuiWifi::join(const std::string& name, const std::string& profile)
+ // next time. On success the settings take the network and its key, as they
+ // did when the row edited them: the network configured last, for the paths
+ // that connect from the settings.
++void GuiWifi::checkSecurityAndConnect(const std::string& name)
++{
++	mWaitingLoad = true;
++	mWindow->pushGui(new GuiLoading<std::string>(mWindow, _("CHECKING WI-FI NETWORK"),
++		[name](IGuiLoadingHandler*) { return ApiSystem::getInstance()->getWifiSecurity(name); },
++		[this, name](const std::string& security)
++		{
++			mWaitingLoad = false;
++			if (security == "open")
++				connect(name, "", true);
++			else
++				askKeyAndConnect(name);
++		}));
++}
++
+ void GuiWifi::askKeyAndConnect(const std::string& name)
+ {
+ 	auto onKey = [this, name](const std::string& key) { connect(name, key); };
+@@ -224,26 +271,26 @@ void GuiWifi::askKeyAndConnect(const std::string& name)
+ 		mWindow->pushGui(new GuiTextEditPopup(mWindow, _("WI-FI KEY"), "", onKey, false));
+ }
+ 
+-void GuiWifi::connect(const std::string& name, const std::string& key)
++void GuiWifi::connect(const std::string& name, const std::string& key, bool openNetwork)
+ {
+ 	Window* window = mWindow;
+ 	mWaitingLoad = true;
+ 	LOG(LogInfo) << "wifi picker: connecting to " << name;
+ #if !WIN32
+ 	const std::string country = SystemConf::getInstance()->get("wifi.country");
+-	auto apply = [name, key, country](IGuiLoadingHandler*) { return ApiSystem::getInstance()->enableWifi(name, key, country); };
++	auto apply = [name, key, country, openNetwork](IGuiLoadingHandler*) { return openNetwork ? ApiSystem::getInstance()->connectOpenWifi(name) : ApiSystem::getInstance()->enableWifi(name, key, country); };
+ #else
+-	auto apply = [name, key](IGuiLoadingHandler*) { return ApiSystem::getInstance()->enableWifi(name, key); };
++	auto apply = [name, key, openNetwork](IGuiLoadingHandler*) { return openNetwork ? ApiSystem::getInstance()->connectOpenWifi(name) : ApiSystem::getInstance()->enableWifi(name, key); };
+ #endif
+ 	window->pushGui(new GuiLoading<bool>(window, _("CONNECTING TO WI-FI"), apply,
+-		[this, window, name, key](bool ok)
++		[this, window, name, key, openNetwork](bool ok)
+ 		{
+ 			mWaitingLoad = false;
+ 			if (!ok)
+ 			{
+ 				LOG(LogWarning) << "wifi picker: could not connect to " << name;
+ 				window->pushGui(new GuiMsgBox(window,
+-					Utils::String::format(_("COULDN'T CONNECT TO %s.").c_str(), name.c_str()) + "\n\n" + _("CHECK THE KEY AND TRY AGAIN."), _("OK")));
++					Utils::String::format(_("COULDN'T CONNECT TO %s.").c_str(), name.c_str()) + "\n\n" + (openNetwork ? _("REFRESH THE NETWORK LIST AND TRY AGAIN.") : _("CHECK THE KEY AND TRY AGAIN.")), _("OK")));
+ 				return;
+ 			}
+ 			SystemConf::getInstance()->set("wifi.ssid", name);
+diff --git a/es-app/src/guis/GuiWifi.h b/es-app/src/guis/GuiWifi.h
+index a92ed57c8..867c22438 100644
+--- a/es-app/src/guis/GuiWifi.h
++++ b/es-app/src/guis/GuiWifi.h
+@@ -44,14 +44,16 @@ private:
+ 	void load(const std::vector<WifiText::PickerRow>& rows);
+ 	void addRow(const WifiText::PickerRow& row);
+ 	void onSelect(const WifiText::PickerRow& row);
++	void chooseProfile(const std::string& name);
+ 	// name is the network as the player sees it; joinAs the name `wifictl
+ 	// join` takes (WifiText::joinName, manualJoinName).
+ 	void act(WifiText::PressAction action, const std::string& name, const std::string& joinAs);
+ 	void onManualInput();
+ 	void onRefresh(bool rescan = true);
+ 	void join(const std::string& name, const std::string& profile);
++	void checkSecurityAndConnect(const std::string& name);
+ 	void askKeyAndConnect(const std::string& name);
+-	void connect(const std::string& name, const std::string& key);
++	void connect(const std::string& name, const std::string& key, bool openNetwork = false);
+ 	void joined(const std::string& name);
+ 
+ 	MenuComponent mMenu;
+diff --git a/es-app/tests/unit/WifiTextTests.cpp b/es-app/tests/unit/WifiTextTests.cpp
+index 622ba1518..919a4bdb9 100644
+--- a/es-app/tests/unit/WifiTextTests.cpp
++++ b/es-app/tests/unit/WifiTextTests.cpp
+@@ -320,3 +320,33 @@ TEST_CASE("a join's answer is not a truth value (#308 F-WF-03/06; audit G-E2-01)
+ 	CHECK_FALSE(JoinAnswer().joined());
+ 	CHECK(joinFailure(JoinAnswer{ 2 }.code) == JoinFailure::ServiceNotAnswering);
+ }
++
++TEST_CASE("saved SSIDs preserve renamed profiles and escaped fields (#535)")
++{
++	SavedNetwork profile;
++	REQUIRE(parseSavedDetailsLine("Remembered\tCafe\\tGuest\\\\room\tsaved", profile));
++	CHECK(profile.name == "Remembered");
++	CHECK(profile.ssid == "Cafe\tGuest\\room");
++	CHECK_FALSE(parseSavedDetailsLine("Name\tactive", profile));
++	CHECK_FALSE(parseSavedDetailsLine("Name\tSSID\tother", profile));
++	CHECK_FALSE(parseSavedDetailsLine("Name\t\tsaved", profile));
++	std::vector<SavedNetwork> saved = { { "Remembered", false, "Cafe" } };
++	auto rows = pickerRows({"Cafe", "Open"}, saved, "");
++	REQUIRE(rows.size() == 2);
++	CHECK(rows[0].saved);
++	CHECK(joinName(rows[0]) == "Remembered");
++	CHECK(pressAction(rows[0]) == PressAction::ChooseSaved);
++	CHECK_FALSE(rows[1].saved);
++	CHECK(manualAction("Cafe", "", saved, true) == PressAction::Join);
++	CHECK(preferredProfile("Cafe", saved) == "Remembered");
++	// An active profile on another radio/network cannot claim this row.
++	saved.push_back({ "Other", true, "Office" });
++	rows = pickerRows({"Cafe"}, saved, "Cafe");
++	CHECK(rows[0].profile == "Remembered");
++	saved.push_back({ "Another", false, "Cafe" });
++	CHECK(profilesForSsid("Cafe", saved).size() == 2);
++	CHECK(preferredProfile("Cafe", saved).empty());
++	rows = pickerRows({"Cafe"}, saved, "");
++	CHECK(rows[0].saved);
++	CHECK(rows[0].profile.empty()); // requires the explicit profile chooser
++}
+diff --git a/es-core/src/guis/GuiTextEditPopup.cpp b/es-core/src/guis/GuiTextEditPopup.cpp
+index 4e7109b27..da31c2648 100644
+--- a/es-core/src/guis/GuiTextEditPopup.cpp
++++ b/es-core/src/guis/GuiTextEditPopup.cpp
+@@ -31,7 +31,7 @@ GuiTextEditPopup::GuiTextEditPopup(Window* window, const std::string& title, con
+ 
+ 	std::vector< std::shared_ptr<ButtonComponent> > buttons;
+ 	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, acceptBtnText, acceptBtnText, [this, okCallback] { okCallback(mText->getValue()); delete this; }));
+-	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("RESET"), _("RESET"), [this, okCallback] { okCallback(""); delete this; }));
++	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("CLEAR"), _("CLEAR"), [this, okCallback] { okCallback(""); delete this; }));
+ 	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("CANCEL"), _("DISCARD CHANGES"), [this] { delete this; })); 
+ 
+ 	mButtonGrid = makeButtonGrid(mWindow, buttons);
+diff --git a/es-core/src/guis/GuiTextEditPopupKeyboard.cpp b/es-core/src/guis/GuiTextEditPopupKeyboard.cpp
+index 5f7555d29..2bb2384bf 100644
+--- a/es-core/src/guis/GuiTextEditPopupKeyboard.cpp
++++ b/es-core/src/guis/GuiTextEditPopupKeyboard.cpp
+@@ -36,10 +36,10 @@ std::vector<std::vector<const char*>> kbUs {
+ 	{ "€", "", "", "", "", "", "", "", "", "", "", "ALT", "-colspan-" },
+ 	{ "€", "", "", "", "", "", "", "", "", "", "", "ALT", "-colspan-" },
+ 
+-	{ "SHIFT", "-colspan-", "SPACE", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "RESET", "-colspan-", "CANCEL", "-colspan-" },
+-	{ "SHIFT", "-colspan-", "SPACE", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "RESET", "-colspan-", "CANCEL", "-colspan-" },
+-	{ "SHIFT", "-colspan-", "SPACE", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "RESET", "-colspan-", "CANCEL", "-colspan-" },
+-	{ "SHIFT", "-colspan-", "SPACE", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "RESET", "-colspan-", "CANCEL", "-colspan-" }
++	{ "SHIFT", "-colspan-", "SPACE", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "CLEAR", "-colspan-", "CANCEL", "-colspan-" },
++	{ "SHIFT", "-colspan-", "SPACE", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "CLEAR", "-colspan-", "CANCEL", "-colspan-" },
++	{ "SHIFT", "-colspan-", "SPACE", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "CLEAR", "-colspan-", "CANCEL", "-colspan-" },
++	{ "SHIFT", "-colspan-", "SPACE", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "CLEAR", "-colspan-", "CANCEL", "-colspan-" }
+ };
+ 
+ std::vector<std::vector<const char*>> kbFr {
+@@ -63,10 +63,10 @@ std::vector<std::vector<const char*>> kbFr {
+ 	{ "€", "[", "]", "{", "}", "", "", "", "", "", "", "ALT", "-colspan-" },
+ 	{ "€", "[", "]", "{", "}", "", "", "", "", "", "", "ALT", "-colspan-" },
+ 
+-	{ "SHIFT", "-colspan-", "SPACE", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "RESET", "-colspan-", "CANCEL", "-colspan-" },
+-	{ "SHIFT", "-colspan-", "SPACE", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "RESET", "-colspan-", "CANCEL", "-colspan-" },
+-	{ "SHIFT", "-colspan-", "SPACE", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "RESET", "-colspan-", "CANCEL", "-colspan-" },
+-	{ "SHIFT", "-colspan-", "SPACE", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "RESET", "-colspan-", "CANCEL", "-colspan-" }
++	{ "SHIFT", "-colspan-", "SPACE", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "CLEAR", "-colspan-", "CANCEL", "-colspan-" },
++	{ "SHIFT", "-colspan-", "SPACE", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "CLEAR", "-colspan-", "CANCEL", "-colspan-" },
++	{ "SHIFT", "-colspan-", "SPACE", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "CLEAR", "-colspan-", "CANCEL", "-colspan-" },
++	{ "SHIFT", "-colspan-", "SPACE", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "CLEAR", "-colspan-", "CANCEL", "-colspan-" }
+ };
+ 
+ std::vector<std::vector<const char*>> kbKr{
+@@ -90,10 +90,10 @@ std::vector<std::vector<const char*>> kbKr{
+ 	{ "z", "x", "c", "v", "b", "n", "m", ",", ".", "/", "`", "ALT", "-colspan-" },
+ 	{ "Z", "X", "C", "V", "B", "N", "M", "<", ">", "?", "~", "ALT", "-colspan-" },
+ 
+-	{ "SHIFT", "-colspan-", "SPACE", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "RESET", "-colspan-", "CANCEL", "-colspan-" },
+-	{ "SHIFT", "-colspan-", "SPACE", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "RESET", "-colspan-", "CANCEL", "-colspan-" },
+-	{ "SHIFT", "-colspan-", "SPACE", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "RESET", "-colspan-", "CANCEL", "-colspan-" },
+-	{ "SHIFT", "-colspan-", "SPACE", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "RESET", "-colspan-", "CANCEL", "-colspan-" }
++	{ "SHIFT", "-colspan-", "SPACE", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "CLEAR", "-colspan-", "CANCEL", "-colspan-" },
++	{ "SHIFT", "-colspan-", "SPACE", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "CLEAR", "-colspan-", "CANCEL", "-colspan-" },
++	{ "SHIFT", "-colspan-", "SPACE", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "CLEAR", "-colspan-", "CANCEL", "-colspan-" },
++	{ "SHIFT", "-colspan-", "SPACE", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "CLEAR", "-colspan-", "CANCEL", "-colspan-" }
+ };
+ 
+ GuiTextEditPopupKeyboard::GuiTextEditPopupKeyboard(Window* window, const std::string& title, const std::string& initValue,
+@@ -451,7 +451,7 @@ std::vector<HelpPrompt> GuiTextEditPopupKeyboard::getHelpPrompts()
+ 	std::vector<HelpPrompt> prompts = mGrid.getHelpPrompts();
+ 
+ 	if (mOkCallback != nullptr)
+-		prompts.push_back(HelpPrompt("x", _("RESET")));
++		prompts.push_back(HelpPrompt("x", _("CLEAR")));
+ 
+ 	prompts.push_back(HelpPrompt("y", _("SHIFT")));
+ 	prompts.push_back(HelpPrompt("start", _("OK")));
+@@ -488,7 +488,7 @@ std::shared_ptr<ButtonComponent> GuiTextEditPopupKeyboard::makeButton(const std:
+ 			mText->startEditing(); mText->textInput(" "); mText->stopEditing();
+ 			return;
+ 		}
+-		else if (key == _("RESET"))
++		else if (key == _("CLEAR"))
+ 		{
+ 			mOkCallback(""); 
+ 			delete this;
+diff --git a/locale/lang/fr/LC_MESSAGES/emulationstation2.po b/locale/lang/fr/LC_MESSAGES/emulationstation2.po
+index f6adeac4d..d13f85dbd 100644
+--- a/locale/lang/fr/LC_MESSAGES/emulationstation2.po
++++ b/locale/lang/fr/LC_MESSAGES/emulationstation2.po
+@@ -6758,3 +6758,168 @@ msgstr "VOS PARAMÈTRES CLOUD N’ONT PAS PU ÊTRE ENREGISTRÉS. RÉESSAYEZ."
+ #. cloud folder path refusal (#524 PL-003)
+ msgid "CHECK THE PATH AND YOUR CONNECTION, THEN TRY AGAIN."
+ msgstr "VÉRIFIEZ LE CHEMIN ET LA CONNEXION, PUIS RÉESSAYEZ."
++
++#: es-app/src/guis/GuiMenu.cpp
++msgid "CHECKING WI-FI NETWORK"
++msgstr "VÉRIFICATION DU RÉSEAU WI-FI"
++
++#: es-app/src/guis/GuiMenu.cpp
++msgid "REFRESH THE NETWORK LIST AND TRY AGAIN."
++msgstr "ACTUALISEZ LA LISTE DES RÉSEAUX ET RÉESSAYEZ."
++
++#: es-app/src/guis/GuiMenu.cpp
++msgid "CLOUD CONNECTIONS"
++msgstr "CONNEXIONS AU CLOUD"
++
++#: es-app/src/guis/GuiMenu.cpp
++msgid "ADD, CHOOSE, OR MANAGE YOUR CONNECTIONS."
++msgstr "AJOUTEZ, CHOISISSEZ OU GÉREZ VOS CONNEXIONS."
++
++#: es-app/src/guis/GuiMenu.cpp
++msgid "CHECK WI-FI, THEN TRY AGAIN. IF IT KEEPS FAILING, SIGN IN AGAIN UNDER CLOUD CONNECTIONS."
++msgstr "VÉRIFIEZ LE WI-FI, PUIS RÉESSAYEZ. SI LE PROBLÈME PERSISTE, RECONNECTEZ-VOUS DANS CONNEXIONS AU CLOUD."
++
++#: es-app/src/guis/GuiMenu.cpp
++msgid "CONNECTION SAVED"
++msgstr "CONNEXION ENREGISTRÉE"
++
++#: es-app/src/guis/GuiMenu.cpp
++msgid "YOUR CURRENT CONNECTION HAS NOT CHANGED. CHOOSE THIS CONNECTION UNDER CLOUD CONNECTIONS WHEN YOU WANT TO USE IT."
++msgstr "VOTRE CONNEXION ACTUELLE N’A PAS CHANGÉ. CHOISISSEZ CETTE CONNEXION DANS CONNEXIONS AU CLOUD LORSQUE VOUS VOULEZ L’UTILISER."
++
++#: es-app/src/guis/GuiMenu.cpp
++msgid "EDIT CONNECTION"
++msgstr "MODIFIER LA CONNEXION"
++
++#: es-app/src/guis/GuiMenu.cpp
++msgid "BLANK FIELDS KEEP THEIR CURRENT VALUES."
++msgstr "LES CHAMPS VIDES GARDENT LEURS VALEURS ACTUELLES."
++
++#: es-app/src/guis/GuiMenu.cpp
++msgid "THE SIGN-IN DID NOT COMPLETE. TRY AGAIN TO START A NEW SIGN-IN."
++msgstr "LA CONNEXION N’A PAS ABOUTI. RÉESSAYEZ POUR DÉMARRER UNE NOUVELLE CONNEXION."
++
++#: es-app/src/guis/GuiMenu.cpp
++msgid "ADD CONNECTION"
++msgstr "AJOUTER UNE CONNEXION"
++
++#: es-app/src/guis/GuiMenu.cpp
++msgid "ADD A SEPARATE CONNECTION"
++msgstr "AJOUTER UNE AUTRE CONNEXION"
++
++#: es-app/src/guis/GuiMenu.cpp
++msgid "THIS KEEPS YOUR EXISTING CONNECTIONS. TO RENEW A SIGN-IN, CHOOSE THAT CONNECTION UNDER CLOUD CONNECTIONS."
++msgstr "VOS CONNEXIONS EXISTANTES SONT CONSERVÉES. POUR VOUS RECONNECTER, CHOISISSEZ LA CONNEXION DANS CONNEXIONS AU CLOUD."
++
++#: es-app/src/guis/GuiMenu.cpp
++msgid "CHOOSE A DIFFERENT CONNECTION NAME."
++msgstr "CHOISISSEZ UN AUTRE NOM DE CONNEXION."
++
++#: es-app/src/guis/GuiMenu.cpp
++msgid "SIGN IN"
++msgstr "SE CONNECTER"
++
++#: es-app/src/guis/GuiMenu.cpp
++msgid "TURN OFF BOTH AUTOMATIC SAVE SYNC OPTIONS UNDER MANAGE CLOUD STORAGE BEFORE CHANGING THIS CONNECTION."
++msgstr "DÉSACTIVEZ LES DEUX OPTIONS DE SYNCHRONISATION AUTOMATIQUE DANS GÉRER LE STOCKAGE CLOUD AVANT DE MODIFIER CETTE CONNEXION."
++
++#: es-app/src/guis/GuiMenu.cpp
++msgid "SAVING CONNECTION"
++msgstr "ENREGISTREMENT DE LA CONNEXION"
++
++#: es-app/src/guis/GuiMenu.cpp
++msgid "THE CONNECTION COULDN'T BE CHANGED."
++msgstr "LA CONNEXION N’A PAS PU ÊTRE MODIFIÉE."
++
++#: es-app/src/guis/GuiMenu.cpp
++msgid "CLOUD CONNECTION"
++msgstr "CONNEXION AU CLOUD"
++
++#: es-app/src/guis/GuiMenu.cpp
++msgid "PROVIDER"
++msgstr "FOURNISSEUR"
++
++#: es-app/src/guis/GuiMenu.cpp
++msgid "THE CONNECTION ANSWERED."
++msgstr "LA CONNEXION A RÉPONDU."
++
++#: es-app/src/guis/GuiMenu.cpp
++msgid "COULDN'T REACH THIS CONNECTION. CHECK WI-FI OR SIGN IN AGAIN."
++msgstr "CETTE CONNEXION N’A PAS RÉPONDU. VÉRIFIEZ LE WI-FI OU RECONNECTEZ-VOUS."
++
++#: es-app/src/guis/GuiMenu.cpp
++msgid "USE THIS CONNECTION"
++msgstr "UTILISER CETTE CONNEXION"
++
++#: es-app/src/guis/GuiMenu.cpp
++msgid "USE THIS CONNECTION FOR CLOUD TOOLS? YOUR SELECTED FOLDER PATHS WILL STAY THE SAME. CHECK THEM BEFORE YOUR NEXT BACKUP OR RESTORE."
++msgstr "UTILISER CETTE CONNEXION POUR LE CLOUD ? LES CHEMINS DES DOSSIERS CHOISIS RESTERONT LES MÊMES. VÉRIFIEZ-LES AVANT VOTRE PROCHAINE SAUVEGARDE OU RESTAURATION."
++
++#: es-app/src/guis/GuiMenu.cpp
++msgid "USE CONNECTION"
++msgstr "UTILISER LA CONNEXION"
++
++#: es-app/src/guis/GuiMenu.cpp
++msgid "SIGN IN AGAIN"
++msgstr "SE RECONNECTER"
++
++#: es-app/src/guis/GuiMenu.cpp
++msgid "SIGN IN TO THE SAME CLOUD ACCOUNT AGAIN. YOUR CURRENT SIGN-IN IS KEPT UNTIL THE NEW ONE WORKS. YOUR SELECTED FOLDERS WILL STAY THE SAME."
++msgstr "RECONNECTEZ-VOUS AU MÊME COMPTE CLOUD. VOTRE CONNEXION ACTUELLE EST CONSERVÉE JUSQU’À CE QUE LA NOUVELLE FONCTIONNE. LES DOSSIERS CHOISIS RESTERONT LES MÊMES."
++
++#: es-app/src/guis/GuiMenu.cpp
++msgid "REMOVE CONNECTION"
++msgstr "SUPPRIMER LA CONNEXION"
++
++#: es-app/src/guis/GuiMenu.cpp
++msgid "REMOVE THIS CONNECTION FROM THIS DEVICE? YOUR CLOUD FILES STAY WHERE THEY ARE. IF THIS IS YOUR ACTIVE CONNECTION, CHOOSE ANOTHER BEFORE USING CLOUD TOOLS."
++msgstr "SUPPRIMER CETTE CONNEXION DE CET APPAREIL ? VOS FICHIERS CLOUD RESTENT À LEUR PLACE. SI CETTE CONNEXION EST ACTIVE, CHOISISSEZ-EN UNE AUTRE AVANT D’UTILISER LES OUTILS CLOUD."
++
++#: es-app/src/guis/GuiMenu.cpp
++msgid "CONNECTIONS UNAVAILABLE"
++msgstr "CONNEXIONS INDISPONIBLES"
++
++#: es-app/src/guis/GuiMenu.cpp
++msgid "YOUR CLOUD CONNECTIONS COULDN'T BE READ. TRY AGAIN."
++msgstr "VOS CONNEXIONS AU CLOUD N’ONT PAS PU ÊTRE LUES. RÉESSAYEZ."
++
++#: es-app/src/guis/GuiMenu.cpp
++msgid "NO CONNECTION IN USE"
++msgstr "AUCUNE CONNEXION UTILISÉE"
++
++#: es-app/src/guis/GuiMenu.cpp
++msgid "CHOOSE A CONNECTION BEFORE USING CLOUD TOOLS."
++msgstr "CHOISISSEZ UNE CONNEXION AVANT D’UTILISER LES OUTILS CLOUD."
++
++#: es-app/src/guis/GuiMenu.cpp
++msgid "A CLOUD OPERATION IS RUNNING. WAIT FOR IT TO FINISH, THEN TRY AGAIN."
++msgstr "UNE OPÉRATION CLOUD EST EN COURS. ATTENDEZ QU’ELLE SE TERMINE, PUIS RÉESSAYEZ."
++
++#: es-app/src/guis/GuiMenu.cpp
++msgid "ANOTHER CONNECTION USES THIS ONE. CHANGE THAT CONNECTION FIRST."
++msgstr "UNE AUTRE CONNEXION UTILISE CELLE-CI. MODIFIEZ D’ABORD CETTE AUTRE CONNEXION."
++
++#: es-app/src/guis/GuiMenu.cpp
++msgid "THIS PROVIDER NEEDS ADDITIONAL SETUP. USE A COMPUTER TO FINISH CONNECTING IT."
++msgstr "CE FOURNISSEUR NÉCESSITE DES RÉGLAGES SUPPLÉMENTAIRES. UTILISEZ UN ORDINATEUR POUR TERMINER LA CONNEXION."
++
++#: es-app/src/guis/GuiMenu.cpp
++msgid "THE CONNECTION DIDN'T ANSWER. CHECK ITS DETAILS AND YOUR NETWORK, THEN TRY AGAIN. YOUR SETTINGS HAVE NOT CHANGED."
++msgstr "LA CONNEXION N’A PAS RÉPONDU. VÉRIFIEZ SES INFORMATIONS ET VOTRE RÉSEAU, PUIS RÉESSAYEZ. VOS RÉGLAGES N’ONT PAS CHANGÉ."
++
++#: es-app/src/guis/GuiMenu.cpp
++msgid "YOUR CLOUD SETTINGS COULD NOT BE READ OR SAVED. TRY AGAIN."
++msgstr "VOS RÉGLAGES CLOUD N’ONT PAS PU ÊTRE LUS OU ENREGISTRÉS. RÉESSAYEZ."
++
++msgid "SAVE CONNECTION"
++msgstr "ENREGISTRER LA CONNEXION"
++
++msgid "UPDATE CONNECTION"
++msgstr "METTRE À JOUR LA CONNEXION"
++
++msgid "UPDATE THIS CONNECTION AND KEEP YOUR SELECTED FOLDERS?\n\nYOUR CURRENT SETTINGS ARE KEPT UNTIL THE NEW ONES WORK."
++msgstr "METTRE À JOUR CETTE CONNEXION EN GARDANT LES DOSSIERS CHOISIS ?\n\nLES RÉGLAGES ACTUELS SONT CONSERVÉS JUSQU’À CE QUE LES NOUVEAUX FONCTIONNENT."
++
++#: es-core/src/guis/GuiTextEditPopup.cpp es-core/src/guis/GuiTextEditPopupKeyboard.cpp
++msgid "CLEAR"
++msgstr "EFFACER"

@@ -165,6 +165,8 @@ both lists and to this table, or it is invisible.**
 | `vm-stop`, `vm-stop-test` | stop only the owned QEMU and await exit; exercise delayed exit, timeout and refusal controls | `generic-x64-vm-testing.md` |
 | `vm-manager-system-check` | refuse manager walkthroughs on an absent or wrongly selected system | `generic-x64-vm-testing.md` |
 | `cloud-round-trip`, `cloud-test-backend`, `cloud-census`, `cloud-capture-stamp-test` | the cloud-sync suites and their backends | `rclone-cloud-sync.md` |
+| `cloud-connections-test`, `test-fixtures/` | staged connection transactions, real-rclone OAuth state and shutdown cleanup, with synthetic dependencies (#537/#540) | `rclone-cloud-sync.md` |
+| `cloud-input-test` | open/protected Wi-Fi selection and ordered phone input under delayed HTTP (#535/#536) | `generic-x64-vm-testing.md` |
 | `cloud-save-integrity`, `cloud-save-integrity-test` | bounded offline save-byte/container verification and synthetic corruption controls | `rclone-cloud-sync.md`, `docs/cloud-save-integrity.md` |
 | `settings-modes-test` | do shell settings and recovery writers preserve private modes and refuse failed staging with the image applets (#421) | `generic-x64-vm-testing.md` |
 | `melonds-upgrade-test` | does post-update preserve melonDS settings while adding missing hotkeys, including absent-package and failed-write controls (#526) | `upgrade-and-install.md` |

@@ -248,16 +248,36 @@ flowchart TD
     CONFIRM -->|decline| CATEGORIES
     CATEGORIES -->|change independent paths and return| PATHS
     PATHS -->|return with refreshed paths and retained category selection| CATEGORIES
-    CSS --> CONN[CONNECT OR REPAIR CLOUD STORAGE] --> LIST[CONNECT CLOUD STORAGE<br/>RECOMMENDED list · MORE]
-    LIST --> FORM[provider form<br/>NAME · REQUIRED · OPTIONAL · FINISH: CONNECT<br/><i>labels in the player's words, D-UI-038</i>]
+    CSS --> CONN[CLOUD CONNECTIONS]
+    CONN --> SAVED[Saved connections: name, provider, IN USE]
+    CONN --> LIST[ADD CONNECTION: CONNECT CLOUD STORAGE<br/>RECOMMENDED list · MORE]
+    CONN --> COMPUTER[USE A COMPUTER INSTEAD]
+    SAVED --> DETAIL[CLOUD CONNECTION]
+    DETAIL --> CONNCHECK[CHECK CONNECTION: bounded read of exact saved name]
+    CONN -->|saved but none selected| CONNSELECT[CHOOSE A CONNECTION BEFORE USING CLOUD TOOLS]
+    RENEW -->|selected reference missing| CONNMISSING[Choose another under CLOUD CONNECTIONS; existing credentials kept]
+    DETAIL --> USE[USE THIS CONNECTION: confirm, keep folder paths]
+    DETAIL --> RENEW[SIGN IN AGAIN or EDIT CONNECTION]
+    DETAIL --> REMOVE[REMOVE CONNECTION: local settings only]
+    RENEW --> VERIFY[Verify staged settings, then save]
+    VERIFY -->|failed or cancelled| KEPT[Existing connection kept]
+    VERIFY -->|verified| SAVED
+    LIST -->|key-based provider| FORM[provider form<br/>NAME · REQUIRED · OPTIONAL · FINISH: CONNECT<br/><i>labels in the player's words, D-UI-038</i>]
     LIST -->|S3| SUB[compatible service] --> FORM
-    FORM -->|OAuth providers| OAUTH[sign in on device / with phone]
+    LIST -->|OAuth provider| ADDNAME[ADD CONNECTION: distinct editable name<br/>existing connections kept]
+    ADDNAME --> OAUTH[sign in on device / with phone]
+    OAUTH -->|failed| PAIRFAIL[TRY AGAIN . CANCEL SIGN-IN]
+    PAIRFAIL -->|TRY AGAIN: new attempt| OAUTH
+    PAIRFAIL -->|CANCEL SIGN-IN| SAVED
     CSS --> FIN[FINISH RESTORE PROCESS<br/><i>only after a settings restore</i>]
 
-    CONN --> WHICH{{WHICH CONNECTION?<br/><i>openCloudSetup, the wizard's first step</i>}}
+    COMPUTER --> SSHGUIDE[Step 3: choose which connection to use under CLOUD CONNECTIONS]
+    COMPUTER --> WHICH{{WHICH CONNECTION?<br/><i>openCloudSetup, the wizard's first step</i>}}
     WHICH --> PWPAGE[SSH PASSWORD<br/><i>cloudSetupOpenPasswordPage; device access for the setup route</i>]
-    OAUTH --> CATEGORIES
-    FORM --> CATEGORIES
+    OAUTH --> LINKDONE{Connection is in use?}
+    FORM --> LINKDONE
+    LINKDONE -->|yes| CATEGORIES
+    LINKDONE -->|saved only: choose it explicitly| SAVED
 ```
 
 **Category-based cloud setup (#508/#510, D-CLOUD-175/178).** This map describes the replacement
@@ -344,11 +364,16 @@ were the connection.
 flowchart TD
     NET[NETWORK SETTINGS] --> SSID[WI-FI NETWORK  <i>the network the device is on . NOT CONNECTED . COULDN'T CHECK</i>]
     SSID -->|A| PICK{{WI-FI NETWORKS: the networks in range, the joined one first<br/>Home Wi-Fi  CONNECTED . Cafe: Guest  SAVED . Library<br/>REFRESH . INPUT MANUALLY . BACK}}
+    PICK -->|several matching profiles, none preferred| PROFILES[SAVED NETWORKS: choose the named profile]
+    PROFILES --> OPT
     PICK -->|A on SAVED| OPT[name IS SAVED.<br/>CONNECT WITH ITS SAVED KEY, OR FORGET IT?<br/>CONNECT . FORGET . CANCEL -- D-UI-118]
     OPT -->|CONNECT| JOIN[CONNECTING TO WI-FI -- wifictl join, the key NetworkManager holds;<br/>toast CONNECTED TO name; the page rebuilt]
     OPT -->|FORGET| ASK
     PICK -->|A on CONNECTED| JOIN
-    PICK -->|A on another| KEY[WI-FI KEY -- the on-screen keyboard, empty for an open network]
+    PICK -->|A on an unsaved network| SECURITY{CHECKING WI-FI NETWORK}
+    SECURITY -->|confirmed open| OPEN[CONNECTING TO WI-FI -- connect-open, no password]
+    SECURITY -->|protected or unknown| KEY[WI-FI KEY -- on-screen keyboard]
+    OPEN -->|changed, unavailable or failed| REFRESH[Refresh the network list and try again]
     KEY --> CONN[CONNECTING TO WI-FI -- wifictl connect, a new profile;<br/>toast CONNECTED TO name; the page rebuilt]
     JOIN -.->|refused| ERR3[COULDN'T CONNECT TO name. IF ITS KEY HAS CHANGED, FORGET IT UNDER MANAGE SAVED NETWORKS AND JOIN IT AGAIN WITH THE NEW KEY.]
     CONN -.->|refused| ERR4[COULDN'T CONNECT TO name. CHECK THE KEY AND TRY AGAIN.]
@@ -391,10 +416,17 @@ flowchart TD
   the next boot and resume), FORGET runs the manage page's own confirmation
   and reader (one function, `GuiMenu::forgetWifiNetworkWithConfirmation`)
   and rebuilds the picker; A on the connected row joins it again at once
-  (the press confirms or repairs); A on any other row asks for the key (the
-  on-screen keyboard; START accepts, empty for an open network) and
-  connects at once (`wifictl connect`, a new profile); INPUT MANUALLY takes
-  a hidden network's name the same way. On success a toast CONNECTED TO
+  (the press confirms or repairs). Unsaved rows first check advertised
+  security: confirmed open networks connect without a password; protected
+  or unknown networks retain the WI-FI KEY editor (START accepts). The
+  open operation rechecks security and saved profiles before connecting,
+  never invents a key, and advises refreshing the list if it fails. INPUT
+  MANUALLY checks the same saved-profile mapping and security; an unscanned
+  hidden network keeps the key editor. Profiles are matched by the SSID in
+  `wifictl saved --ssid`, not by their editable profile name. When several
+  profiles match without an unambiguous preferred profile, a SAVED NETWORKS
+  page asks the player to choose before CONNECT or FORGET. Unknown saved
+  metadata offers a fresh check rather than treating it as an unsaved network. On success a toast CONNECTED TO
   <name> and the page is rebuilt so every row reads the connection back;
   failures are dialogs naming the network. Before this, picking a network
   the device had joined before ran `wifictl connect` with whatever key sat
@@ -403,7 +435,7 @@ flowchart TD
 - **MANAGE SAVED NETWORKS** (D-UI-062: "saved" is the maintainer's word and
   `wifictl`'s, and the page, its group and its dialogs use no other) sits
   with the Wi-Fi rows (Wi-Fi on, not LOCAL PLAY MODE). Its page lists
-  `wifictl saved` -- NetworkManager's wireless profiles, the one in use
+  `wifictl saved --ssid` -- NetworkManager's wireless profiles, the one in use
   first as nmcli orders them -- behind a spinner,
   since one nmcli call is one D-Bus round trip to a service that can stop
   answering (#102). A on a row confirms, YES first, so B answers NO; the
@@ -575,3 +607,32 @@ source/branch fallback; navigation and labels remain unchanged.
 Reviewed640x480 original/new/legacy information frames, exact source binding
 and branch expectations: [identity evidence](qa-logs/2026-10-09-build-identity/evidence-index.json).
 These are runtime-overlay proofs, not a promoted full-firmware baseline.
+
+## Connection management and open-network proof (#535–#537)
+
+The current source work implements [the connection contract](pixelelated/cloud-folder-flow-review.md#saved-connections-and-sign-in-recovery).
+The [reviewed flow table](qa-logs/2026-10-11-network-cloud-management/frame-index.md)
+and [schema1 evidence index](qa-logs/2026-10-11-network-cloud-management/evidence-index.json)
+bind NC01–NC12, WF01–WF07, ED01 and BR01 to source/binary/catalog hashes. EN/FR,
+small/large happy, failure, cancellation and return states have actual VM proof.
+The independent audit, three account-boundary repairs and later integration/image
+checks remain open; these overlays do not replace the accepted firmware baseline.
+The hand pointer on a browser link remains normal browser feedback. Phone motion,
+taps and typing use one ordered input stream; supported sign-in popups preserve
+their opener and return to it. User-initiated cross-host navigation keeps the provider/auth-host guard; this is
+not a claim of complete redirect or subframe confinement.
+
+### Text editing and browser Back (#538/#539)
+
+The shared text editors label their existing empty-string action CLEAR
+(French EFFACER). CANCEL discards the current edit. Other RESET actions keep
+their separate meanings. The Add connection name editor reads the latest draft
+when reopened, including an empty value; it does not restore the initial suggested
+name. An empty or duplicate name is refused before authentication.
+
+In the sign-in window, B/Backspace closes the on-screen keyboard when open.
+Otherwise editable fields keep normal deletion; outside an editor, an unmodified,
+unhandled Backspace navigates back. Previously handled provider keys and modified
+shortcuts retain their behavior. Close exits the window. Supported authentication
+popups keep their opener and return to it when closed. These are browser behaviors,
+not a changed tablet user agent or a claim that all provider workflows are tested.

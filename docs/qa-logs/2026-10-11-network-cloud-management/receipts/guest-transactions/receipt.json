@@ -1,0 +1,22 @@
+{
+  "returncode": 0,
+  "command": "PYTHONPATH=/storage/qa537/transaction21/dependencies python3 /storage/qa537/transaction21/tools/cloud-connections-test",
+  "inputs": [
+    {
+      "path": "tools/cloud-connections-test",
+      "sha256": "5f8e62411dfa4c756ece72ee358f4e7dc5a38c79ea16884675fe944da90578f3"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_connections.py",
+      "sha256": "c010965b42840f8c2c8f946bfc0a61787784531dead4199e5d625d53d00573e8"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_remote",
+      "sha256": "24777687a1d48d98e9797aae89851d49425ba11c330750dbf806549b70c0b365"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_oauth",
+      "sha256": "0d40129169b34bd5caad3515dffa75a1a5f9b620eee3f7a4d6a15ebb58be240e"
+    }
+  ]
+}

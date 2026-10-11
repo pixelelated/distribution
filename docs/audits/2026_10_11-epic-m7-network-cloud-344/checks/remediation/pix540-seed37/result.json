@@ -1,0 +1,35 @@
+[
+  {
+    "case": "select",
+    "rc": 2,
+    "seed_alive": true
+  },
+  {
+    "case": "update",
+    "rc": 2,
+    "seed_alive": true
+  },
+  {
+    "case": "remove",
+    "rc": 2,
+    "seed_alive": true
+  },
+  {
+    "case": "unchanged-seed",
+    "rc": 0,
+    "correct_note": true,
+    "child_inherited_lock": false
+  },
+  {
+    "case": "busy-seed",
+    "rc": 75,
+    "no_write": true
+  },
+  {
+    "case": "parent-ended",
+    "child_alive": true,
+    "selection_rc": 0,
+    "no_inherited_lock": true
+  }
+]
+

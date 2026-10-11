@@ -679,6 +679,8 @@ This is the index of decisions; `docs/work-logs/` is the narrative,
 
 | D-CLOUD-183 | 2026-10-11 | **Make configured cloud connections visible and manageable in EmulationStation, and make adding another connection distinct from renewing or editing an existing one.** The maintainer requests clear listing, removal and modification because repeating Dropbox setup does not explain its effect. #537 defines the native lifecycle flow and its preservation/rollback contract before implementation; existing explicit folder choices and no automatic relocation remain binding. | #537; D-CLOUD-175/178/179 |
 
+| D-CLOUD-184 | 2026-10-11 | **One explicit active connection, with multiple saved connections.** #537 implements D-CLOUD-183 using a device-only selection beside rclone.conf. Missing selection preserves the legacy first connection; explicit no-selection or a missing selected name never falls through to another account. Add preserves the current selection. Renew/edit verifies staged settings before publication; failure or cancellation preserves existing credentials. Select/remove/replace share the transfer lock and require automatic save sync off. Selecting preserves category paths; removal deletes local connection settings only. No connection-management action moves cloud files. | #537; D-CLOUD-183/178/179 |
+
 ## Open decisions
 
 

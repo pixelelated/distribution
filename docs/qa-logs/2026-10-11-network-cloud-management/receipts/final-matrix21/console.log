@@ -1,0 +1,954 @@
+watch-build: recording in /tmp/pix537-final-matrix21/.build-runs/20261011T070911Z-dd0168d7
+2026-10-11T07:09:12Z START ['python3', '/tmp/pix537-ui-lifecycle21.py', 'en_US', '640']
+OK=dropbox
+3109193b67e5a7d954a586e70ff41278efeffebefb573b2158af672adbade4f4  /storage/qa537/provider/save.srm
+
+changed after 0.1s (`key ret`, line 12)
+settle: still after 1.8s
+changed after 0.1s (`key x`, line 15)
+settle: still after 1.3s
+changed after 0.1s (`key up`, line 18)
+changed after 0.1s (`key up`, line 20)
+changed after 0.1s (`key up`, line 22)
+settle: still after 1.3s
+changed after 0.1s (`key x`, line 25)
+settle: still after 1.3s
+captured /tmp/pix537-ui21/en640/lifecycle/01-cloud-hub.png
+changed after 0.1s (`key up`, line 29)
+changed after 0.1s (`key up`, line 31)
+captured /tmp/pix537-ui21/en640/lifecycle/02-hub-connection-row.png
+changed after 0.1s (`key x`, line 34)
+settle: still after 1.3s
+captured /tmp/pix537-ui21/en640/lifecycle/03-connections.png
+changed after 0.1s (`key x`, line 38)
+settle: still after 1.3s
+captured /tmp/pix537-ui21/en640/lifecycle/04-details.png
+changed after 0.1s (`key z`, line 42)
+changed after 0.1s (`key down`, line 44)
+changed after 0.1s (`key x`, line 46)
+changed after 0.1s (`key x`, line 51)
+settle: still after 1.3s
+captured /tmp/pix537-ui21/en640/lifecycle/05-use-confirm.png
+changed after 0.1s (`key x`, line 55)
+settle: still after 1.3s
+captured /tmp/pix537-ui21/en640/lifecycle/06-selected-refresh.png
+changed after 0.1s (`key x`, line 60)
+changed after 0.1s (`key x`, line 67)
+settle: still after 1.3s
+captured /tmp/pix537-ui21/en640/lifecycle/07-remove-confirm.png
+changed after 0.1s (`key z`, line 71)
+captured /tmp/pix537-ui21/en640/lifecycle/08-remove-cancelled.png
+changed after 0.1s (`key x`, line 74)
+changed after 0.1s (`key x`, line 76)
+settle: still after 1.3s
+captured /tmp/pix537-ui21/en640/lifecycle/09-removed-unselected.png
+PASS source-bound cloud lifecycle and unchanged bytes en_US 640
+PASS ['python3', '/tmp/pix537-ui-lifecycle21.py', 'en_US', '640']
+2026-10-11T07:10:06Z START ['python3', '/tmp/pix537-forms-run21.py', 'en_US', '640']
+PASS local-only OAuth fixture ready en_US 640
+changed after 0.1s (`key ret`, line 12)
+settle: still after 1.7s
+changed after 0.1s (`key x`, line 15)
+settle: still after 1.3s
+changed after 0.1s (`key up`, line 18)
+changed after 0.1s (`key up`, line 20)
+changed after 0.1s (`key up`, line 22)
+settle: still after 1.3s
+changed after 0.1s (`key x`, line 25)
+settle: still after 1.3s
+captured /tmp/pix537-ui21/en640/edit/01-cloud-hub.png
+changed after 0.1s (`key x`, line 30)
+changed after 0.1s (`key x`, line 33)
+changed after 0.1s (`key x`, line 36)
+settle: still after 1.3s
+captured /tmp/pix537-ui21/en640/edit/02-edit-form.png
+changed after 0.1s (`key x`, line 41)
+settle: still after 1.3s
+captured /tmp/pix537-ui21/en640/edit/03-edit-confirm.png
+changed after 0.0s (`key x`, line 1)
+settle: still after 1.3s
+captured /tmp/pix537-ui21/en640/saved/01-edited-connection-saved.png
+PASS local-only OAuth fixture ready en_US 640
+changed after 0.1s (`key ret`, line 12)
+settle: still after 1.7s
+changed after 0.1s (`key x`, line 15)
+settle: still after 1.3s
+changed after 0.1s (`key up`, line 18)
+changed after 0.1s (`key up`, line 20)
+changed after 0.1s (`key up`, line 22)
+settle: still after 1.3s
+changed after 0.1s (`key x`, line 25)
+settle: still after 1.3s
+captured /tmp/pix537-ui21/en640/add-name/01-cloud-hub.png
+changed after 0.1s (`key up`, line 29)
+changed after 0.1s (`key up`, line 31)
+captured /tmp/pix537-ui21/en640/add-name/02-hub-connection-row.png
+changed after 0.1s (`key x`, line 34)
+settle: still after 1.3s
+captured /tmp/pix537-ui21/en640/add-name/03-connections.png
+changed after 0.1s (`key x`, line 39)
+settle: still after 1.3s
+captured /tmp/pix537-ui21/en640/add-name/04-providers.png
+changed after 0.1s (`key x`, line 43)
+settle: still after 1.3s
+captured /tmp/pix537-ui21/en640/add-name/05-separate-name.png
+PASS form save, retained settings and separate add page en_US 640
+PASS ['python3', '/tmp/pix537-forms-run21.py', 'en_US', '640']
+2026-10-11T07:11:12Z START ['python3', '/tmp/pix535-ui-run21.py', 'en_US', '640', 'all']
+changed after 0.1s (`key ret`, line 2)
+changed after 0.1s (`key x`, line 5)
+settle: still after 1.3s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/en640/full-happy/network-settings/01-network-settings.png
+changed after 0.1s (`key x`, line 2)
+settle: still after 2.6s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/en640/full-happy/picker-saved/01-picker-saved.png
+changed after 0.1s (`key x`, line 1)
+settle: still after 2.2s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/en640/full-happy/open-connected/01-open-connected.png
+changed after 0.1s (`key x`, line 2)
+settle: still after 2.6s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/en640/full-happy/connected-picker/01-connected-picker.png
+changed after 0.1s (`key x`, line 2)
+settle: still after 1.7s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/en640/full-happy/protected-password/01-protected-password.png
+changed after 0.1s (`key esc`, line 1)
+changed after 0.1s (`key x`, line 4)
+settle: still after 1.7s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/en640/full-happy/unknown-password/01-unknown-password.png
+changed after 0.1s (`key esc`, line 1)
+changed after 0.1s (`key x`, line 4)
+settle: still after 1.3s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/en640/full-happy/saved-choice/01-saved-choice.png
+changed after 0.1s (`key x`, line 2)
+settle: still after 1.3s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/en640/full-happy/forget-confirm/01-forget-confirm.png
+changed after 0.1s (`key z`, line 1)
+settle: still after 1.3s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/en640/full-happy/forget-cancelled/01-forget-cancelled.png
+changed after 0.1s (`key x`, line 1)
+changed after 0.1s (`key x`, line 3)
+settle: still after 1.7s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/en640/full-happy/saved-connected/01-saved-connected.png
+PASS walk full-happy
+changed after 0.1s (`key ret`, line 2)
+changed after 0.1s (`key x`, line 5)
+settle: still after 1.3s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/en640/failed/network-settings/01-network-settings.png
+changed after 0.1s (`key x`, line 2)
+settle: still after 2.6s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/en640/failed/picker-saved/01-picker-saved.png
+changed after 0.1s (`key x`, line 1)
+settle: still after 2.2s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/en640/failed/open-failed/01-open-failed.png
+changed after 0.1s (`key x`, line 1)
+changed after 0.1s (`key x`, line 4)
+settle: still after 1.7s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/en640/failed/protected-prompt/01-protected-prompt.png
+changed after 0.1s (`key ret`, line 4)
+settle: still after 1.3s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/en640/failed/protected-failed/01-protected-failed.png
+PASS walk failed
+changed after 0.0s (`key x`, line 1)
+changed after 0.1s (`key x`, line 3)
+changed after 0.1s (`key ret`, line 16)
+settle: still after 1.3s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/en640/protected-success/protected-connected/01-protected-connected.png
+PASS walk protected-success
+changed after 0.1s (`key ret`, line 2)
+changed after 0.1s (`key x`, line 5)
+settle: still after 1.3s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/en640/multiple-profiles/network-settings/01-network-settings.png
+changed after 0.1s (`key x`, line 2)
+settle: still after 2.6s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/en640/multiple-profiles/picker-saved/01-picker-saved.png
+changed after 0.1s (`key x`, line 2)
+settle: still after 1.3s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/en640/multiple-profiles/profiles/01-profiles.png
+changed after 0.1s (`key x`, line 1)
+settle: still after 1.3s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/en640/multiple-profiles/chosen-profile/01-chosen-profile.png
+changed after 0.1s (`key x`, line 1)
+settle: still after 1.7s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/en640/multiple-profiles/chosen-connected/01-chosen-connected.png
+PASS walk multiple-profiles
+PASS complete Wi-Fi UI fixtures en_US 640
+PASS ['python3', '/tmp/pix535-ui-run21.py', 'en_US', '640', 'all']
+2026-10-11T07:14:36Z START ['python3', '/tmp/pix537-oauth-run21.py', 'en_US', '640']
+PASS local-only OAuth fixture ready en_US 640
+changed after 0.1s (`key ret`, line 1)
+changed after 0.0s (`key x`, line 3)
+changed after 0.1s (`key x`, line 6)
+changed after 0.1s (`key x`, line 9)
+settle: still after 1.3s
+captured /tmp/pix537-oauth21/en640/start/01-saved-dropbox.png
+changed after 0.1s (`key x`, line 13)
+settle: still after 1.3s
+captured /tmp/pix537-oauth21/en640/start/02-dropbox-details.png
+changed after 0.1s (`key x`, line 18)
+settle: still after 1.3s
+captured /tmp/pix537-oauth21/en640/start/03-renew-confirm.png
+changed after 0.9s (`key x`, line 22)
+settle: still after 1.9s
+captured /tmp/pix537-oauth21/en640/phone/01-typing-choice.png
+changed after 0.1s (`key x`, line 4)
+settle: still after 1.3s
+captured /tmp/pix537-oauth21/en640/phone/02-phone-code.png
+settle: still after 1.3s
+captured /tmp/pix537-oauth21/en640/failed/01-continue-selected.png
+changed after 0.1s (`key x`, line 5)
+settle: still after 1.3s
+captured /tmp/pix537-oauth21/en640/failed/02-pairing-failed.png
+changed after 0.9s (`key x`, line 1)
+settle: still after 1.3s
+captured /tmp/pix537-oauth21/en640/retry/01-retry-started.png
+settle: still after 1.9s
+captured /tmp/pix537-oauth21/en640/retry-phone/01-typing-choice.png
+changed after 0.1s (`key x`, line 4)
+settle: still after 1.3s
+captured /tmp/pix537-oauth21/en640/retry-phone/02-phone-code.png
+settle: still after 1.3s
+captured /tmp/pix537-oauth21/en640/failed-again/01-continue-selected.png
+changed after 0.1s (`key x`, line 5)
+settle: still after 1.3s
+captured /tmp/pix537-oauth21/en640/failed-again/02-pairing-failed.png
+changed after 0.9s (`key x`, line 2)
+settle: still after 1.3s
+captured /tmp/pix537-oauth21/en640/cancelled/01-cancelled-return.png
+PASS actual UI retry, new ownership, cancellation and unchanged credentials/paths/payload en_US 640
+PASS ['python3', '/tmp/pix537-oauth-run21.py', 'en_US', '640']
+2026-10-11T07:15:48Z START ['python3', '/tmp/pix537-ui-lifecycle21.py', 'fr_FR', '640']
+OK=dropbox
+3109193b67e5a7d954a586e70ff41278efeffebefb573b2158af672adbade4f4  /storage/qa537/provider/save.srm
+
+changed after 0.1s (`key ret`, line 12)
+settle: still after 1.7s
+changed after 0.1s (`key x`, line 15)
+settle: still after 1.3s
+changed after 0.0s (`key up`, line 18)
+changed after 0.1s (`key up`, line 20)
+changed after 0.1s (`key up`, line 22)
+settle: still after 1.3s
+changed after 0.1s (`key x`, line 25)
+settle: still after 1.3s
+captured /tmp/pix537-ui21/fr640/lifecycle/01-cloud-hub.png
+changed after 0.1s (`key up`, line 29)
+changed after 0.1s (`key up`, line 31)
+captured /tmp/pix537-ui21/fr640/lifecycle/02-hub-connection-row.png
+changed after 0.1s (`key x`, line 34)
+settle: still after 1.3s
+captured /tmp/pix537-ui21/fr640/lifecycle/03-connections.png
+changed after 0.1s (`key x`, line 38)
+settle: still after 1.3s
+captured /tmp/pix537-ui21/fr640/lifecycle/04-details.png
+changed after 0.1s (`key z`, line 42)
+changed after 0.1s (`key down`, line 44)
+changed after 0.1s (`key x`, line 46)
+changed after 0.1s (`key x`, line 51)
+settle: still after 1.3s
+captured /tmp/pix537-ui21/fr640/lifecycle/05-use-confirm.png
+changed after 0.1s (`key x`, line 55)
+settle: still after 1.3s
+captured /tmp/pix537-ui21/fr640/lifecycle/06-selected-refresh.png
+changed after 0.1s (`key x`, line 60)
+changed after 0.1s (`key x`, line 67)
+settle: still after 1.3s
+captured /tmp/pix537-ui21/fr640/lifecycle/07-remove-confirm.png
+changed after 0.1s (`key z`, line 71)
+captured /tmp/pix537-ui21/fr640/lifecycle/08-remove-cancelled.png
+changed after 0.1s (`key x`, line 74)
+changed after 0.1s (`key x`, line 76)
+settle: still after 1.3s
+captured /tmp/pix537-ui21/fr640/lifecycle/09-removed-unselected.png
+PASS source-bound cloud lifecycle and unchanged bytes fr_FR 640
+PASS ['python3', '/tmp/pix537-ui-lifecycle21.py', 'fr_FR', '640']
+2026-10-11T07:16:42Z START ['python3', '/tmp/pix537-forms-run21.py', 'fr_FR', '640']
+PASS local-only OAuth fixture ready fr_FR 640
+changed after 0.1s (`key ret`, line 12)
+settle: still after 1.7s
+changed after 0.1s (`key x`, line 15)
+settle: still after 1.3s
+changed after 0.1s (`key up`, line 18)
+changed after 0.1s (`key up`, line 20)
+changed after 0.1s (`key up`, line 22)
+settle: still after 1.3s
+changed after 0.1s (`key x`, line 25)
+settle: still after 1.3s
+captured /tmp/pix537-ui21/fr640/edit/01-cloud-hub.png
+changed after 0.1s (`key x`, line 30)
+changed after 0.1s (`key x`, line 33)
+changed after 0.1s (`key x`, line 36)
+settle: still after 1.3s
+captured /tmp/pix537-ui21/fr640/edit/02-edit-form.png
+changed after 0.1s (`key x`, line 41)
+settle: still after 1.3s
+captured /tmp/pix537-ui21/fr640/edit/03-edit-confirm.png
+changed after 0.1s (`key x`, line 1)
+settle: still after 1.3s
+captured /tmp/pix537-ui21/fr640/saved/01-edited-connection-saved.png
+PASS local-only OAuth fixture ready fr_FR 640
+changed after 0.1s (`key ret`, line 12)
+settle: still after 1.7s
+changed after 0.1s (`key x`, line 15)
+settle: still after 1.3s
+changed after 0.1s (`key up`, line 18)
+changed after 0.1s (`key up`, line 20)
+changed after 0.1s (`key up`, line 22)
+settle: still after 1.3s
+changed after 0.1s (`key x`, line 25)
+settle: still after 1.3s
+captured /tmp/pix537-ui21/fr640/add-name/01-cloud-hub.png
+changed after 0.1s (`key up`, line 29)
+changed after 0.1s (`key up`, line 31)
+captured /tmp/pix537-ui21/fr640/add-name/02-hub-connection-row.png
+changed after 0.1s (`key x`, line 34)
+settle: still after 1.3s
+captured /tmp/pix537-ui21/fr640/add-name/03-connections.png
+changed after 0.1s (`key x`, line 39)
+settle: still after 1.3s
+captured /tmp/pix537-ui21/fr640/add-name/04-providers.png
+changed after 0.1s (`key x`, line 43)
+settle: still after 1.3s
+captured /tmp/pix537-ui21/fr640/add-name/05-separate-name.png
+PASS form save, retained settings and separate add page fr_FR 640
+PASS ['python3', '/tmp/pix537-forms-run21.py', 'fr_FR', '640']
+2026-10-11T07:17:48Z START ['python3', '/tmp/pix535-ui-run21.py', 'fr_FR', '640', 'all']
+changed after 0.1s (`key ret`, line 2)
+changed after 0.1s (`key x`, line 5)
+settle: still after 1.3s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/fr640/full-happy/network-settings/01-network-settings.png
+changed after 0.1s (`key x`, line 2)
+settle: still after 2.6s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/fr640/full-happy/picker-saved/01-picker-saved.png
+changed after 0.1s (`key x`, line 1)
+settle: still after 2.2s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/fr640/full-happy/open-connected/01-open-connected.png
+changed after 0.1s (`key x`, line 2)
+settle: still after 2.6s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/fr640/full-happy/connected-picker/01-connected-picker.png
+changed after 0.1s (`key x`, line 2)
+settle: still after 1.7s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/fr640/full-happy/protected-password/01-protected-password.png
+changed after 0.1s (`key esc`, line 1)
+changed after 0.1s (`key x`, line 4)
+settle: still after 1.7s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/fr640/full-happy/unknown-password/01-unknown-password.png
+changed after 0.1s (`key esc`, line 1)
+changed after 0.1s (`key x`, line 4)
+settle: still after 1.3s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/fr640/full-happy/saved-choice/01-saved-choice.png
+changed after 0.1s (`key x`, line 2)
+settle: still after 1.3s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/fr640/full-happy/forget-confirm/01-forget-confirm.png
+changed after 0.1s (`key z`, line 1)
+settle: still after 1.3s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/fr640/full-happy/forget-cancelled/01-forget-cancelled.png
+changed after 0.1s (`key x`, line 1)
+changed after 0.1s (`key x`, line 3)
+settle: still after 1.7s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/fr640/full-happy/saved-connected/01-saved-connected.png
+PASS walk full-happy
+changed after 0.1s (`key ret`, line 2)
+changed after 0.1s (`key x`, line 5)
+settle: still after 1.3s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/fr640/failed/network-settings/01-network-settings.png
+changed after 0.1s (`key x`, line 2)
+settle: still after 2.6s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/fr640/failed/picker-saved/01-picker-saved.png
+changed after 0.1s (`key x`, line 1)
+settle: still after 1.7s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/fr640/failed/open-failed/01-open-failed.png
+changed after 0.1s (`key x`, line 1)
+changed after 0.1s (`key x`, line 4)
+settle: still after 1.7s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/fr640/failed/protected-prompt/01-protected-prompt.png
+changed after 0.1s (`key ret`, line 4)
+settle: still after 1.3s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/fr640/failed/protected-failed/01-protected-failed.png
+PASS walk failed
+changed after 0.1s (`key x`, line 1)
+changed after 0.1s (`key x`, line 3)
+changed after 0.1s (`key ret`, line 16)
+settle: still after 1.3s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/fr640/protected-success/protected-connected/01-protected-connected.png
+PASS walk protected-success
+changed after 0.1s (`key ret`, line 2)
+changed after 0.1s (`key x`, line 5)
+settle: still after 1.3s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/fr640/multiple-profiles/network-settings/01-network-settings.png
+changed after 0.1s (`key x`, line 2)
+settle: still after 2.6s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/fr640/multiple-profiles/picker-saved/01-picker-saved.png
+changed after 0.1s (`key x`, line 2)
+settle: still after 1.3s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/fr640/multiple-profiles/profiles/01-profiles.png
+changed after 0.1s (`key x`, line 1)
+settle: still after 1.3s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/fr640/multiple-profiles/chosen-profile/01-chosen-profile.png
+changed after 0.1s (`key x`, line 1)
+settle: still after 1.7s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/fr640/multiple-profiles/chosen-connected/01-chosen-connected.png
+PASS walk multiple-profiles
+PASS complete Wi-Fi UI fixtures fr_FR 640
+PASS ['python3', '/tmp/pix535-ui-run21.py', 'fr_FR', '640', 'all']
+2026-10-11T07:21:12Z START ['python3', '/tmp/pix537-oauth-run21.py', 'fr_FR', '640']
+PASS local-only OAuth fixture ready fr_FR 640
+changed after 0.1s (`key ret`, line 1)
+changed after 0.1s (`key x`, line 3)
+changed after 0.1s (`key x`, line 6)
+changed after 0.1s (`key x`, line 9)
+settle: still after 1.3s
+captured /tmp/pix537-oauth21/fr640/start/01-saved-dropbox.png
+changed after 0.1s (`key x`, line 13)
+settle: still after 1.3s
+captured /tmp/pix537-oauth21/fr640/start/02-dropbox-details.png
+changed after 0.1s (`key x`, line 18)
+settle: still after 1.3s
+captured /tmp/pix537-oauth21/fr640/start/03-renew-confirm.png
+changed after 0.9s (`key x`, line 22)
+settle: still after 1.9s
+captured /tmp/pix537-oauth21/fr640/phone/01-typing-choice.png
+changed after 0.1s (`key x`, line 4)
+settle: still after 1.3s
+captured /tmp/pix537-oauth21/fr640/phone/02-phone-code.png
+settle: still after 1.3s
+captured /tmp/pix537-oauth21/fr640/failed/01-continue-selected.png
+changed after 0.1s (`key x`, line 5)
+settle: still after 1.3s
+captured /tmp/pix537-oauth21/fr640/failed/02-pairing-failed.png
+changed after 0.9s (`key x`, line 1)
+settle: still after 1.3s
+captured /tmp/pix537-oauth21/fr640/retry/01-retry-started.png
+settle: still after 1.9s
+captured /tmp/pix537-oauth21/fr640/retry-phone/01-typing-choice.png
+changed after 0.1s (`key x`, line 4)
+settle: still after 1.3s
+captured /tmp/pix537-oauth21/fr640/retry-phone/02-phone-code.png
+settle: still after 1.3s
+captured /tmp/pix537-oauth21/fr640/failed-again/01-continue-selected.png
+changed after 0.1s (`key x`, line 5)
+settle: still after 1.3s
+captured /tmp/pix537-oauth21/fr640/failed-again/02-pairing-failed.png
+changed after 1.3s (`key x`, line 2)
+settle: still after 1.3s
+captured /tmp/pix537-oauth21/fr640/cancelled/01-cancelled-return.png
+PASS actual UI retry, new ownership, cancellation and unchanged credentials/paths/payload fr_FR 640
+PASS ['python3', '/tmp/pix537-oauth-run21.py', 'fr_FR', '640']
+2026-10-11T07:22:20Z START ['python3', '/tmp/pix537-ui-lifecycle21.py', 'en_US', '1280']
+OK=dropbox
+3109193b67e5a7d954a586e70ff41278efeffebefb573b2158af672adbade4f4  /storage/qa537/provider/save.srm
+
+changed after 0.1s (`key ret`, line 12)
+settle: still after 1.8s
+changed after 0.1s (`key x`, line 15)
+settle: still after 1.4s
+changed after 0.1s (`key up`, line 18)
+changed after 0.1s (`key up`, line 20)
+changed after 0.1s (`key up`, line 22)
+settle: still after 1.4s
+changed after 0.1s (`key x`, line 25)
+settle: still after 1.4s
+captured /tmp/pix537-ui21/en1280/lifecycle/01-cloud-hub.png
+changed after 0.1s (`key up`, line 29)
+changed after 0.1s (`key up`, line 31)
+captured /tmp/pix537-ui21/en1280/lifecycle/02-hub-connection-row.png
+changed after 0.1s (`key x`, line 34)
+settle: still after 1.4s
+captured /tmp/pix537-ui21/en1280/lifecycle/03-connections.png
+changed after 0.1s (`key x`, line 38)
+settle: still after 1.4s
+captured /tmp/pix537-ui21/en1280/lifecycle/04-details.png
+changed after 0.1s (`key z`, line 42)
+changed after 0.1s (`key down`, line 44)
+changed after 0.1s (`key x`, line 46)
+changed after 0.1s (`key x`, line 51)
+settle: still after 1.3s
+captured /tmp/pix537-ui21/en1280/lifecycle/05-use-confirm.png
+changed after 0.1s (`key x`, line 55)
+settle: still after 1.4s
+captured /tmp/pix537-ui21/en1280/lifecycle/06-selected-refresh.png
+changed after 0.1s (`key x`, line 60)
+changed after 0.1s (`key x`, line 67)
+settle: still after 1.4s
+captured /tmp/pix537-ui21/en1280/lifecycle/07-remove-confirm.png
+changed after 0.1s (`key z`, line 71)
+captured /tmp/pix537-ui21/en1280/lifecycle/08-remove-cancelled.png
+changed after 0.1s (`key x`, line 74)
+changed after 0.1s (`key x`, line 76)
+settle: still after 1.4s
+captured /tmp/pix537-ui21/en1280/lifecycle/09-removed-unselected.png
+PASS source-bound cloud lifecycle and unchanged bytes en_US 1280
+PASS ['python3', '/tmp/pix537-ui-lifecycle21.py', 'en_US', '1280']
+2026-10-11T07:23:17Z START ['python3', '/tmp/pix537-forms-run21.py', 'en_US', '1280']
+PASS local-only OAuth fixture ready en_US 1280
+changed after 0.1s (`key ret`, line 12)
+settle: still after 1.4s
+changed after 0.1s (`key x`, line 15)
+settle: still after 1.4s
+changed after 0.1s (`key up`, line 18)
+changed after 0.1s (`key up`, line 20)
+changed after 0.1s (`key up`, line 22)
+settle: still after 1.4s
+changed after 0.1s (`key x`, line 25)
+settle: still after 1.3s
+captured /tmp/pix537-ui21/en1280/edit/01-cloud-hub.png
+changed after 0.1s (`key x`, line 30)
+changed after 0.1s (`key x`, line 33)
+changed after 0.1s (`key x`, line 36)
+settle: still after 1.4s
+captured /tmp/pix537-ui21/en1280/edit/02-edit-form.png
+changed after 0.1s (`key x`, line 41)
+settle: still after 1.3s
+captured /tmp/pix537-ui21/en1280/edit/03-edit-confirm.png
+changed after 0.1s (`key x`, line 1)
+settle: still after 1.4s
+captured /tmp/pix537-ui21/en1280/saved/01-edited-connection-saved.png
+PASS local-only OAuth fixture ready en_US 1280
+changed after 0.1s (`key ret`, line 12)
+settle: still after 1.4s
+changed after 0.1s (`key x`, line 15)
+settle: still after 1.4s
+changed after 0.1s (`key up`, line 18)
+changed after 0.1s (`key up`, line 20)
+changed after 0.1s (`key up`, line 22)
+settle: still after 1.4s
+changed after 0.1s (`key x`, line 25)
+settle: still after 1.4s
+captured /tmp/pix537-ui21/en1280/add-name/01-cloud-hub.png
+changed after 0.1s (`key up`, line 29)
+changed after 0.1s (`key up`, line 31)
+captured /tmp/pix537-ui21/en1280/add-name/02-hub-connection-row.png
+changed after 0.1s (`key x`, line 34)
+settle: still after 1.3s
+captured /tmp/pix537-ui21/en1280/add-name/03-connections.png
+changed after 0.1s (`key x`, line 39)
+settle: still after 1.3s
+captured /tmp/pix537-ui21/en1280/add-name/04-providers.png
+changed after 0.1s (`key x`, line 43)
+settle: still after 1.4s
+captured /tmp/pix537-ui21/en1280/add-name/05-separate-name.png
+PASS form save, retained settings and separate add page en_US 1280
+PASS ['python3', '/tmp/pix537-forms-run21.py', 'en_US', '1280']
+2026-10-11T07:24:24Z START ['python3', '/tmp/pix535-ui-run21.py', 'en_US', '1280', 'all']
+changed after 0.1s (`key ret`, line 2)
+changed after 0.1s (`key x`, line 5)
+settle: still after 1.4s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/en1280/full-happy/network-settings/01-network-settings.png
+changed after 0.1s (`key x`, line 2)
+settle: still after 2.6s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/en1280/full-happy/picker-saved/01-picker-saved.png
+changed after 0.1s (`key x`, line 1)
+settle: still after 2.2s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/en1280/full-happy/open-connected/01-open-connected.png
+changed after 0.1s (`key x`, line 2)
+settle: still after 2.6s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/en1280/full-happy/connected-picker/01-connected-picker.png
+changed after 0.1s (`key x`, line 2)
+settle: still after 1.8s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/en1280/full-happy/protected-password/01-protected-password.png
+changed after 0.1s (`key esc`, line 1)
+changed after 0.1s (`key x`, line 4)
+settle: still after 1.8s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/en1280/full-happy/unknown-password/01-unknown-password.png
+changed after 0.1s (`key esc`, line 1)
+changed after 0.1s (`key x`, line 4)
+settle: still after 1.4s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/en1280/full-happy/saved-choice/01-saved-choice.png
+changed after 0.1s (`key x`, line 2)
+settle: still after 1.3s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/en1280/full-happy/forget-confirm/01-forget-confirm.png
+changed after 0.1s (`key z`, line 1)
+settle: still after 1.4s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/en1280/full-happy/forget-cancelled/01-forget-cancelled.png
+changed after 0.1s (`key x`, line 1)
+changed after 0.1s (`key x`, line 3)
+settle: still after 1.8s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/en1280/full-happy/saved-connected/01-saved-connected.png
+PASS walk full-happy
+changed after 0.1s (`key ret`, line 2)
+changed after 0.1s (`key x`, line 5)
+settle: still after 1.3s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/en1280/failed/network-settings/01-network-settings.png
+changed after 0.1s (`key x`, line 2)
+settle: still after 2.6s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/en1280/failed/picker-saved/01-picker-saved.png
+changed after 0.1s (`key x`, line 1)
+settle: still after 1.8s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/en1280/failed/open-failed/01-open-failed.png
+changed after 0.1s (`key x`, line 1)
+changed after 0.1s (`key x`, line 4)
+settle: still after 1.8s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/en1280/failed/protected-prompt/01-protected-prompt.png
+changed after 0.1s (`key ret`, line 4)
+settle: still after 1.4s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/en1280/failed/protected-failed/01-protected-failed.png
+PASS walk failed
+changed after 0.1s (`key x`, line 1)
+changed after 0.1s (`key x`, line 3)
+changed after 0.1s (`key ret`, line 16)
+settle: still after 1.4s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/en1280/protected-success/protected-connected/01-protected-connected.png
+PASS walk protected-success
+changed after 0.1s (`key ret`, line 2)
+changed after 0.1s (`key x`, line 5)
+settle: still after 1.4s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/en1280/multiple-profiles/network-settings/01-network-settings.png
+changed after 0.1s (`key x`, line 2)
+settle: still after 2.6s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/en1280/multiple-profiles/picker-saved/01-picker-saved.png
+changed after 0.1s (`key x`, line 2)
+settle: still after 1.3s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/en1280/multiple-profiles/profiles/01-profiles.png
+changed after 0.1s (`key x`, line 1)
+settle: still after 1.4s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/en1280/multiple-profiles/chosen-profile/01-chosen-profile.png
+changed after 0.1s (`key x`, line 1)
+settle: still after 1.8s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/en1280/multiple-profiles/chosen-connected/01-chosen-connected.png
+PASS walk multiple-profiles
+PASS complete Wi-Fi UI fixtures en_US 1280
+PASS ['python3', '/tmp/pix535-ui-run21.py', 'en_US', '1280', 'all']
+2026-10-11T07:27:53Z START ['python3', '/tmp/pix537-oauth-run21.py', 'en_US', '1280']
+PASS local-only OAuth fixture ready en_US 1280
+changed after 0.1s (`key ret`, line 1)
+changed after 0.1s (`key x`, line 3)
+changed after 0.1s (`key x`, line 6)
+changed after 0.1s (`key x`, line 9)
+settle: still after 1.4s
+captured /tmp/pix537-oauth21/en1280/start/01-saved-dropbox.png
+changed after 0.1s (`key x`, line 13)
+settle: still after 1.4s
+captured /tmp/pix537-oauth21/en1280/start/02-dropbox-details.png
+changed after 0.1s (`key x`, line 18)
+settle: still after 1.3s
+captured /tmp/pix537-oauth21/en1280/start/03-renew-confirm.png
+changed after 0.9s (`key x`, line 22)
+settle: still after 1.9s
+captured /tmp/pix537-oauth21/en1280/phone/01-typing-choice.png
+changed after 0.1s (`key x`, line 4)
+settle: still after 1.4s
+captured /tmp/pix537-oauth21/en1280/phone/02-phone-code.png
+settle: still after 1.4s
+captured /tmp/pix537-oauth21/en1280/failed/01-continue-selected.png
+changed after 0.1s (`key x`, line 5)
+settle: still after 1.3s
+captured /tmp/pix537-oauth21/en1280/failed/02-pairing-failed.png
+changed after 0.9s (`key x`, line 1)
+settle: still after 1.4s
+captured /tmp/pix537-oauth21/en1280/retry/01-retry-started.png
+settle: still after 1.9s
+captured /tmp/pix537-oauth21/en1280/retry-phone/01-typing-choice.png
+changed after 0.1s (`key x`, line 4)
+settle: still after 1.4s
+captured /tmp/pix537-oauth21/en1280/retry-phone/02-phone-code.png
+settle: still after 1.4s
+captured /tmp/pix537-oauth21/en1280/failed-again/01-continue-selected.png
+changed after 0.1s (`key x`, line 5)
+settle: still after 1.4s
+captured /tmp/pix537-oauth21/en1280/failed-again/02-pairing-failed.png
+changed after 0.9s (`key x`, line 2)
+settle: still after 1.3s
+captured /tmp/pix537-oauth21/en1280/cancelled/01-cancelled-return.png
+PASS actual UI retry, new ownership, cancellation and unchanged credentials/paths/payload en_US 1280
+PASS ['python3', '/tmp/pix537-oauth-run21.py', 'en_US', '1280']
+2026-10-11T07:29:01Z START ['python3', '/tmp/pix537-ui-lifecycle21.py', 'fr_FR', '1280']
+OK=dropbox
+3109193b67e5a7d954a586e70ff41278efeffebefb573b2158af672adbade4f4  /storage/qa537/provider/save.srm
+
+changed after 0.1s (`key ret`, line 12)
+settle: still after 1.4s
+changed after 0.1s (`key x`, line 15)
+settle: still after 1.4s
+changed after 0.1s (`key up`, line 18)
+changed after 0.1s (`key up`, line 20)
+changed after 0.1s (`key up`, line 22)
+settle: still after 1.4s
+changed after 0.1s (`key x`, line 25)
+settle: still after 1.4s
+captured /tmp/pix537-ui21/fr1280/lifecycle/01-cloud-hub.png
+changed after 0.1s (`key up`, line 29)
+changed after 0.1s (`key up`, line 31)
+captured /tmp/pix537-ui21/fr1280/lifecycle/02-hub-connection-row.png
+changed after 0.1s (`key x`, line 34)
+settle: still after 1.4s
+captured /tmp/pix537-ui21/fr1280/lifecycle/03-connections.png
+changed after 0.1s (`key x`, line 38)
+settle: still after 1.4s
+captured /tmp/pix537-ui21/fr1280/lifecycle/04-details.png
+changed after 0.1s (`key z`, line 42)
+changed after 0.1s (`key down`, line 44)
+changed after 0.1s (`key x`, line 46)
+changed after 0.1s (`key x`, line 51)
+settle: still after 1.4s
+captured /tmp/pix537-ui21/fr1280/lifecycle/05-use-confirm.png
+changed after 0.1s (`key x`, line 55)
+settle: still after 1.3s
+captured /tmp/pix537-ui21/fr1280/lifecycle/06-selected-refresh.png
+changed after 0.1s (`key x`, line 60)
+changed after 0.1s (`key x`, line 67)
+settle: still after 1.4s
+captured /tmp/pix537-ui21/fr1280/lifecycle/07-remove-confirm.png
+changed after 0.1s (`key z`, line 71)
+captured /tmp/pix537-ui21/fr1280/lifecycle/08-remove-cancelled.png
+changed after 0.1s (`key x`, line 74)
+changed after 0.1s (`key x`, line 76)
+settle: still after 1.4s
+captured /tmp/pix537-ui21/fr1280/lifecycle/09-removed-unselected.png
+PASS source-bound cloud lifecycle and unchanged bytes fr_FR 1280
+PASS ['python3', '/tmp/pix537-ui-lifecycle21.py', 'fr_FR', '1280']
+2026-10-11T07:29:58Z START ['python3', '/tmp/pix537-forms-run21.py', 'fr_FR', '1280']
+PASS local-only OAuth fixture ready fr_FR 1280
+changed after 0.1s (`key ret`, line 12)
+settle: still after 1.3s
+changed after 0.1s (`key x`, line 15)
+settle: still after 1.4s
+changed after 0.1s (`key up`, line 18)
+changed after 0.1s (`key up`, line 20)
+changed after 0.1s (`key up`, line 22)
+settle: still after 1.3s
+changed after 0.1s (`key x`, line 25)
+settle: still after 1.4s
+captured /tmp/pix537-ui21/fr1280/edit/01-cloud-hub.png
+changed after 0.1s (`key x`, line 30)
+changed after 0.1s (`key x`, line 33)
+changed after 0.1s (`key x`, line 36)
+settle: still after 1.4s
+captured /tmp/pix537-ui21/fr1280/edit/02-edit-form.png
+changed after 0.1s (`key x`, line 41)
+settle: still after 1.3s
+captured /tmp/pix537-ui21/fr1280/edit/03-edit-confirm.png
+changed after 0.1s (`key x`, line 1)
+settle: still after 1.4s
+captured /tmp/pix537-ui21/fr1280/saved/01-edited-connection-saved.png
+PASS local-only OAuth fixture ready fr_FR 1280
+changed after 0.1s (`key ret`, line 12)
+settle: still after 1.8s
+changed after 0.1s (`key x`, line 15)
+settle: still after 1.3s
+changed after 0.1s (`key up`, line 18)
+changed after 0.1s (`key up`, line 20)
+changed after 0.1s (`key up`, line 22)
+settle: still after 1.4s
+changed after 0.1s (`key x`, line 25)
+settle: still after 1.3s
+captured /tmp/pix537-ui21/fr1280/add-name/01-cloud-hub.png
+changed after 0.1s (`key up`, line 29)
+changed after 0.1s (`key up`, line 31)
+captured /tmp/pix537-ui21/fr1280/add-name/02-hub-connection-row.png
+changed after 0.1s (`key x`, line 34)
+settle: still after 1.3s
+captured /tmp/pix537-ui21/fr1280/add-name/03-connections.png
+changed after 0.1s (`key x`, line 39)
+settle: still after 1.4s
+captured /tmp/pix537-ui21/fr1280/add-name/04-providers.png
+changed after 0.1s (`key x`, line 43)
+settle: still after 1.4s
+captured /tmp/pix537-ui21/fr1280/add-name/05-separate-name.png
+PASS form save, retained settings and separate add page fr_FR 1280
+PASS ['python3', '/tmp/pix537-forms-run21.py', 'fr_FR', '1280']
+2026-10-11T07:31:06Z START ['python3', '/tmp/pix535-ui-run21.py', 'fr_FR', '1280', 'all']
+changed after 0.1s (`key ret`, line 2)
+changed after 0.1s (`key x`, line 5)
+settle: still after 1.4s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/fr1280/full-happy/network-settings/01-network-settings.png
+changed after 0.1s (`key x`, line 2)
+settle: still after 2.6s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/fr1280/full-happy/picker-saved/01-picker-saved.png
+changed after 0.1s (`key x`, line 1)
+settle: still after 2.2s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/fr1280/full-happy/open-connected/01-open-connected.png
+changed after 0.1s (`key x`, line 2)
+settle: still after 2.6s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/fr1280/full-happy/connected-picker/01-connected-picker.png
+changed after 0.1s (`key x`, line 2)
+settle: still after 1.8s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/fr1280/full-happy/protected-password/01-protected-password.png
+changed after 0.1s (`key esc`, line 1)
+changed after 0.1s (`key x`, line 4)
+settle: still after 1.8s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/fr1280/full-happy/unknown-password/01-unknown-password.png
+changed after 0.1s (`key esc`, line 1)
+changed after 0.1s (`key x`, line 4)
+settle: still after 1.4s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/fr1280/full-happy/saved-choice/01-saved-choice.png
+changed after 0.1s (`key x`, line 2)
+settle: still after 1.3s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/fr1280/full-happy/forget-confirm/01-forget-confirm.png
+changed after 0.1s (`key z`, line 1)
+settle: still after 1.3s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/fr1280/full-happy/forget-cancelled/01-forget-cancelled.png
+changed after 0.1s (`key x`, line 1)
+changed after 0.1s (`key x`, line 3)
+settle: still after 1.8s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/fr1280/full-happy/saved-connected/01-saved-connected.png
+PASS walk full-happy
+changed after 0.1s (`key ret`, line 2)
+changed after 0.1s (`key x`, line 5)
+settle: still after 1.3s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/fr1280/failed/network-settings/01-network-settings.png
+changed after 0.1s (`key x`, line 2)
+settle: still after 2.6s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/fr1280/failed/picker-saved/01-picker-saved.png
+changed after 0.1s (`key x`, line 1)
+settle: still after 1.8s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/fr1280/failed/open-failed/01-open-failed.png
+changed after 0.1s (`key x`, line 1)
+changed after 0.1s (`key x`, line 4)
+settle: still after 1.8s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/fr1280/failed/protected-prompt/01-protected-prompt.png
+changed after 0.1s (`key ret`, line 4)
+settle: still after 1.4s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/fr1280/failed/protected-failed/01-protected-failed.png
+PASS walk failed
+changed after 0.1s (`key x`, line 1)
+changed after 0.1s (`key x`, line 3)
+changed after 0.1s (`key ret`, line 16)
+settle: still after 1.3s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/fr1280/protected-success/protected-connected/01-protected-connected.png
+PASS walk protected-success
+changed after 0.1s (`key ret`, line 2)
+changed after 0.1s (`key x`, line 5)
+settle: still after 1.3s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/fr1280/multiple-profiles/network-settings/01-network-settings.png
+changed after 0.1s (`key x`, line 2)
+settle: still after 2.6s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/fr1280/multiple-profiles/picker-saved/01-picker-saved.png
+changed after 0.1s (`key x`, line 2)
+settle: still after 1.4s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/fr1280/multiple-profiles/profiles/01-profiles.png
+changed after 0.1s (`key x`, line 1)
+settle: still after 1.4s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/fr1280/multiple-profiles/chosen-profile/01-chosen-profile.png
+changed after 0.1s (`key x`, line 1)
+settle: still after 1.8s
+settle: still after 1.9s
+captured /tmp/pix535-ui21/fr1280/multiple-profiles/chosen-connected/01-chosen-connected.png
+PASS walk multiple-profiles
+PASS complete Wi-Fi UI fixtures fr_FR 1280
+PASS ['python3', '/tmp/pix535-ui-run21.py', 'fr_FR', '1280', 'all']
+2026-10-11T07:34:35Z START ['python3', '/tmp/pix537-oauth-run21.py', 'fr_FR', '1280']
+PASS local-only OAuth fixture ready fr_FR 1280
+changed after 0.1s (`key ret`, line 1)
+changed after 0.1s (`key x`, line 3)
+changed after 0.1s (`key x`, line 6)
+changed after 0.1s (`key x`, line 9)
+settle: still after 1.4s
+captured /tmp/pix537-oauth21/fr1280/start/01-saved-dropbox.png
+changed after 0.1s (`key x`, line 13)
+settle: still after 1.4s
+captured /tmp/pix537-oauth21/fr1280/start/02-dropbox-details.png
+changed after 0.1s (`key x`, line 18)
+settle: still after 1.4s
+captured /tmp/pix537-oauth21/fr1280/start/03-renew-confirm.png
+changed after 0.9s (`key x`, line 22)
+settle: still after 1.9s
+captured /tmp/pix537-oauth21/fr1280/phone/01-typing-choice.png
+changed after 0.1s (`key x`, line 4)
+settle: still after 1.3s
+captured /tmp/pix537-oauth21/fr1280/phone/02-phone-code.png
+settle: still after 1.3s
+captured /tmp/pix537-oauth21/fr1280/failed/01-continue-selected.png
+changed after 0.1s (`key x`, line 5)
+settle: still after 1.4s
+captured /tmp/pix537-oauth21/fr1280/failed/02-pairing-failed.png
+changed after 0.9s (`key x`, line 1)
+settle: still after 1.4s
+captured /tmp/pix537-oauth21/fr1280/retry/01-retry-started.png
+settle: still after 1.9s
+captured /tmp/pix537-oauth21/fr1280/retry-phone/01-typing-choice.png
+changed after 0.1s (`key x`, line 4)
+settle: still after 1.3s
+captured /tmp/pix537-oauth21/fr1280/retry-phone/02-phone-code.png
+settle: still after 1.3s
+captured /tmp/pix537-oauth21/fr1280/failed-again/01-continue-selected.png
+changed after 0.1s (`key x`, line 5)
+settle: still after 1.3s
+captured /tmp/pix537-oauth21/fr1280/failed-again/02-pairing-failed.png
+changed after 0.9s (`key x`, line 2)
+settle: still after 1.4s
+captured /tmp/pix537-oauth21/fr1280/cancelled/01-cancelled-return.png
+PASS actual UI retry, new ownership, cancellation and unchanged credentials/paths/payload fr_FR 1280
+PASS ['python3', '/tmp/pix537-oauth-run21.py', 'fr_FR', '1280']
+PASS final exact-source whole-flow matrix

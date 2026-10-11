@@ -1,0 +1,17 @@
+wake
+key ret
+wait-for-change
+key up x6
+key x
+wait-for-change
+settle
+shot network-settings
+key down x5
+key x
+wait-for-change
+settle
+shot picker-saved
+key x
+wait-for-change
+settle
+shot open-connected

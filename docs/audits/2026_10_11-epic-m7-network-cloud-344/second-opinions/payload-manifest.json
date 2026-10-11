@@ -1,0 +1,261 @@
+{
+  "bytes": 893307,
+  "sha256": "6eac2eff0bcf7e4a968570d8b0e59ec560c4d3de8666db8b45dfbcd204634229",
+  "included": [
+    {
+      "path": "01-research-notes.md",
+      "bytes": 3884,
+      "sha256": "7aad99a2008ef0295f4474a747884b5249c4993cadf1b672125604c00de7f672"
+    },
+    {
+      "path": "02-forward-audit.md",
+      "bytes": 16975,
+      "sha256": "f1833e999e02d910755a0ad56afc0a8b390d221f689a8805ab80a981406bab9e"
+    },
+    {
+      "path": "03-retrospective.md",
+      "bytes": 7207,
+      "sha256": "16822a5c85c30e394767e6819bdfdc831871e86d06f4fb81ceae65684485dd0c"
+    },
+    {
+      "path": "04-analysis.md",
+      "bytes": 5926,
+      "sha256": "fe2f42c2a594c8ec3049a62e63e019b616bb021208248529eea06ca0fd317a9b"
+    },
+    {
+      "path": "inputs/source-manifest.json",
+      "bytes": 7070,
+      "sha256": "3aa1aa9447f2f762f0d5db3e0be4956fcff9555b2f4626076c2375d342dd8d01"
+    },
+    {
+      "path": "inputs/base-heads.json",
+      "bytes": 131,
+      "sha256": "24d85342ee11dd2a1c873c04ff1f2a8742a1fd737423ff3d884b1988c6fdccc5"
+    },
+    {
+      "path": "inputs/distribution.diff",
+      "bytes": 86092,
+      "sha256": "f2defe8020004eb54836098882379adbdaad8f399a6e46b86cc5a92d3af11119"
+    },
+    {
+      "path": "inputs/emulationstation.diff",
+      "bytes": 55335,
+      "sha256": "90e5e9fd7eef9c06f24937d5d76df8192543dd91b4d5bb3cb69eb5f6c76cbd2b"
+    },
+    {
+      "path": "checks/target-original/scan.json",
+      "bytes": 679,
+      "sha256": "2bcac2c8e23040f289e630bf1d46fe0d01f9d6c17316809e5f48e27e6fd17c5a"
+    },
+    {
+      "path": "checks/target-original/seed.json",
+      "bytes": 119,
+      "sha256": "ec3727f084ee28fc444ce3065f668e797ac4c04304f86abe1556c40fa39b499d"
+    },
+    {
+      "path": "checks/target-original/match.json",
+      "bytes": 805,
+      "sha256": "4b42d41fc103d47dec987692b49560dda57554f4a28d33ebab918ca27a3a3524"
+    },
+    {
+      "path": "checks/target-original/installed.json",
+      "bytes": 607,
+      "sha256": "5c5433956c4418d18175ab8bab7e969709e14ba26fdc5fae22d438a74a71a4fb"
+    },
+    {
+      "path": "checks/target-original/guest.py",
+      "bytes": 4095,
+      "sha256": "59df0a18608f947b565df16c0e6fffee8387176ce5fe73dde84f6e64cb5ff07a"
+    },
+    {
+      "path": "checks/target-original/launcher-result.json",
+      "bytes": 132,
+      "sha256": "34289d1e6393a989356de4907d43a80498744fd20978c3893b9c049d988b4bdb"
+    },
+    {
+      "path": "checks/connections.log",
+      "bytes": 2556,
+      "sha256": "2552df668391509f1a0fce949621e446386ed9707de6aff64768e2a1c8d0fd14"
+    },
+    {
+      "path": "checks/input.log",
+      "bytes": 1070,
+      "sha256": "5165d960833c59db243f63da9d7ca4ec94c493fc98df86f7801c55883397ac8f"
+    },
+    {
+      "path": "checks/gate-pkgcheck.log",
+      "bytes": 55,
+      "sha256": "4262a0764d20e89b33d7f191952ff9e49e40a27802393e32bca6a3ddbe48e659"
+    },
+    {
+      "path": "checks/gate-register-check.log",
+      "bytes": 85,
+      "sha256": "93e8d761676377e28ff09e9bdf4e796356e83ad49322c9a267ad3e36ea9a8f65"
+    },
+    {
+      "path": "QA/browser/result.json",
+      "bytes": 402,
+      "sha256": "93f64fe9f221b274e8354b7f8ff6db14616ca5647cf652ce669a1b7e18fba0f1"
+    },
+    {
+      "path": "QA/browser/installed.json",
+      "bytes": 259,
+      "sha256": "81c9edcf53ff65d1738eb88c600dcdaa03b580fcea74ccdc761d1f88c4043032"
+    },
+    {
+      "path": "QA/editor/review.json",
+      "bytes": 2963,
+      "sha256": "2e4813a61c887bdeb1bccea67720c63c13ba52062745bc07f7e74bd38befc851"
+    },
+    {
+      "path": "QA/receipts/guest-transactions/result.log",
+      "bytes": 2556,
+      "sha256": "bdebc2e063c574275dae6e1551b6c4632561e2119adf4963934b8186f2494841"
+    },
+    {
+      "path": "QA/receipts/pix537-oauth-lifetime.log",
+      "bytes": 59,
+      "sha256": "68df0d401a326b0ce3b07718aa629c69b24d191563618cef5e75e047106e013c"
+    },
+    {
+      "path": "QA/receipts/pix535-es-unit-results.log",
+      "bytes": 303,
+      "sha256": "5bf44b8ad981bb0655a496ff4cba737dfc0e97aa2e4954bfd9e6df9663d0bef9"
+    },
+    {
+      "path": "distribution/projects/ROCKNIX/packages/network/cloud-signin-window/sources/cloud-signin-window.c",
+      "bytes": 53220,
+      "sha256": "5a154cc06c42518088fda22e6bd0e724ac0f242561f71ba70ee94da344896e46"
+    },
+    {
+      "path": "distribution/projects/ROCKNIX/packages/network/rclone/sources/cloud_backup",
+      "bytes": 13689,
+      "sha256": "496a0e039d93c433d86b4c1d11a7b6efab7cf994fe5a6f91f907f6b06baa5931"
+    },
+    {
+      "path": "distribution/projects/ROCKNIX/packages/network/rclone/sources/cloud_connections.py",
+      "bytes": 11267,
+      "sha256": "a2bdd9734ba58bda3e78cef16c105e691dd3dee8eff660657d479d0fa5f019f3"
+    },
+    {
+      "path": "distribution/projects/ROCKNIX/packages/network/rclone/sources/cloud_content_backup",
+      "bytes": 43086,
+      "sha256": "392e1835a3f6e65587eb31dcefaf50a4830398f5973b625ee8334a19e28fb24a"
+    },
+    {
+      "path": "distribution/projects/ROCKNIX/packages/network/rclone/sources/cloud_content_restore",
+      "bytes": 90244,
+      "sha256": "6c4696f4a381b4c7799dc0618e48ddf793d00d93d12013711a02e5cad32465c2"
+    },
+    {
+      "path": "distribution/projects/ROCKNIX/packages/network/rclone/sources/cloud_oauth",
+      "bytes": 132154,
+      "sha256": "26f14538e8c7e3efd6d7fca6172c396a40199039823387a261db3e465edc425d"
+    },
+    {
+      "path": "distribution/projects/ROCKNIX/packages/network/rclone/sources/cloud_remote",
+      "bytes": 15566,
+      "sha256": "1e1853a659d56930a4710939623a12af0112e6a8bbb8dd25c3c8b56d2aac1ad6"
+    },
+    {
+      "path": "distribution/projects/ROCKNIX/packages/network/rclone/sources/cloud_restore",
+      "bytes": 6821,
+      "sha256": "2ee847afd3d52e5debe1730fb29f5c3ea3b0ca74414ff146e71f2073e4650137"
+    },
+    {
+      "path": "distribution/projects/ROCKNIX/packages/network/rclone/sources/cloud_scan",
+      "bytes": 17717,
+      "sha256": "63cf1b5e67e3cfd2369262af17d4d865e338f5f276fb89745d6c5eed70366d76"
+    },
+    {
+      "path": "distribution/projects/ROCKNIX/packages/network/rclone/sources/cloud_setup",
+      "bytes": 51372,
+      "sha256": "c24d5bce07cd68e574dcfe5af0432580102bda55fb78e8bbe290db77119939de"
+    },
+    {
+      "path": "distribution/projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool",
+      "bytes": 4193,
+      "sha256": "537baa15d854d46d879da340fbe463f5ed59175fc2a3fbc596c701df7a911cd8"
+    },
+    {
+      "path": "distribution/projects/ROCKNIX/packages/rocknix/sources/scripts/wifictl",
+      "bytes": 26443,
+      "sha256": "c425a34bc2eea89f8d2c47388a1a7df23c4c4c65f40c9db87aece0a74bf3fd8b"
+    },
+    {
+      "path": "distribution/tools/cloud-connections-test",
+      "bytes": 12106,
+      "sha256": "a768a13dc1b82045026ee7f3119a3e88d03e3b05cdbeb7676b70cdcbca724cab"
+    },
+    {
+      "path": "distribution/tools/cloud-input-test",
+      "bytes": 8401,
+      "sha256": "141f8fded405ae89979c8e2e1072228099bbddc6b40256a2b61cbccc37376266"
+    },
+    {
+      "path": "distribution/tools/test-fixtures/cloud_connections_fixture.py",
+      "bytes": 1881,
+      "sha256": "8dd1ffbc314ba90d419cbd27f083e1faaa07a4d64f8f7485c946957f67a1726f"
+    },
+    {
+      "path": "emulationstation/es-app/src/ApiSystem.cpp",
+      "bytes": 5558,
+      "sha256": "7ee06668bd07c167030313a38ddd2b2d978505060627197c8a952272ceef63ad"
+    },
+    {
+      "path": "emulationstation/es-app/src/WifiText.cpp",
+      "bytes": 9458,
+      "sha256": "40155db335c3ef1fbb017fefb07b958e67f54c1d58a0b0405eba7aae9ecf1cfd"
+    },
+    {
+      "path": "emulationstation/es-app/src/WifiText.h",
+      "bytes": 8769,
+      "sha256": "261c071002a702fd5bc36969f17b6860fb78bf9fc31fa83e126b414dcd9c8a56"
+    },
+    {
+      "path": "emulationstation/es-app/src/guis/GuiMenu.cpp",
+      "bytes": 115253,
+      "sha256": "7f7c0ad9b18398425755bb3b945383ef70bd7069fd192210dda67843e39e8913"
+    },
+    {
+      "path": "emulationstation/es-app/src/guis/GuiWifi.cpp",
+      "bytes": 17615,
+      "sha256": "69a6cf900b3185ff31a04afdc3cbdadc24a0c3bc77db92e4604252c8e521784e"
+    },
+    {
+      "path": "emulationstation/es-app/src/guis/GuiWifi.h",
+      "bytes": 3022,
+      "sha256": "8d0e0f775c2f3e425e3ffe3a948a93b4f4fbb1a01550aedc971c603a4ba08ef4"
+    },
+    {
+      "path": "emulationstation/es-app/tests/unit/WifiTextTests.cpp",
+      "bytes": 17423,
+      "sha256": "5d5403a1b324d67e099068b950fde5f68f8592edffc9d9cda357ea6b2569ce8c"
+    },
+    {
+      "path": "emulationstation/es-core/src/guis/GuiTextEditPopup.cpp",
+      "bytes": 3516,
+      "sha256": "f40e3c0c6c27e83082453adf3927ff553b5fa7711f01176d9fc5e0e16b4bd08c"
+    },
+    {
+      "path": "emulationstation/es-core/src/guis/GuiTextEditPopupKeyboard.cpp",
+      "bytes": 20838,
+      "sha256": "b252c3b01ec2a74f6feda355a327196abf8d0497d8100a35cf5ce7e4756bb103"
+    }
+  ],
+  "frozen_product_files_verified": 35,
+  "privacy_checks": {
+    "private_key": false,
+    "home_account": false,
+    "raw_oauth_state": false,
+    "raw_device_capture": false,
+    "bearer_literal": false
+  },
+  "excluded": [
+    "all live credentials",
+    "private owner data and screenshots",
+    "VM keys and disks",
+    "raw private OAuth state",
+    "binaries"
+  ]
+}

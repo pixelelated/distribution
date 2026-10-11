@@ -69,9 +69,9 @@ reads (the three outcome words are asserted by default; --no-vocabulary skips th
 
 Two guards, both load-bearing:
 
-* Every cloud_* script picks its remote with `rclone listremotes | head -1`.
-  If the device has another remote sorting earlier, the tests would sync a
-  real cloud account instead. The remote is asserted, never assumed.
+* Cloud tools use the explicit active connection (legacy images use their
+  first remote). The suite preserves that selection and asserts the QA
+  connection before any transfer; another saved account is never assumed safe.
 * Restore is destructive by design. The suite works in a scratch tree by
   default and only touches /storage/roms with --real-roms, so pointing this
   at a device with real saves cannot quietly delete them.
@@ -288,9 +288,17 @@ class Prepared:
         self.settings = {}
         self.prev_paths = {}
         self.prev_rclone_conf = ""
+        self.prev_active = None
         # A capture-only run (prepare_local) reads no rclone.conf and asks the
         # backend for nothing; restore_device must then put back neither.
         self.local_only = False
+
+
+# Only images predating explicit selection may use the historical fallback.
+ACTIVE_COMMAND = 'if test -f "$(dirname "$(command -v cloud_remote)")/cloud_connections.py"; then cloud_remote active; else rclone listremotes 2>/dev/null | head -1; fi'
+
+def active_remote(dev):
+    return dev.run(ACTIVE_COMMAND).strip()
 
 
 def prepare_device(dev, remote, root, args, prepared, which=""):
@@ -311,16 +319,20 @@ def prepare_device(dev, remote, root, args, prepared, which=""):
     # The device's own remote comes back at the end: a device the suite has
     # finished with has the remote it started with (Gate 0, #35).
     p.prev_rclone_conf = dev.run(f"cat {RCLONE_CONF} 2>/dev/null || true")
+    if dev.run(f"test -f {RCLONE_CONF.rsplit('/', 1)[0]}/active-connection && echo present", check=False).strip() == "present":
+        p.prev_active = dev.run(f"cat {RCLONE_CONF.rsplit('/', 1)[0]}/active-connection")
     for key in ("SAVESPATH", "SETTINGS_BACKUPS", "SAVES_REMOTE", "SETTINGS_REMOTE", "CONTENT_REMOTE",
                 "BACKUPPATH", "BACKUPFOLDER", "SYNCPATH", "SYNCPATH_BACKUP", "CONTENTPATH"):
         p.prev_paths[key] = dev.run(f"grep -m1 '^{key}=' {CONF} 2>/dev/null || true").strip()
     prepared.append(p)
     dev.run(f"mkdir -p {os.path.dirname(RCLONE_CONF)}")
     dev.write(RCLONE_CONF, backend("rclone-conf").encode())
-    first = dev.run("rclone listremotes 2>/dev/null | head -1").strip().rstrip(":")
+    dev.write(RCLONE_CONF.rsplit("/", 1)[0] + "/active-connection", (remote + "\n").encode())
+    dev.run(f"chmod 600 {RCLONE_CONF} {RCLONE_CONF.rsplit('/', 1)[0]}/active-connection")
+    first = active_remote(dev).rstrip(":")
     if not check(first == remote,
-                 f"first remote is {remote!r}, which is what the scripts will use",
-                 f"first remote is {first!r}, not {remote!r} - refusing to sync "
+                 f"active remote is {remote!r}, which is what the scripts will use",
+                 f"active remote is {first!r}, not {remote!r} - refusing to sync "
                  f"someone else's account"):
         raise Fail("refusing to sync someone else's account")
 
@@ -946,10 +958,7 @@ def run_steps(dev, root, remote, args, settings, prev_paths):
                           f"the user rule sits above the catch-all in the merged file (lines {' < '.join(order) if order else '?'})",
                           f"rules order was {order}")
     saves_remote = dev.run(f"grep -m1 '^SAVES_REMOTE=' {CONF} | cut -d'\"' -f2").strip()
-    # The scripts fall back to the first configured remote when REMOTENAME is
-    # blank in the conf, and so must this.
-    remote_name = dev.run(f"grep -m1 '^REMOTENAME=' {CONF} | cut -d'\"' -f2").strip() \
-        or dev.run("rclone listremotes 2>/dev/null | head -1").strip()
+    remote_name = active_remote(dev)
     listing = dev.run(f"rclone lsf -R --files-only {shlex.quote(remote_name + saves_remote)} 2>/dev/null || true")
     failures += not check("keep-off-the-cloud.probe" not in listing and "game1.srm" in listing,
                           "the excluded file stayed home while the ordinary save travelled",
@@ -2380,7 +2389,7 @@ def fx_a5(p):
     store = p.saves_remote.rstrip("/") + "-discarded"
     # The reader, on b: the store listed and every record read as one line;
     # nothing local consulted.
-    reader = ("R=$(rclone listremotes 2>/dev/null | head -1); S=" + shlex.quote(store) + "; "
+    reader = ("R=$(" + ACTIVE_COMMAND + "); S=" + shlex.quote(store) + "; "
               "rclone lsf -R --files-only \"${R}${S}\" 2>/dev/null | while IFS= read -r r; do "
               "case \"$r\" in */record.json|record.json) rclone cat \"${R}${S}/${r}\" | jq -c . ;; "
               "*) echo \"MEMBER $r\" ;; esac; done")
@@ -4622,7 +4631,7 @@ class Transport:
             f.write(f"$ {cmd}\n# exit {rc}\n{out}")
 
     def remote(self, dev):
-        return dev.run("rclone listremotes 2>/dev/null | head -1").strip() + self.p.saves_remote
+        return active_remote(dev) + self.p.saves_remote
 
     def clear(self, dev):
         dev.run(f"rm -rf {BISYNC_STATE} {AGREED}", check=False)
@@ -7779,6 +7788,10 @@ def restore_device(p, args, archive):
             dev.write(RCLONE_CONF, prev_rclone_conf.encode())
         else:
             dev.run(f"rm -f {RCLONE_CONF}", check=False)
+        if p.prev_active is None:
+            dev.run(f"rm -f {RCLONE_CONF.rsplit('/', 1)[0]}/active-connection", check=False)
+        else:
+            dev.write(RCLONE_CONF.rsplit("/", 1)[0] + "/active-connection", p.prev_active.encode())
         backend("reset")
         print("    scratch tree and bucket emptied; the device's own remote, paths and "
               "settings-backup setting restored")

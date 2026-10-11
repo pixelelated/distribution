@@ -1,0 +1,473 @@
+{
+  "curated_at": "2026-10-11T16:13:44.056839+00:00",
+  "source_manifest": "source-manifest-repair54.json",
+  "es_sha256": "c3e6ae523baaf64497c394b71edd784a5aa66201b60bf5c7c97283fe2176f2ca",
+  "catalog_sha256": "edf1bf6090812b8a993a1734851c7da4c6f2ace42511676ef9faad236e1159bd",
+  "scope": "Seven audit repairs: installed source overlay, not assembled firmware; original frames keep original source identity.",
+  "frames": [
+    {
+      "flow_id": "NC13",
+      "branch_id": "quote",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "saved-connections-and-sign-in-recovery",
+      "trigger": "Check a saved connection named two words",
+      "expected_state": "The connection answers; its complete name is retained",
+      "source": {
+        "base_commits": {
+          "distribution": "a1b0c651654bbe550fec522c591fbfdb73c220a0",
+          "emulationstation": "1d76b3da7da75794066df1c089931b890304da7a"
+        },
+        "overlay_manifest": "source-manifest-repair54.json",
+        "es_binary_sha256": "c3e6ae523baaf64497c394b71edd784a5aa66201b60bf5c7c97283fe2176f2ca",
+        "catalog_sha256": "edf1bf6090812b8a993a1734851c7da4c6f2ace42511676ef9faad236e1159bd",
+        "kind": "installed source overlay, not assembled firmware"
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "frame": "repair54/en640/NC13.png",
+      "sha256": "5b2b30a9e8199682bf8d5e8250527095798c01c76656bf202f528a877a9b575d",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "primary Codex agent",
+        "outcome": "PASS",
+        "observation": "The connection answers; its complete name is retained"
+      }
+    },
+    {
+      "flow_id": "NC14",
+      "branch_id": "missing",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "saved-connections-and-sign-in-recovery",
+      "trigger": "Confirm an edit after the selected connection disappears",
+      "expected_state": "The refusal explains choosing another connection; prior settings are preserved",
+      "source": {
+        "base_commits": {
+          "distribution": "a1b0c651654bbe550fec522c591fbfdb73c220a0",
+          "emulationstation": "1d76b3da7da75794066df1c089931b890304da7a"
+        },
+        "overlay_manifest": "source-manifest-repair54.json",
+        "es_binary_sha256": "c3e6ae523baaf64497c394b71edd784a5aa66201b60bf5c7c97283fe2176f2ca",
+        "catalog_sha256": "edf1bf6090812b8a993a1734851c7da4c6f2ace42511676ef9faad236e1159bd",
+        "kind": "installed source overlay, not assembled firmware"
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "frame": "repair54/en640/NC14.png",
+      "sha256": "cdd6a2eb24a6ee94973617b740e0164fc823c1eed2c66f91ab638b58dbcda59b",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "primary Codex agent",
+        "outcome": "PASS",
+        "observation": "The refusal explains choosing another connection; prior settings are preserved"
+      }
+    },
+    {
+      "flow_id": "NC15",
+      "branch_id": "ssh",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "saved-connections-and-sign-in-recovery",
+      "trigger": "Open saved connections with explicit empty selection",
+      "expected_state": "No connection in use; choose a connection before cloud tools",
+      "source": {
+        "base_commits": {
+          "distribution": "a1b0c651654bbe550fec522c591fbfdb73c220a0",
+          "emulationstation": "1d76b3da7da75794066df1c089931b890304da7a"
+        },
+        "overlay_manifest": "source-manifest-repair54.json",
+        "es_binary_sha256": "c3e6ae523baaf64497c394b71edd784a5aa66201b60bf5c7c97283fe2176f2ca",
+        "catalog_sha256": "edf1bf6090812b8a993a1734851c7da4c6f2ace42511676ef9faad236e1159bd",
+        "kind": "installed source overlay, not assembled firmware"
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "frame": "repair54/en640/NC15.png",
+      "sha256": "ba195a1c61b621f5a3b5c8f632ca30c14794490acaced4962c4d906a418f4184",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "primary Codex agent",
+        "outcome": "PASS",
+        "observation": "No connection in use; choose a connection before cloud tools"
+      }
+    },
+    {
+      "flow_id": "NC16",
+      "branch_id": "ssh",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "saved-connections-and-sign-in-recovery",
+      "trigger": "Reach the final computer setup instruction page",
+      "expected_state": "Explicitly choose a connection under CLOUD CONNECTIONS; both buttons remain visible",
+      "source": {
+        "base_commits": {
+          "distribution": "a1b0c651654bbe550fec522c591fbfdb73c220a0",
+          "emulationstation": "1d76b3da7da75794066df1c089931b890304da7a"
+        },
+        "overlay_manifest": "source-manifest-repair54.json",
+        "es_binary_sha256": "c3e6ae523baaf64497c394b71edd784a5aa66201b60bf5c7c97283fe2176f2ca",
+        "catalog_sha256": "edf1bf6090812b8a993a1734851c7da4c6f2ace42511676ef9faad236e1159bd",
+        "kind": "installed source overlay, not assembled firmware"
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "frame": "repair54/en640/NC16.png",
+      "sha256": "4219ae965f1a85d2c2f300e9a4485832b5a138b1a3c345ec18713d8399c3a0fd",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "primary Codex agent",
+        "outcome": "PASS",
+        "observation": "Explicitly choose a connection under CLOUD CONNECTIONS; both buttons remain visible; inherited long terminal-instruction suffixes still use ellipses, outside this selection-guidance repair"
+      }
+    },
+    {
+      "flow_id": "NC13",
+      "branch_id": "quote",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "saved-connections-and-sign-in-recovery",
+      "trigger": "Check a saved connection named two words",
+      "expected_state": "The connection answers; its complete name is retained",
+      "source": {
+        "base_commits": {
+          "distribution": "a1b0c651654bbe550fec522c591fbfdb73c220a0",
+          "emulationstation": "1d76b3da7da75794066df1c089931b890304da7a"
+        },
+        "overlay_manifest": "source-manifest-repair54.json",
+        "es_binary_sha256": "c3e6ae523baaf64497c394b71edd784a5aa66201b60bf5c7c97283fe2176f2ca",
+        "catalog_sha256": "edf1bf6090812b8a993a1734851c7da4c6f2ace42511676ef9faad236e1159bd",
+        "kind": "installed source overlay, not assembled firmware"
+      },
+      "locale": "fr_FR",
+      "width": 640,
+      "height": 480,
+      "frame": "repair54/fr640/NC13.png",
+      "sha256": "e6301b4e1520149ba0cd7e8b16cd135e7fead8de264fc655a93dca392dbb1510",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "primary Codex agent",
+        "outcome": "PASS",
+        "observation": "The connection answers; its complete name is retained"
+      }
+    },
+    {
+      "flow_id": "NC14",
+      "branch_id": "missing",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "saved-connections-and-sign-in-recovery",
+      "trigger": "Confirm an edit after the selected connection disappears",
+      "expected_state": "The refusal explains choosing another connection; prior settings are preserved",
+      "source": {
+        "base_commits": {
+          "distribution": "a1b0c651654bbe550fec522c591fbfdb73c220a0",
+          "emulationstation": "1d76b3da7da75794066df1c089931b890304da7a"
+        },
+        "overlay_manifest": "source-manifest-repair54.json",
+        "es_binary_sha256": "c3e6ae523baaf64497c394b71edd784a5aa66201b60bf5c7c97283fe2176f2ca",
+        "catalog_sha256": "edf1bf6090812b8a993a1734851c7da4c6f2ace42511676ef9faad236e1159bd",
+        "kind": "installed source overlay, not assembled firmware"
+      },
+      "locale": "fr_FR",
+      "width": 640,
+      "height": 480,
+      "frame": "repair54/fr640/NC14.png",
+      "sha256": "4de9a5dfba484e7e3f672fe2ae6d40b68eed5b4721144b1720f652bd7a4b6fd7",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "primary Codex agent",
+        "outcome": "PASS",
+        "observation": "The refusal explains choosing another connection; prior settings are preserved"
+      }
+    },
+    {
+      "flow_id": "NC15",
+      "branch_id": "ssh",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "saved-connections-and-sign-in-recovery",
+      "trigger": "Open saved connections with explicit empty selection",
+      "expected_state": "No connection in use; choose a connection before cloud tools",
+      "source": {
+        "base_commits": {
+          "distribution": "a1b0c651654bbe550fec522c591fbfdb73c220a0",
+          "emulationstation": "1d76b3da7da75794066df1c089931b890304da7a"
+        },
+        "overlay_manifest": "source-manifest-repair54.json",
+        "es_binary_sha256": "c3e6ae523baaf64497c394b71edd784a5aa66201b60bf5c7c97283fe2176f2ca",
+        "catalog_sha256": "edf1bf6090812b8a993a1734851c7da4c6f2ace42511676ef9faad236e1159bd",
+        "kind": "installed source overlay, not assembled firmware"
+      },
+      "locale": "fr_FR",
+      "width": 640,
+      "height": 480,
+      "frame": "repair54/fr640/NC15.png",
+      "sha256": "97f26a43b500ebaa1b1bff7cda4ae7b0d3f35d26ab1f6780aafd26379d6674f3",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "primary Codex agent",
+        "outcome": "PASS",
+        "observation": "No connection in use; choose a connection before cloud tools"
+      }
+    },
+    {
+      "flow_id": "NC16",
+      "branch_id": "ssh",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "saved-connections-and-sign-in-recovery",
+      "trigger": "Reach the final computer setup instruction page",
+      "expected_state": "Explicitly choose a connection under CLOUD CONNECTIONS; both buttons remain visible",
+      "source": {
+        "base_commits": {
+          "distribution": "a1b0c651654bbe550fec522c591fbfdb73c220a0",
+          "emulationstation": "1d76b3da7da75794066df1c089931b890304da7a"
+        },
+        "overlay_manifest": "source-manifest-repair54.json",
+        "es_binary_sha256": "c3e6ae523baaf64497c394b71edd784a5aa66201b60bf5c7c97283fe2176f2ca",
+        "catalog_sha256": "edf1bf6090812b8a993a1734851c7da4c6f2ace42511676ef9faad236e1159bd",
+        "kind": "installed source overlay, not assembled firmware"
+      },
+      "locale": "fr_FR",
+      "width": 640,
+      "height": 480,
+      "frame": "repair54/fr640/NC16.png",
+      "sha256": "40201a4d5a7f308e04a96ec5917c26a6c4f529b695cd442435f44ca933bb9d1c",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "primary Codex agent",
+        "outcome": "PASS",
+        "observation": "Explicitly choose a connection under CLOUD CONNECTIONS; both buttons remain visible; inherited long terminal-instruction suffixes still use ellipses, outside this selection-guidance repair"
+      }
+    },
+    {
+      "flow_id": "NC13",
+      "branch_id": "quote",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "saved-connections-and-sign-in-recovery",
+      "trigger": "Check a saved connection named two words",
+      "expected_state": "The connection answers; its complete name is retained",
+      "source": {
+        "base_commits": {
+          "distribution": "a1b0c651654bbe550fec522c591fbfdb73c220a0",
+          "emulationstation": "1d76b3da7da75794066df1c089931b890304da7a"
+        },
+        "overlay_manifest": "source-manifest-repair54.json",
+        "es_binary_sha256": "c3e6ae523baaf64497c394b71edd784a5aa66201b60bf5c7c97283fe2176f2ca",
+        "catalog_sha256": "edf1bf6090812b8a993a1734851c7da4c6f2ace42511676ef9faad236e1159bd",
+        "kind": "installed source overlay, not assembled firmware"
+      },
+      "locale": "en_US",
+      "width": 1280,
+      "height": 800,
+      "frame": "repair54/en1280/NC13.png",
+      "sha256": "b893e42f2c754fb43c7ca60b6c66b6f2428ae224f4c3181ef959a9d26a556237",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "primary Codex agent",
+        "outcome": "PASS",
+        "observation": "The connection answers; its complete name is retained"
+      }
+    },
+    {
+      "flow_id": "NC14",
+      "branch_id": "missing",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "saved-connections-and-sign-in-recovery",
+      "trigger": "Confirm an edit after the selected connection disappears",
+      "expected_state": "The refusal explains choosing another connection; prior settings are preserved",
+      "source": {
+        "base_commits": {
+          "distribution": "a1b0c651654bbe550fec522c591fbfdb73c220a0",
+          "emulationstation": "1d76b3da7da75794066df1c089931b890304da7a"
+        },
+        "overlay_manifest": "source-manifest-repair54.json",
+        "es_binary_sha256": "c3e6ae523baaf64497c394b71edd784a5aa66201b60bf5c7c97283fe2176f2ca",
+        "catalog_sha256": "edf1bf6090812b8a993a1734851c7da4c6f2ace42511676ef9faad236e1159bd",
+        "kind": "installed source overlay, not assembled firmware"
+      },
+      "locale": "en_US",
+      "width": 1280,
+      "height": 800,
+      "frame": "repair54/en1280/NC14.png",
+      "sha256": "f3396ab033eb2dd1b0bcc931fd00d51d9e761ac006076cc92451e9902860e39a",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "primary Codex agent",
+        "outcome": "PASS",
+        "observation": "The refusal explains choosing another connection; prior settings are preserved"
+      }
+    },
+    {
+      "flow_id": "NC15",
+      "branch_id": "ssh",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "saved-connections-and-sign-in-recovery",
+      "trigger": "Open saved connections with explicit empty selection",
+      "expected_state": "No connection in use; choose a connection before cloud tools",
+      "source": {
+        "base_commits": {
+          "distribution": "a1b0c651654bbe550fec522c591fbfdb73c220a0",
+          "emulationstation": "1d76b3da7da75794066df1c089931b890304da7a"
+        },
+        "overlay_manifest": "source-manifest-repair54.json",
+        "es_binary_sha256": "c3e6ae523baaf64497c394b71edd784a5aa66201b60bf5c7c97283fe2176f2ca",
+        "catalog_sha256": "edf1bf6090812b8a993a1734851c7da4c6f2ace42511676ef9faad236e1159bd",
+        "kind": "installed source overlay, not assembled firmware"
+      },
+      "locale": "en_US",
+      "width": 1280,
+      "height": 800,
+      "frame": "repair54/en1280/NC15.png",
+      "sha256": "3c335273abedf8efaa303e52c94777f8dcc90e0034b9858b9040bb5177531fb6",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "primary Codex agent",
+        "outcome": "PASS",
+        "observation": "No connection in use; choose a connection before cloud tools"
+      }
+    },
+    {
+      "flow_id": "NC16",
+      "branch_id": "ssh",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "saved-connections-and-sign-in-recovery",
+      "trigger": "Reach the final computer setup instruction page",
+      "expected_state": "Explicitly choose a connection under CLOUD CONNECTIONS; both buttons remain visible",
+      "source": {
+        "base_commits": {
+          "distribution": "a1b0c651654bbe550fec522c591fbfdb73c220a0",
+          "emulationstation": "1d76b3da7da75794066df1c089931b890304da7a"
+        },
+        "overlay_manifest": "source-manifest-repair54.json",
+        "es_binary_sha256": "c3e6ae523baaf64497c394b71edd784a5aa66201b60bf5c7c97283fe2176f2ca",
+        "catalog_sha256": "edf1bf6090812b8a993a1734851c7da4c6f2ace42511676ef9faad236e1159bd",
+        "kind": "installed source overlay, not assembled firmware"
+      },
+      "locale": "en_US",
+      "width": 1280,
+      "height": 800,
+      "frame": "repair54/en1280/NC16.png",
+      "sha256": "fe28735f737ce2d01bfd36954810f7f25be49407f6b7d33b1b4574716a1c6b97",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "primary Codex agent",
+        "outcome": "PASS",
+        "observation": "Explicitly choose a connection under CLOUD CONNECTIONS; both buttons remain visible"
+      }
+    },
+    {
+      "flow_id": "NC13",
+      "branch_id": "quote",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "saved-connections-and-sign-in-recovery",
+      "trigger": "Check a saved connection named two words",
+      "expected_state": "The connection answers; its complete name is retained",
+      "source": {
+        "base_commits": {
+          "distribution": "a1b0c651654bbe550fec522c591fbfdb73c220a0",
+          "emulationstation": "1d76b3da7da75794066df1c089931b890304da7a"
+        },
+        "overlay_manifest": "source-manifest-repair54.json",
+        "es_binary_sha256": "c3e6ae523baaf64497c394b71edd784a5aa66201b60bf5c7c97283fe2176f2ca",
+        "catalog_sha256": "edf1bf6090812b8a993a1734851c7da4c6f2ace42511676ef9faad236e1159bd",
+        "kind": "installed source overlay, not assembled firmware"
+      },
+      "locale": "fr_FR",
+      "width": 1280,
+      "height": 800,
+      "frame": "repair54/fr1280/NC13.png",
+      "sha256": "757e8229f41503e96883e29e1f3c7ce9cbc3e5ca30e0a1c693566462ec54b638",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "primary Codex agent",
+        "outcome": "PASS",
+        "observation": "The connection answers; its complete name is retained"
+      }
+    },
+    {
+      "flow_id": "NC14",
+      "branch_id": "missing",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "saved-connections-and-sign-in-recovery",
+      "trigger": "Confirm an edit after the selected connection disappears",
+      "expected_state": "The refusal explains choosing another connection; prior settings are preserved",
+      "source": {
+        "base_commits": {
+          "distribution": "a1b0c651654bbe550fec522c591fbfdb73c220a0",
+          "emulationstation": "1d76b3da7da75794066df1c089931b890304da7a"
+        },
+        "overlay_manifest": "source-manifest-repair54.json",
+        "es_binary_sha256": "c3e6ae523baaf64497c394b71edd784a5aa66201b60bf5c7c97283fe2176f2ca",
+        "catalog_sha256": "edf1bf6090812b8a993a1734851c7da4c6f2ace42511676ef9faad236e1159bd",
+        "kind": "installed source overlay, not assembled firmware"
+      },
+      "locale": "fr_FR",
+      "width": 1280,
+      "height": 800,
+      "frame": "repair54/fr1280/NC14.png",
+      "sha256": "f805f4316c957ac331af8003c7a4b66587a3372dca0612688cda02c43c74b226",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "primary Codex agent",
+        "outcome": "PASS",
+        "observation": "The refusal explains choosing another connection; prior settings are preserved"
+      }
+    },
+    {
+      "flow_id": "NC15",
+      "branch_id": "ssh",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "saved-connections-and-sign-in-recovery",
+      "trigger": "Open saved connections with explicit empty selection",
+      "expected_state": "No connection in use; choose a connection before cloud tools",
+      "source": {
+        "base_commits": {
+          "distribution": "a1b0c651654bbe550fec522c591fbfdb73c220a0",
+          "emulationstation": "1d76b3da7da75794066df1c089931b890304da7a"
+        },
+        "overlay_manifest": "source-manifest-repair54.json",
+        "es_binary_sha256": "c3e6ae523baaf64497c394b71edd784a5aa66201b60bf5c7c97283fe2176f2ca",
+        "catalog_sha256": "edf1bf6090812b8a993a1734851c7da4c6f2ace42511676ef9faad236e1159bd",
+        "kind": "installed source overlay, not assembled firmware"
+      },
+      "locale": "fr_FR",
+      "width": 1280,
+      "height": 800,
+      "frame": "repair54/fr1280/NC15.png",
+      "sha256": "20b31444c5d63e812d7d0bf83f3a85f7f98a96c7826b6737237692fd504c9d56",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "primary Codex agent",
+        "outcome": "PASS",
+        "observation": "No connection in use; choose a connection before cloud tools"
+      }
+    },
+    {
+      "flow_id": "NC16",
+      "branch_id": "ssh",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "saved-connections-and-sign-in-recovery",
+      "trigger": "Reach the final computer setup instruction page",
+      "expected_state": "Explicitly choose a connection under CLOUD CONNECTIONS; both buttons remain visible",
+      "source": {
+        "base_commits": {
+          "distribution": "a1b0c651654bbe550fec522c591fbfdb73c220a0",
+          "emulationstation": "1d76b3da7da75794066df1c089931b890304da7a"
+        },
+        "overlay_manifest": "source-manifest-repair54.json",
+        "es_binary_sha256": "c3e6ae523baaf64497c394b71edd784a5aa66201b60bf5c7c97283fe2176f2ca",
+        "catalog_sha256": "edf1bf6090812b8a993a1734851c7da4c6f2ace42511676ef9faad236e1159bd",
+        "kind": "installed source overlay, not assembled firmware"
+      },
+      "locale": "fr_FR",
+      "width": 1280,
+      "height": 800,
+      "frame": "repair54/fr1280/NC16.png",
+      "sha256": "e588151fc310d41db728e4c903a3c8dc58abeb6a7c07476012dc30e8e2ce967b",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "primary Codex agent",
+        "outcome": "PASS",
+        "observation": "Explicitly choose a connection under CLOUD CONNECTIONS; both buttons remain visible"
+      }
+    }
+  ]
+}

@@ -311,8 +311,8 @@ every-session ones at the start of a session and a scoped one before touching it
 
 - **rclone cloud-sync** (`projects/ROCKNIX/packages/network/rclone/`,
   `rclone-cloud-sync.md`): the filter file is an *allowlist*; never put `-v`/`--verbose`
-  in `RCLONEOPTS`; `--delete-excluded` is catastrophic on a `sync`-mode restore; single
-  remote only; a new config option goes in BOTH `cloud_sync.conf` and
+  in `RCLONEOPTS`; `--delete-excluded` is catastrophic on a `sync`-mode restore; one
+  active connection; a new config option goes in BOTH `cloud_sync.conf` and
   `cloud_sync.conf.defaults` (`DEFAULT_` prefix); an automatic sync is bounded in seconds
   while a deliberate back up may be long (D-CLOUD-113).
 - **GENERIC_X64 VM QA** (`generic-x64-vm-testing.md`): the VM disk must be **16GB+** or

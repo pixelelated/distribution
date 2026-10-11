@@ -1,0 +1,23 @@
+key ret
+wait-for-change
+key x
+wait-for-change
+key up x3
+key x
+wait-for-change
+key up x2
+key x
+wait-for-change
+settle
+shot saved-dropbox
+key x
+wait-for-change
+settle
+shot dropbox-details
+key down x4
+key x
+wait-for-change
+settle
+shot renew-confirm
+key x
+wait-for-change

@@ -1,0 +1,1517 @@
+diff --git a/projects/ROCKNIX/packages/network/cloud-signin-window/sources/cloud-signin-window.c b/projects/ROCKNIX/packages/network/cloud-signin-window/sources/cloud-signin-window.c
+index 24888d4c75..99beb6ef18 100644
+--- a/projects/ROCKNIX/packages/network/cloud-signin-window/sources/cloud-signin-window.c
++++ b/projects/ROCKNIX/packages/network/cloud-signin-window/sources/cloud-signin-window.c
+@@ -41,6 +41,14 @@ static gboolean host_permitted(const char *host)
+         return TRUE;
+     if (!allowed_host)
+         return TRUE;
++    /* Dropbox offers these identity providers on its sign-in page. They
++     * are exact authentication hosts, not a general browsing exception. */
++    if (g_ascii_strcasecmp(allowed_host, "dropbox.com") == 0 &&
++        (g_ascii_strcasecmp(host, "accounts.google.com") == 0 ||
++         g_ascii_strcasecmp(host, "appleid.apple.com") == 0 ||
++         g_ascii_strcasecmp(host, "login.microsoftonline.com") == 0 ||
++         g_ascii_strcasecmp(host, "login.live.com") == 0))
++        return TRUE;
+     /* the host itself, or any subdomain of it: providers bounce sign-ins
+      * through their own auth and CDN subdomains constantly. */
+     size_t hl = strlen(host), al = strlen(allowed_host);
+@@ -379,6 +387,11 @@ static void on_probe(GObject *source, GAsyncResult *result, gpointer data)
+         return;
+     }
+ 
++    /* A reply from the covered parent must not change the popup's caret. */
++    if (osk && source != G_OBJECT(osk->view)) {
++        g_object_unref(value);
++        return;
++    }
+     char *text = jsc_value_to_string(value);
+     if (g_getenv("CLOUD_SIGNIN_DEBUG"))
+         g_message("probe %s", text);
+@@ -665,12 +678,24 @@ static int page_worth_recording(const char *uri)
+ static void on_load_changed(WebKitWebView *view, WebKitLoadEvent event,
+                             gpointer data)
+ {
+-    if (event != WEBKIT_LOAD_FINISHED)
++    Osk *osk = data;
++    if (event != WEBKIT_LOAD_FINISHED || (osk && osk->view != view))
+         return;
+ 
+     GtkWidget *stack = g_object_get_data(G_OBJECT(view), "stack");
+     if (stack)
+-        gtk_stack_set_visible_child_name(GTK_STACK(stack), "page");
++        gtk_stack_set_visible_child(GTK_STACK(stack), GTK_WIDGET(view));
++
++    /* WebKitGTK does not map Backspace to history navigation. Handle the
++     * bubbled DOM event, respecting editable fields, already-handled keys and
++     * modified shortcuts. Window listeners see provider document handlers first. */
++    webkit_web_view_evaluate_javascript(view,
++        "if(!window.__pixelelatedBackKey){window.__pixelelatedBackKey=true;"
++        "window.addEventListener('keydown',function(e){"
++        "if(e.key!=='Backspace'||e.defaultPrevented||e.altKey||e.ctrlKey||e.metaKey||e.shiftKey)return;"
++        "var t=e.target;if(t&&(t.isContentEditable||(t.closest&&t.closest('input,textarea,select'))))return;"
++        "e.preventDefault();history.back();});}",
++        -1, NULL, NULL, NULL, NULL, NULL);
+ 
+     /* Every page starts at the top. A provider's sign-in runs several steps
+      * through one window, and arriving at the next one already scrolled --
+@@ -826,14 +851,70 @@ static gboolean on_decide_policy(WebKitWebView *view,
+     if (!webkit_navigation_action_is_user_gesture(action))
+         return FALSE;
+ 
+-    if (!host_permitted(g_uri_get_host(parsed))) {
+-        g_message("refused navigation to %s", uri);
++    const char *host = g_uri_get_host(parsed);
++    if (!host_permitted(host)) {
++        g_message("refused navigation to host %s", host ? host : "(none)");
+         webkit_policy_decision_ignore(decision);
+         return TRUE;
+     }
+     return FALSE;
+ }
+ 
++/* OAuth providers can open a related window and send a result to opener.
++ * Keep that relationship, but show only one authentication surface at a time
++ * in the existing window. No extra tabs, address bar, or general browsing. */
++static void on_auth_close(WebKitWebView *view, gpointer data)
++{
++    Osk *osk = data;
++    GtkWidget *stack = g_object_get_data(G_OBJECT(view), "stack");
++    WebKitWebView *parent = g_object_get_data(G_OBJECT(view), "auth-parent");
++    if (!parent || !stack)
++        return;
++    osk->view = parent;
++    g_object_set_data(G_OBJECT(stack), "auth-popup", NULL);
++    gtk_stack_set_visible_child(GTK_STACK(stack), GTK_WIDGET(parent));
++    gtk_widget_grab_focus(GTK_WIDGET(parent));
++    on_load_changed(parent, WEBKIT_LOAD_FINISHED, osk);
++    gtk_widget_destroy(GTK_WIDGET(view));
++}
++
++static void on_auth_ready(WebKitWebView *view, gpointer data)
++{
++    Osk *osk = data;
++    GtkWidget *stack = g_object_get_data(G_OBJECT(view), "stack");
++    osk->view = view;
++    gtk_widget_show(GTK_WIDGET(view));
++    gtk_stack_set_visible_child(GTK_STACK(stack), GTK_WIDGET(view));
++    gtk_revealer_set_reveal_child(GTK_REVEALER(osk->revealer), FALSE);
++    gtk_widget_grab_focus(GTK_WIDGET(view));
++}
++
++static GtkWidget *on_auth_create(WebKitWebView *view,
++                                 WebKitNavigationAction *action, gpointer data)
++{
++    GtkWidget *stack = g_object_get_data(G_OBJECT(view), "stack");
++    const char *uri = webkit_uri_request_get_uri(webkit_navigation_action_get_request(action));
++    g_autoptr(GUri) parsed = g_uri_parse(uri, G_URI_FLAGS_NONE, NULL);
++    if (!stack || g_object_get_data(G_OBJECT(stack), "auth-popup") || !parsed)
++        return NULL;
++    const char *scheme = g_uri_get_scheme(parsed);
++    gboolean network = g_strcmp0(scheme, "https") == 0 || g_strcmp0(scheme, "http") == 0;
++    gboolean blank = g_strcmp0(uri, "about:blank") == 0 && webkit_navigation_action_is_user_gesture(action);
++    if ((!network || !host_permitted(g_uri_get_host(parsed))) && !blank)
++        return NULL;
++    GtkWidget *popup = webkit_web_view_new_with_related_view(view);
++    webkit_web_view_set_settings(WEBKIT_WEB_VIEW(popup), webkit_web_view_get_settings(view));
++    g_object_set_data(G_OBJECT(popup), "stack", stack);
++    g_object_set_data(G_OBJECT(popup), "auth-parent", view);
++    g_object_set_data(G_OBJECT(stack), "auth-popup", popup);
++    g_signal_connect(popup, "decide-policy", G_CALLBACK(on_decide_policy), NULL);
++    g_signal_connect(popup, "load-changed", G_CALLBACK(on_load_changed), data);
++    g_signal_connect(popup, "ready-to-show", G_CALLBACK(on_auth_ready), data);
++    g_signal_connect(popup, "close", G_CALLBACK(on_auth_close), data);
++    gtk_stack_add_named(GTK_STACK(stack), popup, "auth-popup");
++    return popup;
++}
++
+ int main(int argc, char **argv)
+ {
+     if (argc < 2) {
+@@ -894,6 +975,7 @@ int main(int argc, char **argv)
+ 
+     g_signal_connect(view, "decide-policy", G_CALLBACK(on_decide_policy), NULL);
+     g_signal_connect(view, "load-changed", G_CALLBACK(on_load_changed), &osk);
++    g_signal_connect(view, "create", G_CALLBACK(on_auth_create), &osk);
+     g_signal_connect(window, "key-press-event", G_CALLBACK(on_key), &osk);
+ 
+     /* Something to look at while the provider's page loads. Six seconds of
+diff --git a/projects/ROCKNIX/packages/network/rclone/package.mk b/projects/ROCKNIX/packages/network/rclone/package.mk
+index ca357f13ab..f3bd2b3572 100644
+--- a/projects/ROCKNIX/packages/network/rclone/package.mk
++++ b/projects/ROCKNIX/packages/network/rclone/package.mk
+@@ -65,6 +65,7 @@ makeinstall_target() {
+   cp cloud_setup ${INSTALL}/usr/bin/
+   cp cloud_folder_validate ${INSTALL}/usr/bin/
+   cp cloud_remote ${INSTALL}/usr/bin/
++  cp cloud_connections.py ${INSTALL}/usr/bin/
+   cp cloud_device_id ${INSTALL}/usr/bin/
+   cp cloud_oauth ${INSTALL}/usr/bin/
+   cp cloud_content_restore ${INSTALL}/usr/bin/
+diff --git a/projects/ROCKNIX/packages/network/rclone/sources/cloud_backup b/projects/ROCKNIX/packages/network/rclone/sources/cloud_backup
+index 0f1eea46bc..66e9d98ee4 100755
+--- a/projects/ROCKNIX/packages/network/rclone/sources/cloud_backup
++++ b/projects/ROCKNIX/packages/network/rclone/sources/cloud_backup
+@@ -468,19 +468,11 @@ take_cloud_lock() {
+     done
+ }
+ 
+-# The configured remote, by the same rule as `rclone listremotes | head -1`
+-# -- the first section name in sorted order -- read from the config file
+-# rather than by starting rclone, which costs close to a second on a
+-# handheld. rclone remains the fallback if the file yields nothing.
++# The shared explicit selection, with legacy first-name behavior only when
++# the sidecar is absent. Empty or missing selected names never fall back to
++# another account (D-CLOUD-184). Keep the internal function name for callers.
+ first_remote() {
+-    local name
+-    name=$(grep -o '^\[[^]]*\]' /storage/.config/rclone/rclone.conf 2>/dev/null \
+-           | tr -d '[]' | sort | head -1)
+-    if [ -n "${name}" ]; then
+-        printf '%s:\n' "${name}"
+-    else
+-        rclone listremotes 2>/dev/null | head -1
+-    fi
++    "$(dirname "${BASH_SOURCE[0]}")/cloud_remote" active 2>/dev/null
+ }
+ 
+ # Does the remote compare files by size alone? rclone decides equality by
+@@ -962,7 +954,7 @@ check_internet() {
+     log_message "Checking cloud storage reachability..." "false"
+ 
+     local remote probe_rc=1
+-    remote=$(rclone listremotes 2>/dev/null | head -1)
++    remote=$("$(dirname "${BASH_SOURCE[0]}")/cloud_remote" active 2>/dev/null)
+     if [ -n "${remote}" ]; then
+         rclone lsd "${remote}" "${RCLONE_PROBE_OPTS[@]}" >/dev/null 2>&1; probe_rc=$?
+         if [ "${probe_rc}" -eq 0 ]; then
+diff --git a/projects/ROCKNIX/packages/network/rclone/sources/cloud_content_backup b/projects/ROCKNIX/packages/network/rclone/sources/cloud_content_backup
+index 5cc3fd5559..5d8a08642d 100755
+--- a/projects/ROCKNIX/packages/network/rclone/sources/cloud_content_backup
++++ b/projects/ROCKNIX/packages/network/rclone/sources/cloud_content_backup
+@@ -194,7 +194,7 @@ case "${CONTENT_REMOTE}" in
+         exit 1 ;;
+ esac
+ 
+-REMOTENAME=$(rclone listremotes | head -1)
++REMOTENAME=$("$(dirname "${BASH_SOURCE[0]}")/cloud_remote" active)
+ if [ -z "${REMOTENAME}" ]; then
+     echo ">>> why YOUR CLOUD STORAGE ISN'T SET UP YET"
+     echo "Your cloud storage isn't set up yet. Set it up under GAME SETTINGS > MANAGE CLOUD STORAGE first."
+@@ -682,6 +682,13 @@ take_cloud_lock
+ # the change: it adds no subshell, so exits, traps and variables behave
+ # exactly as they did.
+ {
++# Settings may change while the interactive preview is open. Re-check under
++# the transfer lock before sending anything to the previously named cloud.
++if [ "$("$(dirname "${BASH_SOURCE[0]}")/cloud_remote" active 2>/dev/null)" != "${REMOTENAME}" ]; then
++    echo ">>> why YOUR CLOUD SYNC SETTINGS COULDN'T BE READ"
++    echo "Your cloud connection changed. Start this operation again."
++    exit 1
++fi
+ UNIT_N=${#DIRS[@]}; UNIT_I=0
+ for DIR in "${DIRS[@]}"; do
+     set_system_save_excludes "${DIR}"
+diff --git a/projects/ROCKNIX/packages/network/rclone/sources/cloud_content_restore b/projects/ROCKNIX/packages/network/rclone/sources/cloud_content_restore
+index b928cfec18..28e4c27ff5 100755
+--- a/projects/ROCKNIX/packages/network/rclone/sources/cloud_content_restore
++++ b/projects/ROCKNIX/packages/network/rclone/sources/cloud_content_restore
+@@ -231,7 +231,7 @@ case "${CONTENT_REMOTE}" in
+         exit 1 ;;
+ esac
+ 
+-REMOTENAME=$(rclone listremotes | head -1)
++REMOTENAME=$("$(dirname "${BASH_SOURCE[0]}")/cloud_remote" active)
+ if [ -z "${REMOTENAME}" ]; then
+     echo ">>> why YOUR CLOUD STORAGE ISN'T SET UP YET"
+     echo "Your cloud storage isn't set up yet. Set it up under GAME SETTINGS > MANAGE CLOUD STORAGE first."
+@@ -852,7 +852,10 @@ match_run() {
+     fi
+ 
+     # The preview is read-only and may run beside a transfer; applying is one.
+-    [ "${apply}" = "1" ] && take_cloud_lock
++    if [ "${apply}" = "1" ]; then
++        take_cloud_lock
++        [ "$("$(dirname "${BASH_SOURCE[0]}")/cloud_remote" active 2>/dev/null)" = "${REMOTENAME}" ] || return 1
++    fi
+     # As at the foot of the script: the rest of the run cannot leak the
+     # lock into rclone. Closing a descriptor that was never opened (the
+     # preview, which takes no lock) is a no-op.
+@@ -1476,6 +1479,13 @@ take_cloud_lock
+ # the change: it adds no subshell, so exits, traps and variables behave
+ # exactly as they did.
+ {
++# Settings may change while the interactive preview is open. Re-check under
++# the transfer lock before sending anything to the previously named cloud.
++if [ "$("$(dirname "${BASH_SOURCE[0]}")/cloud_remote" active 2>/dev/null)" != "${REMOTENAME}" ]; then
++    echo ">>> why YOUR CLOUD SYNC SETTINGS COULDN'T BE READ"
++    echo "Your cloud connection changed. Start this operation again."
++    exit 1
++fi
+ UNIT_N=${#DIRS[@]}; UNIT_I=0
+ tree_record_take
+ for DIR in "${DIRS[@]}"; do
+diff --git a/projects/ROCKNIX/packages/network/rclone/sources/cloud_oauth b/projects/ROCKNIX/packages/network/rclone/sources/cloud_oauth
+index bb49701782..4284fc751a 100755
+--- a/projects/ROCKNIX/packages/network/rclone/sources/cloud_oauth
++++ b/projects/ROCKNIX/packages/network/rclone/sources/cloud_oauth
+@@ -61,6 +61,7 @@ import socket
+ import struct
+ import subprocess
+ import sys
++import cloud_connections as connections
+ import threading
+ import time
+ import shlex
+@@ -513,9 +514,9 @@ class Session:
+             return self._config_result
+ 
+     def _create_remote(self):
+-        # One create at a time within the serve: an attempt that finishes
+-        # late removes what it made (below) before a newer one asks whether
+-        # that name is taken.
++        # One create at a time within the serve. An obsolete attempt never
++        # publishes its staged credentials; cancellation and publication
++        # use the same state lock below.
+         with _CREATE_LOCK:
+             return self._create_remote_locked()
+ 
+@@ -526,77 +527,26 @@ class Session:
+         if self.superseded:
+             log("the sign-in was closed before its remote was saved; nothing was saved")
+             return False, CLOSED_EARLY
+-        # Which remotes exist, or no create at all: a listing that failed
+-        # read as "none of that name" and the create went ahead over
+-        # whatever was there (#308 gpt F-RS-23).
+-        listed = subprocess.run([RCLONE, "listremotes"],
+-                                capture_output=True, text=True)
+-        if listed.returncode != 0:
+-            log("could not list the configured remotes (exit %d); not creating one"
+-                % listed.returncode)
+-            return False, ("The sign-in worked, but your handheld's cloud "
+-                           "settings couldn't be read.")
+-        if "%s:" % name in listed.stdout.split():
+-            return False, "a remote called '%s' already exists" % name
+-
+-        result = subprocess.run(
+-            [RCLONE, "config", "create", name, self.backend,
+-             "token=%s" % self.token, "--non-interactive"],
+-            capture_output=True, text=True)
+-        if result.returncode != 0:
+-            # A fixed sentence, and rclone's exit code in the log -- never its
+-            # words. They went to cloud_sync.log as "could not finish the
+-            # sign-in: <rclone's stderr>" and into the page, and an rclone
+-            # that echoed a parameter would have put the token there (audit
+-            # #307 PL-074).
+-            log("rclone could not save the remote (exit %d)" % result.returncode)
+-            return False, ("The sign-in worked, but it couldn't be saved on "
+-                           "your handheld.")
+-
+-        # Prove it before saying so. A token that parses is not a token that
+-        # works, and cloud_remote takes the same posture.
+-        check = subprocess.run(
+-            [RCLONE, "lsd", "%s:" % name, "--contimeout", "10s",
+-             "--timeout", "20s", "--low-level-retries", "1", "--retries", "1"],
+-            capture_output=True, text=True)
+-        if check.returncode != 0:
+-            gone = subprocess.run([RCLONE, "config", "delete", name],
+-                                  capture_output=True)
+-            if gone.returncode != 0:
+-                log("remote %s did not respond and could not be removed either "
+-                    "(rclone config delete exited %d); it stays until the next "
+-                    "sign-in replaces it" % (name, gone.returncode))
+-            return False, "signed in, but the remote did not respond"
+-
+-        # Published only while this attempt still speaks for the state, and
+-        # only from starting or waiting. The write's answer used to be
+-        # dropped: an attempt a restart had replaced, or one the serve had
+-        # already closed -- its timeout's failed, a cancel's idle -- went on
+-        # to return success, and its caller stopped the pad and wrote the
+-        # signed-in marker `wait` returns on, over a state that said
+-        # otherwise; a remote no screen had reported stayed, and the next
+-        # sign-in of that name was refused as already there (the audit of
+-        # the fix round, PL-032: gpt G2-C-03, the blind pass's S-25, claude
+-        # G2-C-03). Refused, the remote this attempt made is taken away
+-        # again, so what the device holds is what the state says.
+-        if not write_owned(self.attempt, owner=self.gen,
+-                           from_status=(None, "starting", "waiting"),
+-                           status="signed-in", remote=name):
+-            # Checked, not assumed (the audit of the fixes, gpt G3-D-06): a
+-            # delete that fails leaves the remote installed, and the log
+-            # said it was gone.
+-            gone = subprocess.run([RCLONE, "config", "delete", name],
+-                                  capture_output=True)
+-            if gone.returncode == 0:
+-                log("the sign-in finished after it had been closed or replaced; "
+-                    "the remote it made was removed")
+-            else:
+-                log("the sign-in finished after it had been closed or replaced; "
+-                    "the remote it made could NOT be removed (rclone config "
+-                    "delete exited %d) and stays until the next sign-in "
+-                    "replaces it" % gone.returncode)
+-            return False, CLOSED_EARLY
+-        log("remote %s created for %s" % (name, self.backend))
++        def publish(commit):
++            # Hold the same cross-process state lock as cancellation until
++            # both the config and its success record have been published.
++            with _state_locked():
++                state = read_state()
++                if (self.superseded or
++                    (self.attempt is not None and state.get("attempt") != self.attempt) or
++                    (self.gen is not None and state.get("session") != self.gen) or
++                    state.get("status") not in (None, "starting", "waiting")):
++                    raise connections.Refused(CLOSED_EARLY)
++                commit()
++                state.update(status="signed-in", remote=name)
++                _write_whole(state)
++        try:
++            connections.save(name, self.backend, [("token", self.token)],
++                             replace=getattr(self, "replace", False), publish=publish)
++        except (connections.Refused, OSError) as exc:
++            log("the sign-in could not be saved; previous settings retained")
++            return False, str(exc) if isinstance(exc, connections.Refused) else "Your cloud settings could not be saved."
++        log("remote %s verified and saved for %s" % (name, self.backend))
+         return True, name
+ 
+ 
+@@ -1078,7 +1028,11 @@ window.onerror = function (message) {
+   var ready = false;
+   var page = null;
+   var queue = Promise.resolve();
++  var pendingMove = null;
+   function send(body) {
++    // Seal any queued movement before this key/click. Later drags start a
++    // new batch behind it, so a tap cannot overtake its final pointer move.
++    pendingMove = null;
+     queue = queue.then(function () {
+       return fetch("/" + pin, {
+         method: "POST",
+@@ -1226,29 +1180,24 @@ window.onerror = function (message) {
+   var restX = 0, restY = 0;
+   function at(e) { var t = e.touches ? e.touches[0] : e; return {x: t.clientX, y: t.clientY}; }
+ 
+-  // Movement is coalesced, not queued. A finger produces about sixty events a
+-  // second and each request takes longer than that to complete, so putting
+-  // them in the same strict queue as keystrokes built a backlog that kept
+-  // draining after the finger stopped -- the pointer carried on travelling on
+-  // its own. At most one move is ever in flight; whatever arrives meanwhile
+-  // is added up and sent as a single delta when it returns. Keystrokes still
+-  // go through the ordered queue, because for them order is the point.
+-  var pendX = 0, pendY = 0, inFlight = false;
+-  function flushMove() {
+-    if (inFlight || (!pendX && !pendY)) return;
+-    var dx = pendX, dy = pendY;
+-    pendX = 0; pendY = 0;
+-    inFlight = true;
+-    fetch("/" + pin, {
+-      method: "POST",
+-      headers: {"Content-Type": "application/x-www-form-urlencoded"},
+-      body: "move=" + dx + "," + dy + "&pin=" + encodeURIComponent(pin)
+-    }).catch(function () {}).then(function () {
+-      inFlight = false;
+-      flushMove();
++  // Coalesce only adjacent, unsent moves in the same input queue as taps
++  // and keys. A separate move queue plus a 60 ms timer raced on slow links.
++  function pushMove(dx, dy) {
++    if (pendingMove) {
++      pendingMove.x += dx; pendingMove.y += dy;
++      return;
++    }
++    var batch = {x: dx, y: dy};
++    pendingMove = batch;
++    queue = queue.then(function () {
++      if (pendingMove === batch) pendingMove = null;
++      return fetch("/" + pin, {
++        method: "POST",
++        headers: {"Content-Type": "application/x-www-form-urlencoded"},
++        body: "move=" + batch.x + "," + batch.y + "&pin=" + encodeURIComponent(pin)
++      }).catch(function () {});
+     });
+   }
+-  function pushMove(dx, dy) { pendX += dx; pendY += dy; flushMove(); }
+   function down(e) {
+     var p = at(e); px = p.x; py = p.y; moved = 0; tracking = true;
+     restX = 0; restY = 0;
+@@ -1271,7 +1220,7 @@ window.onerror = function (message) {
+     pad.classList.remove("live");
+     // Let any outstanding movement land first, so the click happens where
+     // the finger finished rather than where it was a moment earlier.
+-    if (moved < 8) setTimeout(function () { send("click=1"); }, 60);
++    if (moved < 8) send("click=1");
+     e.preventDefault();
+   }
+   pad.addEventListener("touchstart", down, {passive: false});
+@@ -1956,9 +1905,10 @@ class SessionHolder:
+     built from it, and neither can be re-issued from here.
+     """
+ 
+-    def __init__(self, backend, remote_name, label, timeout):
++    def __init__(self, backend, remote_name, label, timeout, replace=False):
+         self.backend = backend
+         self.remote_name = remote_name
++        self.replace = replace
+         self.name = display_name(backend, label)
+         self.timeout = timeout
+         self.pin = "%04d" % secrets.randbelow(10000)
+@@ -1974,6 +1924,7 @@ class SessionHolder:
+ 
+     def start(self):
+         session = Session(self.backend, self.remote_name, self.timeout)
++        session.replace = self.replace
+         # When the sign-in finishes on the device, take the page away rather
+         # than leaving rclone's own "All done, go back to rclone" sitting
+         # there -- a sentence about a program the player has never heard of,
+@@ -2405,7 +2356,7 @@ def make_handler(holder, shutdown):
+     return Handler
+ 
+ 
+-def cmd_serve(backend, remote_name, label, port, timeout):
++def cmd_serve(backend, remote_name, label, port, timeout, replace=False):
+     if not shutil.which("rclone") and not os.path.exists(RCLONE):
+         sys.stderr.write("rclone is not installed\n")
+         return 2
+@@ -2413,7 +2364,7 @@ def cmd_serve(backend, remote_name, label, port, timeout):
+     # Nothing from the last attempt survives into this one -- including a
+     # serve still holding the port.
+     stop_other_serves()
+-    holder = SessionHolder(backend, remote_name, label, timeout)
++    holder = SessionHolder(backend, remote_name, label, timeout, replace)
+     # The state is this serve's from here, stamped with its attempt id; every
+     # write this serve makes afterwards is conditional on still owning it
+     # (write_owned, G-C-02).
+@@ -2587,7 +2538,7 @@ def main(argv):
+                 port = int(rest[i + 1])
+             elif arg == "--timeout" and i + 1 < len(rest):
+                 timeout = int(rest[i + 1])
+-        return cmd_serve(backend, name, label, port, timeout)
++        return cmd_serve(backend, name, label, port, timeout, "--replace" in rest)
+ 
+     if command == "url":
+         print(read_state().get("url", ""))
+diff --git a/projects/ROCKNIX/packages/network/rclone/sources/cloud_remote b/projects/ROCKNIX/packages/network/rclone/sources/cloud_remote
+index a5d26b7699..8a25a78165 100755
+--- a/projects/ROCKNIX/packages/network/rclone/sources/cloud_remote
++++ b/projects/ROCKNIX/packages/network/rclone/sources/cloud_remote
+@@ -27,7 +27,10 @@
+ #                        can pick an input widget without fetching them.
+ #   choices <type> <field> [prov]  TSV: value, label
+ #   create <name> <type> [key=value ...]    create, verify, roll back on failure
+-#   list                 TSV: name, type
++#   update <name> <type> [key=value ...]  verify and replace saved settings
++#   active               selected name with trailing colon; empty is failure
++#   select/remove <name> change local selection or remove local credentials
++#   list                 STATE line, then TSV: name, type, active/saved, provider
+ #
+ # Tiers:
+ #   keys      no OAuth at all - a form is enough
+@@ -40,6 +43,7 @@ import json
+ import os
+ import subprocess
+ import sys
++import cloud_connections as connections
+ 
+ RCLONE = "/usr/bin/rclone"
+ LOG_FILE = "/var/log/cloud_sync.log"
+@@ -237,131 +241,31 @@ def cmd_choices(backend_type, field, subprovider=""):
+     return 1
+ 
+ 
+-def existing_remotes():
+-    """Configured remote names, without the trailing colon -- or None when
+-    rclone could not say. A listing that failed used to read as "no remotes",
+-    and cmd_create's refusal to touch an existing remote fell open exactly
+-    when rclone could not be asked (#308 gpt F-RS-23)."""
+-    code, out, _ = rclone("listremotes", check=False)
+-    if code != 0:
+-        return None
+-    return [line.strip().rstrip(":") for line in out.splitlines() if line.strip()]
+-
+-
+ def cmd_list():
+-    code, out, _ = rclone("config", "dump", check=False)
+-    if code != 0:
+-        return 0
++    _, config = connections.read_config()
+     try:
+-        config = json.loads(out or "{}")
+-    except json.JSONDecodeError:
+-        return 0
+-    for name in sorted(config):
+-        print("%s\t%s" % (name, config[name].get("type", "")))
++        selected = connections.active(config)
++    except connections.Refused:
++        selected = ""
++    print("STATE=" + ("active" if selected else "unselected"))
++    for name in sorted(config.sections()):
++        print("%s\t%s\t%s\t%s" % (name, config.get(name, "type", fallback=""),
++                                    "active" if name == selected else "saved", config.get(name, "provider", fallback="")))
+     return 0
+ 
+ 
+-def cmd_create(name, backend_type, settings):
+-    """Create a remote from already-answered values, then prove it works.
+-
+-    Refuses to touch a remote that already exists. A device that is already
+-    syncing has a working configuration and possibly cloud data laid out to
+-    match it; silently rewriting that is how someone loses access to their
+-    own files (see fork issue #51).
+-    """
+-    existing = existing_remotes()
+-    if existing is None:
+-        sys.stderr.write("could not read the configured remotes; not creating one\n")
+-        return 2
+-    if name in existing:
+-        sys.stderr.write(
+-            "remote '%s' already exists; not modifying it\n" % name)
+-        return 1
+-
++def cmd_create(name, backend_type, settings, replace=False):
+     providers = load_providers()
+-    known = {t.get("Name") for t in providers}
+-    if backend_type not in known:
+-        sys.stderr.write("unknown backend type: %s\n" % backend_type)
+-        return 1
+-    # The values of this backend's password options, to be taken out of
+-    # anything of rclone's this passes on (see below).
+-    secret_names = {opt.get("Name") for t in providers if t.get("Name") == backend_type
+-                    for opt in (t.get("Options") or []) if opt.get("IsPassword")}
+-    secret_values = [value for key, value in settings if key in secret_names and value]
+-
+-    args = ["config", "create", name, backend_type]
+-    for key, value in settings:
+-        args.append("%s=%s" % (key, value))
+-    # Bucket-based clouds have no directories: a folder is a prefix on
+-    # object names, so an empty one does not exist and mkdir makes nothing.
+-    # rclone's answer (v1.63+) is a directory marker -- the zero-byte "name/"
+-    # object the AWS and MinIO consoles write for "Create folder" -- behind
+-    # directory_markers, off by default. On, mkdir and the folder seeding
+-    # behave on a bucket as on Dropbox and an empty folder survives; the
+-    # restore judges a folder by its parent's listing either way
+-    # (D-CLOUD-120, 2026-09-12). Only where rclone documents the option.
+-    if backend_type in ("s3", "gcs", "azureblob") and not any(k == "directory_markers" for k, _ in settings):
+-        args.append("directory_markers=true")
+-    # --non-interactive so rclone reports a question as data instead of
+-    # blocking on stdin that no one is attached to. --obscure so passwords
+-    # are stored the way rclone expects rather than in the clear.
+-    args += ["--non-interactive", "--obscure"]
+-
+-    log("creating remote %s (type %s) with %d option(s)"
+-        % (name, backend_type, len(settings)))
+-    code, out, err = rclone(*args)
+-    if code != 0:
+-        # rclone's reason goes on to the interface, which shows it under THE
+-        # CONNECTION COULDN'T BE SAVED so a mistyped key can be fixed -- with
+-        # any password value it echoed taken out first (the audit of stream
+-        # C, G-C-09: the log was cleaned in PL-074, this channel was not).
+-        said = err.strip()
+-        for value in secret_values:
+-            said = said.replace(value, "<hidden>")
+-        sys.stderr.write((said or "rclone config create failed") + "\n")
+-        return 2
+-
+-    # rclone --non-interactive answers with a JSON blob when it still needs
+-    # something. Exit 0 there would otherwise look like success while leaving
+-    # a half-configured remote behind.
+-    question = None
+-    try:
+-        parsed = json.loads(out or "{}")
+-        if isinstance(parsed, dict) and parsed.get("State"):
+-            question = parsed.get("Option") or {}
+-    except json.JSONDecodeError:
+-        pass
+-    if question:
+-        remove_remote(name)
+-        sys.stderr.write(
+-            "backend needs more input: %s\n" % (question.get("Name") or "unknown"))
+-        return 2
+-
+-    # Prove it before telling anyone it worked. A remote that lists is a
+-    # remote the sync tools can use; an exit code from create only says the
+-    # file got written.
+-    code, _, err = rclone("lsd", "%s:" % name,
+-                          "--contimeout", "10s", "--timeout", "20s",
+-                          "--low-level-retries", "1", "--retries", "1",
+-                          check=False)
+-    if code != 0:
+-        log("remote %s failed verification, rolling back" % name)
+-        remove_remote(name)
+-        sys.stderr.write(
+-            "the remote was created but could not be reached; it has been "
+-            "removed so nothing half-working is left behind\n")
+-        return 3
+-
+-    log("remote %s created and verified" % name)
++    if backend_type not in {p.get("Name") for p in providers}:
++        raise connections.Refused("Unknown provider.")
++    if not replace and backend_type in ("s3", "gcs", "azureblob") and not any(k == "directory_markers" for k, _ in settings):
++        settings.append(("directory_markers", "true"))
++    log("updating remote " + name if replace else "creating remote " + name)
++    connections.save(name, backend_type, settings, replace=replace)
+     print("OK=%s" % name)
+     return 0
+ 
+ 
+-def remove_remote(name):
+-    """Undo a failed create. Best effort - never mask the original error."""
+-    rclone("config", "delete", name, check=False)
+-
+-
+ def usage():
+     sys.stderr.write(
+         "usage: cloud_remote providers\n"
+@@ -369,6 +273,9 @@ def usage():
+         "       cloud_remote fields <type> [subprovider]\n"
+         "       cloud_remote choices <type> <field> [subprovider]\n"
+         "       cloud_remote create <name> <type> [key=value ...]\n"
++        "       cloud_remote update <name> <type> [key=value ...]\n"
++        "       cloud_remote active\n"
++        "       cloud_remote select|remove <name>\n"
+         "       cloud_remote list\n")
+     return 1
+ 
+@@ -399,7 +306,19 @@ def main(argv):
+     if command == "list":
+         return cmd_list()
+ 
+-    if command == "create":
++    if command == "active":
++        name = connections.active()
++        if name:
++            print(name + ":")
++            return 0
++        return 1
++
++    if command in ("select", "remove") and len(argv) == 3:
++        (connections.select if command == "select" else connections.remove)(argv[2])
++        print("OK=" + argv[2])
++        return 0
++
++    if command in ("create", "update"):
+         if len(argv) < 4:
+             return usage()
+         settings = []
+@@ -409,10 +328,14 @@ def main(argv):
+                 return 1
+             key, value = pair.split("=", 1)
+             settings.append((key, value))
+-        return cmd_create(argv[2], argv[3], settings)
++        return cmd_create(argv[2], argv[3], settings, replace=(command == "update"))
+ 
+     return usage()
+ 
+ 
+ if __name__ == "__main__":
+-    sys.exit(main(sys.argv))
++    try:
++        sys.exit(main(sys.argv))
++    except (connections.Refused, OSError) as exc:
++        sys.stderr.write(str(exc) + "\n" if isinstance(exc, connections.Refused) else "Cloud settings could not be read or saved.\n")
++        sys.exit(2)
+diff --git a/projects/ROCKNIX/packages/network/rclone/sources/cloud_restore b/projects/ROCKNIX/packages/network/rclone/sources/cloud_restore
+index 67ce8b2a25..6f8f99282f 100755
+--- a/projects/ROCKNIX/packages/network/rclone/sources/cloud_restore
++++ b/projects/ROCKNIX/packages/network/rclone/sources/cloud_restore
+@@ -925,20 +925,11 @@ clean_exit() {
+     exit ${exit_code}
+ }
+ 
+-# The configured remote, by the same rule as `rclone listremotes | head -1`
+-# -- the first section name in sorted order -- read from the config file
+-# rather than by starting rclone, which costs close to a second on a
+-# handheld. rclone remains the fallback if the file yields nothing. The
+-# same function as cloud_backup's (#308 claude F-CS-04).
++# The shared explicit selection, with legacy first-name behavior only when
++# the sidecar is absent. Empty or missing selected names never fall back to
++# another account (D-CLOUD-184). Keep the internal function name for callers.
+ first_remote() {
+-    local name
+-    name=$(grep -o '^\[[^]]*\]' /storage/.config/rclone/rclone.conf 2>/dev/null \
+-           | tr -d '[]' | sort | head -1)
+-    if [ -n "${name}" ]; then
+-        printf '%s:\n' "${name}"
+-    else
+-        rclone listremotes 2>/dev/null | head -1
+-    fi
++    "$(dirname "${BASH_SOURCE[0]}")/cloud_remote" active 2>/dev/null
+ }
+ 
+ # Does the remote compare files by size alone? rclone decides equality by
+@@ -1016,7 +1007,7 @@ check_internet() {
+     log_message "Checking cloud storage reachability..." "false"
+ 
+     local remote probe_rc=1
+-    remote=$(rclone listremotes 2>/dev/null | head -1)
++    remote=$("$(dirname "${BASH_SOURCE[0]}")/cloud_remote" active 2>/dev/null)
+     if [ -n "${remote}" ]; then
+         rclone lsd "${remote}" "${RCLONE_PROBE_OPTS[@]}" >/dev/null 2>&1; probe_rc=$?
+         if [ "${probe_rc}" -eq 0 ]; then
+diff --git a/projects/ROCKNIX/packages/network/rclone/sources/cloud_scan b/projects/ROCKNIX/packages/network/rclone/sources/cloud_scan
+index 85b560e194..4eac16acc6 100755
+--- a/projects/ROCKNIX/packages/network/rclone/sources/cloud_scan
++++ b/projects/ROCKNIX/packages/network/rclone/sources/cloud_scan
+@@ -136,7 +136,7 @@ prepare() {
+         log "scan: no default route; skipped"
+         exit "${EXIT_NO_NETWORK}"
+     fi
+-    REMOTE=$(rclone listremotes 2>/dev/null | head -1)
++    REMOTE=$("$(dirname "${BASH_SOURCE[0]}")/cloud_remote" active 2>/dev/null)
+     if [ -z "${REMOTE}" ]; then
+         why "YOUR CLOUD STORAGE ISN'T SET UP YET"
+         exit 1
+diff --git a/projects/ROCKNIX/packages/network/rclone/sources/cloud_setup b/projects/ROCKNIX/packages/network/rclone/sources/cloud_setup
+index ff72e38bda..75c6c0d64e 100755
+--- a/projects/ROCKNIX/packages/network/rclone/sources/cloud_setup
++++ b/projects/ROCKNIX/packages/network/rclone/sources/cloud_setup
+@@ -548,8 +548,7 @@ syncpath_problem() {
+ validation_context() {
+     folder_values >/dev/null || return 2
+     local remotes config_file config_id
+-    remotes=$(timeout 3 rclone listremotes 2>/dev/null) || return 2
+-    REMOTE=$(printf '%s\n' "${remotes}" | head -1)
++    REMOTE=$("$(dirname "${BASH_SOURCE[0]}")/cloud_remote" active 2>/dev/null) || return 2
+     [ -n "${REMOTE}" ] || return 2
+     config_file=$(timeout 3 rclone config file 2>/dev/null | tail -1)
+     [ -f "${config_file}" ] && [ -r "${config_file}" ] || return 2
+@@ -557,6 +556,9 @@ validation_context() {
+     config_id=$( set -o pipefail; { printf '%s\0' "${REMOTE}" "${SAVES}" "${BACKUPS}" "${CONTENT}";
+         sha256sum "${config_file}" || exit 1
+         if [ -f "${SYNC_CONF}" ]; then sha256sum "${SYNC_CONF}" || exit 1; fi
++        if [ -f /storage/.config/rclone/active-connection ]; then
++            sha256sum /storage/.config/rclone/active-connection || exit 1
++        fi
+     } | sha256sum) || return 2
+     config_id="${config_id%% *}"
+     jq -n --arg id "${config_id}" --arg remote "${REMOTE}" \
+@@ -592,7 +594,7 @@ case "$1" in
+         exec "${tool}" "$2" "$3"
+     ;;
+     --folder-state)
+-        REMOTE=$(rclone listremotes 2>/dev/null | head -1)
++        REMOTE=$("$(dirname "${BASH_SOURCE[0]}")/cloud_remote" active 2>/dev/null)
+         [ -n "${REMOTE}" ] || { echo "STATE=no-remote"; exit 1; }
+         folder_values || exit $?
+         folder_marker_read || exit $?
+@@ -641,10 +643,14 @@ case "$1" in
+         # into the name the player picked it by. Until this, nothing on any
+         # screen said who the cloud was -- the setup page offered to connect
+         # one and never mentioned the one already there (fork #110).
+-        remote_name="$(rclone listremotes 2>/dev/null | head -1)"
++        remote_name="$("$(dirname "${BASH_SOURCE[0]}")/cloud_remote" active 2>/dev/null)"
+         remote_name="${remote_name%:}"
+         echo "REMOTE_NAME=${remote_name}"
+-        echo "REMOTE_TYPE=$(rclone config show "${remote_name}" 2>/dev/null | sed -n 's/^[[:space:]]*type[[:space:]]*=[[:space:]]*//p' | head -1)"
++        remote_type=""
++        if [ -n "${remote_name}" ]; then
++            remote_type=$(rclone config show "${remote_name}" 2>/dev/null | sed -n 's/^[[:space:]]*type[[:space:]]*=[[:space:]]*//p' | head -1)
++        fi
++        echo "REMOTE_TYPE=${remote_type}"
+         exit 0
+     ;;
+     --content-location)
+@@ -718,7 +724,7 @@ case "$1" in
+             # (the audit of the fixes, claude G3-D-07).
+             CAND="${CAND%/}"
+         fi
+-        REMOTE=$(rclone listremotes 2>/dev/null | head -1)
++        REMOTE=$("$(dirname "${BASH_SOURCE[0]}")/cloud_remote" active 2>/dev/null)
+         if [ -z "${REMOTE}" ]; then
+             echo "No cloud remote configured."
+             exit 2
+@@ -748,7 +754,7 @@ case "$1" in
+         fi
+         # Refuse a path this remote cannot use. The literal path checks also
+         # hold with no remote; existing independent pointers are preserved.
+-        SP_REMOTE=$(rclone listremotes 2>/dev/null | head -1)
++        SP_REMOTE=$("$(dirname "${BASH_SOURCE[0]}")/cloud_remote" active 2>/dev/null)
+         if ! syncpath_problem "${NEWPATH}" "${SP_REMOTE}"; then
+             exit 1
+         fi
+@@ -784,7 +790,7 @@ case "$1" in
+     ;;
+     --seed-folders)
+         [ "$#" -eq 2 ] && seed_categories "$2" || { echo "Choose which cloud folders to create."; exit 2; }
+-        REMOTE=$(rclone listremotes 2>/dev/null | head -1)
++        REMOTE=$("$(dirname "${BASH_SOURCE[0]}")/cloud_remote" active 2>/dev/null)
+         [ -n "${REMOTE}" ] || { echo "ERROR no remote"; exit 2; }
+         folder_values || exit $?
+         seed_failed=0
+@@ -873,7 +879,7 @@ case "$1" in
+         # plain-text verdict on stdout, exit 0 = working, 1 = missing,
+         # 2 = configured but unreachable.
+         REMOTE="$2"
+-        [ -z "${REMOTE}" ] && REMOTE=$(rclone listremotes 2>/dev/null | head -1)
++        [ -z "${REMOTE}" ] && REMOTE=$("$(dirname "${BASH_SOURCE[0]}")/cloud_remote" active 2>/dev/null)
+         if [ -z "${REMOTE}" ]; then
+             echo "NONE"
+             log_message "Cloud setup check: no remotes configured"
+@@ -937,7 +943,7 @@ echo "Press any button here when you are done (or to cancel)."
+ wait_for_button
+ 
+ echo
+-REMOTE=$(rclone listremotes 2>/dev/null | head -1)
++REMOTE=$("$(dirname "${BASH_SOURCE[0]}")/cloud_remote" active 2>/dev/null)
+ if [ -z "${REMOTE}" ]; then
+     echo -e "\e[33mNo cloud remote configured yet.\e[0m"
+     echo "Run this again once you have completed 'rclone config'."
+diff --git a/projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool b/projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool
+index fd19f0e018..850ed70c68 100755
+--- a/projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool
++++ b/projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool
+@@ -718,18 +718,21 @@ RATOKENSETTINGS=(
+ # back on a restore. Not in the default LOCATIONS; a custom list such as
+ # /storage/.config sweeps it in. The toggle itself
+ # (global.retroachievements.offlineproxy) is a line in system.cfg and travels.
+-RATOKENDIRS=(
++# Connection transactions and interrupted atomic writes can leave private
++# staging files beside rclone.conf. The entire directory stays on this device.
++DEVICEONLYDIRS=(
++    /storage/.config/rclone/
+     /storage/.config/raofflineproxy/
+ )
+ # The same folders as restore patterns, each with its own wildcard. Written
+-# inline as "${RATOKENDIRS[@]#/}"'*' the '*' joined the LAST element only, so
++# inline as "${DEVICEONLYDIRS[@]#/}"'*' the '*' joined the LAST element only, so
+ # a second folder in the list would have left the first as a bare name --
+ # which busybox unzip -x matches against nothing (busybox tar -X happens to
+ # take a folder's subtree from its bare name; unzip does not, probed on the
+ # image's binary), and that folder's token cache would come back from a zip
+ # (#308 claude F-BR-13).
+-RATOKENDIR_PATTERNS=()
+-for D in "${RATOKENDIRS[@]}"; do RATOKENDIR_PATTERNS+=("${D#/}*"); done
++DEVICEONLYDIR_PATTERNS=()
++for D in "${DEVICEONLYDIRS[@]}"; do DEVICEONLYDIR_PATTERNS+=("${D#/}*"); done
+ # This device's cloud sign-in and its name in the cloud: never in an archive,
+ # never put back from one, whichever archive it is (#307 PL-010). rclone.conf
+ # is live OAuth tokens (#52); cloud_device_id's record is the name this
+@@ -742,6 +745,7 @@ for D in "${RATOKENDIRS[@]}"; do RATOKENDIR_PATTERNS+=("${D#/}*"); done
+ # rclone.conf over this one's and the restore reported success.
+ DEVICEONLY=(
+     /storage/.config/rclone/rclone.conf
++    /storage/.config/rclone/active-connection
+     /storage/.config/cloud_sync-device-id
+     /storage/.config/cloud_sync-device-id.previous
+ )
+@@ -1064,11 +1068,11 @@ write_archive() {
+                 hold_back_line "${CANDIDATE}"
+             fi
+         done
+-        # The proxy's folder, every file under it (#165). grep -F on the
++        # Device-only identity folders, every file under them (#165, #537). grep -F on the
+         # prefix: the list holds absolute paths, so the prefix matches a file
+         # under that folder and nothing else.
+         HELD=0
+-        for CANDIDATE in "${RATOKENDIRS[@]}"
++        for CANDIDATE in "${DEVICEONLYDIRS[@]}"
+         do
+             while IFS= read -r F
+             do
+@@ -1076,7 +1080,7 @@ write_archive() {
+                 HELD=$((HELD + 1))
+             done < <(grep -F "${CANDIDATE}" "${FILELIST}" || true)
+         done
+-        [ "${HELD}" -gt 0 ] && logger -t backuptool "held back ${HELD} file(s) under the offline RetroAchievements proxy's folder: its token cache and award queue never travel (#165)"
++        [ "${HELD}" -gt 0 ] && logger -t backuptool "held back ${HELD} file(s) under device-only identity folders: credentials and award queues never travel (#165, #537)"
+         # The copies a writer keeps beside a file that is stripped or held
+         # back carry the same keys: chksysconfig's and the interface's
+         # last-good record (system.cfg.backup, es_settings.cfg.backup), a
+@@ -1535,7 +1539,7 @@ case "${VERB}" in
+                     /storage/.config/ppsspp/assets/*|/storage/.config/ppsspp/PSP/SYSTEM/CACHE/*) continue ;;
+                 esac
+                 for CANDIDATE in "${DEVICEONLY[@]}" "${RATOKENFILES[@]}"; do [ "/storage/.config/${REL}" = "${CANDIDATE}" ] && continue 2; done
+-                for CANDIDATE in "${RATOKENDIRS[@]}"; do case "/storage/.config/${REL}" in "${CANDIDATE}"*) continue 2 ;; esac; done
++                for CANDIDATE in "${DEVICEONLYDIRS[@]}"; do case "/storage/.config/${REL}" in "${CANDIDATE}"*) continue 2 ;; esac; done
+                 if [ -f "/usr/config/${REL}" ] && [ ! -L "/storage/.config/${REL}" ]
+                 then
+                     printf '%s\n' "${REL}" 2>/dev/null >> "${SEEDS}" || { SEED_RC=1; break; }
+@@ -1641,7 +1645,7 @@ case "${VERB}" in
+         # restore's own: its control files, the settings backups folder that
+         # holds the copy just taken, and that copy by name (RESTORE_CONTROL;
+         # #307, the audit of the fix round, PL-007).
+-        SKIPS=('storage/.config/ppsspp/assets/*' 'storage/.config/ppsspp/PSP/SYSTEM/CACHE/*' "${RATOKENFILES[@]#/}" "${RATOKENDIR_PATTERNS[@]}" "${DEVICEONLY[@]#/}" "${SEEDLIST#/}" "${LINKS[@]}")
++        SKIPS=('storage/.config/ppsspp/assets/*' 'storage/.config/ppsspp/PSP/SYSTEM/CACHE/*' "${RATOKENFILES[@]#/}" "${DEVICEONLYDIR_PATTERNS[@]}" "${DEVICEONLY[@]#/}" "${SEEDLIST#/}" "${LINKS[@]}")
+         for C in "${RESTORE_CONTROL[@]}"; do SKIPS+=("$(glob_literal "${C#/}")"); done
+         SKIPS+=("$(glob_literal "${SETTINGS_BACKUPS#/}")/*")
+         [ -n "${SNAPSHOT}" ] && SKIPS+=("$(glob_literal "${SNAPSHOT#/}")")
+diff --git a/projects/ROCKNIX/packages/rocknix/sources/scripts/wifictl b/projects/ROCKNIX/packages/rocknix/sources/scripts/wifictl
+index 930c8a84e6..33d754de08 100755
+--- a/projects/ROCKNIX/packages/rocknix/sources/scripts/wifictl
++++ b/projects/ROCKNIX/packages/rocknix/sources/scripts/wifictl
+@@ -41,13 +41,18 @@ ADHOC_CLIENT_ID=$(get_setting wifi.adhoc.id)
+ NETPLAY_SSID="NETPLAY_AP"
+ WIFI_DEV="$(ls /sys/class/net | grep -m1 ^wlan)"
+ 
++# Typed security/join callers must not read an unavailable radio as success.
++if [ "${1}" = security ] || [ "${1}" = connect-open ]; then
++  [ -n "${WIFI_DEV}" ] && [ -d "/sys/class/net/${WIFI_DEV}" ] && [ -n "${NMCLI}" ] || exit 2
++fi
++
+ # Exit the script if the WiFi device isn't available
+ [ -z "${WIFI_DEV}" ] && exit 0
+ [ ! -d "/sys/class/net/${WIFI_DEV}" ] && exit 0
+ [ -z "${NMCLI}" ] && exit 0
+ 
+ SSID="${2:-$(get_setting wifi.ssid 2>/dev/null)}"
+-PSK="${3:-$(get_setting wifi.key 2>/dev/null)}"
++PSK="${3-$(get_setting wifi.key 2>/dev/null)}"
+ COUNTRY="${4:-$(get_setting wifi.country | tr -d '[:space:]' 2>/dev/null)}"
+ 
+ if [ "${WIFI_TYPE}" = "1" ]; then
+@@ -81,6 +86,46 @@ list_wifi() {
+   "${NMCLI}" -t -f SSID dev wifi list ifname "${WIFI_DEV}" 2>/dev/null | nm_unescape | sed '/^$/d' | sort -u
+ }
+ 
++# Only an explicit, unanimous open result may skip the key prompt. SECURITY
++# has no colons; SSIDs do, escaped by nmcli. Unknown/mixed scans fail closed.
++wifi_security() {
++  local wanted="${1}" rows line name security found=0 open=0 protected=0
++  rows=$(LC_ALL=C "${NMCLI}" -t -f SSID,SECURITY device wifi list ifname "${WIFI_DEV}" --rescan no 2>/dev/null) || { echo unknown; return 1; }
++  while IFS= read -r line; do
++    [[ "${line}" == *:* ]] || continue
++    name=$(printf '%s\n' "${line%:*}" | nm_unescape)
++    [ "${name}" = "${wanted}" ] || continue
++    found=1
++    security="${line##*:}"
++    case "${security}" in
++      ''|--) open=1 ;;
++      *WPA*|*WEP*|*802.1X*|*OWE*) protected=1 ;;
++      *) echo unknown; return 1 ;;
++    esac
++  done <<< "${rows}"
++  if [ "${found}" = 0 ] || { [ "${open}" = 1 ] && [ "${protected}" = 1 ]; }; then
++    echo unknown; return 1
++  fi
++  if [ "${open}" = 1 ]; then echo open; else echo protected; fi
++}
++
++# An unsaved open network never borrows wifi.key or deletes a saved profile.
++# Check again at the mutation boundary, including profiles renamed by NM.
++connect_open_wifi() {
++  local name="${1}" rows line profile saved_ssid
++  [ "${WIFI_TYPE}" != 1 ] && [ -n "${name}" ] || return 1
++  [ "$(wifi_security "${name}")" = open ] || return 1
++  rows=$(saved_wifi) || return 1
++  while IFS= read -r line; do
++    [ -n "${line}" ] || continue
++    profile="${line%$'\t'*}"
++    saved_ssid=$("${NMCLI}" --escape no -g 802-11-wireless.ssid connection show id "${profile}" 2>/dev/null) || return 1
++    [ "${profile}" != "${name}" ] && [ "${saved_ssid}" != "${name}" ] || return 1
++  done <<< "${rows}"
++  wait_for_wifi
++  "${NMCLI}" -w 90 device wifi connect "${name}" ifname "${WIFI_DEV}" >/dev/null 2>&1
++}
++
+ connect_wifi() {
+   wait_for_wifi
+   # Ensure NM has the device ready and has scanned
+@@ -425,6 +470,12 @@ case "${1}" in
+   pin)
+     pin_wifi
+     ;;
++  security)
++    wifi_security "${2}"
++    ;;
++  connect-open)
++    connect_open_wifi "${2}"
++    ;;
+   connect)
+     if [ "${WIFI_TYPE}" = "1" ] && \
+        [ "${ADHOC_CLIENT_ID}" = "1" ]; then
+diff --git a/tools/cloud-round-trip b/tools/cloud-round-trip
+index ddefcd48c9..0be352fdfe 100755
+--- a/tools/cloud-round-trip
++++ b/tools/cloud-round-trip
+@@ -69,9 +69,9 @@ reads (the three outcome words are asserted by default; --no-vocabulary skips th
+ 
+ Two guards, both load-bearing:
+ 
+-* Every cloud_* script picks its remote with `rclone listremotes | head -1`.
+-  If the device has another remote sorting earlier, the tests would sync a
+-  real cloud account instead. The remote is asserted, never assumed.
++* Cloud tools use the explicit active connection (legacy images use their
++  first remote). The suite preserves that selection and asserts the QA
++  connection before any transfer; another saved account is never assumed safe.
+ * Restore is destructive by design. The suite works in a scratch tree by
+   default and only touches /storage/roms with --real-roms, so pointing this
+   at a device with real saves cannot quietly delete them.
+@@ -288,11 +288,19 @@ class Prepared:
+         self.settings = {}
+         self.prev_paths = {}
+         self.prev_rclone_conf = ""
++        self.prev_active = None
+         # A capture-only run (prepare_local) reads no rclone.conf and asks the
+         # backend for nothing; restore_device must then put back neither.
+         self.local_only = False
+ 
+ 
++# Only images predating explicit selection may use the historical fallback.
++ACTIVE_COMMAND = 'if test -f "$(dirname "$(command -v cloud_remote)")/cloud_connections.py"; then cloud_remote active; else rclone listremotes 2>/dev/null | head -1; fi'
++
++def active_remote(dev):
++    return dev.run(ACTIVE_COMMAND).strip()
++
++
+ def prepare_device(dev, remote, root, args, prepared, which=""):
+     """Point one device at the QA endpoint. It is appended to `prepared` as
+     soon as its previous state is captured -- before anything is written --
+@@ -311,16 +319,20 @@ def prepare_device(dev, remote, root, args, prepared, which=""):
+     # The device's own remote comes back at the end: a device the suite has
+     # finished with has the remote it started with (Gate 0, #35).
+     p.prev_rclone_conf = dev.run(f"cat {RCLONE_CONF} 2>/dev/null || true")
++    if dev.run(f"test -f {RCLONE_CONF.rsplit('/', 1)[0]}/active-connection && echo present", check=False).strip() == "present":
++        p.prev_active = dev.run(f"cat {RCLONE_CONF.rsplit('/', 1)[0]}/active-connection")
+     for key in ("SAVESPATH", "SETTINGS_BACKUPS", "SAVES_REMOTE", "SETTINGS_REMOTE", "CONTENT_REMOTE",
+                 "BACKUPPATH", "BACKUPFOLDER", "SYNCPATH", "SYNCPATH_BACKUP", "CONTENTPATH"):
+         p.prev_paths[key] = dev.run(f"grep -m1 '^{key}=' {CONF} 2>/dev/null || true").strip()
+     prepared.append(p)
+     dev.run(f"mkdir -p {os.path.dirname(RCLONE_CONF)}")
+     dev.write(RCLONE_CONF, backend("rclone-conf").encode())
+-    first = dev.run("rclone listremotes 2>/dev/null | head -1").strip().rstrip(":")
++    dev.write(RCLONE_CONF.rsplit("/", 1)[0] + "/active-connection", (remote + "\n").encode())
++    dev.run(f"chmod 600 {RCLONE_CONF} {RCLONE_CONF.rsplit('/', 1)[0]}/active-connection")
++    first = active_remote(dev).rstrip(":")
+     if not check(first == remote,
+-                 f"first remote is {remote!r}, which is what the scripts will use",
+-                 f"first remote is {first!r}, not {remote!r} - refusing to sync "
++                 f"active remote is {remote!r}, which is what the scripts will use",
++                 f"active remote is {first!r}, not {remote!r} - refusing to sync "
+                  f"someone else's account"):
+         raise Fail("refusing to sync someone else's account")
+ 
+@@ -946,10 +958,7 @@ def run_steps(dev, root, remote, args, settings, prev_paths):
+                           f"the user rule sits above the catch-all in the merged file (lines {' < '.join(order) if order else '?'})",
+                           f"rules order was {order}")
+     saves_remote = dev.run(f"grep -m1 '^SAVES_REMOTE=' {CONF} | cut -d'\"' -f2").strip()
+-    # The scripts fall back to the first configured remote when REMOTENAME is
+-    # blank in the conf, and so must this.
+-    remote_name = dev.run(f"grep -m1 '^REMOTENAME=' {CONF} | cut -d'\"' -f2").strip() \
+-        or dev.run("rclone listremotes 2>/dev/null | head -1").strip()
++    remote_name = active_remote(dev)
+     listing = dev.run(f"rclone lsf -R --files-only {shlex.quote(remote_name + saves_remote)} 2>/dev/null || true")
+     failures += not check("keep-off-the-cloud.probe" not in listing and "game1.srm" in listing,
+                           "the excluded file stayed home while the ordinary save travelled",
+@@ -2380,7 +2389,7 @@ def fx_a5(p):
+     store = p.saves_remote.rstrip("/") + "-discarded"
+     # The reader, on b: the store listed and every record read as one line;
+     # nothing local consulted.
+-    reader = ("R=$(rclone listremotes 2>/dev/null | head -1); S=" + shlex.quote(store) + "; "
++    reader = ("R=$(" + ACTIVE_COMMAND + "); S=" + shlex.quote(store) + "; "
+               "rclone lsf -R --files-only \"${R}${S}\" 2>/dev/null | while IFS= read -r r; do "
+               "case \"$r\" in */record.json|record.json) rclone cat \"${R}${S}/${r}\" | jq -c . ;; "
+               "*) echo \"MEMBER $r\" ;; esac; done")
+@@ -4622,7 +4631,7 @@ class Transport:
+             f.write(f"$ {cmd}\n# exit {rc}\n{out}")
+ 
+     def remote(self, dev):
+-        return dev.run("rclone listremotes 2>/dev/null | head -1").strip() + self.p.saves_remote
++        return active_remote(dev) + self.p.saves_remote
+ 
+     def clear(self, dev):
+         dev.run(f"rm -rf {BISYNC_STATE} {AGREED}", check=False)
+@@ -7779,6 +7788,10 @@ def restore_device(p, args, archive):
+             dev.write(RCLONE_CONF, prev_rclone_conf.encode())
+         else:
+             dev.run(f"rm -f {RCLONE_CONF}", check=False)
++        if p.prev_active is None:
++            dev.run(f"rm -f {RCLONE_CONF.rsplit('/', 1)[0]}/active-connection", check=False)
++        else:
++            dev.write(RCLONE_CONF.rsplit("/", 1)[0] + "/active-connection", p.prev_active.encode())
+         backend("reset")
+         print("    scratch tree and bucket emptied; the device's own remote, paths and "
+               "settings-backup setting restored")
+diff --git a/tools/cloud-test-backend b/tools/cloud-test-backend
+index d3cb756655..ec08e7faac 100755
+--- a/tools/cloud-test-backend
++++ b/tools/cloud-test-backend
+@@ -65,6 +65,9 @@ case "${BACKEND}" in
+   webdav|s3|sftp|smb|ftp) ;;
+   *) echo "error: unknown backend '${BACKEND}' (webdav, s3, sftp, smb, ftp)" >&2; exit 2 ;;
+ esac
++# Nested helper calls (seed-device, status and endpoint notes) must keep the
++# explicit CLI selection, even when the incoming environment named another.
++export CLOUD_QA_BACKEND="${BACKEND}"
+ 
+ # One port each, so more than one backend can be up at a time: a matrix run
+ # that had to take the previous endpoint down between rows would test the
+@@ -102,10 +105,9 @@ else
+ fi
+ CONFDIR="$(dirname "${PIDFILE}")"
+ 
+-# The remote name the device will use. Every cloud_* script selects its
+-# remote with `rclone listremotes | head -1` - first alphabetically - so this
+-# name decides whether the tests act on the test endpoint or on whatever else
+-# the device has configured. The driver asserts it rather than trusting it.
++# The QA connection name. The driver explicitly selects it, verifies the
++# active reader and restores prior selection with credentials after testing.
++# Historical images use their first-remote rule, asserted at the same boundary.
+ REMOTE="${CLOUD_QA_REMOTE:-qa-cloud}"
+ 
+ GUEST_HOST="${CLOUD_QA_GUEST_HOST:-10.0.2.2}"
+@@ -884,6 +886,8 @@ mkdir -p /storage/.config/rclone
+ cat > /storage/.config/rclone/rclone.conf <<'RC'
+ $("$0" --backend "${BACKEND}" rclone-conf)
+ RC
++printf '%s\n' '${REMOTE}' > /storage/.config/rclone/active-connection
++chmod 600 /storage/.config/rclone/rclone.conf /storage/.config/rclone/active-connection
+ /usr/bin/cloud_sync_helper >/dev/null 2>&1
+ grep -q '^CONTENT_REMOTE="${cr}"' /storage/.config/cloud_sync.conf || sed -i 's|^CONTENT_REMOTE=.*|CONTENT_REMOTE="${cr}"|' /storage/.config/cloud_sync.conf
+ /usr/bin/cloud_setup --check
+diff --git a/tools/last-good-scripts-test b/tools/last-good-scripts-test
+index 4947e53402..c19e993456 100755
+--- a/tools/last-good-scripts-test
++++ b/tools/last-good-scripts-test
+@@ -322,6 +322,17 @@ src_of() { # <repo-relative path> <destination>
+     else
+         cp "${ROOT}/${1}" "${2}" || { echo "cannot read ${1}" >&2; exit 2; }
+     fi
++    # Ship the real reader and transaction module beside the script, as the
++    # package does. Historical --old scripts without that dependency stay old.
++    if grep -q 'cloud_connections as connections\|/cloud_remote" active' "${2}"; then
++        local connection_dir
++        connection_dir="$(dirname "$2")"
++        if [[ "${1}" != */cloud_remote ]]; then
++            src_of "${RCLONE_REL}/cloud_remote" "${connection_dir}/cloud_remote"
++            chmod +x "${connection_dir}/cloud_remote"
++        fi
++        src_of "${RCLONE_REL}/cloud_connections.py" "${connection_dir}/cloud_connections.py"
++    fi
+     case "${1}" in
+         */cloud_setup)
+             # Discovery shares the restore scanner's local membership.
+@@ -758,13 +769,17 @@ printf '#!/bin/sh\nexit 0\n' > "${B2}/shim/sleep"
+ chmod +x "${B2}/shim"/*
+ printf 'system.hostname=X\n' > "${ST2}/.config/system/configs/system.cfg"
+ printf '[qa]\ntype = dropbox\ntoken = {"access_token":"QA-SECRET-TOKEN","refresh_token":"QA-REFRESH"}\n' > "${ST2}/.config/rclone/rclone.conf"
++mkdir -p "${ST2}/.config/rclone/.connection-qa"
++printf 'token = STAGED-QA-CREDENTIAL\n' > "${ST2}/.config/rclone/.connection-qa/rclone.conf"
++printf 'token = ATOMIC-QA-CREDENTIAL\n' > "${ST2}/.config/rclone/.rclone.conf-qa"
++printf 'qa\n' > "${ST2}/.config/rclone/active-connection"
+ echo plain > "${ST2}/.config/test/plain.txt"
+ # es_settings.cfg is XML, which the line-anchored leak scan cannot read, so the
+ # strip at the archive is its only guard: the ScreenScraper passwords (#64)
+ # and the IGDB client secret (#274, found by #221's trace). No harness case
+ # read this strip before 2026-09-25.
+ printf '<?xml version="1.0"?>\n<config>\n<string name="ScreenScraperUser" value="qa-user" />\n<string name="ScreenScraperPass" value="QA-SECRET-SS" />\n<string name="ScreenScraperDevPass" value="QA-SECRET-DEV" />\n<string name="IGDBClientID" value="qa-client" />\n<string name="IGDBSecret" value="QA-SECRET-IGDB" />\n<string name="ThemeSet" value="art-book-next" />\n</config>\n' > "${ST2}/.config/emulationstation/es_settings.cfg"
+-printf 'LOCATIONS=(\n  /storage/.config/system/configs/system.cfg\n  /storage/.config/test/*\n  /storage/.config/rclone/*\n  /storage/.config/emulationstation/*\n)\n' > "${ST2}/.config/backuptool.conf"
++printf 'LOCATIONS=(\n  /storage/.config/system/configs/system.cfg\n  /storage/.config/test/*\n  /storage/.config/rclone/*\n  /storage/.config/rclone/.connection-qa/*\n  /storage/.config/rclone/.rclone.conf-qa\n  /storage/.config/emulationstation/*\n)\n' > "${ST2}/.config/backuptool.conf"
+ OUT2="${B2}/out"
+ RC2=$( ( setsid -w bwrap --die-with-parent --tmpfs / --ro-bind /usr /usr \
+     --symlink usr/bin /bin --symlink usr/lib /lib --symlink usr/lib64 /lib64 \
+@@ -775,6 +790,9 @@ RC2=$( ( setsid -w bwrap --die-with-parent --tmpfs / --ro-bind /usr /usr \
+ arc=$(ls "${ST2}/roms/backup"/*.tar.gz 2>/dev/null | head -1)
+ [ "${RC2}" -eq 0 ] && [ -n "${arc}" ]; check $? "a backup with rclone.conf in LOCATIONS completes (rc ${RC2})" "rc ${RC2}, archive: '${arc}'"
+ ! tar -tzf "${arc}" 2>/dev/null | grep -q 'rclone/rclone.conf$'; check $? "rclone.conf is not in the archive" "the archive lists rclone.conf"
++if grep -q '/storage/.config/rclone/' "${BT}"; then
++    ! tar -tzf "${arc}" 2>/dev/null | grep -q 'storage/.config/rclone/'; check $? "connection selection and interrupted private credential staging never travel in a settings backup (#537)" "a device-only connection file entered the archive"
++fi
+ ! tar -xzOf "${arc}" 2>/dev/null | grep -q 'QA-SECRET-TOKEN'; check $? "and no token travelled in any member" "a member carries the token"
+ tar -tzf "${arc}" 2>/dev/null | grep -q 'test/plain.txt$'; check $? "files that are not held back are archived as before" "plain.txt missing"
+ grep -q 'rclone.conf held back' "${OUT2}"; check $? "the log says rclone.conf was held back" "no held-back line: $(grep logger "${OUT2}" | tail -2 | tr '\n' ' ')"
+@@ -1020,7 +1038,7 @@ echo "${klist}" | grep -q 'duckstation/settings.ini$' && echo "${klist}" | grep
+ ! grep -rqF "${KTOK}" "${KX}" 2>/dev/null; check $? "and the planted token appears in no member of the archive" "the token is in: $(grep -rlF "${KTOK}" "${KX}" 2>/dev/null | sed "s|${KX}/||" | tr '\n' ' ')"
+ grep -q 'held back 5 file(s) that hold only a RetroAchievements token' "${OUT}" && grep -q 'blanked the RetroAchievements token in 4 emulator settings file(s)' "${OUT}"; check $? "and the log counts five held back and four blanked" "log: $(grep -oE '(held back|blanked)[^|]*' "${OUT}" | tr '\n' ' ')"
+ ! echo "${klist}" | grep -q 'storage/.config/raofflineproxy/'; check $? "the offline RetroAchievements proxy's folder travels in no shape: none of its five files is in the archive (#165)" "the archive carries: $(echo "${klist}" | grep 'raofflineproxy/' | tr '\n' ' ')"
+-grep -q "held back 5 file(s) under the offline RetroAchievements proxy's folder" "${OUT}"; check $? "and the log counts the five held back under it" "log: $(grep -o "held back [0-9]* file(s) under the offline[^|]*" "${OUT}" | head -1 | grep . || echo silent)"
++grep -qE "held back 5 file\(s\) under (the offline RetroAchievements proxy's folder|device-only identity folders)" "${OUT}"; check $? "and the log counts the five held back under it" "log: $(grep -o "held back [0-9]* file(s) under the offline[^|]*" "${OUT}" | head -1 | grep . || echo silent)"
+ # A Token = line in a file the strip does not know, with a value of its own.
+ # Since #307 PL-005 the scanner's hit ends the backup before the archive is
+ # named, so it is planted for a second run: that run is refused, the log
+@@ -1201,6 +1219,9 @@ grep -q 'absent_not_broken "${ROOT}ROMs/"' "${LL}/src/cloud_content_restore" &&
+ # pages, the shape #113 bounded for the syncs (#273's trace of #113).
+ LC="${LL}/check"; mkdir -p "${LC}/shim" "${LC}/rec" "${LC}/repo"
+ cp "${LL}/src/cloud_setup" "${LC}/repo/cloud_setup"
++mkdir -p "${LC}/storage/.config/rclone"
++printf '[qa]\ntype = local\n' > "${LC}/storage/.config/rclone/rclone.conf"
++if [ -f "${LL}/src/cloud_connections.py" ]; then cp "${LL}/src/cloud_remote" "${LL}/src/cloud_connections.py" "${LC}/repo/"; fi
+ printf 'export PATH=/shim:/usr/bin:/bin\n' > "${LC}/profile"
+ printf '#!/bin/sh\necho "logger $*" >&2\n' > "${LC}/shim/logger"
+ cat > "${LC}/shim/rclone" <<'EOR'
+@@ -1215,7 +1236,7 @@ RCC=$( ( setsid -w bwrap --die-with-parent --tmpfs / --ro-bind /usr /usr \
+     --symlink usr/bin /bin --symlink usr/lib /lib --symlink usr/lib64 /lib64 \
+     --ro-bind /etc /etc --ro-bind "${LC}/profile" /etc/profile \
+     --ro-bind "${LC}/shim" /shim --bind "${LC}/rec" /rec --ro-bind "${LC}/repo" /repo \
+-    --dev /dev --proc /proc --tmpfs /tmp --tmpfs /storage \
++    --dev /dev --proc /proc --tmpfs /tmp --bind "${LC}/storage" /storage --dir /var/log \
+     bash /repo/cloud_setup --check > "${OUTC}" 2>&1; echo $? ) 2>/dev/null )
+ [ "${RCC}" -eq 0 ] && grep -q '^OK qa:' "${OUTC}"; check $? "cloud_setup --check verifies the one remote the shim lists (rc ${RCC})" "rc ${RCC}; out: $(head -2 "${OUTC}" | tr '\n' ' ' | cut -c1-120)"
+ LSD=$(grep '^lsd ' "${LC}/rec/argv" 2>/dev/null | head -1)
+@@ -4544,6 +4565,7 @@ if [ -n "${BB}" ]; then CSBB=(--ro-bind "${TMP}/bbin" /bbin --ro-bind "${BB_HOST
+ # path-based and holds no folder yet (lsd answers "directory not found").
+ C1="${CS}/c1"; mkdir -p "${C1}/shim" "${C1}/repo" "${C1}/storage/.config"
+ cp "${CS}/src/cloud_setup" "${C1}/repo/cloud_setup"
++if [ -f "${CS}/src/cloud_connections.py" ]; then cp "${CS}/src/cloud_remote" "${CS}/src/cloud_connections.py" "${C1}/repo/"; fi
+ if [ "${VALIDATOR_AVAILABLE}" -eq 1 ]; then
+     cp "${CS}/src/cloud_folder_validate" "${C1}/repo/cloud_folder_validate"
+     chmod +x "${C1}/repo/cloud_folder_validate" "${C1}/repo/cloud_setup"
+@@ -4971,6 +4993,8 @@ fi
+ # reached. `drive` runs cloud_oauth's own main() with those patches, for the
+ # groups that need a serve as a process of its own.
+ C3="${CS}/c3"; mkdir -p "${C3}/scratch"; cp "${CS}/src/cloud_oauth" "${C3}/cloud_oauth"; cp "${CS}/src/cloud_remote" "${C3}/cloud_remote"
++if [ -f "${CS}/src/cloud_connections.py" ]; then cp "${CS}/src/cloud_connections.py" "${C3}/"; fi
++cp "${ROOT}/tools/test-fixtures/cloud_connections_fixture.py" "${C3}/"
+ cat > "${C3}/cloud_oauth_test.py" <<'EOPY'
+ #!/usr/bin/env python3
+ # cloud_oauth, graded in-process and as processes, inside a bwrap sandbox with
+@@ -5008,11 +5032,15 @@ def load(tag="t"):
+     loader = importlib.machinery.SourceFileLoader("cloud_oauth_" + tag, REPO)
+     spec = importlib.util.spec_from_loader(loader.name, loader)
+     m = importlib.util.module_from_spec(spec)
++    sys.path.insert(0, __import__("os").path.dirname(loader.path))
+     loader.exec_module(m)
+     d = tempfile.mkdtemp(dir=WORK, prefix=tag + ".")
+     m.STATE_DIR = os.path.join(d, "state")
+     os.makedirs(m.STATE_DIR)
+     m.LOG_FILE = os.path.join(d, "cloud_sync.log")
++    if hasattr(m, "connections"):
++        from cloud_connections_fixture import configure
++        configure(m, d)
+     m.UINPUT = "/nonexistent/uinput"
+     return m, d
+ 
+@@ -5197,9 +5225,13 @@ def driver():
+     loader = importlib.machinery.SourceFileLoader("cloud_oauth", REPO)
+     spec = importlib.util.spec_from_loader(loader.name, loader)
+     m = importlib.util.module_from_spec(spec)
++    sys.path.insert(0, __import__("os").path.dirname(loader.path))
+     loader.exec_module(m)
+     m.STATE_DIR = os.path.join(d, "state")
+     m.LOG_FILE = os.path.join(d, "cloud_sync.log")
++    if hasattr(m, "connections"):
++        from cloud_connections_fixture import configure
++        configure(m, d)
+     m.UINPUT = "/nonexistent/uinput"
+     shim = os.path.join(d, "rclone")
+     with open(shim, "w") as h:
+@@ -5345,9 +5377,13 @@ def load_remote(tag="r"):
+     loader = importlib.machinery.SourceFileLoader("cloud_remote_" + tag, path)
+     spec = importlib.util.spec_from_loader(loader.name, loader)
+     m = importlib.util.module_from_spec(spec)
++    sys.path.insert(0, __import__("os").path.dirname(loader.path))
+     loader.exec_module(m)
+     d = tempfile.mkdtemp(dir=WORK, prefix=tag + ".")
+     m.LOG_FILE = os.path.join(d, "cloud_sync.log")
++    if hasattr(m, "connections"):
++        from cloud_connections_fixture import configure
++        configure(m, d)
+     shim = os.path.join(d, "rclone")
+     with open(shim, "w") as h:
+         h.write('#!/bin/bash\n'
+@@ -5780,6 +5816,9 @@ def listremotes_failure_is_not_absence():
+     m, d = load("rs23")
+     sp = FakeSP([(["listremotes"], lambda a: completed(a, 1, "", "config file unreadable"))])
+     m.subprocess = sp
++    if hasattr(m, "connections"):
++        m.connections.CONFIG.write_bytes(b"[broken")
++        m.connections.RCLONE = "/bin/false"
+     s = m.Session("dropbox", "qa", 60)
+     s.token = '{"access_token":"t"}'
+     ok, detail = s._write_config()
+@@ -5793,6 +5832,9 @@ def remote_listremotes_failure_is_not_absence():
+     """#308 gpt F-RS-23 (the cloud_remote half)."""
+     m, d = load_remote("rs23r")
+     open(os.path.join(d, "listremotes-fails"), "w").close()
++    if hasattr(m, "connections"):
++        m.connections.CONFIG.write_bytes(b"[broken")
++        m.connections.RCLONE = "/bin/false"
+     rc = m.main(["cloud_remote", "create", "saves", "webdav", "url=https://dav.example"])
+     argv = open(os.path.join(d, "argv")).read() if os.path.exists(os.path.join(d, "argv")) else ""
+     result(rc != 0 and "config create" not in argv,
+@@ -5959,8 +6001,8 @@ def remote_create_stderr_holds_no_password():
+     with contextlib.redirect_stderr(buf):
+         rc = m.main(["cloud_remote", "create", "qa", "webdav", "url=https://dav.example", "pass=SECRETPASS9"])
+     said = buf.getvalue()
+-    result(rc != 0 and "SECRETPASS9" not in said and "bad option" in said,
+-           "a failed create passes rclone's reason on with the password taken out: %r" % said.strip(),
++    result(rc != 0 and "SECRETPASS9" not in said and ("could not be verified" if hasattr(m, "connections") else "bad option") in said,
++           "a failed create reports a useful sanitized reason without the password: %r" % said.strip(),
+            "rc %r; cloud_remote said %r -- a password value reaches the interface's dialog (G-C-09 claude)" % (rc, said.strip()))
+ EOPY
+ # G-C-01 (claude): the serve's side of the phone's Close page -- a guard.
+@@ -6082,6 +6124,7 @@ import importlib.machinery, importlib.util, sys
+ loader = importlib.machinery.SourceFileLoader("cloud_oauth_page", sys.argv[1])
+ spec = importlib.util.spec_from_loader(loader.name, loader)
+ m = importlib.util.module_from_spec(spec)
++sys.path.insert(0, __import__("os").path.dirname(loader.path))
+ loader.exec_module(m)
+ sys.stdout.write(m.REMOTE_PAGE % {"style": m.STYLE, "name": "Dropbox", "pin": "1234"})
+ EOPY
+@@ -8011,6 +8054,19 @@ echo this-device > "${P7S}/.config/cloud_sync-device-id"
+ p7bt backup
+ [ "${RC}" -eq 0 ] && ! p7list | grep -q 'cloud_sync-device-id'; check $? "#307 PL-010: and a backup of /storage/.config does not carry the device id" "#307 PL-010: rc ${RC}; archive: $(p7list | grep device-id)"
+ 
++# #537: neither restore format imports staged credentials or another active selection.
++if grep -q 'DEVICEONLYDIRS=' "${ROOT}/projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool"; then
++for p537format in tar zip; do
++    p7reset '  /storage/.config/test/*'
++    mkdir -p "${P7S}/.config/rclone"
++    echo mine > "${P7S}/.config/rclone/active-connection"
++    p537members=("storage/.config/test/f1=RESTORED" "storage/.config/rclone/active-connection=other" "storage/.config/rclone/.connection-qa/rclone.conf=STAGED SECRET" "storage/.config/rclone/.rclone.conf-qa=TEMP SECRET")
++    if [ "${p537format}" = tar ]; then p7tar 2026_01_01-000000-ROCKNIX_SETTINGS.tar.gz "${p537members[@]}"; else p7zip 20260101000000-ROCKNIX_BACKUP.zip "${p537members[@]}"; fi
++    p7bt restore --no-restart
++    [ "${RC}" -eq 0 ] && [ "$(cat "${P7S}/.config/test/f1")" = RESTORED ] && [ "$(cat "${P7S}/.config/rclone/active-connection")" = mine ] && [ ! -e "${P7S}/.config/rclone/.connection-qa" ] && [ ! -e "${P7S}/.config/rclone/.rclone.conf-qa" ]; check $? "#537: ${p537format} restore excludes staged credentials and active selection" "#537: ${p537format} credential directory changed (rc ${RC})"
++done
++fi
++
+ # == PL-037: a file left out as the image's own is reset on restore
+ p7reset '  /storage/.config/emulationstation/es_settings.cfg
+   /storage/.config/test/*'
+@@ -11238,6 +11294,7 @@ if [ -n "${BB}" ]; then CFBB=(--ro-bind "${TMP}/bbin" /bbin --ro-bind "${BB_HOST
+ # path-based and empty, every call it gets written down.
+ CF1="${CF}/1"; mkdir -p "${CF1}/shim" "${CF1}/repo" "${CF1}/storage/.config"
+ cp "${CF}/src/cloud_setup" "${CF1}/repo/cloud_setup"
++if [ -f "${CF}/src/cloud_connections.py" ]; then cp "${CF}/src/cloud_remote" "${CF}/src/cloud_connections.py" "${CF1}/repo/"; fi
+ if [ "${VALIDATOR_AVAILABLE}" -eq 1 ]; then
+     cp "${CF}/src/cloud_folder_validate" "${CF1}/repo/cloud_folder_validate"
+     chmod +x "${CF1}/repo/cloud_folder_validate" "${CF1}/repo/cloud_setup"
+@@ -11512,6 +11569,8 @@ cf_cap=$(grep -n '/usr/bin/cloud_capture' "${cf_auto}" | head -1 | cut -d: -f1)
+ # and network namespaces as C3's groups run (the script's pkill and its
+ # binds reach nothing outside it). Each group prints P or F lines.
+ CF4="${CF}/4"; mkdir -p "${CF4}/scratch"
++if [ -f "${CF}/src/cloud_connections.py" ]; then cp "${CF}/src/cloud_connections.py" "${CF4}/"; fi
++cp "${ROOT}/tools/test-fixtures/cloud_connections_fixture.py" "${CF4}/"
+ [ -e "${CF}/src/cloud_oauth" ] && cp "${CF}/src/cloud_oauth" "${CF4}/cloud_oauth"
+ cat > "${CF4}/cf_oauth_test.py" <<'EOPY'
+ #!/usr/bin/env python3
+@@ -11540,11 +11599,15 @@ def load(tag):
+     loader = importlib.machinery.SourceFileLoader("cf_oauth_" + tag, REPO)
+     spec = importlib.util.spec_from_loader(loader.name, loader)
+     m = importlib.util.module_from_spec(spec)
++    sys.path.insert(0, __import__("os").path.dirname(loader.path))
+     loader.exec_module(m)
+     d = tempfile.mkdtemp(dir=WORK, prefix=tag + ".")
+     m.STATE_DIR = os.path.join(d, "state")
+     os.makedirs(m.STATE_DIR)
+     m.LOG_FILE = os.path.join(d, "cloud_sync.log")
++    if hasattr(m, "connections"):
++        from cloud_connections_fixture import configure
++        configure(m, d)
+     m.UINPUT = "/nonexistent/uinput"
+     m.provider_url = lambda local: "https://www.dropbox.com/oauth2/authorize?state=abc"
+     m.lan_address = lambda: "127.0.0.1"
+@@ -11745,7 +11808,7 @@ def late_success(tag, close):
+     time.sleep(0.3)                             # the create is under way
+     close(m, holder, s)
+     t.join(10)
+-    deleted = any(c[1:3] == ["config", "delete"] for c in sp.calls)
++    deleted = (not m.connections.CONFIG.exists()) if hasattr(m, "connections") else any(c[1:3] == ["config", "delete"] for c in sp.calls)
+     return m.read_state(), os.path.exists(m.state_path("signed-in")), deleted
+ 
+ 
+@@ -11903,6 +11966,7 @@ import importlib.machinery, importlib.util, sys
+ loader = importlib.machinery.SourceFileLoader("cloud_oauth_page", sys.argv[1])
+ spec = importlib.util.spec_from_loader(loader.name, loader)
+ m = importlib.util.module_from_spec(spec)
++sys.path.insert(0, __import__("os").path.dirname(loader.path))
+ loader.exec_module(m)
+ sys.stdout.write(m.REMOTE_PAGE % {"style": m.STYLE, "name": "Dropbox", "pin": "1234"})
+ EOPY
+@@ -13904,6 +13968,8 @@ echo "  ab. cloud_scan (#350, D-CLOUD-156): the opening scan's three items, the
+ # archive listing, ip answering a route unless told not to.
+ SC="${TMP}/sc"; mkdir -p "${SC}/shim" "${SC}/rec" "${SC}/repo" "${SC}/storage/.config" "${SC}/storage/.cache"
+ src_of "projects/ROCKNIX/packages/network/rclone/sources/cloud_scan" "${SC}/repo/cloud_scan"
++mkdir -p "${SC}/storage/.config/rclone"
++printf '[qa]\ntype = local\n' > "${SC}/storage/.config/rclone/rclone.conf"
+ SC_BOUND=0; SC_RUN_SEQ=0; SC_RUN_ID=""
+ grep -q -- '--stamp-valid' "${SC}/repo/cloud_scan" && SC_BOUND=1
+ printf 'export PATH=/shim:/usr/bin:/bin\n' > "${SC}/profile"
+@@ -14006,9 +14072,11 @@ if [ "${SC_BOUND}" -eq 1 ]; then
+ else
+ [ "${SCRC}" = 69 ] && ! grep -q '>>> unit' "${SC}/out" && [ ! -f "${SCO}/done" ]; check $? "no default route: exit 69, nothing announced, no done stamp (rc ${SCRC})" "$(sc_out)"
+ fi
+-rm -f "${SC}"/rec/*; touch "${SC}/rec/noremote"; sc_run
++rm -f "${SC}"/rec/*; touch "${SC}/rec/noremote"
++: > "${SC}/storage/.config/rclone/active-connection"
++sc_run
+ [ "${SCRC}" = 1 ] && grep -q "^>>> why YOUR CLOUD STORAGE ISN'T SET UP YET" "${SC}/out"; check $? "no remote: exit 1 with its why (rc ${SCRC})" "$(sc_out)"
+-rm -f "${SC}"/rec/*; touch "${SC}/rec/scan-fail"; sc_run
++rm -f "${SC}"/rec/* "${SC}/storage/.config/rclone/active-connection"; touch "${SC}/rec/scan-fail"; sc_run
+ [ "${SCRC}" = 0 ] && [ -f "${SCO}/done" ]; check $? "a content listing is not the opening scan's to fail: the scan-fail flag leaves the opening scan at 0 (rc ${SCRC})" "$(sc_out)"
+ rm -f "${SC}"/rec/*; sc_run --content --with-media
+ [ "${SCRC}" = 0 ] && [ "$(grep '^>>> unit' "${SC}/out" | tr '\n' ' ')" = ">>> unit ROMS, BIOS, AND GAME CONTENT|| " ] && grep -q '^>>> doing compare' "${SC}/out" \
+@@ -14019,7 +14087,7 @@ if [ "${SC_BOUND}" -eq 1 ]; then
+ fi
+ rm -f "${SC}"/rec/*; sc_run --content --media-only
+ [ "${SCRC}" = 0 ] && grep -q '^>>> unit GAME CONTENT||' "${SC}/out" && grep -qx -- '--scan --media-only' "${SC}/rec/argv"; check $? "--content --media-only is the GAME CONTENT item with --scan --media-only (rc ${SCRC})" "$(sc_out)"
+-rm -f "${SC}"/rec/*; touch "${SC}/rec/scan-fail"; sc_run --content
++rm -f "${SC}"/rec/* "${SC}/storage/.config/rclone/active-connection"; touch "${SC}/rec/scan-fail"; sc_run --content
+ [ "${SCRC}" = 5 ] && grep -q '^>>> why YOUR CLOUD STOPPED ANSWERING' "${SC}/out" && [ ! -f "${SCO}/content-done" ] && grep -q '^>>> unit ROMS AND BIOS||' "${SC}/out"; check $? "a content listing the cloud refused (5): the ROMS AND BIOS item, the why, no content stamp (rc ${SCRC})" "$(sc_out)"
+ if [ "${MIGRATION_AVAILABLE}" -eq 1 ]; then
+ rm -f "${SC}"/rec/*; touch "${SC}/rec/superseded"; sc_run
+diff --git a/tools/rasteratops-vm-cloud-epic b/tools/rasteratops-vm-cloud-epic
+index 360df6ef52..5aa2f36e69 100755
+--- a/tools/rasteratops-vm-cloud-epic
++++ b/tools/rasteratops-vm-cloud-epic
+@@ -127,7 +127,7 @@ boot_frames() { # <tag> <seconds after the guest is idle>
+ G_ 'systemctl stop essway; . /etc/profile >/dev/null 2>&1; set_setting cloudsaves.startup 0; set_setting cloudsaves.gameexit 0; rm -f /storage/.config/.restore-finish-pending /storage/.config/cloud-layout-migration.json; rm -rf /storage/.cache/cloud_sync/scan; find /storage/roms -type f -name "*.srm" -delete' >/dev/null || exit 2
+ say "== setup: the QA remote on the guest (the host backend's conf), then the QA cloud holds the fork's earlier layout with files in every folder of ours; the guest points at it"
+ "$R/tools/cloud-test-backend" rclone-conf > $P/epic-rclone.conf && scp -q -i $KEY -P $PORT -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=ERROR $P/epic-rclone.conf root@127.0.0.1:/tmp/rclone.conf; rm -f $P/epic-rclone.conf
+-G_ 'mkdir -p /storage/.config/rclone && mv /tmp/rclone.conf /storage/.config/rclone/rclone.conf && chmod 600 /storage/.config/rclone/rclone.conf && /usr/bin/cloud_sync_helper >/dev/null 2>&1; echo "remote: $(rclone listremotes | head -1)"' | tee -a "$LOG"
++G_ 'mkdir -p /storage/.config/rclone && mv /tmp/rclone.conf /storage/.config/rclone/rclone.conf && chmod 600 /storage/.config/rclone/rclone.conf && /usr/bin/cloud_sync_helper >/dev/null 2>&1; if test -f /usr/bin/cloud_connections.py; then name=$(rclone listremotes | head -1); cloud_remote select "${name%:}"; echo "remote: $(cloud_remote active)"; else echo "remote: $(rclone listremotes | head -1)"; fi' | tee -a "$LOG"
+ "$R/tools/cloud-test-backend" reset >/dev/null || exit 2; mkdir -p "$DATA/ROCKNIX/Saves/nes" "$DATA/ROCKNIX/Backups" "$DATA/ROCKNIX/Content/ROMs/nes" "$DATA/ROCKNIX/Content/BIOS" "$DATA/ROCKNIX/Saves-replaced/nes"
+ head -c 4000 /dev/urandom > "$DATA/ROCKNIX/Saves/nes/Probe.srm"; head -c 3000 /dev/urandom > "$DATA/ROCKNIX/Saves-replaced/nes/Probe.srm.1"
+ head -c 9000 /dev/urandom > "$DATA/ROCKNIX/Content/ROMs/nes/Probe.nes"; head -c 500 /dev/urandom > "$DATA/ROCKNIX/Content/BIOS/disksys.rom"
+diff --git a/tools/vm-qa b/tools/vm-qa
+index 9e49adc738..13e80f1fc9 100755
+--- a/tools/vm-qa
++++ b/tools/vm-qa
+@@ -300,8 +300,14 @@ case ",$ONLY," in *,exit,*)       run_suite exit       "$OUT/exit.log"       "$R
+ # while the same suite had read PASS on the image before, whose fixed-wait
+ # walks passed whenever the tool ran (#125). Seed the QA remote when there is
+ # none, the way seed-device does, and the folders the transfer page expects.
++ACTIVE_READER='if test -f "$(dirname "$(command -v cloud_remote)")/cloud_connections.py"; then cloud_remote active; else rclone listremotes 2>/dev/null | head -1; fi'
+ ensure_remote() {
+-  [ -n "$(SSH 'rclone listremotes 2>/dev/null' 2>/dev/null)" ] && return 0
++  [ -n "$(SSH "$ACTIVE_READER" 2>/dev/null)" ] && return 0
++  # A saved account or an explicit no-selection is not a fresh guest.
++  if SSH 'test -s /storage/.config/rclone/rclone.conf || test -e /storage/.config/rclone/active-connection' 2>/dev/null; then
++    echo "vm-qa: choose the QA connection explicitly; saved connection state is present" >&2
++    return 1
++  fi
+   local conf; conf=$(mktemp)
+   "$ROOT/tools/cloud-test-backend" rclone-conf > "$conf"
+   SSH 'mkdir -p /storage/.config/rclone' 2>/dev/null
+@@ -317,7 +323,7 @@ shipped_folders_cmd() {
+   local saves backups
+   saves=$("$ROOT/tools/cloud-test-backend" shipped-default SAVES_REMOTE) || exit 2
+   backups=$("$ROOT/tools/cloud-test-backend" shipped-default SETTINGS_REMOTE) || exit 2
+-  printf 'r=$(rclone listremotes 2>/dev/null | head -1); rclone mkdir "${r}%s" >/dev/null 2>&1; rclone mkdir "${r}%s" >/dev/null 2>&1' "$saves" "$backups"
++  printf 'r=$(%s); [ -n "$r" ] || exit 1; rclone mkdir "${r}%s" >/dev/null 2>&1; rclone mkdir "${r}%s" >/dev/null 2>&1' "$ACTIVE_READER" "$saves" "$backups"
+ }
+ # Time to play (#135). --quick is the bounded form -- one repeat of the
+ # launch, the exit sync and a game-to-game, no reboot and no host fixtures --
+@@ -409,7 +415,7 @@ folder_walk_witness() {
+   SSH 'sha256sum /storage/.config/cloud_sync.conf /storage/.config/rclone/rclone.conf && stat -c "%a %n" /storage/.config/cloud_sync.conf /storage/.config/rclone/rclone.conf' > "$dest/config.txt" || rc=1
+   SSH '/usr/bin/cloud_setup --validation-context' > "$dest/paths.json" || rc=1
+   SSH "bash -o pipefail -c 'find /storage/roms -type f -print0 | xargs -0 -r sha256sum'" > "$dest/local.unsorted" || rc=1
+-  SSH 'r=$(rclone listremotes) || exit; [ "$(printf "%s\n" "$r" | wc -l)" = 1 ] && [ -n "$r" ] || exit 1; timeout 60 rclone hashsum SHA256 --download --retries 1 --contimeout 5s --timeout 10s "$r"' > "$dest/cloud.unsorted" || rc=1
++  SSH "r=\$($ACTIVE_READER); [ -n \"\$r\" ] || exit 1; timeout 60 rclone hashsum SHA256 --download --retries 1 --contimeout 5s --timeout 10s \"\$r\"" > "$dest/cloud.unsorted" || rc=1
+   LC_ALL=C sort "$dest/local.unsorted" > "$dest/local.txt" || rc=1
+   LC_ALL=C sort "$dest/cloud.unsorted" > "$dest/cloud.txt" || rc=1
+   printf '%s\n' "$rc" > "$dest/result"
+diff --git a/tools/vm-upgrade-rehearsal b/tools/vm-upgrade-rehearsal
+index b9989e92ae..b07d8876d9 100755
+--- a/tools/vm-upgrade-rehearsal
++++ b/tools/vm-upgrade-rehearsal
+@@ -59,7 +59,11 @@ ssha "cat > /storage/.config/rclone/rclone.conf <<'RC'
+ $CONF
+ RC
+ chmod 600 /storage/.config/rclone/rclone.conf" >>"$LOG" 2>&1
+-REM0=$(ssha 'rclone listremotes 2>/dev/null | head -1'); echo "remote: $REM0" >> "$LOG"
++ACTIVE_READER='if test -f "$(dirname "$(command -v cloud_remote)")/cloud_connections.py"; then cloud_remote active; else rclone listremotes 2>/dev/null | head -1; fi'
++QA_REMOTE=$(./tools/cloud-test-backend remote-name)
++ssha "if test -e /storage/.config/rclone/active-connection; then printf '%s\n' '$QA_REMOTE' > /storage/.config/rclone/active-connection; fi" >>"$LOG" 2>&1
++ACTIVE0=$(ssha 'if test -e /storage/.config/rclone/active-connection; then sha256sum /storage/.config/rclone/active-connection; else echo absent; fi')
++REM0=$(ssha "$ACTIVE_READER"); echo "remote: $REM0" >> "$LOG"
+ check "guest sees one remote" "$([ -n "$REM0" ] && echo yes)" "yes"
+ ssha "rclone mkdir ${REM0}Rehearsal/Saves 2>>/dev/null; cloud_setup --set-saves-remote /Rehearsal/Saves" >>"$LOG" 2>&1
+ CONFPATH=$(ssha 'ls /storage/.config/cloud_sync.conf 2>/dev/null || find /storage/.config -maxdepth 2 -name cloud_sync.conf | head -1')
+@@ -120,7 +124,8 @@ SUMS1=$(ssha 'cd /storage/roms && sha256sum savestates/nes/Rehearsal.state.auto
+ check "saves and save states byte-identical" "$SUMS1" "$SUMS0"
+ check "marker file kept" "$(ssha 'cat /storage/.config/rehearsal-marker')" "rehearsal-marker"
+ check "setting kept" "$(ssha 'get_setting rehearsal.marker')" "$WANT"
+-check "rclone remote kept" "$(ssha 'rclone listremotes 2>/dev/null | head -1')" "$REM0"
++check "active rclone remote kept" "$(ssha "$ACTIVE_READER")" "$REM0"
++check "active selection bytes/presence kept" "$(ssha 'if test -e /storage/.config/rclone/active-connection; then sha256sum /storage/.config/rclone/active-connection; else echo absent; fi')" "$ACTIVE0"
+ check "rclone (new) lists the remote" "$(ssha "rclone lsd ${REM0} >/dev/null 2>&1 && echo ok")" "ok"
+ check "saves remote kept" "$(ssha "grep -E '^SAVES_REMOTE=' $CONFPATH 2>/dev/null")" "$SR0"
+ check "cloud conf gained the new defaults, kept the old values" "$(ssha "grep -cE '^(CONTENT_REMOTE|SAVES_REMOTE)=' $CONFPATH")" "2"

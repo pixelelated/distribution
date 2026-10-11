@@ -483,3 +483,58 @@ QA08 reached correct initial identity/Information but generic dismiss/reopen/cou
 - 2026-10-11 03:38 UTC — Phone sign-in shows actionable provider buttons but gesture-driven Microsoft navigation is refused; the main connect-or-repair route also hides existing-connection management behind a computer/SSH flow. Recorded source trace and bounded private-screen/log observation before changing either behavior. Next guards: VM pointer/navigation negative controls and explicit add/reauthorize/remove preservation contract. issue: #536; #537
 
 - 2026-10-11 03:46 UTC — Failed code-pairing copy says start again but offers only OK (dismiss) and EXIT (cancel), with no retry action; the generic failed branch also implies code expiration without a specific cause. Exact callbacks traced and added to lifecycle acceptance; future retry must create fresh state and preserve existing configuration. issue: #537
+
+
+## 2026-10-11 — M7.P5 connection and Wi-Fi verification (#535, #537)
+
+Historical script fixtures copied a consumer without its newly shared reader
+and module, producing83 failures in regression02. Copy fixtures now retain the
+same dependency closure as installation; provider mocks adapt staged config
+paths while real transaction/lock/publication code still runs. Actual-rclone
+tests independently cover the real CLI. Regression03 narrowed to two fixture
+assumptions;04 to one outdated log assertion, all receipts retained.
+
+ES child-page return uses topWindow, not onFocusGained. UI03 exposed a stale
+active-connection label; UI04/06 use a guarded queued refresh on actual return.
+The Wi-Fi fixture revealed an older profile-name/SSID mismatch; #535 consumes
+the existing typed --ssid interface and tests renamed and ambiguous profiles.
+OSK fixture cancellation must use Escape for a physical keyboard: z is text
+while editing. A stopped walk is rejected evidence, never a screenshot baseline.
+
+- 2026-10-11 05:42 UTC — The new #535 profile chooser closed its own callback owner and then read the freed captures, causing an actual VM SIGSEGV. Copy values before close; the extracted production callback fails under ASan before the fix and passes afterward. Guard: `tests/wifi-profile-lifetime.py` in the ES repository plus actual VM chooser/join replay. issue: #535
+- 2026-10-11 05:42 UTC — A static loading frame satisfied visual settle before wifictl completed. The proof driver now waits on the bounded command owner before reading the result or sending more input; premature frames are rejected. Guard: operation/process completion followed by reviewed outcome frames, under the existing verify-the-artifact rule. issue: #535
+
+- 2026-10-11 #537: Updating a catalog's source file did not replace the inode held
+  by its runtime bind mount. Verified the actual locale path, rebound it, and
+  added runtime SHA readback to UI08 staging; superseded frames stay identified.
+- 2026-10-11 #537: Failure injection found selection writes surviving a failed
+  credential publication/removal. Added rollback of the selection's original
+  bytes/absence and permanent failure controls; original failing probe retained.
+
+- 2026-10-11: an accepted custom VM mode reported refresh0 and GTK crashed with SIGFPE; assert positive refresh and request @60Hz before browser proof. Guard: runtime mode assertion in retained fixture; issue: #539.
+- 2026-10-11: Add connection’s name editor captured its initial value; Clear visibly emptied the row but reopening restored the old draft. Fix reads current shared value; actual reopen/cancel frames are the guard; issue: #537.
+
+- 2026-10-11T15:26:23.880676+00:00 — issue: #540; seed-lock fixture expected the transfer busy code75 from management commands, which deliberately report2 with a translated error. Preserve the rejected36 run; corrected37 checks each command's contract and all6 controls pass. Shell copy fallback syntax was caught before execution and corrected by a quoted fallback assignment; all affected scripts parse. Guard: actual target negative/pass controls and per-file bash -n.
+
+### 2026-10-11 — #540 qualification fixtures and screenshot review
+
+A host /tmp user quota interrupted regression40, then a nested archive fixture in48
+after the main fixture had moved to the build drive. The permanent runner now hands
+its owned directory to that child with --output. A df capacity number alone does
+not prove a quota-controlled temporary filesystem can accept writes. Regression41's
+72 failures came from omitted real sibling/runtime dependencies and one obsolete
+copy expectation; those fixtures now mirror the installed package. Original failed
+runs remain separate. Local SFTP readiness caught a literal known_hosts_file=none
+before the suite; the QA-only empty setting passed actual authenticated listings.
+
+UI47 completed its commands but review found a clipped final SSH instruction at
+1280×800 and an elided French selection label at640×480. Build50 corrects page height
+and that translation; matrix51 supplies replacement evidence. Never equate completed
+input commands with reviewed readable screens. Tracked in the existing #540 repair
+cycle; source qualification and landing are still pending.
+
+- 2026-10-11 #540: Enlarging GuiSettings alone retained its prior top offset and
+  moved buttons below the panel. Final54 explicitly sets instruction-page width,
+  height and position; final55 reviewed both locales and sizes. Guard: the durable
+  es-code-traps rule plus actual final-page frames. Regression52 and matrix55 replace
+  the earlier pending status; earlier failed source identities remain preserved.

@@ -1,0 +1,82 @@
+[
+  {
+    "flow": "en640-osk",
+    "binding": "editor/en640-osk/binding.json",
+    "reviewed": [
+      "clear-focus/01-clear-focus.png",
+      "actions/04-remains-clear.png"
+    ],
+    "verdict": "PASS: clear and cancel fit separately; reopening after clear then cancelled edit stays empty",
+    "runtime_checks": "result.json: persistent configuration unchanged"
+  },
+  {
+    "flow": "en640-plain",
+    "binding": "editor/en640-plain/binding.json",
+    "reviewed": [
+      "clear-focus/01-clear-focus.png",
+      "actions/04-remains-clear.png"
+    ],
+    "verdict": "PASS: clear and cancel fit separately; reopening after clear then cancelled edit stays empty",
+    "runtime_checks": "result.json: persistent configuration unchanged"
+  },
+  {
+    "flow": "fr640-osk",
+    "binding": "editor/fr640-osk/binding.json",
+    "reviewed": [
+      "clear-focus/01-clear-focus.png",
+      "actions/04-remains-clear.png"
+    ],
+    "verdict": "PASS: clear and cancel fit separately; reopening after clear then cancelled edit stays empty",
+    "runtime_checks": "result.json: persistent configuration unchanged"
+  },
+  {
+    "flow": "fr640-plain",
+    "binding": "editor/fr640-plain/binding.json",
+    "reviewed": [
+      "clear-focus/01-clear-focus.png",
+      "actions/04-remains-clear.png"
+    ],
+    "verdict": "PASS: clear and cancel fit separately; reopening after clear then cancelled edit stays empty",
+    "runtime_checks": "result.json: persistent configuration unchanged"
+  },
+  {
+    "flow": "en1280-osk",
+    "binding": "editor/en1280-osk/binding.json",
+    "reviewed": [
+      "clear-focus/01-clear-focus.png",
+      "actions/04-remains-clear.png"
+    ],
+    "verdict": "PASS: clear and cancel fit separately; reopening after clear then cancelled edit stays empty",
+    "runtime_checks": "result.json: persistent configuration unchanged"
+  },
+  {
+    "flow": "en1280-plain",
+    "binding": "editor/en1280-plain/binding.json",
+    "reviewed": [
+      "clear-focus/01-clear-focus.png",
+      "actions/04-remains-clear.png"
+    ],
+    "verdict": "PASS: clear and cancel fit separately; reopening after clear then cancelled edit stays empty",
+    "runtime_checks": "result.json: persistent configuration unchanged"
+  },
+  {
+    "flow": "fr1280-osk",
+    "binding": "editor/fr1280-osk/binding.json",
+    "reviewed": [
+      "clear-focus/01-clear-focus.png",
+      "actions/04-remains-clear.png"
+    ],
+    "verdict": "PASS: clear and cancel fit separately; reopening after clear then cancelled edit stays empty",
+    "runtime_checks": "result.json: persistent configuration unchanged"
+  },
+  {
+    "flow": "fr1280-plain",
+    "binding": "editor/fr1280-plain/binding.json",
+    "reviewed": [
+      "clear-focus/01-clear-focus.png",
+      "actions/04-remains-clear.png"
+    ],
+    "verdict": "PASS: clear and cancel fit separately; reopening after clear then cancelled edit stays empty",
+    "runtime_checks": "result.json: persistent configuration unchanged"
+  }
+]

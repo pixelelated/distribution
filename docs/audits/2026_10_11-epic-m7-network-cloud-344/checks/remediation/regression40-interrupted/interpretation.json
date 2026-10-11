@@ -1,0 +1,10 @@
+{
+  "state": "INVALID_INCOMPLETE",
+  "command_returncode": -13,
+  "watcher_state": "died",
+  "host_tmp_mount": "tmpfs with usrquota",
+  "observed_sandbox_error": "Quota exceeded while registering /tmp/.git",
+  "not_claimed": "No complete regression or patch verdict can be obtained from this run.",
+  "replacement_owner": "/workspace/tmp/pix540-regression41",
+  "changed_environment": "TMPDIR plus watcher/log owner moved to build filesystem; source unchanged"
+}

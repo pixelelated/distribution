@@ -59,7 +59,11 @@ ssha "cat > /storage/.config/rclone/rclone.conf <<'RC'
 $CONF
 RC
 chmod 600 /storage/.config/rclone/rclone.conf" >>"$LOG" 2>&1
-REM0=$(ssha 'rclone listremotes 2>/dev/null | head -1'); echo "remote: $REM0" >> "$LOG"
+ACTIVE_READER='if test -f "$(dirname "$(command -v cloud_remote)")/cloud_connections.py"; then cloud_remote active; else rclone listremotes 2>/dev/null | head -1; fi'
+QA_REMOTE=$(./tools/cloud-test-backend remote-name)
+ssha "if test -e /storage/.config/rclone/active-connection; then printf '%s\n' '$QA_REMOTE' > /storage/.config/rclone/active-connection; fi" >>"$LOG" 2>&1
+ACTIVE0=$(ssha 'if test -e /storage/.config/rclone/active-connection; then sha256sum /storage/.config/rclone/active-connection; else echo absent; fi')
+REM0=$(ssha "$ACTIVE_READER"); echo "remote: $REM0" >> "$LOG"
 check "guest sees one remote" "$([ -n "$REM0" ] && echo yes)" "yes"
 ssha "rclone mkdir ${REM0}Rehearsal/Saves 2>>/dev/null; cloud_setup --set-saves-remote /Rehearsal/Saves" >>"$LOG" 2>&1
 CONFPATH=$(ssha 'ls /storage/.config/cloud_sync.conf 2>/dev/null || find /storage/.config -maxdepth 2 -name cloud_sync.conf | head -1')
@@ -120,7 +124,8 @@ SUMS1=$(ssha 'cd /storage/roms && sha256sum savestates/nes/Rehearsal.state.auto 
 check "saves and save states byte-identical" "$SUMS1" "$SUMS0"
 check "marker file kept" "$(ssha 'cat /storage/.config/rehearsal-marker')" "rehearsal-marker"
 check "setting kept" "$(ssha 'get_setting rehearsal.marker')" "$WANT"
-check "rclone remote kept" "$(ssha 'rclone listremotes 2>/dev/null | head -1')" "$REM0"
+check "active rclone remote kept" "$(ssha "$ACTIVE_READER")" "$REM0"
+check "active selection bytes/presence kept" "$(ssha 'if test -e /storage/.config/rclone/active-connection; then sha256sum /storage/.config/rclone/active-connection; else echo absent; fi')" "$ACTIVE0"
 check "rclone (new) lists the remote" "$(ssha "rclone lsd ${REM0} >/dev/null 2>&1 && echo ok")" "ok"
 check "saves remote kept" "$(ssha "grep -E '^SAVES_REMOTE=' $CONFPATH 2>/dev/null")" "$SR0"
 check "cloud conf gained the new defaults, kept the old values" "$(ssha "grep -cE '^(CONTENT_REMOTE|SAVES_REMOTE)=' $CONFPATH")" "2"

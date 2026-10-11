@@ -1,0 +1,11 @@
+{
+  "failed_publish_restores_config": true,
+  "failed_publish_restores_absent_selection": false,
+  "failed_remove_keeps_config": true,
+  "failed_remove_keeps_selection": false
+}
+Traceback (most recent call last):
+  File "/tmp/pix537-failure-review.py", line 24, in <module>
+    assert all(results.values())
+           ~~~^^^^^^^^^^^^^^^^^^
+AssertionError

@@ -41,13 +41,18 @@ ADHOC_CLIENT_ID=$(get_setting wifi.adhoc.id)
 NETPLAY_SSID="NETPLAY_AP"
 WIFI_DEV="$(ls /sys/class/net | grep -m1 ^wlan)"
 
+# Typed security/join callers must not read an unavailable radio as success.
+if [ "${1}" = security ] || [ "${1}" = connect-open ]; then
+  [ -n "${WIFI_DEV}" ] && [ -d "/sys/class/net/${WIFI_DEV}" ] && [ -n "${NMCLI}" ] || exit 2
+fi
+
 # Exit the script if the WiFi device isn't available
 [ -z "${WIFI_DEV}" ] && exit 0
 [ ! -d "/sys/class/net/${WIFI_DEV}" ] && exit 0
 [ -z "${NMCLI}" ] && exit 0
 
 SSID="${2:-$(get_setting wifi.ssid 2>/dev/null)}"
-PSK="${3:-$(get_setting wifi.key 2>/dev/null)}"
+PSK="${3-$(get_setting wifi.key 2>/dev/null)}"
 COUNTRY="${4:-$(get_setting wifi.country | tr -d '[:space:]' 2>/dev/null)}"
 
 if [ "${WIFI_TYPE}" = "1" ]; then
@@ -79,6 +84,46 @@ list_wifi() {
   "${NMCLI}" -w 15 dev wifi rescan ifname "${WIFI_DEV}" 2>/dev/null
   sleep 1
   "${NMCLI}" -t -f SSID dev wifi list ifname "${WIFI_DEV}" 2>/dev/null | nm_unescape | sed '/^$/d' | sort -u
+}
+
+# Only an explicit, unanimous open result may skip the key prompt. SECURITY
+# has no colons; SSIDs do, escaped by nmcli. Unknown/mixed scans fail closed.
+wifi_security() {
+  local wanted="${1}" rows line name security found=0 open=0 protected=0
+  rows=$(LC_ALL=C "${NMCLI}" -t -f SSID,SECURITY device wifi list ifname "${WIFI_DEV}" --rescan no 2>/dev/null) || { echo unknown; return 1; }
+  while IFS= read -r line; do
+    [[ "${line}" == *:* ]] || continue
+    name=$(printf '%s\n' "${line%:*}" | nm_unescape)
+    [ "${name}" = "${wanted}" ] || continue
+    found=1
+    security="${line##*:}"
+    case "${security}" in
+      ''|--) open=1 ;;
+      *WPA*|*WEP*|*802.1X*|*OWE*) protected=1 ;;
+      *) echo unknown; return 1 ;;
+    esac
+  done <<< "${rows}"
+  if [ "${found}" = 0 ] || { [ "${open}" = 1 ] && [ "${protected}" = 1 ]; }; then
+    echo unknown; return 1
+  fi
+  if [ "${open}" = 1 ]; then echo open; else echo protected; fi
+}
+
+# An unsaved open network never borrows wifi.key or deletes a saved profile.
+# Check again at the mutation boundary, including profiles renamed by NM.
+connect_open_wifi() {
+  local name="${1}" rows line profile saved_ssid
+  [ "${WIFI_TYPE}" != 1 ] && [ -n "${name}" ] || return 1
+  [ "$(wifi_security "${name}")" = open ] || return 1
+  rows=$(saved_wifi) || return 1
+  while IFS= read -r line; do
+    [ -n "${line}" ] || continue
+    profile="${line%$'\t'*}"
+    saved_ssid=$("${NMCLI}" --escape no -g 802-11-wireless.ssid connection show id "${profile}" 2>/dev/null) || return 1
+    [ "${profile}" != "${name}" ] && [ "${saved_ssid}" != "${name}" ] || return 1
+  done <<< "${rows}"
+  wait_for_wifi
+  "${NMCLI}" -w 90 device wifi connect "${name}" ifname "${WIFI_DEV}" >/dev/null 2>&1
 }
 
 connect_wifi() {
@@ -424,6 +469,12 @@ case "${1}" in
     ;;
   pin)
     pin_wifi
+    ;;
+  security)
+    wifi_security "${2}"
+    ;;
+  connect-open)
+    connect_open_wifi "${2}"
     ;;
   connect)
     if [ "${WIFI_TYPE}" = "1" ] && \

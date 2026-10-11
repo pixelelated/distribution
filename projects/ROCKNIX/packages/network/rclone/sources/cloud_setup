@@ -548,8 +548,7 @@ syncpath_problem() {
 validation_context() {
     folder_values >/dev/null || return 2
     local remotes config_file config_id
-    remotes=$(timeout 3 rclone listremotes 2>/dev/null) || return 2
-    REMOTE=$(printf '%s\n' "${remotes}" | head -1)
+    REMOTE=$("$(dirname "${BASH_SOURCE[0]}")/cloud_remote" active 2>/dev/null) || return 2
     [ -n "${REMOTE}" ] || return 2
     config_file=$(timeout 3 rclone config file 2>/dev/null | tail -1)
     [ -f "${config_file}" ] && [ -r "${config_file}" ] || return 2
@@ -557,6 +556,9 @@ validation_context() {
     config_id=$( set -o pipefail; { printf '%s\0' "${REMOTE}" "${SAVES}" "${BACKUPS}" "${CONTENT}";
         sha256sum "${config_file}" || exit 1
         if [ -f "${SYNC_CONF}" ]; then sha256sum "${SYNC_CONF}" || exit 1; fi
+        if [ -f /storage/.config/rclone/active-connection ]; then
+            sha256sum /storage/.config/rclone/active-connection || exit 1
+        fi
     } | sha256sum) || return 2
     config_id="${config_id%% *}"
     jq -n --arg id "${config_id}" --arg remote "${REMOTE}" \
@@ -592,7 +594,7 @@ case "$1" in
         exec "${tool}" "$2" "$3"
     ;;
     --folder-state)
-        REMOTE=$(rclone listremotes 2>/dev/null | head -1)
+        REMOTE=$("$(dirname "${BASH_SOURCE[0]}")/cloud_remote" active 2>/dev/null)
         [ -n "${REMOTE}" ] || { echo "STATE=no-remote"; exit 1; }
         folder_values || exit $?
         folder_marker_read || exit $?
@@ -641,10 +643,14 @@ case "$1" in
         # into the name the player picked it by. Until this, nothing on any
         # screen said who the cloud was -- the setup page offered to connect
         # one and never mentioned the one already there (fork #110).
-        remote_name="$(rclone listremotes 2>/dev/null | head -1)"
+        remote_name="$("$(dirname "${BASH_SOURCE[0]}")/cloud_remote" active 2>/dev/null)"
         remote_name="${remote_name%:}"
         echo "REMOTE_NAME=${remote_name}"
-        echo "REMOTE_TYPE=$(rclone config show "${remote_name}" 2>/dev/null | sed -n 's/^[[:space:]]*type[[:space:]]*=[[:space:]]*//p' | head -1)"
+        remote_type=""
+        if [ -n "${remote_name}" ]; then
+            remote_type=$(rclone config show "${remote_name}" 2>/dev/null | sed -n 's/^[[:space:]]*type[[:space:]]*=[[:space:]]*//p' | head -1)
+        fi
+        echo "REMOTE_TYPE=${remote_type}"
         exit 0
     ;;
     --content-location)
@@ -718,7 +724,7 @@ case "$1" in
             # (the audit of the fixes, claude G3-D-07).
             CAND="${CAND%/}"
         fi
-        REMOTE=$(rclone listremotes 2>/dev/null | head -1)
+        REMOTE=$("$(dirname "${BASH_SOURCE[0]}")/cloud_remote" active 2>/dev/null)
         if [ -z "${REMOTE}" ]; then
             echo "No cloud remote configured."
             exit 2
@@ -748,7 +754,7 @@ case "$1" in
         fi
         # Refuse a path this remote cannot use. The literal path checks also
         # hold with no remote; existing independent pointers are preserved.
-        SP_REMOTE=$(rclone listremotes 2>/dev/null | head -1)
+        SP_REMOTE=$("$(dirname "${BASH_SOURCE[0]}")/cloud_remote" active 2>/dev/null)
         if ! syncpath_problem "${NEWPATH}" "${SP_REMOTE}"; then
             exit 1
         fi
@@ -784,7 +790,15 @@ case "$1" in
     ;;
     --seed-folders)
         [ "$#" -eq 2 ] && seed_categories "$2" || { echo "Choose which cloud folders to create."; exit 2; }
-        REMOTE=$(rclone listremotes 2>/dev/null | head -1)
+        # Resolve the account only after excluding credential/selection writers.
+        # The brace body closes fd9 in children, as the transfer scripts do.
+        exec 9>/var/run/cloud_sync.lock || exit 1
+        if ! flock -n 9; then
+            echo ">>> why ANOTHER CLOUD SYNC IS RUNNING"
+            exit 75
+        fi
+        {
+        REMOTE=$("$(dirname "${BASH_SOURCE[0]}")/cloud_remote" active 2>/dev/null)
         [ -n "${REMOTE}" ] || { echo "ERROR no remote"; exit 2; }
         folder_values || exit $?
         seed_failed=0
@@ -866,6 +880,7 @@ case "$1" in
         done
         [ "${seed_failed}" -eq 0 ] || { echo ">>> why YOUR CLOUD FOLDERS COULDN'T BE CREATED"; exit 5; }
         exit 0
+        } 9>&-
     ;;
 
     --check)
@@ -873,7 +888,7 @@ case "$1" in
         # plain-text verdict on stdout, exit 0 = working, 1 = missing,
         # 2 = configured but unreachable.
         REMOTE="$2"
-        [ -z "${REMOTE}" ] && REMOTE=$(rclone listremotes 2>/dev/null | head -1)
+        [ -z "${REMOTE}" ] && REMOTE=$("$(dirname "${BASH_SOURCE[0]}")/cloud_remote" active 2>/dev/null)
         if [ -z "${REMOTE}" ]; then
             echo "NONE"
             log_message "Cloud setup check: no remotes configured"
@@ -937,7 +952,7 @@ echo "Press any button here when you are done (or to cancel)."
 wait_for_button
 
 echo
-REMOTE=$(rclone listremotes 2>/dev/null | head -1)
+REMOTE=$("$(dirname "${BASH_SOURCE[0]}")/cloud_remote" active 2>/dev/null)
 if [ -z "${REMOTE}" ]; then
     echo -e "\e[33mNo cloud remote configured yet.\e[0m"
     echo "Run this again once you have completed 'rclone config'."

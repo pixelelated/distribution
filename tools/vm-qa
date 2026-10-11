@@ -300,8 +300,14 @@ case ",$ONLY," in *,exit,*)       run_suite exit       "$OUT/exit.log"       "$R
 # while the same suite had read PASS on the image before, whose fixed-wait
 # walks passed whenever the tool ran (#125). Seed the QA remote when there is
 # none, the way seed-device does, and the folders the transfer page expects.
+ACTIVE_READER='if test -f "$(dirname "$(command -v cloud_remote)")/cloud_connections.py"; then cloud_remote active; else rclone listremotes 2>/dev/null | head -1; fi'
 ensure_remote() {
-  [ -n "$(SSH 'rclone listremotes 2>/dev/null' 2>/dev/null)" ] && return 0
+  [ -n "$(SSH "$ACTIVE_READER" 2>/dev/null)" ] && return 0
+  # A saved account or an explicit no-selection is not a fresh guest.
+  if SSH 'test -s /storage/.config/rclone/rclone.conf || test -e /storage/.config/rclone/active-connection' 2>/dev/null; then
+    echo "vm-qa: choose the QA connection explicitly; saved connection state is present" >&2
+    return 1
+  fi
   local conf; conf=$(mktemp)
   "$ROOT/tools/cloud-test-backend" rclone-conf > "$conf"
   SSH 'mkdir -p /storage/.config/rclone' 2>/dev/null
@@ -317,7 +323,7 @@ shipped_folders_cmd() {
   local saves backups
   saves=$("$ROOT/tools/cloud-test-backend" shipped-default SAVES_REMOTE) || exit 2
   backups=$("$ROOT/tools/cloud-test-backend" shipped-default SETTINGS_REMOTE) || exit 2
-  printf 'r=$(rclone listremotes 2>/dev/null | head -1); rclone mkdir "${r}%s" >/dev/null 2>&1; rclone mkdir "${r}%s" >/dev/null 2>&1' "$saves" "$backups"
+  printf 'r=$(%s); [ -n "$r" ] || exit 1; rclone mkdir "${r}%s" >/dev/null 2>&1; rclone mkdir "${r}%s" >/dev/null 2>&1' "$ACTIVE_READER" "$saves" "$backups"
 }
 # Time to play (#135). --quick is the bounded form -- one repeat of the
 # launch, the exit sync and a game-to-game, no reboot and no host fixtures --
@@ -409,7 +415,7 @@ folder_walk_witness() {
   SSH 'sha256sum /storage/.config/cloud_sync.conf /storage/.config/rclone/rclone.conf && stat -c "%a %n" /storage/.config/cloud_sync.conf /storage/.config/rclone/rclone.conf' > "$dest/config.txt" || rc=1
   SSH '/usr/bin/cloud_setup --validation-context' > "$dest/paths.json" || rc=1
   SSH "bash -o pipefail -c 'find /storage/roms -type f -print0 | xargs -0 -r sha256sum'" > "$dest/local.unsorted" || rc=1
-  SSH 'r=$(rclone listremotes) || exit; [ "$(printf "%s\n" "$r" | wc -l)" = 1 ] && [ -n "$r" ] || exit 1; timeout 60 rclone hashsum SHA256 --download --retries 1 --contimeout 5s --timeout 10s "$r"' > "$dest/cloud.unsorted" || rc=1
+  SSH "r=\$($ACTIVE_READER); [ -n \"\$r\" ] || exit 1; timeout 60 rclone hashsum SHA256 --download --retries 1 --contimeout 5s --timeout 10s \"\$r\"" > "$dest/cloud.unsorted" || rc=1
   LC_ALL=C sort "$dest/local.unsorted" > "$dest/local.txt" || rc=1
   LC_ALL=C sort "$dest/cloud.unsorted" > "$dest/cloud.txt" || rc=1
   printf '%s\n' "$rc" > "$dest/result"

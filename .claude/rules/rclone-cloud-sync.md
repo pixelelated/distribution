@@ -264,8 +264,14 @@ seeded from the `/usr/config/*.defaults` templates:
   while passing happily when the user's provider is down or their sign-in has
   expired. Test the configured remote; probe further only to word the failure.
 
-- **Single remote only:** operations use `rclone listremotes | head -1` — the first
-  configured remote. Don't assume multi-remote support without adding it deliberately.
+- **One active connection, multiple saved connections (D-CLOUD-184):** operations
+  use `cloud_remote active`. A missing selection preserves the legacy first
+  connection; an explicit empty or missing selected connection never falls back.
+  Selection is device-only, excluded with credentials from settings backups.
+  Add preserves the selection; select/remove/replace take the shared transfer
+  lock and require automatic sync off. Renew/edit verifies private staged settings
+  before publication. Failure and cancellation preserve existing credentials.
+  No connection-management operation moves files or rewrites selected folders.
 
 ## The saves folder can change cards
 
@@ -651,10 +657,10 @@ fresh image, and the console gives a root shell without login.
 - **Local on purpose.** These tests exercise credential stripping and backup
   contents - the code paths most likely to leak a token into an archive, a log
   or a work log. A throwaway WebDAV password is worth nothing if it escapes.
-- **The remote name is asserted, not assumed.** Every script picks its remote
-  with `rclone listremotes | head -1`, so a remote sorting earlier would aim
-  the tests at a real account. The driver refuses if the first remote is not
-  the test one.
+- **The active connection is asserted, not assumed.** QA snapshots and restores
+  both credentials and selection, including an absent or explicit empty selection.
+  It refuses transfers unless the active connection is the QA endpoint. Only
+  historical images without explicit selection use their old first-remote rule.
 - **Restore is destructive**, so the suite works in `/storage/cloud-qa` unless
   `--real-roms` is passed. Never point it at a device with saves you want.
 - An assertion that only holds because nothing happened is worse than no
@@ -681,7 +687,7 @@ award/reconnect proof. "We would need a real provider" is not an answer to
 
 The user guide (<https://rocknix.org/configure/cloud-sync/>) documents the `cloud_sync.conf`
 options and the Tools backup/restore flow. Known gaps vs. the code: it omits `LOG_LEVEL`,
-the single-remote assumption, and `cloud_sync_cleanup_duplicates.sh`. `RSYNCRMDIR` is now
+the one-active-connection contract, and `cloud_sync_cleanup_duplicates.sh`. `RSYNCRMDIR` is now
 implemented as documented (2026-07-23). Reconcile docs against actual behavior before
 relying on them. `cloud_capture` (#21) has no player-visible surface — no menu row, no
 setting, no flag anyone types — so `documentation-accuracy.md`'s hard gate is not

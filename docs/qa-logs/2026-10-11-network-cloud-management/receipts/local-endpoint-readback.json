@@ -1,0 +1,15 @@
+{
+  "observed_at": "2026-10-11T07:39:58.908603+00:00",
+  "webdav": {
+    "pid": 3089364,
+    "alive": false,
+    "tcp_127_0_0_1_9010": false,
+    "last_log": "startup only; no exit reason established"
+  },
+  "sftp": {
+    "pid": 3089399,
+    "alive": true,
+    "tcp_127_0_0_1_9013": true
+  },
+  "next_action": "Restart WebDAV through a durable host owner and verify real login immediately before the deferred protocol suite; port alone is not authentication proof."
+}

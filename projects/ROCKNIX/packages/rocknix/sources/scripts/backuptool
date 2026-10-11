@@ -718,18 +718,21 @@ RATOKENSETTINGS=(
 # back on a restore. Not in the default LOCATIONS; a custom list such as
 # /storage/.config sweeps it in. The toggle itself
 # (global.retroachievements.offlineproxy) is a line in system.cfg and travels.
-RATOKENDIRS=(
+# Connection transactions and interrupted atomic writes can leave private
+# staging files beside rclone.conf. The entire directory stays on this device.
+DEVICEONLYDIRS=(
+    /storage/.config/rclone/
     /storage/.config/raofflineproxy/
 )
 # The same folders as restore patterns, each with its own wildcard. Written
-# inline as "${RATOKENDIRS[@]#/}"'*' the '*' joined the LAST element only, so
+# inline as "${DEVICEONLYDIRS[@]#/}"'*' the '*' joined the LAST element only, so
 # a second folder in the list would have left the first as a bare name --
 # which busybox unzip -x matches against nothing (busybox tar -X happens to
 # take a folder's subtree from its bare name; unzip does not, probed on the
 # image's binary), and that folder's token cache would come back from a zip
 # (#308 claude F-BR-13).
-RATOKENDIR_PATTERNS=()
-for D in "${RATOKENDIRS[@]}"; do RATOKENDIR_PATTERNS+=("${D#/}*"); done
+DEVICEONLYDIR_PATTERNS=()
+for D in "${DEVICEONLYDIRS[@]}"; do DEVICEONLYDIR_PATTERNS+=("${D#/}*"); done
 # This device's cloud sign-in and its name in the cloud: never in an archive,
 # never put back from one, whichever archive it is (#307 PL-010). rclone.conf
 # is live OAuth tokens (#52); cloud_device_id's record is the name this
@@ -742,6 +745,7 @@ for D in "${RATOKENDIRS[@]}"; do RATOKENDIR_PATTERNS+=("${D#/}*"); done
 # rclone.conf over this one's and the restore reported success.
 DEVICEONLY=(
     /storage/.config/rclone/rclone.conf
+    /storage/.config/rclone/active-connection
     /storage/.config/cloud_sync-device-id
     /storage/.config/cloud_sync-device-id.previous
 )
@@ -1064,11 +1068,11 @@ write_archive() {
                 hold_back_line "${CANDIDATE}"
             fi
         done
-        # The proxy's folder, every file under it (#165). grep -F on the
+        # Device-only identity folders, every file under them (#165, #537). grep -F on the
         # prefix: the list holds absolute paths, so the prefix matches a file
         # under that folder and nothing else.
         HELD=0
-        for CANDIDATE in "${RATOKENDIRS[@]}"
+        for CANDIDATE in "${DEVICEONLYDIRS[@]}"
         do
             while IFS= read -r F
             do
@@ -1076,7 +1080,7 @@ write_archive() {
                 HELD=$((HELD + 1))
             done < <(grep -F "${CANDIDATE}" "${FILELIST}" || true)
         done
-        [ "${HELD}" -gt 0 ] && logger -t backuptool "held back ${HELD} file(s) under the offline RetroAchievements proxy's folder: its token cache and award queue never travel (#165)"
+        [ "${HELD}" -gt 0 ] && logger -t backuptool "held back ${HELD} file(s) under device-only identity folders: credentials and award queues never travel (#165, #537)"
         # The copies a writer keeps beside a file that is stripped or held
         # back carry the same keys: chksysconfig's and the interface's
         # last-good record (system.cfg.backup, es_settings.cfg.backup), a
@@ -1535,7 +1539,7 @@ case "${VERB}" in
                     /storage/.config/ppsspp/assets/*|/storage/.config/ppsspp/PSP/SYSTEM/CACHE/*) continue ;;
                 esac
                 for CANDIDATE in "${DEVICEONLY[@]}" "${RATOKENFILES[@]}"; do [ "/storage/.config/${REL}" = "${CANDIDATE}" ] && continue 2; done
-                for CANDIDATE in "${RATOKENDIRS[@]}"; do case "/storage/.config/${REL}" in "${CANDIDATE}"*) continue 2 ;; esac; done
+                for CANDIDATE in "${DEVICEONLYDIRS[@]}"; do case "/storage/.config/${REL}" in "${CANDIDATE}"*) continue 2 ;; esac; done
                 if [ -f "/usr/config/${REL}" ] && [ ! -L "/storage/.config/${REL}" ]
                 then
                     printf '%s\n' "${REL}" 2>/dev/null >> "${SEEDS}" || { SEED_RC=1; break; }
@@ -1641,7 +1645,7 @@ case "${VERB}" in
         # restore's own: its control files, the settings backups folder that
         # holds the copy just taken, and that copy by name (RESTORE_CONTROL;
         # #307, the audit of the fix round, PL-007).
-        SKIPS=('storage/.config/ppsspp/assets/*' 'storage/.config/ppsspp/PSP/SYSTEM/CACHE/*' "${RATOKENFILES[@]#/}" "${RATOKENDIR_PATTERNS[@]}" "${DEVICEONLY[@]#/}" "${SEEDLIST#/}" "${LINKS[@]}")
+        SKIPS=('storage/.config/ppsspp/assets/*' 'storage/.config/ppsspp/PSP/SYSTEM/CACHE/*' "${RATOKENFILES[@]#/}" "${DEVICEONLYDIR_PATTERNS[@]}" "${DEVICEONLY[@]#/}" "${SEEDLIST#/}" "${LINKS[@]}")
         for C in "${RESTORE_CONTROL[@]}"; do SKIPS+=("$(glob_literal "${C#/}")"); done
         SKIPS+=("$(glob_literal "${SETTINGS_BACKUPS#/}")/*")
         [ -n "${SNAPSHOT}" ] && SKIPS+=("$(glob_literal "${SNAPSHOT#/}")")

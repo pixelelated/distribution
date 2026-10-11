@@ -1,0 +1,70 @@
+[
+  {
+    "command": [
+      "tools/cloud-connections-test"
+    ],
+    "returncode": 0,
+    "log": "0.log"
+  },
+  {
+    "command": [
+      "tools/cloud-input-test"
+    ],
+    "returncode": 0,
+    "log": "1.log"
+  },
+  {
+    "command": [
+      "tools/rules-check"
+    ],
+    "returncode": 0,
+    "log": "2.log"
+  },
+  {
+    "command": [
+      "tools/register-check"
+    ],
+    "returncode": 0,
+    "log": "3.log"
+  },
+  {
+    "command": [
+      "tools/pkgcheck",
+      "rclone"
+    ],
+    "returncode": 0,
+    "log": "4.log"
+  },
+  {
+    "command": [
+      "tools/work-log-index",
+      "--check"
+    ],
+    "returncode": 0,
+    "log": "5.log"
+  },
+  {
+    "command": [
+      "tools/ceremony-check",
+      "--gate"
+    ],
+    "returncode": 0,
+    "log": "6.log"
+  },
+  {
+    "command": [
+      "tools/vocabulary-check"
+    ],
+    "returncode": 0,
+    "log": "7.log"
+  },
+  {
+    "command": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "returncode": 0,
+    "log": "8.log"
+  }
+]

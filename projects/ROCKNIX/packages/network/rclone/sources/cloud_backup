@@ -468,19 +468,11 @@ take_cloud_lock() {
     done
 }
 
-# The configured remote, by the same rule as `rclone listremotes | head -1`
-# -- the first section name in sorted order -- read from the config file
-# rather than by starting rclone, which costs close to a second on a
-# handheld. rclone remains the fallback if the file yields nothing.
+# The shared explicit selection, with legacy first-name behavior only when
+# the sidecar is absent. Empty or missing selected names never fall back to
+# another account (D-CLOUD-184). Keep the internal function name for callers.
 first_remote() {
-    local name
-    name=$(grep -o '^\[[^]]*\]' /storage/.config/rclone/rclone.conf 2>/dev/null \
-           | tr -d '[]' | sort | head -1)
-    if [ -n "${name}" ]; then
-        printf '%s:\n' "${name}"
-    else
-        rclone listremotes 2>/dev/null | head -1
-    fi
+    "$(dirname "${BASH_SOURCE[0]}")/cloud_remote" active 2>/dev/null
 }
 
 # Does the remote compare files by size alone? rclone decides equality by
@@ -962,7 +954,7 @@ check_internet() {
     log_message "Checking cloud storage reachability..." "false"
 
     local remote probe_rc=1
-    remote=$(rclone listremotes 2>/dev/null | head -1)
+    remote=$("$(dirname "${BASH_SOURCE[0]}")/cloud_remote" active 2>/dev/null)
     if [ -n "${remote}" ]; then
         rclone lsd "${remote}" "${RCLONE_PROBE_OPTS[@]}" >/dev/null 2>&1; probe_rc=$?
         if [ "${probe_rc}" -eq 0 ]; then
@@ -2427,8 +2419,10 @@ main() {
     REMOTENAME=$(first_remote)
     case "${REMOTENAME}" in
         ?*:) ;;
-        *) log_message "Your cloud storage isn't set up yet. Set it up under GAME SETTINGS > MANAGE CLOUD STORAGE first." "true" "ERROR"
-           say_why "YOUR CLOUD STORAGE ISN'T SET UP YET"
+        *) local reason
+           reason=$("$(dirname "${BASH_SOURCE[0]}")/cloud_remote" selection-reason 2>/dev/null) || reason="YOUR CLOUD SYNC SETTINGS COULDN'T BE READ"
+           log_message "Choose or add a connection under GAME SETTINGS > MANAGE CLOUD STORAGE > CLOUD CONNECTIONS, then try again." "true" "ERROR"
+           say_why "${reason}"
            clean_exit 1 ;;
     esac
     [ "${SYSTEM_ONLY}" -eq 1 ] && check_internet

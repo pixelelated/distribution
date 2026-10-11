@@ -91,6 +91,18 @@ take_cloud_lock() {
     done
 }
 
+# Capture before any configuration/preflight read; compare again under the
+# transfer lock. A connection name alone cannot detect renewed credentials.
+content_context() { "$(dirname "${BASH_SOURCE[0]}")/cloud_scan" --context; }
+CONTENT_CONFIG_ID=$(content_context) || {
+    echo ">>> why YOUR CLOUD SYNC SETTINGS COULDN'T BE READ"
+    exit 1
+}
+content_context_current() {
+    local current
+    current=$(content_context) && [ "${current}" = "${CONTENT_CONFIG_ID}" ]
+}
+
 if [ ! -e "/storage/.config/rclone/rclone.conf" ]; then
     echo ">>> why YOUR CLOUD STORAGE ISN'T SET UP YET"
     echo "Your cloud storage isn't set up yet. Set it up under GAME SETTINGS > MANAGE CLOUD STORAGE first."
@@ -194,10 +206,11 @@ case "${CONTENT_REMOTE}" in
         exit 1 ;;
 esac
 
-REMOTENAME=$(rclone listremotes | head -1)
+REMOTENAME=$("$(dirname "${BASH_SOURCE[0]}")/cloud_remote" active)
 if [ -z "${REMOTENAME}" ]; then
-    echo ">>> why YOUR CLOUD STORAGE ISN'T SET UP YET"
-    echo "Your cloud storage isn't set up yet. Set it up under GAME SETTINGS > MANAGE CLOUD STORAGE first."
+    reason=$("$(dirname "${BASH_SOURCE[0]}")/cloud_remote" selection-reason 2>/dev/null) || reason="YOUR CLOUD SYNC SETTINGS COULDN'T BE READ"
+    echo ">>> why ${reason}"
+    echo "Choose or add a connection under GAME SETTINGS > MANAGE CLOUD STORAGE > CLOUD CONNECTIONS, then try again."
     exit 1
 fi
 
@@ -682,6 +695,13 @@ take_cloud_lock
 # the change: it adds no subshell, so exits, traps and variables behave
 # exactly as they did.
 {
+# Settings may change while the interactive preview is open. Re-check under
+# the transfer lock before sending anything to the previously named cloud.
+if ! content_context_current; then
+    echo ">>> why SOMETHING CHANGED SINCE YOU CHECKED"
+    echo "Your cloud settings changed. Start this operation again."
+    exit 1
+fi
 UNIT_N=${#DIRS[@]}; UNIT_I=0
 for DIR in "${DIRS[@]}"; do
     set_system_save_excludes "${DIR}"

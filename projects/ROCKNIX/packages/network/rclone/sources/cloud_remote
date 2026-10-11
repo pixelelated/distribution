@@ -27,7 +27,10 @@
 #                        can pick an input widget without fetching them.
 #   choices <type> <field> [prov]  TSV: value, label
 #   create <name> <type> [key=value ...]    create, verify, roll back on failure
-#   list                 TSV: name, type
+#   update <name> <type> [key=value ...]  verify and replace saved settings
+#   active               selected name with trailing colon; empty is failure
+#   select/remove <name> change local selection or remove local credentials
+#   list                 STATE line, then TSV: name, type, active/saved, provider
 #
 # Tiers:
 #   keys      no OAuth at all - a form is enough
@@ -40,6 +43,7 @@ import json
 import os
 import subprocess
 import sys
+import cloud_connections as connections
 
 RCLONE = "/usr/bin/rclone"
 LOG_FILE = "/var/log/cloud_sync.log"
@@ -237,129 +241,29 @@ def cmd_choices(backend_type, field, subprovider=""):
     return 1
 
 
-def existing_remotes():
-    """Configured remote names, without the trailing colon -- or None when
-    rclone could not say. A listing that failed used to read as "no remotes",
-    and cmd_create's refusal to touch an existing remote fell open exactly
-    when rclone could not be asked (#308 gpt F-RS-23)."""
-    code, out, _ = rclone("listremotes", check=False)
-    if code != 0:
-        return None
-    return [line.strip().rstrip(":") for line in out.splitlines() if line.strip()]
-
-
 def cmd_list():
-    code, out, _ = rclone("config", "dump", check=False)
-    if code != 0:
-        return 0
+    _, config = connections.read_config()
     try:
-        config = json.loads(out or "{}")
-    except json.JSONDecodeError:
-        return 0
-    for name in sorted(config):
-        print("%s\t%s" % (name, config[name].get("type", "")))
+        selected = connections.active(config)
+    except connections.Refused:
+        selected = ""
+    print("STATE=" + ("active" if selected else "unselected"))
+    for name in sorted(config.sections()):
+        print("%s\t%s\t%s\t%s" % (name, config.get(name, "type", fallback=""),
+                                    "active" if name == selected else "saved", config.get(name, "provider", fallback="")))
     return 0
 
 
-def cmd_create(name, backend_type, settings):
-    """Create a remote from already-answered values, then prove it works.
-
-    Refuses to touch a remote that already exists. A device that is already
-    syncing has a working configuration and possibly cloud data laid out to
-    match it; silently rewriting that is how someone loses access to their
-    own files (see fork issue #51).
-    """
-    existing = existing_remotes()
-    if existing is None:
-        sys.stderr.write("could not read the configured remotes; not creating one\n")
-        return 2
-    if name in existing:
-        sys.stderr.write(
-            "remote '%s' already exists; not modifying it\n" % name)
-        return 1
-
+def cmd_create(name, backend_type, settings, replace=False):
     providers = load_providers()
-    known = {t.get("Name") for t in providers}
-    if backend_type not in known:
-        sys.stderr.write("unknown backend type: %s\n" % backend_type)
-        return 1
-    # The values of this backend's password options, to be taken out of
-    # anything of rclone's this passes on (see below).
-    secret_names = {opt.get("Name") for t in providers if t.get("Name") == backend_type
-                    for opt in (t.get("Options") or []) if opt.get("IsPassword")}
-    secret_values = [value for key, value in settings if key in secret_names and value]
-
-    args = ["config", "create", name, backend_type]
-    for key, value in settings:
-        args.append("%s=%s" % (key, value))
-    # Bucket-based clouds have no directories: a folder is a prefix on
-    # object names, so an empty one does not exist and mkdir makes nothing.
-    # rclone's answer (v1.63+) is a directory marker -- the zero-byte "name/"
-    # object the AWS and MinIO consoles write for "Create folder" -- behind
-    # directory_markers, off by default. On, mkdir and the folder seeding
-    # behave on a bucket as on Dropbox and an empty folder survives; the
-    # restore judges a folder by its parent's listing either way
-    # (D-CLOUD-120, 2026-09-12). Only where rclone documents the option.
-    if backend_type in ("s3", "gcs", "azureblob") and not any(k == "directory_markers" for k, _ in settings):
-        args.append("directory_markers=true")
-    # --non-interactive so rclone reports a question as data instead of
-    # blocking on stdin that no one is attached to. --obscure so passwords
-    # are stored the way rclone expects rather than in the clear.
-    args += ["--non-interactive", "--obscure"]
-
-    log("creating remote %s (type %s) with %d option(s)"
-        % (name, backend_type, len(settings)))
-    code, out, err = rclone(*args)
-    if code != 0:
-        # rclone's reason goes on to the interface, which shows it under THE
-        # CONNECTION COULDN'T BE SAVED so a mistyped key can be fixed -- with
-        # any password value it echoed taken out first (the audit of stream
-        # C, G-C-09: the log was cleaned in PL-074, this channel was not).
-        said = err.strip()
-        for value in secret_values:
-            said = said.replace(value, "<hidden>")
-        sys.stderr.write((said or "rclone config create failed") + "\n")
-        return 2
-
-    # rclone --non-interactive answers with a JSON blob when it still needs
-    # something. Exit 0 there would otherwise look like success while leaving
-    # a half-configured remote behind.
-    question = None
-    try:
-        parsed = json.loads(out or "{}")
-        if isinstance(parsed, dict) and parsed.get("State"):
-            question = parsed.get("Option") or {}
-    except json.JSONDecodeError:
-        pass
-    if question:
-        remove_remote(name)
-        sys.stderr.write(
-            "backend needs more input: %s\n" % (question.get("Name") or "unknown"))
-        return 2
-
-    # Prove it before telling anyone it worked. A remote that lists is a
-    # remote the sync tools can use; an exit code from create only says the
-    # file got written.
-    code, _, err = rclone("lsd", "%s:" % name,
-                          "--contimeout", "10s", "--timeout", "20s",
-                          "--low-level-retries", "1", "--retries", "1",
-                          check=False)
-    if code != 0:
-        log("remote %s failed verification, rolling back" % name)
-        remove_remote(name)
-        sys.stderr.write(
-            "the remote was created but could not be reached; it has been "
-            "removed so nothing half-working is left behind\n")
-        return 3
-
-    log("remote %s created and verified" % name)
+    if backend_type not in {p.get("Name") for p in providers}:
+        raise connections.Refused("Unknown provider.")
+    if not replace and backend_type in ("s3", "gcs", "azureblob") and not any(k == "directory_markers" for k, _ in settings):
+        settings.append(("directory_markers", "true"))
+    log("updating remote " + name if replace else "creating remote " + name)
+    connections.save(name, backend_type, settings, replace=replace)
     print("OK=%s" % name)
     return 0
-
-
-def remove_remote(name):
-    """Undo a failed create. Best effort - never mask the original error."""
-    rclone("config", "delete", name, check=False)
 
 
 def usage():
@@ -369,6 +273,9 @@ def usage():
         "       cloud_remote fields <type> [subprovider]\n"
         "       cloud_remote choices <type> <field> [subprovider]\n"
         "       cloud_remote create <name> <type> [key=value ...]\n"
+        "       cloud_remote update <name> <type> [key=value ...]\n"
+        "       cloud_remote active\n"
+        "       cloud_remote select|remove <name>\n"
         "       cloud_remote list\n")
     return 1
 
@@ -399,7 +306,23 @@ def main(argv):
     if command == "list":
         return cmd_list()
 
-    if command == "create":
+    if command == "selection-reason" and len(argv) == 2:
+        print(connections.selection_reason())
+        return 0
+
+    if command == "active":
+        name = connections.active()
+        if name:
+            print(name + ":")
+            return 0
+        return 1
+
+    if command in ("select", "remove") and len(argv) == 3:
+        (connections.select if command == "select" else connections.remove)(argv[2])
+        print("OK=" + argv[2])
+        return 0
+
+    if command in ("create", "update"):
         if len(argv) < 4:
             return usage()
         settings = []
@@ -409,10 +332,14 @@ def main(argv):
                 return 1
             key, value = pair.split("=", 1)
             settings.append((key, value))
-        return cmd_create(argv[2], argv[3], settings)
+        return cmd_create(argv[2], argv[3], settings, replace=(command == "update"))
 
     return usage()
 
 
 if __name__ == "__main__":
-    sys.exit(main(sys.argv))
+    try:
+        sys.exit(main(sys.argv))
+    except (connections.Refused, OSError) as exc:
+        sys.stderr.write(str(exc) + "\n" if isinstance(exc, connections.Refused) else "Cloud settings could not be read or saved.\n")
+        sys.exit(2)

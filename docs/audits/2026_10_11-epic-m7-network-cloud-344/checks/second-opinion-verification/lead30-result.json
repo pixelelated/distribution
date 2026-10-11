@@ -1,0 +1,21 @@
+{
+  "dangling": {
+    "error": "The selected connection is missing. Choose a connection first.",
+    "unchanged": true
+  },
+  "unquoted": {
+    "rc": 2,
+    "stdout": "FAIL two"
+  },
+  "quoted": {
+    "rc": 0,
+    "stdout": "OK two words:"
+  },
+  "shutdown": {
+    "seconds": 45.0,
+    "collector_alive_at_return": true,
+    "staged_config_count": 1,
+    "live_config_unchanged": true
+  }
+}
+

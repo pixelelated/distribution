@@ -128,6 +128,18 @@ take_cloud_lock() {
     done
 }
 
+# Capture before any configuration/preflight read; compare again under the
+# transfer lock. A connection name alone cannot detect renewed credentials.
+content_context() { "$(dirname "${BASH_SOURCE[0]}")/cloud_scan" --context; }
+CONTENT_CONFIG_ID=$(content_context) || {
+    echo ">>> why YOUR CLOUD SYNC SETTINGS COULDN'T BE READ"
+    exit 1
+}
+content_context_current() {
+    local current
+    current=$(content_context) && [ "${current}" = "${CONTENT_CONFIG_ID}" ]
+}
+
 if [ ! -e "/storage/.config/rclone/rclone.conf" ]; then
     echo ">>> why YOUR CLOUD STORAGE ISN'T SET UP YET"
     echo "Your cloud storage isn't set up yet. Set it up under GAME SETTINGS > MANAGE CLOUD STORAGE first."
@@ -231,10 +243,11 @@ case "${CONTENT_REMOTE}" in
         exit 1 ;;
 esac
 
-REMOTENAME=$(rclone listremotes | head -1)
+REMOTENAME=$("$(dirname "${BASH_SOURCE[0]}")/cloud_remote" active)
 if [ -z "${REMOTENAME}" ]; then
-    echo ">>> why YOUR CLOUD STORAGE ISN'T SET UP YET"
-    echo "Your cloud storage isn't set up yet. Set it up under GAME SETTINGS > MANAGE CLOUD STORAGE first."
+    reason=$("$(dirname "${BASH_SOURCE[0]}")/cloud_remote" selection-reason 2>/dev/null) || reason="YOUR CLOUD SYNC SETTINGS COULDN'T BE READ"
+    echo ">>> why ${reason}"
+    echo "Choose or add a connection under GAME SETTINGS > MANAGE CLOUD STORAGE > CLOUD CONNECTIONS, then try again."
     exit 1
 fi
 
@@ -786,7 +799,8 @@ sweep_partials() { [ -d "$1" ] || return 0; find "$1" -type f -name '*.????????.
 
 # The plan the player agreed to (audit #307 PL-001, F-CS-03). The preview
 # writes one line per system it checked -- "<sys>|<verb>|<files>|<bytes>",
-# none included -- under a header naming the moment, whole or not at all,
+# none included -- under a header naming the moment, configuration digest
+# and content mode, whole or not at all,
 # and only when every system could be told; apply reads it and holds each
 # system to it: the same verb, no more to remove than the preview counted,
 # and that count, not its own, is --max-delete. A system the plan does not
@@ -798,7 +812,11 @@ sweep_partials() { [ -d "$1" ] || return 0; find "$1" -type f -name '*.????????.
 MATCH_PLAN="/storage/.cache/cloud_sync/content-match-plan"
 match_plan_write() { # <plan lines>
     mkdir -p "$(dirname "${MATCH_PLAN}")" 2>/dev/null
-    { printf 'plan %s\n' "$(date +%s)"; printf '%s\n' "$1" | grep '|'; } > "${MATCH_PLAN}.tmp.$$" 2>/dev/null \
+    content_context_current || {
+        say_why "SOMETHING CHANGED SINCE YOU CHECKED"
+        return 1
+    }
+    { printf 'plan2 %s %s %s\n' "$(date +%s)" "${CONTENT_CONFIG_ID}" "${MEDIA_MODE}"; printf '%s\n' "$1" | grep '|'; } > "${MATCH_PLAN}.tmp.$$" 2>/dev/null \
         && mv -f "${MATCH_PLAN}.tmp.$$" "${MATCH_PLAN}" 2>/dev/null \
         || { rm -f "${MATCH_PLAN}.tmp.$$" 2>/dev/null; return 1; }
 }
@@ -852,11 +870,46 @@ match_run() {
     fi
 
     # The preview is read-only and may run beside a transfer; applying is one.
-    [ "${apply}" = "1" ] && take_cloud_lock
+    if [ "${apply}" = "1" ]; then
+        take_cloud_lock
+    fi
     # As at the foot of the script: the rest of the run cannot leak the
     # lock into rclone. Closing a descriptor that was never opened (the
     # preview, which takes no lock) is a no-op.
     {
+
+    # Spend the preview before checking its binding or reading the cloud.
+    # An old-format or stale plan must never survive a refused apply.
+    MATCH_PLAN_TEXT=""
+    local plan_lines="" pverb pfiles pbytes plan_context="" plan_mode=""
+    if [ "${apply}" = "1" ]; then
+        if [ -s "${MATCH_PLAN}" ] && head -1 "${MATCH_PLAN}" | grep -qE '^plan2 [0-9]+ [0-9a-f]{64} (roms|with|only)$'; then
+            read -r _ _ plan_context plan_mode < "${MATCH_PLAN}"
+            MATCH_PLAN_TEXT=$(tail -n +2 "${MATCH_PLAN}")
+        fi
+        rm -f "${MATCH_PLAN}" 2>/dev/null
+        if [ -e "${MATCH_PLAN}" ]; then
+            echo "Nothing was removed: something went wrong on this device. Try again."
+            log_message "match: refused, the preview plan could not be spent"
+            say_why "SOMETHING WENT WRONG"
+            record_outcome content-match 1
+            return 1
+        fi
+        if ! content_context_current || { [ -n "${plan_context}" ] && { [ "${plan_context}" != "${CONTENT_CONFIG_ID}" ] || [ "${plan_mode}" != "${MEDIA_MODE}" ]; }; }; then
+            echo "Nothing was removed: your cloud settings changed. Check what would change again."
+            say_why "SOMETHING CHANGED SINCE YOU CHECKED"
+            record_outcome content-match 1
+            return 1
+        fi
+        if [ -z "${MATCH_PLAN_TEXT}" ]; then
+            echo "Nothing was removed: check what would change first, then try again."
+            say_why "CHECK WHAT WOULD CHANGE FIRST"
+            record_outcome content-match 1
+            return 1
+        fi
+    else
+        rm -f "${MATCH_PLAN}" 2>/dev/null
+    fi
 
     if ! cloud_root_populated; then
         echo "Refusing to change anything: your cloud's ROMs and BIOS folder looks empty."
@@ -880,44 +933,9 @@ match_run() {
         return 1
     fi
 
-    # The plan (PL-001): a preview starts from none and writes its own at the
-    # end; an apply reads the one the preview left and spends it before
-    # anything runs, so a second apply cannot stand on the same agreement.
-    MATCH_PLAN_TEXT=""
-    local plan_lines="" pverb pfiles pbytes
-    if [ "${apply}" = "1" ]; then
-        if [ -s "${MATCH_PLAN}" ] && head -1 "${MATCH_PLAN}" | grep -q '^plan [0-9][0-9]*$'; then
-            MATCH_PLAN_TEXT=$(tail -n +2 "${MATCH_PLAN}")
-        fi
-        rm -f "${MATCH_PLAN}" 2>/dev/null
-        # Spent means gone (the audit of the fix round, lead G2-A-04): a
-        # plan the cache would not let go stayed for the next apply, which
-        # then stood on a preview it did not follow. One that cannot be
-        # removed is not used.
-        if [ -e "${MATCH_PLAN}" ]; then
-            echo "Nothing was removed: something went wrong on this device. Try again."
-            log_message "match: refused, the preview plan ${MATCH_PLAN} could not be removed, so it could not be spent"
-            say_why "SOMETHING WENT WRONG"
-            record_outcome content-match 1
-            return 1
-        fi
-        if [ -z "${MATCH_PLAN_TEXT}" ]; then
-            # No check behind this apply at all -- run on its own, or run
-            # again after the apply that spent the plan -- is not a change
-            # since a check; the why names what is missing (vm-qa run 68:
-            # the round-trip ran --apply alone and was told SOMETHING
-            # CHANGED SINCE YOU CHECKED).
-            echo "Nothing was removed: check what would change first, then try again."
-            log_message "match: refused, no preview plan to apply"
-            say_why "CHECK WHAT WOULD CHANGE FIRST"
-            record_outcome content-match 1
-            return 1
-        fi
-        # It writes into the saves restore's tree (G-A-07).
-        tree_record_take
-    else
-        rm -f "${MATCH_PLAN}" 2>/dev/null
-    fi
+    # It writes into the saves restore's tree only after its bound plan
+    # and the current cloud/selection have passed all preflight checks.
+    [ "${apply}" != "1" ] || tree_record_take
 
     # What the page that runs this shows when it is done. A match is mostly
     # deletion, and rclone's own totals for a deletion read "0 B / 0 B" --
@@ -1476,6 +1494,13 @@ take_cloud_lock
 # the change: it adds no subshell, so exits, traps and variables behave
 # exactly as they did.
 {
+# Settings may change while the interactive preview is open. Re-check under
+# the transfer lock before sending anything to the previously named cloud.
+if ! content_context_current; then
+    echo ">>> why SOMETHING CHANGED SINCE YOU CHECKED"
+    echo "Your cloud settings changed. Start this operation again."
+    exit 1
+fi
 UNIT_N=${#DIRS[@]}; UNIT_I=0
 tree_record_take
 for DIR in "${DIRS[@]}"; do

@@ -1,0 +1,100 @@
+watch-build: recording in /tmp/pix538-editor-matrix16/.build-runs/20261011T064826Z-5b8d5951
+PASS local-only OAuth fixture ready en_US 640
+changed after 0.1s (`key ret`, line 12)
+settle: still after 1.7s
+changed after 0.1s (`key x`, line 15)
+settle: still after 1.3s
+changed after 0.1s (`key up`, line 18)
+changed after 0.1s (`key up`, line 20)
+changed after 0.1s (`key up`, line 22)
+settle: still after 1.3s
+changed after 0.1s (`key x`, line 25)
+settle: still after 1.3s
+captured /tmp/pix538-ui16/en640-osk/editor/01-cloud-hub.png
+changed after 0.1s (`key up`, line 29)
+changed after 0.1s (`key up`, line 31)
+captured /tmp/pix538-ui16/en640-osk/editor/02-hub-connection-row.png
+changed after 0.1s (`key x`, line 34)
+settle: still after 1.3s
+captured /tmp/pix538-ui16/en640-osk/editor/03-connections.png
+changed after 0.1s (`key x`, line 39)
+settle: still after 1.3s
+captured /tmp/pix538-ui16/en640-osk/editor/04-providers.png
+changed after 0.1s (`key x`, line 43)
+settle: still after 1.3s
+captured /tmp/pix538-ui16/en640-osk/editor/05-separate-name.png
+changed after 0.1s (`key x`, line 47)
+settle: still after 1.8s
+captured /tmp/pix538-ui16/en640-osk/editor/06-editor.png
+settle: still after 1.9s
+captured /tmp/pix538-ui16/en640-osk/clear-focus/01-clear-focus.png
+changed after 0.1s (`key x`, line 1)
+settle: still after 1.3s
+captured /tmp/pix538-ui16/en640-osk/actions/01-cleared.png
+changed after 0.1s (`key x`, line 5)
+settle: still after 1.3s
+captured /tmp/pix538-ui16/en640-osk/actions/02-edited.png
+changed after 0.1s (`key esc`, line 13)
+settle: still after 1.3s
+captured /tmp/pix538-ui16/en640-osk/actions/03-cancelled.png
+changed after 0.1s (`key x`, line 17)
+settle: still after 1.7s
+captured /tmp/pix538-ui16/en640-osk/actions/04-remains-clear.png
+PASS clear/cancel fixture en_US 640 osk
+PASS local-only OAuth fixture ready en_US 640
+changed after 0.1s (`key ret`, line 12)
+settle: still after 1.7s
+changed after 0.1s (`key x`, line 15)
+settle: still after 1.3s
+changed after 0.1s (`key up`, line 18)
+changed after 0.1s (`key up`, line 20)
+changed after 0.1s (`key up`, line 22)
+settle: still after 1.3s
+changed after 0.1s (`key x`, line 25)
+settle: still after 1.3s
+captured /tmp/pix538-ui16/en640-plain/editor/01-cloud-hub.png
+changed after 0.1s (`key up`, line 29)
+changed after 0.1s (`key up`, line 31)
+captured /tmp/pix538-ui16/en640-plain/editor/02-hub-connection-row.png
+changed after 0.1s (`key x`, line 34)
+settle: still after 1.3s
+captured /tmp/pix538-ui16/en640-plain/editor/03-connections.png
+changed after 0.1s (`key x`, line 39)
+settle: still after 1.3s
+captured /tmp/pix538-ui16/en640-plain/editor/04-providers.png
+changed after 0.1s (`key x`, line 43)
+settle: still after 1.3s
+captured /tmp/pix538-ui16/en640-plain/editor/05-separate-name.png
+changed after 0.1s (`key x`, line 47)
+settle: still after 1.3s
+captured /tmp/pix538-ui16/en640-plain/editor/06-editor.png
+settle: still after 1.9s
+captured /tmp/pix538-ui16/en640-plain/clear-focus/01-clear-focus.png
+wait-for-change: `key esc` (line 13) was eaten after 12.3s; re-sending (1)
+WALK FAILED: wait-for-change (line 14): the screen did not change within 12s of `key esc` on line 13, even after 1 re-send(s). The press was eaten, so every step after this one would run against the wrong screen. The frame is the last one in /tmp/pix538-ui16/en640-plain/actions.
+changed after 0.1s (`key x`, line 1)
+settle: still after 1.3s
+captured /tmp/pix538-ui16/en640-plain/actions/01-cleared.png
+changed after 0.1s (`key x`, line 5)
+settle: still after 1.3s
+captured /tmp/pix538-ui16/en640-plain/actions/02-edited.png
+captured /tmp/pix538-ui16/en640-plain/actions/03-stuck-after-esc.png
+Traceback (most recent call last):
+  File "/tmp/pix538-clear16.py", line 28, in <module>
+    walk('actions',Path('/tmp/pix538-clear-action.steps').read_text())
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/pix538-clear16.py", line 23, in walk
+    p=O/(label+'.steps');p.write_text(steps);subprocess.run([str(D/'tools/vm-visual-qa'),'--monitor',str(v.O/'monitor.sock'),'run',str(p),'--outdir',str(O/label)],check=True)
+                                             ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['/workspace/repos/rocknix.worktrees/m7-cloud-connections/tools/vm-visual-qa', '--monitor', '/workspace/tmp/pix535-537-vm01/monitor.sock', 'run', '/tmp/pix538-ui16/en640-plain/actions.steps', '--outdir', '/tmp/pix538-ui16/en640-plain/actions']' returned non-zero exit status 3.
+Traceback (most recent call last):
+  File "/tmp/pix538-editor-matrix16/run.py", line 5, in <module>
+    subprocess.run(['python3','/tmp/pix538-clear16.py',lang,size,editor],check=True)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['python3', '/tmp/pix538-clear16.py', 'en_US', '640', 'plain']' returned non-zero exit status 1.

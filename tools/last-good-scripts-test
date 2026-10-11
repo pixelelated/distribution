@@ -322,6 +322,17 @@ src_of() { # <repo-relative path> <destination>
     else
         cp "${ROOT}/${1}" "${2}" || { echo "cannot read ${1}" >&2; exit 2; }
     fi
+    # Ship the real reader and transaction module beside the script, as the
+    # package does. Historical --old scripts without that dependency stay old.
+    if grep -q 'cloud_connections as connections\|/cloud_remote" active' "${2}"; then
+        local connection_dir
+        connection_dir="$(dirname "$2")"
+        if [[ "${1}" != */cloud_remote ]]; then
+            src_of "${RCLONE_REL}/cloud_remote" "${connection_dir}/cloud_remote"
+            chmod +x "${connection_dir}/cloud_remote"
+        fi
+        src_of "${RCLONE_REL}/cloud_connections.py" "${connection_dir}/cloud_connections.py"
+    fi
     case "${1}" in
         */cloud_setup)
             # Discovery shares the restore scanner's local membership.
@@ -332,6 +343,12 @@ src_of() { # <repo-relative path> <destination>
                 chmod +x "$(dirname "$2")/cloud_folder_validate"
             fi ;;
         */cloud_content_backup|*/cloud_content_restore)
+            # Install the scanner that binds the production preflight context,
+            # including its real sibling dependencies.
+            if grep -q '/cloud_scan" --context' "$2"; then
+                src_of "${RCLONE_REL}/cloud_scan" "$(dirname "$2")/cloud_scan"
+                chmod +x "$(dirname "$2")/cloud_scan"
+            fi
             local guard_rel="${RCLONE_REL}/cloud_content_transfer" guard_dst
             guard_dst="$(dirname "$2")/cloud_content_transfer"
             if [ "${OLD}" -eq 1 ]; then
@@ -758,13 +775,17 @@ printf '#!/bin/sh\nexit 0\n' > "${B2}/shim/sleep"
 chmod +x "${B2}/shim"/*
 printf 'system.hostname=X\n' > "${ST2}/.config/system/configs/system.cfg"
 printf '[qa]\ntype = dropbox\ntoken = {"access_token":"QA-SECRET-TOKEN","refresh_token":"QA-REFRESH"}\n' > "${ST2}/.config/rclone/rclone.conf"
+mkdir -p "${ST2}/.config/rclone/.connection-qa"
+printf 'token = STAGED-QA-CREDENTIAL\n' > "${ST2}/.config/rclone/.connection-qa/rclone.conf"
+printf 'token = ATOMIC-QA-CREDENTIAL\n' > "${ST2}/.config/rclone/.rclone.conf-qa"
+printf 'qa\n' > "${ST2}/.config/rclone/active-connection"
 echo plain > "${ST2}/.config/test/plain.txt"
 # es_settings.cfg is XML, which the line-anchored leak scan cannot read, so the
 # strip at the archive is its only guard: the ScreenScraper passwords (#64)
 # and the IGDB client secret (#274, found by #221's trace). No harness case
 # read this strip before 2026-09-25.
 printf '<?xml version="1.0"?>\n<config>\n<string name="ScreenScraperUser" value="qa-user" />\n<string name="ScreenScraperPass" value="QA-SECRET-SS" />\n<string name="ScreenScraperDevPass" value="QA-SECRET-DEV" />\n<string name="IGDBClientID" value="qa-client" />\n<string name="IGDBSecret" value="QA-SECRET-IGDB" />\n<string name="ThemeSet" value="art-book-next" />\n</config>\n' > "${ST2}/.config/emulationstation/es_settings.cfg"
-printf 'LOCATIONS=(\n  /storage/.config/system/configs/system.cfg\n  /storage/.config/test/*\n  /storage/.config/rclone/*\n  /storage/.config/emulationstation/*\n)\n' > "${ST2}/.config/backuptool.conf"
+printf 'LOCATIONS=(\n  /storage/.config/system/configs/system.cfg\n  /storage/.config/test/*\n  /storage/.config/rclone/*\n  /storage/.config/rclone/.connection-qa/*\n  /storage/.config/rclone/.rclone.conf-qa\n  /storage/.config/emulationstation/*\n)\n' > "${ST2}/.config/backuptool.conf"
 OUT2="${B2}/out"
 RC2=$( ( setsid -w bwrap --die-with-parent --tmpfs / --ro-bind /usr /usr \
     --symlink usr/bin /bin --symlink usr/lib /lib --symlink usr/lib64 /lib64 \
@@ -775,6 +796,9 @@ RC2=$( ( setsid -w bwrap --die-with-parent --tmpfs / --ro-bind /usr /usr \
 arc=$(ls "${ST2}/roms/backup"/*.tar.gz 2>/dev/null | head -1)
 [ "${RC2}" -eq 0 ] && [ -n "${arc}" ]; check $? "a backup with rclone.conf in LOCATIONS completes (rc ${RC2})" "rc ${RC2}, archive: '${arc}'"
 ! tar -tzf "${arc}" 2>/dev/null | grep -q 'rclone/rclone.conf$'; check $? "rclone.conf is not in the archive" "the archive lists rclone.conf"
+if grep -q '/storage/.config/rclone/' "${BT}"; then
+    ! tar -tzf "${arc}" 2>/dev/null | grep -q 'storage/.config/rclone/'; check $? "connection selection and interrupted private credential staging never travel in a settings backup (#537)" "a device-only connection file entered the archive"
+fi
 ! tar -xzOf "${arc}" 2>/dev/null | grep -q 'QA-SECRET-TOKEN'; check $? "and no token travelled in any member" "a member carries the token"
 tar -tzf "${arc}" 2>/dev/null | grep -q 'test/plain.txt$'; check $? "files that are not held back are archived as before" "plain.txt missing"
 grep -q 'rclone.conf held back' "${OUT2}"; check $? "the log says rclone.conf was held back" "no held-back line: $(grep logger "${OUT2}" | tail -2 | tr '\n' ' ')"
@@ -1020,7 +1044,7 @@ echo "${klist}" | grep -q 'duckstation/settings.ini$' && echo "${klist}" | grep 
 ! grep -rqF "${KTOK}" "${KX}" 2>/dev/null; check $? "and the planted token appears in no member of the archive" "the token is in: $(grep -rlF "${KTOK}" "${KX}" 2>/dev/null | sed "s|${KX}/||" | tr '\n' ' ')"
 grep -q 'held back 5 file(s) that hold only a RetroAchievements token' "${OUT}" && grep -q 'blanked the RetroAchievements token in 4 emulator settings file(s)' "${OUT}"; check $? "and the log counts five held back and four blanked" "log: $(grep -oE '(held back|blanked)[^|]*' "${OUT}" | tr '\n' ' ')"
 ! echo "${klist}" | grep -q 'storage/.config/raofflineproxy/'; check $? "the offline RetroAchievements proxy's folder travels in no shape: none of its five files is in the archive (#165)" "the archive carries: $(echo "${klist}" | grep 'raofflineproxy/' | tr '\n' ' ')"
-grep -q "held back 5 file(s) under the offline RetroAchievements proxy's folder" "${OUT}"; check $? "and the log counts the five held back under it" "log: $(grep -o "held back [0-9]* file(s) under the offline[^|]*" "${OUT}" | head -1 | grep . || echo silent)"
+grep -qE "held back 5 file\(s\) under (the offline RetroAchievements proxy's folder|device-only identity folders)" "${OUT}"; check $? "and the log counts the five held back under it" "log: $(grep -o "held back [0-9]* file(s) under the offline[^|]*" "${OUT}" | head -1 | grep . || echo silent)"
 # A Token = line in a file the strip does not know, with a value of its own.
 # Since #307 PL-005 the scanner's hit ends the backup before the archive is
 # named, so it is planted for a second run: that run is refused, the log
@@ -1201,6 +1225,9 @@ grep -q 'absent_not_broken "${ROOT}ROMs/"' "${LL}/src/cloud_content_restore" && 
 # pages, the shape #113 bounded for the syncs (#273's trace of #113).
 LC="${LL}/check"; mkdir -p "${LC}/shim" "${LC}/rec" "${LC}/repo"
 cp "${LL}/src/cloud_setup" "${LC}/repo/cloud_setup"
+mkdir -p "${LC}/storage/.config/rclone"
+printf '[qa]\ntype = local\n' > "${LC}/storage/.config/rclone/rclone.conf"
+if [ -f "${LL}/src/cloud_connections.py" ]; then cp "${LL}/src/cloud_remote" "${LL}/src/cloud_connections.py" "${LC}/repo/"; fi
 printf 'export PATH=/shim:/usr/bin:/bin\n' > "${LC}/profile"
 printf '#!/bin/sh\necho "logger $*" >&2\n' > "${LC}/shim/logger"
 cat > "${LC}/shim/rclone" <<'EOR'
@@ -1215,7 +1242,7 @@ RCC=$( ( setsid -w bwrap --die-with-parent --tmpfs / --ro-bind /usr /usr \
     --symlink usr/bin /bin --symlink usr/lib /lib --symlink usr/lib64 /lib64 \
     --ro-bind /etc /etc --ro-bind "${LC}/profile" /etc/profile \
     --ro-bind "${LC}/shim" /shim --bind "${LC}/rec" /rec --ro-bind "${LC}/repo" /repo \
-    --dev /dev --proc /proc --tmpfs /tmp --tmpfs /storage \
+    --dev /dev --proc /proc --tmpfs /tmp --bind "${LC}/storage" /storage --dir /var/log \
     bash /repo/cloud_setup --check > "${OUTC}" 2>&1; echo $? ) 2>/dev/null )
 [ "${RCC}" -eq 0 ] && grep -q '^OK qa:' "${OUTC}"; check $? "cloud_setup --check verifies the one remote the shim lists (rc ${RCC})" "rc ${RCC}; out: $(head -2 "${OUTC}" | tr '\n' ' ' | cut -c1-120)"
 LSD=$(grep '^lsd ' "${LC}/rec/argv" 2>/dev/null | head -1)
@@ -4544,13 +4571,14 @@ if [ -n "${BB}" ]; then CSBB=(--ro-bind "${TMP}/bbin" /bbin --ro-bind "${BB_HOST
 # path-based and holds no folder yet (lsd answers "directory not found").
 C1="${CS}/c1"; mkdir -p "${C1}/shim" "${C1}/repo" "${C1}/storage/.config"
 cp "${CS}/src/cloud_setup" "${C1}/repo/cloud_setup"
+if [ -f "${CS}/src/cloud_connections.py" ]; then cp "${CS}/src/cloud_remote" "${CS}/src/cloud_connections.py" "${C1}/repo/"; fi
 if [ "${VALIDATOR_AVAILABLE}" -eq 1 ]; then
     cp "${CS}/src/cloud_folder_validate" "${C1}/repo/cloud_folder_validate"
     chmod +x "${C1}/repo/cloud_folder_validate" "${C1}/repo/cloud_setup"
 fi
 mkdir -p "${C1}/storage/.config/rclone"
 printf '[qa]\ntype = local\n' > "${C1}/storage/.config/rclone/rclone.conf"
-cp "${CS}/src/cloud_content_restore" "${C1}/repo/cloud_content_restore"
+src_of "${RCLONE_REL}/cloud_content_restore" "${C1}/repo/cloud_content_restore"
 chmod +x "${C1}/repo/cloud_content_restore"
 # Historical setup depended on the engine; current setup is independent.
 if [ "${MIGRATION_AVAILABLE}" -eq 1 ]; then
@@ -4826,7 +4854,7 @@ c2() { # <args...>: cloud_setup against the cloud in C2/cloud; output to C2/out,
         --ro-bind /etc /etc --ro-bind "${C2}/profile" /etc/profile "${CSBB[@]}" \
         --ro-bind "${C2}/shim" /shim --ro-bind "${C1}/repo" /repo --bind "${C2}/storage" /storage \
         --bind "${C2}/cloud" /cloud --bind "${C2}/rec" /rec --ro-bind "${C2}/run" /run \
-        --dev /dev --proc /proc --tmpfs /tmp --tmpfs /var --dir /var/log \
+        --dev /dev --proc /proc --tmpfs /tmp --tmpfs /var --dir /var/log --dir /var/run \
         bash /repo/cloud_setup "$@" > "${C2}/out" 2>&1; echo $? ) 2>/dev/null )
 }
 c2reset() { # <path|bucket> [fail]: an empty cloud, the shipped config
@@ -4971,6 +4999,8 @@ fi
 # reached. `drive` runs cloud_oauth's own main() with those patches, for the
 # groups that need a serve as a process of its own.
 C3="${CS}/c3"; mkdir -p "${C3}/scratch"; cp "${CS}/src/cloud_oauth" "${C3}/cloud_oauth"; cp "${CS}/src/cloud_remote" "${C3}/cloud_remote"
+if [ -f "${CS}/src/cloud_connections.py" ]; then cp "${CS}/src/cloud_connections.py" "${C3}/"; fi
+cp "${ROOT}/tools/test-fixtures/cloud_connections_fixture.py" "${C3}/"
 cat > "${C3}/cloud_oauth_test.py" <<'EOPY'
 #!/usr/bin/env python3
 # cloud_oauth, graded in-process and as processes, inside a bwrap sandbox with
@@ -5008,11 +5038,15 @@ def load(tag="t"):
     loader = importlib.machinery.SourceFileLoader("cloud_oauth_" + tag, REPO)
     spec = importlib.util.spec_from_loader(loader.name, loader)
     m = importlib.util.module_from_spec(spec)
+    sys.path.insert(0, __import__("os").path.dirname(loader.path))
     loader.exec_module(m)
     d = tempfile.mkdtemp(dir=WORK, prefix=tag + ".")
     m.STATE_DIR = os.path.join(d, "state")
     os.makedirs(m.STATE_DIR)
     m.LOG_FILE = os.path.join(d, "cloud_sync.log")
+    if hasattr(m, "connections"):
+        from cloud_connections_fixture import configure
+        configure(m, d)
     m.UINPUT = "/nonexistent/uinput"
     return m, d
 
@@ -5197,9 +5231,13 @@ def driver():
     loader = importlib.machinery.SourceFileLoader("cloud_oauth", REPO)
     spec = importlib.util.spec_from_loader(loader.name, loader)
     m = importlib.util.module_from_spec(spec)
+    sys.path.insert(0, __import__("os").path.dirname(loader.path))
     loader.exec_module(m)
     m.STATE_DIR = os.path.join(d, "state")
     m.LOG_FILE = os.path.join(d, "cloud_sync.log")
+    if hasattr(m, "connections"):
+        from cloud_connections_fixture import configure
+        configure(m, d)
     m.UINPUT = "/nonexistent/uinput"
     shim = os.path.join(d, "rclone")
     with open(shim, "w") as h:
@@ -5345,9 +5383,13 @@ def load_remote(tag="r"):
     loader = importlib.machinery.SourceFileLoader("cloud_remote_" + tag, path)
     spec = importlib.util.spec_from_loader(loader.name, loader)
     m = importlib.util.module_from_spec(spec)
+    sys.path.insert(0, __import__("os").path.dirname(loader.path))
     loader.exec_module(m)
     d = tempfile.mkdtemp(dir=WORK, prefix=tag + ".")
     m.LOG_FILE = os.path.join(d, "cloud_sync.log")
+    if hasattr(m, "connections"):
+        from cloud_connections_fixture import configure
+        configure(m, d)
     shim = os.path.join(d, "rclone")
     with open(shim, "w") as h:
         h.write('#!/bin/bash\n'
@@ -5780,6 +5822,9 @@ def listremotes_failure_is_not_absence():
     m, d = load("rs23")
     sp = FakeSP([(["listremotes"], lambda a: completed(a, 1, "", "config file unreadable"))])
     m.subprocess = sp
+    if hasattr(m, "connections"):
+        m.connections.CONFIG.write_bytes(b"[broken")
+        m.connections.RCLONE = "/bin/false"
     s = m.Session("dropbox", "qa", 60)
     s.token = '{"access_token":"t"}'
     ok, detail = s._write_config()
@@ -5793,6 +5838,9 @@ def remote_listremotes_failure_is_not_absence():
     """#308 gpt F-RS-23 (the cloud_remote half)."""
     m, d = load_remote("rs23r")
     open(os.path.join(d, "listremotes-fails"), "w").close()
+    if hasattr(m, "connections"):
+        m.connections.CONFIG.write_bytes(b"[broken")
+        m.connections.RCLONE = "/bin/false"
     rc = m.main(["cloud_remote", "create", "saves", "webdav", "url=https://dav.example"])
     argv = open(os.path.join(d, "argv")).read() if os.path.exists(os.path.join(d, "argv")) else ""
     result(rc != 0 and "config create" not in argv,
@@ -5959,8 +6007,8 @@ def remote_create_stderr_holds_no_password():
     with contextlib.redirect_stderr(buf):
         rc = m.main(["cloud_remote", "create", "qa", "webdav", "url=https://dav.example", "pass=SECRETPASS9"])
     said = buf.getvalue()
-    result(rc != 0 and "SECRETPASS9" not in said and "bad option" in said,
-           "a failed create passes rclone's reason on with the password taken out: %r" % said.strip(),
+    result(rc != 0 and "SECRETPASS9" not in said and ("could not be verified" if hasattr(m, "connections") else "bad option") in said,
+           "a failed create reports a useful sanitized reason without the password: %r" % said.strip(),
            "rc %r; cloud_remote said %r -- a password value reaches the interface's dialog (G-C-09 claude)" % (rc, said.strip()))
 EOPY
 # G-C-01 (claude): the serve's side of the phone's Close page -- a guard.
@@ -6082,6 +6130,7 @@ import importlib.machinery, importlib.util, sys
 loader = importlib.machinery.SourceFileLoader("cloud_oauth_page", sys.argv[1])
 spec = importlib.util.spec_from_loader(loader.name, loader)
 m = importlib.util.module_from_spec(spec)
+sys.path.insert(0, __import__("os").path.dirname(loader.path))
 loader.exec_module(m)
 sys.stdout.write(m.REMOTE_PAGE % {"style": m.STYLE, "name": "Dropbox", "pin": "1234"})
 EOPY
@@ -8010,6 +8059,19 @@ p7reset '  /storage/.config'
 echo this-device > "${P7S}/.config/cloud_sync-device-id"
 p7bt backup
 [ "${RC}" -eq 0 ] && ! p7list | grep -q 'cloud_sync-device-id'; check $? "#307 PL-010: and a backup of /storage/.config does not carry the device id" "#307 PL-010: rc ${RC}; archive: $(p7list | grep device-id)"
+
+# #537: neither restore format imports staged credentials or another active selection.
+if grep -q 'DEVICEONLYDIRS=' "${ROOT}/projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool"; then
+for p537format in tar zip; do
+    p7reset '  /storage/.config/test/*'
+    mkdir -p "${P7S}/.config/rclone"
+    echo mine > "${P7S}/.config/rclone/active-connection"
+    p537members=("storage/.config/test/f1=RESTORED" "storage/.config/rclone/active-connection=other" "storage/.config/rclone/.connection-qa/rclone.conf=STAGED SECRET" "storage/.config/rclone/.rclone.conf-qa=TEMP SECRET")
+    if [ "${p537format}" = tar ]; then p7tar 2026_01_01-000000-ROCKNIX_SETTINGS.tar.gz "${p537members[@]}"; else p7zip 20260101000000-ROCKNIX_BACKUP.zip "${p537members[@]}"; fi
+    p7bt restore --no-restart
+    [ "${RC}" -eq 0 ] && [ "$(cat "${P7S}/.config/test/f1")" = RESTORED ] && [ "$(cat "${P7S}/.config/rclone/active-connection")" = mine ] && [ ! -e "${P7S}/.config/rclone/.connection-qa" ] && [ ! -e "${P7S}/.config/rclone/.rclone.conf-qa" ]; check $? "#537: ${p537format} restore excludes staged credentials and active selection" "#537: ${p537format} credential directory changed (rc ${RC})"
+done
+fi
 
 # == PL-037: a file left out as the image's own is reset on restore
 p7reset '  /storage/.config/emulationstation/es_settings.cfg
@@ -11238,6 +11300,7 @@ if [ -n "${BB}" ]; then CFBB=(--ro-bind "${TMP}/bbin" /bbin --ro-bind "${BB_HOST
 # path-based and empty, every call it gets written down.
 CF1="${CF}/1"; mkdir -p "${CF1}/shim" "${CF1}/repo" "${CF1}/storage/.config"
 cp "${CF}/src/cloud_setup" "${CF1}/repo/cloud_setup"
+if [ -f "${CF}/src/cloud_connections.py" ]; then cp "${CF}/src/cloud_remote" "${CF}/src/cloud_connections.py" "${CF1}/repo/"; fi
 if [ "${VALIDATOR_AVAILABLE}" -eq 1 ]; then
     cp "${CF}/src/cloud_folder_validate" "${CF1}/repo/cloud_folder_validate"
     chmod +x "${CF1}/repo/cloud_folder_validate" "${CF1}/repo/cloud_setup"
@@ -11512,6 +11575,8 @@ cf_cap=$(grep -n '/usr/bin/cloud_capture' "${cf_auto}" | head -1 | cut -d: -f1)
 # and network namespaces as C3's groups run (the script's pkill and its
 # binds reach nothing outside it). Each group prints P or F lines.
 CF4="${CF}/4"; mkdir -p "${CF4}/scratch"
+if [ -f "${CF}/src/cloud_connections.py" ]; then cp "${CF}/src/cloud_connections.py" "${CF4}/"; fi
+cp "${ROOT}/tools/test-fixtures/cloud_connections_fixture.py" "${CF4}/"
 [ -e "${CF}/src/cloud_oauth" ] && cp "${CF}/src/cloud_oauth" "${CF4}/cloud_oauth"
 cat > "${CF4}/cf_oauth_test.py" <<'EOPY'
 #!/usr/bin/env python3
@@ -11540,11 +11605,15 @@ def load(tag):
     loader = importlib.machinery.SourceFileLoader("cf_oauth_" + tag, REPO)
     spec = importlib.util.spec_from_loader(loader.name, loader)
     m = importlib.util.module_from_spec(spec)
+    sys.path.insert(0, __import__("os").path.dirname(loader.path))
     loader.exec_module(m)
     d = tempfile.mkdtemp(dir=WORK, prefix=tag + ".")
     m.STATE_DIR = os.path.join(d, "state")
     os.makedirs(m.STATE_DIR)
     m.LOG_FILE = os.path.join(d, "cloud_sync.log")
+    if hasattr(m, "connections"):
+        from cloud_connections_fixture import configure
+        configure(m, d)
     m.UINPUT = "/nonexistent/uinput"
     m.provider_url = lambda local: "https://www.dropbox.com/oauth2/authorize?state=abc"
     m.lan_address = lambda: "127.0.0.1"
@@ -11745,7 +11814,7 @@ def late_success(tag, close):
     time.sleep(0.3)                             # the create is under way
     close(m, holder, s)
     t.join(10)
-    deleted = any(c[1:3] == ["config", "delete"] for c in sp.calls)
+    deleted = (not m.connections.CONFIG.exists()) if hasattr(m, "connections") else any(c[1:3] == ["config", "delete"] for c in sp.calls)
     return m.read_state(), os.path.exists(m.state_path("signed-in")), deleted
 
 
@@ -11903,6 +11972,7 @@ import importlib.machinery, importlib.util, sys
 loader = importlib.machinery.SourceFileLoader("cloud_oauth_page", sys.argv[1])
 spec = importlib.util.spec_from_loader(loader.name, loader)
 m = importlib.util.module_from_spec(spec)
+sys.path.insert(0, __import__("os").path.dirname(loader.path))
 loader.exec_module(m)
 sys.stdout.write(m.REMOTE_PAGE % {"style": m.STYLE, "name": "Dropbox", "pin": "1234"})
 EOPY
@@ -13904,6 +13974,8 @@ echo "  ab. cloud_scan (#350, D-CLOUD-156): the opening scan's three items, the 
 # archive listing, ip answering a route unless told not to.
 SC="${TMP}/sc"; mkdir -p "${SC}/shim" "${SC}/rec" "${SC}/repo" "${SC}/storage/.config" "${SC}/storage/.cache"
 src_of "projects/ROCKNIX/packages/network/rclone/sources/cloud_scan" "${SC}/repo/cloud_scan"
+mkdir -p "${SC}/storage/.config/rclone"
+printf '[qa]\ntype = local\n' > "${SC}/storage/.config/rclone/rclone.conf"
 SC_BOUND=0; SC_RUN_SEQ=0; SC_RUN_ID=""
 grep -q -- '--stamp-valid' "${SC}/repo/cloud_scan" && SC_BOUND=1
 printf 'export PATH=/shim:/usr/bin:/bin\n' > "${SC}/profile"
@@ -14006,9 +14078,15 @@ if [ "${SC_BOUND}" -eq 1 ]; then
 else
 [ "${SCRC}" = 69 ] && ! grep -q '>>> unit' "${SC}/out" && [ ! -f "${SCO}/done" ]; check $? "no default route: exit 69, nothing announced, no done stamp (rc ${SCRC})" "$(sc_out)"
 fi
-rm -f "${SC}"/rec/*; touch "${SC}/rec/noremote"; sc_run
-[ "${SCRC}" = 1 ] && grep -q "^>>> why YOUR CLOUD STORAGE ISN'T SET UP YET" "${SC}/out"; check $? "no remote: exit 1 with its why (rc ${SCRC})" "$(sc_out)"
-rm -f "${SC}"/rec/*; touch "${SC}/rec/scan-fail"; sc_run
+rm -f "${SC}"/rec/*; touch "${SC}/rec/noremote"
+: > "${SC}/storage/.config/rclone/active-connection"
+sc_run
+[ "${SCRC}" = 1 ] && grep -qx ">>> why CHOOSE A CONNECTION BEFORE USING CLOUD TOOLS." "${SC}/out"; check $? "stored connections with an explicit empty selection: choose a connection (rc ${SCRC})" "$(sc_out)"
+mv "${SC}/storage/.config/rclone/rclone.conf" "${SC}/rclone.before"
+sc_run
+[ "${SCRC}" = 1 ] && grep -qx ">>> why YOUR CLOUD STORAGE ISN'T SET UP YET" "${SC}/out"; check $? "no stored connections: setup guidance remains distinct (rc ${SCRC})" "$(sc_out)"
+mv "${SC}/rclone.before" "${SC}/storage/.config/rclone/rclone.conf"
+rm -f "${SC}"/rec/* "${SC}/storage/.config/rclone/active-connection"; touch "${SC}/rec/scan-fail"; sc_run
 [ "${SCRC}" = 0 ] && [ -f "${SCO}/done" ]; check $? "a content listing is not the opening scan's to fail: the scan-fail flag leaves the opening scan at 0 (rc ${SCRC})" "$(sc_out)"
 rm -f "${SC}"/rec/*; sc_run --content --with-media
 [ "${SCRC}" = 0 ] && [ "$(grep '^>>> unit' "${SC}/out" | tr '\n' ' ')" = ">>> unit ROMS, BIOS, AND GAME CONTENT|| " ] && grep -q '^>>> doing compare' "${SC}/out" \
@@ -14019,7 +14097,7 @@ if [ "${SC_BOUND}" -eq 1 ]; then
 fi
 rm -f "${SC}"/rec/*; sc_run --content --media-only
 [ "${SCRC}" = 0 ] && grep -q '^>>> unit GAME CONTENT||' "${SC}/out" && grep -qx -- '--scan --media-only' "${SC}/rec/argv"; check $? "--content --media-only is the GAME CONTENT item with --scan --media-only (rc ${SCRC})" "$(sc_out)"
-rm -f "${SC}"/rec/*; touch "${SC}/rec/scan-fail"; sc_run --content
+rm -f "${SC}"/rec/* "${SC}/storage/.config/rclone/active-connection"; touch "${SC}/rec/scan-fail"; sc_run --content
 [ "${SCRC}" = 5 ] && grep -q '^>>> why YOUR CLOUD STOPPED ANSWERING' "${SC}/out" && [ ! -f "${SCO}/content-done" ] && grep -q '^>>> unit ROMS AND BIOS||' "${SC}/out"; check $? "a content listing the cloud refused (5): the ROMS AND BIOS item, the why, no content stamp (rc ${SCRC})" "$(sc_out)"
 if [ "${MIGRATION_AVAILABLE}" -eq 1 ]; then
 rm -f "${SC}"/rec/*; touch "${SC}/rec/superseded"; sc_run
@@ -14155,7 +14233,8 @@ sa_run "${SV}" cloud_backup --yes --saves-only
 [ "${RC}" -eq 0 ] && [ -e "${SV}/cloud/pixelelated/Saves/gb/A.srm" ] && ! grep -q '^>>> offer' "${SV}/out"; check $? "the current folder, absent, is still made by the backup (rc ${RC})" "rc ${RC}; out: $(sa_tail "${SV}")"
 
 echo "  ae. cloud folder state table and archive writer/reader contracts (#365, #383)"
-layout_args=()
+# Keep nested host fixtures on the same selected build filesystem.
+layout_args=(--output "${TMP}/cloud-layout")
 if [ "${OLD}" -eq 1 ]; then layout_args+=(--ref "${BASE_REF}")
 else layout_args+=(--source-root "${ROOT}"); fi
 [ -n "${SA_RCLONE_SRC:-}" ] && layout_args+=(--rclone "${SA_RCLONE_SRC}")

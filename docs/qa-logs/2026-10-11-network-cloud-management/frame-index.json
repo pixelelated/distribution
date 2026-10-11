@@ -1,0 +1,507 @@
+{
+  "curated_at": "2026-10-11T07:36:30.289054+00:00",
+  "source_manifest": "source-manifest-frozen-audit.json",
+  "es_sha256": "eb49472bf412118e49fd24ef8ca268c9c314b1193da896bd112036368b0a13b3",
+  "catalog_sha256": "e0161e5a5d469c2786df40b2647a8adcd78b5f66abfd8431614922b6333803c1",
+  "scope": "Source-delta UI proof on owned VM; physical radio and live provider policy excluded; audit findings F-01\u201303 unresolved at capture.",
+  "frames": [
+    {
+      "path": "connections/en640/lifecycle/03-connections.png",
+      "sha256": "bde92c29348b1bc39bf2cbc3ed880a8c0f07cc4f71830c38877ba735a3348728",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix537-ui21/en640/lifecycle/03-connections.png"
+    },
+    {
+      "path": "connections/en640/lifecycle/04-details.png",
+      "sha256": "e3b9b74f4c22d2e668f7fd2c14ee21bc36a489e64ebba9b0d05d31730aacb114",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix537-ui21/en640/lifecycle/04-details.png"
+    },
+    {
+      "path": "connections/en640/lifecycle/05-use-confirm.png",
+      "sha256": "a44f6900120e2fed02556c7f13c5d08b6b617232a1d538cd1a0d9b6c52660269",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix537-ui21/en640/lifecycle/05-use-confirm.png"
+    },
+    {
+      "path": "connections/en640/lifecycle/07-remove-confirm.png",
+      "sha256": "0a780a281280a0c4ad819da26c58eea6b2f332ed70e5aac705cc69868b0c6d73",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix537-ui21/en640/lifecycle/07-remove-confirm.png"
+    },
+    {
+      "path": "connections/en640/lifecycle/09-removed-unselected.png",
+      "sha256": "9230e2b219806c5cef48ec6ec0b6ea1ecd80bb56ca0f19d11cb47ffca342e3d1",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix537-ui21/en640/lifecycle/09-removed-unselected.png"
+    },
+    {
+      "path": "wifi/en640/failed/open-failed/01-open-failed.png",
+      "sha256": "966d92306dda08eac32ce1d89092a412a3a0f2e1db2bf2f35b5d033cb50ce246",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix535-ui21/en640/failed/open-failed/01-open-failed.png"
+    },
+    {
+      "path": "wifi/en640/failed/protected-prompt/01-protected-prompt.png",
+      "sha256": "bc6433ce7686a2dd8512dcb5bd8dc64109d28c9573ea8efc45b42a0f89007030",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix535-ui21/en640/failed/protected-prompt/01-protected-prompt.png"
+    },
+    {
+      "path": "wifi/en640/failed/protected-failed/01-protected-failed.png",
+      "sha256": "607ebbb0dc472ececaf8a3904a0e14c6b505f5f79a130ea3453edf19862e51bc",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix535-ui21/en640/failed/protected-failed/01-protected-failed.png"
+    },
+    {
+      "path": "connections/en640/edit/02-edit-form.png",
+      "sha256": "cc386750228e35594ab6e3d2135eee37238c3031d1b14e8ba7337bf9d7c94696",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix537-ui21/en640/edit/02-edit-form.png"
+    },
+    {
+      "path": "connections/en640/edit/03-edit-confirm.png",
+      "sha256": "51938c4a0de299014a0e7d51709d47ab3f2c21f2d4c84dab8ee26c67636597dd",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix537-ui21/en640/edit/03-edit-confirm.png"
+    },
+    {
+      "path": "connections/en640/saved/01-edited-connection-saved.png",
+      "sha256": "4511fa66c5fbe601699d226de2286dc09b1f99fa19527fe4fd19c784ae7f5d80",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix537-ui21/en640/saved/01-edited-connection-saved.png"
+    },
+    {
+      "path": "connections/en640/add-name/05-separate-name.png",
+      "sha256": "daf5a058f8ea286a751a1cfc8edd025d3b983425fef3a95f42f38810579aa132",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix537-ui21/en640/add-name/05-separate-name.png"
+    },
+    {
+      "path": "pairing/en640/start/03-renew-confirm.png",
+      "sha256": "86fead6b8c35f541b0ab9e45ab49b7f18cda5c6102b6a520cb6b1b05fc254272",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix537-oauth21/en640/start/03-renew-confirm.png"
+    },
+    {
+      "path": "pairing/en640/failed/02-pairing-failed.png",
+      "sha256": "0be74fe49ab6441f7b8ce24a6e18b5832dc1292b35671a2143a64432463d016b",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix537-oauth21/en640/failed/02-pairing-failed.png"
+    },
+    {
+      "path": "pairing/en640/cancelled/01-cancelled-return.png",
+      "sha256": "873feb6a8af19e645e411e3f74d66ee1b8d776fac272ee009b3fb855726fb46d",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix537-oauth21/en640/cancelled/01-cancelled-return.png"
+    },
+    {
+      "path": "connections/fr640/lifecycle/03-connections.png",
+      "sha256": "4a4de7f0ccd2b0d278f3ca4be813791a9ff6ad61a1dc2cd8d0b6205dcae639fe",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix537-ui21/fr640/lifecycle/03-connections.png"
+    },
+    {
+      "path": "connections/fr640/lifecycle/05-use-confirm.png",
+      "sha256": "162f2ddb45fe017ee9ded972af19c4e0d8e39be771d8d1b42110f2c0bfd22958",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix537-ui21/fr640/lifecycle/05-use-confirm.png"
+    },
+    {
+      "path": "connections/fr640/lifecycle/07-remove-confirm.png",
+      "sha256": "d82c1587e4004d726b3647f055dd77eae4fe233b94781ac9525a67cbd8782cd7",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix537-ui21/fr640/lifecycle/07-remove-confirm.png"
+    },
+    {
+      "path": "connections/fr640/lifecycle/09-removed-unselected.png",
+      "sha256": "06c6588131d9e514038b38493e8858f6eb780fc60380b3cc545e54098dba58b3",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix537-ui21/fr640/lifecycle/09-removed-unselected.png"
+    },
+    {
+      "path": "connections/fr640/edit/02-edit-form.png",
+      "sha256": "cfdaed1a6f97358ad47ac41fb94bb5296ac263ec2a45064e19a8aee605cc2900",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix537-ui21/fr640/edit/02-edit-form.png"
+    },
+    {
+      "path": "connections/fr640/edit/03-edit-confirm.png",
+      "sha256": "d0adae7c1b489897cf88fb441c5e4e4f6162c79ff7a429d2c8f55c597dd49980",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix537-ui21/fr640/edit/03-edit-confirm.png"
+    },
+    {
+      "path": "connections/fr640/saved/01-edited-connection-saved.png",
+      "sha256": "9873cc725899fc5e14a2497acb0ab372c10f51a460b34dcd7c89353720943c60",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix537-ui21/fr640/saved/01-edited-connection-saved.png"
+    },
+    {
+      "path": "connections/fr640/add-name/05-separate-name.png",
+      "sha256": "16ddbfc2c32e1867e76cdbb9bfaab5f6fd947fa692151f485bd3032116e7a11a",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix537-ui21/fr640/add-name/05-separate-name.png"
+    },
+    {
+      "path": "pairing/fr640/start/03-renew-confirm.png",
+      "sha256": "4cf8bc2a47bb583fed2f40424bdde67caf5b2d08978414b4a5052a917a41849e",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix537-oauth21/fr640/start/03-renew-confirm.png"
+    },
+    {
+      "path": "pairing/fr640/failed/02-pairing-failed.png",
+      "sha256": "9773992970314e9bf4320e0406c9a22eba0753cd3ed7909c3f6a7002fca05ef6",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix537-oauth21/fr640/failed/02-pairing-failed.png"
+    },
+    {
+      "path": "wifi/fr640/full-happy/open-connected/01-open-connected.png",
+      "sha256": "924a487946a65bd7db3029432a08c328aa4c54932a76612994a6b6ff6bbbbecf",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix535-ui21/fr640/full-happy/open-connected/01-open-connected.png"
+    },
+    {
+      "path": "wifi/fr640/full-happy/unknown-password/01-unknown-password.png",
+      "sha256": "d3aa7c5f9ef471b8f349023f197ae9f5719ca716a3fc1fa2e22f938ac2453179",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix535-ui21/fr640/full-happy/unknown-password/01-unknown-password.png"
+    },
+    {
+      "path": "wifi/fr640/full-happy/protected-password/01-protected-password.png",
+      "sha256": "d3aa7c5f9ef471b8f349023f197ae9f5719ca716a3fc1fa2e22f938ac2453179",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix535-ui21/fr640/full-happy/protected-password/01-protected-password.png"
+    },
+    {
+      "path": "wifi/fr640/full-happy/saved-choice/01-saved-choice.png",
+      "sha256": "6e265d4afbca46cdada263b8396e6973bc38ae057c24724b7ed85654ab83827c",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix535-ui21/fr640/full-happy/saved-choice/01-saved-choice.png"
+    },
+    {
+      "path": "wifi/fr640/full-happy/forget-confirm/01-forget-confirm.png",
+      "sha256": "eb32f8450c25f07cc0d3d42eca65bd33005a8979937d1d9afaade8b1147a60d1",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix535-ui21/fr640/full-happy/forget-confirm/01-forget-confirm.png"
+    },
+    {
+      "path": "wifi/fr640/failed/open-failed/01-open-failed.png",
+      "sha256": "b548389ec15fad314bf056f20628e6637f197ec3a74b4dadddd27da41575e49b",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix535-ui21/fr640/failed/open-failed/01-open-failed.png"
+    },
+    {
+      "path": "wifi/fr640/failed/protected-failed/01-protected-failed.png",
+      "sha256": "719357934ffbdd926bb5f95784cc6cd96026cba6a78d5eaee69df72351504b7b",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix535-ui21/fr640/failed/protected-failed/01-protected-failed.png"
+    },
+    {
+      "path": "wifi/fr640/multiple-profiles/profiles/01-profiles.png",
+      "sha256": "03eea8eb325c252173e5bb8695925293a982d0ee93f375b9ac402cad9c75d0f2",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix535-ui21/fr640/multiple-profiles/profiles/01-profiles.png"
+    },
+    {
+      "path": "wifi/en640/full-happy/open-connected/01-open-connected.png",
+      "sha256": "2278704761d186397ce2275da7191e216e66b8c7d77afe61fb3fa0506dc10a26",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix535-ui21/en640/full-happy/open-connected/01-open-connected.png"
+    },
+    {
+      "path": "wifi/en640/full-happy/saved-choice/01-saved-choice.png",
+      "sha256": "30ebd04cc07c67951c8cc2dc51c00b2887e2e58bd558e7a87a4e9b3f88164d13",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix535-ui21/en640/full-happy/saved-choice/01-saved-choice.png"
+    },
+    {
+      "path": "wifi/en640/full-happy/forget-confirm/01-forget-confirm.png",
+      "sha256": "e3df1d42be240bb8ade33015664883eeb6e61ba537719d2a8c626a5cf49c7ab4",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix535-ui21/en640/full-happy/forget-confirm/01-forget-confirm.png"
+    },
+    {
+      "path": "wifi/en640/multiple-profiles/profiles/01-profiles.png",
+      "sha256": "e9098d9e62798357460ee7092f6227842bbc3f52637c69cbf03cc87df57effe8",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix535-ui21/en640/multiple-profiles/profiles/01-profiles.png"
+    },
+    {
+      "path": "pairing/fr640/cancelled/01-cancelled-return.png",
+      "sha256": "9517691fc7cab812b237aefb913cfe457dd6e24d004dfe1f8e7f02dd5dfe513a",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix537-oauth21/fr640/cancelled/01-cancelled-return.png"
+    },
+    {
+      "path": "wifi/en640/full-happy/unknown-password/01-unknown-password.png",
+      "sha256": "bc6433ce7686a2dd8512dcb5bd8dc64109d28c9573ea8efc45b42a0f89007030",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix535-ui21/en640/full-happy/unknown-password/01-unknown-password.png"
+    },
+    {
+      "path": "wifi/fr640/multiple-profiles/chosen-profile/01-chosen-profile.png",
+      "sha256": "83a40a28e9d610555293518e715bd2d7b5ddece26c565c4ed3fc968a73274071",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix535-ui21/fr640/multiple-profiles/chosen-profile/01-chosen-profile.png"
+    },
+    {
+      "path": "wifi/fr640/multiple-profiles/chosen-connected/01-chosen-connected.png",
+      "sha256": "47e0937e5a2edcd9a7199fb1039a4a6088b973d6af9141231cbe46c92c33f8dc",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix535-ui21/fr640/multiple-profiles/chosen-connected/01-chosen-connected.png"
+    },
+    {
+      "path": "connections/en1280/lifecycle/03-connections.png",
+      "sha256": "859385df3c693ad554ed3f27a151b209f53b14985465cd29e12783716268d8ad",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix537-ui21/en1280/lifecycle/03-connections.png"
+    },
+    {
+      "path": "connections/en1280/lifecycle/04-details.png",
+      "sha256": "6807a68e3e817a735452d4113b9cc94294005f8c91f84c3085859a09c5cc6158",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix537-ui21/en1280/lifecycle/04-details.png"
+    },
+    {
+      "path": "connections/en1280/lifecycle/05-use-confirm.png",
+      "sha256": "efe7ad8393e90448134d2115e87e07fb912c6dda11a99efb176b94c91b861ce3",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix537-ui21/en1280/lifecycle/05-use-confirm.png"
+    },
+    {
+      "path": "connections/en1280/lifecycle/07-remove-confirm.png",
+      "sha256": "8bd8cc5c7c6d847860d8fbf9f1b320572ae040f7f3d5e2915d8a08b31d0bdbc7",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix537-ui21/en1280/lifecycle/07-remove-confirm.png"
+    },
+    {
+      "path": "connections/en1280/lifecycle/09-removed-unselected.png",
+      "sha256": "ac3601acd361aed45375b69981c251eec85ed703aef2e626de61f442115f4f81",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix537-ui21/en1280/lifecycle/09-removed-unselected.png"
+    },
+    {
+      "path": "connections/en1280/edit/02-edit-form.png",
+      "sha256": "0d232e5edf4344682d88ee358b97866f280e3b46a6cf7a938a5b7b6448918715",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix537-ui21/en1280/edit/02-edit-form.png"
+    },
+    {
+      "path": "connections/en1280/edit/03-edit-confirm.png",
+      "sha256": "3962c1db97d3ce9bfe8d326bc60553ce15a6df975ec5ab8b676bb76cc03474e0",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix537-ui21/en1280/edit/03-edit-confirm.png"
+    },
+    {
+      "path": "connections/en1280/add-name/05-separate-name.png",
+      "sha256": "1a20357a982c3e3b029fdc48d1e66d25d3fbead014a27ad733ae19b9d1242748",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix537-ui21/en1280/add-name/05-separate-name.png"
+    },
+    {
+      "path": "connections/en1280/saved/01-edited-connection-saved.png",
+      "sha256": "a29548a387f968c01fb9379a3f42c01e6c1527d0560f7bd1d3e6a88ef9bbc73b",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix537-ui21/en1280/saved/01-edited-connection-saved.png"
+    },
+    {
+      "path": "connections/fr640/lifecycle/04-details.png",
+      "sha256": "99ce77b7731f70993cf4c09ebe7a038e2f4cfa1794a4551e0c41c28abbe2b896",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix537-ui21/fr640/lifecycle/04-details.png"
+    },
+    {
+      "path": "wifi/en640/multiple-profiles/chosen-profile/01-chosen-profile.png",
+      "sha256": "115e34337358f528db06d8c2a46ba709165c15bf4703649184ac3a37a078761a",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix535-ui21/en640/multiple-profiles/chosen-profile/01-chosen-profile.png"
+    },
+    {
+      "path": "wifi/en1280/full-happy/open-connected/01-open-connected.png",
+      "sha256": "f64de4e620d8924df1b702b2a3caa64723ec65110956d40b40edba5a69ab8a16",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix535-ui21/en1280/full-happy/open-connected/01-open-connected.png"
+    },
+    {
+      "path": "wifi/en1280/full-happy/unknown-password/01-unknown-password.png",
+      "sha256": "5a40e356e9cce0978b6ad7b89ec03a6dca09e5f9d69ae4ee9feab7667957d9a2",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix535-ui21/en1280/full-happy/unknown-password/01-unknown-password.png"
+    },
+    {
+      "path": "wifi/en1280/full-happy/saved-choice/01-saved-choice.png",
+      "sha256": "569ed9214b9219315c64b9e1dc0ab8d763bcdae041a0c6de3c73b409eaf39125",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix535-ui21/en1280/full-happy/saved-choice/01-saved-choice.png"
+    },
+    {
+      "path": "wifi/en1280/full-happy/forget-confirm/01-forget-confirm.png",
+      "sha256": "41776b4633f405a18c82ae35f18ea91d88039d4904c9f6d9ea137a954e4fa835",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix535-ui21/en1280/full-happy/forget-confirm/01-forget-confirm.png"
+    },
+    {
+      "path": "wifi/en1280/failed/open-failed/01-open-failed.png",
+      "sha256": "10715bcc9926692e4db020a51827354f09bc83f5e60170c2071fc69313324471",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix535-ui21/en1280/failed/open-failed/01-open-failed.png"
+    },
+    {
+      "path": "wifi/en1280/failed/protected-failed/01-protected-failed.png",
+      "sha256": "3fec6c5a1cf11163cf4ae3480eb11ee8dbba1d7ee29f7c23345935ba4a64ee9f",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix535-ui21/en1280/failed/protected-failed/01-protected-failed.png"
+    },
+    {
+      "path": "wifi/en1280/failed/protected-prompt/01-protected-prompt.png",
+      "sha256": "66011d02971e51c9a370929dcf000045ad2c37c089fda3480f41a146cbb94c10",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix535-ui21/en1280/failed/protected-prompt/01-protected-prompt.png"
+    },
+    {
+      "path": "wifi/en1280/multiple-profiles/profiles/01-profiles.png",
+      "sha256": "2f7999b1e9c895c49466a5149954f8214486f09f552389550edc20daa75d7260",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix535-ui21/en1280/multiple-profiles/profiles/01-profiles.png"
+    },
+    {
+      "path": "pairing/en1280/start/03-renew-confirm.png",
+      "sha256": "742e150e408b8f45e3bc40d011a9d561c300dee76f53269b151df0f14bb3d3ac",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix537-oauth21/en1280/start/03-renew-confirm.png"
+    },
+    {
+      "path": "pairing/en1280/failed/02-pairing-failed.png",
+      "sha256": "204849b61b0dd3fa7cc5031155746b471b5e8c8632e52559b20b97e4fa70eee8",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix537-oauth21/en1280/failed/02-pairing-failed.png"
+    },
+    {
+      "path": "pairing/en1280/cancelled/01-cancelled-return.png",
+      "sha256": "2cc212abea36085c9c8d996b3327faa3a277134308028756ff818f70de7c5459",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix537-oauth21/en1280/cancelled/01-cancelled-return.png"
+    },
+    {
+      "path": "connections/fr1280/lifecycle/03-connections.png",
+      "sha256": "0ff700e2bf9e6075e0ab17ae65c88a0479a7004e7e297ac83b5083fa63adb215",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix537-ui21/fr1280/lifecycle/03-connections.png"
+    },
+    {
+      "path": "connections/fr1280/lifecycle/04-details.png",
+      "sha256": "7971ca3dfabdf079c66f4416c4b5feb40449574bf2c0e75b9495fc2dfd152f10",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix537-ui21/fr1280/lifecycle/04-details.png"
+    },
+    {
+      "path": "connections/fr1280/lifecycle/05-use-confirm.png",
+      "sha256": "089d8805dbe16876847042dda114ff253884d8896f4e6da4c5eb651488598d53",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix537-ui21/fr1280/lifecycle/05-use-confirm.png"
+    },
+    {
+      "path": "connections/fr1280/lifecycle/07-remove-confirm.png",
+      "sha256": "72b6fd58db56f045dd29312981d4e9ecbd5c3c03fc8e1655ba3e890404318e9f",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix537-ui21/fr1280/lifecycle/07-remove-confirm.png"
+    },
+    {
+      "path": "connections/fr1280/lifecycle/09-removed-unselected.png",
+      "sha256": "81f80b70491b83ef5df5f8bca09775ee1ddfe3eac51b54a90176c5017e860178",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix537-ui21/fr1280/lifecycle/09-removed-unselected.png"
+    },
+    {
+      "path": "connections/fr1280/edit/02-edit-form.png",
+      "sha256": "8985f1dda97cab91a6f494833c64e412a0d85cfbd1a54fed8e5587a4c6492a60",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix537-ui21/fr1280/edit/02-edit-form.png"
+    },
+    {
+      "path": "connections/fr1280/edit/03-edit-confirm.png",
+      "sha256": "c60c07a7c7a72d7648076b97d8f46ed0bd989e79b29717acefa3c0651c7bc639",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix537-ui21/fr1280/edit/03-edit-confirm.png"
+    },
+    {
+      "path": "connections/fr1280/saved/01-edited-connection-saved.png",
+      "sha256": "96657b635a5b17323c1d3ced1274fae02b5d368dff04e048a711370a97daf65d",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix537-ui21/fr1280/saved/01-edited-connection-saved.png"
+    },
+    {
+      "path": "connections/fr1280/add-name/05-separate-name.png",
+      "sha256": "ea69eb344da5a5a801c755efa2674c3fd09491fe4776ddeff5e205fb120cdfff",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix537-ui21/fr1280/add-name/05-separate-name.png"
+    },
+    {
+      "path": "wifi/fr1280/full-happy/open-connected/01-open-connected.png",
+      "sha256": "a7834bcf874c1d91a3808f2e76129f07af1b21e26c25355519d93c42b94c7861",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix535-ui21/fr1280/full-happy/open-connected/01-open-connected.png"
+    },
+    {
+      "path": "wifi/fr1280/full-happy/unknown-password/01-unknown-password.png",
+      "sha256": "e929a9b1babc39a7fec605b41b9fb7e8597f106fe2fb38632aeed7ef896332d6",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix535-ui21/fr1280/full-happy/unknown-password/01-unknown-password.png"
+    },
+    {
+      "path": "wifi/fr1280/full-happy/saved-choice/01-saved-choice.png",
+      "sha256": "6baf2ed0f584c4491afe1ba259566eda6acb9e3b38be81c92e9cfa94129060eb",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix535-ui21/fr1280/full-happy/saved-choice/01-saved-choice.png"
+    },
+    {
+      "path": "wifi/fr1280/full-happy/forget-confirm/01-forget-confirm.png",
+      "sha256": "2b6116a452d1d5b08bc1126a49b3558e8660be6f194861e1929d12b7303076e7",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix535-ui21/fr1280/full-happy/forget-confirm/01-forget-confirm.png"
+    },
+    {
+      "path": "wifi/fr1280/failed/open-failed/01-open-failed.png",
+      "sha256": "1e55ba7165c4236476742460bd13ee6336d85ec1aecf7cc0404b0e20768bc6f2",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix535-ui21/fr1280/failed/open-failed/01-open-failed.png"
+    },
+    {
+      "path": "wifi/fr1280/failed/protected-prompt/01-protected-prompt.png",
+      "sha256": "b64be57558a6e61cefc1d99996d003d66a7f8b8173a9f9250244e336ec92467e",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix535-ui21/fr1280/failed/protected-prompt/01-protected-prompt.png"
+    },
+    {
+      "path": "wifi/fr1280/failed/protected-failed/01-protected-failed.png",
+      "sha256": "9dd5e98c9251a4e88e340e92a2180ee06a7ac38790b1db0324b37e7714c856c7",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix535-ui21/fr1280/failed/protected-failed/01-protected-failed.png"
+    },
+    {
+      "path": "wifi/fr1280/multiple-profiles/profiles/01-profiles.png",
+      "sha256": "7b7f06ea6978aa09b18d40f7682ae6851a7d9e5c83045651769c10e7a46e8c7f",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix535-ui21/fr1280/multiple-profiles/profiles/01-profiles.png"
+    },
+    {
+      "path": "pairing/fr1280/start/03-renew-confirm.png",
+      "sha256": "2700877549c122222f65c61c6e3a09d91971930a7cfaca4f427dc34169b8dbfc",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix537-oauth21/fr1280/start/03-renew-confirm.png"
+    },
+    {
+      "path": "pairing/fr1280/failed/02-pairing-failed.png",
+      "sha256": "9298b7327607e44d8eb15d05e73e66ec974a92c06ef2296620f5730c5b85bd5b",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix537-oauth21/fr1280/failed/02-pairing-failed.png"
+    },
+    {
+      "path": "pairing/fr1280/cancelled/01-cancelled-return.png",
+      "sha256": "3bbd7c4ae9fe2cb1c5af3b27540698491a469f24bb82d615a36522ac8f034576",
+      "review": "PASS: readable, controls distinct, expected flow state",
+      "source_file": "pix537-oauth21/fr1280/cancelled/01-cancelled-return.png"
+    }
+  ]
+}

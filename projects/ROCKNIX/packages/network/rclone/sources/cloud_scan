@@ -136,9 +136,11 @@ prepare() {
         log "scan: no default route; skipped"
         exit "${EXIT_NO_NETWORK}"
     fi
-    REMOTE=$(rclone listremotes 2>/dev/null | head -1)
+    REMOTE=$("$(dirname "${BASH_SOURCE[0]}")/cloud_remote" active 2>/dev/null)
     if [ -z "${REMOTE}" ]; then
-        why "YOUR CLOUD STORAGE ISN'T SET UP YET"
+        local reason
+        reason=$("$(dirname "${BASH_SOURCE[0]}")/cloud_remote" selection-reason 2>/dev/null) || reason="YOUR CLOUD SYNC SETTINGS COULDN'T BE READ"
+        why "${reason}"
         exit 1
     fi
 }
@@ -172,6 +174,7 @@ context_id() {
     local file fingerprint="" value
     for file in /storage/.config/cloud_sync.conf \
                 /storage/.config/rclone/rclone.conf \
+                /storage/.config/rclone/active-connection \
                 /storage/.config/cloud_sync-rules.txt \
                 /storage/.cache/cloud_sync/content-systems \
                 /storage/.config/emulationstation/es_systems.cfg \

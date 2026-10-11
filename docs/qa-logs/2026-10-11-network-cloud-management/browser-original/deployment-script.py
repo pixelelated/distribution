@@ -1,0 +1,7 @@
+from pathlib import Path
+import json,subprocess
+G=json.loads(Path('/workspace/tmp/pix535-537-vm01/guest.json').read_text());opt=['-i',G['ssh_identity'],'-o','StrictHostKeyChecking=no','-o','UserKnownHostsFile=/dev/null','-o','LogLevel=ERROR','-o','BatchMode=yes']
+def remote(cmd):return subprocess.run(['ssh',*opt,'-p',str(G['ssh_port']),'root@127.0.0.1',cmd],check=True,capture_output=True,text=True).stdout
+print(remote("python3 - <<'END'\nfrom pathlib import Path\nimport os,signal,time\np=int(Path('/storage/qa537/browser-fixture.pid').read_text());assert b'/storage/qa537/browser-fixture.py' in Path(f'/proc/{p}/cmdline').read_bytes().split(b'\\0');os.kill(p,signal.SIGTERM)\nfor _ in range(100):\n if not Path(f'/proc/{p}').exists():break\n time.sleep(.1)\nelse:raise RuntimeError('fixture still running')\nprint('owned fixture stopped')\nEND"))
+subprocess.run(['scp','-q',*opt,'-P',str(G['ssh_port']),'/tmp/pix535-537-browser02/cloud-signin-window','root@127.0.0.1:/storage/qa537/payload/browser-v2'],check=True)
+print(remote('cp /storage/qa537/payload/browser-v2 /usr/bin/cloud-signin-window; chmod 755 /usr/bin/cloud-signin-window; sha256sum /usr/bin/cloud-signin-window; mv /storage/qa537/browser/events.jsonl /storage/qa537/browser/events-before-popup.jsonl; rm /storage/qa537/browser/ready; nohup python3 /storage/qa537/browser-fixture.py > /storage/qa537/browser-fixture.log 2>&1 < /dev/null & echo $! > /storage/qa537/browser-fixture.pid'))

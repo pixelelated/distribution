@@ -1,0 +1,33 @@
+key down x5
+key x
+wait-for-change
+settle
+shot connected-picker
+key down
+key x
+wait-for-change
+settle
+shot protected-password
+key z
+wait-for-change
+key down
+key x
+wait-for-change
+settle
+shot unknown-password
+key z
+wait-for-change
+key down
+key x
+wait-for-change
+settle
+shot saved-choice
+key right
+key x
+wait-for-change
+settle
+shot forget-confirm
+key z
+wait-for-change
+settle
+shot forget-cancelled

@@ -1,0 +1,132 @@
+#!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-2.0-or-later
+# Copyright (C) 2026-present pixelelated
+"""Full wifictl with synthetic NetworkManager; actual phone JS under delayed HTTP."""
+from pathlib import Path
+import json, os, re, subprocess, sys, tempfile, unittest
+ROOT=Path(__file__).resolve().parents[1]
+WIFI=ROOT/'projects/ROCKNIX/packages/rocknix/sources/scripts/wifictl'
+OAUTH=ROOT/'projects/ROCKNIX/packages/network/rclone/sources/cloud_oauth'
+
+class Wifi(unittest.TestCase):
+ def setUp(self):
+  self.temp=tempfile.TemporaryDirectory();self.addCleanup(self.temp.cleanup)
+  self.root=Path(self.temp.name);(self.root/'shim').mkdir();(self.root/'run').mkdir()
+  (self.root/'profile').write_text('get_setting() { case "$1" in wifi.key) echo OLD_FIXTURE_KEY;; wifi.adhoc.enabled) echo 0;; esac; }\n')
+  shim=self.root/'shim'
+  (shim/'nmcli').write_text('''#!/usr/bin/python3
+import sys,json
+from pathlib import Path
+a=sys.argv[1:]
+with open('/run/calls','a') as f:f.write(json.dumps(a)+'\\n')
+if Path('/run/fail').exists():sys.exit(1)
+if 'SSID,SECURITY' in a: print(Path('/run/scan').read_text(),end='')
+elif 'NAME,TYPE,ACTIVE' in a: print(Path('/run/profiles').read_text(),end='')
+elif '802-11-wireless.ssid' in a: print(Path('/run/saved-ssid').read_text(),end='')
+elif 'DEVICE,STATE' in a: print('wlan0:disconnected')
+''')
+  (shim/'iwctl').write_text('#!/bin/sh\necho wlan0\n')
+  for name in ('sleep','iw'): (shim/name).write_text('#!/bin/sh\nexit 0\n')
+  for p in shim.iterdir():p.chmod(0o755)
+  for name in ('scan','profiles','saved-ssid','calls'):(self.root/'run'/name).write_text('')
+ def call(self,*args):
+  result = subprocess.run(['bwrap','--ro-bind','/','/','--dev','/dev','--tmpfs','/sys','--dir','/sys/class/net/wlan0','--ro-bind',str(self.root/'profile'),'/etc/profile','--ro-bind',str(self.root/'shim'),str(self.root/'shim'),'--bind',str(self.root/'run'),'/run','--setenv','PATH',str(self.root/'shim')+':/usr/bin:/bin','bash',str(WIFI),*args],text=True,capture_output=True)
+  self.assertEqual(result.stderr, '', 'fixture or script emitted an unexpected error')
+  return result
+ def scan(self,*rows): (self.root/'run/scan').write_text('\n'.join(rows)+'\n')
+ def calls(self):return [json.loads(x) for x in (self.root/'run/calls').read_text().splitlines()]
+ def test_open_escaped_name_connects_without_key_or_delete(self):
+  name='Cafe: \\Guest';self.scan('Cafe\\: \\\\Guest:')
+  r=self.call('security',name);self.assertEqual((r.returncode,r.stdout),(0,'open\n'),r.stderr)
+  r=self.call('connect-open',name);self.assertEqual(r.returncode,0,r.stderr)
+  args=next(a for a in self.calls() if 'connect' in a)
+  self.assertIn(name,args);self.assertNotIn('password',args)
+  self.assertFalse(any('delete' in a for a in self.calls()))
+ def test_protected_and_unknown_do_not_connect_open(self):
+  for value in ('WPA2','WEP','OWE','802.1X','unexpected'):
+   self.scan('Public:'+value)
+   self.assertNotEqual(self.call('security','Public').stdout,'open\n')
+   self.assertNotEqual(self.call('connect-open','Public').returncode,0)
+  self.assertFalse(any('connect' in a for a in self.calls()))
+ def test_mixed_and_absent_fail_closed(self):
+  self.scan('Public:','Public:WPA2')
+  self.assertEqual(self.call('security','Public').stdout,'unknown\n')
+  self.assertNotEqual(self.call('connect-open','Public').returncode,0)
+  self.assertNotEqual(self.call('connect-open','Missing').returncode,0)
+ def test_service_failure_does_not_connect(self):
+  self.scan('Public:');(self.root/'run/fail').touch()
+  self.assertNotEqual(self.call('connect-open','Public').returncode,0)
+  self.assertFalse(any('connect' in a for a in self.calls()))
+ def test_renamed_saved_profile_is_preserved(self):
+  self.scan('Public:');(self.root/'run/profiles').write_text('Personal Name:802-11-wireless:no\n');(self.root/'run/saved-ssid').write_text('Public\n')
+  self.assertNotEqual(self.call('connect-open','Public').returncode,0)
+  self.assertFalse(any('connect' in a or 'delete' in a for a in self.calls()))
+ def test_explicit_empty_key_never_borrows_old_key(self):
+  self.scan('Public:')
+  r=self.call('connect','Public','','US')
+  self.assertEqual(r.returncode,0)
+  self.assertTrue(self.calls())
+  self.assertFalse(any('OLD_FIXTURE_KEY' in x for a in self.calls() for x in a))
+
+class Phone(unittest.TestCase):
+ def program(self,source):
+  # Evaluate unchanged production functions, with controllably delayed fetch.
+  start=source.index('  var queue = Promise.resolve();')
+  end=source.index('  // Two different strings,',start)
+  send=source[start:end]
+  a=source.index('  // Movement is coalesced, not queued.') if '  // Movement is coalesced, not queued.' in source else source.index('  // Coalesce only adjacent, unsent moves')
+  b=source.index('  function down(e)',a)
+  move=source[a:b]
+  a=source.index('  function up(e)');b=source.index('  pad.addEventListener',a)
+  up=source[a:b]
+  return '''var pin='1234', events=[], waiting=[];
+var tracking=true,moved=0,pad={classList:{remove:function(){}}};
+function fetch(url,opts) {events.push(opts.body.split('&')[0]);return new Promise(function(resolve){waiting.push(resolve);});}
+'''+send+move+up+'''
+(async function(){
+ pushMove(3,0); await Promise.resolve();
+ pushMove(2,0); up({preventDefault:function(){}});
+ await new Promise(r=>setTimeout(r,100));
+ if(events.length!==1)throw Error('click overtook unfinished movement: '+events);
+ waiting.shift()(); await new Promise(r=>setImmediate(r));
+ if(events[1]!=='move=2,0')throw Error('pending movement lost: '+events);
+ waiting.shift()(); await new Promise(r=>setImmediate(r));
+ if(events[2]!=='click=1')throw Error('tap missing or out of order: '+events);
+ waiting.shift()(); await new Promise(r=>setImmediate(r));
+ console.log('PASS delayed movement arrives before tap');
+})().catch(e=>{console.error(e.message);process.exitCode=1;});
+'''
+ def test_delayed_movement_and_click(self):
+  result=subprocess.run(['node','-e',self.program(OAUTH.read_text())],text=True,capture_output=True)
+  self.assertEqual(result.returncode,0,result.stderr)
+ def test_drag_moves_without_click_and_keys_stay_ordered(self):
+  source=OAUTH.read_text()
+  queue=source[source.index('  var queue = Promise.resolve();'):source.index('  // Two different strings,')]
+  movement=source[source.index('  var px = 0, py = 0, moved = 0, tracking = false;'):source.index('  pad.addEventListener')]
+  program="""var pin='1234', events=[], waiting=[], pad={classList:{add:function(){},remove:function(){}}};
+function fetch(url,opts) {events.push(opts.body.split('&')[0]);return new Promise(resolve=>waiting.push(resolve));}
+"""+queue+movement+"""
+(async function(){
+ const event=(x,y)=>({clientX:x,clientY:y,preventDefault:function(){}});
+ down(event(0,0));move(event(20,10));await Promise.resolve();
+ move(event(35,20));up(event(35,20));send('key=tab');
+ down(event(0,0));up(event(0,0));
+ if(events.join('|')!=='move=20,10')throw Error('drag sent a click or overtook motion');
+ const expected=['move=20,10','move=15,10','key=tab','click=1'];
+ for(let n=0;n<4;n++) {
+  if(events[n]!==expected[n])throw Error('event ordering: '+events);
+  waiting.shift()();await new Promise(r=>setImmediate(r));
+ }
+ if(events.length!==4)throw Error('drag produced unexpected events: '+events);
+ console.log('PASS drag has no click and later key/tap preserve order');
+})().catch(e=>{console.error(e.message);process.exitCode=1;});
+"""
+  result=subprocess.run(['node','-e',program],text=True,capture_output=True)
+  self.assertEqual(result.returncode,0,result.stderr)
+ def test_original_source_negative_control(self):
+  old=subprocess.check_output(['git','show','a1b0c65165:projects/ROCKNIX/packages/network/rclone/sources/cloud_oauth'],cwd=ROOT,text=True)
+  result=subprocess.run(['node','-e',self.program(old)],text=True,capture_output=True)
+  self.assertNotEqual(result.returncode,0)
+  self.assertIn('click overtook',result.stderr)
+
+if __name__=='__main__': unittest.main(verbosity=2)

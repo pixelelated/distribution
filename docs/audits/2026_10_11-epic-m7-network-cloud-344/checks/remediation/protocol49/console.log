@@ -1,0 +1,23 @@
+watch-build: recording in /workspace/tmp/pix540-protocol49/.build-runs/20261011T155016Z-3f0f8c9e
+PASS local webdav authenticated readiness
+PASS local sftp authenticated readiness
+OK=dropbox
+3109193b67e5a7d954a586e70ff41278efeffebefb573b2158af672adbade4f4  /storage/qa537/provider/save.srm
+
+START actual transfer suite webdav
+PASS actual transfer and previous selection restored webdav
+START actual transfer suite sftp
+PASS actual transfer and previous selection restored sftp
+
+=== device reachable and equipped
+    PASS  ssh works
+    PASS  rclone and cloud scripts present
+
+=== point the device at the QA bucket
+    PASS  active remote is 'qa-cloud', which is what the scripts will use
+    scratch tree /storage/cloud-qa (pass --real-roms to use /storage/roms)
+    SAVES_REMOTE /pixelelated/Saves on the webdav endpoint
+
+=== clean up root@127.0.0.1 port 22537
+    scratch tree and bucket emptied; the device's own remote, paths and settings-backup setting restored
+PASS absent, explicit empty and selected connection restoration
