@@ -33,12 +33,8 @@ def prepare(bundle):
             raise ValueError("unsupported or dirty build identity")
         version = item["release_version"]
         num = r"(?:0|[1-9][0-9]*)"
-        if not re.fullmatch(rf"{num}\.{num}\.{num}(?:-[0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*)?", version):
-            raise ValueError("invalid semantic release version")
-        if "-" in version:
-            for part in version.split("-", 1)[1].split("."):
-                if part.isdigit() and len(part) > 1 and part.startswith("0"):
-                    raise ValueError("invalid numeric prerelease identifier")
+        if not re.fullmatch(rf"{num}\.{num}\.{num}(?:-rc\.[1-9][0-9]*)?", version):
+            raise ValueError("public release version must be MAJOR.MINOR.PATCH[-rc.N]; dev is engineering only")
         stamp, commit = item["build_timestamp"], item["build_commit"]
         if not re.fullmatch(r"[0-9]{8}T[0-9]{6}Z", stamp) or not re.fullmatch(r"[0-9a-f]{40}", commit):
             raise ValueError("invalid timestamp or source identity")
@@ -86,11 +82,11 @@ def prepare(bundle):
     return {"schema": 1, "repository": "pixelelated/distribution",
             "bundle_sha256": bundle.name, "release_version": version,
             "build_version": build, "target_commitish": commit,
-            "tag": "v" + (build if prerelease else version),
-            "title": "pixelelated " + (build if prerelease else version),
+            "tag": "v" + version,
+            "title": "pixelelated " + version,
             "prerelease": prerelease, "draft": True, "assets": assets,
             "publication_performed": False, "qualification": "not assessed",
-            "remaining_gates": ["candidate qualification", "source/licence custody",
+            "remaining_gates": ["unused immutable tag and recorded RC allocation", "candidate qualification", "source/licence custody",
                                 "artifact credential inspection", "named publication approval"]}
 
 

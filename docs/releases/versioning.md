@@ -4,16 +4,46 @@ The current rolling release target is **0.0.1** (M7). D-WORKFLOW-157 removes
 ROCKNIX's official/community distinction from this distribution. No behavior
 is selected by the words alpha, beta, rc, stable, or community.
 
-## Next-candidate naming review
+## Public release policy
 
-D-WORKFLOW-158 schedules #532 under #265 before the next candidate freeze.
-The proposed public states are release candidate (`0.0.1-rc.1`) and release
-(`0.0.1`), with no required alpha/beta stages. D-WORKFLOW-159 retains the exact
-counter, engineering default and promotion questions. The implementation below
-is unchanged until that task selects and qualifies the convention. An RC label
-must not imply that an unqualified engineering image passed the release gates.
-Changing an embedded version changes artifact bytes; the selected transition
-must account for that rather than merely renaming previously tested firmware.
+D-WORKFLOW-159 (#532) selects only **release candidates** and **releases**.
+The initial rolling sequence is `0.0.1-rc.1`, `0.0.1-rc.2`, then `0.0.1`;
+the next release target is `0.0.2`, whose RC counter starts again at1.
+No alpha/beta stage is required or accepted by the build qualifier. `dev`
+remains an internal engineering label, never a public release plan. Names
+alone confer neither RC qualification nor publication permission.
+
+Before freezing a candidate set, one owner records its base version, next
+unused positive RC number, full source/input identities, UTC timestamp and
+owning issue in the candidate build record linked from the milestone. Check
+both the allocation record (including failed/private attempts) and existing
+tags. The number is consumed at freeze, even if the build or QA fails; never
+reuse it. All target/board variants in the same coordinated set share the
+number, source and timestamp. A resumed build using unchanged frozen inputs
+keeps that identity; reassembly with new bytes or a new freeze gets a new
+number and timestamp. Adding an unbuilt target to that exact set is not a new RC.
+Allocation is explicit workflow, not an automatic counter in the build script.
+No RC number has been allocated by the #532 policy tests.
+
+Public tags and titles omit build metadata: `v0.0.1-rc.1` / `pixelelated
+0.0.1-rc.1` and `v0.0.1` / `pixelelated 0.0.1`. Both are immutable. UTC time
+and source hash remain in firmware filenames, installed identity and sidecars.
+Two newly frozen sets on one day receive distinct RC numbers and timestamps.
+A reserved RC-shaped engineering image remains unqualified until the required
+preflight, image QA and applicable review gates pass.
+
+### RC to release
+
+Removing `-rc.N` changes embedded `/etc/os-release` and related bytes. Select
+the accepted product source, set the qualifier explicitly empty, and reassemble
+with a new timestamp and immutable manifest. Cached packages may be reused;
+RC firmware may not be renamed or retagged as release firmware. That new
+release assembly receives its own installed-byte, clean/retained-storage and
+applicable release qualification. Any evidence carried forward must cite exact
+unchanged inputs; the version change alone does not waive tests or review.
+After publication, corrections target the next patch version rather than
+replacing tags/assets. The rolling0.0.x convention does not declare a stable
+public API or decide future major/minor compatibility policy.
 
 ## One identity, several readable forms
 
@@ -24,7 +54,7 @@ must account for that rather than merely renaming previously tested firmware.
 | Complete build identity | `0.0.1-dev+20261009T231500Z.gc6afa31db1c0` |
 | UTC build time | `2026-10-09T23:15:00Z` |
 | Full source BUILD_ID | `c6afa31db1c00ecd82ff615310f97debe63b519c` |
-| Prerelease GitHub tag/title | `v<complete-build-identity>` / `pixelelated <complete-build-identity>` |
+| RC GitHub tag/title | `v0.0.1-rc.1` / `pixelelated 0.0.1-rc.1` |
 | Stable GitHub tag/title | `v0.0.1` / `pixelelated 0.0.1` |
 
 These are examples, not a designated RC or released build. `config/build-identity`
@@ -50,10 +80,12 @@ custody retains the sidecar, firmware, checksums, and qualification evidence.
 Set `BUILD_TIMESTAMP=YYYYMMDDTHHMMSSZ` once for a coordinated set of sequential
 device builds. Use a new timestamp for a new build set, even when source is
 unchanged. Do not infer timestamp from file modification time or build finish.
-`BUILD_QUALIFIER` defaults to `dev`; an explicit empty value means stable.
-SemVer-compatible qualifiers such as `alpha.1`, `beta.1`, and `rc.1` are accepted
-as names. This adds no mandatory progression, automatic promotion or release
-approval: the later policy lives in #265, per the owner's scope refinement.
+`BUILD_QUALIFIER` defaults to `dev`; explicit `rc.N` requires N >=1 without
+leading zeroes, and an explicit empty value selects a release. All other
+qualifiers are refused. For example, set `BUILD_QUALIFIER=rc.1` or
+`BUILD_QUALIFIER=''` alongside the set's recorded `BUILD_TIMESTAMP` when running
+the normal build entrypoint. These settings never publish or automatically
+promote an image.
 
 Fresh-install network/logging defaults are controlled by
 `DEVELOPMENT_DEFAULTS=yes|no`, default yes to preserve the previous engineering
@@ -66,6 +98,7 @@ are not changed. Hardware and cloud tests remain separate from names.
 store manifest and all file bytes, sidecar identities, source commit, firmware
 names and checksum files. It emits a JSON plan containing the exact assets,
 matching tag/title, source target, draft flag and unassessed qualification gates.
+It accepts only RC/release versions, refusing dev or other prerelease stages.
 It performs no network call or GitHub mutation. The former newest-file/date-tag,
 asset-overwrite and automatic-undraft behavior is retired.
 
@@ -74,7 +107,7 @@ historical bundle with no sidecar is refused; never relabel existing firmware.
 Historical ROCKNIX tags/releases are left intact. Stable tags are immutable;
 a later corrected release increments the rolling patch target instead of
 replacing published bytes. Existing #528 source/licence/custody requirements,
-artifact credential checks, candidate qualification, and named publication
+artifact credential checks, unused tag/allocation verification, candidate qualification, and named publication
 approval still precede a public release. Implementing the actual qualified
 publication transaction and publishing0.0.1 remain #265/#344 work.
 
@@ -94,7 +127,11 @@ are preserved; a new OS version alone does not change this descriptor.
 
 ## Qualification boundary
 
-Source/host controls and VM runtime-overlay frames are recorded under
+The reusable `tools/build-identity-test --output <new.json>` exercises actual
+assembly blocks and the actual manifest verifier/planner. #532 host results are
+in `docs/qa-logs/2026-10-11-release-policy/`; no firmware is built by that tool.
+
+Earlier source/host controls and VM runtime-overlay frames are recorded under
 `docs/qa-logs/2026-10-09-build-identity/`. Next assembled-candidate qualification
 must check installed metadata/sidecar/image names, clean and retained storage,
 and INFORMATION frames before #530 closes. #529's startup fix goes into that

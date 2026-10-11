@@ -539,7 +539,13 @@ replaced. Source BUILD_ID and immutable manifest/SHA256 remain the provenance.
 GitHub naming/asset plan only. The old date/newest-file/clobber/undraft path is
 retired. Publication still requires #265/#344's qualified transaction and #528's
 source/custody gates; preparation creates no tag, draft or public release.
-Alpha/beta/RC/stable progression is later #265 policy, not a new rolling-build gate.
+D-WORKFLOW-159/#532 selects only public `-rc.N` and unqualified release versions;
+`dev` remains engineering-only. Record a never-reused RC allocation per frozen
+source/timestamp set; reset at1 for the next patch target. Tags/titles use the
+release version, filenames retain UTC/source metadata. Reassemble and qualify
+new bytes when dropping the RC suffix; never relabel prior firmware. The
+reusable `tools/build-identity-test` verifies actual metadata/plan blocks with
+synthetic fixtures. Actual next-image proof remains required.
 
 ## Installing on the device
 

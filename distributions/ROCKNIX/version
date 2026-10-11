@@ -2,7 +2,7 @@
   DISTRO_VERSION="devel"
 
 # Release target. Rolling engineering builds default to the dev qualifier.
-# BUILD_QUALIFIER may be empty for stable, or a SemVer prerelease such as rc.1.
+# BUILD_QUALIFIER may be empty for a release, or rc.N with N >= 1 (#532).
 # Naming does not confer release qualification.
 # OS_VERSION: base semantic version
   OS_VERSION="0.0.1"

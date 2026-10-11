@@ -1,0 +1,448 @@
+{
+  "checks": [
+    {
+      "name": "engineering default dev",
+      "passed": true
+    },
+    {
+      "name": "reject qualifier alpha.1",
+      "passed": true
+    },
+    {
+      "name": "reject qualifier beta.1",
+      "passed": true
+    },
+    {
+      "name": "reject qualifier rc",
+      "passed": true
+    },
+    {
+      "name": "reject qualifier rc.0",
+      "passed": true
+    },
+    {
+      "name": "reject qualifier rc.01",
+      "passed": true
+    },
+    {
+      "name": "reject qualifier rc.-1",
+      "passed": true
+    },
+    {
+      "name": "reject qualifier rc.1.2",
+      "passed": true
+    },
+    {
+      "name": "reject qualifier rc.1+extra",
+      "passed": true
+    },
+    {
+      "name": "reject qualifier stable",
+      "passed": true
+    },
+    {
+      "name": "reject qualifier bad/",
+      "passed": true
+    },
+    {
+      "name": "reject override {'OS_VERSION': '01.0.1'}",
+      "passed": true
+    },
+    {
+      "name": "reject override {'BUILD_TIMESTAMP': '20260230T120000Z'}",
+      "passed": true
+    },
+    {
+      "name": "reject override {'CUSTOM_VERSION': 'bad'}",
+      "passed": true
+    },
+    {
+      "name": "reject override {'CUSTOM_IMAGE_NAME': 'bad'}",
+      "passed": true
+    },
+    {
+      "name": "reject override {'CUSTOM_GIT_HASH': 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'}",
+      "passed": true
+    },
+    {
+      "name": "dirty build identified",
+      "passed": true
+    },
+    {
+      "name": "rc1 one sidecar",
+      "passed": true
+    },
+    {
+      "name": "rc1 actual filename and sidecar",
+      "passed": true
+    },
+    {
+      "name": "rc1 installed metadata contract",
+      "passed": true
+    },
+    {
+      "name": "rc1 duplicate output refused without replacement",
+      "passed": true
+    },
+    {
+      "name": "rc1 public plan accepted: PASS candidate bundle /tmp/pix-build-identity-e99zr93g/6100347bd3efe3984655d5a4bfc968d679ef33bb22996a9521c77296970c0e43",
+      "passed": true
+    },
+    {
+      "name": "rc1 thin tag/title and prerelease",
+      "passed": true
+    },
+    {
+      "name": "rc1 bound draft only",
+      "passed": true
+    },
+    {
+      "name": "rc2 one sidecar",
+      "passed": true
+    },
+    {
+      "name": "rc2 actual filename and sidecar",
+      "passed": true
+    },
+    {
+      "name": "rc2 installed metadata contract",
+      "passed": true
+    },
+    {
+      "name": "rc2 duplicate output refused without replacement",
+      "passed": true
+    },
+    {
+      "name": "rc2 public plan accepted: PASS candidate bundle /tmp/pix-build-identity-e99zr93g/980733e371e13effcb4b2af51b2beba26a3c95fa2cc20e22414114cacbb0ab76",
+      "passed": true
+    },
+    {
+      "name": "rc2 thin tag/title and prerelease",
+      "passed": true
+    },
+    {
+      "name": "rc2 bound draft only",
+      "passed": true
+    },
+    {
+      "name": "release one sidecar",
+      "passed": true
+    },
+    {
+      "name": "release actual filename and sidecar",
+      "passed": true
+    },
+    {
+      "name": "release installed metadata contract",
+      "passed": true
+    },
+    {
+      "name": "release duplicate output refused without replacement",
+      "passed": true
+    },
+    {
+      "name": "release public plan accepted: PASS candidate bundle /tmp/pix-build-identity-e99zr93g/6288dd41e204073225e9dd87f561a2941089f429760b40f00d30d36f9769b2af",
+      "passed": true
+    },
+    {
+      "name": "release thin tag/title and prerelease",
+      "passed": true
+    },
+    {
+      "name": "release bound draft only",
+      "passed": true
+    },
+    {
+      "name": "patch one sidecar",
+      "passed": true
+    },
+    {
+      "name": "patch actual filename and sidecar",
+      "passed": true
+    },
+    {
+      "name": "patch installed metadata contract",
+      "passed": true
+    },
+    {
+      "name": "patch duplicate output refused without replacement",
+      "passed": true
+    },
+    {
+      "name": "patch public plan accepted: PASS candidate bundle /tmp/pix-build-identity-e99zr93g/b55168a5b1094682f25084608f9466c391772ca4733370cca0bab1ede6b7f751",
+      "passed": true
+    },
+    {
+      "name": "patch thin tag/title and prerelease",
+      "passed": true
+    },
+    {
+      "name": "patch bound draft only",
+      "passed": true
+    },
+    {
+      "name": "dev one sidecar",
+      "passed": true
+    },
+    {
+      "name": "dev actual filename and sidecar",
+      "passed": true
+    },
+    {
+      "name": "dev installed metadata contract",
+      "passed": true
+    },
+    {
+      "name": "dev duplicate output refused without replacement",
+      "passed": true
+    },
+    {
+      "name": "engineering public plan refused",
+      "passed": true
+    },
+    {
+      "name": "same-day RC identities distinct",
+      "passed": true
+    },
+    {
+      "name": "release reassembly changes bytes and manifest",
+      "passed": true
+    },
+    {
+      "name": "relabeled RC as release refused",
+      "passed": true
+    },
+    {
+      "name": "unsupported alpha public version refused",
+      "passed": true
+    },
+    {
+      "name": "bad checksum refused",
+      "passed": true
+    },
+    {
+      "name": "unbound firmware refused",
+      "passed": true
+    },
+    {
+      "name": "modified bundle refused",
+      "passed": true
+    }
+  ],
+  "passed": 57,
+  "failed": 0,
+  "examples": {
+    "rc1": {
+      "identity": {
+        "schema": 1,
+        "name": "pixelelated",
+        "release_version": "0.0.1-rc.1",
+        "build_version": "0.0.1-rc.1+20261011T120000Z.g26fc7edddfda",
+        "build_timestamp": "20261011T120000Z",
+        "build_commit": "26fc7edddfda17b1dc26da0cb8be7505a1457043",
+        "dirty": "no",
+        "device": "H700",
+        "arch": "aarch64",
+        "image_name": "pixelelated-H700.aarch64-0.0.1-rc.1+20261011T120000Z.g26fc7edddfda-from-ROCKNIX"
+      },
+      "os_release": "OS_NAME=\"pixelelated\"\nPRETTY_NAME=\"pixelelated 0.0.1-rc.1\"\nVERSION=\"0.0.1-rc.1+20261011T120000Z.g26fc7edddfda\"\nOS_VERSION=\"0.0.1-rc.1\"\nVERSION_ID=\"0.0.1-rc.1\"\nBUILD_VERSION=\"0.0.1-rc.1+20261011T120000Z.g26fc7edddfda\"\nBUILD_TIMESTAMP=\"20261011T120000Z\"\nBUILD_DIRTY=\"no\"\nOS_BUILD=\"rc.1\"\nGIT_ORGANIZATION=\"pixelelated\"\nGIT_REPO=\"distribution\"\nHOME_URL=\"https://pixelelated.com\"\nBUILD_ID=\"26fc7edddfda17b1dc26da0cb8be7505a1457043\"\nBUILD_BRANCH=\"master\"\nBUILD_DATE=\"2026-10-11T12:00:00Z\"\nHW_DEVICE=\"H700\"\nHW_ARCH=\"aarch64\"\n",
+      "plan": {
+        "assets": {
+          "pixelelated-H700.aarch64-0.0.1-rc.1+20261011T120000Z.g26fc7edddfda-from-ROCKNIX-DDR4.img.gz": {
+            "bytes": 542,
+            "sha256": "e3eba53bcd4df55ba6afd85132771568a43bc590e81e39cac51548608948e78f"
+          },
+          "pixelelated-H700.aarch64-0.0.1-rc.1+20261011T120000Z.g26fc7edddfda-from-ROCKNIX-DDR4.img.gz.sha256": {
+            "bytes": 158,
+            "sha256": "ec33e8289a9555b7ab61cc6735047c0bf8df219b40ecf8812b00270b9279ec2f"
+          },
+          "pixelelated-H700.aarch64-0.0.1-rc.1+20261011T120000Z.g26fc7edddfda-from-ROCKNIX.identity.json": {
+            "bytes": 402,
+            "sha256": "a7adecd6752ac2fb81f58db0aa314f51e3dfdca15124c3a591b5f398f652f025"
+          }
+        },
+        "build_version": "0.0.1-rc.1+20261011T120000Z.g26fc7edddfda",
+        "bundle_sha256": "6100347bd3efe3984655d5a4bfc968d679ef33bb22996a9521c77296970c0e43",
+        "draft": true,
+        "prerelease": true,
+        "publication_performed": false,
+        "qualification": "not assessed",
+        "release_version": "0.0.1-rc.1",
+        "remaining_gates": [
+          "unused immutable tag and recorded RC allocation",
+          "candidate qualification",
+          "source/licence custody",
+          "artifact credential inspection",
+          "named publication approval"
+        ],
+        "repository": "pixelelated/distribution",
+        "schema": 1,
+        "tag": "v0.0.1-rc.1",
+        "target_commitish": "26fc7edddfda17b1dc26da0cb8be7505a1457043",
+        "title": "pixelelated 0.0.1-rc.1"
+      },
+      "synthetic_firmware_sha256": "e3eba53bcd4df55ba6afd85132771568a43bc590e81e39cac51548608948e78f"
+    },
+    "rc2": {
+      "identity": {
+        "schema": 1,
+        "name": "pixelelated",
+        "release_version": "0.0.1-rc.2",
+        "build_version": "0.0.1-rc.2+20261011T120001Z.g26fc7edddfda",
+        "build_timestamp": "20261011T120001Z",
+        "build_commit": "26fc7edddfda17b1dc26da0cb8be7505a1457043",
+        "dirty": "no",
+        "device": "H700",
+        "arch": "aarch64",
+        "image_name": "pixelelated-H700.aarch64-0.0.1-rc.2+20261011T120001Z.g26fc7edddfda-from-ROCKNIX"
+      },
+      "os_release": "OS_NAME=\"pixelelated\"\nPRETTY_NAME=\"pixelelated 0.0.1-rc.2\"\nVERSION=\"0.0.1-rc.2+20261011T120001Z.g26fc7edddfda\"\nOS_VERSION=\"0.0.1-rc.2\"\nVERSION_ID=\"0.0.1-rc.2\"\nBUILD_VERSION=\"0.0.1-rc.2+20261011T120001Z.g26fc7edddfda\"\nBUILD_TIMESTAMP=\"20261011T120001Z\"\nBUILD_DIRTY=\"no\"\nOS_BUILD=\"rc.2\"\nGIT_ORGANIZATION=\"pixelelated\"\nGIT_REPO=\"distribution\"\nHOME_URL=\"https://pixelelated.com\"\nBUILD_ID=\"26fc7edddfda17b1dc26da0cb8be7505a1457043\"\nBUILD_BRANCH=\"master\"\nBUILD_DATE=\"2026-10-11T12:00:01Z\"\nHW_DEVICE=\"H700\"\nHW_ARCH=\"aarch64\"\n",
+      "plan": {
+        "assets": {
+          "pixelelated-H700.aarch64-0.0.1-rc.2+20261011T120001Z.g26fc7edddfda-from-ROCKNIX-DDR4.img.gz": {
+            "bytes": 542,
+            "sha256": "0e154499479c2853998f1c1c5ea4c58c318f497b10b0c9627fe4911abbe012ec"
+          },
+          "pixelelated-H700.aarch64-0.0.1-rc.2+20261011T120001Z.g26fc7edddfda-from-ROCKNIX-DDR4.img.gz.sha256": {
+            "bytes": 158,
+            "sha256": "6ab6c336df52eec6cf5d3b9a4d6712ff7dc0e55001fa874c1efaa22a79d470ed"
+          },
+          "pixelelated-H700.aarch64-0.0.1-rc.2+20261011T120001Z.g26fc7edddfda-from-ROCKNIX.identity.json": {
+            "bytes": 402,
+            "sha256": "88a37ed5406762b5d15c81940fd08f92c85a25441ca196feb98a51b956112e5e"
+          }
+        },
+        "build_version": "0.0.1-rc.2+20261011T120001Z.g26fc7edddfda",
+        "bundle_sha256": "980733e371e13effcb4b2af51b2beba26a3c95fa2cc20e22414114cacbb0ab76",
+        "draft": true,
+        "prerelease": true,
+        "publication_performed": false,
+        "qualification": "not assessed",
+        "release_version": "0.0.1-rc.2",
+        "remaining_gates": [
+          "unused immutable tag and recorded RC allocation",
+          "candidate qualification",
+          "source/licence custody",
+          "artifact credential inspection",
+          "named publication approval"
+        ],
+        "repository": "pixelelated/distribution",
+        "schema": 1,
+        "tag": "v0.0.1-rc.2",
+        "target_commitish": "26fc7edddfda17b1dc26da0cb8be7505a1457043",
+        "title": "pixelelated 0.0.1-rc.2"
+      },
+      "synthetic_firmware_sha256": "0e154499479c2853998f1c1c5ea4c58c318f497b10b0c9627fe4911abbe012ec"
+    },
+    "release": {
+      "identity": {
+        "schema": 1,
+        "name": "pixelelated",
+        "release_version": "0.0.1",
+        "build_version": "0.0.1+20261011T130000Z.g26fc7edddfda",
+        "build_timestamp": "20261011T130000Z",
+        "build_commit": "26fc7edddfda17b1dc26da0cb8be7505a1457043",
+        "dirty": "no",
+        "device": "H700",
+        "arch": "aarch64",
+        "image_name": "pixelelated-H700.aarch64-0.0.1+20261011T130000Z.g26fc7edddfda-from-ROCKNIX"
+      },
+      "os_release": "OS_NAME=\"pixelelated\"\nPRETTY_NAME=\"pixelelated 0.0.1\"\nVERSION=\"0.0.1+20261011T130000Z.g26fc7edddfda\"\nOS_VERSION=\"0.0.1\"\nVERSION_ID=\"0.0.1\"\nBUILD_VERSION=\"0.0.1+20261011T130000Z.g26fc7edddfda\"\nBUILD_TIMESTAMP=\"20261011T130000Z\"\nBUILD_DIRTY=\"no\"\nOS_BUILD=\"stable\"\nGIT_ORGANIZATION=\"pixelelated\"\nGIT_REPO=\"distribution\"\nHOME_URL=\"https://pixelelated.com\"\nBUILD_ID=\"26fc7edddfda17b1dc26da0cb8be7505a1457043\"\nBUILD_BRANCH=\"master\"\nBUILD_DATE=\"2026-10-11T13:00:00Z\"\nHW_DEVICE=\"H700\"\nHW_ARCH=\"aarch64\"\n",
+      "plan": {
+        "assets": {
+          "pixelelated-H700.aarch64-0.0.1+20261011T130000Z.g26fc7edddfda-from-ROCKNIX-DDR4.img.gz": {
+            "bytes": 519,
+            "sha256": "e937fa8d056ce34fbaf5c7f034308c45e3bd24710a887a6dc043b482eab93556"
+          },
+          "pixelelated-H700.aarch64-0.0.1+20261011T130000Z.g26fc7edddfda-from-ROCKNIX-DDR4.img.gz.sha256": {
+            "bytes": 153,
+            "sha256": "7e77efdbcc747efd133fbd99eb711ca92d4b20af8547aee319980712fa16f31f"
+          },
+          "pixelelated-H700.aarch64-0.0.1+20261011T130000Z.g26fc7edddfda-from-ROCKNIX.identity.json": {
+            "bytes": 387,
+            "sha256": "b3c6b7b95f82cd9988f57103d9c20411c66ce71d66539fea45ed3d1248d264f7"
+          }
+        },
+        "build_version": "0.0.1+20261011T130000Z.g26fc7edddfda",
+        "bundle_sha256": "6288dd41e204073225e9dd87f561a2941089f429760b40f00d30d36f9769b2af",
+        "draft": true,
+        "prerelease": false,
+        "publication_performed": false,
+        "qualification": "not assessed",
+        "release_version": "0.0.1",
+        "remaining_gates": [
+          "unused immutable tag and recorded RC allocation",
+          "candidate qualification",
+          "source/licence custody",
+          "artifact credential inspection",
+          "named publication approval"
+        ],
+        "repository": "pixelelated/distribution",
+        "schema": 1,
+        "tag": "v0.0.1",
+        "target_commitish": "26fc7edddfda17b1dc26da0cb8be7505a1457043",
+        "title": "pixelelated 0.0.1"
+      },
+      "synthetic_firmware_sha256": "e937fa8d056ce34fbaf5c7f034308c45e3bd24710a887a6dc043b482eab93556"
+    },
+    "patch": {
+      "identity": {
+        "schema": 1,
+        "name": "pixelelated",
+        "release_version": "0.0.2",
+        "build_version": "0.0.2+20261011T140000Z.g26fc7edddfda",
+        "build_timestamp": "20261011T140000Z",
+        "build_commit": "26fc7edddfda17b1dc26da0cb8be7505a1457043",
+        "dirty": "no",
+        "device": "H700",
+        "arch": "aarch64",
+        "image_name": "pixelelated-H700.aarch64-0.0.2+20261011T140000Z.g26fc7edddfda-from-ROCKNIX"
+      },
+      "os_release": "OS_NAME=\"pixelelated\"\nPRETTY_NAME=\"pixelelated 0.0.2\"\nVERSION=\"0.0.2+20261011T140000Z.g26fc7edddfda\"\nOS_VERSION=\"0.0.2\"\nVERSION_ID=\"0.0.2\"\nBUILD_VERSION=\"0.0.2+20261011T140000Z.g26fc7edddfda\"\nBUILD_TIMESTAMP=\"20261011T140000Z\"\nBUILD_DIRTY=\"no\"\nOS_BUILD=\"stable\"\nGIT_ORGANIZATION=\"pixelelated\"\nGIT_REPO=\"distribution\"\nHOME_URL=\"https://pixelelated.com\"\nBUILD_ID=\"26fc7edddfda17b1dc26da0cb8be7505a1457043\"\nBUILD_BRANCH=\"master\"\nBUILD_DATE=\"2026-10-11T14:00:00Z\"\nHW_DEVICE=\"H700\"\nHW_ARCH=\"aarch64\"\n",
+      "plan": {
+        "assets": {
+          "pixelelated-H700.aarch64-0.0.2+20261011T140000Z.g26fc7edddfda-from-ROCKNIX-DDR4.img.gz": {
+            "bytes": 519,
+            "sha256": "5ea2bf07ddd394fd3c3a880ba796713dad66502a8aeea58aa66cdc102ace13c4"
+          },
+          "pixelelated-H700.aarch64-0.0.2+20261011T140000Z.g26fc7edddfda-from-ROCKNIX-DDR4.img.gz.sha256": {
+            "bytes": 153,
+            "sha256": "a9927f4966396b35a74d6063396288acebc670ad047877cd0e16431f4783b264"
+          },
+          "pixelelated-H700.aarch64-0.0.2+20261011T140000Z.g26fc7edddfda-from-ROCKNIX.identity.json": {
+            "bytes": 387,
+            "sha256": "9e6be897965d85014ed9a640e39f980a98ad7b9a5a38cb1cb6f434587aee8dd2"
+          }
+        },
+        "build_version": "0.0.2+20261011T140000Z.g26fc7edddfda",
+        "bundle_sha256": "b55168a5b1094682f25084608f9466c391772ca4733370cca0bab1ede6b7f751",
+        "draft": true,
+        "prerelease": false,
+        "publication_performed": false,
+        "qualification": "not assessed",
+        "release_version": "0.0.2",
+        "remaining_gates": [
+          "unused immutable tag and recorded RC allocation",
+          "candidate qualification",
+          "source/licence custody",
+          "artifact credential inspection",
+          "named publication approval"
+        ],
+        "repository": "pixelelated/distribution",
+        "schema": 1,
+        "tag": "v0.0.2",
+        "target_commitish": "26fc7edddfda17b1dc26da0cb8be7505a1457043",
+        "title": "pixelelated 0.0.2"
+      },
+      "synthetic_firmware_sha256": "5ea2bf07ddd394fd3c3a880ba796713dad66502a8aeea58aa66cdc102ace13c4"
+    }
+  },
+  "synthetic_only": true,
+  "assembled_image_tested": false,
+  "source_sha256": {
+    "config/build-identity": "c6e1046d7d714f973955b92e8049e81febadc119345c49ddedebb1e64f1b80cc",
+    "scripts/image": "4c5d26ea688c6c033cd80af6dcb7eae944b3d67bb3b410d54d6856d2651f8fee",
+    "tools/fork-publish-release": "5903aceaa4bbdb531cf60b24f78d34e23e18155a5d99d60d908be4d0c9b4b9e5",
+    "tools/build-identity-test": "d4aaf4098e3d3c38f48fe429db033c3ed2951070e6fc018d739aef4c84bb9e78"
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "checks": [
+    {
+      "name": "engineering default dev",
+      "passed": true
+    },
+    {
+      "name": "reject qualifier alpha.1",
+      "passed": true
+    },
+    {
+      "name": "reject qualifier beta.1",
+      "passed": true
+    },
+    {
+      "name": "reject qualifier rc",
+      "passed": true
+    },
+    {
+      "name": "reject qualifier rc.0",
+      "passed": true
+    },
+    {
+      "name": "reject qualifier rc.01",
+      "passed": true
+    },
+    {
+      "name": "reject qualifier rc.-1",
+      "passed": true
+    },
+    {
+      "name": "reject qualifier rc.1.2",
+      "passed": true
+    },
+    {
+      "name": "reject qualifier rc.1+extra",
+      "passed": true
+    },
+    {
+      "name": "reject qualifier stable",
+      "passed": true
+    },
+    {
+      "name": "reject qualifier bad/",
+      "passed": true
+    },
+    {
+      "name": "reject override {'OS_VERSION': '01.0.1'}",
+      "passed": true
+    },
+    {
+      "name": "reject override {'BUILD_TIMESTAMP': '20260230T120000Z'}",
+      "passed": true
+    },
+    {
+      "name": "reject override {'CUSTOM_VERSION': 'bad'}",
+      "passed": true
+    },
+    {
+      "name": "reject override {'CUSTOM_IMAGE_NAME': 'bad'}",
+      "passed": true
+    },
+    {
+      "name": "reject override {'CUSTOM_GIT_HASH': 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'}",
+      "passed": true
+    },
+    {
+      "name": "dirty build identified",
+      "passed": true
+    },
+    {
+      "name": "rc1 one sidecar",
+      "passed": true
+    },
+    {
+      "name": "rc1 actual filename and sidecar",
+      "passed": true
+    },
+    {
+      "name": "rc1 installed metadata contract",
+      "passed": true
+    },
+    {
+      "name": "rc1 duplicate output refused without replacement",
+      "passed": true
+    },
+    {
+      "name": "rc1 public plan accepted",
+      "passed": false
+    },
+    {
+      "name": "harness completed",
+      "passed": false,
+      "error": "rc1 public plan accepted"
+    }
+  ],
+  "passed": 21,
+  "failed": 2,
+  "examples": {},
+  "synthetic_only": true,
+  "assembled_image_tested": false,
+  "source_sha256": {
+    "config/build-identity": "c6e1046d7d714f973955b92e8049e81febadc119345c49ddedebb1e64f1b80cc",
+    "scripts/image": "4c5d26ea688c6c033cd80af6dcb7eae944b3d67bb3b410d54d6856d2651f8fee",
+    "tools/fork-publish-release": "5903aceaa4bbdb531cf60b24f78d34e23e18155a5d99d60d908be4d0c9b4b9e5",
+    "tools/build-identity-test": "fff0437783a26214eb249fb19defbececb5db16f30218d971a47baef5f6c5522"
+  }
+}

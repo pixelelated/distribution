@@ -8,19 +8,10 @@ pixelelated_build_identity() {
   [[ "${OS_VERSION}" =~ ^${number}\.${number}\.${number}$ ]] || {
     echo "build identity: OS_VERSION must be MAJOR.MINOR.PATCH" >&2; return 1;
   }
-  if [[ -n "$qualifier" ]]; then
-    [[ "$qualifier" =~ ^[0-9A-Za-z-]+(\.[0-9A-Za-z-]+)*$ ]] || {
-      echo "build identity: invalid prerelease qualifier" >&2; return 1;
-    }
-    local part
-    local -a parts
-    IFS=. read -r -a parts <<<"$qualifier"
-    for part in "${parts[@]}"; do
-      if [[ "$part" =~ ^[0-9]+$ && "$part" != 0 && "$part" == 0* ]]; then
-        echo "build identity: numeric prerelease identifiers cannot have leading zeroes" >&2
-        return 1
-      fi
-    done
+  # Two public forms; dev stays an unqualified engineering identity (#532).
+  if [[ -n "$qualifier" && "$qualifier" != dev && ! "$qualifier" =~ ^rc\.[1-9][0-9]*$ ]]; then
+    echo "build identity: qualifier must be dev, rc.N (N >= 1), or empty for a release" >&2
+    return 1
   fi
   actual_hash=$(git rev-parse HEAD) || return 1
   [[ "$actual_hash" =~ ^[0-9a-f]{40}$ ]] || return 1

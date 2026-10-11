@@ -8,7 +8,7 @@ second release queue. No new candidate is built or designated by this list.
 | Order | Work | Evidence needed before advancing |
 | --- | --- | --- |
 | 1 | #531: USB revision independent of the OS version | Actual networking/MTP preparation controls on host and guest, old-source failure, preserved descriptor identities; then installed bytes on the combined image. Source controls pass: 72/72 on host and guest, old-source failure retained. The combined-image check remains. |
-| 2 | #532: thin rolling RC/release naming | Decide RC counter/default/promotion semantics; executable metadata/tag examples. Proposed 0.0.1-rc.1 then 0.0.1, no required alpha/beta stages; retain UTC/source identity. |
+| 2 | #532: thin rolling RC/release naming | D-WORKFLOW-159 selected: rc.N then release, explicit never-reused counter per frozen set, internal dev default, new qualified assembly for release. Host57 controls pass; shared #530 installed-image proof remains. |
 | 3 | #533: reconcile remaining issue criteria | Map every open M7 issue/open bug to original evidence or a missing assertion. Prioritize #352/#353's retired automatic-migration criteria, #349/#350 restore/scan and #337/#510/#354 identity/cloud status. No blanket closure. |
 | 4 | #528: component decisions that affect firmware | Resolve any source/licence/vendor disposition requiring changed shipped content before freezing inputs; prepare the updated component-to-source map. |
 | 5 | #344/#529/#530/#531: combined engineering image | Recheck #493 build/QA headroom, freeze one input set, actively supervised build, installed fixes/identity, clean/public ROCKNIX and retained-storage tests, affected flow frames and applicable delta review. |

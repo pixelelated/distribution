@@ -1,0 +1,183 @@
+#!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-2.0
+# Copyright (C) 2026-present pixelelated
+"""Exercise actual assembly identity blocks and offline release planning (#532).
+
+Only synthetic Git repositories, tiny firmware stand-ins and temporary outputs.
+No image build, tag, network, device or cloud action is performed.
+"""
+import argparse
+import hashlib
+import json
+import os
+from pathlib import Path
+import shutil
+import subprocess
+import tempfile
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--output', type=Path, required=True)
+    args = parser.parse_args()
+    if args.output.exists():
+        parser.error('output already exists; retain original results')
+    root = Path(__file__).resolve().parents[1]
+    checks, examples = [], {}
+
+    def run(argv, **kw):
+        return subprocess.run(argv, text=True, capture_output=True, timeout=30, **kw)
+
+    def check(name, condition):
+        checks.append({'name': name, 'passed': bool(condition)})
+        if not condition:
+            raise AssertionError(name)
+
+    def sha(p):
+        return hashlib.sha256(p.read_bytes()).hexdigest()
+
+    def require(argv, **kw):
+        result = run(argv, **kw)
+        if result.returncode:
+            raise RuntimeError(result.stderr)
+        return result.stdout
+
+    try:
+        with tempfile.TemporaryDirectory(prefix='pix-build-identity-') as temp:
+            work = Path(temp)
+            repo = work / 'repo'
+            (repo / 'config').mkdir(parents=True)
+            shutil.copyfile(root / 'config/build-identity', repo / 'config/build-identity')
+            require(['git', 'init', '-q', str(repo)])
+            require(['git', '-C', str(repo), 'add', '.'])
+            require(['git', '-C', str(repo), '-c', 'user.name=QA', '-c',
+                     'user.email=qa@example.invalid', 'commit', '-qm', 'Synthetic fixture'])
+            require(['git', '-C', str(repo), 'remote', 'add', 'origin',
+                     'https://github.com/pixelelated/distribution.git'])
+            commit = require(['git', '-C', str(repo), 'rev-parse', 'HEAD']).strip()
+            env = os.environ.copy()
+            for name in ('BUILD_QUALIFIER', 'BUILD_TIMESTAMP', 'CUSTOM_GIT_HASH',
+                         'CUSTOM_VERSION', 'CUSTOM_IMAGE_NAME'):
+                env.pop(name, None)
+            env.update(ROOT=str(repo), OS_VERSION='0.0.1', BUILD_TIMESTAMP='20261011T120000Z',
+                       DEVICE='H700', PROJECT='ROCKNIX', TARGET_ARCH='aarch64',
+                       DISTRONAME='pixelelated', IMAGE_SUFFIX='from-ROCKNIX',
+                       HOME_URL='https://pixelelated.com', GIT_ORGANIZATION='pixelelated',
+                       GIT_REPO='distribution', ARCH='aarch64')
+            identity = '. config/build-identity; pixelelated_build_identity || exit $?; '
+            identity += "python3 -c 'import json,os; print(json.dumps({k:os.environ[k] for k in "
+            identity += '("RELEASE_VERSION","BUILD_VERSION","BUILD_DATE","BUILD_TIMESTAMP","BUILD_DIRTY","GIT_HASH","OS_BUILD")}))' + "'"
+
+            def derive(**changes):
+                return run(['bash', '-c', identity], cwd=repo, env={**env, **changes})
+
+            default = derive()
+            check('engineering default dev', default.returncode == 0 and
+                  json.loads(default.stdout)['RELEASE_VERSION'] == '0.0.1-dev')
+            for qualifier in ('alpha.1', 'beta.1', 'rc', 'rc.0', 'rc.01', 'rc.-1',
+                              'rc.1.2', 'rc.1+extra', 'stable', 'bad/'):
+                check('reject qualifier ' + qualifier, derive(BUILD_QUALIFIER=qualifier).returncode != 0)
+            for changes in ({'OS_VERSION': '01.0.1'}, {'BUILD_TIMESTAMP': '20260230T120000Z'},
+                            {'CUSTOM_VERSION': 'bad'}, {'CUSTOM_IMAGE_NAME': 'bad'},
+                            {'CUSTOM_GIT_HASH': 'a' * 40}):
+                check('reject override ' + repr(changes), derive(**changes).returncode != 0)
+            (repo / 'dirty').write_text('untracked')
+            check('dirty build identified', json.loads(derive().stdout)['BUILD_VERSION'].endswith('.dirty'))
+            (repo / 'dirty').unlink()
+
+            image = (root / 'scripts/image').read_text()
+            block = image[image.index('# One identity'):image.index('# Setup fakeroot')]
+            sidecar = image[image.index('# Record the identity'):image.index('# Create legacy sym links')]
+            metadata = image[image.index('# Create /etc/os-release'):image.index('if [ -n "${HW_CPU}" ]')]
+            prefix = 'die(){ echo "$*" >&2; exit 1; }; show_config(){ :; };\n'
+
+            def bundle(stage):
+                manifest = {'schema': 1, 'inputs': {'distribution_commit': commit},
+                            'files': {p.name: {'sha256': sha(p), 'bytes': p.stat().st_size}
+                                      for p in stage.iterdir() if p.is_file()}}
+                (stage / 'manifest.json').write_text(json.dumps(manifest, sort_keys=True))
+                destination = work / sha(stage / 'manifest.json')
+                stage.rename(destination)
+                return destination
+
+            def plan(path):
+                return run([str(root / 'tools/fork-publish-release'), '--prepare', str(path)])
+
+            bundles = {}
+            for label, q, stamp, version in (
+                    ('rc1', 'rc.1', '20261011T120000Z', '0.0.1'),
+                    ('rc2', 'rc.2', '20261011T120001Z', '0.0.1'),
+                    ('release', '', '20261011T130000Z', '0.0.1'),
+                    ('patch', '', '20261011T140000Z', '0.0.2'),
+                    ('dev', 'dev', '20261011T150000Z', '0.0.1')):
+                stage = work / label
+                (stage / 'etc').mkdir(parents=True)
+                case_env = {**env, 'BUILD_QUALIFIER': q, 'BUILD_TIMESTAMP': stamp,
+                            'OS_VERSION': version, 'BUILD': str(stage),
+                            'TARGET_IMG': str(stage), 'INSTALL': str(stage)}
+                script = prefix + block + sidecar + metadata
+                require(['bash', '-c', script], cwd=repo, env=case_env)
+                files = list(stage.glob('*.identity.json'))
+                check(label + ' one sidecar', len(files) == 1)
+                item = json.loads(files[0].read_text())
+                release = version + ('-' + q if q else '')
+                build = release + '+' + stamp + '.g' + commit[:12]
+                base = 'pixelelated-H700.aarch64-' + build + '-from-ROCKNIX'
+                fields = dict(line.split('=', 1) for line in (stage / 'etc/os-release').read_text().splitlines())
+                check(label + ' actual filename and sidecar', item['release_version'] == release and
+                      item['build_version'] == build and item['image_name'] == base and files[0].name == base + '.identity.json')
+                check(label + ' installed metadata contract', fields['OS_VERSION'] == '"' + release + '"' and
+                      fields['BUILD_VERSION'] == '"' + build + '"' and fields['BUILD_ID'] == '"' + commit + '"')
+                firmware = stage / (base + '-DDR4.img.gz')
+                firmware.write_bytes(b'SYNTHETIC FIRMWARE ONLY\n' + (stage / 'etc/os-release').read_bytes())
+                before = sha(firmware)
+                collision = run(['bash', '-c', prefix + block], cwd=repo, env=case_env)
+                check(label + ' duplicate output refused without replacement', collision.returncode != 0 and sha(firmware) == before)
+                (stage / (firmware.name + '.sha256')).write_text(before + '  ' + firmware.name + '\n')
+                metadata_text = (stage / 'etc/os-release').read_text()
+                shutil.rmtree(stage / 'etc')  # the candidate store accepts flat files only
+                path = bundle(stage)
+                bundles[label] = path
+                result = plan(path)
+                if q == 'dev':
+                    check('engineering public plan refused', result.returncode != 0)
+                    continue
+                check(label + ' public plan accepted: ' + result.stderr.strip(), result.returncode == 0)
+                data = json.loads(result.stdout)
+                check(label + ' thin tag/title and prerelease', data['tag'] == 'v' + release and
+                      data['title'] == 'pixelelated ' + release and data['prerelease'] == bool(q))
+                check(label + ' bound draft only', data['target_commitish'] == commit and data['draft'] and
+                      not data['publication_performed'] and data['qualification'] == 'not assessed')
+                examples[label] = {'identity': item, 'os_release': metadata_text,
+                                   'plan': data, 'synthetic_firmware_sha256': before}
+            check('same-day RC identities distinct', examples['rc1']['identity']['build_version'] != examples['rc2']['identity']['build_version'])
+            check('release reassembly changes bytes and manifest', examples['rc1']['synthetic_firmware_sha256'] != examples['release']['synthetic_firmware_sha256'] and bundles['rc1'].name != bundles['release'].name)
+            # A renamed/retagged identity and unbound/modified bytes cannot pass.
+            for label, mutate in (
+                    ('relabeled RC as release', lambda s: next(s.glob('*.identity.json')).write_text(json.dumps({**examples['rc1']['identity'], 'release_version': '0.0.1'}))),
+                    ('unsupported alpha public version', lambda s: next(s.glob('*.identity.json')).write_text(json.dumps({**examples['rc1']['identity'], 'release_version': '0.0.1-alpha.1'}))),
+                    ('bad checksum', lambda s: next(s.glob('*.sha256')).write_text('wrong\n')),
+                    ('unbound firmware', lambda s: (s / 'extra.tar').write_bytes(b'wrong'))):
+                stage = work / ('bad-' + str(len(checks)))
+                shutil.copytree(bundles['rc1'], stage)
+                (stage / 'manifest.json').unlink()
+                mutate(stage)
+                check(label + ' refused', plan(bundle(stage)).returncode != 0)
+            next(bundles['rc1'].glob('*.img.gz')).write_bytes(b'TAMPER')
+            check('modified bundle refused', plan(bundles['rc1']).returncode != 0)
+    except Exception as error:
+        checks.append({'name': 'harness completed', 'passed': False, 'error': str(error)})
+    report = {'checks': checks, 'passed': sum(c['passed'] for c in checks),
+              'failed': sum(not c['passed'] for c in checks), 'examples': examples,
+              'synthetic_only': True, 'assembled_image_tested': False,
+              'source_sha256': {name: sha(root / name) for name in
+                                ('config/build-identity', 'scripts/image', 'tools/fork-publish-release', 'tools/build-identity-test')}}
+    with args.output.open('x') as stream:
+        json.dump(report, stream, indent=2)
+        stream.write('\n')
+    print(f"{'FAIL' if report['failed'] else 'PASS'} build identity: {report['passed']} passed, {report['failed']} failed")
+    return int(bool(report['failed']))
+
+
+if __name__ == '__main__':
+    raise SystemExit(main())
