@@ -1,0 +1,20 @@
+{
+  "utc": "2026-10-11T16:28:18.609579+00:00",
+  "purpose": "End synthetic fixtures after accepted protocol qualification; no remote data operation",
+  "endpoints": [
+    {
+      "backend": "webdav",
+      "pid": 1352604,
+      "owned_arguments_sha256": "6c76e53d201d9adb4bf3acc236842715e27d8faa85f2fe5bf5be9d8cd18d3443",
+      "exited": true,
+      "port_closed": true
+    },
+    {
+      "backend": "sftp",
+      "pid": 3089399,
+      "owned_arguments_sha256": "59576c6280621a7e218988268d94ab5af6c518bcc99fd97a23af0b43dd3e5d35",
+      "exited": true,
+      "port_closed": true
+    }
+  ]
+}

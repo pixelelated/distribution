@@ -212,3 +212,11 @@ commands were run again; `checks/resolution59/landed-readback.json` is the recei
 The punch-list table and machine-readable outcomes agree. The original frozen
 scorecard remains historical; #537's combined-image clean/retained criterion is
 still open, alongside #528 source/component dispositions and publication gates.
+
+## Delivery closure
+
+Source and resolution commits are published; both exact-head hosted checks on
+849e8dd312 succeeded. All seven #540 checkboxes are checked and the issue is closed.
+Source-qualified #535/#536/#538/#539 are closed; #537 retains its explicit combined-
+image criterion. M7 order and live issue readbacks, publisher rc0 and fixture-stop
+receipts are retained under `checks/delivery63/`. No new firmware/RC was designated.

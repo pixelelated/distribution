@@ -538,3 +538,5 @@ cycle; source qualification and landing are still pending.
   height and position; final55 reviewed both locales and sizes. Guard: the durable
   es-code-traps rule plus actual final-page frames. Regression52 and matrix55 replace
   the earlier pending status; earlier failed source identities remain preserved.
+
+- 2026-10-11 issue: #540 — Finished audit had no hash-bound audit-completion.json, so phase-prefixed title/underscore folder did not reset the legacy cadence. Guard: existing tools/ceremony-check completion validator plus the explicit closeout procedure in .claude/rules/ceremonies.md. Fresh closed/completed tracker bytes and resolution lint now supply the marker.

@@ -44,6 +44,15 @@ ever bypassed with `--no-verify`, that is the friction entry to write.
 The clock starts 2026-09-21. Nothing before it is demanded; a backlog nobody
 can pay at once is how a gate gets switched off.
 
+The completed-audit marker is `docs/audits/<scope>/audit-completion.json`.
+After Phase 7, retain exact closed/completed tracker readback and its verified
+timestamp, hash-bind the analysis, punch list and tracker receipts, and run
+`tools/ceremony-check` without `--gate`. A phase-prefixed issue title or an
+underscore-dated folder does not reset the legacy start-date heuristic; the
+existing completion-marker validator and resolution lint must accept the actual
+finished audit (#540). Do not rename historical evidence or repeat a completed
+external review to repair missing bookkeeping.
+
 ## The timescales (Pongogo's layers, adapted)
 
 - **The day**: `docs/work-logs/<yyyy_mm>-work_logs/<yyyy_mm_dd>-work_log.md`,
