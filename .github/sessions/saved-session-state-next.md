@@ -1,6 +1,8 @@
 # Saved Session State
 
-> Saved: 2026-10-11T03:38:29.104777+00:00
+> Updated: 2026-10-11T03:46:10.609983+00:00
+
+> Previous checkpoint: 2026-10-11T03:38:29.104777+00:00
 > Branch: feature/m7-p5-owner-observations
 > Repository: pixelelated/distribution
 
@@ -74,14 +76,25 @@ Sanitized hashes/trace: docs/qa-logs/2026-10-11-cloud-owner-feedback/.
 No product fix or new runtime proof yet; no agent build/VM/audit job running.
 Owner's sign-in may remain open and belongs to them; do not close it.
 
+## Later code-pairing failure clarification — #537
+
+Owner asks whether OK and EXIT do the same after code pairing fails. Exact
+ES cloudOAuthShowSignIn failed branch: OK/null dismisses only GuiMsgBox;
+EXIT closes s, whose session finalizer calls cloud_oauth cancel. Neither
+retries; CONTINUE from failed returns to the same failure. User was told this.
+Both verbatim reports and trace are appended to #537. Proposed TRY AGAIN /
+CANCEL SIGN-IN must actually start fresh owned state vs cancel, preserve old
+configuration, handle duplicate-name explicitly and distinguish specific
+expiry from generic failure. No implementation or extra device action yet.
+
 ## Delivery boundary for the new records
 
-At stash time, the owner-observation docs/register/log are being prepared in
+The first owner-observation docs/register/log commit f304e7e5db34d41e04901aa919bd637f9722a464 is on next/origin. A later #537 clarification record is being delivered from
 /workspace/repos/rocknix.worktrees/m7-p5-owner-observations,
 feature/m7-p5-owner-observations, based on next761da422dc. Read
 **/tmp/pix534-535-final-readback.json** and actual git/GitHub state before
 assuming this later documentation delivery or #534 closure is complete.
-No build/VM/audit/owner job is running. If the docs CI consumer is still active,
+No agent build/VM/audit/device job is running. The owner may still have their own sign-in open. The first docs CI consumer is in .build-runs/20261011T034236Z-7cf63892 (original runs38109210029/38109210083); if it or the later clarification-record consumer is active,
 consume its original results; no rerun or firmware build needed.
 
 Primary /workspace/repos/rocknix stays on next. Harness conflict-resolution
