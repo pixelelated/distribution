@@ -6,6 +6,18 @@ the captured tracker. It is a readiness record, not an RC designation.
 The full original bodies/comments are retained in
 [the snapshot](../qa-logs/2026-10-11-candidate-scope/tracker-before.json).
 
+## Subsequent owner feedback — 2026-10-11
+
+The18-issue/four-bug table below is the earlier snapshot, not the live count.
+Before the next freeze, #536 owns Dropbox phone-pointer activation failures
+and #537 owns clear configured-connection management (D-CLOUD-183). Both need
+source/flow decisions and applicable VM/frame proof. #528 component/source
+choices remain independently actionable. Do not freeze while these firmware
+changes remain undefined. #534 is a diagnosed preserved fixed red LED setting;
+#535/D-UI-125 open-network password behavior is backlog. Evidence:
+[owner feedback](../qa-logs/2026-10-11-cloud-owner-feedback/README.md).
+No new build or owner-device mutation is running.
+
 ## Issue disposition
 
 | Issue | Disposition and evidence | Remaining assertion / owner |
@@ -29,7 +41,7 @@ The full original bodies/comments are retained in
 | #344 | Current release contract and owner for combined qualification/publication. Historical P0–P6 sections mapped below. | Exact freeze, all remaining software checks/delta review, source/retrieval/runner-custody/notes/channel/asset gates and named publication authority. |
 | #265 | Thin policy selected; offline public-plan tool validates candidate bytes and drafts only. | Actual qualified immutable tag/assets/source release, channel separation and receipt. No publication happened. |
 
-No other open bug was returned by the repository query. #529/#531 remain
+No other open bug was returned by the original repository query; #536 was reported later. #529/#531 remain
 open until installed-image proof. #352 closes on current behavior; #353 closes
 as retired scope. Missing #349/#350 coverage is not a newly demonstrated defect.
 
@@ -60,7 +72,7 @@ ES pin `1d76b3da7da75794066df1c089931b890304da7a`;
 splash pin `8c71126ceef702528c87a4c49625e64988609f26`;
 container `sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39`.
 Read these actual pins again when freezing. **This is a proposed source set,
-not a final freeze:** first resolve #528 choices that change shipped content.
+not a final freeze:** first resolve #528, #536 and #537 choices that change shipped content.
 Any such change needs a new full distribution commit, updated component/source
 mapping and explicit delta review before the build starts. Docs-only delivery
 commits also change BUILD_ID and must be included in the final manifest.
@@ -75,7 +87,7 @@ Can this be done on the VM? Yes: build/metadata tests are host-side; clean,
 retained-storage/public-configuration and interface assertions use disposable
 synthetic guests. No personal Dropbox fixture or owner device is needed.
 
-1. Resolve firmware-affecting #528 dispositions; read current M7 issues; freeze
+1. Resolve firmware-affecting #528/#536/#537 dispositions; read current M7 issues; freeze
    one clean build/* checkout with exact source/pin/container/time/qualifier,
    manifest and source index. Recheck package freshness under its existing policy.
 2. Remeasure capacity and host RAM/swap; retain package concurrency limits.

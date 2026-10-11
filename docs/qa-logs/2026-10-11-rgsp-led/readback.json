@@ -1,0 +1,55 @@
+{
+  "issue": 534,
+  "observed_utc": "2026-10-11T03:24:12Z",
+  "owner_report": "The power LED on the RG SP is red even though the battery is reporting at 97%",
+  "owner_power_state": "Running on battery",
+  "device": "H700 LPDDR3 RG SP",
+  "installed_build": "8b5113fa164ada7d002ab138b1e3a9bf795e9de5",
+  "live_led_color": "red",
+  "recovery_led_color": "red",
+  "preupgrade_receipt_led_color": {
+    "original": "red",
+    "live": "red",
+    "fallback": "red"
+  },
+  "leds": {
+    "green:power": {
+      "brightness": 0,
+      "trigger": "none"
+    },
+    "red:status": {
+      "brightness": 1,
+      "trigger": "none"
+    }
+  },
+  "power": {
+    "status": "Discharging",
+    "raw_capacity_percent": 100,
+    "usb_online": 0,
+    "battery_voltage_microvolts": 4084000,
+    "warning_threshold_percent": 25,
+    "audible_warning": 0,
+    "later_display_cache_percent": 94
+  },
+  "powerstate_service": "active/running",
+  "installed_sha256": {
+    "/usr/bin/ledcontrol": "aef359f92feb43461650464bc333b2aa68e35e20c663e4c2f157b66ccaad3bb5",
+    "/usr/lib/autostart/quirks/platforms/H700/bin/ledcontrol": "e1e8a3fc29eb0eaf963f2f0bc8569f072eed1d0b635daead716a905d2fde6b6c",
+    "/usr/bin/led_flash": "6e1a74bf2f929c779b1839292d1bec48676fc78084158da12a361cec87b369b2",
+    "/usr/bin/powerstate": "97a7833a40107cefe93736337aba619160c917566541e88ed1f468bcdc48d174"
+  },
+  "source_trace": {
+    "dispatcher": "projects/ROCKNIX/packages/sysutils/system-utils/sources/scripts/ledcontrol",
+    "implementation": "projects/ROCKNIX/packages/hardware/quirks/platforms/H700/bin/ledcontrol",
+    "battery_reader": "projects/ROCKNIX/packages/rocknix/profile.d/001-functions::battery_percent",
+    "power_loop": "projects/ROCKNIX/packages/sysutils/powerstate/sources/powerstate.sh"
+  },
+  "conclusion": "Red matches a persisted fixed LED selection already present in the pre-update receipt; it does not establish low charge or a new update regression. Original writer of the preference is unknown.",
+  "scope": "filtered read-only device fields and script hashes; no device settings/input/screenshot/restart/reboot/cloud action; no new VM test",
+  "attempts": [
+    "LAN SSH unreachable; no device read",
+    "Tailnet LED/power read succeeded; initial config path absent, so not a settings observation",
+    "Source-confirmed config path yielded live/recovery red; wrapper-versus-implementation hash difference resolved; display cache read separately"
+  ],
+  "private_records": "Original reads and exact-field extraction stay local; public proof excludes connection addresses, credentials and personal inventories."
+}

@@ -10,7 +10,9 @@ carried proof, missing assertion and the proposed source/build budget.
 and the three authorized engineering deployments are complete for their bytes.
 No build, VM test, cloud operation or audit is running.
 
-Next: #528 firmware-affecting component choices, final input freeze and the
+Next: #536 Dropbox input/navigation diagnosis and #537 clear connection
+management; #528 firmware-affecting component choices proceed independently.
+After those source/flow decisions and changes, final input freeze and the
 combined engineering image; installed fixes, exact-image QA and #349/#350
 coverage precede RC designation. Retrieval/custody/runner-readback, release
 notes, channel separation and per-asset publication gates remain under #344.

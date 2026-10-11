@@ -1,0 +1,51 @@
+{
+  "recorded_utc": "2026-10-11T03:38:29.119799+00:00",
+  "issues": [
+    536,
+    537
+  ],
+  "distribution": "761da422dc72f534556efeee270c84421059534f",
+  "es": "1d76b3da7da75794066df1c089931b890304da7a",
+  "source_sha256": {
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_oauth": "fec8240db342eb9432f9423f5ee3f5bd53df499012dffd1e4ac9ae81c316cbf5",
+    "projects/ROCKNIX/packages/network/cloud-signin-window/sources/cloud-signin-window.c": "5e1aee7725bc9d0ab598bf3c58d817588f0837963dc4f52427046be69474c902",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_remote": "1b4df1b5394647e52df8584e75529ef113be8ccde3ea31b8b7dd1dfd5bb2e99e"
+  },
+  "es_gui_menu_sha256": "fa68556d176a956d3bcee63a5d45b63c029f65798986dab3c7df15e458d51292",
+  "capture": {
+    "local_only": "/tmp/pix536-screen.png",
+    "sha256": "a8451914b4526842deb4624991bea1c9b41af68ce4b6ccccc42f78daa893b5b3",
+    "dimensions": [
+      720,
+      480
+    ],
+    "reviewed": true,
+    "observation": "Dropbox first sign-in screen; hand pointer over Continue with Google, Apple and Microsoft controls visible; no credential field visible. Static frame does not prove click failure.",
+    "authority": "Owner: Dropbox\u2019s first screen. You have permission to take a screenshot.",
+    "receipt": "tools/device-act exited 0; boot id unchanged; no injected input or authentication submission"
+  },
+  "filtered_live_readback": [
+    {
+      "log_exists": true,
+      "navigation_refusals_by_public_host": {
+        "login.microsoftonline.com": 3
+      }
+    },
+    {
+      "file": "/usr/bin/cloud_oauth",
+      "sha256": "fec8240db342eb9432f9423f5ee3f5bd53df499012dffd1e4ac9ae81c316cbf5"
+    },
+    {
+      "file": "/usr/bin/cloud-signin-window",
+      "sha256": "b466c812f818f8a1e85333749d648a2346e90898bc0a005fa2bc9997a805dbf6"
+    }
+  ],
+  "limits": [
+    "No live click/event instrumentation or VM reproduction yet.",
+    "Browser source has no explicit tablet user-agent override; actual runtime UA has not been sampled. tablet_pad refers to a gamepad classification.",
+    "Three refused Microsoft navigation attempts establish that this provider transition was blocked, not that all clicks fail for the same reason.",
+    "Source-only phone pad motion/click queues may race at higher latency; 60ms timer is not a completed-move barrier; not established as owner incident cause.",
+    "OAuth setup uses provider id as name and refuses existing identical name; a differently named existing Dropbox remote does not cause this same-name guard.",
+    "An existing connection list/repair route exists under Use a computer instead; native main route lacks clear lifecycle management."
+  ]
+}

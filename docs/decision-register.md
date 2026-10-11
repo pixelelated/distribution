@@ -675,6 +675,10 @@ This is the index of decisions; `docs/work-logs/` is the narrative,
 
 | D-WORKFLOW-159 | 2026-10-11 | **Use two public rolling forms: MAJOR.MINOR.PATCH-rc.N and MAJOR.MINOR.PATCH, with matching v-prefixed tags and no mandatory alpha/beta stages.** Keep dev as the unqualified engineering default and reject it in public release plans. N starts at1 for each base version; every newly frozen coordinated source/timestamp set consumes the next number, including failures, with no reuse. Rolling releases increment patch; larger compatibility policy remains a future explicit decision. UTC/source metadata stays in build files and installed identity, not tag/title or precedence. Reassemble RC-to-release with a fresh timestamp/manifest and required qualification; never relabel RC bytes. Public tags/assets stay immutable. Settles the open question under the maintainer's instruction to proceed with #532, preserving all qualification/publication gates. | #532; #265; D-WORKFLOW-157/158; `docs/releases/versioning.md`; `tools/build-identity-test` |
 
+| D-UI-125 | 2026-10-11 | Selecting an open Wi-Fi network that needs no network credential must skip the Wi-Fi password prompt; protected networks retain it. Preserve saved/connected/forget behavior and do not treat unknown security as open. The maintainer requested this as an improvement issue; captive-portal/browser behavior is separate. | #535 |
+
+| D-CLOUD-183 | 2026-10-11 | **Make configured cloud connections visible and manageable in EmulationStation, and make adding another connection distinct from renewing or editing an existing one.** The maintainer requests clear listing, removal and modification because repeating Dropbox setup does not explain its effect. #537 defines the native lifecycle flow and its preservation/rollback contract before implementation; existing explicit folder choices and no automatic relocation remain binding. | #537; D-CLOUD-175/178/179 |
+
 ## Open decisions
 
 

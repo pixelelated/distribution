@@ -10,7 +10,7 @@ second release queue. No new candidate is built or designated by this list.
 | 1 | #531: USB revision independent of the OS version | Actual networking/MTP preparation controls on host and guest, old-source failure, preserved descriptor identities; then installed bytes on the combined image. Source controls pass: 72/72 on host and guest, old-source failure retained. The combined-image check remains. |
 | 2 | #532: thin rolling RC/release naming | D-WORKFLOW-159 selected: rc.N then release, explicit never-reused counter per frozen set, internal dev default, new qualified assembly for release. Host57 controls pass; shared #530 installed-image proof remains. |
 | 3 | #533: reconcile remaining issue criteria | Reconciled in [the scope table](next-candidate-scope.md): 18 M7 issues, four bugs. Retire migration; preserve #349/#350 exact-frame gaps and publication requirements. #528 firmware dispositions precede final freeze. |
-| 4 | #528: component decisions that affect firmware | Resolve any source/licence/vendor disposition requiring changed shipped content before freezing inputs; prepare the updated component-to-source map. |
+| 4 | #536/#537: Dropbox pointer/navigation and visible connection lifecycle; #528: component decisions that affect firmware | Resolve #536 with credential-free VM input/navigation proof and #537 with explicit add/renew/edit/remove preservation and exact-source flow/frame proof. In parallel resolve #528 source/licence/vendor dispositions before freezing inputs; prepare the updated component-to-source map. |
 | 5 | #344/#529/#530/#531: combined engineering image | Recheck #493 build/QA headroom, freeze one input set, actively supervised build, installed fixes/identity, clean/public ROCKNIX and retained-storage tests, affected flow frames and applicable delta review. |
 | 6 | #528/#265/#344/#359: release completion | Independent retrieval/hash verification and off-host custody, adoption/recovery/support/source/branding notes, applicable hardware/attachment gates and named publication authority. |
 
@@ -24,4 +24,6 @@ Website #511, broad observability #432, disconnected notifications #395,
 active-name cleanup #509 and personal cleanup/redundancy #516/#518 remain
 separate. Active supervision and prompt delivery of long-job results remain
 required now. Previously approved device transfers/reboots have completed;
-owner devices are in use and this work does not contact them.
+owner devices are in use. #536 consumed one later explicit screenshot approval;
+its frame/aggregate navigation-log observation is recorded separately. No input,
+sign-in submission or configuration change was performed. #535 Wi-Fi is backlog.
