@@ -1,0 +1,6 @@
+watch-build: recording in /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/.build-runs/20261011T203032Z-1496cfe1
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-qa20-accept/run.py", line 17, in <module>
+    assert len(rows)==15,rows
+           ^^^^^^^^^^^^^
+AssertionError: {'---': '---', 'scripts': 'FAIL (1)', 'lifetime': 'PASS', 'wrapper': 'PASS', 'vocabulary': 'PASS', 'french': 'PASS', 'quoting': 'PASS', 'menumap': 'PASS', 'register': 'PASS', 'pair-identity': 'PASS', 'fresh': 'PASS', 'round-trip': 'PASS', 'exit': 'PASS', 'time-to-play': 'PASS', 'walks': 'PASS', 'frame-diff': 'PASS'}

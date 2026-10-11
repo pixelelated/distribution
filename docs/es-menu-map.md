@@ -660,4 +660,7 @@ GPU/temperature values are omitted rather than invented. An absent optional
 quirk is successful, while a real executed quirk error still fails. The
 [three reviewed frames](qa-logs/2026-10-11-optional-hardware/evidence-index.json)
 and [full-script proof](qa-logs/2026-10-11-optional-hardware/README.md) bind this
-correction to a single script overlay. New installed-image proof is still owed.
+correction to a single script overlay. The corrected assembled replacement20 now
+has [eight reviewed clean-install and retained-upgrade frames](qa-logs/2026-10-11-pixelelated-replacement-20/evidence-index.json),
+actual installed-script identity, quiet successful execution and positive startup
+records. Real19→20 retained-storage qualification also passes under #344.

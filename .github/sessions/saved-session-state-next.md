@@ -1,5 +1,56 @@
 # Saved Session State
 
+## Start here — qualification complete, delivery/review reconciliation next
+
+> Saved: 2026-10-11T20:41:00.663714+00:00
+
+All jobs below have now ENDED; their older active states are historical.
+Primary next and origin are51ddf40833706a7af5a985fa40500a58b2e61ae2; both hosted
+checks pass. Active delivery feature is m7-component-inputs. Frozen engineering
+firmware remains1a02664844 in m7-pixelelated-replacement20. No source overlay.
+
+#550/#551 final regression proof02 ends0 at20:29:42UTC:1378PASS/0FAIL/0SKIP;
+10focused controls pass. QA20 original ends1 at20:28:30UTC only for its old
+7script failures;14other suites,78frame comparison,324WebDAV/SFTP/S3 assertions
+pass. Acceptance01 ends1 counting Markdown separator; #552 strict parser has
+actual/failed/missing/duplicate controls. Acceptance02 ends0 at20:32:14UTC after
+explicit composition. Do not relabel either failed original.
+
+Real19→20 upgrade20 ends0 at20:39:38UTC, all9stages0:4savehashes/settings/path/
+selection/backup/owner file preserved, installed payload/info match, retained
+fresh/108WebDAV/exit/time-to-play pass. All8clean/retained640INFORMATION frames
+reviewed in docs/qa-logs/2026-10-11-pixelelated-replacement-20/evidence-index.json.
+Actual owner/guests/endpoints exited; no QA/build/audit currently running.
+
+NEXT: deliver prepared final receipts/canonical frame/log updates from the
+feature, then close only actually proved549/550/551/552/548/529/530/532/350/537
+and tick349installed proof (public docs511 stays). Check audit cadence honestly:
+12completedclosures triggers independent Epic/Milestone review. Inventory of
+post540 source includes #528 engineering recipes, #541 proxy/rclone refresh,
+optional info script and qualification tools; prior540 remains complete and its
+external transfer must NOT be repeated. No new formal audit or external call has
+started; code-auditor and review-levels were read for planning only. A new scoped
+review requires its own frozen evidence/phase chain and authorized transfer.
+
+M7body was updated and read back at20:42UTC with qualification complete and
+delivery/review-before-H700→SM8550 order. #528/publication custody/licence/
+source and physical gates remain. No public RC allocated. Owner devices/cloud
+remain untouched; prior physical action permissions consumed. Host swap full:
+reclaim only under guarded helper when no active jobs, then remeasure capacity.
+#493 retirement remains; no historical VM/cache deletion yet.
+
+Prepared evidence includes original/final host/control/delivery receipts and
+acceptance parser under2026-10-11-regression-fixtures plus full corrected image
+qualification under2026-10-11-pixelelated-replacement-20. Only known source-side
+uncommitted changes now are docs/frames/logs/parser evidence, not firmware.
+A log-curation command briefly wrote two new doc entries to frozen cwd; they
+were moved to feature and frozen files restored byte-exact. Only its expected
+generated core documentation remains modified. Never advance frozen build20.
+
+## Prior checkpoint and full resumption context (historical running states)
+
+# Saved Session State
+
 > Saved: 2026-10-11T20:22:25.938156+00:00
 > Branch: feature/m7-component-inputs; primary next remains1a02664844 until this delivery.
 

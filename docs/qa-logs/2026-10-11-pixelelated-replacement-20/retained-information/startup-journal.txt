@@ -1,0 +1,220 @@
+[    4.178201] GENERIC-X64-15ca systemd[1]: Starting essway.service...
+[    4.524079] GENERIC-X64-15ca systemd[1]: Started essway.service.
+[    4.562544] GENERIC-X64-15ca systemctl[1627]: Environment variable $I18NPATH not set, ignoring.
+[    4.579004] GENERIC-X64-15ca systemctl[1636]: Environment variable $SLOW_CORES not set, ignoring.
+[    4.581580] GENERIC-X64-15ca systemctl[1637]: Environment variable $FAST_CORES not set, ignoring.
+[    4.584942] GENERIC-X64-15ca systemctl[1638]: Environment variable $CPU_FREQ not set, ignoring.
+[    4.587601] GENERIC-X64-15ca systemctl[1639]: Environment variable $DMC_FREQ not set, ignoring.
+[    4.590851] GENERIC-X64-15ca systemctl[1640]: Environment variable $GPU_FREQ not set, ignoring.
+[    4.596808] GENERIC-X64-15ca systemctl[1642]: Environment variable $DEVICE_ASPECT_RATIO not set, ignoring.
+[    4.599443] GENERIC-X64-15ca systemctl[1643]: Environment variable $DEVICE_AUDIO_MIXER not set, ignoring.
+[    4.605825] GENERIC-X64-15ca systemctl[1645]: Environment variable $DEVICE_DTB_SWITCH not set, ignoring.
+[    4.612340] GENERIC-X64-15ca systemctl[1647]: Environment variable $DEVICE_FUNC_KEYA_MODIFIER not set, ignoring.
+[    4.615125] GENERIC-X64-15ca systemctl[1648]: Environment variable $DEVICE_FUNC_KEYB_MODIFIER not set, ignoring.
+[    4.618471] GENERIC-X64-15ca systemctl[1649]: Environment variable $DEVICE_HAS_FAN not set, ignoring.
+[    4.621246] GENERIC-X64-15ca systemctl[1650]: Environment variable $DEVICE_GPU_CUR_FREQ not set, ignoring.
+[    4.624663] GENERIC-X64-15ca systemctl[1651]: Environment variable $DEVICE_GPU_MAX_FREQ not set, ignoring.
+[    4.627503] GENERIC-X64-15ca systemctl[1652]: Environment variable $DEVICE_GPU_OVERCLOCK not set, ignoring.
+[    4.630903] GENERIC-X64-15ca systemctl[1653]: Environment variable $DEVICE_GPU_TEMP_SENSOR not set, ignoring.
+[    4.639529] GENERIC-X64-15ca systemctl[1656]: Environment variable $DEVICE_HDMI_GPIO not set, ignoring.
+[    4.645463] GENERIC-X64-15ca systemctl[1658]: Environment variable $DEVICE_HEADPHONE_DEV not set, ignoring.
+[    4.648121] GENERIC-X64-15ca systemctl[1659]: Environment variable $DEVICE_JACK not set, ignoring.
+[    4.651322] GENERIC-X64-15ca systemctl[1660]: Environment variable $DEVICE_KEY_VOLUMEDOWN not set, ignoring.
+[    4.653939] GENERIC-X64-15ca systemctl[1661]: Environment variable $DEVICE_KEY_VOLUMEUP not set, ignoring.
+[    4.657250] GENERIC-X64-15ca systemctl[1662]: Environment variable $DEVICE_LED_BRIGHTNESS not set, ignoring.
+[    4.659807] GENERIC-X64-15ca systemctl[1663]: Environment variable $DEVICE_LED_CHARGING not set, ignoring.
+[    4.662388] GENERIC-X64-15ca systemctl[1664]: Environment variable $DEVICE_LED_CONTROL not set, ignoring.
+[    4.665723] GENERIC-X64-15ca systemctl[1665]: Environment variable $DEVICE_ANALOG_STICKS_LED_CONTROL not set, ignoring.
+[    4.668381] GENERIC-X64-15ca systemctl[1666]: Environment variable $DEVICE_MANGOHUD_SUPPORT not set, ignoring.
+[    4.671801] GENERIC-X64-15ca systemctl[1667]: Environment variable $DEVICE_MMC_EJECT not set, ignoring.
+[    4.674552] GENERIC-X64-15ca systemctl[1668]: Environment variable $DEVICE_PIPEWIRE_PROFILE not set, ignoring.
+[    4.680448] GENERIC-X64-15ca systemctl[1670]: Environment variable $DEVICE_PWR_LED_GPIO not set, ignoring.
+[    4.683814] GENERIC-X64-15ca systemctl[1671]: Environment variable $DEVICE_PLAYBACK_PATH not set, ignoring.
+[    4.686368] GENERIC-X64-15ca systemctl[1672]: Environment variable $DEVICE_PLAYBACK_PATH_HP not set, ignoring.
+[    4.689656] GENERIC-X64-15ca systemctl[1673]: Environment variable $DEVICE_PLAYBACK_PATH_SPK not set, ignoring.
+[    4.692165] GENERIC-X64-15ca systemctl[1674]: Environment variable $DEVICE_PWM_FAN not set, ignoring.
+[    4.694733] GENERIC-X64-15ca systemctl[1675]: Environment variable $DEVICE_PWM_MOTOR not set, ignoring.
+[    4.698057] GENERIC-X64-15ca systemctl[1676]: Environment variable $DEVICE_PRODUCT_SERIAL not set, ignoring.
+[    4.700580] GENERIC-X64-15ca systemctl[1677]: Environment variable $DEVICE_RK817_FUEL_GAUGE not set, ignoring.
+[    4.703913] GENERIC-X64-15ca systemctl[1678]: Environment variable $DEVICE_SERIAL_NUMBER_PATH not set, ignoring.
+[    4.706464] GENERIC-X64-15ca systemctl[1679]: Environment variable $DEVICE_SW_HP_SWITCH not set, ignoring.
+[    4.712523] GENERIC-X64-15ca systemctl[1681]: Environment variable $DEVICE_TURBO_MODE not set, ignoring.
+[    4.715856] GENERIC-X64-15ca systemctl[1682]: Environment variable $DEVICE_VOLUME not set, ignoring.
+[    4.718425] GENERIC-X64-15ca systemctl[1683]: Environment variable $DEVICE_WIFI not set, ignoring.
+[    4.721738] GENERIC-X64-15ca systemctl[1684]: Environment variable $HDMI_STATE not set, ignoring.
+[    4.730956] GENERIC-X64-15ca systemctl[1687]: Environment variable $PAN_MESA_DEBUG not set, ignoring.
+[    4.742765] GENERIC-X64-15ca systemctl[1691]: Environment variable $MALI_WAYLAND_AFBC not set, ignoring.
+[    4.745384] GENERIC-X64-15ca systemctl[1692]: Environment variable $MALI_DEFAULT_DISPLAY not set, ignoring.
+[    4.748647] GENERIC-X64-15ca systemctl[1693]: Environment variable $PAN_I_WANT_A_BROKEN_VULKAN_DRIVER not set, ignoring.
+[    4.751876] GENERIC-X64-15ca systemctl[1694]: Environment variable $DISABLE_WSI_LAYER not set, ignoring.
+[    4.754414] GENERIC-X64-15ca systemctl[1695]: Environment variable $ALSA_PRIMARY_CARD not set, ignoring.
+[    4.757678] GENERIC-X64-15ca systemctl[1696]: Environment variable $SDL_VIDEO_DISPLAY_PRIORITY not set, ignoring.
+[    4.760427] GENERIC-X64-15ca systemctl[1697]: Environment variable $TU_DEBUG not set, ignoring.
+[    4.763787] GENERIC-X64-15ca systemctl[1698]: Environment variable $MESA_LOADER_DRIVER_OVERRIDE not set, ignoring.
+[    5.004322] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1715]        WARNING        System "amigacd32" has no games! Ignoring it.
+[    5.004322] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1713]        WARNING        System "3do" has no games! Ignoring it.
+[    5.004555] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1716]        WARNING        System "atari2600" has no games! Ignoring it.
+[    5.004555] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1714]        WARNING        System "amstradcpc" has no games! Ignoring it.
+[    5.004555] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1718]        WARNING        System "arcade" has no games! Ignoring it.
+[    5.004555] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1715]        WARNING        System "atari5200" has no games! Ignoring it.
+[    5.004555] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1713]        WARNING        System "atari7800" has no games! Ignoring it.
+[    5.004555] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1715]        WARNING        System "atarist" has no games! Ignoring it.
+[    5.004646] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1717]        WARNING        System "arduboy" has no games! Ignoring it.
+[    5.004646] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1712]        WARNING        System "amiga" has no games! Ignoring it.
+[    5.004646] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1716]        WARNING        System "atari800" has no games! Ignoring it.
+[    5.004646] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1717]        WARNING          Unknown platform for system "c128" (platform "c128" from list "c128")
+[    5.004698] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1714]        WARNING        System "atarijaguar" has no games! Ignoring it.
+[    5.004761] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1716]        WARNING        System "c16" has no games! Ignoring it.
+[    5.004783] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1713]        WARNING        System "atomiswave" has no games! Ignoring it.
+[    5.004851] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1717]        WARNING        System "c128" has no games! Ignoring it.
+[    5.004851] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1712]        WARNING        System "bk" has no games! Ignoring it.
+[    5.004851] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1712]        WARNING          Unknown platform for system "chip-8" (platform "chip-8" from list "chip-8")
+[    5.004886] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1716]        WARNING        System "cdi" has no games! Ignoring it.
+[    5.004926] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1714]        WARNING        System "c64" has no games! Ignoring it.
+[    5.004967] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1716]        WARNING        System "cps1" has no games! Ignoring it.
+[    5.004967] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1712]        WARNING        System "chip-8" has no games! Ignoring it.
+[    5.005023] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1717]        WARNING        System "colecovision" has no games! Ignoring it.
+[    5.005035] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1717]        WARNING          Unknown platform for system "doom" (platform "doom" from list "doom")
+[    5.005092] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1713]        WARNING        System "channelf" has no games! Ignoring it.
+[    5.005227] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1716]        WARNING        System "cps3" has no games! Ignoring it.
+[    5.005227] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1712]        WARNING        System "daphne" has no games! Ignoring it.
+[    5.005227] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1718]        WARNING        System "atarilynx" has no games! Ignoring it.
+[    5.005387] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1716]        WARNING        System "famicom" has no games! Ignoring it.
+[    5.005387] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1713]        WARNING        System "dreamcast" has no games! Ignoring it.
+[    5.005387] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1714]        WARNING        System "cps2" has no games! Ignoring it.
+[    5.005387] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1716]        WARNING        System "fds" has no games! Ignoring it.
+[    5.005387] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1712]        WARNING        System "easyrpg" has no games! Ignoring it.
+[    5.005491] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1717]        WARNING        System "doom" has no games! Ignoring it.
+[    5.005586] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1718]        WARNING        System "fbn" has no games! Ignoring it.
+[    5.005877] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1713]        WARNING        System "gameandwatch" has no games! Ignoring it.
+[    5.005877] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1715]        WARNING        System "bbcmicro" has no games! Ignoring it.
+[    5.005877] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1716]        WARNING        System "gb" has no games! Ignoring it.
+[    5.005877] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1712]        WARNING        System "gba" has no games! Ignoring it.
+[    5.005877] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1718]        WARNING        System "gbav" has no games! Ignoring it.
+[    5.005877] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1713]        WARNING        System "gbc" has no games! Ignoring it.
+[    5.005877] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1717]        WARNING        System "gbah" has no games! Ignoring it.
+[    5.005877] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1716]        WARNING        System "gbh" has no games! Ignoring it.
+[    5.005877] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1716]        WARNING          Unknown platform for system "idtech" (platform "idtech" from list "idtech")
+[    5.005877] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1718]        WARNING        System "ggh" has no games! Ignoring it.
+[    5.005877] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1715]        WARNING        System "gbch" has no games! Ignoring it.
+[    5.006070] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1714]        WARNING        System "gamegear" has no games! Ignoring it.
+[    5.006070] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1714]        WARNING          Unknown platform for system "ios" (platform "ios" from list "ios")
+[    5.006109] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1717]        WARNING        System "gp32" has no games! Ignoring it.
+[    5.006109] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1712]        WARNING        System "genesis" has no games! Ignoring it.
+[    5.006109] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1713]        WARNING        System "genh" has no games! Ignoring it.
+[    5.006162] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1715]        WARNING        System "intellivision" has no games! Ignoring it.
+[    5.006162] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1714]        WARNING        System "ios" has no games! Ignoring it.
+[    5.006188] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1717]        WARNING        System "j2me" has no games! Ignoring it.
+[    5.006221] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1713]        WARNING        System "mame" has no games! Ignoring it.
+[    5.006221] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1716]        WARNING        System "idtech" has no games! Ignoring it.
+[    5.006247] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1717]        WARNING        System "megadrive-japan" has no games! Ignoring it.
+[    5.006316] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1718]        WARNING        System "imageviewer" has no games! Ignoring it.
+[    5.006316] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1712]        WARNING        System "macintosh" has no games! Ignoring it.
+[    5.006316] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1712]        WARNING          Unknown platform for system "moto" (platform "moto" from list "moto")
+[    5.006522] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1713]        WARNING        System "megadrive" has no games! Ignoring it.
+[    5.006522] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1713]        WARNING          Unknown platform for system "mplayer" (platform "mplayer" from list "mplayer")
+[    5.006522] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1715]        WARNING        System "mastersystem" has no games! Ignoring it.
+[    5.006522] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1716]        WARNING        System "megadriveh" has no games! Ignoring it.
+[    5.006522] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1712]        WARNING        System "moto" has no games! Ignoring it.
+[    5.006522] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1712]        WARNING          Unknown platform for system "music" (platform "music" from list "music")
+[    5.006522] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1718]        WARNING        System "moonlight" has no games! Ignoring it.
+[    5.006522] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1715]        WARNING        System "msx" has no games! Ignoring it.
+[    5.006808] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1718]        WARNING        System "n64" has no games! Ignoring it.
+[    5.006808] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1716]        WARNING        System "msx2" has no games! Ignoring it.
+[    5.006914] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1713]        WARNING        System "mplayer" has no games! Ignoring it.
+[    5.007067] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1716]        WARNING        System "nds" has no games! Ignoring it.
+[    5.007236] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1713]        WARNING        System "ndsiware" has no games! Ignoring it.
+[    5.007236] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1716]        WARNING        System "neocd" has no games! Ignoring it.
+[    5.007340] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1718]        WARNING        System "naomi" has no games! Ignoring it.
+[    5.007340] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1715]        WARNING        System "n64dd" has no games! Ignoring it.
+[    5.007340] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1718]        WARNING        System "neogeo" has no games! Ignoring it.
+[    5.007569] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1714]        WARNING        System "megacd" has no games! Ignoring it.
+[    5.007569] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1717]        WARNING        System "megaduck" has no games! Ignoring it.
+[    5.007569] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1715]        WARNING        System "nes" has no games! Ignoring it.
+[    5.007569] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1714]        WARNING        System "ngpc" has no games! Ignoring it.
+[    5.007569] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1718]        WARNING        System "ngp" has no games! Ignoring it.
+[    5.007569] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1713]        WARNING        System "nesh" has no games! Ignoring it.
+[    5.007841] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1715]        WARNING        System "openbor" has no games! Ignoring it.
+[    5.007841] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1718]        WARNING        System "pc-9800" has no games! Ignoring it.
+[    5.007841] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1715]        WARNING        System "pcengine" has no games! Ignoring it.
+[    5.007841] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1713]        WARNING        System "pc" has no games! Ignoring it.
+[    5.007841] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1711]        WARNING        Unknown element of type "notification"!
+[    5.008294] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1716]        WARNING        System "pc-8800" has no games! Ignoring it.
+[    5.008294] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1714]        WARNING        System "palm" has no games! Ignoring it.
+[    5.008294] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1717]        WARNING        System "odyssey2" has no games! Ignoring it.
+[    5.008294] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1713]        WARNING        System "pet" has no games! Ignoring it.
+[    5.008294] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1714]        WARNING        System "pokemini" has no games! Ignoring it.
+[    5.008294] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1713]        WARNING        System "psp" has no games! Ignoring it.
+[    5.008294] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1712]        WARNING        Unknown element of type "notification"!
+[    5.008294] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1714]        WARNING        System "pspminis" has no games! Ignoring it.
+[    5.008294] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1715]        WARNING        System "pcfx" has no games! Ignoring it.
+[    5.008294] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1717]        WARNING        System "ports" has no games! Ignoring it.
+[    5.008294] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1718]        WARNING        System "pcenginecd" has no games! Ignoring it.
+[    5.008294] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1714]        WARNING        System "satellaview" has no games! Ignoring it.
+[    5.008893] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1714]        WARNING        System "sega32x" has no games! Ignoring it.
+[    5.008893] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1715]        WARNING        System "saturn" has no games! Ignoring it.
+[    5.008893] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1717]        WARNING        System "scummvm" has no games! Ignoring it.
+[    5.008893] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1714]        WARNING        System "segacd" has no games! Ignoring it.
+[    5.008893] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1718]        WARNING        System "scv" has no games! Ignoring it.
+[    5.008893] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1717]        WARNING        System "sg-1000" has no games! Ignoring it.
+[    5.008893] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1715]        WARNING        System "sfc" has no games! Ignoring it.
+[    5.008893] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1717]        WARNING          Unknown platform for system "snesmsu1" (platform "snesmsu1" from list "snesmsu1 snes")
+[    5.008893] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1715]        WARNING          Unknown platform for system "st-v" (platform "st-v" from list "st-v")
+[    5.008893] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1714]        WARNING        System "snes" has no games! Ignoring it.
+[    5.008893] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1718]        WARNING        System "snesh" has no games! Ignoring it.
+[    5.008893] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1717]        WARNING        System "snesmsu1" has no games! Ignoring it.
+[    5.008893] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1715]        WARNING        System "st-v" has no games! Ignoring it.
+[    5.008893] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1714]        WARNING        System "sufami" has no games! Ignoring it.
+[    5.008893] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1715]        WARNING        System "tg16" has no games! Ignoring it.
+[    5.008893] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1717]        WARNING        System "supervision" has no games! Ignoring it.
+[    5.008893] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1717]        WARNING          Unknown platform for system "tools" (platform "tools" from list "tools")
+[    5.008893] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1718]        WARNING        System "supergrafx" has no games! Ignoring it.
+[    5.008893] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1714]        WARNING        System "tg16cd" has no games! Ignoring it.
+[    5.008893] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1715]        WARNING        System "tic-80" has no games! Ignoring it.
+[    5.008893] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1717]        WARNING        File "/storage/.config/modules/Start FEXConfig.sh" does not exist or is arcade asset ! Ignoring.
+[    5.008893] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1717]        WARNING        File "/storage/.config/modules/cloud_backup.sh" does not exist or is arcade asset ! Ignoring.
+[    5.009155] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1717]        WARNING        File "/storage/.config/modules/cloud_restore.sh" does not exist or is arcade asset ! Ignoring.
+[    5.009155] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1717]        WARNING        File "/storage/.config/modules/qterminal.sh" does not exist or is arcade asset ! Ignoring.
+[    5.009155] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1717]        WARNING        File "/storage/.config/modules/Install Steam.sh" does not exist or is arcade asset ! Ignoring.
+[    5.010853] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1717]        WARNING        File "/storage/.config/modules/Uninstall Steam.sh" does not exist or is arcade asset ! Ignoring.
+[    5.010853] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1717]        WARNING        File "/storage/.config/modules/Install Heroic Games Launcher.sh" does not exist or is arcade asset ! Ignoring.
+[    5.010853] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1717]        WARNING        File "/storage/.config/modules/Uninstall Heroic Games Launcher.sh" does not exist or is arcade asset ! Ignoring.
+[    5.010853] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1717]        WARNING        File "/storage/.config/modules/Scan Heroic Games.sh" does not exist or is arcade asset ! Ignoring.
+[    5.010853] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1717]        WARNING        File "/storage/.config/modules/Start AetherSX2.sh" does not exist or is arcade asset ! Ignoring.
+[    5.010853] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1717]        WARNING        File "/storage/.config/modules/Start Azahar.sh" does not exist or is arcade asset ! Ignoring.
+[    5.010853] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1717]        WARNING        File "/storage/.config/modules/Start BigPEmu.sh" does not exist or is arcade asset ! Ignoring.
+[    5.010853] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1717]        WARNING        File "/storage/.config/modules/Start CEMU.sh" does not exist or is arcade asset ! Ignoring.
+[    5.010853] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1717]        WARNING        File "/storage/.config/modules/Start DaedalusX64.sh" does not exist or is arcade asset ! Ignoring.
+[    5.010853] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1717]        WARNING        File "/storage/.config/modules/Start Dolphin.sh" does not exist or is arcade asset ! Ignoring.
+[    5.010853] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1717]        WARNING        File "/storage/.config/modules/Start MelonDS.sh" does not exist or is arcade asset ! Ignoring.
+[    5.010853] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1717]        WARNING        File "/storage/.config/modules/Start Moonlight.sh" does not exist or is arcade asset ! Ignoring.
+[    5.010853] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1717]        WARNING        File "/storage/.config/modules/Start ARMSX2.sh" does not exist or is arcade asset ! Ignoring.
+[    5.010853] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1717]        WARNING        File "/storage/.config/modules/Start SkyEmu.sh" does not exist or is arcade asset ! Ignoring.
+[    5.010853] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1715]        WARNING        System "vic20" has no games! Ignoring it.
+[    5.010948] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1717]        WARNING        File "/storage/.config/modules/Start RPCS3.sh" does not exist or is arcade asset ! Ignoring.
+[    5.010948] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1717]        WARNING        File "/storage/.config/modules/Start Vita3K.sh" does not exist or is arcade asset ! Ignoring.
+[    5.010948] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1717]        WARNING        File "/storage/.config/modules/Start Xemu.sh" does not exist or is arcade asset ! Ignoring.
+[    5.010948] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1713]        WARNING        System "psx" has no games! Ignoring it.
+[    5.010948] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1717]        WARNING        File "/storage/.config/modules/Test Gamepad.sh" does not exist or is arcade asset ! Ignoring.
+[    5.010948] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1717]        WARNING        File "/storage/.config/modules/Test Touchscreen.sh" does not exist or is arcade asset ! Ignoring.
+[    5.010948] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1714]        WARNING        System "vectrex" has no games! Ignoring it.
+[    5.010948] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1717]        WARNING        File "/storage/.config/modules/GPcal.sh" does not exist or is arcade asset ! Ignoring.
+[    5.010948] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1715]        WARNING        System "videopac" has no games! Ignoring it.
+[    5.010948] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1718]        WARNING        System "uzebox" has no games! Ignoring it.
+[    5.010948] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1714]        WARNING        System "virtualboy" has no games! Ignoring it.
+[    5.010948] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1715]        WARNING        System "wasm4" has no games! Ignoring it.
+[    5.010948] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1713]        WARNING        System "vircon32" has no games! Ignoring it.
+[    5.010948] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1718]        WARNING        System "windows" has no games! Ignoring it.
+[    5.010948] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1714]        WARNING        System "wonderswan" has no games! Ignoring it.
+[    5.010948] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1714]        WARNING          Unknown platform for system "zmachine" (platform "z-machine" from list "z-machine")
+[    5.010948] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1715]        WARNING        System "wonderswancolor" has no games! Ignoring it.
+[    5.010948] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1714]        WARNING        System "zmachine" has no games! Ignoring it.
+[    5.010948] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1714]        WARNING        System "zxspectrum" has no games! Ignoring it.
+[    5.010948] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1715]        WARNING        System "zx81" has no games! Ignoring it.
+[    5.010948] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1718]        WARNING        System "x68000" has no games! Ignoring it.
+[    5.011052] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1713]        WARNING        System "x1" has no games! Ignoring it.
+[    5.011052] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1711]        WARNING        Unknown element of type "notification"!
+[    5.011052] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1717]        WARNING        Unknown element of type "notification"!
+[    5.011052] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1716]        WARNING        Unknown element of type "notification"!
+[    5.024259] GENERIC-X64-15ca start_es.sh[1700]: 2026-10-11 16:35:40        [1710]        ERROR        HttpReq::onError (3) : Could not connect to server
+[    5.065829] GENERIC-X64-15ca serial_number_check[1731]: SERIAL NUMBER CHECK: This device has no unique serial number to check, skipping and continue to Emulation Station

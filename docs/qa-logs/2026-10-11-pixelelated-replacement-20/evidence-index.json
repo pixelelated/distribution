@@ -1,0 +1,245 @@
+{
+  "schema_version": 1,
+  "entries": [
+    {
+      "flow_id": "SYSINFO",
+      "branch_id": "installed-clean-01-main-menu-identity",
+      "document": "docs/es-menu-map.md",
+      "anchor": "unavailable-hardware-readings-548",
+      "trigger": "Main menu > System settings > Information; scroll to CPU readings.",
+      "expected_state": "Main menu displays lowercase pixelelated and 0.0.1-dev (dev), without community.",
+      "source": {
+        "distribution": "1a026648442321609b2288c2c9c06803817f9df2",
+        "es": "c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78",
+        "build_timestamp": "20261011T194522Z",
+        "script_sha256": "ed9e244bc664097154a1592890974b15d6c2a5e57f1d6e32b3edbdbe018bcae6",
+        "overlay": false,
+        "width": 640,
+        "height": 480,
+        "locale": "en_US",
+        "frames_require_review": true
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "frame": "clean-information/frames/01-main-menu-identity.png",
+      "sha256": "7cb5dad02c3be8ec1d2162acebe3cd9cb0638cb0c8ea8dd3ae379a6499c5fa2b",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "Codex primary",
+        "utc": "2026-10-11T20:26:53.733447+00:00",
+        "observation": "Main menu displays lowercase pixelelated and 0.0.1-dev (dev), without community."
+      }
+    },
+    {
+      "flow_id": "SYSINFO",
+      "branch_id": "installed-clean-02-system-settings",
+      "document": "docs/es-menu-map.md",
+      "anchor": "unavailable-hardware-readings-548",
+      "trigger": "Main menu > System settings > Information; scroll to CPU readings.",
+      "expected_state": "Information remains the first SYSTEM row and is selected; normal System settings layout is preserved.",
+      "source": {
+        "distribution": "1a026648442321609b2288c2c9c06803817f9df2",
+        "es": "c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78",
+        "build_timestamp": "20261011T194522Z",
+        "script_sha256": "ed9e244bc664097154a1592890974b15d6c2a5e57f1d6e32b3edbdbe018bcae6",
+        "overlay": false,
+        "width": 640,
+        "height": 480,
+        "locale": "en_US",
+        "frames_require_review": true
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "frame": "clean-information/frames/02-system-settings.png",
+      "sha256": "ea3f380019621369cc6809dcd213a1ded3569d1cf2180048a828c82207367cda",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "Codex primary",
+        "utc": "2026-10-11T20:26:53.733534+00:00",
+        "observation": "Information remains the first SYSTEM row and is selected; normal System settings layout is preserved."
+      }
+    },
+    {
+      "flow_id": "SYSINFO",
+      "branch_id": "installed-clean-03-information",
+      "document": "docs/es-menu-map.md",
+      "anchor": "unavailable-hardware-readings-548",
+      "trigger": "Main menu > System settings > Information; scroll to CPU readings.",
+      "expected_state": "Information shows pixelelated, 0.0.1-dev and 2026-10-11 19:45:22Z / 1a0266484423 at 640x480.",
+      "source": {
+        "distribution": "1a026648442321609b2288c2c9c06803817f9df2",
+        "es": "c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78",
+        "build_timestamp": "20261011T194522Z",
+        "script_sha256": "ed9e244bc664097154a1592890974b15d6c2a5e57f1d6e32b3edbdbe018bcae6",
+        "overlay": false,
+        "width": 640,
+        "height": 480,
+        "locale": "en_US",
+        "frames_require_review": true
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "frame": "clean-information/frames/03-information.png",
+      "sha256": "bd5f5dadf39b4335454d3fe980e6f6c07d08079808a4d3f5d3e8ad6f61412d06",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "Codex primary",
+        "utc": "2026-10-11T20:26:53.733608+00:00",
+        "observation": "Information shows pixelelated, 0.0.1-dev and 2026-10-11 19:45:22Z / 1a0266484423 at 640x480."
+      }
+    },
+    {
+      "flow_id": "SYSINFO",
+      "branch_id": "installed-clean-04-cpu-information",
+      "document": "docs/es-menu-map.md",
+      "anchor": "unavailable-hardware-readings-548",
+      "trigger": "Main menu > System settings > Information; scroll to CPU readings.",
+      "expected_state": "Selected current CPU frequency and maximum frequency read Not Available; no bare unit or invented zero. CPU and RAM rows remain legible.",
+      "source": {
+        "distribution": "1a026648442321609b2288c2c9c06803817f9df2",
+        "es": "c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78",
+        "build_timestamp": "20261011T194522Z",
+        "script_sha256": "ed9e244bc664097154a1592890974b15d6c2a5e57f1d6e32b3edbdbe018bcae6",
+        "overlay": false,
+        "width": 640,
+        "height": 480,
+        "locale": "en_US",
+        "frames_require_review": true
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "frame": "clean-information/frames/04-cpu-information.png",
+      "sha256": "5ad814f8fef3d1eec1fb6810741131b40413588a540380c0d2e8622ccf05d642",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "Codex primary",
+        "utc": "2026-10-11T20:26:53.733680+00:00",
+        "observation": "Selected current CPU frequency and maximum frequency read Not Available; no bare unit or invented zero. CPU and RAM rows remain legible."
+      }
+    },
+    {
+      "flow_id": "SYSINFO",
+      "branch_id": "installed-retained-01-main-menu-identity",
+      "document": "docs/es-menu-map.md",
+      "anchor": "unavailable-hardware-readings-548",
+      "trigger": "Main menu > System settings > Information; scroll to CPU readings.",
+      "expected_state": "Main menu displays lowercase pixelelated and 0.0.1-dev (dev), without community.",
+      "source": {
+        "distribution": "1a026648442321609b2288c2c9c06803817f9df2",
+        "es": "c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78",
+        "build_timestamp": "20261011T194522Z",
+        "script_sha256": "ed9e244bc664097154a1592890974b15d6c2a5e57f1d6e32b3edbdbe018bcae6",
+        "overlay": false,
+        "width": 640,
+        "height": 480,
+        "locale": "en_US",
+        "frames_require_review": true
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "frame": "retained-information/frames/01-main-menu-identity.png",
+      "sha256": "7cb5dad02c3be8ec1d2162acebe3cd9cb0638cb0c8ea8dd3ae379a6499c5fa2b",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "Codex primary",
+        "utc": "2026-10-11T20:41:00.662838+00:00",
+        "observation": "After real19\u219220 update: Main menu displays lowercase pixelelated and 0.0.1-dev (dev), without community."
+      }
+    },
+    {
+      "flow_id": "SYSINFO",
+      "branch_id": "installed-retained-02-system-settings",
+      "document": "docs/es-menu-map.md",
+      "anchor": "unavailable-hardware-readings-548",
+      "trigger": "Main menu > System settings > Information; scroll to CPU readings.",
+      "expected_state": "Information remains the first SYSTEM row and is selected; normal System settings layout is preserved.",
+      "source": {
+        "distribution": "1a026648442321609b2288c2c9c06803817f9df2",
+        "es": "c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78",
+        "build_timestamp": "20261011T194522Z",
+        "script_sha256": "ed9e244bc664097154a1592890974b15d6c2a5e57f1d6e32b3edbdbe018bcae6",
+        "overlay": false,
+        "width": 640,
+        "height": 480,
+        "locale": "en_US",
+        "frames_require_review": true
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "frame": "retained-information/frames/02-system-settings.png",
+      "sha256": "ea3f380019621369cc6809dcd213a1ded3569d1cf2180048a828c82207367cda",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "Codex primary",
+        "utc": "2026-10-11T20:41:00.662946+00:00",
+        "observation": "After real19\u219220 update: Information remains the first SYSTEM row and is selected; normal System settings layout is preserved."
+      }
+    },
+    {
+      "flow_id": "SYSINFO",
+      "branch_id": "installed-retained-03-information",
+      "document": "docs/es-menu-map.md",
+      "anchor": "unavailable-hardware-readings-548",
+      "trigger": "Main menu > System settings > Information; scroll to CPU readings.",
+      "expected_state": "Information shows pixelelated, 0.0.1-dev and 2026-10-11 19:45:22Z / 1a0266484423 at 640x480.",
+      "source": {
+        "distribution": "1a026648442321609b2288c2c9c06803817f9df2",
+        "es": "c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78",
+        "build_timestamp": "20261011T194522Z",
+        "script_sha256": "ed9e244bc664097154a1592890974b15d6c2a5e57f1d6e32b3edbdbe018bcae6",
+        "overlay": false,
+        "width": 640,
+        "height": 480,
+        "locale": "en_US",
+        "frames_require_review": true
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "frame": "retained-information/frames/03-information.png",
+      "sha256": "799b8504844bfc3075108a6fd69dc8b633656685d10038bb194792ec7283613d",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "Codex primary",
+        "utc": "2026-10-11T20:41:00.663048+00:00",
+        "observation": "After real19\u219220 update: Information shows pixelelated, 0.0.1-dev and 2026-10-11 19:45:22Z / 1a0266484423 at 640x480."
+      }
+    },
+    {
+      "flow_id": "SYSINFO",
+      "branch_id": "installed-retained-04-cpu-information",
+      "document": "docs/es-menu-map.md",
+      "anchor": "unavailable-hardware-readings-548",
+      "trigger": "Main menu > System settings > Information; scroll to CPU readings.",
+      "expected_state": "Selected current CPU frequency and maximum frequency read Not Available; no bare unit or invented zero. CPU and RAM rows remain legible.",
+      "source": {
+        "distribution": "1a026648442321609b2288c2c9c06803817f9df2",
+        "es": "c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78",
+        "build_timestamp": "20261011T194522Z",
+        "script_sha256": "ed9e244bc664097154a1592890974b15d6c2a5e57f1d6e32b3edbdbe018bcae6",
+        "overlay": false,
+        "width": 640,
+        "height": 480,
+        "locale": "en_US",
+        "frames_require_review": true
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "frame": "retained-information/frames/04-cpu-information.png",
+      "sha256": "a21e0fb490808aeca151452eb58271ee3f2ee58938c804aff60c02aeb23701f5",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "Codex primary",
+        "utc": "2026-10-11T20:41:00.663135+00:00",
+        "observation": "After real19\u219220 update: Selected current CPU frequency and maximum frequency read Not Available; no bare unit or invented zero. CPU and RAM rows remain legible."
+      }
+    }
+  ]
+}

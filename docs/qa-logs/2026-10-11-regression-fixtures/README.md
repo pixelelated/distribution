@@ -19,6 +19,16 @@ mutation controls pass. One retired historical feature group remains explicitly
 not applicable and is not counted as PASS. After that owner exited, the helper's
 query transport was made CI-portable: fixture-backed cat paths and systemctl
 execute the same query without a new bubblewrap dependency in hosted CI.
-Final ten controls pass; a second full run is ACTIVE to bind the final helper.
-Its final-source manifest is retained; do not claim its completion from submission.
+Final ten controls and full proof02 pass:1378PASS/0FAIL/0SKIP, original owner0
+at20:29:42UTC and actual exit. Both hosted checks pass on51ddf40833; delivery01
+ends0 at20:29:23UTC. The final-source manifest binds the portable helper.
 No device/cloud data, source pin or assembled firmware changed.
+
+The explicit qualification wrapper initially counted the Markdown separator as
+another suite and ended1; #552 retains that original. Corrected parsing checks
+the exact15 named rows, not a count alone, and refuses failed/missing/duplicate
+controls. Fresh acceptance02 ends0 at20:32:14UTC after checking all14 original
+nonscript suites, all324 protocol assertions, four reviewed installed frames,
+actual guest/endpoint shutdown and frozen source. Original QA20 remains1.
+The prepared real19→20 upgrade binds a hash-sealed copy of this composed result;
+it does not require or manufacture a successful original QA20 aggregate.

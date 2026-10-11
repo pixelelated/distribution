@@ -1,0 +1,42 @@
+=== 20:33:27 backend: not running
+=== 20:33:28 pair up from pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261011T174137Z.ga0f60255abfe-from-ROCKNIX.img.gz
+old build id: a0f60255abfefaddce772d0bba29977bafb7adab
+PASS old build id read
+PASS storage ready in boot 1e846136-5c0c-4341-9e70-38af48c16527 after 1 poll(s)
+=== 20:34:10 seed state on guest a
+PASS four seeded files exist
+PASS set_setting is a function on the guest
+PASS setting reads back before the update
+=== 20:34:11 link the local WebDAV backend
+PASS backend gave an rclone.conf
+PASS guest sees one remote
+PASS saves remote set before the update
+PASS rclone (previous) lists the remote
+=== 20:34:12 a settings backup
+=== 20:34:12 seed what the retired GENERIC_X64 quirks left in /storage (#307 PL-019)
+PASS retired quirk files seeded before the update
+=== 20:34:13 seed a RetroArch cfg an owner changed, on a vulkan-era cfg (#307 PL-034, #308 claude F-VM-11)
+PASS RetroArch cfg seeded before the update
+=== 20:34:13 stage pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261011T194522Z.g1a0266484423-from-ROCKNIX.tar and reboot guest a
+=== 20:35:52 guest a back after 4 polls
+PASS new build id is 1a026648442321609b2288c2c9c06803817f9df2
+PASS storage ready in boot c55e4760-77fd-483d-9d69-18e7ea48b3a0 after 1 poll(s)
+PASS saves and save states byte-identical
+PASS marker file kept
+PASS setting kept
+PASS active rclone remote kept
+PASS active selection bytes/presence kept
+PASS rclone (new) lists the remote
+PASS saves remote kept
+PASS cloud conf gained the new defaults, kept the old values
+PASS backup archive kept
+PASS update queue empty
+PASS retired quirk files taken back after the update (#307 PL-019)
+PASS and the owner's file beside them kept
+PASS RetroArch fullscreen size set by hand kept, driver moved to gl (#307 PL-034, #308 claude F-VM-11)
+PASS release check #226: one libcairo.so.2.* (pango's fetched cairo is gone)
+PASS release check #226: libcairo.so.2 is a link to that one file (#226 box 1; the seat's G-10 under #258)
+rclone after: rclone v1.75.2
+=== 20:35:54 pair retained for installed verification; outer owner guarantees shutdown
+=== 20:35:54 RESULT PASS
+/workspace/tmp/pixelelated-m7-upgrade20/artifacts/rehearsal

@@ -21,10 +21,26 @@ All61309 entries compare: only four identity files, rocknix-info and the randomi
 factory shadow salt/hash differ. Both factory hashes verify the same configured
 password; no account values are published. Transient predecessor SYSTEM removed.
 
-Clean standard/protocol QA20 is RUNNING under original owner
-/workspace/tmp/pixelelated-m7-qa20, launcher3581810. Installed clean payload and
-both boots pass; other suites and reviewed frames are not yet complete. Prepared
-upgrade20 waits for that terminal result and verifies a real19→20 update. The
-previous cloud/native/UI proofs remain evidence for their unchanged source;
-this checkpoint does not invent a new execution of those flows. No RC allocation,
-new device deployment or publication clearance. #528 gates remain.
+Clean QA20 ended1 at20:28:30UTC, retaining seven host scripts failures.
+All14 other standard suites pass, including78-frame comparison, and each local
+WebDAV/SFTP/S3 backend passes108assertions. Installed info exits0 with empty
+stderr; positive current-boot startup records and4visually reviewed640x480 frames
+are indexed here. Both original guests/owner/endpoints have actually exited.
+
+#550/#551 final host-only correction passes1378checks/0failures/0skips against
+this exact frozen source and installed BusyBox/rclone. Separate acceptance02
+ends0 at20:32:14UTC after explicit composition, frozen-source and shutdown checks.
+Its first parser failure remains under #552; neither original failed aggregate
+is overwritten. See ../2026-10-11-regression-fixtures for exact tools and controls.
+
+Real19→20 upgrade20 ends0 at20:39:38UTC; original command, wrapper and launcher
+succeed and actual guests/endpoints/owner exit. Four seeded save/state hashes,
+settings, selected cloud/pointer/path, backup and owner file are preserved; retired
+quirk files are removed, update queue empties and installed payload matches. Both
+clean and retained INFORMATION/startup proof have8reviewed640x480 frames total.
+Retained fresh/108WebDAV/exit/time-to-play suites pass. This is engineering image
+qualification, not public RC designation, publication or physical device proof.
+#528 source/licence/retrieval/custody and remaining release gates still apply.
+
+The raw upgrade transcript retains terminal carriage returns in
+upgrade/actual-rehearsal.raw.json with its original byte SHA256.
