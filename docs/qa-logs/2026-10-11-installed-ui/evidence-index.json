@@ -1,0 +1,555 @@
+{
+  "schema_version": 1,
+  "entries": [
+    {
+      "flow_id": "CF-SETTINGS",
+      "branch_id": "en-empty-restore-02-options",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "installed-replacement19-qualification",
+      "trigger": "No archives: settings row disabled with its reason.",
+      "expected_state": "No archives: settings row disabled with its reason.",
+      "source": {
+        "distribution": "a0f60255abfefaddce772d0bba29977bafb7adab",
+        "emulationstation": "c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78",
+        "image": "0.0.1-dev+20261011T174137Z.ga0f60255abfe",
+        "bundle": "ee8e263c2e63b7fc79a458e9e89b0f4a3c393487377a6a820c7f7166dada1662",
+        "product_overlays": []
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "frame": "ui19e/artifacts/en-empty-restore/02-options.png",
+      "sha256": "ee382a5d3cf04d4e1bb50365fb998c54e9454c255a06a6afa424c9dfe817f278",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "Codex primary",
+        "observation": "No archives: settings row disabled with its reason."
+      }
+    },
+    {
+      "flow_id": "CF-SETTINGS",
+      "branch_id": "en-offered-restore-02-options",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "installed-replacement19-qualification",
+      "trigger": "Newest same-model settings archive offered as GENERIC X64, 10/11/2026",
+      "expected_state": "Newest same-model settings archive offered as GENERIC X64, 10/11/2026; newer foreign archive ignored.",
+      "source": {
+        "distribution": "a0f60255abfefaddce772d0bba29977bafb7adab",
+        "emulationstation": "c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78",
+        "image": "0.0.1-dev+20261011T174137Z.ga0f60255abfe",
+        "bundle": "ee8e263c2e63b7fc79a458e9e89b0f4a3c393487377a6a820c7f7166dada1662",
+        "product_overlays": []
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "frame": "ui19e/artifacts/en-offered-restore/02-options.png",
+      "sha256": "4b2daf9eb29c0f70a60445e5d313635a0520bfb52a14955be69d26c21409e6d6",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "Codex primary",
+        "observation": "Newest same-model settings archive offered as GENERIC X64, 10/11/2026; newer foreign archive ignored."
+      }
+    },
+    {
+      "flow_id": "CF-SETTINGS",
+      "branch_id": "en-foreign-restore-02-options",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "installed-replacement19-qualification",
+      "trigger": "Foreign-only archive leaves settings disabled",
+      "expected_state": "Foreign-only archive leaves settings disabled; no settings/config mutation.",
+      "source": {
+        "distribution": "a0f60255abfefaddce772d0bba29977bafb7adab",
+        "emulationstation": "c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78",
+        "image": "0.0.1-dev+20261011T174137Z.ga0f60255abfe",
+        "bundle": "ee8e263c2e63b7fc79a458e9e89b0f4a3c393487377a6a820c7f7166dada1662",
+        "product_overlays": []
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "frame": "ui19e/artifacts/en-foreign-restore/02-options.png",
+      "sha256": "b0b3f604689a42e22b50a3b488e57f80b3ce8f79bcab6f845bce08c8445b7895",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "Codex primary",
+        "observation": "Foreign-only archive leaves settings disabled; no settings/config mutation."
+      }
+    },
+    {
+      "flow_id": "CF13",
+      "branch_id": "en-dead-opening-03-failure",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "installed-replacement19-qualification",
+      "trigger": "Connection refusal says cloud stopped answering, no files moved",
+      "expected_state": "Connection refusal says cloud stopped answering, no files moved; CLOSE and TRY AGAIN.",
+      "source": {
+        "distribution": "a0f60255abfefaddce772d0bba29977bafb7adab",
+        "emulationstation": "c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78",
+        "image": "0.0.1-dev+20261011T174137Z.ga0f60255abfe",
+        "bundle": "ee8e263c2e63b7fc79a458e9e89b0f4a3c393487377a6a820c7f7166dada1662",
+        "product_overlays": []
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "frame": "ui19e/artifacts/en-dead-opening/03-failure.png",
+      "sha256": "7b9df843f9996313d9baa51e3d0bce6a1478761e9fcdd204c3f0758bf0218629",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "Codex primary",
+        "observation": "Connection refusal says cloud stopped answering, no files moved; CLOSE and TRY AGAIN."
+      }
+    },
+    {
+      "flow_id": "CF13",
+      "branch_id": "en-retry-opening-01-retry-running",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "installed-replacement19-qualification",
+      "trigger": "Retry restarts the actual opening scan after the same endpoint recovers.",
+      "expected_state": "Retry restarts the actual opening scan after the same endpoint recovers.",
+      "source": {
+        "distribution": "a0f60255abfefaddce772d0bba29977bafb7adab",
+        "emulationstation": "c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78",
+        "image": "0.0.1-dev+20261011T174137Z.ga0f60255abfe",
+        "bundle": "ee8e263c2e63b7fc79a458e9e89b0f4a3c393487377a6a820c7f7166dada1662",
+        "product_overlays": []
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "frame": "ui19e/artifacts/en-retry-opening/01-retry-running.png",
+      "sha256": "c7a82f51bcac5cb3f3b2970b500feeebab9afab58d4a0a0e3089812276e361f1",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "Codex primary",
+        "observation": "Retry restarts the actual opening scan after the same endpoint recovers."
+      }
+    },
+    {
+      "flow_id": "CF13",
+      "branch_id": "en-retry-options-01-options",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "installed-replacement19-qualification",
+      "trigger": "Recovered endpoint reaches restore options without changing selected context.",
+      "expected_state": "Recovered endpoint reaches restore options without changing selected context.",
+      "source": {
+        "distribution": "a0f60255abfefaddce772d0bba29977bafb7adab",
+        "emulationstation": "c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78",
+        "image": "0.0.1-dev+20261011T174137Z.ga0f60255abfe",
+        "bundle": "ee8e263c2e63b7fc79a458e9e89b0f4a3c393487377a6a820c7f7166dada1662",
+        "product_overlays": []
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "frame": "ui19e/artifacts/en-retry-options/01-options.png",
+      "sha256": "b0b3f604689a42e22b50a3b488e57f80b3ce8f79bcab6f845bce08c8445b7895",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "Codex primary",
+        "observation": "Recovered endpoint reaches restore options without changing selected context."
+      }
+    },
+    {
+      "flow_id": "CF14",
+      "branch_id": "en3-opening-02-running",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "installed-replacement19-qualification",
+      "trigger": "Opening scan is a single CHECKING YOUR CLOUD page with cancel and live item progress.",
+      "expected_state": "Opening scan is a single CHECKING YOUR CLOUD page with cancel and live item progress.",
+      "source": {
+        "distribution": "a0f60255abfefaddce772d0bba29977bafb7adab",
+        "emulationstation": "c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78",
+        "image": "0.0.1-dev+20261011T174137Z.ga0f60255abfe",
+        "bundle": "ee8e263c2e63b7fc79a458e9e89b0f4a3c393487377a6a820c7f7166dada1662",
+        "product_overlays": []
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "frame": "ui19e/artifacts/en3-opening/02-running.png",
+      "sha256": "3c57b9daf6a73a95c026d5f31555dd91d3459aaaed2ecf76e916b5f185591550",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "Codex primary",
+        "observation": "Opening scan is a single CHECKING YOUR CLOUD page with cancel and live item progress."
+      }
+    },
+    {
+      "flow_id": "CF14",
+      "branch_id": "en3-options-01-options",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "installed-replacement19-qualification",
+      "trigger": "Opening scan continues to restore category options.",
+      "expected_state": "Opening scan continues to restore category options.",
+      "source": {
+        "distribution": "a0f60255abfefaddce772d0bba29977bafb7adab",
+        "emulationstation": "c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78",
+        "image": "0.0.1-dev+20261011T174137Z.ga0f60255abfe",
+        "bundle": "ee8e263c2e63b7fc79a458e9e89b0f4a3c393487377a6a820c7f7166dada1662",
+        "product_overlays": []
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "frame": "ui19e/artifacts/en3-options/01-options.png",
+      "sha256": "b0b3f604689a42e22b50a3b488e57f80b3ce8f79bcab6f845bce08c8445b7895",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "Codex primary",
+        "observation": "Opening scan continues to restore category options."
+      }
+    },
+    {
+      "flow_id": "CF14",
+      "branch_id": "en3-content-selection-01-continue",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "installed-replacement19-qualification",
+      "trigger": "ROMs and BIOS selected",
+      "expected_state": "ROMs and BIOS selected; CONTINUE action focused.",
+      "source": {
+        "distribution": "a0f60255abfefaddce772d0bba29977bafb7adab",
+        "emulationstation": "c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78",
+        "image": "0.0.1-dev+20261011T174137Z.ga0f60255abfe",
+        "bundle": "ee8e263c2e63b7fc79a458e9e89b0f4a3c393487377a6a820c7f7166dada1662",
+        "product_overlays": []
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "frame": "ui19e/artifacts/en3-content-selection/01-continue.png",
+      "sha256": "b8f71fad38045272f0b110366417293118d03d983eeeeb756e5b52dae824c1d6",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "Codex primary",
+        "observation": "ROMs and BIOS selected; CONTINUE action focused."
+      }
+    },
+    {
+      "flow_id": "CF14",
+      "branch_id": "en3-content-selection-02-second-running",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "installed-replacement19-qualification",
+      "trigger": "Second content scan is a single page, ROMS AND BIOS, COMPARING WITH THIS DEVICE.",
+      "expected_state": "Second content scan is a single page, ROMS AND BIOS, COMPARING WITH THIS DEVICE.",
+      "source": {
+        "distribution": "a0f60255abfefaddce772d0bba29977bafb7adab",
+        "emulationstation": "c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78",
+        "image": "0.0.1-dev+20261011T174137Z.ga0f60255abfe",
+        "bundle": "ee8e263c2e63b7fc79a458e9e89b0f4a3c393487377a6a820c7f7166dada1662",
+        "product_overlays": []
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "frame": "ui19e/artifacts/en3-content-selection/02-second-running.png",
+      "sha256": "53b567ace667e7dd94bd7f25c122b217058928507772f87c90483eda5f7e5919",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "Codex primary",
+        "observation": "Second content scan is a single page, ROMS AND BIOS, COMPARING WITH THIS DEVICE."
+      }
+    },
+    {
+      "flow_id": "CF14",
+      "branch_id": "en3-systems-01-systems",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "installed-replacement19-qualification",
+      "trigger": "Positive selected library reaches NES system row with one file to restore.",
+      "expected_state": "Positive selected library reaches NES system row with one file to restore.",
+      "source": {
+        "distribution": "a0f60255abfefaddce772d0bba29977bafb7adab",
+        "emulationstation": "c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78",
+        "image": "0.0.1-dev+20261011T174137Z.ga0f60255abfe",
+        "bundle": "ee8e263c2e63b7fc79a458e9e89b0f4a3c393487377a6a820c7f7166dada1662",
+        "product_overlays": []
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "frame": "ui19e/artifacts/en3-systems/01-systems.png",
+      "sha256": "7c131e7345a25f8a8142cbac978c88cdbb22591e66bccbec49c3116b6e382b87",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "Codex primary",
+        "observation": "Positive selected library reaches NES system row with one file to restore."
+      }
+    },
+    {
+      "flow_id": "CF14",
+      "branch_id": "fr3-opening-02-running",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "installed-replacement19-qualification",
+      "trigger": "French opening scan uses one page",
+      "expected_state": "French opening scan uses one page; long live progress line has ellipsis while the title and stage remain visible.",
+      "source": {
+        "distribution": "a0f60255abfefaddce772d0bba29977bafb7adab",
+        "emulationstation": "c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78",
+        "image": "0.0.1-dev+20261011T174137Z.ga0f60255abfe",
+        "bundle": "ee8e263c2e63b7fc79a458e9e89b0f4a3c393487377a6a820c7f7166dada1662",
+        "product_overlays": []
+      },
+      "locale": "fr_FR",
+      "width": 640,
+      "height": 480,
+      "frame": "ui19e/artifacts/fr3-opening/02-running.png",
+      "sha256": "7bf04c9283678dfc4fac445c579adcf1ad2653397d94a88afb695777ab2e2122",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "Codex primary",
+        "observation": "French opening scan uses one page; long live progress line has ellipsis while the title and stage remain visible."
+      }
+    },
+    {
+      "flow_id": "CF14",
+      "branch_id": "fr3-options-01-options",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "installed-replacement19-qualification",
+      "trigger": "French restore categories and unavailable settings reason fit at640.",
+      "expected_state": "French restore categories and unavailable settings reason fit at640.",
+      "source": {
+        "distribution": "a0f60255abfefaddce772d0bba29977bafb7adab",
+        "emulationstation": "c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78",
+        "image": "0.0.1-dev+20261011T174137Z.ga0f60255abfe",
+        "bundle": "ee8e263c2e63b7fc79a458e9e89b0f4a3c393487377a6a820c7f7166dada1662",
+        "product_overlays": []
+      },
+      "locale": "fr_FR",
+      "width": 640,
+      "height": 480,
+      "frame": "ui19e/artifacts/fr3-options/01-options.png",
+      "sha256": "6365c5198ca54824ca90a424bc4180e0031083b6c6da146a0c8550425f8d7e01",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "Codex primary",
+        "observation": "French restore categories and unavailable settings reason fit at640."
+      }
+    },
+    {
+      "flow_id": "CF14",
+      "branch_id": "fr3-content-selection-01-continue",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "installed-replacement19-qualification",
+      "trigger": "French ROMs/BIOS selection enables CONTINUER.",
+      "expected_state": "French ROMs/BIOS selection enables CONTINUER.",
+      "source": {
+        "distribution": "a0f60255abfefaddce772d0bba29977bafb7adab",
+        "emulationstation": "c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78",
+        "image": "0.0.1-dev+20261011T174137Z.ga0f60255abfe",
+        "bundle": "ee8e263c2e63b7fc79a458e9e89b0f4a3c393487377a6a820c7f7166dada1662",
+        "product_overlays": []
+      },
+      "locale": "fr_FR",
+      "width": 640,
+      "height": 480,
+      "frame": "ui19e/artifacts/fr3-content-selection/01-continue.png",
+      "sha256": "9a88b660a1bcb6f82bb46457c592ad3e06e9cb613315dbf63cbd11a94169ed3c",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "Codex primary",
+        "observation": "French ROMs/BIOS selection enables CONTINUER."
+      }
+    },
+    {
+      "flow_id": "CF14",
+      "branch_id": "fr3-content-selection-02-second-running",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "installed-replacement19-qualification",
+      "trigger": "French second scan shows ROMS ET BIOS and comparison state without dialog overlap.",
+      "expected_state": "French second scan shows ROMS ET BIOS and comparison state without dialog overlap.",
+      "source": {
+        "distribution": "a0f60255abfefaddce772d0bba29977bafb7adab",
+        "emulationstation": "c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78",
+        "image": "0.0.1-dev+20261011T174137Z.ga0f60255abfe",
+        "bundle": "ee8e263c2e63b7fc79a458e9e89b0f4a3c393487377a6a820c7f7166dada1662",
+        "product_overlays": []
+      },
+      "locale": "fr_FR",
+      "width": 640,
+      "height": 480,
+      "frame": "ui19e/artifacts/fr3-content-selection/02-second-running.png",
+      "sha256": "353f835159a0eb16ab45e0ca90edb42b50a0c2fdce26222004585aa84ec95e3a",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "Codex primary",
+        "observation": "French second scan shows ROMS ET BIOS and comparison state without dialog overlap."
+      }
+    },
+    {
+      "flow_id": "CF14",
+      "branch_id": "fr3-systems-01-empty",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "installed-replacement19-qualification",
+      "trigger": "Completed empty selected-library scan shows the French setup instructions",
+      "expected_state": "Completed empty selected-library scan shows the French setup instructions; no discovery of another library.",
+      "source": {
+        "distribution": "a0f60255abfefaddce772d0bba29977bafb7adab",
+        "emulationstation": "c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78",
+        "image": "0.0.1-dev+20261011T174137Z.ga0f60255abfe",
+        "bundle": "ee8e263c2e63b7fc79a458e9e89b0f4a3c393487377a6a820c7f7166dada1662",
+        "product_overlays": []
+      },
+      "locale": "fr_FR",
+      "width": 640,
+      "height": 480,
+      "frame": "ui19e/artifacts/fr3-systems/01-empty.png",
+      "sha256": "c6d3b88b516635cc3caea72313c7f2ddbc9a91e43008fbf82d6080cd4328b70d",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "Codex primary",
+        "observation": "Completed empty selected-library scan shows the French setup instructions; no discovery of another library."
+      }
+    },
+    {
+      "flow_id": "SYSINFO",
+      "branch_id": "information-01-main-menu-identity",
+      "document": "docs/es-menu-map.md",
+      "anchor": "installed-replacement19-qualification",
+      "trigger": "Main menu identifies pixelelated0.0.1-dev(dev)",
+      "expected_state": "Main menu identifies pixelelated0.0.1-dev(dev); community absent.",
+      "source": {
+        "distribution": "a0f60255abfefaddce772d0bba29977bafb7adab",
+        "emulationstation": "c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78",
+        "image": "0.0.1-dev+20261011T174137Z.ga0f60255abfe",
+        "bundle": "ee8e263c2e63b7fc79a458e9e89b0f4a3c393487377a6a820c7f7166dada1662",
+        "product_overlays": []
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "frame": "ui19e/artifacts/information/01-main-menu-identity.png",
+      "sha256": "7cb5dad02c3be8ec1d2162acebe3cd9cb0638cb0c8ea8dd3ae379a6499c5fa2b",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "Codex primary",
+        "observation": "Main menu identifies pixelelated0.0.1-dev(dev); community absent."
+      }
+    },
+    {
+      "flow_id": "SYSINFO",
+      "branch_id": "information-02-system-settings",
+      "document": "docs/es-menu-map.md",
+      "anchor": "installed-replacement19-qualification",
+      "trigger": "INFORMATION remains the first SYSTEM SETTINGS row.",
+      "expected_state": "INFORMATION remains the first SYSTEM SETTINGS row.",
+      "source": {
+        "distribution": "a0f60255abfefaddce772d0bba29977bafb7adab",
+        "emulationstation": "c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78",
+        "image": "0.0.1-dev+20261011T174137Z.ga0f60255abfe",
+        "bundle": "ee8e263c2e63b7fc79a458e9e89b0f4a3c393487377a6a820c7f7166dada1662",
+        "product_overlays": []
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "frame": "ui19e/artifacts/information/02-system-settings.png",
+      "sha256": "ea3f380019621369cc6809dcd213a1ded3569d1cf2180048a828c82207367cda",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "Codex primary",
+        "observation": "INFORMATION remains the first SYSTEM SETTINGS row."
+      }
+    },
+    {
+      "flow_id": "SYSINFO",
+      "branch_id": "information-03-information",
+      "document": "docs/es-menu-map.md",
+      "anchor": "installed-replacement19-qualification",
+      "trigger": "INFORMATION shows lowercase pixelelated,0.0.1-dev and2026-10-11 17:41:37Z/a0f60255abfe.",
+      "expected_state": "INFORMATION shows lowercase pixelelated,0.0.1-dev and2026-10-11 17:41:37Z/a0f60255abfe.",
+      "source": {
+        "distribution": "a0f60255abfefaddce772d0bba29977bafb7adab",
+        "emulationstation": "c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78",
+        "image": "0.0.1-dev+20261011T174137Z.ga0f60255abfe",
+        "bundle": "ee8e263c2e63b7fc79a458e9e89b0f4a3c393487377a6a820c7f7166dada1662",
+        "product_overlays": []
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "frame": "ui19e/artifacts/information/03-information.png",
+      "sha256": "42b8dd03bb0ce7c787410cf8532d9864ae1fe418eae8cf6ae9124db07ed053c8",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "Codex primary",
+        "observation": "INFORMATION shows lowercase pixelelated,0.0.1-dev and2026-10-11 17:41:37Z/a0f60255abfe."
+      }
+    },
+    {
+      "flow_id": "STARTUP",
+      "branch_id": "retained-carousel-01-retained-carousel",
+      "document": "docs/es-menu-map.md",
+      "anchor": "installed-replacement19-qualification",
+      "trigger": "Retained startup reaches the normal PICO-8 carousel and controls.",
+      "expected_state": "Retained startup reaches the normal PICO-8 carousel and controls.",
+      "source": {
+        "distribution": "a0f60255abfefaddce772d0bba29977bafb7adab",
+        "emulationstation": "c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78",
+        "image": "0.0.1-dev+20261011T174137Z.ga0f60255abfe",
+        "bundle": "ee8e263c2e63b7fc79a458e9e89b0f4a3c393487377a6a820c7f7166dada1662",
+        "product_overlays": []
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "frame": "ui19e/artifacts/retained-carousel/01-retained-carousel.png",
+      "sha256": "9b606e66eb5545440160225507be9e0a6ab99af0a0afdcf3757002121583a2aa",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "Codex primary",
+        "observation": "Retained startup reaches the normal PICO-8 carousel and controls."
+      }
+    },
+    {
+      "flow_id": "CF13",
+      "branch_id": "slow-endpoint-original",
+      "document": "docs/pixelelated/cloud-folder-flow-review.md",
+      "anchor": "installed-replacement19-qualification",
+      "trigger": "Excessive synthetic per-request delay hits the existing bounded validator",
+      "expected_state": "Excessive synthetic per-request delay hits the existing bounded validator; actual unreadable-folder reason and retry, no file move.",
+      "source": {
+        "distribution": "a0f60255abfefaddce772d0bba29977bafb7adab",
+        "emulationstation": "c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78",
+        "image": "0.0.1-dev+20261011T174137Z.ga0f60255abfe",
+        "bundle": "ee8e263c2e63b7fc79a458e9e89b0f4a3c393487377a6a820c7f7166dada1662",
+        "product_overlays": []
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "frame": "ui19e/artifacts/slow-endpoint-original.png",
+      "sha256": "cbd8498e7b2110e701fa3b8a288d37c1ccdac327ed29f5cd10cabe23ac0eef57",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "Codex primary",
+        "observation": "Excessive synthetic per-request delay hits the existing bounded validator; actual unreadable-folder reason and retry, no file move."
+      }
+    },
+    {
+      "flow_id": "STARTUP",
+      "branch_id": "clean-first-start",
+      "document": "docs/es-menu-map.md",
+      "anchor": "installed-replacement19-qualification",
+      "trigger": "Clean image first startup followed by dismissal of setup dialogs.",
+      "expected_state": "Normal PICO-8 carousel; positive startup journal, no automatic service retry.",
+      "source": {
+        "distribution": "a0f60255abfefaddce772d0bba29977bafb7adab",
+        "emulationstation": "c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78",
+        "image": "0.0.1-dev+20261011T174137Z.ga0f60255abfe",
+        "bundle": "ee8e263c2e63b7fc79a458e9e89b0f4a3c393487377a6a820c7f7166dada1662",
+        "product_overlays": []
+      },
+      "locale": "en_US",
+      "width": 1280,
+      "height": 800,
+      "frame": "startup19g/artifacts/frame/01-clean-startup.png",
+      "sha256": "21ad103dee8639906dd577b8f6cc1243253b7cb316f0d69af717f038102fed3a",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "Codex primary",
+        "observation": "Carousel and controls render normally at1280x800."
+      }
+    }
+  ]
+}

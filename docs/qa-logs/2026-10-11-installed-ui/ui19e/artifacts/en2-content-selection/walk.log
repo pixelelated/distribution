@@ -1,0 +1,8 @@
+wait-for-change: `key right` (line 11) was eaten after 12.3s; re-sending (1)
+WALK FAILED: wait-for-change (line 12): the screen did not change within 12s of `key right` on line 11, even after 1 re-send(s). The press was eaten, so every step after this one would run against the wrong screen. The frame is the last one in /workspace/tmp/pixelelated-m7-ui19e/artifacts/en2-content-selection.
+changed after 0.1s (`key down`, line 1)
+changed after 0.1s (`key x`, line 3)
+changed after 0.1s (`key down`, line 5)
+changed after 0.1s (`key down`, line 7)
+changed after 0.0s (`key down`, line 9)
+captured /workspace/tmp/pixelelated-m7-ui19e/artifacts/en2-content-selection/01-stuck-after-right.png

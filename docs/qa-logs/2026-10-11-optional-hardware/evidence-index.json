@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "entries": [
+    {
+      "flow_id": "SYSINFO",
+      "branch_id": "original-04-cpu-information",
+      "document": "docs/es-menu-map.md",
+      "anchor": "unavailable-hardware-readings-548",
+      "trigger": "Main menu > System settings > Information; scroll to CPU readings.",
+      "expected_state": "Original missing frequency values render a bare MHz; baseline defect.",
+      "source": {
+        "distribution": "a0f60255abfefaddce772d0bba29977bafb7adab",
+        "es": "c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78",
+        "overlay": "rocknix-info only",
+        "original_sha256": "bbf5c15640bc535444b7b641498a5cec868508351692f5ca0eb16d9a228e8054",
+        "corrected_sha256": "ed9e244bc664097154a1592890974b15d6c2a5e57f1d6e32b3edbdbe018bcae6",
+        "width": 640,
+        "height": 480,
+        "locale": "en_US"
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "frame": "vm02/artifacts/original/04-cpu-information.png",
+      "sha256": "8c9370ea50d5121419d5cf757136407b38af426c3ee1acb8cd8ba530915270dc",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "Codex primary",
+        "observation": "Original missing frequency values render a bare MHz; baseline defect."
+      }
+    },
+    {
+      "flow_id": "SYSINFO",
+      "branch_id": "fixed-04-cpu-information",
+      "document": "docs/es-menu-map.md",
+      "anchor": "unavailable-hardware-readings-548",
+      "trigger": "Main menu > System settings > Information; scroll to CPU readings.",
+      "expected_state": "Missing CPU values and boost read Not Available; no invented zero or bare unit.",
+      "source": {
+        "distribution": "a0f60255abfefaddce772d0bba29977bafb7adab",
+        "es": "c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78",
+        "overlay": "rocknix-info only",
+        "original_sha256": "bbf5c15640bc535444b7b641498a5cec868508351692f5ca0eb16d9a228e8054",
+        "corrected_sha256": "ed9e244bc664097154a1592890974b15d6c2a5e57f1d6e32b3edbdbe018bcae6",
+        "width": 640,
+        "height": 480,
+        "locale": "en_US"
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "frame": "vm02/artifacts/fixed/04-cpu-information.png",
+      "sha256": "98fa2c61f33ca67882f8ae4b325c8fc882d510a975fcdd74e75513bc4fe1b8a5",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "Codex primary",
+        "observation": "Missing CPU values and boost read Not Available; no invented zero or bare unit."
+      }
+    },
+    {
+      "flow_id": "SYSINFO",
+      "branch_id": "fixed-03-information",
+      "document": "docs/es-menu-map.md",
+      "anchor": "unavailable-hardware-readings-548",
+      "trigger": "Main menu > System settings > Information; scroll to CPU readings.",
+      "expected_state": "Identity and information layout remain unchanged with only rocknix-info overlaid.",
+      "source": {
+        "distribution": "a0f60255abfefaddce772d0bba29977bafb7adab",
+        "es": "c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78",
+        "overlay": "rocknix-info only",
+        "original_sha256": "bbf5c15640bc535444b7b641498a5cec868508351692f5ca0eb16d9a228e8054",
+        "corrected_sha256": "ed9e244bc664097154a1592890974b15d6c2a5e57f1d6e32b3edbdbe018bcae6",
+        "width": 640,
+        "height": 480,
+        "locale": "en_US"
+      },
+      "locale": "en_US",
+      "width": 640,
+      "height": 480,
+      "frame": "vm02/artifacts/fixed/03-information.png",
+      "sha256": "e2c0f78a3a24f82c2f8182594e8ad98b81ed6e214e2a779fb4269051cb3f6823",
+      "status": "reviewed",
+      "review": {
+        "reviewer": "Codex primary",
+        "observation": "Identity and information layout remain unchanged with only rocknix-info overlaid."
+      }
+    }
+  ]
+}

@@ -176,18 +176,16 @@ current slot, never the next free one.
 
 ## Cloud (our subtree)
 
-**Version boundary.** The accepted firmware and current package pin still use
-ES `5d2fcb9b71f363cfa4813d5356f02c48ab58e139`. That source has
-**CHOOSE A CLOUD FOLDER** after a content scan finds no selected library: it
-offers discovered/root-level folders before continuing. It also has
-**CLOUD SETUP COMPLETE** after setup seeding, with FINISH returning to the
-calling page. Those are the current firmware's screens, slated for removal
-in #508; the detailed earlier map is retained at
-[published source 240e2b0c](https://github.com/pixelelated/distribution/blob/240e2b0caa1edf7061f633a13d3696ea46c50370/docs/es-menu-map.md).
-
-The diagram below describes the replacement under qualification at local
-ES `4e410dc9a816cc947f16235ad2b24824b29dd84e`, including the #514 empty-library
-copy correction. It is not yet installed release firmware. Its flow/branch proof is tracked in the linked evidence table.
+**Current source and image boundary.** Engineering replacement19 uses
+ES `c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78` and distribution
+`a0f60255abfefaddce772d0bba29977bafb7adab`. Its installed selected-folder,
+connection, scan and restore flows are qualified in the
+[replacement19 packet](qa-logs/2026-10-11-installed-ui/README.md).
+Automatic folder discovery/migration and the former setup-complete screen are
+retired. The older ES5d2f/4e410 maps are historical, retained at
+[published source240e2b0c](https://github.com/pixelelated/distribution/blob/240e2b0caa1edf7061f633a13d3696ea46c50370/docs/es-menu-map.md).
+The owner's deployed engineering firmware remains its separately accepted
+8b5113fa16 source; this reference does not imply another device update.
 
 The entrypoint mapped since 2026-09-12 (ES `51639dd09`) remains one door:
 `GAME SETTINGS > CLOUD SETTINGS`. The three save actions sit at that level
@@ -643,3 +641,23 @@ unhandled Backspace navigates back. Previously handled provider keys and modifie
 shortcuts retain their behavior. Close exits the window. Supported authentication
 popups keep their opener and return to it when closed. These are browser behaviors,
 not a changed tablet user agent or a claim that all provider workflows are tested.
+
+## Installed replacement19 qualification
+
+[Installed UI/startup proof](qa-logs/2026-10-11-installed-ui/README.md) and its
+[evidence index](qa-logs/2026-10-11-installed-ui/evidence-index.json) bind22
+reviewed frames to a0f60255ab/ESc8dc72cf9. INFORMATION displays0.0.1-dev and
+UTC/source metadata; clean and retained startup reach the carousel. Same-model
+settings restore offers the newest compatible archive, foreign-only stays
+disabled, and EN/FR opening/content scans handle positive/empty/failure/retry.
+No baseline or screenshot masks are changed by this qualification.
+
+## Unavailable hardware readings (#548)
+
+SYSTEM SETTINGS > INFORMATION keeps its rows and valid hardware measurements.
+Missing CPU frequency reads `Not Available` instead of a bare `MHz`; absent
+GPU/temperature values are omitted rather than invented. An absent optional
+quirk is successful, while a real executed quirk error still fails. The
+[three reviewed frames](qa-logs/2026-10-11-optional-hardware/evidence-index.json)
+and [full-script proof](qa-logs/2026-10-11-optional-hardware/README.md) bind this
+correction to a single script overlay. New installed-image proof is still owed.

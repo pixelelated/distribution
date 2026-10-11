@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-ui19e/scan-proof02.py", line 48, in <module>
+    walk(tag+'-content-selection','key down\nwait-for-change\nkey x\nwait-for-change 12 0\nkey down\nwait-for-change\nkey down\nwait-for-change\nkey down\nwait-for-change\nkey right\nwait-for-change\nshot continue\nkey x\nwait-for-change 20 0\nshot second-running\n')
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tmp/pixelelated-m7-ui19e/ui.py", line 16, in walk
+    (dest/'rc').write_text(str(rc)+'\n');assert rc==0,(name,rc)
+                                                ^^^^^
+AssertionError: ('en2-content-selection', 3)

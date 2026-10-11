@@ -12,11 +12,39 @@ fi
 export QUIRK_DEVICE="$(echo ${QUIRK_DEVICE} | sed -e "s#[/]#-#g")"
 
 info_quirks() {
+  local status=0
   for QUIRK in /usr/lib/autostart/quirks/platforms/"${HW_DEVICE}"/info.d/${1}/* \
                /usr/lib/autostart/quirks/devices/"${QUIRK_DEVICE}"/info.d/${1}/*
   do
-    "${QUIRK}" 2>/dev/null
+    [ -f "${QUIRK}" ] && [ -x "${QUIRK}" ] || continue
+    "${QUIRK}" 2>/dev/null || status=$?
   done
+  return "${status}"
+}
+
+# Hardware readings are optional (including on GENERIC_X64). Read and validate
+# before arithmetic; a missing value is not a measured zero (#548).
+info_frequency() {
+  local value
+  value=$(cat -- "$1" 2>/dev/null) || return 1
+  [[ "$value" =~ ^[0-9]{1,18}$ ]] || return 1
+  printf '%s' "$((10#$value / $2))"
+}
+
+info_frequency_label() {
+  if [ -n "$1" ]; then
+    printf '%s MHz' "$1"
+  else
+    printf '%s' 'Not Available'
+  fi
+}
+
+info_temperature() {
+  local sensor value
+  for sensor in "$@"; do
+    value=$(cat -- "$sensor" 2>/dev/null) || continue
+    [[ "$value" =~ ^-?[0-9]{1,9}$ ]] && printf '%s\n' "$value"
+  done | awk '{total += $1; count++} END {if (count) printf "%d", total/count/1000}'
 }
 
 ### Grab battery capacity now as it is used in a couple of different places
@@ -64,8 +92,8 @@ host=$(hostname)
 
 # cpu
 if [ "${HW_ARCH}" = "x86_64" ]; then
-    CPUCUR=$(( $(</sys/devices/system/cpu/cpufreq/policy0/scaling_cur_freq) / 1000 ))
-    CPUMAX=$(( $(</sys/devices/system/cpu/cpufreq/policy0/cpuinfo_max_freq) / 1000 ))
+    CPUCUR=$(info_frequency /sys/devices/system/cpu/cpufreq/policy0/scaling_cur_freq 1000)
+    CPUMAX=$(info_frequency /sys/devices/system/cpu/cpufreq/policy0/cpuinfo_max_freq 1000)
 
     if [ -f /sys/devices/system/cpu/cpufreq/boost ]; then
         if [ "$(</sys/devices/system/cpu/cpufreq/boost)" = "1" ]; then
@@ -80,13 +108,14 @@ fi
 
 # gpu
 if [ "${HW_ARCH}" = "x86_64" ]; then
-  GPUCUR=$(( $(<"$DEVICE_GPU_CUR_FREQ") / 1000000 ))
-  GPUMAX=$(awk '/^SCLK:/ {gsub(/Mhz/, "", $3); print $3}' "$DEVICE_GPU_MAX_FREQ")
+  GPUCUR=$(info_frequency "$DEVICE_GPU_CUR_FREQ" 1000000)
+  GPUMAX=""
+  if [ -r "$DEVICE_GPU_MAX_FREQ" ]; then
+    GPUMAX=$(awk '/^SCLK:/ {gsub(/Mhz/, "", $3); if ($3 ~ /^[0-9]+$/) print $3; exit}' "$DEVICE_GPU_MAX_FREQ" 2>/dev/null)
+  fi
 else
-  CUR_FREQ=$(cat "$GPU_FREQ/cur_freq")
-  MAX_FREQ=$(cat "$GPU_FREQ/max_freq")
-  GPUCUR=$((CUR_FREQ / 1000000))
-  GPUMAX=$((MAX_FREQ / 1000000))
+  GPUCUR=$(info_frequency "$GPU_FREQ/cur_freq" 1000000)
+  GPUMAX=$(info_frequency "$GPU_FREQ/max_freq" 1000000)
 fi
 
 # ram
@@ -100,17 +129,11 @@ case ${HW_ARCH} in
   aarch64)
     declare -a CF MF
 
-    CNTR=0
     for CPUFREQ in /sys/devices/system/cpu/cpufreq/*
     do
-      if [[ "${CPUFREQ}" =~ boost ]]
+      if [ ! -d "${CPUFREQ}" ] || [[ "${CPUFREQ}" =~ boost ]]
       then
         continue
-      fi
-      if [ "${CNTR}" -eq 0 ]
-      then
-        CF+=("CURRENT FREQUENCY:")
-        MF+=("MAXIMUM FREQUENCY:")
       fi
       RELCPUS=$(cat ${CPUFREQ}/related_cpus 2>/dev/null)
       if [ "${#RELCPUS}" -gt 1 ]
@@ -119,13 +142,14 @@ case ${HW_ARCH} in
       else
         FIELD="$(cat ${CPUFREQ}/related_cpus 2>/dev/null)"
       fi
-      if [ -e "${CPUFREQ}/scaling_cur_freq" ]; then
-        CF+=("THREADS ${FIELD}: $(( $(cat ${CPUFREQ}/scaling_cur_freq 2>/dev/null | sort | tail -n 1) / 1000))MHz")
+      if FREQ=$(info_frequency "${CPUFREQ}/scaling_cur_freq" 1000); then
+        [ "${#CF[@]}" -gt 0 ] || CF+=("CURRENT FREQUENCY:")
+        CF+=("THREADS ${FIELD}: ${FREQ}MHz")
       fi
-      if [ -e "${CPUFREQ}/scaling_max_freq" ]; then
-        MF+=("THREADS ${FIELD}: $(( $(cat ${CPUFREQ}/scaling_max_freq 2>/dev/null | sort | tail -n 1) / 1000))MHz")
+      if FREQ=$(info_frequency "${CPUFREQ}/scaling_max_freq" 1000); then
+        [ "${#MF[@]}" -gt 0 ] || MF+=("MAXIMUM FREQUENCY:")
+        MF+=("THREADS ${FIELD}: ${FREQ}MHz")
       fi
-      CNTR=$(( CNTR + 1 ))
     done
   ;;
 esac
@@ -178,7 +202,7 @@ echo "CPU: ${V_CPUMODEL1} (${V_CPUNB} Cores)"
 # Unit: millidegree Celsius
 if [ -n "${DEVICE_TEMP_SENSOR}" ]
 then
-  TEMPE=$(awk '{total += $1; count++} END {printf "%d", total/count/1000}' ${DEVICE_TEMP_SENSOR})
+  TEMPE=$(info_temperature ${DEVICE_TEMP_SENSOR})
   if [ -n "${TEMPE}" ]
   then
     echo "CPU TEMPERATURE: ${TEMPE}°"
@@ -199,8 +223,8 @@ then
   echo "CPU FAN: ${FANSPEED}"
 fi
 if [ "${HW_ARCH}" = "x86_64" ]; then
-  echo "CPU CURRENT FREQUENCY: ${CPUCUR} MHz"
-  echo "CPU MAXIMUM FREQUENCY: ${CPUMAX} MHz"
+  echo "CPU CURRENT FREQUENCY: $(info_frequency_label "${CPUCUR}")"
+  echo "CPU MAXIMUM FREQUENCY: $(info_frequency_label "${CPUMAX}")"
   echo "CPU BOOST: ${CPUBOOST}"
 fi
 case ${HW_ARCH} in
@@ -220,13 +244,13 @@ if [ -n "$GPUCUR" ]; then
 # GPU temperature
 # Unit: millidegree Celsius
   if [ -n "${DEVICE_GPU_TEMP_SENSOR}" ]; then
-    GTEMPE=$(awk '{total += $1; count++} END {printf "%d", total/count/1000}' ${DEVICE_GPU_TEMP_SENSOR})
+    GTEMPE=$(info_temperature ${DEVICE_GPU_TEMP_SENSOR})
     if [ -n "${GTEMPE}" ]; then
     echo "GPU TEMPERATURE: ${GTEMPE}°"
   fi
 fi
   echo "GPU CURRENT FREQUENCY: ${GPUCUR} MHz"
-  echo "GPU MAXIMUM FREQUENCY: ${GPUMAX} MHz"
+  echo "GPU MAXIMUM FREQUENCY: $(info_frequency_label "${GPUMAX}")"
 fi
 echo "RAM INFORMATION:"
 echo "RAM AVAILABLE: ${MEMAV} MB"

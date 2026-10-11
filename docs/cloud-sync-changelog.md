@@ -1,26 +1,32 @@
 # Cloud sync, backup and restore — change summary
 
+## Unavailable hardware information (2026-10-11, source-qualified)
+
+- **Missing frequency readings are clear.** INFORMATION shows `Not Available`
+  instead of a bare `MHz` for unavailable CPU readings. Missing GPU/temperature
+  readings are omitted; valid values and conversions remain unchanged (#548).
+  Full-script controls and reviewed actual-VM frames pass. This correction
+  still needs the next assembled image; it is not on the owner's handhelds.
+
 ## Cloud and offline-achievement dependencies (2026-10-11, engineering build)
 
 Replacement19 contains rclone 1.75.2 and RAOfflineProxyc7ebd1b6e7 (#541).
-Its assembled bytes are accepted; full VM and local protocol qualification is
-in progress. These are not installed on the owner's handhelds yet.
+Its assembled bytes, VM checks and local protocol qualification are accepted. These are not installed on the owner's handhelds yet.
 
 - **Cloud transfers use the current rclone release.** Selected connection and
-  folder behavior is retained. WebDAV, SFTP and local S3 qualification follows
-  assembly; authenticated Dropbox success is not inferred.
+  folder behavior is retained. WebDAV, SFTP and local S3 each pass108 checks; authenticated Dropbox
+  success is not inferred.
 - **Offline achievement preparation preserves existing data and behavior.**
   Source checks retain cache and queued awards across the update. Deliberate
   whole-library preparation keeps its existing pause cadence; background caching
   adopts upstream request pacing. No watched folder is enabled automatically,
-  and existing explicit reporting consent remains required. Installed service
-  and retained-state checks follow the source/native tests.
+  and existing explicit reporting consent remains required. Installed service, consent/restart and retained-state checks pass alongside
+  the native-format tests.
 
 ## Connection management and network input (2026-10-11, source qualification)
 
-These changes are being qualified for the next build; they are not installed on
-the owner's handhelds yet. Installed clean and retained-configuration image gates
-remain open.
+These changes are qualified in replacement19, including installed clean and
+retained configurations. They are not on the owner's handhelds yet.
 
 - **Manage saved cloud connections from the Cloud page.** CLOUD CONNECTIONS
   separates ADD CONNECTION from SIGN IN AGAIN, EDIT CONNECTION, USE THIS

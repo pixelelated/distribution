@@ -34,24 +34,27 @@ The complete input-path manifest remains with the private build owner.
 `build/inputs.json.receipt.json` binds its exact bytes and records scalar inputs
 and inventory counts; it does not replace the complete per-file manifest.
 
-## Standard qualification and active upgrade
+## Composed qualification complete; discovered correction remains
 
-Original qa19 ended1 at18:23:08UTC and all owned guests/endpoints stopped.
-Twelve standard suites pass, including scripts, actual walks, launch/exit and
-time-to-play. WebDAV, SFTP and local S3 each pass108 protocol assertions with
-the actual image rclone1.75.2. Exact installed payload/identity checks pass.
-The original aggregate still fails its three host/reference suites: lifetime
-and menu-map are corrected by #542, and frame claims by #544's separate78-frame
-comparison. The original reports and corrected evidence remain distinct.
+Original qa19 ended1 at18:23:08UTC. Twelve standard suites pass, all324 local
+WebDAV/SFTP/S3 protocol assertions pass, and #542/#544 supply separately corrected
+lifetime/menu-map/78-frame proof. No original aggregate is relabelled.
 
-The first upgrade19 failed before either guest booted because /tmp quota blocked
-PID-file writes. #545 repairs the suppressed launcher failure and records a
-writable owned runtime root. Fresh upgrade19b is actively supervised, with the
-changed host tools sealed separately from unchanged a0f60255ab firmware inputs.
-No upgrade/installed service PASS is inferred from the successful guest launch.
+[Retained receipts](retained/) prove actual upgrade save hashes and selected
+configuration, clean/retained26-case connection controls, three public ROCKNIX
+configuration cases,18-case/72-check installed USB revision, retained WebDAV
+and time-to-play. #545/#546 repair only host startup/readiness fixtures.
+[Installed proxy follow-through](../2026-10-11-installed-proxy/README.md) resolves
+#547's test namespace and passes18 native cases, legacy CHD,22 offline-service
+assertions and reporting-consent/restart controls.
 
-Next: retained-storage/public ROCKNIX configuration and installed #529–#532/#537,
-named #349/#350 branches and identity/connection frames; then H700 followed by
-SM8550 once every discovered gap is resolved. No personal data operation or RC
-claim. Completed runtime payload retirement remains #493; unreadable dependencies
-are not permission to delete.
+[Installed UI/startup proof](../2026-10-11-installed-ui/README.md) supplies22
+reviewed archive/scan/identity/carousel frames, explicit folder creation and
+positive fresh/retained startup records. Original fixture refusals stay recorded;
+all final owners have exited. No personal cloud/device operation occurred.
+
+#548 reproduces inherited optional-hardware errors in INFORMATION. Its
+[source fix](../2026-10-11-optional-hardware/README.md) requires a newly assembled
+GENERIC_X64 and scoped installed/upgrade qualification before H700 then SM8550.
+Replacement19 remains evidence for its own bytes. No RC designation/publication
+clearance; #528 custody/licence gates remain.

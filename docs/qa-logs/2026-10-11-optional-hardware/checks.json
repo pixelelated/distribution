@@ -1,0 +1,50 @@
+[
+  {
+    "command": [
+      "tools/rules-check"
+    ],
+    "returncode": 0
+  },
+  {
+    "command": [
+      "tools/register-check"
+    ],
+    "returncode": 0
+  },
+  {
+    "command": [
+      "tools/work-log-index",
+      "--check"
+    ],
+    "returncode": 0
+  },
+  {
+    "command": [
+      "tools/ceremony-check",
+      "--gate"
+    ],
+    "returncode": 0
+  },
+  {
+    "command": [
+      "tools/rocknix-info-test"
+    ],
+    "returncode": 0
+  },
+  {
+    "command": [
+      "bash",
+      "-n",
+      "projects/ROCKNIX/packages/rocknix/sources/scripts/rocknix-info"
+    ],
+    "returncode": 0
+  },
+  {
+    "command": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "returncode": 0
+  }
+]

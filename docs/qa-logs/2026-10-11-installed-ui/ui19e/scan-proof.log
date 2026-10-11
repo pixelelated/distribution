@@ -1,0 +1,8 @@
+PASS dead endpoint command and preservation; frame requires review
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-ui19e/scan-proof.py", line 54, in <module>
+    scan_wait('done');walk(tag+'-options','settle\nshot options\n')
+    ~~~~~~~~~^^^^^^^^
+  File "/workspace/tmp/pixelelated-m7-ui19e/scan-proof.py", line 34, in scan_wait
+    raise RuntimeError('scan did not finish: '+name)
+RuntimeError: scan did not finish: done

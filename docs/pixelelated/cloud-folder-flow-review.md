@@ -613,3 +613,20 @@ scrolling, permitted authentication hosts, a blocked unrelated host, Back, provi
 key handling, modified keys, popup/opener return and Close (#536/#539). They use
 synthetic content and prove these input/navigation mechanisms, not live account
 sign-in or every provider's policy.
+
+## Installed replacement19 qualification
+
+The [source-bound packet](../qa-logs/2026-10-11-installed-ui/README.md) and
+[reviewed frame index](../qa-logs/2026-10-11-installed-ui/evidence-index.json)
+complete the specifically missing CF13/CF14 sequences on a0f60255ab/ESc8dc72cf9:
+EN/FR opening scan → categories → second content scan → systems/empty;
+connection refusal → actual reason/TRY AGAIN/CLOSE → same-URL recovery → options.
+No overlay, stale-context continuation or automatic folder relocation occurs.
+Pointers/cloud payloads are preserved and workers terminate. A host-only
+read delay makes the live scan state observable without modifying the image.
+
+Settings restore separately pairs newest same-model and foreign-only archives
+with the offered device/date and disabled-row frames. The actual installed
+writer, selected-download hash and journal agree. Selection alone creates no
+folders; the explicit seed action creates selected structure and preserves
+existing payloads. Public setup-guide delivery remains #344/#511/#349.

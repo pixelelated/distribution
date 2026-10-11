@@ -1,0 +1,17 @@
+START installed writer and cloud backup
+sha256sum: can't open '/storage/.config/system.cfg': No such file or directory
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-ui19e/settings-proof.py", line 30, in <module>
+    before=guest(cmd)
+  File "/workspace/tmp/pixelelated-m7-ui19e/ui.py", line 8, in guest
+    return subprocess.check_output([str(ROOT/'tools/vm-pair'),'ssh','b',command],env=ENV,text=True,timeout=timeout).strip()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 473, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+               **kwargs).stdout
+               ^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['/workspace/repos/rocknix/tools/vm-pair', 'ssh', 'b', 'sha256sum /storage/.config/system.cfg /storage/.config/cloud_sync.conf /storage/.config/rclone/active-connection /storage/.config/rclone/rclone.conf']' returned non-zero exit status 1.

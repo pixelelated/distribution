@@ -45,6 +45,8 @@ jobs:
         run: |
           ./tools/vm-pair-test
           ./tools/vm-upgrade-readiness-test
+      - name: optional hardware readings are valid or explicitly unavailable
+        run: ./tools/rocknix-info-test
       - name: every open acceptance checkbox is agent-verifiable (D-QA-044)
         env:
           GH_TOKEN: ${{ github.token }}

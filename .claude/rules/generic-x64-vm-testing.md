@@ -1342,3 +1342,13 @@ the image installs raofflineproxy directly. tools/raofflineproxy-installed-nativ
 binds the test namespace to verified installed modules and requires the accepted
 library hash. Keep upstream test bytes unchanged, discover all cases, and reject
 skips. An import failure is not format coverage; keep it and rerun the adapter (#547).
+
+### Optional hardware information (#548)
+
+Run tools/rocknix-info-test for complete-script missing/malformed/valid CPU, GPU,
+temperature and optional-quirk controls. --baseline accepts the original script
+for a failing control and exact valid-output comparison; --output retains every
+original result channel. Missing VM sysfs metrics must not become blank units
+or zero measurements. Installed INFORMATION proof still needs reviewed frames.
+A startup journal is evidence only when it contains positive service-start
+records; an empty journal cannot pass a negative-only error search.

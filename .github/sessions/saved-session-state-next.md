@@ -1,5 +1,45 @@
 # Saved Session State
 
+## Current continuation — 2026-10-11 19:26 UTC
+
+Published next aae3ebac1e has both exact-head hosted checks successful. #547 and
+#531 CLOSED. Independent #540 audit complete; no repeat external transfer.
+All replacement19 standard/protocol/retained/native/service results remain
+accepted with their original failed aggregates and separate corrected proofs.
+
+UI19e ended0 at19:11:51UTC; startup19g ended0 at19:12:40UTC. Actual owner/QEMU/
+backend exits verified.22 reviewed installed frames and compact scripts/logs are
+prepared in docs/qa-logs/2026-10-11-installed-ui. Same-model/foreign archive,
+EN/FR opening/content/dead-endpoint retry, manual folder creation, identity and
+positive clean/retained startup pass. Earlier empty clean journal is rejected;
+fresh19g supplies positive start records. #349 still has public documentation.
+After receipt delivery, finish #529/#530/#532/#350/#537 tracker criteria honestly.
+
+NEW pre-build defect #548: inherited rocknix-info optional CPU/GPU/temperature
+errors, bare MHz and absent-quirk exit127. Source fix and reusable12-case CI guard
+are prepared in feature/m7-component-inputs;13 controls with the actual original
+baseline pass. VM02 /workspace/tmp/pix548-vm02 ended0 at19:22:22UTC; three actual
+frames reviewed, original127/errors to fixed0/quiet, sole script overlay removed,
+original bytes verified, guest stopped. VM01 transport refusal is retained.
+Canonical references and evidence are updated; commit/push/checks remain.
+No source edit to frozen replacement19. ACTIVE cache-only owner /workspace/tmp/pixelelated-m7-cache20,
+launcher3326532, started19:28:27UTC from build/m7-pixelelated-replacement20.
+Independent rsync from accepted build19 then full checksum/inode comparison;
+no compilation until source delivery and final freeze. Monitor console.log,
+launcher/result/cache-ready files and actual owner exits. Do not end the turn
+merely with this checkpoint. Guarded swap reclaim passed:8GiB free, active
+priority-1 before this preparation.
+
+NEXT: deliver #548 plus UI/startup receipts; create independent replacement20
+cache/freeze from published delivery, with product delta only rocknix-info.
+Fresh GENERIC_X64 assembled inclusion/identity/clean and upgrade/affected-frame
+proof must pass before H700→SM8550. Retain unchanged cloud/audit acceptance with
+explicit source comparison; do not repeat completed external audits. Primary
+build scripts/examples remain /workspace/tmp/pixelelated-m7-build19 and cache19.
+The clean19g VM disk is an immediate #548/new-image upgrade predecessor; other
+old disks need #493 dependency/retirement classification. Host has1.1TiB free.
+Owner devices/cloud remain untouched; #528 publication/custody holds remain.
+
 ## Current continuation — 2026-10-11 18:55 UTC
 
 Published next is fa444d60ff047a201d0fd31ab23067517494230f; both hosted checks

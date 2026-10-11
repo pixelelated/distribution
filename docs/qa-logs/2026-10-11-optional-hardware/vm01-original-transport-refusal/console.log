@@ -1,0 +1,12 @@
+watch-build: recording in /workspace/repos/rocknix.worktrees/m7-component-inputs/.build-runs/20261011T191825Z-9f119382
+START boot
+END boot 0
+START serial-ready
+END serial-ready 2
+START pair-down
+END pair-down 0
+Traceback (most recent call last):
+  File "/workspace/tmp/pix548-vm01/run.py", line 27, in <module>
+    assert step('serial-ready',[str(R/'tools/vm-pair'),'serial','a','true'])==0
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

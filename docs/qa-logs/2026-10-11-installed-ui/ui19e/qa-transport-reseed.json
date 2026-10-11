@@ -1,0 +1,6 @@
+{
+  "utc": "2026-10-11T18:55:01.480869+00:00",
+  "reason": "Public-default adoption guest correctly has no persisted owner SSH authorized key. Reinstall only the existing disposable QA public key through serial, as vm-pair readiness normally does; restart QA sshd to clear failed-authentication penalty. No product file changed.",
+  "returncode": 0,
+  "scope": "owned image19c guest b"
+}
