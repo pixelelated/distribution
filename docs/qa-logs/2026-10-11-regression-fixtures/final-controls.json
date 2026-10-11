@@ -1,0 +1,52 @@
+[
+  {
+    "case": "compiler-unusable",
+    "returncode": 1,
+    "expected_success": false
+  },
+  {
+    "case": "patch-unusable",
+    "returncode": 2,
+    "expected_success": false
+  },
+  {
+    "case": "compiler-owned",
+    "returncode": 0,
+    "expected_success": true
+  },
+  {
+    "case": "patch-owned",
+    "returncode": 0,
+    "expected_success": true
+  },
+  {
+    "case": "namespace-host-path-refused",
+    "returncode": 1,
+    "expected_success": false
+  },
+  {
+    "case": "namespace-private-tmp",
+    "returncode": 0,
+    "expected_success": true
+  },
+  {
+    "case": "readiness-current",
+    "returncode": 0,
+    "expected_success": true
+  },
+  {
+    "case": "readiness-reject-ignore-boot",
+    "returncode": 1,
+    "expected_success": false
+  },
+  {
+    "case": "readiness-reject-ignore-unit",
+    "returncode": 1,
+    "expected_success": false
+  },
+  {
+    "case": "readiness-reject-wrong-query",
+    "returncode": 1,
+    "expected_success": false
+  }
+]

@@ -1,0 +1,8 @@
+    FAIL  the face step answered '(the sharp-size step is not marked out in gfx_widgets.c, or does not compile alone: /workspace/tmp/pixelelated-m7-qa20/tmp/tmp.sS2Rtp6dMM/f2/ra/sharp_test.c:25:1: fatal error: error writing to /tmp/cc4pjT)' -- expected 'Inter UI Regular|Inter UI Regular|Inter UI Bold|none|none|none|18|11.0'
+    FAIL  0018: matrix:'(the append-slot block is not marked out in command.c, or does not build with libretro-common)'(expected-0100001111)
+    FAIL  webkitgtk-0001-DocumentLoader-include-EventLoop.patch does not apply to 2.54.1: checking file Source/WebCore/loader/DocumentLoader.cpp patch: **** write error : Disk quota exceeded 
+    FAIL  webkitgtk-0002-WebKit-includes-WebCore-platform-graphics-for-GStreamer-GL.patch does not apply to 2.54.1: checking file Source/WebKit/PlatformGTK.cmake patch: **** write error : Disk quota exceeded 
+    FAIL  page_worth_recording: /workspace/tmp/pixelelated-m7-qa20/tmp/tmp.sS2Rtp6dMM/C/c8/pwr_main.c:15:1: fatal error: error closing /tmp/cctZKsua.s: Disk quota exceeded    15 | }       | ^  (#308 claude F-RS-20)
+    FAIL  #309 PL-024: the rehearsal has no autostart wait from AUTOSTARTED=no to its check -- nothing to grade
+    FAIL  the append-slot block does not build with libretro-common's config parser: /workspace/tmp/pixelelated-m7-qa20/tmp/tmp.sS2Rtp6dMM/f2b/autoslot_load.c:49:1: fatal error: error writing to /tmp/ccJBW5cE.s: Disk quota exceeded
+7 CHECK(S) FAILED, 0 SKIPPED

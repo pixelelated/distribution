@@ -286,7 +286,8 @@ RCLONE_REL=projects/ROCKNIX/packages/network/rclone/sources
 command -v bwrap >/dev/null || { echo "needs bubblewrap (bwrap)" >&2; exit 2; }
 command -v setsid >/dev/null || { echo "needs setsid" >&2; exit 2; }
 
-# Honor the caller's build-drive TMPDIR for the owned host fixture tree only.
+# Honor the caller's build-drive TMPDIR for the owned host fixture tree.
+# Host compilers and patch commands below explicitly use this owned tree too.
 # Bubblewrap descendants get a private /tmp, so an inherited host-only path
 # makes otherwise valid mktemp calls fail inside the device fixture.
 TMP="$(mktemp -d)" || { echo "cannot create host fixture directory" >&2; exit 2; }
@@ -2078,7 +2079,7 @@ else
 fi
 for prel in ${TPATCHES}; do
     src_of "${prel}" "${T}/one.patch"
-    if ! patch -d "${T}/patched" -p1 -N -s < "${T}/one.patch" >"${T}/patch.out" 2>&1; then
+    if ! TMPDIR="${T}" patch -d "${T}/patched" -p1 -N -s < "${T}/one.patch" >"${T}/patch.out" 2>&1; then
         TPATCH_OK=0; check 1 "" "${prel##*/} does not apply to the pinned client: $(tr '\n' '|' < "${T}/patch.out" | cut -c1-200)"
     fi
 done
@@ -4032,7 +4033,7 @@ GW="${RX}/src/gfx/gfx_widgets.c"
 if command -v gcc > /dev/null; then
     F2_CC=""
     for c in gfx/gfx_widgets.c gfx/video_thread_wrapper.c command.c runtime_file.c configuration.c; do
-        gcc -fsyntax-only -std=gnu99 -Werror=implicit-function-declaration -I"${RX}/src" -I"${RX}/src/libretro-common/include" -I"${RX}/src/deps" \
+        TMPDIR="${RX}" gcc -fsyntax-only -std=gnu99 -Werror=implicit-function-declaration -I"${RX}/src" -I"${RX}/src/libretro-common/include" -I"${RX}/src/deps" \
             -DHAVE_GFX_WIDGETS -DHAVE_MENU -DHAVE_XMB -DHAVE_OZONE -DHAVE_THREADS -DHAVE_CHEEVOS -DHAVE_CONFIGFILE -DHAVE_NETWORKING -DRARCH_INTERNAL \
             "${RX}/src/${c}" > "${RX}/cc.log" 2>&1 || F2_CC+=" ${c}: $(grep -m1 'error' "${RX}/cc.log" | cut -c1-160)"
     done
@@ -4077,7 +4078,7 @@ int main(void)
    return 0;
 }
 EOC
-if command -v gcc > /dev/null && [ -s "${RX}/sharp.inc" ] && gcc -std=gnu99 -o "${RX}/sharp_test" "${RX}/sharp_test.c" -I"${RX}" > "${RX}/sharp.log" 2>&1; then
+if command -v gcc > /dev/null && [ -s "${RX}/sharp.inc" ] && TMPDIR="${RX}" gcc -std=gnu99 -o "${RX}/sharp_test" "${RX}/sharp_test.c" -I"${RX}" > "${RX}/sharp.log" 2>&1; then
     F2_OUT="$("${RX}/sharp_test")"
 else
     F2_OUT="(the sharp-size step is not marked out in gfx_widgets.c, or does not compile alone: $(grep -m1 error "${RX}/sharp.log" 2>/dev/null | cut -c1-120))"
@@ -4214,7 +4215,7 @@ printf 'state_slot = "-1"\nsavestate_auto_load = "true"\n' > "${AS}/a.cfg"; cp "
 printf 'state_slot = "3"\n' > "${AS}/b.cfg"; printf 'savestate_auto_save = "true"\n' > "${AS}/c.cfg"
 L="${RX}/src/libretro-common"
 F2_OUT="(the append-slot block is not marked out in command.c, or does not build with libretro-common)"
-if [ -s "${RX}/autoslot.inc" ] && gcc -std=gnu99 -o "${RX}/autoslot_test" -I"${L}/include" -I"${RX}" "${RX}/autoslot_test.c" \
+if [ -s "${RX}/autoslot.inc" ] && TMPDIR="${RX}" gcc -std=gnu99 -o "${RX}/autoslot_test" -I"${L}/include" -I"${RX}" "${RX}/autoslot_test.c" \
       "${L}"/file/config_file.c "${L}"/file/file_path.c "${L}"/file/file_path_io.c "${L}"/streams/file_stream.c "${L}"/string/stdstring.c \
       "${L}"/compat/compat_strl.c "${L}"/compat/fopen_utf8.c "${L}"/compat/compat_posix_string.c "${L}"/compat/compat_strcasestr.c \
       "${L}"/encodings/encoding_utf.c "${L}"/vfs/vfs_implementation.c "${L}"/time/rtime.c > "${RX}/autoslot.log" 2>&1; then
@@ -4307,7 +4308,7 @@ for arch in x86_64 aarch64; do
     for f in CMakeLists.txt Common/ArmCPUDetect.cpp Core/Util/PathUtil.cpp ffmpeg/linux_arm64.sh libretro/libretro_vulkan.cpp ext/glew/glew.c; do
         mkdir -p "$(dirname "${B}/${f}")"; cp "${PP_SRC}/${f}" "${B}/${f}"
     done
-    F2_CALL="PKG_BUILD='${B}'; declare -F post_unpack >/dev/null && post_unpack; for p in '${PX}'/pkg/patches/*.patch; do patch -d '${B}' -p1 -s --no-backup-if-mismatch < \"\${p}\" || exit 4; done; declare -F post_patch >/dev/null && post_patch; grep -c 'mno-outline-atomics' '${B}/CMakeLists.txt'"
+    F2_CALL="PKG_BUILD='${B}'; declare -F post_unpack >/dev/null && post_unpack; for p in '${PX}'/pkg/patches/*.patch; do TMPDIR='${PX}' patch -d '${B}' -p1 -s --no-backup-if-mismatch < \"\${p}\" || exit 4; done; declare -F post_patch >/dev/null && post_patch; grep -c 'mno-outline-atomics' '${B}/CMakeLists.txt'"
     eval "PP_${arch}=\"\$(f2_source '${PX}/pkg/package.mk' GENERIC_X64 ${arch} 2>/dev/null)\""
 done
 [ "${PP_x86_64}" = "0" ] && [ "${PP_aarch64}" = "1" ]; check $? "x86_64's CMakeLists.txt ends without the flag, aarch64's keeps it" "after unpack, patches and hooks: x86_64 has ${PP_x86_64:-?} add_compile_options(-mno-outline-atomics) line(s), aarch64 ${PP_aarch64:-?} -- the strip ran before the patch that adds it"
@@ -6492,7 +6493,7 @@ else
     # shellcheck disable=SC2086
     tar -xJf "${WKT}" -C "${WKD}" ${wkfiles} 2>/dev/null
     for wp in "${WKP}"/*.patch; do
-        patch -d "${WKD}/webkitgtk-${WKV}" -p1 --dry-run < "${wp}" > "${WKD}/out" 2>&1; check $? "$(basename "${wp}") applies to webkitgtk ${WKV}" "$(basename "${wp}") does not apply to ${WKV}: $(tail -2 "${WKD}/out" | tr '\n' ' ')"
+        TMPDIR="${WKD}" patch -d "${WKD}/webkitgtk-${WKV}" -p1 --dry-run < "${wp}" > "${WKD}/out" 2>&1; check $? "$(basename "${wp}") applies to webkitgtk ${WKV}" "$(basename "${wp}") does not apply to ${WKV}: $(tail -2 "${WKD}/out" | tr '\n' ' ')"
     done
 fi
 
@@ -6570,7 +6571,7 @@ int main(void)
     return bad;
 }
 EOC
-C8P=$( [ -s "${C8}/pwr.c" ] && command -v cc >/dev/null && cc -std=gnu99 -o "${C8}/pwr" "${C8}/pwr_main.c" 2>&1 && "${C8}/pwr" 2>&1 )
+C8P=$( [ -s "${C8}/pwr.c" ] && command -v cc >/dev/null && TMPDIR="${C8}" cc -std=gnu99 -o "${C8}/pwr" "${C8}/pwr_main.c" 2>&1 && "${C8}/pwr" 2>&1 )
 [ -s "${C8}/pwr.c" ] && [ -x "${C8}/pwr" ] && "${C8}/pwr" >/dev/null 2>&1; check $? "the page file is not written for rclone's loopback redirect, which carries the code; a provider's own pages still are" "page_worth_recording: $([ -s "${C8}/pwr.c" ] || echo 'no such function in cloud-signin-window.c -- every URI, the loopback redirect with its code included, goes to the page file'; echo "${C8P}" | head -3 | tr '\n' ' ') (#308 claude F-RS-20)"
 
 # The on-screen keyboard reaches every printable character a password may
@@ -11069,78 +11070,16 @@ printf '%s' "${P7NOTE}" | grep '^dump' | grep -q 'NOT KEPT' && [ ! -e "${P7C}/st
 echo "  F1r. The audit of the fix round, stream F1 (#309 PL-024; the gpt seat's G2-F1 leads): each check names its item"
 F1R="${TMP}/f1r"; mkdir -p "${F1R}"
 
-# F1r-a. #309 PL-024: tools/vm-upgrade-rehearsal waits for the new image's
-#        autostart before it reads what the quirk pass took back. It waited
-#        for "Autostart complete" in /var/log/boot.log, which autostart
-#        appends to at every boot (autostart:7,10) and which lives on
-#        /storage (var-log.mount), so the previous boot's line answered the
-#        first poll and the wait could not fail. The wait is run as it stands
-#        in the rehearsal -- its lines from AUTOSTARTED=no to its check --
-#        against a guest whose boot.log already holds the previous boot's
-#        line: ssha is the transport (each call one poll, run in a sandbox
-#        with the guest's /var, its boot id, and a systemctl answering for
-#        the autostart unit as systemd does in that boot), and sleep costs
-#        nothing. Autostart finishes on the poll the case names -- the unit
-#        reads active and the current boot's line is appended -- or never.
-F1RA="${F1R}/a"; mkdir -p "${F1RA}/shim"
+# F1r-a. #309 PL-024 / #546 / #551: exercise the current bounded wait,
+# including its actual guest query, against stale/current boot identities and
+# service states. Historical --old still supplies the historical source.
+F1RA="${F1R}/a"; mkdir -p "${F1RA}"
 src_of tools/vm-upgrade-rehearsal "${F1RA}/rehearsal"
-sed -n '/^AUTOSTARTED=no/,/^check "autostart finished/p' "${F1RA}/rehearsal" > "${F1RA}/wait.sh"
-cat > "${F1RA}/shim/systemctl" <<'EOS'
-#!/bin/bash
-# rocknix-autostart.service as systemd has it in this boot (/guest/state):
-# activating while the oneshot's script runs, active once it has exited 0
-# (the unit has RemainAfterExit), failed.
-st=$(cat /guest/state)
-case "$*" in
-    "is-active rocknix-autostart.service"|"is-active rocknix-autostart") echo "${st}"; [ "${st}" = active ]; exit $? ;;
-    *) echo "systemctl (the harness's shim) does not know: $*" >&2; exit 1 ;;
-esac
-EOS
-chmod +x "${F1RA}/shim/systemctl"
-cat > "${F1RA}/run.sh" <<'EOS'
-# The rehearsal's wait, lifted, with its helpers stood in for.
-#   $1 the guest, $2 the boot id before the reboot, $3 the new boot's
-set -u
-G="$1"; BOOT0="$2"; BOOT1="$3"; LOG="${G}/rehearsal.log"; : > "${LOG}"; fail=0; i=0
-say() { echo "=== $*" >> "${LOG}"; }
-check() { if [ "$2" = "$3" ]; then echo "PASS $1"; else echo "FAIL $1: got '$2' want '$3'"; fail=1; fi; }
-sleep() { :; }
-ssha() {
-    local n fin; n=$(( $(cat "${G}/polls") + 1 )); echo "${n}" > "${G}/polls"; fin=$(cat "${G}/finish")
-    if [ "${fin}" != never ] && [ "${n}" -ge "${fin}" ] && [ "$(cat "${G}/state")" != active ]; then
-        echo active > "${G}/state"; echo "Mon Sep 28 16:00:0${n} UTC 2026: Autostart: Autostart complete..." >> "${G}/var/log/boot.log"
-    fi
-    bwrap --die-with-parent --tmpfs / --ro-bind /usr /usr --symlink usr/bin /bin --symlink usr/lib /lib --symlink usr/lib64 /lib64 \
-        --bind "${G}/var" /var --dir /proc/sys/kernel/random --ro-bind "${G}/boot_id" /proc/sys/kernel/random/boot_id \
-        --ro-bind "${G}/../shim" /shim --ro-bind "${G}" /guest --dev /dev --tmpfs /tmp --setenv PATH /shim:/usr/bin:/bin \
-        bash -c "$*"
-}
-. "${G}/../wait.sh"
-echo "polls=$(cat "${G}/polls") autostarted=${AUTOSTARTED}"
-EOS
-F1R_B0=0f1a0000-0000-4000-8000-00000000b007; F1R_B1=0f1a0000-0000-4000-8000-00000000b008
-f1ra() { # <case> <poll autostart finishes on|never> <boot id the guest reports>: one run of the wait; its last line in F1RA_OUT, its check line in F1RA_CHK
-    local g="${F1RA}/$1"; rm -rf "${g}"; mkdir -p "${g}/var/log"
-    printf '%s\n' "Sun Sep 27 21:04:10 UTC 2026: Autostart: Run /usr/lib/autostart/quirks/platforms/GENERIC_X64/092-retroarch-surface" \
-        "Sun Sep 27 21:04:12 UTC 2026: Autostart: Startup complete..." "Sun Sep 27 21:04:13 UTC 2026: Autostart: Autostart complete..." > "${g}/var/log/boot.log"
-    printf '%s\n' "$3" > "${g}/boot_id"; echo 0 > "${g}/polls"; echo "$2" > "${g}/finish"; echo activating > "${g}/state"
-    bash "${F1RA}/run.sh" "${g}" "${F1R_B0}" "${F1R_B1}" > "${g}/out" 2>&1
-    F1RA_OUT=$(tail -n 1 "${g}/out"); F1RA_CHK=$(grep -m1 -E '^(PASS|FAIL) autostart finished' "${g}/out" | cut -c1-200)
-}
-if [ ! -s "${F1RA}/wait.sh" ] || ! grep -q '^check "autostart finished' "${F1RA}/wait.sh"; then
-    check 1 "-" "#309 PL-024: the rehearsal has no autostart wait from AUTOSTARTED=no to its check -- nothing to grade"
-else
-    f1ra stale 4 "${F1R_B1}"
-    [ "${F1RA_OUT}" = "polls=4 autostarted=yes" ]; check $? "#309 PL-024: with the previous boot's 'Autostart complete' already in boot.log, the rehearsal waits until this boot's autostart has finished (poll 4 of 4)" "#309 PL-024: the wait ended on '${F1RA_OUT}' where autostart finished on poll 4 -- the previous boot's line answered it"
-    f1ra never never "${F1R_B1}"
-    case "${F1RA_OUT}" in "polls=30 autostarted="*) [ "${F1RA_OUT}" != "polls=30 autostarted=yes" ] ;; *) false ;; esac && case "${F1RA_CHK}" in FAIL*) true ;; *) false ;; esac
-    check $? "#309 PL-024: an autostart that never finishes runs the wait to its bound and the rehearsal's check FAILs, the stale line notwithstanding" "#309 PL-024: an autostart that never finished read '${F1RA_OUT}', check '${F1RA_CHK}' -- the check cannot fail"
-    f1ra oldboot 1 "${F1R_B0}"
-    case "${F1RA_OUT}" in *autostarted=yes) false ;; *) true ;; esac; check $? "#309 PL-024: a reading that carries the boot id from before the reboot does not end the wait" "#309 PL-024: a reading from boot ${F1R_B0} (the one before the reboot) ended the wait: '${F1RA_OUT}'"
-    f1ra ready 1 "${F1R_B1}"
-    [ "${F1RA_OUT}" = "polls=1 autostarted=yes" ] && case "${F1RA_CHK}" in PASS*) true ;; *) false ;; esac
-    check $? "#309 PL-024 (control): an autostart already finished on the first poll ends the wait at once, and the check passes" "#309 PL-024: an autostart finished on poll 1 read '${F1RA_OUT}', check '${F1RA_CHK}'"
-fi
+TMPDIR="${F1RA}" python3 "${HARNESS_ROOT}/tools/vm-upgrade-readiness-test" \
+    --rehearsal "${F1RA}/rehearsal" > "${F1RA}/out" 2>&1
+RC=$?; cat "${F1RA}/out"
+check "${RC}" "#309 PL-024: current-boot storage readiness and bounded failure controls pass" \
+    "#309 PL-024: storage readiness controls failed (exit ${RC})"
 
 # F1r-b. The gpt seat's G2-F1-01: 091-retired-vm-fixes and 097-retired-rescue-
 #        masks stopped for good at their stamps, so a guest that went back to
@@ -12568,7 +12507,7 @@ EOC
     # the block from before G2-F2-02 records from a list it reads again
     F2B_FL=""; grep -q 'command_record_append_config(const char' "${F2B}/autoslot.inc" && F2B_FL="-DFROM_LIST"
     L="${F2B_RX}/src/libretro-common"; AL="${F2B}/al"
-    if [ -s "${F2B}/autoslot.inc" ] && gcc -std=gnu99 ${F2B_FL} -o "${F2B}/autoslot_load" -I"${L}/include" -I"${F2B}" "${F2B}/autoslot_load.c" \
+    if [ -s "${F2B}/autoslot.inc" ] && TMPDIR="${F2B}" gcc -std=gnu99 ${F2B_FL} -o "${F2B}/autoslot_load" -I"${L}/include" -I"${F2B}" "${F2B}/autoslot_load.c" \
           "${L}"/file/config_file.c "${L}"/file/file_path.c "${L}"/file/file_path_io.c "${L}"/streams/file_stream.c "${L}"/string/stdstring.c \
           "${L}"/compat/compat_strl.c "${L}"/compat/fopen_utf8.c "${L}"/compat/compat_posix_string.c "${L}"/compat/compat_strcasestr.c \
           "${L}"/encodings/encoding_utf.c "${L}"/vfs/vfs_implementation.c "${L}"/time/rtime.c > "${F2B}/autoslot_load.log" 2>&1; then

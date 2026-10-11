@@ -1343,6 +1343,22 @@ binds the test namespace to verified installed modules and requires the accepted
 library hash. Keep upstream test bytes unchanged, discover all cases, and reject
 skips. An import failure is not format coverage; keep it and rerun the adapter (#547).
 
+### Host fixture scratch and current readiness checks (#550, #551)
+
+Unsetting host TMPDIR keeps host-only paths out of bubblewrap guests, but also
+sends later host compilers and patch commands back to host /tmp. Give those
+host calls the owned fixture directory explicitly; keep each guest's private
+/tmp independent. Validate both failure and success at that boundary. A healthy
+filesystem or initial mktemp alone does not prove that later tools can write.
+
+When the upgrade wait changes, its main regression must exercise the current
+function and guest query. Reuse tools/vm-upgrade-readiness-test rather than
+keeping an obsolete text extractor in another suite. Stale boot, failed service,
+missing response, empty identity and never-ready controls retain bounded refusal;
+ready and delayed current boots must pass. The helper must remain runnable in
+fork CI without requiring namespace privileges; the full host suite separately
+exercises its bubblewrap fixtures.
+
 ### Optional hardware information (#548)
 
 Run tools/rocknix-info-test for complete-script missing/malformed/valid CPU, GPU,
