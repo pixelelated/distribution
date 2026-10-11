@@ -99,7 +99,7 @@ The entire original contract and comments remain in the snapshot.
 | P6 runner feasibility/inherited review/interchange | #336/#339/#346 explicitly later under the current milestone. Never reintroduced as a first-release build dependency. |
 | Decisions | Current decided register rows govern; settled rows are not presented as new owner questions. `tools/register-check` must pass. |
 
-## Next build plan and freeze boundary
+## Historical build plan and freeze boundary — completed
 
 Reference distribution source:
 `153bfa6b794d71c1f66707f2cb2aaf9673bc9fe8`, including #529–#540 qualified source,
@@ -147,7 +147,7 @@ synthetic guests. No personal Dropbox fixture or owner device is needed.
    queued for this set; remeasure before each. New hardware/publication actions
    need their applicable named authority and asset evidence.
 
-### Carry-forward versus new proof
+### Historical carry-forward versus new proof
 
 Replacement18 source `7f58b7b1c592908dcd0ba5987955e59aaa79fe66`, bundle
 `f557176651026f59bb5931993b12491a6019c0383321fb89fa1a05a596514fe6`, retains
@@ -164,7 +164,7 @@ boot lifecycle, USB revision, metadata, standard regression suite and changed
 INFORMATION presentation require new proof. #349/#350's specifically unpaired
 cases remain named checks even though archive/script controls have passed.
 
-### Capacity, observation and retirement
+### Historical capacity, observation and retirement
 
 Read-only measurement: about1.31TB available. Existing allocated roots:
 replacement18 118,307,713,024 bytes; H70002 143,922,823,168;

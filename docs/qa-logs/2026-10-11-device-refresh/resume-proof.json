@@ -1,0 +1,28 @@
+{
+  "utc": "2026-10-11T23:48:03.250002+00:00",
+  "result": "PASS_AFTER_CORRECTIONS",
+  "agent": "m7_final_resume_proof",
+  "initial_context": "Only /workspace/repos/rocknix, read-only resume request; no history fork",
+  "verified": [
+    "Canonical route and exact source/branch alignment",
+    "Completed firmware/device/audit receipts and actual owner exits",
+    "Active delivery01 with matching PID birth time and hosted checks",
+    "Correct retention-first order and consumed device/audit permissions",
+    "No public RC/publication authority"
+  ],
+  "corrections": [
+    {
+      "finding": "Checkpoint demanded nonexistent delivery inner.rc/outer.rc",
+      "correction": "Actual completion contract listed, nonexistent channels explicitly excluded"
+    },
+    {
+      "finding": "Feature pointer still called audit current",
+      "correction": "Pointer records completed audit/build/deployment and defers live state to canonical checkpoint"
+    },
+    {
+      "finding": "Historical build plan retained imperative heading",
+      "correction": "Plan, carry-forward and capacity headings labelled Historical"
+    }
+  ],
+  "recheck": "All three corrections remove replay hazards; no further issue within bounded read-only recheck. No mutations or device/provider/test action by reviewer."
+}

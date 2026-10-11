@@ -1,16 +1,16 @@
 # Saved Session State
 
-> **Saved**: 2026-10-11T23:40:12.641409+00:00
+> **Saved**: 2026-10-11T23:48:03.250002+00:00
 > **Branch**: feature/m7-component-inputs
 > **Repo**: pixelelated/distribution
 
 ## Start here
 
-This is an immutable handheld Linux distribution, built separately per target; there is no app to run. Read canonical next's AGENTS.md and applicable .claude/rules before acting. The milestone body owns order: M7.P5, parent #344. Tracking checkout is `/workspace/repos/rocknix.worktrees/m7-component-inputs`; primary `/workspace/repos/rocknix` stays on next. Harness conflict-resolution is stale and untouched. Both published HEAD5ea24b02ff passed hosted checks; new evidence/checkpoint changes are being delivered. [Previous full checkpoint](archived/saved-session-state-next-20261011T234012Z.md) links earlier history.
+This is an immutable handheld Linux distribution, built separately per target; there is no app to run. Read canonical next's AGENTS.md and applicable .claude/rules before acting. The milestone body owns order: M7.P5, parent #344. Tracking checkout is `/workspace/repos/rocknix.worktrees/m7-component-inputs`; primary `/workspace/repos/rocknix` stays on next. Harness conflict-resolution is stale and untouched. Evidence261095a84e is published and both exact-head hosted checks passed; final closure/handoff bookkeeping follows. [Previous full checkpoint](archived/saved-session-state-next-20261011T234012Z.md) links earlier history.
 
 ## Current Focus
 
-Both #555 refreshed H700 and SM8550 firmware builds and independent acceptance are complete. Finish evidence delivery and #556 closure, then #493 retention and the separate release/publication gates. The newly approved #556 RG35XX SP update is fully accepted and the owner has been told the device is ready to use. No device action remains authorized; do not replay its transfer/reboot or request the same permission again.
+Both #555 refreshed H700 and SM8550 firmware builds and independent acceptance are complete; #556 owner update is accepted and closed. Finish the final closure-record delivery if still active, then #493 retention and the separate release/publication gates. The newly approved #556 RG35XX SP update is fully accepted and the owner has been told the device is ready to use. No device action remains authorized; do not replay its transfer/reboot or request the same permission again.
 
 ## Completed This Session
 
@@ -24,14 +24,16 @@ Both #555 refreshed H700 and SM8550 firmware builds and independent acceptance a
 
 No build, cache, artifact acceptance, VM, device or provider job remains active. Every original successful-run result channel is0 and actual owners exited. SM8550 compiler05 ended0 at23:31:03UTC; independent acceptance05 ended0 at23:31:43UTC and completion consumed at23:32:55UTC. Source/seals unchanged, container removed, acceptance scratch removed. Both targets share `0.0.1-dev+20261011T222153Z.gbc9dfe8141d9`. SM bundle `a480210cd8837f20fb67a80508c517308cc0326ed2c1544493e3f56d125f1f2f`; update TAR SHA256 `d6278647cc07bd34e61aa839ba866418b63b386468cfe39c492992c50f598ea0`,1,616,322,560bytes. GPT, all five ABL package files,14 FEX outputs,188 ARM handoff and current native/helpers/identity pass. H700186/SM188 ARM files differ from their predecessors only by bounded box86 date/time/revision strings and added exact popt package library; no removed files. See `docs/qa-logs/2026-10-11-device-refresh/arm-bounded-differences.json`.
 
-Final tracking evidence is being committed/published from feature/m7-component-inputs with safe fast-forward into primary next. Previous published5ea24b02ff passed both hosted checks; final delivery uses `/workspace/tmp/pix555-final-delivery01` (check its existence/results and actual owner before claiming active). #556 all acceptance criteria are checked, complete in fact; close completed after published evidence, without repeating device actions. #555 first five criteria checked; final tracking/retirement criterion remains open for #493. Read live tracker for closure state.
+Evidence261095a84ef6182fcc8c41731db92a290f458df1 is published; both exact-head hosted checks passed. Delivery01 completed with job result, launcher, tool-wrapper and watcher build results0; actual owners exited. #556 is CLOSED/COMPLETED with all acceptance criteria checked and evidence-linked closure. #555 first five criteria checked; its final tracking/retirement criterion remains open for #493. Fresh-agent session proof passed after correcting the delivery channel contract, stale feature pointer and historical plan headings. See `docs/qa-logs/2026-10-11-device-refresh/resume-proof.json`.
+
+The last closure/checkpoint commit uses `/workspace/tmp/pix555-final-delivery02` for push/CI. Before assuming it is active or finished, inspect its actual results and PIDs. There is no build/device job to resume. Its contract is result.json, launcher-result.json, tool-wrapper.rc, the run's build.rc, exact-head hosted-checks.json/remote-readback.json and actual owner exits. It does NOT produce inner.rc or outer.rc. The watch run path appears in console.log. Submission is not completion.
 
 ## Next Steps
 
-1. Consume `/workspace/tmp/pix555-final-delivery01` if launched: original launcher/inner/outer/tool-wrapper/build result channels, actual owner exits, remote next and exact-head hosted checks. If absent, complete required local checks, commit authorized docs/evidence, fast-forward primary and publish using the prior delivery helper pattern. No build or audit is needed for this documentation delivery.
-2. Close #556 completed with published evidence/commit and read back exact body/state. Use session-stash's read-only fresh-agent resume proof; fix any misleading handoff. All device actions and #553/#540 external transfers are consumed, not queued. The owner may use RG35XX SP; automatic sync remains off and no screen check is needed.
-3. #493 is next host work: classify superseded firmware/build roots against current processes, immediate-test needs and required source custody; prepare scoped guarded retirement, then measure the retained working set. Current available647,420,825,600bytes (about603GiB). The historical Oct7 authorized batch is complete and must not be replayed or widened. #555's final retention criterion stays open until this boundary is satisfied. Current H700 is in owner testing; SM8550 awaits a separately authorized physical test. Current compiler05 consumed copy04's private Nix store; classify dependencies before any removal. No permanent historical-payload fallback hold.
-4. Finish #528/#344/#265/#337/#359 source/licence/final inventory/retrieval/off-host custody, bot/runner evidence, adoption/recovery/support/source notes and per-asset physical/publication gates. No publicRC allocated or publication authority inferred. M7 body owns priorities. Do not repeat qualified VM20, completed audits, builds or device deployment merely to resume.
+1. If needed, consume final-delivery02 using the real contract above and verify current next/remote HEAD. If it has completed, do not replay it. #556 is closed; no duplicate closure or device action is needed. The owner may use RG35XX SP; automatic sync remains off and no screen check is needed.
+2. #493 is next host work: classify superseded firmware/build roots against current processes, immediate-test needs and required source custody; prepare scoped guarded retirement, then measure the retained working set. Last available647,420,825,600bytes (about603GiB). Historical Oct7 authorized deletion is complete and must not be replayed or widened. #555 final retention criterion stays open until satisfied. Current H700 is in owner testing; SM8550 awaits a separately authorized physical test. Compiler05 consumed copy04's private Nix store; classify dependencies before removal. No permanent historical-payload fallback hold.
+3. Finish #528/#344/#265/#337/#359 source/licence/final inventory/retrieval/off-host custody, bot/runner evidence, adoption/recovery/support/source notes and per-asset physical/publication gates. No public RC is allocated or publication authority inferred. M7 body owns priorities. Do not repeat qualified VM20, completed audits, builds or device deployment merely to resume. Device and #553/#540 external-transfer authorities are consumed.
+
 
 ## Key Files Modified
 
