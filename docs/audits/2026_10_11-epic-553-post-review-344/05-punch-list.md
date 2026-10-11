@@ -2,7 +2,7 @@
 
 Source: [04-analysis.md](04-analysis.md). Audit tracking: #553.
 
-Four audit-discovered items: 0 Critical, 0 High, 1 Medium, 3 Low. All are open. No confirmed product runtime defect; no device build starts before these repairs and the audit closeout pass.
+Four audit-discovered items: 0 Critical, 0 High, 1 Medium, 3 Low. All four are resolved in published commit `9f170ee74150607116c8ed37f9ee17df394bbcfb`. No confirmed product runtime defect; no device build starts before these repairs and the audit closeout pass.
 
 Can this be done on the VM? These repairs affect host qualification tools, source comments and audit evidence. Local isolated fixtures and byte-level artifact checks are the appropriate platform; no physical device or account is involved. Existing installed clean/retained VM qualification remains explicitly source-bound.
 
@@ -62,10 +62,10 @@ Can this be done on the VM? These repairs affect host qualification tools, sourc
 
 | Item | Outcome | Evidence |
 | --- | --- | --- |
-| PL-001 | Open | Resolution and command evidence pending |
-| PL-002 | Open | Resolution and command evidence pending |
-| PL-003 | Open | Resolution and command evidence pending |
-| PL-004 | Open | Resolution and command evidence pending |
+| PL-001 | Resolved | `9f170ee74150607116c8ed37f9ee17df394bbcfb`; #554; `checks/repairs/evidence-result.json`:25 receipts,8 upgrade inputs,10 applied/frozen modules, current rclone hashes, original2/2/2;13 names/14 recipes. |
+| PL-002 | Resolved | `9f170ee74150607116c8ed37f9ee17df394bbcfb`; #554; `checks/repairs/result.json`:12 baseline,12 with failing upstream injection,13 new-fork, wrong cooldown12/1failure. |
+| PL-003 | Resolved | `9f170ee74150607116c8ed37f9ee17df394bbcfb`; #554; `checks/repairs/result.json`:7 states pass;5 invalid-source controls exit2 without traceback. |
+| PL-004 | Resolved | `9f170ee74150607116c8ed37f9ee17df394bbcfb`; #554; `checks/repairs/result.json`:unchanged patch payload, comments-only pair, syntax and9 launch controls pass. |
 
 ## Machine-readable index
 
@@ -78,7 +78,7 @@ punch_index:
   owner_area: "audit evidence and component dispositions"
   where: "02-forward-audit.md; 04-analysis.md; docs/qa-logs/2026-10-11-component-inputs/"
   acceptance: "A command rehashes every supplemental artifact, validates the current rclone recipe/archive bindings and retained publication hold, verifies the original upgrade manifest and all three original build20 rc2 channels, and counts14 recipe files for13 names."
-  outcome: open
+  outcome: resolved
 - id: PL-002
   severity: "Low"
   category: "Test Gap"
@@ -86,7 +86,7 @@ punch_index:
   owner_area: "proxy integration qualification"
   where: "tools/raofflineproxy-integration-test:233"
   acceptance: "The fixed real runner executes12 passing fork tests despite an injected failing upstream method, automatically includes an added fork test (13 passing), and still rejects the wrong cooldown duration."
-  outcome: open
+  outcome: resolved
 - id: PL-003
   severity: "Low"
   category: "Code Quality"
@@ -94,7 +94,7 @@ punch_index:
   owner_area: "upgrade readiness qualification"
   where: "tools/vm-upgrade-readiness-test:14"
   acceptance: "All7 readiness controls pass; historical/missing-function, unterminated-function and unreadable-file controls exit2 with a meaningful diagnostic and no traceback."
-  outcome: open
+  outcome: resolved
 - id: PL-004
   severity: "Low"
   category: "Documentation Gap"
@@ -102,7 +102,7 @@ punch_index:
   owner_area: "proxy patch and VM helper documentation"
   where: "projects/ROCKNIX/packages/network/raofflineproxy/patches/004-no-cap-on-cached-games.patch:3; tools/vm-pair:17"
   acceptance: "The patch diff payload is byte-identical before/after; vm-pair changes are comments only, shell syntax and all9 launch controls pass; current references no longer hardcode custom sockets under/tmp."
-  outcome: open
+  outcome: resolved
 ```
 
 

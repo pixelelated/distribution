@@ -9,7 +9,7 @@
 
 The primary audit finds no new confirmed implementation defect in the post-#540 delta throughb990d32c93. The assembled engineering firmware remains1a02664844.44 criteria have supporting code/executable/runtime evidence; five publication criteria remain PARTIAL because #528 already tracks unresolved source/licence/vendor/retrieval/custody work. This is not a public-release clearance.
 
-The primary reviewer re-read33 changed distribution product/QA files, the separate ES test-double change and relevant upstream queue/watcher/storage consumers. Fresh bounded controls pass and original clean/retained-image receipts were re-derived, including two randomly selected prior PASS claims. Original failed build/QA/parser aggregates remain unchanged. Fable's completed independent review produced13 leads, adjudicated below into four bounded repairs under #554. No product runtime defect was confirmed; repair verification and delivery precede audit closure.
+The primary reviewer re-read33 changed distribution product/QA files, the separate ES test-double change and relevant upstream queue/watcher/storage consumers. Fresh bounded controls pass and original clean/retained-image receipts were re-derived, including two randomly selected prior PASS claims. Original failed build/QA/parser aggregates remain unchanged. Fable's completed independent review produced13 leads, adjudicated below into four bounded repairs under #554. No product runtime defect was confirmed; all four repairs are verified and delivered in `9f170ee74150607116c8ed37f9ee17df394bbcfb`; both tracker issues are verified closed as completed.
 
 ## Acceptance-criteria scorecard
 
@@ -29,7 +29,7 @@ Changes are narrow and preserve ordinary build-engine hooks. New helpers validat
 
 ## Cornerstone conformance
 
-The30 canonical rule rows and74 original blindspot entries are dispositioned in03-retrospective. Key invariants—progress retention, independent selected folders, explicit sync intent, target-tool evidence, exact-source frames and frozen checkout—are supported. The actual18-closure cadence requires this audit; the existing540 completion marker is not recycled. Phase4.6 is complete; Phase7 repair resolution and delivery remain the gate.
+The30 canonical rule rows and74 original blindspot entries are dispositioned in03-retrospective. Key invariants—progress retention, independent selected folders, explicit sync intent, target-tool evidence, exact-source frames and frozen checkout—are supported. The actual18-closure cadence requires this audit; the existing540 completion marker is not recycled. Phase4.6 is complete; All four Phase7 repairs are command-verified and published; exact tracker bodies and completed closure are verified.
 
 ## Spec fidelity
 
@@ -37,7 +37,7 @@ No emulator/component capability was removed to simplify the engineering build. 
 
 ## Missing artifacts
 
-External review identified incomplete packet evidence bindings; PL-001 supplies current and original constituent receipts without rewriting historical results. Existing #528 publication dispositions/corresponding-source retrieval/off-host custody, #349/#511 public explanation and #265/#337/#359 release/hardware gates remain explicitly tracked; they are not audit-discovered punch items. The verified external review and full adjudication are retained; final repair delivery and closure remain required.
+External review identified incomplete packet evidence bindings; PL-001 supplies current and original constituent receipts without rewriting historical results. Existing #528 publication dispositions/corresponding-source retrieval/off-host custody, #349/#511 public explanation and #265/#337/#359 release/hardware gates remain explicitly tracked; they are not audit-discovered punch items. The verified external review and full adjudication are retained; repairs are published and exact tracker closure is verified.
 
 ## Risk assessment
 
@@ -89,7 +89,7 @@ Additional packet limits: `checks/adjudication/supplemental-evidence.json` binds
 
 The game-to-game stamp is `-`/`?` in the original18,19 and20 reports. The20 standalone exit scenario records completed x1 and a1.45-second stamp. This unchanged observation cannot establish the game-to-game sync outcome or a new regression; no such outcome claim is made. Supplemental validation binds all three original reports.
 
-Net effect:4 grouped repair items (1Medium,3Low), no confirmed product defect or FAIL criterion. AC-545-03 andAC-546-03 retain PASS after the executed-script binding probe; #528's5 PARTIAL publication obligations remain. All four repairs now have passing command evidence in checks/repairs. Phase7 remains open until the fixes are delivered and tracker closure is re-read.
+Net effect:4 grouped repair items (1Medium,3Low), no confirmed product defect or FAIL criterion. AC-545-03 andAC-546-03 retain PASS after the executed-script binding probe; #528's5 PARTIAL publication obligations remain. All four repairs now have passing command evidence in checks/repairs. The fixes are published in `9f170ee74150607116c8ed37f9ee17df394bbcfb`; exact tracker closure is verified.
 
 ## Quality self-check
 
@@ -103,7 +103,7 @@ Net effect:4 grouped repair items (1Medium,3Low), no confirmed product defect or
 | Phase4.5 refutation | Present; no new confirmed finding |
 | Second opinion | One verified cross-lab call; all13 leads adjudicated;4 repairs |
 | Instruction recommendations | Present; existing homes, no new uncovered recurrence |
-| Phase5–7 | Four repairs identified; resolution remains required |
+| Phase5–7 | Four repairs command-verified and published; both trackers verified completed |
 
 
 Repair tracker: [#554 — M7.P5 post-review evidence and tool gaps](https://github.com/pixelelated/distribution/issues/554), child of #344; audit #553.
@@ -118,10 +118,12 @@ Repair tracker: [#554 — M7.P5 post-review evidence and tool gaps](https://gith
 The original `checks/result.json` field `recipe_count:13` counts package names; `checks/pkgcheck.log` has14 recipe files because tailscale resolves both generic and project recipes. Current prose uses both counts. Host INFORMATION verification runs13 controls including the old baseline; CI runs12 without that comparison.
 
 
-## Repair verification — delivery pending
+## Repair verification — published
 
 PL-001: `checks/repairs/evidence-result.json` rehashes25 original receipts, all8 executed-upgrade inputs, all10 supplied proxy modules against both applied and frozen build sources, the current rclone binding and all3 historical game-to-game reports. Original build20 remains2/2/2; its pinned container controls remain1/0. Recipe count is13 names/14 files; #528 publication remains held.
 
 PL-002: the real proxy runner passes12 original tests,12 despite a failing injected upstream base method, and13 with an added fork class. Wrong cooldown still fails1of12. PL-003: all7 readiness states pass; historical/missing/incomplete/unreadable/invalid-encoding inputs exit2 without tracebacks. PL-004: all9 VM launch controls and shell syntax pass; byte comparison confirms unchanged patch diff payload and comment-only vm-pair changes. Original negative outcomes remain separate.
 
-`checks/repairs/launcher-result.json` ends0 at22:07:59UTC; the actual owner exited. Evidence reconciliation ended0 at22:09:21UTC. Firmware/runtime bytes remain those of qualified20; these repairs do not change an ES flow or require new UI frames. Commit containment and final tracker closure are still required.
+`checks/repairs/launcher-result.json` ends0 at22:07:59UTC; the actual owner exited. Evidence reconciliation ended0 at22:09:21UTC. Firmware/runtime bytes remain those of qualified20; these repairs do not change an ES flow or require new UI frames. `checks/delivery/repair-delivery.json` verifies next/origin containment and each repaired path’s last commit. `checks/delivery/tracker-completion.json` verifies both issue bodies and completed closure.
+
+Final Phase7 readback: #553 and#554 closed completed at verified timestamp`2026-10-11T22:14:08.836041+00:00`; all four repairs Resolved. No deferred or withdrawn finding. `audit-completion.json` binds this final analysis, punch list and exact tracker receipts.
