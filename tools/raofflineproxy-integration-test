@@ -42,6 +42,18 @@ helper = importlib.util.module_from_spec(spec)
 loader.exec_module(helper)
 
 
+class PreparationCadence(unittest.TestCase):
+    def test_existing_pause_boundaries_survive_removed_upstream_helper(self):
+        # WholeLibrary mocks this boundary to exercise125 games quickly. Check
+        # the real compatibility helper too, without waiting a minute in QA.
+        with mock.patch.object(helper.time, 'sleep') as sleep, \
+                contextlib.redirect_stderr(io.StringIO()):
+            paused = [count for count in range(126)
+                      if helper.apply_scan_batch_cooldown(count)]
+        self.assertEqual([50, 100], paused)
+        self.assertEqual([mock.call(30.0), mock.call(30.0)], sleep.call_args_list)
+
+
 class WholeLibrary(QueueTestCase):
     def prepare(self, kind, count=125):
         paths = self.roms(*(str(i) for i in range(1,count+1)))
@@ -150,7 +162,7 @@ rows = list(store.iter_cache_by_prefix('')) if hasattr(store, 'iter_cache_by_pre
 store.close()
 legacy=root/'static/Badge/old.png';legacy.parent.mkdir(parents=True);legacy.write_bytes(b'previous cached image')
 '''
-            env=dict(os.environ,PYTHONPATH=str(args.predecessor_source.resolve()/'linux'),RAOFFLINEPROXY_CONFIG_DIR=str(root/'config'))
+            env=dict(os.environ,PYTHONDONTWRITEBYTECODE='1',PYTHONPATH=str(args.predecessor_source.resolve()/'linux'),RAOFFLINEPROXY_CONFIG_DIR=str(root/'config'))
             result=subprocess.run([sys.executable,'-c',script,str(root)],env=env,capture_output=True,text=True)
             self.assertEqual(0,result.returncode, 'predecessor fixture failed: ' + result.stderr)
             before=json.loads((root/'before.json').read_text())

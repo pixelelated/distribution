@@ -25,10 +25,9 @@ as-is (ROCKNIX D-RA-002, D-RA-016: whatever the fork changes in the proxy
 goes back); the headers are additive and cost a client nothing.
 
 diff --git a/linux/raofflineproxy/proxy_service.py b/linux/raofflineproxy/proxy_service.py
-index 259f21e..f19d977 100644
 --- a/linux/raofflineproxy/proxy_service.py
 +++ b/linux/raofflineproxy/proxy_service.py
-@@ -92,6 +92,14 @@ ALWAYS_TRY_UPSTREAM_ACTIONS = {"login", "login2"}
+@@ -93,6 +93,14 @@
  # through as it came. 401 and 403 do not: an auth failure keeps the 503, so
  # nothing about how credentials are handled changes here.
  AUTH_FAILURE_STATUSES = {401, 403}
@@ -43,12 +42,11 @@ index 259f21e..f19d977 100644
  
  
  def is_passthrough_client_error(path: str, status: int) -> bool:
-@@ -160,16 +168,33 @@ def should_cache_action(action: str | None, path: str) -> bool:
+@@ -161,16 +169,33 @@
      )
  
  
 -def response_bytes(code: int, body: str, reason: str | None = None) -> bytes:
--    text = body.encode("utf-8")
 +def response_head(
 +    code: int,
 +    reason: str | None,
@@ -56,14 +54,7 @@ index 259f21e..f19d977 100644
 +    content_length: int,
 +    extra_headers: Sequence[tuple[str, str]] = (),
 +) -> bytes:
-     reason_phrase = reason or canonical_reason_phrase(code)
--    head = (
--        f"HTTP/1.1 {code} {reason_phrase}\r\n"
--        f"Content-Type: application/json\r\n"
--        f"Content-Length: {len(text)}\r\n"
--        f"Connection: close\r\n\r\n"
--    ).encode("utf-8")
--    return head + text
++    reason_phrase = reason or canonical_reason_phrase(code)
 +    lines = [
 +        f"HTTP/1.1 {code} {reason_phrase}",
 +        f"Content-Type: {content_type}",
@@ -81,12 +72,20 @@ index 259f21e..f19d977 100644
 +    reason: str | None = None,
 +    extra_headers: Sequence[tuple[str, str]] = (),
 +) -> bytes:
-+    text = body.encode("utf-8")
+     text = body.encode("utf-8")
+-    reason_phrase = reason or canonical_reason_phrase(code)
+-    head = (
+-        f"HTTP/1.1 {code} {reason_phrase}\r\n"
+-        f"Content-Type: application/json\r\n"
+-        f"Content-Length: {len(text)}\r\n"
+-        f"Connection: close\r\n\r\n"
+-    ).encode("utf-8")
+-    return head + text
 +    return response_head(code, reason, "application/json", len(text), extra_headers) + text
  
  
  def raw_response_bytes(
-@@ -177,20 +202,14 @@ def raw_response_bytes(
+@@ -178,20 +203,14 @@
      body: bytes,
      content_type: str | None,
      reason: str | None = None,
@@ -101,17 +100,19 @@ index 259f21e..f19d977 100644
 -        f"Connection: close\r\n\r\n"
 -    ).encode("utf-8")
 -    return head + body
-+    return response_head(code, reason, mime_type, len(body), extra_headers) + body
- 
- 
+-
+-
 -def ok_json(body: str) -> bytes:
 -    return response_bytes(200, body, "OK")
++    return response_head(code, reason, mime_type, len(body), extra_headers) + body
++
++
 +def ok_json(body: str, extra_headers: Sequence[tuple[str, str]] = ()) -> bytes:
 +    return response_bytes(200, body, "OK", extra_headers)
  
  
  def error_json(code: int, message: str) -> bytes:
-@@ -442,7 +461,9 @@ class ProxyRuntimeServer(ThreadingTCPServer):
+@@ -443,7 +462,9 @@
          if cached is None:
              return None
  

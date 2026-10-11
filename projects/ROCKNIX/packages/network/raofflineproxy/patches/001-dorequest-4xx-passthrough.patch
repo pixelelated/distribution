@@ -26,12 +26,11 @@ for, and "Load failed (-29): Unknown game" without it. Offered upstream
 as-is (ROCKNIX D-RA-002: whatever the fork changes in the proxy goes back).
 
 diff --git a/linux/raofflineproxy/proxy_service.py b/linux/raofflineproxy/proxy_service.py
-index eb14239..cf8fab2 100644
 --- a/linux/raofflineproxy/proxy_service.py
 +++ b/linux/raofflineproxy/proxy_service.py
-@@ -83,6 +83,20 @@ ONLINE_REFRESH_IDLE_DELAY_SECONDS = 5 * 60
- REFRESH_PLAYED_WINDOW_MS = REFRESH_PLAYED_WINDOW_DAYS * 24 * 60 * 60 * 1000
+@@ -84,6 +84,20 @@
  CACHE_QUEUE_POLL_SECONDS = 60
+ WORKER_STOP_TIMEOUT_SECONDS = 5.0
  ALWAYS_TRY_UPSTREAM_ACTIONS = {"login", "login2"}
 +# A 4xx RetroAchievements sends for a dorequest.php call it understood but
 +# cannot satisfy -- 404 "Unknown game" for a hash with no set, 400 for a bad
@@ -50,7 +49,7 @@ index eb14239..cf8fab2 100644
  
  
  def is_static_asset_request(path: str) -> bool:
-@@ -529,6 +543,12 @@ class ProxyRuntimeServer(ThreadingTCPServer):
+@@ -528,6 +542,12 @@
              return self.handle_offline_request(path, raw_body, action)
  
          if upstream[0] != "success":

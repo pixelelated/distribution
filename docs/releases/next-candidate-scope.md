@@ -20,6 +20,15 @@ Five shader/ABL aggregate gaps, vendor/prebuilt terms and source custody still
 hold publication. This engineering-build disposition is not licence clearance.
 No new combined image or owner-device mutation is running at this checkpoint.
 
+## Dependency gate after the initial freeze — #541
+
+The63a2090a56 component-input commit is published and both exact-head CI checks
+passed. The initial replacement19 freeze did not compile: freshness caught rclone
+1.75.2 and RAOfflineProxyc7ebd1b6e7. #541 owns their source/compatibility refresh,
+then a new exact-source freeze and combined-image proof. The independent warm
+cache copy may finish and be reused. [Refresh evidence](../qa-logs/2026-10-11-dependency-refresh/README.md).
+No prior #540 audit transfer is repeated. Publication holds above remain open.
+
 ## Issue disposition
 
 | Issue | Disposition and evidence | Remaining assertion / owner |

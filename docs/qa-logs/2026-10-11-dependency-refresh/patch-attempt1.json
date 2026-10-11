@@ -1,0 +1,82 @@
+[
+  {
+    "patch": "001-dorequest-4xx-passthrough.patch",
+    "rc": 1,
+    "output": "patching file linux/raofflineproxy/proxy_service.py\nHunk #1 FAILED at 83.\nHunk #2 succeeded at 528 (offset -1 lines).\n1 out of 2 hunks FAILED -- saving rejects to file linux/raofflineproxy/proxy_service.py.rej\n"
+  },
+  {
+    "patch": "002-no-synthetic-casual-only-achievement.patch",
+    "rc": 0,
+    "output": "patching file linux/raofflineproxy/rom_cache.py\nHunk #1 succeeded at 40 (offset 3 lines).\nHunk #2 succeeded at 62 (offset 3 lines).\n"
+  },
+  {
+    "patch": "003-flush-stamp.patch",
+    "rc": 0,
+    "output": "patching file linux/raofflineproxy/flusher.py\n"
+  },
+  {
+    "patch": "004-no-cap-on-cached-games.patch",
+    "rc": 1,
+    "output": "patching file linux/raofflineproxy/rom_browser.py\nHunk #1 succeeded at 511 (offset -2 lines).\nHunk #2 succeeded at 551 (offset -2 lines).\nHunk #3 succeeded at 677 (offset 3 lines).\nHunk #4 succeeded at 705 (offset 7 lines).\nHunk #5 succeeded at 738 (offset 27 lines).\nHunk #6 FAILED at 778.\n1 out of 6 hunks FAILED -- saving rejects to file linux/raofflineproxy/rom_browser.py.rej\n"
+  },
+  {
+    "patch": "005-keep-the-refresh-thread-alive.patch",
+    "rc": 1,
+    "output": "patching file linux/raofflineproxy/proxy_service.py\nHunk #2 FAILED at 82.\nHunk #3 succeeded at 1042 (offset -13 lines).\nHunk #4 succeeded at 1095 (offset -13 lines).\nHunk #5 succeeded at 1117 (offset -13 lines).\n1 out of 5 hunks FAILED -- saving rejects to file linux/raofflineproxy/proxy_service.py.rej\n"
+  },
+  {
+    "patch": "007-cached-sign-in-of-the-configured-account.patch",
+    "rc": 0,
+    "output": "patching file linux/raofflineproxy/auth.py\n"
+  },
+  {
+    "patch": "008-log-upload-opt-in.patch",
+    "rc": 0,
+    "output": "patching file linux/raofflineproxy/config.py\npatching file linux/raofflineproxy/proxy_service.py\nHunk #2 succeeded at 1300 (offset 28 lines).\nHunk #3 succeeded at 1308 (offset 28 lines).\nHunk #4 succeeded at 1364 (offset 39 lines).\npatching file linux/tests/test_linux_storage_corruption_retry.py\n"
+  },
+  {
+    "patch": "009-unique-image-temp-names.patch",
+    "rc": 0,
+    "output": "patching file linux/raofflineproxy/image_cache.py\n"
+  },
+  {
+    "patch": "010-store-only-header.patch",
+    "rc": 0,
+    "output": "patching file linux/raofflineproxy/proxy_service.py\nHunk #1 succeeded at 398 (offset -14 lines).\n"
+  },
+  {
+    "patch": "011-offline-login-header.patch",
+    "rc": 1,
+    "output": "patching file linux/raofflineproxy/proxy_service.py\nHunk #1 FAILED at 92.\nHunk #2 succeeded at 146 (offset -14 lines).\nHunk #3 succeeded at 180 (offset -14 lines).\nHunk #4 succeeded at 439 (offset -14 lines).\n1 out of 4 hunks FAILED -- saving rejects to file linux/raofflineproxy/proxy_service.py.rej\n"
+  },
+  {
+    "patch": "012-offline-image-miss.patch",
+    "rc": 1,
+    "output": "patching file linux/raofflineproxy/proxy_service.py\nHunk #1 FAILED at 100.\nHunk #2 succeeded at 93 (offset -22 lines).\nHunk #3 succeeded at 216 (offset -22 lines).\nHunk #4 succeeded at 274 (offset -22 lines).\nHunk #5 succeeded at 376 (offset -22 lines).\nHunk #6 succeeded at 451 (offset -22 lines).\n1 out of 6 hunks FAILED -- saving rejects to file linux/raofflineproxy/proxy_service.py.rej\n"
+  },
+  {
+    "patch": "013-validate-a-cached-image-before-publishing-it.patch",
+    "rc": 0,
+    "output": "patching file linux/raofflineproxy/image_cache.py\npatching file linux/tests/test_linux_image_cache_shutdown.py\n"
+  },
+  {
+    "patch": "015-bounded-name-lookup.patch",
+    "rc": 0,
+    "output": "patching file linux/raofflineproxy/network.py\nHunk #3 succeeded at 249 (offset -14 lines).\npatching file linux/raofflineproxy/proxy_service.py\nHunk #2 succeeded at 275 (offset -27 lines).\nHunk #3 succeeded at 817 (offset -34 lines).\npatching file linux/tests/test_linux_network.py\n"
+  },
+  {
+    "patch": "016-say-what-became-of-a-download.patch",
+    "rc": 0,
+    "output": "patching file linux/raofflineproxy/image_cache.py\n"
+  },
+  {
+    "patch": "018-pixelelated-platform-identity.patch",
+    "rc": 0,
+    "output": "patching file linux/raofflineproxy/config.py\npatching file linux/tests/test_linux_rocknix.py\n"
+  },
+  {
+    "patch": "019-consent-cache-initial-observation.patch",
+    "rc": 0,
+    "output": "patching file linux/raofflineproxy/usage_stats.py\npatching file linux/tests/test_linux_usage_stats.py\n"
+  }
+]

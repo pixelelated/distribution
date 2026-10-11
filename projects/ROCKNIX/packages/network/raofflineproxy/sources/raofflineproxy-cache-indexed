@@ -37,12 +37,12 @@ import json
 import os
 import sys
 import threading
+import time
 from pathlib import Path
 
 from raofflineproxy import cache_budget, cache_keys, image_cache, network, rate_limit, rom_browser, rom_cache
 from raofflineproxy.auth import resolve_credentials
 from raofflineproxy.config import configure_logging, image_caching_enabled, load_config
-from raofflineproxy.network import apply_scan_batch_cooldown
 from raofflineproxy.rom_browser import add_rom_to_cache, normalize_cached_rom_path
 from raofflineproxy.rom_cache import cache_game
 from raofflineproxy.storage import Storage, current_millis
@@ -66,6 +66,17 @@ rom_cache.http_get = _counting_http_get
 
 def note(text: str) -> None:
     print(text, file=sys.stderr, flush=True)
+
+
+def apply_scan_batch_cooldown(scanned: int) -> bool:
+    # Upstream removed this helper when its background queue adopted pacing.
+    # Keep the deliberate OS preparation command's existing 50-game/30-second
+    # cadence; upstream request throttling and persisted 429 pauses still apply.
+    if scanned > 0 and scanned % 50 == 0:
+        note(f"Scan batch cooldown after {scanned} scanned, sleeping 30s")
+        time.sleep(30.0)
+        return True
+    return False
 
 
 def wait_for_badges(seconds: float) -> None:

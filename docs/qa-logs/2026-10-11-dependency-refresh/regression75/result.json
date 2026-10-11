@@ -1,0 +1,22 @@
+[
+  {
+    "step": "proxy-lint",
+    "returncode": 0
+  },
+  {
+    "step": "rclone-lint",
+    "returncode": 0
+  },
+  {
+    "step": "schema",
+    "returncode": 0
+  },
+  {
+    "step": "integration",
+    "returncode": 0
+  },
+  {
+    "step": "regression",
+    "returncode": 1
+  }
+]

@@ -39,9 +39,9 @@ diff --git a/linux/raofflineproxy/proxy_service.py b/linux/raofflineproxy/proxy_
  REFRESH_PLAYED_WINDOW_MS = REFRESH_PLAYED_WINDOW_DAYS * 24 * 60 * 60 * 1000
 +REFRESH_MAX_FAILURES_IN_A_ROW = 3
  CACHE_QUEUE_POLL_SECONDS = 60
+ WORKER_STOP_TIMEOUT_SECONDS = 5.0
  ALWAYS_TRY_UPSTREAM_ACTIONS = {"login", "login2"}
- # A 4xx RetroAchievements sends for a dorequest.php call it understood but
-@@ -1054,37 +1056,47 @@
+@@ -1055,37 +1057,47 @@
          self.stop_event.set()
  
      def run(self) -> None:
@@ -119,7 +119,7 @@ diff --git a/linux/raofflineproxy/proxy_service.py b/linux/raofflineproxy/proxy_
  
      def wait_until_idle(self) -> bool:
          idle_delay = self.server.activity.idle_delay_seconds()
-@@ -1097,6 +1109,7 @@
+@@ -1098,6 +1110,7 @@
  
      def refresh_games(self, game_ids: list[int], credentials: dict, user_agent: str) -> int:
          refreshed = 0
@@ -127,7 +127,7 @@ diff --git a/linux/raofflineproxy/proxy_service.py b/linux/raofflineproxy/proxy_
          for game_id in game_ids:
              if self.server.activity.idle_delay_seconds() > 0:
                  LOGGER.info("Periodic refresh paused; proxy became active")
-@@ -1118,9 +1131,24 @@
+@@ -1119,9 +1132,24 @@
                      self.server.storage,
                  )
                  cache_session(game_id, credentials, self.server.storage)

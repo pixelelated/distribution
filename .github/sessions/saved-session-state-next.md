@@ -1,5 +1,40 @@
 # Saved Session State
 
+## Current continuation — 2026-10-11T17:33:49.678211+00:00
+
+Active feature/m7-component-inputs at /workspace/repos/rocknix.worktrees/m7-component-inputs,
+based on published63a2090a56 (both hosted checks PASS), awaiting source commit/push.
+#540 audit remains complete; no repeat transfer or owner handheld/cloud action.
+ESc8dc72cf9e unchanged. M7/#541 owns dependency refresh before combined compilation.
+
+Source refresh is qualified: rclone1.75.2; proxyc7ebd1b6e7 with16 zero-fuzz patches,
+unchanged native pins, retained whole-library cadence, state and consent.866 native
+upstream tests and12 final integration controls pass. Fresh79 freshness/lint/schema
+pass. Its full host run ends1:1372PASS,1 patch dry-run quota failure,0SKIP; target82
+extracts the exact corrected harness section and passes. Do not relabel79 as0.
+Original75 failures/26skips,76 lock refusal and80 negative/pass quota controls remain.
+Evidence docs/qa-logs/2026-10-11-dependency-refresh, final-source.json binds final bytes.
+Full ceremony/rules/register/index pass. #541 still requires local protocol/image proof.
+
+Cache owner /workspace/tmp/pixelelated-m7-cache19-recheck completed0 at17:27:59UTC:
+empty full checksum diff and2,532,289 independent regular files. Original copy19
+failed on seven generated predecessor .pyc files; original9-line difference retained.
+Future predecessor tests suppress bytecode writes. Build tree
+/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement19 remains63a2090a56,
+clean and idle; initial freeze will NOT compile unchanged. No compiler has run.
+/workspace/tmp/pixelelated-m7-build19 is dormant: build/observer/freeze/install-check
+scripts prepared, no inputs.json yet. Disk1.1TiB free at17:28; swap needs guarded reclaim
+once actual host process exit checks confirm all watchers done. /proc readback must
+use actual host escalation, not the sandbox namespace.
+
+Next: commit/push source, exact-head hosted CI; explicitly advance only build19 to
+that head, run prepared freeze.py with exact head, verify manifest and host preflight,
+launch build19 through watch-build-submit. It cleans changed packages and records
+installed helpers, identity, rclone version and ES/browser/proxy source. Then artifact
+and clean/public-ROCKNIX/retained VM suites, three local protocols and affected frames;
+H700 thenSM8550. #528 publication/source-custody holds remain; no public RC allocated.
+No old QA disks removed yet; accepted old18 root remains an immediate comparison input.
+
 ## Current continuation — 2026-10-11T16:54:33.506475+00:00
 
 Active work: feature/m7-component-inputs at

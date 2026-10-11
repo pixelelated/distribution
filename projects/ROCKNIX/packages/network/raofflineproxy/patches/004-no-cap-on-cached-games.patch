@@ -11,10 +11,9 @@ The original patch004 raised a removed total-library cap. This replacement
 preserves that workflow through current upstream's queue API instead.
 
 diff --git a/linux/raofflineproxy/rom_browser.py b/linux/raofflineproxy/rom_browser.py
-index 97ab179..5fd43cc 100644
 --- a/linux/raofflineproxy/rom_browser.py
 +++ b/linux/raofflineproxy/rom_browser.py
-@@ -513,9 +513,12 @@ def fetch_game_id(
+@@ -511,9 +511,12 @@
      return int(game_id)
  
  
@@ -29,7 +28,7 @@ index 97ab179..5fd43cc 100644
      user_agent = self_user_agent()
      credentials = resolve_credentials(storage, config_data, user_agent)
      if credentials is None:
-@@ -550,6 +553,7 @@ def add_rom_to_cache(path: Path, storage: Storage, config_data: dict) -> AddRomR
+@@ -548,6 +551,7 @@
              credentials,
              user_agent,
              wait_for_lock=True,
@@ -37,7 +36,7 @@ index 97ab179..5fd43cc 100644
              keys=[rom.key],
              on_outcome=lambda queued, outcome, game_id, message: outcomes.__setitem__(
                  queued.key, (outcome, game_id, message)
-@@ -670,6 +674,7 @@ def drain_cache_queue(
+@@ -673,6 +677,7 @@
      keys: list[str] | None = None,
      on_item=None,
      on_outcome=None,
@@ -45,7 +44,7 @@ index 97ab179..5fd43cc 100644
  ) -> DrainResult:
      """The single place that sends RA requests for bulk caching: works through the queue oldest
      first (or through keys, in order) within the caching budget. A window allows
-@@ -693,6 +698,7 @@ def drain_cache_queue(
+@@ -700,6 +705,7 @@
                  None if keys is None else list(dict.fromkeys(keys)),
                  on_item,
                  on_outcome,
@@ -53,7 +52,7 @@ index 97ab179..5fd43cc 100644
              )
  
  
-@@ -705,6 +711,7 @@ def _drain_locked(
+@@ -732,6 +738,7 @@
      pending_keys: list[str] | None,
      on_item,
      on_outcome,
@@ -61,7 +60,7 @@ index 97ab179..5fd43cc 100644
  ) -> DrainResult:
      cached = 0
      no_match = 0
-@@ -771,7 +778,12 @@ def _drain_locked(
+@@ -802,7 +809,12 @@
              report(rom, QueuedRomOutcome.ALREADY_CACHED, local.game_id, "")
              continue
  
@@ -74,4 +73,4 @@ index 97ab179..5fd43cc 100644
 +        games_left = cache_budget.remaining(storage) if budgeted else 1
          if games_left == 0:
              return result(DrainStop.BUDGET_EXHAUSTED, cache_budget.next_available_at(storage))
-         apply_scan_batch_cooldown(requested)
+         if requested > 0 and not paced and past_burst(storage, requested):

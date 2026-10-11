@@ -87,7 +87,8 @@ commits_behind() {  # <owner/repo> <sha>
         else "\(.ahead_by) behind \(.commits[-1].sha[0:10]) (\(.commits[-1].commit.committer.date[0:10]))" end' 2>/dev/null
 }
 packages() {
-    git -C "$ROOT" diff --name-only --diff-filter=A "$BASE_REF" "$HEAD_REF" -- '*/package.mk' | sed 's|/package.mk$||'
+    # Only build-engine recipe roots; docs/ holds immutable historical fixtures.
+    git -C "$ROOT" diff --name-only --diff-filter=A "$BASE_REF" "$HEAD_REF" -- packages projects | sed -n 's|/package.mk$||p'
     for p in $EXTRA_PACKAGES; do echo "$p"; done
 }
 

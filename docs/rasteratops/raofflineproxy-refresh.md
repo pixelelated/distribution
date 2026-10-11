@@ -1,5 +1,18 @@
 # Current RAOfflineProxy integration for0.0.1
 
+M7.P5 #541 selects c7ebd1b6e777f3751ff0ecdf8aba54045844e00d, archive SHA256
+88eef31acfa4104b20258bd5cea514ade30e6cdf35767ffc958009851d61898b.
+Linux background queue pacing and opt-in watched folders change. All16 patches
+apply without fuzz; coupled native pins and existing SQL columns remain unchanged.
+The explicit OS whole-library command preserves its50-game/30-second cooldown
+locally after upstream removed the imported utility. Background callers retain
+upstream pacing and their100-game window; explicit consent remains required.
+866 native-enabled upstream tests and actual-predecessor fork integration pass.
+[Exact source, failed import and proof](../qa-logs/2026-10-11-dependency-refresh/README.md).
+Installed-image qualification is still required; no new firmware/RC is claimed.
+
+# Previous879b158 source qualification
+
 Selected879b158995d412af434301ebdae581f66b8b6d57, archive SHA256
 984957322337d1325f1b0fc11502336a80241ec511fd041c969bb0103c231664.
 The final frozen13 freshness check caught this Android-only update before
