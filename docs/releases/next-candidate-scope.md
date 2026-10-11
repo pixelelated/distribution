@@ -16,12 +16,11 @@ Independent#553/#554 is complete: all13 reviewer leads adjudicated, four
 repairs delivered, valid closure marker, full ceremony and exact-head CI green.
 No confirmed product defect; #528 publication obligations remain partial.
 
-[#555 handheld refresh](../qa-logs/2026-10-11-device-refresh/README.md) freezes
-publishedbc9dfe8141 for H70003, then SM8550. The only product-path difference
-from VM20 is a patch header with identical applied payload. Independent warm
-cache verification and independent H700 firmware acceptance passed. SM855004
-cache/Nix preparation is active; canonical compilation and GPT/ABL/FEX/ARM
-acceptance follow. Physical deployments and public RC designation remain separate.
+[#555 handheld refresh](../qa-logs/2026-10-11-device-refresh/README.md): Both refreshed handheld builds and independent artifact acceptance are COMPLETE, from audited bc9dfe8141 with shared identity `0.0.1-dev+20261011T222153Z.gbc9dfe8141d9`. H700 build ended0 at22:51:17UTC and acceptance04 at22:54:47UTC; both DDR variants/update and186 ARM files pass. SM8550 build05 ended0 at23:31:03UTC and acceptance05 at23:31:43UTC; raw/update equality, GPT, all five ABL package files,14 FEX outputs and188 ARM files pass. All original successful-run channels0, actual owners exited, containers removed and acceptance scratch removed. Box86 differences are bounded date/time/revision metadata only; added popt is exact from package staging through ARM and installed firmware. H700 bundle66273ff16383957687af44728a9e4e2c4bf1242c0217cf681dca8abee858d9b7; SM8550 bundlea480210cd8837f20fb67a80508c517308cc0326ed2c1544493e3f56d125f1f2f. Evidence: `docs/qa-logs/2026-10-11-device-refresh/`.
+
+#556 RG35XX SP transfer and one reboot are COMPLETE and accepted. Exact installed system/kernel/DTB/DDR4 bootloader/ES/both RetroArch hashes match; queue empty, original mounts, active frontend/zero restarts. All163 protected files, three recovery entries and every current configuration/credential/path are preserved. Automatic cloud sync remains off; device returned to owner use. No screenshot/input/game/audio/cloud operation or further physical-device authority is implied.
+
+#493 remains the next host task: classify superseded roots/firmware and source-custody dependencies, prepare guarded retirement, then remeasure capacity. Current host availability is647,420,825,600bytes (about603GiB). No old deletion batch is replayed or widened. Current H700 supports owner testing; current SM8550 is held for its next named physical test. Large historical artifacts are not permanent fallbacks. Physical/publication holds stay explicit; no public RC is allocated.
 
 ## Subsequent owner feedback — 2026-10-11
 

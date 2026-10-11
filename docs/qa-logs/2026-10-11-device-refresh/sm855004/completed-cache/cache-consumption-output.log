@@ -1,0 +1,43 @@
+PASS frozen inputs, host options, container and 24/4 concurrency
+{
+  "result": "PASS",
+  "verified_at": "2026-10-11T23:23:38.142049+00:00",
+  "channels": {
+    "/workspace/tmp/pixelelated-m7-sm8550-refresh-04/copy.rc": 0,
+    "/workspace/tmp/pixelelated-m7-sm8550-refresh-04/copy.outer.rc": 0,
+    "/workspace/tmp/pixelelated-m7-sm8550-refresh-04/cache-launch/tool-wrapper.rc": 0,
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-03/.build-runs/20261011T225712Z-209dd87c/build.rc": 0
+  },
+  "launcher_returncode": 0,
+  "actual_owner_pids_absent": [
+    934461,
+    934462,
+    934465,
+    934493
+  ],
+  "run": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-03/.build-runs/20261011T225712Z-209dd87c",
+  "cache_ready": {
+    "utc": "2026-10-11T23:22:42.461728+00:00",
+    "result": "PASS",
+    "roots": [
+      {
+        "root": "build.pixelelated-SM8550.arm",
+        "checksum_equal": true,
+        "independent_regular_files": 790230
+      },
+      {
+        "root": "build.pixelelated-SM8550.aarch64",
+        "checksum_equal": true,
+        "independent_regular_files": 3413058
+      },
+      {
+        "root": "nix",
+        "checksum_equal": true,
+        "independent_regular_files": 19922
+      }
+    ],
+    "unchanged_tracked_timestamps_preserved": 116257,
+    "mode": "independent rsync files, internal hardlinks retained; no cross-root hardlinks"
+  },
+  "copy_seal_unchanged": true
+}

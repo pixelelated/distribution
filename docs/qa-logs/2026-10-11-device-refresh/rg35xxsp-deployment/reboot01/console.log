@@ -1,0 +1,26 @@
+watch-build: recording in /workspace/repos/rocknix.worktrees/m7-component-inputs/.build-runs/20261011T231248Z-1e690a3c
+2026-10-11T23:12:48.921249+00:00 power check 100 percent; external power connected
+CURRENT_STATE_STILL_VALID
+CURRENT_STATE_STILL_VALID
+REQUESTING_AUTHORIZED_REBOOT
+device-act: rg35xxsp 'M7 #556 authorized reboot to apply H700 bc9dfe8141' rc=0; before boot_id=519d34ca-fdbe-47c0-88e6-b49138451951 after=unreachable; recorded in /workspace/tmp/pixelelated-rg35xxsp-deploy-20261011/reboot01/device-actions.log
+Warning: Permanently added '100.74.205.40' (ED25519) to the list of known hosts.
+
+2026-10-11T23:14:12.477383+00:00 boot poll 1 ssh_rc 255 expected_build False
+2026-10-11T23:14:35.489251+00:00 boot poll 2 ssh_rc 255 expected_build False
+2026-10-11T23:14:58.500797+00:00 boot poll 3 ssh_rc 255 expected_build False
+2026-10-11T23:15:21.512695+00:00 boot poll 4 ssh_rc 255 expected_build False
+2026-10-11T23:15:44.525185+00:00 boot poll 5 ssh_rc 255 expected_build False
+2026-10-11T23:16:07.539871+00:00 boot poll 6 ssh_rc 255 expected_build False
+2026-10-11T23:16:30.552504+00:00 boot poll 7 ssh_rc 255 expected_build False
+2026-10-11T23:16:53.564732+00:00 boot poll 8 ssh_rc 255 expected_build False
+2026-10-11T23:17:16.579898+00:00 boot poll 9 ssh_rc 255 expected_build False
+2026-10-11T23:17:39.592779+00:00 boot poll 10 ssh_rc 255 expected_build False
+2026-10-11T23:18:02.605669+00:00 boot poll 11 ssh_rc 255 expected_build False
+2026-10-11T23:18:25.621195+00:00 boot poll 12 ssh_rc 255 expected_build False
+2026-10-11T23:18:48.632820+00:00 boot poll 13 ssh_rc 255 expected_build False
+2026-10-11T23:19:11.645744+00:00 boot poll 14 ssh_rc 255 expected_build False
+2026-10-11T23:19:34.658343+00:00 boot poll 15 ssh_rc 255 expected_build False
+2026-10-11T23:19:57.670950+00:00 boot poll 16 ssh_rc 255 expected_build False
+2026-10-11T23:20:18.181431+00:00 boot poll 17 ssh_rc 0 expected_build True
+2026-10-11T23:21:25.152288+00:00 PASS RG35XX SP update applied and installed bytes verified

@@ -1,0 +1,82 @@
+{
+  "utc": "2026-10-11T23:38:16.308057+00:00",
+  "result": "PASS",
+  "rows": [
+    {
+      "target": "H700",
+      "result": "PASS",
+      "box86": {
+        "before_sha256": "1c8af0d2bec8095a7d913b0912894e410143a49f3523094339027cc6c687300c",
+        "after_sha256": "865eba64ee207a00ca3cace46a3462c4e3d276392a2cf385e47b2768fe6b5b0b",
+        "bytes": 12749240,
+        "changed_fields": [
+          {
+            "offset": 11149516,
+            "before": "21:03:46",
+            "after": "22:46:00"
+          },
+          {
+            "offset": 11149528,
+            "before": "Oct  8 2026",
+            "after": "Oct 11 2026"
+          },
+          {
+            "offset": 11149540,
+            "before": "8b5113fa16",
+            "after": "bc9dfe8141"
+          }
+        ],
+        "all_other_bytes_identical": true
+      },
+      "added_library": {
+        "package": "popt-1.19",
+        "recipe": "packages/devel/popt/package.mk",
+        "handoff_recipe": "projects/ROCKNIX/packages/compat/lib32/package.mk",
+        "source": "usr/lib/libpopt.so.0.0.2",
+        "installed": "usr/lib32/libpopt.so.0.0.2",
+        "sha256": "72d469405f0b39c465881e03eb50948c0f28e98d8fe0f1afe95b04f29ddaa8b3",
+        "package_staging_arm_image_aarch64_image_and_accepted_firmware_equal": true,
+        "elf_class": 32,
+        "elf_machine": 40
+      }
+    },
+    {
+      "target": "SM8550",
+      "result": "PASS",
+      "box86": {
+        "before_sha256": "57e05c5a9c2a8920ab3066d2a987c75b5584baf0dd4f5ae9b486e0928016e707",
+        "after_sha256": "775e5fe017de708c1f580cdc62bc4ce3085dce845bcc090f42b4fe89313b8e84",
+        "bytes": 12749244,
+        "changed_fields": [
+          {
+            "offset": 11149516,
+            "before": "21:51:19",
+            "after": "23:25:25"
+          },
+          {
+            "offset": 11149528,
+            "before": "Oct  8 2026",
+            "after": "Oct 11 2026"
+          },
+          {
+            "offset": 11149540,
+            "before": "8b5113fa16",
+            "after": "bc9dfe8141"
+          }
+        ],
+        "all_other_bytes_identical": true
+      },
+      "added_library": {
+        "package": "popt-1.19",
+        "recipe": "packages/devel/popt/package.mk",
+        "handoff_recipe": "projects/ROCKNIX/packages/compat/lib32/package.mk",
+        "source": "usr/lib/libpopt.so.0.0.2",
+        "installed": "usr/lib32/libpopt.so.0.0.2",
+        "sha256": "08d1ae1726d887d3e3140f1e4d830d74388df1708ec83e648ac8862853634bc0",
+        "package_staging_arm_image_aarch64_image_and_accepted_firmware_equal": true,
+        "elf_class": 32,
+        "elf_machine": 40
+      }
+    }
+  ]
+}

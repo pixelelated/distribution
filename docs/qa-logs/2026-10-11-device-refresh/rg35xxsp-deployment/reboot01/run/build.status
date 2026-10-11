@@ -1,0 +1,13 @@
+state:       finished
+written:     2026-10-11 23:21:25 UTC   <- terminal result; heartbeat stops here
+watcher_pid: 1022339
+job_pid:     1022338  alive=yes
+started:     2026-10-11 23:12:48 UTC
+progress:    none matched
+log:         /workspace/repos/rocknix.worktrees/m7-component-inputs/.build-runs/20261011T231248Z-1e690a3c/build.log  (last written 0s ago)
+activity:    /workspace/repos/rocknix.worktrees/m7-component-inputs/.build-runs/20261011T231248Z-1e690a3c/build.log  (last written 0s ago)
+activity_root: /workspace/repos/rocknix.worktrees/m7-component-inputs
+outcome:     rc=0
+tail:
+  2026-10-11T23:20:18.181431+00:00 boot poll 17 ssh_rc 0 expected_build True
+  2026-10-11T23:21:25.152288+00:00 PASS RG35XX SP update applied and installed bytes verified

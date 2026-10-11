@@ -1,0 +1,41 @@
+{
+  "utc": "2026-10-11T23:12:48.527904+00:00",
+  "result": "PASS",
+  "original_results": {
+    "/workspace/tmp/pixelelated-rg35xxsp-deploy-20261011/stage01/inner.rc": "0",
+    "/workspace/tmp/pixelelated-rg35xxsp-deploy-20261011/stage01/outer.rc": "0",
+    "/workspace/tmp/pixelelated-rg35xxsp-deploy-20261011/stage01/tool-wrapper.rc": "0",
+    "/workspace/repos/rocknix.worktrees/m7-component-inputs/.build-runs/20261011T230829Z-f92fab6b/build.rc": "0"
+  },
+  "launcher_result": {
+    "utc": "2026-10-11T23:12:15.706511+00:00",
+    "pid": 994484,
+    "runner_returncode": 0,
+    "submission_is_not_completion": true
+  },
+  "processes": [
+    {
+      "pid": 994484,
+      "state": "absent"
+    },
+    {
+      "pid": 994485,
+      "state": "absent"
+    },
+    {
+      "pid": 994487,
+      "state": "absent"
+    },
+    {
+      "pid": 994515,
+      "state": "absent"
+    }
+  ],
+  "stage-result.json": {
+    "utc": "2026-10-11T23:12:10.888940+00:00",
+    "result": "PASS",
+    "remote_sha256": "ad0c75a7af641eab79f3a637c30f3ff6800fb69f879e2599e1463e011bcf3d81",
+    "queue": "/storage/.update/pixelelated-H700.aarch64-0.0.1-dev+20261011T222153Z.gbc9dfe8141d9-from-ROCKNIX.tar",
+    "rebooted": false
+  }
+}
