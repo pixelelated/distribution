@@ -1,0 +1,62 @@
+{
+  "utc": "2026-10-11T18:26:28.508488+00:00",
+  "image_source": "a0f60255abfefaddce772d0bba29977bafb7adab",
+  "es_source": "c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78",
+  "dimensions": [
+    1280,
+    800
+  ],
+  "frames": [
+    {
+      "file": "current/confirm-cloud-folder/02-hub-change-folder-row.png",
+      "sha256": "93fd83f2948a0d4f42f6f3240a7428d69b147f6b898f3dc6d45a08dbebbd2a48",
+      "review": "cloud-management row and selected folder remain legible; inherited top viewport clipping matches accepted #527"
+    },
+    {
+      "file": "baseline/confirm-cloud-folder/02-hub-change-folder-row.png",
+      "sha256": "84dee84c6ea3beaac09d83b23ea8db55e6f3373e277a8641ae0a56f46958de5e",
+      "review": "cloud-management row and selected folder remain legible; inherited top viewport clipping matches accepted #527"
+    },
+    {
+      "file": "current/confirm-cloud-folder/03-folder-editor.png",
+      "sha256": "98b313adef046cc1a7550d3d155b1c2b9c77accf70d6f25744e8bccaf3c50169",
+      "review": "CLEAR/CANCEL separate; exact folder, title and help row legible; existing callback preserved"
+    },
+    {
+      "file": "baseline/confirm-cloud-folder/03-folder-editor.png",
+      "sha256": "71d14ec5f96dcb82000c474a17cb5a91ccfd85c94f1cb6eed76334877f0159ec",
+      "review": "CLEAR/CANCEL separate; exact folder, title and help row legible; existing callback preserved"
+    },
+    {
+      "file": "current/to-change-cloud-folder/02-hub-change-folder-row.png",
+      "sha256": "2ed75c0c22dc826edf1618ca1b7815592d008bba132ba481968d4ba699ca7416",
+      "review": "cloud-management row and selected folder remain legible; inherited top viewport clipping matches accepted #527"
+    },
+    {
+      "file": "baseline/to-change-cloud-folder/02-hub-change-folder-row.png",
+      "sha256": "32d4b5565ef61c89842e5f6a9ba93c64e5db3d87405de3a54255023ae9e5540b",
+      "review": "cloud-management row and selected folder remain legible; inherited top viewport clipping matches accepted #527"
+    },
+    {
+      "file": "current/to-change-cloud-folder/03-folder-editor.png",
+      "sha256": "b7c59fe0cb41c3cd6e0e4bf02840c99a6ace77acd3c93f74e075da4aa244ea85",
+      "review": "CLEAR/CANCEL separate; exact folder, title and help row legible; existing callback preserved"
+    },
+    {
+      "file": "baseline/to-change-cloud-folder/03-folder-editor.png",
+      "sha256": "6d49954669423fa21835fb3806d721708a6db8fb080e8886bdda2a017d9e1e5c",
+      "review": "CLEAR/CANCEL separate; exact folder, title and help row legible; existing callback preserved"
+    }
+  ],
+  "source_sha256": {
+    "es-app/src/guis/GuiMenu.cpp": "4b2004ac9a75fcdd25832862da0bb39fb221d1ff8be3e4b8e0666b8d6b8ce50d",
+    "es-core/src/guis/GuiTextEditPopup.cpp": "cfc616dcb6f9dbd0a02e868f10dfa6046a6a5cb7e7c1e2ef75db9b78f838c804",
+    "es-core/src/guis/GuiTextEditPopupKeyboard.cpp": "6eeb14b1a3bb003b512281af4bd61a245e44354857326c121292a65814689e8f"
+  },
+  "prior_527_hub_sha256": "ae8941e0840ac39b5bb3f8b05d62d462f61aef4924b74dad0e4b30f68dd6419f",
+  "approved_behavior_refs": [
+    "#537",
+    "#538"
+  ],
+  "result": "Reviewed accepted differences; no new product defect observed"
+}

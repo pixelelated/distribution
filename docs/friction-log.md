@@ -558,3 +558,9 @@ cycle; source qualification and landing are still pending.
 - 2026-10-11 18:03 UTC — Replacement19 standard QA found an unextended rendering double and an unnamed canonical completion screen. Fixed the double only, retained unchanged production callbacks, and linked existing reviewed NC08 frames instead of exempting the title. Original two failures remain; focused ASan/governor/map checks pass. issue: #542; guards `tools/vm-qa` and `tools/es-menu-map-check`.
 
 - 2026-10-11 18:15 UTC — A new proxy integration class was omitted from the CLI’s manual class list; summaries claimed12 while original logs showed11. Module discovery now includes every declared case. Fresh12-case positive and wrong-duration negative controls prove the pacing assertion ran; previous logs and mistaken historical claims remain explicitly corrected. issue: #543; guard `tools/raofflineproxy-integration-test`.
+
+- 2026-10-11 18:34 UTC — Approved #537/#538 screens lacked updated baseline claims. Direct comparison retained the six-region failure, bounded the intended changes and passed all78 without masks/baseline changes; issue: #544; guard `tools/frame-diff`.
+
+- 2026-10-11 18:34 UTC — /tmp quota prevented QEMU PID writes while vm-pair suppressed launch errors and waited on absent guests. Propagate launch errors, verify disk-owning PID, preflight runtime writes, and share a short owned /workspace runtime root. Nine controls pass with a failing old-source control; issue: #545; guard `tools/vm-pair-test`. Scratch deletion remains unexecuted because dependency readback is incomplete.
+
+- 2026-10-11 18:40 UTC — Rehearsal read saves before its boot-specific autostart wait; later inventory showed the files. Move readiness ahead of both seeding and all retained-state checks; stale/failed/missing boot controls must fail closed. Original failure retained; issue: #546; guard `tools/vm-upgrade-readiness-test`.

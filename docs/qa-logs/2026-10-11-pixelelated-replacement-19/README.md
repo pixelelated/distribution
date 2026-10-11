@@ -34,19 +34,24 @@ The complete input-path manifest remains with the private build owner.
 `build/inputs.json.receipt.json` binds its exact bytes and records scalar inputs
 and inventory counts; it does not replace the complete per-file manifest.
 
-## Active qualification
+## Standard qualification and active upgrade
 
-`/workspace/tmp/pixelelated-m7-qa19`, launcher 2703005, started17:49:51UTC through
-watch-build-submit. It uses fresh 16 GiB guests, private synthetic cloud state,
-accepted-image BusyBox/rclone, exact ES source, the canonical frame baseline and
-standard vm-qa; SFTP and local S3 round trips follow default WebDAV. No owner
-handheld/cloud or live achievement award is involved. Original result channels
-and active process ownership decide completion. The driver stops its guests and
-endpoints when the sequence ends. Prepared driver bytes are under `qa-plan`;
-this checkpoint makes no PASS claim for that running sequence.
+Original qa19 ended1 at18:23:08UTC and all owned guests/endpoints stopped.
+Twelve standard suites pass, including scripts, actual walks, launch/exit and
+time-to-play. WebDAV, SFTP and local S3 each pass108 protocol assertions with
+the actual image rclone1.75.2. Exact installed payload/identity checks pass.
+The original aggregate still fails its three host/reference suites: lifetime
+and menu-map are corrected by #542, and frame claims by #544's separate78-frame
+comparison. The original reports and corrected evidence remain distinct.
 
-Next: review all suite/frame/protocol results, qualify clean/public ROCKNIX and
-retained storage plus installed #529–#532/#537/#541 and named #349/#350 branches;
-then H700 followed by SM8550. Preserve original failures and exact source/frame
-bindings. Payload retirement follows the last immediate test dependency; source
-custody and compact evidence remain.
+The first upgrade19 failed before either guest booted because /tmp quota blocked
+PID-file writes. #545 repairs the suppressed launcher failure and records a
+writable owned runtime root. Fresh upgrade19b is actively supervised, with the
+changed host tools sealed separately from unchanged a0f60255ab firmware inputs.
+No upgrade/installed service PASS is inferred from the successful guest launch.
+
+Next: retained-storage/public ROCKNIX configuration and installed #529–#532/#537,
+named #349/#350 branches and identity/connection frames; then H700 followed by
+SM8550 once every discovered gap is resolved. No personal data operation or RC
+claim. Completed runtime payload retirement remains #493; unreadable dependencies
+are not permission to delete.

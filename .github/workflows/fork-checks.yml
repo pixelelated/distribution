@@ -41,6 +41,10 @@ jobs:
         run: |
           python3 docs/qa-logs/2026-10-03-watch-job/test-watch-job.py tools/watch-job
           python3 docs/qa-logs/2026-10-04-watch-progress/test-watch-build.py
+      - name: VM launch failures cannot report a guest as running
+        run: |
+          ./tools/vm-pair-test
+          ./tools/vm-upgrade-readiness-test
       - name: every open acceptance checkbox is agent-verifiable (D-QA-044)
         env:
           GH_TOKEN: ${{ github.token }}

@@ -1317,3 +1317,22 @@ It does not model kernel write rejection, UDC binding, networking or MTP traffic
 GENERIC_X64 currently disables CONFIG_USB_GADGET, so do not claim enumeration
 from these controls. The next assembled image still needs installed-script
 verification (#531).
+
+### VM runtime writes and launch failures (#545)
+
+A healthy /workspace does not prove that /tmp can accept PID files; the host
+may enforce a per-user tmpfs quota. Set VM_QEMU_RUNTIME_DIR to a short, owned
+/workspace/tmp directory for vm-pair and vm-qa together when needed. Keep Unix
+socket paths under107 bytes and retain the selected runtime root in the run
+manifest. vm-pair preflights a real write, preserves launcher failures, and
+checks that the PID owns the expected disk before reporting up. Its failure
+controls run in fork CI. A serial failure must return immediately even when
+ready_one is called in a shell conditional; do not wait for a nonexistent guest.
+Never alter a frozen build or an in-flight tool to recover a host failure:
+seal the changed host-tool hashes separately and submit a fresh watched owner.
+
+The upgrade rehearsal waits for that boot's autostart before seeding and before
+any retained-state comparison (#546). SSH availability is not storage readiness:
+/storage/roms may not yet show the mounted library. Do not move this wait below
+the save hashes; a later file inventory cannot repair an earlier failed check.
+The boot identity and unit result are both required; readiness controls run in CI.

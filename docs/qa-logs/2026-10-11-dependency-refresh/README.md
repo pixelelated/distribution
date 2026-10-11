@@ -83,7 +83,7 @@ failed until its exact corrected section is separately verified.
 
 ## Final source disposition
 
-Fresh79: upstream freshness0, both recipe lints0, proxy schema guard0 and12 fork
+Fresh79: upstream freshness0, both recipe lints0, proxy schema guard0 and11 fork
 integration checks0. Its full host run uses the verified rclone1.75.2 binary and
 accepted-image BusyBox in an explicitly separate tool fixture, plus the real pinned
 proxy archive. It ends1 with1,372 PASS,1 FAIL,0 SKIP and one retired historical

@@ -1,5 +1,47 @@
 # Saved Session State
 
+## Current continuation — 2026-10-11 18:41 UTC
+
+Frozen engineering firmware remains a0f60255ab / ES c8dc72cf9, replacement19.
+#540 audit is complete; no repeat external transfer. #542/#543 delivered and closed.
+Original qa19 ended1 at18:23:08UTC:12 standard suites pass and WebDAV/SFTP/S3
+108 each; original lifetime/map/frame failures preserved. #542 fixes first two;
+#544 separately passes all78 frames against unchanged accepted baseline, with
+an original-claims negative control. No mask or baseline move.
+
+#545 fixes vm-pair swallowing launch failure/empty PID, adds real runtime write
+preflight and shared VM_QEMU_RUNTIME_DIR. Nine controls plus actual paired boot
+pass. Original upgrade19 failed before boot because /tmp quota prevented PID writes.
+#546 moves current-boot autostart readiness before seeding and save comparisons;
+original19b saw missing files too early but later inventory listed all four.
+Five wait controls pass. Both original owners ended1 and actual guests/endpoints
+exited. Never relabel them. Test/reference/tool edits leave firmware unchanged.
+
+ACTIVE /workspace/tmp/pixelelated-m7-upgrade19c, launcher3073284, started18:38:24UTC.
+Original watch .build-runs/20261011T183824Z-2a663c35 in frozen build19. Read console,
+result/launcher and per-step logs; escalate for actual host/proc. Runtime sockets
+and pidfiles are under this owner/runtime, not /tmp. Host overrides vm-pair/vm-qa
+and derived rehearsal are separately hash-sealed; all other inputs remain frozen.
+Actual old-image state→tar upgrade completed0 at18:41:13UTC; all four save hashes
+match, retained settings/selection pass, and installed payload checks pass. ACTIVE
+retained suites, followed by clean connections/public
+ROCKNIX configuration, native/USB/proxy/consent checks; driver finally stops guests
+and local backend. Supervise and announce completion, then inspect every failure.
+No live RA or owner handheld/cloud test. Do not edit any in-flight owner copy.
+
+Current uncommitted delivery: feature/m7-component-inputs includes #544–546 tools,
+regressions, CI, instruction/flow references, compact evidence and standard results.
+Complete applicable checks, commit/integrate/push and exact-head checks, then close
+only proved issues. #541 transport criterion is now verified; closure awaits receipt
+delivery. After this batch, exact-image #349/#350 and identity/connection frames
+remain before H700→SM8550. Any product defect requires repaired VM firmware first.
+No new device operation/RC designation; #528 custody/licence/publication holds remain.
+
+/tmp user quota is full although /workspace has1.1TiB free. Five obsolete /tmp
+compile outputs were inventoried under pix545-launch01; removal was NOT executed
+because process references need root readback. #493 owns broader cleanup. Do not
+reuse a historical deletion approval hash or delete a live QA dependency.
+
 ## Current qualification continuation — 2026-10-11 18:15 UTC
 
 Frozen engineering image remainsa0f60255ab, ESc8dc72cf9, replacement19; artifact

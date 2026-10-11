@@ -15,7 +15,7 @@
 #   ./tools/vm-pair reimage b <other...img.gz>           # one guest rebuilt from another image, the other left running
 #
 # Guest a keeps generic-x64-vm's defaults (SSH 10022, monitor and serial at
-# /tmp/rocknix-qemu-*.sock, pidfile /tmp/rocknix-qemu.pid, VNC :9, the
+# /tmp/rocknix-qemu-*.sock, pidfile $RUNTIME/rocknix-qemu.pid, VNC :9, the
 # profile's MAC 52:54:00:52:4E:58); guest b gets the same with a -b suffix,
 # SSH 10023, VNC :10 and its own MAC, 52:54:00:52:4E:59. Both sit behind
 # user-mode NAT, so a shared MAC would collide on no network -- but
@@ -33,6 +33,21 @@ ROOT=$(cd "$HERE/.." && pwd)
 VM_TOOL="$ROOT/projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm"
 DIR="${VM_PAIR_DIR:-/tmp/rocknix-vm-pair}"
 KEY="$DIR/qa-key"
+# Keep short-lived socket/PID writes off a quota-limited /tmp when requested.
+# vm-qa uses the same root; the default remains compatible with standalone tools.
+RUNTIME="${VM_QEMU_RUNTIME_DIR:-/tmp}"
+[[ "$RUNTIME" = /* && ! "$RUNTIME" =~ [[:space:]] ]] || {
+  echo 'vm-pair: VM_QEMU_RUNTIME_DIR needs an absolute path without whitespace' >&2; exit 2;
+}
+check_runtime() {
+  local probe
+  (umask 077; mkdir -p "$RUNTIME") || return 1
+  probe=$(mktemp "$RUNTIME/.pixelelated-vm-write-XXXXXX") || return 1
+  if ! printf 'pid-file-write-check\n' > "$probe"; then
+    rm -f "$probe"; echo 'vm-pair: runtime directory cannot accept PID writes' >&2; return 1
+  fi
+  rm -f "$probe"
+}
 
 # VM_GL=none puts the guests on the software renderer; the launcher's default
 # is hardware GL through virgl on the host's first Mesa render node (#291), and
@@ -42,8 +57,8 @@ KEY="$DIR/qa-key"
 # line, so a field added here without a slot there lands in the one before it)
 settings() {
   case "$1" in
-    a) echo "/tmp/rocknix-qemu-monitor.sock /tmp/rocknix-qemu-serial.sock /tmp/rocknix-qemu.pid 9 10022 52:54:00:52:4E:58" ;;
-    b) echo "/tmp/rocknix-qemu-monitor-b.sock /tmp/rocknix-qemu-serial-b.sock /tmp/rocknix-qemu-b.pid 10 10023 52:54:00:52:4E:59" ;;
+    a) echo "$RUNTIME/rocknix-qemu-monitor.sock $RUNTIME/rocknix-qemu-serial.sock $RUNTIME/rocknix-qemu.pid 9 10022 52:54:00:52:4E:58" ;;
+    b) echo "$RUNTIME/rocknix-qemu-monitor-b.sock $RUNTIME/rocknix-qemu-serial-b.sock $RUNTIME/rocknix-qemu-b.pid 10 10023 52:54:00:52:4E:59" ;;
     *) echo "vm-pair: guest is a or b, not '$1'" >&2; exit 2 ;;
   esac
 }
@@ -52,8 +67,30 @@ settings() {
 start_one() {
   local mon ser pid vnc port mac
   read -r mon ser pid vnc port mac <<<"$(settings "$1")"
-  "$VM_TOOL" run --headless --daemonize ${VM_GL:+--gl "$VM_GL"} --monitor "$mon" --serial "$ser" --pidfile "$pid" --vnc "$vnc" --ssh-port "$port" --mac "$mac" "$DIR/vm-$1.qcow2" 2>&1 | grep -v pw.conf || true
-  echo "up: $1 (pid $(cat "$pid"), ssh :$port, serial $ser, mac $mac)"
+  local rc=0 started
+  "$VM_TOOL" run --headless --daemonize ${VM_GL:+--gl "$VM_GL"} --monitor "$mon" --serial "$ser" --pidfile "$pid" --vnc "$vnc" --ssh-port "$port" --mac "$mac" "$DIR/vm-$1.qcow2" 2>&1 | grep -v pw.conf || rc=${PIPESTATUS[0]}
+  if [ "$rc" != 0 ]; then
+    echo "vm-pair: guest $1 launch failed ($rc)" >&2; return "$rc"
+  fi
+  started=$(cat "$pid") || { echo "vm-pair: guest $1 has no PID file" >&2; return 1; }
+  # A successful launcher alone does not prove a guest. Refuse stale/wrong
+  # PID files before claiming up or waiting for an unrelated serial endpoint.
+  python3 - "$started" "$DIR/vm-$1.qcow2" <<'VERIFY_PID' || return 1
+from pathlib import Path
+import os, sys
+try:
+    pid = int(sys.argv[1])
+    if pid <= 1:
+        raise ValueError('invalid PID')
+    args = (Path('/proc') / str(pid) / 'cmdline').read_bytes().split(b'\0')
+    drive = os.fsencode('if=none,id=rocknix,format=qcow2,file=' + sys.argv[2])
+    if not Path(os.fsdecode(args[0])).name.startswith('qemu-system-') or not any(
+            args[i] == b'-drive' and args[i + 1] == drive for i in range(len(args) - 1)):
+        raise ValueError('PID does not own the expected QEMU disk')
+except (OSError, ValueError) as error:
+    sys.exit('vm-pair: ' + str(error))
+VERIFY_PID
+  echo "up: $1 (pid $started, ssh :$port, serial $ser, mac $mac)"
 }
 
 # The QA key in by serial, then SSH answering with the guest's BUILD_ID; 1
@@ -65,9 +102,9 @@ start_one() {
 ready_one() {
   local ser port pub who t0
   read -r _ ser _ _ port _ <<<"$(settings "$1")"
-  "$HERE/vm-serial" --socket "$ser" wait --up-to 300 >/dev/null
+  "$HERE/vm-serial" --socket "$ser" wait --up-to 300 >/dev/null || return 1
   pub=$(cat "$KEY.pub")
-  "$HERE/vm-serial" --socket "$ser" sh "mkdir -p /storage/.ssh && chmod 700 /storage/.ssh && echo '$pub' >> /storage/.ssh/authorized_keys && chmod 600 /storage/.ssh/authorized_keys" >/dev/null
+  "$HERE/vm-serial" --socket "$ser" sh "mkdir -p /storage/.ssh && chmod 700 /storage/.ssh && echo '$pub' >> /storage/.ssh/authorized_keys && chmod 600 /storage/.ssh/authorized_keys" >/dev/null || return 1
   who=""; t0=$(date +%s)
   for _ in $(seq 1 100); do
     who=$(ssh -i "$KEY" -p "$port" -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o BatchMode=yes -o LogLevel=ERROR -o ConnectTimeout=8 root@127.0.0.1 'grep ^BUILD_ID= /etc/os-release | cut -c11-20' 2>/dev/null || true)
@@ -92,6 +129,7 @@ stop_one() {
 case "${1:-}" in
   up)
     img="${2:-}"; [ -f "$img" ] || { echo "usage: vm-pair up <ROCKNIX-GENERIC_X64...img.gz>" >&2; exit 2; }
+    check_runtime
     stop_one a; stop_one b
     mkdir -p "$DIR"; rm -f "$DIR"/vm-*.qcow2 "$DIR"/vm-*.ovmf-vars.fd
     [ -f "$KEY" ] || ssh-keygen -q -t ed25519 -N '' -f "$KEY" -C vm-pair
@@ -112,6 +150,7 @@ case "${1:-}" in
     g="${2:-}"; img="${3:-}"
     settings "$g" >/dev/null || exit 2
     [ -f "$img" ] || { echo "usage: vm-pair reimage <a|b> <ROCKNIX-GENERIC_X64...img.gz>" >&2; exit 2; }
+    check_runtime
     stop_one "$g"
     mkdir -p "$DIR"; rm -f "$DIR/vm-$g.qcow2" "$DIR/vm-$g.ovmf-vars.fd"
     [ -f "$KEY" ] || ssh-keygen -q -t ed25519 -N '' -f "$KEY" -C vm-pair

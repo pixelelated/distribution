@@ -1,0 +1,21 @@
+=== 18:24:13 backend: not running
+up: webdav serving /workspace/tmp/pixelelated-m7-upgrade19/cloud/data at http://127.0.0.1:9010 (guest: http://10.0.2.2:9010)
+=== 18:24:14 pair up from pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz
+qemu-system-x86_64: cannot create PID file: Failed to write pid file
+cat: /tmp/rocknix-qemu.pid: No such file or directory
+up: a (pid , ssh :10022, serial /tmp/rocknix-qemu-serial.sock, mac 52:54:00:52:4E:58)
+qemu-system-x86_64: cannot create PID file: Failed to write pid file
+cat: /tmp/rocknix-qemu-b.pid: No such file or directory
+up: b (pid , ssh :10023, serial /tmp/rocknix-qemu-serial-b.sock, mac 52:54:00:52:4E:59)
+not ready after 300s
+Traceback (most recent call last):
+  File "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement19/tools/vm-serial", line 133, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement19/tools/vm-serial", line 113, in main
+    s = Serial(args.socket, args.timeout)
+  File "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement19/tools/vm-serial", line 40, in __init__
+    self.sock.connect(path)
+    ~~~~~~~~~~~~~~~~~^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory
+=== 18:30:20 vm-pair up FAILED

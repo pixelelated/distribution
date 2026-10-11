@@ -1,0 +1,10 @@
+PASS launcher failure preserves exit17 with no false up message
+PASS zero-exit launcher without PID file is refused
+PASS wrong-process PID is refused
+PASS dead-process PID is refused
+PASS wrong-disk PID is refused
+PASS owned-disk live PID is verified, silent launcher allowed
+PASS failed serial readiness returns immediately from conditional call
+PASS unusable runtime root refuses preflight
+PASS writable runtime root preflight leaves no probe
+PASS 9 VM launch controls; fixtures are not a real boot claim

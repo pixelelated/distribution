@@ -152,7 +152,7 @@ both lists and to this table, or it is invisible.**
 | `watch-build-submit` | submit the standard runner independently of its shell; distinguish launch from eventual completion | `engineering-practices.md` |
 | `fork-worktree` | worktree list / remove / repair / sync, refusing to destroy build output | `worktrees.md` |
 | `fork-package-freshness` | are the packages the fork introduces at their latest upstream release, or pinned with a stated reason | `fork-workflow.md` |
-| `vm-upgrade-rehearsal` | boot the previous image in a guest, seed a player's state, update in place, check every piece survived | `upgrade-and-install.md` |
+| `vm-upgrade-rehearsal`, `vm-upgrade-readiness-test` | boot the previous image in a guest, seed a player's state, update in place, check every piece survived | `upgrade-and-install.md` |
 | `cloud-pair-migration` | the mixed-installation test: one cloud, a device updated in place from the previous build and a fresh install, the folder's join, move and follow read from the cloud and both confs (D-CLOUD-158) | `rclone-cloud-sync.md` |
 | `es-syntax-check` | compile an EmulationStation edit syntax-only with the image build's own command, before the pin moves | `es-native-ui.md` |
 | `png-blackout` | paint a rectangle of a frame black with the standard library, so a screendump carrying the QA account's name is filed with the band painted out | `generic-x64-vm-testing.md` |
@@ -160,7 +160,7 @@ both lists and to this table, or it is invisible.**
 | `fork-publish-release` | publish an image, refusing to publish embedded credentials | `device-builds.md` |
 | `device-act` | run one command on a device, recorded with the boot id before and after | `engineering-practices.md` |
 | `qa-accounts` | carry QA credentials into a guest without printing them | `generic-x64-vm-testing.md` |
-| `vm-pair`, `vm-serial`, `vm-visual-qa`, `vm-walks/` | bring guests up, drive them, capture frames, walk the interface | `generic-x64-vm-testing.md` |
+| `vm-pair`, `vm-pair-test`, `vm-serial`, `vm-visual-qa`, `vm-walks/` | bring guests up, test launch failures, drive them, capture frames, walk the interface | `generic-x64-vm-testing.md` |
 | `vm-qa` | every automated check against one image, one report | `generic-x64-vm-testing.md` |
 | `vm-stop`, `vm-stop-test` | stop only the owned QEMU and await exit; exercise delayed exit, timeout and refusal controls | `generic-x64-vm-testing.md` |
 | `vm-manager-system-check` | refuse manager walkthroughs on an absent or wrongly selected system | `generic-x64-vm-testing.md` |

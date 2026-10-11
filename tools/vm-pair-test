@@ -1,0 +1,75 @@
+#!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-2.0-or-later
+# Copyright (C) 2026-present pixelelated (https://github.com/pixelelated)
+"""Exercise the actual vm-pair launch functions with controlled failures (#545)."""
+import argparse
+import os
+from pathlib import Path
+import subprocess
+import sys
+import tempfile
+
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--source', type=Path, default=Path(__file__).with_name('vm-pair'))
+args = parser.parse_args()
+source = args.source.resolve()
+prefix = source.read_text().split('case "${1:-}" in', 1)[0]
+assert 'start_one()' in prefix and 'ready_one()' in prefix
+with tempfile.TemporaryDirectory(prefix='vm-pair-test-') as scratch:
+    root = Path(scratch)
+    runtime = root / 'runtime'
+    runtime.mkdir()
+    disk = root / 'vm-a.qcow2'
+    pidfile = runtime / 'rocknix-qemu.pid'
+    launcher = root / 'launcher'
+    launcher.write_text('#!/bin/sh\nexit "${LAUNCH_RC:-0}"\n')
+    launcher.chmod(0o700)
+    serial = root / 'vm-serial'
+    serial.write_text('#!/bin/sh\nexit 23\n')
+    serial.chmod(0o700)
+    env = dict(os.environ, VM_PAIR_DIR=str(root), VM_QEMU_RUNTIME_DIR=str(runtime))
+
+    def run(action='start_one a', **extra):
+        return subprocess.run(['bash', '-c', prefix + '\nVM_TOOL="$1"\n' + action,
+                               str(source), str(launcher)], env=dict(env, **extra),
+                              text=True, capture_output=True, timeout=3)
+
+    result = run(LAUNCH_RC='17')
+    assert result.returncode == 17 and 'up: a' not in result.stdout, result
+    print('PASS launcher failure preserves exit17 with no false up message')
+    result = run()
+    assert result.returncode != 0 and 'up: a' not in result.stdout, result
+    print('PASS zero-exit launcher without PID file is refused')
+    for label, pid in [('wrong-process', os.getpid()), ('dead-process', 2147483646)]:
+        pidfile.write_text(str(pid))
+        result = run()
+        assert result.returncode != 0 and 'up: a' not in result.stdout, result
+        print('PASS ' + label + ' PID is refused')
+    for label, owned in [('wrong-disk', False), ('owned-disk', True)]:
+        child = subprocess.Popen(['qemu-system-fixture', '-c', 'import time; time.sleep(30)',
+                                  '-drive', 'if=none,id=rocknix,format=qcow2,file=' +
+                                  str(disk if owned else root / 'other.qcow2')],
+                                 executable=sys.executable)
+        try:
+            pidfile.write_text(str(child.pid))
+            result = run()
+            assert (result.returncode == 0) == owned, result
+            assert ('up: a' in result.stdout) == owned, result
+            print('PASS ' + label + (' live PID is verified, silent launcher allowed' if owned else ' PID is refused'))
+        finally:
+            child.terminate()
+            child.wait(timeout=3)
+    # ready_one is intentionally used in a conditional by the caller. A
+    # serial failure must return before SSH even with bash errexit suppressed.
+    result = run('HERE="$DIR"; if ready_one a; then exit 42; else exit $?; fi')
+    assert result.returncode == 1, result
+    print('PASS failed serial readiness returns immediately from conditional call')
+    bad = root / 'not-a-directory'
+    bad.write_text('fixture')
+    result = run('check_runtime', VM_QEMU_RUNTIME_DIR=str(bad))
+    assert result.returncode != 0, result
+    print('PASS unusable runtime root refuses preflight')
+    result = run('check_runtime')
+    assert result.returncode == 0 and not list(runtime.glob('.pixelelated-vm-write-*')), result
+    print('PASS writable runtime root preflight leaves no probe')
+print('PASS 9 VM launch controls; fixtures are not a real boot claim')

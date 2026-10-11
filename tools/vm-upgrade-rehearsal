@@ -34,11 +34,32 @@ ssha(){ ./tools/vm-pair ssh a ". /etc/profile >/dev/null 2>&1; $*" 2>>"$LOG"; }
 fail=0
 check(){ if [ "$2" = "$3" ]; then echo "PASS $1" | tee -a "$LOG"; else echo "FAIL $1: got '$2' want '$3'" | tee -a "$LOG"; fail=1; fi; }
 
+# SSH answers before autostart has mounted the ROM tree. Readiness belongs to
+# the current boot, before seeding or reading retained state (#546).
+wait_for_storage() {
+  local expected_boot=$1 observed i
+  [ -n "$expected_boot" ] || { echo 'FAIL storage readiness: no boot identity' | tee -a "$LOG"; return 1; }
+  for i in $(seq 1 30); do
+    observed=$(ssha 'echo "$(cat /proc/sys/kernel/random/boot_id) $(systemctl is-active rocknix-autostart.service)"' 2>/dev/null)
+    if [ "$observed" = "$expected_boot active" ]; then
+      echo "PASS storage ready in boot $expected_boot after $i poll(s)" | tee -a "$LOG"
+      return 0
+    fi
+    [ "$observed" = "$expected_boot failed" ] && break
+    sleep 2
+  done
+  echo "FAIL storage readiness: expected $expected_boot active, got ${observed:-no answer}" | tee -a "$LOG"
+  return 1
+}
+
 say "backend: $(./tools/cloud-test-backend status 2>&1 | head -1)"; ./tools/cloud-test-backend up >>"$LOG" 2>&1 || true
 say "pair up from $(basename "$OLD")"
 ./tools/vm-pair up "$OLD" >>"$LOG" 2>&1 || { say "vm-pair up FAILED"; echo 1 > "$OUT/rc"; exit 1; }
 for i in $(seq 1 40); do ssha 'echo ok' 2>/dev/null | grep -q '^ok$' && break; sleep 10; done
 BID0=$(ssha 'grep ^BUILD_ID= /etc/os-release | cut -d\" -f2'); echo "old build id: $BID0" | tee -a "$LOG"; check "old build id read" "$([ -n "$BID0" ] && echo yes)" "yes"
+
+SEED_BOOT=$(ssha 'cat /proc/sys/kernel/random/boot_id')
+wait_for_storage "$SEED_BOOT" || { echo 1 > "$OUT/rc"; exit 1; }
 
 say "seed state on guest a"
 ssha 'mkdir -p /storage/roms/savestates/nes /storage/roms/nes /storage/.config/rclone
@@ -120,6 +141,7 @@ BID1=""; BOOT1=""; for i in $(seq 1 60); do
 done
 say "guest a back after $i polls"
 check "new build id is $WANT" "${BID1:0:${#WANT}}" "$WANT"
+wait_for_storage "$BOOT1" || { echo 1 > "$OUT/rc"; exit 1; }
 SUMS1=$(ssha 'cd /storage/roms && sha256sum savestates/nes/Rehearsal.state.auto savestates/nes/Rehearsal.state1 savestates/nes/Rehearsal.state2 nes/Rehearsal.srm')
 check "saves and save states byte-identical" "$SUMS1" "$SUMS0"
 check "marker file kept" "$(ssha 'cat /storage/.config/rehearsal-marker')" "rehearsal-marker"
@@ -131,29 +153,6 @@ check "saves remote kept" "$(ssha "grep -E '^SAVES_REMOTE=' $CONFPATH 2>/dev/nul
 check "cloud conf gained the new defaults, kept the old values" "$(ssha "grep -cE '^(CONTENT_REMOTE|SAVES_REMOTE)=' $CONFPATH")" "2"
 check "backup archive kept" "$(ssha 'ls /storage/roms/backup/ 2>/dev/null | wc -l')" "$BK0"
 check "update queue empty" "$(ssha 'ls /storage/.update | wc -l')" "0"
-# The quirk pass runs from autostart, which may still be running when SSH
-# first answers: wait for it to finish before reading what it removed. The
-# wait reads this boot's state of the unit, never /var/log/boot.log:
-# autostart appends to that file at every boot and /var/log is
-# /storage/.cache/log (var-log.mount), so the previous boot's "Autostart
-# complete" line is there before this boot's autostart has begun, and it
-# answered the first poll -- the check could not fail (audit of the fix
-# round PL-024). rocknix-autostart.service is a oneshot with RemainAfterExit:
-# "activating" while its script runs, "active" once it has exited 0, and
-# systemd holds no other boot's state. Each reading carries the guest's boot
-# id, and only the new boot's (BOOT1, above) counts.
-AUTOSTARTED=no
-for i in $(seq 1 30); do
-  AS=$(ssha 'echo "$(cat /proc/sys/kernel/random/boot_id) $(systemctl is-active rocknix-autostart.service)"' 2>/dev/null)
-  if [ -n "$BOOT1" ] && [ "$AS" = "$BOOT1 active" ]; then AUTOSTARTED=yes; break; fi
-  AUTOSTARTED="no (last read: ${AS:-no answer}; the new boot ${BOOT1:-was never seen})"
-  [ -n "$BOOT1" ] && [ "$AS" = "$BOOT1 failed" ] && break
-  sleep 2
-done
-echo "autostart after $i poll(s): $AUTOSTARTED" >> "$LOG"
-# A wait that ran out is not a reading: say so, rather than grade the
-# take-back on a quirk pass that may not have run yet.
-check "autostart finished before the take-back is read (rocknix-autostart.service active in the new boot)" "$AUTOSTARTED" "yes"
 check "retired quirk files taken back after the update (#307 PL-019)" "$(ssha "cd /storage && ls $RETIRED 2>/dev/null | wc -l; [ -L .config/system.d/emergency.target ] && echo masked || echo unmasked" | tr '\n' ' ')" "0 unmasked "
 check "and the owner's file beside them kept" "$(ssha 'cat /storage/.config/tmpfiles.d/50-rehearsal-owner.conf')" "# the owner's own (vm-upgrade-rehearsal)"
 check "RetroArch fullscreen size set by hand kept, driver moved to gl (#307 PL-034, #308 claude F-VM-11)" "$(ssha "grep -E '^(video_fullscreen_x|video_fullscreen_y|video_driver) = ' $RACFG | sort | tr '\n' ' '")" 'video_driver = "gl" video_fullscreen_x = "1024" video_fullscreen_y = "768" '

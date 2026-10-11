@@ -1,0 +1,25 @@
+{
+  "utc": "2026-10-11T18:10:42.169431+00:00",
+  "build": "a0f60255abfefaddce772d0bba29977bafb7adab",
+  "frames": [
+    {
+      "path": "restore-page/02-restore-page.png",
+      "sha256": "457d1b0523a992a9b2a171fc8d991310a6184b521e8798fdce5e9d0f5013cc9d",
+      "reviewed": true,
+      "finding": "Restore options are legible; settings dimmed with no-backup explanation."
+    },
+    {
+      "path": "confirm-cloud-folder/04-folder-result.png",
+      "sha256": "5a5ba7174b000a5133a3d9cf872c1f15f2a2641d2adacc0999a509f6475bc9f4",
+      "reviewed": true,
+      "finding": "Independent folder pointers and no-move explanation are legible; return state has no migration dialog."
+    },
+    {
+      "path": "match-dialog/03-match-confirm.png",
+      "sha256": "3833278d759e65c30d40732d61ea0c0fc3a918896e61032b4020941e837439f6",
+      "reviewed": true,
+      "finding": "Scoped deletion/download confirmation and protected saves statement fit without clipping."
+    }
+  ],
+  "scope": "Visual review only; final frame comparison and whole suite still active."
+}

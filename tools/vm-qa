@@ -96,17 +96,18 @@ fi
 # anywhere -- it needs a monitor socket and a guest to reboot, nothing else.
 # Use the same run-owned key that vm-pair injects into the guests.
 KEY="${VM_PAIR_DIR:-/tmp/rocknix-vm-pair}/qa-key"
+RUNTIME="${VM_QEMU_RUNTIME_DIR:-/tmp}"
 # The ssh options every suite here runs with. Declared, not inherited: the
 # pair-identity suite used $SSHO without this line and passed for a night
 # because the shell that started the runner had it set; started under a
 # clean environment it failed on "unbound variable" (blindspot 40).
 SSHO="-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=ERROR -o ConnectTimeout=8 -o BatchMode=yes"
 case "$GUEST" in
-  a) PORT=10022; MON=/tmp/rocknix-qemu-monitor.sock;   SERIAL=/tmp/rocknix-qemu-serial.sock ;;
-  b) PORT=10023; MON=/tmp/rocknix-qemu-monitor-b.sock; SERIAL=/tmp/rocknix-qemu-serial-b.sock ;;
+  a) PORT=10022; MON="$RUNTIME"/rocknix-qemu-monitor.sock;   SERIAL="$RUNTIME"/rocknix-qemu-serial.sock ;;
+  b) PORT=10023; MON="$RUNTIME"/rocknix-qemu-monitor-b.sock; SERIAL="$RUNTIME"/rocknix-qemu-serial-b.sock ;;
   # The 640x480 guest beside the pair (generic-x64-vm-testing.md § Frame at
   # the handheld's size): not vm-pair's, so `up` never touches it -- --skip-up.
-  d) PORT=10026; MON=/tmp/rocknix-qemu-monitor-d.sock; SERIAL=/tmp/rocknix-qemu-serial-d.sock ;;
+  d) PORT=10026; MON="$RUNTIME"/rocknix-qemu-monitor-d.sock; SERIAL="$RUNTIME"/rocknix-qemu-serial-d.sock ;;
   *) echo "vm-qa: --guest is a, b or d, not '$GUEST'" >&2; exit 2 ;;
 esac
 [ "$LINK" = 1 ] && ONLY="$ONLY,link"
@@ -133,7 +134,7 @@ REPORT="$OUT/report.md"
 # The guest's display, read from its QEMU's own command line (#291): hardware GL through virgl on a host
 # render node, or the software path. The renderer the guest's Mesa then reports is read at the end, from
 # the launch log the exit suite leaves, so a guest that fell back to softpipe says so on its report.
-case "$GUEST" in a) PIDF=/tmp/rocknix-qemu.pid ;; b) PIDF=/tmp/rocknix-qemu-b.pid ;; *) PIDF=/tmp/rocknix-qemu-$GUEST.pid ;; esac
+case "$GUEST" in a) PIDF="$RUNTIME"/rocknix-qemu.pid ;; b) PIDF="$RUNTIME"/rocknix-qemu-b.pid ;; *) PIDF="$RUNTIME"/rocknix-qemu-$GUEST.pid ;; esac
 DISPLAY_MODE=$(ps -o args= -p "$(cat "$PIDF" 2>/dev/null)" 2>/dev/null | grep -o -E 'egl-headless,rendernode=[^ ]+' | sed 's/^egl-headless,rendernode=/GL through virgl on /'); DISPLAY_MODE=${DISPLAY_MODE:-software rendering (no GL display)}
 { echo "# vm-qa on $BUILD"; echo; echo "started $(date -u '+%Y-%m-%d %H:%M UTC'), guest $GUEST at :$PORT, cloud $BACKEND (port $("$ROOT/tools/cloud-test-backend" port), $("$ROOT/tools/cloud-test-backend" caps)), image ${IMAGE:-(already up)}, display: $DISPLAY_MODE"; echo; echo "| suite | result | time | log |"; echo "| --- | --- | --- | --- |"; } > "$REPORT"
 FAILS=0

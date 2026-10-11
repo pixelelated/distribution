@@ -1,0 +1,29 @@
+#!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-2.0-or-later
+# Copyright (C) 2026-present pixelelated (https://github.com/pixelelated)
+"""Current-boot and delayed-readiness controls for the actual rehearsal wait."""
+from pathlib import Path
+import subprocess
+import tempfile
+source = Path(__file__).with_name('vm-upgrade-rehearsal').read_text()
+function = source.split('wait_for_storage() {', 1)[1].split('\n}\n', 1)[0]
+function = 'wait_for_storage() {' + function + '\n}\n'
+with tempfile.TemporaryDirectory(prefix='upgrade-ready-') as directory:
+    for case, states, expected in [
+        ('ready', ['current active'], 0),
+        ('old-boot', ['previous active'], 1),
+        ('failed', ['current failed'], 1),
+        ('delayed', ['current activating', 'current active'], 0),
+        ('absent', [''], 1),
+    ]:
+        p = Path(directory)
+        (p/'states').write_text('\n'.join(states)+'\n')
+        shell = '''LOG="$1/log"
+ssha() { head -1 "$FIXTURE/states"; if [ "$(wc -l < "$FIXTURE/states")" -gt 1 ]; then sed '1d' "$FIXTURE/states" > "$FIXTURE/next"; mv "$FIXTURE/next" "$FIXTURE/states"; fi; }
+sleep() { :; }
+FIXTURE=$1
+''' + function + '\nwait_for_storage current\n'
+        result = subprocess.run(['bash', '-c', shell, 'fixture', directory], capture_output=True, text=True, timeout=3)
+        assert result.returncode == expected, (case,result)
+        print('PASS '+case+' returns '+str(expected))
+print('PASS 5 storage-readiness controls; synthetic states, no boot claim')
