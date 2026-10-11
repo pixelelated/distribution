@@ -6,6 +6,22 @@ the captured tracker. It is a readiness record, not an RC designation.
 The full original bodies/comments are retained in
 [the snapshot](../qa-logs/2026-10-11-candidate-scope/tracker-before.json).
 
+## Current continuation — VM20 and audit complete; #555 handheld refresh
+
+The dated sections below preserve the earlier scope decisions and progress.
+Current source/VM qualification is frozen1a02664844, with complete clean/retained
+receipts under[replacement20](../qa-logs/2026-10-11-pixelelated-replacement-20/).
+#529/#530/#531/#532/#537 and the later qualification repairs are closed.
+Independent#553/#554 is complete: all13 reviewer leads adjudicated, four
+repairs delivered, valid closure marker, full ceremony and exact-head CI green.
+No confirmed product defect; #528 publication obligations remain partial.
+
+[#555 handheld refresh](../qa-logs/2026-10-11-device-refresh/README.md) freezes
+publishedbc9dfe8141 for H70003, then SM8550. The only product-path difference
+from VM20 is a patch header with identical applied payload. Independent warm
+cache preparation is currently running; compiler/acceptance follow. Physical
+deployments and public RC designation remain separate.
+
 ## Subsequent owner feedback — 2026-10-11
 
 The18-issue/four-bug table below is the earlier snapshot, not the live count.
