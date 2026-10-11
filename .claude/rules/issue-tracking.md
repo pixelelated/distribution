@@ -192,6 +192,11 @@ feature that had never once functioned and shipped broken in four images.
 - One false tick voids the list. Re-derive the siblings rather than assuming
   the rest are sound.
 
+Do not use GitHub auto-closing keywords in a source commit while installed-image,
+upgrade or other acceptance criteria remain. Cite the issue without a closing verb,
+then close it explicitly after verifying every criterion. A commit description saying
+that qualification remains does not override GitHub's closing-keyword parser (#548).
+
 ## Putting a checkbox on a checklist
 
 An open `- [ ]` is a claim that the work is undone, made when the checkbox
