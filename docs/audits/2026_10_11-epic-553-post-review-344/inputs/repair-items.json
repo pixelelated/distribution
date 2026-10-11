@@ -1,0 +1,54 @@
+[
+  {
+    "id": "PL-001",
+    "title": "Bind the audit to current and complete evidence",
+    "severity": "Medium",
+    "category": "Missing Artifact",
+    "source_finding": "G-01 (F-1, F-2, F-3, F-4, F-13)",
+    "owner_area": "audit evidence and component dispositions",
+    "where": "02-forward-audit.md; 04-analysis.md; docs/qa-logs/2026-10-11-component-inputs/",
+    "what": "Add the current rclone1.75.2 binding without rewriting old dispositions; link the executed upgrade manifest/diff, actual original build failures, pinned container controls, tracker closure readbacks, freshness and source/fixture/image evidence; distinguish13 names from14 recipes.",
+    "why": "A current verdict must identify the exact constituent artifacts and their limits.",
+    "evidence": "checks/adjudication/source-probes.json; rehearsal.diff; supplemental-evidence.json; unfiltered-head.txt",
+    "acceptance": "A command rehashes every supplemental artifact, validates the current rclone recipe/archive bindings and retained publication hold, verifies the original upgrade manifest and all three original build20 rc2 channels, and counts14 recipe files for13 names."
+  },
+  {
+    "id": "PL-002",
+    "title": "Discover fork tests without importing upstream test methods",
+    "severity": "Low",
+    "category": "Test Gap",
+    "source_finding": "G-02 (F-9)",
+    "owner_area": "proxy integration qualification",
+    "where": "tools/raofflineproxy-integration-test:233",
+    "what": "Collect methods owned by fork-defined unittest classes, including new fork classes, and exclude imported/inherited upstream test methods.",
+    "why": "Upstream fixture changes must not silently change the fork test count or run unrelated assertions.",
+    "evidence": "checks/adjudication/pix553-lead-tests02/upstream-injected.log: original14 tests,2 injected failures",
+    "acceptance": "The fixed real runner executes12 passing fork tests despite an injected failing upstream method, automatically includes an added fork test (13 passing), and still rejects the wrong cooldown duration."
+  },
+  {
+    "id": "PL-003",
+    "title": "Report unsupported historical rehearsal input cleanly",
+    "severity": "Low",
+    "category": "Code Quality",
+    "source_finding": "G-03 (F-12)",
+    "owner_area": "upgrade readiness qualification",
+    "where": "tools/vm-upgrade-readiness-test:14",
+    "what": "Validate the source read and complete wait_for_storage function boundary before extracting it; return a clear CLI diagnostic on missing, incomplete or unreadable input.",
+    "why": "Historical negative runs should fail deliberately rather than by an uncaught IndexError.",
+    "evidence": "checks/adjudication/pix553-lead-tests02/old-rehearsal.log: original traceback/exit1",
+    "acceptance": "All7 readiness controls pass; historical/missing-function, unterminated-function and unreadable-file controls exit2 with a meaningful diagnostic and no traceback."
+  },
+  {
+    "id": "PL-004",
+    "title": "Describe proxy pacing and VM ownership paths precisely",
+    "severity": "Low",
+    "category": "Documentation Gap",
+    "source_finding": "G-04 (F-8, F-10)",
+    "owner_area": "proxy patch and VM helper documentation",
+    "where": "projects/ROCKNIX/packages/network/raofflineproxy/patches/004-no-cap-on-cached-games.patch:3; tools/vm-pair:17",
+    "what": "Clarify deliberate per-ROM request throttle/batch cooldown versus background queue pacing; document the shared custom runtime root and requirement to retain the same owner environment for shutdown.",
+    "why": "Descriptions must match the preserved behavior and must not imply discovery of unrelated owners.",
+    "evidence": "rom_browser.py requested>0 pace condition; checks/adjudication/literal-socket-search.txt",
+    "acceptance": "The patch diff payload is byte-identical before/after; vm-pair changes are comments only, shell syntax and all9 launch controls pass; current references no longer hardcode custom sockets under/tmp."
+  }
+]

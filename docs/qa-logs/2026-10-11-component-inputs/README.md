@@ -44,3 +44,12 @@ operation occurred. The scoped review checked unchanged payload equality,
 late-bound recipe paths, normal checksum failure behavior, effective inherited
 metadata and source-backed declarations. It does not reopen the completed
 #540 audit or extend that audit's scope to these changes.
+
+## Later rclone refresh — current binding
+
+The original disposition above predates #541 and describes rclone1.75.1.
+[The 1.75.2 binding](rclone-1.75.2-binding.json) records the current recipe and
+actual amd64/arm64 archive hashes. Historical 1.75.1 source and notices do not
+establish corresponding source or notice coverage for1.75.2. All #528 source,
+vendor-notice, retrieval and custody publication holds remain open. The newer
+installed protocol proof is engineering qualification only.

@@ -232,7 +232,16 @@ class OSConsumers(unittest.TestCase):
 
 if __name__=='__main__':
     try:
-        suite=unittest.defaultTestLoader.loadTestsFromModule(sys.modules[__name__])
+        # Discover new fork classes/methods automatically, but do not collect
+        # imported fixtures or inherited upstream tests as fork-owned coverage.
+        classes = {value for value in tuple(globals().values())
+                   if isinstance(value, type) and issubclass(value, unittest.TestCase)
+                   and value.__module__ == __name__}
+        suite = unittest.TestSuite(
+            cls(name)
+            for cls in sorted(classes, key=lambda value: value.__name__)
+            for name in unittest.defaultTestLoader.getTestCaseNames(cls)
+            if name in cls.__dict__)
         result=unittest.TextTestRunner(verbosity=2).run(suite)
         sys.exit(0 if result.wasSuccessful() else 1)
     finally: config.cleanup()

@@ -1,0 +1,4 @@
+  File "<string>", line 1
+    from pathlib import Path; p=Path('/workspace/repos/rocknix.worktrees/m7-component-inputs/tools/raofflineproxy-integration-test'); s=p.read_text(); s=s.replace('from linux.tests.test_linux_caching_queue import QueueTestCase, CREDENTIALS', 'from linux.tests.test_linux_caching_queue import QueueTestCase, CREDENTIALS
+                                                                                                                                                                                                                                                  ^
+SyntaxError: unterminated string literal (detected at line 1)

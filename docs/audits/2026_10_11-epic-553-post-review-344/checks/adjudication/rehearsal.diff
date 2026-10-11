@@ -1,0 +1,23 @@
+--- delivered/tools/vm-upgrade-rehearsal
++++ executed/rehearsal.sh
+@@ -25,9 +25,9 @@
+ OLD=${1:?previous image (.img.gz)}; NEW=${2:?new update tar}; WANT=${3:?expected new BUILD_ID prefix}
+ [ -f "$OLD" ] || { echo "no such image: $OLD" >&2; exit 2; }
+ [ -f "$NEW" ] || { echo "no such tar: $NEW" >&2; exit 2; }
+-cd "$(dirname "$0")/.." || exit 2
++cd /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20 || exit 2
+ OLDID=$(basename "$(dirname "$OLD")" | grep -oE '[0-9a-f]{10}$' || echo previous)   # the artifact directories end in the BUILD_ID
+-OUT=/workspace/artifacts/rocknix-images/qa-${WANT}-upgrade-from-${OLDID}-$(date -u +%Y%m%d-%H%M); mkdir -p "$OUT"
++OUT=/workspace/tmp/pixelelated-m7-upgrade20/artifacts/rehearsal; mkdir -p "$OUT"
+ LOG=$OUT/rehearsal.log; : > "$LOG"
+ say(){ echo "=== $(date -u '+%H:%M:%S') $*" | tee -a "$LOG"; }
+ ssha(){ ./tools/vm-pair ssh a ". /etc/profile >/dev/null 2>&1; $*" 2>>"$LOG"; }
+@@ -164,7 +164,7 @@
+ echo "rclone after: $(ssha 'rclone version | head -1')" | tee -a "$LOG"
+ ssha 'journalctl -b -p err --no-pager | tail -30' > "$OUT/journal-err-after.txt" 2>&1
+ ssha 'ls -la /storage/roms/savestates/nes /storage/roms/nes; cat /etc/os-release' > "$OUT/state-after.txt" 2>&1
+-say "pair down"; ./tools/vm-pair down >>"$LOG" 2>&1
++say "pair retained for installed verification; outer owner guarantees shutdown"
+ if [ $fail = 0 ]; then say "RESULT PASS"; else say "RESULT FAIL"; fi
+ echo $fail > "$OUT/rc"; echo "$OUT"
+ exit $fail

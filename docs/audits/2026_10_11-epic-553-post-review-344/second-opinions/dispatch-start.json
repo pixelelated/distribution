@@ -1,0 +1,20 @@
+{
+  "utc": "2026-10-11T21:36:37.651675+00:00",
+  "pid": 263556,
+  "command": [
+    "/workspace/repos/rocknix/tools/council/run",
+    "invoke",
+    "--member",
+    "claude",
+    "--provider",
+    "openrouter",
+    "--prompt-file",
+    "/workspace/tmp/pix553-fable01/prompt.md",
+    "--output",
+    "/workspace/tmp/pix553-fable01/claude-audit.md",
+    "--max-retries",
+    "0"
+  ],
+  "packet_sha256": "cec44a71f013ddac431b149ee54c356cad2c782baa7dcb35952a17c568dcb256",
+  "approval_sha256": "1d2a23b8b329d67da07468570f2e2cd98489302cebe44b262c73d0cea0dd0cff"
+}

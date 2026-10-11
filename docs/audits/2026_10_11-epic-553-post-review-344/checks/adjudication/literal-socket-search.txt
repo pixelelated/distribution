@@ -1,0 +1,16 @@
+projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm:684:    parser.add_argument("--monitor", default="/tmp/rocknix-qemu-monitor.sock")
+projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm:694:    parser.add_argument("--serial", default="/tmp/rocknix-qemu-serial.sock", help="serial console socket with --headless")
+projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm:705:    parser.add_argument("--pidfile", default="/tmp/rocknix-qemu.pid", help="QEMU pidfile with --headless")
+tools/vm-walks/README.md:10:  | tools/vm-visual-qa --monitor /tmp/rocknix-qemu-monitor.sock run - --outdir shots/
+tools/vm-serial:32:DEFAULT_SOCKET = "/tmp/rocknix-qemu-serial.sock"
+tools/cloud-round-trip:40:        --only LINK1,LINK2,LINK3,LINK4,LINK5,LINK6,LINK7 --serial-socket /tmp/rocknix-qemu-serial.sock
+tools/cloud-round-trip:52:        --serial-socket /tmp/rocknix-qemu-serial-c.sock --monitor-socket /tmp/rocknix-qemu-monitor-c.sock
+tools/cloud-round-trip:503:    ap.add_argument("--serial-socket", default="/tmp/rocknix-qemu-serial.sock",
+tools/cloud-round-trip:512:    ap.add_argument("--monitor-socket", default="/tmp/rocknix-qemu-monitor.sock",
+tools/time-to-play:8:#       --monitor /tmp/rocknix-qemu-monitor-c.sock --backend sftp \
+tools/ra-offline-test:9:#       --monitor /tmp/rocknix-qemu-monitor-d.sock --serial /tmp/rocknix-qemu-serial-d.sock
+tools/ra-offline-test:66:MONITOR=/tmp/rocknix-qemu-monitor-d.sock; SERIAL=/tmp/rocknix-qemu-serial-d.sock
+tools/vm-pair:18:# /tmp/rocknix-qemu-*.sock, pidfile $RUNTIME/rocknix-qemu.pid, VNC :9, the
+tools/rasteratops-vm-cloud-epic:43:PORT=10026; MON=/tmp/rocknix-qemu-monitor-d.sock; VNC=127.0.0.1:5912
+tools/rasteratops-vm-cloud-epic:48:[ -S "$MON" ] && [ -s /tmp/rocknix-qemu-d.pid ] && [ -f "$KEY" ] || { say 'guest d prerequisites absent'; exit 2; }
+tools/rasteratops-vm-cloud-epic:49:qa_pid=$(cat /tmp/rocknix-qemu-d.pid)

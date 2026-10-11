@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "utc": "2026-10-11T22:08:43.464116+00:00",
+  "issue": 528,
+  "audit_repair": 554,
+  "component": "rclone",
+  "version": "1.75.2",
+  "recipe": "projects/ROCKNIX/packages/network/rclone/package.mk",
+  "recipe_sha256": "030b2429b9c61fd55431fd5e9ac3f58ff7bb6214256a05e0bef132381347a254",
+  "prior_disposition": {
+    "path": "docs/qa-logs/2026-10-11-component-inputs/dispositions.json",
+    "sha256": "145a5c8caa3905f5d9c7567bc284f1ecdeb90cc1bccefbbdd55e1f5c2a4d5f6f",
+    "version": "1.75.1",
+    "scope": "Historical pre-refresh receipt; does not establish 1.75.2 source/notice/custody"
+  },
+  "fetched_inputs": {
+    "rclone-amd64.zip": {
+      "path": "/workspace/tmp/pix541-refresh72/rclone-amd64.zip",
+      "sha256": "349ac8fba6ff65d6247043f1750cdcb518ec5d500ef91463a10d37c0ccdf3702"
+    },
+    "rclone-arm64.zip": {
+      "path": "/workspace/tmp/pix541-refresh72/rclone-arm64.zip",
+      "sha256": "7e1e8d69654941b7b7df84ee74c5f7fb09cce7d5496947fb7bf16b55ff427d10"
+    },
+    "SHA256SUMS": {
+      "path": "/workspace/tmp/pix541-refresh72/SHA256SUMS",
+      "sha256": "73ede5aab2b8f2dd4b1315f7f063cdd5df10de6338749bba49cbc0c240bda976"
+    }
+  },
+  "primary_recipe_license": "MIT",
+  "publication_clearance": false,
+  "remaining": [
+    "Exact 1.75.2 corresponding source and embedded dependency notices",
+    "Modified/prebuilt provenance and final image/profile inventory",
+    "Independent retrieval and off-host source custody"
+  ],
+  "runtime_evidence": "docs/qa-logs/2026-10-11-pixelelated-replacement-20/clean-composed-result.json",
+  "runtime_scope": "Installed version plus WebDAV/SFTP/S3; not publication clearance"
+}

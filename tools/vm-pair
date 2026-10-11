@@ -15,7 +15,7 @@
 #   ./tools/vm-pair reimage b <other...img.gz>           # one guest rebuilt from another image, the other left running
 #
 # Guest a keeps generic-x64-vm's defaults (SSH 10022, monitor and serial at
-# /tmp/rocknix-qemu-*.sock, pidfile $RUNTIME/rocknix-qemu.pid, VNC :9, the
+# $RUNTIME/rocknix-qemu-*.sock, pidfile $RUNTIME/rocknix-qemu.pid, VNC :9, the
 # profile's MAC 52:54:00:52:4E:58); guest b gets the same with a -b suffix,
 # SSH 10023, VNC :10 and its own MAC, 52:54:00:52:4E:59. Both sit behind
 # user-mode NAT, so a shared MAC would collide on no network -- but
@@ -27,6 +27,9 @@
 # disks; clearing the stored id alone re-derives the same one. Both reach
 # the host's QA backend at 10.0.2.2. Disks live under $VM_PAIR_DIR
 # (default /tmp/rocknix-vm-pair): scratch, rebuilt from the image on every up.
+# RUNTIME is VM_QEMU_RUNTIME_DIR (default /tmp). Keep both VM_PAIR_DIR and
+# VM_QEMU_RUNTIME_DIR unchanged for up, info, SSH, serial, reimage and down;
+# commands do not discover or take ownership of guests under another root.
 set -euo pipefail
 HERE=$(cd "$(dirname "$0")" && pwd)
 ROOT=$(cd "$HERE/.." && pwd)

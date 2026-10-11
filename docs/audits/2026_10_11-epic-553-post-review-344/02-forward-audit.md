@@ -9,11 +9,11 @@
 
 **Source:** #528, criterion1. **Verdict:** PARTIAL.
 
-**Evidence:** `projects/ROCKNIX/packages/emulators/libretro/idtech-lr/package.mk:26`; docs/qa-logs/2026-10-11-component-inputs/dispositions.json; docs/qa-logs/2026-10-11-component-inputs/README.md; checks/pkgcheck.log. Delivery is b990d32c93/earlier cited source; exact tracker readbacks are in docs/qa-logs/2026-10-11-pixelelated-replacement-20/tracker-reconciliation.
+**Evidence:** `projects/ROCKNIX/packages/emulators/libretro/idtech-lr/package.mk:26`; docs/qa-logs/2026-10-11-component-inputs/dispositions.json (historical); docs/qa-logs/2026-10-11-component-inputs/rclone-1.75.2-binding.json (current, publication held); docs/qa-logs/2026-10-11-component-inputs/README.md; checks/pkgcheck.log. Delivery is b990d32c93/earlier cited source; exact tracker readbacks are in docs/qa-logs/2026-10-11-pixelelated-replacement-20/tracker-reconciliation.
 
 **Refutation attempted:** Attempted to treat declaration existence as complete clearance: the retained disposition explicitly keeps every publication_clearance false and identifies five aggregate gaps. The real immutable archive is the prior installed archive; recipe now copies checksum-verified bytes.
 
-**Notes:** Engineering subset is delivered and all13 currently changed recipes lint successfully; the full publication obligation is not satisfied. Five publication criteria remain pre-existing #528 scope, outside this audit completion gate.
+**Notes:** Engineering subset is delivered and all14 recipe files selected by13 package names lint successfully; the full publication obligation is not satisfied. Five publication criteria remain pre-existing #528 scope, outside this audit completion gate.
 
 **Gap:** pre-existing #528 publication work remains open; this is not audit-discovered and is not a new punch item.
 
@@ -21,11 +21,11 @@
 
 **Source:** #528, criterion2. **Verdict:** PARTIAL.
 
-**Evidence:** `projects/ROCKNIX/packages/emulators/libretro/idtech-lr/package.mk:26`; docs/qa-logs/2026-10-11-component-inputs/dispositions.json; docs/qa-logs/2026-10-11-component-inputs/README.md; checks/pkgcheck.log. Delivery is b990d32c93/earlier cited source; exact tracker readbacks are in docs/qa-logs/2026-10-11-pixelelated-replacement-20/tracker-reconciliation.
+**Evidence:** `projects/ROCKNIX/packages/emulators/libretro/idtech-lr/package.mk:26`; docs/qa-logs/2026-10-11-component-inputs/dispositions.json (historical); docs/qa-logs/2026-10-11-component-inputs/rclone-1.75.2-binding.json (current, publication held); docs/qa-logs/2026-10-11-component-inputs/README.md; checks/pkgcheck.log. Delivery is b990d32c93/earlier cited source; exact tracker readbacks are in docs/qa-logs/2026-10-11-pixelelated-replacement-20/tracker-reconciliation.
 
 **Refutation attempted:** Attempted to treat declaration existence as complete clearance: the retained disposition explicitly keeps every publication_clearance false and identifies five aggregate gaps. The real immutable archive is the prior installed archive; recipe now copies checksum-verified bytes.
 
-**Notes:** Engineering subset is delivered and all13 currently changed recipes lint successfully; the full publication obligation is not satisfied. Five publication criteria remain pre-existing #528 scope, outside this audit completion gate.
+**Notes:** Engineering subset is delivered and all14 recipe files selected by13 package names lint successfully; the full publication obligation is not satisfied. Five publication criteria remain pre-existing #528 scope, outside this audit completion gate.
 
 **Gap:** pre-existing #528 publication work remains open; this is not audit-discovered and is not a new punch item.
 
@@ -33,11 +33,11 @@
 
 **Source:** #528, criterion3. **Verdict:** PARTIAL.
 
-**Evidence:** `projects/ROCKNIX/packages/emulators/libretro/idtech-lr/package.mk:26`; docs/qa-logs/2026-10-11-component-inputs/dispositions.json; docs/qa-logs/2026-10-11-component-inputs/README.md; checks/pkgcheck.log. Delivery is b990d32c93/earlier cited source; exact tracker readbacks are in docs/qa-logs/2026-10-11-pixelelated-replacement-20/tracker-reconciliation.
+**Evidence:** `projects/ROCKNIX/packages/emulators/libretro/idtech-lr/package.mk:26`; docs/qa-logs/2026-10-11-component-inputs/dispositions.json (historical); docs/qa-logs/2026-10-11-component-inputs/rclone-1.75.2-binding.json (current, publication held); docs/qa-logs/2026-10-11-component-inputs/README.md; checks/pkgcheck.log. Delivery is b990d32c93/earlier cited source; exact tracker readbacks are in docs/qa-logs/2026-10-11-pixelelated-replacement-20/tracker-reconciliation.
 
 **Refutation attempted:** Attempted to treat declaration existence as complete clearance: the retained disposition explicitly keeps every publication_clearance false and identifies five aggregate gaps. The real immutable archive is the prior installed archive; recipe now copies checksum-verified bytes.
 
-**Notes:** Engineering subset is delivered and all13 currently changed recipes lint successfully; the full publication obligation is not satisfied. Five publication criteria remain pre-existing #528 scope, outside this audit completion gate.
+**Notes:** Engineering subset is delivered and all14 recipe files selected by13 package names lint successfully; the full publication obligation is not satisfied. Five publication criteria remain pre-existing #528 scope, outside this audit completion gate.
 
 **Gap:** pre-existing #528 publication work remains open; this is not audit-discovered and is not a new punch item.
 
@@ -45,11 +45,11 @@
 
 **Source:** #528, criterion4. **Verdict:** PARTIAL.
 
-**Evidence:** `projects/ROCKNIX/packages/emulators/libretro/idtech-lr/package.mk:26`; docs/qa-logs/2026-10-11-component-inputs/dispositions.json; docs/qa-logs/2026-10-11-component-inputs/README.md; checks/pkgcheck.log. Delivery is b990d32c93/earlier cited source; exact tracker readbacks are in docs/qa-logs/2026-10-11-pixelelated-replacement-20/tracker-reconciliation.
+**Evidence:** `projects/ROCKNIX/packages/emulators/libretro/idtech-lr/package.mk:26`; docs/qa-logs/2026-10-11-component-inputs/dispositions.json (historical); docs/qa-logs/2026-10-11-component-inputs/rclone-1.75.2-binding.json (current, publication held); docs/qa-logs/2026-10-11-component-inputs/README.md; checks/pkgcheck.log. Delivery is b990d32c93/earlier cited source; exact tracker readbacks are in docs/qa-logs/2026-10-11-pixelelated-replacement-20/tracker-reconciliation.
 
 **Refutation attempted:** Attempted to treat declaration existence as complete clearance: the retained disposition explicitly keeps every publication_clearance false and identifies five aggregate gaps. The real immutable archive is the prior installed archive; recipe now copies checksum-verified bytes.
 
-**Notes:** Engineering subset is delivered and all13 currently changed recipes lint successfully; the full publication obligation is not satisfied. Five publication criteria remain pre-existing #528 scope, outside this audit completion gate.
+**Notes:** Engineering subset is delivered and all14 recipe files selected by13 package names lint successfully; the full publication obligation is not satisfied. Five publication criteria remain pre-existing #528 scope, outside this audit completion gate.
 
 **Gap:** pre-existing #528 publication work remains open; this is not audit-discovered and is not a new punch item.
 
@@ -57,11 +57,11 @@
 
 **Source:** #528, criterion5. **Verdict:** PARTIAL.
 
-**Evidence:** `projects/ROCKNIX/packages/emulators/libretro/idtech-lr/package.mk:26`; docs/qa-logs/2026-10-11-component-inputs/dispositions.json; docs/qa-logs/2026-10-11-component-inputs/README.md; checks/pkgcheck.log. Delivery is b990d32c93/earlier cited source; exact tracker readbacks are in docs/qa-logs/2026-10-11-pixelelated-replacement-20/tracker-reconciliation.
+**Evidence:** `projects/ROCKNIX/packages/emulators/libretro/idtech-lr/package.mk:26`; docs/qa-logs/2026-10-11-component-inputs/dispositions.json (historical); docs/qa-logs/2026-10-11-component-inputs/rclone-1.75.2-binding.json (current, publication held); docs/qa-logs/2026-10-11-component-inputs/README.md; checks/pkgcheck.log. Delivery is b990d32c93/earlier cited source; exact tracker readbacks are in docs/qa-logs/2026-10-11-pixelelated-replacement-20/tracker-reconciliation.
 
 **Refutation attempted:** Attempted to treat declaration existence as complete clearance: the retained disposition explicitly keeps every publication_clearance false and identifies five aggregate gaps. The real immutable archive is the prior installed archive; recipe now copies checksum-verified bytes.
 
-**Notes:** Engineering subset is delivered and all13 currently changed recipes lint successfully; the full publication obligation is not satisfied. Five publication criteria remain pre-existing #528 scope, outside this audit completion gate.
+**Notes:** Engineering subset is delivered and all14 recipe files selected by13 package names lint successfully; the full publication obligation is not satisfied. Five publication criteria remain pre-existing #528 scope, outside this audit completion gate.
 
 **Gap:** pre-existing #528 publication work remains open; this is not audit-discovered and is not a new punch item.
 
@@ -513,7 +513,7 @@
 - UNTESTABLE: 0
 - SKIP: 0
 
-Primary implementation criteria survive the bounded checks; publication scope remains partial. Independent review is pending, so this is not a completed audit.
+Primary implementation criteria survive the bounded checks; publication scope remains partial. Independent review is adjudicated in04-analysis.md; the four resulting repairs and command evidence are tracked under #554. Publication criteria remain PARTIAL.
 
 ## Coverage boundary
 

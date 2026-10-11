@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/repos/rocknix.worktrees/m7-component-inputs/tools/vm-upgrade-readiness-test", line 15, in <module>
+    function = source.split('wait_for_storage() {', 1)[1].split('\n}\n', 1)[0]
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range

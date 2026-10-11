@@ -11,9 +11,15 @@ parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--rehearsal', type=Path,
                     default=Path(__file__).with_name('vm-upgrade-rehearsal'))
 args = parser.parse_args()
-source = args.rehearsal.read_text()
-function = source.split('wait_for_storage() {', 1)[1].split('\n}\n', 1)[0]
-function = 'wait_for_storage() {' + function + '\n}\n'
+try:
+    source = args.rehearsal.read_text()
+except (OSError, UnicodeError) as error:
+    parser.error(f'cannot read rehearsal {args.rehearsal}: {error}')
+_, start, remainder = source.partition('wait_for_storage() {')
+body, end, _ = remainder.partition('\n}\n')
+if not start or not end:
+    parser.error(f'{args.rehearsal}: missing or incomplete wait_for_storage function')
+function = start + body + end
 
 with tempfile.TemporaryDirectory(prefix='upgrade-ready-') as directory:
     root = Path(directory)

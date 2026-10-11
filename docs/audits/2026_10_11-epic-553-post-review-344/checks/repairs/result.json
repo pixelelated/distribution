@@ -1,0 +1,142 @@
+{
+  "result": "PASS",
+  "utc": "2026-10-11T22:07:57.515446+00:00",
+  "commands": [
+    {
+      "name": "proxy-baseline",
+      "command": [
+        "tools/raofflineproxy-integration-test",
+        "--source",
+        "/workspace/tmp/pix541-refresh72/final-patched",
+        "--predecessor-source",
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/raofflineproxy-879b158995d412af434301ebdae581f66b8b6d57"
+      ],
+      "returncode": 0,
+      "expected": 0
+    },
+    {
+      "name": "proxy-upstream-injected",
+      "command": [
+        "python3",
+        "/workspace/tmp/pix553-repairs01/injector.py",
+        "--source",
+        "/workspace/tmp/pix541-refresh72/final-patched",
+        "--predecessor-source",
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/raofflineproxy-879b158995d412af434301ebdae581f66b8b6d57"
+      ],
+      "returncode": 0,
+      "expected": 0
+    },
+    {
+      "name": "proxy-new-fork",
+      "command": [
+        "python3",
+        "/workspace/tmp/pix553-repairs01/injector.py",
+        "--source",
+        "/workspace/tmp/pix541-refresh72/final-patched",
+        "--predecessor-source",
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/raofflineproxy-879b158995d412af434301ebdae581f66b8b6d57"
+      ],
+      "returncode": 0,
+      "expected": 0
+    },
+    {
+      "name": "proxy-wrong-cooldown",
+      "command": [
+        "tools/raofflineproxy-integration-test",
+        "--source",
+        "/workspace/tmp/pix541-refresh72/final-patched",
+        "--predecessor-source",
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18/build.pixelelated-GENERIC_X64.x86_64/build/raofflineproxy-879b158995d412af434301ebdae581f66b8b6d57",
+        "--helper",
+        "/workspace/tmp/pix553-proof01/negative-helper"
+      ],
+      "returncode": 1,
+      "expected": 1
+    },
+    {
+      "name": "readiness",
+      "command": [
+        "tools/vm-upgrade-readiness-test"
+      ],
+      "returncode": 0,
+      "expected": 0
+    },
+    {
+      "name": "readiness-historical",
+      "command": [
+        "tools/vm-upgrade-readiness-test",
+        "--rehearsal",
+        "/workspace/tmp/pix553-lead-tests02/old-rehearsal.sh"
+      ],
+      "returncode": 2,
+      "expected": 2
+    },
+    {
+      "name": "readiness-missing",
+      "command": [
+        "tools/vm-upgrade-readiness-test",
+        "--rehearsal",
+        "/workspace/tmp/pix553-repairs01/missing.sh"
+      ],
+      "returncode": 2,
+      "expected": 2
+    },
+    {
+      "name": "readiness-unterminated",
+      "command": [
+        "tools/vm-upgrade-readiness-test",
+        "--rehearsal",
+        "/workspace/tmp/pix553-repairs01/unterminated.sh"
+      ],
+      "returncode": 2,
+      "expected": 2
+    },
+    {
+      "name": "readiness-unreadable",
+      "command": [
+        "tools/vm-upgrade-readiness-test",
+        "--rehearsal",
+        "/workspace/tmp/pix553-repairs01/absent.sh"
+      ],
+      "returncode": 2,
+      "expected": 2
+    },
+    {
+      "name": "readiness-encoding",
+      "command": [
+        "tools/vm-upgrade-readiness-test",
+        "--rehearsal",
+        "/workspace/tmp/pix553-repairs01/encoding.sh"
+      ],
+      "returncode": 2,
+      "expected": 2
+    },
+    {
+      "name": "pair-syntax",
+      "command": [
+        "bash",
+        "-n",
+        "tools/vm-pair"
+      ],
+      "returncode": 0,
+      "expected": 0
+    },
+    {
+      "name": "pair-controls",
+      "command": [
+        "tools/vm-pair-test"
+      ],
+      "returncode": 0,
+      "expected": 0
+    }
+  ],
+  "patch_diff_payload_unchanged": true,
+  "vm_pair_only_comments_changed": true,
+  "source_hashes": {
+    "tools/raofflineproxy-integration-test": "ebf850252ac3961d6b85e8b3c33f4472ed3b1d7da5a4bf73883e1ff7b03ebe81",
+    "tools/vm-upgrade-readiness-test": "3538112a5a090ad7a5c9c543a9a7713d39c1971dba8237327b12a8edeb9cb8be",
+    "tools/vm-pair": "9ed709ddb25588fc744f5d34e3a7d5a70f8889b64a679328be47c987e4489ff0",
+    "projects/ROCKNIX/packages/network/raofflineproxy/patches/004-no-cap-on-cached-games.patch": "70c6f05baf75cf932fbdf7651a8df47bf2a2cf6bac9cec66b34b12cef2a55344"
+  }
+}

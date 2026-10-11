@@ -3,9 +3,12 @@ rom_browser: allow an OS-managed deliberate whole-library scan
 Rasteratops' explicit preparation scans must retain more than100 games in
 one run (D-RA-014, #361). Add an opt-in budgeted=False argument to the
 single-ROM/drain entrypoints. Existing upstream callers keep the100-game
-window and batch bound. Deliberate calls retain the queue locks, pacing,
-429 stop and persisted pause; each cached game is still charged. They do
-not treat queued success as readiness: the integrating helper checks queued.
+window and batch bound. Deliberate calls retain queue locks, request-level
+throttling, the429 stop and persisted pause; each cached game is charged.
+Per-ROM deliberate drains do not use the background queue's18-second
+inter-request pacing: their request count starts at zero. The integrating
+helper retains its50-game/30-second batch cooldown and checks queued state
+rather than treating queued success as readiness.
 
 The original patch004 raised a removed total-library cap. This replacement
 preserves that workflow through current upstream's queue API instead.

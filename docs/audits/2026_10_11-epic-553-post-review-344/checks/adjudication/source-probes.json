@@ -1,0 +1,60 @@
+{
+  "F5": {
+    "predecessor_has_table": true,
+    "index_function_ast_unchanged": true,
+    "unit_wait_seconds": 30
+  },
+  "F6": {
+    "probe-online": {
+      "source_declared": true,
+      "installed_bytecode_literal": true
+    },
+    "cached-games-count": {
+      "source_declared": true,
+      "installed_bytecode_literal": true
+    },
+    "run-smart-cache": {
+      "source_declared": true,
+      "installed_bytecode_literal": true
+    }
+  },
+  "F7": {
+    "executor_in_installed_bytecode": true,
+    "shutdown_in_installed_bytecode": true,
+    "upstream_image_cache_unchanged": true
+  },
+  "installed_hashes": {
+    "main.pyc": "e23fd764dae73cd3079bfa52ecc62e335a48c3c318d335920e55293faa9a0851",
+    "image_cache.pyc": "b69b74d038531e5cb0af98ddf4ee80dfe211f5ba09af29a3c73c505b2a22d0c2",
+    "storage.pyc": "c291a9c1ee51dd72e40b180dba02c05019ed99d98f845c33b0bd1685e1593af9"
+  },
+  "F13": {
+    "package_names": 13,
+    "recipe_files": 14
+  },
+  "F2": {
+    "rehearsal_sha256": "436d5ccfb39d7b6b5c6f70956a7732a0a0ceebc5aee0884b12ba1dc588c678de",
+    "manifest_sha256": "d3015c3edbebd21929a2355e5e6174a0fd9f3b50368f043b9e9931db09b15d09",
+    "all8_manifest_entries_match": true,
+    "readiness_function_unchanged": true
+  },
+  "F4": {
+    "launcher": 2,
+    "inner": 2,
+    "outer": 2
+  },
+  "fresh_archive_hashes": {
+    "rclone-amd64.zip": "349ac8fba6ff65d6247043f1750cdcb518ec5d500ef91463a10d37c0ccdf3702",
+    "rclone-arm64.zip": "7e1e8d69654941b7b7df84ee74c5f7fb09cce7d5496947fb7bf16b55ff427d10",
+    "SHA256SUMS": "73ede5aab2b8f2dd4b1315f7f063cdd5df10de6338749bba49cbc0c240bda976",
+    "proxy.tar.gz": "88eef31acfa4104b20258bd5cea514ade30e6cdf35767ffc958009851d61898b"
+  },
+  "upstream_test_and_fixture_hashes": {
+    "linux/tests/test_linux_rom_hashing.py": "500373b9d8c2f5ca68b3396d68db9a0154e1b7a1ad2218b95b4c4bf42250392c",
+    "linux/tests/fixtures/mystery.7z": "3aee8d0e8c3937199028cb1d4bd5ce98abb7f5ddf3e2eb49363596273f82a302",
+    "linux/tests/fixtures/pokemon.7z": "d3ac255fd77e15253327c4ab8a72df9bc9d37cf158822de1ff0c70e690a775f9",
+    "linux/tests/fixtures/mslug.7z": "283d9abb1c8acda94e8bc6b4ac043a1f0a8fcbf9490bbc5e5b41f1ea35c7e5f5",
+    "linux/tests/fixtures/bundle.7z": "aa299e5f8755b95894a14b6c62ae0301d63cf45c2c0c81eb7c0bcacb2d560a1a"
+  },
+  "es_head": "0ee5b28a65ada516a83d6ff10ec5ec889c3edcd7"
+}

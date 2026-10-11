@@ -1,0 +1,130 @@
+{
+  "artifact_path": "../../tmp/pix553-fable01/claude-audit.md",
+  "output_file_sha256": "0ee4ff247946b1203dfeea4290d6482e99385248d2e875a3439eb4e8f31db0cc",
+  "source_file_paths": [],
+  "source_file_hashes": [],
+  "facilitator_version": "council-facilitator@1.14.0",
+  "prev_verdict_sha256": null,
+  "member": "claude",
+  "declared_model": "anthropic/claude-fable-5.1 (OpenRouter, effort=xhigh)",
+  "substrate": "openrouter",
+  "transport": "buffered",
+  "endpoint": "https://openrouter.ai/api/v1/chat/completions",
+  "request": {
+    "started_at": "2026-10-11T21:36:37.871Z",
+    "system_prompt_sha256": null,
+    "user_prompt_sha256": "cec44a71f013ddac431b149ee54c356cad2c782baa7dcb35952a17c568dcb256"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "started_at": "2026-10-11T21:36:37.871Z",
+      "duration_ms": 756331,
+      "max_tokens": 128000,
+      "transport": "buffered",
+      "http_status": 200,
+      "outcome": "success",
+      "outcome_reason": null,
+      "model_field": "anthropic/claude-fable-5.1",
+      "finish_reason": "stop",
+      "content_length": 16391,
+      "tokens": {
+        "prompt": 492977,
+        "completion": 57803,
+        "total": 550780,
+        "reasoning": 50958
+      },
+      "model_identity_source": "provider_response",
+      "served_provider": "Anthropic",
+      "served_provider_observations": [
+        "Anthropic"
+      ],
+      "content_sha256": "0ee4ff247946b1203dfeea4290d6482e99385248d2e875a3439eb4e8f31db0cc",
+      "usage": {
+        "prompt_tokens": 492977,
+        "completion_tokens": 57803,
+        "total_tokens": 550780,
+        "cost": 7.81992,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 7.81992,
+          "upstream_inference_prompt_cost": 4.92977,
+          "upstream_inference_completions_cost": 2.89015
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 50958,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_headers": {
+        "content-type": "application/json"
+      },
+      "response_body_sha256": "7dc992aedd73ce62fed179f273dac7a8ff563385b7d9a7dea92c477e782b30b6"
+    }
+  ],
+  "final": {
+    "outcome": "success",
+    "assurance_tier": "local_capture_provider_attested",
+    "total_duration_ms": 756333,
+    "retries_used": 0,
+    "file_artifact_sha256": "0ee4ff247946b1203dfeea4290d6482e99385248d2e875a3439eb4e8f31db0cc",
+    "usage": {
+      "prompt_tokens": 492977,
+      "completion_tokens": 57803,
+      "total_tokens": 550780,
+      "cost": 7.81992,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 7.81992,
+        "upstream_inference_prompt_cost": 4.92977,
+        "upstream_inference_completions_cost": 2.89015
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 50958,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "tokens": {
+      "prompt": 492977,
+      "completion": 57803,
+      "total": 550780,
+      "reasoning": 50958
+    },
+    "verification": {
+      "result": "PASS",
+      "match_kind": "semantic",
+      "declared": "anthropic/claude-fable-5.1 (OpenRouter, effort=xhigh)",
+      "observed": "anthropic/claude-fable-5.1",
+      "model_identity_source": "provider_response"
+    },
+    "effort_verification": {
+      "result": "PASS",
+      "declared": "xhigh",
+      "evidence": "reasoning_tokens",
+      "observed_reasoning_tokens": 50958
+    },
+    "provider_verification": {
+      "result": "NOT_PINNED",
+      "declared": null,
+      "evidence": "response_provider_field",
+      "observed": "Anthropic",
+      "observed_providers": [
+        "Anthropic"
+      ]
+    }
+  }
+}

@@ -1,0 +1,87 @@
+commit b990d32c935c557ba8808cfedb7344730eee60fe
+Author:     blitterbot <blitterbot@rasteratops.com>
+AuthorDate: Sun Oct 11 20:47:53 2026 +0000
+Commit:     blitterbot <blitterbot@rasteratops.com>
+CommitDate: Sun Oct 11 20:47:53 2026 +0000
+
+    qa: record corrected clean and retained image qualification
+    
+    Preserve failed original aggregates and bind the explicit corrected acceptance, installed frames, protocol checks and real retained-storage update. Firmware source remains frozen at 1a02664844.
+    
+    Refs #344, #548, #549, #550, #551, #552, #529, #530, #532, #349, #350, #537.
+
+ .../saved-session-state-next-20261011T204100Z.md   |  96 ++++++++
+ .github/sessions/saved-session-state-next.md       |  51 +++++
+ docs/es-menu-map.md                                |   5 +-
+ docs/friction-log.md                               |   1 +
+ .../README.md                                      |  30 ++-
+ .../clean-composed-result.json                     |  52 +++++
+ .../clean-information/bindings.json                |  11 +
+ .../frames/01-main-menu-identity.png               | Bin 0 -> 25627 bytes
+ .../frames/02-system-settings.png                  | Bin 0 -> 37843 bytes
+ .../clean-information/frames/03-information.png    | Bin 0 -> 35251 bytes
+ .../frames/04-cpu-information.png                  | Bin 0 -> 34755 bytes
+ .../clean-information/information.steps            |  25 +++
+ .../clean-information/script.json                  |   5 +
+ .../clean-information/startup-journal.txt          | 224 +++++++++++++++++++
+ .../clean-original-launcher-result.json            |   6 +
+ .../clean-original-result.json                     |  50 +++++
+ .../clean-original-tool-wrapper.rc                 |   1 +
+ .../clean-standard-frame-diff.log                  |  53 +++++
+ .../clean-standard-report.md                       |  68 ++++++
+ .../clean-standard-walks.log                       |  17 ++
+ .../evidence-index.json                            | 245 +++++++++++++++++++++
+ .../retained-information/bindings.json             |  11 +
+ .../frames/01-main-menu-identity.png               | Bin 0 -> 25627 bytes
+ .../frames/02-system-settings.png                  | Bin 0 -> 37843 bytes
+ .../retained-information/frames/03-information.png | Bin 0 -> 35487 bytes
+ .../frames/04-cpu-information.png                  | Bin 0 -> 34847 bytes
+ .../retained-information/information.steps         |  25 +++
+ .../retained-information/script.json               |   5 +
+ .../retained-information/startup-journal.txt       | 220 ++++++++++++++++++
+ .../s3-report.md                                   |  13 ++
+ .../s3-round-trip.log                              | 183 +++++++++++++++
+ .../sftp-report.md                                 |  13 ++
+ .../sftp-round-trip.log                            | 183 +++++++++++++++
+ .../upgrade/actual-journal-err-after.txt           |   3 +
+ .../upgrade/actual-rc                              |   1 +
+ .../upgrade/actual-rehearsal.raw.json              |   5 +
+ .../upgrade/actual-state-after.txt                 |  34 +++
+ .../upgrade/clean-qualification.json               |  52 +++++
+ .../upgrade/exit.log                               |  16 ++
+ .../upgrade/information.log                        |  17 ++
+ .../upgrade/launcher-result.json                   |   6 +
+ .../upgrade/payload.log                            |   2 +
+ .../upgrade/prepared-manifest.json                 |  10 +
+ .../upgrade/prepared-manifest.original.json        |   9 +
+ .../upgrade/rehearsal.log                          |  42 ++++
+ .../upgrade/report.md                              |  57 +++++
+ .../upgrade/result.json                            |  38 ++++
+ .../upgrade/round-trip.log                         | 183 +++++++++++++++
+ .../upgrade/run.py                                 |  30 +++
+ .../upgrade/time-to-play.log                       |  42 ++++
+ .../upgrade/tool-wrapper.rc                        |   1 +
+ .../webdav-report.md                               |  68 ++++++
+ .../webdav-round-trip.log                          | 183 +++++++++++++++
+ .../2026-10-11-regression-fixtures/README.md       |  14 +-
+ .../accept-corrected-console.log                   |   4 +
+ .../accept-corrected-launcher-result.json          |   6 +
+ .../accept-corrected-result.json                   |  52 +++++
+ .../accept-corrected-run.py                        |  56 +++++
+ .../accept-corrected-tool-wrapper.rc               |   1 +
+ .../accept-original-console.log                    |   6 +
+ .../accept-original-launcher-result.json           |   6 +
+ .../accept-original-run.py                         |  43 ++++
+ .../accept-original-tool-wrapper.rc                |   1 +
+ .../delivery-hosted-checks.json                    |  20 ++
+ .../delivery-launcher-result.json                  |   6 +
+ .../delivery-remote-readback.json                  |   5 +
+ .../delivery-result.json                           |  24 ++
+ .../final-launcher-result.json                     |   6 +
+ .../final-result.json                              |  12 +
+ .../final-tool-wrapper.rc                          |   1 +
+ .../parser-controls.json                           |  18 ++
+ .../2026-10-11-regression-fixtures/suite_parser.py |  17 ++
+ .../2026_10-work_logs/2026_10_11-work_log.md       |  37 ++++
+ docs/work-logs/INDEX.md                            |  12 +-
+ 74 files changed, 2725 insertions(+), 14 deletions(-)
