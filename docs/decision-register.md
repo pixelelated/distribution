@@ -671,6 +671,8 @@ This is the index of decisions; `docs/work-logs/` is the narrative,
 
 | D-WORKFLOW-158 | 2026-10-10 | **Correct #531 before the next candidate build and explicitly review a thin rolling-release naming policy and the remaining candidate scope before freeze.** The maintainer proposes public release candidates and releases without required alpha/beta stages. #532 under #265 evaluates the exact convention; #533 under #344 reconciles open issues with original evidence and identifies any additional source changes. Proposed rc.N names and promotion semantics are not yet selected. Refines D-WORKFLOW-157's deferred policy timing without weakening qualification or publication gates. | #531; #532; #533; maintainer's next-candidate planning request |
 
+| D-WORKFLOW-160 | 2026-10-11 | **Keep USB gadget bcdDevice independent of the OS release; use shared BCD 1.00 (`0x0100`) for networking and MTP, changing it only with a deliberate gadget-interface revision.** Calendar slicing already rejects semantic 0.0.1 metadata. Preserve vendor/product/serial identity, mode configuration and persistent settings; qualify actual preparation writes with old/new host and guest controls, keeping assembled-image and physical-enumeration claims separate. | #531; `docs/releases/versioning.md`; `tools/usb-gadget-test`; local implementation choice under the approved fix |
+
 ## Open decisions
 
 

@@ -199,3 +199,15 @@ pass. First harness result1 retained; corrected owner02 results0 with original
 optional-quirk127 explicitly compared. Original exits and stopped/retired VM
 recorded in docs/qa-logs/2026-10-09-build-identity/. No full-suite, assembled
 firmware or handheld claim. #530 remains open for next candidate qualification.
+
+### 2026-10-11 02:08 UTC — #531 USB revision source fixture
+
+Replacement18 isolated guest, actual old/new networking and MTP preparation
+bodies on disposable configfs fixtures. Old control40/72 (expected exit1);
+fixed72/72, exact source/tool hashes and synthetic settings preserved. Owner01
+fails1 before testing on absent optional /proc/config.gz; owner02 uses frozen
+source config, preserves that probe and passes all five result channels0.
+Actual process exits and disk/UEFI/key retirement are recorded in
+[the proof packet](qa-logs/2026-10-11-usb-revision/README.md). CONFIG_USB_GADGET
+is disabled; no kernel-write, enumeration or transfer claim. No ES/presentation
+change, personal device action or assembled-image qualification.

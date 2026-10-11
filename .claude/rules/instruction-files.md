@@ -189,6 +189,7 @@ both lists and to this table, or it is invisible.**
 | `rc-preflight` | may this tree be cut as a release candidate: packages current, the bases level with ROCKNIX, no bug without a disposition, the record clean -- or each finding accepted by a register row (#271, D-WORKFLOW-047) | `release-candidates.md` |
 | `pr-stack-check` | build the upstream series by content from `docs/pr-series/map.txt` in a throwaway worktree, and prove the last head equals `next` on every upstream-bound path (#322) | `fork-workflow.md` |
 | `es-launch-memory` | capture stable-PID launch/exit memory and successful exit-sync stamps on an owned QA guest | `generic-x64-vm-testing.md` |
+| `usb-gadget-test` | run actual USB preparation functions with old/new version metadata in a disposable configfs fixture; preserve descriptor identities and mode links (#531) | `generic-x64-vm-testing.md` |
 | `nova-led-test` | exercise all eight LED nodes, saved brightness and the battery writer using actual scripts and fixture sysfs | `generic-x64-vm-testing.md` |
 | `raofflineproxy-integration-test` | preserve old-writer state and prove full-library preparation, retries and rate-limit pacing | `generic-x64-vm-testing.md` |
 | `raofflineproxy-consent-test` | exercise installed reporting consent with synthetic state, actual loopback HTTP and restart controls | `generic-x64-vm-testing.md` |

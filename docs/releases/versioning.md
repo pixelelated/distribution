@@ -84,6 +84,14 @@ prerelease qualifiers and ignored-for-precedence build metadata. GitHub's
 is a publication property, independent of naming. This initial0.0.x rolling
 scheme does not declare a stable1.0 API or a complete alpha-to-stable policy.
 
+## USB device revision
+
+USB gadget `bcdDevice` is a separate interface revision, currently BCD 1.00
+(`0x0100`), shared by networking and MTP (#531, D-WORKFLOW-160). It does not encode OS_VERSION,
+release channel, date or source hash. Only a deliberate gadget-interface
+revision changes it. The vendor/product/serial identities and mode definitions
+are preserved; a new OS version alone does not change this descriptor.
+
 ## Qualification boundary
 
 Source/host controls and VM runtime-overlay frames are recorded under

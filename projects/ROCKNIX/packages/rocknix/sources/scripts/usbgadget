@@ -112,7 +112,9 @@ usb_trigger() {
 #############################################
 g_cdc="/sys/kernel/config/usb_gadget/cdc"
 verbose=${verbose:-0}
-devversion=0x$(echo $OS_VERSION | cut -b 3-6)   # 0xYYMM; 20241025 -> 0x2410
+# USB device revision in BCD (1.00), independent of the OS release name.
+# Change this only when the USB gadget interface revision changes.
+devversion="0x0100"
 
 prepare_usb_network() {
     set -e

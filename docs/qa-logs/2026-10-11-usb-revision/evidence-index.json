@@ -1,0 +1,13 @@
+{
+  "source": "source-bindings.json",
+  "host": "host/results.json",
+  "guest_original": "guest01/launcher-result.json",
+  "guest_corrected": "guest02/acceptance.json",
+  "completion": "guest02/completion-consumption.json",
+  "flows_exercised": [
+    "prepare_usb_network descriptor writes",
+    "prepare_usb_mtp descriptor writes"
+  ],
+  "presentation": "No ES source, pin, navigation, labels or screen content changed. Fixture exercises backend descriptor preparation only; no new UI frame or physical USB behavior claim.",
+  "remaining": "next image installed source; physical enumeration/network/MTP traffic outside this fixture"
+}

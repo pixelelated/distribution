@@ -1,359 +1,133 @@
 # Saved Session State
 
-> Saved: 2026-10-09T23:21:36.888786+00:00
-> Active: feature/m7-p5-build-identity
+> Saved: 2026-10-11T02:15:06.689855+00:00
+> Branch: feature/m7-p5-usb-revision
 > Repository: pixelelated/distribution
 
-## Start here — #530 source qualified; deliver, then #531 and combined candidate
+## Start here — #531 source qualified; deliver, then #532/#533 and candidate freeze
 
-The user explicitly approved #529's named next integration/push; it completed
-at c6afa31db1c00ecd82ff615310f97debe63b519c. Original wordlist38002608076 and
-record38002608077 both succeeded. No #529 approval remains pending. Its actual
-receipt is /tmp/pix529-final-readback.json and copied into the #530 proof.
+This repository builds an immutable Linux distribution for gaming handhelds;
+it is not an app. Read this checkpoint, AGENTS.md and every-session
+.claude/rules from primary next, then scoped rules before their paths.
+M7's live milestone body is the ordered plan. The dated working list is
+docs/releases/next-candidate-work.md. Device actions are controlled by
+docs/device-testing-policy.md; docs/es-menu-map.md and
+docs/conflict-wizard-ia.md are interface law. Current brand is lowercase
+pixelelated; maintainer rasteratops, developer blitterbot.
 
-The user then requested semantic version + date/time/hash identity instead of
-community and expressly authorized work on #530. They clarified that rolling
-releases do not need a detailed alpha/beta/RC/stable progression now. #530 is a
-real child of #265. D-WORKFLOW-157 and docs/releases/versioning.md record it.
+The latest user requested the working list be documented and #531 begun.
+They are using their devices and plan to re-link Dropbox on RG SP themselves
+with automatic cloud sync off. This is not permission for us to contact the
+device or perform a cloud operation. Linking preserves chosen paths and does
+not move data. Existing /ROCKNIX versus new /pixelelated paths must be checked
+by the owner before their manual operation; local game saves may stay enabled.
 
-Current source removes community labels, decouples defaults, freezes semantic
-release version + UTC seconds + source hash, includes per-image identity JSON,
-refuses reused filenames, and generates matching GitHub naming/asset plans from
-an explicit verified immutable bundle. tools/fork-publish-release now PREPARES
-JSON only: no implicit newest/date/clobber/undraft path and no actual publication.
-Default qualifier dev; explicit SemVer qualifiers/empty stable are syntax only,
-not release qualification or a mandated progression. Existing0.0.1 adoption
-suffix and stored settings persist. Full source BUILD_ID stays unchanged.
+## Completed this session
 
-29 host controls pass (actual image naming/os-release/sidecar blocks, actual
-package post_install and manifest-bound plans). New and legacy information rows
-on replacement18 are reviewed at640x480 with unchanged protected settings. The
-first UI harness failed1; original script also exits127 on an absent optional VM
-quirk after emitting rows. Corrected owner02 compares that baseline and passes0.
-Do not hide/rerun the failed owner. All original channels and actual exits are
-retained; disposable disk/UEFI/key deleted. No process, build, audit, VM or device
-operation is running. Evidence: docs/qa-logs/2026-10-09-build-identity/README.md,
-SHA256SUMS, source-bindings.json and evidence-index.json. This is runtime-overlay
-proof, not assembled firmware. No full release audit has been repeated.
+- #531 replaces the shared calendar-derived USB revision with0x0100 (BCD1.00),
+  independent of OS_VERSION. Both actual network and MTP preparation bodies
+  retain their other descriptor fields/links. D-WORKFLOW-160 and versioning.md
+  document the contract. This defect predates #530.
+- tools/usb-gadget-test covers nine version values, two modes and72 assertions.
+  Old control40/72, expectedexit1; corrected hostsh/Bash and actual guestsh
+  each72/72. Exact source/tool hashes and synthetic protected settings pass.
+  Filesystem fixtures do not test kernel rejection, UDC binding, enumeration,
+  network traffic or MTP transfer. GENERIC_X64 disables CONFIG_USB_GADGET.
+- Original guest01 owner failed1 before descriptor tests because optional
+  /proc/config.gz was absent. It stays failed. Guest02 uses the exact frozen
+  kernel input, retains the optional runtime probe and passes allfive0 result
+  channels. Source/tool/assertions unchanged. All launcher/runner/watcher/
+  command/QEMU PIDs actually exited. Both disposable disks/vars/keys retired.
+  Evidence: docs/qa-logs/2026-10-11-usb-revision/README.md, SHA256SUMS,
+  source-bindings.json, guest02/completion-consumption.json. No job is running.
+- GitHub #531 has its first two source criteria checked; assembled-image
+  criterion remains open. M7 now orders delivery, #532/#533, firmware-affecting
+  #528 choices, combined image/QA, then custody and release completion.
+  Readback: /tmp/pix531-qualified-tracker.json. No candidate built/designated.
+- The requested working list, changelog, VM ledger, friction and dated log are
+  updated. No ES C++/pin/UI change; no new frames are needed for this descriptor
+  fixture. This is local implementation review, not a new independent audit.
 
-Delivery boundary: /tmp/pix530-final-readback.json resolves the scoped commit,
-next integration/push and original hosted results after publication. Consult
-that file and live GitHub before treating delivery as done/pending. Until it
-exists, source delivery still needs commit/integration/check consumption.
+## Delivery boundary — verify the receipt before acting
 
-Next: finish that delivery, then #531 (already filed as child of #265) fixes an
-existing USB gadget consumer that turns OS_VERSION0.0.1 into invalid bcdDevice
-0x0.1. No USB change was made here. Then assemble/qualify combined #529/#530/#531
-source on clean and retained-storage VM paths. #528's17 component dispositions,
-source/custody/retrieval and off-host proof remain independently open; #265/#344
-actual publication stays unqualified. Detailed channel progression is deferred.
-#530 has three source criteria checked and one assembled-candidate criterion open.
-Do not close #529/#530 or call an RC based on the runtime overlays.
+At checkpoint creation, source/docs are uncommitted in this feature worktree
+based on localnext1fd36fcd26. Next is ahead origin/nextf10eec1306 by that one
+planning commit. The continuation will run gates, commit the scoped changes,
+integrate safely and attempt delivery under the recorded authorization.
+**/tmp/pix531-final-readback.json** is the post-checkpoint delivery receipt:
+read it and actual git/GitHub state before treating commit/push/checks as done
+or pending. Until it exists, finish delivery. Never infer hosted success from
+submission. A rejected approval is a stop for that action, not permission to
+change transport. The original source and proof are already complete.
 
-The owner is using the three devices. Do not contact, update, reboot, capture,
-launch games or change their cloud/settings under completed deployment grants.
-Current firmware remains8b511, automatic cloud sync off. No handheld contacted
-in this continuation. Website #511 stays separate. No active goal exists.
+Active feature: /workspace/repos/rocknix.worktrees/m7-p5-usb-revision,
+feature/m7-p5-usb-revision. Primary /workspace/repos/rocknix stays on next.
+Integrate only this feature's reviewed commits onto clean next. The harness
+/workspace/repos/rocknix.worktrees/conflict-resolution is historically divergent;
+never merge it wholesale. Shared artifacts are under /workspace/artifacts,
+sources under /workspace/cache/rocknix-sources. Use existing gh/SSH auth;
+never print credentials. Issue commands explicitly target pixelelated/distribution.
+Current sandbox needs escalation for feature/primary writes and network reads.
 
-Active worktree: /workspace/repos/rocknix.worktrees/m7-p5-build-identity,
-feature/m7-p5-build-identity, from c6afa31db1. Integrate only its owned commits
-onto clean primary next (/workspace/repos/rocknix); never merge the root harness's
-divergent feature/conflict-resolution branch. Previous #529 feature commit15c975
-is already integrated as c6afa31; do not cherry-pick it again. All canonical rules
-are in this worktree; read every-session/scoped rules before further work.
+## Next steps
 
-Archive of preceding checkpoint: .github/sessions/archived/saved-session-state-next-20261009T232136Z.md.
-The material below is retained context; its old current-work/push requests are
-historical wherever the Start here section supersedes them.
+1. Resolve the actual #531 source delivery from the receipt and git state;
+   consume original hosted checks if submitted. Do not replay the completed
+   fixture runs. #531 remains open until actual next-image installed bytes.
+2. Continue #532 (real child of#265): thin RC/release policy without required
+   alpha/beta stages. D-WORKFLOW-159 remains open; exact rc.N counter, default
+   and promotion semantics are not yet selected. #530 currently defaults dev;
+   arbitrary valid SemVer qualifier syntax is not a release policy.
+3. #533 (real child of#344) reconciles every open M7 issue/bug against original
+   evidence. #352/#353 still carry retired migration/discovery criteria;
+   #349/#350/#337/#510/#354 have stale status to reconcile. Do not reintroduce
+   automatic folder move/follow or blindly close an umbrella. Read full issue
+   comments and original artifacts before changing each contract.
+4. Resolve #528 dispositions that change shipped content before freezing.
+   Then recheck #493 capacity/retention, assemble combined#529/#530/#531 source,
+   and qualify installed fixes/identity, clean/public ROCKNIX adoption and
+   retained-storage paths, affected frames and applicable delta review.
+   Source/overlay proofs cannot close assembled-image criteria beforehand.
+5. Complete #528 retrieval/hash verification and off-host custody plus
+   #265/#344/#359 support/source/adoption/recovery/branding/publication gates.
+   No public RC clearance. Do not request or replay device actions by default.
 
-## Retained project and deployment context
+## Retained evidence and boundaries
 
-This is an immutable Linux distribution build system, not a runnable app.
-Read this complete checkpoint, primary `next`'s AGENTS.md and every-session
-`.claude/rules/`; scoped rules before their paths. M7's live milestone body is
-the ordered plan. `docs/device-testing-policy.md` controls physical operations;
-`docs/es-menu-map.md` and `docs/conflict-wizard-ia.md` are interface law.
-Rules were equal to next at this continuation. Current brand is lowercase
-pixelelated, GitHub pixelelated/distribution, maintainer rasteratops, bot blitterbot.
+#529 is deliveredc6afa31db1; #530 deliveredf10eec1306, both original hosted
+checks passed. #530 proof: docs/qa-logs/2026-10-09-build-identity/. #529 proof:
+docs/qa-logs/2026-10-09-frontend-readiness/. Their next-image criteria stay open.
+No new full audit has run; #507/#524 and earlier#471 are completed evidence,
+not jobs awaiting restart. #508/#526/#527 source and replacement18 qualification
+are accepted. Preserve original nonzero aggregate results and composed evidence.
 
-The old checkpoint is archived as .github/sessions/archived/saved-session-state-next-20261009T160735Z.md. Its pending #519 approval and
-old launch commands are history. The owner explicitly approved the exact
-alignment/guarded rollback, then RG35XX SP transfer/reboot/screenshots; later
-approved both RG SP and Retroid Pocket Nova transfer/reboot following their
-named preparation/screenshots proposal. Do not ask again for those completed
-actions or rerun them. No gameplay, input, cloud sync/mutation or automatic-sync
-reenable is authorized by this deployment. All three keep startup/game-exit
-cloud sync off. Prior scoped source/docs commits, pushes and host/VM work remain
-authorized. No goal exists. Website #511 stays separate.
+Replacement18 unchanged VM bundle:
+/workspace/artifacts/pixelelated-candidates/sha256/f557176651026f59bb5931993b12491a6019c0383321fb89fa1a05a596514fe6
+Distribution7f58b7b1c592908dcd0ba5987955e59aaa79fe66;
+ES1d76b3da7da75794066df1c089931b890304da7a. #531 used this baseline with a
+temporary exact-source fixture; its firmware was not changed/rebuilt.
 
-All three authorized transfers/reboots and final installed/preservation/frame checks
-are complete. Original five-channel results are0 for every transfer/reboot, and
-actual owners exited. RG35XX SP640×480, RG SP720×480, Nova1280×960 frames reviewed.
-The RG SP and Nova have been explicitly handed back for normal use; do not
-interrupt them with more device actions. No deployment job remains active.
+Owner devices RG35XXSP/RGSP/Nova run accepted engineering8b5113fa164ada7d002ab138b1e3a9bf795e9de5,
+same ES pin. #519 alignment and every authorized transfer/reboot/screenshot
+are complete and those grants consumed. Devices are in owner use; automatic
+cloud sync was left off. No personal data or new device action in this session.
 
-No RC designation/publication clearance. #528's source/licence and independently
-verified off-host custody remain. An owner engineering test is not that gate.
-No compiler, VM, provider or external-audit job remains active; all earlier
-successful and failed original results are preserved. Never repeat H70002,
-SM855003, replacement18, #507/#524 or #519's rehearsals merely to resume.
+#528 still has17 source/licence declaration gaps plus per-file/vendor/prebuilt
+dispositions. Use corrected licence basis:13have scoped evidence, not13cleared.
+ABL packaging is not implementation; LinuxLoader4588733123554b1f7bf935b04e494e4284894546
+source returned404. No outreach authorized. Local exact archives/Git snapshots
+are retained; independent retrieval and off-host custody remain. B2 intention
+D-WORKFLOW-107 is not a configured bucket or purchase. Full source/firmware
+inventory, paths and deployment facts are in the archived preceding checkpoint:
+.github/sessions/archived/saved-session-state-next-20261011T021506Z.md.
 
-## Workspace and integration
+Website#511 stays in its separate lane. Broad telemetry#432, disconnected
+notifications#395, personal cleanup/redundancy#516/#518 remain separate. No goal
+exists. Watchers provide durable results but no configured off-session alerts:
+actively supervise every long job and announce terminal results promptly.
+Never edit an in-flight shell tool, overwrite an original failure, or retain
+disposable test disks after their immediate dependency ends.
 
-- Active feature: `/workspace/repos/rocknix.worktrees/m7-p5-frontend-readiness`,
-  `feature/m7-p5-frontend-readiness`, branched from next3ee72d0c97. The three-file
-  product delta is essway.service, Sway's package recipe and new sway-ready
-  helper. No ES C++/pin change. Source hashes are in the readiness proof.
-  Integrate only this branch's reviewed source/docs commits onto next.
-  The old coordinator below is historical; do not merge it wholesale.
-
-- Root `/workspace/repos/rocknix.worktrees/conflict-resolution`, branch
-  `feature/conflict-resolution`, historical product divergence/older ES pin.
-  **Never merge this branch wholesale.** Commit owned evidence/docs, then
-  cherry-pick explicit full hashes onto primary `next`. Root also lacks next's
-  completed #507 audit packet, so its advisory cadence warning is stale; the
-  canonical next network-enabled ceremony gate passes. Do not rerun the audit.
-- Primary `/workspace/repos/rocknix`, branch `next`. Before this continuation,
-  root6f61bcdd15bcad3c42f11b900d80ee340a8290b0 and
-  next1609c19fd33d8a18ba3099d1145b95ab8148b467. Prior final hosted checks
-  succeeded; `/tmp/m7-final-delivery-20261009/final-readback.json` retains them.
-- Deployment evidence is published on next at
-  739ed70338c70e8f4783a43a8a898ac95b6e67ea (scoped coordinator commit
-  9c2276777b49ef17a61e40830e24957cf6acadab). Hosted wordlist37958048538 and
-  record37958048559 both completed successfully. #519 is closed completed;
-  whole #344 closure and M7/#529 bodies and actual child relation were read back.
-  Closure receipts and those check results are retained in
-  `docs/qa-logs/2026-10-09-owner-deployment-delivery/`. The preceding checkpoint
-  is archived at `.github/sessions/archived/saved-session-state-next-20261009T162240Z.md`.
-- Prior deployment closure delivery completed at
-  3ee72d0c97860b659a9bb5c46a61147c6b214351. Both hosted checks37958922904
-  and37958922911 succeeded, both worktrees were clean, #519 closed and #529
-  open, as `/tmp/pixelelated-device-deploy-20261009/final-readback.json` proves.
-  Do not repeat that completed delivery.
-- Build/input artifacts are under `/workspace/artifacts/`; shared sources under
-  `/workspace/cache/rocknix-sources`. Frozen build worktrees stay on build/*.
-- Credentials use the existing `gh`/SSH configuration. Never print values.
-  SSH alias rg35xxsp carries the device identity; `-o Hostname=<currentIP>`
-  reuses it for another verified device. Raw root@IP may miss that identity.
-  Private deployment directory is0700; do not commit personal inventories or
-  frame pixels. API GitHub reads/writes use explicit pixelelated/distribution.
-
-## #519 actual alignment — completed before update, do not repeat
-
-Owner approved the named alignment and guarded rollback. Final operation
-SHA2564e286b7906d47ef752761442ed294960f6d7ef5b3417f8925f1249024ce676a1
-at `/tmp/pixelelated-personal-cloud-review-20261008/preupgrade-execution04/`
-ran stage/apply with original rc0. Actual acceptance independently read back,
-full fresh binding equal, sealed privately at
-`/tmp/pixelelated-device-deploy-20261009/alignment-acceptance.json`:
-SHAc26a362148e49f69125606c79f8064ed9566ae4ad3920b7f4191d4e12e5102ce;
-private seal SHA dd45f39dcf9d2e7e026316bf2c81d32aa3b99c0429c671658df0b98d7909f42e.
-
-All163 protected files/25,549,175B, recovery, credentials and unrelated settings
-preserved. Disabled automatic startup/game-exit sync, restored agreed selected
-save/backup paths to existing /ROCKNIX folders, retained Content selection and
-all defaults, archived only stale experimental migration/scan records. Restored
-frontend/unit states and removed owned gates. No personal cloud operation.
-Redacted actual receipt and original exits in
-`docs/qa-logs/2026-10-09-owner-deployment/`. All four #519 criteria pass.
-After publication of the actual receipt, #519 was closed completed at
-2026-10-09T16:18:32Z. Its complete closed-state readback and #344's corresponding
-closure update are in the separate deployment-delivery packet. Do not reopen
-or repeat alignment merely to resume.
-
-Earlier runtime/executor proofs are complete at
-`docs/qa-logs/2026-10-08-preupgrade-runtime/` and
-`docs/qa-logs/2026-10-08-preupgrade-executor/`. They prove cached ES auto1 must
-be stopped/restarted; masks alone fail because boot unmasks essway; temporary
-negative path conditions survive the actual power recovery. Final executor06
-six controls and final staging controls passed with original five0 channels
-and actual exits. Earlier failures stay failures; all scratch guests/keys gone.
-
-## Three physical devices and private evidence
-
-Private root `/tmp/pixelelated-device-deploy-20261009/`. Operation owners are
-`/tmp/pixelelated-{rg35xxsp,rgsp,nova}-{stage,reboot}-20261009/`.
-Each retains console/run.path, original inner/outer/wrapper/runner/launcher
-results, host exits, full installed readback and actual action logs. Public
-redacted receipts: `docs/qa-logs/2026-10-09-owner-deployment/`.
-
-RG35XX SP: LPDDR4/1.1V, Tailnet100.74.205.40, LAN192.168.1.81 during this run.
-Updated43d0→8b511; new boot519d34ca-fdbe-47c0-88e6-b49138451951.
-Mounts mmcblk0p2 for both storage and ROMs. All163 protected files preserved.
-640×480 frame SHA588ceaab0d11ec5cb2532c92d904339d40b450fea8bb8136e62f2f5007260546
-reviewed: normal ARCADE carousel, footer/Wi-Fi/battery visible, no error modal.
-Stage run20261009T151116Z-4f67442d; reboot20261009T151638Z-74d944a5.
-Both original five0 channels/exits consumed. Queue empty, ES active/idle,
-NRestarts0, current Tailnet Running. Reconnection took minutes; no sleep fault
-was established. No second reboot or injected input.
-
-RG SP: LPDDR3/1.2V, Tailnet100.75.221.73; reported LAN192.168.1.212
-was not SSH-reachable. ROMs use mmcblk1p1, storage mmcblk0p2. Old69e603 build;
-163 protected files. Stage20261009T153054Z-58969822; reboot20261009T154750Z-248325fc.
-Both original five0 channels/exits accepted; new boot1c32f0da-dc57-4999-9bb1-3feb99872c0e.
-Exact DDR3/SYSTEM/kernel/DTB/application bytes, retained TF2 mount, preservation
-and reviewed720×480 NES frame pass. FrameSHA47c53db1de62d23976697b35d24ce9222fb66960e70ca0cea1e45e43c9c2e810.
-
-Nova: model Retroid Pocket Nova, SM8550; Tailnet100.84.232.105;
-reported LAN192.168.1.202 was not SSH-reachable. Battery had external USB power
-qcom-battmgr-usb, unlike H700's axp20x-usb. Both storage and ROMs mmcblk0p2;
-old69e603. Protected saves filter had0 files (not a claim all storage is empty).
-Before update both actual ABL slots (`/dev/sde64`/65, by-partlabel abl_a/b) match
-accepted258048B ELF SHA1aad3626b7830742cacdcdcf0c8696261ec7fa277bfbcfb9402a60bf896527e9.
-The updater skips matching slots; packaging source is distinct from unresolved
-implementation source. Stage20261009T153521Z-a958794f uses primary worktree to
-avoid the RG SP watcher's root lock. Reboot20261009T155442Z-e4abd974; accepted16:01UTC, all original results0/exits.
-New boot41d8dba4-edec-479e-9d0b-6cf859572b55. Exact installed ABL files and both
-actual slots match, queue empty; configuration/payload/recovery preserved.
-Reviewed TOOLS frame1280×960, SHAfa47da65ffaa07aa2f836cb4e2b735d4bf01ea12f168803131d0f8dcc3cc970b.
-One frontend startup retry also occurs on the prior69e603 boot; afterward it
-runs normally with no failed units. Initial GPU firmware failure subsequently
-resolves by loading the exact GPU/GMU firmware. An early SMMU fault burst is
-retained without a cause/frequency claim; extra journal-count read failed before
-producing a receipt. No audio/gameplay or warning-free-journal claim.
-
-Additional devices' preparation changed only auto0 through the qualified core
-and restarted cached frontend state. No #519 path or scan operation was called.
-Old69e603 settings writers differ from43d0 private-mode hardening, so exact
-installed source was compared; both actual0644 modes and preserved values passed.
-Settings config hashes may change through ordering; the receipt checks every
-parsed value and duplicate order. Generated cloud rules exactly matched old
-source defaults951a7d65… before and new defaults a5243acb… after. Credentials,
-selected cloud paths, protected payload and recovery retain exact hashes.
-Do not confuse expected generated-file changes with save corruption or claim
-unchanged whole settings bytes. Private comparison scripts and inputs are kept.
-
-Nova's old build already showed the connmark Tailnet health warning seen on the
-updated RG35XX SP; no new regression is established. LAN probing was read-only,
-no broad scan; healthy Tailnet transfers were left intact. Each reboot remains
-single-attempt; any future action needs its applicable scope. Capture scripts
-use grim with XDG_RUNTIME_DIR=/var/run/0-runtime-dir, WAYLAND_DISPLAY=wayland-1;
-no rocknix-screenshot preference toggle or personal screenshot directory write.
-
-## Qualified firmware/software — unchanged, do not rebuild
-
-Both handheld firmwares use distro8b5113fa164ada7d002ab138b1e3a9bf795e9de5,
-ES1d76b3da7da75794066df1c089931b890304da7a. All final original build/acceptance
-channels0 and actual processes/container exited. See
-`docs/qa-logs/2026-10-08-device-refresh/`.
-
-- H70002 bundle `/workspace/artifacts/pixelelated-candidates/sha256/1b93642b24901b5c3a96b0a079d6fb4486ca30d213b4b2db890c6e3630404175`.
-  TAR b49cca4ca0b8996fa994181508c887d9df5afe155c9502919bab7bf7e153e39d.
-  ARM244/aarch64671; exact DDR3/DDR4/update bytes and185 ARM files accepted.
-- SM855003 bundle `/workspace/artifacts/pixelelated-candidates/sha256/afcb966f246118798c87e59cd5bc6ce7c2c21167a5d712faea56393409d9d79d`.
-  TAR b3f1a8190e04abbf64d35486601ee19fce35d2d25bc7239b1be7cccd9fb43730.
-  ARM245/aarch64737; GPT,5ABL,187ARM,14FEX and installed helpers accepted.
-  Original02 precompiler Python-API failure remains rc2; no repeated build.
-
-Replacement18 VM bundle f557176651026f59bb5931993b12491a6019c0383321fb89fa1a05a596514fe6
-is unchanged: distro7f58b7b1c592908dcd0ba5987955e59aaa79fe66; same ES pin.
-Final13 unaffected default suites + separately qualified #527 corrected walks
-and composed78-frame comparison, 324WebDAV/SFTP/S3 assertions, clean installed
-CF10 and31-check actual16→18 upgrade are accepted. Original qa-21 aggregate rc1
-stays1, not relabelled. All16 corrected frames reviewed; old wrong-screen control
-still fails; no changed baseline/blanket masks. See replacement18 qualification
-and cloud-folder-walks packets. All disposable guests/providers/keys retired.
-
-#508/#527/#526/#507/#524/#492 completed/closed. Cross-lab Fable review finished;
-no new transfer/audit needed. Prior RA/link-loss unchanged-input carry-forward
-is bounded, not a new run. Source, canonical UI/flow references and exact-source
-frame indexes agree; owner boot frames are not replacement UI baselines.
-
-## #528 publication work — current remaining release task
-
-This is not another firmware build or audit. It documents what the exact images
-contain, applicable notices/source and independently verified retrieval/backup.
-Read live #528/#344 and `docs/qa-logs/2026-10-08-final-inventory/`,
-`docs/qa-logs/2026-10-08-source-custody/git-complete/` and
-`docs/qa-logs/2026-10-09-notice-scope/` before work.
-
-701 distinct components/2,327 profile rows map to all inventoried retained inputs.
-605 exact archives9.04GB and frozen distribution snapshots are locally retained:
-`/workspace/artifacts/pixelelated-release-sources/m7-archives-a7022b76da76a9f6771bb7693d6f6e25854c6731db0750bb46dde29f14d49fce`.
-372 exact tracked Git snapshots/43 roots/439 submodule edges plus six extra groups:
-`/workspace/artifacts/pixelelated-release-sources/m7-git-266c8393884189dec9419628b3e7e527b965598d7b9b31e4ea31fd9af2204dc9`.
-Prebuilt sources/packaging supplements:
-`/workspace/artifacts/pixelelated-release-sources/m7-prebuilt-aeef83ae3a4de7ebaca3816508e804bf935e87285efdcff6226cb52bd2fc4827`.
-All final original results/exits consumed; do not rerun snapshot owners. Teakra's
-unused357MB test LFS payload is omitted with explicit build-edge proof.
-
-All five #528 criteria remain open. Remaining:
-1.17 recipe declaration gaps plus vendor/per-file/output-use terms.13 have some
-   root/scoped evidence, not13 cleared. Corrected GLSL LGPL applies to nnedi3,
-   not the collection. Common/GLSL/RetroPie/slang shaders and ABL lack aggregate
-   basis. Use licence-basis-corrected.json; original sealed error stays retained.
-2. rclone's embedded revision matches retained source but modified=true;
-   Tailscale version tag does not establish binary reproducibility. Doom shareware
-   exact installed bytes retained; terms/provenance and FEX/Nix/vendor scope need
-   disposition. Preliminary ZeroTier object absence is not full clearance.
-3. SM8550 ABL v1.1.9 names LinuxLoader4588733123554b1f7bf935b04e494e4284894546;
-   blitterbot source-ref read returned404. Packaging is not implementation.
-   Owner source/contact route question remains; no upstream outreach authorized.
-4. Independently retrieved/hash-verified source/assets and off-host custody.
-   D-WORKFLOW-107 intends B2 subject to owner's comparison. No bucket, auth or
-   purchase configured. A second local directory is not independent backup.
-
-## #529 qualified startup fix — next candidate remains
-
-The retained Nova excerpts identify SDL_Init(SDL_INIT_VIDEO) failure but omit
-SDL_GetError()'s continuation line. Full synthetic VM journal retains it:
-`wayland not available` at monotonic10.890s, after ES started10.079s and Sway's
-service reported started10.034s. Source confirms Type=simple is process order,
-not usable Wayland. Original +8s compositor delay yields4 SDL failures and
-idle9.990s; fixed +8s yields0 failures/restarts and idle8.636s.
-
-`essway.service` runs new `/usr/bin/sway-ready` in ExecStartPre with a20s unit
-deadline. The helper reads the same profile, requires a real wlr-randr Wayland
-round trip and Sway active-mode reply, bounds probes and waits about15s before
-a visible failure. Existing2s restart policy recovers after +22s availability;
-no fixed success delay is imposed (ready check9ms on this VM). bash/busybox/jq/
-wlr-randr dependencies are explicit. The actual Sway install hook installs
-exact executable bytes. Shell syntax/pkgcheck and runtime controls pass.
-
-Eleven controls include stale sockets, absent display, hung compositor,
-no output and absolute socket paths. Retained-storage reboot has0 restarts,
-no SDL error and preserved synthetic save/helper/unit hashes. Original/fixed
-PICO-8 carousel frames at1280x960 are pixel-identical without masks; frame
-index and canonical menu map agree. No visual baseline was replaced.
-
-Four watched owners retain original five0 channels and actual exited host PIDs.
-The disposable VM was stopped by its bound pidfile; disk, UEFI vars and synthetic
-keys retired, releasing2,247,180,288 allocated disk bytes. No live job remains.
-Proofs/harnesses/results are under docs/qa-logs/2026-10-09-frontend-readiness.
-Temporary paths replace only ExecStartPre's helper path in tested overlays.
-The source code itself is exactly hash-bound; this is not an assembled image.
-
-#529 has three satisfied criteria and one open next-candidate startup/upgrade
-criterion. Nova-specific driver/panel timing is recorded separately in
-`docs/releases/device-facts.md`; no owner device access or new reboot occurred.
-Use named authorization for any later physical retest, after owner use. Full
-custom unit overrides retain precedence; this does not migrate settings/data.
-This is local implementation review, not a new independent release audit.
-Include the delta in the applicable review of the next candidate.
-
-## Next steps and boundaries
-
-1. Read `/tmp/pix529-final-readback.json` and GitHub for this source delivery's
-   actual head/hosted results. Prior3ee72d0c97 deployment delivery is complete.
-2. Plan the next candidate with the #529 source delta and verify its installed
-   executable/service bytes, clean/retained-storage startup and applicable
-   release delta review. Do not repeat the completed runtime controls simply
-   because they used a now-retired guest. No immediate device update is planned.
-   Continue unblocked #528 exact-source notice/vendor dispositions; source
-   access/off-host setup questions remain distinct. Then #344/#265/#359 release
-   selection/docs/branding and manifest-bound publication. No RC call now.
-3. Personal gameplay/input/first cloud test or auto-sync reenable needs named
-   scope. Owner-only cleanup #516 and redundancy #518 stay separate. Keep exact
-   archives/configs/recovery; never treat retained owner originals as disposable
-   build payloads. No Dropbox requirement; local WebDAV/SFTP/S3 proof is complete.
-4. Keep milestone body current, log learnings, archive this checkpoint before
-   next stash, and prove a fresh-context resume. Before push run rules-check,
-   register-check, work-log-index --check and ceremony-check --gate. Package lint
-   only if package.mk changes. No repeat audit/retro triggered by this docs-only
-   hardware evidence delivery; the October9 preparation mini-retro is complete.
-
-The watcher records durable results but has no configured off-session notifier.
-Long jobs require active supervision and terminal delivery (#395). Never edit an
-in-flight shell tool, kill by pattern, overwrite original nonzero results or
-manufacture completion from successful submission. Retire only disposable tests
-whose immediate dependency ended, preserving compact receipts and source custody.
+Before push: tools/rules-check, tools/register-check,
+tools/work-log-index --check, tools/ceremony-check --gate. No package.mk edit
+requires pkgcheck here. Fresh-context resume verification follows this stash.

@@ -1,0 +1,147 @@
+#!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-2.0
+# Copyright (C) 2026 ROCKNIX (https://github.com/ROCKNIX)
+"""Exercise actual USB preparation functions in a disposable configfs fixture.
+
+Runs on the host or GENERIC_X64 guest; never invokes the script's hardware
+dispatch, a UDC, modprobe, network configuration, or an MTP daemon. The fixture
+models automatically created configfs directories, not kernel write semantics
+or USB enumeration. Pass an old --source to retain the failing control.
+"""
+import argparse
+import hashlib
+import json
+import os
+from pathlib import Path
+import re
+import shlex
+import subprocess
+import tempfile
+
+
+VERSIONS = ("20241025", "20260901", "0.0.1", "0.0.1-dev", "0.0.1-rc.1",
+            "0.0.1+20261011T000000Z.g123456789abc", "12.34.56", "rolling", "")
+SERIAL = "123456789abcdef0123456789abcdef012"
+
+
+def function(source, name):
+    matches = re.findall(r"^" + re.escape(name) + r"\(\) \{\n.*?^\}",
+                         source, re.M | re.S)
+    if len(matches) != 1:
+        raise ValueError("expected one complete function: " + name)
+    return matches[0]
+
+
+FIXTURE = r'''
+# Model only configfs's automatic directories/attributes under the temp root.
+mkdir() {
+    command mkdir "$@" || return $?
+    for fixture_path do
+        case "$fixture_path" in
+            "$g_cdc"|"$g_mtp")
+                command mkdir -p "$fixture_path/strings" "$fixture_path/configs" \
+                    "$fixture_path/functions" "$fixture_path/os_desc"
+                : > "$fixture_path/UDC"
+                : > "$fixture_path/max_speed"
+                ;;
+            */configs/c.1)
+                command mkdir "$fixture_path/strings"
+                ;;
+            */functions/ncm.usb0)
+                command mkdir -p "$fixture_path/os_desc/interface.ncm"
+                ;;
+        esac
+    done
+}
+'''
+
+
+def prepare(source, assignment, shell, version, mode, parent):
+    root = parent / mode
+    name = "prepare_usb_network" if mode == "cdc" else "prepare_usb_mtp"
+    # Do not source the whole script: its prologue and dispatch touch hardware.
+    script = "\n".join([
+        "set -e", "verbose=0", "OS_NAME=pixelelated", "PRODUCT='Synthetic QA panel'",
+        "SERIAL=" + shlex.quote(SERIAL), "OS_VERSION=" + shlex.quote(version),
+        "g_cdc=" + shlex.quote(str(parent / "cdc")),
+        "g_mtp=" + shlex.quote(str(parent / "mtp")), assignment,
+        FIXTURE, function(source, name), name,
+    ]) + "\n"
+    result = subprocess.run([shell, "-c", script], capture_output=True, text=True,
+                            timeout=15)
+    values = {}
+    for file in sorted(root.rglob("*")):
+        relative = str(file.relative_to(root))
+        if file.is_symlink():
+            values[relative] = "->" + os.readlink(file).replace(str(parent), "$FIXTURE")
+        elif file.is_file():
+            values[relative] = file.read_text().strip()
+    expected = {
+        "bcdUSB": "0x0200", "bDeviceClass": "2" if mode == "cdc" else "0",
+        "idVendor": "0x1d6b", "idProduct": "0x0104" if mode == "cdc" else "0x0100",
+        "strings/0x409/manufacturer": "pixelelated",
+        "strings/0x409/product": "Synthetic QA panel",
+        "strings/0x409/serialnumber": SERIAL,
+        "configs/c.1/bmAttributes": "0xC0", "configs/c.1/MaxPower": "0xfe",
+        "configs/c.1/strings/0x409/configuration": "CDC" if mode == "cdc" else "mtp",
+        "UDC": "", "max_speed": "" if mode == "cdc" else "high-speed",
+    }
+    if mode == "cdc":
+        expected.update({
+            "functions/ncm.usb0/os_desc/interface.ncm/compatible_id": "WINNCM",
+            "functions/ncm.usb0/dev_addr": "82ba1c9278b1",
+            "functions/ncm.usb0/host_addr": "123456789abc",
+            "os_desc/use": "1", "os_desc/b_vendor_code": "0xcd",
+            "os_desc/qw_sign": "MSFT100",
+            "configs/c.1/ncm.usb0": "->$FIXTURE/cdc/functions/ncm.usb0",
+        })
+    else:
+        expected["configs/c.1/ffs.mtp"] = "->$FIXTURE/mtp/functions/ffs.mtp"
+    revision = values.pop("bcdDevice", "")
+    valid_bcd = re.fullmatch(r"0x[0-9]{4}", revision) is not None
+    checks = {
+        "function_exited_zero": result.returncode == 0,
+        "four_digit_bcd": valid_bcd,
+        "descriptor_revision_1_00": revision == "0x0100",
+        "other_descriptor_bytes_and_links_preserved": values == expected,
+    }
+    return {"version": version, "mode": mode, "bcdDevice": revision,
+            "checks": checks, "returncode": result.returncode,
+            "stdout": result.stdout, "stderr": result.stderr,
+            "attributes_without_revision": values}
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--source", type=Path, default=Path(__file__).resolve().parents[1]
+                        / "projects/ROCKNIX/packages/rocknix/sources/scripts/usbgadget")
+    parser.add_argument("--shell", default="/bin/sh")
+    parser.add_argument("--output", type=Path, required=True)
+    args = parser.parse_args()
+    data = args.source.read_bytes()
+    source = data.decode()
+    assignments = re.findall(r"^devversion=.*$", source, re.M)
+    if len(assignments) != 1:
+        parser.error("expected one shared revision assignment")
+    rows = []
+    for version in VERSIONS:
+        with tempfile.TemporaryDirectory(prefix="pix-usb-fixture-") as directory:
+            for mode in ("cdc", "mtp"):
+                rows.append(prepare(source, assignments[0], args.shell, version,
+                                    mode, Path(directory)))
+    failed = sum(not passed for row in rows for passed in row["checks"].values())
+    report = {"source_sha256": hashlib.sha256(data).hexdigest(),
+              "shell": args.shell, "shell_resolved": str(Path(args.shell).resolve()),
+              "cases": rows, "checks": len(rows) * 4, "failed": failed,
+              "fixture_only": True, "physical_enumeration_tested": False}
+    # Exclusive output prevents overwriting the original failed control.
+    with args.output.open("x") as stream:
+        json.dump(report, stream, indent=2)
+        stream.write("\n")
+    print(f"{'FAIL' if failed else 'PASS'} USB descriptor fixture: "
+          f"{len(rows)} cases, {len(rows) * 4 - failed}/{len(rows) * 4} checks")
+    return 1 if failed else 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

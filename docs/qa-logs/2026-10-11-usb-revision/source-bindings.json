@@ -1,0 +1,41 @@
+{
+  "base": "1fd36fcd26cb0a626b3de6f8a973a329d5b77b65",
+  "files": {
+    "projects/ROCKNIX/packages/rocknix/sources/scripts/usbgadget": "9a631e36b3d884ecaad158eaf4b428fda0e5d582130a6d90e5f3df7aef6da970",
+    "tools/usb-gadget-test": "5f95db4c2831a89fbb49a8d5bf128dd3bd2e39e9c3a95a274a1e7af0329178a8"
+  },
+  "baseline": {
+    "command": [
+      "/workspace/repos/rocknix.worktrees/m7-p5-usb-revision/projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm",
+      "run",
+      "--headless",
+      "--daemonize",
+      "--gl",
+      "auto",
+      "--res",
+      "640x480",
+      "--ssh-port",
+      "10331",
+      "--vnc",
+      "93",
+      "--monitor",
+      "/tmp/pix531-01-mon.sock",
+      "--serial",
+      "/tmp/pix531-01-ser.sock",
+      "--pidfile",
+      "/workspace/tmp/pixelelated-m7-usb-531-02/vm.pid",
+      "--mac",
+      "52:54:00:53:01:01",
+      "/workspace/tmp/pixelelated-m7-usb-531-02/vm.qcow2"
+    ],
+    "image_sha256": "2d71337a27ca11da57eb4ce912b79f8677d0a72c13749cd973915442e6a52a42",
+    "distribution": "7f58b7b1c592908dcd0ba5987955e59aaa79fe66",
+    "es_source": "1d76b3da7da75794066df1c089931b890304da7a",
+    "qemu_pid": 1646883,
+    "elapsed_seconds": 37.659,
+    "protected_by_blackhole_routes": true,
+    "credentials": "synthetic SSH key only; exclude from packet"
+  },
+  "qualification": "actual preparation bodies in host/guest filesystem fixtures; no kernel write or physical enumeration proof",
+  "next_assembled_image_required": true
+}

@@ -1305,3 +1305,15 @@ save the original scalar first); a shared dictionary can corrupt the oracle
 itself. #519 executor02/04 retained their failures, and the final exact executor
 qualified after those fixture corrections. Do not loosen production refusal
 checks to accommodate an unready or self-modified fixture.
+
+### USB descriptor revision controls
+
+`tools/usb-gadget-test --output <new-report.json>` runs the actual shared
+revision assignment and both USB preparation functions in disposable filesystem
+fixtures. Run on the host and GENERIC_X64 guest with its `/bin/sh`; retain the
+old-source nonzero control using `--source`. The fixture models configfs-created
+directories, checks all written identities/attributes/links, and cleans itself.
+It does not model kernel write rejection, UDC binding, networking or MTP traffic.
+GENERIC_X64 currently disables CONFIG_USB_GADGET, so do not claim enumeration
+from these controls. The next assembled image still needs installed-script
+verification (#531).

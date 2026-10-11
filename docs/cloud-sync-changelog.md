@@ -1,5 +1,14 @@
 # Cloud sync, backup and restore — change summary
 
+## USB device revision (2026-10-11, source-qualified)
+
+- **USB setup uses a valid device revision with semantic OS versions.** The
+  shared networking/MTP revision no longer slices the release name; other
+  descriptor identities and mode configuration remain unchanged (#531,
+  D-WORKFLOW-160). [Host and guest preparation controls](qa-logs/2026-10-11-usb-revision/README.md)
+  pass, including the old-code failure. This source fix still needs next-image
+  installation proof; physical enumeration and transfers were not exercised.
+
 ## Frontend startup readiness (2026-10-09, VM-qualified source)
 
 A startup fix is prepared for the next candidate; current device firmware does

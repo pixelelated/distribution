@@ -1,0 +1,42 @@
+{
+  "consumed_utc": "2026-10-11T02:11:04.761387+00:00",
+  "original_results": {
+    "inner.rc": 0,
+    "outer.rc": 0,
+    "tool-wrapper.rc": 0,
+    "build.rc": 0,
+    "launcher.runner_returncode": 0
+  },
+  "expected_owner_result": 0,
+  "pids": {
+    "launcher": 1646318,
+    "runner": 1646319,
+    "watcher": 1646320,
+    "command": 1646360,
+    "qemu": 1646883
+  },
+  "all_proc_entries_absent": true,
+  "retirement": {
+    "removed": [
+      {
+        "path": "/workspace/tmp/pixelelated-m7-usb-531-02/vm.qcow2",
+        "allocated_bytes": 2240159744
+      },
+      {
+        "path": "/workspace/tmp/pixelelated-m7-usb-531-02/vm.ovmf-vars.fd",
+        "allocated_bytes": 540672
+      },
+      {
+        "path": "/workspace/tmp/pixelelated-m7-usb-531-02/qa-key",
+        "allocated_bytes": 4096
+      },
+      {
+        "path": "/workspace/tmp/pixelelated-m7-usb-531-02/qa-key.pub",
+        "allocated_bytes": 4096
+      }
+    ],
+    "allocated_bytes_released": 2240708608,
+    "guest_stopped_by_bound_pidfile": true
+  },
+  "owner01_remains_failed": true
+}
