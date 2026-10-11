@@ -23,8 +23,8 @@ The authorized independent Fable 5.1/xhigh review completed through the
 Facilitator. Its seven findings are implemented and verified; landed commit
 references and Phase 7 outcomes are recorded in the
 [punch list](../../audits/2026_10_11-epic-m7-network-cloud-344/05-punch-list.md).
-Integration/pin readback and future installed-image clean/retained qualification
-are distinct gates. Historical failures are not relabeled as final-source proof.
+Distribution `bc2dceb406` is integrated on next and pins published ES
+`c8dc72cf9e`; future installed-image clean/retained qualification is a separate gate. Historical failures are not relabeled as final-source proof.
 
 Original controls also retain 185 ES unit cases / 4,793 assertions, four OAuth
 lifetime routes, sixteen WebKit interaction controls and eight Clear/Cancel

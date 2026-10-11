@@ -203,3 +203,12 @@ selection direction and both final-page buttons are readable. This review does
 not claim to redesign every terminal instruction or prove live provider policy.
 No owner cloud/device operations occurred. #535–539 combined-image installation,
 clean/retained qualification and #528 remain pre-existing delivery scope.
+
+## Phase 7 landed resolution
+
+All seven findings are resolved in distribution `bc2dceb406969a401d987de168acfb3ae60b7e01`
+and ES `c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78`. Branch-containment and last-path-commit
+commands were run again; `checks/resolution59/landed-readback.json` is the receipt.
+The punch-list table and machine-readable outcomes agree. The original frozen
+scorecard remains historical; #537's combined-image clean/retained criterion is
+still open, alongside #528 source/component dispositions and publication gates.

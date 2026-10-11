@@ -20,10 +20,11 @@ and docs/qa-logs/2026-10-11-network-cloud-management. No firmware/RC claim.
 ES feature merged fast-forward into test/qa-integration and pushed; remote readback
 confirmed c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78. The distribution full pin now names it.
 All current manifest bytes match the published ES source and repaired distro source.
-Distribution feature/m7-cloud-connections is still uncommitted. NEXT: required
-cheap checks, commit fixes/proof, integrate next; verify branch/path commit readback;
-record Phase7 outcomes with actual landed hashes, update/readback #540 checkboxes,
-lint resolution, commit/push final docs and consume hosted checks. Existing authority
+Distribution `bc2dceb406969a401d987de168acfb3ae60b7e01` is committed and fast-forward integrated
+into next; branch/path readback verified. All seven Phase7 outcomes are Resolved;
+this source commit carries the exact passing evidence. NEXT: finish resolution
+lint/tracker readback, commit/push resolution docs and consume exact-head hosted
+checks. Confirm remote/CI receipts before calling publication complete. Existing authority
 covers those actions. No new external transfer or owner-device operation is pending.
 
 No audit/build/UI job remains active. Owned disposable VM /workspace/tmp/pix535-537-vm01

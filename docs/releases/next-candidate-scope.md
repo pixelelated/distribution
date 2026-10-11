@@ -166,6 +166,7 @@ repairs pass focused guest controls, 1,373 full-regression PASS controls,
 108 WebDAV + 108 SFTP checks, 26 connection transactions and 15 whole-script
 refusals. Final54 builds; matrix55 supplies 16 reviewed affected EN/FR small/large
 frames. Earlier rejected fixtures/layouts remain recorded with their own source.
-Integration and published pin readback come next, followed by #528 and the
-combined-image clean/retained qualification gates. No new RC designation or
+Distribution `bc2dceb406` is integrated on next and pins published ES
+`c8dc72cf9e`. All seven #540 findings are resolved. #528 and the combined-image
+clean/retained qualification gates remain next. No new RC designation or
 owner-device action follows from source-overlay qualification.

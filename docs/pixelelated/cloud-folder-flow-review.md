@@ -551,7 +551,8 @@ and all16 whole-flow driver jobs passing. Runtime receipts prove retained folder
 payload bytes, explicit selection and fresh retry/cancel ownership. Editor/browser
 controls have their own exact-source receipts. No owner device or cloud is involved.
 
-This is source-overlay UI proof, not integration or firmware qualification.
+This is source-overlay UI proof, integrated in next with the published ES pin;
+combined firmware qualification remains separate.
 The approved independent review is complete. #540 owns seven repairs, implemented
 and verified by focused guest controls, full regression and local protocols.
 Final54/matrix55 supplies 16 reviewed affected frames; earlier frames retain their
@@ -583,7 +584,8 @@ configuration, including selected-account presence/bytes. Changed or old preview
 are spent and refused. Folder creation owns the shared transfer lock. Normal
 sign-in shutdown waits for private staging cleanup before the worker can exit.
 The focused original failure/repair controls are preserved in the #540 audit;
-completed integration and combined-image qualification remain separate gates.
+landed source references are recorded there. Combined-image qualification remains
+a separate gate.
 
 ### Editable connection names and browser recovery
 
