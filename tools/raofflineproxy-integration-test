@@ -232,7 +232,7 @@ class OSConsumers(unittest.TestCase):
 
 if __name__=='__main__':
     try:
-        suite=unittest.TestSuite(unittest.defaultTestLoader.loadTestsFromTestCase(c) for c in (WholeLibrary,Upgrade,OSConsumers))
+        suite=unittest.defaultTestLoader.loadTestsFromModule(sys.modules[__name__])
         result=unittest.TextTestRunner(verbosity=2).run(suite)
         sys.exit(0 if result.wasSuccessful() else 1)
     finally: config.cleanup()

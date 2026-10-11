@@ -1,5 +1,44 @@
 # Saved Session State
 
+## Current qualification continuation — 2026-10-11 18:15 UTC
+
+Frozen engineering image remainsa0f60255ab, ESc8dc72cf9, replacement19; artifact
+acceptance and all643 build tasks are complete. Published docs1e3ce6fcde and ES
+**test-only**0ee5b28a6 resolve #542 (four ASan routes, six governor cases, complete
+55-screen map). Both hosted checks passed and #542 is closed. ES product pin is
+stillc8dc72cf9; only the host rendering double changed. Do not rebuild merely for it.
+
+ACTIVE original owner /workspace/tmp/pixelelated-m7-qa19, launcher2703005. Standard
+scripts, WebDAV108, exit and time-to-play pass; interface walks still running.
+Original lifetime/map failures remain, with #542’s separate corrected proof. Never
+relabel the original aggregate as PASS. Inspect its logs/result/launcher and actual
+host PIDs, announce completion, then stop/verify owned guests/endpoints via driver.
+
+#543 discovered an omitted proxy pacing test and wrong12-test summary claims:
+original74/75/79 each ran11. Fixed discovery runs12; a wrong-duration negative control
+fails exactly the missing assertion. /workspace/tmp/pix543-proof01 completed0 and
+exited. Source/test/evidence correction prepared in feature/m7-component-inputs;
+commit/push and exact-head checks remain. Firmware/helper bytes are unchanged.
+
+NEXT PREPARED ONLY: /workspace/tmp/pixelelated-m7-upgrade19, no live process.
+Its run.py refuses before qa19 has a terminal launcher result, then preflights actual
+host guest/endpoint absence and verifies sealed inputs. It boots replacement18,
+seeds actual old proxy state plus saves/private settings, updatesa to19, checks
+retained byte/mode/runtime, reimagesb to19 for clean connections/public ROCKNIX
+configuration adoption, and runs installed native/consent/offline-service checks.
+Driver finally stops pair/backend. No source overlays or live account; external
+routes removed before synthetic RA identity is set. VM-first plan is #344 comment
+6112092188. Use watch-build-submit from the still-frozen replacement19 checkout.
+Before launch inspect current QA failures and verify actual owners have ended.
+
+Owner requires every discovered gap fixed/verified before next H700 thenSM8550
+builds. Product defects require repaired source and a newly qualified VM image.
+After this batch: #349/#350 exact-image UI branches and INFORMATION/connection
+frames, any remaining service checks, then devicebuild qualification. No new
+physical-device/cloud action or publication authority; #528 holds remain.
+/tmp has a user quota; use private/workspace/tmp for fixtures and hook TMPDIR.
+Currentdisk1.1TiB free. Historical disks not yet retired; #493 must classify them.
+
 ## Current continuation — 2026-10-11T17:51:59.824952+00:00
 
 The combined GENERIC_X64 engineering image is BUILT and artifact-accepted.

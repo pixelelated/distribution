@@ -55,7 +55,7 @@ frames to be recorded during combined qualification.
 
 ## Original integration-harness failures retained
 
-Regression75's focused12 integration checks pass, but its broad suite ends with
+Regression75's focused11 integration checks pass, but its broad suite ends with
 2 failures and26 skipped checks. The new proxy archive was not in the cache the
 suite searches, so proxy sections did not run. Two final host helpers lost the
 owned TMPDIR when the harness deliberately cleared it for bubblewrap and hit the
@@ -101,3 +101,12 @@ Freshness includes all active recipes and deliberately coupled pins and returns0
 The full ceremony checker reports nothing overdue. #541 remains open for real local
 WebDAV/SFTP/S3 transport on the new image and final freeze/installed follow-through.
 Public RC naming, component/source clearance and publication remain separate gates.
+
+## Evidence-count correction — #543
+
+Original74/75/79 each report11 integration tests. Earlier claims of12 were wrong:
+the newly declared pacing class was absent from the CLI's manual suite list.
+[Discovery repair and original logs](../2026-10-11-proxy-test-discovery/README.md)
+retain that discrepancy. The corrected runner executes all12; a wrong-duration
+negative control fails the named pacing assertion. The production helper and
+replacement19 bytes remain unchanged. Do not attribute the new12-test result to79.
