@@ -1,5 +1,21 @@
 # Cloud sync, backup and restore — change summary
 
+## Cloud and offline-achievement dependencies (2026-10-11, engineering build)
+
+Replacement19 contains rclone 1.75.2 and RAOfflineProxyc7ebd1b6e7 (#541).
+Its assembled bytes are accepted; full VM and local protocol qualification is
+in progress. These are not installed on the owner's handhelds yet.
+
+- **Cloud transfers use the current rclone release.** Selected connection and
+  folder behavior is retained. WebDAV, SFTP and local S3 qualification follows
+  assembly; authenticated Dropbox success is not inferred.
+- **Offline achievement preparation preserves existing data and behavior.**
+  Source checks retain cache and queued awards across the update. Deliberate
+  whole-library preparation keeps its existing pause cadence; background caching
+  adopts upstream request pacing. No watched folder is enabled automatically,
+  and existing explicit reporting consent remains required. Installed service
+  and retained-state checks follow the source/native tests.
+
 ## Connection management and network input (2026-10-11, source qualification)
 
 These changes are being qualified for the next build; they are not installed on

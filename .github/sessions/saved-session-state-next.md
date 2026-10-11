@@ -1,39 +1,41 @@
 # Saved Session State
 
-## Current continuation — 2026-10-11T17:33:49.678211+00:00
+## Current continuation — 2026-10-11T17:51:59.824952+00:00
 
-Active feature/m7-component-inputs at /workspace/repos/rocknix.worktrees/m7-component-inputs,
-based on published63a2090a56 (both hosted checks PASS), awaiting source commit/push.
-#540 audit remains complete; no repeat transfer or owner handheld/cloud action.
-ESc8dc72cf9e unchanged. M7/#541 owns dependency refresh before combined compilation.
+The combined GENERIC_X64 engineering image is BUILT and artifact-accepted.
+Frozen source a0f60255abfefaddce772d0bba29977bafb7adab, ES c8dc72cf9e,
+identity 0.0.1-dev+20261011T174137Z.ga0f60255abfe. #540 audit remains complete.
+#541 source refresh delivered; original79 remains 1372 PASS / 1 FAIL / 0 SKIP, with its
+sole patch-test quota failure reproduced in 80 and exact-section corrected in 82, PASS.
+No repeated external review or owner handheld/cloud action; no public RC allocated.
 
-Source refresh is qualified: rclone1.75.2; proxyc7ebd1b6e7 with16 zero-fuzz patches,
-unchanged native pins, retained whole-library cadence, state and consent.866 native
-upstream tests and12 final integration controls pass. Fresh79 freshness/lint/schema
-pass. Its full host run ends1:1372PASS,1 patch dry-run quota failure,0SKIP; target82
-extracts the exact corrected harness section and passes. Do not relabel79 as0.
-Original75 failures/26skips,76 lock refusal and80 negative/pass quota controls remain.
-Evidence docs/qa-logs/2026-10-11-dependency-refresh, final-source.json binds final bytes.
-Full ceremony/rules/register/index pass. #541 still requires local protocol/image proof.
+Actual build owner /workspace/tmp/pixelelated-m7-build19 ended 0 at 17:44:45UTC:
+all 643 tasks, original inner/outer/launcher0, installed mappings/identity/source
+checks pass. Build tree /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement19
+stays frozen on a0f60255ab. Do NOT merge later tracking docs into it.
+Artifact owner /workspace/tmp/pixelelated-m7-image19 ended 0 at 17:47:26UTC;
+GPT CRCs, raw/update SYSTEM+KERNEL equality and extracted installed files pass.
+Bundle /workspace/artifacts/pixelelated-candidates/sha256/ee8e263c2e63b7fc79a458e9e89b0f4a3c393487377a6a820c7f7166dada1662.
+Its redundant raw extraction files (6.4GB) are removed; extracted root still serves QA.
 
-Cache owner /workspace/tmp/pixelelated-m7-cache19-recheck completed0 at17:27:59UTC:
-empty full checksum diff and2,532,289 independent regular files. Original copy19
-failed on seven generated predecessor .pyc files; original9-line difference retained.
-Future predecessor tests suppress bytecode writes. Build tree
-/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement19 remains63a2090a56,
-clean and idle; initial freeze will NOT compile unchanged. No compiler has run.
-/workspace/tmp/pixelelated-m7-build19 is dormant: build/observer/freeze/install-check
-scripts prepared, no inputs.json yet. Disk1.1TiB free at17:28; swap needs guarded reclaim
-once actual host process exit checks confirm all watchers done. /proc readback must
-use actual host escalation, not the sandbox namespace.
+ACTIVE: /workspace/tmp/pixelelated-m7-qa19, launcher 2703005,
+original watch /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement19/.build-runs/20261011T174951Z-816a0d5c.
+Fresh guest PIDs 2703810 (a) / 2703840 (b), standard vm-pair ports/sockets. Private pair,
+cloud and artifact roots are under that owner. Read console.log, per-step logs,
+result.json and launcher-result.json; actual host/proc readback requires escalation.
+Full standard vm-qa then SFTP/S3; no live achievement/account action. Driver stops
+its owned pair/endpoints at end. No suite PASS is inferred from submission. Keep
+actively supervising and deliver completion promptly; no off-session alert exists.
 
-Next: commit/push source, exact-head hosted CI; explicitly advance only build19 to
-that head, run prepared freeze.py with exact head, verify manifest and host preflight,
-launch build19 through watch-build-submit. It cleans changed packages and records
-installed helpers, identity, rclone version and ES/browser/proxy source. Then artifact
-and clean/public-ROCKNIX/retained VM suites, three local protocols and affected frames;
-H700 thenSM8550. #528 publication/source-custody holds remain; no public RC allocated.
-No old QA disks removed yet; accepted old18 root remains an immediate comparison input.
+Canonical receipts: docs/qa-logs/2026-10-11-pixelelated-replacement-19. Primary next
+is published a0f60255ab, with this doc-only checkpoint prepared in feature/m7-component-inputs.
+Both source CI checks succeeded. M7 body records build; update it to qualification
+as this run proceeds. #541 keeps its transport criterion open; #344/#537 retain
+assembled clean/retained/UI/service gates. Next after this sequence: inspect/review
+frames and failures, retained/public-ROCKNIX configuration and installed proxy proof,
+then H700 and SM8550. #528 source/licence/off-host-custody holds remain publication gates.
+No superseded VM history removed yet; old 18 build root remains an immediate comparison
+input. Harness conflict-resolution remains stale/untouched. Devices are in owner use.
 
 ## Current continuation — 2026-10-11T16:54:33.506475+00:00
 

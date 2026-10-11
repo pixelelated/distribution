@@ -12,7 +12,7 @@ The18-issue/four-bug table below is the earlier snapshot, not the live count.
 #535/#536/#538/#539 and the seven #540 audit repairs are now source/VM-qualified
 and closed. #537 retains only its explicit combined-image clean/retained criterion.
 The published source baseline is153bfa6b794d71c1f66707f2cb2aaf9673bc9fe8 with
-ESc8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78. #528's subsequent engineering
+ES c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78. #528's subsequent engineering
 input disposition preserves all capabilities: eleven scoped recipe declarations,
 proven inherited HarfBuzz ICU metadata and an immutable checksum-pinned fetch of
 the identical Doom archive. [Disposition/evidence](../qa-logs/2026-10-11-component-inputs/README.md).
@@ -28,6 +28,14 @@ passed. The initial replacement19 freeze did not compile: freshness caught rclon
 then a new exact-source freeze and combined-image proof. The independent warm
 cache copy may finish and be reused. [Refresh evidence](../qa-logs/2026-10-11-dependency-refresh/README.md).
 No prior #540 audit transfer is repeated. Publication holds above remain open.
+
+## Combined image now built — 2026-10-11
+
+Engineering replacement19, source a0f60255ab and identity
+0.0.1-dev+20261011T174137Z.ga0f60255abfe, has completed build and raw/update
+artifact acceptance. [Receipts and active qualification](../qa-logs/2026-10-11-pixelelated-replacement-19/README.md).
+Full standard VM, local protocols and exact installed/retained/flow proof precede
+the next H700 and SM8550 builds. No public RC or publication clearance is implied.
 
 ## Issue disposition
 
