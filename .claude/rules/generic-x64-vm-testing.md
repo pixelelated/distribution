@@ -1336,3 +1336,9 @@ any retained-state comparison (#546). SSH availability is not storage readiness:
 /storage/roms may not yet show the mounted library. Do not move this wait below
 the save hashes; a later file inventory cannot repair an earlier failed check.
 The boot identity and unit result are both required; readiness controls run in CI.
+
+Upstream RAOfflineProxy tests import the source-tree linux.raofflineproxy namespace;
+the image installs raofflineproxy directly. tools/raofflineproxy-installed-native-test
+binds the test namespace to verified installed modules and requires the accepted
+library hash. Keep upstream test bytes unchanged, discover all cases, and reject
+skips. An import failure is not format coverage; keep it and rerun the adapter (#547).

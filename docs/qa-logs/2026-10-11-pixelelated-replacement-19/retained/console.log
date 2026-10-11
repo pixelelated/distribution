@@ -1,0 +1,30 @@
+watch-build: recording in /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement19/.build-runs/20261011T183824Z-2a663c35
+PASS frozen inputs, host options, container and 24/4 concurrency
+PASS no existing guest or provider at suite addresses
+START verify-old
+END verify-old 0
+START verify-new
+END verify-new 0
+START rehearsal
+END rehearsal 0
+START payload
+END payload 0
+START retained-suites
+END retained-suites 0
+START clean-b
+END clean-b 0
+START clean-connections
+END clean-connections 0
+START public-adoption
+END public-adoption 0
+START installed
+END installed 1
+START pair-down
+END pair-down 0
+START webdav-down
+END webdav-down 0
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-upgrade19c/run.py", line 24, in <module>
+    assert step('installed',['python3',str(p/'installed.py')])==0
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

@@ -1,0 +1,31 @@
+test_add_keeps_legacy_selection (__main__.Connections.test_add_keeps_legacy_selection) ... ok
+test_automatic_sync_requires_deliberate_disable (__main__.Connections.test_automatic_sync_requires_deliberate_disable) ... ok
+test_blank_edit_preserves_existing_values (__main__.Connections.test_blank_edit_preserves_existing_values) ... ok
+test_busy_transfer_refuses_management (__main__.Connections.test_busy_transfer_refuses_management) ... ok
+test_cancelled_attempt_does_not_install (__main__.Connections.test_cancelled_attempt_does_not_install) ... ok
+test_dependency_refuses_removal (__main__.Connections.test_dependency_refuses_removal) ... ok
+test_duplicate_keeps_old_bytes (__main__.Connections.test_duplicate_keeps_old_bytes) ... ok
+test_encrypted_config_stays_encrypted_through_management (__main__.Connections.test_encrypted_config_stays_encrypted_through_management) ... ok
+test_external_write_refuses_commit (__main__.Connections.test_external_write_refuses_commit) ... ok
+test_failed_first_publication_restores_absence (__main__.Connections.test_failed_first_publication_restores_absence) ... ok
+test_failed_renewal_keeps_old_bytes (__main__.Connections.test_failed_renewal_keeps_old_bytes) ... ok
+test_first_connection_and_manual_empty_selection (__main__.Connections.test_first_connection_and_manual_empty_selection) ... ok
+test_missing_selection_never_falls_back (__main__.Connections.test_missing_selection_never_falls_back) ... ok
+test_object_store_defaults_only_apply_to_new_connections (__main__.Connections.test_object_store_defaults_only_apply_to_new_connections) ... ok
+test_remove_write_failure_restores_selection (__main__.Connections.test_remove_write_failure_restores_selection) ... ok
+test_selection_and_removal_never_move_files (__main__.Connections.test_selection_and_removal_never_move_files) ... ok
+test_selection_refusal_distinguishes_saved_connections_from_none (__main__.Connections.test_selection_refusal_distinguishes_saved_connections_from_none) ... ok
+test_success_record_failure_rolls_back (__main__.Connections.test_success_record_failure_rolls_back) ... ok
+test_verified_update_keeps_other_connections (__main__.Connections.test_verified_update_keeps_other_connections) ... ok
+test_cancel_between_configuration_and_listing_cleans_staging (__main__.OAuthOwnership.test_cancel_between_configuration_and_listing_cleans_staging) ... ok
+test_cancel_during_verification_prevents_commit (__main__.OAuthOwnership.test_cancel_during_verification_prevents_commit) ... ok
+test_normal_shutdown_waits_for_http_worker_staging_cleanup (__main__.OAuthOwnership.test_normal_shutdown_waits_for_http_worker_staging_cleanup) ... ok
+test_real_oauth_config_create_and_renew_use_the_collected_token (__main__.OAuthOwnership.test_real_oauth_config_create_and_renew_use_the_collected_token) ... ok
+test_success_publishes_matching_connection_and_state (__main__.OAuthOwnership.test_success_publishes_matching_connection_and_state) ... ok
+test_superseded_session_cannot_replace_credentials (__main__.OAuthOwnership.test_superseded_session_cannot_replace_credentials) ... ok
+test_unanswered_provider_question_still_refuses_publication (__main__.OAuthOwnership.test_unanswered_provider_question_still_refuses_publication) ... ok
+
+----------------------------------------------------------------------
+Ran 26 tests in 3.660s
+
+OK

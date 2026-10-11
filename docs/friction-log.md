@@ -564,3 +564,5 @@ cycle; source qualification and landing are still pending.
 - 2026-10-11 18:34 UTC — /tmp quota prevented QEMU PID writes while vm-pair suppressed launch errors and waited on absent guests. Propagate launch errors, verify disk-owning PID, preflight runtime writes, and share a short owned /workspace runtime root. Nine controls pass with a failing old-source control; issue: #545; guard `tools/vm-pair-test`. Scratch deletion remains unexecuted because dependency readback is incomplete.
 
 - 2026-10-11 18:40 UTC — Rehearsal read saves before its boot-specific autostart wait; later inventory showed the files. Move readiness ahead of both seeding and all retained-state checks; stale/failed/missing boot controls must fail closed. Original failure retained; issue: #546; guard `tools/vm-upgrade-readiness-test`.
+
+- 2026-10-11 18:51 UTC — Upstream native tests imported the source-tree linux package on an installed image. Bind the namespace to verified installed modules without editing tests or overlaying firmware; all18 cases and legacy CHD pass. Original import failure retained; issue: #547; guard `tools/raofflineproxy-installed-native-test`.

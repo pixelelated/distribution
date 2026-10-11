@@ -1,5 +1,43 @@
 # Saved Session State
 
+## Current continuation — 2026-10-11 18:55 UTC
+
+Published next is fa444d60ff047a201d0fd31ab23067517494230f; both hosted checks
+passed and original publisher ended0 at18:47:36UTC. #541/#544–546 closed; #542/#543
+already closed. Original failing aggregates stay immutable. Frozen engineering
+firmware remains a0f60255ab / ES c8dc72cf9 / replacement19; never merge tracking
+commits into the build checkout. #540 independent audit complete, no repeat.
+
+Real upgrade19c preserves all four save hashes and settings/selection; installed
+payload, retained WebDAV/exit/time-to-play, clean and retained26-case connections,
+three public ROCKNIX configuration cases and USB18cases/72checks pass. Its final
+native fixture import failed before tests. #547's namespace adapter fixes only the
+runner; upstream test bytes/product modules stay unchanged. Follow-through19d
+ended0 at18:48:38UTC:18 native cases,0skips, legacy CHD,22 actual packaged offline
+service assertions and reporting-consent/restart controls pass. Actual owners and
+guests exited. Compact #547/retained evidence and reusable tool are uncommitted in
+feature/m7-component-inputs; complete delivery and close only verified criteria.
+
+ACTIVE UI fixture /workspace/tmp/pixelelated-m7-ui19e, launcher3148416, started
+18:52:28UTC under frozen build19 watcher. Guest b SSH10023/VNC5910; runtime sockets
+under owner/runtime. Uses stopped image19c b disk only for immediate UI proof.
+fixture.py supervises boot/backend and waits for finish.json (30-minute deadline),
+then owns shutdown. ready.json is NOT proof. ui.py/setup.py drive separately logged
+commands; never edit an in-flight script. First setup.log correctly refused before
+ready; setup02.log is the actual run. Public-default adoption guest had no persistent
+QA SSH key; reseeded only the disposable public key via serial, matching vm-pair's
+normal bootstrap. Receipt qa-transport-reseed.json; no product/owner data changed.
+
+Remaining #349 paired same-model/foreign archive640 frames and selected archive/
+journal/preservation; #350 EN/FR opening/second scan/systems-empty and dead-endpoint
+retry; #530/#532 INFORMATION identity and #529 applicable startup presentation.
+No owner device/cloud actions or live achievement award. Keep actively supervising;
+no off-session delivery exists. Complete UI command outcomes and visual review,
+write finish.json honestly, verify actual cleanup before moving to H700→SM8550.
+#528 licence/source/off-host-custody/publication holds remain; no RC designated.
+Host /tmp quota persists; VM runtime uses owned /workspace/tmp. Scratch deletion
+proposal under pix545-launch01 remains UNEXECUTED due unreadable dependencies.
+
 ## Current continuation — 2026-10-11 18:41 UTC
 
 Frozen engineering firmware remains a0f60255ab / ES c8dc72cf9, replacement19.

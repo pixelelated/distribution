@@ -195,6 +195,7 @@ both lists and to this table, or it is invisible.**
 | `usb-gadget-test` | run actual USB preparation functions with old/new version metadata in a disposable configfs fixture; preserve descriptor identities and mode links (#531) | `generic-x64-vm-testing.md` |
 | `nova-led-test` | exercise all eight LED nodes, saved brightness and the battery writer using actual scripts and fixture sysfs | `generic-x64-vm-testing.md` |
 | `raofflineproxy-integration-test` | preserve old-writer state and prove full-library preparation, retries and rate-limit pacing | `generic-x64-vm-testing.md` |
+| `raofflineproxy-installed-native-test` | run unchanged upstream format tests against verified installed modules/library, without product overlays | `generic-x64-vm-testing.md` |
 | `raofflineproxy-consent-test` | exercise installed reporting consent with synthetic state, actual loopback HTTP and restart controls | `generic-x64-vm-testing.md` |
 | `rasteratops-cloud-layout-test` | prove numbered layout transitions, partial-state recovery and missing-remote refusal | `rclone-cloud-sync.md` |
 | `pixelelated-content-scope-test` | prove selected-library boundaries, bounded root refusal and scan-result binding with synthetic real-rclone controls | `rclone-cloud-sync.md` |

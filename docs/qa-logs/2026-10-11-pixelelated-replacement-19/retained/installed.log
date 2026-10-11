@@ -1,0 +1,12 @@
+PASS retained settings, private modes and predecessor proxy payload through real update
+PASS installed connection module transactions with real rclone
+PASS USB descriptor fixture: 18 cases, 72/72 checks
+
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-upgrade19c/installed.py", line 24, in <module>
+    (p/'artifacts/native.log').write_text(q.stdout);q.check_returncode()
+                                                    ~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.14/subprocess.py", line 509, in check_returncode
+    raise CalledProcessError(self.returncode, self.args, self.stdout,
+                             self.stderr)
+subprocess.CalledProcessError: Command '['/workspace/tmp/pixelelated-m7-upgrade19c/harness/tools/vm-pair', 'ssh', 'a', 'python3 /storage/.cache/pixelelated-native-19/run.py']' returned non-zero exit status 1.

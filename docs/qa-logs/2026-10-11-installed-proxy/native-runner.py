@@ -1,0 +1,70 @@
+#!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-2.0-or-later
+# Copyright (C) 2026-present pixelelated (https://github.com/pixelelated)
+"""Run unchanged upstream hashing tests against the image's installed proxy."""
+import argparse
+import hashlib
+import importlib.util
+import json
+from pathlib import Path
+import runpy
+import sys
+import types
+import unittest
+
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--tests', required=True, type=Path)
+parser.add_argument('--legacy-chd', required=True, type=Path)
+parser.add_argument('--library-sha256', required=True)
+parser.add_argument('--output', required=True, type=Path)
+args = parser.parse_args()
+
+import raofflineproxy
+from raofflineproxy import rom_browser, rom_hashing
+modules = {}
+for module in (rom_browser, rom_hashing):
+    path = Path(module.__file__).resolve()
+    if not str(path).startswith('/usr/lib/python') or '/site-packages/raofflineproxy/' not in str(path):
+        sys.exit('refusing a proxy module outside the installed image: '+str(path))
+    modules[module.__name__] = {'file': str(path), 'sha256': hashlib.sha256(path.read_bytes()).hexdigest()}
+lib = rom_hashing.load_rchash()
+if lib is None:
+    sys.exit('installed native library unavailable: '+str(rom_hashing._LIBRCHASH_ERROR))
+mapped = {line.split()[-1] for line in Path('/proc/self/maps').read_text().splitlines()
+          if 'libraproxy_rchash.so' in line}
+if mapped != {'/usr/lib/libraproxy_rchash.so'}:
+    sys.exit('unexpected native library mappings: '+repr(mapped))
+library = Path(next(iter(mapped)))
+digest = hashlib.sha256(library.read_bytes()).hexdigest()
+if digest != args.library_sha256:
+    sys.exit('installed library differs from the accepted image')
+
+# Upstream imports linux.raofflineproxy from its repository layout. Bind that
+# namespace to these already-verified installed modules; do not copy product
+# source over the image or edit the upstream test file (#547).
+linux = types.ModuleType('linux')
+linux.__path__ = []
+linux.raofflineproxy = raofflineproxy
+sys.modules['linux'] = linux
+sys.modules['linux.raofflineproxy'] = raofflineproxy
+sys.modules['linux.raofflineproxy.rom_browser'] = rom_browser
+sys.modules['linux.raofflineproxy.rom_hashing'] = rom_hashing
+spec = importlib.util.spec_from_file_location('installed_native_test', args.tests)
+module = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(module)
+assert module.rom_browser is rom_browser and module.rom_hashing is rom_hashing
+suite = unittest.defaultTestLoader.loadTestsFromModule(module)
+count = suite.countTestCases()
+if count == 0:
+    sys.exit('upstream test discovery returned no cases')
+result = unittest.TextTestRunner(verbosity=2).run(suite)
+report = {'tests_discovered': count, 'tests_run': result.testsRun,
+          'failures': len(result.failures), 'errors': len(result.errors),
+          'skipped': len(result.skipped), 'modules': modules,
+          'library': str(library), 'library_sha256': digest,
+          'tests_sha256': hashlib.sha256(args.tests.read_bytes()).hexdigest()}
+report['legacy_chd'] = runpy.run_path(str(args.legacy_chd))['exercise'](lib)
+args.output.write_text(json.dumps(report, indent=2)+'\n')
+if result.testsRun != count or not result.wasSuccessful() or result.skipped:
+    sys.exit('installed native tests failed or skipped; see retained report')
+print('PASS all %d installed native cases and legacy CHD controls; no skips' % count)

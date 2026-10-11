@@ -1,0 +1,30 @@
+PASS usage-only first call 1 HTTP requests
+PASS usage-only restart 0 HTTP requests
+PASS unanswered first call 0 HTTP requests
+PASS unanswered restart 0 HTTP requests
+PASS declined first call 0 HTTP requests
+PASS declined restart 0 HTTP requests
+PASS null first call 0 HTTP requests
+PASS null restart 0 HTTP requests
+PASS zero first call 0 HTTP requests
+PASS zero restart 0 HTTP requests
+PASS one first call 0 HTTP requests
+PASS one restart 0 HTTP requests
+PASS string-false first call 0 HTTP requests
+PASS string-false restart 0 HTTP requests
+PASS string-true first call 0 HTTP requests
+PASS string-true restart 0 HTTP requests
+PASS list first call 0 HTTP requests
+PASS list restart 0 HTTP requests
+PASS object first call 0 HTTP requests
+PASS object restart 0 HTTP requests
+PASS old-grant first call 0 HTTP requests
+PASS old-grant restart 0 HTTP requests
+PASS old-decline first call 0 HTTP requests
+PASS old-decline restart 0 HTTP requests
+PASS explicit-decline first call 0 HTTP requests
+PASS explicit-decline restart 0 HTTP requests
+PASS logs-only first call 2 HTTP requests
+PASS logs-only restart 0 HTTP requests
+PASS both-enabled first call 3 HTTP requests
+PASS both-enabled restart 0 HTTP requests
