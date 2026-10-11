@@ -573,3 +573,9 @@ cycle; source qualification and landing are still pending.
 - 2026-10-11 19:26UTC — A resumed disposable guest lost a serial command sent during firmware boot and needed its normal public-key bootstrap after readiness. Use existing `tools/vm-serial wait` before command/bootstrap, as `tools/vm-pair` already does; original transport refusal retained; issue: #548.
 
 - 2026-10-11 19:36 UTC — Commit wording auto-closed #548 before installed qualification; hosted hygiene caught it. Reopened and checked only observed criteria. Bot token cannot rerun Actions, so the actual instruction/log correction triggers fresh checks. Original failed owners retained; guard: `.claude/rules/issue-tracking.md` and `tools/ceremony-check`.
+
+- 2026-10-11 19:47 UTC — Host-only TMPDIR entered Docker through scripts/get_env and mktemp failed before compilation. Preserve build20 rc2; pinned nonroot negative/positive controls prove the boundary and fresh build20b observes TMPDIR=/tmp in the actual container. issue: #549; guard `.claude/rules/device-builds.md`.
+
+- 2026-10-11 19:52UTC — Docker Config.Env retains both TMPDIR entries, so an equality-to-single-entry monitor failed despite the correct effective value. Actual runtime/mktemp and container exit0 are bound to the cidfile; fresh independent verification preserves wrapper1 and tests wrong path/status/user refusals. issue: #549; guard `.claude/rules/device-builds.md`.
+
+- 2026-10-11 20:02UTC — Full installed-tree comparison refused a deliberately mode000 factory file. Read protected image files through unsquashfs -cat from the verified archive, hash privately and retain mode metadata; do not chmod the evidence or disclose account records. Original refusal and separate passing comparison are retained. issue: #548.

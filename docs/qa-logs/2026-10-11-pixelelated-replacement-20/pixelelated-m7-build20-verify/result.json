@@ -1,0 +1,22 @@
+{
+  "result": "PASS",
+  "original_wrapper_returncode": 1,
+  "actual_build_container_returncode": 0,
+  "resolved_monitor_assertion": "Docker retains both configured TMPDIR entries; actual runtime and mktemp use /tmp",
+  "actual_container_sha256": "7b7f46dce3508f6fafd255fd47b04a579272448827963d6f3b916a1121209d52",
+  "controls": [
+    {
+      "case": "effective_tmpdir",
+      "refused": true
+    },
+    {
+      "case": "mktemp_returncode",
+      "refused": true
+    },
+    {
+      "case": "user",
+      "refused": true
+    }
+  ],
+  "installed_verification": "installed-result.json"
+}

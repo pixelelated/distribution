@@ -1,0 +1,39 @@
+{
+  "utc": "2026-10-11T19:48:57.107674+00:00",
+  "container_id": "e75323475499f4e1a4d030bdf73825cf3f48709267b9707efdca906233d37db5",
+  "image": "sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39",
+  "user": "1000:1000",
+  "working_dir": "/workspace/repos/rocknix.worktrees/m7-pixelelated",
+  "mounts": [
+    {
+      "Type": "bind",
+      "Source": "/home/max/.ROCKNIX/options",
+      "Destination": "/home/max/.ROCKNIX/options",
+      "RW": true
+    },
+    {
+      "Type": "bind",
+      "Source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20",
+      "Destination": "/workspace/repos/rocknix.worktrees/m7-pixelelated",
+      "RW": true
+    },
+    {
+      "Type": "bind",
+      "Source": "/workspace/repos/rocknix/.git",
+      "Destination": "/workspace/repos/rocknix/.git",
+      "RW": true
+    },
+    {
+      "Type": "bind",
+      "Source": "/workspace/cache/rocknix-sources",
+      "Destination": "/workspace/repos/rocknix.worktrees/m7-pixelelated/sources",
+      "RW": true
+    }
+  ],
+  "configured_tmpdir_entries": [
+    "TMPDIR=/workspace/tmp/pixelelated-m7-build20b",
+    "TMPDIR=/tmp"
+  ],
+  "effective_tmpdir": "/tmp",
+  "mktemp_returncode": 0
+}

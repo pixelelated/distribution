@@ -1,5 +1,95 @@
 # Saved Session State
 
+## Start here — current M7 continuation (2026-10-11T19:58:46.658155+00:00)
+
+This repository builds the immutable pixelelated handheld OS. Read AGENTS.md and
+canonical next rules; the harness conflict-resolution checkout is stale and unused.
+Primary /workspace/repos/rocknix is next. Active delivery feature/m7-component-inputs
+is /workspace/repos/rocknix.worktrees/m7-component-inputs. Prior full history and
+onboarding remain below; this current section supersedes earlier running states.
+
+## Current focus
+
+Fix every discovered gap before the next device builds. Corrected GENERIC_X64
+replacement20 is assembled and artifact-accepted by explicit composed evidence;
+clean VM qualification is ACTIVE. No public RC allocated. #540 independent audit
+is complete; do not repeat its external transfer. Owner devices/cloud are untouched.
+
+## Completed
+
+Published1a02664844 has both hosted checks successful. #548 source3fcff2e1e2
+fixes optional hardware reads;13controls/3reviewed VM frames pass. Its commit
+closing verb accidentally closed548; reopened, only first3criteria checked. Original
+publisher01 and attempted rerun02 remain1;03 ends0. No Actions-token change.
+
+Cache20 ends0 at19:45:03:checksum equality and2533045 independent files.
+Frozen build/m7-pixelelated-replacement20 at1a02664844, timestamp20261011T194522Z,
+ESc8dc72cf9e/proxyc7ebd1b6e7/rclone1.75.2 unchanged. Sole product delta is
+rocknix-info. Original build20 ends2 on unmounted host TMPDIR. #549 fresh20b uses
+container/tmp:actual Docker exit0 and643tasks/assembly complete; wrapper1 is an
+incorrect duplicate-Env assertion. Actual runtime/cid/three refusal controls and
+independent build20-verify end0. Never rewrite either failed original.
+
+Image bundle bd85b1b42f0170d7d82555af09cbe18762d6fc7eae63293bd0a8043e652db548
+in /workspace/artifacts/pixelelated-candidates/sha256. GPT/raw-update payload/
+38source mappings pass. Original image20 owner1 is the extra mode000-file comparison
+refusal. Image20-compare ends0 via verified archive bytes, unchanged modes.61309
+entries:only4identity files,rocknix-info and factory randomized hash change; same
+factory password verified without disclosure. The transient old SYSTEM is removed.
+Evidence under docs/qa-logs/2026-10-11-pixelelated-replacement-20 and
+2026-10-11-container-temporary-path. Product freeze stays unchanged by doc delivery.
+
+## In progress — supervise first
+
+Owner /workspace/tmp/pixelelated-m7-qa20, launcher3581810, original watcher
+/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/.build-runs/20261011T195518Z-27a6aefc.
+Guest a3583259,b3583290, SSH10022/10023,VNC5909/5910. Runtime sockets/keys owned
+under qa20, local backends under qa20/cloud. Both boots and clean-payload pass;
+standard scripts suite running. Read console.log,standard.log,artifact suite logs,
+result.json and launcher-result.json; verify actual exits. Then it runs affected
+INFORMATION frames and SFTP/S3. No live achievement/account action. Driver finally
+stops guests/endpoints. Actively supervise at most60seconds; no off-session alert.
+Do not end the turn merely after this checkpoint. Never edit an in-flight script.
+
+## Next steps
+
+1. Consume QA20 originals; fix findings, review frames and record source-bound results.
+2. Prepared /workspace/tmp/pixelelated-m7-upgrade20/run.py is NOT STARTED. It requires
+   QA20 launcher0, uses real19→20 tar upgrade,4savehashes/settings/paths/backups,
+   corrected installed information/frame/startup evidence and retained suites.
+   Launch from the frozen replacement20 checkout using tools/watch-build-submit
+   --owner /workspace/tmp/pixelelated-m7-upgrade20 -- python3 -I -u
+   /workspace/tmp/pixelelated-m7-upgrade20/run.py. Inspect/seal unchanged inputs first.
+3. Deliver549 rule/log/receipt changes, and548 installed proof after actual completion.
+   Close only verified criteria. Prior19 installed UI proof permits final529/530/532/
+   350/537 dispositions;349 public documentation remains511. Update M7 body/current
+   scope and audit cadence honestly; do not relabel an original failed aggregate.
+4. After corrected VM qualification, H700 thenSM8550; source/licence/custody/notes/
+   channel/publication gates528/344/265/359 remain. Earlier device permissions consumed.
+
+## Checkpoint reader check
+
+A fresh reader spawn was refused by the harness thread limit. The returning-reader
+check by m7_533_handoff_proof completed: inputs, original outcomes, active QA and
+next sealed upgrade command agree. This is not fresh-context proof.
+Current user clarified “caps” meant “gaps”; no capitalization change is requested.
+
+## Operational notes
+
+Host/workspace has~940GiB free,~30GiB availableRAM and8GiB free swap. /tmp userquota
+requires owned/workspace/tmp for host fixtures; Docker needs explicit effective
+TMPDIR=/tmp, verified inside container. Do not recycle swap while watchers/VMs run.
+No obsolete VM/cache deletion in this continuation. #493 still owns dependency-checked
+retirement; preserve immediate upgrade inputs. The generated supported-cores document is the only tracked modification in the
+frozen build checkout; it is excluded from sealed product inputs. Do not merge
+tracking commits into it. Build20b inputs.json is the full private sealed manifest;
+public packet carries its digest/scalars/counts. Older recipe-filename false positives
+mean do not publish its raw full inventory through the pre-commit secret guard.
+
+## Prior checkpoints and project onboarding
+
+# Saved Session State
+
 ## Current continuation — 2026-10-11 19:36 UTC
 
 Source3fcff2e1e2 pushed. Its closing verb auto-closed548 prematurely; CI record

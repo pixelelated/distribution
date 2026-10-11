@@ -1,0 +1,18 @@
+{
+  "result": "PASS",
+  "entries": 61309,
+  "changed_paths": [
+    "etc/issue",
+    "etc/motd",
+    "etc/os-release",
+    "etc/release",
+    "usr/bin/rocknix-info",
+    "usr/cache/shadow"
+  ],
+  "identity_changes": "Only new timestamp/source/branch; reviewed unified differences",
+  "rocknix_info": "Exact tested correction",
+  "factory_shadow": "Only randomized SHA512 salt/hash changes; both match configured factory password; other accounts/fields unchanged",
+  "factory_hashes_disclosed": false,
+  "archive_file_modes_unchanged": true,
+  "transient_extract_removed": true
+}

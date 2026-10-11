@@ -1,0 +1,18 @@
+{
+  "container": "ghcr.io/pixelelated/build@sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39",
+  "user": "1000:1000",
+  "cases": [
+    {
+      "case": "unmounted-host-path",
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "mktemp: failed to create file via template \u2018/workspace/tmp/pixelelated-m7-build20/tmp.XXXXXXXXXX\u2019: No such file or directory\n"
+    },
+    {
+      "case": "container-local",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "issue": 549,
+  "original_owner": "/workspace/tmp/pixelelated-m7-build20",
+  "original_returncode": 2,
+  "frozen_inputs_unchanged": true,
+  "inputs_sha256": "44ac12f6e0199f324beb478d1c2b540eec8b2731627c8d750623a71b2952d180",
+  "correction": "Explicit Docker -e TMPDIR=/tmp; host private TMPDIR stays host-side"
+}

@@ -1,0 +1,105 @@
+{
+  "before": "replacement19",
+  "after": "replacement20",
+  "entries_before": 61309,
+  "entries_after": 61309,
+  "changes": {
+    "etc/issue": {
+      "before": {
+        "mode": "0o600",
+        "type": 32768,
+        "size": 108,
+        "sha256": "154caef9cb6aca21679061baa770e2941a19b123a93705327b29a4a1eb2b2379"
+      },
+      "after": {
+        "mode": "0o600",
+        "type": 32768,
+        "size": 108,
+        "sha256": "553b5cce123eaa2e106265a82df726d14bbd170050e721fa06152be2bb56bee5"
+      }
+    },
+    "etc/motd": {
+      "before": {
+        "mode": "0o600",
+        "type": 32768,
+        "size": 874,
+        "sha256": "7f18514d63e879daad49cb244ea2447c52fe9d724f029971f4f1cda1804cdb86"
+      },
+      "after": {
+        "mode": "0o600",
+        "type": 32768,
+        "size": 874,
+        "sha256": "3972986aa747dc6a277786fcf74633b89d195980d9e585014f0e6b94266dc5fd"
+      }
+    },
+    "etc/os-release": {
+      "before": {
+        "mode": "0o600",
+        "type": 32768,
+        "size": 721,
+        "sha256": "acbf317c496540d5fdeeccc565322927f11ef4d01bce7e357c4783ecb90e9bac"
+      },
+      "after": {
+        "mode": "0o600",
+        "type": 32768,
+        "size": 721,
+        "sha256": "f537766379be27c18708a87bae0495170f83b7fc966a69f5c1c5d84480f0d31d"
+      }
+    },
+    "etc/release": {
+      "before": {
+        "mode": "0o600",
+        "type": 32768,
+        "size": 60,
+        "sha256": "b1e48004689845493a1e0cf0456511a617e41dc86859842fca3da527387c1976"
+      },
+      "after": {
+        "mode": "0o600",
+        "type": 32768,
+        "size": 60,
+        "sha256": "6bc098257ea05716439cad7d92492d98bc9069ed5d239b7be5d0e743519a8505"
+      }
+    },
+    "usr/bin/rocknix-info": {
+      "before": {
+        "mode": "0o700",
+        "type": 32768,
+        "size": 6642,
+        "sha256": "bbf5c15640bc535444b7b641498a5cec868508351692f5ca0eb16d9a228e8054"
+      },
+      "after": {
+        "mode": "0o700",
+        "type": 32768,
+        "size": 7392,
+        "sha256": "ed9e244bc664097154a1592890974b15d6c2a5e57f1d6e32b3edbdbe018bcae6"
+      }
+    },
+    "usr/cache/shadow": {
+      "before": {
+        "mode": "0o0",
+        "type": 32768,
+        "size": 279,
+        "sha256": "c97890eddff5959c358b097bb7a8be3d02c246fc98e3855f2764134a55ca583b"
+      },
+      "after": {
+        "mode": "0o0",
+        "type": 32768,
+        "size": 279,
+        "sha256": "ee7dde475aa7680e5dad169f1d96865c94eb165177d5e5b4a36d55ce7d4d9ff9"
+      }
+    }
+  },
+  "archive_reads": [
+    {
+      "root": "/workspace/tmp/pixelelated-m7-image19/root",
+      "path": "usr/cache/shadow",
+      "bytes": 279
+    },
+    {
+      "root": "/workspace/tmp/pixelelated-m7-image20/root",
+      "path": "usr/cache/shadow",
+      "bytes": 279
+    }
+  ],
+  "requires_review": true
+}

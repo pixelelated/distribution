@@ -104,6 +104,17 @@ DOCKER_EXTRA_OPTS="-v /workspace/repos/rocknix/.git:/workspace/repos/rocknix/.gi
   one variable — `export SOURCES_DIR=/workspace/cache/rocknix-sources` — with
   no symlink inside each worktree.
 
+### Temporary directories belong to their execution environment (#549)
+
+A private host TMPDIR is not automatically mounted in Docker. scripts/get_env
+forwards it, so an unmapped host path makes package initialization fail at
+mktemp before compilation. When using a host-only temporary root, explicitly
+set the container TMPDIR to a writable container path (for example add
+`-e TMPDIR=/tmp` to DOCKER_EXTRA_OPTS), or mount an intentionally shared path.
+Retain the actual container environment readback; do not infer it from the
+host variable. Config.Env may retain duplicate entries; verify the effective
+value and a real temporary-file operation inside the running container. Preserve the failed owner and submit a fresh one after correction.
+
 ## After rebasing onto upstream
 
 A build root that predates a rebase carries the *previous* tree's installed

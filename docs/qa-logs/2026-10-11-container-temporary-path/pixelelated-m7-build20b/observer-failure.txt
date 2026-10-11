@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-build20b/observe-container.py", line 14, in <module>
+    temporary=[x for x in d['Config']['Env'] if x.startswith('TMPDIR=')];assert temporary==['TMPDIR=/tmp'],temporary
+AssertionError: ['TMPDIR=/workspace/tmp/pixelelated-m7-build20b', 'TMPDIR=/tmp']
