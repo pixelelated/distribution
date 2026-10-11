@@ -1,3 +1,3 @@
-# Active session pointer
+# Session pointer
 
-Read `.github/sessions/saved-session-state-next.md` on canonical `next`; this branch carries its pending delivery. Do not use an older inherited checkpoint.
+Read [canonical next checkpoint](saved-session-state-next.md). This feature owns the current #553 audit checkpoint; primary and frozen build responsibilities are recorded there.

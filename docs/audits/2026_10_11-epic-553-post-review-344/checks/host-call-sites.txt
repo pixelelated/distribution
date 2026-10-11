@@ -1,0 +1,134 @@
+111:#      surviving thread (patch 005, PL-01/PL-25), a game evicted whole
+290:# Host compilers and patch commands below explicitly use this owned tree too.
+1356:printf '#!/bin/sh\necho "Permanent address: 02:aa:bb:cc:dd:ee"\n' > "${CDI}/shim/ethtool"; chmod +x "${CDI}/shim/ethtool"
+1372:want_id="H700-$(printf '%s|%s' 02:aa:bb:cc:dd:ee unknown | md5sum | cut -c1-10)"
+1920:http://127.0.0.1:8080/dorequest.php?r=patch&u=qa-user&t=PLANTEDtoken&g=1
+2064:# The module and its tests: a patch may carry a test for what it changes
+2065:# (015 does), and a patch with a hunk for a file that was not unpacked does
+2073:# The patches, in order, as scripts/unpack applies them (patch -p1).
+2076:    TPATCHES="$(git -C "${ROOT}" ls-tree --name-only "${BASE_REF}" -- "${PATCHES_REL}/" 2>/dev/null | grep '\.patch$' | sort)"
+2078:    TPATCHES="$(cd "${ROOT}" && ls "${PATCHES_REL}"/*.patch 2>/dev/null | sort)"
+2081:    src_of "${prel}" "${T}/one.patch"
+2082:    if ! TMPDIR="${T}" patch -d "${T}/patched" -p1 -N -s < "${T}/one.patch" >"${T}/patch.out" 2>&1; then
+2083:        TPATCH_OK=0; check 1 "" "${prel##*/} does not apply to the pinned client: $(tr '\n' '|' < "${T}/patch.out" | cut -c1-200)"
+2086:[ "${TPATCH_OK}" -eq 1 ]; check $? "the client at ${PIN:0:10} with $(echo "${TPATCHES}" | grep -c .) patch(es) applied in order, each compiled: $(cd "${T}/patched/linux/raofflineproxy" && python3 -m py_compile *.py 2>&1 | head -1 || true)ok" "a patch did not apply; the runs below are against a client the tree does not describe"
+2160:# ROM's path on the patch row), skip (no match), fail (a fetch that did not
+2191:    if step[0] == "fail": failed += 1; say(f"FAIL {i}/{total} {label}: patch request failed: HTTP Error 429: Too Many Requests"); continue
+2207:    storage.upsert_cache(cache_keys.patch(game_id, user), '{"Success":true,"PatchData":{"ID":%d,"Title":"G%d"}}' % (game_id, game_id), source_rom_path=normalize_cached_rom_path(path))
+2257:# game 102 (b.nes) complete for qa; 105 (e.nes) patch row only (a fetch that
+2259:s.upsert_cache(cache_keys.patch(102, "qa"), '{"Success":true,"PatchData":{"ID":102}}', source_rom_path="/nes/b.nes")
+2262:s.upsert_cache(cache_keys.patch(105, "qa"), '{"Success":true,"PatchData":{"ID":105}}', source_rom_path="/nes/e.nes")
+2263:s.upsert_cache(cache_keys.patch(101, "other"), '{"Success":true,"PatchData":{"ID":101}}', source_rom_path="/nes/a.nes")
+2322:# stale. e.nes has a patch row and nothing else, a.nes is cached for another
+2327:grep -qP '^I\t101\tAAAA\t/storage/roms/nes/a.nes$' "${J}" && grep -qP '^I\t105\teeee\t/storage/roms/nes/e.nes$' "${J}" && grep -qP '^H\t\t\t/storage/roms/gb/h.gb$' "${J}" && grep -qP '^H\t\t\t/storage/roms/gb/i.gb$' "${J}" && [ "$(grep -c . "${J}")" -eq 4 ]; check $? "the jobs: I 101 a.nes (cached for another account), I 105 e.nes (patch row alone), H h.gb, H i.gb -- and not b.nes (cached), c.nes (no set), d.nes (no hash), f.nes (stale recovery), g.nes (unlisted in an indexed system), the hidden, empty and media-folder files" "jobs: $(tr '\t' ',' < "${J}" | tr '\n' '|' | cut -c1-300) (#186 PL-23)"
+2449:s.upsert_cache(cache_keys.patch(102, "qa"), json.dumps({"Success": True, "PatchData": {"ID": 102, "Title": "Bee", "ImageIcon": "/Images/000102.png", "Achievements": [
+2452:s.upsert_cache(cache_keys.patch(107, "qa"), json.dumps({"Success": True, "PatchData": {"ID": 107, "Title": "Empty", "Achievements": []}}))
+2453:s.upsert_cache(cache_keys.patch(108, "other"), json.dumps({"Success": True, "PatchData": {"ID": 108, "Title": "Theirs", "ImageIcon": "https://media.retroachievements.org/Images/000108.png", "Achievements": [{"ID": 2001, "Points": 1, "Flags": 3}]}}))
+2602:    rows = ["patch:1:qa", "patch:2:qa", "patch:3:qa"]
+2630:        st.upsert_cache(cache_keys.patch(gid, "qa"), "{}", cached_at=now - gid * 30 * H)
+2656:# no longer expires game data, which covers what patch 006 did and more
+2659:st.upsert_cache(cache_keys.patch(1, "qa"), '{"Success":true}', cached_at=now)
+2663:st.upsert_cache(cache_keys.patch(2, "qa"), '{"Success":true}', cached_at=old)
+2670:keys = {key for p in ("patch:", "unlocks:", "achievementsets:", "gameid:", "login2::", "ua::", "lastplayed:") for key in st.cache_keys_by_prefix(p)}
+2671:g1 = {cache_keys.patch(1, "qa"), cache_keys.unlocks(1, "qa"), cache_keys.achievementsets("aaaa", "qa"), cache_keys.game_id("aaaa")}
+2672:g2 = {cache_keys.patch(2, "qa"), cache_keys.achievementsets("bbbb", "qa"), cache_keys.game_id("bbbb")}
+2673:verdict(g1 <= keys, "PL-02 eviction: a game with a fresh patch row keeps its 61-day-old achievementsets, gameid and unlocks rows", f"missing {sorted(g1 - keys)}")
+2717:# urlopen is never called; and patch 013 publishes only a payload that is a
+2722:# A real 1x1 PNG: patch 013 walks the chunks and inflates the IDAT stream since
+2775:    proxy_service.ProxyRuntimeServer.process_proxy_request(srv, "GET", "/dorequest.php?r=patch&g=1&u=qa", "", {"X-RA-Store-Only": "1", "User-Agent": "es"})
+2777:    proxy_service.ProxyRuntimeServer.process_proxy_request(srv, "GET", "/dorequest.php?r=patch&g=1&u=qa", "", {"User-Agent": "es"})
+3223:# /storage/.config/system.d instead (its patch 0001).
+3986:# F2-4. RetroArch's patch stack as the package applies it, over the pinned
+3988:# 08/09/10, gpt F-RW-01/03/04). scripts/unpack applies patches/*.patch in
+3989:# glob order with patch's default fuzz, then batteryplus/ (H700, RK3566,
+3993:# The patched tree is then compiled syntax-only with the host's gcc, the
+4012:    git -C "${ROOT}" ls-tree --name-only "${BASE_REF}" "${RA_REL}/patches/" "${RA_REL}/patches/batteryplus/" | grep '\.patch$' \
+4015:    cp "${ROOT}/${RA_REL}"/patches/*.patch "${RX}/patches/"; cp "${ROOT}/${RA_REL}"/patches/batteryplus/*.patch "${RX}/patches/batteryplus/"
+4018:# patch dry-runs spill large files; use this owned host fixture, not /tmp.
+4020:for p in "${RX}"/patches/*.patch "${RX}"/patches/batteryplus/*.patch; do
+4023:    # and noted when that fails; every patch is then applied as the package
+4027:            TMPDIR="${RX}" patch -d "${RX}/src" -p1 -N --fuzz=0 --dry-run -r - < "${p}" > "${RX}/fz.log" 2>&1 && ! grep -q 'with fuzz' "${RX}/fz.log" || F2_FUZZ+=" ${n}" ;;
+4029:    TMPDIR="${RX}" patch -d "${RX}/src" -p1 -N --no-backup-if-mismatch -r - < "${p}" > /dev/null 2>&1 || { F2_APPLY=1; F2_FUZZ+=" ${n}(FAILED)"; }
+4031:[ "${F2_APPLY}" -eq 0 ] && [ -z "${F2_FUZZ}" ]; check $? "every patch applies in the package's order, the fork's with no fuzz" "patches that needed fuzz or failed:${F2_FUZZ}"
+4033:if command -v gcc > /dev/null; then
+4036:        TMPDIR="${RX}" gcc -fsyntax-only -std=gnu99 -Werror=implicit-function-declaration -I"${RX}/src" -I"${RX}/src/libretro-common/include" -I"${RX}/src/deps" \
+4038:            "${RX}/src/${c}" > "${RX}/cc.log" 2>&1 || F2_CC+=" ${c}: $(grep -m1 'error' "${RX}/cc.log" | cut -c1-160)"
+4040:    [ -z "${F2_CC}" ]; check $? "the patched gfx_widgets.c, video_thread_wrapper.c, command.c, runtime_file.c and configuration.c compile (host gcc, -fsyntax-only)" "does not compile:${F2_CC}"
+4042:    check 1 "" "no gcc on this host: the patched tree was not compiled, and the checks that compile below cannot run"
+4081:if command -v gcc > /dev/null && [ -s "${RX}/sharp.inc" ] && TMPDIR="${RX}" gcc -std=gnu99 -o "${RX}/sharp_test" "${RX}/sharp_test.c" -I"${RX}" > "${RX}/sharp.log" 2>&1; then
+4125:head -30 "${RX}/patches/0016-widgets-message-queue-floor.patch" | grep -q 'under 14 px\|queue gets 14' && F2_BAD+=" 0016-says-14"
+4126:head -40 "${RX}/patches/0017-widgets-sharp-font-sizes.patch" | grep -q '14 -> 15\|The 14 px floor' && F2_BAD+=" 0017-says-14"
+4127:head -40 "${RX}/patches/0017-widgets-sharp-font-sizes.patch" | grep -q 'video_font_path' || F2_BAD+=" 0017-silent-on-the-shipped-face"
+4128:[ -z "${F2_BAD}" ]; check $? "0016's and 0017's messages describe the 13 px floor and the face the shipped profile draws" "patch messages:${F2_BAD}"
+4218:if [ -s "${RX}/autoslot.inc" ] && TMPDIR="${RX}" gcc -std=gnu99 -o "${RX}/autoslot_test" -I"${L}/include" -I"${RX}" "${RX}/autoslot_test.c" \
+4227:grep -q 'Probe.state.auto' "${RX}/patches/0018-auto-slot-survives-content-load.patch"
+4229:grep -q 'libretro/RetroArch/pull/19518\|libretro/RetroArch#19518' "${RX}/patches/0011-video-thread-wrapper-serialise-posters.patch"
+4304:    cp "${ROOT}/${F2P}"/emulators/libretro/ppsspp-lr/patches/*.patch "${PX}/pkg/patches/"
+4311:    F2_CALL="PKG_BUILD='${B}'; declare -F post_unpack >/dev/null && post_unpack; for p in '${PX}'/pkg/patches/*.patch; do TMPDIR='${PX}' patch -d '${B}' -p1 -s --no-backup-if-mismatch < \"\${p}\" || exit 4; done; declare -F post_patch >/dev/null && post_patch; grep -c 'mno-outline-atomics' '${B}/CMakeLists.txt'"
+4314:[ "${PP_x86_64}" = "0" ] && [ "${PP_aarch64}" = "1" ]; check $? "x86_64's CMakeLists.txt ends without the flag, aarch64's keeps it" "after unpack, patches and hooks: x86_64 has ${PP_x86_64:-?} add_compile_options(-mno-outline-atomics) line(s), aarch64 ${PP_aarch64:-?} -- the strip ran before the patch that adds it"
+4319:# -> the patch loop's patch command -> post_patch.
+4322:U_PA=$(grep -n 'patch -d "${PKG_BUILD}" -p1' "${F2}/unpack" | head -1 | cut -d: -f1)
+4325:check $? "scripts/unpack calls post_unpack (line ${U_PU}), applies the patches (${U_PA}), then calls post_patch (${U_PP})" "scripts/unpack's order is not post_unpack < patch < post_patch: lines ${U_PU:-none}, ${U_PA:-none}, ${U_PP:-none}"
+4448:# copy -- same steps, the same patch byte for byte -- is never built, only
+4536:#   C6. webkitgtk: no MiniBrowser; each patch described and applying (#308).
+6442:printf '#!/bin/sh\necho "Permanent address: 02:aa:bb:cc:dd:ee"\n' > "${C5}/shim/ethtool"
+6456:C5H="H700-$(printf '%s|%s' 02:aa:bb:cc:dd:ee unknown | md5sum | cut -c1-10)"
+6476:# to the pinned release, dry, as scripts/unpack applies it: `patch` reads
+6480:for wp in "${WKP}"/*.patch; do
+6492:    wkfiles=$(sed -n 's|^+++ b/\([^[:space:]]*\).*|webkitgtk-'"${WKV}"'/\1|p' "${WKP}"/*.patch | sort -u)
+6495:    for wp in "${WKP}"/*.patch; do
+6496:        TMPDIR="${WKD}" patch -d "${WKD}/webkitgtk-${WKV}" -p1 --dry-run < "${wp}" > "${WKD}/out" 2>&1; check $? "$(basename "${wp}") applies to webkitgtk ${WKV}" "$(basename "${wp}") does not apply to ${WKV}: $(tail -2 "${WKD}/out" | tr '\n' ' ')"
+6555:# it is lifted out and compiled with the host's cc against the addresses.
+6574:C8P=$( [ -s "${C8}/pwr.c" ] && command -v cc >/dev/null && TMPDIR="${C8}" cc -std=gnu99 -o "${C8}/pwr" "${C8}/pwr_main.c" 2>&1 && "${C8}/pwr" 2>&1 )
+6727:st.upsert_cache(cache_keys.patch(1, "qa"), json.dumps({"Success": True, "PatchData": {"ID": 1, "Achievements": badges}}))
+6836:# launch alone -- an achievementsets row and no patch row -- from that row's
+6849:# 201: a launch's rows only (RetroArch asked achievementsets, never patch).
+6853:# 202: a patch row whose unlock row is damaged; 203: a patch row with no unlock row.
+6854:s.upsert_cache(cache_keys.patch(202, "qa"), json.dumps({"Success": True, "PatchData": {"ID": 202, "Title": "Bad Unlocks", "Achievements": core((3101, 5), (3102, 5))}}))
+6856:s.upsert_cache(cache_keys.patch(203, "qa"), json.dumps({"Success": True, "PatchData": {"ID": 203, "Title": "No Unlocks", "Achievements": core((3201, 5))}}))
+6857:# 204: another account's launch rows; 102: a patch row and a sets row, listed once.
+6859:s.upsert_cache(cache_keys.patch(102, "qa"), json.dumps({"Success": True, "PatchData": {"ID": 102, "Title": "Bee", "ImageIcon": "/Images/000102.png", "Achievements": core((1001, 5), (1002, 10))}}))
+6869:grep -qx '{"id":201,"title":"Sets Only","icon":"http://127.0.0.1:8080/Images/000201.png","achievements":2,"points":15,"unlocked":2,"unlockedPoints":15,"pending":1}' "${DD}/summary.out"; check $? "PL-057 summary: a game cached by a launch alone (achievementsets row, no patch row) is listed from its core set -- 2 achievements, 15 points, both unlocked (one earned, one waiting to be sent)" "PL-057 summary: rc ${RC}; no line for game 201: $(tr '\n' '|' < "${DD}/summary.out" | cut -c1-400) -- the summary read patch rows only"
+6909:    if gid in fails: raise RuntimeError(f"patch request failed for {gid}")
+6920:# The client lists patch rows newest first (ORDER BY cachedAt DESC), so each
+6924:    st.upsert_cache(cache_keys.patch(gid, "qa"), '{"Success":true,"PatchData":{"ID":%d}}' % gid, cached_at=1789400000000 - gid * 1000)
+7064:st.upsert_cache(cache_keys.patch(2, "qa"), json.dumps({"Success": True, "PatchData": {"ID": 2, "Achievements": badges}}))
+7114:# over as cached only when its game is whole for this account -- the patch
+7116:# the game -- as the index's test (is_cached) already asks. A patch row alone
+7125:# h.gb: a patch row naming it and nothing else. i.gb: whole (patch, unlocks, sets).
+7126:s.upsert_cache(cache_keys.patch(150, "qa"), '{"Success":true,"PatchData":{"ID":150}}', source_rom_path="/gb/h.gb")
+7127:s.upsert_cache(cache_keys.patch(151, "qa"), '{"Success":true,"PatchData":{"ID":151}}', source_rom_path="/gb/i.gb")
+7134:grep -qP '^H\t\t\t/storage/roms/gb/h.gb$' "${TR}/helper-jobs.log" && ! grep -q '/storage/roms/gb/i.gb$' "${TR}/helper-jobs.log"; check $? "#308 gpt F-RA-14: a ROM whose game has a patch row and nothing else is a job again; one whose game is whole is passed over" "#308 gpt F-RA-14: jobs: $(tr '\t' ',' < "${TR}/helper-jobs.log" | tr '\n' '|' | cut -c1-240) -- a patch path alone read as a complete cache"
+7141:# and after (a game is ready with its patch and unlocks rows) -- not the count
+7158:s.upsert_cache(cache_keys.patch(160, "qa"), '{"Success":true,"PatchData":{"ID":160}}', source_rom_path="/gb/h.gb")
+7274:# D13a. #308 1-raoffline gpt F-RA-27 (patch 008): only a JSON true opts in to
+7311:# D13b. #308 1-raoffline claude F-RA-13 (patch 013, cache-images): a PNG with
+7315:# CRCs and the image data included (image_cache.png_problem, patch 013), so a
+7316:# file damaged inside before patch 013 existed is found and re-fetched.
+7335:    verdict(image_cache.resolve_cached_static_asset("/Badge/d13-trailing.png") is not None, "F-RA-13 patch 013: a whole PNG with bytes after its IEND is published")
+7360:# D13c. #308 1-raoffline gpt F-RA-20 (patch 015): a host the bounded lookup
+7363:# the request; and claude F-RA-11 (patch 015): the upstream forwarder's half,
+7396:            "F-RA-20 patch 015: the connection's own lookup of a host the bounded lookup just resolved is answered at once from that answer (port 443), not from a resolver that has stopped",
+7416:            "F-RA-11 patch 015: the forwarder with a failed lookup returns network_error 503 at once and opens no connection",
+7419:    verdict(False, "F-RA-11 patch 015: the forwarder with a failed lookup returns network_error 503 at once and opens no connection", repr(exc))
+7431:# The patched client's own tests for patch 015's network half still pass
+7626:# class with the HTTP status, where it used to swallow the reason (patch
+7662:grep -q '^PASS outcome:' "${DD}/d19.out"; check $? "PL-060 follow-up, patch 016: download_static_image says what became of an image -- 404 and 410 absent, a 503 and a timeout transient, a whole PNG cached" "PL-060 follow-up, patch 016: $(grep 'outcome:' "${DD}/d19.out" || tail -3 "${DD}/d19.out" | tr '\n' '|') -- the reason was swallowed"
+7663:grep -q '^PASS logged:' "${DD}/d19.out"; check $? "PL-060 follow-up, patch 016: the outcome class, the HTTP status and the URL are logged" "PL-060 follow-up, patch 016: $(grep 'logged:' "${DD}/d19.out" | cut -c1-300 || echo 'no verdict')"
+7693:s.upsert_cache(cache_keys.patch(102, "qa"), json.dumps({"Success": True, "PatchData": {"ID": 102, "Achievements": badges}}), source_rom_path="/nes/b.nes")
+7747:st = Storage(); st.upsert_cache(cache_keys.patch(1, "qa"), '{"Success":true,"PatchData":{"ID":1,"Achievements":[]}}'); st.close()
+9160:echo cc > "${M}/storage/roms/gb/C.gb"
+10175:# D24. claude G-D-04: patch 016's classification against the real
+10272:# launch cached (sets and unlocks, no patch) was ready before a top-up gave
+10273:# it a patch row, so it is not "more". And the count of games made ready
+10284:# 201: a launch's rows (another dump's sets, the unlocks), no patch row; the
+10292:[ "${RC}" -eq 0 ] && grep -qP '^I\t201\taaaa0201\t' "${TR}/helper-jobs.log" && grep -q ' 0 topup cached=3 .* added=2$' "${TSTAMP}"; check $? "gpt G-D-04: a game a launch had already cached (sets and unlocks, no patch row) is cached by the index and not counted as added -- cached=3 added=2" "gpt G-D-04: rc ${RC}; jobs: $(tr '\t' ',' < "${TR}/helper-jobs.log" | tr '\n' '|' | cut -c1-200); stamp: $(cat "${TSTAMP}" 2>/dev/null)"
+10294:# The walk's "already cached" is the same rule: patch and unlocks without a
+10301:s.upsert_cache(cache_keys.patch(152, "qa"), '{"Success":true,"PatchData":{"ID":152}}', source_rom_path="/gb/h.gb")
+10303:s.upsert_cache(cache_keys.patch(153, "qa"), '{"Success":true,"PatchData":{"ID":153}}', source_rom_path="/gb/i.gb")
+10310:grep -qP '^H\t\t\t/storage/roms/gb/h.gb$' "${TR}/helper-jobs.log" && ! grep -q '/storage/roms/gb/i.gb$' "${TR}/helper-jobs.log"; check $? "claude G-D-08: the walk's rule is the same -- patch and unlocks with no sets row is a job; a sets row whose GameId lies past the head still makes the game whole" "claude G-D-08: jobs: $(tr '\t' ',' < "${TR}/helper-jobs.log" | tr '\n' '|' | cut -c1-200)"
+10378:st.upsert_cache(cache_keys.patch(3, "qa"), json.dumps({"Success": True, "PatchData": {"ID": 3, "Achievements": badges}}))
+12131:# The walk: four gb ROMs whose patch rows are this account's. 153 and 160
+12144:    s.upsert_cache(cache_keys.patch(g, "qa"), '{"Success":true,"PatchData":{"ID":%d}}' % g, source_rom_path=rom)
+12467: * read it; then the answer is recorded as the patch records it. Prints the
+12510:    if [ -s "${F2B}/autoslot.inc" ] && TMPDIR="${F2B}" gcc -std=gnu99 ${F2B_FL} -o "${F2B}/autoslot_load" -I"${L}/include" -I"${F2B}" "${F2B}/autoslot_load.c" \

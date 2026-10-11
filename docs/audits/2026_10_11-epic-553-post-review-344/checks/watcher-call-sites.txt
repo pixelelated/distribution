@@ -1,0 +1,5 @@
+projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-cache-indexed:71:def apply_scan_batch_cooldown(scanned: int) -> bool:
+projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-cache-indexed:175:            apply_scan_batch_cooldown(index - 1)
+projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-cache-indexed:201:                result = add_rom_to_cache(path, storage, config_data, budgeted=False)
+projects/ROCKNIX/packages/network/raofflineproxy/patches/004-no-cap-on-cached-games.patch:4:one run (D-RA-014, #361). Add an opt-in budgeted=False argument to the
+projects/ROCKNIX/packages/network/raofflineproxy/patches/004-no-cap-on-cached-games.patch:26:+    proxy service. An OS-managed deliberate scan may set budgeted=False to

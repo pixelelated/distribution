@@ -1,0 +1,8 @@
+PASS ready: return 0, polls 1
+PASS old-boot: return 1, polls 30
+PASS failed: return 1, polls 1
+PASS delayed: return 0, polls 4
+PASS never-ready: return 1, polls 30
+PASS absent: return 1, polls 30
+PASS no-identity: return 1, polls 0
+PASS 7 storage-readiness controls; actual guest query, synthetic states, no boot claim

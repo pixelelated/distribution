@@ -1,0 +1,21 @@
+51ddf40833 qa: scope host scratch and exercise current storage readiness
+Refs #550, #551, #549, #548 and #344. Preserve the original seven failures and the first full passing regression. Final portable-helper full regression and image qualification remain in progress; no closure or firmware change.
+
+3fcff2e1e2 rocknix: handle unavailable hardware information
+Fix #548 optional sensor arithmetic and absent quirks; retain valid x86/ARM readings and real quirk failures. Add full-script CI controls and reviewed VM frames. Record completed #344/#349/#350/#529/#530/#532/#537 installed UI and startup qualification without relabelling original failures. Corrected firmware inclusion remains required.
+
+aae3ebac1e qa: verify installed proxy formats and retained image state
+Resolve the installed namespace adapter in #547; retain clean, upgrade and service qualification for #344, #531 and #537. Original failed aggregates remain intact.
+
+fa444d60ff qa: guard VM startup and verify storage before upgrade reads
+Retain original qualification failures; bind approved cloud UI differences to the accepted baseline, verify all three local protocols, and repair launch/readiness checks with regression controls. Refs #344, #541, #543, #544, #545, #546.
+
+8829907b12 qa: discover every proxy integration case and correct test counts
+Refs #543, #541, #344. Original runs each executed 11 cases; the repaired runner executes 12, with a wrong-duration negative control proving the pacing assertion. Firmware/helper bytes remain unchanged.
+
+a0f60255ab network: refresh dependencies before the combined M7 build
+Pin rclone 1.75.2 and RAOfflineProxy c7ebd1b6e7. Preserve explicit whole-library preparation and existing offline state across the upstream queue changes. Restrict freshness to active recipe roots and fix host fixture temporary directories. Retain exact source, native/integration checks, original failures and targeted resolutions. Installed protocol and combined-image qualification remain under #541 and #344.
+
+63a2090a56 packages: pin retained game data and record licence scope
+Move the unchanged Doom archive to the normal checksum-verified fetch path. Record eleven source-backed primary licence declarations and verify inherited HarfBuzz ICU metadata. Preserve all components and publication holds. Pinned-builder download, offline install and corruption-refusal proof passes. Refs #528, #493, #344.
+

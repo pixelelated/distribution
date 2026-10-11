@@ -1,0 +1,57 @@
+{
+  "source_sha256": "ed9e244bc664097154a1592890974b15d6c2a5e57f1d6e32b3edbdbe018bcae6",
+  "cases": [
+    {
+      "case": "original absent interfaces reproduce arithmetic error and nonzero status",
+      "passed": true
+    },
+    {
+      "case": "absent optional metrics succeed quietly",
+      "passed": true
+    },
+    {
+      "case": "unknown CPU frequencies are explicit, GPU and temperature rows omitted",
+      "passed": true
+    },
+    {
+      "case": "valid x86 hardware presentation unchanged",
+      "passed": true
+    },
+    {
+      "case": "valid ARM clusters/GPU/temperature presentation unchanged",
+      "passed": true
+    },
+    {
+      "case": "empty optional frequencies are unavailable without errors",
+      "passed": true
+    },
+    {
+      "case": "malformed optional frequencies are unavailable without errors",
+      "passed": true
+    },
+    {
+      "case": "expression optional frequencies are unavailable without errors",
+      "passed": true
+    },
+    {
+      "case": "overflow optional frequencies are unavailable without errors",
+      "passed": true
+    },
+    {
+      "case": "leading zeros remain decimal; measured zero is retained",
+      "passed": true
+    },
+    {
+      "case": "invalid temperatures omitted without division by zero",
+      "passed": true
+    },
+    {
+      "case": "valid quirk executes; missing and non-executable entries skip",
+      "passed": true
+    },
+    {
+      "case": "real quirk failure survives later success",
+      "passed": true
+    }
+  ]
+}

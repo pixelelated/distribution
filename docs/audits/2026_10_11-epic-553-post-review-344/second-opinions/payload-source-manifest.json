@@ -1,0 +1,581 @@
+{
+  "included": [
+    {
+      "path": "audit/01-research-notes.md",
+      "bytes": 6391,
+      "sha256": "47e4ae2ea8a25974b2e3ca91ebc246a20191672a9d78bf638548748af974c561"
+    },
+    {
+      "path": "audit/02-forward-audit.md",
+      "bytes": 60034,
+      "sha256": "026fbff132667f2979155f6a46a6c2494fc1a19af9d9aa84583b39e08086532d"
+    },
+    {
+      "path": "audit/03-retrospective.md",
+      "bytes": 19414,
+      "sha256": "e38f50f7cca5b2febb4d0d96be3c38039d2a35ea5f5b88db44143e7a3e6c64f2"
+    },
+    {
+      "path": "audit/04-analysis.md",
+      "bytes": 8924,
+      "sha256": "36220e483e6ff5b8a424aabbc5ec3c1f6bde8c5cd6d15ef1c58f44a978ea5d24"
+    },
+    {
+      "path": "audit/inputs/source-manifest.json",
+      "bytes": 4593,
+      "sha256": "be05758214857aea7f318b6c4aeedb23382a1ffef92d02af905a4c09ee1d276f"
+    },
+    {
+      "path": "audit/inputs/es-source-binding.json",
+      "bytes": 350,
+      "sha256": "9d4e2e67313f9f28eba78fe8d18f97011cb316601b68354872e3aa9e0e5c5bb8"
+    },
+    {
+      "path": "audit/inputs/source.diff",
+      "bytes": 92376,
+      "sha256": "1abe64734a928c35c04456134c3d62d7a0124f89ddf814693945c66dae755566"
+    },
+    {
+      "path": "audit/inputs/es-test-only.diff",
+      "bytes": 932,
+      "sha256": "46db3eb1f8a4d43bda03814ce6d290bf730895b98f37362458d6f9b4276ec060"
+    },
+    {
+      "path": "audit/inputs/history.txt",
+      "bytes": 2407,
+      "sha256": "4e84ea5201c28a9b418e1c3811a3184f538e4fe0b6a57c64e5be06e5682e1ec2"
+    },
+    {
+      "path": "audit/inputs/random-reverification.json",
+      "bytes": 7932,
+      "sha256": "730d934c74cfaf3ed13d1dfbbc26ae0243fc2040cdf7e85d023e79368d668afe"
+    },
+    {
+      "path": "issue-528.md",
+      "bytes": 9536,
+      "sha256": "1e27c8901910f10ea31a0a7be595de644d3a6080aeab74f422ba9bd532b0bb8d"
+    },
+    {
+      "path": "issue-541.md",
+      "bytes": 4902,
+      "sha256": "3cea54398f9b9a2e938ef1b3d2f3c22d73d791c01981b2448cc3e5be2ce05738"
+    },
+    {
+      "path": "issue-542.md",
+      "bytes": 3096,
+      "sha256": "faab8e5bd3de8af5bb4fcf98c95573d8fb33a80a63b32ea6dddeb887368c5363"
+    },
+    {
+      "path": "issue-543.md",
+      "bytes": 1838,
+      "sha256": "6c8a390ff2625aea1796f8f3abbbfde5985d47cdfd23eca8fd7161b7e62f1cd1"
+    },
+    {
+      "path": "issue-544.md",
+      "bytes": 1961,
+      "sha256": "56170f57141e50afc2d74d5cfb9be498b255928aa61df734a03970aa611bd327"
+    },
+    {
+      "path": "issue-545.md",
+      "bytes": 2221,
+      "sha256": "456f4da1fdda1f3d8625d1d4b0856fdd5d176beb004c79346e12100eac54099b"
+    },
+    {
+      "path": "issue-546.md",
+      "bytes": 1968,
+      "sha256": "4b3008a32a6f439d82a9774316dae890e7f585ddcbac2ea95918b777b91dc75d"
+    },
+    {
+      "path": "issue-547.md",
+      "bytes": 2292,
+      "sha256": "6ad2b66feded890562364d64a7eba72414b4913b3503a2fafe63d41c333e46ae"
+    },
+    {
+      "path": "issue-548.md",
+      "bytes": 2475,
+      "sha256": "7350e1ab70815a76c705e9be625865b5017794469d46f7dffa484fecca234fa0"
+    },
+    {
+      "path": "issue-549.md",
+      "bytes": 1948,
+      "sha256": "aa6a5375d0926056d4b4c57665c9f71c0de253510786fc68762fe951883445d8"
+    },
+    {
+      "path": "issue-550.md",
+      "bytes": 1504,
+      "sha256": "ced25408f0f457ecb640a6e7c4f6946a74e8efa5f3af5d54c2d95586d9add08d"
+    },
+    {
+      "path": "issue-551.md",
+      "bytes": 1469,
+      "sha256": "d7af9d41c4f25643461a19a373a24aa704beb679c38963d36e80a4b20ed25a51"
+    },
+    {
+      "path": "issue-552.md",
+      "bytes": 1147,
+      "sha256": "0547697c3814290cae6a3d96bb2445643d5cb9a617f2ef76d11943a66564b3fb"
+    },
+    {
+      "path": ".github/workflows/fork-checks.yml",
+      "bytes": 2321,
+      "sha256": "5243b3e087e81506bee682aff3addb93a4329d43532269534e2e1fbabfaaae6b"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/emulators/libretro/easyrpg-lr/libspeexdsp/package.mk",
+      "bytes": 1321,
+      "sha256": "ea5e35fe91867ade11c7af161de397d2521ebc2e1690fd81098ef1eae3cc09f6"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/emulators/libretro/easyrpg-lr/libxmp-lite/package.mk",
+      "bytes": 1493,
+      "sha256": "c9f40e28648d68346a646833201ac067986b34ec9cbecf59b22cb11a0356f819"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/emulators/libretro/easyrpg-lr/wildmidi/package.mk",
+      "bytes": 1624,
+      "sha256": "a8d03eac38a441cea870019f8200760aa3210fbca908a7d7ac4d595658ab4744"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/emulators/libretro/freej2me-lr/package.mk",
+      "bytes": 1105,
+      "sha256": "683c6f1bd0d5b26bbea2f96a4f64d67eaa9c1a1db22f1a21201f286a0015d4cd"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/emulators/libretro/idtech-lr/package.mk",
+      "bytes": 1642,
+      "sha256": "2e0ce0d4f53ac0b357692eb8a2f8fd2f96e2377e01b5a34283ddbe5279fcf986"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/emulators/libretro/libretro-database/package.mk",
+      "bytes": 722,
+      "sha256": "c4055eafd5fef7a148bc230d525a7d80845fdd9c0ce46a0ba7313e81cfe249c2"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/emulators/standalone/openbor/package.mk",
+      "bytes": 1145,
+      "sha256": "0c39bd459461a4dd494614adccfe408b202865fd12be5d4010ca32a5af13577d"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/multimedia/opusfile/package.mk",
+      "bytes": 1511,
+      "sha256": "2109e4e2949beabd2391e052d4ed35ffb0ffbff363bd10cad61903f465a6f5fa"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/enet/package.mk",
+      "bytes": 476,
+      "sha256": "ff54e7df1bd0238757a7bc0bbc86a999538a2b2586a97c51cf758c77ab6b1499"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/raofflineproxy/package.mk",
+      "bytes": 8358,
+      "sha256": "e13f5bb22eae74c73ecb4141c3580f2627b9f8cfc317840656d90ed017e0f13d"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/raofflineproxy/patches/001-dorequest-4xx-passthrough.patch",
+      "bytes": 3097,
+      "sha256": "e322a8dd83354185fb3a774fe5d1adabebfcd199a06e18c40c255dffe9197239"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/raofflineproxy/patches/004-no-cap-on-cached-games.patch",
+      "bytes": 3360,
+      "sha256": "a8abc7b7475152e981d9621112ea53ea2abc2d2fd71337e6663c54a3725291af"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/raofflineproxy/patches/005-keep-the-refresh-thread-alive.patch",
+      "bytes": 7055,
+      "sha256": "fbbb0ed4cbec91248d496ee039e11792c4a111100400dfdc762f376c9c6bf135"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/raofflineproxy/patches/011-offline-login-header.patch",
+      "bytes": 5151,
+      "sha256": "09670dcaa8f7b74ffd0b0e01a4103880157955ed8e902b0918d65c02e2977154"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/raofflineproxy/patches/012-offline-image-miss.patch",
+      "bytes": 7731,
+      "sha256": "4ef3b0259af88953ea5652207f474e83b4ef551996eeffc6dd7a9d7d3d5fab33"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-cache-indexed",
+      "bytes": 9992,
+      "sha256": "4c6d5a8d509661e2951acba968c248187590684f4fcac3388bd7ed69e1c30042"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl",
+      "bytes": 120232,
+      "sha256": "dc4a69f986249e8ef8b1da799dd8b47376699a5609e5b35617d1965e61b198cc"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/rclone/package.mk",
+      "bytes": 5483,
+      "sha256": "030b2429b9c61fd55431fd5e9ac3f58ff7bb6214256a05e0bef132381347a254"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/tailscale/package.mk",
+      "bytes": 1424,
+      "sha256": "e0893bd5328e6c14b964e1e7a8b1d6c64bd991139f85a238e208a7e986fb0165"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/zerotier-one/package.mk",
+      "bytes": 1507,
+      "sha256": "8ff699da5820673e17264a160ac4a84c734ce3496a38022fbb8248b0d513b431"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/rocknix/sources/scripts/rocknix-info",
+      "bytes": 7392,
+      "sha256": "ed9e244bc664097154a1592890974b15d6c2a5e57f1d6e32b3edbdbe018bcae6"
+    },
+    {
+      "path": "tools/fork-package-freshness",
+      "bytes": 9246,
+      "sha256": "dfeaded4bee578bb527f28ca17b3cda4de0f58f1632644852301f90800491e77"
+    },
+    {
+      "path": "tools/last-good-scripts-test (changed sections)",
+      "bytes": 45099,
+      "sha256": "26b21eff45b2184b3fd0b80a00d0991543a719d52379d45a68a766ca44b25bfc",
+      "full_source_sha256": "ebd9a4669d8e96d6a18a874f95058911ed2a7b38329a5236891ef3bdd6894d20"
+    },
+    {
+      "path": "tools/raofflineproxy-installed-native-test",
+      "bytes": 3426,
+      "sha256": "c051ede84d4a50e9a68ed1c8c78f436f36f647343c2a229ca1b9b3e00cac9cc8"
+    },
+    {
+      "path": "tools/raofflineproxy-integration-test",
+      "bytes": 13549,
+      "sha256": "73bb2e31a93c0ff56b58619a860cbb261a2cef6f0adf48203aa03b3557c823e9"
+    },
+    {
+      "path": "tools/rocknix-info-test",
+      "bytes": 6767,
+      "sha256": "216939fddff1e0e8e040d64a1c35eb4da6ec5823a0018a0917077a72e3362eb7"
+    },
+    {
+      "path": "tools/vm-pair",
+      "bytes": 9588,
+      "sha256": "b686406d409e02b88ab678341e1667d9db4fc0de60717ddcb371e7d2436fe11a"
+    },
+    {
+      "path": "tools/vm-pair-test",
+      "bytes": 3732,
+      "sha256": "a3b530f947ed0f0fdb97a8f399b7589bb17bf7e598e40c37905eb5419ab978af"
+    },
+    {
+      "path": "tools/vm-qa",
+      "bytes": 40581,
+      "sha256": "17b3f693377e8b67b0a4fb4e50b980b65cf0a8f2c5ec81920ee19930ae210d15"
+    },
+    {
+      "path": "tools/vm-upgrade-readiness-test",
+      "bytes": 3761,
+      "sha256": "ad2ad626a12d1e5cb023430cdfbad958207419fe9ea6c1bb06eb81d352fd761b"
+    },
+    {
+      "path": "tools/vm-upgrade-rehearsal",
+      "bytes": 12826,
+      "sha256": "894021ab048b6306a32ab89fc97155712cf35272fddf6517062ae486c20dd25c"
+    },
+    {
+      "path": "tools/vm-walks/claims.txt",
+      "bytes": 9141,
+      "sha256": "4ba6d6e2db4ab00974e09921217c6b5d29fe88ed705355fec39f97570c9d44f8"
+    },
+    {
+      "path": "applied-proxy/linux/raofflineproxy/proxy_service.py",
+      "bytes": 58915,
+      "sha256": "42fbdb000f64e791fcee4437448e1841f8b6ebd81bb97d358f84fcfe98f65a75"
+    },
+    {
+      "path": "applied-proxy/linux/raofflineproxy/rom_browser.py",
+      "bytes": 46967,
+      "sha256": "9b8bbe81f46e6e47347c5cd04339194421913a6094f36b2dbe642fe6f5312f5e"
+    },
+    {
+      "path": "applied-proxy/linux/raofflineproxy/watch_folders.py",
+      "bytes": 5590,
+      "sha256": "290bb8f6cc4655cdf533e0e433d53e9fd9d8636d3a304f7264ae17d29f1dbb15"
+    },
+    {
+      "path": "applied-proxy/linux/raofflineproxy/storage.py",
+      "bytes": 47558,
+      "sha256": "6173c4a1583971f4e67bd9011cf4f6275b0126c668a3b1bc5fcc2d5ccd4f82cb"
+    },
+    {
+      "path": "applied-proxy/linux/raofflineproxy/cache_budget.py",
+      "bytes": 4000,
+      "sha256": "f3021b10a46e6e768e621e57c8367601a8a7e02cadc001e84e40d411d87f9ea1"
+    },
+    {
+      "path": "applied-proxy/linux/raofflineproxy/cache_queue.py",
+      "bytes": 7780,
+      "sha256": "74624022c54139de282e64936d5399e391f6a77b81d503891ac8bc9fd0c76b59"
+    },
+    {
+      "path": "applied-proxy/linux/raofflineproxy/rate_limit.py",
+      "bytes": 1384,
+      "sha256": "7997ba4bb814c85a8686e2607a4c08c4fdc553cbccb30c5c25983b21e55fd1a5"
+    },
+    {
+      "path": "applied-proxy/linux/raofflineproxy/network.py",
+      "bytes": 21652,
+      "sha256": "de2af1f100e4029218465f7c5f0254e20df8572a1b7464005d5c15b40df9e11d"
+    },
+    {
+      "path": "applied-proxy/linux/raofflineproxy/config.py",
+      "bytes": 19373,
+      "sha256": "3184e88b2eac7b5da3a5e0f5906ae193f1dcda7df7e0849d05cd5ec91fe5e3bb"
+    },
+    {
+      "path": "applied-proxy/linux/raofflineproxy/rom_hashing.py",
+      "bytes": 11027,
+      "sha256": "872e35753db781adc7c0d1250f39b81e80eb455ca5b75bc8dbe4400b98884908"
+    },
+    {
+      "path": "audit/checks/result.json",
+      "bytes": 2759,
+      "sha256": "a1c1ba62ffe41702cced4b9acb5a71bc23e7803c4dd0954fbf9ff0fbd257cdb0"
+    },
+    {
+      "path": "audit/checks/results.json",
+      "bytes": 2240,
+      "sha256": "c9ac3fef3ff3a05265c39ef6d04090c7ac4d1a163f0499fa5e5b1929a6a8b556"
+    },
+    {
+      "path": "audit/checks/pkgcheck.log",
+      "bytes": 927,
+      "sha256": "a9c4b1316e838d94e0f0481dbc5c55dcc007706a0d96a3e2fc788bc26ddff420"
+    },
+    {
+      "path": "audit/checks/vm-pair.log",
+      "bytes": 507,
+      "sha256": "aeae177f3690e247bf4608352463821a10600b89100900d61192536f3109540d"
+    },
+    {
+      "path": "audit/checks/readiness.log",
+      "bytes": 319,
+      "sha256": "15ff4e49d1e549db50dfabca93b7f2d4f7f7f517f6fb074d44df589f62bdd763"
+    },
+    {
+      "path": "audit/checks/optional-info.log",
+      "bytes": 47,
+      "sha256": "4d27c359ae24447bc5c1d23b46b72af89f049f0f4af8cc44aff2f9774f201674"
+    },
+    {
+      "path": "audit/checks/es-lifetime.log",
+      "bytes": 59,
+      "sha256": "68df0d401a326b0ce3b07718aa629c69b24d191563618cef5e75e047106e013c"
+    },
+    {
+      "path": "audit/checks/proxy-negative.log",
+      "bytes": 2475,
+      "sha256": "0a26c8d4320aea65259a215888011dc2025ba82f367f85ecea6fe1a4ac39dcd4"
+    },
+    {
+      "path": "audit/checks/proxy-fixed.log",
+      "bytes": 1713,
+      "sha256": "3d254de3d3d5086347ccb724f93bc31a3b03cc4340f87af9ac36fadeda204270"
+    },
+    {
+      "path": "audit/checks/installed-rclone-version.log",
+      "bytes": 184,
+      "sha256": "213c3565b9809a6c251e00bb5c39875690a6470fa4b456242d984594304d0b15"
+    },
+    {
+      "path": "docs/qa-logs/2026-10-11-component-inputs/README.md",
+      "bytes": 3149,
+      "sha256": "05c1bf263864f2e1ec2f4417cc615c2f4ca14aa11ae16518876269477fdd2de4"
+    },
+    {
+      "path": "docs/qa-logs/2026-10-11-component-inputs/dispositions.json",
+      "bytes": 26271,
+      "sha256": "145a5c8caa3905f5d9c7567bc284f1ecdeb90cc1bccefbbdd55e1f5c2a4d5f6f"
+    },
+    {
+      "path": "docs/qa-logs/2026-10-11-dependency-refresh/README.md",
+      "bytes": 6893,
+      "sha256": "1fabee2125a04c1575cbd0347463e0e029779184de97e7be986fb440457e6a8e"
+    },
+    {
+      "path": "docs/qa-logs/2026-10-11-dependency-refresh/fetch.json",
+      "bytes": 1002,
+      "sha256": "86f69a3eb1298430d91452188066314b510d173d286b863ed786669f636399e7"
+    },
+    {
+      "path": "docs/qa-logs/2026-10-11-dependency-refresh/discovery-fixture.json",
+      "bytes": 412,
+      "sha256": "6eb43ae8fc3cf208a8db5bc95bad038b9e9ed97adbc792c410a52d5f02a72a08"
+    },
+    {
+      "path": "docs/qa-logs/2026-10-11-installed-proxy/artifacts/native-result.json",
+      "bytes": 2603,
+      "sha256": "c9d9456c7a73a15918abeb9e72d230c074ce70156c9d186cfdc8db6586172e66"
+    },
+    {
+      "path": "docs/qa-logs/2026-10-11-installed-proxy/artifacts/native.log",
+      "bytes": 2573,
+      "sha256": "82dde809f0ab37985c4c9b26ae9501bcd33b41a925306fe166d981eac9a738d2"
+    },
+    {
+      "path": "docs/qa-logs/2026-10-11-installed-proxy/artifacts/proxy-service-assertions.json",
+      "bytes": 2073,
+      "sha256": "4efe2fe1c598eb4c6230323233e4537d1971c8bf6f501062668d05e15bf707c4"
+    },
+    {
+      "path": "docs/qa-logs/2026-10-11-installed-proxy/artifacts/consent.log",
+      "bytes": 1203,
+      "sha256": "bd2bef74247186d33376639b7968903ce7446cd4fad77df9a329234f0ce99383"
+    },
+    {
+      "path": "docs/qa-logs/2026-10-11-installed-proxy/guest-proof.py",
+      "bytes": 4263,
+      "sha256": "d31cedfe93902d846dbf8373d3e8f2e2fcec662130384fdcb2437342fe0c2fee"
+    },
+    {
+      "path": "docs/qa-logs/2026-10-11-installed-proxy/consent-test.py",
+      "bytes": 11490,
+      "sha256": "e369293a9f0156a39213a7c519458463977288bbcbaa1cdde2851c5410d75013"
+    },
+    {
+      "path": "docs/qa-logs/2026-10-11-installed-proxy/installed.py",
+      "bytes": 3755,
+      "sha256": "ee9af602691f0768faf83acdee2ea13c9ae63b864f6b1e61be16f01baf5fa0ee"
+    },
+    {
+      "path": "docs/qa-logs/2026-10-11-installed-proxy/native-test.py",
+      "bytes": 9867,
+      "sha256": "500373b9d8c2f5ca68b3396d68db9a0154e1b7a1ad2218b95b4c4bf42250392c"
+    },
+    {
+      "path": "docs/qa-logs/2026-10-11-installed-proxy/legacy-chd.py",
+      "bytes": 3024,
+      "sha256": "a7848ff99ec70b5e35a84669bae5f6f80b23adbeaa2929e86dae4dbe7bb792cd"
+    },
+    {
+      "path": "docs/qa-logs/2026-10-11-frame-claims/review.json",
+      "bytes": 3135,
+      "sha256": "5b09be0b9043204b433ba58f06823ee59897a99c3a98f26f354eb1e9ccc81415"
+    },
+    {
+      "path": "docs/qa-logs/2026-10-11-frame-claims/corrected.log",
+      "bytes": 8947,
+      "sha256": "5872ffb0ce61b3a300f586eafab13780651ba08fab0645702aec841c76b7c2f5"
+    },
+    {
+      "path": "docs/qa-logs/2026-10-11-frame-claims/missing-claim-control.log",
+      "bytes": 8612,
+      "sha256": "dc508a43490483ad9c6c31791e0a1bcac2162ac11817ea0c87ce6f530fffa1d6"
+    },
+    {
+      "path": "docs/qa-logs/2026-10-11-frame-claims/missing-claim-control.rc",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "path": "docs/qa-logs/2026-10-11-regression-fixtures/final-result.json",
+      "bytes": 381,
+      "sha256": "e4bd39a5fbfc0d4096dad059c74d160986f5d100e69041acc991cae76f722edc"
+    },
+    {
+      "path": "docs/qa-logs/2026-10-11-regression-fixtures/final-controls.json",
+      "bytes": 964,
+      "sha256": "b0e0b25b00882a8d417b056c93fb201fa4ed204f79beec3e288006705e4fc3e6"
+    },
+    {
+      "path": "docs/qa-logs/2026-10-11-regression-fixtures/parser-controls.json",
+      "bytes": 250,
+      "sha256": "462f95e7181dd0a729e149c56310f2aeaa4cb68b3487895f0d02b8c425495afb"
+    },
+    {
+      "path": "docs/qa-logs/2026-10-11-regression-fixtures/suite_parser.py",
+      "bytes": 837,
+      "sha256": "550511b287130f3591b990478d01d4b6ed45fa0560d66a5671c55b02fd78e1eb"
+    },
+    {
+      "path": "docs/qa-logs/2026-10-11-regression-fixtures/accept-corrected-run.py",
+      "bytes": 4137,
+      "sha256": "da5af74ce46d2d2b8bdbf966f30d81aeae6322422e8c116ab028b11db49d7931"
+    },
+    {
+      "path": "docs/qa-logs/2026-10-11-regression-fixtures/original-failures.txt",
+      "bytes": 1456,
+      "sha256": "265ebb22938f4c1ebed6aada532fce6de49aad3ef19cda11329c919bef8b7f5a"
+    },
+    {
+      "path": "docs/qa-logs/2026-10-11-pixelelated-replacement-20/README.md",
+      "bytes": 3006,
+      "sha256": "08e5b941cd3d7a1a1cadc113c5e97c1ba241c34731a3e4cf5ffa05bfa5a56828"
+    },
+    {
+      "path": "docs/qa-logs/2026-10-11-pixelelated-replacement-20/clean-composed-result.json",
+      "bytes": 1558,
+      "sha256": "8f8675d99e7e225381d5e24a0e83a5e0d77e0d8098038a0defe8ab01328b4409"
+    },
+    {
+      "path": "docs/qa-logs/2026-10-11-pixelelated-replacement-20/clean-standard-report.md",
+      "bytes": 2986,
+      "sha256": "f902eb208903d4e560aec8085806a821cdf07810cbaaf4a7b50cbf344de19df0"
+    },
+    {
+      "path": "docs/qa-logs/2026-10-11-pixelelated-replacement-20/clean-standard-frame-diff.log",
+      "bytes": 8665,
+      "sha256": "e71adb03da211d6d26568f69a2099140ba31c9aaa23351d475630f794a97fe6c"
+    },
+    {
+      "path": "docs/qa-logs/2026-10-11-pixelelated-replacement-20/sftp-report.md",
+      "bytes": 729,
+      "sha256": "67893c76486111bc27619d9d4a40711c576bb37b1d45a7651b2fe37218de8e57"
+    },
+    {
+      "path": "docs/qa-logs/2026-10-11-pixelelated-replacement-20/s3-report.md",
+      "bytes": 727,
+      "sha256": "b21fe1fef16eb7fac84d254b0873663c8ebf512f8a2028b193da6e4d851e81db"
+    },
+    {
+      "path": "docs/qa-logs/2026-10-11-pixelelated-replacement-20/upgrade/result.json",
+      "bytes": 502,
+      "sha256": "1c2d3b9b74730f5bc316b626cd87ef6759233695cd2042a6a7e870ea5248bdf0"
+    },
+    {
+      "path": "docs/qa-logs/2026-10-11-pixelelated-replacement-20/upgrade/actual-rehearsal.raw.json",
+      "bytes": 3838,
+      "sha256": "5695d53f4c710ad36df39f3c653f265ec739277004a9006f06cf0373210f4f83"
+    },
+    {
+      "path": "docs/qa-logs/2026-10-11-pixelelated-replacement-20/upgrade/run.py",
+      "bytes": 2801,
+      "sha256": "dd0bc88026e0c6e797e187bf47b592df2155f8ce240df1a8dbbcd068a5337b6b"
+    },
+    {
+      "path": "docs/qa-logs/2026-10-11-pixelelated-replacement-20/evidence-index.json",
+      "bytes": 10777,
+      "sha256": "c58d87217ff4c9f027e65276b8f6d18ef47718a3954c55ff6a02ec15edd86ed7"
+    },
+    {
+      "path": "docs/qa-logs/2026-10-11-container-temporary-path/README.md",
+      "bytes": 1190,
+      "sha256": "9a6ce4362a56b3ddfcff16c1c4f5bfe79c267d8e4428aa27f6359e04cea99c3c"
+    },
+    {
+      "path": "docs/qa-logs/2026-10-11-container-temporary-path/pixelelated-m7-build20-verify/result.json",
+      "bytes": 584,
+      "sha256": "3c732c82ee632557b6a5e06fa9a7717235e6ce7c6cd9f55e0f22f7b52c0e9ce1"
+    },
+    {
+      "path": "docs/qa-logs/2026-10-11-container-temporary-path/pixelelated-m7-build20-verify/run.py",
+      "bytes": 2310,
+      "sha256": "101abb2fe235608e056313d7960ff09313875a5f97e510950f24a0ae170eeb70"
+    },
+    {
+      "path": "ES/tests/cloud-oauth-lifetime.py",
+      "bytes": 7707,
+      "sha256": "fcd3910911710dce78dea492b19534e6d924960e1cd42b27886f33ebede55e3d"
+    }
+  ],
+  "exclusions": [
+    "personal device/cloud records",
+    "credentials and private OAuth state",
+    "host-info fixture stdout",
+    "raw firmware and build/source inventories"
+  ]
+}

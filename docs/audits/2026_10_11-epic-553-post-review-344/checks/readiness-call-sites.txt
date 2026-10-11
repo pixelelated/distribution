@@ -1,0 +1,10 @@
+tools/vm-upgrade-readiness-test:15:function = source.split('wait_for_storage() {', 1)[1].split('\n}\n', 1)[0]
+tools/vm-upgrade-readiness-test:16:function = 'wait_for_storage() {' + function + '\n}\n'
+tools/vm-upgrade-readiness-test:33:    /var/log/boot.log) exec /usr/bin/cat "$FIXTURE_G/var/log/boot.log" ;;
+tools/vm-upgrade-readiness-test:53:''' + function + '\nwait_for_storage "$EXPECTED"\n'
+tools/vm-upgrade-rehearsal:39:wait_for_storage() {
+tools/vm-upgrade-rehearsal:62:wait_for_storage "$SEED_BOOT" || { echo 1 > "$OUT/rc"; exit 1; }
+tools/vm-upgrade-rehearsal:144:wait_for_storage "$BOOT1" || { echo 1 > "$OUT/rc"; exit 1; }
+tools/vm-qa:99:RUNTIME="${VM_QEMU_RUNTIME_DIR:-/tmp}"
+tools/vm-pair:38:RUNTIME="${VM_QEMU_RUNTIME_DIR:-/tmp}"
+tools/vm-pair:40:  echo 'vm-pair: VM_QEMU_RUNTIME_DIR needs an absolute path without whitespace' >&2; exit 2;

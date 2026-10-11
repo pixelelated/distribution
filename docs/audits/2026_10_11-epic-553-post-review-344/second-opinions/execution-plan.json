@@ -1,0 +1,27 @@
+{
+  "state": "prepared; awaiting separate user transfer approval; not started",
+  "utc": "2026-10-11T21:13:51.482590+00:00",
+  "owner": "/workspace/tmp/pix553-fable01",
+  "command": [
+    "tools/watch-build-submit",
+    "--owner",
+    "/workspace/tmp/pix553-fable01",
+    "--",
+    "python3",
+    "-I",
+    "-u",
+    "/workspace/tmp/pix553-fable01/run.py"
+  ],
+  "packet": {
+    "bytes": 1130307,
+    "sha256": "cec44a71f013ddac431b149ee54c356cad2c782baa7dcb35952a17c568dcb256"
+  },
+  "inputs": {
+    "run.py": "9db0131d00f5232e50daef16ce8176dd2670ba3ba6d9f3af2e9380245a53d85e",
+    "manifest.json": "f9cca6ea310fda0cd6700738e25ee6d17ce6ef07ba75497010c885eab322d48c",
+    "prompt.md": "cec44a71f013ddac431b149ee54c356cad2c782baa7dcb35952a17c568dcb256"
+  },
+  "preflight": "python3 -I /workspace/tmp/pix553-fable01/run.py --preflight",
+  "approval": "approval.json is created only after user approval for this exact packet; no external call has run",
+  "result_delivery": "Active primary reads console.log, facilitator.log, launcher-result.json and actual process state; watcher does not send off-session chat alerts."
+}

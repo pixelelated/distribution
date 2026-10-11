@@ -1,0 +1,305 @@
+{
+  "counts": {
+    "PASS": 44,
+    "PARTIAL": 5,
+    "FAIL": 0,
+    "UNTESTABLE": 0,
+    "SKIP": 0
+  },
+  "criteria": [
+    {
+      "id": "AC-528-01",
+      "issue": 528,
+      "verdict": "PARTIAL",
+      "criterion": "Every selected image and ARM compatibility profile has a component inventory tied to its immutable bundle and original input-manifest hash, with a source/licence disposition per component, including embedded/vendored dependencies."
+    },
+    {
+      "id": "AC-528-02",
+      "issue": 528,
+      "verdict": "PARTIAL",
+      "criterion": "The 17 missing declarations and special inputs above have source-cited dispositions and retained exact notices; no recipe-header licence is substituted for the shipped third-party work's licence. Any required product change has its own rebuilt/requalified artifact before release."
+    },
+    {
+      "id": "AC-528-03",
+      "issue": 528,
+      "verdict": "PARTIAL",
+      "criterion": "A fork-owned corresponding-source bundle retains exact fetched source archives/git/submodules, fork patches and build scripts, with machine-readable hashes and a complete component-to-member map. Prebuilt rclone/ABL/shareware assets and Nix inputs are explicitly assessed rather than silently counted as source."
+    },
+    {
+      "id": "AC-528-04",
+      "issue": 528,
+      "verdict": "PARTIAL",
+      "criterion": "Independent retrieval and hash verification of the source bundle pass, and the required backup custody is evidenced; local source-cache existence and public repository visibility alone do not close this criterion."
+    },
+    {
+      "id": "AC-528-05",
+      "issue": 528,
+      "verdict": "PARTIAL",
+      "criterion": "#344, M7, the release manifest/notes and canonical checkpoint link the final inventory, bundle and any remaining physical/publication gates. Publication is not claimed while an unresolved disposition remains."
+    },
+    {
+      "id": "AC-541-01",
+      "issue": 541,
+      "verdict": "PASS",
+      "criterion": "Exact upstream commit/tag/archive hashes and Linux/native/submodule/file-change review are recorded, with every retained fork patch applying and no silent loss of whole-library preparation, opt-in behavior, saved state or offline queue behavior."
+    },
+    {
+      "id": "AC-541-02",
+      "issue": 541,
+      "verdict": "PASS",
+      "criterion": "rclone1.75.2 archive hashes and version output are verified; local WebDAV/SFTP/S3 protocol regressions pass with that binary."
+    },
+    {
+      "id": "AC-541-03",
+      "issue": 541,
+      "verdict": "PASS",
+      "criterion": "Proxy upstream tests and fork-relevant state/rate-limit/consent/recovery controls pass on the proposed source; changed assumptions and installed-image follow-up are explicit."
+    },
+    {
+      "id": "AC-541-04",
+      "issue": 541,
+      "verdict": "PASS",
+      "criterion": "Freshness fixture proves active package/project recipes are included while archived evidence is excluded; the final source freshness check exits0 with intentional coupled pins documented."
+    },
+    {
+      "id": "AC-541-05",
+      "issue": 541,
+      "verdict": "PASS",
+      "criterion": "Source commits, M7 ordered plan and a new combined-image freeze cite the final input set; combined installed/clean/retained QA remains under #344/#537. No RC designation or publication clearance follows from a dependency bump."
+    },
+    {
+      "id": "AC-542-01",
+      "issue": 542,
+      "verdict": "PASS",
+      "criterion": "Preserve the original nonzero results and bind the repaired checks to the exact product-source bytes used by replacement19."
+    },
+    {
+      "id": "AC-542-02",
+      "issue": 542,
+      "verdict": "PASS",
+      "criterion": "The corrected rendering double compiles the unchanged callbacks; all four lifetime routes pass under ASan, with the governor check passing too."
+    },
+    {
+      "id": "AC-542-03",
+      "issue": 542,
+      "verdict": "PASS",
+      "criterion": "The canonical map explicitly includes CONNECTION SAVED, its retained active selection and NC08 frame links; inventory check reports no missing/stale screens."
+    },
+    {
+      "id": "AC-542-04",
+      "issue": 542,
+      "verdict": "PASS",
+      "criterion": "Test/reference-only commits, regression results, friction/work-log entries and M7 continuation are delivered without relabelling the original aggregate VM result."
+    },
+    {
+      "id": "AC-543-01",
+      "issue": 543,
+      "verdict": "PASS",
+      "criterion": "Retain original 11-test receipts and document the mismatch without relabelling them."
+    },
+    {
+      "id": "AC-543-02",
+      "issue": 543,
+      "verdict": "PASS",
+      "criterion": "Discover all declared test cases, including the actual 50/100-game pause boundaries and 30-second duration assertion; final native integration output names the pacing case and reports 12 tests with no failures/skips."
+    },
+    {
+      "id": "AC-543-03",
+      "issue": 543,
+      "verdict": "PASS",
+      "criterion": "A negative control that omits the required pacing behavior fails that named assertion; production helper bytes stay unchanged."
+    },
+    {
+      "id": "AC-543-04",
+      "issue": 543,
+      "verdict": "PASS",
+      "criterion": "Deliver the harness/evidence corrections and reconcile #541/M7/source notes before any next device build."
+    },
+    {
+      "id": "AC-544-01",
+      "issue": 544,
+      "verdict": "PASS",
+      "criterion": "Retain the original six-region failure, reviewed current/baseline frames and exact source/hash references."
+    },
+    {
+      "id": "AC-544-02",
+      "issue": 544,
+      "verdict": "PASS",
+      "criterion": "Each accepted difference maps to the approved cloud-management or CLEAR behavior; no baseline move or additional blind mask."
+    },
+    {
+      "id": "AC-544-03",
+      "issue": 544,
+      "verdict": "PASS",
+      "criterion": "All 78 frames compare successfully with the corrected claims, with no unclaimed/missing screens; a missing-claim control still fails."
+    },
+    {
+      "id": "AC-544-04",
+      "issue": 544,
+      "verdict": "PASS",
+      "criterion": "Deliver the claim/reference correction and update M7 before H700/SM8550 builds."
+    },
+    {
+      "id": "AC-545-01",
+      "issue": 545,
+      "verdict": "PASS",
+      "criterion": "Original error/result channels remain recorded; absent guest processes and stopped local endpoints verified."
+    },
+    {
+      "id": "AC-545-02",
+      "issue": 545,
+      "verdict": "PASS",
+      "criterion": "vm-pair preserves launch failure and verifies a live owned PID before printing up; an injected failure control fails promptly and the successful launch path is tested."
+    },
+    {
+      "id": "AC-545-03",
+      "issue": 545,
+      "verdict": "PASS",
+      "criterion": "Use an owned writable runtime directory outside /tmp, document the quota boundary, and replay the upgrade from a fresh watched owner. No unreadable dependency is a cleanup approval; broader obsolete payload retirement remains #493."
+    },
+    {
+      "id": "AC-545-04",
+      "issue": 545,
+      "verdict": "PASS",
+      "criterion": "Deliver tool, regression and work-log evidence before new device builds. Existing #493 retention scope owns broader historical cleanup."
+    },
+    {
+      "id": "AC-546-01",
+      "issue": 546,
+      "verdict": "PASS",
+      "criterion": "Original failed hashes and later file inventory retained with timestamps and source identity."
+    },
+    {
+      "id": "AC-546-02",
+      "issue": 546,
+      "verdict": "PASS",
+      "criterion": "Both pre-seed and post-reboot checks wait for the same boot's completed autostart and fail if readiness never arrives; a negative control proves a stale/different boot cannot satisfy readiness."
+    },
+    {
+      "id": "AC-546-03",
+      "issue": 546,
+      "verdict": "PASS",
+      "criterion": "Fresh actual upgrade preserves all four save hashes and existing settings, with the remaining installed checks allowed to proceed only after that proof."
+    },
+    {
+      "id": "AC-546-04",
+      "issue": 546,
+      "verdict": "PASS",
+      "criterion": "Deliver the repaired rehearsal and evidence before new device builds."
+    },
+    {
+      "id": "AC-547-01",
+      "issue": 547,
+      "verdict": "PASS",
+      "criterion": "Retain original failure and bind the unchanged upstream tests, installed modules and native library."
+    },
+    {
+      "id": "AC-547-02",
+      "issue": 547,
+      "verdict": "PASS",
+      "criterion": "Runner resolves source-tree test imports to the actual installed package; every discovered native test executes with no skips, and legacy CHD controls pass."
+    },
+    {
+      "id": "AC-547-03",
+      "issue": 547,
+      "verdict": "PASS",
+      "criterion": "Finish synthetic installed offline-service/consent qualification from a new watched owner; record every original return code and actual process cleanup."
+    },
+    {
+      "id": "AC-547-04",
+      "issue": 547,
+      "verdict": "PASS",
+      "criterion": "Deliver the reusable runner and evidence before further device builds."
+    },
+    {
+      "id": "AC-548-01",
+      "issue": 548,
+      "verdict": "PASS",
+      "criterion": "Original script reproduces missing-hardware errors/unsuccessful status; corrected script has a successful quiet default, no blank or fabricated frequency values, and preserved valid CPU/GPU/temperature conversions."
+    },
+    {
+      "id": "AC-548-02",
+      "issue": 548,
+      "verdict": "PASS",
+      "criterion": "Optional quirk discovery skips absent/nonexecutable entries, executes valid quirks and retains failures from an executed quirk."
+    },
+    {
+      "id": "AC-548-03",
+      "issue": 548,
+      "verdict": "PASS",
+      "criterion": "Source-bound VM INFORMATION/CPU frames and canonical references cover the affected missing-data behavior; meaningful positive/negative controls and local review are retained."
+    },
+    {
+      "id": "AC-548-04",
+      "issue": 548,
+      "verdict": "PASS",
+      "criterion": "The corrected script is included and verified in the next GENERIC_X64 qualification before H700 and SM8550 builds."
+    },
+    {
+      "id": "AC-549-01",
+      "issue": 549,
+      "verdict": "PASS",
+      "criterion": "Preserve the original failure and demonstrate the host-only temporary path refusal versus a container-local temporary path using the same pinned image and nonroot user."
+    },
+    {
+      "id": "AC-549-02",
+      "issue": 549,
+      "verdict": "PASS",
+      "criterion": "A fresh watched build owner explicitly scopes its container TMPDIR, records the actual running container environment and consumes original command/outer/launcher results. No frozen product source or existing result is overwritten."
+    },
+    {
+      "id": "AC-549-03",
+      "issue": 549,
+      "verdict": "PASS",
+      "criterion": "Work log, friction record and build instructions capture the host/container temporary-path boundary; the corrected assembled image still proceeds through #548 qualification."
+    },
+    {
+      "id": "AC-550-01",
+      "issue": 550,
+      "verdict": "PASS",
+      "criterion": "Actual host compiler and patch controls fail with unusable scratch and pass with owned scratch; a bubblewrap device fixture still uses its private /tmp, with a recorded log."
+    },
+    {
+      "id": "AC-550-02",
+      "issue": 550,
+      "verdict": "PASS",
+      "criterion": "All host compiler/patch invocations in this harness use owned scratch; the full corrected frozen-source regression run has zero failures and zero skips, with original QA20 failures retained."
+    },
+    {
+      "id": "AC-550-03",
+      "issue": 550,
+      "verdict": "PASS",
+      "criterion": "Source, work/friction log and compact proof are delivered; exact-source checks pass."
+    },
+    {
+      "id": "AC-551-01",
+      "issue": 551,
+      "verdict": "PASS",
+      "criterion": "The reusable regression invokes the actual wait and guest query, passing ready and delayed current boots and refusing stale boot, failed service, absent answer, never-ready service and empty identity; logs show expected polling bounds."
+    },
+    {
+      "id": "AC-551-02",
+      "issue": 551,
+      "verdict": "PASS",
+      "criterion": "Negative mutations removing boot identity or service readiness are rejected; the old stale extraction failure is preserved, and the integrated corrected full suite passes."
+    },
+    {
+      "id": "AC-551-03",
+      "issue": 551,
+      "verdict": "PASS",
+      "criterion": "Source, work/friction log and compact proof are delivered; exact-source checks pass."
+    },
+    {
+      "id": "AC-552-01",
+      "issue": 552,
+      "verdict": "PASS",
+      "criterion": "Exact named suite rows are parsed without the header/separator; failed, missing and duplicate-suite controls are refused with retained results."
+    },
+    {
+      "id": "AC-552-02",
+      "issue": 552,
+      "verdict": "PASS",
+      "criterion": "A fresh supervised acceptance consumes original QA20 failure and corrected regression success, checks all remaining suites/protocols/frames and actual shutdown, and permits upgrade only with explicit passing composed evidence. Original failures remain unchanged."
+    }
+  ]
+}

@@ -1,0 +1,1589 @@
+diff --git a/.github/workflows/fork-checks.yml b/.github/workflows/fork-checks.yml
+index df511af402..76f34f5f8d 100644
+--- a/.github/workflows/fork-checks.yml
++++ b/.github/workflows/fork-checks.yml
+@@ -41,6 +41,12 @@ jobs:
+         run: |
+           python3 docs/qa-logs/2026-10-03-watch-job/test-watch-job.py tools/watch-job
+           python3 docs/qa-logs/2026-10-04-watch-progress/test-watch-build.py
++      - name: VM launch failures cannot report a guest as running
++        run: |
++          ./tools/vm-pair-test
++          ./tools/vm-upgrade-readiness-test
++      - name: optional hardware readings are valid or explicitly unavailable
++        run: ./tools/rocknix-info-test
+       - name: every open acceptance checkbox is agent-verifiable (D-QA-044)
+         env:
+           GH_TOKEN: ${{ github.token }}
+diff --git a/projects/ROCKNIX/packages/emulators/libretro/easyrpg-lr/libspeexdsp/package.mk b/projects/ROCKNIX/packages/emulators/libretro/easyrpg-lr/libspeexdsp/package.mk
+index 3be18440fe..ff750c6aae 100644
+--- a/projects/ROCKNIX/packages/emulators/libretro/easyrpg-lr/libspeexdsp/package.mk
++++ b/projects/ROCKNIX/packages/emulators/libretro/easyrpg-lr/libspeexdsp/package.mk
+@@ -20,6 +20,7 @@
+ 
+ PKG_NAME="libspeexdsp"
+ PKG_VERSION="738e17905e1ca2a1fa932ddd9c2a85d089f4e845"
++PKG_LICENSE="BSD-3-Clause"
+ PKG_SITE="https://github.com/xiph/speexdsp"
+ PKG_URL="${PKG_SITE}.git"
+ PKG_DEPENDS_TARGET="toolchain"
+diff --git a/projects/ROCKNIX/packages/emulators/libretro/easyrpg-lr/libxmp-lite/package.mk b/projects/ROCKNIX/packages/emulators/libretro/easyrpg-lr/libxmp-lite/package.mk
+index 29f57cb70a..a6f03a4e55 100644
+--- a/projects/ROCKNIX/packages/emulators/libretro/easyrpg-lr/libxmp-lite/package.mk
++++ b/projects/ROCKNIX/packages/emulators/libretro/easyrpg-lr/libxmp-lite/package.mk
+@@ -20,6 +20,7 @@
+ 
+ PKG_NAME="libxmp-lite"
+ PKG_VERSION="4.5.0"
++PKG_LICENSE="MIT"
+ PKG_SHA256="19a019abd5a3ddf449cd20ca52cfe18970f6ab28abdffdd54cff563981a943bb"
+ PKG_SITE="http://sourceforge.net/projects/xmp"
+ PKG_URL="${PKG_SITE}/files/libxmp/${PKG_VERSION}/libxmp-lite-${PKG_VERSION}.tar.gz"
+diff --git a/projects/ROCKNIX/packages/emulators/libretro/easyrpg-lr/wildmidi/package.mk b/projects/ROCKNIX/packages/emulators/libretro/easyrpg-lr/wildmidi/package.mk
+index ffac4a9b49..52f5a3eca0 100644
+--- a/projects/ROCKNIX/packages/emulators/libretro/easyrpg-lr/wildmidi/package.mk
++++ b/projects/ROCKNIX/packages/emulators/libretro/easyrpg-lr/wildmidi/package.mk
+@@ -20,6 +20,8 @@
+ 
+ PKG_NAME="wildmidi"
+ PKG_VERSION="405ca73"
++# Library is LGPL; player is GPL. Preserve both notices (#528).
++PKG_LICENSE="LGPL-3.0-or-later AND GPL-3.0-or-later"
+ PKG_SHA256="4f4a7f7a06256f1d61b2c7d1a243b0198765456d427c38f13f7a2320842a4207"
+ PKG_SITE="https://github.com/Mindwerks/wildmidi"
+ PKG_URL="${PKG_SITE}/archive/${PKG_VERSION}.tar.gz"
+diff --git a/projects/ROCKNIX/packages/emulators/libretro/freej2me-lr/package.mk b/projects/ROCKNIX/packages/emulators/libretro/freej2me-lr/package.mk
+index c743747569..97a87b6467 100644
+--- a/projects/ROCKNIX/packages/emulators/libretro/freej2me-lr/package.mk
++++ b/projects/ROCKNIX/packages/emulators/libretro/freej2me-lr/package.mk
+@@ -3,6 +3,8 @@
+ 
+ PKG_NAME="freej2me-lr"
+ PKG_VERSION="1.52"
++# Primary project; bundled libraries keep their individual terms (#528).
++PKG_LICENSE="GPL-3.0-or-later"
+ PKG_SHA256="509c3590827c8556cc0f8ff42c22693dd40e99e01e15f8f5c0e2e00bdbd8c130"
+ PKG_SITE="https://github.com/TASEmulators/freej2me-plus"
+ PKG_URL="${PKG_SITE}/archive/refs/tags/${PKG_VERSION}.tar.gz"
+diff --git a/projects/ROCKNIX/packages/emulators/libretro/idtech-lr/package.mk b/projects/ROCKNIX/packages/emulators/libretro/idtech-lr/package.mk
+index f199037c6a..2725858d65 100644
+--- a/projects/ROCKNIX/packages/emulators/libretro/idtech-lr/package.mk
++++ b/projects/ROCKNIX/packages/emulators/libretro/idtech-lr/package.mk
+@@ -3,13 +3,14 @@
+ 
+ PKG_NAME="idtech-lr"
+ PKG_VERSION="1.0"
+-PKG_SHA256=""
+-PKG_LICENSE="GPL-2.0-or-late"
++PKG_SHA256="ff35cde05801cfb27005229a6c55f20130ffa8f026ca27d7717c03152634e168"
++# Launcher scripts only; bundled Doom data has separate terms tracked in #528.
++PKG_LICENSE="GPL-2.0-only"
+ PKG_SITE="https://rocknix.org"
+-PKG_URL=""
++PKG_URL="https://raw.githubusercontent.com/ROCKNIX/packages/4cb65b687c90f56856e9d6a55e51f56a09955699/doom.tar.gz"
++PKG_SOURCE_NAME="idtech-lr-doom-${PKG_VERSION}.tar.gz"
+ PKG_LONGDESC="Package for all iD Software game engines."
+ PKG_TOOLCHAIN="manual"
+-PKG_DOOM_SHAREWARE="https://github.com/ROCKNIX/packages/raw/main/doom.tar.gz"
+ 
+ if [ "${OPENGLES_SUPPORT}" = yes ]; then
+   PKG_DEPENDS_TARGET+=" ${OPENGLES}"
+@@ -20,6 +21,13 @@ if [ "${TARGET_ARCH}" = "x86_64" ]; then
+   PKG_DEPENDS_TARGET+=" vitaquake3-lr boom3-lr"
+ fi
+ 
++# The image ships this archive intact for first-boot extraction. Fetch it via
++# scripts/get so both the immutable revision and checksum are recorded.
++unpack() {
++  mkdir -p "${PKG_BUILD}"
++  cp "${SOURCES}/${PKG_NAME}/${PKG_SOURCE_NAME}" "${PKG_BUILD}/doom.tar.gz"
++}
++
+ makeinstall_target() {
+   mkdir -p ${INSTALL}/usr/config/idtech
+ 
+@@ -28,7 +36,7 @@ makeinstall_target() {
+ 
+   mkdir -p ${INSTALL}/usr/share/idtech
+     cp -a ${PKG_DIR}/sources/* ${INSTALL}/usr/share/idtech
+-    curl -Lo ${INSTALL}/usr/share/idtech/doom.tar.gz ${PKG_DOOM_SHAREWARE}
++    cp "${PKG_BUILD}/doom.tar.gz" "${INSTALL}/usr/share/idtech/doom.tar.gz"
+ }
+ 
+ post_install() {
+diff --git a/projects/ROCKNIX/packages/emulators/libretro/libretro-database/package.mk b/projects/ROCKNIX/packages/emulators/libretro/libretro-database/package.mk
+index c83acc6c5f..9dda8ddff0 100644
+--- a/projects/ROCKNIX/packages/emulators/libretro/libretro-database/package.mk
++++ b/projects/ROCKNIX/packages/emulators/libretro/libretro-database/package.mk
+@@ -4,7 +4,7 @@
+ PKG_NAME="libretro-database"
+ PKG_VERSION="4de37d2c8042d9d0f608c43006c9b35438c536ce"
+ PKG_SHA256="cd8d09c2408e193d2ea4925de60afcf01523fa8cf269c38b5ae5c2580cd56c1f"
+-PKG_LICENSE=""
++PKG_LICENSE="CC-BY-SA-4.0"
+ PKG_SITE="https://github.com/libretro/libretro-database"
+ PKG_URL="${PKG_SITE}/archive/${PKG_VERSION}.tar.gz"
+ PKG_DEPENDS_TARGET=""
+diff --git a/projects/ROCKNIX/packages/emulators/standalone/openbor/package.mk b/projects/ROCKNIX/packages/emulators/standalone/openbor/package.mk
+index 4f3d3be5e8..712827506c 100644
+--- a/projects/ROCKNIX/packages/emulators/standalone/openbor/package.mk
++++ b/projects/ROCKNIX/packages/emulators/standalone/openbor/package.mk
+@@ -3,6 +3,8 @@
+ 
+ PKG_NAME="openbor"
+ PKG_VERSION="b8303cce992a0db93c3a465df3c943942fe322f8"
++# Root, engine and tools notices have distinct copyright holders (#528).
++PKG_LICENSE="BSD-3-Clause"
+ PKG_SHA256="8a21e40b31bf04fd5212d1bb86452f1843fcd0e8a54d073e474e51f4fc130973"
+ PKG_SITE="https://github.com/DCurrent/openbor"
+ PKG_URL="${PKG_SITE}.git"
+diff --git a/projects/ROCKNIX/packages/multimedia/opusfile/package.mk b/projects/ROCKNIX/packages/multimedia/opusfile/package.mk
+index 9bafdf0bc7..1e77c1159e 100644
+--- a/projects/ROCKNIX/packages/multimedia/opusfile/package.mk
++++ b/projects/ROCKNIX/packages/multimedia/opusfile/package.mk
+@@ -20,6 +20,7 @@
+ 
+ PKG_NAME="opusfile"
+ PKG_VERSION="9d718345ce03b2fad5d7d28e0bcd1cc69ab2b166"
++PKG_LICENSE="BSD-3-Clause"
+ PKG_SHA256="7ccef70b05119a6842634eaddb8932400ad16b808c13b6dc78ab56c4cbbf5cf6"
+ PKG_SITE="https://github.com/xiph/opusfile"
+ PKG_URL="${PKG_SITE}/archive/${PKG_VERSION}.zip"
+diff --git a/projects/ROCKNIX/packages/network/enet/package.mk b/projects/ROCKNIX/packages/network/enet/package.mk
+index 19f57137b6..c923bf4318 100644
+--- a/projects/ROCKNIX/packages/network/enet/package.mk
++++ b/projects/ROCKNIX/packages/network/enet/package.mk
+@@ -6,7 +6,7 @@ PKG_VERSION="v1.3.18"
+ PKG_SHA256="28603c895f9ed24a846478180ee72c7376b39b4bb1287b73877e5eae7d96b0dd"
+ PKG_SITE="https://github.com/lsalzman/enet"
+ PKG_URL="${PKG_SITE}/archive/${PKG_VERSION}.tar.gz"
+-PKG_LICENSE=""
++PKG_LICENSE="MIT"
+ PKG_DEPENDS_TARGET="toolchain"
+ PKG_LONGDESC="A network communication layer on top of UDP (User Datagram Protocol)."
+ PKG_TOOLCHAIN="autotools"
+diff --git a/projects/ROCKNIX/packages/network/raofflineproxy/package.mk b/projects/ROCKNIX/packages/network/raofflineproxy/package.mk
+index b2b92f0056..fcba25b3ed 100644
+--- a/projects/ROCKNIX/packages/network/raofflineproxy/package.mk
++++ b/projects/ROCKNIX/packages/network/raofflineproxy/package.mk
+@@ -2,22 +2,15 @@
+ # Copyright (C) 2026-present ROCKNIX (https://github.com/ROCKNIX)
+ 
+ PKG_NAME="raofflineproxy"
+-# Current upstream main at2026-10-06; D-WORKFLOW-138/#361 selects the
+-# refresh while retaining whole-library preparation and offline state.
+-# The16 patches preserve the fork's service, recovery and image
+-# behavior. Upstream now owns connection reuse and subset award mapping;
+-# duplicate patches014/017 are retired. The explicit OS scanner opts out
+-# of the100-game budget window but retains locks, request pacing and429
+-# pauses, and never counts queued work as ready. See docs/rasteratops/
+-# raofflineproxy-refresh.md for dispositions and exact host/VM boundaries.
+-# Patch018 recognizes pixelelated without moving ROCKNIX account/cache paths (#408).
+-# Coupled rcheevos/libchdr pins remain those in this parent (D-RA-029/037).
+-# 879b158 retains b09d604's entire Linux/native trees and both gitlinks;
+-# its delta is Android update notifications. Patch019 reads granted consent even
+-# during early boot and invalidates the cache immediately (#457).
++# Current upstream main at2026-10-11 (#541); retain the fork's preparation,
++# recovery and explicit-consent behavior. The16 patches apply at fuzz0 after
++# rebasing context against the new folder watcher and paced background queue.
++# The OS's deliberate whole-library helper retains its own existing cooldown
++# after upstream removed that utility; it never labels queued work ready.
++# Coupled rcheevos/libchdr pins are unchanged in this parent (D-RA-029/037).
+ # Source tests and installed-image proof remain separately recorded.
+-PKG_VERSION="879b158995d412af434301ebdae581f66b8b6d57"
+-PKG_SHA256="984957322337d1325f1b0fc11502336a80241ec511fd041c969bb0103c231664"
++PKG_VERSION="c7ebd1b6e777f3751ff0ecdf8aba54045844e00d"
++PKG_SHA256="88eef31acfa4104b20258bd5cea514ade30e6cdf35767ffc958009851d61898b"
+ # GPLv3 text with no "or any later version" grant in the sources.
+ PKG_LICENSE="GPL-3.0-only"
+ PKG_SITE="https://github.com/misantronic/RAOfflineProxy"
+diff --git a/projects/ROCKNIX/packages/network/raofflineproxy/patches/001-dorequest-4xx-passthrough.patch b/projects/ROCKNIX/packages/network/raofflineproxy/patches/001-dorequest-4xx-passthrough.patch
+index dd3bae18a5..e3eb99b4f8 100644
+--- a/projects/ROCKNIX/packages/network/raofflineproxy/patches/001-dorequest-4xx-passthrough.patch
++++ b/projects/ROCKNIX/packages/network/raofflineproxy/patches/001-dorequest-4xx-passthrough.patch
+@@ -26,12 +26,11 @@ for, and "Load failed (-29): Unknown game" without it. Offered upstream
+ as-is (ROCKNIX D-RA-002: whatever the fork changes in the proxy goes back).
+ 
+ diff --git a/linux/raofflineproxy/proxy_service.py b/linux/raofflineproxy/proxy_service.py
+-index eb14239..cf8fab2 100644
+ --- a/linux/raofflineproxy/proxy_service.py
+ +++ b/linux/raofflineproxy/proxy_service.py
+-@@ -83,6 +83,20 @@ ONLINE_REFRESH_IDLE_DELAY_SECONDS = 5 * 60
+- REFRESH_PLAYED_WINDOW_MS = REFRESH_PLAYED_WINDOW_DAYS * 24 * 60 * 60 * 1000
++@@ -84,6 +84,20 @@
+  CACHE_QUEUE_POLL_SECONDS = 60
++ WORKER_STOP_TIMEOUT_SECONDS = 5.0
+  ALWAYS_TRY_UPSTREAM_ACTIONS = {"login", "login2"}
+ +# A 4xx RetroAchievements sends for a dorequest.php call it understood but
+ +# cannot satisfy -- 404 "Unknown game" for a hash with no set, 400 for a bad
+@@ -50,7 +49,7 @@ index eb14239..cf8fab2 100644
+  
+  
+  def is_static_asset_request(path: str) -> bool:
+-@@ -529,6 +543,12 @@ class ProxyRuntimeServer(ThreadingTCPServer):
++@@ -528,6 +542,12 @@
+              return self.handle_offline_request(path, raw_body, action)
+  
+          if upstream[0] != "success":
+diff --git a/projects/ROCKNIX/packages/network/raofflineproxy/patches/004-no-cap-on-cached-games.patch b/projects/ROCKNIX/packages/network/raofflineproxy/patches/004-no-cap-on-cached-games.patch
+index d679e4855b..47f219055c 100644
+--- a/projects/ROCKNIX/packages/network/raofflineproxy/patches/004-no-cap-on-cached-games.patch
++++ b/projects/ROCKNIX/packages/network/raofflineproxy/patches/004-no-cap-on-cached-games.patch
+@@ -11,10 +11,9 @@ The original patch004 raised a removed total-library cap. This replacement
+ preserves that workflow through current upstream's queue API instead.
+ 
+ diff --git a/linux/raofflineproxy/rom_browser.py b/linux/raofflineproxy/rom_browser.py
+-index 97ab179..5fd43cc 100644
+ --- a/linux/raofflineproxy/rom_browser.py
+ +++ b/linux/raofflineproxy/rom_browser.py
+-@@ -513,9 +513,12 @@ def fetch_game_id(
++@@ -511,9 +511,12 @@
+      return int(game_id)
+  
+  
+@@ -29,7 +28,7 @@ index 97ab179..5fd43cc 100644
+      user_agent = self_user_agent()
+      credentials = resolve_credentials(storage, config_data, user_agent)
+      if credentials is None:
+-@@ -550,6 +553,7 @@ def add_rom_to_cache(path: Path, storage: Storage, config_data: dict) -> AddRomR
++@@ -548,6 +551,7 @@
+              credentials,
+              user_agent,
+              wait_for_lock=True,
+@@ -37,7 +36,7 @@ index 97ab179..5fd43cc 100644
+              keys=[rom.key],
+              on_outcome=lambda queued, outcome, game_id, message: outcomes.__setitem__(
+                  queued.key, (outcome, game_id, message)
+-@@ -670,6 +674,7 @@ def drain_cache_queue(
++@@ -673,6 +677,7 @@
+      keys: list[str] | None = None,
+      on_item=None,
+      on_outcome=None,
+@@ -45,7 +44,7 @@ index 97ab179..5fd43cc 100644
+  ) -> DrainResult:
+      """The single place that sends RA requests for bulk caching: works through the queue oldest
+      first (or through keys, in order) within the caching budget. A window allows
+-@@ -693,6 +698,7 @@ def drain_cache_queue(
++@@ -700,6 +705,7 @@
+                  None if keys is None else list(dict.fromkeys(keys)),
+                  on_item,
+                  on_outcome,
+@@ -53,7 +52,7 @@ index 97ab179..5fd43cc 100644
+              )
+  
+  
+-@@ -705,6 +711,7 @@ def _drain_locked(
++@@ -732,6 +738,7 @@
+      pending_keys: list[str] | None,
+      on_item,
+      on_outcome,
+@@ -61,7 +60,7 @@ index 97ab179..5fd43cc 100644
+  ) -> DrainResult:
+      cached = 0
+      no_match = 0
+-@@ -771,7 +778,12 @@ def _drain_locked(
++@@ -802,7 +809,12 @@
+              report(rom, QueuedRomOutcome.ALREADY_CACHED, local.game_id, "")
+              continue
+  
+@@ -74,4 +73,4 @@ index 97ab179..5fd43cc 100644
+ +        games_left = cache_budget.remaining(storage) if budgeted else 1
+          if games_left == 0:
+              return result(DrainStop.BUDGET_EXHAUSTED, cache_budget.next_available_at(storage))
+-         apply_scan_batch_cooldown(requested)
++         if requested > 0 and not paced and past_burst(storage, requested):
+diff --git a/projects/ROCKNIX/packages/network/raofflineproxy/patches/005-keep-the-refresh-thread-alive.patch b/projects/ROCKNIX/packages/network/raofflineproxy/patches/005-keep-the-refresh-thread-alive.patch
+index 6f36137e89..c22de22e7b 100644
+--- a/projects/ROCKNIX/packages/network/raofflineproxy/patches/005-keep-the-refresh-thread-alive.patch
++++ b/projects/ROCKNIX/packages/network/raofflineproxy/patches/005-keep-the-refresh-thread-alive.patch
+@@ -39,9 +39,9 @@ diff --git a/linux/raofflineproxy/proxy_service.py b/linux/raofflineproxy/proxy_
+  REFRESH_PLAYED_WINDOW_MS = REFRESH_PLAYED_WINDOW_DAYS * 24 * 60 * 60 * 1000
+ +REFRESH_MAX_FAILURES_IN_A_ROW = 3
+  CACHE_QUEUE_POLL_SECONDS = 60
++ WORKER_STOP_TIMEOUT_SECONDS = 5.0
+  ALWAYS_TRY_UPSTREAM_ACTIONS = {"login", "login2"}
+- # A 4xx RetroAchievements sends for a dorequest.php call it understood but
+-@@ -1054,37 +1056,47 @@
++@@ -1055,37 +1057,47 @@
+          self.stop_event.set()
+  
+      def run(self) -> None:
+@@ -119,7 +119,7 @@ diff --git a/linux/raofflineproxy/proxy_service.py b/linux/raofflineproxy/proxy_
+  
+      def wait_until_idle(self) -> bool:
+          idle_delay = self.server.activity.idle_delay_seconds()
+-@@ -1097,6 +1109,7 @@
++@@ -1098,6 +1110,7 @@
+  
+      def refresh_games(self, game_ids: list[int], credentials: dict, user_agent: str) -> int:
+          refreshed = 0
+@@ -127,7 +127,7 @@ diff --git a/linux/raofflineproxy/proxy_service.py b/linux/raofflineproxy/proxy_
+          for game_id in game_ids:
+              if self.server.activity.idle_delay_seconds() > 0:
+                  LOGGER.info("Periodic refresh paused; proxy became active")
+-@@ -1118,9 +1131,24 @@
++@@ -1119,9 +1132,24 @@
+                      self.server.storage,
+                  )
+                  cache_session(game_id, credentials, self.server.storage)
+diff --git a/projects/ROCKNIX/packages/network/raofflineproxy/patches/011-offline-login-header.patch b/projects/ROCKNIX/packages/network/raofflineproxy/patches/011-offline-login-header.patch
+index 1b3210d086..51f5d7d004 100644
+--- a/projects/ROCKNIX/packages/network/raofflineproxy/patches/011-offline-login-header.patch
++++ b/projects/ROCKNIX/packages/network/raofflineproxy/patches/011-offline-login-header.patch
+@@ -25,10 +25,9 @@ as-is (ROCKNIX D-RA-002, D-RA-016: whatever the fork changes in the proxy
+ goes back); the headers are additive and cost a client nothing.
+ 
+ diff --git a/linux/raofflineproxy/proxy_service.py b/linux/raofflineproxy/proxy_service.py
+-index 259f21e..f19d977 100644
+ --- a/linux/raofflineproxy/proxy_service.py
+ +++ b/linux/raofflineproxy/proxy_service.py
+-@@ -92,6 +92,14 @@ ALWAYS_TRY_UPSTREAM_ACTIONS = {"login", "login2"}
++@@ -93,6 +93,14 @@
+  # through as it came. 401 and 403 do not: an auth failure keeps the 503, so
+  # nothing about how credentials are handled changes here.
+  AUTH_FAILURE_STATUSES = {401, 403}
+@@ -43,12 +42,11 @@ index 259f21e..f19d977 100644
+  
+  
+  def is_passthrough_client_error(path: str, status: int) -> bool:
+-@@ -160,16 +168,33 @@ def should_cache_action(action: str | None, path: str) -> bool:
++@@ -161,16 +169,33 @@
+      )
+  
+  
+ -def response_bytes(code: int, body: str, reason: str | None = None) -> bytes:
+--    text = body.encode("utf-8")
+ +def response_head(
+ +    code: int,
+ +    reason: str | None,
+@@ -56,14 +54,7 @@ index 259f21e..f19d977 100644
+ +    content_length: int,
+ +    extra_headers: Sequence[tuple[str, str]] = (),
+ +) -> bytes:
+-     reason_phrase = reason or canonical_reason_phrase(code)
+--    head = (
+--        f"HTTP/1.1 {code} {reason_phrase}\r\n"
+--        f"Content-Type: application/json\r\n"
+--        f"Content-Length: {len(text)}\r\n"
+--        f"Connection: close\r\n\r\n"
+--    ).encode("utf-8")
+--    return head + text
+++    reason_phrase = reason or canonical_reason_phrase(code)
+ +    lines = [
+ +        f"HTTP/1.1 {code} {reason_phrase}",
+ +        f"Content-Type: {content_type}",
+@@ -81,12 +72,20 @@ index 259f21e..f19d977 100644
+ +    reason: str | None = None,
+ +    extra_headers: Sequence[tuple[str, str]] = (),
+ +) -> bytes:
+-+    text = body.encode("utf-8")
++     text = body.encode("utf-8")
++-    reason_phrase = reason or canonical_reason_phrase(code)
++-    head = (
++-        f"HTTP/1.1 {code} {reason_phrase}\r\n"
++-        f"Content-Type: application/json\r\n"
++-        f"Content-Length: {len(text)}\r\n"
++-        f"Connection: close\r\n\r\n"
++-    ).encode("utf-8")
++-    return head + text
+ +    return response_head(code, reason, "application/json", len(text), extra_headers) + text
+  
+  
+  def raw_response_bytes(
+-@@ -177,20 +202,14 @@ def raw_response_bytes(
++@@ -178,20 +203,14 @@
+      body: bytes,
+      content_type: str | None,
+      reason: str | None = None,
+@@ -101,17 +100,19 @@ index 259f21e..f19d977 100644
+ -        f"Connection: close\r\n\r\n"
+ -    ).encode("utf-8")
+ -    return head + body
+-+    return response_head(code, reason, mime_type, len(body), extra_headers) + body
+- 
+- 
++-
++-
+ -def ok_json(body: str) -> bytes:
+ -    return response_bytes(200, body, "OK")
+++    return response_head(code, reason, mime_type, len(body), extra_headers) + body
+++
+++
+ +def ok_json(body: str, extra_headers: Sequence[tuple[str, str]] = ()) -> bytes:
+ +    return response_bytes(200, body, "OK", extra_headers)
+  
+  
+  def error_json(code: int, message: str) -> bytes:
+-@@ -442,7 +461,9 @@ class ProxyRuntimeServer(ThreadingTCPServer):
++@@ -443,7 +462,9 @@
+          if cached is None:
+              return None
+  
+diff --git a/projects/ROCKNIX/packages/network/raofflineproxy/patches/012-offline-image-miss.patch b/projects/ROCKNIX/packages/network/raofflineproxy/patches/012-offline-image-miss.patch
+index e8a660958d..744a9ada04 100644
+--- a/projects/ROCKNIX/packages/network/raofflineproxy/patches/012-offline-image-miss.patch
++++ b/projects/ROCKNIX/packages/network/raofflineproxy/patches/012-offline-image-miss.patch
+@@ -48,10 +48,9 @@ as-is (ROCKNIX D-RA-002, D-RA-016: whatever the fork changes in the proxy
+ goes back).
+ 
+ diff --git a/linux/raofflineproxy/proxy_service.py b/linux/raofflineproxy/proxy_service.py
+-index f19d977..c8e9724 100644
+ --- a/linux/raofflineproxy/proxy_service.py
+ +++ b/linux/raofflineproxy/proxy_service.py
+-@@ -100,6 +100,11 @@ AUTH_FAILURE_STATUSES = {401, 403}
++@@ -101,6 +101,11 @@
+  # the login body, so there is no field in it the proxy could say this in.
+  PROXY_HEADER = ("X-RA-Proxy", "1")
+  OFFLINE_LOGIN_HEADER = ("X-RA-Offline", "1")
+@@ -63,19 +62,19 @@ index f19d977..c8e9724 100644
+  
+  
+  def is_passthrough_client_error(path: str, status: int) -> bool:
+-@@ -115,6 +120,11 @@ def is_static_asset_request(path: str) -> bool:
++@@ -114,6 +119,11 @@
++ def is_static_asset_request(path: str) -> bool:
++     clean_path = path.split("?", 1)[0]
+      return any(clean_path.startswith(prefix) for prefix in IMAGE_PATH_PREFIXES)
+- 
+- 
+++
+++
+ +def store_only_requested(headers: dict[str, str]) -> bool:
+ +    value = next((v for k, v in headers.items() if k.lower() == STORE_ONLY_HEADER.lower()), None)
+ +    return value == "1"
+-+
+-+
++ 
++ 
+  def guess_content_type(path: Path) -> str:
+-     suffix = path.suffix.lower()
+-     if suffix == ".png":
+-@@ -233,6 +243,16 @@ def game_id_cache_miss() -> bytes:
++@@ -234,6 +244,16 @@
+      )
+  
+  
+@@ -92,7 +91,7 @@ index f19d977..c8e9724 100644
+  def _start_image_downloads(
+      downloads: list[tuple[str, str]],
+      user_agent: str | None,
+-@@ -281,12 +301,21 @@ class ProxyRequestHandler(BaseHTTPRequestHandler):
++@@ -282,12 +302,21 @@
+          body = self.rfile.read(content_length).decode("utf-8") if content_length else ""
+          headers = {key: value for key, value in self.headers.items()}
+  
+@@ -115,7 +114,7 @@ index f19d977..c8e9724 100644
+          )
+  
+          response = self.server.process_proxy_request(
+-@@ -374,6 +403,17 @@ class ProxyRuntimeServer(ThreadingTCPServer):
++@@ -375,6 +404,17 @@
+                  cached_asset = resolve_cached_static_asset(path)
+                  if cached_asset is not None:
+                      return raw_response_bytes(200, cached_asset.read_bytes(), guess_content_type(cached_asset), "OK")
+@@ -133,7 +132,7 @@ index f19d977..c8e9724 100644
+                  if self.is_online():
+                      return self._forward_static_asset(path, headers)
+              return raw_response_bytes(204, b"", "application/octet-stream", "No Content")
+-@@ -438,8 +478,7 @@ class ProxyRuntimeServer(ThreadingTCPServer):
++@@ -439,8 +479,7 @@
+          # online (the monitor probes every fifteen seconds), every request
+          # first tries upstream with a fifteen-second timeout, and a summary
+          # over a few hundred games on a link that has just gone is hours.
+diff --git a/projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-cache-indexed b/projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-cache-indexed
+index 3d295cb43c..9c391c0214 100755
+--- a/projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-cache-indexed
++++ b/projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-cache-indexed
+@@ -37,12 +37,12 @@ import json
+ import os
+ import sys
+ import threading
++import time
+ from pathlib import Path
+ 
+ from raofflineproxy import cache_budget, cache_keys, image_cache, network, rate_limit, rom_browser, rom_cache
+ from raofflineproxy.auth import resolve_credentials
+ from raofflineproxy.config import configure_logging, image_caching_enabled, load_config
+-from raofflineproxy.network import apply_scan_batch_cooldown
+ from raofflineproxy.rom_browser import add_rom_to_cache, normalize_cached_rom_path
+ from raofflineproxy.rom_cache import cache_game
+ from raofflineproxy.storage import Storage, current_millis
+@@ -68,6 +68,17 @@ def note(text: str) -> None:
+     print(text, file=sys.stderr, flush=True)
+ 
+ 
++def apply_scan_batch_cooldown(scanned: int) -> bool:
++    # Upstream removed this helper when its background queue adopted pacing.
++    # Keep the deliberate OS preparation command's existing 50-game/30-second
++    # cadence; upstream request throttling and persisted 429 pauses still apply.
++    if scanned > 0 and scanned % 50 == 0:
++        note(f"Scan batch cooldown after {scanned} scanned, sleeping 30s")
++        time.sleep(30.0)
++        return True
++    return False
++
++
+ def wait_for_badges(seconds: float) -> None:
+     """The badge images the games queued are still coming down in image_cache's
+     pool, whose workers are not daemon threads: left alone, the process would
+diff --git a/projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl b/projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl
+index 435853c2e8..6c497a2c1e 100755
+--- a/projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl
++++ b/projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl
+@@ -239,8 +239,8 @@
+ #
+ # The store this reads -- read-only, through the service's own sqlite3
+ # module, never written here -- is the client's schema at the commit
+-# package.mk pins (879b158995d412af434301ebdae581f66b8b6d57, storage.py
+-# _initialize_sqlite, reviewed 2026-10-06 for #457). Consumed columns and
++# package.mk pins (c7ebd1b6e777f3751ff0ecdf8aba54045844e00d, storage.py
++# _initialize_sqlite, reviewed 2026-10-11 for #541). Consumed columns and
+ # cache-key spellings remain compatible. The additive cached_game_meta table
+ # and delete/rename triggers index existing rows without changing award data. The suite reads a store the current client wrote,
+ # and the integration fixture reopens the predecessor's store with current
+diff --git a/projects/ROCKNIX/packages/network/rclone/package.mk b/projects/ROCKNIX/packages/network/rclone/package.mk
+index f3bd2b3572..3cd44f0755 100644
+--- a/projects/ROCKNIX/packages/network/rclone/package.mk
++++ b/projects/ROCKNIX/packages/network/rclone/package.mk
+@@ -4,7 +4,9 @@
+ # Copyright (C) 2025 ROCKNIX Team (https://github.com/ROCKNIX)
+ 
+ PKG_NAME="rclone"
+-PKG_VERSION="1.75.1"
++PKG_VERSION="1.75.2"
++# Primary project; embedded dependencies retain their own terms (#528).
++PKG_LICENSE="MIT"
+ # Python3 is the interpreter for cloud_remote. A shipped script's tools are
+ # real dependencies even though nothing links against them: upstream deleted
+ # packages/compress/zip in a3d0ad0430, nothing referenced it, and backuptool
+@@ -24,21 +26,21 @@ PKG_TOOLCHAIN="manual"
+ # Pinned per arch, and pinned to OUR version.
+ #
+ # Upstream added PKG_SHA256 for 1.71.0 in e0a68c95bd while this fork is on
+-# 1.75.1, so a rebase would bring in a hash that cannot match what we download.
++# 1.75.2, so a rebase would bring in a hash that cannot match what we download.
+ # Setting the right ones here makes that merge a no-op instead of a build
+ # failure whose message names a checksum and not the version behind it.
+ #
+-# Verified two ways: against downloads.rclone.org/v1.75.1/SHA256SUMS and by
+-# hashing the artifact independently. (The binary inside does not match the one
+-# on a device -- the build strips it, 78315682 -> 78256016 bytes.)
++# Verified against downloads.rclone.org/v1.75.2/SHA256SUMS and independent
++# archive hashing (#541). Image assembly strips the binary; installed version
++# and protocol proof are recorded separately.
+ case ${ARCH} in
+     aarch64)
+       RCLONE_ARCH="arm64"
+-      PKG_SHA256="03f2504174034b6d004152ed7369251c9a9ec1f7e0836eda420f5c7a5ec0dff9"
++      PKG_SHA256="7e1e8d69654941b7b7df84ee74c5f7fb09cce7d5496947fb7bf16b55ff427d10"
+     ;;
+     *)
+       RCLONE_ARCH="amd64"
+-      PKG_SHA256="982b5aa772841168f8e380f139e9e787b2a105403e32b94da8676a0e1c0a13ab"
++      PKG_SHA256="349ac8fba6ff65d6247043f1750cdcb518ec5d500ef91463a10d37c0ccdf3702"
+     ;;
+ esac
+ 
+diff --git a/projects/ROCKNIX/packages/network/tailscale/package.mk b/projects/ROCKNIX/packages/network/tailscale/package.mk
+index 028e318670..ee3fc7a670 100644
+--- a/projects/ROCKNIX/packages/network/tailscale/package.mk
++++ b/projects/ROCKNIX/packages/network/tailscale/package.mk
+@@ -4,6 +4,8 @@
+ 
+ PKG_NAME="tailscale"
+ PKG_VERSION="1.98.8"
++# Primary project; embedded dependencies retain their own terms (#528).
++PKG_LICENSE="BSD-3-Clause"
+ PKG_SHA256="53eb3ce89d062fd34e393d24a6c8ec08c769fede8eb77fe9c6e347ad4ae00f84"
+ PKG_SITE="https://tailscale.com/"
+ PKG_DEPENDS_TARGET="toolchain wireguard-tools"
+diff --git a/projects/ROCKNIX/packages/network/zerotier-one/package.mk b/projects/ROCKNIX/packages/network/zerotier-one/package.mk
+index 9340cba8a8..16a6583405 100644
+--- a/projects/ROCKNIX/packages/network/zerotier-one/package.mk
++++ b/projects/ROCKNIX/packages/network/zerotier-one/package.mk
+@@ -5,6 +5,8 @@
+ 
+ PKG_NAME="zerotier-one"
+ PKG_VERSION="1.16.0"
++# Core code only; ext/ and nonfree/ have separate terms (#528).
++PKG_LICENSE="MPL-2.0"
+ PKG_SHA256="aa9de313d365bf0efb3871aaa56f2d323a08f46df47b627c4eff4f4203fa7fc5"
+ PKG_SITE="https://www.zerotier.com"
+ PKG_URL="https://github.com/zerotier/ZeroTierOne/archive/refs/tags/${PKG_VERSION}.tar.gz"
+diff --git a/projects/ROCKNIX/packages/rocknix/sources/scripts/rocknix-info b/projects/ROCKNIX/packages/rocknix/sources/scripts/rocknix-info
+index 90cb279eb3..06336fbd73 100755
+--- a/projects/ROCKNIX/packages/rocknix/sources/scripts/rocknix-info
++++ b/projects/ROCKNIX/packages/rocknix/sources/scripts/rocknix-info
+@@ -12,11 +12,39 @@ fi
+ export QUIRK_DEVICE="$(echo ${QUIRK_DEVICE} | sed -e "s#[/]#-#g")"
+ 
+ info_quirks() {
++  local status=0
+   for QUIRK in /usr/lib/autostart/quirks/platforms/"${HW_DEVICE}"/info.d/${1}/* \
+                /usr/lib/autostart/quirks/devices/"${QUIRK_DEVICE}"/info.d/${1}/*
+   do
+-    "${QUIRK}" 2>/dev/null
++    [ -f "${QUIRK}" ] && [ -x "${QUIRK}" ] || continue
++    "${QUIRK}" 2>/dev/null || status=$?
+   done
++  return "${status}"
++}
++
++# Hardware readings are optional (including on GENERIC_X64). Read and validate
++# before arithmetic; a missing value is not a measured zero (#548).
++info_frequency() {
++  local value
++  value=$(cat -- "$1" 2>/dev/null) || return 1
++  [[ "$value" =~ ^[0-9]{1,18}$ ]] || return 1
++  printf '%s' "$((10#$value / $2))"
++}
++
++info_frequency_label() {
++  if [ -n "$1" ]; then
++    printf '%s MHz' "$1"
++  else
++    printf '%s' 'Not Available'
++  fi
++}
++
++info_temperature() {
++  local sensor value
++  for sensor in "$@"; do
++    value=$(cat -- "$sensor" 2>/dev/null) || continue
++    [[ "$value" =~ ^-?[0-9]{1,9}$ ]] && printf '%s\n' "$value"
++  done | awk '{total += $1; count++} END {if (count) printf "%d", total/count/1000}'
+ }
+ 
+ ### Grab battery capacity now as it is used in a couple of different places
+@@ -64,8 +92,8 @@ host=$(hostname)
+ 
+ # cpu
+ if [ "${HW_ARCH}" = "x86_64" ]; then
+-    CPUCUR=$(( $(</sys/devices/system/cpu/cpufreq/policy0/scaling_cur_freq) / 1000 ))
+-    CPUMAX=$(( $(</sys/devices/system/cpu/cpufreq/policy0/cpuinfo_max_freq) / 1000 ))
++    CPUCUR=$(info_frequency /sys/devices/system/cpu/cpufreq/policy0/scaling_cur_freq 1000)
++    CPUMAX=$(info_frequency /sys/devices/system/cpu/cpufreq/policy0/cpuinfo_max_freq 1000)
+ 
+     if [ -f /sys/devices/system/cpu/cpufreq/boost ]; then
+         if [ "$(</sys/devices/system/cpu/cpufreq/boost)" = "1" ]; then
+@@ -80,13 +108,14 @@ fi
+ 
+ # gpu
+ if [ "${HW_ARCH}" = "x86_64" ]; then
+-  GPUCUR=$(( $(<"$DEVICE_GPU_CUR_FREQ") / 1000000 ))
+-  GPUMAX=$(awk '/^SCLK:/ {gsub(/Mhz/, "", $3); print $3}' "$DEVICE_GPU_MAX_FREQ")
++  GPUCUR=$(info_frequency "$DEVICE_GPU_CUR_FREQ" 1000000)
++  GPUMAX=""
++  if [ -r "$DEVICE_GPU_MAX_FREQ" ]; then
++    GPUMAX=$(awk '/^SCLK:/ {gsub(/Mhz/, "", $3); if ($3 ~ /^[0-9]+$/) print $3; exit}' "$DEVICE_GPU_MAX_FREQ" 2>/dev/null)
++  fi
+ else
+-  CUR_FREQ=$(cat "$GPU_FREQ/cur_freq")
+-  MAX_FREQ=$(cat "$GPU_FREQ/max_freq")
+-  GPUCUR=$((CUR_FREQ / 1000000))
+-  GPUMAX=$((MAX_FREQ / 1000000))
++  GPUCUR=$(info_frequency "$GPU_FREQ/cur_freq" 1000000)
++  GPUMAX=$(info_frequency "$GPU_FREQ/max_freq" 1000000)
+ fi
+ 
+ # ram
+@@ -100,18 +129,12 @@ case ${HW_ARCH} in
+   aarch64)
+     declare -a CF MF
+ 
+-    CNTR=0
+     for CPUFREQ in /sys/devices/system/cpu/cpufreq/*
+     do
+-      if [[ "${CPUFREQ}" =~ boost ]]
++      if [ ! -d "${CPUFREQ}" ] || [[ "${CPUFREQ}" =~ boost ]]
+       then
+         continue
+       fi
+-      if [ "${CNTR}" -eq 0 ]
+-      then
+-        CF+=("CURRENT FREQUENCY:")
+-        MF+=("MAXIMUM FREQUENCY:")
+-      fi
+       RELCPUS=$(cat ${CPUFREQ}/related_cpus 2>/dev/null)
+       if [ "${#RELCPUS}" -gt 1 ]
+       then
+@@ -119,13 +142,14 @@ case ${HW_ARCH} in
+       else
+         FIELD="$(cat ${CPUFREQ}/related_cpus 2>/dev/null)"
+       fi
+-      if [ -e "${CPUFREQ}/scaling_cur_freq" ]; then
+-        CF+=("THREADS ${FIELD}: $(( $(cat ${CPUFREQ}/scaling_cur_freq 2>/dev/null | sort | tail -n 1) / 1000))MHz")
++      if FREQ=$(info_frequency "${CPUFREQ}/scaling_cur_freq" 1000); then
++        [ "${#CF[@]}" -gt 0 ] || CF+=("CURRENT FREQUENCY:")
++        CF+=("THREADS ${FIELD}: ${FREQ}MHz")
+       fi
+-      if [ -e "${CPUFREQ}/scaling_max_freq" ]; then
+-        MF+=("THREADS ${FIELD}: $(( $(cat ${CPUFREQ}/scaling_max_freq 2>/dev/null | sort | tail -n 1) / 1000))MHz")
++      if FREQ=$(info_frequency "${CPUFREQ}/scaling_max_freq" 1000); then
++        [ "${#MF[@]}" -gt 0 ] || MF+=("MAXIMUM FREQUENCY:")
++        MF+=("THREADS ${FIELD}: ${FREQ}MHz")
+       fi
+-      CNTR=$(( CNTR + 1 ))
+     done
+   ;;
+ esac
+@@ -178,7 +202,7 @@ echo "CPU: ${V_CPUMODEL1} (${V_CPUNB} Cores)"
+ # Unit: millidegree Celsius
+ if [ -n "${DEVICE_TEMP_SENSOR}" ]
+ then
+-  TEMPE=$(awk '{total += $1; count++} END {printf "%d", total/count/1000}' ${DEVICE_TEMP_SENSOR})
++  TEMPE=$(info_temperature ${DEVICE_TEMP_SENSOR})
+   if [ -n "${TEMPE}" ]
+   then
+     echo "CPU TEMPERATURE: ${TEMPE}°"
+@@ -199,8 +223,8 @@ then
+   echo "CPU FAN: ${FANSPEED}"
+ fi
+ if [ "${HW_ARCH}" = "x86_64" ]; then
+-  echo "CPU CURRENT FREQUENCY: ${CPUCUR} MHz"
+-  echo "CPU MAXIMUM FREQUENCY: ${CPUMAX} MHz"
++  echo "CPU CURRENT FREQUENCY: $(info_frequency_label "${CPUCUR}")"
++  echo "CPU MAXIMUM FREQUENCY: $(info_frequency_label "${CPUMAX}")"
+   echo "CPU BOOST: ${CPUBOOST}"
+ fi
+ case ${HW_ARCH} in
+@@ -220,13 +244,13 @@ if [ -n "$GPUCUR" ]; then
+ # GPU temperature
+ # Unit: millidegree Celsius
+   if [ -n "${DEVICE_GPU_TEMP_SENSOR}" ]; then
+-    GTEMPE=$(awk '{total += $1; count++} END {printf "%d", total/count/1000}' ${DEVICE_GPU_TEMP_SENSOR})
++    GTEMPE=$(info_temperature ${DEVICE_GPU_TEMP_SENSOR})
+     if [ -n "${GTEMPE}" ]; then
+     echo "GPU TEMPERATURE: ${GTEMPE}°"
+   fi
+ fi
+   echo "GPU CURRENT FREQUENCY: ${GPUCUR} MHz"
+-  echo "GPU MAXIMUM FREQUENCY: ${GPUMAX} MHz"
++  echo "GPU MAXIMUM FREQUENCY: $(info_frequency_label "${GPUMAX}")"
+ fi
+ echo "RAM INFORMATION:"
+ echo "RAM AVAILABLE: ${MEMAV} MB"
+diff --git a/tools/fork-package-freshness b/tools/fork-package-freshness
+index c251c1183c..24c5190826 100755
+--- a/tools/fork-package-freshness
++++ b/tools/fork-package-freshness
+@@ -87,7 +87,8 @@ commits_behind() {  # <owner/repo> <sha>
+         else "\(.ahead_by) behind \(.commits[-1].sha[0:10]) (\(.commits[-1].commit.committer.date[0:10]))" end' 2>/dev/null
+ }
+ packages() {
+-    git -C "$ROOT" diff --name-only --diff-filter=A "$BASE_REF" "$HEAD_REF" -- '*/package.mk' | sed 's|/package.mk$||'
++    # Only build-engine recipe roots; docs/ holds immutable historical fixtures.
++    git -C "$ROOT" diff --name-only --diff-filter=A "$BASE_REF" "$HEAD_REF" -- packages projects | sed -n 's|/package.mk$||p'
+     for p in $EXTRA_PACKAGES; do echo "$p"; done
+ }
+ 
+diff --git a/tools/last-good-scripts-test b/tools/last-good-scripts-test
+index 9c9e0b3fc9..fe63d27007 100755
+--- a/tools/last-good-scripts-test
++++ b/tools/last-good-scripts-test
+@@ -286,7 +286,8 @@ RCLONE_REL=projects/ROCKNIX/packages/network/rclone/sources
+ command -v bwrap >/dev/null || { echo "needs bubblewrap (bwrap)" >&2; exit 2; }
+ command -v setsid >/dev/null || { echo "needs setsid" >&2; exit 2; }
+ 
+-# Honor the caller's build-drive TMPDIR for the owned host fixture tree only.
++# Honor the caller's build-drive TMPDIR for the owned host fixture tree.
++# Host compilers and patch commands below explicitly use this owned tree too.
+ # Bubblewrap descendants get a private /tmp, so an inherited host-only path
+ # makes otherwise valid mktemp calls fail inside the device fixture.
+ TMP="$(mktemp -d)" || { echo "cannot create host fixture directory" >&2; exit 2; }
+@@ -2078,7 +2079,7 @@ else
+ fi
+ for prel in ${TPATCHES}; do
+     src_of "${prel}" "${T}/one.patch"
+-    if ! patch -d "${T}/patched" -p1 -N -s < "${T}/one.patch" >"${T}/patch.out" 2>&1; then
++    if ! TMPDIR="${T}" patch -d "${T}/patched" -p1 -N -s < "${T}/one.patch" >"${T}/patch.out" 2>&1; then
+         TPATCH_OK=0; check 1 "" "${prel##*/} does not apply to the pinned client: $(tr '\n' '|' < "${T}/patch.out" | cut -c1-200)"
+     fi
+ done
+@@ -4014,6 +4015,7 @@ else
+     cp "${ROOT}/${RA_REL}"/patches/*.patch "${RX}/patches/"; cp "${ROOT}/${RA_REL}"/patches/batteryplus/*.patch "${RX}/patches/batteryplus/"
+ fi
+ tar -xzf "${RA_TAR}" -C "${RX}/src" --strip-components=1 --wildcards '*.h' '*.c' '*.cpp' '*/version.all' 2>/dev/null
++# patch dry-runs spill large files; use this owned host fixture, not /tmp.
+ F2_FUZZ=""; F2_APPLY=0
+ for p in "${RX}"/patches/*.patch "${RX}"/patches/batteryplus/*.patch; do
+     n="${p#${RX}/patches/}"
+@@ -4022,16 +4024,16 @@ for p in "${RX}"/patches/*.patch "${RX}"/patches/batteryplus/*.patch; do
+     # applies it, so the checks below read the tree the build would.
+     case "${n}" in
+         0011-video-thread-*|001[3-9]-*|00[2-9][0-9]-*)
+-            patch -d "${RX}/src" -p1 -N --fuzz=0 --dry-run -r - < "${p}" > "${RX}/fz.log" 2>&1 && ! grep -q 'with fuzz' "${RX}/fz.log" || F2_FUZZ+=" ${n}" ;;
++            TMPDIR="${RX}" patch -d "${RX}/src" -p1 -N --fuzz=0 --dry-run -r - < "${p}" > "${RX}/fz.log" 2>&1 && ! grep -q 'with fuzz' "${RX}/fz.log" || F2_FUZZ+=" ${n}" ;;
+     esac
+-    patch -d "${RX}/src" -p1 -N --no-backup-if-mismatch -r - < "${p}" > /dev/null 2>&1 || { F2_APPLY=1; F2_FUZZ+=" ${n}(FAILED)"; }
++    TMPDIR="${RX}" patch -d "${RX}/src" -p1 -N --no-backup-if-mismatch -r - < "${p}" > /dev/null 2>&1 || { F2_APPLY=1; F2_FUZZ+=" ${n}(FAILED)"; }
+ done
+ [ "${F2_APPLY}" -eq 0 ] && [ -z "${F2_FUZZ}" ]; check $? "every patch applies in the package's order, the fork's with no fuzz" "patches that needed fuzz or failed:${F2_FUZZ}"
+ GW="${RX}/src/gfx/gfx_widgets.c"
+ if command -v gcc > /dev/null; then
+     F2_CC=""
+     for c in gfx/gfx_widgets.c gfx/video_thread_wrapper.c command.c runtime_file.c configuration.c; do
+-        gcc -fsyntax-only -std=gnu99 -Werror=implicit-function-declaration -I"${RX}/src" -I"${RX}/src/libretro-common/include" -I"${RX}/src/deps" \
++        TMPDIR="${RX}" gcc -fsyntax-only -std=gnu99 -Werror=implicit-function-declaration -I"${RX}/src" -I"${RX}/src/libretro-common/include" -I"${RX}/src/deps" \
+             -DHAVE_GFX_WIDGETS -DHAVE_MENU -DHAVE_XMB -DHAVE_OZONE -DHAVE_THREADS -DHAVE_CHEEVOS -DHAVE_CONFIGFILE -DHAVE_NETWORKING -DRARCH_INTERNAL \
+             "${RX}/src/${c}" > "${RX}/cc.log" 2>&1 || F2_CC+=" ${c}: $(grep -m1 'error' "${RX}/cc.log" | cut -c1-160)"
+     done
+@@ -4076,7 +4078,7 @@ int main(void)
+    return 0;
+ }
+ EOC
+-if command -v gcc > /dev/null && [ -s "${RX}/sharp.inc" ] && gcc -std=gnu99 -o "${RX}/sharp_test" "${RX}/sharp_test.c" -I"${RX}" > "${RX}/sharp.log" 2>&1; then
++if command -v gcc > /dev/null && [ -s "${RX}/sharp.inc" ] && TMPDIR="${RX}" gcc -std=gnu99 -o "${RX}/sharp_test" "${RX}/sharp_test.c" -I"${RX}" > "${RX}/sharp.log" 2>&1; then
+     F2_OUT="$("${RX}/sharp_test")"
+ else
+     F2_OUT="(the sharp-size step is not marked out in gfx_widgets.c, or does not compile alone: $(grep -m1 error "${RX}/sharp.log" 2>/dev/null | cut -c1-120))"
+@@ -4213,7 +4215,7 @@ printf 'state_slot = "-1"\nsavestate_auto_load = "true"\n' > "${AS}/a.cfg"; cp "
+ printf 'state_slot = "3"\n' > "${AS}/b.cfg"; printf 'savestate_auto_save = "true"\n' > "${AS}/c.cfg"
+ L="${RX}/src/libretro-common"
+ F2_OUT="(the append-slot block is not marked out in command.c, or does not build with libretro-common)"
+-if [ -s "${RX}/autoslot.inc" ] && gcc -std=gnu99 -o "${RX}/autoslot_test" -I"${L}/include" -I"${RX}" "${RX}/autoslot_test.c" \
++if [ -s "${RX}/autoslot.inc" ] && TMPDIR="${RX}" gcc -std=gnu99 -o "${RX}/autoslot_test" -I"${L}/include" -I"${RX}" "${RX}/autoslot_test.c" \
+       "${L}"/file/config_file.c "${L}"/file/file_path.c "${L}"/file/file_path_io.c "${L}"/streams/file_stream.c "${L}"/string/stdstring.c \
+       "${L}"/compat/compat_strl.c "${L}"/compat/fopen_utf8.c "${L}"/compat/compat_posix_string.c "${L}"/compat/compat_strcasestr.c \
+       "${L}"/encodings/encoding_utf.c "${L}"/vfs/vfs_implementation.c "${L}"/time/rtime.c > "${RX}/autoslot.log" 2>&1; then
+@@ -4306,7 +4308,7 @@ for arch in x86_64 aarch64; do
+     for f in CMakeLists.txt Common/ArmCPUDetect.cpp Core/Util/PathUtil.cpp ffmpeg/linux_arm64.sh libretro/libretro_vulkan.cpp ext/glew/glew.c; do
+         mkdir -p "$(dirname "${B}/${f}")"; cp "${PP_SRC}/${f}" "${B}/${f}"
+     done
+-    F2_CALL="PKG_BUILD='${B}'; declare -F post_unpack >/dev/null && post_unpack; for p in '${PX}'/pkg/patches/*.patch; do patch -d '${B}' -p1 -s --no-backup-if-mismatch < \"\${p}\" || exit 4; done; declare -F post_patch >/dev/null && post_patch; grep -c 'mno-outline-atomics' '${B}/CMakeLists.txt'"
++    F2_CALL="PKG_BUILD='${B}'; declare -F post_unpack >/dev/null && post_unpack; for p in '${PX}'/pkg/patches/*.patch; do TMPDIR='${PX}' patch -d '${B}' -p1 -s --no-backup-if-mismatch < \"\${p}\" || exit 4; done; declare -F post_patch >/dev/null && post_patch; grep -c 'mno-outline-atomics' '${B}/CMakeLists.txt'"
+     eval "PP_${arch}=\"\$(f2_source '${PX}/pkg/package.mk' GENERIC_X64 ${arch} 2>/dev/null)\""
+ done
+ [ "${PP_x86_64}" = "0" ] && [ "${PP_aarch64}" = "1" ]; check $? "x86_64's CMakeLists.txt ends without the flag, aarch64's keeps it" "after unpack, patches and hooks: x86_64 has ${PP_x86_64:-?} add_compile_options(-mno-outline-atomics) line(s), aarch64 ${PP_aarch64:-?} -- the strip ran before the patch that adds it"
+@@ -6491,7 +6493,7 @@ else
+     # shellcheck disable=SC2086
+     tar -xJf "${WKT}" -C "${WKD}" ${wkfiles} 2>/dev/null
+     for wp in "${WKP}"/*.patch; do
+-        patch -d "${WKD}/webkitgtk-${WKV}" -p1 --dry-run < "${wp}" > "${WKD}/out" 2>&1; check $? "$(basename "${wp}") applies to webkitgtk ${WKV}" "$(basename "${wp}") does not apply to ${WKV}: $(tail -2 "${WKD}/out" | tr '\n' ' ')"
++        TMPDIR="${WKD}" patch -d "${WKD}/webkitgtk-${WKV}" -p1 --dry-run < "${wp}" > "${WKD}/out" 2>&1; check $? "$(basename "${wp}") applies to webkitgtk ${WKV}" "$(basename "${wp}") does not apply to ${WKV}: $(tail -2 "${WKD}/out" | tr '\n' ' ')"
+     done
+ fi
+ 
+@@ -6569,7 +6571,7 @@ int main(void)
+     return bad;
+ }
+ EOC
+-C8P=$( [ -s "${C8}/pwr.c" ] && command -v cc >/dev/null && cc -std=gnu99 -o "${C8}/pwr" "${C8}/pwr_main.c" 2>&1 && "${C8}/pwr" 2>&1 )
++C8P=$( [ -s "${C8}/pwr.c" ] && command -v cc >/dev/null && TMPDIR="${C8}" cc -std=gnu99 -o "${C8}/pwr" "${C8}/pwr_main.c" 2>&1 && "${C8}/pwr" 2>&1 )
+ [ -s "${C8}/pwr.c" ] && [ -x "${C8}/pwr" ] && "${C8}/pwr" >/dev/null 2>&1; check $? "the page file is not written for rclone's loopback redirect, which carries the code; a provider's own pages still are" "page_worth_recording: $([ -s "${C8}/pwr.c" ] || echo 'no such function in cloud-signin-window.c -- every URI, the loopback redirect with its code included, goes to the page file'; echo "${C8P}" | head -3 | tr '\n' ' ') (#308 claude F-RS-20)"
+ 
+ # The on-screen keyboard reaches every printable character a password may
+@@ -11068,78 +11070,16 @@ printf '%s' "${P7NOTE}" | grep '^dump' | grep -q 'NOT KEPT' && [ ! -e "${P7C}/st
+ echo "  F1r. The audit of the fix round, stream F1 (#309 PL-024; the gpt seat's G2-F1 leads): each check names its item"
+ F1R="${TMP}/f1r"; mkdir -p "${F1R}"
+ 
+-# F1r-a. #309 PL-024: tools/vm-upgrade-rehearsal waits for the new image's
+-#        autostart before it reads what the quirk pass took back. It waited
+-#        for "Autostart complete" in /var/log/boot.log, which autostart
+-#        appends to at every boot (autostart:7,10) and which lives on
+-#        /storage (var-log.mount), so the previous boot's line answered the
+-#        first poll and the wait could not fail. The wait is run as it stands
+-#        in the rehearsal -- its lines from AUTOSTARTED=no to its check --
+-#        against a guest whose boot.log already holds the previous boot's
+-#        line: ssha is the transport (each call one poll, run in a sandbox
+-#        with the guest's /var, its boot id, and a systemctl answering for
+-#        the autostart unit as systemd does in that boot), and sleep costs
+-#        nothing. Autostart finishes on the poll the case names -- the unit
+-#        reads active and the current boot's line is appended -- or never.
+-F1RA="${F1R}/a"; mkdir -p "${F1RA}/shim"
++# F1r-a. #309 PL-024 / #546 / #551: exercise the current bounded wait,
++# including its actual guest query, against stale/current boot identities and
++# service states. Historical --old still supplies the historical source.
++F1RA="${F1R}/a"; mkdir -p "${F1RA}"
+ src_of tools/vm-upgrade-rehearsal "${F1RA}/rehearsal"
+-sed -n '/^AUTOSTARTED=no/,/^check "autostart finished/p' "${F1RA}/rehearsal" > "${F1RA}/wait.sh"
+-cat > "${F1RA}/shim/systemctl" <<'EOS'
+-#!/bin/bash
+-# rocknix-autostart.service as systemd has it in this boot (/guest/state):
+-# activating while the oneshot's script runs, active once it has exited 0
+-# (the unit has RemainAfterExit), failed.
+-st=$(cat /guest/state)
+-case "$*" in
+-    "is-active rocknix-autostart.service"|"is-active rocknix-autostart") echo "${st}"; [ "${st}" = active ]; exit $? ;;
+-    *) echo "systemctl (the harness's shim) does not know: $*" >&2; exit 1 ;;
+-esac
+-EOS
+-chmod +x "${F1RA}/shim/systemctl"
+-cat > "${F1RA}/run.sh" <<'EOS'
+-# The rehearsal's wait, lifted, with its helpers stood in for.
+-#   $1 the guest, $2 the boot id before the reboot, $3 the new boot's
+-set -u
+-G="$1"; BOOT0="$2"; BOOT1="$3"; LOG="${G}/rehearsal.log"; : > "${LOG}"; fail=0; i=0
+-say() { echo "=== $*" >> "${LOG}"; }
+-check() { if [ "$2" = "$3" ]; then echo "PASS $1"; else echo "FAIL $1: got '$2' want '$3'"; fail=1; fi; }
+-sleep() { :; }
+-ssha() {
+-    local n fin; n=$(( $(cat "${G}/polls") + 1 )); echo "${n}" > "${G}/polls"; fin=$(cat "${G}/finish")
+-    if [ "${fin}" != never ] && [ "${n}" -ge "${fin}" ] && [ "$(cat "${G}/state")" != active ]; then
+-        echo active > "${G}/state"; echo "Mon Sep 28 16:00:0${n} UTC 2026: Autostart: Autostart complete..." >> "${G}/var/log/boot.log"
+-    fi
+-    bwrap --die-with-parent --tmpfs / --ro-bind /usr /usr --symlink usr/bin /bin --symlink usr/lib /lib --symlink usr/lib64 /lib64 \
+-        --bind "${G}/var" /var --dir /proc/sys/kernel/random --ro-bind "${G}/boot_id" /proc/sys/kernel/random/boot_id \
+-        --ro-bind "${G}/../shim" /shim --ro-bind "${G}" /guest --dev /dev --tmpfs /tmp --setenv PATH /shim:/usr/bin:/bin \
+-        bash -c "$*"
+-}
+-. "${G}/../wait.sh"
+-echo "polls=$(cat "${G}/polls") autostarted=${AUTOSTARTED}"
+-EOS
+-F1R_B0=0f1a0000-0000-4000-8000-00000000b007; F1R_B1=0f1a0000-0000-4000-8000-00000000b008
+-f1ra() { # <case> <poll autostart finishes on|never> <boot id the guest reports>: one run of the wait; its last line in F1RA_OUT, its check line in F1RA_CHK
+-    local g="${F1RA}/$1"; rm -rf "${g}"; mkdir -p "${g}/var/log"
+-    printf '%s\n' "Sun Sep 27 21:04:10 UTC 2026: Autostart: Run /usr/lib/autostart/quirks/platforms/GENERIC_X64/092-retroarch-surface" \
+-        "Sun Sep 27 21:04:12 UTC 2026: Autostart: Startup complete..." "Sun Sep 27 21:04:13 UTC 2026: Autostart: Autostart complete..." > "${g}/var/log/boot.log"
+-    printf '%s\n' "$3" > "${g}/boot_id"; echo 0 > "${g}/polls"; echo "$2" > "${g}/finish"; echo activating > "${g}/state"
+-    bash "${F1RA}/run.sh" "${g}" "${F1R_B0}" "${F1R_B1}" > "${g}/out" 2>&1
+-    F1RA_OUT=$(tail -n 1 "${g}/out"); F1RA_CHK=$(grep -m1 -E '^(PASS|FAIL) autostart finished' "${g}/out" | cut -c1-200)
+-}
+-if [ ! -s "${F1RA}/wait.sh" ] || ! grep -q '^check "autostart finished' "${F1RA}/wait.sh"; then
+-    check 1 "-" "#309 PL-024: the rehearsal has no autostart wait from AUTOSTARTED=no to its check -- nothing to grade"
+-else
+-    f1ra stale 4 "${F1R_B1}"
+-    [ "${F1RA_OUT}" = "polls=4 autostarted=yes" ]; check $? "#309 PL-024: with the previous boot's 'Autostart complete' already in boot.log, the rehearsal waits until this boot's autostart has finished (poll 4 of 4)" "#309 PL-024: the wait ended on '${F1RA_OUT}' where autostart finished on poll 4 -- the previous boot's line answered it"
+-    f1ra never never "${F1R_B1}"
+-    case "${F1RA_OUT}" in "polls=30 autostarted="*) [ "${F1RA_OUT}" != "polls=30 autostarted=yes" ] ;; *) false ;; esac && case "${F1RA_CHK}" in FAIL*) true ;; *) false ;; esac
+-    check $? "#309 PL-024: an autostart that never finishes runs the wait to its bound and the rehearsal's check FAILs, the stale line notwithstanding" "#309 PL-024: an autostart that never finished read '${F1RA_OUT}', check '${F1RA_CHK}' -- the check cannot fail"
+-    f1ra oldboot 1 "${F1R_B0}"
+-    case "${F1RA_OUT}" in *autostarted=yes) false ;; *) true ;; esac; check $? "#309 PL-024: a reading that carries the boot id from before the reboot does not end the wait" "#309 PL-024: a reading from boot ${F1R_B0} (the one before the reboot) ended the wait: '${F1RA_OUT}'"
+-    f1ra ready 1 "${F1R_B1}"
+-    [ "${F1RA_OUT}" = "polls=1 autostarted=yes" ] && case "${F1RA_CHK}" in PASS*) true ;; *) false ;; esac
+-    check $? "#309 PL-024 (control): an autostart already finished on the first poll ends the wait at once, and the check passes" "#309 PL-024: an autostart finished on poll 1 read '${F1RA_OUT}', check '${F1RA_CHK}'"
+-fi
++TMPDIR="${F1RA}" python3 "${HARNESS_ROOT}/tools/vm-upgrade-readiness-test" \
++    --rehearsal "${F1RA}/rehearsal" > "${F1RA}/out" 2>&1
++RC=$?; cat "${F1RA}/out"
++check "${RC}" "#309 PL-024: current-boot storage readiness and bounded failure controls pass" \
++    "#309 PL-024: storage readiness controls failed (exit ${RC})"
+ 
+ # F1r-b. The gpt seat's G2-F1-01: 091-retired-vm-fixes and 097-retired-rescue-
+ #        masks stopped for good at their stamps, so a guest that went back to
+@@ -12567,7 +12507,7 @@ EOC
+     # the block from before G2-F2-02 records from a list it reads again
+     F2B_FL=""; grep -q 'command_record_append_config(const char' "${F2B}/autoslot.inc" && F2B_FL="-DFROM_LIST"
+     L="${F2B_RX}/src/libretro-common"; AL="${F2B}/al"
+-    if [ -s "${F2B}/autoslot.inc" ] && gcc -std=gnu99 ${F2B_FL} -o "${F2B}/autoslot_load" -I"${L}/include" -I"${F2B}" "${F2B}/autoslot_load.c" \
++    if [ -s "${F2B}/autoslot.inc" ] && TMPDIR="${F2B}" gcc -std=gnu99 ${F2B_FL} -o "${F2B}/autoslot_load" -I"${L}/include" -I"${F2B}" "${F2B}/autoslot_load.c" \
+           "${L}"/file/config_file.c "${L}"/file/file_path.c "${L}"/file/file_path_io.c "${L}"/streams/file_stream.c "${L}"/string/stdstring.c \
+           "${L}"/compat/compat_strl.c "${L}"/compat/fopen_utf8.c "${L}"/compat/compat_posix_string.c "${L}"/compat/compat_strcasestr.c \
+           "${L}"/encodings/encoding_utf.c "${L}"/vfs/vfs_implementation.c "${L}"/time/rtime.c > "${F2B}/autoslot_load.log" 2>&1; then
+@@ -14277,14 +14217,16 @@ done
+ 
+ # #421: exercise actual writer functions with the same candidate applets.
+ echo "  ag. settings writers retain private file permissions"
+-"${ROOT}/tools/settings-modes-test" --profile "${FN}" --chksysconfig "${CHK}" \
++# These host helpers need the owned build-drive temporary directory; the
++# bubblewrap device fixtures above intentionally do not inherit host TMPDIR.
++TMPDIR="${TMP}" "${ROOT}/tools/settings-modes-test" --profile "${FN}" --chksysconfig "${CHK}" \
+   --busybox "${BB_HOST}" --output "${TMP}/settings-modes.json"
+ check $? "#421: private modes and refused publications" "#421: settings mode regression (details above)"
+ 
+ # #526: optional melonDS defaults never erase an owner's configuration.
+ echo "  ah. melonDS update preserves settings and adds missing hotkeys"
+ src_of projects/ROCKNIX/packages/rocknix/sources/post-update "${TMP}/post-update"
+-python3 "${HARNESS_ROOT}/tools/melonds-upgrade-test" --post-update "${TMP}/post-update" \
++TMPDIR="${TMP}" python3 "${HARNESS_ROOT}/tools/melonds-upgrade-test" --post-update "${TMP}/post-update" \
+   --busybox "${BB_HOST}" --output "${TMP}/melonds-upgrade.json"
+ check $? "#526: preserved configuration and atomic hotkey additions" "#526: melonDS update regression (details above)"
+ 
+diff --git a/tools/raofflineproxy-installed-native-test b/tools/raofflineproxy-installed-native-test
+new file mode 100755
+index 0000000000..e6472d0c49
+--- /dev/null
++++ b/tools/raofflineproxy-installed-native-test
+@@ -0,0 +1,70 @@
++#!/usr/bin/env python3
++# SPDX-License-Identifier: GPL-2.0-or-later
++# Copyright (C) 2026-present pixelelated (https://github.com/pixelelated)
++"""Run unchanged upstream hashing tests against the image's installed proxy."""
++import argparse
++import hashlib
++import importlib.util
++import json
++from pathlib import Path
++import runpy
++import sys
++import types
++import unittest
++
++parser = argparse.ArgumentParser(description=__doc__)
++parser.add_argument('--tests', required=True, type=Path)
++parser.add_argument('--legacy-chd', required=True, type=Path)
++parser.add_argument('--library-sha256', required=True)
++parser.add_argument('--output', required=True, type=Path)
++args = parser.parse_args()
++
++import raofflineproxy
++from raofflineproxy import rom_browser, rom_hashing
++modules = {}
++for module in (rom_browser, rom_hashing):
++    path = Path(module.__file__).resolve()
++    if not str(path).startswith('/usr/lib/python') or '/site-packages/raofflineproxy/' not in str(path):
++        sys.exit('refusing a proxy module outside the installed image: '+str(path))
++    modules[module.__name__] = {'file': str(path), 'sha256': hashlib.sha256(path.read_bytes()).hexdigest()}
++lib = rom_hashing.load_rchash()
++if lib is None:
++    sys.exit('installed native library unavailable: '+str(rom_hashing._LIBRCHASH_ERROR))
++mapped = {line.split()[-1] for line in Path('/proc/self/maps').read_text().splitlines()
++          if 'libraproxy_rchash.so' in line}
++if mapped != {'/usr/lib/libraproxy_rchash.so'}:
++    sys.exit('unexpected native library mappings: '+repr(mapped))
++library = Path(next(iter(mapped)))
++digest = hashlib.sha256(library.read_bytes()).hexdigest()
++if digest != args.library_sha256:
++    sys.exit('installed library differs from the accepted image')
++
++# Upstream imports linux.raofflineproxy from its repository layout. Bind that
++# namespace to these already-verified installed modules; do not copy product
++# source over the image or edit the upstream test file (#547).
++linux = types.ModuleType('linux')
++linux.__path__ = []
++linux.raofflineproxy = raofflineproxy
++sys.modules['linux'] = linux
++sys.modules['linux.raofflineproxy'] = raofflineproxy
++sys.modules['linux.raofflineproxy.rom_browser'] = rom_browser
++sys.modules['linux.raofflineproxy.rom_hashing'] = rom_hashing
++spec = importlib.util.spec_from_file_location('installed_native_test', args.tests)
++module = importlib.util.module_from_spec(spec)
++spec.loader.exec_module(module)
++assert module.rom_browser is rom_browser and module.rom_hashing is rom_hashing
++suite = unittest.defaultTestLoader.loadTestsFromModule(module)
++count = suite.countTestCases()
++if count == 0:
++    sys.exit('upstream test discovery returned no cases')
++result = unittest.TextTestRunner(verbosity=2).run(suite)
++report = {'tests_discovered': count, 'tests_run': result.testsRun,
++          'failures': len(result.failures), 'errors': len(result.errors),
++          'skipped': len(result.skipped), 'modules': modules,
++          'library': str(library), 'library_sha256': digest,
++          'tests_sha256': hashlib.sha256(args.tests.read_bytes()).hexdigest()}
++report['legacy_chd'] = runpy.run_path(str(args.legacy_chd))['exercise'](lib)
++args.output.write_text(json.dumps(report, indent=2)+'\n')
++if result.testsRun != count or not result.wasSuccessful() or result.skipped:
++    sys.exit('installed native tests failed or skipped; see retained report')
++print('PASS all %d installed native cases and legacy CHD controls; no skips' % count)
+diff --git a/tools/raofflineproxy-integration-test b/tools/raofflineproxy-integration-test
+index eec9f00b58..db4ea80ac5 100755
+--- a/tools/raofflineproxy-integration-test
++++ b/tools/raofflineproxy-integration-test
+@@ -42,6 +42,18 @@ helper = importlib.util.module_from_spec(spec)
+ loader.exec_module(helper)
+ 
+ 
++class PreparationCadence(unittest.TestCase):
++    def test_existing_pause_boundaries_survive_removed_upstream_helper(self):
++        # WholeLibrary mocks this boundary to exercise125 games quickly. Check
++        # the real compatibility helper too, without waiting a minute in QA.
++        with mock.patch.object(helper.time, 'sleep') as sleep, \
++                contextlib.redirect_stderr(io.StringIO()):
++            paused = [count for count in range(126)
++                      if helper.apply_scan_batch_cooldown(count)]
++        self.assertEqual([50, 100], paused)
++        self.assertEqual([mock.call(30.0), mock.call(30.0)], sleep.call_args_list)
++
++
+ class WholeLibrary(QueueTestCase):
+     def prepare(self, kind, count=125):
+         paths = self.roms(*(str(i) for i in range(1,count+1)))
+@@ -150,7 +162,7 @@ rows = list(store.iter_cache_by_prefix('')) if hasattr(store, 'iter_cache_by_pre
+ store.close()
+ legacy=root/'static/Badge/old.png';legacy.parent.mkdir(parents=True);legacy.write_bytes(b'previous cached image')
+ '''
+-            env=dict(os.environ,PYTHONPATH=str(args.predecessor_source.resolve()/'linux'),RAOFFLINEPROXY_CONFIG_DIR=str(root/'config'))
++            env=dict(os.environ,PYTHONDONTWRITEBYTECODE='1',PYTHONPATH=str(args.predecessor_source.resolve()/'linux'),RAOFFLINEPROXY_CONFIG_DIR=str(root/'config'))
+             result=subprocess.run([sys.executable,'-c',script,str(root)],env=env,capture_output=True,text=True)
+             self.assertEqual(0,result.returncode, 'predecessor fixture failed: ' + result.stderr)
+             before=json.loads((root/'before.json').read_text())
+@@ -220,7 +232,7 @@ class OSConsumers(unittest.TestCase):
+ 
+ if __name__=='__main__':
+     try:
+-        suite=unittest.TestSuite(unittest.defaultTestLoader.loadTestsFromTestCase(c) for c in (WholeLibrary,Upgrade,OSConsumers))
++        suite=unittest.defaultTestLoader.loadTestsFromModule(sys.modules[__name__])
+         result=unittest.TextTestRunner(verbosity=2).run(suite)
+         sys.exit(0 if result.wasSuccessful() else 1)
+     finally: config.cleanup()
+diff --git a/tools/rocknix-info-test b/tools/rocknix-info-test
+new file mode 100755
+index 0000000000..3c88f7eac8
+--- /dev/null
++++ b/tools/rocknix-info-test
+@@ -0,0 +1,60 @@
++#!/usr/bin/env python3
++# SPDX-License-Identifier: GPL-2.0-or-later
++# Copyright (C) 2026-present pixelelated (https://github.com/pixelelated)
++from pathlib import Path
++import subprocess,tempfile,os,json,shutil,hashlib
++import argparse
++parser=argparse.ArgumentParser(description="Exercise optional hardware reporting with complete-script filesystem fixtures.")
++parser.add_argument('--baseline', type=Path, help='Optional original script for the failing control and valid-output comparison.')
++parser.add_argument('--output', type=Path, help='Retain original result channels and source digest in this directory.')
++args=parser.parse_args()
++P=args.output or Path(tempfile.mkdtemp(prefix='rocknix-info-test-'))
++P.mkdir(parents=True,exist_ok=True)
++ROOT=Path(__file__).resolve().parent.parent
++file='projects/ROCKNIX/packages/rocknix/sources/scripts/rocknix-info'
++old=args.baseline.read_text() if args.baseline else None;new=(ROOT/file).read_text()
++results=[]
++with tempfile.TemporaryDirectory(prefix='hardware-',dir=P) as td:
++ t=Path(td)
++ def write(name,value):
++  p=t/name;p.parent.mkdir(parents=True,exist_ok=True);p.write_text(value);return p
++ def execute(source,arch='x86_64',label='new'):
++  # Rewrite only OS filesystem roots into the disposable fixture. Keep the
++  # complete script and real shell/awk/grep/arithmetic logic intact.
++  code=source.replace('/etc/profile',str(t/'profile')).replace('/tmp/battery.percent',str(t/'battery.percent')).replace('/sys/',str(t/'sys')+'/').replace('/proc/cpuinfo',str(t/'proc/cpuinfo')).replace('/proc/meminfo',str(t/'proc/meminfo')).replace('/usr/lib/autostart/quirks',str(t/'quirks')).replace('/storage/games-internal',str(t/'storage')).replace('/storage/games-external',str(t/'storage'))
++  env={**os.environ,'HW_ARCH':arch,'HW_DEVICE':'QA','HW_CPU':'QA CPU','OS_NAME':'pixelelated','OS_VERSION':'0.0.1-dev','BUILD_ID':'a0f60255ab','BUILD_BRANCH':'test','GPU_FREQ':str(t/'sys/gpu'),'DEVICE_GPU_CUR_FREQ':str(t/'sys/gpu/cur_freq'),'DEVICE_GPU_MAX_FREQ':str(t/'sys/gpu/clocks'),'DEVICE_TEMP_SENSOR':str(t/'sys/thermal/*/temp'),'DEVICE_GPU_TEMP_SENSOR':str(t/'sys/gpu/temp'),'DEVICE_HAS_FAN':'false'}
++  r=subprocess.run(['bash'],input=code,text=True,env=env,capture_output=True)
++  (P/(label+'.json')).write_text(json.dumps({'returncode':r.returncode,'stdout':r.stdout,'stderr':r.stderr},indent=2)+'\n');return r
++ def check(name,condition):
++  results.append({'case':name,'passed':bool(condition)});assert condition,name
++ write('profile','');write('proc/cpuinfo','processor\t: 0\nmodel name\t: QA CPU\n');write('proc/meminfo','MemTotal: 1000000 kB\nMemAvailable: 500000 kB\n');(t/'storage').mkdir()
++ write('sys/class/dmi/id/sys_vendor','QA\n');write('sys/class/dmi/id/product_name','VM\n');(t/'sys/class/net').mkdir(parents=True)
++ a=execute(old,label='original-absent') if old else None;b=execute(new,label='fixed-absent')
++ if a:check('original absent interfaces reproduce arithmetic error and nonzero status',a.returncode!=0 and 'arithmetic syntax error' in a.stderr)
++ check('absent optional metrics succeed quietly',b.returncode==0 and not b.stderr)
++ check('unknown CPU frequencies are explicit, GPU and temperature rows omitted','CPU CURRENT FREQUENCY: Not Available' in b.stdout and 'CPU MAXIMUM FREQUENCY: Not Available' in b.stdout and 'GPU CURRENT' not in b.stdout and 'TEMPERATURE:' not in b.stdout)
++ base='sys/devices/system/cpu/cpufreq/policy0/'
++ write(base+'scaling_cur_freq','1234000\n');write(base+'cpuinfo_max_freq','2400000\n');write(base+'scaling_max_freq','2400000\n');write(base+'related_cpus','0 1 2 3\n')
++ write('sys/gpu/cur_freq','650000000\n');write('sys/gpu/max_freq','900000000\n');write('sys/gpu/clocks','SCLK: 0 900Mhz\n');write('sys/thermal/zone0/temp','43000\n');write('sys/thermal/zone1/temp','47000\n');write('sys/gpu/temp','55000\n')
++ a=execute(old,label='original-valid') if old else None;b=execute(new,label='fixed-valid')
++ # Ignore live IP/hostname/disk values only by selecting the hardware rows.
++ rows=lambda r:[x for x in r.stdout.splitlines() if x.startswith(('CPU ','GPU ','THREADS','CURRENT FREQUENCY','MAXIMUM FREQUENCY'))]
++ check('valid x86 hardware presentation unchanged',(not a or rows(a)==rows(b)) and b.returncode==0 and not b.stderr and all(x in b.stdout for x in ['CPU CURRENT FREQUENCY: 1234 MHz','CPU MAXIMUM FREQUENCY: 2400 MHz','GPU CURRENT FREQUENCY: 650 MHz','GPU MAXIMUM FREQUENCY: 900 MHz','CPU TEMPERATURE: 45°','GPU TEMPERATURE: 55°']))
++ a=execute(old,arch='aarch64',label='original-arm-valid') if old else None;b=execute(new,arch='aarch64',label='fixed-arm-valid')
++ check('valid ARM clusters/GPU/temperature presentation unchanged',(not a or rows(a)==rows(b)) and b.returncode==0 and not b.stderr and all(x in b.stdout for x in ['THREADS 0-3: 1234MHz','THREADS 0-3: 2400MHz','GPU CURRENT FREQUENCY: 650 MHz','GPU MAXIMUM FREQUENCY: 900 MHz','CPU TEMPERATURE: 45°','GPU TEMPERATURE: 55°']))
++ for n,v in [('empty',''),('malformed','unavailable\n'),('expression','1+2\n'),('overflow','9'*30+'\n')]:
++  write(base+'scaling_cur_freq',v);write('sys/gpu/cur_freq',v);b=execute(new,label='fixed-'+n)
++  check(n+' optional frequencies are unavailable without errors',b.returncode==0 and not b.stderr and 'CPU CURRENT FREQUENCY: Not Available' in b.stdout and 'GPU CURRENT' not in b.stdout)
++ write(base+'scaling_cur_freq','0001234000\n');write('sys/gpu/cur_freq','0\n');b=execute(new,label='fixed-leading-zero')
++ check('leading zeros remain decimal; measured zero is retained','CPU CURRENT FREQUENCY: 1234 MHz' in b.stdout and 'GPU CURRENT FREQUENCY: 0 MHz' in b.stdout and b.returncode==0 and not b.stderr)
++ for n in ['sys/thermal/zone0/temp','sys/thermal/zone1/temp','sys/gpu/temp']:write(n,'not-a-reading\n')
++ b=execute(new,label='fixed-invalid-temperatures');check('invalid temperatures omitted without division by zero',b.returncode==0 and not b.stderr and 'TEMPERATURE:' not in b.stdout)
++ q=write('quirks/platforms/QA/info.d/10-good','#!/bin/sh\necho "QA QUIRK: executed"\n');q.chmod(0o755)
++ write('quirks/platforms/QA/info.d/20-not-executable','should not run\n');(t/'quirks/platforms/QA/info.d/30-directory').mkdir()
++ b=execute(new,label='fixed-quirks');check('valid quirk executes; missing and non-executable entries skip',b.returncode==0 and not b.stderr and 'QA QUIRK: executed' in b.stdout)
++ q=write('quirks/platforms/QA/info.d/05-failing','#!/bin/sh\nexit 23\n');q.chmod(0o755)
++ b=execute(new,label='fixed-quirk-failure');check('real quirk failure survives later success',b.returncode==23 and 'QA QUIRK: executed' in b.stdout)
++(P/'result.json').write_text(json.dumps({'source_sha256':hashlib.sha256(new.encode()).hexdigest(),'cases':results},indent=2)+'\n')
++print('PASS',len(results),'full-script positive/negative controls',flush=True)
++
++if not args.output:shutil.rmtree(P)
+diff --git a/tools/vm-pair b/tools/vm-pair
+index 33d89c7654..46541005b6 100755
+--- a/tools/vm-pair
++++ b/tools/vm-pair
+@@ -15,7 +15,7 @@
+ #   ./tools/vm-pair reimage b <other...img.gz>           # one guest rebuilt from another image, the other left running
+ #
+ # Guest a keeps generic-x64-vm's defaults (SSH 10022, monitor and serial at
+-# /tmp/rocknix-qemu-*.sock, pidfile /tmp/rocknix-qemu.pid, VNC :9, the
++# /tmp/rocknix-qemu-*.sock, pidfile $RUNTIME/rocknix-qemu.pid, VNC :9, the
+ # profile's MAC 52:54:00:52:4E:58); guest b gets the same with a -b suffix,
+ # SSH 10023, VNC :10 and its own MAC, 52:54:00:52:4E:59. Both sit behind
+ # user-mode NAT, so a shared MAC would collide on no network -- but
+@@ -33,6 +33,21 @@ ROOT=$(cd "$HERE/.." && pwd)
+ VM_TOOL="$ROOT/projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm"
+ DIR="${VM_PAIR_DIR:-/tmp/rocknix-vm-pair}"
+ KEY="$DIR/qa-key"
++# Keep short-lived socket/PID writes off a quota-limited /tmp when requested.
++# vm-qa uses the same root; the default remains compatible with standalone tools.
++RUNTIME="${VM_QEMU_RUNTIME_DIR:-/tmp}"
++[[ "$RUNTIME" = /* && ! "$RUNTIME" =~ [[:space:]] ]] || {
++  echo 'vm-pair: VM_QEMU_RUNTIME_DIR needs an absolute path without whitespace' >&2; exit 2;
++}
++check_runtime() {
++  local probe
++  (umask 077; mkdir -p "$RUNTIME") || return 1
++  probe=$(mktemp "$RUNTIME/.pixelelated-vm-write-XXXXXX") || return 1
++  if ! printf 'pid-file-write-check\n' > "$probe"; then
++    rm -f "$probe"; echo 'vm-pair: runtime directory cannot accept PID writes' >&2; return 1
++  fi
++  rm -f "$probe"
++}
+ 
+ # VM_GL=none puts the guests on the software renderer; the launcher's default
+ # is hardware GL through virgl on the host's first Mesa render node (#291), and
+@@ -42,8 +57,8 @@ KEY="$DIR/qa-key"
+ # line, so a field added here without a slot there lands in the one before it)
+ settings() {
+   case "$1" in
+-    a) echo "/tmp/rocknix-qemu-monitor.sock /tmp/rocknix-qemu-serial.sock /tmp/rocknix-qemu.pid 9 10022 52:54:00:52:4E:58" ;;
+-    b) echo "/tmp/rocknix-qemu-monitor-b.sock /tmp/rocknix-qemu-serial-b.sock /tmp/rocknix-qemu-b.pid 10 10023 52:54:00:52:4E:59" ;;
++    a) echo "$RUNTIME/rocknix-qemu-monitor.sock $RUNTIME/rocknix-qemu-serial.sock $RUNTIME/rocknix-qemu.pid 9 10022 52:54:00:52:4E:58" ;;
++    b) echo "$RUNTIME/rocknix-qemu-monitor-b.sock $RUNTIME/rocknix-qemu-serial-b.sock $RUNTIME/rocknix-qemu-b.pid 10 10023 52:54:00:52:4E:59" ;;
+     *) echo "vm-pair: guest is a or b, not '$1'" >&2; exit 2 ;;
+   esac
+ }
+@@ -52,8 +67,30 @@ settings() {
+ start_one() {
+   local mon ser pid vnc port mac
+   read -r mon ser pid vnc port mac <<<"$(settings "$1")"
+-  "$VM_TOOL" run --headless --daemonize ${VM_GL:+--gl "$VM_GL"} --monitor "$mon" --serial "$ser" --pidfile "$pid" --vnc "$vnc" --ssh-port "$port" --mac "$mac" "$DIR/vm-$1.qcow2" 2>&1 | grep -v pw.conf || true
+-  echo "up: $1 (pid $(cat "$pid"), ssh :$port, serial $ser, mac $mac)"
++  local rc=0 started
++  "$VM_TOOL" run --headless --daemonize ${VM_GL:+--gl "$VM_GL"} --monitor "$mon" --serial "$ser" --pidfile "$pid" --vnc "$vnc" --ssh-port "$port" --mac "$mac" "$DIR/vm-$1.qcow2" 2>&1 | grep -v pw.conf || rc=${PIPESTATUS[0]}
++  if [ "$rc" != 0 ]; then
++    echo "vm-pair: guest $1 launch failed ($rc)" >&2; return "$rc"
++  fi
++  started=$(cat "$pid") || { echo "vm-pair: guest $1 has no PID file" >&2; return 1; }
++  # A successful launcher alone does not prove a guest. Refuse stale/wrong
++  # PID files before claiming up or waiting for an unrelated serial endpoint.
++  python3 - "$started" "$DIR/vm-$1.qcow2" <<'VERIFY_PID' || return 1
++from pathlib import Path
++import os, sys
++try:
++    pid = int(sys.argv[1])
++    if pid <= 1:
++        raise ValueError('invalid PID')
++    args = (Path('/proc') / str(pid) / 'cmdline').read_bytes().split(b'\0')
++    drive = os.fsencode('if=none,id=rocknix,format=qcow2,file=' + sys.argv[2])
++    if not Path(os.fsdecode(args[0])).name.startswith('qemu-system-') or not any(
++            args[i] == b'-drive' and args[i + 1] == drive for i in range(len(args) - 1)):
++        raise ValueError('PID does not own the expected QEMU disk')
++except (OSError, ValueError) as error:
++    sys.exit('vm-pair: ' + str(error))
++VERIFY_PID
++  echo "up: $1 (pid $started, ssh :$port, serial $ser, mac $mac)"
+ }
+ 
+ # The QA key in by serial, then SSH answering with the guest's BUILD_ID; 1
+@@ -65,9 +102,9 @@ start_one() {
+ ready_one() {
+   local ser port pub who t0
+   read -r _ ser _ _ port _ <<<"$(settings "$1")"
+-  "$HERE/vm-serial" --socket "$ser" wait --up-to 300 >/dev/null
++  "$HERE/vm-serial" --socket "$ser" wait --up-to 300 >/dev/null || return 1
+   pub=$(cat "$KEY.pub")
+-  "$HERE/vm-serial" --socket "$ser" sh "mkdir -p /storage/.ssh && chmod 700 /storage/.ssh && echo '$pub' >> /storage/.ssh/authorized_keys && chmod 600 /storage/.ssh/authorized_keys" >/dev/null
++  "$HERE/vm-serial" --socket "$ser" sh "mkdir -p /storage/.ssh && chmod 700 /storage/.ssh && echo '$pub' >> /storage/.ssh/authorized_keys && chmod 600 /storage/.ssh/authorized_keys" >/dev/null || return 1
+   who=""; t0=$(date +%s)
+   for _ in $(seq 1 100); do
+     who=$(ssh -i "$KEY" -p "$port" -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o BatchMode=yes -o LogLevel=ERROR -o ConnectTimeout=8 root@127.0.0.1 'grep ^BUILD_ID= /etc/os-release | cut -c11-20' 2>/dev/null || true)
+@@ -92,6 +129,7 @@ stop_one() {
+ case "${1:-}" in
+   up)
+     img="${2:-}"; [ -f "$img" ] || { echo "usage: vm-pair up <ROCKNIX-GENERIC_X64...img.gz>" >&2; exit 2; }
++    check_runtime
+     stop_one a; stop_one b
+     mkdir -p "$DIR"; rm -f "$DIR"/vm-*.qcow2 "$DIR"/vm-*.ovmf-vars.fd
+     [ -f "$KEY" ] || ssh-keygen -q -t ed25519 -N '' -f "$KEY" -C vm-pair
+@@ -112,6 +150,7 @@ case "${1:-}" in
+     g="${2:-}"; img="${3:-}"
+     settings "$g" >/dev/null || exit 2
+     [ -f "$img" ] || { echo "usage: vm-pair reimage <a|b> <ROCKNIX-GENERIC_X64...img.gz>" >&2; exit 2; }
++    check_runtime
+     stop_one "$g"
+     mkdir -p "$DIR"; rm -f "$DIR/vm-$g.qcow2" "$DIR/vm-$g.ovmf-vars.fd"
+     [ -f "$KEY" ] || ssh-keygen -q -t ed25519 -N '' -f "$KEY" -C vm-pair
+diff --git a/tools/vm-pair-test b/tools/vm-pair-test
+new file mode 100755
+index 0000000000..d331611582
+--- /dev/null
++++ b/tools/vm-pair-test
+@@ -0,0 +1,75 @@
++#!/usr/bin/env python3
++# SPDX-License-Identifier: GPL-2.0-or-later
++# Copyright (C) 2026-present pixelelated (https://github.com/pixelelated)
++"""Exercise the actual vm-pair launch functions with controlled failures (#545)."""
++import argparse
++import os
++from pathlib import Path
++import subprocess
++import sys
++import tempfile
++
++parser = argparse.ArgumentParser(description=__doc__)
++parser.add_argument('--source', type=Path, default=Path(__file__).with_name('vm-pair'))
++args = parser.parse_args()
++source = args.source.resolve()
++prefix = source.read_text().split('case "${1:-}" in', 1)[0]
++assert 'start_one()' in prefix and 'ready_one()' in prefix
++with tempfile.TemporaryDirectory(prefix='vm-pair-test-') as scratch:
++    root = Path(scratch)
++    runtime = root / 'runtime'
++    runtime.mkdir()
++    disk = root / 'vm-a.qcow2'
++    pidfile = runtime / 'rocknix-qemu.pid'
++    launcher = root / 'launcher'
++    launcher.write_text('#!/bin/sh\nexit "${LAUNCH_RC:-0}"\n')
++    launcher.chmod(0o700)
++    serial = root / 'vm-serial'
++    serial.write_text('#!/bin/sh\nexit 23\n')
++    serial.chmod(0o700)
++    env = dict(os.environ, VM_PAIR_DIR=str(root), VM_QEMU_RUNTIME_DIR=str(runtime))
++
++    def run(action='start_one a', **extra):
++        return subprocess.run(['bash', '-c', prefix + '\nVM_TOOL="$1"\n' + action,
++                               str(source), str(launcher)], env=dict(env, **extra),
++                              text=True, capture_output=True, timeout=3)
++
++    result = run(LAUNCH_RC='17')
++    assert result.returncode == 17 and 'up: a' not in result.stdout, result
++    print('PASS launcher failure preserves exit17 with no false up message')
++    result = run()
++    assert result.returncode != 0 and 'up: a' not in result.stdout, result
++    print('PASS zero-exit launcher without PID file is refused')
++    for label, pid in [('wrong-process', os.getpid()), ('dead-process', 2147483646)]:
++        pidfile.write_text(str(pid))
++        result = run()
++        assert result.returncode != 0 and 'up: a' not in result.stdout, result
++        print('PASS ' + label + ' PID is refused')
++    for label, owned in [('wrong-disk', False), ('owned-disk', True)]:
++        child = subprocess.Popen(['qemu-system-fixture', '-c', 'import time; time.sleep(30)',
++                                  '-drive', 'if=none,id=rocknix,format=qcow2,file=' +
++                                  str(disk if owned else root / 'other.qcow2')],
++                                 executable=sys.executable)
++        try:
++            pidfile.write_text(str(child.pid))
++            result = run()
++            assert (result.returncode == 0) == owned, result
++            assert ('up: a' in result.stdout) == owned, result
++            print('PASS ' + label + (' live PID is verified, silent launcher allowed' if owned else ' PID is refused'))
++        finally:
++            child.terminate()
++            child.wait(timeout=3)
++    # ready_one is intentionally used in a conditional by the caller. A
++    # serial failure must return before SSH even with bash errexit suppressed.
++    result = run('HERE="$DIR"; if ready_one a; then exit 42; else exit $?; fi')
++    assert result.returncode == 1, result
++    print('PASS failed serial readiness returns immediately from conditional call')
++    bad = root / 'not-a-directory'
++    bad.write_text('fixture')
++    result = run('check_runtime', VM_QEMU_RUNTIME_DIR=str(bad))
++    assert result.returncode != 0, result
++    print('PASS unusable runtime root refuses preflight')
++    result = run('check_runtime')
++    assert result.returncode == 0 and not list(runtime.glob('.pixelelated-vm-write-*')), result
++    print('PASS writable runtime root preflight leaves no probe')
++print('PASS 9 VM launch controls; fixtures are not a real boot claim')
+diff --git a/tools/vm-qa b/tools/vm-qa
+index 13e80f1fc9..a11abec015 100755
+--- a/tools/vm-qa
++++ b/tools/vm-qa
+@@ -96,17 +96,18 @@ fi
+ # anywhere -- it needs a monitor socket and a guest to reboot, nothing else.
+ # Use the same run-owned key that vm-pair injects into the guests.
+ KEY="${VM_PAIR_DIR:-/tmp/rocknix-vm-pair}/qa-key"
++RUNTIME="${VM_QEMU_RUNTIME_DIR:-/tmp}"
+ # The ssh options every suite here runs with. Declared, not inherited: the
+ # pair-identity suite used $SSHO without this line and passed for a night
+ # because the shell that started the runner had it set; started under a
+ # clean environment it failed on "unbound variable" (blindspot 40).
+ SSHO="-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=ERROR -o ConnectTimeout=8 -o BatchMode=yes"
+ case "$GUEST" in
+-  a) PORT=10022; MON=/tmp/rocknix-qemu-monitor.sock;   SERIAL=/tmp/rocknix-qemu-serial.sock ;;
+-  b) PORT=10023; MON=/tmp/rocknix-qemu-monitor-b.sock; SERIAL=/tmp/rocknix-qemu-serial-b.sock ;;
++  a) PORT=10022; MON="$RUNTIME"/rocknix-qemu-monitor.sock;   SERIAL="$RUNTIME"/rocknix-qemu-serial.sock ;;
++  b) PORT=10023; MON="$RUNTIME"/rocknix-qemu-monitor-b.sock; SERIAL="$RUNTIME"/rocknix-qemu-serial-b.sock ;;
+   # The 640x480 guest beside the pair (generic-x64-vm-testing.md § Frame at
+   # the handheld's size): not vm-pair's, so `up` never touches it -- --skip-up.
+-  d) PORT=10026; MON=/tmp/rocknix-qemu-monitor-d.sock; SERIAL=/tmp/rocknix-qemu-serial-d.sock ;;
++  d) PORT=10026; MON="$RUNTIME"/rocknix-qemu-monitor-d.sock; SERIAL="$RUNTIME"/rocknix-qemu-serial-d.sock ;;
+   *) echo "vm-qa: --guest is a, b or d, not '$GUEST'" >&2; exit 2 ;;
+ esac
+ [ "$LINK" = 1 ] && ONLY="$ONLY,link"
+@@ -133,7 +134,7 @@ REPORT="$OUT/report.md"
+ # The guest's display, read from its QEMU's own command line (#291): hardware GL through virgl on a host
+ # render node, or the software path. The renderer the guest's Mesa then reports is read at the end, from
+ # the launch log the exit suite leaves, so a guest that fell back to softpipe says so on its report.
+-case "$GUEST" in a) PIDF=/tmp/rocknix-qemu.pid ;; b) PIDF=/tmp/rocknix-qemu-b.pid ;; *) PIDF=/tmp/rocknix-qemu-$GUEST.pid ;; esac
++case "$GUEST" in a) PIDF="$RUNTIME"/rocknix-qemu.pid ;; b) PIDF="$RUNTIME"/rocknix-qemu-b.pid ;; *) PIDF="$RUNTIME"/rocknix-qemu-$GUEST.pid ;; esac
+ DISPLAY_MODE=$(ps -o args= -p "$(cat "$PIDF" 2>/dev/null)" 2>/dev/null | grep -o -E 'egl-headless,rendernode=[^ ]+' | sed 's/^egl-headless,rendernode=/GL through virgl on /'); DISPLAY_MODE=${DISPLAY_MODE:-software rendering (no GL display)}
+ { echo "# vm-qa on $BUILD"; echo; echo "started $(date -u '+%Y-%m-%d %H:%M UTC'), guest $GUEST at :$PORT, cloud $BACKEND (port $("$ROOT/tools/cloud-test-backend" port), $("$ROOT/tools/cloud-test-backend" caps)), image ${IMAGE:-(already up)}, display: $DISPLAY_MODE"; echo; echo "| suite | result | time | log |"; echo "| --- | --- | --- | --- |"; } > "$REPORT"
+ FAILS=0
+diff --git a/tools/vm-upgrade-readiness-test b/tools/vm-upgrade-readiness-test
+new file mode 100755
+index 0000000000..8b38d2f026
+--- /dev/null
++++ b/tools/vm-upgrade-readiness-test
+@@ -0,0 +1,81 @@
++#!/usr/bin/env python3
++# SPDX-License-Identifier: GPL-2.0-or-later
++# Copyright (C) 2026-present pixelelated (https://github.com/pixelelated)
++"""Exercise the rehearsal's actual wait and guest query with disposable guest-query fixtures."""
++import argparse
++from pathlib import Path
++import subprocess
++import tempfile
++
++parser = argparse.ArgumentParser(description=__doc__)
++parser.add_argument('--rehearsal', type=Path,
++                    default=Path(__file__).with_name('vm-upgrade-rehearsal'))
++args = parser.parse_args()
++source = args.rehearsal.read_text()
++function = source.split('wait_for_storage() {', 1)[1].split('\n}\n', 1)[0]
++function = 'wait_for_storage() {' + function + '\n}\n'
++
++with tempfile.TemporaryDirectory(prefix='upgrade-ready-') as directory:
++    root = Path(directory)
++    (root / 'shim').mkdir()
++    unit = root / 'shim/systemctl'
++    unit.write_text('''#!/bin/bash
++[ "$*" = 'is-active rocknix-autostart.service' ] || exit 64
++state=$(cat "$FIXTURE_G/state")
++printf '%s\\n' "$state"
++[ "$state" = active ]
++''')
++    unit.chmod(0o755)
++    reader = root / 'shim/cat'
++    reader.write_text('''#!/bin/bash
++case "$*" in
++    /proc/sys/kernel/random/boot_id) exec /usr/bin/cat "$FIXTURE_G/boot_id" ;;
++    /var/log/boot.log) exec /usr/bin/cat "$FIXTURE_G/var/log/boot.log" ;;
++    *) exec /usr/bin/cat "$@" ;;
++esac
++''')
++    reader.chmod(0o755)
++    shell = '''set -u
++G=$1; FINISH=$2; READY=$3; EXPECTED=$4; TRANSPORT=$5
++LOG="$G/log"
++sleep() { :; }
++ssha() {
++    local n
++    n=$(( $(cat "$G/polls") + 1 )); echo "$n" > "$G/polls"
++    [ "$TRANSPORT" = absent ] && return 1
++    if [ "$FINISH" != never ] && [ "$n" -ge "$FINISH" ]; then
++        echo "$READY" > "$G/state"
++    fi
++    # Execute the source's unchanged query; only cat's two guest paths and
++    # systemctl are fixture-backed. CI needs no namespace privilege/package.
++    FIXTURE_G="$G" PATH="$G/../shim:$PATH" bash -c "$*"
++}
++''' + function + '\nwait_for_storage "$EXPECTED"\n'
++    cases = [
++        # case, guest boot, finish poll, final state, expected boot, transport, rc, polls
++        ('ready', 'current', '1', 'active', 'current', 'present', 0, 1),
++        ('old-boot', 'previous', '1', 'active', 'current', 'present', 1, 30),
++        ('failed', 'current', '1', 'failed', 'current', 'present', 1, 1),
++        ('delayed', 'current', '4', 'active', 'current', 'present', 0, 4),
++        ('never-ready', 'current', 'never', 'active', 'current', 'present', 1, 30),
++        ('absent', 'current', '1', 'active', 'current', 'absent', 1, 30),
++        ('no-identity', 'current', '1', 'active', '', 'present', 1, 0),
++    ]
++    for case, boot, finish, state, expected, transport, code, polls in cases:
++        p = root / case
++        (p / 'var/log').mkdir(parents=True)
++        # A stale success must not short-circuit the current boot's unit check.
++        (p / 'var/log/boot.log').write_text('Previous boot: Autostart complete...\n')
++        (p / 'boot_id').write_text(boot+'\n')
++        (p / 'state').write_text('activating\n')
++        (p / 'polls').write_text('0\n')
++        result = subprocess.run(
++            ['bash', '-c', shell, 'fixture', str(p), finish, state, expected, transport],
++            capture_output=True, text=True, timeout=15)
++        observed_polls = int((p / 'polls').read_text())
++        assert (result.returncode, observed_polls) == (code, polls), (
++            case, result.returncode, observed_polls, result.stdout, result.stderr)
++        assert not result.stderr, (case, result.stderr)
++        assert ('PASS storage ready' if code == 0 else 'FAIL storage readiness') in result.stdout, (case, result.stdout)
++        print(f'PASS {case}: return {code}, polls {polls}', flush=True)
++print('PASS 7 storage-readiness controls; actual guest query, synthetic states, no boot claim')
+diff --git a/tools/vm-upgrade-rehearsal b/tools/vm-upgrade-rehearsal
+index b07d8876d9..ebee17ad19 100755
+--- a/tools/vm-upgrade-rehearsal
++++ b/tools/vm-upgrade-rehearsal
+@@ -34,12 +34,33 @@ ssha(){ ./tools/vm-pair ssh a ". /etc/profile >/dev/null 2>&1; $*" 2>>"$LOG"; }
+ fail=0
+ check(){ if [ "$2" = "$3" ]; then echo "PASS $1" | tee -a "$LOG"; else echo "FAIL $1: got '$2' want '$3'" | tee -a "$LOG"; fail=1; fi; }
+ 
++# SSH answers before autostart has mounted the ROM tree. Readiness belongs to
++# the current boot, before seeding or reading retained state (#546).
++wait_for_storage() {
++  local expected_boot=$1 observed i
++  [ -n "$expected_boot" ] || { echo 'FAIL storage readiness: no boot identity' | tee -a "$LOG"; return 1; }
++  for i in $(seq 1 30); do
++    observed=$(ssha 'echo "$(cat /proc/sys/kernel/random/boot_id) $(systemctl is-active rocknix-autostart.service)"' 2>/dev/null)
++    if [ "$observed" = "$expected_boot active" ]; then
++      echo "PASS storage ready in boot $expected_boot after $i poll(s)" | tee -a "$LOG"
++      return 0
++    fi
++    [ "$observed" = "$expected_boot failed" ] && break
++    sleep 2
++  done
++  echo "FAIL storage readiness: expected $expected_boot active, got ${observed:-no answer}" | tee -a "$LOG"
++  return 1
++}
++
+ say "backend: $(./tools/cloud-test-backend status 2>&1 | head -1)"; ./tools/cloud-test-backend up >>"$LOG" 2>&1 || true
+ say "pair up from $(basename "$OLD")"
+ ./tools/vm-pair up "$OLD" >>"$LOG" 2>&1 || { say "vm-pair up FAILED"; echo 1 > "$OUT/rc"; exit 1; }
+ for i in $(seq 1 40); do ssha 'echo ok' 2>/dev/null | grep -q '^ok$' && break; sleep 10; done
+ BID0=$(ssha 'grep ^BUILD_ID= /etc/os-release | cut -d\" -f2'); echo "old build id: $BID0" | tee -a "$LOG"; check "old build id read" "$([ -n "$BID0" ] && echo yes)" "yes"
+ 
++SEED_BOOT=$(ssha 'cat /proc/sys/kernel/random/boot_id')
++wait_for_storage "$SEED_BOOT" || { echo 1 > "$OUT/rc"; exit 1; }
++
+ say "seed state on guest a"
+ ssha 'mkdir -p /storage/roms/savestates/nes /storage/roms/nes /storage/.config/rclone
+ head -c 300000 /dev/urandom > /storage/roms/savestates/nes/Rehearsal.state.auto
+@@ -120,6 +141,7 @@ BID1=""; BOOT1=""; for i in $(seq 1 60); do
+ done
+ say "guest a back after $i polls"
+ check "new build id is $WANT" "${BID1:0:${#WANT}}" "$WANT"
++wait_for_storage "$BOOT1" || { echo 1 > "$OUT/rc"; exit 1; }
+ SUMS1=$(ssha 'cd /storage/roms && sha256sum savestates/nes/Rehearsal.state.auto savestates/nes/Rehearsal.state1 savestates/nes/Rehearsal.state2 nes/Rehearsal.srm')
+ check "saves and save states byte-identical" "$SUMS1" "$SUMS0"
+ check "marker file kept" "$(ssha 'cat /storage/.config/rehearsal-marker')" "rehearsal-marker"
+@@ -131,29 +153,6 @@ check "saves remote kept" "$(ssha "grep -E '^SAVES_REMOTE=' $CONFPATH 2>/dev/nul
+ check "cloud conf gained the new defaults, kept the old values" "$(ssha "grep -cE '^(CONTENT_REMOTE|SAVES_REMOTE)=' $CONFPATH")" "2"
+ check "backup archive kept" "$(ssha 'ls /storage/roms/backup/ 2>/dev/null | wc -l')" "$BK0"
+ check "update queue empty" "$(ssha 'ls /storage/.update | wc -l')" "0"
+-# The quirk pass runs from autostart, which may still be running when SSH
+-# first answers: wait for it to finish before reading what it removed. The
+-# wait reads this boot's state of the unit, never /var/log/boot.log:
+-# autostart appends to that file at every boot and /var/log is
+-# /storage/.cache/log (var-log.mount), so the previous boot's "Autostart
+-# complete" line is there before this boot's autostart has begun, and it
+-# answered the first poll -- the check could not fail (audit of the fix
+-# round PL-024). rocknix-autostart.service is a oneshot with RemainAfterExit:
+-# "activating" while its script runs, "active" once it has exited 0, and
+-# systemd holds no other boot's state. Each reading carries the guest's boot
+-# id, and only the new boot's (BOOT1, above) counts.
+-AUTOSTARTED=no
+-for i in $(seq 1 30); do
+-  AS=$(ssha 'echo "$(cat /proc/sys/kernel/random/boot_id) $(systemctl is-active rocknix-autostart.service)"' 2>/dev/null)
+-  if [ -n "$BOOT1" ] && [ "$AS" = "$BOOT1 active" ]; then AUTOSTARTED=yes; break; fi
+-  AUTOSTARTED="no (last read: ${AS:-no answer}; the new boot ${BOOT1:-was never seen})"
+-  [ -n "$BOOT1" ] && [ "$AS" = "$BOOT1 failed" ] && break
+-  sleep 2
+-done
+-echo "autostart after $i poll(s): $AUTOSTARTED" >> "$LOG"
+-# A wait that ran out is not a reading: say so, rather than grade the
+-# take-back on a quirk pass that may not have run yet.
+-check "autostart finished before the take-back is read (rocknix-autostart.service active in the new boot)" "$AUTOSTARTED" "yes"
+ check "retired quirk files taken back after the update (#307 PL-019)" "$(ssha "cd /storage && ls $RETIRED 2>/dev/null | wc -l; [ -L .config/system.d/emergency.target ] && echo masked || echo unmasked" | tr '\n' ' ')" "0 unmasked "
+ check "and the owner's file beside them kept" "$(ssha 'cat /storage/.config/tmpfiles.d/50-rehearsal-owner.conf')" "# the owner's own (vm-upgrade-rehearsal)"
+ check "RetroArch fullscreen size set by hand kept, driver moved to gl (#307 PL-034, #308 claude F-VM-11)" "$(ssha "grep -E '^(video_fullscreen_x|video_fullscreen_y|video_driver) = ' $RACFG | sort | tr '\n' ' '")" 'video_driver = "gl" video_fullscreen_x = "1024" video_fullscreen_y = "768" '
+diff --git a/tools/vm-walks/claims.txt b/tools/vm-walks/claims.txt
+index 14cffde169..d382204649 100644
+--- a/tools/vm-walks/claims.txt
++++ b/tools/vm-walks/claims.txt
+@@ -54,11 +54,11 @@ d72084ccad manager-fbn/01-0-carousel.png 1249 418 1280 708 #455  # narrow restor
+ # CLOUD FOLDERS, then B returns to the hub. Eight640 and eight1280 frames,
+ # before/after payload witnesses and initial unclaimed diffs are retained in
+ # docs/qa-logs/2026-10-08-cloud-folder-walks/. No baseline or mask changes.
+-d72084ccad to-change-cloud-folder/02-hub-change-folder-row.png 240 187 1040 608 #527  # CHECK CLOUD FOLDERS adds a row; focused hub scrolls one row upward (#508)
++d72084ccad to-change-cloud-folder/02-hub-change-folder-row.png 240 187 1040 640 #544  # #527 CHECK CLOUD FOLDERS/scrolling plus #537 CLOUD CONNECTIONS row and shorter subtitle; exact image19/baseline/prior-hub frames reviewed
+ d72084ccad to-change-cloud-folder/03-folder-editor.png 552 146 729 192 #527  # SAVES FOLDER title and underlying CLOUD FOLDERS title replace CLOUD FOLDER/CLOUD
+ d72084ccad to-change-cloud-folder/03-folder-editor.png 236 644 1044 719 #527  # shorter selector behind the keyboard replaces the old hub and its exposed BACK strip
+ d72084ccad to-change-cloud-folder/*.png 1249 418 1280 708 #527  # scoped walk retains the GB fixture; old full run had removed it in MATCH, the same FBNeo neighbor edge documented by #455
+-d72084ccad confirm-cloud-folder/02-hub-change-folder-row.png 240 187 1040 608 #527  # CHECK CLOUD FOLDERS adds a row; focused hub scrolls one row upward (#508)
++d72084ccad confirm-cloud-folder/02-hub-change-folder-row.png 240 187 1040 640 #544  # #527 CHECK CLOUD FOLDERS/scrolling plus #537 CLOUD CONNECTIONS row and shorter subtitle; exact image19/baseline/prior-hub frames reviewed
+ d72084ccad confirm-cloud-folder/03-folder-editor.png 552 146 729 192 #527  # SAVES FOLDER title and underlying CLOUD FOLDERS title replace CLOUD FOLDER/CLOUD
+ d72084ccad confirm-cloud-folder/03-folder-editor.png 236 644 1044 719 #527  # shorter selector behind the keyboard replaces the old hub and its exposed BACK strip
+ d72084ccad confirm-cloud-folder/*.png 1249 418 1280 708 #527  # scoped walk retains the GB fixture; old full run had removed it in MATCH, the same FBNeo neighbor edge documented by #455
+@@ -66,3 +66,10 @@ d72084ccad confirm-cloud-folder/04-folder-result.png 552 146 729 163 #527  # CLO
+ d72084ccad confirm-cloud-folder/04-folder-result.png 236 199 1044 719 #527  # three independent path rows and selector height replace the former hub return
+ d72084ccad confirm-cloud-folder/05-after-dismiss.png 137 116 1143 719 #527  # B now returns to the hub instead of old A reopening the keyboard; exact surfaces reviewed
+ d72084ccad confirm-cloud-folder/05-after-dismiss.png 274 743 1006 766 #527  # hub CLOSE/BACK/CHOOSE help replaces keyboard editing prompts
++
++# #544: image19 captures of the approved #538 RESET -> CLEAR label.
++# Exact button glyph and re-centered help row only; masks/baseline unchanged.
++d72084ccad confirm-cloud-folder/03-folder-editor.png 856 584 935 603 #544  # #538 CLEAR button replaces RESET; callback unchanged
++d72084ccad confirm-cloud-folder/03-folder-editor.png 273 743 1008 766 #544  # #538 CLEAR help caption replaces RESET and re-centers the same prompts
++d72084ccad to-change-cloud-folder/03-folder-editor.png 856 584 935 603 #544  # #538 CLEAR button replaces RESET; callback unchanged
++d72084ccad to-change-cloud-folder/03-folder-editor.png 273 743 1008 766 #544  # #538 CLEAR help caption replaces RESET and re-centers the same prompts
