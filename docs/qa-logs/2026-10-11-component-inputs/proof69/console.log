@@ -1,0 +1,20 @@
+watch-build: recording in /workspace/repos/rocknix.worktrees/m7-component-inputs/.build-runs/20261011T165545Z-ef665bfa
+Python 3.10.12
+[1;36mGET[0m      idtech-lr (archive)
+--2026-10-11 16:55:45--  https://raw.githubusercontent.com/ROCKNIX/packages/4cb65b687c90f56856e9d6a55e51f56a09955699/doom.tar.gz
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.108.133, 185.199.109.133, 185.199.110.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.108.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 1689157 (1.6M) [application/octet-stream]
+Saving to: '/proof/sources/idtech-lr/idtech-lr-doom-1.0.tar.gz'
+
+          /proof/so   0%[                    ]       0  --.-KB/s                        /proof/sou  23%[===>                ] 391.07K  1.89MB/s                       /proof/sour  35%[======>             ] 583.07K  1.40MB/s                      /proof/sourc  46%[========>           ] 763.62K  1.22MB/s                     /proof/source  61%[===========>        ]   1020K  1.22MB/s                    /proof/sources  79%[==============>     ]   1.28M  1.26MB/s               /proof/sources/idte 100%[===================>]   1.61M  1.35MB/s    in 1.2s    
+
+2026-10-11 16:55:47 (1.35 MB/s) - '/proof/sources/idtech-lr/idtech-lr-doom-1.0.tar.gz' saved [1689157/1689157]
+
+    [1;32mINFO[0m      Calculated checksum: ff35cde05801cfb27005229a6c55f20130ffa8f026ca27d7717c03152634e168
+[1;36mUNPACK[0m      idtech-lr
+/proof/build/build.pixelelated-GENERIC_X64.x86_64/build/idtech-lr-1.0/doom.tar.gz: OK
+PASS real unpack and offline installation preserve archive bytes
+EFFECTIVE harfbuzz-icu PKG_LICENSE=MIT PKG_VERSION=14.3.0
+PASS real downloader refuses corrupt body and leaves no acceptance stamp

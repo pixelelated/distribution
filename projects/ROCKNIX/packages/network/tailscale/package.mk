@@ -4,6 +4,8 @@
 
 PKG_NAME="tailscale"
 PKG_VERSION="1.98.8"
+# Primary project; embedded dependencies retain their own terms (#528).
+PKG_LICENSE="BSD-3-Clause"
 PKG_SHA256="53eb3ce89d062fd34e393d24a6c8ec08c769fede8eb77fe9c6e347ad4ae00f84"
 PKG_SITE="https://tailscale.com/"
 PKG_DEPENDS_TARGET="toolchain wireguard-tools"

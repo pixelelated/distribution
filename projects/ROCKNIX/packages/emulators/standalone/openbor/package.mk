@@ -3,6 +3,8 @@
 
 PKG_NAME="openbor"
 PKG_VERSION="b8303cce992a0db93c3a465df3c943942fe322f8"
+# Root, engine and tools notices have distinct copyright holders (#528).
+PKG_LICENSE="BSD-3-Clause"
 PKG_SHA256="8a21e40b31bf04fd5212d1bb86452f1843fcd0e8a54d073e474e51f4fc130973"
 PKG_SITE="https://github.com/DCurrent/openbor"
 PKG_URL="${PKG_SITE}.git"

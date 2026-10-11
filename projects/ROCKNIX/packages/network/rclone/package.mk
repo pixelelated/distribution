@@ -5,6 +5,8 @@
 
 PKG_NAME="rclone"
 PKG_VERSION="1.75.1"
+# Primary project; embedded dependencies retain their own terms (#528).
+PKG_LICENSE="MIT"
 # Python3 is the interpreter for cloud_remote. A shipped script's tools are
 # real dependencies even though nothing links against them: upstream deleted
 # packages/compress/zip in a3d0ad0430, nothing referenced it, and backuptool

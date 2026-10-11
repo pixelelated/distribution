@@ -1,0 +1,22 @@
+{
+  "utc": "2026-10-11T16:51:57.945654+00:00",
+  "returncode": 0,
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--user",
+    "1000:1000",
+    "-v",
+    "/workspace/repos/rocknix.worktrees/m7-component-inputs:/src:ro",
+    "-v",
+    "/workspace/tmp/pix528-input-proof68:/proof",
+    "-v",
+    "/workspace/repos/rocknix/.git:/workspace/repos/rocknix/.git:ro",
+    "-w",
+    "/src",
+    "ghcr.io/pixelelated/build@sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39",
+    "bash",
+    "/proof/inside.sh"
+  ]
+}

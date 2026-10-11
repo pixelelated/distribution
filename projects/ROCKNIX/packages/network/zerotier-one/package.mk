@@ -5,6 +5,8 @@
 
 PKG_NAME="zerotier-one"
 PKG_VERSION="1.16.0"
+# Core code only; ext/ and nonfree/ have separate terms (#528).
+PKG_LICENSE="MPL-2.0"
 PKG_SHA256="aa9de313d365bf0efb3871aaa56f2d323a08f46df47b627c4eff4f4203fa7fc5"
 PKG_SITE="https://www.zerotier.com"
 PKG_URL="https://github.com/zerotier/ZeroTierOne/archive/refs/tags/${PKG_VERSION}.tar.gz"

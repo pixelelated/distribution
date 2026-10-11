@@ -3,6 +3,8 @@
 
 PKG_NAME="freej2me-lr"
 PKG_VERSION="1.52"
+# Primary project; bundled libraries keep their individual terms (#528).
+PKG_LICENSE="GPL-3.0-or-later"
 PKG_SHA256="509c3590827c8556cc0f8ff42c22693dd40e99e01e15f8f5c0e2e00bdbd8c130"
 PKG_SITE="https://github.com/TASEmulators/freej2me-plus"
 PKG_URL="${PKG_SITE}/archive/refs/tags/${PKG_VERSION}.tar.gz"

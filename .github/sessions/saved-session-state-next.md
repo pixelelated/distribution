@@ -1,5 +1,34 @@
 # Saved Session State
 
+## Current continuation — 2026-10-11T16:54:33.506475+00:00
+
+Active work: feature/m7-component-inputs at
+/workspace/repos/rocknix.worktrees/m7-component-inputs, based on published
+153bfa6b794d71c1f66707f2cb2aaf9673bc9fe8. Harness conflict-resolution stays untouched.
+#540 audit remains complete; no new external review transfer. ES pin remains
+c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78.
+
+#528 input delta is implemented and pinned-builder-qualified, awaiting commit/push:
+eleven scoped recipe licence declarations; HarfBuzz ICU inherits MIT/14.3.0
+(actual framework proof); Doom archive now uses immutable upstream commit and
+normal checksum/cache fetch, then offline copy. Installed bytes match prior firmware.
+Final proof69 completed0, launcher2099777 exited. Original wrapper failures66/67 remain.
+Evidence: docs/qa-logs/2026-10-11-component-inputs. All12 edited recipes pass pkgcheck.
+No components/features removed or versions bumped. Five shader/ABL aggregate gaps,
+Doom data terms, vendor/prebuilt provenance and source retrieval/off-host custody
+remain PUBLICATION holds; retaining engineering inputs does not clear them.
+
+Next: finish delivery, remeasure #493, freeze combined GENERIC_X64 dev source and
+warm-cache preparation, then build and installed/clean/retained VM qualification.
+No public RC number allocated. Guarded swap reclaim succeeded at16:49UTC (8GiB
+free, active priority-1); repeat preflight after cache copy. Private preparation
+owner /workspace/tmp/pix-m7-build65. No compiler or VM running. Completed guest
+/workspace/tmp/pix535-537-vm01/guest.qcow2 remains a guarded-retirement candidate;
+no new removal yet. Prior device permissions are consumed; no owner data touched.
+
+The previous completion record below remains authoritative for the accepted audit,
+source/VM proof and device boundaries. Historical in-progress sections stay historical.
+
 ## Current override — 2026-10-11T16:30:00.360444+00:00
 
 **The approved audit and repair cycle is COMPLETE.** Do not repeat the transfer.

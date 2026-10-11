@@ -540,3 +540,5 @@ cycle; source qualification and landing are still pending.
   the earlier pending status; earlier failed source identities remain preserved.
 
 - 2026-10-11 issue: #540 — Finished audit had no hash-bound audit-completion.json, so phase-prefixed title/underscore folder did not reset the legacy cadence. Guard: existing tools/ceremony-check completion validator plus the explicit closeout procedure in .claude/rules/ceremonies.md. Fresh closed/completed tracker bytes and resolution lint now supply the marker.
+
+- 2026-10-11 issue: #528 — Source-fetch proof66/67 imposed strict shell options before config/options, unlike framework entrypoints, and failed in initialization. Guard: pinned-builder proof68 uses normal startup semantics, then asserts checksum/output and corrupt-download refusal. Original failed wrappers and terminal receipts remain in the component-input packet.

@@ -9,14 +9,16 @@ The full original bodies/comments are retained in
 ## Subsequent owner feedback — 2026-10-11
 
 The18-issue/four-bug table below is the earlier snapshot, not the live count.
-Before the next freeze, #536 owns Dropbox phone-pointer activation failures
-and #537 owns clear configured-connection management (D-CLOUD-183). Both need
-source/flow decisions and applicable VM/frame proof. #528 component/source
-choices remain independently actionable. Do not freeze while these firmware
-changes remain undefined. #534 is a diagnosed preserved fixed red LED setting;
-#535/D-UI-125 open-network password behavior is now in M7.P5. Evidence:
-[owner feedback](../qa-logs/2026-10-11-cloud-owner-feedback/README.md).
-The #535–#539 source work and isolated VM proof are in progress. No new combined image or owner-device mutation is running.
+#535/#536/#538/#539 and the seven #540 audit repairs are now source/VM-qualified
+and closed. #537 retains only its explicit combined-image clean/retained criterion.
+The published source baseline is153bfa6b794d71c1f66707f2cb2aaf9673bc9fe8 with
+ESc8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78. #528's subsequent engineering
+input disposition preserves all capabilities: eleven scoped recipe declarations,
+proven inherited HarfBuzz ICU metadata and an immutable checksum-pinned fetch of
+the identical Doom archive. [Disposition/evidence](../qa-logs/2026-10-11-component-inputs/README.md).
+Five shader/ABL aggregate gaps, vendor/prebuilt terms and source custody still
+hold publication. This engineering-build disposition is not licence clearance.
+No new combined image or owner-device mutation is running at this checkpoint.
 
 ## Issue disposition
 
@@ -27,7 +29,7 @@ The #535–#539 source work and isolated VM proof are in progress. No new combin
 | #531 (bug) | Source6f1d138adb; host/guest72 controls, old-source failure retained in `2026-10-11-usb-revision`. | Installed networking/MTP bytes and shared USB revision on combined image. |
 | #530 | Sourcef10eec1306; identity host proof in `2026-10-09-build-identity`. | Installed metadata, filenames, distinct same-day identities, updater and INFORMATION proof. |
 | #529 (bug) | Sourcec6afa31db1; readiness controls and deliberate old-source failure. | Installed boot/readiness behavior on new clean/upgraded image. Hardware observations are separate. |
-| #528 | Source-affecting dispositions before freeze; independent retrieval/custody before publication. Corrected notice basis in `2026-10-09-notice-scope/licence-basis-corrected.json`. | 17 declaration gaps, shader/per-file/vendor notices, ABL implementation access and prebuilt provenance; refreshed actual input inventory. Some notice evidence for13 is not13 clearances. |
+| #528 | Source-affecting dispositions before freeze; independent retrieval/custody before publication. Corrected notice basis in `2026-10-09-notice-scope/licence-basis-corrected.json`. | Eleven scoped recipe declarations verified; one inherited declaration proven. Five aggregate gaps, shader/per-file/vendor notices, ABL implementation access and prebuilt provenance remain publication holds; refresh final-image inventory. No count means component clearance. |
 | #510 | Product contract delivered: D-CLOUD-175/178/179; CF10 installed inclusion, clean link, explicit creation and three public-config cases. Close completed after tracker delivery. | #344 owns future-image regression and publication docs; #511 owns live guide work. No migration restart. |
 | #493 | Completed cleanup remains complete; present capacity and next budget recorded below. | Keep open for remaining historical-store classification, end-of-test cadence and measured future launch preflights. No deletion or hardware purchase inferred. |
 | #395 | Active supervision applies now. Disconnected delivery/destination and delivery-failure proof are explicitly later, outside M7. | Move out of M7 to Backlog; keep acceptance and original owner request. A logged result alone is not a chat notification. |
@@ -67,12 +69,13 @@ The entire original contract and comments remain in the snapshot.
 ## Next build plan and freeze boundary
 
 Reference distribution source:
-`40bc5469b9fdf8129e7ac58d57189b7ef9154cc5`, including #529/#530/#531/#532.
-ES pin `1d76b3da7da75794066df1c089931b890304da7a`;
+`153bfa6b794d71c1f66707f2cb2aaf9673bc9fe8`, including #529–#540 qualified source,
+plus the #528 component-input delivery commit.
+ES pin `c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78`;
 splash pin `8c71126ceef702528c87a4c49625e64988609f26`;
 container `sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39`.
 Read these actual pins again when freezing. **This is a proposed source set,
-not a final freeze:** first resolve #528, #536 and #537 choices that change shipped content.
+not a final freeze:** land the verified #528 input delta, then freeze the exact delivery head. The remaining #537 criterion needs that assembled image.
 Any such change needs a new full distribution commit, updated component/source
 mapping and explicit delta review before the build starts. Docs-only delivery
 commits also change BUILD_ID and must be included in the final manifest.
@@ -87,7 +90,7 @@ Can this be done on the VM? Yes: build/metadata tests are host-side; clean,
 retained-storage/public-configuration and interface assertions use disposable
 synthetic guests. No personal Dropbox fixture or owner device is needed.
 
-1. Resolve firmware-affecting #528/#536/#537 dispositions; read current M7 issues; freeze
+1. Verify delivery of the #528 engineering dispositions and completed #536/#537 source; read current M7 issues; freeze
    one clean build/* checkout with exact source/pin/container/time/qualifier,
    manifest and source index. Recheck package freshness under its existing policy.
 2. Remeasure capacity and host RAM/swap; retain package concurrency limits.

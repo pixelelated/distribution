@@ -1,0 +1,17 @@
+watch-build: recording in /workspace/repos/rocknix.worktrees/m7-component-inputs/.build-runs/20261011T165058Z-275d523a
+Python 3.10.12
+[1;36mGET[0m      idtech-lr (archive)
+--2026-10-11 16:50:59--  https://raw.githubusercontent.com/ROCKNIX/packages/4cb65b687c90f56856e9d6a55e51f56a09955699/doom.tar.gz
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.111.133, 185.199.108.133, 185.199.109.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.111.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 1689157 (1.6M) [application/octet-stream]
+Saving to: '/proof/sources/idtech-lr/idtech-lr-doom-1.0.tar.gz'
+
+          /proof/so   0%[                    ]       0  --.-KB/s               /proof/sources/idte 100%[===================>]   1.61M  9.20MB/s    in 0.2s    
+
+2026-10-11 16:50:59 (9.20 MB/s) - '/proof/sources/idtech-lr/idtech-lr-doom-1.0.tar.gz' saved [1689157/1689157]
+
+    [1;32mINFO[0m      Calculated checksum: ff35cde05801cfb27005229a6c55f20130ffa8f026ca27d7717c03152634e168
+[1;36mUNPACK[0m      idtech-lr
+config/functions: line 31: NOONEXIT: unbound variable

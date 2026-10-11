@@ -1,0 +1,22 @@
+{
+  "utc": "2026-10-11T16:56:19.123134+00:00",
+  "available_bytes": 1299586142208,
+  "measurements_bytes": {
+    "vm18_build_root": 111989268480,
+    "h70002_worktree": 143922823168,
+    "sm8550_02_worktree": 182459289600,
+    "source_cache": 68023939072,
+    "required_source_custody": 11815649280
+  },
+  "next_stage_terms_bytes": {
+    "new_root_and_growth": 161061273600,
+    "independent_copy_allowance": 161061273600,
+    "source_growth": 53687091200,
+    "firmware": 42949672960,
+    "guests": 68719476736,
+    "operating_reserve": 107374182400
+  },
+  "scope": "du allocated-byte measurements; conservative incremental forecast, not a reservation",
+  "fits_now": true,
+  "retirement": "Stopped5.1GiB QA disk still requires refreshed dependency checks before removal; no payload removed by this report"
+}
