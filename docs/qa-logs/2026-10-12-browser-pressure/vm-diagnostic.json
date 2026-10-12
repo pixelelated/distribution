@@ -1,0 +1,25 @@
+{
+  "memory_mib_assigned": 1024,
+  "mem_total_kib_observed": 810368,
+  "display": "640x480",
+  "renderer": "headless software-rendered VM; H700 GPU and CPU not reproduced",
+  "frontend": "Existing signin-memory launches directly; ES remains resident. This does not exercise ApiSystem::launchCloudSignIn suspension.",
+  "psi_available": false,
+  "simple_page": {
+    "seconds": 35,
+    "original_exit": 0,
+    "loaded": true
+  },
+  "provider_first_page": {
+    "seconds": 90,
+    "original_exit": 0,
+    "loaded": true,
+    "full_hang_reproduced": false
+  },
+  "teardown": "All browser processes absent afterward; MemAvailable recovered to411020KiB. The helper's immediate one-second free-after value118MiB was transient, not retained memory leakage.",
+  "watchers": [
+    "20261012T202903Z-1e75b980",
+    "20261012T203032Z-1bb02296",
+    "20261012T203218Z-f55c5970"
+  ]
+}

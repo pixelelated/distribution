@@ -211,3 +211,15 @@ Actual process exits and disk/UEFI/key retirement are recorded in
 [the proof packet](qa-logs/2026-10-11-usb-revision/README.md). CONFIG_USB_GADGET
 is disabled; no kernel-write, enumeration or transfer claim. No ES/presentation
 change, personal device action or assembled-image qualification.
+
+### 2026-10-12 20:43 UTC — #570 bounded low-memory browser diagnosis
+
+Accepted VM20,1024MiB diagnostic profile instead of canonical8192MiB,16GiB
+disk,640x480/software rendering. Original boot/simple-page/provider-page
+owners0. Loaded example.org35s279MiB and public unauthenticated login90s
+385MiB summed peak RSS; reviewed provider frames retained. Full reported
+hang not reproduced, no authentication or input-latency success claim, no
+ES handoff exercised. No guest PSI; visible RAM791MiB versus H700974MiB.
+Seven known clean account surfaces have zero populated credential fields
+(#565); not a universal firmware secret scan. Guest/key/disk retired after
+compact evidence at [browser pressure](qa-logs/2026-10-12-browser-pressure/README.md).

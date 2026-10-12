@@ -1,0 +1,88 @@
+{
+  "scope": "known player and developer account fields in default and clean runtime configuration; no whole-image secret claim",
+  "files": [
+    {
+      "path": "/usr/config/system/configs/system.cfg",
+      "exists": true,
+      "fields": [
+        {
+          "field": "global.retroachievements.password",
+          "populated": false
+        },
+        {
+          "field": "global.retroachievements.username",
+          "populated": false
+        }
+      ]
+    },
+    {
+      "path": "/usr/config/emulationstation/es_settings.cfg",
+      "exists": true,
+      "fields": []
+    },
+    {
+      "path": "/usr/config/retroarch/retroarch.cfg",
+      "exists": true,
+      "fields": [
+        {
+          "field": "cheevos_password",
+          "populated": false
+        },
+        {
+          "field": "cheevos_token",
+          "populated": false
+        },
+        {
+          "field": "cheevos_username",
+          "populated": false
+        }
+      ]
+    },
+    {
+      "path": "/etc/retroarch.cfg",
+      "exists": true,
+      "fields": []
+    },
+    {
+      "path": "/storage/.config/system/configs/system.cfg",
+      "exists": true,
+      "fields": [
+        {
+          "field": "global.retroachievements.password",
+          "populated": false
+        },
+        {
+          "field": "global.retroachievements.username",
+          "populated": false
+        }
+      ]
+    },
+    {
+      "path": "/storage/.config/emulationstation/es_settings.cfg",
+      "exists": true,
+      "fields": []
+    },
+    {
+      "path": "/storage/.config/retroarch/retroarch.cfg",
+      "exists": true,
+      "fields": [
+        {
+          "field": "cheevos_password",
+          "populated": false
+        },
+        {
+          "field": "cheevos_token",
+          "populated": false
+        },
+        {
+          "field": "cheevos_username",
+          "populated": false
+        }
+      ]
+    }
+  ],
+  "populated_fields": 0,
+  "source": "1a026648442321609b2288c2c9c06803817f9df2",
+  "fresh_storage": true,
+  "no_accounts_entered": true
+}

@@ -609,3 +609,7 @@ cycle; source qualification and landing are still pending.
 - 2026-10-12 16:17 UTC — #559 initial upstream-review summary omitted D-WORKFLOW-116/117 and described the already-approved cadence as undecided. Broad archaeology wording missed the differently phrased register rows; direct cadence/rolling/pin-versus-track search recovered them. Corrected tracker/review/work log; existing read-before-pending rule remains sufficient. issue: #559.
 
 - 2026-10-12 17:24 UTC -- #563 new-branch push guard rechecked1360 already-public fork paths because its oldest incoming parent was upstream; a300-second command bound expired, then SSH closed during the longer retry. Original failures retained; seed only the already-public next ref before the guarded product delta push, with SSH keepalives and a bounded watcher. No hook bypass or source-check omission. -- guard: same pre-push guard on explicit published base; verify remote source delta -- issue: #563
+
+- 2026-10-12: Automatic review refused publishing private owner incident/account context verbatim; retained the original privately and filed a sanitized product diagnosis. Public tracking should carry value-free findings, with private incident evidence separate. issue: #569
+
+- 2026-10-12 20:43 UTC — #570 a simple loaded-page memory baseline does not cover a provider navigation chain; assigned VM RAM also differs from guest-visible MemTotal. Keep page-state/frame evidence and profile limits beside resource numbers, and verify process exit plus settled memory rather than a one-second teardown sample. issue: #570
