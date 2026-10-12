@@ -1,55 +1,160 @@
 # Saved Session State
 
-> **Saved**: 2026-10-12T05:36:03.760513+00:00
-> **Branch**: feature/m7-component-inputs
+> **Saved**: 2026-10-12T17:02:12.649225+00:00
+> **Branch**: feature/m7-component-inputs (record delivery); feature/m7-rocknix-20261001 (source qualification)
 > **Repo**: pixelelated/distribution
 
 ## Start here
 
-pixelelated is an immutable handheld Linux distribution, built by cross-compilation, not an app. Start with next's AGENTS.md, all every-session rules, docs/device-testing-policy.md and the live M7 milestone body. The tracking checkout is `/workspace/repos/rocknix.worktrees/m7-component-inputs`; primary `/workspace/repos/rocknix` stays on `next`. Leave the stale harness conflict-resolution alone. The feature pointer links here without duplicating status. Current published HEAD before the new #561 documentation delivery isafb6cb4ef7287b30ca91ec015a8ee7d304c66844; inspect actual branch/remote state and delivery receipts instead of assuming it remains current.
+pixelelated is an immutable handheld Linux distribution, not an app. Read next's
+AGENTS.md, every-session rules, docs/device-testing-policy.md and the live M7
+milestone body. The harness conflict-resolution worktree is stale: leave it alone.
+Primary `/workspace/repos/rocknix` stays on next. Current source worktree is
+`/workspace/repos/rocknix.worktrees/m7-rocknix-20261001`; records are prepared in
+`/workspace/repos/rocknix.worktrees/m7-component-inputs` and integrated into next.
 
-**Both RG SP/Nova updates and both approved cleanup batches are COMPLETE. No device or cleanup process is running. Do not replay any of them.** The owner is using the handhelds. The latest request made Nova available for logs after one shutdown restarted into an ABL Linux-load error; the read-only capture and initial investigation are complete, with cause unknown. Optional context questions remain pending.
+The owner has selected ROCKNIX stable20261001 as the next candidate foundation:
+D-WORKFLOW-161 supersedes the September29 base in D-WORKFLOW-111, retaining the
+freeze discipline and D-WORKFLOW-116/117 cadence/cost policy. Exact upstream base
+is `c445081a59518f37d9776e5412dd7b14910696f7`. Later upstream/next is excluded.
+
+**No build, VM, device operation or cleanup is running.** Owner testing of accepted
+bc9dfe8141 firmware can continue. All previous authorized transfers/reboots and
+both cleanup batches are COMPLETE and must not be replayed. No device consent is
+pending or unconsumed. A new foundation requires new proof; old artifacts remain
+accepted only for their original bytes.
 
 ## Current Focus
 
-The user's latest request is #561: find how RG SP's LED preference became Red and clarify what Default should do. The owner switched to Default themselves; read-only05:30 confirms absent override and green1/red0. Initial source/action-log investigation is complete; original writer remains unknown. A concrete source lead is temporary low-battery flashes calling persistent setters before restoring the prior preference. No reproduced defect or product fix yet. Next meaningful engineering work is VM interruption coverage before deciding a fix. M7 includes #561 before another changed image, with #528 publication work afterward. #558 Nova remains a watch item.
+#563 M7.P5 owns the new foundation. Isolated merge
+`f370dc87873fecb683c6af73d70a2f377715f47f` has parents ca5d034488 and the exact
+stable release. One conflict was resolved by preserving our entire newer
+DuckStation recipe: install-m0755 already implements upstream's chmod change.
+All11 other imported paths match stable and all other fork files are unchanged.
+Three pkgchecks/four syntax checks/common kernel patch dry runs pass.
 
-Prior record delivery afb6cb4ef7287b30ca91ec015a8ee7d304c66844 is COMPLETE: both exact-head checks succeeded, original channels0/actual processes exited, consumption.json recorded, published files read back and #557 closed completed. Never replay delivery01. Latest #561 records are pending a separate documentation commit/delivery; no build, cleanup or device mutation is running.
+**Next repair is #564**, a reproduced Steam runtime replacement regression
+imported from stable. The function removes the old runtime before downloading its
+replacement. Adapted host failure controls: accepted predecessor preserves the
+runtime; stable deletes it. No product repair or installed VM proof yet. Keep the
+source merge on its qualification branch until repaired; the record delivery on
+next carries no newly imported product source.
 
 ## Completed This Session
 
-- #557: RG SP (H700 DDR3, not RG35XX SP) and Nova (SM8550) accepted on distribution bc9dfe8141d9561dc1d8502313d00a84c4566ee8, version0.0.1-dev+20261011T222153Z.gbc9dfe8141d9. Transfers, exactly one approved reboot each, SYSTEM/kernel/boot-chain/ES/RetroArch hashes, preserved mounts/empty update queue and active frontend/NRestarts0 pass. RG SP163 protected files/25,545,421bytes and5 recovery entries unchanged. Nova configured safe scope0files; credentials/paths/settings values unchanged despite system.cfg byte rewrite. Automatic cloud sync off. All four original stage/reboot owners consumed with original channels0 and actual exits. No game/audio/screenshot/input/cloud proof. Devices returned to owner use; no further mutation consent. Public docs/qa-logs/2026-10-12-owner-updates/; private /workspace/tmp/pixelelated-owner-deploy-20261012. #556 RG35XX SP untouched; #557 is closed completed after afb6cb4ef7 publication/readback and successful hosted checks.
-- #493 first64-target cleanup: recovered396,236,480,512bytes; original partial permission failure and successful remaining-scope continuation retained separately. Previous publication81941a48 and its CI are complete. Never replay cleanup01/02 or pix493-retention-complete-delivery01.
-- #493 additional17-tree cleanup: oldapply01 finished05:05:58UTC, accepted/consumed05:06:21. Original inner/outer/tool-wrapper/build and launcher all0; all actual owners absent. Seventeen paths absent/unregistered, all original branches preserved. Recovered1,983,355,252,736bytes; final available3,018,397,261,824bytes, used718,367,342,592bytes, free-reserved200,056,127,488bytes. Independent702 sources/16,307objects/current-cache dependencies verified after removal. Public docs/qa-logs/2026-10-12-storage-retention/oldtrees/completed/. Private /workspace/tmp/pixelelated-m7-retention-20261012-oldapply01; runner /workspace/repos/rocknix/.build-runs/20261012T045053Z-541dd03a. No administrator command or cleanup monitoring remains pending.
-- Custody store /workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03 preserves63,206 recordfiles plus specialinputs,16,307independentobjects/6,855,404,363bytes and702 sourceinputs. Empty Daedalus gitlink and aggregate bootloader wrappers explicitly classified. Three no-network/read-only containers proved retained H70003/SM855003/VM20 at historical container prefixes:29,965links,449alreadyabsenttargets. No old physical tree mounted or links rewritten. Preserve this current-cache launch contract. Earlier custody01/02 refusals and mountproof01 unsupported--label failure remain failures; all successful owners consumed. #528 licence/source publication gaps remain.
-- #534: RG SP read-only follow-up again found led.color=red in live/recovery, red1/green0, no kernel trigger. Installed scripts unchanged from prior diagnosis. No setting changed; default would select green. No applicable upstream H700 LED change found through release20261001/currentnext. Original writer unknown. Evidence docs/qa-logs/2026-10-12-rgsp-led/ and upstream-review/; #534 remains closed expected preference.
-- #558: Nova read-only captures05:04/05:06/05:14UTC, private /workspace/tmp/pixelelated-nova-shutdown-20261012. Linux requests power-off00:47:31,00:50:17,00:58:07EDT; reboot01:01:36EDT; current Linux session begins01:01:47EDT, boot5f141959-7e3a-40ce-81ff-911ffaa30721. No link to a particular failed ABL attempt. Both pstore directories empty and named boot-reason paths absent; SM8550 PSTORE_RAM=m but PSTORE_CONSOLE/soft/hung-lockup detection disabled. Do not import H700 crash-evidence assumptions. ES logs no matching quit-mode entry; optional findmnt command missing, no mount claim. USB power online/Charging at capture does not establish incident cable state. Official ROCKNIX charging docs describe restart on many supported devices while charging, not the Linux-load failure. Source/upstream review identifies no proven fix. Sanitized public docs/qa-logs/2026-10-12-nova-shutdown/. All read receipts0 but optional command failure recorded. No device mutation; private personal log context excluded. #558 open with keep-an-eye-on label, initial triage criteria checked; not a confirmed/fixed software bug.
-- #559 future release-based ROCKNIX integration strategy created from exact owner request. Latest full20261001 commitc445081a59518f37d9776e5412dd7b14910696f7 is11commits beyond frozen9fd38fa87094d4f0e956d03ac6c660fe4fd5e9d6; checked upstream/next d59bdaa28908f7266e40172e088ec40813fd3f46 is205beyondbase. Read-only fetch only. D-WORKFLOW-111 freeze unchanged. Review merge preserving published history is a proposal, not selected policy. #560 future fast-shutdown value/metadata evaluation created: accepted ES setsIgnoreGamelist, skips gamelist saves, then normal teardown and shutdown-P-h. Measured benefit/metadata-loss matrix remain unproved. Public upstream-review packet; both tasks explicitly later, no milestone.
+- #563 created; exact owner request, D-WORKFLOW-161 and M7 order recorded. Active
+  candidate scope, source plan and rc-accept updated in ca5d034488. Intake budget:
+  one source-review session, maximum3 manual conflict files, actual1.
+- Exact stable merge f370dc8787 reviewed. Common Linux7.2 DP-audio patch enters
+  SM8550 with DRM_MSM/DP enabled, requiring Nova kernel qualification; ABL1.2 and
+  FEX's pinned Nixpkgs also require new native/artifact/source evidence. No
+  established fix for the owner's #558 shutdown/bootloader observation.
+- #564 filed and linked as #563 child before synthetic failure controls. Public
+  `docs/qa-logs/2026-10-12-upstream-adoption/` has hashes, results and scope.
+  Raw whitespace warnings belong to upstream unified-patch context bytes;
+  non-patch whitespace passes. Do not rewrite patches to remove context prefixes.
+- #559 corrected: monthly release intake and tracking-with-budget are already
+  decided by D-WORKFLOW-116/117. Reusable selective integration/dependency/cost
+  procedure remains backlog; it does not supersede current exact-base selection.
+- #561 LED preference investigation moved to keep-an-eye-on monitoring by owner
+  direction. Default confirmed in earlier readback; do not run the deferred VM
+  interruption matrix as a new RC gate without a new reason. Historical writer
+  remains unknown; led_flash's persistent setter is an unproved lead.
+- #562 future read-only ROM/cloud integrity comparison filed. Current path/size
+  scan and normal rclone copy are not a checksum audit of every existing local
+  file. Dropbox hashes can avoid remote ROM downloads but local hashing reads the
+  card. No source or personal-cloud action. Direct microSD loading is suitable for
+  the owner's Nova gameplay baseline, independent of later cloud-flow testing.
 
 ## In Progress
 
-Only #561 investigation records and this checkpoint await documentation delivery. Private evidence: `/workspace/tmp/pixelelated-rgsp-led-origin-20261012`; public `docs/qa-logs/2026-10-12-rgsp-led-origin/`. No product source changed. Fresh checkpoint proof and required cheap checks precede the authorized documentation commit. Fresh `/workspace/tmp/pixelelated-m7-records-20261012-delivery02` is prepared, not launched (run.py and tmp/ only). Inspect actual receipts before resuming; never reuse a submitted owner. Never replay consumed delivery01.
+Record publication owner is `/workspace/tmp/pixelelated-upstream-adoption-20261012/delivery01`.
+At stash creation it has not started. Inspect its actual files before any action:
+original run.path/build.rc, inner.rc, outer.rc, result.json, hosted-checks.json and
+consumption.json determine delivery status. A consumed owner is never rerun.
+Earlier afb6cb4ef7 and0fc5a41e99 record deliveries are COMPLETE; their hosted checks
+and original owners succeeded and were consumed. Never replay delivery01/02 from
+`/workspace/tmp/pixelelated-m7-records-20261012-*`.
+
+This delivery publishes records to next and the isolated source branch separately;
+only next runs both hosted record/wordlist workflows, while a feature push runs
+wordlist. Source branch receives the new next records before its push, so its
+canonical handoff is current. Read actual refs and receipts, not pre-push hashes.
+No external model/audit transfer has been started or authorized for this new packet.
 
 ## Next Steps
 
-1. Verify live git/receipt state. Publish the #561 source-investigation records with required cheap checks and fresh checkpoint proof, then consume exact-head hosted checks. Prior afb6cb4ef7 publication and #557 closure are complete. No repeated device read is needed just to resume.
-2. #561: review its exact source lead and create H700-specific VM fixtures for Default/Off/Green/Red, normal flashing and interruption at setter/restore boundaries. Existing tools/nova-led-test offers the adapted-boundary pattern, but does not cover H700 led_flash. Determine a reproducible defect separately from the unknown historical writer; only then qualify a bounded fix before another changed image. The service uses threshold25 by default and H700 DEVICE_LED_CHARGING=false; default is green plus warning, not a continuous charge-color map. Preserve the owner's Default selection; no agent LED change is authorized.
-3. #558 optional shutdown method/time/cable context remains pending. Three power-off requests, one later reboot and absent crash record do not establish cause. No shutdown reproduction is authorized. Source/VM qualification precedes any proposed physical experiment.
-4. #493 exact tail: old recovery firmware after #557's completed need and failed-custody duplicates lie outside the executed17-tree plan. Qualify separately. #555 combined retention/tracking checkbox remains open for that tail. Before ANY new full cache copy/build, implement mandatory retention/capacity acceptance at native/Docker/ad-hoc entrypoints and automatic terminal cleanup with registered dependencies/source preservation/original results. Measure disk/RAM/swap/PSI under D-INFRA-023. No hardware/RAID change selected.
-5. #528/#344/#265/#337/#359 remain release/source/licence/support/adoption/recovery work. LinuxLoader source/contact question remains in M7; no outreach inferred. #559 release integration and #560 fast-shutdown evaluation are future tasks; D-WORKFLOW-111 freeze unchanged. No public RC allocated.
+1. Verify/finish current record and isolated-branch publication, fresh handoff proof,
+   required checks and original owner consumption. Public intake packet is the
+   source of facts; no repeated device read is needed to resume.
+2. On feature/m7-rocknix-20261001, repair #564 before source promotion. Read relevant
+   rules first. Preserve old runtime and library links through download, extraction,
+   validation and activation failures; prove successful replacement, interruption/
+   retry and space handling with synthetic fixtures. Never execute the full Steam
+   installer on host or owner devices. Whole installer sources /etc/profile and
+   performs additional Steam/FEX operations. Existing controls extracted only the
+   exact function with stub transports; installed VM acceptance remains owed.
+3. Complete #493 mandatory retention/capacity enforcement before ANY new full cache
+   copy/build. Current entrypoints monitor but do not enforce this lifecycle yet.
+   Preserve source custody, cache mount contracts and original results. Measure
+   disk/RAM/swap/PSI for the next build under D-INFRA-023.
+4. Freeze repaired source; new GENERIC_X64 clean and retained-storage upgrade,
+   full VM/local protocols/time-to-play and required independent review precede
+   H700 then SM8550 builds. Map changed kernel/ABL/FEX inputs and #528 inventory.
+   Previous audits remain scoped historical proof; do not replay their transfers.
+5. Qualify native/boot-chain/device facts with any newly required named permissions;
+   finish #528/#344/#265 publication/source/licence gates. No public RC allocated.
 
-## Key Files Modified
+## Retained operational facts
 
-Device completion packet; storage oldtrees completion and original failures/preparation; RG SP LED and Nova incident packets; upstream comparison; device-facts/next-candidate-scope; October12 worklog/INDEX/friction; canonical checkpoint/archives and pure feature pointer. No product source edits. Tracker #493/#555/#557/#558/#534 and M7 readbacks are in final01; #559/#560 creation receipts in /workspace/tmp/pixelelated-upstream-review-20261012.
+- Accepted device source bc9dfe8141d9561dc1d8502313d00a84c4566ee8, identity
+  0.0.1-dev+20261011T222153Z.gbc9dfe8141d9, ES c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78,
+  rclone1.75.2. #557 RG SP and Nova acceptance complete; #556 RG35XX SP untouched.
+  RG SP is H700 DDR3, not the RG35XX SP model. RG SP163 protected files and5
+  recovery entries preserved; Nova configured safe scope0files/settings semantics
+  preserved. Automatic sync was off at acceptance, not a claim about later owner use.
+  Public docs/qa-logs/2026-10-12-owner-updates/. All original owners consumed.
+- #493 first64-target cleanup recovered about396GB. Additional17-tree cleanup
+  finished05:05:58UTC, consumed05:06:21, recovered1,983,355,252,736bytes. All paths
+  absent/unregistered; original branches retained. Available3,018,397,261,824bytes
+  at that measurement, current three caches about446GB. No root command pending.
+  Public docs/qa-logs/2026-10-12-storage-retention/oldtrees/completed/.
+- Source custody `/workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03`:
+  702inputs/16,307independentobjects/6,855,404,363bytes verified. Preserve current
+  cache launch contracts: H70003 mounted at historical h70001 prefix, SM855003 at
+  sm855001, VM replacement20 at m7-pixelelated. No old physical tree is needed;
+  do not rewrite retained links. Older recovery payloads/failed custody duplicates
+  remain a separate #493/#555 retirement tail, not authorization for deletion.
+- #558 Nova one shutdown restarted into an ABL Linux-load error, then restart
+  worked. Read-only logs captured; cause unknown, no pstore record, SM8550 has
+  less persistent crash evidence than H700. Charging is an unproved lead. Keep
+  monitoring; optional incident method/time/cable context remains unanswered.
+  No deliberate shutdown reproduction is authorized. #560 fast shutdown future.
+- #528 ABL implementation/source/licence and other publication gaps remain even
+  with ABL1.2. No outbound upstream message or contact has been authorized here.
+
+## Key Files and Related Context
+
+- `docs/qa-logs/2026-10-12-upstream-adoption/`: exact merge review and source controls.
+- `docs/decision-register.md`: D-WORKFLOW-161; `docs/releases/next-candidate-scope.md`
+  and `docs/releases/rc-accept.txt`: active candidate references.
+- M7 live priority: https://github.com/pixelelated/distribution/milestone/7.
+- #563/#564 active; #493 next-build lifecycle; #528 publication; #559/#560/#562 backlog;
+  #558/#561 watch items. Private current receipts:
+  `/workspace/tmp/pixelelated-upstream-adoption-20261012/`.
+- Prior full checkpoint: `archived/saved-session-state-next-20261012T170212Z.md`. Its jobs/priorities are historical.
 
 ## Notes for Next Session
 
-Use require_escalated for shell because the harness sandbox fails initializing /tmp synthetic .git mount (quota) and active paths are outside its writable root. Use a named /workspace/tmp owner for TMPDIR. No general sudo or swap-helper misuse. Do not display raw configs or config-derived hashes. Device reads filter key/pass/token/user/psk; structured preservation evidence stays private. Reads are allowed; writes run only with named authorization through tools/device-act. Device alias rg35xxsp requires an explicit Hostname override for Nova100.84.232.105 and RG SP100.75.221.73.
-
-Accepted current frozen caches: m7-pixelelated-h700-03 (bundle66273ff16383957687af44728a9e4e2c4bf1242c0217cf681dca8abee858d9b7), m7-pixelelated-sm8550-03 (bundlea480210cd8837f20fb67a80508c517308cc0326ed2c1544493e3f56d125f1f2f), m7-pixelelated-replacement20 (bundlebd85b1b42f0170d7d82555af09cbe18762d6fc7eae63293bd0a8043e652db548). No completed build/audit/guest needs repeating. Previous checkpoints are archived, never treat their active jobs as current without live receipts.
+Shell needs require_escalated because the stale harness sandbox fails its /tmp
+synthetic .git initialization (quota), and current worktrees lie outside its
+writable root. Use task-owned TMPDIR under /workspace/tmp; no general sudo.
+Device reads filter key/pass/token/user/psk, private hashes/configs stay private.
+Mutations need named authority and tools/device-act. Device alias rg35xxsp needs
+Hostname override: RG SP100.75.221.73, Nova100.84.232.105. Do not connect merely to
+reconstruct known state; owners are using both.
 
 ## Open Questions
 
-RG SP owner-selected Default is confirmed. No change to it is requested. #561 has a source-level interruption lead, not proof of historical cause.
-
-Optional #558 shutdown method/time and cable state cards are pending; no response yet. Nothing is awaiting device or root permission for the completed work. A later intentional power-off reproduction would be a new named action.
+No new base-selection answer is pending. Implement the selected exact release.
+#558 optional historical details remain unanswered and do not block source work.
