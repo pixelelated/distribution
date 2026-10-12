@@ -1,0 +1,68 @@
+{
+  "utc": "2026-10-12T17:19:27.800888+00:00",
+  "source": "bc9dfe8141d9561dc1d8502313d00a84c4566ee8",
+  "scope": "selected files from exact accepted Nova update SYSTEM; not a whole-image secret audit or clean-boot proof",
+  "credential_values_recorded": false,
+  "accepted_system_hash_matches": true,
+  "system_sha256": "c97f57f1c9926dc294a0c08236e0d3229f0a654a9e0f2b2ac29be2087445bf89",
+  "default_configs": [
+    {
+      "path": "usr/config/system/configs/system.cfg",
+      "read_exit": 0,
+      "fields": [
+        {
+          "field": "global.retroachievements.password",
+          "nonempty": false
+        },
+        {
+          "field": "global.retroachievements.username",
+          "nonempty": false
+        }
+      ],
+      "populated_player_auth_fields": 0
+    },
+    {
+      "path": "usr/config/emulationstation/es_settings.cfg",
+      "read_exit": 0,
+      "fields": [],
+      "populated_player_auth_fields": 0
+    },
+    {
+      "path": "usr/config/retroarch/retroarch.cfg",
+      "read_exit": 0,
+      "fields": [
+        {
+          "field": "cheevos_password",
+          "nonempty": false
+        },
+        {
+          "field": "cheevos_token",
+          "nonempty": false
+        },
+        {
+          "field": "cheevos_username",
+          "nonempty": false
+        }
+      ],
+      "populated_player_auth_fields": 0
+    },
+    {
+      "path": "etc/retroarch.cfg",
+      "read_exit": 0,
+      "fields": [],
+      "populated_player_auth_fields": 0
+    }
+  ],
+  "es_binary": {
+    "sha256": "e71a3f8dec7035ac03def95fcadcd639b49444ba11f4124539512b4bf58ee056",
+    "embedded_screenscraper_developer_pair_pattern": false,
+    "embedded_ra_developer_pair_pattern": false,
+    "scope": "known compiled URL credential formats only; no universal absence claim"
+  },
+  "nova_upgrade_settings": {
+    "parsed_settings_unchanged": true,
+    "scope": "existing private before/after October12 update receipts; original sign-in author unknown"
+  },
+  "result": "TRIAGED",
+  "system_scratch_removed": true
+}
