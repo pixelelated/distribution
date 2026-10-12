@@ -1,0 +1,10 @@
+{
+  "result": "PASS",
+  "checks": [
+    "Owned read-only parent: remove exact file and restore mode555",
+    "Unlink failure: preserve file and restore mode555",
+    "Changed parent identity refused before mutation",
+    "Changed file identity refused before mutation",
+    "Redirected parent refused before mutation"
+  ]
+}

@@ -1,5 +1,5 @@
 # Session pointer
 
-Canonical state: [.github/sessions/saved-session-state-next.md](saved-session-state-next.md).
+Canonical state: [saved-session-state-next.md](saved-session-state-next.md).
 
-October12 current work is #493 newly authorized cleanup and #557 RG SP/Nova updates. Cleanup is prepared; administrator readback pending. Transfers have not started; preservation-hash permission and Nova power pending, reboots separately pending. Prior audits/builds/VM20 and #556 RG35XX SP update are complete and must not be replayed. Read the canonical checkpoint and live milestone before acting.
+October12 first #493 cleanup is complete:64 targets/~396GB; original permission failure and fresh continuation preserved. Seventeen older roots remain; actual build entrypoints lack automatic retention enforcement, now explicit #493 work before another build. D-INFRA-023 schedules next-build resource measurement. #557 device transfers have not started and retain their pending hash/reboot/power prerequisites. Never replay completed cleanup, audits, VM20, builds or #556 RG35XX SP update.

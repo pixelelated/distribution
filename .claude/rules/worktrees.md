@@ -150,14 +150,29 @@ needed by active or queued builds and the record of failures. Protect transitive
 consumer test still needs them; a completed consumer does not extend retention.
 Independent, verified compact evidence can replace unnecessary full build trees.
 
+Before a cleanup batch starts, inspect parent-directory permissions for every
+selected loose payload as well as worktree contents. Immutable firmware stores
+may use owner-owned mode555 directories. An authorized unlink may temporarily
+add owner write/search permission only through an identity-checked directory
+descriptor, restoring the original mode even on failure; never chmod the
+store recursively or change payload modes. A partial batch retains its original
+failure and deletion journal. Resume only its verified remaining targets under
+a fresh watched owner, with the same source, preservation and dependency guards
+(#493; October12 cleanup02 records the executable controls).
+
+D-INFRA-023 requires the next actual build to record memory peak, swap activity,
+memory/I/O pressure and build/cache/QA disk peaks through the watcher before a
+hardware recommendation. Retained historical copies are accounted separately
+from the current working set; a capacity margin is not measured peak use.
+
 The next cleanup report names exact proposed removals, protected identities,
 dependency checks, preservation cost, expected net recovery and next-build
 headroom. Inspect active host processes and container mounts before execution;
 unreadable or unclassified dependencies prevent a removal proposal. Use the
 standard guarded worktree helper and watched owner for an authorized batch,
 then verify removal, retained inputs and actual free space. A retention review
-never extends an earlier batch's deletion scope. #461 tracks the repeatable
-planner and first later batch; automatic cleanup is not implemented.
+never extends an earlier batch's deletion scope. #461 delivered the read-only planner and first later batch. #493 owns remaining
+classification and mandatory lifecycle enforcement; automatic cleanup is not implemented.
 
 ### Retain the record; give a large runtime artifact a reason to stay
 

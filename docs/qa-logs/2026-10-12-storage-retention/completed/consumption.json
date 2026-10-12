@@ -1,0 +1,39 @@
+{
+  "utc": "2026-10-12T02:38:07.254788+00:00",
+  "result": "PASS",
+  "owner": "/workspace/tmp/pixelelated-m7-retention-20261012-cleanup02",
+  "watch_run": "/workspace/repos/rocknix.worktrees/m7-component-inputs/.build-runs/20261012T023312Z-60f145cf",
+  "channels": {
+    "inner.rc": 0,
+    "outer.rc": 0,
+    "tool-wrapper.rc": 0,
+    "build.rc": 0,
+    "launcher": 0
+  },
+  "exited_pids": [
+    2220123,
+    2220093,
+    2220095,
+    2220090
+  ],
+  "targets_removed": 64,
+  "retained_record_files": 1284,
+  "preserved_build_records": 7355,
+  "protected_firmware_files": 12,
+  "recovered_bytes": 396236480512,
+  "observed_available_before_bytes": 646417022976,
+  "before_observation_utc": "2026-10-12T02:25:04Z",
+  "continuation_recovered_bytes": 341461684224,
+  "original_failed_run_removed_allocated_bytes": 54775377920,
+  "original_failed_owner": "/workspace/tmp/pixelelated-m7-retention-20261012-cleanup01",
+  "original_failed_channels": {
+    "inner.rc": 1,
+    "outer.rc": 1,
+    "tool-wrapper.rc": 1,
+    "watch_build": 1,
+    "launcher": 1
+  },
+  "available_bytes": 1042653503488,
+  "plan_sha256": "d8abc329395b993bc4b6196824772022087a9373d84b45ce0908635a84721a31",
+  "scope": "Original cleanup01 failure is retained; cleanup02 continuation succeeds. All original execution channels and actual owner exits consumed. Executor rehashed protected firmware, compact records and source custody after removal. Other superseded build trees remain for source-custody review."
+}

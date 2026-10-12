@@ -1,0 +1,22 @@
+{
+  "utc": "2026-10-12T02:30:04.436412+00:00",
+  "result": "FAIL_PARTIAL",
+  "owner": "/workspace/tmp/pixelelated-m7-retention-20261012-cleanup01",
+  "channels": {
+    "inner.rc": 1,
+    "outer.rc": 1,
+    "tool-wrapper.rc": 1,
+    "watch_build": 1,
+    "launcher": 1
+  },
+  "exited_pids": [
+    2183347,
+    2183349,
+    2183377,
+    2183346
+  ],
+  "removed_targets": 18,
+  "removed_allocated_bytes": 54775377920,
+  "available_after_bytes": 701192101888,
+  "reason": "Read-only owner-owned candidate-store parent directory refused unlink. No other mutation after failure. A fresh owner continues only the remaining exact targets."
+}

@@ -1,0 +1,54 @@
+{
+  "utc": "2026-10-12T01:51:36.767874+00:00",
+  "result": "PASS",
+  "links": [
+    {
+      "source": "/workspace/tmp/pixelelated-m7-upgrade19/bin/rclone",
+      "target": "/workspace/tmp/pixelelated-m7-image19/root/usr/bin/rclone",
+      "link": "/workspace/tmp/pixelelated-m7-image19/root/usr/bin/rclone",
+      "classification": "COMPLETED_HISTORICAL_CONSUMER",
+      "exited_pids": [
+        3001012
+      ],
+      "terminal_result": 1,
+      "reason": "Original failed aggregate retained. Pair-down and WebDAV-down both 0; launcher and residual recorded guest PIDs absent. Later VM20 qualification supersedes this run.",
+      "evidence": {
+        "/workspace/tmp/pixelelated-m7-upgrade19/result.json": "fdc94aa396ea008f059b5683c5d2f44e69199a4bf70382e56a745e7001fbb4f5",
+        "/workspace/tmp/pixelelated-m7-upgrade19/launcher-result.json": "34106d24f5f542300c3dffc5bcc039aa4e40c9fd40b6d81523e49cfc72240fd6",
+        "/workspace/tmp/pixelelated-m7-upgrade19/tool-wrapper.rc": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+      }
+    },
+    {
+      "source": "/workspace/tmp/pixelelated-m7-upgrade19b/bin/rclone",
+      "target": "/workspace/tmp/pixelelated-m7-image19/root/usr/bin/rclone",
+      "link": "/workspace/tmp/pixelelated-m7-image19/root/usr/bin/rclone",
+      "classification": "COMPLETED_HISTORICAL_CONSUMER",
+      "exited_pids": [
+        3044901
+      ],
+      "terminal_result": 1,
+      "reason": "Original failed aggregate retained. Pair-down and WebDAV-down both 0; launcher and residual recorded guest PIDs absent. Later VM20 qualification supersedes this run.",
+      "evidence": {
+        "/workspace/tmp/pixelelated-m7-upgrade19b/result.json": "fdc94aa396ea008f059b5683c5d2f44e69199a4bf70382e56a745e7001fbb4f5",
+        "/workspace/tmp/pixelelated-m7-upgrade19b/launcher-result.json": "b6373ca6ec80fa716316fd6f83733de8cbd064f34da283b1007edae5c5686a54",
+        "/workspace/tmp/pixelelated-m7-upgrade19b/tool-wrapper.rc": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+      }
+    },
+    {
+      "source": "/workspace/tmp/pixelelated-m7-upgrade19c/bin/rclone",
+      "target": "/workspace/tmp/pixelelated-m7-image19/root/usr/bin/rclone",
+      "link": "/workspace/tmp/pixelelated-m7-image19/root/usr/bin/rclone",
+      "classification": "COMPLETED_HISTORICAL_CONSUMER",
+      "exited_pids": [
+        3073284
+      ],
+      "terminal_result": 1,
+      "reason": "Original failed aggregate retained. Pair-down and WebDAV-down both 0; launcher and residual recorded guest PIDs absent. Later VM20 qualification supersedes this run.",
+      "evidence": {
+        "/workspace/tmp/pixelelated-m7-upgrade19c/result.json": "55da5a82423ecb865874d402943ea4bfa99a814c1a1eb926da0db4ccfe1632b3",
+        "/workspace/tmp/pixelelated-m7-upgrade19c/launcher-result.json": "760b795f1cbc477f022de10c2483e5027a9f4c81c802ebd72fd29409386d57e4",
+        "/workspace/tmp/pixelelated-m7-upgrade19c/tool-wrapper.rc": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+      }
+    }
+  ]
+}

@@ -1,0 +1,215 @@
+{
+  "utc": "2026-10-12T02:41:57.336995+00:00",
+  "filesystem_total_bytes": 3936820731904,
+  "used_bytes": 2694111567872,
+  "available_bytes": 1042653036544,
+  "free_reserved_bytes": 200056127488,
+  "current_build_trees": [
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-03",
+      "head": "bc9dfe8141d9561dc1d8502313d00a84c4566ee8",
+      "branch": "build/m7-pixelelated-h700-03",
+      "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "tracked_diff_bytes": 0,
+      "status_lines": 0,
+      "allocated_bytes": 144494342144,
+      "state": "CURRENT_HOLD"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20",
+      "head": "1a026648442321609b2288c2c9c06803817f9df2",
+      "branch": "build/m7-pixelelated-replacement20",
+      "tracked_diff_sha256": "42065b015a65d1e363d5daca24c1d2754007b7296faff853b7e5aa7283c3a3c6",
+      "tracked_diff_bytes": 4669,
+      "status_lines": 1,
+      "allocated_bytes": 118521081856,
+      "state": "CURRENT_HOLD"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-03",
+      "head": "bc9dfe8141d9561dc1d8502313d00a84c4566ee8",
+      "branch": "build/m7-pixelelated-sm8550-03",
+      "tracked_diff_sha256": "7019a77303fe265434194cc679621a9e6ca9bcec966eb86f04e6392332506424",
+      "tracked_diff_bytes": 1664,
+      "status_lines": 1,
+      "allocated_bytes": 183060660224,
+      "state": "CURRENT_HOLD"
+    }
+  ],
+  "current_build_tree_bytes": 446076084224,
+  "historical_build_trees_remaining": [
+    {
+      "path": "/workspace/repos/rocknix.worktrees/device-flashing",
+      "head": "4234be0b6b4297e95525ac0941e3670f08d2fde0",
+      "branch": "build/device-flashing",
+      "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "tracked_diff_bytes": 0,
+      "status_lines": 0,
+      "allocated_bytes": 172171264,
+      "state": "SOURCE_CUSTODY_REVIEW_REQUIRED"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/devices",
+      "head": "1acdaf2cce908b25758a004dca0f22ad3ff7af49",
+      "branch": "build/devices",
+      "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "tracked_diff_bytes": 0,
+      "status_lines": 3,
+      "allocated_bytes": 498925420544,
+      "state": "SOURCE_CUSTODY_REVIEW_REQUIRED"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/generic-x64",
+      "head": "b2378d9c33196f24066f1bcd233e14fa88211001",
+      "branch": "build/generic-x64",
+      "tracked_diff_sha256": "42065b015a65d1e363d5daca24c1d2754007b7296faff853b7e5aa7283c3a3c6",
+      "tracked_diff_bytes": 4669,
+      "status_lines": 1,
+      "allocated_bytes": 125484761088,
+      "state": "SOURCE_CUSTODY_REVIEW_REQUIRED"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-generic-x64",
+      "head": "61b64817bf8ab48237e51abb395484e36cbf924b",
+      "branch": "build/m7-generic-x64",
+      "tracked_diff_sha256": "42065b015a65d1e363d5daca24c1d2754007b7296faff853b7e5aa7283c3a3c6",
+      "tracked_diff_bytes": 4669,
+      "status_lines": 1,
+      "allocated_bytes": 115997405184,
+      "state": "SOURCE_CUSTODY_REVIEW_REQUIRED"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated",
+      "head": "b137d8c37323abbf07788af8bf8dbd495a31e9c9",
+      "branch": "build/m7-pixelelated",
+      "tracked_diff_sha256": "42065b015a65d1e363d5daca24c1d2754007b7296faff853b7e5aa7283c3a3c6",
+      "tracked_diff_bytes": 4669,
+      "status_lines": 1,
+      "allocated_bytes": 116423688192,
+      "state": "SOURCE_CUSTODY_REVIEW_REQUIRED"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01",
+      "head": "43d0bc3bf47fd858ba8d5c55fbdf52535a0db2aa",
+      "branch": "build/m7-pixelelated-h700-01",
+      "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "tracked_diff_bytes": 0,
+      "status_lines": 0,
+      "allocated_bytes": 144185819136,
+      "state": "SOURCE_CUSTODY_REVIEW_REQUIRED"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02",
+      "head": "8b5113fa164ada7d002ab138b1e3a9bf795e9de5",
+      "branch": "build/m7-pixelelated-h700-02",
+      "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "tracked_diff_bytes": 0,
+      "status_lines": 0,
+      "allocated_bytes": 143878791168,
+      "state": "SOURCE_CUSTODY_REVIEW_REQUIRED"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement01",
+      "head": "1600d78fe50488537ca5568d2671fe84236da6d4",
+      "branch": "build/m7-pixelelated-replacement01",
+      "tracked_diff_sha256": "42065b015a65d1e363d5daca24c1d2754007b7296faff853b7e5aa7283c3a3c6",
+      "tracked_diff_bytes": 4669,
+      "status_lines": 1,
+      "allocated_bytes": 115915366400,
+      "state": "SOURCE_CUSTODY_REVIEW_REQUIRED"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement02",
+      "head": "98d0bc464e40850298bb1d8c9d3054b6ac995307",
+      "branch": "build/m7-pixelelated-replacement02",
+      "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "tracked_diff_bytes": 0,
+      "status_lines": 0,
+      "allocated_bytes": 238706688,
+      "state": "SOURCE_CUSTODY_REVIEW_REQUIRED"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement04",
+      "head": "ff249d21722fe3f12146f6c1997d1bf516a78a5c",
+      "branch": "build/m7-pixelelated-replacement04",
+      "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "tracked_diff_bytes": 0,
+      "status_lines": 0,
+      "allocated_bytes": 242782208,
+      "state": "SOURCE_CUSTODY_REVIEW_REQUIRED"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement11",
+      "head": "9bb2b42e5a9a689558d518b26ca88d658bd30fcb",
+      "branch": "build/m7-pixelelated-replacement11",
+      "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "tracked_diff_bytes": 0,
+      "status_lines": 0,
+      "allocated_bytes": 486977536,
+      "state": "SOURCE_CUSTODY_REVIEW_REQUIRED"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement13",
+      "head": "e4276a6743c99f357510d4bebdce9500412f8b02",
+      "branch": "build/m7-pixelelated-replacement13",
+      "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "tracked_diff_bytes": 0,
+      "status_lines": 0,
+      "allocated_bytes": 524222464,
+      "state": "SOURCE_CUSTODY_REVIEW_REQUIRED"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement17",
+      "head": "3756fde50e52b71b101a892a5b2862b708ad7b32",
+      "branch": "build/m7-pixelelated-replacement17",
+      "tracked_diff_sha256": "42065b015a65d1e363d5daca24c1d2754007b7296faff853b7e5aa7283c3a3c6",
+      "tracked_diff_bytes": 4669,
+      "status_lines": 1,
+      "allocated_bytes": 118264119296,
+      "state": "SOURCE_CUSTODY_REVIEW_REQUIRED"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18",
+      "head": "7f58b7b1c592908dcd0ba5987955e59aaa79fe66",
+      "branch": "build/m7-pixelelated-replacement18",
+      "tracked_diff_sha256": "42065b015a65d1e363d5daca24c1d2754007b7296faff853b7e5aa7283c3a3c6",
+      "tracked_diff_bytes": 4669,
+      "status_lines": 1,
+      "allocated_bytes": 118273507328,
+      "state": "SOURCE_CUSTODY_REVIEW_REQUIRED"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement19",
+      "head": "a0f60255abfefaddce772d0bba29977bafb7adab",
+      "branch": "build/m7-pixelelated-replacement19",
+      "tracked_diff_sha256": "42065b015a65d1e363d5daca24c1d2754007b7296faff853b7e5aa7283c3a3c6",
+      "tracked_diff_bytes": 4669,
+      "status_lines": 1,
+      "allocated_bytes": 118513229824,
+      "state": "SOURCE_CUSTODY_REVIEW_REQUIRED"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01",
+      "head": "0553c0193ace3aebbefaae5b7b6d49253c2811d9",
+      "branch": "build/m7-pixelelated-sm8550-01",
+      "tracked_diff_sha256": "7019a77303fe265434194cc679621a9e6ca9bcec966eb86f04e6392332506424",
+      "tracked_diff_bytes": 1664,
+      "status_lines": 1,
+      "allocated_bytes": 182675849216,
+      "state": "SOURCE_CUSTODY_REVIEW_REQUIRED"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02",
+      "head": "8b5113fa164ada7d002ab138b1e3a9bf795e9de5",
+      "branch": "build/m7-pixelelated-sm8550-02",
+      "tracked_diff_sha256": "7019a77303fe265434194cc679621a9e6ca9bcec966eb86f04e6392332506424",
+      "tracked_diff_bytes": 1664,
+      "status_lines": 1,
+      "allocated_bytes": 182413791232,
+      "state": "SOURCE_CUSTODY_REVIEW_REQUIRED"
+    }
+  ],
+  "historical_build_tree_bytes": 1982616608768,
+  "other_used_bytes_by_difference": 265418874880,
+  "qualification": "Tree allocation from completed01:43 census, with removed15/16 excluded by current existence. Filesystem totals are live. Other used space is an accounting remainder, not a fresh per-directory attribution; source/cache/evidence and metadata are not assumed disposable. No 1TB/device requirement is supported."
+}

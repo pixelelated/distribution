@@ -20,7 +20,9 @@ No confirmed product defect; #528 publication obligations remain partial.
 
 #556 RG35XX SP transfer and one reboot are COMPLETE and accepted. Exact installed system/kernel/DTB/DDR4 bootloader/ES/both RetroArch hashes match; queue empty, original mounts, active frontend/zero restarts. All163 protected files, three recovery entries and every current configuration/credential/path are preserved. Automatic cloud sync remains off; device returned to owner use. No screenshot/input/game/audio/cloud operation or further physical-device authority is implied.
 
-#493 remains the next host task: classify superseded roots/firmware and source-custody dependencies, prepare guarded retirement, then remeasure capacity. Current host availability is647,420,825,600bytes (about603GiB). No old deletion batch is replayed or widened. Current H700 supports owner testing; current SM8550 is held for its next named physical test. Large historical artifacts are not permanent fallbacks. Physical/publication holds stay explicit; no public RC is allocated.
+#493 October12 first batch is complete: 64 targets retired, about396GB recovered and1.043TB available, with compact records, required sources and current firmware verified. Original permission failure and successful remaining-scope continuation are both preserved. [Retirement evidence](../qa-logs/2026-10-12-storage-retention/README.md). Seventeen older build trees still account for about1.983TB; source-custody classification and automatic lifecycle cleanup remain under #493. Current three build trees total about446GB, not1TB per device. D-INFRA-023 records resource measurement on the next actual build before hardware decisions. #555's remaining retention criterion stays open.
+
+#557 RG SP/Nova transfers are authorized but have not started: hash-only preservation approval, Nova external power and separate reboot answer remain pending. #556 RG35XX SP is accepted and untouched. Current handheld bundles and explicit #557 recovery holds remain protected; publication gates are unchanged. No public RC is allocated.
 
 ## Subsequent owner feedback — 2026-10-11
 

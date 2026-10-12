@@ -1,0 +1,388 @@
+{
+  "utc": "2026-10-12T02:38:07.254788+00:00",
+  "owner": "/workspace/tmp/pixelelated-m7-retention-20261012-cleanup02",
+  "plan_sha256": "d8abc329395b993bc4b6196824772022087a9373d84b45ce0908635a84721a31",
+  "retired": [
+    {
+      "kind": "file",
+      "path": "/workspace/tmp/pixelelated-m7-qa19/pair/vm-a.qcow2",
+      "sha256": "130193705251e1eb7c4197bae34c13aa3328f5fb56ca258018b7fda7aa4ff396"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/tmp/pixelelated-m7-qa19/pair/vm-b.qcow2",
+      "sha256": "f4bba7cff20dba2841fd4d764c50cab29f9202e538f9fc08d482ad01cd5ced68"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/tmp/pixelelated-m7-qa20/pair/vm-a.qcow2",
+      "sha256": "6d4f1bc2ac648ca5807c17da04b07f4dd937d10a0ff9adde7a40beba4c5e3960"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/tmp/pixelelated-m7-qa20/pair/vm-b.qcow2",
+      "sha256": "ae32753146371687bb0677d976007ff5058fa56efafbda02ff86cd5c6006fb4f"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/tmp/pixelelated-m7-startup19g/pair/vm-a.qcow2",
+      "sha256": "ca7873d128ef927017b341baa50a74bfd5eaf713a1d48f34a05cb944cf6dc214"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/tmp/pixelelated-m7-upgrade19/pair/vm-a.qcow2",
+      "sha256": "366e9e4a179fa4eca3c87f66b6f180ae9cd92c5a8551d9a41b0b2733854dd65a"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/tmp/pixelelated-m7-upgrade19/pair/vm-b.qcow2",
+      "sha256": "366e9e4a179fa4eca3c87f66b6f180ae9cd92c5a8551d9a41b0b2733854dd65a"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/tmp/pixelelated-m7-upgrade19b/pair/vm-a.qcow2",
+      "sha256": "02eed08230db9088a52b9c21382389ca4f9f87933765c1da09cb228595457052"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/tmp/pixelelated-m7-upgrade19b/pair/vm-b.qcow2",
+      "sha256": "95c3f783eff0515c4d67ba55c4db01cff7bcdc956b334264059b921aa0b2d93d"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/tmp/pixelelated-m7-upgrade19c/pair/vm-a.qcow2",
+      "sha256": "a982dc65429c04c90a53811d5b77e1e9e45efaa02455f0f382e86267d9bc047e"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/tmp/pixelelated-m7-upgrade19c/pair/vm-b.qcow2",
+      "sha256": "b1dfcff97d7ab7173dec3281962a8061eda961dcdb34e0acc05280633eea8005"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/tmp/pixelelated-m7-upgrade20/pair/vm-a.qcow2",
+      "sha256": "5814e3cacae70b742efc5944702fe4ce10e6c415d4b00f15b0ddd261f386a630"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/tmp/pixelelated-m7-upgrade20/pair/vm-b.qcow2",
+      "sha256": "00b81180eff18ae549e2a8ed59fd9a267f70e453a77d704ee95307f4c0cb571a"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/artifacts/rocknix-images/h700-all-20260929-8dd6765af0/ROCKNIX-H700.aarch64-20260929.tar",
+      "sha256": "b3ba8fde1e320608347f0132b008e3d6e88e7f7ee0523c0aaf68886c1503df07"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/artifacts/rocknix-images/h700-all-20260929-8dd6765af0/ROCKNIX-H700.aarch64-20260929-DDR4.img.gz",
+      "sha256": "8eb39b6283f97e086884ca396fd18ac3f14e926759e60f657b15041a3c71fc11"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/artifacts/rocknix-images/h700-all-20260929-8dd6765af0/ROCKNIX-H700.aarch64-20260929-DDR3.img.gz",
+      "sha256": "274e139846d79a1e442246298e1d4856b787825fae64e22594ab03d29e06a9b6"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/artifacts/rocknix-images/sm8550-all-20260929-5b5005879e/ROCKNIX-SM8550.aarch64-20260929.img.gz",
+      "sha256": "cdfff4ad5e9fa8669ae43a1326f44f0f14c9877832726802cbbc7f0ddec65a3e"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/artifacts/rocknix-images/sm8550-all-20260929-5b5005879e/ROCKNIX-SM8550.aarch64-20260929.tar",
+      "sha256": "698dea73d7b9b8bb33bafa29e97ed1f3c14d9e106ab3824c6d9dfd4d078a2367"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/artifacts/pixelelated-candidates/sha256/1b3c2c04de5ec6947cfb678279bcc9721167f8409ee825f8d72489838f1c2382/pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz",
+      "sha256": "df753425dffdf567b8865eb9843c190c93d175951187b8d8230013b162dbef55"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/artifacts/pixelelated-candidates/sha256/1b3c2c04de5ec6947cfb678279bcc9721167f8409ee825f8d72489838f1c2382/pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.tar",
+      "sha256": "12f1734ff030b27edd8675eb2c7d0fbb8d572f936720ec8b97fe14c44fc4d03d"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/artifacts/pixelelated-candidates/sha256/1c69bcf5ab6ebdc3e893a6a989545ac7a23359f0e07baef4e9c2beaca94c52b4/pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz",
+      "sha256": "1cc9c22d63286fbe5d6bdf7f1826d5d977798a472c7f87f8546c1d272a6492bb"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/artifacts/pixelelated-candidates/sha256/1c69bcf5ab6ebdc3e893a6a989545ac7a23359f0e07baef4e9c2beaca94c52b4/pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.tar",
+      "sha256": "a9fa66dc63fdb42678a98c42b3abbe84d20f623eb922501bd36f0aa50dfdc1a3"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/artifacts/pixelelated-candidates/sha256/22533e35b95a122ebd0d7dc2b60f6e816982594af62454f5209a04be8da3512d/pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz",
+      "sha256": "1f35f28272e6171b30640c910eb6c9fd04cb9ec0ae9cd1cf5f8212eb16e6b623"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/artifacts/pixelelated-candidates/sha256/22533e35b95a122ebd0d7dc2b60f6e816982594af62454f5209a04be8da3512d/pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.tar",
+      "sha256": "5f94ebf45123b6654ab544aa0771e1c4c8314c53aed245f30d22572dbf4ebedc"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/artifacts/pixelelated-candidates/sha256/43a698bcd7d570c63ebdd5db015e5302463f7ee4a15438fd9ef2359437be19da/pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz",
+      "sha256": "239428fa5ea931f492df9f2ff556f149bc67578c7d560dcc03a5253f806e1347"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/artifacts/pixelelated-candidates/sha256/43a698bcd7d570c63ebdd5db015e5302463f7ee4a15438fd9ef2359437be19da/pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.tar",
+      "sha256": "ab2c32e853a9fa1740b56f2097217bf04421197a87d6bf9081d65fe7df914ce5"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/artifacts/pixelelated-candidates/sha256/5f7b86dcd8ab4b54c2a97b6c7217eadc55031050a0e4c5e407b374627ba0c160/pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz",
+      "sha256": "86c8c35d18b11f85a6c443acafde59f0b58c714c7854ed84558c8f4d9f393a5f"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/artifacts/pixelelated-candidates/sha256/5f7b86dcd8ab4b54c2a97b6c7217eadc55031050a0e4c5e407b374627ba0c160/pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.tar",
+      "sha256": "88ff5e130e8940cd5f41d039d632a8d26fc17321a716938a05d08f3a65ad3a90"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/artifacts/pixelelated-candidates/sha256/79d560046ee52e28b72f16588168dd7c8fb2637c1cc585713216a8ec828e9d81/pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz",
+      "sha256": "b9be57ee7b83d8c6b3be48e2aa29e2c033d7bb5779f3d036fdc251b0c13d5686"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/artifacts/pixelelated-candidates/sha256/79d560046ee52e28b72f16588168dd7c8fb2637c1cc585713216a8ec828e9d81/pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.tar",
+      "sha256": "6072dbc593290a6f05c6c68595fc4ca4d6f434cd465966154355dc19b39c111f"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/artifacts/pixelelated-candidates/sha256/7f98f2d22985d11fe9c150015457894caf460104c9ce44abd16074167f23815a/pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz",
+      "sha256": "74e57ad8957b1c719c18db098d5713577a952af8802524658d0ada7dee1b6b12"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/artifacts/pixelelated-candidates/sha256/7f98f2d22985d11fe9c150015457894caf460104c9ce44abd16074167f23815a/pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.tar",
+      "sha256": "b124b1ec40719aa6b89cca68a90b1f8df894129e86126784b54e60f628c12d89"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/artifacts/pixelelated-candidates/sha256/84a794165a6e421cd1aa1dd6d37b97b257c700738c0a53edd282475ecd4780e9/pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz",
+      "sha256": "7a60c191755cc6203eca4624700249538ecc24182087f8aa20a8ea8afeae59ad"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/artifacts/pixelelated-candidates/sha256/84a794165a6e421cd1aa1dd6d37b97b257c700738c0a53edd282475ecd4780e9/pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.tar",
+      "sha256": "d196d9c2cff496ab8d8a53ac7536e60428b5f18c431090ff44de0f5074864d9b"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/artifacts/pixelelated-candidates/sha256/8e9eb161b8b4ab84b6339ff58d478acf00322f3c8fa70d5c2c4575849c6a149f/pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz",
+      "sha256": "2778135724712ce688f4391ccc970b18210665a64f118b7d25a93787e234f982"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/artifacts/pixelelated-candidates/sha256/8e9eb161b8b4ab84b6339ff58d478acf00322f3c8fa70d5c2c4575849c6a149f/pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.tar",
+      "sha256": "ff4805f2b86bc942d8f416f8a7aa7738b5232294ecf5e8c2755e54edc0d19aff"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/artifacts/pixelelated-candidates/sha256/95dbc93b666f886c35af16a5b67e81dd77fad7f667e2307efb061cabf1ffc188/pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz",
+      "sha256": "347c9da649b795f3af48bb9c83e79d21a22a9a7301163a8b3d3c17a6d470c66d"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/artifacts/pixelelated-candidates/sha256/95dbc93b666f886c35af16a5b67e81dd77fad7f667e2307efb061cabf1ffc188/pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.tar",
+      "sha256": "e057d9c11e72c90adcaf27733ecc116ba285a6d26fc22f844b6617cb723396fe"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/artifacts/pixelelated-candidates/sha256/97367c3235fab7cc6d1ec2b54c390fe7ceff786612f29c9f177aaa288a33fb18/pixelelated-SM8550.aarch64-0.0.1-from-ROCKNIX.img.gz",
+      "sha256": "5be73a7305991599cdad6e68535cf7c79767180b6632ce8061207822869e7c34"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/artifacts/pixelelated-candidates/sha256/97367c3235fab7cc6d1ec2b54c390fe7ceff786612f29c9f177aaa288a33fb18/pixelelated-SM8550.aarch64-0.0.1-from-ROCKNIX.tar",
+      "sha256": "c9701f3f247f82b4c6a662a315cb1a054864866fc52a738e86fbc15bde662a50"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/artifacts/pixelelated-candidates/sha256/a179bd73a732f49c4219177c89a860d561dad4d16a3467aae2cbafc15152b3ea/pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz",
+      "sha256": "a16f9532e3e18116c307bf75dfa58f2446809efd127169a8739faa32487be7ca"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/artifacts/pixelelated-candidates/sha256/a179bd73a732f49c4219177c89a860d561dad4d16a3467aae2cbafc15152b3ea/pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.tar",
+      "sha256": "f0e2752d85e416504198980f20a7bc68da79ba6ce24054a01d9e0252946e093f"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/artifacts/pixelelated-candidates/sha256/b37f01b7e4e5a06f983dd420b4af10c0c2155564fb9071051c0772ceb0e04c3b/pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz",
+      "sha256": "8b8e50b4c1d5a1dc860f0c6debd268f6f7165633acd108332c1aeefba379249d"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/artifacts/pixelelated-candidates/sha256/b37f01b7e4e5a06f983dd420b4af10c0c2155564fb9071051c0772ceb0e04c3b/pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.tar",
+      "sha256": "1ae25beb562d41fa94bd9248423023949ad1e0179290a99d359fca188bfa8ea6"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/artifacts/pixelelated-candidates/sha256/b77e47e57a4bb35f885ba78669ee8176a9ac978b27c1cbcfaad66e18f684a9f1/pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz",
+      "sha256": "c7df6a6f428086f79a377ca1b049f20694f34a868987cf12c493c78eab7b2254"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/artifacts/pixelelated-candidates/sha256/b77e47e57a4bb35f885ba78669ee8176a9ac978b27c1cbcfaad66e18f684a9f1/pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.tar",
+      "sha256": "a6fdf2e36ff73842a5048994ee515cbdf44c34cd6f27eb20140f61ccce578df5"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/artifacts/pixelelated-candidates/sha256/d4007387afd5ac42104a53a3073b93fdadd33c51179bf9f3142101609f821ec9/pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz",
+      "sha256": "1e16122cc48ed7552f42598c2c251930a4b5ad451c1040c345aecda35dae130e"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/artifacts/pixelelated-candidates/sha256/d4007387afd5ac42104a53a3073b93fdadd33c51179bf9f3142101609f821ec9/pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.tar",
+      "sha256": "1786a568db2320a1482ff58165c20280d1d2bfa11e197abb4f3eee5847dbbe28"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/artifacts/pixelelated-candidates/sha256/d89b067a5176d7c02633bc9e72ee9b0f96dd3d626d343a0f16949e70c9daf710/pixelelated-H700.aarch64-0.0.1-from-ROCKNIX-DDR3.img.gz",
+      "sha256": "e4e42a52682e0a0edff9bb078650f73471e224d929d0787a34f33dbd21d39abc"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/artifacts/pixelelated-candidates/sha256/d89b067a5176d7c02633bc9e72ee9b0f96dd3d626d343a0f16949e70c9daf710/pixelelated-H700.aarch64-0.0.1-from-ROCKNIX-DDR4.img.gz",
+      "sha256": "8c09004a9738340619d700b6c1549426935254a703e7ce803b11de519ea89dfb"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/artifacts/pixelelated-candidates/sha256/d89b067a5176d7c02633bc9e72ee9b0f96dd3d626d343a0f16949e70c9daf710/pixelelated-H700.aarch64-0.0.1-from-ROCKNIX.tar",
+      "sha256": "a419dc33e1f3be2c422cac4b89d85cf104f363c3da6ed7059e0a8aa531bfd014"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/artifacts/pixelelated-candidates/sha256/ee8e263c2e63b7fc79a458e9e89b0f4a3c393487377a6a820c7f7166dada1662/pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261011T174137Z.ga0f60255abfe-from-ROCKNIX.tar",
+      "sha256": "77b66397fa84632b8a7eb81bea4111e91c1d9897231bd5348bf93ee5f1eaba85"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/artifacts/pixelelated-candidates/sha256/ee8e263c2e63b7fc79a458e9e89b0f4a3c393487377a6a820c7f7166dada1662/pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261011T174137Z.ga0f60255abfe-from-ROCKNIX.img.gz",
+      "sha256": "c357c4c98cc41dd9dcb301bd759270497436615dabd58ec26d0ea77d30f56dbe"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/artifacts/pixelelated-candidates/sha256/f557176651026f59bb5931993b12491a6019c0383321fb89fa1a05a596514fe6/pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz",
+      "sha256": "2d71337a27ca11da57eb4ce912b79f8677d0a72c13749cd973915442e6a52a42"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/artifacts/pixelelated-candidates/sha256/f557176651026f59bb5931993b12491a6019c0383321fb89fa1a05a596514fe6/pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.tar",
+      "sha256": "d5f92948794b1a4ae72478e615b25d4d0a5ee3de03c3d1a5429e4cc1a9135b68"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/tmp/pixelelated-m7-image-17/candidate.img",
+      "sha256": "4a52f1ecf3db64a60301edee0f8c08e01a2f0698e84bac6926778be256425e1d"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/tmp/pixelelated-m7-image-17/SYSTEM",
+      "sha256": "7cb35c1a7ccf96c941a72f07201f370f1e2b645c9bebc2937720755243f4197f"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/tmp/pixelelated-m7-image-18/candidate.img",
+      "sha256": "289504721efdf1a4c032d241cddbdee07864fac22bd0c4cd4984af817389d4d6"
+    },
+    {
+      "kind": "file",
+      "path": "/workspace/tmp/pixelelated-m7-image-18/SYSTEM",
+      "sha256": "52742f2565fb21844cb825e069fb1bb2950dd14c7d1361b29fa0b6aa63b9c3d7"
+    },
+    {
+      "kind": "extraction",
+      "path": "/workspace/tmp/pixelelated-m7-image-17/root",
+      "manifest": "/workspace/tmp/pixelelated-m7-retention-20261012-plan04/artifacts/pixelelated-m7-image-17-entries.json",
+      "manifest_sha256": "acee1c7d1e1207853ba6bafcb5cd04faf4c9c798109afd1a4af6ce4724c10575"
+    },
+    {
+      "kind": "extraction",
+      "path": "/workspace/tmp/pixelelated-m7-image-18/root",
+      "manifest": "/workspace/tmp/pixelelated-m7-retention-20261012-plan04/artifacts/pixelelated-m7-image-18-entries.json",
+      "manifest_sha256": "93090635be1c36fd425bdefb4a92bf8a4d65d187399add9b7593574d2d7ecbad"
+    },
+    {
+      "kind": "extraction",
+      "path": "/workspace/tmp/pixelelated-m7-image19/root",
+      "manifest": "/workspace/tmp/pixelelated-m7-retention-20261012-plan04/artifacts/pixelelated-m7-image19-entries.json",
+      "manifest_sha256": "1f76abb3b1310a8f5de0a6d5ec85745a46743be87e8936561a23becac9cdeefa"
+    },
+    {
+      "kind": "worktree",
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement15",
+      "head": "ed5a6a51f5974deec8748fbf0dbd2f4984b690f5",
+      "tracked_diff_sha256": "42065b015a65d1e363d5daca24c1d2754007b7296faff853b7e5aa7283c3a3c6",
+      "records": {
+        "path": "/workspace/artifacts/pixelelated-build-custody/issue-493-retention-20261012-04/m7-pixelelated-replacement15/records.json",
+        "identity": {
+          "device": 66304,
+          "inode": 126561314,
+          "size": 2388686,
+          "allocated_bytes": 2392064,
+          "mtime_ns": 1791769758189152199,
+          "uid": 1000,
+          "mode": 33152,
+          "links": 1
+        },
+        "sha256": "df041dd7ea040f5a2e0db626a09c24e6b9b2afd664a93fb98ddb64203660b3b3"
+      },
+      "source_inventory": {
+        "path": "/workspace/artifacts/pixelelated-build-custody/issue-493-retention-20261012-04/m7-pixelelated-replacement15/source-inventory.json",
+        "identity": {
+          "device": 66304,
+          "inode": 126497542,
+          "size": 387354,
+          "allocated_bytes": 389120,
+          "mtime_ns": 1791769756827317430,
+          "uid": 1000,
+          "mode": 33152,
+          "links": 1
+        },
+        "sha256": "f2503c024e17e00788e2ad81eba4bd53b3562d066345cb07051b79a0bfe7b376"
+      }
+    },
+    {
+      "kind": "worktree",
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement16",
+      "head": "ee014909137e03706e0b3020b8396be589aaa705",
+      "tracked_diff_sha256": "42065b015a65d1e363d5daca24c1d2754007b7296faff853b7e5aa7283c3a3c6",
+      "records": {
+        "path": "/workspace/artifacts/pixelelated-build-custody/issue-493-retention-20261012-04/m7-pixelelated-replacement16/records.json",
+        "identity": {
+          "device": 66304,
+          "inode": 128193863,
+          "size": 2294747,
+          "allocated_bytes": 2297856,
+          "mtime_ns": 1791769761127483663,
+          "uid": 1000,
+          "mode": 33152,
+          "links": 1
+        },
+        "sha256": "5bf3b7e0390905cc4b94d42cd30be46fd7b3d9f48ba43e29100d52e6921bb09f"
+      },
+      "source_inventory": {
+        "path": "/workspace/artifacts/pixelelated-build-custody/issue-493-retention-20261012-04/m7-pixelelated-replacement16/source-inventory.json",
+        "identity": {
+          "device": 66304,
+          "inode": 128193861,
+          "size": 387354,
+          "allocated_bytes": 389120,
+          "mtime_ns": 1791769759954733815,
+          "uid": 1000,
+          "mode": 33152,
+          "links": 1
+        },
+        "sha256": "e21a3dc1f14f1c26faee49ece434331b11cd3028af2c6c4e0a1a9c09f49c7e61"
+      }
+    }
+  ]
+}

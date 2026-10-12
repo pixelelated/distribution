@@ -681,6 +681,8 @@ This is the index of decisions; `docs/work-logs/` is the narrative,
 
 | D-CLOUD-184 | 2026-10-11 | **One explicit active connection, with multiple saved connections.** #537 implements D-CLOUD-183 using a device-only selection beside rclone.conf. Missing selection preserves the legacy first connection; explicit no-selection or a missing selected name never falls through to another account. Add preserves the current selection. Renew/edit verifies staged settings before publication; failure or cancellation preserves existing credentials. Select/remove/replace share the transfer lock and require automatic save sync off. Selecting preserves category paths; removal deletes local connection settings only. No connection-management action moves cloud files. | #537; D-CLOUD-183/178/179 |
 
+| D-INFRA-023 | 2026-10-12 | **Measure actual build resource peaks on the next build before choosing more RAM, another SSD or RAID.** Maintainer: "Sounds good. Let's do that next time we do a build and figure it out." Record build/cache/QA disk allocation and peak headroom, memory peak, swap activity and memory/I/O pressure through the watcher; distinguish current working inputs from accumulated historical copies. #493 also owns bounded lifecycle cleanup so retention does not require repeated manual archaeology. This does not start another build, choose hardware or change storage topology; D-INFRA-022's immediate-test-only rule remains binding. | #493; #432; `.claude/rules/worktrees.md`; October12 storage accounting |
+
 ## Open decisions
 
 

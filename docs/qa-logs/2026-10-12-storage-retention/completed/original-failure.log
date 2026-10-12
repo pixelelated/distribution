@@ -1,0 +1,27 @@
+watch-build: recording in /workspace/repos/rocknix.worktrees/m7-component-inputs/.build-runs/20261012T022546Z-9036ac68
+Removed file /workspace/tmp/pixelelated-m7-qa19/pair/vm-a.qcow2
+Removed file /workspace/tmp/pixelelated-m7-qa19/pair/vm-b.qcow2
+Removed file /workspace/tmp/pixelelated-m7-qa20/pair/vm-a.qcow2
+Removed file /workspace/tmp/pixelelated-m7-qa20/pair/vm-b.qcow2
+Removed file /workspace/tmp/pixelelated-m7-startup19g/pair/vm-a.qcow2
+Removed file /workspace/tmp/pixelelated-m7-upgrade19/pair/vm-a.qcow2
+Removed file /workspace/tmp/pixelelated-m7-upgrade19/pair/vm-b.qcow2
+Removed file /workspace/tmp/pixelelated-m7-upgrade19b/pair/vm-a.qcow2
+Removed file /workspace/tmp/pixelelated-m7-upgrade19b/pair/vm-b.qcow2
+Removed file /workspace/tmp/pixelelated-m7-upgrade19c/pair/vm-a.qcow2
+Removed file /workspace/tmp/pixelelated-m7-upgrade19c/pair/vm-b.qcow2
+Removed file /workspace/tmp/pixelelated-m7-upgrade20/pair/vm-a.qcow2
+Removed file /workspace/tmp/pixelelated-m7-upgrade20/pair/vm-b.qcow2
+Removed file /workspace/artifacts/rocknix-images/h700-all-20260929-8dd6765af0/ROCKNIX-H700.aarch64-20260929.tar
+Removed file /workspace/artifacts/rocknix-images/h700-all-20260929-8dd6765af0/ROCKNIX-H700.aarch64-20260929-DDR4.img.gz
+Removed file /workspace/artifacts/rocknix-images/h700-all-20260929-8dd6765af0/ROCKNIX-H700.aarch64-20260929-DDR3.img.gz
+Removed file /workspace/artifacts/rocknix-images/sm8550-all-20260929-5b5005879e/ROCKNIX-SM8550.aarch64-20260929.img.gz
+Removed file /workspace/artifacts/rocknix-images/sm8550-all-20260929-5b5005879e/ROCKNIX-SM8550.aarch64-20260929.tar
+Traceback (most recent call last):
+  File "/workspace/tmp/pixelelated-m7-retention-20261012-cleanup01/execute.py", line 81, in <module>
+    try:main();rc=0
+        ~~~~^^
+  File "/workspace/tmp/pixelelated-m7-retention-20261012-cleanup01/execute.py", line 64, in main
+    s=os.stat(p.name,dir_fd=fd,follow_symlinks=False);g.require((s.st_dev,s.st_ino)==(r['identity']['device'],r['identity']['inode']),'payload replaced');os.unlink(p.name,dir_fd=fd)
+                                                                                                                                                          ~~~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'pixelelated-GENERIC_X64.x86_64-0.0.1-from-ROCKNIX.img.gz'
