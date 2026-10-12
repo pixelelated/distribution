@@ -597,3 +597,11 @@ cycle; source qualification and landing are still pending.
 - 2026-10-12 02:02 UTC — Fresh-agent handoff proof caught verify-only then apply sharing an exclusive preflight receipt. The never-executed cleanup helper now uses distinct phase receipts, preserving both; issue: #493. Original script hash and correction retained.
 
 - 2026-10-12 02:28 UTC — The approved retention executor verified payloads but omitted loose-file parent permissions; mode555 candidate-store directories stopped it after18 removals. Original failure/journal retained, remaining46 targets isolated in cleanup02, descriptor-bound temporary permissions restore on success/failure, and five controls pass. General preflight rule added to `.claude/rules/worktrees.md`; repeatable planner follow-up remains issue: #493.
+
+- 2026-10-12 04:29 UTC — Historical-tree preservation refused an upstream unmapped empty SaveStates gitlink, then aggregate u-boot packages with no standalone inputs. Preserve original failed owners; verify exact git metadata and variant source dependencies before fresh preparation. No deletion. issue: #493; guard: custody preparer and pending dependency acceptance.
+
+- 2026-10-12 04:50 UTC — #493 mount-proof submission assumed watch-build accepted --label. The runner rejected it before any proof started; original launcher failure and absent inner/build channels are preserved. Fresh owner using documented arguments passed. Read the actual runner parser before preparing a durable command; no in-flight edit or replay. issue: #493.
+
+- 2026-10-12 05:14 UTC — Nova has no retained pstore dump and lacks H700 console/lockup evidence settings; optional findmnt is absent despite aggregate filtered-read status0. Record per-probe limits and qualify evidence capabilities per platform before interpreting missing records. issue: #558; evidence: `docs/qa-logs/2026-10-12-nova-shutdown/`.
+
+- 2026-10-12 05:25 UTC — Staged whitespace check detected terminal blank lines in two public #557 console-log copies. Normalize only the public text mirrors, retain private originals and record before/after digests. Original result channels are unchanged. issue: #557.

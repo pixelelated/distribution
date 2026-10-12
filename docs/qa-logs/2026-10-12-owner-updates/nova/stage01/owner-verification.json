@@ -1,0 +1,41 @@
+{
+  "utc": "2026-10-12T04:21:48.165046+00:00",
+  "result": "PASS",
+  "original_results": {
+    "/workspace/tmp/pixelelated-owner-deploy-20261012/nova/stage01/inner.rc": "0",
+    "/workspace/tmp/pixelelated-owner-deploy-20261012/nova/stage01/outer.rc": "0",
+    "/workspace/tmp/pixelelated-owner-deploy-20261012/nova/stage01/tool-wrapper.rc": "0",
+    "/workspace/repos/rocknix.worktrees/m7-component-inputs/.build-runs/20261012T040953Z-ba2efec9/build.rc": "0"
+  },
+  "launcher_result": {
+    "utc": "2026-10-12T04:21:22.489167+00:00",
+    "pid": 2639647,
+    "runner_returncode": 0,
+    "submission_is_not_completion": true
+  },
+  "processes": [
+    {
+      "pid": 2639647,
+      "state": "absent"
+    },
+    {
+      "pid": 2639648,
+      "state": "absent"
+    },
+    {
+      "pid": 2639649,
+      "state": "absent"
+    },
+    {
+      "pid": 2639680,
+      "state": "absent"
+    }
+  ],
+  "stage-result.json": {
+    "utc": "2026-10-12T04:21:19.449645+00:00",
+    "result": "PASS",
+    "remote_sha256": "d6278647cc07bd34e61aa839ba866418b63b386468cfe39c492992c50f598ea0",
+    "queue": "/storage/.update/pixelelated-SM8550.aarch64-0.0.1-dev+20261011T222153Z.gbc9dfe8141d9-from-ROCKNIX.tar",
+    "rebooted": false
+  }
+}

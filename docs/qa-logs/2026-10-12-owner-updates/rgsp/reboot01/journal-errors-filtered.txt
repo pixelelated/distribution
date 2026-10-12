@@ -1,0 +1,14 @@
+Oct 12 00:06:29 ROCKNIX (udev-worker)[359]: mmcblk: /usr/lib/udev/rules.d/10-bfq-sched.rules:1 Failed to write ATTR{/sys/module/mmcblk/queue/scheduler}, ignoring: No such file or directory
+Oct 12 00:06:29 ROCKNIX (udev-worker)[361]: mmcblk1p1: /usr/lib/udev/rules.d/10-bfq-sched.rules:1 Failed to write ATTR{/sys/devices/platform/soc/4022000.mmc/mmc_host/mmc1/mmc1:aaaa/block/mmcblk1/mmcblk1p1/queue/scheduler}, ignoring: No such file or directory
+Oct 12 00:06:30 ROCKNIX (udev-worker)[360]: mmcblk0p1: /usr/lib/udev/rules.d/10-bfq-sched.rules:1 Failed to write ATTR{/sys/devices/platform/soc/4020000.mmc/mmc_host/mmc0/mmc0:aaaa/block/mmcblk0/mmcblk0p1/queue/scheduler}, ignoring: No such file or directory
+Oct 12 00:06:30 ROCKNIX (udev-worker)[356]: mmcblk0p2: /usr/lib/udev/rules.d/10-bfq-sched.rules:1 Failed to write ATTR{/sys/devices/platform/soc/4020000.mmc/mmc_host/mmc0/mmc0:aaaa/block/mmcblk0/mmcblk0p2/queue/scheduler}, ignoring: No such file or directory
+Oct 12 00:06:30 ROCKNIX (udev-worker)[362]: mmcblk: /usr/lib/udev/rules.d/10-bfq-sched.rules:1 Failed to write ATTR{/sys/bus/mmc/drivers/mmcblk/queue/scheduler}, ignoring: No such file or directory
+Oct 12 00:06:31 ROCKNIX pipewire-pulse[377]: mod.protocol-pulse: Failed to acquire org.pulseaudio.Server: org.freedesktop.DBus.Error.AccessDenied: Connection ":1.4" is not allowed to own the service "org.pulseaudio.Server" due to security policies in the configuration file
+Oct 12 00:06:32 ROCKNIX kernel: Bluetooth: hci0: Out-of-order packet arrived (0 != 1)
+Oct 12 00:06:32 ROCKNIX kernel: Bluetooth: hci0: Out-of-order packet arrived (1 != 2)
+Oct 12 00:06:32 ROCKNIX kernel: Bluetooth: hci0: Out-of-order packet arrived (2 != 3)
+Oct 12 00:06:33 ROCKNIX kernel: Bluetooth: hci0: Out-of-order packet arrived (3 != 4)
+Oct 12 00:06:33 ROCKNIX kernel: Bluetooth: hci0: Out-of-order packet arrived (4 != 5)
+Oct 12 00:06:47 RG-SP kernel: cpufreq: cpufreq_boost_trigger_state: Cannot disable BOOST
+Oct 12 00:06:47 RG-SP kernel: cpufreq: store_boost: Cannot disable BOOST!
+Warning: Permanently added '100.75.221.73' (ED25519) to the list of known hosts.

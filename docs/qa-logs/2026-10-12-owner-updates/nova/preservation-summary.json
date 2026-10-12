@@ -1,0 +1,31 @@
+{
+  "utc": "2026-10-12T04:28:49.717163+00:00",
+  "result": "PASS",
+  "issue": 557,
+  "device": "nova",
+  "old_boot_id": "48029f14-080c-49cd-9e6d-4f34179a8129",
+  "new_boot_id": "37a6ecb2-cefb-4dbc-950d-4c57459c3679",
+  "protected_payload_count": 0,
+  "protected_payload_bytes": 0,
+  "payload_hashes_and_modes_preserved": true,
+  "recovery_entries": 0,
+  "credentials_and_selected_paths_unchanged": true,
+  "automatic_sync_unchanged_and_off": true,
+  "hooks_and_service_overrides_unchanged": true,
+  "pending_recovery_markers": false,
+  "settings_semantics": [
+    {
+      "file": "system.cfg",
+      "all_values_and_duplicate_order_hash_preserved": true,
+      "byte_identical": false
+    },
+    {
+      "file": "system.cfg.backup",
+      "all_values_and_duplicate_order_hash_preserved": true,
+      "byte_identical": true
+    }
+  ],
+  "raw_configuration_values_copied": false,
+  "cloud_operations": false,
+  "screenshots": false
+}

@@ -1,0 +1,22 @@
+watch-build: recording in /workspace/repos/rocknix.worktrees/m7-component-inputs/.build-runs/20261012T042157Z-4390bc08
+2026-10-12T04:21:58.677130+00:00 power check 77 percent; external power connected
+CURRENT_STATE_STILL_VALID
+CURRENT_STATE_STILL_VALID
+REQUESTING_AUTHORIZED_REBOOT
+device-act: rg35xxsp 'M7 #557 authorized reboot to apply Nova SM8550 bc9dfe8141' rc=0; before boot_id=48029f14-080c-49cd-9e6d-4f34179a8129 after=unreachable; recorded in /workspace/tmp/pixelelated-owner-deploy-20261012/nova/reboot01/device-actions.log
+Warning: Permanently added '100.84.232.105' (ED25519) to the list of known hosts.
+
+2026-10-12T04:22:25.905329+00:00 boot poll 1 ssh_rc 255 expected_build False
+2026-10-12T04:22:48.921576+00:00 boot poll 2 ssh_rc 255 expected_build False
+2026-10-12T04:23:11.937773+00:00 boot poll 3 ssh_rc 255 expected_build False
+2026-10-12T04:23:34.953025+00:00 boot poll 4 ssh_rc 255 expected_build False
+2026-10-12T04:23:57.965781+00:00 boot poll 5 ssh_rc 255 expected_build False
+2026-10-12T04:24:20.981011+00:00 boot poll 6 ssh_rc 255 expected_build False
+2026-10-12T04:24:43.995762+00:00 boot poll 7 ssh_rc 255 expected_build False
+2026-10-12T04:25:07.008820+00:00 boot poll 8 ssh_rc 255 expected_build False
+2026-10-12T04:25:30.024583+00:00 boot poll 9 ssh_rc 255 expected_build False
+2026-10-12T04:25:53.039669+00:00 boot poll 10 ssh_rc 255 expected_build False
+2026-10-12T04:26:16.053248+00:00 boot poll 11 ssh_rc 255 expected_build False
+2026-10-12T04:26:39.066845+00:00 boot poll 12 ssh_rc 255 expected_build False
+2026-10-12T04:26:55.012252+00:00 boot poll 13 ssh_rc 0 expected_build True
+2026-10-12T04:28:23.186693+00:00 PASS Pocket Nova update applied and installed bytes verified

@@ -1,0 +1,34 @@
+{
+  "utc": "2026-10-12T04:37:53.756574+00:00",
+  "result": "PASS_PRESERVATION_ONLY",
+  "original_results": {
+    "/workspace/tmp/pixelelated-m7-retention-20261012-oldcustody03/inner.rc": "0",
+    "/workspace/tmp/pixelelated-m7-retention-20261012-oldcustody03/outer.rc": "0",
+    "/workspace/tmp/pixelelated-m7-retention-20261012-oldcustody03/tool-wrapper.rc": "0",
+    "/workspace/repos/rocknix/.build-runs/20261012T043436Z-9d882b21/build.rc": "0"
+  },
+  "launcher_result": {
+    "utc": "2026-10-12T04:35:22.054158+00:00",
+    "pid": 2759378,
+    "runner_returncode": 0,
+    "submission_is_not_completion": true
+  },
+  "exited_pids": [
+    2759378,
+    2759379,
+    2759390,
+    2759419
+  ],
+  "preservation_result": {
+    "utc": "2026-10-12T04:35:19.709211+00:00",
+    "result": "PRESERVATION_PREPARED_PENDING_DEPENDENCY_REVIEW",
+    "trees": 17,
+    "record_files": 63206,
+    "unique_object_files": 16307,
+    "preserved_object_bytes": 6855404363,
+    "source_gaps": [],
+    "custody": "/workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03",
+    "deletion_performed": false
+  },
+  "deletion_performed": false
+}

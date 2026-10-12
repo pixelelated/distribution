@@ -1,0 +1,14 @@
+Oct 12 00:26:26 ROCKNIX kernel: qcom-hv-haptics c400000.spmi:pmic@7:qcom,hv-haptics@f000: Parse device-tree failed, rc = -517
+Oct 12 00:26:26 ROCKNIX kernel: qcom_pmic_glink pmic-glink: Failed to create device link (0x180) with supplier usb0-sbu-mux for /pmic-glink/connector@0
+Oct 12 00:26:26 ROCKNIX kernel: qcom_pmic_glink pmic-glink: Failed to create device link (0x180) with supplier 88e8000.phy for /pmic-glink/connector@0
+Oct 12 00:26:26 ROCKNIX kernel: qcom_pmic_glink pmic-glink: Failed to create device link (0x180) with supplier a600000.usb for /pmic-glink/connector@0
+Oct 12 00:26:26 ROCKNIX kernel: msm_dpu ae01000.display-controller: [drm:adreno_request_fw] *ERROR* failed to load a740_sqe.fw
+Oct 12 00:26:27 ROCKNIX (udev-worker)[456]: mmcblk: /usr/lib/udev/rules.d/10-bfq-sched.rules:1 Failed to write ATTR{/sys/module/mmcblk/queue/scheduler}, ignoring: No such file or directory
+Oct 12 00:26:27 ROCKNIX (udev-worker)[486]: mmcblk: /usr/lib/udev/rules.d/10-bfq-sched.rules:1 Failed to write ATTR{/sys/bus/mmc/drivers/mmcblk/queue/scheduler}, ignoring: No such file or directory
+Oct 12 00:26:27 ROCKNIX (udev-worker)[475]: mmcblk0p1: /usr/lib/udev/rules.d/10-bfq-sched.rules:1 Failed to write ATTR{/sys/devices/platform/soc@0/8804000.mmc/mmc_host/mmc0/mmc0:aaaa/block/mmcblk0/mmcblk0p1/queue/scheduler}, ignoring: No such file or directory
+Oct 12 00:26:27 ROCKNIX (udev-worker)[485]: mmcblk0p2: /usr/lib/udev/rules.d/10-bfq-sched.rules:1 Failed to write ATTR{/sys/devices/platform/soc@0/8804000.mmc/mmc_host/mmc0/mmc0:aaaa/block/mmcblk0/mmcblk0p2/queue/scheduler}, ignoring: No such file or directory
+Oct 12 00:26:30 ROCKNIX kernel: qcom_q6v5_pas 6800000.remoteproc: Handover signaled, but it already happened
+Oct 12 00:26:30 ROCKNIX pipewire-pulse[505]: mod.protocol-pulse: Failed to acquire org.pulseaudio.Server: org.freedesktop.DBus.Error.AccessDenied: Connection ":1.6" is not allowed to own the service "org.pulseaudio.Server" due to security policies in the configuration file
+Oct 12 00:26:35 ROCKNIX kernel: qcom-apm gprsvc:service:2:1: CMD timeout for [1001021] opcode
+Oct 12 00:26:35 ROCKNIX kernel: qcom-soundwire 6d30000.soundwire: dout-ports (0) mismatch with controller (1)
+Warning: Permanently added '100.84.232.105' (ED25519) to the list of known hosts.

@@ -1,0 +1,52 @@
+{
+  "utc": "2026-10-12T04:09:08.990686+00:00",
+  "result": "PASS",
+  "original_results": {
+    "/workspace/tmp/pixelelated-owner-deploy-20261012/rgsp/reboot01/inner.rc": "0",
+    "/workspace/tmp/pixelelated-owner-deploy-20261012/rgsp/reboot01/outer.rc": "0",
+    "/workspace/tmp/pixelelated-owner-deploy-20261012/rgsp/reboot01/tool-wrapper.rc": "0",
+    "/workspace/repos/rocknix.worktrees/m7-component-inputs/.build-runs/20261012T040137Z-8c1853c0/build.rc": "0"
+  },
+  "launcher_result": {
+    "utc": "2026-10-12T04:08:15.959894+00:00",
+    "pid": 2602900,
+    "runner_returncode": 0,
+    "submission_is_not_completion": true
+  },
+  "processes": [
+    {
+      "pid": 2602900,
+      "state": "absent"
+    },
+    {
+      "pid": 2602901,
+      "state": "absent"
+    },
+    {
+      "pid": 2602905,
+      "state": "absent"
+    },
+    {
+      "pid": 2602934,
+      "state": "absent"
+    }
+  ],
+  "acceptance.json": {
+    "utc": "2026-10-12T04:08:09.017149+00:00",
+    "result": "PASS",
+    "issue": 557,
+    "old_boot_id": "b0ca038a-3bf8-4b78-a9ec-a5e4185fd5e8",
+    "new_boot_id": "42ec19fe-cdf5-4269-b6be-0ab7757a5d37",
+    "installed_build": "bc9dfe8141d9561dc1d8502313d00a84c4566ee8",
+    "hashes": {
+      "/flash/SYSTEM": "1c0d34a408cf9511a35e396f0675093aaf022a9d6afb0896c414b145dd591c7a",
+      "/flash/KERNEL": "07a06330474a1e72fa6b6c844ceee8d5d6b3bbf6d6be9e4a6395b87e0592dc60",
+      "/flash/dtb.img": "7fa21a5afcee48c6275a8bf7e4abd0425d5c8e9a767d6fb2e7bb9d0854d39f7f",
+      "/usr/bin/emulationstation": "ae37e14b4567464ed2bda6ab41dcc60652b473a596d135aa10954b70bdd7f5ba",
+      "/usr/bin/retroarch": "3eec8cc1236e07272482ab843b3a1020e3f2231fef78a04c75b8d3c04d4efdb8",
+      "/usr/bin/retroarch32": "1492362554b463172fe8edc1c76ce44f425bdee24b9417e2557e949d5cba049e"
+    },
+    "bootloader_sha256": "174edf6e299340bd9474936e85722ef9e2a2b553f3d3316602ef63b50d21cf07",
+    "scope": "authorized update and physical boot/read-only installed verification; no gameplay or deliberate cloud test; no screenshot requested"
+  }
+}

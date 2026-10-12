@@ -1,0 +1,87 @@
+{
+  "base": "9fd38fa87094d4f0e956d03ac6c660fe4fd5e9d6",
+  "release": "c445081a59518f37d9776e5412dd7b14910696f7",
+  "next": "d59bdaa28908f7266e40172e088ec40813fd3f46",
+  "ours": "bc9dfe8141d9561dc1d8502313d00a84c4566ee8",
+  "paths": [
+    {
+      "path": "projects/ROCKNIX/packages/hardware/quirks/platforms/H700/bin/ledcontrol",
+      "sha256": {
+        "ours": "e1e8a3fc29eb0eaf963f2f0bc8569f072eed1d0b635daead716a905d2fde6b6c",
+        "base": "e1e8a3fc29eb0eaf963f2f0bc8569f072eed1d0b635daead716a905d2fde6b6c",
+        "release": "e1e8a3fc29eb0eaf963f2f0bc8569f072eed1d0b635daead716a905d2fde6b6c",
+        "next": "e1e8a3fc29eb0eaf963f2f0bc8569f072eed1d0b635daead716a905d2fde6b6c"
+      },
+      "history": "",
+      "stat": ""
+    },
+    {
+      "path": "projects/ROCKNIX/packages/rocknix/sources/scripts/led_flash",
+      "sha256": {
+        "ours": "6e1a74bf2f929c779b1839292d1bec48676fc78084158da12a361cec87b369b2",
+        "base": "6e1a74bf2f929c779b1839292d1bec48676fc78084158da12a361cec87b369b2",
+        "release": "6e1a74bf2f929c779b1839292d1bec48676fc78084158da12a361cec87b369b2",
+        "next": "6e1a74bf2f929c779b1839292d1bec48676fc78084158da12a361cec87b369b2"
+      },
+      "history": "",
+      "stat": ""
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/powerstate/sources/powerstate.sh",
+      "sha256": {
+        "ours": "97a7833a40107cefe93736337aba619160c917566541e88ed1f468bcdc48d174",
+        "base": "0e141b7683157b8e18b6b74d6c776aa812f2fe351b3077e74b20c7f50abacc1c",
+        "release": "0e141b7683157b8e18b6b74d6c776aa812f2fe351b3077e74b20c7f50abacc1c",
+        "next": "0e141b7683157b8e18b6b74d6c776aa812f2fe351b3077e74b20c7f50abacc1c"
+      },
+      "history": "",
+      "stat": ""
+    },
+    {
+      "path": "projects/ROCKNIX/packages/rocknix/profile.d/001-functions",
+      "sha256": {
+        "ours": "2a67891c9a3090ddae78d4b729ce7b8f5c41d853e0975b4ce0203df7789e4ab5",
+        "base": "a746ee3e21977e8f6856b5209998b7978a25f55ad866ef77aff329f9140d6810",
+        "release": "a746ee3e21977e8f6856b5209998b7978a25f55ad866ef77aff329f9140d6810",
+        "next": "708c18f0fb9eb56c87c6eeac1abbeed19be48e0e34eaee81c051213c5edd57a4"
+      },
+      "history": "25903bb59c 2026-10-04 rocknix: look up settings without fork and use flock\n0c43a50420 2026-10-01 Merge pull request #3377 from sunshineinabox/PR_RotScaling",
+      "stat": ".../packages/rocknix/profile.d/001-functions       | 242 +++++++++++++++------\n 1 file changed, 177 insertions(+), 65 deletions(-)"
+    },
+    {
+      "path": "projects/ROCKNIX/devices/H700/options",
+      "sha256": {
+        "ours": "b483174ec81f7711208c10da1c4f7e3f184bad4689a553091b98d06b83cf5f9e",
+        "base": "b483174ec81f7711208c10da1c4f7e3f184bad4689a553091b98d06b83cf5f9e",
+        "release": "b483174ec81f7711208c10da1c4f7e3f184bad4689a553091b98d06b83cf5f9e",
+        "next": "78350898eb08e7efaa8502f0ddd91f3faf65b477ebd966bbbc555f100d12fd7c"
+      },
+      "history": "e1b7d1f82f 2026-10-06 rocknix-memory-manager: support the ES ZRAM menu\ndc14669f69 2026-10-04 systemd: set THP policy with tmpfiles and MemoryTHP",
+      "stat": "projects/ROCKNIX/devices/H700/options | 5 ++++-\n 1 file changed, 4 insertions(+), 1 deletion(-)"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/batteryplus/package.mk",
+      "sha256": {
+        "ours": null,
+        "base": null,
+        "release": null,
+        "next": null
+      },
+      "history": "",
+      "stat": ""
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/system-utils/sources/scripts/ledcontrol",
+      "sha256": {
+        "ours": "aef359f92feb43461650464bc333b2aa68e35e20c663e4c2f157b66ccaad3bb5",
+        "base": "aef359f92feb43461650464bc333b2aa68e35e20c663e4c2f157b66ccaad3bb5",
+        "release": "aef359f92feb43461650464bc333b2aa68e35e20c663e4c2f157b66ccaad3bb5",
+        "next": "aef359f92feb43461650464bc333b2aa68e35e20c663e4c2f157b66ccaad3bb5"
+      },
+      "history": "",
+      "stat": ""
+    }
+  ],
+  "release_delta_commits": 11,
+  "next_delta_commits": 205
+}

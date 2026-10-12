@@ -1,0 +1,38 @@
+[
+  {
+    "tag_name": "v1.2",
+    "html_url": "https://github.com/ROCKNIX/abl/releases/tag/v1.2",
+    "published_at": "2026-10-01T19:31:32Z",
+    "body": "## ROCKNIX ABL v1.2\r\n\r\n### Changes\r\n- abl: update logo (ff2ea0854a)\r\n- abl: bump version (d75901cba0)\r\n- stats: add Snapdragon G2 Gen 1 and correct designations for Snapdragon 8 Elite and Dragonwing Q8750 (2a7dce0767)\r\n- abl: display a message if soc is incompatible (39d4ed34af)\r\n### Build info\r\n- LinuxLoader commit: e9d37131c0c2273076468156fb0f87aa6834202b\r\n- Build date: 2026-10-01 19:31 UTC\r\n\r\n"
+  },
+  {
+    "tag_name": "v1.1.9",
+    "html_url": "https://github.com/ROCKNIX/abl/releases/tag/v1.1.9",
+    "published_at": "2026-09-26T20:17:12Z",
+    "body": "## ROCKNIX ABL v1.1.9\r\n\r\n### Changes\r\n- bootcfw: simplify and speed up the boot process (4588733123)\r\n- stats: add support for more soc's (541b658ba6)\r\n- abl: display message when uninstalling cfw (28cb8d1250)\r\n- abl: bump version (098032f281)\r\n### Build info\r\n- LinuxLoader commit: 4588733123554b1f7bf935b04e494e4284894546\r\n- Build date: 2026-09-26 20:17 UTC\r\n\r\n"
+  },
+  {
+    "tag_name": "v1.1.8",
+    "html_url": "https://github.com/ROCKNIX/abl/releases/tag/v1.1.8",
+    "published_at": "2026-08-25T12:02:10Z",
+    "body": "## ROCKNIX ABL v1.1.8\r\n\r\n### Changes\r\n- workflows: add sm4450 and simplify build workflow (22ac43cef2)\r\n- submodule: update cmocka url (e6936945da)\r\n- SDCC: handle sm4450 case (a0d3f8a826)\r\n- sm4450: fix build (2ba532c708)\r\n- sdcc: fix quirk ordering with rebase (2668cb02d2)\r\n- sm4450: disable usb boot for now (6b93bec0f1)\r\n- boot: revert ablenv changes (9710e51dec)\r\n- ux: remove info text (c66ca8adfd)\r\n- menu: install devicetree (a52d7ec84c)\r\n- qurik: sm8250 GPT repair bypass (25376e5790)\r\n- menu: make dtb scan more granular (b0ce0005df)\r\n- menu: allow grub selection from abl (c3462f1b59)\r\n- boot: add check to fallback path (b3be5b795e)\r\n- boot: make all modes strict and auto for internal -> sd card (7246510c0e)\r\n- sm4450: bring up initial (0e0f1d9921)\r\n- config: boot kernel (0a435bf2d8)\r\n- splash: deterministic display off (41f78157a1)\r\n- ram: do not reclaim display reserve on EFI path (6954208450)\r\n- Replace ascii with drawn logo (52dd676dda)\r\n- boot: persist logo through boot and bump version (aa5dc48ebe)\r\n### Build info\r\n- LinuxLoader commit: 22ac43cef216dfd2caefef26cd46db0d8e0d4d71\r\n- Build date: 2026-08-25 12:02 UTC\r\n\r\n"
+  },
+  {
+    "tag_name": "v1.1.7",
+    "html_url": "https://github.com/ROCKNIX/abl/releases/tag/v1.1.7",
+    "published_at": "2026-08-01T13:46:58Z",
+    "body": "## ROCKNIX ABL v1.1.7\r\n\r\n### Changes\r\n- DevInfo: Clear stale key (740d8500b3)\r\n- boot: either source for volume up (915a6b7503)\r\n- usb: fix lost changes for sm6115 (d529a2ef21)\r\n- devinfo: use new key (7129917461)\r\n- menu: add indicator that scan is happening (de993bbde6)\r\n- usb: fail fast when nothing connected (a37b58f72e)\r\n- RawFat: also on EFI boot path (0393a73f69)\r\n- boot: gate Internal mode to internal only (e093016f70)\r\n- usb: shutdown ADSP for EFI boot (a490fcc789)\r\n- RawFat: respect io align (810c7e3684)\r\n- xhci: Match UEFI spec (a91e982ec8)\r\n- Menu: read only the appended DTB region (5a57456c5d)\r\n- RawFat: add range read, coalase (f429ce2614)\r\n- Info: Only internal when internal installed (d6eb0d68bb)\r\n- Menu: standalone menu for usb only (36ad3a22fd)\r\n- ux: ungate alternative vol up and clear label (144d8f40f1)\r\n- usb: boot error if no image (6017caee37)\r\n- usb: guards and some UX/UI improvements (012d3e1440)\r\n- boot: remove external boot mode and clean up (9c23204f00)\r\n- Menu: keep selection on rebuild and redraw on boot mode switch (6e632a2fff)\r\n- Silence BaseTools compile warnings and bump version (4dbf69f551)\r\n- Remove nuke cfw menu option (549c9bed4b)\r\n- USB: Clean up from rebase (6c11196182)\r\n- USB: Use source device as preference (259bcc4498)\r\n- USB boot: Preserve fastboot in abl in host mode (1e05d7b9a6)\r\n- Boot: Enable USB boot (bdc54b2833)\r\n- Font: Load FontDxe for XBLs that don't ship it (04bea1902c)\r\n### Build info\r\n- LinuxLoader commit: 740d8500b306330efa5ec579bf9da31f77db76b1\r\n- Build date: 2026-08-01 13:46 UTC\r\n\r\n"
+  },
+  {
+    "tag_name": "v1.1.6",
+    "html_url": "https://github.com/ROCKNIX/abl/releases/tag/v1.1.6",
+    "published_at": "2026-07-26T19:22:52Z",
+    "body": "## ROCKNIX ABL v1.1.6\r\n\r\n### Changes\r\n- fb: fix landscape log (f4bafea15c)\r\n- DrawUI: Improvements (09518db3a2)\r\n- Select menu: Fixed overflow and scroll (d787dcc599)\r\n- Menu: tolerate vertical overflow (ef5beb1b98)\r\n- Always return false for altvolumeup/forceextboot incase anybody uninstalls from internal and the setting remains active/saved (293c5e9894)\r\n- Only run logic for IsCfwInternal once (26b0afb556)\r\n- Expand text in menus (57a46e754d)\r\n- Show screen resolution in system stats (6e33b2fc9a)\r\n- Only display altvolumeup/forceextboot if installed to internal (b3e2537e5b)\r\n- Scale the menu 50% (04610e75ea)\r\n- Don't freeze h/w init if display is out of bounds (2c3da05377)\r\n- QoL: Stay on selection menu when changing setting (61c10a1c4b)\r\n- RAM: Do not reclaim Display Reserved region (85fd4d7b8e)\r\n- Boot: Reclaim full RAM in EFI boot path (2e93083915)\r\n- Move abl version to end of ascii (decf1c51a2)\r\n- Add switch for alternative volume up (70eba27b43)\r\n- Update error message (20b4047236)\r\n- Add switch for force external boot (baf2f56e73)\r\n- Slight menu redesign (a3a2d0e4e6)\r\n- Add toggle for offmode charging (901a26f888)\r\n- Replace git hash with abl version and bump version (3f64f0b785)\r\n- Migrate configuration flags to persistent storage (6a66282d82)\r\n- Make nuke/uninstall options more distro agnostic (490251f52d)\r\n### Build info\r\n- LinuxLoader commit: f4bafea15c45ec08d4d0097268b332dd8896df7d\r\n- Build date: 2026-07-26 19:22 UTC\r\n\r\n"
+  },
+  {
+    "tag_name": "v1.1.5",
+    "html_url": "https://github.com/ROCKNIX/abl/releases/tag/v1.1.5",
+    "published_at": "2026-07-15T00:07:55Z",
+    "body": "## ROCKNIX ABL v1.1.5\r\n\r\n### Changes\r\n- Add support for more distros\r\n- Fix booting on larger SD cards\r\n- Fix SM8250 fat filesystem bug\r\n### Build info\r\n- LinuxLoader commit: e2b8dd5146cdc1d0eead6be9245dadf5db12a57e\r\n- Build date: 2026-07-15 00:07 UTC\r\n\r\n"
+  }
+]

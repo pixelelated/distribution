@@ -1,0 +1,31 @@
+{
+  "utc": "2026-10-12T04:09:27.220287+00:00",
+  "result": "PASS",
+  "issue": 557,
+  "device": "rgsp",
+  "old_boot_id": "b0ca038a-3bf8-4b78-a9ec-a5e4185fd5e8",
+  "new_boot_id": "42ec19fe-cdf5-4269-b6be-0ab7757a5d37",
+  "protected_payload_count": 163,
+  "protected_payload_bytes": 25545421,
+  "payload_hashes_and_modes_preserved": true,
+  "recovery_entries": 5,
+  "credentials_and_selected_paths_unchanged": true,
+  "automatic_sync_unchanged_and_off": true,
+  "hooks_and_service_overrides_unchanged": true,
+  "pending_recovery_markers": false,
+  "settings_semantics": [
+    {
+      "file": "system.cfg",
+      "all_values_and_duplicate_order_hash_preserved": true,
+      "byte_identical": true
+    },
+    {
+      "file": "system.cfg.backup",
+      "all_values_and_duplicate_order_hash_preserved": true,
+      "byte_identical": true
+    }
+  ],
+  "raw_configuration_values_copied": false,
+  "cloud_operations": false,
+  "screenshots": false
+}

@@ -1,0 +1,720 @@
+{
+  "utc": "2026-10-12T04:45:44.912942+00:00",
+  "status": "PREPARED_REQUIRES_VERIFICATION_AND_FRESH_ROOT_SNAPSHOT",
+  "worktrees": [
+    {
+      "path": "/workspace/repos/rocknix.worktrees/device-flashing",
+      "head": "4234be0b6b4297e95525ac0941e3670f08d2fde0",
+      "branch": "build/device-flashing",
+      "tracked_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "records": "/workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03/device-flashing/records.json",
+      "records_count": 0,
+      "special_inputs": "/workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03/device-flashing/special-inputs.json",
+      "classification": "/workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03/device-flashing/classification.json",
+      "untracked_preserved": [],
+      "root_identity": {
+        "device": 66304,
+        "inode": 148541596,
+        "size": 4096,
+        "mtime_ns": 1790567193941074106,
+        "mode": 16893,
+        "uid": 1000,
+        "links": 16
+      },
+      "allocated_bytes": 172171264,
+      "build_roots": []
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/devices",
+      "head": "1acdaf2cce908b25758a004dca0f22ad3ff7af49",
+      "branch": "build/devices",
+      "tracked_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "records": "/workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03/devices/records.json",
+      "records_count": 15876,
+      "special_inputs": "/workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03/devices/special-inputs.json",
+      "classification": "/workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03/devices/classification.json",
+      "untracked_preserved": [
+        ".H700-done",
+        ".SM8550-done",
+        "build-dev.sh"
+      ],
+      "root_identity": {
+        "device": 66304,
+        "inode": 135808097,
+        "size": 4096,
+        "mtime_ns": 1790866834207673769,
+        "mode": 16893,
+        "uid": 1000,
+        "links": 29
+      },
+      "allocated_bytes": 498925420544,
+      "build_roots": [
+        {
+          "root": "build.ROCKNIX-H700.aarch64",
+          "packages": 599,
+          "threads_present": true,
+          "stamps_present": true
+        },
+        {
+          "root": "build.ROCKNIX-H700.arm",
+          "packages": 221,
+          "threads_present": true,
+          "stamps_present": true
+        },
+        {
+          "root": "build.ROCKNIX-RK3566.aarch64",
+          "packages": 637,
+          "threads_present": true,
+          "stamps_present": true
+        },
+        {
+          "root": "build.ROCKNIX-RK3566.arm",
+          "packages": 233,
+          "threads_present": true,
+          "stamps_present": true
+        },
+        {
+          "root": "build.ROCKNIX-SM8550.aarch64",
+          "packages": 659,
+          "threads_present": true,
+          "stamps_present": true
+        },
+        {
+          "root": "build.ROCKNIX-SM8550.arm",
+          "packages": 224,
+          "threads_present": true,
+          "stamps_present": true
+        }
+      ]
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/generic-x64",
+      "head": "b2378d9c33196f24066f1bcd233e14fa88211001",
+      "branch": "build/generic-x64",
+      "tracked_patch_sha256": "42065b015a65d1e363d5daca24c1d2754007b7296faff853b7e5aa7283c3a3c6",
+      "records": "/workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03/generic-x64/records.json",
+      "records_count": 3400,
+      "special_inputs": "/workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03/generic-x64/special-inputs.json",
+      "classification": "/workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03/generic-x64/classification.json",
+      "untracked_preserved": [],
+      "root_identity": {
+        "device": 66304,
+        "inode": 135818790,
+        "size": 4096,
+        "mtime_ns": 1790902638935648189,
+        "mode": 16893,
+        "uid": 1000,
+        "links": 24
+      },
+      "allocated_bytes": 125484761088,
+      "build_roots": [
+        {
+          "root": "build.ROCKNIX-GENERIC_X64.x86_64",
+          "packages": 568,
+          "threads_present": true,
+          "stamps_present": true
+        }
+      ]
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-generic-x64",
+      "head": "61b64817bf8ab48237e51abb395484e36cbf924b",
+      "branch": "build/m7-generic-x64",
+      "tracked_patch_sha256": "42065b015a65d1e363d5daca24c1d2754007b7296faff853b7e5aa7283c3a3c6",
+      "records": "/workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03/m7-generic-x64/records.json",
+      "records_count": 3622,
+      "special_inputs": "/workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03/m7-generic-x64/special-inputs.json",
+      "classification": "/workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03/m7-generic-x64/classification.json",
+      "untracked_preserved": [],
+      "root_identity": {
+        "device": 66304,
+        "inode": 153397104,
+        "size": 4096,
+        "mtime_ns": 1791069404390712602,
+        "mode": 16893,
+        "uid": 1000,
+        "links": 25
+      },
+      "allocated_bytes": 115997405184,
+      "build_roots": [
+        {
+          "root": "build.RASTERATOPS-GENERIC_X64.x86_64",
+          "packages": 568,
+          "threads_present": true,
+          "stamps_present": true
+        }
+      ]
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated",
+      "head": "b137d8c37323abbf07788af8bf8dbd495a31e9c9",
+      "branch": "build/m7-pixelelated",
+      "tracked_patch_sha256": "42065b015a65d1e363d5daca24c1d2754007b7296faff853b7e5aa7283c3a3c6",
+      "records": "/workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03/m7-pixelelated/records.json",
+      "records_count": 4045,
+      "special_inputs": "/workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03/m7-pixelelated/special-inputs.json",
+      "classification": "/workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03/m7-pixelelated/classification.json",
+      "untracked_preserved": [],
+      "root_identity": {
+        "device": 66304,
+        "inode": 153397539,
+        "size": 4096,
+        "mtime_ns": 1791096416182839396,
+        "mode": 16893,
+        "uid": 1000,
+        "links": 25
+      },
+      "allocated_bytes": 116423688192,
+      "build_roots": [
+        {
+          "root": "build.pixelelated-GENERIC_X64.x86_64",
+          "packages": 568,
+          "threads_present": true,
+          "stamps_present": true
+        }
+      ]
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01",
+      "head": "43d0bc3bf47fd858ba8d5c55fbdf52535a0db2aa",
+      "branch": "build/m7-pixelelated-h700-01",
+      "tracked_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "records": "/workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03/m7-pixelelated-h700-01/records.json",
+      "records_count": 5737,
+      "special_inputs": "/workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03/m7-pixelelated-h700-01/special-inputs.json",
+      "classification": "/workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03/m7-pixelelated-h700-01/classification.json",
+      "untracked_preserved": [],
+      "root_identity": {
+        "device": 66304,
+        "inode": 29415784,
+        "size": 4096,
+        "mtime_ns": 1791364074419770279,
+        "mode": 16893,
+        "uid": 1000,
+        "links": 26
+      },
+      "allocated_bytes": 144185819136,
+      "build_roots": [
+        {
+          "root": "build.pixelelated-H700.aarch64",
+          "packages": 599,
+          "threads_present": true,
+          "stamps_present": true
+        },
+        {
+          "root": "build.pixelelated-H700.arm",
+          "packages": 220,
+          "threads_present": true,
+          "stamps_present": true
+        }
+      ]
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-02",
+      "head": "8b5113fa164ada7d002ab138b1e3a9bf795e9de5",
+      "branch": "build/m7-pixelelated-h700-02",
+      "tracked_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "records": "/workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03/m7-pixelelated-h700-02/records.json",
+      "records_count": 5022,
+      "special_inputs": "/workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03/m7-pixelelated-h700-02/special-inputs.json",
+      "classification": "/workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03/m7-pixelelated-h700-02/classification.json",
+      "untracked_preserved": [],
+      "root_identity": {
+        "device": 66304,
+        "inode": 43444699,
+        "size": 4096,
+        "mtime_ns": 1791493651674905475,
+        "mode": 16893,
+        "uid": 1000,
+        "links": 24
+      },
+      "allocated_bytes": 143878791168,
+      "build_roots": [
+        {
+          "root": "build.pixelelated-H700.aarch64",
+          "packages": 600,
+          "threads_present": true,
+          "stamps_present": true
+        },
+        {
+          "root": "build.pixelelated-H700.arm",
+          "packages": 220,
+          "threads_present": true,
+          "stamps_present": true
+        }
+      ]
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement01",
+      "head": "1600d78fe50488537ca5568d2671fe84236da6d4",
+      "branch": "build/m7-pixelelated-replacement01",
+      "tracked_patch_sha256": "42065b015a65d1e363d5daca24c1d2754007b7296faff853b7e5aa7283c3a3c6",
+      "records": "/workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03/m7-pixelelated-replacement01/records.json",
+      "records_count": 3445,
+      "special_inputs": "/workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03/m7-pixelelated-replacement01/special-inputs.json",
+      "classification": "/workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03/m7-pixelelated-replacement01/classification.json",
+      "untracked_preserved": [],
+      "root_identity": {
+        "device": 66304,
+        "inode": 20231068,
+        "size": 4096,
+        "mtime_ns": 1791131697857225126,
+        "mode": 16893,
+        "uid": 1000,
+        "links": 23
+      },
+      "allocated_bytes": 115915366400,
+      "build_roots": [
+        {
+          "root": "build.pixelelated-GENERIC_X64.x86_64",
+          "packages": 568,
+          "threads_present": true,
+          "stamps_present": true
+        }
+      ]
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement02",
+      "head": "98d0bc464e40850298bb1d8c9d3054b6ac995307",
+      "branch": "build/m7-pixelelated-replacement02",
+      "tracked_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "records": "/workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03/m7-pixelelated-replacement02/records.json",
+      "records_count": 12,
+      "special_inputs": "/workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03/m7-pixelelated-replacement02/special-inputs.json",
+      "classification": "/workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03/m7-pixelelated-replacement02/classification.json",
+      "untracked_preserved": [],
+      "root_identity": {
+        "device": 66304,
+        "inode": 20231123,
+        "size": 4096,
+        "mtime_ns": 1791137404163279350,
+        "mode": 16893,
+        "uid": 1000,
+        "links": 18
+      },
+      "allocated_bytes": 238706688,
+      "build_roots": []
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement04",
+      "head": "ff249d21722fe3f12146f6c1997d1bf516a78a5c",
+      "branch": "build/m7-pixelelated-replacement04",
+      "tracked_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "records": "/workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03/m7-pixelelated-replacement04/records.json",
+      "records_count": 12,
+      "special_inputs": "/workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03/m7-pixelelated-replacement04/special-inputs.json",
+      "classification": "/workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03/m7-pixelelated-replacement04/classification.json",
+      "untracked_preserved": [],
+      "root_identity": {
+        "device": 66304,
+        "inode": 20627330,
+        "size": 4096,
+        "mtime_ns": 1791143428965859170,
+        "mode": 16893,
+        "uid": 1000,
+        "links": 18
+      },
+      "allocated_bytes": 242782208,
+      "build_roots": []
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement11",
+      "head": "9bb2b42e5a9a689558d518b26ca88d658bd30fcb",
+      "branch": "build/m7-pixelelated-replacement11",
+      "tracked_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "records": "/workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03/m7-pixelelated-replacement11/records.json",
+      "records_count": 12,
+      "special_inputs": "/workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03/m7-pixelelated-replacement11/special-inputs.json",
+      "classification": "/workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03/m7-pixelelated-replacement11/classification.json",
+      "untracked_preserved": [],
+      "root_identity": {
+        "device": 66304,
+        "inode": 22469973,
+        "size": 4096,
+        "mtime_ns": 1791239653107463428,
+        "mode": 16893,
+        "uid": 1000,
+        "links": 18
+      },
+      "allocated_bytes": 486977536,
+      "build_roots": []
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement13",
+      "head": "e4276a6743c99f357510d4bebdce9500412f8b02",
+      "branch": "build/m7-pixelelated-replacement13",
+      "tracked_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "records": "/workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03/m7-pixelelated-replacement13/records.json",
+      "records_count": 12,
+      "special_inputs": "/workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03/m7-pixelelated-replacement13/special-inputs.json",
+      "classification": "/workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03/m7-pixelelated-replacement13/classification.json",
+      "untracked_preserved": [],
+      "root_identity": {
+        "device": 66304,
+        "inode": 22864685,
+        "size": 4096,
+        "mtime_ns": 1791247056367202752,
+        "mode": 16893,
+        "uid": 1000,
+        "links": 18
+      },
+      "allocated_bytes": 524222464,
+      "build_roots": []
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement17",
+      "head": "3756fde50e52b71b101a892a5b2862b708ad7b32",
+      "branch": "build/m7-pixelelated-replacement17",
+      "tracked_patch_sha256": "42065b015a65d1e363d5daca24c1d2754007b7296faff853b7e5aa7283c3a3c6",
+      "records": "/workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03/m7-pixelelated-replacement17/records.json",
+      "records_count": 3600,
+      "special_inputs": "/workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03/m7-pixelelated-replacement17/special-inputs.json",
+      "classification": "/workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03/m7-pixelelated-replacement17/classification.json",
+      "untracked_preserved": [],
+      "root_identity": {
+        "device": 66304,
+        "inode": 31907062,
+        "size": 4096,
+        "mtime_ns": 1791482851684924606,
+        "mode": 16893,
+        "uid": 1000,
+        "links": 23
+      },
+      "allocated_bytes": 118264119296,
+      "build_roots": [
+        {
+          "root": "build.pixelelated-GENERIC_X64.x86_64",
+          "packages": 569,
+          "threads_present": true,
+          "stamps_present": true
+        }
+      ]
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement18",
+      "head": "7f58b7b1c592908dcd0ba5987955e59aaa79fe66",
+      "branch": "build/m7-pixelelated-replacement18",
+      "tracked_patch_sha256": "42065b015a65d1e363d5daca24c1d2754007b7296faff853b7e5aa7283c3a3c6",
+      "records": "/workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03/m7-pixelelated-replacement18/records.json",
+      "records_count": 3635,
+      "special_inputs": "/workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03/m7-pixelelated-replacement18/special-inputs.json",
+      "classification": "/workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03/m7-pixelelated-replacement18/classification.json",
+      "untracked_preserved": [],
+      "root_identity": {
+        "device": 66304,
+        "inode": 41476968,
+        "size": 4096,
+        "mtime_ns": 1791488056834601410,
+        "mode": 16893,
+        "uid": 1000,
+        "links": 23
+      },
+      "allocated_bytes": 118273507328,
+      "build_roots": [
+        {
+          "root": "build.pixelelated-GENERIC_X64.x86_64",
+          "packages": 569,
+          "threads_present": true,
+          "stamps_present": true
+        }
+      ]
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement19",
+      "head": "a0f60255abfefaddce772d0bba29977bafb7adab",
+      "branch": "build/m7-pixelelated-replacement19",
+      "tracked_patch_sha256": "42065b015a65d1e363d5daca24c1d2754007b7296faff853b7e5aa7283c3a3c6",
+      "records": "/workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03/m7-pixelelated-replacement19/records.json",
+      "records_count": 3524,
+      "special_inputs": "/workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03/m7-pixelelated-replacement19/special-inputs.json",
+      "classification": "/workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03/m7-pixelelated-replacement19/classification.json",
+      "untracked_preserved": [],
+      "root_identity": {
+        "device": 66304,
+        "inode": 53542849,
+        "size": 4096,
+        "mtime_ns": 1791740681160926774,
+        "mode": 16893,
+        "uid": 1000,
+        "links": 23
+      },
+      "allocated_bytes": 118513229824,
+      "build_roots": [
+        {
+          "root": "build.pixelelated-GENERIC_X64.x86_64",
+          "packages": 569,
+          "threads_present": true,
+          "stamps_present": true
+        }
+      ]
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-01",
+      "head": "0553c0193ace3aebbefaae5b7b6d49253c2811d9",
+      "branch": "build/m7-pixelelated-sm8550-01",
+      "tracked_patch_sha256": "7019a77303fe265434194cc679621a9e6ca9bcec966eb86f04e6392332506424",
+      "records": "/workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03/m7-pixelelated-sm8550-01/records.json",
+      "records_count": 5760,
+      "special_inputs": "/workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03/m7-pixelelated-sm8550-01/special-inputs.json",
+      "classification": "/workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03/m7-pixelelated-sm8550-01/classification.json",
+      "untracked_preserved": [],
+      "root_identity": {
+        "device": 66304,
+        "inode": 29675465,
+        "size": 4096,
+        "mtime_ns": 1791391867576445367,
+        "mode": 16893,
+        "uid": 1000,
+        "links": 26
+      },
+      "allocated_bytes": 182675849216,
+      "build_roots": [
+        {
+          "root": "build.pixelelated-SM8550.aarch64",
+          "packages": 659,
+          "threads_present": true,
+          "stamps_present": true
+        },
+        {
+          "root": "build.pixelelated-SM8550.arm",
+          "packages": 224,
+          "threads_present": true,
+          "stamps_present": true
+        }
+      ]
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-02",
+      "head": "8b5113fa164ada7d002ab138b1e3a9bf795e9de5",
+      "branch": "build/m7-pixelelated-sm8550-02",
+      "tracked_patch_sha256": "7019a77303fe265434194cc679621a9e6ca9bcec966eb86f04e6392332506424",
+      "records": "/workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03/m7-pixelelated-sm8550-02/records.json",
+      "records_count": 5492,
+      "special_inputs": "/workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03/m7-pixelelated-sm8550-02/special-inputs.json",
+      "classification": "/workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03/m7-pixelelated-sm8550-02/classification.json",
+      "untracked_preserved": [],
+      "root_identity": {
+        "device": 66304,
+        "inode": 46854137,
+        "size": 4096,
+        "mtime_ns": 1791496506223674552,
+        "mode": 16893,
+        "uid": 1000,
+        "links": 24
+      },
+      "allocated_bytes": 182413791232,
+      "build_roots": [
+        {
+          "root": "build.pixelelated-SM8550.aarch64",
+          "packages": 659,
+          "threads_present": true,
+          "stamps_present": true
+        },
+        {
+          "root": "build.pixelelated-SM8550.arm",
+          "packages": 224,
+          "threads_present": true,
+          "stamps_present": true
+        }
+      ]
+    }
+  ],
+  "gross_allocated_bytes": 1982616608768,
+  "custody": "/workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03",
+  "protected_roots": [
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-03",
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-03",
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20",
+    "/workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03",
+    "/workspace/cache/rocknix-sources",
+    "/workspace/repos/rocknix",
+    "/workspace/repos/rocknix.worktrees/m7-component-inputs"
+  ],
+  "protected_firmware": [
+    {
+      "path": "/workspace/artifacts/pixelelated-candidates/sha256/66273ff16383957687af44728a9e4e2c4bf1242c0217cf681dca8abee858d9b7/pixelelated-H700.aarch64-0.0.1-dev+20261011T222153Z.gbc9dfe8141d9-from-ROCKNIX-DDR3.img.gz",
+      "identity": {
+        "device": 66304,
+        "inode": 126879186,
+        "size": 1301066948,
+        "allocated_bytes": 1301073920,
+        "mtime_ns": 1791759266031551159,
+        "uid": 1000,
+        "mode": 33060,
+        "links": 1
+      },
+      "sha256": "181ffcf5de105506901230668f2b3c3e506c83d6998592ee96ab811b9d756dd5",
+      "reason": "#557 current H700 physical update; release after physical acceptance and next candidate replacement"
+    },
+    {
+      "path": "/workspace/artifacts/pixelelated-candidates/sha256/66273ff16383957687af44728a9e4e2c4bf1242c0217cf681dca8abee858d9b7/pixelelated-H700.aarch64-0.0.1-dev+20261011T222153Z.gbc9dfe8141d9-from-ROCKNIX-DDR4.img.gz",
+      "identity": {
+        "device": 66304,
+        "inode": 126879188,
+        "size": 1301066919,
+        "allocated_bytes": 1301073920,
+        "mtime_ns": 1791759267322564924,
+        "uid": 1000,
+        "mode": 33060,
+        "links": 1
+      },
+      "sha256": "1adc712360ad0a87d020803cb38eedc35f8117e4ced6286daeb0c2cb1fd6b21e",
+      "reason": "#557 current H700 physical update; release after physical acceptance and next candidate replacement"
+    },
+    {
+      "path": "/workspace/artifacts/pixelelated-candidates/sha256/66273ff16383957687af44728a9e4e2c4bf1242c0217cf681dca8abee858d9b7/pixelelated-H700.aarch64-0.0.1-dev+20261011T222153Z.gbc9dfe8141d9-from-ROCKNIX.tar",
+      "identity": {
+        "device": 66304,
+        "inode": 126879191,
+        "size": 1321216000,
+        "allocated_bytes": 1321222144,
+        "mtime_ns": 1791759268745580097,
+        "uid": 1000,
+        "mode": 33060,
+        "links": 1
+      },
+      "sha256": "ad0c75a7af641eab79f3a637c30f3ff6800fb69f879e2599e1463e011bcf3d81",
+      "reason": "#557 current H700 physical update; release after physical acceptance and next candidate replacement"
+    },
+    {
+      "path": "/workspace/artifacts/pixelelated-candidates/sha256/a480210cd8837f20fb67a80508c517308cc0326ed2c1544493e3f56d125f1f2f/pixelelated-SM8550.aarch64-0.0.1-dev+20261011T222153Z.gbc9dfe8141d9-from-ROCKNIX.img.gz",
+      "identity": {
+        "device": 66304,
+        "inode": 128193855,
+        "size": 1611627307,
+        "allocated_bytes": 1611632640,
+        "mtime_ns": 1791761485567908159,
+        "uid": 1000,
+        "mode": 33060,
+        "links": 1
+      },
+      "sha256": "0b17c01e4fd29425a0199c9a3333a7aa190ee25322ce40fc892463c991b4f2d6",
+      "reason": "#557 current SM8550 physical update; release after physical acceptance and next candidate replacement"
+    },
+    {
+      "path": "/workspace/artifacts/pixelelated-candidates/sha256/a480210cd8837f20fb67a80508c517308cc0326ed2c1544493e3f56d125f1f2f/pixelelated-SM8550.aarch64-0.0.1-dev+20261011T222153Z.gbc9dfe8141d9-from-ROCKNIX.tar",
+      "identity": {
+        "device": 66304,
+        "inode": 128193857,
+        "size": 1616322560,
+        "allocated_bytes": 1616326656,
+        "mtime_ns": 1791761487187927374,
+        "uid": 1000,
+        "mode": 33060,
+        "links": 1
+      },
+      "sha256": "d6278647cc07bd34e61aa839ba866418b63b386468cfe39c492992c50f598ea0",
+      "reason": "#557 current SM8550 physical update; release after physical acceptance and next candidate replacement"
+    },
+    {
+      "path": "/workspace/artifacts/pixelelated-candidates/sha256/bd85b1b42f0170d7d82555af09cbe18762d6fc7eae63293bd0a8043e652db548/pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261011T194522Z.g1a0266484423-from-ROCKNIX.img.gz",
+      "identity": {
+        "device": 66304,
+        "inode": 126879180,
+        "size": 2073682425,
+        "allocated_bytes": 2073690112,
+        "mtime_ns": 1791748278953783350,
+        "uid": 1000,
+        "mode": 33060,
+        "links": 1
+      },
+      "sha256": "1a23cf5740dbb69cdca76d753a0f6121c35e6e12f27649e792aeebc71e8cc490",
+      "reason": "#528 immediately queued exact final-image source/component inventory; release after completed publication-input qualification"
+    },
+    {
+      "path": "/workspace/artifacts/pixelelated-candidates/sha256/bd85b1b42f0170d7d82555af09cbe18762d6fc7eae63293bd0a8043e652db548/pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261011T194522Z.g1a0266484423-from-ROCKNIX.tar",
+      "identity": {
+        "device": 66304,
+        "inode": 126879181,
+        "size": 2074613760,
+        "allocated_bytes": 2074619904,
+        "mtime_ns": 1791748281023805955,
+        "uid": 1000,
+        "mode": 33060,
+        "links": 1
+      },
+      "sha256": "4035b9f77db1811139a5bbaed006c8bd384d9c9eb20f38a56042b3d34785490b",
+      "reason": "#528 immediately queued exact final-image source/component inventory; release after completed publication-input qualification"
+    },
+    {
+      "path": "/workspace/artifacts/pixelelated-candidates/sha256/1b93642b24901b5c3a96b0a079d6fb4486ca30d213b4b2db890c6e3630404175/pixelelated-H700.aarch64-0.0.1-from-ROCKNIX-DDR3.img.gz",
+      "identity": {
+        "device": 66304,
+        "inode": 126877751,
+        "size": 1300864840,
+        "allocated_bytes": 1300869120,
+        "mtime_ns": 1791493717237673641,
+        "uid": 1000,
+        "mode": 33060,
+        "links": 1
+      },
+      "sha256": "6035cf364b3a32d70efa79b9b942a743f4bc308968a4154f2aad87289651b607",
+      "reason": "#557 current RG SP installed predecessor: recovery during immediate update; release at successful new installed/preservation acceptance"
+    },
+    {
+      "path": "/workspace/artifacts/pixelelated-candidates/sha256/1b93642b24901b5c3a96b0a079d6fb4486ca30d213b4b2db890c6e3630404175/pixelelated-H700.aarch64-0.0.1-from-ROCKNIX-DDR4.img.gz",
+      "identity": {
+        "device": 66304,
+        "inode": 126877753,
+        "size": 1300864804,
+        "allocated_bytes": 1300869120,
+        "mtime_ns": 1791493718500688440,
+        "uid": 1000,
+        "mode": 33060,
+        "links": 1
+      },
+      "sha256": "45484d5f18dc9b0ba444faa518909a2bce7863d37d2360b7a08c5aa46d191c5f",
+      "reason": "#557 current RG SP installed predecessor: recovery during immediate update; release at successful new installed/preservation acceptance"
+    },
+    {
+      "path": "/workspace/artifacts/pixelelated-candidates/sha256/1b93642b24901b5c3a96b0a079d6fb4486ca30d213b4b2db890c6e3630404175/pixelelated-H700.aarch64-0.0.1-from-ROCKNIX.tar",
+      "identity": {
+        "device": 66304,
+        "inode": 126877755,
+        "size": 1320960000,
+        "allocated_bytes": 1320964096,
+        "mtime_ns": 1791493719794703601,
+        "uid": 1000,
+        "mode": 33060,
+        "links": 1
+      },
+      "sha256": "b49cca4ca0b8996fa994181508c887d9df5afe155c9502919bab7bf7e153e39d",
+      "reason": "#557 current RG SP installed predecessor: recovery during immediate update; release at successful new installed/preservation acceptance"
+    },
+    {
+      "path": "/workspace/artifacts/pixelelated-candidates/sha256/afcb966f246118798c87e59cd5bc6ce7c2c21167a5d712faea56393409d9d79d/pixelelated-SM8550.aarch64-0.0.1-from-ROCKNIX.img.gz",
+      "identity": {
+        "device": 66304,
+        "inode": 126877759,
+        "size": 1611480177,
+        "allocated_bytes": 1611485184,
+        "mtime_ns": 1791496528425962157,
+        "uid": 1000,
+        "mode": 33060,
+        "links": 1
+      },
+      "sha256": "a751b77589ce2332fa296ebf2da54e7a7de198d14c24ca6569d1e3b37c766a14",
+      "reason": "#557 current Nova installed predecessor: recovery during immediate update; release at successful new installed/preservation acceptance"
+    },
+    {
+      "path": "/workspace/artifacts/pixelelated-candidates/sha256/afcb966f246118798c87e59cd5bc6ce7c2c21167a5d712faea56393409d9d79d/pixelelated-SM8550.aarch64-0.0.1-from-ROCKNIX.tar",
+      "identity": {
+        "device": 66304,
+        "inode": 126877761,
+        "size": 1616107520,
+        "allocated_bytes": 1616113664,
+        "mtime_ns": 1791496530075983532,
+        "uid": 1000,
+        "mode": 33060,
+        "links": 1
+      },
+      "sha256": "b3f1a8190e04abbf64d35486601ee19fce35d2d25bc7239b1be7cccd9fb43730",
+      "reason": "#557 current Nova installed predecessor: recovery during immediate update; release at successful new installed/preservation acceptance"
+    }
+  ],
+  "source_manifest": "/workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03/sources.json",
+  "dependencies": "/workspace/tmp/pixelelated-m7-retention-20261012-oldcleanup01/classified-references.json",
+  "mount_proof": "/workspace/tmp/pixelelated-m7-retention-20261012-mountproof02/result.json",
+  "source_gaps": [],
+  "deletion_performed": false
+}

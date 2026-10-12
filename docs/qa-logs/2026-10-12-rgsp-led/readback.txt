@@ -1,0 +1,23 @@
+2026-10-12T04:53:20Z
+VERSION="0.0.1-dev+20261011T222153Z.gbc9dfe8141d9"
+BUILD_VERSION="0.0.1-dev+20261011T222153Z.gbc9dfe8141d9"
+BUILD_ID="bc9dfe8141d9561dc1d8502313d00a84c4566ee8"
+CONFIG /storage/.config/system/configs/system.cfg
+led.color=red
+CONFIG /storage/.config/system/configs/system.cfg.backup
+led.color=red
+/sys/class/leds/green:power/brightness=0
+/sys/class/leds/green:power/trigger=[none] rfkill-any rfkill-none kbd-scrolllock kbd-numlock kbd-capslock kbd-kanalock kbd-shiftlock kbd-altgrlock kbd-ctrllock kbd-altlock kbd-shiftllock kbd-shiftrlock kbd-ctrlllock kbd-ctrlrlock timer oneshot heartbeat backlight gpio cpu cpu0 cpu1 cpu2 cpu3 activity default-on transient flash torch panic netdev pattern tty axp20x-usb-online battery-charging-or-full battery-charging battery-full battery-charging-blink-full-solid battery-charging-orange-full-green mmc0 mmc2 mmc1 rfkill0 bluetooth-power
+/sys/class/leds/red:status/brightness=1
+/sys/class/leds/red:status/trigger=[none] rfkill-any rfkill-none kbd-scrolllock kbd-numlock kbd-capslock kbd-kanalock kbd-shiftlock kbd-altgrlock kbd-ctrllock kbd-altlock kbd-shiftllock kbd-shiftrlock kbd-ctrlllock kbd-ctrlrlock timer oneshot heartbeat backlight gpio cpu cpu0 cpu1 cpu2 cpu3 activity default-on transient flash torch panic netdev pattern tty axp20x-usb-online battery-charging-or-full battery-charging battery-full battery-charging-blink-full-solid battery-charging-orange-full-green mmc0 mmc2 mmc1 rfkill0 bluetooth-power
+/sys/class/power_supply/axp20x-usb/type=USB
+/sys/class/power_supply/axp20x-usb/online=0
+/sys/class/power_supply/battery/type=Battery
+/sys/class/power_supply/battery/status=Discharging
+/sys/class/power_supply/battery/capacity=100
+/sys/class/power_supply/battery/online=1
+DISPLAY_CACHE=96
+aef359f92feb43461650464bc333b2aa68e35e20c663e4c2f157b66ccaad3bb5  /usr/bin/ledcontrol
+e1e8a3fc29eb0eaf963f2f0bc8569f072eed1d0b635daead716a905d2fde6b6c  /usr/lib/autostart/quirks/platforms/H700/bin/ledcontrol
+6e1a74bf2f929c779b1839292d1bec48676fc78084158da12a361cec87b369b2  /usr/bin/led_flash
+97a7833a40107cefe93736337aba619160c917566541e88ed1f468bcdc48d174  /usr/bin/powerstate

@@ -1,0 +1,19 @@
+{
+  "utc": "2026-10-12T04:49:23.442264+00:00",
+  "result": "PREPARED_AWAITING_ADMINISTRATOR_AUTHENTICATION",
+  "trees": 17,
+  "gross_bytes": 1982616608768,
+  "source_inputs": 702,
+  "preserved_objects": 16307,
+  "preserved_object_bytes": 6855404363,
+  "dependencies": {
+    "COMPLETED_HISTORICAL_CONSUMER": 5012,
+    "CURRENT_CACHE_CONTAINER_BIND": 29965,
+    "CONSUMER_ALREADY_REMOVED_FIRST_BATCH": 16500
+  },
+  "private_full_dependencies": "/workspace/tmp/pixelelated-m7-retention-20261012-oldcleanup01/classified-references.json",
+  "private_full_dependencies_sha256": "344586153413ce67c85a3b41d37277b53e5123262208ab320dcf35c6b3f666c1",
+  "root_reader": "/workspace/tmp/pixelelated-m7-retention-20261012-root02",
+  "root_reader_noninteractive_attempt": "sudo requires interactive authentication; no snapshot obtained",
+  "deletion_performed": false
+}

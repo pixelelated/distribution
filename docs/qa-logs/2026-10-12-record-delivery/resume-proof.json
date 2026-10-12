@@ -1,0 +1,20 @@
+{
+  "utc": "2026-10-12T05:23:50.683372+00:00",
+  "agent": "/root/m7_final_records_resume",
+  "context": "none; repository-only read-only resume verification",
+  "result": "PASS",
+  "checkpoint_reviewed_saved_utc": "2026-10-12T05:20:44.711459+00:00",
+  "verified": {
+    "device_manifest_entries": 37,
+    "oldtree_manifest_entries": 44,
+    "recorded_pids_absent": 20,
+    "retired_worktrees_absent_unregistered": 17,
+    "live_milestone_and_557_558_agree": true,
+    "product_source_and_pins_unchanged": true
+  },
+  "clarifications_applied": [
+    "Delivery owner exists as prepared only, not launched.",
+    "Proof now complete; next action is checked record publication."
+  ],
+  "limits": "Operational checkpoint verification, not a product code audit. Published next still has prior checkpoint until integration."
+}

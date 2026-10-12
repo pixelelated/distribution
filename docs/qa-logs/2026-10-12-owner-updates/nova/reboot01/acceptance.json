@@ -1,0 +1,22 @@
+{
+  "utc": "2026-10-12T04:28:22.065278+00:00",
+  "result": "PASS",
+  "issue": 557,
+  "old_boot_id": "48029f14-080c-49cd-9e6d-4f34179a8129",
+  "new_boot_id": "37a6ecb2-cefb-4dbc-950d-4c57459c3679",
+  "installed_build": "bc9dfe8141d9561dc1d8502313d00a84c4566ee8",
+  "hashes": {
+    "/flash/SYSTEM": "c97f57f1c9926dc294a0c08236e0d3229f0a654a9e0f2b2ac29be2087445bf89",
+    "/flash/KERNEL": "d5afbda7f46de11141f6d2e6cc31be81ec8c597cd5fac3a87b8a6bed280a8ccc",
+    "/flash/rocknix_abl/restore_backup_abl.sh": "add45f3872e645ba215c8e5b5efcd1ef45e32b8ccf7a9275d9bf8e0de6edd247",
+    "/flash/rocknix_abl/backup_abl.sh": "bb0a723734451add4e0b7294dc9b246933e9dbadf965c06234534c923ea2b037",
+    "/flash/rocknix_abl/flash_abl.sh": "ceaf2cea5b0c5597944daceb7bee0c5c7eb10641c68f07c3ac87965617838548",
+    "/flash/rocknix_abl/abl_signed-SM8550.elf": "1aad3626b7830742cacdcdcf0c8696261ec7fa277bfbcfb9402a60bf896527e9",
+    "/flash/rocknix_abl/README": "a95dc2e5611ddc7aa5c6d0a93fd21498934eca7eee6d7aefca11c376217bf77c",
+    "/usr/bin/emulationstation": "e71a3f8dec7035ac03def95fcadcd639b49444ba11f4124539512b4bf58ee056",
+    "/usr/bin/retroarch": "4e916754324aa7df6c6ceeebbd22a733688923cce6f709eba6312fd44ef493e6",
+    "/usr/bin/retroarch32": "d33587a44cb6a040fcf1da79b8a3d122053429351513b84020b00070e013b99d"
+  },
+  "abl_slot_sha256": "1aad3626b7830742cacdcdcf0c8696261ec7fa277bfbcfb9402a60bf896527e9",
+  "scope": "authorized update and physical boot/read-only installed verification; no gameplay or deliberate cloud test; no screenshot requested"
+}
