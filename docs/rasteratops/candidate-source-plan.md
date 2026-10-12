@@ -67,7 +67,7 @@ publish mixed image bytes on current main; the rebased local fix passes the
 new deterministic regression and104 existing upstream tests (105 total).
 No PR has been submitted yet.
 
-The distribution base stays at D-WORKFLOW-111's frozen ROCKNIX ancestry.
+The predecessor used D-WORKFLOW-111's September29 ancestry. D-WORKFLOW-161/#563 now selects ROCKNIX stable20261001 at `c445081a59518f37d9776e5412dd7b14910696f7` for the next candidate, requiring fresh qualification.
 Build cold under the RASTERATOPS name; never rename the warm ROCKNIX root.
 VM qualification and the independent fixes audit follow source preparation.
 No host receipt qualifies an unbuilt image. Publication and physical-device

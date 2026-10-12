@@ -4,7 +4,7 @@
 # (release-candidates.md step 0, #271).
 package zip D-WORKFLOW-024 -- Info-ZIP 3.0 (2008) is the final release; the recipe states the pin
 package raofflineproxy-rcheevos D-RA-029 -- follows the third_party/rcheevos submodule commit RAOfflineProxy 0711f0b names (1433173)
-base distribution D-WORKFLOW-111 -- 0.0.1 is frozen at upstream/next 9fd38fa87094d4f0e956d03ac6c660fe4fd5e9d6; no routine upstream merge during qualification
+base distribution D-WORKFLOW-161 -- next 0.0.1 candidate adopts ROCKNIX stable20261001 c445081a59518f37d9776e5412dd7b14910696f7; later upstream/next is outside this frozen qualification cycle
 package raofflineproxy-libchdr D-RA-037 -- follows the third_party/libchdr submodule commit RAOfflineProxy 248ce5acae names (8e7b8bd3, the same as c1bd3724's); moves with the proxy's pin, as rcheevos does
 package gamescope-glm D-WORKFLOW-077 -- follows subprojects/glm.wrap at gamescope's pinned commit; bumped with gamescope
 package gamescope-stb D-WORKFLOW-077 -- follows subprojects/stb.wrap at gamescope's pinned commit; bumped with gamescope

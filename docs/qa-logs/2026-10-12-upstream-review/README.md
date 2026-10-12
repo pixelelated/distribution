@@ -1,6 +1,6 @@
 # Upstream comparison — October 12 (#534, #558, #559)
 
-This is a read-only comparison, not an upstream integration. D-WORKFLOW-111 still freezes the first-release baseline; #559 owns the later release-based integration strategy and its timing decision.
+This is a read-only comparison, not an upstream integration. D-WORKFLOW-111 still freezes the first-release baseline; #559 owns the detailed integration/backport procedure. D-WORKFLOW-116 already sets the monthly upstream/fork release cadence; D-WORKFLOW-117 already selects tracking with a budgeted exit.
 
 | Snapshot | Commit | Scope |
 | --- | --- | --- |
@@ -27,4 +27,14 @@ The SM8550 path history adds `gpt` to the Linux kernel command line (`0340192729
 
 ## Future work
 
-#559 proposes release checkpoints, explicit targeted-fix triage, an overlay/conflict inventory and clean/retained VM plus required physical qualification before integration. A reviewed merge preserving published history is a proposal; no strategy or freeze exception is adopted here. #560 separately evaluates fast shutdown: accepted ES skips gamelist writes via `IgnoreGamelist`, then follows normal teardown and the power-off command. Actual time saved and exact metadata-loss scope remain to be measured.
+#559 must implement the already-settled D-WORKFLOW-116/117 cadence through explicit targeted-fix triage, an overlay/conflict inventory, a predeclared cost budget and clean/retained VM plus required physical qualification. A reviewed merge preserving published history and the selective-backport mechanics remain proposals; no freeze exception or upstream commit intake is adopted here. #560 separately evaluates fast shutdown: accepted ES skips gamelist writes via `IgnoreGamelist`, then follows normal teardown and the power-off command. Actual time saved and exact metadata-loss scope remain to be measured.
+
+
+## Policy reconciliation and stable-release scope
+
+The earlier statement that no strategy was adopted was too broad: the cadence and tracking policy were decided on October1 in D-WORKFLOW-116/117. This correction preserves those decisions and D-WORKFLOW-111's first-release freeze. Latest stable was rechecked as20261001. The11commits beyond our base include merge commits and touch12files: DuckStation executable permission, FEX's Nix package-set pin, Steam runtime refresh/link handling, ABL1.2 and SM8250 Mangmi DP/audio changes. The accepted DuckStation recipe already supplies executable mode through `install -m 0755`; the other items have no approved intake here. Common settings, memory, suspend and kernel changes in the broader review are from post-release next, not this stable-release delta. See #559 for exact commits and proposed intake procedure. No integration or new test was run for this reconciliation.
+
+
+## Subsequent owner decision — stable20261001 selected
+
+D-WORKFLOW-161/#563 now adopts the exact20261001 release as the next0.0.1 foundation, superseding D-WORKFLOW-111's old base. The no-integration statements above describe the earlier read-only review. #563 owns the source merge and fresh qualification; existing binaries are not relabelled. The common7.2 DP-audio patch needs target selection review in addition to Mangmi-specific changes.

@@ -6,7 +6,18 @@ the captured tracker. It is a readiness record, not an RC designation.
 The full original bodies/comments are retained in
 [the snapshot](../qa-logs/2026-10-11-candidate-scope/tracker-before.json).
 
-## Current continuation — VM20 and audit complete; #555 handheld refresh
+## Current continuation — #563 adopts ROCKNIX 20261001
+
+D-WORKFLOW-161 selects stable20261001 at `c445081a59518f37d9776e5412dd7b14910696f7`
+for the next0.0.1 candidate, superseding D-WORKFLOW-111's September29 base.
+Order: exact-release source integration and conflict review; #493 mandatory
+retention/capacity enforcement; new GENERIC_X64 clean/retained qualification
+and independent audit; H700/SM8550 builds and required physical evidence;
+then #528/#344 publication completion. No moving upstream/next intake.
+Accepted engineering devices remain available for owner testing. Their
+receipts below remain proof only for those predecessor builds.
+
+## Accepted predecessor — VM20, audit and handheld refresh complete
 
 The dated sections below preserve the earlier scope decisions and progress.
 Current source/VM qualification is frozen1a02664844, with complete clean/retained
@@ -24,7 +35,7 @@ No confirmed product defect; #528 publication obligations remain partial.
 
 #557 RG SP/Nova transfers, one approved reboot each and installed/preservation acceptance are complete. Both run bc9dfe8141; accepted evidence records active frontend/zero retries and automatic cloud sync off. [Device acceptance](../qa-logs/2026-10-12-owner-updates/README.md). #556 RG35XX SP remains accepted and untouched. All devices are returned to owner use; no deployment permission remains unconsumed.
 
-#558 records the owner's later Nova shutdown/restart/Linux-load observation. Read-only journals show power-off requests, a later reboot, no retained crash dump and limited SM8550 crash-log capabilities. Cause remains unknown; no device reproduction or fix is claimed. [Incident evidence](../qa-logs/2026-10-12-nova-shutdown/README.md). #534's fixed red preference remains the supported LED diagnosis; no relevant H700 upstream delta was found. #559 release-based integration and #560 fast-shutdown evaluation are future work. The frozen upstream baseline remains in force. Publication gates are unchanged; no public RC is allocated.
+#558 records the owner's later Nova shutdown/restart/Linux-load observation. Read-only journals show power-off requests, a later reboot, no retained crash dump and limited SM8550 crash-log capabilities. Cause remains unknown; no device reproduction or fix is claimed. [Incident evidence](../qa-logs/2026-10-12-nova-shutdown/README.md). #534's fixed red preference remains the supported LED diagnosis; no relevant H700 upstream delta was found. #559 retains reusable integration/backport procedure work; #560 fast-shutdown evaluation remains future work. #563 now adopts the new frozen base under D-WORKFLOW-161. Publication gates are unchanged; no public RC is allocated.
 
 ## Subsequent owner feedback — 2026-10-11
 
@@ -94,7 +105,7 @@ The entire original contract and comments remain in the snapshot.
 | P0 read/sweep/updater/support/platform/base analysis | Completed dated records in `docs/rasteratops/p0-*.md`; old names/default proposals are historical. Support/asset limits are rechecked at publication. |
 | P1 repositories/pins/container | Current pinned fork recipes; exact consumed container and selected pins recorded again at freeze/build. Bot identity migration is complete. |
 | P1 bot permission/expiry reminder, runner trigger/isolation or disabled-runner fallback | Publication/security readback under #344 remains explicitly unverified here. Local absence and old403 are not remote-runner proof. No token values or mail are requested by this reconciliation. |
-| P1 source archive/backup, candidate lock/base freeze | Local custody is retained under #528, off-host retrieval remains. Candidate-store verification/locking stays. Upstream base remains9fd38fa870 under D-WORKFLOW-111; no upstream merge. |
+| P1 source archive/backup, candidate lock/base freeze | Local custody is retained under #528, off-host retrieval remains. Candidate-store verification/locking stays. Predecessor base9fd38fa870 remains historical; #563/D-WORKFLOW-161 selects20261001 for fresh qualification. |
 | P2 X64 identity/build/sweeps/localisation/QA/base | Historical clean/upgrade/renderer proof retained. New exact image receives standard suites, current sweeps and changed-input proof. No aggregate failure is overwritten. |
 | P2 RC2 early updater signal / draft X64 | Manual-adoption design is retained; public ROCKNIX configuration and update isolation are required. A draft is publication work #265, not a build prerequisite. |
 | P2b/P3 mandatory device/manifests/adoption | Prior three authorized engineering deployments are completed evidence for their bytes. New device assets need matching input manifests and applicable physical facts before attachment; old authorization is consumed. Fork-to-fork0.0.2 tracking remains a future release gate. |

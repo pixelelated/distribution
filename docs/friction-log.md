@@ -605,3 +605,5 @@ cycle; source qualification and landing are still pending.
 - 2026-10-12 05:14 UTC — Nova has no retained pstore dump and lacks H700 console/lockup evidence settings; optional findmnt is absent despite aggregate filtered-read status0. Record per-probe limits and qualify evidence capabilities per platform before interpreting missing records. issue: #558; evidence: `docs/qa-logs/2026-10-12-nova-shutdown/`.
 
 - 2026-10-12 05:25 UTC — Staged whitespace check detected terminal blank lines in two public #557 console-log copies. Normalize only the public text mirrors, retain private originals and record before/after digests. Original result channels are unchanged. issue: #557.
+
+- 2026-10-12 16:17 UTC — #559 initial upstream-review summary omitted D-WORKFLOW-116/117 and described the already-approved cadence as undecided. Broad archaeology wording missed the differently phrased register rows; direct cadence/rolling/pin-versus-track search recovered them. Corrected tracker/review/work log; existing read-before-pending rule remains sufficient. issue: #559.
