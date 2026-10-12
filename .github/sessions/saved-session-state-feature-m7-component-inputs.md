@@ -1,3 +1,5 @@
-# Session pointer — feature/m7-component-inputs
+# Session pointer
 
-Read [the canonical checkpoint](saved-session-state-next.md) on `next` in `/workspace/repos/rocknix` first. This feature worktree records M7 evidence. VM20, #553/#554 audit, both #555 handheld builds/acceptance, and #556 RG35XX SP update are complete. Final documentation delivery/closure precedes #493 retention and the separate publication gates. Read the checkpoint and live milestone for actual current state; never replay completed audits, builds or device actions from an older archive.
+Canonical state: [.github/sessions/saved-session-state-next.md](saved-session-state-next.md).
+
+October12 current work is #493 newly authorized cleanup and #557 RG SP/Nova updates. Cleanup is prepared; administrator readback pending. Transfers have not started; preservation-hash permission and Nova power pending, reboots separately pending. Prior audits/builds/VM20 and #556 RG35XX SP update are complete and must not be replayed. Read the canonical checkpoint and live milestone before acting.

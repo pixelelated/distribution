@@ -1,0 +1,38 @@
+{
+  "utc": "2026-10-12T01:20:09.343385+00:00",
+  "issue": 557,
+  "transfers_started": false,
+  "authority": {
+    "transfers": [
+      "RG SP",
+      "Retroid Pocket Nova"
+    ],
+    "reboots": "pending named response",
+    "credential_file_hashes": "pending named response after automatic approval rejection"
+  },
+  "rgsp": {
+    "address": "100.75.221.73",
+    "model": "Anbernic RG-SP",
+    "old_build": "8b5113fa164ada7d002ab138b1e3a9bf795e9de5",
+    "boot_id": "b0ca038a-3bf8-4b78-a9ec-a5e4185fd5e8",
+    "battery_percent": 94,
+    "external_power": true,
+    "idle": true,
+    "queue_empty": true,
+    "automatic_sync_off": true,
+    "frontend_restarts": 0
+  },
+  "nova": {
+    "address": "100.84.232.105",
+    "model": "Retroid Pocket Nova",
+    "old_build": "8b5113fa164ada7d002ab138b1e3a9bf795e9de5",
+    "boot_id": "48029f14-080c-49cd-9e6d-4f34179a8129",
+    "battery_percent": 64,
+    "external_power": false,
+    "idle": true,
+    "queue_empty": true,
+    "automatic_sync_off": true,
+    "frontend_restarts": 1
+  },
+  "scope": "Sanitized initial read-only observations; repeat binding before transfer. Nova needs external power. No mutation or raw configuration capture occurred."
+}

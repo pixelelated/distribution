@@ -1,0 +1,27 @@
+{
+  "utc": "2026-10-12T01:49:37.266955+00:00",
+  "result": "PASS_PREPARATION",
+  "status": "AWAITING_EXTERNAL_REFERENCE_CLASSIFICATION_AND_FRESH_ADMINISTRATOR_CHECK",
+  "preservation_allocated_bytes": 438931456,
+  "expected_net_recovery_bytes": 395704332288,
+  "deletion_performed": false,
+  "plan_path": "/workspace/tmp/pixelelated-m7-retention-20261012-plan04/plan.json",
+  "plan_sha256": "d8abc329395b993bc4b6196824772022087a9373d84b45ce0908635a84721a31",
+  "files": 59,
+  "vm_disks": 13,
+  "extractions": [
+    "/workspace/tmp/pixelelated-m7-image-17/root",
+    "/workspace/tmp/pixelelated-m7-image-18/root",
+    "/workspace/tmp/pixelelated-m7-image19/root"
+  ],
+  "worktrees": [
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement15",
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement16"
+  ],
+  "retained_records": 1284,
+  "build_records": 7355,
+  "historical_links_classified": 3,
+  "administrator_snapshot_pending": true,
+  "device_transfers_started": false,
+  "additional_tailscale_archive_bytes": 37099469
+}
