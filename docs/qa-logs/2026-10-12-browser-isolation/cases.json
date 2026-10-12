@@ -1,0 +1,59 @@
+[
+  [
+    "public-installed",
+    "/usr/bin/cloud-signin-window",
+    "https://www.dropbox.com/login",
+    150,
+    {}
+  ],
+  [
+    "public-old-code",
+    "/tmp/qa-historical",
+    "https://www.dropbox.com/login",
+    150,
+    {}
+  ],
+  [
+    "public-desktop",
+    "/tmp/qa-current",
+    "https://www.dropbox.com/login",
+    120,
+    {
+      "QA_DESKTOP_UA": "1"
+    }
+  ],
+  [
+    "public-cache",
+    "/tmp/qa-current",
+    "https://www.dropbox.com/login",
+    120,
+    {
+      "QA_DOCUMENT_VIEWER": "1"
+    }
+  ],
+  [
+    "synthetic-default",
+    "/tmp/qa-current",
+    "synthetic",
+    75,
+    {}
+  ],
+  [
+    "synthetic-cache",
+    "/tmp/qa-current",
+    "synthetic",
+    75,
+    {
+      "QA_DOCUMENT_VIEWER": "1"
+    }
+  ],
+  [
+    "synthetic-no-probe",
+    "/tmp/qa-current",
+    "synthetic",
+    75,
+    {
+      "QA_NO_PROBE": "1"
+    }
+  ]
+]

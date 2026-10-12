@@ -1,102 +1,120 @@
 # Saved Session State
 
-> **Saved**: 2026-10-12T20:45:14.417006+00:00
+> **Saved**: 2026-10-12T22:07:06.260649+00:00
 > **Branch**: feature/m7-player-setup
 > **Repo**: pixelelated/distribution
 
 ## Start here
 
-pixelelated is an immutable handheld Linux distribution. This is a build system,
-not an app. Read next's AGENTS.md, every-session rule files and device-testing-policy
-first, then the live M7 milestone. Harness conflict-resolution is stale; leave it
-alone. Primary /workspace/repos/rocknix stays on next. Current worktree is
-/workspace/repos/rocknix.worktrees/m7-player-setup, feature/m7-player-setup, from
-next960b4d8c358b1e74b501ffdc329532be67cf7f6e. This delivery is records only.
-There are no product edits, new firmware builds, or external audits this session.
+pixelelated is an immutable handheld Linux distribution, not an app. Read next's
+AGENTS.md, every-session rules and device-testing-policy, then the live M7 milestone.
+Harness conflict-resolution is stale; leave it alone. Primary /workspace/repos/rocknix
+stays on next. Active /workspace/repos/rocknix.worktrees/m7-player-setup is
+feature/m7-player-setup, starting from published515cd8e79a94b3a8596128e25e28875093f5eb50.
+This session diagnosed #570 browser pressure and filed #572 packaging failure.
+No product source changed, no new firmware or external audit ran. No test is still
+running; all guest/probe processes exited and immediate disk/key/test files retired.
 
-All historical device deployments/reboots/cleanup approvals are consumed.
-Read-only incident inspection was authorized; no new handheld mutation,
-screenshot, input, sign-in, or cloud operation was performed. Owner devices
-remain in normal use. No diagnostic VM or build is running after this checkpoint.
-No private configuration, original incident account context, credential value or
-credential-derived hash belongs in the public record.
+The owner's latest authority is: "If you need to test anything on the RG35XX SP,
+you have my permission to do that as well when it comes to WebKit testing."
+It covered the described bounded public-page launch, native screenshots, pressure
+sampler and temporary cleanup through tools/device-act. Actual identified device
+is H700 RG SP DDR3. No account setup, cloud data action, injected input, settings
+change or reboot occurred. Device returned to ES with recovered memory. Do not
+infer unrelated device authority or replay historical deployment/cleanup approvals.
+Respect the scope of the current WebKit authorization without asking for it again.
+No private account context, credentials or credential-derived hashes in public QA.
 
 ## Current focus
 
-Owner explicitly requested #565 → #566 → #567. Three subsequent reports became
-#569 cloud provenance, #570 slow browser/hard reset, and #571 stable compact phone
-connection status. #569 read-only diagnosis is complete; close only after this
-record is published. #570 retained incident/VM triage is complete but its
-underlying failure/recovery investigation remains open. No product fix has been
-implemented for #565–#567, #570, or #571. M7 preserves that fact and the ordered
-foundation/build gates below. Do not describe this documentation as repaired code.
+Severe H700 sign-in memory pressure is reproduced, but its historical cause is not
+proved. Every tested runtime is WebKit2.54.1. The next discriminating work is a
+controlled older-engine runtime comparison and real navigation/input/normal ES
+handoff/recovery proof. #572 requires a scoped GStreamer package repair; supplying
+missing components removed warnings without reducing browser memory. No production
+optimization or downgrade has been selected. M7 then preserves the owner order
+#565→#566→#567→#571, isolated stable20261001 repair/build and publication gates.
+#569 configuration diagnosis was published in515cd8e79a and is closed completed.
 
 ## Completed this session
 
-- #565/#566/#567 moved from backlog into M7.P5 at the owner's explicit request.
-  Worktree created from current next; stable20261001 merge remains isolated.
-- #569: local saved-backend and successful in-device sign-in history explain
-  save-action availability. October9/12 preservation receipts retain existing
-  selected folders. The original sign-in author is unknown; no current live
-  provider reauthentication was performed. Public value-free packet:
-  docs/qa-logs/2026-10-12-cloud-configuration/. Private diagnosis includes the
-  specific old paths and provenance timeline; read it only if needed, never post.
-- #570: post-reset readonly captures saved five device snapshots and all943
-  previous kernel lines. Available RAM610→94→75→53MiB, WebKit roughly480–500MiB,
-  and243 journal pressure flushes support severe memory pressure. No retained
-  OOM kill, panic, storage I/O error, or pstore file establishes exact cause.
-  GPU/clock warnings occur at boot before the browser and recur after reset.
-  Browser window.log was volatile and did not survive. Do not claim a proved
-  leak, user-agent regression, or successful crash reproduction.
-- Bounded diagnostic VM20:1024MiB assigned rather than canonical8192MiB,
- 640x480/software graphics; visible RAM791MiB and no guest PSI. Existing
-  signin-memory loads example.org35s (279MiB summed peak RSS) and public login90s
-  (385MiB). Both original results0 and reviewed frames prove initial page load,
-  not authenticated navigation or input responsiveness. Direct launch leaves
-  ES resident and local keyboard visible; this is not the real phone handoff.
-  All browser processes later absent, available memory recovered to401MiB;
-  immediate free-after118MiB was transient. Full device hang not reproduced.
-- Watched boot/simple/provider owners all exited0. Exact QEMU stopped through
-  tools/vm-stop; disk, UEFI store and QA key retired (2,245,111,808 allocated
-  bytes). Retain compact docs/qa-logs/2026-10-12-browser-pressure/ only. Private
-  owner /workspace/tmp/pixelelated-browser-qa-20261012 now has no live guest.
-- #565 clean VM accounts: seven known default/runtime config surfaces contain
-  zero populated player/developer account fields. This adds clean-boot proof,
-  not universal secret absence, a retained-account upgrade, or a release gate.
-- #571 source cause identified: cloud_oauth's open/loading already mean a live
-  browser, but the phone changes from a short padded Connected banner to a
-  longer loading paragraph. Different geometry moves controls. D-UI-126 records
-  compact fixed header, accessible glyph and long-name ellipsis. No UI code or
-  new baseline has landed; preserve the separate focused-field input gate.
+- Nine bounded VM20 cases: installed browser, September29 application/current
+  engine, desktop UA, DOCUMENT_VIEWER cache, synthetic navigation/cache/focus-poll
+  controls, injected GStreamer runtime pieces, accelerated VM graphics. All pages
+  load, browser PSS380–394MiB and minimum available49–71MiB. No useful RAM benefit.
+  Guest1024MiB assigned/791MiB visible,640x480,ES resident,4Haswell CPUs,no PSI.
+  First8 software graphics, last verified virtio-gpu-gl/EGL. These are diagnostic
+  direct launches, not normal ES suspension/phone bridge/authentication proof.
+- Synthetic4-page80MiB-per-page fixture: maximum heartbeat gaps4.60/5.75/1.08s for
+  default/cache/no-focus-probe. Potential latency lead only: one ordered trial,
+  no injected input, back/popup or handoff acceptance. Do not remove the probe
+  based on this one comparison; it gates safe field typing.
+- Explicitly authorized H700 public-page control: simple35s leaves522MiB,
+  browserPSS134.5MiB; login reaches160MiB guard at34s, minimum153MiB, browser502MiB,
+  page-process430MiB (372MiB anonymous). Closing restores572MiB; same boot and ES
+  process survive. All browser children exit; temporary test tree removed through
+  device-act.11 reviewed native frames retained (H700720x480, VM640x480).
+  Full hang, leak, JavaScript heap attribution or engine regression not proved.
+- #572 source/VM failure: generic GStreamer hook removes controller required by
+  shipped GL plugin; tools=disabled suppresses scanner. Fresh private-registry
+  original rc1; exact retained target controller and freshly compiled matching
+  scanner rc0, appsink/glupload register. Browser warnings disappear but389MiB
+  PSS persists. Diagnostic injected files lived in VM only; no recipe fix yet.
+- Source archive diff2.54.0→2.54.1 retained. Existing DMABuf workaround is active
+  in VM children. The old246MiB Dropbox baseline was a failed page, corrected in
+  #228; October5 loaded-login evidence already shows379–386MiB summed RSS. Do not
+  compare RSS numerically as if it were PSS or claim every older build equivalent.
+  Owner's earlier responsive source is unknown. Inspected retained inputs did not
+  contain a usable older engine runtime; narrow isolated package build needed.
+- Five actual watched owners/build/wrapper channels0 and exited. Original
+  boot-owner rc2 unsupported--qa and graphics-owner rc2 worktree lock remain
+  pre-workload failures. Corrected owners ran sequentially. No in-flight edits.
+  QEMU exited;2,247,143,424allocated disk/UEFI/key bytes retired. Nothing running.
+- Public compact packet: docs/qa-logs/2026-10-12-browser-isolation/README.md,
+  manifest, VM/physical samples, reviewed frames/hashes, source diff, fixtures,
+  original channel/retirement receipts. Physical runnable script stays private.
+  #570/#572 and M7 updated/read back. #570/#572 remain open; no product closure.
 
 ## Record delivery
 
-Owner directory: /workspace/tmp/pixelelated-browser-feedback-20261012/delivery01/.
-state.json is prepared at checkpoint creation; publish.py, result.json,
-head.txt and hosted-checks.json bind actual delivery. It pushes records to next
-under existing commit/push authorization, not firmware publication. Inspect those
-receipts before retrying; an absent result is not success or authority to replay
-completed operations. Fresh-context agent m7_browser_incident_handoff verified
-source/frame hashes, stopped jobs, retired payloads, issue order and boundaries.
-Its two documentation ambiguities (owner-account request scope and delivery
-locator) were corrected before commit. No product/audit acceptance is inferred.
+New owner: /workspace/tmp/pixelelated-browser-isolation-20261012/delivery02/.
+state.json is prepared at checkpoint creation. publish.py, launcher-result.json,
+result.json, head.txt and hosted-checks.json bind actual delivery; read them before
+any retry. This commits records, fast-forwards next and pushes under existing
+approval, then consumes both exact-head record/wordlist hosted checks. It is not
+firmware publication. No success is implied by this prepared paragraph. Fresh
+session-stash reviewer m7_browser_isolation_handoff passed source/payload/frame
+hashes, raw aggregates, original results/exits/retirement, exact diff wrappers
+and live milestone order. It correctly found delivery still prepared. Review
+receipt: handoff-review.md in that owner. No substantive discrepancy found.
+
+Original browser-isolation delivery01 ended1: pre-push refused a missing #570/#572
+commit-message reference after local integration. Remote stayed515cd8e79a; all
+original channels/exits consumed. The unpublished owned commit is corrected and
+only a fresh delivery02 may push. No test result or guard is bypassed.
+
+Prior /workspace/tmp/pixelelated-browser-feedback-20261012/delivery01 is COMPLETE,
+head515cd8e79a, both hosted checks successful, actual owner exited. Do not replay.
 
 ## Next actions
 
-1. Check this record delivery's actual git/hosted-check receipts; do not assume
-   prepared documentation is pushed. The intended publication is the records
-   commit merged into next by fast-forward. Both worktree and main began clean
-   at960b4d8c35. Close #569 only with published evidence; #570/#571 stay open.
-2. #570: reproduce bounded longer navigation/input and actual ES handoff in a
-   disposable low-memory VM. Distinguish page working set from engine changes
-   and hardware renderer pressure. Prior WebKit DMABuf workaround is still in
-   the accepted source; don't remove it. A strict per-process limit may stop
-   hangs while breaking login, so require ordinary navigation and explicit
-   pressure/recovery proof before selecting a production change. Optional owner
-   question: initial sign-in page versus password/verification at freeze; no
-   answer is a new physical-test permission. No further device read is needed
-   just to reconstruct known facts.
-3. Continue #565: implement and prove an executable artifact credential gate;
+1. Consume this record delivery's actual result/launcher/build/hosted-check channels
+   and git readbacks. If already successful, do not replay. Keep #570/#572 open.
+2. #572: scoped fork GStreamer recipe repair keeps libgstcontroller and builds/
+   installs scanner at /usr/lib/gstreamer-1.0/gst-plugin-scanner. Read packaging
+   rules, inherited hooks and existing trimming rationale first. Actual package
+   install proof, pkgcheck and fresh-registry negative/success controls are owed;
+   next assembled image verifies runtime closure. Diagnostic injection is not
+   corrected package evidence. Do not mutate frozen replacement20's cache.
+3. #570: provision an isolated older-engine runtime comparison against exact
+   current source.2.54.0 and2.54.1 source archives remain; inspect ABI/build graph
+   before choosing the narrow package build. No full cache copy/build until #493
+   lifecycle enforcement. Repeat/reorder synthetic navigation and focused-field
+   timing, exercise normal ES handoff and safe recovery at handheld-like limits.
+   Do not treat loaded frames as usability or infer cache/process limits are safe.
+   Existing mutation-free readback/source evidence suffices; no owner credential
+   use is needed. No test or background build is currently running.
+4. Continue #565: implement and prove an executable artifact credential gate;
    tools/fork-publish-release currently only prepares a release plan and lists
    credential inspection as still owed. Old rule prose describing its retired
    uploader is not executable proof. Preserve no-values reporting and synthetic
@@ -104,20 +122,20 @@ locator) were corrected before commit. No product/audit acceptance is inferred.
    account upgrade proof, without real account requests. Original Nova RA
    authorship remains unknown; existing private preservation receipts suffice
    to show unchanged owner state, not clean defaults.
-4. #566: provider-supported dedicated pixelelated ScreenScraper identity.
+5. #566: provider-supported dedicated pixelelated ScreenScraper identity.
    Official webapi2 page says developers request access through its forum.
    Public/shared JELOS credentials are not evidence of redistribution rights.
    Prepare a concrete request before seeking permission to contact anyone.
    Compiled-pair precedence already hides runtime developer rows; keep player
    accounts separate, backup exclusion and release gating. No provider outreach
    or credential embedding is authorized by merely filing the issue.
-5. #567: conditional advance notice on UPDATE GAMELISTS that offline achievement
+6. #567: conditional advance notice on UPDATE GAMELISTS that offline achievement
    preparation follows, only when the actual enabled/account/index gates apply.
    GuiMenu.cpp around8440 currently has only REALLY UPDATE GAMELISTS?. Inspect
    SystemData/ViewController actual gating. Update EN/FR canonical flow and
    source-bound640x480/1280x800 frames before promotion. #568 final-game versus
    finishing phase remains future work.
-6. #571 follows those owner-ordered items before a new candidate: compact
+7. #571 follows those owner-ordered items before a new candidate: compact
    header in cloud_oauth REMOTE_PAGE (around958), phone_page translations near106,
    probe/poll around1257. Keep reachable/loading separate from field readiness;
    queued typing must not be sent into an unfocused page. Verify navigation,
@@ -126,7 +144,7 @@ locator) were corrected before commit. No product/audit acceptance is inferred.
    are in tools/last-good-scripts-test C4 near6126; preserve their meaningful
    assertions when DOM markup changes. /home/max/.cache/ms-playwright has
    chromium1223; Playwright is in the uv cache, not global Python.
-7. Repair #564 on isolated feature/m7-rocknix-20261001 before its source merge.
+8. Repair #564 on isolated feature/m7-rocknix-20261001 before its source merge.
    #493 mandatory retention/capacity enforcement precedes ANY new full cache
    copy/build. Then freeze repaired source, clean/retained GENERIC_X64, full
    protocols/time-to-play/independent review, H700 then SM8550, and #528/#344
@@ -134,59 +152,62 @@ locator) were corrected before commit. No product/audit acceptance is inferred.
 
 ## Exact source and environment
 
-Accepted devices: bc9dfe8141d9561dc1d8502313d00a84c4566ee8, ES
-c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78, rclone1.75.2. Accepted VM20:
-1a026648442321609b2288c2c9c06803817f9df2. Browser C/cloud_oauth/WebKit recipe/
-machine-info bytes match across those two sources. October9→12 did not change
-WebKit or CHASSIS; September29→current changed2.54.0→2.54.1 and CHASSIS=handset.
-Owner's earlier responsive baseline is not source-bound.
+Accepted devices bc9dfe8141d9561dc1d8502313d00a84c4566ee8, ES
+c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78, rclone1.75.2. VM20 source
+1a026648442321609b2288c2c9c06803817f9df2; browser C/cloud_oauth/WebKit recipe/
+machine-info match device. Historical application control full source
+69e6039f8fdbf971d3e6b694537f250036fdcd98 uses current2.54.1 engine.
+October9→12 engine/CHASSIS unchanged;2.54.0→2.54.1 on October2, CHASSIS=handset
+on October1. Engine archive/source comparison is in the packet, not runtime proof.
 
-ES repo /home/max/Development/emulationstation-next currently checks out old
-67f92692c3; read accepted pin with git show, create a separate feature worktree
-from c8dc72cf9e before editing. launchCloudSignIn in ApiSystem.cpp561 opens the
-browser then suspends the renderer. Window::deinit unloads resources/renderer;
-it does not discard the whole game database or exit the process. Incident
-snapshots cannot prove actual memory freed.
+ES repo /home/max/Development/emulationstation-next checks out old67f92692c3.
+Read accepted pin with git show and create a feature worktree from c8dc72cf9e
+before editing. launchCloudSignIn ApiSystem.cpp561 opens browser then suspends
+the renderer. Window::deinit unloads resources/renderer, not the entire database.
+No experiment this turn measured that full handoff.
 
-Accepted image/TAR reside in m7-pixelelated-replacement20/target. Recreating a
-16GiB diagnostic disk is cheap and intentional; no retained diagnostic disk.
-Use canonical generic-x64-vm unless explicitly documenting the low-memory
-fixture override. Never mistake assigned1024MiB for observed guest RAM or a
-loaded first page for successful authentication.
+Accepted image/TAR remain in m7-pixelelated-replacement20/target. Its toolchain
+symlinks require its original mount prefix /workspace/repos/rocknix.worktrees/m7-pixelelated.
+This turn's small binaries compiled with retained cache mounted read-only in
+Docker and task owner as /work; exact fixtures are preserved. Do not alter frozen
+symlinks. Recreate a fresh private guest/key for new tests; old ones are gone.
 
-Shell requires require_escalated: stale harness sandbox fails synthetic /tmp/.git
-mount with quota errors, and active worktree is outside its writable root.
-Use task-owned TMPDIR under /workspace/tmp. No general sudo. RG SP is H700 DDR3,
-not RG35XX SP; Tailnet100.75.221.73. Nova100.84.232.105. SSH alias rg35xxsp needs
-Hostname override. Read only with credential filtering; mutations through
- tools/device-act require applicable named authority, none new here.
+Shell requires require_escalated: stale sandbox fails synthetic /tmp/.git mount
+quota, and active worktree is outside its writable root. Use owned TMPDIR under
+/workspace/tmp for hooks; no general sudo. tools/watch-build does not accept --qa;
+use documented --activity-dir if needed. It locks one job per worktree, including
+QA. Read tools/watch-build-submit parser before launching, use fresh owner and
+consume original channels/actual exits. Active supervision required; no off-session
+alert system. RG SP Tailnet100.75.221.73; rg35xxsp alias needs Hostname override.
+Nova100.84.232.105. Physical mutations go through tools/device-act with applicable
+authority; record physical exception before testing. Don't confuse two H700 models.
 
-## Private evidence locations
+## Private evidence and retained context
 
-- /workspace/tmp/pixelelated-nova-cloud-20261012/: #569 original report,
-  value-free classifiers and private folder/provenance results. Automatic
-  review rejected posting the original incident account context; sanitized
-  issue succeeded. Do not retry posting private context.
-- /workspace/tmp/pixelelated-browser-feedback-20261012/: original #570/#571
-  reports, crash/readback.json and kernel-readback.json, tracker before/after.
-- /workspace/tmp/pixelelated-browser-qa-20261012/: consumed VM diagnostic
-  scripts/results; disk and keys gone. Earlier optional PSI probe failed because
-  guest has no file; original error was preserved, not hidden by page PASS.
-- /workspace/tmp/pixelelated-owner-deploy-20261012/nova/: existing private
-  before/after #557 preservation receipts; no new owner config hashes captured.
+- /workspace/tmp/pixelelated-browser-isolation-20261012/: original cases, samplers,
+  tool owners, result channels, compile outputs, private device readback and
+  plan/cleanup/action receipts. No guest/disk/key or device probe remains. Public
+  packet omits physical identifiers. delivery02 owns only the new records push; failed delivery01 must not be replayed.
+- /workspace/tmp/pixelelated-browser-feedback-20261012/: earlier incident and
+  original reports; crash saved five snapshots/all943kernel lines. RAM610→53MiB,
+  243pressure flushes; no recorded OOM/panic/storage cause. window.log lost at reset.
+- /workspace/tmp/pixelelated-nova-cloud-20261012/: #569 private provenance/selected
+  folder results; never post original account context. Sanitized public packet is
+  docs/qa-logs/2026-10-12-cloud-configuration/. Owner sign-in author remains unknown.
+- /workspace/tmp/pixelelated-browser-qa-20261012/: earlier consumed low-RAM test;
+  guest/key/disk retired. Original PSI absence remains recorded.
+- /workspace/tmp/pixelelated-owner-deploy-20261012/nova/: private preservation
+  receipts, not authorization for new config/hash operations.
 
-## Retained release facts
-
-Stable20261001 exact c445081a59518f37d9776e5412dd7b14910696f7 selected by
-D-WORKFLOW-161. Isolated source branch62e9929fdce5d44ceb7f68150770475c568d1ac2
-contains merge f370dc8787 and #564 Steam replacement regression; keep out of
-next until repaired. Source-intake delivery03/04 completed before this session;
-original failed deliveries remain failures, do not replay them.
-
-All #557 deployments and both #493 cleanup batches complete; about3TB free,
-three retained caches roughly446GB. Preserve historical container mount paths
-for H70003/SM855003/VM20; never rewrite retained symlinks or mutate frozen trees.
-#558 Nova shutdown and #561 LED are watch items; #562 ROM integrity future;
-#528 source/licence/offhost custody holds remain. All earlier external audit
-approvals were consumed; a new external packet needs applicable authorization.
-Full previous checkpoint: archived/saved-session-state-next-20261012T204514Z.md.
+Stable20261001 c445081a59518f37d9776e5412dd7b14910696f7 selected by D-WORKFLOW-161.
+Isolated feature/m7-rocknix-20261001 at62e9929fdce5d44ceb7f68150770475c568d1ac2
+includes merge f370dc8787 and #564 Steam replacement defect. Keep out of next until
+repaired. Prior source-intake delivery03/04 complete, original failures retained.
+#493 both cleanup batches complete, source custody retained; do not replay. Last
+capacity roughly3TB free/three446GB caches, not a new current measurement. Required
+6.855GB custody at /workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03
+must remain. Mandatory future retention/capacity enforcement is still not implemented.
+#558 shutdown/#561 LED are watch items; #562 ROM integrity/#568 final-game progress
+future. #528/#344 source/licence/offhost custody gates remain; no public RC allocated.
+All earlier external review packet approvals were consumed, no audit running.
+Previous full checkpoint: archived/saved-session-state-next-20261012T220706Z.md

@@ -1,0 +1,14 @@
+[
+  {
+    "case": "missing",
+    "rc": 1,
+    "stdout": "",
+    "stderr": "\n(gst-probe:7538): GStreamer-WARNING **: 17:46:37.291: External plugin loader failed. This most likely means that the plugin loader helper binary was not found or could not be run. You might need to set the GST_PLUGIN_SCANNER environment variable if your setup is unusual. This should normally not be required though.\n\n(gst-probe:7538): GStreamer-WARNING **: 17:46:37.306: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstopengl.so': libgstcontroller-1.0.so.0: cannot open shared object file: No such file or directory\n\n(gst-probe:7538): GStreamer-WARNING **: 17:46:37.308: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstopengl.so': libgstcontroller-1.0.so.0: cannot open shared object file: No such file or directory\nFAIL: Opening module failed: libgstcontroller-1.0.so.0: cannot open shared object file: No such file or directory\n"
+  },
+  {
+    "case": "supplied",
+    "rc": 0,
+    "stdout": "PASS: opengl plugin loads; appsink and glupload registered\n",
+    "stderr": ""
+  }
+]

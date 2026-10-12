@@ -223,3 +223,18 @@ ES handoff exercised. No guest PSI; visible RAM791MiB versus H700974MiB.
 Seven known clean account surfaces have zero populated credential fields
 (#565); not a universal firmware secret scan. Guest/key/disk retired after
 compact evidence at [browser pressure](qa-logs/2026-10-12-browser-pressure/README.md).
+
+### 2026-10-12 22:04 UTC — #570 source/UA/cache/navigation/GStreamer/graphics matrix
+
+Nine diagnostic VM20 cases,1024MiB assigned/791MiB visible RAM,640×480,
+ES resident; software graphics plus one verified accelerated run. All loaded
+frames reviewed; browser PSS380–394MiB, minimum available49–71MiB. No meaningful
+memory improvement; historical application uses the current engine, so no engine
+bisect claim. Synthetic focus-polling heartbeat improvement remains an unreplicated
+lead, not input acceptance. #572 fresh-registry installed plugin control fails1;
+supplied exact target controller/scanner passes0 and clears warnings, without RAM
+benefit. Separate explicitly approved H700 pressure/recovery corroboration retains
+its architecture/panel limits. All executed owners/build/wrapper channels0,
+original two pre-workload failures2 retained, guest stopped and immediate disks/
+keys retired. [Source, samples, frames and limits](qa-logs/2026-10-12-browser-isolation/README.md).
+No new firmware, ES baseline, actual package repair or candidate qualification.

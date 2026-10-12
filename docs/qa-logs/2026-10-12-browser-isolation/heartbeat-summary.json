@@ -1,0 +1,41 @@
+[
+  {
+    "case": "synthetic-default",
+    "pages": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "events": 50,
+    "median_same_page_gap_seconds": 1.003822296508588,
+    "maximum_same_page_gap_seconds": 4.599580024951138,
+    "same_page_gaps_over_two_seconds": 4
+  },
+  {
+    "case": "synthetic-cache",
+    "pages": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "events": 61,
+    "median_same_page_gap_seconds": 1.003714351914823,
+    "maximum_same_page_gap_seconds": 5.747012065956369,
+    "same_page_gaps_over_two_seconds": 3
+  },
+  {
+    "case": "synthetic-no-probe",
+    "pages": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "events": 71,
+    "median_same_page_gap_seconds": 1.0037468380760401,
+    "maximum_same_page_gap_seconds": 1.0791189189767465,
+    "same_page_gaps_over_two_seconds": 0
+  }
+]

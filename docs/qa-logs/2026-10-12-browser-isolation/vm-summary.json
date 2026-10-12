@@ -1,0 +1,392 @@
+[
+  {
+    "case": "public-installed",
+    "seconds": 150,
+    "loaded": true,
+    "peak_browser_pss_kib": 392663,
+    "peak_browser_rss_kib": 404732,
+    "minimum_available_kib": 59728,
+    "initial_available_kib": 423624,
+    "after_5_seconds_available_kib": 90600,
+    "web_processes_remaining_at_5_seconds": 1,
+    "error": null,
+    "library_pss": {
+      "2795": {
+        "exe": "cloud-signin-window",
+        "pss_kib": {
+          "other": 7236,
+          "anonymous": 26692,
+          "gstreamer": 224,
+          "webkit_jsc": 4301
+        }
+      },
+      "2811": {
+        "exe": "WebKitNetworkProcess",
+        "pss_kib": {
+          "other": 1717,
+          "anonymous": 13812,
+          "gstreamer": 224,
+          "webkit_jsc": 3163
+        }
+      },
+      "2861": {
+        "exe": "WebKitWebProcess",
+        "pss_kib": {
+          "other": 3427,
+          "anonymous": 317552,
+          "gstreamer": 276,
+          "webkit_jsc": 3957
+        }
+      }
+    },
+    "settings": {}
+  },
+  {
+    "case": "public-old-code",
+    "seconds": 150,
+    "loaded": true,
+    "peak_browser_pss_kib": 400940,
+    "peak_browser_rss_kib": 409656,
+    "minimum_available_kib": 58116,
+    "initial_available_kib": 416888,
+    "after_5_seconds_available_kib": 102408,
+    "web_processes_remaining_at_5_seconds": 1,
+    "error": null,
+    "library_pss": {
+      "3632": {
+        "exe": "qa-historical",
+        "pss_kib": {
+          "other": 6591,
+          "anonymous": 26140,
+          "gstreamer": 224,
+          "webkit_jsc": 4431
+        }
+      },
+      "3641": {
+        "exe": "WebKitNetworkProcess",
+        "pss_kib": {
+          "other": 4505,
+          "anonymous": 14600,
+          "gstreamer": 224,
+          "webkit_jsc": 6234
+        }
+      },
+      "3679": {
+        "exe": "WebKitWebProcess",
+        "pss_kib": {
+          "other": 3857,
+          "anonymous": 318700,
+          "webkit_jsc": 8160,
+          "gstreamer": 224
+        }
+      }
+    },
+    "settings": {}
+  },
+  {
+    "case": "public-desktop",
+    "seconds": 120,
+    "loaded": true,
+    "peak_browser_pss_kib": 389206,
+    "peak_browser_rss_kib": 404224,
+    "minimum_available_kib": 72792,
+    "initial_available_kib": 426212,
+    "after_5_seconds_available_kib": 404908,
+    "web_processes_remaining_at_5_seconds": 0,
+    "error": null,
+    "library_pss": {
+      "4509": {
+        "exe": "qa-current",
+        "pss_kib": {
+          "other": 6115,
+          "anonymous": 26784,
+          "gstreamer": 224,
+          "webkit_jsc": 4611
+        }
+      },
+      "4518": {
+        "exe": "WebKitNetworkProcess",
+        "pss_kib": {
+          "other": 4155,
+          "anonymous": 17956,
+          "gstreamer": 224,
+          "webkit_jsc": 5707
+        }
+      },
+      "4551": {
+        "exe": "WebKitWebProcess",
+        "pss_kib": {
+          "other": 3702,
+          "anonymous": 295748,
+          "webkit_jsc": 15463,
+          "gstreamer": 224
+        }
+      }
+    },
+    "settings": {
+      "QA_DESKTOP_UA": "1"
+    }
+  },
+  {
+    "case": "public-cache",
+    "seconds": 120,
+    "loaded": true,
+    "peak_browser_pss_kib": 403094,
+    "peak_browser_rss_kib": 414588,
+    "minimum_available_kib": 50120,
+    "initial_available_kib": 418820,
+    "after_5_seconds_available_kib": 109468,
+    "web_processes_remaining_at_5_seconds": 1,
+    "error": null,
+    "library_pss": {
+      "5202": {
+        "exe": "qa-current",
+        "pss_kib": {
+          "other": 6804,
+          "anonymous": 26860,
+          "gstreamer": 224,
+          "webkit_jsc": 5474
+        }
+      },
+      "5211": {
+        "exe": "WebKitNetworkProcess",
+        "pss_kib": {
+          "other": 3260,
+          "anonymous": 16472,
+          "gstreamer": 224,
+          "webkit_jsc": 4544
+        }
+      },
+      "5257": {
+        "exe": "WebKitWebProcess",
+        "pss_kib": {
+          "other": 4169,
+          "anonymous": 308820,
+          "webkit_jsc": 11140,
+          "gstreamer": 224
+        }
+      }
+    },
+    "settings": {
+      "QA_DOCUMENT_VIEWER": "1"
+    }
+  },
+  {
+    "case": "synthetic-default",
+    "seconds": 75,
+    "loaded": true,
+    "peak_browser_pss_kib": 402719,
+    "peak_browser_rss_kib": 480112,
+    "minimum_available_kib": 58428,
+    "initial_available_kib": 426916,
+    "after_5_seconds_available_kib": 425056,
+    "web_processes_remaining_at_5_seconds": 0,
+    "error": null,
+    "library_pss": {
+      "5932": {
+        "exe": "qa-current",
+        "pss_kib": {
+          "other": 6029,
+          "anonymous": 25404,
+          "gstreamer": 224,
+          "webkit_jsc": 5318
+        }
+      },
+      "5946": {
+        "exe": "WebKitNetworkProcess",
+        "pss_kib": {
+          "other": 1688,
+          "anonymous": 1452,
+          "gstreamer": 224,
+          "webkit_jsc": 3488
+        }
+      },
+      "5953": {
+        "exe": "WebKitWebProcess",
+        "pss_kib": {
+          "other": 2835,
+          "anonymous": 334772,
+          "webkit_jsc": 10202,
+          "gstreamer": 224
+        }
+      }
+    },
+    "settings": {}
+  },
+  {
+    "case": "synthetic-cache",
+    "seconds": 75,
+    "loaded": true,
+    "peak_browser_pss_kib": 400135,
+    "peak_browser_rss_kib": 469804,
+    "minimum_available_kib": 56728,
+    "initial_available_kib": 422020,
+    "after_5_seconds_available_kib": 411496,
+    "web_processes_remaining_at_5_seconds": 0,
+    "error": null,
+    "library_pss": {
+      "6388": {
+        "exe": "qa-current",
+        "pss_kib": {
+          "other": 6818,
+          "anonymous": 25264,
+          "gstreamer": 224,
+          "webkit_jsc": 4053
+        }
+      },
+      "6404": {
+        "exe": "WebKitNetworkProcess",
+        "pss_kib": {
+          "other": 2586,
+          "anonymous": 1540,
+          "gstreamer": 224,
+          "webkit_jsc": 4305
+        }
+      },
+      "6411": {
+        "exe": "WebKitWebProcess",
+        "pss_kib": {
+          "other": 3518,
+          "anonymous": 334748,
+          "webkit_jsc": 13673,
+          "gstreamer": 224
+        }
+      }
+    },
+    "settings": {
+      "QA_DOCUMENT_VIEWER": "1"
+    }
+  },
+  {
+    "case": "synthetic-no-probe",
+    "seconds": 75,
+    "loaded": true,
+    "peak_browser_pss_kib": 403437,
+    "peak_browser_rss_kib": 456644,
+    "minimum_available_kib": 53808,
+    "initial_available_kib": 411748,
+    "after_5_seconds_available_kib": 416032,
+    "web_processes_remaining_at_5_seconds": 0,
+    "error": null,
+    "library_pss": {
+      "6853": {
+        "exe": "qa-current",
+        "pss_kib": {
+          "other": 6181,
+          "anonymous": 24568,
+          "gstreamer": 224,
+          "webkit_jsc": 6280
+        }
+      },
+      "6862": {
+        "exe": "WebKitNetworkProcess",
+        "pss_kib": {
+          "other": 2216,
+          "anonymous": 1524,
+          "gstreamer": 224,
+          "webkit_jsc": 4482
+        }
+      },
+      "6868": {
+        "exe": "WebKitWebProcess",
+        "pss_kib": {
+          "other": 3893,
+          "anonymous": 334540,
+          "webkit_jsc": 10096,
+          "gstreamer": 224
+        }
+      }
+    },
+    "settings": {
+      "QA_NO_PROBE": "1"
+    }
+  },
+  {
+    "case": "public-gst-supplied",
+    "seconds": 150,
+    "loaded": true,
+    "peak_browser_pss_kib": 398431,
+    "peak_browser_rss_kib": 409872,
+    "minimum_available_kib": 58388,
+    "initial_available_kib": 417388,
+    "after_5_seconds_available_kib": 102048,
+    "web_processes_remaining_at_5_seconds": 1,
+    "error": null,
+    "library_pss": {
+      "7549": {
+        "exe": "cloud-signin-window",
+        "pss_kib": {
+          "other": 6214,
+          "anonymous": 26708,
+          "gstreamer": 224,
+          "webkit_jsc": 4584
+        }
+      },
+      "7558": {
+        "exe": "WebKitNetworkProcess",
+        "pss_kib": {
+          "other": 1832,
+          "anonymous": 14548,
+          "gstreamer": 224,
+          "webkit_jsc": 3386
+        }
+      },
+      "7599": {
+        "exe": "WebKitWebProcess",
+        "pss_kib": {
+          "other": 4143,
+          "anonymous": 303844,
+          "webkit_jsc": 16886,
+          "gstreamer": 224
+        }
+      }
+    },
+    "settings": {
+      "GST_REGISTRY": "/tmp/gst-browser-registry.bin",
+      "GST_PLUGIN_SCANNER": "/tmp/gst-plugin-scanner",
+      "LD_LIBRARY_PATH": "/tmp/qa-gst"
+    }
+  },
+  {
+    "case": "public-virgl",
+    "seconds": 150,
+    "loaded": true,
+    "peak_browser_pss_kib": 400337,
+    "peak_browser_rss_kib": 409004,
+    "minimum_available_kib": 71028,
+    "initial_available_kib": 450084,
+    "after_5_seconds_available_kib": 94628,
+    "web_processes_remaining_at_5_seconds": 1,
+    "error": null,
+    "library_pss": {
+      "1815": {
+        "exe": "cloud-signin-window",
+        "pss_kib": {
+          "other": 6634,
+          "anonymous": 11516,
+          "gstreamer": 224,
+          "webkit_jsc": 5316
+        }
+      },
+      "1831": {
+        "exe": "WebKitNetworkProcess",
+        "pss_kib": {
+          "other": 2693,
+          "anonymous": 14776,
+          "gstreamer": 224,
+          "webkit_jsc": 5846
+        }
+      },
+      "1864": {
+        "exe": "WebKitWebProcess",
+        "pss_kib": {
+          "other": 4067,
+          "anonymous": 332420,
+          "webkit_jsc": 9682,
+          "gstreamer": 224
+        }
+      }
+    },
+    "settings": {}
+  }
+]

@@ -1,0 +1,1492 @@
+{
+  "records": [
+    {
+      "case": "simple",
+      "stop_reason": "duration",
+      "loaded_page_marker": true,
+      "elapsed_seconds": 33.44,
+      "before_available_kib": 589136,
+      "minimum_available_kib": 534140,
+      "after_available_kib": 577764,
+      "browser_processes_after": 0,
+      "samples": [
+        {
+          "t": 0.073,
+          "memory": {
+            "MemTotal": 998120,
+            "MemAvailable": 592216,
+            "SwapTotal": 0,
+            "SwapFree": 0
+          },
+          "pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=11544\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=11312\n",
+          "processes": [
+            {
+              "exe": "emulationstation",
+              "Rss": 122804,
+              "Pss": 104464,
+              "Pss_Anon": 68704,
+              "Pss_File": 35740,
+              "Pss_Shmem": 20
+            },
+            {
+              "exe": "cloud-signin-window",
+              "Rss": 480,
+              "Pss": 327,
+              "Pss_Anon": 48,
+              "Pss_File": 279,
+              "Pss_Shmem": 0
+            }
+          ]
+        },
+        {
+          "t": 2.134,
+          "memory": {
+            "MemTotal": 998120,
+            "MemAvailable": 585696,
+            "SwapTotal": 0,
+            "SwapFree": 0
+          },
+          "pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=33279\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=32756\n",
+          "processes": [
+            {
+              "exe": "emulationstation",
+              "Rss": 122804,
+              "Pss": 103070,
+              "Pss_Anon": 68704,
+              "Pss_File": 34346,
+              "Pss_Shmem": 20
+            },
+            {
+              "exe": "cloud-signin-window",
+              "Rss": 42124,
+              "Pss": 32122,
+              "Pss_Anon": 9436,
+              "Pss_File": 22670,
+              "Pss_Shmem": 16
+            }
+          ]
+        },
+        {
+          "t": 4.207,
+          "memory": {
+            "MemTotal": 998120,
+            "MemAvailable": 548608,
+            "SwapTotal": 0,
+            "SwapFree": 0
+          },
+          "pressure": "some avg10=0.18 avg60=0.03 avg300=0.00 total=64021\nfull avg10=0.18 avg60=0.03 avg300=0.00 total=59757\n",
+          "processes": [
+            {
+              "exe": "emulationstation",
+              "Rss": 120680,
+              "Pss": 97996,
+              "Pss_Anon": 68704,
+              "Pss_File": 29272,
+              "Pss_Shmem": 20
+            },
+            {
+              "exe": "cloud-signin-window",
+              "Rss": 69596,
+              "Pss": 37177,
+              "Pss_Anon": 13536,
+              "Pss_File": 22949,
+              "Pss_Shmem": 692
+            },
+            {
+              "exe": "WebKitNetworkProcess",
+              "Rss": 50820,
+              "Pss": 26549,
+              "Pss_Anon": 14704,
+              "Pss_File": 11845,
+              "Pss_Shmem": 0
+            },
+            {
+              "exe": "WebKitWebProcess",
+              "Rss": 51324,
+              "Pss": 27802,
+              "Pss_Anon": 8596,
+              "Pss_File": 19206,
+              "Pss_Shmem": 0
+            }
+          ]
+        },
+        {
+          "t": 6.283,
+          "memory": {
+            "MemTotal": 998120,
+            "MemAvailable": 537544,
+            "SwapTotal": 0,
+            "SwapFree": 0
+          },
+          "pressure": "some avg10=0.14 avg60=0.03 avg300=0.00 total=83783\nfull avg10=0.14 avg60=0.03 avg300=0.00 total=78740\n",
+          "processes": [
+            {
+              "exe": "emulationstation",
+              "Rss": 120004,
+              "Pss": 96955,
+              "Pss_Anon": 68704,
+              "Pss_File": 28231,
+              "Pss_Shmem": 20
+            },
+            {
+              "exe": "cloud-signin-window",
+              "Rss": 81892,
+              "Pss": 41863,
+              "Pss_Anon": 15104,
+              "Pss_File": 25423,
+              "Pss_Shmem": 1336
+            },
+            {
+              "exe": "WebKitNetworkProcess",
+              "Rss": 52044,
+              "Pss": 26054,
+              "Pss_Anon": 14776,
+              "Pss_File": 11278,
+              "Pss_Shmem": 0
+            },
+            {
+              "exe": "WebKitWebProcess",
+              "Rss": 98052,
+              "Pss": 64603,
+              "Pss_Anon": 12852,
+              "Pss_File": 51107,
+              "Pss_Shmem": 644
+            }
+          ]
+        },
+        {
+          "t": 8.368,
+          "memory": {
+            "MemTotal": 998120,
+            "MemAvailable": 537148,
+            "SwapTotal": 0,
+            "SwapFree": 0
+          },
+          "pressure": "some avg10=0.12 avg60=0.02 avg300=0.00 total=83783\nfull avg10=0.12 avg60=0.02 avg300=0.00 total=78740\n",
+          "processes": [
+            {
+              "exe": "emulationstation",
+              "Rss": 120004,
+              "Pss": 96955,
+              "Pss_Anon": 68704,
+              "Pss_File": 28231,
+              "Pss_Shmem": 20
+            },
+            {
+              "exe": "cloud-signin-window",
+              "Rss": 84460,
+              "Pss": 43143,
+              "Pss_Anon": 14956,
+              "Pss_File": 25563,
+              "Pss_Shmem": 2624
+            },
+            {
+              "exe": "WebKitNetworkProcess",
+              "Rss": 51988,
+              "Pss": 25998,
+              "Pss_Anon": 14720,
+              "Pss_File": 11278,
+              "Pss_Shmem": 0
+            },
+            {
+              "exe": "WebKitWebProcess",
+              "Rss": 101296,
+              "Pss": 66559,
+              "Pss_Anon": 13520,
+              "Pss_File": 51107,
+              "Pss_Shmem": 1932
+            }
+          ]
+        },
+        {
+          "t": 10.445,
+          "memory": {
+            "MemTotal": 998120,
+            "MemAvailable": 534888,
+            "SwapTotal": 0,
+            "SwapFree": 0
+          },
+          "pressure": "some avg10=0.09 avg60=0.02 avg300=0.00 total=83783\nfull avg10=0.09 avg60=0.02 avg300=0.00 total=78740\n",
+          "processes": [
+            {
+              "exe": "emulationstation",
+              "Rss": 120004,
+              "Pss": 96955,
+              "Pss_Anon": 68704,
+              "Pss_File": 28231,
+              "Pss_Shmem": 20
+            },
+            {
+              "exe": "cloud-signin-window",
+              "Rss": 84488,
+              "Pss": 43171,
+              "Pss_Anon": 14984,
+              "Pss_File": 25563,
+              "Pss_Shmem": 2624
+            },
+            {
+              "exe": "WebKitNetworkProcess",
+              "Rss": 51988,
+              "Pss": 25998,
+              "Pss_Anon": 14720,
+              "Pss_File": 11278,
+              "Pss_Shmem": 0
+            },
+            {
+              "exe": "WebKitWebProcess",
+              "Rss": 102008,
+              "Pss": 67271,
+              "Pss_Anon": 13912,
+              "Pss_File": 51427,
+              "Pss_Shmem": 1932
+            }
+          ]
+        },
+        {
+          "t": 12.521,
+          "memory": {
+            "MemTotal": 998120,
+            "MemAvailable": 539352,
+            "SwapTotal": 0,
+            "SwapFree": 0
+          },
+          "pressure": "some avg10=0.08 avg60=0.02 avg300=0.00 total=84529\nfull avg10=0.08 avg60=0.02 avg300=0.00 total=79487\n",
+          "processes": [
+            {
+              "exe": "emulationstation",
+              "Rss": 120004,
+              "Pss": 96955,
+              "Pss_Anon": 68704,
+              "Pss_File": 28231,
+              "Pss_Shmem": 20
+            },
+            {
+              "exe": "cloud-signin-window",
+              "Rss": 84388,
+              "Pss": 43071,
+              "Pss_Anon": 15008,
+              "Pss_File": 25439,
+              "Pss_Shmem": 2624
+            },
+            {
+              "exe": "WebKitNetworkProcess",
+              "Rss": 51988,
+              "Pss": 25998,
+              "Pss_Anon": 14720,
+              "Pss_File": 11278,
+              "Pss_Shmem": 0
+            },
+            {
+              "exe": "WebKitWebProcess",
+              "Rss": 101952,
+              "Pss": 67215,
+              "Pss_Anon": 13856,
+              "Pss_File": 51427,
+              "Pss_Shmem": 1932
+            }
+          ]
+        },
+        {
+          "t": 14.599,
+          "memory": {
+            "MemTotal": 998120,
+            "MemAvailable": 538236,
+            "SwapTotal": 0,
+            "SwapFree": 0
+          },
+          "pressure": "some avg10=0.06 avg60=0.02 avg300=0.00 total=84529\nfull avg10=0.06 avg60=0.02 avg300=0.00 total=79487\n",
+          "processes": [
+            {
+              "exe": "emulationstation",
+              "Rss": 120004,
+              "Pss": 96955,
+              "Pss_Anon": 68704,
+              "Pss_File": 28231,
+              "Pss_Shmem": 20
+            },
+            {
+              "exe": "cloud-signin-window",
+              "Rss": 84384,
+              "Pss": 43067,
+              "Pss_Anon": 15004,
+              "Pss_File": 25439,
+              "Pss_Shmem": 2624
+            },
+            {
+              "exe": "WebKitNetworkProcess",
+              "Rss": 51988,
+              "Pss": 25998,
+              "Pss_Anon": 14720,
+              "Pss_File": 11278,
+              "Pss_Shmem": 0
+            },
+            {
+              "exe": "WebKitWebProcess",
+              "Rss": 101960,
+              "Pss": 67223,
+              "Pss_Anon": 13864,
+              "Pss_File": 51427,
+              "Pss_Shmem": 1932
+            }
+          ]
+        },
+        {
+          "t": 16.678,
+          "memory": {
+            "MemTotal": 998120,
+            "MemAvailable": 537748,
+            "SwapTotal": 0,
+            "SwapFree": 0
+          },
+          "pressure": "some avg10=0.05 avg60=0.02 avg300=0.00 total=84529\nfull avg10=0.05 avg60=0.02 avg300=0.00 total=79487\n",
+          "processes": [
+            {
+              "exe": "emulationstation",
+              "Rss": 120004,
+              "Pss": 96955,
+              "Pss_Anon": 68704,
+              "Pss_File": 28231,
+              "Pss_Shmem": 20
+            },
+            {
+              "exe": "cloud-signin-window",
+              "Rss": 84404,
+              "Pss": 43087,
+              "Pss_Anon": 15024,
+              "Pss_File": 25439,
+              "Pss_Shmem": 2624
+            },
+            {
+              "exe": "WebKitNetworkProcess",
+              "Rss": 51988,
+              "Pss": 25998,
+              "Pss_Anon": 14720,
+              "Pss_File": 11278,
+              "Pss_Shmem": 0
+            },
+            {
+              "exe": "WebKitWebProcess",
+              "Rss": 101956,
+              "Pss": 67219,
+              "Pss_Anon": 13860,
+              "Pss_File": 51427,
+              "Pss_Shmem": 1932
+            }
+          ]
+        },
+        {
+          "t": 18.754,
+          "memory": {
+            "MemTotal": 998120,
+            "MemAvailable": 537508,
+            "SwapTotal": 0,
+            "SwapFree": 0
+          },
+          "pressure": "some avg10=0.04 avg60=0.02 avg300=0.00 total=84529\nfull avg10=0.04 avg60=0.02 avg300=0.00 total=79487\n",
+          "processes": [
+            {
+              "exe": "emulationstation",
+              "Rss": 120004,
+              "Pss": 96955,
+              "Pss_Anon": 68704,
+              "Pss_File": 28231,
+              "Pss_Shmem": 20
+            },
+            {
+              "exe": "cloud-signin-window",
+              "Rss": 84388,
+              "Pss": 43070,
+              "Pss_Anon": 15008,
+              "Pss_File": 25438,
+              "Pss_Shmem": 2624
+            },
+            {
+              "exe": "WebKitNetworkProcess",
+              "Rss": 52052,
+              "Pss": 26002,
+              "Pss_Anon": 14720,
+              "Pss_File": 11282,
+              "Pss_Shmem": 0
+            },
+            {
+              "exe": "WebKitWebProcess",
+              "Rss": 101956,
+              "Pss": 67219,
+              "Pss_Anon": 13860,
+              "Pss_File": 51427,
+              "Pss_Shmem": 1932
+            }
+          ]
+        },
+        {
+          "t": 20.978,
+          "memory": {
+            "MemTotal": 998120,
+            "MemAvailable": 534616,
+            "SwapTotal": 0,
+            "SwapFree": 0
+          },
+          "pressure": "some avg10=0.03 avg60=0.02 avg300=0.00 total=85491\nfull avg10=0.03 avg60=0.02 avg300=0.00 total=80439\n",
+          "processes": [
+            {
+              "exe": "emulationstation",
+              "Rss": 120004,
+              "Pss": 96955,
+              "Pss_Anon": 68704,
+              "Pss_File": 28231,
+              "Pss_Shmem": 20
+            },
+            {
+              "exe": "cloud-signin-window",
+              "Rss": 84396,
+              "Pss": 43078,
+              "Pss_Anon": 15016,
+              "Pss_File": 25438,
+              "Pss_Shmem": 2624
+            },
+            {
+              "exe": "WebKitNetworkProcess",
+              "Rss": 52052,
+              "Pss": 26001,
+              "Pss_Anon": 14720,
+              "Pss_File": 11281,
+              "Pss_Shmem": 0
+            },
+            {
+              "exe": "WebKitWebProcess",
+              "Rss": 102084,
+              "Pss": 67224,
+              "Pss_Anon": 13860,
+              "Pss_File": 51432,
+              "Pss_Shmem": 1932
+            }
+          ]
+        },
+        {
+          "t": 23.057,
+          "memory": {
+            "MemTotal": 998120,
+            "MemAvailable": 534364,
+            "SwapTotal": 0,
+            "SwapFree": 0
+          },
+          "pressure": "some avg10=0.02 avg60=0.02 avg300=0.00 total=85491\nfull avg10=0.02 avg60=0.02 avg300=0.00 total=80439\n",
+          "processes": [
+            {
+              "exe": "emulationstation",
+              "Rss": 120004,
+              "Pss": 96955,
+              "Pss_Anon": 68704,
+              "Pss_File": 28231,
+              "Pss_Shmem": 20
+            },
+            {
+              "exe": "cloud-signin-window",
+              "Rss": 84392,
+              "Pss": 43074,
+              "Pss_Anon": 15012,
+              "Pss_File": 25438,
+              "Pss_Shmem": 2624
+            },
+            {
+              "exe": "WebKitNetworkProcess",
+              "Rss": 52052,
+              "Pss": 26001,
+              "Pss_Anon": 14720,
+              "Pss_File": 11281,
+              "Pss_Shmem": 0
+            },
+            {
+              "exe": "WebKitWebProcess",
+              "Rss": 103436,
+              "Pss": 68576,
+              "Pss_Anon": 14124,
+              "Pss_File": 52520,
+              "Pss_Shmem": 1932
+            }
+          ]
+        },
+        {
+          "t": 25.132,
+          "memory": {
+            "MemTotal": 998120,
+            "MemAvailable": 534364,
+            "SwapTotal": 0,
+            "SwapFree": 0
+          },
+          "pressure": "some avg10=0.02 avg60=0.02 avg300=0.00 total=85491\nfull avg10=0.02 avg60=0.02 avg300=0.00 total=80439\n",
+          "processes": [
+            {
+              "exe": "emulationstation",
+              "Rss": 120004,
+              "Pss": 96955,
+              "Pss_Anon": 68704,
+              "Pss_File": 28231,
+              "Pss_Shmem": 20
+            },
+            {
+              "exe": "cloud-signin-window",
+              "Rss": 84404,
+              "Pss": 43086,
+              "Pss_Anon": 15024,
+              "Pss_File": 25438,
+              "Pss_Shmem": 2624
+            },
+            {
+              "exe": "WebKitNetworkProcess",
+              "Rss": 52052,
+              "Pss": 26001,
+              "Pss_Anon": 14720,
+              "Pss_File": 11281,
+              "Pss_Shmem": 0
+            },
+            {
+              "exe": "WebKitWebProcess",
+              "Rss": 103452,
+              "Pss": 68592,
+              "Pss_Anon": 14140,
+              "Pss_File": 52520,
+              "Pss_Shmem": 1932
+            }
+          ]
+        },
+        {
+          "t": 27.208,
+          "memory": {
+            "MemTotal": 998120,
+            "MemAvailable": 534368,
+            "SwapTotal": 0,
+            "SwapFree": 0
+          },
+          "pressure": "some avg10=0.01 avg60=0.02 avg300=0.00 total=85491\nfull avg10=0.01 avg60=0.02 avg300=0.00 total=80439\n",
+          "processes": [
+            {
+              "exe": "emulationstation",
+              "Rss": 120004,
+              "Pss": 96955,
+              "Pss_Anon": 68704,
+              "Pss_File": 28231,
+              "Pss_Shmem": 20
+            },
+            {
+              "exe": "cloud-signin-window",
+              "Rss": 84420,
+              "Pss": 43102,
+              "Pss_Anon": 15040,
+              "Pss_File": 25438,
+              "Pss_Shmem": 2624
+            },
+            {
+              "exe": "WebKitNetworkProcess",
+              "Rss": 52052,
+              "Pss": 26001,
+              "Pss_Anon": 14720,
+              "Pss_File": 11281,
+              "Pss_Shmem": 0
+            },
+            {
+              "exe": "WebKitWebProcess",
+              "Rss": 103344,
+              "Pss": 68484,
+              "Pss_Anon": 14032,
+              "Pss_File": 52520,
+              "Pss_Shmem": 1932
+            }
+          ]
+        },
+        {
+          "t": 29.285,
+          "memory": {
+            "MemTotal": 998120,
+            "MemAvailable": 534368,
+            "SwapTotal": 0,
+            "SwapFree": 0
+          },
+          "pressure": "some avg10=0.01 avg60=0.02 avg300=0.00 total=85491\nfull avg10=0.01 avg60=0.02 avg300=0.00 total=80439\n",
+          "processes": [
+            {
+              "exe": "emulationstation",
+              "Rss": 120004,
+              "Pss": 96955,
+              "Pss_Anon": 68704,
+              "Pss_File": 28231,
+              "Pss_Shmem": 20
+            },
+            {
+              "exe": "cloud-signin-window",
+              "Rss": 84392,
+              "Pss": 43074,
+              "Pss_Anon": 15012,
+              "Pss_File": 25438,
+              "Pss_Shmem": 2624
+            },
+            {
+              "exe": "WebKitNetworkProcess",
+              "Rss": 52052,
+              "Pss": 26001,
+              "Pss_Anon": 14720,
+              "Pss_File": 11281,
+              "Pss_Shmem": 0
+            },
+            {
+              "exe": "WebKitWebProcess",
+              "Rss": 103352,
+              "Pss": 68492,
+              "Pss_Anon": 14040,
+              "Pss_File": 52520,
+              "Pss_Shmem": 1932
+            }
+          ]
+        },
+        {
+          "t": 31.363,
+          "memory": {
+            "MemTotal": 998120,
+            "MemAvailable": 534140,
+            "SwapTotal": 0,
+            "SwapFree": 0
+          },
+          "pressure": "some avg10=0.01 avg60=0.01 avg300=0.00 total=85492\nfull avg10=0.01 avg60=0.01 avg300=0.00 total=80440\n",
+          "processes": [
+            {
+              "exe": "emulationstation",
+              "Rss": 120004,
+              "Pss": 96955,
+              "Pss_Anon": 68704,
+              "Pss_File": 28231,
+              "Pss_Shmem": 20
+            },
+            {
+              "exe": "cloud-signin-window",
+              "Rss": 84404,
+              "Pss": 43086,
+              "Pss_Anon": 15024,
+              "Pss_File": 25438,
+              "Pss_Shmem": 2624
+            },
+            {
+              "exe": "WebKitNetworkProcess",
+              "Rss": 52052,
+              "Pss": 26001,
+              "Pss_Anon": 14720,
+              "Pss_File": 11281,
+              "Pss_Shmem": 0
+            },
+            {
+              "exe": "WebKitWebProcess",
+              "Rss": 103400,
+              "Pss": 68540,
+              "Pss_Anon": 14088,
+              "Pss_File": 52520,
+              "Pss_Shmem": 1932
+            }
+          ]
+        },
+        {
+          "t": 33.44,
+          "memory": {
+            "MemTotal": 998120,
+            "MemAvailable": 534144,
+            "SwapTotal": 0,
+            "SwapFree": 0
+          },
+          "pressure": "some avg10=0.00 avg60=0.01 avg300=0.00 total=85492\nfull avg10=0.00 avg60=0.01 avg300=0.00 total=80440\n",
+          "processes": [
+            {
+              "exe": "emulationstation",
+              "Rss": 120004,
+              "Pss": 96955,
+              "Pss_Anon": 68704,
+              "Pss_File": 28231,
+              "Pss_Shmem": 20
+            },
+            {
+              "exe": "cloud-signin-window",
+              "Rss": 84372,
+              "Pss": 43054,
+              "Pss_Anon": 14992,
+              "Pss_File": 25438,
+              "Pss_Shmem": 2624
+            },
+            {
+              "exe": "WebKitNetworkProcess",
+              "Rss": 52052,
+              "Pss": 26001,
+              "Pss_Anon": 14720,
+              "Pss_File": 11281,
+              "Pss_Shmem": 0
+            },
+            {
+              "exe": "WebKitWebProcess",
+              "Rss": 103176,
+              "Pss": 68316,
+              "Pss_Anon": 13864,
+              "Pss_File": 52520,
+              "Pss_Shmem": 1932
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case": "public-login",
+      "stop_reason": "headroom guard",
+      "loaded_page_marker": true,
+      "elapsed_seconds": 34.024,
+      "before_available_kib": 577868,
+      "minimum_available_kib": 156300,
+      "after_available_kib": 585968,
+      "browser_processes_after": 0,
+      "samples": [
+        {
+          "t": 0.059,
+          "memory": {
+            "MemTotal": 998120,
+            "MemAvailable": 578168,
+            "SwapTotal": 0,
+            "SwapFree": 0
+          },
+          "pressure": "some avg10=0.00 avg60=0.01 avg300=0.00 total=85495\nfull avg10=0.00 avg60=0.01 avg300=0.00 total=80443\n",
+          "processes": [
+            {
+              "exe": "emulationstation",
+              "Rss": 120004,
+              "Pss": 101590,
+              "Pss_Anon": 68704,
+              "Pss_File": 32866,
+              "Pss_Shmem": 20
+            },
+            {
+              "exe": "cloud-signin-window",
+              "Rss": 2032,
+              "Pss": 1324,
+              "Pss_Anon": 160,
+              "Pss_File": 1164,
+              "Pss_Shmem": 0
+            }
+          ]
+        },
+        {
+          "t": 2.152,
+          "memory": {
+            "MemTotal": 998120,
+            "MemAvailable": 526488,
+            "SwapTotal": 0,
+            "SwapFree": 0
+          },
+          "pressure": "some avg10=0.00 avg60=0.01 avg300=0.00 total=87361\nfull avg10=0.00 avg60=0.01 avg300=0.00 total=82287\n",
+          "processes": [
+            {
+              "exe": "emulationstation",
+              "Rss": 120004,
+              "Pss": 96763,
+              "Pss_Anon": 68704,
+              "Pss_File": 28039,
+              "Pss_Shmem": 20
+            },
+            {
+              "exe": "cloud-signin-window",
+              "Rss": 73148,
+              "Pss": 34771,
+              "Pss_Anon": 14012,
+              "Pss_File": 20067,
+              "Pss_Shmem": 692
+            },
+            {
+              "exe": "WebKitNetworkProcess",
+              "Rss": 54008,
+              "Pss": 25355,
+              "Pss_Anon": 15916,
+              "Pss_File": 9439,
+              "Pss_Shmem": 0
+            },
+            {
+              "exe": "WebKitWebProcess",
+              "Rss": 75492,
+              "Pss": 32370,
+              "Pss_Anon": 9956,
+              "Pss_File": 22414,
+              "Pss_Shmem": 0
+            },
+            {
+              "exe": "WebKitWebProcess",
+              "Rss": 84816,
+              "Pss": 40220,
+              "Pss_Anon": 11976,
+              "Pss_File": 28244,
+              "Pss_Shmem": 0
+            }
+          ]
+        },
+        {
+          "t": 4.233,
+          "memory": {
+            "MemTotal": 998120,
+            "MemAvailable": 480820,
+            "SwapTotal": 0,
+            "SwapFree": 0
+          },
+          "pressure": "some avg10=0.00 avg60=0.01 avg300=0.00 total=107085\nfull avg10=0.00 avg60=0.01 avg300=0.00 total=100565\n",
+          "processes": [
+            {
+              "exe": "emulationstation",
+              "Rss": 120004,
+              "Pss": 97015,
+              "Pss_Anon": 68704,
+              "Pss_File": 28291,
+              "Pss_Shmem": 20
+            },
+            {
+              "exe": "cloud-signin-window",
+              "Rss": 73188,
+              "Pss": 37396,
+              "Pss_Anon": 13988,
+              "Pss_File": 22716,
+              "Pss_Shmem": 692
+            },
+            {
+              "exe": "WebKitNetworkProcess",
+              "Rss": 57012,
+              "Pss": 30449,
+              "Pss_Anon": 18792,
+              "Pss_File": 11657,
+              "Pss_Shmem": 0
+            },
+            {
+              "exe": "WebKitWebProcess",
+              "Rss": 145680,
+              "Pss": 116645,
+              "Pss_Anon": 59804,
+              "Pss_File": 56841,
+              "Pss_Shmem": 0
+            }
+          ]
+        },
+        {
+          "t": 6.335,
+          "memory": {
+            "MemTotal": 998120,
+            "MemAvailable": 436376,
+            "SwapTotal": 0,
+            "SwapFree": 0
+          },
+          "pressure": "some avg10=0.00 avg60=0.01 avg300=0.00 total=107548\nfull avg10=0.00 avg60=0.01 avg300=0.00 total=101027\n",
+          "processes": [
+            {
+              "exe": "emulationstation",
+              "Rss": 120004,
+              "Pss": 97015,
+              "Pss_Anon": 68704,
+              "Pss_File": 28291,
+              "Pss_Shmem": 20
+            },
+            {
+              "exe": "cloud-signin-window",
+              "Rss": 73304,
+              "Pss": 37415,
+              "Pss_Anon": 14040,
+              "Pss_File": 22683,
+              "Pss_Shmem": 692
+            },
+            {
+              "exe": "WebKitNetworkProcess",
+              "Rss": 55004,
+              "Pss": 28216,
+              "Pss_Anon": 16528,
+              "Pss_File": 11688,
+              "Pss_Shmem": 0
+            },
+            {
+              "exe": "WebKitWebProcess",
+              "Rss": 199632,
+              "Pss": 170308,
+              "Pss_Anon": 107876,
+              "Pss_File": 62432,
+              "Pss_Shmem": 0
+            }
+          ]
+        },
+        {
+          "t": 8.42,
+          "memory": {
+            "MemTotal": 998120,
+            "MemAvailable": 401388,
+            "SwapTotal": 0,
+            "SwapFree": 0
+          },
+          "pressure": "some avg10=0.00 avg60=0.01 avg300=0.00 total=117729\nfull avg10=0.00 avg60=0.01 avg300=0.00 total=110775\n",
+          "processes": [
+            {
+              "exe": "emulationstation",
+              "Rss": 119976,
+              "Pss": 97008,
+              "Pss_Anon": 68704,
+              "Pss_File": 28284,
+              "Pss_Shmem": 20
+            },
+            {
+              "exe": "cloud-signin-window",
+              "Rss": 73772,
+              "Pss": 37798,
+              "Pss_Anon": 14508,
+              "Pss_File": 22598,
+              "Pss_Shmem": 692
+            },
+            {
+              "exe": "WebKitNetworkProcess",
+              "Rss": 58540,
+              "Pss": 30707,
+              "Pss_Anon": 17840,
+              "Pss_File": 12867,
+              "Pss_Shmem": 0
+            },
+            {
+              "exe": "WebKitWebProcess",
+              "Rss": 240632,
+              "Pss": 210807,
+              "Pss_Anon": 146568,
+              "Pss_File": 64239,
+              "Pss_Shmem": 0
+            }
+          ]
+        },
+        {
+          "t": 10.524,
+          "memory": {
+            "MemTotal": 998120,
+            "MemAvailable": 367784,
+            "SwapTotal": 0,
+            "SwapFree": 0
+          },
+          "pressure": "some avg10=0.00 avg60=0.01 avg300=0.00 total=120264\nfull avg10=0.00 avg60=0.01 avg300=0.00 total=113172\n",
+          "processes": [
+            {
+              "exe": "emulationstation",
+              "Rss": 119772,
+              "Pss": 96873,
+              "Pss_Anon": 68704,
+              "Pss_File": 28149,
+              "Pss_Shmem": 20
+            },
+            {
+              "exe": "cloud-signin-window",
+              "Rss": 73808,
+              "Pss": 37746,
+              "Pss_Anon": 14544,
+              "Pss_File": 22510,
+              "Pss_Shmem": 692
+            },
+            {
+              "exe": "WebKitNetworkProcess",
+              "Rss": 58300,
+              "Pss": 30467,
+              "Pss_Anon": 17600,
+              "Pss_File": 12867,
+              "Pss_Shmem": 0
+            },
+            {
+              "exe": "WebKitWebProcess",
+              "Rss": 267192,
+              "Pss": 236798,
+              "Pss_Anon": 170640,
+              "Pss_File": 66158,
+              "Pss_Shmem": 0
+            }
+          ]
+        },
+        {
+          "t": 12.615,
+          "memory": {
+            "MemTotal": 998120,
+            "MemAvailable": 351012,
+            "SwapTotal": 0,
+            "SwapFree": 0
+          },
+          "pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=129564\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=122076\n",
+          "processes": [
+            {
+              "exe": "emulationstation",
+              "Rss": 119664,
+              "Pss": 96765,
+              "Pss_Anon": 68704,
+              "Pss_File": 28041,
+              "Pss_Shmem": 20
+            },
+            {
+              "exe": "cloud-signin-window",
+              "Rss": 73776,
+              "Pss": 37704,
+              "Pss_Anon": 14560,
+              "Pss_File": 22452,
+              "Pss_Shmem": 692
+            },
+            {
+              "exe": "WebKitNetworkProcess",
+              "Rss": 58176,
+              "Pss": 30332,
+              "Pss_Anon": 17476,
+              "Pss_File": 12856,
+              "Pss_Shmem": 0
+            },
+            {
+              "exe": "WebKitWebProcess",
+              "Rss": 289368,
+              "Pss": 258889,
+              "Pss_Anon": 191408,
+              "Pss_File": 67481,
+              "Pss_Shmem": 0
+            }
+          ]
+        },
+        {
+          "t": 14.708,
+          "memory": {
+            "MemTotal": 998120,
+            "MemAvailable": 347344,
+            "SwapTotal": 0,
+            "SwapFree": 0
+          },
+          "pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=130538\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=122791\n",
+          "processes": [
+            {
+              "exe": "emulationstation",
+              "Rss": 119664,
+              "Pss": 96766,
+              "Pss_Anon": 68704,
+              "Pss_File": 28042,
+              "Pss_Shmem": 20
+            },
+            {
+              "exe": "cloud-signin-window",
+              "Rss": 74300,
+              "Pss": 38217,
+              "Pss_Anon": 15084,
+              "Pss_File": 22441,
+              "Pss_Shmem": 692
+            },
+            {
+              "exe": "WebKitNetworkProcess",
+              "Rss": 58632,
+              "Pss": 30746,
+              "Pss_Anon": 17868,
+              "Pss_File": 12878,
+              "Pss_Shmem": 0
+            },
+            {
+              "exe": "WebKitWebProcess",
+              "Rss": 293244,
+              "Pss": 262733,
+              "Pss_Anon": 195092,
+              "Pss_File": 67641,
+              "Pss_Shmem": 0
+            }
+          ]
+        },
+        {
+          "t": 16.817,
+          "memory": {
+            "MemTotal": 998120,
+            "MemAvailable": 308124,
+            "SwapTotal": 0,
+            "SwapFree": 0
+          },
+          "pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=144977\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=136889\n",
+          "processes": [
+            {
+              "exe": "emulationstation",
+              "Rss": 114112,
+              "Pss": 91257,
+              "Pss_Anon": 68704,
+              "Pss_File": 22533,
+              "Pss_Shmem": 20
+            },
+            {
+              "exe": "cloud-signin-window",
+              "Rss": 85124,
+              "Pss": 44040,
+              "Pss_Anon": 16184,
+              "Pss_File": 25876,
+              "Pss_Shmem": 1980
+            },
+            {
+              "exe": "WebKitNetworkProcess",
+              "Rss": 58680,
+              "Pss": 30783,
+              "Pss_Anon": 17916,
+              "Pss_File": 12867,
+              "Pss_Shmem": 0
+            },
+            {
+              "exe": "WebKitWebProcess",
+              "Rss": 340192,
+              "Pss": 304712,
+              "Pss_Anon": 237672,
+              "Pss_File": 65752,
+              "Pss_Shmem": 1288
+            }
+          ]
+        },
+        {
+          "t": 18.909,
+          "memory": {
+            "MemTotal": 998120,
+            "MemAvailable": 300412,
+            "SwapTotal": 0,
+            "SwapFree": 0
+          },
+          "pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=148018\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=139855\n",
+          "processes": [
+            {
+              "exe": "emulationstation",
+              "Rss": 112848,
+              "Pss": 89993,
+              "Pss_Anon": 68704,
+              "Pss_File": 21269,
+              "Pss_Shmem": 20
+            },
+            {
+              "exe": "cloud-signin-window",
+              "Rss": 86680,
+              "Pss": 44952,
+              "Pss_Anon": 16452,
+              "Pss_File": 25876,
+              "Pss_Shmem": 2624
+            },
+            {
+              "exe": "WebKitNetworkProcess",
+              "Rss": 60344,
+              "Pss": 32447,
+              "Pss_Anon": 19580,
+              "Pss_File": 12867,
+              "Pss_Shmem": 0
+            },
+            {
+              "exe": "WebKitWebProcess",
+              "Rss": 342928,
+              "Pss": 306682,
+              "Pss_Anon": 238800,
+              "Pss_File": 65950,
+              "Pss_Shmem": 1932
+            }
+          ]
+        },
+        {
+          "t": 21.331,
+          "memory": {
+            "MemTotal": 998120,
+            "MemAvailable": 284372,
+            "SwapTotal": 0,
+            "SwapFree": 0
+          },
+          "pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=148664\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=140490\n",
+          "processes": [
+            {
+              "exe": "emulationstation",
+              "Rss": 112848,
+              "Pss": 89988,
+              "Pss_Anon": 68704,
+              "Pss_File": 21264,
+              "Pss_Shmem": 20
+            },
+            {
+              "exe": "cloud-signin-window",
+              "Rss": 86664,
+              "Pss": 44920,
+              "Pss_Anon": 16436,
+              "Pss_File": 25860,
+              "Pss_Shmem": 2624
+            },
+            {
+              "exe": "WebKitNetworkProcess",
+              "Rss": 59784,
+              "Pss": 31812,
+              "Pss_Anon": 18892,
+              "Pss_File": 12920,
+              "Pss_Shmem": 0
+            },
+            {
+              "exe": "WebKitWebProcess",
+              "Rss": 345820,
+              "Pss": 309483,
+              "Pss_Anon": 241052,
+              "Pss_File": 66499,
+              "Pss_Shmem": 1932
+            }
+          ]
+        },
+        {
+          "t": 23.43,
+          "memory": {
+            "MemTotal": 998120,
+            "MemAvailable": 271924,
+            "SwapTotal": 0,
+            "SwapFree": 0
+          },
+          "pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=149531\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=141357\n",
+          "processes": [
+            {
+              "exe": "emulationstation",
+              "Rss": 112848,
+              "Pss": 89988,
+              "Pss_Anon": 68704,
+              "Pss_File": 21264,
+              "Pss_Shmem": 20
+            },
+            {
+              "exe": "cloud-signin-window",
+              "Rss": 86676,
+              "Pss": 44932,
+              "Pss_Anon": 16448,
+              "Pss_File": 25860,
+              "Pss_Shmem": 2624
+            },
+            {
+              "exe": "WebKitNetworkProcess",
+              "Rss": 60068,
+              "Pss": 32096,
+              "Pss_Anon": 19176,
+              "Pss_File": 12920,
+              "Pss_Shmem": 0
+            },
+            {
+              "exe": "WebKitWebProcess",
+              "Rss": 372024,
+              "Pss": 335687,
+              "Pss_Anon": 267128,
+              "Pss_File": 66627,
+              "Pss_Shmem": 1932
+            }
+          ]
+        },
+        {
+          "t": 25.55,
+          "memory": {
+            "MemTotal": 998120,
+            "MemAvailable": 218888,
+            "SwapTotal": 0,
+            "SwapFree": 0
+          },
+          "pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=162800\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=154072\n",
+          "processes": [
+            {
+              "exe": "emulationstation",
+              "Rss": 111400,
+              "Pss": 88540,
+              "Pss_Anon": 68704,
+              "Pss_File": 19816,
+              "Pss_Shmem": 20
+            },
+            {
+              "exe": "cloud-signin-window",
+              "Rss": 86764,
+              "Pss": 45020,
+              "Pss_Anon": 16536,
+              "Pss_File": 25860,
+              "Pss_Shmem": 2624
+            },
+            {
+              "exe": "WebKitNetworkProcess",
+              "Rss": 61372,
+              "Pss": 33368,
+              "Pss_Anon": 20480,
+              "Pss_File": 12888,
+              "Pss_Shmem": 0
+            },
+            {
+              "exe": "WebKitWebProcess",
+              "Rss": 423072,
+              "Pss": 386703,
+              "Pss_Anon": 318112,
+              "Pss_File": 66659,
+              "Pss_Shmem": 1932
+            }
+          ]
+        },
+        {
+          "t": 27.655,
+          "memory": {
+            "MemTotal": 998120,
+            "MemAvailable": 202960,
+            "SwapTotal": 0,
+            "SwapFree": 0
+          },
+          "pressure": "some avg10=0.36 avg60=0.07 avg300=0.01 total=196781\nfull avg10=0.18 avg60=0.03 avg300=0.00 total=184099\n",
+          "processes": [
+            {
+              "exe": "emulationstation",
+              "Rss": 103840,
+              "Pss": 82009,
+              "Pss_Anon": 68700,
+              "Pss_File": 13289,
+              "Pss_Shmem": 20
+            },
+            {
+              "exe": "cloud-signin-window",
+              "Rss": 86312,
+              "Pss": 44901,
+              "Pss_Anon": 16760,
+              "Pss_File": 25517,
+              "Pss_Shmem": 2624
+            },
+            {
+              "exe": "WebKitNetworkProcess",
+              "Rss": 64420,
+              "Pss": 36306,
+              "Pss_Anon": 23432,
+              "Pss_File": 12874,
+              "Pss_Shmem": 0
+            },
+            {
+              "exe": "WebKitWebProcess",
+              "Rss": 421780,
+              "Pss": 384996,
+              "Pss_Anon": 318812,
+              "Pss_File": 64252,
+              "Pss_Shmem": 1932
+            }
+          ]
+        },
+        {
+          "t": 29.768,
+          "memory": {
+            "MemTotal": 998120,
+            "MemAvailable": 192796,
+            "SwapTotal": 0,
+            "SwapFree": 0
+          },
+          "pressure": "some avg10=0.24 avg60=0.06 avg300=0.01 total=200378\nfull avg10=0.12 avg60=0.03 avg300=0.00 total=187552\n",
+          "processes": [
+            {
+              "exe": "emulationstation",
+              "Rss": 103612,
+              "Pss": 81873,
+              "Pss_Anon": 68700,
+              "Pss_File": 13153,
+              "Pss_Shmem": 20
+            },
+            {
+              "exe": "cloud-signin-window",
+              "Rss": 85744,
+              "Pss": 44441,
+              "Pss_Anon": 16936,
+              "Pss_File": 24881,
+              "Pss_Shmem": 2624
+            },
+            {
+              "exe": "WebKitNetworkProcess",
+              "Rss": 64868,
+              "Pss": 36714,
+              "Pss_Anon": 23888,
+              "Pss_File": 12826,
+              "Pss_Shmem": 0
+            },
+            {
+              "exe": "WebKitWebProcess",
+              "Rss": 436512,
+              "Pss": 399688,
+              "Pss_Anon": 334044,
+              "Pss_File": 63712,
+              "Pss_Shmem": 1932
+            }
+          ]
+        },
+        {
+          "t": 31.896,
+          "memory": {
+            "MemTotal": 998120,
+            "MemAvailable": 196212,
+            "SwapTotal": 0,
+            "SwapFree": 0
+          },
+          "pressure": "some avg10=0.56 avg60=0.13 avg300=0.02 total=250069\nfull avg10=0.46 avg60=0.10 avg300=0.01 total=232780\n",
+          "processes": [
+            {
+              "exe": "emulationstation",
+              "Rss": 103228,
+              "Pss": 81489,
+              "Pss_Anon": 68700,
+              "Pss_File": 12769,
+              "Pss_Shmem": 20
+            },
+            {
+              "exe": "cloud-signin-window",
+              "Rss": 85824,
+              "Pss": 44415,
+              "Pss_Anon": 17100,
+              "Pss_File": 24691,
+              "Pss_Shmem": 2624
+            },
+            {
+              "exe": "WebKitNetworkProcess",
+              "Rss": 65044,
+              "Pss": 36924,
+              "Pss_Anon": 24116,
+              "Pss_File": 12808,
+              "Pss_Shmem": 0
+            },
+            {
+              "exe": "WebKitWebProcess",
+              "Rss": 445464,
+              "Pss": 408534,
+              "Pss_Anon": 340780,
+              "Pss_File": 65822,
+              "Pss_Shmem": 1932
+            }
+          ]
+        },
+        {
+          "t": 34.024,
+          "memory": {
+            "MemTotal": 998120,
+            "MemAvailable": 156300,
+            "SwapTotal": 0,
+            "SwapFree": 0
+          },
+          "pressure": "some avg10=2.08 avg60=0.42 avg300=0.08 total=520709\nfull avg10=1.64 avg60=0.32 avg300=0.06 total=425895\n",
+          "processes": [
+            {
+              "exe": "emulationstation",
+              "Rss": 88024,
+              "Pss": 72934,
+              "Pss_Anon": 68700,
+              "Pss_File": 4214,
+              "Pss_Shmem": 20
+            },
+            {
+              "exe": "cloud-signin-window",
+              "Rss": 72768,
+              "Pss": 37219,
+              "Pss_Anon": 17312,
+              "Pss_File": 17283,
+              "Pss_Shmem": 2624
+            },
+            {
+              "exe": "WebKitNetworkProcess",
+              "Rss": 62364,
+              "Pss": 35863,
+              "Pss_Anon": 24324,
+              "Pss_File": 11539,
+              "Pss_Shmem": 0
+            },
+            {
+              "exe": "WebKitWebProcess",
+              "Rss": 474696,
+              "Pss": 440751,
+              "Pss_Anon": 380800,
+              "Pss_File": 58019,
+              "Pss_Shmem": 1932
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "readback_only_values": true,
+  "same_boot_before_and_after": true,
+  "temporary_outputs_removed": true,
+  "no_credentials_entered": true,
+  "native_frame_size": [
+    720,
+    480
+  ]
+}
