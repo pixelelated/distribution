@@ -49,7 +49,7 @@ def main():
   g.require(r['identity']['links']==1,'unclassified payload hardlink')
   if 'chain' in r:g.require(not any(z.get('backing-filename') for z in r['chain']),'unclassified backing dependency')
  validate(plan,O)
- g.live_check(targets,O,'preflight')
+ g.live_check(targets,O,'apply-preflight' if args.apply else 'verify-preflight')
  if not args.apply:
   print('PASS exact plan, preservation, root coverage and live dependencies; verify-only, no deletion',flush=True);return
  g.require(os.environ.get('RASTERATOPS_BUILD_RUN'),'watched owner required for apply')

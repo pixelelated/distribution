@@ -1,0 +1,12 @@
+PASS exact plan, preservation, root coverage and live dependencies; verify-only, no deletion
+PASS exact plan, preservation, root coverage and live dependencies; verify-only, no deletion
+{
+  "result": "PASS",
+  "controls": [
+    "actual verify-only then apply keeps two exclusive receipts",
+    "old shared-receipt mutation fails as expected"
+  ],
+  "process_check_mocked": true,
+  "stopped_before_deletion": true,
+  "production_targets_changed": false
+}

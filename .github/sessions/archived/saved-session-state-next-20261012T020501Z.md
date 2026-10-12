@@ -1,0 +1,64 @@
+# Saved Session State
+
+> **Saved**: 2026-10-12T01:58:28.782528+00:00
+> **Branch**: feature/m7-component-inputs
+> **Repo**: pixelelated/distribution
+
+## Start here
+
+This repository builds an immutable handheld Linux distribution, not a running app. Read canonical next's AGENTS.md and every-session rules, then docs/device-testing-policy.md and .claude/rules/worktrees.md. M7.P5 milestone body owns order; parent #344. Active tracking checkout is `/workspace/repos/rocknix.worktrees/m7-component-inputs`; primary `/workspace/repos/rocknix` stays on next. Harness conflict-resolution is stale and untouched. Start-of-turn published/CI-green HEAD9c62dc4f8021253451f5157daeacb9159bdd8192; October12 evidence/checkpoint changes are being delivered separately. [Prior complete build/device checkpoint](archived/saved-session-state-next-20261012T015828Z.md) preserves accepted source and results. Do not replay the completed final-delivery02, audits, builds, VM20 or #556 update.
+
+## Current Focus
+
+Fresh user request: “We can do all of that cleanup. We also now have the RG SP online and the Nova online. If you want to commence those transfers, you have approval.” #493 owns fresh cleanup; new #557 owns RG SP/Nova updates. Neither transfer nor cleanup deletion has happened. First cleanup batch is fully prepared and waits for a fresh root process snapshot. Device preparation waits for named hash-only permission and Nova external power; reboot authority is separately pending. RG SP is NOT RG35XX SP; the latter's #556 update is complete and must not be touched.
+
+## Completed This Session
+
+- #493 fresh inventory01 ended01:32:27UTC:65,786,234 files, no read errors. All56 disk inspection warnings are shared-mime-info source fixtures. Old shared devices tree464.66GiB and many108–170GiB copies dominate capacity. Actual results and owner exits consumed01:35:11UTC.
+- First exact cleanup plan04 ended01:49:41UTC and has all original channels0/actual owners gone.59 payload files (13 completed VM disks),3old OS extractions,2retired X64 worktrees15/16:64 targets. Expected395,704,332,288bytes net after438,931,456bytes preserved; the separately recovered34MB Tailscale archive adds a small preservation cost. Keep1,284 original compact files,7,355 preserved build records, current firmware and required sources. Three external rclone links are from completed failed upgrade19/19b/19c consumers; their failures/teardown remain recorded. Eight guard controls pass. Fresh preservation validation01:54:23UTC rehashed inputs, objects, protected firmware and exact target metadata. No deletion.
+- Preparers01/02/03 remain failures: extra nested clean apitrace/zstd and PPSSPP/frametests repos classified; old DuckStation binary independently retained; shared Tailscale cache currently ARM64 while old X64 consumed amd64. Official amd64 archive recovered with exact original digest3a55b590…, both executables compared to both retired trees. Shared cache untouched. #528 comment flags VM18 profile's ARM64 archive association for final-inventory correction; no product runtime bug or rebuild claim.
+- Whitelisted read-only device observations: RG SP100.75.221.73, modelAnbernic RG-SP/dtid sun50i-h700-anbernic-rg-sp, oldBUILD_ID8b5113fa164ada7d002ab138b1e3a9bf795e9de5, bootb0ca038a-3bf8-4b78-a9ec-a5e4185fd5e8, battery94%Charging/external1. Nova100.84.232.105, modelRetroid Pocket Nova, sameoldbuild, boot48029f14-080c-49cd-9e6d-4f34179a8129, battery64%Discharging/external0. Both idle, empty update queues, automatic startup/game-exit cloud sync0. Nova frontend NRestarts1 is prior recovered history, not a new causal claim. No screenshot/input/cloud action/device write.
+- M7 and #493/#528/#557 updated and exact bodies read back. Evidence: docs/qa-logs/2026-10-12-storage-retention/, docs/qa-logs/2026-10-12-owner-updates/; October12 work log/friction/INDEX updated.
+
+## In Progress
+
+No build, VM, provider, device-transfer or retention job is running. All current preparation owners ended; validation tool session23191 exited0 and was consumed. Root administrator helper and device approvals are pending. Do not invent a background monitor or claim a transfer has begun.
+
+Private cleanup owners under `/workspace/tmp/`:
+- `pixelelated-m7-retention-20261012-inventory01`: census/artifacts/inventory.json (250MB, keep private), summary, build-tree-review.json and owner-verification.json.
+- `pixelelated-m7-retention-20261012-plan04`: accepted prepare.py/seal/selection/plan.json and owner-verification.json. Failed01/02/03 preserved separately. Exact source/build-record store `/workspace/artifacts/pixelelated-build-custody/issue-493-retention-20261012-04`; historical Tailscale input in sibling `issue-493-tailscale-amd64-20261012/objects/3a55b5900dd7e11e09b6c74d1e46d223d549dfbefbdc1f044a8ab7bdbafb933c`.
+- `pixelelated-m7-retention-20261012-cleanup01`: execute.py, guards.py, seal.json, classified-references.json, artifacts/guard-tests.json and preservation-validation.json. EXECUTOR PREPARED ONLY, NEVER STARTED. It is verify-only without --apply. Use standard watched owner for apply, actual original result channels, and inspect partial deletion journal if any future failure; never blindly rerun.
+- `pixelelated-m7-retention-20261012-root01`: README.md/roots.json/readonly-process-dependencies.py/SHA256SUMS. Requested command: `cd /workspace/tmp/pixelelated-m7-retention-20261012-root01 && sha256sum -c SHA256SUMS && sudo /usr/bin/python3 -I ./readonly-process-dependencies.py > root-process-readback.json`. User has not yet reported running it; check for actual result. Script reads protected process references only, no deletes.81 scope roots cover every exact first-batch target (including loose files) plus other superseded build trees for later review. Current H70003/SM855003/VM20 build roots excluded. Snapshot must be UID0, no unreadable fields, age<7200seconds; matching references require classification. Current guards also reject new protected processes, active references, relevant mounts/containers and changed payloads. sudo needs interactive authentication; only guarded swap helper is passwordless. Never use it for unrelated privilege or reuse October7 snapshot.
+
+## Next Steps
+
+1. Check incoming user replies and root snapshot. Preserve exact scopes; elapsed time is not approval. If fresh administrator snapshot passes, run cleanup01 verify-only, then submit `TMPDIR=/workspace/tmp/pixelelated-m7-retention-20261012-cleanup01/tmp tools/watch-build-submit --owner /workspace/tmp/pixelelated-m7-retention-20261012-cleanup01 -- python3 -B -I /workspace/tmp/pixelelated-m7-retention-20261012-cleanup01/execute.py --apply` from tracking. Watch actively, consume original inner/outer/tool-wrapper/launcher/watch build results and actual exit. Verify64 removals, worktree unregistration, records/sources/current firmware and actual recovered space. Then record retirement markers. No new blanket cleanup permission needed: latest request explicitly authorized it. A failure gets diagnosis/fresh owner, not a replay. The remainder of old build trees remains source-custody review; this first batch does not finish all cleanup.
+2. #557 private owner `/workspace/tmp/pixelelated-owner-deploy-20261012`: authorization.json, issue/milestone records, and syntax-checked prepare-transfers.py. Per-device preservation collectors/binding summaries do NOT exist; their attempts were rejected before creation. No generated stage/reboot owners yet. After explicit hash-only permission, run the qualified collector with no raw config capture; collect baseline hashes and fresh hardware/power/idle/queue facts. Both rejected raw/config-semantic reads must not be retried without user answer. Prepare/review fresh scripts with prepare-transfers.py (it adapts old qualified templates); confirm new target hashes/source and older8b511 expected preflight identity. Reboot scripts remain gated on separate named answer.
+3. RG SP uses H700 DDR3, NOT RG35XX SP DDR4. Nova must read external power1 before stage/apply. Both transports historically use SSH aliasrg35xxsp with explicit Hostname override (rgsp alias points LAN; nova alias absent). All device writes use tools/device-act; stage outside update queue to a .part, full SHA, repeat guards before atomic queue move. Consume stage PASS before any authorized one-time reboot, then exact installed SYSTEM/KERNEL/ES/both RA/DTB+DDR3bootloader or Nova ABLs, boot identity, preservation comparison and frontend. No automatic reboot retry or extra testing/cloud action. Fresh statuses are needed: saved observations are not live permission/power proof.
+4. Finish remaining #493 source-custody reviews, then #528/#344/#265/#337/#359 publication/source/licence/support/adoption/recovery gates. No public RC allocated; no release authority inferred. Do not repeat accepted VM20/audits/builds merely to resume.
+
+## Accepted Firmware (do not rebuild)
+
+Both sourcebc9dfe8141d9561dc1d8502313d00a84c4566ee8, version `0.0.1-dev+20261011T222153Z.gbc9dfe8141d9`, ES c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78; proxyc7ebd1b6e777f3751ff0ecdf8aba54045844e00d, rclone1.75.2.
+
+H700 frozen `/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-03`; compilerowner `/workspace/tmp/pixelelated-m7-h700-refresh-03`, acceptance04. Bundle `/workspace/artifacts/pixelelated-candidates/sha256/66273ff16383957687af44728a9e4e2c4bf1242c0217cf681dca8abee858d9b7`; TAR `pixelelated-H700.aarch64-0.0.1-dev+20261011T222153Z.gbc9dfe8141d9-from-ROCKNIX.tar`,1,321,216,000bytes, SHAad0c75a7af641eab79f3a637c30f3ff6800fb69f879e2599e1463e011bcf3d81. RG SP DTB is sun50i-h700-anbernic-rg-sp.dtb; verify exact archived bytes during prep, DDR3 bootloader acceptance variant.
+
+SM8550 frozen `m7-pixelelated-sm8550-03`; compilerowner `/workspace/tmp/pixelelated-m7-sm8550-refresh-05`, acceptance05, cacheownerrefresh04 (private Nix). Bundle `/workspace/artifacts/pixelelated-candidates/sha256/a480210cd8837f20fb67a80508c517308cc0326ed2c1544493e3f56d125f1f2f`; TAR `pixelelated-SM8550.aarch64-0.0.1-dev+20261011T222153Z.gbc9dfe8141d9-from-ROCKNIX.tar`,1,616,322,560bytes, SHAd6278647cc07bd34e61aa839ba866418b63b386468cfe39c492992c50f598ea0.
+
+VM20 source1a026648442321609b2288c2c9c06803817f9df2/bundlebd85b1b42f0170d7d82555af09cbe18762d6fc7eae63293bd0a8043e652db548 is qualified. #553/#554 complete, all13 review leads adjudicated, no runtime bug. NEVER repeat consumed #553/#540 external transfers. #556 RG35XX SP closed/accepted, no outstanding device action there. #555 last retention criterion remains open.
+
+## Key Files Modified
+
+October12 compact QA evidence, work log/INDEX, friction log, canonical checkpoint/archive and feature pointer. No product code, package pin or player-facing flow changed. Check git status and delivery records for exact current commit; use owned TMPDIR for all hooks/guards.
+
+## Related Context
+
+M7 https://github.com/pixelelated/distribution/milestone/7; #493 storage; #557 current owner devices; #528 publication inputs; #344 parent. Canonical scope `docs/releases/next-candidate-scope.md`. Historical October7 deletion recovered2.117TB and is complete: never replay/widen it. Current cleanup is newly authorized and independently scoped.
+
+## Notes for Next Session
+
+Shell calls require normal require_escalated because harness /tmp quota breaks sandbox initialization and working trees are outside its writable root. Use owned `/workspace/tmp/.../tmp`; no guard bypass. Existing source/cache/licenses/frames/logs are protected. Before any actual future cleanup, root snapshot and current live references must pass. Full inventories remain private; publish compact sanitized metadata. Prepared stage scripts require review before launch; inherited filenames/code bindings are not proof. Current device config collectors are pending user permission, not a tool-availability problem.
+
+## Open Questions
+
+Four async requests are pending, no answers received at checkpoint: (1) approve both new reboots or transfer only; (2) approve hash-only preservation of credential/config files or exclude them (never raw config capture); (3) connect Nova to external power; (4) run fresh administrator read-only process check and report done. Do not duplicate these questions or treat silence as consent. Auto-review rejected raw config capture, then hashes as sensitive derived data; neither command executed. Device transfers themselves and fresh host cleanup are already authorized.
