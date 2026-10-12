@@ -1,0 +1,59 @@
+OBSERVED 2026-10-12T05:30:03Z
+BOOT_ID 551a646f-7a24-48b0-975a-d95ba7003b2b
+SETTINGS /storage/.config/system/configs/system.cfg
+system.battery.warning_threshold=25
+SETTINGS /storage/.config/system/configs/system.cfg.backup
+system.battery.warning_threshold=25
+/sys/class/leds/green:power/brightness=1
+/sys/class/leds/red:status/brightness=0
+/sys/class/leds/green:power/trigger=[none] rfkill-any rfkill-none kbd-scrolllock kbd-numlock kbd-capslock kbd-kanalock kbd-shiftlock kbd-altgrlock kbd-ctrllock kbd-altlock kbd-shiftllock kbd-shiftrlock kbd-ctrlllock kbd-ctrlrlock timer oneshot heartbeat backlight gpio cpu cpu0 cpu1 cpu2 cpu3 activity default-on transient flash torch panic netdev pattern tty axp20x-usb-online battery-charging-or-full battery-charging battery-full battery-charging-blink-full-solid battery-charging-orange-full-green mmc0 mmc2 mmc1 rfkill0 bluetooth-power
+/sys/class/leds/red:status/trigger=[none] rfkill-any rfkill-none kbd-scrolllock kbd-numlock kbd-capslock kbd-kanalock kbd-shiftlock kbd-altgrlock kbd-ctrllock kbd-altlock kbd-shiftllock kbd-shiftrlock kbd-ctrlllock kbd-ctrlrlock timer oneshot heartbeat backlight gpio cpu cpu0 cpu1 cpu2 cpu3 activity default-on transient flash torch panic netdev pattern tty axp20x-usb-online battery-charging-or-full battery-charging battery-full battery-charging-blink-full-solid battery-charging-orange-full-green mmc0 mmc2 mmc1 rfkill0 bluetooth-power
+/sys/class/power_supply/axp20x-usb/online=0
+/sys/class/power_supply/battery/status=Discharging
+/sys/class/power_supply/battery/capacity=93
+WARNINGS
+2026-09-29T16:08:53-04:00 RG-SP powerstate[474]: Switching to performance mode.
+2026-09-29T12:07:37-04:00 RG-SP systemd[1]: Stopping powerstate.service...
+2026-09-29T12:07:37-04:00 RG-SP systemd[1]: Stopped powerstate.service.
+2026-09-29T18:32:03-04:00 RG-SP systemd[1]: Started powerstate.service.
+2026-09-29T18:32:03-04:00 RG-SP powerstate[22962]: Switching to battery mode.
+2026-09-29T18:48:29-04:00 RG-SP systemd[1]: Stopping powerstate.service...
+2026-09-29T18:48:29-04:00 RG-SP systemd[1]: Stopped powerstate.service.
+2026-09-29T18:52:23-04:00 ROCKNIX systemd[1]: Started powerstate.service.
+2026-09-29T18:52:23-04:00 ROCKNIX powerstate[621]: Switching to battery mode.
+2026-09-29T23:35:18-04:00 RG-SP systemd[1]: Stopping powerstate.service...
+2026-09-29T23:35:18-04:00 RG-SP systemd[1]: Stopped powerstate.service.
+2026-09-29T23:35:37-04:00 RG-SP systemd[1]: Started powerstate.service.
+2026-09-29T23:36:06-04:00 RG-SP systemd[1]: Stopping powerstate.service...
+2026-09-29T23:36:06-04:00 RG-SP systemd[1]: Stopped powerstate.service.
+2026-09-29T23:38:26-04:00 RG-SP systemd[1]: Started powerstate.service.
+2026-09-29T23:38:26-04:00 RG-SP powerstate[142324]: Switching to performance mode.
+2026-09-29T23:38:58-04:00 RG-SP systemd[1]: Stopping powerstate.service...
+2026-09-29T23:38:58-04:00 RG-SP systemd[1]: Stopped powerstate.service.
+2026-09-30T14:00:45-04:00 RG-SP systemd[1]: Started powerstate.service.
+2026-09-30T14:00:45-04:00 RG-SP powerstate[143343]: Switching to battery mode.
+2026-09-30T14:00:59-04:00 RG-SP systemd[1]: Stopping powerstate.service...
+2026-09-30T14:00:59-04:00 RG-SP systemd[1]: Stopped powerstate.service.
+2026-10-09T11:09:29-04:00 RG-SP systemd[1]: Started powerstate.service.
+2026-10-09T11:09:30-04:00 RG-SP powerstate[549]: Switching to battery mode.
+2026-10-09T11:48:56-04:00 RG-SP systemd[1]: Stopping powerstate.service...
+2026-10-09T11:48:56-04:00 RG-SP systemd[1]: Stopped powerstate.service.
+2026-10-09T11:52:49-04:00 ROCKNIX systemd[1]: Started powerstate.service.
+2026-10-09T11:52:49-04:00 ROCKNIX powerstate[645]: Switching to performance mode.
+2026-10-09T11:56:40-04:00 RG-SP powerstate[3913]: Switching to battery mode.
+2026-10-09T11:56:46-04:00 RG-SP systemd[1]: Stopping powerstate.service...
+2026-10-09T11:56:46-04:00 RG-SP systemd[1]: Stopped powerstate.service.
+2026-10-10T23:15:52-04:00 RG-SP systemd[1]: Started powerstate.service.
+2026-10-10T23:16:52-04:00 RG-SP powerstate[2748]: Switching to performance mode.
+2026-10-11T00:12:03-04:00 RG-SP systemd[1]: Stopping powerstate.service...
+2026-10-11T00:12:03-04:00 RG-SP systemd[1]: Stopped powerstate.service.
+2026-10-11T20:52:04-04:00 RG-SP systemd[1]: Started powerstate.service.
+2026-10-11T20:52:05-04:00 RG-SP powerstate[538]: Switching to battery mode.
+2026-10-12T00:02:43-04:00 RG-SP systemd[1]: Stopping powerstate.service...
+2026-10-12T00:02:43-04:00 RG-SP systemd[1]: Stopped powerstate.service.
+2026-10-12T00:06:36-04:00 ROCKNIX systemd[1]: Started powerstate.service.
+2026-10-12T00:06:36-04:00 ROCKNIX powerstate[641]: Switching to performance mode.
+2026-10-12T00:47:49-04:00 RG-SP systemd[1]: Stopping powerstate.service...
+2026-10-12T00:47:49-04:00 RG-SP systemd[1]: Stopped powerstate.service.
+2026-10-12T00:48:03-04:00 RG-SP systemd[1]: Started powerstate.service.
+2026-10-12T00:48:04-04:00 RG-SP powerstate[545]: Switching to battery mode.
