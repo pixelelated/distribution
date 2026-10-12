@@ -10,7 +10,10 @@ The full original bodies/comments are retained in
 
 D-WORKFLOW-161 selects stable20261001 at `c445081a59518f37d9776e5412dd7b14910696f7`
 for the next0.0.1 candidate, superseding D-WORKFLOW-111's September29 base.
-Order: exact-release source integration and conflict review; #493 mandatory
+Source merge `f370dc8787` is isolated on `feature/m7-rocknix-20261001`;
+[review and host controls](../qa-logs/2026-10-12-upstream-adoption/README.md)
+preserve the fork overlay and identify Steam replacement failure #564.
+Order: repair #564 before promoting that source; #493 mandatory
 retention/capacity enforcement; new GENERIC_X64 clean/retained qualification
 and independent audit; H700/SM8550 builds and required physical evidence;
 then #528/#344 publication completion. No moving upstream/next intake.

@@ -1,0 +1,130 @@
+{
+  "merge_scope": {
+    "upstream_paths": 12,
+    "result_changed_paths": 11,
+    "single_manual_conflict": "projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/package.mk",
+    "all_other_tracked_paths_unchanged": true,
+    "files": [
+      {
+        "path": "projects/ROCKNIX/devices/SM8250/filesystem/usr/share/wireplumber/wireplumber.conf.d/52-mangmi-hdmi.conf",
+        "expected_ref": "c445081a59518f37d9776e5412dd7b14910696f7",
+        "sha256": "8e56637dfdb02b8d4ac553dff1e6def2afc88e9abb9712769c8f8888674886b5",
+        "matches": true
+      },
+      {
+        "path": "projects/ROCKNIX/devices/SM8250/linux/dts/qcom/sm8250-mangmi-air-y-pro.dts",
+        "expected_ref": "c445081a59518f37d9776e5412dd7b14910696f7",
+        "sha256": "8cabaea29f2f810429a25e38a2eab2c3cb14eba365c060cc4e640d5f9c68efc7",
+        "matches": true
+      },
+      {
+        "path": "projects/ROCKNIX/devices/SM8250/linux/dts/qcom/sm8250-mangmi-pocket-max.dts",
+        "expected_ref": "c445081a59518f37d9776e5412dd7b14910696f7",
+        "sha256": "4728ff1b354bdad3ceb27299552a2faeb5594a0fca173cceba8ed8697bcbdfb0",
+        "matches": true
+      },
+      {
+        "path": "projects/ROCKNIX/devices/SM8250/patches/linux/0011-qcom-pm8150b-charger.patch",
+        "expected_ref": "c445081a59518f37d9776e5412dd7b14910696f7",
+        "sha256": "624652466e0011fd6b8894c8774b7dd30a8468ca0d91034b40b7f8f5c511c57b",
+        "matches": true
+      },
+      {
+        "path": "projects/ROCKNIX/devices/SM8250/patches/linux/0019-drm-msm-dp-on-sm8250-refuse-to-start-dp-audio-while-the-link-is-down.patch",
+        "expected_ref": "c445081a59518f37d9776e5412dd7b14910696f7",
+        "sha256": "dfbdfc6acd97b6c3500b1fffa420e8a32d7d18eb0c0a7533d77c81fa9b5b3eab",
+        "matches": true
+      },
+      {
+        "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/Qualcomm/sm8250/AirYPro.conf",
+        "expected_ref": "c445081a59518f37d9776e5412dd7b14910696f7",
+        "sha256": "73e180b20a736aceb004cb27e5b45bb4ed244d555a265d61ea5f4e2a4f2c1b92",
+        "matches": true
+      },
+      {
+        "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/Qualcomm/sm8250/PocketMax.conf",
+        "expected_ref": "c445081a59518f37d9776e5412dd7b14910696f7",
+        "sha256": "6842999be151f832b8b96645bdfb030986379e010cae34a2edfc529e5daab8df",
+        "matches": true
+      },
+      {
+        "path": "projects/ROCKNIX/packages/compat/fex-emu/package.mk",
+        "expected_ref": "c445081a59518f37d9776e5412dd7b14910696f7",
+        "sha256": "428430a76277b24fc5e4a69889da0045431d7c71caee35cc64a57fabf25db3ec",
+        "matches": true
+      },
+      {
+        "path": "projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/package.mk",
+        "expected_ref": "ca5d034488",
+        "sha256": "4569f08a2445a3926fb1a7015bce4ca41e4f4bd5ac57f62a9037a047eb1a47ea",
+        "matches": true
+      },
+      {
+        "path": "projects/ROCKNIX/packages/linux/patches/7.2/0016-drm-msm-dp-return-0-from-audio_prepare-when-cable-is-disconnected.patch",
+        "expected_ref": "c445081a59518f37d9776e5412dd7b14910696f7",
+        "sha256": "81665288adedb443e7c555e11ecf40cd05d819b10c6a5761e7326a64576d3815",
+        "matches": true
+      },
+      {
+        "path": "projects/ROCKNIX/packages/tools/rocknix-abl/package.mk",
+        "expected_ref": "c445081a59518f37d9776e5412dd7b14910696f7",
+        "sha256": "9ecd8b3a99b42d1c18460343bf855ad85c7f321b31bfe2a9e7b4373fd9e5eabf",
+        "matches": true
+      },
+      {
+        "path": "projects/ROCKNIX/packages/virtual/emulators/sources/Install Steam.sh",
+        "expected_ref": "c445081a59518f37d9776e5412dd7b14910696f7",
+        "sha256": "b88672f607d581cb93d7774de37c04a463793c9843c3602f70d5562f91845be8",
+        "matches": true
+      }
+    ]
+  },
+  "bash_syntax": [
+    {
+      "path": "projects/ROCKNIX/packages/compat/fex-emu/package.mk",
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "path": "projects/ROCKNIX/packages/emulators/standalone/duckstation-sa/package.mk",
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "path": "projects/ROCKNIX/packages/tools/rocknix-abl/package.mk",
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "path": "projects/ROCKNIX/packages/virtual/emulators/sources/Install Steam.sh",
+      "exit_code": 0,
+      "output": ""
+    }
+  ],
+  "common_kernel_patch_dry_run": [
+    {
+      "accepted_source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-03/build.pixelelated-SM8550.aarch64/build/linux-7.2/drivers/gpu/drm/msm/dp/dp_audio.c",
+      "source_sha256": "3006f9c1f7b73b6a17ad33d76729a2ed3a4576bd5edd194f0e001f263d5d3ae1",
+      "exit_code": 0,
+      "output": "checking file drivers/gpu/drm/msm/dp/dp_audio.c\n"
+    },
+    {
+      "accepted_source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-03/build.pixelelated-SM8550.arm/build/linux-7.2/drivers/gpu/drm/msm/dp/dp_audio.c",
+      "source_sha256": "3006f9c1f7b73b6a17ad33d76729a2ed3a4576bd5edd194f0e001f263d5d3ae1",
+      "exit_code": 0,
+      "output": "checking file drivers/gpu/drm/msm/dp/dp_audio.c\n"
+    },
+    {
+      "accepted_source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-03/build.pixelelated-H700.arm/build/linux-7.2/drivers/gpu/drm/msm/dp/dp_audio.c",
+      "source_sha256": "3006f9c1f7b73b6a17ad33d76729a2ed3a4576bd5edd194f0e001f263d5d3ae1",
+      "exit_code": 0,
+      "output": "checking file drivers/gpu/drm/msm/dp/dp_audio.c\n"
+    },
+    {
+      "accepted_source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-03/build.pixelelated-H700.aarch64/build/linux-7.2/drivers/gpu/drm/msm/dp/dp_audio.c",
+      "source_sha256": "3006f9c1f7b73b6a17ad33d76729a2ed3a4576bd5edd194f0e001f263d5d3ae1",
+      "exit_code": 0,
+      "output": "checking file drivers/gpu/drm/msm/dp/dp_audio.c\n"
+    }
+  ]
+}

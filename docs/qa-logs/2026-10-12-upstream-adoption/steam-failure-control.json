@@ -1,0 +1,22 @@
+[
+  {
+    "case": "accepted-predecessor",
+    "source_sha256": "20f23b8bd5bb7951570ab92ad86620b40e049e38774e4dcbaa6fc7267ab232ac",
+    "function_sha256": "05f85cb3fae538cc83e3c979b5200b87fa76a4374bcd81ace60180631f99dce3",
+    "exit_code": 1,
+    "working_runtime_preserved": true,
+    "output": "Failed to download Steam runtime.\n",
+    "transport": "shell stub, no network",
+    "scope": "adapted host control; installed VM proof pending"
+  },
+  {
+    "case": "stable-20261001",
+    "source_sha256": "b88672f607d581cb93d7774de37c04a463793c9843c3602f70d5562f91845be8",
+    "function_sha256": "82c3e994dc9aeb724bd9c7e55fc58fbfe120629acf045866ca72ed43ad0ecde8",
+    "exit_code": 1,
+    "working_runtime_preserved": false,
+    "output": "Failed to download Steam runtime.\n",
+    "transport": "shell stub, no network",
+    "scope": "adapted host control; installed VM proof pending"
+  }
+]
