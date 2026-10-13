@@ -1,0 +1,42 @@
+{
+  "evidence": "copied existing observations, not a new run or causal attribution",
+  "source_path": "docs/qa-logs/2026-10-13-dropbox-breakpoints/samples.json.gz",
+  "source_sha256": "a80338945787d43c2420b2431663230d0ec302609d2125d099a9feebfef44c96",
+  "selection": "two named desktop cases, recorded sample nearest elapsed=30; not asserted to be child periodic deadlines",
+  "points": [
+    {
+      "case": "desktop640",
+      "elapsed": 30.032171009000194,
+      "MemTotal_KiB": 1067648,
+      "WebKitWebProcess": [
+        {
+          "pid": 41494,
+          "exe": "WebKitWebProcess",
+          "tag": "WebKitWebProcess",
+          "start": "421985",
+          "cpu": 641,
+          "pss": 363158,
+          "anon": 331884,
+          "rss": 375352
+        }
+      ]
+    },
+    {
+      "case": "desktop360",
+      "elapsed": 30.023123879000195,
+      "MemTotal_KiB": 1067648,
+      "WebKitWebProcess": [
+        {
+          "pid": 35697,
+          "exe": "WebKitWebProcess",
+          "tag": "WebKitWebProcess",
+          "start": "388757",
+          "cpu": 752,
+          "pss": 347651,
+          "anon": 310784,
+          "rss": 359880
+        }
+      ]
+    }
+  ]
+}

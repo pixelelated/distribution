@@ -1,0 +1,74 @@
+{
+  "checked_utc": "2026-10-13T06:49:57.885698+00:00",
+  "evidence_level": "static source/hash/AST/patch applicability and copied historical observations only",
+  "runtime_lease": false,
+  "interpreter": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "tmpdir": "/workspace/tmp/pix-m7-investigation-20261013/tmp",
+  "checks": [
+    {
+      "command": "python3 docs/qa-logs/2026-10-13-browser-memory-policy/prepare.py --repo . --webkit-root /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/build/webkitgtk-2.54.1",
+      "exit": 0,
+      "receipt": "static-validation.json",
+      "coverage": "38 full-file source/evidence hashes and source anchors; Python AST; exact raw/compressed diff and candidate hashes; original-byte recovery; two archived point transcriptions"
+    },
+    {
+      "command": "gzip -dc docs/qa-logs/2026-10-13-browser-memory-policy/strict35.patch.gz | git apply --check -",
+      "gzip_exit": 0,
+      "git_apply_exit": 0,
+      "coverage": "static applicability against unmodified tracked baseline; no patch applied"
+    },
+    {
+      "command": "git diff --check",
+      "exit": 0,
+      "coverage": "tracked tree before staging; staged diff and commit checked separately"
+    },
+    {
+      "command": "git diff --cached --check",
+      "exit": 0,
+      "coverage": "final staged scoped files after removing the extra EOF line"
+    },
+    {
+      "command": "sha256sum -c SHA256SUMS",
+      "exit": 0,
+      "coverage": "12 packet files (manifest excludes itself)"
+    }
+  ],
+  "discovery_failures": [
+    {
+      "type": "source path discovery",
+      "exit": 2,
+      "detail": "First assumed WebKitBuild/Release/cmakeconfig.h and CMakeCache.txt paths absent; located actual .x86_64-rocknix-linux-gnu paths and bound them."
+    },
+    {
+      "type": "source path discovery",
+      "exit": 2,
+      "detail": "Assumed WTF/glib/LoggingGLib.cpp and Shared/glib/AuxiliaryProcessMainGLib.cpp absent; inspected actual WTF Assertions/Logging and WebProcess initialization paths instead."
+    },
+    {
+      "type": "source search warnings",
+      "detail": "Individual rg reads also named absent PlatformEnableGLib.h, NetworkProcess/glib/NetworkProcessGLib.cpp and bmalloc/DebugHeap.cpp; later existing PlatformUse.h, NetworkProcess/soup/NetworkProcessSoup.cpp and FastMalloc/Environment sources inspected. No compiler or test failure implied."
+    },
+    {
+      "type": "official web fetch",
+      "detail": "Newer cgroup path refactor commit/bug/canonical links inaccessible; unverified and excluded from candidate basis. See upstream.md."
+    },
+    {
+      "type": "staged whitespace check",
+      "command": "git diff --cached --check",
+      "exit": 2,
+      "detail": "One new blank line at EOF in context-policy.c.inc; removed the extra line and regenerated bound candidate/patch bytes. Final checks below supersede this attempt."
+    }
+  ],
+  "unrun": [
+    "C compilation or linking",
+    "application or engine execution",
+    "synthetic preservation fixtures",
+    "VM bytecode/readiness or prior browser experiments",
+    "child configuration/periodic timer activation",
+    "GC/CPU/reclaim measurement",
+    "actual provider/account/device/service activity",
+    "full build or cache copy",
+    "GitHub/push/shared-record integration"
+  ],
+  "limits": "All authored files confined to this owned packet; accepted cache read only. Static scripts use standard library only; no dependency installs, subprocesses or network in prepare.py."
+}

@@ -1,0 +1,520 @@
+{
+  "checked_date_utc": "2026-10-13",
+  "repo_base": "eb120acd2ad6603e6341b49cd9b2c30c47b91df1",
+  "merged_next": "1a37cde40ab0893c9c21c0a383c59ac0c1403b06",
+  "webkit_version": "2.54.1",
+  "webkit_root": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/build/webkitgtk-2.54.1",
+  "tarball_sha256_from_recipe": "ea0bbb02dbdbc596874a4e7ad35b66645b3e0a232bd0e4081de5ed92eb0a397d",
+  "files": [
+    {
+      "root": "repo",
+      "path": "projects/ROCKNIX/packages/network/cloud-signin-window/sources/cloud-signin-window.c",
+      "sha256": "39af3e041d9871c4fb636cff71934ddf3ea13c690002e77af5ea6d82d8fff4f8",
+      "bytes": 47987,
+      "anchors": [],
+      "anchor_lines": {}
+    },
+    {
+      "root": "repo",
+      "path": "projects/ROCKNIX/packages/network/cloud-signin-window/package.mk",
+      "sha256": "5d2e4846d716654d8c9fdf88058c982ffbaa9e6020cff48efaf366594fa59187",
+      "bytes": 977,
+      "anchors": [],
+      "anchor_lines": {}
+    },
+    {
+      "root": "repo",
+      "path": "packages/web/webkitgtk/package.mk",
+      "sha256": "2de4b96cb16e942ce7699b5529b9949c2c52cf5a8c6661cbaee55f226b94bd4e",
+      "bytes": 6421,
+      "anchors": [],
+      "anchor_lines": {}
+    },
+    {
+      "root": "repo",
+      "path": "packages/web/webkitgtk/patches/webkitgtk-0001-DocumentLoader-include-EventLoop.patch",
+      "sha256": "09fbc3a52f3e523d04c1683377b14fdc35083a9ef4a81b9f4ba7359028e0a7fd",
+      "bytes": 1041,
+      "anchors": [],
+      "anchor_lines": {}
+    },
+    {
+      "root": "repo",
+      "path": "packages/web/webkitgtk/patches/webkitgtk-0002-WebKit-includes-WebCore-platform-graphics-for-GStreamer-GL.patch",
+      "sha256": "ad2472978425b735c3d76e38f4b359de6f0ab2d7bde5fb5f1716f8f866141a6b",
+      "bytes": 1026,
+      "anchors": [],
+      "anchor_lines": {}
+    },
+    {
+      "root": "webkit",
+      "path": "Source/WTF/wtf/MemoryPressureHandler.cpp",
+      "sha256": "611e6cd3ad44d02090e39271839243d4c42e5b405c61d253c91beb559cfccd50",
+      "bytes": 13131,
+      "anchors": [
+        "baseThreshold(std::min(3 * GB, ramSize()))",
+        "s_conservativeThresholdFraction = 0.33",
+        "s_strictThresholdFraction = 0.5",
+        "s_pollInterval = 30_s",
+        "return thresholdForMemoryKillOfInactiveProcess(m_pageCount);",
+        "releaseMemory(Critical::Yes, Synchronous::No);"
+      ],
+      "anchor_lines": {
+        "baseThreshold(std::min(3 * GB, ramSize()))": 375,
+        "s_conservativeThresholdFraction = 0.33": 50,
+        "s_strictThresholdFraction = 0.5": 51,
+        "s_pollInterval = 30_s": 54,
+        "return thresholdForMemoryKillOfInactiveProcess(m_pageCount);": 143,
+        "releaseMemory(Critical::Yes, Synchronous::No);": 251
+      }
+    },
+    {
+      "root": "webkit",
+      "path": "Source/WTF/wtf/MemoryPressureHandler.h",
+      "sha256": "ca4f21a4caf98c7630bb9af3eef6417c20336fc7ddf85a68047c63ce2691ea0b",
+      "bytes": 10135,
+      "anchors": [
+        "WebsamProcessState m_processState { WebsamProcessState::Inactive }"
+      ],
+      "anchor_lines": {
+        "WebsamProcessState m_processState { WebsamProcessState::Inactive }": 247
+      }
+    },
+    {
+      "root": "webkit",
+      "path": "Source/WTF/wtf/AvailableMemory.cpp",
+      "sha256": "2dfbca21541955d97330670159b6342e6ae5b8a374a89d217d98e6469a18a4dd",
+      "bytes": 7000,
+      "anchors": [
+        "return info.totalram * info.mem_unit;",
+        "std::call_once(onceFlag",
+        "static_cast<double>(memoryFootprint) / static_cast<double>(availableMemory())"
+      ],
+      "anchor_lines": {
+        "return info.totalram * info.mem_unit;": 155,
+        "std::call_once(onceFlag": 179,
+        "static_cast<double>(memoryFootprint) / static_cast<double>(availableMemory())": 209
+      }
+    },
+    {
+      "root": "webkit",
+      "path": "Source/WTF/wtf/RAMSize.cpp",
+      "sha256": "38af8267bef94f7c98f1d16426f779e80e3c886dc4a0619cc25bdd88ed8df564",
+      "bytes": 2332,
+      "anchors": [
+        "static size_t ramSize = availableMemory();"
+      ],
+      "anchor_lines": {
+        "static size_t ramSize = availableMemory();": 46
+      }
+    },
+    {
+      "root": "webkit",
+      "path": "Source/WTF/wtf/linux/MemoryFootprintLinux.cpp",
+      "sha256": "e92d077cd7c4ccac4e24b8873357739d05b653b5e618780458a59850c7d90418",
+      "bytes": 1628,
+      "anchors": [
+        "return memoryStatus.resident;"
+      ],
+      "anchor_lines": {
+        "return memoryStatus.resident;": 37
+      }
+    },
+    {
+      "root": "webkit",
+      "path": "Source/WTF/wtf/linux/CurrentProcessMemoryStatus.cpp",
+      "sha256": "8e381f810c02c6b8d1075a09b80b95e439b216cea506a565bb7461ef49d397d6",
+      "bytes": 2546,
+      "anchors": [
+        "fopen(\"/proc/self/statm\", \"r\")"
+      ],
+      "anchor_lines": {
+        "fopen(\"/proc/self/statm\", \"r\")": 39
+      }
+    },
+    {
+      "root": "webkit",
+      "path": "Source/WTF/wtf/unix/MemoryPressureHandlerUnix.cpp",
+      "sha256": "b59fe3b745f3d967d171a55e75fa6e8615b1cf34c3a32c54f98a28c0e5b47c4b",
+      "bytes": 5994,
+      "anchors": [
+        "s_minimumHoldOffTime { 5_s }",
+        "s_maximumHoldOffTime { 30_s }",
+        "malloc_trim(0);",
+        "return MemoryUsage { memoryStatus.resident - memoryStatus.shared, memoryStatus.resident };"
+      ],
+      "anchor_lines": {
+        "s_minimumHoldOffTime { 5_s }": 62,
+        "s_maximumHoldOffTime { 30_s }": 63,
+        "malloc_trim(0);": 167,
+        "return MemoryUsage { memoryStatus.resident - memoryStatus.shared, memoryStatus.resident };": 176
+      }
+    },
+    {
+      "root": "webkit",
+      "path": "Source/WebKit/UIProcess/linux/MemoryPressureMonitor.cpp",
+      "sha256": "914289a1bb23a2de2a49e565b06ffa7437dc7f2dd79ce6519fac3de8a55b4029",
+      "bytes": 20864,
+      "anchors": [
+        "s_memoryPresurePercentageThreshold = 90",
+        "s_memoryPresurePercentageThresholdCritical = 95",
+        "CString(\"memory.memsw.max\")",
+        "getCgroupFileValue(m_cgroupV2MemoryHighFile)"
+      ],
+      "anchor_lines": {
+        "s_memoryPresurePercentageThreshold = 90": 53,
+        "s_memoryPresurePercentageThresholdCritical = 95": 54,
+        "CString(\"memory.memsw.max\")": 410,
+        "getCgroupFileValue(m_cgroupV2MemoryHighFile)": 468
+      }
+    },
+    {
+      "root": "webkit",
+      "path": "Source/WebKit/UIProcess/API/glib/WebKitMemoryPressureSettings.cpp",
+      "sha256": "206ce53b0a9e9f9e42e413f957d7a809e42d06acabab235eef50ecfe5ff822d7",
+      "bytes": 10747,
+      "anchors": [
+        "value ? std::make_optional(value) : std::nullopt",
+        "value > settings->configuration.conservativeThresholdFraction"
+      ],
+      "anchor_lines": {
+        "value ? std::make_optional(value) : std::nullopt": 254,
+        "value > settings->configuration.conservativeThresholdFraction": 210
+      }
+    },
+    {
+      "root": "webkit",
+      "path": "Source/WebKit/UIProcess/API/glib/WebKitWebContext.cpp",
+      "sha256": "eab3437f811959435883991818ab595d24ecad47edb5b85cf20e4f1a97820c0c",
+      "bytes": 72872,
+      "anchors": [
+        "WEBKIT_PARAM_WRITABLE | G_PARAM_CONSTRUCT_ONLY",
+        "webkit_website_data_manager_new_ephemeral()",
+        "webkit_memory_pressure_settings_copy",
+        "priv->memoryPressureSettings));"
+      ],
+      "anchor_lines": {
+        "WEBKIT_PARAM_WRITABLE | G_PARAM_CONSTRUCT_ONLY": 613,
+        "webkit_website_data_manager_new_ephemeral()": 811,
+        "webkit_memory_pressure_settings_copy": 415,
+        "priv->memoryPressureSettings));": 447
+      }
+    },
+    {
+      "root": "webkit",
+      "path": "Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp",
+      "sha256": "42b0e1926799034bec89e2872454775eaf2405b1f35a1415a6f7977a6b05e3c4",
+      "bytes": 231279,
+      "anchors": [
+        "priv->context = webkit_web_view_get_context(priv->relatedView);",
+        "priv->isEphemeral = webkit_web_view_is_ephemeral(priv->relatedView);"
+      ],
+      "anchor_lines": {
+        "priv->context = webkit_web_view_get_context(priv->relatedView);": 944,
+        "priv->isEphemeral = webkit_web_view_is_ephemeral(priv->relatedView);": 952
+      }
+    },
+    {
+      "root": "webkit",
+      "path": "Source/WebKit/UIProcess/API/glib/WebKitWebsiteDataManager.cpp",
+      "sha256": "c392e7e9c7a0ac2dd77c1b99989800e13340429c69e9ffc09b9c906a5443f47c",
+      "bytes": 62669,
+      "anchors": [
+        "webkit_website_data_manager_set_memory_pressure_settings"
+      ],
+      "anchor_lines": {
+        "webkit_website_data_manager_set_memory_pressure_settings": 1384
+      }
+    },
+    {
+      "root": "webkit",
+      "path": "Source/WebKit/UIProcess/glib/WebProcessPoolGLib.cpp",
+      "sha256": "e4bbc721bbe25084a5165c33f379bd54b5540882e53c2aa5b81ac82536957979",
+      "bytes": 14336,
+      "anchors": [
+        "parameters.memoryPressureHandlerConfiguration = m_configuration->memoryPressureHandlerConfiguration();"
+      ],
+      "anchor_lines": {
+        "parameters.memoryPressureHandlerConfiguration = m_configuration->memoryPressureHandlerConfiguration();": 232
+      }
+    },
+    {
+      "root": "webkit",
+      "path": "Source/WebKit/UIProcess/WebProcessPool.cpp",
+      "sha256": "1cf5d6d0ecf1d1f1f1c2a2c3a293454f41374ebd8c1dcd055c37757c301db98d",
+      "bytes": 142695,
+      "anchors": [
+        "parameters.shouldEnableMemoryPressureReliefLogging = true;",
+        "networkProcess->send(Messages::AuxiliaryProcess::DidReceiveMemoryPressureEvent(isCritical), 0);"
+      ],
+      "anchor_lines": {
+        "parameters.shouldEnableMemoryPressureReliefLogging = true;": 1060,
+        "networkProcess->send(Messages::AuxiliaryProcess::DidReceiveMemoryPressureEvent(isCritical), 0);": 455
+      }
+    },
+    {
+      "root": "webkit",
+      "path": "Source/WebKit/WebProcess/glib/WebProcessGLib.cpp",
+      "sha256": "ebca6c3676be99678e7f5866b9b343ddb06691bc77f4f94376e012e957e0c75a",
+      "bytes": 11689,
+      "anchors": [
+        "MemoryPressureHandler::singleton().setConfiguration",
+        "setDisabled(cacheModel == CacheModel::DocumentViewer)"
+      ],
+      "anchor_lines": {
+        "MemoryPressureHandler::singleton().setConfiguration": 254,
+        "setDisabled(cacheModel == CacheModel::DocumentViewer)": 134
+      }
+    },
+    {
+      "root": "webkit",
+      "path": "Source/WebKit/WebProcess/WebProcess.cpp",
+      "sha256": "b1d1040447e46e0c2f70289769466f931b1c13c32c9d12dfcb947fffe27a4818",
+      "bytes": 103830,
+      "anchors": [
+        "m_pagesInWindows.isEmpty() && critical == Critical::No",
+        "setShouldUsePeriodicMemoryMonitor(isFastMallocEnabled()",
+        "WebCore::releaseMemory(critical, synchronous,"
+      ],
+      "anchor_lines": {
+        "m_pagesInWindows.isEmpty() && critical == Critical::No": 512,
+        "setShouldUsePeriodicMemoryMonitor(isFastMallocEnabled()": 544,
+        "WebCore::releaseMemory(critical, synchronous,": 534
+      }
+    },
+    {
+      "root": "webkit",
+      "path": "Source/WebKit/UIProcess/WebProcessProxy.cpp",
+      "sha256": "46b898dd05b244f5ee15cca40882ff63bcf2d4c7a2e073ed49d4267309fd85b8",
+      "bytes": 144022,
+      "anchors": [
+        "requestTermination(ProcessTerminationReason::ExceededMemoryLimit);"
+      ],
+      "anchor_lines": {
+        "requestTermination(ProcessTerminationReason::ExceededMemoryLimit);": 2337
+      }
+    },
+    {
+      "root": "webkit",
+      "path": "Source/WebKit/NetworkProcess/soup/NetworkProcessSoup.cpp",
+      "sha256": "3bbacbe90a17c3410920bd315a6f84031d30b32112784e0a88ef6fdd6ff09b01",
+      "bytes": 7767,
+      "anchors": [
+        "if (!parameters.shouldSuppressMemoryPressureHandler && parameters.memoryPressureHandlerConfiguration)"
+      ],
+      "anchor_lines": {
+        "if (!parameters.shouldSuppressMemoryPressureHandler && parameters.memoryPressureHandlerConfiguration)": 149
+      }
+    },
+    {
+      "root": "webkit",
+      "path": "Source/WebCore/page/MemoryRelease.cpp",
+      "sha256": "8613d59a828e9feba5a36835faab02686b961cc96554dc61696176546e6e3ddd",
+      "bytes": 11355,
+      "anchors": [
+        "MemoryCache::singleton().pruneDeadResourcesToSize(0);",
+        "GarbageCollectionController::singleton().deleteAllCode",
+        "GarbageCollectionController::singleton().garbageCollectSoon();"
+      ],
+      "anchor_lines": {
+        "MemoryCache::singleton().pruneDeadResourcesToSize(0);": 110,
+        "GarbageCollectionController::singleton().deleteAllCode": 164,
+        "GarbageCollectionController::singleton().garbageCollectSoon();": 179
+      }
+    },
+    {
+      "root": "webkit",
+      "path": "Source/WebCore/page/skia/MemoryReleaseSkia.cpp",
+      "sha256": "8fd96a2b1c0aafa547d05877717f988540474625010cc3a42f462cdebfe544b3",
+      "bytes": 1514,
+      "anchors": [
+        "SkGraphics::PurgeAllCaches();"
+      ],
+      "anchor_lines": {
+        "SkGraphics::PurgeAllCaches();": 35
+      }
+    },
+    {
+      "root": "webkit",
+      "path": "Source/WebCore/page/PerformanceMonitor.cpp",
+      "sha256": "9f64f5f68d77c260f5bd4882d526ffd193810f9d3f12da8f587ce02b5961084c",
+      "bytes": 13692,
+      "anchors": [
+        "MemoryPressureHandler::singleton().setProcessState"
+      ],
+      "anchor_lines": {
+        "MemoryPressureHandler::singleton().setProcessState": 332
+      }
+    },
+    {
+      "root": "webkit",
+      "path": "Source/WebKit/UIProcess/LegacyGlobalSettings.h",
+      "sha256": "44b03deae405afab94a2844888bb33cfc2bd09782be9fd7afca4969fcc6c926e",
+      "bytes": 3593,
+      "anchors": [
+        "CacheModel m_cacheModel { CacheModel::PrimaryWebBrowser }"
+      ],
+      "anchor_lines": {
+        "CacheModel m_cacheModel { CacheModel::PrimaryWebBrowser }": 65
+      }
+    },
+    {
+      "root": "webkit",
+      "path": "Source/WebKit/Shared/CacheModel.cpp",
+      "sha256": "dc7f77d5dacfe4836cc2612f78cb33b7ba13bfd1aa5ed512a15512ac60152a5d",
+      "bytes": 6054,
+      "anchors": [
+        "uint64_t memorySize = ramSize() / MB;",
+        "deadDecodedDataDeletionInterval = 60_s;"
+      ],
+      "anchor_lines": {
+        "uint64_t memorySize = ramSize() / MB;": 38,
+        "deadDecodedDataDeletionInterval = 60_s;": 119
+      }
+    },
+    {
+      "root": "webkit",
+      "path": "Source/WebKit/UIProcess/WebProcessCache.cpp",
+      "sha256": "01b809015151d45b5ec5e5b9b05a334e25fa7dad2dc5f1dfafabe3a36cd60509",
+      "bytes": 24780,
+      "anchors": [
+        "Seconds WebProcessCache::cachedProcessLifetime { 5_min };"
+      ],
+      "anchor_lines": {
+        "Seconds WebProcessCache::cachedProcessLifetime { 5_min };": 51
+      }
+    },
+    {
+      "root": "webkit",
+      "path": "Source/JavaScriptCore/heap/Heap.cpp",
+      "sha256": "6d22d7ad6c018519ea0845b2ebe39f0f994c652d2f05be54eb7c62452d981871",
+      "bytes": 133214,
+      "anchors": [
+        "WTF::percentAvailableMemoryInUse() > Options::criticalGCMemoryThreshold()",
+        "m_ramSize(Options::forceRAMSize() ? Options::forceRAMSize() : ramSize())",
+        "Requesting GC because bytes allocated this cycle:"
+      ],
+      "anchor_lines": {
+        "WTF::percentAvailableMemoryInUse() > Options::criticalGCMemoryThreshold()": 718,
+        "m_ramSize(Options::forceRAMSize() ? Options::forceRAMSize() : ramSize())": 343,
+        "Requesting GC because bytes allocated this cycle:": 2930
+      }
+    },
+    {
+      "root": "webkit",
+      "path": "Source/JavaScriptCore/runtime/OptionsList.h",
+      "sha256": "d35ff746160ef08b602e0c2d6c4652303a822808faa108640d81fec863ee5c7b",
+      "bytes": 56915,
+      "anchors": [
+        "criticalGCMemoryThreshold, 0.80",
+        "logGC, GCLogging::None",
+        "gcMaxHeapSize, 0"
+      ],
+      "anchor_lines": {
+        "criticalGCMemoryThreshold, 0.80": 229,
+        "logGC, GCLogging::None": 426,
+        "gcMaxHeapSize, 0": 432
+      }
+    },
+    {
+      "root": "webkit",
+      "path": "Source/JavaScriptCore/runtime/Options.cpp",
+      "sha256": "50f3383317ae6e015f0c8b63d8aab5910fe59a86fd2cc4de00a4459b59d5159a",
+      "bytes": 53286,
+      "anchors": [
+        "if (!strncmp(\"JSC_\", env, 4))",
+        "return GCLogging::Basic;"
+      ],
+      "anchor_lines": {
+        "if (!strncmp(\"JSC_\", env, 4))": 1114,
+        "return GCLogging::Basic;": 286
+      }
+    },
+    {
+      "root": "webkit",
+      "path": "Source/WTF/wtf/Assertions.h",
+      "sha256": "c9103def9fb27aa35de03c4d920c1d4ac51b2ec96d3711620f478c2cef55981c",
+      "bytes": 45562,
+      "anchors": [
+        "#define LOG_DISABLED !ASSERT_ENABLED",
+        "#define RELEASE_LOG_DISABLED !(USE(OS_LOG) || ENABLE(JOURNALD_LOG) || OS(ANDROID))"
+      ],
+      "anchor_lines": {
+        "#define LOG_DISABLED !ASSERT_ENABLED": 100,
+        "#define RELEASE_LOG_DISABLED !(USE(OS_LOG) || ENABLE(JOURNALD_LOG) || OS(ANDROID))": 106
+      }
+    },
+    {
+      "root": "webkit",
+      "path": "Source/WTF/wtf/PlatformUse.h",
+      "sha256": "3eaf865d131699e643e079a417a37d28ef88de525c6361d213e24c3460b075be",
+      "bytes": 10477,
+      "anchors": [
+        "#define USE_MEMORY_FOOTPRINT_API 1"
+      ],
+      "anchor_lines": {
+        "#define USE_MEMORY_FOOTPRINT_API 1": 276
+      }
+    },
+    {
+      "root": "webkit",
+      "path": "Source/WTF/wtf/DataLog.cpp",
+      "sha256": "8c6d363066a3ca9b2ec5484b56a58bf8ad16b7f96c16028128699e99da13d7aa",
+      "bytes": 7715,
+      "anchors": [
+        "FilePrintStream(stderr, FilePrintStream::Borrow)"
+      ],
+      "anchor_lines": {
+        "FilePrintStream(stderr, FilePrintStream::Borrow)": 171
+      }
+    },
+    {
+      "root": "webkit",
+      "path": ".x86_64-rocknix-linux-gnu/cmakeconfig.h",
+      "sha256": "c8ed5b2cb9312e4956664ba3f9355a4e4ac26a8adb128489c97f489f14e60567",
+      "bytes": 7765,
+      "anchors": [
+        "#define ENABLE_PERIODIC_MEMORY_MONITOR 1",
+        "#define USE_SYSTEM_MALLOC 0",
+        "#define ENABLE_RELEASE_LOG 0",
+        "#define ENABLE_JOURNALD_LOG 0",
+        "#define ENABLE_SAMPLING_PROFILER 0",
+        "#define ENABLE_JIT 1",
+        "#define USE_SKIA 1",
+        "#define HAVE_MALLOC_TRIM 1"
+      ],
+      "anchor_lines": {
+        "#define ENABLE_PERIODIC_MEMORY_MONITOR 1": 102,
+        "#define USE_SYSTEM_MALLOC 0": 227,
+        "#define ENABLE_RELEASE_LOG 0": 108,
+        "#define ENABLE_JOURNALD_LOG 0": 67,
+        "#define ENABLE_SAMPLING_PROFILER 0": 111,
+        "#define ENABLE_JIT 1": 66,
+        "#define USE_SKIA 1": 222,
+        "#define HAVE_MALLOC_TRIM 1": 174
+      }
+    },
+    {
+      "root": "webkit",
+      "path": ".x86_64-rocknix-linux-gnu/CMakeCache.txt",
+      "sha256": "9c7230fb83732d891a98f945d3540f3d1c02e128ef236c14c77ff91a1cd2a0c9",
+      "bytes": 727060,
+      "anchors": [
+        "CMAKE_BUILD_TYPE:STRING=Release",
+        "ENABLE_PERIODIC_MEMORY_MONITOR:BOOL=ON"
+      ],
+      "anchor_lines": {
+        "CMAKE_BUILD_TYPE:STRING=Release": 41,
+        "ENABLE_PERIODIC_MEMORY_MONITOR:BOOL=ON": 635
+      }
+    },
+    {
+      "root": "repo",
+      "path": "docs/qa-logs/2026-10-13-dropbox-breakpoints/samples.json.gz",
+      "sha256": "a80338945787d43c2420b2431663230d0ec302609d2125d099a9feebfef44c96",
+      "bytes": 260536,
+      "anchors": [],
+      "anchor_lines": {}
+    }
+  ]
+}
