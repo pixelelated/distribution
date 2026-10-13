@@ -250,3 +250,7 @@ GStreamer package keeps controller/scanner; fresh-registry original255/fixed0 an
 warning-free browser proof. Next assembled image still owed. No ES source/UI
 change or account use. All owners exited, guest/disk/keys retired; compact
 [source, samples, failures and frames](qa-logs/2026-10-13-webkit-versions/README.md).
+
+### 2026-10-13 05:18 UTC — #570 normal handoff, real authorization UA and CSS widths
+
+Accepted VM20,1280MiB assigned/1042.6MiB visible,640×480/software graphics, same boot and ES across22 diagnostics:6synthetic phone controls,8actual Dropbox UA trials,8CSS-width controls. All measured cases load/return; no guard, severe synthetic crawl not reproduced. Genuine authorization served fallback versus modern scripts by UA; desktop has more consistent repeated responsiveness without RAM relief. Width screen is not a consistent improvement and changes height/DPR too. No authenticated login or input-to-paint proof. All original measurement launcher/wrapper/build channels0/exited, setup failures retained. Reviewed loaded native frames, numeric evidence and exact diagnostic source archived. Original binaries restored; guest/disk/keys retired after compact record,2.36GB allocated recovery. No product/owner change or full-suite/candidate claim. [Handoff](qa-logs/2026-10-13-browser-handoff/README.md), [UA](qa-logs/2026-10-13-dropbox-user-agents/README.md), [breakpoints and retirement](qa-logs/2026-10-13-dropbox-breakpoints/README.md).

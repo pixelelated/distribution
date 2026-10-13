@@ -1,0 +1,362 @@
+[
+  {
+    "name": "none1",
+    "load_seconds": 0.8013789280084893,
+    "samples": 92,
+    "heartbeat_ms": {
+      "p50": 104,
+      "p95": 104,
+      "maximum": 155
+    },
+    "available_mib": {
+      "baseline_median": 567.6015625,
+      "minimum": 178.984375,
+      "recovery_median": 577.79296875
+    },
+    "browser_pss_peak_mib": 458.03515625,
+    "es_pss_mib": {
+      "baseline": 211.994140625,
+      "minimum": 131.2353515625,
+      "recovery": 194.005859375
+    },
+    "sampler_seconds_max": 0.029763257000013255,
+    "vmstat_delta": {
+      "workingset_refault_anon": 0,
+      "workingset_refault_file": 217417,
+      "pgsteal_kswapd": 213393,
+      "pgsteal_direct": 381,
+      "pgsteal_khugepaged": 0,
+      "pgsteal_proactive": 0,
+      "pgsteal_anon": 0,
+      "pgsteal_file": 213774,
+      "pgscan_kswapd": 222432,
+      "pgscan_direct": 466,
+      "pgscan_khugepaged": 0,
+      "pgscan_proactive": 0,
+      "pgscan_anon": 0,
+      "pgscan_file": 222898,
+      "allocstall_dma": 0,
+      "allocstall_dma32": 0,
+      "allocstall_normal": 8,
+      "allocstall_movable": 0,
+      "pgmajfault": 1113,
+      "pgscan_direct_throttle": 0
+    },
+    "normal_es_wait_observed": true,
+    "same_boot_and_frontend": true,
+    "browser_children_gone": true
+  },
+  {
+    "name": "idle1",
+    "load_seconds": 1.1024823479820043,
+    "samples": 92,
+    "heartbeat_ms": {
+      "p50": 104,
+      "p95": 104,
+      "maximum": 213
+    },
+    "available_mib": {
+      "baseline_median": 574.9296875,
+      "minimum": 249.1640625,
+      "recovery_median": 586.6171875
+    },
+    "browser_pss_peak_mib": 386.23828125,
+    "es_pss_mib": {
+      "baseline": 195.16796875,
+      "minimum": 152.5185546875,
+      "recovery": 195.1171875
+    },
+    "sampler_seconds_max": 0.027582284000118307,
+    "vmstat_delta": {
+      "workingset_refault_anon": 0,
+      "workingset_refault_file": 163003,
+      "pgsteal_kswapd": 157906,
+      "pgsteal_direct": 772,
+      "pgsteal_khugepaged": 0,
+      "pgsteal_proactive": 0,
+      "pgsteal_anon": 0,
+      "pgsteal_file": 158678,
+      "pgscan_kswapd": 175486,
+      "pgscan_direct": 1009,
+      "pgscan_khugepaged": 0,
+      "pgscan_proactive": 0,
+      "pgscan_anon": 0,
+      "pgscan_file": 176495,
+      "allocstall_dma": 0,
+      "allocstall_dma32": 0,
+      "allocstall_normal": 16,
+      "allocstall_movable": 0,
+      "pgmajfault": 951,
+      "pgscan_direct_throttle": 0
+    },
+    "normal_es_wait_observed": true,
+    "same_boot_and_frontend": true,
+    "browser_children_gone": true,
+    "phone": {
+      "requests": 45,
+      "failed": 0,
+      "typing": []
+    }
+  },
+  {
+    "name": "active1",
+    "load_seconds": 2.905873442068696,
+    "samples": 94,
+    "heartbeat_ms": {
+      "p50": 104,
+      "p95": 105,
+      "maximum": 143
+    },
+    "available_mib": {
+      "baseline_median": 560.41796875,
+      "minimum": 172.1875,
+      "recovery_median": 579.78515625
+    },
+    "browser_pss_peak_mib": 475.4091796875,
+    "es_pss_mib": {
+      "baseline": 195.1533203125,
+      "minimum": 135.7421875,
+      "recovery": 185.955078125
+    },
+    "sampler_seconds_max": 0.02869501100008165,
+    "vmstat_delta": {
+      "workingset_refault_anon": 0,
+      "workingset_refault_file": 324576,
+      "pgsteal_kswapd": 397184,
+      "pgsteal_direct": 870,
+      "pgsteal_khugepaged": 0,
+      "pgsteal_proactive": 0,
+      "pgsteal_anon": 0,
+      "pgsteal_file": 398054,
+      "pgscan_kswapd": 441464,
+      "pgscan_direct": 901,
+      "pgscan_khugepaged": 0,
+      "pgscan_proactive": 0,
+      "pgscan_anon": 0,
+      "pgscan_file": 442365,
+      "allocstall_dma": 0,
+      "allocstall_dma32": 0,
+      "allocstall_normal": 18,
+      "allocstall_movable": 1,
+      "pgmajfault": 1507,
+      "pgscan_direct_throttle": 0
+    },
+    "normal_es_wait_observed": true,
+    "same_boot_and_frontend": true,
+    "browser_children_gone": true,
+    "phone": {
+      "requests": 54,
+      "failed": 0,
+      "typing": [
+        {
+          "characters": 64,
+          "post_to_ack_ms": 2206,
+          "post_to_applied_event_received_ms": 2171.084228515625,
+          "page": 0,
+          "next_movement_post_after_typing_ack_ms": 0
+        },
+        {
+          "characters": 64,
+          "post_to_ack_ms": 2213,
+          "post_to_applied_event_received_ms": 2180.843505859375,
+          "page": 1,
+          "next_movement_post_after_typing_ack_ms": 0
+        },
+        {
+          "characters": 64,
+          "post_to_ack_ms": 2216,
+          "post_to_applied_event_received_ms": 2183.055419921875,
+          "page": 2,
+          "next_movement_post_after_typing_ack_ms": 0
+        },
+        {
+          "characters": 64,
+          "post_to_ack_ms": 2206,
+          "post_to_applied_event_received_ms": 2172.818603515625,
+          "page": 3,
+          "next_movement_post_after_typing_ack_ms": 0
+        }
+      ]
+    }
+  },
+  {
+    "name": "active2",
+    "load_seconds": 1.4099986749934033,
+    "samples": 92,
+    "heartbeat_ms": {
+      "p50": 104,
+      "p95": 104,
+      "maximum": 149
+    },
+    "available_mib": {
+      "baseline_median": 569.22265625,
+      "minimum": 174.05078125,
+      "recovery_median": 576.4609375
+    },
+    "browser_pss_peak_mib": 472.361328125,
+    "es_pss_mib": {
+      "baseline": 185.91796875,
+      "minimum": 152.5205078125,
+      "recovery": 189.1689453125
+    },
+    "sampler_seconds_max": 0.02822599299997819,
+    "vmstat_delta": {
+      "workingset_refault_anon": 0,
+      "workingset_refault_file": 159869,
+      "pgsteal_kswapd": 97545,
+      "pgsteal_direct": 110,
+      "pgsteal_khugepaged": 0,
+      "pgsteal_proactive": 0,
+      "pgsteal_anon": 0,
+      "pgsteal_file": 97655,
+      "pgscan_kswapd": 109550,
+      "pgscan_direct": 305,
+      "pgscan_khugepaged": 0,
+      "pgscan_proactive": 0,
+      "pgscan_anon": 0,
+      "pgscan_file": 109855,
+      "allocstall_dma": 0,
+      "allocstall_dma32": 0,
+      "allocstall_normal": 2,
+      "allocstall_movable": 0,
+      "pgmajfault": 945,
+      "pgscan_direct_throttle": 0
+    },
+    "normal_es_wait_observed": true,
+    "same_boot_and_frontend": true,
+    "browser_children_gone": true,
+    "phone": {
+      "requests": 53,
+      "failed": 0,
+      "typing": [
+        {
+          "characters": 64,
+          "post_to_ack_ms": 2201,
+          "post_to_applied_event_received_ms": 2168.401123046875,
+          "page": 0,
+          "next_movement_post_after_typing_ack_ms": 0
+        },
+        {
+          "characters": 64,
+          "post_to_ack_ms": 2209,
+          "post_to_applied_event_received_ms": 2176.18505859375,
+          "page": 1,
+          "next_movement_post_after_typing_ack_ms": 0
+        },
+        {
+          "characters": 64,
+          "post_to_ack_ms": 2209,
+          "post_to_applied_event_received_ms": 2176.751953125,
+          "page": 2,
+          "next_movement_post_after_typing_ack_ms": 0
+        },
+        {
+          "characters": 64,
+          "post_to_ack_ms": 2212,
+          "post_to_applied_event_received_ms": 2178.6083984375,
+          "page": 3,
+          "next_movement_post_after_typing_ack_ms": 0
+        }
+      ]
+    }
+  },
+  {
+    "name": "idle2",
+    "load_seconds": 1.7149015410104766,
+    "samples": 92,
+    "heartbeat_ms": {
+      "p50": 104,
+      "p95": 104,
+      "maximum": 145
+    },
+    "available_mib": {
+      "baseline_median": 564.06640625,
+      "minimum": 185.56640625,
+      "recovery_median": 567.890625
+    },
+    "browser_pss_peak_mib": 473.6123046875,
+    "es_pss_mib": {
+      "baseline": 189.169921875,
+      "minimum": 135.8115234375,
+      "recovery": 195.119140625
+    },
+    "sampler_seconds_max": 0.02984865999997055,
+    "vmstat_delta": {
+      "workingset_refault_anon": 0,
+      "workingset_refault_file": 182497,
+      "pgsteal_kswapd": 187427,
+      "pgsteal_direct": 118,
+      "pgsteal_khugepaged": 0,
+      "pgsteal_proactive": 0,
+      "pgsteal_anon": 0,
+      "pgsteal_file": 187545,
+      "pgscan_kswapd": 209490,
+      "pgscan_direct": 120,
+      "pgscan_khugepaged": 0,
+      "pgscan_proactive": 0,
+      "pgscan_anon": 0,
+      "pgscan_file": 209610,
+      "allocstall_dma": 0,
+      "allocstall_dma32": 0,
+      "allocstall_normal": 2,
+      "allocstall_movable": 0,
+      "pgmajfault": 986,
+      "pgscan_direct_throttle": 0
+    },
+    "normal_es_wait_observed": true,
+    "same_boot_and_frontend": true,
+    "browser_children_gone": true,
+    "phone": {
+      "requests": 45,
+      "failed": 0,
+      "typing": []
+    }
+  },
+  {
+    "name": "none2",
+    "load_seconds": 2.3224058259511366,
+    "samples": 93,
+    "heartbeat_ms": {
+      "p50": 104,
+      "p95": 104,
+      "maximum": 319
+    },
+    "available_mib": {
+      "baseline_median": 563.6640625,
+      "minimum": 180.984375,
+      "recovery_median": 570.796875
+    },
+    "browser_pss_peak_mib": 473.859375,
+    "es_pss_mib": {
+      "baseline": 195.146484375,
+      "minimum": 140.57421875,
+      "recovery": 194.779296875
+    },
+    "sampler_seconds_max": 0.029463051999755407,
+    "vmstat_delta": {
+      "workingset_refault_anon": 0,
+      "workingset_refault_file": 231318,
+      "pgsteal_kswapd": 232245,
+      "pgsteal_direct": 366,
+      "pgsteal_khugepaged": 0,
+      "pgsteal_proactive": 0,
+      "pgsteal_anon": 0,
+      "pgsteal_file": 232611,
+      "pgscan_kswapd": 260317,
+      "pgscan_direct": 446,
+      "pgscan_khugepaged": 0,
+      "pgscan_proactive": 0,
+      "pgscan_anon": 0,
+      "pgscan_file": 260763,
+      "allocstall_dma": 0,
+      "allocstall_dma32": 0,
+      "allocstall_normal": 8,
+      "allocstall_movable": 0,
+      "pgmajfault": 1275,
+      "pgscan_direct_throttle": 0
+    },
+    "normal_es_wait_observed": true,
+    "same_boot_and_frontend": true,
+    "browser_children_gone": true
+  }
+]
