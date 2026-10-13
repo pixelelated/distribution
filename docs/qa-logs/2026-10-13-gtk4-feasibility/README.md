@@ -118,10 +118,14 @@ same-engine controls, flag deltas, and compile command. The first executable
 step is the included preflight against the coordinator's chosen isolated
 sysroot; it currently exits2 with named missing prerequisites. Once the exact
 pair is provisioned, `compile-api-smoke.py` compiles only the small construction
-fixture and never runs it. Its current host check exits2 before invoking a
-compiler. [Checks](checks.json) retain both outcomes and the missing-input
-negative control (exit1). No pkgcheck/build/install PASS is claimed because no
-package recipe was edited and no package build was attempted.
+fixture and never runs it. The original script at commit
+`da0ecd80473037708dab38e82ea458708cc8c1b6` exited2 before invoking a compiler.
+[Checks](checks.json) retain the original script hashes, both outcomes, and the
+missing-input negative control (exit1). The subsequent
+[timeout-cleanup correction](timeout-cleanup-correction.md) has static review
+only; those historical receipts are not execution evidence for the new source.
+No pkgcheck/build/install PASS is claimed because no package recipe was edited
+and no package build was attempted.
 
 The coordinator must record a precise VM plan and allocate runtime exclusively
 before executing even the API fixture. #493 still precedes any full cache copy

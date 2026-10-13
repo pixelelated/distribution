@@ -87,12 +87,18 @@ Those three paths must be allocated by the coordinator: compiler executable,
 pkg-config wrapper selecting only the experiment sysroot, and a new binary path
 whose parent already exists. The wrapper must provide correct cross sysroot
 and library/include paths. The command refuses another GTK/WebKit version,
-refuses an existing output, bounds compilation to60seconds, and **never executes
-the binary**. Current host invocation is retained in `compile-api-smoke.log`:
-exit2 before compiler invocation. No fake headers or native host libraries were
-substituted. Executing the resulting API program later needs a disposable VM
-display and a coordinator lease; it checks ephemeral related-view construction
-only and loads no page.
+refuses an existing output, and **never executes the binary**. The compiler has
+a 60-second communication timeout; each pkg-config call has 15 seconds. Each call
+starts a private process group. A timeout sends SIGKILL to that group, then
+allows five seconds to reap the direct child. A cleanup failure is an error
+requiring coordinator teardown, not a successful resource release. See the
+[correction and remaining containment limits](timeout-cleanup-correction.md).
+The original `da0ecd8` host invocation is retained in `compile-api-smoke.log`:
+exit2 before compiler invocation, under the original script hash in
+`checks.json`. The corrected helper has not run. No fake headers or native host
+libraries were substituted. Executing the resulting API program later needs a
+disposable VM display and a coordinator lease; it checks ephemeral related-view
+construction only and loads no page.
 
 Stop this spike if a second independent dependency/toolchain expansion makes
 it exceed its allocation. Return the first concrete configure/compiler failure

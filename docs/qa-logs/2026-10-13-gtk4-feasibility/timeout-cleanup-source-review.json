@@ -1,0 +1,59 @@
+{
+  "checked_utc": "2026-10-13T05:51:44.359952+00:00",
+  "evidence_level": "STATIC_SOURCE_REVIEW_ONLY",
+  "historical_commit": "da0ecd80473037708dab38e82ea458708cc8c1b6",
+  "historical_compile_exit2_script_sha256": "b3301d16fca9a09bd8a93c81ca15caad4a9571d23112e3187d6238d0e3349aff",
+  "historical_bindings": "checks.json and checks-initial.json remain unmodified; exit2 is evidence for the original source, not this correction",
+  "preserved_files_byte_identical_to_historical_commit": [
+    "api-smoke.c",
+    "checks-initial.json",
+    "checks.json",
+    "compile-api-smoke.log",
+    "inputs.json",
+    "installed-reference.json",
+    "issue-comments.json",
+    "issue.json",
+    "missing-input.log",
+    "package-inventory.json",
+    "port-map.md",
+    "preflight-initial.json",
+    "preflight.json",
+    "preflight.py",
+    "research/upstream-evidence.json",
+    "research/webkit-evidence.json",
+    "scope-receipt.json",
+    "vm-acceptance.md"
+  ],
+  "current_file_sha256": {
+    "README.md": "2cd789d5207b8b96d7510dc091aad41c9e4218c74eec6460126da4d91cfc01b0",
+    "build-direction.md": "8d0fb5b560edb03d97c39fe63a9caf74769ae044eeb3dd986079c84044d74876",
+    "compile-api-smoke.py": "2bf8a69318e8b4601520ead6d2adc28eb86ab37b045b506aae5c2fcf8d23fbc9",
+    "timeout-cleanup-correction.md": "256d7f29dc94ef3bdc4c1faec532ccaed72ba3ba2c16613b25ad2750aa49aebf"
+  },
+  "hash_scope": "changed/new current source and documentation only; this receipt excludes itself",
+  "static_checks": {
+    "changed_python_ast_parse": "PASS (source parsed, never imported or executed)",
+    "historical_byte_comparison": "PASS (18 unchanged original files)",
+    "historical_compile_script_binding": "PASS (original git blob matches original checks.json)",
+    "git_diff_check": "PASS"
+  },
+  "manual_source_review": [
+    "Every compiler/pkg-config launch routes through Popen(start_new_session=True).",
+    "Communication timeout/error and checked nonzero exit send SIGKILL to the original group even when its leader has exited.",
+    "ProcessLookupError is tolerated; the direct child is waited/reaped with a separate five-second deadline.",
+    "Captured pipes are closed without an unbounded second communicate call.",
+    "Other signalling failures and reap timeouts surface as cleanup failures; failed compiler output is removed.",
+    "Descendant reaping by parents/init, escaped groups, unhandled script termination and failed cleanup require the coordinator outer runner."
+  ],
+  "executions_for_this_correction": {
+    "compile_api_smoke_script": 0,
+    "preflight_script": 0,
+    "synthetic_process_fixture": 0,
+    "pkg_config": 0,
+    "compiler": 0,
+    "produced_binary": 0,
+    "vm": 0
+  },
+  "runtime_timeout_cleanup_verified": false,
+  "pending_evidence": "Coordinator-owned disposable job/VM negative controls in timeout-cleanup-correction.md; no runtime lease allocated here"
+}
