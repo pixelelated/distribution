@@ -1,0 +1,1533 @@
+Oct 12 20:24:20.746729 ROCKNIX kernel: Linux version 7.1.2 (docker@1237c7c67bb7) (x86_64-rocknix-linux-gnu-gcc-15.2.0 (GCC) 15.2.0, GNU ld (GNU Binutils) 2.47.20260726) #1 SMP PREEMPT Mon Oct  5 03:38:50 UTC 2026
+Oct 12 20:24:20.746742 ROCKNIX kernel: Command line: BOOT_IMAGE=/KERNEL boot=LABEL=ROCKNIX disk=LABEL=STORAGE portable quiet console=ttyS0,115200 console=tty0
+Oct 12 20:24:20.746746 ROCKNIX kernel: x86/CPU: Model not found in latest microcode list
+Oct 12 20:24:20.746750 ROCKNIX kernel: BIOS-provided physical RAM map:
+Oct 12 20:24:20.746753 ROCKNIX kernel: BIOS-e820: [mem 0x0000000000000000-0x000000000009ffff]  System RAM
+Oct 12 20:24:20.746755 ROCKNIX kernel: BIOS-e820: [gap 0x00000000000a0000-0x00000000000fffff]
+Oct 12 20:24:20.746758 ROCKNIX kernel: BIOS-e820: [mem 0x0000000000100000-0x00000000007fffff]  System RAM
+Oct 12 20:24:20.746761 ROCKNIX kernel: BIOS-e820: [mem 0x0000000000800000-0x0000000000807fff]  ACPI NVS
+Oct 12 20:24:20.746763 ROCKNIX kernel: BIOS-e820: [mem 0x0000000000808000-0x000000000080afff]  System RAM
+Oct 12 20:24:20.746766 ROCKNIX kernel: BIOS-e820: [mem 0x000000000080b000-0x000000000080bfff]  ACPI NVS
+Oct 12 20:24:20.746768 ROCKNIX kernel: BIOS-e820: [mem 0x000000000080c000-0x0000000000813fff]  System RAM
+Oct 12 20:24:20.746770 ROCKNIX kernel: BIOS-e820: [mem 0x0000000000814000-0x00000000008fffff]  ACPI NVS
+Oct 12 20:24:20.746773 ROCKNIX kernel: BIOS-e820: [mem 0x0000000000900000-0x000000003ed3efff]  System RAM
+Oct 12 20:24:20.746775 ROCKNIX kernel: BIOS-e820: [mem 0x000000003ed3f000-0x000000003edfffff]  device reserved
+Oct 12 20:24:20.746779 ROCKNIX kernel: BIOS-e820: [mem 0x000000003ee00000-0x000000003f8ecfff]  System RAM
+Oct 12 20:24:20.746781 ROCKNIX kernel: BIOS-e820: [mem 0x000000003f8ed000-0x000000003fb6cfff]  device reserved
+Oct 12 20:24:20.746784 ROCKNIX kernel: BIOS-e820: [mem 0x000000003fb6d000-0x000000003fb7efff]  ACPI data
+Oct 12 20:24:20.746786 ROCKNIX kernel: BIOS-e820: [mem 0x000000003fb7f000-0x000000003fbfefff]  ACPI NVS
+Oct 12 20:24:20.746788 ROCKNIX kernel: BIOS-e820: [mem 0x000000003fbff000-0x000000003fedbfff]  System RAM
+Oct 12 20:24:20.746791 ROCKNIX kernel: BIOS-e820: [mem 0x000000003fedc000-0x000000003ff5ffff]  device reserved
+Oct 12 20:24:20.746793 ROCKNIX kernel: BIOS-e820: [mem 0x000000003ff60000-0x000000003fffffff]  ACPI NVS
+Oct 12 20:24:20.746795 ROCKNIX kernel: BIOS-e820: [gap 0x0000000040000000-0x00000000dfffffff]
+Oct 12 20:24:20.746797 ROCKNIX kernel: BIOS-e820: [mem 0x00000000e0000000-0x00000000efffffff]  device reserved
+Oct 12 20:24:20.746800 ROCKNIX kernel: BIOS-e820: [gap 0x00000000f0000000-0x00000000feffbfff]
+Oct 12 20:24:20.746802 ROCKNIX kernel: BIOS-e820: [mem 0x00000000feffc000-0x00000000feffffff]  device reserved
+Oct 12 20:24:20.746804 ROCKNIX kernel: BIOS-e820: [gap 0x00000000ff000000-0x00000000ffbfffff]
+Oct 12 20:24:20.746806 ROCKNIX kernel: BIOS-e820: [mem 0x00000000ffc00000-0x00000000ffffffff]  device reserved
+Oct 12 20:24:20.746809 ROCKNIX kernel: NX (Execute Disable) protection: active
+Oct 12 20:24:20.746812 ROCKNIX kernel: APIC: Static calls initialized
+Oct 12 20:24:20.746814 ROCKNIX kernel: efi: EFI v2.7 by Ubuntu distribution of EDK II
+Oct 12 20:24:20.746817 ROCKNIX kernel: efi: SMBIOS=0x3f983000 ACPI=0x3fb7e000 ACPI 2.0=0x3fb7e014 MEMATTR=0x3df28398 RNG=0x3fb73018
+Oct 12 20:24:20.746819 ROCKNIX kernel: random: crng init done
+Oct 12 20:24:20.746821 ROCKNIX kernel: efi: Remove mem147: MMIO range=[0xffc00000-0xffffffff] (4MB) from e820 map
+Oct 12 20:24:20.746824 ROCKNIX kernel: e820: remove [mem 0xffc00000-0xffffffff] device reserved
+Oct 12 20:24:20.746826 ROCKNIX kernel: DMI: SMBIOS 2.8 present.
+Oct 12 20:24:20.746829 ROCKNIX kernel: DMI: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 2025.11-3ubuntu7.3 09/23/2026
+Oct 12 20:24:20.746831 ROCKNIX kernel: DMI: Memory slots populated: 1/1
+Oct 12 20:24:20.746833 ROCKNIX kernel: Hypervisor detected: KVM
+Oct 12 20:24:20.746835 ROCKNIX kernel: last_pfn = 0x3fedc max_arch_pfn = 0x400000000
+Oct 12 20:24:20.746838 ROCKNIX kernel: kvm-clock: Using msrs 4b564d01 and 4b564d00
+Oct 12 20:24:20.746842 ROCKNIX kernel: kvm-clock: using sched offset of 17079029335 cycles
+Oct 12 20:24:20.746844 ROCKNIX kernel: clocksource: kvm-clock: mask: 0xffffffffffffffff max_cycles: 0x1cd42e4dffb, max_idle_ns: 881590591483 ns
+Oct 12 20:24:20.746847 ROCKNIX kernel: tsc: Detected 2496.000 MHz processor
+Oct 12 20:24:20.746849 ROCKNIX kernel: e820: update [mem 0x00000000-0x00000fff] System RAM ==> device reserved
+Oct 12 20:24:20.746852 ROCKNIX kernel: e820: remove [mem 0x000a0000-0x000fffff] System RAM
+Oct 12 20:24:20.746854 ROCKNIX kernel: last_pfn = 0x3fedc max_arch_pfn = 0x400000000
+Oct 12 20:24:20.746858 ROCKNIX kernel: MTRR map: 4 entries (2 fixed + 2 variable; max 18), built from 8 variable MTRRs
+Oct 12 20:24:20.746860 ROCKNIX kernel: x86/PAT: Configuration [0-7]: WB  WC  UC- UC  WB  WP  UC- WT
+Oct 12 20:24:20.746863 ROCKNIX kernel: Secure boot could not be determined
+Oct 12 20:24:20.746865 ROCKNIX kernel: ACPI: Early table checksum verification disabled
+Oct 12 20:24:20.746868 ROCKNIX kernel: ACPI: RSDP 0x000000003FB7E014 000024 (v02 BOCHS )
+Oct 12 20:24:20.746870 ROCKNIX kernel: ACPI: XSDT 0x000000003FB7D0E8 000054 (v01 BOCHS  BXPC     00000001      01000013)
+Oct 12 20:24:20.746872 ROCKNIX kernel: ACPI: FACP 0x000000003FB79000 0000F4 (v03 BOCHS  BXPC     00000001 BXPC 00000001)
+Oct 12 20:24:20.746875 ROCKNIX kernel: ACPI: DSDT 0x000000003FB7A000 002242 (v01 BOCHS  BXPC     00000001 BXPC 00000001)
+Oct 12 20:24:20.746877 ROCKNIX kernel: ACPI: FACS 0x000000003FBDD000 000040
+Oct 12 20:24:20.746880 ROCKNIX kernel: ACPI: APIC 0x000000003FB78000 000090 (v03 BOCHS  BXPC     00000001 BXPC 00000001)
+Oct 12 20:24:20.746882 ROCKNIX kernel: ACPI: HPET 0x000000003FB77000 000038 (v01 BOCHS  BXPC     00000001 BXPC 00000001)
+Oct 12 20:24:20.746885 ROCKNIX kernel: ACPI: MCFG 0x000000003FB76000 00003C (v01 BOCHS  BXPC     00000001 BXPC 00000001)
+Oct 12 20:24:20.746888 ROCKNIX kernel: ACPI: WAET 0x000000003FB75000 000028 (v01 BOCHS  BXPC     00000001 BXPC 00000001)
+Oct 12 20:24:20.746890 ROCKNIX kernel: ACPI: BGRT 0x000000003FB74000 000038 (v01 INTEL  EDK2     00000002      01000013)
+Oct 12 20:24:20.746892 ROCKNIX kernel: ACPI: Reserving FACP table memory at [mem 0x3fb79000-0x3fb790f3]
+Oct 12 20:24:20.746896 ROCKNIX kernel: ACPI: Reserving DSDT table memory at [mem 0x3fb7a000-0x3fb7c241]
+Oct 12 20:24:20.746899 ROCKNIX kernel: ACPI: Reserving FACS table memory at [mem 0x3fbdd000-0x3fbdd03f]
+Oct 12 20:24:20.746901 ROCKNIX kernel: ACPI: Reserving APIC table memory at [mem 0x3fb78000-0x3fb7808f]
+Oct 12 20:24:20.746903 ROCKNIX kernel: ACPI: Reserving HPET table memory at [mem 0x3fb77000-0x3fb77037]
+Oct 12 20:24:20.746906 ROCKNIX kernel: ACPI: Reserving MCFG table memory at [mem 0x3fb76000-0x3fb7603b]
+Oct 12 20:24:20.746908 ROCKNIX kernel: ACPI: Reserving WAET table memory at [mem 0x3fb75000-0x3fb75027]
+Oct 12 20:24:20.746910 ROCKNIX kernel: ACPI: Reserving BGRT table memory at [mem 0x3fb74000-0x3fb74037]
+Oct 12 20:24:20.746913 ROCKNIX kernel: No NUMA configuration found
+Oct 12 20:24:20.746915 ROCKNIX kernel: Faking a node at [mem 0x0000000000000000-0x000000003fedbfff]
+Oct 12 20:24:20.746919 ROCKNIX kernel: NODE_DATA(0) allocated [mem 0x3fe37ac0-0x3fe3bfff]
+Oct 12 20:24:20.746921 ROCKNIX kernel: cma: Reserved 256 MiB at 0x000000002be00000
+Oct 12 20:24:20.746923 ROCKNIX kernel: ACPI: PM-Timer IO Port: 0x608
+Oct 12 20:24:20.746926 ROCKNIX kernel: ACPI: LAPIC_NMI (acpi_id[0xff] dfl dfl lint[0x1])
+Oct 12 20:24:20.746928 ROCKNIX kernel: IOAPIC[0]: apic_id 0, version 17, address 0xfec00000, GSI 0-23
+Oct 12 20:24:20.746931 ROCKNIX kernel: ACPI: INT_SRC_OVR (bus 0 bus_irq 0 global_irq 2 dfl dfl)
+Oct 12 20:24:20.746933 ROCKNIX kernel: ACPI: INT_SRC_OVR (bus 0 bus_irq 5 global_irq 5 high level)
+Oct 12 20:24:20.746935 ROCKNIX kernel: ACPI: INT_SRC_OVR (bus 0 bus_irq 9 global_irq 9 high level)
+Oct 12 20:24:20.746938 ROCKNIX kernel: ACPI: INT_SRC_OVR (bus 0 bus_irq 10 global_irq 10 high level)
+Oct 12 20:24:20.746940 ROCKNIX kernel: ACPI: INT_SRC_OVR (bus 0 bus_irq 11 global_irq 11 high level)
+Oct 12 20:24:20.746942 ROCKNIX kernel: ACPI: Using ACPI (MADT) for SMP configuration information
+Oct 12 20:24:20.746945 ROCKNIX kernel: ACPI: HPET id: 0x8086a201 base: 0xfed00000
+Oct 12 20:24:20.746948 ROCKNIX kernel: TSC deadline timer available
+Oct 12 20:24:20.746950 ROCKNIX kernel: CPU topo: Max. logical packages:   1
+Oct 12 20:24:20.746953 ROCKNIX kernel: CPU topo: Max. logical nodes:      1
+Oct 12 20:24:20.746955 ROCKNIX kernel: CPU topo: Num. nodes per package:  1
+Oct 12 20:24:20.746957 ROCKNIX kernel: CPU topo: Max. logical dies:       1
+Oct 12 20:24:20.746960 ROCKNIX kernel: CPU topo: Max. dies per package:   1
+Oct 12 20:24:20.746962 ROCKNIX kernel: CPU topo: Max. threads per core:   1
+Oct 12 20:24:20.746964 ROCKNIX kernel: CPU topo: Num. cores per package:     4
+Oct 12 20:24:20.746967 ROCKNIX kernel: CPU topo: Num. threads per package:   4
+Oct 12 20:24:20.746969 ROCKNIX kernel: CPU topo: Allowing 4 present CPUs plus 0 hotplug CPUs
+Oct 12 20:24:20.746971 ROCKNIX kernel: kvm-guest: APIC: eoi() replaced with kvm_guest_apic_eoi_write()
+Oct 12 20:24:20.746973 ROCKNIX kernel: [gap 0x40000000-0xdfffffff] available for PCI devices
+Oct 12 20:24:20.746976 ROCKNIX kernel: Booting paravirtualized kernel on KVM
+Oct 12 20:24:20.746978 ROCKNIX kernel: clocksource: refined-jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 6370452778343963 ns
+Oct 12 20:24:20.746982 ROCKNIX kernel: Zone ranges:
+Oct 12 20:24:20.746984 ROCKNIX kernel:   DMA      [mem 0x0000000000001000-0x0000000000ffffff]
+Oct 12 20:24:20.746987 ROCKNIX kernel:   DMA32    [mem 0x0000000001000000-0x000000003fedbfff]
+Oct 12 20:24:20.746989 ROCKNIX kernel:   Normal   empty
+Oct 12 20:24:20.746991 ROCKNIX kernel: Movable zone start for each node
+Oct 12 20:24:20.746994 ROCKNIX kernel: Early memory node ranges
+Oct 12 20:24:20.746996 ROCKNIX kernel:   node   0: [mem 0x0000000000001000-0x000000000009ffff]
+Oct 12 20:24:20.746998 ROCKNIX kernel:   node   0: [mem 0x0000000000100000-0x00000000007fffff]
+Oct 12 20:24:20.747001 ROCKNIX kernel:   node   0: [mem 0x0000000000808000-0x000000000080afff]
+Oct 12 20:24:20.747003 ROCKNIX kernel:   node   0: [mem 0x000000000080c000-0x0000000000813fff]
+Oct 12 20:24:20.747005 ROCKNIX kernel:   node   0: [mem 0x0000000000900000-0x000000003ed3efff]
+Oct 12 20:24:20.747008 ROCKNIX kernel:   node   0: [mem 0x000000003ee00000-0x000000003f8ecfff]
+Oct 12 20:24:20.747010 ROCKNIX kernel:   node   0: [mem 0x000000003fbff000-0x000000003fedbfff]
+Oct 12 20:24:20.747013 ROCKNIX kernel: Initmem setup node 0 [mem 0x0000000000001000-0x000000003fedbfff]
+Oct 12 20:24:20.747016 ROCKNIX kernel: On node 0, zone DMA: 1 pages in unavailable ranges
+Oct 12 20:24:20.747018 ROCKNIX kernel: On node 0, zone DMA: 96 pages in unavailable ranges
+Oct 12 20:24:20.747020 ROCKNIX kernel: On node 0, zone DMA: 8 pages in unavailable ranges
+Oct 12 20:24:20.747023 ROCKNIX kernel: On node 0, zone DMA: 1 pages in unavailable ranges
+Oct 12 20:24:20.747025 ROCKNIX kernel: On node 0, zone DMA: 236 pages in unavailable ranges
+Oct 12 20:24:20.747027 ROCKNIX kernel: On node 0, zone DMA32: 193 pages in unavailable ranges
+Oct 12 20:24:20.747030 ROCKNIX kernel: On node 0, zone DMA32: 786 pages in unavailable ranges
+Oct 12 20:24:20.747032 ROCKNIX kernel: On node 0, zone DMA32: 292 pages in unavailable ranges
+Oct 12 20:24:20.747037 ROCKNIX kernel: setup_percpu: NR_CPUS:32 nr_cpumask_bits:4 nr_cpu_ids:4 nr_node_ids:1
+Oct 12 20:24:20.747039 ROCKNIX kernel: percpu: Embedded 54 pages/cpu s181912 r8192 d31080 u524288
+Oct 12 20:24:20.747042 ROCKNIX kernel: pcpu-alloc: s181912 r8192 d31080 u524288 alloc=1*2097152
+Oct 12 20:24:20.747046 ROCKNIX kernel: pcpu-alloc: [0] 0 1 2 3
+Oct 12 20:24:20.747048 ROCKNIX kernel: kvm-guest: PV spinlocks disabled, no host support
+Oct 12 20:24:20.747051 ROCKNIX kernel: Kernel command line: root=/dev/sda1 init=/sbin/init usbcore.autosuspend=-1 BOOT_IMAGE=/KERNEL boot=LABEL=ROCKNIX disk=LABEL=STORAGE portable quiet console=ttyS0,115200 console=tty0
+Oct 12 20:24:20.747054 ROCKNIX kernel: Unknown kernel command line parameters "portable boot=LABEL=ROCKNIX disk=LABEL=STORAGE", will be passed to user space.
+Oct 12 20:24:20.747056 ROCKNIX kernel: printk: log buffer data + meta data: 131072 + 557056 = 688128 bytes
+Oct 12 20:24:20.747059 ROCKNIX kernel: Dentry cache hash table entries: 65536 (order: 7, 524288 bytes, linear)
+Oct 12 20:24:20.747061 ROCKNIX kernel: Inode-cache hash table entries: 32768 (order: 6, 262144 bytes, linear)
+Oct 12 20:24:20.747064 ROCKNIX kernel: Fallback order for Node 0: 0
+Oct 12 20:24:20.747066 ROCKNIX kernel: Built 1 zonelists, mobility grouping on.  Total pages: 260531
+Oct 12 20:24:20.747068 ROCKNIX kernel: Policy zone: DMA32
+Oct 12 20:24:20.747071 ROCKNIX kernel: mem auto-init: stack:off, heap alloc:off, heap free:off
+Oct 12 20:24:20.747074 ROCKNIX kernel: SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+Oct 12 20:24:20.747077 ROCKNIX kernel: Kernel/User page tables isolation: enabled
+Oct 12 20:24:20.747079 ROCKNIX kernel: ftrace: allocating 86791 entries in 340 pages
+Oct 12 20:24:20.747081 ROCKNIX kernel: ftrace: allocated 340 pages with 4 groups
+Oct 12 20:24:20.747084 ROCKNIX kernel: rcu: Preemptible hierarchical RCU implementation.
+Oct 12 20:24:20.747087 ROCKNIX kernel: rcu:         RCU restricting CPUs from NR_CPUS=32 to nr_cpu_ids=4.
+Oct 12 20:24:20.747089 ROCKNIX kernel:         Trampoline variant of Tasks RCU enabled.
+Oct 12 20:24:20.747092 ROCKNIX kernel:         Rude variant of Tasks RCU enabled.
+Oct 12 20:24:20.747094 ROCKNIX kernel:         Tracing variant of Tasks RCU enabled.
+Oct 12 20:24:20.747096 ROCKNIX kernel: rcu: RCU calculated value of scheduler-enlistment delay is 30 jiffies.
+Oct 12 20:24:20.747099 ROCKNIX kernel: rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=4
+Oct 12 20:24:20.747101 ROCKNIX kernel: RCU Tasks: Setting shift to 2 and lim to 1 rcu_task_cb_adjust=1 rcu_task_cpu_ids=4.
+Oct 12 20:24:20.747105 ROCKNIX kernel: RCU Tasks Rude: Setting shift to 2 and lim to 1 rcu_task_cb_adjust=1 rcu_task_cpu_ids=4.
+Oct 12 20:24:20.747107 ROCKNIX kernel: NR_IRQS: 4352, nr_irqs: 456, preallocated irqs: 16
+Oct 12 20:24:20.747109 ROCKNIX kernel: rcu: srcu_init: Setting srcu_struct sizes based on contention.
+Oct 12 20:24:20.747112 ROCKNIX kernel: Console: colour dummy device 80x25
+Oct 12 20:24:20.747114 ROCKNIX kernel: printk: legacy console [tty0] enabled
+Oct 12 20:24:20.747117 ROCKNIX kernel: printk: legacy console [ttyS0] enabled
+Oct 12 20:24:20.747119 ROCKNIX kernel: ACPI: Core revision 20251212
+Oct 12 20:24:20.747122 ROCKNIX kernel: clocksource: hpet: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604467 ns
+Oct 12 20:24:20.747124 ROCKNIX kernel: APIC: Switch to symmetric I/O mode setup
+Oct 12 20:24:20.747127 ROCKNIX kernel: x2apic enabled
+Oct 12 20:24:20.747129 ROCKNIX kernel: APIC: Switched APIC routing to: physical x2apic
+Oct 12 20:24:20.747132 ROCKNIX kernel: ..TIMER: vector=0x30 apic1=0 pin1=2 apic2=-1 pin2=-1
+Oct 12 20:24:20.747136 ROCKNIX kernel: clocksource: tsc-early: mask: 0xffffffffffffffff max_cycles: 0x23fa772cf26, max_idle_ns: 440795269835 ns
+Oct 12 20:24:20.747138 ROCKNIX kernel: Calibrating delay loop (skipped) preset value.. 4993.00 BogoMIPS (lpj=8320000)
+Oct 12 20:24:20.747141 ROCKNIX kernel: Last level iTLB entries: 4KB 0, 2MB 0, 4MB 0
+Oct 12 20:24:20.747143 ROCKNIX kernel: Last level dTLB entries: 4KB 0, 2MB 0, 4MB 0, 1GB 0
+Oct 12 20:24:20.747146 ROCKNIX kernel: mitigations: Enabled attack vectors: user_kernel, user_user, SMT mitigations: auto
+Oct 12 20:24:20.747148 ROCKNIX kernel: Speculative Store Bypass: <redacted>
+Oct 12 20:24:20.747150 ROCKNIX kernel: SRBDS: Unknown: Dependent on hypervisor status
+Oct 12 20:24:20.747152 ROCKNIX kernel: Spectre V2 : Mitigation: Retpolines
+Oct 12 20:24:20.747155 ROCKNIX kernel: ITS: Mitigation: Aligned branch/return thunks
+Oct 12 20:24:20.747157 ROCKNIX kernel: MDS: Vulnerable: Clear CPU buffers attempted, no microcode
+Oct 12 20:24:20.747159 ROCKNIX kernel: Spectre V1 : Mitigation: usercopy/swapgs barriers and __user pointer sanitization
+Oct 12 20:24:20.747162 ROCKNIX kernel: Spectre V2 : Spectre v2 / SpectreRSB: Filling RSB on context switch and VMEXIT
+Oct 12 20:24:20.747165 ROCKNIX kernel: Spectre V2 : Enabling Restricted Speculation for firmware calls
+Oct 12 20:24:20.747168 ROCKNIX kernel: Spectre V2 : mitigation: Enabling conditional Indirect Branch Prediction Barrier
+Oct 12 20:24:20.747170 ROCKNIX kernel: active return thunk: its_return_thunk
+Oct 12 20:24:20.747172 ROCKNIX kernel: x86/fpu: Supporting XSAVE feature 0x001: 'x87 floating point registers'
+Oct 12 20:24:20.747175 ROCKNIX kernel: x86/fpu: Supporting XSAVE feature 0x002: 'SSE registers'
+Oct 12 20:24:20.747177 ROCKNIX kernel: x86/fpu: Supporting XSAVE feature 0x004: 'AVX registers'
+Oct 12 20:24:20.747180 ROCKNIX kernel: x86/fpu: xstate_offset[2]:  576, xstate_sizes[2]:  256
+Oct 12 20:24:20.747182 ROCKNIX kernel: x86/fpu: Enabled xstate features 0x7, context size is 832 bytes, using 'standard' format.
+Oct 12 20:24:20.747184 ROCKNIX kernel: pid_max: default: 32768 minimum: 301
+Oct 12 20:24:20.747187 ROCKNIX kernel: Mount-cache hash table entries: 1024 (order: 1, 8192 bytes, linear)
+Oct 12 20:24:20.747189 ROCKNIX kernel: Mountpoint-cache hash table entries: 1024 (order: 1, 8192 bytes, linear)
+Oct 12 20:24:20.747192 ROCKNIX kernel: VFS: Finished mounting rootfs on nullfs
+Oct 12 20:24:20.747195 ROCKNIX kernel: smpboot: CPU0: Intel Core Processor (Haswell, no TSX, IBRS) (family: 0x6, model: 0x3c, stepping: 0x1)
+Oct 12 20:24:20.747199 ROCKNIX kernel: Performance Events: unsupported CPU family 6 model 60 no PMU driver, software events only.
+Oct 12 20:24:20.747201 ROCKNIX kernel: signal: max sigframe size: 1360
+Oct 12 20:24:20.747204 ROCKNIX kernel: rcu: Hierarchical SRCU implementation.
+Oct 12 20:24:20.747206 ROCKNIX kernel: rcu:         Max phase no-delay instances is 1000.
+Oct 12 20:24:20.747208 ROCKNIX kernel: Timer migration: 1 hierarchy levels; 8 children per group; 1 crossnode level
+Oct 12 20:24:20.747211 ROCKNIX kernel: NMI watchdog: Perf NMI watchdog permanently disabled
+Oct 12 20:24:20.747213 ROCKNIX kernel: smp: Bringing up secondary CPUs ...
+Oct 12 20:24:20.747215 ROCKNIX kernel: smpboot: x86: Booting SMP configuration:
+Oct 12 20:24:20.747218 ROCKNIX kernel: .... node  #0, CPUs:      #1 #2 #3
+Oct 12 20:24:20.747220 ROCKNIX kernel: smp: Brought up 1 node, 4 CPUs
+Oct 12 20:24:20.747222 ROCKNIX kernel: smpboot: Total of 4 processors activated (19975.00 BogoMIPS)
+Oct 12 20:24:20.747226 ROCKNIX kernel: Memory: 491900K/1042124K available (33679K kernel code, 3543K rwdata, 174268K rodata, 12508K init, 1024K bss, 282536K reserved, 262144K cma-reserved)
+Oct 12 20:24:20.747229 ROCKNIX kernel: devtmpfs: initialized
+Oct 12 20:24:20.747231 ROCKNIX kernel: ACPI: PM: Registering ACPI NVS region [mem 0x00800000-0x00807fff] (32768 bytes)
+Oct 12 20:24:20.747234 ROCKNIX kernel: ACPI: PM: Registering ACPI NVS region [mem 0x0080b000-0x0080bfff] (4096 bytes)
+Oct 12 20:24:20.747236 ROCKNIX kernel: ACPI: PM: Registering ACPI NVS region [mem 0x00814000-0x008fffff] (966656 bytes)
+Oct 12 20:24:20.747238 ROCKNIX kernel: ACPI: PM: Registering ACPI NVS region [mem 0x3fb7f000-0x3fbfefff] (524288 bytes)
+Oct 12 20:24:20.747241 ROCKNIX kernel: ACPI: PM: Registering ACPI NVS region [mem 0x3ff60000-0x3fffffff] (655360 bytes)
+Oct 12 20:24:20.747243 ROCKNIX kernel: clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 6370867519511994 ns
+Oct 12 20:24:20.747245 ROCKNIX kernel: posixtimers hash table entries: 2048 (order: 3, 32768 bytes, linear)
+Oct 12 20:24:20.747248 ROCKNIX kernel: futex hash table entries: 1024 (65536 bytes on 1 NUMA nodes, total 64 KiB, linear).
+Oct 12 20:24:20.747250 ROCKNIX kernel: xor: automatically using best checksumming function   avx
+Oct 12 20:24:20.747252 ROCKNIX kernel: NET: Registered PF_NETLINK/PF_ROUTE protocol family
+Oct 12 20:24:20.747255 ROCKNIX kernel: thermal_sys: Registered thermal governor 'step_wise'
+Oct 12 20:24:20.747257 ROCKNIX kernel: thermal_sys: Registered thermal governor 'user_space'
+Oct 12 20:24:20.747260 ROCKNIX kernel: cpuidle: using governor ladder
+Oct 12 20:24:20.747263 ROCKNIX kernel: cpuidle: using governor menu
+Oct 12 20:24:20.747265 ROCKNIX kernel: Freeing SMP alternatives memory: 72K
+Oct 12 20:24:20.747267 ROCKNIX kernel: efi: Freeing EFI boot services memory: 35204K
+Oct 12 20:24:20.747270 ROCKNIX kernel: PCI: ECAM [mem 0xe0000000-0xefffffff] (base 0xe0000000) for domain 0000 [bus 00-ff]
+Oct 12 20:24:20.747272 ROCKNIX kernel: PCI: Using configuration type 1 for base access
+Oct 12 20:24:20.747275 ROCKNIX kernel: kprobes: kprobe jump-optimization is enabled. All kprobes are optimized if possible.
+Oct 12 20:24:20.747277 ROCKNIX kernel: raid6: skipped pq benchmark and selected avx2x4
+Oct 12 20:24:20.747280 ROCKNIX kernel: raid6: using avx2x2 recovery algorithm
+Oct 12 20:24:20.747282 ROCKNIX kernel: ACPI: Added _OSI(Module Device)
+Oct 12 20:24:20.747284 ROCKNIX kernel: ACPI: Added _OSI(Processor Device)
+Oct 12 20:24:20.747287 ROCKNIX kernel: ACPI: Added _OSI(Processor Aggregator Device)
+Oct 12 20:24:20.747290 ROCKNIX kernel: ACPI: 1 ACPI AML tables successfully acquired and loaded
+Oct 12 20:24:20.747292 ROCKNIX kernel: ACPI: \_SB_: platform _OSC: OS support mask [002a7eef]
+Oct 12 20:24:20.747295 ROCKNIX kernel: ACPI: Interpreter enabled
+Oct 12 20:24:20.747297 ROCKNIX kernel: ACPI: PM: (supports S0 S3 S5)
+Oct 12 20:24:20.747300 ROCKNIX kernel: ACPI: Using IOAPIC for interrupt routing
+Oct 12 20:24:20.747302 ROCKNIX kernel: PCI: Using host bridge windows from ACPI; if necessary, use "pci=nocrs" and report a bug
+Oct 12 20:24:20.747304 ROCKNIX kernel: PCI: Ignoring E820 reservations for host bridge windows
+Oct 12 20:24:20.747307 ROCKNIX kernel: ACPI: Enabled 2 GPEs in block 00 to 3F
+Oct 12 20:24:20.747309 ROCKNIX kernel: ACPI: PCI Root Bridge [PCI0] (domain 0000 [bus 00-ff])
+Oct 12 20:24:20.747360 ROCKNIX kernel: acpi PNP0A08:00: _OSC: OS supports [ExtendedConfig ASPM ClockPM Segments MSI HPX-Type3]
+Oct 12 20:24:20.747395 ROCKNIX kernel: acpi PNP0A08:00: _OSC: platform does not support [LTR]
+Oct 12 20:24:20.747422 ROCKNIX kernel: acpi PNP0A08:00: _OSC: OS now controls [PME AER PCIeCapability]
+Oct 12 20:24:20.747425 ROCKNIX kernel: PCI host bridge to bus 0000:00
+Oct 12 20:24:20.747454 ROCKNIX kernel: pci_bus 0000:00: root bus resource [io  0x0000-0x0cf7 window]
+Oct 12 20:24:20.747477 ROCKNIX kernel: pci_bus 0000:00: root bus resource [io  0x0d00-0xffff window]
+Oct 12 20:24:20.747501 ROCKNIX kernel: pci_bus 0000:00: root bus resource [mem 0x000a0000-0x000bffff window]
+Oct 12 20:24:20.747523 ROCKNIX kernel: pci_bus 0000:00: root bus resource [mem 0x40000000-0xdfffffff window]
+Oct 12 20:24:20.747545 ROCKNIX kernel: pci_bus 0000:00: root bus resource [mem 0xf0000000-0xfebfffff window]
+Oct 12 20:24:20.747566 ROCKNIX kernel: pci_bus 0000:00: root bus resource [mem 0x800000000-0xfffffffff window]
+Oct 12 20:24:20.747588 ROCKNIX kernel: pci_bus 0000:00: root bus resource [bus 00-ff]
+Oct 12 20:24:20.747621 ROCKNIX kernel: pci 0000:00:00.0: [8086:29c0] type 00 class 0x060000 conventional PCI endpoint
+Oct 12 20:24:20.747650 ROCKNIX kernel: pci 0000:00:01.0: [1af4:1001] type 00 class 0x010000 conventional PCI endpoint
+Oct 12 20:24:20.747676 ROCKNIX kernel: pci 0000:00:01.0: BAR 0 [io  0x6000-0x607f]
+Oct 12 20:24:20.747700 ROCKNIX kernel: pci 0000:00:01.0: BAR 1 [mem 0x80089000-0x80089fff]
+Oct 12 20:24:20.747725 ROCKNIX kernel: pci 0000:00:01.0: BAR 4 [mem 0x800000000-0x800003fff 64bit pref]
+Oct 12 20:24:20.747881 ROCKNIX kernel: pci 0000:00:02.0: [1af4:1050] type 00 class 0x038000 conventional PCI endpoint
+Oct 12 20:24:20.747909 ROCKNIX kernel: pci 0000:00:02.0: BAR 1 [mem 0x80088000-0x80088fff]
+Oct 12 20:24:20.747935 ROCKNIX kernel: pci 0000:00:02.0: BAR 4 [mem 0x800004000-0x800007fff 64bit pref]
+Oct 12 20:24:20.747961 ROCKNIX kernel: pci 0000:00:03.0: [1af4:1000] type 00 class 0x020000 conventional PCI endpoint
+Oct 12 20:24:20.747988 ROCKNIX kernel: pci 0000:00:03.0: BAR 0 [io  0x6100-0x611f]
+Oct 12 20:24:20.748012 ROCKNIX kernel: pci 0000:00:03.0: BAR 1 [mem 0x80087000-0x80087fff]
+Oct 12 20:24:20.748038 ROCKNIX kernel: pci 0000:00:03.0: BAR 4 [mem 0x800008000-0x80000bfff 64bit pref]
+Oct 12 20:24:20.748062 ROCKNIX kernel: pci 0000:00:03.0: ROM [mem 0xfff80000-0xffffffff pref]
+Oct 12 20:24:20.748090 ROCKNIX kernel: pci 0000:00:04.0: [1b36:000d] type 00 class 0x0c0330 PCIe Root Complex Integrated Endpoint
+Oct 12 20:24:20.748114 ROCKNIX kernel: pci 0000:00:04.0: BAR 0 [mem 0x800010000-0x800013fff 64bit]
+Oct 12 20:24:20.748139 ROCKNIX kernel: pci 0000:00:04.0: enabling Extended Tags
+Oct 12 20:24:20.748165 ROCKNIX kernel: pci 0000:00:05.0: [8086:2668] type 00 class 0x040300 conventional PCI endpoint
+Oct 12 20:24:20.748191 ROCKNIX kernel: pci 0000:00:05.0: BAR 0 [mem 0x80080000-0x80083fff]
+Oct 12 20:24:20.748219 ROCKNIX kernel: pci 0000:00:06.0: [1af4:1005] type 00 class 0x00ff00 conventional PCI endpoint
+Oct 12 20:24:20.748243 ROCKNIX kernel: pci 0000:00:06.0: BAR 0 [io  0x60e0-0x60ff]
+Oct 12 20:24:20.748268 ROCKNIX kernel: pci 0000:00:06.0: BAR 1 [mem 0x80086000-0x80086fff]
+Oct 12 20:24:20.748292 ROCKNIX kernel: pci 0000:00:06.0: BAR 4 [mem 0x80000c000-0x80000ffff 64bit pref]
+Oct 12 20:24:20.748319 ROCKNIX kernel: pci 0000:00:07.0: [8086:25ab] type 00 class 0x088000 conventional PCI endpoint
+Oct 12 20:24:20.748343 ROCKNIX kernel: pci 0000:00:07.0: BAR 0 [mem 0x80085000-0x8008500f]
+Oct 12 20:24:20.748370 ROCKNIX kernel: pci 0000:00:1f.0: [8086:2918] type 00 class 0x060100 conventional PCI endpoint
+Oct 12 20:24:20.748401 ROCKNIX kernel: pci 0000:00:1f.0: quirk: [io  0x0600-0x067f] claimed by ICH6 ACPI/GPIO/TCO
+Oct 12 20:24:20.748429 ROCKNIX kernel: pci 0000:00:1f.2: [8086:2922] type 00 class 0x010601 conventional PCI endpoint
+Oct 12 20:24:20.748454 ROCKNIX kernel: pci 0000:00:1f.2: BAR 4 [io  0x60c0-0x60df]
+Oct 12 20:24:20.748478 ROCKNIX kernel: pci 0000:00:1f.2: BAR 5 [mem 0x80084000-0x80084fff]
+Oct 12 20:24:20.748504 ROCKNIX kernel: pci 0000:00:1f.3: [8086:2930] type 00 class 0x0c0500 conventional PCI endpoint
+Oct 12 20:24:20.748529 ROCKNIX kernel: pci 0000:00:1f.3: BAR 4 [io  0x6080-0x60bf]
+Oct 12 20:24:20.748532 ROCKNIX kernel: ACPI: PCI: Interrupt link LNKA configured for IRQ 10
+Oct 12 20:24:20.748534 ROCKNIX kernel: ACPI: PCI: Interrupt link LNKB configured for IRQ 10
+Oct 12 20:24:20.748537 ROCKNIX kernel: ACPI: PCI: Interrupt link LNKC configured for IRQ 11
+Oct 12 20:24:20.748539 ROCKNIX kernel: ACPI: PCI: Interrupt link LNKD configured for IRQ 11
+Oct 12 20:24:20.748543 ROCKNIX kernel: ACPI: PCI: Interrupt link LNKE configured for IRQ 10
+Oct 12 20:24:20.748545 ROCKNIX kernel: ACPI: PCI: Interrupt link LNKF configured for IRQ 10
+Oct 12 20:24:20.748548 ROCKNIX kernel: ACPI: PCI: Interrupt link LNKG configured for IRQ 11
+Oct 12 20:24:20.748550 ROCKNIX kernel: ACPI: PCI: Interrupt link LNKH configured for IRQ 11
+Oct 12 20:24:20.748552 ROCKNIX kernel: ACPI: PCI: Interrupt link GSIA configured for IRQ 16
+Oct 12 20:24:20.748555 ROCKNIX kernel: ACPI: PCI: Interrupt link GSIB configured for IRQ 17
+Oct 12 20:24:20.748557 ROCKNIX kernel: ACPI: PCI: Interrupt link GSIC configured for IRQ 18
+Oct 12 20:24:20.748559 ROCKNIX kernel: ACPI: PCI: Interrupt link GSID configured for IRQ 19
+Oct 12 20:24:20.748562 ROCKNIX kernel: ACPI: PCI: Interrupt link GSIE configured for IRQ 20
+Oct 12 20:24:20.748564 ROCKNIX kernel: ACPI: PCI: Interrupt link GSIF configured for IRQ 21
+Oct 12 20:24:20.748566 ROCKNIX kernel: ACPI: PCI: Interrupt link GSIG configured for IRQ 22
+Oct 12 20:24:20.748569 ROCKNIX kernel: ACPI: PCI: Interrupt link GSIH configured for IRQ 23
+Oct 12 20:24:20.748572 ROCKNIX kernel: iommu: Default domain type: Passthrough
+Oct 12 20:24:20.748575 ROCKNIX kernel: SCSI subsystem initialized
+Oct 12 20:24:20.748577 ROCKNIX kernel: libata version 3.00 loaded.
+Oct 12 20:24:20.748579 ROCKNIX kernel: ACPI: bus type USB registered
+Oct 12 20:24:20.748582 ROCKNIX kernel: usbcore: registered new interface driver usbfs
+Oct 12 20:24:20.748584 ROCKNIX kernel: usbcore: registered new interface driver hub
+Oct 12 20:24:20.748586 ROCKNIX kernel: usbcore: registered new device driver usb
+Oct 12 20:24:20.748589 ROCKNIX kernel: pps_core: LinuxPPS API ver. 1 registered
+Oct 12 20:24:20.748591 ROCKNIX kernel: pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+Oct 12 20:24:20.748593 ROCKNIX kernel: PTP clock support registered
+Oct 12 20:24:20.748596 ROCKNIX kernel: efivars: Registered efivars operations
+Oct 12 20:24:20.748598 ROCKNIX kernel: Advanced Linux Sound Architecture Driver Initialized.
+Oct 12 20:24:20.748600 ROCKNIX kernel: PCI: Using ACPI for IRQ routing
+Oct 12 20:24:20.748603 ROCKNIX kernel: PCI: pci_cache_line_size set to 64 bytes
+Oct 12 20:24:20.748606 ROCKNIX kernel: e820: register RAM buffer resource [mem 0x0080b000-0x008fffff]
+Oct 12 20:24:20.748609 ROCKNIX kernel: e820: register RAM buffer resource [mem 0x00814000-0x008fffff]
+Oct 12 20:24:20.748611 ROCKNIX kernel: e820: register RAM buffer resource [mem 0x3ed3f000-0x3fffffff]
+Oct 12 20:24:20.748614 ROCKNIX kernel: e820: register RAM buffer resource [mem 0x3f8ed000-0x3fffffff]
+Oct 12 20:24:20.748616 ROCKNIX kernel: e820: register RAM buffer resource [mem 0x3fedc000-0x3fffffff]
+Oct 12 20:24:20.748618 ROCKNIX kernel: vgaarb: loaded
+Oct 12 20:24:20.748621 ROCKNIX kernel: clocksource: Switched to clocksource kvm-clock
+Oct 12 20:24:20.748623 ROCKNIX kernel: netfs: FS-Cache loaded
+Oct 12 20:24:20.748652 ROCKNIX kernel: acpi PNP0C01:00: Reserved [mem 0xe0000000-0xefffffff]
+Oct 12 20:24:20.748655 ROCKNIX kernel: pnp: PnP ACPI init
+Oct 12 20:24:20.748657 ROCKNIX kernel: pnp: PnP ACPI: found 4 devices
+Oct 12 20:24:20.748660 ROCKNIX kernel: clocksource: acpi_pm: mask: 0xffffff max_cycles: 0xffffff, max_idle_ns: 2085701024 ns
+Oct 12 20:24:20.748663 ROCKNIX kernel: NET: Registered PF_INET protocol family
+Oct 12 20:24:20.748666 ROCKNIX kernel: IP idents hash table entries: 8192 (order: 4, 65536 bytes, linear)
+Oct 12 20:24:20.748668 ROCKNIX kernel: tcp_listen_portaddr_hash hash table entries: 256 (order: 0, 4096 bytes, linear)
+Oct 12 20:24:20.748671 ROCKNIX kernel: Table-perturb hash table entries: 65536 (order: 6, 262144 bytes, linear)
+Oct 12 20:24:20.748673 ROCKNIX kernel: TCP established hash table entries: 4096 (order: 3, 32768 bytes, linear)
+Oct 12 20:24:20.748677 ROCKNIX kernel: TCP bind hash table entries: 4096 (order: 5, 131072 bytes, linear)
+Oct 12 20:24:20.748679 ROCKNIX kernel: TCP: Hash tables configured (established 4096 bind 4096)
+Oct 12 20:24:20.748682 ROCKNIX kernel: UDP hash table entries: 256 (order: 2, 16384 bytes, linear)
+Oct 12 20:24:20.748684 ROCKNIX kernel: NET: Registered PF_UNIX/PF_LOCAL protocol family
+Oct 12 20:24:20.748687 ROCKNIX kernel: RPC: Registered named UNIX socket transport module.
+Oct 12 20:24:20.748689 ROCKNIX kernel: RPC: Registered udp transport module.
+Oct 12 20:24:20.748693 ROCKNIX kernel: RPC: Registered tcp transport module.
+Oct 12 20:24:20.748695 ROCKNIX kernel: RPC: Registered tcp-with-tls transport module.
+Oct 12 20:24:20.748697 ROCKNIX kernel: RPC: Registered tcp NFSv4.1 backchannel transport module.
+Oct 12 20:24:20.748722 ROCKNIX kernel: pci 0000:00:03.0: ROM [mem 0xfff80000-0xffffffff pref]: can't claim; no compatible bridge window
+Oct 12 20:24:20.748750 ROCKNIX kernel: pci 0000:00:03.0: ROM [mem 0x40000000-0x4007ffff pref]: assigned
+Oct 12 20:24:20.748773 ROCKNIX kernel: pci_bus 0000:00: resource 4 [io  0x0000-0x0cf7 window]
+Oct 12 20:24:20.748796 ROCKNIX kernel: pci_bus 0000:00: resource 5 [io  0x0d00-0xffff window]
+Oct 12 20:24:20.748819 ROCKNIX kernel: pci_bus 0000:00: resource 6 [mem 0x000a0000-0x000bffff window]
+Oct 12 20:24:20.748840 ROCKNIX kernel: pci_bus 0000:00: resource 7 [mem 0x40000000-0xdfffffff window]
+Oct 12 20:24:20.748861 ROCKNIX kernel: pci_bus 0000:00: resource 8 [mem 0xf0000000-0xfebfffff window]
+Oct 12 20:24:20.748883 ROCKNIX kernel: pci_bus 0000:00: resource 9 [mem 0x800000000-0xfffffffff window]
+Oct 12 20:24:20.748887 ROCKNIX kernel: ACPI: \_SB_.GSIE: Enabled at IRQ 20
+Oct 12 20:24:20.748890 ROCKNIX kernel: PCI: CLS 0 bytes, default 64
+Oct 12 20:24:20.748893 ROCKNIX kernel: RAPL PMU: API unit is 2^-32 Joules, 0 fixed counters, 10737418240 ms ovfl timer
+Oct 12 20:24:20.748896 ROCKNIX kernel: clocksource: tsc: mask: 0xffffffffffffffff max_cycles: 0x23fa772cf26, max_idle_ns: 440795269835 ns
+Oct 12 20:24:20.748898 ROCKNIX kernel: Initialise system trusted keyrings
+Oct 12 20:24:20.748901 ROCKNIX kernel: workingset: timestamp_bits=40 (anon: 36) max_order=18 bucket_order=0 (anon: 0)
+Oct 12 20:24:20.748903 ROCKNIX kernel: squashfs: version 4.0 (2009/01/31) Phillip Lougher
+Oct 12 20:24:20.748906 ROCKNIX kernel: NFS: Registering the id_resolver key type
+Oct 12 20:24:20.748908 ROCKNIX kernel: Key type id_resolver registered
+Oct 12 20:24:20.748910 ROCKNIX kernel: Key type id_legacy registered
+Oct 12 20:24:20.748913 ROCKNIX kernel: nfs4filelayout_init: NFSv4 File Layout Driver Registering...
+Oct 12 20:24:20.748915 ROCKNIX kernel: nfs4flexfilelayout_init: NFSv4 Flexfile Layout Driver Registering...
+Oct 12 20:24:20.748919 ROCKNIX kernel: cryptd: max_cpu_qlen set to 1000
+Oct 12 20:24:20.748921 ROCKNIX kernel: NET: Registered PF_ALG protocol family
+Oct 12 20:24:20.748924 ROCKNIX kernel: Key type asymmetric registered
+Oct 12 20:24:20.748926 ROCKNIX kernel: Asymmetric key parser 'x509' registered
+Oct 12 20:24:20.748929 ROCKNIX kernel: Block layer SCSI generic (bsg) driver version 0.4 loaded (major 246)
+Oct 12 20:24:20.748931 ROCKNIX kernel: io scheduler mq-deadline registered
+Oct 12 20:24:20.748933 ROCKNIX kernel: io scheduler kyber registered
+Oct 12 20:24:20.748941 ROCKNIX kernel: io scheduler bfq registered
+Oct 12 20:24:20.748944 ROCKNIX kernel: input: Power Button as /devices/platform/LNXPWRBN:00/input/input0
+Oct 12 20:24:20.748947 ROCKNIX kernel: ACPI: button: Power Button [PWRF]
+Oct 12 20:24:20.748949 ROCKNIX kernel: ACPI: \_SB_.GSIF: Enabled at IRQ 21
+Oct 12 20:24:20.748952 ROCKNIX kernel: ACPI: \_SB_.GSIG: Enabled at IRQ 22
+Oct 12 20:24:20.748954 ROCKNIX kernel: ACPI: \_SB_.GSIH: Enabled at IRQ 23
+Oct 12 20:24:20.748956 ROCKNIX kernel: Serial: 8250/16550 driver, 4 ports, IRQ sharing enabled
+Oct 12 20:24:20.748959 ROCKNIX kernel: 00:03: ttyS0 at I/O 0x3f8 (irq = 4, base_baud = 115200) is a 16550A
+Oct 12 20:24:20.748961 ROCKNIX kernel: ACPI: bus type drm_connector registered
+Oct 12 20:24:20.748964 ROCKNIX kernel: [drm] radeon kernel modesetting enabled.
+Oct 12 20:24:20.748966 ROCKNIX kernel: amdgpu: Virtual CRAT table created for CPU
+Oct 12 20:24:20.748969 ROCKNIX kernel: amdgpu: Topology: Add CPU node
+Oct 12 20:24:20.748972 ROCKNIX kernel: [drm] pci: virtio-gpu-pci detected at 0000:00:02.0
+Oct 12 20:24:20.748974 ROCKNIX kernel: [drm] features: -virgl +edid -resource_blob -host_visible
+Oct 12 20:24:20.748976 ROCKNIX kernel: [drm] features: -context_init
+Oct 12 20:24:20.748979 ROCKNIX kernel: [drm] number of scanouts: 1
+Oct 12 20:24:20.748982 ROCKNIX kernel: [drm] number of cap sets: 0
+Oct 12 20:24:20.748984 ROCKNIX kernel: [drm] Initialized virtio_gpu 0.1.0 for 0000:00:02.0 on minor 0
+Oct 12 20:24:20.748987 ROCKNIX kernel: Console: switching to colour frame buffer device 80x30
+Oct 12 20:24:20.749013 ROCKNIX kernel: virtio-pci 0000:00:02.0: [drm] fb0: virtio_gpudrmfb frame buffer device
+Oct 12 20:24:20.749017 ROCKNIX kernel: brd: module loaded
+Oct 12 20:24:20.749020 ROCKNIX kernel: loop: module loaded
+Oct 12 20:24:20.749049 ROCKNIX kernel: virtio_blk virtio0: 4/0/0 default/read/poll queues
+Oct 12 20:24:20.749073 ROCKNIX kernel: virtio_blk virtio0: [vda] 33554432 512-byte logical blocks (17.2 GB/16.0 GiB)
+Oct 12 20:24:20.749076 ROCKNIX kernel:  vda: vda1 vda2
+Oct 12 20:24:20.749080 ROCKNIX kernel: usbcore: registered new interface driver rtsx_usb
+Oct 12 20:24:20.749083 ROCKNIX kernel: megasas: 07.734.00.00-rc1
+Oct 12 20:24:20.749085 ROCKNIX kernel: ACPI: \_SB_.GSIA: Enabled at IRQ 16
+Oct 12 20:24:20.749110 ROCKNIX kernel: ahci 0000:00:1f.2: AHCI vers 0001.0000, 32 command slots, 1.5 Gbps, SATA mode
+Oct 12 20:24:20.749134 ROCKNIX kernel: ahci 0000:00:1f.2: 6/6 ports implemented (port mask 0x3f)
+Oct 12 20:24:20.749158 ROCKNIX kernel: ahci 0000:00:1f.2: flags: 64bit ncq only
+Oct 12 20:24:20.749189 ROCKNIX kernel: scsi host0: ahci
+Oct 12 20:24:20.749218 ROCKNIX kernel: scsi host1: ahci
+Oct 12 20:24:20.749246 ROCKNIX kernel: scsi host2: ahci
+Oct 12 20:24:20.749275 ROCKNIX kernel: scsi host3: ahci
+Oct 12 20:24:20.749304 ROCKNIX kernel: scsi host4: ahci
+Oct 12 20:24:20.749332 ROCKNIX kernel: scsi host5: ahci
+Oct 12 20:24:20.749336 ROCKNIX kernel: ata1: SATA max UDMA/133 abar m4096@0x80084000 port 0x80084100 irq 32 lpm-pol 1
+Oct 12 20:24:20.749338 ROCKNIX kernel: ata2: SATA max UDMA/133 abar m4096@0x80084000 port 0x80084180 irq 32 lpm-pol 1
+Oct 12 20:24:20.749341 ROCKNIX kernel: ata3: SATA max UDMA/133 abar m4096@0x80084000 port 0x80084200 irq 32 lpm-pol 1
+Oct 12 20:24:20.749343 ROCKNIX kernel: ata4: SATA max UDMA/133 abar m4096@0x80084000 port 0x80084280 irq 32 lpm-pol 1
+Oct 12 20:24:20.749346 ROCKNIX kernel: ata5: SATA max UDMA/133 abar m4096@0x80084000 port 0x80084300 irq 32 lpm-pol 1
+Oct 12 20:24:20.749348 ROCKNIX kernel: ata6: SATA max UDMA/133 abar m4096@0x80084000 port 0x80084380 irq 32 lpm-pol 1
+Oct 12 20:24:20.749350 ROCKNIX kernel: tun: Universal TUN/TAP device driver, 1.6
+Oct 12 20:24:20.749354 ROCKNIX kernel: cnic: QLogic cnicDriver v2.5.22 (July 20, 2015)
+Oct 12 20:24:20.749357 ROCKNIX kernel: e100: Intel(R) PRO/100 Network Driver
+Oct 12 20:24:20.749359 ROCKNIX kernel: e100: Copyright(c) 1999-2006 Intel Corporation
+Oct 12 20:24:20.749361 ROCKNIX kernel: e1000: Intel(R) PRO/1000 Network Driver
+Oct 12 20:24:20.749364 ROCKNIX kernel: e1000: Copyright (c) 1999-2006 Intel Corporation.
+Oct 12 20:24:20.749366 ROCKNIX kernel: e1000e: Intel(R) PRO/1000 Network Driver
+Oct 12 20:24:20.749368 ROCKNIX kernel: e1000e: Copyright(c) 1999 - 2015 Intel Corporation.
+Oct 12 20:24:20.749371 ROCKNIX kernel: igb: Intel(R) Gigabit Ethernet Network Driver
+Oct 12 20:24:20.749373 ROCKNIX kernel: igb: Copyright (c) 2007-2014 Intel Corporation.
+Oct 12 20:24:20.749378 ROCKNIX kernel: Intel(R) 2.5G Ethernet Linux Driver
+Oct 12 20:24:20.749381 ROCKNIX kernel: Copyright(c) 2018 Intel Corporation.
+Oct 12 20:24:20.749383 ROCKNIX kernel: ixgbe: Intel(R) 10 Gigabit PCI Express Network Driver
+Oct 12 20:24:20.749386 ROCKNIX kernel: ixgbe: Copyright (c) 1999-2016 Intel Corporation.
+Oct 12 20:24:20.749389 ROCKNIX kernel: ice: Intel(R) Ethernet Connection E800 Series Linux Driver
+Oct 12 20:24:20.749392 ROCKNIX kernel: ice: Copyright (c) 2018, Intel Corporation.
+Oct 12 20:24:20.749394 ROCKNIX kernel: jme: JMicron JMC2XX ethernet driver version 1.0.8
+Oct 12 20:24:20.749397 ROCKNIX kernel: sky2: driver version 1.30
+Oct 12 20:24:20.749423 ROCKNIX kernel: xhci_hcd 0000:00:04.0: xHCI Host Controller
+Oct 12 20:24:20.749448 ROCKNIX kernel: xhci_hcd 0000:00:04.0: new USB bus registered, assigned bus number 1
+Oct 12 20:24:20.749473 ROCKNIX kernel: xhci_hcd 0000:00:04.0: hcc params 0x00087001 hci version 0x100 quirks 0x0000000000000010
+Oct 12 20:24:20.749499 ROCKNIX kernel: xhci_hcd 0000:00:04.0: xHCI Host Controller
+Oct 12 20:24:20.749523 ROCKNIX kernel: xhci_hcd 0000:00:04.0: new USB bus registered, assigned bus number 2
+Oct 12 20:24:20.749548 ROCKNIX kernel: xhci_hcd 0000:00:04.0: Host supports USB 3.0 SuperSpeed
+Oct 12 20:24:20.749583 ROCKNIX kernel: hub 1-0:1.0: USB hub found
+Oct 12 20:24:20.749611 ROCKNIX kernel: hub 1-0:1.0: 4 ports detected
+Oct 12 20:24:20.749643 ROCKNIX kernel: usb usb2: We don't know the algorithms for LPM for this host, disabling LPM.
+Oct 12 20:24:20.749676 ROCKNIX kernel: hub 2-0:1.0: USB hub found
+Oct 12 20:24:20.749703 ROCKNIX kernel: hub 2-0:1.0: 4 ports detected
+Oct 12 20:24:20.749706 ROCKNIX kernel: usbcore: registered new interface driver uas
+Oct 12 20:24:20.749709 ROCKNIX kernel: usbcore: registered new interface driver usb-storage
+Oct 12 20:24:20.749711 ROCKNIX kernel: i8042: PNP: PS/2 Controller [PNP0303:KBD,PNP0f13:MOU] at 0x60,0x64 irq 1,12
+Oct 12 20:24:20.749714 ROCKNIX kernel: serio: i8042 KBD port at 0x60,0x64 irq 1
+Oct 12 20:24:20.749718 ROCKNIX kernel: serio: i8042 AUX port at 0x60,0x64 irq 12
+Oct 12 20:24:20.749720 ROCKNIX kernel: mousedev: PS/2 mouse device common for all mice
+Oct 12 20:24:20.749723 ROCKNIX kernel: input: AT Translated Set 2 keyboard as /devices/platform/i8042/serio0/input/input1
+Oct 12 20:24:20.749753 ROCKNIX kernel: rtc_cmos PNP0B00:00: RTC can wake from S4
+Oct 12 20:24:20.749778 ROCKNIX kernel: rtc_cmos PNP0B00:00: registered as rtc0
+Oct 12 20:24:20.749802 ROCKNIX kernel: rtc_cmos PNP0B00:00: setting system clock to 2026-10-13T00:24:19 UTC (1791851059)
+Oct 12 20:24:20.749826 ROCKNIX kernel: rtc_cmos PNP0B00:00: alarms up to one day, y3k, 242 bytes nvram
+Oct 12 20:24:20.749830 ROCKNIX kernel: i2c_dev: i2c /dev entries driver
+Oct 12 20:24:20.749859 ROCKNIX kernel: i801_smbus 0000:00:1f.3: Enabling SMBus device
+Oct 12 20:24:20.749883 ROCKNIX kernel: i801_smbus 0000:00:1f.3: SMBus using PCI interrupt
+Oct 12 20:24:20.749915 ROCKNIX kernel: i2c i2c-0: Memory type 0x07 not supported yet, not instantiating SPD
+Oct 12 20:24:20.749942 ROCKNIX kernel: i6300ESB timer 0000:00:07.0: initialized. heartbeat=30 sec (nowayout=0)
+Oct 12 20:24:20.749946 ROCKNIX kernel: intel_pstate: CPU model not supported
+Oct 12 20:24:20.749948 ROCKNIX kernel: pstore: Using crash dump compression: deflate
+Oct 12 20:24:20.749951 ROCKNIX kernel: pstore: Registered efi_pstore as persistent store backend
+Oct 12 20:24:20.749953 ROCKNIX kernel: hid: raw HID events driver (C) Jiri Kosina
+Oct 12 20:24:20.749956 ROCKNIX kernel: usbcore: registered new interface driver usbhid
+Oct 12 20:24:20.749958 ROCKNIX kernel: usbhid: USB HID core driver
+Oct 12 20:24:20.749961 ROCKNIX kernel: Initializing XFRM netlink socket
+Oct 12 20:24:20.749963 ROCKNIX kernel: NET: Registered PF_INET6 protocol family
+Oct 12 20:24:20.749965 ROCKNIX kernel: Segment Routing with IPv6
+Oct 12 20:24:20.749969 ROCKNIX kernel: In-situ OAM (IOAM) with IPv6
+Oct 12 20:24:20.749972 ROCKNIX kernel: NET: Registered PF_PACKET protocol family
+Oct 12 20:24:20.749974 ROCKNIX kernel: Key type dns_resolver registered
+Oct 12 20:24:20.749977 ROCKNIX kernel: IPI shorthand broadcast: enabled
+Oct 12 20:24:20.749979 ROCKNIX kernel: sched_clock: Marking stable (260001518, -2259958)->(264864184, -7122624)
+Oct 12 20:24:20.749982 ROCKNIX kernel: Loading compiled-in X.509 certificates
+Oct 12 20:24:20.749984 ROCKNIX kernel: Demotion targets for Node 0: null
+Oct 12 20:24:20.749987 ROCKNIX kernel: Btrfs loaded, zoned=no, fsverity=no
+Oct 12 20:24:20.749991 ROCKNIX kernel: netconsole: network logging started
+Oct 12 20:24:20.749993 ROCKNIX kernel: clk: Disabling unused clocks
+Oct 12 20:24:20.749996 ROCKNIX kernel: PM: genpd: Disabling unused power domains
+Oct 12 20:24:20.749999 ROCKNIX kernel: ALSA device list:
+Oct 12 20:24:20.750001 ROCKNIX kernel:   No soundcards found.
+Oct 12 20:24:20.750034 ROCKNIX kernel: usb 1-1: new high-speed USB device number 2 using xhci_hcd
+Oct 12 20:24:20.750037 ROCKNIX kernel: ata4: SATA link down (SStatus 0 SControl 300)
+Oct 12 20:24:20.750040 ROCKNIX kernel: ata3: SATA link up 1.5 Gbps (SStatus 113 SControl 300)
+Oct 12 20:24:20.750043 ROCKNIX kernel: ata5: SATA link down (SStatus 0 SControl 300)
+Oct 12 20:24:20.750045 ROCKNIX kernel: ata1: SATA link down (SStatus 0 SControl 300)
+Oct 12 20:24:20.750048 ROCKNIX kernel: ata3.00: ATAPI: QEMU DVD-ROM, 2.5+, max UDMA/100
+Oct 12 20:24:20.750050 ROCKNIX kernel: ata3.00: applying bridge limits
+Oct 12 20:24:20.750052 ROCKNIX kernel: ata2: SATA link down (SStatus 0 SControl 300)
+Oct 12 20:24:20.750055 ROCKNIX kernel: ata3.00: configured for UDMA/100
+Oct 12 20:24:20.750059 ROCKNIX kernel: ata6: SATA link down (SStatus 0 SControl 300)
+Oct 12 20:24:20.750092 ROCKNIX kernel: scsi 2:0:0:0: CD-ROM            QEMU     QEMU DVD-ROM     2.5+ PQ: 0 ANSI: 5
+Oct 12 20:24:20.750122 ROCKNIX kernel: sr 2:0:0:0: [sr0] scsi3-mmc drive: 4x/4x cd/rw xa/form2 tray
+Oct 12 20:24:20.750125 ROCKNIX kernel: input: QEMU QEMU USB Keyboard as /devices/pci0000:00/0000:00:04.0/usb1/1-1/1-1:1.0/0003:0627:0001.0001/input/input4
+Oct 12 20:24:20.750128 ROCKNIX kernel: cdrom: Uniform CD-ROM driver Revision: 3.20
+Oct 12 20:24:20.750156 ROCKNIX kernel: sr 2:0:0:0: Attached scsi CD-ROM sr0
+Oct 12 20:24:20.750159 ROCKNIX kernel: Freeing unused kernel image (initmem) memory: 12508K
+Oct 12 20:24:20.750162 ROCKNIX kernel: Write protecting the kernel read-only data: 210944k
+Oct 12 20:24:20.750164 ROCKNIX kernel: Freeing unused kernel image (text/rodata gap) memory: 1136K
+Oct 12 20:24:20.750167 ROCKNIX kernel: Freeing unused kernel image (rodata/data gap) memory: 1860K
+Oct 12 20:24:20.750169 ROCKNIX kernel: Run /init as init process
+Oct 12 20:24:20.750173 ROCKNIX kernel:   with arguments:
+Oct 12 20:24:20.750176 ROCKNIX kernel:     /init
+Oct 12 20:24:20.750178 ROCKNIX kernel:     portable
+Oct 12 20:24:20.750181 ROCKNIX kernel:   with environment:
+Oct 12 20:24:20.750183 ROCKNIX kernel:     HOME=/
+Oct 12 20:24:20.750186 ROCKNIX kernel:     TERM=linux
+Oct 12 20:24:20.750189 ROCKNIX kernel:     boot=LABEL=ROCKNIX
+Oct 12 20:24:20.750191 ROCKNIX kernel:     disk=LABEL=STORAGE
+Oct 12 20:24:20.750194 ROCKNIX kernel: input: ImExPS/2 Generic Explorer Mouse as /devices/platform/i8042/serio1/input/input3
+Oct 12 20:24:20.750197 ROCKNIX unknown: Checking disk(s):  LABEL=ROCKNIX LABEL=STORAGE
+Oct 12 20:24:20.750232 ROCKNIX kernel: hid-generic 0003:0627:0001.0001: input,hidraw0: USB HID v1.11 Keyboard [QEMU QEMU USB Keyboard] on usb-0000:00:04.0-1/input0
+Oct 12 20:24:20.750266 ROCKNIX kernel: usb 1-2: new high-speed USB device number 3 using xhci_hcd
+Oct 12 20:24:20.750270 ROCKNIX fsck: STORAGE: clean, 11/196608 files, 13560/3144699 blocks
+Oct 12 20:24:20.750273 ROCKNIX fsck: fsck.fat 4.2 (2021-01-31)
+Oct 12 20:24:20.750276 ROCKNIX fsck: There are differences between boot sector and its backup.
+Oct 12 20:24:20.750278 ROCKNIX fsck: This is mostly harmless.
+Oct 12 20:24:20.750281 ROCKNIX fsck: Not automatically fixing this.
+Oct 12 20:24:20.750284 ROCKNIX fsck: /dev/vda1: 14 files, 506037/1046527 clusters
+Oct 12 20:24:20.750287 ROCKNIX kernel: input: QEMU QEMU USB Tablet as /devices/pci0000:00/0000:00:04.0/usb1/1-2/1-2:1.0/0003:0627:0001.0002/input/input5
+Oct 12 20:24:20.750321 ROCKNIX kernel: hid-generic 0003:0627:0001.0002: input,hidraw1: USB HID v0.01 Mouse [QEMU QEMU USB Tablet] on usb-0000:00:04.0-2/input0
+Oct 12 20:24:20.750326 ROCKNIX kernel: loop0: detected capacity change from 0 to 3954344
+Oct 12 20:24:20.750329 ROCKNIX kernel: EXT4-fs (vda2): mounted filesystem 64545fff-c506-4310-b501-e839c82ece9c r/w with ordered data mode. Quota mode: disabled.
+Oct 12 20:24:20.750331 ROCKNIX kernel-overlays-setup: setup base modules
+Oct 12 20:24:20.750334 ROCKNIX kernel-overlays-setup: added modules from /usr/lib/kernel-overlays/base/lib/modules/7.1.2
+Oct 12 20:24:20.750337 ROCKNIX kernel-overlays-setup: added firmware from /usr/lib/kernel-overlays/base/lib/firmware
+Oct 12 20:24:20.750340 ROCKNIX kernel-overlays-setup: done
+Oct 12 20:24:20.750343 ROCKNIX systemd[1]: systemd 255.8 running in system mode (-PAM -AUDIT -SELINUX -APPARMOR -IMA -SMACK -SECCOMP +GCRYPT -GNUTLS +OPENSSL -ACL +BLKID -CURL -ELFUTILS -FIDO2 +IDN2 -IDN -IPTC +KMOD -LIBCRYPTSETUP -LIBFDISK +PCRE2 -PWQUALITY -P11KIT -QRENCODE -TPM2 -BZIP2 -LZ4 -XZ -ZLIB +ZSTD -BPF_FRAMEWORK -XKBCOMMON +UTMP +SYSVINIT default-hierarchy=hybrid)
+Oct 12 20:24:20.750347 ROCKNIX systemd[1]: Detected virtualization kvm.
+Oct 12 20:24:20.750353 ROCKNIX systemd[1]: Detected architecture x86-64.
+Oct 12 20:24:20.750356 ROCKNIX systemd[1]: Detected first boot.
+Oct 12 20:24:20.750359 ROCKNIX kernel: /proc/cgroups lists only v1 controllers, use cgroup.controllers of root cgroup for v2 info
+Oct 12 20:24:20.750361 ROCKNIX systemd[1]: Using hardware watchdog 'i6300ESB timer', version 0, device /dev/watchdog0
+Oct 12 20:24:20.750364 ROCKNIX systemd[1]: Watchdog running with a hardware timeout of 15s.
+Oct 12 20:24:20.750367 ROCKNIX systemd[1]: Populated /etc with preset unit settings.
+Oct 12 20:24:20.750369 ROCKNIX systemd[1]: multi-user.target: Wants dependency dropin /usr/lib/systemd/system/multi-user.target.wants/sixaxis@.service target ../sixaxis@.service has different name
+Oct 12 20:24:20.750372 ROCKNIX systemd[1]: Queued start job for default target rocknix.target.
+Oct 12 20:24:20.750375 ROCKNIX systemd[1]: Created slice system-modprobe.slice.
+Oct 12 20:24:20.750380 ROCKNIX systemd[1]: Created slice system-sixaxis.slice.
+Oct 12 20:24:20.750383 ROCKNIX systemd[1]: Created slice user.slice.
+Oct 12 20:24:20.750387 ROCKNIX systemd[1]: Started systemd-ask-password-console.path.
+Oct 12 20:24:20.750390 ROCKNIX systemd[1]: Started systemd-ask-password-wall.path.
+Oct 12 20:24:20.750393 ROCKNIX systemd[1]: Set up automount proc-sys-fs-binfmt_misc.automount.
+Oct 12 20:24:20.750395 ROCKNIX systemd[1]: Reached target paths.target.
+Oct 12 20:24:20.750398 ROCKNIX systemd[1]: Reached target slices.target.
+Oct 12 20:24:20.750400 ROCKNIX systemd[1]: Reached target swap.target.
+Oct 12 20:24:20.750403 ROCKNIX systemd[1]: Listening on rpcbind.socket.
+Oct 12 20:24:20.750406 ROCKNIX systemd[1]: Reached target rpcbind.target.
+Oct 12 20:24:20.750408 ROCKNIX systemd[1]: Listening on systemd-initctl.socket.
+Oct 12 20:24:20.750411 ROCKNIX systemd[1]: systemd-journald-dev-log.socket: SO_PASSSEC failed: Operation not supported
+Oct 12 20:24:20.750414 ROCKNIX systemd[1]: Listening on systemd-journald-dev-log.socket.
+Oct 12 20:24:20.750417 ROCKNIX systemd[1]: systemd-journald.socket: SO_PASSSEC failed: Operation not supported
+Oct 12 20:24:20.750420 ROCKNIX systemd[1]: systemd-journald.socket: SO_PASSSEC failed: Operation not supported
+Oct 12 20:24:20.750423 ROCKNIX systemd[1]: Listening on systemd-journald.socket.
+Oct 12 20:24:20.750426 ROCKNIX systemd[1]: Listening on systemd-udevd-control.socket.
+Oct 12 20:24:20.750428 ROCKNIX systemd[1]: Listening on systemd-udevd-kernel.socket.
+Oct 12 20:24:20.750431 ROCKNIX systemd[1]: Mounting dev-mqueue.mount...
+Oct 12 20:24:20.750433 ROCKNIX systemd[1]: Mounting proc-sys-fs-binfmt_misc.mount...
+Oct 12 20:24:20.750436 ROCKNIX systemd[1]: Mounting sys-kernel-debug.mount...
+Oct 12 20:24:20.750439 ROCKNIX systemd[1]: Mounting sys-kernel-tracing.mount...
+Oct 12 20:24:20.750441 ROCKNIX systemd[1]: Mounting tmp.mount...
+Oct 12 20:24:20.750444 ROCKNIX systemd[1]: Mounting var.mount...
+Oct 12 20:24:20.750447 ROCKNIX systemd[1]: Started debug-shell.service.
+Oct 12 20:24:20.750450 ROCKNIX systemd[1]: Starting kmod-static-nodes.service...
+Oct 12 20:24:20.750453 ROCKNIX systemd[1]: Starting machine-id.service...
+Oct 12 20:24:20.750455 ROCKNIX systemd[1]: Starting modprobe@configfs.service...
+Oct 12 20:24:20.750458 ROCKNIX systemd[1]: Starting modprobe@drm.service...
+Oct 12 20:24:20.750460 ROCKNIX systemd[1]: Starting modprobe@fuse.service...
+Oct 12 20:24:20.750463 ROCKNIX systemd[1]: Starting show-version.service...
+Oct 12 20:24:20.750466 ROCKNIX systemd[1]: Starting storage-log.service...
+Oct 12 20:24:20.750468 ROCKNIX kernel: fuse: init (API version 7.45)
+Oct 12 20:24:20.750471 ROCKNIX systemd[1]: Starting systemd-hwdb-update.service...
+Oct 12 20:24:20.750475 ROCKNIX systemd[1]: Starting systemd-modules-load.service...
+Oct 12 20:24:20.750478 ROCKNIX systemd[1]: Starting systemd-timesyncd-setup.service...
+Oct 12 20:24:20.750480 ROCKNIX systemd[1]: Starting systemd-udev-trigger.service...
+Oct 12 20:24:20.750483 ROCKNIX systemd[1]: Mounted dev-mqueue.mount.
+Oct 12 20:24:20.750485 ROCKNIX systemd[1]: Mounted proc-sys-fs-binfmt_misc.mount.
+Oct 12 20:24:20.750488 ROCKNIX systemd[1]: Mounted sys-kernel-debug.mount.
+Oct 12 20:24:20.750491 ROCKNIX systemd[1]: Mounted sys-kernel-tracing.mount.
+Oct 12 20:24:20.750493 ROCKNIX systemd[1]: Mounted tmp.mount.
+Oct 12 20:24:20.750496 ROCKNIX systemd[1]: Mounted var.mount.
+Oct 12 20:24:20.750499 ROCKNIX systemd[1]: Finished kmod-static-nodes.service.
+Oct 12 20:24:20.750501 ROCKNIX systemd[1]: modprobe@configfs.service: Deactivated successfully.
+Oct 12 20:24:20.750504 ROCKNIX systemd[1]: Finished modprobe@configfs.service.
+Oct 12 20:24:20.750507 ROCKNIX systemd[1]: modprobe@drm.service: Deactivated successfully.
+Oct 12 20:24:20.750510 ROCKNIX systemd[1]: Finished modprobe@drm.service.
+Oct 12 20:24:20.750513 ROCKNIX systemd[1]: modprobe@fuse.service: Deactivated successfully.
+Oct 12 20:24:20.750515 ROCKNIX systemd[1]: Finished modprobe@fuse.service.
+Oct 12 20:24:20.750518 ROCKNIX systemd[1]: Finished show-version.service.
+Oct 12 20:24:20.750523 ROCKNIX systemd[1]: Finished storage-log.service.
+Oct 12 20:24:20.750525 ROCKNIX systemd[1]: Mounting sys-fs-fuse-connections.mount...
+Oct 12 20:24:20.750528 ROCKNIX systemd[1]: Mounting sys-kernel-config.mount...
+Oct 12 20:24:20.750531 ROCKNIX systemd[1]: Starting systemd-tmpfiles-setup-dev-early.service...
+Oct 12 20:24:20.750533 ROCKNIX systemd[1]: Mounted sys-fs-fuse-connections.mount.
+Oct 12 20:24:20.750536 ROCKNIX systemd[1]: Mounted sys-kernel-config.mount.
+Oct 12 20:24:20.750539 ROCKNIX systemd[1]: Finished systemd-timesyncd-setup.service.
+Oct 12 20:24:20.750543 ROCKNIX kernel: Asymmetric key parser 'pkcs8' registered
+Oct 12 20:24:20.750545 ROCKNIX systemd[1]: Finished systemd-modules-load.service.
+Oct 12 20:24:20.750548 ROCKNIX systemd[1]: Starting systemd-sysctl.service...
+Oct 12 20:24:20.750550 ROCKNIX systemd[1]: Finished machine-id.service.
+Oct 12 20:24:20.750553 ROCKNIX systemd[1]: Starting systemd-journald.service...
+Oct 12 20:24:20.750556 ROCKNIX systemd[1]: Finished systemd-sysctl.service.
+Oct 12 20:24:20.750558 ROCKNIX systemd[1]: Finished systemd-tmpfiles-setup-dev-early.service.
+Oct 12 20:24:20.750570 ROCKNIX systemd-journald[258]: Collecting audit messages is disabled.
+Oct 12 20:24:20.750581 ROCKNIX systemd-journald[258]: Journal started
+Oct 12 20:24:20.750589 ROCKNIX systemd-journald[258]: Runtime Journal (/run/log/journal/425c48619cd6db25c6b803496acd7a34) is 512.0K, max 2.0M, 1.5M free.
+Oct 12 20:24:20.729201 ROCKNIX systemd-modules-load[239]: Inserted module 'pkcs8_key_parser'
+Oct 12 20:24:20.759483 ROCKNIX systemd[1]: Starting systemd-resolved.service...
+Oct 12 20:24:20.759524 ROCKNIX systemd[1]: Starting systemd-tmpfiles-setup-dev.service...
+Oct 12 20:24:20.759531 ROCKNIX systemd[1]: Started systemd-journald.service.
+Oct 12 20:24:20.765909 ROCKNIX systemd[1]: Finished systemd-tmpfiles-setup-dev.service.
+Oct 12 20:24:20.768177 ROCKNIX systemd[1]: Reached target local-fs-pre.target.
+Oct 12 20:24:20.769747 ROCKNIX systemd[1]: Mounting var-log.mount...
+Oct 12 20:24:20.771883 ROCKNIX systemd[1]: Mounted var-log.mount.
+Oct 12 20:24:20.771965 ROCKNIX systemd[1]: Reached target local-fs.target.
+Oct 12 20:24:20.774514 ROCKNIX systemd-resolved[260]: Positive Trust Anchors:
+Oct 12 20:24:20.774520 ROCKNIX systemd-resolved[260]: . IN DS 20326 8 2 e06d44b80b8f1d39a95c0b0d7c65d08458e880409bbc683457104237c7f8ec8d
+Oct 12 20:24:20.774533 ROCKNIX systemd-resolved[260]: Negative trust anchors: home.arpa 10.in-addr.arpa 16.172.in-addr.arpa 17.172.in-addr.arpa 18.172.in-addr.arpa 19.172.in-addr.arpa 20.172.in-addr.arpa 21.172.in-addr.arpa 22.172.in-addr.arpa 23.172.in-addr.arpa 24.172.in-addr.arpa 25.172.in-addr.arpa 26.172.in-addr.arpa 27.172.in-addr.arpa 28.172.in-addr.arpa 29.172.in-addr.arpa 30.172.in-addr.arpa 31.172.in-addr.arpa 170.0.0.192.in-addr.arpa 171.0.0.192.in-addr.arpa 168.192.in-addr.arpa d.f.ip6.arpa ipv4only.arpa resolver.arpa corp home internal intranet lan local private test
+Oct 12 20:24:20.776659 ROCKNIX systemd[1]: Listening on systemd-sysext.socket.
+Oct 12 20:24:20.777158 ROCKNIX systemd[1]: Starting rocknix-memory-manager.service...
+Oct 12 20:24:20.778052 ROCKNIX systemd[1]: systemd-binfmt.service was skipped because no trigger condition checks were met.
+Oct 12 20:24:20.778480 ROCKNIX systemd[1]: Starting systemd-journal-flush.service...
+Oct 12 20:24:20.781321 ROCKNIX systemd-resolved[260]: Using system hostname 'ROCKNIX'.
+Oct 12 20:24:20.782012 ROCKNIX systemd[1]: Started systemd-resolved.service.
+Oct 12 20:24:20.782034 ROCKNIX systemd[1]: Reached target nss-lookup.target.
+Oct 12 20:24:20.784465 ROCKNIX systemd-journald[258]: Time spent on flushing to /var/log/journal/425c48619cd6db25c6b803496acd7a34 is 8.648ms for 606 entries.
+Oct 12 20:24:20.784465 ROCKNIX systemd-journald[258]: System Journal (/var/log/journal/425c48619cd6db25c6b803496acd7a34) is 8.0M, max 64.0M, 56.0M free.
+Oct 12 20:24:20.833837 ROCKNIX systemd-journald[258]: Received client request to flush runtime journal.
+Oct 12 20:24:20.833854 ROCKNIX kernel: khugepaged: raising min_free_kbytes from 16384 to 39288 to help transparent hugepage allocations
+Oct 12 20:24:20.794883 ROCKNIX memory-manager[302]: THP: enabled=madvise
+Oct 12 20:24:20.792283 ROCKNIX systemd[1]: Finished systemd-udev-trigger.service.
+Oct 12 20:24:20.795832 ROCKNIX memory-manager[303]: THP: Budget mode enabled (defrag=defer)
+Oct 12 20:24:20.797069 ROCKNIX systemd[1]: Finished rocknix-memory-manager.service.
+Oct 12 20:24:20.834338 ROCKNIX systemd[1]: Finished systemd-journal-flush.service.
+Oct 12 20:24:20.851998 ROCKNIX systemd[1]: Starting systemd-tmpfiles-setup.service...
+Oct 12 20:24:20.884646 ROCKNIX systemd[1]: Finished systemd-tmpfiles-setup.service.
+Oct 12 20:24:20.884874 ROCKNIX systemd[1]: debugconfig.service was skipped because no trigger condition checks were met.
+Oct 12 20:24:20.885256 ROCKNIX systemd[1]: Starting openssl-config.service...
+Oct 12 20:24:20.885726 ROCKNIX systemd[1]: Starting rpcbind.service...
+Oct 12 20:24:20.885983 ROCKNIX systemd[1]: Starting systemd-journal-catalog-update.service...
+Oct 12 20:24:20.887446 ROCKNIX systemd[1]: Starting systemd-timesyncd.service...
+Oct 12 20:24:20.887695 ROCKNIX systemd[1]: Starting systemd-update-utmp.service...
+Oct 12 20:24:20.889195 ROCKNIX systemd[1]: Starting tz-data.service...
+Oct 12 20:24:20.914259 ROCKNIX systemd[1]: Starting usercache.service...
+Oct 12 20:24:20.914837 ROCKNIX systemd[1]: Starting userconfig.service...
+Oct 12 20:24:20.915097 ROCKNIX systemd[1]: Finished openssl-config.service.
+Oct 12 20:24:20.919938 ROCKNIX systemd[1]: Finished systemd-update-utmp.service.
+Oct 12 20:24:20.920904 ROCKNIX journalctl[314]: No items in catalog.
+Oct 12 20:24:20.921140 ROCKNIX systemd[1]: Finished systemd-journal-catalog-update.service.
+Oct 12 20:24:21.076774 ROCKNIX systemd[1]: Finished tz-data.service.
+Oct 12 20:24:21.155256 ROCKNIX systemd[1]: Finished usercache.service.
+Oct 12 20:24:21.305137 ROCKNIX (rpcbind)[313]: rpcbind.service: Referenced but unset environment variable evaluates to an empty string: RPCBIND_OPTIONS
+Oct 12 20:24:21.313090 ROCKNIX systemd[1]: Started rpcbind.service.
+Oct 12 20:24:21.314070 ROCKNIX systemd[1]: Started systemd-timesyncd.service.
+Oct 12 20:24:21.314128 ROCKNIX systemd[1]: Reached target time-set.target.
+Oct 12 20:24:21.316170 ROCKNIX systemd-resolved[260]: Switching to fallback DNS server 8.8.8.8.
+Oct 12 20:24:21.325250 ROCKNIX systemd[1]: Finished systemd-hwdb-update.service.
+Oct 12 20:24:21.364864 ROCKNIX systemd[1]: Starting systemd-udevd.service...
+Oct 12 20:24:21.367832 ROCKNIX systemd-udevd[336]: Using default interface naming scheme 'v255'.
+Oct 12 20:24:21.376857 ROCKNIX systemd[1]: Started systemd-udevd.service.
+Oct 12 20:24:21.376915 ROCKNIX systemd[1]: Reached target sysinit.target.
+Oct 12 20:24:21.376941 ROCKNIX systemd[1]: Started rocknix-evidence.timer.
+Oct 12 20:24:21.376951 ROCKNIX systemd[1]: Started systemd-tmpfiles-clean.timer.
+Oct 12 20:24:21.376960 ROCKNIX systemd[1]: Reached target timers.target.
+Oct 12 20:24:21.377457 ROCKNIX systemd[1]: Listening on dbus.socket.
+Oct 12 20:24:21.377951 ROCKNIX systemd[1]: Listening on pipewire-pulse.socket.
+Oct 12 20:24:21.378450 ROCKNIX systemd[1]: Starting pipewire.socket...
+Oct 12 20:24:21.380553 ROCKNIX systemd[1]: Listening on pipewire.socket.
+Oct 12 20:24:21.380730 ROCKNIX systemd[1]: Reached target sockets.target.
+Oct 12 20:24:21.380740 ROCKNIX systemd[1]: Reached target basic.target.
+Oct 12 20:24:21.380816 ROCKNIX systemd[1]: System is tainted: cgroupsv1
+Oct 12 20:24:21.381347 ROCKNIX (udev-worker)[343]: mmcblk: /usr/lib/udev/rules.d/10-bfq-sched.rules:1 Failed to write ATTR{/sys/module/mmcblk/queue/scheduler}, ignoring: No such file or directory
+Oct 12 20:24:21.382121 ROCKNIX systemd[1]: Starting avahi-defaults.service...
+Oct 12 20:24:21.382704 ROCKNIX systemd[1]: Starting dbus.service...
+Oct 12 20:24:21.389216 ROCKNIX systemd[1]: Starting iwd.service...
+Oct 12 20:24:21.389838 ROCKNIX systemd[1]: Started pipewire.service.
+Oct 12 20:24:21.391548 ROCKNIX systemd[1]: Started serial-debug-shell.service.
+Oct 12 20:24:21.393408 ROCKNIX systemd[1]: Started sixaxis@multi-user.service.
+Oct 12 20:24:21.394078 ROCKNIX systemd[1]: Started sway-touch.service.
+Oct 12 20:24:21.399684 ROCKNIX systemd[1]: Starting systemd-logind.service...
+Oct 12 20:24:21.401606 ROCKNIX systemd[1]: Started touchkeyboard.service.
+Oct 12 20:24:21.404643 ROCKNIX systemd-timesyncd[315]: Network configuration changed, trying to establish connection.
+Oct 12 20:24:21.406248 ROCKNIX systemd[1]: Started wireplumber.service.
+Oct 12 20:24:21.410557 ROCKNIX systemd[1]: Starting pipewire-pulse.service...
+Oct 12 20:24:21.411231 ROCKNIX (udev-worker)[337]: 0000:00:04.0: Process '/usr/bin/sh -c 'echo disabled > /sys/devices/pci0000:00/0000:00:04.0/power/wakeup'' failed with exit code 1.
+Oct 12 20:24:21.412944 ROCKNIX systemd[1]: Started wsdd2.service.
+Oct 12 20:24:21.413487 ROCKNIX systemd[1]: Finished avahi-defaults.service.
+Oct 12 20:24:21.413593 ROCKNIX systemd[1]: sixaxis@multi-user.service: Deactivated successfully.
+Oct 12 20:24:21.417414 ROCKNIX systemd[1]: Started pipewire-pulse.service.
+Oct 12 20:24:21.422266 ROCKNIX (udev-worker)[345]: mmcblk: /usr/lib/udev/rules.d/10-bfq-sched.rules:1 Failed to write ATTR{/sys/bus/mmc/drivers/mmcblk/queue/scheduler}, ignoring: No such file or directory
+Oct 12 20:24:21.424072 ROCKNIX sway-touch.sh[354]: /usr/bin/sway-touch.sh: line 7: [: =: unary operator expected
+Oct 12 20:24:21.424208 ROCKNIX (udev-worker)[340]: eth0: Process '/usr/sbin/ethtool -s eth0 wol g' failed with exit code 75.
+Oct 12 20:24:21.424210 ROCKNIX systemd[1]: sway-touch.service: Deactivated successfully.
+Oct 12 20:24:21.425923 ROCKNIX systemd-timesyncd[315]: Network configuration changed, trying to establish connection.
+Oct 12 20:24:21.426081 ROCKNIX systemd-timesyncd[315]: Network configuration changed, trying to establish connection.
+Oct 12 20:24:21.438172 ROCKNIX rocknix-touchscreen-keyboard[392]: awk: /storage/.config/system/configs/system.cfg: No such file or directory
+Oct 12 20:24:21.625151 ROCKNIX rocknix-touchscreen-keyboard[399]: awk: /storage/.config/system/configs/system.cfg: No such file or directory
+Oct 12 20:24:21.627970 ROCKNIX rocknix-touchscreen-keyboard[402]: awk: /storage/.config/system/configs/system.cfg: No such file or directory
+Oct 12 20:24:21.851326 ROCKNIX systemd-logind[355]: New seat seat0.
+Oct 12 20:24:21.929574 ROCKNIX systemd[1]: Mounting tmp-assets.mount...
+Oct 12 20:24:21.930815 ROCKNIX systemd[1]: Mounting tmp-cores.mount...
+Oct 12 20:24:21.930815 ROCKNIX (udev-worker)[340]: rtc0: Process '/sbin/hwclock --hctosys --utc --rtc=/dev/rtc0' failed with exit code 1.
+Oct 12 20:24:21.931149 ROCKNIX systemd[1]: Mounting tmp-database.mount...
+Oct 12 20:24:21.944947 ROCKNIX systemd[1]: Mounting tmp-joypads.mount...
+Oct 12 20:24:21.980230 ROCKNIX systemd[1]: Mounting tmp-overlays.mount...
+Oct 12 20:24:22.019298 ROCKNIX systemd[1]: Mounting tmp-shaders.mount...
+Oct 12 20:24:22.019455 ROCKNIX systemd[1]: Started systemd-logind.service.
+Oct 12 20:24:22.045454 ROCKNIX (udev-worker)[338]: event1: Process '/usr/bin/killall input_sense' failed with exit code 1.
+Oct 12 20:24:22.046568 ROCKNIX dbus-daemon[349]: Failed to drop supplementary groups: Operation not permitted
+Oct 12 20:24:22.046715 ROCKNIX systemd[1]: Started dbus.service.
+Oct 12 20:24:22.048084 ROCKNIX systemd-logind[355]: Watching system buttons on /dev/input/event1 (AT Translated Set 2 keyboard)
+Oct 12 20:24:22.050578 ROCKNIX (udev-worker)[342]: event0: Process '/usr/bin/killall input_sense' failed with exit code 1.
+Oct 12 20:24:22.050681 ROCKNIX systemd-logind[355]: Watching system buttons on /dev/input/event0 (Power Button)
+Oct 12 20:24:22.105582 ROCKNIX (udev-worker)[344]: event2: Process '/usr/bin/killall input_sense' failed with exit code 1.
+Oct 12 20:24:22.105844 ROCKNIX systemd-logind[355]: Watching system buttons on /dev/input/event2 (QEMU QEMU USB Keyboard)
+Oct 12 20:24:22.106594 ROCKNIX (udev-worker)[337]: event4: Process '/usr/bin/killall input_sense' failed with exit code 1.
+Oct 12 20:24:22.106915 ROCKNIX systemd[1]: Mounted tmp-cores.mount.
+Oct 12 20:24:22.109697 ROCKNIX (udev-worker)[343]: event3: Process '/usr/bin/killall input_sense' failed with exit code 1.
+Oct 12 20:24:22.174729 ROCKNIX systemd[1]: Mounted tmp-overlays.mount.
+Oct 12 20:24:22.175551 ROCKNIX systemd[1]: Mounted tmp-assets.mount.
+Oct 12 20:24:22.183252 ROCKNIX systemd[1]: Mounted tmp-database.mount.
+Oct 12 20:24:22.185054 ROCKNIX kernel: snd_hda_codec_generic hdaudioC1D0: autoconfig for Generic: line_outs=1 (0x3/0x0/0x0/0x0/0x0) type:line
+Oct 12 20:24:22.185156 ROCKNIX kernel: snd_hda_codec_generic hdaudioC1D0:    speaker_outs=0 (0x0/0x0/0x0/0x0/0x0)
+Oct 12 20:24:22.185196 ROCKNIX kernel: snd_hda_codec_generic hdaudioC1D0:    hp_outs=0 (0x0/0x0/0x0/0x0/0x0)
+Oct 12 20:24:22.185238 ROCKNIX kernel: snd_hda_codec_generic hdaudioC1D0:    mono: mono_out=0x0
+Oct 12 20:24:22.185272 ROCKNIX kernel: snd_hda_codec_generic hdaudioC1D0:    inputs:
+Oct 12 20:24:22.185305 ROCKNIX kernel: snd_hda_codec_generic hdaudioC1D0:      Line=0x5
+Oct 12 20:24:22.184678 ROCKNIX systemd[1]: Mounted tmp-joypads.mount.
+Oct 12 20:24:22.196171 ROCKNIX systemd[1]: Mounted tmp-shaders.mount.
+Oct 12 20:24:22.202660 ROCKNIX pipewire-pulse[364]: mod.protocol-pulse: Failed to acquire org.pulseaudio.Server: org.freedesktop.DBus.Error.AccessDenied: Connection ":1.5" is not allowed to own the service "org.pulseaudio.Server" due to security policies in the configuration file
+Oct 12 20:24:22.209556 ROCKNIX iwd[350]: Wireless daemon version 3.12
+Oct 12 20:24:22.214164 ROCKNIX iwd[350]: Loaded configuration from /etc/iwd/main.conf
+Oct 12 20:24:22.216111 ROCKNIX systemd[1]: Started iwd.service.
+Oct 12 20:24:22.238267 ROCKNIX systemd[1]: Listening on systemd-rfkill.socket.
+Oct 12 20:24:22.239796 ROCKNIX (udev-worker)[338]: controlC1: Process '/usr/sbin/alsactl restore 1' failed with exit code 99.
+Oct 12 20:24:22.240559 ROCKNIX systemd[1]: Reached target sound.target.
+Oct 12 20:24:22.242355 ROCKNIX wireplumber[357]: wp-internal-comp-loader: Loading profile 'main-systemwide'
+Oct 12 20:24:22.404435 ROCKNIX kernel: cfg80211: Loading compiled-in X.509 certificates for regulatory database
+Oct 12 20:24:22.427863 ROCKNIX kernel: Loaded X.509 cert 'sforshee: 00b28ddf47aef9cea7'
+Oct 12 20:24:22.427902 ROCKNIX kernel: Loaded X.509 cert 'wens: 61c038651aabdcf94bd0ac7ff06c7248db18c600'
+Oct 12 20:24:22.444385 ROCKNIX iwd[350]: station: Network configuration is disabled.
+Oct 12 20:24:22.794437 ROCKNIX kernel: clocksource: Watchdog remote CPU 2 read timed out
+Oct 12 20:24:22.843464 ROCKNIX wireplumber[357]: spa.bluez5: BlueZ system service is not available
+Oct 12 20:24:22.916864 ROCKNIX wsdd2[363]: cannot read additional dns hostnames from testparm
+Oct 12 20:24:22.929166 ROCKNIX wsdd2[363]: cannot read netbios name from testparm
+Oct 12 20:24:22.942270 ROCKNIX wsdd2[363]: cannot read netbios aliases from testparm
+Oct 12 20:24:22.953420 ROCKNIX wsdd2[363]: cannot read workgroup from testparm
+Oct 12 20:24:22.953498 ROCKNIX wsdd2[363]: starting.
+Oct 12 20:24:24.639218 ROCKNIX systemd[1]: Finished userconfig.service.
+Oct 12 20:24:24.647902 ROCKNIX systemd[1]: Started powerstate.service.
+Oct 12 20:24:24.648354 ROCKNIX systemd[1]: Starting rocknix-sysconfig.service...
+Oct 12 20:24:24.665506 ROCKNIX systemd[1]: Finished rocknix-sysconfig.service.
+Oct 12 20:24:24.666396 ROCKNIX systemd[1]: Starting network-base.service...
+Oct 12 20:24:24.705168 ROCKNIX network-base-setup[626]: device name was the shipped default (GENERIC_X64); it is now GENERIC-X64-15ca, this unit's own
+Oct 12 20:24:24.706469 GENERIC-X64-15ca systemd-resolved[260]: System hostname changed to 'GENERIC-X64-15ca'.
+Oct 12 20:24:24.710220 GENERIC-X64-15ca network-base-setup[633]: mDNS responder not up yet; it publishes GENERIC-X64-15ca.local when it starts
+Oct 12 20:24:24.713871 GENERIC-X64-15ca systemd[1]: Finished network-base.service.
+Oct 12 20:24:24.728134 GENERIC-X64-15ca systemd[1]: Starting NetworkManager.service...
+Oct 12 20:24:24.781534 GENERIC-X64-15ca NetworkManager[640]: <info>  [1791851064.7814] NetworkManager (version 1.51.4) is starting... (asserts:100, boot:5c6e3ea5-d976-4afc-9c5b-b06910a297fb)
+Oct 12 20:24:24.781540 GENERIC-X64-15ca NetworkManager[640]: <info>  [1791851064.7815] Read config: /etc/NetworkManager/NetworkManager.conf
+Oct 12 20:24:24.783924 GENERIC-X64-15ca NetworkManager[640]: <info>  [1791851064.7839] manager[0x20f9b760]: monitoring kernel firmware directory '/lib/firmware'.
+Oct 12 20:24:24.784173 GENERIC-X64-15ca dbus-daemon[349]: [system] Activating via systemd: service name='org.freedesktop.hostname1' unit='dbus-org.freedesktop.hostname1.service' requested by ':1.9' (uid=0 pid=640 comm="/usr/sbin/NetworkManager --no-daemon")
+Oct 12 20:24:24.785373 GENERIC-X64-15ca systemd[1]: Starting systemd-hostnamed.service...
+Oct 12 20:24:24.802700 GENERIC-X64-15ca systemd-timesyncd[315]: Network configuration changed, trying to establish connection.
+Oct 12 20:24:24.804792 GENERIC-X64-15ca systemd-timesyncd[315]: Network configuration changed, trying to establish connection.
+Oct 12 20:24:24.806733 GENERIC-X64-15ca systemd-timesyncd[315]: Network configuration changed, trying to establish connection.
+Oct 12 20:24:24.821183 GENERIC-X64-15ca dbus-daemon[349]: [system] Successfully activated service 'org.freedesktop.hostname1'
+Oct 12 20:24:24.821263 GENERIC-X64-15ca systemd[1]: Started systemd-hostnamed.service.
+Oct 12 20:24:24.822325 GENERIC-X64-15ca NetworkManager[640]: <info>  [1791851064.8223] hostname: hostname: using hostnamed
+Oct 12 20:24:24.822343 GENERIC-X64-15ca NetworkManager[640]: <info>  [1791851064.8223] hostname: static hostname changed from (none) to "GENERIC-X64-15ca"
+Oct 12 20:24:24.822505 GENERIC-X64-15ca NetworkManager[640]: <info>  [1791851064.8225] dns-mgr: init: dns=systemd-resolved rc-manager=unmanaged (auto), plugin=systemd-resolved
+Oct 12 20:24:24.822692 GENERIC-X64-15ca NetworkManager[640]: <info>  [1791851064.8226] manager[0x20f9b760]: rfkill: Wi-Fi hardware radio set enabled
+Oct 12 20:24:24.822698 GENERIC-X64-15ca NetworkManager[640]: <info>  [1791851064.8226] manager[0x20f9b760]: rfkill: WWAN hardware radio set enabled
+Oct 12 20:24:24.823802 GENERIC-X64-15ca NetworkManager[640]: <info>  [1791851064.8237] Loaded device plugin: NMAtmManager (/usr/lib/NetworkManager/1.51.4/libnm-device-plugin-adsl.so)
+Oct 12 20:24:24.825589 GENERIC-X64-15ca NetworkManager[640]: <info>  [1791851064.8255] Loaded device plugin: NMWifiFactory (/usr/lib/NetworkManager/1.51.4/libnm-device-plugin-wifi.so)
+Oct 12 20:24:24.825648 GENERIC-X64-15ca NetworkManager[640]: <info>  [1791851064.8256] manager: rfkill: Wi-Fi enabled by radio killswitch; enabled by state file
+Oct 12 20:24:24.825680 GENERIC-X64-15ca NetworkManager[640]: <info>  [1791851064.8256] manager: rfkill: WWAN enabled by radio killswitch; enabled by state file
+Oct 12 20:24:24.825697 GENERIC-X64-15ca NetworkManager[640]: <info>  [1791851064.8256] manager: Networking is enabled by state file
+Oct 12 20:24:24.825769 GENERIC-X64-15ca NetworkManager[640]: <info>  [1791851064.8257] settings: Loaded settings plugin: keyfile (internal)
+Oct 12 20:24:24.825783 GENERIC-X64-15ca dbus-daemon[349]: [system] Activating via systemd: service name='org.freedesktop.nm_dispatcher' unit='dbus-org.freedesktop.nm-dispatcher.service' requested by ':1.9' (uid=0 pid=640 comm="/usr/sbin/NetworkManager --no-daemon")
+Oct 12 20:24:24.825890 GENERIC-X64-15ca dbus-daemon[349]: [system] Activation via systemd failed for unit 'dbus-org.freedesktop.nm-dispatcher.service': Unit dbus-org.freedesktop.nm-dispatcher.service not found.
+Oct 12 20:24:24.826143 GENERIC-X64-15ca NetworkManager[640]: <info>  [1791851064.8261] dhcp: init: Using DHCP client 'internal'
+Oct 12 20:24:24.826249 GENERIC-X64-15ca NetworkManager[640]: <info>  [1791851064.8262] manager: (lo): new Loopback device (/org/freedesktop/NetworkManager/Devices/1)
+Oct 12 20:24:24.827224 GENERIC-X64-15ca NetworkManager[640]: <info>  [1791851064.8272] device (lo): state change: unmanaged -> unavailable (reason 'connection-assumed', managed-type: 'external')
+Oct 12 20:24:24.827376 GENERIC-X64-15ca NetworkManager[640]: <info>  [1791851064.8273] device (lo): state change: unavailable -> disconnected (reason 'connection-assumed', managed-type: 'external')
+Oct 12 20:24:24.827632 GENERIC-X64-15ca NetworkManager[640]: <info>  [1791851064.8276] device (lo): Activation: starting connection 'lo' (2bbb5595-9971-4455-82bc-58e91cad0dd1)
+Oct 12 20:24:24.827960 GENERIC-X64-15ca NetworkManager[640]: <info>  [1791851064.8279] manager: (eth0): new Ethernet device (/org/freedesktop/NetworkManager/Devices/2)
+Oct 12 20:24:24.828481 GENERIC-X64-15ca NetworkManager[640]: <info>  [1791851064.8284] settings: (eth0): created default wired connection 'Wired connection 1'
+Oct 12 20:24:24.828498 GENERIC-X64-15ca NetworkManager[640]: <info>  [1791851064.8284] device (eth0): state change: unmanaged -> unavailable (reason 'managed', managed-type: 'external')
+Oct 12 20:24:24.831840 GENERIC-X64-15ca dbus-daemon[349]: [system] Activating via systemd: service name='org.freedesktop.nm_dispatcher' unit='dbus-org.freedesktop.nm-dispatcher.service' requested by ':1.9' (uid=0 pid=640 comm="/usr/sbin/NetworkManager --no-daemon")
+Oct 12 20:24:24.831963 GENERIC-X64-15ca dbus-daemon[349]: [system] Activation via systemd failed for unit 'dbus-org.freedesktop.nm-dispatcher.service': Unit dbus-org.freedesktop.nm-dispatcher.service not found.
+Oct 12 20:24:24.832080 GENERIC-X64-15ca systemd[1]: Started NetworkManager.service.
+Oct 12 20:24:24.832212 GENERIC-X64-15ca systemd[1]: Reached target network.target.
+Oct 12 20:24:24.832686 GENERIC-X64-15ca NetworkManager[640]: <info>  [1791851064.8326] bus-manager: acquired D-Bus service "org.freedesktop.NetworkManager"
+Oct 12 20:24:24.832867 GENERIC-X64-15ca NetworkManager[640]: <info>  [1791851064.8328] device (lo): state change: disconnected -> prepare (reason 'none', managed-type: 'external')
+Oct 12 20:24:24.832943 GENERIC-X64-15ca NetworkManager[640]: <info>  [1791851064.8329] device (lo): state change: prepare -> config (reason 'none', managed-type: 'external')
+Oct 12 20:24:24.833000 GENERIC-X64-15ca NetworkManager[640]: <info>  [1791851064.8329] device (lo): state change: config -> ip-config (reason 'none', managed-type: 'external')
+Oct 12 20:24:24.833059 GENERIC-X64-15ca NetworkManager[640]: <info>  [1791851064.8330] device (eth0): carrier: link connected
+Oct 12 20:24:24.833198 GENERIC-X64-15ca NetworkManager[640]: <info>  [1791851064.8331] device (lo): state change: ip-config -> ip-check (reason 'none', managed-type: 'external')
+Oct 12 20:24:24.833393 GENERIC-X64-15ca systemd[1]: Started avahi-daemon.service.
+Oct 12 20:24:24.833394 GENERIC-X64-15ca NetworkManager[640]: <info>  [1791851064.8333] device (eth0): state change: unavailable -> disconnected (reason 'carrier-changed', managed-type: 'full')
+Oct 12 20:24:24.833648 GENERIC-X64-15ca dbus-daemon[349]: [system] Activating via systemd: service name='org.freedesktop.nm_dispatcher' unit='dbus-org.freedesktop.nm-dispatcher.service' requested by ':1.9' (uid=0 pid=640 comm="/usr/sbin/NetworkManager --no-daemon")
+Oct 12 20:24:24.833773 GENERIC-X64-15ca NetworkManager[640]: <info>  [1791851064.8337] policy: auto-activating connection 'Wired connection 1' (0973ae73-bfb8-3c15-8dcc-8c6b58f94e60)
+Oct 12 20:24:24.833877 GENERIC-X64-15ca systemd[1]: Starting network-online.service...
+Oct 12 20:24:24.833936 GENERIC-X64-15ca NetworkManager[640]: <info>  [1791851064.8339] device (eth0): Activation: starting connection 'Wired connection 1' (0973ae73-bfb8-3c15-8dcc-8c6b58f94e60)
+Oct 12 20:24:24.833895 GENERIC-X64-15ca systemd[1]: raofflineproxy.service was skipped because of an unmet condition check (ConditionPathExists=/storage/.cache/services/raofflineproxy.conf).
+Oct 12 20:24:24.833960 GENERIC-X64-15ca NetworkManager[640]: <info>  [1791851064.8339] device (eth0): state change: disconnected -> prepare (reason 'none', managed-type: 'full')
+Oct 12 20:24:24.833944 GENERIC-X64-15ca systemd[1]: sshd.service was skipped because no trigger condition checks were met.
+Oct 12 20:24:24.834016 GENERIC-X64-15ca NetworkManager[640]: <info>  [1791851064.8340] manager: NetworkManager state is now CONNECTING
+Oct 12 20:24:24.834060 GENERIC-X64-15ca NetworkManager[640]: <info>  [1791851064.8340] device (eth0): state change: prepare -> config (reason 'none', managed-type: 'full')
+Oct 12 20:24:24.834343 GENERIC-X64-15ca NetworkManager[640]: <info>  [1791851064.8343] device (eth0): state change: config -> ip-config (reason 'none', managed-type: 'full')
+Oct 12 20:24:24.834474 GENERIC-X64-15ca dbus-daemon[349]: [system] Activation via systemd failed for unit 'dbus-org.freedesktop.nm-dispatcher.service': Unit dbus-org.freedesktop.nm-dispatcher.service not found.
+Oct 12 20:24:24.834543 GENERIC-X64-15ca NetworkManager[640]: <info>  [1791851064.8345] dhcp4 (eth0): activation: beginning transaction (timeout in 45 seconds)
+Oct 12 20:24:24.835164 GENERIC-X64-15ca (i-daemon)[647]: avahi-daemon.service: Referenced but unset environment variable evaluates to an empty string: AVAHI_DEBUG
+Oct 12 20:24:24.835272 GENERIC-X64-15ca wsdd2[363]: llmnr-tcp-v6: open_ep: bind: Address already in use
+Oct 12 20:24:24.835352 GENERIC-X64-15ca NetworkManager[640]: <info>  [1791851064.8353] device (lo): state change: ip-check -> secondaries (reason 'none', managed-type: 'external')
+Oct 12 20:24:24.835525 GENERIC-X64-15ca NetworkManager[640]: <info>  [1791851064.8355] device (lo): state change: secondaries -> activated (reason 'none', managed-type: 'external')
+Oct 12 20:24:24.835671 GENERIC-X64-15ca NetworkManager[640]: <info>  [1791851064.8356] device (lo): Activation: successful, device activated.
+Oct 12 20:24:24.835822 GENERIC-X64-15ca dbus-daemon[349]: [system] Activating via systemd: service name='org.freedesktop.nm_dispatcher' unit='dbus-org.freedesktop.nm-dispatcher.service' requested by ':1.9' (uid=0 pid=640 comm="/usr/sbin/NetworkManager --no-daemon")
+Oct 12 20:24:24.835943 GENERIC-X64-15ca NetworkManager[640]: <info>  [1791851064.8359] dhcp4 (eth0): state changed new lease, address=10.0.2.15, acd pending
+Oct 12 20:24:24.835967 GENERIC-X64-15ca dbus-daemon[349]: [system] Activation via systemd failed for unit 'dbus-org.freedesktop.nm-dispatcher.service': Unit dbus-org.freedesktop.nm-dispatcher.service not found.
+Oct 12 20:24:24.836871 GENERIC-X64-15ca sh[648]: waiting for NetworkManager connectivity ...
+Oct 12 20:24:24.837049 GENERIC-X64-15ca avahi-daemon[647]: Found user 'avahi' (UID 70) and group 'avahi' (GID 70).
+Oct 12 20:24:24.837073 GENERIC-X64-15ca avahi-daemon[647]: Successfully dropped root privileges.
+Oct 12 20:24:24.837095 GENERIC-X64-15ca avahi-daemon[647]: avahi-daemon 0.8 starting up.
+Oct 12 20:24:24.837774 GENERIC-X64-15ca avahi-daemon[647]: Loading service file /etc/avahi/services/sftp-ssh.service.
+Oct 12 20:24:24.837943 GENERIC-X64-15ca avahi-daemon[647]: Loading service file /etc/avahi/services/ssh.service.
+Oct 12 20:24:24.838272 GENERIC-X64-15ca avahi-daemon[647]: Joining mDNS multicast group on interface eth0.IPv6 with address fe80::725a:6a1b:d9b:a5fa.
+Oct 12 20:24:24.838306 GENERIC-X64-15ca avahi-daemon[647]: New relevant interface eth0.IPv6 for mDNS.
+Oct 12 20:24:24.838310 GENERIC-X64-15ca avahi-daemon[647]: Joining mDNS multicast group on interface lo.IPv6 with address ::1.
+Oct 12 20:24:24.838314 GENERIC-X64-15ca avahi-daemon[647]: New relevant interface lo.IPv6 for mDNS.
+Oct 12 20:24:24.838316 GENERIC-X64-15ca avahi-daemon[647]: Joining mDNS multicast group on interface lo.IPv4 with address 127.0.0.1.
+Oct 12 20:24:24.838323 GENERIC-X64-15ca avahi-daemon[647]: New relevant interface lo.IPv4 for mDNS.
+Oct 12 20:24:24.838325 GENERIC-X64-15ca avahi-daemon[647]: Network interface enumeration completed.
+Oct 12 20:24:24.838338 GENERIC-X64-15ca avahi-daemon[647]: Registering new address record for fe80::725a:6a1b:d9b:a5fa on eth0.*.
+Oct 12 20:24:24.838361 GENERIC-X64-15ca avahi-daemon[647]: Registering new address record for ::1 on lo.*.
+Oct 12 20:24:24.838370 GENERIC-X64-15ca avahi-daemon[647]: Registering new address record for 127.0.0.1 on lo.IPv4.
+Oct 12 20:24:24.994912 GENERIC-X64-15ca NetworkManager[640]: <info>  [1791851064.9948] dhcp4 (eth0): state changed new lease, address=10.0.2.15
+Oct 12 20:24:24.995553 GENERIC-X64-15ca avahi-daemon[647]: Joining mDNS multicast group on interface eth0.IPv4 with address 10.0.2.15.
+Oct 12 20:24:24.995591 GENERIC-X64-15ca avahi-daemon[647]: New relevant interface eth0.IPv4 for mDNS.
+Oct 12 20:24:24.995607 GENERIC-X64-15ca avahi-daemon[647]: Registering new address record for 10.0.2.15 on eth0.IPv4.
+Oct 12 20:24:24.996797 GENERIC-X64-15ca wsdd2[363]: llmnr-tcp-v4: open_ep: bind: Address already in use
+Oct 12 20:24:24.996797 GENERIC-X64-15ca wsdd2[363]: llmnr-tcp-v6: open_ep: bind: Address already in use
+Oct 12 20:24:25.001100 GENERIC-X64-15ca NetworkManager[640]: <info>  [1791851065.0010] policy: set 'Wired connection 1' (eth0) as default for IPv4 routing and DNS
+Oct 12 20:24:25.001959 GENERIC-X64-15ca dbus-daemon[349]: [system] Activating via systemd: service name='org.freedesktop.nm_dispatcher' unit='dbus-org.freedesktop.nm-dispatcher.service' requested by ':1.9' (uid=0 pid=640 comm="/usr/sbin/NetworkManager --no-daemon")
+Oct 12 20:24:25.002228 GENERIC-X64-15ca dbus-daemon[349]: [system] Activation via systemd failed for unit 'dbus-org.freedesktop.nm-dispatcher.service': Unit dbus-org.freedesktop.nm-dispatcher.service not found.
+Oct 12 20:24:25.002694 GENERIC-X64-15ca systemd-resolved[260]: eth0: Bus client set default route setting: yes
+Oct 12 20:24:25.002919 GENERIC-X64-15ca dbus-daemon[349]: [system] Activating via systemd: service name='org.freedesktop.nm_dispatcher' unit='dbus-org.freedesktop.nm-dispatcher.service' requested by ':1.9' (uid=0 pid=640 comm="/usr/sbin/NetworkManager --no-daemon")
+Oct 12 20:24:25.003173 GENERIC-X64-15ca dbus-daemon[349]: [system] Activation via systemd failed for unit 'dbus-org.freedesktop.nm-dispatcher.service': Unit dbus-org.freedesktop.nm-dispatcher.service not found.
+Oct 12 20:24:25.003910 GENERIC-X64-15ca systemd-resolved[260]: eth0: Bus client set DNS server list to: 10.0.2.3
+Oct 12 20:24:25.004456 GENERIC-X64-15ca NetworkManager[640]: <info>  [1791851065.0044] device (eth0): state change: ip-config -> ip-check (reason 'none', managed-type: 'full')
+Oct 12 20:24:25.004853 GENERIC-X64-15ca dbus-daemon[349]: [system] Activating via systemd: service name='org.freedesktop.nm_dispatcher' unit='dbus-org.freedesktop.nm-dispatcher.service' requested by ':1.9' (uid=0 pid=640 comm="/usr/sbin/NetworkManager --no-daemon")
+Oct 12 20:24:25.004961 GENERIC-X64-15ca dbus-daemon[349]: [system] Activation via systemd failed for unit 'dbus-org.freedesktop.nm-dispatcher.service': Unit dbus-org.freedesktop.nm-dispatcher.service not found.
+Oct 12 20:24:25.005085 GENERIC-X64-15ca NetworkManager[640]: <info>  [1791851065.0050] device (eth0): state change: ip-check -> secondaries (reason 'none', managed-type: 'full')
+Oct 12 20:24:25.005176 GENERIC-X64-15ca NetworkManager[640]: <info>  [1791851065.0051] device (eth0): state change: secondaries -> activated (reason 'none', managed-type: 'full')
+Oct 12 20:24:25.005325 GENERIC-X64-15ca NetworkManager[640]: <info>  [1791851065.0053] manager: NetworkManager state is now CONNECTED_SITE
+Oct 12 20:24:25.005450 GENERIC-X64-15ca NetworkManager[640]: <info>  [1791851065.0054] device (eth0): Activation: successful, device activated.
+Oct 12 20:24:25.005652 GENERIC-X64-15ca NetworkManager[640]: <info>  [1791851065.0056] manager: NetworkManager state is now CONNECTED_GLOBAL
+Oct 12 20:24:25.005760 GENERIC-X64-15ca NetworkManager[640]: <info>  [1791851065.0057] manager: startup complete
+Oct 12 20:24:25.005788 GENERIC-X64-15ca dbus-daemon[349]: [system] Activating via systemd: service name='org.freedesktop.nm_dispatcher' unit='dbus-org.freedesktop.nm-dispatcher.service' requested by ':1.9' (uid=0 pid=640 comm="/usr/sbin/NetworkManager --no-daemon")
+Oct 12 20:24:25.006118 GENERIC-X64-15ca dbus-daemon[349]: [system] Activation via systemd failed for unit 'dbus-org.freedesktop.nm-dispatcher.service': Unit dbus-org.freedesktop.nm-dispatcher.service not found.
+Oct 12 20:24:25.009388 GENERIC-X64-15ca systemd[1]: Finished network-online.service.
+Oct 12 20:24:25.009744 GENERIC-X64-15ca systemd[1]: Reached target network-online.target.
+Oct 12 20:24:25.009857 GENERIC-X64-15ca systemd[1]: entware.service was skipped because of an unmet condition check (ConditionPathExists=/opt/etc/init.d/rc.unslung).
+Oct 12 20:24:25.009938 GENERIC-X64-15ca systemd[1]: Reached target multi-user.target.
+Oct 12 20:24:25.028018 GENERIC-X64-15ca systemd[1]: Starting led-poweroff.service...
+Oct 12 20:24:25.028038 GENERIC-X64-15ca systemd[1]: nmbd.service was skipped because of an unmet condition check (ConditionPathExists=/run/samba/smb.conf).
+Oct 12 20:24:25.028640 GENERIC-X64-15ca systemd[1]: Started seatd.service.
+Oct 12 20:24:25.028698 GENERIC-X64-15ca systemd[1]: Reached target graphical.target.
+Oct 12 20:24:25.029107 GENERIC-X64-15ca systemd[1]: Starting rocknix-autostart.service...
+Oct 12 20:24:25.029161 GENERIC-X64-15ca systemd[1]: smbd.service was skipped because of an unmet condition check (ConditionPathExists=/run/samba/smb.conf).
+Oct 12 20:24:25.029653 GENERIC-X64-15ca systemd[1]: Starting systemd-update-utmp-runlevel.service...
+Oct 12 20:24:25.030089 GENERIC-X64-15ca systemd[1]: Finished led-poweroff.service.
+Oct 12 20:24:25.033520 GENERIC-X64-15ca seatd[660]: 00:00:00.000 [INFO] [seatd/seat.c:48] Created VT-bound seat seat0
+Oct 12 20:24:25.033651 GENERIC-X64-15ca seatd[660]: 00:00:00.000 [INFO] [seatd/seatd.c:194] seatd started
+Oct 12 20:24:25.037182 GENERIC-X64-15ca systemd[1]: systemd-update-utmp-runlevel.service: Deactivated successfully.
+Oct 12 20:24:25.037294 GENERIC-X64-15ca systemd[1]: Finished systemd-update-utmp-runlevel.service.
+Oct 12 20:24:25.094774 GENERIC-X64-15ca systemd[1]: Starting rocknix-automount.service...
+Oct 12 20:24:25.106135 GENERIC-X64-15ca automount[734]: Loading exfat.
+Oct 12 20:24:25.111813 GENERIC-X64-15ca automount[739]: Loading vfat.
+Oct 12 20:24:25.115206 GENERIC-X64-15ca automount[744]: Loading ntfs.
+Oct 12 20:24:25.118371 GENERIC-X64-15ca automount[749]: Loading ntfs3.
+Oct 12 20:24:25.122970 GENERIC-X64-15ca automount[752]: Unmount /storage/games-external.
+Oct 12 20:24:25.124796 GENERIC-X64-15ca automount[755]: Unmount /storage/roms.
+Oct 12 20:24:25.459091 GENERIC-X64-15ca automount[776]: Could not find external card to mount, assume internal.
+Oct 12 20:24:25.469123 GENERIC-X64-15ca automount[795]: Create /storage/games-internal/roms.
+Oct 12 20:24:25.470759 GENERIC-X64-15ca automount[798]: Create /storage/games-external/roms.
+Oct 12 20:24:25.474245 GENERIC-X64-15ca automount[804]: Executing bind mount of /storage/games-internal to /storage/roms
+Oct 12 20:24:25.475982 GENERIC-X64-15ca automount[807]: Creating game directories.
+Oct 12 20:24:25.485064 GENERIC-X64-15ca systemd[1]: Finished rocknix-automount.service.
+Oct 12 20:24:25.497585 GENERIC-X64-15ca bash[826]: ln: /storage/cache/.cores: No such file or directory
+Oct 12 20:24:25.523109 GENERIC-X64-15ca bash[815]: /usr/bin/mkcontroller: line 56: /tmp/7495eac4-879d-40e2-8663-74bb3615b7b8: No such file or directory
+Oct 12 20:24:25.524089 GENERIC-X64-15ca bash[878]: rm: can't remove '/tmp/7495eac4-879d-40e2-8663-74bb3615b7b8': No such file or directory
+Oct 12 20:24:25.601250 GENERIC-X64-15ca bash[904]: ERROR: No backlight devices found in /sys/class/backlight/.
+Oct 12 20:24:25.945662 GENERIC-X64-15ca avahi-daemon[647]: Server startup complete. Host name is GENERIC-X64-15ca.local. Local service cookie is 540197138.
+Oct 12 20:24:26.101397 GENERIC-X64-15ca bash[971]: /usr/lib/autostart/common/008-perfmode: line 8: /etc/profile.d/099-freqfunctions: No such file or directory
+Oct 12 20:24:26.129900 GENERIC-X64-15ca systemd[1]: Stopping systemd-logind.service...
+Oct 12 20:24:26.164983 GENERIC-X64-15ca systemd[1]: systemd-logind.service: Deactivated successfully.
+Oct 12 20:24:26.165167 GENERIC-X64-15ca systemd[1]: Stopped systemd-logind.service.
+Oct 12 20:24:26.184787 GENERIC-X64-15ca systemd[1]: Starting modprobe@drm.service...
+Oct 12 20:24:26.186096 GENERIC-X64-15ca systemd[1]: modprobe@drm.service: Deactivated successfully.
+Oct 12 20:24:26.186295 GENERIC-X64-15ca systemd[1]: Finished modprobe@drm.service.
+Oct 12 20:24:26.190029 GENERIC-X64-15ca systemd[1]: Starting systemd-logind.service...
+Oct 12 20:24:26.192349 GENERIC-X64-15ca systemd-timesyncd[315]: Network configuration changed, trying to establish connection.
+Oct 12 20:24:26.247063 GENERIC-X64-15ca systemd-logind[1024]: Watching system buttons on /dev/input/event2 (QEMU QEMU USB Keyboard)
+Oct 12 20:24:26.247074 GENERIC-X64-15ca systemd-logind[1024]: Watching system buttons on /dev/input/event0 (Power Button)
+Oct 12 20:24:26.247081 GENERIC-X64-15ca systemd-logind[1024]: Watching system buttons on /dev/input/event1 (AT Translated Set 2 keyboard)
+Oct 12 20:24:26.247125 GENERIC-X64-15ca systemd-logind[1024]: New seat seat0.
+Oct 12 20:24:26.247306 GENERIC-X64-15ca systemd[1]: Started systemd-logind.service.
+Oct 12 20:24:26.264240 GENERIC-X64-15ca bash[1044]: cp: can't stat '/usr/share/weston/kiosk.ini': No such file or directory
+Oct 12 20:24:26.266522 GENERIC-X64-15ca bash[1048]: sed: /storage/.config/weston.ini: No such file or directory
+Oct 12 20:24:26.331325 GENERIC-X64-15ca bash[1101]: Invalid card number '0'.
+Oct 12 20:24:26.348924 GENERIC-X64-15ca bash[1124]: /usr/lib/autostart/common/050-audio: line 50: /usr/sbin/quantum: No such file or directory
+Oct 12 20:24:26.406141 GENERIC-X64-15ca bash[1185]: mkdir: can't create directory '/sys/kernel/config/usb_gadget/cdc': No such file or directory
+Oct 12 20:24:26.418655 GENERIC-X64-15ca bash[1190]: /usr/lib/autostart/common/095-turbo-mode: line 16: /sys/devices/system/cpu/cpufreq/boost: Permission denied
+Oct 12 20:24:26.444920 GENERIC-X64-15ca systemd[1]: Started input.service.
+Oct 12 20:24:26.446844 GENERIC-X64-15ca systemd[1]: Started video.service.
+Oct 12 20:24:26.457519 GENERIC-X64-15ca video_sense[1280]: video_sense: GENERIC_X64 no-op version running
+Oct 12 20:24:26.470376 GENERIC-X64-15ca systemd[1]: Starting nmbd.service...
+Oct 12 20:24:26.470885 GENERIC-X64-15ca systemd[1]: Starting sshd.service...
+Oct 12 20:24:26.493969 GENERIC-X64-15ca nmbd[1316]: [2026/10/13 00:24:26.493936,  0] ../../source3/nmbd/nmbd.c:901(main)
+Oct 12 20:24:26.493972 GENERIC-X64-15ca nmbd[1316]:   nmbd version 4.21.0 started.
+Oct 12 20:24:26.493974 GENERIC-X64-15ca nmbd[1316]:   Copyright Andrew Tridgell and the Samba Team 1992-2024
+Oct 12 20:24:26.497009 GENERIC-X64-15ca systemd[1]: Started nmbd.service.
+Oct 12 20:24:26.499156 GENERIC-X64-15ca systemd[1]: Starting smbd.service...
+Oct 12 20:24:26.510512 GENERIC-X64-15ca systemd[1]: Reloading requested from client PID 1382 ('systemctl') (unit rocknix-autostart.service)...
+Oct 12 20:24:26.510531 GENERIC-X64-15ca systemd[1]: Reloading...
+Oct 12 20:24:26.514603 GENERIC-X64-15ca input_sense[1392]: Found Keyboard: /dev/input/event0
+Oct 12 20:24:26.523008 GENERIC-X64-15ca smbd[1384]: [2026/10/13 00:24:26.522988,  0] ../../source3/smbd/server.c:1965(main)
+Oct 12 20:24:26.523012 GENERIC-X64-15ca smbd[1384]:   smbd version 4.21.0 started.
+Oct 12 20:24:26.523015 GENERIC-X64-15ca smbd[1384]:   Copyright Andrew Tridgell and the Samba Team 1992-2024
+Oct 12 20:24:26.530571 GENERIC-X64-15ca input_sense[1424]: Found Keyboard: /dev/input/event1
+Oct 12 20:24:26.535689 GENERIC-X64-15ca input_sense[1434]: Found Keyboard: /dev/input/event2
+Oct 12 20:24:26.552157 GENERIC-X64-15ca systemd-timesyncd[315]: Network configuration changed, trying to establish connection.
+Oct 12 20:24:26.562945 GENERIC-X64-15ca systemd[1]: multi-user.target: Wants dependency dropin /usr/lib/systemd/system/multi-user.target.wants/sixaxis@.service target ../sixaxis@.service has different name
+Oct 12 20:24:26.575916 GENERIC-X64-15ca ssh-keygen[1335]: ssh-keygen: generating new host keys: RSA ECDSA ED25519
+Oct 12 20:24:26.595655 GENERIC-X64-15ca systemd[1]: Reloading finished in 84 ms.
+Oct 12 20:24:26.610600 GENERIC-X64-15ca bash[1459]: hexdump: /sys/class/drm/card0-DP-1/edid: No such file or directory
+Oct 12 20:24:26.614777 GENERIC-X64-15ca systemd[1]: Started smbd.service.
+Oct 12 20:24:26.620275 GENERIC-X64-15ca systemd[1]: Started sshd.service.
+Oct 12 20:24:26.622196 GENERIC-X64-15ca (sshd)[1473]: sshd.service: Referenced but unset environment variable evaluates to an empty string: SSH_ARGS
+Oct 12 20:24:26.623533 GENERIC-X64-15ca bash[1479]: rm: can't remove '/var/lock/start.games': No such file or directory
+Oct 12 20:24:26.630020 GENERIC-X64-15ca Starting[1481]: sway.service essway.service...
+Oct 12 20:24:26.632092 GENERIC-X64-15ca sshd[1473]: Server listening on 0.0.0.0 port 22.
+Oct 12 20:24:26.632104 GENERIC-X64-15ca sshd[1473]: Server listening on :: port 22.
+Oct 12 20:24:26.634070 GENERIC-X64-15ca Autostart[1488]: complete...
+Oct 12 20:24:26.635546 GENERIC-X64-15ca systemd[1]: Starting sway.service...
+Oct 12 20:24:26.636152 GENERIC-X64-15ca systemd[1]: Finished rocknix-autostart.service.
+Oct 12 20:24:26.636524 GENERIC-X64-15ca systemd[1]: Reached target rocknix.target.
+Oct 12 20:24:26.642480 GENERIC-X64-15ca systemd[1]: Started sway.service.
+Oct 12 20:24:26.643155 GENERIC-X64-15ca systemd[1]: Starting essway.service...
+Oct 12 20:24:26.647924 GENERIC-X64-15ca Sway[1506]: GENERIC_X64: Pixman for virtio GPU without virgl
+Oct 12 20:24:26.650163 GENERIC-X64-15ca Sway[1516]: ### Starting Sway with -V
+Oct 12 20:24:26.654918 GENERIC-X64-15ca seatd[660]: 00:00:01.621 [INFO] [seatd/server.c:145] New client connected (pid: 1517, uid: 0, gid: 0)
+Oct 12 20:24:26.655051 GENERIC-X64-15ca seatd[660]: 00:00:01.621 [INFO] [seatd/seat.c:239] Added client 1 to seat0
+Oct 12 20:24:26.655051 GENERIC-X64-15ca seatd[660]: 00:00:01.621 [INFO] [seatd/seat.c:563] Opened client 1 on seat0
+Oct 12 20:24:26.684997 GENERIC-X64-15ca wsdd2[363]: llmnr-tcp-v4: open_ep: bind: Address already in use
+Oct 12 20:24:26.684997 GENERIC-X64-15ca wsdd2[363]: llmnr-tcp-v6: open_ep: bind: Address already in use
+Oct 12 20:24:26.791903 GENERIC-X64-15ca avahi-daemon[647]: Leaving mDNS multicast group on interface eth0.IPv6 with address fe80::725a:6a1b:d9b:a5fa.
+Oct 12 20:24:26.792051 GENERIC-X64-15ca avahi-daemon[647]: Joining mDNS multicast group on interface eth0.IPv6 with address fec0::cc8c:4f8a:be24:4f34.
+Oct 12 20:24:26.792058 GENERIC-X64-15ca avahi-daemon[647]: Registering new address record for fec0::cc8c:4f8a:be24:4f34 on eth0.*.
+Oct 12 20:24:26.792074 GENERIC-X64-15ca avahi-daemon[647]: Withdrawing address record for fe80::725a:6a1b:d9b:a5fa on eth0.
+Oct 12 20:24:26.792304 GENERIC-X64-15ca wsdd2[363]: llmnr-tcp-v4: open_ep: bind: Address already in use
+Oct 12 20:24:26.792332 GENERIC-X64-15ca wsdd2[363]: llmnr-tcp-v6: open_ep: bind: Address already in use
+Oct 12 20:24:26.792358 GENERIC-X64-15ca wsdd2[363]: llmnr-tcp-v6: open_ep: bind: Address already in use
+Oct 12 20:24:26.794640 GENERIC-X64-15ca NetworkManager[640]: <info>  [1791851066.7946] policy: set 'Wired connection 1' (eth0) as default for IPv6 routing and DNS
+Oct 12 20:24:26.834704 GENERIC-X64-15ca systemd[1]: Started essway.service.
+Oct 12 20:24:26.834950 GENERIC-X64-15ca systemd[1]: Startup finished in 1.311s (kernel) + 6.279s (userspace) = 7.590s.
+Oct 12 20:24:26.848275 GENERIC-X64-15ca systemd[1]: tz-data.service: Deactivated successfully.
+Oct 12 20:24:26.848405 GENERIC-X64-15ca systemd[1]: Stopped tz-data.service.
+Oct 12 20:24:26.848426 GENERIC-X64-15ca systemd[1]: Stopping tz-data.service...
+Oct 12 20:24:26.849003 GENERIC-X64-15ca systemd[1]: Starting tz-data.service...
+Oct 12 20:24:26.851373 GENERIC-X64-15ca systemd[1]: Finished tz-data.service.
+Oct 12 20:24:26.865482 GENERIC-X64-15ca systemctl[1560]: Environment variable $I18NPATH not set, ignoring.
+Oct 12 20:24:26.882741 GENERIC-X64-15ca systemctl[1569]: Environment variable $SLOW_CORES not set, ignoring.
+Oct 12 20:24:26.885596 GENERIC-X64-15ca systemctl[1570]: Environment variable $FAST_CORES not set, ignoring.
+Oct 12 20:24:26.889021 GENERIC-X64-15ca systemctl[1571]: Environment variable $CPU_FREQ not set, ignoring.
+Oct 12 20:24:26.892469 GENERIC-X64-15ca systemctl[1572]: Environment variable $DMC_FREQ not set, ignoring.
+Oct 12 20:24:26.895647 GENERIC-X64-15ca systemctl[1573]: Environment variable $GPU_FREQ not set, ignoring.
+Oct 12 20:24:26.895673 GENERIC-X64-15ca avahi-daemon[647]: Service "GENERIC-X64-15ca" (/etc/avahi/services/ssh.service) successfully established.
+Oct 12 20:24:26.895730 GENERIC-X64-15ca avahi-daemon[647]: Service "GENERIC-X64-15ca" (/etc/avahi/services/sftp-ssh.service) successfully established.
+Oct 12 20:24:26.902136 GENERIC-X64-15ca systemctl[1575]: Environment variable $DEVICE_ASPECT_RATIO not set, ignoring.
+Oct 12 20:24:26.905386 GENERIC-X64-15ca systemctl[1576]: Environment variable $DEVICE_AUDIO_MIXER not set, ignoring.
+Oct 12 20:24:26.912080 GENERIC-X64-15ca systemctl[1578]: Environment variable $DEVICE_DTB_SWITCH not set, ignoring.
+Oct 12 20:24:26.918566 GENERIC-X64-15ca systemctl[1580]: Environment variable $DEVICE_FUNC_KEYA_MODIFIER not set, ignoring.
+Oct 12 20:24:26.921796 GENERIC-X64-15ca systemctl[1581]: Environment variable $DEVICE_FUNC_KEYB_MODIFIER not set, ignoring.
+Oct 12 20:24:26.924939 GENERIC-X64-15ca systemctl[1582]: Environment variable $DEVICE_HAS_FAN not set, ignoring.
+Oct 12 20:24:26.928243 GENERIC-X64-15ca systemctl[1583]: Environment variable $DEVICE_GPU_CUR_FREQ not set, ignoring.
+Oct 12 20:24:26.931398 GENERIC-X64-15ca systemctl[1584]: Environment variable $DEVICE_GPU_MAX_FREQ not set, ignoring.
+Oct 12 20:24:26.934363 GENERIC-X64-15ca systemctl[1585]: Environment variable $DEVICE_GPU_OVERCLOCK not set, ignoring.
+Oct 12 20:24:26.937382 GENERIC-X64-15ca systemctl[1586]: Environment variable $DEVICE_GPU_TEMP_SENSOR not set, ignoring.
+Oct 12 20:24:26.946007 GENERIC-X64-15ca systemctl[1589]: Environment variable $DEVICE_HDMI_GPIO not set, ignoring.
+Oct 12 20:24:26.951882 GENERIC-X64-15ca systemctl[1591]: Environment variable $DEVICE_HEADPHONE_DEV not set, ignoring.
+Oct 12 20:24:26.954443 GENERIC-X64-15ca systemctl[1592]: Environment variable $DEVICE_JACK not set, ignoring.
+Oct 12 20:24:26.957706 GENERIC-X64-15ca systemctl[1593]: Environment variable $DEVICE_KEY_VOLUMEDOWN not set, ignoring.
+Oct 12 20:24:26.960425 GENERIC-X64-15ca systemctl[1594]: Environment variable $DEVICE_KEY_VOLUMEUP not set, ignoring.
+Oct 12 20:24:26.963679 GENERIC-X64-15ca systemctl[1595]: Environment variable $DEVICE_LED_BRIGHTNESS not set, ignoring.
+Oct 12 20:24:26.966891 GENERIC-X64-15ca systemctl[1596]: Environment variable $DEVICE_LED_CHARGING not set, ignoring.
+Oct 12 20:24:26.969940 GENERIC-X64-15ca systemctl[1597]: Environment variable $DEVICE_LED_CONTROL not set, ignoring.
+Oct 12 20:24:26.973025 GENERIC-X64-15ca systemctl[1598]: Environment variable $DEVICE_ANALOG_STICKS_LED_CONTROL not set, ignoring.
+Oct 12 20:24:26.975756 GENERIC-X64-15ca systemctl[1599]: Environment variable $DEVICE_MANGOHUD_SUPPORT not set, ignoring.
+Oct 12 20:24:26.978974 GENERIC-X64-15ca systemctl[1600]: Environment variable $DEVICE_MMC_EJECT not set, ignoring.
+Oct 12 20:24:26.981663 GENERIC-X64-15ca systemctl[1601]: Environment variable $DEVICE_PIPEWIRE_PROFILE not set, ignoring.
+Oct 12 20:24:26.987831 GENERIC-X64-15ca systemctl[1603]: Environment variable $DEVICE_PWR_LED_GPIO not set, ignoring.
+Oct 12 20:24:26.990549 GENERIC-X64-15ca systemctl[1604]: Environment variable $DEVICE_PLAYBACK_PATH not set, ignoring.
+Oct 12 20:24:26.993720 GENERIC-X64-15ca systemctl[1605]: Environment variable $DEVICE_PLAYBACK_PATH_HP not set, ignoring.
+Oct 12 20:24:26.996462 GENERIC-X64-15ca systemctl[1606]: Environment variable $DEVICE_PLAYBACK_PATH_SPK not set, ignoring.
+Oct 12 20:24:26.999063 GENERIC-X64-15ca systemctl[1607]: Environment variable $DEVICE_PWM_FAN not set, ignoring.
+Oct 12 20:24:27.001825 GENERIC-X64-15ca systemctl[1608]: Environment variable $DEVICE_PWM_MOTOR not set, ignoring.
+Oct 12 20:24:27.004714 GENERIC-X64-15ca systemctl[1609]: Environment variable $DEVICE_PRODUCT_SERIAL not set, ignoring.
+Oct 12 20:24:27.008065 GENERIC-X64-15ca systemctl[1610]: Environment variable $DEVICE_RK817_FUEL_GAUGE not set, ignoring.
+Oct 12 20:24:27.011090 GENERIC-X64-15ca systemctl[1611]: Environment variable $DEVICE_SERIAL_NUMBER_PATH not set, ignoring.
+Oct 12 20:24:27.014744 GENERIC-X64-15ca systemctl[1612]: Environment variable $DEVICE_SW_HP_SWITCH not set, ignoring.
+Oct 12 20:24:27.021372 GENERIC-X64-15ca systemctl[1614]: Environment variable $DEVICE_TURBO_MODE not set, ignoring.
+Oct 12 20:24:27.024127 GENERIC-X64-15ca systemctl[1615]: Environment variable $DEVICE_VOLUME not set, ignoring.
+Oct 12 20:24:27.027353 GENERIC-X64-15ca systemctl[1616]: Environment variable $DEVICE_WIFI not set, ignoring.
+Oct 12 20:24:27.030065 GENERIC-X64-15ca systemctl[1617]: Environment variable $HDMI_STATE not set, ignoring.
+Oct 12 20:24:27.038723 GENERIC-X64-15ca systemctl[1620]: Environment variable $PAN_MESA_DEBUG not set, ignoring.
+Oct 12 20:24:27.050334 GENERIC-X64-15ca systemctl[1624]: Environment variable $MALI_WAYLAND_AFBC not set, ignoring.
+Oct 12 20:24:27.053385 GENERIC-X64-15ca systemctl[1625]: Environment variable $MALI_DEFAULT_DISPLAY not set, ignoring.
+Oct 12 20:24:27.056646 GENERIC-X64-15ca systemctl[1626]: Environment variable $PAN_I_WANT_A_BROKEN_VULKAN_DRIVER not set, ignoring.
+Oct 12 20:24:27.059298 GENERIC-X64-15ca systemctl[1627]: Environment variable $DISABLE_WSI_LAYER not set, ignoring.
+Oct 12 20:24:27.062595 GENERIC-X64-15ca systemctl[1628]: Environment variable $ALSA_PRIMARY_CARD not set, ignoring.
+Oct 12 20:24:27.065306 GENERIC-X64-15ca systemctl[1629]: Environment variable $SDL_VIDEO_DISPLAY_PRIORITY not set, ignoring.
+Oct 12 20:24:27.068402 GENERIC-X64-15ca systemctl[1630]: Environment variable $TU_DEBUG not set, ignoring.
+Oct 12 20:24:27.071002 GENERIC-X64-15ca systemctl[1631]: Environment variable $MESA_LOADER_DRIVER_OVERRIDE not set, ignoring.
+Oct 12 20:24:27.377580 GENERIC-X64-15ca start_es.sh[1633]: MESA-EGL: warning: failed to get driver name for fd -1
+Oct 12 20:24:27.377753 GENERIC-X64-15ca start_es.sh[1633]: MESA-EGL: warning: MESA-LOADER: failed to retrieve device information
+Oct 12 20:24:27.377753 GENERIC-X64-15ca start_es.sh[1633]: MESA-EGL: warning: failed to get driver name for fd -1
+Oct 12 20:24:27.383817 GENERIC-X64-15ca start_es.sh[1633]: MESA-EGL: warning: egl: failed to create dri2 screen
+Oct 12 20:24:27.560162 GENERIC-X64-15ca input_sense[1663]: Found Keyboard: /dev/input/event0
+Oct 12 20:24:27.562729 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1667]        WARNING        System "3do" has no games! Ignoring it.
+Oct 12 20:24:27.562729 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1671]        WARNING        System "amigacd32" has no games! Ignoring it.
+Oct 12 20:24:27.562729 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1667]        WARNING        System "amstradcpc" has no games! Ignoring it.
+Oct 12 20:24:27.562729 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1671]        WARNING        System "arduboy" has no games! Ignoring it.
+Oct 12 20:24:27.562729 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1669]        WARNING        System "arcade" has no games! Ignoring it.
+Oct 12 20:24:27.562729 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1671]        WARNING        System "atari7800" has no games! Ignoring it.
+Oct 12 20:24:27.562729 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1673]        WARNING        System "atari5200" has no games! Ignoring it.
+Oct 12 20:24:27.562729 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1669]        WARNING        System "atari800" has no games! Ignoring it.
+Oct 12 20:24:27.562729 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1671]        WARNING        System "atarijaguar" has no games! Ignoring it.
+Oct 12 20:24:27.562729 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1673]        WARNING        System "atarilynx" has no games! Ignoring it.
+Oct 12 20:24:27.562729 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1669]        WARNING        System "atarist" has no games! Ignoring it.
+Oct 12 20:24:27.562729 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1667]        WARNING        System "atari2600" has no games! Ignoring it.
+Oct 12 20:24:27.562729 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1673]        WARNING        System "bbcmicro" has no games! Ignoring it.
+Oct 12 20:24:27.562729 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1672]        WARNING          Unknown platform for system "c128" (platform "c128" from list "c128")
+Oct 12 20:24:27.562729 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1667]        WARNING        System "c16" has no games! Ignoring it.
+Oct 12 20:24:27.562729 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1671]        WARNING        System "atomiswave" has no games! Ignoring it.
+Oct 12 20:24:27.562729 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1672]        WARNING        System "c128" has no games! Ignoring it.
+Oct 12 20:24:27.562729 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1667]        WARNING        System "cdi" has no games! Ignoring it.
+Oct 12 20:24:27.562729 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1672]        WARNING          Unknown platform for system "chip-8" (platform "chip-8" from list "chip-8")
+Oct 12 20:24:27.562729 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1671]        WARNING        System "channelf" has no games! Ignoring it.
+Oct 12 20:24:27.562729 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1667]        WARNING        System "colecovision" has no games! Ignoring it.
+Oct 12 20:24:27.562729 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1672]        WARNING        System "chip-8" has no games! Ignoring it.
+Oct 12 20:24:27.562729 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1667]        WARNING        System "cps2" has no games! Ignoring it.
+Oct 12 20:24:27.562729 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1672]        WARNING        System "cps3" has no games! Ignoring it.
+Oct 12 20:24:27.566203 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1672]        WARNING          Unknown platform for system "doom" (platform "doom" from list "doom")
+Oct 12 20:24:27.566203 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1667]        WARNING        System "daphne" has no games! Ignoring it.
+Oct 12 20:24:27.566203 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1672]        WARNING        System "doom" has no games! Ignoring it.
+Oct 12 20:24:27.566203 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1667]        WARNING        System "dreamcast" has no games! Ignoring it.
+Oct 12 20:24:27.566203 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1672]        WARNING        System "easyrpg" has no games! Ignoring it.
+Oct 12 20:24:27.566203 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1672]        WARNING        System "fbn" has no games! Ignoring it.
+Oct 12 20:24:27.566203 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1667]        WARNING        System "famicom" has no games! Ignoring it.
+Oct 12 20:24:27.566203 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1672]        WARNING        System "fds" has no games! Ignoring it.
+Oct 12 20:24:27.566203 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1667]        WARNING        System "gameandwatch" has no games! Ignoring it.
+Oct 12 20:24:27.566203 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1672]        WARNING        System "gamegear" has no games! Ignoring it.
+Oct 12 20:24:27.566203 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1667]        WARNING        System "gb" has no games! Ignoring it.
+Oct 12 20:24:27.566203 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1672]        WARNING        System "gba" has no games! Ignoring it.
+Oct 12 20:24:27.566203 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1667]        WARNING        System "gbah" has no games! Ignoring it.
+Oct 12 20:24:27.566203 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1672]        WARNING        System "gbav" has no games! Ignoring it.
+Oct 12 20:24:27.566203 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1667]        WARNING        System "gbc" has no games! Ignoring it.
+Oct 12 20:24:27.566203 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1672]        WARNING        System "gbch" has no games! Ignoring it.
+Oct 12 20:24:27.566203 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1667]        WARNING        System "gbh" has no games! Ignoring it.
+Oct 12 20:24:27.566203 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1672]        WARNING        System "genesis" has no games! Ignoring it.
+Oct 12 20:24:27.566203 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1667]        WARNING        System "genh" has no games! Ignoring it.
+Oct 12 20:24:27.566203 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1671]        WARNING        System "cps1" has no games! Ignoring it.
+Oct 12 20:24:27.566203 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1668]        WARNING        System "amiga" has no games! Ignoring it.
+Oct 12 20:24:27.566203 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1672]        WARNING        System "ggh" has no games! Ignoring it.
+Oct 12 20:24:27.566203 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1671]        WARNING          Unknown platform for system "idtech" (platform "idtech" from list "idtech")
+Oct 12 20:24:27.566203 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1673]        WARNING        System "c64" has no games! Ignoring it.
+Oct 12 20:24:27.566203 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1668]        WARNING        System "imageviewer" has no games! Ignoring it.
+Oct 12 20:24:27.566353 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1668]        WARNING          Unknown platform for system "ios" (platform "ios" from list "ios")
+Oct 12 20:24:27.566353 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1671]        WARNING        System "idtech" has no games! Ignoring it.
+Oct 12 20:24:27.566353 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1667]        WARNING        System "gp32" has no games! Ignoring it.
+Oct 12 20:24:27.566353 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1668]        WARNING        System "ios" has no games! Ignoring it.
+Oct 12 20:24:27.566353 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1671]        WARNING        System "j2me" has no games! Ignoring it.
+Oct 12 20:24:27.566353 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1667]        WARNING        System "macintosh" has no games! Ignoring it.
+Oct 12 20:24:27.566353 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1668]        WARNING        System "mastersystem" has no games! Ignoring it.
+Oct 12 20:24:27.566353 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1671]        WARNING        System "megacd" has no games! Ignoring it.
+Oct 12 20:24:27.566353 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1667]        WARNING        System "megadrive-japan" has no games! Ignoring it.
+Oct 12 20:24:27.566353 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1668]        WARNING        System "megadrive" has no games! Ignoring it.
+Oct 12 20:24:27.566353 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1671]        WARNING        System "megadriveh" has no games! Ignoring it.
+Oct 12 20:24:27.566353 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1671]        WARNING          Unknown platform for system "moto" (platform "moto" from list "moto")
+Oct 12 20:24:27.566353 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1668]        WARNING        System "moonlight" has no games! Ignoring it.
+Oct 12 20:24:27.566353 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1671]        WARNING        System "moto" has no games! Ignoring it.
+Oct 12 20:24:27.566353 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1668]        WARNING          Unknown platform for system "mplayer" (platform "mplayer" from list "mplayer")
+Oct 12 20:24:27.566353 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1673]        WARNING        System "mame" has no games! Ignoring it.
+Oct 12 20:24:27.566353 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1671]        WARNING        System "msx" has no games! Ignoring it.
+Oct 12 20:24:27.566353 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1672]        WARNING        System "intellivision" has no games! Ignoring it.
+Oct 12 20:24:27.566353 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1668]        WARNING        System "mplayer" has no games! Ignoring it.
+Oct 12 20:24:27.566353 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1672]        WARNING        System "n64" has no games! Ignoring it.
+Oct 12 20:24:27.566353 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1672]        WARNING        System "naomi" has no games! Ignoring it.
+Oct 12 20:24:27.566353 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1672]        WARNING        System "nds" has no games! Ignoring it.
+Oct 12 20:24:27.566353 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1672]        WARNING        System "ndsiware" has no games! Ignoring it.
+Oct 12 20:24:27.566353 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1672]        WARNING        System "neocd" has no games! Ignoring it.
+Oct 12 20:24:27.566479 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1672]        WARNING        System "neogeo" has no games! Ignoring it.
+Oct 12 20:24:27.566479 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1672]        WARNING        System "nes" has no games! Ignoring it.
+Oct 12 20:24:27.566479 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1672]        WARNING        System "nesh" has no games! Ignoring it.
+Oct 12 20:24:27.566479 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1672]        WARNING        System "ngp" has no games! Ignoring it.
+Oct 12 20:24:27.566479 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1672]        WARNING        System "ngpc" has no games! Ignoring it.
+Oct 12 20:24:27.566479 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1672]        WARNING        System "odyssey2" has no games! Ignoring it.
+Oct 12 20:24:27.566479 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1672]        WARNING        System "openbor" has no games! Ignoring it.
+Oct 12 20:24:27.566479 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1667]        WARNING        System "megaduck" has no games! Ignoring it.
+Oct 12 20:24:27.566479 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1668]        WARNING        System "n64dd" has no games! Ignoring it.
+Oct 12 20:24:27.566479 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1672]        WARNING        System "palm" has no games! Ignoring it.
+Oct 12 20:24:27.566479 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1667]        WARNING        System "pc-8800" has no games! Ignoring it.
+Oct 12 20:24:27.566479 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1668]        WARNING        System "pc-9800" has no games! Ignoring it.
+Oct 12 20:24:27.566479 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1672]        WARNING        System "pc" has no games! Ignoring it.
+Oct 12 20:24:27.566479 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1667]        WARNING        System "pcengine" has no games! Ignoring it.
+Oct 12 20:24:27.566479 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1667]        WARNING        System "pet" has no games! Ignoring it.
+Oct 12 20:24:27.566479 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1668]        WARNING        System "pcenginecd" has no games! Ignoring it.
+Oct 12 20:24:27.566479 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1671]        WARNING          Unknown platform for system "music" (platform "music" from list "music")
+Oct 12 20:24:27.566479 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1673]        WARNING        System "msx2" has no games! Ignoring it.
+Oct 12 20:24:27.566479 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1672]        WARNING        System "pcfx" has no games! Ignoring it.
+Oct 12 20:24:27.566479 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1668]        WARNING        System "pokemini" has no games! Ignoring it.
+Oct 12 20:24:27.566479 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1668]        WARNING        System "pspminis" has no games! Ignoring it.
+Oct 12 20:24:27.566479 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1673]        WARNING        System "ports" has no games! Ignoring it.
+Oct 12 20:24:27.566479 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1668]        WARNING        System "psx" has no games! Ignoring it.
+Oct 12 20:24:27.566479 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1673]        WARNING        System "satellaview" has no games! Ignoring it.
+Oct 12 20:24:27.566479 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1668]        WARNING        System "saturn" has no games! Ignoring it.
+Oct 12 20:24:27.566479 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1672]        WARNING        System "psp" has no games! Ignoring it.
+Oct 12 20:24:27.566607 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1668]        WARNING        System "scv" has no games! Ignoring it.
+Oct 12 20:24:27.566607 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1668]        WARNING        System "segacd" has no games! Ignoring it.
+Oct 12 20:24:27.566607 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1673]        WARNING        System "scummvm" has no games! Ignoring it.
+Oct 12 20:24:27.566607 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1672]        WARNING        System "sega32x" has no games! Ignoring it.
+Oct 12 20:24:27.566607 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1668]        WARNING        System "sfc" has no games! Ignoring it.
+Oct 12 20:24:27.566607 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1673]        WARNING        System "sg-1000" has no games! Ignoring it.
+Oct 12 20:24:27.566607 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1673]        WARNING          Unknown platform for system "snesmsu1" (platform "snesmsu1" from list "snesmsu1 snes")
+Oct 12 20:24:27.566607 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1668]        WARNING        System "snesh" has no games! Ignoring it.
+Oct 12 20:24:27.566607 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1672]        WARNING        System "snes" has no games! Ignoring it.
+Oct 12 20:24:27.566607 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1673]        WARNING        System "snesmsu1" has no games! Ignoring it.
+Oct 12 20:24:27.566607 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1668]        WARNING          Unknown platform for system "st-v" (platform "st-v" from list "st-v")
+Oct 12 20:24:27.566607 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1668]        WARNING        System "st-v" has no games! Ignoring it.
+Oct 12 20:24:27.566607 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1673]        WARNING        System "sufami" has no games! Ignoring it.
+Oct 12 20:24:27.566607 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1668]        WARNING        System "supervision" has no games! Ignoring it.
+Oct 12 20:24:27.566607 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1672]        WARNING        System "supergrafx" has no games! Ignoring it.
+Oct 12 20:24:27.566607 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1673]        WARNING        System "tg16" has no games! Ignoring it.
+Oct 12 20:24:27.566607 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1668]        WARNING        System "tg16cd" has no games! Ignoring it.
+Oct 12 20:24:27.566607 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1672]        WARNING        System "tic-80" has no games! Ignoring it.
+Oct 12 20:24:27.566607 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1673]        WARNING          Unknown platform for system "tools" (platform "tools" from list "tools")
+Oct 12 20:24:27.566607 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1668]        WARNING        System "uzebox" has no games! Ignoring it.
+Oct 12 20:24:27.566607 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1672]        WARNING        System "vectrex" has no games! Ignoring it.
+Oct 12 20:24:27.566607 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1668]        WARNING        System "vic20" has no games! Ignoring it.
+Oct 12 20:24:27.566607 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1672]        WARNING        System "videopac" has no games! Ignoring it.
+Oct 12 20:24:27.566607 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1668]        WARNING        System "vircon32" has no games! Ignoring it.
+Oct 12 20:24:27.566728 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1668]        WARNING        System "wasm4" has no games! Ignoring it.
+Oct 12 20:24:27.566728 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1672]        WARNING        System "virtualboy" has no games! Ignoring it.
+Oct 12 20:24:27.566728 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1668]        WARNING        System "windows" has no games! Ignoring it.
+Oct 12 20:24:27.566728 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1672]        WARNING        System "wonderswan" has no games! Ignoring it.
+Oct 12 20:24:27.566728 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1668]        WARNING        System "wonderswancolor" has no games! Ignoring it.
+Oct 12 20:24:27.566728 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1672]        WARNING        System "x1" has no games! Ignoring it.
+Oct 12 20:24:27.566728 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1668]        WARNING        System "x68000" has no games! Ignoring it.
+Oct 12 20:24:27.566728 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1672]        WARNING          Unknown platform for system "zmachine" (platform "z-machine" from list "z-machine")
+Oct 12 20:24:27.566728 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1668]        WARNING        System "zx81" has no games! Ignoring it.
+Oct 12 20:24:27.566728 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1672]        WARNING        System "zmachine" has no games! Ignoring it.
+Oct 12 20:24:27.566728 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1674]        WARNING        System "zxspectrum" has no games! Ignoring it.
+Oct 12 20:24:27.566728 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1669]        WARNING        System "bk" has no games! Ignoring it.
+Oct 12 20:24:27.566728 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1673]        WARNING        File "/storage/.config/modules/Start FEXConfig.sh" does not exist or is arcade asset ! Ignoring.
+Oct 12 20:24:27.566728 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1673]        WARNING        File "/storage/.config/modules/cloud_backup.sh" does not exist or is arcade asset ! Ignoring.
+Oct 12 20:24:27.566728 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1673]        WARNING        File "/storage/.config/modules/cloud_restore.sh" does not exist or is arcade asset ! Ignoring.
+Oct 12 20:24:27.566728 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1673]        WARNING        File "/storage/.config/modules/qterminal.sh" does not exist or is arcade asset ! Ignoring.
+Oct 12 20:24:27.566728 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1673]        WARNING        File "/storage/.config/modules/Install Steam.sh" does not exist or is arcade asset ! Ignoring.
+Oct 12 20:24:27.566728 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1673]        WARNING        File "/storage/.config/modules/Uninstall Steam.sh" does not exist or is arcade asset ! Ignoring.
+Oct 12 20:24:27.566728 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1673]        WARNING        File "/storage/.config/modules/Install Heroic Games Launcher.sh" does not exist or is arcade asset ! Ignoring.
+Oct 12 20:24:27.566820 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1673]        WARNING        File "/storage/.config/modules/Uninstall Heroic Games Launcher.sh" does not exist or is arcade asset ! Ignoring.
+Oct 12 20:24:27.566820 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1673]        WARNING        File "/storage/.config/modules/Scan Heroic Games.sh" does not exist or is arcade asset ! Ignoring.
+Oct 12 20:24:27.566820 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1673]        WARNING        File "/storage/.config/modules/Start AetherSX2.sh" does not exist or is arcade asset ! Ignoring.
+Oct 12 20:24:27.566820 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1673]        WARNING        File "/storage/.config/modules/Start Azahar.sh" does not exist or is arcade asset ! Ignoring.
+Oct 12 20:24:27.566820 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1673]        WARNING        File "/storage/.config/modules/Start BigPEmu.sh" does not exist or is arcade asset ! Ignoring.
+Oct 12 20:24:27.566820 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1673]        WARNING        File "/storage/.config/modules/Start CEMU.sh" does not exist or is arcade asset ! Ignoring.
+Oct 12 20:24:27.566820 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1673]        WARNING        File "/storage/.config/modules/Start DaedalusX64.sh" does not exist or is arcade asset ! Ignoring.
+Oct 12 20:24:27.566820 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1673]        WARNING        File "/storage/.config/modules/Start Dolphin.sh" does not exist or is arcade asset ! Ignoring.
+Oct 12 20:24:27.566820 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1673]        WARNING        File "/storage/.config/modules/Start MelonDS.sh" does not exist or is arcade asset ! Ignoring.
+Oct 12 20:24:27.566820 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1673]        WARNING        File "/storage/.config/modules/Start Moonlight.sh" does not exist or is arcade asset ! Ignoring.
+Oct 12 20:24:27.566820 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1673]        WARNING        File "/storage/.config/modules/Start ARMSX2.sh" does not exist or is arcade asset ! Ignoring.
+Oct 12 20:24:27.566820 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1673]        WARNING        File "/storage/.config/modules/Start SkyEmu.sh" does not exist or is arcade asset ! Ignoring.
+Oct 12 20:24:27.566820 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1673]        WARNING        File "/storage/.config/modules/Start RPCS3.sh" does not exist or is arcade asset ! Ignoring.
+Oct 12 20:24:27.566820 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1673]        WARNING        File "/storage/.config/modules/Start Vita3K.sh" does not exist or is arcade asset ! Ignoring.
+Oct 12 20:24:27.566820 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1673]        WARNING        File "/storage/.config/modules/Start Xemu.sh" does not exist or is arcade asset ! Ignoring.
+Oct 12 20:24:27.566908 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1673]        WARNING        File "/storage/.config/modules/Test Gamepad.sh" does not exist or is arcade asset ! Ignoring.
+Oct 12 20:24:27.566908 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1673]        WARNING        File "/storage/.config/modules/Test Touchscreen.sh" does not exist or is arcade asset ! Ignoring.
+Oct 12 20:24:27.566908 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1673]        WARNING        File "/storage/.config/modules/GPcal.sh" does not exist or is arcade asset ! Ignoring.
+Oct 12 20:24:27.569719 GENERIC-X64-15ca input_sense[1679]: Found Keyboard: /dev/input/event1
+Oct 12 20:24:27.574077 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1671]        WARNING        Unknown element of type "notification"!
+Oct 12 20:24:27.574077 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1666]        WARNING        Unknown element of type "notification"!
+Oct 12 20:24:27.574077 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1673]        WARNING        Unknown element of type "notification"!
+Oct 12 20:24:27.574077 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1667]        WARNING        Unknown element of type "notification"!
+Oct 12 20:24:27.577233 GENERIC-X64-15ca input_sense[1687]: Found Keyboard: /dev/input/event2
+Oct 12 20:24:27.577476 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1666]        WARNING        Unknown element of type "notification"!
+Oct 12 20:24:27.579975 GENERIC-X64-15ca start_es.sh[1633]: 2026-10-12 20:24:27        [1662]        ERROR        HttpReq::onError (3) : Could not connect to server
+Oct 12 20:24:27.658878 GENERIC-X64-15ca serial_number_check[1708]: SERIAL NUMBER CHECK: This device has no unique serial number to check, skipping and continue to Emulation Station
+Oct 12 20:24:28.591540 GENERIC-X64-15ca input_sense[1720]: Found Keyboard: /dev/input/event0
+Oct 12 20:24:28.597445 GENERIC-X64-15ca input_sense[1728]: Found Keyboard: /dev/input/event1
+Oct 12 20:24:28.605604 GENERIC-X64-15ca input_sense[1736]: Found Keyboard: /dev/input/event2
+Oct 12 20:24:28.654953 GENERIC-X64-15ca wsdd2[363]: llmnr-tcp-v4: open_ep: bind: Address already in use
+Oct 12 20:24:28.655179 GENERIC-X64-15ca wsdd2[363]: llmnr-tcp-v6: open_ep: bind: Address already in use
+Oct 12 20:24:28.655179 GENERIC-X64-15ca wsdd2[363]: llmnr-tcp-v6: open_ep: bind: Address already in use
+Oct 12 20:24:29.618790 GENERIC-X64-15ca input_sense[1758]: Found Keyboard: /dev/input/event0
+Oct 12 20:24:29.624738 GENERIC-X64-15ca input_sense[1766]: Found Keyboard: /dev/input/event1
+Oct 12 20:24:29.631539 GENERIC-X64-15ca input_sense[1774]: Found Keyboard: /dev/input/event2
+Oct 12 20:24:30.644716 GENERIC-X64-15ca input_sense[1789]: Found Keyboard: /dev/input/event0
+Oct 12 20:24:30.650945 GENERIC-X64-15ca input_sense[1797]: Found Keyboard: /dev/input/event1
+Oct 12 20:24:30.656613 GENERIC-X64-15ca input_sense[1805]: Found Keyboard: /dev/input/event2
+Oct 12 20:24:31.668459 GENERIC-X64-15ca input_sense[1827]: Found Keyboard: /dev/input/event0
+Oct 12 20:24:31.674187 GENERIC-X64-15ca input_sense[1835]: Found Keyboard: /dev/input/event1
+Oct 12 20:24:31.680021 GENERIC-X64-15ca input_sense[1843]: Found Keyboard: /dev/input/event2
+Oct 12 20:24:31.687689 GENERIC-X64-15ca input_sense[1851]: Did not find all needed devices, but continuing anyway.
+Oct 12 20:24:31.689035 GENERIC-X64-15ca input_sense[1853]: Did not find all of the needed devices, but that may be OK.  Breaking.
+Oct 12 20:24:36.119486 GENERIC-X64-15ca sshd-session[1927]: banner exchange: Connection from 10.0.2.2 port 40670: invalid format
+Oct 12 20:24:43.147933 GENERIC-X64-15ca sshd-session[1970]: Connection closed by 10.0.2.2 port 49034 [preauth]
+Oct 12 20:24:43.159273 GENERIC-X64-15ca sshd-session[1971]: Connection closed by 10.0.2.2 port 49048 [preauth]
+Oct 12 20:24:43.159644 GENERIC-X64-15ca sshd-session[1972]: Unable to negotiate with 10.0.2.2 port 49070: no matching host key type found. Their offer: sk-ecdsa-sha2-nistp256@openssh.com [preauth]
+Oct 12 20:24:44.163658 GENERIC-X64-15ca sshd-session[1976]: Unable to negotiate with 10.0.2.2 port 49074: no matching host key type found. Their offer: sk-ssh-ed25519@openssh.com [preauth]
+Oct 12 20:24:44.176777 GENERIC-X64-15ca sshd-session[1977]: Connection closed by 10.0.2.2 port 49060 [preauth]
+Oct 12 20:24:44.258093 GENERIC-X64-15ca sshd-session[1980]: Accepted publickey for root from 10.0.2.2 port 49088 ssh2: ED25519 SHA256:5EUBPtyVBbNmHy+MgW1UkRMiQFCYW2q90583lRUkbI8
+Oct 12 20:24:44.269100 GENERIC-X64-15ca sshd-session[1982]: Received disconnect from 10.0.2.2 port 49088:11: disconnected by user
+Oct 12 20:24:44.269270 GENERIC-X64-15ca sshd-session[1982]: Disconnected from user root 10.0.2.2 port 49088
+Oct 12 20:24:54.853270 GENERIC-X64-15ca systemd[1]: systemd-hostnamed.service: Deactivated successfully.
+Oct 12 20:24:58.546673 GENERIC-X64-15ca systemd-resolved[260]: Clock change detected. Flushing caches.
+Oct 12 20:24:58.546682 GENERIC-X64-15ca systemd-timesyncd[315]: Contacted time server 208.113.130.146:123 (2.pool.ntp.org).
+Oct 12 20:24:58.546751 GENERIC-X64-15ca systemd-timesyncd[315]: Initial clock synchronization to Mon 2026-10-12 20:24:58.546550 EDT.
+Oct 12 20:25:24.771164 GENERIC-X64-15ca systemd[1]: Starting rocknix-evidence.service...
+Oct 12 20:25:25.046721 GENERIC-X64-15ca systemd[1]: rocknix-evidence.service: Deactivated successfully.
+Oct 12 20:25:25.046839 GENERIC-X64-15ca systemd[1]: Finished rocknix-evidence.service.
+Oct 12 20:26:13.875848 GENERIC-X64-15ca sshd-session[2426]: Accepted publickey for root from 10.0.2.2 port 51696 ssh2: ED25519 SHA256:5EUBPtyVBbNmHy+MgW1UkRMiQFCYW2q90583lRUkbI8
+Oct 12 20:26:13.884247 GENERIC-X64-15ca sshd-session[2428]: Received disconnect from 10.0.2.2 port 51696:11: disconnected by user
+Oct 12 20:26:13.884336 GENERIC-X64-15ca sshd-session[2428]: Disconnected from user root 10.0.2.2 port 51696
+Oct 12 20:26:13.953522 GENERIC-X64-15ca sshd-session[2431]: Accepted publickey for root from 10.0.2.2 port 51700 ssh2: ED25519 SHA256:5EUBPtyVBbNmHy+MgW1UkRMiQFCYW2q90583lRUkbI8
+Oct 12 20:26:14.416913 GENERIC-X64-15ca sway-generic-x64[1515]: dbus-daemon[1515]: [session uid=0 pid=1515 pidfd=4] Activating service name='org.a11y.Bus' requested by ':1.4' (uid=0 pid=2441 comm="/usr/bin/cloud-signin-window https://www.dropbox.c")
+Oct 12 20:26:14.422877 GENERIC-X64-15ca sway-generic-x64[1515]: dbus-daemon[1515]: [session uid=0 pid=1515 pidfd=4] Successfully activated service 'org.a11y.Bus'
+Oct 12 20:26:14.890489 GENERIC-X64-15ca sway-generic-x64[2453]: dbus-daemon[2453]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=0 pid=2441 comm="/usr/bin/cloud-signin-window https://www.dropbox.c")
+Oct 12 20:26:14.931830 GENERIC-X64-15ca sway-generic-x64[2453]: dbus-daemon[2453]: Successfully activated service 'org.a11y.atspi.Registry'
+Oct 12 20:26:14.931992 GENERIC-X64-15ca sway-generic-x64[2486]: SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+Oct 12 20:27:38.533986 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (0 suppressed)
+Oct 12 20:27:38.534000 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:197648995284 a:197649052458 f:197649067163 waiting:57174 process:14705 status:triggered
+Oct 12 20:27:46.970024 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (2 suppressed)
+Oct 12 20:27:46.970043 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:206095226881 a:206095503268 f:206095531618 waiting:276387 process:28350 status:triggered
+Oct 12 20:28:21.987116 GENERIC-X64-15ca sshd-session[2438]: Received disconnect from 10.0.2.2 port 51700:11: disconnected by user
+Oct 12 20:28:21.987271 GENERIC-X64-15ca sshd-session[2438]: Disconnected from user root 10.0.2.2 port 51700
+Oct 12 20:28:22.142682 GENERIC-X64-15ca sshd-session[3100]: Accepted publickey for root from 10.0.2.2 port 49730 ssh2: ED25519 SHA256:5EUBPtyVBbNmHy+MgW1UkRMiQFCYW2q90583lRUkbI8
+Oct 12 20:28:22.154786 GENERIC-X64-15ca sshd-session[3102]: Received disconnect from 10.0.2.2 port 49730:11: disconnected by user
+Oct 12 20:28:22.154916 GENERIC-X64-15ca sshd-session[3102]: Disconnected from user root 10.0.2.2 port 49730
+Oct 12 20:28:22.227306 GENERIC-X64-15ca sshd-session[3104]: Accepted publickey for root from 10.0.2.2 port 49742 ssh2: ED25519 SHA256:5EUBPtyVBbNmHy+MgW1UkRMiQFCYW2q90583lRUkbI8
+Oct 12 20:28:22.237465 GENERIC-X64-15ca sshd-session[3106]: Received disconnect from 10.0.2.2 port 49742:11: disconnected by user
+Oct 12 20:28:22.237593 GENERIC-X64-15ca sshd-session[3106]: Disconnected from user root 10.0.2.2 port 49742
+Oct 12 20:28:22.309942 GENERIC-X64-15ca sshd-session[3108]: Accepted publickey for root from 10.0.2.2 port 49756 ssh2: ED25519 SHA256:5EUBPtyVBbNmHy+MgW1UkRMiQFCYW2q90583lRUkbI8
+Oct 12 20:29:12.010303 GENERIC-X64-15ca sshd-session[3110]: Received disconnect from 10.0.2.2 port 49756:11: disconnected by user
+Oct 12 20:29:12.010424 GENERIC-X64-15ca sshd-session[3110]: Disconnected from user root 10.0.2.2 port 49756
+Oct 12 20:29:12.135564 GENERIC-X64-15ca sshd-session[3396]: Accepted publickey for root from 10.0.2.2 port 38968 ssh2: ED25519 SHA256:5EUBPtyVBbNmHy+MgW1UkRMiQFCYW2q90583lRUkbI8
+Oct 12 20:29:12.147490 GENERIC-X64-15ca sshd-session[3398]: Received disconnect from 10.0.2.2 port 38968:11: disconnected by user
+Oct 12 20:29:12.147596 GENERIC-X64-15ca sshd-session[3398]: Disconnected from user root 10.0.2.2 port 38968
+Oct 12 20:29:12.217436 GENERIC-X64-15ca sshd-session[3400]: Accepted publickey for root from 10.0.2.2 port 38976 ssh2: ED25519 SHA256:5EUBPtyVBbNmHy+MgW1UkRMiQFCYW2q90583lRUkbI8
+Oct 12 20:29:12.226970 GENERIC-X64-15ca sshd-session[3402]: Received disconnect from 10.0.2.2 port 38976:11: disconnected by user
+Oct 12 20:29:12.227059 GENERIC-X64-15ca sshd-session[3402]: Disconnected from user root 10.0.2.2 port 38976
+Oct 12 20:29:12.296899 GENERIC-X64-15ca sshd-session[3404]: Accepted publickey for root from 10.0.2.2 port 38992 ssh2: ED25519 SHA256:5EUBPtyVBbNmHy+MgW1UkRMiQFCYW2q90583lRUkbI8
+Oct 12 20:30:24.831108 GENERIC-X64-15ca systemd[1]: Starting rocknix-evidence.service...
+Oct 12 20:30:25.923457 GENERIC-X64-15ca systemd[1]: rocknix-evidence.service: Deactivated successfully.
+Oct 12 20:30:25.927010 GENERIC-X64-15ca systemd[1]: Finished rocknix-evidence.service.
+Oct 12 20:30:48.687150 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (1 suppressed)
+Oct 12 20:30:48.687168 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:387813346128 a:387813489936 f:387813513304 waiting:143808 process:23368 status:triggered
+Oct 12 20:31:22.027945 GENERIC-X64-15ca sshd-session[3406]: Received disconnect from 10.0.2.2 port 38992:11: disconnected by user
+Oct 12 20:31:22.028093 GENERIC-X64-15ca sshd-session[3406]: Disconnected from user root 10.0.2.2 port 38992
+Oct 12 20:31:22.149005 GENERIC-X64-15ca sshd-session[4119]: Accepted publickey for root from 10.0.2.2 port 37754 ssh2: ED25519 SHA256:5EUBPtyVBbNmHy+MgW1UkRMiQFCYW2q90583lRUkbI8
+Oct 12 20:31:22.160706 GENERIC-X64-15ca sshd-session[4121]: Received disconnect from 10.0.2.2 port 37754:11: disconnected by user
+Oct 12 20:31:22.160807 GENERIC-X64-15ca sshd-session[4121]: Disconnected from user root 10.0.2.2 port 37754
+Oct 12 20:31:22.231226 GENERIC-X64-15ca sshd-session[4123]: Accepted publickey for root from 10.0.2.2 port 37770 ssh2: ED25519 SHA256:5EUBPtyVBbNmHy+MgW1UkRMiQFCYW2q90583lRUkbI8
+Oct 12 20:31:22.240460 GENERIC-X64-15ca sshd-session[4125]: Received disconnect from 10.0.2.2 port 37770:11: disconnected by user
+Oct 12 20:31:22.240559 GENERIC-X64-15ca sshd-session[4125]: Disconnected from user root 10.0.2.2 port 37770
+Oct 12 20:35:32.271196 GENERIC-X64-15ca systemd[1]: Starting rocknix-evidence.service...
+Oct 12 20:35:32.555422 GENERIC-X64-15ca systemd[1]: rocknix-evidence.service: Deactivated successfully.
+Oct 12 20:35:32.555515 GENERIC-X64-15ca systemd[1]: Finished rocknix-evidence.service.
+Oct 12 20:39:22.298041 GENERIC-X64-15ca systemd[1]: Starting systemd-tmpfiles-clean.service...
+Oct 12 20:39:22.326512 GENERIC-X64-15ca systemd[1]: systemd-tmpfiles-clean.service: Deactivated successfully.
+Oct 12 20:39:22.326640 GENERIC-X64-15ca systemd[1]: Finished systemd-tmpfiles-clean.service.
+Oct 12 20:40:37.334315 GENERIC-X64-15ca systemd[1]: Starting rocknix-evidence.service...
+Oct 12 20:40:37.592064 GENERIC-X64-15ca systemd[1]: rocknix-evidence.service: Deactivated successfully.
+Oct 12 20:40:37.592170 GENERIC-X64-15ca systemd[1]: Finished rocknix-evidence.service.
+Oct 12 20:45:44.861272 GENERIC-X64-15ca systemd[1]: Starting rocknix-evidence.service...
+Oct 12 20:45:45.134214 GENERIC-X64-15ca systemd[1]: rocknix-evidence.service: Deactivated successfully.
+Oct 12 20:45:45.134349 GENERIC-X64-15ca systemd[1]: Finished rocknix-evidence.service.
+Oct 12 20:50:47.284652 GENERIC-X64-15ca systemd[1]: Starting rocknix-evidence.service...
+Oct 12 20:50:47.551821 GENERIC-X64-15ca systemd[1]: rocknix-evidence.service: Deactivated successfully.
+Oct 12 20:50:47.551954 GENERIC-X64-15ca systemd[1]: Finished rocknix-evidence.service.
+Oct 12 20:55:19.577727 GENERIC-X64-15ca sshd-session[10775]: Accepted publickey for root from 10.0.2.2 port 49826 ssh2: ED25519 SHA256:5EUBPtyVBbNmHy+MgW1UkRMiQFCYW2q90583lRUkbI8
+Oct 12 20:55:19.592342 GENERIC-X64-15ca sshd-session[10777]: Received disconnect from 10.0.2.2 port 49826:11: disconnected by user
+Oct 12 20:55:19.592479 GENERIC-X64-15ca sshd-session[10777]: Disconnected from user root 10.0.2.2 port 49826
+Oct 12 20:55:52.327803 GENERIC-X64-15ca systemd[1]: Starting rocknix-evidence.service...
+Oct 12 20:55:52.591454 GENERIC-X64-15ca systemd[1]: rocknix-evidence.service: Deactivated successfully.
+Oct 12 20:55:52.591633 GENERIC-X64-15ca systemd[1]: Finished rocknix-evidence.service.
+Oct 12 20:58:43.085325 GENERIC-X64-15ca sshd-session[11740]: Accepted publickey for root from 10.0.2.2 port 41280 ssh2: ED25519 SHA256:5EUBPtyVBbNmHy+MgW1UkRMiQFCYW2q90583lRUkbI8
+Oct 12 20:58:43.103436 GENERIC-X64-15ca sshd-session[11742]: Received disconnect from 10.0.2.2 port 41280:11: disconnected by user
+Oct 12 20:58:43.103698 GENERIC-X64-15ca sshd-session[11742]: Disconnected from user root 10.0.2.2 port 41280
+Oct 12 20:58:43.179768 GENERIC-X64-15ca sshd-session[11744]: Accepted publickey for root from 10.0.2.2 port 41290 ssh2: ED25519 SHA256:5EUBPtyVBbNmHy+MgW1UkRMiQFCYW2q90583lRUkbI8
+Oct 12 20:58:43.481894 GENERIC-X64-15ca sshd-session[11746]: Received disconnect from 10.0.2.2 port 41290:11: disconnected by user
+Oct 12 20:58:43.481928 GENERIC-X64-15ca sshd-session[11746]: Disconnected from user root 10.0.2.2 port 41290
+Oct 12 20:58:43.559616 GENERIC-X64-15ca sshd-session[11748]: Accepted publickey for root from 10.0.2.2 port 41298 ssh2: ED25519 SHA256:5EUBPtyVBbNmHy+MgW1UkRMiQFCYW2q90583lRUkbI8
+Oct 12 20:58:43.867230 GENERIC-X64-15ca sshd-session[11757]: Received disconnect from 10.0.2.2 port 41298:11: disconnected by user
+Oct 12 20:58:43.867351 GENERIC-X64-15ca sshd-session[11757]: Disconnected from user root 10.0.2.2 port 41298
+Oct 12 20:58:43.938858 GENERIC-X64-15ca sshd-session[11759]: Accepted publickey for root from 10.0.2.2 port 41308 ssh2: ED25519 SHA256:5EUBPtyVBbNmHy+MgW1UkRMiQFCYW2q90583lRUkbI8
+Oct 12 20:58:43.949435 GENERIC-X64-15ca sshd-session[11761]: Received disconnect from 10.0.2.2 port 41308:11: disconnected by user
+Oct 12 20:58:43.949697 GENERIC-X64-15ca sshd-session[11761]: Disconnected from user root 10.0.2.2 port 41308
+Oct 12 20:58:44.022281 GENERIC-X64-15ca sshd-session[11764]: Accepted publickey for root from 10.0.2.2 port 41310 ssh2: ED25519 SHA256:5EUBPtyVBbNmHy+MgW1UkRMiQFCYW2q90583lRUkbI8
+Oct 12 20:58:44.090241 GENERIC-X64-15ca sshd-session[11766]: Received disconnect from 10.0.2.2 port 41310:11: disconnected by user
+Oct 12 20:58:44.090341 GENERIC-X64-15ca sshd-session[11766]: Disconnected from user root 10.0.2.2 port 41310
+Oct 12 20:58:44.158692 GENERIC-X64-15ca sshd-session[11772]: Accepted publickey for root from 10.0.2.2 port 41322 ssh2: ED25519 SHA256:5EUBPtyVBbNmHy+MgW1UkRMiQFCYW2q90583lRUkbI8
+Oct 12 20:58:50.602718 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (0 suppressed)
+Oct 12 20:58:50.602735 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2069553745697 a:2069553783625 f:2069553792990 waiting:37928 process:9365 status:triggered
+Oct 12 20:58:57.517181 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (1 suppressed)
+Oct 12 20:58:57.517205 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2076405819210 a:2076405874324 f:2076405893663 waiting:55114 process:19339 status:triggered
+Oct 12 20:59:00.460061 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (7 suppressed)
+Oct 12 20:59:00.460080 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2079307389767 a:2079307428038 f:2079307442325 waiting:38271 process:14287 status:triggered
+Oct 12 20:59:02.292509 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (15 suppressed)
+Oct 12 20:59:02.292528 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2081378562942 a:2081384905498 f:2081390683301 waiting:6342556 process:5777803 status:triggered
+Oct 12 20:59:04.584772 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (23 suppressed)
+Oct 12 20:59:05.256648 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2083369472635 a:2083369516956 f:2083389749186 waiting:44321 process:20232230 status:triggered
+Oct 12 20:59:06.494361 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (32 suppressed)
+Oct 12 20:59:06.494371 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2085567255427 a:2085567296418 f:2085567309248 waiting:40991 process:12830 status:triggered
+Oct 12 20:59:09.003632 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (22 suppressed)
+Oct 12 20:59:09.003825 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2087737677267 a:2087737726083 f:2087738095059 waiting:48816 process:368976 status:triggered
+Oct 12 20:59:13.081057 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (17 suppressed)
+Oct 12 20:59:13.081069 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2092124936014 a:2092134512272 f:2092196424776 waiting:9576258 process:61912504 status:triggered
+Oct 12 20:59:15.148966 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (56 suppressed)
+Oct 12 20:59:15.148980 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:1/2 s:2094239960392 a:2094240017814 f:2094240041176 waiting:57422 process:23362 status:triggered
+Oct 12 20:59:15.148984 GENERIC-X64-15ca pipewire[351]: pw.node: (emulationstation-57) xrun state:0x7f6fb475a008 pending:0/1 s:2094264201424 a:2094268942167 f:2094240012610 waiting:4740743 process:18446744073680622059 status:awake
+Oct 12 20:59:17.192208 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (14 suppressed)
+Oct 12 20:59:17.192219 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2096303627652 a:2096305576934 f:2096305590585 waiting:1949282 process:13651 status:triggered
+Oct 12 20:59:20.432363 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (2 suppressed)
+Oct 12 20:59:20.432382 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2099493258969 a:2099493325970 f:2099510313958 waiting:67001 process:16987988 status:triggered
+Oct 12 20:59:22.603770 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (4 suppressed)
+Oct 12 20:59:22.603780 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2101687314392 a:2101687385776 f:2101687410100 waiting:71384 process:24324 status:triggered
+Oct 12 20:59:24.912263 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (2 suppressed)
+Oct 12 20:59:24.912282 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2103949096930 a:2103949193914 f:2103951343651 waiting:96984 process:2149737 status:triggered
+Oct 12 20:59:28.961036 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (32 suppressed)
+Oct 12 20:59:28.961048 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2108050156474 a:2108050177732 f:2108050182163 waiting:21258 process:4431 status:triggered
+Oct 12 20:59:30.984942 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (9 suppressed)
+Oct 12 20:59:30.984950 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:1/2 s:2110121105426 a:2110121172994 f:2110121194530 waiting:67568 process:21536 status:triggered
+Oct 12 20:59:30.984954 GENERIC-X64-15ca pipewire[351]: pw.node: (emulationstation-57) xrun state:0x7f6fb475a008 pending:0/1 s:2110144552159 a:2110146347523 f:2110121167172 waiting:1795364 process:18446744073684371265 status:awake
+Oct 12 20:59:33.197516 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (30 suppressed)
+Oct 12 20:59:33.198015 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2112091759166 a:2112150183610 f:2112156529309 waiting:58424444 process:6345699 status:triggered
+Oct 12 20:59:36.624318 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (9 suppressed)
+Oct 12 20:59:36.653050 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2114204034395 a:2114204082593 f:2114204099040 waiting:48198 process:16447 status:triggered
+Oct 12 20:59:42.287343 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (5 suppressed)
+Oct 12 20:59:42.287366 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2121287872541 a:2121287924999 f:2121291737637 waiting:52458 process:3812638 status:triggered
+Oct 12 20:59:46.481788 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (28 suppressed)
+Oct 12 20:59:46.481805 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2125335779760 a:2125394199788 f:2125398213151 waiting:58420028 process:4013363 status:triggered
+Oct 12 20:59:51.014154 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (14 suppressed)
+Oct 12 20:59:51.211541 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2129627197258 a:2129630731920 f:2129632427291 waiting:3534662 process:1695371 status:triggered
+Oct 12 20:59:54.954995 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (17 suppressed)
+Oct 12 20:59:55.503114 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2133781200305 a:2133821729347 f:2133821980648 waiting:40529042 process:251301 status:triggered
+Oct 12 21:00:03.628062 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (10 suppressed)
+Oct 12 21:00:03.752707 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2142045974975 a:2142047624313 f:2142047627185 waiting:1649338 process:2872 status:triggered
+Oct 12 21:00:05.912758 GENERIC-X64-15ca pipewire[351]: spa.alsa: front:1p: (0 suppressed) snd_pcm_avail after recover: Broken pipe
+Oct 12 21:00:11.428251 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (26 suppressed)
+Oct 12 21:00:11.428260 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:1/2 s:2150492893682 a:2150492949501 f:2150492975429 waiting:55819 process:25928 status:triggered
+Oct 12 21:00:17.112713 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (29 suppressed)
+Oct 12 21:00:17.112733 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2156028679664 a:2156028716106 f:2156028728433 waiting:36442 process:12327 status:triggered
+Oct 12 21:00:19.047289 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (23 suppressed)
+Oct 12 21:00:19.075578 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2158069779720 a:2158080032582 f:2158106075818 waiting:10252862 process:26043236 status:triggered
+Oct 12 21:00:22.932308 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (3 suppressed)
+Oct 12 21:00:22.956171 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2161985138295 a:2161985338648 f:2161985360692 waiting:200353 process:22044 status:triggered
+Oct 12 21:00:25.549121 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (19 suppressed)
+Oct 12 21:00:25.549129 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:1/2 s:2164678029088 a:2164678124798 f:2164678147977 waiting:95710 process:23179 status:triggered
+Oct 12 21:00:25.549132 GENERIC-X64-15ca pipewire[351]: pw.node: (emulationstation-57) xrun state:0x7f6fb475a008 pending:0/1 s:2164710243849 a:2164728250286 f:2164678118538 waiting:18006437 process:18446744073659419868 status:awake
+Oct 12 21:00:28.063317 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (5 suppressed)
+Oct 12 21:00:28.063336 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2167038827538 a:2167038866653 f:2167041950604 waiting:39115 process:3083951 status:triggered
+Oct 12 21:00:30.265972 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (14 suppressed)
+Oct 12 21:00:30.265989 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2169023993608 a:2169078276257 f:2169091601705 waiting:54282649 process:13325448 status:triggered
+Oct 12 21:00:31.946396 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (11 suppressed)
+Oct 12 21:00:31.946413 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2171095400013 a:2171095448207 f:2171095450560 waiting:48194 process:2353 status:triggered
+Oct 12 21:00:36.105529 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (18 suppressed)
+Oct 12 21:00:36.105541 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:1/2 s:2175156159317 a:2175156217675 f:2175158077998 waiting:58358 process:1860323 status:triggered
+Oct 12 21:00:36.105544 GENERIC-X64-15ca pipewire[351]: pw.node: (emulationstation-57) xrun state:0x7f6fb475a008 pending:0/1 s:2175186422513 a:2175191155776 f:2175156211933 waiting:4733263 process:18446744073674607773 status:awake
+Oct 12 21:00:38.259782 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (22 suppressed)
+Oct 12 21:00:38.259796 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2177347783151 a:2177347807682 f:2177347815239 waiting:24531 process:7557 status:triggered
+Oct 12 21:00:40.733314 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (28 suppressed)
+Oct 12 21:00:40.733330 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2179808813892 a:2179819111004 f:2179836304138 waiting:10297112 process:17193134 status:triggered
+Oct 12 21:00:43.062959 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (36 suppressed)
+Oct 12 21:00:43.065834 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2181845315725 a:2181875917141 f:2181875938099 waiting:30601416 process:20958 status:triggered
+Oct 12 21:00:50.389897 GENERIC-X64-15ca sshd-session[11774]: Received disconnect from 10.0.2.2 port 41322:11: disconnected by user
+Oct 12 21:00:50.390053 GENERIC-X64-15ca sshd-session[11774]: Disconnected from user root 10.0.2.2 port 41322
+Oct 12 21:00:50.485820 GENERIC-X64-15ca sshd-session[12214]: Accepted publickey for root from 10.0.2.2 port 35442 ssh2: ED25519 SHA256:5EUBPtyVBbNmHy+MgW1UkRMiQFCYW2q90583lRUkbI8
+Oct 12 21:00:50.562343 GENERIC-X64-15ca sshd-session[12216]: Received disconnect from 10.0.2.2 port 35442:11: disconnected by user
+Oct 12 21:00:50.562443 GENERIC-X64-15ca sshd-session[12216]: Disconnected from user root 10.0.2.2 port 35442
+Oct 12 21:00:50.566971 GENERIC-X64-15ca systemd[1]: usr-lib-webkit2gtk\x2d4.1.mount: Deactivated successfully.
+Oct 12 21:00:50.567076 GENERIC-X64-15ca systemd[1]: usr-libexec-webkit2gtk\x2d4.1.mount: Deactivated successfully.
+Oct 12 21:00:58.094356 GENERIC-X64-15ca systemd[1]: Starting rocknix-evidence.service...
+Oct 12 21:00:58.377003 GENERIC-X64-15ca systemd[1]: rocknix-evidence.service: Deactivated successfully.
+Oct 12 21:00:58.377123 GENERIC-X64-15ca systemd[1]: Finished rocknix-evidence.service.
+Oct 12 21:02:29.850330 GENERIC-X64-15ca sshd-session[12713]: Accepted publickey for root from 10.0.2.2 port 46118 ssh2: ED25519 SHA256:5EUBPtyVBbNmHy+MgW1UkRMiQFCYW2q90583lRUkbI8
+Oct 12 21:02:29.858445 GENERIC-X64-15ca sshd-session[12715]: Received disconnect from 10.0.2.2 port 46118:11: disconnected by user
+Oct 12 21:02:29.858547 GENERIC-X64-15ca sshd-session[12715]: Disconnected from user root 10.0.2.2 port 46118
+Oct 12 21:02:29.926112 GENERIC-X64-15ca sshd-session[12717]: Accepted publickey for root from 10.0.2.2 port 46126 ssh2: ED25519 SHA256:5EUBPtyVBbNmHy+MgW1UkRMiQFCYW2q90583lRUkbI8
+Oct 12 21:02:30.182065 GENERIC-X64-15ca sshd-session[12719]: Received disconnect from 10.0.2.2 port 46126:11: disconnected by user
+Oct 12 21:02:30.182111 GENERIC-X64-15ca sshd-session[12719]: Disconnected from user root 10.0.2.2 port 46126
+Oct 12 21:02:30.250962 GENERIC-X64-15ca sshd-session[12721]: Accepted publickey for root from 10.0.2.2 port 46132 ssh2: ED25519 SHA256:5EUBPtyVBbNmHy+MgW1UkRMiQFCYW2q90583lRUkbI8
+Oct 12 21:02:30.450290 GENERIC-X64-15ca sshd-session[12723]: Received disconnect from 10.0.2.2 port 46132:11: disconnected by user
+Oct 12 21:02:30.450420 GENERIC-X64-15ca sshd-session[12723]: Disconnected from user root 10.0.2.2 port 46132
+Oct 12 21:02:30.559628 GENERIC-X64-15ca sshd-session[12725]: Accepted publickey for root from 10.0.2.2 port 46134 ssh2: ED25519 SHA256:5EUBPtyVBbNmHy+MgW1UkRMiQFCYW2q90583lRUkbI8
+Oct 12 21:02:30.568001 GENERIC-X64-15ca sshd-session[12734]: Received disconnect from 10.0.2.2 port 46134:11: disconnected by user
+Oct 12 21:02:30.568094 GENERIC-X64-15ca sshd-session[12734]: Disconnected from user root 10.0.2.2 port 46134
+Oct 12 21:02:30.669906 GENERIC-X64-15ca sshd-session[12737]: Accepted publickey for root from 10.0.2.2 port 46142 ssh2: ED25519 SHA256:5EUBPtyVBbNmHy+MgW1UkRMiQFCYW2q90583lRUkbI8
+Oct 12 21:02:30.703433 GENERIC-X64-15ca sshd-session[12739]: Received disconnect from 10.0.2.2 port 46142:11: disconnected by user
+Oct 12 21:02:30.703526 GENERIC-X64-15ca sshd-session[12739]: Disconnected from user root 10.0.2.2 port 46142
+Oct 12 21:02:30.808345 GENERIC-X64-15ca sshd-session[12745]: Accepted publickey for root from 10.0.2.2 port 46146 ssh2: ED25519 SHA256:5EUBPtyVBbNmHy+MgW1UkRMiQFCYW2q90583lRUkbI8
+Oct 12 21:02:36.741935 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (6 suppressed)
+Oct 12 21:02:36.741946 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2295797724559 a:2295797780393 f:2295797802135 waiting:55834 process:21742 status:triggered
+Oct 12 21:02:42.855353 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (1 suppressed)
+Oct 12 21:02:42.855364 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2301940083584 a:2301940129302 f:2301940144076 waiting:45718 process:14774 status:triggered
+Oct 12 21:02:50.449995 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (2 suppressed)
+Oct 12 21:02:50.451990 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2309343896201 a:2309343966622 f:2309343986133 waiting:70421 process:19511 status:triggered
+Oct 12 21:02:52.773044 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (10 suppressed)
+Oct 12 21:02:52.773054 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2311924072043 a:2311946266521 f:2311946282512 waiting:22194478 process:15991 status:triggered
+Oct 12 21:02:55.144703 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (7 suppressed)
+Oct 12 21:02:55.144717 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2314175124920 a:2314189071689 f:2314198113250 waiting:13946769 process:9041561 status:triggered
+Oct 12 21:02:57.293851 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (31 suppressed)
+Oct 12 21:02:57.311131 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2316205575440 a:2316226737733 f:2316226746890 waiting:21162293 process:9157 status:triggered
+Oct 12 21:02:59.253354 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (13 suppressed)
+Oct 12 21:02:59.253372 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2318254819569 a:2318254868228 f:2318254883555 waiting:48659 process:15327 status:triggered
+Oct 12 21:03:02.299869 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (27 suppressed)
+Oct 12 21:03:02.299880 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2321402593383 a:2321402637394 f:2321402653692 waiting:44011 process:16298 status:triggered
+Oct 12 21:03:07.482194 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (50 suppressed)
+Oct 12 21:03:07.555874 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2325649401729 a:2325649464103 f:2325649720877 waiting:62374 process:256774 status:triggered
+Oct 12 21:03:13.595749 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (13 suppressed)
+Oct 12 21:03:13.599509 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2332176103937 a:2332176159649 f:2332176176358 waiting:55712 process:16709 status:triggered
+Oct 12 21:03:15.570641 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (11 suppressed)
+Oct 12 21:03:15.862572 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2334311354909 a:2334311389357 f:2334311400041 waiting:34448 process:10684 status:triggered
+Oct 12 21:03:17.518246 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (8 suppressed)
+Oct 12 21:03:17.518260 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:1/2 s:2336597185040 a:2336597455574 f:2336597475481 waiting:270534 process:19907 status:triggered
+Oct 12 21:03:17.518264 GENERIC-X64-15ca pipewire[351]: pw.node: (emulationstation-57) xrun state:0x7f6fb475a008 pending:0/1 s:2336645014533 a:2336649721904 f:2336597219270 waiting:4707371 process:18446744073657048982 status:awake
+Oct 12 21:03:19.544200 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (32 suppressed)
+Oct 12 21:03:19.544208 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2338675273327 a:2338689771239 f:2338689790639 waiting:14497912 process:19400 status:triggered
+Oct 12 21:03:24.276931 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (22 suppressed)
+Oct 12 21:03:24.277011 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2343175686691 a:2343175735239 f:2343176306825 waiting:48548 process:571586 status:triggered
+Oct 12 21:03:26.207837 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (12 suppressed)
+Oct 12 21:03:26.207850 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2345229613504 a:2345229648161 f:2345229658852 waiting:34657 process:10691 status:triggered
+Oct 12 21:03:28.575305 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (29 suppressed)
+Oct 12 21:03:28.702148 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2347523130214 a:2347529840312 f:2347529852490 waiting:6710098 process:12178 status:triggered
+Oct 12 21:03:35.457318 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (13 suppressed)
+Oct 12 21:03:35.457332 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2354539809933 a:2354539924383 f:2354539944654 waiting:114450 process:20271 status:triggered
+Oct 12 21:03:42.743496 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (1 suppressed)
+Oct 12 21:03:42.743505 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2361868385030 a:2361868436706 f:2361868454402 waiting:51676 process:17696 status:triggered
+Oct 12 21:03:44.998571 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (63 suppressed)
+Oct 12 21:03:44.998891 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2363905956356 a:2363905967201 f:2363905969334 waiting:10845 process:2133 status:triggered
+Oct 12 21:03:46.790362 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (25 suppressed)
+Oct 12 21:03:46.790369 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2365897261297 a:2365958927181 f:2365966391126 waiting:61665884 process:7463945 status:triggered
+Oct 12 21:03:51.792974 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (22 suppressed)
+Oct 12 21:03:51.792986 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2370880238254 a:2370880286875 f:2370880306886 waiting:48621 process:20011 status:triggered
+Oct 12 21:03:54.017892 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (15 suppressed)
+Oct 12 21:03:54.355837 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2373102458798 a:2373102497883 f:2373102510148 waiting:39085 process:12265 status:triggered
+Oct 12 21:03:59.361439 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (34 suppressed)
+Oct 12 21:03:59.369737 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2377480742987 a:2377480792093 f:2377481011649 waiting:49106 process:219556 status:triggered
+Oct 12 21:04:07.124910 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (18 suppressed)
+Oct 12 21:04:07.295488 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2385777617118 a:2385982431080 f:2385986055718 waiting:204813962 process:3624638 status:triggered
+Oct 12 21:04:13.234286 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (22 suppressed)
+Oct 12 21:04:13.405009 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2390806815687 a:2390812408654 f:2390812420298 waiting:5592967 process:11644 status:triggered
+Oct 12 21:04:15.995853 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (20 suppressed)
+Oct 12 21:04:16.657560 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2394846027495 a:2394890685267 f:2394937560695 waiting:44657772 process:46875428 status:triggered
+Oct 12 21:04:55.227994 GENERIC-X64-15ca sshd-session[12747]: Received disconnect from 10.0.2.2 port 46146:11: disconnected by user
+Oct 12 21:04:55.228131 GENERIC-X64-15ca sshd-session[12747]: Disconnected from user root 10.0.2.2 port 46146
+Oct 12 21:04:55.349874 GENERIC-X64-15ca sshd-session[13073]: Accepted publickey for root from 10.0.2.2 port 51018 ssh2: ED25519 SHA256:5EUBPtyVBbNmHy+MgW1UkRMiQFCYW2q90583lRUkbI8
+Oct 12 21:04:55.356393 GENERIC-X64-15ca sshd-session[13075]: Received disconnect from 10.0.2.2 port 51018:11: disconnected by user
+Oct 12 21:04:55.356465 GENERIC-X64-15ca sshd-session[13075]: Disconnected from user root 10.0.2.2 port 51018
+Oct 12 21:04:55.427246 GENERIC-X64-15ca sshd-session[13077]: Accepted publickey for root from 10.0.2.2 port 51026 ssh2: ED25519 SHA256:5EUBPtyVBbNmHy+MgW1UkRMiQFCYW2q90583lRUkbI8
+Oct 12 21:04:55.512589 GENERIC-X64-15ca systemd[1]: usr-lib-webkit2gtk\x2d4.1.mount: Deactivated successfully.
+Oct 12 21:04:55.512719 GENERIC-X64-15ca systemd[1]: usr-libexec-webkit2gtk\x2d4.1.mount: Deactivated successfully.
+Oct 12 21:04:55.519408 GENERIC-X64-15ca sshd-session[13084]: Received disconnect from 10.0.2.2 port 51026:11: disconnected by user
+Oct 12 21:04:55.519535 GENERIC-X64-15ca sshd-session[13084]: Disconnected from user root 10.0.2.2 port 51026
+Oct 12 21:04:55.588445 GENERIC-X64-15ca sshd-session[13097]: Accepted publickey for root from 10.0.2.2 port 51032 ssh2: ED25519 SHA256:5EUBPtyVBbNmHy+MgW1UkRMiQFCYW2q90583lRUkbI8
+Oct 12 21:05:59.804172 GENERIC-X64-15ca systemd[1]: Starting rocknix-evidence.service...
+Oct 12 21:06:00.539058 GENERIC-X64-15ca systemd[1]: rocknix-evidence.service: Deactivated successfully.
+Oct 12 21:06:00.543806 GENERIC-X64-15ca systemd[1]: Finished rocknix-evidence.service.
+Oct 12 21:06:40.063750 GENERIC-X64-15ca sshd-session[13678]: Accepted publickey for root from 10.0.2.2 port 42260 ssh2: ED25519 SHA256:5EUBPtyVBbNmHy+MgW1UkRMiQFCYW2q90583lRUkbI8
+Oct 12 21:06:40.272201 GENERIC-X64-15ca sshd-session[13680]: Received disconnect from 10.0.2.2 port 42260:11: disconnected by user
+Oct 12 21:06:40.272329 GENERIC-X64-15ca sshd-session[13680]: Disconnected from user root 10.0.2.2 port 42260
+Oct 12 21:07:05.290105 GENERIC-X64-15ca sshd-session[13099]: Received disconnect from 10.0.2.2 port 51032:11: disconnected by user
+Oct 12 21:07:05.290413 GENERIC-X64-15ca sshd-session[13099]: Disconnected from user root 10.0.2.2 port 51032
+Oct 12 21:07:05.405648 GENERIC-X64-15ca sshd-session[13800]: Accepted publickey for root from 10.0.2.2 port 52714 ssh2: ED25519 SHA256:5EUBPtyVBbNmHy+MgW1UkRMiQFCYW2q90583lRUkbI8
+Oct 12 21:07:05.411260 GENERIC-X64-15ca sshd-session[13802]: Received disconnect from 10.0.2.2 port 52714:11: disconnected by user
+Oct 12 21:07:05.411359 GENERIC-X64-15ca sshd-session[13802]: Disconnected from user root 10.0.2.2 port 52714
+Oct 12 21:07:05.518095 GENERIC-X64-15ca sshd-session[13804]: Accepted publickey for root from 10.0.2.2 port 52718 ssh2: ED25519 SHA256:5EUBPtyVBbNmHy+MgW1UkRMiQFCYW2q90583lRUkbI8
+Oct 12 21:07:05.525757 GENERIC-X64-15ca sshd-session[13806]: Received disconnect from 10.0.2.2 port 52718:11: disconnected by user
+Oct 12 21:07:05.525857 GENERIC-X64-15ca sshd-session[13806]: Disconnected from user root 10.0.2.2 port 52718
+Oct 12 21:07:05.594665 GENERIC-X64-15ca sshd-session[13808]: Accepted publickey for root from 10.0.2.2 port 52732 ssh2: ED25519 SHA256:5EUBPtyVBbNmHy+MgW1UkRMiQFCYW2q90583lRUkbI8
+Oct 12 21:07:05.679251 GENERIC-X64-15ca sshd-session[13810]: Received disconnect from 10.0.2.2 port 52732:11: disconnected by user
+Oct 12 21:07:05.679376 GENERIC-X64-15ca sshd-session[13810]: Disconnected from user root 10.0.2.2 port 52732
+Oct 12 21:07:05.749402 GENERIC-X64-15ca sshd-session[13814]: Accepted publickey for root from 10.0.2.2 port 52736 ssh2: ED25519 SHA256:5EUBPtyVBbNmHy+MgW1UkRMiQFCYW2q90583lRUkbI8
+Oct 12 21:08:38.761078 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (6 suppressed)
+Oct 12 21:08:38.761098 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2657850764305 a:2657850800202 f:2657850808269 waiting:35897 process:8067 status:triggered
+Oct 12 21:08:40.200553 GENERIC-X64-15ca sshd-session[14310]: Accepted publickey for root from 10.0.2.2 port 58008 ssh2: ED25519 SHA256:5EUBPtyVBbNmHy+MgW1UkRMiQFCYW2q90583lRUkbI8
+Oct 12 21:08:44.112904 GENERIC-X64-15ca sshd-session[14312]: Received disconnect from 10.0.2.2 port 58008:11: disconnected by user
+Oct 12 21:08:44.113045 GENERIC-X64-15ca sshd-session[14312]: Disconnected from user root 10.0.2.2 port 58008
+Oct 12 21:09:14.969776 GENERIC-X64-15ca sshd-session[13816]: Received disconnect from 10.0.2.2 port 52736:11: disconnected by user
+Oct 12 21:09:14.969909 GENERIC-X64-15ca sshd-session[13816]: Disconnected from user root 10.0.2.2 port 52736
+Oct 12 21:09:15.113909 GENERIC-X64-15ca sshd-session[14465]: Accepted publickey for root from 10.0.2.2 port 46820 ssh2: ED25519 SHA256:5EUBPtyVBbNmHy+MgW1UkRMiQFCYW2q90583lRUkbI8
+Oct 12 21:09:15.121099 GENERIC-X64-15ca sshd-session[14467]: Received disconnect from 10.0.2.2 port 46820:11: disconnected by user
+Oct 12 21:09:15.121237 GENERIC-X64-15ca sshd-session[14467]: Disconnected from user root 10.0.2.2 port 46820
+Oct 12 21:09:15.192086 GENERIC-X64-15ca sshd-session[14469]: Accepted publickey for root from 10.0.2.2 port 46828 ssh2: ED25519 SHA256:5EUBPtyVBbNmHy+MgW1UkRMiQFCYW2q90583lRUkbI8
+Oct 12 21:09:15.200230 GENERIC-X64-15ca sshd-session[14471]: Received disconnect from 10.0.2.2 port 46828:11: disconnected by user
+Oct 12 21:09:15.200469 GENERIC-X64-15ca sshd-session[14471]: Disconnected from user root 10.0.2.2 port 46828
+Oct 12 21:09:15.273258 GENERIC-X64-15ca sshd-session[14473]: Accepted publickey for root from 10.0.2.2 port 46836 ssh2: ED25519 SHA256:5EUBPtyVBbNmHy+MgW1UkRMiQFCYW2q90583lRUkbI8
+Oct 12 21:09:15.339230 GENERIC-X64-15ca sshd-session[14475]: Received disconnect from 10.0.2.2 port 46836:11: disconnected by user
+Oct 12 21:09:15.339328 GENERIC-X64-15ca sshd-session[14475]: Disconnected from user root 10.0.2.2 port 46836
+Oct 12 21:09:15.450620 GENERIC-X64-15ca sshd-session[14481]: Accepted publickey for root from 10.0.2.2 port 46838 ssh2: ED25519 SHA256:5EUBPtyVBbNmHy+MgW1UkRMiQFCYW2q90583lRUkbI8
+Oct 12 21:09:28.069571 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (1 suppressed)
+Oct 12 21:09:28.069584 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2707086641732 a:2707086723934 f:2707091578286 waiting:82202 process:4854352 status:triggered
+Oct 12 21:09:34.390262 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (14 suppressed)
+Oct 12 21:09:34.408742 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2712948656077 a:2712948707254 f:2712948723049 waiting:51177 process:15795 status:triggered
+Oct 12 21:09:36.208554 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (13 suppressed)
+Oct 12 21:09:36.437104 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2715082732642 a:2715082756728 f:2715082763075 waiting:24086 process:6347 status:triggered
+Oct 12 21:09:38.493864 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (8 suppressed)
+Oct 12 21:09:38.493877 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2717567553956 a:2717567584586 f:2717567592875 waiting:30630 process:8289 status:triggered
+Oct 12 21:09:41.901221 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (35 suppressed)
+Oct 12 21:09:41.901239 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2720902654799 a:2720902719658 f:2720902744431 waiting:64859 process:24773 status:triggered
+Oct 12 21:09:44.208451 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (11 suppressed)
+Oct 12 21:09:44.208465 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2723046230819 a:2723046260527 f:2723046266326 waiting:29708 process:5799 status:triggered
+Oct 12 21:09:49.006517 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (4 suppressed)
+Oct 12 21:09:49.006538 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2728061379365 a:2728061418475 f:2728076137826 waiting:39110 process:14719351 status:triggered
+Oct 12 21:09:51.612175 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (32 suppressed)
+Oct 12 21:09:51.612189 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:1/2 s:2730710594873 a:2730710690745 f:2730710708938 waiting:95872 process:18193 status:triggered
+Oct 12 21:09:53.798790 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (3 suppressed)
+Oct 12 21:09:53.798811 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2732716573582 a:2732716634655 f:2732716650118 waiting:61073 process:15463 status:triggered
+Oct 12 21:10:04.766642 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (39 suppressed)
+Oct 12 21:10:04.766652 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2743811896175 a:2743811949060 f:2743816595015 waiting:52885 process:4645955 status:triggered
+Oct 12 21:10:09.371136 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (22 suppressed)
+Oct 12 21:10:09.388924 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2747878385988 a:2747880335174 f:2747880344370 waiting:1949186 process:9196 status:triggered
+Oct 12 21:10:12.021583 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (28 suppressed)
+Oct 12 21:10:12.365085 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2750166615941 a:2750166660893 f:2750166676393 waiting:44952 process:15500 status:triggered
+Oct 12 21:10:13.337774 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (17 suppressed)
+Oct 12 21:10:13.565634 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2752181734336 a:2752181760286 f:2752181762617 waiting:25950 process:2331 status:triggered
+Oct 12 21:10:17.517801 GENERIC-X64-15ca pipewire[351]: spa.alsa: front:1p: (0 suppressed) snd_pcm_avail after recover: Broken pipe
+Oct 12 21:10:19.005422 GENERIC-X64-15ca pipewire[351]: spa.alsa: front:1p: snd_pcm_mmap_commit error: Broken pipe
+Oct 12 21:10:21.948492 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (10 suppressed)
+Oct 12 21:10:21.996097 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2760356974238 a:2760360619297 f:2760360621633 waiting:3645059 process:2336 status:triggered
+Oct 12 21:10:23.869046 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (8 suppressed)
+Oct 12 21:10:24.779216 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2762397755716 a:2762400889748 f:2762400907151 waiting:3134032 process:17403 status:triggered
+Oct 12 21:10:31.875619 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (37 suppressed)
+Oct 12 21:10:31.875629 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2770976276151 a:2770976304611 f:2770976313352 waiting:28460 process:8741 status:triggered
+Oct 12 21:10:33.883460 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (8 suppressed)
+Oct 12 21:10:33.883469 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2772997485670 a:2772997521005 f:2772997532844 waiting:35335 process:11839 status:triggered
+Oct 12 21:10:35.211365 GENERIC-X64-15ca sshd-session[14707]: Connection closed by 10.0.2.2 port 51826 [preauth]
+Oct 12 21:10:36.591281 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (5 suppressed)
+Oct 12 21:10:36.646956 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) xrun state:0x7f6fb44c6008 pending:0/2 s:2775260179326 a:2775272414747 f:2775287771856 waiting:12235421 process:15357109 status:triggered
+Oct 12 21:10:41.486689 GENERIC-X64-15ca pipewire[351]: pw.node: (alsa_output.pci-0000_00_05.0.analog-stereo-51) graph xrun not-triggered (33 suppressed)

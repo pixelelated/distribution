@@ -1,119 +1,116 @@
 # Saved Session State
 
-> **Saved**: 2026-10-12T22:07:06.260649+00:00
+> **Saved**: 2026-10-13T01:35:34.485496+00:00
 > **Branch**: feature/m7-player-setup
 > **Repo**: pixelelated/distribution
 
 ## Start here
 
-pixelelated is an immutable handheld Linux distribution, not an app. Read next's
-AGENTS.md, every-session rules and device-testing-policy, then the live M7 milestone.
-Harness conflict-resolution is stale; leave it alone. Primary /workspace/repos/rocknix
-stays on next. Active /workspace/repos/rocknix.worktrees/m7-player-setup is
-feature/m7-player-setup, starting from published515cd8e79a94b3a8596128e25e28875093f5eb50.
-This session diagnosed #570 browser pressure and filed #572 packaging failure.
-No product source changed, no new firmware or external audit ran. No test is still
-running; all guest/probe processes exited and immediate disk/key/test files retired.
+pixelelated is an immutable handheld Linux distribution. Read next's AGENTS.md,
+every-session rules and device-testing-policy, then M7's live milestone body.
+Harness conflict-resolution is stale; leave it alone. Main /workspace/repos/rocknix
+stays on next; active /workspace/repos/rocknix.worktrees/m7-player-setup is
+feature/m7-player-setup. Starting published source was d4f0ed282411e113995789b8eae5d6a0de2c693c.
+New rule commit5edc91060c54d805df214326b404e4bff40385ae is integrated locally.
+This checkpoint and package/evidence commit are being prepared for guarded delivery.
+Read delivery01 actual results before any retry; prepared does not mean published.
 
-The owner's latest authority is: "If you need to test anything on the RG35XX SP,
-you have my permission to do that as well when it comes to WebKit testing."
-It covered the described bounded public-page launch, native screenshots, pressure
-sampler and temporary cleanup through tools/device-act. Actual identified device
-is H700 RG SP DDR3. No account setup, cloud data action, injected input, settings
-change or reboot occurred. Device returned to ES with recovered memory. Do not
-infer unrelated device authority or replay historical deployment/cleanup approvals.
-Respect the scope of the current WebKit authorization without asking for it again.
-No private account context, credentials or credential-derived hashes in public QA.
+This session implemented the owner's required upstream troubleshooting check
+(#573, D-WORKFLOW-162), rebuilt WebKit2.54.0 for comparison, repaired #572's scoped
+GStreamer recipe and tested the actual install. #570 memory pressure is NOT FIXED.
+No full firmware, physical-device/cloud action, external audit or production WebKit
+pin change. All build/test owners ended; QEMU, disk, UEFI and temporary keys retired.
+No test is left running. Package runtimes/build inputs remain for the immediate
+next version-boundary test; do not retain obsolete VM disks.
 
-## Current focus
+## Current focus and findings
 
-Severe H700 sign-in memory pressure is reproduced, but its historical cause is not
-proved. Every tested runtime is WebKit2.54.1. The next discriminating work is a
-controlled older-engine runtime comparison and real navigation/input/normal ES
-handoff/recovery proof. #572 requires a scoped GStreamer package repair; supplying
-missing components removed warnings without reducing browser memory. No production
-optimization or downgrade has been selected. M7 then preserves the owner order
-#565→#566→#567→#571, isolated stable20261001 repair/build and publication gates.
-#569 configuration diagnosis was published in515cd8e79a and is closed completed.
+1. Latest published WebKit stable remains2.54.1 on October13. Inspected upstream
+   bugs319590/305401/306430/268477. Font-variation fix is already in both2.54.0 and
+   2.54.1; X11/DMA-BUF follow-up is not established for our Wayland/disabled-DMA-BUF
+   app. Dated links/source hashes are in the new packet. New engineering rule
+   requires early upstream issue/release/fix checks, pin/patch identification,
+   fix-presence verification and explicit applicability limits. AGENTS/CLAUDE
+   parity, rules/register/package checks pass. #573 closes after verified push.
+2. 2.54.0 package build completed00:58:25UTC,2534Ninja edges, source verified and
+   original cache mounted read-only. Initial loaded120s public page reaches390MiB
+   PSS versus381MiB on2.54.1. Original matrix FAILED its bundle-path assertion after
+   measurement; preserve its rc1. Fixed repeated1024MiB matrix then stalled before
+   load on both engines. Lower PSS on those uncompleted pages is NOT improvement.
+   Guest unexpectedly reset01:11:15UTC during fourth2.54.0 trial; host timeout later.
+   Direct reclaim/file refaults/allocation stalls surged. No OOM/panic/pstore cause
+   established; a15s watchdog was configured, involvement unproved. Host had37GiB
+   available. Do not assert this is exactly the owner's physical crash.
+3. Planned restart with2048MiB permits both engines and corrected-GStreamer browser
+   runs to load. Three90s trials pass load/two frames/boot/teardown and show zero
+   direct reclaim. Peak browser PSS581/561/568MiB; these are one ordered sample each,
+   not statistical comparisons or handheld-capacity proof. New measure02 streams
+   samples and rejects unloaded pages. Original sampler's duration-only guard was
+   insufficient. Optional schedstat read invalidated resource-snapshot process
+   rows; empty rows are not process absence. Principal smaps samples remain valid.
+4. #572 recipe enables tools (scanner) and preserves libgstcontroller. Actual
+   package build/install old/new cleanup controls pass; fresh-registry original255
+   versus corrected0, no scanner-path override. Corrected browser has no GStreamer
+   warnings but similar memory. Final assembled-image dependency/clean/retained
+   qualification remains open. No ES source/copy/navigation/layout change.
 
-## Completed this session
+## Evidence and lifecycle
 
-- Nine bounded VM20 cases: installed browser, September29 application/current
-  engine, desktop UA, DOCUMENT_VIEWER cache, synthetic navigation/cache/focus-poll
-  controls, injected GStreamer runtime pieces, accelerated VM graphics. All pages
-  load, browser PSS380–394MiB and minimum available49–71MiB. No useful RAM benefit.
-  Guest1024MiB assigned/791MiB visible,640x480,ES resident,4Haswell CPUs,no PSI.
-  First8 software graphics, last verified virtio-gpu-gl/EGL. These are diagnostic
-  direct launches, not normal ES suspension/phone bridge/authentication proof.
-- Synthetic4-page80MiB-per-page fixture: maximum heartbeat gaps4.60/5.75/1.08s for
-  default/cache/no-focus-probe. Potential latency lead only: one ordered trial,
-  no injected input, back/popup or handoff acceptance. Do not remove the probe
-  based on this one comparison; it gates safe field typing.
-- Explicitly authorized H700 public-page control: simple35s leaves522MiB,
-  browserPSS134.5MiB; login reaches160MiB guard at34s, minimum153MiB, browser502MiB,
-  page-process430MiB (372MiB anonymous). Closing restores572MiB; same boot and ES
-  process survive. All browser children exit; temporary test tree removed through
-  device-act.11 reviewed native frames retained (H700720x480, VM640x480).
-  Full hang, leak, JavaScript heap attribution or engine regression not proved.
-- #572 source/VM failure: generic GStreamer hook removes controller required by
-  shipped GL plugin; tools=disabled suppresses scanner. Fresh private-registry
-  original rc1; exact retained target controller and freshly compiled matching
-  scanner rc0, appsink/glupload register. Browser warnings disappear but389MiB
-  PSS persists. Diagnostic injected files lived in VM only; no recipe fix yet.
-- Source archive diff2.54.0→2.54.1 retained. Existing DMABuf workaround is active
-  in VM children. The old246MiB Dropbox baseline was a failed page, corrected in
-  #228; October5 loaded-login evidence already shows379–386MiB summed RSS. Do not
-  compare RSS numerically as if it were PSS or claim every older build equivalent.
-  Owner's earlier responsive source is unknown. Inspected retained inputs did not
-  contain a usable older engine runtime; narrow isolated package build needed.
-- Five actual watched owners/build/wrapper channels0 and exited. Original
-  boot-owner rc2 unsupported--qa and graphics-owner rc2 worktree lock remain
-  pre-workload failures. Corrected owners ran sequentially. No in-flight edits.
-  QEMU exited;2,247,143,424allocated disk/UEFI/key bytes retired. Nothing running.
-- Public compact packet: docs/qa-logs/2026-10-12-browser-isolation/README.md,
-  manifest, VM/physical samples, reviewed frames/hashes, source diff, fixtures,
-  original channel/retirement receipts. Physical runnable script stays private.
-  #570/#572 and M7 updated/read back. #570/#572 remain open; no product closure.
+Public compact packet: docs/qa-logs/2026-10-13-webkit-versions/README.md,
+manifest, source/runtime hashes, trials/samples, reviewed native640x480 frames,
+previous boot logs, failure results, original channels and retirement receipt.
+Private owner: /workspace/tmp/pixelelated-webkit-versions-20261013/.
+
+Build WT /workspace/repos/rocknix.worktrees/m7-webkit-versions-570 remains clean
+on build/m7-webkit-versions-570 atd4f0ed2824. It owns package build watcher only,
+not product source. ROOT/package-2.54.0 and source-2.54.0, runtime-2.54.0 tar/manifest,
+gst02/installed-new and actual recipe/build fixtures remain. Cached directory
+still sayswebkitgtk-2.54.1 for absolute build paths; verified source/runtime is2.54.0.
+Source2.52.6 archive was inspected but NOT BUILT OR RUN. Compare configuration
+before using it: older recipe had GTK3/GStreamerGL off; current requires GL/video.
+2.54.0 was isolated with current dependencies/options; no production downgrade.
+
+All15 original launcher channels/build/wrapper/actual process exits are recorded,
+including failures. headroom-owner ended0 at01:29:58UTC; retirement-owner ended0
+at01:30:34UTC, guest mount/browser readback clean and2,497,298,432allocated bytes
+retired. No VM pid/disk/key remains; recreate in a fresh owner for further tests.
+Do not rerun boot.py on an existing artifact. Failed gst vm-owner waits never
+injected payload; plugin-owner04 and headroom-owner supply real package proof.
+
+1024MiB assigned guest exposes810368KiB;2048MiB exposes1840256KiB. FourHaswell CPUs,
+softwaregraphics640x480, ES resident, no swap/PSI. VM kernel CMA256MiB differs from
+H700 config/physical memory. Direct launch with --no-auto-keyboard does not exercise
+normal ES renderer suspension, navigation, phone input or authenticated sign-in.
+Do not infer input responsiveness from a loaded frame or use memory-sampler peak
+RSS labels as allocator partitioning; use kernel PSS.
 
 ## Record delivery
 
-New owner: /workspace/tmp/pixelelated-browser-isolation-20261012/delivery02/.
-state.json is prepared at checkpoint creation. publish.py, launcher-result.json,
-result.json, head.txt and hosted-checks.json bind actual delivery; read them before
-any retry. This commits records, fast-forwards next and pushes under existing
-approval, then consumes both exact-head record/wordlist hosted checks. It is not
-firmware publication. No success is implied by this prepared paragraph. Fresh
-session-stash reviewer m7_browser_isolation_handoff passed source/payload/frame
-hashes, raw aggregates, original results/exits/retirement, exact diff wrappers
-and live milestone order. It correctly found delivery still prepared. Review
-receipt: handoff-review.md in that owner. No substantive discrepancy found.
+Owner /workspace/tmp/pixelelated-webkit-versions-20261013/delivery01/ is prepared.
+Read result.json, launcher-result.json, tool-wrapper.rc, recorded build.rc,
+head.txt and hosted-checks.json plus remote/git readback before any retry.
+The intended operation is an authorized commit, fast-forward next and guarded
+push, followed by both exact-head record/wordlist hosted checks. No success is
+implied here. The fresh-context session-stash reviewer receipt lives there.
+Previous October12 browser-isolation delivery02 completed atd4f0ed2824; don't replay.
 
-Original browser-isolation delivery01 ended1: pre-push refused a missing #570/#572
-commit-message reference after local integration. Remote stayed515cd8e79a; all
-original channels/exits consumed. The unpublished owned commit is corrected and
-only a fresh delivery02 may push. No test result or guard is bypassed.
+## Next commands and ordered work
 
-Prior /workspace/tmp/pixelelated-browser-feedback-20261012/delivery01 is COMPLETE,
-head515cd8e79a, both hosted checks successful, actual owner exited. Do not replay.
-
-## Next actions
-
-1. Consume this record delivery's actual result/launcher/build/hosted-check channels
-   and git readbacks. If already successful, do not replay. Keep #570/#572 open.
-2. #572: scoped fork GStreamer recipe repair keeps libgstcontroller and builds/
-   installs scanner at /usr/lib/gstreamer-1.0/gst-plugin-scanner. Read packaging
-   rules, inherited hooks and existing trimming rationale first. Actual package
-   install proof, pkgcheck and fresh-registry negative/success controls are owed;
-   next assembled image verifies runtime closure. Diagnostic injection is not
-   corrected package evidence. Do not mutate frozen replacement20's cache.
-3. #570: provision an isolated older-engine runtime comparison against exact
-   current source.2.54.0 and2.54.1 source archives remain; inspect ABI/build graph
-   before choosing the narrow package build. No full cache copy/build until #493
-   lifecycle enforcement. Repeat/reorder synthetic navigation and focused-field
-   timing, exercise normal ES handoff and safe recovery at handheld-like limits.
-   Do not treat loaded frames as usability or infer cache/process limits are safe.
-   Existing mutation-free readback/source evidence suffices; no owner credential
-   use is needed. No test or background build is currently running.
+1. If delivery01 is still prepared, commit the reviewed feature source/evidence
+   with Refs #570, #572, #573 first; publish.py requires a clean feature tree and
+   does not create the commit. Submit the prepared delivery through watch-build-submit.
+   If already submitted, consume its original channels and do not replay.
+   Close #573 only after published head/checks verification.
+   #570 stays unresolved; #572 stays open for final assembled-image closure.
+2. #570: next discrimination is a2.52.6 boundary control with documented options,
+   plus normal ES handoff/navigation/input/recovery at measured guest-visible
+   limits. Assess VM CMA/headroom differences before assigning a platform cause.
+   Preserve all uncompleted-page/reset evidence. No physical facts are needed to
+   begin these; existing WebKit device authority stays limited to its named scope.
+3. #572 source is package-qualified; next full build must verify installed scanner
+   and controller plus fresh-registry/browser/clean/retained closure. Do not call
+   injected standalone package proof an accepted new SYSTEM image. Keep fixed
+   recipe before freezing the next candidate. No new full cache before #493 gate.
 4. Continue #565: implement and prove an executable artifact credential gate;
    tools/fork-publish-release currently only prepares a release plan and lists
    credential inspection as still owed. Old rule prose describing its retired
@@ -150,64 +147,41 @@ head515cd8e79a, both hosted checks successful, actual owner exited. Do not repla
    protocols/time-to-play/independent review, H700 then SM8550, and #528/#344
    publication/source/custody gates. No public RC has been allocated.
 
-## Exact source and environment
+## Exact source, tooling and retained project context
 
 Accepted devices bc9dfe8141d9561dc1d8502313d00a84c4566ee8, ES
 c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78, rclone1.75.2. VM20 source
-1a026648442321609b2288c2c9c06803817f9df2; browser C/cloud_oauth/WebKit recipe/
-machine-info match device. Historical application control full source
-69e6039f8fdbf971d3e6b694537f250036fdcd98 uses current2.54.1 engine.
-October9→12 engine/CHASSIS unchanged;2.54.0→2.54.1 on October2, CHASSIS=handset
-on October1. Engine archive/source comparison is in the packet, not runtime proof.
+1a026648442321609b2288c2c9c06803817f9df2. Accepted artifacts/toolchain at
+/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20; frozen cache mounts
+read-only at /workspace/repos/rocknix.worktrees/m7-pixelelated inside Docker.
+Pinned builder ghcr.io/pixelelated/build@sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39.
+No accepted cache mutation or full copy. Host2.8TiB available at01:30UTC.
 
-ES repo /home/max/Development/emulationstation-next checks out old67f92692c3.
-Read accepted pin with git show and create a feature worktree from c8dc72cf9e
-before editing. launchCloudSignIn ApiSystem.cpp561 opens browser then suspends
-the renderer. Window::deinit unloads resources/renderer, not the entire database.
-No experiment this turn measured that full handoff.
+Shell needs require_escalated because stale sandbox's /tmp quota fails and active
+paths are outside its writable root. Set TMPDIR=/workspace/tmp/pixelelated-webkit-versions-20261013/tmp
+for tools/hooks. tools/watch-build-submit requires an EXISTING fresh owner dir.
+Use --owner OWNER -- --activity-dir OWNER -- COMMAND; no --qa or --mode flag.
+One watched job per worktree, frozen scripts, original channels and actual exits.
+No off-session notifications; actively supervise every submitted long job.
 
-Accepted image/TAR remain in m7-pixelelated-replacement20/target. Its toolchain
-symlinks require its original mount prefix /workspace/repos/rocknix.worktrees/m7-pixelelated.
-This turn's small binaries compiled with retained cache mounted read-only in
-Docker and task owner as /work; exact fixtures are preserved. Do not alter frozen
-symlinks. Recreate a fresh private guest/key for new tests; old ones are gone.
+ES /home/max/Development/emulationstation-next remains old67f92692c3; create a
+feature worktree from acceptedc8dc72cf9e before editing. ApiSystem.cpp launchCloudSignIn
+opens browser then suspends renderer; Window::deinit unloads resources/renderer,
+not the full database. Normal handoff is still unmeasured in this incident.
 
-Shell requires require_escalated: stale sandbox fails synthetic /tmp/.git mount
-quota, and active worktree is outside its writable root. Use owned TMPDIR under
-/workspace/tmp for hooks; no general sudo. tools/watch-build does not accept --qa;
-use documented --activity-dir if needed. It locks one job per worktree, including
-QA. Read tools/watch-build-submit parser before launching, use fresh owner and
-consume original channels/actual exits. Active supervision required; no off-session
-alert system. RG SP Tailnet100.75.221.73; rg35xxsp alias needs Hostname override.
-Nova100.84.232.105. Physical mutations go through tools/device-act with applicable
-authority; record physical exception before testing. Don't confuse two H700 models.
+M7 live order remains #570/#572 → #565 → #566 → #567 → #571 → #564 stable20261001
+repair → #493 lifecycle enforcement → new-source VM/audit → H700 then SM8550 →
+#528/#344 publication gates. Isolated feature/m7-rocknix-20261001 at62e9929fdce5d44ceb7f68150770475c568d1ac2
+containsf370dc8787 and #564 Steam defect; do not merge it before repair. Chosen stable
+basec445081a59518f37d9776e5412dd7b14910696f7, D-WORKFLOW-161. No public RC allocated.
 
-## Private evidence and retained context
+#493 cleanup batches are complete; don't replay. Required6.855GB custody at
+/workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03 stays.
+Automatic retention/capacity enforcement still required before full builds.
+Prior owner-device/account evidence stays private in October12 task roots;
+#569 diagnosis published/closed, original Nova sign-in authorship unknown.
+RG SP Tailnet100.75.221.73 (SSHalias needs override); Nova100.84.232.105. Any physical
+mutations use device-act with applicable named authority. This session made none.
+#558/#561 watch items, #562/#568 future; no external audit running.
 
-- /workspace/tmp/pixelelated-browser-isolation-20261012/: original cases, samplers,
-  tool owners, result channels, compile outputs, private device readback and
-  plan/cleanup/action receipts. No guest/disk/key or device probe remains. Public
-  packet omits physical identifiers. delivery02 owns only the new records push; failed delivery01 must not be replayed.
-- /workspace/tmp/pixelelated-browser-feedback-20261012/: earlier incident and
-  original reports; crash saved five snapshots/all943kernel lines. RAM610→53MiB,
-  243pressure flushes; no recorded OOM/panic/storage cause. window.log lost at reset.
-- /workspace/tmp/pixelelated-nova-cloud-20261012/: #569 private provenance/selected
-  folder results; never post original account context. Sanitized public packet is
-  docs/qa-logs/2026-10-12-cloud-configuration/. Owner sign-in author remains unknown.
-- /workspace/tmp/pixelelated-browser-qa-20261012/: earlier consumed low-RAM test;
-  guest/key/disk retired. Original PSI absence remains recorded.
-- /workspace/tmp/pixelelated-owner-deploy-20261012/nova/: private preservation
-  receipts, not authorization for new config/hash operations.
-
-Stable20261001 c445081a59518f37d9776e5412dd7b14910696f7 selected by D-WORKFLOW-161.
-Isolated feature/m7-rocknix-20261001 at62e9929fdce5d44ceb7f68150770475c568d1ac2
-includes merge f370dc8787 and #564 Steam replacement defect. Keep out of next until
-repaired. Prior source-intake delivery03/04 complete, original failures retained.
-#493 both cleanup batches complete, source custody retained; do not replay. Last
-capacity roughly3TB free/three446GB caches, not a new current measurement. Required
-6.855GB custody at /workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03
-must remain. Mandatory future retention/capacity enforcement is still not implemented.
-#558 shutdown/#561 LED are watch items; #562 ROM integrity/#568 final-game progress
-future. #528/#344 source/licence/offhost custody gates remain; no public RC allocated.
-All earlier external review packet approvals were consumed, no audit running.
-Previous full checkpoint: archived/saved-session-state-next-20261012T220706Z.md
+Previous checkpoint: archived/saved-session-state-next-20261013T013534Z.md

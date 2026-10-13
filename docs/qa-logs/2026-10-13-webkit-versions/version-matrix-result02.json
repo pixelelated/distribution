@@ -1,0 +1,60 @@
+{
+  "started": "2026-10-13T01:02:29.677650+00:00",
+  "cases": [
+    {
+      "name": "repeat02-1-2540",
+      "engine": "2.54.0",
+      "peak_browser_pss_kib": 256516,
+      "min_available_kib": 209112
+    },
+    {
+      "name": "repeat02-2-2541",
+      "engine": "2.54.1",
+      "peak_browser_pss_kib": 233924,
+      "min_available_kib": 215912
+    },
+    {
+      "name": "repeat02-3-2541",
+      "engine": "2.54.1",
+      "peak_browser_pss_kib": 228944,
+      "min_available_kib": 222188
+    }
+  ],
+  "payload_verification": "Verified 7 runtime files\n",
+  "runtime_selections": [
+    {
+      "old_runtime_selected": true,
+      "runtime_file_hashes": {
+        "usr/libexec/webkit2gtk-4.1/WebKitWebProcess": "54f14dd6c85e60b9a339cd78fce71622202a7b4f21dc14da205377b765dbabd4",
+        "usr/libexec/webkit2gtk-4.1/WebKitNetworkProcess": "2a7568bf0fd781b3219d5c0777353ef99cfeee98fcced5943bd754479a1338d7",
+        "usr/libexec/webkit2gtk-4.1/jsc": "9aec770d857ade407c0d0a7d82b50086be7383ef3ddb8b62f7ac300e4e20fa18",
+        "usr/libexec/webkit2gtk-4.1/WebKitGPUProcess": "8f5c75d05720c14638120b3cb1e318399aa2004297fdd1a26d912124b73b9b5f",
+        "usr/lib/webkit2gtk-4.1/injected-bundle/libwebkit2gtkinjectedbundle.so": "c3490d61f21698439aaeb15bc9b8cc98cec8595bab32fc284377368fb885b78b"
+      }
+    },
+    {
+      "old_runtime_selected": false,
+      "runtime_file_hashes": {
+        "usr/libexec/webkit2gtk-4.1/WebKitGPUProcess": "8f5c75d05720c14638120b3cb1e318399aa2004297fdd1a26d912124b73b9b5f",
+        "usr/libexec/webkit2gtk-4.1/WebKitNetworkProcess": "2a7568bf0fd781b3219d5c0777353ef99cfeee98fcced5943bd754479a1338d7",
+        "usr/libexec/webkit2gtk-4.1/WebKitWebProcess": "54f14dd6c85e60b9a339cd78fce71622202a7b4f21dc14da205377b765dbabd4",
+        "usr/libexec/webkit2gtk-4.1/jsc": "2711c2612ccfacc7751b9e5887b4f0fb0db7628098b1b15590e6ed82952b69e3",
+        "usr/lib/webkit2gtk-4.1/injected-bundle/libwebkit2gtkinjectedbundle.so": "c3490d61f21698439aaeb15bc9b8cc98cec8595bab32fc284377368fb885b78b"
+      }
+    },
+    {
+      "old_runtime_selected": false,
+      "runtime_file_hashes": {
+        "usr/libexec/webkit2gtk-4.1/WebKitGPUProcess": "8f5c75d05720c14638120b3cb1e318399aa2004297fdd1a26d912124b73b9b5f",
+        "usr/libexec/webkit2gtk-4.1/WebKitNetworkProcess": "2a7568bf0fd781b3219d5c0777353ef99cfeee98fcced5943bd754479a1338d7",
+        "usr/libexec/webkit2gtk-4.1/WebKitWebProcess": "54f14dd6c85e60b9a339cd78fce71622202a7b4f21dc14da205377b765dbabd4",
+        "usr/libexec/webkit2gtk-4.1/jsc": "2711c2612ccfacc7751b9e5887b4f0fb0db7628098b1b15590e6ed82952b69e3",
+        "usr/lib/webkit2gtk-4.1/injected-bundle/libwebkit2gtkinjectedbundle.so": "c3490d61f21698439aaeb15bc9b8cc98cec8595bab32fc284377368fb885b78b"
+      }
+    }
+  ],
+  "rc": 1,
+  "error": "TimeoutExpired(['ssh', '-i', '/workspace/tmp/pixelelated-webkit-versions-20261013/vm/qa-key', '-p', '10573', '-o', 'BatchMode=yes', '-o', 'ConnectTimeout=10', '-o', 'StrictHostKeyChecking=yes', '-o', 'UserKnownHostsFile=/workspace/tmp/pixelelated-webkit-versions-20261013/vm/known_hosts', 'root@127.0.0.1', 'python3 /tmp/qa-570-measure.py \\'{\"name\": \"repeat02-4-2540\", \"engine\": \"2.54.0\", \"url\": \"https://www.dropbox.com/login\", \"seconds\": 120, \"env\": {\"LD_LIBRARY_PATH\": \"/storage/qa-570/runtime-2.54.0/usr/lib\"}}\\''], 209.9999939070549)",
+  "restoration": "{\"old_runtime_selected\": false, \"runtime_file_hashes\": {\"usr/libexec/webkit2gtk-4.1/WebKitGPUProcess\": \"8f5c75d05720c14638120b3cb1e318399aa2004297fdd1a26d912124b73b9b5f\", \"usr/libexec/webkit2gtk-4.1/WebKitNetworkProcess\": \"2a7568bf0fd781b3219d5c0777353ef99cfeee98fcced5943bd754479a1338d7\", \"usr/libexec/webkit2gtk-4.1/WebKitWebProcess\": \"54f14dd6c85e60b9a339cd78fce71622202a7b4f21dc14da205377b765dbabd4\", \"usr/libexec/webkit2gtk-4.1/jsc\": \"2711c2612ccfacc7751b9e5887b4f0fb0db7628098b1b15590e6ed82952b69e3\", \"usr/lib/webkit2gtk-4.1/injected-bundle/libwebkit2gtkinjectedbundle.so\": \"c3490d61f21698439aaeb15bc9b8cc98cec8595bab32fc284377368fb885b78b\"}}\n",
+  "ended": "2026-10-13T01:12:45.484553+00:00"
+}

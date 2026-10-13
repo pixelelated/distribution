@@ -1,0 +1,47 @@
+[
+  {
+    "case": "current-public-clean",
+    "engine": "2.54.1",
+    "duration_seconds": 118.131,
+    "peak_browser_pss_kib": 390127,
+    "min_available_kib": 66532,
+    "before_available_kib": 417600,
+    "after_available_kib": 428948,
+    "stop_reason": "duration",
+    "no_browser_after": true,
+    "forced_cleanup": 0,
+    "gc_cycle_count": 0,
+    "max_logged_gc_cycle_ms": null,
+    "raw_sha256": "a23ae657448acda1fa95cf3a44bea2d27397bb71854c53e73ae770c7b0e47f4d"
+  },
+  {
+    "case": "current-simple-sampler",
+    "engine": "2.54.1",
+    "duration_seconds": 44.363,
+    "peak_browser_pss_kib": 219335,
+    "min_available_kib": 361732,
+    "before_available_kib": 411752,
+    "after_available_kib": 412872,
+    "stop_reason": "duration",
+    "no_browser_after": true,
+    "forced_cleanup": 0,
+    "gc_cycle_count": 22,
+    "max_logged_gc_cycle_ms": 49.574,
+    "raw_sha256": "d4fe137e56bc318d8ac08453cc527148a61cec3181aa3f0ae127ccd91c9915f2"
+  },
+  {
+    "case": "current-public-sampler",
+    "engine": "2.54.1",
+    "duration_seconds": 118.857,
+    "peak_browser_pss_kib": 397187,
+    "min_available_kib": 63344,
+    "before_available_kib": 416356,
+    "after_available_kib": 411248,
+    "stop_reason": "duration",
+    "no_browser_after": true,
+    "forced_cleanup": 0,
+    "gc_cycle_count": 4,
+    "max_logged_gc_cycle_ms": 809.539,
+    "raw_sha256": "e669f149a5c735668d005adfe578f43faa040a0923c80567d5829c796d2d875d"
+  }
+]

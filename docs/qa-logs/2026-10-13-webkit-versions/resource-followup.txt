@@ -1,0 +1,40 @@
+[    1.464149] systemd[1]: modprobe@drm.service: Deactivated successfully.
+[    1.464213] systemd[1]: Finished modprobe@drm.service.
+[    1.464302] systemd[1]: modprobe@fuse.service: Deactivated successfully.
+[    1.464363] systemd[1]: Finished modprobe@fuse.service.
+[    1.464473] systemd[1]: Finished show-version.service.
+[    1.464581] systemd[1]: Finished storage-log.service.
+[    1.465229] systemd[1]: Mounting sys-fs-fuse-connections.mount...
+[    1.465623] systemd[1]: Mounting sys-kernel-config.mount...
+[    1.465952] systemd[1]: Starting systemd-tmpfiles-setup-dev-early.service...
+[    1.470511] systemd[1]: Mounted sys-fs-fuse-connections.mount.
+[    1.470565] systemd[1]: Mounted sys-kernel-config.mount.
+[    1.475887] systemd[1]: Finished systemd-timesyncd-setup.service.
+[    1.482468] Asymmetric key parser 'pkcs8' registered
+[    1.482935] systemd[1]: Finished systemd-modules-load.service.
+[    1.483775] systemd[1]: Starting systemd-sysctl.service...
+[    1.484500] systemd[1]: Finished machine-id.service.
+[    1.485532] systemd[1]: Starting systemd-journald.service...
+[    1.499260] systemd[1]: Finished systemd-sysctl.service.
+[    1.499412] systemd[1]: Finished systemd-tmpfiles-setup-dev-early.service.
+[    1.499766] systemd-journald[258]: Collecting audit messages is disabled.
+[    1.506060] systemd[1]: Starting systemd-resolved.service...
+[    1.506744] systemd[1]: Starting systemd-tmpfiles-setup-dev.service...
+[    1.506795] systemd[1]: Started systemd-journald.service.
+[    1.537806] systemd-journald[258]: Received client request to flush runtime journal.
+[    1.547695] khugepaged: raising min_free_kbytes from 16384 to 39288 to help transparent hugepage allocations
+[    2.935133] snd_hda_codec_generic hdaudioC1D0: autoconfig for Generic: line_outs=1 (0x3/0x0/0x0/0x0/0x0) type:line
+[    2.935137] snd_hda_codec_generic hdaudioC1D0:    speaker_outs=0 (0x0/0x0/0x0/0x0/0x0)
+[    2.935138] snd_hda_codec_generic hdaudioC1D0:    hp_outs=0 (0x0/0x0/0x0/0x0/0x0)
+[    2.935139] snd_hda_codec_generic hdaudioC1D0:    mono: mono_out=0x0
+[    2.935139] snd_hda_codec_generic hdaudioC1D0:    inputs:
+[    2.935140] snd_hda_codec_generic hdaudioC1D0:      Line=0x5
+[    3.156760] cfg80211: Loading compiled-in X.509 certificates for regulatory database
+[    3.180095] Loaded X.509 cert 'sforshee: 00b28ddf47aef9cea7'
+[    3.180163] Loaded X.509 cert 'wens: 61c038651aabdcf94bd0ac7ff06c7248db18c600'
+[    3.544501] clocksource: Watchdog remote CPU 2 read timed out
+MemTotal:         810368 kB
+MemFree:          246944 kB
+MemAvailable:     231356 kB
+Buffers:             140 kB
+3.28 4.51 2.49 3/282 13685

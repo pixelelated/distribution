@@ -238,3 +238,15 @@ its architecture/panel limits. All executed owners/build/wrapper channels0,
 original two pre-workload failures2 retained, guest stopped and immediate disks/
 keys retired. [Source, samples, frames and limits](qa-logs/2026-10-12-browser-isolation/README.md).
 No new firmware, ES baseline, actual package repair or candidate qualification.
+
+### 2026-10-13 01:33 UTC — #570 engine controls and #572 actual package closure
+
+VM20 public pages,2.54.0 isolated rebuild vs installed2.54.1. Repeated1024MiB
+matrix FAILS: uncompleted loads on both engines, heavy reclaim and unexplained
+guest reset; original rc1 preserved. Loaded one-off trials both near390MiB PSS.
+2048MiB three90-second controls pass actual load/two frames/boot/clean exit, zero
+direct reclaim; no downgrade or handheld-resolution conclusion. Corrected actual
+GStreamer package keeps controller/scanner; fresh-registry original255/fixed0 and
+warning-free browser proof. Next assembled image still owed. No ES source/UI
+change or account use. All owners exited, guest/disk/keys retired; compact
+[source, samples, failures and frames](qa-logs/2026-10-13-webkit-versions/README.md).

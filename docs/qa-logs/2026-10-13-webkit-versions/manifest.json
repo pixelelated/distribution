@@ -1,0 +1,24 @@
+{
+  "vm_source": "1a026648442321609b2288c2c9c06803817f9df2",
+  "application_source_sha256": "39af3e041d9871c4fb636cff71934ddf3ea13c690002e77af5ea6d82d8fff4f8",
+  "vm_memory_mib": 1024,
+  "guest_memtotal_kib": 810368,
+  "renderer": "software; app default disables DMABuf",
+  "installed_engine": "2.54.1",
+  "comparison_engine": "2.54.0",
+  "phase": "package repair verified; low-memory repeated matrix failed; 2048MiB controls completed; #570 remains unresolved",
+  "source_archives": {
+    "2.54.0": "846fd19ccedbae1dbfe904f26dbf2d68a800a33a50caf2ad5222c8dcb3f25682",
+    "2.54.1": "ea0bbb02dbdbc596874a4e7ad35b66645b3e0a232bd0e4081de5ed92eb0a397d",
+    "2.52.6": "179a2ea3f8f6edd4be7f31fdc55afc57bd0729f1fba648c61d4181539ac116fc"
+  },
+  "higher_memory_mib": 2048,
+  "higher_memtotal_kib": 1840256,
+  "gstreamer_recipe_sha256": "bf988663e155d1a66f51fca092922d3a3630053868349b917a0cc9dd71bf9376",
+  "limitations": [
+    "Direct browser launch leaves ES resident; no phone bridge, input, authentication or normal ES renderer suspension.",
+    "VM x86_64 software graphics is not the H700 platform.",
+    "2.52.6 has not been built or run.",
+    "No production WebKit pin change."
+  ]
+}

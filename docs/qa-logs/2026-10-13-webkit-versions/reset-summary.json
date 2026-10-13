@@ -1,0 +1,17 @@
+{
+  "first_boot": "5c6e3ea5d9764afc9c5bb06910a297fb",
+  "next_boot": "ae68fd5b8f8a482784c84ad9c3f154f3",
+  "reset_utc": "2026-10-13T01:11:15Z",
+  "matrix_timeout_utc": "2026-10-13T01:12:45Z",
+  "sample_interval_seconds": 3.032433271408081,
+  "counter_deltas": {
+    "pgscan_direct": 428136,
+    "pgsteal_direct": 310215,
+    "workingset_refault_file": 310001,
+    "allocstall_normal": 7306,
+    "pgmajfault": 590
+  },
+  "reset_cause": "unproven; no OOM, panic or pstore evidence found",
+  "snapshot_process_rows": "unusable: optional schedstat read failure discarded rows",
+  "zone_snapshot": "after reset, not during stall"
+}

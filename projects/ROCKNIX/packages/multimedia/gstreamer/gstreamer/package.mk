@@ -14,8 +14,9 @@
 #
 # Restated in full rather than patched: the generic recipe builds this string
 # inside pre_configure_target, so a substitution at global scope is
-# overwritten before configure sees it. Only -Dregistry differs from
-# upstream; keep the rest in step when rebasing.
+# overwritten before configure sees it. Registry and tools differ from
+# upstream: tools also builds the external plugin scanner (#572). Keep the
+# remaining options in step when rebasing.
 pre_configure_target() {
   PKG_MESON_OPTS_TARGET="-Dgst_debug=false \
                          -Dgst_parse=true \
@@ -32,7 +33,7 @@ pre_configure_target() {
                          -Dexamples=disabled \
                          -Dtests=disabled \
                          -Dbenchmarks=disabled \
-                         -Dtools=disabled \
+                         -Dtools=enabled \
                          -Ddoc=disabled \
                          -Dintrospection=disabled \
                          -Dnls=disabled \
@@ -43,4 +44,11 @@ pre_configure_target() {
                          -Dpackage-name="gstreamer"
                          -Dpackage-origin="LibreELEC.tv"
                          -Ddoc=disabled"
+}
+
+post_makeinstall_target() {
+  # WebKit uses the GL plugin, which links libgstcontroller (#572). The
+  # generic cleanup removes that runtime dependency; keep it in this OS.
+  safe_remove ${INSTALL}/usr/share
+  safe_remove ${INSTALL}/usr/lib/libgstnet-1.0*
 }

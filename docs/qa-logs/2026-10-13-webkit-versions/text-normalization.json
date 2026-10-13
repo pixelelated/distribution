@@ -1,0 +1,26 @@
+[
+  {
+    "file": "kernel-previous-boot.txt",
+    "original_sha256": "b5f5712b96c96816925f86eb29347fdbbca84ce530c0c8ffc1ed362e726a808b",
+    "normalized_sha256": "3c96921ecef118824fa0ba46bf31cd52a6022abb84bc1db13857667eb402285d",
+    "transform": "Decode UTF-8; split universal newlines; remove ANSI CSI colors; strip trailing whitespace; append one LF per line. Original retained in private task owner."
+  },
+  {
+    "file": "journal-previous-boot.txt",
+    "original_sha256": "5461497fda7efb2d83fadb5b882edfdb8f8da33f331cd93e73380f803d6896f8",
+    "normalized_sha256": "84d65ef290fb66078682b959d19abedb6c6d2f8050e8e6fa7da096890bea1160",
+    "transform": "Decode UTF-8; split universal newlines; remove ANSI CSI colors; strip trailing whitespace; append one LF per line. Original retained in private task owner."
+  },
+  {
+    "file": "boot-review.txt",
+    "original_sha256": "c989290e823dc81863306e56984975ff3bd07164cd257099903c28e288592b19",
+    "normalized_sha256": "ac965d9327e17fb1a236aec636bcd928cd104b1051ffd9583e931d8981d96df5",
+    "transform": "Decode UTF-8; split universal newlines; remove ANSI CSI colors; strip trailing whitespace; append one LF per line. Original retained in private task owner."
+  },
+  {
+    "file": "zone-serial.txt",
+    "original_sha256": "18b802e5cfc863819352122c0cf1822f40dea6d9a85015f6aa29dd3f4c29883b",
+    "normalized_sha256": "6c3e420272ef2ec446085eb8022635d3d3363fe2b4b205136aa3cf2b1cb8e489",
+    "transform": "Decode UTF-8; split universal newlines; remove ANSI CSI colors; strip trailing whitespace; append one LF per line. Original retained in private task owner."
+  }
+]

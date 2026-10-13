@@ -1,0 +1,105 @@
+ae68fd5b-8f8a-4827-84c8-4ad9c3f154f3
+200.51 724.92
+IDX BOOT ID                          FIRST ENTRY                 LAST ENTRY
+ -1 5c6e3ea5d9764afc9c5bb06910a297fb Mon 2026-10-12 20:24:20 EDT Mon 2026-10-12 21:10:58 EDT
+  0 ae68fd5b8f8a482784c84ad9c3f154f3 Mon 2026-10-12 21:11:15 EDT Mon 2026-10-12 21:13:03 EDT
+Oct 12 20:24:20 ROCKNIX kernel: input: QEMU QEMU USB Tablet as /devices/pci0000:00/0000:00:04.0/usb1/1-2/1-2:1.0/0003:0627:0001.0002/input/input5
+Oct 12 20:24:20 ROCKNIX kernel: hid-generic 0003:0627:0001.0002: input,hidraw1: USB HID v0.01 Mouse [QEMU QEMU USB Tablet] on usb-0000:00:04.0-2/input0
+Oct 12 20:24:20 ROCKNIX kernel: loop0: detected capacity change from 0 to 3954344
+Oct 12 20:24:20 ROCKNIX kernel: EXT4-fs (vda2): mounted filesystem 64545fff-c506-4310-b501-e839c82ece9c r/w with ordered data mode. Quota mode: disabled.
+Oct 12 20:24:20 ROCKNIX kernel-overlays-setup: setup base modules
+Oct 12 20:24:20 ROCKNIX kernel-overlays-setup: added modules from /usr/lib/kernel-overlays/base/lib/modules/7.1.2
+Oct 12 20:24:20 ROCKNIX kernel-overlays-setup: added firmware from /usr/lib/kernel-overlays/base/lib/firmware
+Oct 12 20:24:20 ROCKNIX kernel-overlays-setup: done
+Oct 12 20:24:20 ROCKNIX systemd[1]: systemd 255.8 running in system mode (-PAM -AUDIT -SELINUX -APPARMOR -IMA -SMACK -SECCOMP +GCRYPT -GNUTLS +OPENSSL -ACL +BLKID -CURL -ELFUTILS -FIDO2 +IDN2 -IDN -IPTC +KMOD -LIBCRYPTSETUP -LIBFDISK +PCRE2 -PWQUALITY -P11KIT -QRENCODE -TPM2 -BZIP2 -LZ4 -XZ -ZLIB +ZSTD -BPF_FRAMEWORK -XKBCOMMON +UTMP +SYSVINIT default-hierarchy=hybrid)
+Oct 12 20:24:20 ROCKNIX systemd[1]: Detected virtualization kvm.
+Oct 12 20:24:20 ROCKNIX systemd[1]: Detected architecture x86-64.
+Oct 12 20:24:20 ROCKNIX systemd[1]: Detected first boot.
+Oct 12 20:24:20 ROCKNIX kernel: /proc/cgroups lists only v1 controllers, use cgroup.controllers of root cgroup for v2 info
+Oct 12 20:24:20 ROCKNIX systemd[1]: Using hardware watchdog 'i6300ESB timer', version 0, device /dev/watchdog0
+Oct 12 20:24:20 ROCKNIX systemd[1]: Watchdog running with a hardware timeout of 15s.
+Oct 12 20:24:20 ROCKNIX systemd[1]: Populated /etc with preset unit settings.
+Oct 12 20:24:20 ROCKNIX systemd[1]: multi-user.target: Wants dependency dropin /usr/lib/systemd/system/multi-user.target.wants/sixaxis@.service target ../sixaxis@.service has different name
+Oct 12 20:24:20 ROCKNIX systemd[1]: Queued start job for default target rocknix.target.
+Oct 12 20:24:20 ROCKNIX systemd[1]: Created slice system-modprobe.slice.
+Oct 12 20:24:20 ROCKNIX systemd[1]: Created slice system-sixaxis.slice.
+Oct 12 20:24:20 ROCKNIX systemd[1]: Created slice user.slice.
+Oct 12 20:24:20 ROCKNIX systemd[1]: Started systemd-ask-password-console.path.
+Oct 12 20:24:20 ROCKNIX systemd[1]: Started systemd-ask-password-wall.path.
+Oct 12 20:24:20 ROCKNIX systemd[1]: Set up automount proc-sys-fs-binfmt_misc.automount.
+Oct 12 20:24:20 ROCKNIX systemd[1]: Reached target paths.target.
+Oct 12 20:24:20 ROCKNIX systemd[1]: Reached target slices.target.
+Oct 12 20:24:20 ROCKNIX systemd[1]: Reached target swap.target.
+Oct 12 20:24:20 ROCKNIX systemd[1]: Listening on rpcbind.socket.
+Oct 12 20:24:20 ROCKNIX systemd[1]: Reached target rpcbind.target.
+Oct 12 20:24:20 ROCKNIX systemd[1]: Listening on systemd-initctl.socket.
+Oct 12 20:24:20 ROCKNIX systemd[1]: systemd-journald-dev-log.socket: SO_PASSSEC failed: Operation not supported
+Oct 12 20:24:20 ROCKNIX systemd[1]: Listening on systemd-journald-dev-log.socket.
+Oct 12 20:24:20 ROCKNIX systemd[1]: systemd-journald.socket: SO_PASSSEC failed: Operation not supported
+Oct 12 20:24:20 ROCKNIX systemd[1]: systemd-journald.socket: SO_PASSSEC failed: Operation not supported
+Oct 12 20:24:20 ROCKNIX systemd[1]: Listening on systemd-journald.socket.
+Oct 12 20:24:20 ROCKNIX systemd[1]: Listening on systemd-udevd-control.socket.
+Oct 12 20:24:20 ROCKNIX systemd[1]: Listening on systemd-udevd-kernel.socket.
+Oct 12 20:24:20 ROCKNIX systemd[1]: Mounting dev-mqueue.mount...
+Oct 12 20:24:20 ROCKNIX systemd[1]: Mounting proc-sys-fs-binfmt_misc.mount...
+Oct 12 20:24:20 ROCKNIX systemd[1]: Mounting sys-kernel-debug.mount...
+Oct 12 20:24:20 ROCKNIX systemd[1]: Mounting sys-kernel-tracing.mount...
+Oct 12 20:24:20 ROCKNIX systemd[1]: Mounting tmp.mount...
+Oct 12 20:24:20 ROCKNIX systemd[1]: Mounting var.mount...
+Oct 12 20:24:20 ROCKNIX systemd[1]: Started debug-shell.service.
+Oct 12 20:24:20 ROCKNIX systemd[1]: Starting kmod-static-nodes.service...
+Oct 12 20:24:20 ROCKNIX systemd[1]: Starting machine-id.service...
+Oct 12 20:24:20 ROCKNIX systemd[1]: Starting modprobe@configfs.service...
+Oct 12 20:24:20 ROCKNIX systemd[1]: Starting modprobe@drm.service...
+Oct 12 20:24:20 ROCKNIX systemd[1]: Starting modprobe@fuse.service...
+Oct 12 20:24:20 ROCKNIX systemd[1]: Starting show-version.service...
+Oct 12 20:24:20 ROCKNIX systemd[1]: Starting storage-log.service...
+Oct 12 20:24:20 ROCKNIX kernel: fuse: init (API version 7.45)
+Oct 12 20:24:20 ROCKNIX systemd[1]: Starting systemd-hwdb-update.service...
+Oct 12 20:24:20 ROCKNIX systemd[1]: Starting systemd-modules-load.service...
+Oct 12 20:24:20 ROCKNIX systemd[1]: Starting systemd-timesyncd-setup.service...
+Oct 12 20:24:20 ROCKNIX systemd[1]: Starting systemd-udev-trigger.service...
+Oct 12 20:24:20 ROCKNIX systemd[1]: Mounted dev-mqueue.mount.
+Oct 12 20:24:20 ROCKNIX systemd[1]: Mounted proc-sys-fs-binfmt_misc.mount.
+Oct 12 20:24:20 ROCKNIX systemd[1]: Mounted sys-kernel-debug.mount.
+Oct 12 20:24:20 ROCKNIX systemd[1]: Mounted sys-kernel-tracing.mount.
+Oct 12 20:24:20 ROCKNIX systemd[1]: Mounted tmp.mount.
+Oct 12 20:24:20 ROCKNIX systemd[1]: Mounted var.mount.
+Oct 12 20:24:20 ROCKNIX systemd[1]: Finished kmod-static-nodes.service.
+Oct 12 20:24:20 ROCKNIX systemd[1]: modprobe@configfs.service: Deactivated successfully.
+Oct 12 20:24:20 ROCKNIX systemd[1]: Finished modprobe@configfs.service.
+Oct 12 20:24:20 ROCKNIX systemd[1]: modprobe@drm.service: Deactivated successfully.
+Oct 12 20:24:20 ROCKNIX systemd[1]: Finished modprobe@drm.service.
+Oct 12 20:24:20 ROCKNIX systemd[1]: modprobe@fuse.service: Deactivated successfully.
+Oct 12 20:24:20 ROCKNIX systemd[1]: Finished modprobe@fuse.service.
+Oct 12 20:24:20 ROCKNIX systemd[1]: Finished show-version.service.
+Oct 12 20:24:20 ROCKNIX systemd[1]: Finished storage-log.service.
+Oct 12 20:24:20 ROCKNIX systemd[1]: Mounting sys-fs-fuse-connections.mount...
+Oct 12 20:24:20 ROCKNIX systemd[1]: Mounting sys-kernel-config.mount...
+Oct 12 20:24:20 ROCKNIX systemd[1]: Starting systemd-tmpfiles-setup-dev-early.service...
+Oct 12 20:24:20 ROCKNIX systemd[1]: Mounted sys-fs-fuse-connections.mount.
+Oct 12 20:24:20 ROCKNIX systemd[1]: Mounted sys-kernel-config.mount.
+Oct 12 20:24:20 ROCKNIX systemd[1]: Finished systemd-timesyncd-setup.service.
+Oct 12 20:24:20 ROCKNIX kernel: Asymmetric key parser 'pkcs8' registered
+Oct 12 20:24:20 ROCKNIX systemd[1]: Finished systemd-modules-load.service.
+Oct 12 20:24:20 ROCKNIX systemd[1]: Starting systemd-sysctl.service...
+Oct 12 20:24:20 ROCKNIX systemd[1]: Finished machine-id.service.
+Oct 12 20:24:20 ROCKNIX systemd[1]: Starting systemd-journald.service...
+Oct 12 20:24:20 ROCKNIX systemd[1]: Finished systemd-sysctl.service.
+Oct 12 20:24:20 ROCKNIX systemd[1]: Finished systemd-tmpfiles-setup-dev-early.service.
+Oct 12 20:24:20 ROCKNIX systemd-journald[258]: Collecting audit messages is disabled.
+Oct 12 20:24:20 ROCKNIX systemd[1]: Starting systemd-resolved.service...
+Oct 12 20:24:20 ROCKNIX systemd[1]: Starting systemd-tmpfiles-setup-dev.service...
+Oct 12 20:24:20 ROCKNIX systemd[1]: Started systemd-journald.service.
+Oct 12 20:24:20 ROCKNIX systemd-journald[258]: Received client request to flush runtime journal.
+Oct 12 20:24:20 ROCKNIX kernel: khugepaged: raising min_free_kbytes from 16384 to 39288 to help transparent hugepage allocations
+Oct 12 20:24:22 ROCKNIX kernel: snd_hda_codec_generic hdaudioC1D0: autoconfig for Generic: line_outs=1 (0x3/0x0/0x0/0x0/0x0) type:line
+Oct 12 20:24:22 ROCKNIX kernel: snd_hda_codec_generic hdaudioC1D0:    speaker_outs=0 (0x0/0x0/0x0/0x0/0x0)
+Oct 12 20:24:22 ROCKNIX kernel: snd_hda_codec_generic hdaudioC1D0:    hp_outs=0 (0x0/0x0/0x0/0x0/0x0)
+Oct 12 20:24:22 ROCKNIX kernel: snd_hda_codec_generic hdaudioC1D0:    mono: mono_out=0x0
+Oct 12 20:24:22 ROCKNIX kernel: snd_hda_codec_generic hdaudioC1D0:    inputs:
+Oct 12 20:24:22 ROCKNIX kernel: snd_hda_codec_generic hdaudioC1D0:      Line=0x5
+Oct 12 20:24:22 ROCKNIX kernel: cfg80211: Loading compiled-in X.509 certificates for regulatory database
+Oct 12 20:24:22 ROCKNIX kernel: Loaded X.509 cert 'sforshee: 00b28ddf47aef9cea7'
+Oct 12 20:24:22 ROCKNIX kernel: Loaded X.509 cert 'wens: 61c038651aabdcf94bd0ac7ff06c7248db18c600'
+Oct 12 20:24:22 ROCKNIX kernel: clocksource: Watchdog remote CPU 2 read timed out
