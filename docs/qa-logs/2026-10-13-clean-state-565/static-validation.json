@@ -1,0 +1,108 @@
+{
+  "schema": 1,
+  "utc": "2026-10-13T07:01:48.239221+00:00",
+  "starting_commit": "1a37cde40ab0893c9c21c0a383c59ac0c1403b06",
+  "validation": "source inventory and syntax only",
+  "checks": [
+    {
+      "kind": "python-ast-only",
+      "path": "tools/pixelelated-state-check",
+      "status": "pass",
+      "source_sha256": "5b73a7a90ae942d0955dbf8ff0a310dc089f1aa4b25f5a899e5f87dfcaabe69f"
+    },
+    {
+      "kind": "python-ast-only",
+      "path": "tools/pixelelated-state-check-test",
+      "status": "pass",
+      "source_sha256": "6df2bf57c1fdf39db4c0828764286c1964fac3f47a8f73575fb40dc18ea20fad"
+    },
+    {
+      "kind": "python-ast-only",
+      "path": "tools/fork-publish-release",
+      "status": "pass",
+      "source_sha256": "7c7a3b093d62361d31408cb80fbd8ad0028cb4ab605a49de7686ca82690a754c"
+    },
+    {
+      "kind": "shell-syntax-only",
+      "path": "docs/qa-logs/2026-10-13-clean-state-565/run-first-boot.sh",
+      "status": "pass",
+      "source_sha256": "76f105ad2b1801b3b2b1e5d33fe615b178d0f268d2a964c0cdbe21eb1bbc90e7"
+    },
+    {
+      "kind": "embedded-python-ast-only",
+      "path": "docs/qa-logs/2026-10-13-clean-state-565/run-first-boot.sh",
+      "status": "pass"
+    },
+    {
+      "kind": "AST-derived-shell-template-syntax-only",
+      "path": "tools/pixelelated-state-check-test",
+      "status": "pass",
+      "placeholder_only": true
+    }
+  ],
+  "named_root_control_sources": [
+    "clean-first-boot",
+    "clean-image",
+    "never-played-zero",
+    "identical-default-repeat",
+    "es-lexical-playcount",
+    "player-runtime",
+    "retained-player",
+    "player-default",
+    "recovery-copy",
+    "atomic-copy",
+    "runtime-service",
+    "compiled-service",
+    "bare-runtime-fragments",
+    "compiled-ra-service",
+    "configured-remote",
+    "retained-remote",
+    "encrypted-remote",
+    "remote-missing-type",
+    "completed-empty-stamp",
+    "retained-stamp",
+    "malformed-stamp",
+    "imported-history",
+    "retained-history",
+    "es-fallback-history",
+    "history-malformed-xml",
+    "history-malformed-count",
+    "history-malformed-date",
+    "qa-name-is-private",
+    "proxy-cache",
+    "standalone-token",
+    "standalone-ini",
+    "history-playlist",
+    "missing-required",
+    "empty-required",
+    "unreadable-required",
+    "malformed-es",
+    "xml-entity",
+    "duplicate-field",
+    "effective-override",
+    "retroarch-include",
+    "dangling-required",
+    "symlink-cycle",
+    "fifo-required"
+  ],
+  "runtime_fixtures_executed": false,
+  "tool_imported": false,
+  "firmware_extracted": false,
+  "guest_booted": false,
+  "publication_performed": false,
+  "reader_PATH_inventory": {
+    "unsquashfs": true,
+    "mksquashfs": true,
+    "mcopy": false,
+    "sfdisk": true,
+    "debugfs": true,
+    "e2fsck": true,
+    "mkfs.vfat": true,
+    "mkfs.ext4": true
+  },
+  "limits": [
+    "No behavior/fixture PASS claimed",
+    "No retained-storage OS upgrade performed",
+    "No accepted final-payload or first-boot result yet"
+  ]
+}

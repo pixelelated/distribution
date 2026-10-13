@@ -8,10 +8,11 @@ newest-file/date/undraft path is retired (#265, #530). Actual publication needs
 the independent qualification/source/credential gates and named approval.
 """
 import argparse
-import hashlib
 import json
+import os
 from pathlib import Path
 import re
+import signal
 import subprocess
 import sys
 from datetime import datetime
@@ -77,6 +78,39 @@ def prepare(bundle):
     firmware = {n for n in manifest["files"] if n.endswith((".img.gz", ".tar"))}
     if firmware != {n for n in assets if n.endswith((".img.gz", ".tar"))}:
         raise ValueError("bundle contains firmware without matching identity")
+    # Inspect the actual final assets on every preparation. A detached receipt or
+    # selected default-file report cannot substitute for reading these bytes (#565).
+    # The gate has no network, publication or repair path; unavailable readers and
+    # unsupported layouts refuse preparation. Keep the prepare-only contract.
+    gate = Path(__file__).resolve().with_name("pixelelated-state-check")
+    state_checks = {}
+    for asset in sorted(firmware):
+        try:
+            with subprocess.Popen([sys.executable, "-B", str(gate), "--payload", str(bundle / asset)],
+                                  stdout=subprocess.PIPE, stderr=subprocess.DEVNULL,
+                                  text=True, start_new_session=True) as checked:
+                try:
+                    output, _ = checked.communicate(timeout=900)
+                finally:
+                    if checked.poll() is None:
+                        os.killpg(checked.pid, signal.SIGKILL)
+                        checked.communicate()
+        except (OSError, subprocess.SubprocessError):
+            raise ValueError("selected-state inspection could not complete") from None
+        try:
+            report = json.loads(output)
+        except (ValueError, TypeError):
+            raise ValueError("selected-state inspection produced no valid report") from None
+        if (checked.returncode != 0 or not isinstance(report, dict) or report.get("schema") != 1 or
+                report.get("policy") != "pixelelated-selected-state-v1" or
+                report.get("mode") != "clean-image" or report.get("status") != "pass" or
+                report.get("error_count") != 0 or report.get("blocked_count") != 0):
+            # Do not forward child stderr or a failed artifact's values/diagnostics.
+            raise ValueError("selected-state inspection refused a firmware asset")
+        state_checks[asset] = report
+    # Detect changed bundle bytes during inspection; no new credential-derived
+    # digest is emitted by the gate. The existing candidate-store identity remains.
+    subprocess.run([str(store), "verify", str(bundle)], check=True, stdout=sys.stderr)
     version, stamp, commit, build = common
     prerelease = "-" in version
     return {"schema": 1, "repository": "pixelelated/distribution",
@@ -86,8 +120,9 @@ def prepare(bundle):
             "title": "pixelelated " + version,
             "prerelease": prerelease, "draft": True, "assets": assets,
             "publication_performed": False, "qualification": "not assessed",
+            "selected_state_inspection": state_checks,
             "remaining_gates": ["unused immutable tag and recorded RC allocation", "candidate qualification", "source/licence custody",
-                                "artifact credential inspection", "named publication approval"]}
+                                "credential surfaces outside selected-state policy", "named publication approval"]}
 
 
 def main():
@@ -96,7 +131,7 @@ def main():
     args = parser.parse_args()
     try:
         print(json.dumps(prepare(args.prepare.resolve()), indent=2, sort_keys=True))
-    except (OSError, ValueError, KeyError, TypeError, subprocess.CalledProcessError) as error:
+    except (OSError, ValueError, KeyError, TypeError, subprocess.SubprocessError) as error:
         print("release preparation: " + str(error), file=sys.stderr)
         return 1
     return 0

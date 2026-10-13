@@ -1,0 +1,659 @@
+#!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-2.0
+# Copyright (C) 2026-present pixelelated
+"""Inspect selected image/default/first-boot state without disclosing values (#565).
+
+Read-only policy, not a universal secret scanner. Exit 0: selected policy passes;
+1: prohibited presence; 2: incomplete/unsupported/unreadable/malformed input.
+The JSON uses policy paths, never input-derived names, values, or content hashes.
+No config is sourced, provider contacted, state repaired, or release published.
+"""
+import argparse
+import configparser
+from datetime import datetime
+import gzip
+import json
+import os
+from pathlib import Path, PurePosixPath
+import re
+import resource
+import shlex
+import stat
+import subprocess
+import sys
+import tarfile
+import tempfile
+import xml.etree.ElementTree as ET
+
+
+POLICY = "pixelelated-selected-state-v1"
+LIMIT = 16 * 1024 * 1024
+MAX_NODES = 100000
+MAX_SYSTEM = 4 * 1024**3
+MAX_DISK = 16 * 1024**3
+CORE = {"system/configs/system.cfg": "system",
+        "emulationstation/es_settings.cfg": "es",
+        "retroarch/retroarch.cfg": "retroarch",
+        "cloud_sync.conf": "cloud"}
+OPTIONAL = {
+    "duckstation/settings.ini": "emulator", "melonDS/melonDS.ini": "emulator",
+    "flycast/emu.cfg": "emulator", "aethersx2/inis/PCSX2.ini": "emulator",
+    "ARMSX2/inis/PCSX2.ini": "emulator", "ARMSX2/inis/secrets.ini": "emulator",
+    "dolphin-emu/RetroAchievements.ini": "emulator",
+    "ppsspp/PSP/SYSTEM/ppsspp.ini": "emulator",
+    "ppsspp/PSP/SYSTEM/ppsspp_retroachievements.dat": "opaque-account",
+    "SkyEmu/ra_token.txt": "opaque-account",
+    "gopher64/retroachievements.json": "opaque-account",
+    "rclone/rclone.conf": "remote", "rclone/active-connection": "selection",
+    "cloud_sync-device-id": "device-identity",
+    "cloud_sync-device-id.previous": "device-identity",
+}
+SUFFIXES = ("", ".backup", ".bak", ".last-good", ".new", ".tmp")
+PLAYER = {"username", "password", "token", "key", "apikey", "api_key"}
+ES_PLAYER = {"screenscraperuser", "screenscraperpass", "retroachievementsusername",
+             "retroachievementspassword", "retroachievementstoken"}
+ES_SERVICE = {"screenscraperdevid", "screenscraperdevpass", "gamesdbapikey"}
+REMOTE_AUTH = {"user", "pass", "password", "token", "key", "access_token",
+               "refresh_token", "secret_access_key", "access_key_id"}
+SERVICE = {"client_id", "client_secret"}
+QA_NAME = re.compile(r"^(?:qa[-_]|\.qa[-_]|pixelelated-qa|rocknix-qa|test-fixture)", re.I)
+SCOPE = ["selected system, ES, RetroArch, standalone account files and recovery siblings",
+         "rclone configuration and active selection; cloud device identity and activity cache",
+         "gamelist.xml under selected ES/config/ROM roots; playcount and lastplayed only",
+         "known QA name prefixes, proxy state, token files and RetroArch history playlists",
+         "ES ELF known compiled ScreenScraper/RetroAchievements URL-pair patterns",
+         "img.gz: supported two-partition image and empty storage seed policy"]
+LIMITATIONS = ["not a whole-image or arbitrary-secret scan",
+               "no generic compiled GamesDB key detection or service identity provenance",
+               "no custom ES system paths, environment overrides, external media or arbitrary archives",
+               "no interpretation of operation success, bytes transferred, actor or metadata origin",
+               "retained-upgrade permits runtime state; it does not prove upgrade preservation"]
+
+
+class Invalid(Exception):
+    """Carries no input-derived text."""
+
+
+def require(ok):
+    if not ok:
+        raise Invalid()
+
+
+def command(argv, limit=LIMIT, file_limit=None):
+    # Child diagnostics can contain config values/filenames. Never forward them.
+    # Bound stdout on disk rather than accumulating arbitrary child output in RAM.
+    with tempfile.TemporaryFile() as output:
+        try:
+            def bounded_output():
+                ceiling = limit if file_limit is None else file_limit
+                resource.setrlimit(resource.RLIMIT_FSIZE, (ceiling, ceiling))
+            proc = subprocess.run(argv, stdin=subprocess.DEVNULL, stdout=output,
+                                  stderr=subprocess.DEVNULL, timeout=180,
+                                  preexec_fn=bounded_output)
+        except (OSError, subprocess.TimeoutExpired):
+            raise Invalid() from None
+        require(proc.returncode == 0 and output.tell() <= limit)
+        output.seek(0)
+        return output.read(limit + 1)
+
+
+def text(data):
+    require(b"\0" not in data)
+    return data.decode("utf-8-sig", errors="strict")
+
+
+def xml(data, tag):
+    # No DTD/entities (including internally declared ones), or ambiguous fragments.
+    require(not re.search(br"<!\s*(?:DOCTYPE|ENTITY)", data, re.I))
+    root = ET.fromstring(text(data))
+    require(root.tag == tag)
+    return root
+
+
+def pairs(data):
+    """Strict non-executing key/value + INI subset used by selected configs."""
+    result, seen, section = [], {}, ""
+    source = text(data)
+    require(bool(source.strip()))
+    for line in source.splitlines():
+        line = line.strip()
+        # RetroArch's include directives look like comments but change effective
+        # configuration. No silent pass for an input outside this policy.
+        require(not re.match(r"^#\s*(?:include|reference)\b", line, re.I))
+        if not line or line.startswith(("#", ";")):
+            continue
+        if line.startswith("["):
+            require(re.fullmatch(r"\[[^\[\]\r\n]+\]", line))
+            section = line[1:-1].lower()
+            continue
+        match = re.fullmatch(r"([^=\s]+)\s*=\s*(.*)", line)
+        require(match is not None)
+        key, value = match.groups()
+        key = key.lower()
+        # Shipped system.cfg repeats an identical unrelated scalar. Collapse only
+        # exact repeats; conflicting duplicates cannot hide a populated account.
+        if (section, key) in seen:
+            require(seen[(section, key)] == value)
+            continue
+        seen[(section, key)] = value
+        if value.startswith(('"', "'")):
+            quote = value[0]
+            require(len(value) >= 2 and value.endswith(quote))
+            value = value[1:-1]
+        result.append((section, key, value))
+    require(bool(result))
+    return result
+
+
+class Local:
+    """Only selected paths are read. Absolute links resolve inside the supplied root."""
+    def __init__(self, root):
+        self.root = root.resolve(strict=True)
+        require(self.root.is_dir())
+
+    def resolve(self, path):
+        pending, done, links = list(PurePosixPath(path).parts[1:]), [], 0
+        while pending:
+            part = pending.pop(0)
+            if part in ("", "."):
+                continue
+            if part == "..":
+                require(bool(done))
+                done.pop()
+                continue
+            candidate = self.root.joinpath(*done, part)
+            try:
+                meta = candidate.lstat()
+            except FileNotFoundError:
+                require(links == 0)
+                # The remaining suffix is absent, not an unreadable directory.
+                return candidate.joinpath(*pending)
+            if stat.S_ISLNK(meta.st_mode):
+                links += 1
+                require(links <= 40)
+                target = PurePosixPath(os.readlink(candidate))
+                if target.is_absolute():
+                    done = []
+                    pending = list(target.parts[1:]) + pending
+                else:
+                    pending = list(target.parts) + pending
+            else:
+                done.append(part)
+        return self.root.joinpath(*done)
+
+    def info(self, path):
+        p = self.resolve(path)
+        try:
+            meta = p.lstat()
+        except FileNotFoundError:
+            return None
+        require(not stat.S_ISLNK(meta.st_mode))
+        require(meta.st_mode & 0o444)  # root must not turn mode-000 into a pass
+        if stat.S_ISDIR(meta.st_mode):
+            require(meta.st_mode & 0o111)
+            return "dir", meta.st_size
+        require(stat.S_ISREG(meta.st_mode))
+        return "file", meta.st_size
+
+    def children(self, path):
+        require(self.info(path)[0] == "dir")
+        return sorted(p.name for p in self.resolve(path).iterdir())
+
+    def read(self, path, limit=LIMIT):
+        info = self.info(path)
+        require(info and info[0] == "file" and info[1] <= limit)
+        fd = os.open(self.resolve(path), os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK)
+        with os.fdopen(fd, "rb") as stream:
+            before = os.fstat(stream.fileno())
+            require(stat.S_ISREG(before.st_mode))
+            data = stream.read(limit + 1)
+            after = os.fstat(stream.fileno())
+        require(len(data) <= limit and len(data) == after.st_size)
+        require((before.st_ino, before.st_size, before.st_mtime_ns, before.st_ctime_ns) ==
+                (after.st_ino, after.st_size, after.st_mtime_ns, after.st_ctime_ns))
+        return data
+
+
+class Squash:
+    """Use listing/cat only: no filesystem is mounted or extracted as a tree."""
+    def __init__(self, path):
+        self.path, self.nodes = path, {}
+        listing = text(command(["unsquashfs", "-processors", "1", "-mem", "64M",
+                                "-lln", "-d", "root", str(path)]))
+        for line in listing.splitlines():
+            if not line.strip() or line.startswith("Parallel unsquashfs:"):
+                continue
+            m = re.fullmatch(r"([dlcbps-][rwxStTs-]{9})\s+\d+/\d+\s+\S+\s+"
+                             r"\d{4}-\d{2}-\d{2}\s+\d{2}:\d{2}\s+root(?:/(.*))?", line)
+            require(m is not None)
+            mode, name = m.groups()
+            name = name or ""
+            target = None
+            if mode[0] == "l":
+                require(" -> " in name)
+                name, target = name.split(" -> ", 1)
+            path_name = "/" + name
+            require(".." not in PurePosixPath(path_name).parts and path_name not in self.nodes)
+            self.nodes[path_name] = (mode, target)
+            require(len(self.nodes) <= MAX_NODES)
+        require("/" in self.nodes)
+        self.child_names = {}
+        for name in self.nodes:
+            if name != "/":
+                parent, leaf = name.rsplit("/", 1)
+                self.child_names.setdefault(parent or "/", []).append(leaf)
+
+    def resolve(self, path):
+        pending, done, links = list(PurePosixPath(path).parts[1:]), [], 0
+        while pending:
+            part = pending.pop(0)
+            if part in ("", "."):
+                continue
+            if part == "..":
+                require(bool(done))
+                done.pop()
+                continue
+            name = "/" + "/".join(done + [part])
+            item = self.nodes.get(name)
+            if item and item[0][0] == "l":
+                links += 1
+                require(links <= 40)
+                link = PurePosixPath(item[1])
+                if link.is_absolute():
+                    done = []
+                    pending = list(link.parts[1:]) + pending
+                else:
+                    pending = list(link.parts) + pending
+            else:
+                done.append(part)
+        result = "/" + "/".join(done)
+        require(links == 0 or result in self.nodes)
+        return result
+
+    def info(self, path):
+        item = self.nodes.get(self.resolve(path))
+        if item is None:
+            return None
+        mode = item[0]
+        require("r" in mode and mode[0] in "d-")
+        if mode[0] == "d":
+            require(any(bit in mode for bit in "xst"))
+        return ("dir" if mode[0] == "d" else "file"), 0
+
+    def children(self, path):
+        require(self.info(path)[0] == "dir")
+        return sorted(self.child_names.get(self.resolve(path), []))
+
+    def read(self, path, limit=LIMIT):
+        require(self.info(path) and self.info(path)[0] == "file")
+        return command(["unsquashfs", "-processors", "1", "-mem", "64M", "-cat",
+                        str(self.path), self.resolve(path).lstrip("/")], limit)
+
+
+class Check:
+    def __init__(self, fs, mode):
+        self.fs, self.mode, self.rows = fs, mode, []
+
+    def row(self, path, category, count=0, present=True, error=False):
+        retained = self.mode == "retained-upgrade" and path.startswith("/storage/")
+        if category == "unsupported-config-override" and count:
+            error = True
+        self.rows.append({"path": path, "category": category, "present": present,
+                          "count": count, "status": "error" if error else
+                          "allowed" if count and retained else "blocked" if count else "clear"})
+
+    def file(self, path, kind, required=False, label=None):
+        label = label or path
+        try:
+            info = self.fs.info(path)
+            if info is None:
+                self.row(label, kind, present=False, error=required)
+                return
+            require(info[0] == "file")
+            data = self.fs.read(path, 256 * 1024**2 if kind == "compiled-service" else LIMIT)
+            counts = self.parse(kind, data)
+            for category, count in counts.items():
+                self.row(label, category, count)
+        except (Invalid, OSError, ValueError, ET.ParseError, configparser.Error):
+            self.row(label, "input-invalid", error=True)
+
+    def parse(self, kind, data):
+        if kind == "compiled-service":
+            require(len(data) >= 64 and data[:4] == b"\x7fELF" and data[4] in (1, 2))
+            # Known compiled URL fragments only. Bare runtime fragments have no value.
+            value = rb"[^\x00\s&\"'<>]+"
+            patterns = [rb"devid=" + value + rb"&devpassword=" + value,
+                        rb"z=" + value + rb"&y=" + value]
+            return {"developer-service-identity": sum(len(re.findall(p, data)) for p in patterns)}
+        if kind == "opaque-account":
+            return {"player-account-file": int(bool(data.strip()))}
+        if kind in ("selection", "device-identity"):
+            text(data)
+            return {"configured-remote" if kind == "selection" else kind: int(bool(data.strip()))}
+        if kind == "stamp":
+            require(re.fullmatch(r"\d+\s+-?\d+(?:\s+[^\r\n]+)?\s*", text(data)) is not None)
+            return {"cloud-activity": 1}
+        if kind == "gamelist":
+            root = xml(data, "gameList")
+            counts = {"playcount": 0, "lastplayed": 0}
+            for entry in root:
+                require(entry.tag in ("game", "folder"))
+                for key in counts:
+                    nodes = entry.findall(key)
+                    require(len(nodes) <= 1)
+                    if not nodes:
+                        continue
+                    require(len(nodes[0]) == 0)
+                    value = (nodes[0].text or "").strip()
+                    if key == "playcount":
+                        require(not value or re.fullmatch(r"[0-9]+", value))
+                        # Accepted ES compares PlayCount as a string (not an integer).
+                        counts[key] += int(value > "0")
+                    else:
+                        if value not in ("", "0", "00000000T000000"):
+                            require(re.fullmatch(r"\d{8}T\d{6}", value))
+                            datetime.strptime(value, "%Y%m%dT%H%M%S")
+                            counts[key] += 1
+            return counts
+        if kind == "playlist":
+            obj = json.loads(text(data))
+            require(isinstance(obj, dict) and isinstance(obj.get("items"), list))
+            return {"play-history": len(obj["items"])}
+        if kind == "remote":
+            parser = configparser.RawConfigParser(strict=True, interpolation=None)
+            parser.read_string(text(data))
+            require(not parser.defaults())
+            counts = {"configured-remote": len(parser.sections()), "player-account": 0,
+                      "developer-service-identity": 0}
+            for section in parser.sections():
+                require(parser.has_option(section, "type") and parser.get(section, "type").strip())
+                for key, val in parser.items(section):
+                    if val.strip():
+                        counts["player-account"] += int(key in REMOTE_AUTH)
+                        counts["developer-service-identity"] += int(key in SERVICE)
+            return counts
+        if kind == "es":
+            root = xml(data, "config")
+            items, seen = [], set()
+            for child in root:
+                require(child.tag in ("string", "bool", "int", "float") and
+                        set(child.attrib) == {"name", "value"} and len(child) == 0)
+                key = child.attrib["name"].lower()
+                require(key not in seen)
+                seen.add(key)
+                items.append(("", key, child.attrib["value"]))
+        elif kind == "cloud":
+            # Literal assignments only; shell expansion is never evaluated.
+            source = text(data).replace("\\\n", "")
+            items = []
+            for _, key, val in pairs(source.encode()):
+                require(not any(s in val for s in ("`", "$(", "${", ";")))
+                items.append(("", key.removeprefix("default_"), val))
+        else:
+            items = pairs(data)
+        counts = {"player-account": 0, "developer-service-identity": 0}
+        if kind == "cloud":
+            counts["configured-remote"] = 0
+            counts["unsupported-config-override"] = 0
+            require({"savespath", "saves_remote", "settings_remote", "content_remote"} <=
+                    {key for _, key, _ in items})
+        for section, key, val in items:
+            if not val.strip():
+                continue
+            personal = (key in ES_PLAYER or key.startswith("global.retroachievements.") and
+                        key.rsplit(".", 1)[-1] in PLAYER or
+                        key.startswith(("cheevos_", "ra_")) and key.split("_", 1)[1] in PLAYER or
+                        section in ("achievements", "retroachievements", "cheevos") and key in PLAYER)
+            counts["player-account"] += int(personal)
+            counts["developer-service-identity"] += int(key in ES_SERVICE or key in SERVICE)
+            if kind == "cloud":
+                counts["configured-remote"] += int(key in ("remote", "rclone_remote", "rclone_config"))
+                counts["unsupported-config-override"] += int(key == "rclone_config")
+                if key in ("rcloneopts", "rclone_net_opts", "rclone_sync_net_opts"):
+                    # Custom rclone flags can redirect the effective credential input.
+                    tokens = shlex.split(val)
+                    allowed = {"--progress", "--log-file", "/var/log/cloud_sync.log", "--filter-from",
+                               "/storage/.config/cloud_sync-rules.txt", "--contimeout", "--timeout",
+                               "--low-level-retries", "--retries", "--max-duration", "--transfers"}
+                    counts["unsupported-config-override"] += sum(
+                        token not in allowed and not re.fullmatch(r"\d+[smh]?", token) for token in tokens)
+        return counts
+
+    def walk(self, path, label, callback, required=False):
+        try:
+            info = self.fs.info(path)
+            if info is None:
+                self.row(label, "inventory", present=False, error=required)
+                return
+            require(info[0] == "dir")
+            pending, seen, count = [path], set(), 0
+            while pending:
+                directory = pending.pop()
+                resolved = str(self.fs.resolve(directory))
+                require(resolved not in seen)
+                seen.add(resolved)
+                for name in self.fs.children(directory):
+                    count += 1
+                    require(count <= MAX_NODES)
+                    item = directory + "/" + name
+                    info = self.fs.info(item)
+                    require(info is not None)
+                    callback(item, name, info[0])
+                    if info[0] == "dir":
+                        pending.append(item)
+            self.row(label, "inventory")
+        except (Invalid, OSError, ValueError):
+            self.row(label, "input-invalid", error=True)
+
+    def run(self):
+        for base in ("/usr/config", "/storage/.config"):
+            runtime = base.startswith("/storage")
+            required = not runtime or self.mode != "clean-image"
+            for name, kind in {**CORE, **OPTIONAL}.items():
+                for suffix in SUFFIXES:
+                    self.file(base + "/" + name + suffix, kind,
+                              required=required and name in CORE and not suffix)
+                # Atomic/recovery writers also use PID/time suffixes. Inspect those
+                # without disclosing their input-derived names in the report.
+                path = base + "/" + name
+                parent, leaf = path.rsplit("/", 1)
+                try:
+                    if self.fs.info(parent) is not None:
+                        for sibling in self.fs.children(parent):
+                            if sibling.startswith(leaf + ".") and sibling[len(leaf):] not in SUFFIXES:
+                                self.file(parent + "/" + sibling, kind, label=path + ".*")
+                except (Invalid, OSError, ValueError):
+                    self.row(path + ".*", "input-invalid", error=True)
+            if not runtime:
+                self.file(base + "/cloud_sync.conf.defaults", "cloud", required=True)
+            def config_entry(path, name, typ):
+                label = base + "/**"
+                if QA_NAME.match(name):
+                    self.row(label, "qa-residue", 1)
+                if typ == "file" and name == "gamelist.xml":
+                    self.file(path, "gamelist", label=base + "/**/gamelist.xml")
+                if typ == "file" and name.startswith("content_") and name.endswith("history.lpl"):
+                    self.file(path, "playlist", label=base + "/**/content_*history.lpl")
+                if typ == "file" and "/raofflineproxy/" in path:
+                    self.row(base + "/raofflineproxy/**", "account-cache-residue", 1)
+                if typ == "file" and "/rclone/" in path and name not in {
+                        n + s for n in ("rclone.conf", "active-connection") for s in SUFFIXES}:
+                    self.row(base + "/rclone/**", "connection-residue", 1)
+            # Skip unrelated default asset trees: only config directories named by policy.
+            for folder in sorted({name.split("/")[0] for name in (*CORE, *OPTIONAL) if "/" in name} |
+                                 {"raofflineproxy"}):
+                self.walk(base + "/" + folder, base + "/" + folder + "/**", config_entry)
+        self.file("/etc/retroarch.cfg", "retroarch", required=True)
+        self.file("/usr/bin/emulationstation", "compiled-service", required=True)
+        def history(path, name, typ):
+            if typ == "file" and name == "gamelist.xml":
+                self.file(path, "gamelist", label="/storage/roms/**/gamelist.xml")
+            if QA_NAME.match(name):
+                self.row("/storage/roms/**", "qa-residue", 1)
+        self.walk("/storage/roms", "/storage/roms/**", history,
+                  required=self.mode != "clean-image")
+        def activity(path, name, typ):
+            if typ == "file" and name.startswith("last-"):
+                self.file(path, "stamp", label="/storage/.cache/cloud_sync/last-*")
+            elif typ == "file":
+                self.row("/storage/.cache/cloud_sync/**", "cloud-state-residue", 1)
+        self.walk("/storage/.cache/cloud_sync", "/storage/.cache/cloud_sync/**", activity)
+        for base in ("/storage", "/storage/.config", "/storage/.cache", "/usr/config"):
+            try:
+                if self.fs.info(base) is None:
+                    continue
+                for name in self.fs.children(base):
+                    if QA_NAME.match(name):
+                        self.row(base + "/*", "qa-residue", 1)
+            except (Invalid, OSError, ValueError):
+                self.row(base + "/*", "input-invalid", error=True)
+        return self.report()
+
+    def report(self):
+        errors = sum(r["status"] == "error" for r in self.rows)
+        blocked = sum(r["status"] == "blocked" for r in self.rows)
+        return {"schema": 1, "policy": POLICY, "mode": self.mode,
+                "status": "error" if errors else "blocked" if blocked else "pass",
+                "error_count": errors, "blocked_count": blocked,
+                "scope": SCOPE, "limitations": LIMITATIONS, "checks": self.rows}
+
+
+def copy_bounded(source, destination, limit):
+    count = 0
+    with destination.open("xb") as out:
+        while block := source.read(1024 * 1024):
+            count += len(block)
+            require(count <= limit)
+            # Sparse zeros keep decompressed install images from allocating their empty space.
+            if block.count(0) == len(block):
+                out.seek(len(block), 1)
+            else:
+                out.write(block)
+        out.truncate(count)
+    return count
+
+
+def empty_ext4(path):
+    command(["e2fsck", "-fn", str(path)])
+    def listing(directory):
+        raw = text(command(["debugfs", "-R", "ls -p " + directory, str(path)]))
+        entries = {}
+        for line in raw.splitlines():
+            if not line.strip():
+                continue
+            fields = line.split("/")
+            require(len(fields) == 8 and fields[0] == fields[-1] == "")
+            inode, mode, uid, gid, name, size = fields[1:-1]
+            require(inode.isdigit() and int(inode) > 0 and re.fullmatch(r"[0-7]+", mode)
+                    and uid.isdigit() and gid.isdigit() and name not in entries)
+            entries[name] = (int(mode, 8), size)
+        require("." in entries and ".." in entries)
+        return entries
+    entries = listing("/")
+    residue = len(set(entries) - {".", "..", "lost+found", ".please_resize_me"})
+    if "lost+found" in entries:
+        require(stat.S_ISDIR(entries["lost+found"][0]))
+        residue += len(set(listing("/lost+found")) - {".", ".."})
+    if ".please_resize_me" in entries:
+        mode, size = entries[".please_resize_me"]
+        require(stat.S_ISREG(mode) and size == "0")
+    return residue
+
+
+def payload(path):
+    """Inspect actual final bytes; caller does not supply a reusable pass receipt."""
+    require(path.is_file() and not path.is_symlink())
+    with tempfile.TemporaryDirectory(prefix="pix-state-") as directory:
+        scratch = Path(directory)
+        system = scratch / "SYSTEM"
+        storage_residue = None
+        if path.name.endswith(".tar"):
+            # No tar extraction: inspect member metadata, then copy exactly one regular SYSTEM.
+            with tarfile.open(path, "r:") as archive:
+                seen, systems, roots = set(), [], set()
+                for member in archive:
+                    name = PurePosixPath(member.name)
+                    require(not name.is_absolute() and ".." not in name.parts and
+                            str(name) not in seen and len(seen) < MAX_NODES)
+                    seen.add(str(name))
+                    require(name.parts and (member.isfile() or member.isdir()))
+                    roots.add(name.parts[0])
+                    if len(name.parts) == 3 and name.parts[1:] == ("target", "SYSTEM"):
+                        require(member.isfile() and 0 < member.size <= MAX_SYSTEM)
+                        systems.append(member)
+                    # An update tar must not smuggle a storage/default payload beside SYSTEM.
+                    require(not any(p in ("storage", "usr", ".config") for p in name.parts))
+                require(len(systems) == 1 and len(roots) == 1)
+                stream = archive.extractfile(systems[0])
+                require(stream is not None)
+                with stream:
+                    require(copy_bounded(stream, system, MAX_SYSTEM) == systems[0].size)
+        elif path.name.endswith(".img.gz"):
+            disk = scratch / "disk.img"
+            with gzip.open(path, "rb") as stream:
+                size = copy_bounded(stream, disk, MAX_DISK)
+            table = json.loads(text(command(["sfdisk", "--json", str(disk)])))["partitiontable"]
+            require(table["label"] in ("gpt", "dos") and table["unit"] == "sectors" and
+                    table.get("sectorsize", 512) == 512 and len(table["partitions"]) == 2)
+            first, second = table["partitions"]
+            for part in (first, second):
+                require(type(part["start"]) is int and type(part["size"]) is int and
+                        part["start"] > 0 and part["size"] > 0 and
+                        (part["start"] + part["size"]) * 512 <= size)
+            require(first["start"] + first["size"] <= second["start"])
+            require(second["size"] * 512 <= 512 * 1024**2)
+            storage = scratch / "storage.ext4"
+            with disk.open("rb") as stream, storage.open("xb") as out:
+                stream.seek(second["start"] * 512)
+                remaining = second["size"] * 512
+                while remaining:
+                    block = stream.read(min(1024 * 1024, remaining))
+                    require(bool(block))
+                    out.write(block)
+                    remaining -= len(block)
+            storage_residue = empty_ext4(storage)
+            command(["mcopy", "-n", "-i", str(disk) + "@@" + str(first["start"] * 512),
+                     "::/SYSTEM", str(system)], file_limit=MAX_SYSTEM)
+            require(system.is_file() and 0 < system.stat().st_size <= MAX_SYSTEM)
+        else:
+            raise Invalid()
+        check = Check(Squash(system), "clean-image")
+        check.run()
+        if storage_residue is not None:
+            check.row("<install-storage>/**", "storage-seed-residue", storage_residue)
+        result = check.report()
+        result["input_kind"] = "install-image" if path.name.endswith(".img.gz") else "update-tar"
+        return result
+
+
+class Parser(argparse.ArgumentParser):
+    def error(self, message):
+        # argparse normally echoes supplied argument values.
+        raise Invalid()
+
+
+def main():
+    parser = Parser(description=__doc__)
+    group = parser.add_mutually_exclusive_group(required=True)
+    group.add_argument("--root", type=Path)
+    group.add_argument("--payload", type=Path)
+    parser.add_argument("--mode", choices=("clean-image", "first-boot", "retained-upgrade"))
+    try:
+        args = parser.parse_args()
+        require((args.root is not None and args.mode is not None) or
+                (args.payload is not None and args.mode in (None, "clean-image")))
+        result = (Check(Local(args.root), args.mode).run() if args.root is not None
+                  else payload(args.payload))
+    except Exception:
+        # Privacy boundary: neither parser messages nor unexpected reader errors
+        # may serialize input values. A bug here must refuse, never emit a traceback.
+        result = {"schema": 1, "policy": POLICY, "status": "error",
+                  "error_count": 1, "checks": [{"path": "<input>", "category": "input-invalid",
+                                                "status": "error", "count": 0}],
+                  "scope": SCOPE, "limitations": LIMITATIONS}
+    print(json.dumps(result, sort_keys=True, indent=2))
+    return {"pass": 0, "blocked": 1, "error": 2}[result["status"]]
+
+
+if __name__ == "__main__":
+    sys.exit(main())
