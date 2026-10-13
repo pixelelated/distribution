@@ -23,7 +23,7 @@ firmware build or audit is running. Do not execute any old test/delivery owner.
 Current local branch includes reviewed proxy commits11acec32fd/cb92e1cee0 and
 GTK4 commits04eb146010/df46d14134 plus this record. Last published next is
 93e64677f33c0a9dae9f8539903188780da02f04 with delivery01 fully consumed0/exited
-and exact-head hosted checks successful. This record's fresh delivery02 below
+and exact-head hosted checks successful. This record's fresh delivery03 below
 must be inspected before describing it as published. No product source changed.
 
 ## Current Focus
@@ -90,7 +90,7 @@ keep runtime serialized under this coordinator. Existing offline functions stay.
 
 | Owner | Scope | Worktree / branch | Result and boundary |
 | --- | --- | --- | --- |
-| Coordinator, Herdr w4:p2 | #570 runtime, shared queue and integration | m7-player-setup / feature/m7-player-setup | Fresh VM component experiment complete/retired; finish delivery02, then page/script attribution |
+| Coordinator, Herdr w4:p2 | #570 runtime, shared queue and integration | m7-player-setup / feature/m7-player-setup | Fresh VM component experiment complete/retired; finish delivery03, then page/script attribution |
 | pix-gtk4, w4:p7 | #576 feasibility | m7-gtk4-576 / feature/m7-gtk4-576 | COMPLETE da0ecd8 +10f9b16, source/API/dependency/keyboard findings and static timeout cleanup; no compile/runtime lease |
 | pix-memory, w4:p8 | #570 import footprint | m7-browser-memory-570 / feature/m7-browser-memory-570 | COMPLETE f1987b6 +914b0ad; one host run consumed; no further runtime lease |
 
@@ -127,8 +127,11 @@ any full cache copy/build. No GTK4 port or memory benefit has been demonstrated.
 
 ## Next Steps
 
-1. Finish this record delivery, if not already COMPLETE. Fresh owner is
-   /workspace/tmp/pix570-parallel-20261013/delivery02/. Its publish.py requires
+1. Finish this record delivery, if not already COMPLETE. Delivery02 failed the
+   issue-reference pre-push guard, all original channels1/exited, remote unchanged
+   at93e646. Only its unpublished commit message was corrected (identical tree);
+   local next and feature now agree. Keep its failure; never replay it. Fresh owner is
+   /workspace/tmp/pix570-parallel-20261013/delivery03/. Its publish.py requires
    clean committed feature, clean main next, ff-only integration, guarded push
    and exact-head record/wordlist checks. Consume result.json, launcher-result,
    tool-wrapper.rc, watcher build.rc, owner exits and origin HEAD. Do not replay
