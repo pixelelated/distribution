@@ -1,0 +1,49 @@
+{
+  "evidence": "presence only from retained pre-update/live/fallback text",
+  "source_private": "/tmp/pixelelated-device-deploy-20261009/nova-config-semantics-private.json",
+  "sections": {
+    "original": {
+      "username": {
+        "entries": 1,
+        "nonempty": true
+      },
+      "password": {
+        "entries": 1,
+        "nonempty": true
+      },
+      "token": {
+        "entries": 1,
+        "nonempty": true
+      }
+    },
+    "live": {
+      "username": {
+        "entries": 1,
+        "nonempty": true
+      },
+      "password": {
+        "entries": 1,
+        "nonempty": true
+      },
+      "token": {
+        "entries": 1,
+        "nonempty": true
+      }
+    },
+    "fallback": {
+      "username": {
+        "entries": 1,
+        "nonempty": true
+      },
+      "password": {
+        "entries": 1,
+        "nonempty": true
+      },
+      "token": {
+        "entries": 1,
+        "nonempty": true
+      }
+    }
+  },
+  "limits": "No values or secret-derived hashes. Field presence is not successful authentication or provenance."
+}

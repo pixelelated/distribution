@@ -1,0 +1,750 @@
+{
+  "utc": "2026-10-13T08:20:17.598536+00:00",
+  "rc": 0,
+  "guard": null,
+  "seconds": 10.215663122944534,
+  "peak_scratch_allocated_bytes": 188178432,
+  "scratch_empty": true,
+  "observed_children": {
+    "2839589": "97129138",
+    "2839595": "97129156",
+    "2839602": "97129179",
+    "2839608": "97129197",
+    "2839616": "97129221",
+    "2839628": "97129263",
+    "2839638": "97129286",
+    "2839645": "97129305",
+    "2839652": "97129328",
+    "2839660": "97129351",
+    "2839666": "97129370",
+    "2839671": "97129394",
+    "2840001": "97129439",
+    "2840014": "97129482",
+    "2840021": "97129506",
+    "2840028": "97129529",
+    "2840090": "97129667",
+    "2840152": "97129688",
+    "2840150": "97129682",
+    "2840197": "97129699",
+    "2840206": "97129746",
+    "2840253": "97129765",
+    "2840313": "97129830",
+    "2840370": "97129853",
+    "2840429": "97129874",
+    "2840434": "97129891",
+    "2840439": "97129902",
+    "2840448": "97129924",
+    "2840443": "97129910",
+    "2840766": "97129932",
+    "2840785": "97129971",
+    "2840791": "97129992",
+    "2840817": "97130009",
+    "2840822": "97130019",
+    "2840827": "97130027",
+    "2840839": "97130041",
+    "2840940": "97130058",
+    "2840942": "97130064",
+    "2841109": "97130087",
+    "2841224": "97130101",
+    "2841226": "97130108"
+  },
+  "stderr_empty": true,
+  "report": {
+    "schema": 1,
+    "status": "pass",
+    "control_count": 142,
+    "controls": [
+      {
+        "case": "clean-first-boot",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "clean-image",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "retroarch-comment-only-default",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "retroarch-comment-only-image",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "retroarch-comment-default-include",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "retroarch-comment-default-reference",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "retroarch-comment-default-nul",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "retroarch-comment-default-malformed-assignment",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "retroarch-comment-default-active-account",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "retroarch-empty-default",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "retroarch-blank-default",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "retroarch-section-only-default",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "retroarch-semicolon-only-default",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "system-comment-only-still-refuses",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "cloud-comment-only-still-refuses",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "runtime-retroarch-comment-only-still-refuses",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "shipped-locale-dangling-clean-image",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "shipped-locale-dangling-first-boot",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "shipped-locale-materialized",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "shipped-locale-materialized-history",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "locale-altered-first-hop",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "locale-altered-second-hop",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "locale-first-hop-escape",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "locale-target-escape",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "locale-unrelated-dangling",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "never-played-zero",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "identical-default-repeat",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "es-lexical-playcount",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "player-runtime",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "retained-player",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "player-default",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "recovery-copy",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "atomic-copy",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "runtime-service",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "compiled-service",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "bare-runtime-fragments",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "compiled-ra-service",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "configured-remote",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "retained-remote",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "encrypted-remote",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "remote-missing-type",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "completed-empty-stamp",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "retained-stamp",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "malformed-stamp",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-zero-work-current-boot",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-zero-work-boot-boundary",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-zero-work-stale",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-zero-work-future",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-zero-work-reversed-epochs",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-cloud-files-present",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-es-files-present",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-changed-lines-present",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-missing-family",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-duplicate-family",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-unknown-trailing-data",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-malformed-count",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-malformed-epoch",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-no-boot-snapshot",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-malformed-boot-snapshot",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-duplicate-boot-epoch",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-unreadable-uptime",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-malformed-uptime",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-marker-symlink",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-other-filename-still-residue",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-clean-image-preseed",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-clean-image-empty-preseed",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-retained-history",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-retained-legacy-family",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-retained-es-only",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-retained-es-first-retry",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-retained-duplicate-family",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-retained-unknown-family",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-first-boot-es-only-refuses",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-first-boot-es-first-refuses",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-retained-malformed",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "imported-history",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "retained-history",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "es-fallback-history",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "history-malformed-xml",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "history-malformed-count",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "history-malformed-date",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "qa-name-is-private",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "proxy-cache",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "standalone-token",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "standalone-ini",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "dolphin-apitoken-only",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "dolphin-apitoken-default",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "dolphin-apitoken-retained",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "melonds-null-default",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "melonds-null-runtime",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "melonds-token-only",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "melonds-username-only",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "melonds-password-only",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "melonds-quoted-null-is-populated",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "melonds-section-null-is-populated",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "melonds-uppercase-null-is-populated",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "melonds-other-key-case-null-is-populated",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "other-emulator-null-is-populated",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "history-playlist",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "missing-required",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "empty-required",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "unreadable-required",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "malformed-es",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "xml-entity",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "duplicate-field",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "effective-override",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "retroarch-include",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "dangling-required",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "symlink-cycle",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "fifo-required",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "absent-root",
+        "status": "pass"
+      },
+      {
+        "case": "invalid-mode",
+        "status": "pass"
+      },
+      {
+        "case": "readiness-requires-guest-root",
+        "status": "pass"
+      },
+      {
+        "case": "tar-clean-shipped-locale",
+        "status": "pass"
+      },
+      {
+        "case": "missing-payload-reader",
+        "status": "pass"
+      },
+      {
+        "case": "image-clean",
+        "status": "pass"
+      },
+      {
+        "case": "image-dirty-storage",
+        "status": "pass"
+      },
+      {
+        "case": "debugfs-unused-slots-lost-found",
+        "status": "pass",
+        "synthetic_reader_output": true
+      },
+      {
+        "case": "debugfs-unused-slots-root",
+        "status": "pass",
+        "synthetic_reader_output": true
+      },
+      {
+        "case": "debugfs-unused-slots-without-dots",
+        "status": "pass",
+        "synthetic_reader_output": true
+      },
+      {
+        "case": "debugfs-zero-inode-named-entry",
+        "status": "pass",
+        "synthetic_reader_output": true
+      },
+      {
+        "case": "debugfs-zero-inode-live-mode",
+        "status": "pass",
+        "synthetic_reader_output": true
+      },
+      {
+        "case": "debugfs-zero-inode-owner",
+        "status": "pass",
+        "synthetic_reader_output": true
+      },
+      {
+        "case": "debugfs-zero-inode-size",
+        "status": "pass",
+        "synthetic_reader_output": true
+      },
+      {
+        "case": "debugfs-zero-inode-short-record",
+        "status": "pass",
+        "synthetic_reader_output": true
+      },
+      {
+        "case": "debugfs-zero-inode-alternate-spelling",
+        "status": "pass",
+        "synthetic_reader_output": true
+      },
+      {
+        "case": "debugfs-unused-slot-trailing-data",
+        "status": "pass",
+        "synthetic_reader_output": true
+      },
+      {
+        "case": "debugfs-live-entry-beside-unused-slots",
+        "status": "pass",
+        "synthetic_reader_output": true
+      },
+      {
+        "case": "prepare-clean",
+        "status": "pass"
+      },
+      {
+        "case": "tar-contaminated-shipped-locale",
+        "status": "pass"
+      },
+      {
+        "case": "prepare-contaminated",
+        "status": "pass"
+      },
+      {
+        "case": "tar-locale-altered-second-hop",
+        "status": "pass"
+      },
+      {
+        "case": "tar-locale-target-escape",
+        "status": "pass"
+      },
+      {
+        "case": "tar-zero-work-scrub-preseed-refused",
+        "status": "pass"
+      },
+      {
+        "case": "tar-literal-bracketed-recovery-file",
+        "status": "pass"
+      },
+      {
+        "case": "prepare-literal-bracketed-recovery-file",
+        "status": "pass"
+      },
+      {
+        "case": "missing-system",
+        "status": "pass"
+      },
+      {
+        "case": "invalid-squashfs",
+        "status": "pass"
+      },
+      {
+        "case": "traversal",
+        "status": "pass"
+      },
+      {
+        "case": "duplicate-system",
+        "status": "pass"
+      },
+      {
+        "case": "invalid-gzip",
+        "status": "pass"
+      },
+      {
+        "case": "unsupported-payload",
+        "status": "pass"
+      }
+    ]
+  },
+  "mcopy_path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/mcopy",
+  "mcopy_sha256": "2050c806846eedb33308d2f6626985e36bbffe3a82d1292741e55d7e002f265d"
+}

@@ -1,0 +1,79 @@
+{
+  "utc": "2026-10-13T08:09:50.921563+00:00",
+  "rc": 2,
+  "guard": null,
+  "seconds": 6.496952041983604,
+  "peak_scratch_allocated_bytes": 116420608,
+  "scratch_empty": true,
+  "observed_children": {
+    "2795213": "97066842",
+    "2795543": "97066861",
+    "2795549": "97066881",
+    "2795556": "97066905",
+    "2795562": "97066923",
+    "2795570": "97066947",
+    "2795574": "97066965",
+    "2795581": "97066988",
+    "2795588": "97067012",
+    "2795594": "97067030",
+    "2795617": "97067056",
+    "2795623": "97067075",
+    "2795631": "97067098",
+    "2795638": "97067121",
+    "2795643": "97067140",
+    "2795650": "97067164",
+    "2795657": "97067187",
+    "2795664": "97067210",
+    "2795685": "97067276",
+    "2795692": "97067300",
+    "2795700": "97067323",
+    "2795726": "97067346",
+    "2796053": "97067370",
+    "2796113": "97067390",
+    "2796160": "97067408",
+    "2796169": "97067453",
+    "2796171": "97067464"
+  },
+  "stderr_empty": true,
+  "report": {
+    "status": "error",
+    "exception": "RuntimeError",
+    "frames": [
+      {
+        "function": "<module>",
+        "line": 6
+      },
+      {
+        "function": "main",
+        "line": 584
+      },
+      {
+        "function": "payload_controls",
+        "line": 483,
+        "name": "clean"
+      },
+      {
+        "function": "invoke",
+        "line": 115,
+        "expected": 0,
+        "category": null,
+        "actual_rc": 2,
+        "failures": [
+          {
+            "category": "input-invalid",
+            "count": 0,
+            "path": "<input>",
+            "status": "error"
+          }
+        ],
+        "gate_status": "error"
+      },
+      {
+        "function": "require",
+        "line": 39
+      }
+    ]
+  },
+  "mcopy_path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/mcopy",
+  "mcopy_sha256": "2050c806846eedb33308d2f6626985e36bbffe3a82d1292741e55d7e002f265d"
+}

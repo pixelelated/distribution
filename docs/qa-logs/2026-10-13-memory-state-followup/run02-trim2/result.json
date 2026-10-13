@@ -1,0 +1,40 @@
+{
+  "name": "run02-trim2",
+  "mode": 1,
+  "before": {
+    "boot": "5c2f644d-0812-4406-a8ea-d239ed113684",
+    "es": [
+      18184
+    ]
+  },
+  "elapsed": 65.54811598302331,
+  "guarded": false,
+  "probe": {
+    "pid": 18184,
+    "mode": 1,
+    "mono_ns": 2322773507588,
+    "duration_ns": 2018127,
+    "trim_return": 1,
+    "pss_before_kib": 196206,
+    "pss_after_kib": 118423,
+    "anon_before_kib": 111148,
+    "anon_after_kib": 33600,
+    "arena_before": 129392640,
+    "arena_after": 108564480,
+    "used_before": 16425536,
+    "used_after": 16425536,
+    "free_before": 112967104,
+    "free_after": 92138944
+  },
+  "probe_mapping_pids": [
+    18184
+  ],
+  "after": {
+    "boot": "5c2f644d-0812-4406-a8ea-d239ed113684",
+    "es": [
+      18184
+    ]
+  },
+  "rc": 0,
+  "sampler_rc": 0
+}

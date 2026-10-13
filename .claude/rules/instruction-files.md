@@ -157,7 +157,9 @@ both lists and to this table, or it is invisible.**
 | `es-syntax-check` | compile an EmulationStation edit syntax-only with the image build's own command, before the pin moves | `es-native-ui.md` |
 | `png-blackout` | paint a rectangle of a frame black with the standard library, so a screendump carrying the QA account's name is filed with the band painted out | `generic-x64-vm-testing.md` |
 | `fork-newdrive` | move the build estate to another volume | `device-builds.md` |
-| `fork-publish-release` | publish an image, refusing to publish embedded credentials | `device-builds.md` |
+| `fork-publish-release` | prepare a release plan from exact candidate bytes, with selected-state inspection; never publishes | `device-builds.md` |
+| `pixelelated-state-check` | inspect selected account, cloud and history state in final payloads or a ready guest; value-free reports | `release-candidates.md` |
+| `pixelelated-state-check-test` | synthetic clean/contaminated roots and payloads, plus prepared first-boot proof | `release-candidates.md` |
 | `device-act` | run one command on a device, recorded with the boot id before and after | `engineering-practices.md` |
 | `qa-accounts` | carry QA credentials into a guest without printing them | `generic-x64-vm-testing.md` |
 | `vm-pair`, `vm-pair-test`, `vm-serial`, `vm-visual-qa`, `vm-walks/` | bring guests up, test launch failures, drive them, capture frames, walk the interface | `generic-x64-vm-testing.md` |

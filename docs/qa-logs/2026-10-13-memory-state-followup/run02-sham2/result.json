@@ -1,0 +1,40 @@
+{
+  "name": "run02-sham2",
+  "mode": 0,
+  "before": {
+    "boot": "5c2f644d-0812-4406-a8ea-d239ed113684",
+    "es": [
+      20001
+    ]
+  },
+  "elapsed": 65.77520587306935,
+  "guarded": false,
+  "probe": {
+    "pid": 20001,
+    "mode": 0,
+    "mono_ns": 2435929723727,
+    "duration_ns": 24,
+    "trim_return": 0,
+    "pss_before_kib": 196912,
+    "pss_after_kib": 196909,
+    "anon_before_kib": 113028,
+    "anon_after_kib": 113028,
+    "arena_before": 131395584,
+    "arena_after": 131395584,
+    "used_before": 16425744,
+    "used_after": 16425744,
+    "free_before": 114969840,
+    "free_after": 114969840
+  },
+  "probe_mapping_pids": [
+    20001
+  ],
+  "after": {
+    "boot": "5c2f644d-0812-4406-a8ea-d239ed113684",
+    "es": [
+      20001
+    ]
+  },
+  "rc": 0,
+  "sampler_rc": 0
+}

@@ -1,0 +1,99 @@
+{
+  "utc": "2026-10-13T08:10:56.134102+00:00",
+  "rc": 2,
+  "guard": null,
+  "seconds": 6.703534047002904,
+  "peak_scratch_allocated_bytes": 77537280,
+  "scratch_empty": true,
+  "observed_children": {
+    "2800117": "97073342",
+    "2800123": "97073361",
+    "2800136": "97073403",
+    "2800460": "97073423",
+    "2800468": "97073447",
+    "2800474": "97073467",
+    "2800480": "97073487",
+    "2800487": "97073512",
+    "2800493": "97073531",
+    "2800502": "97073556",
+    "2800506": "97073576",
+    "2800521": "97073620",
+    "2800528": "97073644",
+    "2800542": "97073686",
+    "2800549": "97073710",
+    "2800560": "97073755",
+    "2800567": "97073779",
+    "2800573": "97073799",
+    "2800581": "97073824",
+    "2800608": "97073849",
+    "2800614": "97073868",
+    "2800681": "97073908",
+    "2800690": "97073914",
+    "2801046": "97073926"
+  },
+  "stderr_empty": true,
+  "report": {
+    "status": "error",
+    "exception": "RuntimeError",
+    "frames": [
+      {
+        "function": "<module>",
+        "line": 6
+      },
+      {
+        "function": "main",
+        "line": 584
+      },
+      {
+        "function": "payload_controls",
+        "line": 483,
+        "name": "clean"
+      },
+      {
+        "function": "invoke",
+        "line": 115,
+        "expected": 0,
+        "category": null,
+        "actual_rc": 2,
+        "failures": [
+          {
+            "category": "input-invalid",
+            "count": 0,
+            "path": "<input>",
+            "status": "error"
+          }
+        ],
+        "gate_status": "error",
+        "gate_trace": [
+          {
+            "function": "main",
+            "line": 827
+          },
+          {
+            "function": "payload",
+            "line": 726
+          },
+          {
+            "function": "empty_ext4",
+            "line": 668
+          },
+          {
+            "function": "listing",
+            "line": 659
+          },
+          {
+            "function": "require",
+            "line": 85
+          }
+        ],
+        "gate_exception": "Invalid"
+      },
+      {
+        "function": "require",
+        "line": 39
+      }
+    ]
+  },
+  "mcopy_path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/mcopy",
+  "mcopy_sha256": "2050c806846eedb33308d2f6626985e36bbffe3a82d1292741e55d7e002f265d"
+}

@@ -1,0 +1,157 @@
+{
+  "utc": "2026-10-13T08:07:40.209026+00:00",
+  "channels": [
+    {
+      "owner": "boot-owner",
+      "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261013T073527Z-adef49b0",
+      "actual_rc": 0,
+      "pids": [
+        2649997,
+        2649998,
+        2650072,
+        2650002,
+        2650002
+      ],
+      "all_exited": true
+    },
+    {
+      "owner": "first-boot-owner",
+      "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261013T073750Z-b2e715ee",
+      "actual_rc": 2,
+      "pids": [
+        2659958,
+        2659959,
+        2659992,
+        2659961,
+        2659961
+      ],
+      "all_exited": true
+    },
+    {
+      "owner": "controls-owner",
+      "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261013T074700Z-4d97abdf",
+      "actual_rc": 0,
+      "pids": [
+        2698488,
+        2698495,
+        2698531,
+        2698502,
+        2698502
+      ],
+      "all_exited": true
+    },
+    {
+      "owner": "first-boot02-owner",
+      "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261013T080604Z-78ab98dd",
+      "actual_rc": 0,
+      "pids": [
+        2779358,
+        2779359,
+        2779389,
+        2779360,
+        2779360
+      ],
+      "all_exited": true
+    },
+    {
+      "owner": "controls02-owner",
+      "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261013T080639Z-6a495ad5",
+      "actual_rc": 0,
+      "pids": [
+        2781966,
+        2781967,
+        2781997,
+        2781968,
+        2781968
+      ],
+      "all_exited": true
+    }
+  ],
+  "vm_pid": 2650452,
+  "qemu_argv": [
+    "/usr/bin/qemu-system-x86_64",
+    "-name",
+    "ROCKNIX GENERIC_X64",
+    "-machine",
+    "q35",
+    "-accel",
+    "kvm",
+    "-cpu",
+    "Haswell-v4",
+    "-smp",
+    "4",
+    "-m",
+    "2048",
+    "-drive",
+    "if=pflash,unit=0,readonly=on,format=raw,file=/usr/share/OVMF/OVMF_CODE_4M.fd",
+    "-drive",
+    "if=pflash,unit=1,format=raw,file=/workspace/tmp/pix565-clean-state-20261013/OVMF.fd",
+    "-drive",
+    "if=none,id=rocknix,format=qcow2,file=/workspace/tmp/pix565-clean-state-20261013/disk.qcow2",
+    "-device",
+    "virtio-blk-pci,drive=rocknix,logical_block_size=512,physical_block_size=512",
+    "-vga",
+    "none",
+    "-device",
+    "virtio-gpu-pci,xres=640,yres=480",
+    "-display",
+    "none",
+    "-vnc",
+    "127.0.0.1:62",
+    "-netdev",
+    "user,id=net0,hostfwd=tcp:127.0.0.1:10577-:22",
+    "-device",
+    "virtio-net-pci,netdev=net0,mac=52:54:00:52:4E:58",
+    "-device",
+    "qemu-xhci",
+    "-device",
+    "usb-kbd",
+    "-device",
+    "usb-tablet",
+    "-device",
+    "intel-hda",
+    "-device",
+    "hda-duplex",
+    "-monitor",
+    "unix:/workspace/tmp/pix565-clean-state-20261013/monitor.sock,server,nowait",
+    "-fw_cfg",
+    "name=opt/org.rocknix.cloud_ssh_port,string=10577",
+    "-serial",
+    "unix:/workspace/tmp/pix565-clean-state-20261013/serial.sock,server,nowait",
+    "-pidfile",
+    "/workspace/tmp/pix565-clean-state-20261013/vm.pid",
+    "-daemonize",
+    "-object",
+    "rng-random,id=rng0,filename=/dev/urandom",
+    "-device",
+    "virtio-rng-pci,rng=rng0",
+    "-device",
+    "i6300esb",
+    "-action",
+    "watchdog=reset",
+    ""
+  ],
+  "stop_rc": 0,
+  "retired": [
+    {
+      "name": "disk.qcow2",
+      "logical_bytes": 2243821568,
+      "allocated_bytes": 2243772416,
+      "sha256": "545a3e3a935fdcb74b8cf927de71e7e8b684f21444405447bc6755586133c228",
+      "absent_after": true
+    },
+    {
+      "name": "OVMF.fd",
+      "logical_bytes": 540672,
+      "allocated_bytes": 540672,
+      "sha256": "0f59e41aa5da1fd06009ed2747b575ce5ad3f5b356d8f6600d00ca435274f3a1",
+      "absent_after": true
+    }
+  ],
+  "no_ssh_key_staged": true,
+  "allocated_bytes_recovered": 2244313088,
+  "ports_released": [
+    10577,
+    5962
+  ]
+}

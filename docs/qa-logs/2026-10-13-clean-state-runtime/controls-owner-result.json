@@ -1,0 +1,354 @@
+{
+  "schema": 1,
+  "guest_rc": 0,
+  "stderr_empty": true,
+  "seconds": 3.5175243009999804,
+  "report": {
+    "schema": 1,
+    "status": "pass",
+    "control_count": 68,
+    "controls": [
+      {
+        "case": "clean-first-boot",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "clean-image",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "shipped-locale-dangling-clean-image",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "shipped-locale-dangling-first-boot",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "shipped-locale-materialized",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "shipped-locale-materialized-history",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "locale-altered-first-hop",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "locale-altered-second-hop",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "locale-first-hop-escape",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "locale-target-escape",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "locale-unrelated-dangling",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "never-played-zero",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "identical-default-repeat",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "es-lexical-playcount",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "player-runtime",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "retained-player",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "player-default",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "recovery-copy",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "atomic-copy",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "runtime-service",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "compiled-service",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "bare-runtime-fragments",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "compiled-ra-service",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "configured-remote",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "retained-remote",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "encrypted-remote",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "remote-missing-type",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "completed-empty-stamp",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "retained-stamp",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "malformed-stamp",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "imported-history",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "retained-history",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "es-fallback-history",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "history-malformed-xml",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "history-malformed-count",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "history-malformed-date",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "qa-name-is-private",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "proxy-cache",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "standalone-token",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "standalone-ini",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "dolphin-apitoken-only",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "dolphin-apitoken-default",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "dolphin-apitoken-retained",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "melonds-null-default",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "melonds-null-runtime",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "melonds-token-only",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "melonds-username-only",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "melonds-password-only",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "melonds-quoted-null-is-populated",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "melonds-section-null-is-populated",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "melonds-uppercase-null-is-populated",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "melonds-other-key-case-null-is-populated",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "other-emulator-null-is-populated",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "history-playlist",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "missing-required",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "empty-required",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "unreadable-required",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "malformed-es",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "xml-entity",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "duplicate-field",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "effective-override",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "retroarch-include",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "dangling-required",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "symlink-cycle",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "fifo-required",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "absent-root",
+        "status": "pass"
+      },
+      {
+        "case": "invalid-mode",
+        "status": "pass"
+      },
+      {
+        "case": "readiness-requires-guest-root",
+        "status": "pass"
+      }
+    ]
+  },
+  "source": {
+    "pixelelated-state-check": "f1e0640fa4ebd8055e8bf0092f26ada91bf5c12c40d9d30fc115590340cd90a1",
+    "pixelelated-state-check-test": "4abecf282968570f54e83e0f9dc16c4c7b4255a4c963d4cd3cb1ef021eb9dfa9"
+  }
+}

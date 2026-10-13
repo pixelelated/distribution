@@ -1,0 +1,174 @@
+{
+  "utc": "2026-10-13T07:34:05.215431+00:00",
+  "channels": [
+    {
+      "owner": "boot-owner",
+      "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261013T064510Z-fc6410c0",
+      "actual_rc": 0,
+      "pids": [
+        2432160,
+        2432162,
+        2432194,
+        2432164,
+        2432164
+      ],
+      "all_exited": true
+    },
+    {
+      "owner": "compile-owner",
+      "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261013T064859Z-203bd957",
+      "actual_rc": 0,
+      "pids": [
+        2448823,
+        2448825,
+        2448857,
+        2448828,
+        2448828
+      ],
+      "all_exited": true
+    },
+    {
+      "owner": "compile02-owner",
+      "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261013T070357Z-e03446ae",
+      "actual_rc": 0,
+      "pids": [
+        2513220,
+        2513223,
+        2513256,
+        2513225,
+        2513225
+      ],
+      "all_exited": true
+    },
+    {
+      "owner": "matrix-owner",
+      "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261013T071406Z-b9a6b817",
+      "actual_rc": 143,
+      "pids": [
+        2557514,
+        2557515,
+        2557545,
+        2557516,
+        2557516
+      ],
+      "all_exited": true
+    },
+    {
+      "owner": "matrix02-owner",
+      "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261013T071951Z-65daaab5",
+      "actual_rc": 0,
+      "pids": [
+        2582918,
+        2582919,
+        2582949,
+        2582920,
+        2582920
+      ],
+      "all_exited": true
+    }
+  ],
+  "vm_pid": 2432628,
+  "qemu_argv": [
+    "/usr/bin/qemu-system-x86_64",
+    "-name",
+    "ROCKNIX GENERIC_X64",
+    "-machine",
+    "q35",
+    "-accel",
+    "kvm",
+    "-cpu",
+    "Haswell-v4",
+    "-smp",
+    "4",
+    "-m",
+    "1280",
+    "-drive",
+    "if=pflash,unit=0,readonly=on,format=raw,file=/usr/share/OVMF/OVMF_CODE_4M.fd",
+    "-drive",
+    "if=pflash,unit=1,format=raw,file=/workspace/tmp/pix570-es-trim-20261013/OVMF.fd",
+    "-drive",
+    "if=none,id=rocknix,format=qcow2,file=/workspace/tmp/pix570-es-trim-20261013/disk.qcow2",
+    "-device",
+    "virtio-blk-pci,drive=rocknix,logical_block_size=512,physical_block_size=512",
+    "-vga",
+    "none",
+    "-device",
+    "virtio-gpu-pci,xres=640,yres=480",
+    "-display",
+    "none",
+    "-vnc",
+    "127.0.0.1:61",
+    "-netdev",
+    "user,id=net0,hostfwd=tcp:127.0.0.1:10576-:22",
+    "-device",
+    "virtio-net-pci,netdev=net0,mac=52:54:00:52:4E:58",
+    "-device",
+    "qemu-xhci",
+    "-device",
+    "usb-kbd",
+    "-device",
+    "usb-tablet",
+    "-device",
+    "intel-hda",
+    "-device",
+    "hda-duplex",
+    "-monitor",
+    "unix:/workspace/tmp/pix570-es-trim-20261013/monitor.sock,server,nowait",
+    "-fw_cfg",
+    "name=opt/org.rocknix.cloud_ssh_port,string=10576",
+    "-serial",
+    "unix:/workspace/tmp/pix570-es-trim-20261013/serial.sock,server,nowait",
+    "-pidfile",
+    "/workspace/tmp/pix570-es-trim-20261013/vm.pid",
+    "-daemonize",
+    "-object",
+    "rng-random,id=rng0,filename=/dev/urandom",
+    "-device",
+    "virtio-rng-pci,rng=rng0",
+    "-device",
+    "i6300esb",
+    "-action",
+    "watchdog=reset",
+    ""
+  ],
+  "stop_rc": 0,
+  "retired": [
+    {
+      "name": "disk.qcow2",
+      "logical_bytes": 2252210176,
+      "allocated_bytes": 2252156928,
+      "sha256": "323971a52a187471013335a8b474a4bd19fe040fc332cc9c171cbca498fbde5e",
+      "absent_after": true
+    },
+    {
+      "name": "OVMF.fd",
+      "logical_bytes": 540672,
+      "allocated_bytes": 540672,
+      "sha256": "f3beb6466e9a328d4860fb38cc351626704edf048b7c88ba9af489e0a7426630",
+      "absent_after": true
+    },
+    {
+      "name": "qa-key",
+      "logical_bytes": 411,
+      "allocated_bytes": 4096,
+      "absent_after": true
+    },
+    {
+      "name": "qa-key.pub",
+      "logical_bytes": 98,
+      "allocated_bytes": 4096,
+      "absent_after": true
+    },
+    {
+      "name": "known_hosts",
+      "logical_bytes": 1039,
+      "allocated_bytes": 4096,
+      "absent_after": true
+    }
+  ],
+  "allocated_bytes_recovered": 2252709888,
+  "ports_released": [
+    10576,
+    5961
+  ]
+}

@@ -1,0 +1,579 @@
+{
+  "schema": 1,
+  "guest_rc": 0,
+  "stderr_empty": true,
+  "seconds": 5.900201298000184,
+  "report": {
+    "schema": 1,
+    "status": "pass",
+    "control_count": 113,
+    "controls": [
+      {
+        "case": "clean-first-boot",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "clean-image",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "retroarch-comment-only-default",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "retroarch-comment-only-image",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "retroarch-comment-default-include",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "retroarch-comment-default-reference",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "retroarch-comment-default-nul",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "retroarch-comment-default-malformed-assignment",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "retroarch-comment-default-active-account",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "retroarch-empty-default",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "retroarch-blank-default",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "retroarch-section-only-default",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "retroarch-semicolon-only-default",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "system-comment-only-still-refuses",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "cloud-comment-only-still-refuses",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "runtime-retroarch-comment-only-still-refuses",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "shipped-locale-dangling-clean-image",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "shipped-locale-dangling-first-boot",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "shipped-locale-materialized",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "shipped-locale-materialized-history",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "locale-altered-first-hop",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "locale-altered-second-hop",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "locale-first-hop-escape",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "locale-target-escape",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "locale-unrelated-dangling",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "never-played-zero",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "identical-default-repeat",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "es-lexical-playcount",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "player-runtime",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "retained-player",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "player-default",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "recovery-copy",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "atomic-copy",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "runtime-service",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "compiled-service",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "bare-runtime-fragments",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "compiled-ra-service",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "configured-remote",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "retained-remote",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "encrypted-remote",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "remote-missing-type",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "completed-empty-stamp",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "retained-stamp",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "malformed-stamp",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-zero-work-current-boot",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-zero-work-boot-boundary",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-zero-work-stale",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-zero-work-future",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-zero-work-reversed-epochs",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-cloud-files-present",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-es-files-present",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-changed-lines-present",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-missing-family",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-duplicate-family",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-unknown-trailing-data",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-malformed-count",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-malformed-epoch",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-no-boot-snapshot",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-malformed-boot-snapshot",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-duplicate-boot-epoch",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-unreadable-uptime",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-malformed-uptime",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-marker-symlink",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-other-filename-still-residue",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-clean-image-preseed",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-clean-image-empty-preseed",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-retained-history",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-retained-legacy-family",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-retained-es-only",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-retained-es-first-retry",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-retained-duplicate-family",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-retained-unknown-family",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-first-boot-es-only-refuses",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-first-boot-es-first-refuses",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "scrub-retained-malformed",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "imported-history",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "retained-history",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "es-fallback-history",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "history-malformed-xml",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "history-malformed-count",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "history-malformed-date",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "qa-name-is-private",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "proxy-cache",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "standalone-token",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "standalone-ini",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "dolphin-apitoken-only",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "dolphin-apitoken-default",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "dolphin-apitoken-retained",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "melonds-null-default",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "melonds-null-runtime",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "melonds-token-only",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "melonds-username-only",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "melonds-password-only",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "melonds-quoted-null-is-populated",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "melonds-section-null-is-populated",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "melonds-uppercase-null-is-populated",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "melonds-other-key-case-null-is-populated",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "other-emulator-null-is-populated",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "history-playlist",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "missing-required",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "empty-required",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "unreadable-required",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "malformed-es",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "xml-entity",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "duplicate-field",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "effective-override",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "retroarch-include",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "dangling-required",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "symlink-cycle",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "fifo-required",
+        "status": "pass",
+        "state_unchanged": true
+      },
+      {
+        "case": "absent-root",
+        "status": "pass"
+      },
+      {
+        "case": "invalid-mode",
+        "status": "pass"
+      },
+      {
+        "case": "readiness-requires-guest-root",
+        "status": "pass"
+      }
+    ]
+  },
+  "source": {
+    "pixelelated-state-check": "47c7cfa841eb1304f5dd4e0621a9608093ee32cc5dbcffde22a2dfc73fe5969c",
+    "pixelelated-state-check-test": "a1bbe980d507e71199eb360e8a7e5a56188a8b242e9f63603d1adbe43595a6e0"
+  }
+}

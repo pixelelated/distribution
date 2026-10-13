@@ -1,0 +1,71 @@
+{
+  "source_es": "c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78",
+  "browser_original_sha256": "6cbc445686d3d484ff20450342776e9eb92b47f6112a0352be1a50b334eef81b",
+  "browser_observer_sha256": "ad3727f5eedbc720a81ba4395b4b0115d95a975fde9b1a0ff3a842bc14bc6cad",
+  "frames": [
+    {
+      "case": "run02-sham1",
+      "frame": "page-60.png",
+      "sha256": "76a531c90bc60df0ad3af7998ae28f01f85f2306e18e2e0e5962c67ceb3d7056",
+      "reviewed": true,
+      "published": true,
+      "result": "same unauthenticated provider page with cookie banner"
+    },
+    {
+      "case": "run02-sham1",
+      "frame": "returned.png",
+      "sha256": "a32e34abeb21a946a54e6bbcc02bcdadcf03379da6a0a4ae445bdf7c3f3d2ef4",
+      "reviewed": true,
+      "published": false,
+      "result": "same ES process; expected still-waiting modal; private ephemeral pairing QR behind modal"
+    },
+    {
+      "case": "run02-trim1",
+      "frame": "page-60.png",
+      "sha256": "76a531c90bc60df0ad3af7998ae28f01f85f2306e18e2e0e5962c67ceb3d7056",
+      "reviewed": true,
+      "published": true,
+      "result": "same unauthenticated provider page with cookie banner"
+    },
+    {
+      "case": "run02-trim1",
+      "frame": "returned.png",
+      "sha256": "32f631aea253318c4e94feb6fb161f3e05d4b2881aed8915dea1c889267d808e",
+      "reviewed": true,
+      "published": false,
+      "result": "same ES process; expected still-waiting modal; private ephemeral pairing QR behind modal"
+    },
+    {
+      "case": "run02-trim2",
+      "frame": "page-60.png",
+      "sha256": "76a531c90bc60df0ad3af7998ae28f01f85f2306e18e2e0e5962c67ceb3d7056",
+      "reviewed": true,
+      "published": true,
+      "result": "same unauthenticated provider page with cookie banner"
+    },
+    {
+      "case": "run02-trim2",
+      "frame": "returned.png",
+      "sha256": "e65fcf6788fe6ac918fe74e8145b0b99ada3e6faaa8a52c1b33b7f298de6358d",
+      "reviewed": true,
+      "published": false,
+      "result": "same ES process; expected still-waiting modal; private ephemeral pairing QR behind modal"
+    },
+    {
+      "case": "run02-sham2",
+      "frame": "page-60.png",
+      "sha256": "76a531c90bc60df0ad3af7998ae28f01f85f2306e18e2e0e5962c67ceb3d7056",
+      "reviewed": true,
+      "published": true,
+      "result": "same unauthenticated provider page with cookie banner"
+    },
+    {
+      "case": "run02-sham2",
+      "frame": "returned.png",
+      "sha256": "6170e32787cadc359f3a647aba58147b8d4fce1b069c4f9058707569b1d59a18",
+      "reviewed": true,
+      "published": false,
+      "result": "same ES process; expected still-waiting modal; private ephemeral pairing QR behind modal"
+    }
+  ]
+}

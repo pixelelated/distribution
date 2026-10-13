@@ -1,0 +1,167 @@
+{
+  "started": 1791875991.9674425,
+  "rc": 0,
+  "cases": [
+    {
+      "name": "run02-sham1",
+      "mode": 0,
+      "before": {
+        "boot": "5c2f644d-0812-4406-a8ea-d239ed113684",
+        "es": [
+          14461
+        ]
+      },
+      "elapsed": 66.4245127029717,
+      "guarded": false,
+      "probe": {
+        "pid": 14461,
+        "mode": 0,
+        "mono_ns": 2095457151431,
+        "duration_ns": 87,
+        "trim_return": 0,
+        "pss_before_kib": 199155,
+        "pss_after_kib": 198764,
+        "anon_before_kib": 113420,
+        "anon_after_kib": 113420,
+        "arena_before": 131633152,
+        "arena_after": 131633152,
+        "used_before": 16427184,
+        "used_after": 16427184,
+        "free_before": 115205968,
+        "free_after": 115205968
+      },
+      "probe_mapping_pids": [
+        14461
+      ],
+      "after": {
+        "boot": "5c2f644d-0812-4406-a8ea-d239ed113684",
+        "es": [
+          14461
+        ]
+      },
+      "rc": 0,
+      "sampler_rc": 0
+    },
+    {
+      "name": "run02-trim1",
+      "mode": 1,
+      "before": {
+        "boot": "5c2f644d-0812-4406-a8ea-d239ed113684",
+        "es": [
+          16312
+        ]
+      },
+      "elapsed": 65.68157532298937,
+      "guarded": false,
+      "probe": {
+        "pid": 16312,
+        "mode": 1,
+        "mono_ns": 2209403732752,
+        "duration_ns": 2049174,
+        "trim_return": 1,
+        "pss_before_kib": 197342,
+        "pss_after_kib": 117838,
+        "anon_before_kib": 113248,
+        "anon_after_kib": 33744,
+        "arena_before": 131371008,
+        "arena_after": 107933696,
+        "used_before": 16424896,
+        "used_after": 16424896,
+        "free_before": 114946112,
+        "free_after": 91508800
+      },
+      "probe_mapping_pids": [
+        16312
+      ],
+      "after": {
+        "boot": "5c2f644d-0812-4406-a8ea-d239ed113684",
+        "es": [
+          16312
+        ]
+      },
+      "rc": 0,
+      "sampler_rc": 0
+    },
+    {
+      "name": "run02-trim2",
+      "mode": 1,
+      "before": {
+        "boot": "5c2f644d-0812-4406-a8ea-d239ed113684",
+        "es": [
+          18184
+        ]
+      },
+      "elapsed": 65.54811598302331,
+      "guarded": false,
+      "probe": {
+        "pid": 18184,
+        "mode": 1,
+        "mono_ns": 2322773507588,
+        "duration_ns": 2018127,
+        "trim_return": 1,
+        "pss_before_kib": 196206,
+        "pss_after_kib": 118423,
+        "anon_before_kib": 111148,
+        "anon_after_kib": 33600,
+        "arena_before": 129392640,
+        "arena_after": 108564480,
+        "used_before": 16425536,
+        "used_after": 16425536,
+        "free_before": 112967104,
+        "free_after": 92138944
+      },
+      "probe_mapping_pids": [
+        18184
+      ],
+      "after": {
+        "boot": "5c2f644d-0812-4406-a8ea-d239ed113684",
+        "es": [
+          18184
+        ]
+      },
+      "rc": 0,
+      "sampler_rc": 0
+    },
+    {
+      "name": "run02-sham2",
+      "mode": 0,
+      "before": {
+        "boot": "5c2f644d-0812-4406-a8ea-d239ed113684",
+        "es": [
+          20001
+        ]
+      },
+      "elapsed": 65.77520587306935,
+      "guarded": false,
+      "probe": {
+        "pid": 20001,
+        "mode": 0,
+        "mono_ns": 2435929723727,
+        "duration_ns": 24,
+        "trim_return": 0,
+        "pss_before_kib": 196912,
+        "pss_after_kib": 196909,
+        "anon_before_kib": 113028,
+        "anon_after_kib": 113028,
+        "arena_before": 131395584,
+        "arena_after": 131395584,
+        "used_before": 16425744,
+        "used_after": 16425744,
+        "free_before": 114969840,
+        "free_after": 114969840
+      },
+      "probe_mapping_pids": [
+        20001
+      ],
+      "after": {
+        "boot": "5c2f644d-0812-4406-a8ea-d239ed113684",
+        "es": [
+          20001
+        ]
+      },
+      "rc": 0,
+      "sampler_rc": 0
+    }
+  ],
+  "ended": 1791876445.5855045
+}
