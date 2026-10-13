@@ -1,0 +1,70 @@
+{
+  "utc": "2026-10-13T02:22:03.856683+00:00",
+  "issue": 570,
+  "device": "Anbernic RG35XX SP (H700, DDR4)",
+  "distribution": "bc9dfe8141d9561dc1d8502313d00a84c4566ee8",
+  "es": "c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78",
+  "browser_sha256": "b22fff408d62eee8d7eb1647b713fd9ad0f90aae61a449e62853d4c7bd2e1e49",
+  "frames": [
+    {
+      "file": "simple-off-page.png",
+      "sha256": "8432236fc34df29481cf8d9a7488ab5fcc17fff0539181974d1b29727bdd1b55",
+      "dimensions": [
+        640,
+        480
+      ],
+      "reviewed": true,
+      "description": "Simple page loaded; browser acceleration disabled"
+    },
+    {
+      "file": "simple-on-page.png",
+      "sha256": "499ba10474a02e16ace25bdde231a9b71b979b6dd492d0fdd493c0b2b753d866",
+      "dimensions": [
+        640,
+        480
+      ],
+      "reviewed": true,
+      "description": "Simple page loaded; browser acceleration enabled"
+    },
+    {
+      "file": "public-off-page.png",
+      "sha256": "c2be7a6235ae1973868b51af401d0a3303b2d4ffc292c80098862cb5c657d82f",
+      "dimensions": [
+        640,
+        480
+      ],
+      "reviewed": true,
+      "description": "First public-page early capture remains the opening screen; later load is log-only in this trial"
+    },
+    {
+      "file": "public-on-accounted-page1.png",
+      "sha256": "3e6f8a03a4160dc0c4a64e5d7cfda7981b9f27a263efd4afd8a5f32e23100e71",
+      "dimensions": [
+        640,
+        480
+      ],
+      "reviewed": true,
+      "description": "Public unsigned login loaded with cookie banner; browser acceleration enabled"
+    },
+    {
+      "file": "public-off-accounted-page1.png",
+      "sha256": "b98f548d713beb0f60cf5e180242b3308ada61143b73daa25bfab68b13d9edbe",
+      "dimensions": [
+        640,
+        480
+      ],
+      "reviewed": true,
+      "description": "Public unsigned login loaded; browser acceleration disabled"
+    }
+  ],
+  "scope": "Installed ephemeral browser direct launches with ES/services resident; no game, account sign-in, cloud operation, settings edit, firmware transfer or reboot. Not normal ES handoff qualification.",
+  "production_changes": false,
+  "guards": "Sampling thresholds; not reserved-memory guarantees. First owners PSI>5 or available<160MiB; final owner requires available<256MiB for PSI cutoff. All owners have absolute device-unit timeout.",
+  "limits": [
+    "Single ordered preliminary trials; public content/timing can vary.",
+    "Guard-stopped durations differ; peak PSS is censored and does not rank renderer efficiency.",
+    "DRM shared buffers are not added to process PSS or summed across duplicate client IDs.",
+    "Owner01/02 public-on and owner02 public-off never loaded; low PSS is not improvement.",
+    "Owner01 public-off screenshot preceded load; final owner provides reviewed loaded frames."
+  ]
+}

@@ -1,0 +1,252 @@
+[
+  {
+    "case": "simple-off",
+    "disable_dmabuf": "1",
+    "reason": "duration",
+    "duration_limit": 25,
+    "loaded_marker": true,
+    "log_summary": [
+      "** Message: 22:08:36.700: load finished, asking the page for a field to focus"
+    ],
+    "owner": "01",
+    "seconds": 24.786,
+    "peak_browser_pss_kib": 136862,
+    "min_available_kib": 513304,
+    "after_available_kib": 558224,
+    "boot_unchanged": true,
+    "browser_remaining": 0
+  },
+  {
+    "case": "simple-on",
+    "disable_dmabuf": "0",
+    "reason": "duration",
+    "duration_limit": 25,
+    "loaded_marker": true,
+    "log_summary": [
+      "** Message: 22:09:10.551: load finished, asking the page for a field to focus"
+    ],
+    "owner": "01",
+    "seconds": 24.724,
+    "peak_browser_pss_kib": 167633,
+    "min_available_kib": 463360,
+    "after_available_kib": 555532,
+    "boot_unchanged": true,
+    "browser_remaining": 0
+  },
+  {
+    "case": "public-off",
+    "disable_dmabuf": "1",
+    "reason": "memory guard",
+    "duration_limit": 65,
+    "loaded_marker": true,
+    "log_summary": [
+      "** Message: 22:10:06.036: load finished, asking the page for a field to focus",
+      "Memory pressure relief: Total: res = 343605248/340467712/-3137536, res+swap = 437637120/430968832/-6668288",
+      "(WebKitWebProcess:511308): GStreamer-WARNING **: 22:10:23.388: External plugin loader failed. This most likely means that the plugin loader helper binary was not found or could not be run. You might need to set the GST_PLUGIN_SCANNER environment variable if your setup is unusual. This should normally not be required though.",
+      "(WebKitWebProcess:511308): GStreamer-WARNING **: 22:10:23.531: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstopengl.so': libgstcontroller-1.0.so.0: cannot open shared object file: No such file or directory"
+    ],
+    "owner": "01",
+    "seconds": 41.467,
+    "peak_browser_pss_kib": 492642,
+    "min_available_kib": 140644,
+    "after_available_kib": 552344,
+    "boot_unchanged": true,
+    "browser_remaining": 0
+  },
+  {
+    "case": "public-on",
+    "disable_dmabuf": "0",
+    "reason": "memory guard",
+    "duration_limit": 65,
+    "loaded_marker": false,
+    "log_summary": [],
+    "owner": "01",
+    "seconds": 3.202,
+    "peak_browser_pss_kib": 26121,
+    "min_available_kib": 545792,
+    "after_available_kib": 546280,
+    "boot_unchanged": true,
+    "browser_remaining": 0
+  },
+  {
+    "case": "public-on-repeat",
+    "disable_dmabuf": "0",
+    "reason": "memory guard",
+    "duration_limit": 65,
+    "loaded_marker": false,
+    "log_summary": [],
+    "owner": "02",
+    "seconds": 3.281,
+    "peak_browser_pss_kib": 56182,
+    "min_available_kib": 532948,
+    "after_available_kib": 552448,
+    "boot_unchanged": true,
+    "browser_remaining": 0,
+    "settled_baseline": [
+      {
+        "available_kib": 555800,
+        "psi_avg10": 1.44
+      },
+      {
+        "available_kib": 554252,
+        "psi_avg10": 0.79
+      },
+      {
+        "available_kib": 553748,
+        "psi_avg10": 0.43
+      },
+      {
+        "available_kib": 553504,
+        "psi_avg10": 0.23
+      },
+      {
+        "available_kib": 553252,
+        "psi_avg10": 0.15
+      }
+    ]
+  },
+  {
+    "case": "public-off-repeat",
+    "disable_dmabuf": "1",
+    "reason": "memory guard",
+    "duration_limit": 65,
+    "loaded_marker": false,
+    "log_summary": [],
+    "owner": "02",
+    "seconds": 11.655,
+    "peak_browser_pss_kib": 200795,
+    "min_available_kib": 439012,
+    "after_available_kib": 555220,
+    "boot_unchanged": true,
+    "browser_remaining": 0,
+    "settled_baseline": [
+      {
+        "available_kib": 552196,
+        "psi_avg10": 2.68
+      },
+      {
+        "available_kib": 551452,
+        "psi_avg10": 1.47
+      },
+      {
+        "available_kib": 552124,
+        "psi_avg10": 0.8
+      },
+      {
+        "available_kib": 550636,
+        "psi_avg10": 0.54
+      },
+      {
+        "available_kib": 550400,
+        "psi_avg10": 0.29
+      },
+      {
+        "available_kib": 550232,
+        "psi_avg10": 0.16
+      },
+      {
+        "available_kib": 549816,
+        "psi_avg10": 0.08
+      }
+    ]
+  },
+  {
+    "case": "public-on-accounted",
+    "disable_dmabuf": "0",
+    "reason": "memory guard",
+    "duration_limit": 65,
+    "loaded_marker": true,
+    "log_summary": [
+      "** Message: 22:16:29.792: load finished, asking the page for a field to focus"
+    ],
+    "owner": "03",
+    "seconds": 25.51,
+    "peak_browser_pss_kib": 382428,
+    "min_available_kib": 217856,
+    "after_available_kib": 547284,
+    "boot_unchanged": true,
+    "browser_remaining": 0,
+    "settled_baseline": [
+      {
+        "available_kib": 548896,
+        "psi_avg10": 0.0
+      },
+      {
+        "available_kib": 549680,
+        "psi_avg10": 0.0
+      },
+      {
+        "available_kib": 548748,
+        "psi_avg10": 0.0
+      }
+    ],
+    "vmstat_delta": {
+      "workingset_refault_file": 13283,
+      "pgscan_direct": 3020,
+      "allocstall_normal": 42,
+      "pgmajfault": 281,
+      "compact_stall": 0
+    }
+  },
+  {
+    "case": "public-off-accounted",
+    "disable_dmabuf": "1",
+    "reason": "memory guard",
+    "duration_limit": 65,
+    "loaded_marker": true,
+    "log_summary": [
+      "** Message: 22:17:52.006: load finished, asking the page for a field to focus",
+      "Memory pressure relief: Total: res = 333795328/331657216/-2138112, res+swap = 434581504/432320512/-2260992",
+      "(WebKitWebProcess:514179): GStreamer-WARNING **: 22:18:08.614: External plugin loader failed. This most likely means that the plugin loader helper binary was not found or could not be run. You might need to set the GST_PLUGIN_SCANNER environment variable if your setup is unusual. This should normally not be required though.",
+      "(WebKitWebProcess:514179): GStreamer-WARNING **: 22:18:08.771: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstopengl.so': libgstcontroller-1.0.so.0: cannot open shared object file: No such file or directory"
+    ],
+    "owner": "03",
+    "seconds": 46.667,
+    "peak_browser_pss_kib": 494867,
+    "min_available_kib": 132548,
+    "after_available_kib": 543836,
+    "boot_unchanged": true,
+    "browser_remaining": 0,
+    "settled_baseline": [
+      {
+        "available_kib": 547816,
+        "psi_avg10": 6.76
+      },
+      {
+        "available_kib": 547572,
+        "psi_avg10": 3.71
+      },
+      {
+        "available_kib": 546804,
+        "psi_avg10": 2.03
+      },
+      {
+        "available_kib": 545864,
+        "psi_avg10": 1.36
+      },
+      {
+        "available_kib": 545996,
+        "psi_avg10": 0.74
+      },
+      {
+        "available_kib": 546004,
+        "psi_avg10": 0.41
+      },
+      {
+        "available_kib": 545496,
+        "psi_avg10": 0.22
+      },
+      {
+        "available_kib": 545888,
+        "psi_avg10": 0.15
+      }
+    ],
+    "vmstat_delta": {
+      "workingset_refault_file": 33415,
+      "pgscan_direct": 666,
+      "allocstall_normal": 1,
+      "pgmajfault": 642,
+      "compact_stall": 0
+    }
+  }
+]

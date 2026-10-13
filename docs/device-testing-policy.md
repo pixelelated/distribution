@@ -23,6 +23,17 @@ The handhelds on this LAN belong to a person who may be using them, and the clou
 sync to holds that person's production data. **Nothing runs on either without that
 person's yes, given per action, at the moment it would happen.**
 
+## Current scoped bench authorization
+
+D-QA-060 (2026-10-13): the owner designates the **RG35XX SP**, distinct from the
+RG SP, as the temporary browser bench for #570. Repeated browser diagnostics and
+custom diagnostic builds are authorized within that incident without another
+approval question. Saves and other owner data must remain unchanged; keep browser
+state temporary and preserve account configuration. No game, cloud transfer,
+save mutation or unrelated device test is included. Continue physical-fact/VM-first
+reasoning, bounded recovery, artifact/preservation qualification and device-act
+records. The permission ends with this incident or the owner's withdrawal.
+
 ## What is an action
 
 Anything that changes what the device is doing or what it holds, or what the cloud holds:
