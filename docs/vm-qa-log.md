@@ -278,3 +278,17 @@ return on the same frontend/boot. Synthetic local authorization only; no account
 This is not constrained-memory, authenticated or full-candidate qualification.
 Original setup/compile failures retained;15owners consumed/exited, guest and
 compile copy retired3.17GB. [Source, results and frame index](qa-logs/2026-10-13-es-trim-product/README.md).
+
+### 2026-10-13 19:27 UTC — #570 actual-binary memory comparison and repeated handoff
+
+Exact f7b71db0a versus accepted c8dc72cf9e, one1280MiB assigned/1067652KiB
+visible software-profile640×480 guest. Both old-binary trials guard-stop1 at
+about8–9s; both candidate trials complete60s and return on the same ES/boot.
+Shared early-window anonymous median difference79882KiB (78.01MiB); unequal
+lifetimes do not support a speed or browser-peak comparison. Three more25s
+reopen cycles on one ES PID also complete0; no long-term leak claim.
+19reviewed frames:11public,6accepted private,2early black captures rejected.
+Original shared-bind identity refusal1/report refusal2 retained. All10owners
+consumed/exited, exact guest retired and2275385344allocated bytes recovered.
+No account/device/cloud action, physical cure, pin move or RC designation.
+[Source, original results and frame index](qa-logs/2026-10-13-es-trim-comparison/README.md).

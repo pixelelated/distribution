@@ -1,0 +1,91 @@
+{
+  "schema": 1,
+  "comparison": "actual binaries; no interposer or modified browser",
+  "window_note": "2\u20136seconds after recorded launch chosen after first baseline guard to compare shared early lifetimes. Whole-case minima and stopped lifetimes remain separate; not a speed or peak-browser efficiency comparison.",
+  "cases": [
+    {
+      "name": "baseline1",
+      "mode": "baseline",
+      "original_rc": 1,
+      "sampler_rc": 0,
+      "boot": "6cb1ed19-7dc5-4690-8df8-c8d47c737ca1",
+      "pid": 2457,
+      "binary_sha256": "db136580f0a46442bb3fe7ac9e31606b38b816c78efc8f9b4e267284daca6502",
+      "last_sample_s_after_launch": 9.0681455078125,
+      "observed_samples": 13,
+      "min_available_kib": 159456,
+      "window2to6_sample_count": 3,
+      "window2to6_es_anon_median_kib": 114596,
+      "window2to6_es_pss_median_kib": 136263,
+      "settled10to55_sample_count": 0,
+      "settled10to55_es_anon_median_kib": null,
+      "raw_sha256": "9f189ea48cf2f2de96ac1f2036670958bbe415ba3058b7a1a1a82e0ac6ea7fe2"
+    },
+    {
+      "name": "candidate1",
+      "mode": "candidate",
+      "original_rc": 0,
+      "sampler_rc": 0,
+      "boot": "6cb1ed19-7dc5-4690-8df8-c8d47c737ca1",
+      "pid": 4196,
+      "binary_sha256": "5c08a1713e9af08054e6ec01480894987f48e9335b44fbf8e02462109438ca6f",
+      "last_sample_s_after_launch": 64.006091796875,
+      "observed_samples": 68,
+      "min_available_kib": 218212,
+      "window2to6_sample_count": 4,
+      "window2to6_es_anon_median_kib": 34236.0,
+      "window2to6_es_pss_median_kib": 65644.0,
+      "settled10to55_sample_count": 45,
+      "settled10to55_es_anon_median_kib": 34240,
+      "raw_sha256": "e965cdbb7d9c5fb89c00d1a2928cb62dc121803c3507e5826b7206658558a683"
+    },
+    {
+      "name": "candidate2",
+      "mode": "candidate",
+      "original_rc": 0,
+      "sampler_rc": 0,
+      "boot": "6cb1ed19-7dc5-4690-8df8-c8d47c737ca1",
+      "pid": 6282,
+      "binary_sha256": "5c08a1713e9af08054e6ec01480894987f48e9335b44fbf8e02462109438ca6f",
+      "last_sample_s_after_launch": 64.08957397460938,
+      "observed_samples": 68,
+      "min_available_kib": 234596,
+      "window2to6_sample_count": 4,
+      "window2to6_es_anon_median_kib": 34408.0,
+      "window2to6_es_pss_median_kib": 81045.0,
+      "settled10to55_sample_count": 45,
+      "settled10to55_es_anon_median_kib": 34420,
+      "raw_sha256": "f3a2437ef12928f192513847c2b684c9d3ec007805322b3e02ea2ae2c4e691c1"
+    },
+    {
+      "name": "baseline2-retry",
+      "mode": "baseline",
+      "original_rc": 1,
+      "sampler_rc": 0,
+      "boot": "6cb1ed19-7dc5-4690-8df8-c8d47c737ca1",
+      "pid": 9049,
+      "binary_sha256": "db136580f0a46442bb3fe7ac9e31606b38b816c78efc8f9b4e267284daca6502",
+      "last_sample_s_after_launch": 8.056347900390625,
+      "observed_samples": 12,
+      "min_available_kib": 160608,
+      "window2to6_sample_count": 3,
+      "window2to6_es_anon_median_kib": 113812,
+      "window2to6_es_pss_median_kib": 167232,
+      "settled10to55_sample_count": 0,
+      "settled10to55_es_anon_median_kib": null,
+      "raw_sha256": "cb36a4568bc264378e792aab19d10c6606a019c8d7edd1be96fd6793018e2592"
+    }
+  ],
+  "refused_attempts": [
+    {
+      "name": "baseline2",
+      "original_rc": 1,
+      "reason": "identity refused before browser workload"
+    }
+  ],
+  "es_anon_median_difference_kib": 79882.0,
+  "pairwise_range_kib": [
+    79404.0,
+    80360.0
+  ]
+}

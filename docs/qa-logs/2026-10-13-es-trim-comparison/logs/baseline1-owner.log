@@ -1,0 +1,7 @@
+watch-build: recording in /workspace/tmp/pix570-es-compare-20261013/.build-runs/20261013T190914Z-e18dc4dc
+REVIEW keyboard choice baseline1
+Traceback (most recent call last):
+  File "/workspace/tmp/pix570-es-compare-20261013/trial.py", line 43, in <module>
+    if out('test -f '+guest+'/guard.json && echo guard || echo clear').strip()=='guard':raise RuntimeError('memory guard tripped')
+                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: memory guard tripped

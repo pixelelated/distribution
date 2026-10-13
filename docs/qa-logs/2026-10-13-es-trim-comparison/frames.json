@@ -1,0 +1,246 @@
+{
+  "candidate_source": "f7b71db0a70e1c48627f70847ecbc95bb1cb4a43",
+  "installed_binary_sha256": "5c08a1713e9af08054e6ec01480894987f48e9335b44fbf8e02462109438ca6f",
+  "baseline_source": "c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78",
+  "baseline_binary_sha256": "db136580f0a46442bb3fe7ac9e31606b38b816c78efc8f9b4e267284daca6502",
+  "distribution_base": "1a026648442321609b2288c2c9c06803817f9df2",
+  "qualification": "640x480 English constrained software-rendered diagnostic comparison; unchanged UI and no full-image baseline promotion",
+  "frames": [
+    {
+      "flow": "baseline1-keyboard-choice",
+      "path": "frames/baseline1-keyboard-choice.png",
+      "sha256": "a6eced1a815b7ae26dfe2598dfe7b407aa939347a9ad18ae9d09d16b40036c77",
+      "reviewed": true,
+      "disposition": "accepted",
+      "size": [
+        640,
+        480
+      ],
+      "binary_source": "c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78"
+    },
+    {
+      "flow": "candidate1-keyboard-choice",
+      "path": "frames/candidate1-keyboard-choice.png",
+      "sha256": "a6eced1a815b7ae26dfe2598dfe7b407aa939347a9ad18ae9d09d16b40036c77",
+      "reviewed": true,
+      "disposition": "accepted",
+      "size": [
+        640,
+        480
+      ],
+      "binary_source": "f7b71db0a70e1c48627f70847ecbc95bb1cb4a43"
+    },
+    {
+      "flow": "candidate2-keyboard-choice",
+      "path": "frames/candidate2-keyboard-choice.png",
+      "sha256": "a6eced1a815b7ae26dfe2598dfe7b407aa939347a9ad18ae9d09d16b40036c77",
+      "reviewed": true,
+      "disposition": "accepted",
+      "size": [
+        640,
+        480
+      ],
+      "binary_source": "f7b71db0a70e1c48627f70847ecbc95bb1cb4a43"
+    },
+    {
+      "flow": "baseline2-retry-keyboard-choice",
+      "path": "frames/baseline2-retry-keyboard-choice.png",
+      "sha256": "a6eced1a815b7ae26dfe2598dfe7b407aa939347a9ad18ae9d09d16b40036c77",
+      "reviewed": true,
+      "disposition": "accepted",
+      "size": [
+        640,
+        480
+      ],
+      "binary_source": "c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78"
+    },
+    {
+      "flow": "repeated-keyboard-choice",
+      "path": "frames/repeated-keyboard-choice.png",
+      "sha256": "a6eced1a815b7ae26dfe2598dfe7b407aa939347a9ad18ae9d09d16b40036c77",
+      "reviewed": true,
+      "disposition": "accepted",
+      "size": [
+        640,
+        480
+      ],
+      "binary_source": "f7b71db0a70e1c48627f70847ecbc95bb1cb4a43"
+    },
+    {
+      "flow": "candidate1-early-page",
+      "path": "frames/candidate1-early-page.png",
+      "sha256": "51c8ec434558b443a66511aa8d8c20246d0361fc17277ccd0cbf047e20879296",
+      "reviewed": true,
+      "disposition": "accepted",
+      "size": [
+        640,
+        480
+      ],
+      "binary_source": "f7b71db0a70e1c48627f70847ecbc95bb1cb4a43"
+    },
+    {
+      "flow": "candidate1-page",
+      "path": "frames/candidate1-page.png",
+      "sha256": "9db0701ee95bf4ca753d64e5046735688e6bb9722ad1309bf1f1d89f68021796",
+      "reviewed": true,
+      "disposition": "accepted",
+      "size": [
+        640,
+        480
+      ],
+      "binary_source": "f7b71db0a70e1c48627f70847ecbc95bb1cb4a43"
+    },
+    {
+      "flow": "candidate2-page",
+      "path": "frames/candidate2-page.png",
+      "sha256": "76a531c90bc60df0ad3af7998ae28f01f85f2306e18e2e0e5962c67ceb3d7056",
+      "reviewed": true,
+      "disposition": "accepted",
+      "size": [
+        640,
+        480
+      ],
+      "binary_source": "f7b71db0a70e1c48627f70847ecbc95bb1cb4a43"
+    },
+    {
+      "flow": "repeated-1-page",
+      "path": "frames/repeated-1-page.png",
+      "sha256": "76a531c90bc60df0ad3af7998ae28f01f85f2306e18e2e0e5962c67ceb3d7056",
+      "reviewed": true,
+      "disposition": "accepted",
+      "size": [
+        640,
+        480
+      ],
+      "binary_source": "f7b71db0a70e1c48627f70847ecbc95bb1cb4a43"
+    },
+    {
+      "flow": "repeated-2-page",
+      "path": "frames/repeated-2-page.png",
+      "sha256": "76a531c90bc60df0ad3af7998ae28f01f85f2306e18e2e0e5962c67ceb3d7056",
+      "reviewed": true,
+      "disposition": "accepted",
+      "size": [
+        640,
+        480
+      ],
+      "binary_source": "f7b71db0a70e1c48627f70847ecbc95bb1cb4a43"
+    },
+    {
+      "flow": "repeated-3-page",
+      "path": "frames/repeated-3-page.png",
+      "sha256": "76a531c90bc60df0ad3af7998ae28f01f85f2306e18e2e0e5962c67ceb3d7056",
+      "reviewed": true,
+      "disposition": "accepted",
+      "size": [
+        640,
+        480
+      ],
+      "binary_source": "f7b71db0a70e1c48627f70847ecbc95bb1cb4a43"
+    },
+    {
+      "flow": "candidate1-return",
+      "private_path": "/workspace/tmp/pix570-es-compare-20261013/candidate1/returned-private.png",
+      "sha256": "8eb69ed311e33f425ea9b8da16f9d7c9e0bf10b3380921534f22de778cbb40cd",
+      "reviewed": true,
+      "disposition": "accepted",
+      "size": [
+        640,
+        480
+      ],
+      "binary_source": "f7b71db0a70e1c48627f70847ecbc95bb1cb4a43",
+      "withheld_reason": "temporary QA pairing QR behind modal, or retained rejected diagnostic frame"
+    },
+    {
+      "flow": "candidate2-return",
+      "private_path": "/workspace/tmp/pix570-es-compare-20261013/candidate2/returned-private.png",
+      "sha256": "09717c61c95bb3786dbde9085d992c39036c480ce64c5458ca8d65659a6f097d",
+      "reviewed": true,
+      "disposition": "accepted",
+      "size": [
+        640,
+        480
+      ],
+      "binary_source": "f7b71db0a70e1c48627f70847ecbc95bb1cb4a43",
+      "withheld_reason": "temporary QA pairing QR behind modal, or retained rejected diagnostic frame"
+    },
+    {
+      "flow": "repeated-1-reopened-frontend",
+      "private_path": "/workspace/tmp/pix570-es-compare-20261013/repeated/cycle-1-reopen-private.png",
+      "sha256": "eda74b7923c267b42e82e768e4fb3f664a51c97e13668e4a35f006911d1e2d3e",
+      "reviewed": true,
+      "disposition": "accepted",
+      "size": [
+        640,
+        480
+      ],
+      "binary_source": "f7b71db0a70e1c48627f70847ecbc95bb1cb4a43",
+      "withheld_reason": "temporary QA pairing QR behind modal, or retained rejected diagnostic frame"
+    },
+    {
+      "flow": "repeated-2-reopened-frontend",
+      "private_path": "/workspace/tmp/pix570-es-compare-20261013/repeated/cycle-2-reopen-private.png",
+      "sha256": "eda74b7923c267b42e82e768e4fb3f664a51c97e13668e4a35f006911d1e2d3e",
+      "reviewed": true,
+      "disposition": "accepted",
+      "size": [
+        640,
+        480
+      ],
+      "binary_source": "f7b71db0a70e1c48627f70847ecbc95bb1cb4a43",
+      "withheld_reason": "temporary QA pairing QR behind modal, or retained rejected diagnostic frame"
+    },
+    {
+      "flow": "repeated-3-return",
+      "private_path": "/workspace/tmp/pix570-es-compare-20261013/repeated/cycle-3-return-private.png",
+      "sha256": "031174bd8fa21c6642914c16c1bc2c5bc45b7f5bd953168162b84384361f3e44",
+      "reviewed": true,
+      "disposition": "accepted",
+      "size": [
+        640,
+        480
+      ],
+      "binary_source": "f7b71db0a70e1c48627f70847ecbc95bb1cb4a43",
+      "withheld_reason": "temporary QA pairing QR behind modal, or retained rejected diagnostic frame"
+    },
+    {
+      "flow": "repeated-settled-return",
+      "private_path": "/workspace/tmp/pix570-es-compare-20261013/repeated/settled-return-private.png",
+      "sha256": "031174bd8fa21c6642914c16c1bc2c5bc45b7f5bd953168162b84384361f3e44",
+      "reviewed": true,
+      "disposition": "accepted",
+      "size": [
+        640,
+        480
+      ],
+      "binary_source": "f7b71db0a70e1c48627f70847ecbc95bb1cb4a43",
+      "withheld_reason": "temporary QA pairing QR behind modal, or retained rejected diagnostic frame"
+    },
+    {
+      "flow": "repeated-1-early-return",
+      "private_path": "/workspace/tmp/pix570-es-compare-20261013/repeated/cycle-1-return-private.png",
+      "sha256": "f276d01b912932fb1659f89fbdbe78bae2db1ede93ee57943ad66a75562a12fb",
+      "reviewed": true,
+      "disposition": "rejected: early black compositor capture; later reopened frontend frame is the accepted return evidence",
+      "size": [
+        640,
+        480
+      ],
+      "binary_source": "f7b71db0a70e1c48627f70847ecbc95bb1cb4a43",
+      "withheld_reason": "temporary QA pairing QR behind modal, or retained rejected diagnostic frame"
+    },
+    {
+      "flow": "repeated-2-early-return",
+      "private_path": "/workspace/tmp/pix570-es-compare-20261013/repeated/cycle-2-return-private.png",
+      "sha256": "f276d01b912932fb1659f89fbdbe78bae2db1ede93ee57943ad66a75562a12fb",
+      "reviewed": true,
+      "disposition": "rejected: early black compositor capture; later reopened frontend frame is the accepted return evidence",
+      "size": [
+        640,
+        480
+      ],
+      "binary_source": "f7b71db0a70e1c48627f70847ecbc95bb1cb4a43",
+      "withheld_reason": "temporary QA pairing QR behind modal, or retained rejected diagnostic frame"
+    }
+  ]
+}

@@ -690,3 +690,14 @@ correction to a single script overlay. The corrected assembled replacement20 now
 has [eight reviewed clean-install and retained-upgrade frames](qa-logs/2026-10-11-pixelelated-replacement-20/evidence-index.json),
 actual installed-script identity, quiet successful execution and positive startup
 records. Real19→20 retained-storage qualification also passes under #344.
+
+## Pending allocator candidate: constrained handoff proof (#570)
+
+The nonvisual ES candidatef7b71db0a additionally has a
+[constrained-memory comparison and repeated handoff packet](qa-logs/2026-10-13-es-trim-comparison/README.md)
+with its [exact-source frame index](qa-logs/2026-10-13-es-trim-comparison/frames.json).
+The provider page, keyboard choice and return/reopen states retain their
+presentation. Early black return captures are rejected and later frontend
+frames are the accepted proof. This is640×480 English software-profile
+evidence; standard-profile broader frames and remaining sign-in branches
+still precede pin promotion. No new canonical full-image baseline is selected.

@@ -1,0 +1,6 @@
+watch-build: recording in /workspace/tmp/pix570-es-compare-20261013/.build-runs/20261013T191550Z-240e5324
+Traceback (most recent call last):
+  File "/workspace/tmp/pix570-es-compare-20261013/trial.py", line 22, in <module>
+    assert res['before']['sha256']==json.loads((r/'setup-result.json').read_text())['hashes']['/storage/qa570compare/'+mode]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

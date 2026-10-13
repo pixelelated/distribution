@@ -1368,3 +1368,17 @@ original result channel. Missing VM sysfs metrics must not become blank units
 or zero measurements. Installed INFORMATION proof still needs reviewed frames.
 A startup journal is evidence only when it contains positive service-start
 records; an empty journal cannot pass a negative-only error search.
+
+### File bind mounts need mountinfo and byte identities (#570)
+
+On the accepted guest, `mountpoint -q /usr/bin/emulationstation` reports false
+for a file bind. Rebinding over it can propagate through a shared mount and
+overlay the fixture's own baseline path. Before switching binaries, stop the
+owned frontend, remove only explicitly owned mountinfo targets, verify the
+underlying baseline/candidate hashes, and make the new bind private. Read
+`/proc/PID/exe`'s hash after readiness; a path name or successful mount command
+is not executable identity. Preserve refused attempts. The exact bounded
+cleanup helper is archived in
+`docs/qa-logs/2026-10-13-es-trim-comparison/fixtures/clear-owned-mounts.py`; it
+accepts only that disposable guest's named paths, not arbitrary live-device
+mounts. Never replay its retired owner.

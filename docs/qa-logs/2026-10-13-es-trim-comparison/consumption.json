@@ -1,0 +1,249 @@
+{
+  "utc": "2026-10-13T19:23:52.801535+00:00",
+  "result": "CONSUMED",
+  "pid_namespace": 4026531836,
+  "stages": [
+    {
+      "owner": "/workspace/tmp/pix570-es-compare-20261013/report-owner",
+      "original_rc": 2,
+      "launcher": {
+        "utc": "2026-10-13T19:04:38.035713+00:00",
+        "pid": 1390458,
+        "runner_returncode": 2,
+        "submission_is_not_completion": true
+      },
+      "refused_before_run_creation": true,
+      "pids_exited": [
+        1390458
+      ],
+      "console_sha256": "39eb40ce5c85351e57f3215fb48356bc85ee889412e6d152da646cc38310c54b"
+    },
+    {
+      "owner": "/workspace/tmp/pix570-es-compare-20261013/report02",
+      "original_rc": 0,
+      "launcher": {
+        "utc": "2026-10-13T19:05:51.781236+00:00",
+        "pid": 1395666,
+        "runner_returncode": 0,
+        "submission_is_not_completion": true
+      },
+      "run": "/workspace/tmp/pix570-es-compare-20261013/.build-runs/20261013T190546Z-23b61d29",
+      "runner": {
+        "command_rc": 0,
+        "monitor_rc": 0,
+        "runner_rc": 0,
+        "utc": "2026-10-13T19:05:51.771239+00:00"
+      },
+      "terminal_status": true,
+      "pids_exited": [
+        1395666,
+        1395670,
+        1395678,
+        1395713
+      ],
+      "console_sha256": "28a1f83f5ae0b78e8254aa82e280025323f91a2e09def0d1da965d51d3f5b209"
+    },
+    {
+      "owner": "/workspace/tmp/pix570-es-compare-20261013/vm-owner",
+      "original_rc": 0,
+      "launcher": {
+        "utc": "2026-10-13T19:23:07.352956+00:00",
+        "pid": 1404323,
+        "runner_returncode": 0,
+        "submission_is_not_completion": true
+      },
+      "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261013T190737Z-88186c93",
+      "runner": {
+        "command_rc": 0,
+        "monitor_rc": 0,
+        "runner_rc": 0,
+        "utc": "2026-10-13T19:23:07.343765+00:00"
+      },
+      "terminal_status": true,
+      "pids_exited": [
+        1404323,
+        1404324,
+        1404325,
+        1404379
+      ],
+      "console_sha256": "ccc3cde6482037cc8524e63b131301d55f31d1458df7cc9ac87f8c5596048494"
+    },
+    {
+      "owner": "/workspace/tmp/pix570-es-compare-20261013/setup-owner",
+      "original_rc": 0,
+      "launcher": {
+        "utc": "2026-10-13T19:08:45.120796+00:00",
+        "pid": 1409011,
+        "runner_returncode": 0,
+        "submission_is_not_completion": true
+      },
+      "run": "/workspace/tmp/pix570-es-compare-20261013/.build-runs/20261013T190835Z-43ca995e",
+      "runner": {
+        "command_rc": 0,
+        "monitor_rc": 0,
+        "runner_rc": 0,
+        "utc": "2026-10-13T19:08:45.113125+00:00"
+      },
+      "terminal_status": true,
+      "pids_exited": [
+        1409011,
+        1409012,
+        1409013,
+        1409042
+      ],
+      "console_sha256": "8158e7cc4e38fa3680681c322bab6196b7a3049488b3e68e2e4ea12155433619"
+    },
+    {
+      "owner": "/workspace/tmp/pix570-es-compare-20261013/baseline1-owner",
+      "original_rc": 1,
+      "launcher": {
+        "utc": "2026-10-13T19:10:20.157894+00:00",
+        "pid": 1412049,
+        "runner_returncode": 1,
+        "submission_is_not_completion": true
+      },
+      "run": "/workspace/tmp/pix570-es-compare-20261013/.build-runs/20261013T190914Z-e18dc4dc",
+      "runner": {
+        "command_rc": 1,
+        "monitor_rc": 0,
+        "runner_rc": 1,
+        "utc": "2026-10-13T19:10:20.150326+00:00"
+      },
+      "terminal_status": true,
+      "pids_exited": [
+        1412049,
+        1412050,
+        1412051,
+        1412080
+      ],
+      "console_sha256": "fa104cd507af2a473527da449ecbbaf03d394c676960efe9427e099186d2807c"
+    },
+    {
+      "owner": "/workspace/tmp/pix570-es-compare-20261013/candidate1-owner",
+      "original_rc": 0,
+      "launcher": {
+        "utc": "2026-10-13T19:13:11.329010+00:00",
+        "pid": 1420998,
+        "runner_returncode": 0,
+        "submission_is_not_completion": true
+      },
+      "run": "/workspace/tmp/pix570-es-compare-20261013/.build-runs/20261013T191110Z-74cd70e9",
+      "runner": {
+        "command_rc": 0,
+        "monitor_rc": 0,
+        "runner_rc": 0,
+        "utc": "2026-10-13T19:13:11.321347+00:00"
+      },
+      "terminal_status": true,
+      "pids_exited": [
+        1420998,
+        1421001,
+        1421003,
+        1421032
+      ],
+      "console_sha256": "e7e5d3d428e696bd01e371245708e941d82f33b8c9226793c6cd8f6fd23c4615"
+    },
+    {
+      "owner": "/workspace/tmp/pix570-es-compare-20261013/candidate2-owner",
+      "original_rc": 0,
+      "launcher": {
+        "utc": "2026-10-13T19:15:34.507673+00:00",
+        "pid": 1432160,
+        "runner_returncode": 0,
+        "submission_is_not_completion": true
+      },
+      "run": "/workspace/tmp/pix570-es-compare-20261013/.build-runs/20261013T191333Z-4c653483",
+      "runner": {
+        "command_rc": 0,
+        "monitor_rc": 0,
+        "runner_rc": 0,
+        "utc": "2026-10-13T19:15:34.500275+00:00"
+      },
+      "terminal_status": true,
+      "pids_exited": [
+        1432160,
+        1432161,
+        1432162,
+        1432191
+      ],
+      "console_sha256": "9d4a868b7d0e297c3b09771878b231743f9958e6ab68750e63cbdab96dd4ae0f"
+    },
+    {
+      "owner": "/workspace/tmp/pix570-es-compare-20261013/baseline2-owner",
+      "original_rc": 1,
+      "launcher": {
+        "utc": "2026-10-13T19:15:55.905332+00:00",
+        "pid": 1442880,
+        "runner_returncode": 1,
+        "submission_is_not_completion": true
+      },
+      "run": "/workspace/tmp/pix570-es-compare-20261013/.build-runs/20261013T191550Z-240e5324",
+      "runner": {
+        "command_rc": 1,
+        "monitor_rc": 0,
+        "runner_rc": 1,
+        "utc": "2026-10-13T19:15:55.897806+00:00"
+      },
+      "terminal_status": true,
+      "pids_exited": [
+        1442880,
+        1442881,
+        1442882,
+        1442913
+      ],
+      "console_sha256": "f28aa72632e78be87bb3a04b8e1ca439e35759955a4216a4ba86f75440b783f7"
+    },
+    {
+      "owner": "/workspace/tmp/pix570-es-compare-20261013/baseline2-retry-owner",
+      "original_rc": 1,
+      "launcher": {
+        "utc": "2026-10-13T19:18:46.243913+00:00",
+        "pid": 1451287,
+        "runner_returncode": 1,
+        "submission_is_not_completion": true
+      },
+      "run": "/workspace/tmp/pix570-es-compare-20261013/.build-runs/20261013T191740Z-d8101d97",
+      "runner": {
+        "command_rc": 1,
+        "monitor_rc": 0,
+        "runner_rc": 1,
+        "utc": "2026-10-13T19:18:46.236426+00:00"
+      },
+      "terminal_status": true,
+      "pids_exited": [
+        1451287,
+        1451288,
+        1451289,
+        1451318
+      ],
+      "console_sha256": "b7a9b54b4795bb743a9971beca56a5a7be045763fba30f90a65a92a594d9e52b"
+    },
+    {
+      "owner": "/workspace/tmp/pix570-es-compare-20261013/repeated-owner",
+      "original_rc": 0,
+      "launcher": {
+        "utc": "2026-10-13T19:22:16.194000+00:00",
+        "pid": 1461380,
+        "runner_returncode": 0,
+        "submission_is_not_completion": true
+      },
+      "run": "/workspace/tmp/pix570-es-compare-20261013/.build-runs/20261013T191950Z-8fc50148",
+      "runner": {
+        "command_rc": 0,
+        "monitor_rc": 0,
+        "runner_rc": 0,
+        "utc": "2026-10-13T19:22:16.186112+00:00"
+      },
+      "terminal_status": true,
+      "pids_exited": [
+        1461380,
+        1461381,
+        1461382,
+        1461411
+      ],
+      "console_sha256": "72ea743a5d453e41f26fc3cc07e6168c316df34c96649ed8bbfefbe5f9185d54"
+    }
+  ],
+  "vm_exited": true,
+  "qemu_pid": 1404770
+}

@@ -1,0 +1,60 @@
+MemTotal:        1067652 kB
+MemFree:           73764 kB
+MemAvailable:     671640 kB
+Buffers:            9428 kB
+Cached:           729464 kB
+SwapCached:            0 kB
+Active:           180812 kB
+Inactive:         708876 kB
+Active(anon):      11856 kB
+Inactive(anon):   164620 kB
+Active(file):     168956 kB
+Inactive(file):   544256 kB
+Unevictable:        3736 kB
+Mlocked:             136 kB
+SwapTotal:             0 kB
+SwapFree:              0 kB
+Dirty:             23588 kB
+Writeback:             0 kB
+AnonPages:        154588 kB
+Mapped:           151500 kB
+Shmem:             25724 kB
+KReclaimable:      25572 kB
+Slab:              58672 kB
+SReclaimable:      25572 kB
+SUnreclaim:        33100 kB
+KernelStack:        3792 kB
+PageTables:         6460 kB
+SecPageTables:         0 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:      533824 kB
+Committed_AS:     568084 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:       10008 kB
+VmallocChunk:          0 kB
+Percpu:             1200 kB
+AnonHugePages:         0 kB
+ShmemHugePages:        0 kB
+ShmemPmdMapped:        0 kB
+FileHugePages:         0 kB
+FilePmdMapped:         0 kB
+CmaTotal:         262144 kB
+CmaFree:            8788 kB
+Balloon:               0 kB
+GPUActive:             0 kB
+GPUReclaim:            0 kB
+DirectMap4k:       90192 kB
+DirectMap2M:     1214464 kB
+[    0.000000] BIOS-e820: [mem 0x000000004ed3f000-0x000000004edfffff]  device reserved
+[    0.000000] BIOS-e820: [mem 0x000000004f8ed000-0x000000004fb6cfff]  device reserved
+[    0.000000] BIOS-e820: [mem 0x000000004fedc000-0x000000004ff5ffff]  device reserved
+[    0.000000] BIOS-e820: [mem 0x00000000e0000000-0x00000000efffffff]  device reserved
+[    0.000000] BIOS-e820: [mem 0x00000000feffc000-0x00000000feffffff]  device reserved
+[    0.000000] BIOS-e820: [mem 0x00000000ffc00000-0x00000000ffffffff]  device reserved
+[    0.000000] e820: remove [mem 0xffc00000-0xffffffff] device reserved
+[    0.000060] e820: update [mem 0x00000000-0x00000fff] System RAM ==> device reserved
+[    0.004207] cma: Reserved 256 MiB at 0x000000003be00000
+[    0.049759] Memory: 748512K/1304268K available (33679K kernel code, 3543K rwdata, 174268K rodata, 12508K init, 1024K bss, 287396K reserved, 262144K cma-reserved)
+100

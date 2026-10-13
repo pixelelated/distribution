@@ -1,6 +1,6 @@
 # Saved Session State
 
-> **Saved**: 2026-10-13T18:55:58.770095+00:00
+> **Saved**: 2026-10-13T19:27:26.246104+00:00
 > **Branch**: feature/m7-player-setup
 > **Repo**: pixelelated/distribution
 
@@ -20,78 +20,72 @@ not replayable authorizations. No owner device/cloud/account/save operation
 occurred in this continuation. No firmware pin, browser policy or ES product
 source has been promoted. The trim proposal is now compiled and has bounded VM smoke proof; the distribution pin is unchanged.
 
-## Current focus — #570 compiled source and bounded VM smoke COMPLETE
+## Current focus — #570 actual compiled memory benefit and repeated handoff COMPLETE
 
-Latest user asks to work through all remaining M7 issues since the tested0.0.1
-candidate. #493 launch admission was implemented/published asd7e2d6be411675003d04e92f8801e49ed587cc8b,
-with27 admission/36 routing controls, real host lifecycle, both exact-head CI
-checks and original delivery0/exited consumed. Live #493 checks only this
-criterion; automatic retirement/reconciliation and real-build telemetry remain
-open. Every future compile/cache copy needs a fresh measured admission; read
-tools/host-maintenance/build-admission.md. Non-compiling jobs need --record-only.
+Latest user: continue all remaining M7 work since the tested0.0.1 candidate.
+#493 admission is delivered ind7e2d6be41. The actual ES allocator candidate
+f7b71db0a70e1c48627f70847ecbc95bb1cb4a43 is published on
+feature/m7-es-trim-570; distribution pin unchanged. Compilation and bounded
+standard640native/phone smoke packet is published in7484a2b46d09dee87a01564bf9e7e7bdf6b60cc1.
+Both hosted checks and original delivery0/exited consumed.
 
-The actual ES source candidate is nowf7b71db0a70e1c48627f70847ecbc95bb1cb4a43,
-branch feature/m7-es-trim-570, at
-/home/max/Development/emulationstation-next.worktrees/m7-es-trim-570.
-It is exactly the earlier seven-line proposal fromc8dc72cf9e; no distribution
-pin has moved. Syntax/object/link/strip pass with the frozen read-only VM20
-cache/toolchain and pinned builder. Linked call order is teardown → malloc_trim
-→ cloud wait → frontend restore. Frozen input hashes unchanged. Compile02 peak
-749096960bytes, zero OOM and sampled swap-in/out. Original compile01 ccache
-read-only failure1 is preserved; retry disables ccache. Host swap was reclaimed
-through the installed guarded helper before compilation.
+New packet docs/qa-logs/2026-10-13-es-trim-comparison/ now proves the actual
+binary's roughly78MiB ES anonymous-memory reduction. One1280MiB assigned
+software-profile guest, unchanged actual browser/broker/rclone, no interposer.
+Old/new/new/old: baseline guard-stops1 at8–9s, both candidate60s trials0 and
+normal return, same ES/boot per case. Shared early2–6s median difference
+79882KiB; window selected after first guard, unequal lifetimes/live provider
+explicit. Not a speed, smaller-browser or physical cure claim. Three additional
+25s reopen cycles on one ES PID/start/boot pass; anonymous medians
+33784/34552/35164KiB. Not a long-term leak test.
 
-Packet: docs/qa-logs/2026-10-13-es-trim-product/README.md. Private owner:
-/workspace/tmp/pix570-es-product-20261013, COMPLETE/RETIRED, never replay its
-commands, ports10602/10603/5992/33395, keys or ended owners. All15watched
-owners consumed with actual host exits (13zero, compile1, submission2).
-QEMU/server/automation ended; VM disk/UEFI/keys and isolated ES copy removed,
-3172134912allocated file bytes retired. Only scratch/emulationstation remains:
-11798768bytes, SHA2565c08a1713e9af08054e6ec01480894987f48e9335b44fbf8e02462109438ca6f,
-held by #570 for the immediately queued remaining qualification. Retire it when
-that need ends. This cleanup was explicit, not #493 automatic retirement.
+19reviewed frames:11public,6accepted private,2early black return captures
+rejected. Later reopened/settled frontend frames supply return evidence. Actual
+QEMU argv and usable RAM retained; software graphics, no separate GL_RENDERER
+string. All10submitted owners (nine created watched runs), QEMU and children exited; original guards1,
+identity refusal1/report refusal2 preserved. Exact file-bind correction uses
+mountinfo/private bind, not mountpoint -q on a file. Underlying hashes were
+restored before the valid reverse baseline. Rule/fixture carry this learning.
 
-The fresh640×480 English VM ran that actual binary; native-mode virtual-key
-input and real phone-page16-character input across two page loads pass, normal
-return keeps ES PID2679 and the same boot.13reviewed frames,11public; temporary
-pairing QR frames stay private. Final broker idle, no browser or configured
-remote. Local synthetic authorization only; no owner device/cloud/account.
-Requested --gl auto is recorded, but runtime renderer/argv were not separately
-retained: no independently verified GPU claim. Original autostart.service alias
-readiness claim is invalidated; corrected rocknix-autostart/current-boot/idle
-readback passes. Initial missing HEAD/302 redirect fixture was cancelled and
-replaced by the prior qualified fixture. Early startup-overlay frames do not
-prove completed keyboard-choice state. No original result is relabelled.
+Owner /workspace/tmp/pix570-es-compare-20261013 is COMPLETE/RETIRED. Never
+replay its scripts, ports10604/5993, key paths or ended owners. Disk/UEFI/keys
+retired2275385344allocated bytes; admission22785841cbb4487eb09816808dfa0282
+consumed. No active VM/compiler/provider fixture remains. The earlier product
+owner is also complete/retired except its11.8MB candidate:
+/workspace/tmp/pix570-es-product-20261013/scratch/emulationstation
+SHA2565c08a1713e9af08054e6ec01480894987f48e9335b44fbf8e02462109438ca6f.
+Retain only for immediately queued remaining qualification, then retire.
 
-**Immediate next work:** consume the fresh delivery below if needed, then finish
-#570 actual-binary constrained-memory comparison, repeated lifecycle and remaining
-success/failure cases plus broader source-bound flows before pin promotion.
-Retain actual renderer/PID/boot/readiness reads at startup. The640smoke is not
-1280×800/French, authenticated sign-in, complete usability, physical cure or full
-candidate qualification. Historical diagnostic75.73–77.64MiB savings are not
-this binary's measured savings. No interposer rerun may substitute for it.
+**Immediate next work:** finish #570 actual success/failure branches, including
+browser-open failure, and broader standard-profile source-bound UI flows
+(1280×800/French as required), then separately scoped physical corroboration
+before claiming the incident cured. Read both packets; no interposer rerun
+or repeated completed allocation. New VM/build/copy needs fresh current
+capacity admission and watched owner. No independent audit performed here.
 
-Then continue the live M7 order: #565 final payload/clean/real retained-upgrade,
-#566 provider-supported ScreenScraper identity, #567 refresh notice, #571 phone
-status, #577 stable Wi-Fi picker, #578 Recent default, #574 RVZ recognition,
-#575 emulator capability, #564 stable20261001 Steam repair, combined QA/audit,
-H700 then SM8550 and source/custody/publication gates. No new RC allocated.
+Then live M7 order: #565 actual next-payload/clean/real retained-upgrade; #566
+provider-supported developer provisioning; #567 advance offline-achievement
+notice; #571 phone status/#577 Wi-Fi picker/#578 Recent default; #574 RVZ/
+#575 emulator capabilities; #564 stable20261001 Steam repair; combined new-source
+VM/audit; H700 then SM8550 and #528/#344 custody/publication. #493 automatic
+retirement and real full-build telemetry remain open. No RC allocated.
 
-## Delivery to consume — current checkpoint prepared before launch
+#566 official API documentation confirms developer registration via its forum.
+Owner clarification is pending about an existing approved pixelelated identity;
+no credential values requested in chat and no provider outreach sent. Read
+screenscraper-dependency.md in the new packet. This does not block unrelated
+source/VM work. Nova provenance uncertainty remains preserved in earlier packets;
+no new device/account/cloud/save operation occurred.
 
-/workspace/tmp/pix570-es-product-20261013/delivery01 is the fresh owner for
-publishing the scoped ES feature branch plus this distribution evidence/checkpoint.
-It has not been proven complete by this checkpoint. Inspect result.json,
-launcher-result.json, tool-wrapper.rc, runner-result/build.rc/status, actual host
-owner/command/watcher exits and exact remote HEAD plus record/wordlist CI.
-Verify the separate ES feature ref equalsf7b71db0a; it is a review branch,
-not qa-integration or a pin promotion. Never replay a completed owner.
-No off-session notification exists; actively supervise and announce completion.
+## Delivery to consume — checkpoint prepared before launch
 
-#493's earlier /workspace/tmp/pix493-admission-20261013/delivery01 is COMPLETE0,
-actual exits and both exact-head hosted checks consumed. All its test owners are
-also complete. The resume-only proof caught stale oldapply01-running tracker
-text; it is corrected. No independent code-audit claim or new external transfer.
+/workspace/tmp/pix570-es-compare-20261013/delivery01 is the fresh record-only
+publication owner for this checkpoint and comparison packet. This file cannot
+prove that future delivery complete. Read its original result, launcher, wrapper,
+runner/build/status, actual host exits, remote HEAD and exact-head record/wordlist
+checks before claiming delivery. Never replay a completed owner. No off-session
+alert exists; actively supervise. Earlier product-owner delivery01 and #493
+delivery01 are already COMPLETE0/exited/consumed, not pending work.
 
 ## Historical context — preserved completed evidence, not commands to replay
 
@@ -234,13 +228,14 @@ diagnostic candidates; the new measured ES opportunity is the next narrow lead.
 
 ## Next steps, in order
 
-1. Consume the current product-evidence delivery above; #493 and baseline deliveries are complete0/exited.
+1. Consume the comparison-record delivery above; product-evidence, #493 and baseline deliveries are complete0/exited.
 2. Prepare current measured retention/admission receipts before further compilation or guest allocation.
    Launch enforcement is implemented; automatic cleanup remains separate open
    infrastructure work. No broad historical deletion or general sudo is implied.
-3. Remaining #570 qualification of compiledf7b71db0a above; the prior proposal was an isolated branch
-   fromc8dc72cf9e: syntax/package checks, normal sign-in, phone/native input,
-   cancel/error/return/lifecycle, canonical same-source frame index. VM first;
+3. Remaining #570 qualification of compiledf7b71db0a: browser-open failure,
+   remaining success/failure branches and broader standard-profile source-bound
+   UI coverage. Compilation, bounded native/phone smoke, actual memory comparison
+   and three same-process reopen cycles are complete above. VM first;
    designated RG35XX SP H700 bench100.74.205.40underD-QA-060/device-act for physical
    memory/input corroboration. Separate RG SP100.75.221.73and Nova outside scope.
 4. #565 actual next-payload, clean-first-boot and genuine retained-storage upgrade;
@@ -284,7 +279,7 @@ Keep durable compact logs/source/receipts; remove completed disposable disks.
 ## Historical record deliveries
 
 Prior diagnostic, clean-state, baseline and #493 deliveries are COMPLETE0/exited
-and their exact-head hosted checks passed. Do not replay them. Current product
-evidence delivery is above.
+and their exact-head hosted checks passed. Product-evidence delivery is also
+complete. Do not replay them. Current comparison-record delivery is above.
 
-Previous checkpoint: archived/saved-session-state-next-20261013T185558Z.md
+Previous checkpoint: archived/saved-session-state-next-20261013T192726Z.md
