@@ -162,8 +162,12 @@ Keep durable compact logs/source/receipts; remove completed disposable disks.
 
 ## Record delivery
 
-Current fresh delivery owner is
-/workspace/tmp/pix-m7-investigation-20261013/delivery01. It requires committed
+Delivery01 refused before push for a missing issue citation in an unpublished
+formatting commit; all original channels1 and actual host exits are consumed.
+The message was amended with identical file tree and verified remote unchanged.
+The serial evidence is now byte-verified gzip (38 state-packet files); no test
+result changed. Current fresh delivery owner is
+/workspace/tmp/pix-m7-investigation-20261013/delivery02. It requires committed
 clean feature/main, ff-only next integration, guarded push and exact-head hosted
 record/wordlist success. Inspect result.json, launcher-result, tool-wrapper.rc,
 watcher build.rc, actual host PID exits and origin HEAD before saying delivered.
