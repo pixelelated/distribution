@@ -445,6 +445,53 @@ def release_bundle(parent, payload_path):
     return dest
 
 
+def ext4_listing_controls(work, image):
+    # Exercise the gate through its payload CLI, without importing it. Only the
+    # debugfs listing response is synthetic; the image and other readers remain
+    # real. Native clean/dirty image controls run separately before these cases.
+    shim = put(work, "debugfs-shim/debugfs", "#!" + sys.executable + "\n" + '''import json
+import os
+from pathlib import Path
+import sys
+if len(sys.argv) != 4 or sys.argv[1] != "-R":
+    sys.exit(2)
+responses = json.loads(Path(os.environ["PIX565_DEBUGFS_RESPONSE"]).read_text())
+if sys.argv[2] not in responses:
+    sys.exit(2)
+sys.stdout.write(responses[sys.argv[2]])
+''')
+    shim.chmod(0o755)
+    root = ("/2/040755/0/0/.//\n/2/040755/0/0/..//\n"
+            "/11/040700/0/0/lost+found//\n/12/100644/0/0/.please_resize_me/0/\n")
+    lost = "/11/040700/0/0/.//\n/2/040755/0/0/..//\n"
+    slots = "/0/000000/0/0//0/\n" * 3
+    cases = (
+        ("unused-slots-lost-found", "ls -p /lost+found", lost + slots, 0),
+        ("unused-slots-root", "ls -p /", root + slots, 0),
+        ("unused-slots-without-dots", "ls -p /lost+found", slots, 2),
+        ("zero-inode-named-entry", "ls -p /lost+found", lost + "/0/000000/0/0/" + CANARY + "/0/\n", 2),
+        ("zero-inode-live-mode", "ls -p /lost+found", lost + "/0/100644/0/0//0/\n", 2),
+        ("zero-inode-owner", "ls -p /lost+found", lost + "/0/000000/1/0//0/\n", 2),
+        ("zero-inode-size", "ls -p /lost+found", lost + "/0/000000/0/0//1/\n", 2),
+        ("zero-inode-short-record", "ls -p /lost+found", lost + "/0/000000/0//0/\n", 2),
+        ("zero-inode-alternate-spelling", "ls -p /lost+found", lost + "/00/000000/0/0//0/\n", 2),
+        ("unused-slot-trailing-data", "ls -p /lost+found", lost + "/0/000000/0/0//0/extra\n", 2),
+        ("live-entry-beside-unused-slots", "ls -p /lost+found",
+         lost + slots + "/13/100644/0/0/" + CANARY + "/0/\n", 1),
+    )
+    rows = []
+    for name, directory, output, expected in cases:
+        responses = {"ls -p /": root, "ls -p /lost+found": lost}
+        responses[directory] = output
+        response = put(work, "debugfs-shim/response.json", json.dumps(responses))
+        env = {**os.environ, "PATH": str(shim.parent) + os.pathsep + os.environ.get("PATH", ""),
+               "PIX565_DEBUGFS_RESPONSE": str(response)}
+        invoke(["--payload", str(image)], expected,
+               "storage-seed-residue" if expected == 1 else None, env=env)
+        rows.append({"case": "debugfs-" + name, "status": "pass", "synthetic_reader_output": True})
+    return rows
+
+
 def payload_controls(work):
     rows = []
     for name, contaminated in (("clean", False), ("contaminated", True)):
@@ -484,6 +531,7 @@ def payload_controls(work):
                        "storage-seed-residue" if dirty_storage else None)
                 rows.append({"case": "image-dirty-storage" if dirty_storage else "image-clean",
                              "status": "pass"})
+            rows += ext4_listing_controls(work, work / "clean.img.gz")
         rows.append({"case": "prepare-" + name, "status": "pass"})
     for name, mutate in (("locale-altered-second-hop", lambda r: shipped_locale(
             r, second="/storage/.config/other")), ("locale-target-escape", locale_target_escape)):

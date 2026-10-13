@@ -653,6 +653,11 @@ def empty_ext4(path):
         for line in raw.splitlines():
             if not line.strip():
                 continue
+            # debugfs 1.47.2 prints this exact unused directory slot for a freshly
+            # allocated lost+found. It has no inode, name, ownership or content.
+            # Every other zero-inode shape must still fail the live-entry checks.
+            if line == "/0/000000/0/0//0/":
+                continue
             fields = line.split("/")
             require(len(fields) == 8 and fields[0] == fields[-1] == "")
             inode, mode, uid, gid, name, size = fields[1:-1]

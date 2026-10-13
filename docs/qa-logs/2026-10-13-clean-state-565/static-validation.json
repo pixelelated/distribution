@@ -1,21 +1,21 @@
 {
   "schema": 1,
-  "utc": "2026-10-13T08:02:30.207185+00:00",
+  "utc": "2026-10-13T08:19:47.045243+00:00",
   "starting_commit": "1a37cde40ab0893c9c21c0a383c59ac0c1403b06",
-  "corrects_candidate": "63e05cd728acd1d2a76dffc1c4b1d7fd75fa3fab",
+  "corrects_candidate": "ab47ce27166770d6e76a2857fd91e6d6f475d7fd",
   "validation": "current source inventory and syntax only; prior coordinator runtime recorded separately",
   "checks": [
     {
       "kind": "python-ast-only",
       "path": "tools/pixelelated-state-check",
       "status": "pass",
-      "source_sha256": "47c7cfa841eb1304f5dd4e0621a9608093ee32cc5dbcffde22a2dfc73fe5969c"
+      "source_sha256": "ea070ff5884b3ddeb39d2c408406d8b85a5a1b41c983b6124af896db3480dba3"
     },
     {
       "kind": "python-ast-only",
       "path": "tools/pixelelated-state-check-test",
       "status": "pass",
-      "source_sha256": "a1bbe980d507e71199eb360e8a7e5a56188a8b242e9f63603d1adbe43595a6e0"
+      "source_sha256": "983f2e41ce0dc7e4c460dcdacb452e66f6768643b50e3fbb282333c375fd293c"
     },
     {
       "kind": "python-ast-only",
@@ -48,6 +48,16 @@
     {
       "kind": "comment-only-kind-scope-AST",
       "path": "tools/pixelelated-state-check",
+      "status": "pass"
+    },
+    {
+      "kind": "exact-unused-slot-and-positive-inode-AST",
+      "path": "tools/pixelelated-state-check",
+      "status": "pass"
+    },
+    {
+      "kind": "embedded-debugfs-shim-python-ast-only",
+      "path": "tools/pixelelated-state-check-test",
       "status": "pass"
     },
     {
@@ -213,9 +223,9 @@
   "limits": [
     "No current-revision behavior/fixture PASS claimed",
     "No retained-storage OS upgrade performed",
-    "No passing accepted final-payload or first-boot result for this revision",
-    "New comment-only, startup scrub and retained-retry controls require coordinator allocation",
-    "Proc boot-window reader has not been exercised by this lane"
+    "Earlier 63e/ab47 runtime receipts remain bound to those sources",
+    "Canonical unused-slot handling and eleven synthetic debugfs-output controls await coordinator runtime",
+    "Native clean/dirty image payload controls remain required; synthetic reader output is not native-reader evidence"
   ],
   "locale_source_references": [
     {
@@ -309,5 +319,42 @@
     "invalid-mode",
     "readiness-requires-guest-root"
   ],
-  "expected_root_control_count": 113
+  "expected_root_control_count": 113,
+  "prepared_debugfs_reader_control_sources": [
+    "unused-slots-lost-found",
+    "unused-slots-root",
+    "unused-slots-without-dots",
+    "zero-inode-named-entry",
+    "zero-inode-live-mode",
+    "zero-inode-owner",
+    "zero-inode-size",
+    "zero-inode-short-record",
+    "zero-inode-alternate-spelling",
+    "unused-slot-trailing-data",
+    "live-entry-beside-unused-slots"
+  ],
+  "prepared_debugfs_controls_use_synthetic_reader_output": true,
+  "reader_PATH_inventory_scope": "Earlier lane PATH; coordinator now supplies existing read-only mcopy through allocated PATH, without installation",
+  "prior_ab47_coordinator_runtime": {
+    "source_commit": "ab47ce27166770d6e76a2857fd91e6d6f475d7fd",
+    "evidence_source": "coordinator message; pass artifact paths not supplied in that message",
+    "first_boot_status_reported": "pass",
+    "first_boot_exit_reported": 0,
+    "root_controls_status_reported": "pass",
+    "root_control_count_reported": 113,
+    "guest_exit_reported": 0,
+    "stderr_empty_reported": true,
+    "duration_seconds_reported": 5.9,
+    "vm_retired_reported": true,
+    "does_not_qualify_this_revision": true,
+    "later_payload_failure_reported": "clean tar and release preparation passed; clean install-image refused at empty_ext4 positive-inode check"
+  },
+  "saved_empty_directory_evidence": {
+    "path": "/workspace/tmp/pix565-payload-diagnostic02-20261013/empty-directory-listing.json",
+    "reader_version_reported": "debugfs 1.47.2",
+    "canonical_unused_slot_count": 3,
+    "dot_entry_count": 2,
+    "other_record_count": 0,
+    "read_by_this_lane": true
+  }
 }

@@ -12,11 +12,12 @@ The preceding revision `63e05cd728acd1d2a76dffc1c4b1d7fd75fa3fab`
 corrected findings against
 `a7a36c874930fb16a15197ef112e90f31820b225`: oneshot readiness, the shipped
 runtime-locale link, Dolphin's ApiToken field, melonDS's explicit null sentinels,
-and literal SquashFS filename reads. This revision corrects the comment-only
-RetroArch default and clean-startup scrub marker refusals found in the
-coordinator's first-boot run. This lane has executed no controls.
-The coordinator owns the sole clean-state VM allocation; production
-integration remains held.
+and literal SquashFS filename reads. Revision
+`ab47ce27166770d6e76a2857fd91e6d6f475d7fd` corrected the comment-only
+RetroArch default and clean-startup scrub marker refusals. This revision narrowly
+recognizes canonical unused ext4 directory slots after the coordinator's host
+payload run failed at the positive-inode requirement. This lane has executed no
+controls. Runtime and production integration remain coordinator-owned.
 
 Can this be done on the VM? Yes: a disposable GENERIC_X64 guest can inspect its
 own defaults and first-boot storage, and run the synthetic root controls. Host
@@ -180,14 +181,24 @@ refuse. Disk inflation uses sparse zero writes, capped at 16 GiB; SYSTEM at
 or full cache copy. Temporary payload copies are removed when the call ends.
 Abrupt host termination can leave scratch; the coordinator owns that cleanup.
 
-Readers currently found by executable inventory: `unsquashfs`, `sfdisk`,
-`debugfs`. **`mcopy` is absent from this host's PATH**; its installation or an
-explicit approved toolchain PATH is required before install-image controls or
-preparation can pass. Other fixture dependencies are checked before execution.
-No dependency was installed or cache copied. Reader textual-API compatibility
-(`unsquashfs -lln`, `debugfs ls -p`) is source/API-inspected only, not exercised.
-Missing tools and unrecognized output refuse; do not turn that refusal into a
-skip. No network operation belongs to the gate.
+Native debugfs 1.47.2 emits `/0/000000/0/0//0/` for unused slots in a freshly
+allocated empty `/lost+found`. The parser skips only that exact record, including
+repeated slots, before validating live entries. Any other zero-inode shape still
+fails: names, live modes, ownership, nonzero sizes, alternate spelling or malformed
+fields do not receive the exception. Positive-inode `.` and `..` remain required;
+live entries beside unused slots still count as storage residue. This does not
+change the allowed storage seed or the required `e2fsck -fn` validation.
+
+The original PATH inventory lacked `mcopy`; the coordinator now supplies an
+existing read-only utility through its allocated PATH without installing it.
+Other fixture dependencies are checked before execution. No dependency was
+installed or cache copied by this lane. The coordinator's ab47 host run passed
+clean tar inspection and release preparation before refusing clean install-image
+inspection on the unused slots. Native clean/dirty images remain the real-reader
+controls. Eleven additional controls substitute only debugfs listing output via
+a temporary PATH shim, using a real synthetic image and the normal payload CLI;
+they are explicitly synthetic API controls, not evidence of native reader behavior.
+Missing tools and unrecognized output refuse. No network operation belongs to the gate.
 
 This is not a whole-image secret scan. Arbitrary secrets, compiled raw
 GamesDB keys, unknown binaries, shell/build environment overrides, arbitrary
@@ -220,7 +231,7 @@ Imported metadata can satisfy membership without a local launch. The metadata
 arrival path and original account-entry author remain unknown. A preserved
 upgrade, gamelist mtime or empty-default spot check cannot settle that origin.
 
-## Coordinator evidence for the preceding revision
+## Coordinator evidence for earlier revisions
 
 The coordinator ran frozen `63e05cd728acd1d2a76dffc1c4b1d7fd75fa3fab`
 synthetic-root controls in its disposable guest: PASS 68/68, guest exit 0, empty
@@ -240,18 +251,33 @@ two zero-work startup scrub lines. The saved classification evidence is
 printing marker epochs or account values. No new guest, fixture, tool import or
 runtime command was run here. No new first-boot pass is claimed.
 
+The coordinator subsequently reported frozen
+`ab47ce27166770d6e76a2857fd91e6d6f475d7fd` first-boot `--require-ready`
+PASS/exit 0 with the normal zero-work startup marker, and root controls
+PASS 113/113, guest exit 0, empty stderr, 5.90 seconds. Result/wrapper/watcher
+channels and host exits were consumed; the exact VM was retired. No QA SSH key
+or storage fixture was staged. These are earlier-source receipts, not a pass for
+this revision. No result artifact path was supplied for those passes in the
+coordinator message, so this lane records them as coordinator-reported.
+
+The later ab47 host payload failure reached `empty_ext4` through the clean
+install image and refused its empty `/lost+found` listing. This lane read
+`/workspace/tmp/pix565-payload-diagnostic02-20261013/empty-directory-listing.json`:
+two positive-inode directory entries (`.` and `..`) and three exact canonical
+unused slots, with no other records. The original failures/results remain with
+the coordinator. This correction has no executed payload receipt yet.
+
 ## Next executable experiment (coordinator only)
 
 Use a **fresh** owner directory and a coordinator allocation, never an archived
-owner. The coordinator retains the clean-state VM and will allocate new controls
-bound to this source and repeat the actual first-boot check. Set the given TMPDIR.
-First run the lightweight synthetic root controls; then filesystem/payload
-controls after reader dependencies are ready. These commands are prepared for
-the new revision and have not been executed against it:
+owner. The prior VM is retired. The next experiment is host `--payload-tests`
+against this exact source, using the coordinator's existing read-only mcopy PATH;
+it runs root controls, native clean/dirty install images and the synthetic listing
+controls. Set the given TMPDIR. These commands are prepared for the new revision
+and have not been executed against it:
 
 ```sh
 export TMPDIR=/workspace/tmp/pix-m7-investigation-20261013/tmp
-tools/pixelelated-state-check-test --self-test > "$OWNER/root-controls.json"
 tools/pixelelated-state-check-test --payload-tests > "$OWNER/payload-controls.json"
 tools/fork-publish-release --prepare "$BUNDLE" > "$OWNER/release-plan.json"
 ```
@@ -299,9 +325,9 @@ the frontend services then start ES. The guard therefore additionally requires
 marker, one live `/usr/bin/emulationstation`, and unchanged boot identity through
 inspection. Merely changing the hard-coded unit name or accepting any successful
 inactive unit would not establish these prerequisites. The coordinator's frozen
-63e run passed readiness on VM20. Additional failure controls and the new scrub
-boot-window reader still require allocated runtime verification. Source/AST
-checks of this correction are in `static-validation.json`.
+63e run passed readiness on VM20; ab47 passed the full first-boot check including
+the scrub boot-window reader. Those earlier-source receipts are preserved above.
+Source/AST checks of the current correction are in `static-validation.json`.
 
 The executable serial adapter is `run-first-boot.sh` in this packet:
 
@@ -335,9 +361,10 @@ unreadable uptime, symlinks and renamed residue. Retained cloud-only, ES-only,
 cloud-first and ES-first retry records pass only their supported grammar and
 retain their bytes/modes. First-boot rejects the partial/reordered forms. The
 payload controls now exercise comment-only defaults and a zero-work marker
-preseed inside a real synthetic SYSTEM. The self-test now contains 113 expected
-root controls (110 named cases and three argument/root refusals). None of these
-new controls has run.
+preseed inside a real synthetic SYSTEM. The self-test contains 113 expected root
+controls (110 named cases and three argument/root refusals), previously passed
+on frozen ab47 by the coordinator. The new unused-slot correction adds eleven
+payload reader controls; no control has run against this new source yet.
 
 ## Coordinator-owned follow-through
 
