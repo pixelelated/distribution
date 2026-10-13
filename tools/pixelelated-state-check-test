@@ -66,6 +66,19 @@ def clean(root, runtime=True):
             '<playcount>0</playcount></game></gameList>')
 
 
+def shipped_locale(root, first="/usr/share/locale", second="/storage/.config/locale"):
+    # Exact ES post_install chain: absent storage target in an immutable SYSTEM.
+    (root / "usr/share").mkdir(parents=True, exist_ok=True)
+    (root / "usr/config/emulationstation/locale").symlink_to(first)
+    (root / "usr/share/locale").symlink_to(second)
+
+
+def locale_target_escape(root):
+    shipped_locale(root)
+    (root / "storage/.config").mkdir(parents=True, exist_ok=True)
+    (root / "storage/.config/locale").symlink_to("/../outside")
+
+
 def snapshot(root):
     # Compare synthetic fixture bytes directly in memory, never hash credentials.
     result = {}
@@ -109,6 +122,28 @@ def root_controls(work):
 
     case("clean-first-boot")
     case("clean-image", mode="clean-image")
+    case("shipped-locale-dangling-clean-image", shipped_locale, mode="clean-image")
+    case("shipped-locale-dangling-first-boot", shipped_locale, 2)
+    def materialized_locale(root):
+        shipped_locale(root)
+        put(root, "storage/.config/locale/en/translation.mo", b"synthetic translation")
+    case("shipped-locale-materialized", materialized_locale)
+    def locale_history(root):
+        materialized_locale(root)
+        put(root, "storage/.config/locale/gamelist.xml",
+            '<gameList><game><playcount>1</playcount></game></gameList>')
+    case("shipped-locale-materialized-history", locale_history, 1, "playcount", "clean-image")
+    case("locale-altered-first-hop", lambda r: shipped_locale(r, first="/storage/.config/locale"),
+         2, mode="clean-image")
+    case("locale-altered-second-hop", lambda r: shipped_locale(r, second="/storage/.config/other"),
+         2, mode="clean-image")
+    case("locale-first-hop-escape", lambda r: shipped_locale(r, first="../../../../../outside"),
+         2, mode="clean-image")
+    case("locale-target-escape", locale_target_escape, 2, mode="clean-image")
+    def unrelated_dangling_locale(root):
+        shipped_locale(root)
+        (root / "usr/config/emulationstation/other").symlink_to("/usr/share/locale")
+    case("locale-unrelated-dangling", unrelated_dangling_locale, 2, mode="clean-image")
     case("never-played-zero", lambda r: put(r, "storage/roms/synthetic/gamelist.xml",
          '<gameList><game><playcount>0</playcount><lastplayed>0</lastplayed></game></gameList>'))
     case("identical-default-repeat", lambda r: put(r, "usr/config/system/configs/system.cfg",
@@ -178,6 +213,32 @@ def root_controls(work):
          1, "player-account-file")
     case("standalone-ini", lambda r: put(r, "storage/.config/flycast/emu.cfg",
          "[achievements]\nToken = " + CANARY + "\n"), 1, "player-account")
+    case("dolphin-apitoken-only", lambda r: put(r, "storage/.config/dolphin-emu/RetroAchievements.ini",
+         "[Achievements]\nApiToken = " + CANARY + "\n"), 1, "player-account")
+    case("dolphin-apitoken-default", lambda r: put(r, "usr/config/dolphin-emu/RetroAchievements.ini",
+         "[Achievements]\nApiToken = " + CANARY + "\n"), 1, "player-account", "clean-image")
+    case("dolphin-apitoken-retained", lambda r: put(r, "storage/.config/dolphin-emu/RetroAchievements.ini",
+         "[Achievements]\nApiToken = " + CANARY + "\n"), mode="retained-upgrade")
+    melon_empty = "RA_Enabled=0\nRA_Username=null\nRA_Password=null\nRA_Token=null\n"
+    case("melonds-null-default", lambda r: put(r, "usr/config/melonDS/melonDS.ini", melon_empty),
+         mode="clean-image")
+    case("melonds-null-runtime", lambda r: put(r, "storage/.config/melonDS/melonDS.ini", melon_empty))
+    case("melonds-token-only", lambda r: put(r, "storage/.config/melonDS/melonDS.ini",
+         melon_empty.replace("RA_Token=null", "RA_Token=" + CANARY)), 1, "player-account")
+    case("melonds-username-only", lambda r: put(r, "usr/config/melonDS/melonDS.ini",
+         melon_empty.replace("RA_Username=null", "RA_Username=" + CANARY)), 1, "player-account")
+    case("melonds-password-only", lambda r: put(r, "storage/.config/melonDS/melonDS.ini",
+         melon_empty.replace("RA_Password=null", "RA_Password=" + CANARY)), 1, "player-account")
+    case("melonds-quoted-null-is-populated", lambda r: put(r, "storage/.config/melonDS/melonDS.ini",
+         'RA_Token="null"\n'), 1, "player-account")
+    case("melonds-section-null-is-populated", lambda r: put(r, "storage/.config/melonDS/melonDS.ini",
+         '[Achievements]\nRA_Token=null\n'), 1, "player-account")
+    case("melonds-uppercase-null-is-populated", lambda r: put(r, "storage/.config/melonDS/melonDS.ini",
+         'RA_Token=NULL\n'), 1, "player-account")
+    case("melonds-other-key-case-null-is-populated", lambda r: put(r, "storage/.config/melonDS/melonDS.ini",
+         'ra_token=null\n'), 1, "player-account")
+    case("other-emulator-null-is-populated", lambda r: put(r, "storage/.config/flycast/emu.cfg",
+         'RA_Token=null\n'), 1, "player-account")
     case("history-playlist", lambda r: put(r, "storage/.config/retroarch/content_history.lpl",
          json.dumps({"items": [{"path": CANARY}]})), 1, "play-history")
     case("missing-required", lambda r: (r / "usr/config/system/configs/system.cfg").unlink(), 2)
@@ -211,7 +272,9 @@ def root_controls(work):
     case("fifo-required", fifo, 2)
     invoke(["--root", str(work / "absent"), "--mode", "first-boot"], 2)
     invoke(["--root", str(work), "--mode", CANARY], 2)
-    rows.extend({"case": n, "status": "pass"} for n in ("absent-root", "invalid-mode"))
+    invoke(["--root", str(work), "--mode", "first-boot", "--require-ready"], 2)
+    rows.extend({"case": n, "status": "pass"} for n in
+                ("absent-root", "invalid-mode", "readiness-requires-guest-root"))
     return rows
 
 
@@ -288,14 +351,17 @@ def payload_controls(work):
         root = work / (name + "-root")
         root.mkdir()
         clean(root, runtime=False)
+        shipped_locale(root)
         if contaminated:
             put(root, "usr/config/system/configs/system.cfg",
                 "global.retroachievements.username=" + CANARY + "\n")
         tar = work / (name + ".tar")
         system = make_tar(root, tar)
-        invoke(["--payload", str(tar)], 1 if contaminated else 0,
-               "player-account" if contaminated else None)
-        rows.append({"case": "tar-" + name, "status": "pass"})
+        report = invoke(["--payload", str(tar)], 1 if contaminated else 0,
+                        "player-account" if contaminated else None)
+        require(any(row["category"] == "runtime-locale-deferred" and row["status"] == "clear"
+                    for row in report["checks"]))
+        rows.append({"case": "tar-" + name + "-shipped-locale", "status": "pass"})
         if not contaminated:
             invoke(["--payload", str(tar)], 2, env={**os.environ, "PATH": "/nonexistent"})
             rows.append({"case": "missing-payload-reader", "status": "pass"})
@@ -318,6 +384,41 @@ def payload_controls(work):
                 rows.append({"case": "image-dirty-storage" if dirty_storage else "image-clean",
                              "status": "pass"})
         rows.append({"case": "prepare-" + name, "status": "pass"})
+    for name, mutate in (("locale-altered-second-hop", lambda r: shipped_locale(
+            r, second="/storage/.config/other")), ("locale-target-escape", locale_target_escape)):
+        root = work / (name + "-payload-root")
+        root.mkdir()
+        clean(root, runtime=False)
+        mutate(root)
+        path = work / (name + ".tar")
+        make_tar(root, path)
+        invoke(["--payload", str(path)], 2)
+        rows.append({"case": "tar-" + name, "status": "pass"})
+    # Regression for unsquashfs cat_scan fnmatch: bracketed and matching literal
+    # sibling coexist, but only the bracketed file is contaminated. Reading the
+    # clean match or skipping the unsupported spelling must not produce a pass.
+    root = work / "literal-reader-root"
+    root.mkdir()
+    clean(root, runtime=False)
+    shipped_locale(root)
+    put(root, "usr/config/system/configs/system.cfg.bak[1]",
+        "global.retroachievements.token=" + CANARY + "\n")
+    put(root, "usr/config/system/configs/system.cfg.bak1",
+        "global.retroachievements.token=\n")
+    path = work / "literal-reader.tar"
+    make_tar(root, path)
+    report = invoke(["--payload", str(path)], 1, "player-account")
+    require(any(row["path"] == "/usr/config/system/configs/system.cfg.*" and
+                row["category"] == "player-account" and row["count"] == 1 and
+                row["status"] == "blocked" for row in report["checks"]))
+    rows.append({"case": "tar-literal-bracketed-recovery-file", "status": "pass"})
+    parent = work / "literal-reader-bundle"
+    parent.mkdir()
+    bundle = release_bundle(parent, path)
+    p = subprocess.run([sys.executable, "-B", str(HERE / "fork-publish-release"),
+                        "--prepare", str(bundle)], capture_output=True, timeout=180)
+    require(p.returncode == 1 and CANARY.encode() not in p.stdout + p.stderr)
+    rows.append({"case": "prepare-literal-bracketed-recovery-file", "status": "pass"})
     for name, members in (("missing-system", [("synthetic/target/KERNEL", b"not-system")]),
                           ("invalid-squashfs", [("synthetic/target/SYSTEM", b"not-system")]),
                           ("traversal", [("../SYSTEM", b"not-system")]),
@@ -343,10 +444,7 @@ def prepare_guest(path):
     encoded = base64.b64encode(GATE.read_bytes()).decode()
     script = """#!/bin/sh
 set -u
-if [ "$(systemctl is-active rocknix-autostart.service)" != active ]; then
-    echo 'PIX_STATE_565_RC=2'; exit 2
-fi
-python3 -B -c 'import base64; exec(compile(base64.b64decode(""" + json.dumps(encoded) + """), "<state-check>", "exec"))' --root / --mode first-boot
+python3 -B -c 'import base64; exec(compile(base64.b64decode(""" + json.dumps(encoded) + """), "<state-check>", "exec"))' --root / --mode first-boot --require-ready
 rc=$?
 echo "PIX_STATE_565_RC=$rc"
 exit "$rc"

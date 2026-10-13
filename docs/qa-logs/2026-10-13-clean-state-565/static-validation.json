@@ -1,20 +1,21 @@
 {
   "schema": 1,
-  "utc": "2026-10-13T07:01:48.239221+00:00",
+  "utc": "2026-10-13T07:21:31.260557+00:00",
   "starting_commit": "1a37cde40ab0893c9c21c0a383c59ac0c1403b06",
+  "corrects_candidate": "a7a36c874930fb16a15197ef112e90f31820b225",
   "validation": "source inventory and syntax only",
   "checks": [
     {
       "kind": "python-ast-only",
       "path": "tools/pixelelated-state-check",
       "status": "pass",
-      "source_sha256": "5b73a7a90ae942d0955dbf8ff0a310dc089f1aa4b25f5a899e5f87dfcaabe69f"
+      "source_sha256": "f1e0640fa4ebd8055e8bf0092f26ada91bf5c12c40d9d30fc115590340cd90a1"
     },
     {
       "kind": "python-ast-only",
       "path": "tools/pixelelated-state-check-test",
       "status": "pass",
-      "source_sha256": "6df2bf57c1fdf39db4c0828764286c1964fac3f47a8f73575fb40dc18ea20fad"
+      "source_sha256": "4abecf282968570f54e83e0f9dc16c4c7b4255a4c963d4cd3cb1ef021eb9dfa9"
     },
     {
       "kind": "python-ast-only",
@@ -26,7 +27,7 @@
       "kind": "shell-syntax-only",
       "path": "docs/qa-logs/2026-10-13-clean-state-565/run-first-boot.sh",
       "status": "pass",
-      "source_sha256": "76f105ad2b1801b3b2b1e5d33fe615b178d0f268d2a964c0cdbe21eb1bbc90e7"
+      "source_sha256": "a49a0bb3f8b5ed937dafc7524c70e2ce9ce74e925478d421dc0f7e3a20e957da"
     },
     {
       "kind": "embedded-python-ast-only",
@@ -38,11 +39,29 @@
       "path": "tools/pixelelated-state-check-test",
       "status": "pass",
       "placeholder_only": true
+    },
+    {
+      "kind": "literal-reader-argv-AST",
+      "path": "tools/pixelelated-state-check",
+      "status": "pass"
+    },
+    {
+      "kind": "git-diff-HEAD-whitespace",
+      "status": "pass"
     }
   ],
   "named_root_control_sources": [
     "clean-first-boot",
     "clean-image",
+    "shipped-locale-dangling-clean-image",
+    "shipped-locale-dangling-first-boot",
+    "shipped-locale-materialized",
+    "shipped-locale-materialized-history",
+    "locale-altered-first-hop",
+    "locale-altered-second-hop",
+    "locale-first-hop-escape",
+    "locale-target-escape",
+    "locale-unrelated-dangling",
     "never-played-zero",
     "identical-default-repeat",
     "es-lexical-playcount",
@@ -72,6 +91,19 @@
     "proxy-cache",
     "standalone-token",
     "standalone-ini",
+    "dolphin-apitoken-only",
+    "dolphin-apitoken-default",
+    "dolphin-apitoken-retained",
+    "melonds-null-default",
+    "melonds-null-runtime",
+    "melonds-token-only",
+    "melonds-username-only",
+    "melonds-password-only",
+    "melonds-quoted-null-is-populated",
+    "melonds-section-null-is-populated",
+    "melonds-uppercase-null-is-populated",
+    "melonds-other-key-case-null-is-populated",
+    "other-emulator-null-is-populated",
     "history-playlist",
     "missing-required",
     "empty-required",
@@ -85,6 +117,34 @@
     "symlink-cycle",
     "fifo-required"
   ],
+  "readiness_source_references": [
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/autostart/system.d/rocknix-autostart.service",
+      "source_sha256": "944ab66f9cd7c23664e23c18ec7ac78226928f4c295bd7507ccc18e97e130507"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/autostart/sources/autostart",
+      "source_sha256": "7f8671aa1bb9239a193f84e667d55e169f983bcb015d98c345b60d0b80a77639"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/rocknix/sources/scripts/automount",
+      "source_sha256": "e2543840a2ec9360fbc69e80ba9eb620bcb2cdc0278b8dc08a9c072eb1864613"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/ui/emulationstation/system.d/emustation.service",
+      "source_sha256": "750aaecb3671862c49e33b2480c08d77c9279ae74072df4626d069efb271188b"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/ui/emulationstation/system.d/essway.service",
+      "source_sha256": "7e9e338de7b857d4917d005067782151dbb33142ea84928103198530bf542b69"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/lib/systemd/system/rocknix-autostart.service",
+      "source_sha256": "944ab66f9cd7c23664e23c18ec7ac78226928f4c295bd7507ccc18e97e130507"
+    }
+  ],
+  "coordinator_observation": "autostart.service inactive with Result=success; not read from a live guest by this lane",
+  "source_observation": "tracked and accepted VM20 cache unit is rocknix-autostart.service, oneshot with RemainAfterExit=yes; effective runtime discrepancy unresolved",
   "runtime_fixtures_executed": false,
   "tool_imported": false,
   "firmware_extracted": false,
@@ -103,6 +163,44 @@
   "limits": [
     "No behavior/fixture PASS claimed",
     "No retained-storage OS upgrade performed",
-    "No accepted final-payload or first-boot result yet"
+    "No accepted final-payload or first-boot result yet",
+    "Readiness, locale-chain, account-parser and literal-reader corrections require allocated runtime verification"
+  ],
+  "locale_source_references": [
+    {
+      "path": "projects/ROCKNIX/packages/ui/emulationstation/package.mk",
+      "source_sha256": "aaedc890492207c3b3b665f01c45365831ea1a3b6cfb22cfdbdca3d70175ae02"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/systemd/scripts/userconfig-setup",
+      "source_sha256": "4c7b210984988bf1faea69f01f68b3c527a1650424b4e6e408c534f13fe9eab0"
+    }
+  ],
+  "account_source_references": [
+    {
+      "path": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/cheevos_dolphin.sh",
+      "source_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/emulators/standalone/melonds-sa/scripts/cheevos_melonds.sh",
+      "source_sha256": "0396a11e48928abc8f98aefcf7c2276e582527e65e39a1a38f115e415a4242fb"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/emulators/standalone/melonds-sa/config/AMD64/melonDS.ini",
+      "source_sha256": "8d82bf760c076ad0b530304b20e06a4a3cd142786cacf954ef49991bcd33e464"
+    }
+  ],
+  "literal_reader_API_reference": {
+    "path": "/usr/share/man/man1/unsquashfs.1.gz",
+    "flag": "-no-wildcards",
+    "source_sha256": "d11e212b44942c3cad8c65bef13bc9c0e7041e8da63396f0ed14936ddaa03978",
+    "runtime_verified": false
+  },
+  "prepared_payload_regressions": [
+    "clean/contaminated SYSTEM with exact shipped dangling locale chain",
+    "altered locale second hop",
+    "locale target root escape",
+    "contaminated system.cfg.bak[1] alongside clean system.cfg.bak1",
+    "release preparation refuses the bracketed-file contamination"
   ]
 }

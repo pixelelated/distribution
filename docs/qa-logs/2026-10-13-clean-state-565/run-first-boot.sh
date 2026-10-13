@@ -23,6 +23,8 @@ try:
           report.get('policy') == 'pixelelated-selected-state-v1' and
           report.get('mode') == 'first-boot' and report.get('status') == 'pass' and
           report.get('blocked_count') == 0 and report.get('error_count') == 0 and
+          any(row.get('category') == 'boot-ready' and row.get('status') == 'clear'
+              and row.get('present') is True for row in report.get('checks', [])) and
           text.count('PIX_STATE_565_RC=') == 1 and 'PIX_STATE_565_RC=0' in text)
 except Exception:
     ok = False

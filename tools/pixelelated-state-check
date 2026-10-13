@@ -36,7 +36,7 @@ CORE = {"system/configs/system.cfg": "system",
         "retroarch/retroarch.cfg": "retroarch",
         "cloud_sync.conf": "cloud"}
 OPTIONAL = {
-    "duckstation/settings.ini": "emulator", "melonDS/melonDS.ini": "emulator",
+    "duckstation/settings.ini": "emulator", "melonDS/melonDS.ini": "melonds",
     "flycast/emu.cfg": "emulator", "aethersx2/inis/PCSX2.ini": "emulator",
     "ARMSX2/inis/PCSX2.ini": "emulator", "ARMSX2/inis/secrets.ini": "emulator",
     "dolphin-emu/RetroAchievements.ini": "emulator",
@@ -49,7 +49,7 @@ OPTIONAL = {
     "cloud_sync-device-id.previous": "device-identity",
 }
 SUFFIXES = ("", ".backup", ".bak", ".last-good", ".new", ".tmp")
-PLAYER = {"username", "password", "token", "key", "apikey", "api_key"}
+PLAYER = {"username", "password", "token", "key", "apikey", "api_key", "apitoken"}
 ES_PLAYER = {"screenscraperuser", "screenscraperpass", "retroachievementsusername",
              "retroachievementspassword", "retroachievementstoken"}
 ES_SERVICE = {"screenscraperdevid", "screenscraperdevpass", "gamesdbapikey"}
@@ -68,6 +68,9 @@ LIMITATIONS = ["not a whole-image or arbitrary-secret scan",
                "no custom ES system paths, environment overrides, external media or arbitrary archives",
                "no interpretation of operation success, bytes transferred, actor or metadata origin",
                "retained-upgrade permits runtime state; it does not prove upgrade preservation"]
+LOCALE_ALIAS = "/usr/config/emulationstation/locale"
+LOCALE_SHARED = "/usr/share/locale"
+LOCALE_RUNTIME = "/storage/.config/locale"
 
 
 class Invalid(Exception):
@@ -110,7 +113,7 @@ def xml(data, tag):
     return root
 
 
-def pairs(data):
+def pairs(data, melonds=False):
     """Strict non-executing key/value + INI subset used by selected configs."""
     result, seen, section = [], {}, ""
     source = text(data)
@@ -136,6 +139,12 @@ def pairs(data):
             require(seen[(section, key)] == value)
             continue
         seen[(section, key)] = value
+        # cheevos_melonds.sh and AMD64 defaults use precisely these unquoted,
+        # sectionless assignments for absent accounts. Do not generalize null
+        # to other emulators, INI sections, key spellings or quoted strings.
+        if melonds and not section and line in {
+                "RA_Username=null", "RA_Password=null", "RA_Token=null"}:
+            value = ""
         if value.startswith(('"', "'")):
             quote = value[0]
             require(len(value) >= 2 and value.endswith(quote))
@@ -194,6 +203,17 @@ class Local:
             return "dir", meta.st_size
         require(stat.S_ISREG(meta.st_mode))
         return "file", meta.st_size
+
+    def link(self, path):
+        # Resolve the parent safely, but inspect the final component without
+        # following it. Used only to recognize the shipped runtime locale alias.
+        name = PurePosixPath(path)
+        p = self.resolve(str(name.parent)) / name.name
+        try:
+            meta = p.lstat()
+        except FileNotFoundError:
+            return None
+        return os.readlink(p) if stat.S_ISLNK(meta.st_mode) else None
 
     def children(self, path):
         require(self.info(path)[0] == "dir")
@@ -280,13 +300,21 @@ class Squash:
             require(any(bit in mode for bit in "xst"))
         return ("dir" if mode[0] == "d" else "file"), 0
 
+    def link(self, path):
+        name = PurePosixPath(path)
+        parent = self.resolve(str(name.parent))
+        item = self.nodes.get(parent.rstrip("/") + "/" + name.name)
+        return item[1] if item and item[0][0] == "l" else None
+
     def children(self, path):
         require(self.info(path)[0] == "dir")
         return sorted(self.child_names.get(self.resolve(path), []))
 
     def read(self, path, limit=LIMIT):
         require(self.info(path) and self.info(path)[0] == "file")
-        return command(["unsquashfs", "-processors", "1", "-mem", "64M", "-cat",
+        # The inventory names one exact file. Default cat globbing can substitute
+        # a clean sibling for a contaminated name containing brackets, * or ?.
+        return command(["unsquashfs", "-processors", "1", "-mem", "64M", "-no-wildcards", "-cat",
                         str(self.path), self.resolve(path).lstrip("/")], limit)
 
 
@@ -390,7 +418,7 @@ class Check:
                 require(not any(s in val for s in ("`", "$(", "${", ";")))
                 items.append(("", key.removeprefix("default_"), val))
         else:
-            items = pairs(data)
+            items = pairs(data, melonds=kind == "melonds")
         counts = {"player-account": 0, "developer-service-identity": 0}
         if kind == "cloud":
             counts["configured-remote"] = 0
@@ -419,6 +447,21 @@ class Check:
                         token not in allowed and not re.fullmatch(r"\d+[smh]?", token) for token in tokens)
         return counts
 
+    def deferred_locale(self, path):
+        # ES post_install ships this exact two-hop link; userconfig-setup creates
+        # its storage target at first boot. Only this absent runtime target is
+        # permitted in a clean image. Never relax either generic link resolver.
+        if self.mode != "clean-image" or path != LOCALE_ALIAS:
+            return False
+        target = self.fs.link(path)
+        if target is None:
+            return False
+        require(target == LOCALE_SHARED and self.fs.link(LOCALE_SHARED) == LOCALE_RUNTIME)
+        if self.fs.link(LOCALE_RUNTIME) is not None or self.fs.info(LOCALE_RUNTIME) is not None:
+            return False  # existing targets still undergo the ordinary walk
+        self.row(LOCALE_ALIAS, "runtime-locale-deferred")
+        return True
+
     def walk(self, path, label, callback, required=False):
         try:
             info = self.fs.info(path)
@@ -436,6 +479,8 @@ class Check:
                     count += 1
                     require(count <= MAX_NODES)
                     item = directory + "/" + name
+                    if self.deferred_locale(item):
+                        continue
                     info = self.fs.info(item)
                     require(info is not None)
                     callback(item, name, info[0])
@@ -626,6 +671,66 @@ def payload(path):
         return result
 
 
+def first_boot_ready():
+    """Inspect effective unit execution, not is-active on one assumed unit name.
+
+    The source unit retains its successful oneshot as active/exited; an installed
+    variant can finish as inactive/dead. Result=success alone also describes a
+    unit that never ran, so require actual execution and current-boot artifacts.
+    """
+    boot = Path("/proc/sys/kernel/random/boot_id").read_text().strip()
+    require(bool(re.fullmatch(r"[0-9a-f-]{36}", boot)))
+    names = ("autostart.service", "rocknix-autostart.service")
+    properties = ("Id", "LoadState", "Type", "ActiveState", "SubState", "Result",
+                  "ExecMainCode", "ExecMainStatus", "ExecMainStartTimestampMonotonic",
+                  "ExecMainExitTimestampMonotonic", "ConditionResult", "ExecStart")
+    completed = set()
+    for name in names:
+        proc = subprocess.run(["systemctl", "show", "--no-pager",
+                               "--property=" + ",".join(properties), name],
+                              stdin=subprocess.DEVNULL, stdout=subprocess.PIPE,
+                              stderr=subprocess.DEVNULL, timeout=5)
+        require(len(proc.stdout) <= 16384)
+        fields = {}
+        for line in text(proc.stdout).splitlines():
+            key, separator, value = line.partition("=")
+            require(separator and key in properties and key not in fields)
+            fields[key] = value
+        if fields.get("LoadState") == "not-found":
+            continue
+        require(proc.returncode == 0 and set(fields) == set(properties))
+        require(fields["Id"] in names and fields["LoadState"] == "loaded" and
+                fields["Type"] == "oneshot" and fields["Result"] == "success" and
+                fields["ConditionResult"] == "yes" and
+                fields["ExecMainCode"] == "1" and fields["ExecMainStatus"] == "0")
+        require((fields["ActiveState"], fields["SubState"]) in
+                (("active", "exited"), ("inactive", "dead")))
+        require(re.search(r"/usr/bin/autostart(?:[\s;\"']|$)", fields["ExecStart"]))
+        start = int(fields["ExecMainStartTimestampMonotonic"])
+        end = int(fields["ExecMainExitTimestampMonotonic"])
+        uptime = float(Path("/proc/uptime").read_text().split()[0]) * 1000000
+        require(0 < start <= end <= uptime)
+        completed.add(fields["Id"])
+    # Aliases may resolve to the same Id. Two distinct runners need investigation.
+    require(len(completed) == 1)
+    with Path("/proc/self/mountinfo").open() as stream:
+        mounts = stream.read(1024 * 1024 + 1)
+    require(len(mounts) <= 1024 * 1024)
+    points = {line.split()[4] for line in mounts.splitlines()}
+    require({"/storage", "/storage/roms"} <= points)
+    require(Path("/var/lock/start.games").is_file())
+    frontend = 0
+    for process in Path("/proc").iterdir():
+        if process.name.isdigit():
+            try:
+                frontend += os.readlink(process / "exe") == "/usr/bin/emulationstation"
+            except FileNotFoundError:  # an unrelated process exited during listing
+                continue
+    require(frontend == 1)
+    require(Path("/proc/sys/kernel/random/boot_id").read_text().strip() == boot)
+    return boot
+
+
 class Parser(argparse.ArgumentParser):
     def error(self, message):
         # argparse normally echoes supplied argument values.
@@ -638,17 +743,31 @@ def main():
     group.add_argument("--root", type=Path)
     group.add_argument("--payload", type=Path)
     parser.add_argument("--mode", choices=("clean-image", "first-boot", "retained-upgrade"))
+    parser.add_argument("--require-ready", action="store_true",
+                        help="require completed boot, mounted storage and live ES; only for --root / --mode first-boot")
+    failure_category = "input-invalid"
     try:
         args = parser.parse_args()
         require((args.root is not None and args.mode is not None) or
                 (args.payload is not None and args.mode in (None, "clean-image")))
+        boot = None
+        if args.require_ready:
+            require(args.root == Path("/") and args.mode == "first-boot")
+            failure_category = "boot-not-ready"
+            boot = first_boot_ready()
+            failure_category = "input-invalid"
         result = (Check(Local(args.root), args.mode).run() if args.root is not None
                   else payload(args.payload))
+        if boot is not None:
+            failure_category = "boot-not-ready"
+            require(Path("/proc/sys/kernel/random/boot_id").read_text().strip() == boot)
+            result["checks"].append({"path": "<first-boot-readiness>", "category": "boot-ready",
+                                     "status": "clear", "present": True, "count": 0})
     except Exception:
         # Privacy boundary: neither parser messages nor unexpected reader errors
         # may serialize input values. A bug here must refuse, never emit a traceback.
         result = {"schema": 1, "policy": POLICY, "status": "error",
-                  "error_count": 1, "checks": [{"path": "<input>", "category": "input-invalid",
+                  "error_count": 1, "checks": [{"path": "<input>", "category": failure_category,
                                                 "status": "error", "count": 0}],
                   "scope": SCOPE, "limitations": LIMITATIONS}
     print(json.dumps(result, sort_keys=True, indent=2))

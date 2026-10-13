@@ -8,6 +8,13 @@ integration. No old checkpoint command was replayed, private owner record read,
 firmware extracted, fixture run, guest booted, build started or device/provider
 contacted. No memory result or new Nova attribution is claimed.
 
+This revision corrects review findings against
+`a7a36c874930fb16a15197ef112e90f31820b225`: oneshot readiness, the shipped
+runtime-locale link, Dolphin's ApiToken field, melonDS's explicit null sentinels,
+and literal SquashFS filename reads. All corresponding controls are prepared
+source; none was executed in this lane. Runtime and canonical integration remain
+held by the coordinator while approval-service capacity is unavailable.
+
 Can this be done on the VM? Yes: a disposable GENERIC_X64 guest can inspect its
 own defaults and first-boot storage, and run the synthetic root controls. Host
 payload controls need filesystem readers. Runtime remains reserved to the
@@ -58,6 +65,17 @@ defaults. XML DTD/entities, conflicting config keys, broken/cyclic symlinks,
 special files, mode-000 input and unsupported rclone option redirects refuse.
 The parser reads data and never evaluates shell expressions.
 
+One source-backed clean-image exception is the exact two-link chain
+`/usr/config/emulationstation/locale` → `/usr/share/locale` →
+`/storage/.config/locale`, created by ES `package.mk:117-125`.
+`userconfig-setup:80-88` populates the runtime target at first boot. Only when
+that target is absent in clean-image mode does the gate report
+`runtime-locale-deferred` and continue. It compares both raw link targets before
+this exception; alternate targets, unrelated dangling links, traversal and
+cycles retain refusal. Existing targets still undergo the normal walk, including
+history/QA checks. A dangling target in first-boot or retained-upgrade mode
+still fails. This adds no translation-content or arbitrary-secret coverage.
+
 Static source inventory found one identical repeated `uzebox.integerscale` line
 in shipped system.cfg and no duplicate keys in the 15 device RetroArch defaults.
 The parser collapses exact repeats and rejects conflicting repeats; a synthetic
@@ -69,6 +87,16 @@ suffixes) are included. Known standalone paths come from `backuptool`'s
 RATOKENFILES/RATOKENSETTINGS and `cheevos_*` writers: PPSSPP, Dolphin, SkyEmu,
 gopher64, ARMSX2, DuckStation, melonDS, Flycast and AetherSX2. Opaque token/cache
 presence is deliberately conservative; its account validity is not tested.
+
+Dolphin's `cheevos_dolphin.sh:57-67` writes `[Achievements] ApiToken`; the gate
+now recognizes that field even when Username is absent. The melonDS writer
+`cheevos_melonds.sh:35-53,99-101` and AMD64 `melonDS.ini:150-153` explicitly use
+the sectionless, unquoted assignments `RA_Username=null`, `RA_Password=null`
+and `RA_Token=null` for no account. Only those exact assignments in the selected
+melonDS INI path (including its recovery siblings) are empty sentinels. Quoted
+null, changed spelling/case, INI sections and other emulator paths do not gain
+that exception. Populated username, password and token each have an independent
+control; retained runtime data remains allowed and unchanged.
 
 Reports use literal policy paths/wildcards, categories, booleans and counts.
 They never echo remote names, game names, dynamic filenames, XML attributes,
@@ -90,6 +118,12 @@ duplicate members, symlink/hardlink members, or separate storage/config tree.
 SYSTEM is copied to private temporary scratch; `unsquashfs -lln/-cat` reads the
 selected surfaces without extracting the filesystem. Only the known compiled
 ScreenScraper and RetroAchievements query-pair shapes are checked in ES.
+Every cat read uses `-no-wildcards`, so a bracketed filename cannot read a clean
+glob-matching sibling. The installed unsquashfs manual documents the flag;
+literal cat behavior remains an allocated-runtime verification item. A real
+synthetic SquashFS control contains contaminated `system.cfg.bak[1]` alongside
+clean `system.cfg.bak1`, requires a blocked account row, and also requires release
+preparation to refuse that exact payload. Unsupported reader flags fail closed.
 
 Install images: gzip stream, DOS/GPT table with two nonoverlapping 512-byte-sector
 partitions, FAT SYSTEM read with `mcopy`, and an ext4 storage seed checked with
@@ -166,9 +200,40 @@ The prepared first guest command, sent by the helper inline with this exact gate
 source, is:
 
 ```sh
-test "$(systemctl is-active rocknix-autostart.service)" = active
-python3 -B -c '<inline base64-decoded gate source>' --root / --mode first-boot
+python3 -B -c '<inline base64-decoded gate source>' --root / --mode first-boot --require-ready
 ```
+
+The original candidate `a7a36c874930fb16a15197ef112e90f31820b225` incorrectly
+used `is-active rocknix-autostart.service` alone. Coordinator source review
+reported that VM20 provision readback instead shows `autostart.service`
+inactive with `Result=success`. No runtime was allocated to this lane. The
+tracked source unit and the accepted VM20 cache's
+`build.pixelelated-GENERIC_X64.x86_64/image/system/usr/lib/systemd/system/rocknix-autostart.service`
+both have `Type=oneshot`, `RemainAfterExit=yes` and ExecStart invoking
+`/usr/bin/autostart`. The cache contains no `autostart.service` at that checked
+path. This source/observed-unit discrepancy remains explicit; no alias,
+replacement, boot history or effective runtime unit definition is invented.
+
+The corrected readiness check queries both known names and requires one loaded
+unit identity running the expected autostart script; aliases may collapse to
+that same identity. A successful completed oneshot can be active/exited **or**
+inactive/dead. It must also have `ExecMainCode=1`, status 0, ConditionResult=yes
+and nonzero ordered monotonic execution timestamps within the current uptime.
+An unstarted unit's default `Result=success`, an absent unit, failed/skipped
+execution, two distinct loaded runners or unsupported unit shape cannot pass.
+No property values or unit diagnostics are printed on failure (`boot-not-ready`).
+
+Source `projects/ROCKNIX/packages/sysutils/autostart/sources/autostart` starts
+`rocknix-automount`, runs the config startup scripts, then creates
+`/var/lock/start.games` and starts the UI. `automount` binds/mounts the ROM tree;
+the frontend services then start ES. The guard therefore additionally requires
+`/storage` and `/storage/roms` in mountinfo, the start.games
+marker, one live `/usr/bin/emulationstation`, and unchanged boot identity through
+inspection. Merely changing the hard-coded unit name or accepting any successful
+inactive unit would not establish these prerequisites. Source/AST checks of
+this correction are in `static-validation.json`; actual installed property
+compatibility and successful/failed readiness controls still require coordinator
+runtime.
 
 The executable serial adapter is `run-first-boot.sh` in this packet:
 
@@ -176,10 +241,10 @@ The executable serial adapter is `run-first-boot.sh` in this packet:
 docs/qa-logs/2026-10-13-clean-state-565/run-first-boot.sh "$OWNER" "$SERIAL_SOCKET"
 ```
 
-It prepares a fresh script, uses existing `tools/vm-serial`, and requires both
-the JSON pass and the explicit guest exit marker. `vm-serial` alone reports
-transport success, not the child command's exit. The serial tool leaves its
-small generated script under guest `/tmp`; no fixture is planted in `/storage`.
+It prepares a fresh script, uses existing `tools/vm-serial`, and requires the
+JSON pass, the boot-ready check and the explicit guest exit marker. `vm-serial`
+alone reports transport success, not the child command's exit. The serial tool
+leaves its small generated script under guest `/tmp`; no fixture is planted in `/storage`.
 The gate must run before any intentional test accounts/history are seeded.
 
 Failure controls include player/runtime/default/recovery identity, separate
@@ -187,9 +252,12 @@ service identity, configured and malformed/encrypted remotes, empty-operation
 stamps, imported and malformed gamelists, lexical playcount, standalone tokens,
 proxy/QA residue, playlists, retained allowance, missing/empty/unreadable files,
 duplicate keys, XML entities, redirection, symlink cycles and FIFO input. Payload
-controls cover real clean/contaminated SquashFS/tars, empty/contaminated ext4
-install images, malformed/traversal/duplicate archives, missing readers, and
-actual clean/contaminated release preparation. No fixture uses a real credential.
+controls cover real clean/contaminated SquashFS/tars with the exact shipped
+locale chain, altered/escaping locale links, literal bracketed filenames,
+empty/contaminated ext4 install images, malformed/traversal/duplicate archives,
+missing readers, and actual clean/contaminated release preparation. Dolphin
+ApiToken-only and melonDS exact sentinel/populated/near-sentinel root controls
+exercise the independent account-parser fixes. No fixture uses a real credential.
 
 ## Coordinator-owned follow-through
 
