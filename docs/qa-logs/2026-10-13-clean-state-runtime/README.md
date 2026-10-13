@@ -66,6 +66,11 @@ zero-inode entries, missing dots and real entries beside slots refuse or block.
 
 ## Evidence and lifecycle
 
+The two `classification*.serial.gz` files preserve the exact serial bytes,
+including CRLF line endings. `serial-storage.json` binds their original and
+compressed hashes; decompression was checked byte-for-byte. Compression only
+changes evidence storage, not the test or its result.
+
 `source*.json` bind guest revisions; `first-boot*-report.json` retain original
 failure and corrected pass. `controls*-result.json` bind guest controls.
 `pix565-payload*/` retain original failure, diagnostic location, native listing,
