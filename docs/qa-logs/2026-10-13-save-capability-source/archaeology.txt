@@ -1,0 +1,45 @@
+archaeology: autosave|save.on.exit|D-UI-057|#575\b since 2026-09-01
+
+== The decision register (6)
+  2026-09-11  register decided D-CLOUD-099  Save states -- auto-states included -- get history in the store, bounded by the per-save count like everything else. Reverses the session's recommendation (manual slots …
+  2026-09-15  register decided D-UI-057     Save states follow Batocera's route, not a fork design: ROCKNIX ships Batocera's `es_savestates.cfg` entry for libretro, the launcher honours the interface's state-file …
+  2026-09-15  register decided D-UI-059     The save state manager's dated tiles stay as Batocera shows them under INCREMENTAL SAVE STATES -- newest first, date only, no slot number; #197 closed not planned. Follo…
+  2026-09-16  register decided D-CLOUD-130  Every sync or transfer a game launch would interrupt asks the same question -- STOP IT AND PLAY / KEEP WAITING -- the automatic startup and after-a-game syncs included; …
+  2026-09-16  register decided D-UI-069     A save state slot's number never changes once written: no renumbering after a session or after a deletion in the manager; gaps stay. Batocera's launch patch (D-UI-057) s…
+  2026-09-23  register decided D-UI-083     The incremental-save modes mean what Batocera's do (follows D-UI-057): INCREMENT PER SAVE is RetroArch's `savestate_auto_index` -- a new slot on every save, the launched…
+
+== The blindspot register (1)
+  2026-09-23  blindspot                     52. A decisions list built from an issue's section, twice (2026-09-23)
+
+== Work logs (10)
+  2026-09-04  work-log 05:55                A consolidation that deleted core functionality, twice
+  2026-09-15  work-log 05:50                Save states: the loss is distribution-side, and the fix is Batocera's route (D-UI-057 decided)
+  2026-09-16  work-log 04:45                The automatic syncs ask too (D-CLOUD-130); build 7
+  2026-09-18  work-log 00:20                #196 confirmed on the device; the save-state hotkey's slot is #209 (read from the code, not yet fixed)
+  2026-09-23  work-log 04:15                The rotation confirmed on the device; the banner question; #249 (the AUTO SAVE tile leaves RetroArch's slot at 0)
+  2026-09-23  work-log 19:40                Four "pending decisions" that were settled: the archaeology, and what prevents the repeat (#253, blindspot 52)
+  2026-09-23  work-log 23:30                The fifteenth cut on the RG35XX SP; the next cut is a batch
+  2026-09-25  work-log                      15:35 UTC (2026-09-26) — #249's device half: the load-state hotkey from the pad, confirmed by the maintainer
+  2026-09-25  work-log                      03:05 UTC (2026-09-26) — #288: the records #280 fixed stayed wrong until each game was replayed; a record now says where its turn came from (D-UI-094…
+  2026-10-13  work-log 04:47                #565/#574/#575 all Nova feedback tracked with source-bound limits
+
+== Rules (0)
+
+== Git history (-G, on this checkout) (15)
+  2026-10-08  git ce30db6cb3                qa: qualify pre-upgrade transaction and power recovery (#519)
+  2026-10-11  git 5ea24b02ff                docs: record H700 acceptance and active device refresh
+  2026-10-11  git a0f60255ab                network: refresh dependencies before the combined M7 build
+  2026-10-11  git bc2dceb406                cloud: manage saved connections and bind operations to account state
+  2026-10-11  git fa444d60ff                qa: guard VM startup and verify storage before upgrade reads
+  2026-10-13  git 0ea6eaf74a                M7: verify compiled allocator savings and repeated handoff (#570, #566)
+  2026-10-13  git 19e109756e                docs: record target proxy memory and GTK4 feasibility
+  2026-10-13  git 1a37cde40a                docs: preserve the refused memory record delivery
+  2026-10-13  git 4d5c26807d                M7: record library and Wi-Fi baseline tests (#565, #577, #578)
+  2026-10-13  git 60a5d7f9c7                docs: record allocator savings and clean-state qualification (#570, #565)
+  2026-10-13  git 71b932ab32                docs: record Nova shutdown recurrence and Wi-Fi scan plan (#558, #577)
+  2026-10-13  git 7484a2b46d                M7: qualify allocator source and bounded browser flows (#570, #493)
+  2026-10-13  git 93e64677f3                docs: record browser controls and parallel memory experiments
+  2026-10-13  git d7e2d6be41                build: require current capacity admission before compilation (#493)
+  2026-10-13  git e198f0fc3b                M7: checkpoint tested baselines and build prerequisite (#493, #565, #577, #578)
+
+32 line(s). A decision listed as pending without a register OPEN row above is a claim to check.

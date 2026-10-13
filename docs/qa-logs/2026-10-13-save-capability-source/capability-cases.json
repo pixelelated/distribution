@@ -1,0 +1,27 @@
+{
+  "runtime": "UNRUN",
+  "cases": [
+    {"id":"system-default-retroarch", "default":"retroarch", "system":"", "game":null, "expected":"retroarch", "help":false, "manager":true},
+    {"id":"system-default-dolphin", "default":"dolphin", "system":"auto", "game":null, "expected":"dolphin", "help":true, "manager":false},
+    {"id":"system-default-flycast", "default":"flycast", "system":"", "game":null, "expected":"flycast", "help":true, "manager":false},
+    {"id":"system-explicit-dolphin", "default":"retroarch", "system":"dolphin", "game":null, "expected":"dolphin", "help":true, "manager":false},
+    {"id":"game-inherits-flycast", "default":"retroarch", "system":"flycast", "game":"", "expected":"flycast", "help":true, "manager":false},
+    {"id":"game-auto-inherits-dolphin", "default":"retroarch", "system":"dolphin", "game":"auto", "expected":"dolphin", "help":true, "manager":false},
+    {"id":"game-explicit-retroarch", "default":"dolphin", "system":"dolphin", "game":"retroarch", "expected":"retroarch", "help":false, "manager":true},
+    {"id":"game-explicit-flycast", "default":"retroarch", "system":"retroarch", "game":"flycast", "expected":"flycast", "help":true, "manager":false},
+    {"id":"invalid-game-falls-to-system", "default":"retroarch", "system":"dolphin", "game":"missing", "expected":"dolphin", "help":true, "manager":false},
+    {"id":"invalid-system-falls-to-default", "default":"flycast", "system":"missing", "game":"", "expected":"flycast", "help":true, "manager":false},
+    {"id":"other-standalone-not-claimed", "default":"retroarch", "system":"dsperate", "game":"", "expected":"dsperate", "help":false, "manager":false},
+    {"id":"empty-emulator-list", "default":"", "system":"", "game":"", "expected":"", "help":false, "manager":false, "empty":true},
+    {"id":"retroarch-missing-layout", "default":"retroarch", "system":"", "game":"", "expected":"retroarch", "help":false, "manager":false, "layout":false},
+    {"id":"retroarch-imageviewer", "default":"retroarch", "system":"", "game":"", "expected":"retroarch", "help":false, "manager":false, "imageviewer":true},
+    {"id":"collection-source-flycast", "default":"retroarch", "system":"flycast", "game":"auto", "expected":"flycast", "help":true, "manager":false, "collection":true},
+    {"id":"dolphin-layout-cannot-enable-manager", "default":"dolphin", "system":"", "game":"", "expected":"dolphin", "help":true, "manager":false, "layout":true}
+  ],
+  "preferences": [
+    {"global":"1", "system":"0", "game":"auto", "expected":"0"},
+    {"global":"0", "system":"1", "game":"0", "expected":"0"},
+    {"global":"1", "system":"auto", "game":"", "expected":"1"},
+    {"global":"0", "system":"", "game":"1", "expected":"1"}
+  ]
+}

@@ -1,0 +1,152 @@
+{
+  "issue": 575,
+  "evidence": "SOURCE ONLY; compiler, synthetic fixture and VM UNRUN",
+  "es_base_commit": "a7dcdbb38009d8d2a81c7c2b4bc1d8c2d0d38a20",
+  "es_candidate_commit": "e87d0d1b4562adfb9e5b8b6882c0c655ed611afc",
+  "es_files": {
+    "es-app/src/guis/GuiMenu.cpp": {
+      "sha256": "356c7b48bf71f1a54467609c6eba502079c6c7fd615b2dd2d24966873916432d",
+      "blob": "ae348511b09c912b47aced6aaf3597206112826f",
+      "base_sha256": "00a6902f4c9001afdc4c603fc725ec5d82db0820c891762f9f4211eefad8e852",
+      "changed": true
+    },
+    "es-app/src/FileData.cpp": {
+      "sha256": "8a677bd0eaf7d6172bef388b8f38da91a132e4adf1f9cdfdce98fd6e84ada33d",
+      "blob": "15d9a1bed5bc77aa207bb568307de25afaa5555f",
+      "base_sha256": "8a677bd0eaf7d6172bef388b8f38da91a132e4adf1f9cdfdce98fd6e84ada33d",
+      "changed": false
+    },
+    "es-app/src/SystemData.cpp": {
+      "sha256": "0cd174d8f7d25bce808901b52b4d970415dd177bcaec6588da08da0113869504",
+      "blob": "6123ad8d0f57cc11504539c5ad91d4d2016050c8",
+      "base_sha256": "0cd174d8f7d25bce808901b52b4d970415dd177bcaec6588da08da0113869504",
+      "changed": false
+    },
+    "es-app/src/SaveStateRepository.cpp": {
+      "sha256": "34bda9a72d037af762546a5b8122dbf7f02c82d074f78e4b74e3b77fcb8afc26",
+      "blob": "afc17148d7b79997d5daf0a1157c3df3338dc2f7",
+      "base_sha256": "34bda9a72d037af762546a5b8122dbf7f02c82d074f78e4b74e3b77fcb8afc26",
+      "changed": false
+    },
+    "es-app/src/SaveStateConfigFile.cpp": {
+      "sha256": "4f38ea7dcfcbd71068122124c428d146b7da3c6dbdcc05a81afc99bbd93a9b15",
+      "blob": "b60f0d36e157f0557944bab2fff2f98978d48df1",
+      "base_sha256": "4f38ea7dcfcbd71068122124c428d146b7da3c6dbdcc05a81afc99bbd93a9b15",
+      "changed": false
+    },
+    "es-app/src/SaveState.cpp": {
+      "sha256": "ceb50e860bdd83f0feba89c7f2575320a647f7f4f973f60712bef679a021120a",
+      "blob": "3ff221457607b278893269288320a8619161b8a9",
+      "base_sha256": "ceb50e860bdd83f0feba89c7f2575320a647f7f4f973f60712bef679a021120a",
+      "changed": false
+    },
+    "es-app/src/views/gamelist/ISimpleGameListView.cpp": {
+      "sha256": "388d1c20321b9bb7d3629c4d08edfad339c5c6def67108d510b2fbc56c77ae3d",
+      "blob": "0324a366eb6e01ed305931aca075cd734f823b05",
+      "base_sha256": "388d1c20321b9bb7d3629c4d08edfad339c5c6def67108d510b2fbc56c77ae3d",
+      "changed": false
+    },
+    "es-app/src/guis/GuiGameOptions.cpp": {
+      "sha256": "332d60fbc8163f315733ee3b073289ec584b2f47e14c1ccf3071dfcb93a19df3",
+      "blob": "5b95f454e247e875a01ccdd632783f408d70d88a",
+      "base_sha256": "332d60fbc8163f315733ee3b073289ec584b2f47e14c1ccf3071dfcb93a19df3",
+      "changed": false
+    }
+  },
+  "distribution_worker_commit": "1286d0baad8eeda2cc7db8401117f26fd1fef0e8",
+  "distribution_comparison_commit": "c75b8d1dae18b73f39edbf05b4b0927d9c8bb762",
+  "distribution_files": {
+    "projects/ROCKNIX/packages/ui/emulationstation/config/common/es_savestates.cfg": {
+      "sha256": "93644274c719f2e34088a593cbb89ea36a2f733c2809dca59cb9b2c583f1a47a",
+      "blob": "e046f1e291a61b082e202352834de66e6ba289f1",
+      "equals_coordinator": true
+    },
+    "projects/ROCKNIX/packages/ui/emulationstation/config/common/es_features.cfg": {
+      "sha256": "588958bdafdf6060048688e49d8a7083c2ea084d19047e543c6984c2dc63f947",
+      "blob": "9dbb89c3f6310c6838e0cfb8b23ca672ac3db830",
+      "equals_coordinator": true
+    },
+    "projects/ROCKNIX/packages/rocknix/sources/scripts/runemu.sh": {
+      "sha256": "966d013d4be4e600e0963da7d5be2556a457f35f14007c05ee3b229bf3d93de2",
+      "blob": "63b39af1fce84cf222f6bb0165202dd8a3b74e6e",
+      "equals_coordinator": true
+    },
+    "projects/ROCKNIX/packages/rocknix/sources/scripts/setsettings.sh": {
+      "sha256": "02e110af2f2697db30af61ee0d4c1ebc35800683c5f713a21be77ef390135003",
+      "blob": "e9a02d320bc72fea7e2ec73498867cde1ec3e4b8",
+      "equals_coordinator": true
+    },
+    "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/package.mk": {
+      "sha256": "0041085b62ce9fdcbbc0fe54956a68cc304ddabeadf26cb718ae9eab620928da",
+      "blob": "f09cfc33084306b338b5ae92752e3896a6c3b17c",
+      "equals_coordinator": true
+    },
+    "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/start_dolphin_gc.sh": {
+      "sha256": "e28886067a11e50f897fa3073f191801876bca68e69b8797ddf56c83ec6b9882",
+      "blob": "abdb449a77806986338c04125cd1b763a3c83adf",
+      "equals_coordinator": true
+    },
+    "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/start_dolphin_wii.sh": {
+      "sha256": "b6cedc30a88cfbd8689678b629739fffb1d6024137c1e5c7440dfc6f64bfcb4b",
+      "blob": "f7b7112aaebd6e975c3f512552218614d1c29e80",
+      "equals_coordinator": true
+    },
+    "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/cheevos_dolphin.sh": {
+      "sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "blob": "33dc5b68e6672b13273e1add539507ba75096760",
+      "equals_coordinator": true
+    },
+    "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/config/GENERIC_X64/Dolphin.ini": {
+      "sha256": "de6a24c4007501ca9b0c4524dec809c9061411ae1dc34a2eb4be9e0e9dba86b2",
+      "blob": "823db4700a7d73eba9d9e7f4a9cb22876285f842",
+      "equals_coordinator": true
+    },
+    "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/config/SM8550/Dolphin.ini": {
+      "sha256": "3e256e68104abb86c2e0d5bf097221c656ddd75afa778d1da53b85f1653517aa",
+      "blob": "77b33fa93fccd36febe7f29c4a0f40832e4c7ba3",
+      "equals_coordinator": true
+    },
+    "projects/ROCKNIX/packages/emulators/standalone/flycast-sa/package.mk": {
+      "sha256": "9f5805ef01db4d757e0e58d3ed029669cb1a0063e7f86af877c6ae892af28ca2",
+      "blob": "4a0829507d8ed505537b87b74742113c5f9d5ae3",
+      "equals_coordinator": true
+    },
+    "projects/ROCKNIX/packages/emulators/standalone/flycast-sa/scripts/start_flycast.sh": {
+      "sha256": "1281b09669253e4399039f9ae986f492fbd4f54766db9bf036328c8bdb1ac8e4",
+      "blob": "9546338fd90a58ce1faca7dfc3edc3ee3fe09115",
+      "equals_coordinator": true
+    },
+    "projects/ROCKNIX/packages/emulators/standalone/flycast-sa/scripts/cheevos_flycast.sh": {
+      "sha256": "b23a039d19e5466abdbf70ed250c416b5b79bd23fd873c9366a5f514097f66ca",
+      "blob": "a080355582ad26f21b4cb6194a28357990d71611",
+      "equals_coordinator": true
+    },
+    "projects/ROCKNIX/packages/emulators/standalone/flycast-sa/config/GENERIC_X64/emu.cfg": {
+      "sha256": "33189ad2946d20bb82c28fefb6de938c487df211cd190fcdcda34c28debd4129",
+      "blob": "d2b1b2405e169c30726d855bcfd6e607bb6e2960",
+      "equals_coordinator": true
+    },
+    "projects/ROCKNIX/packages/emulators/standalone/flycast-sa/config/SM8550/emu.cfg": {
+      "sha256": "403f00c36464ef9beacedd1b4e55e3c021747ef71aaf654d04a8f521e942dd9a",
+      "blob": "eb221fc9ef643816891879ab7a1cf0e1cbb19e17",
+      "equals_coordinator": true
+    },
+    "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/patches/002-savestate-names.patch": {
+      "sha256": "a995d5ea04799665cd1a4a07c9946cdd76d6a8e7c5a650cf2c04aaeea5b88250",
+      "blob": "e87521b4e338310da9d0770f8acef17b6621c0ad",
+      "equals_coordinator": true
+    },
+    "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/patches/015-wayland-nogui-platform.patch": {
+      "sha256": "7595b467f7dbaefa9c841b004ec6db52350b478ee1ab86a4684511b659e6e132",
+      "blob": "ba5b4cf292d2e60401788ce427f8978c53f929c9",
+      "equals_coordinator": true
+    },
+    "projects/ROCKNIX/packages/emulators/standalone/dsperate-sa/scripts/start_dsperate.sh": {
+      "sha256": "453e64282b9f22ad3129658e93454d97015526a7fe3db7f0c722ddee86c8db31",
+      "blob": "d6d6e410df54f985ec9bdfac57171bc1980c3222",
+      "equals_coordinator": true
+    }
+  },
+  "nova_selection": "UNKNOWN; no new owner read",
+  "help_msgid": "THE AUTO SAVE/LOAD SETTING AND SAVE STATE MANAGER DO NOT APPLY TO THIS EMULATOR.\n\nUSE THE EMULATOR'S OWN SAVE OPTIONS. IN-GAME SAVES ARE SEPARATE."
+}

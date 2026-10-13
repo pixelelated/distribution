@@ -1,0 +1,834 @@
+[
+  {
+    "repo": "flyinghead/flycast",
+    "ref": "5aa091fde632fb332c8d8c34e280d62dc951954c",
+    "path": "core/cfg/option.h",
+    "blob": "267c90b009245f8ac82920d4ff3c01c27916f80f",
+    "sha256": "91097f723c4f87b687d94747f6ed913f2273a9d3d54efda8db2dcad2f646aaef",
+    "url": "https://github.com/flyinghead/flycast/blob/5aa091fde632fb332c8d8c34e280d62dc951954c/core/cfg/option.h",
+    "excerpts": [
+      {
+        "line": 104,
+        "text": "template<typename T, bool PerGameOption = true>"
+      },
+      {
+        "line": 105,
+        "text": "class Option : public BaseOption {"
+      },
+      {
+        "line": 106,
+        "text": "public:"
+      },
+      {
+        "line": 107,
+        "text": "\tOption(const std::string& name, T defaultValue = T(), const std::string& section = \"config\")"
+      },
+      {
+        "line": 108,
+        "text": "\t\t: section(section), name(name), value(defaultValue), defaultValue(defaultValue),"
+      },
+      {
+        "line": 109,
+        "text": "\t\t  settings(Settings::instance())"
+      },
+      {
+        "line": 110,
+        "text": "\t{"
+      },
+      {
+        "line": 111,
+        "text": "\t\tsettings.options.push_back(this);"
+      },
+      {
+        "line": 112,
+        "text": "\t}"
+      },
+      {
+        "line": 113,
+        "text": ""
+      },
+      {
+        "line": 114,
+        "text": "\tvoid reset() override {"
+      },
+      {
+        "line": 361,
+        "text": "extern Option<int> Broadcast;\t// 0 -> NTSC, 1 -> PAL, 2 -> PAL/M, 3 -> PAL/N, 4 -> default"
+      },
+      {
+        "line": 362,
+        "text": "extern Option<int> Language;\t// 0 -> JP, 1 -> EN, 2 -> DE, 3 -> FR, 4 -> SP, 5 -> IT, 6 -> default"
+      },
+      {
+        "line": 363,
+        "text": "extern OptionString UILanguage;"
+      },
+      {
+        "line": 364,
+        "text": "extern Option<bool> AutoLoadState;"
+      },
+      {
+        "line": 365,
+        "text": "extern Option<bool> AutoSaveState;"
+      },
+      {
+        "line": 366,
+        "text": "extern Option<int, false> SavestateSlot;"
+      },
+      {
+        "line": 367,
+        "text": "extern Option<bool> ForceFreePlay;"
+      },
+      {
+        "line": 368,
+        "text": "extern Option<bool, false> FetchBoxart;"
+      },
+      {
+        "line": 369,
+        "text": "extern Option<bool, false> BoxartDisplayMode;"
+      },
+      {
+        "line": 370,
+        "text": "extern Option<int, false> UIScaling;"
+      },
+      {
+        "line": 371,
+        "text": "extern Option<int, false> UITheme;          // 0 -> Dark, 1 -> Light, 2 -> Dreamcast, 3 -> High Contrast, 4 -> Nintendo, 5 -> Aqua Chill"
+      },
+      {
+        "line": 372,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "repo": "flyinghead/flycast",
+    "ref": "5aa091fde632fb332c8d8c34e280d62dc951954c",
+    "path": "core/emulator.cpp",
+    "blob": "e913f615476af73f394bf0da48a3b83d09d0485d",
+    "sha256": "9420dce351f67cb520d61538e5efd51ddaaecf9f1c544bdf54fe0920ae693776",
+    "url": "https://github.com/flyinghead/flycast/blob/5aa091fde632fb332c8d8c34e280d62dc951954c/core/emulator.cpp",
+    "excerpts": [
+      {
+        "line": 660,
+        "text": "\t\tif (config::GGPOEnable)"
+      },
+      {
+        "line": 661,
+        "text": "\t\t\tconfig::EnableAchievements.override(false);"
+      },
+      {
+        "line": 662,
+        "text": "\t\t// Hardcore mode disables all cheats, under/overclocking, load state, lua and forces dynarec on"
+      },
+      {
+        "line": 663,
+        "text": "\t\tsettings.raHardcoreMode = config::EnableAchievements && config::AchievementsHardcoreMode"
+      },
+      {
+        "line": 664,
+        "text": "\t\t\t&& !naomiNetworkSupported();"
+      },
+      {
+        "line": 665,
+        "text": "#endif"
+      },
+      {
+        "line": 666,
+        "text": "\t\tcheatManager.reset(settings.content.gameId);"
+      },
+      {
+        "line": 667,
+        "text": "\t\tif (cheatManager.isWidescreen())"
+      },
+      {
+        "line": 668,
+        "text": "\t\t{"
+      },
+      {
+        "line": 669,
+        "text": "\t\t\tos_notify(i18n::T(\"Widescreen cheat activated\"), 2000);"
+      },
+      {
+        "line": 670,
+        "text": "\t\t\tconfig::ScreenStretching.override(134);\t// 4:3 -> 16:9"
+      },
+      {
+        "line": 679,
+        "text": "#ifndef LIBRETRO"
+      },
+      {
+        "line": 680,
+        "text": "\t\t\tif (config::GGPOEnable)"
+      },
+      {
+        "line": 681,
+        "text": "\t\t\t\tdc_loadstate(-1);"
+      },
+      {
+        "line": 682,
+        "text": "\t\t\telse if (config::AutoLoadState && !naomiNetworkSupported() && !settings.naomi.multiboard)"
+      },
+      {
+        "line": 683,
+        "text": "\t\t\t\tdc_loadstate(config::SavestateSlot);"
+      },
+      {
+        "line": 684,
+        "text": "#endif"
+      },
+      {
+        "line": 685,
+        "text": "\t\t}"
+      },
+      {
+        "line": 686,
+        "text": ""
+      },
+      {
+        "line": 687,
+        "text": "\t\tif (progress)"
+      },
+      {
+        "line": 688,
+        "text": "\t\t{"
+      },
+      {
+        "line": 689,
+        "text": "#ifdef GDB_SERVER"
+      },
+      {
+        "line": 740,
+        "text": "\t}"
+      },
+      {
+        "line": 741,
+        "text": "}"
+      },
+      {
+        "line": 742,
+        "text": ""
+      },
+      {
+        "line": 743,
+        "text": "void Emulator::unloadGame()"
+      },
+      {
+        "line": 744,
+        "text": "{"
+      },
+      {
+        "line": 745,
+        "text": "\ttry {"
+      },
+      {
+        "line": 746,
+        "text": "\t\tstop();"
+      },
+      {
+        "line": 747,
+        "text": "\t} catch (...) { }"
+      },
+      {
+        "line": 748,
+        "text": "\tif (state == Loaded || state == Error)"
+      },
+      {
+        "line": 749,
+        "text": "\t{"
+      },
+      {
+        "line": 750,
+        "text": "#ifndef LIBRETRO"
+      },
+      {
+        "line": 751,
+        "text": "\t\tif (state == Loaded && config::AutoSaveState && !settings.content.path.empty()"
+      },
+      {
+        "line": 752,
+        "text": "\t\t\t\t&& !settings.naomi.multiboard && !config::GGPOEnable && !naomiNetworkSupported())"
+      },
+      {
+        "line": 753,
+        "text": "\t\t\tgui_saveState(false);"
+      },
+      {
+        "line": 754,
+        "text": "#endif"
+      },
+      {
+        "line": 755,
+        "text": "\t\ttry {"
+      },
+      {
+        "line": 756,
+        "text": "\t\t\tdc_reset(true);"
+      },
+      {
+        "line": 757,
+        "text": "\t\t} catch (const FlycastException& e) {"
+      },
+      {
+        "line": 758,
+        "text": "\t\t\tERROR_LOG(COMMON, \"%s\", e.what());"
+      },
+      {
+        "line": 870,
+        "text": "\t// Reload per-game settings"
+      },
+      {
+        "line": 871,
+        "text": "\tconfig::Settings::instance().load(true);"
+      },
+      {
+        "line": 872,
+        "text": ""
+      },
+      {
+        "line": 873,
+        "text": "\tif (config::GGPOEnable || settings.raHardcoreMode)"
+      },
+      {
+        "line": 874,
+        "text": "\t\tconfig::Sh4Clock.override(200);"
+      },
+      {
+        "line": 875,
+        "text": "\tif (settings.raHardcoreMode)"
+      },
+      {
+        "line": 876,
+        "text": "\t{"
+      },
+      {
+        "line": 877,
+        "text": "\t\tconfig::WidescreenGameHacks.override(false);"
+      },
+      {
+        "line": 878,
+        "text": "\t\tconfig::DynarecEnabled.override(true);"
+      },
+      {
+        "line": 879,
+        "text": "\t}"
+      },
+      {
+        "line": 880,
+        "text": "}"
+      },
+      {
+        "line": 881,
+        "text": ""
+      },
+      {
+        "line": 882,
+        "text": "void Emulator::step()"
+      }
+    ]
+  },
+  {
+    "repo": "flyinghead/flycast",
+    "ref": "5aa091fde632fb332c8d8c34e280d62dc951954c",
+    "path": "core/ui/gui.cpp",
+    "blob": "b3da1be4d9fcc4e77bb618af7a4144d276763cdf",
+    "sha256": "143c9ea10a31c71ba2edf6008fc510be0eefdb459b28f44b1e34c049aa8e26e0",
+    "url": "https://github.com/flyinghead/flycast/blob/5aa091fde632fb332c8d8c34e280d62dc951954c/core/ui/gui.cpp",
+    "excerpts": [
+      {
+        "line": 592,
+        "text": "\t\t}"
+      },
+      {
+        "line": 593,
+        "text": "\t\t// Cheats"
+      },
+      {
+        "line": 594,
+        "text": "\t\t{"
+      },
+      {
+        "line": 595,
+        "text": "\t\t\tDisabledScope _{settings.network.online || settings.raHardcoreMode};"
+      },
+      {
+        "line": 596,
+        "text": ""
+      },
+      {
+        "line": 597,
+        "text": "\t\t\tif (IconButton(ICON_FA_MASK, T(\"Cheats\"), ScaledVec2(buttonWidth, 50)).realize() && !settings.network.online)"
+      },
+      {
+        "line": 598,
+        "text": "\t\t\t\tgui_setState(GuiState::Cheats);"
+      },
+      {
+        "line": 599,
+        "text": "\t\t}"
+      },
+      {
+        "line": 600,
+        "text": "\t\t// Achievements"
+      },
+      {
+        "line": 601,
+        "text": "\t\t{"
+      },
+      {
+        "line": 602,
+        "text": "\t\t\tDisabledScope _{!achievements::isActive()};"
+      },
+      {
+        "line": 645,
+        "text": ""
+      },
+      {
+        "line": 646,
+        "text": "\t\t\t// Load State"
+      },
+      {
+        "line": 647,
+        "text": "\t\t\t{"
+      },
+      {
+        "line": 648,
+        "text": "\t\t\t\tDisabledScope _{settings.raHardcoreMode || savestateDate == 0};"
+      },
+      {
+        "line": 649,
+        "text": "\t\t\t\tif (IconButton(ICON_FA_CLOCK_ROTATE_LEFT, T(\"Load State\"), ScaledVec2(buttonWidth, 50)).realize() && dc_savestateAllowed())"
+      },
+      {
+        "line": 650,
+        "text": "\t\t\t\t{"
+      },
+      {
+        "line": 651,
+        "text": "\t\t\t\t\tgui_setState(GuiState::Closed);"
+      },
+      {
+        "line": 652,
+        "text": "\t\t\t\t\tdc_loadstate(config::SavestateSlot);"
+      },
+      {
+        "line": 653,
+        "text": "\t\t\t\t}"
+      },
+      {
+        "line": 654,
+        "text": "\t\t\t}"
+      },
+      {
+        "line": 655,
+        "text": ""
+      },
+      {
+        "line": 1475,
+        "text": "\telse if (config::NetworkStats) {"
+      },
+      {
+        "line": 1476,
+        "text": "\t\tice::displayStats();"
+      },
+      {
+        "line": 1477,
+        "text": "\t}"
+      },
+      {
+        "line": 1478,
+        "text": "\tif (!settings.raHardcoreMode)"
+      },
+      {
+        "line": 1479,
+        "text": "\t\tlua::overlay();"
+      },
+      {
+        "line": 1480,
+        "text": "\tvgamepad::draw();"
+      },
+      {
+        "line": 1481,
+        "text": "    ImGui::Render();"
+      },
+      {
+        "line": 1482,
+        "text": "\tuiThreadRunner.execTasks();"
+      },
+      {
+        "line": 1483,
+        "text": "}"
+      },
+      {
+        "line": 1484,
+        "text": ""
+      },
+      {
+        "line": 1485,
+        "text": "void gui_display_osd() {"
+      },
+      {
+        "line": 1592,
+        "text": "\t}"
+      },
+      {
+        "line": 1593,
+        "text": "}"
+      },
+      {
+        "line": 1594,
+        "text": ""
+      },
+      {
+        "line": 1595,
+        "text": "void gui_saveState(bool stopRestart, bool inRam)"
+      },
+      {
+        "line": 1596,
+        "text": "{"
+      },
+      {
+        "line": 1597,
+        "text": "\tconst LockGuard lock(guiMutex);"
+      },
+      {
+        "line": 1598,
+        "text": "\tif ((gui_state == GuiState::Closed || !stopRestart) && dc_savestateAllowed())"
+      },
+      {
+        "line": 1599,
+        "text": "\t{"
+      },
+      {
+        "line": 1600,
+        "text": "\t\ttry {"
+      },
+      {
+        "line": 1601,
+        "text": "\t\t\tif (stopRestart)"
+      },
+      {
+        "line": 1602,
+        "text": "\t\t\t\temu.stop();"
+      }
+    ]
+  },
+  {
+    "repo": "dolphin-emu/dolphin",
+    "ref": "6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4",
+    "path": "Source/Core/Core/State.cpp",
+    "blob": "040c60f6ab3eb11935c4ea5d24a6474ceabc299f",
+    "sha256": "42fcbbd7bece4e4545e8821f4af680ad5e62386633f6cdcbe6c94e5c422133aa",
+    "url": "https://github.com/dolphin-emu/dolphin/blob/6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Source/Core/Core/State.cpp",
+    "excerpts": [
+      {
+        "line": 211,
+        "text": "    return false;"
+      },
+      {
+        "line": 212,
+        "text": "  }"
+      },
+      {
+        "line": 213,
+        "text": ""
+      },
+      {
+        "line": 214,
+        "text": "  if (AchievementManager::GetInstance().IsHardcoreModeActive())"
+      },
+      {
+        "line": 215,
+        "text": "  {"
+      },
+      {
+        "line": 216,
+        "text": "    OSD::AddMessage(\"Loading savestates is disabled in RetroAchievements hardcore mode\");"
+      },
+      {
+        "line": 217,
+        "text": "    return false;"
+      },
+      {
+        "line": 218,
+        "text": "  }"
+      },
+      {
+        "line": 219,
+        "text": ""
+      },
+      {
+        "line": 220,
+        "text": "  return true;"
+      },
+      {
+        "line": 221,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "repo": "flyinghead/flycast",
+    "ref": "5aa091fde632fb332c8d8c34e280d62dc951954c",
+    "path": "core/cfg/option.cpp",
+    "blob": "82f3994f6cffa640afe8d7563e96d57ad923925a",
+    "sha256": "26f40eca4ff04cf4bc336edb7a1d1c66f94ff38558cc55c0d82d707c6fc95da2",
+    "url": "https://github.com/flyinghead/flycast/blob/5aa091fde632fb332c8d8c34e280d62dc951954c/core/cfg/option.cpp",
+    "excerpts": [
+      {
+        "line": 35,
+        "text": "Option<int> Language(\"Dreamcast.Language\", 1);\t\t// English"
+      },
+      {
+        "line": 36,
+        "text": "OptionString UILanguage(\"UILanguage\", \"\");"
+      },
+      {
+        "line": 37,
+        "text": "Option<bool> AutoLoadState(\"Dreamcast.AutoLoadState\");"
+      },
+      {
+        "line": 38,
+        "text": "Option<bool> AutoSaveState(\"Dreamcast.AutoSaveState\");"
+      },
+      {
+        "line": 39,
+        "text": "Option<int, false> SavestateSlot(\"Dreamcast.SavestateSlot\");"
+      },
+      {
+        "line": 40,
+        "text": "Option<bool> ForceFreePlay(\"ForceFreePlay\", true);"
+      },
+      {
+        "line": 41,
+        "text": "Option<bool, false> FetchBoxart(\"FetchBoxart\", true);"
+      },
+      {
+        "line": 42,
+        "text": "Option<bool, false> BoxartDisplayMode(\"BoxartDisplayMode\", true);"
+      },
+      {
+        "line": 43,
+        "text": "Option<int, false> UIScaling(\"UIScaling\", 100);"
+      },
+      {
+        "line": 44,
+        "text": "Option<int, false> UITheme(\"UITheme\", 0);"
+      },
+      {
+        "line": 45,
+        "text": ""
+      },
+      {
+        "line": 46,
+        "text": "// Sound"
+      },
+      {
+        "line": 47,
+        "text": ""
+      },
+      {
+        "line": 48,
+        "text": "Option<bool> DSPEnabled(\"aica.DSPEnabled\", false);"
+      },
+      {
+        "line": 49,
+        "text": "#if HOST_CPU == CPU_ARM"
+      },
+      {
+        "line": 50,
+        "text": "Option<int> AudioBufferSize(\"aica.BufferSize\", 5644);\t// 128 ms"
+      },
+      {
+        "line": 51,
+        "text": "#else"
+      },
+      {
+        "line": 52,
+        "text": "Option<int> AudioBufferSize(\"aica.BufferSize\", 2822);\t// 64 ms"
+      }
+    ]
+  },
+  {
+    "repo": "flyinghead/flycast",
+    "ref": "5aa091fde632fb332c8d8c34e280d62dc951954c",
+    "path": "core/nullDC.cpp",
+    "blob": "280ba51ed9e19a6d83cd83e58ea095363627f976",
+    "sha256": "d78e313e06c73dc6f68ecc40f34535b782374f134d6ea1954b956335db7f2eb0",
+    "url": "https://github.com/flyinghead/flycast/blob/5aa091fde632fb332c8d8c34e280d62dc951954c/core/nullDC.cpp",
+    "excerpts": [
+      {
+        "line": 174,
+        "text": "}"
+      },
+      {
+        "line": 175,
+        "text": ""
+      },
+      {
+        "line": 176,
+        "text": "bool dc_savestateAllowed() {"
+      },
+      {
+        "line": 177,
+        "text": "\treturn !settings.content.path.empty() && !settings.network.online"
+      },
+      {
+        "line": 178,
+        "text": "\t\t\t&& !settings.naomi.multiboard && !MapleLink::StorageEnabled();"
+      },
+      {
+        "line": 179,
+        "text": "}"
+      },
+      {
+        "line": 180,
+        "text": ""
+      },
+      {
+        "line": 181,
+        "text": "void dc_savestate(int index, const u8 *pngData, u32 pngSize)"
+      },
+      {
+        "line": 182,
+        "text": "{"
+      },
+      {
+        "line": 183,
+        "text": "\tif (!dc_savestateAllowed())"
+      },
+      {
+        "line": 184,
+        "text": "\t\treturn;"
+      },
+      {
+        "line": 185,
+        "text": ""
+      },
+      {
+        "line": 186,
+        "text": "\tlastStateFile.clear();"
+      },
+      {
+        "line": 187,
+        "text": ""
+      },
+      {
+        "line": 188,
+        "text": "\tSerializer ser;"
+      },
+      {
+        "line": 189,
+        "text": "\tdc_serialize(ser);"
+      },
+      {
+        "line": 190,
+        "text": ""
+      },
+      {
+        "line": 191,
+        "text": "\tvoid *data = malloc(ser.size());"
+      },
+      {
+        "line": 192,
+        "text": "\tif (data == nullptr)"
+      },
+      {
+        "line": 193,
+        "text": "\t{"
+      },
+      {
+        "line": 194,
+        "text": "\t\tWARN_LOG(SAVESTATE, \"Failed to save state - could not malloc %d bytes\", (int)ser.size());"
+      },
+      {
+        "line": 195,
+        "text": "\t\tos_notify(i18n::T(\"Save state failed - memory full\"), 5000);"
+      },
+      {
+        "line": 196,
+        "text": "    \treturn;"
+      },
+      {
+        "line": 197,
+        "text": "\t}"
+      },
+      {
+        "line": 262,
+        "text": "}"
+      },
+      {
+        "line": 263,
+        "text": ""
+      },
+      {
+        "line": 264,
+        "text": "void dc_loadstate(int index)"
+      },
+      {
+        "line": 265,
+        "text": "{"
+      },
+      {
+        "line": 266,
+        "text": "\tif (!dc_savestateAllowed() || settings.raHardcoreMode)"
+      },
+      {
+        "line": 267,
+        "text": "\t\treturn;"
+      },
+      {
+        "line": 268,
+        "text": "\tu32 total_size = 0;"
+      },
+      {
+        "line": 269,
+        "text": ""
+      },
+      {
+        "line": 270,
+        "text": "\thostfs::File *f = nullptr;"
+      },
+      {
+        "line": 271,
+        "text": "\tstd::string filename = \"\";"
+      },
+      {
+        "line": 272,
+        "text": "#ifdef HAS_FMEMOPEN"
+      },
+      {
+        "line": 273,
+        "text": "\tif (index == -2)"
+      },
+      {
+        "line": 274,
+        "text": "\t{"
+      },
+      {
+        "line": 275,
+        "text": "\t\t// in-ram savestate"
+      },
+      {
+        "line": 276,
+        "text": "\t\tfilename = \"RAM\";"
+      },
+      {
+        "line": 277,
+        "text": "\t\tf = new hostfs::StdFile(fmemopen(quicksave_buf, QUICKSAVE_DEFAULT_SIZE, \"rb\"));"
+      },
+      {
+        "line": 278,
+        "text": "\t}"
+      },
+      {
+        "line": 279,
+        "text": "\telse"
+      },
+      {
+        "line": 280,
+        "text": "#endif"
+      }
+    ]
+  }
+]
