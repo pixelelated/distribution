@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "python": "3.14.4",
+  "source_sha256": "a7a1107d7a1391d8cab3279743edfa2728850c2afdb89f753735b60fecd1d178",
+  "cases": [
+    {
+      "language": "en",
+      "width": 320,
+      "result": "PASS",
+      "frames": 8
+    },
+    {
+      "language": "en",
+      "width": 768,
+      "result": "PASS",
+      "frames": 8
+    },
+    {
+      "language": "fr",
+      "width": 320,
+      "result": "PASS",
+      "frames": 8
+    },
+    {
+      "language": "fr",
+      "width": 768,
+      "result": "PASS",
+      "frames": 8
+    }
+  ],
+  "playwright": "1.63.0",
+  "executable": {
+    "path": "/home/max/.cache/ms-playwright/chromium-1223/chrome-linux64/chrome",
+    "sha256": "adc1c21ceed5c2a67184766376fe816ac03e556cc0ca3f782e8212235fe05c6f"
+  },
+  "browser": {
+    "name": "chromium",
+    "version": "148.0.7778.96"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "rc": 0,
+  "name": "en640-success",
+  "mode": "success",
+  "language": "en_US",
+  "started": 1791926186.438141,
+  "before": {
+    "pid": "9241",
+    "start": "68993",
+    "boot": "49f88dcc-fde3-4648-a02a-3eb71c4a9ecc",
+    "hash": "5c08a1713e9af08054e6ec01480894987f48e9335b44fbf8e02462109438ca6f"
+  },
+  "settles": [
+    {
+      "frame": "keyboard-choice",
+      "stable": true,
+      "seconds": 1.3302876949310303
+    },
+    {
+      "frame": "browser-loaded",
+      "stable": true,
+      "seconds": 2.1523168087005615
+    },
+    {
+      "frame": "returned",
+      "stable": true,
+      "seconds": 1.3233153820037842
+    },
+    {
+      "frame": "result",
+      "stable": true,
+      "seconds": 1.3201961517333984
+    }
+  ],
+  "after": {
+    "pid": "9241",
+    "start": "68993",
+    "boot": "49f88dcc-fde3-4648-a02a-3eb71c4a9ecc",
+    "hash": "5c08a1713e9af08054e6ec01480894987f48e9335b44fbf8e02462109438ca6f"
+  },
+  "status": "signed-in",
+  "remote_names": [
+    "dropbox:"
+  ],
+  "final_status": "idle",
+  "browser_absent": true,
+  "ended": 1791926244.730558
+}

@@ -1,0 +1,39 @@
+{
+  "candidate": "a7dcdbb38009d8d2a81c7c2b4bc1d8c2d0d38a20",
+  "base": "c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78",
+  "files": {
+    "es-app/src/ApiSystem.cpp": {
+      "sha256": "58b90ef823dda386654ce4e30bd876a5d9f21d624c1aafae6d97c84419750045",
+      "bytes": 99960
+    },
+    "es-app/src/guis/GuiMenu.cpp": {
+      "sha256": "00a6902f4c9001afdc4c603fc725ec5d82db0820c891762f9f4211eefad8e852",
+      "bytes": 510064
+    },
+    "es-app/src/guis/GuiWifi.cpp": {
+      "sha256": "6fb7fa6cdc8bb3204f62b8ce501fcaa5191ac941c733dc159e23ab46e6ea99f3",
+      "bytes": 22203
+    },
+    "es-app/src/guis/GuiWifi.h": {
+      "sha256": "174988284911caaaf69bb53ade5bcfd5caedc7774a0dc36c45a37f7a14ccf713",
+      "bytes": 3352
+    },
+    "es-app/src/guis/WifiScanProcess.h": {
+      "sha256": "54729c1cefcbc41446e0fed3f4e8edab26181edb9c4b51adab7cf73a50fcf6d4",
+      "bytes": 5187
+    },
+    "es-core/src/Settings.cpp": {
+      "sha256": "cc261e2af8b8e9834869ff3e562d26716dd94704032be21bd5b3e70f935c433e",
+      "bytes": 24353
+    },
+    "locale/lang/en_GB/LC_MESSAGES/emulationstation2.po": {
+      "sha256": "a8fb68c47e404518b2068e9a3f51a9f029a32c56fef83fe45a85d079c1181abc",
+      "bytes": 74126
+    },
+    "locale/lang/fr/LC_MESSAGES/emulationstation2.po": {
+      "sha256": "13e6f04b949b2e32a53a06cd3bcc936aaca4894182c4a06a873e2fdaac6874ec",
+      "bytes": 184108
+    }
+  },
+  "builder": "ghcr.io/pixelelated/build@sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39"
+}

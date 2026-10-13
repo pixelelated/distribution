@@ -1,0 +1,59 @@
+{
+  "utc": "2026-10-13T21:31:02.454807+00:00",
+  "result": "CONSUMED",
+  "stages": [
+    {
+      "owner": "browser01-owner",
+      "original_rc": 1,
+      "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261013T212342Z-2798b130",
+      "runner": {
+        "command_rc": 1,
+        "monitor_rc": 0,
+        "runner_rc": 1,
+        "utc": "2026-10-13T21:23:47.748100+00:00"
+      },
+      "pids_exited": [
+        2004051,
+        2004052,
+        2004055,
+        2004087
+      ]
+    },
+    {
+      "owner": "browser02-owner",
+      "original_rc": 1,
+      "run": "/workspace/tmp/pix571-phone-qualification-20261013/.build-runs/20261013T212413Z-c2bd675a",
+      "runner": {
+        "command_rc": 1,
+        "monitor_rc": 0,
+        "runner_rc": 1,
+        "utc": "2026-10-13T21:24:19.063068+00:00"
+      },
+      "pids_exited": [
+        2006684,
+        2006685,
+        2006694,
+        2006744
+      ]
+    },
+    {
+      "owner": "browser03-owner",
+      "original_rc": 0,
+      "run": "/workspace/tmp/pix571-phone-qualification-20261013/.build-runs/20261013T212443Z-9625b6e1",
+      "runner": {
+        "command_rc": 0,
+        "monitor_rc": 0,
+        "runner_rc": 0,
+        "utc": "2026-10-13T21:24:48.217743+00:00"
+      },
+      "pids_exited": [
+        2008818,
+        2008819,
+        2008827,
+        2008893
+      ]
+    }
+  ],
+  "reviewed_frames": 32,
+  "status": "Four component cases pass; no installed broker or screen-reader claim; source follow-up pending."
+}

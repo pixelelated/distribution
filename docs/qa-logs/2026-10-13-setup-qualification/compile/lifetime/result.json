@@ -1,0 +1,117 @@
+{
+  "source_commit": "6b1dd68246c89f4c1c0fa17c3d8941ffd3b3d420",
+  "source_sha256": "00a6902f4c9001afdc4c603fc725ec5d82db0820c891762f9f4211eefad8e852",
+  "scope": "extracted C++ callbacks with UI/API doubles; no real broker or rendering",
+  "compile_rc": 0,
+  "cases": [
+    {
+      "case": "native-cancel",
+      "rc": 0,
+      "pass_line": true,
+      "stderr_empty": true
+    },
+    {
+      "case": "native-back",
+      "rc": 0,
+      "pass_line": true,
+      "stderr_empty": true
+    },
+    {
+      "case": "native-repeat",
+      "rc": 0,
+      "pass_line": true,
+      "stderr_empty": true
+    },
+    {
+      "case": "native-retry-success",
+      "rc": 0,
+      "pass_line": true,
+      "stderr_empty": true
+    },
+    {
+      "case": "native-ended",
+      "rc": 0,
+      "pass_line": true,
+      "stderr_empty": true
+    },
+    {
+      "case": "native-unknown",
+      "rc": 0,
+      "pass_line": true,
+      "stderr_empty": true
+    },
+    {
+      "case": "native-completed-while-prompted",
+      "rc": 0,
+      "pass_line": true,
+      "stderr_empty": true
+    },
+    {
+      "case": "native-already-complete",
+      "rc": 0,
+      "pass_line": true,
+      "stderr_empty": true
+    },
+    {
+      "case": "native-success",
+      "rc": 0,
+      "pass_line": true,
+      "stderr_empty": true
+    },
+    {
+      "case": "phone-cancel",
+      "rc": 0,
+      "pass_line": true,
+      "stderr_empty": true
+    },
+    {
+      "case": "phone-back",
+      "rc": 0,
+      "pass_line": true,
+      "stderr_empty": true
+    },
+    {
+      "case": "phone-repeat",
+      "rc": 0,
+      "pass_line": true,
+      "stderr_empty": true
+    },
+    {
+      "case": "phone-retry-success",
+      "rc": 0,
+      "pass_line": true,
+      "stderr_empty": true
+    },
+    {
+      "case": "phone-ended",
+      "rc": 0,
+      "pass_line": true,
+      "stderr_empty": true
+    },
+    {
+      "case": "phone-unknown",
+      "rc": 0,
+      "pass_line": true,
+      "stderr_empty": true
+    },
+    {
+      "case": "phone-completed-while-prompted",
+      "rc": 0,
+      "pass_line": true,
+      "stderr_empty": true
+    },
+    {
+      "case": "phone-already-complete",
+      "rc": 0,
+      "pass_line": true,
+      "stderr_empty": true
+    },
+    {
+      "case": "phone-success",
+      "rc": 0,
+      "pass_line": true,
+      "stderr_empty": true
+    }
+  ],
+  "rc": 0
+}

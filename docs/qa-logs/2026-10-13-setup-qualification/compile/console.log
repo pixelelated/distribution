@@ -1,0 +1,50 @@
+watch-build: recording in /workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261013T213036Z-37310d46
+START syntax
+using emulationstation-c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78
+  OK      /source/es-app/src/ApiSystem.cpp
+  OK      /source/es-app/src/guis/GuiMenu.cpp
+  OK      /source/es-app/src/guis/GuiWifi.cpp
+  OK      /source/es-core/src/Settings.cpp
+PASS
+END syntax 0
+START compile es-app/src/ApiSystem.cpp
+END compile es-app/src/ApiSystem.cpp 0
+START compile es-app/src/guis/GuiMenu.cpp
+END compile es-app/src/guis/GuiMenu.cpp 0
+START compile es-app/src/guis/GuiWifi.cpp
+END compile es-app/src/guis/GuiWifi.cpp 0
+START compile es-core/src/Settings.cpp
+END compile es-core/src/Settings.cpp 0
+START archive
+END archive 0
+START link
+END link 0
+START copy binary
+END copy binary 0
+START strip
+END strip 0
+START catalog fr
+END catalog fr 0
+START catalog en_GB
+END catalog en_GB 0
+START oauth lifetime
+END oauth lifetime 0
+START wifi process compile
+END wifi process compile 0
+START wifi process run
+driver=1191
+child=1192
+grandchild=1193
+case rc=-1 elapsed_ms=110
+reaped pid=1192
+reaped pid=1193
+driver=1194
+child=1195
+case rc=-1 elapsed_ms=100
+reaped pid=1195
+driver=1196
+child=1197
+case rc=0 elapsed_ms=1
+reaped pid=1197
+PASS: actual Wi-Fi runner process controls
+END wifi process run 0

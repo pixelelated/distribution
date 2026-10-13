@@ -1,0 +1,5 @@
+# Original fixture failures
+
+walk02 returned3 at the connection-name keyboard: surplus A keys typed x rather than accepting. First branch case returned1 before sign-in: unnecessary B on the carousel opened the manufacturer chooser. Source and reviewed frames corrected navigation to the actual add form without opening its name editor. Second branch case returned1 before browser launch: the walk held a QEMU Monitor connection while the old key helper tried a second exclusive HMP connection. Reread the monitor/key ownership and canonical input rules; case03 uses the one existing Monitor for all keys. No product defect or successful browser failure proof is inferred from these attempts. Original scripts/results remain untouched.
+
+case03 then reached the actual browser-start failure, preserving the real misleading opening copy, but its later Continue key was sent before focusing the button bar. Its overall rc1 is retained. A separate focus probe proved Down selects EXIT, then Right selects CONTINUE. case04 uses those exact keys; three subsequent functional cases returned0.

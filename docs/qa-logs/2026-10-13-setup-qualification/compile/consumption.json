@@ -1,0 +1,43 @@
+{
+  "utc": "2026-10-13T21:32:23.419199+00:00",
+  "result": "CONSUMED",
+  "stages": [
+    {
+      "owner": "report-owner",
+      "run": "/workspace/tmp/pix-m7-setup-build-20261013/.build-runs/20261013T213023Z-c71ca903",
+      "original_rc": 0,
+      "pids_exited": [
+        2035162,
+        2035163,
+        2035166,
+        2035195
+      ],
+      "runner": {
+        "command_rc": 0,
+        "monitor_rc": 0,
+        "runner_rc": 0,
+        "utc": "2026-10-13T21:30:28.217503+00:00"
+      }
+    },
+    {
+      "owner": "compile-owner",
+      "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261013T213036Z-37310d46",
+      "original_rc": 0,
+      "pids_exited": [
+        2036331,
+        2036332,
+        2036335,
+        2036387
+      ],
+      "runner": {
+        "command_rc": 0,
+        "monitor_rc": 0,
+        "runner_rc": 0,
+        "utc": "2026-10-13T21:31:31.891540+00:00"
+      }
+    }
+  ],
+  "container_removed": true,
+  "container_id": "e434fefeebce33c1f47a8cf529b31141e8882cd6aed53aea457589a7334953cc",
+  "qualification": "Compilation/catalogs/source-derived ASan18cases and actual Wi-Fi process controls only; installed UI remains due."
+}

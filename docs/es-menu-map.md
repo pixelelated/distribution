@@ -701,3 +701,18 @@ presentation. Early black return captures are rejected and later frontend
 frames are the accepted proof. This is640×480 English software-profile
 evidence; standard-profile broader frames and remaining sign-in branches
 still precede pin promotion. No new canonical full-image baseline is selected.
+
+### M7 setup candidate under qualification — October 13
+
+The accepted flow/frame baseline above remains historical. The composed source
+adds browser-window failure retry/cancel on both keyboard routes, conditional
+offline-achievement explanation before Update Gamelists, a fixed Wi-Fi picker
+viewport with in-list searching, and corrected absent Recent preference.
+[Source and component evidence](qa-logs/2026-10-13-setup-qualification/README.md)
+links the reviewed defect/companion frames and actual compile/lifetime results.
+Final composed-source EN/FR640×480/1280×800 frames remain due before promotion.
+Phone status now occupies a fixed header control; page loading keeps connected
+status while field readiness separately gates queued text. Error details overlay
+the controls without moving them. [Proposed exact flows](qa-logs/2026-10-13-wifi-picker-source/flow-and-copy.md)
+and [browser branches](qa-logs/2026-10-13-library-setup-source/browser-window-failure.md)
+are candidate references, not a claim that the accepted image has changed.

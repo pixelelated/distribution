@@ -1,0 +1,190 @@
+{
+  "utc": "2026-10-13T21:22:06.841928+00:00",
+  "result": "CONSUMED",
+  "pid_namespace": 4026531836,
+  "stages": [
+    {
+      "owner": "/workspace/tmp/pix570-es-flows-20261013/en640-open-failure-owner",
+      "original_rc": 1,
+      "run": "/workspace/tmp/pix570-es-flows-20261013/.build-runs/20261013T210837Z-3c961741",
+      "runner": {
+        "command_rc": 1,
+        "monitor_rc": 0,
+        "runner_rc": 1,
+        "utc": "2026-10-13T21:09:18.069804+00:00"
+      },
+      "pids_exited": [
+        1932633,
+        1932634,
+        1932637,
+        1932666
+      ],
+      "console_sha256": "5370fefba354946d32eafbba41c9fac790149657d3f9491236d6259ea6262d55"
+    },
+    {
+      "owner": "/workspace/tmp/pix570-es-flows-20261013/en640-open-failure02-owner",
+      "original_rc": 1,
+      "run": "/workspace/tmp/pix570-es-flows-20261013/.build-runs/20261013T210940Z-69f9ca24",
+      "runner": {
+        "command_rc": 1,
+        "monitor_rc": 0,
+        "runner_rc": 1,
+        "utc": "2026-10-13T21:10:30.988184+00:00"
+      },
+      "pids_exited": [
+        1937909,
+        1937910,
+        1937911,
+        1937940
+      ],
+      "console_sha256": "1f63858d6d32c48d2817410a6aff2d312b7049502896f529a77f7371e6bc7a47"
+    },
+    {
+      "owner": "/workspace/tmp/pix570-es-flows-20261013/en640-open-failure03-owner",
+      "original_rc": 1,
+      "run": "/workspace/tmp/pix570-es-flows-20261013/.build-runs/20261013T211059Z-86efbf1a",
+      "runner": {
+        "command_rc": 1,
+        "monitor_rc": 0,
+        "runner_rc": 1,
+        "utc": "2026-10-13T21:12:35.581190+00:00"
+      },
+      "pids_exited": [
+        1943938,
+        1943939,
+        1943942,
+        1943973
+      ],
+      "console_sha256": "bf21a9f0991f19882f17059051f0fd1b3788d832bdfc7f1c347951be0ecaa4d3"
+    },
+    {
+      "owner": "/workspace/tmp/pix570-es-flows-20261013/focus-owner",
+      "original_rc": 0,
+      "run": "/workspace/tmp/pix570-es-flows-20261013/.build-runs/20261013T211329Z-92cdef63",
+      "runner": {
+        "command_rc": 0,
+        "monitor_rc": 0,
+        "runner_rc": 0,
+        "utc": "2026-10-13T21:13:34.799074+00:00"
+      },
+      "pids_exited": [
+        1956007,
+        1956008,
+        1956009,
+        1956040
+      ],
+      "console_sha256": "9ea23470afd5bfcb62c5962d046054671467446a7d29eef6ea1a080e4fbb4e1f"
+    },
+    {
+      "owner": "/workspace/tmp/pix570-es-flows-20261013/functional-owner",
+      "original_rc": 0,
+      "run": "/workspace/tmp/pix570-es-flows-20261013/.build-runs/20261013T211420Z-3cff7396",
+      "runner": {
+        "command_rc": 0,
+        "monitor_rc": 0,
+        "runner_rc": 0,
+        "utc": "2026-10-13T21:17:26.759672+00:00"
+      },
+      "pids_exited": [
+        1959958,
+        1959959,
+        1959960,
+        1959989
+      ],
+      "console_sha256": "baebea426e9229530e3b6cf847887c77871b1a1192d66d910b73a9d73fce1517"
+    },
+    {
+      "owner": "/workspace/tmp/pix570-es-flows-20261013/report-owner",
+      "original_rc": 0,
+      "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261013T210407Z-7619715f",
+      "runner": {
+        "command_rc": 0,
+        "monitor_rc": 0,
+        "runner_rc": 0,
+        "utc": "2026-10-13T21:04:12.334572+00:00"
+      },
+      "pids_exited": [
+        1910100,
+        1910101,
+        1910103,
+        1910132
+      ],
+      "console_sha256": "f3b32127ebdadfbc5c3c7327c58f1750de2fc9dc6b2f6ec44056149e882fcca6"
+    },
+    {
+      "owner": "/workspace/tmp/pix570-es-flows-20261013/setup-owner",
+      "original_rc": 0,
+      "run": "/workspace/tmp/pix570-es-flows-20261013/.build-runs/20261013T210527Z-027c9c68",
+      "runner": {
+        "command_rc": 0,
+        "monitor_rc": 0,
+        "runner_rc": 0,
+        "utc": "2026-10-13T21:05:32.793560+00:00"
+      },
+      "pids_exited": [
+        1917272,
+        1917273,
+        1917282,
+        1917356
+      ],
+      "console_sha256": "23cad53c99926588060e8b103a0e2ce56e3f8e3ed210dc7f41015b73dcbe7b36"
+    },
+    {
+      "owner": "/workspace/tmp/pix570-es-flows-20261013/vm-owner",
+      "original_rc": 1,
+      "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261013T210439Z-e5ba9eab",
+      "runner": {
+        "command_rc": 1,
+        "monitor_rc": 0,
+        "runner_rc": 1,
+        "utc": "2026-10-13T21:20:59.994570+00:00"
+      },
+      "pids_exited": [
+        1913213,
+        1913214,
+        1913215,
+        1913269
+      ],
+      "console_sha256": "d6ba09e73199aae47153878f3b4103bbc86e498b500dcb4228f366233255c309"
+    },
+    {
+      "owner": "/workspace/tmp/pix570-es-flows-20261013/walk01-owner",
+      "original_rc": 0,
+      "run": "/workspace/tmp/pix570-es-flows-20261013/.build-runs/20261013T210620Z-c0896928",
+      "runner": {
+        "command_rc": 0,
+        "monitor_rc": 0,
+        "runner_rc": 0,
+        "utc": "2026-10-13T21:06:40.728850+00:00"
+      },
+      "pids_exited": [
+        1921842,
+        1921843,
+        1921845,
+        1921876
+      ],
+      "console_sha256": "3218cab6be54bbd9a8843e520147ab216a30d4f29547183aefa8b4217e0dafad"
+    },
+    {
+      "owner": "/workspace/tmp/pix570-es-flows-20261013/walk02-owner",
+      "original_rc": 3,
+      "run": "/workspace/tmp/pix570-es-flows-20261013/.build-runs/20261013T210713Z-33493a80",
+      "runner": {
+        "command_rc": 3,
+        "monitor_rc": 0,
+        "runner_rc": 3,
+        "utc": "2026-10-13T21:07:59.034863+00:00"
+      },
+      "pids_exited": [
+        1925965,
+        1925966,
+        1925967,
+        1925996
+      ],
+      "console_sha256": "6327e47292918ad0bf85a8d9f72e99df81270c8f1ed07e2b600fc7aca8a6451f"
+    }
+  ],
+  "vm_exited": true,
+  "qemu_pid": 1913652,
+  "allocation_disposition": "failed-investigated: remaining final UI proof deferred for real browser-start error correction"
+}

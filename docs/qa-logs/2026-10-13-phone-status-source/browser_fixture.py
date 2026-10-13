@@ -307,6 +307,8 @@ def main():
     parser.add_argument("--output", type=Path, required=True,
                         help="new synthetic evidence directory; must not already exist")
     parser.add_argument("--browser", choices=("chromium", "webkit"), default="chromium")
+    parser.add_argument("--executable-path", type=Path,
+                        help="explicit already-installed browser binary; never download implicitly")
     args = parser.parse_args()
     args.output.mkdir(parents=True, exist_ok=False)
     report = {"status": "RUNNING", "python": platform.python_version(),
@@ -315,7 +317,12 @@ def main():
         report["playwright"] = importlib.metadata.version("playwright")
         from playwright.sync_api import sync_playwright
         with sync_playwright() as pw:
-            browser = getattr(pw, args.browser).launch()
+            launch_args = {}
+            if args.executable_path:
+                executable = args.executable_path.resolve(strict=True)
+                launch_args["executable_path"] = str(executable)
+                report["executable"] = {"path": str(executable), "sha256": hashlib.sha256(executable.read_bytes()).hexdigest()}
+            browser = getattr(pw, args.browser).launch(**launch_args)
             try:
                 report["browser"] = {"name": args.browser, "version": browser.version}
                 for language in ("en", "fr"):

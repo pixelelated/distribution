@@ -1,0 +1,86 @@
+{
+  "stages": [
+    {
+      "stage": "syntax",
+      "rc": 0,
+      "seconds": 4.829883813858032
+    },
+    {
+      "stage": "compile es-app/src/ApiSystem.cpp",
+      "rc": 0,
+      "seconds": 5.684324502944946
+    },
+    {
+      "stage": "compile es-app/src/guis/GuiMenu.cpp",
+      "rc": 0,
+      "seconds": 32.43173623085022
+    },
+    {
+      "stage": "compile es-app/src/guis/GuiWifi.cpp",
+      "rc": 0,
+      "seconds": 2.7731521129608154
+    },
+    {
+      "stage": "compile es-core/src/Settings.cpp",
+      "rc": 0,
+      "seconds": 2.0192782878875732
+    },
+    {
+      "stage": "archive",
+      "rc": 0,
+      "seconds": 0.2645554542541504
+    },
+    {
+      "stage": "link",
+      "rc": 0,
+      "seconds": 1.2178313732147217
+    },
+    {
+      "stage": "copy binary",
+      "rc": 0,
+      "seconds": 0.06465554237365723
+    },
+    {
+      "stage": "strip",
+      "rc": 0,
+      "seconds": 0.03170323371887207
+    },
+    {
+      "stage": "catalog fr",
+      "rc": 0,
+      "seconds": 0.01566457748413086
+    },
+    {
+      "stage": "catalog en_GB",
+      "rc": 0,
+      "seconds": 0.00752568244934082
+    },
+    {
+      "stage": "oauth lifetime",
+      "rc": 0,
+      "seconds": 1.8199434280395508
+    },
+    {
+      "stage": "wifi process compile",
+      "rc": 0,
+      "seconds": 0.5159056186676025
+    },
+    {
+      "stage": "wifi process run",
+      "rc": 0,
+      "seconds": 0.3150210380554199
+    }
+  ],
+  "started": 1791927037.721725,
+  "rc": 0,
+  "binary_sha256": "f6fd61b7bea859467f1a3b0e1f890c975bfef9aaafd1866e727752727de013b3",
+  "binary_bytes": 11811120,
+  "catalogs": {
+    "fr": "4bc74a7f3836e59cfbce38e5732a897f694940ab8ea566f0204dcf5e1f6de96b",
+    "en_GB": "3ecb7c787975d153e84c26d876c7b51bed4a65a5bfb6daddfd7724cdcde9819d"
+  },
+  "ended": 1791927089.7708576,
+  "max_child_rss_kib": 1780476,
+  "cgroup_memory_peak": "2665488384\n",
+  "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n"
+}
