@@ -1,0 +1,189 @@
+{
+  "status": "source inspected; all runtime fixtures UNRUN",
+  "scope": "#567 fixed HTTPS lookup + explicit simulated top-up seam",
+  "es": {
+    "commit": "e87d0d1b4562adfb9e5b8b6882c0c655ed611afc",
+    "files": [
+      {
+        "path": "es-core/src/HttpReq.cpp",
+        "git_blob": "a1deda775b25bda3f46fff2267e417c01d2a7d49",
+        "sha256": "5ea03f8f634d410ef9e0d9b381df593b32ae34c71609353428fab09d799d9e0a"
+      },
+      {
+        "path": "es-core/src/HttpReq.h",
+        "git_blob": "d34eaa42592c94130f6a91e1d3eed5824475c48a",
+        "sha256": "53a7df8e48f651e53a0737b4ce8e6663f6faee0b6b694710550429d10940d555"
+      },
+      {
+        "path": "es-core/src/Paths.cpp",
+        "git_blob": "049098e0a6bbe4e9475a2cb28376949c106e5f75",
+        "sha256": "0ded8fcb9bfc9940fe730493e3c56e79c221c74959ef024e5f574353d4a9cbe2"
+      },
+      {
+        "path": "es-core/src/Settings.h",
+        "git_blob": "efac88a2425ac9ed51f0f79105a2805b8c36ba30",
+        "sha256": "78fe253f48e794a87f208f5246ef195edac6b56c6019f19c288790c0dc2afd1c"
+      },
+      {
+        "path": "es-core/src/Settings.cpp",
+        "git_blob": "425358c056837cc6127b67f61939f07924543773",
+        "sha256": "cc261e2af8b8e9834869ff3e562d26716dd94704032be21bd5b3e70f935c433e"
+      },
+      {
+        "path": "es-core/src/utils/Platform.cpp",
+        "git_blob": "68625f04d9461026c41548d3908c52e020c408ff",
+        "sha256": "edd72facac37487ebaa601e613582e0507fba03aabd8e1eff7350dd94114b886"
+      },
+      {
+        "path": "es-app/src/RetroAchievements.cpp",
+        "git_blob": "af1c92faae15ca9596f56732f05f26d2476d3792",
+        "sha256": "2faa6a176c4901b088d30d7f5972fd3f3abb4230f76061beb2295bf169c1b697"
+      },
+      {
+        "path": "es-app/src/ThreadedHasher.cpp",
+        "git_blob": "b2547d475561f646dd7435d9ed6d590afcccbaa1",
+        "sha256": "f5893c4d353f62c25a4ab946235557b623e99716b675194260feaa9dd7f6ab64"
+      },
+      {
+        "path": "es-app/src/CheevosIndex.h",
+        "git_blob": "4aef9d519074a66c81fab3fd40d8319f2087467d",
+        "sha256": "2267c9eedb53eba1b6a6a303397058334ad880956e18ebd0ee1b03fc41816443"
+      },
+      {
+        "path": "es-app/src/OfflineAchievements.cpp",
+        "git_blob": "e13b26aa3b6e5360d9d7e95902619d35cc93ce91",
+        "sha256": "3dce3cd8233c7f9be87cf253fd0d43f93be38df20fc78bea8c35c32973ba4d06"
+      },
+      {
+        "path": "es-app/src/ProxyCards.cpp",
+        "git_blob": "c0952e171873aef3a643d98904972d5fe13a71d9",
+        "sha256": "b25541ee7c382772a569c189c246f72aa9e34890bc7f087a85aec12a2bb3ad80"
+      },
+      {
+        "path": "es-app/src/CloudText.cpp",
+        "git_blob": "a440d745d1ded7ae17cdf981acc06e4863c81a58",
+        "sha256": "0b316dd3183676a9f28cbcd6ef81920a0ca79d621f57466c3c62fc81dc765cb6"
+      },
+      {
+        "path": "es-app/src/Gamelist.cpp",
+        "git_blob": "6eb2550ab7d66eaa3e5c3af40f9f1fdc88e41b28",
+        "sha256": "ae3600d5da65229df8f61f74650731888b97ee3df73c41f1da8636e7d539060b"
+      },
+      {
+        "path": "es-app/src/SystemData.cpp",
+        "git_blob": "6123ad8d0f57cc11504539c5ad91d4d2016050c8",
+        "sha256": "0cd174d8f7d25bce808901b52b4d970415dd177bcaec6588da08da0113869504"
+      },
+      {
+        "path": "es-app/src/CustomFeatures.cpp",
+        "git_blob": "063f0560f17c0218c7dd4bcd90f21aeefeedd0a0",
+        "sha256": "befff58799b2c91b4dad4712c6cf0a5983bb45b862b6dd9862cd405c86ac0096"
+      },
+      {
+        "path": "es-app/src/guis/GuiMenu.cpp",
+        "git_blob": "ae348511b09c912b47aced6aaf3597206112826f",
+        "sha256": "356c7b48bf71f1a54467609c6eba502079c6c7fd615b2dd2d24966873916432d"
+      },
+      {
+        "path": "es-app/src/views/ViewController.cpp",
+        "git_blob": "8b2813571a5156e592806698ea93cb630131da89",
+        "sha256": "b5be9eae846710c6846eab0b57de88696804562814ed40535267d4102791cc96"
+      },
+      {
+        "path": "es-app/src/services/HttpServerThread.cpp",
+        "git_blob": "1599fdf0baf948fb34b85ea735d7278cc3933a1e",
+        "sha256": "77b2b591522fa2f512540b6480787a2335803cf38d10a13f11db62855e4231fd"
+      }
+    ]
+  },
+  "distribution": {
+    "commit": "44d4553a8479a4df647ed785ee434782c93db983",
+    "files": [
+      {
+        "path": "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl",
+        "git_blob": "6c497a2c1ef4651a8c594ef654a79c95d48a8b67",
+        "sha256": "dc4a69f986249e8ef8b1da799dd8b47376699a5609e5b35617d1965e61b198cc"
+      },
+      {
+        "path": "packages/web/curl/package.mk",
+        "git_blob": "548da63bdc044d0877869c36c4f589601f627a91",
+        "sha256": "025b356377f8967117d2674421ddc4fdeec769eee6409880337da77695d1bfa8"
+      },
+      {
+        "path": "projects/ROCKNIX/packages/web/curl/package.mk",
+        "git_blob": "cd40d39a236ff7503cb0219eeab4f3aaf836f8fb",
+        "sha256": "70f6ae47d9c587bde39806e48bc99f42fdb5938b8a4734a31748ced5313ca15b"
+      },
+      {
+        "path": "packages/lang/Python3/package.mk",
+        "git_blob": "e514f16c90c7d8acd6d842b58915965049c0c456",
+        "sha256": "41bc2960664a6d3b2a7643f0d145ce343f0bf0d585614856f0e750190d8aa295"
+      },
+      {
+        "path": "packages/sysutils/util-linux/package.mk",
+        "git_blob": "14748c11acc0ce35cf073962e8242b1b1fd05f36",
+        "sha256": "9245cad8d0f5cece71e5208d47e273e4ef855ba1de039f232caf28c1ba5c9759"
+      },
+      {
+        "path": "packages/sysutils/busybox/config/busybox-target.conf",
+        "git_blob": "f385cbb7ee82597db195c212d23ba5bd8daab141",
+        "sha256": "b946229182e2f74a5fc4fd69633e98ca11f0ecea3feb1a1c196dc9758ccd7537"
+      },
+      {
+        "path": "projects/ROCKNIX/devices/GENERIC_X64/linux/linux.x86_64.conf",
+        "git_blob": "d71bbd477e2f0229bc2961a57c81c7431e486a4e",
+        "sha256": "7ec3d2b40528370d110ab133122a877f5a9a9f53e18e84d103afe8a4aad72ef7"
+      },
+      {
+        "path": "projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm",
+        "git_blob": "33552025a6863cc1f3460a2fe775f4f0f8926b7d",
+        "sha256": "664eb10bcd71f3e29c67463cb9bf4c9245874584ead2eff7b7206bc03d90bef9"
+      },
+      {
+        "path": "projects/ROCKNIX/packages/security/openssl/package.mk",
+        "git_blob": "e8a01ec9937176614147f51cf2998547465ac7b0",
+        "sha256": "a771326f7d74e493d144df4cfe64e7190803934e177556f072743b63f9da87b9"
+      },
+      {
+        "path": "projects/ROCKNIX/packages/devel/glibc/config/nsswitch-target.conf",
+        "git_blob": "4391cdd21ef0874ca244dff6d095ecd8f6ba8ddb",
+        "sha256": "b58c05e039abe0d54367086b1ad341afdddef441eb9e98b315cd43b4abe9acb4"
+      },
+      {
+        "path": "projects/ROCKNIX/packages/ui/emulationstation/package.mk",
+        "git_blob": "34ee02ec864aaed550c0bfc17f851fed4dc8531b",
+        "sha256": "aaedc890492207c3b3b665f01c45365831ea1a3b6cfb22cfdbdca3d70175ae02"
+      },
+      {
+        "path": "projects/ROCKNIX/packages/ui/emulationstation/system.d/essway.service",
+        "git_blob": "e066d8aa12dd13bfa015fe44b36c228b9c03182d",
+        "sha256": "7e9e338de7b857d4917d005067782151dbb33142ea84928103198530bf542b69"
+      },
+      {
+        "path": "projects/ROCKNIX/packages/ui/emulationstation/system.d/emustation.service",
+        "git_blob": "ebd2e5fae91e7fdd9ea67c103e75d852892d7a79",
+        "sha256": "750aaecb3671862c49e33b2480c08d77c9279ae74072df4626d069efb271188b"
+      },
+      {
+        "path": "projects/ROCKNIX/packages/ui/emulationstation/sources/start_es.sh",
+        "git_blob": "2ddf5f582dffebb40da7fa5d6511e91b9c067624",
+        "sha256": "463acec36231a2230f311e0281fe80693c0046c531985bd75bd4c8d83b95161e"
+      },
+      {
+        "path": "projects/ROCKNIX/packages/ui/emulationstation/sources/es_settings",
+        "git_blob": "6dae2d01d61221e5c20fac019db428133b8840d8",
+        "sha256": "d6498b7f5dc09be4bd42615c48f7b98cdeec02b2fe4e8c25020854847bbfacc6"
+      },
+      {
+        "path": "tools/ra-ui-test",
+        "git_blob": "d30e6f1bd8dc96f5c000b8e92336c4acf0beac68",
+        "sha256": "7e55aace5a23532fef0bb6b3f4e31d6ea32f665c554664198814b86f8640b210"
+      },
+      {
+        "path": "tools/raofflineproxy-consent-test",
+        "git_blob": "ca70d4c0bca8313964388841a94b7e5b15dbf714",
+        "sha256": "e369293a9f0156a39213a7c519458463977288bbcbaa1cdde2851c5410d75013"
+      }
+    ]
+  }
+}

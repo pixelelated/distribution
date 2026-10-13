@@ -1,0 +1,53 @@
+#!/usr/bin/python3
+# SPDX-License-Identifier: GPL-2.0-or-later
+"""UNRUN ES-facing top-up seam. Does not cache achievements or authenticate."""
+import json
+import os
+from pathlib import Path
+import sys
+import time
+import xml.etree.ElementTree as ET
+
+
+def main():
+    root = Path(os.environ["PIX567_ROOT"]).resolve(strict=True)
+    case = json.loads((root / "case.json").read_text())["case"]
+    args = sys.argv[1:]
+    category, code, prepared = "unexpected", 64, 0
+    if args == ["topup", "--after-index"]:
+        category = "after-index"
+        if case == "no-account":
+            # Match refuse_unless_ready's EX_NOPERM before probe/cache/stamp.
+            code = 77
+        elif case == "success":
+            recovery = Path("/storage/.config/emulationstation/recovery/gb/new.xml")
+            game = ET.parse(recovery).getroot()
+            if game.tag != "game":
+                game = game.find("game")
+            if (game is None or game.findtext("cheevosHash") != "1" * 32 or
+                    game.findtext("cheevosId") != "4242001"):
+                code = 65
+            else:
+                state = Path("/storage/.config/raofflineproxy")
+                (state / "cached_game_ids.txt").write_text("4242001\n4242002\n")
+                (state / "last-scan").write_text(
+                    f"{int(time.time())} 0 topup cached=1 added=1 skipped=0 ready=2 "
+                    "limit=0 indexed=1 errors=0\n")
+                code, prepared = 0, 1
+    elif args in [["pending"], ["pending-ids"], ["flushed"], ["summary"], ["account"]]:
+        category, code = args[0], 1
+        if args == ["pending"]:
+            print("0")
+    # Append once, with counts/categories only. argv never enters the log.
+    row = json.dumps({"category": category, "exit": code, "prepared": prepared,
+                      "pid": os.getpid()}) + "\n"
+    fd = os.open(root / "ctl-events.jsonl", os.O_WRONLY | os.O_CREAT | os.O_APPEND, 0o600)
+    try:
+        os.write(fd, row.encode("ascii"))
+    finally:
+        os.close(fd)
+    return code
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
