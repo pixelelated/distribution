@@ -1,0 +1,50 @@
+{
+  "results": [
+    {
+      "name": "before",
+      "typing_response_held_posts": [
+        "type",
+        "move"
+      ],
+      "typing_response_released_posts": [
+        "type",
+        "move",
+        "move"
+      ],
+      "movement_total": 120,
+      "isolated_drag": {
+        "events": 120,
+        "requests_before_ack": 1,
+        "requests_after_drain": 2
+      },
+      "tap_while_move_response_held": [
+        "move",
+        "click"
+      ],
+      "pass": true,
+      "limit": "Deferred mocked fetch responses, stub DOM and synthetic events; no elapsed device latency, WebKit, uinput or Wi-Fi measured."
+    },
+    {
+      "name": "accepted",
+      "typing_response_held_posts": [
+        "type"
+      ],
+      "typing_response_released_posts": [
+        "type",
+        "move"
+      ],
+      "movement_total": 120,
+      "isolated_drag": {
+        "events": 120,
+        "requests_before_ack": 1,
+        "requests_after_drain": 2
+      },
+      "tap_while_move_response_held": [
+        "move"
+      ],
+      "pass": true,
+      "limit": "Deferred mocked fetch responses, stub DOM and synthetic events; no elapsed device latency, WebKit, uinput or Wi-Fi measured."
+    }
+  ],
+  "pass": true
+}

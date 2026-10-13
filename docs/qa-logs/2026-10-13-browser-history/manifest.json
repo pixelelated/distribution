@@ -1,0 +1,45 @@
+{
+  "kind": "host Node synthetic transport control; no VM/device/browser runtime",
+  "sources": [
+    {
+      "case": "before",
+      "commit": "a1b0c651654bbe550fec522c591fbfdb73c220a0",
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_oauth",
+      "sha256": "fec8240db342eb9432f9423f5ee3f5bd53df499012dffd1e4ac9ae81c316cbf5",
+      "html_sha256": "7d725afdb07ee031aaee910b01bc32ac31c8836136a44cf78d099174ed35286e"
+    },
+    {
+      "case": "accepted",
+      "commit": "bc9dfe8141d9561dc1d8502313d00a84c4566ee8",
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_oauth",
+      "sha256": "81d8e448624e57a8ac78d242116259dadfba873eddf313b8fdbd742e3a9db4c3",
+      "html_sha256": "85426778e740b4d1a3677eb81e11f9b54552b6c5e4d41480415577754bcca4dd"
+    }
+  ],
+  "node": "v24.21.0",
+  "captured_utc": "2026-10-13T03:22:58.722317+00:00",
+  "source_review": {
+    "projects/ROCKNIX/packages/network/cloud-signin-window/sources/cloud-signin-window.c": {
+      "commit": "bc9dfe8141d9561dc1d8502313d00a84c4566ee8",
+      "sha256": "39af3e041d9871c4fb636cff71934ddf3ea13c690002e77af5ea6d82d8fff4f8"
+    },
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_oauth": {
+      "commit": "bc9dfe8141d9561dc1d8502313d00a84c4566ee8",
+      "sha256": "81d8e448624e57a8ac78d242116259dadfba873eddf313b8fdbd742e3a9db4c3"
+    },
+    "emulationstation/es-app/src/ApiSystem.cpp": {
+      "commit": "c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78",
+      "sha256": "0618194ab89ff74b8673fc00b11ee2b5984dd026a76611644e23eb3d5cdd0913"
+    },
+    "emulationstation/es-app/src/guis/GuiMenu.cpp": {
+      "commit": "c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78",
+      "sha256": "4b2004ac9a75fcdd25832862da0bb39fb221d1ff8be3e4b8e0666b8d6b8ce50d"
+    }
+  },
+  "artifacts": {
+    "README.md": "45a01626a91478bf9a959324dd8d63ec026406da795a9bcc8040c7f4dbbdb901",
+    "fixtures/prepare.py": "46b75fdb1f25075b82c0fee6547c184607724582ec22180565e92384ace781b4",
+    "fixtures/queue-control.js": "4f226848e8afa4b320d78c4a5285174e1fce55b8b1a4b270a7b1e337757de9e2",
+    "queue-result.json": "672b47fa8df0857a0c13fd8ee3ddff288e4717dc0cd776ad41dc785892d22a12"
+  }
+}
