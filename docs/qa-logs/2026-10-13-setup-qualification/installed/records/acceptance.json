@@ -1,0 +1,31 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261013T213629Z-d827df6b",
+  "expected_rc": 0,
+  "disposition": "qualified",
+  "outputs": [
+    {
+      "issue": 570,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-m7-setup-vm-20261013/vm",
+      "release_when": "Consume original functional/UI results and stop both sequential profiles; retire disposable disk/UEFI/keys after compact evidence."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/tmp/pix-m7-setup-vm-20261013/vm-result.json",
+      "sha256": "008a40ffe0170a872d3d36c2ebb4c6f7a29fa59926810a5d255ef7746b83dc08"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-setup-vm-20261013/large-batch-result.json",
+      "sha256": "9695532fc28e604cfe6e5089fff8cd1406add1dae444903e7bfa9b147a023f05"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-setup-vm-20261013/consumption.json",
+      "sha256": "309b1a78c21a6fa05ee99372364c1f3ae06af3f7b5f0202aa216a0ab9f581fc9"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-setup-vm-20261013/reviewed-frames.json",
+      "sha256": "b764935e1a04f450341e613750ab6a3e2455752a4ae07eea593c82f03da7dd55"
+    }
+  ]
+}

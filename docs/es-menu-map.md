@@ -710,7 +710,11 @@ offline-achievement explanation before Update Gamelists, a fixed Wi-Fi picker
 viewport with in-list searching, and corrected absent Recent preference.
 [Source and component evidence](qa-logs/2026-10-13-setup-qualification/README.md)
 links the reviewed defect/companion frames and actual compile/lifetime results.
-Final composed-source EN/FR640×480/1280×800 frames remain due before promotion.
+The a7 composed source now has [completed installed EN/FR640×480/1280×800
+flow evidence](qa-logs/2026-10-13-setup-qualification/installed/README.md) and
+a [43-frame reviewed index](qa-logs/2026-10-13-setup-qualification/installed/frame-index.json).
+The French Wi-Fi controller hint needs the subsequent source correction and
+new frames. Final next-composition and assembled-image proof remain due.
 Phone status now occupies a fixed header control; page loading keeps connected
 status while field readiness separately gates queued text. Error details overlay
 the controls without moving them. [Proposed exact flows](qa-logs/2026-10-13-wifi-picker-source/flow-and-copy.md)

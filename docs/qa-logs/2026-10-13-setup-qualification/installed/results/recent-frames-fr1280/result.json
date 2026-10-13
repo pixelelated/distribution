@@ -1,0 +1,70 @@
+{
+  "rc": 0,
+  "started": 1791931823.99004,
+  "cases": [
+    {
+      "source_commit": "6b1dd68246c89f4c1c0fa17c3d8941ffd3b3d420",
+      "case": "default-rom-only",
+      "rc": 0,
+      "scope": "synthetic collection membership; no gameplay or upgrade proof",
+      "boot_id": "b2b4dbe1-f0be-49ce-b54d-749d228ab57a",
+      "pid": 18975,
+      "binary_sha256": "f6fd61b7bea859467f1a3b0e1f890c975bfef9aaafd1866e727752727de013b3",
+      "collections": {
+        "favorites": {
+          "http_status": 200,
+          "fixture_count": 0
+        },
+        "recent": {
+          "http_status": 200,
+          "fixture_count": 0
+        }
+      },
+      "saved_choice_preserved": true,
+      "actual_exit": 0
+    },
+    {
+      "source_commit": "6b1dd68246c89f4c1c0fa17c3d8941ffd3b3d420",
+      "case": "default-history",
+      "rc": 0,
+      "scope": "synthetic collection membership; no gameplay or upgrade proof",
+      "boot_id": "b2b4dbe1-f0be-49ce-b54d-749d228ab57a",
+      "pid": 19273,
+      "binary_sha256": "f6fd61b7bea859467f1a3b0e1f890c975bfef9aaafd1866e727752727de013b3",
+      "collections": {
+        "favorites": {
+          "http_status": 200,
+          "fixture_count": 1
+        },
+        "recent": {
+          "http_status": 200,
+          "fixture_count": 1
+        }
+      },
+      "saved_choice_preserved": true,
+      "actual_exit": 0
+    },
+    {
+      "source_commit": "6b1dd68246c89f4c1c0fa17c3d8941ffd3b3d420",
+      "case": "retained-favorites",
+      "rc": 0,
+      "scope": "synthetic collection membership; no gameplay or upgrade proof",
+      "boot_id": "b2b4dbe1-f0be-49ce-b54d-749d228ab57a",
+      "pid": 19583,
+      "binary_sha256": "f6fd61b7bea859467f1a3b0e1f890c975bfef9aaafd1866e727752727de013b3",
+      "collections": {
+        "favorites": {
+          "http_status": 200,
+          "fixture_count": 1
+        },
+        "recent": {
+          "http_status": 404,
+          "fixture_count": 0
+        }
+      },
+      "saved_choice_preserved": true,
+      "actual_exit": 0
+    }
+  ],
+  "ended": 1791931876.5990012
+}

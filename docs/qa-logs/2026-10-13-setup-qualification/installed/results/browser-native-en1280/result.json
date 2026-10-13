@@ -1,0 +1,50 @@
+{
+  "rc": 0,
+  "name": "browser-native-en1280",
+  "mode": "native",
+  "language": "en_US",
+  "started": 1791931127.728619,
+  "before": {
+    "pid": "4010",
+    "start": "22317",
+    "boot": "b2b4dbe1-f0be-49ce-b54d-749d228ab57a",
+    "hash": "f6fd61b7bea859467f1a3b0e1f890c975bfef9aaafd1866e727752727de013b3"
+  },
+  "settles": [
+    {
+      "frame": "keyboard-choice",
+      "stable": true,
+      "seconds": 1.369793176651001
+    },
+    {
+      "frame": "browser-open-failure",
+      "stable": true,
+      "seconds": 1.3765265941619873
+    },
+    {
+      "frame": "retry-failure",
+      "stable": true,
+      "seconds": 1.3552024364471436
+    },
+    {
+      "frame": "cancelled",
+      "stable": true,
+      "seconds": 1.3597300052642822
+    }
+  ],
+  "status_after_open_failure": "waiting",
+  "info_before_retry": "URL=http://10.0.2.15:8080/5385\nADDRESS=http://10.0.2.15:8080\nPIN=5385\nNAME=Dropbox\nPROVIDER=http://127.0.0.1:53682/page\nSTATUS=waiting\nON_DEVICE=yes\nEXIT_HINT=SELECT + START",
+  "info_after_retry": "URL=http://10.0.2.15:8080/5385\nADDRESS=http://10.0.2.15:8080\nPIN=5385\nNAME=Dropbox\nPROVIDER=http://127.0.0.1:53682/page\nSTATUS=waiting\nON_DEVICE=yes\nEXIT_HINT=SELECT + START",
+  "status_after_retry": "waiting",
+  "after": {
+    "pid": "4010",
+    "start": "22317",
+    "boot": "b2b4dbe1-f0be-49ce-b54d-749d228ab57a",
+    "hash": "f6fd61b7bea859467f1a3b0e1f890c975bfef9aaafd1866e727752727de013b3"
+  },
+  "remote_names": [],
+  "ui_cancelled": true,
+  "final_status": "idle",
+  "browser_absent": true,
+  "ended": 1791931226.0766137
+}

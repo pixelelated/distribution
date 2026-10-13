@@ -1,0 +1,54 @@
+{
+  "rc": 0,
+  "name": "phone-installed-fr1280",
+  "mode": "phone",
+  "language": "fr_FR",
+  "started": 1791931549.8473525,
+  "fixture_sha256": "9ddc2a92971078993af99a8f7b7635da273f0d6e1070c40c08945783fbc0c638",
+  "before": {
+    "pid": "13916",
+    "start": "64542",
+    "boot": "b2b4dbe1-f0be-49ce-b54d-749d228ab57a",
+    "hash": "f6fd61b7bea859467f1a3b0e1f890c975bfef9aaafd1866e727752727de013b3"
+  },
+  "settles": [
+    {
+      "frame": "keyboard-choice",
+      "stable": true,
+      "seconds": 1.341771125793457
+    },
+    {
+      "frame": "phone-pairing",
+      "stable": true,
+      "seconds": 1.3333733081817627
+    },
+    {
+      "frame": "browser-loaded",
+      "stable": true,
+      "seconds": 1.3586549758911133
+    },
+    {
+      "frame": "browser-received-second-page-text",
+      "stable": true,
+      "seconds": 1.3296949863433838
+    },
+    {
+      "frame": "connected",
+      "stable": true,
+      "seconds": 1.7983875274658203
+    }
+  ],
+  "after": {
+    "pid": "13916",
+    "start": "64542",
+    "boot": "b2b4dbe1-f0be-49ce-b54d-749d228ab57a",
+    "hash": "f6fd61b7bea859467f1a3b0e1f890c975bfef9aaafd1866e727752727de013b3"
+  },
+  "status": "signed-in",
+  "remote_names": [
+    "dropbox:"
+  ],
+  "final_status": "idle",
+  "browser_absent": true,
+  "ended": 1791931619.186263
+}

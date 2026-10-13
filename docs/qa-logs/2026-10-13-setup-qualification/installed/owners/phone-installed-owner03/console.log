@@ -1,0 +1,45 @@
+watch-build: recording in /workspace/tmp/pix-m7-setup-vm-20261013/.build-runs/20261013T221110Z-e9fc3fc8
+Traceback (most recent call last):
+  File "/workspace/tmp/pix-m7-setup-vm-20261013/phone-installed-client02.py", line 29, in <module>
+    else:raise RuntimeError('second-page input not delivered')
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: second-page input not delivered
+Traceback (most recent call last):
+  File "/workspace/tmp/pix-m7-setup-vm-20261013/phone-installed03.py", line 50, in <module>
+    assert client.returncode==0,'installed companion failed';frame('browser-received-second-page-text')
+           ^^^^^^^^^^^^^^^^^^^^
+AssertionError: installed companion failed
+settle: still after 1.3s
+captured /workspace/tmp/pix-m7-setup-vm-20261013/phone-installed-en640-03/initial/01-initial.png
+changed after 0.1s (`key ret`, line 1)
+settle: still after 1.7s
+changed after 0.1s (`key x`, line 4)
+settle: still after 1.3s
+changed after 0.1s (`key up`, line 7)
+settle: still after 1.3s
+changed after 0.1s (`key up`, line 10)
+settle: still after 1.3s
+changed after 0.0s (`key up`, line 13)
+settle: still after 1.3s
+changed after 0.1s (`key x`, line 16)
+settle: still after 1.3s
+changed after 0.1s (`key down`, line 1)
+settle: still after 1.3s
+changed after 0.0s (`key x`, line 4)
+settle: still after 1.3s
+changed after 0.1s (`key x`, line 7)
+settle: still after 1.3s
+changed after 0.0s (`key x`, line 10)
+settle: still after 1.3s
+changed after 0.1s (`key down`, line 13)
+settle: still after 1.3s
+changed after 0.9s (`key x`, line 16)
+settle: still after 1.3s
+changed after 0.1s (`key down`, line 1)
+settle: still after 1.3s
+changed after 0.1s (`key x`, line 4)
+settle: still after 1.3s
+changed after 0.1s (`key down`, line 1)
+settle: still after 1.3s
+changed after 0.1s (`key right`, line 4)
+settle: still after 1.3s

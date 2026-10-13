@@ -1,0 +1,30 @@
+{
+  "rc": 0,
+  "started": 1791931619.2252157,
+  "language": "en_US",
+  "variant": "on",
+  "original_routes": {
+    "4": [
+      "default via 10.0.2.2 dev eth0  src 10.0.2.15  metric 100 "
+    ],
+    "6": [
+      "default via fe80::2 dev eth0  metric 100 "
+    ]
+  },
+  "before": "b2b4dbe1-f0be-49ce-b54d-749d228ab57a\n15575\nf6fd61b7bea859467f1a3b0e1f890c975bfef9aaafd1866e727752727de013b3  /proc/15575/exe",
+  "after": "b2b4dbe1-f0be-49ce-b54d-749d228ab57a\n15575\nf6fd61b7bea859467f1a3b0e1f890c975bfef9aaafd1866e727752727de013b3  /proc/15575/exe",
+  "event_count": 1,
+  "route_cleanup": [
+    {
+      "family": "4",
+      "rc": 0,
+      "stderr": ""
+    },
+    {
+      "family": "6",
+      "rc": 0,
+      "stderr": ""
+    }
+  ],
+  "ended": 1791931656.774661
+}
