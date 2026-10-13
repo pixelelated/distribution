@@ -1,0 +1,55 @@
+{
+  "evidence": "STATIC SOURCE ONLY; all fixture, compiler, service, browser, VM, and radio executions UNRUN",
+  "date": "2026-10-13",
+  "distribution_parent": "6cf8405bcc398af71ba081b6eb377da41b44ef0d",
+  "next_at_start": "0ea6eaf74ad47503c05955d1c0bd4bd00bdfb816",
+  "coordinator_at_recheck": "7c13b9c08bd419ce9e62e4af8f4e306d9bad0853",
+  "sources": {
+    "original": {
+      "path": "projects/ROCKNIX/packages/rocknix/sources/scripts/wifictl",
+      "sha256": "32d43774637fed12b6ed083ce3f9c0dcc63d97850f0d515fc670b620a36fe2d4",
+      "git_blob": "33d754de086255ec3799d56ac6f828e683cb2911"
+    },
+    "current": {
+      "path": "projects/ROCKNIX/packages/rocknix/sources/scripts/wifictl",
+      "sha256": "c89ed28a50e4be78468fcee25dcfd68e0b1c67af25657c3d0ba9318c7576a48c"
+    }
+  },
+  "baseline_identity": "original, local next, and coordinator worktree bytes equal before editing and at final static source check",
+  "upstream_cached_ref": {
+    "commit": "d59bdaa28908f7266e40172e088ec40813fd3f46",
+    "checked_online": false
+  },
+  "static_checks": {
+    "bash_n_source": "PASS",
+    "python_ast_fixture": "PASS",
+    "bash_n_fixture_shim": "PASS",
+    "unchanged_functions": {
+      "wifi_security": "ddc7f75adfd699308e3c3cd79935e0ac555517705b3c79782360feca64c1180d",
+      "connect_open_wifi": "33e78df2d8c7f068362f180b5d59bff531fe32719e1c4b748ee627beb6121b70",
+      "connect_wifi": "c364ee9607d5647c2844727c41d5435e5c8e4ce69c16826a015c49ffcf27ceb6",
+      "create_adhoc": "6dacdae878b13543c2c7cfb761f133137a432ae8cd23dc98a004f57c4ec256af",
+      "connect_adhoc_client": "f0bc45e8375da69dbabe6ab5d64670223adbbfa12e581d00c97e887b99b9088b",
+      "destroy_adhoc": "7f0eeafed373b0df055f02f94c016f2d430c58be2ad27c0863be8a766adcbd91",
+      "pin_wifi": "df62642b7497f2d8de9791dc1c621ab3040b25f410c74ed76d607718d69d9e2c",
+      "nm_unescape": "5f47805affd64c5904072de6f4be23303d9e61b28da742392ab3a343e45b9a9f",
+      "saved_state": "05d9da91455a495dc150cb7129fdc1882c494d225cf5cb1f9e056116c78a92fa",
+      "current_wifi": "fa7aab67a0453a3bfdc59f73af0e2e9a1c3e33c824b77c921a60ff65822c866d",
+      "saved_wifi": "774ea13f6ab533316ee7dba47fa6a2e28a8130376b6e5aec7bb0ee4ccdc7d4de",
+      "field_escape": "de43eba63e42c098a9cb4285b18a1be9acdb35bf31d2e987e349d0fdf86f9b7a",
+      "saved_with_ssids": "c0e47c53904f8f145fae82338b9af80092ded597851831dd81c1ce260cc9117d",
+      "forget_wifi": "4529b90d391b7a6340b5b1dece804568a5fb92fd1dff36a2a8baf932919d17df",
+      "wifi_dev_connection": "935fb114ca887bf41ba092793468423154bbbb3d9551ff46859cb8526e421ce0",
+      "join_wifi": "cff06b2927af0bfbea010c8faa5fe1f002068c16ae84f8d30edfd5e147129cff",
+      "has_ap_mode": "aa7f64c055440f3e2c4fa00c22bf9aa7172cef954c2099cea15b24b6fa2ef74c"
+    },
+    "changed_functions": [
+      "wait_for_wifi",
+      "list_wifi"
+    ],
+    "fixture_cases_count_from_ast": 37,
+    "fixture_shim_review": "Both positive and negated sysfs directory tests intercepted; only text utilities exposed via private PATH"
+  },
+  "runtime_controls": "UNRUN; fixture.py expected original and current outcomes are predictions, not receipts",
+  "external_runner": "coordinator owns VM admission, recording of VM-first plan, wall-clock limits, and worker helper qualification"
+}

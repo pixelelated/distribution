@@ -2,6 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 # Copyright (C) 2023 JELOS (https://github.com/JustEnoughLinuxOS)
 # Copyright (C) 2022 kkoshelev (https://github.com/kkoshelev)
+# Copyright (C) 2026 ROCKNIX (https://github.com/ROCKNIX)
 # Wi-Fi via NetworkManager (iwd backend). AP/netplay still uses iwctl on the interface.
 
 . /etc/profile
@@ -13,6 +14,9 @@ NMCLI="$(command -v nmcli 2>/dev/null)"
 ###
 ### Usage:
 ###     wifictl command [ssid] [psk]
+###     wifictl list / scanlist  SSIDs on success, including nothing and exit 0;
+###                               exit 2 when the adapter or nmcli is unavailable;
+###                               nonzero when readiness, rescan, or enumeration fails
 ###
 ### For the interface's network rows (fork #191), reading NetworkManager
 ### rather than the wifi.ssid setting:
@@ -41,8 +45,9 @@ ADHOC_CLIENT_ID=$(get_setting wifi.adhoc.id)
 NETPLAY_SSID="NETPLAY_AP"
 WIFI_DEV="$(ls /sys/class/net | grep -m1 ^wlan)"
 
-# Typed security/join callers must not read an unavailable radio as success.
-if [ "${1}" = security ] || [ "${1}" = connect-open ]; then
+# Typed scan/security/join callers must not read an unavailable radio as success.
+if [ "${1}" = list ] || [ "${1}" = scanlist ] || \
+   [ "${1}" = security ] || [ "${1}" = connect-open ]; then
   [ -n "${WIFI_DEV}" ] && [ -d "/sys/class/net/${WIFI_DEV}" ] && [ -n "${NMCLI}" ] || exit 2
 fi
 
@@ -64,13 +69,27 @@ fi
 ### Functions...
 ###
 
-# Wait for iwd to start and have a device available
+# Wait for iwd to start and have a device available. A successful query that
+# never sees the adapter is exit 1; a failed final query keeps its status.
+# Connection/AP callers still make their own operation the final result.
 wait_for_wifi() {
+  local i devices status=1
   for i in $(seq 1 5); do
-    iwctl device list | grep -q "${WIFI_DEV}" && break
+    if devices=$(iwctl device list); then
+      if grep -q "${WIFI_DEV}" <<< "${devices}"; then
+        status=0
+        break
+      fi
+      status=1
+    else
+      status=$?
+    fi
     sleep 1
   done
-  [ -n "${COUNTRY}" ] && iw reg set "${COUNTRY}"
+  if [ -n "${COUNTRY}" ]; then
+    iw reg set "${COUNTRY}" || return $?
+  fi
+  return "${status}"
 }
 
 # lists all wifi networks, each name as the network has it: terse output
@@ -80,10 +99,14 @@ wait_for_wifi() {
 # to the escaped name (#308 claude F-WF-05). nm_unescape is defined below;
 # this runs after the whole file is read.
 list_wifi() {
-  wait_for_wifi
-  "${NMCLI}" -w 15 dev wifi rescan ifname "${WIFI_DEV}" 2>/dev/null
+  local rows
+  wait_for_wifi >/dev/null || return $?
+  "${NMCLI}" -w 15 dev wifi rescan ifname "${WIFI_DEV}" >/dev/null 2>&1 || return $?
   sleep 1
-  "${NMCLI}" -t -f SSID dev wifi list ifname "${WIFI_DEV}" 2>/dev/null | nm_unescape | sed '/^$/d' | sort -u
+  # Capture the producer's status before filtering, and discard partial rows
+  # on failure. Empty successful output is a different answer from no answer.
+  rows=$("${NMCLI}" -t -f SSID dev wifi list ifname "${WIFI_DEV}" 2>/dev/null) || return $?
+  (set -o pipefail; printf '%s\n' "${rows}" | nm_unescape | sed '/^$/d' | sort -u)
 }
 
 # Only an explicit, unanimous open result may skip the key prompt. SECURITY
@@ -511,7 +534,7 @@ case "${1}" in
     "${NMCLI}" dev wifi rescan ifname "${WIFI_DEV}" 2>/dev/null
     ;;
   scanlist)
-    "${NMCLI}" dev wifi rescan ifname "${WIFI_DEV}" 2>/dev/null
+    "${NMCLI}" -w 15 dev wifi rescan ifname "${WIFI_DEV}" >/dev/null 2>&1 || exit $?
     sleep 2
     list_wifi
     ;;
