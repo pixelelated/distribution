@@ -1,0 +1,108 @@
+{
+  "checked_utc": "2026-10-13T21:25:11.082849+00:00",
+  "evidence_level": "STATIC_SOURCE_ONLY; NO C++ SYNTAX/BUILD/RUNTIME READINESS CLAIM",
+  "owning_issue": 577,
+  "es_worktree": "/home/max/Development/emulationstation-next.worktrees/m7-wifi-picker-577",
+  "es_branch": "feature/m7-wifi-picker-577",
+  "es_base": "c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78",
+  "es_commit": "2e84879d488e22a312b5a3e179836f927c448738",
+  "es_parent": "c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78",
+  "es_files_sha256": {
+    "es-app/src/guis/GuiWifi.cpp": "6fb7fa6cdc8bb3204f62b8ce501fcaa5191ac941c733dc159e23ab46e6ea99f3",
+    "es-app/src/guis/GuiWifi.h": "174988284911caaaf69bb53ade5bcfd5caedc7774a0dc36c45a37f7a14ccf713",
+    "es-app/src/guis/WifiScanProcess.h": "54729c1cefcbc41446e0fed3f4e8edab26181edb9c4b51adab7cf73a50fcf6d4"
+  },
+  "byte_identical_methods_sha256": {
+    "chooseProfile": "d65dbb8c064ecb563c3afb9b027e3cba5a89f9a4f5b4b3097324309b766a9938",
+    "act": "c8db668feb88ba2f49275555d1ca7824053121086386288a9bac6fe0d5c7e860",
+    "join": "f7b6bb148b81bd96670eb062d22b209091f720503a1238fb8bb2d305185ff874",
+    "checkSecurityAndConnect": "0c59fc31ac3c36494cff24c57dca358fd162f04dfce70790d5a8991513fc0436",
+    "askKeyAndConnect": "00a788765019a44171354eaf278b2a8bcf6cc73d4bd7d44617d432eb2810438b",
+    "connect": "196c6101a9532223603d2bf7fbcf0018c2b8fac05601f31d147927061e803db7",
+    "joined": "e31719a7da6c7ac1d4b7bdb55c4243ce64a8651d83a8a00bc4ee65e3ce8279a9"
+  },
+  "rules_next_commit": "0ea6eaf74ad47503c05955d1c0bd4bd00bdfb816",
+  "coordinator_published_head_at_assignment": "0ea6eaf74a",
+  "static_checks": {
+    "git_diff_check": "PASS",
+    "owned_es_scope_and_clean_commit": "PASS",
+    "python_ast_parse": [
+      "fixtures/wifictl-fixture.py"
+    ],
+    "json_parse": [
+      "fixtures/coverage-plan.json",
+      "fixtures/deadline-plan.json",
+      "fixtures/initial-empty-plan.json",
+      "fixtures/initial-failure-plan.json",
+      "fixtures/layout-plan.json",
+      "fixtures/long-plan.json",
+      "fixtures/metadata-failure-plan.json",
+      "fixtures/retry-plan.json",
+      "fixtures/routing-plan.json",
+      "fixtures/routing-state.json",
+      "fixtures/state-empty.json",
+      "issue-comments.json",
+      "issue.json",
+      "upstream-history.json"
+    ],
+    "ascii_cpp_comments": "PASS",
+    "upstream_latest_file_commit_is_accepted_ancestor": "PASS",
+    "baseline_12_frame_hashes_match_original_index": "PASS",
+    "baseline_frames_opened_and_reviewed": 12,
+    "issue_comments_read": 3,
+    "unchanged_routing_methods": "PASS"
+  },
+  "input_sha256": {
+    "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-library-wifi-baseline/README.md": "3e7d5ddfb8243c5625bfa5d53ffb149651517995ecc75f4d26752df45785e171",
+    "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-library-wifi-baseline/frame-index.json": "07a8c0224089b86a9a199a50413734b6a5ed27de9857ff5fdc512745e4ca1005",
+    "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-library-wifi-baseline/wifi-calls.jsonl": "a07f5d8deb54d0b6bb4a0b7f1803298916bc8b6119a5aa6d9f144eeffcea16ca",
+    "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-library-wifi-baseline/wifi-branches-result.json": "d0c77a92af72bacde47b94ab261d1e7dd372790ebc1770860417b9afab88a1e6",
+    "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-library-wifi-baseline/wifi-large-result.json": "9335a066e1bc933564ed0ef9ecbf9b425c78e8ab343792bd3eb1342df372478e",
+    "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-library-wifi-baseline/fixtures/wifi-fixture.py": "ce0ab707e777602c02a443733bd95cfab4b3675a4d333684c749eebae88e7542",
+    "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-library-wifi-baseline/walks/wifi-initial.steps": "7187e2ab71464f2bea62a431e2ac2335ae27f3c302adfd875a00d8af800d2e24",
+    "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-library-wifi-baseline/walks/wifi-refresh.steps": "afa2d593975ce2d226975d9f6cefbc719d66f281234212a865ca73822b65ebdc",
+    "/home/max/Development/emulationstation-next.worktrees/m7-wifi-picker-577/es-core/src/components/MenuComponent.cpp": "86251e6ed79eac91aa454ee15ed2598e9474b971be64367025e34f447575262f",
+    "/home/max/Development/emulationstation-next.worktrees/m7-wifi-picker-577/es-core/src/components/MenuComponent.h": "7a900407f54af439c2cdadd78c730649beecd159ee47b3568a484319a68255d4",
+    "/home/max/Development/emulationstation-next.worktrees/m7-wifi-picker-577/es-core/src/components/ComponentList.cpp": "df56f89673fb4192ab2fd844f704c78010ad7fb7ee2d6cdd52717fe29ac6e107",
+    "/home/max/Development/emulationstation-next.worktrees/m7-wifi-picker-577/es-core/src/components/ComponentList.h": "e0f32d393a5968bdd9486471820904b742c54f9b7016305fee00ccabfe7fd2ce",
+    "/home/max/Development/emulationstation-next.worktrees/m7-wifi-picker-577/es-core/src/components/IList.h": "9b2320cc166061b26e77198963ae0c0cfd8f8fdbc34440d7c352c80c350ce498",
+    "/home/max/Development/emulationstation-next.worktrees/m7-wifi-picker-577/es-core/src/components/BusyComponent.cpp": "d6fb2c9a5c5edda60200755349a3352c9c0bca4f06156448135a242caa9fbffe",
+    "/home/max/Development/emulationstation-next.worktrees/m7-wifi-picker-577/es-core/src/components/ButtonComponent.cpp": "a108bcd3ec9b93ea23deb45d00cfbab610ca2a561e1aa1759350366f7507671a",
+    "/home/max/Development/emulationstation-next.worktrees/m7-wifi-picker-577/es-core/src/components/TextComponent.cpp": "55154a060b361e0626ac5f13d8500929a289210f1c5963684a87a89cc7e79187",
+    "/home/max/Development/emulationstation-next.worktrees/m7-wifi-picker-577/es-core/src/resources/Font.cpp": "0f3f5ef6ce679636589a5ef188ec76a5b98c3d3be08a5ab978c858a523b0ad70",
+    "/home/max/Development/emulationstation-next.worktrees/m7-wifi-picker-577/es-core/src/GuiComponent.cpp": "469acf94e9092964ada3be831a545a7ac1969f9f15aecb87c4b6c03b6a6408bd",
+    "/home/max/Development/emulationstation-next.worktrees/m7-wifi-picker-577/es-core/src/Window.cpp": "daca297776b73c5f9be84fa3f29db3a340280135802a555124fbe15a1330c764",
+    "/home/max/Development/emulationstation-next.worktrees/m7-wifi-picker-577/es-app/src/ApiSystem.cpp": "0618194ab89ff74b8673fc00b11ee2b5984dd026a76611644e23eb3d5cdd0913",
+    "/home/max/Development/emulationstation-next.worktrees/m7-wifi-picker-577/es-app/src/WifiText.cpp": "ce4aa9abb3a57edd897ceeebec8ec8f201a4092efd9f5ff06e6e4f699d71be7a",
+    "/home/max/Development/emulationstation-next.worktrees/m7-wifi-picker-577/locale/lang/fr/LC_MESSAGES/emulationstation2.po": "071a04d920954678f3e68082b433f43479a996efbcaf3aacf2a9d73036012a49",
+    "/workspace/repos/rocknix.worktrees/m7-player-setup/projects/ROCKNIX/packages/rocknix/sources/scripts/wifictl": "32d43774637fed12b6ed083ce3f9c0dcc63d97850f0d515fc670b620a36fe2d4"
+  },
+  "manual_inspection": [
+    "Native menu/list sizing and parent transforms, row insertion without menu auto-resize.",
+    "Native busy lifecycle and font measurement, pointer capture and native BACK hit testing.",
+    "Single pending weak registry, no GUI/window/singleton captures in scan worker, release/acquire publication.",
+    "All runner exit paths close stdout, signal only owned process group and bound direct-child reaping.",
+    "Saved/current protocol compatibility, partial scan rejection, retained names and focus fallback."
+  ],
+  "not_executed": [
+    "compiler",
+    "tools/es-syntax-check",
+    "C++ process fixture",
+    "Python wifictl fixture",
+    "test suite",
+    "ES binary",
+    "service",
+    "browser",
+    "container",
+    "VM",
+    "device/cloud/account action"
+  ],
+  "remaining_blockers": [
+    "Production wifictl masks nmcli/pipeline failures; coordinator-owned repair/control required.",
+    "Compiler/sanitizer/native-renderer/lifetime/EN-FR/regression qualification unrun.",
+    "Two French catalogue additions and canonical flow/index/public-doc edits are coordinator-owned and unapplied."
+  ],
+  "snapshot_note": "Initial comment snapshot command combined unsupported gh --slurp/--jq and failed; corrected paginated snapshot parsed with all three comments. No runtime/test failure is represented by that CLI correction.",
+  "runtime_fixture_status": "UNRUN",
+  "shared_records_github_writes_push_pin_promotion": false
+}
