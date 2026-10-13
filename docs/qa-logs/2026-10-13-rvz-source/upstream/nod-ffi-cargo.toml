@@ -1,0 +1,36 @@
+[package]
+name = "nod-ffi"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+description = """
+C API for reading GameCube and Wii disc images.
+"""
+keywords.workspace = true
+
+[lib]
+name = "nod"
+crate-type = ["cdylib", "staticlib"]
+
+[features]
+default = ["compress-bzip2", "compress-lzma", "compress-zlib", "compress-zstd", "threading"]
+compress-bzip2 = ["nod/compress-bzip2"]
+compress-bzip2-vendored = ["nod/compress-bzip2-vendored"]
+compress-bzip2-static = ["nod/compress-bzip2-static"]
+compress-lzma = ["nod/compress-lzma"]
+compress-lzma-vendored = ["nod/compress-lzma-vendored"]
+compress-lzma-static = ["nod/compress-lzma-static"]
+compress-zlib = ["nod/compress-zlib"]
+compress-zlib-vendored = ["nod/compress-zlib-vendored"]
+compress-zlib-static = ["nod/compress-zlib-static"]
+compress-zstd = ["nod/compress-zstd"]
+compress-zstd-vendored = ["nod/compress-zstd-vendored"]
+compress-zstd-static = ["nod/compress-zstd-static"]
+threading = ["nod/threading"]
+
+[dependencies]
+nod = { version = "2.0.0-alpha", path = "../nod", default-features = false }
+dyn-clone = "1.0"

@@ -1,0 +1,47 @@
+{
+  "evidence": "STATIC SOURCE ONLY; compiler/CMake/runtime/fixture generation and execution UNRUN",
+  "date": "2026-10-13",
+  "es_commits": {
+    "baseline": "a7dcdbb38009d8d2a81c7c2b4bc1d8c2d0d38a20",
+    "candidate": "4142943a407de75ad789039bf44359552262909d"
+  },
+  "es_files": {
+    "baseline": {
+      "external/libcheevos/CMakeLists.txt": "a1f6e3212caf3cd98f2ddce78489191b51a84b488fcf73dfeff944576247b7a5",
+      "external/libcheevos/cheevos.cpp": "7d5287535f062e28c95c0d8c65a4657f53ce452e78a917805a0ee2d5f93fecb4",
+      "external/libcheevos/rcheevos/src/rhash/hash_disc.c": "725036c9326929b704662ad8abe99f5b3655922bb2b35c2e06d7d487cfd5d2d1"
+    },
+    "candidate": {
+      "external/libcheevos/CMakeLists.txt": "c848b8875beb7e9b46206d787b7fc1bf20f51ad9a0360d23fe743bfc8823489c",
+      "external/libcheevos/LICENSE.rvz-padding": "4135898ee98985c6084e6d8304930b010dec1b395083074ae455ae20ca207d9a",
+      "external/libcheevos/RVZ-NOTICES.md": "77a1a9faff4a5376ca60a3898b7c6ccd92489498e131e354a2aecd0b8cb4b71b",
+      "external/libcheevos/cheevos.cpp": "78d0ab9fd941f3750d55b4329ed2b8830e19448c0bd948563b2c6de2b9783e83",
+      "external/libcheevos/rcheevos/src/rhash/hash_disc.c": "a045dba55caa1c3a00ccb24678b461025a616a7af2317c37d26f4a88308e054d",
+      "external/libcheevos/rvz_hash.cpp": "7a5600669dd9d57956df8787753e9067092bb19411a3cc195443f3a4716d80d1",
+      "external/libcheevos/rvz_hash.h": "958869c25cc5b9fbdb1778f1fbaaf29abeafe28fc5a60857358b35d202b6ae18"
+    }
+  },
+  "distribution_parent": "c02361a3c5f27c23f83e94f6cd60b774623f7e7b",
+  "recipe": {
+    "path": "projects/ROCKNIX/packages/ui/emulationstation/package.mk",
+    "baseline_sha256": "aaedc890492207c3b3b665f01c45365831ea1a3b6cfb22cfdbdca3d70175ae02",
+    "candidate_sha256": "1427d497d1bedb74b9f10a857ec6624787589cce7061803c4b701925ee730974",
+    "pin_changed": false
+  },
+  "static_checks": {
+    "python_ast": "PASS; no imports or fixture execution",
+    "package_bash_n": "PASS",
+    "package_pkgcheck_rc": 0,
+    "whitespace": "PASS for ES commit and recipe; upstream evidence snapshots retain original whitespace",
+    "old_wrapper_body": "byte-identical after removing new include/dispatch",
+    "hash_disc_outside_nintendo_helpers": "byte-identical"
+  },
+  "historical_checks": [
+    "Initial pkgcheck full-path argument matched no package; empty receipt retained as pkgcheck-unmatched.txt and is not PASS evidence",
+    "Imported BSD license had an extra blank line at EOF; removed before final unpublished ES commit",
+    "Dolphin Command.h and old LaggedFibonacciGenerator.cpp exploratory URLs returned HTTP 404; actual required sources subsequently read",
+    "Final static review before sealing added packed/zero reconstruction to the decoded-work budget; superseded local ES commits were unpublished"
+  ],
+  "runtime": "UNRUN",
+  "retained_state_dependency": "Existing all-zero hashes select Lookup unless forceAllGames=true; catalog/index source outside this assignment"
+}

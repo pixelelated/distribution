@@ -1,0 +1,29 @@
+[workspace]
+members = ["nod", "nod-ffi", "nodtool"]
+default-members = ["nod", "nodtool"]
+resolver = "3"
+
+[profile.release-lto]
+inherits = "release"
+lto = "fat"
+codegen-units = 1
+
+[workspace.package]
+version = "2.0.0-alpha.12"
+edition = "2024"
+rust-version = "1.85"
+authors = ["Luke Street <luke@street.dev>"]
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/encounter/nod"
+keywords = ["gamecube", "wii", "iso", "wbfs", "rvz"]
+
+[workspace.dependencies]
+digest = { version = "0.11.0", default-features = false }
+md-5 = { version = "0.11.0-rc.5", default-features = false }
+sha1 = { version = "0.11.0-rc.5", default-features = false }
+tracing = "0.1"
+zerocopy = { version = "0.8", features = ["alloc", "derive"] }
+
+# We only need the vendored sources archive for aarch64/x86_64 Linux
+[workspace.metadata.vendor-filter]
+platforms = ["aarch64-unknown-linux-gnu", "x86_64-unknown-linux-gnu"]

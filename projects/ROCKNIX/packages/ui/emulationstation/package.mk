@@ -4,13 +4,13 @@
 PKG_NAME="emulationstation"
 PKG_VERSION="c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78"
 PKG_GIT_CLONE_BRANCH="test/qa-integration"
-PKG_LICENSE="MIT"
+PKG_LICENSE="MIT AND BSD-3-Clause"
 PKG_SITE="https://github.com/pixelelated/emulationstation"
 PKG_URL="${PKG_SITE}.git"
 # noto-sans-cjk came from upstream 2026-09, and poppler with the PDF support
 # upstream's EmulationStation gained (e0e8b7ac33); the fork builds its own ES
 # from its own branch, so the clone form stays.
-PKG_DEPENDS_TARGET="boost toolchain SDL2 freetype curl freeimage bash rapidjson SDL2_mixer fping p7zip alsa vlc drm_tool poppler pugixml noto-sans-cjk ${OPENGLES}"
+PKG_DEPENDS_TARGET="boost toolchain SDL2 freetype curl freeimage bash rapidjson SDL2_mixer fping p7zip alsa vlc drm_tool poppler pugixml noto-sans-cjk zstd ${OPENGLES}"
 PKG_NEED_UNPACK="busybox"
 PKG_LONGDESC="Emulationstation emulator frontend"
 PKG_BUILD_FLAGS="-gold"
@@ -49,6 +49,15 @@ pre_configure_target() {
 }
 
 makeinstall_target() {
+  # The bounded RVZ reader carries a BSD padding adaptation. Older ES pins
+  # have no such reader; preserve their existing installation path.
+  if [ -f "${PKG_BUILD}/external/libcheevos/LICENSE.rvz-padding" ]; then
+    mkdir -p ${INSTALL}/usr/share/licenses/emulationstation
+    cp -a ${PKG_BUILD}/external/libcheevos/LICENSE.rvz-padding \
+          ${PKG_BUILD}/external/libcheevos/RVZ-NOTICES.md \
+          ${INSTALL}/usr/share/licenses/emulationstation/
+  fi
+
   mkdir -p ${INSTALL}/usr/config/locale
     cp -a ${PKG_BUILD}/locale/lang/* ${INSTALL}/usr/config/locale
 
