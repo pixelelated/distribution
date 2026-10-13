@@ -1,0 +1,209 @@
+{
+  "checked_at": "2026-10-13T05:29:33.881812+00:00",
+  "pin": "c7ebd1b6e777f3751ff0ecdf8aba54045844e00d",
+  "head": "3958abcecd4762128cdb1d4c24cbf179ea4c0f44",
+  "ahead_by": 4,
+  "commits": [
+    {
+      "sha": "3649daff237eb5302f3e3e5d065376ea10fc94c3",
+      "message": "chore: bump version to 2.2.0-alpha1"
+    },
+    {
+      "sha": "6dd5226fef91b122e71dcc3be7fee15586a7d48c",
+      "message": "Stats page: show spruce Anbernic layouts as Anbernic RG XX"
+    },
+    {
+      "sha": "82fa65964457479d3d99f701370848e84790c438",
+      "message": "Log the muOS boot hook to data/boot.log instead of /dev/null"
+    },
+    {
+      "sha": "3958abcecd4762128cdb1d4c24cbf179ea4c0f44",
+      "message": "linux: fall back to a free proxy port when the configured one is taken"
+    }
+  ],
+  "changed_files": [
+    "README.md",
+    "app/build.gradle.kts",
+    "docs/.vitepress/theme/components/SupportForm.vue",
+    "docs/.vitepress/theme/style.css",
+    "docs/installation.md",
+    "docs/introduction.md",
+    "lambda/raop-usage-stats-page/src/aggregate.test.ts",
+    "lambda/raop-usage-stats-page/src/aggregate.ts",
+    "linux/allium/app/RAOfflineProxy.pak/common.sh",
+    "linux/allium/build_bundle.sh",
+    "linux/darkos/build_bundle.sh",
+    "linux/knulli/build_bundle.sh",
+    "linux/muos/build_bundle.sh",
+    "linux/onion/app/RAOfflineProxy/common.sh",
+    "linux/onion/build_bundle.sh",
+    "linux/raofflineproxy/config.py",
+    "linux/raofflineproxy/menu_sdl.py",
+    "linux/raofflineproxy/platform.py",
+    "linux/raofflineproxy/service.py",
+    "linux/rocknix/build_bundle.sh",
+    "linux/spruce/app/RAOfflineProxy/common.sh",
+    "linux/spruce/build_bundle.sh",
+    "linux/tests/e2e/test_fake_ra.py",
+    "linux/tests/test_linux_autostart.py",
+    "linux/tests/test_linux_spruce.py"
+  ],
+  "relevant_diffs": [
+    {
+      "sha": "ce818c062071973dde67f0f0fc04d71115816326",
+      "filename": "linux/raofflineproxy/config.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "blob_url": "https://github.com/misantronic/RAOfflineProxy/blob/3958abcecd4762128cdb1d4c24cbf179ea4c0f44/linux%2Fraofflineproxy%2Fconfig.py",
+      "raw_url": "https://github.com/misantronic/RAOfflineProxy/raw/3958abcecd4762128cdb1d4c24cbf179ea4c0f44/linux%2Fraofflineproxy%2Fconfig.py",
+      "contents_url": "https://api.github.com/repos/misantronic/RAOfflineProxy/contents/linux%2Fraofflineproxy%2Fconfig.py?ref=3958abcecd4762128cdb1d4c24cbf179ea4c0f44",
+      "patch": "@@ -273,7 +273,7 @@ def resolve_config_dir() -> Path:\n \n RA_HOST = \"https://retroachievements.org\"\n RA_MEDIA_HOST = \"https://media.retroachievements.org\"\n-APP_VERSION = os.environ.get(\"RAOFFLINEPROXY_APP_VERSION\") or \"2.1.0-alpha1\"\n+APP_VERSION = os.environ.get(\"RAOFFLINEPROXY_APP_VERSION\") or \"2.2.0-alpha1\"\n PROXY_UA_TAG = f\"RAOfflineProxy/Linux/{APP_VERSION}\"\n FALLBACK_USER_AGENT = \"RetroArch/1.21.0 (Linux)\"\n "
+    },
+    {
+      "sha": "bb8682f11f58fd8e98bf6443dbb1fcfcd6e67fc1",
+      "filename": "linux/raofflineproxy/menu_sdl.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "blob_url": "https://github.com/misantronic/RAOfflineProxy/blob/3958abcecd4762128cdb1d4c24cbf179ea4c0f44/linux%2Fraofflineproxy%2Fmenu_sdl.py",
+      "raw_url": "https://github.com/misantronic/RAOfflineProxy/raw/3958abcecd4762128cdb1d4c24cbf179ea4c0f44/linux%2Fraofflineproxy%2Fmenu_sdl.py",
+      "contents_url": "https://api.github.com/repos/misantronic/RAOfflineProxy/contents/linux%2Fraofflineproxy%2Fmenu_sdl.py?ref=3958abcecd4762128cdb1d4c24cbf179ea4c0f44",
+      "patch": "@@ -493,6 +493,7 @@ def start_proxy_inline() -> bool:\n     \"\"\"Starts the proxy. Returns True when RetroArch's cfg was missing and skipped.\"\"\"\n     config_data, cfg_path = runtime_config()\n     remove_stale_hook()\n+    start_service_process(config_data)\n     patch_result = patch_retroarch_cfg(cfg_path, config_data)\n     enforce_patched_cfg(cfg_path, config_data)\n     batocera = patch_batocera_conf(config_data)\n@@ -503,7 +504,6 @@ def start_proxy_inline() -> bool:\n     store_ppsspp_previous(patch_state, ppsspp)\n     store_dolphin_previous(patch_state, dolphin)\n     save_patch_state(patch_state)\n-    start_service_process(config_data)\n     return not patch_result.get(\"exists\", True)\n \n "
+    },
+    {
+      "sha": "8ae3a547fc44dc959ff18cb6f02c4e7b490f1f32",
+      "filename": "linux/raofflineproxy/service.py",
+      "status": "modified",
+      "additions": 21,
+      "deletions": 4,
+      "changes": 25,
+      "blob_url": "https://github.com/misantronic/RAOfflineProxy/blob/3958abcecd4762128cdb1d4c24cbf179ea4c0f44/linux%2Fraofflineproxy%2Fservice.py",
+      "raw_url": "https://github.com/misantronic/RAOfflineProxy/raw/3958abcecd4762128cdb1d4c24cbf179ea4c0f44/linux%2Fraofflineproxy%2Fservice.py",
+      "contents_url": "https://api.github.com/repos/misantronic/RAOfflineProxy/contents/linux%2Fraofflineproxy%2Fservice.py?ref=3958abcecd4762128cdb1d4c24cbf179ea4c0f44",
+      "patch": "@@ -13,10 +13,12 @@\n     CONFIG_DIR,\n     DATABASE_FILE,\n     LOG_FILE,\n+    MAX_PROXY_PORT,\n     configure_logging,\n     proxy_host,\n     proxy_port,\n     running_on_darkos,\n+    save_config,\n )\n from .darkos_service import (\n     darkos_service_start,\n@@ -33,6 +35,8 @@\n     save_service_status,\n )\n \n+PORT_FALLBACK_ATTEMPTS = 50\n+\n SERVICE_COMMAND_MARKERS = [\n     \"-m raofflineproxy.main run-service\",\n     \"-m linux.raofflineproxy.main run-service\",\n@@ -231,6 +235,22 @@ def port_is_available(config_data: dict) -> bool:\n     return True\n \n \n+def relocate_proxy_port(config_data: dict) -> int:\n+    taken = proxy_port(config_data)\n+    last_candidate = min(taken + PORT_FALLBACK_ATTEMPTS, MAX_PROXY_PORT)\n+    for candidate in range(taken + 1, last_candidate + 1):\n+        candidate_config = {**config_data, \"proxy_port\": candidate}\n+        if port_is_available(candidate_config):\n+            config_data[\"proxy_port\"] = candidate\n+            save_config(config_data)\n+            logging.getLogger(\"raofflineproxy\").warning(\"Port %d is in use, switched proxy_port to %d\", taken, candidate)\n+            return candidate\n+    raise RuntimeError(\n+        f\"Port {taken} already in use and no free port found up to {last_candidate}\"\n+        \" - change proxy_port in config.json\"\n+    )\n+\n+\n def start_service_process(config_data: dict) -> dict:\n     if running_on_darkos():\n         return darkos_service_start()\n@@ -254,10 +274,7 @@ def start_service_process(config_data: dict) -> dict:\n     # errno in service.log while the menu reports a successful start. Check here, where\n     # the error can still be shown, unless the boot entrypoint already holds the socket.\n     if not listen_fd and not port_is_available(config_data):\n-        port = proxy_port(config_data)\n-        raise RuntimeError(\n-            f\"Port {port} already in use - change proxy_port in config.json\"\n-        )\n+        relocate_proxy_port(config_data)\n     pass_fds: tuple[int, ...] = ()\n     env = None\n     if listen_fd:"
+    }
+  ],
+  "large_cache_fix": {
+    "pull": 209,
+    "merge": "d842a749a44d48babfac4bd351eba084edc0214b",
+    "compare_to_pin": "ahead",
+    "ahead_by": 28
+  },
+  "latest_api_release": [
+    {
+      "tag_name": "v2.1.0-alpha1",
+      "published_at": "2026-10-05T14:52:46Z",
+      "html_url": "https://github.com/misantronic/RAOfflineProxy/releases/tag/v2.1.0-alpha1",
+      "body": "## Android\n- When no RetroAchievements login can be imported from an emulator, starting the proxy now offers **Log in now** or **Start without**. Logging in lets caching start right away; starting without works as before and picks up the login from your emulator's first online login. If RetroAchievements rejects the saved login, the app asks you to log in again. (#204, #210)\n- Fixed an out-of-memory crash with thousands of cached games. (50ce0d8)\n- **ARMSX1**: PS1 games are now picked up by Smart Cache. (#202)\n\n## Linux (all platforms)\n- Fixed crashes and very slow menus with large game libraries. On devices with little memory, like the Miyoo Mini, a few hundred cached games could make game launches, unlocks and the Cached Games menu fail or take 10+ seconds. With 1000 cached games they now take under a second. The first start after the update indexes your cache once, which can take up to a minute. (#209)\n\n"
+    }
+  ],
+  "searches": [
+    {
+      "query": "repo:misantronic/RAOfflineProxy is:issue memory",
+      "total_count": 3,
+      "error": null,
+      "items": [
+        {
+          "number": 101,
+          "title": "Awarding achievement: Warning: Casual Only every time a game starts",
+          "state": "closed",
+          "html_url": "https://github.com/misantronic/RAOfflineProxy/issues/101"
+        },
+        {
+          "number": 103,
+          "title": "SpruceUI support",
+          "state": "closed",
+          "html_url": "https://github.com/misantronic/RAOfflineProxy/issues/103"
+        },
+        {
+          "number": 92,
+          "title": "RAOfflineProxy stuck on Login Required",
+          "state": "closed",
+          "html_url": "https://github.com/misantronic/RAOfflineProxy/issues/92"
+        }
+      ]
+    },
+    {
+      "query": "repo:misantronic/RAOfflineProxy is:pull-request memory",
+      "total_count": 11,
+      "error": null,
+      "items": [
+        {
+          "number": 207,
+          "title": "Fix out-of-memory crash with thousands of cached games",
+          "state": "closed",
+          "html_url": "https://github.com/misantronic/RAOfflineProxy/pull/207"
+        },
+        {
+          "number": 169,
+          "title": "spruce: let spruce own the service and the UI",
+          "state": "closed",
+          "html_url": "https://github.com/misantronic/RAOfflineProxy/pull/169"
+        },
+        {
+          "number": 209,
+          "title": "Fix Linux crashes and slow menus with large game libraries",
+          "state": "closed",
+          "html_url": "https://github.com/misantronic/RAOfflineProxy/pull/209"
+        },
+        {
+          "number": 194,
+          "title": "Opt-in anonymous usage statistics (Linux) + e2e coverage",
+          "state": "closed",
+          "html_url": "https://github.com/misantronic/RAOfflineProxy/pull/194"
+        },
+        {
+          "number": 184,
+          "title": "build(deps): bump com.github.luben:zstd-jni from 1.5.7-17 to 1.5.7-20",
+          "state": "closed",
+          "html_url": "https://github.com/misantronic/RAOfflineProxy/pull/184"
+        },
+        {
+          "number": 161,
+          "title": "build(deps): bump third_party/rcheevos from `2ad0b86` to `1433173`",
+          "state": "closed",
+          "html_url": "https://github.com/misantronic/RAOfflineProxy/pull/161"
+        },
+        {
+          "number": 50,
+          "title": "Add Dolphin support for ROCKNIX",
+          "state": "closed",
+          "html_url": "https://github.com/misantronic/RAOfflineProxy/pull/50"
+        },
+        {
+          "number": 126,
+          "title": "Bump the aws-sdk group in /lambda with 4 updates",
+          "state": "closed",
+          "html_url": "https://github.com/misantronic/RAOfflineProxy/pull/126"
+        },
+        {
+          "number": 59,
+          "title": "Update discord-py requirement from >=2.4 to >=2.7.1 in /discord/honeypot-bot",
+          "state": "closed",
+          "html_url": "https://github.com/misantronic/RAOfflineProxy/pull/59"
+        },
+        {
+          "number": 125,
+          "title": "Bump com.squareup.okhttp3:okhttp from 5.4.0 to 5.5.0",
+          "state": "closed",
+          "html_url": "https://github.com/misantronic/RAOfflineProxy/pull/125"
+        },
+        {
+          "number": 94,
+          "title": "Bump the aws-sdk group in /lambda with 4 updates",
+          "state": "closed",
+          "html_url": "https://github.com/misantronic/RAOfflineProxy/pull/94"
+        }
+      ]
+    },
+    {
+      "query": "repo:misantronic/RAOfflineProxy is:pull-request lazy imports",
+      "total_count": 0,
+      "error": null,
+      "items": []
+    }
+  ]
+}

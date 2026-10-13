@@ -1,0 +1,21 @@
+{
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "executable": "/usr/bin/python3",
+  "executable_sha256": "52e0a13e60a981d8c4b6478be2ba5176f69da07948a056bf49cf6f077e30cb41",
+  "sqlite": "3.46.1",
+  "openssl": "OpenSSL 3.5.5 27 Jan 2026",
+  "dependencies": "Python standard library only; no installs",
+  "command": [
+    "docs/qa-logs/2026-10-13-proxy-memory-feasibility/fixtures/check.py",
+    "--prepared",
+    "/workspace/repos/rocknix.worktrees/m7-browser-memory-570/.build-runs/proxy-memory-feasibility/trees02",
+    "--output",
+    "/workspace/repos/rocknix.worktrees/m7-browser-memory-570/.build-runs/proxy-memory-feasibility/run01"
+  ],
+  "network_policy": "deny all socket audit events including creation/DNS; negative events checked before proxy import",
+  "scope": "host import/dispatch/in-process synthetic storage; no listener or service",
+  "source_manifest_sha256": "bbd19421935929cda116124199b0e81d0023cb8eb78ce627f3379ec76d61e3d6",
+  "fixture_sha256": "8f9c4f5a133c2eb2dd37ef098744e9465c7af524901705596adb3ba86cf1a76c",
+  "max_seconds": 60,
+  "scratch_limit_bytes": 20971520
+}

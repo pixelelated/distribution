@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-13T05:29:33.950954+00:00",
+  "Pss_KiB": {
+    "baseline": [
+      32653,
+      32562,
+      32569
+    ],
+    "candidate": [
+      27174,
+      27127,
+      27102
+    ]
+  },
+  "median_Pss_KiB": {
+    "baseline": 32569,
+    "candidate": 27127
+  },
+  "median_delta_KiB": 5442,
+  "removed_modules": [
+    "raofflineproxy.knulli_service",
+    "raofflineproxy.menu_input",
+    "raofflineproxy.menu_sdl",
+    "raofflineproxy.ui"
+  ],
+  "syntax_parsed": [
+    "fixtures/bytecode.py",
+    "fixtures/check.py",
+    "fixtures/prepare.py",
+    "fixtures/readiness.py"
+  ],
+  "readiness_fixture": "UNRUN; syntax only",
+  "preparation_attempt1": "Failed before execution: the preparer rejected a valid pre-existing patch 002 line offset. Relaxed only the offset check; --fuzz=0 remains. Fresh trees02 applied all 16 packaged patches and candidate successfully; no rejected hunk. No host proxy run was repeated.",
+  "host_allocation_runs": 1,
+  "bytecode_fixture": "UNRUN; syntax only"
+}

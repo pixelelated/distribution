@@ -1,0 +1,21 @@
+{
+  "command": [
+    "/usr/bin/python3",
+    "-B",
+    "docs/qa-logs/2026-10-13-proxy-memory-feasibility/fixtures/check.py",
+    "--prepared",
+    "/workspace/repos/rocknix.worktrees/m7-browser-memory-570/.build-runs/proxy-memory-feasibility/trees02",
+    "--output",
+    "/workspace/repos/rocknix.worktrees/m7-browser-memory-570/.build-runs/proxy-memory-feasibility/run01"
+  ],
+  "pid": 4,
+  "rc": 0,
+  "exited": true,
+  "timed_out": false,
+  "elapsed_seconds": 1.78875380998943,
+  "scratch_bytes_before": 4837367,
+  "scratch_bytes_after": 4927694,
+  "stdout": "{\"result\": \"PASS\", \"cases\": 10, \"seconds\": 1.7114509210223332, \"evidence_level\": \"host source checks; no listener or real provider\"}\n",
+  "stderr": "",
+  "TMPDIR": "/workspace/tmp/pix570-parallel-20261013/tmp"
+}
