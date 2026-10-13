@@ -1,0 +1,98 @@
+
+/workspace/tmp/pix570-es-product-20261013/scratch/es/emulationstation:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+Disassembly of section .plt:
+
+Disassembly of section .text:
+
+0000000000a37900 <ApiSystem::launchCloudSignIn(Window*, bool)>:
+  a37900:	41 57                	push   %r15
+  a37902:	89 d1                	mov    %edx,%ecx
+  a37904:	49 89 ff             	mov    %rdi,%r15
+  a37907:	41 56                	push   %r14
+  a37909:	49 89 f6             	mov    %rsi,%r14
+  a3790c:	53                   	push   %rbx
+  a3790d:	48 83 ec 20          	sub    $0x20,%rsp
+  a37911:	80 3d b0 5c 51 00 00 	cmpb   $0x0,0x515cb0(%rip)        # f4d5c8 <Log::mEnabled>
+  a37918:	74 0d                	je     a37927 <ApiSystem::launchCloudSignIn(Window*, bool)+0x27>
+  a3791a:	83 3d db 5f 4b 00 02 	cmpl   $0x2,0x4b5fdb(%rip)        # eed8fc <Log::mReportingLevel>
+  a37921:	0f 8f c9 00 00 00    	jg     a379f0 <ApiSystem::launchCloudSignIn(Window*, bool)+0xf0>
+  a37927:	84 c9                	test   %cl,%cl
+  a37929:	bf dc b6 d0 00       	mov    $0xd0b6dc,%edi
+  a3792e:	b8 e0 ff d1 00       	mov    $0xd1ffe0,%eax
+  a37933:	48 0f 45 f8          	cmovne %rax,%rdi
+  a37937:	e8 a4 8e 9d ff       	call   4107e0 <system@plt>
+  a3793c:	85 c0                	test   %eax,%eax
+  a3793e:	74 20                	je     a37960 <ApiSystem::launchCloudSignIn(Window*, bool)+0x60>
+  a37940:	80 3d 81 5c 51 00 00 	cmpb   $0x0,0x515c81(%rip)        # f4d5c8 <Log::mEnabled>
+  a37947:	74 0a                	je     a37953 <ApiSystem::launchCloudSignIn(Window*, bool)+0x53>
+  a37949:	8b 15 ad 5f 4b 00    	mov    0x4b5fad(%rip),%edx        # eed8fc <Log::mReportingLevel>
+  a3794f:	85 d2                	test   %edx,%edx
+  a37951:	7f 5d                	jg     a379b0 <ApiSystem::launchCloudSignIn(Window*, bool)+0xb0>
+  a37953:	48 83 c4 20          	add    $0x20,%rsp
+  a37957:	31 c0                	xor    %eax,%eax
+  a37959:	5b                   	pop    %rbx
+  a3795a:	41 5e                	pop    %r14
+  a3795c:	41 5f                	pop    %r15
+  a3795e:	c3                   	ret
+  a3795f:	90                   	nop
+  a37960:	4c 89 f6             	mov    %r14,%rsi
+  a37963:	4c 89 ff             	mov    %r15,%rdi
+  a37966:	e8 25 fc ff ff       	call   a37590 <ApiSystem::launchExternalWindow_before(Window*)>
+  a3796b:	31 ff                	xor    %edi,%edi
+  a3796d:	e8 de 75 9d ff       	call   40ef50 <malloc_trim@plt>
+  a37972:	bf 13 b7 d0 00       	mov    $0xd0b713,%edi
+  a37977:	e8 64 8e 9d ff       	call   4107e0 <system@plt>
+  a3797c:	4c 89 f6             	mov    %r14,%rsi
+  a3797f:	4c 89 ff             	mov    %r15,%rdi
+  a37982:	a8 7f                	test   $0x7f,%al
+  a37984:	0f b6 d4             	movzbl %ah,%edx
+  a37987:	0f 45 d0             	cmovne %eax,%edx
+  a3798a:	89 54 24 0c          	mov    %edx,0xc(%rsp)
+  a3798e:	e8 ed fc ff ff       	call   a37680 <ApiSystem::launchExternalWindow_after(Window*)>
+  a37993:	bf 2d b7 d0 00       	mov    $0xd0b72d,%edi
+  a37998:	e8 43 8e 9d ff       	call   4107e0 <system@plt>
+  a3799d:	8b 44 24 0c          	mov    0xc(%rsp),%eax
+  a379a1:	85 c0                	test   %eax,%eax
+  a379a3:	0f 94 c0             	sete   %al
+  a379a6:	48 83 c4 20          	add    $0x20,%rsp
+  a379aa:	5b                   	pop    %rbx
+  a379ab:	41 5e                	pop    %r14
+  a379ad:	41 5f                	pop    %r15
+  a379af:	c3                   	ret
+  a379b0:	48 8d 7c 24 1c       	lea    0x1c(%rsp),%rdi
+  a379b5:	be 01 00 00 00       	mov    $0x1,%esi
+  a379ba:	e8 91 2a 0a 00       	call   ada450 <Log::Log(LogLevel)>
+  a379bf:	48 8d 7c 24 1c       	lea    0x1c(%rsp),%rdi
+  a379c4:	e8 87 2b 0a 00       	call   ada550 <Log::stream[abi:cxx11]()>
+  a379c9:	ba 2e 00 00 00       	mov    $0x2e,%edx
+  a379ce:	be 08 00 d2 00       	mov    $0xd20008,%esi
+  a379d3:	48 89 c7             	mov    %rax,%rdi
+  a379d6:	e8 65 86 9d ff       	call   410040 <std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)@plt>
+  a379db:	48 8d 7c 24 1c       	lea    0x1c(%rsp),%rdi
+  a379e0:	e8 4b 37 0a 00       	call   adb130 <Log::~Log()>
+  a379e5:	e9 69 ff ff ff       	jmp    a37953 <ApiSystem::launchCloudSignIn(Window*, bool)+0x53>
+  a379ea:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+  a379f0:	48 8d 7c 24 1c       	lea    0x1c(%rsp),%rdi
+  a379f5:	be 03 00 00 00       	mov    $0x3,%esi
+  a379fa:	89 54 24 0c          	mov    %edx,0xc(%rsp)
+  a379fe:	e8 4d 2a 0a 00       	call   ada450 <Log::Log(LogLevel)>
+  a37a03:	48 8d 7c 24 1c       	lea    0x1c(%rsp),%rdi
+  a37a08:	e8 43 2b 0a 00       	call   ada550 <Log::stream[abi:cxx11]()>
+  a37a0d:	ba 1c 00 00 00       	mov    $0x1c,%edx
+  a37a12:	be f6 b6 d0 00       	mov    $0xd0b6f6,%esi
+  a37a17:	48 89 c7             	mov    %rax,%rdi
+  a37a1a:	e8 21 86 9d ff       	call   410040 <std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)@plt>
+  a37a1f:	48 8d 7c 24 1c       	lea    0x1c(%rsp),%rdi
+  a37a24:	e8 07 37 0a 00       	call   adb130 <Log::~Log()>
+  a37a29:	8b 4c 24 0c          	mov    0xc(%rsp),%ecx
+  a37a2d:	e9 f5 fe ff ff       	jmp    a37927 <ApiSystem::launchCloudSignIn(Window*, bool)+0x27>
+  a37a32:	49 89 c7             	mov    %rax,%r15
+  a37a35:	e9 b2 a2 a6 ff       	jmp    4a1cec <ApiSystem::launchCloudSignIn(Window*, bool) [clone .cold]>
+  a37a3a:	49 89 c7             	mov    %rax,%r15
+  a37a3d:	e9 bf a2 a6 ff       	jmp    4a1d01 <ApiSystem::launchCloudSignIn(Window*, bool) [clone .cold]+0x15>
+
+Disassembly of section .fini:

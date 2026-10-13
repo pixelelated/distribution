@@ -643,6 +643,16 @@ taps and typing use one ordered input stream; supported sign-in popups preserve
 their opener and return to it. User-initiated cross-host navigation keeps the provider/auth-host guard; this is
 not a claim of complete redirect or subframe confinement.
 
+### Pending nonvisual allocator candidate (#570)
+
+The cloud sign-in flow and copy remain unchanged. Candidate ESf7b71db0a adds
+heap reclamation after frontend teardown. [Actual-source component evidence](qa-logs/2026-10-13-es-trim-product/README.md)
+and its [reviewed frame index](qa-logs/2026-10-13-es-trim-product/frames.json)
+cover640×480 native input, phone input across navigation, provider-start failure,
+Back and browser return. This is a runtime overlay, not a promoted pin or complete
+full-image baseline; broader qualification remains open. #571's phone status
+layout remains a separate pending change.
+
 ### Text editing and browser Back (#538/#539)
 
 The shared text editors label their existing empty-string action CLEAR

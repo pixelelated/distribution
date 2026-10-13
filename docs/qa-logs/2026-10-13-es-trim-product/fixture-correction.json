@@ -1,0 +1,6 @@
+{
+  "initial_result": "provider redirect lookup failed",
+  "cause": "initial synthetic authorize handler served200 directly and lacked HEAD/302 redirect expected by real broker",
+  "correction": "reuse qualified302 HEAD/GET redirect and host synthetic page fixtures on a fresh port; original attempt cancelled before replacement",
+  "original_correction_scope": "fixture only; no product source change"
+}

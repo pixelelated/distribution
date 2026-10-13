@@ -1,0 +1,28 @@
+{
+  "utc": "2026-10-13T18:50:48.358212+00:00",
+  "result": "RETIRED",
+  "targets": [
+    {
+      "path": "/workspace/tmp/pix570-es-product-20261013/scratch/es",
+      "device": 66304,
+      "inode": 192166116,
+      "allocated_file_bytes": 829177856,
+      "files": 1760
+    },
+    {
+      "path": "/workspace/tmp/pix570-es-product-20261013/vm",
+      "device": 66304,
+      "inode": 192168199,
+      "allocated_file_bytes": 2342957056,
+      "files": 5
+    }
+  ],
+  "retired_allocated_file_bytes": 3172134912,
+  "available_before": 2993533575168,
+  "available_after": 2996706844672,
+  "retained_binary": "/workspace/tmp/pix570-es-product-20261013/scratch/emulationstation",
+  "binary_bytes": 11798768,
+  "hold_issue": 570,
+  "hold_release": "after immediately queued remaining compiled-source qualification; no historical VM retained",
+  "automatic_cleanup": false
+}

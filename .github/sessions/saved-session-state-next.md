@@ -1,6 +1,6 @@
 # Saved Session State
 
-> **Saved**: 2026-10-13T18:12:03.319654+00:00
+> **Saved**: 2026-10-13T18:55:58.770095+00:00
 > **Branch**: feature/m7-player-setup
 > **Repo**: pixelelated/distribution
 
@@ -18,47 +18,82 @@ and resolve the provenance of the Nova's pre-existing account and metadata.
 The exact request is recorded in #570 and #565. Existing owner operations are
 not replayable authorizations. No owner device/cloud/account/save operation
 occurred in this continuation. No firmware pin, browser policy or ES product
-source has been promoted. The small trim proposal remains UNCOMPILED.
+source has been promoted. The trim proposal is now compiled and has bounded VM smoke proof; the distribution pin is unchanged.
 
-## Latest continuation — #493 launch enforcement implemented and tested
+## Current focus — #570 compiled source and bounded VM smoke COMPLETE
 
-Latest user: “Let's keep moving through all of the remaining changes and open
-issues from the last candidate I tested for 0.0.1 to now.” Work begins from
-publishede198f0fc3b. Mandatory normal native/Docker/ad-hoc build admission is
-implemented in tools/host-maintenance/build-admission and shared watch wrappers.
-Native device targets have one parent across ABI phases. Current report, source,
-evidence, protected identities, profiles, filesystem and shared reservations bind
-the launch. Original results/evidence/host PID exits release a reservation;
-outputs remain held. No automatic deletion or full #493 completion is claimed.
-Read tools/host-maintenance/build-admission.md before the next compilation.
+Latest user asks to work through all remaining M7 issues since the tested0.0.1
+candidate. #493 launch admission was implemented/published asd7e2d6be411675003d04e92f8801e49ed587cc8b,
+with27 admission/36 routing controls, real host lifecycle, both exact-head CI
+checks and original delivery0/exited consumed. Live #493 checks only this
+criterion; automatic retirement/reconciliation and real-build telemetry remain
+open. Every future compile/cache copy needs a fresh measured admission; read
+tools/host-maintenance/build-admission.md. Non-compiling jobs need --record-only.
 
-27 admission and36 routing controls pass; the final watcher bytecode-write
-suppression has another27-control pass and real host admit/consume proof.
-All7 original owners in /workspace/tmp/pix493-admission-20261013 are consumed
-with actual host exits: controls01 retains setup failure2, six accepted stages0.
-The actual host synthetic job writes1024bytes under a16MiB allowance; this is not
-a compiler budget. Registry reservation1e760800ad314469b4deeb6b3725241a is consumed.
-No compiler/VM/device/cloud job is active. Packet:
-docs/qa-logs/2026-10-13-build-admission/README.md.
+The actual ES source candidate is nowf7b71db0a70e1c48627f70847ecbc95bb1cb4a43,
+branch feature/m7-es-trim-570, at
+/home/max/Development/emulationstation-next.worktrees/m7-es-trim-570.
+It is exactly the earlier seven-line proposal fromc8dc72cf9e; no distribution
+pin has moved. Syntax/object/link/strip pass with the frozen read-only VM20
+cache/toolchain and pinned builder. Linked call order is teardown → malloc_trim
+→ cloud wait → frontend restore. Frozen input hashes unchanged. Compile02 peak
+749096960bytes, zero OOM and sampled swap-in/out. Original compile01 ccache
+read-only failure1 is preserved; retry disables ccache. Host swap was reclaimed
+through the installed guarded helper before compilation.
 
-Current source is prepared for commit/push and exact-head CI under fresh owner
-/workspace/tmp/pix493-admission-20261013/delivery01. Inspect it before doing
-anything else: if submitted, consume result.json, launcher-result.json,
-tool-wrapper.rc, watcher build.rc/runner-result/status, actual host PID exits,
-remote HEAD and exact-head record/wordlist checks. Do not replay an owner.
-The checkpoint itself is prepared before launch, not proof of publication.
+Packet: docs/qa-logs/2026-10-13-es-trim-product/README.md. Private owner:
+/workspace/tmp/pix570-es-product-20261013, COMPLETE/RETIRED, never replay its
+commands, ports10602/10603/5992/33395, keys or ended owners. All15watched
+owners consumed with actual host exits (13zero, compile1, submission2).
+QEMU/server/automation ended; VM disk/UEFI/keys and isolated ES copy removed,
+3172134912allocated file bytes retired. Only scratch/emulationstation remains:
+11798768bytes, SHA2565c08a1713e9af08054e6ec01480894987f48e9335b44fbf8e02462109438ca6f,
+held by #570 for the immediately queued remaining qualification. Retire it when
+that need ends. This cleanup was explicit, not #493 automatic retirement.
 
-**Next:** complete that delivery, mark only #493's admission criterion complete,
-then prepare the real #570 ES trim build under a fresh measured admission.
-#493 automatic retirement/reconciliation, historical classification and actual
-build memory/space measurements remain open. #570 needs actual source/binary
-and flow/lifecycle proof; no pin moves before it. Preserve the full queue below.
+The fresh640×480 English VM ran that actual binary; native-mode virtual-key
+input and real phone-page16-character input across two page loads pass, normal
+return keeps ES PID2679 and the same boot.13reviewed frames,11public; temporary
+pairing QR frames stay private. Final broker idle, no browser or configured
+remote. Local synthetic authorization only; no owner device/cloud/account.
+Requested --gl auto is recorded, but runtime renderer/argv were not separately
+retained: no independently verified GPU claim. Original autostart.service alias
+readiness claim is invalidated; corrected rocknix-autostart/current-boot/idle
+readback passes. Initial missing HEAD/302 redirect fixture was cancelled and
+replaced by the prior qualified fixture. Early startup-overlay frames do not
+prove completed keyboard-choice state. No original result is relabelled.
 
-Long non-compiling QA/record/delivery jobs now use:
-`tools/watch-build-submit --owner FRESH_OWNER -- --record-only --activity-dir FRESH_OWNER -- COMMAND`.
-Compiles/cache copies require `--admission RECEIPT`, never recording-only.
-The frozen old supervisor under the completed test owner is historical; use the
-new guide and final source for new jobs. No owner-device action is inferred.
+**Immediate next work:** consume the fresh delivery below if needed, then finish
+#570 actual-binary constrained-memory comparison, repeated lifecycle and remaining
+success/failure cases plus broader source-bound flows before pin promotion.
+Retain actual renderer/PID/boot/readiness reads at startup. The640smoke is not
+1280×800/French, authenticated sign-in, complete usability, physical cure or full
+candidate qualification. Historical diagnostic75.73–77.64MiB savings are not
+this binary's measured savings. No interposer rerun may substitute for it.
+
+Then continue the live M7 order: #565 final payload/clean/real retained-upgrade,
+#566 provider-supported ScreenScraper identity, #567 refresh notice, #571 phone
+status, #577 stable Wi-Fi picker, #578 Recent default, #574 RVZ recognition,
+#575 emulator capability, #564 stable20261001 Steam repair, combined QA/audit,
+H700 then SM8550 and source/custody/publication gates. No new RC allocated.
+
+## Delivery to consume — current checkpoint prepared before launch
+
+/workspace/tmp/pix570-es-product-20261013/delivery01 is the fresh owner for
+publishing the scoped ES feature branch plus this distribution evidence/checkpoint.
+It has not been proven complete by this checkpoint. Inspect result.json,
+launcher-result.json, tool-wrapper.rc, runner-result/build.rc/status, actual host
+owner/command/watcher exits and exact remote HEAD plus record/wordlist CI.
+Verify the separate ES feature ref equalsf7b71db0a; it is a review branch,
+not qa-integration or a pin promotion. Never replay a completed owner.
+No off-session notification exists; actively supervise and announce completion.
+
+#493's earlier /workspace/tmp/pix493-admission-20261013/delivery01 is COMPLETE0,
+actual exits and both exact-head hosted checks consumed. All its test owners are
+also complete. The resume-only proof caught stale oldapply01-running tracker
+text; it is corrected. No independent code-audit claim or new external transfer.
+
+## Historical context — preserved completed evidence, not commands to replay
 
 ## Previous continuation — testing-first baseline COMPLETE
 
@@ -102,18 +137,16 @@ No test/build/VM is active. Public packet hashes/raw identities, fixture ASTs,
 result semantics and rules/register/index/ceremony checks pass. No compiler,
 full cache copy, product pin change, new RC number or new audit transfer.
 
-**Dependency update:** #493's mandatory launch gate is now implemented and
-tested as described above; delivery remains to be consumed. Automatic retirement
-is still open and is not claimed by this slice. Actual #570 source/binary
-qualification follows admitted measured preparation. Do not repeat diagnostics
-as a substitute for compiling the change.
+**Current dependency:** #493 launch admission is delivered. #570 now has the
+actual compiled candidate and bounded640smoke above; remaining qualification is
+next. Automatic retirement remains separate open infrastructure work.
 
 #558 previous normal-shutdown read-only triage remains complete/unknown cause;
 no physical reproduction authorized this turn. #566/#567/#571/#574/#575/#564
 retain their earlier scoped work below. Completed old delivery03-afternoon is
 verified0/exited and published71b932; never replay it.
 
-## Current focus and measured results
+## Historical allocator diagnostic and Nova investigation
 
 #570 now has a concrete allocator optimization to qualify. Actual normal ES
 cloud handoff frees substantial heap without returning it to the OS. A tiny
@@ -201,11 +234,11 @@ diagnostic candidates; the new measured ES opportunity is the next narrow lead.
 
 ## Next steps, in order
 
-1. Consume #493 delivery01 above; the earlier baseline delivery is complete0/exited.
-2. Prepare current measured retention/admission receipts before real compilation.
+1. Consume the current product-evidence delivery above; #493 and baseline deliveries are complete0/exited.
+2. Prepare current measured retention/admission receipts before further compilation or guest allocation.
    Launch enforcement is implemented; automatic cleanup remains separate open
    infrastructure work. No broad historical deletion or general sudo is implied.
-3. Actual #570 ES cloud-handoff trim source/binary qualification, isolated branch
+3. Remaining #570 qualification of compiledf7b71db0a above; the prior proposal was an isolated branch
    fromc8dc72cf9e: syntax/package checks, normal sign-in, phone/native input,
    cancel/error/return/lifecycle, canonical same-source frame index. VM first;
    designated RG35XX SP H700 bench100.74.205.40underD-QA-060/device-act for physical
@@ -248,14 +281,10 @@ and actual host launcher/build/command/watcher/build.status PID exits. No
 off-session notification exists; actively supervise and announce completion.
 Keep durable compact logs/source/receipts; remove completed disposable disks.
 
-## Record delivery
+## Historical record deliveries
 
-Old morning delivery02 and afternoon delivery03 are COMPLETE0/exited, exact-head
-record/wordlist checks passed. Afternoon published71b932ab3235ac252ef37cb8391e08807a76de91.
+Prior diagnostic, clean-state, baseline and #493 deliveries are COMPLETE0/exited
+and their exact-head hosted checks passed. Do not replay them. Current product
+evidence delivery is above.
 
-Baseline delivery owner /workspace/tmp/pix-m7-baseline-tests-20261013/delivery01
-is COMPLETE0/exited; publishede198f0fc3b with both exact-head hosted checks passing.
-Consumption receipt verified17:03:46UTC. Never replay it. The active #493 delivery
-location and required checks are above.
-
-Previous checkpoint: archived/saved-session-state-next-20261013T181203Z.md
+Previous checkpoint: archived/saved-session-state-next-20261013T185558Z.md

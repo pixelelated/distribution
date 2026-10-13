@@ -1,0 +1,9 @@
+{
+  "result": "PASS",
+  "invalidated": "provision-result.ready autostart.service observation; substring active matched inactive for nonexistent alias",
+  "actual_unit": "rocknix-autostart.service",
+  "start_monotonic": 2970848,
+  "original_provision_rc": 0,
+  "later_strict_alias_check_rc": 1,
+  "scope": "actual correct service succeeded in current boot, frontend idle; alias readback does not prove first-boot readiness"
+}

@@ -267,3 +267,14 @@ fixed behavior. Initial404-masking and restart-rate-limit failures remain1. All
 eight original watched stages consumed with actual host exits; VM/disk/UEFI/keys
 retired,2247536640allocated bytes recovered. No full suite, physical radio, USB
 transfer or candidate acceptance. [Source, failures, results and frame index](qa-logs/2026-10-13-library-wifi-baseline/README.md).
+
+### 2026-10-13 18:53 UTC — #570 actual compiled allocator candidate, scoped smoke PASS
+
+ESf7b71db0a over accepted VM20, standard640×480 with `--gl auto` requested.
+Actual renderer/argv were not separately retained; no independent GPU-use claim. Actual binary hash
+verified; native virtual-key input and actual phone bridge input across two pages
+return on the same frontend/boot. Synthetic local authorization only; no account.
+13reviewed frames (11public); provider-start failure and Back also observed.
+This is not constrained-memory, authenticated or full-candidate qualification.
+Original setup/compile failures retained;15owners consumed/exited, guest and
+compile copy retired3.17GB. [Source, results and frame index](qa-logs/2026-10-13-es-trim-product/README.md).

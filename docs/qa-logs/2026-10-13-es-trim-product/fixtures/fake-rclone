@@ -1,0 +1,14 @@
+#!/usr/bin/python3
+import os,sys,http.server,json,urllib.parse,time
+from pathlib import Path
+if len(sys.argv)<2 or sys.argv[1]!='authorize':os.execv('/storage/qa570product/rclone-original',sys.argv)
+class H(http.server.BaseHTTPRequestHandler):
+ def log_message(self,*a):pass
+ def do_POST(self):
+  data=json.loads(self.rfile.read(int(self.headers['Content-Length'])));data['at']=time.time()
+  with open('/storage/qa570product/events.jsonl','a') as f:f.write(json.dumps(data)+'\n')
+  self.send_response(204);self.end_headers()
+ def do_GET(self):
+  body='''<!doctype html><meta name="viewport" content="width=device-width"><title>Local sign-in control</title><style>body{font:22px sans-serif;color:#123;background:#eef;margin:20px}input{font:24px monospace;width:90%}</style><h1>Sign-in input test</h1><p>Local fixture. No account.</p><input id="qa" aria-label="QA input" autocomplete="off"><p><a href="/next">Next page</a></p><div id="tick"></div><script>const b=document.querySelector('input');b.focus();function e(o){fetch('/event',{method:'POST',body:JSON.stringify(o)})}e({event:'loaded',path:location.pathname});b.addEventListener('input',()=>e({event:'input',value:b.value}));let n=0;setInterval(()=>document.querySelector('#tick').textContent='Heartbeat '+(++n),1000);</script>'''.encode()
+  self.send_response(200);self.send_header('Content-Type','text/html');self.send_header('Content-Length',str(len(body)));self.end_headers();self.wfile.write(body)
+server=http.server.HTTPServer(('127.0.0.1',53682),H);print('http://127.0.0.1:53682/auth?state=synthetic-qa',flush=True);server.serve_forever()

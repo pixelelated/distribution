@@ -1,0 +1,1 @@
+Original syntax rc1: compiler wrapper invokes ccache, which attempted a write on the deliberately read-only toolchain mount. No changed object or link step ran. Retain original rc1 and independently verified package copy; fresh compile02 will disable ccache and use the same copied package only after source manifest validation.

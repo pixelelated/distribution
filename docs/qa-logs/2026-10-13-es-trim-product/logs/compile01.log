@@ -1,0 +1,18 @@
+watch-build: recording in /workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261013T182020Z-1968c2af
+START syntax
+using emulationstation-c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78
+  FAIL    /source/es-app/src/ApiSystem.cpp
+          ccache: error: Read-only file system
+FAIL
+END syntax 1
+Traceback (most recent call last):
+  File "/work/inner.py", line 8, in <module>
+    run('syntax',['bash','/work/records/es-syntax-check','--root',str(b),'--tree','/source','/source/es-app/src/ApiSystem.cpp'])
+  File "/work/inner.py", line 6, in run
+    print('START '+label,flush=True);p=subprocess.run(args,cwd=where,env=dict(os.environ,TMPDIR='/work/tmp'),timeout=600);result['stages'].append({'stage':label,'rc':p.returncode});print('END '+label+' '+str(p.returncode),flush=True);assert p.returncode==0,label
+AssertionError: syntax
+Traceback (most recent call last):
+  File "/workspace/tmp/pix570-es-product-20261013/build.py", line 32, in <module>
+    (records/'docker-command.json').write_text(json.dumps(args,indent=2)+'\n');p=subprocess.run(args,timeout=900);result['stages'].append({'stage':'container-build','rc':p.returncode});assert p.returncode==0,'container failed'
+                                                                                                                                                                                                ^^^^^^^^^^^^^^^
+AssertionError: container failed

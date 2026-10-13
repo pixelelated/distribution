@@ -1,0 +1,32 @@
+{
+  "stages": [
+    {
+      "stage": "syntax",
+      "rc": 0
+    },
+    {
+      "stage": "compile",
+      "rc": 0
+    },
+    {
+      "stage": "link",
+      "rc": 0
+    },
+    {
+      "stage": "strip",
+      "rc": 0
+    },
+    {
+      "stage": "strip-debug",
+      "rc": 0
+    }
+  ],
+  "started": 1791915724.0587518,
+  "rc": 0,
+  "binary_sha256": "5c08a1713e9af08054e6ec01480894987f48e9335b44fbf8e02462109438ca6f",
+  "binary_bytes": 11798768,
+  "ended": 1791915732.8164,
+  "max_child_rss_kib": 579524,
+  "cgroup_memory_peak": "749096960\n",
+  "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n"
+}

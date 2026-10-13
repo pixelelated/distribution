@@ -1,0 +1,25 @@
+{
+  "result": "PASS",
+  "changed_paths": [
+    ".x86_64-rocknix-linux-gnu/es-app/CMakeFiles/emulationstation.dir/link.d",
+    ".x86_64-rocknix-linux-gnu/es-app/CMakeFiles/emulationstation.dir/src/ApiSystem.cpp.o",
+    ".x86_64-rocknix-linux-gnu/es-app/CMakeFiles/emulationstation.dir/src/ApiSystem.cpp.o.d",
+    "emulationstation",
+    "es-app/src/ApiSystem.cpp"
+  ],
+  "trim_call_sequence": [
+    "a37966:\te8 25 fc ff ff       \tcall   a37590 <ApiSystem::launchExternalWindow_before(Window*)>",
+    "a3796d:\te8 de 75 9d ff       \tcall   40ef50 <malloc_trim@plt>",
+    "a37977:\te8 64 8e 9d ff       \tcall   4107e0 <system@plt>",
+    "a3798e:\te8 ed fc ff ff       \tcall   a37680 <ApiSystem::launchExternalWindow_after(Window*)>"
+  ],
+  "binary_sha256": "5c08a1713e9af08054e6ec01480894987f48e9335b44fbf8e02462109438ca6f",
+  "host_samples": 11,
+  "host_min_memavailable_kib": 42823008,
+  "swap_pages_delta": {
+    "pswpin": 0,
+    "pswpout": 0
+  },
+  "container_memory_peak_bytes": 749096960,
+  "scope": "compiled source/binary and frozen-input proof; no guest behavior yet"
+}
