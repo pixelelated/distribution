@@ -1,0 +1,237 @@
+{
+  "evidence_level": "source-and-development-metadata-only",
+  "sysroot": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot",
+  "webkit_source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/build/webkitgtk-2.54.1",
+  "webkit_options_sha256": "1e146be6f45a6719f3d614711670e4862067d92c4aa1c6dd31d82d806dc25a39",
+  "existing_webkit_flags": {
+    "ENABLE_BUBBLEWRAP_SANDBOX": "OFF",
+    "ENABLE_GPU_PROCESS": "ON",
+    "ENABLE_SAMPLING_PROFILER": "OFF",
+    "ENABLE_WAYLAND_TARGET": "ON",
+    "ENABLE_X11_TARGET": "OFF",
+    "USE_GBM": "ON",
+    "USE_GSTREAMER_GL": "ON",
+    "USE_GTK4": "OFF",
+    "USE_SKIA": "ON",
+    "USE_SYSPROF_CAPTURE": "OFF"
+  },
+  "modules": [
+    {
+      "module": "glib-2.0",
+      "minimum": "2.89.3",
+      "status": "PRESENT",
+      "path": "usr/lib/pkgconfig/glib-2.0.pc",
+      "version": "2.89.3",
+      "sha256": "aedfd535530171cc123655a1613e5f19aa288b01f24a37121760b5f4d97967f8"
+    },
+    {
+      "module": "gio-2.0",
+      "minimum": "2.89.3",
+      "status": "PRESENT",
+      "path": "usr/lib/pkgconfig/gio-2.0.pc",
+      "version": "2.89.3",
+      "sha256": "11bdf4b7b4198407b98e84c6ef82ad9c70fd6f7e17f12be93d0f28824d8c4aa8"
+    },
+    {
+      "module": "gobject-2.0",
+      "minimum": "2.89.3",
+      "status": "PRESENT",
+      "path": "usr/lib/pkgconfig/gobject-2.0.pc",
+      "version": "2.89.3",
+      "sha256": "aa0b0037891a4f7eaefc21aa97085be7abd1f724ffbda4dd72e521afe47b91aa"
+    },
+    {
+      "module": "gmodule-2.0",
+      "minimum": "2.89.3",
+      "status": "PRESENT",
+      "path": "usr/lib/pkgconfig/gmodule-2.0.pc",
+      "version": "2.89.3",
+      "sha256": "b789fdcc15fbf051410ef1c10f9bbdcb15990f39b3b2f61d3f401a0c38c9c789"
+    },
+    {
+      "module": "pango",
+      "minimum": "1.58",
+      "status": "PRESENT",
+      "path": "usr/lib/pkgconfig/pango.pc",
+      "version": "1.58.2",
+      "sha256": "f3ddc773d6197c8897944bf0425dd27b19ccd67d1158fc50c630bc5b863d929e"
+    },
+    {
+      "module": "pangoft2",
+      "minimum": "1.58",
+      "status": "PRESENT",
+      "path": "usr/lib/pkgconfig/pangoft2.pc",
+      "version": "1.58.2",
+      "sha256": "4a63700dfc45d2f43908c1ddae907654eaae83edea2b9d3e5c4da48da063f0d1"
+    },
+    {
+      "module": "pangocairo",
+      "minimum": "1.58",
+      "status": "PRESENT",
+      "path": "usr/lib/pkgconfig/pangocairo.pc",
+      "version": "1.58.2",
+      "sha256": "22f6da746bd2ca3e7c51c776ebe868a921a5f82e0e5f9c4f4e14eea97ce3aa90"
+    },
+    {
+      "module": "cairo",
+      "minimum": "1.18.2",
+      "status": "PRESENT",
+      "path": "usr/lib/pkgconfig/cairo.pc",
+      "version": "1.18.4",
+      "sha256": "239160805c69d383e5765de1dfd341ee870fcd376ade5c7f91a1e584381c4532"
+    },
+    {
+      "module": "cairo-gobject",
+      "minimum": "1.18.2",
+      "status": "PRESENT",
+      "path": "usr/lib/pkgconfig/cairo-gobject.pc",
+      "version": "1.18.4",
+      "sha256": "4fafd5d33a30d248d9410b01542da77d2b483f32e069a807c560ef2ab152b203"
+    },
+    {
+      "module": "harfbuzz",
+      "minimum": "8.4.0",
+      "status": "PRESENT",
+      "path": "usr/lib/pkgconfig/harfbuzz.pc",
+      "version": "14.3.0",
+      "sha256": "4a58ad52becd5e7dceef1a1448889c3b8eb6941851ed9299d852da00b7fa4936"
+    },
+    {
+      "module": "harfbuzz-subset",
+      "minimum": "8.4.0",
+      "status": "PRESENT",
+      "path": "usr/lib/pkgconfig/harfbuzz-subset.pc",
+      "version": "14.3.0",
+      "sha256": "3cba03f99db55cb0b29d0e216c01d440ea415716aa45297ee994a7df3ee5a8d1"
+    },
+    {
+      "module": "fribidi",
+      "minimum": "1.0.6",
+      "status": "PRESENT",
+      "path": "usr/lib/pkgconfig/fribidi.pc",
+      "version": "1.0.16",
+      "sha256": "3618dd7d5ef0b5035263149fb6ccd028fd49dc67a1f4329025a53cc04b52a1a2"
+    },
+    {
+      "module": "gdk-pixbuf-2.0",
+      "minimum": "2.30.0",
+      "status": "PRESENT",
+      "path": "usr/lib/pkgconfig/gdk-pixbuf-2.0.pc",
+      "version": "2.42.10",
+      "sha256": "1a77b68e97a4f14ccbbdece99d2d5441a6703155917a12fc0ef8501f9288c16c"
+    },
+    {
+      "module": "epoxy",
+      "minimum": "1.4",
+      "status": "PRESENT",
+      "path": "usr/lib/pkgconfig/epoxy.pc",
+      "version": "1.5.10",
+      "sha256": "528ea8bf1cbe8febdce2595d20a77007f093c18094206b453280a12dffcf37ef"
+    },
+    {
+      "module": "xkbcommon",
+      "minimum": "0.2.0",
+      "status": "PRESENT",
+      "path": "usr/lib/pkgconfig/xkbcommon.pc",
+      "version": "1.8.0",
+      "sha256": "415b3a3fdafadec2ad2b409b6f0f02fbadba09c6d7f9f86bb01d4a095940cea8"
+    },
+    {
+      "module": "wayland-client",
+      "minimum": "1.24.0",
+      "status": "PRESENT",
+      "path": "usr/lib/pkgconfig/wayland-client.pc",
+      "version": "1.26.0",
+      "sha256": "ee98d309256b6a618e6a7cce606672389e37e39f4cf874534737fa3c2e90f231"
+    },
+    {
+      "module": "wayland-protocols",
+      "minimum": "1.48",
+      "status": "PRESENT",
+      "path": "usr/lib/pkgconfig/wayland-protocols.pc",
+      "version": "1.49",
+      "sha256": "22ae27c3c51886fe78c48cb059dfa3659bd067a3cda1a99b4c337d7b121fb385"
+    },
+    {
+      "module": "wayland-egl",
+      "minimum": "0",
+      "status": "PRESENT",
+      "path": "usr/lib/pkgconfig/wayland-egl.pc",
+      "version": "18.1.0",
+      "sha256": "f62d7c7857ace9424effdbca3a9886b01d7ffe4153005c61df89ecb002856cc0"
+    },
+    {
+      "module": "libpng",
+      "minimum": "0",
+      "status": "BROKEN_SYMLINK",
+      "symlink_targets": [
+        {
+          "path": "usr/lib/pkgconfig/libpng.pc",
+          "target": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/pkgconfig/libpng16.pc"
+        }
+      ]
+    },
+    {
+      "module": "libtiff-4",
+      "minimum": "0",
+      "status": "PRESENT",
+      "path": "usr/lib/pkgconfig/libtiff-4.pc",
+      "version": "4.7.2",
+      "sha256": "e07010a182b7f5d2d75a81a41851b709a8bddac2ef6d97eb472dafa1311fd36f"
+    },
+    {
+      "module": "libjpeg",
+      "minimum": "0",
+      "status": "PRESENT",
+      "path": "usr/lib/pkgconfig/libjpeg.pc",
+      "version": "3.2.0",
+      "sha256": "5456c3be5874c7f1afc1854256d89873a12c2c5dfc144802d751f47c09abec28"
+    },
+    {
+      "module": "libdrm",
+      "minimum": "0",
+      "status": "PRESENT",
+      "path": "usr/lib/pkgconfig/libdrm.pc",
+      "version": "2.4.133",
+      "sha256": "a906ddf5b9757c5739cc1a335a78af7eb9d76bbe28fc72c86a7ab3e9f6f5925e"
+    },
+    {
+      "module": "graphene-gobject-1.0",
+      "minimum": "1.10.0",
+      "status": "MISSING"
+    },
+    {
+      "module": "libsoup-3.0",
+      "minimum": "3.0.0",
+      "status": "PRESENT",
+      "path": "usr/lib/pkgconfig/libsoup-3.0.pc",
+      "version": "3.8.0",
+      "sha256": "f46593a5e5cfc0115c14a5cce6da3afedd5c2a7b37f017d5f90d8f445992be3d"
+    },
+    {
+      "module": "gtk4",
+      "minimum": "4.24.1",
+      "status": "MISSING"
+    },
+    {
+      "module": "webkitgtk-6.0",
+      "minimum": "2.54.1",
+      "status": "MISSING"
+    },
+    {
+      "module": "libseccomp",
+      "minimum": "0",
+      "status": "MISSING"
+    }
+  ],
+  "prerequisites_present": false,
+  "not_checked": [
+    "ELF link closure",
+    "native build tools",
+    "sandbox executables/kernel/runtime",
+    "GTK4 input port",
+    "installed image",
+    "VM functions or renderer",
+    "memory benefit"
+  ]
+}

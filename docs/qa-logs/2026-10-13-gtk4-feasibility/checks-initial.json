@@ -1,0 +1,53 @@
+{
+  "checked_utc": "2026-10-13T05:24:35.881027+00:00",
+  "runtime_started": false,
+  "binary_produced": false,
+  "cases": [
+    {
+      "name": "preflight",
+      "argv": [
+        "python3",
+        "docs/qa-logs/2026-10-13-gtk4-feasibility/preflight.py",
+        "--sysroot",
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot",
+        "--webkit-source",
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/build/webkitgtk-2.54.1"
+      ],
+      "returncode": 2,
+      "expected_returncode": 2,
+      "expected_outcome_observed": true,
+      "stdout_sha256": "ac8adbede3bc04e433da547431463e332f77ad91625c582db0d10c4a3904556e",
+      "stderr": ""
+    },
+    {
+      "name": "compile-api-smoke",
+      "argv": [
+        "python3",
+        "docs/qa-logs/2026-10-13-gtk4-feasibility/compile-api-smoke.py",
+        "--output",
+        "docs/qa-logs/2026-10-13-gtk4-feasibility/api-smoke-not-created"
+      ],
+      "returncode": 2,
+      "expected_returncode": 2,
+      "expected_outcome_observed": true,
+      "stdout_sha256": "0d190aa9b862849bcc122260d5e05e2c178192df8eb382f0afcac2a4d02c5669",
+      "stderr": null
+    },
+    {
+      "name": "missing-input",
+      "argv": [
+        "python3",
+        "docs/qa-logs/2026-10-13-gtk4-feasibility/preflight.py",
+        "--sysroot",
+        "docs/qa-logs/2026-10-13-gtk4-feasibility/absent-sysroot",
+        "--webkit-source",
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/build/webkitgtk-2.54.1"
+      ],
+      "returncode": 1,
+      "expected_returncode": 1,
+      "expected_outcome_observed": true,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": null
+    }
+  ]
+}

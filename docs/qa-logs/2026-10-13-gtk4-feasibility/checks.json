@@ -1,0 +1,59 @@
+{
+  "checked_utc": "2026-10-13T05:33:43.254339+00:00",
+  "runtime_started": false,
+  "compiler_invoked": false,
+  "binary_produced": false,
+  "python_ast_parse": "PASS",
+  "cases": [
+    {
+      "name": "preflight",
+      "argv": [
+        "python3",
+        "docs/qa-logs/2026-10-13-gtk4-feasibility/preflight.py",
+        "--sysroot",
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot",
+        "--webkit-source",
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/build/webkitgtk-2.54.1"
+      ],
+      "returncode": 2,
+      "expected_returncode": 2,
+      "expected_outcome_observed": true,
+      "artifact": "preflight.json",
+      "artifact_sha256": "bc784c173f649fb48fa6f0335de5bec79844b3fb87f8791b11a8410c6687526a",
+      "script_sha256": "95b7a86850e877935d9c9b79eb43d73066a95aaa9f0e0960805bf4624516afcb"
+    },
+    {
+      "name": "compile-api-smoke",
+      "argv": [
+        "python3",
+        "docs/qa-logs/2026-10-13-gtk4-feasibility/compile-api-smoke.py",
+        "--output",
+        "docs/qa-logs/2026-10-13-gtk4-feasibility/api-smoke-not-created"
+      ],
+      "returncode": 2,
+      "expected_returncode": 2,
+      "expected_outcome_observed": true,
+      "artifact": "compile-api-smoke.log",
+      "artifact_sha256": "0d190aa9b862849bcc122260d5e05e2c178192df8eb382f0afcac2a4d02c5669",
+      "script_sha256": "b3301d16fca9a09bd8a93c81ca15caad4a9571d23112e3187d6238d0e3349aff"
+    },
+    {
+      "name": "missing-input",
+      "argv": [
+        "python3",
+        "docs/qa-logs/2026-10-13-gtk4-feasibility/preflight.py",
+        "--sysroot",
+        "docs/qa-logs/2026-10-13-gtk4-feasibility/absent-sysroot",
+        "--webkit-source",
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/build/webkitgtk-2.54.1"
+      ],
+      "returncode": 1,
+      "expected_returncode": 1,
+      "expected_outcome_observed": true,
+      "artifact": "missing-input.log",
+      "artifact_sha256": "e60a94b981cf76b191ae44b2eb55c682c8eb9e81c06a64208436e5f018a2cd5b",
+      "script_sha256": "95b7a86850e877935d9c9b79eb43d73066a95aaa9f0e0960805bf4624516afcb"
+    }
+  ],
+  "initial_record": "checks-initial.json; initial preflight labelled an unresolved libpng alias MISSING; current script distinguishes BROKEN_SYMLINK; no cache repair"
+}

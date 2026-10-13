@@ -1,0 +1,182 @@
+{
+  "checked_utc": "2026-10-13T05:20:14.057659+00:00",
+  "gtk_tag": "4.24.1",
+  "gtk_commit": "2ea935e3ec680fb122f245b28e18c3495df8c344",
+  "files": [
+    {
+      "path": "gtk-meson.build",
+      "url": "https://raw.githubusercontent.com/GNOME/gtk/2ea935e3ec680fb122f245b28e18c3495df8c344/meson.build",
+      "bytes": 35637,
+      "sha256": "5b873274012a073ba189075862430a6407261368a4164cb992bafa9b37800a28",
+      "excerpts": [
+        {
+          "start_line": 1,
+          "end_line": 36,
+          "text": "project('gtk', 'c',\n        version: '4.24.1',\n        default_options: [\n          'buildtype=debugoptimized',\n          'warning_level=1',\n          # We only need c99, but glib needs GNU-specific features\n          # https://github.com/mesonbuild/meson/issues/2289\n          'c_std=gnu11',\n          'cpp_std=c++11',\n        ],\n        meson_version : '>= 1.8.0',\n        license: 'LGPL-2.1-or-later')\n\nglib_major_req = 2\nglib_minor_req = 90\n\npango_major_req = 1\npango_minor_req = 58\n\n# keep these numbers in sync with wrap files where there exist\nglib_req           = '>= 2.89.3' # `@0@.@1@'.format(glib_major_req, glib_minor_req)\npango_req          = '>= @0@.@1@'.format(pango_major_req, pango_minor_req)\nharfbuzz_req       = '>= 8.4.0'\nfribidi_req        = '>= 1.0.6'\ncairo_req          = '>= 1.18.2'\ngdk_pixbuf_req     = '>= 2.30.0'\nwayland_proto_req  = '>= 1.48'\nwayland_req        = '>= 1.24.0'\ngraphene_req       = '>= 1.10.0'\nepoxy_req          = '>= 1.4'\ncloudproviders_req = '>= 0.3.1'\nxkbcommon_req      = '>= 0.2.0'\nsysprof_req        = '>= 3.38.0'\nvulkan_req         = '>= 1.3'\ngstreamer_req      = '>= 1.28.0'\ngi_req             = '>= 1.84'"
+        },
+        {
+          "start_line": 449,
+          "end_line": 506,
+          "text": "\n# Dependencies\nglib_dep       = dependency('glib-2.0', version: glib_req)\ngio_dep        = dependency('gio-2.0', version: glib_req)\ngi_dep         = dependency('gobject-introspection-1.0', version: gi_req, required: get_option('introspection').enabled())\ngobject_dep    = dependency('gobject-2.0', version: glib_req)\nif os_win32\n  giowin32_dep = dependency('gio-windows-2.0', version: glib_req, required: win32_enabled)\nendif\nif os_unix\n  giounix_dep  = dependency('gio-unix-2.0', version: glib_req, required: false)\nendif\ngmodule_dep    = dependency('gmodule-2.0', version: glib_req)\npango_dep      = dependency('pango', version: pango_req)\ncairo_dep      = dependency('cairo', version: cairo_req,\n                            default_options: ['zlib=enabled', 'tests=disabled'])\ncairogobj_dep  = dependency('cairo-gobject', version: cairo_req)\nfribidi_dep    = dependency('fribidi', version: fribidi_req,\n                            default_options: ['docs=false'])\nharfbuzz_dep   = dependency('harfbuzz', version: harfbuzz_req,\n                            default_options: harfbuzz_fallback_options)\nhb_subset_dep  = dependency('harfbuzz-subset', version: harfbuzz_req)\n\n# Require PangoFT2 if on X11 or wayland\npangoft_dep    = dependency('pangoft2', version: pango_req,\n                            required: wayland_enabled or x11_enabled)\n\nif win32_enabled\n  # for GTK_IM_CONTEXT_IME\n  pangowin32_dep = dependency('pangowin32')\nendif\n\npangocairo_dep    = dependency('pangocairo', version: pango_req)\npixbuf_dep        = dependency('gdk-pixbuf-2.0', version: gdk_pixbuf_req,\n                               default_options: ['png=enabled', 'jpeg=enabled', 'gif=enabled', 'glycin=disabled', 'builtin_loaders=all', 'man=false', 'documentation=false'])\npng_dep           = dependency('libpng', 'png')\ntiff_dep          = dependency('libtiff-4', 'tiff')\njpeg_dep          = dependency('libjpeg', 'jpeg')\nepoxy_dep         = dependency('epoxy', version: epoxy_req)\nxkbdep            = dependency('xkbcommon', version: xkbcommon_req, required: wayland_enabled)\ngraphene_dep      = dependency('graphene-gobject-1.0', version: graphene_req,\n                               default_options: ['tests=false', 'gobject_types=true'])\niso_codes_dep     = dependency('iso-codes', required: false)\ngstplay_dep       = dependency('gstreamer-play-1.0', version: gstreamer_req,\n                               required: get_option('media-gstreamer'),\n                               default_options: [\n                                 'python=disabled',\n                               ])\ngstgl_dep         = dependency('gstreamer-gl-1.0', version: gstreamer_req,\n                               required: get_option('media-gstreamer'))\ngstallocators_dep = dependency('gstreamer-allocators-1.0', version: gstreamer_req,\n                               required: get_option('media-gstreamer'))\nif os_win32\n  gstd3d12_dep    = dependency('gstreamer-d3d12-1.0', version: gstreamer_req,\n                               required: get_option('media-gstreamer'))\nelse\n  gstd3d12_dep = dependency('', required: false)\nendif"
+        },
+        {
+          "start_line": 708,
+          "end_line": 726,
+          "text": "# Uses meson's custom vulkan dependency searching. Set the VULKAN_SDK env var\n# to use a custom path for the Vulkan SDK. Bugs that are found with it should\n# be reported upstream and fixed.\nvulkan_dep = dependency('vulkan',\n                        version: vulkan_req,\n                        required: vulkan_enabled)\nglslc = find_program('glslc', required: vulkan_enabled)\nif vulkan_dep.found() and glslc.found()\n  have_vulkan = true\n  vulkan_pkg_found = vulkan_dep.type_name() == 'pkgconfig'\nelse\n  have_vulkan = false\n  vulkan_pkg_found = false\nendif\n\nlibdrm_dep = dependency('libdrm', required: os_linux)\n# We only care about drm_fourcc.h for all the fourccs,\n# but not about linking to libdrm\nlibdrm_dep = libdrm_dep.partial_dependency(includes: true, compile_args: true)"
+        },
+        {
+          "start_line": 743,
+          "end_line": 747,
+          "text": "cdata.set('HAVE_CLOUDPROVIDERS', cloudproviders_dep.found())\n\naccesskit_dep = dependency('accesskit-c-0.18', required: get_option('accesskit').enabled())\n\ncdata.set('HAVE_ACCESSKIT', accesskit_dep.found())"
+        }
+      ],
+      "retained_as": "excerpts; sha256 names full fetched upstream file"
+    },
+    {
+      "path": "gtk-meson_options.txt",
+      "url": "https://raw.githubusercontent.com/GNOME/gtk/2ea935e3ec680fb122f245b28e18c3495df8c344/meson_options.txt",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "path": "gtk-gskrenderer.c",
+      "url": "https://raw.githubusercontent.com/GNOME/gtk/2ea935e3ec680fb122f245b28e18c3495df8c344/gsk/gskrenderer.c",
+      "bytes": 23758,
+      "sha256": "6486c6ff2ae90992e1f49f94fe8a3f1a399a297e21424d900ef30796515c52bb",
+      "excerpts": [
+        {
+          "start_line": 485,
+          "end_line": 536,
+          "text": "get_renderer_for_name (const char *renderer_name)\n{\n  if (renderer_name == NULL)\n    return G_TYPE_INVALID;\n#ifdef GDK_WINDOWING_BROADWAY\n  else if (g_ascii_strcasecmp (renderer_name, \"broadway\") == 0)\n    return GSK_TYPE_BROADWAY_RENDERER;\n#endif\n  else if (g_ascii_strcasecmp (renderer_name, \"cairo\") == 0)\n    return GSK_TYPE_CAIRO_RENDERER;\n  else if (g_ascii_strcasecmp (renderer_name, \"gl\") == 0 ||\n           g_ascii_strcasecmp (renderer_name, \"opengl\") == 0)\n    return GSK_TYPE_GL_RENDERER;\n  else if (g_ascii_strcasecmp (renderer_name, \"ngl\") == 0)\n    {\n      g_warning (\"The new GL renderer has been renamed to gl. Try GSK_RENDERER=help\");\n      return GSK_TYPE_GL_RENDERER;\n    }\n#ifdef GDK_RENDERING_VULKAN\n  else if (g_ascii_strcasecmp (renderer_name, \"vulkan\") == 0)\n    return GSK_TYPE_VULKAN_RENDERER;\n#endif\n  else if (g_ascii_strcasecmp (renderer_name, \"help\") == 0)\n    {\n      gdk_help_message (\"Supported arguments for GSK_RENDERER environment variable:\\n\"\n#ifdef GDK_WINDOWING_BROADWAY\n                        \"  broadway - Use the Broadway specific renderer\\n\"\n#else\n                        \"  broadway - Disabled during GTK build\\n\"\n#endif\n                        \"     cairo - Use the Cairo fallback renderer\\n\"\n                        \"    opengl - Use the OpenGL renderer\\n\"\n                        \"        gl - Use the OpenGL renderer\\n\"\n#ifdef GDK_RENDERING_VULKAN\n                        \"    vulkan - Use the Vulkan renderer\\n\"\n#else\n                        \"    vulkan - Disabled during GTK build\\n\"\n#endif\n                        \"      help - Print this help\\n\\n\"\n                        \"The old OpenGL renderer has been removed in GTK 4.18, so using\\n\"\n                        \"GSK_RENDERER=gl will cause a warning and use the new OpenGL renderer.\\n\\n\"\n                        \"Other arguments will cause a warning and be ignored.\");\n    }\n  else\n    {\n      g_warning (\"Unrecognized renderer \\\"%s\\\". Try GSK_RENDERER=help\", renderer_name);\n    }\n\n  return G_TYPE_INVALID;\n}\n\nstatic GType"
+        },
+        {
+          "start_line": 694,
+          "end_line": 761,
+          "text": "get_renderer_fallback (GdkSurface *surface)\n{\n  return GSK_TYPE_CAIRO_RENDERER;\n}\n\nstatic struct {\n  gboolean warn_if_fail;\n  GType (* get_renderer) (GdkSurface *surface);\n} renderer_possibilities[] = {\n  { TRUE,  get_renderer_for_display },\n  { TRUE,  get_renderer_for_env_var },\n  { FALSE, get_renderer_for_backend },\n#ifdef GDK_RENDERING_VULKAN\n  { FALSE, get_renderer_for_vulkan },\n#endif\n  { FALSE, get_renderer_for_gl },\n#ifdef GDK_RENDERING_VULKAN\n  { FALSE, get_renderer_for_vulkan_fallback },\n#endif\n  { FALSE, get_renderer_for_gl_fallback },\n  { FALSE, get_renderer_fallback },\n};\n\nGskRenderer *\ngsk_renderer_new_for_surface_full (GdkSurface *surface,\n                                   gboolean    attach)\n{\n  GType renderer_type;\n  GskRenderer *renderer;\n  GError *error = NULL;\n  guint i;\n\n  for (i = 0; i < G_N_ELEMENTS (renderer_possibilities); i++)\n    {\n      renderer_type = renderer_possibilities[i].get_renderer (surface);\n      if (renderer_type == G_TYPE_INVALID)\n        continue;\n\n      renderer = g_object_new (renderer_type, NULL);\n\n      if (gsk_renderer_do_realize (renderer, gdk_surface_get_display (surface), surface, attach, &error))\n        {\n          GSK_DEBUG (RENDERER,\n                     \"Using renderer '%s' for surface '%s'\",\n                     G_OBJECT_TYPE_NAME (renderer),\n                     G_OBJECT_TYPE_NAME (surface));\n          return renderer;\n        }\n\n      if (renderer_possibilities[i].warn_if_fail)\n        {\n          g_warning (\"Failed to realize renderer '%s' for surface '%s': %s\",\n                     G_OBJECT_TYPE_NAME (renderer),\n                     G_OBJECT_TYPE_NAME (surface),\n                     error->message);\n        }\n      else\n        {\n          GSK_DEBUG (RENDERER,\n                     \"Failed to realize renderer '%s' for surface '%s': %s\",\n                     G_OBJECT_TYPE_NAME (renderer),\n                     G_OBJECT_TYPE_NAME (surface),\n                     error->message);\n        }\n\n      g_object_unref (renderer);\n      g_clear_error (&error);\n    }"
+        }
+      ],
+      "retained_as": "excerpts; sha256 names full fetched upstream file"
+    },
+    {
+      "path": "gtk-gdkevents.h",
+      "url": "https://raw.githubusercontent.com/GNOME/gtk/2ea935e3ec680fb122f245b28e18c3495df8c344/gdk/gdkevents.h",
+      "bytes": 21837,
+      "sha256": "2c62dcc6ad18c76588549b7fc2ba1ec0f7cb6da98574db91905be86557eee3ee",
+      "excerpts": [
+        {
+          "start_line": 98,
+          "end_line": 105,
+          "text": "#define GDK_BUTTON_SECONDARY    (3)\n\ntypedef struct _GdkEventSequence        GdkEventSequence;\ntypedef struct _GdkEvent                GdkEvent;\n\n#define GDK_TYPE_BUTTON_EVENT (gdk_button_event_get_type())\n#define GDK_TYPE_CROSSING_EVENT (gdk_crossing_event_get_type())\n#define GDK_TYPE_DELETE_EVENT (gdk_delete_event_get_type())"
+        }
+      ],
+      "retained_as": "excerpts; sha256 names full fetched upstream file"
+    },
+    {
+      "path": "gtk-gdkeventsprivate.h",
+      "url": "https://raw.githubusercontent.com/GNOME/gtk/2ea935e3ec680fb122f245b28e18c3495df8c344/gdk/gdkeventsprivate.h",
+      "bytes": 25658,
+      "sha256": "ded3802b185e53f959fa1611b2f68a12da90445be7b22cb0fe9078e110696409",
+      "excerpts": [
+        {
+          "start_line": 45,
+          "end_line": 61,
+          "text": " *   two events\n * @flags: event flags\n *\n * The abstract type for all windowing system events.\n */\nstruct _GdkEvent\n{\n  GTypeInstance parent_instance;\n\n  grefcount ref_count;\n\n  /* Specialised event type */\n  GdkEventType event_type;\n\n  /* The surface of the event */\n  GdkSurface *surface;\n"
+        },
+        {
+          "start_line": 465,
+          "end_line": 483,
+          "text": "                                         GdkDevice       *device,\n                                         GdkDeviceTool   *tool,\n                                         guint32          time);\n\nGdkEvent * gdk_key_event_new            (GdkEventType      type,\n                                         GdkSurface       *surface,\n                                         GdkDevice        *device,\n                                         guint32           time,\n                                         guint             keycode,\n                                         GdkModifierType   modifiers,\n                                         gboolean          is_modifier,\n                                         GdkTranslatedKey *translated,\n                                         GdkTranslatedKey *no_lock,\n                                         char             *compose_sequence);\n\nGdkEvent * gdk_focus_event_new          (GdkSurface      *surface,\n                                         GdkDevice       *device,\n                                         gboolean         focus_in);\n"
+        }
+      ],
+      "retained_as": "excerpts; sha256 names full fetched upstream file"
+    },
+    {
+      "path": "gtk-sha256sum",
+      "url": "https://download.gnome.org/sources/gtk/4.24/gtk-4.24.1.sha256sum",
+      "bytes": 166,
+      "sha256": "59e0cd1e72fac66e72be738ce812110629c030e2b3ebd12165d5fb0fd4b54cd9",
+      "excerpts": [
+        {
+          "start_line": 1,
+          "end_line": 2,
+          "text": "e98abe720e16129c8c0f50761dee0a2e9ae2478055e31018f6cf977fcf6513e9  gtk-4.24.1.tar.xz\n091a8d7f197df9502ecb45e7bc8f416a2546103aa2498c9977670059b5ce9422  gtk-4.24.1.news"
+        }
+      ],
+      "retained_as": "excerpts; sha256 names full fetched upstream file"
+    },
+    {
+      "path": "gtk-release.news",
+      "url": "https://download.gnome.org/sources/gtk/4.24/gtk-4.24.1.news",
+      "bytes": 1608,
+      "sha256": "091a8d7f197df9502ecb45e7bc8f416a2546103aa2498c9977670059b5ce9422",
+      "excerpts": [
+        {
+          "start_line": 1,
+          "end_line": 38,
+          "text": "Overview of Changes in 4.24.1, 01-10-2026\n=========================================\n\n* Bugs fixed:\n  - #8409 search-entry: Needs extra touch to show OSK although it has focus\n    (Guido G\u00fcnther)\n  - #8419 text-input: Preedit gets cleared due to text-change-cause(1) (Guido\n    G\u00fcnther)\n  - #8433 GtkSvgWidget can't parse '@media' if it is not on a new line (Matthias\n    Clasen)\n  - !10264 gtkmain: Split out debug code\n  - !10367 gtkgstsink: release GL context on disposal (Pierre Berube)\n  - !10369 Post-release version bump (Matthias Clasen)\n  - !10372 Fix typo in CONTRIBUTING.md (Michael Fohqul)\n  - !10385 texthandle: fix transformation issues & relative movement (Florian\n    \"sp1rit\"\u200b)\n  - !10393 Fix typo ('witten' should be 'written') (ReinoutS)\n  - !10395 searchbar: Show OSK when search-mode gets enabled (Guido G\u00fcnther)\n  - !10396 docs: Correct docs for allocation functions (Benjamin Otte)\n  - !10398 textbuffer: Fix tag colors in accessible text attributes (Sean Rowe)\n  - !10403 gtk/inscription: Refresh GtkInscription's PangoLayout when rooted\n    (Christian Hergert)\n  - !10409 text: Protect against invalid offset (Alessandro Astone)\n  - !10414 macos: fix cursor keys (Arjan Molenaar)\n  - !10421 various fixes (Benjamin Otte)\n  - !10422 Norwegian Nynorsk translation. (Roy-Magne Mo)\n  - !10423 gl: Create 2 fbos per frame instead of 1 per image (Benjamin Otte)\n  - !10425 Update Norwegian nynorsk translation (Roy-Magne Mo)\n  - !10429 textview: Make text handles visible after giving them a position\n    (Carlos Garnacho)\n\n* Translation updates:\n  - Norwegian Nynorsk (Roy-Magne Mo)\n"
+        }
+      ],
+      "retained_as": "excerpts; sha256 names full fetched upstream file"
+    },
+    {
+      "path": "graphene-meson.build",
+      "url": "https://raw.githubusercontent.com/ebassi/graphene/1.10.8/meson.build",
+      "bytes": 13270,
+      "sha256": "a2c324bde5db95af98fbb09e58863fb8bec9eb007a9d70f98f17f21860925ae7",
+      "excerpts": [
+        {
+          "start_line": 1,
+          "end_line": 9,
+          "text": "project('graphene', 'c',\n        version: '1.10.8',\n        license: 'MIT',\n        meson_version: '>= 0.55.3',\n        default_options: [\n          'buildtype=debugoptimized',\n          'c_std=c99',\n          'warning_level=1'\n        ])"
+        },
+        {
+          "start_line": 208,
+          "end_line": 236,
+          "text": "    endif\n  else\n    conf.set('_GRAPHENE_PUBLIC', '__attribute__((visibility(\"default\"))) extern')\n    extra_args += ['-fvisibility=hidden']\n  endif\nendif\n\n# Optional dependency on GObject\nbuild_gobject = false\ngobject_req_version = '>= 2.30.0'\nif get_option('gobject_types')\n  graphene_gobject_api_path = '@0@-gobject-@1@'.format(meson.project_name(), graphene_api_version)\n  # fallback allows us to pick up GObject in case we're a subproject of another\n  # project that uses GObject and where GObject comes from a GLib subproject\n  # (e.g. when building GStreamer or GTK on Windows).\n  gobject = dependency('gobject-2.0',\n    version: gobject_req_version,\n    required: false,\n    fallback: ['glib', 'libgobject_dep']\n  )\n  build_gobject = gobject.found()\n  if build_gobject\n    if cc.get_id() == 'msvc'\n      extra_args += ['/FImsvc_recommended_pragmas.h']\n    endif\n  endif\nendif\n\n# Optional dependency on GObject-Introspection; if GObject is disabled"
+        }
+      ],
+      "retained_as": "excerpts; sha256 names full fetched upstream file"
+    },
+    {
+      "path": "graphene-meson_options.txt",
+      "url": "https://raw.githubusercontent.com/ebassi/graphene/1.10.8/meson_options.txt",
+      "bytes": 1003,
+      "sha256": "7c06f49f9728b87717811adc40a634991781ed1203b8617bb480cf1e0b6d6d8e",
+      "excerpts": [
+        {
+          "start_line": 1,
+          "end_line": 28,
+          "text": "option('gtk_doc', type: 'boolean',\n       value: false,\n       description: 'Enable generating the API reference (depends on GTK-Doc)')\noption('gobject_types', type: 'boolean',\n       value: true,\n       description: 'Enable GObject types (depends on GObject)')\noption('introspection', type: 'feature',\n       value: 'auto',\n       yield: true,\n       description: 'Enable GObject Introspection (depends on GObject)')\noption('gcc_vector', type: 'boolean',\n       value: true,\n       description: 'Enable GCC vector fast paths (requires GCC)')\noption('sse2', type: 'boolean',\n       value: true,\n       description: 'Enable SSE2 fast paths (requires SSE2 or later)')\noption('arm_neon', type: 'boolean',\n       value: true,\n       description: 'Enable ARM NEON fast paths (requires ARM)')\noption('tests', type: 'boolean',\n       value: true,\n       description: 'Build the test suite (requires GObject)')\noption('installed_tests', type: 'boolean',\n       value: true,\n       description: 'Install tests')"
+        }
+      ],
+      "retained_as": "excerpts; sha256 names full fetched upstream file"
+    },
+    {
+      "path": "graphene-sha256sum",
+      "url": "https://download.gnome.org/sources/graphene/1.10/graphene-1.10.8.sha256sum",
+      "bytes": 89,
+      "sha256": "27b05fd5a51636684ad5427c65567b58e427f035121ea6aa93b56ffc27d6fe29",
+      "excerpts": [
+        {
+          "start_line": 1,
+          "end_line": 1,
+          "text": "a37bb0e78a419dcbeaa9c7027bcff52f5ec2367c25ec859da31dfde2928f279a  graphene-1.10.8.tar.xz"
+        }
+      ],
+      "retained_as": "excerpts; sha256 names full fetched upstream file"
+    },
+    {
+      "path": "gtk-meson.options",
+      "url": "https://raw.githubusercontent.com/GNOME/gtk/2ea935e3ec680fb122f245b28e18c3495df8c344/meson.options",
+      "bytes": 4173,
+      "sha256": "dcd92a0b727c20e91744f741515084d9b5d6f4b324c02b7795836fa20addd7cf",
+      "excerpts": [
+        {
+          "start_line": 1,
+          "end_line": 175,
+          "text": "# GDK backends\n\n# Windowing system backends\n# Note: The options change the abi (what backend api is available) without\n# changing the soname, so think twice before deviating from the default values.\n\noption('x11-backend',\n       type: 'boolean',\n       value: true,\n       description : 'Enable the X11 gdk backend (only when building on Unix)')\n\noption('wayland-backend',\n       type: 'boolean',\n       value: true,\n       description : 'Enable the wayland gdk backend (only when building on Unix except for macOS)')\n\noption('broadway-backend',\n       type: 'boolean',\n       value: false,\n       description : 'Enable the broadway (HTML5) gdk backend')\n\noption('win32-backend',\n       type: 'boolean',\n       value: true,\n       description : 'Enable the Windows gdk backend (only when building on Windows)')\n\noption('macos-backend',\n       type: 'boolean',\n       value: true,\n       description : 'Enable the macOS gdk backend (only when building on macOS)')\n\noption('android-backend',\n       type: 'boolean',\n       value: true,\n       description : 'Enable the Android gdk backend (only when building on Android)')\n\n# Media backends\n# For distros: GTK guarantees support for WebM video (VP8 and VP9), so a supported build\n# should provide that.\n\noption('media-gstreamer',\n       type: 'feature',\n       value: 'enabled',\n       description : 'Build the gstreamer media backend')\n\n# Print backends\n\noption('print-cpdb',\n       type: 'feature',\n       value: 'disabled',\n       description : 'Build the cpdb print backend')\n\noption('print-cups',\n       type: 'feature',\n       value: 'auto',\n       description : 'Build the cups print backend')\n\n# Optional features\n\noption('vulkan',\n       type: 'feature',\n       value: 'enabled',\n       description : 'Enable Vulkan support including the Vulkan renderer')\n\noption('cloudproviders',\n       type: 'feature',\n       value: 'disabled',\n       description : 'Enable the cloudproviders support')\n\noption('sysprof',\n       type: 'feature',\n       value: 'disabled',\n       description : 'include tracing support for sysprof')\n\noption('tracker',\n       type: 'feature',\n       value: 'disabled',\n       description : 'Enable Tracker3 filechooser search')\n\noption('colord',\n       type: 'feature',\n       value: 'disabled',\n       description : 'Build colord support for the CUPS printing backend')\n\noption('f16c',\n       type: 'feature',\n       value: 'enabled',\n       description: 'Enable F16C fast paths (requires F16C)')\n\noption('accesskit',\n       type: 'feature',\n       value: 'disabled',\n       description: 'Enable the AccessKit backend for accessibility')\n\noption('android-runtime',\n       type: 'feature',\n       value: 'enabled',\n       description : 'Enable the runtime for running native applications on Android')\n\noption('symbol-visibility',\n       type: 'string',\n       value: 'hidden',\n       deprecated: true,\n       description: 'Set private symbol visibility for libgtk')\n\n# Introspection\n\noption('introspection',\n       type: 'feature',\n       value: 'auto',\n       yield: true,\n       description : 'Build introspection data (requires gobject-introspection)')\n\n# Documentation\n\noption('documentation',\n       type: 'boolean',\n       value: false,\n       description : 'Build API reference and tools documentation')\n\noption('screenshots',\n       type: 'boolean',\n       value: false,\n       description : 'Regenerate screenshots for the documentation')\n\noption('man-pages',\n       type: 'boolean',\n       value: false,\n       description : 'Build man pages for installed tools')\n\n# Demos, examples and tests\n\noption('profile',\n       type: 'combo',\n       choices: [ 'auto', 'default', 'devel' ],\n       value: 'auto',\n       description : 'Profile to use for demos')\n\noption('build-demos',\n       type: 'boolean',\n       value: true,\n       description : 'Build demo programs')\n\noption('build-testsuite',\n       type: 'boolean',\n       value: true,\n       description : 'Build testsuite')\n\noption('build-examples',\n       type: 'boolean',\n       value: true,\n       description : 'Build examples')\n\noption('build-tests',\n       type: 'boolean',\n       value: true,\n       description : 'Build tests')"
+        }
+      ],
+      "retained_as": "excerpts; sha256 names full fetched upstream file"
+    }
+  ]
+}

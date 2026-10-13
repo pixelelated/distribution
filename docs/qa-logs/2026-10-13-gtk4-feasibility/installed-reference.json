@@ -1,0 +1,23 @@
+{
+  "read_utc": "2026-10-13T05:33:43.152992+00:00",
+  "image_root": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/image/system",
+  "baseline_browser": {
+    "path": "usr/bin/cloud-signin-window",
+    "sha256": "6cbc445686d3d484ff20450342776e9eb92b47f6112a0352be1a50b334eef81b"
+  },
+  "sandbox_payload": {
+    "usr/bin/bwrap": {
+      "exists": false,
+      "symlink": false
+    },
+    "usr/bin/xdg-dbus-proxy": {
+      "exists": false,
+      "symlink": false
+    }
+  },
+  "libseccomp_files": [],
+  "libpng16_pc": {
+    "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/pkgconfig/libpng16.pc",
+    "sha256": "0bc865e694b2858c291ef744582bd34d592d2beab6c52fe566927849b78c250c"
+  }
+}

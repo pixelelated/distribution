@@ -1,0 +1,171 @@
+[
+  {
+    "path": "Source/cmake/OptionsGTK.cmake",
+    "root": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/build/webkitgtk-2.54.1",
+    "sha256": "1e146be6f45a6719f3d614711670e4862067d92c4aa1c6dd31d82d806dc25a39",
+    "excerpts": [
+      {
+        "start_line": 1,
+        "end_line": 30,
+        "text": "include(GNUInstallDirs)\ninclude(VersioningUtils)\n\nWEBKIT_OPTION_BEGIN()\n\nSET_PROJECT_VERSION(2 54 1)\n\nset(USER_AGENT_BRANDING \"\" CACHE STRING \"Branding to add to user agent string\")\n\nset(ENABLE_UNSAFE_BUFFER_USAGE_WARNING ON)\nlist(APPEND WEBKIT_UNSAFE_BUFFER_WARNING_FLAGS -Wno-unsafe-buffer-usage-in-format-attr-call)\n\n# Update Source/WTF/wtf/Platform.h to match required GLib versions.\nfind_package(GLib 2.70.0 REQUIRED COMPONENTS GioUnix Thread Module)\nfind_package(Cairo 1.16.0 REQUIRED)\nfind_package(LibGcrypt 1.7.0 REQUIRED)\nfind_package(Soup3 3.0.0 REQUIRED)\nfind_package(Tasn1 REQUIRED)\nfind_package(HarfBuzz 2.7.4 REQUIRED COMPONENTS ICU)\nfind_package(ICU 70.1 REQUIRED COMPONENTS data i18n uc)\nfind_package(JPEG REQUIRED)\nfind_package(Epoxy 1.5.4 REQUIRED)\nfind_package(LibXml2 2.9.13 REQUIRED)\nfind_package(PNG REQUIRED)\nfind_package(SQLite3 REQUIRED)\nfind_package(Threads REQUIRED)\nfind_package(ZLIB REQUIRED)\nfind_package(WebP REQUIRED COMPONENTS demux)\nfind_package(ATSPI 2.5.3)\n"
+      },
+      {
+        "start_line": 169,
+        "end_line": 216,
+        "text": "\n# Finalize the value for all options. Do not attempt to use an option before\n# this point, and do not attempt to change any option after this point.\nWEBKIT_OPTION_END()\n\nif (USE_GTK4)\n    set(GTK_MINIMUM_VERSION 4.6.0)\n    set(GTK_PC_NAME gtk4)\nelse ()\n    set(GTK_MINIMUM_VERSION 3.22.0)\n    set(GTK_PC_NAME gtk+-3.0)\nendif ()\nfind_package(GTK ${GTK_MINIMUM_VERSION} REQUIRED OPTIONAL_COMPONENTS unix-print)\n\nif (ENABLE_QUARTZ_TARGET AND NOT ${GTK_SUPPORTS_QUARTZ})\n    set(ENABLE_QUARTZ_TARGET OFF)\nendif ()\nif (ENABLE_X11_TARGET AND NOT ${GTK_SUPPORTS_X11})\n    set(ENABLE_X11_TARGET OFF)\nendif ()\nif (ENABLE_WAYLAND_TARGET AND NOT ${GTK_SUPPORTS_WAYLAND})\n    set(ENABLE_WAYLAND_TARGET OFF)\nendif ()\n\nif (USE_GTK4)\n    set(WEBKITGTK_API_INFIX \"\")\n    set(WEBKITGTK_API_VERSION \"6.0\")\n    SET_AND_EXPOSE_TO_BUILD(ENABLE_2022_GLIB_API ON)\nelse ()\n    set(WEBKITGTK_API_INFIX \"2\")\n    set(WEBKITGTK_API_VERSION \"4.1\")\n    SET_AND_EXPOSE_TO_BUILD(ENABLE_2022_GLIB_API OFF)\nendif ()\n\nEXPOSE_STRING_VARIABLE_TO_BUILD(WEBKITGTK_API_INFIX)\nEXPOSE_STRING_VARIABLE_TO_BUILD(WEBKITGTK_API_VERSION)\n\nif (WEBKITGTK_API_VERSION VERSION_EQUAL \"4.1\")\n    CALCULATE_LIBRARY_VERSIONS_FROM_LIBTOOL_TRIPLE(WEBKIT 24 4 24)\n    CALCULATE_LIBRARY_VERSIONS_FROM_LIBTOOL_TRIPLE(JAVASCRIPTCORE 11 8 11)\nelseif (WEBKITGTK_API_VERSION VERSION_EQUAL \"6.0\")\n    CALCULATE_LIBRARY_VERSIONS_FROM_LIBTOOL_TRIPLE(WEBKIT 23 4 19)\n    CALCULATE_LIBRARY_VERSIONS_FROM_LIBTOOL_TRIPLE(JAVASCRIPTCORE 9 8 8)\nelse ()\n    message(FATAL_ERROR \"Unhandled API version\")\nendif ()\n\nset(CMAKE_C_VISIBILITY_PRESET hidden)"
+      },
+      {
+        "start_line": 250,
+        "end_line": 259,
+        "text": "    set(BUILD_REVISION \"tarball\")\nendif ()\n\nif (NOT USE_GTK4)\n    SET_AND_EXPOSE_TO_BUILD(USE_ATK 1)\nendif ()\n\nSET_AND_EXPOSE_TO_BUILD(USE_ATSPI 1)\nSET_AND_EXPOSE_TO_BUILD(HAVE_GL_FENCE TRUE)\nSET_AND_EXPOSE_TO_BUILD(HAVE_GTK_UNIX_PRINTING ${GTK_UNIX_PRINT_FOUND})"
+      },
+      {
+        "start_line": 509,
+        "end_line": 515,
+        "text": "    endif ()\nendmacro()\n\ninclude(BubblewrapSandboxChecks)\ninclude(GStreamerChecks)"
+      }
+    ]
+  },
+  {
+    "path": "Source/cmake/BubblewrapSandboxChecks.cmake",
+    "root": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/build/webkitgtk-2.54.1",
+    "sha256": "39764d92d04408112e25da10eabac72c44b7d674a4558b96662926a7e1f0ea6b",
+    "excerpts": [
+      {
+        "start_line": 1,
+        "end_line": 75,
+        "text": "if (ENABLE_BUBBLEWRAP_SANDBOX)\n    find_package(Libseccomp)\n    if (NOT Libseccomp_FOUND)\n        message(FATAL_ERROR \"libseccomp is needed for ENABLE_BUBBLEWRAP_SANDBOX\")\n    endif ()\n\n    if (NOT DEFINED BWRAP_EXECUTABLE)\n        if (CMAKE_CROSSCOMPILING)\n            message(FATAL_ERROR \"bwrap executable version 0.3.1 or newer is needed for ENABLE_BUBBLEWRAP_SANDBOX. Unable to autodetect the path when cross-compiling. \"\n                                \"Please define define the CMake variable BWRAP_EXECUTABLE with the run-time full-path to the 'bwrap' program.\")\n        else ()\n            find_program(BWRAP_EXECUTABLE bwrap)\n            if (NOT BWRAP_EXECUTABLE)\n                message(FATAL_ERROR \"bwrap executable is needed for ENABLE_BUBBLEWRAP_SANDBOX. \"\n                       \"Either install it or use the CMake variable BWRAP_EXECUTABLE to define the runtime path.\")\n            endif ()\n        endif ()\n    endif ()\n\n    if (NOT DEFINED DBUS_PROXY_EXECUTABLE)\n        if (CMAKE_CROSSCOMPILING)\n            message(FATAL_ERROR \"xdg-dbus-proxy executable is needed for ENABLE_BUBBLEWRAP_SANDBOX.  Unable to autodetect the path when cross-compiling. \"\n                                \"Please define define the CMake variable DBUS_PROXY_EXECUTABLE with the run-time full-path to the 'xdg-dbus-proxy' program.\")\n        else ()\n            find_program(DBUS_PROXY_EXECUTABLE xdg-dbus-proxy)\n            if (NOT DBUS_PROXY_EXECUTABLE)\n                message(FATAL_ERROR \"xdg-dbus-proxy executable not found and is needed for ENABLE_BUBBLEWRAP_SANDBOX. \"\n                       \"Either install it or use the CMake variable DBUS_PROXY_EXECUTABLE to define the runtime path.\")\n            endif ()\n        endif ()\n    endif ()\n\n    # Do some extra sanity checks\n    if (NOT IS_ABSOLUTE \"${BWRAP_EXECUTABLE}\")\n        message(FATAL_ERROR \"The value for BWRAP_EXECUTABLE should be a full path.\")\n    endif ()\n    if (NOT IS_ABSOLUTE \"${DBUS_PROXY_EXECUTABLE}\")\n        message(FATAL_ERROR \"The value for DBUS_PROXY_EXECUTABLE should be a full path.\")\n    endif ()\n    # This version check can only be done when not cross-compiling\n    if (NOT CMAKE_CROSSCOMPILING)\n        execute_process(\n            COMMAND \"${BWRAP_EXECUTABLE}\" --version\n            RESULT_VARIABLE BWRAP_RET\n            OUTPUT_VARIABLE BWRAP_OUTPUT\n        )\n        if (BWRAP_RET)\n            message(FATAL_ERROR \"Failed to run ${BWRAP_EXECUTABLE}\")\n        endif ()\n        string(REGEX MATCH \"[0-9]+\\\\.[0-9]+\\\\.[0-9]+\" BWRAP_VERSION \"${BWRAP_OUTPUT}\")\n        if (NOT \"${BWRAP_VERSION}\" VERSION_GREATER_EQUAL \"0.3.1\")\n            message(FATAL_ERROR \"bwrap must be >= 0.3.1 but ${BWRAP_VERSION} found\")\n        endif ()\n    endif ()\n\n    add_definitions(-DBWRAP_EXECUTABLE=\"${BWRAP_EXECUTABLE}\")\n    add_definitions(-DDBUS_PROXY_EXECUTABLE=\"${DBUS_PROXY_EXECUTABLE}\")\nendif ()"
+      }
+    ]
+  },
+  {
+    "path": "Source/cmake/GStreamerChecks.cmake",
+    "root": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/build/webkitgtk-2.54.1",
+    "sha256": "6430e59568060e89b183fd2df9fa607362db433e41578c442fc0541aa29c9863",
+    "excerpts": [
+      {
+        "start_line": 1,
+        "end_line": 45,
+        "text": "if (USE_GSTREAMER)\n      if (USE_GSTREAMER_FULL)\n          find_package(GStreamer 1.18.4 REQUIRED COMPONENTS full)\n          if (NOT PC_GSTREAMER_FULL_FOUND)\n              message(FATAL_ERROR \"GStreamer static library libgstreamer-full-1.0 not found\")\n          else ()\n              SET_AND_EXPOSE_TO_BUILD(USE_GSTREAMER_FULL TRUE)\n          endif ()\n      else ()\n          set(GSTREAMER_COMPONENTS app pbutils)\n          if (ENABLE_VIDEO)\n              list(APPEND GSTREAMER_COMPONENTS video mpegts tag gl)\n          endif ()\n\n          if (ENABLE_WEB_AUDIO)\n              list(APPEND GSTREAMER_COMPONENTS audio fft)\n          endif ()\n\n          if (USE_GSTREAMER_WEBRTC)\n              list(APPEND GSTREAMER_COMPONENTS webrtc)\n          endif ()\n\n          find_package(GStreamer 1.18.4 REQUIRED COMPONENTS ${GSTREAMER_COMPONENTS})\n\n          if (ENABLE_WEB_AUDIO)\n              if (NOT PC_GSTREAMER_AUDIO_FOUND OR NOT PC_GSTREAMER_FFT_FOUND)\n                  message(FATAL_ERROR \"WebAudio requires the audio and fft GStreamer libraries. Please check your gst-plugins-base installation.\")\n              endif ()\n          endif ()\n\n          if (ENABLE_VIDEO)\n              if (NOT PC_GSTREAMER_APP_FOUND OR NOT PC_GSTREAMER_PBUTILS_FOUND OR NOT PC_GSTREAMER_TAG_FOUND OR NOT PC_GSTREAMER_VIDEO_FOUND)\n                  message(FATAL_ERROR \"Video playback requires the following GStreamer libraries: app, pbutils, tag, video. Please check your gst-plugins-base installation.\")\n              endif ()\n          endif ()\n\n          if (USE_GSTREAMER_MPEGTS AND NOT PC_GSTREAMER_MPEGTS_FOUND)\n              message(FATAL_ERROR \"GStreamer MPEG-TS is needed for USE_GSTREAMER_MPEGTS.\")\n          endif ()\n\n          if (USE_GSTREAMER_GL AND NOT PC_GSTREAMER_GL_FOUND)\n              message(FATAL_ERROR \"GStreamerGL is needed for USE_GSTREAMER_GL.\")\n          endif ()\n\n          if (ENABLE_MEDIA_RECORDER AND PC_GSTREAMER_VERSION VERSION_LESS \"1.20\")"
+      }
+    ]
+  },
+  {
+    "path": "Source/WebKit/UIProcess/API/glib/WebKitWebContext.cpp",
+    "root": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/build/webkitgtk-2.54.1",
+    "sha256": "eab3437f811959435883991818ab595d24ecad47edb5b85cf20e4f1a97820c0c",
+    "excerpts": [
+      {
+        "start_line": 438,
+        "end_line": 469,
+        "text": "    Ref configuration = API::ProcessPoolConfiguration::create();\n    configuration->setInjectedBundlePath(FileSystem::stringFromFileSystemRepresentation(bundleFilename.get()));\n    configuration->setUsesWebProcessCache(true);\n#if PLATFORM(GTK) && !USE(GTK4)\n    configuration->setProcessSwapsOnNavigation(priv->psonEnabled);\n#else\n    configuration->setProcessSwapsOnNavigation(true);\n#endif\n    if (priv->memoryPressureSettings) {\n        configuration->setMemoryPressureHandlerConfiguration(webkitMemoryPressureSettingsGetMemoryPressureHandlerConfiguration(priv->memoryPressureSettings));\n        // Once the settings have been passed to the ProcessPoolConfiguration, we don't need them anymore so we can free them.\n        g_clear_pointer(&priv->memoryPressureSettings, webkit_memory_pressure_settings_free);\n    }\n    configuration->setTimeZoneOverride(String::fromUTF8(priv->timeZoneOverride.span()));\n\n#if !ENABLE(2022_GLIB_API)\n    if (!priv->websiteDataManager)\n        priv->websiteDataManager = adoptGRef(webkit_website_data_manager_new(\"local-storage-directory\", priv->localStorageDirectory.data(), nullptr));\n#endif\n\n    priv->processPool = WebProcessPool::create(configuration);\n    priv->processPool->setUserMessageHandler([webContext](UserMessage&& message, CompletionHandler<void(UserMessage&&)>&& completionHandler) {\n        // Sink the floating ref.\n        GRefPtr<WebKitUserMessage> userMessage = webkitUserMessageCreate(WTF::move(message), WTF::move(completionHandler));\n        gboolean returnValue;\n        g_signal_emit(webContext, signals[USER_MESSAGE_RECEIVED], 0, userMessage.get(), &returnValue);\n    });\n\n#if ENABLE(2022_GLIB_API)\n    priv->processPool->setSandboxEnabled(true);\n#endif\n    priv->processPool->addSandboxPath(injectedBundleDirectory(), SandboxPermission::ReadOnly);"
+      },
+      {
+        "start_line": 543,
+        "end_line": 580,
+        "text": "#if !ENABLE(2022_GLIB_API)\n    /**\n     * WebKitWebContext:website-data-manager:\n     *\n     * The #WebKitWebsiteDataManager associated with this context.\n     *\n     * Since: 2.10\n     */\n    sObjProperties[PROP_WEBSITE_DATA_MANAGER] =\n        g_param_spec_object(\n            \"website-data-manager\",\n            nullptr, nullptr,\n            WEBKIT_TYPE_WEBSITE_DATA_MANAGER,\n            static_cast<GParamFlags>(WEBKIT_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY));\n#endif\n\n#if PLATFORM(GTK) && !USE(GTK4)\n    /**\n     * WebKitWebContext:process-swap-on-cross-site-navigation-enabled:\n     *\n     * Whether swapping Web processes on cross-site navigations is enabled.\n     *\n     * When enabled, pages from each security origin will be handled by\n     * their own separate Web processes, which are started (and\n     * terminated) on demand as the user navigates across different\n     * domains. This is an important security measure which helps prevent\n     * websites stealing data from other visited pages.\n     *\n     * Since: 2.28\n     */\n    sObjProperties[PROP_PSON_ENABLED] =\n        g_param_spec_boolean(\n            \"process-swap-on-cross-site-navigation-enabled\",\n            nullptr, nullptr,\n            FALSE,\n            static_cast<GParamFlags>(WEBKIT_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY));\n\n    /**"
+      }
+    ]
+  },
+  {
+    "path": "Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp",
+    "root": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/build/webkitgtk-2.54.1",
+    "sha256": "42b0e1926799034bec89e2872454775eaf2405b1f35a1415a6f7977a6b05e3c4",
+    "excerpts": [
+      {
+        "start_line": 935,
+        "end_line": 964,
+        "text": "    WebKitWebViewPrivate* priv = webView->priv;\n    if (priv->relatedView) {\n#if PLATFORM(WPE) && ENABLE(WPE_PLATFORM)\n        if (priv->display)\n            g_critical(\"WebKitWebView display property can't be set when related-view is set too, passed display value is ignored.\");\n        priv->display = webkit_web_view_get_display(priv->relatedView);\n#endif\n        if (priv->context)\n            g_critical(\"WebKitWebView web-context property can't be set when related-view is set too, passed web-context value is ignored.\");\n        priv->context = webkit_web_view_get_context(priv->relatedView);\n#if ENABLE(2022_GLIB_API)\n        if (priv->networkSession)\n            g_critical(\"WebKitWebView network-session property can't be set when related-view is set too, passed network-session value is ignored.\");\n        priv->networkSession = webkit_web_view_get_network_session(priv->relatedView);\n#else\n        if (priv->isEphemeral)\n            g_critical(\"WebKitWebView is-ephemeral property can't be set when related-view is set too, passed is-ephemeral value is ignored.\");\n        priv->isEphemeral = webkit_web_view_is_ephemeral(priv->relatedView);\n#endif\n        if (priv->isControlledByAutomation)\n            g_critical(\"WebKitWebView is-controlled-by-automation can't be set when related-view is set too, passed is-controlled-by-automation value is ignored.\");\n        priv->isControlledByAutomation = webkit_web_view_is_controlled_by_automation(priv->relatedView);\n    } else if (!priv->context)\n        priv->context = webkit_web_context_get_default();\n#if !ENABLE(2022_GLIB_API)\n    else if (!priv->isEphemeral)\n        priv->isEphemeral = webkit_web_context_is_ephemeral(priv->context.get());\n#endif\n\n#if PLATFORM(WPE) && ENABLE(WPE_PLATFORM)"
+      },
+      {
+        "start_line": 990,
+        "end_line": 1007,
+        "text": "    if (!priv->userContentManager)\n        priv->userContentManager = adoptGRef(webkit_user_content_manager_new());\n\n#if ENABLE(2022_GLIB_API)\n#if ENABLE(REMOTE_INSPECTOR)\n    if (priv->isControlledByAutomation) {\n        if (!webkit_web_context_is_automation_allowed(priv->context.get()))\n            g_critical(\"WebKitWebView is-controlled-by-automation set but automation is not allowed in the context, falling back to default session.\");\n        priv->networkSession = webkit_web_context_get_network_session_for_automation(priv->context.get());\n    }\n#endif\n    if (!priv->networkSession)\n        priv->networkSession = webkit_network_session_get_default();\n#else\n    if (priv->isEphemeral && !webkit_web_context_is_ephemeral(priv->context.get())) {\n        priv->websiteDataManager = adoptGRef(webkit_website_data_manager_new_ephemeral());\n        auto* contextDataManager = webkit_web_context_get_website_data_manager(priv->context.get());\n        webkit_website_data_manager_set_tls_errors_policy(priv->websiteDataManager.get(), webkit_website_data_manager_get_tls_errors_policy(contextDataManager));"
+      }
+    ]
+  },
+  {
+    "path": "Source/WebKit/UIProcess/glib/WebProcessPoolGLib.cpp",
+    "root": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/build/webkitgtk-2.54.1",
+    "sha256": "e4bbc721bbe25084a5165c33f379bd54b5540882e53c2aa5b81ac82536957979",
+    "excerpts": [
+      {
+        "start_line": 287,
+        "end_line": 324,
+        "text": "\nvoid WebProcessPool::setSandboxEnabled(bool enabled)\n{\n    if (m_sandboxEnabled == enabled)\n        return;\n\n    if (!enabled) {\n#if !ENABLE(2022_GLIB_API)\n        if (const auto forceSandbox = CStringView::unsafeFromUTF8(getenv(\"WEBKIT_FORCE_SANDBOX\"))) {\n            if (forceSandbox == \"1\"_s)\n                return;\n        }\n#endif\n        m_sandboxEnabled = false;\n#if USE(ATSPI)\n        m_sandboxedAccessibilityBusAddress = String();\n#endif\n        return;\n    }\n\n#if defined(RUNNING_ON_VALGRIND)\n    WTF_ALLOW_UNSAFE_BUFFER_USAGE_BEGIN // GTK/WPE port\n    if (RUNNING_ON_VALGRIND)\n        return;\n    WTF_ALLOW_UNSAFE_BUFFER_USAGE_END\n#endif\n\n    if (const auto disableSandbox = CStringView::unsafeFromUTF8(getenv(\"WEBKIT_DISABLE_SANDBOX_THIS_IS_DANGEROUS\"))) {\n        if (disableSandbox != \"0\"_s)\n            return;\n    }\n\n    m_sandboxEnabled = true;\n#if USE(ATSPI)\n    if (shouldUseBubblewrap())\n        m_sandboxedAccessibilityBusAddress = makeString(\"unix:path=\"_s, FileSystem::pathByAppendingComponent(FileSystem::stringFromFileSystemRepresentation(sandboxedUserRuntimeDirectory().data()), \"at-spi-bus\"_s));\n#endif\n}"
+      }
+    ]
+  },
+  {
+    "path": "Source/WebKit/UIProcess/Launcher/glib/ProcessLauncherGLib.cpp",
+    "root": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/build/webkitgtk-2.54.1",
+    "sha256": "a9d3ae65043e3d6a7871de71a125405b9cc13c9085d8804fd6bc4af7eef5f832",
+    "excerpts": [
+      {
+        "start_line": 252,
+        "end_line": 275,
+        "text": "    GUniqueOutPtr<GError> error;\n    GRefPtr<GSubprocess> process;\n\n#if OS(LINUX)\n    bool sandboxEnabled = m_launchOptions.extraInitializationData.get<HashTranslatorASCIILiteral>(\"enable-sandbox\"_s) == \"true\"_s;\n\n    if (sandboxEnabled && isInsideFlatpak() && isFlatpakSpawnUsable())\n        process = flatpakSpawn(launcher.get(), m_launchOptions, argv, webkitClientSocketValue, &error.outPtr());\n#if ENABLE(BUBBLEWRAP_SANDBOX)\n    // You cannot use bubblewrap within Flatpak or some containers so lets ensure it never happens.\n    // Snap can allow it but has its own limitations that require workarounds.\n    else if (sandboxEnabled && shouldUseBubblewrap())\n        process = bubblewrapSpawn(launcher.get(), m_launchOptions, m_dbusProxy, argv, &error.outPtr());\n#endif // ENABLE(BUBBLEWRAP_SANDBOX)\n    else\n#endif // OS(LINUX)\n        process = adoptGRef(g_subprocess_launcher_spawnv(launcher.get(), argv.span().data(), &error.outPtr()));\n\n    if (!process.get())\n        g_error(\"Unable to spawn a new child process: %s\", error->message);\n\n#if OS(LINUX)\n    if (isInsideFlatpak() || (sandboxEnabled && shouldUseBubblewrap())) {\n        GRefPtr<GSocket> socket = adoptGRef(g_socket_new_from_fd(webkitSocketPair.server.release(), &error.outPtr()));"
+      }
+    ]
+  },
+  {
+    "path": "Source/WebKit/UIProcess/gtk/AcceleratedBackingStore.cpp",
+    "root": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/build/webkitgtk-2.54.1",
+    "sha256": "04cf5db6c78c42ece790d14940780227cd6a270ceef40e43c04edec72739ca84",
+    "excerpts": [
+      {
+        "start_line": 79,
+        "end_line": 103,
+        "text": "WTF_MAKE_TZONE_ALLOCATED_IMPL(AcceleratedBackingStore);\n\nOptionSet<RendererBufferTransportMode> AcceleratedBackingStore::rendererBufferTransportMode()\n{\n    static OptionSet<RendererBufferTransportMode> mode;\n    static std::once_flag onceFlag;\n    std::call_once(onceFlag, [] {\n        const char* disableDMABuf = getenv(\"WEBKIT_DISABLE_DMABUF_RENDERER\");\n        if (disableDMABuf && g_strcmp0(disableDMABuf, \"0\"))\n            return;\n\n        const char* platformExtensions = eglQueryString(nullptr, EGL_EXTENSIONS);\n        if (!GLContext::isExtensionSupported(platformExtensions, \"EGL_KHR_platform_gbm\")\n            && !GLContext::isExtensionSupported(platformExtensions, \"EGL_MESA_platform_surfaceless\")) {\n            return;\n        }\n\n        mode.add(RendererBufferTransportMode::SharedMemory);\n\n        const char* forceSHM = getenv(\"WEBKIT_DMABUF_RENDERER_FORCE_SHM\");\n        if (forceSHM && g_strcmp0(forceSHM, \"0\"))\n            return;\n\n#if USE(GBM)\n        // Don't claim to support hardware buffers if we don't have a device to import them."
+      }
+    ]
+  },
+  {
+    "path": "Source/WebKit/gtk/migrating-to-webkitgtk-6.0.md",
+    "root": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/build/webkitgtk-2.54.1",
+    "sha256": "61cae6848f480f8fb188603f16c9155924d964017432860750c6c26a54aa76ca",
+    "excerpts": [
+      {
+        "start_line": 49,
+        "end_line": 102,
+        "text": "- [type@WebView] has been often subclassed to customize its behavior for a\n  specific application. This possibility has been kept, as it has proved\n  useful in the past.\n- [type@InputMethodContext] is specifically designed in a way that subclassing\n  is required to make use of it.\n\nThe rest of the types are no longer derivable; they are defined with the\n`G_TYPE_FLAG_FINAL` flag set. Use composition instead of derivation.\n\n## Mandatory Web Process Sandbox\n\nThe `webkit_web_context_set_sandbox_enabled()` and `webkit_web_context_get_sandbox_enabled()`\nfunctions have been removed. The web process sandbox is now always enabled. If\nyour application's web process needs to access extra directories, use\n[method@WebKit.WebContext.add_path_to_sandbox] to mount them in the sandbox.\n\n## Mandatory Process Swap on Cross-site Navigation\n\nThe `WebKitWebContext:process-swap-on-cross-site-navigation-enabled` property\nhas been removed. Process swapping is now mandatory. Your application should be\nprepared for the web view's web process to be replaced when navigating between\ndifferent security origins. You can ensure that your application is prepared for\nthis change before porting to GTK 4 by testing your application with the\n`WebKitWebContext:process-swap-on-cross-site-navigation-enabled` property\nenabled. This property was previously disabled by default.\n\n## Event Parameter Removed from Context Menu and Option Menu Signals\n\n[signal@WebKit.WebView::context-menu] and [signal@WebKit.WebView::show-option-menu]\nno longer have a [type@Gdk.Event] parameter. Adjust your signal handlers\naccordingly.\n\n## Changes to WebKitWebView Construction\n\n`webkit_web_view_new_with_context()`, `webkit_web_view_new_with_settings()`,\n`webkit_web_view_new_with_user_content_manager()`, and\n`webkit_web_view_new_with_related_view()` have all been removed. You\nmay directly use `g_object_new()` instead. [ctor@WebKit.WebView.new] remains.\n\n## Network Session API\n\nWebKit now uses a single global network process for all web contexts, and different\nnetwork sessions can be created and used in the same network process. All the networking\nAPIs have been moved from [type@WebKit.WebContext] and [type@WebKit.WebsiteDataManager] to the new class\n[type@WebKit.NetworkSession]. There's a default global persistent session that you can get with\n[func@WebKit.NetworkSession.get_default]. You can also create new sessions with\n[ctor@WebKit.NetworkSession.new] for persistent sessions and [ctor@WebKit.NetworkSession.new_ephemeral]\nfor ephemeral sessions. It's no longer possible to create a [type@WebKit.WebsiteDataManager]; it's now\ncreated by the [type@WebKit.NetworkSession] automatically at construction time. The [type@WebKit.NetworkSession]\nto be used must be passed to the [type@WebKit.WebView] as a construct parameter. You can pass the\nsame [type@WebKit.NetworkSession] object to several web views to use the same session. The only exception\nis automation mode, which uses its own ephemeral session that is configured by the automation\nsession capabilities. If you notice that your application uses [type@WebKit.WebContext] or\n[type@WebKit.WebsiteDataManager] APIs that no longer exist, look for replacement APIs"
+      }
+    ]
+  },
+  {
+    "path": "Source/WebKit/UIProcess/API/glib/WebKitNetworkSession.h.in",
+    "root": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/build/webkitgtk-2.54.1",
+    "sha256": "0c746b23ce4479384108e72e602097d7f2dfdc42c7b940368254b3b100bcf20d",
+    "excerpts": [
+      {
+        "start_line": 58,
+        "end_line": 69,
+        "text": "\nWEBKIT_API WebKitNetworkSession *\nwebkit_network_session_new                                       (const char                   *data_directory,\n                                                                  const char                   *cache_directory);\nWEBKIT_API WebKitNetworkSession *\nwebkit_network_session_new_ephemeral                             (void);\n\nWEBKIT_API gboolean\nwebkit_network_session_is_ephemeral                              (WebKitNetworkSession         *session);\n\nWEBKIT_API WebKitWebsiteDataManager *\nwebkit_network_session_get_website_data_manager                  (WebKitNetworkSession         *session);"
+      }
+    ]
+  },
+  {
+    "path": "Source/WebKit/UIProcess/API/glib/WebKitWebView.h.in",
+    "root": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/build/webkitgtk-2.54.1",
+    "sha256": "d31996a97c0ce5fe484e360a7591c446f54ee7e7bfb4210a2ff0c2cf42da1962",
+    "excerpts": [
+      {
+        "start_line": 500,
+        "end_line": 511,
+        "text": "WEBKIT_API gboolean\nwebkit_web_view_is_controlled_by_automation          (WebKitWebView             *web_view);\n\nWEBKIT_API WebKitAutomationBrowsingContextPresentation\nwebkit_web_view_get_automation_presentation_type     (WebKitWebView             *web_view);\n\n#if ENABLE(2022_GLIB_API)\nWEBKIT_API WebKitNetworkSession *\nwebkit_web_view_get_network_session                  (WebKitWebView             *web_view);\n#else\nWEBKIT_API WebKitWebsiteDataManager *\nwebkit_web_view_get_website_data_manager             (WebKitWebView             *web_view);"
+      }
+    ]
+  },
+  {
+    "path": "Source/WebKit/UIProcess/WebProcessPool.h",
+    "root": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/build/webkitgtk-2.54.1",
+    "sha256": "47f31b8eeaeec692c9efb141436ddfbbe0acdfde01c6f1a5146a573f8b47b603",
+    "excerpts": [
+      {
+        "start_line": 933,
+        "end_line": 942,
+        "text": "#if HAVE(DISPLAY_LINK)\n    DisplayLinkCollection m_displayLinks;\n#endif\n\n#if PLATFORM(GTK) || PLATFORM(WPE)\n    bool m_sandboxEnabled { false };\n    HashMap<CString, SandboxPermission> m_extraSandboxPaths;\n\n    Function<void(UserMessage&&, CompletionHandler<void(UserMessage&&)>&&)> m_userMessageHandler;\n"
+      }
+    ]
+  }
+]

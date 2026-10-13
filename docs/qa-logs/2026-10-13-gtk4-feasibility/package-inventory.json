@@ -1,0 +1,793 @@
+{
+  "note": "Literal recipe inventory, not evaluated build engine output; inspect inherited recipes and hooks. Target module versions are in preflight.json.",
+  "recipes": [
+    {
+      "path": "packages/addons/addon-depends/chrome-depends/at-spi2-core/package.mk",
+      "sha256": "ecf6ea787f48158e47d46f9ab0f6222c1243afc63e8d3cead2ea8d3d5f02a0e0",
+      "literal_recipe_lines": [
+        {
+          "line": 5,
+          "text": "PKG_NAME=\"at-spi2-core\""
+        },
+        {
+          "line": 6,
+          "text": "PKG_VERSION=\"2.61.1\""
+        },
+        {
+          "line": 11,
+          "text": "PKG_DEPENDS_TARGET=\"toolchain atk dbus glib libxml2 libXtst\""
+        }
+      ]
+    },
+    {
+      "path": "packages/addons/addon-depends/chrome-depends/gtk3/package.mk",
+      "sha256": "c5aa97783fa218e6c6196aba565a239dd400f195d64a44d861a7f2df076884db",
+      "literal_recipe_lines": [
+        {
+          "line": 5,
+          "text": "PKG_NAME=\"gtk3\""
+        },
+        {
+          "line": 6,
+          "text": "PKG_VERSION=\"3.24.52\""
+        },
+        {
+          "line": 11,
+          "text": "PKG_DEPENDS_TARGET=\"toolchain at-spi2-core atk cairo gdk-pixbuf glib libX11 libXi libXrandr libepoxy pango libxkbcommon\""
+        },
+        {
+          "line": 14,
+          "text": "PKG_BUILD_FLAGS=\"-sysroot\""
+        }
+      ]
+    },
+    {
+      "path": "packages/addons/addon-depends/chrome-depends/harfbuzz-icu/package.mk",
+      "sha256": "737c5decfe70afb37fdc5564a53546e22d09ee87384cc52e65c50be916e25be5",
+      "literal_recipe_lines": [
+        {
+          "line": 7,
+          "text": "PKG_NAME=\"harfbuzz-icu\""
+        },
+        {
+          "line": 13,
+          "text": "PKG_BUILD_FLAGS=\"-sysroot\""
+        }
+      ]
+    },
+    {
+      "path": "packages/addons/addon-depends/flatpak-depends/bubblewrap/package.mk",
+      "sha256": "b7289b16c325c4a034142c9b77796a151c2641866c94654931f8dbfdd5a01f4c",
+      "literal_recipe_lines": [
+        {
+          "line": 4,
+          "text": "PKG_NAME=\"bubblewrap\""
+        },
+        {
+          "line": 5,
+          "text": "PKG_VERSION=\"0.11.2\""
+        },
+        {
+          "line": 10,
+          "text": "PKG_DEPENDS_TARGET=\"toolchain libcap Python3\""
+        },
+        {
+          "line": 12,
+          "text": "PKG_BUILD_FLAGS=\"-sysroot\""
+        }
+      ]
+    },
+    {
+      "path": "packages/addons/addon-depends/flatpak-depends/xdg-dbus-proxy/package.mk",
+      "sha256": "075f464e0948274824245dc9e628f094ca3d0a8013615a8077c1373d1e75df0e",
+      "literal_recipe_lines": [
+        {
+          "line": 4,
+          "text": "PKG_NAME=\"xdg-dbus-proxy\""
+        },
+        {
+          "line": 5,
+          "text": "PKG_VERSION=\"0.1.7\""
+        },
+        {
+          "line": 10,
+          "text": "PKG_DEPENDS_TARGET=\"toolchain glib\""
+        },
+        {
+          "line": 12,
+          "text": "PKG_BUILD_FLAGS=\"-sysroot\""
+        }
+      ]
+    },
+    {
+      "path": "packages/devel/fribidi/package.mk",
+      "sha256": "d3a236128f64528b505c128e6817bab47502130d96522042f8139de8a9e00db9",
+      "literal_recipe_lines": [
+        {
+          "line": 5,
+          "text": "PKG_NAME=\"fribidi\""
+        },
+        {
+          "line": 6,
+          "text": "PKG_VERSION=\"1.0.16\""
+        },
+        {
+          "line": 11,
+          "text": "PKG_DEPENDS_TARGET=\"toolchain\""
+        },
+        {
+          "line": 13,
+          "text": "PKG_BUILD_FLAGS=\"+pic\""
+        }
+      ]
+    },
+    {
+      "path": "packages/devel/glib/package.mk",
+      "sha256": "622528243798bc77e8f5d8af719ffc3ce284f8858ea7e09254d052e01ea5adeb",
+      "literal_recipe_lines": [
+        {
+          "line": 5,
+          "text": "PKG_NAME=\"glib\""
+        },
+        {
+          "line": 6,
+          "text": "PKG_VERSION=\"2.89.3\""
+        },
+        {
+          "line": 11,
+          "text": "PKG_DEPENDS_HOST=\"libffi:host pcre2:host Python3:host meson:host ninja:host\""
+        },
+        {
+          "line": 12,
+          "text": "PKG_DEPENDS_TARGET=\"meson:host ninja:host gcc:host glib:host libffi pcre2 Python3:host util-linux zlib\""
+        }
+      ]
+    },
+    {
+      "path": "packages/graphics/cairo/package.mk",
+      "sha256": "fd5eedd360b5bb563c3072fb4ee434989d18fda3441a26c00c7530c2e5d47e5c",
+      "literal_recipe_lines": [
+        {
+          "line": 5,
+          "text": "PKG_NAME=\"cairo\""
+        },
+        {
+          "line": 6,
+          "text": "PKG_VERSION=\"1.18.4\""
+        },
+        {
+          "line": 11,
+          "text": "PKG_DEPENDS_TARGET=\"toolchain zlib freetype fontconfig glib libpng pixman\""
+        }
+      ]
+    },
+    {
+      "path": "packages/graphics/gdk-pixbuf/package.mk",
+      "sha256": "a899f392148dc44a77140c27c2e4a587c5d34984dad139c2cb0e5d1b40c68483",
+      "literal_recipe_lines": [
+        {
+          "line": 5,
+          "text": "PKG_NAME=\"gdk-pixbuf\""
+        },
+        {
+          "line": 6,
+          "text": "PKG_VERSION=\"2.44.7\""
+        },
+        {
+          "line": 11,
+          "text": "PKG_DEPENDS_TARGET=\"toolchain glib libjpeg-turbo libpng jasper shared-mime-info tiff\""
+        }
+      ]
+    },
+    {
+      "path": "packages/graphics/harfbuzz/package.mk",
+      "sha256": "38c9ea28c2c0a9a86d3abcc2b9c74d07b6f64b7748019f0d8ecd494802cfe5b3",
+      "literal_recipe_lines": [
+        {
+          "line": 5,
+          "text": "PKG_NAME=\"harfbuzz\""
+        },
+        {
+          "line": 6,
+          "text": "PKG_VERSION=\"14.3.0\""
+        },
+        {
+          "line": 11,
+          "text": "PKG_DEPENDS_TARGET=\"toolchain cairo freetype glib\""
+        }
+      ]
+    },
+    {
+      "path": "packages/graphics/libdrm/package.mk",
+      "sha256": "8c498d41b59491b48cbcc592c1e428e503fb2ed993eed9a2ee84ca5b4269b3e9",
+      "literal_recipe_lines": [
+        {
+          "line": 5,
+          "text": "PKG_NAME=\"libdrm\""
+        },
+        {
+          "line": 6,
+          "text": "PKG_VERSION=\"2.4.134\""
+        },
+        {
+          "line": 11,
+          "text": "PKG_DEPENDS_HOST=\"toolchain:host\""
+        },
+        {
+          "line": 12,
+          "text": "PKG_DEPENDS_TARGET=\"toolchain libpciaccess\""
+        }
+      ]
+    },
+    {
+      "path": "packages/graphics/libepoxy/package.mk",
+      "sha256": "4342c6f32b1df85b435aef28701fa9a34ca8014ae92a7c7a27422d7607a716cd",
+      "literal_recipe_lines": [
+        {
+          "line": 10,
+          "text": "PKG_NAME=\"libepoxy\""
+        },
+        {
+          "line": 11,
+          "text": "PKG_VERSION=\"1.5.10\""
+        },
+        {
+          "line": 16,
+          "text": "PKG_DEPENDS_TARGET=\"toolchain\""
+        }
+      ]
+    },
+    {
+      "path": "packages/graphics/mesa/package.mk",
+      "sha256": "5acd13147bddb3e6d93e70d383279e778b7de24fdab52f336c08e57fb1533de7",
+      "literal_recipe_lines": [
+        {
+          "line": 5,
+          "text": "PKG_NAME=\"mesa\""
+        },
+        {
+          "line": 6,
+          "text": "PKG_VERSION=\"26.2.0\""
+        },
+        {
+          "line": 11,
+          "text": "PKG_DEPENDS_HOST=\"toolchain:host expat:host libclc:host libdrm:host llvm:host Mako:host pyyaml:host spirv-tools:host\""
+        },
+        {
+          "line": 12,
+          "text": "PKG_DEPENDS_TARGET=\"toolchain expat libdrm Mako:host pyyaml:host\""
+        }
+      ]
+    },
+    {
+      "path": "packages/graphics/pango/package.mk",
+      "sha256": "1c752114ae3aef3c64cc71adfcf5fd8b98de5cd4652ecccfb0cb619e39bfea95",
+      "literal_recipe_lines": [
+        {
+          "line": 5,
+          "text": "PKG_NAME=\"pango\""
+        },
+        {
+          "line": 6,
+          "text": "PKG_VERSION=\"1.58.2\""
+        },
+        {
+          "line": 11,
+          "text": "PKG_DEPENDS_TARGET=\"toolchain cairo freetype fontconfig fribidi glib json-glib harfbuzz\""
+        }
+      ]
+    },
+    {
+      "path": "packages/graphics/vulkan/vulkan-headers/package.mk",
+      "sha256": "2ad0cc3fbbd3cd991a7786b616a4ec259e5e58a4760e68e4a5ff56512cb2427e",
+      "literal_recipe_lines": [
+        {
+          "line": 5,
+          "text": "PKG_NAME=\"vulkan-headers\""
+        },
+        {
+          "line": 6,
+          "text": "PKG_VERSION=\"1.4.359\""
+        },
+        {
+          "line": 11,
+          "text": "PKG_DEPENDS_HOST=\"toolchain:host\""
+        },
+        {
+          "line": 12,
+          "text": "PKG_DEPENDS_TARGET=\"toolchain\""
+        }
+      ]
+    },
+    {
+      "path": "packages/graphics/vulkan/vulkan-loader/package.mk",
+      "sha256": "72c3fcce962b9c1565f654c51985cb2ec2fd58cddf6bcd92522cd75d00256554",
+      "literal_recipe_lines": [
+        {
+          "line": 5,
+          "text": "PKG_NAME=\"vulkan-loader\""
+        },
+        {
+          "line": 6,
+          "text": "PKG_VERSION=\"1.4.359\""
+        },
+        {
+          "line": 11,
+          "text": "PKG_DEPENDS_TARGET=\"toolchain Python3:host vulkan-headers\""
+        }
+      ]
+    },
+    {
+      "path": "packages/multimedia/gstreamer/gst-plugins-bad/package.mk",
+      "sha256": "88faa79223df0688780b78de5c7493fffdbf6c0c0ac519bad7e2697848ac3f01",
+      "literal_recipe_lines": [
+        {
+          "line": 4,
+          "text": "PKG_NAME=\"gst-plugins-bad\""
+        },
+        {
+          "line": 5,
+          "text": "PKG_VERSION=\"1.29.2\""
+        },
+        {
+          "line": 10,
+          "text": "PKG_DEPENDS_TARGET=\"toolchain gst-plugins-base\""
+        }
+      ]
+    },
+    {
+      "path": "packages/multimedia/gstreamer/gst-plugins-base/package.mk",
+      "sha256": "486650aa21d134ad389fd969f0283c4cfb39884b01620f0b11f68daccc4c1136",
+      "literal_recipe_lines": [
+        {
+          "line": 4,
+          "text": "PKG_NAME=\"gst-plugins-base\""
+        },
+        {
+          "line": 5,
+          "text": "PKG_VERSION=\"1.29.2\""
+        },
+        {
+          "line": 10,
+          "text": "PKG_DEPENDS_TARGET=\"toolchain gstreamer\""
+        },
+        {
+          "line": 12,
+          "text": "PKG_BUILD_FLAGS=\"-gold\""
+        }
+      ]
+    },
+    {
+      "path": "packages/multimedia/gstreamer/gstreamer/package.mk",
+      "sha256": "e05a91d31290d6248214228fd2cff6b852f58215f94d6212f3e1e7175c90102b",
+      "literal_recipe_lines": [
+        {
+          "line": 4,
+          "text": "PKG_NAME=\"gstreamer\""
+        },
+        {
+          "line": 5,
+          "text": "PKG_VERSION=\"1.29.2\""
+        },
+        {
+          "line": 10,
+          "text": "PKG_DEPENDS_TARGET=\"toolchain glib\""
+        }
+      ]
+    },
+    {
+      "path": "packages/python/devel/meson/package.mk",
+      "sha256": "b224f6ae1fb8884cf44ee24666dd53679d0b9ea498a42b1073bb249656fe3a29",
+      "literal_recipe_lines": [
+        {
+          "line": 4,
+          "text": "PKG_NAME=\"meson\""
+        },
+        {
+          "line": 5,
+          "text": "PKG_VERSION=\"1.11.2\""
+        },
+        {
+          "line": 10,
+          "text": "PKG_DEPENDS_HOST=\"Python3:host setuptools:host\""
+        },
+        {
+          "line": 12,
+          "text": "PKG_TOOLCHAIN=\"python\""
+        }
+      ]
+    },
+    {
+      "path": "packages/security/libseccomp/package.mk",
+      "sha256": "2051228ac857ccb3cdd0eac4874413969014233ed17c4c0369f557a5203a7f72",
+      "literal_recipe_lines": [
+        {
+          "line": 4,
+          "text": "PKG_NAME=\"libseccomp\""
+        },
+        {
+          "line": 5,
+          "text": "PKG_VERSION=\"2.6.1\""
+        },
+        {
+          "line": 10,
+          "text": "PKG_DEPENDS_TARGET=\"toolchain\""
+        },
+        {
+          "line": 12,
+          "text": "PKG_BUILD_FLAGS=\"-sysroot\""
+        }
+      ]
+    },
+    {
+      "path": "packages/wayland/libxkbcommon/package.mk",
+      "sha256": "2c8936b16e76912d7c20782c95a45ea64e806190b95e14231bb27d9d03754f68",
+      "literal_recipe_lines": [
+        {
+          "line": 5,
+          "text": "PKG_NAME=\"libxkbcommon\""
+        },
+        {
+          "line": 6,
+          "text": "PKG_VERSION=\"1.13.2\""
+        },
+        {
+          "line": 11,
+          "text": "PKG_DEPENDS_TARGET=\"toolchain xkeyboard-config libxml2\""
+        }
+      ]
+    },
+    {
+      "path": "packages/wayland/wayland/package.mk",
+      "sha256": "bb11620253673efe694fa84bf6671c0b8e93784d31ac08dcc7c06a2924fa9888",
+      "literal_recipe_lines": [
+        {
+          "line": 4,
+          "text": "PKG_NAME=\"wayland\""
+        },
+        {
+          "line": 5,
+          "text": "PKG_VERSION=\"1.26.0\""
+        },
+        {
+          "line": 10,
+          "text": "PKG_DEPENDS_HOST=\"libffi:host expat:host libxml2:host meson:host\""
+        },
+        {
+          "line": 11,
+          "text": "PKG_DEPENDS_TARGET=\"toolchain wayland:host libffi expat libxml2\""
+        },
+        {
+          "line": 14,
+          "text": "PKG_BUILD_FLAGS=\"-ndebug\""
+        }
+      ]
+    },
+    {
+      "path": "packages/wayland/wayland-protocols/package.mk",
+      "sha256": "85e3c74d9947ee3edfe813f0c4ca6662a782c312fb9542e56ebf20c7b80a5dd6",
+      "literal_recipe_lines": [
+        {
+          "line": 4,
+          "text": "PKG_NAME=\"wayland-protocols\""
+        },
+        {
+          "line": 5,
+          "text": "PKG_VERSION=\"1.49\""
+        },
+        {
+          "line": 10,
+          "text": "PKG_DEPENDS_TARGET=\"toolchain wayland:host\""
+        }
+      ]
+    },
+    {
+      "path": "packages/web/libsoup/package.mk",
+      "sha256": "78140625196fadd7acd9710fb56190be2355b353a2060367baa6d80fb8addb1e",
+      "literal_recipe_lines": [
+        {
+          "line": 4,
+          "text": "PKG_NAME=\"libsoup\""
+        },
+        {
+          "line": 5,
+          "text": "PKG_VERSION=\"3.8.0\""
+        },
+        {
+          "line": 10,
+          "text": "PKG_DEPENDS_TARGET=\"toolchain glib libpsl libxml2 nghttp2 sqlite\""
+        }
+      ]
+    },
+    {
+      "path": "projects/ROCKNIX/packages/devel/glib/package.mk",
+      "sha256": "0840113c9154822bc013ce21dc7e7d70ef399810071a744b7b1866150e8edd65",
+      "literal_recipe_lines": [
+        {
+          "line": 4,
+          "text": ". ${ROOT}/packages/devel/glib/package.mk"
+        }
+      ]
+    },
+    {
+      "path": "projects/ROCKNIX/packages/graphics/cairo/package.mk",
+      "sha256": "efa50da729b30aeb865851107368dc88ccaed047395f074449e8ebb8535827b1",
+      "literal_recipe_lines": [
+        {
+          "line": 6,
+          "text": "PKG_NAME=\"cairo\""
+        },
+        {
+          "line": 16,
+          "text": "PKG_VERSION=\"1.18.4\""
+        },
+        {
+          "line": 21,
+          "text": "PKG_DEPENDS_TARGET=\"toolchain zlib freetype fontconfig glib libpng pixman\""
+        }
+      ]
+    },
+    {
+      "path": "projects/ROCKNIX/packages/graphics/gdk-pixbuf/package.mk",
+      "sha256": "98e97a8e5fe3b31899be92a90349d57eccfe0940c504453ee98e91b480394612",
+      "literal_recipe_lines": [
+        {
+          "line": 5,
+          "text": "PKG_NAME=\"gdk-pixbuf\""
+        },
+        {
+          "line": 6,
+          "text": "PKG_VERSION=\"2.42.10\""
+        },
+        {
+          "line": 11,
+          "text": "PKG_DEPENDS_TARGET=\"toolchain glib libjpeg-turbo libpng jasper shared-mime-info tiff zlib\""
+        }
+      ]
+    },
+    {
+      "path": "projects/ROCKNIX/packages/graphics/gtk3/package.mk",
+      "sha256": "4c769f2c26b7e5176a91a5782d84b4708ac3e4d02f4ba6b748ed7f5e1ce82be3",
+      "literal_recipe_lines": [
+        {
+          "line": 4,
+          "text": ". ${ROOT}/packages/addons/addon-depends/chrome-depends/gtk3/package.mk"
+        },
+        {
+          "line": 6,
+          "text": "PKG_DEPENDS_TARGET=\"toolchain at-spi2-atk atk cairo gdk-pixbuf glib libX11 libXi libXrandr libepoxy pango libxkbcommon wayland wayland-protocols libepoxy libpng tiff libjpeg-turbo libffi glew\""
+        }
+      ]
+    },
+    {
+      "path": "projects/ROCKNIX/packages/graphics/harfbuzz-icu/package.mk",
+      "sha256": "e4408a750ef3afb3a27ab02bbcf243e844df80af5effa832b552c301a58641da",
+      "literal_recipe_lines": [
+        {
+          "line": 4,
+          "text": ". ${ROOT}/packages/addons/addon-depends/chrome-depends/harfbuzz-icu/package.mk"
+        }
+      ]
+    },
+    {
+      "path": "projects/ROCKNIX/packages/graphics/libdrm/package.mk",
+      "sha256": "2ec4d81060e1c6f2bb0ec7ec3b598b849cc32cad802e9d30be96b4f4171068e8",
+      "literal_recipe_lines": [
+        {
+          "line": 6,
+          "text": "PKG_NAME=\"libdrm\""
+        },
+        {
+          "line": 7,
+          "text": "PKG_VERSION=\"2.4.133\""
+        },
+        {
+          "line": 12,
+          "text": "PKG_DEPENDS_HOST=\"toolchain libpciaccess libdisplay-info\""
+        },
+        {
+          "line": 13,
+          "text": "PKG_DEPENDS_TARGET=\"toolchain libpciaccess libdisplay-info\""
+        },
+        {
+          "line": 15,
+          "text": "PKG_TOOLCHAIN=\"meson\""
+        }
+      ]
+    },
+    {
+      "path": "projects/ROCKNIX/packages/graphics/libepoxy/package.mk",
+      "sha256": "70b3a3c50ca575f02decc6b2d81e7e2dd76e0d3f15bad1f9cbd50a02cb632d25",
+      "literal_recipe_lines": [
+        {
+          "line": 11,
+          "text": "PKG_NAME=\"libepoxy\""
+        },
+        {
+          "line": 12,
+          "text": "PKG_VERSION=\"1.5.10\""
+        },
+        {
+          "line": 17,
+          "text": "PKG_DEPENDS_TARGET=\"toolchain\""
+        }
+      ]
+    },
+    {
+      "path": "projects/ROCKNIX/packages/graphics/mesa/package.mk",
+      "sha256": "ac5dca86bde7cfb9287542d201d53a757fb6f0d5f4842dd9f53013bf3f3f48cc",
+      "literal_recipe_lines": [
+        {
+          "line": 5,
+          "text": "PKG_NAME=\"mesa\""
+        },
+        {
+          "line": 6,
+          "text": "PKG_VERSION=\"26.2.2\""
+        },
+        {
+          "line": 11,
+          "text": "PKG_DEPENDS_HOST=\"toolchain:host expat:host libclc:host libdrm:host llvm:host Mako:host pyyaml:host spirv-tools:host\""
+        },
+        {
+          "line": 12,
+          "text": "PKG_DEPENDS_TARGET=\"toolchain expat libdrm Mako:host pyyaml:host\""
+        }
+      ]
+    },
+    {
+      "path": "projects/ROCKNIX/packages/graphics/shaderc/package.mk",
+      "sha256": "df63e957d01b5a2c34c025558c1c2af1e38b2cf008be20385cf2dc9db8410093",
+      "literal_recipe_lines": [
+        {
+          "line": 4,
+          "text": "PKG_NAME=\"shaderc\""
+        },
+        {
+          "line": 5,
+          "text": "PKG_VERSION=\"2025.3\""
+        },
+        {
+          "line": 11,
+          "text": "PKG_DEPENDS_TARGET=\"toolchain glslang spirv-tools\""
+        },
+        {
+          "line": 13,
+          "text": "PKG_TOOLCHAIN=\"cmake\""
+        }
+      ]
+    },
+    {
+      "path": "projects/ROCKNIX/packages/graphics/vulkan/vulkan-headers/package.mk",
+      "sha256": "76e417b1b4fe94302771952faf1671573f7edcb3bc299303057690be9705eff9",
+      "literal_recipe_lines": [
+        {
+          "line": 5,
+          "text": "PKG_NAME=\"vulkan-headers\""
+        },
+        {
+          "line": 6,
+          "text": "PKG_VERSION=\"1.4.347\""
+        },
+        {
+          "line": 11,
+          "text": "PKG_DEPENDS_HOST=\"toolchain:host\""
+        },
+        {
+          "line": 12,
+          "text": "PKG_DEPENDS_TARGET=\"toolchain\""
+        }
+      ]
+    },
+    {
+      "path": "projects/ROCKNIX/packages/graphics/vulkan/vulkan-loader/package.mk",
+      "sha256": "0af930c0edfe1801a8dea192d65e8b015ef7d3aa5b211af2b83121c74c49e20e",
+      "literal_recipe_lines": [
+        {
+          "line": 5,
+          "text": "PKG_NAME=\"vulkan-loader\""
+        },
+        {
+          "line": 6,
+          "text": "PKG_VERSION=\"1.4.347\""
+        },
+        {
+          "line": 11,
+          "text": "PKG_DEPENDS_TARGET=\"toolchain Python3:host vulkan-headers libxcb libX11 libXrandr wayland\""
+        }
+      ]
+    },
+    {
+      "path": "projects/ROCKNIX/packages/multimedia/gstreamer/gst-plugins-bad/package.mk",
+      "sha256": "ba628af7950622fbe174c6f075ada10a709fcea1fd96a6803a1a4eeeec4ef616",
+      "literal_recipe_lines": [
+        {
+          "line": 4,
+          "text": ". ${ROOT}/packages/multimedia/gstreamer/gst-plugins-bad/package.mk"
+        }
+      ]
+    },
+    {
+      "path": "projects/ROCKNIX/packages/multimedia/gstreamer/gst-plugins-base/package.mk",
+      "sha256": "b6094043211049cefd68dd61e690c4b0f0522900d9527dbe1ab3e3faae0c25d5",
+      "literal_recipe_lines": [
+        {
+          "line": 4,
+          "text": ". ${ROOT}/packages/multimedia/gstreamer/gst-plugins-base/package.mk"
+        },
+        {
+          "line": 8,
+          "text": "PKG_DEPENDS_TARGET=\"${PKG_DEPENDS_TARGET} mesa wayland\""
+        }
+      ]
+    },
+    {
+      "path": "projects/ROCKNIX/packages/multimedia/gstreamer/gstreamer/package.mk",
+      "sha256": "bf988663e155d1a66f51fca092922d3a3630053868349b917a0cc9dd71bf9376",
+      "literal_recipe_lines": [
+        {
+          "line": 4,
+          "text": ". ${ROOT}/packages/multimedia/gstreamer/gstreamer/package.mk"
+        }
+      ]
+    },
+    {
+      "path": "projects/ROCKNIX/packages/tools/at-spi2-atk/package.mk",
+      "sha256": "40734b96d0b0bdae199c4534bbd931496a263d800ba26269ae0888eec152dcab",
+      "literal_recipe_lines": [
+        {
+          "line": 5,
+          "text": "PKG_NAME=\"at-spi2-atk\""
+        },
+        {
+          "line": 6,
+          "text": "PKG_VERSION=\"2.38.0\""
+        },
+        {
+          "line": 11,
+          "text": "PKG_DEPENDS_TARGET=\"toolchain at-spi2-core atk libX11 libxml2\""
+        }
+      ]
+    },
+    {
+      "path": "projects/ROCKNIX/packages/tools/at-spi2-core/package.mk",
+      "sha256": "c42a2affcc88e9789264858898d0b855df5071ce197783deb05fd61bf4ace17e",
+      "literal_recipe_lines": [
+        {
+          "line": 5,
+          "text": "PKG_NAME=\"at-spi2-core\""
+        },
+        {
+          "line": 6,
+          "text": "PKG_VERSION=\"2.45.1\""
+        },
+        {
+          "line": 11,
+          "text": "PKG_DEPENDS_TARGET=\"toolchain atk dbus glib libXtst libXext libXi\""
+        }
+      ]
+    },
+    {
+      "path": "projects/ROCKNIX/packages/wayland/libxkbcommon/package.mk",
+      "sha256": "23621ab96ed42e7cb6cda7af2ce76b99fb0b22f2b529fcb87b057826d4a5e2f9",
+      "literal_recipe_lines": [
+        {
+          "line": 5,
+          "text": "PKG_NAME=\"libxkbcommon\""
+        },
+        {
+          "line": 6,
+          "text": "PKG_VERSION=\"1.8.0\""
+        },
+        {
+          "line": 11,
+          "text": "PKG_DEPENDS_TARGET=\"toolchain xkeyboard-config libxml2 libXau libxcb\""
+        }
+      ]
+    }
+  ],
+  "missing_recipe_names": [
+    "graphene",
+    "gtk4"
+  ]
+}
