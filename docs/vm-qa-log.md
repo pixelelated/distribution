@@ -256,3 +256,14 @@ change or account use. All owners exited, guest/disk/keys retired; compact
 Accepted VM20,1280MiB assigned/1042.6MiB visible,640×480/software graphics, same boot and ES across22 diagnostics:6synthetic phone controls,8actual Dropbox UA trials,8CSS-width controls. All measured cases load/return; no guard, severe synthetic crawl not reproduced. Genuine authorization served fallback versus modern scripts by UA; desktop has more consistent repeated responsiveness without RAM relief. Width screen is not a consistent improvement and changes height/DPR too. No authenticated login or input-to-paint proof. All original measurement launcher/wrapper/build channels0/exited, setup failures retained. Reviewed loaded native frames, numeric evidence and exact diagnostic source archived. Original binaries restored; guest/disk/keys retired after compact record,2.36GB allocated recovery. No product/owner change or full-suite/candidate claim. [Handoff](qa-logs/2026-10-13-browser-handoff/README.md), [UA](qa-logs/2026-10-13-dropbox-user-agents/README.md), [breakpoints and retirement](qa-logs/2026-10-13-dropbox-breakpoints/README.md).
 
 - **2026-10-13 05:55 UTC — #570 proxy component comparison, PASS within scope.** Fresh VM20, installed Python3.14.7,2048MiB assigned; six bytecode imports exit0, median PSS26817→26427KiB (390KiB). Two synthetic source-module loopback probes pass offline login/next-game cache/signed queued award/SQLite reopen/401 checks. No full-service, browser, provider or device qualification. Original watched channels0/exited; guest/disk/keys retired,2,244,435,968allocated bytes recovered. [Source and results](qa-logs/2026-10-13-proxy-memory-vm/README.md).
+
+### 2026-10-13 16:52 UTC — #565 library-copy and #577/#578 baseline
+
+Accepted VM20/ESc8dc72cf9e, standard8192MiB/4vCPU, sequential640×480/1280×800.
+Two valid ROM-only/ROM+gamelist cases pass with selected account/activity equality;
+four collection-setting controls isolate the spaced Recent default. Wi-Fi delayed,
+empty and failure fixtures plus12reviewed English frames establish defects, not
+fixed behavior. Initial404-masking and restart-rate-limit failures remain1. All
+eight original watched stages consumed with actual host exits; VM/disk/UEFI/keys
+retired,2247536640allocated bytes recovered. No full suite, physical radio, USB
+transfer or candidate acceptance. [Source, failures, results and frame index](qa-logs/2026-10-13-library-wifi-baseline/README.md).

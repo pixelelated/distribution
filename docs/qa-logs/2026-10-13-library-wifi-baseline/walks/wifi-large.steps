@@ -1,0 +1,15 @@
+wake
+key ret
+wait-for-change
+key up x6
+key x
+wait-for-change
+settle
+shot network-settings
+key down x5
+key x
+wait 1
+shot initial-search
+wait 13
+settle
+shot initial-results

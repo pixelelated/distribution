@@ -1,0 +1,22 @@
+{
+  "utc": "2026-10-13T16:27:03.888365+00:00",
+  "issues": [
+    565,
+    577,
+    570,
+    493
+  ],
+  "host_free_bytes": 2996736299008,
+  "host_mem_available_kib": 52318352,
+  "host_swap_free_kib": 27604,
+  "budget": {
+    "vm_memory_mib": 8192,
+    "vcpus": 4,
+    "scratch_peak_limit_gib": 8,
+    "disk_virtual_gib": 16
+  },
+  "ssh_port": 10580,
+  "vnc_port": 5974,
+  "retirement": "Stop exact VM and remove owned disk/UEFI/private access material after compact evidence is accepted; preserve records and fixtures.",
+  "no_full_cache_copy_or_compilation": true
+}

@@ -1,0 +1,74 @@
+[
+  {
+    "case": "absent-default",
+    "recent_http_status": 404,
+    "system_names": [
+      "pico-8",
+      "gb",
+      "music",
+      "tools",
+      "favorites"
+    ],
+    "recent_games": null,
+    "pid": "4496",
+    "rc": 0
+  },
+  {
+    "case": "spaced",
+    "recent_http_status": 404,
+    "system_names": [
+      "pico-8",
+      "gb",
+      "music",
+      "tools",
+      "favorites"
+    ],
+    "recent_games": null,
+    "pid": "4651",
+    "rc": 0
+  },
+  {
+    "case": "canonical",
+    "recent_http_status": 200,
+    "system_names": [
+      "pico-8",
+      "gb",
+      "music",
+      "tools",
+      "favorites",
+      "recent"
+    ],
+    "recent_games": [
+      {
+        "id": "785f210d5d74740603f89079cd8d4d70",
+        "path": "/storage/roms/gb/pixelelated-fixture.gb",
+        "name": "Metadata fixture",
+        "systemName": "gb",
+        "rating": "0.000000",
+        "releasedate": "not-a-date-time",
+        "favorite": "true",
+        "hidden": "false",
+        "kidgame": "false",
+        "playcount": "5",
+        "lastplayed": "20260908T031024",
+        "gametime": "0"
+      }
+    ],
+    "pid": "4797",
+    "rc": 0
+  },
+  {
+    "case": "explicit-favorites-only",
+    "recent_http_status": 404,
+    "system_names": [
+      "pico-8",
+      "gb",
+      "music",
+      "tools",
+      "favorites"
+    ],
+    "recent_games": null,
+    "pid": "4945",
+    "rc": 0
+  }
+]

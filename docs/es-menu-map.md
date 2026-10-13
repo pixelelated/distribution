@@ -411,6 +411,13 @@ callbacks. The diagram and behavior below still describe the accepted source;
 replace their loading branches with the implemented flow and same-source EN/FR
 frame index when #577 lands (D-WORKFLOW-155/156).
 
+[Accepted-source October13 baseline](qa-logs/2026-10-13-library-wifi-baseline/README.md)
+and its [exact-source frame index](qa-logs/2026-10-13-library-wifi-baseline/frame-index.json)
+show an empty initial list with external search overlay, a content-sized picker
+that grows at1280×800, and identical empty/error results. Populated refresh retains
+dimmed prior rows; it does not reproduce their disappearance. These are defect
+frames, not the planned fixed flow or EN/FR acceptance.
+
 - **The picker (WI-FI NETWORKS)** lists the networks in range (`wifictl
   list`, a rescan behind the spinner), the joined one first and marked
   CONNECTED, the ones NetworkManager holds a profile for marked SAVED
