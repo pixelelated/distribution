@@ -283,6 +283,11 @@ every-session ones at the start of a session and a scoped one before touching it
 
 ## Non-obvious gotchas
 
+- **Check upstream early when troubleshooting.** Search relevant issue reports,
+  release notes and fixes, compare them with our pinned source, and record dated
+  links and applicability in the investigation issue. Similar symptoms are not a
+  confirmed match (`engineering-practices.md`, D-WORKFLOW-162).
+
 - Script-only changes (e.g. `scripts/mkimage`) do **not** trigger an image rebuild —
   delete `build.*/.stamps/image/build_target` first.
 - Building from a git worktree in Docker requires mounting the main repo's `.git`:

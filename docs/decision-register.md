@@ -686,6 +686,8 @@ This is the index of decisions; `docs/work-logs/` is the narrative,
 
 | D-UI-126 | 2026-10-12 | **Phone keyboard connection status remains stable across handheld browser navigation.** A page reload is not a control-session disconnect. The maintainer requested a compact connected/disconnected/warning glyph at the header's top right, with the service heading at top left and ellipsis for long names, to recover space and prevent vertical jumps. Keep accessible state descriptions, actionable genuine failure feedback, and the separate field-readiness gate for queued typing. Implementation and source-bound EN/FR navigation/error frames are tracked, not yet complete. | #571; maintainer, 2026-10-12 |
 
+| D-WORKFLOW-162 | 2026-10-13 | **Every troubleshooting investigation checks upstream issue reports, release notes and fixes early.** Record the date, source links, affected/fixed versions and applicability; inspect the pinned source to establish whether a relevant fix is already included. A similar report is a lead, not a confirmed diagnosis; local reproduction and regression proof remain required. The maintainer requests this as standing instruction while investigating WebKitGTK memory pressure. | #573; #570; `.claude/rules/engineering-practices.md` |
+
 ## Open decisions
 
 

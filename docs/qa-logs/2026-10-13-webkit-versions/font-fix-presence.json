@@ -1,0 +1,29 @@
+{
+  "checked_utc": "2026-10-13T00:34:57.076613+00:00",
+  "source_versions": {
+    "2.54.1": {
+      "Source/WebCore/platform/graphics/skia/FontCustomPlatformDataSkia.cpp": {
+        "sha256": "b1d5cb99a1f1a3126fedc76f2a1ed9b7f6b0df1a48609dca79bc2e0e1799b50e",
+        "fixed_symbol": "retrieveOrAddCachedTypeface",
+        "present": true
+      },
+      "Source/WebCore/platform/graphics/skia/FontCacheSkia.cpp": {
+        "sha256": "67bc3a82ac5b10323d4fcf4f00b91351e0d63d88c5f12928174ff70f52d11ef0",
+        "fixed_symbol": "clearVariationTypefacesCache",
+        "present": true
+      }
+    },
+    "2.54.0": {
+      "Source/WebCore/platform/graphics/skia/FontCustomPlatformDataSkia.cpp": {
+        "sha256": "b1d5cb99a1f1a3126fedc76f2a1ed9b7f6b0df1a48609dca79bc2e0e1799b50e",
+        "fixed_symbol": "retrieveOrAddCachedTypeface",
+        "present": true
+      },
+      "Source/WebCore/platform/graphics/skia/FontCacheSkia.cpp": {
+        "sha256": "67bc3a82ac5b10323d4fcf4f00b91351e0d63d88c5f12928174ff70f52d11ef0",
+        "fixed_symbol": "clearVariationTypefacesCache",
+        "present": true
+      }
+    }
+  }
+}

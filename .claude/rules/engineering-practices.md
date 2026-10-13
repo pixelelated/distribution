@@ -25,6 +25,27 @@ been working in -- is left as upstream has it until the maintainer opens
 that lane, however well the rule would fit. Name the surfaces the rule
 would also reach and ask; do not fold them into the change.
 
+## Check upstream early when troubleshooting
+
+D-WORKFLOW-162 (#573): every investigation checks the relevant upstream issue
+tracker, release notes and recent fixes early, alongside local history and
+reproduction. Include ROCKNIX and the component's own upstream where relevant.
+Identify our pinned version, local patches and the latest applicable stable
+release; check open, closed and duplicate reports for the symptom and platform.
+
+Record the check date, source links, affected/fixed versions and applicability
+in the investigation issue. For a candidate fix, inspect its commit or source
+to establish whether our pin already includes it. Distinguish an unreleased fix,
+a released fix we lack, and a fix already present; similar symptoms alone do not
+identify our defect. If no match is found or upstream cannot be checked, record
+that limit and continue useful local diagnosis without claiming upstream is clear.
+
+Use that evidence to choose an upgrade, focused backport or local investigation
+under the existing integration policy. Reproduce and run the relevant regression
+checks before claiming a fix; neither a closed report nor a version bump proves
+our case is resolved. This check does not authorize sending private diagnostics
+or posting to an upstream project.
+
 ## Verify design intent before "fixing" an apparent bug
 
 Before changing code that looks wrong, confirm it isn't intentional:
