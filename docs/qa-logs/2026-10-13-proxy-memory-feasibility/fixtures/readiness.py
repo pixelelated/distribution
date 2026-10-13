@@ -116,7 +116,11 @@ def main():
                 try:
                     # Protocol readiness includes offline login and the next game's
                     # patch; a listening socket alone cannot satisfy these checks.
-                    assert request("r=login2&u=fixture&t=fixture-only")[0] == 200
+                    status, login = request("r=login2&u=fixture&t=fixture-only")
+                    assert status == 200
+                    assert login["Success"] is True
+                    assert login["User"] == "fixture"
+                    assert login["Token"] == "fixture-only"
                     assert request("r=patch&g=20&u=fixture")[1]["PatchData"]["ID"] == 20
                     if round_number == 0:
                         assert request("r=awardachievement&a=101&g=10&u=fixture&t=fixture-only&h=0")[1]["Error"] == "queued_offline"

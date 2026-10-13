@@ -2,6 +2,7 @@
 """Prepare two small, source-bound trees. Does not import or start the proxy."""
 import argparse
 import ast
+import gzip
 import hashlib
 import json
 from pathlib import Path, PurePosixPath
@@ -24,13 +25,24 @@ def manifest(root):
 
 
 def apply(root, patch):
+    artifact = patch.read_bytes()
+    payload = gzip.decompress(artifact) if patch.suffix == ".gz" else artifact
+    name = patch.stem if patch.suffix == ".gz" else patch.name
+    digest = hashlib.sha256(payload).hexdigest()
+    if patch.suffix == ".gz":
+        expected, expected_name = patch.with_suffix(".sha256").read_text().split()
+        assert (digest, name) == (expected, expected_name), "compressed patch identity mismatch"
     result = subprocess.run(
-        ["patch", "--batch", "--fuzz=0", "-p1", "-i", str(patch.resolve())],
-        cwd=root, capture_output=True, text=True, timeout=15,
+        ["patch", "--batch", "--fuzz=0", "-p1"], input=payload,
+        cwd=root, capture_output=True, timeout=15,
     )
-    if result.returncode or re.search(r"fuzz|FAILED|Reversed", result.stdout):
-        raise RuntimeError(result.stdout + result.stderr)
-    return {"name": patch.name, "sha256": sha(patch), "output": result.stdout}
+    stdout, stderr = result.stdout.decode(), result.stderr.decode()
+    if result.returncode or re.search(r"fuzz|FAILED|Reversed", stdout):
+        raise RuntimeError(stdout + stderr)
+    evidence = {"name": name, "sha256": digest, "output": stdout}
+    if patch.suffix == ".gz":
+        evidence.update(artifact_name=patch.name, artifact_sha256=sha(patch), encoding="gzip")
+    return evidence
 
 
 def main():
@@ -71,7 +83,7 @@ def main():
     patches = [apply(baseline, p) for p in sorted((package / "patches").glob("*.patch"))]
     candidate = output / "candidate"
     shutil.copytree(baseline, candidate)
-    candidate_patch = apply(candidate, PACKET / "lazy-ui-imports.patch")
+    candidate_patch = apply(candidate, PACKET / "lazy-ui-imports.patch.gz")
     original, changed = manifest(baseline), manifest(candidate)
     assert [p for p in original if original[p] != changed[p]] == ["linux/raofflineproxy/main.py"]
     for root in (baseline, candidate):

@@ -6,7 +6,7 @@ Coordinator `w4:p2` owns runtime allocation, GitHub status and integration.
 
 **An upstreamable lazy-UI-import candidate is prepared and passes the allocated
 host source checks. It is not a measured target memory fix.**
-[lazy-ui-imports.patch](lazy-ui-imports.patch) moves two imports from module scope
+[lazy-ui-imports.patch.gz](lazy-ui-imports.patch.gz) moves two imports from module scope
 into their four CLI branches. `run-service` retains four fewer proxy modules:
 `menu_sdl`, `menu_input`, `ui`, and `knulli_service`. The daemon's service,
 request, credential, consent, queue and storage code is byte-for-byte unchanged.
@@ -22,6 +22,19 @@ and application output, every extracted Python source hash, and both variant
 manifests. Only `linux/raofflineproxy/main.py` differs between variants. Preparation
 extracts 1,512,945 bytes of Python source/tests, without dependencies or native
 assets, from an existing archive; it does not copy an accepted build cache.
+
+The patch is now stored as deterministic gzip to preserve unified-diff context
+bytes without Git whitespace warnings. Its decompressed bytes are identical to
+the candidate in the original commit, with SHA-256
+`dfb928914db789df85e743755d6057c16a3b9164da33f869cd339c943d0a24ae`, also recorded in
+[lazy-ui-imports.patch.sha256](lazy-ui-imports.patch.sha256).
+The updated preparer checks that identity and feeds decompressed bytes to GNU
+patch on stdin. Future preparation records retain the logical patch name and
+uncompressed `sha256`, plus `artifact_name`, `artifact_sha256` and `encoding`
+for the gzip file. Historical `source.json`, host receipts/results, analysis,
+and the executed `check.py` remain unchanged; their evidence belongs to the
+original preparation and one host run. This follow-up performs static syntax,
+byte-identity and hash checks only; the modified preparer has not been rerun.
 
 The current [upstream comparison](https://github.com/misantronic/RAOfflineProxy/compare/c7ebd1b6e777f3751ff0ecdf8aba54045844e00d...3958abcecd4762128cdb1d4c24cbf179ea4c0f44)
 has four later commits: version bump, statistics label, muOS boot logging and
@@ -58,6 +71,26 @@ installation, background test, service process or listener remains.
 Python 3.14.4, SQLite 3.46.1, OpenSSL 3.5.5; standard library only.
 `MALLOC_ARENA_MAX=2` matches the packaged unit. Image recipe currently names
 Python 3.14.7; installed-runtime identification is still needed for the VM trial.
+
+Packaging is explicit in [config/functions](../../../config/functions):
+`python_compile` invokes the toolchain's `compileall.py -f -d` with the staged
+installation prefix removed from the recorded filename, then removes `.py`
+sources. The proxy recipe calls it on the installed module directory.
+[0300-generate-legacy-pyc-bytecode.patch](../../../packages/lang/Python3/patches/0300-generate-legacy-pyc-bytecode.patch)
+forces adjacent `file.pyc` output when a `cfile` is supplied and
+`DONT_BUILD_LEGACY_PYC` is unset. The Python host-build hook sets that variable
+for host modules and explicitly says not to set it for target compilation.
+
+The diagnostic's explicit adjacent `.pyc` output and source removal match that
+layout. With no `-O` and `PYTHONOPTIMIZE=0`, its default optimization level is
+zero, matching the packaging command's unoptimized invocation. Its `dfile`
+values are relative `raofflineproxy/...py` paths, whereas packaging records
+installed `/usr/lib/python.../site-packages/raofflineproxy/...py` paths. These
+affect code-object filenames/tracebacks; diagnostic bytecode is not claimed to
+be byte-identical to the installed payload. Before target claims, identify the
+**installed** interpreter version/build, executable hash, optimization flag and
+SQLite/OpenSSL versions; a source recipe's version alone does not identify the
+accepted image's runtime.
 
 | Import-only sample (KiB PSS) | Baseline | Candidate |
 | --- | ---: | ---: |
@@ -134,9 +167,15 @@ offline behavior.
 
 ## Next executable experiment and remaining blockers
 
-The next owner is the coordinator. After a fresh VM plan and exclusive allocation,
-stage only this small packet, the package recipe/patches and the verified archive
-into a disposable guest.
+The next owner is the coordinator. Source preparation can run on the host using
+GNU patch and the verified archive, then the resulting small baseline/candidate
+trees and their `source.json` can be staged with this packet into a disposable
+guest after a fresh VM plan and exclusive allocation. Verify their file hashes
+against the manifest after staging; the runtime fixtures also check those hashes.
+Preparation inside the guest is an alternative only after checking that GNU
+patch is installed (`patch --version` must identify GNU patch); do not assume the
+guest has it or install a package under this assignment. That alternative also
+needs the package recipe/patches and archive staged in the guest.
 No accepted-cache copy or full build is needed. Use the guest's installed Python
 and record its version, SQLite/OpenSSL, interpreter hash, source hashes, visible
 RAM and `MALLOC_ARENA_MAX=2`. No owner config or real RA endpoint may be mounted.
@@ -150,7 +189,8 @@ RAM and `MALLOC_ARENA_MAX=2`. No owner config or real RA endpoint may be mounted
 2. Allocate an unused loopback port and run
    [fixtures/readiness.py](fixtures/readiness.py) on each variant in sequence.
    This fixture is **unrun, syntax checked only**. It asserts real HTTP offline
-   login, cached patch and startsession readiness, queued-award integrity after
+   login status 200 with `Success: true` and the expected synthetic `User` and
+   `Token`, cached patch and startsession readiness, queued-award integrity after
    listener close/reopen, and preservation of an upstream 401. External access
    is denied; provider behavior is mocked. It does not run the full service's
    workers, systemd, a browser, or ES and cannot close lifecycle acceptance.
@@ -164,14 +204,24 @@ RAM and `MALLOC_ARENA_MAX=2`. No owner config or real RA endpoint may be mounted
    availability/PSI/refaults, and first protocol-response latency. Full-service
    fake-provider/ES orchestration is still to be prepared by the runtime owner.
 
-Commands after allocation, with fresh paths and the port assigned by the
-coordinator (the values below are placeholders, not a resource reservation):
+Source preparation on the host, with fresh paths (first inspect `patch --version`
+for GNU patch). The follow-up preparer is currently unrun:
 
 ```sh
+patch --version
 python3 fixtures/prepare.py --repo "$DISTRO_SOURCE" --archive "$VERIFIED_ARCHIVE" --output "$FRESH_TREES"
-MALLOC_ARENA_MAX=2 timeout 60s python3 -B fixtures/bytecode.py --prepared "$FRESH_TREES" --output "$FRESH_BYTECODE_OUTPUT"
-timeout 50s python3 -B fixtures/readiness.py --prepared "$FRESH_TREES" --variant baseline --state "$FRESH_BASELINE_STATE" --port "$ALLOCATED_PORT"
-timeout 50s python3 -B fixtures/readiness.py --prepared "$FRESH_TREES" --variant candidate --state "$FRESH_CANDIDATE_STATE" --port "$ALLOCATED_PORT"
+```
+
+After staging and VM allocation, use the verified guest tree path below; all
+values are placeholders, not resource reservations. Set `PYTHONOPTIMIZE=0` so
+optimization cannot remove the fixtures' assertions. The bytecode fixture uses
+the executing interpreter to compile both variants; do not stage host `.pyc`
+files as the target comparison.
+
+```sh
+PYTHONOPTIMIZE=0 MALLOC_ARENA_MAX=2 timeout 60s python3 -B fixtures/bytecode.py --prepared "$GUEST_TREES" --output "$FRESH_BYTECODE_OUTPUT"
+PYTHONOPTIMIZE=0 timeout 50s python3 -B fixtures/readiness.py --prepared "$GUEST_TREES" --variant baseline --state "$FRESH_BASELINE_STATE" --port "$ALLOCATED_PORT"
+PYTHONOPTIMIZE=0 timeout 50s python3 -B fixtures/readiness.py --prepared "$GUEST_TREES" --variant candidate --state "$FRESH_CANDIDATE_STATE" --port "$ALLOCATED_PORT"
 ```
 
 The held tests and target-bytecode attribution are the blockers to selecting the
