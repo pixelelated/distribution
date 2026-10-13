@@ -1,0 +1,33 @@
+{
+  "evidence": "STATIC ONLY",
+  "python": "3.14.4",
+  "node": "v24.21.0",
+  "git_show_exit": 0,
+  "base_sha256": "81d8e448624e57a8ac78d242116259dadfba873eddf313b8fdbd742e3a9db4c3",
+  "candidate_sha256": "a7a1107d7a1391d8cab3279743edfa2728850c2afdb89f753735b60fecd1d178",
+  "unchanged_non_page_ast": true,
+  "unchanged_input_block": true,
+  "readiness_and_navigation_clear_preserved": true,
+  "python_ast": "PASS",
+  "javascript_syntax": [
+    {
+      "language": "en",
+      "command": "node --check < extracted-script",
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "language": "fr",
+      "command": "node --check < extracted-script",
+      "exit": 0,
+      "stderr": ""
+    }
+  ],
+  "fixture_mock_syntax": {
+    "command": "node --check < MOCK literal",
+    "exit": 0,
+    "stderr": ""
+  },
+  "browser_fixture": "UNRUN",
+  "vm": "UNRUN"
+}

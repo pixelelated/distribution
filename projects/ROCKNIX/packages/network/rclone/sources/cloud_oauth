@@ -48,6 +48,7 @@ import contextlib
 import errno
 import fcntl
 import hashlib
+import html
 import http.server
 import itertools
 import json
@@ -104,9 +105,18 @@ def signin_language():
 
 
 def phone_page(name, pin):
-    page = REMOTE_PAGE % {"style": STYLE, "name": name, "pin": pin}
+    # Translate the template before inserting the service name: names are
+    # data even if they happen to contain one of the English UI strings.
+    page = REMOTE_PAGE
     if signin_language() == "fr":
         for before, after in (
+            ('<html lang=en>', '<html lang=fr>'),
+            ('var phoneLanguage = "en";', 'var phoneLanguage = "fr";'),
+            ('<title>Keyboard for ', '<title>Clavier pour '),
+            ('<h1 title="Keyboard for ', '<h1 title="Clavier pour '),
+            ('">Keyboard for ', '">Clavier pour '),
+            ('Checking connection', 'Vérification de la connexion'),
+            ('id=status-hide>Hide status', 'id=status-hide>Masquer l’état'),
             ("id=leave-ask>Close page", "id=leave-ask>Fermer la page"),
             ("<span>Close the sign-in page on your handheld?</span>",
              "<span>Fermer la page de connexion sur votre console ?</span>"),
@@ -114,7 +124,7 @@ def phone_page(name, pin):
             ("id=leave-close>Close", "id=leave-close>Fermer"),
         ):
             page = page.replace(before, after)
-    return page
+    return page % {"style": STYLE, "name": html.escape(name, quote=True), "pin": pin}
 
 
 # session.json is written by three threads of the serve (the collector, the
@@ -627,9 +637,23 @@ button{margin-top:10px;padding:12px 20px;font-size:16px;border-radius:8px;
        border:0;background:#4af;color:#000;font-weight:600;width:100%}
 button.minor{background:#333;color:#ddd;font-weight:500}
 .note{color:#aaa;font-size:.9rem}
-/* The connection line sits between the heading and the field; without
-   margins of its own it read as part of both (fork #351). */
-#state{margin:.75rem 0}
+/* Status has a fixed slot. Its details float over the page, so neither a
+   navigation nor a failure moves the typing field or pointer (fork #571). */
+.phone-header{position:relative;display:flex;align-items:center;gap:12px;
+              height:44px;margin-bottom:12px}
+.phone-header h1{flex:1;min-width:0;margin:0;overflow:hidden;
+                 white-space:nowrap;text-overflow:ellipsis}
+#state{flex:0 0 44px;width:44px;height:44px;margin:0;padding:0;
+       font-size:24px;line-height:1;background:#333;color:#ffd479}
+#state[data-kind=connected]{color:#9f9}
+#state[data-kind=disconnected]{color:#fff}
+#state:focus-visible{outline:2px solid #4af;outline-offset:2px}
+#status-panel{position:absolute;z-index:2;top:52px;left:0;right:0;
+              background:#242424;border:1px solid #888;border-radius:8px;
+              padding:12px;box-shadow:0 4px 12px #000;max-height:60vh;overflow:auto}
+#status-message{margin:0;overflow-wrap:anywhere}
+.status-live{position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+             overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 /* The way off the handheld's page lives at the very bottom, under the note,
    with room above it, so a drag on the pad that runs off its edge lands
    on text and not on Close (fork #351, D-CLOUD-163). Its two-step
@@ -955,13 +979,21 @@ def registrable_domain(host):
 # unnecessary; on a 3.5" screen driven by a d-pad it is the difference between
 # a minute of misery and a few seconds. Both work, because the page is on the
 # device's screen either way -- so the choice is the player's, not ours.
-REMOTE_PAGE = """<!doctype html><meta name=viewport content="width=device-width,initial-scale=1">
+REMOTE_PAGE = """<!doctype html><html lang=en><meta name=viewport content="width=device-width,initial-scale=1">
 <title>Keyboard for %(name)s</title>
 <style>%(style)s</style>
 <div class=card>
-<h1>Keyboard for %(name)s</h1>
-
-<div id=state class=note>Checking&hellip;</div>
+<div class=phone-header>
+<h1 title="Keyboard for %(name)s">Keyboard for %(name)s</h1>
+<button type=button id=state data-kind=warning aria-label="Checking connection"
+        title="Checking connection" aria-expanded=false aria-controls=status-panel>
+<span id=status-glyph aria-hidden=true>!</span></button>
+<div id=status-panel hidden>
+<p id=status-message>Checking connection</p>
+<button type=button class=minor id=status-hide>Hide status</button>
+</div>
+</div>
+<div id=status-live class=status-live role=status aria-live=polite aria-atomic=true></div>
 
 <input id=kb type=password placeholder="Type here" autocapitalize=off
        autocorrect=off spellcheck=false autofocus>
@@ -1006,14 +1038,57 @@ network you trust.</p>
 </div>
 
 <script>
+var phoneLanguage = "en";
+var phoneMessages = {
+  en: {
+    connected: "Connected", disconnected: "Disconnected", warning: "Warning",
+    open: "The keyboard is ready.",
+    loading: "Opening on your handheld. You can keep typing here; it goes across once a box on that page is ready.",
+    waiting: "Not open yet. Choose CONTINUE on your handheld. You can type or paste here meanwhile; it goes across when the page opens.",
+    ended: "The sign-in page is closed. Start sign-in again on your handheld if you still need it.",
+    retrying: "Checking the connection to your handheld again.",
+    unreachable: "Your phone can't reach your handheld. Both need to be on the same Wi-Fi, and a VPN on your phone can get in the way. If sign-in has ended, you can close this phone page.",
+    broken: "This page stopped working. Reload it; if it happens again, report it to the pixelelated project: "
+  },
+  fr: {
+    connected: "Connecté", disconnected: "Déconnecté", warning: "Attention",
+    open: "Le clavier est prêt.",
+    loading: "La page s’ouvre sur votre console. Vous pouvez continuer à saisir ici ; le texte sera envoyé dès qu’un champ de la page sera prêt.",
+    waiting: "La page n’est pas encore ouverte. Choisissez CONTINUER sur votre console. Vous pouvez saisir ou coller du texte ici ; il sera envoyé à l’ouverture de la page.",
+    ended: "La page de connexion est fermée. Relancez la connexion sur votre console si nécessaire.",
+    retrying: "Nouvelle vérification de la connexion à votre console.",
+    unreachable: "Votre téléphone ne peut pas joindre votre console. Les deux doivent être sur le même réseau Wi-Fi. Un VPN sur votre téléphone peut bloquer la connexion. Si la connexion au service est terminée, vous pouvez fermer cette page sur votre téléphone.",
+    broken: "Cette page ne fonctionne plus. Rechargez-la ; si le problème persiste, signalez-le au projet pixelelated : "
+  }
+}[phoneLanguage];
+var phoneScriptFailed = false;
+var phoneStatusKey = "";
+function phoneStatus(kind, key, detail, reveal) {
+  var state = document.getElementById("state");
+  var label = phoneMessages[kind];
+  state.setAttribute("data-kind", kind);
+  state.setAttribute("aria-label", label + ". " + detail);
+  state.title = label + ". " + detail;
+  document.getElementById("status-glyph").textContent =
+    kind === "connected" ? "\u2713" : kind === "disconnected" ? "\u00d7" : "!";
+  document.getElementById("status-message").textContent = detail;
+  // Announce transitions, not every poll. Opening details never steals the
+  // caret; repeated failures respect an explicit Hide status action.
+  if (key !== phoneStatusKey) {
+    document.getElementById("status-live").textContent = label + ". " + detail;
+    if (reveal) {
+      document.getElementById("status-panel").hidden = false;
+      state.setAttribute("aria-expanded", "true");
+    }
+  }
+  phoneStatusKey = key;
+}
 // A script that dies before it starts leaves the page saying Checking... for
 // as long as it is open, its taps dead (fork #330). Said on the page, with
 // the browser's words for the ROCKNIX team, instead of nothing.
 window.onerror = function (message) {
-  var state = document.getElementById("state");
-  if (!state) return;
-  state.className = "err";
-  state.textContent = "This page stopped working. Reload it; if it happens again, report it to the pixelelated project: " + message;
+  phoneScriptFailed = true;
+  phoneStatus("warning", "broken", phoneMessages.broken + message, true);
 };
 (function () {
   var pin = "%(pin)s";
@@ -1021,6 +1096,24 @@ window.onerror = function (message) {
   var warn = document.getElementById("warn");
   var state = document.getElementById("state");
   var pad = document.getElementById("pad");
+  var statusPanel = document.getElementById("status-panel");
+  state.addEventListener("click", function () {
+    statusPanel.hidden = !statusPanel.hidden;
+    state.setAttribute("aria-expanded", String(!statusPanel.hidden));
+  });
+  document.getElementById("status-hide").addEventListener("click", function () {
+    statusPanel.hidden = true;
+    state.setAttribute("aria-expanded", "false");
+    state.focus();
+  });
+  statusPanel.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+      statusPanel.hidden = true;
+      state.setAttribute("aria-expanded", "false");
+      state.focus();
+      e.preventDefault();
+    }
+  });
 
   // One request at a time, in order. Backspaces and characters that overtake
   // each other arrive as scrambled text in the field on the handheld.
@@ -1242,22 +1335,18 @@ window.onerror = function (message) {
   // This page is scanned before the window exists -- the QR is on the screen
   // the sign-in page then replaces -- so it has to come alive by itself.
   //
-  // A probe that fails is counted; five in a row (ten seconds) and the line
+  // A probe that fails is counted; five in a row and the status
   // says the handheld cannot be reached and what to look at, instead of
   // Checking... for as long as the page is open (fork #330: an iPhone with a
   // VPN badge in its status bar showed Checking... for two minutes while
   // its taps went nowhere). The polling goes on: the moment an answer comes
-  // the line changes to what it says.
+  // the status changes to what it says. A loading page remains connected;
+  // its field readiness is a separate gate for the existing input queue.
   var failed = 0;
-  function unreachable() {
-    state.className = "err";
-    state.textContent = "Your phone can't reach your handheld. Both need to be "
-      + "on the same Wi-Fi, and a VPN on your phone can get in the way.";
-  }
+  var hadWindow = false;
   function poll() {
     fetch("/" + pin + "?probe=1", {cache: "no-store"}).then(function (r) {
         if (!r.ok) throw new Error("status " + r.status);
-        failed = 0;
         return r.text();
       })
       .then(function (t) {
@@ -1265,6 +1354,11 @@ window.onerror = function (message) {
         // navigates, which is when what is in this box stopped being
         // relevant to what is on that screen.
         var parts = t.trim().split(" ");
+        // A PIN page or unrelated HTTP 200 is not a control-session probe.
+        if (!/^(open|loading)( [^\\s]+)?$|^waiting$/.test(t.trim())) {
+          throw new Error("invalid probe");
+        }
+        failed = 0;
         var open = parts[0] === "open";
         var isUp = open || parts[0] === "loading";
         // A new page: what is in the box was for the one before. Noticed
@@ -1275,14 +1369,12 @@ window.onerror = function (message) {
           page = parts[1];
         }
         winUp = isUp;
-        state.className = open ? "ok" : "note";
-        state.textContent = open
-          ? "Connected."
-          : isUp
-          ? "Opening on your handheld. You can keep typing here; it goes "
-            + "across once a box on that page is ready."
-          : "Not open yet -- choose CONTINUE on your handheld. You can type "
-            + "or paste here meanwhile; it goes across when the page opens.";
+        var statusKey = open ? "open" : isUp ? "loading" : hadWindow ? "ended" : "waiting";
+        if (isUp) hadWindow = true;
+        if (!phoneScriptFailed) {
+          phoneStatus(isUp ? "connected" : "disconnected", statusKey,
+                      phoneMessages[statusKey], statusKey === "ended");
+        }
         // The box is never disabled. It was, until this said the handheld was
         // ready -- so somebody who scanned the QR first, which is the order
         // this flow asks for, could not type at all and saw nothing appear.
@@ -1301,7 +1393,15 @@ window.onerror = function (message) {
         ready = open;
         if (opened) { sent = ""; deliver(box.value); }
       })
-      .catch(function () { if (++failed >= 5) unreachable(); })
+      .catch(function () {
+        ++failed;
+        if (!phoneScriptFailed) {
+          phoneStatus(failed >= 5 ? "disconnected" : "warning",
+                      failed >= 5 ? "unreachable" : "retrying",
+                      failed >= 5 ? phoneMessages.unreachable : phoneMessages.retrying,
+                      failed >= 5);
+        }
+      })
       .then(function () { setTimeout(poll, 2000); });
   }
   poll();
