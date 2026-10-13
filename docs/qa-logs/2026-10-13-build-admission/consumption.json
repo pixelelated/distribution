@@ -1,0 +1,225 @@
+{
+  "utc": "2026-10-13T18:09:56.940241+00:00",
+  "pid_namespace": 4026531836,
+  "stages": [
+    {
+      "owner": "/workspace/tmp/pix493-admission-20261013/controls01",
+      "run": "/workspace/tmp/pix493-admission-20261013/supervisor/.build-runs/20261013T175218Z-a65d8f8c",
+      "original_rc": 2,
+      "terminal_watcher": true,
+      "processes": [
+        {
+          "pid": 1045745,
+          "state": "absent"
+        },
+        {
+          "pid": 1045746,
+          "state": "absent"
+        },
+        {
+          "pid": 1045747,
+          "state": "absent"
+        },
+        {
+          "pid": 1045776,
+          "state": "absent"
+        }
+      ],
+      "launcher": {
+        "utc": "2026-10-13T17:52:23.932697+00:00",
+        "pid": 1045745,
+        "runner_returncode": 2,
+        "submission_is_not_completion": true
+      },
+      "console_sha256": "4415f7549504d8403786c8324168ea64a7b430758bb455903ff83f5a2e82be92"
+    },
+    {
+      "owner": "/workspace/tmp/pix493-admission-20261013/controls02",
+      "run": "/workspace/tmp/pix493-admission-20261013/supervisor/.build-runs/20261013T175245Z-d18d3c9e",
+      "original_rc": 0,
+      "terminal_watcher": true,
+      "processes": [
+        {
+          "pid": 1047696,
+          "state": "absent"
+        },
+        {
+          "pid": 1047697,
+          "state": "absent"
+        },
+        {
+          "pid": 1047698,
+          "state": "absent"
+        },
+        {
+          "pid": 1047732,
+          "state": "absent"
+        }
+      ],
+      "launcher": {
+        "utc": "2026-10-13T17:53:05.286200+00:00",
+        "pid": 1047696,
+        "runner_returncode": 0,
+        "submission_is_not_completion": true
+      },
+      "console_sha256": "02a7de6705c5ecdb49c9aba1424a39241028e53fd0f167d5d36a6afafae0ffae"
+    },
+    {
+      "owner": "/workspace/tmp/pix493-admission-20261013/routing01",
+      "run": "/workspace/tmp/pix493-admission-20261013/supervisor/.build-runs/20261013T175451Z-4416bdfd",
+      "original_rc": 0,
+      "terminal_watcher": true,
+      "processes": [
+        {
+          "pid": 1057457,
+          "state": "absent"
+        },
+        {
+          "pid": 1057458,
+          "state": "absent"
+        },
+        {
+          "pid": 1057459,
+          "state": "absent"
+        },
+        {
+          "pid": 1057490,
+          "state": "absent"
+        }
+      ],
+      "launcher": {
+        "utc": "2026-10-13T17:55:56.642261+00:00",
+        "pid": 1057457,
+        "runner_returncode": 0,
+        "submission_is_not_completion": true
+      },
+      "console_sha256": "2c1bf8f4bfdc1763764b97a74ca0c41385421264cca1847b87a648f858314f0c"
+    },
+    {
+      "owner": "/workspace/tmp/pix493-admission-20261013/final-controls01",
+      "run": "/workspace/tmp/pix493-admission-20261013/supervisor/.build-runs/20261013T175840Z-508bdac0",
+      "original_rc": 0,
+      "terminal_watcher": true,
+      "processes": [
+        {
+          "pid": 1075589,
+          "state": "absent"
+        },
+        {
+          "pid": 1075590,
+          "state": "absent"
+        },
+        {
+          "pid": 1075591,
+          "state": "absent"
+        },
+        {
+          "pid": 1075622,
+          "state": "absent"
+        }
+      ],
+      "launcher": {
+        "utc": "2026-10-13T18:00:06.215605+00:00",
+        "pid": 1075589,
+        "runner_returncode": 0,
+        "submission_is_not_completion": true
+      },
+      "console_sha256": "aa5283d2924b429cd6a0918078b7f90ef14c17219dec53a16d048edf443c4564"
+    },
+    {
+      "owner": "/workspace/tmp/pix493-admission-20261013/host-report01",
+      "run": "/workspace/tmp/pix493-admission-20261013/supervisor/.build-runs/20261013T180206Z-4793c2aa",
+      "original_rc": 0,
+      "terminal_watcher": true,
+      "processes": [
+        {
+          "pid": 1092282,
+          "state": "absent"
+        },
+        {
+          "pid": 1092283,
+          "state": "absent"
+        },
+        {
+          "pid": 1092284,
+          "state": "absent"
+        },
+        {
+          "pid": 1092315,
+          "state": "absent"
+        }
+      ],
+      "launcher": {
+        "utc": "2026-10-13T18:02:11.837740+00:00",
+        "pid": 1092282,
+        "runner_returncode": 0,
+        "submission_is_not_completion": true
+      },
+      "console_sha256": "b1d5c3229a7d5af90abb3c0b133dbe0170ab8b2a6de06443561ae4aaf058d332"
+    },
+    {
+      "owner": "/workspace/tmp/pix493-admission-20261013/host-job01",
+      "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261013T180342Z-40c161d9",
+      "original_rc": 0,
+      "terminal_watcher": true,
+      "processes": [
+        {
+          "pid": 1099531,
+          "state": "absent"
+        },
+        {
+          "pid": 1099532,
+          "state": "absent"
+        },
+        {
+          "pid": 1099533,
+          "state": "absent"
+        },
+        {
+          "pid": 1099587,
+          "state": "absent"
+        }
+      ],
+      "launcher": {
+        "utc": "2026-10-13T18:03:47.472707+00:00",
+        "pid": 1099531,
+        "runner_returncode": 0,
+        "submission_is_not_completion": true
+      },
+      "console_sha256": "21036a64e5fe38e5c9474bf7c88ccc26e3f1c281ed23383d94d3b5768181113f"
+    },
+    {
+      "owner": "/workspace/tmp/pix493-admission-20261013/import-controls01",
+      "run": "/workspace/tmp/pix493-admission-20261013/supervisor/.build-runs/20261013T180556Z-d119df2d",
+      "original_rc": 0,
+      "terminal_watcher": true,
+      "processes": [
+        {
+          "pid": 1109230,
+          "state": "absent"
+        },
+        {
+          "pid": 1109233,
+          "state": "absent"
+        },
+        {
+          "pid": 1109234,
+          "state": "absent"
+        },
+        {
+          "pid": 1109263,
+          "state": "absent"
+        }
+      ],
+      "launcher": {
+        "utc": "2026-10-13T18:06:16.362586+00:00",
+        "pid": 1109230,
+        "runner_returncode": 0,
+        "submission_is_not_completion": true
+      },
+      "console_sha256": "381547a5ce5ddf00ccb605cb6b29791d86e56716ad25b8ff2b5b21a05585e7a3"
+    }
+  ],
+  "result": "CONSUMED",
+  "deletion_performed": false
+}

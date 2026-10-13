@@ -273,7 +273,9 @@ delivery path stays an open issue, even if every recorder control passes.
 
 **Submit long agent-owned jobs durably (#444, D-WORKFLOW-148).** From the
 frozen worktree, run `tools/watch-build-submit --owner <fresh-owner> --`
-followed by the standard `watch-build` arguments. If the frozen worktree
+followed by the standard `watch-build` arguments.
+Use `--admission RECEIPT` for compilation/cache allocation and `--record-only`
+for non-compiling QA/record jobs; the latter is not a build-gate opt-out (#493). If the frozen worktree
 predates the launcher, invoke the current launcher's absolute path; its
 retained owner copy still calls the frozen worktree's unchanged runner.
 The submission exits immediately and cannot prove job success. Read the

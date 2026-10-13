@@ -34,7 +34,9 @@ def worker(owner, command):
         'start_ticks': Path('/proc/self/stat').read_text().rsplit(')', 1)[1].split()[19],
     })
     try:
-        result = subprocess.run(command).returncode
+        environment = os.environ.copy()
+        environment['PIXELELATED_SUBMISSION_OWNER'] = str(owner)
+        result = subprocess.run(command, env=environment).returncode
         result = result if result >= 0 else 128 - result
     except OSError:
         result = 125

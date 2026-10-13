@@ -1,6 +1,6 @@
 # Saved Session State
 
-> **Saved**: 2026-10-13T16:56:28.756028+00:00
+> **Saved**: 2026-10-13T18:12:03.319654+00:00
 > **Branch**: feature/m7-player-setup
 > **Repo**: pixelelated/distribution
 
@@ -20,7 +20,47 @@ not replayable authorizations. No owner device/cloud/account/save operation
 occurred in this continuation. No firmware pin, browser policy or ES product
 source has been promoted. The small trim proposal remains UNCOMPILED.
 
-## Latest continuation — testing-first baseline COMPLETE
+## Latest continuation — #493 launch enforcement implemented and tested
+
+Latest user: “Let's keep moving through all of the remaining changes and open
+issues from the last candidate I tested for 0.0.1 to now.” Work begins from
+publishede198f0fc3b. Mandatory normal native/Docker/ad-hoc build admission is
+implemented in tools/host-maintenance/build-admission and shared watch wrappers.
+Native device targets have one parent across ABI phases. Current report, source,
+evidence, protected identities, profiles, filesystem and shared reservations bind
+the launch. Original results/evidence/host PID exits release a reservation;
+outputs remain held. No automatic deletion or full #493 completion is claimed.
+Read tools/host-maintenance/build-admission.md before the next compilation.
+
+27 admission and36 routing controls pass; the final watcher bytecode-write
+suppression has another27-control pass and real host admit/consume proof.
+All7 original owners in /workspace/tmp/pix493-admission-20261013 are consumed
+with actual host exits: controls01 retains setup failure2, six accepted stages0.
+The actual host synthetic job writes1024bytes under a16MiB allowance; this is not
+a compiler budget. Registry reservation1e760800ad314469b4deeb6b3725241a is consumed.
+No compiler/VM/device/cloud job is active. Packet:
+docs/qa-logs/2026-10-13-build-admission/README.md.
+
+Current source is prepared for commit/push and exact-head CI under fresh owner
+/workspace/tmp/pix493-admission-20261013/delivery01. Inspect it before doing
+anything else: if submitted, consume result.json, launcher-result.json,
+tool-wrapper.rc, watcher build.rc/runner-result/status, actual host PID exits,
+remote HEAD and exact-head record/wordlist checks. Do not replay an owner.
+The checkpoint itself is prepared before launch, not proof of publication.
+
+**Next:** complete that delivery, mark only #493's admission criterion complete,
+then prepare the real #570 ES trim build under a fresh measured admission.
+#493 automatic retirement/reconciliation, historical classification and actual
+build memory/space measurements remain open. #570 needs actual source/binary
+and flow/lifecycle proof; no pin moves before it. Preserve the full queue below.
+
+Long non-compiling QA/record/delivery jobs now use:
+`tools/watch-build-submit --owner FRESH_OWNER -- --record-only --activity-dir FRESH_OWNER -- COMMAND`.
+Compiles/cache copies require `--admission RECEIPT`, never recording-only.
+The frozen old supervisor under the completed test owner is historical; use the
+new guide and final source for new jobs. No owner-device action is inferred.
+
+## Previous continuation — testing-first baseline COMPLETE
 
 Latest owner request: work through the discovered M7 issues, perform additional
 testing first, and progress toward the next RC. Completed the fresh accepted-image
@@ -62,14 +102,11 @@ No test/build/VM is active. Public packet hashes/raw identities, fixture ASTs,
 result semantics and rules/register/index/ceremony checks pass. No compiler,
 full cache copy, product pin change, new RC number or new audit transfer.
 
-**Immediate dependency: #493.** Live criterion requires mandatory current,
-state-bound retention/capacity enforcement before ANY actual compilation,
-including the ES trim/default/UI candidates, not just full cache copies.
-Existing tools/host-maintenance/retention-report is read-only; normal build
-entrypoints don't require it. Implement and fixture-test launch/ownership/
-completion enforcement before compiling. Current2.8TBfree is capacity evidence,
-not enforcement. Then qualify actual #570 allocator trim; do not repeat diagnostic
-interposition as a substitute. Live milestone reflects this order.
+**Dependency update:** #493's mandatory launch gate is now implemented and
+tested as described above; delivery remains to be consumed. Automatic retirement
+is still open and is not claimed by this slice. Actual #570 source/binary
+qualification follows admitted measured preparation. Do not repeat diagnostics
+as a substitute for compiling the change.
 
 #558 previous normal-shutdown read-only triage remains complete/unknown cause;
 no physical reproduction authorized this turn. #566/#567/#571/#574/#575/#564
@@ -164,11 +201,10 @@ diagnostic candidates; the new measured ES opportunity is the next narrow lead.
 
 ## Next steps, in order
 
-1. Consume fresh baseline record delivery below if necessary; no completed owner replay.
-2. #493 mandatory launch/retention/capacity enforcement, with missing/stale/refused
-   receipts stopping native/Docker/ad-hoc compilation before allocation, ownership
-   and dependency fixtures, compact-evidence preservation and terminal cleanup.
-   No new broad historical deletion or general sudo grant is implied.
+1. Consume #493 delivery01 above; the earlier baseline delivery is complete0/exited.
+2. Prepare current measured retention/admission receipts before real compilation.
+   Launch enforcement is implemented; automatic cleanup remains separate open
+   infrastructure work. No broad historical deletion or general sudo is implied.
 3. Actual #570 ES cloud-handoff trim source/binary qualification, isolated branch
    fromc8dc72cf9e: syntax/package checks, normal sign-in, phone/native input,
    cancel/error/return/lifecycle, canonical same-source frame index. VM first;
@@ -206,7 +242,7 @@ fresh original requests later succeeded without bypass. No new permission is
 required merely because a prior automatic review failed to execute.
 
 Long commands use fresh existing owner with tools/watch-build-submit
-`--owner OWNER -- --activity-dir OWNER -- COMMAND`. Submission is not success.
+`--owner OWNER -- --record-only --activity-dir OWNER -- COMMAND` for non-compiling jobs. Submission is not success.
 Consume actual inner result, launcher-result, tool-wrapper.rc, watcher build.rc
 and actual host launcher/build/command/watcher/build.status PID exits. No
 off-session notification exists; actively supervise and announce completion.
@@ -217,13 +253,9 @@ Keep durable compact logs/source/receipts; remove completed disposable disks.
 Old morning delivery02 and afternoon delivery03 are COMPLETE0/exited, exact-head
 record/wordlist checks passed. Afternoon published71b932ab3235ac252ef37cb8391e08807a76de91.
 
-Fresh baseline delivery owner:
-/workspace/tmp/pix-m7-baseline-tests-20261013/delivery01.
-This checkpoint is prepared before launch. Inspect result.json, launcher-result,
-tool-wrapper.rc, watcher build.rc/status, actual host delivery/launcher/build/
-command/watcher PID exits and exact origin HEAD. Both exact-head record/wordlist
-CI results must pass before saying delivered. Submission is not completion;
-actively supervise. No off-session notification is configured. This is records-only;
-no external audit transfer or product pin moves with it.
+Baseline delivery owner /workspace/tmp/pix-m7-baseline-tests-20261013/delivery01
+is COMPLETE0/exited; publishede198f0fc3b with both exact-head hosted checks passing.
+Consumption receipt verified17:03:46UTC. Never replay it. The active #493 delivery
+location and required checks are above.
 
-Previous checkpoint: archived/saved-session-state-next-20261013T165628Z.md
+Previous checkpoint: archived/saved-session-state-next-20261013T181203Z.md

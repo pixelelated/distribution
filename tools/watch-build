@@ -8,6 +8,8 @@ the Docker mount. No command arguments or environment values are recorded.
 """
 import argparse
 import datetime
+import importlib.machinery
+import importlib.util
 import fcntl
 import os
 from pathlib import Path
@@ -45,8 +47,21 @@ def active_run(root, relative):
     return run
 
 
+def admission_tool():
+    path = Path(__file__).resolve().parent / 'host-maintenance/build-admission'
+    # Keep the frozen tool tree read-only; runtime records live in .build-runs.
+    sys.dont_write_bytecode = True
+    loader = importlib.machinery.SourceFileLoader('build_admission', str(path))
+    spec = importlib.util.spec_from_loader(loader.name, loader)
+    module = importlib.util.module_from_spec(spec)
+    loader.exec_module(module)
+    return module
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--admission', type=Path, help='single-use build admission; otherwise PIXELELATED_BUILD_ADMISSION')
+    parser.add_argument('--record-only', action='store_true', help='non-compiling QA/record job; nested build entrypoints remain forbidden')
     parser.add_argument('--entry', action='store_true')
     parser.add_argument('--docker', action='store_true', help='observe the host worktree, not its container path')
     parser.add_argument('--interval', type=int, default=5)
@@ -66,13 +81,21 @@ def main():
         parser.error('--activity-dir must exist')
     root = Path.cwd().resolve()
     environment = os.environ.copy()
+    if args.record_only and (args.entry or args.docker or args.admission):
+        parser.error('--record-only cannot be a build entrypoint or carry an admission')
+    guard = admission_tool()
     if args.entry:
         environment['RASTERATOPS_WATCH_EXEC'] = command[0]
     inherited = environment.get('RASTERATOPS_BUILD_RUN')
     if inherited:
-        active_run(root, inherited)
+        inherited_run = active_run(root, inherited)
+        if args.entry or args.docker or not args.record_only:
+            guard.nested(root, inherited_run, environment)
         os.execvpe(command[0], command, environment)
 
+    receipt = args.admission or environment.get('PIXELELATED_BUILD_ADMISSION')
+    if not args.record_only and not receipt:
+        raise RuntimeError('build admission required; prepare tools/host-maintenance/build-admission first')
     build_umask = os.umask(0o077)
     runs = root / '.build-runs'
     runs.mkdir(exist_ok=True, mode=0o700)
@@ -137,6 +160,8 @@ def main():
         signal.signal(sig, forward)
     code = 125
     try:
+        if not args.record_only:
+            guard.admit(receipt, root, run, environment, docker=args.docker)
         child = subprocess.Popen(command, env=environment, stdout=subprocess.PIPE,
                                  stderr=subprocess.STDOUT, start_new_session=True,
                                  preexec_fn=lambda: os.umask(build_umask))
@@ -162,7 +187,7 @@ def main():
                         console = False
         child.wait()
         code = child.returncode if child.returncode >= 0 else 128 - child.returncode
-    except OSError as error:
+    except (OSError, ValueError, KeyError, TypeError, RuntimeError, subprocess.SubprocessError) as error:
         log.write(f'watch-build: command launch/output failed: {error}\n'.encode())
         if child is not None and child.poll() is None:
             os.killpg(child.pid, signal.SIGTERM)
@@ -184,13 +209,15 @@ def main():
     if monitor_code != 0 or not status.startswith('state:       finished\n'):
         atomic(run / 'runner-error', 'build result retained, but watcher did not record completion\n')
         print(f'watch-build: monitoring failed; see {run}', file=sys.stderr)
+        guard.finish(run, code, monitor_code, code or 125)
         return code or 125
+    guard.finish(run, code, monitor_code, code)
     return code
 
 
 if __name__ == '__main__':
     try:
         sys.exit(main())
-    except (OSError, RuntimeError) as error:
+    except (OSError, RuntimeError, ValueError, KeyError, TypeError, subprocess.SubprocessError) as error:
         print(f'watch-build: {error}', file=sys.stderr)
         sys.exit(2)

@@ -412,7 +412,15 @@ the combined log, runner/command/watcher PIDs, atomic `build.rc`, heartbeat
 and run-owned `watch-job` copy. The runner holds one build lock per worktree,
 refuses to start when the watcher cannot arm, and discovers the current
 worktree's `build.*/.threads/logs` as cold roots appear. Existing commands
-need no extra flag. An ad-hoc build command uses `tools/watch-build -- COMMAND`.
+require a current `PIXELELATED_BUILD_ADMISSION` prepared from the measured
+retention report (#493). An ad-hoc build uses `tools/watch-build --admission
+RECEIPT -- COMMAND`. The guard binds source/profile/volume/protected identities,
+rechecks capacity against unconsumed shared reservations, and refuses stale or
+reused receipts before the payload starts. Native multi-ABI targets share one
+outer admission. See `tools/host-maintenance/build-admission.md` for plans,
+original-result consumption and retained-output release conditions. This first
+gate does not implement automatic artifact deletion. Non-compiling QA and
+record jobs use `--record-only`; nested compilation cannot inherit that mode.
 Never pre-set or copy `RASTERATOPS_BUILD_RUN`/`RASTERATOPS_WATCH_EXEC`: these
 are internal nesting markers, not an opt-out. A stale marker is refused.
 

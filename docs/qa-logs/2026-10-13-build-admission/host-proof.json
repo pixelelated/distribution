@@ -1,0 +1,60 @@
+{
+  "report_sha256": "fa4e813a37b067b4925dc576862d1f4b41bde2b3759c29c015994920221eb4e5",
+  "report_result": "REPORT_COMPLETE",
+  "inventory_errors": [],
+  "scope": "bounded empty synthetic scan root plus protected fixture records/tool directory; not whole-host classification or root-only FD coverage",
+  "available_bytes_at_admission": 2996727742464,
+  "reserved_bytes": 16778240,
+  "payload_bytes": 1024,
+  "payload_sha256": "49abd65bbf7f7e40c7055093ed2e3fd75f2f602f2c5fcf955c213e3135eb03f7",
+  "admission": {
+    "admitted": "2026-10-13T18:03:42.457830+00:00",
+    "available_bytes": 2996727742464,
+    "checkout": "/workspace/repos/rocknix.worktrees/m7-player-setup",
+    "consumed": "2026-10-13T18:05:50.707231+00:00",
+    "container_checkout": "/workspace/repos/rocknix.worktrees/m7-player-setup",
+    "deleted_bytes": 0,
+    "evidence_sha256": "f8a6b3193c12ac52044f9a5e985cf79a07b639c6472fe872b7c967fc378cc1e9",
+    "id": "1e760800ad314469b4deeb6b3725241a",
+    "original_result": {
+      "command_rc": 0,
+      "monitor_rc": 0,
+      "runner_rc": 0,
+      "utc": "2026-10-13T18:03:47.460082+00:00"
+    },
+    "outputs": [
+      {
+        "issue": 493,
+        "kind": "qa-scratch",
+        "path": "/workspace/tmp/pix493-admission-20261013/host01/payload",
+        "release_when": "Original result and1024-byte synthetic payload verified; remove only this owned file"
+      }
+    ],
+    "outputs_held": true,
+    "pid_namespace": 4026531836,
+    "profiles": [
+      {
+        "ARCH": "x86_64",
+        "DEVICE": "GENERIC_X64",
+        "PROJECT": "ROCKNIX"
+      }
+    ],
+    "receipt_sha256": "bd506e5ba88bcba1907ec2a9c0f29e2864141c32c8ed4e2b6fd8a5fab5e0d723",
+    "registry": "/workspace/repos/rocknix/.git/pixelelated-build-admission",
+    "required_bytes": 16778240,
+    "retention_plan_sha256": "25f3bcd698e329ebb9ba0fd066769f45ac67feb14c8987d542d02c776c428c87",
+    "retention_report_sha256": "fa4e813a37b067b4925dc576862d1f4b41bde2b3759c29c015994920221eb4e5",
+    "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261013T180342Z-40c161d9",
+    "runner_pid": 1099532,
+    "runner_start": "100630633",
+    "source": {
+      "head": "e198f0fc3b93b111860b455d69c8a9bad1723e58",
+      "tracked_diff_sha256": "48c7d545a16932e691c7ebeb8c062ae4c71500ff1f927ee9983c259066d4b19c"
+    },
+    "state": "consumed",
+    "submission_owner": "/workspace/tmp/pix493-admission-20261013/host-job01",
+    "volume": "/workspace",
+    "volume_device": 66304
+  },
+  "deletion_performed": false
+}

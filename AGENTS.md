@@ -89,7 +89,10 @@ export PROJECT=ROCKNIX DEVICE=RK3588 ARCH=aarch64
 Native image/package entrypoints and Docker build targets automatically use
 `tools/watch-build` and the shared `tools/watch-job` monitor. Each run prints
 its private `.build-runs/<id>/` log, PID, result and status location; nested
-commands reuse it. For an ad-hoc command use `tools/watch-build -- COMMAND`.
+commands reuse it. Builds require a current single-use capacity/retention admission
+from `tools/host-maintenance/build-admission` (#493); see its adjacent guide.
+Use `tools/watch-build --admission RECEIPT -- COMMAND` for an ad-hoc build.
+Non-compiling QA/record jobs use `--record-only`; that mode cannot admit a nested build.
 Status recording does not send automatic chat notifications. See
 `device-builds.md` for lifecycle and frozen-checkout handling.
 Long jobs also need verified result delivery; until off-session alerts are

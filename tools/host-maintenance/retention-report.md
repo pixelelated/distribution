@@ -4,7 +4,7 @@
 D-INFRA-018. Run it after required qualification and before the next build:
 
 ```sh
-tools/watch-build -- python3 -I tools/host-maintenance/retention-report \
+tools/watch-build --record-only -- python3 -I tools/host-maintenance/retention-report \
   --plan /absolute/review/plan.json --output /absolute/review/report.json
 ```
 
@@ -88,3 +88,7 @@ Before any later authorized action, refresh the report, retained evidence,
 exact file identities and active-use observations. Available space and process
 state are snapshots, not reservations. Preserve the approved plan digest and
 verify actual recovery and retained inputs after the separate guarded action.
+
+Native/Docker/ad-hoc build admission now consumes a current report and measured
+stage under #493; see [build-admission.md](build-admission.md). A report alone
+still cannot start a build or authorize removal.

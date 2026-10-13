@@ -1,0 +1,29 @@
+watch-build: recording in /workspace/tmp/pix493-admission-20261013/supervisor/.build-runs/20261013T180556Z-d119df2d
+PASS undeclared BUILD_DIR blocks payload
+PASS missing receipt blocks payload
+PASS expired admission blocks payload
+PASS future admission blocks payload
+PASS changed plan blocks payload
+PASS changed tracked source blocks payload
+PASS changed measurement blocks payload
+PASS changed protected directory blocks payload
+PASS changed profile blocks payload
+PASS refused report blocks payload
+PASS changed registry blocks payload
+PASS prepare refuses insufficient current capacity
+PASS launch rechecks capacity after preparation
+PASS existing unresolved reservations reduce new capacity
+PASS valid admission launches payload
+PASS registered output release conditions match plan
+PASS consumed admission cannot launch twice
+PASS live original command prevents consumption
+PASS foreign PID namespace cannot prove completion
+PASS changed retained evidence prevents consumption
+PASS consume releases reservation without deleting retained output
+PASS same completion evidence reconciles idempotently
+PASS actual failure remains 37
+PASS failed job cannot be relabelled qualified
+PASS investigated failure preserves original result
+PASS explicit recording-only job requires no build allocation
+PASS recording-only parent cannot admit nested compilation
+{"result": "PASS", "checks": 27, "cases": ["undeclared BUILD_DIR blocks payload", "missing receipt blocks payload", "expired admission blocks payload", "future admission blocks payload", "changed plan blocks payload", "changed tracked source blocks payload", "changed measurement blocks payload", "changed protected directory blocks payload", "changed profile blocks payload", "refused report blocks payload", "changed registry blocks payload", "prepare refuses insufficient current capacity", "launch rechecks capacity after preparation", "existing unresolved reservations reduce new capacity", "valid admission launches payload", "registered output release conditions match plan", "consumed admission cannot launch twice", "live original command prevents consumption", "foreign PID namespace cannot prove completion", "changed retained evidence prevents consumption", "consume releases reservation without deleting retained output", "same completion evidence reconciles idempotently", "actual failure remains 37", "failed job cannot be relabelled qualified", "investigated failure preserves original result", "explicit recording-only job requires no build allocation", "recording-only parent cannot admit nested compilation"]}

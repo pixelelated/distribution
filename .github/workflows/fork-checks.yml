@@ -40,7 +40,8 @@ jobs:
       - name: builds always enter the shared watcher and retain lifecycle evidence
         run: |
           python3 docs/qa-logs/2026-10-03-watch-job/test-watch-job.py tools/watch-job
-          python3 docs/qa-logs/2026-10-04-watch-progress/test-watch-build.py
+          python3 tools/host-maintenance/test-build-monitor
+          python3 tools/host-maintenance/test-build-admission
       - name: VM launch failures cannot report a guest as running
         run: |
           ./tools/vm-pair-test

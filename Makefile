@@ -26,13 +26,20 @@ src-pkg:
 docs:
 	./tools/foreach './scripts/clean emulators && ./scripts/build emulators'
 
-world: RK3588 RK3576 RK3566 RK3326 RK3399 S922X SM8250 SM8550 H700 SM8650 SM8750 GENERIC_X64
 
 kconfig-olddefconfig-%:
 	DEVICE=$* ./tools/adjust_kernel_config olddefconfig
 
 kconfig-menuconfig-%:
 	DEVICE=$* ./tools/adjust_kernel_config menuconfig
+
+# One admission covers the whole native device target, including both ABIs.
+# Docker already enters through the host watcher and takes the inner branch.
+ifeq ($(RASTERATOPS_BUILD_RUN),)
+world AMD64 RK3588 RK3576 S922X RK3566 RK3326 RK3399 H700 SM4450 SM6115 SM8250 SM8550 SM8650 SM8750 GENERIC_X64:
+	./tools/watch-build -- $(MAKE) $@
+else
+world: RK3588 RK3576 RK3566 RK3326 RK3399 S922X SM8250 SM8550 H700 SM8650 SM8750 GENERIC_X64
 
 AMD64:
 	unset DEVICE_ROOT
@@ -104,6 +111,8 @@ SM8750:
 GENERIC_X64:
 	unset DEVICE_ROOT
 	PROJECT=ROCKNIX DEVICE=GENERIC_X64 ARCH=x86_64 ./scripts/build_distro
+
+endif
 
 update:
 	PROJECT=ROCKNIX DEVICE=RK3588 ARCH=aarch64 ./scripts/update_packages
@@ -196,4 +205,4 @@ docker-%:
 	rm -f .env && [ ! -e .env ] || { echo "an older .env cannot be removed: no container started" >&2; exit 1; }; \
 	trap 'rm -f .env' EXIT; trap 'exit 130' INT TERM HUP; \
 	( umask 077 && set -C && ./scripts/get_env > .env ) || { echo "scripts/get_env failed: no container started" >&2; exit 1; }; \
-	BUILD_DIR=$(DOCKER_WORK_DIR) $(BUILD_WATCH) $(DOCKER_CMD) run $(PODMAN_ARGS) $(INTERACTIVE) --init --env-file .env -e RASTERATOPS_BUILD_RUN -e BUILDER_NAME=pixelelated-build -e BUILDER_VERSION=$(DOCKER_IMAGE_DIGEST) --rm --user $(UID):$(GID) $(GLOBAL_SETTINGS) $(LOCAL_SSH_KEYS_FILE) $(EMULATIONSTATION_SRC) -v $(PWD):$(DOCKER_WORK_DIR) -w $(DOCKER_WORK_DIR) $(DOCKER_EXTRA_OPTS) $(DOCKER_IMAGE) $(COMMAND)
+	BUILD_DIR=$(DOCKER_WORK_DIR) $(BUILD_WATCH) $(DOCKER_CMD) run $(PODMAN_ARGS) $(INTERACTIVE) --init --env-file .env -e RASTERATOPS_BUILD_RUN -e PROJECT -e DEVICE -e ARCH -e BUILDER_NAME=pixelelated-build -e BUILDER_VERSION=$(DOCKER_IMAGE_DIGEST) --rm --user $(UID):$(GID) $(GLOBAL_SETTINGS) $(LOCAL_SSH_KEYS_FILE) $(EMULATIONSTATION_SRC) -v $(PWD):$(DOCKER_WORK_DIR) -w $(DOCKER_WORK_DIR) $(DOCKER_EXTRA_OPTS) $(DOCKER_IMAGE) $(COMMAND)

@@ -172,7 +172,10 @@ unreadable or unclassified dependencies prevent a removal proposal. Use the
 standard guarded worktree helper and watched owner for an authorized batch,
 then verify removal, retained inputs and actual free space. A retention review
 never extends an earlier batch's deletion scope. #461 delivered the read-only planner and first later batch. #493 owns remaining
-classification and mandatory lifecycle enforcement; automatic cleanup is not implemented.
+classification and lifecycle enforcement. `tools/host-maintenance/build-admission`
+now requires current measured capacity/retention before launches and retains
+output ownership through original-result consumption; automatic deletion is
+not implemented. Follow its guide; admission does not extend cleanup authority.
 
 ### Retain the record; give a large runtime artifact a reason to stay
 

@@ -1,0 +1,99 @@
+#!/usr/bin/env python3
+"""Negative admission/lifecycle controls; synthetic host roots, no compiler/VM."""
+import copy,importlib.util,json,os,shutil,subprocess,tempfile,datetime,hashlib,types
+from pathlib import Path
+root=Path(__file__).resolve().parents[2]
+spec=importlib.util.spec_from_file_location('fixture',Path(__file__).with_name('admission-test-fixture.py'));helper=importlib.util.module_from_spec(spec);spec.loader.exec_module(helper)
+checks=[]
+def check(ok,label):
+    assert ok,label;checks.append(label);print('PASS '+label,flush=True)
+with tempfile.TemporaryDirectory(prefix='pix493-admission-') as tmp:
+    base=Path(tmp)
+    def fixture(name):
+        d=base/name;d.mkdir();(d/'tools').mkdir();(d/'scripts').mkdir()
+        for x in ['watch-build','watch-job']:shutil.copy2(root/'tools'/x,d/'tools'/x)
+        shutil.copy2(root/'Makefile',d/'Makefile')
+        mod,plan,receipt=helper.prepare_fixture(d,root)
+        env={'PATH':os.environ['PATH'],'HOME':str(d),'LC_ALL':'C','PIXELELATED_BUILD_ADMISSION':str(receipt)}
+        return d,mod,plan,receipt,env
+    def run(d,env,cmd=None):
+        return subprocess.run([str(d/'tools/watch-build'),'--interval','1','--',*(cmd or ['touch','compiler-started'])],cwd=d,env=env,capture_output=True,text=True,timeout=15)
+    mutations={
+      'undeclared BUILD_DIR':lambda d,m,p,r,e:e.update(BUILD_DIR=str(d/'unbudgeted')),
+      'missing receipt':lambda d,m,p,r,e:e.pop('PIXELELATED_BUILD_ADMISSION'),
+      'expired admission':lambda d,m,p,r,e:m.write(r,dict(m.read(r),utc='2020-01-01T00:00:00+00:00')),
+      'future admission':lambda d,m,p,r,e:m.write(r,dict(m.read(r),utc='2099-01-01T00:00:00+00:00')),
+      'changed plan':lambda d,m,p,r,e:p.write_text(p.read_text()+' '),
+      'changed tracked source':lambda d,m,p,r,e:(d/'Makefile').write_text((d/'Makefile').read_text()+'\n# mutation\n'),
+      'changed measurement':lambda d,m,p,r,e:(d/'kept/measurement.json').write_text('{}'),
+      'changed protected directory':lambda d,m,p,r,e:(d/'kept/unreviewed').touch(),
+      'changed profile':lambda d,m,p,r,e:e.update(DEVICE='H700'),
+      'refused report':lambda d,m,p,r,e:m.write(d/'retention-report.json',dict(m.read(d/'retention-report.json'),inventory={'errors':['unreadable dependency']})),
+      'changed registry':lambda d,m,p,r,e:m.write(m.registry_for(d)/'jobs.json',{'schema':1,'generation':1,'jobs':{}}),
+    }
+    for name,mutate in mutations.items():
+        d,m,p,r,e=fixture(name.replace(' ','-'));mutate(d,m,p,r,e);a=run(d,e)
+        check(a.returncode!=0 and not (d/'compiler-started').exists(),name+' blocks payload')
+    d,m,p,r,e=fixture('capacity')
+    real = m.os.statvfs
+    try:
+        m.os.statvfs = lambda _:types.SimpleNamespace(f_bavail=0,f_frsize=4096)
+        try:m.prepare(p,d/'no-space.json');ok=False
+        except ValueError:ok=True
+        check(ok and not (d/'no-space.json').exists(),'prepare refuses insufficient current capacity')
+        active=d/'.build-runs/test-capacity';active.mkdir(parents=True)
+        try:m.admit(r,d,active,e);ok=False
+        except ValueError:ok=True
+        check(ok and not (active/'admission.json').exists(),'launch rechecks capacity after preparation')
+    finally:m.os.statvfs=real
+    d,m,p,r,e=fixture('reservation')
+    reg=m.registry_for(d)/'jobs.json';data=m.read(reg)
+    data['jobs']['existing']={'state':'running','required_bytes':10**18,'volume_device':d.stat().st_dev}
+    m.write(reg,data)
+    try:m.prepare(p,d/'overcommitted.json');ok=False
+    except ValueError:ok=True
+    check(ok,'existing unresolved reservations reduce new capacity')
+    d,m,p,r,e=fixture('positive');a=run(d,e);check(a.returncode==0 and (d/'compiler-started').exists(),'valid admission launches payload')
+    runs=[x for x in (d/'.build-runs').iterdir() if x.is_dir()];runpath=runs[0];row=m.read(runpath/'admission.json')
+    check(row['outputs']==m.read(p)['outputs'],'registered output release conditions match plan')
+    (d/'compiler-started').unlink();a=run(d,e);check(a.returncode!=0 and not (d/'compiler-started').exists(),'consumed admission cannot launch twice')
+    held=d/'build.fixture';held.mkdir();(held/'keep').write_text('retained cache')
+    proof={'run':str(runpath),'disposition':'qualified','expected_rc':0,'outputs':row['outputs'],
+      'evidence':[{'path':str(runpath/'build.log'),'sha256':m.digest(runpath/'build.log')}]}
+    ep=d/'acceptance.json';m.write(ep,proof)
+    original_pid=(runpath/'command.pid').read_text()
+    (runpath/'command.pid').write_text(str(os.getpid()))
+    try:
+        try:m.consume(runpath,ep);ok=False
+        except ValueError:ok=True
+        check(ok,'live original command prevents consumption')
+    finally:(runpath/'command.pid').write_text(original_pid)
+    original_row=m.read(runpath/'admission.json');bad=copy.deepcopy(original_row);bad['pid_namespace']+=1;m.write(runpath/'admission.json',bad)
+    try:
+        try:m.consume(runpath,ep);ok=False
+        except ValueError:ok=True
+        check(ok,'foreign PID namespace cannot prove completion')
+    finally:m.write(runpath/'admission.json',original_row)
+    original_log=(runpath/'build.log').read_bytes();(runpath/'build.log').write_bytes(original_log+b'changed')
+    try:
+        try:m.consume(runpath,ep);ok=False
+        except ValueError:ok=True
+        check(ok,'changed retained evidence prevents consumption')
+    finally:(runpath/'build.log').write_bytes(original_log)
+    c=m.consume(runpath,ep);check(c['state']=='consumed' and (held/'keep').read_text()=='retained cache','consume releases reservation without deleting retained output')
+    check(m.consume(runpath,ep)==c,'same completion evidence reconciles idempotently')
+    d,m,p,r,e=fixture('failure');a=run(d,e,['sh','-c','exit 37']);check(a.returncode==37,'actual failure remains 37')
+    runpath=next(x for x in (d/'.build-runs').iterdir() if x.is_dir());row=m.read(runpath/'admission.json')
+    proof={'run':str(runpath),'disposition':'qualified','expected_rc':37,'outputs':row['outputs'],'evidence':[{'path':str(runpath/'build.log'),'sha256':m.digest(runpath/'build.log')}]};ep=d/'acceptance.json';m.write(ep,proof)
+    try:m.consume(runpath,ep);ok=False
+    except ValueError:ok=True
+    check(ok,'failed job cannot be relabelled qualified')
+    proof['disposition']='failed-investigated';m.write(ep,proof);check(m.consume(runpath,ep)['original_result']['command_rc']==37,'investigated failure preserves original result')
+    d,m,p,r,e=fixture('record-only');e.pop('PIXELELATED_BUILD_ADMISSION')
+    a=subprocess.run([str(d/'tools/watch-build'),'--record-only','--interval','1','--','true'],cwd=d,env=e,capture_output=True,text=True,timeout=10)
+    check(a.returncode==0,'explicit recording-only job requires no build allocation')
+    # An inherited recording parent is not a build admission.
+    child=d/'nested.sh';child.write_text('#!/bin/sh\nexec ./tools/watch-build --entry -- touch nested-compiler\n');child.chmod(0o755)
+    a=subprocess.run([str(d/'tools/watch-build'),'--record-only','--interval','1','--',str(child)],cwd=d,env=e,capture_output=True,text=True,timeout=10)
+    check(a.returncode!=0 and not (d/'nested-compiler').exists(),'recording-only parent cannot admit nested compilation')
+print(json.dumps({'result':'PASS','checks':len(checks),'cases':checks}))

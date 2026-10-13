@@ -1,0 +1,297 @@
+#!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-2.0-or-later
+# Copyright (C) 2026-present pixelelated
+"""Require a current, single-use retention/capacity admission before compilation.
+
+This tool registers reservations and consumes completion evidence. It NEVER deletes
+build outputs, changes permissions, stops processes, or runs privileged commands.
+"""
+import argparse
+import contextlib
+import datetime
+import fcntl
+import hashlib
+import json
+import os
+from pathlib import Path
+import stat
+import subprocess
+import sys
+import time
+import uuid
+
+MAX_AGE = 900
+
+
+def require(value, message):
+    if not value:
+        raise ValueError(message)
+
+
+def digest(path):
+    with Path(path).open('rb') as f:
+        return hashlib.file_digest(f, 'sha256').hexdigest()
+
+
+def read(path):
+    return json.loads(Path(path).read_text())
+
+
+def write(path, data, exclusive=False):
+    path = Path(path)
+    text = json.dumps(data, indent=2, sort_keys=True) + '\n'
+    if exclusive:
+        with path.open('x') as f:
+            f.write(text)
+    else:
+        temp = path.with_name(path.name + '.' + uuid.uuid4().hex + '.tmp')
+        with temp.open('x') as f:
+            f.write(text)
+            f.flush()
+            os.fsync(f.fileno())
+        temp.replace(path)
+
+
+def utc():
+    return datetime.datetime.now(datetime.timezone.utc).isoformat()
+
+
+def path_identity(path):
+    p = Path(path)
+    require(p.is_absolute() and p.resolve() == p, 'path must be absolute without symlink ancestors')
+    s = p.lstat()
+    require(stat.S_ISREG(s.st_mode) or stat.S_ISDIR(s.st_mode), 'unsupported path type')
+    return dict(device=s.st_dev, inode=s.st_ino, size=s.st_size,
+                mtime_ns=s.st_mtime_ns, allocated_bytes=s.st_blocks * 512,
+                uid=s.st_uid, links=s.st_nlink, mode=s.st_mode)
+
+
+def source_state(root):
+    def git(*args):
+        return subprocess.check_output(['git', *args], cwd=root, stderr=subprocess.PIPE)
+    return {'head': git('rev-parse', 'HEAD').decode().strip(),
+            'tracked_diff_sha256': hashlib.sha256(git('diff', '--binary', 'HEAD', '--')).hexdigest()}
+
+
+def registry_for(root):
+    common = subprocess.check_output(['git', 'rev-parse', '--path-format=absolute', '--git-common-dir'],
+                                     cwd=root, text=True, stderr=subprocess.PIPE).strip()
+    return Path(common) / 'pixelelated-build-admission'
+
+
+@contextlib.contextmanager
+def registry(path):
+    path = Path(path)
+    path.mkdir(mode=0o700, exist_ok=True)
+    require(not path.is_symlink() and path.stat().st_uid == os.getuid(), 'invalid registry owner/path')
+    with (path / 'lock').open('a') as lock:
+        fcntl.flock(lock, fcntl.LOCK_EX)
+        file = path / 'jobs.json'
+        data = read(file) if file.exists() else {'schema': 1, 'generation': 0, 'jobs': {}}
+        require(data.get('schema') == 1 and isinstance(data.get('jobs'), dict), 'invalid registry')
+        yield data
+        write(file, data)
+
+
+def evidence(items):
+    require(isinstance(items, list) and items, 'retained evidence is required')
+    for item in items:
+        path_identity(item['path'])
+        require(digest(item['path']) == item['sha256'], 'retained evidence changed: ' + item['path'])
+
+
+def current(plan):
+    root = Path(plan['checkout'])
+    path_identity(root)
+    require(root.is_dir(), 'checkout must exist')
+    retention_plan = Path(plan['retention_plan'])
+    report_path = Path(plan['retention_report'])
+    path_identity(retention_plan); path_identity(report_path)
+    rp, report = read(retention_plan), read(report_path)
+    require(report['schema'] == 1 and report['result'] == 'REPORT_COMPLETE', 'retention report incomplete')
+    require(not report['deletion_performed'] and not report['inventory']['errors'], 'retention report refused/unresolved')
+    require(report['plan_sha256'] == digest(retention_plan), 'retention plan changed')
+    tool = Path(__file__).with_name('retention-report')
+    require(report['tool_sha256'] == digest(tool), 'retention report tool changed')
+    age = time.time() - datetime.datetime.fromisoformat(report['utc']).timestamp()
+    require(0 <= age <= MAX_AGE, 'retention report expired or from the future')
+    volume = Path(rp['volume']); volume_id = path_identity(volume)
+    require(root.stat().st_dev == volume_id['device'], 'checkout and budget volume differ')
+    require(report['protected'] and len(report['protected']) == len(rp['protected']), 'protected identities missing')
+    require({x['path'] for x in report['protected']} == set(rp['protected']), 'protected scope changed')
+    for row in report['protected']:
+        require(path_identity(row['path']) == row['identity'], 'protected identity changed: ' + row['path'])
+    for item in rp['candidates']:
+        require(path_identity(item['path']) == item['identity'], 'retirement candidate changed')
+    matches = [b for b in rp['builds'] if b['name'] == plan['stage']]
+    rows = [b for b in report['builds'] if b['name'] == plan['stage']]
+    require(len(matches) == len(rows) == 1, 'exactly one matching build stage required')
+    budget, observed = matches[0], rows[0]
+    terms = budget['terms_bytes']
+    require(terms and all(type(v) is int and v >= 0 for v in terms.values()), 'invalid budget')
+    need = sum(terms.values())
+    require(need > 0 and budget['basis'].strip(), 'positive measured budget and basis required')
+    evidence(budget['evidence'])
+    require(observed['fits_now'] is True and observed['terms_bytes'] == terms
+            and observed['required_bytes'] == need, 'retention budget refused or changed')
+    holds = plan['outputs']
+    require(isinstance(holds, list) and holds, 'owned outputs and release conditions required')
+    seen = set()
+    for h in holds:
+        p = Path(h['path'])
+        require(p.is_absolute() and p.resolve() == p and str(p) not in seen, 'invalid/duplicate output path')
+        seen.add(str(p))
+        require(type(h['issue']) is int and h['issue'] > 0 and h['release_when'].strip(), 'output needs issue and release condition')
+        parent = p if p.exists() else p.parent
+        require(parent.is_dir() and parent.stat().st_dev == volume_id['device'], 'output is outside measured volume')
+        require(h['kind'] in ['build-cache', 'firmware', 'qa-scratch'], 'invalid output classification')
+    profiles = plan['profiles']
+    require(isinstance(profiles, list) and profiles, 'explicit build profiles required')
+    for profile in profiles:
+        require(set(profile) == {'PROJECT', 'DEVICE', 'ARCH'} and all(isinstance(v, str) and v for v in profile.values()), 'invalid build profile')
+    s = os.statvfs(volume)
+    return {'checkout': str(root), 'source': source_state(root), 'profiles': profiles,
+            'volume': str(volume), 'volume_device': volume_id['device'],
+            'required_bytes': need, 'available_bytes': s.f_bavail * s.f_frsize,
+            'retention_plan_sha256': digest(retention_plan), 'retention_report_sha256': digest(report_path),
+            'outputs': holds, 'registry': str(registry_for(root)),
+            'container_checkout': plan.get('container_checkout', str(root))}
+
+
+def prepare(plan_path, output):
+    plan_path = Path(plan_path).resolve(strict=True)
+    plan = read(plan_path); state = current(plan)
+    with registry(state['registry']) as jobs:
+        reserved = sum(j['required_bytes'] for j in jobs['jobs'].values()
+                       if j['state'] != 'consumed' and j['volume_device'] == state['volume_device'])
+        require(state['available_bytes'] >= state['required_bytes'] + reserved, 'insufficient space after existing reservations')
+        row = {'schema': 1, 'id': uuid.uuid4().hex, 'utc': utc(), 'plan': str(plan_path),
+               'plan_sha256': digest(plan_path), 'state': state,
+               'registry_generation': jobs['generation'], 'reserved_bytes': reserved,
+               'tool_sha256': digest(__file__)}
+        write(output, row, exclusive=True)
+    return row
+
+
+def admit(receipt_path, root, run, environment, docker=False):
+    receipt_path = Path(receipt_path).resolve(strict=True)
+    receipt = read(receipt_path)
+    require(receipt['schema'] == 1 and receipt['tool_sha256'] == digest(__file__), 'admission schema/tool changed')
+    age = time.time() - datetime.datetime.fromisoformat(receipt['utc']).timestamp()
+    require(0 <= age <= MAX_AGE, 'admission expired or from the future')
+    require(digest(receipt['plan']) == receipt['plan_sha256'], 'admission plan changed')
+    state = current(read(receipt['plan'])); expected = receipt['state']
+    require(state['checkout'] == str(root.resolve()), 'admission belongs to a different checkout')
+    require({k:v for k,v in state.items() if k != 'available_bytes'} ==
+            {k:v for k,v in expected.items() if k != 'available_bytes'}, 'admission state changed')
+    redirected = Path(environment.get('BUILD_DIR', str(root)))
+    if docker:
+        require(str(redirected) == state['container_checkout'], 'Docker checkout differs from measured mount contract')
+    else:
+        require(redirected.resolve() == root.resolve() or any(
+            redirected.resolve() == Path(h['path']) for h in state['outputs']),
+            'redirected BUILD_DIR is not a declared output')
+    require(any(all(not environment.get(k) or environment[k] == v for k,v in p.items())
+                for p in state['profiles']), 'build profile is outside admission')
+    if len(state['profiles']) == 1:
+        environment.update(state['profiles'][0])
+    with registry(state['registry']) as jobs:
+        require(receipt['id'] not in jobs['jobs'], 'admission has already been used')
+        require(jobs['generation'] == receipt['registry_generation'], 'registry changed; prepare a new admission')
+        reserved = sum(j['required_bytes'] for j in jobs['jobs'].values()
+                       if j['state'] != 'consumed' and j['volume_device'] == state['volume_device'])
+        require(state['available_bytes'] >= state['required_bytes'] + reserved, 'current capacity no longer fits')
+        row = dict(state, id=receipt['id'], state='running', run=str(run), admitted=utc(),
+                   receipt_sha256=digest(receipt_path), runner_pid=os.getpid(),
+                   submission_owner=environment.get('PIXELELATED_SUBMISSION_OWNER'),
+                   pid_namespace=os.stat('/proc/self/ns/pid').st_ino,
+                   runner_start=Path('/proc/self/stat').read_text().rsplit(')',1)[1].split()[19])
+        write(run / 'admission.json', row, exclusive=True)
+        write(run / 'admission-input.json', receipt, exclusive=True)
+        plan = read(receipt['plan'])
+        write(run / 'admission-plan.json', plan, exclusive=True)
+        write(run / 'retention-plan.json', read(plan['retention_plan']), exclusive=True)
+        write(run / 'retention-report.json', read(plan['retention_report']), exclusive=True)
+        jobs['jobs'][row['id']] = row; jobs['generation'] += 1
+    return row
+
+
+def nested(root, run, environment):
+    row = read(run / 'admission.json')
+    require(not (run / 'runner-result.json').exists(), 'admitted run has already ended')
+    require(source_state(root) == row['source'], 'nested source differs from admission')
+    require(any(all(environment.get(k) == v for k,v in p.items())
+                for p in row['profiles']), 'nested profile is outside admission')
+    return row
+
+
+def finish(run, command_code, monitor_code, runner_code):
+    write(run / 'runner-result.json', {'utc': utc(), 'command_rc': command_code,
+                                      'monitor_rc': monitor_code, 'runner_rc': runner_code}, exclusive=True)
+
+
+def exited(pid):
+    p = Path('/proc') / str(pid) / 'cmdline'
+    try:
+        require(not p.read_bytes(), 'recorded process is still live: ' + str(pid))
+    except FileNotFoundError:
+        pass
+
+
+def consume(run, evidence_path):
+    # Run in the host namespace; inaccessible /proc state raises, never succeeds.
+    run = Path(run).resolve(strict=True)
+    row = read(run / 'admission.json'); proof = read(evidence_path)
+    require(os.stat('/proc/self/ns/pid').st_ino == row['pid_namespace'], 'consume from the original host PID namespace')
+    require(proof['run'] == str(run) and proof['disposition'] in ['qualified', 'failed-investigated'], 'wrong completion evidence')
+    evidence(proof['evidence'])
+    require(proof['outputs'] == row['outputs'], 'retained output dispositions changed')
+    rc = read(run / 'runner-result.json')
+    require(type(proof['expected_rc']) is int and rc['runner_rc'] == proof['expected_rc'], 'unexpected original result')
+    require(int((run/'build.rc').read_text()) == rc['command_rc'], 'original command rc changed')
+    require((run/'build.status').read_text().startswith('state:       finished\n'), 'watcher has no terminal status')
+    require(rc['monitor_rc'] == 0, 'watcher failed; keep reservation for investigation')
+    require((proof['disposition'] == 'qualified') == (rc['runner_rc'] == 0), 'failure cannot be called qualified')
+    pids = [row['runner_pid']]
+    for name in ['build.pid','command.pid','watcher.pid','build.status.pid']:
+        if (run/name).exists():pids.append(int((run/name).read_text()))
+    if row['submission_owner']:
+        owner=Path(row['submission_owner']);launch=read(owner/'launcher-result.json')
+        require(launch['runner_returncode'] == rc['runner_rc'] == int((owner/'tool-wrapper.rc').read_text()), 'launcher result mismatch')
+        pids.append(launch['pid'])
+    for pid in set(pids):exited(pid)
+    if (run/'command.pid').exists():
+        group = int((run/'command.pid').read_text())
+        for p in Path('/proc').glob('[0-9]*/stat'):
+            try:
+                fields = p.read_text().rsplit(')',1)[1].split()
+                require(int(fields[2]) != group or fields[0] == 'Z', 'command process group still has live children')
+            except FileNotFoundError:
+                pass
+    with registry(row['registry']) as jobs:
+        job=jobs['jobs'][row['id']]
+        require(job['run'] == str(run), 'registry run mismatch')
+        if job['state'] == 'consumed':
+            require(job['evidence_sha256'] == digest(evidence_path), 'different evidence for consumed run')
+            return job
+        job.update(state='consumed', consumed=utc(), evidence_sha256=digest(evidence_path),
+                   original_result=rc, deleted_bytes=0, outputs_held=True)
+        jobs['generation'] += 1
+        write(run/'admission-consumed.json',job,exclusive=True)
+    return job
+
+
+def main():
+    os.umask(0o077)
+    parser=argparse.ArgumentParser(description=__doc__);subs=parser.add_subparsers(dest='action',required=True)
+    p=subs.add_parser('prepare');p.add_argument('--plan',type=Path,required=True);p.add_argument('--output',type=Path,required=True)
+    p=subs.add_parser('consume');p.add_argument('--run',type=Path,required=True);p.add_argument('--evidence',type=Path,required=True)
+    args=parser.parse_args()
+    if args.action=='prepare':r=prepare(args.plan,args.output);print('prepared admission '+r['id'])
+    else:r=consume(args.run,args.evidence);print('consumed original results; retained outputs remain held: '+r['id'])
+
+
+if __name__=='__main__':
+    try:main()
+    except (OSError,ValueError,KeyError,TypeError,subprocess.SubprocessError) as error:
+        print('build-admission: '+str(error),file=sys.stderr);sys.exit(2)
