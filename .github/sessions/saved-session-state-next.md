@@ -1,6 +1,6 @@
 # Saved Session State
 
-> **Saved**: 2026-10-13T16:09:00.178785+00:00
+> **Saved**: 2026-10-13T16:56:28.756028+00:00
 > **Branch**: feature/m7-player-setup
 > **Repo**: pixelelated/distribution
 
@@ -20,37 +20,61 @@ not replayable authorizations. No owner device/cloud/account/save operation
 occurred in this continuation. No firmware pin, browser policy or ES product
 source has been promoted. The small trim proposal remains UNCOMPILED.
 
-## Latest continuation — October 13 afternoon
+## Latest continuation — testing-first baseline COMPLETE
 
-Coordinator has locally committed Nova library-copy/provenance records4b1c7794b2
-andef8e961ad8, plus this #558/#577 record. They enter the fresh record-delivery
-owner below; prior delivery02 is COMPLETE and must never be replayed.
+Latest owner request: work through the discovered M7 issues, perform additional
+testing first, and progress toward the next RC. Completed the fresh accepted-image
+baseline, evidence commit4d5c26807d. Packet:
+docs/qa-logs/2026-10-13-library-wifi-baseline/README.md.
 
-#565: owner copied Dropbox ROM directories through the USB gadget. Live ROM-side
-gamelists contain the reported old play history; no matching internal fallback
-or recovery list. Four account fields already match the surviving pre-October9
-local archive; reviewed preparation scripts preserve19 protected files and edit
-only two auto-sync flags. Original account/import author remains unknown.
-Read docs/qa-logs/2026-10-13-nova-library-copy.md and nova-readonly-followup.md.
-No device mutation or cloud call. A new synthetic ROM-only versus ROM+gamelist
-VM comparison joins the existing future-payload/retained-upgrade gates in #565.
+#565: ROM-only synthetic stub yields0plays/no Recent entry; the identical stub
+plus ROM-side gamelist.xml yields5plays/imported lastplayed/Recent membership.
+Selected account/connection/cloud activity state unchanged, no emulator/cloud use.
+This proves a mechanism, not the exact Nova copy or original account writer.
+Four provenance/library criteria are now checked with bounded evidence; final
+candidate payload, clean-first-boot and real retained-storage upgrade remain open.
+Prior Nova source/read-only evidence remains in nova-library-copy.md and
+nova-readonly-followup.md. No new physical operation was made.
 
-#558: owner reports another restart after normal shutdown, unplugging external
-power during shutdown. Read-only records show power-off requests at11:01:10 and
-11:17:01EDT; first followed by Linux boot11seconds later. No timestamp-to-owner
-mapping yet, no new Linux-load error or repeated loop established. Empty pstore,
-absent named boot reasons; cause unknown. USB charging at later read is not
-incident evidence. Three reads0/exited, no staging/writes/reproduction. Packet:
-docs/qa-logs/2026-10-13-nova-shutdown/. Optional approximate incident-time answer
-may arrive. Normal shutdown is confirmed; don't ask that again.
+#578 is new: inherited Settings.cpp default favorites, recent preserves a space
+that exact collection-name matching rejects. Four controls: no override404,
+spaced404, canonical favorites,recent200, explicit favorites-only404. Narrow
+product default repair and actual compiled clean/retained-source frames are due;
+preserve explicit player choices. Upstream still has the same default. The first
+library fixture incorrectly treated404 as empty; its failure remains1. A second
+library attempt hit systemd's5starts/10seconds limit; its failure remains1.
+Fresh third owner passes both cases. Pace future fixture restarts.
 
-#577 is new M7.P5 Wi-Fi scan UI work: stable scrolling picker/list/footer,
-in-list searching on initial scan and refresh, retained prior results, distinct
-empty/failure, safe asynchronous lifetime and focus. D-UI-127 and the menu map
-mark planned behavior; no implementation or frame proof yet. Live milestone
-places it with #571 setup-interface work. #570 actual trim compilation/qualification
-remains the next primary work; these new log/intake tasks don't reorder it.
-All prior diagnostic runtime owners remain COMPLETE/RETIRED; no test/build active.
+#577:12reviewed English frames at640x480/1280x800 show blank initial list with
+external searching card, large-screen dialog/footer growth and byte-identical
+empty/error outcomes despite scan rc0versus2. Corrected preliminary commentary/
+plan claim: populated refresh RETAINS dimmed prior rows, not their disappearance.
+No fixed-source/French/lifetime/long-list/saved-network acceptance yet. Canonical
+menu-map links the defect baseline and exact-source frame index. #578 joins
+#571/#577 setup fixes in the live M7 order.
+
+Owner /workspace/tmp/pix-m7-baseline-tests-20261013 is COMPLETE/RETIRED:
+eight original watched stages consumed (six0, two historical1), all actual host
+owners/commands/watchers exited. Sequential640/1280guest stopped; enumeration
+bind restored; disk/UEFI/temporary SSH files removed. Released2247536640allocated
+bytes. Do not replay owner scripts, historical ports10580/5974or key paths.
+No test/build/VM is active. Public packet hashes/raw identities, fixture ASTs,
+result semantics and rules/register/index/ceremony checks pass. No compiler,
+full cache copy, product pin change, new RC number or new audit transfer.
+
+**Immediate dependency: #493.** Live criterion requires mandatory current,
+state-bound retention/capacity enforcement before ANY actual compilation,
+including the ES trim/default/UI candidates, not just full cache copies.
+Existing tools/host-maintenance/retention-report is read-only; normal build
+entrypoints don't require it. Implement and fixture-test launch/ownership/
+completion enforcement before compiling. Current2.8TBfree is capacity evidence,
+not enforcement. Then qualify actual #570 allocator trim; do not repeat diagnostic
+interposition as a substitute. Live milestone reflects this order.
+
+#558 previous normal-shutdown read-only triage remains complete/unknown cause;
+no physical reproduction authorized this turn. #566/#567/#571/#574/#575/#564
+retain their earlier scoped work below. Completed old delivery03-afternoon is
+verified0/exited and published71b932; never replay it.
 
 ## Current focus and measured results
 
@@ -140,32 +164,28 @@ diagnostic candidates; the new measured ES opportunity is the next narrow lead.
 
 ## Next steps, in order
 
-1. Consume the fresh afternoon record delivery below if necessary; never replay old owners.
-2. Qualify the minimal ES cloud-handoff trim as actual source/binary: isolated
-   ES branch fromc8dc72cf9e, syntax/package checks, source-bound normal sign-in,
-   phone/native input, cancel/error/return/lifecycle flows and canonical frame
-   index. Keep startup order/status handling. VM first, then the RG35XX SP bench device (H700, Tailnet100.74.205.40)
-   for physical memory/input corroboration under D-QA-060 through tools/device-act.
-   The separate RG SP100.75.221.73 and Nova are outside this browser test scope. A build
-   or full cache copy first requires #493 lifecycle/capacity enforcement.
-3. Finish #565 actual final-payload/clean-first-boot and real synthetic-account
-   retained-storage upgrade qualification. Component fixtures aren't a real
-   upgrade. Keep owner provenance uncertainty explicit; no Nova reset/cleanup
-   is implied. #572 GStreamer packaging repair is published2292e9a298 but final
-   assembled-image proof remains due. Existing latest stable WebKit2.54.1 is
-   already pinned; no applicable upstream memory fix has been established.
-4. #566 dedicated provider-supported ScreenScraper identity; no third-party
-   credential reuse rights inferred. #567 conditional offline-RA notice on
-   game-list refresh; #571 compact phone status without navigation/disconnect
-   confusion; #577 stable Wi-Fi picker and in-list scanning. Each UI change needs canonical flow and same-source EN/FR frames.
-5. #574 RVZ frontend achievement hashing/recognition; #575 standalone selected
-   emulator save-on-exit/manager capability. Current selected Nova cores aren't
-   known after read timeout; do not guess. #568 finalizing copy stays future.
-6. #564 reproduced Steam failure on isolated ROCKNIX stable20261001 foundation
-   c445081a59518f37d9776e5412dd7b14910696f7; #493 before full copies/builds;
-   new-source clean/retained VM qualification and independent audit, then
-   H700 followed bySM8550 builds, then #528/#344 publication/source/custody.
-   No new RC number or public publication clearance is allocated.
+1. Consume fresh baseline record delivery below if necessary; no completed owner replay.
+2. #493 mandatory launch/retention/capacity enforcement, with missing/stale/refused
+   receipts stopping native/Docker/ad-hoc compilation before allocation, ownership
+   and dependency fixtures, compact-evidence preservation and terminal cleanup.
+   No new broad historical deletion or general sudo grant is implied.
+3. Actual #570 ES cloud-handoff trim source/binary qualification, isolated branch
+   fromc8dc72cf9e: syntax/package checks, normal sign-in, phone/native input,
+   cancel/error/return/lifecycle, canonical same-source frame index. VM first;
+   designated RG35XX SP H700 bench100.74.205.40underD-QA-060/device-act for physical
+   memory/input corroboration. Separate RG SP100.75.221.73and Nova outside scope.
+4. #565 actual next-payload, clean-first-boot and genuine retained-storage upgrade;
+   #572 final assembled-image proof. #566 provider-supported developer identity;
+   #567 conditional offline-RA refresh notice; #571 compact persistent phone status;
+   #577 stable Wi-Fi picker/status/error distinction; #578 narrow Recent default.
+   Every UI change owes source-bound canonical flow and EN/FR happy/branch frames.
+5. #574 RVZ frontend recognition and separate Dolphin coverage; #575 selected
+   standalone emulator save-on-exit/manager capability (actual Nova selection
+   remains unknown; don't guess). #568 finalizing copy stays future.
+6. #564 Steam replacement failure on stable20261001foundationc445081a59;
+   resource budget readback; renewed combined clean/retained VM qualification and
+   independent audit, then H700 followed bySM8550. #528/#344 source/custody and
+   publication gates remain. No RC allocation or publication clearance.
 
 ## Resource and execution notes
 
@@ -194,17 +214,16 @@ Keep durable compact logs/source/receipts; remove completed disposable disks.
 
 ## Record delivery
 
-Earlier morning delivery02 at /workspace/tmp/pix-m7-investigation-20261013/delivery02
-is COMPLETE: published e398cbb997, both exact-head checks successful, all original
-channels0/exited, consumption.json verified. Do not replay it.
+Old morning delivery02 and afternoon delivery03 are COMPLETE0/exited, exact-head
+record/wordlist checks passed. Afternoon published71b932ab3235ac252ef37cb8391e08807a76de91.
 
-Fresh afternoon owner: /workspace/tmp/pix-m7-investigation-20261013/delivery03-afternoon.
-This record is prepared before launch. Inspect result.json, launcher-result.json,
-tool-wrapper.rc, watcher build.rc/status, actual host owner/launcher/build/command/
-watcher PID exits and exact origin HEAD before saying delivered. It uses the
-existing watch-build-submit/watch-job framework and requires guarded ff-only
-next push plus exact-head record/wordlist CI. Submission is not completion;
-actively supervise because no off-session notification is configured. No external
-audit transfer belongs to this docs-only delivery. No package pin changed.
+Fresh baseline delivery owner:
+/workspace/tmp/pix-m7-baseline-tests-20261013/delivery01.
+This checkpoint is prepared before launch. Inspect result.json, launcher-result,
+tool-wrapper.rc, watcher build.rc/status, actual host delivery/launcher/build/
+command/watcher PID exits and exact origin HEAD. Both exact-head record/wordlist
+CI results must pass before saying delivered. Submission is not completion;
+actively supervise. No off-session notification is configured. This is records-only;
+no external audit transfer or product pin moves with it.
 
-Previous checkpoint: archived/saved-session-state-next-20261013T161000Z.md
+Previous checkpoint: archived/saved-session-state-next-20261013T165628Z.md
