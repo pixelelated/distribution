@@ -1,0 +1,33 @@
+{
+  "abl_latest": {
+    "tag_name": "v1.2",
+    "published_at": "2026-10-01T19:31:32Z",
+    "html_url": "https://github.com/ROCKNIX/abl/releases/tag/v1.2"
+  },
+  "upstream_latest": {
+    "tag_name": "20261001",
+    "published_at": "2026-10-01T22:56:24Z",
+    "html_url": "https://github.com/ROCKNIX/distribution/releases/tag/20261001"
+  },
+  "nova_dts_history": [
+    {
+      "sha": "246e62ca93dc8863f04f53eefb53784a9681f83e",
+      "date": "2026-07-28T22:10:49Z",
+      "subject": "SM8550: fix spacing snafu in RP Nova DT"
+    },
+    {
+      "sha": "320d8e445b43a11ebc92a6a0a667f481e9838b71",
+      "date": "2026-07-27T17:44:10Z",
+      "subject": "rpnova: fix nova left joystick axis and add trigger deadzone"
+    },
+    {
+      "sha": "3c3ac4f4eea2093236a4bec2d98472862b805dcb",
+      "date": "2026-07-26T19:16:09Z",
+      "subject": "SM8550: add support for the Retroid Pocket Nova"
+    }
+  ],
+  "checked_utc": "2026-10-13T16:06:00Z",
+  "distribution_issues_enabled": false,
+  "charging_reference": "https://rocknix.org/configure/fake-suspend/#charging",
+  "scope": "Latest official release notes, Nova DT path history and existing October12 comparison; not an exhaustive firmware or issue search."
+}

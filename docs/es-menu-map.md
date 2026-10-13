@@ -402,6 +402,15 @@ flowchart TD
   asked "which network's key?"; the two places a key is typed are the
   picker's WI-FI KEY page, per network, and the restore wizard's WI-FI
   PASSWORD page.
+**Planned correction — #577 / D-UI-127 (not implemented in the accepted pin):**
+Keep the picker/list/footer geometry stable across first search and refresh;
+show searching within the reserved list area and retain existing results while
+refreshing. Long results scroll inside that area. Delayed, empty, failed and
+successful scans need distinct reviewed frames, with safe exit and no stale
+callbacks. The diagram and behavior below still describe the accepted source;
+replace their loading branches with the implemented flow and same-source EN/FR
+frame index when #577 lands (D-WORKFLOW-155/156).
+
 - **The picker (WI-FI NETWORKS)** lists the networks in range (`wifictl
   list`, a rescan behind the spinner), the joined one first and marked
   CONNECTED, the ones NetworkManager holds a profile for marked SAVED

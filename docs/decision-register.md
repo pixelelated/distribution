@@ -692,6 +692,8 @@ This is the index of decisions; `docs/work-logs/` is the narrative,
 
 | D-WORKFLOW-163 | 2026-10-13 | **Keep the lazy proxy UI-import change and GTK4 as diagnostic paths; prioritize actual-page CPU/script versus reclaim attribution for #570.** The installed-Python bytecode median saving is390KiB, so do not promote the host-source5.31MiB estimate or spend full-service qualification on this small candidate yet. GTK4 requires a separate dependency/API/native-keyboard spike before production consideration; no measured memory benefit exists. This is a bounded investigation disposition under the authorized parallel experiments, not a permanent rejection or a required toolkit migration. Preserve offline functionality and existing qualification gates. | #570; #576; `docs/qa-logs/2026-10-13-proxy-memory-vm/`; `docs/qa-logs/2026-10-13-gtk4-feasibility/` |
 
+| D-UI-127 | 2026-10-13 | **Keep the Wi-Fi picker visible at a stable height while it scans, with scrolling for longer lists and the searching state inside the list area.** The maintainer reports disappearing results and an empty, collapsing first-search surface. Preserve the last results during refresh, distinguish empty results from failed scans, and retain safe focus/input and existing saved/open-network behavior. Screen-relative geometry and exact-source happy/branch frames are qualified on the VM before pin promotion; this records intended behavior, not a completed fix. | #577; D-UI-064/118/125; `docs/es-menu-map.md` |
+
 ## Open decisions
 
 

@@ -1,6 +1,6 @@
 # Saved Session State
 
-> **Saved**: 2026-10-13T08:26:24.350000+00:00
+> **Saved**: 2026-10-13T16:09:00.178785+00:00
 > **Branch**: feature/m7-player-setup
 > **Repo**: pixelelated/distribution
 
@@ -19,6 +19,38 @@ The exact request is recorded in #570 and #565. Existing owner operations are
 not replayable authorizations. No owner device/cloud/account/save operation
 occurred in this continuation. No firmware pin, browser policy or ES product
 source has been promoted. The small trim proposal remains UNCOMPILED.
+
+## Latest continuation — October 13 afternoon
+
+Coordinator has locally committed Nova library-copy/provenance records4b1c7794b2
+andef8e961ad8, plus this #558/#577 record. They enter the fresh record-delivery
+owner below; prior delivery02 is COMPLETE and must never be replayed.
+
+#565: owner copied Dropbox ROM directories through the USB gadget. Live ROM-side
+gamelists contain the reported old play history; no matching internal fallback
+or recovery list. Four account fields already match the surviving pre-October9
+local archive; reviewed preparation scripts preserve19 protected files and edit
+only two auto-sync flags. Original account/import author remains unknown.
+Read docs/qa-logs/2026-10-13-nova-library-copy.md and nova-readonly-followup.md.
+No device mutation or cloud call. A new synthetic ROM-only versus ROM+gamelist
+VM comparison joins the existing future-payload/retained-upgrade gates in #565.
+
+#558: owner reports another restart after normal shutdown, unplugging external
+power during shutdown. Read-only records show power-off requests at11:01:10 and
+11:17:01EDT; first followed by Linux boot11seconds later. No timestamp-to-owner
+mapping yet, no new Linux-load error or repeated loop established. Empty pstore,
+absent named boot reasons; cause unknown. USB charging at later read is not
+incident evidence. Three reads0/exited, no staging/writes/reproduction. Packet:
+docs/qa-logs/2026-10-13-nova-shutdown/. Optional approximate incident-time answer
+may arrive. Normal shutdown is confirmed; don't ask that again.
+
+#577 is new M7.P5 Wi-Fi scan UI work: stable scrolling picker/list/footer,
+in-list searching on initial scan and refresh, retained prior results, distinct
+empty/failure, safe asynchronous lifetime and focus. D-UI-127 and the menu map
+mark planned behavior; no implementation or frame proof yet. Live milestone
+places it with #571 setup-interface work. #570 actual trim compilation/qualification
+remains the next primary work; these new log/intake tasks don't reorder it.
+All prior diagnostic runtime owners remain COMPLETE/RETIRED; no test/build active.
 
 ## Current focus and measured results
 
@@ -108,7 +140,7 @@ diagnostic candidates; the new measured ES opportunity is the next narrow lead.
 
 ## Next steps, in order
 
-1. Consume current record delivery below if necessary; never replay old owners.
+1. Consume the fresh afternoon record delivery below if necessary; never replay old owners.
 2. Qualify the minimal ES cloud-handoff trim as actual source/binary: isolated
    ES branch fromc8dc72cf9e, syntax/package checks, source-bound normal sign-in,
    phone/native input, cancel/error/return/lifecycle flows and canonical frame
@@ -125,7 +157,7 @@ diagnostic candidates; the new measured ES opportunity is the next narrow lead.
 4. #566 dedicated provider-supported ScreenScraper identity; no third-party
    credential reuse rights inferred. #567 conditional offline-RA notice on
    game-list refresh; #571 compact phone status without navigation/disconnect
-   confusion. Each UI change needs canonical flow and same-source EN/FR frames.
+   confusion; #577 stable Wi-Fi picker and in-list scanning. Each UI change needs canonical flow and same-source EN/FR frames.
 5. #574 RVZ frontend achievement hashing/recognition; #575 standalone selected
    emulator save-on-exit/manager capability. Current selected Nova cores aren't
    known after read timeout; do not guess. #568 finalizing copy stays future.
@@ -162,19 +194,17 @@ Keep durable compact logs/source/receipts; remove completed disposable disks.
 
 ## Record delivery
 
-Delivery01 refused before push for a missing issue citation in an unpublished
-formatting commit; all original channels1 and actual host exits are consumed.
-The message was amended with identical file tree and verified remote unchanged.
-The serial evidence is now byte-verified gzip (38 state-packet files); no test
-result changed. Current fresh delivery owner is
-/workspace/tmp/pix-m7-investigation-20261013/delivery02. It requires committed
-clean feature/main, ff-only next integration, guarded push and exact-head hosted
-record/wordlist success. Inspect result.json, launcher-result, tool-wrapper.rc,
-watcher build.rc, actual host PID exits and origin HEAD before saying delivered.
-Do not replay any completed owner or start a duplicate publisher. No external
-code-audit transfer belongs to this delivery. Old delivery03 at1a37 is complete.
-The current record includes fork-only tool registration in the hook, canonical
-fork-workflow and instruction-files index; rules/register/index/ceremony gates
-must pass before the push. No package.mk edit occurred.
+Earlier morning delivery02 at /workspace/tmp/pix-m7-investigation-20261013/delivery02
+is COMPLETE: published e398cbb997, both exact-head checks successful, all original
+channels0/exited, consumption.json verified. Do not replay it.
 
-Previous checkpoint: archived/saved-session-state-next-20261013T082624Z.md
+Fresh afternoon owner: /workspace/tmp/pix-m7-investigation-20261013/delivery03-afternoon.
+This record is prepared before launch. Inspect result.json, launcher-result.json,
+tool-wrapper.rc, watcher build.rc/status, actual host owner/launcher/build/command/
+watcher PID exits and exact origin HEAD before saying delivered. It uses the
+existing watch-build-submit/watch-job framework and requires guarded ff-only
+next push plus exact-head record/wordlist CI. Submission is not completion;
+actively supervise because no off-session notification is configured. No external
+audit transfer belongs to this docs-only delivery. No package pin changed.
+
+Previous checkpoint: archived/saved-session-state-next-20261013T161000Z.md
