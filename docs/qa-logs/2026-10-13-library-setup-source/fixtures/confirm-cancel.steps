@@ -1,0 +1,12 @@
+# UNRUN. Begin on GAME SETTINGS, UPDATE GAMELISTS focused; review that preframe.
+# Run separately with each notice predicate/locale/panel fixture.
+shot update-gamelists-entry
+key x
+wait-for-change 12 0
+settle
+shot update-gamelists-confirmation
+# Confirm the guest es_input.cfg first: standard ES accept=x, cancel=z.
+key z
+wait-for-change 12 0
+settle
+shot update-gamelists-cancelled

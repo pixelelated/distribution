@@ -1,0 +1,75 @@
+{
+  "checked_at_utc": "2026-10-13T21:23:37.969440+00:00",
+  "scope": "static source inspection only; no fixture import or execution",
+  "source_commit": "6b1dd68246c89f4c1c0fa17c3d8941ffd3b3d420",
+  "parent": "44b0522ae39a664209af35f8503b933bee09a1db",
+  "accepted_base": "c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78",
+  "source_worktree_clean": true,
+  "diff_check": "PASS",
+  "changed_files": {
+    "es-app/src/guis/GuiMenu.cpp": {
+      "git_blob": "96c66f3384a6c044b31b4d0f65acfd2d1685e464",
+      "sha256": "00a6902f4c9001afdc4c603fc725ec5d82db0820c891762f9f4211eefad8e852",
+      "bytes": 510064
+    },
+    "es-core/src/Settings.cpp": {
+      "git_blob": "425358c056837cc6127b67f61939f07924543773",
+      "sha256": "cc261e2af8b8e9834869ff3e562d26716dd94704032be21bd5b3e70f935c433e",
+      "bytes": 24353
+    }
+  },
+  "fixture_parse_checks": [
+    {
+      "path": "fixtures/cloud-window-lifetime.py",
+      "check": "Python AST only; embedded C++ not compiled",
+      "result": "PASS"
+    },
+    {
+      "path": "fixtures/collections.json",
+      "check": "JSON structure and source identity",
+      "result": "PASS"
+    },
+    {
+      "path": "fixtures/hash-library-responses.json",
+      "check": "JSON structure and source identity",
+      "result": "PASS"
+    },
+    {
+      "path": "fixtures/history.gamelist.xml",
+      "check": "XML structure and fixture path",
+      "result": "PASS"
+    },
+    {
+      "path": "fixtures/indexed.gamelist.xml",
+      "check": "XML structure and fixture path",
+      "result": "PASS"
+    },
+    {
+      "path": "fixtures/lookup.gamelist.xml",
+      "check": "XML structure and fixture path",
+      "result": "PASS"
+    },
+    {
+      "path": "fixtures/prepare-collection-inputs.py",
+      "check": "Python AST only; embedded C++ not compiled",
+      "result": "PASS"
+    },
+    {
+      "path": "fixtures/probe-collections.py",
+      "check": "Python AST only; embedded C++ not compiled",
+      "result": "PASS"
+    }
+  ],
+  "compiler": "UNRUN",
+  "runtime_fixtures": "UNRUN",
+  "frames": "MISSING",
+  "translation_check": "PASS: both exact msgids match source; nonempty French proposals; no catalog compiler",
+  "added_cpp_ascii": "PASS: includes comments adjacent to translation calls",
+  "settings_scope": "PASS: exactly one default literal replaced; load/save/parser unchanged",
+  "oauth_scope": "PASS static: both callers route through the checked helper; page-transition inputs copied; ApiSystem.cpp unchanged",
+  "prepared_controls": {
+    "collection_cases": 9,
+    "oauth_lifetime_cases": 18,
+    "all_status": "UNRUN"
+  }
+}

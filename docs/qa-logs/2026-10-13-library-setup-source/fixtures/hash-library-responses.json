@@ -1,0 +1,22 @@
+{
+  "status": "UNRUN; synthetic lookup input, not a ROM hash or real account",
+  "source_commit": "6b1dd68246c89f4c1c0fa17c3d8941ffd3b3d420",
+  "requests": [
+    {
+      "path": "/dorequest.php?r=hashlibrary",
+      "status": 200,
+      "body": {"MD5List": {"11111111111111111111111111111111": 4242001}}
+    },
+    {
+      "path": "/dorequest.php?r=officialgameslist",
+      "status": 200,
+      "body": {"Response": {"4242001": "Library setup fixture"}}
+    }
+  ],
+  "requirements": [
+    "Coordinator-owned local TLS interception for retroachievements.org with a guest-only trusted CA, no public forwarding, or a separately identified test adapter; no worker runtime allocated.",
+    "Refuse all unexpected requests and retain request category/count only.",
+    "A successful lookup is not proof of ROM hashing, authenticated preparation, or real provider behavior.",
+    "Do not send the synthetic hash, game ID, or account to a public provider."
+  ]
+}

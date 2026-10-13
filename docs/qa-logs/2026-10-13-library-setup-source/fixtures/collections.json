@@ -1,0 +1,17 @@
+{
+  "status": "UNRUN",
+  "source_commit": "6b1dd68246c89f4c1c0fa17c3d8941ffd3b3d420",
+  "compiled_default": "favorites,recent",
+  "rom_name": "pixelelated-library-setup.gb",
+  "cases": [
+    {"id": "default-rom-only", "selection": null, "history": false, "favorites_status": 200, "recent_status": 200},
+    {"id": "default-history", "selection": null, "history": true, "favorites_status": 200, "recent_status": 200},
+    {"id": "retained-favorites", "selection": "favorites", "history": true, "favorites_status": 200, "recent_status": 404},
+    {"id": "retained-empty", "selection": "", "history": true, "favorites_status": 404, "recent_status": 404},
+    {"id": "retained-recent", "selection": "recent", "history": true, "favorites_status": 404, "recent_status": 200},
+    {"id": "retained-canonical", "selection": "favorites,recent", "history": true, "favorites_status": 200, "recent_status": 200},
+    {"id": "retained-spaced", "selection": "favorites, recent", "history": true, "favorites_status": 200, "recent_status": 404},
+    {"id": "retained-reordered", "selection": "recent,favorites", "history": true, "favorites_status": 200, "recent_status": 200},
+    {"id": "retained-all", "selection": "all", "history": true, "favorites_status": 404, "recent_status": 404}
+  ]
+}
