@@ -1,0 +1,28 @@
+{
+  "evidence": "STATIC ONLY",
+  "python": "3.14.4",
+  "source_sha256": "95c626f8df07faef522683a857e48e31f85a58c6f738bcde24707574dc24d293",
+  "python_ast": "PASS",
+  "non_page_python_ast_equal": true,
+  "english_visible_copy_equal": true,
+  "prior_locale_and_status_messages_equal": true,
+  "js_equal_except_message_literals_warning_and_toggle_text": true,
+  "masked_branch_has_no_character_interpolation": true,
+  "style_delta": "French key-row flex-basis only",
+  "javascript_syntax": [
+    {
+      "language": "en",
+      "command": "node --check < literal script",
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "language": "fr",
+      "command": "node --check < literal script",
+      "exit": 0,
+      "stderr": ""
+    }
+  ],
+  "locale_cases_json": "parsed; not executed",
+  "browser_regressions_frames_vm": "UNRUN"
+}

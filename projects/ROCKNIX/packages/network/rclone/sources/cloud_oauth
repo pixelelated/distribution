@@ -117,6 +117,33 @@ def phone_page(name, pin):
             ('">Keyboard for ', '">Clavier pour '),
             ('Checking connection', 'Vérification de la connexion'),
             ('id=status-hide>Hide status', 'id=status-hide>Masquer l’état'),
+            ('placeholder="Type here"', 'placeholder="Saisissez ici"'),
+            ('aria-label="Text to type on your handheld"',
+             'aria-label="Texte à saisir sur votre console"'),
+            ('aria-label="Backspace">Back', 'aria-label="Effacer un caractère">⌫'),
+            ('data-key=tab>Tab', 'data-key=tab aria-label="Tabulation">Tab'),
+            ('aria-label="Enter">Enter', 'aria-label="Entrée">↵'),
+            ('id=clear>Clear', 'id=clear>Vider'),
+            ('id=show>Show', 'id=show>Voir'),
+            ('aria-label="Left arrow"', 'aria-label="Flèche gauche"'),
+            ('aria-label="Up arrow"', 'aria-label="Flèche haut"'),
+            ('aria-label="Down arrow"', 'aria-label="Flèche bas"'),
+            ('aria-label="Right arrow"', 'aria-label="Flèche droite"'),
+            ('data-key=f2>Page up',
+             'data-key=f2 aria-label="Faire défiler vers le haut">Monter'),
+            ('data-key=f3>Page down',
+             'data-key=f3 aria-label="Faire défiler vers le bas">Descendre'),
+            ('<h2>Pointer</h2>', '<h2>Pointeur</h2>'),
+            ('drag to move &middot; tap to click',
+             'glissez pour déplacer · touchez pour cliquer'),
+            ('The sign-in page is on your handheld&rsquo;s screen, not here.\n'
+             'This types for it, so you can more easily retrieve and type your login\n'
+             'info. What you type crosses your network unencrypted, so use this on a\n'
+             'network you trust.',
+             'La page de connexion est sur l’écran de votre console, pas ici.\n'
+             'Ce clavier vous permet d’y saisir vos identifiants plus facilement.\n'
+             'Le texte saisi traverse votre réseau sans chiffrement. Utilisez\n'
+             'un réseau de confiance.'),
             ("id=leave-ask>Close page", "id=leave-ask>Fermer la page"),
             ("<span>Close the sign-in page on your handheld?</span>",
              "<span>Fermer la page de connexion sur votre console ?</span>"),
@@ -674,6 +701,8 @@ button.minor{background:#333;color:#ddd;font-weight:500}
    edge of an iPhone's screen (fork #330). */
 .keys{display:flex;gap:8px;margin-top:10px}
 .keys button{flex:1 1 0;min-width:0;width:auto;padding:12px 6px;margin-top:0}
+/* Let the short French key symbols leave room for Vider and Voir/Cacher. */
+html[lang=fr] .keys button{flex-basis:auto}
 /* The trackpad. Tall enough to drag across a four-inch screen's worth of
    page without lifting a finger, and touch-action:none so the browser does
    not steal the gesture to scroll its own page. */
@@ -995,23 +1024,23 @@ REMOTE_PAGE = """<!doctype html><html lang=en><meta name=viewport content="width
 </div>
 <div id=status-live class=status-live role=status aria-live=polite aria-atomic=true></div>
 
-<input id=kb type=password placeholder="Type here" autocapitalize=off
+<input id=kb type=password placeholder="Type here" aria-label="Text to type on your handheld" autocapitalize=off
        autocorrect=off spellcheck=false autofocus>
 <div id=warn class=err hidden></div>
 <div class=keys>
-<button type=button class=minor data-key=backspace>Back</button>
+<button type=button class=minor data-key=backspace aria-label="Backspace">Back</button>
 <button type=button class=minor data-key=tab>Tab</button>
-<button type=button class=minor data-key=enter>Enter</button>
+<button type=button class=minor data-key=enter aria-label="Enter">Enter</button>
 <button type=button class=minor id=clear>Clear</button>
 <button type=button class=minor id=show>Show</button>
 </div>
 
 
 <div class=keys>
-<button type=button class=minor data-key=left>&larr;</button>
-<button type=button class=minor data-key=up>&uarr;</button>
-<button type=button class=minor data-key=down>&darr;</button>
-<button type=button class=minor data-key=right>&rarr;</button>
+<button type=button class=minor data-key=left aria-label="Left arrow">&larr;</button>
+<button type=button class=minor data-key=up aria-label="Up arrow">&uarr;</button>
+<button type=button class=minor data-key=down aria-label="Down arrow">&darr;</button>
+<button type=button class=minor data-key=right aria-label="Right arrow">&rarr;</button>
 </div>
 <div class=keys>
 <button type=button class=minor data-key=f2>Page up</button>
@@ -1048,7 +1077,12 @@ var phoneMessages = {
     ended: "The sign-in page is closed. Start sign-in again on your handheld if you still need it.",
     retrying: "Checking the connection to your handheld again.",
     unreachable: "Your phone can't reach your handheld. Both need to be on the same Wi-Fi, and a VPN on your phone can get in the way. If sign-in has ended, you can close this phone page.",
-    broken: "This page stopped working. Reload it; if it happens again, report it to the pixelelated project: "
+    broken: "This page stopped working. Reload it; if it happens again, report it to the pixelelated project: ",
+    show: "Show", hide: "Hide",
+    droppedMaskedOne: "The handheld can't type one of the characters you entered, so it was left out.",
+    droppedMaskedMany: "The handheld can't type {count} of the characters you entered, so they were left out.",
+    droppedVisibleOne: "The handheld can't type {characters}, so it was left out.",
+    droppedVisibleMany: "The handheld can't type {characters}, so they were left out."
   },
   fr: {
     connected: "Connecté", disconnected: "Déconnecté", warning: "Attention",
@@ -1058,7 +1092,12 @@ var phoneMessages = {
     ended: "La page de connexion est fermée. Relancez la connexion sur votre console si nécessaire.",
     retrying: "Nouvelle vérification de la connexion à votre console.",
     unreachable: "Votre téléphone ne peut pas joindre votre console. Les deux doivent être sur le même réseau Wi-Fi. Un VPN sur votre téléphone peut bloquer la connexion. Si la connexion au service est terminée, vous pouvez fermer cette page sur votre téléphone.",
-    broken: "Cette page ne fonctionne plus. Rechargez-la ; si le problème persiste, signalez-le au projet pixelelated : "
+    broken: "Cette page ne fonctionne plus. Rechargez-la ; si le problème persiste, signalez-le au projet pixelelated : ",
+    show: "Voir", hide: "Cacher",
+    droppedMaskedOne: "La console ne peut pas saisir un des caractères entrés. Il a été ignoré.",
+    droppedMaskedMany: "La console ne peut pas saisir {count} des caractères entrés. Ils ont été ignorés.",
+    droppedVisibleOne: "La console ne peut pas saisir {characters}. Ce caractère a été ignoré.",
+    droppedVisibleMany: "La console ne peut pas saisir {characters}. Ces caractères ont été ignorés."
   }
 }[phoneLanguage];
 var phoneScriptFailed = false;
@@ -1208,10 +1247,10 @@ window.onerror = function (message) {
     if (!dropped.length) { warn.hidden = true; return; }
     var many = dropped.length > 1;
     warn.textContent = box.type === "password"
-      ? "The handheld can't type " + (many ? dropped.length + " of the characters you entered"
-          : "one of the characters you entered") + ", so " + (many ? "they were" : "it was") + " left out."
-      : "The handheld can't type " + dropped.join(" ") + ", so "
-          + (many ? "they were" : "it was") + " left out.";
+      ? (many ? phoneMessages.droppedMaskedMany.replace("{count}", dropped.length)
+          : phoneMessages.droppedMaskedOne)
+      : (many ? phoneMessages.droppedVisibleMany : phoneMessages.droppedVisibleOne)
+          .replace("{characters}", dropped.join(" "));
     warn.hidden = false;
   }
   function typable() {
@@ -1244,7 +1283,7 @@ window.onerror = function (message) {
   show.addEventListener("click", function () {
     var hidden = box.type === "password";
     box.type = hidden ? "text" : "password";
-    show.textContent = hidden ? "Hide" : "Show";
+    show.textContent = hidden ? phoneMessages.hide : phoneMessages.show;
     warnSay();
   });
 

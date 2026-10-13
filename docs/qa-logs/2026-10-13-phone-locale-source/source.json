@@ -1,0 +1,15 @@
+{
+  "issue": 571,
+  "evidence": "SOURCE ONLY; all runtime UNRUN",
+  "source": "projects/ROCKNIX/packages/network/rclone/sources/cloud_oauth",
+  "base_commit": "a824edbd209d1971b2c814cf86528bae0add9c51",
+  "base_sha256": "a7a1107d7a1391d8cab3279743edfa2728850c2afdb89f753735b60fecd1d178",
+  "base_blob": "ed70e57fdd8d387cd27186506c0407f405cab4af",
+  "candidate_sha256": "95c626f8df07faef522683a857e48e31f85a58c6f738bcde24707574dc24d293",
+  "candidate_blob": "78c343771a0ad500ba894d58f728375f3911cdf1",
+  "local_parent": "6ab9f9057bca07d87a29a3b84da95798c549c789",
+  "coordinator_comparison_commit": "0d69fca540c7a75833e26054463145635c121b00",
+  "coordinator_product_equals_base": true,
+  "integration": "Cherry-pick only the new follow-up commit; never merge historical worker ancestry.",
+  "scope": "phone_page literal translations, French key-row CSS, REMOTE_PAGE accessible names and dynamic message copy only"
+}

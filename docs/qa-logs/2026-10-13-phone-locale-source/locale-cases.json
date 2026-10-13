@@ -1,0 +1,62 @@
+{
+  "runtime": "UNRUN",
+  "binding": "source.json candidate_sha256 must match the rendered and installed cloud_oauth",
+  "component_context": "Coordinator's existing offline deterministic phone fixture; synthetic PIN 1234, no broker import/provider requests; EN/FR x 320/768, same long synthetic service heading",
+  "cases": [
+    {
+      "id": "locale-selection",
+      "setup": "Extract the unchanged signin_language function for an isolated synthetic environment, never inherit an owner environment.",
+      "inputs": [
+        {"LANGUAGE": "fr_FR:en", "expected": "fr"},
+        {"LANGUAGE": "fr-CA", "expected": "fr"},
+        {"LANGUAGE": "FR", "expected": "fr"},
+        {"LC_ALL": "fr_FR.UTF-8", "expected": "fr"},
+        {"LANG": "fr_FR.UTF-8", "expected": "fr"},
+        {"LANGUAGE": "en:fr", "LANG": "fr_FR.UTF-8", "expected": "en"},
+        {"LANGUAGE": "de_DE", "expected": "en"},
+        {"expected": "en"}
+      ],
+      "expect": "Each input is the entire environment. Changing navigator.language alone cannot change the inherited handheld selection."
+    },
+    {
+      "id": "all-labels-and-fit",
+      "steps": ["Open each language/width context", "Record accessible names and initial masked frame", "Click Show/Voir then Hide/Cacher and record both rows", "Scroll to pointer/help and record frame"],
+      "expect": "FR placeholder, input name, buttons, directions, scrolling labels, pointer instruction and trust note match copy.md. EN visible text unchanged. No horizontal document overflow. All first-row button text ranges remain inside button content bounds without overlap or clipping at 320px, for both toggle states. Symbols are legible. Check again at 200% text size; report any wrapping."
+    },
+    {
+      "id": "masked-single",
+      "steps": ["Answer open a1", "Fill #kb with Aé", "Flush queued promises"],
+      "expect": "#kb=password with value A; one type=A POST; warning equals droppedMaskedOne in the selected language and contains neither é nor A."
+    },
+    {
+      "id": "masked-many-reveal-hide",
+      "steps": ["Start an independent fresh context with open a1", "Fill #kb with Aéà", "Flush", "Click Show/Voir", "Click Hide/Cacher"],
+      "expect": "Exactly one type=A POST throughout. Masked warning has count 2, no é or à. Revealed warning names é à via textContent. Rehide removes both from warning text; box.type=password and button Show/Voir. No added requests or delivery from either toggle."
+    },
+    {
+      "id": "reveal-single-and-clear",
+      "steps": ["Fresh context open a1", "Click Show/Voir", "Fill #kb with é", "Click Clear/Vider"],
+      "expect": "Visible singular warning equals droppedVisibleOne; no empty type POST; Clear hides warning, clears local field and focuses #kb, without issuing backspaces (existing local-only behavior)."
+    },
+    {
+      "id": "ascii-and-markup",
+      "steps": ["Fresh context open a1", "Fill #kb with <b>&$", "Flush", "Fill #kb with <b>&$éà", "Click Show/Voir"],
+      "expect": "ASCII remains unchanged and is sent once as encoded text. Only éà is dropped, warning contains literal é à and no element children. No script or markup injection; dropped-message assignment remains textContent."
+    },
+    {
+      "id": "unicode-count-boundary",
+      "steps": ["Fresh masked context open a1", "Fill #kb with A😀", "Record warning", "Fresh context; fill Aé (e plus U+0301)"],
+      "expect": "Existing UTF-16 split semantics retained: emoji contributes count 2, masked warning never exposes emoji/surrogates; combining accent contributes one dropped unit, Ae retained. This candidate does not promise grapheme counts. Record revealed emoji behavior without claiming it was fixed."
+    },
+    {
+      "id": "directions-scroll-and-queue",
+      "steps": ["Fresh open context", "Click all four direction buttons and both scroll buttons by translated accessible names", "Exercise held movement, touch tap, Tab ordering using existing fixture"],
+      "expect": "POST names/order unchanged: left, up, down, right, f2, f3. Directions are named arrow keys, not advertised as mouse movement. Held move then click then key sequence remains ordered. Tab retains translated accessible name in FR."
+    },
+    {
+      "id": "status-and-close-regression",
+      "steps": ["Run coordinator's next-source 4-case component/regression matrix under its own allocation", "Run installed VM companion/native-window proof with synthetic pages"],
+      "expect": "Preserve waiting/loading/open, navigation reset, invalid probes, failure/recovery, script error, Close/Keep/Close, masking and pointer behavior. Record new source bytes and actual results; earlier 32 reviewed frames are earlier-source evidence only."
+    }
+  ]
+}
