@@ -59,6 +59,7 @@ SERVICE = {"client_id", "client_secret"}
 QA_NAME = re.compile(r"^(?:qa[-_]|\.qa[-_]|pixelelated-qa|rocknix-qa|test-fixture)", re.I)
 SCOPE = ["selected system, ES, RetroArch, standalone account files and recovery siblings",
          "rclone configuration and active selection; cloud device identity and activity cache",
+         "exact zero-work startup scrub marker with first-boot proc epoch bounds",
          "gamelist.xml under selected ES/config/ROM roots; playcount and lastplayed only",
          "known QA name prefixes, proxy state, token files and RetroArch history playlists",
          "ES ELF known compiled ScreenScraper/RetroAchievements URL-pair patterns",
@@ -67,10 +68,12 @@ LIMITATIONS = ["not a whole-image or arbitrary-secret scan",
                "no generic compiled GamesDB key detection or service identity provenance",
                "no custom ES system paths, environment overrides, external media or arbitrary archives",
                "no interpretation of operation success, bytes transferred, actor or metadata origin",
+               "scrub epoch bounds do not establish origin; clock steps can cause refusal",
                "retained-upgrade permits runtime state; it does not prove upgrade preservation"]
 LOCALE_ALIAS = "/usr/config/emulationstation/locale"
 LOCALE_SHARED = "/usr/share/locale"
 LOCALE_RUNTIME = "/storage/.config/locale"
+SCRUB_MARKER = "/storage/.cache/cloud_sync/log-scrubbed"
 
 
 class Invalid(Exception):
@@ -113,7 +116,7 @@ def xml(data, tag):
     return root
 
 
-def pairs(data, melonds=False):
+def pairs(data, melonds=False, comment_only=False):
     """Strict non-executing key/value + INI subset used by selected configs."""
     result, seen, section = [], {}, ""
     source = text(data)
@@ -150,7 +153,10 @@ def pairs(data, melonds=False):
             require(len(value) >= 2 and value.endswith(quote))
             value = value[1:-1]
         result.append((section, key, value))
-    require(bool(result))
+    # Upstream /etc/retroarch.cfg may contain only # comments. Empty/blank files,
+    # INI sections and semicolon-only content are not that supported format.
+    require(bool(result) or comment_only and all(
+        not line.strip() or line.lstrip().startswith("#") for line in source.splitlines()))
     return result
 
 
@@ -232,6 +238,36 @@ class Local:
         require((before.st_ino, before.st_size, before.st_mtime_ns, before.st_ctime_ns) ==
                 (after.st_ino, after.st_size, after.st_mtime_ns, after.st_ctime_ns))
         return data
+
+    def boot_window(self):
+        # These two proc files have st_size=0 while containing kernel data, so
+        # ordinary immutable-file size equality is inapplicable. Read only these
+        # fixed paths with the same root containment, type and permission guards.
+        # Offline roots must provide regular snapshot files; never borrow host
+        # boot data to bless a different root's startup marker.
+        def proc_read(path):
+            info = self.info(path)
+            require(info and info[0] == "file")
+            fd = os.open(self.resolve(path), os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK)
+            with os.fdopen(fd, "rb") as stream:
+                meta = os.fstat(stream.fileno())
+                require(stat.S_ISREG(meta.st_mode) and meta.st_mode & 0o444)
+                data = stream.read(65537)
+            require(len(data) <= 65536)
+            return text(data)
+
+        def boot_epoch():
+            lines = [line for line in proc_read("/proc/stat").splitlines() if line.startswith("btime")]
+            require(len(lines) == 1 and re.fullmatch(r"btime [1-9][0-9]{0,18}", lines[0]))
+            return int(lines[0].split()[1])
+
+        start = boot_epoch()
+        uptime = re.fullmatch(r"([0-9]{1,12})\.[0-9]{2} [0-9]{1,16}\.[0-9]{2}\n",
+                              proc_read("/proc/uptime"))
+        require(uptime is not None and boot_epoch() == start)
+        # btime and the writer's date +%s are whole seconds; uptime is hundredths.
+        # Round the upper endpoint up one second, without a wider grace period.
+        return start, start + int(uptime[1]) + 1
 
 
 class Squash:
@@ -338,7 +374,10 @@ class Check:
                 self.row(label, kind, present=False, error=required)
                 return
             require(info[0] == "file")
-            data = self.fs.read(path, 256 * 1024**2 if kind == "compiled-service" else LIMIT)
+            if kind == "scrub-marker":
+                require(self.fs.link(path) is None)  # the writer atomically installs a regular file
+            limit = 256 * 1024**2 if kind == "compiled-service" else 4096 if kind == "scrub-marker" else LIMIT
+            data = self.fs.read(path, limit)
             counts = self.parse(kind, data)
             for category, count in counts.items():
                 self.row(label, category, count)
@@ -361,6 +400,32 @@ class Check:
         if kind == "stamp":
             require(re.fullmatch(r"\d+\s+-?\d+(?:\s+[^\r\n]+)?\s*", text(data)) is not None)
             return {"cloud-activity": 1}
+        if kind == "scrub-marker":
+            if self.mode == "clean-image":
+                return {"preseeded-log-scrub": 1}  # any seed predates the first boot
+            number = rb"(0|[1-9][0-9]{0,18})"
+            family = rb"=([1-9][0-9]{0,18}) files=" + number + rb" lines=" + number + rb"\n"
+            if self.mode == "retained-upgrade":
+                # Either family may complete alone. record() preserves existing
+                # lines before appending, so a retry can put ES before cloud.
+                # Accept these historical states without calling them clean boot.
+                records, seen = data.splitlines(keepends=True), set()
+                require(1 <= len(records) <= 2)
+                for line in records:
+                    item = re.fullmatch(rb"(scrubbed|es_log_scrubbed)" + family, line)
+                    require(item is not None and item[1] not in seen)
+                    seen.add(item[1])
+                return {"retained-log-scrub": 1}
+            marker = re.fullmatch(rb"scrubbed" + family + rb"es_log_scrubbed" + family, data)
+            require(marker is not None)
+            first, files1, lines1, second, files2, lines2 = map(int, marker.groups())
+            work = int(bool(files1 or lines1)) + int(bool(files2 or lines2))
+            if work:
+                return {"cloud-log-scrub-activity": work}
+            start, end = self.fs.boot_window()
+            if not start <= first <= second <= end:
+                return {"log-scrub-outside-boot": 1}
+            return {"startup-log-scrub": 0}
         if kind == "gamelist":
             root = xml(data, "gameList")
             counts = {"playcount": 0, "lastplayed": 0}
@@ -418,7 +483,7 @@ class Check:
                 require(not any(s in val for s in ("`", "$(", "${", ";")))
                 items.append(("", key.removeprefix("default_"), val))
         else:
-            items = pairs(data, melonds=kind == "melonds")
+            items = pairs(data, melonds=kind == "melonds", comment_only=kind == "retroarch-default")
         counts = {"player-account": 0, "developer-service-identity": 0}
         if kind == "cloud":
             counts["configured-remote"] = 0
@@ -528,7 +593,7 @@ class Check:
             for folder in sorted({name.split("/")[0] for name in (*CORE, *OPTIONAL) if "/" in name} |
                                  {"raofflineproxy"}):
                 self.walk(base + "/" + folder, base + "/" + folder + "/**", config_entry)
-        self.file("/etc/retroarch.cfg", "retroarch", required=True)
+        self.file("/etc/retroarch.cfg", "retroarch-default", required=True)
         self.file("/usr/bin/emulationstation", "compiled-service", required=True)
         def history(path, name, typ):
             if typ == "file" and name == "gamelist.xml":
@@ -538,7 +603,9 @@ class Check:
         self.walk("/storage/roms", "/storage/roms/**", history,
                   required=self.mode != "clean-image")
         def activity(path, name, typ):
-            if typ == "file" and name.startswith("last-"):
+            if path == SCRUB_MARKER:
+                self.file(path, "scrub-marker")
+            elif typ == "file" and name.startswith("last-"):
                 self.file(path, "stamp", label="/storage/.cache/cloud_sync/last-*")
             elif typ == "file":
                 self.row("/storage/.cache/cloud_sync/**", "cloud-state-residue", 1)

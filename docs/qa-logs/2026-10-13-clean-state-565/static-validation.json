@@ -1,21 +1,21 @@
 {
   "schema": 1,
-  "utc": "2026-10-13T07:21:31.260557+00:00",
+  "utc": "2026-10-13T08:02:30.207185+00:00",
   "starting_commit": "1a37cde40ab0893c9c21c0a383c59ac0c1403b06",
-  "corrects_candidate": "a7a36c874930fb16a15197ef112e90f31820b225",
-  "validation": "source inventory and syntax only",
+  "corrects_candidate": "63e05cd728acd1d2a76dffc1c4b1d7fd75fa3fab",
+  "validation": "current source inventory and syntax only; prior coordinator runtime recorded separately",
   "checks": [
     {
       "kind": "python-ast-only",
       "path": "tools/pixelelated-state-check",
       "status": "pass",
-      "source_sha256": "f1e0640fa4ebd8055e8bf0092f26ada91bf5c12c40d9d30fc115590340cd90a1"
+      "source_sha256": "47c7cfa841eb1304f5dd4e0621a9608093ee32cc5dbcffde22a2dfc73fe5969c"
     },
     {
       "kind": "python-ast-only",
       "path": "tools/pixelelated-state-check-test",
       "status": "pass",
-      "source_sha256": "4abecf282968570f54e83e0f9dc16c4c7b4255a4c963d4cd3cb1ef021eb9dfa9"
+      "source_sha256": "a1bbe980d507e71199eb360e8a7e5a56188a8b242e9f63603d1adbe43595a6e0"
     },
     {
       "kind": "python-ast-only",
@@ -46,6 +46,11 @@
       "status": "pass"
     },
     {
+      "kind": "comment-only-kind-scope-AST",
+      "path": "tools/pixelelated-state-check",
+      "status": "pass"
+    },
+    {
       "kind": "git-diff-HEAD-whitespace",
       "status": "pass"
     }
@@ -53,6 +58,20 @@
   "named_root_control_sources": [
     "clean-first-boot",
     "clean-image",
+    "retroarch-comment-only-default",
+    "retroarch-comment-only-image",
+    "retroarch-comment-default-include",
+    "retroarch-comment-default-reference",
+    "retroarch-comment-default-nul",
+    "retroarch-comment-default-malformed-assignment",
+    "retroarch-comment-default-active-account",
+    "retroarch-empty-default",
+    "retroarch-blank-default",
+    "retroarch-section-only-default",
+    "retroarch-semicolon-only-default",
+    "system-comment-only-still-refuses",
+    "cloud-comment-only-still-refuses",
+    "runtime-retroarch-comment-only-still-refuses",
     "shipped-locale-dangling-clean-image",
     "shipped-locale-dangling-first-boot",
     "shipped-locale-materialized",
@@ -81,6 +100,37 @@
     "completed-empty-stamp",
     "retained-stamp",
     "malformed-stamp",
+    "scrub-zero-work-current-boot",
+    "scrub-zero-work-boot-boundary",
+    "scrub-zero-work-stale",
+    "scrub-zero-work-future",
+    "scrub-zero-work-reversed-epochs",
+    "scrub-cloud-files-present",
+    "scrub-es-files-present",
+    "scrub-changed-lines-present",
+    "scrub-missing-family",
+    "scrub-duplicate-family",
+    "scrub-unknown-trailing-data",
+    "scrub-malformed-count",
+    "scrub-malformed-epoch",
+    "scrub-no-boot-snapshot",
+    "scrub-malformed-boot-snapshot",
+    "scrub-duplicate-boot-epoch",
+    "scrub-unreadable-uptime",
+    "scrub-malformed-uptime",
+    "scrub-marker-symlink",
+    "scrub-other-filename-still-residue",
+    "scrub-clean-image-preseed",
+    "scrub-clean-image-empty-preseed",
+    "scrub-retained-history",
+    "scrub-retained-legacy-family",
+    "scrub-retained-es-only",
+    "scrub-retained-es-first-retry",
+    "scrub-retained-duplicate-family",
+    "scrub-retained-unknown-family",
+    "scrub-first-boot-es-only-refuses",
+    "scrub-first-boot-es-first-refuses",
+    "scrub-retained-malformed",
     "imported-history",
     "retained-history",
     "es-fallback-history",
@@ -161,10 +211,11 @@
     "mkfs.ext4": true
   },
   "limits": [
-    "No behavior/fixture PASS claimed",
+    "No current-revision behavior/fixture PASS claimed",
     "No retained-storage OS upgrade performed",
-    "No accepted final-payload or first-boot result yet",
-    "Readiness, locale-chain, account-parser and literal-reader corrections require allocated runtime verification"
+    "No passing accepted final-payload or first-boot result for this revision",
+    "New comment-only, startup scrub and retained-retry controls require coordinator allocation",
+    "Proc boot-window reader has not been exercised by this lane"
   ],
   "locale_source_references": [
     {
@@ -201,6 +252,62 @@
     "altered locale second hop",
     "locale target root escape",
     "contaminated system.cfg.bak[1] alongside clean system.cfg.bak1",
-    "release preparation refuses the bracketed-file contamination"
-  ]
+    "release preparation refuses the bracketed-file contamination",
+    "comment-only /etc/retroarch.cfg in clean/contaminated SYSTEM",
+    "zero-work log-scrubbed preseed inside SYSTEM refuses"
+  ],
+  "earlier_review_candidate": "a7a36c874930fb16a15197ef112e90f31820b225",
+  "startup_source_references": [
+    {
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_log_scrub",
+      "source_sha256": "5c156d8d43b39172fa71b80a3e47156f46bca0965dcae890ec70f02596f8f126"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/rclone/autostart/102-cloud-saves",
+      "source_sha256": "6020c468553e3ab1b4171c413c285333c2d0d461961a51fe7d6ba3910e14da84"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/emulators/libretro/retroarch/package.mk",
+      "source_sha256": "9ca9a416be456a84ad29b11d9f91487f48759aeb2df27833aebf703f9d5c1c09"
+    }
+  ],
+  "prior_coordinator_runtime": {
+    "source_commit": "63e05cd728acd1d2a76dffc1c4b1d7fd75fa3fab",
+    "controls_evidence": "/workspace/tmp/pix565-clean-state-20261013/controls-owner/controls-result.json",
+    "control_count": 68,
+    "controls_status": "pass",
+    "guest_exit": 0,
+    "stderr_empty": true,
+    "first_boot_evidence": "/workspace/tmp/pix565-clean-state-20261013/first-boot-owner/first-boot.serial",
+    "first_boot_status": "error",
+    "first_boot_exit_reported": 2,
+    "readiness_clear": true,
+    "refusal_categories": [
+      "input-invalid at /etc/retroarch.cfg",
+      "cloud-state-residue"
+    ],
+    "classification_evidence": [
+      "/workspace/tmp/pix565-clean-state-20261013/classification.serial",
+      "/workspace/tmp/pix565-clean-state-20261013/classification02.serial"
+    ],
+    "does_not_qualify_this_revision": true
+  },
+  "boot_epoch_policy": {
+    "inputs": [
+      "/proc/stat",
+      "/proc/uptime"
+    ],
+    "input_root": "inspected root only",
+    "upper_rounding_seconds": 1,
+    "requires_stable_btime_reads": true,
+    "timestamps_reported": false,
+    "origin_proven": false,
+    "clock_discontinuity_may_refuse": true
+  },
+  "additional_root_control_sources": [
+    "absent-root",
+    "invalid-mode",
+    "readiness-requires-guest-root"
+  ],
+  "expected_root_control_count": 113
 }

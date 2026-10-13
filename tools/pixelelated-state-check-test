@@ -28,6 +28,7 @@ import tempfile
 HERE = Path(__file__).resolve().parent
 GATE = HERE / "pixelelated-state-check"
 CANARY = "synthetic-" + "player-565-do-not-display"
+SCRUB_EPOCH = 2000000000  # synthetic clock, never the host/guest boot clock
 CLOUD = ('SAVESPATH="/storage/roms"\nSAVES_REMOTE="/pixelelated/Saves"\n'
          'SETTINGS_REMOTE="/pixelelated/Backups"\nCONTENT_REMOTE="/pixelelated/Content"\n'
          'RCLONEOPTS="--progress --filter-from /storage/.config/cloud_sync-rules.txt"\n')
@@ -79,6 +80,21 @@ def locale_target_escape(root):
     (root / "storage/.config/locale").symlink_to("/../outside")
 
 
+def scrub_marker(root, first=SCRUB_EPOCH + 10, second=SCRUB_EPOCH + 11,
+                 files1=0, lines1=0, files2=0, lines2=0, boot=True):
+    if boot:
+        put(root, "proc/stat", "cpu 0 0 0 0\nbtime " + str(SCRUB_EPOCH) + "\nprocesses 1\n")
+        put(root, "proc/uptime", "100.00 175.00\n")
+    return put(root, "storage/.cache/cloud_sync/log-scrubbed",
+               f"scrubbed={first} files={files1} lines={lines1}\n"
+               f"es_log_scrubbed={second} files={files2} lines={lines2}\n")
+
+
+def alter_scrub(root, rewrite):
+    path = scrub_marker(root)
+    path.write_text(rewrite(path.read_text()))
+
+
 def snapshot(root):
     # Compare synthetic fixture bytes directly in memory, never hash credentials.
     result = {}
@@ -99,6 +115,8 @@ def invoke(args, expected, category=None, env=None):
     require(p.returncode == expected and not p.stderr)
     output = p.stdout.decode()
     require(CANARY not in output)
+    require(all(str(epoch) not in output for epoch in
+                (SCRUB_EPOCH, SCRUB_EPOCH + 10, SCRUB_EPOCH + 11)))
     report = json.loads(output)
     require(report["status"] == {0: "pass", 1: "blocked", 2: "error"}[expected])
     if category:
@@ -109,19 +127,41 @@ def invoke(args, expected, category=None, env=None):
 
 def root_controls(work):
     rows = []
-    def case(name, mutate=None, expected=0, category=None, mode="first-boot"):
+    def case(name, mutate=None, expected=0, category=None, mode="first-boot", clear=None):
         root = work / name
         root.mkdir()
         clean(root)
         if mutate:
             mutate(root)
         before = snapshot(root)
-        invoke(["--root", str(root), "--mode", mode], expected, category)
+        report = invoke(["--root", str(root), "--mode", mode], expected, category)
+        if clear:
+            require(any(row["category"] == clear and row["status"] == "clear" and
+                        row["count"] == 0 and row["present"] for row in report["checks"]))
         require(snapshot(root) == before)
         rows.append({"case": name, "status": "pass", "state_unchanged": True})
 
     case("clean-first-boot")
     case("clean-image", mode="clean-image")
+    comments = '# RetroArch defaults\n\n  # video_driver = "gl"\n# cheevos_token = "' + CANARY + '"\n'
+    case("retroarch-comment-only-default", lambda r: put(r, "etc/retroarch.cfg", comments))
+    case("retroarch-comment-only-image", lambda r: put(r, "etc/retroarch.cfg", comments), mode="clean-image")
+    case("retroarch-comment-default-include", lambda r: put(r, "etc/retroarch.cfg",
+         comments + '#include "/outside/' + CANARY + '"\n'), 2)
+    case("retroarch-comment-default-reference", lambda r: put(r, "etc/retroarch.cfg",
+         comments + '#reference "/outside/' + CANARY + '"\n'), 2)
+    case("retroarch-comment-default-nul", lambda r: put(r, "etc/retroarch.cfg", comments + '\0'), 2)
+    case("retroarch-comment-default-malformed-assignment", lambda r: put(r, "etc/retroarch.cfg",
+         comments + 'video_driver="unterminated\n'), 2)
+    case("retroarch-comment-default-active-account", lambda r: put(r, "etc/retroarch.cfg",
+         comments + 'cheevos_token="' + CANARY + '"\n'), 1, "player-account")
+    case("retroarch-empty-default", lambda r: put(r, "etc/retroarch.cfg", ""), 2)
+    case("retroarch-blank-default", lambda r: put(r, "etc/retroarch.cfg", " \n\t\n"), 2)
+    case("retroarch-section-only-default", lambda r: put(r, "etc/retroarch.cfg", "[empty]\n"), 2)
+    case("retroarch-semicolon-only-default", lambda r: put(r, "etc/retroarch.cfg", "; unsupported\n"), 2)
+    case("system-comment-only-still-refuses", lambda r: put(r, "usr/config/system/configs/system.cfg", comments), 2)
+    case("cloud-comment-only-still-refuses", lambda r: put(r, "usr/config/cloud_sync.conf", comments), 2)
+    case("runtime-retroarch-comment-only-still-refuses", lambda r: put(r, "storage/.config/retroarch/retroarch.cfg", comments), 2)
     case("shipped-locale-dangling-clean-image", shipped_locale, mode="clean-image")
     case("shipped-locale-dangling-first-boot", shipped_locale, 2)
     def materialized_locale(root):
@@ -189,6 +229,66 @@ def root_controls(work):
     case("completed-empty-stamp", stamp, 1, "cloud-activity")
     case("retained-stamp", stamp, mode="retained-upgrade")
     case("malformed-stamp", lambda r: put(r, "storage/.cache/cloud_sync/last-restore", CANARY), 2)
+    case("scrub-zero-work-current-boot", scrub_marker, clear="startup-log-scrub")
+    case("scrub-zero-work-boot-boundary", lambda r: scrub_marker(r, first=SCRUB_EPOCH), clear="startup-log-scrub")
+    case("scrub-zero-work-stale", lambda r: scrub_marker(r, first=SCRUB_EPOCH - 1), 1, "log-scrub-outside-boot")
+    case("scrub-zero-work-future", lambda r: scrub_marker(r, second=SCRUB_EPOCH + 102), 1, "log-scrub-outside-boot")
+    case("scrub-zero-work-reversed-epochs", lambda r: scrub_marker(r, first=SCRUB_EPOCH + 12), 1, "log-scrub-outside-boot")
+    case("scrub-cloud-files-present", lambda r: scrub_marker(r, files1=1), 1, "cloud-log-scrub-activity")
+    case("scrub-es-files-present", lambda r: scrub_marker(r, files2=1), 1, "cloud-log-scrub-activity")
+    case("scrub-changed-lines-present", lambda r: scrub_marker(r, lines2=1), 1, "cloud-log-scrub-activity")
+    case("scrub-missing-family", lambda r: alter_scrub(r, lambda s: s.splitlines(keepends=True)[0]), 2)
+    case("scrub-duplicate-family", lambda r: alter_scrub(r, lambda s: s.replace("es_log_scrubbed", "scrubbed")), 2)
+    case("scrub-unknown-trailing-data", lambda r: alter_scrub(r, lambda s: s + CANARY), 2)
+    case("scrub-malformed-count", lambda r: alter_scrub(r, lambda s: s.replace("files=0", "files=-1")), 2)
+    case("scrub-malformed-epoch", lambda r: scrub_marker(r, first=0), 2)
+    case("scrub-no-boot-snapshot", lambda r: scrub_marker(r, boot=False), 2)
+    def malformed_boot(root):
+        scrub_marker(root)
+        put(root, "proc/stat", "btime invalid\n")
+    case("scrub-malformed-boot-snapshot", malformed_boot, 2)
+    def duplicate_boot(root):
+        scrub_marker(root)
+        put(root, "proc/stat", ("btime " + str(SCRUB_EPOCH) + "\n") * 2)
+    case("scrub-duplicate-boot-epoch", duplicate_boot, 2)
+    def unreadable_uptime(root):
+        scrub_marker(root)
+        (root / "proc/uptime").chmod(0)
+    case("scrub-unreadable-uptime", unreadable_uptime, 2)
+    def malformed_uptime(root):
+        scrub_marker(root)
+        put(root, "proc/uptime", "-1.00 0.00\n")
+    case("scrub-malformed-uptime", malformed_uptime, 2)
+    def link_scrub(root):
+        path = scrub_marker(root)
+        target = root / "scrub-target"
+        path.rename(target)
+        path.symlink_to("/scrub-target")
+    case("scrub-marker-symlink", link_scrub, 2)
+    def renamed_scrub(root):
+        path = scrub_marker(root)
+        path.rename(path.with_name("log-scrubbed.tmp"))
+    case("scrub-other-filename-still-residue", renamed_scrub, 1, "cloud-state-residue")
+    case("scrub-clean-image-preseed", lambda r: scrub_marker(r, boot=False), 1, "preseeded-log-scrub", "clean-image")
+    case("scrub-clean-image-empty-preseed", lambda r: put(r, "storage/.cache/cloud_sync/log-scrubbed", ""),
+         1, "preseeded-log-scrub", "clean-image")
+    case("scrub-retained-history", lambda r: scrub_marker(r, first=1, second=2, files1=2, lines1=3, boot=False),
+         category="retained-log-scrub", mode="retained-upgrade")
+    case("scrub-retained-legacy-family", lambda r: put(r, "storage/.cache/cloud_sync/log-scrubbed",
+         "scrubbed=1 files=2 lines=3\n"), category="retained-log-scrub", mode="retained-upgrade")
+    case("scrub-retained-es-only", lambda r: put(r, "storage/.cache/cloud_sync/log-scrubbed",
+         "es_log_scrubbed=1 files=2 lines=3\n"), category="retained-log-scrub", mode="retained-upgrade")
+    case("scrub-retained-es-first-retry", lambda r: put(r, "storage/.cache/cloud_sync/log-scrubbed",
+         "es_log_scrubbed=1 files=2 lines=3\nscrubbed=2 files=4 lines=5\n"),
+         category="retained-log-scrub", mode="retained-upgrade")
+    case("scrub-retained-duplicate-family", lambda r: put(r, "storage/.cache/cloud_sync/log-scrubbed",
+         "es_log_scrubbed=1 files=2 lines=3\nes_log_scrubbed=2 files=4 lines=5\n"), 2, mode="retained-upgrade")
+    case("scrub-retained-unknown-family", lambda r: put(r, "storage/.cache/cloud_sync/log-scrubbed",
+         "scrubbed=1 files=2 lines=3\nunknown_scrubbed=2 files=4 lines=5\n"), 2, mode="retained-upgrade")
+    case("scrub-first-boot-es-only-refuses", lambda r: alter_scrub(r, lambda s: s.splitlines(keepends=True)[1]), 2)
+    case("scrub-first-boot-es-first-refuses", lambda r: alter_scrub(r, lambda s: ''.join(reversed(s.splitlines(keepends=True)))), 2)
+    case("scrub-retained-malformed", lambda r: put(r, "storage/.cache/cloud_sync/log-scrubbed", CANARY),
+         2, mode="retained-upgrade")
     def history(root):
         put(root, "storage/roms/synthetic/gamelist.xml",
             '<gameList><game><path>./synthetic.rom</path><playcount>5</playcount>'
@@ -352,6 +452,7 @@ def payload_controls(work):
         root.mkdir()
         clean(root, runtime=False)
         shipped_locale(root)
+        put(root, "etc/retroarch.cfg", '# Synthetic upstream-style defaults\n# video_driver = "gl"\n')
         if contaminated:
             put(root, "usr/config/system/configs/system.cfg",
                 "global.retroachievements.username=" + CANARY + "\n")
@@ -394,6 +495,15 @@ def payload_controls(work):
         make_tar(root, path)
         invoke(["--payload", str(path)], 2)
         rows.append({"case": "tar-" + name, "status": "pass"})
+    root = work / "preseeded-scrub-root"
+    root.mkdir()
+    clean(root, runtime=False)
+    shipped_locale(root)
+    scrub_marker(root, boot=False)
+    path = work / "preseeded-scrub.tar"
+    make_tar(root, path)
+    invoke(["--payload", str(path)], 1, "preseeded-log-scrub")
+    rows.append({"case": "tar-zero-work-scrub-preseed-refused", "status": "pass"})
     # Regression for unsquashfs cat_scan fnmatch: bracketed and matching literal
     # sibling coexist, but only the bracketed file is contaminated. Reading the
     # clean match or skipping the unsupported spelling must not produce a pass.

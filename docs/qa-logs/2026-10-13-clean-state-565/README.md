@@ -8,12 +8,15 @@ integration. No old checkpoint command was replayed, private owner record read,
 firmware extracted, fixture run, guest booted, build started or device/provider
 contacted. No memory result or new Nova attribution is claimed.
 
-This revision corrects review findings against
+The preceding revision `63e05cd728acd1d2a76dffc1c4b1d7fd75fa3fab`
+corrected findings against
 `a7a36c874930fb16a15197ef112e90f31820b225`: oneshot readiness, the shipped
 runtime-locale link, Dolphin's ApiToken field, melonDS's explicit null sentinels,
-and literal SquashFS filename reads. All corresponding controls are prepared
-source; none was executed in this lane. Runtime and canonical integration remain
-held by the coordinator while approval-service capacity is unavailable.
+and literal SquashFS filename reads. This revision corrects the comment-only
+RetroArch default and clean-startup scrub marker refusals found in the
+coordinator's first-boot run. This lane has executed no controls.
+The coordinator owns the sole clean-state VM allocation; production
+integration remains held.
 
 Can this be done on the VM? Yes: a disposable GENERIC_X64 guest can inspect its
 own defaults and first-boot storage, and run the synthetic root controls. Host
@@ -51,6 +54,7 @@ mutates account state; its role is different from this read-only inspection.
 | Rclone sections, selection, staged residue | Remote/connection categories | Refuse | Runtime allowed |
 | Cloud device ID | Separate device identity presence | Refuse; does not assert copied origin | Runtime allowed |
 | Cloud cache `last-*` stamps and other files | Activity/state presence, no date/status values | Refuse | Runtime allowed; malformed stamps still fail |
+| Exact `log-scrubbed` marker | Separate startup, activity, preseed or retained category | Clean-image always refuses; first-boot requires complete zero-work current-boot record | One or both valid families, either order, allowed |
 | Gamelists under selected config and `/storage/roms` trees | Counts of playcount and lastplayed fields indicating activity | Refuse | Runtime allowed |
 | RetroArch history playlists, proxy cache | History/cache entry presence | Refuse | Runtime allowed |
 | Known QA filename prefixes | QA residue indicator, masked policy path | Refuse | Runtime allowed; no author inference |
@@ -64,6 +68,48 @@ Present malformed inputs fail; an empty settings file is not proof of clean
 defaults. XML DTD/entities, conflicting config keys, broken/cyclic symlinks,
 special files, mode-000 input and unsupported rclone option redirects refuse.
 The parser reads data and never evaluates shell expressions.
+
+Only `/etc/retroarch.cfg` may contain nonempty `#` comments/blank lines without
+active assignments. The RetroArch recipe copies upstream's default to that path
+(`package.mk:116-117`); the coordinator observed that form on untouched VM20.
+The file must still be readable and regular. Missing, empty/whitespace-only,
+NUL-containing, malformed assignments and include/reference directives refuse.
+Sections or semicolon-only content do not qualify as this comment-only format.
+Active account fields are still counted. System, cloud and runtime RetroArch
+config requirements retain their existing strictness.
+
+`cloud_log_scrub:48-57,179-206` documents and writes the exact marker
+`/storage/.cache/cloud_sync/log-scrubbed`; `102-cloud-saves:22-29` invokes it
+before capture or ES writes logs. On first boot the checker requires a regular
+non-symlink file with exactly one `scrubbed` line followed by one
+`es_log_scrubbed` line, each ending in a newline, with canonical unsigned
+decimal fields, positive epochs, and files=0/lines=0. It reports
+`startup-log-scrub`, presence true and count 0. Nonzero work is a separate
+`cloud-log-scrub-activity` refusal, not a claim that credentials were present.
+Malformed/incomplete records refuse; renamed, nested or temporary marker files
+remain ordinary cloud residue. Every clean-image marker seed refuses, including
+empty files and well-formed zero-work records.
+
+For a zero-work first-boot record, epochs must be ordered and within the inspected
+root's `/proc/stat` btime through btime + whole `/proc/uptime` seconds + 1. That
+one-second upper rounding accounts for the writer's whole-second epochs. Missing,
+unreadable, duplicate or malformed boot inputs refuse. The checker reads btime
+before and after uptime and requires equality. Live proc files have size 0, so
+these two fixed reads use bounded reads with type/permission/containment checks
+instead of regular-file size equality. Offline roots require their own proc
+snapshots; they cannot inherit the host's boot window. The fixtures provide an
+independent synthetic clock and never need to modify the guest's proc files.
+Clock steps can cause a conservative refusal. Matching epochs establish
+consistency with a boot window, not the marker's origin; no timestamps or boot
+identifiers are printed. `--require-ready` still checks unchanged boot identity.
+
+For retained-upgrade, the writer's partial/retry behavior permits either family
+alone or both in either order, each once. Its `record()` preserves existing lines
+before appending: a failed cloud family followed by an ES success can become
+ES-first/cloud-second on retry. Valid nonzero and historical records are
+`retained-log-scrub` and allowed without a current-boot claim or clock requirement.
+Duplicate families, unknown lines or malformed fields refuse. All inspection
+remains read-only, and fixtures assert unchanged bytes/modes.
 
 One source-backed clean-image exception is the exact two-link chain
 `/usr/config/emulationstation/locale` → `/usr/share/locale` →
@@ -149,9 +195,9 @@ archives, custom ES system paths and external libraries/media are not covered.
 Known QA prefixes are indicators, not an exhaustive catalog. The selected
 configuration grammar is intentionally strict; an unsupported legitimate format
 needs a source-backed parser change and fixture, not a bypass. Newly generated
-first-boot device IDs/cache records may require a policy refinement after their
-actual writers are identified; this candidate conservatively refuses presence.
-The first guest result is therefore an experiment, not a promised pass.
+first-boot device IDs and unrecognized cache records may require a policy
+refinement after their actual writers are identified; their presence still refuses.
+The next guest result is therefore an experiment, not a promised pass.
 
 ## Nova explanation retained from the accepted record
 
@@ -174,12 +220,34 @@ Imported metadata can satisfy membership without a local launch. The metadata
 arrival path and original account-entry author remain unknown. A preserved
 upgrade, gamelist mtime or empty-default spot check cannot settle that origin.
 
+## Coordinator evidence for the preceding revision
+
+The coordinator ran frozen `63e05cd728acd1d2a76dffc1c4b1d7fd75fa3fab`
+synthetic-root controls in its disposable guest: PASS 68/68, guest exit 0, empty
+stderr, reported 3.52 seconds. This lane read the saved report at
+`/workspace/tmp/pix565-clean-state-20261013/controls-owner/controls-result.json`
+and confirmed its report/count, guest exit and stderr-empty fields. That result
+does not qualify the new controls or this revision.
+
+The untouched VM20 first-boot check of that same source exited 2. Its report at
+`/workspace/tmp/pix565-clean-state-20261013/first-boot-owner/first-boot.serial`
+has readiness clear, an input error at `/etc/retroarch.cfg`, and one cloud cache
+residue refusal. The coordinator classified the two actual inputs: a regular
+0644, 34,090-byte, comment-only default with zero active assignments, and the
+two zero-work startup scrub lines. The saved classification evidence is
+`/workspace/tmp/pix565-clean-state-20261013/classification.serial` and
+`classification02.serial`. This lane inspected those saved files without
+printing marker epochs or account values. No new guest, fixture, tool import or
+runtime command was run here. No new first-boot pass is claimed.
+
 ## Next executable experiment (coordinator only)
 
-Use a **fresh** owner directory and newly allocated disposable guest, never an
-archived owner. Set the given TMPDIR. First run the lightweight synthetic root
-controls; then filesystem/payload controls after reader dependencies are ready.
-These commands are prepared, not executed:
+Use a **fresh** owner directory and a coordinator allocation, never an archived
+owner. The coordinator retains the clean-state VM and will allocate new controls
+bound to this source and repeat the actual first-boot check. Set the given TMPDIR.
+First run the lightweight synthetic root controls; then filesystem/payload
+controls after reader dependencies are ready. These commands are prepared for
+the new revision and have not been executed against it:
 
 ```sh
 export TMPDIR=/workspace/tmp/pix-m7-investigation-20261013/tmp
@@ -230,10 +298,10 @@ the frontend services then start ES. The guard therefore additionally requires
 `/storage` and `/storage/roms` in mountinfo, the start.games
 marker, one live `/usr/bin/emulationstation`, and unchanged boot identity through
 inspection. Merely changing the hard-coded unit name or accepting any successful
-inactive unit would not establish these prerequisites. Source/AST checks of
-this correction are in `static-validation.json`; actual installed property
-compatibility and successful/failed readiness controls still require coordinator
-runtime.
+inactive unit would not establish these prerequisites. The coordinator's frozen
+63e run passed readiness on VM20. Additional failure controls and the new scrub
+boot-window reader still require allocated runtime verification. Source/AST
+checks of this correction are in `static-validation.json`.
 
 The executable serial adapter is `run-first-boot.sh` in this packet:
 
@@ -258,6 +326,18 @@ empty/contaminated ext4 install images, malformed/traversal/duplicate archives,
 missing readers, and actual clean/contaminated release preparation. Dolphin
 ApiToken-only and melonDS exact sentinel/populated/near-sentinel root controls
 exercise the independent account-parser fixes. No fixture uses a real credential.
+
+New controls cover comment-only defaults plus active-account, include/reference,
+NUL, empty and malformed counterexamples; system/cloud/runtime requirements;
+zero-work scrub recognition, stale/future/reversed epochs, nonzero work,
+missing/duplicate/unknown families, malformed fields and boot snapshots,
+unreadable uptime, symlinks and renamed residue. Retained cloud-only, ES-only,
+cloud-first and ES-first retry records pass only their supported grammar and
+retain their bytes/modes. First-boot rejects the partial/reordered forms. The
+payload controls now exercise comment-only defaults and a zero-work marker
+preseed inside a real synthetic SYSTEM. The self-test now contains 113 expected
+root controls (110 named cases and three argument/root refusals). None of these
+new controls has run.
 
 ## Coordinator-owned follow-through
 
