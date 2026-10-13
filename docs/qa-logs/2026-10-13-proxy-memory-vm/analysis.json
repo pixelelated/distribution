@@ -1,0 +1,46 @@
+{
+  "utc": "2026-10-13T05:52:37.518075+00:00",
+  "samples": {
+    "baseline": {
+      "pss_kib": [
+        26817,
+        26722,
+        26829
+      ],
+      "anon_kib": [
+        22540,
+        22532,
+        22540
+      ],
+      "median_pss_kib": 26817,
+      "median_anon_kib": 22540,
+      "import_ms": [
+        68.541985,
+        35.141851,
+        32.442289
+      ]
+    },
+    "candidate": {
+      "pss_kib": [
+        26314,
+        26427,
+        26429
+      ],
+      "anon_kib": [
+        22148,
+        22156,
+        22152
+      ],
+      "median_pss_kib": 26427,
+      "median_anon_kib": 22152,
+      "import_ms": [
+        36.745401,
+        31.890646,
+        31.319161
+      ]
+    }
+  },
+  "scope": "Installed-interpreter bytecode import-only PSS; synthetic source-module loopback readiness; neither full-service nor H700 measurement.",
+  "median_pss_delta_kib": 390,
+  "median_anon_delta_kib": 388
+}

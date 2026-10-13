@@ -1,0 +1,25 @@
+The lazy UI-import candidate saves **390 KiB median PSS (0.38 MiB)** in six fresh-process bytecode imports using the accepted VM image's Python 3.14.7. Both variants pass the synthetic loopback readiness/preservation checks. This is a small component improvement, not a demonstrated browser-pressure remedy. Keep the candidate diagnostic-only; do not spend a full-service qualification run on this direction yet.
+
+Source packet: [reviewed candidate and fixtures](../2026-10-13-proxy-memory-feasibility/README.md), worker commits `f1987b6ad8e2fd7d2979c73627414ee074b93494` and `914b0ad56331165cb41b7384b55cbcbbed19d9f2`. Host source preparation was freshly rerun with the corrected gzip preparer, the pinned archive, and all 16 distribution patches at fuzz zero. The baseline/candidate Python manifests equal the original packet exactly; only main.py differs. Runtime staging verifies both manifests. No product patch, recipe, or pin changed.
+
+| Measurement | Baseline | Candidate |
+| --- | ---: | ---: |
+| PSS samples, KiB | 26817, 26722, 26829 | 26314, 26427, 26429 |
+| Median PSS, KiB | 26817 | 26427 |
+| Median anonymous PSS, KiB | 22540 | 22152 |
+| Fresh-process cases | 3, all exit 0 | 3, all exit 0 |
+| Synthetic listener requests | 11, all assertions pass | 11, all assertions pass |
+
+Bytecode execution lasted 0.81 seconds and used 2,293,426 bytes of scratch. Imports run baseline/candidate/candidate/baseline/baseline/candidate, with PYTHONOPTIMIZE=0 and MALLOC_ARENA_MAX=2. The fixture compiles fresh copies to adjacent legacy .pyc files with the executing interpreter, removes those copies' .py files, and verifies imports came from the prepared bytecode. It models the package's optimize-0/legacy bytecode layout; diagnostic dfile paths differ from the installed package. The native image is x86_64, not H700. Three samples per variant do not establish a broad distribution or a service-level budget.
+
+The earlier host result was 5442 KiB (5.31 MiB) using source imports and Python 3.14.4. Different Python builds, environments, source compilation, and allocator effects prevent attributing that entire difference to one cause. The guest result demonstrates why the host value must not be advertised as target savings. The four optional UI/menu modules disappear; pygame was already lazy and absent in both variants. Cold-cache order also prevents treating these short import timings as a startup-speed improvement.
+
+Both readiness probes use the prepared **source** modules, an ephemeral synthetic SQLite database, a mocked provider, and the actual ProxyRuntimeServer on guest-only 127.0.0.1:19080. Each checks cached login HTTP status plus Success/User/Token, next-game patch and session responses, an offline signed award, account-free queue preservation across two listener/SQLite reopen cycles, integrity_check, and unmasked upstream 401 responses. Runtime audit guards deny DNS, external endpoints, non-fixture database access, and out-of-scope writes. These are trusted-code fixture guards, not a hostile-code sandbox. The separate host packet checks account separation and mocked flush outcomes.
+
+This run does not execute full-service startup/connectivity/cache workers, systemd lifecycle, real provider behavior, emulator launch, ES/browser handoff, keyboard rendering, or authenticated sign-in. It cannot close #570 or promote the patch. Offline feature preservation here is limited to the asserted synthetic component paths.
+
+Can this be done on the VM? Yes; [the prior plan](plan.md) is recorded in [#570](https://github.com/pixelelated/distribution/issues/570#issuecomment-6139150127). The fresh accepted VM20 image uses source 1a026648442321609b2288c2c9c06803817f9df2, 2048 MiB assigned / 1840260 KiB visible, four virtual CPUs, software graphics, and no swap. The installed proxy service was inactive. All measurements share boot 1cb0f598-75df-483e-af08-d18b916623e2. This headroom isolates imports; it does not recreate handheld pressure. No owner account/device/cloud operation occurred.
+
+[Result](result.json), [preflight](preflight.json), [bytecode results](bytecode-result.json), [baseline listener](readiness-baseline.json), [candidate listener](readiness-candidate.json), [analysis](analysis.json), and [prepared source](prepared-source.json) bind the observations. The included coordinator scripts are an archive of this completed allocation, not replay instructions. Their absolute owner paths are retired; future tests require a fresh plan/owner. [Retirement](retirement.json) records completed original channels, exact QEMU stop, deletion of disk/UEFI/temporary keys, and released host ports. No VM is retained.
+
+Next #570 direction: use the existing actual-page evidence to attribute WebContent CPU/script activity versus reclaim and input-to-paint. Keep effective UA, provider bundle identities, page state, memory pressure, and complete interaction success together. Do not trade away offline achievements or assume a toolkit switch is a memory fix. Full-service proxy attribution remains available if a larger source-supported lifetime/data-shape hypothesis emerges.

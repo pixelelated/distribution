@@ -1,0 +1,63 @@
+{
+  "started": "2026-10-13T05:49:39.090341+00:00",
+  "scope": "installed-interpreter bytecode imports and synthetic loopback listener; not full service",
+  "packet_commit": "914b0ad56331165cb41b7384b55cbcbbed19d9f2",
+  "archive_sha256": "d3f62e169662a94851c9c03c2053abbb37a8e05eb1323b91252c072bd136108a",
+  "source_manifest_sha256": "3a144d58a90b32404c712043bd0aaaa0fd170c41840d8f21815f72c31b8f1e83",
+  "fixture_sha256": {
+    "bytecode.py": "4d9aae3c1ee6c3295f9ef3e24333d18da6e54ab44117fcd8a2f7461c15c77465",
+    "check.py": "8f9c4f5a133c2eb2dd37ef098744e9465c7af524901705596adb3ba86cf1a76c",
+    "prepare.py": "f1a404ebeaf649ef9352dc2f999a4a917141500a189a799d9af4930602794146",
+    "readiness.py": "46ddc4121d62cd851254d9a53b6bcd32784e4f4a088b500f74557f3827f7b56f"
+  },
+  "rc": 0,
+  "result": "PASS",
+  "ended": "2026-10-13T05:49:41.756988+00:00",
+  "commands": [
+    {
+      "name": "stage",
+      "rc": 0,
+      "elapsed_seconds": 0.14353449293412268
+    },
+    {
+      "name": "preflight",
+      "rc": 0,
+      "elapsed_seconds": 0.15297974401619285
+    },
+    {
+      "name": "bytecode",
+      "rc": 0,
+      "elapsed_seconds": 1.0167934179771692
+    },
+    {
+      "name": "bytecode-result",
+      "rc": 0,
+      "elapsed_seconds": 0.12617117702029645
+    },
+    {
+      "name": "readiness-baseline",
+      "rc": 0,
+      "elapsed_seconds": 0.3898886690149084
+    },
+    {
+      "name": "readiness-baseline-result",
+      "rc": 0,
+      "elapsed_seconds": 0.0849207011051476
+    },
+    {
+      "name": "readiness-candidate",
+      "rc": 0,
+      "elapsed_seconds": 0.36892910301685333
+    },
+    {
+      "name": "readiness-candidate-result",
+      "rc": 0,
+      "elapsed_seconds": 0.12005050398875028
+    },
+    {
+      "name": "final-guest",
+      "rc": 0,
+      "elapsed_seconds": 0.08766061591450125
+    }
+  ]
+}

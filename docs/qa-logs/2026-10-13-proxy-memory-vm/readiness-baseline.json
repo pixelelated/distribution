@@ -1,0 +1,64 @@
+{
+  "result": "PASS",
+  "variant": "baseline",
+  "requests": [
+    {
+      "action": "r=login2",
+      "status": 200,
+      "elapsed_ms": 1.2576059999958034
+    },
+    {
+      "action": "r=patch",
+      "status": 200,
+      "elapsed_ms": 0.4896359999975175
+    },
+    {
+      "action": "r=awardachievement",
+      "status": 200,
+      "elapsed_ms": 1.9381410000107735
+    },
+    {
+      "action": "r=startsession",
+      "status": 200,
+      "elapsed_ms": 0.4013660000055097
+    },
+    {
+      "action": "r=startsession",
+      "status": 200,
+      "elapsed_ms": 0.38270500002113295
+    },
+    {
+      "action": "r=login2",
+      "status": 401,
+      "elapsed_ms": 0.24301199999854362
+    },
+    {
+      "action": "r=login2",
+      "status": 200,
+      "elapsed_ms": 1.084749000000329
+    },
+    {
+      "action": "r=patch",
+      "status": 200,
+      "elapsed_ms": 0.7222500000239052
+    },
+    {
+      "action": "r=startsession",
+      "status": 200,
+      "elapsed_ms": 0.970494000000599
+    },
+    {
+      "action": "r=startsession",
+      "status": 200,
+      "elapsed_ms": 0.7277009999882011
+    },
+    {
+      "action": "r=login2",
+      "status": 401,
+      "elapsed_ms": 0.40046000000870663
+    }
+  ],
+  "scope": "synthetic loopback listener close/reopen only; no full service/ES lifecycle",
+  "pending_awards_preserved": 1,
+  "provider": "mock; all DNS/outside endpoints denied"
+}

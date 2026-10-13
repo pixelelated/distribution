@@ -1,3 +1,3 @@
 # Session pointer
 
-Read [the canonical next checkpoint](saved-session-state-next.md). The coordinator owns M7 runtime/integration; two source-only Herdr experiments have explicit scopes there. Do not replay historical owners.
+Read [the canonical next checkpoint](saved-session-state-next.md). Both Herdr source assignments and the coordinator VM component test are complete. Inspect delivery02, then continue #570 page/script versus reclaim attribution. No runtime lease remains; do not replay historical owners.

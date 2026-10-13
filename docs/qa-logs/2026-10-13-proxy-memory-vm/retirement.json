@@ -1,0 +1,146 @@
+{
+  "utc": "2026-10-13T05:51:14.137466+00:00",
+  "channels": [
+    {
+      "owner": "boot-owner",
+      "run": "20261013T054703Z-ca2e0553",
+      "launcher_rc": 0,
+      "wrapper_rc": 0,
+      "build_rc": 0,
+      "pids": [
+        2158247,
+        2158251,
+        2158281,
+        2158252
+      ],
+      "all_exited": true
+    },
+    {
+      "owner": "experiment-owner",
+      "run": "20261013T054939Z-ce4d5dee",
+      "launcher_rc": 0,
+      "wrapper_rc": 0,
+      "build_rc": 0,
+      "pids": [
+        2169551,
+        2169552,
+        2169584,
+        2169555
+      ],
+      "all_exited": true
+    }
+  ],
+  "vm_pid": 2158707,
+  "qemu_argv": [
+    "/usr/bin/qemu-system-x86_64",
+    "-name",
+    "ROCKNIX GENERIC_X64",
+    "-machine",
+    "q35",
+    "-accel",
+    "kvm",
+    "-cpu",
+    "Haswell-v4",
+    "-smp",
+    "4",
+    "-m",
+    "2048",
+    "-drive",
+    "if=pflash,unit=0,readonly=on,format=raw,file=/usr/share/OVMF/OVMF_CODE_4M.fd",
+    "-drive",
+    "if=pflash,unit=1,format=raw,file=/workspace/tmp/pix570-bytecode-20261013/OVMF.fd",
+    "-drive",
+    "if=none,id=rocknix,format=qcow2,file=/workspace/tmp/pix570-bytecode-20261013/disk.qcow2",
+    "-device",
+    "virtio-blk-pci,drive=rocknix,logical_block_size=512,physical_block_size=512",
+    "-vga",
+    "none",
+    "-device",
+    "virtio-gpu-pci,xres=640,yres=480",
+    "-display",
+    "none",
+    "-vnc",
+    "127.0.0.1:60",
+    "-netdev",
+    "user,id=net0,hostfwd=tcp:127.0.0.1:10575-:22",
+    "-device",
+    "virtio-net-pci,netdev=net0,mac=52:54:00:52:4E:58",
+    "-device",
+    "qemu-xhci",
+    "-device",
+    "usb-kbd",
+    "-device",
+    "usb-tablet",
+    "-device",
+    "intel-hda",
+    "-device",
+    "hda-duplex",
+    "-monitor",
+    "unix:/workspace/tmp/pix570-bytecode-20261013/monitor.sock,server,nowait",
+    "-fw_cfg",
+    "name=opt/org.rocknix.cloud_ssh_port,string=10575",
+    "-serial",
+    "unix:/workspace/tmp/pix570-bytecode-20261013/serial.sock,server,nowait",
+    "-pidfile",
+    "/workspace/tmp/pix570-bytecode-20261013/vm.pid",
+    "-daemonize",
+    "-object",
+    "rng-random,id=rng0,filename=/dev/urandom",
+    "-device",
+    "virtio-rng-pci,rng=rng0",
+    "-device",
+    "i6300esb",
+    "-action",
+    "watchdog=reset",
+    ""
+  ],
+  "stop_stdout": "down: owned QEMU exited (pid 2158707)",
+  "stop_rc": 0,
+  "retired": [
+    {
+      "name": "disk.qcow2",
+      "logical_bytes": 2243297280,
+      "allocated_bytes": 2243244032,
+      "sha256": "04c17df0d2673712a6bf81e1e10a9db4d02b63ed1173fe6e62e05b863737c805",
+      "absent_after": true
+    },
+    {
+      "name": "OVMF.fd",
+      "logical_bytes": 540672,
+      "allocated_bytes": 540672,
+      "sha256": "e99e825e22421d03308a18d92cc30f52c5e33dd2f4de66e09a812f2af9cf37ea",
+      "absent_after": true
+    },
+    {
+      "name": "qa-key",
+      "logical_bytes": 411,
+      "allocated_bytes": 4096,
+      "absent_after": true
+    },
+    {
+      "name": "qa-key.pub",
+      "logical_bytes": 98,
+      "allocated_bytes": 4096,
+      "absent_after": true
+    },
+    {
+      "name": "known_hosts",
+      "logical_bytes": 902,
+      "allocated_bytes": 4096,
+      "absent_after": true
+    },
+    {
+      "name": "stage.tar.gz",
+      "logical_bytes": 635873,
+      "allocated_bytes": 638976,
+      "sha256": "d3f62e169662a94851c9c03c2053abbb37a8e05eb1323b91252c072bd136108a",
+      "absent_after": true
+    }
+  ],
+  "allocated_bytes_recovered": 2244435968,
+  "host_ports_released": [
+    10575,
+    5960
+  ],
+  "fixture_scope": "No owner device/account/config used. All state synthetic; no product changes."
+}

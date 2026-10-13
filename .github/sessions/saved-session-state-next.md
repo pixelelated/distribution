@@ -1,6 +1,6 @@
 # Saved Session State
 
-> **Saved**: 2026-10-13T05:21:22.074447+00:00
+> **Saved**: 2026-10-13T05:57:56.421460+00:00
 > **Branch**: feature/m7-player-setup
 > **Repo**: pixelelated/distribution
 
@@ -15,20 +15,26 @@ is 4a1274ab806bf583c78646d01fb82bb6fb8f9ef7. No product source changed in this r
 Previous browser-history delivery01 is complete with all channels0/exited and
 exact-head hosted checks successful. Do not replay any old delivery/test owner.
 
-Two newly authorized Herdr worker sessions are active; see the ownership table
-below BEFORE dispatching or changing any shared resources. They must not execute
-historical checkpoint next commands. No browser test, firmware build or VM remains
-active from today's22-case run. Completed measurements are not a production fix.
+Both visible Herdr source-only assignments are now COMPLETE and reviewed; no worker
+runtime lease remains. Coordinator also completed a fresh target-interpreter
+bytecode/listener comparison and retired its VM/disk/keys. No browser, service,
+firmware build or audit is running. Do not execute any old test/delivery owner.
+
+Current local branch includes reviewed proxy commits11acec32fd/cb92e1cee0 and
+GTK4 commits04eb146010/df46d14134 plus this record. Last published next is
+93e64677f33c0a9dae9f8539903188780da02f04 with delivery01 fully consumed0/exited
+and exact-head hosted checks successful. This record's fresh delivery02 below
+must be inspected before describing it as published. No product source changed.
 
 ## Current Focus
 
-#570 browser pressure remains unresolved. Six normal-handoff synthetic phone
-controls, eight actual Dropbox authorization UA controls and eight responsive
-CSS-width controls are COMPLETE. Evidence is prepared for this record commit;
-read the delivery result below before describing it as published. The user has
-now authorized parallel source experiments in separate branches and Herdr sessions.
-Next work is concrete memory-reduction/GTK4 feasibility and script/CPU/reclaim
-attribution, with runtime serialized under this coordinator.
+#570 browser pressure remains unresolved. Completed22 browser controls plus the
+new proxy component experiment show that lazy UI imports save only390KiB median
+PSS under the installed Python/bytecode layout. Both synthetic listeners pass.
+D-WORKFLOW-163 retains that small optimization as diagnostic-only and defers
+production GTK4 migration pending a dependency/API/native-keyboard spike. Next
+work is actual-page CPU/script versus reclaim and input-to-paint attribution;
+keep runtime serialized under this coordinator. Existing offline functions stay.
 
 ## Completed This Session
 
@@ -80,54 +86,68 @@ attribution, with runtime serialized under this coordinator.
   parity absent. Actual selected Nova cores unknown after read timeout. Private
   owner records stay outside git. Both issues join M7 before qualification.
 
-## In Progress — visible parallel ownership
+## Completed parallel work and current ownership
 
-| Owner | Scope | Worktree / branch | Current boundary |
+| Owner | Scope | Worktree / branch | Result and boundary |
 | --- | --- | --- | --- |
-| Coordinator, Herdr w4:p2 | #570 page/script evidence, shared test queue, integration | m7-player-setup / feature/m7-player-setup | Finish record delivery; then page/CPU/reclaim attribution and review worker candidates |
-| pix-gtk4, w4:p7, M7 GTK4 experiment | #576 GTK4 dependency/API feasibility | m7-gtk4-576 / feature/m7-gtk4-576 | Working, source-only; isolated diagnostic port direction or bounded infeasibility; no runtime/build lease |
-| pix-memory, w4:p8, M7 Memory budget | #570 safe proxy/service footprint | m7-browser-memory-570 / feature/m7-browser-memory-570 | Acknowledged eager menu_sdl/ui imports in main.py; preparing lazy-load candidate and synthetic queue/DB/readiness fixture, benefit unmeasured |
+| Coordinator, Herdr w4:p2 | #570 runtime, shared queue and integration | m7-player-setup / feature/m7-player-setup | Fresh VM component experiment complete/retired; finish delivery02, then page/script attribution |
+| pix-gtk4, w4:p7 | #576 feasibility | m7-gtk4-576 / feature/m7-gtk4-576 | COMPLETE da0ecd8 +10f9b16, source/API/dependency/keyboard findings and static timeout cleanup; no compile/runtime lease |
+| pix-memory, w4:p8 | #570 import footprint | m7-browser-memory-570 / feature/m7-browser-memory-570 | COMPLETE f1987b6 +914b0ad; one host run consumed; no further runtime lease |
 
-All worktrees are /workspace/repos/rocknix.worktrees/ siblings and began at4a1274ab806b.
-Both workers actually entered working state; a submitted prompt alone is not proof.
-Read docs/qa-logs/2026-10-13-dropbox-user-agents/parallel-lanes.md and private
-/workspace/tmp/pix570-parallel-20261013/ assignments/receipts. Only their own
-branches and evidence dirs are writable assignments; no canonical worklogs/register/
-checkpoint edits, GitHub changes, push/integration or extra workers. They may commit
-scoped source candidates locally. No VM/device/account/provider operation, host
-package install, full build/cache copy or production pin promotion was dispatched.
-One subsequent bounded exception is allocated to pix-memory: a single host-only
-import/synthetic SQLite fixture set, <=60s aggregate/20MiB scratch, fail-closed
-network denial, no listener/production config/dependency install. This is host
-source attribution, not target PSS or service qualification. See #570 comment
-6138855457 and parallel-lanes.md; inspect actual result before another run. Full
-service/VM/device holds remain.
-Coordinator retains sole runtime/integration authority and monitors useful returns.
-Herdr agent get/read uses explicit names; preserve user focus. No other lane changed.
+All worktrees are /workspace/repos/rocknix.worktrees/ siblings. Preserve both
+visible lanes; no additional dispatch is outstanding. Workers own only their
+scoped packet/branch; coordinator owns shared records, GitHub, integration and
+runtime. Read parallel-lanes.md for original boundaries. No actual owner account
+or configuration was used by the parallel experiments.
+
+New result: docs/qa-logs/2026-10-13-proxy-memory-vm/. Corrected host preparer
+applies exact c7ebd1b pin +16distribution patches at fuzz0;224staged source hashes
+match. Fresh VM20 boot1cb0f598-75df-483e-af08-d18b916623e2, installed Python3.14.7,
+2048MiB assigned/1840260KiB visible, no swap. Six bytecode imports all0/exited;
+median PSS26817→26427KiB (390KiB), anonymous22540→22152KiB (388KiB). Both source-
+module listener probes pass11requests, cached login payload, next-game responses,
+signed queued award/SQLite integrity over two close/reopen cycles and401 passthrough.
+Bytecode probes alone use generated adjacent.pyc; readiness imports source.
+Host3.14.4 source result5442KiB is not target savings; platform/interpreter/parser/
+allocator differences are confounded. No full service/systemd/ES/browser proof.
+Independent reused-context evidence review recomputed bindings/medians and found
+no blocker; this is not a multi-model audit. All boot/experiment/retirement result
+channels0/exited; disk/UEFI/keys removed,2244435968allocated bytes recovered.
+Owner /workspace/tmp/pix570-bytecode-20261013 is COMPLETE; never replay scripts.
+
+GTK4 packet docs/qa-logs/2026-10-13-gtk4-feasibility/ binds exact WebKit2.54.1 and
+GTK4.24.1 sources, effective target metadata, sandbox staging and native keyboard
+constraints. No ready GTK4/Graphene/WebKit6 pair; no public direct replacement for
+current fabricated native GDK keyboard events. Original probes exited2 before
+compiler invocation; corrected runner has STATIC review only, with group cleanup
+and bounded direct-child reaping.18historical files remain byte-identical. Required
+negative runtime cleanup controls precede any future compiler allocation; explicit
+outer teardown still owns escaped groups/forced runner termination. #493 precedes
+any full cache copy/build. No GTK4 port or memory benefit has been demonstrated.
 
 ## Next Steps
 
-1. Finish this record's independent review and cheap rules/register/index/ceremony
-   checks. Fresh delivery owner is /workspace/tmp/pix570-parallel-20261013/delivery01/.
-   publish.py requires clean committed feature, clean main next, fast-forwards,
-   guarded-pushes and waits for exact-head record/wordlist checks. Inspect actual
-   result.json, launcher-result.json, tool-wrapper.rc, watcher build.rc, owner
-   process exits and origin HEAD. Do not replay if already successful. No audit
-   transfer is part of this record. Before taking new runtime, consume this owner.
-2. Read bounded worker returns; do not duplicate their source investigation. Proxy
-   reduction needs measured import/data footprint and synthetic pending-award/DB/
-   readiness/maintenance preservation. Restart may upload awards; never experiment
-   on the owner's account. SIGSTOP does not release resident memory. Browser has
-   no proxy dependency; current emulator callers don't start it on demand. Read
-   browser-stack/proxy-lifecycle.md. GTK4 must retain auth/input behavior, compare
-   same engine where possible and disclose unavoidable flag/dependency differences.
-3. Next serialized #570 experiments: correlate script/page CPU and reclaim with
-   input-to-paint, then justified focus/background-load isolation and2.52.6 engine
-   boundary. Recreate a disposable VM only for a named queued test. Existing22case
-   fixtures are archival, reference retired keys/ports/private owners and cannot
-   simply be replayed. Actual-provider cookie/form/navigation/redirect/popup
-   acceptance still open. A faster broken page is not success. Keep DMA-BUF
-   workaround unless a tested source-bound alternative is qualified.
+1. Finish this record delivery, if not already COMPLETE. Fresh owner is
+   /workspace/tmp/pix570-parallel-20261013/delivery02/. Its publish.py requires
+   clean committed feature, clean main next, ff-only integration, guarded push
+   and exact-head record/wordlist checks. Consume result.json, launcher-result,
+   tool-wrapper.rc, watcher build.rc, owner exits and origin HEAD. Do not replay
+   delivery01 or any earlier owner. No external audit transfer belongs here.
+2. Next #570: prepare a focused actual-page attribution fixture from the prior
+  22controls. Relate WebContent/main process CPU and runnable/reclaim/refault
+   counters to heartbeat/evaluation and actual input-to-paint. Verify current
+   profiler availability before proposing script-specific attribution: the
+   accepted WebKit recipe disables sampling profiling. Resource filenames or
+   sizes do not establish script execution cost. Preserve effective UA/bundle,
+   page/cookie state and complete interaction success. Use a fresh VM/owner only
+   after the exact plan/ports/bounds are recorded in #570. Prior fixtures are
+   archival and reference retired keys/ports; do not replay them as-is.
+3. Follow source-supported findings with focus/background-load isolation or
+   the2.52.6 engine boundary if warranted. Do not repeat the tiny import experiment
+   or start a GTK4 full build as the next step. Full-service lazy-import promotion
+   would still need award/reconnect/cache/termination/ES lifecycle and real UI
+   qualification; none is claimed. GTK4's separate prerequisite/keyboard spike
+   can resume with a concrete allocation, not inferred from completed source work.
 4. #572 actual GStreamer recipe/install/fresh-registry repair is published in
    2292e9a298; final assembled-image check still owed. Missing controller/scanner
    warning repair did not lower memory in prior controls; no cause attribution.
@@ -163,7 +183,7 @@ Herdr agent get/read uses explicit names; preserve user focus. No other lane cha
 
 ## Notes for Next Session
 
-Live M7 order: #570/#572 (parallel #576 feasibility) → #565 → #566 → #567 →
+Live M7 order: #570/#572 (#576 feasibility complete, optional spike held) → #565 → #566 → #567 →
 #571 → #574/#575 → #564 → #493 before full cache/build → new-source VM/audit →
 H700 then SM8550 → #528/#344. #558/#561 monitor; #562/#568 future. No audit running.
 
@@ -188,7 +208,8 @@ d4f0ed2824, with2.54.0 package fixtures in /workspace/tmp/pixelelated-webkit-ver
 2.52.6 was inspected, never built/run. Preserve original low-memory reset/rc1,
 headroom results do not justify downgrade. All old disks/keys retired.
 
-Current private evidence: /workspace/tmp/pix570-handoff-20261013,
+Current completed private evidence: /workspace/tmp/pix570-bytecode-20261013,
+/workspace/tmp/pix570-handoff-20261013,
 /workspace/tmp/pix570-ua-20261013, /workspace/tmp/pix570-breakpoints-20261013;
 matrices and owners all COMPLETE/EXITED. Raw authentication URLs/provider log
 contents remain private; public packets keep query-free paths and numeric data.
@@ -205,4 +226,4 @@ complete; do not replay. Required source custody6.855GB at
 /workspace/artifacts/pixelelated-build-custody/issue-493-oldtrees-20261012-03 stays.
 Existing source/publication/provider-baseline requirements remain.
 
-Previous checkpoint: archived/saved-session-state-next-20261013T052122Z.md
+Previous checkpoint: archived/saved-session-state-next-20261013T055756Z.md
