@@ -649,3 +649,5 @@ cycle; source qualification and landing are still pending.
 - 2026-10-13 07:23 UTC — Automatic approval review repeatedly timed out or reported selected-model capacity for authorized VM reads and record writes. No rejected action executed; smaller unrelated source work continued, service later accepted fresh requests and existing authority resumed. User guidance requested transparently; no extra device authority inferred. issue: #570.
 
 - 2026-10-13: #565 synthetic clean defaults missed comment-only upstream RetroArch config, zero-work startup scrub state and native empty ext4 slots; actual first-boot/payload refusals led to narrowly scoped parsing plus negative fixtures. Retain real-default and native-reader coverage alongside synthetic cases. issue: #565; guard `tools/pixelelated-state-check-test`.
+
+- 2026-10-13 14:37 UTC — A bounded provenance collector assumed unprefixed RA setting names and mistook absent rows for empty fields. Invalidated those observations, confirmed exact global identifiers from accepted source, and reran only the affected read. Future presence claims require exact consumer identifiers. — issue: #565
