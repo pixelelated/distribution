@@ -1,0 +1,13 @@
+state:       finished
+written:     2026-10-13 22:18:37 UTC   <- terminal result; heartbeat stops here
+watcher_pid: 2271156
+job_pid:     2271155  alive=yes
+started:     2026-10-13 22:16:41 UTC
+progress:    none matched
+log:         /workspace/tmp/pix-m7-setup-vm-20261013/.build-runs/20261013T221641Z-f6e0f6f6/build.log  (last written 4s ago)
+activity:    /workspace/tmp/pix-m7-setup-vm-20261013/.build-runs/20261013T221641Z-f6e0f6f6/build.log  (last written 4s ago)
+activity_dir: /workspace/tmp/pix-m7-setup-vm-20261013
+outcome:     rc=1
+tail:
+                               output=stdout, stderr=stderr)
+  subprocess.CalledProcessError: Command '['ssh', '-i', '/workspace/tmp/pix-m7-setup-vm-20261013/vm/qa-key', '-p', '10608', '-o', 'B

@@ -1,0 +1,76 @@
+watch-build: recording in /workspace/tmp/pix-m7-setup-vm-20261013/.build-runs/20261013T220614Z-c7d924f6
+Traceback (most recent call last):
+  File "/workspace/tmp/pix-m7-setup-vm-20261013/phone-installed-client.py", line 17, in <module>
+    ctx.route('**/*',route);page=ctx.new_page();page.set_default_timeout(12000);page.goto('http://127.0.0.1:18080/'+info['PIN']);expect(page.locator('#state')).to_have_attribute('data-kind','connected')
+                                                                                ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/pixelelated-import-qa-venv/lib/python3.14/site-packages/playwright/sync_api/_generated.py", line 9903, in goto
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.goto(
+        ^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        )
+        ^
+    )
+    ^
+  File "/tmp/pixelelated-import-qa-venv/lib/python3.14/site-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "/tmp/pixelelated-import-qa-venv/lib/python3.14/site-packages/playwright/_impl/_page.py", line 562, in goto
+    return await self._main_frame.goto(**locals_to_params(locals()))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/pixelelated-import-qa-venv/lib/python3.14/site-packages/playwright/_impl/_frame.py", line 157, in goto
+    await self._channel.send(
+        "goto", self._navigation_timeout, locals_to_params(locals())
+    )
+  File "/tmp/pixelelated-import-qa-venv/lib/python3.14/site-packages/playwright/_impl/_connection.py", line 76, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/tmp/pixelelated-import-qa-venv/lib/python3.14/site-packages/playwright/_impl/_connection.py", line 632, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.Error: Page.goto: net::ERR_CONNECTION_RESET at http://127.0.0.1:18080/6778
+Call log:
+  - navigating to "http://127.0.0.1:18080/6778", waiting until "load"
+
+Traceback (most recent call last):
+  File "/workspace/tmp/pix-m7-setup-vm-20261013/phone-installed.py", line 50, in <module>
+    assert client.returncode==0,'installed companion failed';frame('browser-received-second-page-text')
+           ^^^^^^^^^^^^^^^^^^^^
+AssertionError: installed companion failed
+settle: still after 1.3s
+captured /workspace/tmp/pix-m7-setup-vm-20261013/phone-installed-en640/initial/01-initial.png
+changed after 0.0s (`key ret`, line 1)
+settle: still after 1.7s
+changed after 0.1s (`key x`, line 4)
+settle: still after 1.3s
+changed after 0.1s (`key up`, line 7)
+settle: still after 1.3s
+changed after 0.0s (`key up`, line 10)
+settle: still after 1.3s
+changed after 0.1s (`key up`, line 13)
+settle: still after 1.3s
+changed after 0.1s (`key x`, line 16)
+settle: still after 1.3s
+changed after 0.1s (`key down`, line 1)
+settle: still after 1.3s
+changed after 0.1s (`key x`, line 4)
+settle: still after 1.3s
+changed after 0.1s (`key x`, line 7)
+settle: still after 1.3s
+changed after 0.1s (`key x`, line 10)
+settle: still after 1.3s
+changed after 0.1s (`key down`, line 13)
+settle: still after 1.3s
+changed after 0.9s (`key x`, line 16)
+settle: still after 1.3s
+changed after 0.1s (`key down`, line 1)
+settle: still after 1.3s
+changed after 0.1s (`key x`, line 4)
+settle: still after 1.3s
+changed after 0.1s (`key down`, line 1)
+settle: still after 1.3s
+changed after 0.0s (`key right`, line 4)
+settle: still after 1.3s

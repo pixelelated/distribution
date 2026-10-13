@@ -1,0 +1,54 @@
+{
+  "rc": 0,
+  "name": "phone-installed-en640-04",
+  "mode": "phone",
+  "language": "en_US",
+  "started": 1791929647.2274008,
+  "fixture_sha256": "9ddc2a92971078993af99a8f7b7635da273f0d6e1070c40c08945783fbc0c638",
+  "before": {
+    "pid": "36547",
+    "start": "224094",
+    "boot": "2afb73cf-fcb0-4caa-b6f3-50708b6423ad",
+    "hash": "f6fd61b7bea859467f1a3b0e1f890c975bfef9aaafd1866e727752727de013b3"
+  },
+  "settles": [
+    {
+      "frame": "keyboard-choice",
+      "stable": true,
+      "seconds": 1.3328280448913574
+    },
+    {
+      "frame": "phone-pairing",
+      "stable": true,
+      "seconds": 1.320038080215454
+    },
+    {
+      "frame": "browser-loaded",
+      "stable": true,
+      "seconds": 1.3212246894836426
+    },
+    {
+      "frame": "browser-received-second-page-text",
+      "stable": true,
+      "seconds": 1.3268318176269531
+    },
+    {
+      "frame": "connected",
+      "stable": true,
+      "seconds": 1.7376046180725098
+    }
+  ],
+  "after": {
+    "pid": "36547",
+    "start": "224094",
+    "boot": "2afb73cf-fcb0-4caa-b6f3-50708b6423ad",
+    "hash": "f6fd61b7bea859467f1a3b0e1f890c975bfef9aaafd1866e727752727de013b3"
+  },
+  "status": "signed-in",
+  "remote_names": [
+    "dropbox:"
+  ],
+  "final_status": "idle",
+  "browser_absent": true,
+  "ended": 1791929714.4469788
+}

@@ -1,0 +1,8 @@
+{
+  "rc": 1,
+  "started": 1791929334.3604543,
+  "forwarded_guest_listener": "http://10.0.2.15:8080",
+  "error": "Locator expected to have Value ''\nActual value: first571 \nCall log:\n  - Expect \"to_have_value\" locator(\"#kb\") with timeout 15000ms\n  - waiting for locator(\"#kb\")\n    34 \u00d7 locator resolved to <input id=\"kb\" autofocus=\"\" type=\"password\" autocorrect=\"off\" spellcheck=\"false\" autocapitalize=\"off\" placeholder=\"Type here\" aria-label=\"Text to type on your handheld\"/>\n       - unexpected value \"first571\"\n\nAria snapshot:\n- textbox \"Text to type on your handheld\":\n  - /placeholder: Type here\n  - text: first571",
+  "tunnel_exit": 0,
+  "ended": 1791929350.4928076
+}

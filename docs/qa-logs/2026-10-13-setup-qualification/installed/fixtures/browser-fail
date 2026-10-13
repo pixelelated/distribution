@@ -1,0 +1,3 @@
+#!/bin/sh
+printf "injected start failure\n" > /storage/qa570flows/browser-fail-observed
+exit 7

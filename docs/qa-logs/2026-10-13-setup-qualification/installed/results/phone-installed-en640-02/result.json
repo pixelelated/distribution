@@ -1,0 +1,35 @@
+{
+  "rc": 1,
+  "name": "phone-installed-en640-02",
+  "mode": "phone",
+  "language": "en_US",
+  "started": 1791929277.8754659,
+  "fixture_sha256": "7fa134634c9b4bf6e59ce01048aef76361f5a2fe74b92b54f2c844c4e503dd07",
+  "before": {
+    "pid": "32330",
+    "start": "187161",
+    "boot": "2afb73cf-fcb0-4caa-b6f3-50708b6423ad",
+    "hash": "f6fd61b7bea859467f1a3b0e1f890c975bfef9aaafd1866e727752727de013b3"
+  },
+  "settles": [
+    {
+      "frame": "keyboard-choice",
+      "stable": true,
+      "seconds": 1.3187687397003174
+    },
+    {
+      "frame": "phone-pairing",
+      "stable": true,
+      "seconds": 1.3197121620178223
+    },
+    {
+      "frame": "browser-loaded",
+      "stable": true,
+      "seconds": 1.3214726448059082
+    }
+  ],
+  "error": "installed companion failed",
+  "final_status": "idle",
+  "browser_absent": true,
+  "ended": 1791929351.9935513
+}

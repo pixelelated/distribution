@@ -1,0 +1,29 @@
+{
+  "status": "FAIL",
+  "python": "3.14.4",
+  "source_sha256": "95c626f8df07faef522683a857e48e31f85a58c6f738bcde24707574dc24d293",
+  "cases": [
+    {
+      "language": "en",
+      "width": 320,
+      "result": "PASS",
+      "frames": 12
+    },
+    {
+      "language": "en",
+      "width": 768,
+      "result": "PASS",
+      "frames": 12
+    }
+  ],
+  "playwright": "1.63.0",
+  "executable": {
+    "path": "/home/max/.cache/ms-playwright/chromium-1223/chrome-linux64/chrome",
+    "sha256": "adc1c21ceed5c2a67184766376fe816ac03e556cc0ca3f782e8212235fe05c6f"
+  },
+  "browser": {
+    "name": "chromium",
+    "version": "148.0.7778.96"
+  },
+  "error": "AssertionError()"
+}

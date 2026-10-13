@@ -1,0 +1,68 @@
+watch-build: recording in /workspace/tmp/pix-m7-setup-vm-20261013/.build-runs/20261013T221641Z-f6e0f6f6
+settle: still after 1.3s
+changed after 0.1s (`key ret`, line 1)
+settle: still after 1.7s
+changed after 0.1s (`key x`, line 4)
+settle: still after 1.3s
+changed after 0.1s (`key x`, line 1)
+settle: still after 1.3s
+changed after 0.1s (`key right`, line 1)
+settle: still after 1.3s
+changed after 0.1s (`key x`, line 4)
+settle: still after 1.3s
+changed after 0.0s (`key x`, line 1)
+settle: still after 1.3s
+changed after 0.1s (`key z`, line 4)
+settle: still after 1.3s
+changed after 0.1s (`key x`, line 1)
+settle: still after 1.3s
+settle: still after 1.3s
+changed after 0.1s (`key ret`, line 1)
+settle: still after 1.7s
+changed after 0.1s (`key x`, line 4)
+settle: still after 1.3s
+changed after 0.1s (`key x`, line 1)
+settle: still after 1.3s
+changed after 0.1s (`key right`, line 1)
+settle: still after 1.3s
+changed after 0.1s (`key x`, line 4)
+settle: still after 1.3s
+changed after 0.0s (`key x`, line 1)
+settle: still after 1.3s
+changed after 0.1s (`key z`, line 4)
+settle: still after 1.3s
+changed after 0.1s (`key x`, line 1)
+settle: still after 1.3s
+Traceback (most recent call last):
+  File "/workspace/tmp/pix-m7-setup-vm-20261013/notice-frames.py", line 49, in <module>
+    assert not out('ip -4 route show default; ip -6 route show default').strip();result['event_count']=1;result['rc']=0
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+settle: still after 2.6s
+changed after 0.1s (`key ret`, line 1)
+settle: still after 1.7s
+changed after 0.1s (`key x`, line 4)
+settle: still after 1.3s
+changed after 0.0s (`key x`, line 1)
+settle: still after 1.3s
+changed after 0.0s (`key right`, line 1)
+settle: still after 1.3s
+changed after 0.1s (`key x`, line 4)
+settle: still after 1.3s
+changed after 0.1s (`key x`, line 1)
+settle: still after 1.3s
+changed after 0.1s (`key z`, line 4)
+settle: still after 1.3s
+changed after 0.1s (`key x`, line 1)
+settle: still after 1.3s
+Traceback (most recent call last):
+  File "/workspace/tmp/pix-m7-setup-vm-20261013/notice-frames.py", line 54, in <module>
+    remote('ip -'+family+' route add '+shlex.join(shlex.split(entry)),capture_output=True)
+    ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tmp/pix-m7-setup-vm-20261013/ui.py", line 4, in remote
+    def remote(c,**kw):return subprocess.run(ssh+[c],check=True,timeout=30,**kw)
+                              ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['ssh', '-i', '/workspace/tmp/pix-m7-setup-vm-20261013/vm/qa-key', '-p', '10608', '-o', 'BatchMode=yes', '-o', 'ConnectTimeout=8', '-o', 'StrictHostKeyChecking=yes', '-o', 'UserKnownHostsFile=/workspace/tmp/pix-m7-setup-vm-20261013/vm/known_hosts', 'root@127.0.0.1', 'ip -4 route add default via 10.0.2.2 dev eth0 src 10.0.2.15 metric 100']' returned non-zero exit status 2.

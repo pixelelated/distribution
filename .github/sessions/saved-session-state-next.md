@@ -42,53 +42,59 @@ Old trim-only binary is retired; do not follow historical hold prose.
 
 ## LIVE runtime owner — supervise immediately
 
-Updated2026-10-13 21:56 UTC. /workspace/tmp/pix-m7-setup-vm-20261013 is RUNNING,
+Updated2026-10-13 22:37 UTC. /workspace/tmp/pix-m7-setup-vm-20261013 is RUNNING,
 started21:36:29, hard deadline23:06:29. Standard8GiB/4vCPU GL-auto disposable
-VM20; current640×480, SSH10608/VNC5995, QEMU2064850, lifecycle2064402,
+VM20; current1280×800, SSH10608/VNC5995, QEMU2361066, lifecycle2064402,
 admission4c5f9671b66c42f99b4d37e012529bfd. Inspect actual host PIDs and original
 vm-owner/launcher-result.json/vm-result before continuing. No automatic chat
 alert: coordinator must poll and report. Never replay owners or edit in-flight scripts.
 finish-640x480 advances to1280×800; finish-1280x800 completes; abort stops with1.
 
-Latest durable partial evidence: docs/qa-logs/2026-10-13-setup-qualification/installed-checkpoint/.
-Actual compiled Wi-Fi initial/refresh/error/empty/back-reopen/scroll branches pass;
-74 adapted backend controls pass. Exact source phone overlay95c626 installed.
-Both English640 native/phone retry/cancel routes pass. New-source phone component
-4cases/48frames passes; selected frames reviewed, not all48. Original accent
-assertion failure1 preserved; exact translated sentence fixes the fixture only.
+Latest durable partial evidence: docs/qa-logs/2026-10-13-setup-qualification/installed/.
+Read its README, results, original failures and26reviewed-frame index. Small640
+work COMPLETE: four browser retry/cancel EN/FR routes, six browser races/recovery,
+nine Recent controls plus six EN/FR actual collection frames, both-language Wi-Fi
+refresh branches,74backend controls, actual phone input/navigation and all6notice
+predicate cases. Open/saved/protected/unknown/manual/profile routes pass using
+synthetic backend. Original keyboard-back walk1 and failed route-isolation1 stay
+failures; corrected copies pass. No real provider/account/radio claim.
 
-Current subowner browser-fr640-owner runs both French640 recovery routes, bounded400s.
-Inspect original results before the next subjob. Prepared recent-matrix.py (nine
-synthetic choices), browser-branches.py/batch (recovery/completion/expiry/Back)
-and browser-recovery02.py exist UNRUN until original receipts prove otherwise.
-Use tools/watch-build-submit with separator then --record-only for child jobs;
-main admitted lifecycle owns runtime. Original first wrapper admission refusal2
-and following parse-only command refusal2 remain in history; no target run occurred.
+LIVE child transition-large-owner PID2360998 runs transition-large.py under
+1750s bound. It advances the existing main lifecycle to1280, runs large-batch.py
+serially, and creates finish-1280x800 only if all14subtasks pass. Current
+provision1280 rc0; Wi-Fi en1280 is running. Inspect large-batch-result.json,
+transition-large-owner/launcher-result.json and main vm-owner/launcher-result.json.
+The main90min deadline23:06:29 is unchanged; no implicit lease extension.
+Large batch covers both-language Wi-Fi, four browser retry/cancel routes,
+French installed phone, four notice frames/branches and six Recent frames.
+A failure stops dependent subtests but leaves main VM watched for diagnosis.
 
-The guest holds only synthetic settings/library/authorization. ui.py provides
-bounded SSH/shot; monitor use is serialized. Existing compiler artifacts and catalogs
-are bound in records/candidate.json. cloud_oauth is private-bound; wifictl is still
-a synthetic UI enumeration wrapper, separate actual script controls live in
-backend-controls/. No real network/provider/device claim. Continue installed
-phone flow, remaining library/Wi-Fi branches and EN/FR both dimensions, record
-honest remaining gaps, stop exact guest and consume/retire all owners/disks.
+Host helper ui.py uses one monitor at a time, SSH10608. Parent admission owns
+runtime; child owners are --record-only. No scripts edited in flight. New
+notice-frames02.py guards external routing with unreachable defaults; old
+failure retained. recent-frames02.py corrects the chooser walk for large profile.
+Current source composition a7 and binary remain frozen. Completed records are
+copied by save-compact.py; finish the source/frame index, consume every original
+owner, stop exact guest and retire disk/keys plus old binary after its immediate
+qualification. Do not replay terminal owners.
 
 ## Existing visible workers
 
 Coordinator w4:p2 owns shared records, runtime and integration. Three existing
 source-only Herdr workers; no new panes and no worker runtime allocations:
 
-- pix-memory w4:p8: #564 Steam candidate765871cf9305bd8c24fee70573eff44b9bf0f627
-  in m7-steam-runtime-564,39prepared cases UNRUN. Now explicit Python3 recipe
-  dependency and source disposition of prior whole-installer removals; no rewrite.
-- pix-nova w4:p9: #575 ES e87d0d1b4562adfb9e5b8b6882c0c655ed611afc on isolated
-  m7-save-capabilities-575; distribution packet44d4553 integrated08290b5f42.
-  Source-only22-line help clarification;64controls/compiler/frames UNRUN.
-  Now preparing isolated #567 HTTPS/index fixture in new library-index-fixture
-  packet in m7-clean-state-565; no runtime or production/shared-file edits.
-- pix-gtk4 w4:p7: #577 backendc023 integrated7b2b874cab and runtime74controls pass.
-  Now source-only #574 RVZ hash-reader candidate in isolated m7-rvz-hashing-574,
-  distro packet in m7-gtk4-576. No runtime/compile/provider/owner ROM operations.
+- pix-memory w4:p8: assigned m7-steam-runtime-564, last sealed ba0c530bf0f4626ff99daedf65a18a7ead69111c.
+  #564 staged runtime765871cf +dependency/dispositionc41a16 +root preservationba0c530.
+  All runtime UNRUN. Now source-only #579 FEX replacement preservation, no runtime.
+- pix-nova w4:p9: #575 ES e87d0d1b4562adfb9e5b8b6882c0c655ed611afc remains separate;
+  packet44d4553 integrated08290. #567 no-NIC TLS fixtureb45eaa5 integrated158fab8617,
+  UNRUN and requires a separate NIC-free guest. Now #580 Proton source-only in
+  /workspace/repos/rocknix.worktrees/m7-proton-preservation-580 fromba0c530.
+- pix-gtk4 w4:p7: #574 ES4142943a407de75ad789039bf44359552262909d +retry2d875d33de8d3796bf3b4401ce35f6ca1592cd55
+  in m7-rvz-hashing-574. Distro packets6325c1/169181 integrated1bf3fa1d32/ccedf04b2d;
+  target decoder/compiler/runtime all UNRUN. Now source-only #493 automatic owned
+  retirement in /workspace/repos/rocknix.worktrees/m7-owned-retirement-493,
+  feature/m7-owned-retirement-493 fromccedf04b2d. No deletion/runtime authority.
 
 ES composed worktree remains frozena7dcdbb380 during this allocation. Do not
 integrate575/574 or change its binary identity mid-run. Their later source composition,

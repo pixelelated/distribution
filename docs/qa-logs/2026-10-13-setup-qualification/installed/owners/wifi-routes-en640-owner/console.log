@@ -1,0 +1,41 @@
+watch-build: recording in /workspace/tmp/pix-m7-setup-vm-20261013/.build-runs/20261013T222931Z-3af730a8
+wait-for-change: `key z` (line 1) was eaten after 12.2s; re-sending (1)
+Traceback (most recent call last):
+  File "/workspace/tmp/pix-m7-setup-vm-20261013/wifi-routes.py", line 36, in <module>
+    elif route!='open':walk(['z'],d);frame(d,'back')
+                       ~~~~^^^^^^^^^
+  File "/workspace/tmp/pix-m7-setup-vm-20261013/wifi-routes.py", line 9, in walk
+    vq.run_steps(mon,lines,str(d/'walk'))
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/repos/rocknix.worktrees/m7-player-setup/tools/vm-visual-qa", line 587, in run_steps
+    raise WalkFailed(
+    ...<3 lines>...
+        % (lineno, timeout, kname, kline, int(retries), outdir))
+vq.WalkFailed: wait-for-change (line 2): the screen did not change within 12s of `key z` on line 1, even after 1 re-send(s). The press was eaten, so every step after this one would run against the wrong screen. The frame is the last one in /workspace/tmp/pix-m7-setup-vm-20261013/wifi-routes-en640/protected/walk.
+settle: still after 1.3s
+changed after 0.1s (`key ret`, line 1)
+settle: still after 1.7s
+changed after 0.1s (`key up`, line 4)
+settle: still after 1.3s
+changed after 0.1s (`key x`, line 7)
+settle: still after 1.3s
+changed after 0.1s (`key down`, line 10)
+settle: still after 1.3s
+changed after 0.1s (`key x`, line 13)
+settle: still after 1.3s
+changed after 0.1s (`key x`, line 1)
+settle: still after 1.7s
+settle: still after 1.3s
+changed after 0.0s (`key ret`, line 1)
+settle: still after 1.7s
+changed after 0.1s (`key up`, line 4)
+settle: still after 1.3s
+changed after 0.1s (`key x`, line 7)
+settle: still after 1.3s
+changed after 0.1s (`key down`, line 10)
+settle: still after 1.3s
+changed after 0.1s (`key x`, line 13)
+settle: still after 1.3s
+changed after 0.1s (`key x`, line 1)
+settle: still after 1.7s
+captured /workspace/tmp/pix-m7-setup-vm-20261013/wifi-routes-en640/protected/walk/01-stuck-after-z.png

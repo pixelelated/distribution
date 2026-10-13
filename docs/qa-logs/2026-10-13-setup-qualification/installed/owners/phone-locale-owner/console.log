@@ -1,0 +1,12 @@
+watch-build: recording in /workspace/tmp/pix-m7-setup-vm-20261013/.build-runs/20261013T214932Z-47b639a6
+Traceback (most recent call last):
+  File "/workspace/tmp/pix-m7-setup-vm-20261013/phone-locale-fixture.py", line 372, in <module>
+    main()
+    ~~~~^^
+  File "/workspace/tmp/pix-m7-setup-vm-20261013/phone-locale-fixture.py", line 359, in main
+    report["cases"].append(run_case(browser, language, width, args.output))
+                           ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tmp/pix-m7-setup-vm-20261013/phone-locale-fixture.py", line 292, in run_case
+    assert "é" not in page.locator("#warn").text_content()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

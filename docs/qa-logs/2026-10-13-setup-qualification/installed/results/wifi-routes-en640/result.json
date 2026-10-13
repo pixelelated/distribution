@@ -1,0 +1,16 @@
+{
+  "rc": 1,
+  "cases": [
+    {
+      "route": "open",
+      "rc": 0,
+      "identity": "2afb73cf-fcb0-4caa-b6f3-50708b6423ad\n47121\nf6fd61b7bea859467f1a3b0e1f890c975bfef9aaafd1866e727752727de013b3  /proc/47121/exe",
+      "synthetic_mutations": [
+        "connect-open"
+      ]
+    }
+  ],
+  "started": 1791930571.6067002,
+  "error": "wait-for-change (line 2): the screen did not change within 12s of `key z` on line 1, even after 1 re-send(s). The press was eaten, so every step after this one would run against the wrong screen. The frame is the last one in /workspace/tmp/pix-m7-setup-vm-20261013/wifi-routes-en640/protected/walk.",
+  "ended": 1791930655.3990097
+}

@@ -1,0 +1,55 @@
+{
+  "rc": 0,
+  "name": "browser-phone-fr640",
+  "mode": "phone",
+  "language": "fr_FR",
+  "started": 1791928472.949106,
+  "before": {
+    "pid": "14871",
+    "start": "106645",
+    "boot": "2afb73cf-fcb0-4caa-b6f3-50708b6423ad",
+    "hash": "f6fd61b7bea859467f1a3b0e1f890c975bfef9aaafd1866e727752727de013b3"
+  },
+  "settles": [
+    {
+      "frame": "keyboard-choice",
+      "stable": true,
+      "seconds": 1.3095786571502686
+    },
+    {
+      "frame": "phone-pairing",
+      "stable": true,
+      "seconds": 1.3203003406524658
+    },
+    {
+      "frame": "browser-open-failure",
+      "stable": true,
+      "seconds": 1.3384602069854736
+    },
+    {
+      "frame": "retry-failure",
+      "stable": true,
+      "seconds": 1.3286397457122803
+    },
+    {
+      "frame": "cancelled",
+      "stable": true,
+      "seconds": 1.330808162689209
+    }
+  ],
+  "status_after_open_failure": "waiting",
+  "info_before_retry": "URL=http://10.0.2.15:8080/1776\nADDRESS=http://10.0.2.15:8080\nPIN=1776\nNAME=Dropbox\nPROVIDER=http://127.0.0.1:53682/page\nSTATUS=waiting\nON_DEVICE=yes\nEXIT_HINT=SELECT + START",
+  "info_after_retry": "URL=http://10.0.2.15:8080/1776\nADDRESS=http://10.0.2.15:8080\nPIN=1776\nNAME=Dropbox\nPROVIDER=http://127.0.0.1:53682/page\nSTATUS=waiting\nON_DEVICE=yes\nEXIT_HINT=SELECT + START",
+  "status_after_retry": "waiting",
+  "after": {
+    "pid": "14871",
+    "start": "106645",
+    "boot": "2afb73cf-fcb0-4caa-b6f3-50708b6423ad",
+    "hash": "f6fd61b7bea859467f1a3b0e1f890c975bfef9aaafd1866e727752727de013b3"
+  },
+  "remote_names": [],
+  "ui_cancelled": true,
+  "final_status": "idle",
+  "browser_absent": true,
+  "ended": 1791928581.2937427
+}

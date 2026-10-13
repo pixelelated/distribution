@@ -345,6 +345,13 @@ things that cost a cycle each before they were written down:
   button** — the wrap runs rows → buttons → rows. So the bottom of GAME
   SETTINGS is three `up`s from the top (BACK, the last row, the one above),
   not one. The button bar is a focus stop on every page.
+- **Native text editors receive printable keyboard keys as text.** A monitor
+  `z` can type a character instead of acting as the mapped controller Back.
+  For a keyboard-driven `GuiTextEditPopupKeyboard` cancellation, use `esc`
+  after verifying that exact editor handles `SDLK_ESCAPE`; retain a returned
+  picker frame and a no-connect/no-write receipt. Controller input remains a
+  separate path. A generic frame-change retry must not repeat printable
+  characters into a field (#577, October13).
 - **START on MAIN MENU closes it.** START opens the menu from a system or
   game view; on the menu it is CLOSE. Sending it twice returns to where you
   were, and the next `x` launches whatever is under the cursor.

@@ -1,0 +1,57 @@
+{
+  "rc": 0,
+  "name": "browser-native-recovered-en640",
+  "mode": "native",
+  "language": "en_US",
+  "started": 1791928676.7399042,
+  "before": {
+    "pid": "19829",
+    "start": "127013",
+    "boot": "2afb73cf-fcb0-4caa-b6f3-50708b6423ad",
+    "hash": "f6fd61b7bea859467f1a3b0e1f890c975bfef9aaafd1866e727752727de013b3"
+  },
+  "settles": [
+    {
+      "frame": "keyboard-choice",
+      "stable": true,
+      "seconds": 1.3323092460632324
+    },
+    {
+      "frame": "browser-open-failure",
+      "stable": true,
+      "seconds": 1.361192226409912
+    },
+    {
+      "frame": "retry-browser-loaded",
+      "stable": true,
+      "seconds": 2.173658609390259
+    },
+    {
+      "frame": "retry-returned",
+      "stable": true,
+      "seconds": 1.7402822971343994
+    },
+    {
+      "frame": "connected",
+      "stable": true,
+      "seconds": 1.3201825618743896
+    }
+  ],
+  "status_after_open_failure": "waiting",
+  "info_before_retry": "URL=http://10.0.2.15:8080/3328\nADDRESS=http://10.0.2.15:8080\nPIN=3328\nNAME=Dropbox\nPROVIDER=http://127.0.0.1:53682/page\nSTATUS=waiting\nON_DEVICE=yes\nEXIT_HINT=SELECT + START",
+  "info_after_retry": "URL=http://10.0.2.15:8080/3328\nADDRESS=http://10.0.2.15:8080\nPIN=3328\nNAME=Dropbox\nPROVIDER=http://127.0.0.1:53682/page\nSTATUS=waiting\nON_DEVICE=yes\nEXIT_HINT=SELECT + START",
+  "after": {
+    "pid": "19829",
+    "start": "127013",
+    "boot": "2afb73cf-fcb0-4caa-b6f3-50708b6423ad",
+    "hash": "f6fd61b7bea859467f1a3b0e1f890c975bfef9aaafd1866e727752727de013b3"
+  },
+  "status": "signed-in",
+  "remote_names": [
+    "dropbox:"
+  ],
+  "scenario": "recovered",
+  "final_status": "idle",
+  "browser_absent": true,
+  "ended": 1791928758.3304596
+}

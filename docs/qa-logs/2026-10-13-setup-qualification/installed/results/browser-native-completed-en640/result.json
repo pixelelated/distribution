@@ -1,0 +1,46 @@
+{
+  "rc": 0,
+  "name": "browser-native-completed-en640",
+  "mode": "native",
+  "language": "en_US",
+  "started": 1791928843.2055495,
+  "before": {
+    "pid": "23926",
+    "start": "143655",
+    "boot": "2afb73cf-fcb0-4caa-b6f3-50708b6423ad",
+    "hash": "f6fd61b7bea859467f1a3b0e1f890c975bfef9aaafd1866e727752727de013b3"
+  },
+  "settles": [
+    {
+      "frame": "keyboard-choice",
+      "stable": true,
+      "seconds": 1.3231086730957031
+    },
+    {
+      "frame": "browser-open-failure",
+      "stable": true,
+      "seconds": 1.7168221473693848
+    },
+    {
+      "frame": "completion-won",
+      "stable": true,
+      "seconds": 1.3211281299591064
+    }
+  ],
+  "status_after_open_failure": "waiting",
+  "info_before_retry": "URL=http://10.0.2.15:8080/2189\nADDRESS=http://10.0.2.15:8080\nPIN=2189\nNAME=Dropbox\nPROVIDER=http://127.0.0.1:53682/page\nSTATUS=waiting\nON_DEVICE=yes\nEXIT_HINT=SELECT + START",
+  "after": {
+    "pid": "23926",
+    "start": "143655",
+    "boot": "2afb73cf-fcb0-4caa-b6f3-50708b6423ad",
+    "hash": "f6fd61b7bea859467f1a3b0e1f890c975bfef9aaafd1866e727752727de013b3"
+  },
+  "status": "signed-in",
+  "remote_names": [
+    "dropbox:"
+  ],
+  "scenario": "completed",
+  "final_status": "idle",
+  "browser_absent": true,
+  "ended": 1791928914.803398
+}
