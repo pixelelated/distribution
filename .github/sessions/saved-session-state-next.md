@@ -40,46 +40,59 @@ fr.mo4bc74a7f3836e59cfbce38e5732a897f694940ab8ea566f0204dcf5e1f6de96b;
 en_GB.mo3ecb7c787975d153e84c26d876c7b51bed4a65a5bfb6daddfd7724cdcde9819d.
 Old trim-only binary is retired; do not follow historical hold prose.
 
-## Next runtime owner — inspect live results, never replay
+## LIVE runtime owner — supervise immediately
 
-/workspace/tmp/pix-m7-setup-vm-20261013 is PREPARED at checkpoint time.
-Report owner was submitted; inspect original report/launcher/wrapper before
-preparing admission or launching. Future launch cannot be proven by this file.
-One fresh accepted VM20,8GiB/4vCPU GL-auto, sequential640×480/1280×800,
-EN/FR,90min hard deadline, owned ports10608/5995. vm-lifecycle.py stops exact
-pidfile. finish-640x480 advances to second profile; finish-1280x800 completes;
-abort stops with original1. Do not fake a finish to conceal missing proof.
-Check vm-owner/launcher-result.json, vm-result.json and ready-*.json first.
-provision.py installs exact binary/two catalogs and synthetic rclone auth.
-Never edit in-flight scripts. Coordinator polls within60s and announces
-completion; no off-session alert exists. Final source phone/wifictl overlays
-need their own byte binding before their runtime claim. No owner data.
+Updated2026-10-13 21:56 UTC. /workspace/tmp/pix-m7-setup-vm-20261013 is RUNNING,
+started21:36:29, hard deadline23:06:29. Standard8GiB/4vCPU GL-auto disposable
+VM20; current640×480, SSH10608/VNC5995, QEMU2064850, lifecycle2064402,
+admission4c5f9671b66c42f99b4d37e012529bfd. Inspect actual host PIDs and original
+vm-owner/launcher-result.json/vm-result before continuing. No automatic chat
+alert: coordinator must poll and report. Never replay owners or edit in-flight scripts.
+finish-640x480 advances to1280×800; finish-1280x800 completes; abort stops with1.
 
-Finish actual browser retry/cancel/expiry/completion, conditional notice,
-Recent absent/explicit choices, persistent Wi-Fi pending/error/empty/focus
-and existing network routes. VM first, real UI inputs and exact-source EN/FR
-frames. Component-only evidence does not close installed UI criteria.
-Then canonical flow/frame updates, source review/audit and complete-image
-qualification; no pin promotion before those required gates.
+Latest durable partial evidence: docs/qa-logs/2026-10-13-setup-qualification/installed-checkpoint/.
+Actual compiled Wi-Fi initial/refresh/error/empty/back-reopen/scroll branches pass;
+74 adapted backend controls pass. Exact source phone overlay95c626 installed.
+Both English640 native/phone retry/cancel routes pass. New-source phone component
+4cases/48frames passes; selected frames reviewed, not all48. Original accent
+assertion failure1 preserved; exact translated sentence fixes the fixture only.
+
+Current subowner browser-fr640-owner runs both French640 recovery routes, bounded400s.
+Inspect original results before the next subjob. Prepared recent-matrix.py (nine
+synthetic choices), browser-branches.py/batch (recovery/completion/expiry/Back)
+and browser-recovery02.py exist UNRUN until original receipts prove otherwise.
+Use tools/watch-build-submit with separator then --record-only for child jobs;
+main admitted lifecycle owns runtime. Original first wrapper admission refusal2
+and following parse-only command refusal2 remain in history; no target run occurred.
+
+The guest holds only synthetic settings/library/authorization. ui.py provides
+bounded SSH/shot; monitor use is serialized. Existing compiler artifacts and catalogs
+are bound in records/candidate.json. cloud_oauth is private-bound; wifictl is still
+a synthetic UI enumeration wrapper, separate actual script controls live in
+backend-controls/. No real network/provider/device claim. Continue installed
+phone flow, remaining library/Wi-Fi branches and EN/FR both dimensions, record
+honest remaining gaps, stop exact guest and consume/retire all owners/disks.
 
 ## Existing visible workers
 
-Coordinator owns shared docs/tracker, all runtime/compilation and integration.
-No new Herdr panes. Source-only workers have no runtime allocation:
+Coordinator w4:p2 owns shared records, runtime and integration. Three existing
+source-only Herdr workers; no new panes and no worker runtime allocations:
 
-- pix-memory w4:p8 now #564 Steam staged replacement in isolated
-  /workspace/repos/rocknix.worktrees/m7-steam-runtime-564 from exact stable
-  foundation f370dc8787. Own Install Steam.sh plus scoped source packet only.
-  No installer/network/VM/compile/device/push. Return final scoped commit.
-- pix-nova w4:p9 in m7-clean-state-565 finished immutable handoff0cc3c1e000
-  (integratedc775f2aeb1). Now #571 remaining French companion labels/help and
-  masked-character copy, based on a824edbd cherry-pick. Own cloud_oauth and
-  new phone-locale-source packet only. No runtime/push; integrate only new
-  follow-up commit, never historical branch ancestry. ES source frozen.
-- pix-gtk4 w4:p7 in m7-gtk4-576 finished immutable6cf8405bcc
-  (integrated7c13b9c08b). Now #577 wifictl error propagation; original
-  list/scanlist loses radio/rescan/pipeline failure. Own wifictl and new
-  wifi-backend-source packet only. No runtime/push. ES source frozen.
+- pix-memory w4:p8: #564 Steam candidate765871cf9305bd8c24fee70573eff44b9bf0f627
+  in m7-steam-runtime-564,39prepared cases UNRUN. Now explicit Python3 recipe
+  dependency and source disposition of prior whole-installer removals; no rewrite.
+- pix-nova w4:p9: #575 ES e87d0d1b4562adfb9e5b8b6882c0c655ed611afc on isolated
+  m7-save-capabilities-575; distribution packet44d4553 integrated08290b5f42.
+  Source-only22-line help clarification;64controls/compiler/frames UNRUN.
+  Now preparing isolated #567 HTTPS/index fixture in new library-index-fixture
+  packet in m7-clean-state-565; no runtime or production/shared-file edits.
+- pix-gtk4 w4:p7: #577 backendc023 integrated7b2b874cab and runtime74controls pass.
+  Now source-only #574 RVZ hash-reader candidate in isolated m7-rvz-hashing-574,
+  distro packet in m7-gtk4-576. No runtime/compile/provider/owner ROM operations.
+
+ES composed worktree remains frozena7dcdbb380 during this allocation. Do not
+integrate575/574 or change its binary identity mid-run. Their later source composition,
+catalogs and compiler/new-image qualification remain coordinator work.
 
 ## Remaining M7 path
 
