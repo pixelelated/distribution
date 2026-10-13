@@ -1,0 +1,85 @@
+commit 29b5d6fdc0829451e48a6d7da8300056de89dfa8
+Author:     Max Engel <max@awecelot.com>
+AuthorDate: Mon Sep 14 16:11:47 2026 +0000
+Commit:     Max Engel <max@awecelot.com>
+CommitDate: Mon Sep 14 16:11:47 2026 +0000
+
+    ThreadedHasher.cpp, CheevosIndex.cpp: the lookup-only startup pass runs once a day at most (audit #186 PL-08, the cost)
+    
+    A lookup pass with nothing to hash beside it still fetches the hash
+    library -- two requests, several megabytes, on the interface thread at
+    startup -- and nearly every library holds a game RetroAchievements does not
+    know (a hack, a bad dump) whose hash and empty id would ask for it at every
+    boot, where before an indexed library asked for nothing. So the silent
+    startup run makes the pass at most once a day, by a stamp in es_settings.cfg
+    (CheevosLookupOnlyLast) written once the library has come, so an offline
+    boot does not spend the day's pass on a fetch that failed. A run the player
+    asked for, or one with games to hash, is not held back. The rule is
+    CheevosIndex::lookupDue, with a unit test: due when none has run, when a
+    day has passed, or when the clock went back.
+    
+    Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>
+    Claude-Session: https://claude.ai/code/session_01LkFLXE5GsT1apn8AwrxrGR
+
+diff --git a/es-app/src/CheevosIndex.cpp b/es-app/src/CheevosIndex.cpp
+index b3ddd96e0..924934073 100644
+--- a/es-app/src/CheevosIndex.cpp
++++ b/es-app/src/CheevosIndex.cpp
+@@ -21,3 +21,10 @@ CheevosIndex::Take CheevosIndex::take(bool forceAllGames, const std::string& che
+ 		return Take::None;
+ 	return Take::Lookup;
+ }
++
++bool CheevosIndex::lookupDue(long long lastEpoch, long long nowEpoch)
++{
++	if (lastEpoch <= 0 || nowEpoch < lastEpoch)
++		return true;
++	return nowEpoch - lastEpoch >= LookupIntervalSeconds;
++}
+diff --git a/es-app/src/ThreadedHasher.cpp b/es-app/src/ThreadedHasher.cpp
+index 0d0551c3f..9af3f86ed 100644
+--- a/es-app/src/ThreadedHasher.cpp
++++ b/es-app/src/ThreadedHasher.cpp
+@@ -13,6 +13,8 @@
+ #include "CheevosIndex.h"
+ #include "utils/StringUtil.h"
+ #include "Log.h"
++#include "Settings.h"
++#include <ctime>
+ #include <unordered_set>
+ #include <queue>
+ 
+@@ -298,9 +300,33 @@ void ThreadedHasher::start(Window* window, HasherType type, bool forceAllGames,
+ 		return;
+ 	}
+ 
++	// Lookups alone, from the silent startup run: once a day at most
++	// (CheevosIndex::lookupDue) -- the pass costs the hash library, and
++	// nearly every library has a game RetroAchievements does not know whose
++	// hash would ask for it at every boot. A run the player asked for, or
++	// one with games to hash (the library comes anyway), is not held back.
++	// The stamp is written once the library has come, so an offline boot
++	// does not spend the day's pass on a fetch that failed.
++	const bool lookupsAlone = searchQueue.empty() && silent && ((type & HASH_CHEEVOS_MD5) == HASH_CHEEVOS_MD5);
++	const long long now = (long long) time(nullptr);
++	if (lookupsAlone)
++	{
++		const long long last = strtoll(Settings::getInstance()->getString("CheevosLookupOnlyLast").c_str(), nullptr, 10);
++		if (!CheevosIndex::lookupDue(last, now))
++		{
++			LOG(LogInfo) << "ThreadedHasher: " << lookupOnly.size() << " game(s) with a hash and no id; the lookup pass ran within the day, next one later";
++			return;
++		}
++	}
++
+ 	try
+ 	{
+ 		ThreadedHasher* hasher = new ThreadedHasher(window, type, searchQueue, lookupOnly, forceAllGames);
++		if (lookupsAlone)
++		{
++			Settings::getInstance()->setString("CheevosLookupOnlyLast", std::to_string(now));
++			Settings::getInstance()->saveFile();
++		}
+ 		if (hasher->mTotal == 0)
+ 		{
+ 			// Lookups alone and the library knew none of them: nothing was

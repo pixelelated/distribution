@@ -1,0 +1,50 @@
+commit cc8c5ccb4942695c395ac455a93929f69cc0e1d8
+Author:     Max Engel <max.engel@me.com>
+AuthorDate: Mon Sep 28 01:39:32 2026 +0000
+Commit:     Max Engel <max.engel@me.com>
+CommitDate: Mon Sep 28 01:39:32 2026 +0000
+
+    ThreadedHasher: an offline index counts nothing and toasts nothing
+    
+    #308 1-raoffline claude F-RA-05. With the hash library absent (offline),
+    the constructor has ProxyCards say the new games wait for the link and
+    empties its queue -- but mTotal had been taken from the queue first and
+    kept the waiting games' count. So `mTotal == 0` did not return: an index
+    card and threads were made for an empty queue, the destructor toasted
+    INDEXING COMPLETED. UPDATE GAMELISTS TO APPLY CHANGES. beside the card
+    saying nothing was indexed (two surfaces, one false), and the threads,
+    ending at once, could delete the hasher before start() read mTotal and
+    set mInstance from it. mTotal is set to 0 with the queue.
+    
+    Test: tests/hasher-offline-index.py compiles the shipped constructor and
+    destructor out of ThreadedHasher.cpp against a stand-in class with the
+    same members and runs an offline index with three games waiting. Before:
+      FAIL an offline run counts nothing to index
+      FAIL no index card and no threads over an empty queue
+      FAIL no INDEXING COMPLETED toast beside the offline card -- got:
+      INDEXING COMPLETED. UPDATE GAMELISTS TO APPLY CHANGES.
+    After: hasher-offline-index: PASS (five checks). es-syntax-check PASS.
+    
+    Already written: nothing inherited -- a run's counters.
+    
+    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+
+diff --git a/es-app/src/ThreadedHasher.cpp b/es-app/src/ThreadedHasher.cpp
+index 648a24e6f..b2547d475 100644
+--- a/es-app/src/ThreadedHasher.cpp
++++ b/es-app/src/ThreadedHasher.cpp
+@@ -59,6 +59,14 @@ ThreadedHasher::ThreadedHasher(Window* window, HasherType type, std::queue<FileD
+ 					ProxyCards::indexRanOffline(mWindow, (int) mSearchQueue.size());
+ 				while (!mSearchQueue.empty())
+ 					mSearchQueue.pop();
++				// And nothing is counted: mTotal was taken from the queue
++				// above, so it stayed at the games that were waiting. A card
++				// and threads were made for an empty queue, the destructor
++				// toasted INDEXING COMPLETED beside the offline card, and the
++				// threads -- ending at once -- could delete this before
++				// start() read it back (#308 1-raoffline claude F-RA-05).
++				// With 0, the check below returns before any of that.
++				mTotal = 0;
+ 			}
+ 			else
+ 				sCheevosLibraryCame = true;

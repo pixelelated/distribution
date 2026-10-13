@@ -1,0 +1,65 @@
+commit 878b22c43508923b9db673e5706d201098441135
+Author:     Fabrice CARUSO <fabrice.caruso@free.fr>
+AuthorDate: Mon Nov 30 01:31:29 2020 +0100
+Commit:     Fabrice CARUSO <fabrice.caruso@free.fr>
+CommitDate: Sat Dec 12 19:24:16 2020 +0100
+
+    Retroachivements : include rcheevos project for hash calculations + better UI
+
+diff --git a/es-app/src/FileData.cpp b/es-app/src/FileData.cpp
+index 933dbd7fc..2f216c54e 100644
+--- a/es-app/src/FileData.cpp
++++ b/es-app/src/FileData.cpp
+@@ -25,6 +25,7 @@
+ #include <algorithm>
+ #include "LangParser.h"
+ #include "resources/ResourceManager.h"
++#include "RetroAchievements.h"
+ 
+ FileData::FileData(FileType type, const std::string& path, SystemData* system)
+ 	: mType(type), mSystem(system), mParent(NULL), mMetadata(type == GAME ? GAME_METADATA : FOLDER_METADATA) // metadata is REALLY set in the constructor!
+@@ -200,7 +201,7 @@ const bool FileData::getKidGame()
+ 
+ const bool FileData::hasCheevos()
+ {
+-	return Utils::String::toInteger(getMetadata(MetaDataId::Cheevos)) > 0;
++	return Utils::String::toInteger(getMetadata(MetaDataId::CheevosId)) > 0;
+ }
+ 
+ static std::shared_ptr<bool> showFilenames;
+@@ -1100,7 +1101,7 @@ void FileData::checkMd5(bool force)
+ {
+ 	if (getSourceFileData() != this)
+ 	{
+-		getSourceFileData()->checkCrc32(force);
++		getSourceFileData()->checkMd5(force);
+ 		return;
+ 	}
+ 
+@@ -1117,6 +1118,26 @@ void FileData::checkMd5(bool force)
+ }
+ 
+ 
++void FileData::checkCheevosHash(bool force)
++{
++	if (getSourceFileData() != this)
++	{
++		getSourceFileData()->checkCheevosHash(force);
++		return;
++	}
++
++	if (!force && !getMetadata(MetaDataId::CheevosHash).empty())
++		return;
++
++	SystemData* system = getSystem();
++	auto crc = RetroAchievements::getCheevosHash(system, getPath());
++	if (!crc.empty())
++	{
++		getMetadata().set(MetaDataId::CheevosHash, Utils::String::toUpper(crc));
++		saveToGamelistRecovery(this);
++	}
++}
++
+ std::string FileData::getKeyboardMappingFilePath()
+ {
+ 	if (Utils::FileSystem::isDirectory(getSourceFileData()->getPath()))

@@ -1,0 +1,121 @@
+commit cce9ab12ab535d2d0716a78deb26d11c363204e8
+Author:     Max Engel <max@awecelot.com>
+AuthorDate: Mon Sep 14 18:47:10 2026 +0000
+Commit:     Max Engel <max@awecelot.com>
+CommitDate: Mon Sep 14 18:47:10 2026 +0000
+
+    SystemData.cpp, main.cpp, NetworkThread.cpp, ThreadedHasher.cpp: the startup index runs without the splash screen, and again when the link comes up (fork #183)
+    
+    INDEX NEW GAMES AT STARTUP (and the netplay index at startup) were started
+    by SystemData::loadConfig only when it was handed a window, and main hands
+    it one only for the splash screen's progress. ROCKNIX starts the interface
+    with --no-splash, so on its devices the setting never did anything: six
+    boots of the sixth candidate with the setting on, the account in and the
+    link up logged no hasher line at all. The block becomes
+    SystemData::startIndexesAtStart(window); loadConfig calls it as before when
+    it has a window, main calls it when it gave loadConfig none.
+    
+    A handheld's Wi-Fi is often still associating when the interface starts, and
+    a run without RetroAchievements' hash library indexes nothing and said
+    nothing. The run says so now (one WARNING line), remembers whether the
+    library came this session, and the network watcher starts the achievements
+    half again at link-up until it has -- D-RA-013's promise that a game added
+    later is cached when the device is next connected rests on the index knowing
+    the game. The once-a-day stamp of the lookups-alone pass is written only
+    when the library came, as its comment already promised.
+    
+    Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>
+    Claude-Session: https://claude.ai/code/session_01LkFLXE5GsT1apn8AwrxrGR
+
+diff --git a/es-app/src/SystemData.cpp b/es-app/src/SystemData.cpp
+index 33479f425..b1f374210 100644
+--- a/es-app/src/SystemData.cpp
++++ b/es-app/src/SystemData.cpp
+@@ -921,6 +921,23 @@ void SystemData::loadAdditionnalConfig(pugi::xml_node& srcSystems)
+ }
+ 
+ //creates systems from information located in a config file
++void SystemData::startIndexesAtStart(Window* window, bool cheevosOnly)
++{
++	if (window == nullptr || ThreadedHasher::isRunning())
++		return;
++
++	int checkIndex = 0;
++
++	if (Settings::CheevosCheckIndexesAtStart())
++		checkIndex |= (int) ThreadedHasher::HASH_CHEEVOS_MD5;
++
++	if (!cheevosOnly && SystemConf::getInstance()->getBool("global.netplay") && Settings::NetPlayCheckIndexesAtStart())
++		checkIndex |= (int) ThreadedHasher::HASH_NETPLAY_CRC;
++
++	if (checkIndex != 0)
++		ThreadedHasher::start(window, (ThreadedHasher::HasherType)checkIndex, false, true);
++}
++
+ bool SystemData::loadConfig(Window* window)
+ {
+ 	deleteSystems();
+@@ -1085,19 +1102,10 @@ bool SystemData::loadConfig(Window* window)
+ 		}
+ 	}
+ 
+-	if (window != nullptr && !ThreadedHasher::isRunning())
+-	{
+-		int checkIndex = 0;
+-
+-		if (Settings::CheevosCheckIndexesAtStart())
+-			checkIndex |= (int) ThreadedHasher::HASH_CHEEVOS_MD5;
+-
+-		if (SystemConf::getInstance()->getBool("global.netplay") && Settings::NetPlayCheckIndexesAtStart())
+-			checkIndex |= (int) ThreadedHasher::HASH_NETPLAY_CRC;
+-
+-		if (checkIndex != 0)
+-			ThreadedHasher::start(window, (ThreadedHasher::HasherType)checkIndex, false, true);
+-	}
++	// With a window (the splash screen's) the startup indexes start here; main
++	// starts them itself when it passed none (fork #183).
++	if (window != nullptr)
++		startIndexesAtStart(window);
+ 
+ 	ThemeFileCache::getInstance().clear();
+ 
+diff --git a/es-app/src/ThreadedHasher.cpp b/es-app/src/ThreadedHasher.cpp
+index 9af3f86ed..4122cc59b 100644
+--- a/es-app/src/ThreadedHasher.cpp
++++ b/es-app/src/ThreadedHasher.cpp
+@@ -24,6 +24,7 @@
+ 
+ ThreadedHasher* ThreadedHasher::mInstance = nullptr;
+ bool ThreadedHasher::mPaused = false;
++bool ThreadedHasher::sCheevosLibraryCame = false;
+ 
+ static std::mutex mLoaderLock;
+ 
+@@ -45,8 +46,16 @@ ThreadedHasher::ThreadedHasher(Window* window, HasherType type, std::queue<FileD
+ 		{
+ 			mCheevosHashes = RetroAchievements::getCheevosHashes();
+ 			if (mCheevosHashes.size() == 0)
++			{
++				// Offline, or not yet: nothing can be identified without it. Said
++				// once, so a boot that indexed nothing can be told apart from one
++				// that never tried (fork #183); the link-up run tries again.
++				LOG(LogWarning) << "ThreadedHasher: RetroAchievements' hash library did not come; nothing is indexed this run";
+ 				while (!mSearchQueue.empty())
+ 					mSearchQueue.pop();
++			}
++			else
++				sCheevosLibraryCame = true;
+ 
+ 			// The games with a hash and no id (audit #186 PL-08): the ones
+ 			// the library knows join the queue for a lookup and a save, and
+@@ -322,7 +331,9 @@ void ThreadedHasher::start(Window* window, HasherType type, bool forceAllGames,
+ 	try
+ 	{
+ 		ThreadedHasher* hasher = new ThreadedHasher(window, type, searchQueue, lookupOnly, forceAllGames);
+-		if (lookupsAlone)
++		// Stamped only when the library came: a boot without it has not spent
++		// the day's pass (the comment above promised as much; the code did not).
++		if (lookupsAlone && !hasher->mCheevosHashes.empty())
+ 		{
+ 			Settings::getInstance()->setString("CheevosLookupOnlyLast", std::to_string(now));
+ 			Settings::getInstance()->saveFile();

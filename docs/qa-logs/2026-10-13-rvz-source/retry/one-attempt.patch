@@ -1,0 +1,53 @@
+commit 636065877c4c56d0051d32d26060875eeb05f636
+Author:     Max Engel <max.engel@me.com>
+AuthorDate: Sun Sep 27 18:18:44 2026 +0000
+Commit:     Max Engel <max.engel@me.com>
+CommitDate: Sun Sep 27 18:18:44 2026 +0000
+
+    reload: one index attempt per game list update (#300)
+    
+    reloadAllGames started the achievements index twice: SystemData::loadConfig
+    runs the startup index whenever it is handed a window (fork #183), and the
+    start added under UPDATE GAMELISTS for D-RA-035 (fork #299), guarded only
+    by isRunning(), fired exactly when that one had failed -- offline -- and
+    fetched the hash library again at once. On guest d (48f940aa06, proof-298
+    phase E): the first attempt ended at its stall bound 35 s after the reload
+    with the toast and the marker, the second began the moment it failed and
+    succeeded when the link came back twelve seconds later, so the interface
+    sat on LOADING for a minute and the link's return carried an index nobody
+    asked for; on a device offline it would be twice the wait and two toasts.
+    
+    The second start is dropped; the comment says why. One attempt per reload,
+    loadConfig's. tools/es-syntax-check PASS.
+    
+    Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>
+
+diff --git a/es-app/src/views/ViewController.cpp b/es-app/src/views/ViewController.cpp
+index 24479a808..13a1b26ec 100644
+--- a/es-app/src/views/ViewController.cpp
++++ b/es-app/src/views/ViewController.cpp
+@@ -1464,14 +1464,17 @@ void ViewController::reloadAllGames(Window* window, bool deleteCurrentGui, bool
+ 		Settings::setRemoveMultiDiskContent(removeMultiDiskContent);		
+ 		Settings::setPackGamelists(false);
+ 		Settings::setBuildMultiDiskContentCache(false);
+-
+-		// ROCKNIX fork #299 (D-RA-035): UPDATE GAMELISTS is where new games are
+-		// found, so it is where they are indexed for achievements too, as at
+-		// startup -- and the index's end runs the offline achievements' full
+-		// top-up when it hashed any, its card stacked under this update's.
+-		if (Settings::CheevosCheckIndexesAtStart() && !ThreadedHasher::isRunning())
+-			ThreadedHasher::start(window, ThreadedHasher::HASH_CHEEVOS_MD5, false, true);
+ 	}
++
++	// ROCKNIX fork #299 (D-RA-035): UPDATE GAMELISTS is where new games are
++	// found, so it is where they are indexed for achievements too, as at
++	// startup -- and the index's end runs the offline achievements' full
++	// top-up when it hashed any, its card stacked under this update's. The
++	// start is SystemData::loadConfig's, above, which runs the startup index
++	// whenever it is handed a window (fork #183). A second start here, guarded
++	// only by isRunning(), fired exactly when that one had failed -- offline --
++	// and fetched the hash library again at once: twice the wait on the
++	// LOADING screen and two toasts (fork #300). One attempt per reload.
+ }
+ 
+ void ViewController::setActiveView(std::shared_ptr<GuiComponent> view)

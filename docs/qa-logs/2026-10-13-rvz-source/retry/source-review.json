@@ -1,0 +1,61 @@
+{
+  "evidence": "STATIC SOURCE ONLY; C++/CMake/compiler/runtime/controls UNRUN",
+  "es_commits": {
+    "baseline": "a7dcdbb38009d8d2a81c7c2b4bc1d8c2d0d38a20",
+    "initial_reader": "4142943a407de75ad789039bf44359552262909d",
+    "candidate": "2d875d33de8d3796bf3b4401ce35f6ca1592cd55"
+  },
+  "es_files": {
+    "baseline": {
+      "external/libcheevos/CMakeLists.txt": "a1f6e3212caf3cd98f2ddce78489191b51a84b488fcf73dfeff944576247b7a5",
+      "external/libcheevos/cheevos.cpp": "7d5287535f062e28c95c0d8c65a4657f53ce452e78a917805a0ee2d5f93fecb4",
+      "external/libcheevos/rcheevos/src/rhash/hash_disc.c": "725036c9326929b704662ad8abe99f5b3655922bb2b35c2e06d7d487cfd5d2d1"
+    },
+    "candidate": {
+      "es-app/src/GameCubeRvzHashRetry.h": "7eb61676391b8541e3fecda77138dbc9e6894c1cb2fa4c971619629ee5598b33",
+      "es-app/src/ThreadedHasher.cpp": "b8e5000cc5c3485f10344946ee5cd2dd2249022584c5c6e570c37c2cc597eec2",
+      "external/libcheevos/CMakeLists.txt": "c848b8875beb7e9b46206d787b7fc1bf20f51ad9a0360d23fe743bfc8823489c",
+      "external/libcheevos/LICENSE.rvz-padding": "4135898ee98985c6084e6d8304930b010dec1b395083074ae455ae20ca207d9a",
+      "external/libcheevos/RVZ-NOTICES.md": "77a1a9faff4a5376ca60a3898b7c6ccd92489498e131e354a2aecd0b8cb4b71b",
+      "external/libcheevos/cheevos.cpp": "8e5a0c4f442003be06f9a4ef95c4b3499c4271b2c19f1ab7bb0c2e6d97e2be0a",
+      "external/libcheevos/cheevos.h": "c96241e0b5e4b6c263cfc19cfb2cecdd867531cd6f2efc6f02d6e42b987ca38f",
+      "external/libcheevos/rcheevos/src/rhash/hash_disc.c": "a045dba55caa1c3a00ccb24678b461025a616a7af2317c37d26f4a88308e054d",
+      "external/libcheevos/rvz_hash.cpp": "7a5600669dd9d57956df8787753e9067092bb19411a3cc195443f3a4716d80d1",
+      "external/libcheevos/rvz_hash.h": "958869c25cc5b9fbdb1778f1fbaaf29abeafe28fc5a60857358b35d202b6ae18"
+    }
+  },
+  "changed_es_files": [
+    "es-app/src/GameCubeRvzHashRetry.h",
+    "es-app/src/ThreadedHasher.cpp",
+    "external/libcheevos/cheevos.cpp",
+    "external/libcheevos/cheevos.h"
+  ],
+  "unchanged_context_files": {
+    "es-app/src/CheevosIndex.cpp": "5b5dde137534f94368f8f372f93e18bd18e063ed699afb20eac40463edbaaf93",
+    "es-app/src/CheevosIndex.h": "2267c9eedb53eba1b6a6a303397058334ad880956e18ebd0ee1b03fc41816443",
+    "es-app/src/FileData.cpp": "8a677bd0eaf7d6172bef388b8f38da91a132e4adf1f9cdfdce98fd6e84ada33d",
+    "es-app/src/SystemData.cpp": "0cd174d8f7d25bce808901b52b4d970415dd177bcaec6588da08da0113869504",
+    "es-app/src/RetroAchievements.cpp": "2faa6a176c4901b088d30d7f5972fd3f3abb4230f76061beb2295bf169c1b697",
+    "es-app/src/views/ViewController.cpp": "b5be9eae846710c6846eab0b57de88696804562814ed40535267d4102791cc96",
+    "es-app/src/guis/GuiMenu.cpp": "00a6902f4c9001afdc4c603fc725ec5d82db0820c891762f9f4211eefad8e852",
+    "es-core/src/Settings.cpp": "cc261e2af8b8e9834869ff3e562d26716dd94704032be21bd5b3e70f935c433e",
+    "es-core/src/utils/StringUtil.cpp": "843f84ba3a40e0c7b0f371ad94efab336f9103d73c553b62b05b506ee1276b85",
+    "es-core/src/utils/StringUtil.h": "ab24977610cc54aa36aae21964219c557730461e74990664997401cb80bf1c96",
+    "es-core/src/utils/han.h": "18070065abe2ef41db6f7c0e229d29767af1bd6939a152d1c6a3fc201aa377ee"
+  },
+  "initial_distribution_packet_commit": "6325c1ba58a3ba6d63a95ef4a40c74970655e0e2",
+  "static_checks": {
+    "initial_manifest": "PASS: all 54 initial files match; original packet unmodified",
+    "decoder_and_initial_build_files": "byte-identical except wrapper capability query",
+    "ThreadedHasher": "byte-identical outside includes/helper and two retry call sites",
+    "wrapper": "byte-identical outside build-capability query",
+    "untouched_context": "source hashes match reader parent",
+    "python_ast": "PASS; prepared runner neither imported nor run",
+    "whitespace": "PASS for authored source; git-show evidence retains historical whitespace",
+    "prepared_controls": 27,
+    "C++": "NOT CHECKED by compiler; source inspection only"
+  },
+  "flow_boundary": "Update Gamelists indexing still requires CheevosCheckIndexesAtStart and existing support/visibility/library gates; unconditional behavior would require SystemData/ViewController outside scope",
+  "reader_limits": "Initial bounded GameCube RVZ NONE/Zstandard subset only; no in-game Dolphin guarantee",
+  "runtime": "UNRUN"
+}
