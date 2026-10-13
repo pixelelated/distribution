@@ -1,75 +1,90 @@
 # Saved Session State
 
-Updated 2026-10-13 22:58 UTC. Continue M7 toward the next 0.0.1 RC.
-Coordinator: Herdr w4:p2, `/workspace/repos/rocknix.worktrees/m7-player-setup`,
-`feature/m7-player-setup`. Harness conflict-resolution is stale and untouched.
-Main `next` remains published `0ea6eaf74ad47503c05955d1c0bd4bd00bdfb816`.
-Read next rules, AGENTS.md, device-testing-policy and live M7 body.
-No owner-device/cloud/account/save action, push, pin promotion or RC call here.
+Updated 2026-10-13 23:19 UTC. Continue M7 toward the next 0.0.1 RC.
+Coordinator Herdr w4:p2: /workspace/repos/rocknix.worktrees/m7-player-setup,
+feature/m7-player-setup, HEAD83aaff6fb1. Harness conflict-resolution stale/untouched.
+Main next remains 0ea6eaf74ad47503c05955d1c0bd4bd00bdfb816.
+Read next rules, device-testing policy and current M7 milestone before acting.
+No owner-device/cloud/account/save operation, push, production pin or RC call.
 
-## Active compiler — supervise before doing anything else
+## ACTIVE disposable VM — supervise first
 
-`/workspace/tmp/pix-m7-library-build-20261013/compile-owner`, launcher2473468,
-admissionacaf7516989a4eaa971c288e57501f44. Started22:57UTC, inner15-minute
-container bound and outer930s timeout. Inspect original launcher-result,
-console.log, compile-result.json and result.json; submission is not completion.
-No concurrent runtime. Offline pinned builder,8GiB/2CPU; independent cache copy,
-frozen baseline read-only. New source is clean ESbb9e2785f88c2b9de979022a2a9ded2cbce2f954
-in `/home/max/Development/emulationstation-next.worktrees/m7-rc-library-setup`.
-Includes575help+EN/FR,574RVZreader/retry and French Wi-Fi controller-hint fix.
-Compile target frontend and baseline/candidate hash/retry harnesses;64host
-ASan/UBSan capability controls. Target/installed runtime still due. Parent
-records/source.json binds all changes. No production ES pin change: stillc8dc.
-Consume actual original exits, preserve failures, then retire cache/objects;
-hold only executables/catalogs for immediately queued VM qualification.
-The first report submission failed2 before launch because its owner directory
-was absent; corrected report owner completed0. No runtime is held by workers.
+Owner /workspace/tmp/pix-m7-library-vm-20261013. Main launcher2508140,
+QEMU2508599, admission96007959686b40de82f6a7b3fe4471ac. Started23:04UTC;
+90-minute allocation ends approximately00:34UTC October14. Standard8GiB/4CPU,
+GLauto,640x480; SSH10608/VNC5995. Current boot8b0d8447-1537-4047-8c6c-360e345265ef.
+Read actual owners/results/host PIDs; no off-session chat alert exists.
+Main vm-lifecycle.py waits finish-640x480, stops/restarts1280x800, then waits
+finish-1280x800; abort stops with failure. Never edit an in-flight script.
+Child record-only owners MUST run from this private VM-owner cwd; coordinator
+worktree is locked by main admission. Private tools symlinks exist for this.
 
-## Completed installed setup allocation
+Current child capability-small02-owner launcher2572158 runs ten sequential
+EN/FR640 GameCube/Dreamcast AUTO and per-game selection branches, with retained
+settings assertions and no-launch stub. Inspect its launcher-result and
+capability-small02-result.json before any further guest work. Original probe
+failed1 at readback because final unset get_setting returns1; its reviewed
+three EN640 frames rendered correctly. Additive02 handles explicit empty/1
+and asserts every seeded value; original failure retained. Do not parallelize
+runtime tests. GC system declaration is a canonical source-bound UI fixture;
+VM20 has no Dolphin engine and this proves no game execution.
 
-`docs/qa-logs/2026-10-13-setup-qualification/installed/README.md` is the
-completed overlay proof for a7dcdbb380/f6fd61b7 binary on acceptedVM20.
-Both640/1280boots stopped; all14large tasks0. Original main launcher/watch
-channels0; all25owners and phone tunnels exited, originals failures preserved.
-The first consumption glob matched20owners; consumption-all.json supplements
-five numbered retries.43reviewed frames; French REFRESH hint gap belongs to
-a7 and is fixed only in laterbb9e, awaiting frames. VM disk/UEFI/keys and a7
-binary/catalogs retired:2,394,746,880allocated bytes. Nothing in old VM owner
-should be relaunched. Compact evidence/fixtures remain; full firmware not qualified.
+## Completed compiler and initial guest controls
+
+Frozen clean ES bb9e2785f88c2b9de979022a2a9ded2cbce2f954 at
+/home/max/Development/emulationstation-next.worktrees/m7-rc-library-setup.
+Actual compiled frontend SHA8752b5391ea8728c1a088d0a80e3776469692dda665e8f07f062fed3206263d2.
+Compiler /workspace/tmp/pix-m7-library-build-20261013 complete0/consumed;
+221.19seconds, full345-task compile,5syntax units,EN/FR catalogs,64host
+ASan/UBSan capability controls PASS. Container/copy/objects retired; small
+binaries/catalogs retained only for this VM. Untracked durable compact packet:
+docs/qa-logs/2026-10-13-library-compile/ (58files; inspect SHA256SUMS).
+Production ES pin remains c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78.
+
+RVZ owner02 complete0: candidate30PASS, old-reader7PASS/23SKIP,
+retry27PASS, originals and exact guest manifests in rvz-results/. No target
+sanitizer, independent padding oracle, actual ThreadedHasher/index integration
+or Wii/CHD preservation acceptance yet. First setup/rvz wrapper refusals2
+occurred before payload, preserved in records/child-wrapper-refusals.json.
+
+Steam first combined owner complete1: root35/runtime39/Proton56 PASS; FEX
+stops guardian-success because fixture write guard rejects /dev/null. Original
+result/outer logs/compact receipts retained steam-results/, source07a16c4d.
+No remaining descendants in driver receipt. Guest /run/qa-steam-scratch still
+mounted512MiB tmpfs, ~16.6MB retained. Worker prepares additive fixture fix;
+never relabel original failure or rerun unchanged completed cases needlessly.
 
 ## Existing source lanes
 
-- w4:p8 pix-memory owns only new `docs/qa-logs/2026-10-13-steam-combined-source/`
-  in `/workspace/repos/rocknix.worktrees/m7-steam-preservation-integration`,
-  branchfeature/m7-steam-preservation-integration, composition98b789e61a.
-  Source-only combined173case driver for staged runtime/root/FEX/Proton;
-  original component sources/fixtures remain immutable. Last working.
-- w4:p9 pix-nova owns581Dolphin GC/Wii retained-path preservation in
-  `/workspace/repos/rocknix.worktrees/m7-dolphin-preservation-581`, from0c1049.
-  Narrow Dolphin-only runemu.sh exit250 handoff is authorized by coordinator
-  under the owner's all-fixes scope. The pending lane question was answered
-  Allow narrow runemu.sh handoff. Source-only tests prepared, not run.
-- w4:p7 pix-gtk4 owns493automatic exact-owned-scratch retirement in
-  `/workspace/repos/rocknix.worktrees/m7-owned-retirement-493`, fromccedf04.
-  Static candidate sealing; no actual deletion/runtime allocation.
+- w4:p8 pix-memory, m7-steam-preservation-integration: additive FEX write-guard
+  correction/negative controls after original combined130-pass then failure.
+  Source-only, no runtime. Product composition98b789e61a; original sealed packet07a16c4d.
+- w4:p9 pix-nova, m7-dolphin-preservation-581: COMPLETE clean local
+  b2868df82ed3199e628721ad6fb3f1fb95a3a04a. Preservation helper, both launchers,
+  Python dependency, narrow runemu250 native handoff.123candidate/8baseline
+  controls UNRUN. Review docs/qa-logs/2026-10-13-dolphin-preservation-source/.
+  Error body English, French proposal only. No game/save behavior claim.
+- w4:p7 pix-gtk4, m7-rvz-regressions-574: source-only independent padding oracle,
+  WiiISO/CHD regression fixtures and sanitizer/repeated-read experiment, active.
+  Earlier #493 candidate70450c4e6251f09532ec57f7478ff3bbd4d78bea sealed in
+  m7-owned-retirement-493, runtime UNRUN; do not integrate live admission tools.
 
-## Remaining ordered work
+## Ordered remaining work
 
-Compile and VM-qualify575/574/current setup;581Dolphin preservation before
-retained-state acceptance;567separate no-NIC synthetic TLS/index proof;
-564/579/580Steam preservation then563stable20261001 integration;565final
-payload/clean/retained upgrade and349restore;566developer identity question
-already pending (do not ask for secrets again); combined VM/audit;555H700
-thenSM8550 with measured admission;528/344source custody/publication.
-493automatic retirement is infrastructure, not a new public product gate.
-561LED/558shutdown remain physical monitoring/investigation, no causal claim.
+Finish current source-bound575UI/574controls/French Wi-Fi hint proof on both
+sizes; qualify581Dolphin preservation; separate567NIC-free TLS/index fixture;
+Steam564/579/580 then563stable20261001 foundation;565actual final payload,
+clean/retained upgrade and349restore;566existing developer identity question
+pending; combined VM/audit;555H700 thenSM8550;528/344custody/publication.
+#493automatic retirement is parallel infrastructure, not a new public RC gate.
+All gates remain artifact-based; component controls do not close full issues.
 
-Allocator comparison measured about78MiB reclaim in VM, not yet H700 proof.
-Proxy target bytecode saving was390KiB, not host-source5.3MiB;GTK4heldseparate.
-Nova first fork update retained storage;09/30emptyrestore/0Bbackup explain
-stamps;ROM-side gamelist history can populateRecent;original account writer
-unknown.565component113guest/142hostPASS, final payload/upgrade still due.
+Earlier setup a7 VM proof is completed/retired,43reviewed frames,25owners,
+2,394,746,880allocated bytes retired. Compiler/VM superseding its French
+hint gap are above. Do not replay old owners or old disposable credentials.
+Allocator actualVM comparison ~78MiB reclaimed; H700 corroboration remains.
+Nova retained storage plus ROM-side gamelist mechanism explains possible history;
+09/30empty restore/0B backup stamps, original account writer still unknown.
 
-[Previous detailed checkpoint](archived/saved-session-state-next-20261013T225800Z.md)
-retains baseline worktree/source identities and prior context. Use current
-actual process/artifact receipts above, never infer a live job from old prose.
+[Earlier detailed checkpoint](archived/saved-session-state-next-20261013T231900Z.md)
+[Full prior history](archived/saved-session-state-next-20261013T225800Z.md)

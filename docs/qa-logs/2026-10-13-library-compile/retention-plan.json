@@ -1,0 +1,49 @@
+{
+  "volume": "/workspace",
+  "scan_roots": [
+    "/workspace/tmp/pix-m7-library-build-20261013/scan"
+  ],
+  "reference_stores": [],
+  "protected": [
+    "/workspace/tmp/pix-m7-library-build-20261013/records",
+    "/workspace/repos/rocknix.worktrees/m7-player-setup/tools/host-maintenance",
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/build/emulationstation-c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78",
+    "/home/max/Development/emulationstation-next.worktrees/m7-rc-library-setup",
+    "/home/max/Development/emulationstation-next.worktrees/m7-rc-setup-570"
+  ],
+  "candidates": [],
+  "builds": [
+    {
+      "name": "m7-library-composition-and-controls",
+      "terms_bytes": {
+        "independent_es_copy": 860532736,
+        "binary_catalogs_control_builds": 1073741824,
+        "compiler_scratch": 1073741824,
+        "records_margin": 268435456
+      },
+      "basis": "Remeasured independent ES cache copy. Read-only frozen baseline and sources; reconfigure RVZ ON, five changed ES units plus new decoder and transitive CMake rebuild, link/catalogs; separate target baseline/candidate hash and retry harnesses;64 extracted host ASan/UBSan save controls. Offline8GiB2CPU15min container bound. No VM or firmware build.",
+      "evidence": [
+        {
+          "path": "/workspace/tmp/pix-m7-library-build-20261013/records/size.json",
+          "sha256": "7a36422fcc727482232178671a0525765e603a9f527621b755abe8ef11bf3792"
+        },
+        {
+          "path": "/workspace/tmp/pix-m7-library-build-20261013/records/source.json",
+          "sha256": "cfd417f0a483fdd7b1742b6c1b194890b517b4b77dcb795668eedc6d6af1c3c3"
+        },
+        {
+          "path": "/workspace/tmp/pix-m7-library-build-20261013/records/es-syntax-check",
+          "sha256": "ee632f780729a2d6400132f0fce009974b9a9f60257acc237f80994105af9457"
+        },
+        {
+          "path": "/workspace/tmp/pix-m7-library-build-20261013/build.py",
+          "sha256": "11f7bf885e2ec19da6dc19ed431138d052364ec155e69d2ab36285c5684711ed"
+        },
+        {
+          "path": "/workspace/tmp/pix-m7-library-build-20261013/inner.py",
+          "sha256": "c977785ee7ccdbddff13471cf71efefd65b21dc6e2472424590c50e293117dcf"
+        }
+      ]
+    }
+  ]
+}

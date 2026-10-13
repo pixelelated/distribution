@@ -1,0 +1,68 @@
+{
+  "status": "PASS",
+  "scope": "synthetic extracted ES methods only",
+  "compile_command": [
+    "/usr/bin/g++",
+    "-std=c++17",
+    "-DROCKNIX=1",
+    "-fsanitize=address,undefined",
+    "-fno-omit-frame-pointer",
+    "-g",
+    "/work/capability/run/capability.cpp",
+    "-o",
+    "/work/capability/run/capability"
+  ],
+  "compile_exit": 0,
+  "exit": 0,
+  "es_commit": "e87d0d1b4562adfb9e5b8b6882c0c655ed611afc",
+  "es_files": {
+    "es-app/src/guis/GuiMenu.cpp": {
+      "sha256": "356c7b48bf71f1a54467609c6eba502079c6c7fd615b2dd2d24966873916432d",
+      "blob": "ae348511b09c912b47aced6aaf3597206112826f",
+      "base_sha256": "00a6902f4c9001afdc4c603fc725ec5d82db0820c891762f9f4211eefad8e852",
+      "changed": true
+    },
+    "es-app/src/FileData.cpp": {
+      "sha256": "8a677bd0eaf7d6172bef388b8f38da91a132e4adf1f9cdfdce98fd6e84ada33d",
+      "blob": "15d9a1bed5bc77aa207bb568307de25afaa5555f",
+      "base_sha256": "8a677bd0eaf7d6172bef388b8f38da91a132e4adf1f9cdfdce98fd6e84ada33d",
+      "changed": false
+    },
+    "es-app/src/SystemData.cpp": {
+      "sha256": "0cd174d8f7d25bce808901b52b4d970415dd177bcaec6588da08da0113869504",
+      "blob": "6123ad8d0f57cc11504539c5ad91d4d2016050c8",
+      "base_sha256": "0cd174d8f7d25bce808901b52b4d970415dd177bcaec6588da08da0113869504",
+      "changed": false
+    },
+    "es-app/src/SaveStateRepository.cpp": {
+      "sha256": "34bda9a72d037af762546a5b8122dbf7f02c82d074f78e4b74e3b77fcb8afc26",
+      "blob": "afc17148d7b79997d5daf0a1157c3df3338dc2f7",
+      "base_sha256": "34bda9a72d037af762546a5b8122dbf7f02c82d074f78e4b74e3b77fcb8afc26",
+      "changed": false
+    },
+    "es-app/src/SaveStateConfigFile.cpp": {
+      "sha256": "4f38ea7dcfcbd71068122124c428d146b7da3c6dbdcc05a81afc99bbd93a9b15",
+      "blob": "b60f0d36e157f0557944bab2fff2f98978d48df1",
+      "base_sha256": "4f38ea7dcfcbd71068122124c428d146b7da3c6dbdcc05a81afc99bbd93a9b15",
+      "changed": false
+    },
+    "es-app/src/SaveState.cpp": {
+      "sha256": "ceb50e860bdd83f0feba89c7f2575320a647f7f4f973f60712bef679a021120a",
+      "blob": "3ff221457607b278893269288320a8619161b8a9",
+      "base_sha256": "ceb50e860bdd83f0feba89c7f2575320a647f7f4f973f60712bef679a021120a",
+      "changed": false
+    },
+    "es-app/src/views/gamelist/ISimpleGameListView.cpp": {
+      "sha256": "388d1c20321b9bb7d3629c4d08edfad339c5c6def67108d510b2fbc56c77ae3d",
+      "blob": "0324a366eb6e01ed305931aca075cd734f823b05",
+      "base_sha256": "388d1c20321b9bb7d3629c4d08edfad339c5c6def67108d510b2fbc56c77ae3d",
+      "changed": false
+    },
+    "es-app/src/guis/GuiGameOptions.cpp": {
+      "sha256": "332d60fbc8163f315733ee3b073289ec584b2f47e14c1ccf3071dfcb93a19df3",
+      "blob": "5b95f454e247e875a01ccdd632783f408d70d88a",
+      "base_sha256": "332d60fbc8163f315733ee3b073289ec584b2f47e14c1ccf3071dfcb93a19df3",
+      "changed": false
+    }
+  }
+}

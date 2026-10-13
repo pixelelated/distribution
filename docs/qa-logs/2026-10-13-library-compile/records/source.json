@@ -1,0 +1,79 @@
+{
+  "candidate": "bb9e2785f88c2b9de979022a2a9ded2cbce2f954",
+  "base": "c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78",
+  "files": {
+    "es-app/src/ApiSystem.cpp": {
+      "sha256": "58b90ef823dda386654ce4e30bd876a5d9f21d624c1aafae6d97c84419750045",
+      "bytes": 99960
+    },
+    "es-app/src/GameCubeRvzHashRetry.h": {
+      "sha256": "7eb61676391b8541e3fecda77138dbc9e6894c1cb2fa4c971619629ee5598b33",
+      "bytes": 1734
+    },
+    "es-app/src/ThreadedHasher.cpp": {
+      "sha256": "b8e5000cc5c3485f10344946ee5cd2dd2249022584c5c6e570c37c2cc597eec2",
+      "bytes": 13500
+    },
+    "es-app/src/guis/GuiMenu.cpp": {
+      "sha256": "356c7b48bf71f1a54467609c6eba502079c6c7fd615b2dd2d24966873916432d",
+      "bytes": 511067
+    },
+    "es-app/src/guis/GuiWifi.cpp": {
+      "sha256": "16c065bc06ba8fbf7cfc72b810022b2359acadc03e20c74bd3583a0518cace02",
+      "bytes": 22214
+    },
+    "es-app/src/guis/GuiWifi.h": {
+      "sha256": "174988284911caaaf69bb53ade5bcfd5caedc7774a0dc36c45a37f7a14ccf713",
+      "bytes": 3352
+    },
+    "es-app/src/guis/WifiScanProcess.h": {
+      "sha256": "54729c1cefcbc41446e0fed3f4e8edab26181edb9c4b51adab7cf73a50fcf6d4",
+      "bytes": 5187
+    },
+    "es-core/src/Settings.cpp": {
+      "sha256": "cc261e2af8b8e9834869ff3e562d26716dd94704032be21bd5b3e70f935c433e",
+      "bytes": 24353
+    },
+    "external/libcheevos/CMakeLists.txt": {
+      "sha256": "c848b8875beb7e9b46206d787b7fc1bf20f51ad9a0360d23fe743bfc8823489c",
+      "bytes": 14495
+    },
+    "external/libcheevos/LICENSE.rvz-padding": {
+      "sha256": "4135898ee98985c6084e6d8304930b010dec1b395083074ae455ae20ca207d9a",
+      "bytes": 1511
+    },
+    "external/libcheevos/RVZ-NOTICES.md": {
+      "sha256": "77a1a9faff4a5376ca60a3898b7c6ccd92489498e131e354a2aecd0b8cb4b71b",
+      "bytes": 1824
+    },
+    "external/libcheevos/cheevos.cpp": {
+      "sha256": "8e5a0c4f442003be06f9a4ef95c4b3499c4271b2c19f1ab7bb0c2e6d97e2be0a",
+      "bytes": 5325
+    },
+    "external/libcheevos/cheevos.h": {
+      "sha256": "c96241e0b5e4b6c263cfc19cfb2cecdd867531cd6f2efc6f02d6e42b987ca38f",
+      "bytes": 242
+    },
+    "external/libcheevos/rcheevos/src/rhash/hash_disc.c": {
+      "sha256": "a045dba55caa1c3a00ccb24678b461025a616a7af2317c37d26f4a88308e054d",
+      "bytes": 49966
+    },
+    "external/libcheevos/rvz_hash.cpp": {
+      "sha256": "7a5600669dd9d57956df8787753e9067092bb19411a3cc195443f3a4716d80d1",
+      "bytes": 14522
+    },
+    "external/libcheevos/rvz_hash.h": {
+      "sha256": "958869c25cc5b9fbdb1778f1fbaaf29abeafe28fc5a60857358b35d202b6ae18",
+      "bytes": 296
+    },
+    "locale/lang/en_GB/LC_MESSAGES/emulationstation2.po": {
+      "sha256": "197e2885801c386e4ae88e02633a32017f91fbba1ab2c01ba4e4c578c0e1e6a7",
+      "bytes": 74892
+    },
+    "locale/lang/fr/LC_MESSAGES/emulationstation2.po": {
+      "sha256": "73d4e9f98ec1fe8a03dc68dc8dab2d4552dcbae0d2d01ae79efb394921c46f37",
+      "bytes": 184985
+    }
+  },
+  "builder": "ghcr.io/pixelelated/build@sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39"
+}

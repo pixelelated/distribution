@@ -1,0 +1,49 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261013T225735Z-7f30c2b4",
+  "expected_rc": 0,
+  "disposition": "qualified",
+  "outputs": [
+    {
+      "issue": 574,
+      "kind": "build-cache",
+      "path": "/workspace/tmp/pix-m7-library-build-20261013/scratch",
+      "release_when": "Consume original compile/control results; retire cache/control objects; retain only target executables and catalogs for immediately queued VM qualification, then retire."
+    },
+    {
+      "issue": 574,
+      "kind": "build-cache",
+      "path": "/workspace/tmp/pix-m7-library-build-20261013/controls",
+      "release_when": "Consume original compile/control results; retire cache/control objects; retain only target executables and catalogs for immediately queued VM qualification, then retire."
+    },
+    {
+      "issue": 574,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-m7-library-build-20261013/tmp",
+      "release_when": "Consume original compile/control results; retire cache/control objects; retain only target executables and catalogs for immediately queued VM qualification, then retire."
+    },
+    {
+      "issue": 575,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-m7-library-build-20261013/capability",
+      "release_when": "Consume original compile/control results; retire cache/control objects; retain only target executables and catalogs for immediately queued VM qualification, then retire."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/tmp/pix-m7-library-build-20261013/result.json",
+      "sha256": "23df08c72c6dcbf5e93d34cb62be5d492a62358fcebf8ebe18d181cf8e7a58a0"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-library-build-20261013/compile-result.json",
+      "sha256": "8e111386be84ec5766cf32584994d26f48b6580b660d3f2c3ec58105ae54c4a7"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-library-build-20261013/capability/run/result.json",
+      "sha256": "f047218a599c53bc91ec6396f4deaa63ac08ec20ec5c571968971ca5494501c0"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-library-build-20261013/consumption.json",
+      "sha256": "ca923b1d28b583c555da176cf21b2567d36e05d5a10564b5f81a10961b36f3ff"
+    }
+  ]
+}

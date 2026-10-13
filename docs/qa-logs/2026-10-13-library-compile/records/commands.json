@@ -1,0 +1,118 @@
+{
+  "syntax": [
+    "bash",
+    "/work/records/es-syntax-check",
+    "--root",
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64",
+    "--tree",
+    "/source",
+    "/source/es-app/src/ApiSystem.cpp",
+    "/source/es-app/src/guis/GuiMenu.cpp",
+    "/source/es-app/src/guis/GuiWifi.cpp",
+    "/source/es-core/src/Settings.cpp",
+    "/source/es-app/src/ThreadedHasher.cpp"
+  ],
+  "configure ES": [
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/cmake",
+    "-S",
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/emulationstation-c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78",
+    "-B",
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/emulationstation-c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78/.x86_64-rocknix-linux-gnu",
+    "-DENABLE_RVZ_HASH=ON"
+  ],
+  "build ES": [
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/ninja",
+    "-j2",
+    "emulationstation"
+  ],
+  "strip": [
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-strip",
+    "/work/scratch/emulationstation"
+  ],
+  "catalog fr": [
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/msgfmt",
+    "--check",
+    "-o",
+    "/work/scratch/fr.mo",
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/emulationstation-c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78/locale/lang/fr/LC_MESSAGES/emulationstation2.po"
+  ],
+  "catalog en_GB": [
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/msgfmt",
+    "--check",
+    "-o",
+    "/work/scratch/en_GB.mo",
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/emulationstation-c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78/locale/lang/en_GB/LC_MESSAGES/emulationstation2.po"
+  ],
+  "configure hash candidate": [
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/cmake",
+    "-S",
+    "/work/records/2026-10-13-rvz-source",
+    "-B",
+    "/work/controls/candidate",
+    "-G",
+    "Ninja",
+    "-DCMAKE_TOOLCHAIN_FILE=/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/etc/cmake-x86_64-rocknix-linux-gnu.conf",
+    "-DES_SOURCE=/source",
+    "-DENABLE_RVZ_HASH=ON"
+  ],
+  "compile hash candidate": [
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/cmake",
+    "--build",
+    "/work/controls/candidate",
+    "--target",
+    "pix574-hash-control",
+    "--parallel",
+    "2"
+  ],
+  "configure hash baseline": [
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/cmake",
+    "-S",
+    "/work/records/2026-10-13-rvz-source",
+    "-B",
+    "/work/controls/baseline",
+    "-G",
+    "Ninja",
+    "-DCMAKE_TOOLCHAIN_FILE=/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/etc/cmake-x86_64-rocknix-linux-gnu.conf",
+    "-DES_SOURCE=/baseline",
+    "-DENABLE_RVZ_HASH=OFF"
+  ],
+  "compile hash baseline": [
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/cmake",
+    "--build",
+    "/work/controls/baseline",
+    "--target",
+    "pix574-hash-control",
+    "--parallel",
+    "2"
+  ],
+  "configure retry": [
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/cmake",
+    "-S",
+    "/work/records/2026-10-13-rvz-source/retry",
+    "-B",
+    "/work/controls/retry",
+    "-G",
+    "Ninja",
+    "-DCMAKE_TOOLCHAIN_FILE=/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/etc/cmake-x86_64-rocknix-linux-gnu.conf",
+    "-DES_SOURCE=/source"
+  ],
+  "compile retry": [
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/cmake",
+    "--build",
+    "/work/controls/retry",
+    "--target",
+    "pix574-retry-control",
+    "--parallel",
+    "2"
+  ],
+  "save capabilities ASan UBSan": [
+    "python3",
+    "/work/records/2026-10-13-save-capability-source/capability_fixture.py",
+    "--es-src",
+    "/source",
+    "--output",
+    "/work/capability/run",
+    "--cxx",
+    "/usr/bin/g++"
+  ]
+}

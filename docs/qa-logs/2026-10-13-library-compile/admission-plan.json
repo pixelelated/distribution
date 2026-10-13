@@ -1,0 +1,39 @@
+{
+  "checkout": "/workspace/repos/rocknix.worktrees/m7-player-setup",
+  "retention_plan": "/workspace/tmp/pix-m7-library-build-20261013/retention-plan.json",
+  "retention_report": "/workspace/tmp/pix-m7-library-build-20261013/retention-report.json",
+  "stage": "m7-library-composition-and-controls",
+  "profiles": [
+    {
+      "PROJECT": "ROCKNIX",
+      "DEVICE": "GENERIC_X64",
+      "ARCH": "x86_64"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "/workspace/tmp/pix-m7-library-build-20261013/scratch",
+      "issue": 574,
+      "kind": "build-cache",
+      "release_when": "Consume original compile/control results; retire cache/control objects; retain only target executables and catalogs for immediately queued VM qualification, then retire."
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-library-build-20261013/controls",
+      "issue": 574,
+      "kind": "build-cache",
+      "release_when": "Consume original compile/control results; retire cache/control objects; retain only target executables and catalogs for immediately queued VM qualification, then retire."
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-library-build-20261013/tmp",
+      "issue": 574,
+      "kind": "qa-scratch",
+      "release_when": "Consume original compile/control results; retire cache/control objects; retain only target executables and catalogs for immediately queued VM qualification, then retire."
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-library-build-20261013/capability",
+      "issue": 575,
+      "kind": "qa-scratch",
+      "release_when": "Consume original compile/control results; retire cache/control objects; retain only target executables and catalogs for immediately queued VM qualification, then retire."
+    }
+  ]
+}

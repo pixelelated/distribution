@@ -1,0 +1,86 @@
+{
+  "stages": [
+    {
+      "stage": "syntax",
+      "rc": 0,
+      "seconds": 5.4307122230529785
+    },
+    {
+      "stage": "configure ES",
+      "rc": 0,
+      "seconds": 0.16795086860656738
+    },
+    {
+      "stage": "build ES",
+      "rc": 0,
+      "seconds": 207.52720880508423
+    },
+    {
+      "stage": "strip",
+      "rc": 0,
+      "seconds": 0.03206133842468262
+    },
+    {
+      "stage": "catalog fr",
+      "rc": 0,
+      "seconds": 0.015715837478637695
+    },
+    {
+      "stage": "catalog en_GB",
+      "rc": 0,
+      "seconds": 0.0074536800384521484
+    },
+    {
+      "stage": "configure hash candidate",
+      "rc": 0,
+      "seconds": 0.264117956161499
+    },
+    {
+      "stage": "compile hash candidate",
+      "rc": 0,
+      "seconds": 2.0688154697418213
+    },
+    {
+      "stage": "configure hash baseline",
+      "rc": 0,
+      "seconds": 0.2643740177154541
+    },
+    {
+      "stage": "compile hash baseline",
+      "rc": 0,
+      "seconds": 1.8693199157714844
+    },
+    {
+      "stage": "configure retry",
+      "rc": 0,
+      "seconds": 0.16416406631469727
+    },
+    {
+      "stage": "compile retry",
+      "rc": 0,
+      "seconds": 0.6155798435211182
+    },
+    {
+      "stage": "save capabilities ASan UBSan",
+      "rc": 0,
+      "seconds": 1.0668749809265137
+    }
+  ],
+  "started": 1791932256.855896,
+  "rc": 0,
+  "binary_sha256": "8752b5391ea8728c1a088d0a80e3776469692dda665e8f07f062fed3206263d2",
+  "binary_bytes": 11835728,
+  "catalogs": {
+    "fr": "ca5f37a18b575470cf55df1590d5822a918515365635c89e7b230694ce8eaa95",
+    "en_GB": "018863f490991dedf601d12b4fe74ef6816d421c2fc5d56f42edd4a1844a3f09"
+  },
+  "target_controls": {
+    "controls/candidate/pix574-hash-control": "dc7dbb62d6e1502e4402940f1aa9863bfac4c313d4e9769516bba243874efde7",
+    "controls/baseline/pix574-hash-control": "6b8ea6fb7ec80f520a3a3c2811d36e2817c34f3ea6b3b74c25422f0de327a363",
+    "controls/retry/pix574-retry-control": "680cfaf9032da65f3dbf02b2a97940f55c951bee8c89371d4402dbe940a8371f"
+  },
+  "ended": 1791932476.41967,
+  "max_child_rss_kib": 1786980,
+  "cgroup_memory_peak": "3413467136\n",
+  "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n"
+}

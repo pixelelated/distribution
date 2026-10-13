@@ -1,0 +1,58 @@
+{
+  "id": "acaf7516989a4eaa971c288e57501f44",
+  "plan": "/workspace/tmp/pix-m7-library-build-20261013/admission-plan.json",
+  "plan_sha256": "04592b5af9c47549fa029bfd43bfc42e289b4c7d8db7d6afecf76b8259199fb0",
+  "registry_generation": 16,
+  "reserved_bytes": 0,
+  "schema": 1,
+  "state": {
+    "available_bytes": 2985059160064,
+    "checkout": "/workspace/repos/rocknix.worktrees/m7-player-setup",
+    "container_checkout": "/workspace/repos/rocknix.worktrees/m7-player-setup",
+    "outputs": [
+      {
+        "issue": 574,
+        "kind": "build-cache",
+        "path": "/workspace/tmp/pix-m7-library-build-20261013/scratch",
+        "release_when": "Consume original compile/control results; retire cache/control objects; retain only target executables and catalogs for immediately queued VM qualification, then retire."
+      },
+      {
+        "issue": 574,
+        "kind": "build-cache",
+        "path": "/workspace/tmp/pix-m7-library-build-20261013/controls",
+        "release_when": "Consume original compile/control results; retire cache/control objects; retain only target executables and catalogs for immediately queued VM qualification, then retire."
+      },
+      {
+        "issue": 574,
+        "kind": "qa-scratch",
+        "path": "/workspace/tmp/pix-m7-library-build-20261013/tmp",
+        "release_when": "Consume original compile/control results; retire cache/control objects; retain only target executables and catalogs for immediately queued VM qualification, then retire."
+      },
+      {
+        "issue": 575,
+        "kind": "qa-scratch",
+        "path": "/workspace/tmp/pix-m7-library-build-20261013/capability",
+        "release_when": "Consume original compile/control results; retire cache/control objects; retain only target executables and catalogs for immediately queued VM qualification, then retire."
+      }
+    ],
+    "profiles": [
+      {
+        "ARCH": "x86_64",
+        "DEVICE": "GENERIC_X64",
+        "PROJECT": "ROCKNIX"
+      }
+    ],
+    "registry": "/workspace/repos/rocknix/.git/pixelelated-build-admission",
+    "required_bytes": 3276451840,
+    "retention_plan_sha256": "99161009b53eee1fa10f2a7d4fe86f229fbb6771a16fe5d4252046c311956e61",
+    "retention_report_sha256": "0975dfd4c2f0d95b9fa66283deced52705ff5f04b0fafe2c0588725cb3f3a73d",
+    "source": {
+      "head": "0c1049caf64751809143f88c1cfe3a1e0bf6dac3",
+      "tracked_diff_sha256": "3e84901a6af0e853772475f85f38da75d3d969008099f07362707cea0ba1f83b"
+    },
+    "volume": "/workspace",
+    "volume_device": 66304
+  },
+  "tool_sha256": "3e2ad9d6eed47f53d1547880286e4bed69848b956be490f17f354d9df70bb942",
+  "utc": "2026-10-13T22:57:35.501217+00:00"
+}
