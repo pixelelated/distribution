@@ -1,0 +1,9 @@
+{
+  "logical_original_path": "guest/run01/payload/native-maps.txt",
+  "stored_path": "guest/run01/payload/native-maps.txt.gz",
+  "original_bytes": 23122,
+  "original_sha256": "c390839e8db88824901ec028f5493ece0058cd862614494fd484a8b0f985b578",
+  "stored_sha256": "89f6eb9d62d8162bfa57611c4df7fd6e44f84e56c39f524383eb57cc6ba12e33",
+  "decompressed_exact_bytes_verified": true,
+  "reason": "Kernel proc maps contains original trailing spaces; preserve bytes by lossless compression instead of editing raw evidence or suppressing whitespace checks. Original guest/owner manifests retain logical path and hash."
+}
