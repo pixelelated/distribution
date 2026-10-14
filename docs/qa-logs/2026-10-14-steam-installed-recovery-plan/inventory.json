@@ -1,0 +1,268 @@
+{
+  "status": "SOURCE_ONLY_UNRUN",
+  "frozen_distribution": "d6a87f05c1935516115b2cca1af22151a0209224",
+  "installer": {
+    "path": "projects/ROCKNIX/packages/virtual/emulators/sources/Install Steam.sh",
+    "sha256": "fab7cdb4ad8adbcea147be54092bb7ce2005010447be4ab8192c94d8bbe9229d",
+    "bytes": 124320,
+    "helpers": {
+      "root": "3b6ee65d5217b7490a74cdcde7b855a4e256f1f5cfed304c9a174378cfca8703",
+      "fex": "7c852917dabfea01e424a1af7b23d0355bcf18b313127d82b70e7aa83877e261",
+      "runtime": "7e8e87052ccd62e04b9a52e57bf8c638450938ba10c2ba85c564e9ea1b552431",
+      "proton": "5513e6cd600b86720cd318ae70dbad9f83fbb55d3ef2f184b69a59a7a7a3aed3",
+      "client": "1d9611d9e01813b3dc3026649756ceb86e25bf881f2e6811b267c8f213abb28f"
+    }
+  },
+  "original_packet": {
+    "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-crc-event-source",
+    "manifest_sha256": "6a6c3b255525f57c624dba32d55720e10d0e130c2ffeb564c4e2ae6881796c7d",
+    "file_count": 28,
+    "files": {
+      "README.md": {
+        "sha256": "fdcf7a75098aab68854419626adfe9593bd7ef2dda67001650f412de34c860ac",
+        "bytes": 6607
+      },
+      "boundary.py": {
+        "sha256": "ae5fc68fa85b745e95179414ce643e1499122146b5b40afa9551198f3d351f64",
+        "bytes": 9323
+      },
+      "client-helper.py": {
+        "sha256": "a14cbe3ad5a6e717238d5d994811b521e852a24ca625652ac81125d16f294fed",
+        "bytes": 56899
+      },
+      "event_records.py": {
+        "sha256": "d6c52b2948136d49b715ba752097a87e51e3d36f0b6c1157059f570b54427804",
+        "bytes": 5508
+      },
+      "evidence/attempt-1-result.json": {
+        "sha256": "0b7f77b079d5f330f51bd63d6616002ab9e67f57f1b80abf232e17f49f7c00bc",
+        "bytes": 2039
+      },
+      "evidence/attempt-1-storage.json": {
+        "sha256": "9218fa8e2c20a3334d1ebbf49e4d5bdc1a40436d4171a58f884f4d6eda8432eb",
+        "bytes": 15241
+      },
+      "evidence/attempt-2-result.json": {
+        "sha256": "34d684df67ddfe885048556b609b23c89c9fbf86a3e6fbda8723eed1b3656574",
+        "bytes": 2039
+      },
+      "evidence/attempt-2-storage.json": {
+        "sha256": "9f9cec9f3117cc7b864efa5d6fa146916b0c541e2937f9fbac8182eb3bc144d2",
+        "bytes": 15241
+      },
+      "evidence/installer-1.stderr": {
+        "sha256": "feb13eaad516a11bbc8bd8c96bf61492fe85dbe5817b59307da6dbc712737987",
+        "bytes": 8704
+      },
+      "evidence/installer-2.stderr": {
+        "sha256": "ea5355ca2d855ed14d937f9050726adcca34eaa524286a2964b25c3e79eb7e84",
+        "bytes": 8675
+      },
+      "evidence/namespace-result.json": {
+        "sha256": "710f4595b108670b0400fa4103def0385462d2ab6245df9d073058c9b58e7c42",
+        "bytes": 18057
+      },
+      "evidence/qa-client-bad.json": {
+        "sha256": "934f7d694db901d9edb7afe36b6913c572f3f400e9acb620aad1bd2c6143a8d4",
+        "bytes": 12156
+      },
+      "evidence/qa-client-good.json": {
+        "sha256": "3bf457e4f0c564450b5affc491e7fe7c2bae512a6cd8dc1570660a6b81a34c97",
+        "bytes": 12019
+      },
+      "evidence/qa-events.ndjson": {
+        "sha256": "11d6c96b04f7471a8109f267a8d4533bb229d8ca15a54830ff693d25bbc625a6",
+        "bytes": 11027
+      },
+      "evidence/result.json": {
+        "sha256": "a76fc7dd38d38008acddc7e1d1c78db525895f5fa3259e7f3b0e562c587ecade",
+        "bytes": 7519
+      },
+      "exec-guard.py": {
+        "sha256": "00210b59a8c7fe25559e7ff561f1c112197bf8ef9a876523b5c457f486da4d59",
+        "bytes": 7757
+      },
+      "fixture.py": {
+        "sha256": "984c361ff9dfd9b06094c70b47da27dc1a3fe5db86d0f94fe1f08db8badd5c00",
+        "bytes": 50158
+      },
+      "intake.json": {
+        "sha256": "72bb392fab8d1a58cd732a511570f66cdfb55e3cfe24b6072365ff3e09477242",
+        "bytes": 11676
+      },
+      "layout.json": {
+        "sha256": "5afbc973d2bc8c79cafafb2c7e3a301b11b192af946f77c5b64dfb2cc8278355",
+        "bytes": 23971
+      },
+      "packaged/Config.json": {
+        "sha256": "fc10f006b7587e7ce1a5a57a412ecd6463627161c03a50b2471ad4367d6614c5",
+        "bytes": 1386
+      },
+      "packaged/steamwebhelper.json": {
+        "sha256": "e342841254a27b5e8f0cab30e39aa5792811a75da54f64a0ca23c4ffd3baf76b",
+        "bytes": 52
+      },
+      "payload.py": {
+        "sha256": "966450dfcfd3399a6caa42ad7edc5ed3afcfcc471bd728b36db1025a398b11ff",
+        "bytes": 17707
+      },
+      "python-boundary.py": {
+        "sha256": "dbd56b6c108f5dc6b15893f27c58e50c05f90513b02d05d2a3bab9e46666deb5",
+        "bytes": 5673
+      },
+      "route-cases.json": {
+        "sha256": "36a846f4984627a484cabb252dfb9aa1e30fd0d4d4528fe7d407346896ae48e3",
+        "bytes": 1945
+      },
+      "source.json": {
+        "sha256": "ca4be0729e7e368526395daed263f41c4dcac9fde399dc3a2aa8e10a543d8d7c",
+        "bytes": 5518
+      },
+      "static-check.py": {
+        "sha256": "5c8abe5da245859164adfcc4571327e8c796aa6d43de2f3f9a0f426064671209",
+        "bytes": 7276
+      },
+      "static-result.json": {
+        "sha256": "cbdc8c966c4266b140b1f84e9e332e36b095d42181dd48b43f312eb8f4db3bca",
+        "bytes": 1406
+      },
+      "transfer-child.py": {
+        "sha256": "cedeb1244888fb9f5a752f356efdcd5f4ae70dc5731a20c0dd0af9fad569c6da",
+        "bytes": 2466
+      }
+    }
+  },
+  "remaining": [
+    {
+      "case": "fresh-profile-dot",
+      "expected_original_caller_exits": [
+        0
+      ],
+      "status": "UNRUN"
+    },
+    {
+      "case": "fresh-profile-dot-absent",
+      "expected_original_caller_exits": [
+        0
+      ],
+      "status": "UNRUN"
+    },
+    {
+      "case": "valid-existing-alias",
+      "expected_original_caller_exits": [
+        0
+      ],
+      "status": "UNRUN"
+    },
+    {
+      "case": "existing-profile-dot",
+      "expected_original_caller_exits": [
+        0
+      ],
+      "status": "UNRUN"
+    },
+    {
+      "case": "self-updated-client",
+      "expected_original_caller_exits": [
+        0
+      ],
+      "status": "UNRUN"
+    },
+    {
+      "case": "partial-before-profile",
+      "expected_original_caller_exits": [
+        1
+      ],
+      "status": "UNRUN"
+    },
+    {
+      "case": "marker-missing-core",
+      "expected_original_caller_exits": [
+        1
+      ],
+      "status": "UNRUN"
+    },
+    {
+      "case": "metadata-conflict-after-profile",
+      "expected_original_caller_exits": [
+        1
+      ],
+      "status": "UNRUN"
+    },
+    {
+      "case": "download-failure-retry",
+      "expected_original_caller_exits": [
+        1,
+        0
+      ],
+      "status": "UNRUN"
+    },
+    {
+      "case": "metadata-failure-retry",
+      "expected_original_caller_exits": [
+        1,
+        0
+      ],
+      "status": "UNRUN"
+    },
+    {
+      "case": "interrupt-prepared-retry",
+      "expected_original_caller_exits": [
+        1,
+        0
+      ],
+      "status": "UNRUN"
+    },
+    {
+      "case": "unknown-stage-before-profile",
+      "expected_original_caller_exits": [
+        1
+      ],
+      "status": "UNRUN"
+    },
+    {
+      "case": "validation-failure-retry",
+      "expected_original_caller_exits": [
+        1,
+        0
+      ],
+      "status": "UNRUN"
+    },
+    {
+      "case": "publication-failure-retry",
+      "expected_original_caller_exits": [
+        1,
+        0
+      ],
+      "status": "UNRUN"
+    }
+  ],
+  "accepted_excluded": [
+    "fresh-client-real-root",
+    "fresh-profile-parent-alias",
+    "existing-profile-parent-alias",
+    "detached-transfer-child",
+    "proc-census-error",
+    "transport-timeout",
+    "interrupt-published-retry",
+    "committed-self-update-retry",
+    "crc-failure-retry"
+  ],
+  "namespace_tool_sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346",
+  "limits": {
+    "work_seconds": 90,
+    "transport_timeout_case_work_seconds": 240,
+    "cleanup_seconds": 10,
+    "retained_bytes": 67108864,
+    "minimum_free_bytes": 2483027968,
+    "archive_bytes_each": 1048576,
+    "log_bytes_each": 2097152,
+    "required_disposable_capacity_mib": 3072
+  },
+  "criteria_scope": {
+    "564": "New-source installed VM proof remains architecture-selected; synthetic runtime39 is not installed Steam",
+    "579": "Candidate-source installed VM proof and review remains; FEX43 synthetic and actual FEX ELF/overlay closure are separate",
+    "580": "Candidate-source installed VM proof remains; Proton56 synthetic is separate from native Proton/Steam usability",
+    "582": "Full-caller source proofs and explicit installed/native ARM64/self-update/quiescence/power-loss limits remain distinct"
+  }
+}

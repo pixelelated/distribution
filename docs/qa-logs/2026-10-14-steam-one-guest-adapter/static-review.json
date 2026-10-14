@@ -1,0 +1,61 @@
+{
+  "status": "STATIC_PASS_RUNTIME_UNRUN",
+  "checks": {
+    "four_python_asts_python310": true,
+    "original_remaining_packet_all_members_verified": true,
+    "exact14_case_allowlist": true,
+    "all_original_outcome_sets_match_unchanged_payload": true,
+    "source_packet_staged_at_required_repository_depth": true,
+    "explicit_failed_export_not_qualification": true,
+    "no_raw_diff_context_whitespace": true
+  },
+  "remaining_packet_seal": "79dc1d57d8741b644e99cd8348c4c362fbef3a1c815c48f6fa23b84a6e201c34",
+  "unchanged_fixture_files": {
+    "README.md": "fdcf7a75098aab68854419626adfe9593bd7ef2dda67001650f412de34c860ac",
+    "boundary.py": "ae5fc68fa85b745e95179414ce643e1499122146b5b40afa9551198f3d351f64",
+    "client-helper.py": "a14cbe3ad5a6e717238d5d994811b521e852a24ca625652ac81125d16f294fed",
+    "continuation.json": "c018cecb884398976ede15359685de09c041991b4b271c2375e24455010316f0",
+    "event_records.py": "d6c52b2948136d49b715ba752097a87e51e3d36f0b6c1157059f570b54427804",
+    "evidence/attempt-1-result.json": "0b7f77b079d5f330f51bd63d6616002ab9e67f57f1b80abf232e17f49f7c00bc",
+    "evidence/attempt-1-storage.json": "9218fa8e2c20a3334d1ebbf49e4d5bdc1a40436d4171a58f884f4d6eda8432eb",
+    "evidence/attempt-2-result.json": "34d684df67ddfe885048556b609b23c89c9fbf86a3e6fbda8723eed1b3656574",
+    "evidence/attempt-2-storage.json": "9f9cec9f3117cc7b864efa5d6fa146916b0c541e2937f9fbac8182eb3bc144d2",
+    "evidence/installer-1.stderr": "feb13eaad516a11bbc8bd8c96bf61492fe85dbe5817b59307da6dbc712737987",
+    "evidence/installer-2.stderr": "ea5355ca2d855ed14d937f9050726adcca34eaa524286a2964b25c3e79eb7e84",
+    "evidence/namespace-result.json": "710f4595b108670b0400fa4103def0385462d2ab6245df9d073058c9b58e7c42",
+    "evidence/qa-client-bad.json": "934f7d694db901d9edb7afe36b6913c572f3f400e9acb620aad1bd2c6143a8d4",
+    "evidence/qa-client-good.json": "3bf457e4f0c564450b5affc491e7fe7c2bae512a6cd8dc1570660a6b81a34c97",
+    "evidence/qa-events.ndjson": "11d6c96b04f7471a8109f267a8d4533bb229d8ca15a54830ff693d25bbc625a6",
+    "evidence/result.json": "a76fc7dd38d38008acddc7e1d1c78db525895f5fa3259e7f3b0e562c587ecade",
+    "exec-guard.py": "00210b59a8c7fe25559e7ff561f1c112197bf8ef9a876523b5c457f486da4d59",
+    "fixture.py": "984c361ff9dfd9b06094c70b47da27dc1a3fe5db86d0f94fe1f08db8badd5c00",
+    "intake.json": "72bb392fab8d1a58cd732a511570f66cdfb55e3cfe24b6072365ff3e09477242",
+    "layout.json": "5afbc973d2bc8c79cafafb2c7e3a301b11b192af946f77c5b64dfb2cc8278355",
+    "original-SHA256SUMS": "6a6c3b255525f57c624dba32d55720e10d0e130c2ffeb564c4e2ae6881796c7d",
+    "original-source.json": "ca4be0729e7e368526395daed263f41c4dcac9fde399dc3a2aa8e10a543d8d7c",
+    "packaged/Config.json": "fc10f006b7587e7ce1a5a57a412ecd6463627161c03a50b2471ad4367d6614c5",
+    "packaged/steamwebhelper.json": "e342841254a27b5e8f0cab30e39aa5792811a75da54f64a0ca23c4ffd3baf76b",
+    "payload.py": "966450dfcfd3399a6caa42ad7edc5ed3afcfcc471bd728b36db1025a398b11ff",
+    "python-boundary.py": "dbd56b6c108f5dc6b15893f27c58e50c05f90513b02d05d2a3bab9e46666deb5",
+    "route-cases.json": "36a846f4984627a484cabb252dfb9aa1e30fd0d4d4528fe7d407346896ae48e3",
+    "source.json": "ec128574ae0f8a566879d0a472ae09ec1fd92d0c8e7fa9ca1b42164b3087af9f",
+    "static-check.py": "5c8abe5da245859164adfcc4571327e8c796aa6d43de2f3f9a0f426064671209",
+    "static-result.json": "cbdc8c966c4266b140b1f84e9e332e36b095d42181dd48b43f312eb8f4db3bca",
+    "transfer-child.py": "cedeb1244888fb9f5a752f356efdcd5f4ae70dc5731a20c0dd0af9fad569c6da"
+  },
+  "runtime_not_executed": [
+    "prepare.py",
+    "guest-stage.py",
+    "vm-lifecycle.py",
+    "export.py",
+    "fixture imports",
+    "VM or service",
+    "build or compiler",
+    "provider"
+  ],
+  "notes": [
+    "Host original serial outputs/exits are written before stage interpretation.",
+    "No fixture or product executable byte is changed.",
+    "No lifecycle source unit test or simulated PASS is claimed."
+  ]
+}

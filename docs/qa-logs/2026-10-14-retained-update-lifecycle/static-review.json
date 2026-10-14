@@ -1,0 +1,43 @@
+{
+  "status": "SOURCE_ONLY_UNRUN",
+  "validation": "AST parsing, source/schema/hash inspection only; no packet imports or execution",
+  "files": [
+    {
+      "path": "census.py",
+      "sha256": "600f1a59149864396730d8bcae6a86b6fa6f8347f99c729c18e14cd7307f62b2",
+      "ast_python310": "PASS"
+    },
+    {
+      "path": "close.py",
+      "sha256": "6d5fc778771c8f8ce7a665bc3c31d8da4180529a21a39c68a59a0aa17fd8dd64",
+      "ast_python310": "PASS"
+    },
+    {
+      "path": "prepare.py",
+      "sha256": "aa4f0412b0fe484f75358f581410e378e20474e5a6c33e4cc99b5402714c6d4d",
+      "ast_python310": "PASS"
+    },
+    {
+      "path": "vm-lifecycle.py",
+      "sha256": "9dab48f7975fd38dec3ff7381361d55b98e530717dc5885fd40d08b06f3e991a",
+      "ast_python310": "PASS"
+    }
+  ],
+  "reviewed_upstream_fixture_commit": "615bbece9789b71230af5acd45c75d1d106d15ad",
+  "census_unchanged_sha256": "600f1a59149864396730d8bcae6a86b6fa6f8347f99c729c18e14cd7307f62b2",
+  "prospective_work_seconds": 4200,
+  "prospective_cleanup_seconds": 180,
+  "unchanged_guest_bounds": {
+    "seed": 300,
+    "before": 180,
+    "after": 180,
+    "backup": 420
+  },
+  "unchanged_transport_bounds": {
+    "seed": 340,
+    "before": 220,
+    "after": 220,
+    "backup": 460
+  },
+  "remaining": "Root review, actual completed verifier inputs, fresh allocation and runtime original evidence."
+}

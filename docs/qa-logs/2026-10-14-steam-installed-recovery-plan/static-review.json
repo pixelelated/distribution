@@ -1,0 +1,28 @@
+{
+  "status": "STATIC_PASS_RUNTIME_UNRUN",
+  "checks": {
+    "adapter_ast_python310": true,
+    "readme_embedded_python_ast": true,
+    "original_complete_packet_seal": true,
+    "fourteen_remaining_plus_nine_accepted_equals_original_twenty_three": true,
+    "remaining_cases_implemented_in_unchanged_payload": true,
+    "expected_exits_derived_from_unchanged_payload_sets": true,
+    "frozen_current_installer_exact_candidate_bytes": true,
+    "all_five_helper_hashes_current": true,
+    "four_prior_component_helpers_byte_equal": true,
+    "guest_repository_depth_preserved": true,
+    "no_trailing_whitespace": true
+  },
+  "not_executed": [
+    "materializer",
+    "fixture imports",
+    "payload generation",
+    "guest commands",
+    "installer",
+    "service",
+    "VM",
+    "build",
+    "provider"
+  ],
+  "adapter_sha256": "31f6ce7d1abe4a7115527244e46ad40fc4ca28a8922ba5391b251a258e5019ef"
+}

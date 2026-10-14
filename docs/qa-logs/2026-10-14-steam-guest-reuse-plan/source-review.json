@@ -1,0 +1,35 @@
+{
+  "status": "SOURCE_ONLY_ASSESSMENT_UNRUN",
+  "finding": "No fixture-required cross-case guest state found; parent restoration/export/census orchestration remains required",
+  "superseded_plan_commit": "9e6bae8b550622ed3b3fd0549ac8838b63305a78",
+  "source_packet_seal": "6a6c3b255525f57c624dba32d55720e10d0e130c2ffeb564c4e2ae6881796c7d",
+  "inspected_files": {
+    "fixture.py": "984c361ff9dfd9b06094c70b47da27dc1a3fe5db86d0f94fe1f08db8badd5c00",
+    "payload.py": "966450dfcfd3399a6caa42ad7edc5ed3afcfcc471bd728b36db1025a398b11ff",
+    "boundary.py": "ae5fc68fa85b745e95179414ce643e1499122146b5b40afa9551198f3d351f64",
+    "python-boundary.py": "dbd56b6c108f5dc6b15893f27c58e50c05f90513b02d05d2a3bab9e46666deb5",
+    "exec-guard.py": "00210b59a8c7fe25559e7ff561f1c112197bf8ef9a876523b5c457f486da4d59"
+  },
+  "proposed_bounds": {
+    "family_seconds": 3600,
+    "failure_cleanup_seconds": 90,
+    "stage_seconds": 180,
+    "output_media_mib": 1280,
+    "exported_family_cap_mib": 1100,
+    "exported_case_cap_mib": 75,
+    "active_scratch_mib": 3072,
+    "guest_memory_mib": 8192,
+    "guest_vcpus": 4
+  },
+  "not_run": [
+    "fixture or adapter imports",
+    "tests",
+    "VM",
+    "service",
+    "compiler",
+    "build",
+    "provider"
+  ],
+  "product_changes": false,
+  "original_packet_changed": false
+}

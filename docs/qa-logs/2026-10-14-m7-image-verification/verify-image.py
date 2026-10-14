@@ -240,7 +240,13 @@ def main():
     paths.extend(['etc/profile', 'etc/profile.d/001-functions', 'usr/bin/python3',
                   'usr/lib/autostart/daemons/006-raofflineproxy', 'usr/bin/systemctl',
                   'usr/lib/systemd/systemd', 'usr/lib/libzstd.so.1',
-                  'usr/lib/libcrypto.so.3', 'usr/lib/libsystemd.so.0'])
+                  'usr/lib/libcrypto.so.3', 'usr/lib/libsystemd.so.0',
+                  'usr/bin/cloud-signin-window', 'usr/bin/rclone',
+                  'usr/bin/gst-inspect-1.0', 'usr/lib/gstreamer-1.0/gst-plugin-scanner',
+                  'usr/lib/gstreamer-1.0/libgstopengl.so',
+                  'usr/lib/libgstcontroller-1.0.so.0', 'usr/lib/libgstreamer-1.0.so.0',
+                  'usr/config/locale/fr/LC_MESSAGES/emulationstation2.mo',
+                  'usr/config/locale/en_GB/LC_MESSAGES/emulationstation2.mo'])
     for target, source in source_mappings.items():
         expected = (tree / source).read_bytes()
         if Path(target).name in ['start_dolphin_gc.sh', 'start_dolphin_wii.sh']:
