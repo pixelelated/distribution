@@ -1,0 +1,7 @@
+# Additive ES published-fixture composition
+
+Final commit **a5c7ff998831c8215f135a42a6f695e75230451d**, tree `909c929be63c070df4bb40c0b05b229383e944cc`, clean `feature/m7-candidate-compose` at `/home/max/Development/emulationstation-next.worktrees/m7-candidate-compose`. Parents are syntax-qualified `c045d2ec1936c2dfc6c4777935fb2d4cd8b3bcfa` and published `test/qa-integration` `0ee5b28a65ada516a83d6ff10ec5ec889c3edcd7`; both histories are retained. Zero conflicts or manual resolutions.
+
+The sole change from c045 is the already-published `tests/cloud-oauth-lifetime.py` line that adds `Menu::setPosition(float, float)` support. The entire file equals0ee5b28a (SHA256 `fcd3910911710dce78dea492b19534e6d924960e1cd42b27886f33ebede55e3d`). Every other tracked path is identical in blob/mode, including every product/header/catalog/build-definition input. All1113 working-file blobs/modes were checked. `identity.json` additionally binds identical es-app/es-core/external/locale/CMakeLists tree entries and the original successful syntax02 receipts. `fixture-only.diff` is the exact sole delta.
+
+Original syntax02 remains evidence for c045; this receipt justifies explicit reuse because compiler inputs are unchanged. No compiler or test was rerun, and no new runtime PASS is claimed. The shared branch, distribution pin/docs and remote were not changed. No push occurred. Earlier source packets and compiler receipts remain immutable.

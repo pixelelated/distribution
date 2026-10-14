@@ -1,0 +1,67 @@
+{
+  "checked_at_utc": "2026-10-14T18:21:13.665681+00:00",
+  "worktree": "/home/max/Development/emulationstation-next.worktrees/m7-candidate-compose",
+  "branch": "feature/m7-candidate-compose",
+  "base": "bb9e2785f88c2b9de979022a2a9ded2cbce2f954",
+  "parents_planned": [
+    "314da58d68820a79b26f99a5b6c12f9bb37054d5",
+    "09afa4893a6a4667f2b6bd8992bd5957a2281e49"
+  ],
+  "conflicts": [],
+  "manual_resolutions": 0,
+  "tracked_tree_matches_md5_plus_final_french": true,
+  "working_copy_blob_mode_checks": 1113,
+  "changed_files": [
+    {
+      "path": "external/libcheevos/libretro-common/src/utils/md5.c",
+      "candidate_commit": "314da58d68820a79b26f99a5b6c12f9bb37054d5",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "132486f06c9427d59470ef9af01d36d307572ae8",
+      "bytes": 9835,
+      "sha256": "102310fd9991c20a7eaf7e4fffd175f9c79607dbac82f65f067a085bfeebb1c0",
+      "working_copy_equal": true
+    },
+    {
+      "path": "tests/md5-alignment.c",
+      "candidate_commit": "314da58d68820a79b26f99a5b6c12f9bb37054d5",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "4f378a50a92ff9f8a81fa1bb92e73cdbafe92bac",
+      "bytes": 1364,
+      "sha256": "2c4a9d7a0f49e6bcc0df0e5954e9a2637ba4a02ffc46a322a6465055a7dc5b7a",
+      "working_copy_equal": true
+    },
+    {
+      "path": "locale/lang/fr/LC_MESSAGES/emulationstation2.po",
+      "candidate_commit": "09afa4893a6a4667f2b6bd8992bd5957a2281e49",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "9818973cf643622ab519224bd0f129af38a3660d",
+      "bytes": 184947,
+      "sha256": "3e285bac37d9907c06afe0399b7293758fb3f7e324c13b26d60de0ced09c94ac",
+      "working_copy_equal": true
+    }
+  ],
+  "limits": "Source/hash/merge review only. No syntax/compiler/native/VM or test suite run. No distribution pin/shared docs/push.",
+  "unchanged_base_paths_verified": 1111,
+  "commit": "c045d2ec1936c2dfc6c4777935fb2d4cd8b3bcfa",
+  "tree": "7a34dbe6ec6d5a5f153059153ba7d8b4a22e6451",
+  "parents": [
+    "314da58d68820a79b26f99a5b6c12f9bb37054d5",
+    "09afa4893a6a4667f2b6bd8992bd5957a2281e49"
+  ],
+  "clean_worktree": true,
+  "final_diff_from_bb9e": [
+    "M\texternal/libcheevos/libretro-common/src/utils/md5.c",
+    "M\tlocale/lang/fr/LC_MESSAGES/emulationstation2.po",
+    "A\ttests/md5-alignment.c"
+  ],
+  "final_diff_from_md5": [
+    "M\tlocale/lang/fr/LC_MESSAGES/emulationstation2.po"
+  ],
+  "final_diff_from_fr": [
+    "M\texternal/libcheevos/libretro-common/src/utils/md5.c",
+    "A\ttests/md5-alignment.c"
+  ]
+}

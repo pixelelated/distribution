@@ -1,0 +1,56 @@
+{
+  "status": "FAIL",
+  "commands": [],
+  "steps": [],
+  "cleanup_errors": [],
+  "source_pins_verified": false,
+  "platform_contract": {
+    "files": {
+      "/usr/lib/systemd/systemd": {
+        "sha256": "dad240622fc8ac2587b8cd05699264c19173c791894daf147533b2363df84471",
+        "bytes": 96216
+      },
+      "/usr/lib/systemd/libsystemd-shared-255.so": {
+        "sha256": "cf4cb0942704f170d426d229982a6ec81256f8bd629997e7d188e4c458cad87a",
+        "bytes": 3643936
+      },
+      "/usr/bin/systemctl": {
+        "sha256": "ee1371927bd80da7e7cd78f8af50953e27fcbcefc8b7e7f27e5ae827021ec82b",
+        "bytes": 264256
+      },
+      "/usr/lib/kernel-overlays/base/lib/modules/7.1.2/kernel/kernel/configs.ko": {
+        "sha256": "bc9720d6254264d6fdbc8d32e8213b5ce83fa6c33db4788b42b64dd8f36203c5",
+        "bytes": 58848
+      }
+    },
+    "kernel_release": "7.1.2",
+    "scope": "retained image platform only; no current product/native source qualification"
+  },
+  "cgroup_layout": {
+    "mounts": [
+      {
+        "id": "31",
+        "device": "0:25",
+        "root": "/",
+        "path": "/sys/fs/cgroup",
+        "type": "cgroup2",
+        "line": "31 24 0:25 / /sys/fs/cgroup rw,nosuid,nodev,noexec,relatime shared:9 - cgroup2 cgroup2 rw,nsdelegate,memory_recursiveprot"
+      }
+    ],
+    "controllers": [
+      "cpuset",
+      "cpu",
+      "io",
+      "memory",
+      "pids"
+    ],
+    "pid1_cgroup": [
+      "0::/init.scope"
+    ],
+    "cmdline": "root=/dev/sda1 init=/sbin/init usbcore.autosuspend=-1 BOOT_IMAGE=/KERNEL boot=LABEL=ROCKNIX disk=LABEL=STORAGE portable quiet console=ttyS0,115200 console=tty0 systemd.unified_cgroup_hierarchy=1",
+    "boot_id": "c870ebb3-fd47-4acb-9213-a9ad1a67d06e"
+  },
+  "error": "AssertionError: ",
+  "elapsed_seconds": 0.03457937700000002,
+  "retained_bytes": 683
+}

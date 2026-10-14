@@ -1,0 +1,143 @@
+{
+  "inspected_utc": "2026-10-14T17:53:58.679003+00:00",
+  "status": "Source/hash inspection only; no fixture or product executed",
+  "product_commit": "1a7714fd81f7c92316f54c4a3648696d1e256f88",
+  "accepted_fixture_commit": "5a385f12e355cd3400bf11a740cc0e0b852eeab1",
+  "executable_caller_commit": "06b5b583d075cf123b61efa0030ea04a215546f1",
+  "es_source": "bb9e2785f88c2b9de979022a2a9ded2cbce2f954",
+  "es_source_repo": "/home/max/Development/emulationstation-next.worktrees/m7-rc-library-setup",
+  "external_inputs": [
+    {
+      "path": "/workspace/tmp/pix-m7-library-build-20261013/scratch/emulationstation",
+      "bytes": 11835728,
+      "sha256": "8752b5391ea8728c1a088d0a80e3776469692dda665e8f07f062fed3206263d2"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-library-vm-20261013/records/dolphin-packaged-defaults.tar.gz",
+      "bytes": 2389718,
+      "sha256": "1a54b5971b7d9aca8a07fe6a3f69bee9d747a6ea4e46d7b1485a599881fd35a0"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-library-vm-20261013/records/dolphin-packaged-defaults.json",
+      "bytes": 445525,
+      "sha256": "82ce35877c5da0bf0fa2c5b02bcff71e2d6729825e94c17758c8db5b95daa2ce"
+    }
+  ],
+  "compile_provenance": [
+    {
+      "path": "/workspace/tmp/pix-m7-library-build-20261013/records/source.json",
+      "bytes": 3033,
+      "sha256": "cfd417f0a483fdd7b1742b6c1b194890b517b4b77dcb795668eedc6d6af1c3c3"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-library-build-20261013/compile-result.json",
+      "bytes": 2217,
+      "sha256": "8e111386be84ec5766cf32584994d26f48b6580b660d3f2c3ec58105ae54c4a7"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-library-build-20261013/consumption.json",
+      "bytes": 1166,
+      "sha256": "ca923b1d28b583c555da176cf21b2567d36e05d5a10564b5f81a10961b36f3ff"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-library-build-20261013/acceptance.json",
+      "bytes": 2203,
+      "sha256": "2355fd7faec56e38578f3a86e7700dd377aebc018cc9635ced3c44e223ba2754"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-library-build-20261013/retirement.json",
+      "bytes": 3678,
+      "sha256": "3e20ff2755a9bea345590016f627eeb6e84bac122a7fb485a4005e9bffacdc81"
+    }
+  ],
+  "distribution_sources": [
+    {
+      "commit": "1a7714fd81f7c92316f54c4a3648696d1e256f88",
+      "path": "projects/ROCKNIX/packages/rocknix/sources/scripts/runemu.sh",
+      "sha256": "deb95aee74d3ddd80638a9ab2f940f5b3b080f4d3ec01f669ea8dbd44179ad20"
+    },
+    {
+      "commit": "1a7714fd81f7c92316f54c4a3648696d1e256f88",
+      "path": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/package.mk",
+      "sha256": "9dc251df09495db8b6d80d5be2a2fb4f02bbedc6374759b57373b3aa63411d5b"
+    },
+    {
+      "commit": "1a7714fd81f7c92316f54c4a3648696d1e256f88",
+      "path": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/start_dolphin_gc.sh",
+      "sha256": "cc6da2e146adfc5423fb58462888e0cab0a4904deb90f5066392484b8447c9c2"
+    },
+    {
+      "commit": "1a7714fd81f7c92316f54c4a3648696d1e256f88",
+      "path": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/start_dolphin_wii.sh",
+      "sha256": "e8ff87c570d7a96eb641d42637d35ac93580f6a48dd7ea40e060f1b827eb407a"
+    },
+    {
+      "commit": "1a7714fd81f7c92316f54c4a3648696d1e256f88",
+      "path": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/dolphin-save-paths",
+      "sha256": "507ccc96245bfc7aaca5e154ef0567cacccd0cbc9d0f999761d2fdee1fc245e8"
+    },
+    {
+      "commit": "1a7714fd81f7c92316f54c4a3648696d1e256f88",
+      "path": "projects/ROCKNIX/packages/ui/emulationstation/package.mk",
+      "sha256": "1427d497d1bedb74b9f10a857ec6624787589cce7061803c4b701925ee730974"
+    }
+  ],
+  "unchanged_ES_boundary": [
+    {
+      "commit": "bb9e2785f88c2b9de979022a2a9ded2cbce2f954",
+      "path": "es-app/src/FileData.cpp",
+      "sha256": "8a677bd0eaf7d6172bef388b8f38da91a132e4adf1f9cdfdce98fd6e84ada33d"
+    },
+    {
+      "commit": "bb9e2785f88c2b9de979022a2a9ded2cbce2f954",
+      "path": "es-app/src/SystemData.cpp",
+      "sha256": "0cd174d8f7d25bce808901b52b4d970415dd177bcaec6588da08da0113869504"
+    },
+    {
+      "commit": "bb9e2785f88c2b9de979022a2a9ded2cbce2f954",
+      "path": "es-app/src/main.cpp",
+      "sha256": "93fc68f82617286d7c891b19237203a5cd20cf4a3c1b22e22e043b30346968dd"
+    },
+    {
+      "commit": "bb9e2785f88c2b9de979022a2a9ded2cbce2f954",
+      "path": "es-app/src/views/ViewController.cpp",
+      "sha256": "b5be9eae846710c6846eab0b57de88696804562814ed40535267d4102791cc96"
+    },
+    {
+      "commit": "bb9e2785f88c2b9de979022a2a9ded2cbce2f954",
+      "path": "es-core/src/Paths.cpp",
+      "sha256": "0ded8fcb9bfc9940fe730493e3c56e79c221c74959ef024e5f574353d4a9cbe2"
+    },
+    {
+      "commit": "bb9e2785f88c2b9de979022a2a9ded2cbce2f954",
+      "path": "es-core/src/Scripting.cpp",
+      "sha256": "f3535ffa62244ddc3e134e27701d3b39dbe465ff7cddade0efe4d5596b9b1e53"
+    },
+    {
+      "commit": "bb9e2785f88c2b9de979022a2a9ded2cbce2f954",
+      "path": "es-core/src/LocaleES.cpp",
+      "sha256": "a5328fc9550e55a686c0622fdbbf98278487dc840812e7a0d259ae67965011e2"
+    },
+    {
+      "commit": "bb9e2785f88c2b9de979022a2a9ded2cbce2f954",
+      "path": "es-core/src/utils/Platform.cpp",
+      "sha256": "edd72facac37487ebaa601e613582e0507fba03aabd8e1eff7350dd94114b886"
+    },
+    {
+      "commit": "bb9e2785f88c2b9de979022a2a9ded2cbce2f954",
+      "path": "es-core/src/InputManager.cpp",
+      "sha256": "8ccd43dbb75517030c234d2192e6134f42bf698c18b43f44252366448b2c9934"
+    }
+  ],
+  "guest_staged_products": {
+    "runemu.sh": "deb95aee74d3ddd80638a9ab2f940f5b3b080f4d3ec01f669ea8dbd44179ad20",
+    "start_dolphin_gc.sh": "54575d7f9b458f3141bfab10be2ee39a209b4858c7b7aff9b23f9d14a5aade09",
+    "start_dolphin_wii.sh": "7b92b93ca882511d87d36315cbb7842d2c93c78198b73c82fa1ad0469cb33147",
+    "dolphin-save-paths": "507ccc96245bfc7aaca5e154ef0567cacccd0cbc9d0f999761d2fdee1fc245e8"
+  },
+  "frame_resources": {
+    "/usr/share/themes/es-theme-art-book-next/theme.xml": "f19b1c9b28748fecb50e48df1aad0ff03717e9d206509e8e64b2346e6374d15c",
+    "/usr/config/locale/fr/LC_MESSAGES/emulationstation2.mo": "7113cf7c7f7ac9aaf8edce4ecda231bdaebd8850d588a6bd5a2bc3c15f8b7167"
+  },
+  "reason_to_retain_binary": "Immediately queued #581 English640 corrected layout; coordinator retires temporary copy after result consumption. Existing ownership is not reopened."
+}

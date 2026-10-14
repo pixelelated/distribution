@@ -1,0 +1,9 @@
+{
+  "status": "FAIL",
+  "cause": "Generic input media builder recreated directories without preserving the source mode. Themes expected0755 became0755? Actual guest refusal identifies a mode mismatch; source directory was0755 and host payload creation uses umask077 after watch-build submit, creating0700.",
+  "original_batch_exit": 1,
+  "session_exit": 1,
+  "product_case_entered": false,
+  "correction": "Fresh lifecycle applies every exact staged directory mode before mkfs; preserve original failure.",
+  "frontend_restored": true
+}

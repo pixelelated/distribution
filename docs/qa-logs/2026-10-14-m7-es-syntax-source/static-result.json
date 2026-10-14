@@ -1,0 +1,25 @@
+{
+  "scope": "static only; no runner import/execution, owner/admission/container/compiler/VM",
+  "python_grammar": "3.10",
+  "parsed": [
+    "common.py",
+    "docker_owner.py",
+    "inner.py",
+    "native.py",
+    "plan.py",
+    "run-stage.py",
+    "watchdog.py"
+  ],
+  "unchanged_helpers": {
+    "docker_owner.py": "276baaa41d855161873b6d3a979463d2ff0a3bb8fd28ddbd8ed4502959354d31",
+    "watchdog.py": "b21d2e255f0094b5f48eef6e009972633298629b7f0c4c7b44ec7eef0148c18b"
+  },
+  "source_commit": "c045d2ec1936c2dfc6c4777935fb2d4cd8b3bcfa",
+  "source_tree": "7a34dbe6ec6d5a5f153059153ba7d8b4a22e6451",
+  "source_files": 1113,
+  "sdk_header_support_rows": 26095,
+  "sdk_build_input_rows": 1015,
+  "stage_count": 1,
+  "prepared_owner_exists": false,
+  "syntax_tool_exact": true
+}

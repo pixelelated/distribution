@@ -1,0 +1,1223 @@
+{
+  "status": "FAIL",
+  "commands": [
+    {
+      "argv": [
+        "systemctl",
+        "show",
+        "pix583-service-proof.service",
+        "--no-pager",
+        "--property=LoadState,ActiveState,SubState,MainPID,FragmentPath,DropInPaths,ControlGroup,Result,ExecMainCode,ExecMainStatus,ExecStartPost,NRestarts,Restart,RestartUSec,TimeoutStopUSec,StartLimitIntervalUSec,StartLimitBurst,ConditionResult,InvocationID,BindsTo,Environment,ExecStart,RuntimeMaxUSec,KillMode,MemoryMax"
+      ],
+      "original_exit": 0,
+      "timeout": false,
+      "monotonic_start": 17.222670076,
+      "identity": {
+        "pid": 1846,
+        "ppid": 1845,
+        "start_ticks": 1722
+      },
+      "elapsed_seconds": 0.008015383000000043
+    },
+    {
+      "argv": [
+        "systemctl",
+        "show",
+        "raofflineproxy.service",
+        "--no-pager",
+        "--property=LoadState,ActiveState,SubState,MainPID,FragmentPath,DropInPaths,ControlGroup,Result,ExecMainCode,ExecMainStatus,ExecStartPost,NRestarts,Restart,RestartUSec,TimeoutStopUSec,StartLimitIntervalUSec,StartLimitBurst,ConditionResult,InvocationID,BindsTo,Environment,ExecStart,RuntimeMaxUSec,KillMode,MemoryMax"
+      ],
+      "original_exit": 0,
+      "timeout": false,
+      "monotonic_start": 17.23089377,
+      "identity": {
+        "pid": 1847,
+        "ppid": 1845,
+        "start_ticks": 1723
+      },
+      "elapsed_seconds": 0.007913971999997216
+    },
+    {
+      "argv": [
+        "systemctl",
+        "show",
+        "pix583-service-proof-owner.service",
+        "--no-pager",
+        "--property=LoadState,ActiveState,SubState,MainPID,FragmentPath,DropInPaths,ControlGroup,Result,ExecMainCode,ExecMainStatus,ExecStartPost,NRestarts,Restart,RestartUSec,TimeoutStopUSec,StartLimitIntervalUSec,StartLimitBurst,ConditionResult,InvocationID,BindsTo,Environment,ExecStart,RuntimeMaxUSec,KillMode,MemoryMax"
+      ],
+      "original_exit": 0,
+      "timeout": false,
+      "monotonic_start": 17.239361545,
+      "identity": {
+        "pid": 1848,
+        "ppid": 1845,
+        "start_ticks": 1723
+      },
+      "elapsed_seconds": 0.003703329000000366
+    },
+    {
+      "argv": [
+        "systemctl",
+        "daemon-reload"
+      ],
+      "original_exit": 0,
+      "timeout": false,
+      "monotonic_start": 17.25863164,
+      "identity": {
+        "pid": 1849,
+        "ppid": 1845,
+        "start_ticks": 1725
+      },
+      "elapsed_seconds": 0.11400892400000018
+    },
+    {
+      "argv": [
+        "systemctl",
+        "show",
+        "pix583-service-proof.service",
+        "--no-pager",
+        "--property=LoadState,ActiveState,SubState,MainPID,FragmentPath,DropInPaths,ControlGroup,Result,ExecMainCode,ExecMainStatus,ExecStartPost,NRestarts,Restart,RestartUSec,TimeoutStopUSec,StartLimitIntervalUSec,StartLimitBurst,ConditionResult,InvocationID,BindsTo,Environment,ExecStart,RuntimeMaxUSec,KillMode,MemoryMax"
+      ],
+      "original_exit": 0,
+      "timeout": false,
+      "monotonic_start": 17.380354978,
+      "identity": {
+        "pid": 1876,
+        "ppid": 1845,
+        "start_ticks": 1738
+      },
+      "elapsed_seconds": 0.008081363999998814
+    },
+    {
+      "argv": [
+        "systemctl",
+        "start",
+        "pix583-service-proof.service"
+      ],
+      "original_exit": 0,
+      "timeout": false,
+      "monotonic_start": 17.388610365,
+      "identity": {
+        "pid": 1877,
+        "ppid": 1845,
+        "start_ticks": 1738
+      },
+      "elapsed_seconds": 0.0035354319999996164
+    },
+    {
+      "argv": [
+        "systemctl",
+        "show",
+        "pix583-service-proof.service",
+        "--no-pager",
+        "--property=LoadState,ActiveState,SubState,MainPID,FragmentPath,DropInPaths,ControlGroup,Result,ExecMainCode,ExecMainStatus,ExecStartPost,NRestarts,Restart,RestartUSec,TimeoutStopUSec,StartLimitIntervalUSec,StartLimitBurst,ConditionResult,InvocationID,BindsTo,Environment,ExecStart,RuntimeMaxUSec,KillMode,MemoryMax"
+      ],
+      "original_exit": 0,
+      "timeout": false,
+      "monotonic_start": 17.392293306,
+      "identity": {
+        "pid": 1878,
+        "ppid": 1845,
+        "start_ticks": 1739
+      },
+      "elapsed_seconds": 0.003715236000001454
+    },
+    {
+      "argv": [
+        "systemctl",
+        "show",
+        "pix583-service-proof.service",
+        "--no-pager",
+        "--property=LoadState,ActiveState,SubState,MainPID,FragmentPath,DropInPaths,ControlGroup,Result,ExecMainCode,ExecMainStatus,ExecStartPost,NRestarts,Restart,RestartUSec,TimeoutStopUSec,StartLimitIntervalUSec,StartLimitBurst,ConditionResult,InvocationID,BindsTo,Environment,ExecStart,RuntimeMaxUSec,KillMode,MemoryMax"
+      ],
+      "original_exit": 0,
+      "timeout": false,
+      "monotonic_start": 17.396265534,
+      "identity": {
+        "pid": 1879,
+        "ppid": 1845,
+        "start_ticks": 1739
+      },
+      "elapsed_seconds": 0.003348313000000047
+    },
+    {
+      "argv": [
+        "systemctl",
+        "start",
+        "pix583-service-proof.service"
+      ],
+      "original_exit": 0,
+      "timeout": false,
+      "monotonic_start": 17.39978168,
+      "identity": {
+        "pid": 1880,
+        "ppid": 1845,
+        "start_ticks": 1739
+      },
+      "elapsed_seconds": 1.1170985900000012
+    },
+    {
+      "argv": [
+        "systemctl",
+        "show",
+        "pix583-service-proof.service",
+        "--no-pager",
+        "--property=LoadState,ActiveState,SubState,MainPID,FragmentPath,DropInPaths,ControlGroup,Result,ExecMainCode,ExecMainStatus,ExecStartPost,NRestarts,Restart,RestartUSec,TimeoutStopUSec,StartLimitIntervalUSec,StartLimitBurst,ConditionResult,InvocationID,BindsTo,Environment,ExecStart,RuntimeMaxUSec,KillMode,MemoryMax"
+      ],
+      "original_exit": 0,
+      "timeout": false,
+      "monotonic_start": 18.517202561,
+      "identity": {
+        "pid": 1895,
+        "ppid": 1845,
+        "start_ticks": 1851
+      },
+      "elapsed_seconds": 0.0034158409999989203
+    },
+    {
+      "argv": [
+        "systemctl",
+        "show",
+        "pix583-service-proof.service",
+        "--no-pager",
+        "--property=LoadState,ActiveState,SubState,MainPID,FragmentPath,DropInPaths,ControlGroup,Result,ExecMainCode,ExecMainStatus,ExecStartPost,NRestarts,Restart,RestartUSec,TimeoutStopUSec,StartLimitIntervalUSec,StartLimitBurst,ConditionResult,InvocationID,BindsTo,Environment,ExecStart,RuntimeMaxUSec,KillMode,MemoryMax"
+      ],
+      "original_exit": 0,
+      "timeout": false,
+      "monotonic_start": 19.743729748,
+      "identity": {
+        "pid": 1917,
+        "ppid": 1845,
+        "start_ticks": 1974
+      },
+      "elapsed_seconds": 0.00340491100000051
+    },
+    {
+      "argv": [
+        "systemctl",
+        "stop",
+        "pix583-service-proof.service"
+      ],
+      "original_exit": 0,
+      "timeout": false,
+      "monotonic_start": 19.747262638,
+      "identity": {
+        "pid": 1918,
+        "ppid": 1845,
+        "start_ticks": 1974
+      },
+      "elapsed_seconds": 2.018449382
+    },
+    {
+      "argv": [
+        "systemctl",
+        "show",
+        "pix583-service-proof.service",
+        "--no-pager",
+        "--property=LoadState,ActiveState,SubState,MainPID,FragmentPath,DropInPaths,ControlGroup,Result,ExecMainCode,ExecMainStatus,ExecStartPost,NRestarts,Restart,RestartUSec,TimeoutStopUSec,StartLimitIntervalUSec,StartLimitBurst,ConditionResult,InvocationID,BindsTo,Environment,ExecStart,RuntimeMaxUSec,KillMode,MemoryMax"
+      ],
+      "original_exit": 0,
+      "timeout": false,
+      "monotonic_start": 21.766000315,
+      "identity": {
+        "pid": 1932,
+        "ppid": 1845,
+        "start_ticks": 2176
+      },
+      "elapsed_seconds": 0.0076060509999997805
+    },
+    {
+      "argv": [
+        "systemctl",
+        "show",
+        "pix583-service-proof.service",
+        "--no-pager",
+        "--property=LoadState,ActiveState,SubState,MainPID,FragmentPath,DropInPaths,ControlGroup,Result,ExecMainCode,ExecMainStatus,ExecStartPost,NRestarts,Restart,RestartUSec,TimeoutStopUSec,StartLimitIntervalUSec,StartLimitBurst,ConditionResult,InvocationID,BindsTo,Environment,ExecStart,RuntimeMaxUSec,KillMode,MemoryMax"
+      ],
+      "original_exit": 0,
+      "timeout": false,
+      "monotonic_start": 21.774468811,
+      "identity": {
+        "pid": 1933,
+        "ppid": 1845,
+        "start_ticks": 2177
+      },
+      "elapsed_seconds": 0.0033197560000033377
+    },
+    {
+      "argv": [
+        "systemctl",
+        "start",
+        "pix583-service-proof.service"
+      ],
+      "original_exit": 0,
+      "timeout": false,
+      "monotonic_start": 21.77793853,
+      "identity": {
+        "pid": 1934,
+        "ppid": 1845,
+        "start_ticks": 2177
+      },
+      "elapsed_seconds": 1.0661242940000015
+    },
+    {
+      "argv": [
+        "systemctl",
+        "show",
+        "pix583-service-proof.service",
+        "--no-pager",
+        "--property=LoadState,ActiveState,SubState,MainPID,FragmentPath,DropInPaths,ControlGroup,Result,ExecMainCode,ExecMainStatus,ExecStartPost,NRestarts,Restart,RestartUSec,TimeoutStopUSec,StartLimitIntervalUSec,StartLimitBurst,ConditionResult,InvocationID,BindsTo,Environment,ExecStart,RuntimeMaxUSec,KillMode,MemoryMax"
+      ],
+      "original_exit": 0,
+      "timeout": false,
+      "monotonic_start": 22.844507533,
+      "identity": {
+        "pid": 1942,
+        "ppid": 1845,
+        "start_ticks": 2284
+      },
+      "elapsed_seconds": 0.007647687999998709
+    },
+    {
+      "argv": [
+        "systemctl",
+        "show",
+        "pix583-service-proof.service",
+        "--no-pager",
+        "--property=LoadState,ActiveState,SubState,MainPID,FragmentPath,DropInPaths,ControlGroup,Result,ExecMainCode,ExecMainStatus,ExecStartPost,NRestarts,Restart,RestartUSec,TimeoutStopUSec,StartLimitIntervalUSec,StartLimitBurst,ConditionResult,InvocationID,BindsTo,Environment,ExecStart,RuntimeMaxUSec,KillMode,MemoryMax"
+      ],
+      "original_exit": 0,
+      "timeout": false,
+      "monotonic_start": 39.129903677,
+      "identity": {
+        "pid": 2027,
+        "ppid": 1845,
+        "start_ticks": 3913
+      },
+      "elapsed_seconds": 0.008235583999997687
+    },
+    {
+      "argv": [
+        "systemctl",
+        "show",
+        "pix583-service-proof.service",
+        "--no-pager",
+        "--property=LoadState,ActiveState,SubState,MainPID,FragmentPath,DropInPaths,ControlGroup,Result,ExecMainCode,ExecMainStatus,ExecStartPost,NRestarts,Restart,RestartUSec,TimeoutStopUSec,StartLimitIntervalUSec,StartLimitBurst,ConditionResult,InvocationID,BindsTo,Environment,ExecStart,RuntimeMaxUSec,KillMode,MemoryMax"
+      ],
+      "original_exit": 0,
+      "timeout": false,
+      "monotonic_start": 39.190665,
+      "identity": {
+        "pid": 2032,
+        "ppid": 1845,
+        "start_ticks": 3919
+      },
+      "elapsed_seconds": 0.003342740000000788
+    },
+    {
+      "argv": [
+        "systemctl",
+        "stop",
+        "pix583-service-proof.service"
+      ],
+      "original_exit": 0,
+      "timeout": false,
+      "monotonic_start": 39.194185837,
+      "identity": {
+        "pid": 2033,
+        "ppid": 1845,
+        "start_ticks": 3919
+      },
+      "elapsed_seconds": 0.5648772640000033
+    },
+    {
+      "argv": [
+        "systemctl",
+        "show",
+        "pix583-service-proof.service",
+        "--no-pager",
+        "--property=LoadState,ActiveState,SubState,MainPID,FragmentPath,DropInPaths,ControlGroup,Result,ExecMainCode,ExecMainStatus,ExecStartPost,NRestarts,Restart,RestartUSec,TimeoutStopUSec,StartLimitIntervalUSec,StartLimitBurst,ConditionResult,InvocationID,BindsTo,Environment,ExecStart,RuntimeMaxUSec,KillMode,MemoryMax"
+      ],
+      "original_exit": 0,
+      "timeout": false,
+      "monotonic_start": 39.759436149,
+      "identity": {
+        "pid": 2041,
+        "ppid": 1845,
+        "start_ticks": 3975
+      },
+      "elapsed_seconds": 0.007594300999997472
+    },
+    {
+      "argv": [
+        "systemctl",
+        "show",
+        "pix583-service-proof.service",
+        "--no-pager",
+        "--property=LoadState,ActiveState,SubState,MainPID,FragmentPath,DropInPaths,ControlGroup,Result,ExecMainCode,ExecMainStatus,ExecStartPost,NRestarts,Restart,RestartUSec,TimeoutStopUSec,StartLimitIntervalUSec,StartLimitBurst,ConditionResult,InvocationID,BindsTo,Environment,ExecStart,RuntimeMaxUSec,KillMode,MemoryMax"
+      ],
+      "original_exit": 0,
+      "timeout": false,
+      "monotonic_start": 39.768250251,
+      "identity": {
+        "pid": 2042,
+        "ppid": 1845,
+        "start_ticks": 3976
+      },
+      "elapsed_seconds": 0.003386449000004177
+    },
+    {
+      "argv": [
+        "systemctl",
+        "stop",
+        "pix583-service-proof.service"
+      ],
+      "original_exit": 0,
+      "timeout": false,
+      "monotonic_start": 39.772190213,
+      "identity": {
+        "pid": 2043,
+        "ppid": 1845,
+        "start_ticks": 3977
+      },
+      "elapsed_seconds": 0.0037005519999979697
+    },
+    {
+      "argv": [
+        "systemctl",
+        "show",
+        "pix583-service-proof.service",
+        "--no-pager",
+        "--property=LoadState,ActiveState,SubState,MainPID,FragmentPath,DropInPaths,ControlGroup,Result,ExecMainCode,ExecMainStatus,ExecStartPost,NRestarts,Restart,RestartUSec,TimeoutStopUSec,StartLimitIntervalUSec,StartLimitBurst,ConditionResult,InvocationID,BindsTo,Environment,ExecStart,RuntimeMaxUSec,KillMode,MemoryMax"
+      ],
+      "original_exit": 0,
+      "timeout": false,
+      "monotonic_start": 39.776296965,
+      "identity": {
+        "pid": 2044,
+        "ppid": 1845,
+        "start_ticks": 3977
+      },
+      "elapsed_seconds": 0.007693099000000814
+    },
+    {
+      "argv": [
+        "journalctl",
+        "--no-pager",
+        "-u",
+        "pix583-service-proof.service",
+        "-n",
+        "200",
+        "-o",
+        "json"
+      ],
+      "original_exit": 0,
+      "timeout": false,
+      "monotonic_start": 39.784564137,
+      "identity": {
+        "pid": 2045,
+        "ppid": 1845,
+        "start_ticks": 3978
+      },
+      "elapsed_seconds": 0.0034194440000021586
+    },
+    {
+      "argv": [
+        "systemctl",
+        "show",
+        "pix583-service-proof.service",
+        "--no-pager",
+        "--property=LoadState,ActiveState,SubState,MainPID,FragmentPath,DropInPaths,ControlGroup,Result,ExecMainCode,ExecMainStatus,ExecStartPost,NRestarts,Restart,RestartUSec,TimeoutStopUSec,StartLimitIntervalUSec,StartLimitBurst,ConditionResult,InvocationID,BindsTo,Environment,ExecStart,RuntimeMaxUSec,KillMode,MemoryMax"
+      ],
+      "original_exit": 0,
+      "timeout": false,
+      "monotonic_start": 39.788242078,
+      "identity": {
+        "pid": 2046,
+        "ppid": 1845,
+        "start_ticks": 3978
+      },
+      "elapsed_seconds": 0.0033941509999948494
+    },
+    {
+      "argv": [
+        "systemctl",
+        "daemon-reload"
+      ],
+      "original_exit": 0,
+      "timeout": false,
+      "monotonic_start": 39.791851519,
+      "identity": {
+        "pid": 2047,
+        "ppid": 1845,
+        "start_ticks": 3979
+      },
+      "elapsed_seconds": 0.11392316999999963
+    },
+    {
+      "argv": [
+        "systemctl",
+        "reset-failed",
+        "pix583-service-proof.service"
+      ],
+      "original_exit": 0,
+      "timeout": false,
+      "monotonic_start": 39.906143827,
+      "identity": {
+        "pid": 2073,
+        "ppid": 1845,
+        "start_ticks": 3990
+      },
+      "elapsed_seconds": 0.0036495639999998275
+    }
+  ],
+  "steps": [
+    "graceful stop preserved exact signed row; workers joined before SQLite close",
+    "controlled actual main false to first monitor true; observed natural next 15s probe"
+  ],
+  "cleanup_errors": [],
+  "source_pins_verified": true,
+  "platform_contract": {
+    "files": {
+      "/usr/lib/systemd/systemd": {
+        "sha256": "dad240622fc8ac2587b8cd05699264c19173c791894daf147533b2363df84471",
+        "bytes": 96216
+      },
+      "/usr/lib/systemd/libsystemd-shared-255.so": {
+        "sha256": "cf4cb0942704f170d426d229982a6ec81256f8bd629997e7d188e4c458cad87a",
+        "bytes": 3643936
+      },
+      "/usr/bin/systemctl": {
+        "sha256": "ee1371927bd80da7e7cd78f8af50953e27fcbcefc8b7e7f27e5ae827021ec82b",
+        "bytes": 264256
+      },
+      "/usr/lib/kernel-overlays/base/lib/modules/7.1.2/kernel/kernel/configs.ko": {
+        "sha256": "bc9720d6254264d6fdbc8d32e8213b5ce83fa6c33db4788b42b64dd8f36203c5",
+        "bytes": 58848
+      }
+    },
+    "kernel_release": "7.1.2",
+    "scope": "retained image platform only; no current product/native source qualification"
+  },
+  "cgroup_layout": {
+    "mounts": [
+      {
+        "id": "31",
+        "device": "0:25",
+        "root": "/",
+        "path": "/sys/fs/cgroup",
+        "type": "cgroup2",
+        "line": "31 24 0:25 / /sys/fs/cgroup rw,nosuid,nodev,noexec,relatime shared:9 - cgroup2 cgroup2 rw,nsdelegate,memory_recursiveprot"
+      }
+    ],
+    "controllers": [
+      "cpuset",
+      "cpu",
+      "io",
+      "memory",
+      "pids"
+    ],
+    "pid1_cgroup": [
+      "0::/init.scope"
+    ],
+    "cmdline": "root=/dev/sda1 init=/sbin/init usbcore.autosuspend=-1 BOOT_IMAGE=/KERNEL boot=LABEL=ROCKNIX disk=LABEL=STORAGE portable quiet console=ttyS0,115200 console=tty0 systemd.unified_cgroup_hierarchy=1",
+    "boot_id": "281df8c1-5346-4c7a-84a8-99321f9f2d8c"
+  },
+  "native_provenance": {
+    "source_pins_verified": true,
+    "receipt_sha256": "f41f27277394cdf6bb86e1323f7ad4cba0889b23177835ee96fa073d8d7ad8fd",
+    "elf_sha256": "6349b150899f7c32971b8d9ee882934e41f2f8fc9d6a129045e15ea62096d52c",
+    "pins": {
+      "raofflineproxy": "c7ebd1b6e777f3751ff0ecdf8aba54045844e00d",
+      "raofflineproxy-libchdr": "607694ca0812edfc9cc2030c64634fc2393668de",
+      "raofflineproxy-rcheevos": "1433173220a7eaede6a9ed7a18e94117be1821e0"
+    },
+    "scope": "Current native source linkage; source-staged disposable overlay, not final installed image"
+  },
+  "owner_cgroup_limits": {
+    "identity": {
+      "pid": 1844,
+      "ppid": 1,
+      "start_ticks": 1692
+    },
+    "control_group": "/system.slice/pix583-service-proof-owner.service",
+    "cgroup_identity": [
+      25,
+      2753
+    ],
+    "limits": {
+      "memory.max": "1073741824",
+      "pids.max": "128"
+    },
+    "memory_events": {
+      "low": 0,
+      "high": 0,
+      "max": 0,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0,
+      "sock_throttled": 0
+    },
+    "pids_events": {
+      "max": 0
+    },
+    "members": [
+      1844,
+      1845
+    ],
+    "layout": {
+      "mounts": [
+        {
+          "id": "31",
+          "device": "0:25",
+          "root": "/",
+          "path": "/sys/fs/cgroup",
+          "type": "cgroup2",
+          "line": "31 24 0:25 / /sys/fs/cgroup rw,nosuid,nodev,noexec,relatime shared:9 - cgroup2 cgroup2 rw,nsdelegate,memory_recursiveprot"
+        }
+      ],
+      "controllers": [
+        "cpuset",
+        "cpu",
+        "io",
+        "memory",
+        "pids"
+      ],
+      "pid1_cgroup": [
+        "0::/init.scope"
+      ],
+      "cmdline": "root=/dev/sda1 init=/sbin/init usbcore.autosuspend=-1 BOOT_IMAGE=/KERNEL boot=LABEL=ROCKNIX disk=LABEL=STORAGE portable quiet console=ttyS0,115200 console=tty0 systemd.unified_cgroup_hierarchy=1",
+      "boot_id": "281df8c1-5346-4c7a-84a8-99321f9f2d8c"
+    }
+  },
+  "admission": {
+    "boot_id": "281df8c1-5346-4c7a-84a8-99321f9f2d8c",
+    "owner": {
+      "Restart": "no",
+      "RestartUSec": "100ms",
+      "TimeoutStopUSec": "20s",
+      "RuntimeMaxUSec": "4min 40s",
+      "MainPID": "1844",
+      "Result": "success",
+      "NRestarts": "0",
+      "ExecMainCode": "0",
+      "ExecMainStatus": "0",
+      "ExecStart": "{ path=/usr/bin/python3 ; argv[]=/usr/bin/python3 -I -S -B /run/pix583-service-packet/owner.py --output /run/pix583-service-owner/run588 ; ignore_errors=no ; start_time=[Wed 2026-10-14 14:22:22 EDT] ; stop_time=[n/a] ; pid=1844 ; code=(null) ; status=0/0 }",
+      "ControlGroup": "/system.slice/pix583-service-proof-owner.service",
+      "MemoryMax": "1073741824",
+      "Environment": "",
+      "KillMode": "control-group",
+      "BindsTo": "",
+      "LoadState": "loaded",
+      "ActiveState": "active",
+      "SubState": "running",
+      "FragmentPath": "/run/systemd/transient/pix583-service-proof-owner.service",
+      "DropInPaths": "",
+      "ConditionResult": "yes",
+      "StartLimitIntervalUSec": "10s",
+      "StartLimitBurst": "5",
+      "InvocationID": "f7b4a486a5ce425093961a778076aa4a"
+    },
+    "installed_proxy_properties": {
+      "Restart": "on-failure",
+      "RestartUSec": "5s",
+      "TimeoutStopUSec": "15s",
+      "RuntimeMaxUSec": "infinity",
+      "MainPID": "0",
+      "Result": "success",
+      "NRestarts": "0",
+      "ExecMainCode": "0",
+      "ExecMainStatus": "0",
+      "ExecStart": "{ path=/usr/bin/python3 ; argv[]=/usr/bin/python3 -m raofflineproxy.main run-service ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }",
+      "ExecStartPost": "{ path=/usr/bin/raofflineproxy-ctl ; argv[]=/usr/bin/raofflineproxy-ctl listening --wait 30 ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }",
+      "ControlGroup": "",
+      "MemoryMax": "infinity",
+      "Environment": "RAOFFLINEPROXY_CONFIG_DIR=/storage/.config/raofflineproxy HOME=/storage XDG_CONFIG_HOME=/storage/.config MALLOC_ARENA_MAX=2",
+      "KillMode": "control-group",
+      "BindsTo": "",
+      "LoadState": "loaded",
+      "ActiveState": "inactive",
+      "SubState": "dead",
+      "FragmentPath": "/usr/lib/systemd/system/raofflineproxy.service",
+      "DropInPaths": "",
+      "ConditionResult": "no",
+      "StartLimitIntervalUSec": "5min",
+      "StartLimitBurst": "5",
+      "InvocationID": ""
+    },
+    "installed_unit_sha256": "c42689768684263e69d3a904223faf2bab270a5956fde3af5af640f1f26b4233",
+    "source_pins_verified": true,
+    "libraries": {
+      "rchash": {
+        "path": "/usr/lib/libraproxy_rchash.so",
+        "resolved_path": "/usr/lib/libraproxy_rchash.so",
+        "sha256": "6349b150899f7c32971b8d9ee882934e41f2f8fc9d6a129045e15ea62096d52c",
+        "soname": "libraproxy_rchash.so"
+      },
+      "zstd": {
+        "path": "/usr/lib/libzstd.so.1",
+        "resolved_path": "/usr/lib/libzstd.so.1.5.7",
+        "sha256": "8526c748a90b34d9872159fdd311071ed1c391c879b41295848282fcace4e2f4",
+        "soname": "libzstd.so.1"
+      },
+      "crypto": {
+        "path": "/usr/lib/libcrypto.so.3",
+        "resolved_path": "/usr/lib/libcrypto.so.3",
+        "sha256": "66d713b67c3d811ab73894b294ff40d7985a3273d26f493bdc9f59b79f2e2f77",
+        "soname": "libcrypto.so.3"
+      }
+    },
+    "tools": {
+      "python3": {
+        "invoked": "/usr/bin/python3",
+        "resolved": "/usr/bin/python3.14",
+        "sha256": "1324452a1b3437ef26e0d39794ede6fb7c1c2c0c5960a050feace157ffe50b33"
+      },
+      "systemctl": {
+        "invoked": "/usr/bin/systemctl",
+        "resolved": "/usr/bin/systemctl",
+        "sha256": "ee1371927bd80da7e7cd78f8af50953e27fcbcefc8b7e7f27e5ae827021ec82b"
+      },
+      "journalctl": {
+        "invoked": "/usr/bin/journalctl",
+        "resolved": "/usr/bin/journalctl",
+        "sha256": "19082662266b7ff75d67426434c06c820e990a3efc0aafe2a12005a6ba162fa5"
+      },
+      "bash": {
+        "invoked": "/usr/bin/bash",
+        "resolved": "/usr/bin/bash",
+        "sha256": "3aa5dd1a0ddd72c8019c40f8a4c929796eb5a99d182570334ede50374724527a"
+      }
+    }
+  },
+  "unit": {
+    "base_sha256": "c42689768684263e69d3a904223faf2bab270a5956fde3af5af640f1f26b4233",
+    "dropin_sha256": "a8618ffaf3e6a2549363fc040d4675c06bd339a351ff92213ef2ef170bae6b2b",
+    "dropin": "[Unit]\nConditionPathExists=\nConditionPathExists=/run/pix583-service-owner/run588/payload/enabled\nBindsTo=pix583-service-proof-owner.service\nAfter=pix583-service-proof-owner.service\n[Service]\nEnvironment=PYTHONPATH=/run/pix583-service-packet/bootstrap:/run/pix583-service-inputs/prepared/tree/linux\nEnvironment=PYTHONDONTWRITEBYTECODE=1\nEnvironment=PYTHONNOUSERSITE=1\nEnvironment=DEVICE_HAS_DUAL_SCREEN=false\nEnvironment=PIX583_STORAGE_ID=63:15\nEnvironment=RAOFFLINEPROXY_RCHASH_LIB=/usr/lib/libraproxy_rchash.so\nUnsetEnvironment=http_proxy https_proxy all_proxy HTTP_PROXY HTTPS_PROXY ALL_PROXY no_proxy NO_PROXY PYTHONOPTIMIZE PYTHONHOME LD_PRELOAD LD_LIBRARY_PATH\nBindPaths=/run/pix583-service-owner/run588/payload/storage:/storage\nBindReadOnlyPaths=/run/pix583-service-packet/profile:/etc/profile\nBindReadOnlyPaths=/run/pix583-service-packet/raofflineproxy-ctl:/usr/bin/raofflineproxy-ctl\nProtectSystem=strict\nProtectHome=yes\nReadWritePaths=/run/pix583-service-owner/run588/payload /storage\nNoNewPrivileges=yes\nExecStartPre=/usr/bin/python3 -I -S -B /run/pix583-service-packet/cgroup_guard.py --service-receipts /run/pix583-service-owner/run588/payload\nMemoryMax=512M\nTasksMax=64\nLimitAS=512M\nLimitCPU=120\nLimitFSIZE=4M\nLimitCORE=0\nStandardOutput=append:/run/pix583-service-owner/run588/payload/service.stdout\nStandardError=append:/run/pix583-service-owner/run588/payload/service.stderr\n"
+  },
+  "unit_reference": {
+    "unit": "pix583-service-proof.service",
+    "library": "/usr/lib/libsystemd.so.0.38.0",
+    "sha256": "aa203033156610cdcbee982d7c90173804549bda5939bb03dbe6862f361861ae",
+    "calls": [
+      {
+        "operation": "sd_bus_open_system",
+        "original_result": 0
+      },
+      {
+        "operation": "sd_bus_set_method_call_timeout",
+        "original_result": 0
+      },
+      {
+        "operation": "RefUnit",
+        "original_result": 1
+      }
+    ],
+    "closed": true,
+    "scope": "guest system AF_UNIX bus only; no product behavior/timer changes"
+  },
+  "incarnations": {
+    "1882": {
+      "identity": {
+        "pid": 1882,
+        "ppid": 1,
+        "start_ticks": 1746
+      },
+      "properties": {
+        "Restart": "on-failure",
+        "RestartUSec": "5s",
+        "TimeoutStopUSec": "15s",
+        "RuntimeMaxUSec": "infinity",
+        "MainPID": "1882",
+        "Result": "success",
+        "NRestarts": "0",
+        "ExecMainCode": "0",
+        "ExecMainStatus": "0",
+        "ExecStart": "{ path=/usr/bin/python3 ; argv[]=/usr/bin/python3 -m raofflineproxy.main run-service ; ignore_errors=no ; start_time=[Wed 2026-10-14 14:22:22 EDT] ; stop_time=[n/a] ; pid=1882 ; code=(null) ; status=0/0 }",
+        "ExecStartPost": "{ path=/usr/bin/raofflineproxy-ctl ; argv[]=/usr/bin/raofflineproxy-ctl listening --wait 30 ; ignore_errors=no ; start_time=[Wed 2026-10-14 14:22:22 EDT] ; stop_time=[Wed 2026-10-14 14:22:23 EDT] ; pid=1883 ; code=exited ; status=0 }",
+        "ControlGroup": "/system.slice/pix583-service-proof.service",
+        "MemoryMax": "536870912",
+        "Environment": "RAOFFLINEPROXY_CONFIG_DIR=/storage/.config/raofflineproxy HOME=/storage XDG_CONFIG_HOME=/storage/.config MALLOC_ARENA_MAX=2 PYTHONPATH=/run/pix583-service-packet/bootstrap:/run/pix583-service-inputs/prepared/tree/linux PYTHONDONTWRITEBYTECODE=1 PYTHONNOUSERSITE=1 DEVICE_HAS_DUAL_SCREEN=false PIX583_STORAGE_ID=63:15 RAOFFLINEPROXY_RCHASH_LIB=/usr/lib/libraproxy_rchash.so",
+        "KillMode": "control-group",
+        "BindsTo": "pix583-service-proof-owner.service",
+        "LoadState": "loaded",
+        "ActiveState": "active",
+        "SubState": "running",
+        "FragmentPath": "/run/systemd/system/pix583-service-proof.service",
+        "DropInPaths": "/run/systemd/system/pix583-service-proof.service.d/fixture.conf",
+        "ConditionResult": "yes",
+        "StartLimitIntervalUSec": "5min",
+        "StartLimitBurst": "5",
+        "InvocationID": "16ff912bf61445d9a11d64ff9b791531"
+      },
+      "listener_inode": "7871",
+      "kernel_limits": {
+        "identity": {
+          "pid": 1882,
+          "ppid": 1,
+          "start_ticks": 1746
+        },
+        "control_group": "/system.slice/pix583-service-proof.service",
+        "cgroup_identity": [
+          25,
+          2785
+        ],
+        "limits": {
+          "memory.max": "536870912",
+          "pids.max": "64"
+        },
+        "memory_events": {
+          "low": 0,
+          "high": 0,
+          "max": 0,
+          "oom": 0,
+          "oom_kill": 0,
+          "oom_group_kill": 0,
+          "sock_throttled": 0
+        },
+        "pids_events": {
+          "max": 0
+        },
+        "members": [
+          1882
+        ],
+        "layout": {
+          "mounts": [
+            {
+              "id": "31",
+              "device": "0:25",
+              "root": "/",
+              "path": "/sys/fs/cgroup",
+              "type": "cgroup2",
+              "line": "31 24 0:25 / /sys/fs/cgroup rw,nosuid,nodev,noexec,relatime shared:9 - cgroup2 cgroup2 rw,nsdelegate,memory_recursiveprot"
+            }
+          ],
+          "controllers": [
+            "cpuset",
+            "cpu",
+            "io",
+            "memory",
+            "pids"
+          ],
+          "pid1_cgroup": [
+            "0::/init.scope"
+          ],
+          "cmdline": "root=/dev/sda1 init=/sbin/init usbcore.autosuspend=-1 BOOT_IMAGE=/KERNEL boot=LABEL=ROCKNIX disk=LABEL=STORAGE portable quiet console=ttyS0,115200 console=tty0 systemd.unified_cgroup_hierarchy=1",
+          "boot_id": "281df8c1-5346-4c7a-84a8-99321f9f2d8c"
+        }
+      },
+      "observed_monotonic": 18.521789238,
+      "saved_status": {
+        "pid": 1882,
+        "proxyHost": "127.0.0.1",
+        "proxyPort": 8080,
+        "running": true,
+        "startedAt": 1792002142
+      }
+    },
+    "1936": {
+      "identity": {
+        "pid": 1936,
+        "ppid": 1,
+        "start_ticks": 2183
+      },
+      "properties": {
+        "Restart": "on-failure",
+        "RestartUSec": "5s",
+        "TimeoutStopUSec": "15s",
+        "RuntimeMaxUSec": "infinity",
+        "MainPID": "1936",
+        "Result": "success",
+        "NRestarts": "0",
+        "ExecMainCode": "0",
+        "ExecMainStatus": "0",
+        "ExecStart": "{ path=/usr/bin/python3 ; argv[]=/usr/bin/python3 -m raofflineproxy.main run-service ; ignore_errors=no ; start_time=[Wed 2026-10-14 14:22:27 EDT] ; stop_time=[n/a] ; pid=1936 ; code=(null) ; status=0/0 }",
+        "ExecStartPost": "{ path=/usr/bin/raofflineproxy-ctl ; argv[]=/usr/bin/raofflineproxy-ctl listening --wait 30 ; ignore_errors=no ; start_time=[Wed 2026-10-14 14:22:27 EDT] ; stop_time=[Wed 2026-10-14 14:22:28 EDT] ; pid=1937 ; code=exited ; status=0 }",
+        "ControlGroup": "/system.slice/pix583-service-proof.service",
+        "MemoryMax": "536870912",
+        "Environment": "RAOFFLINEPROXY_CONFIG_DIR=/storage/.config/raofflineproxy HOME=/storage XDG_CONFIG_HOME=/storage/.config MALLOC_ARENA_MAX=2 PYTHONPATH=/run/pix583-service-packet/bootstrap:/run/pix583-service-inputs/prepared/tree/linux PYTHONDONTWRITEBYTECODE=1 PYTHONNOUSERSITE=1 DEVICE_HAS_DUAL_SCREEN=false PIX583_STORAGE_ID=63:15 RAOFFLINEPROXY_RCHASH_LIB=/usr/lib/libraproxy_rchash.so",
+        "KillMode": "control-group",
+        "BindsTo": "pix583-service-proof-owner.service",
+        "LoadState": "loaded",
+        "ActiveState": "active",
+        "SubState": "running",
+        "FragmentPath": "/run/systemd/system/pix583-service-proof.service",
+        "DropInPaths": "/run/systemd/system/pix583-service-proof.service.d/fixture.conf",
+        "ConditionResult": "yes",
+        "StartLimitIntervalUSec": "5min",
+        "StartLimitBurst": "5",
+        "InvocationID": "25728b984b424983b4a87d746635a0e9"
+      },
+      "listener_inode": "7008",
+      "kernel_limits": {
+        "identity": {
+          "pid": 1936,
+          "ppid": 1,
+          "start_ticks": 2183
+        },
+        "control_group": "/system.slice/pix583-service-proof.service",
+        "cgroup_identity": [
+          25,
+          2817
+        ],
+        "limits": {
+          "memory.max": "536870912",
+          "pids.max": "64"
+        },
+        "memory_events": {
+          "low": 0,
+          "high": 0,
+          "max": 0,
+          "oom": 0,
+          "oom_kill": 0,
+          "oom_group_kill": 0,
+          "sock_throttled": 0
+        },
+        "pids_events": {
+          "max": 0
+        },
+        "members": [
+          1936
+        ],
+        "layout": {
+          "mounts": [
+            {
+              "id": "31",
+              "device": "0:25",
+              "root": "/",
+              "path": "/sys/fs/cgroup",
+              "type": "cgroup2",
+              "line": "31 24 0:25 / /sys/fs/cgroup rw,nosuid,nodev,noexec,relatime shared:9 - cgroup2 cgroup2 rw,nsdelegate,memory_recursiveprot"
+            }
+          ],
+          "controllers": [
+            "cpuset",
+            "cpu",
+            "io",
+            "memory",
+            "pids"
+          ],
+          "pid1_cgroup": [
+            "0::/init.scope"
+          ],
+          "cmdline": "root=/dev/sda1 init=/sbin/init usbcore.autosuspend=-1 BOOT_IMAGE=/KERNEL boot=LABEL=ROCKNIX disk=LABEL=STORAGE portable quiet console=ttyS0,115200 console=tty0 systemd.unified_cgroup_hierarchy=1",
+          "boot_id": "281df8c1-5346-4c7a-84a8-99321f9f2d8c"
+        }
+      },
+      "observed_monotonic": 22.853415459,
+      "saved_status": {
+        "pid": 1936,
+        "proxyHost": "127.0.0.1",
+        "proxyPort": 8080,
+        "running": true,
+        "startedAt": 1792002147
+      }
+    }
+  },
+  "first_stopped_properties": {
+    "Restart": "on-failure",
+    "RestartUSec": "5s",
+    "TimeoutStopUSec": "15s",
+    "RuntimeMaxUSec": "infinity",
+    "MainPID": "0",
+    "Result": "success",
+    "NRestarts": "0",
+    "ExecMainCode": "1",
+    "ExecMainStatus": "0",
+    "ExecStart": "{ path=/usr/bin/python3 ; argv[]=/usr/bin/python3 -m raofflineproxy.main run-service ; ignore_errors=no ; start_time=[Wed 2026-10-14 14:22:22 EDT] ; stop_time=[Wed 2026-10-14 14:22:27 EDT] ; pid=1882 ; code=exited ; status=0 }",
+    "ExecStartPost": "{ path=/usr/bin/raofflineproxy-ctl ; argv[]=/usr/bin/raofflineproxy-ctl listening --wait 30 ; ignore_errors=no ; start_time=[Wed 2026-10-14 14:22:22 EDT] ; stop_time=[Wed 2026-10-14 14:22:23 EDT] ; pid=1883 ; code=exited ; status=0 }",
+    "ControlGroup": "",
+    "MemoryMax": "536870912",
+    "Environment": "RAOFFLINEPROXY_CONFIG_DIR=/storage/.config/raofflineproxy HOME=/storage XDG_CONFIG_HOME=/storage/.config MALLOC_ARENA_MAX=2 PYTHONPATH=/run/pix583-service-packet/bootstrap:/run/pix583-service-inputs/prepared/tree/linux PYTHONDONTWRITEBYTECODE=1 PYTHONNOUSERSITE=1 DEVICE_HAS_DUAL_SCREEN=false PIX583_STORAGE_ID=63:15 RAOFFLINEPROXY_RCHASH_LIB=/usr/lib/libraproxy_rchash.so",
+    "KillMode": "control-group",
+    "BindsTo": "pix583-service-proof-owner.service",
+    "LoadState": "loaded",
+    "ActiveState": "inactive",
+    "SubState": "dead",
+    "FragmentPath": "/run/systemd/system/pix583-service-proof.service",
+    "DropInPaths": "/run/systemd/system/pix583-service-proof.service.d/fixture.conf",
+    "ConditionResult": "yes",
+    "StartLimitIntervalUSec": "5min",
+    "StartLimitBurst": "5",
+    "InvocationID": "16ff912bf61445d9a11d64ff9b791531"
+  },
+  "startup_window": {
+    "initial_main_online": false,
+    "online_monitor_probes": [
+      {
+        "class": "ProxyRuntimeServer",
+        "event": "return",
+        "function": "refresh_reachability",
+        "kind": "trace",
+        "monotonic": 24.11186422,
+        "pid": 1936,
+        "result": "True",
+        "source": "linux/raofflineproxy/proxy_service.py",
+        "thread": "Thread-2",
+        "tid": 1952
+      },
+      {
+        "class": "ProxyRuntimeServer",
+        "event": "return",
+        "function": "refresh_reachability",
+        "kind": "trace",
+        "monotonic": 39.121619389,
+        "pid": 1936,
+        "result": "True",
+        "source": "linux/raofflineproxy/proxy_service.py",
+        "thread": "Thread-2",
+        "tid": 1952
+      }
+    ],
+    "flush_calls": [],
+    "queue_before": [
+      {
+        "id": 9,
+        "achievementId": 104,
+        "queryString": "/dorequest.php",
+        "requestBody": "r=awardachievement&a=104&g=10&u=fixture-a&t=%3Csynthetic-token-a%3E&h=0",
+        "userAgent": "RetroArch/1.21.0 (Linux)",
+        "queuedAt": 1792002145015,
+        "retryCount": 0,
+        "lastError": null,
+        "status": "pending",
+        "payloadHash": "0e6c122f1364d8714b81368c5043bb493e4baa0ee990039e73c2626711fe0437",
+        "prevHash": "genesis",
+        "signature": "0BY42DEFKTTPJuAm1E7wYmY4ZGXtrSXKafSU9vfjmfo=",
+        "signedAt": 1792002145015
+      }
+    ],
+    "queue_after": [
+      {
+        "id": 9,
+        "achievementId": 104,
+        "queryString": "/dorequest.php",
+        "requestBody": "r=awardachievement&a=104&g=10&u=fixture-a&t=%3Csynthetic-token-a%3E&h=0",
+        "userAgent": "RetroArch/1.21.0 (Linux)",
+        "queuedAt": 1792002145015,
+        "retryCount": 0,
+        "lastError": null,
+        "status": "pending",
+        "payloadHash": "0e6c122f1364d8714b81368c5043bb493e4baa0ee990039e73c2626711fe0437",
+        "prevHash": "genesis",
+        "signature": "0BY42DEFKTTPJuAm1E7wYmY4ZGXtrSXKafSU9vfjmfo=",
+        "signedAt": 1792002145015
+      }
+    ],
+    "applied": [],
+    "peer_errors": [],
+    "baseline_failure_signature": true
+  },
+  "last_stopped_properties": {
+    "Restart": "on-failure",
+    "RestartUSec": "5s",
+    "TimeoutStopUSec": "15s",
+    "RuntimeMaxUSec": "infinity",
+    "MainPID": "0",
+    "Result": "success",
+    "NRestarts": "0",
+    "ExecMainCode": "1",
+    "ExecMainStatus": "0",
+    "ExecStart": "{ path=/usr/bin/python3 ; argv[]=/usr/bin/python3 -m raofflineproxy.main run-service ; ignore_errors=no ; start_time=[Wed 2026-10-14 14:22:27 EDT] ; stop_time=[Wed 2026-10-14 14:22:44 EDT] ; pid=1936 ; code=exited ; status=0 }",
+    "ExecStartPost": "{ path=/usr/bin/raofflineproxy-ctl ; argv[]=/usr/bin/raofflineproxy-ctl listening --wait 30 ; ignore_errors=no ; start_time=[Wed 2026-10-14 14:22:27 EDT] ; stop_time=[Wed 2026-10-14 14:22:28 EDT] ; pid=1937 ; code=exited ; status=0 }",
+    "ControlGroup": "",
+    "MemoryMax": "536870912",
+    "Environment": "RAOFFLINEPROXY_CONFIG_DIR=/storage/.config/raofflineproxy HOME=/storage XDG_CONFIG_HOME=/storage/.config MALLOC_ARENA_MAX=2 PYTHONPATH=/run/pix583-service-packet/bootstrap:/run/pix583-service-inputs/prepared/tree/linux PYTHONDONTWRITEBYTECODE=1 PYTHONNOUSERSITE=1 DEVICE_HAS_DUAL_SCREEN=false PIX583_STORAGE_ID=63:15 RAOFFLINEPROXY_RCHASH_LIB=/usr/lib/libraproxy_rchash.so",
+    "KillMode": "control-group",
+    "BindsTo": "pix583-service-proof-owner.service",
+    "LoadState": "loaded",
+    "ActiveState": "inactive",
+    "SubState": "dead",
+    "FragmentPath": "/run/systemd/system/pix583-service-proof.service",
+    "DropInPaths": "/run/systemd/system/pix583-service-proof.service.d/fixture.conf",
+    "ConditionResult": "yes",
+    "StartLimitIntervalUSec": "5min",
+    "StartLimitBurst": "5",
+    "InvocationID": "25728b984b424983b4a87d746635a0e9"
+  },
+  "peer": {
+    "calls": [
+      {
+        "method": "HEAD",
+        "action": "HEAD",
+        "user": "",
+        "params": {},
+        "mode": "normal"
+      },
+      {
+        "method": "HEAD",
+        "action": "HEAD",
+        "user": "",
+        "params": {},
+        "mode": "normal"
+      }
+    ],
+    "applied": [],
+    "errors": []
+  },
+  "requests": [
+    {
+      "action": "login2",
+      "user": "fixture-a",
+      "status": 200,
+      "headers": {
+        "content-type": "application/json",
+        "content-length": "70",
+        "x-ra-proxy": "1",
+        "x-ra-offline": "1",
+        "connection": "close"
+      },
+      "body": {
+        "Success": true,
+        "User": "fixture-a",
+        "Token": "<synthetic-token-a>"
+      },
+      "elapsed_ms": 6.270848999999856
+    },
+    {
+      "action": "patch",
+      "user": "fixture-a",
+      "status": 200,
+      "headers": {
+        "content-type": "application/json",
+        "content-length": "199",
+        "x-ra-proxy": "1",
+        "connection": "close"
+      },
+      "body": {
+        "Success": true,
+        "PatchData": {
+          "ID": 20,
+          "Title": "Synthetic Game 20",
+          "Achievements": [
+            {
+              "ID": 201,
+              "Title": "Synthetic 201",
+              "Description": "Public fixture only",
+              "Flags": 3,
+              "Points": 5,
+              "MemAddr": "0xH000000=1"
+            }
+          ]
+        }
+      },
+      "elapsed_ms": 4.869219000003255
+    },
+    {
+      "action": "awardachievement",
+      "user": "fixture-a",
+      "status": 200,
+      "headers": {
+        "content-type": "application/json",
+        "content-length": "89",
+        "x-ra-proxy": "1",
+        "connection": "close"
+      },
+      "body": {
+        "Success": true,
+        "Score": 0,
+        "SoftcoreScore": 0,
+        "AchievementID": 104,
+        "Error": "queued_offline"
+      },
+      "elapsed_ms": 5.861802999998389
+    },
+    {
+      "action": "login2",
+      "user": "fixture-a",
+      "status": 200,
+      "headers": {
+        "content-type": "application/json",
+        "content-length": "70",
+        "x-ra-proxy": "1",
+        "x-ra-offline": "1",
+        "connection": "close"
+      },
+      "body": {
+        "Success": true,
+        "User": "fixture-a",
+        "Token": "<synthetic-token-a>"
+      },
+      "elapsed_ms": 11.08521500000137
+    },
+    {
+      "action": "patch",
+      "user": "fixture-a",
+      "status": 200,
+      "headers": {
+        "content-type": "application/json",
+        "content-length": "199",
+        "x-ra-proxy": "1",
+        "connection": "close"
+      },
+      "body": {
+        "Success": true,
+        "PatchData": {
+          "ID": 20,
+          "Title": "Synthetic Game 20",
+          "Achievements": [
+            {
+              "ID": 201,
+              "Title": "Synthetic 201",
+              "Description": "Public fixture only",
+              "Flags": 3,
+              "Points": 5,
+              "MemAddr": "0xH000000=1"
+            }
+          ]
+        }
+      },
+      "elapsed_ms": 7.994551000003014
+    }
+  ],
+  "error": "AssertionError: startup-window queued signed award was not applied exactly once",
+  "final_unit": {
+    "Restart": "on-failure",
+    "RestartUSec": "5s",
+    "TimeoutStopUSec": "15s",
+    "RuntimeMaxUSec": "infinity",
+    "MainPID": "0",
+    "Result": "success",
+    "NRestarts": "0",
+    "ExecMainCode": "1",
+    "ExecMainStatus": "0",
+    "ExecStart": "{ path=/usr/bin/python3 ; argv[]=/usr/bin/python3 -m raofflineproxy.main run-service ; ignore_errors=no ; start_time=[Wed 2026-10-14 14:22:27 EDT] ; stop_time=[Wed 2026-10-14 14:22:44 EDT] ; pid=1936 ; code=exited ; status=0 }",
+    "ExecStartPost": "{ path=/usr/bin/raofflineproxy-ctl ; argv[]=/usr/bin/raofflineproxy-ctl listening --wait 30 ; ignore_errors=no ; start_time=[Wed 2026-10-14 14:22:27 EDT] ; stop_time=[Wed 2026-10-14 14:22:28 EDT] ; pid=1937 ; code=exited ; status=0 }",
+    "ControlGroup": "",
+    "MemoryMax": "536870912",
+    "Environment": "RAOFFLINEPROXY_CONFIG_DIR=/storage/.config/raofflineproxy HOME=/storage XDG_CONFIG_HOME=/storage/.config MALLOC_ARENA_MAX=2 PYTHONPATH=/run/pix583-service-packet/bootstrap:/run/pix583-service-inputs/prepared/tree/linux PYTHONDONTWRITEBYTECODE=1 PYTHONNOUSERSITE=1 DEVICE_HAS_DUAL_SCREEN=false PIX583_STORAGE_ID=63:15 RAOFFLINEPROXY_RCHASH_LIB=/usr/lib/libraproxy_rchash.so",
+    "KillMode": "control-group",
+    "BindsTo": "pix583-service-proof-owner.service",
+    "LoadState": "loaded",
+    "ActiveState": "inactive",
+    "SubState": "dead",
+    "FragmentPath": "/run/systemd/system/pix583-service-proof.service",
+    "DropInPaths": "/run/systemd/system/pix583-service-proof.service.d/fixture.conf",
+    "ConditionResult": "yes",
+    "StartLimitIntervalUSec": "5min",
+    "StartLimitBurst": "5",
+    "InvocationID": "25728b984b424983b4a87d746635a0e9"
+  },
+  "peer_observations": {
+    "calls": [
+      {
+        "method": "HEAD",
+        "action": "HEAD",
+        "user": "",
+        "params": {},
+        "mode": "normal"
+      },
+      {
+        "method": "HEAD",
+        "action": "HEAD",
+        "user": "",
+        "params": {},
+        "mode": "normal"
+      }
+    ],
+    "applied": [],
+    "errors": []
+  },
+  "elapsed_seconds": 22.835743861999998,
+  "retained_bytes": 168666
+}

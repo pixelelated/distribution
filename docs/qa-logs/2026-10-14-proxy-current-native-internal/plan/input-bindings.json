@@ -1,0 +1,155 @@
+{
+  "archives": {
+    "raofflineproxy": {
+      "archive": {
+        "bytes": 3510342,
+        "path": "/workspace/cache/rocknix-sources/raofflineproxy/raofflineproxy-c7ebd1b6e777f3751ff0ecdf8aba54045844e00d.tar.gz",
+        "sha256": "88eef31acfa4104b20258bd5cea514ade30e6cdf35767ffc958009851d61898b"
+      },
+      "archive_root": "RAOfflineProxy-c7ebd1b6e777f3751ff0ecdf8aba54045844e00d",
+      "members": 745,
+      "pin": "c7ebd1b6e777f3751ff0ecdf8aba54045844e00d",
+      "regular_bytes": 7090254
+    },
+    "raofflineproxy-libchdr": {
+      "archive": {
+        "bytes": 658940,
+        "path": "/workspace/cache/rocknix-sources/raofflineproxy-libchdr/raofflineproxy-libchdr-607694ca0812edfc9cc2030c64634fc2393668de.tar.gz",
+        "sha256": "02e772a74c4e5ec110bb646e729e1910268d2dae2c76df2a1b35525cc3826a9c"
+      },
+      "archive_root": "libchdr-607694ca0812edfc9cc2030c64634fc2393668de",
+      "members": 168,
+      "pin": "607694ca0812edfc9cc2030c64634fc2393668de",
+      "regular_bytes": 2936378
+    },
+    "raofflineproxy-rcheevos": {
+      "archive": {
+        "bytes": 450033,
+        "path": "/workspace/cache/rocknix-sources/raofflineproxy-rcheevos/raofflineproxy-rcheevos-1433173220a7eaede6a9ed7a18e94117be1821e0.tar.gz",
+        "sha256": "da635153d2dab228f3a3ef672bae56a7a6e5f57f1aacd420133521c5d3768cec"
+      },
+      "archive_root": "rcheevos-1433173220a7eaede6a9ed7a18e94117be1821e0",
+      "members": 130,
+      "pin": "1433173220a7eaede6a9ed7a18e94117be1821e0",
+      "regular_bytes": 3214865
+    }
+  },
+  "candidate_python": {
+    "note": "112 prepared .py files. RVZ candidate is Python only; startup-race #588 separately owned.",
+    "prepared_root": "/workspace/tmp/pix583-native-prepared-20261014-02",
+    "source_sha256": "ec5c1ebdb7fed53cceec40c65c77212b16de688d043375b971a288059054b661"
+  },
+  "coordinator_commit": "b004cd4d0751bd871bfda11292b43280895f61ea",
+  "native_patches": [],
+  "patch_scope_sha256": "97dd5aa008b1d2c8a581f062890d45c9e531f5bc27a88b699798ef1d34e82778",
+  "prepared_only": true,
+  "recipes": {
+    "raofflineproxy": {
+      "path": "projects/ROCKNIX/packages/network/raofflineproxy/package.mk",
+      "sha256": "e13f5bb22eae74c73ecb4141c3580f2627b9f8cfc317840656d90ed017e0f13d"
+    },
+    "raofflineproxy-libchdr": {
+      "path": "projects/ROCKNIX/packages/network/raofflineproxy-libchdr/package.mk",
+      "sha256": "a9570c9a2633015af220fb7da564eeb5e2b79c943b2450eca7a7a27f2628ae43"
+    },
+    "raofflineproxy-rcheevos": {
+      "path": "projects/ROCKNIX/packages/network/raofflineproxy-rcheevos/package.mk",
+      "sha256": "5921284cea44d2ea6ea560830bcef6ef15c760183f9de3a5db02853fe274e194"
+    }
+  },
+  "schema": 1,
+  "source_inventory_sha256": "aa139803a003ec142f47fc151910309b94e16a5572e9fcf51044055788a90e49",
+  "toolchain": {
+    "builder_image": "ghcr.io/pixelelated/build@sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39",
+    "files": {
+      "bin/ccache": {
+        "bytes": 2117648,
+        "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/ccache",
+        "sha256": "10b5a47839b8efe981eb854e4d78eb711a94bc5b809811c2ee8d3e16bf82d731"
+      },
+      "bin/x86_64-rocknix-linux-gnu-as": {
+        "bytes": 3160632,
+        "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-as",
+        "sha256": "cecc66d1aa4da79e557ecdae2080a1c0de0dbcd7f64ef865e5c39d98a41ad6e5"
+      },
+      "bin/x86_64-rocknix-linux-gnu-gcc": {
+        "bytes": 260,
+        "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc",
+        "sha256": "bb9cdcbaaf3f3b08bbfcad9d0b9c46cc5d7da800c74ff4efa1b170dd14b70c9b"
+      },
+      "bin/x86_64-rocknix-linux-gnu-gcc-15.2.0": {
+        "bytes": 2376992,
+        "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc-15.2.0",
+        "sha256": "2afee500ca1f46ee18ef5c1997a6235e0fe1f8a58f580381c451ab221f659755"
+      },
+      "bin/x86_64-rocknix-linux-gnu-ld.bfd": {
+        "bytes": 3179448,
+        "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-ld.bfd",
+        "sha256": "b60da0d2bb1db61a2238f486d2302f0d61e69eb025a870f7f8e4072d6416ab10"
+      },
+      "bin/x86_64-rocknix-linux-gnu-readelf": {
+        "bytes": 3115424,
+        "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-readelf",
+        "sha256": "831dfa5f667cdaab85df5e27d88107899b18bdfaa0b6d72bd4909d7832f3aa9b"
+      },
+      "lib/gcc/x86_64-rocknix-linux-gnu/15.2.0/cc1": {
+        "bytes": 47541080,
+        "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/lib/gcc/x86_64-rocknix-linux-gnu/15.2.0/cc1",
+        "sha256": "0f6385dfeee0d1deaae268c9888984fbc0e41f86de3a46b29dacb8f639958f44"
+      },
+      "lib/gcc/x86_64-rocknix-linux-gnu/15.2.0/collect2": {
+        "bytes": 1484120,
+        "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/lib/gcc/x86_64-rocknix-linux-gnu/15.2.0/collect2",
+        "sha256": "c30c9516f68e27bafb168097ca6a9fff3d7dcc8badc15ad0f93116e5a5f1e676"
+      },
+      "lib/gcc/x86_64-rocknix-linux-gnu/15.2.0/crtbeginS.o": {
+        "bytes": 2776,
+        "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/lib/gcc/x86_64-rocknix-linux-gnu/15.2.0/crtbeginS.o",
+        "sha256": "ff953b1b23a3939294da4809ddbda95fc8eae106a746c4ead3189bee966e3ccf"
+      },
+      "lib/gcc/x86_64-rocknix-linux-gnu/15.2.0/crtendS.o": {
+        "bytes": 1192,
+        "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/lib/gcc/x86_64-rocknix-linux-gnu/15.2.0/crtendS.o",
+        "sha256": "339da4f5b641eb1e7cba586fbc4f45ca5498acbde97a070e50058002a67cd085"
+      },
+      "lib/gcc/x86_64-rocknix-linux-gnu/15.2.0/include-fixed/README": {
+        "bytes": 750,
+        "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/lib/gcc/x86_64-rocknix-linux-gnu/15.2.0/include-fixed/README",
+        "sha256": "32baa94efdf4fb418c20321f14a1b66982a6cd3c2b5bc8fbfbe438f687c528d6"
+      },
+      "lib/gcc/x86_64-rocknix-linux-gnu/15.2.0/include-fixed/pthread.h": {
+        "bytes": 48764,
+        "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/lib/gcc/x86_64-rocknix-linux-gnu/15.2.0/include-fixed/pthread.h",
+        "sha256": "9aa40e687283a452f04fd9f54aa3e40bc758b4e0de2ab43a3be5b1a0b7dc081d"
+      },
+      "lib/gcc/x86_64-rocknix-linux-gnu/15.2.0/include/acc_prof.h": {
+        "bytes": 7454,
+        "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/lib/gcc/x86_64-rocknix-linux-gnu/15.2.0/include/acc_prof.h",
+        "sha256": "c63eef3ff43a0ccf778d0caabca430ac2d30ede535c14be7f2fbe6bfc0426449"
+      },
+      "lib/gcc/x86_64-rocknix-linux-gnu/15.2.0/include/adxintrin.h": {
+        "bytes": 2832,
+        "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/lib/gcc/x86_64-rocknix-linux-gnu/15.2.0/include/adxintrin.h",
+        "sha256": "da4502336b353db04ed204d9cc8870abdbed1d180315f6b42fd3f5dd38043963"
+      },
+      "lib/gcc/x86_64-rocknix-linux-gnu/15.2.0/include/ammintrin.h": {
+        "bytes": 3216,
+        "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/lib/gcc/x86_64-rocknix-linux-gnu/15.2.0/include/ammintrin.h",
+        "sha256": "f78022e85062f1f362eda49a160ff1eeed41a16fcefffefbbc6201f387852de9"
+      },
+      "lib/gcc/x86_64-rocknix-linux-gnu/15.2.0/include/amxavx512intrin.h": {
+        "bytes": 5548,
+        "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/lib/gcc/x86_64-rocknix-linux-gnu/15.2.0/include/amxavx512intrin.h",
+        "sha256": "2025b087ef8a6742f9120362cd9829d31f424896c2f69649611aee7e511bf1ee"
+      }
+    },
+    "header_and_support_inventory": {
+      "files": 26095,
+      "path_in_plan": "sdk-headers.json.gz",
+      "sha256": "21f800d3c05ebe7acd8e455cfbe4f986bcee8d1e50e69808a884ad5747faf1da",
+      "uncompressed_sha256": "b76c8b8006737c634df0b9c206baf7f2b5513d25cae80bc3eeacfc3127bbe4e7"
+    },
+    "physical_root": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain",
+    "required_container_root": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain"
+  }
+}

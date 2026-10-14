@@ -1,0 +1,31 @@
+{
+  "utc": "2026-10-14T18:35:52.183251+00:00",
+  "pid_namespace": "pid:[4026531836]",
+  "memory_bytes": {
+    "MemTotal": 65376051200,
+    "MemAvailable": 54396952576,
+    "SwapTotal": 8589930496,
+    "SwapFree": 7011401728
+  },
+  "workspace": {
+    "available_bytes": 2976957669376,
+    "total_bytes": 3936820731904,
+    "device": 66304
+  },
+  "registry_generation": 145,
+  "unconsumed": [
+    {
+      "state": "running",
+      "required_bytes": 1073741824
+    }
+  ],
+  "preflight": {
+    "returncode": 0,
+    "stdout": "RAM    62347MB total, 10471MB used, 51876MB available\nSwap   8191MB total, 1505MB used, 6686MB free\nDisk   2.8T free of 3.6T  (not the usual limit)\n\n\nREADY\n"
+  },
+  "pressure": {
+    "memory": "some avg10=0.00 avg60=0.00 avg300=0.00 total=539688623\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=531553953\n",
+    "io": "some avg10=0.05 avg60=0.02 avg300=0.00 total=6830502700\nfull avg10=0.05 avg60=0.02 avg300=0.00 total=6730173576\n"
+  },
+  "reservation_or_launch": false
+}

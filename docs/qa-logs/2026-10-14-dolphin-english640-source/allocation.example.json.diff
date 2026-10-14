@@ -1,0 +1,22 @@
+--- 5a385f12e355cd3400bf11a740cc0e0b852eeab1:allocation.example.json
++++ english640:allocation.example.json
+@@ -1,7 +1,7 @@
+ {
+-  "run_id": "NEW_two_case_owner",
+-  "es_sha256": "REPLACE_WITH_CURRENT_ALLOCATION_BINARY_SHA256",
+-  "es_source": "REPLACE_WITH_CURRENT_ALLOCATION_FULL_ES_COMMIT",
++  "run_id": "NEW_en640_layout_owner",
++  "es_sha256": "8752b5391ea8728c1a088d0a80e3776469692dda665e8f07f062fed3206263d2",
++  "es_source": "bb9e2785f88c2b9de979022a2a9ded2cbce2f954",
+   "wayland_socket": "/run/0-runtime-dir/wayland-1",
+   "renderer": "Vulkan",
+   "panel": [
+@@ -9,7 +9,6 @@
+     480
+   ],
+   "case_ids": [
+-    "gc-state-fr640",
+-    "wii-card-fr640"
++    "wii-card-en640-layout"
+   ]
+ }

@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "scope": "static only; export/build/provenance binder/VM UNRUN",
+  "checks": [
+    "AST bind-provenance.py",
+    "AST common.py",
+    "AST docker_owner.py",
+    "AST export.py",
+    "AST inner.py",
+    "AST native.py",
+    "AST plan.py",
+    "AST run-stage.py",
+    "AST static-check.py",
+    "AST watchdog.py",
+    "bash -n build-stage.sh",
+    "bash -n make-target.sh",
+    "make_target byte-identical current recipe",
+    "16 local patches Python only",
+    "Docker owner and watchdog byte-identical accepted lifecycle",
+    "compressed SDK header/support inventory",
+    "857 original archive source file identities",
+    "both sealed manifests"
+  ]
+}

@@ -1,0 +1,318 @@
+{
+  "scope": "Historical accepted evidence, read without executing or changing any owner; frames were reviewed by coordinator. No new frame acceptance is claimed here.",
+  "current_issue": "https://github.com/pixelelated/distribution/issues/581",
+  "last_issue_comment": "https://github.com/pixelelated/distribution/issues/581#issuecomment-6159645285",
+  "original_FR640": {
+    "gc-state-fr640": {
+      "result": {
+        "status": "PASS",
+        "originals": {
+          "session_process": 0,
+          "session": 0,
+          "frontend_restore": 0,
+          "unshare": 0,
+          "es": 0,
+          "runemu": 250
+        },
+        "frontend_active_exit": 0,
+        "namespace_processes_remaining": [],
+        "frames": "see host advance records; source-staged proof, not shipped-image qualification"
+      },
+      "caller": {
+        "status": "PASS",
+        "argv": [
+          "/usr/bin/bash",
+          "/usr/bin/runemu.sh",
+          "/storage/roms/qa581/synthetic.iso",
+          "-Pgamecube",
+          "--emulator=dolphin",
+          "--core=dolphin-sa",
+          "--controllers=1"
+        ],
+        "runemu_exit": 250,
+        "engine_calls": 0,
+        "helper_check_calls": 1,
+        "launcher_exits_from_actual_runemu_trace": [
+          250
+        ],
+        "helper_prepare_calls": 0,
+        "assertions": {
+          "original_exit": true,
+          "engine_count": true,
+          "original_launcher_exit": true,
+          "default_nogui_dispatch": true,
+          "controller_seam_once": true,
+          "achievement_seam_only_after_success": true,
+          "real_preflight_count": true,
+          "real_prepare_count": true,
+          "retained_tree_identical": true,
+          "localized_title_once": true,
+          "no_protocol_in_french": true,
+          "busy_copy": true
+        }
+      },
+      "preservation_compared_now": true,
+      "original_receipts": [
+        {
+          "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-offline-components/guest/dolphin-remaining-20261014small05/gc-state-fr640/result.json",
+          "bytes": 327,
+          "sha256": "56c617b69711faf52798fa0279b433fd76dec3933a00036b3598c0b7d1fcac34"
+        },
+        {
+          "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-offline-components/guest/dolphin-remaining-20261014small05/gc-state-fr640/caller.json",
+          "bytes": 803,
+          "sha256": "02f03389e27938d3b372dd8cca52e98f69a581dcae45021b4646d8012676c511"
+        },
+        {
+          "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-offline-components/guest/dolphin-remaining-20261014small05/gc-state-fr640/session-original-exit.json",
+          "bytes": 230,
+          "sha256": "7d82ade618d5ece982dea1acb274966714390284412fb49a4156168f5aa766d2"
+        },
+        {
+          "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-offline-components/guest/dolphin-remaining-20261014small05/gc-state-fr640/mounted.json",
+          "bytes": 13864,
+          "sha256": "2cc5c6842055e807050610126dacf7575972bd0a814d8fe1826805e02266cf2b"
+        },
+        {
+          "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-offline-components/guest/dolphin-remaining-20261014small05/gc-state-fr640/visible-error.txt",
+          "bytes": 362,
+          "sha256": "0a2da53410c6c10987f8a0f1728472bfdfba954b4a813ea41a3add9e45fb4353"
+        },
+        {
+          "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-offline-components/guest-archives/dolphin-remaining-20261014small05/gc-state-fr640/owner-receipts/active/before.json",
+          "bytes": 664819,
+          "sha256": "94cf30e18edef254e1301aba2ed3c62d69780b10f0f64534aaba529304ec81b2"
+        },
+        {
+          "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-offline-components/guest-archives/dolphin-remaining-20261014small05/gc-state-fr640/owner-receipts/active/after.json",
+          "bytes": 664819,
+          "sha256": "94cf30e18edef254e1301aba2ed3c62d69780b10f0f64534aaba529304ec81b2"
+        },
+        {
+          "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-offline-components/guest-archives/dolphin-remaining-20261014small05/gc-state-fr640/owner-receipts/active/boundary.json",
+          "bytes": 152,
+          "sha256": "533c05c9353738fa0cc9b1bf90c43d46fb9bc835dcc1a49dbc26c928b59c104f"
+        },
+        {
+          "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-offline-components/guest-archives/dolphin-remaining-20261014small05/gc-state-fr640/owner-receipts/active/native-consumed.json",
+          "bytes": 118,
+          "sha256": "8dcb7cae2b2c5a9d25816993425a08c4bd2898ad958e7140eda6ea3c129240c6"
+        },
+        {
+          "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-offline-components/guest-archives/dolphin-remaining-20261014small05/gc-state-fr640/owner-receipts/active/es-exit.json",
+          "bytes": 25,
+          "sha256": "3e71ab6bfd80cd68742cb879c79569b3f9f8f166872809415b959c5d3388e66b"
+        },
+        {
+          "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-offline-components/guest-archives/dolphin-remaining-20261014small05/gc-state-fr640/owner-receipts/active/runner-exit.json",
+          "bytes": 33,
+          "sha256": "1ef5da43e45bf71758be188cbce32aff9f54f1b52af42bae552ab32b707c57ee"
+        }
+      ],
+      "frame_resources": {
+        "/usr/share/themes/es-theme-art-book-next/theme.xml": "f19b1c9b28748fecb50e48df1aad0ff03717e9d206509e8e64b2346e6374d15c",
+        "/usr/config/locale/fr/LC_MESSAGES/emulationstation2.mo": "7113cf7c7f7ac9aaf8edce4ecda231bdaebd8850d588a6bd5a2bc3c15f8b7167"
+      }
+    },
+    "wii-card-fr640": {
+      "result": {
+        "status": "PASS",
+        "originals": {
+          "session_process": 0,
+          "session": 0,
+          "frontend_restore": 0,
+          "unshare": 0,
+          "es": 0,
+          "runemu": 250
+        },
+        "frontend_active_exit": 0,
+        "namespace_processes_remaining": [],
+        "frames": "see host advance records; source-staged proof, not shipped-image qualification"
+      },
+      "caller": {
+        "status": "PASS",
+        "argv": [
+          "/usr/bin/bash",
+          "/usr/bin/runemu.sh",
+          "/storage/roms/qa581/synthetic.iso",
+          "-Pwii",
+          "--emulator=dolphin",
+          "--core=dolphin-sa",
+          "--controllers=1"
+        ],
+        "runemu_exit": 250,
+        "engine_calls": 0,
+        "helper_check_calls": 1,
+        "launcher_exits_from_actual_runemu_trace": [
+          250
+        ],
+        "helper_prepare_calls": 0,
+        "assertions": {
+          "original_exit": true,
+          "engine_count": true,
+          "original_launcher_exit": true,
+          "default_nogui_dispatch": true,
+          "controller_seam_once": true,
+          "achievement_seam_only_after_success": true,
+          "real_preflight_count": true,
+          "real_prepare_count": true,
+          "retained_tree_identical": true,
+          "localized_title_once": true,
+          "no_protocol_in_french": true,
+          "busy_copy": true
+        }
+      },
+      "preservation_compared_now": true,
+      "original_receipts": [
+        {
+          "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-offline-components/guest/dolphin-remaining-20261014small05/wii-card-fr640/result.json",
+          "bytes": 327,
+          "sha256": "56c617b69711faf52798fa0279b433fd76dec3933a00036b3598c0b7d1fcac34"
+        },
+        {
+          "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-offline-components/guest/dolphin-remaining-20261014small05/wii-card-fr640/caller.json",
+          "bytes": 798,
+          "sha256": "e7049df95afb45cc9c3ec76daabad592d2bc1c624b517c52c34f860b108fb254"
+        },
+        {
+          "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-offline-components/guest/dolphin-remaining-20261014small05/wii-card-fr640/session-original-exit.json",
+          "bytes": 230,
+          "sha256": "7d82ade618d5ece982dea1acb274966714390284412fb49a4156168f5aa766d2"
+        },
+        {
+          "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-offline-components/guest/dolphin-remaining-20261014small05/wii-card-fr640/mounted.json",
+          "bytes": 13864,
+          "sha256": "2087122ec87f1c28a3558fd8125e6a2fe3ae87647b6b21664dd0cedd4805691a"
+        },
+        {
+          "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-offline-components/guest/dolphin-remaining-20261014small05/wii-card-fr640/visible-error.txt",
+          "bytes": 383,
+          "sha256": "4074e0769d44a285b8d4b5353c7dc23e7515eb11a439e8fa54d0047930a991ff"
+        },
+        {
+          "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-offline-components/guest-archives/dolphin-remaining-20261014small05/wii-card-fr640/owner-receipts/active/before.json",
+          "bytes": 664721,
+          "sha256": "097ca0b14b0c39be6e013bdf8eb326728a9c282185caf64f5578dc62e7cd2dec"
+        },
+        {
+          "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-offline-components/guest-archives/dolphin-remaining-20261014small05/wii-card-fr640/owner-receipts/active/after.json",
+          "bytes": 664721,
+          "sha256": "097ca0b14b0c39be6e013bdf8eb326728a9c282185caf64f5578dc62e7cd2dec"
+        },
+        {
+          "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-offline-components/guest-archives/dolphin-remaining-20261014small05/wii-card-fr640/owner-receipts/active/boundary.json",
+          "bytes": 152,
+          "sha256": "533c05c9353738fa0cc9b1bf90c43d46fb9bc835dcc1a49dbc26c928b59c104f"
+        },
+        {
+          "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-offline-components/guest-archives/dolphin-remaining-20261014small05/wii-card-fr640/owner-receipts/active/native-consumed.json",
+          "bytes": 118,
+          "sha256": "8dcb7cae2b2c5a9d25816993425a08c4bd2898ad958e7140eda6ea3c129240c6"
+        },
+        {
+          "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-offline-components/guest-archives/dolphin-remaining-20261014small05/wii-card-fr640/owner-receipts/active/es-exit.json",
+          "bytes": 25,
+          "sha256": "3e71ab6bfd80cd68742cb879c79569b3f9f8f166872809415b959c5d3388e66b"
+        },
+        {
+          "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-offline-components/guest-archives/dolphin-remaining-20261014small05/wii-card-fr640/owner-receipts/active/runner-exit.json",
+          "bytes": 33,
+          "sha256": "1ef5da43e45bf71758be188cbce32aff9f54f1b52af42bae552ab32b707c57ee"
+        }
+      ],
+      "frame_resources": {
+        "/usr/share/themes/es-theme-art-book-next/theme.xml": "f19b1c9b28748fecb50e48df1aad0ff03717e9d206509e8e64b2346e6374d15c",
+        "/usr/config/locale/fr/LC_MESSAGES/emulationstation2.mo": "7113cf7c7f7ac9aaf8edce4ecda231bdaebd8850d588a6bd5a2bc3c15f8b7167"
+      }
+    }
+  },
+  "indexes": [
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-offline-components/frame-index.json",
+      "bytes": 19893,
+      "sha256": "a92da7f31488bf9144135d6540710607ff5e4acad51772df457a5e2ab4619a0f"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-library-vm/dolphin-frame-index.json",
+      "bytes": 10249,
+      "sha256": "21a442d9d37eef425a53fc3a98cc29cab0084d83c253adad889eb45a4854f57f"
+    }
+  ],
+  "earlier_EN640_layout": "Old caller passed but displayed the final w on its own line with previous helper; preserved, not accepted for the corrected layout.",
+  "small05_terminal": {
+    "path": "/workspace/tmp/pix-m7-offline-vm-20261014/dolphin05-accepted.json",
+    "bytes": 245,
+    "sha256": "f95f61d020ed021e1d449d9a3a40e8c23d33e948e1572d56f02f2d4bbe56b498"
+  },
+  "small05_monitor": {
+    "path": "/workspace/tmp/pix-m7-offline-vm-20261014/dolphin05-monitor-result.json",
+    "bytes": 106,
+    "sha256": "13baaa0a95c711166b2f33bac42b7efc49ed099ece28ecf8c12142731bd76a58"
+  },
+  "consumption": {
+    "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-offline-components/consumption.json",
+    "bytes": 31148,
+    "sha256": "e689409fc9c8e33b7e8c20f9a606ef8131b6a9aee3ed172120cec908564911f6"
+  },
+  "retirement": {
+    "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-offline-components/retirement.json",
+    "bytes": 2689319,
+    "sha256": "6863bab0ce516b56274ff16059a540c5b31641a44619da4eacade2a9689001de"
+  },
+  "original_FR640_frames": [
+    {
+      "path": "host/dolphin05-frames/20261014T021540-cff82f2e/gc-state-fr640-entry.png",
+      "sha256": "5ba3b26712efcb7cc59f10571a49c61fbe24df2a7fb2a6fb0d8effc056b5a2e0",
+      "review": "reviewed-pass",
+      "note": "Reviewed original frame and corresponding completed flow.",
+      "es_source": "bb9e2785f88c2b9de979022a2a9ded2cbce2f954",
+      "catalog_source": "installed French7113cf; see exact mounted receipt",
+      "dolphin_product": "1a7714fd81f7c92316f54c4a3648696d1e256f88"
+    },
+    {
+      "path": "host/dolphin05-frames/20261014T021603-c555d710/gc-state-fr640-error.png",
+      "sha256": "3fcfc7ddb7623e52dea9f0237b39e7001d03600ef85b9adaeb713767c8d99c6d",
+      "review": "reviewed-pass",
+      "note": "Reviewed original frame and corresponding completed flow.",
+      "es_source": "bb9e2785f88c2b9de979022a2a9ded2cbce2f954",
+      "catalog_source": "installed French7113cf; see exact mounted receipt",
+      "dolphin_product": "1a7714fd81f7c92316f54c4a3648696d1e256f88"
+    },
+    {
+      "path": "host/dolphin05-frames/20261014T021624-41de7f20/gc-state-fr640-returned.png",
+      "sha256": "64fe6c909746ec72968476fee0171e0ce82949603529434d0c782d95aeb90071",
+      "review": "reviewed-pass",
+      "note": "Reviewed original frame and corresponding completed flow.",
+      "es_source": "bb9e2785f88c2b9de979022a2a9ded2cbce2f954",
+      "catalog_source": "installed French7113cf; see exact mounted receipt",
+      "dolphin_product": "1a7714fd81f7c92316f54c4a3648696d1e256f88"
+    },
+    {
+      "path": "host/dolphin05-frames/20261014T021656-44e31eb8/wii-card-fr640-entry.png",
+      "sha256": "308ef34cfa09c34a0ac25d48afc46acc4f0bc010f853005230dddee8ea051ab7",
+      "review": "reviewed-pass",
+      "note": "Reviewed original frame and corresponding completed flow.",
+      "es_source": "bb9e2785f88c2b9de979022a2a9ded2cbce2f954",
+      "catalog_source": "installed French7113cf; see exact mounted receipt",
+      "dolphin_product": "1a7714fd81f7c92316f54c4a3648696d1e256f88"
+    },
+    {
+      "path": "host/dolphin05-frames/20261014T021715-9fe42fec/wii-card-fr640-error.png",
+      "sha256": "ad14ed896bb1efd9b941c411f18d49b5ff34dd33023d3a8f220ecabaccd49d6e",
+      "review": "reviewed-pass",
+      "note": "Reviewed original frame and corresponding completed flow.",
+      "es_source": "bb9e2785f88c2b9de979022a2a9ded2cbce2f954",
+      "catalog_source": "installed French7113cf; see exact mounted receipt",
+      "dolphin_product": "1a7714fd81f7c92316f54c4a3648696d1e256f88"
+    },
+    {
+      "path": "host/dolphin05-frames/20261014T021737-a898ebbf/wii-card-fr640-returned.png",
+      "sha256": "d011c979cc077f0c8cc906c428ab8fa9d321b536917717602941094610356704",
+      "review": "reviewed-pass",
+      "note": "Reviewed original frame and corresponding completed flow.",
+      "es_source": "bb9e2785f88c2b9de979022a2a9ded2cbce2f954",
+      "catalog_source": "installed French7113cf; see exact mounted receipt",
+      "dolphin_product": "1a7714fd81f7c92316f54c4a3648696d1e256f88"
+    }
+  ]
+}

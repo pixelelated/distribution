@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "source_commit": "fe1a05cdabad422b95c6e687a9b60ca43851ec25",
+  "source_packet_manifest_sha256": "7d6110a0e35ab264cf2267abd78a4b757b680f0ec2887276161e990ea8ada585",
+  "original_failure": {
+    "logs/export.stderr": {
+      "path": "/workspace/tmp/pix583-current-native-20261014-01/stages/proxy-export/logs/export.stderr",
+      "sha256": "0f98331897299112092555d6f57361b7dd7108039699c78db15cf982305c867c",
+      "bytes": 351
+    },
+    "export.json": {
+      "path": "/workspace/tmp/pix583-current-native-20261014-01/stages/proxy-export/export.json",
+      "sha256": "355a2f12e3ec0c253ad13ac13a639b762787d4f98720984e372338be56d919df",
+      "bytes": 396
+    },
+    "container-result.json": {
+      "path": "/workspace/tmp/pix583-current-native-20261014-01/stages/proxy-export/container-result.json",
+      "sha256": "add8a5c7034975a56bcb3a37ca002d349ae60daeb5e13ddf40b8188570399793",
+      "bytes": 763
+    },
+    "result.json": {
+      "path": "/workspace/tmp/pix583-current-native-20261014-01/stages/proxy-export/result.json",
+      "sha256": "01f30cced5435d40d1f951d80891595feeb51d19501656816d5a993df94b83fc",
+      "bytes": 2045
+    },
+    "watchdog-result.json": {
+      "path": "/workspace/tmp/pix583-current-native-20261014-01/stages/proxy-export/watchdog-result.json",
+      "sha256": "9a82748fd15c4bba6ea917244dae8d06c8567b94530f859749dea2afc6ab4bac",
+      "bytes": 69
+    }
+  },
+  "reason": "Pinned builder Python3.10 has no hashlib.file_digest. Preserve same-FD streaming hash and original fstat guards.",
+  "unchanged_files": {
+    "inner.py": "9f4fff1977cc2add7deac231dc36fe4bea1bc59b588bbb2cf2a7626298a94b64",
+    "docker_owner.py": "276baaa41d855161873b6d3a979463d2ff0a3bb8fd28ddbd8ed4502959354d31",
+    "native.py": "85a9990c7bd4d6e8476d7e9b9d2bc9a68ac315e39525d01379aacfa1b3ece23e",
+    "template-evidence.json": "ecb1a579e923a1f59dceb32034bfb46683c8244ec1a27c4e1370627eb311643f",
+    "run-stage.py": "aba94e6583f4e659d30bc7eec8b1294f6be73bd8b7b35f1e933614d7d94da1ac",
+    "bind-provenance.py": "8e3268434fc33d0d382d9f889d7fe6f4b9e72a19ad9414561950a55db6c42d00",
+    "plan.py": "ef7ddf0e17fddca63eb5cb85f29ff137a39911b9abe8357b5d7c086042b2f797",
+    "common.py": "d4152e6f367a73bb11b88d851d19ae678db7be44127c530d8ead7d9a793a0783",
+    "watchdog.py": "b21d2e255f0094b5f48eef6e009972633298629b7f0c4c7b44ec7eef0148c18b",
+    "plan/sdk-headers.json.gz": "21f800d3c05ebe7acd8e455cfbe4f986bcee8d1e50e69808a884ad5747faf1da",
+    "plan/raofflineproxy-libchdr.mk": "a9570c9a2633015af220fb7da564eeb5e2b79c943b2450eca7a7a27f2628ae43",
+    "plan/sdk-native-comparison.json": "d79e671dd9204681e9de772aae11ace9ea984de604a4c39608f5763de233d070",
+    "plan/build-stage.sh": "81928f7dbcd926f73124e3e6cbe6fc89bcca30c82b2af2632acea2362950dc34",
+    "plan/patch-scope.json": "97dd5aa008b1d2c8a581f062890d45c9e531f5bc27a88b699798ef1d34e82778",
+    "plan/source-files.json": "aa139803a003ec142f47fc151910309b94e16a5572e9fcf51044055788a90e49",
+    "plan/raofflineproxy-rcheevos.mk": "5921284cea44d2ea6ea560830bcef6ef15c760183f9de3a5db02853fe274e194",
+    "plan/SHA256SUMS": "6e842beb7970584cba1bfc4f45bf28109724bf9003edf037583b74a4f7b44a46",
+    "plan/input-bindings.json": "3bc0761fbe6f84564b9f08358d11a5a2d40c0d13b5b48a21fb8c43ed06c820b6",
+    "plan/raofflineproxy.mk": "e13f5bb22eae74c73ecb4141c3580f2627b9f8cfc317840656d90ed017e0f13d",
+    "plan/make-target.sh": "e533719bbf8c8b4c4c72390902d3fc2f2f27d7d02e5d555201b2931be05908d3"
+  },
+  "runtime": "UNRUN; original failure remains FAIL"
+}

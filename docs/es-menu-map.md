@@ -383,7 +383,7 @@ flowchart LR
 [Source-bound reviewed frames](qa-logs/2026-10-13-library-vm/dolphin-frame-index.json)
 cover French retained-state/card refusals and English fresh Wii setup at1280×800,
 using complete staged90cd callers and compiled ESbb9e with recording engines.
-The [October14 component frames](qa-logs/2026-10-14-offline-components/frame-index.json) add the remaining640×480 callers. Candidate1a7714fd81 inserts a display-only break at the folder/filename boundary for known long card paths; French640 is reviewed, updated English640 remains due. Final-image/upgrade and native engines remain unqualified.
+The [October14 component frames](qa-logs/2026-10-14-offline-components/frame-index.json) add the remaining640×480 callers. Candidate1a7714fd81 inserts a display-only break at the folder/filename boundary for known long card paths; French640 is reviewed; [updated English640](qa-logs/2026-10-14-dolphin-english640-runtime/frame-index.json) now has reviewed entry/refusal/return frames and exact retained-data preservation under the same helper. Final-image/upgrade and native engines remain unqualified.
 The [initial failed fixture](qa-logs/2026-10-13-library-vm/dolphin-initial-frame-index.json)
 retains its own outcome; the source and screenshots are not a promoted product pin.
 

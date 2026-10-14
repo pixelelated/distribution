@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "source_packet_commit": "5a385f12e355cd3400bf11a740cc0e0b852eeab1",
+  "consumed_run_ids": [
+    "20261014small01",
+    "20261014small02",
+    "20261014small03",
+    "20261014small04",
+    "20261014small05"
+  ],
+  "completed_case_ids": [
+    "gc-fresh-en640",
+    "gc-link-en640",
+    "wii-link-en640",
+    "gc-state-en640",
+    "wii-card-en640",
+    "gc-busy-en640",
+    "gc-busy-fr640",
+    "gc-state-fr640",
+    "wii-card-fr640"
+  ],
+  "selection_scope": [
+    "wii-card-en640-layout"
+  ],
+  "boundary": "One new corrected-layout English640 proof only. All nine old catalog IDs remain excluded; accepted FR640/FR1280/EN1280 are not rerun. Earlier failures and acceptance remain bound to their original bytes.",
+  "original_baseline": {
+    "commit": "5a385f12e355cd3400bf11a740cc0e0b852eeab1",
+    "path": "docs/qa-logs/2026-10-13-dolphin-preservation-source/installed-flow/remaining-two/resume-baseline.json",
+    "sha256": "e794b1c54a2700114fa0774f9fec5de7302ef267cc553f910a459b5e70006db1"
+  },
+  "accepted_evidence": "accepted-evidence.json"
+}

@@ -1,0 +1,262 @@
+{
+  "read_at_utc": "2026-10-14T18:04:28.035346+00:00",
+  "milestone": {
+    "number": 7,
+    "url": "https://github.com/pixelelated/distribution/milestone/7",
+    "updated_at": "2026-10-14T17:33:03Z",
+    "description_sha256": "33eb8621e5c1f6c9ee3c343db19e29fd57427242b643c97abf9b9dc84e8d174f",
+    "current_order": "### Current work in order\n\n**Updated October14,17:32UTC:** Resumed work is now completed within its scoped components. Three new Steam recovery cases pass. CHD converter build/static closure and actual native234-hash parity pass. Actual proxy main/systemd/real-worker lifecycle passes139.59s, preserving signed awards through shutdown/restarts and normal reconnect. Original failed fixtures remain recorded; all launched jobs exited, results consumed and completed VMs retired. No firmware build, product pin promotion or owner-device action. **Next #588:** isolate potential pending-award reconnect during startup; normal offline\u2192online PASS does not cover this window. Current native-source provenance, default-boot/installed composition and the ordered final-image gates below remain. No background runtime is left active.\n\n**New owner direction, October12 \u2014 #563 / D-WORKFLOW-161:** the next0.0.1 candidate uses ROCKNIX stable20261001 (`c445081a59518f37d9776e5412dd7b14910696f7`). This supersedes the September29 base in D-WORKFLOW-111 for the renewed cycle, not the freeze discipline. Later upstream/next is excluded. Existing engineering devices remain available for owner testing; previous proof belongs to its original source.\n\n**Active execution order, latest owner direction October 13:** Installed setup component qualification finished at 22:51 UTC for ES `a7dcdbb38009d8d2a81c7c2b4bc1d8c2d0d38a20`. Both EN/FR 640\u00d7480 and 1280\u00d7800 profiles passed the scoped Wi-Fi, browser recovery, phone navigation/input, game-list notice and Recent preservation checks. All 14 larger-profile tasks passed. The 43-frame reviewed index and all 25 original owners are retained; failed fixture attempts keep their original exits. VM processes/tunnels exited, reservation consumed, and 2,394,746,880 allocated disposable bytes retired. This is an installed overlay on accepted VM20, not full-firmware qualification or physical memory proof. The observed untranslated French Wi-Fi hint is corrected in the next source, awaiting new frames.\n\n**Accepted earlier (October14,15:30UTC):** Independent Dolphin and native proxy component qualification is complete within scope. The first independent decode exposed a malformed synthetic empty-partition checksum; additive generator052b36080f fixes it while preserving the original failure, raw data, expected MD5, oracle and native binaries. Fresh VM: five decodes, two encodes, two full roundtrips, two candidate hashes all0. A separate fresh no-network VM then passes native ISO/RVZ hashing, scanner/cache/account isolation, signed award/dedup/SQLite/failure/reconnect checks in11.46s. All owners exited, admissions consumed and VMs retired. Current installed-native source provenance is explicitly unverified; full main/systemd/periodic workers, CHD, Dolphin gameplay and final-image/UI qualification remain. No active runtime, new firmware or pin promotion. Future browser-owned proxy shutdown is backlog#587 (D-RA-047), not an additional RC gate.\n\n**Next: #588 startup reconnect, then #574/#583/#584 remaining native/installed qualification.** Proxy reader126 original unaligned mismatches\u21920candidate,72 aligned/6 malformed controls each and44 scan controls pass. Dolphin126 full-script routing controls pass, with listener identity/readiness and native service/emulator acceptance still open. MD5 target subset passes43 recovery controls and528 digest comparisons; original compile-wrapper1 remains, separately recovered. DolphinTool source export, compilation, output recovery and static library closure are accepted. Actual VM loading/conversion and native proxy ISO/RVZ hashing, codec/library/cache/account/award/reconnect proof now pass in the recorded component scope. Remaining: #588 controlled startup-window reproduction/repair, current-native-build provenance, installed/default-boot composition, Dolphin integration/gameplay and final image/UI proof. CHD build/closure/loader/234-hash parity now pass. Actual main/systemd/real worker lifecycle also passes in a private unified-cgroup VM; installed-native provenance and default hybrid boot remain distinct. Original failures are preserved. A minimal current-upstream MD5 patch/public reproducer is retained in #585; its submission-only standalone proof is deferred until after the initial current build under D-WORKFLOW-165. Local/native correctness qualification remains required. D-WORKFLOW-164 records contribution disposition across components.\n\n**Then #581 and #567:** retain the earlier41 reviewed frames. French640 Dolphin refusals and both-size capability descriptions pass; updated English640 long-card-path frame/native engine proof remain. #567 four native ES API branches pass with simulated ctl, but actual proxy and UI/final-image qualification remain separate. Do not rerun accepted component proofs or relabel their original failed attempts.\n\n**Then Steam #564/#579/#580/#582 before #563 stable20261001 composition:** the public archive's separate recovery and offline55-member CRC/ELF inspection pass; no payload executed and original acquisition1 remains. The compatibility choices are settled: preserve valid legacy/self-updated clients without stale receipt-hash gating and retain post-profile STEAM_DOT overrides. Corrected client transaction03e130 passes full caller and fresh profile-parent alias VM cases; independent review485d6d83 finds both8aec3a findings addressed in source. Existing-profile, detached-child, census-error, real180s transport-timeout, interrupted-publish, committed-self-update and corrected-fixture CRC-retry cases now pass on separate fresh VMs; expected negative caller exits are retained. Broader recovery and native/installed checks remain; original a057 failure is preserved and no product integration is claimed. Preserve unknown partial state and custom data. No worker holds runtime resources. #493 automatic retirement remains separate infrastructure.\n\n**Then:** compose qualified source; finish #565 payload/clean/retained-state and #349 restore qualification; provision and qualify #566 using the owner-selected interim JELOS developer identity (D-WORKFLOW-166); complete combined VM and audit; build H700 then SM8550 under #555 with fresh capacity admission and resource measurements; satisfy #528/#344 custody/publication gates. #561 and #558 are nonblocking watch items; #558 awaits a reliable reproducer or useful recurrence evidence, and #586 replacement developer credentials are separate backlog. No known failure is waived to call an RC. Source, flow, reviewed-frame, original-result and preservation evidence must match the final composition.\n\n**Testing-work reconciliation, October14:** #570/#571/#572 browser-memory, phone-status and dependency fixes have component evidence; #577 Wi-Fi and #578 Recent-default fixes are also implemented and exercised within their recorded scopes. Their remaining assembled-image/combined-backend/retained checks stay in the current composition; they are not an unstarted second implementation queue. #575/#581 still require native/installed save-behavior proof. #565 has provenance and synthetic isolation guards but needs the actual next payload and retained upgrade. #566 supplies the owner-selected interim JELOS developer identity in candidate19221;127 root-policy and4 recipe-selection VM controls pass. Actual compiled ES/UI/backup/clean/upgrade image proof remains. Replacement credentials are backlog #586, not a candidate dependency. #558 shutdown cause remains unresolved and awaits reliable reproduction; #561 LED preference is monitored. Neither watch item blocks this candidate. #568 final-game progress, #562 ROM integrity and #560 fast shutdown remain explicit backlog. GTK4#576 is an optional diagnostic, not a mandatory RC migration. Dated evidence/remaining-work table: `docs/releases/next-candidate-work.md`.\n\n**Upstream submissions after the initial build \u2014 #585 / D-WORKFLOW-165:** Keep the running list of RAOfflineProxy, libretro-common and focused ROCKNIX candidates; preserve #168's ten existing proxy drafts and already-upstream dispositions. Hold outward submissions until the initial build from this current M7 fix set and relevant qualification are complete. Submission-only preparation is outside the build critical path. Local repairs and release tests remain required; no upstream post has occurred.\n\n"
+  },
+  "issues": [
+    {
+      "number": 563,
+      "title": "M7.P5: Adopt ROCKNIX 20261001 as the candidate foundation",
+      "state": "OPEN",
+      "updated_at": "2026-10-12T17:37:35Z",
+      "url": "https://github.com/pixelelated/distribution/issues/563",
+      "body_sha256": "a8822d159ddb9483aa8fcb350fd8baebd3bf8e914b0f09dc52a6ade815cc41d6",
+      "comment_count": 0,
+      "latest_comment": null
+    },
+    {
+      "number": 564,
+      "title": "M7.P5: Preserve Steam runtime when replacement fails",
+      "state": "OPEN",
+      "updated_at": "2026-10-14T04:47:38Z",
+      "url": "https://github.com/pixelelated/distribution/issues/564",
+      "body_sha256": "a71237284ea4182c1e79a9e86ca81fd0babe54751dc9e8e48feaf48e7ac135a4",
+      "comment_count": 0,
+      "latest_comment": null
+    },
+    {
+      "number": 565,
+      "title": "M7.P5: Verify fresh-install isolation and Nova account/activity provenance",
+      "state": "OPEN",
+      "updated_at": "2026-10-13T16:55:04Z",
+      "url": "https://github.com/pixelelated/distribution/issues/565",
+      "body_sha256": "e89d553448ec4a324b4ccf2763a136cb37ec7e89b0f2d03e40f1733ec2e93988",
+      "comment_count": 11,
+      "latest_comment": {
+        "url": "https://github.com/pixelelated/distribution/issues/565#issuecomment-6150203029",
+        "createdAt": "2026-10-13T16:27:06Z",
+        "body": "## Testing-first continuation \u2014 October 13\n\nOwner:\n> Got it. Can we start working through all of these issues we've discovered and figure out what we need to do to be able to start bringing them to resolution? There's additional testing to do. Let's go ahead and do that first. I'd like to be able to work towards our next release candidate.\n\nCan this be done on the VM? **Yes.** Start a fresh disposable accepted VM20 guest, 8GiB RAM/4vCPU/16GiB sparse disk/640x480, to qualify the synthetic ROM-only versus ROM+gamelist import case (#565) and reproduce initial/delayed/refreshed/empty/error Wi-Fi layout (#577). No owner's saves, account, cloud or handheld is used. Existing accepted image/source and exact VM profile/commands are recorded. Keep unchanged-image reproduction separate from next-candidate qualification.\n\nCurrent allocation: /workspace/tmp/pix-m7-baseline-tests-20261013, at most8GiB host scratch,8GiB guest RAM, ports10580/5974 checked free. Host has over2.8TB free and50GiB available memory; existing swap occupancy is recorded without changing host swap. Durable watch-build/watch-job owners plus active result consumption supervise each stage; no disconnected alert is claimed. Stop the exact VM and retire its disk/UEFI/access material after compact evidence is accepted.\n\n#570 remains the first product fix to qualify, but #493's final criterion explicitly requires capacity/retention enforcement **before compilation**, including the actual ES candidate. No compiler or full cache copy starts in this baseline stage. Put #493 at that dependency boundary, while the existing-image tests proceed. Diagnostic allocator interposition is already complete and will not be repeated as a substitute for compiling the actual change.\n"
+      }
+    },
+    {
+      "number": 566,
+      "title": "M7.P5: Provision ScreenScraper credentials for pixelelated releases",
+      "state": "OPEN",
+      "updated_at": "2026-10-14T05:27:12Z",
+      "url": "https://github.com/pixelelated/distribution/issues/566",
+      "body_sha256": "4b2630ec23f317d8c1025676e2cee53b30a228eeee427ac1309c333bb72a0f58",
+      "comment_count": 2,
+      "latest_comment": {
+        "url": "https://github.com/pixelelated/distribution/issues/566#issuecomment-6161586321",
+        "createdAt": "2026-10-14T05:27:12Z",
+        "body": "Interim provisioning candidate19221f4762298b10e44a08f2c3e7371c7ddeb0d1 is implemented locally. A fresh offline VM passes127 selected-state root-policy cases (113 existing +14 new) and four recipe environment cases: unset, empty, explicit shared and explicit local override. The new controls fail against unchanged source as expected (gate2/recipe1); candidate outputs0. Only the exact NUL-delimited compiled shared identity is permitted; other developer/RA pairs and player/default settings remain refused. All original successful-run delivery channels0, actual host/QEMU owners exited, admission consumed and disks retired.\n\nOriginal attempt01 remainsFAIL1 from a generated report's nested newline syntax error; failure cleanup also stopped before flushing its output, so no test pass is accepted from it. Fresh attempt02 syntax-checks shell and embedded Python and records successful output unmount before stop. Both temporary disk sets are retired (4,554,809,344 bytes). Compact local evidence is docs/qa-logs/2026-10-14-screenscraper-provisioning/; no provider or owner-device operation.\n\nActual rebuilt ES definition/URL selection, reviewed EN/FR small/large frames, backup and final clean/retained images remain open. Header-shaped ELF parser fixtures are not actual binary qualification. Canonical flow is updated with those frame obligations. #586 remains backlog. No pin promotion, push or RC designation."
+      }
+    },
+    {
+      "number": 567,
+      "title": "M7.P5: Explain offline achievements before updating game lists",
+      "state": "OPEN",
+      "updated_at": "2026-10-14T02:37:51Z",
+      "url": "https://github.com/pixelelated/distribution/issues/567",
+      "body_sha256": "55088425921951d86b321d88e24036da188883be83b5f364e0293b0e6acf485a",
+      "comment_count": 3,
+      "latest_comment": {
+        "url": "https://github.com/pixelelated/distribution/issues/567#issuecomment-6159645050",
+        "createdAt": "2026-10-14T02:37:51Z",
+        "body": "The corrected isolated index fixture now passes all four API branches against native ESbb9e: success, missing account, failed hash lookup and no new work. Original worker/ES/listener exits0, no forced cleanup or remaining namespace tasks; bounded log export passes.\n\nSuccess makes one hash-library and one official-games request, identifies one synthetic game and calls the simulated ctl once with0. Missing account records ctl77 and no prepared stamp. Failed lookup does not top up; no-new-work makes no lookup requests or top-up call. This is native ES integration with a simulated ctl contract, not actual RAOfflineProxy or confirmation-UI qualification.\n\nOriginal failures remain:8MiBFSIZE constrained64MiB PulseAudio memfd; nine controls pass with finite64MiB ES and independent8MiB output guard. The next missing-log failure came from unsupported --log-path and warning-only logging. Source84faea63d9 uses the supported private INI log route plus information level and a log barrier within the existing40-second startup wait. The earlier parent census did not cover /var/log, and its output-guard pass did not prove those uncaptured native logs stayed bounded.\n\nThe offline640/1280 VM is COMPLETE/RETIRED:35 original owners consumed, actual PIDs exited,2,652,819,456allocated temporary bytes removed. Local durable evidence: docs/qa-logs/2026-10-14-offline-components/. No device/provider account or owner data involved. Remaining actual proxy integration is linked to #583; confirmation UI and final combined image proof remain separate.\n"
+      }
+    },
+    {
+      "number": 570,
+      "title": "M7.P5: Investigate sluggish browser authentication",
+      "state": "OPEN",
+      "updated_at": "2026-10-14T15:21:20Z",
+      "url": "https://github.com/pixelelated/distribution/issues/570",
+      "body_sha256": "119de273f0b1b5678e2aad2e48c4824f88377671ed9f1b71ff81925d47c2d209",
+      "comment_count": 43,
+      "latest_comment": {
+        "url": "https://github.com/pixelelated/distribution/issues/570#issuecomment-6171784333",
+        "createdAt": "2026-10-14T15:21:20Z",
+        "body": "The owner's October14 follow-up is now tracked as future experiment #587, with the full verbatim request and VM-first lifecycle/memory acceptance criteria. It builds on this issue's earlier proxy lifecycle review. D-RA-047 keeps it outside the current RC gates and conditional on preserving queued awards, cache work, enabled preferences and next-game listener readiness. No service stop policy has been selected or implemented.\n"
+      }
+    },
+    {
+      "number": 571,
+      "title": "M7.P5: Keep phone keyboard status stable across browser navigation",
+      "state": "OPEN",
+      "updated_at": "2026-10-14T04:47:30Z",
+      "url": "https://github.com/pixelelated/distribution/issues/571",
+      "body_sha256": "83977bc107ee6a5405149ad6698f6c94a8c9808534ac7579779f7a966d462b2b",
+      "comment_count": 3,
+      "latest_comment": {
+        "url": "https://github.com/pixelelated/distribution/issues/571#issuecomment-6155917808",
+        "createdAt": "2026-10-13T21:49:09Z",
+        "body": "Can this be done on the VM? Yes for installed broker/UI proof, ongoing in the admitted synthetic VM. Before that, a serialized companion-page component follow-up uses the already installed Chromium and isolated network-denied EN/FR 320/768 contexts, exact cloud_oauth 95c626f8df07faef522683a857e48e31f85a58c6f738bcde24707574dc24d293. No broker import, listener, provider or account. Bound 120 seconds, one browser, new owner and original exits; previous pre-locale results remain separate. Check existing connection/navigation/queue states plus exact French controls and masked/revealed/rehidden warnings, label geometry and 48 frames. Current VM is idle during this host component check; no competing benchmark. Installed-flow proof remains separate."
+      }
+    },
+    {
+      "number": 572,
+      "title": "M7.P5: Keep the GStreamer runtime dependencies used by sign-in",
+      "state": "OPEN",
+      "updated_at": "2026-10-13T01:47:07Z",
+      "url": "https://github.com/pixelelated/distribution/issues/572",
+      "body_sha256": "70e2afff238281899b10aa6d0e0af44c607993744a534a5cd1df7aab7dbbd4af",
+      "comment_count": 2,
+      "latest_comment": {
+        "url": "https://github.com/pixelelated/distribution/issues/572#issuecomment-6135585463",
+        "createdAt": "2026-10-13T00:50:09Z",
+        "body": "## Scoped packaging repair preparation \u2014 2026-10-13\n\nUpstream check (D-WORKFLOW-162): current ROCKNIX next still pins GStreamer 1.29.2, disables registry/tools and removes libgstcontroller. Our sign-in-specific override already enables registry; its runtime needs differ from upstream's generic recipe. The pinned GStreamer libs/gst/helpers/meson.build gates gst-plugin-scanner on tools being enabled and installs it under the configured libexecdir/gstreamer-1.0. The cached target's libexecdir is lib, so its expected path is /usr/lib/gstreamer-1.0/gst-plugin-scanner. This is a packaging omission, not an identified new GStreamer engine bug.\n\nSource: https://github.com/ROCKNIX/distribution/blob/next/packages/multimedia/gstreamer/gstreamer/package.mk ; exact fetched recipe retained privately. GStreamer registry design: https://gstreamer.freedesktop.org/documentation/gstreamer/gstregistry.html\n\nImplement in the ROCKNIX override: enable upstream tools so the scanner builds normally and preserve libgstcontroller in the final runtime install. Verify actual Meson install output and the actual post-install hook using an isolated package copy with the accepted cache mounted read-only. VM proof remains appropriate: after #570's engine-only matrix finishes, exercise a fresh registry with this exact staged payload. The running engine comparison keeps its original GStreamer bytes throughout. No full firmware build or owner-device mutation.\n"
+      }
+    },
+    {
+      "number": 574,
+      "title": "M7.P5: Recognize GameCube RVZ achievements in the frontend",
+      "state": "OPEN",
+      "updated_at": "2026-10-14T17:30:03Z",
+      "url": "https://github.com/pixelelated/distribution/issues/574",
+      "body_sha256": "83e7e6d24fea8b19943084bada286e372397346021040b5ebb46114ed59f634a",
+      "comment_count": 21,
+      "latest_comment": {
+        "url": "https://github.com/pixelelated/distribution/issues/574#issuecomment-6174323849",
+        "createdAt": "2026-10-14T17:30:03Z",
+        "body": "Actual CHD native proof PASS. Fresh native02 owner1.786s, selected cases0.946s; all8 original case children0, all234 ordered hashes match. Includes real converter-created Saturn CHD, CUE/ISO/CHD parity on repaired baseline and candidate, repeated hash resets, and64 CHD\u2192RVZ\u2192NES\u2192CUE transitions. Sanitizer stderr empty where required; converter progress retained. Both installed/private loader lists0 and both exact-source help exits1 qualify actual chdman766640df. Outer cleanup PASS/no forced signals/survivors; lifecycle/runner/launcher0, monitor0.\n\nEvidence docs/qa-logs/2026-10-14-chd-native-runtime/attempt02; run20261014T172737Z-3010941d, admissione10ef94addf04b59aacada864b4456ca consumed after actual host exits.2,338,144,256B VM/media retired. Successful compiler work also retired after preserving original records and verified small successor closure bundle. Initial help-exit fixture failure remains intact. No completed suite replay, no product pin/image/device change.\n\nCHD component parity is now accepted. Current proxy native source provenance, installed service/default-boot composition, Dolphin gameplay and final image/UI qualification remain. #588 separately tracks the startup reconnect window found in service proof; normal main/systemd lifecycle passed139.59s under #583.\n"
+      }
+    },
+    {
+      "number": 575,
+      "title": "M7.P5: Clarify standalone save-on-exit and save-state manager support",
+      "state": "OPEN",
+      "updated_at": "2026-10-14T04:47:36Z",
+      "url": "https://github.com/pixelelated/distribution/issues/575",
+      "body_sha256": "93c2da4d2328d039f55ff70d0273c2af911cee47ce37905805aa1cf8b402a500",
+      "comment_count": 2,
+      "latest_comment": {
+        "url": "https://github.com/pixelelated/distribution/issues/575#issuecomment-6159645579",
+        "createdAt": "2026-10-14T02:37:53Z",
+        "body": "French catalog09afa is compiled and its three replacement save-capability descriptions now pass reviewed global/per-game frames at640\u00d7480 and1280\u00d7800 against ESbb9e. All four visual runners0, no game launch; final1280 settings byte-identical. Global640 changed only the documented legacy incremental0\u21922 normalization (D-UI-083; both consumer values mean off), while the selected auto-save preferences remained unchanged. The original raw-file cmp failure and follow-up source/readback evidence are retained.\n\nThe old rejected wrapping frames remain historical evidence. Canonical menu map now links the new reviewed frame index in local docs/qa-logs/2026-10-14-offline-components/. Source-staged UI qualification does not promote the production pin or qualify a new full image. The VM is complete and its media retired.\n"
+      }
+    },
+    {
+      "number": 577,
+      "title": "M7.P5: Keep the Wi-Fi picker visible while networks refresh",
+      "state": "OPEN",
+      "updated_at": "2026-10-14T04:47:32Z",
+      "url": "https://github.com/pixelelated/distribution/issues/577",
+      "body_sha256": "bf8c81cb438d634753732fd0c22c09cefc88fc6f88d42fa3be11b8423b5ec46c",
+      "comment_count": 4,
+      "latest_comment": {
+        "url": "https://github.com/pixelelated/distribution/issues/577#issuecomment-6155791255",
+        "createdAt": "2026-10-13T21:41:32Z",
+        "body": "Can this be done on the VM? Yes. The allocated combined-source guest now passes initial/refresh/error-retains/empty/Back-reopen/long-list controls with one frontend process and exactly six expected scans. Reviewed640px frames distinguish failure from empty and retain rows; final bilingual/two-size/routing coverage remains due.\n\nNext execute exact wifictl source c02361a3c5 / local integration7b2b874cab and its original source under the prepared profile-shim fixture, inside this same disposable VM.37 cases per source: original false successes preserved as controls, new readiness/rescan/enumeration/escaping/status behavior verified. No installed wifictl replacement for this component step, no actual radio/nmcli/account. Five seconds percase and210s perversion; fresh watched sub-owner. Timeout statuses are synthetic, not wall-clock radio proof. Afterward actual UI/backend composition still owes its own evidence."
+      }
+    },
+    {
+      "number": 578,
+      "title": "M7.P5: Correct the default Recent collection selection",
+      "state": "OPEN",
+      "updated_at": "2026-10-14T04:47:34Z",
+      "url": "https://github.com/pixelelated/distribution/issues/578",
+      "body_sha256": "1441a8917f1482a135d1328408d128d9959b28a97327ccab4fa269633a8845ff",
+      "comment_count": 0,
+      "latest_comment": null
+    },
+    {
+      "number": 579,
+      "title": "M7.P5: Preserve the FEX environment when Steam setup fails",
+      "state": "OPEN",
+      "updated_at": "2026-10-14T00:35:39Z",
+      "url": "https://github.com/pixelelated/distribution/issues/579",
+      "body_sha256": "1acace7d7b6ed5872617de545aa5cac0a942d909c696a5941e399c9d730fad0c",
+      "comment_count": 2,
+      "latest_comment": {
+        "url": "https://github.com/pixelelated/distribution/issues/579#issuecomment-6158202583",
+        "createdAt": "2026-10-14T00:35:39Z",
+        "body": "Complete repaired synthetic caller PASS in the allocated GENERIC_X64 VM. Installer source c6240ed3984a; fixture422955707938; all9 steps and12 preservation roots pass, original installer0,10.969s, no intervention or surviving descendant. The two prior pre-installer harness failures remain original failures. Product/payload/fetch seams and all limits are explicit in local docs/qa-logs/2026-10-13-library-vm/. Fresh-client and allowed-alias cases are prepared in local270e7c7e36d4 but UNRUN; real payload/native/image qualification remains open. VM/31owners completed and disposable disk/keys retired. No issue closure or pin promotion.\n"
+      }
+    },
+    {
+      "number": 580,
+      "title": "M7.P5: Preserve Proton variants when Steam updates fail",
+      "state": "OPEN",
+      "updated_at": "2026-10-14T04:47:40Z",
+      "url": "https://github.com/pixelelated/distribution/issues/580",
+      "body_sha256": "58b25c2173a9fa9762ec1ce501a13a3fd7da4cf77c893884fe0c023d95fcd1a8",
+      "comment_count": 0,
+      "latest_comment": null
+    },
+    {
+      "number": 581,
+      "title": "M7.P5: Preserve retained Dolphin save data before relinking",
+      "state": "OPEN",
+      "updated_at": "2026-10-14T17:55:09Z",
+      "url": "https://github.com/pixelelated/distribution/issues/581",
+      "body_sha256": "de106f1d42e1cca6b98e83aedee77ec6e5823d7026abe454a456f72b48d1ec5f",
+      "comment_count": 4,
+      "latest_comment": {
+        "url": "https://github.com/pixelelated/distribution/issues/581#issuecomment-6174800984",
+        "createdAt": "2026-10-14T17:55:09Z",
+        "body": "Continuing the one missing updated English 640px long-card-path presentation proof. Can this be done on the VM? Yes: reuse the accepted complete-launcher fixture, helper1a7714fd81, fixture5a385f12e3 and compiled ES bb9e2785 (SHA8752b539\u2026), selecting only a fresh EN640 Wii/card-conflict layout case. Prior French640 and English1280 results are retained and will not be replayed simply to resume. The new allocation must retain original caller/refusal/cleanup statuses and reviewed entry, error and return frames, with the original finite case limits. This remains a synthetic refusal/layout proof, separate from native engine/gameplay and final image qualification. No owner-device or account data is involved.\n"
+      }
+    },
+    {
+      "number": 582,
+      "title": "M7.P5: Preserve Steam client bootstrap across failed extraction and retry",
+      "state": "OPEN",
+      "updated_at": "2026-10-14T16:45:57Z",
+      "url": "https://github.com/pixelelated/distribution/issues/582",
+      "body_sha256": "ee87b5929d4999275bbfe4f6ce2d3037b531b0783436b2c9acd840692998bd98",
+      "comment_count": 19,
+      "latest_comment": {
+        "url": "https://github.com/pixelelated/distribution/issues/582#issuecomment-6173478484",
+        "createdAt": "2026-10-14T16:45:57Z",
+        "body": "Corrected CRC fixture8f0eaf PASS in fresh VM attempt11: original caller/trace1,0, actual CRC refusal then clean retry,13 protected paths unchanged,26.60216966s. Original outer channels0, no intervention/survivor.65 collected events/13,897B bind24 original streams. Separate bounded-file control directly observed EFBIG27 for10806B append under10676B cap and accepted633B freshfile. Original attempt10 staysFAIL; its exception was not retained. Evidence docs/qa-logs/2026-10-14-steam-client-first-caller/attempt11-crc-events. Admission5fff76 consumed; actual host owners exited;2,278,100,992B VM/media retired. Product03e130 unchanged and no native Steam execution.\n"
+      }
+    },
+    {
+      "number": 583,
+      "title": "M7.P5: Verify RVZ offline proxy support and upstream fix routing",
+      "state": "OPEN",
+      "updated_at": "2026-10-14T17:55:08Z",
+      "url": "https://github.com/pixelelated/distribution/issues/583",
+      "body_sha256": "aa3d911febf273c0f81131993dba67ffb205f45d026814fd687724a58876bd93",
+      "comment_count": 15,
+      "latest_comment": {
+        "url": "https://github.com/pixelelated/distribution/issues/583#issuecomment-6174800573",
+        "createdAt": "2026-10-14T17:55:08Z",
+        "body": "Continuing #583/#584 under the owner's current M7 authorization. Can this be done on the VM? Yes for runtime/loader/native and service qualification. The cross-compilation itself needs the already pinned host builder and frozen target SDK; it runs without a network and produces a small native library from the recipe's three exact cached source pins. It does not execute the target library on the host.\n\nA source-only worker is preparing the exact current make_target build invocation and admission plan, with no product/native patch selected merely to erase the provenance limitation. Root will inspect and execute it as one actively supervised, serialized allocation. Planned bounds: 4GiB container memory, 2CPU, one compiler driver, 1GiB sampled scratch and a 600-second family deadline. Export original statuses, source/compiler/command/output hashes and closure evidence before retiring temporary sources. Runtime proof remains a separate no-NIC disposable VM stage. A successful build alone will not mark installed/native service qualification complete.\n"
+      }
+    },
+    {
+      "number": 584,
+      "title": "M7.P5: Route Dolphin through the enabled offline achievements service",
+      "state": "OPEN",
+      "updated_at": "2026-10-14T15:30:49Z",
+      "url": "https://github.com/pixelelated/distribution/issues/584",
+      "body_sha256": "2d0640641982e2e8e8bc705f073a07257694bc195d02e98f07e8921badfc4ffb",
+      "comment_count": 4,
+      "latest_comment": {
+        "url": "https://github.com/pixelelated/distribution/issues/584#issuecomment-6171979953",
+        "createdAt": "2026-10-14T15:30:48Z",
+        "body": "## October14 independent format and native-proxy qualification\n\nFresh no-NIC VM20 independent oracle PASS: five corrected synthetic RVZ decodes, two independent Dolphin encodes, two complete data roundtrips, two target candidate hashes. Original native commands all0, no timeout/stderr; unchanged GameCube MD5118545082f24fc195a446d1ee7bbf816. The original decode failure is preserved; worker052b36080f corrects only a missing empty-partition SHA1 in the synthetic generator, with explicit rebinding and unchanged raw data/oracle/binaries.\n\nSeparate fresh native-proxy fixture PASS,11.46seconds: actual installed native ISO/NONE-RVZ/Zstd-RVZ parity, real scanner handoff, account/cache isolation, identified local listener and false-readiness rejection, signed award dedup/hardcore refusal, SQLite reopen/integrity, failed auth/patch/award preservation, reconnect applies two synthetic awards exactly once. No external network/account/gameplay. Exact installed library hashes and source manifests are retained.\n\nBoth successful runs have original child/owner/lifecycle/launcher/runner0 and monitor0, clean descendants/listeners/threads, actual host exits, consumed admissions and removed VM disks (4,647,079,936bytes). Earlier failed Dolphin attempt remainsFAIL1/retired. No owner-device action, product pin, firmware or RC designation.\n\n**Remaining:** older installed native bytes have `source_pins_verified:false`; this is not current-native-build provenance. Full main/systemd/periodic-service lifecycle, production scanner locking, Dolphin gameplay/integration, CHD/native parity, final frontend/UI and assembled-image clean/retained proof remain. Source-only prepared controls were not silently counted as executed. Evidence: local `docs/qa-logs/2026-10-14-independent-format-runtime/` and `2026-10-14-proxy-native-runtime/`; immutable source packets retained. Future browser stop/restart experiment#587 stays outside M7's gates.\n"
+      }
+    },
+    {
+      "number": 588,
+      "title": "M7.P5: Investigate pending awards during startup reconnect",
+      "state": "OPEN",
+      "updated_at": "2026-10-14T17:52:59Z",
+      "url": "https://github.com/pixelelated/distribution/issues/588",
+      "body_sha256": "d960d399dec85ce7f0bdea03e0c68ae9065aee44be1b085e8ea1c134ebd157e1",
+      "comment_count": 2,
+      "latest_comment": {
+        "url": "https://github.com/pixelelated/distribution/issues/588#issuecomment-6174760641",
+        "createdAt": "2026-10-14T17:52:59Z",
+        "body": "Both visible source workers subsequently failed authentication before starting: Herdr pix-memory and pix-gtk4 reported that their access token could not be refreshed after a sign-out/account change. They remain blocked and are not running.\n\nThe coordinator has continued through explicitly scoped internal workers: proxy_startup_588 owns a separate diagnostic patch/reproducer packet, proxy_native_build owns current native-library build preparation, and dolphin_english_proof owns the missing English 640px long-card frame preparation. All three are source-only; runtime remains serialized and supervised by the coordinator. No owner device, account, provider, product integration or upstream submission is involved. The causal #588 experiment is still UNRUN at this checkpoint.\n"
+      }
+    }
+  ]
+}

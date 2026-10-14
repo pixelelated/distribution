@@ -1,0 +1,239 @@
+--- 5a385f12e355cd3400bf11a740cc0e0b852eeab1:resume-baseline.json
++++ english640:resume-baseline.json
+@@ -1,89 +1,13 @@
+ {
+   "schema": 1,
+-  "source_packet_commit": "e1b9d26ee7e81983bc4ae254d143f3f013accac9",
++  "source_packet_commit": "5a385f12e355cd3400bf11a740cc0e0b852eeab1",
+   "consumed_run_ids": [
++    "20261014small01",
++    "20261014small02",
+     "20261014small03",
+-    "20261014small04"
++    "20261014small04",
++    "20261014small05"
+   ],
+-  "accepted_evidence": {
+-    "gc-fresh-en640": {
+-      "complete_status": {
+-        "path": "/workspace/tmp/pix-m7-offline-vm-20261014/dolphin03-frames/20261014T012643-fac58e04/status.json",
+-        "sha256": "312e818aae2f4d7fc16f6dba57f477482e330f370636fdee7bdfb9f4dc0eb637"
+-      },
+-      "coordinator_review": {
+-        "path": "/workspace/tmp/pix-m7-offline-vm-20261014/dolphin03-frames/07-complete-action.json",
+-        "sha256": "1fdc29b569474503eaebb03d1db28e42e1338401c220c86250e5d3ac8c2828a8"
+-      },
+-      "originals": {
+-        "session_process": 0,
+-        "session": 0,
+-        "frontend_restore": 0,
+-        "unshare": 0,
+-        "es": 0,
+-        "runemu": 0
+-      }
+-    },
+-    "gc-link-en640": {
+-      "complete_status": {
+-        "path": "/workspace/tmp/pix-m7-offline-vm-20261014/dolphin03-frames/20261014T012732-020f50e3/status.json",
+-        "sha256": "f3c0e37826a668c316f84311fd4dc956cc9b6f32e96d1fff0c66a9ce3ebb0ffa"
+-      },
+-      "coordinator_review": {
+-        "path": "/workspace/tmp/pix-m7-offline-vm-20261014/dolphin03-frames/11-complete-action.json",
+-        "sha256": "5c3b926a0285495f192c8765780e1c1221eb0511a5a886c9527015b6d1578946"
+-      },
+-      "originals": {
+-        "session_process": 0,
+-        "session": 0,
+-        "frontend_restore": 0,
+-        "unshare": 0,
+-        "es": 0,
+-        "runemu": 0
+-      }
+-    },
+-    "wii-link-en640": {
+-      "complete_status": {
+-        "path": "/workspace/tmp/pix-m7-offline-vm-20261014/dolphin03-frames/20261014T012820-14d8f807/status.json",
+-        "sha256": "4ec2bd5e21554c9f731f00e4eda68726b99de8d75d4c9bc891d457e595c24f2f"
+-      },
+-      "coordinator_review": {
+-        "path": "/workspace/tmp/pix-m7-offline-vm-20261014/dolphin03-frames/15-complete-action.json",
+-        "sha256": "4c525e3b2bdfe3a2edf9ea8530ad925c0514845b39516effa1132879ab019abc"
+-      },
+-      "originals": {
+-        "session_process": 0,
+-        "session": 0,
+-        "frontend_restore": 0,
+-        "unshare": 0,
+-        "es": 0,
+-        "runemu": 0
+-      }
+-    }
+-  },
+-  "failure_preserved": {
+-    "case_id": "gc-state-en640",
+-    "phase": "entry",
+-    "batch_original_exit": 1,
+-    "monitor_original_exit": 1,
+-    "coordinator_report": "context interruption before any launch key; no caller/refusal result",
+-    "worker_observation": "16-entry-action.json absent at source review; text receipts inspected only, no frames/media accessed",
+-    "receipts": {
+-      "/workspace/tmp/pix-m7-offline-vm-20261014/dolphin03-frames/20261014T013154-65700cea/status.json": "f7d44f80667a15ccba3fb5b66250a9e1fbdc23b31363e8f0aeb1eaf4fa0a166c",
+-      "/workspace/tmp/pix-m7-offline-vm-20261014/dolphin03-frames/20261014T012835-49a996f7/status.json": "ab43086cdf71cb796b0ab620f5492fdd6eb1fdf6da7937d9c607ea566f33244f",
+-      "/workspace/tmp/pix-m7-offline-vm-20261014/dolphin03-monitor-result.json": "a226f4201dcd5dfa4f86a05d181134a075c0e0be4317f4abd1293848a8bef820"
+-    }
+-  },
+-  "selection_scope": [
+-    "gc-state-fr640",
+-    "wii-card-fr640"
+-  ],
+-  "boundary": "Seven completed callers excluded even without old exported receipts. Wii EN visual remains OPEN. Small03 and small04 failures preserved; only two unfinished FR640 cases may be explicitly selected.",
+-  "prior_checkpoint": {
+-    "commit": "c37a68a9e8b46aa5d828dafd840732c90f32f8ea",
+-    "path": "docs/qa-logs/2026-10-13-dolphin-preservation-source/installed-flow/remaining-selection/resume-baseline.json",
+-    "sha256": "ba0e9eb39f316e881b56c1810383c6f9937edd4627ad087a19721aed039899e1"
+-  },
+   "completed_case_ids": [
+     "gc-fresh-en640",
+     "gc-link-en640",
+@@ -91,129 +15,18 @@
+     "gc-state-en640",
+     "wii-card-en640",
+     "gc-busy-en640",
+-    "gc-busy-fr640"
++    "gc-busy-fr640",
++    "gc-state-fr640",
++    "wii-card-fr640"
+   ],
+-  "visual_open": {
+-    "wii-card-en640": "Caller complete; EN640 card path orphaned final w. New helper layout needs separately allocated targeted frame; excluded from remaining-case batch."
++  "selection_scope": [
++    "wii-card-en640-layout"
++  ],
++  "boundary": "One new corrected-layout English640 proof only. All nine old catalog IDs remain excluded; accepted FR640/FR1280/EN1280 are not rerun. Earlier failures and acceptance remain bound to their original bytes.",
++  "original_baseline": {
++    "commit": "5a385f12e355cd3400bf11a740cc0e0b852eeab1",
++    "path": "docs/qa-logs/2026-10-13-dolphin-preservation-source/installed-flow/remaining-two/resume-baseline.json",
++    "sha256": "e794b1c54a2700114fa0774f9fec5de7302ef267cc553f910a459b5e70006db1"
+   },
+-  "small04_completed_evidence": {
+-    "gc-state-en640": {
+-      "receipt": {
+-        "path": "/workspace/tmp/pix-m7-offline-vm-20261014/dolphin04-frames/20261014T014822-a68645c0/status.json",
+-        "sha256": "afc78e747ac50eeacea643b96ecc027dbc40c15059598f195e64791b70444970"
+-      },
+-      "coordinator_review": {
+-        "path": "/workspace/tmp/pix-m7-offline-vm-20261014/dolphin04-frames/07-complete-action.json",
+-        "sha256": "c9c771838b550ce46435c5bca9f771290573d905119f59cbc17c4711b82b0d98"
+-      },
+-      "originals": {
+-        "session_process": 0,
+-        "session": 0,
+-        "frontend_restore": 0,
+-        "unshare": 0,
+-        "es": 0,
+-        "runemu": 250
+-      },
+-      "visual_accepted": true
+-    },
+-    "wii-card-en640": {
+-      "receipt": {
+-        "path": "/workspace/tmp/pix-m7-offline-vm-20261014/dolphin04-frames/20261014T014957-05761bef/status.json",
+-        "sha256": "0810dea18a175041f3fcfa940484785c320baa9ee68198d945c7ba793dee9fb5"
+-      },
+-      "coordinator_review": {
+-        "path": "/workspace/tmp/pix-m7-offline-vm-20261014/dolphin04-frames/11-complete-action.json",
+-        "sha256": "e3c4d8d374b03ae753f9c553cdcb21eed0b8c6f16623684499658eafbdb4c128"
+-      },
+-      "originals": {
+-        "session_process": 0,
+-        "session": 0,
+-        "frontend_restore": 0,
+-        "unshare": 0,
+-        "es": 0,
+-        "runemu": 250
+-      },
+-      "visual_accepted": false
+-    },
+-    "gc-busy-en640": {
+-      "receipt": {
+-        "path": "/workspace/tmp/pix-m7-offline-vm-20261014/dolphin04-frames/20261014T015113-027b9c43/status.json",
+-        "sha256": "cd51070c1e441ca331ae030ff3283e09de3a8db7241236af3bde2e9a67d90fea"
+-      },
+-      "coordinator_review": {
+-        "path": "/workspace/tmp/pix-m7-offline-vm-20261014/dolphin04-frames/15-complete-action.json",
+-        "sha256": "2069cdb03465b5d22b2ea53d5983e50dff26c167ad33a1d4476213f137920bd5"
+-      },
+-      "originals": {
+-        "session_process": 0,
+-        "session": 0,
+-        "frontend_restore": 0,
+-        "unshare": 0,
+-        "es": 0,
+-        "runemu": 250
+-      },
+-      "visual_accepted": true
+-    },
+-    "gc-busy-fr640": {
+-      "receipt": {
+-        "path": "/workspace/tmp/pix-m7-offline-vm-20261014/dolphin04-frames/20261014T015228-6b7fc275/status.json",
+-        "sha256": "1933427a46ad3ff05b9c0fc700f9fa288bb31950da9cb19c614810a3e45c05d9"
+-      },
+-      "coordinator_review": {
+-        "path": "/workspace/tmp/pix-m7-offline-vm-20261014/dolphin04-frames/19-complete-action.json",
+-        "sha256": "957e4b68d72f0966a5cd52ca31adeb9a769ea45a851e206bd70c13acad89490a"
+-      },
+-      "originals": {
+-        "session_process": 0,
+-        "session": 0,
+-        "frontend_restore": 0,
+-        "unshare": 0,
+-        "es": 0,
+-        "runemu": 250
+-      },
+-      "visual_accepted": true
+-    }
+-  },
+-  "small04_failure_preserved": {
+-    "case_id": "gc-state-fr640",
+-    "phase": "entry",
+-    "caller": "UNRUN; no launch action, runemu null",
+-    "originals": {
+-      "session": 1,
+-      "frontend_restore": 0,
+-      "unshare": 1,
+-      "es": 0,
+-      "runemu": null
+-    },
+-    "batch_exit": 1,
+-    "monitor_exit": 1,
+-    "status": {
+-      "path": "/workspace/tmp/pix-m7-offline-vm-20261014/dolphin04-frames/20261014T015332-075aa012/status.json",
+-      "sha256": "f7d44f80667a15ccba3fb5b66250a9e1fbdc23b31363e8f0aeb1eaf4fa0a166c"
+-    },
+-    "monitor": {
+-      "path": "/workspace/tmp/pix-m7-offline-vm-20261014/dolphin04-monitor-result.json",
+-      "sha256": "001316eb77a3c5bce4b9673475fa11cc59720b6c9b4f37ab61c6d536aed2645a"
+-    },
+-    "capture": {
+-      "path": "/workspace/tmp/pix-m7-offline-vm-20261014/dolphin04-frames/20-entry-capture.json",
+-      "sha256": "fb908cf970244894bb6a1834f6bf87fb98df7a427d205cbfbe1608ef593b624d"
+-    },
+-    "entry_action_present": false,
+-    "diagnosis": [
+-      {
+-        "path": "/workspace/tmp/pix-m7-offline-vm-20261014/dolphin04-diagnosis-host/stdout",
+-        "sha256": "8610c61b0730b3407f746c054513b24106208aa98b59bac8d117c4d65ca177b0"
+-      },
+-      {
+-        "path": "/workspace/tmp/pix-m7-offline-vm-20261014/dolphin04-diagnosis02-host/stdout",
+-        "sha256": "1aca203d23d68bc8e378b2926a298afabb517d4d88492331d06e9358f35df2bd"
+-      },
+-      {
+-        "path": "/workspace/tmp/pix-m7-offline-vm-20261014/dolphin04-diagnosis03-host/stdout",
+-        "sha256": "c72cbcabee1caac6979b7a1773dc18ea7b602bd4a1c2d8667d68b7d5574792f7"
+-      }
+-    ],
+-    "frame_finding": "The two original PPM entry rasters are identical below y=48 to passed gc-busy-fr640; no missing game list in these artifacts. Timeout remains a failed unlaunched case, not product failure proof."
+-  }
++  "accepted_evidence": "accepted-evidence.json"
+ }

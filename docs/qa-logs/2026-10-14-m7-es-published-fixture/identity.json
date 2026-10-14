@@ -1,0 +1,102 @@
+{
+  "schema": 1,
+  "checked_at_utc": "2026-10-14T18:44:55.877950+00:00",
+  "worktree": "/home/max/Development/emulationstation-next.worktrees/m7-candidate-compose",
+  "branch": "feature/m7-candidate-compose",
+  "syntax_qualified_parent": "c045d2ec1936c2dfc6c4777935fb2d4cd8b3bcfa",
+  "published_fixture_parent": "0ee5b28a65ada516a83d6ff10ec5ec889c3edcd7",
+  "parents_planned": [
+    "c045d2ec1936c2dfc6c4777935fb2d4cd8b3bcfa",
+    "0ee5b28a65ada516a83d6ff10ec5ec889c3edcd7"
+  ],
+  "conflicts": [],
+  "manual_resolutions": 0,
+  "changed_paths": [
+    "tests/cloud-oauth-lifetime.py"
+  ],
+  "every_other_tracked_path_identical_to_c045": true,
+  "unchanged_tracked_paths": 1113,
+  "working_file_blob_mode_checks": 1113,
+  "changed_fixture": {
+    "path": "tests/cloud-oauth-lifetime.py",
+    "before_git_blob": "196abce8fef3d8d458cedb1fcdbd8d21d2e6171e",
+    "after_git_blob": "634ddbfdd624aa778f4b03f65e458b3e7987a2e1",
+    "mode": "100644",
+    "before_sha256": "93cb19a79993b6c54a0b4e1bcc3ab4f4abfc13ddef9e578dcb732d35ffdbbf46",
+    "after_sha256": "fcd3910911710dce78dea492b19534e6d924960e1cd42b27886f33ebede55e3d",
+    "bytes": 7707,
+    "equals_published_fixture": true
+  },
+  "execution": "Only source/identity/ancestry inspection. No compiler, fixture, test, VM, pin or push.",
+  "commit": "a5c7ff998831c8215f135a42a6f695e75230451d",
+  "tree": "909c929be63c070df4bb40c0b05b229383e944cc",
+  "parents": [
+    "c045d2ec1936c2dfc6c4777935fb2d4cd8b3bcfa",
+    "0ee5b28a65ada516a83d6ff10ec5ec889c3edcd7"
+  ],
+  "clean_worktree": true,
+  "both_parents_are_ancestors": true,
+  "final_changed_paths": [
+    "tests/cloud-oauth-lifetime.py"
+  ],
+  "compile_and_presentation_roots": {
+    "es-app": {
+      "git_tree_entry": "040000 tree 7113ab4dee317b3e066f569f33802dd0f7840a5e\tes-app",
+      "equals_c045": true
+    },
+    "es-core": {
+      "git_tree_entry": "040000 tree 82c0c62447bb6d47c88cdcccac7e60eaf90e3393\tes-core",
+      "equals_c045": true
+    },
+    "external": {
+      "git_tree_entry": "040000 tree 03e88868d18b35b057a4de88d66b73c1f3703587\texternal",
+      "equals_c045": true
+    },
+    "locale": {
+      "git_tree_entry": "040000 tree 52eb5ab9aec2da7c7a14138b7cdb687edd01e900\tlocale",
+      "equals_c045": true
+    },
+    "CMakeLists.txt": {
+      "git_tree_entry": "100644 blob 315f26dff88eca6ceec61dbc8f4f302e852453ed\tCMakeLists.txt",
+      "equals_c045": true
+    }
+  },
+  "original_syntax02_receipts": {
+    "result.json": {
+      "path": "/workspace/tmp/pix-m7-es-syntax-20261014-02/stages/es-syntax/result.json",
+      "sha256": "075b9de31563810df18f0ef283a45e96d46e934701e3d0bdfcdcf319952e3980",
+      "bytes": 6315,
+      "status": "PASS",
+      "original_exit": null
+    },
+    "container-result.json": {
+      "path": "/workspace/tmp/pix-m7-es-syntax-20261014-02/stages/es-syntax/container-result.json",
+      "sha256": "c8cf26aae954aa07d9441d26ea821f7f2ee90df9a1f783a055c3cc2e4d4544cd",
+      "bytes": 1872,
+      "status": "PASS",
+      "original_exit": null
+    },
+    "syntax-result.json": {
+      "path": "/workspace/tmp/pix-m7-es-syntax-20261014-02/stages/es-syntax/syntax-result.json",
+      "sha256": "7344eaeea0987bd8c123d2b6abc558dacc661da33f7be866f3d7ce02f1eca12d",
+      "bytes": 1234,
+      "status": "PASS",
+      "original_exit": null
+    },
+    "selected-stage.json": {
+      "path": "/workspace/tmp/pix-m7-es-syntax-20261014-02/stages/es-syntax/selected-stage.json",
+      "sha256": "7fc576955b160ecda5b8c97debab63cabe037b6f93144c6d5171e373e8f9a09f",
+      "bytes": 376,
+      "status": null,
+      "original_exit": 0
+    },
+    "watchdog-result.json": {
+      "path": "/workspace/tmp/pix-m7-es-syntax-20261014-02/stages/es-syntax/watchdog-result.json",
+      "sha256": "9a82748fd15c4bba6ea917244dae8d06c8567b94530f859749dea2afc6ab4bac",
+      "bytes": 69,
+      "status": "PASS",
+      "original_exit": null
+    }
+  },
+  "evidence_reuse": "Original syntax02 remains a c045 run. Five syntax TUs, all product/header/catalog/build-definition bytes are unchanged; only the published lifetime-test fixture line differs. This identity receipt supports explicit unchanged-input reuse, not a claimed a5c7 compiler rerun."
+}

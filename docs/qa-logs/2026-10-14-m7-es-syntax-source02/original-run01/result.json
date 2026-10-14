@@ -1,0 +1,222 @@
+{
+  "status": "FAIL",
+  "stage": "es-syntax",
+  "started": 1792002875.2322311,
+  "original_attach_exit": 1,
+  "source_before": {
+    "commit": "c045d2ec1936c2dfc6c4777935fb2d4cd8b3bcfa",
+    "tree": "7a34dbe6ec6d5a5f153059153ba7d8b4a22e6451",
+    "manifest_sha256": "af3e55ad01df634eab8fc459d26e2c9147228c2c1b2df683aa6dfcd3970f1bea",
+    "files": 1113,
+    "all_original_source_files_unchanged": true
+  },
+  "container_result_sha256": "9f5c5cbd90b748ceae617efe9caad92ff6ec02e12fb7e6beed6e86882223a67e",
+  "error": "RuntimeError('original child/container failure')",
+  "cleanup": {
+    "status": "PASS",
+    "forced_stop": false,
+    "started": 1792002882.1796892,
+    "initial": {
+      "id": "07ddcba7c05af19aa807788df82027e82e51f6d9a8de551ff6b4bcc665b720ce",
+      "state": {
+        "Dead": false,
+        "Error": "",
+        "ExitCode": 1,
+        "FinishedAt": "2026-10-14T18:34:41.677921374Z",
+        "OOMKilled": false,
+        "Paused": false,
+        "Pid": 0,
+        "Restarting": false,
+        "Running": false,
+        "StartedAt": "2026-10-14T18:34:35.979420037Z",
+        "Status": "exited"
+      },
+      "labels": {
+        "org.opencontainers.image.version": "22.04",
+        "pix574.owner": "0bceed0d4ecf1f257140b770a3e233c3",
+        "pix574.stage": "es-syntax"
+      },
+      "memory": 4294967296,
+      "nano_cpus": 2000000000
+    },
+    "container_terminal_state": {
+      "Dead": false,
+      "Error": "",
+      "ExitCode": 1,
+      "FinishedAt": "2026-10-14T18:34:41.677921374Z",
+      "OOMKilled": false,
+      "Paused": false,
+      "Pid": 0,
+      "Restarting": false,
+      "Running": false,
+      "StartedAt": "2026-10-14T18:34:35.979420037Z",
+      "Status": "exited"
+    },
+    "exact_cid": "07ddcba7c05af19aa807788df82027e82e51f6d9a8de551ff6b4bcc665b720ce",
+    "exact_id_absent": true,
+    "observed_host_processes": [
+      {
+        "pid": 3528756,
+        "start_ticks": 109456000,
+        "state": "S",
+        "pgrp": 3528756,
+        "session": 3528756,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 3528799,
+        "start_ticks": 109456025,
+        "state": "S",
+        "pgrp": 3528799,
+        "session": 3528799,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 3528800,
+        "start_ticks": 109456026,
+        "state": "S",
+        "pgrp": 3528799,
+        "session": 3528799,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 3529850,
+        "start_ticks": 109456073,
+        "state": "S",
+        "pgrp": 3528799,
+        "session": 3528799,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 3529851,
+        "start_ticks": 109456073,
+        "state": "S",
+        "pgrp": 3528799,
+        "session": 3528799,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 3529852,
+        "start_ticks": 109456073,
+        "state": "S",
+        "pgrp": 3528799,
+        "session": 3528799,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 3529853,
+        "start_ticks": 109456073,
+        "state": "R",
+        "pgrp": 3528799,
+        "session": 3528799,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 3529865,
+        "start_ticks": 109456173,
+        "state": "S",
+        "pgrp": 3528799,
+        "session": 3528799,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 3529866,
+        "start_ticks": 109456173,
+        "state": "S",
+        "pgrp": 3528799,
+        "session": 3528799,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 3529867,
+        "start_ticks": 109456173,
+        "state": "S",
+        "pgrp": 3528799,
+        "session": 3528799,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 3529868,
+        "start_ticks": 109456173,
+        "state": "R",
+        "pgrp": 3528799,
+        "session": 3528799,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 3529884,
+        "start_ticks": 109456235,
+        "state": "S",
+        "pgrp": 3528799,
+        "session": 3528799,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 3529885,
+        "start_ticks": 109456236,
+        "state": "S",
+        "pgrp": 3528799,
+        "session": 3528799,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 3529886,
+        "start_ticks": 109456236,
+        "state": "S",
+        "pgrp": 3528799,
+        "session": 3528799,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 3529887,
+        "start_ticks": 109456236,
+        "state": "R",
+        "pgrp": 3528799,
+        "session": 3528799,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 3530238,
+        "start_ticks": 109456455,
+        "state": "S",
+        "pgrp": 3528799,
+        "session": 3528799,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 3530239,
+        "start_ticks": 109456456,
+        "state": "S",
+        "pgrp": 3528799,
+        "session": 3528799,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 3530240,
+        "start_ticks": 109456456,
+        "state": "S",
+        "pgrp": 3528799,
+        "session": 3528799,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 3530241,
+        "start_ticks": 109456456,
+        "state": "R",
+        "pgrp": 3528799,
+        "session": 3528799,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      }
+    ],
+    "survivors": [],
+    "remaining_cgroup_pids": [],
+    "ended": 1792002882.3761904
+  },
+  "original_container_exit": 1,
+  "watchdog_original_exit": 0,
+  "ended": 1792002882.7912843,
+  "final_disk": {
+    "allocated_bytes": 290816,
+    "apparent_bytes": 111486
+  }
+}

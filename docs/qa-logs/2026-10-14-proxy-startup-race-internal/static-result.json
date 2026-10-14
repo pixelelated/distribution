@@ -1,0 +1,43 @@
+{
+  "status": "PASS",
+  "scope": "source hashes and AST only",
+  "files": 112,
+  "baseline": "42fbdb000f64e791fcee4437448e1841f8b6ebd81bb97d358f84fcfe98f65a75",
+  "candidate": "432bb07ac6b0abcdcb38800d7c75a92c768b2b6bea583a1bab6834bb7f7b0d00",
+  "unchanged": [
+    "periodic loop",
+    "shutdown",
+    "all other top-level definitions",
+    "111 other Python files"
+  ],
+  "fixture_execution": "UNRUN",
+  "materialized": null,
+  "service_adapter": {
+    "status": "PASS",
+    "scope": "materialization/hash/AST only",
+    "accepted_execution_manifest_sha256": "ad733a64f06e1bebd35c2b7f26242386bd588cf3502606a5addc6648fa5421a0",
+    "derivatives": {
+      "baseline": "186daa9daa140df82ae6b0ace2be7a7f1ee550dc2919b9b95014d0f06471d55d",
+      "candidate": "412a5619092dd323d6aeff9969a06696b4af69776469a138f47d7ae3ac6128a4"
+    },
+    "unchanged": [
+      "owner.py",
+      "cgroup_guard.py",
+      "raofflineproxy.service",
+      "unit_reference.py",
+      "owner-reference.py",
+      "census.py",
+      "run.py finally/cleanup AST",
+      "run.py identity/lifecycle guard AST"
+    ],
+    "controller_mode": "0755",
+    "runtime": "UNRUN"
+  },
+  "packet_python_ast_files": [
+    "check-results.py",
+    "check-source.py",
+    "component-fixture.py",
+    "make-service-packet.py",
+    "startup_gate.py"
+  ]
+}

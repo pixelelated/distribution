@@ -1,0 +1,9 @@
+{
+  "status": "TEXT_PREPARED_ONLY",
+  "input": "/flash/syslinux.cfg",
+  "output": "/tmp/pix-output/proxy-cgroup-syslinux.cfg",
+  "before_sha256": "0d7363c758454c63b449f04122495eff4b25482c4d6ab229e4e6808595ac37b0",
+  "after_sha256": "9311d846d83b7632040e1c786a4e1d778ce54a91e726730ad961f4ecb5cd9d04",
+  "parameter": "systemd.unified_cgroup_hierarchy=1",
+  "boot_or_disk_changed": false
+}

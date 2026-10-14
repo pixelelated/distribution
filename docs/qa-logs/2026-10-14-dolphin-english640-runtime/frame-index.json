@@ -1,0 +1,62 @@
+{
+  "scope": "Source-staged actual ES refusal branch/return; not final image or native engine",
+  "frames": [
+    {
+      "path": "frames/wii-card-en640-layout-entry.png",
+      "sha256": "94ab5b209e52167a0cfb1530cfb65fab90d2ac3467ece7fe2c0a7d92e7ae4cad",
+      "ppm_sha256": "917fabb8bb9ce323828f79d98a37bb9c7522f94bdd61c1712e05b946c09ce535",
+      "review": "reviewed-pass",
+      "observation": "Viewed actual 640x480 entry: Wii header, selected synthetic game, and English footer all visible. Send one launch key.",
+      "stage": "04-entry",
+      "panel": [
+        640,
+        480
+      ],
+      "language": "en_US",
+      "es_source": "bb9e2785f88c2b9de979022a2a9ded2cbce2f954",
+      "es_sha256": "8752b5391ea8728c1a088d0a80e3776469692dda665e8f07f062fed3206263d2",
+      "dolphin_product": "1a7714fd81f7c92316f54c4a3648696d1e256f88",
+      "fixture": "5a385f12e355cd3400bf11a740cc0e0b852eeab1",
+      "selection_packet": "f6ff601d03457c731a70bf262845da616623b295",
+      "run_id": "20261014en640layout03"
+    },
+    {
+      "path": "frames/wii-card-en640-layout-error.png",
+      "sha256": "e355e15c9c068cddad0241d80f91936f9403a8cea9d610f6e50d2098fc0c1908",
+      "ppm_sha256": "316ae03f8d4e6ad2b261815e0814c0619931b8e87bd112f8d088746ab519e23f",
+      "review": "reviewed-pass",
+      "observation": "Viewed actual English640 error: Dolphin did not start appears once under the error header. Full recovery text visible; first path breaks after GC/ with MemoryCardA.USA.raw intact on its own line, second path complete. No orphan w, clipping or overlap; focused OK visible. Dismiss once.",
+      "stage": "05-error",
+      "panel": [
+        640,
+        480
+      ],
+      "language": "en_US",
+      "es_source": "bb9e2785f88c2b9de979022a2a9ded2cbce2f954",
+      "es_sha256": "8752b5391ea8728c1a088d0a80e3776469692dda665e8f07f062fed3206263d2",
+      "dolphin_product": "1a7714fd81f7c92316f54c4a3648696d1e256f88",
+      "fixture": "5a385f12e355cd3400bf11a740cc0e0b852eeab1",
+      "selection_packet": "f6ff601d03457c731a70bf262845da616623b295",
+      "run_id": "20261014en640layout03"
+    },
+    {
+      "path": "frames/wii-card-en640-layout-returned.png",
+      "sha256": "86b4917c840d67e786f312faa095ad4125664f5c6ef6bf08fafb612c86800a2d",
+      "ppm_sha256": "5dc472c1e30586b00661e253539dccecf311d19fdd7d07f765ed887409527e05",
+      "review": "reviewed-pass",
+      "observation": "Viewed actual640 return: same Wii header, selected synthetic game and English footer restored; dialog gone. No further key; request normal fixture stop.",
+      "stage": "06-returned",
+      "panel": [
+        640,
+        480
+      ],
+      "language": "en_US",
+      "es_source": "bb9e2785f88c2b9de979022a2a9ded2cbce2f954",
+      "es_sha256": "8752b5391ea8728c1a088d0a80e3776469692dda665e8f07f062fed3206263d2",
+      "dolphin_product": "1a7714fd81f7c92316f54c4a3648696d1e256f88",
+      "fixture": "5a385f12e355cd3400bf11a740cc0e0b852eeab1",
+      "selection_packet": "f6ff601d03457c731a70bf262845da616623b295",
+      "run_id": "20261014en640layout03"
+    }
+  ]
+}

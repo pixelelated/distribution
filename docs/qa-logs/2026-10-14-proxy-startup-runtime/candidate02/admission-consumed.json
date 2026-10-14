@@ -1,0 +1,49 @@
+{
+  "admitted": "2026-10-14T18:27:03.567724+00:00",
+  "available_bytes": 2976944721920,
+  "checkout": "/workspace/repos/rocknix.worktrees/m7-player-setup",
+  "consumed": "2026-10-14T18:31:53.269535+00:00",
+  "container_checkout": "/workspace/repos/rocknix.worktrees/m7-player-setup",
+  "deleted_bytes": 0,
+  "evidence_sha256": "6817fc0b6271cf5f73797629f553a4ce99f82b29c6168466c429fb501a07b70b",
+  "id": "77cdb7c3e622499594f2f0809a238fb5",
+  "original_result": {
+    "command_rc": 0,
+    "monitor_rc": 0,
+    "runner_rc": 0,
+    "utc": "2026-10-14T18:30:54.634525+00:00"
+  },
+  "outputs": [
+    {
+      "issue": 588,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix588-startup-candidate-vm-20261014-02/vm",
+      "release_when": "Original guest/guard/lifecycle receipts exported and verified; actual owners exited; consume admission then remove disk/media/UEFI. Preserve only immediate-next-test synthetic inputs."
+    }
+  ],
+  "outputs_held": true,
+  "pid_namespace": 4026531836,
+  "profiles": [
+    {
+      "ARCH": "x86_64",
+      "DEVICE": "GENERIC_X64",
+      "PROJECT": "ROCKNIX"
+    }
+  ],
+  "receipt_sha256": "901a15a5b479cd1f98f120ea2d88fd1a55de4c7df479d5db13fb53e7eb9a3c96",
+  "registry": "/workspace/repos/rocknix/.git/pixelelated-build-admission",
+  "required_bytes": 22050504704,
+  "retention_plan_sha256": "5e87c185ab0012fe1fe1796d4fcdfe603eb2a1615f645dc62df6785b0d6d855d",
+  "retention_report_sha256": "00d02b1b079ceb0c9848cd6e6c8e7dd4bffa0df29078e52549a6e635ef231904",
+  "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261014T182703Z-eaedd868",
+  "runner_pid": 3494455,
+  "runner_start": "109410744",
+  "source": {
+    "head": "b004cd4d0751bd871bfda11292b43280895f61ea",
+    "tracked_diff_sha256": "e840b0f901c1d7aea7ecedfb23681710288f38b7f14ad1e6966cdf0864315b51"
+  },
+  "state": "consumed",
+  "submission_owner": "/workspace/tmp/pix588-startup-candidate-vm-20261014-02/lifecycle-owner",
+  "volume": "/workspace",
+  "volume_device": 66304
+}

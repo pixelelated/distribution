@@ -1,0 +1,46 @@
+{
+  "source_head": "1ede30a1be476f65eb79614596dd4a98f2630b59",
+  "source_hashes": {
+    "distributions/ROCKNIX/config/functions": "3e4b73f55cafde6a53d8afab228b3881449e10428d2b3c8a267cd02b94c310ac",
+    "distributions/ROCKNIX/options": "6f7ff298d92a336888804488f397003e029057447e099c5360abdb25a06c7f15",
+    "config/path": "5780f40c181faa27e4d797656c3f606f02c01ad8a6cf8dd733348134ded6637e",
+    "config/multithread": "a769ad46ff24015eaef3a86045bdda53fb4d7d8b52d7bffef43fb77fcc57bec4",
+    "scripts/image": "4c5d26ea688c6c033cd80af6dcb7eae944b3d67bb3b410d54d6856d2651f8fee",
+    "scripts/build": "91d9b9c65d97c0ddbaccf26f3e4338c23287873b7d00d74b6c5cd69c3fa8321b",
+    "scripts/build_distro": "e4ccf640cbfb80ec8d06495bca37e102998204d76c37b26d378527741f3f1cd7",
+    "scripts/install": "7fefd07feeeb0d3610a3877e3455cbed54d6fd65e3a93e373fa04d26bac80334",
+    "scripts/pkgbuild": "8fcf717e911abe4a4dd6e6a0f76deb2bdd41d17a3b1acb2366eac43aaa7416e8",
+    "scripts/pkgbuilder.py": "ae6ef2891bf62606d67c224772679cef5e8425f883c1f8e2c650cefa497d8adc",
+    "scripts/genbuildplan.py": "6f2e66c54652ed75e234f9adc24bbfb0dbaa79b6d7f5dccd0eb21d6cf5746e21",
+    "scripts/get_env": "2f8f54906d02fbce048bb2975f5a2e69057ae47de365b1e26b9508a051be43a2",
+    "Makefile": "8322fcfa85d0a0159ac05ce17058e23f8e18418d2344adf82456b5813b6094fa",
+    "tools/watch-build": "44a6d87505fd6a465c384d2f30bfeda5f4fe436978d227d8b0c4bae73da7e0bc",
+    "tools/host-maintenance/build-admission": "3e2ad9d6eed47f53d1547880286e4bed69848b956be490f17f354d9df70bb942",
+    ".gitignore": "9b33e0e0c05db3faa502e3c77579cddfcab073e40674009a7bc8950aba9bd874"
+  },
+  "historical_parent": "1a026648442321609b2288c2c9c06803817f9df2",
+  "plan_sha256": "fcd93f5cf7172cc1f15e2872855ba973e12903d45a86f242bef493af1e21e725",
+  "joblog_sha256": "608978badc1fcc8df2a0df7fb134f3769b70775a8cb88c9a2e73d3e3802a1463",
+  "selected_plan_rows": [
+    {
+      "task": "install",
+      "name": "emulators:target",
+      "wants_emulators": false
+    },
+    {
+      "task": "install",
+      "name": "image:target",
+      "wants_emulators": true
+    }
+  ],
+  "original_joblog_rows": [
+    "DONE 641 2 install emulators:target 2.7609 2.6099 103 5.1970 1791748065.2122 1791748070.4092 /workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/.threads/logs/641.log",
+    "DONE 643 13 install image:target 0.1246 0.0466 103 0.1655 1791748078.4010 1791748078.5665 /workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/.threads/logs/643.log"
+  ],
+  "parent_generated_doc_diff": {
+    "sha256": "42065b015a65d1e363d5daca24c1d2754007b7296faff853b7e5aa7283c3a3c6",
+    "bytes": 4669
+  },
+  "live_issue_snapshot_sha256": "a4d30f74f69c609080374a441d528cb52c92a37bffc6a1b852547b70b90929e6",
+  "runtime_repro_executed": false
+}

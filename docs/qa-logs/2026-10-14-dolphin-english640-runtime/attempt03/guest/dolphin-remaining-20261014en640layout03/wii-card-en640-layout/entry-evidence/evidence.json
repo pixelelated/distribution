@@ -1,0 +1,71 @@
+{
+  "ready_marker": {
+    "ready": true,
+    "case": {
+      "system": "wii",
+      "case": "card-conflict",
+      "language": "en_US"
+    }
+  },
+  "files": {
+    "ready.json": {
+      "present": true,
+      "snapshot": "0-ready.json",
+      "bytes": 111,
+      "truncated": false,
+      "sha256": "2b4a03a88e7784831836da77809efb2101dec816fad69db2a68d8e15990a47ba"
+    },
+    "case.json": {
+      "present": true,
+      "snapshot": "1-case.json",
+      "bytes": 72,
+      "truncated": false,
+      "sha256": "d5dd884786938b9f3f3583403eee944d17146369b2d35b965335637375015f4c"
+    },
+    "es-pid.json": {
+      "present": true,
+      "snapshot": "2-es-pid.json",
+      "bytes": 25,
+      "truncated": false,
+      "sha256": "5c2458a415bd66491169f2f18d3d2bd99c8796fa481cd8d718a50bc2e66563ea"
+    },
+    "es.stdout": {
+      "present": true,
+      "snapshot": "3-es.stdout",
+      "bytes": 0,
+      "truncated": false,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "es.stderr": {
+      "present": true,
+      "snapshot": "4-es.stderr",
+      "bytes": 228,
+      "truncated": false,
+      "sha256": "75e4284409a674d27b48d3dc2ea0215e569d927850dd4349f7a9297e0d39f404"
+    },
+    "logs/es_log.txt": {
+      "present": true,
+      "snapshot": "5-es_log.txt",
+      "bytes": 228,
+      "truncated": false,
+      "sha256": "75e4284409a674d27b48d3dc2ea0215e569d927850dd4349f7a9297e0d39f404"
+    },
+    "storage/.config/emulationstation/es_settings.cfg": {
+      "present": true,
+      "snapshot": "6-es_settings.cfg",
+      "bytes": 552,
+      "truncated": false,
+      "sha256": "5a446748830e25c233533091efcc39412e08f9d0fb3ea9f4f25a17d369c88f0f"
+    },
+    "storage/.config/emulationstation/es_systems.cfg": {
+      "present": true,
+      "snapshot": "7-es_systems.cfg",
+      "bytes": 469,
+      "truncated": false,
+      "sha256": "602821a3331e351355de83fd61d87b360c56a79bb59ae63948cb264cea74a126"
+    }
+  },
+  "meaning": "ES startup marker only. Review actual header, selected synthetic game and footer before explicit launch. No automatic key or deadline extension.",
+  "source": "bound main.cpp sets ready after goToStart and before its main render loop",
+  "logs": "unchanged native ES logging level; startup warnings alone do not prove a missing view"
+}

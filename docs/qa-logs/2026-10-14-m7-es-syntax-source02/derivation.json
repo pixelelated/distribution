@@ -1,0 +1,54 @@
+{
+  "schema": 1,
+  "original_packet": "/tmp/m7-es-syntax-allocation-20261014",
+  "original_manifest_sha256": "47347bd6a3675a9d16381ebd79829a20145f7a7275f00376674505c77945f1d0",
+  "original_failure": {
+    "logs/selected-stage.stdout": {
+      "original_path": "/workspace/tmp/pix-m7-es-syntax-20261014-01/stages/es-syntax/logs/selected-stage.stdout",
+      "sha256": "bc6ac96bc643c83a375f37cc65c2d2ea3b000fc22f3438c9c2ee3da9b84cae6d",
+      "bytes": 1022
+    },
+    "logs/selected-stage.stderr": {
+      "original_path": "/workspace/tmp/pix-m7-es-syntax-20261014-01/stages/es-syntax/logs/selected-stage.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "selected-stage.json": {
+      "original_path": "/workspace/tmp/pix-m7-es-syntax-20261014-01/stages/es-syntax/selected-stage.json",
+      "sha256": "421c3d467a585d4ec69cfde91730917e103f6c38149dda198ea57d4c0386c62e",
+      "bytes": 377
+    },
+    "container-result.json": {
+      "original_path": "/workspace/tmp/pix-m7-es-syntax-20261014-01/stages/es-syntax/container-result.json",
+      "sha256": "9f5c5cbd90b748ceae617efe9caad92ff6ec02e12fb7e6beed6e86882223a67e",
+      "bytes": 1036
+    },
+    "result.json": {
+      "original_path": "/workspace/tmp/pix-m7-es-syntax-20261014-01/stages/es-syntax/result.json",
+      "sha256": "e6be02759b970b5aeb950d0539d0de3638c7679354bd078c5d03baf28c08243a",
+      "bytes": 6083
+    },
+    "watchdog-result.json": {
+      "original_path": "/workspace/tmp/pix-m7-es-syntax-20261014-01/stages/es-syntax/watchdog-result.json",
+      "sha256": "9a82748fd15c4bba6ea917244dae8d06c8567b94530f859749dea2afc6ab4bac",
+      "bytes": 69
+    }
+  },
+  "unchanged_executable_wrapper_files": {
+    "native.py": "4e651d2aa8506405b07c0f9805b6f6d174aef6ee78ae2631ff0af96dc7564cfa",
+    "inner.py": "14cd3ade50ba2a7c767b1b47cb4b3b8645c0d763c95811df14a5540666db0763",
+    "plan.py": "cf4f1b08141f6e9fe5c68f7bc5fc7cc7102788fe1c0a9f9630885d8174ab780e",
+    "run-stage.py": "94e6d4b26512fea4a260b816bd7d1f68980048db01437cc1e08686f87fcc210d",
+    "common.py": "64d20f981b6848198a0c95636d39d03356a33919b940e1d291790fac90e8fb8d",
+    "watchdog.py": "b21d2e255f0094b5f48eef6e009972633298629b7f0c4c7b44ec7eef0148c18b",
+    "docker_owner.py": "276baaa41d855161873b6d3a979463d2ff0a3bb8fd28ddbd8ed4502959354d31"
+  },
+  "unchanged_command_sha256": "042e5ab425dc3fedf3b9fb4fb28ab0a276cd02a1df3db4d8090424b615dc6033",
+  "source_commit": "c045d2ec1936c2dfc6c4777935fb2d4cd8b3bcfa",
+  "source_tree": "7a34dbe6ec6d5a5f153059153ba7d8b4a22e6451",
+  "old_tool_sha256": "ee632f780729a2d6400132f0fce009974b9a9f60257acc237f80994105af9457",
+  "new_tool_sha256": "728fbd6ce08590b2579f40eb8153dcdebfca4ee688ec9e57651b64c2d4c6c594",
+  "patch_sha256": "56d5b1ffc2a649028f686776be312e940e7e593de85d5179116a21b7fcc9109e",
+  "change": "Only the copied es-syntax-check --tree path prepends the full selected tree external include root. --with remains quote-only. All product bytes, five units, wrapper lifecycle and resource limits are unchanged.",
+  "execution": "UNRUN; run01 remains original FAIL1"
+}

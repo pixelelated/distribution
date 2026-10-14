@@ -1,0 +1,1 @@
+The original patch is losslessly gzip-stored because unified-diff context preserves a blank-line space. Original execution hashes remain in execution-SHA256SUMS.txt. Decompress using stored-artifacts.json; do not normalize the source evidence. The unchanged original fixture failed before its intended control; see ../2026-10-14-generated-doc-runtime/attempt01/.

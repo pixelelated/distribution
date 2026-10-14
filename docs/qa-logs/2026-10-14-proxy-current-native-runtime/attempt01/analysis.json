@@ -1,0 +1,9 @@
+{
+  "status": "FAIL",
+  "cause": "Builder Python3.10 lacks hashlib.file_digest; exporter failed before compiler.",
+  "original_child_container_runner": 1,
+  "monitor": 0,
+  "forced_cleanup": false,
+  "fix": "Streaming hashlib.sha256 over same open FD; fresh bounded family after source review.",
+  "retired_work_bytes": 16384
+}

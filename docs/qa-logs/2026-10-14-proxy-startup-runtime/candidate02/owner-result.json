@@ -1,0 +1,393 @@
+{
+  "status": "PASS",
+  "original_child_exit": 0,
+  "timed_out": false,
+  "signals": [],
+  "cleanup_errors": [],
+  "reaped": [],
+  "runner_sha256": {
+    "owner.py": "bd62af794d48bbc38b186b30374f356d45e410c7786b867fe96b3c7c412ea48b",
+    "run.py": "c57ec4deeec231215a3ba4c9176c015e1dc91c0c49ec00857557a2c8b087ffff",
+    "census.py": "600f1a59149864396730d8bcae6a86b6fa6f8347f99c729c18e14cd7307f62b2",
+    "reference_native.py": "d9aa72ed4682a70ca29b59b06dbda3fd64be6bf8e93e159506942ad827a6ae16",
+    "bootstrap/sitecustomize.py": "596864354409f1e1c7caa472712c7ac578d8836cf10259cd8c1853e88047376c",
+    "bindings.json": "edf7d0d55e69b74e7e9a50a9c3bde23c7b663c1a5db65080a4ffe6aeb399b0c7",
+    "raofflineproxy.service": "c42689768684263e69d3a904223faf2bab270a5956fde3af5af640f1f26b4233",
+    "raofflineproxy-ctl": "47391a3bbcaa0f2262cdee12f09bd48d17f7fedf0237a1a661a21b085b2f71f7",
+    "cgroup_guard.py": "632c0030b013bf305644ead28aa88748eabeec7c1e9328f30726b869b4eea4cd",
+    "compatibility.json": "536d100a5c912077d1f2179bf336e74a558300d76b2afec69a76ebaf965f746e",
+    "unit_reference.py": "885f19d768643beb07b7def5d091481ddeb3b29df8c2708cf4eb7ec44e3e4ba6",
+    "unit-reference-binding.json": "bac9a9fbd0221d1a94c42e1d6974a684e5fdb1ff96f14deef093b77f26b53354",
+    "bootstrap/startup_gate.py": "514b51a014962a243601e4c4fcbff59931ea4171c2ba3a7cf9c40b5e758bfdf2",
+    "bootstrap/native_provenance_check.py": "5d341d29bd983970022705c5a3afe28b9ec345c3999d62fb5137cbfc0b068d8b",
+    "native-provenance.json": "f7440b60a9f2f071993c582ca7797b2e00ac89ba3a6f07c516cc5e00ddfc3e36",
+    "native-build-receipt.json": "f41f27277394cdf6bb86e1323f7ad4cba0889b23177835ee96fa073d8d7ad8fd"
+  },
+  "owner_identity": {
+    "pid": 1844,
+    "ppid": 1,
+    "start_ticks": 1714
+  },
+  "argv": [
+    "/usr/bin/python3",
+    "-I",
+    "-S",
+    "-B",
+    "/run/pix583-service-packet/run.py",
+    "--output",
+    "/run/pix583-service-owner/run588/payload"
+  ],
+  "child_identity": {
+    "pid": 1845,
+    "ppid": 1844,
+    "start_ticks": 1723
+  },
+  "remaining_children": [],
+  "elapsed_seconds": 26.002564204,
+  "artifacts": {
+    "payload/admission.json": {
+      "bytes": 3937,
+      "sha256": "0bee2b3c6618ddab2de19afd8acc75fa3e8ea2a798e160d848f149d7be784875"
+    },
+    "payload/cgroup-layout.json": {
+      "bytes": 683,
+      "sha256": "55ef1335d181c5e0b5516fa5e40f3fd04538f012cac4b88127d50411b501b0f4"
+    },
+    "payload/cgroup-start-1881.json": {
+      "bytes": 1441,
+      "sha256": "55d7fd66ccbf30fbb9a61867f28a4d1c84971d7c595e637c878107ec5a4e7cfe"
+    },
+    "payload/cgroup-start-1935.json": {
+      "bytes": 1441,
+      "sha256": "d0adf25b1b36c8825608e80572cfdbb7ab5e276319616bfccd67d9af26c26e34"
+    },
+    "payload/command-0.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "payload/command-0.stdout": {
+      "bytes": 379,
+      "sha256": "d4a58fd685e147ad7948527fed892687a83b990d9d1ab01bfe827c7126e99f93"
+    },
+    "payload/command-1.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "payload/command-1.stdout": {
+      "bytes": 939,
+      "sha256": "8fdd53d9c648443b9e00eb4e7368de27dddd4e365ec90e003be135d245c63a3a"
+    },
+    "payload/command-10.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "payload/command-10.stdout": {
+      "bytes": 1443,
+      "sha256": "df9e3dc424cc6fbc610b77ddc5c525bc9187b6a9486875ecb37c9fd76f855dc5"
+    },
+    "payload/command-11.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "payload/command-11.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "payload/command-12.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "payload/command-12.stdout": {
+      "bytes": 1419,
+      "sha256": "d2a0f196a91a18b62cf1ab7bd32c70bb97bb910b94198f60917e8e14348b9387"
+    },
+    "payload/command-13.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "payload/command-13.stdout": {
+      "bytes": 1419,
+      "sha256": "d2a0f196a91a18b62cf1ab7bd32c70bb97bb910b94198f60917e8e14348b9387"
+    },
+    "payload/command-14.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "payload/command-14.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "payload/command-15.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "payload/command-15.stdout": {
+      "bytes": 1443,
+      "sha256": "acce3a8ed4e0fd48594934a52b442f08568d6c2705c7ca51d3b11d85a4dbcf88"
+    },
+    "payload/command-16.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "payload/command-16.stdout": {
+      "bytes": 1443,
+      "sha256": "acce3a8ed4e0fd48594934a52b442f08568d6c2705c7ca51d3b11d85a4dbcf88"
+    },
+    "payload/command-17.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "payload/command-17.stdout": {
+      "bytes": 1443,
+      "sha256": "acce3a8ed4e0fd48594934a52b442f08568d6c2705c7ca51d3b11d85a4dbcf88"
+    },
+    "payload/command-18.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "payload/command-18.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "payload/command-19.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "payload/command-19.stdout": {
+      "bytes": 1419,
+      "sha256": "032825355dc5a30c1320dfc8b8ef7eee3526d23578e48fe80fa5a84ee2e19bea"
+    },
+    "payload/command-2.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "payload/command-2.stdout": {
+      "bytes": 788,
+      "sha256": "4343be0ff2c5ccbe8e183de506cb2d539edf93d2133d71a9d3a69f14db855b72"
+    },
+    "payload/command-20.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "payload/command-20.stdout": {
+      "bytes": 1419,
+      "sha256": "032825355dc5a30c1320dfc8b8ef7eee3526d23578e48fe80fa5a84ee2e19bea"
+    },
+    "payload/command-21.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "payload/command-21.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "payload/command-22.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "payload/command-22.stdout": {
+      "bytes": 1419,
+      "sha256": "032825355dc5a30c1320dfc8b8ef7eee3526d23578e48fe80fa5a84ee2e19bea"
+    },
+    "payload/command-23.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "payload/command-23.stdout": {
+      "bytes": 12490,
+      "sha256": "ef32650404f703a1fc17c76493d4624439eaed8007e9e8cfffbd2e4d4bbece95"
+    },
+    "payload/command-24.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "payload/command-24.stdout": {
+      "bytes": 1419,
+      "sha256": "032825355dc5a30c1320dfc8b8ef7eee3526d23578e48fe80fa5a84ee2e19bea"
+    },
+    "payload/command-25.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "payload/command-25.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "payload/command-26.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "payload/command-26.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "payload/command-3.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "payload/command-3.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "payload/command-4.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "payload/command-4.stdout": {
+      "bytes": 1288,
+      "sha256": "c4ba21f4377b3170978a84963a67560958e1bbfc0430438190dd2ecc9fe0331e"
+    },
+    "payload/command-5.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "payload/command-5.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "payload/command-6.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "payload/command-6.stdout": {
+      "bytes": 1288,
+      "sha256": "c4ba21f4377b3170978a84963a67560958e1bbfc0430438190dd2ecc9fe0331e"
+    },
+    "payload/command-7.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "payload/command-7.stdout": {
+      "bytes": 1288,
+      "sha256": "c4ba21f4377b3170978a84963a67560958e1bbfc0430438190dd2ecc9fe0331e"
+    },
+    "payload/command-8.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "payload/command-8.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "payload/command-9.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "payload/command-9.stdout": {
+      "bytes": 1443,
+      "sha256": "df9e3dc424cc6fbc610b77ddc5c525bc9187b6a9486875ecb37c9fd76f855dc5"
+    },
+    "payload/commands.json": {
+      "bytes": 14418,
+      "sha256": "bf80b1f05a798348b48d77252ecfc09af7ed567149417f41e695cf031b3ec2c6"
+    },
+    "payload/enabled": {
+      "bytes": 15,
+      "sha256": "4dc3ab589dd64c231f2803ae68d81f7789c27a0d7efa021d39f8a174d00de45f"
+    },
+    "payload/peer-open-before-release.json": {
+      "bytes": 95,
+      "sha256": "c49f4214d5d6c9c06c5b16b487a8d4a66d1161545d4a48f94e12cf119ce3375c"
+    },
+    "payload/pending-before-stop.json": {
+      "bytes": 536,
+      "sha256": "84a8dd24afd070e8651b253393b5154eaad1897c1d81ee4eb80ac25791dbfdf0"
+    },
+    "payload/result.json": {
+      "bytes": 46332,
+      "sha256": "ebb96a95107e1dd639e9894afdc4b2075bf24870788138939a5216c1e4c4e0b5"
+    },
+    "payload/service.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "payload/service.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "payload/storage/.config/raofflineproxy/award_secret.key": {
+      "bytes": 32,
+      "sha256": "b9f543bb7cf8eb32e9531b433735bd8016ee6ffb1f3eec34b1fa04db884dc0b9"
+    },
+    "payload/storage/.config/raofflineproxy/cached_game_ids.txt": {
+      "bytes": 6,
+      "sha256": "4a1547d4d4d247f66eb1df3b9a673357715e8e64761f48b32fa592ae764d2383"
+    },
+    "payload/storage/.config/raofflineproxy/config.json": {
+      "bytes": 495,
+      "sha256": "0cd7ad4c1ece3abd5397e3866ce0d8d13748d01ed24dcacd97a23b31ba0e8a01"
+    },
+    "payload/storage/.config/raofflineproxy/content_history.lpl": {
+      "bytes": 13,
+      "sha256": "e813d564bccbeefe1db875d1c9abb55d63c52b639acc61134a5f1d19cc489b67"
+    },
+    "payload/storage/.config/raofflineproxy/empty-ppsspp.ini": {
+      "bytes": 9,
+      "sha256": "c1169d1a0351f90c0d6aa4e03134b4fe30d2d5c49743335940f61ccfe89432a4"
+    },
+    "payload/storage/.config/raofflineproxy/last-flush": {
+      "bytes": 13,
+      "sha256": "5a495d2d0546b0aea87b82d7c962534274e1f3dbc1d95a5f4b034c6a23967ff2"
+    },
+    "payload/storage/.config/raofflineproxy/observer-1882.jsonl": {
+      "bytes": 9084,
+      "sha256": "f89bc9d9ae9265548ad2d241542b63abf463f4c3f7649269a5bf150adf27e898"
+    },
+    "payload/storage/.config/raofflineproxy/observer-1936.jsonl": {
+      "bytes": 10292,
+      "sha256": "e076dfb770356b3b198036524e5652f90eaac32ad7305c95e31a70c02f5c9f22"
+    },
+    "payload/storage/.config/raofflineproxy/online_state.json": {
+      "bytes": 21,
+      "sha256": "bfee4606d83936cf5550c34d565c93d0a92ebf82ba65be4d63bc81f486fdfb9d"
+    },
+    "payload/storage/.config/raofflineproxy/proxy.sqlite3": {
+      "bytes": 45056,
+      "sha256": "15ef336b5284d9d1cad1678eb01074ad38e6f19c7f650b84f936e5bbc173e5b8"
+    },
+    "payload/storage/.config/raofflineproxy/proxy.sqlite3-shm": {
+      "bytes": 32768,
+      "sha256": "1d4bf30f994196a55e08ad249f4b95cb2b5014fee9aff84e2ddaa5e40cd08cc2"
+    },
+    "payload/storage/.config/raofflineproxy/proxy.sqlite3-wal": {
+      "bytes": 74192,
+      "sha256": "141ac737cac8a7d01727b2c261bc5083d1e11986df31a20016161e6820acf388"
+    },
+    "payload/storage/.config/raofflineproxy/retroarch.cfg": {
+      "bytes": 146,
+      "sha256": "0d99a44aaa9aad69c71db220447f5bc39349fd42906e58309f8c4365b59d6ced"
+    },
+    "payload/storage/.config/raofflineproxy/service.log": {
+      "bytes": 2870,
+      "sha256": "81ac92943e2137fc3acc38754316d72b3cd123e72038fda2c41d3002ba11ba5e"
+    },
+    "payload/storage/.config/raofflineproxy/service_status.json": {
+      "bytes": 65,
+      "sha256": "adc2808a39e4098e63e24e5434a1de7224c076193015bdd48833b52c9ea6cbf5"
+    },
+    "payload/storage/.config/raofflineproxy/startup-window-armed.json": {
+      "bytes": 63,
+      "sha256": "1f12438b2fcb53674dd1da6263c203ce0449f609b827aaeac5b7adee69027709"
+    },
+    "payload/storage/.config/raofflineproxy/startup-window-blocked.json": {
+      "bytes": 57,
+      "sha256": "a79f9dd1565d589b412ac8f838e72be90de3f869c13a2e4fa59dc190e5dba896"
+    },
+    "payload/storage/.config/raofflineproxy/startup-window-release.json": {
+      "bytes": 63,
+      "sha256": "0b383d7b7cba9d2ae514740f4bf83c8304e052638ce21cb3b53a5623635016bd"
+    },
+    "payload/storage/.config/raofflineproxy/system.cfg": {
+      "bytes": 76,
+      "sha256": "3ba38a1d74bf2d167da7882d6b8e5eb29da27aca5ea77ed14375094e1e34b2cb"
+    },
+    "stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stdout": {
+      "bytes": 85,
+      "sha256": "82e486ec1c323b4751d65269d8077ac8c4345edfeda1993e3fb041188d52140b"
+    }
+  }
+}

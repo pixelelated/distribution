@@ -1,0 +1,17 @@
+# Startup reconnect repair — #588
+
+Controlled actual-service reproduction and repaired service/component qualification pass within scope, October14. Source commit77901d054ed062a6312d5b5efcc023088907fa48; product packaging1ede30a1be476f65eb79614596dd4a98f2630b59 reproduces all112 Python files exactly after all18 package patches.
+
+Baseline02 runs actual main/systemd. A fixture barrier holds the first monitor probe only until the controller opens the synthetic loopback peer, after the real main-thread offline observation. The same monitor thread then reports online twice15.0098s apart, but makes no flush call. Its original assertion/driver/owner/runner1 is the reproduced defect; the signed pending row remains byte-for-byte unchanged. The service stops normally with0 and no cleanup intervention.
+
+Candidate02 passes actual service25.9354s. The repair carries startup reachability into the monitor before thread start and handles its first offline-to-online edge. One real flush submits one synthetic signed award, empties the queue, and does not repeat at the next natural probe18.0376s later (including the unchanged3s flush delay). Service, owner, VM lifecycle, runner and launcher all0; monitor0. Existing queue/authentication and ordinary polling behavior are preserved.
+
+The same fresh candidate VM separately runs an original source-component baseline1 plus ten candidate cases0 in117.0691s: startup reconnect, already online, persistent offline, ordinary reconnect,401,403,500, stop during first probe, stop before thread start, and offline stop/reopen. The matrix exercises real monitor/startup slice/signing/SQLite/flusher with controlled in-process transport. Original checker0; all storage integrity and join-before-close checks pass; no live threads or thread errors. It is separate evidence from actual main/service qualification.
+
+Native library6349b150899f7c32971b8d9ee882934e41f2f8fc9d6a129045e15ea62096d52c was freshly compiled from the current three recipe pins. Its build receipt and actual overlaid library bytes are bound before either service runs; exact original installed library is restored afterward. Older-image proof remains source_pins_verified:false in its original records. This new source linkage does not retroactively upgrade it.
+
+Original baseline01 failed before service commands because a new provenance adapter expected short dependency keys instead of the receipt's full package names. That failure is retained separately. The additive adapter verifies metadata before the new allocations. No product/native bytes changed for that correction. Unadmitted candidate01 was superseded without execution.
+
+All original results were consumed after host namespace4026531836 verified owner exits. Completed guest disks/media were retired; compact original archives/manifests, synthetic receipts and executable source remain. No owner device, real account, provider or cloud data was used.
+
+Limits: source-staged exact candidate and copied packaged unit on accepted VM20, privately booted with unified cgroups; a synthetic loopback peer accepts requests. Final installed/default-boot/clean/retained image, real provider acceptance and native hashing integration remain distinct. Current service loading is not a new hash-parity claim. No issue is closed by this packet alone. Existing pending owner awards need no schema or manual repair; they retain the normal authenticated submission path. Upstream contribution remains#585 after the initial build.

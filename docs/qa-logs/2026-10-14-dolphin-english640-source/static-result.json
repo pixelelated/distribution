@@ -1,0 +1,58 @@
+{
+  "status": "PASS: AST/hash/data inspection only",
+  "utc": "2026-10-14T17:53:58.704951+00:00",
+  "executables_changed": false,
+  "unchanged_files": {
+    "guest-batch.py": {
+      "sha256": "80f3d306663b8cfc9240f0b139bc5d02bf381421016b03ac7dffe14ad49a2c11",
+      "identical_to_accepted_fixture": true
+    },
+    "stage-input.py": {
+      "sha256": "06cf7389ca79aa7b1c73a5eb741e7f1de4f260f98d1f76c12828e4b1123d277e",
+      "identical_to_accepted_fixture": true
+    },
+    "host-serial.py": {
+      "sha256": "42b20d18ff0da73598618052686b83431a6e4b8cf3747e6e24960ecf7bea608d",
+      "identical_to_accepted_fixture": true
+    },
+    "batch-session.sh": {
+      "sha256": "5ba2f9e0b60d131db4ce29f72e5a7d1ebcb7f828d4359b681d12182d36383adf",
+      "identical_to_accepted_fixture": true
+    },
+    "binding.json": {
+      "sha256": "eb9fe56c237ceb24169cd049af142d5d03804742db8adcf3f80503573c757923",
+      "identical_to_accepted_fixture": true
+    },
+    "caller-source.json": {
+      "sha256": "2344bbe1d10df667849d1666a6a51cab55da21fbed5b51fce847ca522054067f",
+      "identical_to_accepted_fixture": true
+    },
+    "missing-fr640.json": {
+      "sha256": "419f96218762025ad5703ecd6ed93fd0631622fa357bb295c830a92a3c6f36c6",
+      "identical_to_accepted_fixture": true
+    }
+  },
+  "catalog_rows": 10,
+  "excluded_original_case_ids": 9,
+  "permitted_new_case_ids": [
+    "wii-card-en640-layout"
+  ],
+  "selection_argument": "Unchanged selected_cases permits only in-scope unique IDs; a singleton scope therefore permits exactly one case even though generic list upper bound remains two. All original case IDs stay completed. No execution used to establish this.",
+  "original_deadlines_and_cleanup": "All wrapper/caller executable bytes unchanged; no new waits, keys, bound changes or replays.",
+  "external_input_hashes_rechecked": 3,
+  "distribution_source_hashes_rechecked": 6,
+  "ES_boundary_hashes_rechecked": 9,
+  "prior_before_after_inventories_compared": 2,
+  "prior_accepted_frame_hashes_rechecked": 6,
+  "not_executed": [
+    "fixture import",
+    "plan CLI",
+    "source controls",
+    "product",
+    "VM",
+    "native engine",
+    "service",
+    "build",
+    "source-control test suite"
+  ]
+}

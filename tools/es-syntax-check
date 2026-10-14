@@ -100,6 +100,13 @@ if [ -n "$TREE" ]; then
     WITH="$WITH -iquote$FARM/$part"
     PRE="${PRE:-} -I$FARM/$part"
   done
+  # --with intentionally adds only quote-search directories. The full tree's
+  # external root must also win for <libcheevos/cheevos.h> and other angled
+  # includes; otherwise the cached build's older external header is selected.
+  if [ -d "$TREE/external" ]; then
+    PRE="${PRE:-} -I$TREE/external"
+    echo "  (external) $TREE/external from the tree"
+  fi
 fi
 fail=0
 for f in "${FILES[@]}"; do

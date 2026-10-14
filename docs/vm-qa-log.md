@@ -314,3 +314,7 @@ disks/media retired. #588 startup-window, installed/default boot/final-image and
 gameplay acceptance remain. No performance, physical or new RC claim.
 [CHD](qa-logs/2026-10-14-chd-native-runtime/README.md),
 [proxy](qa-logs/2026-10-14-proxy-service-runtime/README.md).
+
+### 2026-10-14 18:42 UTC — English640 and startup reconnect repair
+
+Fresh no-NIC VM20 allocations,8GiB/4CPU640×480. English640 long-card refusal/return has three reviewed frames and exact protected inventory; original staging/review failures retained. Actual #588 baseline02 original1 causally reproduces queued signed award/no flush after startupfalse/monitortrue twice15s apart. Candidate02 actual-service original0,25.94s, one flush/application and empty queue; ten component cases0,117.07s with separate causal baseline1/checker0. Native source linkage verified for freshly compiled bridge, private filebind restored. Actual original owners exited, admissions consumed and completed disks/media retired. Private unified-cgroup overlay is not final installed/default-boot acceptance, and synthetic awards are not provider acceptance. [Repair evidence](qa-logs/2026-10-14-proxy-startup-runtime/README.md), [English frames](qa-logs/2026-10-14-dolphin-english640-runtime/README.md).

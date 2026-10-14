@@ -1,0 +1,19 @@
+{
+  "runtime_executed": false,
+  "fixture_cases_not_run": 7,
+  "checks": [
+    {
+      "name": "fixture AST",
+      "result": "PASS"
+    },
+    {
+      "name": "candidate bash -n",
+      "result": "PASS"
+    },
+    {
+      "name": "exact patch application in one-file temporary tree",
+      "result": "PASS",
+      "stdout": "patching file distributions/ROCKNIX/config/functions\n"
+    }
+  ]
+}

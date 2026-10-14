@@ -1,0 +1,1203 @@
+{
+  "status": "PASS",
+  "scope": "controlled source component; actual service proof still owed",
+  "cases": [
+    {
+      "name": "startup-window",
+      "status": "PASS",
+      "trace": [
+        {
+          "event": "probe-return",
+          "monotonic": 58.717837882,
+          "tid": 2178,
+          "number": 1,
+          "result": false
+        },
+        {
+          "event": "first-monitor-probe-enter",
+          "monotonic": 58.718358795,
+          "tid": 2179
+        },
+        {
+          "event": "controlled-link-online",
+          "monotonic": 58.718572233,
+          "tid": 2178
+        },
+        {
+          "event": "probe-return",
+          "monotonic": 58.718758671,
+          "tid": 2179,
+          "number": 2,
+          "result": true
+        },
+        {
+          "event": "flush-enter",
+          "monotonic": 58.719360178,
+          "tid": 2179
+        },
+        {
+          "event": "flush-return",
+          "monotonic": 61.725398238,
+          "tid": 2179,
+          "outcome": {
+            "flushed": 1,
+            "total": 1,
+            "skipped_deleted": 0,
+            "skipped_stale": 0,
+            "pending_remaining": 0,
+            "last_error": null
+          }
+        },
+        {
+          "event": "monitor-wait",
+          "monotonic": 61.725447864,
+          "tid": 2179,
+          "number": 1,
+          "timeout": 15
+        },
+        {
+          "event": "probe-return",
+          "monotonic": 76.725795043,
+          "tid": 2179,
+          "number": 3,
+          "result": true
+        },
+        {
+          "event": "monitor-wait",
+          "monotonic": 76.725849113,
+          "tid": 2179,
+          "number": 2,
+          "timeout": 15
+        },
+        {
+          "event": "joined-before-storage-close",
+          "monotonic": 76.726176409,
+          "tid": 2178
+        }
+      ],
+      "peer_calls": [
+        {
+          "method": "GET",
+          "action": "patch",
+          "user": "fixture-a"
+        },
+        {
+          "method": "POST",
+          "action": "awardachievement",
+          "user": "fixture-a",
+          "status": 200,
+          "signed_identity_verified": true
+        },
+        {
+          "method": "GET",
+          "action": "unlocks",
+          "user": "fixture-a"
+        }
+      ],
+      "applied": [
+        [
+          "fixture-a",
+          104
+        ]
+      ],
+      "queue_before": [
+        {
+          "id": 1,
+          "achievementId": 104,
+          "queryString": "/dorequest.php",
+          "requestBody": "r=awardachievement&a=104&g=10&u=fixture-a&t=<synthetic-token-a>&h=0",
+          "userAgent": "RetroArch/1.21.0 (Linux)",
+          "queuedAt": 1792002533964,
+          "retryCount": 0,
+          "lastError": null,
+          "status": "pending",
+          "payloadHash": "05719c1fd88cce4a7c1d6532c5b79687f66a2e92e2394bbb6e6085e274e52f18",
+          "prevHash": "genesis",
+          "signature": "LEurTX3DQcQeH9LWFZJShfHXBAjqQBXFFgn9QTy9Nw8=",
+          "signedAt": 1792002533964
+        }
+      ],
+      "config_sha256": "7bdf7928ad854e0a23fab53fcab8643a5737cf3a6115ac9483893f98c8b30be6",
+      "interval_seconds": 15,
+      "queue_after": [],
+      "flush_calls": 1,
+      "sqlite_integrity": "ok",
+      "worker_alive_at_storage_close": false,
+      "storage_closed": true
+    },
+    {
+      "name": "already-online",
+      "status": "PASS",
+      "trace": [
+        {
+          "event": "probe-return",
+          "monotonic": 76.728145007,
+          "tid": 2178,
+          "number": 1,
+          "result": true
+        },
+        {
+          "event": "flush-enter",
+          "monotonic": 76.728246702,
+          "tid": 2178
+        },
+        {
+          "event": "flush-return",
+          "monotonic": 79.730333404,
+          "tid": 2178,
+          "outcome": {
+            "flushed": 1,
+            "total": 1,
+            "skipped_deleted": 0,
+            "skipped_stale": 0,
+            "pending_remaining": 0,
+            "last_error": null
+          }
+        },
+        {
+          "event": "startup-corruption-report",
+          "monotonic": 79.730349039,
+          "tid": 2178
+        },
+        {
+          "event": "first-monitor-probe-enter",
+          "monotonic": 79.73063294,
+          "tid": 2309
+        },
+        {
+          "event": "probe-return",
+          "monotonic": 79.730764482,
+          "tid": 2309,
+          "number": 2,
+          "result": true
+        },
+        {
+          "event": "monitor-wait",
+          "monotonic": 79.731122622,
+          "tid": 2309,
+          "number": 1,
+          "timeout": 15
+        },
+        {
+          "event": "probe-return",
+          "monotonic": 94.731386799,
+          "tid": 2309,
+          "number": 3,
+          "result": true
+        },
+        {
+          "event": "monitor-wait",
+          "monotonic": 94.731428477,
+          "tid": 2309,
+          "number": 2,
+          "timeout": 15
+        },
+        {
+          "event": "joined-before-storage-close",
+          "monotonic": 94.731760427,
+          "tid": 2178
+        }
+      ],
+      "peer_calls": [
+        {
+          "method": "GET",
+          "action": "patch",
+          "user": "fixture-a"
+        },
+        {
+          "method": "POST",
+          "action": "awardachievement",
+          "user": "fixture-a",
+          "status": 200,
+          "signed_identity_verified": true
+        },
+        {
+          "method": "GET",
+          "action": "unlocks",
+          "user": "fixture-a"
+        }
+      ],
+      "applied": [
+        [
+          "fixture-a",
+          104
+        ]
+      ],
+      "queue_before": [
+        {
+          "id": 1,
+          "achievementId": 104,
+          "queryString": "/dorequest.php",
+          "requestBody": "r=awardachievement&a=104&g=10&u=fixture-a&t=<synthetic-token-a>&h=0",
+          "userAgent": "RetroArch/1.21.0 (Linux)",
+          "queuedAt": 1792002551974,
+          "retryCount": 0,
+          "lastError": null,
+          "status": "pending",
+          "payloadHash": "8adfd392d089983fd68933d9255acb9a31b6257e86da26e9b2d13414cbf13f4f",
+          "prevHash": "genesis",
+          "signature": "t4xdkiFy8N7R3rT5iU4cV7wrWO79cj4eInaGZWN2X/k=",
+          "signedAt": 1792002551974
+        }
+      ],
+      "config_sha256": "7bdf7928ad854e0a23fab53fcab8643a5737cf3a6115ac9483893f98c8b30be6",
+      "interval_seconds": 15,
+      "queue_after": [],
+      "flush_calls": 1,
+      "sqlite_integrity": "ok",
+      "worker_alive_at_storage_close": false,
+      "storage_closed": true
+    },
+    {
+      "name": "persistent-offline",
+      "status": "PASS",
+      "trace": [
+        {
+          "event": "probe-return",
+          "monotonic": 94.73386596,
+          "tid": 2178,
+          "number": 1,
+          "result": false
+        },
+        {
+          "event": "first-monitor-probe-enter",
+          "monotonic": 94.734145473,
+          "tid": 2378
+        },
+        {
+          "event": "probe-return",
+          "monotonic": 94.73450115,
+          "tid": 2378,
+          "number": 2,
+          "result": false
+        },
+        {
+          "event": "monitor-wait",
+          "monotonic": 94.73491925,
+          "tid": 2378,
+          "number": 1,
+          "timeout": 15
+        },
+        {
+          "event": "probe-return",
+          "monotonic": 109.735114138,
+          "tid": 2378,
+          "number": 3,
+          "result": false
+        },
+        {
+          "event": "monitor-wait",
+          "monotonic": 109.735156644,
+          "tid": 2378,
+          "number": 2,
+          "timeout": 15
+        },
+        {
+          "event": "joined-before-storage-close",
+          "monotonic": 109.735438748,
+          "tid": 2178
+        }
+      ],
+      "peer_calls": [],
+      "applied": [],
+      "queue_before": [
+        {
+          "id": 1,
+          "achievementId": 104,
+          "queryString": "/dorequest.php",
+          "requestBody": "r=awardachievement&a=104&g=10&u=fixture-a&t=<synthetic-token-a>&h=0",
+          "userAgent": "RetroArch/1.21.0 (Linux)",
+          "queuedAt": 1792002569980,
+          "retryCount": 0,
+          "lastError": null,
+          "status": "pending",
+          "payloadHash": "7a185f5dc255e60992d7e88efd1075d9193f4f43bcd38fc34263fe2410fe56b3",
+          "prevHash": "genesis",
+          "signature": "x5SNSs3+ouJHC5ygIVCwStNRwfKAwdcyn+wx0MB/opM=",
+          "signedAt": 1792002569980
+        }
+      ],
+      "config_sha256": "7bdf7928ad854e0a23fab53fcab8643a5737cf3a6115ac9483893f98c8b30be6",
+      "interval_seconds": 15,
+      "queue_after": [
+        {
+          "id": 1,
+          "achievementId": 104,
+          "queryString": "/dorequest.php",
+          "requestBody": "r=awardachievement&a=104&g=10&u=fixture-a&t=<synthetic-token-a>&h=0",
+          "userAgent": "RetroArch/1.21.0 (Linux)",
+          "queuedAt": 1792002569980,
+          "retryCount": 0,
+          "lastError": null,
+          "status": "pending",
+          "payloadHash": "7a185f5dc255e60992d7e88efd1075d9193f4f43bcd38fc34263fe2410fe56b3",
+          "prevHash": "genesis",
+          "signature": "x5SNSs3+ouJHC5ygIVCwStNRwfKAwdcyn+wx0MB/opM=",
+          "signedAt": 1792002569980
+        }
+      ],
+      "flush_calls": 0,
+      "sqlite_integrity": "ok",
+      "worker_alive_at_storage_close": false,
+      "storage_closed": true
+    },
+    {
+      "name": "ordinary-reconnect",
+      "status": "PASS",
+      "trace": [
+        {
+          "event": "probe-return",
+          "monotonic": 109.739795859,
+          "tid": 2178,
+          "number": 1,
+          "result": false
+        },
+        {
+          "event": "first-monitor-probe-enter",
+          "monotonic": 109.740321532,
+          "tid": 2440
+        },
+        {
+          "event": "probe-return",
+          "monotonic": 109.740509226,
+          "tid": 2440,
+          "number": 2,
+          "result": false
+        },
+        {
+          "event": "monitor-wait",
+          "monotonic": 109.740879996,
+          "tid": 2440,
+          "number": 1,
+          "timeout": 15
+        },
+        {
+          "event": "controlled-link-online-after-offline-baseline",
+          "monotonic": 109.741013059,
+          "tid": 2178
+        },
+        {
+          "event": "probe-return",
+          "monotonic": 124.741196276,
+          "tid": 2440,
+          "number": 3,
+          "result": true
+        },
+        {
+          "event": "flush-enter",
+          "monotonic": 124.741266755,
+          "tid": 2440
+        },
+        {
+          "event": "flush-return",
+          "monotonic": 127.748929257,
+          "tid": 2440,
+          "outcome": {
+            "flushed": 1,
+            "total": 1,
+            "skipped_deleted": 0,
+            "skipped_stale": 0,
+            "pending_remaining": 0,
+            "last_error": null
+          }
+        },
+        {
+          "event": "monitor-wait",
+          "monotonic": 127.749519449,
+          "tid": 2440,
+          "number": 2,
+          "timeout": 15
+        },
+        {
+          "event": "joined-before-storage-close",
+          "monotonic": 127.74976488,
+          "tid": 2178
+        }
+      ],
+      "peer_calls": [
+        {
+          "method": "GET",
+          "action": "patch",
+          "user": "fixture-a"
+        },
+        {
+          "method": "POST",
+          "action": "awardachievement",
+          "user": "fixture-a",
+          "status": 200,
+          "signed_identity_verified": true
+        },
+        {
+          "method": "GET",
+          "action": "unlocks",
+          "user": "fixture-a"
+        }
+      ],
+      "applied": [
+        [
+          "fixture-a",
+          104
+        ]
+      ],
+      "queue_before": [
+        {
+          "id": 1,
+          "achievementId": 104,
+          "queryString": "/dorequest.php",
+          "requestBody": "r=awardachievement&a=104&g=10&u=fixture-a&t=<synthetic-token-a>&h=0",
+          "userAgent": "RetroArch/1.21.0 (Linux)",
+          "queuedAt": 1792002584985,
+          "retryCount": 0,
+          "lastError": null,
+          "status": "pending",
+          "payloadHash": "3b3e610360fb7835180c8d6646046b33b7379c601ac4f98b8a2778a7a8df0f38",
+          "prevHash": "genesis",
+          "signature": "LR5hbS5zyCI+iNS+CMR3MklTokknQcVvHvf7AHfxMrI=",
+          "signedAt": 1792002584986
+        }
+      ],
+      "config_sha256": "7bdf7928ad854e0a23fab53fcab8643a5737cf3a6115ac9483893f98c8b30be6",
+      "interval_seconds": 15,
+      "queue_after": [],
+      "flush_calls": 1,
+      "sqlite_integrity": "ok",
+      "worker_alive_at_storage_close": false,
+      "storage_closed": true
+    },
+    {
+      "name": "auth-401",
+      "status": "PASS",
+      "trace": [
+        {
+          "event": "probe-return",
+          "monotonic": 127.753818772,
+          "tid": 2178,
+          "number": 1,
+          "result": false
+        },
+        {
+          "event": "first-monitor-probe-enter",
+          "monotonic": 127.754292992,
+          "tid": 2521
+        },
+        {
+          "event": "controlled-link-online",
+          "monotonic": 127.754431567,
+          "tid": 2178
+        },
+        {
+          "event": "probe-return",
+          "monotonic": 127.754489054,
+          "tid": 2521,
+          "number": 2,
+          "result": true
+        },
+        {
+          "event": "flush-enter",
+          "monotonic": 127.75485727,
+          "tid": 2521
+        },
+        {
+          "event": "flush-return",
+          "monotonic": 127.758046401,
+          "tid": 2521,
+          "outcome": {
+            "flushed": 0,
+            "total": 1,
+            "skipped_deleted": 0,
+            "skipped_stale": 0,
+            "pending_remaining": 1,
+            "last_error": null
+          }
+        },
+        {
+          "event": "monitor-wait",
+          "monotonic": 127.75806977,
+          "tid": 2521,
+          "number": 1,
+          "timeout": 15
+        },
+        {
+          "event": "probe-return",
+          "monotonic": 142.758296847,
+          "tid": 2521,
+          "number": 3,
+          "result": true
+        },
+        {
+          "event": "monitor-wait",
+          "monotonic": 142.758343851,
+          "tid": 2521,
+          "number": 2,
+          "timeout": 15
+        },
+        {
+          "event": "joined-before-storage-close",
+          "monotonic": 142.758802059,
+          "tid": 2178
+        }
+      ],
+      "peer_calls": [
+        {
+          "method": "GET",
+          "action": "patch",
+          "user": "fixture-a"
+        },
+        {
+          "method": "POST",
+          "action": "awardachievement",
+          "user": "fixture-a",
+          "status": 401,
+          "signed_identity_verified": true
+        }
+      ],
+      "applied": [],
+      "queue_before": [
+        {
+          "id": 1,
+          "achievementId": 104,
+          "queryString": "/dorequest.php",
+          "requestBody": "r=awardachievement&a=104&g=10&u=fixture-a&t=<synthetic-token-a>&h=0",
+          "userAgent": "RetroArch/1.21.0 (Linux)",
+          "queuedAt": 1792002603000,
+          "retryCount": 0,
+          "lastError": null,
+          "status": "pending",
+          "payloadHash": "bc6badd1925a865f242d515171ba9e3d3b84a4aa7c1741dbbf3d4e794af315cb",
+          "prevHash": "genesis",
+          "signature": "hpXW2ierRwfaYBhC+eA0VNnuyGZ+qzgNfjyOlAXgghM=",
+          "signedAt": 1792002603000
+        }
+      ],
+      "config_sha256": "7bdf7928ad854e0a23fab53fcab8643a5737cf3a6115ac9483893f98c8b30be6",
+      "interval_seconds": 15,
+      "queue_after": [
+        {
+          "id": 1,
+          "achievementId": 104,
+          "queryString": "/dorequest.php",
+          "requestBody": "r=awardachievement&a=104&g=10&u=fixture-a&t=<synthetic-token-a>&h=0",
+          "userAgent": "RetroArch/1.21.0 (Linux)",
+          "queuedAt": 1792002603000,
+          "retryCount": 0,
+          "lastError": "Token rejected by server (HTTP 401)",
+          "status": "pending",
+          "payloadHash": "bc6badd1925a865f242d515171ba9e3d3b84a4aa7c1741dbbf3d4e794af315cb",
+          "prevHash": "genesis",
+          "signature": "hpXW2ierRwfaYBhC+eA0VNnuyGZ+qzgNfjyOlAXgghM=",
+          "signedAt": 1792002603000
+        }
+      ],
+      "flush_calls": 1,
+      "sqlite_integrity": "ok",
+      "worker_alive_at_storage_close": false,
+      "storage_closed": true
+    },
+    {
+      "name": "auth-403",
+      "status": "PASS",
+      "trace": [
+        {
+          "event": "probe-return",
+          "monotonic": 142.763709179,
+          "tid": 2178,
+          "number": 1,
+          "result": false
+        },
+        {
+          "event": "first-monitor-probe-enter",
+          "monotonic": 142.764180839,
+          "tid": 2590
+        },
+        {
+          "event": "controlled-link-online",
+          "monotonic": 142.764258263,
+          "tid": 2178
+        },
+        {
+          "event": "probe-return",
+          "monotonic": 142.764283176,
+          "tid": 2590,
+          "number": 2,
+          "result": true
+        },
+        {
+          "event": "flush-enter",
+          "monotonic": 142.764553813,
+          "tid": 2590
+        },
+        {
+          "event": "flush-return",
+          "monotonic": 142.766497858,
+          "tid": 2590,
+          "outcome": {
+            "flushed": 0,
+            "total": 1,
+            "skipped_deleted": 0,
+            "skipped_stale": 0,
+            "pending_remaining": 1,
+            "last_error": null
+          }
+        },
+        {
+          "event": "monitor-wait",
+          "monotonic": 142.766512959,
+          "tid": 2590,
+          "number": 1,
+          "timeout": 15
+        },
+        {
+          "event": "probe-return",
+          "monotonic": 157.766744369,
+          "tid": 2590,
+          "number": 3,
+          "result": true
+        },
+        {
+          "event": "monitor-wait",
+          "monotonic": 157.766795306,
+          "tid": 2590,
+          "number": 2,
+          "timeout": 15
+        },
+        {
+          "event": "joined-before-storage-close",
+          "monotonic": 157.767267346,
+          "tid": 2178
+        }
+      ],
+      "peer_calls": [
+        {
+          "method": "GET",
+          "action": "patch",
+          "user": "fixture-a"
+        },
+        {
+          "method": "POST",
+          "action": "awardachievement",
+          "user": "fixture-a",
+          "status": 403,
+          "signed_identity_verified": true
+        }
+      ],
+      "applied": [],
+      "queue_before": [
+        {
+          "id": 1,
+          "achievementId": 104,
+          "queryString": "/dorequest.php",
+          "requestBody": "r=awardachievement&a=104&g=10&u=fixture-a&t=<synthetic-token-a>&h=0",
+          "userAgent": "RetroArch/1.21.0 (Linux)",
+          "queuedAt": 1792002618009,
+          "retryCount": 0,
+          "lastError": null,
+          "status": "pending",
+          "payloadHash": "f2317e8a7364aa56dcff0ebd32281d624ffd31a70f73ddc966f998a6c4cfbcd5",
+          "prevHash": "genesis",
+          "signature": "DdY9RLDYtfYfrrsj151PyKDZUqXaj0vGsOkuP46KH2Y=",
+          "signedAt": 1792002618009
+        }
+      ],
+      "config_sha256": "7bdf7928ad854e0a23fab53fcab8643a5737cf3a6115ac9483893f98c8b30be6",
+      "interval_seconds": 15,
+      "queue_after": [
+        {
+          "id": 1,
+          "achievementId": 104,
+          "queryString": "/dorequest.php",
+          "requestBody": "r=awardachievement&a=104&g=10&u=fixture-a&t=<synthetic-token-a>&h=0",
+          "userAgent": "RetroArch/1.21.0 (Linux)",
+          "queuedAt": 1792002618009,
+          "retryCount": 0,
+          "lastError": "Token rejected by server (HTTP 403)",
+          "status": "pending",
+          "payloadHash": "f2317e8a7364aa56dcff0ebd32281d624ffd31a70f73ddc966f998a6c4cfbcd5",
+          "prevHash": "genesis",
+          "signature": "DdY9RLDYtfYfrrsj151PyKDZUqXaj0vGsOkuP46KH2Y=",
+          "signedAt": 1792002618009
+        }
+      ],
+      "flush_calls": 1,
+      "sqlite_integrity": "ok",
+      "worker_alive_at_storage_close": false,
+      "storage_closed": true
+    },
+    {
+      "name": "network-500",
+      "status": "PASS",
+      "trace": [
+        {
+          "event": "probe-return",
+          "monotonic": 157.770866951,
+          "tid": 2178,
+          "number": 1,
+          "result": false
+        },
+        {
+          "event": "first-monitor-probe-enter",
+          "monotonic": 157.771205369,
+          "tid": 2652
+        },
+        {
+          "event": "controlled-link-online",
+          "monotonic": 157.771272255,
+          "tid": 2178
+        },
+        {
+          "event": "probe-return",
+          "monotonic": 157.771316598,
+          "tid": 2652,
+          "number": 2,
+          "result": true
+        },
+        {
+          "event": "flush-enter",
+          "monotonic": 157.771721143,
+          "tid": 2652
+        },
+        {
+          "event": "flush-return",
+          "monotonic": 157.774316233,
+          "tid": 2652,
+          "outcome": {
+            "flushed": 0,
+            "total": 1,
+            "skipped_deleted": 0,
+            "skipped_stale": 0,
+            "pending_remaining": 1,
+            "last_error": null
+          }
+        },
+        {
+          "event": "monitor-wait",
+          "monotonic": 157.774328024,
+          "tid": 2652,
+          "number": 1,
+          "timeout": 15
+        },
+        {
+          "event": "probe-return",
+          "monotonic": 172.774732475,
+          "tid": 2652,
+          "number": 3,
+          "result": true
+        },
+        {
+          "event": "monitor-wait",
+          "monotonic": 172.774790199,
+          "tid": 2652,
+          "number": 2,
+          "timeout": 15
+        },
+        {
+          "event": "joined-before-storage-close",
+          "monotonic": 172.775043977,
+          "tid": 2178
+        }
+      ],
+      "peer_calls": [
+        {
+          "method": "GET",
+          "action": "patch",
+          "user": "fixture-a"
+        },
+        {
+          "method": "POST",
+          "action": "awardachievement",
+          "user": "fixture-a",
+          "status": 500,
+          "signed_identity_verified": true
+        }
+      ],
+      "applied": [],
+      "queue_before": [
+        {
+          "id": 1,
+          "achievementId": 104,
+          "queryString": "/dorequest.php",
+          "requestBody": "r=awardachievement&a=104&g=10&u=fixture-a&t=<synthetic-token-a>&h=0",
+          "userAgent": "RetroArch/1.21.0 (Linux)",
+          "queuedAt": 1792002633017,
+          "retryCount": 0,
+          "lastError": null,
+          "status": "pending",
+          "payloadHash": "0373f5b873c40136ee934a461b04ed6f1c32d002cc17334c756fca1fbe912884",
+          "prevHash": "genesis",
+          "signature": "a/RDhPiHYDoJrtmC5FkJZLg18tubsgxUFY9RB2rNO0E=",
+          "signedAt": 1792002633017
+        }
+      ],
+      "config_sha256": "7bdf7928ad854e0a23fab53fcab8643a5737cf3a6115ac9483893f98c8b30be6",
+      "interval_seconds": 15,
+      "queue_after": [
+        {
+          "id": 1,
+          "achievementId": 104,
+          "queryString": "/dorequest.php",
+          "requestBody": "r=awardachievement&a=104&g=10&u=fixture-a&t=<synthetic-token-a>&h=0",
+          "userAgent": "RetroArch/1.21.0 (Linux)",
+          "queuedAt": 1792002633017,
+          "retryCount": 1,
+          "lastError": "HTTP 500",
+          "status": "pending",
+          "payloadHash": "0373f5b873c40136ee934a461b04ed6f1c32d002cc17334c756fca1fbe912884",
+          "prevHash": "genesis",
+          "signature": "a/RDhPiHYDoJrtmC5FkJZLg18tubsgxUFY9RB2rNO0E=",
+          "signedAt": 1792002633017
+        }
+      ],
+      "flush_calls": 1,
+      "sqlite_integrity": "ok",
+      "worker_alive_at_storage_close": false,
+      "storage_closed": true
+    },
+    {
+      "name": "stop-during-initial-probe",
+      "status": "PASS",
+      "trace": [
+        {
+          "event": "probe-return",
+          "monotonic": 172.7768277,
+          "tid": 2178,
+          "number": 1,
+          "result": false
+        },
+        {
+          "event": "first-monitor-probe-enter",
+          "monotonic": 172.777138341,
+          "tid": 2721
+        },
+        {
+          "event": "stop-before-probe-return",
+          "monotonic": 172.777192744,
+          "tid": 2178
+        },
+        {
+          "event": "controlled-link-online",
+          "monotonic": 172.777195106,
+          "tid": 2178
+        },
+        {
+          "event": "probe-return",
+          "monotonic": 172.777244184,
+          "tid": 2721,
+          "number": 2,
+          "result": true
+        },
+        {
+          "event": "monitor-wait",
+          "monotonic": 172.777464066,
+          "tid": 2721,
+          "number": 1,
+          "timeout": 15
+        },
+        {
+          "event": "joined-before-storage-close",
+          "monotonic": 172.777494896,
+          "tid": 2178
+        }
+      ],
+      "peer_calls": [],
+      "applied": [],
+      "queue_before": [
+        {
+          "id": 1,
+          "achievementId": 104,
+          "queryString": "/dorequest.php",
+          "requestBody": "r=awardachievement&a=104&g=10&u=fixture-a&t=<synthetic-token-a>&h=0",
+          "userAgent": "RetroArch/1.21.0 (Linux)",
+          "queuedAt": 1792002648023,
+          "retryCount": 0,
+          "lastError": null,
+          "status": "pending",
+          "payloadHash": "ad4bb27f829f5dcece4779e518d5ee5ae08eea673e17968efc81ffa4fc4511fd",
+          "prevHash": "genesis",
+          "signature": "vAsxEzYg6N509Tf9DuEKCPOkfw5dW1T2Reurrh40q0U=",
+          "signedAt": 1792002648023
+        }
+      ],
+      "config_sha256": "7bdf7928ad854e0a23fab53fcab8643a5737cf3a6115ac9483893f98c8b30be6",
+      "interval_seconds": 15,
+      "queue_after": [
+        {
+          "id": 1,
+          "achievementId": 104,
+          "queryString": "/dorequest.php",
+          "requestBody": "r=awardachievement&a=104&g=10&u=fixture-a&t=<synthetic-token-a>&h=0",
+          "userAgent": "RetroArch/1.21.0 (Linux)",
+          "queuedAt": 1792002648023,
+          "retryCount": 0,
+          "lastError": null,
+          "status": "pending",
+          "payloadHash": "ad4bb27f829f5dcece4779e518d5ee5ae08eea673e17968efc81ffa4fc4511fd",
+          "prevHash": "genesis",
+          "signature": "vAsxEzYg6N509Tf9DuEKCPOkfw5dW1T2Reurrh40q0U=",
+          "signedAt": 1792002648023
+        }
+      ],
+      "flush_calls": 0,
+      "sqlite_integrity": "ok",
+      "worker_alive_at_storage_close": false,
+      "storage_closed": true
+    },
+    {
+      "name": "stop-before-start",
+      "status": "PASS",
+      "trace": [
+        {
+          "event": "stop-before-monitor-start",
+          "monotonic": 172.778618871,
+          "tid": 2178
+        },
+        {
+          "event": "probe-return",
+          "monotonic": 172.77862403,
+          "tid": 2178,
+          "number": 1,
+          "result": false
+        },
+        {
+          "event": "first-monitor-probe-enter",
+          "monotonic": 172.778922578,
+          "tid": 2722
+        },
+        {
+          "event": "controlled-link-online",
+          "monotonic": 172.778975454,
+          "tid": 2178
+        },
+        {
+          "event": "probe-return",
+          "monotonic": 172.779019748,
+          "tid": 2722,
+          "number": 2,
+          "result": true
+        },
+        {
+          "event": "monitor-wait",
+          "monotonic": 172.780191593,
+          "tid": 2722,
+          "number": 1,
+          "timeout": 15
+        },
+        {
+          "event": "joined-before-storage-close",
+          "monotonic": 172.780252232,
+          "tid": 2178
+        }
+      ],
+      "peer_calls": [],
+      "applied": [],
+      "queue_before": [
+        {
+          "id": 1,
+          "achievementId": 104,
+          "queryString": "/dorequest.php",
+          "requestBody": "r=awardachievement&a=104&g=10&u=fixture-a&t=<synthetic-token-a>&h=0",
+          "userAgent": "RetroArch/1.21.0 (Linux)",
+          "queuedAt": 1792002648025,
+          "retryCount": 0,
+          "lastError": null,
+          "status": "pending",
+          "payloadHash": "2aae9db5a90099e37c75a758a8fef8ce01f25ee115538582b72cc1e0448d866b",
+          "prevHash": "genesis",
+          "signature": "PqNBiLkqymSQuJYETEEpQOc98M34G4paqBjmRIkbzng=",
+          "signedAt": 1792002648025
+        }
+      ],
+      "config_sha256": "7bdf7928ad854e0a23fab53fcab8643a5737cf3a6115ac9483893f98c8b30be6",
+      "interval_seconds": 15,
+      "queue_after": [
+        {
+          "id": 1,
+          "achievementId": 104,
+          "queryString": "/dorequest.php",
+          "requestBody": "r=awardachievement&a=104&g=10&u=fixture-a&t=<synthetic-token-a>&h=0",
+          "userAgent": "RetroArch/1.21.0 (Linux)",
+          "queuedAt": 1792002648025,
+          "retryCount": 0,
+          "lastError": null,
+          "status": "pending",
+          "payloadHash": "2aae9db5a90099e37c75a758a8fef8ce01f25ee115538582b72cc1e0448d866b",
+          "prevHash": "genesis",
+          "signature": "PqNBiLkqymSQuJYETEEpQOc98M34G4paqBjmRIkbzng=",
+          "signedAt": 1792002648025
+        }
+      ],
+      "flush_calls": 0,
+      "sqlite_integrity": "ok",
+      "worker_alive_at_storage_close": false,
+      "storage_closed": true
+    },
+    {
+      "name": "offline-stop-restart",
+      "status": "PASS",
+      "trace": [
+        {
+          "event": "probe-return",
+          "monotonic": 172.781430684,
+          "tid": 2178,
+          "number": 1,
+          "result": false
+        },
+        {
+          "event": "first-monitor-probe-enter",
+          "monotonic": 172.781795444,
+          "tid": 2723
+        },
+        {
+          "event": "probe-return",
+          "monotonic": 172.781880184,
+          "tid": 2723,
+          "number": 2,
+          "result": false
+        },
+        {
+          "event": "monitor-wait",
+          "monotonic": 172.782343235,
+          "tid": 2723,
+          "number": 1,
+          "timeout": 15
+        },
+        {
+          "event": "joined-before-storage-close",
+          "monotonic": 172.782432813,
+          "tid": 2178
+        },
+        {
+          "event": "probe-return",
+          "monotonic": 172.782885103,
+          "tid": 2178,
+          "number": 1,
+          "result": true
+        },
+        {
+          "event": "flush-enter",
+          "monotonic": 172.782968591,
+          "tid": 2178
+        },
+        {
+          "event": "flush-return",
+          "monotonic": 175.784612922,
+          "tid": 2178,
+          "outcome": {
+            "flushed": 1,
+            "total": 1,
+            "skipped_deleted": 0,
+            "skipped_stale": 0,
+            "pending_remaining": 0,
+            "last_error": null
+          }
+        },
+        {
+          "event": "startup-corruption-report",
+          "monotonic": 175.784623825,
+          "tid": 2178
+        },
+        {
+          "event": "first-monitor-probe-enter",
+          "monotonic": 175.784864996,
+          "tid": 2731
+        },
+        {
+          "event": "probe-return",
+          "monotonic": 175.784903154,
+          "tid": 2731,
+          "number": 2,
+          "result": true
+        },
+        {
+          "event": "monitor-wait",
+          "monotonic": 175.785299008,
+          "tid": 2731,
+          "number": 1,
+          "timeout": 15
+        }
+      ],
+      "peer_calls": [
+        {
+          "method": "GET",
+          "action": "patch",
+          "user": "fixture-a"
+        },
+        {
+          "method": "POST",
+          "action": "awardachievement",
+          "user": "fixture-a",
+          "status": 200,
+          "signed_identity_verified": true
+        },
+        {
+          "method": "GET",
+          "action": "unlocks",
+          "user": "fixture-a"
+        }
+      ],
+      "applied": [
+        [
+          "fixture-a",
+          104
+        ]
+      ],
+      "queue_before": [
+        {
+          "id": 1,
+          "achievementId": 104,
+          "queryString": "/dorequest.php",
+          "requestBody": "r=awardachievement&a=104&g=10&u=fixture-a&t=<synthetic-token-a>&h=0",
+          "userAgent": "RetroArch/1.21.0 (Linux)",
+          "queuedAt": 1792002648027,
+          "retryCount": 0,
+          "lastError": null,
+          "status": "pending",
+          "payloadHash": "de04881dc43c802d61f9c9cd786b7043d6fa01153afa54cbe34164114fc8b745",
+          "prevHash": "genesis",
+          "signature": "0mK22Ho8cj/rWby/upZXXFsfcLXxur90kNsiteg/npI=",
+          "signedAt": 1792002648028
+        }
+      ],
+      "config_sha256": "7bdf7928ad854e0a23fab53fcab8643a5737cf3a6115ac9483893f98c8b30be6",
+      "interval_seconds": 15,
+      "queue_after": [
+        {
+          "id": 1,
+          "achievementId": 104,
+          "queryString": "/dorequest.php",
+          "requestBody": "r=awardachievement&a=104&g=10&u=fixture-a&t=<synthetic-token-a>&h=0",
+          "userAgent": "RetroArch/1.21.0 (Linux)",
+          "queuedAt": 1792002648027,
+          "retryCount": 0,
+          "lastError": null,
+          "status": "pending",
+          "payloadHash": "de04881dc43c802d61f9c9cd786b7043d6fa01153afa54cbe34164114fc8b745",
+          "prevHash": "genesis",
+          "signature": "0mK22Ho8cj/rWby/upZXXFsfcLXxur90kNsiteg/npI=",
+          "signedAt": 1792002648028
+        }
+      ],
+      "flush_calls": 0,
+      "sqlite_integrity": "ok",
+      "restart_queue_after": [],
+      "restart_sqlite_integrity": "ok",
+      "worker_alive_at_storage_close": false,
+      "storage_closed": true
+    }
+  ],
+  "thread_errors": [],
+  "timers_changed": false,
+  "variant": "candidate",
+  "source_sha256": "432bb07ac6b0abcdcb38800d7c75a92c768b2b6bea583a1bab6834bb7f7b0d00",
+  "source_files": 112,
+  "startup_lines": [
+    1473,
+    1479
+  ],
+  "interpreter": "3.14.7 (main, Oct  4 2026, 04:40:27) [GCC 15.2.0]",
+  "substitutions": [
+    "controlled reachability",
+    "in-process synthetic GET/POST replies",
+    "corruption-report observation"
+  ],
+  "elapsed_seconds": 117.069124837,
+  "live_threads": []
+}

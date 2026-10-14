@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "es_source": {
+    "path": "/home/max/Development/emulationstation-next.worktrees/m7-candidate-compose",
+    "commit": "c045d2ec1936c2dfc6c4777935fb2d4cd8b3bcfa",
+    "tree": "7a34dbe6ec6d5a5f153059153ba7d8b4a22e6451",
+    "manifest_sha256": "af3e55ad01df634eab8fc459d26e2c9147228c2c1b2df683aa6dfcd3970f1bea"
+  },
+  "units": [
+    "/home/max/Development/emulationstation-next.worktrees/m7-candidate-compose/es-app/src/ApiSystem.cpp",
+    "/home/max/Development/emulationstation-next.worktrees/m7-candidate-compose/es-app/src/ThreadedHasher.cpp",
+    "/home/max/Development/emulationstation-next.worktrees/m7-candidate-compose/es-app/src/guis/GuiMenu.cpp",
+    "/home/max/Development/emulationstation-next.worktrees/m7-candidate-compose/es-app/src/guis/GuiWifi.cpp",
+    "/home/max/Development/emulationstation-next.worktrees/m7-candidate-compose/es-core/src/Settings.cpp"
+  ],
+  "original_child_receipt_sha256": "7fc576955b160ecda5b8c97debab63cabe037b6f93144c6d5171e373e8f9a09f",
+  "syntax_tool_sha256": "728fbd6ce08590b2579f40eb8153dcdebfca4ee688ec9e57651b64c2d4c6c594",
+  "limits": "Syntax only. External libcheevos C/C++ not inspected by this helper; no build, target execution, pin or image acceptance."
+}

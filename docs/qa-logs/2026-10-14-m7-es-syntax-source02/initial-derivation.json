@@ -1,0 +1,24 @@
+{
+  "original_packet": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-proxy-current-native-py310",
+  "original_manifest_sha256": "fc85dfc79ea9e3d498cd7bc3c28e026199e135ec128123cf3f01476e79da986f",
+  "unchanged_owner_files": {
+    "docker_owner.py": "276baaa41d855161873b6d3a979463d2ff0a3bb8fd28ddbd8ed4502959354d31",
+    "watchdog.py": "b21d2e255f0094b5f48eef6e009972633298629b7f0c4c7b44ec7eef0148c18b"
+  },
+  "changes": "Only stage/source/command/mount selection adapted to one es-syntax stage. Preserve exact DockerOwner/watchdog and command/monitor/cleanup logic;600s family,4GiB/2CPU/no swap,1GiB sampled scratch. Exact ES direct readonly mount, tool captured unchanged, no source export or compiler output.",
+  "original_success_receipts": {
+    "result.json": {
+      "path": "/workspace/tmp/pix583-current-native-20261014-02/stages/proxy-build/result.json",
+      "sha256": "103da653ff7be113044194a0a08c704eeddbd5dd858abbf70008d1fe946ae36a"
+    },
+    "container-result.json": {
+      "path": "/workspace/tmp/pix583-current-native-20261014-02/stages/proxy-build/container-result.json",
+      "sha256": "638721e8668c846fe53e924a417d191e9b93f620d8ba559b0bf26202040d2614"
+    },
+    "watchdog-result.json": {
+      "path": "/workspace/tmp/pix583-current-native-20261014-02/stages/proxy-build/watchdog-result.json",
+      "sha256": "9a82748fd15c4bba6ea917244dae8d06c8567b94530f859749dea2afc6ab4bac"
+    }
+  },
+  "execution": "UNRUN"
+}

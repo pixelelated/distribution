@@ -1,0 +1,53 @@
+{
+  "fixture_commit": "06b5b583d075cf123b61efa0030ea04a215546f1",
+  "product_commit": "1a7714fd81f7c92316f54c4a3648696d1e256f88",
+  "qualification": "source-staged caller proof; not shipped-image qualification",
+  "v4_files": {
+    "README.md": "147bbac682b9f80c4a7b45d97b9e8fcf6ea2afd9deb92ca958c8d4b557fd8afb",
+    "SHA256SUMS": "548253680515f7884741d15144e8f1b19b3061f557927e5f6adc4c8b01f64609",
+    "compatibility-source.json": "3b08e6d370df5a3818a1f311554a6a6967a3d16c28f16349f90c3c79521f05c2",
+    "dismiss.steps": "468b8b2e2f458c3a6d1b872d3d8acc8986a89dc8a2afd36ecb10e52011590d43",
+    "guest-session.sh": "b23c7355cd8e2ac33c7e468d198d4d2374fb68d94836a614dd2c53e801b85fde",
+    "installed_flow.py": "44f0032dbd63c7dd2d2d4cb9c2e24c2ebf49c5539f1a8c19b29ab2cf1b0873d8",
+    "launch.steps": "d40c98822a6bfa403ccfc6b99c7436e490d8edc7276d8f22acdf5521021ca31b",
+    "profile.sh": "be5efcd001a3657cec5aaf5fa48a0f6c3910b66c4a9ac924e8a749f3d0842806",
+    "record-stub.py": "168010a426ac79291848ce02a8cc4c9122348064cfd60509094bf69820f96132",
+    "source.json": "03abd6e8508172d56b517e4855edc48a12c16d4a0719afcbf74ceac96ea65f00",
+    "static-result.json": "c135fafe57af255bac2e10a3a04ecdbe31a72f346e15778451cf781502acf163",
+    "static_check.py": "69223874837224a772de518ab904d9c92f3eca1ed2531c98aab0db0ca145f4a7",
+    "trace-controls.py": "4990c7d2fe5ed4e8b3a3b264b824bb7ec2e40633386e76df1c3c482482fce1fc",
+    "trace-source.json": "b6ec75d5d3e1683fadec3f27e3f4d555a924e24a421d88be9c6ff3fa0363ca31"
+  },
+  "distribution_files": {
+    "projects/ROCKNIX/packages/rocknix/sources/scripts/runemu.sh": "deb95aee74d3ddd80638a9ab2f940f5b3b080f4d3ec01f669ea8dbd44179ad20",
+    "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/package.mk": "9dc251df09495db8b6d80d5be2a2fb4f02bbedc6374759b57373b3aa63411d5b",
+    "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/start_dolphin_gc.sh": "cc6da2e146adfc5423fb58462888e0cab0a4904deb90f5066392484b8447c9c2",
+    "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/start_dolphin_wii.sh": "e8ff87c570d7a96eb641d42637d35ac93580f6a48dd7ea40e060f1b827eb407a",
+    "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/dolphin-save-paths": "507ccc96245bfc7aaca5e154ef0567cacccd0cbc9d0f999761d2fdee1fc245e8",
+    "projects/ROCKNIX/packages/ui/emulationstation/package.mk": "1427d497d1bedb74b9f10a857ec6624787589cce7061803c4b701925ee730974"
+  },
+  "host_tools": {
+    "tools/vm-serial": "1fed507a546a9c23fdc360012ccc6ffadc2793fabaa137ff2dc73141bdc2c921",
+    "tools/vm-visual-qa": "81565f39ce5bdbdce05fc7ec7b27f40ca1d95051430382c5e13f1ef58434cd06"
+  },
+  "defaults_receipt_sha256": "82ce35877c5da0bf0fa2c5b02bcff71e2d6729825e94c17758c8db5b95daa2ce",
+  "defaults_archive_sha256": "1a54b5971b7d9aca8a07fe6a3f69bee9d747a6ea4e46d7b1485a599881fd35a0",
+  "es_boundary_reference_files": {
+    "es-app/src/FileData.cpp": "8a677bd0eaf7d6172bef388b8f38da91a132e4adf1f9cdfdce98fd6e84ada33d",
+    "es-app/src/SystemData.cpp": "0cd174d8f7d25bce808901b52b4d970415dd177bcaec6588da08da0113869504",
+    "es-app/src/main.cpp": "93fc68f82617286d7c891b19237203a5cd20cf4a3c1b22e22e043b30346968dd",
+    "es-app/src/views/ViewController.cpp": "b5be9eae846710c6846eab0b57de88696804562814ed40535267d4102791cc96",
+    "es-core/src/Paths.cpp": "0ded8fcb9bfc9940fe730493e3c56e79c221c74959ef024e5f574353d4a9cbe2",
+    "es-core/src/Scripting.cpp": "f3535ffa62244ddc3e134e27701d3b39dbe465ff7cddade0efe4d5596b9b1e53",
+    "es-core/src/LocaleES.cpp": "a5328fc9550e55a686c0622fdbbf98278487dc840812e7a0d259ae67965011e2",
+    "es-core/src/utils/Platform.cpp": "edd72facac37487ebaa601e613582e0507fba03aabd8e1eff7350dd94114b886",
+    "es-core/src/InputManager.cpp": "8ccd43dbb75517030c234d2192e6134f42bf698c18b43f44252366448b2c9934"
+  },
+  "caller_files": {
+    "installed_flow.py": "44f0032dbd63c7dd2d2d4cb9c2e24c2ebf49c5539f1a8c19b29ab2cf1b0873d8",
+    "guest-session.sh": "b23c7355cd8e2ac33c7e468d198d4d2374fb68d94836a614dd2c53e801b85fde",
+    "profile.sh": "be5efcd001a3657cec5aaf5fa48a0f6c3910b66c4a9ac924e8a749f3d0842806",
+    "record-stub.py": "168010a426ac79291848ce02a8cc4c9122348064cfd60509094bf69820f96132",
+    "source.json": "2344bbe1d10df667849d1666a6a51cab55da21fbed5b51fce847ca522054067f"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "scope": "static only; no compiler/preprocessor/runner import or execution",
+  "python_grammar": "3.10",
+  "parsed": [
+    "common.py",
+    "docker_owner.py",
+    "inner.py",
+    "native.py",
+    "plan.py",
+    "run-stage.py",
+    "watchdog.py"
+  ],
+  "wrapper_files_byte_identical_to_run01": {
+    "common.py": "64d20f981b6848198a0c95636d39d03356a33919b940e1d291790fac90e8fb8d",
+    "docker_owner.py": "276baaa41d855161873b6d3a979463d2ff0a3bb8fd28ddbd8ed4502959354d31",
+    "inner.py": "14cd3ade50ba2a7c767b1b47cb4b3b8645c0d763c95811df14a5540666db0763",
+    "native.py": "4e651d2aa8506405b07c0f9805b6f6d174aef6ee78ae2631ff0af96dc7564cfa",
+    "plan.py": "cf4f1b08141f6e9fe5c68f7bc5fc7cc7102788fe1c0a9f9630885d8174ab780e",
+    "run-stage.py": "94e6d4b26512fea4a260b816bd7d1f68980048db01437cc1e08686f87fcc210d",
+    "watchdog.py": "b21d2e255f0094b5f48eef6e009972633298629b7f0c4c7b44ec7eef0148c18b"
+  },
+  "product_source_unchanged": true,
+  "source_commit": "c045d2ec1936c2dfc6c4777935fb2d4cd8b3bcfa",
+  "source_tree": "7a34dbe6ec6d5a5f153059153ba7d8b4a22e6451",
+  "negative_quote_only_selects_cached_header": true,
+  "positive_tree_external_precedence_selects_current_header": true,
+  "with_option_semantics_unchanged": true,
+  "tool_patch_only": "/tmp/m7-es-syntax-allocation-20261014-02/es-syntax-check-external.diff",
+  "retry_owner_exists": false
+}

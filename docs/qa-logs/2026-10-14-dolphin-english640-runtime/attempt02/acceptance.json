@@ -1,0 +1,35 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261014T180227Z-f315a309",
+  "expected_rc": 1,
+  "disposition": "failed-investigated",
+  "outputs": [
+    {
+      "issue": 581,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix581-en640-vm-20261014-02/vm",
+      "release_when": "Original guest/guard/lifecycle receipts exported and verified; actual owners exited; consume admission then remove disk/media/UEFI. Preserve only immediate-next-test synthetic inputs."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-dolphin-english640-runtime/attempt02/export-result.json",
+      "sha256": "24ffdd546274bca0bcc92d89ff74ac15625cbbe56cd4e483960ebc05f4802be0"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-dolphin-english640-runtime/attempt02/host-exits.json",
+      "sha256": "9297652d01241f007f083da6842b63c2135dd11b3f6d21ebe74e1e68d496ce72"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-dolphin-english640-runtime/attempt02/guest-manifest.json",
+      "sha256": "60205fdcc2c499e6095937e6675d428c21cde458e46887fdad23183561dce547"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-dolphin-english640-runtime/attempt02/original-records.json",
+      "sha256": "e95cfbaa2be90737a3d4b418d0829c9cc5588ed738733caf2884c2c89256283e"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-dolphin-english640-runtime/attempt02/analysis.json",
+      "sha256": "623a5bfa95f3af3d65b7a2f63461f88de3f660b13565ce2341fe0611aa929c70"
+    }
+  ]
+}

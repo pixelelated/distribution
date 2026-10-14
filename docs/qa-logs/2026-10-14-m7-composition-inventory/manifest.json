@@ -1,0 +1,726 @@
+{
+  "schema": 1,
+  "prepared_at_utc": "2026-10-14T18:04:28.035346+00:00",
+  "scope": "Source/hash/ancestry inventory only. No product mutation, test, build, service, VM, pin, shared-record edit or push.",
+  "snapshots": {
+    "distribution_coordinator": "b004cd4d0751bd871bfda11292b43280895f61ea",
+    "published_next": "0ea6eaf74ad47503c05955d1c0bd4bd00bdfb816",
+    "stable_foundation": "c445081a59518f37d9776e5412dd7b14910696f7",
+    "reviewed_intake_merge": "f370dc87873fecb683c6af73d70a2f377715f47f",
+    "foundation_worktree_head": "62e9929fdce5d44ceb7f68150770475c568d1ac2",
+    "steam_worktree_head": "fe1a05cdabad422b95c6e687a9b60ca43851ec25",
+    "worker_previous_commit": "f6ff601d03457c731a70bf262845da616623b295",
+    "es_ui_base": "bb9e2785f88c2b9de979022a2a9ded2cbce2f954",
+    "es_md5": "314da58d68820a79b26f99a5b6c12f9bb37054d5",
+    "es_french": "09afa4893a6a4667f2b6bd8992bd5957a2281e49"
+  },
+  "source_groups": [
+    {
+      "id": "stable-foundation",
+      "repository": "distribution",
+      "source_commit": "f370dc87873fecb683c6af73d70a2f377715f47f",
+      "issues": [
+        563
+      ],
+      "state": "reviewed-source-ready",
+      "note": "Merge stable ancestry, retaining the DuckStation fork recipe. Steam imported here is superseded by the repaired group below.",
+      "commits_in_order": [
+        "f370dc87873fecb683c6af73d70a2f377715f47f"
+      ],
+      "files": [
+        {
+          "path": "projects/ROCKNIX/devices/SM8250/filesystem/usr/share/wireplumber/wireplumber.conf.d/52-mangmi-hdmi.conf",
+          "commit": "f370dc87873fecb683c6af73d70a2f377715f47f",
+          "mode": "100644",
+          "git_blob": "7a9330b213f2dcd08db70718be65d31825fbfcb4",
+          "bytes": 518,
+          "sha256": "8e56637dfdb02b8d4ac553dff1e6def2afc88e9abb9712769c8f8888674886b5",
+          "matches_coordinator_snapshot": false
+        },
+        {
+          "path": "projects/ROCKNIX/devices/SM8250/linux/dts/qcom/sm8250-mangmi-air-y-pro.dts",
+          "commit": "f370dc87873fecb683c6af73d70a2f377715f47f",
+          "mode": "100644",
+          "git_blob": "2038435df5a3c5e785fbc260dac67379ac57488e",
+          "bytes": 34702,
+          "sha256": "8cabaea29f2f810429a25e38a2eab2c3cb14eba365c060cc4e640d5f9c68efc7",
+          "matches_coordinator_snapshot": false
+        },
+        {
+          "path": "projects/ROCKNIX/devices/SM8250/linux/dts/qcom/sm8250-mangmi-pocket-max.dts",
+          "commit": "f370dc87873fecb683c6af73d70a2f377715f47f",
+          "mode": "100644",
+          "git_blob": "a43b35f665ebb9395cf4a863dcb37e426babb633",
+          "bytes": 34960,
+          "sha256": "4728ff1b354bdad3ceb27299552a2faeb5594a0fca173cceba8ed8697bcbdfb0",
+          "matches_coordinator_snapshot": false
+        },
+        {
+          "path": "projects/ROCKNIX/devices/SM8250/patches/linux/0011-qcom-pm8150b-charger.patch",
+          "commit": "f370dc87873fecb683c6af73d70a2f377715f47f",
+          "mode": "100644",
+          "git_blob": "dd676bdfe72e542e510013f47d935e08acbb9b01",
+          "bytes": 66074,
+          "sha256": "624652466e0011fd6b8894c8774b7dd30a8468ca0d91034b40b7f8f5c511c57b",
+          "matches_coordinator_snapshot": false
+        },
+        {
+          "path": "projects/ROCKNIX/devices/SM8250/patches/linux/0019-drm-msm-dp-on-sm8250-refuse-to-start-dp-audio-while-the-link-is-down.patch",
+          "commit": "f370dc87873fecb683c6af73d70a2f377715f47f",
+          "mode": "100644",
+          "git_blob": "d08282286e1bc7ebcbc20d9ec2f5e6931145fcac",
+          "bytes": 4363,
+          "sha256": "dfbdfc6acd97b6c3500b1fffa420e8a32d7d18eb0c0a7533d77c81fa9b5b3eab",
+          "matches_coordinator_snapshot": false
+        },
+        {
+          "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/Qualcomm/sm8250/AirYPro.conf",
+          "commit": "f370dc87873fecb683c6af73d70a2f377715f47f",
+          "mode": "100644",
+          "git_blob": "edc18e19cdf7401bedae8c04b42b2c354c9aae6c",
+          "bytes": 825,
+          "sha256": "73e180b20a736aceb004cb27e5b45bb4ed244d555a265d61ea5f4e2a4f2c1b92",
+          "matches_coordinator_snapshot": false
+        },
+        {
+          "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/Qualcomm/sm8250/PocketMax.conf",
+          "commit": "f370dc87873fecb683c6af73d70a2f377715f47f",
+          "mode": "100644",
+          "git_blob": "147ddfb6bb2d26912ebacdbef5fcf6b38df58444",
+          "bytes": 829,
+          "sha256": "6842999be151f832b8b96645bdfb030986379e010cae34a2edfc529e5daab8df",
+          "matches_coordinator_snapshot": false
+        },
+        {
+          "path": "projects/ROCKNIX/packages/compat/fex-emu/package.mk",
+          "commit": "f370dc87873fecb683c6af73d70a2f377715f47f",
+          "mode": "100644",
+          "git_blob": "ba6541009b69863478e4bb6774f01c257640a3f3",
+          "bytes": 4106,
+          "sha256": "428430a76277b24fc5e4a69889da0045431d7c71caee35cc64a57fabf25db3ec",
+          "matches_coordinator_snapshot": false
+        },
+        {
+          "path": "projects/ROCKNIX/packages/linux/patches/7.2/0016-drm-msm-dp-return-0-from-audio_prepare-when-cable-is-disconnected.patch",
+          "commit": "f370dc87873fecb683c6af73d70a2f377715f47f",
+          "mode": "100644",
+          "git_blob": "0c6ea6b5e2113f27bd842a96d737bbfe9b317422",
+          "bytes": 1221,
+          "sha256": "81665288adedb443e7c555e11ecf40cd05d819b10c6a5761e7326a64576d3815",
+          "matches_coordinator_snapshot": false
+        },
+        {
+          "path": "projects/ROCKNIX/packages/tools/rocknix-abl/package.mk",
+          "commit": "f370dc87873fecb683c6af73d70a2f377715f47f",
+          "mode": "100644",
+          "git_blob": "d8bc42f348013aa1698590be6caa13e7aedfcc5d",
+          "bytes": 912,
+          "sha256": "9ecd8b3a99b42d1c18460343bf855ad85c7f321b31bfe2a9e7b4373fd9e5eabf",
+          "matches_coordinator_snapshot": false
+        },
+        {
+          "path": "projects/ROCKNIX/packages/virtual/emulators/sources/Install Steam.sh",
+          "commit": "f370dc87873fecb683c6af73d70a2f377715f47f",
+          "mode": "100755",
+          "git_blob": "27b125b6870cb93b9c7af7227cc4b26f6c200e0f",
+          "bytes": 11484,
+          "sha256": "b88672f607d581cb93d7774de37c04a463793c9843c3602f70d5562f91845be8",
+          "matches_coordinator_snapshot": false
+        }
+      ]
+    },
+    {
+      "id": "gstreamer",
+      "repository": "distribution",
+      "source_commit": "2292e9a2983227a62aaf7846a5b739c41b0841a7",
+      "issues": [
+        572
+      ],
+      "state": "source-already-in-coordinator",
+      "note": "Controller/scanner recipe repair component-qualified; final installed dependency closure remains.",
+      "commits_in_order": [
+        "2292e9a2983227a62aaf7846a5b739c41b0841a7"
+      ],
+      "files": [
+        {
+          "path": "projects/ROCKNIX/packages/multimedia/gstreamer/gstreamer/package.mk",
+          "commit": "2292e9a2983227a62aaf7846a5b739c41b0841a7",
+          "mode": "100644",
+          "git_blob": "ac1562f4ece90a18d23651659e873876f42c16c4",
+          "bytes": 2494,
+          "sha256": "bf988663e155d1a66f51fca092922d3a3630053868349b917a0cc9dd71bf9376",
+          "matches_coordinator_snapshot": true
+        }
+      ]
+    },
+    {
+      "id": "phone-status",
+      "repository": "distribution",
+      "source_commit": "c75b8d1dae18b73f39edbf05b4b0927d9c8bb762",
+      "issues": [
+        571
+      ],
+      "state": "source-already-in-coordinator",
+      "note": "Final locale/control revision, not the earlier pre-locale blob.",
+      "commits_in_order": [
+        "0d69fca540c7a75833e26054463145635c121b00",
+        "c75b8d1dae18b73f39edbf05b4b0927d9c8bb762"
+      ],
+      "files": [
+        {
+          "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_oauth",
+          "commit": "c75b8d1dae18b73f39edbf05b4b0927d9c8bb762",
+          "mode": "100755",
+          "git_blob": "78c343771a0ad500ba894d58f728375f3911cdf1",
+          "bytes": 126485,
+          "sha256": "95c626f8df07faef522683a857e48e31f85a58c6f738bcde24707574dc24d293",
+          "matches_coordinator_snapshot": true
+        }
+      ]
+    },
+    {
+      "id": "wifi-controller",
+      "repository": "distribution",
+      "source_commit": "7b2b874cab9cc967cd151180e66d1c92e63cf11e",
+      "issues": [
+        577
+      ],
+      "state": "source-already-in-coordinator",
+      "note": "Preserves rescan/enumeration failures; final ES/backend image composition still needs proof.",
+      "commits_in_order": [
+        "7b2b874cab9cc967cd151180e66d1c92e63cf11e"
+      ],
+      "files": [
+        {
+          "path": "projects/ROCKNIX/packages/rocknix/sources/scripts/wifictl",
+          "commit": "7b2b874cab9cc967cd151180e66d1c92e63cf11e",
+          "mode": "100755",
+          "git_blob": "9b724b796184ffe515745e53761a38101248f3d3",
+          "bytes": 24892,
+          "sha256": "c89ed28a50e4be78468fcee25dcfd68e0b1c67af25657c3d0ba9318c7576a48c",
+          "matches_coordinator_snapshot": true
+        }
+      ]
+    },
+    {
+      "id": "steam-preservation",
+      "repository": "distribution",
+      "source_commit": "03e130e4b3c244337f2e6d782b392a2c444c28e7",
+      "issues": [
+        564,
+        579,
+        580,
+        582
+      ],
+      "state": "ready-product-source-not-in-coordinator",
+      "note": "Use the final installer, including client repairs and Python3 dependency. Known complete-caller cases pass; broader recovery/native/installed proof remains. Branch already carries stable foundation.",
+      "commits_in_order": [
+        "765871cf9305bd8c24fee70573eff44b9bf0f627",
+        "c41a16ad804245285914a6f5b3410f36f9abc26a",
+        "ba0c530bf0f4626ff99daedf65a18a7ead69111c",
+        "71b14fbca62bb2e6d558dd327d226fc73a0b8862",
+        "98b789e61a0c90883fed1bd1fb7175965cdb652a",
+        "c6240ed3984a2b2c2e67f1df9fa0ddc3c37889a2",
+        "a057a2a7e94c372642fd66ff9795125487f1fa75",
+        "03e130e4b3c244337f2e6d782b392a2c444c28e7"
+      ],
+      "files": [
+        {
+          "path": "projects/ROCKNIX/packages/virtual/emulators/sources/Install Steam.sh",
+          "commit": "03e130e4b3c244337f2e6d782b392a2c444c28e7",
+          "mode": "100755",
+          "git_blob": "b29f68dcc481b40e34a198dccca5163da709826e",
+          "bytes": 124320,
+          "sha256": "fab7cdb4ad8adbcea147be54092bb7ce2005010447be4ab8192c94d8bbe9229d",
+          "matches_coordinator_snapshot": false
+        },
+        {
+          "path": "projects/ROCKNIX/packages/emulators/standalone/steam/package.mk",
+          "commit": "03e130e4b3c244337f2e6d782b392a2c444c28e7",
+          "mode": "100644",
+          "git_blob": "e9aa34a4d5b83729b0bf6b095be39f6c329ba202",
+          "bytes": 1476,
+          "sha256": "7c3599251e7d3b6a7157457cef25ef61467cefa0880429b432f8fba9c431d5f7",
+          "matches_coordinator_snapshot": false
+        }
+      ]
+    },
+    {
+      "id": "dolphin-preservation",
+      "repository": "distribution",
+      "source_commit": "1a7714fd81f7c92316f54c4a3648696d1e256f88",
+      "issues": [
+        581,
+        575
+      ],
+      "state": "ready-product-source-not-in-coordinator",
+      "note": "Preservation/refusal and French layout qualified; EN640 is currently coordinator-owned. Native save behavior remains distinct.",
+      "commits_in_order": [
+        "b2868df82ed3199e628721ad6fb3f1fb95a3a04a",
+        "90cd5efad765fcab49ea794122f6fcf45ff19e61",
+        "1a7714fd81f7c92316f54c4a3648696d1e256f88"
+      ],
+      "files": [
+        {
+          "path": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/package.mk",
+          "commit": "1a7714fd81f7c92316f54c4a3648696d1e256f88",
+          "mode": "100644",
+          "git_blob": "a87a656941e511267dfd9de775934f588983d375",
+          "bytes": 4837,
+          "sha256": "9dc251df09495db8b6d80d5be2a2fb4f02bbedc6374759b57373b3aa63411d5b",
+          "matches_coordinator_snapshot": false
+        },
+        {
+          "path": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/dolphin-save-paths",
+          "commit": "1a7714fd81f7c92316f54c4a3648696d1e256f88",
+          "mode": "100755",
+          "git_blob": "c5ac981c15bfd78c0f9b42beb572923b75c042d5",
+          "bytes": 16727,
+          "sha256": "507ccc96245bfc7aaca5e154ef0567cacccd0cbc9d0f999761d2fdee1fc245e8",
+          "matches_coordinator_snapshot": false
+        },
+        {
+          "path": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/start_dolphin_gc.sh",
+          "commit": "1a7714fd81f7c92316f54c4a3648696d1e256f88",
+          "mode": "100755",
+          "git_blob": "fdcb0870081f6d452d36f16cd5c336031a39b33d",
+          "bytes": 18326,
+          "sha256": "cc6da2e146adfc5423fb58462888e0cab0a4904deb90f5066392484b8447c9c2",
+          "matches_coordinator_snapshot": false
+        },
+        {
+          "path": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/start_dolphin_wii.sh",
+          "commit": "1a7714fd81f7c92316f54c4a3648696d1e256f88",
+          "mode": "100755",
+          "git_blob": "66c5320d7efab0107cd7dcdb0f911cae21e72111",
+          "bytes": 16759,
+          "sha256": "e8ff87c570d7a96eb641d42637d35ac93580f6a48dd7ea40e060f1b827eb407a",
+          "matches_coordinator_snapshot": false
+        },
+        {
+          "path": "projects/ROCKNIX/packages/rocknix/sources/scripts/runemu.sh",
+          "commit": "1a7714fd81f7c92316f54c4a3648696d1e256f88",
+          "mode": "100755",
+          "git_blob": "23da79300f89d567e9a82b078096e19f5f785a3e",
+          "bytes": 23382,
+          "sha256": "deb95aee74d3ddd80638a9ab2f940f5b3b080f4d3ec01f669ea8dbd44179ad20",
+          "matches_coordinator_snapshot": false
+        }
+      ]
+    },
+    {
+      "id": "dolphin-routing",
+      "repository": "distribution",
+      "source_commit": "c22554a4c0966d48ba405ef1640938d2a417817b",
+      "issues": [
+        584
+      ],
+      "state": "ready-product-source-not-in-coordinator",
+      "note": "126 full-script controls accepted; actual native/default-boot/Dolphin integration remains.",
+      "commits_in_order": [
+        "c22554a4c0966d48ba405ef1640938d2a417817b"
+      ],
+      "files": [
+        {
+          "path": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/cheevos_dolphin.sh",
+          "commit": "c22554a4c0966d48ba405ef1640938d2a417817b",
+          "mode": "100755",
+          "git_blob": "0726d34c0e2169e074618a140254a161e2e13d48",
+          "bytes": 3585,
+          "sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+          "matches_coordinator_snapshot": false
+        }
+      ]
+    },
+    {
+      "id": "es-package-and-selected-state",
+      "repository": "distribution",
+      "source_commit": "b004cd4d0751bd871bfda11292b43280895f61ea",
+      "issues": [
+        574,
+        565,
+        566
+      ],
+      "state": "source-already-in-coordinator-except-final-es-pin",
+      "note": "Retain RVZ zstd/notices AND ScreenScraper provisioning together. Existing pin is still c8dc; final composed pin/recipe hash must be new. State checker is a host qualification tool, not a firmware package.",
+      "commits_in_order": [
+        "d9f428e1a07fec8e8b916dd258320284db94a5cb",
+        "943fbb58a91c76149e61a874dc23a125cf835db0",
+        "d0ced7b6615acecccb33816636d6536166412928",
+        "cc0f8b0aa743f7e83db07317e162fcdf9b7bbc93",
+        "1bf3fa1d32c719ed4e63e1d7b82288d3a80a86f6",
+        "19221f4762298b10e44a08f2c3e7371c7ddeb0d1"
+      ],
+      "files": [
+        {
+          "path": "projects/ROCKNIX/packages/ui/emulationstation/package.mk",
+          "commit": "b004cd4d0751bd871bfda11292b43280895f61ea",
+          "mode": "100644",
+          "git_blob": "307452a946e2830e7522737084a61694f6dbb30d",
+          "bytes": 6160,
+          "sha256": "b52757b20a3f707b08e04f0ac9f73b3653df812708aefe6f3cbf8541337fd7a8",
+          "matches_coordinator_snapshot": true
+        },
+        {
+          "path": "tools/pixelelated-state-check",
+          "commit": "b004cd4d0751bd871bfda11292b43280895f61ea",
+          "mode": "100755",
+          "git_blob": "b881ad3a3d9f4d44239fbf5ab1f1f2c7b7cfe0e2",
+          "bytes": 43147,
+          "sha256": "a0b03f17ed8493ec79a3dc33eefedeb7a00b20e06a70804b7653ee9f660e30a8",
+          "matches_coordinator_snapshot": true
+        },
+        {
+          "path": "tools/pixelelated-state-check-test",
+          "commit": "b004cd4d0751bd871bfda11292b43280895f61ea",
+          "mode": "100755",
+          "git_blob": "91e9a87610b5b5822876499e42f80d5d20a1fa13",
+          "bytes": 37601,
+          "sha256": "d78d5a7c31a29ee2dfae966184ef91ab235cca4ce21afd9caacd49a7f9b2c01b",
+          "matches_coordinator_snapshot": true
+        },
+        {
+          "path": "tools/fork-publish-release",
+          "commit": "b004cd4d0751bd871bfda11292b43280895f61ea",
+          "mode": "100755",
+          "git_blob": "14eace55e3648ae0d7175e6cb3b6ea02637c8c41",
+          "bytes": 7518,
+          "sha256": "7c7a3b093d62361d31408cb80fbd8ad0028cb4ab605a49de7686ca82690a754c",
+          "matches_coordinator_snapshot": true
+        }
+      ]
+    },
+    {
+      "id": "es-compiled-base",
+      "repository": "emulationstation",
+      "source_commit": "bb9e2785f88c2b9de979022a2a9ded2cbce2f954",
+      "issues": [
+        570,
+        567,
+        577,
+        578,
+        574,
+        575
+      ],
+      "state": "compiled-component-qualified-base",
+      "note": "Includes f7 trim, browser failure recovery, achievement notice, Recent default, Wi-Fi picker/hints, RVZ reader/retry and capability descriptions. Final source adds MD5 and latest FR below.",
+      "commits_in_order": [
+        "f7b71db0a70e1c48627f70847ecbc95bb1cb4a43",
+        "d242000a5957ad8de5288a02fb15b21d7ef04715",
+        "25a21428495779336277e24430f6f3e5c212173c",
+        "a6dbc33bb3cc7152462799354876c5bad9065894",
+        "a7dcdbb38009d8d2a81c7c2b4bc1d8c2d0d38a20",
+        "23df404f6cbda21a64dd61227547fd1139a353eb",
+        "1a4a2f12cca542f3a027f8b450d1fadfaaaecd21",
+        "5a86caea97747178b2a1f962d75115e57f306eec",
+        "70939687f4861c0837130b11bc71d106d039aa9c",
+        "bb9e2785f88c2b9de979022a2a9ded2cbce2f954"
+      ],
+      "files": [
+        {
+          "path": "es-app/src/ApiSystem.cpp",
+          "commit": "bb9e2785f88c2b9de979022a2a9ded2cbce2f954",
+          "mode": "100644",
+          "git_blob": "5975b449ca7bce8c08f999d81261bc68670185f8",
+          "bytes": 99960,
+          "sha256": "58b90ef823dda386654ce4e30bd876a5d9f21d624c1aafae6d97c84419750045"
+        },
+        {
+          "path": "es-app/src/GameCubeRvzHashRetry.h",
+          "commit": "bb9e2785f88c2b9de979022a2a9ded2cbce2f954",
+          "mode": "100644",
+          "git_blob": "794d06a8c3d9bc23255296857e523257548792d0",
+          "bytes": 1734,
+          "sha256": "7eb61676391b8541e3fecda77138dbc9e6894c1cb2fa4c971619629ee5598b33"
+        },
+        {
+          "path": "es-app/src/ThreadedHasher.cpp",
+          "commit": "bb9e2785f88c2b9de979022a2a9ded2cbce2f954",
+          "mode": "100644",
+          "git_blob": "c601da863a50130383d08d1d32366e02404f9465",
+          "bytes": 13500,
+          "sha256": "b8e5000cc5c3485f10344946ee5cd2dd2249022584c5c6e570c37c2cc597eec2"
+        },
+        {
+          "path": "es-app/src/guis/GuiMenu.cpp",
+          "commit": "bb9e2785f88c2b9de979022a2a9ded2cbce2f954",
+          "mode": "100644",
+          "git_blob": "ae348511b09c912b47aced6aaf3597206112826f",
+          "bytes": 511067,
+          "sha256": "356c7b48bf71f1a54467609c6eba502079c6c7fd615b2dd2d24966873916432d"
+        },
+        {
+          "path": "es-app/src/guis/GuiWifi.cpp",
+          "commit": "bb9e2785f88c2b9de979022a2a9ded2cbce2f954",
+          "mode": "100644",
+          "git_blob": "75953749a66673861ae707629158c0fea6b684df",
+          "bytes": 22214,
+          "sha256": "16c065bc06ba8fbf7cfc72b810022b2359acadc03e20c74bd3583a0518cace02"
+        },
+        {
+          "path": "es-app/src/guis/GuiWifi.h",
+          "commit": "bb9e2785f88c2b9de979022a2a9ded2cbce2f954",
+          "mode": "100644",
+          "git_blob": "e372d5ef16926ebbd5026fee9072d4673548a73c",
+          "bytes": 3352,
+          "sha256": "174988284911caaaf69bb53ade5bcfd5caedc7774a0dc36c45a37f7a14ccf713"
+        },
+        {
+          "path": "es-app/src/guis/WifiScanProcess.h",
+          "commit": "bb9e2785f88c2b9de979022a2a9ded2cbce2f954",
+          "mode": "100644",
+          "git_blob": "f9b633e09e7109de85e85b12d1b9e5d5f8899714",
+          "bytes": 5187,
+          "sha256": "54729c1cefcbc41446e0fed3f4e8edab26181edb9c4b51adab7cf73a50fcf6d4"
+        },
+        {
+          "path": "es-core/src/Settings.cpp",
+          "commit": "bb9e2785f88c2b9de979022a2a9ded2cbce2f954",
+          "mode": "100644",
+          "git_blob": "425358c056837cc6127b67f61939f07924543773",
+          "bytes": 24353,
+          "sha256": "cc261e2af8b8e9834869ff3e562d26716dd94704032be21bd5b3e70f935c433e"
+        },
+        {
+          "path": "external/libcheevos/CMakeLists.txt",
+          "commit": "bb9e2785f88c2b9de979022a2a9ded2cbce2f954",
+          "mode": "100644",
+          "git_blob": "952b33efc9fa9af38f31b180add48e2341fd127a",
+          "bytes": 14495,
+          "sha256": "c848b8875beb7e9b46206d787b7fc1bf20f51ad9a0360d23fe743bfc8823489c"
+        },
+        {
+          "path": "external/libcheevos/LICENSE.rvz-padding",
+          "commit": "bb9e2785f88c2b9de979022a2a9ded2cbce2f954",
+          "mode": "100644",
+          "git_blob": "5a19a8fc6f5a10e9b1d9290051650ad7c918acc7",
+          "bytes": 1511,
+          "sha256": "4135898ee98985c6084e6d8304930b010dec1b395083074ae455ae20ca207d9a"
+        },
+        {
+          "path": "external/libcheevos/RVZ-NOTICES.md",
+          "commit": "bb9e2785f88c2b9de979022a2a9ded2cbce2f954",
+          "mode": "100644",
+          "git_blob": "5c7c58960b531a970fcc53447a55806229174f7e",
+          "bytes": 1824,
+          "sha256": "77a1a9faff4a5376ca60a3898b7c6ccd92489498e131e354a2aecd0b8cb4b71b"
+        },
+        {
+          "path": "external/libcheevos/cheevos.cpp",
+          "commit": "bb9e2785f88c2b9de979022a2a9ded2cbce2f954",
+          "mode": "100644",
+          "git_blob": "e21bea7922c359985a51692342a01d9ce3bcaa70",
+          "bytes": 5325,
+          "sha256": "8e5a0c4f442003be06f9a4ef95c4b3499c4271b2c19f1ab7bb0c2e6d97e2be0a"
+        },
+        {
+          "path": "external/libcheevos/cheevos.h",
+          "commit": "bb9e2785f88c2b9de979022a2a9ded2cbce2f954",
+          "mode": "100644",
+          "git_blob": "ca6f3785c0e38a2ece0b69de8e4ec7f4d8325380",
+          "bytes": 242,
+          "sha256": "c96241e0b5e4b6c263cfc19cfb2cecdd867531cd6f2efc6f02d6e42b987ca38f"
+        },
+        {
+          "path": "external/libcheevos/rcheevos/src/rhash/hash_disc.c",
+          "commit": "bb9e2785f88c2b9de979022a2a9ded2cbce2f954",
+          "mode": "100644",
+          "git_blob": "e74ac4208420d48b7d6da58c9dc5dc95cd4b67a2",
+          "bytes": 49966,
+          "sha256": "a045dba55caa1c3a00ccb24678b461025a616a7af2317c37d26f4a88308e054d"
+        },
+        {
+          "path": "external/libcheevos/rvz_hash.cpp",
+          "commit": "bb9e2785f88c2b9de979022a2a9ded2cbce2f954",
+          "mode": "100644",
+          "git_blob": "b1cc767e503321f702889088983a2c8e602aee11",
+          "bytes": 14522,
+          "sha256": "7a5600669dd9d57956df8787753e9067092bb19411a3cc195443f3a4716d80d1"
+        },
+        {
+          "path": "external/libcheevos/rvz_hash.h",
+          "commit": "bb9e2785f88c2b9de979022a2a9ded2cbce2f954",
+          "mode": "100644",
+          "git_blob": "7e83249c635076f9b633e0729a023110ac3573ad",
+          "bytes": 296,
+          "sha256": "958869c25cc5b9fbdb1778f1fbaaf29abeafe28fc5a60857358b35d202b6ae18"
+        },
+        {
+          "path": "locale/lang/en_GB/LC_MESSAGES/emulationstation2.po",
+          "commit": "bb9e2785f88c2b9de979022a2a9ded2cbce2f954",
+          "mode": "100644",
+          "git_blob": "f6c9f148a507b16b78257727aa441173a93e6f50",
+          "bytes": 74892,
+          "sha256": "197e2885801c386e4ae88e02633a32017f91fbba1ab2c01ba4e4c578c0e1e6a7"
+        },
+        {
+          "path": "locale/lang/fr/LC_MESSAGES/emulationstation2.po",
+          "commit": "bb9e2785f88c2b9de979022a2a9ded2cbce2f954",
+          "mode": "100644",
+          "git_blob": "e82bad4606a689633417422c7cbe0d058104d4f8",
+          "bytes": 184985,
+          "sha256": "73d4e9f98ec1fe8a03dc68dc8dab2d4552dcbae0d2d01ae79efb394921c46f37"
+        }
+      ]
+    },
+    {
+      "id": "es-md5",
+      "repository": "emulationstation",
+      "source_commit": "314da58d68820a79b26f99a5b6c12f9bb37054d5",
+      "issues": [
+        574
+      ],
+      "state": "ready-product-source-on-separate-branch",
+      "note": "264 digest controls per build and native format regressions qualified; not in bb9e UI ELF. tests path is companion source, not shipped code.",
+      "commits_in_order": [
+        "314da58d68820a79b26f99a5b6c12f9bb37054d5"
+      ],
+      "files": [
+        {
+          "path": "external/libcheevos/libretro-common/src/utils/md5.c",
+          "commit": "314da58d68820a79b26f99a5b6c12f9bb37054d5",
+          "mode": "100644",
+          "git_blob": "132486f06c9427d59470ef9af01d36d307572ae8",
+          "bytes": 9835,
+          "sha256": "102310fd9991c20a7eaf7e4fffd175f9c79607dbac82f65f067a085bfeebb1c0"
+        },
+        {
+          "path": "tests/md5-alignment.c",
+          "commit": "314da58d68820a79b26f99a5b6c12f9bb37054d5",
+          "mode": "100644",
+          "git_blob": "4f378a50a92ff9f8a81fa1bb92e73cdbafe92bac",
+          "bytes": 1364,
+          "sha256": "2c4a9d7a0f49e6bcc0df0e5954e9a2637ba4a02ffc46a322a6465055a7dc5b7a"
+        }
+      ]
+    },
+    {
+      "id": "es-final-french",
+      "repository": "emulationstation",
+      "source_commit": "09afa4893a6a4667f2b6bd8992bd5957a2281e49",
+      "issues": [
+        575
+      ],
+      "state": "ready-product-source-on-separate-branch",
+      "note": "Accepted three description refinements; generated .mo is rebuilt from this final .po. Locale branch contains bb9e and excludes MD5.",
+      "commits_in_order": [
+        "2bd7d3997d3859c835301db90d5a78d0ed8bddc5",
+        "63ebcec0a457bf40fabd65b7bbb4e2fcd4bd65de",
+        "09afa4893a6a4667f2b6bd8992bd5957a2281e49"
+      ],
+      "files": [
+        {
+          "path": "locale/lang/fr/LC_MESSAGES/emulationstation2.po",
+          "commit": "09afa4893a6a4667f2b6bd8992bd5957a2281e49",
+          "mode": "100644",
+          "git_blob": "9818973cf643622ab519224bd0f129af38a3660d",
+          "bytes": 184947,
+          "sha256": "3e285bac37d9907c06afe0399b7293758fb3f7e324c13b26d60de0ced09c94ac"
+        }
+      ]
+    }
+  ],
+  "packet_only_proxy_repair": {
+    "source_commit": "22cfb2385acce6d9c20b20d2f7f40970808777b3",
+    "state": "component-qualified-exact-bytes-await-production-integration",
+    "files": [
+      {
+        "path": "docs/qa-logs/2026-10-14-proxy-rvz-revision-source/candidates/rvz_datasource.py",
+        "commit": "22cfb2385acce6d9c20b20d2f7f40970808777b3",
+        "mode": "100644",
+        "git_blob": "93a6ab4a3640e3170c3b1999328725e02c0016f4",
+        "bytes": 30829,
+        "sha256": "b0d28c147c24c0e6909e8e754915ab4323d766b7fbd711b16c2ce949bd8f3407",
+        "production_target": "linux/raofflineproxy/rvz_datasource.py via new distribution package patch"
+      },
+      {
+        "path": "docs/qa-logs/2026-10-14-proxy-rvz-revision-source/candidates/raofflineproxy-ctl",
+        "commit": "22cfb2385acce6d9c20b20d2f7f40970808777b3",
+        "mode": "100644",
+        "git_blob": "58e33c9c894deae04313179acb68e52ab919c53e",
+        "bytes": 120981,
+        "sha256": "47391a3bbcaa0f2262cdee12f09bd48d17f7fedf0237a1a661a21b085b2f71f7",
+        "production_target": "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl"
+      }
+    ],
+    "note": "Do not cherry-pick the packet commit and assume production changed. Package the padding patch against pinned/fork-patched source and install the final scanner bytes; keep existing 16 patches. Add separately qualified #588 repair afterward."
+  },
+  "unresolved_product_source": [
+    {
+      "issue": 588,
+      "owner": "separate proxy_startup_588 worker / coordinator",
+      "state": "not bound here; causal experiment and resulting product selection pending",
+      "paths": [
+        "linux/raofflineproxy/proxy_service.py (ConnectivityMonitor/startup; final repair belongs to separate worker)",
+        "projects/ROCKNIX/packages/network/raofflineproxy/patches/ (final packaged repair)"
+      ]
+    }
+  ],
+  "native_proxy_inputs": [
+    {
+      "path": "projects/ROCKNIX/packages/network/raofflineproxy/package.mk",
+      "commit": "b004cd4d0751bd871bfda11292b43280895f61ea",
+      "mode": "100644",
+      "git_blob": "fcba25b3ed45491264c3907f8c8ceafb2d4982c9",
+      "bytes": 8358,
+      "sha256": "e13f5bb22eae74c73ecb4141c3580f2627b9f8cfc317840656d90ed017e0f13d"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/raofflineproxy-rcheevos/package.mk",
+      "commit": "b004cd4d0751bd871bfda11292b43280895f61ea",
+      "mode": "100644",
+      "git_blob": "712138e42f19adcc92a38d0ca1db37eb3b89776b",
+      "bytes": 1394,
+      "sha256": "5921284cea44d2ea6ea560830bcef6ef15c760183f9de3a5db02853fe274e194"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/raofflineproxy-libchdr/package.mk",
+      "commit": "b004cd4d0751bd871bfda11292b43280895f61ea",
+      "mode": "100644",
+      "git_blob": "8fa68df8a4f51d78bc6fd8ea300e52b10581b1ad",
+      "bytes": 1409,
+      "sha256": "a9570c9a2633015af220fb7da564eeb5e2b79c943b2450eca7a7a27f2628ae43"
+    }
+  ],
+  "qualification_receipts": [
+    "2026-10-12-upstream-adoption/README.md",
+    "2026-10-13-webkit-versions/README.md",
+    "2026-10-13-setup-qualification/installed/README.md",
+    "2026-10-13-clean-state-runtime/README.md",
+    "2026-10-13-library-vm/README.md",
+    "2026-10-14-offline-components/README.md",
+    "2026-10-14-rvz-proxy-components/README.md",
+    "2026-10-14-independent-format-runtime/README.md",
+    "2026-10-14-proxy-native-runtime/README.md",
+    "2026-10-14-proxy-service-runtime/README.md",
+    "2026-10-14-chd-native-runtime/README.md",
+    "2026-10-14-steam-client-first-caller/README.md",
+    "2026-10-14-screenscraper-provisioning/README.md"
+  ],
+  "local_record_bindings": [
+    {
+      "commit": "b004cd4d0751bd871bfda11292b43280895f61ea",
+      "path": ".github/sessions/saved-session-state-next.md",
+      "sha256": "9450381d81401dfa2f249e383e6d7b87b3202a27c25221f2b6cb827e595b233c",
+      "bytes": 8221
+    },
+    {
+      "commit": "b004cd4d0751bd871bfda11292b43280895f61ea",
+      "path": "docs/releases/next-candidate-work.md",
+      "sha256": "10b6608ff7a39268dce614101beb2aa6ab49c8d14b89725e34efeb470206f9a2",
+      "bytes": 13632
+    },
+    {
+      "commit": "b004cd4d0751bd871bfda11292b43280895f61ea",
+      "path": "docs/qa-logs/2026-10-12-upstream-adoption/README.md",
+      "sha256": "f875b30b1f6c6aeb6c89fb1e476349e7753d52da670bc4f2aab6759f418a07eb",
+      "bytes": 5040
+    },
+    {
+      "commit": "b004cd4d0751bd871bfda11292b43280895f61ea",
+      "path": "docs/qa-logs/2026-10-12-upstream-adoption/source-checks.json",
+      "sha256": "44d5cbae5342511526c4570a88458244261d36c2ede72fd0425c149d042556bb",
+      "bytes": 5842
+    }
+  ]
+}

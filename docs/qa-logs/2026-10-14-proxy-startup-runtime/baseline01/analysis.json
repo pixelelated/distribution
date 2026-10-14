@@ -1,0 +1,10 @@
+{
+  "status": "FAIL_FIXTURE",
+  "causal_reproduction": false,
+  "cause": "Coordinator provenance adapter expected receipt pin keys rcheevos/libchdr, but actual build receipt correctly names packages raofflineproxy-rcheevos/raofflineproxy-libchdr. Guard refused before any service command.",
+  "original_payload_owner_runner": 1,
+  "elapsed_seconds": 0.034579377,
+  "cleanup_errors": [],
+  "native_overlay_restored": true,
+  "correction": "Exact package keys from original receipt; static metadata verification before fresh baseline/candidate allocation; no source/timer change."
+}

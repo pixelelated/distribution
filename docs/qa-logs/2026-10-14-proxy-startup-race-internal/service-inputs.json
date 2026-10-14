@@ -1,0 +1,12 @@
+{
+  "execution_manifest_sha256": "ad733a64f06e1bebd35c2b7f26242386bd588cf3502606a5addc6648fa5421a0",
+  "modified_inputs": {
+    "run.py": "676fa05875ed855ed0565abc963ad44218f2c5b82380f53523371a95fd5ac54a",
+    "bindings.json": "d7f94255d24030c017cd6617c2c1f76d1e6a378ee5790d9591a67de4e210efe3",
+    "bootstrap/sitecustomize.py": "7af73195ecf0488d1cc2e21aab69d1372030f503947c6f72fa8172176fe97619",
+    "runner-seal.json": "9dd019916b5aee142b03a04d98d11e4c6de4294b86ac55bb7939e6699452a276"
+  },
+  "source_packet": "docs/qa-logs/2026-10-14-proxy-reconnect-observation-source",
+  "materializer": "docs/qa-logs/2026-10-14-chd-native-runtime/coordinator/materialize-execution-packet.py",
+  "service_note": "Actual main/systemd startup fixture derivative; owner/cleanup/unit bounds preserved; all execution UNRUN."
+}

@@ -1,0 +1,100 @@
+{
+  "schema": 1,
+  "status": "CURRENT_SOURCE_BUILD_BOUND_VM_UNRUN",
+  "pins": {
+    "raofflineproxy": "c7ebd1b6e777f3751ff0ecdf8aba54045844e00d",
+    "raofflineproxy-libchdr": "607694ca0812edfc9cc2030c64634fc2393668de",
+    "raofflineproxy-rcheevos": "1433173220a7eaede6a9ed7a18e94117be1821e0"
+  },
+  "source": {
+    "files": 857,
+    "inventory_sha256": "aa139803a003ec142f47fc151910309b94e16a5572e9fcf51044055788a90e49",
+    "native_patches": [],
+    "all_original_sources_unchanged": true
+  },
+  "native_patches": [],
+  "recipe_sha256": "e13f5bb22eae74c73ecb4141c3580f2627b9f8cfc317840656d90ed017e0f13d",
+  "input_bindings_sha256": "3bc0761fbe6f84564b9f08358d11a5a2d40c0d13b5b48a21fb8c43ed06c820b6",
+  "runner_manifest_sha256": "fc85dfc79ea9e3d498cd7bc3c28e026199e135ec128123cf3f01476e79da986f",
+  "elf": {
+    "path": "/work/proxy-native/sources/RAOfflineProxy-c7ebd1b6e777f3751ff0ecdf8aba54045844e00d/.x86_64-rocknix-linux-gnu/libraproxy_rchash.so",
+    "bytes": 447272,
+    "sha256": "6349b150899f7c32971b8d9ee882934e41f2f8fc9d6a129045e15ea62096d52c",
+    "needed": [
+      "libc.so.6"
+    ],
+    "execution": "NOT EXECUTED; VM loader/native qualification required"
+  },
+  "original_records": {
+    "result.json": {
+      "original_path": "/workspace/tmp/pix583-current-native-20261014-02/stages/proxy-build/result.json",
+      "bytes": 4689,
+      "sha256": "103da653ff7be113044194a0a08c704eeddbd5dd858abbf70008d1fe946ae36a"
+    },
+    "container-result.json": {
+      "original_path": "/workspace/tmp/pix583-current-native-20261014-02/stages/proxy-build/container-result.json",
+      "bytes": 4548,
+      "sha256": "638721e8668c846fe53e924a417d191e9b93f620d8ba559b0bf26202040d2614"
+    },
+    "native-build.json": {
+      "original_path": "/workspace/tmp/pix583-current-native-20261014-02/stages/proxy-build/native-build.json",
+      "bytes": 1362,
+      "sha256": "7f65e1f41eb6bb0fed01e93ea778fa3b8686c102d4a4ae1790f0248557813f2a"
+    },
+    "target-artifact.json": {
+      "original_path": "/workspace/tmp/pix583-current-native-20261014-02/stages/proxy-build/target-artifact.json",
+      "bytes": 352,
+      "sha256": "13f31f9f83359f3c378c87e01874386cc6e82b7b1bcbd4427224d3730e8c6b46"
+    },
+    "compiler-inputs.json": {
+      "original_path": "/workspace/tmp/pix583-current-native-20261014-02/stages/proxy-build/compiler-inputs.json",
+      "bytes": 1997,
+      "sha256": "8f4c9b193668758ca5c434398fa96d491ab4479615449ef62b45256c0f5eab9e"
+    },
+    "selected-stage.json": {
+      "original_path": "/workspace/tmp/pix583-current-native-20261014-02/stages/proxy-build/selected-stage.json",
+      "bytes": 374,
+      "sha256": "c150fd8fb1d68a5d78d9e5630b853e75dd39f180121538f0e26b6dbd0a9309dc"
+    },
+    "logs/selected-stage.stderr": {
+      "original_path": "/workspace/tmp/pix583-current-native-20261014-02/stages/proxy-build/logs/selected-stage.stderr",
+      "bytes": 8287,
+      "sha256": "331761677596711aba730209a67016dbbc16820ef9c39fa80362ffbde55cd977"
+    },
+    "logs/elf-header.stdout": {
+      "original_path": "/workspace/tmp/pix583-current-native-20261014-02/stages/proxy-build/logs/elf-header.stdout",
+      "bytes": 959,
+      "sha256": "fc7494ed66bba3fe0a0f0835ac8ed2718cfa774b1b4d688dc88b543096778f2a"
+    },
+    "logs/elf-dynamic.stdout": {
+      "original_path": "/workspace/tmp/pix583-current-native-20261014-02/stages/proxy-build/logs/elf-dynamic.stdout",
+      "bytes": 1305,
+      "sha256": "8c2a9cb3bbcd16d849ad78795031f2bdb716ce04d6b22dad28859863655ac8bf"
+    },
+    "logs/elf-symbols.stdout": {
+      "original_path": "/workspace/tmp/pix583-current-native-20261014-02/stages/proxy-build/logs/elf-symbols.stdout",
+      "bytes": 134524,
+      "sha256": "a594cc161272390778f3c613941f238a19e908ceab64c23133affdcff6ed516f"
+    },
+    "logs/elf-versions.stdout": {
+      "original_path": "/workspace/tmp/pix583-current-native-20261014-02/stages/proxy-build/logs/elf-versions.stdout",
+      "bytes": 12574,
+      "sha256": "06ec9397cbe6fe3f7620a2d6d33713d8d04dc1662806e1a456909e8ab24dd766"
+    },
+    "host-cgroup.json": {
+      "original_path": "/workspace/tmp/pix583-current-native-20261014-02/stages/proxy-build/host-cgroup.json",
+      "bytes": 306,
+      "sha256": "9273ea4351c5af568ab47f9f180f3eaf83528efe616f96d56e8bd31d44541bc9"
+    },
+    "watchdog-result.json": {
+      "original_path": "/workspace/tmp/pix583-current-native-20261014-02/stages/proxy-build/watchdog-result.json",
+      "bytes": 69,
+      "sha256": "9a82748fd15c4bba6ea917244dae8d06c8567b94530f859749dea2afc6ab4bac"
+    }
+  },
+  "admission_consumed": {
+    "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261014T181511Z-6d040118/admission-consumed.json",
+    "sha256": "3b740298d7341c17820757cf43ed8f5d570e460f7cffa40116adb411dc2c4434"
+  },
+  "scope": "Current native source linkage only. No VM loader, target hashing, service, default-boot, Dolphin gameplay or final-image acceptance inferred."
+}

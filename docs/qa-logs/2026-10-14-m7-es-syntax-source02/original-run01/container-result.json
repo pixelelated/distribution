@@ -1,0 +1,39 @@
+{
+  "status": "FAIL",
+  "stage": "es-syntax",
+  "started": 1792002876.0769548,
+  "children": [
+    {
+      "argv": [
+        "bash",
+        "/plan/syntax-command.sh"
+      ],
+      "started": 1792002876.2512364,
+      "label": "selected-stage",
+      "identity": {
+        "pid": 7,
+        "start_ticks": 109456025,
+        "state": "D",
+        "pgrp": 7,
+        "session": 7,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      "pid": 7,
+      "original_exit": 1,
+      "reaped": true,
+      "ended": 1792002881.6700556
+    }
+  ],
+  "source_before": {
+    "commit": "c045d2ec1936c2dfc6c4777935fb2d4cd8b3bcfa",
+    "tree": "7a34dbe6ec6d5a5f153059153ba7d8b4a22e6451",
+    "manifest_sha256": "af3e55ad01df634eab8fc459d26e2c9147228c2c1b2df683aa6dfcd3970f1bea",
+    "files": 1113,
+    "all_original_source_files_unchanged": true
+  },
+  "error": "RuntimeError('original child failed: selected-stage')",
+  "sampler_exited": true,
+  "monitor_errors": [],
+  "ended": 1792002881.6705432,
+  "max_child_rss_kib": 649424
+}

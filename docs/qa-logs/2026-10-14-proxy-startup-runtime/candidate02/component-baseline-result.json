@@ -1,0 +1,123 @@
+{
+  "status": "FAIL",
+  "scope": "controlled source component; actual service proof still owed",
+  "cases": [
+    {
+      "name": "startup-window",
+      "status": "FAIL",
+      "trace": [
+        {
+          "event": "probe-return",
+          "monotonic": 43.544263254,
+          "tid": 2107,
+          "number": 1,
+          "result": false
+        },
+        {
+          "event": "first-monitor-probe-enter",
+          "monotonic": 43.544513514,
+          "tid": 2108
+        },
+        {
+          "event": "controlled-link-online",
+          "monotonic": 43.544570472,
+          "tid": 2107
+        },
+        {
+          "event": "probe-return",
+          "monotonic": 43.544604076,
+          "tid": 2108,
+          "number": 2,
+          "result": true
+        },
+        {
+          "event": "monitor-wait",
+          "monotonic": 43.544797262,
+          "tid": 2108,
+          "number": 1,
+          "timeout": 15
+        },
+        {
+          "event": "probe-return",
+          "monotonic": 58.545125441,
+          "tid": 2108,
+          "number": 3,
+          "result": true
+        },
+        {
+          "event": "monitor-wait",
+          "monotonic": 58.545180239,
+          "tid": 2108,
+          "number": 2,
+          "timeout": 15
+        },
+        {
+          "event": "joined-before-storage-close",
+          "monotonic": 58.545638634,
+          "tid": 2107
+        }
+      ],
+      "peer_calls": [],
+      "applied": [],
+      "queue_before": [
+        {
+          "id": 1,
+          "achievementId": 104,
+          "queryString": "/dorequest.php",
+          "requestBody": "r=awardachievement&a=104&g=10&u=fixture-a&t=<synthetic-token-a>&h=0",
+          "userAgent": "RetroArch/1.21.0 (Linux)",
+          "queuedAt": 1792002518790,
+          "retryCount": 0,
+          "lastError": null,
+          "status": "pending",
+          "payloadHash": "2244352a0ed53135b393a52cf166ad529550bb1d17929711fc5a536b1ebae7e2",
+          "prevHash": "genesis",
+          "signature": "/wRvt1mtv7C2C8IiHkoXG965anpTf9np+vnac3ew6G0=",
+          "signedAt": 1792002518790
+        }
+      ],
+      "config_sha256": "7bdf7928ad854e0a23fab53fcab8643a5737cf3a6115ac9483893f98c8b30be6",
+      "interval_seconds": 15,
+      "queue_after": [
+        {
+          "id": 1,
+          "achievementId": 104,
+          "queryString": "/dorequest.php",
+          "requestBody": "r=awardachievement&a=104&g=10&u=fixture-a&t=<synthetic-token-a>&h=0",
+          "userAgent": "RetroArch/1.21.0 (Linux)",
+          "queuedAt": 1792002518790,
+          "retryCount": 0,
+          "lastError": null,
+          "status": "pending",
+          "payloadHash": "2244352a0ed53135b393a52cf166ad529550bb1d17929711fc5a536b1ebae7e2",
+          "prevHash": "genesis",
+          "signature": "/wRvt1mtv7C2C8IiHkoXG965anpTf9np+vnac3ew6G0=",
+          "signedAt": 1792002518790
+        }
+      ],
+      "flush_calls": 0,
+      "sqlite_integrity": "ok",
+      "baseline_failure_signature": "startup false; initial/periodic monitor true; zero flush; exact signed row retained",
+      "worker_alive_at_storage_close": false,
+      "storage_closed": true
+    }
+  ],
+  "thread_errors": [],
+  "timers_changed": false,
+  "variant": "baseline",
+  "source_sha256": "42fbdb000f64e791fcee4437448e1841f8b6ebd81bb97d358f84fcfe98f65a75",
+  "source_files": 112,
+  "startup_lines": [
+    1467,
+    1472
+  ],
+  "interpreter": "3.14.7 (main, Oct  4 2026, 04:40:27) [GCC 15.2.0]",
+  "substitutions": [
+    "controlled reachability",
+    "in-process synthetic GET/POST replies",
+    "corruption-report observation"
+  ],
+  "error": "AssertionError: queued signed award not applied exactly once",
+  "elapsed_seconds": 15.003919845999995,
+  "live_threads": []
+}

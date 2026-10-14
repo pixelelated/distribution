@@ -1,0 +1,20 @@
+{
+  "runtime_executed": false,
+  "results": [
+    {
+      "path": "measure-capacity.py",
+      "check": "ast.parse",
+      "result": "PASS"
+    },
+    {
+      "path": "prepare-plan.py",
+      "check": "ast.parse",
+      "result": "PASS"
+    },
+    {
+      "path": "copy-cache.sh",
+      "check": "bash -n",
+      "result": "PASS"
+    }
+  ]
+}

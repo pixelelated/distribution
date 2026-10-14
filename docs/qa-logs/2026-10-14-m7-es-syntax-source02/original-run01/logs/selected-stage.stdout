@@ -1,0 +1,11 @@
+using emulationstation-c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78
+  (header) es-app/src/GameCubeRvzHashRetry.h from the tree
+  (header) es-app/src/guis/WifiScanProcess.h from the tree
+  (header) es-app/src/guis/GuiWifi.h from the tree
+  OK      /home/max/Development/emulationstation-next.worktrees/m7-candidate-compose/es-app/src/ApiSystem.cpp
+  FAIL    /home/max/Development/emulationstation-next.worktrees/m7-candidate-compose/es-app/src/ThreadedHasher.cpp
+          /home/max/Development/emulationstation-next.worktrees/m7-candidate-compose/es-app/src/ThreadedHasher.cpp:37:10: error: 'gameCubeRvzHashEnabled' was not declared in this scope; did you mean 'GameCubeRvzHashRetry'?
+  OK      /home/max/Development/emulationstation-next.worktrees/m7-candidate-compose/es-app/src/guis/GuiMenu.cpp
+  OK      /home/max/Development/emulationstation-next.worktrees/m7-candidate-compose/es-app/src/guis/GuiWifi.cpp
+  OK      /home/max/Development/emulationstation-next.worktrees/m7-candidate-compose/es-core/src/Settings.cpp
+FAIL

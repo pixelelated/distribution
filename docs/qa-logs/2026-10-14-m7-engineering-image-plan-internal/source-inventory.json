@@ -1,0 +1,146 @@
+{
+  "utc": "2026-10-14T18:35:37.096677+00:00",
+  "kind": "read-only source/capacity plan; no scan/copy/build",
+  "coordinator_head": "b004cd4d0751bd871bfda11292b43280895f61ea",
+  "compose_head": "1ede30a1be476f65eb79614596dd4a98f2630b59",
+  "compose_status": "",
+  "expected_es_commit": "c045d2ec1936c2dfc6c4777935fb2d4cd8b3bcfa",
+  "warm_parent": {
+    "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20",
+    "head": "1a026648442321609b2288c2c9c06803817f9df2",
+    "branch": "build/m7-pixelelated-replacement20",
+    "tracked_diff_sha256": "42065b015a65d1e363d5daca24c1d2754007b7296faff853b7e5aa7283c3a3c6",
+    "tracked_diff_bytes": 4669,
+    "status_lines": 1,
+    "allocated_bytes": 118521081856,
+    "state": "CURRENT_HOLD"
+  },
+  "historical_measurement": {
+    "path": "/workspace/tmp/pixelelated-m7-retention-20261012-inventory01/artifacts/build-tree-review.json",
+    "sha256": "bf926dfc6e48d887b6c539ebbd7133a98108f90701bdc1be13830a0a5fc73d7b",
+    "date": "2026-10-12",
+    "fresh_measurement": false
+  },
+  "product_delta": [
+    {
+      "path": "Makefile",
+      "sha256": "8322fcfa85d0a0159ac05ce17058e23f8e18418d2344adf82456b5813b6094fa"
+    },
+    {
+      "path": "projects/ROCKNIX/devices/SM8250/filesystem/usr/share/wireplumber/wireplumber.conf.d/52-mangmi-hdmi.conf",
+      "sha256": "8e56637dfdb02b8d4ac553dff1e6def2afc88e9abb9712769c8f8888674886b5"
+    },
+    {
+      "path": "projects/ROCKNIX/devices/SM8250/linux/dts/qcom/sm8250-mangmi-air-y-pro.dts",
+      "sha256": "8cabaea29f2f810429a25e38a2eab2c3cb14eba365c060cc4e640d5f9c68efc7"
+    },
+    {
+      "path": "projects/ROCKNIX/devices/SM8250/linux/dts/qcom/sm8250-mangmi-pocket-max.dts",
+      "sha256": "4728ff1b354bdad3ceb27299552a2faeb5594a0fca173cceba8ed8697bcbdfb0"
+    },
+    {
+      "path": "projects/ROCKNIX/devices/SM8250/patches/linux/0011-qcom-pm8150b-charger.patch",
+      "sha256": "624652466e0011fd6b8894c8774b7dd30a8468ca0d91034b40b7f8f5c511c57b"
+    },
+    {
+      "path": "projects/ROCKNIX/devices/SM8250/patches/linux/0019-drm-msm-dp-on-sm8250-refuse-to-start-dp-audio-while-the-link-is-down.patch",
+      "sha256": "dfbdfc6acd97b6c3500b1fffa420e8a32d7d18eb0c0a7533d77c81fa9b5b3eab"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/Qualcomm/sm8250/AirYPro.conf",
+      "sha256": "73e180b20a736aceb004cb27e5b45bb4ed244d555a265d61ea5f4e2a4f2c1b92"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/sources/ucm2/Qualcomm/sm8250/PocketMax.conf",
+      "sha256": "6842999be151f832b8b96645bdfb030986379e010cae34a2edfc529e5daab8df"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/compat/fex-emu/package.mk",
+      "sha256": "428430a76277b24fc5e4a69889da0045431d7c71caee35cc64a57fabf25db3ec"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/package.mk",
+      "sha256": "9dc251df09495db8b6d80d5be2a2fb4f02bbedc6374759b57373b3aa63411d5b"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/cheevos_dolphin.sh",
+      "sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/dolphin-save-paths",
+      "sha256": "507ccc96245bfc7aaca5e154ef0567cacccd0cbc9d0f999761d2fdee1fc245e8"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/start_dolphin_gc.sh",
+      "sha256": "cc6da2e146adfc5423fb58462888e0cab0a4904deb90f5066392484b8447c9c2"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/start_dolphin_wii.sh",
+      "sha256": "e8ff87c570d7a96eb641d42637d35ac93580f6a48dd7ea40e060f1b827eb407a"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/emulators/standalone/steam/package.mk",
+      "sha256": "7c3599251e7d3b6a7157457cef25ef61467cefa0880429b432f8fba9c431d5f7"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/linux/patches/7.2/0016-drm-msm-dp-return-0-from-audio_prepare-when-cable-is-disconnected.patch",
+      "sha256": "81665288adedb443e7c555e11ecf40cd05d819b10c6a5761e7326a64576d3815"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/multimedia/gstreamer/gstreamer/package.mk",
+      "sha256": "bf988663e155d1a66f51fca092922d3a3630053868349b917a0cc9dd71bf9376"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/raofflineproxy/patches/004-no-cap-on-cached-games.patch",
+      "sha256": "70c6f05baf75cf932fbdf7651a8df47bf2a2cf6bac9cec66b34b12cef2a55344"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/raofflineproxy/patches/020-rvz-padding-preserve-partial-word.patch",
+      "sha256": "77c99c068d04c3ecf712c93a6c177cece7c2e72b955484a7a5cc998824352b44"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/raofflineproxy/patches/021-flush-reconnect-during-startup.patch",
+      "sha256": "6e8992555e7c6f6616be48ec7e3e2f5626718bb08d1ebc243e0f466ebc912d22"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl",
+      "sha256": "47391a3bbcaa0f2262cdee12f09bd48d17f7fedf0237a1a661a21b085b2f71f7"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_oauth",
+      "sha256": "95c626f8df07faef522683a857e48e31f85a58c6f738bcde24707574dc24d293"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/rocknix/sources/scripts/runemu.sh",
+      "sha256": "deb95aee74d3ddd80638a9ab2f940f5b3b080f4d3ec01f669ea8dbd44179ad20"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/rocknix/sources/scripts/wifictl",
+      "sha256": "c89ed28a50e4be78468fcee25dcfd68e0b1c67af25657c3d0ba9318c7576a48c"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/tools/rocknix-abl/package.mk",
+      "sha256": "9ecd8b3a99b42d1c18460343bf855ad85c7f321b31bfe2a9e7b4373fd9e5eabf"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/ui/emulationstation/package.mk",
+      "sha256": "b52757b20a3f707b08e04f0ac9f73b3653df812708aefe6f3cbf8541337fd7a8"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/virtual/emulators/sources/Install Steam.sh",
+      "sha256": "fab7cdb4ad8adbcea147be54092bb7ce2005010447be4ab8192c94d8bbe9229d"
+    }
+  ],
+  "rules": {
+    ".claude/rules/device-builds.md": "80b2f279959ac65c9807a376b0eb8e79ad668ed0c438b17376e7e4ed7856ee57",
+    ".claude/rules/worktrees.md": "28c448a0e48d83dacb1133b9e1606a709e3ffbf9491734a66c99988fc4ae6754",
+    "tools/host-maintenance/build-admission": "3e2ad9d6eed47f53d1547880286e4bed69848b956be490f17f354d9df70bb942",
+    "tools/host-maintenance/retention-report": "1187725512f1a0586bc4d7812a886076c71bc6fdd460f6cd4a73e91198518798",
+    "tools/watch-build": "44a6d87505fd6a465c384d2f30bfeda5f4fe436978d227d8b0c4bae73da7e0bc",
+    "tools/watch-job": "052cdea2b449eb4a61f33ed41f4079a36d82605fa08c99a4006f3112d57926a2",
+    "tools/watch-build-submit": "3777c68fb2677775550183f8bacdb860d7e1e477ebac4e923beda63beba8e88e",
+    "tools/build-preflight": "4b99deaf03accc7ebe0b66699dfc9b7147d762915a1e5dc20a02dda31c3ff12f"
+  },
+  "current_cache_head": "1a026648442321609b2288c2c9c06803817f9df2",
+  "current_cache_status": "M documentation/PER_DEVICE_DOCUMENTATION/GENERIC_X64/SUPPORTED_EMULATORS_AND_CORES.md"
+}

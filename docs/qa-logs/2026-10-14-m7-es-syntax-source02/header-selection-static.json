@@ -1,0 +1,47 @@
+{
+  "scope": "Static include-path resolution and source inspection only; no preprocessor/compiler invoked. Actual retry selection still needs runtime evidence.",
+  "include_spelling": "#include <libcheevos/cheevos.h>",
+  "caller_path": "/home/max/Development/emulationstation-next.worktrees/m7-candidate-compose/es-app/src/ThreadedHasher.cpp",
+  "caller_sha256": "b8e5000cc5c3485f10344946ee5cd2dd2249022584c5c6e570c37c2cc597eec2",
+  "cached_ninja_path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/build/emulationstation-c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78/.x86_64-rocknix-linux-gnu/build.ninja",
+  "cached_ninja_sha256": "27fa7d488ef368d1ffa2f0fe519e2b529efe5bea91a89a94eab11724db6eda85",
+  "cached_ninja_include_roots": [
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/include/freetype2",
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/include/fribidi",
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/include/SDL2",
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/include/vlc",
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/emulationstation-c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78/external",
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/emulationstation-c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78/es-core/src",
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/emulationstation-c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78/es-app/src",
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/emulationstation-c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78/external/id3v2lib/src",
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/emulationstation-c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78/external/id3v2lib/src/../include"
+  ],
+  "original_with_option": "-iquote/home/max/Development/emulationstation-next.worktrees/m7-candidate-compose/external",
+  "original_angle_candidates": [
+    {
+      "include_root": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/emulationstation-c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78/external",
+      "physical_header": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/build/emulationstation-c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78/external/libcheevos/cheevos.h",
+      "sha256": "52f8e0afea09710eb96d3ddf310c2b084a1cd757b7d2ed41aafdfb2016e045f5",
+      "has_declaration": false
+    }
+  ],
+  "corrected_angle_candidates": [
+    {
+      "include_root": "/home/max/Development/emulationstation-next.worktrees/m7-candidate-compose/external",
+      "physical_header": "/home/max/Development/emulationstation-next.worktrees/m7-candidate-compose/external/libcheevos/cheevos.h",
+      "sha256": "c96241e0b5e4b6c263cfc19cfb2cecdd867531cd6f2efc6f02d6e42b987ca38f",
+      "has_declaration": true
+    },
+    {
+      "include_root": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/emulationstation-c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78/external",
+      "physical_header": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/build/emulationstation-c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78/external/libcheevos/cheevos.h",
+      "sha256": "52f8e0afea09710eb96d3ddf310c2b084a1cd757b7d2ed41aafdfb2016e045f5",
+      "has_declaration": false
+    }
+  ],
+  "negative_quote_only_same_old_header": true,
+  "original_app_core_farms_have_no_matching_header": true,
+  "product_declaration_unconditional": true,
+  "product_definition_path": "/home/max/Development/emulationstation-next.worktrees/m7-candidate-compose/external/libcheevos/cheevos.cpp",
+  "product_definition_sha256": "8e5a0c4f442003be06f9a4ef95c4b3499c4271b2c19f1ab7bb0c2e6d97e2be0a"
+}

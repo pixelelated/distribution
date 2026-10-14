@@ -1,0 +1,9 @@
+emulationstation: retain published lifetime fixture in M7 composition
+
+Merge test/qa-integration0ee5b28a to preserve its existing Menu::setPosition
+fixture support. The only changed file relative to syntax-qualifiedc045d2ec
+is tests/cloud-oauth-lifetime.py, byte-identical to the published source.
+
+Every product/header/catalog/build-definition byte and mode remains unchanged.
+No conflict, manual resolution, compiler run or retest occurs in this merge;
+original syntax evidence retains its originalc045 identity.

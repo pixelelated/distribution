@@ -1,0 +1,25 @@
+{
+  "case": {
+    "id": "wii-card-en640-layout",
+    "system": "wii",
+    "scenario": "card-conflict",
+    "language": "en_US",
+    "purpose": "Only the English640 corrected long-card-path layout remains unproved; new display-only source, same accepted caller."
+  },
+  "phase": "complete",
+  "token": "07-complete",
+  "result": {
+    "status": "PASS",
+    "originals": {
+      "session_process": 0,
+      "session": 0,
+      "frontend_restore": 0,
+      "unshare": 0,
+      "es": 0,
+      "runemu": 250
+    },
+    "frontend_active_exit": 0,
+    "namespace_processes_remaining": [],
+    "frames": "see host advance records; source-staged proof, not shipped-image qualification"
+  }
+}
