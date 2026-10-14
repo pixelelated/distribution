@@ -1,0 +1,8 @@
+{
+  "archive": "source-originals.tar.gz",
+  "archive_sha256": "5e1255cbf9d22d1b2f0ff7b128be9f657d82be2d6e38870fccc284d7bc4111dd",
+  "original_manifest_sha256": "bc4a76241fc24c40a61be59821c15ce5d9eb9514e4e8a34f203a5306b6431b08",
+  "files_verified": 6,
+  "reason": "Byte-preserving sealed source; unified diff context must not be whitespace-normalized",
+  "materialize": "Extract all archive members into a fresh private source directory; verify SHA256SUMS there; use that directory as TASK_PACKET or TASK_CORRECTION."
+}

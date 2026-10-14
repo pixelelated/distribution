@@ -1,0 +1,37 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/.build-runs/20261014T193052Z-b884a2b1",
+  "expected_rc": 1,
+  "disposition": "failed-investigated",
+  "outputs": [
+    {
+      "issue": 566,
+      "kind": "build-cache",
+      "path": "/workspace/tmp/pix566-es-component-20261014-01/work",
+      "release_when": "Retire independent component source/build scratch after original channels and cleanup are consumed; preserve compact syntax/source/resource receipts."
+    },
+    {
+      "issue": 566,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix566-es-component-20261014-01/stages",
+      "release_when": "Preserve original child/container/watcher/launcher channels and host identity/cleanup receipts before scratch retirement."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-screenscraper-rejection-runtime/attempt01/original-records.json",
+      "sha256": "c656c6991953a917b6195032d7eec72e6ef98c7ba443154683479144330b6133"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-screenscraper-rejection-runtime/attempt01/analysis.json",
+      "sha256": "5f0785152081d07c49a156ade5981b5cb55f0f8d6ede8daa94772f1e37285413"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-screenscraper-rejection-runtime/attempt01/coordinator-cleanup.json",
+      "sha256": "5c75ab26de3b1b7ca8662fe61282a80ac88403bfd7a47783af71a732ac177635"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-screenscraper-rejection-runtime/attempt01/coordinator-container-readback.json",
+      "sha256": "a3fe2393199c846e514b4ed68d3e851b54872b40abb3a83fd399d96d43d57605"
+    }
+  ]
+}

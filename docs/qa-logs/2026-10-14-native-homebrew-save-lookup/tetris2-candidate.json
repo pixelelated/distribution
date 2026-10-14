@@ -1,0 +1,387 @@
+{
+  "status": "SOURCE-CANDIDATE; disc packaging and all runtime UNRUN",
+  "source_commit": "1390da9766a835c3ee62aabba770acee9f2e68fa",
+  "license": {
+    "name": "BSD-3-Clause",
+    "url": "https://github.com/vg132/dreamcast-tetris-2/blob/1390da9766a835c3ee62aabba770acee9f2e68fa/LICENSE",
+    "sha256": "9469dfde81bf47499d29238569530eada409e2e0e23992d4a3a6f4090413bde8",
+    "text": "Copyright (c) 2004, Viktor Gars\nAll rights reserved.\n\nRedistribution and use in source and binary forms, with or without modification, are\npermitted provided that the following conditions are met:\n\n1. Redistributions of source code must retain the above copyright notice, this list of\nconditions and the following disclaimer. \n\n2. Redistributions in binary form must reproduce the above copyright notice, this list \nof conditions and the following disclaimer in the documentation and/or other materials\nprovided with the distribution.\n\n3. Neither the name of the author nor the names of its contributors may be used to \nendorse or promote products derived from this software without specific prior written \npermission.\n\nTHIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\" AND ANY \nEXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF\nMERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL\nTHE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, \nEXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF \nSUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)\nHOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR\nTORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS \nSOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
+  },
+  "common_vmu_source": {
+    "commit": "42153a864fb0f725d5f9b8916b2f919a8217dd7f",
+    "url": "https://github.com/vg132/dreamcast-common/blob/42153a864fb0f725d5f9b8916b2f919a8217dd7f/src/vmu.cpp",
+    "sha256": "7cf96dd0771ab2d61d8f3431df663711639715a7ce197e5588ceca48c9948e86",
+    "license_note": "No LICENSE file at inspected common-repository root; no common-library rebuild or redistribution proposed. The existing binary is distributed in the game repository with its BSD license."
+  },
+  "existing_binaries": [
+    {
+      "url": "https://raw.githubusercontent.com/vg132/dreamcast-tetris-2/1390da9766a835c3ee62aabba770acee9f2e68fa/build/1ST_READ.BIN",
+      "bytes": 587456,
+      "git_blob_sha1": "1296169bedd856ee39f17377b8e8e8b0f905f56e",
+      "sha256": "065db55aab9b166f2a690654e906d62d9c839805cb7fd57fd3ffe900580f16b8",
+      "cache_path": "/tmp/pix-m7-native-homebrew-20261014/tetris2/build-1ST_READ.BIN"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/vg132/dreamcast-tetris-2/1390da9766a835c3ee62aabba770acee9f2e68fa/build/IP.BIN",
+      "bytes": 32768,
+      "git_blob_sha1": "5bc7fef22674e282fd25bfe837a85319bb50873d",
+      "sha256": "ed98b488a9f139b804e99387e25508432c7f9dd27208c1cb33ad5b8c5f8ef019",
+      "cache_path": "/tmp/pix-m7-native-homebrew-20261014/tetris2/build-IP.BIN"
+    }
+  ],
+  "inspected_source": [
+    {
+      "path": "src/game.cpp",
+      "url": "https://github.com/vg132/dreamcast-tetris-2/blob/1390da9766a835c3ee62aabba770acee9f2e68fa/src/game.cpp",
+      "sha256": "3294a0eec45175c7d5bc47a2b7565fa00c3f359d5e214915f6baa08d4b200740",
+      "git_blob_sha1": "09aa734e5b098282d8c61101dc3b0c6c06a2a722",
+      "local_cache": "/tmp/pix-m7-native-homebrew-20261014/tetris2/src-game.cpp"
+    },
+    {
+      "path": "src/tetris.cpp",
+      "url": "https://github.com/vg132/dreamcast-tetris-2/blob/1390da9766a835c3ee62aabba770acee9f2e68fa/src/tetris.cpp",
+      "sha256": "34a3ab60fe9f8d76c16e6139a94b53c9e904ccf0b17fc71391aa9ac1ede11804",
+      "git_blob_sha1": "da8998cc04f9336bd8bc9375985afec8b905720a",
+      "local_cache": "/tmp/pix-m7-native-homebrew-20261014/tetris2/src-tetris.cpp"
+    },
+    {
+      "path": "src/control.cpp",
+      "url": "https://github.com/vg132/dreamcast-tetris-2/blob/1390da9766a835c3ee62aabba770acee9f2e68fa/src/control.cpp",
+      "sha256": "2c39396c59d14e721bfac370bcc71b97037890fc226a41ecc5dcd3eec155ff34",
+      "git_blob_sha1": "7c9a9de97ee9bd72d4f3566549093275b72108d1",
+      "local_cache": "/tmp/pix-m7-native-homebrew-20261014/tetris2/src-control.cpp"
+    },
+    {
+      "path": "src/draw.cpp",
+      "url": "https://github.com/vg132/dreamcast-tetris-2/blob/1390da9766a835c3ee62aabba770acee9f2e68fa/src/draw.cpp",
+      "sha256": "9d63bfc9e1103373ff6d6fa8d3f1a7da88196c95e132a38f1dad3eb303f43cdb",
+      "git_blob_sha1": "a7fd30e0788e590d3c1f03ffa037510044e3a709",
+      "local_cache": "/tmp/pix-m7-native-homebrew-20261014/tetris2/src-draw.cpp"
+    },
+    {
+      "path": "src/highscore.cpp",
+      "url": "https://github.com/vg132/dreamcast-tetris-2/blob/1390da9766a835c3ee62aabba770acee9f2e68fa/src/highscore.cpp",
+      "sha256": "8fa5d8f5dcdb4f118eb3e0febee0dffb83e4353bc6ef103ac1fc411d7c8844d9",
+      "git_blob_sha1": "1ad6586c694099bbdc54ed1214c08de7343beb26",
+      "local_cache": "/tmp/pix-m7-native-homebrew-20261014/tetris2/src-highscore.cpp"
+    },
+    {
+      "path": "Tetris CD/themes/default/viperv6.theme",
+      "url": "https://github.com/vg132/dreamcast-tetris-2/blob/1390da9766a835c3ee62aabba770acee9f2e68fa/Tetris%20CD/themes/default/viperv6.theme",
+      "sha256": "9ac55b3fe8366579976baad030531179be43a3840a878227fa74b7ba5162275d",
+      "git_blob_sha1": "00a9aa8347895c389f91c4d5f5140d840f7a66bf",
+      "local_cache": "/tmp/pix-m7-native-homebrew-20261014/tetris2/Tetris CD-themes-default-viperv6.theme"
+    },
+    {
+      "path": "Makefile",
+      "url": "https://github.com/vg132/dreamcast-tetris-2/blob/1390da9766a835c3ee62aabba770acee9f2e68fa/Makefile",
+      "sha256": "9490560804a8feecea17362f8bd78b753582c762e3239f9ee1b77e725bbae742",
+      "git_blob_sha1": "f6563cff65ecf7eebbd5b0af3ecee610607499df",
+      "local_cache": "/tmp/pix-m7-native-homebrew-20261014/tetris2/Makefile"
+    },
+    {
+      "path": "doc/instructions.txt",
+      "url": "https://github.com/vg132/dreamcast-tetris-2/blob/1390da9766a835c3ee62aabba770acee9f2e68fa/doc/instructions.txt",
+      "sha256": "6b510edcb37c6785688dfadea22373019a1a48f556354c984ee4db5a51319769",
+      "git_blob_sha1": "6fe6c39cd97adcc7e09b3c57daf3db2470d8d51f",
+      "local_cache": "/tmp/pix-m7-native-homebrew-20261014/tetris2/doc-instructions.txt"
+    }
+  ],
+  "flycast_loader": [
+    {
+      "path": "core/emulator.cpp",
+      "sha256": "9420dce351f67cb520d61538e5efd51ddaaecf9f1c544bdf54fe0920ae693776",
+      "url": "https://github.com/flyinghead/flycast/blob/5aa091fde632fb332c8d8c34e280d62dc951954c/core/emulator.cpp"
+    },
+    {
+      "path": "core/reios/reios.cpp",
+      "sha256": "5622108341846a3b6884e0cf15de4cdec8abcf97013a801a615003493614d2b6",
+      "url": "https://github.com/flyinghead/flycast/blob/5aa091fde632fb332c8d8c34e280d62dc951954c/core/reios/reios.cpp"
+    },
+    {
+      "path": "core/reios/reios_elf.cpp",
+      "sha256": "5cb733a2062dd3f3a4fee13a8a860145fc9d9089f9d3cd54329ab2711c0b6a1e",
+      "url": "https://github.com/flyinghead/flycast/blob/5aa091fde632fb332c8d8c34e280d62dc951954c/core/reios/reios_elf.cpp"
+    }
+  ],
+  "required_assets": {
+    "total_bytes": 5084090,
+    "count": 54,
+    "downloaded": false,
+    "directory_mapping": "strip Tetris CD/ prefix into disc root",
+    "entries": [
+      {
+        "path": "Tetris CD/graphics/block/block1.png",
+        "bytes": 423,
+        "git_blob_sha1": "a84b3967babb5320c72730887c604d52d215c5e1"
+      },
+      {
+        "path": "Tetris CD/graphics/block/block2.png",
+        "bytes": 405,
+        "git_blob_sha1": "f48d56cf56b1e577c069ff47027b39a723935f87"
+      },
+      {
+        "path": "Tetris CD/graphics/block/block3.png",
+        "bytes": 409,
+        "git_blob_sha1": "8b2ee57f4ca18c3e1205ed9e0086f27292639bcc"
+      },
+      {
+        "path": "Tetris CD/graphics/block/block4.png",
+        "bytes": 412,
+        "git_blob_sha1": "d547facd782792602f5bff06628d6011b4e3b95a"
+      },
+      {
+        "path": "Tetris CD/graphics/block/block5.png",
+        "bytes": 407,
+        "git_blob_sha1": "eb94109a4324bb5a43bd68f0e9dae0c2bedcbb67"
+      },
+      {
+        "path": "Tetris CD/graphics/block/block6.png",
+        "bytes": 399,
+        "git_blob_sha1": "ea23c71a1473a3333e72c54df28a6f1cc76f6d5b"
+      },
+      {
+        "path": "Tetris CD/graphics/block/block7.png",
+        "bytes": 406,
+        "git_blob_sha1": "c4982d0cfbc1124fc282666e2536b903f2e7b15b"
+      },
+      {
+        "path": "Tetris CD/graphics/block/block8.png",
+        "bytes": 318,
+        "git_blob_sha1": "2c94464e939a6c140e4a01b64c4a58b0e91c4025"
+      },
+      {
+        "path": "Tetris CD/graphics/font/arial_black.png",
+        "bytes": 32387,
+        "git_blob_sha1": "61745407cbbe6819fb3e937f0f2426558743b470"
+      },
+      {
+        "path": "Tetris CD/graphics/font/arial_blue.png",
+        "bytes": 35528,
+        "git_blob_sha1": "ebe2dbaede600d2eca861d5080107b5724049068"
+      },
+      {
+        "path": "Tetris CD/graphics/font/arial_orange.png",
+        "bytes": 35582,
+        "git_blob_sha1": "fdcd73223c85e1b3f71ae516d9ab64d132da87af"
+      },
+      {
+        "path": "Tetris CD/graphics/font/arial_white.png",
+        "bytes": 34084,
+        "git_blob_sha1": "a4a8e68385a8c7f8acb1fc60ca6589724475a938"
+      },
+      {
+        "path": "Tetris CD/graphics/font/font_size.txt",
+        "bytes": 263,
+        "git_blob_sha1": "ae7da539ec748835369672ed4957ec87f307b6a5"
+      },
+      {
+        "path": "Tetris CD/graphics/icon/tetris.bmp",
+        "bytes": 630,
+        "git_blob_sha1": "679d5a41bbe60b8e0d99bae4e4f9e27ce322c8e8"
+      },
+      {
+        "path": "Tetris CD/graphics/load/load.png",
+        "bytes": 15900,
+        "git_blob_sha1": "d08df7aac1c8d5303007e2a0b056d618af3a6c1f"
+      },
+      {
+        "path": "Tetris CD/graphics/load/load1.png",
+        "bytes": 184,
+        "git_blob_sha1": "df5e9c8743b050ebf6a546bd4eec17e2f00a8925"
+      },
+      {
+        "path": "Tetris CD/graphics/load/load2.png",
+        "bytes": 193,
+        "git_blob_sha1": "6223afce78c1800d68be19c26ff95f03ea47217b"
+      },
+      {
+        "path": "Tetris CD/graphics/load/load3.png",
+        "bytes": 193,
+        "git_blob_sha1": "749881eb4918f6add680fd09ed6446200a16ecd9"
+      },
+      {
+        "path": "Tetris CD/graphics/load/load4.png",
+        "bytes": 193,
+        "git_blob_sha1": "cc97a39b4900876b3e1dce4f1f8889b70ea461bf"
+      },
+      {
+        "path": "Tetris CD/graphics/misc/field_1p.png",
+        "bytes": 27764,
+        "git_blob_sha1": "26460604925f8486c964de3cc06bde877bdf744d"
+      },
+      {
+        "path": "Tetris CD/graphics/misc/field_2p1.png",
+        "bytes": 27104,
+        "git_blob_sha1": "9c1075b0cb3381931c3bcac602bdce646a58c385"
+      },
+      {
+        "path": "Tetris CD/graphics/misc/field_2p2.png",
+        "bytes": 27412,
+        "git_blob_sha1": "4e0fa111b40385b24486871465d9b60ceecb7354"
+      },
+      {
+        "path": "Tetris CD/graphics/misc/info.png",
+        "bytes": 6306,
+        "git_blob_sha1": "3ab94ed0340f04e96fe377bbd99d1012547eade0"
+      },
+      {
+        "path": "Tetris CD/graphics/misc/title.png",
+        "bytes": 47790,
+        "git_blob_sha1": "be74899835d9aacc24443c5102135b3ccc799a6e"
+      },
+      {
+        "path": "Tetris CD/graphics/misc/tvmode_test.png",
+        "bytes": 292780,
+        "git_blob_sha1": "84ade8a52542163ffe08091d3320039e359b9f0f"
+      },
+      {
+        "path": "Tetris CD/graphics/next/i.png",
+        "bytes": 569,
+        "git_blob_sha1": "2b1ad07303034143fc73453bcd2a1ea75e4c2a35"
+      },
+      {
+        "path": "Tetris CD/graphics/next/l.png",
+        "bytes": 727,
+        "git_blob_sha1": "4e8d135a3f345543d4af7cda0a29c9f01735b8ec"
+      },
+      {
+        "path": "Tetris CD/graphics/next/o.png",
+        "bytes": 634,
+        "git_blob_sha1": "e8dcff3b8568b4a3fa20d922b1eef52bd9f5df48"
+      },
+      {
+        "path": "Tetris CD/graphics/next/rl.png",
+        "bytes": 712,
+        "git_blob_sha1": "1646f28e03c6cdd92d2398a80abd5c13180d3ab3"
+      },
+      {
+        "path": "Tetris CD/graphics/next/rz.png",
+        "bytes": 736,
+        "git_blob_sha1": "b5b6be3a1de82fa6f20024597b9142006036fd66"
+      },
+      {
+        "path": "Tetris CD/graphics/next/t.png",
+        "bytes": 686,
+        "git_blob_sha1": "0d087f7075d33573f0e0cac6e71901096c0a0a12"
+      },
+      {
+        "path": "Tetris CD/graphics/next/z.png",
+        "bytes": 738,
+        "git_blob_sha1": "47e1672b04d6e0e2d6e16d6bf223bd10ec436354"
+      },
+      {
+        "path": "Tetris CD/graphics/text/1player.png",
+        "bytes": 5603,
+        "git_blob_sha1": "699c3ff040ab412c56aabf5307c589dde177f88d"
+      },
+      {
+        "path": "Tetris CD/graphics/text/2players.png",
+        "bytes": 6701,
+        "git_blob_sha1": "3694af82415ef2ec984f51e9d5df945c1f88dfed"
+      },
+      {
+        "path": "Tetris CD/graphics/text/credits.png",
+        "bytes": 5579,
+        "git_blob_sha1": "456525e0c8144d5c1dbf98cf188b8cc309d4eed7"
+      },
+      {
+        "path": "Tetris CD/graphics/text/highscore.png",
+        "bytes": 8864,
+        "git_blob_sha1": "49607023f19954f100f474253dc53b742d1fd5ce"
+      },
+      {
+        "path": "Tetris CD/graphics/text/load.png",
+        "bytes": 3555,
+        "git_blob_sha1": "eff7e148671d4ff323deaed23178b2dafe6a48fa"
+      },
+      {
+        "path": "Tetris CD/graphics/text/options.png",
+        "bytes": 6129,
+        "git_blob_sha1": "4ed2bbdd3a674335bac7f29991e7b7769c4ffdfd"
+      },
+      {
+        "path": "Tetris CD/graphics/text/save.png",
+        "bytes": 4166,
+        "git_blob_sha1": "db9045ea979cfe46bc9026c0ebe1cf3375c6ff67"
+      },
+      {
+        "path": "Tetris CD/sounds/block_down.wav",
+        "bytes": 8370,
+        "git_blob_sha1": "e1198909c5b5745daa2f275b424176bd45a72b10"
+      },
+      {
+        "path": "Tetris CD/sounds/line_delete.wav",
+        "bytes": 58172,
+        "git_blob_sha1": "84d9e3dfcc67f897789f2f1d0561ccbca8108423"
+      },
+      {
+        "path": "Tetris CD/sounds/menu_change.wav",
+        "bytes": 2436,
+        "git_blob_sha1": "10aad9a3997b0efaae448ec7a559f52aa314cbae"
+      },
+      {
+        "path": "Tetris CD/themes/default/img1.png",
+        "bytes": 373908,
+        "git_blob_sha1": "4d2c4b264072517c3700475d575693f9a604a758"
+      },
+      {
+        "path": "Tetris CD/themes/default/img10.png",
+        "bytes": 473947,
+        "git_blob_sha1": "8170379cbe41010fb7276db12f5904b52de6175f"
+      },
+      {
+        "path": "Tetris CD/themes/default/img11.png",
+        "bytes": 384008,
+        "git_blob_sha1": "154f16e6dc147a794de34abc53e8dab3d90d7383"
+      },
+      {
+        "path": "Tetris CD/themes/default/img2.png",
+        "bytes": 412625,
+        "git_blob_sha1": "7db3e2beec418aedb6ff8639c88a9706dba80eb6"
+      },
+      {
+        "path": "Tetris CD/themes/default/img3.png",
+        "bytes": 436263,
+        "git_blob_sha1": "5fc457d11957d56186e76625599822049c072d57"
+      },
+      {
+        "path": "Tetris CD/themes/default/img4.png",
+        "bytes": 401298,
+        "git_blob_sha1": "45dd162a8230222d3abf77994449bbc6192235be"
+      },
+      {
+        "path": "Tetris CD/themes/default/img5.png",
+        "bytes": 386708,
+        "git_blob_sha1": "ccbc7e3a16da4f0e877583152a84e762f27413e8"
+      },
+      {
+        "path": "Tetris CD/themes/default/img6.png",
+        "bytes": 427722,
+        "git_blob_sha1": "fc567e0ca44e361445a39efe1ed579ea4649819e"
+      },
+      {
+        "path": "Tetris CD/themes/default/img7.png",
+        "bytes": 379507,
+        "git_blob_sha1": "f905705a62f3ae062fbc00d5312b64a6d234a150"
+      },
+      {
+        "path": "Tetris CD/themes/default/img8.png",
+        "bytes": 334859,
+        "git_blob_sha1": "1252fe11d6f6e2fc48c3cfb2209fb87dafa09b60"
+      },
+      {
+        "path": "Tetris CD/themes/default/img9.png",
+        "bytes": 368213,
+        "git_blob_sha1": "3bb1cc544b5ccac8c2f44c50872bcc3503a2a8a5"
+      },
+      {
+        "path": "Tetris CD/themes/default/viperv6.theme",
+        "bytes": 3183,
+        "git_blob_sha1": "00a9aa8347895c389f91c4d5f5140d840f7a66bf"
+      }
+    ]
+  },
+  "downloaded_game_binaries_this_lookup": 2,
+  "wrapper_executed": false
+}

@@ -1,0 +1,79 @@
+{
+  "source": "3178b832b8d134198b2b4eede4f725d4ed283f8c",
+  "elf": "62d256b2a391493030639fba27c198d16cc2ee68ca0ed82748713ef2b30a270b",
+  "scope": "Valid observed EN640 UI content; fixture shutdown failure retained separately",
+  "selected": [
+    {
+      "frame": "/workspace/tmp/pix566-ui640-20261014-03/frames/20261014T200043-44d0c053/en_US-accounts.png",
+      "sha256": "f37528035ea06c071e712337d281b0ca55271bbab9128e2261f98360873ab731",
+      "panel": [
+        640,
+        480
+      ],
+      "language": "en_US",
+      "role": "accounts",
+      "review": "Observed full English ACCOUNTS: blank ScreenScraper USERNAME/PASSWORD, IGDB CLIENT ID/CLIENT SECRET, BACK; no ScreenScraper developer rows or clipping. No separate bottom help bar visible."
+    },
+    {
+      "frame": "/workspace/tmp/pix566-ui640-20261014-03/frames/20261014T200115-70fbc735/en_US-entry.png",
+      "sha256": "cc8f5e1241b66fba58b59a14b072dad6fe696af3882d275146794f91ec7941e5",
+      "panel": [
+        640,
+        480
+      ],
+      "language": "en_US",
+      "role": "entry",
+      "review": "Observed English SCRAPE page at640x480 with SCRAPE NOW selected; tabs, ScreenScraper source, ALL, recent filter NO, one selected system and BACK fit. No separate bottom help bar is visible. Earlier first-row entry remains retained."
+    },
+    {
+      "frame": "/workspace/tmp/pix566-ui640-20261014-03/frames/20261014T200133-b4b6d4ba/en_US-error.png",
+      "sha256": "8ff54e7ddd84428528e2414053589d98511c02706b518d533f332a1e59fc1ebf",
+      "panel": [
+        640,
+        480
+      ],
+      "language": "en_US",
+      "role": "error",
+      "review": "Observed actual English rejection at640x480: AN ERROR OCCURRED, complete system-access rejection and update/report guidance wrap inside the dialog; OK visible. No developer-account instruction or clipping; background is MAIN MENU, with no separate help bar visible."
+    },
+    {
+      "frame": "/workspace/tmp/pix566-ui640-20261014-03/frames/20261014T200015-094726e5/en_US-options.png",
+      "sha256": "cc18861fdf5bfbc455686042d27bd0ff93c6bab76f0c5c42762594fde037a3d4",
+      "panel": [
+        640,
+        480
+      ],
+      "language": "en_US",
+      "role": "options",
+      "review": "Observed English OPTIONS bottom with overlap to top frame20261014T195948-5d514919: overwrite and all SCRAPE FOR rows, INCLUDED SCRAPERS and BACK fit. No developer credentials. No separate bottom help bar visible."
+    },
+    {
+      "frame": "/workspace/tmp/pix566-ui640-20261014-03/frames/20261014T200211-f5d4e1bc/en_US-returned.png",
+      "sha256": "e5a6a7734828efcb9b0bcf007f704430c2a9eb4f8ae6484a8d24e644ffd71a18",
+      "panel": [
+        640,
+        480
+      ],
+      "language": "en_US",
+      "role": "returned",
+      "review": "After dismissing actual rejection with OK, observed MAIN MENU returns with SCRAPER selected; full menu fits640x480. Return is main menu, not library. No separate help bar visible."
+    }
+  ],
+  "supplementary": [
+    {
+      "frame": "/workspace/tmp/pix566-ui640-20261014-03/frames/20261014T195838-f61c52c5/en_US-entry.png",
+      "observation": "Preliminary MAIN MENU with GAME SETTINGS focused; navigation only.",
+      "sha256": "d7e07e5a369addaebc171d4e1132d2dcfa5a86200c754fdd8b2b92130b9255f3"
+    },
+    {
+      "frame": "/workspace/tmp/pix566-ui640-20261014-03/frames/20261014T195919-d2ff18cc/en_US-entry.png",
+      "observation": "First-row SCRAPE entry before tab walk.",
+      "sha256": "3ed9583aabee22855889f3230db1411d57b5c9b5de133b65227581f2ee67adc2"
+    },
+    {
+      "frame": "/workspace/tmp/pix566-ui640-20261014-03/frames/20261014T195948-5d514919/en_US-options.png",
+      "observation": "OPTIONS top; overlaps final bottom frame for complete row coverage.",
+      "sha256": "7c934beaf3cc4a22aa404e7fa8969f20558efbba901a368f6767421c8a28a530"
+    }
+  ]
+}

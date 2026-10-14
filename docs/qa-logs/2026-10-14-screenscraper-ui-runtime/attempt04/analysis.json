@@ -1,0 +1,25 @@
+{
+  "disposition": "failed-investigated",
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/.build-runs/20261014T200646Z-c00ce9f8",
+  "original_lifecycle_rc": 1,
+  "original_monitor_rc": 0,
+  "original_launcher_rc": 1,
+  "flush_rc": 0,
+  "qemu_stop": "down",
+  "en": {
+    "worker": 0,
+    "supervisor": 0,
+    "es": 0,
+    "peer": 0,
+    "forced_cleanup": false,
+    "ui": "Five actual EN640 roles reviewed; full rejection fits and returns MAIN MENU; no separate footer help bar"
+  },
+  "fr": {
+    "worker": 1,
+    "supervisor": 1,
+    "children": [],
+    "armed": false,
+    "localedef_original_exit": 1,
+    "reason": "Production -c -v localedef emits warnings for optional missing fields; fixture incorrectly required0. Generated locale category files preserved; setlocale readback UNRUN."
+  }
+}

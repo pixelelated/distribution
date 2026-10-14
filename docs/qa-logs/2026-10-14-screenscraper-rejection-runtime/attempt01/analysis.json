@@ -1,0 +1,10 @@
+{
+  "status": "FAIL",
+  "original_runner_exit": 1,
+  "original_container_exit": 1,
+  "original_attach_exit": 0,
+  "original_watchdog_exit": 1,
+  "no_compiler_or_product_test_executed": true,
+  "cause": "Reused DockerOwner expected4GiB while declared creator/inner bounds8GiB. Both initial observer and generic cleanup refused; stopping attach client forwarded termination to container. Coordinator subsequently verified exact nonce/CID, original exited1 and removed only that stopped container.",
+  "next": "Fresh owner with consistently bound8GiB checker; original result remains1."
+}

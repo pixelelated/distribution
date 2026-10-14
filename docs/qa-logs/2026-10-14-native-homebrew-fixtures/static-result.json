@@ -1,0 +1,76 @@
+{
+  "scope": "source/hash only; no materializer, configuration, SD, engine, VM, container or build execution",
+  "runtime": "UNRUN",
+  "checks": [
+    {
+      "kind": "python-AST",
+      "path": "configure-wii-sd.py",
+      "result": "PASS"
+    },
+    {
+      "kind": "python-AST",
+      "path": "materialize.py",
+      "result": "PASS"
+    },
+    {
+      "kind": "bash-n",
+      "path": "prepare-wii-sd.sh",
+      "result": "PASS"
+    },
+    {
+      "kind": "bash-n",
+      "path": "native-launch.sh",
+      "result": "PASS"
+    },
+    {
+      "kind": "fixture-byte-hash",
+      "path": "SuDokuL-GC.dol",
+      "result": "PASS"
+    },
+    {
+      "kind": "fixture-byte-hash",
+      "path": "SuDokuL-Wii.dol",
+      "result": "PASS"
+    },
+    {
+      "kind": "fixture-byte-hash",
+      "path": "demon-bazooka.cdi",
+      "result": "PASS"
+    },
+    {
+      "kind": "fixture-byte-hash",
+      "path": "dreamcast-basic.cdi",
+      "result": "PASS"
+    },
+    {
+      "kind": "inspected-upstream-source",
+      "path": "dolphin-EXI_Device.h",
+      "sha256": "605a74dfe8359408b5de503fef5b8a5cad8b378c88f22236137a91cb87db8f66",
+      "runtime_result": "UNRUN"
+    },
+    {
+      "kind": "inspected-upstream-source",
+      "path": "dolphin-SDIOSlot0.cpp",
+      "sha256": "5f4d56e4fdc40414d0949c7f76080ab21223d75830f6d43bac84a3891e8f53d4",
+      "runtime_result": "UNRUN"
+    },
+    {
+      "kind": "inspected-upstream-source",
+      "path": "dolphin-SDCardUtil.cpp",
+      "sha256": "43fcea168ad92fc75ed94a70debf0d62cf106c74832f5bb42c80d6bd15eb2b92",
+      "runtime_result": "UNRUN"
+    },
+    {
+      "kind": "inspected-upstream-source",
+      "path": "dolphin-ConfigManager.cpp",
+      "sha256": "02efb8eb2c05d1cf6029204f595f38242c8bf44005d1a29f7103d14ad5ac1c0c",
+      "runtime_result": "UNRUN"
+    },
+    {
+      "kind": "inspected-upstream-source",
+      "path": "dolphin-MainSettings.cpp",
+      "sha256": "b66a7cd93abb24af463ddaa3199462ef9a1bb10465f925508379f29bbe950e29",
+      "runtime_result": "UNRUN"
+    }
+  ]
+}

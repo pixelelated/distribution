@@ -1,0 +1,41 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/.build-runs/20261014T193336Z-e82c394c",
+  "expected_rc": 0,
+  "disposition": "qualified",
+  "outputs": [
+    {
+      "issue": 566,
+      "kind": "build-cache",
+      "path": "/workspace/tmp/pix566-es-component-20261014-02/work",
+      "release_when": "Retire independent component source/build scratch after original channels and cleanup are consumed; preserve compact syntax/source/resource receipts."
+    },
+    {
+      "issue": 566,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix566-es-component-20261014-02/stages",
+      "release_when": "Preserve original child/container/watcher/launcher channels and host identity/cleanup receipts before scratch retirement."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/tmp/pix566-es-component-20261014-02/stages/es-component/result.json",
+      "sha256": "6189be9ca909b3da62def1e73c2380faf5d23460da451a9ab7015f71e4f198a3"
+    },
+    {
+      "path": "/workspace/tmp/pix566-es-component-20261014-02/stages/es-component/container-result.json",
+      "sha256": "e385c1ef4bd6dd0050031580174265f98c7e62a8fa151735bdc0b4324fa97be8"
+    },
+    {
+      "path": "/workspace/tmp/pix566-es-component-20261014-02/stages/es-component/host-completion.json",
+      "sha256": "8bf45ab6bbcb0653b40b030d3914b6e8928f6db049a5a2a9302eded308f7ccfe"
+    },
+    {
+      "path": "/workspace/tmp/pix566-es-component-20261014-02/stages/es-component/watchdog-result.json",
+      "sha256": "9a82748fd15c4bba6ea917244dae8d06c8567b94530f859749dea2afc6ab4bac"
+    },
+    {
+      "path": "/workspace/tmp/pix566-es-component-20261014-02/stages/es-component/submit/launcher-result.json",
+      "sha256": "231d411b1f8be72f6b80beab935ee8d5e76d314a8a91f0efd0bb7655ee1140b7"
+    }
+  ]
+}

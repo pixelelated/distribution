@@ -1,0 +1,27 @@
+{
+  "checkout": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01",
+  "retention_plan": "/workspace/tmp/pix566-ui640-20261014-01/retention-plan.json",
+  "retention_report": "/workspace/tmp/pix566-ui640-20261014-01/retention-report.json",
+  "stage": "pix566-640x480",
+  "profiles": [
+    {
+      "PROJECT": "ROCKNIX",
+      "DEVICE": "GENERIC_X64",
+      "ARCH": "x86_64"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "/workspace/tmp/pix566-ui640-20261014-01/vm",
+      "issue": 566,
+      "kind": "qa-scratch",
+      "release_when": "Original case/frame/lifecycle/watcher channels exported and consumed; actual owners gone; retire disk/media/UEFI."
+    },
+    {
+      "path": "/workspace/tmp/pix566-ui640-20261014-01/frames",
+      "issue": 566,
+      "kind": "qa-scratch",
+      "release_when": "Preserve reviewed exact-source frames and compact original action receipts."
+    }
+  ]
+}

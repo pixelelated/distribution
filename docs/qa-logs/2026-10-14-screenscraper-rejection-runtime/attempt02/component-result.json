@@ -1,0 +1,116 @@
+{
+  "rc": 0,
+  "started": 1792006419.2848501,
+  "stages": [
+    {
+      "stage": "syntax-runtime-only",
+      "command": [
+        "bash",
+        "/packet/es-syntax-check",
+        "--root",
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64",
+        "--tree",
+        "/source",
+        "/source/es-app/src/scrapers/ScreenScraper.cpp"
+      ],
+      "rc": 0,
+      "seconds": 1.1683266162872314
+    },
+    {
+      "stage": "configure-compiled",
+      "command": [
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/cmake",
+        "-S",
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/emulationstation-c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78",
+        "-B",
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/emulationstation-c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78/.x86_64-rocknix-linux-gnu",
+        "-DENABLE_RVZ_HASH=ON",
+        "-DSCREENSCRAPER_RUNTIME_DEV_LOGIN=1"
+      ],
+      "rc": 0,
+      "seconds": 0.16474056243896484
+    },
+    {
+      "stage": "syntax-compiled",
+      "command": [
+        "bash",
+        "/packet/es-syntax-check",
+        "--root",
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64",
+        "--tree",
+        "/source",
+        "/source/es-app/src/scrapers/ScreenScraper.cpp"
+      ],
+      "rc": 0,
+      "seconds": 1.1688933372497559
+    },
+    {
+      "stage": "build",
+      "command": [
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/ninja",
+        "-j2",
+        "emulationstation"
+      ],
+      "rc": 0,
+      "seconds": 206.9975929260254
+    },
+    {
+      "stage": "strip",
+      "command": [
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-strip",
+        "/work/artifacts/emulationstation"
+      ],
+      "rc": 0,
+      "seconds": 0.03187060356140137
+    },
+    {
+      "stage": "catalog-fr",
+      "command": [
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/msgfmt",
+        "--check",
+        "-o",
+        "/work/artifacts/fr.mo",
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/emulationstation-c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78/locale/lang/fr/LC_MESSAGES/emulationstation2.po"
+      ],
+      "rc": 0,
+      "seconds": 0.007802486419677734
+    },
+    {
+      "stage": "catalog-en_GB",
+      "command": [
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/msgfmt",
+        "--check",
+        "-o",
+        "/work/artifacts/en_GB.mo",
+        "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/emulationstation-c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78/locale/lang/en_GB/LC_MESSAGES/emulationstation2.po"
+      ],
+      "rc": 0,
+      "seconds": 0.007508039474487305
+    }
+  ],
+  "source_commit": "3178b832b8d134198b2b4eede4f725d4ed283f8c",
+  "cached_flags": {
+    "compiled_pair": false,
+    "runtime_pair": true
+  },
+  "configured_flags": {
+    "compiled_pair": true,
+    "runtime_pair": true
+  },
+  "artifacts": {
+    "emulationstation": {
+      "sha256": "62d256b2a391493030639fba27c198d16cc2ee68ca0ed82748713ef2b30a270b",
+      "bytes": 11831632
+    },
+    "en_GB.mo": {
+      "sha256": "740562af5ea1a5a37c38a7b631838c3fd8fab0a768d74131de5af6bafcff179f",
+      "bytes": 68316
+    },
+    "fr.mo": {
+      "sha256": "4ec06cacf31e9e6250c533b9b87a4d84db88a10340d9cd5a2376d589aed3a53d",
+      "bytes": 187974
+    }
+  },
+  "ended": 1792006628.9315422,
+  "runtime": "UNRUN"
+}

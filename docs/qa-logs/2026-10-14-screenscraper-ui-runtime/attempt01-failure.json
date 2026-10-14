@@ -1,0 +1,39 @@
+{
+  "utc": "2026-10-14T19:51:03.221465+00:00",
+  "original_owner": "/workspace/tmp/pix566-ui640-20261014-01",
+  "admission_id": "c7fe470511d64e6cb63b6785fa9e82a3",
+  "registry_generation_observed": 154,
+  "admission_registered": false,
+  "original_launcher_rc": 2,
+  "tool_wrapper_rc": 2,
+  "launcher_pid_absent": true,
+  "vm_directory_empty": true,
+  "lifecycle_started": false,
+  "reason": "watch-build argument validation rejected nonexistent activity directory before run allocation/admit; prepare creates no job reservation. No consume/cancel API applies to unused receipt. Receipt retired by failed owner record; never reuse.",
+  "evidence": [
+    {
+      "path": "/workspace/tmp/pix566-ui640-20261014-01/admission.json",
+      "sha256": "70ad581458288d6524b255c2db7db1ad46f83516f556366e7fef3fe95f205a2e"
+    },
+    {
+      "path": "/workspace/tmp/pix566-ui640-20261014-01/lifecycle-owner/launcher-result.json",
+      "sha256": "43dcd9a2f475391d005294f281f58e1846e54b2075869749d64ce70af1fef2b7"
+    },
+    {
+      "path": "/workspace/tmp/pix566-ui640-20261014-01/lifecycle-owner/tool-wrapper.rc",
+      "sha256": "53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3"
+    },
+    {
+      "path": "/workspace/tmp/pix566-ui640-20261014-01/lifecycle-owner/console.log",
+      "sha256": "5d2fcc2a8e6a3f3065596e86e7d3ed1286503066de0ba7d4f05ef02439b80a38"
+    },
+    {
+      "path": "/workspace/tmp/pix566-ui640-20261014-01/lifecycle-owner/launcher-start.json",
+      "sha256": "bb5e9a219a8008bc09085ffa14dce899d596946cc29b73837f3a600ee7a893da"
+    },
+    {
+      "path": "/workspace/tmp/pix566-ui640-20261014-01/lifecycle-owner/launcher-submission.json",
+      "sha256": "199335686b3ed3e5f398255427f98f76283b7fe348f12c22c8c2674464754585"
+    }
+  ]
+}

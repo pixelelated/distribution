@@ -1,0 +1,28 @@
+{
+  "checkout": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01",
+  "container_checkout": "/workspace/repos/rocknix.worktrees/m7-pixelelated",
+  "retention_plan": "/workspace/tmp/pix-m7-engineering-cache-20261014-01/retention-plan.json",
+  "retention_report": "/workspace/tmp/pix-m7-engineering-cache-20261014-01/retention-report.json",
+  "stage": "m7-engineering-cache",
+  "profiles": [
+    {
+      "PROJECT": "ROCKNIX",
+      "DEVICE": "GENERIC_X64",
+      "ARCH": "x86_64"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/build.pixelelated-GENERIC_X64.x86_64",
+      "issue": 588,
+      "kind": "build-cache",
+      "release_when": "Immediately queued assembled-image qualification and required corresponding-source custody accepted"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-engineering-cache-20261014-01",
+      "issue": 493,
+      "kind": "qa-scratch",
+      "release_when": "Original results consumed and compact evidence retained; preserve required corresponding-source inputs"
+    }
+  ]
+}

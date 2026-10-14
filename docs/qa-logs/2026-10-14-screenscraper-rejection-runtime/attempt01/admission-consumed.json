@@ -1,0 +1,55 @@
+{
+  "admitted": "2026-10-14T19:30:52.862793+00:00",
+  "available_bytes": 2861790429184,
+  "checkout": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01",
+  "consumed": "2026-10-14T19:32:55.067944+00:00",
+  "container_checkout": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01",
+  "deleted_bytes": 0,
+  "evidence_sha256": "70c9d99a1b34e9d6407a6c6da53cd169d3c4372b4b873f80d5375ecde77092d0",
+  "id": "a2554af8baac4391bfdab29fa3955386",
+  "original_result": {
+    "command_rc": 1,
+    "monitor_rc": 0,
+    "runner_rc": 1,
+    "utc": "2026-10-14T19:30:57.876518+00:00"
+  },
+  "outputs": [
+    {
+      "issue": 566,
+      "kind": "build-cache",
+      "path": "/workspace/tmp/pix566-es-component-20261014-01/work",
+      "release_when": "Retire independent component source/build scratch after original channels and cleanup are consumed; preserve compact syntax/source/resource receipts."
+    },
+    {
+      "issue": 566,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix566-es-component-20261014-01/stages",
+      "release_when": "Preserve original child/container/watcher/launcher channels and host identity/cleanup receipts before scratch retirement."
+    }
+  ],
+  "outputs_held": true,
+  "pid_namespace": 4026531836,
+  "profiles": [
+    {
+      "ARCH": "x86_64",
+      "DEVICE": "GENERIC_X64",
+      "PROJECT": "ROCKNIX"
+    }
+  ],
+  "receipt_sha256": "0bbc1631b8e2e3b294545c7932d91e2f187c60b5b569f64a7a2e7e1c354a408c",
+  "registry": "/workspace/repos/rocknix/.git/pixelelated-build-admission",
+  "required_bytes": 4294967296,
+  "retention_plan_sha256": "9cf15a9f8328be9aefbf5775331de3177c5817f21e6a14e677f744981398532d",
+  "retention_report_sha256": "e0d35087827d396468cbf6316f4411423634b7fe7ac84ff50cd80f2763d20a15",
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/.build-runs/20261014T193052Z-b884a2b1",
+  "runner_pid": 3861350,
+  "runner_start": "109793673",
+  "source": {
+    "head": "e483a7f0925e7ebb56335133a5de423269390945",
+    "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "state": "consumed",
+  "submission_owner": "/workspace/tmp/pix566-es-component-20261014-01/stages/es-component/submit",
+  "volume": "/workspace",
+  "volume_device": 66304
+}

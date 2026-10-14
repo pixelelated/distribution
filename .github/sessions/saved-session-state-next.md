@@ -1,95 +1,41 @@
 # Saved Session State
 
-Updated 2026-10-14 19:08UTC. Continue M7 toward the combined engineering image and installed
-qualification before the next device RC. All component/compiler/VM/host-control
-jobs launched so far have completed; no firmware build/cache copy started yet.
-Coordinator /workspace/repos/rocknix.worktrees/m7-player-setup,
-feature/m7-player-setup. Harness conflict-resolution stays untouched.
+Updated 2026-10-14 20:37 UTC. Continue actual M7 toward the combined engineering image, installed qualification and next RC. No firmware compilation or RC designation yet. Harness conflict-resolution remains untouched. Herdr lanes are authentication-blocked and not active; explicitly authorized internal workers are used.
 
-## Immediate next commands
+## Immediate action: publish final source, then start engineering build
 
-Product composition is ready apart from the newly confirmed #566 error-copy correction: stable20261001,
-qualified Steam/Dolphin/proxy fixes including #588, published ES
- a5c7ff998831c8215f135a42a6f695e75230451d, minimal full standalone Dolphin on
-GENERIC_X64, tested generated-doc output redirection and one-line Wii profile
-copy correction. Final output/cache guard remains unchanged. Review receipts
-and exact remaining scopes in docs/releases/next-candidate-work.md.
+All #566 UI runtime is COMPLETE/consumed. EN640 accepted from04, FR640 from05, EN/FR1280 from1280-01; all accepted case ES/peer/worker/supervisor exits0. Original failed families remain failed. Root reviewed20primary frames and supplementary options/navigation. Canonical packet docs/qa-logs/2026-10-14-screenscraper-ui-runtime, exact frame-index.json and menu/IA/changelog updated. Last actual run20261014T202305Z-163edbb6: lifecycle/runner/monitor/launcher0,134guest/559archive originals verified, admissionfceacde2 consumed,2,327,441,408Bmedia retired. All UI disks retired; no runtime/operator remains.
 
-Publish this integration source after required guards, verify remote head,
-then create build/m7-p5-20261014-01 at
-/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01. Do not build here.
-Final source-only plan packet docs/qa-logs/2026-10-14-m7-engineering-image-plan
-comes from890423c21ae1307c94cd17830155f500a6cb6177; its manifest is
-138224f535a9c824a190c3af5b261de54acb6a4f0c8f78abb2cff54bd7b1c7fc.
-Earlier -internal packet is preliminary, not the launch plan.
-Read final README/prepare-plan.py/copy-cache.sh/prepare-owner.py/build-owner.py.
-Use completed capacity measurement
-/workspace/tmp/pix-m7-capacity-20261014-01/measurement.json (18:55:50UTC).
-Cache112126599168B,target4148326400B,sourcecache68114972672B,
-available2976949006336B. Last preflight READY,51GBavailableRAM6.7GBfreeSwap;
-refresh before actual build. Empty historical scan means no deletion scope,
-not a claim that all host history is classified. No reclaim counted.
+ES3178b832b8d134198b2b4eede4f725d4ed283f8c is PUBLISHED to pixelelated/emulationstation test/qa-integration; remote readback agrees. Distribution recipe now selects3178. Coordinator /workspace/repos/rocknix.worktrees/m7-player-setup (feature/m7-player-setup) is dirty with reviewed final pin/docs/evidence at prior publishede483a7f0925e7ebb56335133a5de423269390945. Primary /workspace/repos/rocknix next is clean e483. Finish pkgcheck/current guards, commit with #566/#588/#493 citations, ff primary next and push through hooks, verify remote. No source force-push or old worker ancestry merge.
 
-Prepare fresh owner/retention report/admission for independent warm-cache copy;
-consume original exits and verify checksum+independent inodes before preparing
-fresh compile admission. Preserve old logical Docker prefix
-/workspace/repos/rocknix.worktrees/m7-pixelelated, parent physical cache in
-m7-pixelelated-replacement20. Never modify that accepted parent.
-The build owner runs clean, Qt6, Dolphin and image sequentially; cold stages
-4CPU/24GiB/no-swap, image normal affinity/40GiB/no-swap. Read declared budgets,
-family clock and floors before launch. Initial clean stage is the first actual
-observer/handshake/cgroup qualification; source static checks are not runtime.
-Host5s counters and periodic disk scans preserve original failures/unknown gaps;
-initial/final scans require quiescence. Active supervision remains required.
+Then advance EXISTING clean build checkout /workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01, branchbuild/m7-p5-20261014-01 from e483 to exact final published commit. No need another worktree/cache copy. Actual host PID namespace4026531836; escalated host calls for real proc/cgroup/container facts.
 
-## Last corrections and closure
+Reviewed build-only commands: docs/qa-logs/2026-10-14-m7-engineering-launch/reviewed-launch-commands.md. Actual packet is COORDINATOR docs/qa-logs/2026-10-14-m7-engineering-image-plan-revision03, seal8e6d2280464e6c41b2662609d2c6eecbef7971142c4dac8bb7a4c6981b0c4a80. Revision03 corrects only known lowercase Docker absence comparison; actual diagnostic retained, rev02 unchanged. Both materializers REQUIRE --expected-es3178... and exact recipe SHA. Use existing empty /workspace/tmp/pix-m7-engineering-build-20261014-01, consumed /workspace/tmp/pix-m7-engineering-cache-20261014-01/cache-ready.json and original /workspace/tmp/pix-m7-capacity-20261014-01/measurement.json (18:55:50UTC,24h age bound, unchanged measured roots). Do NOT follow historical internal-packet/worktree/cache recreation examples in sealed plan README.
 
-Generated-doc control02 passes7/7, actual runner/launcher0, host owners gone;
-original01 fixture failure remains1. Exact functions hash
-e574a017b83e0da4d9360017ed14d1edcab86eb979efcad1b15fd4bc76407baa integrated.
-Both synthetic Git fixtures retired. Actual admission guard unchanged.
-Independent source review confirmed inherited Wii profile destination typo,
-still present upstream50097e80; exact corrected launcher
-8b87c5779737918644655950f25547341f89eda59fee137b752790382dffb88b integrated.
-Missing/custom-profile checks UNRUN and queued in the new installed image.
-No other functional issue found in focused Dolphin/proxy/doc review.
-#585 upstream queue updated for this one-line fix and #588; submissions stillheld.
+Refresh build-preflight and presence-only credential/override checks. Prepare owner→review actual inputs→prepare plan→watched retention report/original exits→fresh admission→watch-build-submit. Actively supervise; status files alone are not chat notification. First clean stage qualifies actual observer/mount/nonce/cgroup contract before automatic sequential clean→Qt6→Dolphin→image. No test acceptance prerequisites that require the image may block producing it.
 
-#588 causal reproduction and repaired actual-service+10component controls pass;
-English640 frames pass; current native proxy built; combined ES syntax passes.
-Original failures and scope limits remain in dated packets. See archived
-185600Z and173200Z checkpoints for exact owner/native/CHD inputs. All completed
-VM disks/compiler scratch retired; only small immediate-test closures and the
-accepted parent cache/image retained. Existing device approvals are consumed.
-No device/account/provider action is pending or started. No RC designated.
+Preserve logical Docker prefix /workspace/repos/rocknix.worktrees/m7-pixelelated, independent physical checkout/main .git/shared sources, pinned builder988c0ba5, TMPDIR=/tmp. Cold4CPU24GiB/noSwap; image40GiB/fullaffinity;6h family; hostRAM8GiB/swap20%/disk64GiB floors,5s host/cgroup and600s allocation samples. Actual Qt source output routes through qtbase install globs; no recipe repair needed. New x86_64 loader/native/UI closure remains unproved. Latest capacity before final guests: ~52GBavailableRAM,3.4GBfreeSwap,2.7TiBdisk; refresh after guests, no unconditional swap reclaim.
 
-Internal source lanes: dolphin_english_proof preparing legitimate native
-Dolphin fixture plan in /tmp; proxy_native_build preparing installed state plan
-in its assigned candidatecheckout. No delegated runtime. Visible Herdr lanes
-still authentication-blocked; do not describe them as active or reprompt blindly.
-After image: actual installed/default-boot proxy/native hash/Dolphin gameplay,
-Steam, clean/retained #565/#566, #349 restore and combined UI/cloud tests, then
-applicable milestone audit, H700 thenSM8550, publication requirements.
-#558/#561 observation and #587/GTK4/lazyimports remain outside active RC gates.
+## Accepted cache/frontend inputs — do not repeat
 
-## Publication follow-up —19:14UTC
+Cache completed19:29:53UTC, all original0/exited/consumed61be9f1b. Full checksum equality and2,533,024 independent regular files. Durable2026-10-14-m7-engineering-cache-runtime. Build root112126599168B; parenttarget4148326400B; sharedsources68114972672B. Parent m7-pixelelated-replacement20 unchanged at1a026648442321609b2288c2c9c06803817f9df2 (known generated-doc tracked difference, do not reset).
 
-The next-only ceremony gate caught nine unpublished commits with missing issue
-references. Metadata repair preserves all source trees and authors, re-signs35
-descendants, retains original graph feature/m7-pre-citation-20261014 and maps IDs
-in docs/qa-logs/2026-10-14-issue-citation-repair. New integration tip before this
-record is289e6d741e581861cd31235724cddd76f8737a38. No public history rewritten.
-Do not merge old feature ancestry back; copy reviewed new packet/product content
-or map the corrected base. Original evidence hashes remain valid through tree
-parity/mapping. Issue coverage passes368commits. No push ran before this fix.
+Frontend component02 completed345tasks206.998s, both credential-mode syntax checks and catalogs, peak3,765,743,616B/noOOM; originals0/exited/consumed9aa73f92. Private source/objects retired829,681,664B. Remaining /workspace/tmp/pix566-es-component-20261014-02/work/artifacts ELF62d256b2a391493030639fba27c198d16cc2ee68ca0ed82748713ef2b30a270b, fr.mo4ec06cacf31e9e6250c533b9b87a4d84db88a10340d9cd5a2376d589aed3a53d, en_GB.mo740562af5ea1a5a37c38a7b631838c3fd8fab0a768d74131de5af6bafcff179f. Retire once immediate component dependence ends; keep compact receipts. No real provider acceptance inferred.
 
-New#566 finding: compiled shared developer identity hides developer rows, but
-PairRejected copy still tells players to edit those rows. ES source worker is
-preparing conditional compiled/runtime copy plus translations and actual-frame
-proof route. Native state worker found no sibling error-route mismatch. Resolve
-and prove this before final ES pin/engineering compilation. Independent cache
-copy may proceed from this published integration head while frontend work
-continues; preserve source until copy owner exits/consumes, then fast-forward the
-build checkout to final published source before fresh compile admission. The
-cache is copied accepted parent output, not a new image or final-source claim.
-Final build-plan ES constant/config must match the new qualified ES commit.
+Original failures: component01 requested8GiB with reused4GiB observer, precompile failure; UI01missinglogs pre-admission;02missing defaultOpenSSLconfig;03SIGTERM instead of normalquit;04French localedef warning1 after clean English. Corrected05 retains warning1, exact diagnostics/generated categories + actual setlocale0, normal GET /quit and atomic completion after serial.lock release. Source01–05 archives and failures retained. First root1280consume mistyped run suffix; no mutation; actual console path corrected. Pixel-title clipping suspicion disproved, no recapture.
+
+## Next-image qualification and active source lanes
+
+#588 startup race reproduced/repaired: actualmain/systemd baseline/candidate plus10component cases pass;112 preparedPython files match exact package/patches, native library built from current pins. Installed/defaultboot still due. Live issue588 now marks first3criteria complete and last open. Upstream queue585 remains held until initial qualified build.
+
+Reviewed installed588 continuationa5917bc9 is content-carried in docs/qa-logs/2026-10-14-proxy-installed-startup-plan (extract sealed source-originals.tar.gz into a fresh private directory) (originalsealdcbee145, outerseal88cfa9a6). Uses installed.pyc/native, actual unit/controller, private synthetic queue, same normal boot. Explicit outer-vm mode supports known hybrid/no memorycontroller using existing8GiBguest and process/watchdog/output bounds, no invented kernel per-service cap. UNRUN. Requires actual final build/bytecompile/strip custody, untouched clean boot and live outer-owner receipts. Existing source-overlay/v2 packet and retained offlineproxy=0 identity fixture do not substitute for this.
+
+Installed-state plan parentc912913f/childa2f40273 under2026-10-14-m7-installed-state-plan: payload/clean/real retained20→new update/actual backuptool. Additive correction8c706866 under2026-10-14-installed-state-correction (extract sealed source-originals.tar.gz; originalsealbc4a7624) preserves backup's actual wait return and separate timed_out, implements existing shared-identity positive postcheck. Original seals untouched. All runtime UNRUN; source/AST/hash review only. Correct paths are coordinator plan + actual frozen build tree, not stale examples. Full retained lifecycle must cover boot/update/all sequential phases, not reuse UI900s.
+
+/root/proxy_native_build completed source plan797a6a7b in its assigned checkout and is now implementing the narrow source-only #567 installed adapter: prior accepted84fa index-log-success01 used simulatedctl; actualctl needs strict loopback peer routes, accepted interface-availability seam, real private /var/run locks and/tmp/journal scope. No runtime/allocation/shared writes, no new build gate. /root/proxy_startup_588 completed installed588/retained review. /root/dolphin_english_proof completed UI; no resources held.
+
+Native homebrew plan91123b57 at2026-10-14-native-homebrew-fixtures, additive lookupbb173a9f separate. SuDokuL Wii SD ordinarysave documented; GC SDGecko not memorycard proof. Tetris2 VMU scores source-backed but actual disc/assets needed; pinnedFlycast rawBIN mapsNAOMI. Preparation is not an image compilation prerequisite or new581gate.
+
+After image: actual payload/clean/retained565/566, installed588/nativecodec574/583/584, Dolphin/native581/575, actual567preparation, installedSteam564/579/580/582,349WebDAV/SFTP/localS3 restore, combined browser/phone/WiFi/Recent UI and time-to-play. Then milestone audit/findings, H700 thenSM8550 under555; satisfy528/344/337/359 publication requirements. No known bug waived forRC.558/561observations and587suspension/576GTK4/lazyimports/568/562/586backlog are not new gates. Existing device approvals consumed; no device/provider action underway.
+
+Previous checkpoint: archived/saved-session-state-next-20261014T203746Z.md .

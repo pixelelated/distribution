@@ -1,0 +1,116 @@
+{
+  "status": "PASS",
+  "utc": "2026-10-14T20:34:38.107603+00:00",
+  "scope": "EN1280 and FR1280 actual source3178 frontend; EN640 and FR640 separately accepted; simulated loopback rejection, provider acceptance UNRUN",
+  "guest_files_verified": 134,
+  "guest_bytes_verified": 182171,
+  "archived_originals_verified": 559,
+  "cases": [
+    {
+      "language": "en_US",
+      "case_rc": 0,
+      "supervisor_rc": 0,
+      "worker_original_exit": 0,
+      "case_originals": [
+        {
+          "name": "es",
+          "pid": 2101,
+          "original_exit": 0,
+          "forced_cleanup": false
+        },
+        {
+          "name": "peer",
+          "pid": 2095,
+          "original_exit": 0,
+          "forced_cleanup": false
+        }
+      ],
+      "peer_requests": [
+        {
+          "path": "/api2/ssuserInfos.php",
+          "status": 403,
+          "matches_public_compiled_pair": true,
+          "has_account": false,
+          "expected": true
+        },
+        {
+          "path": "/api2/systemesListe.php",
+          "status": 200,
+          "matches_public_compiled_pair": true,
+          "has_account": false,
+          "expected": true
+        }
+      ],
+      "quit_http": {
+        "method": "GET",
+        "path": "/quit",
+        "status": 200,
+        "body": "",
+        "bytes": 0
+      },
+      "actual_setlocale_exit": 0,
+      "locale_readback": "en_US.UTF-8"
+    },
+    {
+      "language": "fr_FR",
+      "case_rc": 0,
+      "supervisor_rc": 0,
+      "worker_original_exit": 0,
+      "case_originals": [
+        {
+          "name": "es",
+          "pid": 3326,
+          "original_exit": 0,
+          "forced_cleanup": false
+        },
+        {
+          "name": "peer",
+          "pid": 3325,
+          "original_exit": 0,
+          "forced_cleanup": false
+        }
+      ],
+      "peer_requests": [
+        {
+          "path": "/api2/ssuserInfos.php",
+          "status": 403,
+          "matches_public_compiled_pair": true,
+          "has_account": false,
+          "expected": true
+        },
+        {
+          "path": "/api2/systemesListe.php",
+          "status": 200,
+          "matches_public_compiled_pair": true,
+          "has_account": false,
+          "expected": true
+        }
+      ],
+      "quit_http": {
+        "method": "GET",
+        "path": "/quit",
+        "status": 200,
+        "body": "",
+        "bytes": 0
+      },
+      "actual_setlocale_exit": 0,
+      "locale_readback": "fr_FR.UTF-8"
+    }
+  ],
+  "locale_original_warning_exit": 1,
+  "localedef_analysis": "guest/pix566/cases/fr_FR/localedef-analysis.json",
+  "frames_personally_reviewed_by_operator_and_root": "entry, options top and bottom, accounts, actual rejection, returned main menu for both EN and FR; complete recovery text and buttons fit; developer fields absent; actual footer visibility recorded per frame",
+  "accounts_visual_concern": {
+    "resolution": "Disproved by root read-only pixel inspection: title ROI exactly identical to corresponding entry frame in both languages; root separately confirmed complete I and D glyphs in French ID CLIENT. No recapture or source change. Original frames and original reviews retained.",
+    "title_receipt": "accounts-title-pixel-readback.json"
+  },
+  "host_lifecycle_rc": 0,
+  "host_absent_pids": [
+    4105005,
+    4104555,
+    4104556,
+    4104609,
+    4104557
+  ],
+  "limits": "Exact component UI proof only; firmware image qualification and real provider acceptance are not claimed. Admission consumption and media retirement remain coordinator-owned."
+}

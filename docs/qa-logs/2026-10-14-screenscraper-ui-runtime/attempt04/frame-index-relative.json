@@ -1,0 +1,81 @@
+{
+  "scope": "EN640 fully PASS including normal HTTP quit and original ES/peer/worker/supervisor0; FR locale failure separate",
+  "source": "3178b832b8d134198b2b4eede4f725d4ed283f8c",
+  "elf": "62d256b2a391493030639fba27c198d16cc2ee68ca0ed82748713ef2b30a270b",
+  "selected": [
+    {
+      "frame": "frames/selected-0-en_US-accounts.png",
+      "sha256": "f37528035ea06c071e712337d281b0ca55271bbab9128e2261f98360873ab731",
+      "panel": [
+        640,
+        480
+      ],
+      "language": "en_US",
+      "role": "accounts",
+      "review": "Full English ACCOUNTS fits640x480: blank ScreenScraper USERNAME/PASSWORD and IGDB CLIENT ID/CLIENT SECRET; no ScreenScraper developer rows. BACK visible; no separate footer help bar.",
+      "original_frame": "/workspace/tmp/pix566-ui640-20261014-04/frames/20261014T201002-615eca7e/en_US-accounts.png"
+    },
+    {
+      "frame": "frames/selected-1-en_US-entry.png",
+      "sha256": "3ed9583aabee22855889f3230db1411d57b5c9b5de133b65227581f2ee67adc2",
+      "panel": [
+        640,
+        480
+      ],
+      "language": "en_US",
+      "role": "entry",
+      "review": "English SCRAPE entry at640x480: ScreenScraper, ALL games, recent filter NO, one selected system, tabs and SCRAPE NOW/BACK all fit. No separate footer help bar visible.",
+      "original_frame": "/workspace/tmp/pix566-ui640-20261014-04/frames/20261014T200842-fede0c01/en_US-entry.png"
+    },
+    {
+      "frame": "frames/selected-2-en_US-error.png",
+      "sha256": "8ff54e7ddd84428528e2414053589d98511c02706b518d533f332a1e59fc1ebf",
+      "panel": [
+        640,
+        480
+      ],
+      "language": "en_US",
+      "role": "error",
+      "review": "Actual English rejection: complete AN ERROR OCCURRED prefix, system-access rejection, CHECK FOR A SYSTEM UPDATE OR REPORT THE PROBLEM, and OK fit640x480 without clipping. No developer-account instruction; no separate footer help bar.",
+      "original_frame": "/workspace/tmp/pix566-ui640-20261014-04/frames/20261014T201033-a68e002d/en_US-error.png"
+    },
+    {
+      "frame": "frames/selected-3-en_US-options.png",
+      "sha256": "cc18861fdf5bfbc455686042d27bd0ff93c6bab76f0c5c42762594fde037a3d4",
+      "panel": [
+        640,
+        480
+      ],
+      "language": "en_US",
+      "role": "options",
+      "review": "English OPTIONS bottom and overlapping top20261014T200911-b177fab6 were personally viewed: source/region choices, overwrite toggles, SCRAPE FOR and INCLUDED SCRAPERS rows fit, no developer credentials. BACK visible; no separate footer help bar.",
+      "original_frame": "/workspace/tmp/pix566-ui640-20261014-04/frames/20261014T200934-9b0be6ee/en_US-options.png"
+    },
+    {
+      "frame": "frames/selected-4-en_US-returned.png",
+      "sha256": "e5a6a7734828efcb9b0bcf007f704430c2a9eb4f8ae6484a8d24e644ffd71a18",
+      "panel": [
+        640,
+        480
+      ],
+      "language": "en_US",
+      "role": "returned",
+      "review": "After OK, MAIN MENU returns with SCRAPER selected. Visible menu fits640x480; no separate footer help bar. Metadata-only item was never launched.",
+      "original_frame": "/workspace/tmp/pix566-ui640-20261014-04/frames/20261014T201052-0f47ef57/en_US-returned.png"
+    }
+  ],
+  "supplementary": [
+    {
+      "frame": "frames/supplementary-0-en_US-entry.png",
+      "sha256": "d7e07e5a369addaebc171d4e1132d2dcfa5a86200c754fdd8b2b92130b9255f3",
+      "observation": "Preliminary main-menu navigation",
+      "original_frame": "/workspace/tmp/pix566-ui640-20261014-04/frames/20261014T200755-ac215473/en_US-entry.png"
+    },
+    {
+      "frame": "frames/supplementary-1-en_US-options.png",
+      "sha256": "7c934beaf3cc4a22aa404e7fa8969f20558efbba901a368f6767421c8a28a530",
+      "observation": "Personally viewed OPTIONS top overlapping final bottom capture",
+      "original_frame": "/workspace/tmp/pix566-ui640-20261014-04/frames/20261014T200911-b177fab6/en_US-options.png"
+    }
+  ]
+}

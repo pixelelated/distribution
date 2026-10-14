@@ -1,0 +1,36 @@
+{
+  "volume": "/workspace",
+  "scan_roots": [
+    "/workspace/tmp/pix-m7-engineering-cache-20261014-01/empty-retention-scan"
+  ],
+  "reference_stores": [],
+  "protected": [
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20",
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64",
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/target",
+    "/workspace/cache/rocknix-sources",
+    "/workspace/tmp/pix-m7-capacity-20261014-01/measurement.json"
+  ],
+  "candidates": [],
+  "builds": [
+    {
+      "name": "m7-engineering-cache",
+      "terms_bytes": {
+        "independent_cache_copy": 112126599168,
+        "copy_metadata_allowance": 8589934592,
+        "operating_margin": 68719476736
+      },
+      "basis": "Current exact-root allocation measurement plus explicit growth/QA/margin allowances. Existing source cache and parent payloads already reduce f_bavail; no reclamation counted. No deletion candidates; the empty explicit scan is not historical-volume classification.",
+      "evidence": [
+        {
+          "path": "/workspace/tmp/pix-m7-capacity-20261014-01/measurement.json",
+          "sha256": "2f6a73b2dbfbe4871774f85198a60258c6efbc966abb94f7603b8f21395e1f6e"
+        },
+        {
+          "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/docs/qa-logs/2026-10-14-m7-engineering-image-plan/native-dependencies.json",
+          "sha256": "3e42d0ce1038448290a467896284a71a8a8b5135af823ba26c898c87b79e3d86"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+# Installed proxy startup qualification plan
+
+Source-only continuation of #588. Extract `source-originals.tar.gz` into a fresh private source directory, verify its SHA256SUMS, then use its README.md and set TASK_PACKET to that extracted directory. All original23 sealed members are byte-identical to a5917bc9; no worker ancestry merged. No runtime or image acceptance is claimed. The fixture uses actual installed bytecode/native files and controller/unit, with fresh synthetic storage. Its explicit outer-vm mode supports the existing default boot without a kernel per-service memory-cap claim. This plan does not delay compilation. Final build/source/bytecompile/strip custody and clean-boot/actual owner observations must be bound before execution.

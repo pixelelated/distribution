@@ -1,0 +1,45 @@
+{
+  "utc": "2026-10-14T19:22:19.020308+00:00",
+  "revision": 2,
+  "runtime_executed": false,
+  "copy_build_or_full_scan_executed_by_this_lane": false,
+  "results": [
+    {
+      "path": "build-owner.py",
+      "check": "ast.parse",
+      "result": "PASS"
+    },
+    {
+      "path": "host-resources.py",
+      "check": "ast.parse",
+      "result": "PASS"
+    },
+    {
+      "path": "inner-build.py",
+      "check": "ast.parse",
+      "result": "PASS"
+    },
+    {
+      "path": "measure-capacity.py",
+      "check": "ast.parse",
+      "result": "PASS"
+    },
+    {
+      "path": "prepare-owner.py",
+      "check": "ast.parse",
+      "result": "PASS"
+    },
+    {
+      "path": "prepare-plan.py",
+      "check": "ast.parse",
+      "result": "PASS"
+    },
+    {
+      "path": "copy-cache.sh",
+      "check": "bash -n and unchanged active payload SHA256",
+      "sha256": "762407a98038730062920b6a7db94e849126bbc04b6ed4018139774812f7ee65",
+      "result": "PASS"
+    }
+  ],
+  "runtime_contracts_pending": "Coordinator allocated bounded clean stage validates actual Docker/cgroup/handshake and resource observer; this receipt proves syntax and source bindings only"
+}

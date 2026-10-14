@@ -811,8 +811,9 @@ without a compiled pair retains the runtime fallback under #64.
 
 ```mermaid
 flowchart TD
-  S[Scraper settings] --> P[ScreenScraper page]
-  P --> A[Player account settings]
+  S[Main menu: SCRAPER] --> P[SCRAPE tab: ScreenScraper source]
+  P --> A[ACCOUNTS tab: player account settings]
+  P --> V[OPTIONS tab: scraper preferences]
   P --> C{Compiled developer login present?}
   C -->|Yes: normal pixelelated build| H[Developer entry rows hidden]
   C -->|No: runtime fallback build| D[Developer ID and password rows]
@@ -821,12 +822,24 @@ flowchart TD
   D --> T
   T --> O{Authentication outcome}
   O -->|Accepted| R[Existing scrape progress and result]
-  O -->|Player or developer rejection| E[Existing distinct account or service error]
+  O -->|Player account rejection| E[Existing personal account guidance]
+  O -->|Developer access rejected| B{Compiled developer login present?}
+  B -->|Yes| U[Check for a system update or report the problem]
+  B -->|No| D2[Check developer ID and password under SCRAPER > ACCOUNTS]
+  U -->|OK| M[Main menu: SCRAPER remains selected]
 ```
 
-The diagram describes the intended candidate flow, not an accepted new image.
-Qualification record: [interim provisioning](qa-logs/2026-10-14-screenscraper-provisioning/README.md).
-Required reviewed frames remain UNRUN: EN/FR at640x480 and1280x800 for the
-accounts/options page, normal hidden-developer-row path and account/service
-errors; preserve the fallback path in its separately identified build. Source,
-compiler definitions and actual executing binary must accompany the frame index.
+The diagram describes the candidate flow, not an accepted new image.
+ES3178b832b8d134198b2b4eede4f725d4ed283f8c corrects the compiled developer
+rejection branch: it directs players to a system update or problem report;
+it no longer directs them to hidden developer fields. Runtime-only guidance
+and personal account errors retain their existing routes. Both credential-mode syntax checks, the compiled-pair component build
+and the English/French catalogs pass. Actual EN/FR640x480/1280x800 entry,
+options, accounts, rejection and return frames are reviewed and accepted,
+with original normal case exits. The [exact-source frame index](qa-logs/2026-10-14-screenscraper-ui-runtime/frame-index.json)
+binds the executing ELF/catalogs and20primary frames; the [review record](qa-logs/2026-10-14-screenscraper-ui-runtime/README.md)
+retains original failures separately. Final installed-image qualification is distinct.
+
+Qualification records: [interim provisioning](qa-logs/2026-10-14-screenscraper-provisioning/README.md)
+and [rejection-copy component](qa-logs/2026-10-14-screenscraper-rejection-runtime/README.md).
+Combined installed-image, backup and clean/retained checks remain required.

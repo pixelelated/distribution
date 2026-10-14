@@ -1,0 +1,44 @@
+[
+  {
+    "console": "gamecube",
+    "zip_member": "SuDokuL-gamecube/SuDokuL/SuDokuL.dol",
+    "file": "SuDokuL-GC.dol",
+    "bytes": 4973812,
+    "sha256": "e5995f4dc27d5fbd4d5e4eb0c1b8161fca5c730d9f294e2eba9c942658e2474d",
+    "entrypoint": "0x80003100",
+    "sections": [
+      {
+        "offset": 256,
+        "address": "0x80003100",
+        "bytes": 2418172
+      },
+      {
+        "offset": 2418432,
+        "address": "0x80251700",
+        "bytes": 2555380
+      }
+    ],
+    "executed": false
+  },
+  {
+    "console": "wii",
+    "zip_member": "SuDokuL-wii/apps/SuDokuL/boot.dol",
+    "file": "SuDokuL-Wii.dol",
+    "bytes": 6204908,
+    "sha256": "e4fc81977b527538d7fa8d6427099c21c0f2502d18b81a58134f8f07416a8455",
+    "entrypoint": "0x80003f00",
+    "sections": [
+      {
+        "offset": 256,
+        "address": "0x80003f00",
+        "bytes": 3379708
+      },
+      {
+        "offset": 3379968,
+        "address": "0x8033d100",
+        "bytes": 2824940
+      }
+    ],
+    "executed": false
+  }
+]

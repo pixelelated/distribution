@@ -1,0 +1,59 @@
+{
+  "status": "SOURCE_PLAN_ONLY_FINAL_BUILD_BINDING_REQUIRED",
+  "observed_distribution_commit": "e483a7f0925e7ebb56335133a5de423269390945",
+  "observed_es_commit": "a5c7ff998831c8215f135a42a6f695e75230451d",
+  "pending_es_change": "Root assigned compiled-service-error copy correction under #566; refresh actual final ES pin after integration. Commit metadata may also be rewritten; compare trees and file bytes, not old commit labels alone.",
+  "distribution_files": {
+    "tools/pixelelated-state-check": "a0b03f17ed8493ec79a3dc33eefedeb7a00b20e06a70804b7653ee9f660e30a8",
+    "tools/pixelelated-state-check-test": "d78d5a7c31a29ee2dfae966184ef91ab235cca4ce21afd9caacd49a7f9b2c01b",
+    "tools/fork-publish-release": "7c7a3b093d62361d31408cb80fbd8ad0028cb4ab605a49de7686ca82690a754c",
+    "tools/vm-serial": "1fed507a546a9c23fdc360012ccc6ffadc2793fabaa137ff2dc73141bdc2c921",
+    "tools/vm-upgrade-rehearsal": "894021ab048b6306a32ab89fc97155712cf35272fddf6517062ae486c20dd25c",
+    "tools/vm-qa": "17b3f693377e8b67b0a4fb4e50b980b65cf0a8f2c5ec81920ee19930ae210d15",
+    "tools/vm-visual-qa": "81565f39ce5bdbdce05fc7ec7b27f40ca1d95051430382c5e13f1ef58434cd06",
+    "tools/vm-walks/suite.txt": "6f5b47c95a50601daeeeda82565cf38863e551412c92e4e7e02344cb170cee9f",
+    "tools/vm-walks/m7-retro-achievements.steps": "96247fa0e1264c181ce50a2cb970976258d879674791f490f678a9653586b957",
+    "docs/qa-logs/2026-10-13-clean-state-565/run-first-boot.sh": "a49a0bb3f8b5ed937dafc7524c70e2ce9ce74e925478d421dc0f7e3a20e957da",
+    "projects/ROCKNIX/packages/ui/emulationstation/package.mk": "f4df0243eaa279d3f6729477a0aad004b5bfdaa4286b43cb5fcb3f24b6a320c6",
+    "projects/ROCKNIX/packages/network/raofflineproxy/package.mk": "e13f5bb22eae74c73ecb4141c3580f2627b9f8cfc317840656d90ed017e0f13d",
+    "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl": "47391a3bbcaa0f2262cdee12f09bd48d17f7fedf0237a1a661a21b085b2f71f7",
+    "projects/ROCKNIX/packages/network/raofflineproxy/patches/020-rvz-padding-preserve-partial-word.patch": "77c99c068d04c3ecf712c93a6c177cece7c2e72b955484a7a5cc998824352b44",
+    "projects/ROCKNIX/packages/network/raofflineproxy/patches/021-flush-reconnect-during-startup.patch": "6e8992555e7c6f6616be48ec7e3e2f5626718bb08d1ebc243e0f466ebc912d22",
+    "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/package.mk": "2ec538f085f22a42c187918560605c1cdde353ac06421a3d38467950f14cb19e",
+    "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/start_dolphin_gc.sh": "cc6da2e146adfc5423fb58462888e0cab0a4904deb90f5066392484b8447c9c2",
+    "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/start_dolphin_wii.sh": "8b87c5779737918644655950f25547341f89eda59fee137b752790382dffb88b",
+    "projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool": "cd5c7b1b7c75efc295ef3004cf0c26f4b0b176d02ff162a770a83d6f69e2e277",
+    "distributions/ROCKNIX/config/functions": "e574a017b83e0da4d9360017ed14d1edcab86eb979efcad1b15fd4bc76407baa",
+    "config/functions": "8424e64733fe6bc84839853d8dbf99c40cf5e9f60bcfb8e0eed882637bb633a3"
+  },
+  "es_files": {
+    "CMakeLists.txt": "7821fe0a78f359789ad5fc050da19bd48a438ac845c4c43e95509ce9f61520d2",
+    "es-app/src/scrapers/ScreenScraper.cpp": "eda5f103b6fc4e749c336c574de6f077b35fe26359f5ebc633bb6ea3cec411ba",
+    "es-app/src/scrapers/ScreenScraper.h": "758afe5ca4425d3c57e4a457c27c839a6b346edb459eb9fc19ad958cffec27fc",
+    "es-app/src/guis/GuiScraperStart.cpp": "3e1fc3dc3ae3b56ca3f92a1c894b50bdd5b7b0bb5acda138583a8dcc05e2e094",
+    "es-app/src/guis/GuiMenu.cpp": "356c7b48bf71f1a54467609c6eba502079c6c7fd615b2dd2d24966873916432d"
+  },
+  "accepted_receipts": {
+    "docs/qa-logs/2026-10-13-clean-state-runtime/README.md": "96e536991fc0742468f342e282463f1cd70ef1b1c41aba2ae332d2ec34f12c12",
+    "docs/qa-logs/2026-10-13-library-wifi-baseline/README.md": "3e7d5ddfb8243c5625bfa5d53ffb149651517995ecc75f4d26752df45785e171",
+    "docs/qa-logs/2026-10-14-screenscraper-provisioning/README.md": "00ed202f3a06d6aecfaa97e094723f5f043507ae97b7e70ace11c1bb7fafb77c",
+    "docs/qa-logs/2026-10-14-proxy-current-native-runtime/README.md": "cdbadf334d345c59dd0c9e61ad44d8d4eaa77c0330a6a75a5546884747a53943",
+    "docs/qa-logs/2026-10-14-proxy-startup-runtime/README.md": "f1eb8fbc0ca1bef9e4f4c7c3e23d1459108a0f3228b1938f74bda878ec71909d",
+    "docs/qa-logs/2026-10-11-pixelelated-replacement-20/README.md": "08e5b941cd3d7a1a1cadc113c5e97c1ba241c34731a3e4cf5ffa05bfa5a56828",
+    "docs/qa-logs/2026-10-14-m7-engineering-image-plan/README.md": "ea865387dc2e20330ee90d5ebc05ab1981075cc7829acaf8685322022d5aaf77"
+  },
+  "mcopy": {
+    "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/mcopy",
+    "resolved_path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/mtools",
+    "sha256": "2050c806846eedb33308d2f6626985e36bbffe3a82d1292741e55d7e002f265d",
+    "bytes": 231832
+  },
+  "previous_install": {
+    "bundle_sha256": "bd85b1b42f0170d7d82555af09cbe18762d6fc7eae63293bd0a8043e652db548",
+    "image_sha256": "1a23cf5740dbb69cdca76d753a0f6121c35e6e12f27649e792aeebc71e8cc490",
+    "image_bytes": 2073682425,
+    "distribution": "1a026648442321609b2288c2c9c06803817f9df2",
+    "es": "c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78"
+  },
+  "runtime_executed": false
+}

@@ -1,0 +1,44 @@
+{
+  "operation": "read-only lossless PNG decode; no image edits",
+  "finding": "Titles are byte-identical to corresponding fully rendered entry frames; initial visual clipping suspicion disproved",
+  "records": [
+    {
+      "language": "en_US",
+      "paths": [
+        "/workspace/tmp/pix566-ui1280-20261014-01/frames/20261014T202500-67bd3c6e/en_US-entry.png",
+        "/workspace/tmp/pix566-ui1280-20261014-01/frames/20261014T202621-8c4faa08/en_US-accounts.png"
+      ],
+      "file_sha256": [
+        "8045f0f2164902daa2d03d581a837d323a6a276315df04760adf3ba988f9d37e",
+        "f9c74857d4fe755d3409c8e85e97ade6fa0d56c40efd129766d1f44d5f83d427"
+      ],
+      "title_region": [
+        500,
+        130,
+        780,
+        176
+      ],
+      "exact_title_pixel_equality": true,
+      "title_region_sha256": "f7e621a2fa08141f64f43b4ba82574c699d9bb64a6ffcf0ae3addd1d1a399992"
+    },
+    {
+      "language": "fr_FR",
+      "paths": [
+        "/workspace/tmp/pix566-ui1280-20261014-01/frames/20261014T202848-a4113b77/fr_FR-entry.png",
+        "/workspace/tmp/pix566-ui1280-20261014-01/frames/20261014T203010-cce9325a/fr_FR-accounts.png"
+      ],
+      "file_sha256": [
+        "2c5d7de1bb58dda6cfed998e8893dba4b6e47df5bbdd402dcd9bb02c2a78eb82",
+        "6befbb7d974dc3aa52013533c5d768c391310ca79a3e4c9a67a9e3ad77a1ccf3"
+      ],
+      "title_region": [
+        500,
+        130,
+        780,
+        176
+      ],
+      "exact_title_pixel_equality": true,
+      "title_region_sha256": "1aaa58f143763fded6024c9d4fc4c971a81e12d3d4262e850cdd6e0451ee77a0"
+    }
+  ]
+}

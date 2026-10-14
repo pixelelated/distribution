@@ -1,0 +1,301 @@
+{
+  "source_commit": "3178b832b8d134198b2b4eede4f725d4ed283f8c",
+  "executing_elf_sha256": "62d256b2a391493030639fba27c198d16cc2ee68ca0ed82748713ef2b30a270b",
+  "catalogs": {
+    "fr.mo": "4ec06cacf31e9e6250c533b9b87a4d84db88a10340d9cd5a2376d589aed3a53d",
+    "en_GB.mo": "740562af5ea1a5a37c38a7b631838c3fd8fab0a768d74131de5af6bafcff179f"
+  },
+  "status": "PASS for exact component UI, four cases; installed firmware acceptance separate",
+  "frames": [
+    {
+      "frame": "attempt04/frames/selected-0-en_US-accounts.png",
+      "sha256": "f37528035ea06c071e712337d281b0ca55271bbab9128e2261f98360873ab731",
+      "panel": [
+        640,
+        480
+      ],
+      "language": "en_US",
+      "role": "accounts",
+      "review": "Full English ACCOUNTS fits640x480: blank ScreenScraper USERNAME/PASSWORD and IGDB CLIENT ID/CLIENT SECRET; no ScreenScraper developer rows. BACK visible; no separate footer help bar.",
+      "original_frame": "/workspace/tmp/pix566-ui640-20261014-04/frames/20261014T201002-615eca7e/en_US-accounts.png"
+    },
+    {
+      "frame": "attempt04/frames/selected-1-en_US-entry.png",
+      "sha256": "3ed9583aabee22855889f3230db1411d57b5c9b5de133b65227581f2ee67adc2",
+      "panel": [
+        640,
+        480
+      ],
+      "language": "en_US",
+      "role": "entry",
+      "review": "English SCRAPE entry at640x480: ScreenScraper, ALL games, recent filter NO, one selected system, tabs and SCRAPE NOW/BACK all fit. No separate footer help bar visible.",
+      "original_frame": "/workspace/tmp/pix566-ui640-20261014-04/frames/20261014T200842-fede0c01/en_US-entry.png"
+    },
+    {
+      "frame": "attempt04/frames/selected-2-en_US-error.png",
+      "sha256": "8ff54e7ddd84428528e2414053589d98511c02706b518d533f332a1e59fc1ebf",
+      "panel": [
+        640,
+        480
+      ],
+      "language": "en_US",
+      "role": "error",
+      "review": "Actual English rejection: complete AN ERROR OCCURRED prefix, system-access rejection, CHECK FOR A SYSTEM UPDATE OR REPORT THE PROBLEM, and OK fit640x480 without clipping. No developer-account instruction; no separate footer help bar.",
+      "original_frame": "/workspace/tmp/pix566-ui640-20261014-04/frames/20261014T201033-a68e002d/en_US-error.png"
+    },
+    {
+      "frame": "attempt04/frames/selected-3-en_US-options.png",
+      "sha256": "cc18861fdf5bfbc455686042d27bd0ff93c6bab76f0c5c42762594fde037a3d4",
+      "panel": [
+        640,
+        480
+      ],
+      "language": "en_US",
+      "role": "options",
+      "review": "English OPTIONS bottom and overlapping top20261014T200911-b177fab6 were personally viewed: source/region choices, overwrite toggles, SCRAPE FOR and INCLUDED SCRAPERS rows fit, no developer credentials. BACK visible; no separate footer help bar.",
+      "original_frame": "/workspace/tmp/pix566-ui640-20261014-04/frames/20261014T200934-9b0be6ee/en_US-options.png"
+    },
+    {
+      "frame": "attempt04/frames/selected-4-en_US-returned.png",
+      "sha256": "e5a6a7734828efcb9b0bcf007f704430c2a9eb4f8ae6484a8d24e644ffd71a18",
+      "panel": [
+        640,
+        480
+      ],
+      "language": "en_US",
+      "role": "returned",
+      "review": "After OK, MAIN MENU returns with SCRAPER selected. Visible menu fits640x480; no separate footer help bar. Metadata-only item was never launched.",
+      "original_frame": "/workspace/tmp/pix566-ui640-20261014-04/frames/20261014T201052-0f47ef57/en_US-returned.png"
+    },
+    {
+      "frame": "accepted-fr640/frames/fr_FR-entry.png",
+      "sha256": "33aced05a0effcd2e8818eccf20c7be438231470b2864504915892138968fce6",
+      "panel": [
+        640,
+        480
+      ],
+      "language": "fr_FR",
+      "role": "entry",
+      "review": "French SCRAPEUR entry at640x480: translated tabs, ScreenScraper source, TOUS, recent filter NON, one selected system and SCRAPER MAINTENANT/RETOUR fit; no separate footer help bar.",
+      "original_frame": "/workspace/tmp/pix566-ui640-20261014-05/frames/20261014T201846-fb9acf7f/fr_FR-entry.png"
+    },
+    {
+      "frame": "accepted-fr640/frames/fr_FR-accounts.png",
+      "sha256": "6602b473f9bc43ac3a6616473f9a5fe6b25d79f80b600dde0ad22bb64d431fb7",
+      "panel": [
+        640,
+        480
+      ],
+      "language": "fr_FR",
+      "role": "accounts",
+      "review": "French COMPTES fits640x480: blank ScreenScraper NOM D\u2019UTILISATEUR and MOT DE PASSE, IGDB ID CLIENT/SECRET CLIENT; no ScreenScraper developer fields. RETOUR visible, no separate footer help bar.",
+      "original_frame": "/workspace/tmp/pix566-ui640-20261014-05/frames/20261014T202005-bc4353c0/fr_FR-accounts.png"
+    },
+    {
+      "frame": "accepted-fr640/frames/fr_FR-options.png",
+      "sha256": "b6451a97e71f39230abac15639f78d42045ec04886a87d32f19cd16dd635a2cc",
+      "panel": [
+        640,
+        480
+      ],
+      "language": "fr_FR",
+      "role": "options",
+      "review": "French OPTIONS top20261014T201911-1a794768 and overlapping bottom personally viewed: translated source/region choices, overwrite toggles, media choices and SCRAPERS INCLUS fit. No developer fields; RETOUR visible, no separate footer help bar.",
+      "original_frame": "/workspace/tmp/pix566-ui640-20261014-05/frames/20261014T201935-24250ecf/fr_FR-options.png"
+    },
+    {
+      "frame": "accepted-fr640/frames/fr_FR-error.png",
+      "sha256": "8e6e709352d50eeb8cdb24714dc31f9b73c241f8b26338e509ae94e6b2a0f589",
+      "panel": [
+        640,
+        480
+      ],
+      "language": "fr_FR",
+      "role": "error",
+      "review": "Actual French error at640x480: UNE ERREUR EST SURVENUE, complete SCREENSCRAPER A REFUS\u00c9 L\u2019ACC\u00c8S DE CE SYST\u00c8ME, CHERCHEZ UNE MISE \u00c0 JOUR DU SYST\u00c8ME OU SIGNALEZ LE PROBL\u00c8ME, and OK fit without clipping. No developer-account guidance; no separate footer help bar.",
+      "original_frame": "/workspace/tmp/pix566-ui640-20261014-05/frames/20261014T202036-63985c99/fr_FR-error.png"
+    },
+    {
+      "frame": "accepted-fr640/frames/fr_FR-returned.png",
+      "sha256": "6be31d36536a2e26707d99f528213b0c3df4db9a6f05266000df8d78fc4c2974",
+      "panel": [
+        640,
+        480
+      ],
+      "language": "fr_FR",
+      "role": "returned",
+      "review": "After actual OK, French MENU PRINCIPAL returns with SCRAPEUR selected; full menu fits640x480, no separate footer help bar. No metadata-only game launch.",
+      "original_frame": "/workspace/tmp/pix566-ui640-20261014-05/frames/20261014T202059-76beae76/fr_FR-returned.png"
+    },
+    {
+      "frame": "accepted-1280/frames/selected-0-en_US-entry.png",
+      "sha256": "8045f0f2164902daa2d03d581a837d323a6a276315df04760adf3ba988f9d37e",
+      "panel": [
+        1280,
+        800
+      ],
+      "language": "en_US",
+      "role": "entry",
+      "review": "English SCRAPER entry at1280x800: tabs, source, ALL, recent filter NO, one selected system, SCRAPE NOW/BACK and visible CLOSE/BACK footer prompts fit the centered panel without clipping.",
+      "original_frame": "/workspace/tmp/pix566-ui1280-20261014-01/frames/20261014T202500-67bd3c6e/en_US-entry.png"
+    },
+    {
+      "frame": "accepted-1280/frames/selected-1-en_US-accounts.png",
+      "sha256": "f9c74857d4fe755d3409c8e85e97ade6fa0d56c40efd129766d1f44d5f83d427",
+      "panel": [
+        1280,
+        800
+      ],
+      "language": "en_US",
+      "role": "accounts",
+      "review": "Full English ACCOUNTS at1280x800: blank ScreenScraper USERNAME/PASSWORD and IGDB CLIENT ID/CLIENT SECRET visible; no ScreenScraper developer rows. Tabs and BACK fit without clipping; no footer prompts visible in this captured frame.",
+      "original_frame": "/workspace/tmp/pix566-ui1280-20261014-01/frames/20261014T202621-8c4faa08/en_US-accounts.png"
+    },
+    {
+      "frame": "accepted-1280/frames/selected-2-en_US-options.png",
+      "sha256": "16c79877bf55aade82683d01c520afe598d9009007859a65992b192ca147f893",
+      "panel": [
+        1280,
+        800
+      ],
+      "language": "en_US",
+      "role": "options",
+      "review": "English1280 OPTIONS top20261014T202532-a34a1cd5 plus bottom personally viewed: all source/overwrite/media/manual rows and BACK are readable, no developer credentials. Bottom scroll position cuts the already captured SCRAPE FOR heading at upper boundary; footer CLOSE/BACK visible.",
+      "original_frame": "/workspace/tmp/pix566-ui1280-20261014-01/frames/20261014T202554-b527d1f1/en_US-options.png"
+    },
+    {
+      "frame": "accepted-1280/frames/selected-3-en_US-error.png",
+      "sha256": "90e5eba19f95660265779089ce772d944b39810a97f636d53a1aace2734a6c7b",
+      "panel": [
+        1280,
+        800
+      ],
+      "language": "en_US",
+      "role": "error",
+      "review": "Actual English1280 rejection: complete error prefix, system-access rejection and update/report guidance fit in three text lines with information icon and OK button. Separate footer OK prompt visible. No developer-account instruction or clipping.",
+      "original_frame": "/workspace/tmp/pix566-ui1280-20261014-01/frames/20261014T202659-f051d648/en_US-error.png"
+    },
+    {
+      "frame": "accepted-1280/frames/selected-4-en_US-returned.png",
+      "sha256": "849c8ca28ccc1d66e8f382de87165a3493e82cad6a78b48006994901b11809cf",
+      "panel": [
+        1280,
+        800
+      ],
+      "language": "en_US",
+      "role": "returned",
+      "review": "After OK, actual English MAIN MENU with SCRAPER selected returns at1280x800. Menu and separate CLOSE/SELECT/CHOOSE footer fit; no game launch.",
+      "original_frame": "/workspace/tmp/pix566-ui1280-20261014-01/frames/20261014T202721-ff1ea026/en_US-returned.png"
+    },
+    {
+      "frame": "accepted-1280/frames/selected-5-fr_FR-entry.png",
+      "sha256": "2c5d7de1bb58dda6cfed998e8893dba4b6e47df5bbdd402dcd9bb02c2a78eb82",
+      "panel": [
+        1280,
+        800
+      ],
+      "language": "fr_FR",
+      "role": "entry",
+      "review": "French SCRAPEUR entry at1280x800: translated tabs, source, TOUS, recent filter NON, selected system, SCRAPER MAINTENANT/RETOUR and separate FERMER/RETOUR footer prompts fit without clipping.",
+      "original_frame": "/workspace/tmp/pix566-ui1280-20261014-01/frames/20261014T202848-a4113b77/fr_FR-entry.png"
+    },
+    {
+      "frame": "accepted-1280/frames/selected-6-fr_FR-accounts.png",
+      "sha256": "6befbb7d974dc3aa52013533c5d768c391310ca79a3e4c9a67a9e3ad77a1ccf3",
+      "panel": [
+        1280,
+        800
+      ],
+      "language": "fr_FR",
+      "role": "accounts",
+      "review": "Full French COMPTES at1280x800: blank ScreenScraper NOM D\u2019UTILISATEUR/MOT DE PASSE, IGDB ID CLIENT/SECRET CLIENT; no ScreenScraper developer rows. Tabs and RETOUR fit without clipping. No footer prompt visible in this capture.",
+      "original_frame": "/workspace/tmp/pix566-ui1280-20261014-01/frames/20261014T203010-cce9325a/fr_FR-accounts.png"
+    },
+    {
+      "frame": "accepted-1280/frames/selected-7-fr_FR-options.png",
+      "sha256": "ec447894ad1f6269d9581fba6b529c005cc80cf27c3474e349ea395d98091668",
+      "panel": [
+        1280,
+        800
+      ],
+      "language": "fr_FR",
+      "role": "options",
+      "review": "French1280 OPTIONS top20261014T202920-6768cdbd plus bottom personally viewed: source/overwrite/media/manual rows and RETOUR readable, no developer credentials. Bottom scroll cuts the already captured SCRAPER heading at upper boundary. Footer FERMER/RETOUR visible in top capture, absent in bottom capture.",
+      "original_frame": "/workspace/tmp/pix566-ui1280-20261014-01/frames/20261014T202941-a5c26e2d/fr_FR-options.png"
+    },
+    {
+      "frame": "accepted-1280/frames/selected-8-fr_FR-error.png",
+      "sha256": "3001a99730d26af340b437b30e7b34f05e93f7e8fb4ee061217788e17ec2d125",
+      "panel": [
+        1280,
+        800
+      ],
+      "language": "fr_FR",
+      "role": "error",
+      "review": "Actual French1280 rejection: complete UNE ERREUR EST SURVENUE prefix, system-access rejection and update/report recovery wrap in four lines inside dialog. Information icon, OK button and separate footer OK prompt visible; no clipped glyphs or developer-account instruction.",
+      "original_frame": "/workspace/tmp/pix566-ui1280-20261014-01/frames/20261014T203044-6564da7d/fr_FR-error.png"
+    },
+    {
+      "frame": "accepted-1280/frames/selected-9-fr_FR-returned.png",
+      "sha256": "bf31677db0d334833a84746b7f0129510fa1c3f1b75fe7a1b8d354b5c4078c55",
+      "panel": [
+        1280,
+        800
+      ],
+      "language": "fr_FR",
+      "role": "returned",
+      "review": "After actual OK, French MENU PRINCIPAL returns with SCRAPEUR selected at1280x800. Complete menu and separate FERMER/S\u00c9LECTIONNER/CHOISIR footer fit. No game launch.",
+      "original_frame": "/workspace/tmp/pix566-ui1280-20261014-01/frames/20261014T203112-fe6d581e/fr_FR-returned.png"
+    }
+  ],
+  "supplementary": [
+    {
+      "frame": "attempt04/frames/supplementary-0-en_US-entry.png",
+      "sha256": "d7e07e5a369addaebc171d4e1132d2dcfa5a86200c754fdd8b2b92130b9255f3",
+      "observation": "Preliminary main-menu navigation",
+      "original_frame": "/workspace/tmp/pix566-ui640-20261014-04/frames/20261014T200755-ac215473/en_US-entry.png"
+    },
+    {
+      "frame": "attempt04/frames/supplementary-1-en_US-options.png",
+      "sha256": "7c934beaf3cc4a22aa404e7fa8969f20558efbba901a368f6767421c8a28a530",
+      "observation": "Personally viewed OPTIONS top overlapping final bottom capture",
+      "original_frame": "/workspace/tmp/pix566-ui640-20261014-04/frames/20261014T200911-b177fab6/en_US-options.png"
+    },
+    {
+      "frame": "accepted-fr640/frames/fr_FR-options-top.png",
+      "original_frame": "/workspace/tmp/pix566-ui640-20261014-05/frames/20261014T201911-1a794768/fr_FR-options.png",
+      "sha256": "1e1caf48f9dfa984b7cf86e93bd6222be995159e91d5a2f320c3ae1d2ff98a83",
+      "role": "options-top",
+      "language": "fr_FR",
+      "panel": [
+        640,
+        480
+      ],
+      "review": "Root and operator viewed actual top before scroll; complete source/region/overwrite rows fit."
+    },
+    {
+      "frame": "accepted-1280/frames/supplementary-0-en_US-entry.png",
+      "sha256": "6631ec28d99cb2c3c97ed71ed5736d5e811ca50443d286b0c002cc16c05a385d",
+      "observation": "Preliminary English main-menu navigation",
+      "original_frame": "/workspace/tmp/pix566-ui1280-20261014-01/frames/20261014T202419-f2ea04f3/en_US-entry.png"
+    },
+    {
+      "frame": "accepted-1280/frames/supplementary-1-en_US-options.png",
+      "sha256": "3fbd0b25dbdbeb962c16e5bc19c49261448d63252f51538651ae62fede508984",
+      "observation": "Personally reviewed English OPTIONS top, covering full heading and rows scrolled above final bottom",
+      "original_frame": "/workspace/tmp/pix566-ui1280-20261014-01/frames/20261014T202532-a34a1cd5/en_US-options.png"
+    },
+    {
+      "frame": "accepted-1280/frames/supplementary-2-fr_FR-entry.png",
+      "sha256": "1c306e93dfebb242d698491086aef356d380079dc6bc07ae4b2515af7e894927",
+      "observation": "Preliminary French main-menu navigation",
+      "original_frame": "/workspace/tmp/pix566-ui1280-20261014-01/frames/20261014T202812-7bb3d542/fr_FR-entry.png"
+    },
+    {
+      "frame": "accepted-1280/frames/supplementary-3-fr_FR-options.png",
+      "sha256": "4776f8a2a5c8ed42d93174e5a5a4597c47dd2dcf123c6e5061992e9aa0979360",
+      "observation": "Personally reviewed French OPTIONS top, covering full heading and rows scrolled above final bottom",
+      "original_frame": "/workspace/tmp/pix566-ui1280-20261014-01/frames/20261014T202920-6768cdbd/fr_FR-options.png"
+    }
+  ]
+}

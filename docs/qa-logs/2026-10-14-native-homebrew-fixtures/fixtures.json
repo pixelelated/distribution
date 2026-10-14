@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "runtime": "UNRUN",
+  "artifacts": [
+    {
+      "id": "gamecube",
+      "url": "https://github.com/Mode8fx/SuDokuL/releases/download/v1.5/SuDokuL-v1.5-gamecube.zip",
+      "archive_sha256": "9e3975dea71f656b26bf661cb64e7f0cba581c502afdc7e5e298b7c587dea9f1",
+      "download_bytes": 2538252,
+      "member": "SuDokuL-gamecube/SuDokuL/SuDokuL.dol",
+      "filename": "SuDokuL-GC.dol",
+      "sha256": "e5995f4dc27d5fbd4d5e4eb0c1b8161fca5c730d9f294e2eba9c942658e2474d",
+      "bytes": 4973812,
+      "system": "gamecube",
+      "source_commit": "f5993339c0e245c3cf52a26ac614309b199eb8c6",
+      "license": "MIT code; embedded music credits preserved in author distribution and README"
+    },
+    {
+      "id": "wii",
+      "url": "https://github.com/Mode8fx/SuDokuL/releases/download/v1.5/SuDokuL-v1.5-wii.zip",
+      "archive_sha256": "1e6351db1c0b031499df1bae2c123e7300180ea3d32924d874b931c5ce88f6de",
+      "download_bytes": 3092800,
+      "member": "SuDokuL-wii/apps/SuDokuL/boot.dol",
+      "filename": "SuDokuL-Wii.dol",
+      "sha256": "e4fc81977b527538d7fa8d6427099c21c0f2502d18b81a58134f8f07416a8455",
+      "bytes": 6204908,
+      "system": "wii",
+      "source_commit": "f5993339c0e245c3cf52a26ac614309b199eb8c6",
+      "license": "MIT code; embedded music credits preserved in author distribution and README"
+    },
+    {
+      "id": "demon-bazooka",
+      "url": "https://github.com/richstokes/dreamcast-homebrew/releases/download/continuous/demon-bazooka.cdi",
+      "download_bytes": 1806697,
+      "filename": "demon-bazooka.cdi",
+      "sha256": "c3065546fba82020a9692432b99b45e3bffe661a3b6c2fb2cc73fafc82e332f3",
+      "bytes": 1806697,
+      "system": "dreamcast",
+      "source_commit": "1eec70cd343704d1a277c1a2e9b653cddcfd3b3d",
+      "license": "MIT original project code; KallistiOS BSD-like attribution; BASIC additional font/example credits retained",
+      "scope": "gameplay, manual state, native auto-state"
+    },
+    {
+      "id": "dreamcast-basic",
+      "url": "https://github.com/richstokes/dreamcast-homebrew/releases/download/continuous/dreamcast-basic.cdi",
+      "download_bytes": 1958537,
+      "filename": "dreamcast-basic.cdi",
+      "sha256": "5c359e19cc76c6ecdf89ab509c7d80e727943a7181330ad22fd98d4a8695651d",
+      "bytes": 1958537,
+      "system": "dreamcast",
+      "source_commit": "1eec70cd343704d1a277c1a2e9b653cddcfd3b3d",
+      "license": "MIT original project code; KallistiOS BSD-like attribution; BASIC additional font/example credits retained",
+      "scope": "VMU application storage diagnostic; not an in-game progress save"
+    }
+  ]
+}

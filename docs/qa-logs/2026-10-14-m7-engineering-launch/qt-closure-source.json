@@ -1,0 +1,93 @@
+{
+  "utc": "2026-10-14T20:11:32.284394+00:00",
+  "finding": "No source-guaranteed omission: Qt superbuild places all modules under QtBase_BINARY_DIR; recipe globs include Svg/Wayland. Generated plugin prefix matches usr/plugins. No recipe edit needed.",
+  "source": [
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/projects/ROCKNIX/packages/graphics/qt6/package.mk",
+      "bytes": 5794,
+      "sha256": "dba2815b6f59ae530634b49bae916258ad5d2c18c01bdf431f1ba0f60e43721e"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-03/build.pixelelated-SM8550.aarch64/build/qt6-6.10.3/CMakeLists.txt",
+      "bytes": 4410,
+      "sha256": "e841d25050cfc7cac691755de225ded5f4ae0e2478ab2f597d1848b161d9dfe5"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-03/build.pixelelated-SM8550.aarch64/build/qt6-6.10.3/qtbase/cmake/QtBuildPathsHelpers.cmake",
+      "bytes": 13106,
+      "sha256": "9d1cce34d74b16718e70bd380806833e66775c06932731465b48aa4e964c5a06"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-03/build.pixelelated-SM8550.aarch64/build/qt6-6.10.3/qtbase/cmake/QtModuleHelpers.cmake",
+      "bytes": 83176,
+      "sha256": "5b0c0b01008246f6d9249d1043007302b243cf42781d169238afb1a65e9155ef"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-03/build.pixelelated-SM8550.aarch64/build/qt6-6.10.3/qtbase/cmake/QtPluginHelpers.cmake",
+      "bytes": 27934,
+      "sha256": "fffa2c57b351e16b998655b591cb09876da939e7f8f5eaafa721630f98200970"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-03/build.pixelelated-SM8550.aarch64/build/qt6-6.10.3/.aarch64-rocknix-linux-gnu/qtbase/src/corelib/global/qconfig.cpp",
+      "bytes": 1160,
+      "sha256": "a400da3c708c83c8fdc3a12cfcc2bb977091fea495035293754e9bf1835011fb"
+    },
+    {
+      "path": "/workspace/cache/rocknix-sources/dolphin-sa/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Source/Core/DolphinQt/CMakeLists.txt",
+      "bytes": 24363,
+      "sha256": "19f348f8e5abf0363f1f5551e590a4130542d1cb5e25e36593fa421635bb496f"
+    }
+  ],
+  "predecessor_installed": [
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-03/build.pixelelated-SM8550.aarch64/install_pkg/qt6-6.10.3/usr/lib/libQt6Svg.so.6.10.3",
+      "bytes": 657864,
+      "sha256": "f48101674b4458e0a0ba278ee43b3944cc757f837e040cf888a2d201eb4f4b77",
+      "elf_machine": 183,
+      "architecture": "AArch64; not new x86_64 proof"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-03/build.pixelelated-SM8550.aarch64/install_pkg/qt6-6.10.3/usr/lib/libQt6WaylandClient.so.6.10.3",
+      "bytes": 1188568,
+      "sha256": "ff99452eb949e02e2d05f91dd29532f900077e2018fb0edc5626289441f309f0",
+      "elf_machine": 183,
+      "architecture": "AArch64; not new x86_64 proof"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-03/build.pixelelated-SM8550.aarch64/install_pkg/qt6-6.10.3/usr/plugins/platforms/libqwayland.so",
+      "bytes": 67672,
+      "sha256": "8ddae2144685c2088b9030c734c11cfc65182c562ace5bf13345e35935993bf2",
+      "elf_machine": 183,
+      "architecture": "AArch64; not new x86_64 proof"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-03/build.pixelelated-SM8550.aarch64/install_pkg/qt6-6.10.3/usr/plugins/imageformats/libqsvg.so",
+      "bytes": 67672,
+      "sha256": "50cde15473726300953c3d20d2349d64153810259b8482d8ab2bb5fc122a4734",
+      "elf_machine": 183,
+      "architecture": "AArch64; not new x86_64 proof"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-03/build.pixelelated-SM8550.aarch64/install_pkg/qt6-6.10.3/usr/plugins/iconengines/libqsvgicon.so",
+      "bytes": 67672,
+      "sha256": "4ed3c04c4c18b1ccb424ab69489210f87af7df2dfe269285b8a4a405e4f44744",
+      "elf_machine": 183,
+      "architecture": "AArch64; not new x86_64 proof"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-03/build.pixelelated-SM8550.aarch64/install_pkg/qt6-6.10.3/usr/plugins/wayland-shell-integration/libxdg-shell.so",
+      "bytes": 133968,
+      "sha256": "58cd32ab75ba91c54965c36a1977f9a74b3d08957f5c02a0deea09a26af82dd7",
+      "elf_machine": 183,
+      "architecture": "AArch64; not new x86_64 proof"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-03/build.pixelelated-SM8550.aarch64/install_pkg/qt6-6.10.3/usr/plugins/wayland-graphics-integration-client/libqt-plugin-wayland-egl.so",
+      "bytes": 133320,
+      "sha256": "77c40b5eba417e2f7f9612113f8d5008246e597ccfe00716561cf07a97c76de8",
+      "elf_machine": 183,
+      "architecture": "AArch64; not new x86_64 proof"
+    }
+  ],
+  "remaining": "Actual new x86_64 library/plugin loader closure and Dolphin UI after engineering image. No binary executed."
+}

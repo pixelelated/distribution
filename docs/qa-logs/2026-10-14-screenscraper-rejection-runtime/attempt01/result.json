@@ -1,0 +1,28 @@
+{
+  "status": "FAIL",
+  "stage": "es-component",
+  "started": 1792006252.9093716,
+  "original_attach_exit": 0,
+  "source_before": {
+    "commit": "3178b832b8d134198b2b4eede4f725d4ed283f8c",
+    "tree": "76c455e20e57624faee2ab5e5c4ec7db073bcaf0",
+    "manifest_sha256": "34a492fe5fec9c2e1bc5c541bf3fb66e7a5f147a3797bf1875787f70af1ae17c",
+    "files": 1113,
+    "all_original_source_files_unchanged": true
+  },
+  "error": "RuntimeError('container limits differ')",
+  "cleanup": {
+    "status": "FAIL",
+    "forced_stop": false,
+    "started": 1792006253.8575683,
+    "error": "RuntimeError('container limits differ')",
+    "ended": 1792006253.87448
+  },
+  "forced_client_stop": true,
+  "watchdog_original_exit": 1,
+  "ended": 1792006253.991702,
+  "final_disk": {
+    "allocated_bytes": 159744,
+    "apparent_bytes": 33097
+  }
+}

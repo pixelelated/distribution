@@ -1,0 +1,55 @@
+{
+  "admitted": "2026-10-14T19:51:56.825057+00:00",
+  "available_bytes": 2861769490432,
+  "checkout": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01",
+  "consumed": "2026-10-14T19:55:42.595683+00:00",
+  "container_checkout": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01",
+  "deleted_bytes": 0,
+  "evidence_sha256": "c5b78f919e26a08cf828dfb84e32295b897a6eebe9f82e6cd4a70932370d47a9",
+  "id": "a84fffc5425f457abaade39fddfc8eaa",
+  "original_result": {
+    "command_rc": 1,
+    "monitor_rc": 0,
+    "runner_rc": 1,
+    "utc": "2026-10-14T19:53:27.248307+00:00"
+  },
+  "outputs": [
+    {
+      "issue": 566,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix566-ui640-20261014-02/vm",
+      "release_when": "Original case/frame/lifecycle/watcher channels exported and consumed; actual owners gone; retire disk/media/UEFI."
+    },
+    {
+      "issue": 566,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix566-ui640-20261014-02/frames",
+      "release_when": "Preserve reviewed exact-source frames and compact original action receipts."
+    }
+  ],
+  "outputs_held": true,
+  "pid_namespace": 4026531836,
+  "profiles": [
+    {
+      "ARCH": "x86_64",
+      "DEVICE": "GENERIC_X64",
+      "PROJECT": "ROCKNIX"
+    }
+  ],
+  "receipt_sha256": "2664904bdce080b4547bbf52931f0068d188d514038cfa23759e8a71feacda5e",
+  "registry": "/workspace/repos/rocknix/.git/pixelelated-build-admission",
+  "required_bytes": 22050504704,
+  "retention_plan_sha256": "8446da141fee211781a0a4e3179d61c414938ae4c18f9d034941f5ff3b0f06f0",
+  "retention_report_sha256": "68f6f44c909f0f072ed3764b42ca5e61d4a1c0f14def44395bfb841c64aa7814",
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/.build-runs/20261014T195156Z-ca2a4027",
+  "runner_pid": 3958904,
+  "runner_start": "109920070",
+  "source": {
+    "head": "e483a7f0925e7ebb56335133a5de423269390945",
+    "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "state": "consumed",
+  "submission_owner": "/workspace/tmp/pix566-ui640-20261014-02/lifecycle-owner",
+  "volume": "/workspace",
+  "volume_device": 66304
+}

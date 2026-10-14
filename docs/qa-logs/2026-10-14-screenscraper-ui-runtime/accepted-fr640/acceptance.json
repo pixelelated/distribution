@@ -1,0 +1,41 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/.build-runs/20261014T201707Z-6f008dcb",
+  "expected_rc": 0,
+  "disposition": "qualified",
+  "outputs": [
+    {
+      "issue": 566,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix566-ui640-20261014-05/vm",
+      "release_when": "Original case/frame/lifecycle/watcher channels exported and consumed; actual owners gone; retire disk/media/UEFI."
+    },
+    {
+      "issue": 566,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix566-ui640-20261014-05/frames",
+      "release_when": "Preserve reviewed exact-source frames and compact original action receipts."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/tmp/pix566-ui640-evidence-20261014-05/export-result.json",
+      "sha256": "0a3827bca047bcda9d10e96048f3b61f25e54c870cb5d6fd918ee77ac7599e5a"
+    },
+    {
+      "path": "/workspace/tmp/pix566-ui640-evidence-20261014-05/host-exits.json",
+      "sha256": "1ef145757ae4e87a1e0179d598424dd254d1d91827faad0a2f816cb97ac61c26"
+    },
+    {
+      "path": "/workspace/tmp/pix566-ui640-evidence-20261014-05/guest-export-manifest.json",
+      "sha256": "b69a2bc59a842fd9a1ab5649133335f126a932a027d0450391419dbbb630ebc8"
+    },
+    {
+      "path": "/workspace/tmp/pix566-ui640-evidence-20261014-05/original-records.json",
+      "sha256": "d30e6795692b18ba0365a3b1a6c026f9078e5887e0940bb90abf3f72b37b37c3"
+    },
+    {
+      "path": "/workspace/tmp/pix566-ui640-evidence-20261014-05/analysis.json",
+      "sha256": "846fa80638367197100957099368b777d9becbdd8acd47dd0b2dbf6300dd5511"
+    }
+  ]
+}

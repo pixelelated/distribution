@@ -1,0 +1,9 @@
+{
+  "format": "gzip tar, byte-preserving original guest files",
+  "archive": "guest-originals.tar.gz",
+  "sha256": "b18cc5fa44d9903a730be1b316fc56e3500c476c9d7d67250597b6423afce5d1",
+  "files_verified": 134,
+  "logical_root": "guest/",
+  "original_manifest_unchanged": true,
+  "reason": "Raw captured logs/configuration contain original whitespace; do not normalize evidence"
+}

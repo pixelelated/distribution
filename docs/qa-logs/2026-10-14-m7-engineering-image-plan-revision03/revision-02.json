@@ -1,0 +1,34 @@
+{
+  "revision": 2,
+  "utc": "2026-10-14T19:21:49.436821+00:00",
+  "source_only": true,
+  "runtime_executed": false,
+  "prior_packet_commit": "890423c21ae1307c94cd17830155f500a6cb6177",
+  "proposed_es_commit": "3178b832b8d134198b2b4eede4f725d4ed283f8c",
+  "proposed_es_state": "awaiting coordinator proof and publication; not accepted here",
+  "active_copy_source": "e483a7f0925e7ebb56335133a5de423269390945",
+  "active_copy_es_commit": "a5c7ff998831c8215f135a42a6f695e75230451d",
+  "unchanged_active_payload": {
+    "path": "copy-cache.sh",
+    "sha256": "762407a98038730062920b6a7db94e849126bbc04b6ed4018139774812f7ee65"
+  },
+  "reviewed_source": {
+    "checkout": "/workspace/repos/rocknix.worktrees/m7-player-setup",
+    "head": "e483a7f0925e7ebb56335133a5de423269390945",
+    "files": {
+      "Makefile": "8322fcfa85d0a0159ac05ce17058e23f8e18418d2344adf82456b5813b6094fa",
+      "scripts/get_env": "2f8f54906d02fbce048bb2975f5a2e69057ae47de365b1e26b9508a051be43a2",
+      "tools/watch-build": "44a6d87505fd6a465c384d2f30bfeda5f4fe436978d227d8b0c4bae73da7e0bc",
+      "tools/watch-build-submit": "3777c68fb2677775550183f8bacdb860d7e1e477ebac4e923beda63beba8e88e",
+      "tools/host-maintenance/build-admission": "3e2ad9d6eed47f53d1547880286e4bed69848b956be490f17f354d9df70bb942"
+    }
+  },
+  "plumbing_findings": [
+    "watch-build-submit sets PIXELELATED_SUBMISSION_OWNER; watch-build admits one source/profile and writes relative RASTERATOPS_BUILD_RUN.",
+    "get_env preserves watched-run marker, PACKAGE and CONCURRENCY_MAKE_LEVEL; canonical Docker recipe also explicitly forwards RASTERATOPS_BUILD_RUN.",
+    "Command-line COMMAND overrides only Docker payload; inner make invokes native package/image targets. Nested scripts retain the original admission, source fingerprint and profile checks.",
+    "Unique container identity plus nonce acknowledgment precedes inner make; initial/final complete allocation scans and bounded cleanup remain unchanged.",
+    "Active copy source must remain e483a7f until original results are retained and consumed; final compile needs reviewed published source/pin and fresh owner/report/admission.",
+    "No additional concrete source plumbing blocker identified; actual Docker/cgroup/handshake behavior remains pending the first allocated bounded clean stage."
+  ]
+}

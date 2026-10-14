@@ -1,0 +1,55 @@
+{
+  "admitted": "2026-10-14T19:16:56.828933+00:00",
+  "available_bytes": 2974397145088,
+  "checkout": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01",
+  "consumed": "2026-10-14T19:30:27.463058+00:00",
+  "container_checkout": "/workspace/repos/rocknix.worktrees/m7-pixelelated",
+  "deleted_bytes": 0,
+  "evidence_sha256": "f839a82246349891c9af3e988a33748defd1c7da7f53be4ffd5df1952c65e099",
+  "id": "61be9f1b8eed42b9958d59cd254c7bf3",
+  "original_result": {
+    "command_rc": 0,
+    "monitor_rc": 0,
+    "runner_rc": 0,
+    "utc": "2026-10-14T19:29:53.531311+00:00"
+  },
+  "outputs": [
+    {
+      "issue": 588,
+      "kind": "build-cache",
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/build.pixelelated-GENERIC_X64.x86_64",
+      "release_when": "Immediately queued assembled-image qualification and required corresponding-source custody accepted"
+    },
+    {
+      "issue": 493,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-m7-engineering-cache-20261014-01",
+      "release_when": "Original results consumed and compact evidence retained; preserve required corresponding-source inputs"
+    }
+  ],
+  "outputs_held": true,
+  "pid_namespace": 4026531836,
+  "profiles": [
+    {
+      "ARCH": "x86_64",
+      "DEVICE": "GENERIC_X64",
+      "PROJECT": "ROCKNIX"
+    }
+  ],
+  "receipt_sha256": "9ca85db923a79a59240b5ad855a751b04d450e667e7ad8015ca47d05e39da90b",
+  "registry": "/workspace/repos/rocknix/.git/pixelelated-build-admission",
+  "required_bytes": 189436010496,
+  "retention_plan_sha256": "d5558079c104a87c897384ba652d29b3b6248e527f651d8ef3a9621dea0deffe",
+  "retention_report_sha256": "ca5ffe1c8e42d8714cab24bb8d5bca584613dc67312670c0d47856a2d51cbf3f",
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/.build-runs/20261014T191656Z-0cac274a",
+  "runner_pid": 3800076,
+  "runner_start": "109710070",
+  "source": {
+    "head": "e483a7f0925e7ebb56335133a5de423269390945",
+    "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "state": "consumed",
+  "submission_owner": "/workspace/tmp/pix-m7-engineering-cache-20261014-01",
+  "volume": "/workspace",
+  "volume_device": 66304
+}

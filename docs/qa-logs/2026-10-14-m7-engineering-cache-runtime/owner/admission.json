@@ -1,0 +1,46 @@
+{
+  "id": "61be9f1b8eed42b9958d59cd254c7bf3",
+  "plan": "/workspace/tmp/pix-m7-engineering-cache-20261014-01/admission-plan.json",
+  "plan_sha256": "f93fe9c3592b61648bd1253c67148fc4e9a8b1e92b80ba74caefdf335da78622",
+  "registry_generation": 148,
+  "reserved_bytes": 0,
+  "schema": 1,
+  "state": {
+    "available_bytes": 2974397214720,
+    "checkout": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01",
+    "container_checkout": "/workspace/repos/rocknix.worktrees/m7-pixelelated",
+    "outputs": [
+      {
+        "issue": 588,
+        "kind": "build-cache",
+        "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/build.pixelelated-GENERIC_X64.x86_64",
+        "release_when": "Immediately queued assembled-image qualification and required corresponding-source custody accepted"
+      },
+      {
+        "issue": 493,
+        "kind": "qa-scratch",
+        "path": "/workspace/tmp/pix-m7-engineering-cache-20261014-01",
+        "release_when": "Original results consumed and compact evidence retained; preserve required corresponding-source inputs"
+      }
+    ],
+    "profiles": [
+      {
+        "ARCH": "x86_64",
+        "DEVICE": "GENERIC_X64",
+        "PROJECT": "ROCKNIX"
+      }
+    ],
+    "registry": "/workspace/repos/rocknix/.git/pixelelated-build-admission",
+    "required_bytes": 189436010496,
+    "retention_plan_sha256": "d5558079c104a87c897384ba652d29b3b6248e527f651d8ef3a9621dea0deffe",
+    "retention_report_sha256": "ca5ffe1c8e42d8714cab24bb8d5bca584613dc67312670c0d47856a2d51cbf3f",
+    "source": {
+      "head": "e483a7f0925e7ebb56335133a5de423269390945",
+      "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "volume": "/workspace",
+    "volume_device": 66304
+  },
+  "tool_sha256": "3e2ad9d6eed47f53d1547880286e4bed69848b956be490f17f354d9df70bb942",
+  "utc": "2026-10-14T19:16:56.634256+00:00"
+}

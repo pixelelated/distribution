@@ -39,8 +39,11 @@ the owner's handhelds.
   collection choices remain unchanged (#578). Copied gamelist history can
   populate Recent without gameplay; game files alone do not create history.
 - **The shared scraper developer identity is supplied by the build.** The
-  player's ScreenScraper account remains separate (#566). Source-policy and
-  environment controls pass; the rebuilt binary, UI and backup checks remain.
+  player's ScreenScraper account remains separate (#566). Source-policy,
+  environment controls and the rebuilt frontend pass. If shared access is
+  rejected, the message directs players to a system update or problem report
+  instead of hidden developer fields. English/French small- and large-panel frames pass;
+  installed-image/backup checks remain.
 
 ## Steam recovery (2026-10-14, component-qualified source)
 

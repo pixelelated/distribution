@@ -1,0 +1,51 @@
+{
+  "distribution_commit": "e483a7f0925e7ebb56335133a5de423269390945",
+  "source_files": [
+    {
+      "path": "projects/ROCKNIX/packages/virtual/emulators/package.mk",
+      "sha256": "cfef0ff40b7b3146b2bd35be4a68e4087a1e680da1d22aff07ae2724754bb899"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/emulators/standalone/flycast-sa/package.mk",
+      "sha256": "9f5805ef01db4d757e0e58d3ed029669cb1a0063e7f86af877c6ae892af28ca2"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/package.mk",
+      "sha256": "2ec538f085f22a42c187918560605c1cdde353ac06421a3d38467950f14cb19e"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/emulators/standalone/flycast-sa/scripts/start_flycast.sh",
+      "sha256": "1281b09669253e4399039f9ae986f492fbd4f54766db9bf036328c8bdb1ac8e4"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/start_dolphin_gc.sh",
+      "sha256": "cc6da2e146adfc5423fb58462888e0cab0a4904deb90f5066392484b8447c9c2"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/start_dolphin_wii.sh",
+      "sha256": "8b87c5779737918644655950f25547341f89eda59fee137b752790382dffb88b"
+    },
+    {
+      "path": "config/emulators/gamecube.conf",
+      "sha256": "c6578e035879b5bdeb8b7ef49d51c51a69f0bb9f7d9df64f7fd0699d8a22ddb0"
+    },
+    {
+      "path": "config/emulators/wii.conf",
+      "sha256": "9d4a593d299f514a604abd585cefaf1127ebe5c4dbbf170c644087e5850892fc"
+    },
+    {
+      "path": "config/emulators/dreamcast.conf",
+      "sha256": "2cb59dd0654658c1d416155fc1eda9d6535c7150b8468397c1f4f588f706e507"
+    },
+    {
+      "path": "tools/emulator-exit-test",
+      "sha256": "e90ca8500d83c797e370c77e545e63231f2201fcb3fce45c5c7478316fb2c52c"
+    }
+  ],
+  "accepted_parent_installed_flycast": {
+    "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/bin/flycast",
+    "bytes": 31959608,
+    "sha256": "a54346440e53a42b477ce93752c532c8fb69a8bd16355c4d0f5e787141ba308f",
+    "new_image_qualification": false
+  }
+}

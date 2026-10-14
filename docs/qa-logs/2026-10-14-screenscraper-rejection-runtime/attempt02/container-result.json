@@ -1,0 +1,93 @@
+{
+  "status": "PASS",
+  "stage": "es-component",
+  "started": 1792006417.8768332,
+  "children": [
+    {
+      "argv": [
+        "python3",
+        "-I",
+        "-S",
+        "-B",
+        "/packet/prepare-source.py",
+        "--work",
+        "/work",
+        "--source",
+        "/source",
+        "--cached",
+        "/cached-es",
+        "--sealed-source"
+      ],
+      "started": 1792006418.0507116,
+      "label": "prepare-source",
+      "identity": {
+        "pid": 8,
+        "start_ticks": 109810204,
+        "state": "R",
+        "pgrp": 8,
+        "session": 8,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      "pid": 8,
+      "original_exit": 0,
+      "reaped": true,
+      "ended": 1792006419.2533185
+    },
+    {
+      "argv": [
+        "python3",
+        "-I",
+        "-S",
+        "-B",
+        "/packet/component-inner.py"
+      ],
+      "started": 1792006419.2535868,
+      "label": "selected-stage",
+      "identity": {
+        "pid": 9,
+        "start_ticks": 109810325,
+        "state": "R",
+        "pgrp": 9,
+        "session": 9,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      "pid": 9,
+      "original_exit": 0,
+      "reaped": true,
+      "ended": 1792006628.9819548
+    }
+  ],
+  "source_before": {
+    "commit": "3178b832b8d134198b2b4eede4f725d4ed283f8c",
+    "tree": "76c455e20e57624faee2ab5e5c4ec7db073bcaf0",
+    "manifest_sha256": "34a492fe5fec9c2e1bc5c541bf3fb66e7a5f147a3797bf1875787f70af1ae17c",
+    "files": 1113,
+    "all_original_source_files_unchanged": true
+  },
+  "source_after": {
+    "commit": "3178b832b8d134198b2b4eede4f725d4ed283f8c",
+    "tree": "76c455e20e57624faee2ab5e5c4ec7db073bcaf0",
+    "manifest_sha256": "34a492fe5fec9c2e1bc5c541bf3fb66e7a5f147a3797bf1875787f70af1ae17c",
+    "files": 1113,
+    "all_original_source_files_unchanged": true
+  },
+  "final_cgroup": {
+    "memory.current": "889503744",
+    "memory.peak": "3765743616",
+    "memory.max": "8589934592",
+    "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0",
+    "memory.swap.max": "0",
+    "cpu.stat": "usage_usec 412544443\nuser_usec 383796732\nsystem_usec 28747711\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 2112\nnr_throttled 1885\nthrottled_usec 16055600\nnr_bursts 0\nburst_usec 0",
+    "cpu.max": "200000 100000",
+    "pids.current": "2",
+    "pids.max": "256"
+  },
+  "final_disk": {
+    "allocated_bytes": 844394496,
+    "apparent_bytes": 840230800
+  },
+  "sampler_exited": true,
+  "monitor_errors": [],
+  "ended": 1792006629.0679224,
+  "max_child_rss_kib": 1785948
+}

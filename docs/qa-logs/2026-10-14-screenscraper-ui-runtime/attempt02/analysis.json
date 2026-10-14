@@ -1,0 +1,24 @@
+{
+  "disposition": "failed-investigated",
+  "original_lifecycle_rc": 1,
+  "original_worker_rc": 1,
+  "original_supervisor_rc": 1,
+  "original_monitor_rc": 0,
+  "original_launcher_rc": 1,
+  "flush_rc": 0,
+  "qemu_stop": "down",
+  "host_pids_absent": [
+    3959349,
+    3958903,
+    3958904,
+    3958957,
+    3958905
+  ],
+  "guest_files": 44,
+  "guest_bytes": 143668,
+  "case_armed": false,
+  "frames": 0,
+  "fr_case": "UNRUN",
+  "success_exporter": "not invoked: source requires both successful case receipts and lifecycle0",
+  "reason": "openssl req inherited absent /etc/ssl/openssl.cnf; exited1 before locale/peer/ES launch"
+}

@@ -1,0 +1,125 @@
+# Saved Session State
+
+Updated 2026-10-14 19:23UTC. Continue M7 toward the combined engineering image and installed
+qualification before the next device RC. All prior component/compiler/VM/host-control jobs completed. The independent
+cache copy below is ACTIVE; firmware compilation has not started.
+Coordinator /workspace/repos/rocknix.worktrees/m7-player-setup,
+feature/m7-player-setup. Harness conflict-resolution stays untouched.
+
+## Active cache owner —19:23UTC
+
+Published next/feature tip e483a7f0925e7ebb56335133a5de423269390945. Source
+publication and remote readback succeeded. Build checkout
+/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01 is frozen at that tip,
+branch build/m7-p5-20261014-01. Do not edit it while the cache owner runs.
+Owner /workspace/tmp/pix-m7-engineering-cache-20261014-01; run
+.build-runs/20261014T191656Z-0cac274a; admission61be9f1b8eed42b9958d59cd254c7bf3.
+Started19:16:56UTC. Launcher3800075/runner3800076/watcher3800077 in actual host
+PID namespace4026531836. Bounded3600s copy then full checksum dry comparison
+and every regular-file inode inequality. Read console tails with bounded seeks
+because rsync progress uses carriage returns. Do not interpret incremental rsync
+percentage as overall completion. Preserve original result/launcher/status/host
+exits, consume admission, then advance source only after all owners are gone.
+No firmware/compiler/container job is active yet. Last capacity measurement and
+cached parent below remain valid. Runtime/compiler work is serialized.
+
+#566 source worker prepared ES3178b832b8d134198b2b4eede4f725d4ed283f8c:
+compiled shared-identity rejection now directs the player to a system update or
+problem report; runtime-only builds retain visible developer-field guidance.
+Source/catalog checks pass; both-mode syntax/component build and actual
+EN/FR640/1280 rejection frames are UNRUN. Private source proof packet is being
+finalized at /tmp/m7-screenscraper-rejection-20261014. Root owns the next runtime
+allocation after cache closure. Do not promote the pin before frame evidence.
+Worker proxy_native_build prepared source-only installed-state planc912913f and
+is adding synthetic retained-state/backup assertions. Worker proxy_startup_588 is
+preparing an additive engineering-plan revision binding explicit expected ES to
+the final recipe SHA. Existing copy script/input bytes stay unchanged. M7 live
+body/readback updated19:21UTC; no new RC/device permission or action inferred.
+
+## Build continuation after active cache closure
+
+Product composition is ready apart from the newly confirmed #566 error-copy correction: stable20261001,
+qualified Steam/Dolphin/proxy fixes including #588, published ES
+ a5c7ff998831c8215f135a42a6f695e75230451d, minimal full standalone Dolphin on
+GENERIC_X64, tested generated-doc output redirection and one-line Wii profile
+copy correction. Final output/cache guard remains unchanged. Review receipts
+and exact remaining scopes in docs/releases/next-candidate-work.md.
+
+The integration source is published and the build checkout exists as recorded
+above. Continue from that actual owner; do not create another cache copy. Do not
+compile in the coordinator checkout.
+Final source-only plan packet docs/qa-logs/2026-10-14-m7-engineering-image-plan
+comes from890423c21ae1307c94cd17830155f500a6cb6177; its manifest is
+138224f535a9c824a190c3af5b261de54acb6a4f0c8f78abb2cff54bd7b1c7fc.
+Earlier -internal packet is preliminary, not the launch plan.
+Read final README/prepare-plan.py/copy-cache.sh/prepare-owner.py/build-owner.py.
+Use completed capacity measurement
+/workspace/tmp/pix-m7-capacity-20261014-01/measurement.json (18:55:50UTC).
+Cache112126599168B,target4148326400B,sourcecache68114972672B,
+available2976949006336B. Last preflight READY,51GBavailableRAM6.7GBfreeSwap;
+refresh before actual build. Empty historical scan means no deletion scope,
+not a claim that all host history is classified. No reclaim counted.
+
+The independent copy has its fresh owner/report/admission. Consume its original
+exits and verify checksum+independent inodes before preparing
+fresh compile admission. Preserve old logical Docker prefix
+/workspace/repos/rocknix.worktrees/m7-pixelelated, parent physical cache in
+m7-pixelelated-replacement20. Never modify that accepted parent.
+The build owner runs clean, Qt6, Dolphin and image sequentially; cold stages
+4CPU/24GiB/no-swap, image normal affinity/40GiB/no-swap. Read declared budgets,
+family clock and floors before launch. Initial clean stage is the first actual
+observer/handshake/cgroup qualification; source static checks are not runtime.
+Host5s counters and periodic disk scans preserve original failures/unknown gaps;
+initial/final scans require quiescence. Active supervision remains required.
+
+## Last corrections and closure
+
+Generated-doc control02 passes7/7, actual runner/launcher0, host owners gone;
+original01 fixture failure remains1. Exact functions hash
+e574a017b83e0da4d9360017ed14d1edcab86eb979efcad1b15fd4bc76407baa integrated.
+Both synthetic Git fixtures retired. Actual admission guard unchanged.
+Independent source review confirmed inherited Wii profile destination typo,
+still present upstream50097e80; exact corrected launcher
+8b87c5779737918644655950f25547341f89eda59fee137b752790382dffb88b integrated.
+Missing/custom-profile checks UNRUN and queued in the new installed image.
+No other functional issue found in focused Dolphin/proxy/doc review.
+#585 upstream queue updated for this one-line fix and #588; submissions stillheld.
+
+#588 causal reproduction and repaired actual-service+10component controls pass;
+English640 frames pass; current native proxy built; combined ES syntax passes.
+Original failures and scope limits remain in dated packets. See archived
+185600Z and173200Z checkpoints for exact owner/native/CHD inputs. All completed
+VM disks/compiler scratch retired; only small immediate-test closures and the
+accepted parent cache/image retained. Existing device approvals are consumed.
+No device/account/provider action is pending or started. No RC designated.
+
+Internal source lanes: dolphin_english_proof preparing legitimate native
+Dolphin fixture plan in /tmp; proxy_native_build preparing installed state plan
+in its assigned candidatecheckout. No delegated runtime. Visible Herdr lanes
+still authentication-blocked; do not describe them as active or reprompt blindly.
+After image: actual installed/default-boot proxy/native hash/Dolphin gameplay,
+Steam, clean/retained #565/#566, #349 restore and combined UI/cloud tests, then
+applicable milestone audit, H700 thenSM8550, publication requirements.
+#558/#561 observation and #587/GTK4/lazyimports remain outside active RC gates.
+
+## Publication follow-up —19:14UTC
+
+The next-only ceremony gate caught nine unpublished commits with missing issue
+references. Metadata repair preserves all source trees and authors, re-signs35
+descendants, retains original graph feature/m7-pre-citation-20261014 and maps IDs
+in docs/qa-logs/2026-10-14-issue-citation-repair. New integration tip before this
+record is289e6d741e581861cd31235724cddd76f8737a38. No public history rewritten.
+Do not merge old feature ancestry back; copy reviewed new packet/product content
+or map the corrected base. Original evidence hashes remain valid through tree
+parity/mapping. Issue coverage passes368commits. No push ran before this fix.
+
+New#566 finding: compiled shared developer identity hides developer rows, but
+PairRejected copy still tells players to edit those rows. ES source worker is
+preparing conditional compiled/runtime copy plus translations and actual-frame
+proof route. Native state worker found no sibling error-route mismatch. Resolve
+and prove this before final ES pin/engineering compilation. Independent cache
+copy may proceed from this published integration head while frontend work
+continues; preserve source until copy owner exits/consumes, then fast-forward the
+build checkout to final published source before fresh compile admission. The
+cache is copied accepted parent output, not a new image or final-source claim.
+Final build-plan ES constant/config must match the new qualified ES commit.

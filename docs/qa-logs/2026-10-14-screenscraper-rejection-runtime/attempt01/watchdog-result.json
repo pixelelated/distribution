@@ -1,0 +1,48 @@
+{
+  "status": "FAIL",
+  "reason": "parent cleanup incomplete",
+  "host_clients": {
+    "identities": [
+      {
+        "pid": 3861809,
+        "start_ticks": 109793783,
+        "state": "R",
+        "pgrp": 3861809,
+        "session": 3861809,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 3861411,
+        "start_ticks": 109793752,
+        "state": "R",
+        "pgrp": 3861411,
+        "session": 3861411,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 3861822,
+        "start_ticks": 109793785,
+        "state": "R",
+        "pgrp": 3861822,
+        "session": 3861822,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 3861426,
+        "start_ticks": 109793763,
+        "state": "R",
+        "pgrp": 3861426,
+        "session": 3861426,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      }
+    ],
+    "survivors": []
+  },
+  "cleanup": {
+    "status": "FAIL",
+    "forced_stop": false,
+    "started": 1792006253.9455645,
+    "error": "RuntimeError('container limits differ')",
+    "ended": 1792006253.9622705
+  }
+}

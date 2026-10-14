@@ -1,0 +1,45 @@
+{
+  "runtime_executed": false,
+  "checks": [
+    {
+      "name": "collect.py Python 3.10 AST",
+      "result": "PASS"
+    },
+    {
+      "name": "prepare.py Python 3.10 AST",
+      "result": "PASS"
+    },
+    {
+      "name": "guest-fixture.py Python 3.10 AST",
+      "result": "PASS"
+    },
+    {
+      "name": "run-phase.sh bash -n",
+      "result": "PASS"
+    },
+    {
+      "name": "all four generated shell shapes sh -n (inert AST string construction only)",
+      "result": "PASS"
+    },
+    {
+      "name": "run-phase.sh embedded Python AST",
+      "result": "PASS"
+    },
+    {
+      "name": "manual source review",
+      "result": "PASS within source scope",
+      "details": [
+        "full unchanged state gate reused for readiness/parsers",
+        "XML line layout matches actual backup strip contract",
+        "file stability excludes read-atime changes",
+        "API idle retries bounded and uses guest loopback only",
+        "candidate pin resolved from frozen recipe; installed ES bound from SYSTEM",
+        "archive verifier uses actual export member/filename contract"
+      ]
+    },
+    {
+      "name": "all final generated full-fixture shell shapes and marker uniqueness",
+      "result": "PASS static only"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "SuDokuL": {
+    "id": 320045561,
+    "tag_name": "v1.5",
+    "target_commitish": "main",
+    "published_at": "2026-05-10T02:54:37Z",
+    "html_url": "https://github.com/Mode8fx/SuDokuL/releases/tag/v1.5",
+    "body": "I came back to fix a bug, but also added some more things.\r\n\r\n### Changes\r\n- Added **Music Mode** setting. You can now play music in a fixed or shuffled order instead of looping a single song.\r\n\r\n### Bug Fixes\r\n- **Fixed mini grid breaking** after using the \"reveal cell\" cheat.\r\n\r\n### Technical Improvements\r\n- **Updated SDL2 libraries** on most systems.\r\n- Limited save file writing when rapidly changing music track with L/R.\r\n- [Gamecube, Wii] **Upgraded to libogc2**, which introduces a variety of improvements including **save/load support for FlippyDrive** (thanks @Extrems!).\r\n- [PSP] **Big performance boost** from upgrading PSPDEV, resulting in a steady 60 FPS.\r\n\r\nEnjoy!",
+    "assets": [
+      {
+        "id": 416374461,
+        "name": "SuDokuL-v1.5-gamecube.zip",
+        "size": 2538252,
+        "digest": "sha256:9e3975dea71f656b26bf661cb64e7f0cba581c502afdc7e5e298b7c587dea9f1",
+        "browser_download_url": "https://github.com/Mode8fx/SuDokuL/releases/download/v1.5/SuDokuL-v1.5-gamecube.zip",
+        "updated_at": "2026-05-10T02:40:23Z"
+      },
+      {
+        "id": 416374472,
+        "name": "SuDokuL-v1.5-wii.zip",
+        "size": 3092800,
+        "digest": "sha256:1e6351db1c0b031499df1bae2c123e7300180ea3d32924d874b931c5ce88f6de",
+        "browser_download_url": "https://github.com/Mode8fx/SuDokuL/releases/download/v1.5/SuDokuL-v1.5-wii.zip",
+        "updated_at": "2026-05-10T02:40:26Z"
+      }
+    ]
+  },
+  "Dreamcast": {
+    "id": 402727592,
+    "tag_name": "continuous",
+    "target_commitish": "main",
+    "published_at": "2026-10-03T23:09:14Z",
+    "html_url": "https://github.com/richstokes/dreamcast-homebrew/releases/tag/continuous",
+    "body": "Automatic builds from main at commit `1eec70c`.\n\n- **CDI** files are compact, self-booting Dreamcast disc images for Flycast, other Dreamcast emulators, or a CD-R.\n- **ELF** files are included for direct loading and development workflows.\n- Verify downloads with `SHA256SUMS`.\n",
+    "assets": [
+      {
+        "id": 608697951,
+        "name": "demon-bazooka.cdi",
+        "size": 1806697,
+        "digest": "sha256:c3065546fba82020a9692432b99b45e3bffe661a3b6c2fb2cc73fafc82e332f3",
+        "browser_download_url": "https://github.com/richstokes/dreamcast-homebrew/releases/download/continuous/demon-bazooka.cdi",
+        "updated_at": "2026-10-03T23:09:11Z"
+      },
+      {
+        "id": 608697955,
+        "name": "dreamcast-basic.cdi",
+        "size": 1958537,
+        "digest": "sha256:5c359e19cc76c6ecdf89ab509c7d80e727943a7181330ad22fd98d4a8695651d",
+        "browser_download_url": "https://github.com/richstokes/dreamcast-homebrew/releases/download/continuous/dreamcast-basic.cdi",
+        "updated_at": "2026-10-03T23:09:11Z"
+      }
+    ]
+  }
+}

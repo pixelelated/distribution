@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "es_commit": "3178b832b8d134198b2b4eede4f725d4ed283f8c",
+  "syntax_modes": [
+    "runtime-only",
+    "compiled-plus-runtime"
+  ],
+  "all_seven_component_stages_exit0": true,
+  "build_seconds": 206.9975929260254,
+  "memory_peak_bytes": 3765743616,
+  "memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0",
+  "original_container_runner_launcher_watchdog_exit0": true,
+  "target_execution": "UNRUN",
+  "artifacts": {
+    "emulationstation": {
+      "sha256": "62d256b2a391493030639fba27c198d16cc2ee68ca0ed82748713ef2b30a270b",
+      "bytes": 11831632
+    },
+    "en_GB.mo": {
+      "sha256": "740562af5ea1a5a37c38a7b631838c3fd8fab0a768d74131de5af6bafcff179f",
+      "bytes": 68316
+    },
+    "fr.mo": {
+      "sha256": "4ec06cacf31e9e6250c533b9b87a4d84db88a10340d9cd5a2376d589aed3a53d",
+      "bytes": 187974
+    }
+  }
+}

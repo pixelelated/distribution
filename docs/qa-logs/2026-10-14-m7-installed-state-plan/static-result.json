@@ -1,0 +1,27 @@
+{
+  "runtime_executed": false,
+  "checks": [
+    {
+      "name": "payload-check.sh bash -n",
+      "result": "PASS"
+    },
+    {
+      "name": "both embedded Python blocks AST Python 3.10",
+      "result": "PASS"
+    },
+    {
+      "name": "exact current issue bodies/comments and named source/receipt inputs read",
+      "result": "PASS"
+    },
+    {
+      "name": "retained SDK mcopy ELF dependency inspection",
+      "result": "libc.so.6 only; runtime loader not executed"
+    }
+  ],
+  "unresolved_runtime_plumbing": [
+    "actual final source/pin/artifact binding after #566 copy repair",
+    "retained synthetic seed/comparator and current-boot readiness wrapper",
+    "ScreenScraper actual-binary transport interception and screen steps",
+    "installed backup value-free member comparator"
+  ]
+}
