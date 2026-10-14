@@ -1,0 +1,190 @@
+{
+  "issue": "https://github.com/pixelelated/distribution/issues/567",
+  "status": "source-only plan; installed top-up adapter and runtime still pending",
+  "accepted_inputs": [
+    {
+      "commit": "84faea63d9f83392ff9b6ec30bd98c3585024c9d",
+      "path": "docs/qa-logs/2026-10-14-library-index-log-correction/run-fixture.py",
+      "name": "accepted/run-fixture.py",
+      "sha256": "10d3b0276ae780fac4f39f7af1b2791c9872bcb8e3e70acb6d139c1c919200a1",
+      "bytes": 28093
+    },
+    {
+      "commit": "81d618314ddb3d805dc88be83193cade13f5c101",
+      "path": "docs/qa-logs/2026-10-14-library-index-fsize-correction/output_guard.py",
+      "name": "accepted/output_guard.py",
+      "sha256": "f1e2a7ef737aee0e9f9677ece95f1031a541788d585ab2ff5e8917c8895c6fc0",
+      "bytes": 7940
+    },
+    {
+      "commit": "b45eaa5fae9e26b15a5f5c66805ac1fac0d14d69",
+      "path": "docs/qa-logs/2026-10-13-library-index-fixture/tls-endpoints.py",
+      "name": "accepted/tls-endpoints.py",
+      "sha256": "15464acc3911f988b273e604daf1f4e733f8976f8fda2f2d5969eede7a672888",
+      "bytes": 4724
+    },
+    {
+      "commit": "b45eaa5fae9e26b15a5f5c66805ac1fac0d14d69",
+      "path": "docs/qa-logs/2026-10-13-library-index-fixture/raofflineproxy-ctl",
+      "name": "accepted/raofflineproxy-ctl",
+      "sha256": "e20e934585ebbe119ce3e609eb24ad5e9fc929b5aa278775ad276f45ab9e257a",
+      "bytes": 2102
+    },
+    {
+      "commit": "b45eaa5fae9e26b15a5f5c66805ac1fac0d14d69",
+      "path": "docs/qa-logs/2026-10-13-library-index-fixture/fixtures/base.gamelist.xml",
+      "name": "accepted/fixtures/base.gamelist.xml",
+      "sha256": "c7f38dbd3e33bba26415da22d2a28caf1391b1c3ca4c7dc35f790f2103afde28",
+      "bytes": 215
+    },
+    {
+      "commit": "b45eaa5fae9e26b15a5f5c66805ac1fac0d14d69",
+      "path": "docs/qa-logs/2026-10-13-library-index-fixture/fixtures/new.gamelist.xml",
+      "name": "accepted/fixtures/new.gamelist.xml",
+      "sha256": "1b94b38be3dedc8cf4f24929737c9e52db64d32d6f8ed8625daf18ff1e44936d",
+      "bytes": 352
+    },
+    {
+      "commit": "b45eaa5fae9e26b15a5f5c66805ac1fac0d14d69",
+      "path": "docs/qa-logs/2026-10-13-library-index-fixture/fixtures/es_systems.cfg",
+      "name": "accepted/fixtures/es_systems.cfg",
+      "sha256": "59707137f8d0b72a78074e247eff935da5ec480f7d2468f5f107430629f518d4",
+      "bytes": 369
+    },
+    {
+      "commit": "b45eaa5fae9e26b15a5f5c66805ac1fac0d14d69",
+      "path": "docs/qa-logs/2026-10-13-library-index-fixture/fixtures/es_features.cfg",
+      "name": "accepted/fixtures/es_features.cfg",
+      "sha256": "1f3cbe42f23a062165cc2db17dfc4c0844d9561030c13b4120502cedc541c32c",
+      "bytes": 138
+    },
+    {
+      "commit": "b45eaa5fae9e26b15a5f5c66805ac1fac0d14d69",
+      "path": "docs/qa-logs/2026-10-13-library-index-fixture/source-trace.md",
+      "name": "accepted/source-trace.md",
+      "sha256": "d3a4cee0df5dd9522debf3d8f030c0bc689cf78f2e334ccc9f8e467ff3f4b4cb",
+      "bytes": 7473
+    }
+  ],
+  "accepted_success_receipts": [
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-offline-components/guest-archives/index-log-success01/pix567-log-success01/worker-result.json",
+      "sha256": "19b23dc6abb413a6732f2f4450ab0d813367dc9e113b67a81b8526a222182bf8"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-offline-components/guest-archives/index-log-success01/pix567-log-success01/result.json",
+      "sha256": "c33550a440641e06f10325b16af3e884ff62139c79c17dd7dfedf810570a0e18"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-offline-components/guest-archives/index-log-success01/pix567-log-success01/binding.json",
+      "sha256": "aa58e0ebd93c00d5eef7ca5f403949214150af5f8f25c9b6674fc7bdc4f3915b"
+    }
+  ],
+  "accepted_success_scope": "ES lookup plus simulated ctl contract only",
+  "coordinator_read_head": "e483a7f0925e7ebb56335133a5de423269390945",
+  "product_sources": [
+    {
+      "path": "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl",
+      "sha256": "47391a3bbcaa0f2262cdee12f09bd48d17f7fedf0237a1a661a21b085b2f71f7"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-cache-indexed",
+      "sha256": "4c6d5a8d509661e2951acba968c248187590684f4fcac3388bd7ed69e1c30042"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-cache-images",
+      "sha256": "f474c13424a819e091a7f97ae12af14da5e017bcf6d6b70275cd00b7cc97fb51"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/raofflineproxy/package.mk",
+      "sha256": "e13f5bb22eae74c73ecb4141c3580f2627b9f8cfc317840656d90ed017e0f13d"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/rocknix/profile.d/001-functions",
+      "sha256": "2a67891c9a3090ddae78d4b729ce7b8f5c41d853e0975b4ce0203df7789e4ab5"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/busybox/config/profile",
+      "sha256": "66019fab58aab9b05c1288afb399efd9d20a93504b3955718cb5282965455757"
+    }
+  ],
+  "prepared_python_reference": [
+    {
+      "path": "/workspace/tmp/pix588-candidate-prepared-20261014-01/tree/linux/raofflineproxy/network.py",
+      "sha256": "de2af1f100e4029218465f7c5f0254e20df8572a1b7464005d5c15b40df9e11d"
+    },
+    {
+      "path": "/workspace/tmp/pix588-candidate-prepared-20261014-01/tree/linux/raofflineproxy/auth.py",
+      "sha256": "22ee4476c64fd8cc0de54bdef26cf7cdc1064c7bcfb8161f1a0204f6ef5a3cd8"
+    },
+    {
+      "path": "/workspace/tmp/pix588-candidate-prepared-20261014-01/tree/linux/raofflineproxy/rom_cache.py",
+      "sha256": "06425340072978b7d862f37bb653cfefe13354d7af022a9ed151be46a1c0a22c"
+    },
+    {
+      "path": "/workspace/tmp/pix588-candidate-prepared-20261014-01/tree/linux/raofflineproxy/cache_keys.py",
+      "sha256": "db137411c8cf87639b1c344e2159821a237254b193556bb13d0ee522c9b800a7"
+    },
+    {
+      "path": "/workspace/tmp/pix588-candidate-prepared-20261014-01/tree/linux/raofflineproxy/storage.py",
+      "sha256": "6173c4a1583971f4e67bd9011cf4f6275b0126c668a3b1bc5fcc2d5ccd4f82cb"
+    },
+    {
+      "path": "/workspace/tmp/pix588-candidate-prepared-20261014-01/tree/linux/raofflineproxy/es_export.py",
+      "sha256": "33e41f4f1f0d6ae78e0cdb2daa793ee42d6dae7a2c9091ebec9f4976f42e30ee"
+    },
+    {
+      "path": "/workspace/tmp/pix588-candidate-prepared-20261014-01/tree/linux/raofflineproxy/config.py",
+      "sha256": "3184e88b2eac7b5da3a5e0f5906ae193f1dcda7df7e0849d05cd5ec91fe5e3bb"
+    },
+    {
+      "path": "/workspace/tmp/pix588-candidate-prepared-20261014-01/tree/linux/raofflineproxy/main.py",
+      "sha256": "71d5a2a0796ed2b7199118268569d70ec3c6daf78f8a7851b2bf1187d21bf429"
+    },
+    {
+      "path": "/workspace/tmp/pix588-candidate-prepared-20261014-01/tree/linux/raofflineproxy/smart_cache.py",
+      "sha256": "dbb3f8e7eac2b1dc3b6790161b9ecfc9e1e2dbe86abbe79aedcdb297f8b15eef"
+    }
+  ],
+  "installed_bytecode_and_native_binding": "must be resolved from final image; no source or native overlay",
+  "interface_seam_reference": {
+    "path": "/tmp/pix588-installed-followup/bootstrap/sitecustomize.py",
+    "sha256": "48bb54f662bd1eacc4179effd6ec33e9c9a9569354d19530bae13dd2792c515d",
+    "reuse": "Only network.has_active_network_interface = lambda: True; full hook is NOT compatible with this route"
+  },
+  "runtime_run": false,
+  "source_anchors": {
+    "raofflineproxy-ctl": {
+      ". /etc/profile": 271,
+      "SCAN_LOCK=": 304,
+      "PROBE_TRIES=": 325,
+      "TOPUP_TIMEOUT=": 337,
+      "ready_games_into()": 976,
+      "is_online()": 1135,
+      "take_lock()": 1188,
+      "run_image_pass()": 1851,
+      "PENDING_LOCK=": 2136,
+      "do_topup()": 2196
+    },
+    "raofflineproxy-cache-indexed": {
+      "def cache_indexed(": 98,
+      "def main(": 141
+    },
+    "network.py": {
+      "def configured_ssl_context(": 133,
+      "def has_active_network_interface(": 186,
+      "def probe_retroachievements(": 217
+    },
+    "rom_cache.py": {
+      "def refresh_game_patch(": 143,
+      "def cache_unlocks(": 193,
+      "def cache_achievementsets(": 231,
+      "def cache_session(": 488,
+      "def cache_game(": 505
+    },
+    "main.py": {
+      "        if args.command == \"probe-online\":": 629,
+      "        if args.command == \"run-smart-cache\":": 940
+    }
+  }
+}

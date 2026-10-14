@@ -1,0 +1,17 @@
+{
+  "status": "source-only static PASS; runtime UNRUN; installed adapter NOT IMPLEMENTED",
+  "python_ast_target": "3.10",
+  "source_materialization": {
+    "command": "python3 prepare-inputs.py --repo /workspace/repos/rocknix --output /tmp/pix567-installed-topup-source01",
+    "original_exit": 0,
+    "files": 9,
+    "bytes": 51406,
+    "runtime_or_imported_fixture_execution": false
+  },
+  "original_accepted_success_receipts_verified": true,
+  "files": {
+    "README.md": "32cd7dd98fec71da99feb723d22d18e597f373b096763296130b0478b1d912fb",
+    "prepare-inputs.py": "b7818319c4d74a44e34ce6ff590ece43715700f7087d1ec59aad4a1b629b7bba",
+    "source.json": "573fa3942900f25a8c36a4202c2a990ded07c47ae470618878ec00738809254d"
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "status": "STATIC_ONLY_RUNTIME_UNRUN",
+  "python_ast": [
+    {
+      "file": "capture-source-chain.py",
+      "sha256": "5c457b0cba75143869044d3154c2685be4730f4bb5630e06d534cf13393881b3"
+    },
+    {
+      "file": "close.py",
+      "sha256": "a355236349397c6b6b3dc3090fe62956363dfccb19bd02b5b9a498e94e47fbf9"
+    },
+    {
+      "file": "prepare.py",
+      "sha256": "fa0815a0605c2841c965a1f22d7d55bdc27a68bd02ccf6a9f266bd8dc7c3150c"
+    },
+    {
+      "file": "run-guest.py",
+      "sha256": "051091d2c2597f27789f09f6ace69685cede11fffad04e84c0088a83cb230b86"
+    },
+    {
+      "file": "vm-lifecycle.py",
+      "sha256": "9b36a61fade3d0affeb77f70c7df1b7c6534707a007ea622bb8657370fd66f24"
+    }
+  ],
+  "json_parsed": [
+    "custody.example.json",
+    "prepared112.json",
+    "source-receipt.example.json"
+  ],
+  "original_archives": [
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-proxy-installed-startup-plan/source-originals.tar.gz",
+      "archive_sha256": "13fe8cffc164bff77ea9b0b66dd788ed8c0b5ee5a5a303f558fdd306c1006e31",
+      "manifest_sha256": "dcbee145f6f7c41da944416bcdd4cb4868be91aeaf1a7935b52d1e1db68f4301",
+      "members": 24,
+      "all_members_verified": true
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-installed-state-correction/source-originals.tar.gz",
+      "archive_sha256": "5e1255cbf9d22d1b2f0ff7b128be9f657d82be2d6e38870fccc284d7bc4111dd",
+      "manifest_sha256": "bc4a76241fc24c40a61be59821c15ce5d9eb9514e4e8a34f203a5306b6431b08",
+      "members": 6,
+      "all_members_verified": true
+    }
+  ],
+  "source_controls": {
+    "clean_before_binding_media_and_proxy": true,
+    "original_wait_status_separate_from_timeout": true,
+    "explicit_outer_vm_mode_without_kernel_cap_gate": true,
+    "independent_work_and_cleanup_alarms": true,
+    "source_manifest_files": 112
+  },
+  "not_executed": [
+    "prepare.py",
+    "capture-source-chain.py",
+    "vm-lifecycle.py",
+    "run-guest.py",
+    "close.py",
+    "VM",
+    "container",
+    "service",
+    "compiler",
+    "build",
+    "payload reader"
+  ],
+  "provenance": [
+    {
+      "path": "/workspace/tmp/pix582-client-vm-20261014-03/vm-lifecycle.py",
+      "sha256": "cef5d7af95edb7810fb5c4eafa13407a39f97fcd7a3049340399ecb08f0fc903"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-independent-format-runtime/coordinator/pix-m7-close-vm.py",
+      "sha256": "9f988c57f6de0aca47ed7e8d9760220b2271aed94fa99008b43e121e51e90177"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-clean-state-565/run-first-boot.sh",
+      "sha256": "a49a0bb3f8b5ed937dafc7524c70e2ce9ce74e925478d421dc0f7e3a20e957da"
+    }
+  ]
+}

@@ -1,5 +1,21 @@
 # Saved Session State
 
+Updated2026-10-14 21:10UTC. M7 engineering build remains RUNNING under the sole runtime allocation; continue active supervision and finish installed qualification. No RC designation. Harness conflict-resolution untouched.
+
+## Immediate live work
+
+- Frozen build checkout `/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01`, branch`build/m7-p5-20261014-01`, source`d6a87f05c1935516115b2cca1af22151a0209224`, ES`3178b832b8d134198b2b4eede4f725d4ed283f8c`. Never edit or advance it while running. Primary/coordinator record head3bd39b plus current source-only preparation; both final source hosted CI checks succeed.
+- Actual owner `/workspace/tmp/pix-m7-engineering-build-20261014-01`, run`.build-runs/20261014T204343Z-b7a72fc6`, admissionb97f7e5e8026436db0ba508217b9688f. Read console, host-resources and stage cgroups/results, then actual owner/resource/runner/monitor/launcher terminal receipts. At21:07Qt6 host4856/6025, all8clean stages0, noOOM, peak14GiB, ~52GiBavailableRAM/2.6TiBdisk. Active supervision is required; no off-session notification claimed.
+- After original completion: consume admission with actual owners/container absence and original exits. Source-only `docs/qa-logs/2026-10-14-m7-image-verification/prepare-readback.py` prepares a fresh bounded watched host readback (UNRUN). It verifies exact install/update/GPT/source/installed mappings and entire proxy/profile sets, and retains raw/SYSTEM/KERNEL/boot-config for immediate qualification. Existing payload-check.sh and positive shared-identity postcheck remain separate. Do not run against unfinished image.
+- Exact #588 installed source/lifecycle615bbece content-carried at`docs/qa-logs/2026-10-14-proxy-installed-lifecycle`, originalsealeed3a0e. Focused independent source review finds no blocker. Actual source-chain producer retains compile outcome basis and unknown stripexit, then original clean→actual default-boot588 guest. No runtime yet; review concrete source receipts before setting reviewedflag.
+- #567 installed adapterbffd157 preserved byte-for-byte in`docs/qa-logs/2026-10-14-installed-topup-adapter/source-originals.tar.gz` (originalsealf4af7321); sourceplan797a6a7b also carried. Extract fresh/verify/read README. Focused source review passes; actual ctl/nativeES/pyc/TLS/SQLite/stamp runtime remainsUNRUN. Old simulatedctl acceptance is not installed acceptance.
+- Native-savefcc9783c at`2026-10-14-native-save-fixture-ready` binds60licensedSuDokuL/Tetris2files (~11.9MB), 28sourcebindings verified. Tool plan at`2026-10-14-native-save-tool-plan`; exact310KBmatchinglibisofs-dev fetched/hash/list verified, no installation/build. Original12.5MBmkdcdiscsourcearchive/privateinputs remain/tmp/m7-mkdcdisc-source-plan-20261014; actual toolcompile/CDIauthoring stillUNRUN and serialized afterfirmware ownership closes. WiiSDsave is notGCmemorycard; Dreamcastrealearnedscore must exceed100.
+- Authorized source workers: dolphin_english_proof preparing minimal real20→new retainedupgrade lifecycle; proxy_native_build checking minimal final installedSteam applicability (GENERIC_X64 intentionally excludesSteam module; do not add it or claim source-chroot as installed); proxy_startup_588 narrowing composed-image cloudbaseline from existing accepted#349proof. Source-only, no runtime allocation/shared edits. #349runtimecriterion alreadychecked; #511docs remains; do not reopen accepted controls.
+- Keep critical path: completed image→payload/untouchedclean/defaultboot588/native/retained/actualtopup/relevantcloudUI→milestoneaudit/fixes→H700→SM8550→publicationgates. No new device/provider/externalaudit action; old named approvals already consumed. Source prep and documentation are not reasons to pause active build monitoring.
+
+## Prior checkpoint detail (historical; do not repeat completed launch)
+
+
 Updated2026-10-14 20:47UTC. M7 engineering build is RUNNING; continue actively supervising and preparing installed qualification. No RC designated. Harness conflict-resolution untouched.
 
 ## Immediate live work
@@ -54,3 +70,5 @@ After image: actual payload/clean/retained565/566, installed588/nativecodec574/5
 Previous checkpoint: archived/saved-session-state-next-20261014T203746Z.md .
 
 Previous checkpoint: archived/saved-session-state-next-20261014T204624Z.md.
+
+Previous checkpoint: archived/saved-session-state-next-20261014T210957Z.md.

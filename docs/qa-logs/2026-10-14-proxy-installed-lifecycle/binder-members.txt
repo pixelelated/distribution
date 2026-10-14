@@ -1,0 +1,18 @@
+# Each path and every symlink hop/target: actual final install→SYSTEM bytes/mode/link equality.
+# Whole subtree, discovered as exactly one python* site-packages root; all .pyc, no .py:
+/usr/lib/python*/site-packages/raofflineproxy/**
+/etc/os-release
+/etc/profile
+/etc/profile.d/001-functions
+/usr/bin/python3
+/usr/bin/raofflineproxy-ctl
+/usr/lib/systemd/system/raofflineproxy.service
+/usr/lib/autostart/daemons/006-raofflineproxy
+/usr/bin/systemctl
+/usr/lib/systemd/systemd
+/usr/lib/libraproxy_rchash.so
+/usr/lib/libzstd.so.1
+/usr/lib/libcrypto.so.3
+/usr/lib/libsystemd.so.0
+# Separate whole file from actual install image boot partition:
+/flash/syslinux.cfg
